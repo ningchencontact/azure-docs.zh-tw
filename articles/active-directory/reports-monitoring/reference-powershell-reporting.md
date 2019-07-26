@@ -17,21 +17,18 @@ ms.date: 07/12/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27fa3d7be5238527f86e9dfde3be70ae09259d69
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 2d9d5fdb9091d51c67fd5d778bac189c08647741
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302743"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359760"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>適用於報表的 Azure AD PowerShell Cmdlet
 
-透過 Azure Active Directory (Azure AD) 報告，您可以取得判斷環境執行狀況所需的資訊。 您可以使用適用于報告的 Azure AD PowerShell Cmdlet 來捕獲報表資料。
+有了 Azure Active Directory (Azure AD) 報表, 您可以在方向 (audit logs) 和驗證資料 (登入記錄) 中取得有關所有寫入作業的活動詳細資料。 雖然可以使用 MS 圖形 API 來取得資訊, 但現在您可以使用 Azure AD PowerShell Cmdlet 來抓取相同的資料, 以進行報告。
 
-本文提供 Cmdlet 的總覽。
-
-
-
+本文概要說明用於審查記錄和登入記錄的 PowerShell Cmdlet。
 
 ## <a name="audit-logs"></a>稽核記錄
 

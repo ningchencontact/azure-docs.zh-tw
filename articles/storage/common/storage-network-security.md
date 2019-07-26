@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326939"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334592"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -23,8 +23,6 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 應用程式若在網路規則生效時存取儲存體帳戶，則要求上必須有適當的授權。 使用適用于 blob 和佇列的 Azure Active Directory (Azure AD) 認證、具有有效的帳戶存取金鑰, 或使用 SAS 權杖, 即可支援授權。
 
 > [!IMPORTANT]
-> Azure 檔案同步還不支援防火牆和虛擬網路。 如果您在儲存體帳戶上使用 Azure 檔案同步, 而且您啟用這些作業, Azure 檔案同步將不會同步處理。
->
 > 開啟儲存體帳戶的防火牆規則會預設封鎖傳入的資料要求，除非要求來自 Azure 虛擬網路 (VNet) 內運作的服務。 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。
 >
 > 您可以透過允許服務執行個體的子網路，將存取權授與從 VNet 內執行的 Azure 服務。 讓有限的案例可以透過下面章節所述的[例外](#exceptions)機制來啟用。 若要存取 Azure 入口網站，您所用的機器必須位於已設定的信任界限 (IP 或 VNet) 內。
@@ -62,11 +60,11 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 1. 移至您要保護的儲存體帳戶。
 
-1. 按一下名為 [防火牆與虛擬網路]  的設定功能表。
+1. 按一下名為 [防火牆與虛擬網路] 的設定功能表。
 
 1. 若要預設拒絕存取，請選擇允許**所選網路**存取權。 若要允許來自所有網路的流量，請選擇允許**所有網路**存取權。
 
-1. 按一下 [儲存]  套用變更。
+1. 按一下 [儲存] 套用變更。
 
 #### <a name="powershell"></a>PowerShell
 
@@ -129,9 +127,9 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 > [!NOTE]
 > 服務端點不適用於虛擬網路區域外和指定配對區域外的流量。 允許從虛擬網路進行存取的網路規則，只能套用到儲存體帳戶主要區域中的儲存體帳戶或指定配對區域中的儲存體帳戶。
 
-### <a name="required-permissions"></a>所需的權限
+### <a name="required-permissions"></a>必要權限
 
-為將虛擬網路規則套用至儲存體帳戶，使用者必須在要新增的子網路上具有適當權限。 所需的權限為「將服務加入子網路」  ，以及加入「儲存體帳戶參與者」  內建角色。 這也可以新增至自訂角色定義。
+為將虛擬網路規則套用至儲存體帳戶，使用者必須在要新增的子網路上具有適當權限。 所需的權限為「將服務加入子網路」，以及加入「儲存體帳戶參與者」內建角色。 這也可以新增至自訂角色定義。
 
 儲存體帳戶和虛擬網路授與的存取權可能在不同的訂用帳戶，但這些訂用帳戶必須屬於相同的 Azure AD 租用戶。
 
@@ -143,18 +141,18 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 1. 移至您要保護的儲存體帳戶。
 
-1. 按一下名為 [防火牆與虛擬網路]  的設定功能表。
+1. 按一下名為 [防火牆與虛擬網路] 的設定功能表。
 
 1. 請確定您已選取允許從**所選網路**進行存取。
 
-1. 若要使用新網路規則將存取權授與虛擬網路，請按一下 [虛擬網路]  下的 [新增現有的虛擬網路]  ，選取 [虛擬網路]  和 [子網路]  選項，然後按一下 [新增]  。 若要建立新的虛擬網路並授與存取權，請按一下 [新增新的虛擬網路]  。 提供建立新虛擬網路所需的資訊，並按一下 [建立]  。
+1. 若要使用新網路規則將存取權授與虛擬網路，請按一下 [虛擬網路] 下的 [新增現有的虛擬網路]，選取 [虛擬網路] 和 [子網路] 選項，然後按一下 [新增]。 若要建立新的虛擬網路並授與存取權，請按一下 [新增新的虛擬網路]。 提供建立新虛擬網路所需的資訊，並按一下 [建立]。
 
     > [!NOTE]
     > 如果 Azure 儲存體的服務端點未針對所選虛擬網路和子網路事先設定，可以將其設定為這項作業的一部分。
 
-1. 若要移除虛擬網路或子網路規則，請按一下 […]  開啟虛擬網路或子網路的快顯功能表，然後按一下 [移除]  。
+1. 若要移除虛擬網路或子網路規則，請按一下 […] 開啟虛擬網路或子網路的快顯功能表，然後按一下 [移除]。
 
-1. 按一下 [儲存]  套用變更。
+1. 按一下 [儲存] 套用變更。
 
 #### <a name="powershell"></a>PowerShell
 
@@ -187,7 +185,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
     ```
 
 > [!IMPORTANT]
-> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]  ，否則網路規則不會生效。
+> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]，否則網路規則不會生效。
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -220,13 +218,13 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
     ```
 
 > [!IMPORTANT]
-> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]  ，否則網路規則不會生效。
+> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]，否則網路規則不會生效。
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>授與網際網路 IP 範圍存取權
 
 您可以將儲存體帳戶設定為允許從特定公用網際網路 IP 位址範圍進行存取。 此設定可將存取權授與特定的網際網路型服務和內部部署網路，並且封鎖一般網際網路流量。
 
-使用 [CIDR 標記法](https://tools.ietf.org/html/rfc4632)以 16.17.18.0/24  的格式，或 16.17.18.19  一類的個別 IP 位址，提供允許的網際網路位址範圍。
+使用 [CIDR 標記法](https://tools.ietf.org/html/rfc4632)以 16.17.18.0/24 的格式，或 16.17.18.19 一類的個別 IP 位址，提供允許的網際網路位址範圍。
 
    > [!NOTE]
    > 不支援使用 "/31" 或 "/32" 前置詞大小的小型位址範圍。 這些範圍應該使用個別的 IP 位址規則設定。
@@ -254,15 +252,15 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 1. 移至您要保護的儲存體帳戶。
 
-1. 按一下名為 [防火牆與虛擬網路]  的設定功能表。
+1. 按一下名為 [防火牆與虛擬網路] 的設定功能表。
 
 1. 請確定您已選取允許從**所選網路**進行存取。
 
-1. 若要授與網際網路 IP 範圍的存取權，請在 [防火牆]   > [位址範圍]  之下輸入 IP 位址或位址範圍 (採用 CIDR 格式)。
+1. 若要授與網際網路 IP 範圍的存取權，請在 [防火牆] > [位址範圍] 之下輸入 IP 位址或位址範圍 (採用 CIDR 格式)。
 
 1. 若要移除 IP 網路規則，請按一下位址範圍旁的垃圾桶圖示。
 
-1. 按一下 [儲存]  套用變更。
+1. 按一下 [儲存] 套用變更。
 
 #### <a name="powershell"></a>PowerShell
 
@@ -299,7 +297,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
     ```
 
 > [!IMPORTANT]
-> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]  ，否則網路規則不會生效。
+> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]，否則網路規則不會生效。
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -336,7 +334,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
     ```
 
 > [!IMPORTANT]
-> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]  ，否則網路規則不會生效。
+> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]，否則網路規則不會生效。
 
 ## <a name="exceptions"></a>例外狀況
 
@@ -353,10 +351,10 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 |服務|資源提供者名稱|用途|
 |:------|:---------------------|:------|
 |Azure 備份|Microsoft.RecoveryServices|在 IAAS 虛擬機器中執行未受控磁碟備份與還原。 (若為受控磁碟則非必要)。 [深入了解](/azure/backup/backup-introduction-to-azure-backup)。|
-|Azure 資料箱|Microsoft.DataBox|使用資料箱, 啟用將資料匯入至 Azure 的功能。 [深入了解](/azure/databox/data-box-overview)。|
+|Azure Data Box|Microsoft.DataBox|使用資料箱, 啟用將資料匯入至 Azure 的功能。 [深入了解](/azure/databox/data-box-overview)。|
 |Azure DevTest Labs|Microsoft.DevTestLab|自訂映像建立和成品安裝。 [深入了解](/azure/devtest-lab/devtest-lab-overview)。|
-|Azure Event Grid|Microsoft.EventGrid|啟用 Blob 儲存體事件發佈，並允許事件方格發佈到儲存體佇列。 深入了解 [Blob 儲存體事件](/azure/event-grid/event-sources)及[發佈至佇列](/azure/event-grid/event-handlers)。|
-|Azure 事件中心|Microsoft.EventHub|使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。|
+|Azure 事件格線|Microsoft.EventGrid|啟用 Blob 儲存體事件發佈，並允許事件方格發佈到儲存體佇列。 深入了解 [Blob 儲存體事件](/azure/event-grid/event-sources)及[發佈至佇列](/azure/event-grid/event-handlers)。|
+|Azure 事件中樞|Microsoft.EventHub|使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。|
 | Azure 檔案同步| Microsoft.StorageSync| 可讓您將內部內部部署檔案伺服器轉換為 Azure 檔案共用的快取。 允許多網站同步處理、快速的嚴重損壞修復, 以及雲端端備份。 [深入了解](../files/storage-sync-files-planning.md)|
 |Azure HDInsight|Microsoft.HDInsight|為新的 HDInsight 叢集布建預設檔案系統的初始內容。 [深入了解](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)。|
 |Azure 監視器|Microsoft.Insights|允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。|
@@ -376,13 +374,13 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 1. 移至您要保護的儲存體帳戶。
 
-1. 按一下名為 [防火牆與虛擬網路]  的設定功能表。
+1. 按一下名為 [防火牆與虛擬網路] 的設定功能表。
 
 1. 請確定您已選取允許從**所選網路**進行存取。
 
-1. 在 [例外狀況]  下選取您希望授與權限的例外狀況。
+1. 在 [例外狀況] 下選取您希望授與權限的例外狀況。
 
-1. 按一下 [儲存]  套用變更。
+1. 按一下 [儲存] 套用變更。
 
 #### <a name="powershell"></a>PowerShell
 
@@ -407,7 +405,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
     ```
 
 > [!IMPORTANT]
-> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]  ，否則移除例外狀況不會生效。
+> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]，否則移除例外狀況不會生效。
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -432,7 +430,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
     ```
 
 > [!IMPORTANT]
-> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]  ，否則移除例外狀況不會生效。
+> 請務必將[預設規則設定](#change-the-default-network-access-rule)為 [拒絕]，否則移除例外狀況不會生效。
 
 ## <a name="next-steps"></a>後續步驟
 

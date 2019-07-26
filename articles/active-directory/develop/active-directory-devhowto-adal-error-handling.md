@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
+title: Azure AD 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 description: 提供適用於 ADAL 用戶端應用程式的錯誤處理指引和最佳做法。
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1d478bbb2f8645703299c8fe37c2117f492c3f8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0e3ef8e32c3472f7a3861250f1845ce2e60ac868
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324817"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381005"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 驗證程式庫 (ADAL) 用戶端的錯誤處理最佳做法
 
@@ -52,7 +52,7 @@ AcquireTokenSilent 會嘗試取得可保證終端使用者不會看到使用者�
 
 基本上，AcquireTokenSilent 錯誤有兩種情況：
 
-| 案例 | 描述 |
+| Case | 描述 |
 |------|-------------|
 | **案例 1**：可透過互動式登入解決錯誤 | 若為缺少有效權杖所造成的錯誤，則必須有互動式要求。 具體而言，快取查閱及無效/過期的重新整理權杖需要 AcquireToken 呼叫才能解決。<br><br>在這些案例中，終端使用者必須在提示下登入。 應用程式可選擇在終端使用者互動之後 (例如點擊登入按鈕)，立即執行互動式要求，或是稍後再執行。 這項選擇取決於應用程式所需的行為。<br><br>請參閱下節中的程式碼，了解此特定案例和其診斷錯誤。|
 | **案例 2**：無法透過互動式登入解決錯誤 | 對於網路和暫時性/暫存錯誤或其他失敗，執行互動式 AcquireToken 要求並無法解決問題。 不必要的互動式登入提示也可能讓終端使用者不耐煩。 對於大部分有關 AcquireTokenSilent 失敗的錯誤，ADAL 會自動嘗試一次重試。<br><br>用戶端應用程式也可以稍後嘗試重試，但何時及如何操作，則取決於應用程式行為和所需的使用者體驗。 例如，應用程式可以在幾分鐘後或回應某些終端使用者動作之後，執行 AcquireTokenSilent 重試。 立即重試將會導致應用程式進行節流處理，不該嘗試這麼做。<br><br>後續具有相同錯誤的重試失敗並不表示用戶端應使用 AcquireToken 執行互動式要求，因為這無法解決錯誤。<br><br>請參閱下節中的程式碼，了解此特定案例和其診斷錯誤。 |
@@ -209,7 +209,7 @@ AcquireToken 是用來取得權杖的預設 ADAL 方法。 在需要使用者身
 
 #### <a name="net"></a>.NET
 
-下列指引提供搭配所有有訊息 AcquireToken(…) ADAL 方法的錯誤處理範例，但以下除外  ： 
+下列指引提供搭配所有有訊息 AcquireToken(…) ADAL 方法的錯誤處理範例，但以下除外： 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
 - AcquireTokenAsync(…,ClientCredential, …)
@@ -409,7 +409,7 @@ AuthContext.acquireToken(…, function(error, errorDesc, token) {
 
 #### <a name="all-scenarios"></a>所有案例
 
-對於「所有」  服務對服務應用程式案例 (包括代表性案例)：
+對於「所有」服務對服務應用程式案例 (包括代表性案例)：
 
 - 請勿嘗試立即重試。 ADAL 會針對某些失敗的要求嘗試一次重試。 
 - 只有在使用者或應用程式動作提示重試之後，才繼續重試。 例如，依設定的間隔運作的精靈應用程式必須等到下一個間隔才能重試。
@@ -440,7 +440,7 @@ catch (AdalException e) {
 
 #### <a name="on-behalf-of-scenarios"></a>代表性案例
 
-對於「代表性」  服務對服務應用程式案例。
+對於「代表性」服務對服務應用程式案例。
 
 下列指引提供搭配 ADAL 方法的錯誤處理範例： 
 

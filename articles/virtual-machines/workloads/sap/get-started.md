@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 07/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df12d4f7b2a06b89df1bfd7d7d904943e341ccd2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f4352a1f6a065d1e9be78f01bde95c8f00593a3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234255"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479782"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -34,8 +34,9 @@ ms.locfileid: "68234255"
 
 在 Azure 中裝載 SAP 工作負載案例也可以建立身分識別整合和單一登入的需求。 當您使用 Azure Active Directory (Azure AD) 連接不同的 SAP 元件和 SAP 軟體即服務 (SaaS) 或平臺即服務 (PaaS) 供應專案時, 就會發生這種情況。 「AAD SAP 身分識別整合和單一登入」一節會描述並記載一份這類整合和單一登入案例的清單, 其中包含 Azure AD 和 SAP 實體。
 
-## <a name="latest-changes"></a>最新變更
+## <a name="change-log"></a>變更記錄檔
 
+- 在[Azure 中使用檔案共用在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 實例叢集的](sap-high-availability-guide-wsfc-file-share.md)變更, 以反映 Azure Site Recovery 服務的儲存空間直接存取支援
 - [針對 SAP 應用程式, 釋放 Azure 鄰近放置群組以取得最佳的網路延遲](sap-proximity-placement-scenarios.md)
 - [Red Hat Enterprise Server 中的 IBM DB2 HADR](high-availability-guide-rhel-ibm-db2-luw.md)新指南版本
 - 透過[適用于 sap 應用程式的 Azure NetApp Files, 在 Red Hat Enterprise Linux 上推出 Sap NetWeaver 的高可用性](high-availability-guide-rhel-netapp-files.md)
@@ -60,7 +61,7 @@ ms.locfileid: "68234255"
 - [Azure (大型實例) 上 SAP Hana 的高可用性和嚴重損壞修復](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
 - [針對 Azure (大型實例) 上的 SAP Hana 進行疑難排解和監視](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 
-後續步驟：
+後續步驟:
 
 - 瞭解[Azure (大型實例) 上 SAP Hana 的總覽和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 

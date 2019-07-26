@@ -3,20 +3,20 @@ title: 使用語音 SDK 開發應用程式 - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用語音 SDK 建立應用程式。
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 7c698abb133c14f32b60b22acbbccc37a191a02e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8fc27002af4ebef0825b23c806cfedbe7adf9642
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604852"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404820"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -24,11 +24,11 @@ ms.locfileid: "67604852"
 
 視平台而定，有不同的相依性存在以執行您的應用程式。
 
-## <a name="windows"></a>視窗
+## <a name="windows"></a>Windows
 
 測試認知語音 SDK 會在 Windows 10 和 Windows Server 2016 上進行測試。
 
-認知服務語音 SDK 需要[Microsoft VisualC++可轉散發套件的 Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)系統上。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2019` 的安裝程式：
+認知服務語音 SDK 需要系統上的[Microsoft C++ Visual 可轉散發套件, 才能 Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) 。 您可以在此下載最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2019` 的安裝程式：
 
 - [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
@@ -39,20 +39,20 @@ ms.locfileid: "67604852"
 
 在與您的應用程式相同的目錄中，可以部署必要的語音 SDK 檔案。 如此一來，您的應用程式就可以直接存取程式庫。 確定您選取與您的應用程式相符的正確版本 (Win32/x64)。
 
-| 名稱 | 功能
+| 名稱 | 函數
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 核心 SDK (原生和受控部署所需)
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 受控部署所需
 
 >[!NOTE]
-> 從版本 1.3.0 開始檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現已整合在 SDK 的核心。
+> 從 release 1.3.0 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll`開始, 不再需要檔案 (在先前的版本中隨附)。 此功能現在已整合到 core SDK 中。
 
 >[!NOTE]
-> Windows Forms 應用程式 (.NET Framework)C#專案中，確定程式庫加入您專案的部署設定中。 您可以檢查下`Properties -> Publish Section`。 按一下 `Application Files`按鈕，然後尋找對應的程式庫，從清單中向下捲動。 請確定值設定為`Included`。 Visual Studio 專案發佈/部署時，會包含檔案。
+> 針對 Windows Forms 應用程式 (.NET Framework) C#專案, 請確定程式庫已包含在專案的部署設定中。 您可以在`Properties -> Publish Section`底下檢查此選項。 按一下 [ `Application Files` ] 按鈕, 並從 [向下] 清單尋找對應的程式庫。 請確定此值設定為`Included`。 當發行/部署專案時, Visual Studio 將會包含該檔案。
 
 ## <a name="linux"></a>Linux
 
-語音 SDK 目前支援的 Ubuntu 16.04，Ubuntu 18.04 Debian 9 的散發套件。
+語音 SDK 目前支援 Ubuntu 16.04、Ubuntu 18.04 和 Debian 9 發行版本。
 對於原生應用程式，您需要提供語音 SDK 程式庫 `libMicrosoft.CognitiveServices.Speech.core.so`。
 確定您選取與您的應用程式相符的版本 (x86、x64)。 視 Linux 版本而定，您可能也需要包含下列相依性：
 
@@ -67,7 +67,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-Debian 9 上安裝這些套件：
+在 Debian 9 上, 安裝下列套件:
 
 ```sh
 sudo apt-get update

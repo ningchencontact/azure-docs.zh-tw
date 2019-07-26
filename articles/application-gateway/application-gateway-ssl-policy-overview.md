@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1710635f145136e564a2bad48d539f242c9bc228
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122229"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359905"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>應用程式閘道 SSL 原則概觀
 
@@ -33,7 +33,7 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|屬性  |值  |
+|內容  |值  |
 |---|---|
 |名稱     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
@@ -46,16 +46,16 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
 |   ---      |  ---       |
 |名稱     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
-|預設| False |
+|預設| 偽 |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|屬性  |值  |
+|內容  |值  |
 |---|---|
 |名稱     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
-|預設| False |
+|預設| 偽 |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
 ## <a name="custom-ssl-policy"></a>自訂 SSL 原則
@@ -65,7 +65,7 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
 ### <a name="ssl-protocol-versions"></a>SSL 通訊協定版本
 
 * 依預設，所有應用程式閘道都停用 SSL 2.0 和 3.0。 這些通訊協定版本無法設定。
-* 自訂 SSL 原則可讓您選取下列三種通訊協定的任何一個閘道的最小 SSL 通訊協定版本：TLSv1_0、 TLSv1_1 和 TLSv1_2。
+* 自訂 SSL 原則可讓您選擇下列三種通訊協定中的任何一個, 做為閘道的最低 SSL 通訊協定版本:TLSv1_0、TLSv1_1 和 TLSv1_2。
 * 如果未定義任何 SSL 原則，則這三個通訊協定 (TLSv1_0、TLSv1_1 和 TLSv1_2) 皆會啟用。
 
 ### <a name="cipher-suites"></a>加密套件
@@ -101,6 +101,9 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
 - TLS_DHE_DSS_WITH_AES_128_CBC_SHA
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+
+> [!NOTE]
+> 連接所使用的 SSL 加密套件也是以所使用的憑證類型為基礎。 在 [用戶端對應用程式閘道連線] 中, 使用的加密套件是以應用程式閘道接聽程式上的伺服器憑證類型為基礎。 在後端集區連線的應用程式閘道中, 使用的加密套件是以後端集區伺服器上的伺服器憑證類型為基礎。
 
 ## <a name="next-steps"></a>後續步驟
 

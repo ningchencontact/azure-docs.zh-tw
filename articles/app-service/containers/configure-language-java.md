@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: cb996ef030705ef6ae66ba4f05bfd3c3a79b8d8f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: HT
+ms.openlocfilehash: 1488dbdcc042b29880560e7255de96b8d0409779
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381995"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498497"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -185,13 +185,13 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 在 App Service for Linux 中執行之 Java 應用程式會有一組與其他應用程式相同的[安全性最佳做法](/azure/security/security-paas-applications-using-app-services)。
 
-### <a name="authenticate-users"></a>驗證使用者
+### <a name="authenticate-users-easy-auth"></a>驗證使用者 (簡單驗證)
 
 使用 **驗證和授權** 選項, 在 Azure 入口網站中設定應用程式驗證。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。 如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以及其他身分識別提供者的相關文章。 如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)一文中的指示。
 
-#### <a name="tomcat"></a>Tomcat
+#### <a name="tomcat-and-wildfly"></a>Tomcat 和 Wildfly
 
-Tomcat 應用程式可以藉由將主體物件轉換成對應物件, 直接從 Tomcat servlet 存取使用者的宣告。 Map 物件會將每個宣告類型對應到該類型的宣告集合。 在下列程式碼中`request` , 是的`HttpServletRequest`實例。
+您的 Tomcat 或 Wildfly 應用程式可以藉由將主體物件轉換成對應物件, 直接從 servlet 存取使用者的宣告。 Map 物件會將每個宣告類型對應到該類型的宣告集合。 在下列程式碼中`request` , 是的`HttpServletRequest`實例。
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -211,7 +211,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-若要將使用者登出並執行其他動作, 請參閱[App Service 驗證和授權使用](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)的檔。 Tomcat [HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法也有官方檔。 下列 servlet 方法也會根據您的 App Service 設定來序列化:
+若要將使用者登出, 請`/.auth/ext/logout`使用路徑。 若要執行其他動作, 請參閱[App Service 驗證和授權使用](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)的檔。 Tomcat [HttpServletRequest 介面](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html)和其方法也有官方檔。 下列 servlet 方法也會根據您的 App Service 設定來序列化:
 
 ```java
 public boolean isSecure()

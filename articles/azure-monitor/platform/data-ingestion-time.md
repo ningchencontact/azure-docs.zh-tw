@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605595"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370654"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure 監視器中的記錄資料擷取時間
 Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 而在收集記錄資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
@@ -63,7 +63,7 @@ Azure 監視器是一種大規模的資料服務，服務對象為每月需傳�
 請參閱每個解決方案的文件以確定其收集頻率。
 
 ### <a name="pipeline-process-time"></a>管理處理程序時間
-將記錄檔記錄擷取至 Azure 監視器管道後，會將其寫入暫存儲存體，以確保租用戶隔離，並確保資料不會遺失。 此程序通常會增加 5-15 秒。 某些管理解決方案會實作更繁重的演算法以彙總資料，並在資料流入時獲得見解。 例如，網路效能監控會每 3 分鐘彙總傳入資料，有效地增加 3 分鐘的延遲。 另一個會增加延遲的程序是處理自訂記錄的程序。 在某些情況下，對於代理程式收集自檔案的記錄，此程序可能會增加數分鐘的延遲。
+將記錄檔記錄內嵌至 Azure 監視器管線 (如[_TimeReceived](log-standard-properties.md#_timereceived)屬性中所識別) 之後, 它們就會寫入暫存儲存體, 以確保租使用者隔離, 並確保資料不會遺失。 此程序通常會增加 5-15 秒。 某些管理解決方案會實作更繁重的演算法以彙總資料，並在資料流入時獲得見解。 例如，網路效能監控會每 3 分鐘彙總傳入資料，有效地增加 3 分鐘的延遲。 另一個會增加延遲的程序是處理自訂記錄的程序。 在某些情況下，對於代理程式收集自檔案的記錄，此程序可能會增加數分鐘的延遲。
 
 ### <a name="new-custom-data-types-provisioning"></a>新的自訂資料類型佈建
 從[自訂記錄](data-sources-custom-logs.md)或[資料收集器 API](data-collector-api.md) 建立新類型的自訂資料時，系統會建立專用的儲存體容器。 這是一次性的額外負荷，僅在第一次出現此資料類型時發生。
@@ -79,10 +79,16 @@ Azure 監視器的首要任務是確保不會遺失客戶資料，因此系統�
 
 
 ## <a name="checking-ingestion-time"></a>檢查擷取時間
-對於不同的資源，在不同的情況下，擷取時間可能不盡相同。 您可以使用記錄查詢來識別您環境的特定行為。
+對於不同的資源，在不同的情況下，擷取時間可能不盡相同。 您可以使用記錄查詢來識別您環境的特定行為。 下表指定當記錄建立並傳送至 Azure 監視器時, 您可以如何判斷其不同的時間。
+
+| 步驟 | 屬性或函式 | 註解 |
+|:---|:---|:---|
+| 在資料來源建立的記錄 | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>如果資料來源未設定此值, 則會將它設定為與 _TimeReceived 相同的時間。 |
+| Azure 監視器內嵌端點所收到的記錄 | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| 儲存在工作區中且可供查詢的記錄 | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>擷取延遲
-您可以比較 [ingestion_time()](/azure/kusto/query/ingestiontimefunction) 函式與 _TimeGenerated_ 欄位的結果來測量特定記錄的延遲。 這項資料可以搭配各種彙總，用來了解延遲的運作方式。 檢查擷取時間的一些百分位數，取得大量資料的深入解析。 
+您可以藉由比較[ingestion_time ()](/azure/kusto/query/ingestiontimefunction)函數與_TimeGenerated_屬性的結果, 來測量特定記錄的延遲。 這項資料可以搭配各種彙總，用來了解延遲的運作方式。 檢查擷取時間的一些百分位數，取得大量資料的深入解析。 
 
 例如，下列查詢會顯示當天有最高擷取時間的電腦： 
 
@@ -90,27 +96,30 @@ Azure 監視器的首要任務是確保不會遺失客戶資料，因此系統�
 Heartbeat
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
-| top 20 by percentile_E2EIngestionLatency_95 desc  
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
 如果您想要向下切入到特定電腦經過一段時間的擷取時間，請使用也會將圖形中的資料視覺化的下列查詢： 
 
 ``` Kusto
 Heartbeat 
-| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| where TimeGenerated > ago(24h) //and Computer == "ContosoWeb2-Linux"  
 | extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
-| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
-| render timechart  
+| extend AgentLatencyMin = todouble(datetime_diff("Second",_TimeReceived,TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95), percentiles(AgentLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart
 ```
  
-若要顯示它們位於其 IP 位址為基礎的電腦擷取時間依國家/地區中使用下列查詢： 
+使用下列查詢, 根據電腦的 IP 位址, 顯示其所在國家/地區的電腦內建時間: 
 
 ``` Kusto
 Heartbeat 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95),percentiles(AgentLatency,50,95) by RemoteIPCountry 
 ```
  
 來自代理程式的不同資料類型可能有不同的擷取延遲時間，因此先前的查詢無法搭配其他類型使用。 下列查詢可以用來檢查各種 Azure 服務的擷取時間： 
@@ -119,13 +128,14 @@ Heartbeat
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
 
 ### <a name="resources-that-stop-responding"></a>停止回應的資源 
-在某些情況下，資源將會停止傳送資料。 若要了解資源是否正在傳送資料，請查看可以由標準 [TimeGenerated]  欄位識別的最新記錄。  
+在某些情況下，資源將會停止傳送資料。 若要了解資源是否正在傳送資料，請查看可以由標準 [TimeGenerated] 欄位識別的最新記錄。  
 
-「活動訊號」  資料表可以用來檢查 VM 的可用性，因為代理程式活動訊號會每分鐘傳送一次。 可用下列查詢列出最近尚未回報活動訊號的使用中電腦： 
+「活動訊號」資料表可以用來檢查 VM 的可用性，因為代理程式活動訊號會每分鐘傳送一次。 可用下列查詢列出最近尚未回報活動訊號的使用中電腦： 
 
 ``` Kusto
 Heartbeat  

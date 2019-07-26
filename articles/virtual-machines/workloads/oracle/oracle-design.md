@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8058246ea5f4ac87c24fab8c5ec64032eb8a1f0b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ebe6f27818df8407504e4254f16d952aa298b6cc
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710651"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348316"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>在 Azure 中設計和實作 Oracle 資料庫
 
 ## <a name="assumptions"></a>假設
 
 - 您打算將 Oracle 資料庫從內部部署環境移轉至 Azure。
-- 您必須[診斷組件](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm)您想要移轉的 Oracle 資料庫
+- 您想要遷移的 Oracle Database 有[診斷套件](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm)
 - 您已了解 Oracle AWR 報表中的各種計量。
 - 您已基本了解應用程式效能和平台使用量。
 
@@ -52,7 +52,7 @@ ms.locfileid: "67710651"
 > | **恢復功能** |MTBF (平均失敗時間) |MTTR (平均復原時間)|
 > | **預定的維修** |修補/升級|[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (Azure 所管理的修補/升級) |
 > | **Resource** |專用  |與其他用戶端共用|
-> | **區域** |資料中心 |[區域配對](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
+> | **區域** |資料中心 |[區域配對](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **儲存體** |SAN/實體磁碟 |[Azure 受控儲存體](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **調整** |垂直調整 |水平調整|
 
@@ -62,7 +62,7 @@ ms.locfileid: "67710651"
 - 決定資料庫大小和成長率。
 - 決定 IOPS 需求，您可以根據 Oracle AWR 報表或其他網路監視工具進行評估。
 
-## <a name="configuration-options"></a>組態選項
+## <a name="configuration-options"></a>設定選項
 
 有四個可能的區域可供您進行調整，以改善 Azure 環境中的效能：
 
@@ -73,11 +73,11 @@ ms.locfileid: "67710651"
 
 ### <a name="generate-an-awr-report"></a>產生 AWR 報表
 
-如果您目前已有 Oracle 資料庫，且打算移轉至 Azure，您會有數個選項。 如果您有[診斷組件](https://www.oracle.com/technetwork/oem/pdf/511880.pdf)Oracle 執行個體，您可以執行 Oracle AWR 報表取得計量 （IOPS、 Mbps、 Gib，等等）。 然後根據收集到的計量選擇 VM。 或者，連絡基礎結構小組，取得類似的資訊。
+如果您目前已有 Oracle 資料庫，且打算移轉至 Azure，您會有數個選項。 如果您有 Oracle 實例的[診斷套件](https://www.oracle.com/technetwork/oem/pdf/511880.pdf), 您可以執行 oracle AWR 報表來取得計量 (IOPS、Mbps、gib 等等)。 然後根據收集到的計量選擇 VM。 或者，連絡基礎結構小組，取得類似的資訊。
 
 您可以考慮在一般和尖峰工作負載期間執行 AWR 報表，以進行比較。 根據這些報表，您可以根據平均工作負載或最大工作負載來調整 VM 大小。
 
-以下是如何產生 AWR 報表的範例 （產生 AWR 報表使用 Oracle Enterprise Manager 中，如果您目前的安裝都有一個）：
+以下是如何產生 AWR 報表的範例 (如果您目前的安裝有一個, 請使用您的 Oracle Enterprise Manager 產生 AWR 報表):
 
 ```bash
 $ sqlplus / as sysdba
@@ -144,22 +144,22 @@ SQL> @?/rdbms/admin/awrrpt.sql
 
 - 與內部部署相較之下，網路延遲較高。 減少網路來回行程可以大幅改善效能。
 - 若要減少來回行程，請合併相同虛擬機器上具有高交易或 “Chatty” 應用程式的應用程式。
-- 使用與虛擬機器[加速網路](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)以提升網路效能。
-- 某些 Linux distrubutions，請考慮啟用[TRIM/UNMAP 支援](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support)。
-- 安裝[Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html)個別的虛擬機器上。
-- 在 linux 上預設不啟用龐大的頁面。 請考慮啟用龐大的頁面，並設定`use_large_pages = ONLY`上 Oracle DB。 這可能有助於提升效能。 如需詳細資訊，請參閱 [這裡](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)。
+- 使用具有[加速網路](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)的虛擬機器, 以獲得更好的網路效能。
+- 針對特定 Linux distrubutions, 請考慮啟用[修剪/](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support)取消對應支援。
+- 在個別的虛擬機器上安裝[Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) 。
+- 在 linux 上, 預設不會啟用大量頁面。 請考慮啟用龐大的頁面`use_large_pages = ONLY` , 並在 Oracle DB 上設定。 這可能有助於提升效能。 如需詳細資訊，請參閱 [這裡](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390)。
 
 ### <a name="disk-types-and-configurations"></a>磁碟類型和設定
 
-- 預設 OS 磁碟  ：這些磁碟類型可提供持續性資料和快取。 它們最適合用在啟動時的 OS 存取，但其設計目的並非用於交易式或資料倉儲 (分析) 工作負載。
+- 預設 OS 磁碟：這些磁碟類型可提供持續性資料和快取。 它們最適合用在啟動時的 OS 存取，但其設計目的並非用於交易式或資料倉儲 (分析) 工作負載。
 
 - *非受控磁碟*︰您可以使用這些磁碟類型來管理用來儲存虛擬硬碟 (VHD) 檔案 (對應至您的 VM 磁碟) 的儲存體帳戶。 VHD 檔案會以分頁 Blob 的形式儲存在 Azure 儲存體帳戶中。
 
-- 受控磁碟  ：Azure 會管理您用於 VM 磁碟的儲存體帳戶。 您可以指定需要的磁碟類型 (進階或標準) 和磁碟大小。 Azure 會為您建立並管理該磁碟。
+- 受控磁碟：Azure 會管理您用於 VM 磁碟的儲存體帳戶。 您可以指定需要的磁碟類型 (進階或標準) 和磁碟大小。 Azure 會為您建立並管理該磁碟。
 
-- 進階儲存體磁碟  ：這些磁碟類型最適合生產工作負載使用。 進階儲存體支援可連結至特定大小系列 VM (例如 DS、DSv2、GS 和 F 系列 VM) 的 VM 磁碟。 進階磁碟會隨附不同的大小，而且您可以選擇範圍從 32 GB 到 4096 GB 的磁碟。 每個磁碟大小都有自己的效能規格。 端視您的應用程式需求而定，您可以將一或多個磁碟連結至您的 VM。
+- 進階儲存體磁碟：這些磁碟類型最適合生產工作負載使用。 進階儲存體支援可連結至特定大小系列 VM (例如 DS、DSv2、GS 和 F 系列 VM) 的 VM 磁碟。 進階磁碟會隨附不同的大小，而且您可以選擇範圍從 32 GB 到 4096 GB 的磁碟。 每個磁碟大小都有自己的效能規格。 端視您的應用程式需求而定，您可以將一或多個磁碟連結至您的 VM。
 
-當您從入口網站建立新的受控磁碟時，可以選擇您想要使用之磁碟類型的 [帳戶類型]  。 請記住，並非所有可用的磁碟都會顯示在下拉式功能表中。 在選擇特定的 VM 大小之後，功能表只會根據該 VM 大小顯示可用的進階儲存體 SKU。
+當您從入口網站建立新的受控磁碟時，可以選擇您想要使用之磁碟類型的 [帳戶類型]。 請記住，並非所有可用的磁碟都會顯示在下拉式功能表中。 在選擇特定的 VM 大小之後，功能表只會根據該 VM 大小顯示可用的進階儲存體 SKU。
 
 ![受控磁碟頁面的螢幕擷取畫面](./media/oracle-design/premium_disk01.png)
 
@@ -188,7 +188,7 @@ IOPS 是 12,200,000 / 2,358 = 5,174。
 - 使用資料壓縮來減少 I/O (適用於資料和索引)。
 - 區隔不同資料磁碟上的重做記錄、系統、暫時和重做 TS。
 - 不要將任何應用程式檔案放在預設 OS 磁碟 (/dev/sda)。 這些磁碟不適合用於快速 VM 啟動階段，因此可能不會為您的應用程式提供良好的效能。
-- 當使用進階儲存體上的 M 系列 Vm，啟用[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)上重做記錄檔磁碟。
+- 使用 Premium 儲存體上的 M 系列 Vm 時, 請在重做記錄磁片上啟用[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)。
 
 ### <a name="disk-cache-settings"></a>磁碟快取設定
 
@@ -198,17 +198,17 @@ IOPS 是 12,200,000 / 2,358 = 5,174。
 
 - *ReadWrite*:這是「預先讀取」演算法。 快取讀取和寫入，以供未來讀取。 非直接寫入式寫入會先保存到本機快取。 它也會為輕量工作負載提供最低的磁碟延遲。 對於不負責保存必要資料的應用程式，如果使用「讀寫」快取，一旦 VM 損毀，可能會導致資料遺失。
 
-- 無  (已停用)：使用此選項即可略過快取。 所有資料都會傳輸至磁碟，並保存到 Azure 儲存體。 這種方法可提供您最高 I/O 速率來進行 I/O 密集式工作負載。 您也需要考量「交易成本」。
+- 無 (已停用)：使用此選項即可略過快取。 所有資料都會傳輸至磁碟，並保存到 Azure 儲存體。 這種方法可提供您最高 I/O 速率來進行 I/O 密集式工作負載。 您也需要考量「交易成本」。
 
 **建議**
 
-若要最大化輸送量，建議您先**無**對主機快取。 針對進階儲存體，請記住您必須在使用 [唯讀]  或 [無]  選項掛接檔案系統時停用「屏障」。 將具有 UUID 的 /etc/fstab 檔案更新到磁碟。
+若要將輸送量最大化, 建議您從 [**無**] 開始進行主機快取。 針對進階儲存體，請記住您必須在使用 [唯讀] 或 [無] 選項掛接檔案系統時停用「屏障」。 將具有 UUID 的 /etc/fstab 檔案更新到磁碟。
 
 ![受控磁碟頁面的螢幕擷取畫面](./media/oracle-design/premium_disk02.png)
 
-- 針對 OS 磁碟，使用預設的 [讀取/寫入]  快取。
-- 針對 SYSTEM、TEMP 和 UNDO，對快取功能使用 [無]  。
-- 針對 DATA，對快取功能使用 [無]  。 但是，如果您的資料庫是唯讀或讀取密集，請使用 [唯讀]  快取。
+- 針對 OS 磁碟，使用預設的 [讀取/寫入] 快取。
+- 針對 SYSTEM、TEMP 和 UNDO，對快取功能使用 [無]。
+- 針對 DATA，對快取功能使用 [無]。 但是，如果您的資料庫是唯讀或讀取密集，請使用 [唯讀] 快取。
 
 除非您卸載 OS 層級的磁碟機，然後在進行變更後重新予以掛接，否則在儲存資料磁碟設定之後，就無法變更主機快取設定。
 
@@ -216,14 +216,14 @@ IOPS 是 12,200,000 / 2,358 = 5,174。
 
 在安裝並設定 Azure 環境之後，下一個步驟是保護您的網路。 以下是一些建議：
 
-- NSG 原則  ：可依子網路或 NIC 定義 NSG。 是比較容易控制在子網路層級安全性和強制路由之類的應用程式防火牆的存取。
+- NSG 原則：可依子網路或 NIC 定義 NSG。 在子網層級上控制存取比較簡單, 這兩者都是為了安全性和強制路由傳送應用程式防火牆之類的專案。
 
 - *Jumpbox*：基於更安全的存取，系統管理員不應該直接連接至應用程式服務或資料庫。 Jumpbox 作為系統管理員機器與 Azure 資源之間的媒體。
 ![Jumpbox 拓撲頁面的螢幕擷取畫面](./media/oracle-design/jumpbox.png)
 
     系統管理員機器只應該對 Jumpbox 提供 IP 受限的存取權。 Jumpbox 應該要能夠存取應用程式和資料庫。
 
-- 私人網路  (子網路)：我們建議您將應用程式服務和資料庫放在不同的子網路上，讓 NSG 原則可以設定更好的控制。
+- 私人網路 (子網路)：我們建議您將應用程式服務和資料庫放在不同的子網路上，讓 NSG 原則可以設定更好的控制。
 
 
 ## <a name="additional-reading"></a>其他閱讀資料

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: fe0af4ca7b6860fff19f4df3165a975c42b54a03
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4daa7ae9c7e58c1949dfbe4427a154c389100d4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277785"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348367"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric 的容量規劃和調整
 
@@ -27,7 +27,7 @@ ms.locfileid: "68277785"
 
 除了考慮節點類型和叢集特性, 您應該預期調整作業需要超過一小時才能完成生產環境。 不論您要新增的 Vm 數目為何, 這項考慮都是如此。
 
-## <a name="autoscaling"></a>自動調整
+## <a name="autoscaling"></a>自動調整規模
 您應該透過 Azure Resource Manager 範本執行調整作業, 因為這是將資源設定視為程式[代碼]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)的最佳作法。 
 
 透過虛擬機器擴展集使用自動調整, 可讓您的版本設定 Resource Manager 範本不正確地定義虛擬機器擴展集的實例計數。 不正確的定義會增加未來部署造成非預期調整作業的風險。 一般來說, 您應該在下列情況使用自動調整:
@@ -92,7 +92,7 @@ Resource Manager 範本的下列程式碼片段顯示您將宣告的屬性。 �
 
 藉由增加特定虛擬機器擴展集的實例計數, 以相應放大 Service Fabric 叢集。 您可以使用來以程式設計`AzureClient`方式向外延展, 並使用所需擴展集的識別碼來增加容量。
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
@@ -134,7 +134,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 您必須準備節點, 以透過程式設計的方式進行關閉。 尋找要移除的節點 (最高實例節點)。 例如:
 
-```c#
+```csharp
 using (var client = new FabricClient())
 {
     var mostRecentLiveNode = (await client.QueryManager.GetNodeListAsync())
@@ -151,7 +151,7 @@ using (var client = new FabricClient())
 
 使用您在先前的程式碼中使用`FabricClient`的相同`client`實例 (在此案例中為)`instanceIdString`和節點實例 (在此案例中為) 來停用和移除節點:
 
-```c#
+```csharp
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
 
 // Remove the node from the Service Fabric cluster
@@ -175,7 +175,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> 當您相應減少叢集時, 您會看到已移除的節點/VM 實例在 Service Fabric Explorer 中顯示為狀況不良狀態。 如需此行為的說明, 請參閱[您可能會在 Service Fabric Explorer 中觀察](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer)到的行為。 您可以：
+> 當您相應減少叢集時, 您會看到已移除的節點/VM 實例在 Service Fabric Explorer 中顯示為狀況不良狀態。 如需此行為的說明, 請參閱[您可能會在 Service Fabric Explorer 中觀察](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer)到的行為。 您可以:
 > * 以適當的節點名稱呼叫[remove-servicefabricnodestate 命令](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps)。
 > * 在您的叢集中部署[Service Fabric 自動調整 helper 應用程式](https://github.com/Azure/service-fabric-autoscale-helper/)。 此應用程式可確保從 Service Fabric Explorer 清除相應減少的節點。
 
@@ -203,7 +203,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ## <a name="durability-levels"></a>持久性層級
 
 > [!WARNING]
-> 執行 Bronze 持久性的節點類型「沒有權限」  。 影響無狀態工作負載的基礎結構工作將不會停止或延遲, 這可能會影響您的工作負載。 
+> 執行 Bronze 持久性的節點類型「沒有權限」。 影響無狀態工作負載的基礎結構工作將不會停止或延遲, 這可能會影響您的工作負載。 
 >
 > 銅級持久性僅適用於執行無狀態工作負載的節點類型。 針對生產工作負載, 執行銀級或更高版本以確保狀態一致性。 請根據[容量規劃文件](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)中的指導方針選擇正確的可靠性。
 

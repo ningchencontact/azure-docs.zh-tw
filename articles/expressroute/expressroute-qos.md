@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eed6113442b4080341ff08b3983880f3afe66c00
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712321"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385131"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 需求
 商務用 Skype 具有各種工作負載，其所要求的 QoS 處理方式各有差異。 如果您打算透過 ExpressRoute 取用語音服務，應遵守以下所述的需求。
@@ -25,11 +25,11 @@ ms.locfileid: "64712321"
 > 
 > 
 
-下表提供使用 Microsoft Teams 和 Skype for Business 的 DSCP 標示清單。 如需詳細資訊，請參閱 [管理適用於商務用 Skype 的 QoS](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) 。
+下表提供 Microsoft 團隊和商務用 Skype 所使用的 DSCP 標記清單。 如需詳細資訊，請參閱 [管理適用於商務用 Skype 的 QoS](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) 。
 
-| **傳輸類別** | **處理方式 (DSCP 標示)** | **Microsoft Teams 和 Skype for Business 的工作負載** |
+| **傳輸類別** | **處理方式 (DSCP 標示)** | **Microsoft 團隊和商務用 Skype 工作負載** |
 | --- | --- | --- |
-| **語音** |EF (46) |Skype / Lync 語音 |
+| **語音** |EF (46) |Skype/Microsoft 團隊/Lync voice |
 | **互動式** |AF41 (34) |影片、VBSS |
 | |AF21 (18) |APP 共用 | 
 | **預設值** |AF11 (10) |檔案傳輸 |

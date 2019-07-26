@@ -11,33 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 206a8d9ba45dcb948dfffff86bab17b58a33e464
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149763"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358624"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 
 此文章可協助您尋找並修正使用 Azure Machine Learning 服務時遇到的錯誤與失敗。
 
-## <a name="visual-interface-issues"></a>視覺化介面問題
+## <a name="visual-interface-issues"></a>視覺介面問題
 
 機器學習服務問題的視覺化介面。
 
-### <a name="long-compute-preparation-time"></a>長時間計算的準備時間
+### <a name="long-compute-preparation-time"></a>長計算準備時間
 
-建立新的計算或呼叫離開的運算需要時間，可能是幾分鐘的時間或更久時間。 小組正著手進行最佳化。
+建立新的計算或呼叫讓計算需要一些時間, 可能需要幾分鐘或更久。 小組正致力於優化。
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>無法執行實驗只包含資料集 
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>無法執行實驗僅包含資料集 
 
-您可能想要執行實驗只包含以視覺化方式檢視資料集的資料集。 不過，它具有不允許執行實驗只包含資料集現在。 我們主動修正此問題。
+您可能想要執行實驗只包含資料集, 以將資料集視覺化。 不過, 不允許執行實驗目前只包含資料集。 我們正積極修正此問題。
  
-之前修正程式中，您可以將資料集連接到任何資料轉換模組 （選取資料行中資料集 」、 「 編輯中繼資料 」 「 分割資料等），並執行實驗。 然後您可以將資料集視覺化。 
+在修正之前, 您可以將資料集連接到任何資料轉換模組 (選取資料集中的資料行、編輯中繼資料、分割資料等) 並執行實驗。 然後您可以將資料集視覺化。 
 
-下圖顯示方式： ![visulize 資料](./media/resource-known-issues/aml-visualize-data.png)
+下圖顯示如何: ![visulize-資料](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK 安裝問題
 
@@ -67,56 +67,64 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 
 ## <a name="automated-machine-learning"></a>自動化機器學習
 
-Tensor Flow 自動化機器學習服務目前不支援 tensor flow 版本 1.13。 安裝此版本將會停止運作的套件相依性。 我們正努力在未來版本中修正此問題。 
+張量 Flow 自動化機器學習目前不支援張量流程版本1.13。 安裝此版本將導致封裝相依性停止運作。 我們正致力於在未來的版本中修正此問題。 
 
 ### <a name="experiment-charts"></a>實驗圖表
 
-二元分類圖表 （正確性-召回，ROC，獲得曲線等） 顯示在自動化的 ML 實驗反覆項目不是在使用者介面中的轉譯正確自 4/12。 圖表繪圖是目前反白顯示的結果，其中具有較低的結果顯示效能更好的模型。 解決方式是進行調查。
+自動化 ML 實驗反復專案中顯示的二元分類圖表 (精確度召回、ROC、增益曲線等) 不會在使用者介面中轉譯為正確, 因為4/12。 圖表繪圖目前顯示的是反向結果, 其中較佳的執行模型會以較低的結果顯示。 解決方案正在進行調查。
 
 ## <a name="databricks"></a>Databricks
 
 Databricks 與 Azure Machine Learning 問題。
 
-### <a name="failure-when-installing-packages"></a>安裝套件時的失敗
+### <a name="failure-when-installing-packages"></a>安裝封裝失敗
 
-在 Azure Databricks 上的 azure 機器學習服務 SDK 安裝失敗，安裝多個套件時。 有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免安裝錯誤，請透過凍結的程式庫版本中安裝套件。 此問題與 Databricks，不適用於 Azure Machine Learning 服務 SDK。 您也可能會遇到這個問題的其他程式庫。 範例：
+安裝更多套件時, Azure Databricks 上的 Azure Machine Learning SDK 安裝會失敗。 有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免安裝錯誤, 請藉由凍結程式庫版本來安裝套件。 此問題與 Databricks 有關, 而不是 Azure Machine Learning 服務 SDK。 您也可能會遇到其他程式庫的這個問題。 範例:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
-或者，您可以使用 init 指令碼，如果您保留遇到安裝的 Python 程式庫的問題。 這個方法不受正式支援。 如需詳細資訊，請參閱 <<c0> [ 叢集為範圍的 init 指令碼](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)。
+或者, 如果您持續遇到 Python 程式庫的安裝問題, 則可以使用 init 腳本。 這種方法並不正式支援。 如需詳細資訊, 請參閱叢集[範圍的初始化腳本](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)。
 
-### <a name="cancel-an-automated-machine-learning-run"></a>取消自動化的機器學習服務執行
+### <a name="cancel-an-automated-machine-learning-run"></a>取消自動化機器學習執行
 
-當您使用自動化的機器學習服務在 Azure Databricks 上的功能時，以取消執行，並開始新的實驗執行時，重新啟動您的 Azure Databricks 叢集。
+當您在 Azure Databricks 上使用自動化機器學習功能時, 若要取消執行並開始新的實驗執行, 請重新開機您的 Azure Databricks 叢集。
 
-### <a name="10-iterations-for-automated-machine-learning"></a>> 自動化的機器學習服務 10 個反覆項目
+### <a name="10-iterations-for-automated-machine-learning"></a>> 自動化機器學習服務的10次反復專案
 
-在 自動化的機器學習的設定，如果您有超過 10 個反覆項目，設定`show_output`至`False`當您提交的執行。
+在自動化機器學習設定中, 如果您有10個以上的反復`show_output`專案`False` , 當您提交執行時, 請將設定為。
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/自動化機器學習服務的小工具
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/自動化機器學習的 Widget
 
-Azure 機器學習服務 SDK 的小工具不支援在 Databricks notebook 中，因為 notebook 無法剖析的 HTML widget。 您可以檢視入口網站中的小工具，在您的 Azure Databricks notebook 資料格中使用此 Python 程式碼：
+Databricks 筆記本中不支援 Azure Machine Learning SDK widget, 因為筆記本無法剖析 HTML 小工具。 您可以在入口網站中使用此 Python 程式碼, 在您的 Azure Databricks 筆記本資料格中查看 widget:
 
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
-### <a name="import-error-no-module-named-pandascoreindexes"></a>匯入錯誤：沒有名為 'pandas.core.indexes' 的模組
+### <a name="import-error-no-module-named-pandascoreindexes"></a>匯入錯誤:沒有名為 ' pandas ' 的模組
 
-如果您看到此錯誤，當您使用自動化機器學習服務：
+如果您在使用自動化機器學習時看到此錯誤:
 
-1. 執行此命令以安裝在您的 Azure Databricks 叢集中的兩個套件： 
+1. 執行此命令以在您的 Azure Databricks 叢集中安裝兩個套件: 
 
    ```
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. 中斷連結並再重新附加至您的 notebook 叢集。 
+1. 卸離叢集, 然後將叢集重新附加至您的筆記本。 
 
-如果上述步驟未能解決此問題，請嘗試重新啟動叢集。
+如果這些步驟無法解決問題, 請嘗試重新開機叢集。
+
+### <a name="failtosendfeather"></a>FailToSendFeather
+
+如果您在 Azure Databricks `FailToSendFeather`叢集上讀取資料時看到錯誤, 請參閱下列解決方案:
+
+* 將`azureml-sdk[automl_databricks]`套件升級至最新版本。
+* 新增`azure-dataprep` 1.1.8 或更新版本。
+* 新增`pyarrow` 0.11 版或更新版本。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -124,7 +132,7 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 ## <a name="diagnostic-logs"></a>診斷記錄
 
-當您在尋求協助時，如果能夠提供診斷資訊，有時可能會相當有幫助。 若要查看一些記錄檔，請瀏覽[Azure 入口網站](https://portal.azure.com)並移至您的工作區並選取**工作區 > 實驗 > 執行 > 記錄檔**。
+當您在尋求協助時，如果能夠提供診斷資訊，有時可能會相當有幫助。 若要查看一些記錄, 請造訪[Azure 入口網站](https://portal.azure.com)並移至您的工作區, 然後選取 [**工作區 > 實驗] > [執行 > 記錄**]。
 
 ## <a name="resource-quotas"></a>資源配額
 

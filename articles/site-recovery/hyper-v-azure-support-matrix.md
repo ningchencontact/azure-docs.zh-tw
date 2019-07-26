@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78a531c769612af0597e732f0dc539286dd7cdac
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399417"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489883"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
@@ -33,8 +33,8 @@ Hyper-V (不含 Virtual Machine Manager) | 您可以針對在不是由 Virtual M
 
 **伺服器** | **需求** | **詳細資料**
 --- | --- | ---
-Hyper-V (執行時不含 Virtual Machine Manager) |  Windows Server 2019 年，Windows Server 2016 （包括 server core 安裝），具有最新更新的 Windows Server 2012 R2 | 如果您已使用 Azure Site Recovery 設定 Windows Server 2012 R2 和/或 SCVMM 2012 R2，並且打算升級作業系統，請依照此[文件](upgrade-2012R2-to-2016.md)的說明進行。 
-Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2019，Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 | 如果使用 Virtual Machine Manager 時，Windows Server 2019 主機應在 Virtual Machine Manager 2019年管理。 同樣地，Windows Server 2016 主機應在 Virtual Machine Manager 2016年中管理。<br/><br/>
+Hyper-V (執行時不含 Virtual Machine Manager) |  Windows Server 2019、Windows Server 2016 (包括 Server core 安裝)、Windows Server 2012 R2 (含最新的更新) | 如果您已使用 Azure Site Recovery 設定 Windows Server 2012 R2 和/或 SCVMM 2012 R2，並且打算升級作業系統，請依照此[文件](upgrade-2012R2-to-2016.md)的說明進行。 
+Hyper-V (執行時含 Virtual Machine Manager) | Virtual Machine Manager 2019、Virtual Machine Manager 2016、Virtual Machine Manager 2012 R2 | 如果使用 Virtual Machine Manager, 則應該在 Virtual Machine Manager 2019 中管理 Windows Server 2019 主機。 同樣地, Windows Server 2016 主機也應該在 Virtual Machine Manager 2016 中進行管理。<br/><br/>
 
 
 ## <a name="replicated-vms"></a>複寫 VM
@@ -115,7 +115,7 @@ RDM | NA | NA
 磁碟：4K 邏輯與 512 位元組實體磁區 | 是 |  是
 邏輯磁碟區管理 (LVM)。 資料磁碟上才支援 LVM。 Azure 只提供單一 OS 磁碟。 | 是 | 是
 使用等量磁碟的磁碟區 > 1 TB | 是 | 是
-儲存空間 | 是 | 是
+儲存空間 | 否 | 否
 熱新增/移除磁碟 | 否 | 否
 排除磁碟 | 是 | 是
 多重路徑 (MPIO) | 是 | 是

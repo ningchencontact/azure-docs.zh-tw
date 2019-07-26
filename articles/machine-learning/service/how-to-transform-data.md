@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c5d60bb51a96725f766c6b49d61ac20fb2a1b58
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 08cf646d63e1a295a1bc2ff28180983cc462f084
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297913"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360924"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
@@ -46,11 +46,11 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||id|案例編號|Date|區塊|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|Location|
+||id|案例編號|Date|封鎖|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|年份|更新日期|緯度|經度|Location|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-|0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|遭竊|$500 以下|街|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
-|1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|電池|簡單|街|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017、-87.65955018)|
-|2|10140270|HY329253|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|電池|簡單的國產電池|街|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
+|0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|遭竊|$500 以下|街|偽|偽|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
+|1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|電池|簡單|街|偽|真|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017、-87.65955018)|
+|2|10140270|HY329253|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|電池|簡單的國產電池|街|偽|真|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
 使用 `substring(start, length)` 運算式擷取 [案例編號] 資料行中的前置詞，並將該字串放在新的資料行 `Case Category` 中。 將 `substring_expression` 變數傳遞至 `expression` 參數可建立新的導出資料行，此資料行會針對每一筆記錄執行運算式。
@@ -63,11 +63,11 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||id|案例編號|案例類別|Date|區塊|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|Year|更新日期|緯度|經度|Location|
+||id|案例編號|案例類別|Date|封鎖|IUCR|主要類型|描述|位置描述|阻止|國內|...|Ward|社群區域|FBI 程式碼|X 座標|Y 座標|年份|更新日期|緯度|經度|Location|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
-|0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|遭竊|$500 以下|街|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
-|1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|電池|簡單|街|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017、-87.65955018)|
-|2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|電池|簡單的國產電池|街|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
+|0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|遭竊|$500 以下|街|偽|偽|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
+|1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|電池|簡單|街|偽|真|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017、-87.65955018)|
+|2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|電池|簡單的國產電池|街|偽|真|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
 使用 `substring(start)` 運算式僅擷取 [案例編號] 資料行中的數字，然後建立新的資料行。 使用 `to_number()` 函式將其轉換為數值資料類型，並將字串資料行名稱當作參數傳遞。
@@ -96,9 +96,9 @@ dflow.head(3)
 
 ||id|阻止|緯度|經度|
 |-----|------|-----|------|-----|
-|0|10140490|false|41.973309|-87.800175|
-|1|10139776|false|42.008124|-87.659550|
-|2|10140270|false|NaN|NaN|
+|0|10140490|偽|41.973309|-87.800175|
+|1|10139776|偽|42.008124|-87.659550|
+|2|10140270|偽|NaN|NaN|
 
 第三個記錄遺漏了緯度和經度值。 若要插補這些遺漏值, 您[`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py)可以使用來學習固定的運算式。 其可使用計算出的 `MIN`、`MAX` 或 `MEAN` 值或 `CUSTOM` 值來插補資料行。 未指定 `group_by_columns` 時，會使用各群組計算出的 `MIN`、`MAX` 和 `MEAN` 按群組插補遺漏值。
 
@@ -106,16 +106,16 @@ dflow.head(3)
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
-                       summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
-                                                                 summary_column_name='Latitude_MEAN',
-                                                                 summary_function=dprep.SummaryFunction.MEAN)])
+                             summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
+                                                                        summary_column_name='Latitude_MEAN',
+                                                                        summary_function=dprep.SummaryFunction.MEAN)])
 dflow_mean = dflow_mean.filter(dprep.col('Arrest') == 'false')
 dflow_mean.head(1)
 ```
 
 ||阻止|Latitude_MEAN|
 |-----|-----|----|
-|0|false|41.878961|
+|0|偽|41.878961|
 
 緯度的 `MEAN` 值看起來正確，請使用 `ImputeColumnArguments` 函式推算它。 此函式接受 `column_id` 字串和 `ReplaceValueFunction` 來指定插補類型。 至於遺漏的經度值，則要根據外部知識插補 42。
 
@@ -130,7 +130,7 @@ impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=42)
 # get instance of ImputeMissingValuesBuilder
 impute_builder = dflow.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
-                                                   group_by_columns=['Arrest'])
+                                                      group_by_columns=['Arrest'])
 
 impute_builder.learn()
 dflow_imputed = impute_builder.to_dataflow()
@@ -139,9 +139,9 @@ dflow_imputed.head(3)
 
 ||id|阻止|緯度|經度|
 |-----|------|-----|------|-----|
-|0|10140490|false|41.973309|-87.800175|
-|1|10139776|false|42.008124|-87.659550|
-|2|10140270|false|41.878961|42.000000|
+|0|10140490|偽|41.973309|-87.800175|
+|1|10139776|偽|42.008124|-87.659550|
+|2|10140270|偽|41.878961|42.000000|
 
 如上述結果所示，已使用 `Arrest=='false'` 群組的 `MEAN` 值插補遺漏緯度。 已對遺漏經度插補 42。
 
@@ -156,7 +156,8 @@ Azure Machine Learning 資料準備 SDK 的其中一個更為進階的工具，�
 
 ```python
 import azureml.dataprep as dprep
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
 dflow.head(4)
 ```
 
@@ -170,9 +171,11 @@ dflow.head(4)
 假設您需要將這個檔案加入到日期和時間格式為「Mar 10, 2018 | 2AM-4AM」的資料集。
 
 ```python
-builder = dflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
-builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
-builder.preview(count=5) 
+builder = dflow.builders.derive_column_by_example(
+    source_columns=['DATE'], new_column_name='date_timerange')
+builder.add_example(
+    source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
+builder.preview(count=5)
 ```
 
 ||DATE|date_timerange|
@@ -207,7 +210,8 @@ builder.preview(skip=30, count=5)
 在這裡可以發現產生的程式發生了問題。 衍生程式完全根據您之前提供的範例，選擇將日期剖析為「日/月/年」，但這不是您在這裡所要的結果。 若要修正此問題, 請以特定記錄索引為目標, 並提供`add_example()`在`builder`變數上使用函數的另一個範例。
 
 ```python
-builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(
+    source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
@@ -235,7 +239,8 @@ builder.preview(skip=75, count=5)
 |4|1/29/2015 7:54|None|
 
 ```python
-builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.add_example(
+    source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
 
@@ -270,21 +275,22 @@ dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>Filtering
+## <a name="filtering"></a>正在篩選
 
 SDK 包含方法[`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) , 並[`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py)可讓您篩選出資料行或資料列。
 
-### <a name="initial-setup"></a>初始設定
+### <a name="initial-setup"></a>初始安裝
 
 > [!Note]
-> 這個相同範例中的 URL 不是完整的 URL。 相反地, 它是指 blob 中的 [示範] 資料夾。 資料的完整 URL 是 https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+> 此相同範例中的 URL 不是完整 URL。 相反地，這是指 Blob 中的示範資料夾。 資料的完整 URL 是 https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 我們在本教學課程中所做的是載入資料夾內的所有檔案, 並將結果匯總成 green_df_raw 和 yellow_df_raw。
 
 ```python
 import azureml.dataprep as dprep
 from datetime import datetime
-dflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
+dflow = dprep.read_csv(
+    path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dflow.head(5)
 ```
 
@@ -319,7 +325,8 @@ dflow.head(2)
 或者，使用 `ColumnSelector` 運算式來置放符合 regex 運算式的資料行。 在此範例中，您會置放所有符合運算式 `Column*|.*longitude|.*latitude` 的資料行。
 
 ```python
-dflow = dflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dflow = dflow.drop_columns(dprep.ColumnSelector(
+    'Column*|.*longitud|.*latitude', True, True))
 dflow.head(2)
 ```
 
@@ -360,7 +367,8 @@ dflow.head(2)
 
 ```python
 dflow = dflow.to_number(['Passenger_count', 'Tolls_amount'])
-dflow = dflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
+dflow = dflow.filter(dprep.f_and(
+    dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dflow.head(2)
 ```
 
@@ -375,9 +383,10 @@ dflow.head(2)
 > `lpep_pickup_datetime` 和 `Lpep_dropoff_datetime` 會先轉換為日期時間，以便建立比較運算式，將該日期時間值與其他的日期時間值做比較。
 
 ```python
-dflow = dflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
+dflow = dflow.to_datetime(
+    ['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dflow = dflow.to_number(['Total_amount', 'Trip_distance'])
-mid_2013 = datetime(2013,7,1)
+mid_2013 = datetime(2013, 7, 1)
 dflow = dflow.filter(
     dprep.f_and(
         dprep.f_or(
@@ -412,28 +421,31 @@ dflow.head(2)
 import azureml.dataprep as dprep
 col = dprep.col
 
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 dflow.head(2)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|ALABAMA|1|101710|Hale County|10171002158| |
-|1|ALABAMA|1|101710|Hale County|10171002162| |
+|0|阿拉巴馬州|1|101710|Hale County|10171002158| |
+|1|阿拉巴馬州|1|101710|Hale County|10171002162| |
 
 修剪資料集, 並執行一些基本的轉換, 包括移除資料行、取代值和轉換類型。
 
 ```python
-dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
-dflow = dflow.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
+dflow = dflow.keep_columns(
+    ['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
+dflow = dflow.replace_na(
+    columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 dflow = dflow.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 dflow.head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|None|
-|1|ALABAMA|Hale County|1.017100e+10|None|
+|0|阿拉巴馬州|Hale County|1.017100e+10|None|
+|1|阿拉巴馬州|Hale County|1.017100e+10|None|
 
 使用下列篩選條件尋找 null 值。
 
@@ -443,8 +455,8 @@ dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|None|
-|1|ALABAMA|Hale County|1.017100e+10|None|
+|0|阿拉巴馬州|Hale County|1.017100e+10|None|
+|1|阿拉巴馬州|Hale County|1.017100e+10|None|
 
 ### <a name="transform-partition"></a>轉換分割區
 
@@ -463,8 +475,8 @@ df.head(2)
 
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|
-|0|ALABAMA|Hale County|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|1.017100e+10|0.0|
+|0|阿拉巴馬州|Hale County|1.017100e+10|0.0|
+|1|阿拉巴馬州|Hale County|1.017100e+10|0.0|
 
 ### <a name="new-script-column"></a>新的指令碼資料行
 
@@ -482,8 +494,8 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|0|阿拉巴馬州|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|1|阿拉巴馬州|Hale County|Hale County, Alabama|1.017100e+10|0.0|
 
 ### <a name="new-script-filter"></a>新的指令碼篩選條件
 
@@ -500,8 +512,8 @@ dflow.head(2)
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
-|1|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
+|0|阿拉巴馬州|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
+|1|阿拉巴馬州|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
 
 ## <a name="next-steps"></a>後續步驟
 

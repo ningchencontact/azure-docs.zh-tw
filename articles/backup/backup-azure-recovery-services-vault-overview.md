@@ -1,19 +1,18 @@
 ---
 title: 復原服務保存庫概觀
 description: 復原服務保存庫和 Azure 備份保存庫之間的概觀與比較。
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/10/2018
 ms.author: raynew
-ms.openlocfilehash: 924b36701ecf21f6bd84938aeefbf25e47fcbaa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21ce9f411bf9c80e44614c6f7a6d123d49634a8f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699229"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465612"
 ---
 # <a name="recovery-services-vaults-overview"></a>復原服務保存庫概觀
 
@@ -38,7 +37,7 @@ ms.locfileid: "60699229"
 - **IaaS VM 的立即還原**︰您可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM，這樣可加速還原時間。 IaaS VM 的立即還原適用於 Windows 和 Linux VM。 [深入了解](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>在入口網站中管理復原服務保存庫
-建立和管理 Azure 入口網站中的復原服務保存庫很輕鬆，因為備份服務已整合至其他 Azure 服務。 這項整合代表您可以在目標服務的內容中，  建立或管理復原服務保存庫。 例如，若要檢視 VM 的復原點，請選取您的 VM，然後按一下 [作業] 功能表中的 [備份]  。
+建立和管理 Azure 入口網站中的復原服務保存庫很輕鬆，因為備份服務已整合至其他 Azure 服務。 這項整合代表您可以在目標服務的內容中，建立或管理復原服務保存庫。 例如，若要檢視 VM 的復原點，請選取您的 VM，然後按一下 [作業] 功能表中的 [備份]。
 
 ![復原服務保存庫詳細資料 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 

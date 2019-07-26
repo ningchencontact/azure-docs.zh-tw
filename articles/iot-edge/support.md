@@ -4,21 +4,23 @@ description: 了解哪些作業系統可以執行 Azure IoT Edge 精靈和執行
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/12/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 178cbf930c946170834eb1f7de17e6d5bc0dda48
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 62b8ed553e3b4cec3750dae4f0426b6f0dd38855
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058285"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414381"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支援的系統
 
-有許多方式可尋求 Azure IoT Edge 產品的支援。
+本文提供 IoT Edge (不論是正式或預覽狀態) 所支援的系統和元件詳細資料。 
+
+如果您在使用 Azure IoT Edge 服務時遇到問題, 有幾種方式可以尋求支援。 請嘗試下列其中一個通道以取得支援:
 
 **報告 Bug** – Azure IoT Edge 產品大部分的開發都是在 IoT Edge 開放原始碼專案中進行。 您可以在專案的[問題頁面](https://github.com/azure/iotedge/issues)上報告錯誤。 我們也會快速地從專案中找出修正方式，並加入產品更新中。
 
@@ -27,84 +29,90 @@ ms.locfileid: "67058285"
 **功能要求** – Azure IoT Edge 產品會透過產品的 [User Voice 頁面](https://feedback.azure.com/forums/907045-azure-iot-edge)來追蹤功能要求。
 
 ## <a name="container-engines"></a>容器引擎
-Azure IoT Edge 需要容器引擎來啟動模組，因為它們是實作為容器。 Microsoft 提供了容器引擎 moby-engine，以滿足此需求。 它是基於 Moby 開放原始碼專案。 Docker CE 和 Docker EE 是其他常用的容器引擎。 它們也是基於 Moby 開放原始碼專案，並且與 Azure IoT Edge 相容。 Microsoft 盡最大努力為使用這些容器引擎的系統提供支援，不過，請恕 Microsoft 無法為系統內的問題提供修正。 基於這個理由，Microsoft 建議在生產系統上使用 moby-engine。
+
+Azure IoT Edge 模組會實作為容器, 因此 IoT Edge 需要容器引擎來啟動它們。 Microsoft 提供了容器引擎 moby-engine，以滿足此需求。 此容器引擎是以 Moby 開放原始碼專案為基礎。 Docker CE 和 Docker EE 是其他常用的容器引擎。 它們也是以 Moby 開放原始碼專案為基礎, 而且與 Azure IoT Edge 相容。 Microsoft 會針對使用這些容器引擎的系統提供最佳的支援;不過, Microsoft 無法針對其中的問題提供修正程式。 基於這個理由，Microsoft 建議在生產系統上使用 moby-engine。
 
 <br>
 <center>
 
-![為容器執行階段的白鯨](./media/support/only-moby-for-production.png)
+![Moby 作為容器執行時間](./media/support/only-moby-for-production.png)
 </center>
 
 ## <a name="operating-systems"></a>作業系統
-大多數容器; 可執行的作業系統上執行的 azure IoT Edge不過，所有這些系統不同樣支援。 以下將作業系統分組為各種階層，代表使用者可預期的支援程度。
-* 第 1 層系統可以認定為正式支援。 適用於第 1 層系統，Microsoft:
+Azure IoT Edge 會在大部分可執行容器的作業系統上執行;不過, 所有這些系統都不是同樣支援的。 以下將作業系統分組為各種階層，代表使用者可預期的支援程度。
+* 支援第1層系統。 針對第1層系統, Microsoft:
     * 在自動化的測試中有此作業系統
     * 有為它們提供安裝套件
-* 第 2 層系統可以認定為與 Azure IoT Edge 相容，並且可以相對輕鬆地使用。 適用於第 2 層系統：
-    * Microsoft 平台上的臨機操作測試完成或知道的夥伴，成功執行平台上的 Azure IoT Edge
+* 第2層系統與 Azure IoT Edge 相容, 而且可以相當輕鬆地使用。 第2層系統:
+    * Microsoft 已在平臺上進行臨機操作測試, 或瞭解合作夥伴已成功在平臺上執行 Azure IoT Edge
     * 其他平台的安裝套件或許能在這些平台上運作
     
-主機 OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 換句話說，您只能在 Linux 上使用 Linux 容器和在 Windows 上使用 Windows 容器。 使用 Windows，唯一支援的隔離的容器的程序時不 HYPER-V 隔離容器。  
+主機 OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 換句話說，您只能在 Linux 上使用 Linux 容器和在 Windows 上使用 Windows 容器。 使用 Windows 時, 只支援進程隔離的容器, 而非 Hyper-v 隔離的容器。  
 
 <br>
 <center>
 
-![主機作業系統符合客體 OS](./media/support/edge-on-device.png)
+![主機 OS 符合來賓 OS](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>第 1 層
-正式推出
 
-| 作業系統 | AMD64 | ARM32v7 |
-| ---------------- | ----- | ----- |
-| Raspbian-stretch | 否 | 是|
-| Ubuntu Server 16.04 | 是 | 否 |
-| Ubuntu Server 18.04 | 是 | 否 |
-| Windows 10 IoT 企業版，建置 17763 | 是 | 否 |
-| Windows Server 2019，組建 17763 | 是 | 否 |
-| Windows Server IoT 2019，組建 17763 | 是 | 否 |
+下表所列的系統受到 Microsoft 的支援, 其為正式推出或處於公開預覽狀態, 並已在每個新版本中進行測試。 
 
-公開預覽版
-
-| 作業系統 | AMD64 | ARM32v7 |
-| ---------------- | ----- | ----- |
-| Windows 10 IoT 核心版，建置 17763 | 是 | 否 |
+| 作業系統 | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Raspbian-stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) | 公開預覽 |
+| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows 10 IoT 企業版, 組建17763 | ![Windows 10 IoT 企業版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server 2019, 組建17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server IoT 2019, 組建17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows 10 IoT 核心版, 組建17763 | 公開預覽 |  |  |
 
 
-以上所列之 Windows 作業系統是在 Windows 執行 Windows 容器的裝置的需求。 此設定是唯一支援的組態用於生產環境。 Windows 的 Azure IoT Edge 安裝套件可讓使用 Windows; 上的 Linux 容器不過，這項設定適用於開發和僅限測試。 生產環境不支援在 Windows 上使用 Linux 容器的設定。 任何版本的 Windows 10 組建 14393 或更新版本和 Windows Server 2016 或更新版本，都可以用於此開發案例。
+以上所列的 Windows 作業系統是在 Windows 上執行 Windows 容器的裝置需求。 此設定是唯一支援的生產環境設定。 適用于 Windows 的 Azure IoT Edge 安裝套件允許在 Windows 上使用 Linux 容器;不過, 此設定僅供開發和測試之用。 生產環境不支援在 Windows 上使用 Linux 容器的設定。 任何版本的 Windows 10 組建 14393 或更新版本和 Windows Server 2016 或更新版本，都可以用於此開發案例。
 
 ### <a name="tier-2"></a>第 2 層
 
-| 作業系統 | AMD64 | ARM32v7 |
-| ---------------- | ----- | ----- |
-| CentOS 7.5 | 是 | 是 |
-| Debian 8 | 是 | 是 |
-| Debian 9 | 是 | 是 |
-| RHEL 7.5 | 是 | 是 |
-| Ubuntu 18.04 | 是 | 是 |
-| Ubuntu 16.04 | 是 | 是 |
-| Wind River 8 | 是 | 否 |
-| Yocto | 是 | 否 |
+下表所列的系統會視為與 Azure IoT Edge 相容, 但不會主動進行測試或維護。 
 
+| 作業系統 | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| CentOS 7.5 | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
+| Debian 8 | ![Debian 8 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 8 + ARM64](./media/tutorial-c-module/green-check.png) |
+| Debian 9 | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
+| Debian 10<sup>1</sup> | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
+| RHEL 7.5 | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
+| Ubuntu 16.04 | ![Ubuntu 16.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 16.04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| Ubuntu 18.04 | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
+| Wind River 8 | ![風河 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Yocto | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
+| Raspbian Buster<sup>1</sup> |  | ![Raspbian Buster + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Raspbian Buster + ARM64](./media/tutorial-c-module/green-check.png) |
+
+<sup>1</sup> Debian 10 個系統, 包括 Raspian Buster, 請使用 IoT Edge 不支援的 OpenSSL 版本。 在安裝 IoT Edge 之前, 請使用下列命令來安裝較早的版本: 
+
+```bash
+sudo apt-get install libssl1.0.2
+```
 
 ## <a name="virtual-machines"></a>虛擬機器
-Azure IoT Edge 可以在虛擬機器中執行。 使用虛擬機器為 IoT Edge 裝置時，一般客戶想要運用邊緣智慧強化現有的基礎結構。 主機 VM OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 Azure IoT Edge 裝置上直接執行時，這項需求是與相同。 Azure IoT Edge 與基礎虛擬化技術無關，且可在 Hyper-V 和 vSphere 等平台所提供的 VM 中運作。
+Azure IoT Edge 可以在虛擬機器中執行。 當客戶想要使用邊緣智慧擴充現有的基礎結構時, 將虛擬機器作為 IoT Edge 裝置是很常見的。 主機 VM OS 的系列必須一律與用於模組容器中之客體 OS 的系列相符。 這項需求與直接在裝置上執行 Azure IoT Edge 時相同。 Azure IoT Edge 與基礎虛擬化技術無關，且可在 Hyper-V 和 vSphere 等平台所提供的 VM 中運作。
 
 <br>
 <center>
 
-![在 VM 中的 azure IoT Edge](./media/support/edge-on-vm.png)
+![VM 中的 Azure IoT Edge](./media/support/edge-on-vm.png)
 </center>
 
 ## <a name="minimum-system-requirements"></a>最低系統需求
-Azure IoT Edge 在小如 Raspberry Pi3 至伺服器等級的硬體上都能順利執行。 選擇正確的硬體，您的案例取決於您想要執行的工作負載。 決定最終的裝置可能很複雜，不過您可以在傳統膝上型電腦或桌上型電腦上輕鬆開始建立原型解決方案。
+Azure IoT Edge 在小如 Raspberry Pi3 至伺服器等級的硬體上都能順利執行。 針對您的案例選擇正確的硬體取決於您想要執行的工作負載。 決定最終的裝置可能很複雜，不過您可以在傳統膝上型電腦或桌上型電腦上輕鬆開始建立原型解決方案。
 
-在建立原型的同時進行體驗，有助於指引您選擇最終裝置。 您應該考慮的問題包括： 
+在建立原型的同時進行體驗，有助於指引您選擇最終裝置。 您應該考慮的問題包括: 
 
-* 您的工作負載中，有多少個模組？
-* 您的模組容器共用多少層級？
-* 在何種語言寫入您的模組？ 
-* 資料量將您的模組會處理？
-* 您的模組，以加速其工作負載需要任何特殊的硬體嗎？
-* 您的解決方案所需的效能特性有哪些？
-* 您的硬體預算是什麼？
+* 您的工作負載中有多少個模組？
+* 您模組的容器共用多少層級？
+* 您的模組是以何種語言撰寫？ 
+* 您的模組會處理多少資料？
+* 您的模組是否需要任何特殊硬體來加速其工作負載？
+* 您的解決方案所需的效能特性為何？
+* 您的硬體預算為何？

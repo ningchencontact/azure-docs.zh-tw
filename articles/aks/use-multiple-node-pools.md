@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278177"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478335"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 
@@ -57,7 +57,7 @@ az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > 您在成功註冊*MultiAgentpoolPreview*之後所建立的任何 AKS 叢集都會使用此預覽叢集體驗。 若要繼續建立一般、完全支援的叢集, 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的測試或開發 Azure 訂用帳戶來測試預覽功能。
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態:
+狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
@@ -145,7 +145,9 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 ## <a name="upgrade-a-node-pool"></a>升級節點集區
 
-當您在第一個步驟中建立 AKS 叢集時, `--kubernetes-version`已指定*1.13.5*的。 讓我們將*mynodepool*升級至 Kubernetes *1.13.7*。 使用[az aks node pool upgrade][az-aks-nodepool-upgrade]命令升級節點集區, 如下列範例所示:
+當您在第一個步驟中建立 AKS 叢集時, `--kubernetes-version`已指定*1.13.5*的。 這會設定控制平面和初始節點集區的 Kubernetes 版本。 有不同的命令可用於升級控制平面和節點集區的 Kubernetes 版本。 命令是用來升級控制平面, `az aks nodepool upgrade`而則是用來升級個別的節點集區。 `az aks upgrade`
+
+讓我們將*mynodepool*升級至 Kubernetes *1.13.7*。 使用[az aks node pool upgrade][az-aks-nodepool-upgrade]命令升級節點集區, 如下列範例所示:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -155,6 +157,9 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.7 \
     --no-wait
 ```
+
+> [!Tip]
+> 若要將控制平面升級至*1.13.7*, `az aks upgrade -k 1.13.7`請執行。
 
 使用[az aks node pool list][az-aks-nodepool-list]命令再次列出節點集區的狀態。 下列範例顯示*mynodepool*處於*1.13.7*的*升級*狀態:
 
@@ -170,6 +175,15 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 將節點升級為指定的版本需要幾分鐘的時間。
 
 最佳做法是將 AKS 叢集中的所有節點集區升級至相同的 Kubernetes 版本。 升級個別節點集區的功能可讓您執行輪流升級, 並在節點集區之間排程 pod, 以維護應用程式的執行時間。
+
+> [!NOTE]
+> Kubernetes 使用標準的[語義版本](https://semver.org/)控制版本設定配置。 版本號碼會以*x-y*表示, 其中*x*是主要版本, *y*是次要版本, 而*z*是修補程式版本。 例如, 在版本*1.12.6*中, 1 是主要版本, 12 是次要版本, 而6是修補程式版本。 在叢集建立期間, 會設定控制平面和初始節點集區的 Kubernetes 版本。 當所有其他節點集區新增至叢集時, 會設定其 Kubernetes 版本。 節點集區以及節點集區與控制平面之間的 Kubernetes 版本可能不同, 但適用下列限制:
+> 
+> * 節點集區版本必須與控制平面具有相同的主要版本。
+> * 節點集區版本可能是一個小於控制平面版本的次要版本。
+> * 節點集區版本可能是任何修補程式版本, 只要遵循其他兩個條件約束即可。
+> 
+> 若要升級控制平面的 Kubernetes 版本, 請使用`az aks upgrade`。 如果您的叢集只有一個節點集區, `az aks upgrade`此命令也會升級節點集區的 Kubernetes 版本。
 
 ## <a name="scale-a-node-pool"></a>調整節點集區
 

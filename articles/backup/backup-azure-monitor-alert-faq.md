@@ -1,22 +1,21 @@
 ---
-title: Azure 備份監視警示的常見問題集
+title: Azure 備份監視警示常見問題
 description: 有關以下常見問題的解答：Azure 備份監視警示
-services: backup
 author: srinathvasireddy
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: srinathv
-ms.openlocfilehash: bb684f65539b4429862b2dce0e378d8f659d2975
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dc68b68ffa0ae2ee4f1bdd8f2c7ac0d7ff5ebb8c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705033"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465846"
 ---
-# <a name="azure-backup-monitoring-alert---faq"></a>Azure 備份監視警示-常見問題集
-這篇文章會回答有關 Azure 的監視警示的常見問題。
+# <a name="azure-backup-monitoring-alert---faq"></a>Azure 備份監視警示-常見問題
+本文會回答有關 Azure 監視警示的常見問題。
 
 ## <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 
@@ -26,9 +25,9 @@ ms.locfileid: "67705033"
 ### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>將資料推送到儲存體帳戶和 Power BI 中 Azure 備份內容套件的頻率為何？
   針對使用時間尚未達一天的使用者，大約需要 24 小時的時間，才能將資料推送到儲存體帳戶。 完成此初始推送之後，就會依下圖所示的頻率重新整理資料。
 
-  * 與 [作業]  、[警示]  、[備份項目]  、[保存庫]  、[受保護的伺服器]  及 [原則]  相關的資料會在記錄資料的同時推送到客戶儲存體帳戶。
+  * 與 [作業]、[警示]、[備份項目]、[保存庫]、[受保護的伺服器]及 [原則] 相關的資料會在記錄資料的同時推送到客戶儲存體帳戶。
 
-  * 與 [儲存體]  相關的資料會每 24 小時推送到客戶儲存體帳戶。
+  * 與 [儲存體] 相關的資料會每 24 小時推送到客戶儲存體帳戶。
 
        ![Azure 備份報表資料推送頻率](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 

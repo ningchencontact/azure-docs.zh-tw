@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure 備份服務從 VM 設定中備份 Azure VM
 description: 了解如何使用 Azure 備份服務備份 Azure VM
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 80739fac8317014c74c6a86cef9aa23696cfb42e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 994762098027f7051591b8bf89bfa5cb7c380373
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442989"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465265"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>從 VM 設定備份 Azure VM
 
@@ -40,16 +39,16 @@ ms.locfileid: "67442989"
 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下 [所有服務]  ，然後在 [篩選] 中輸入**虛擬機器**，然後按一下 [虛擬機器]  。
+2. 按一下 [所有服務]，然後在 [篩選] 中輸入**虛擬機器**，然後按一下 [虛擬機器]。
 3. 在 VM 清單中，選取要備份的 VM。
-4. 在 VM 功能表中，按一下 [備份]  。
-5. 在 [復原服務保存庫]  中，執行下列動作：
-   - 如果您已經有保存庫，請按一下 [選取現有項目]  ，然後選取保存庫。
-   - 如果您沒有保存庫，請按一下 [新建]  。 指定保存庫名稱。 保存庫會建立在與 VM 相同的區域和資源群組中。 若您直接從 VM 設定啟用備份，則無法修改這些設定。
+4. 在 VM 功能表中，按一下 [備份]。
+5. 在 [復原服務保存庫] 中，執行下列動作：
+   - 如果您已經有保存庫，請按一下 [選取現有項目]，然後選取保存庫。
+   - 如果您沒有保存庫，請按一下 [新建]。 指定保存庫名稱。 保存庫會建立在與 VM 相同的區域和資源群組中。 若您直接從 VM 設定啟用備份，則無法修改這些設定。
 
    ![啟用備份精靈](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. 在 [選擇備份原則]  中，執行下列動作：
+6. 在 [選擇備份原則] 中，執行下列動作：
 
    - 保留預設原則。 此原則會每天一次地在指定時間備份 VM，並讓備份在保存庫中保留 30 天。
    - 如果您已有備份原則，請選取現有的原則。
@@ -57,36 +56,36 @@ ms.locfileid: "67442989"
 
    ![選取備份原則](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. 按一下 [啟用備份]  。 這會使備份原則與 VM 相關聯。
+7. 按一下 [啟用備份]。 這會使備份原則與 VM 相關聯。
 
     ![啟用備份按鈕](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
 8. 您可以在入口網站通知中，追蹤設定進度。
-9. 作業完成後，請在 VM 功能表中按一下 [備份]  。 頁面會顯示 VM 的備份狀態、復原點資訊、執行的作業及發出的警示。
+9. 作業完成後，請在 VM 功能表中按一下 [備份]。 頁面會顯示 VM 的備份狀態、復原點資訊、執行的作業及發出的警示。
 
    ![備份狀態](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. 啟用備份之後，會執行初始備份。 您可以立即啟動初始備份，或根據備份排程來啟動。
-    - 在完成初始備份之前，[上次備份狀態]  會顯示為 [警告 (待執行初始備份)]  。
+10. 啟用備份之後, 就會執行初始備份。 您可以立即啟動初始備份，或根據備份排程來啟動。
+    - 在完成初始備份之前，[上次備份狀態] 會顯示為 [警告 (待執行初始備份)]。
     - 若要查看下一個排定的備份會在何時執行，請按一下備份原則名稱。
 
 
 > [!NOTE]
-> Azure 備份服務會建立個別的資源群組 （以外的 VM 資源群組中） 來儲存快照集，使用的命名格式**AzureBackupRG_geography_number** (範例：AzureBackupRG_northeurope_1)。 此資源群組中的資料仍會保留在所指定的天期間的 Azure 虛擬機器備份原則的 「 保留立即復原快照集 」 一節。 將鎖定套用到此資源群組，可能會導致備份失敗。<br>
-此資源群組應該也會排除任何名稱/標記的限制，限制原則會封鎖建立在它再次導致備份失敗的資源點集合。
+> Azure 備份服務會建立個別的資源群組 (而不是 VM 資源群組) 來儲存快照集, 其命名格式為**AzureBackupRG_geography_number** (範例:AzureBackupRG_northeurope_1)。 此資源群組中的資料將會保留在 Azure 虛擬機器備份原則的「保留立即復原快照集」一節中所指定的持續時間內。 對此資源群組套用鎖定可能會導致備份失敗。<br>
+此資源群組也應從任何名稱/標記限制中排除, 因為限制原則會再次阻止建立資源點集合, 進而造成備份失敗。
 
 
 ## <a name="run-a-backup-immediately"></a>立即執行備份
 
-1. 若要立即執行備份，請在 VM 功能表中，按一下 [備份]   > [立即備份]  。
+1. 若要立即執行備份，請在 VM 功能表中，按一下 [備份] > [立即備份]。
 
     ![執行備份](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-2. 在 [立即備份]  中，使用行事曆控制項，選取復原點應保留到哪一天 > 然後按一下 [確定]  。
+2. 在 [立即備份] 中，使用行事曆控制項，選取復原點應保留到哪一天 > 然後按一下 [確定]。
 
     ![備份保留日](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-3. 入口網站通知可讓您知道已觸發的備份工作。 若要監視備份進度，請按一下 [檢視所有作業]  。
+3. 入口網站通知可讓您知道已觸發的備份工作。 若要監視備份進度，請按一下 [檢視所有作業]。
 
 
 

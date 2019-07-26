@@ -1,7 +1,7 @@
 ---
-title: 執行 Azure Kubernetes 服務
+title: 執行 Azure Kubernetes Service
 titleSuffix: Text Analytics - Azure Cognitive Services
-description: 文字分析將容器部署與情感分析映像到 Azure Kubernetes 服務，並在網頁瀏覽器中進行測試。
+description: 部署具有情感分析影像的文字分析容器以 Azure Kubernetes Service, 並在網頁瀏覽器中進行測試。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,66 +10,66 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: a419ed3b9c0d2c4db9c552642dc5c662786f6730
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 290a01e7e478f718607c0550702474cd31979a63
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561242"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377437"
 ---
-# <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-services-aks"></a>將情感分析容器部署至 Azure Kubernetes Service (AKS)
+# <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-service"></a>將情感分析容器部署到 Azure Kubernetes Service
 
-了解如何部署認知服務[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)使用情感分析映像到 Azure Kubernetes Service (AKS) 的容器。 建立文字分析的資源，建立相關聯的情感分析映像，以及能夠練習從瀏覽器兩個此協調流程，舉例說明此程序。 使用容器可以轉移遠離管理基礎結構，以改為專注於應用程式開發的開發人員的注意。
+瞭解如何將具有情感分析影像的 Azure 認知服務[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)容器部署至 AZURE KUBERNETES SERVICE (AKS)。 此程式會示範如何建立文字分析資源、如何建立相關聯的情感分析影像, 以及如何從瀏覽器執行這兩個協調流程。 使用容器可以將您的注意力轉移到管理基礎結構之外, 改為專注于應用程式開發。
 
 ## <a name="prerequisites"></a>必要條件
 
-此程序需要必須安裝並在本機執行的多個工具。 請勿使用 Azure Cloud Shell。
+此程序需要必須安裝並在本機執行的多個工具。 請勿使用 Azure Cloud Shell。 您需要下列項目：
 
-* 使用 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-* 文字編輯器，例如：[Visual Studio Code](https://code.visualstudio.com/download)。
-* 安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
-* 安裝[Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+* 文字編輯器, 例如[Visual Studio Code](https://code.visualstudio.com/download)。
+* 已安裝[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 。
+* 已安裝[KUBERNETES CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 。
 * 具有正確定價層的 Azure 資源。 並非所有的定價層都會使用這個容器︰
-    * 只有 F0 或標準定價層的**文字分析**資源。
-    * 有 S0 定價層的**認知服務**資源。
+    * 只有 F0 或標準定價層的**Azure 文字分析**資源。
+    * 具有 S0 定價層的**Azure 認知服務**資源。
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Kubernetes Services (AKS)](../../containers/includes/create-aks-resource.md)]
+[!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-## <a name="deploy-text-analytics-container-to-an-aks-cluster"></a>將文字 Analytics 容器部署至 AKS 叢集
+## <a name="deploy-a-text-analytics-container-to-an-aks-cluster"></a>將文字分析容器部署至 AKS 叢集
 
-1. 開啟 Azure CLI 並登入至 Azure
+1. 開啟 Azure CLI, 然後登入 Azure。
 
     ```azurecli
     az login
     ```
 
-1. 登入 AKS 叢集 (取代`your-cluster-name`和`your-resource-group`以適當的值)
+1. 登入 AKS 叢集。 以`your-cluster-name`適當`your-resource-group`的值取代和。
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    此命令執行之後，它會報告類似以下的訊息：
+    執行此命令之後, 它會報告類似下列的訊息:
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > 如果您有多個訂用帳戶可供您在您的 Azure 帳戶和`az aks get-credentials`命令傳回錯誤，常見的問題是，您使用錯誤的訂用帳戶。 只要設定您的 Azure CLI 工作階段，使用您所建立的資源使用的相同訂用帳戶的內容，並再試一次。
+    > 如果您的 Azure 帳戶有多個可用的訂用帳戶, `az aks get-credentials`且該命令傳回錯誤, 則常見的問題是您使用了錯誤的訂閱。 將 Azure CLI 會話的內容設定為使用您用來建立資源的相同訂用帳戶, 然後再試一次。
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. 開啟所選的文字編輯器 (此範例會使用__Visual Studio Code__):
+1. 開啟選擇的文字編輯器。 這個範例會使用 Visual Studio Code。
 
     ```azurecli
     code .
     ```
 
-1. 在文字編輯器中，建立新的檔案，名為_sentiment.yaml_然後貼上下列 YAML。 請務必取代`billing/value`和`apikey/value`以您自己。
+1. 在文字編輯器中, 建立名為_情感_的新檔案, 並在其中貼上下列 yaml。 請務必將和`billing/value` `apikey/value`取代為您自己的資訊。
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -108,39 +108,39 @@ ms.locfileid: "67561242"
         app: sentiment-app
     ```
 
-1. 儲存檔案並關閉文字編輯器。
-1. 執行的 Kubernetes`apply`命令搭配_sentiment.yaml_當做其目標：
+1. 儲存檔案, 然後關閉文字編輯器。
+1. 以`apply` _情感. yaml_作為目標來執行 Kubernetes 命令:
 
     ```console
     kuberctl apply -f sentiment.yaml
     ```
 
-    之後的命令已成功地會套用部署組態，類似下列輸出的訊息：
+    命令成功套用部署設定後, 會出現類似下列輸出的訊息:
 
     ```
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
-1. 請確認已部署的 POD:
+1. 確認已部署 pod:
 
     ```console
     kubectl get pods
     ```
 
-    這會輸出 POD 的執行狀態：
+    Pod 執行狀態的輸出:
 
     ```
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. 請確認服務可供使用，並取得 IP 位址：
+1. 確認服務可供使用, 並取得 IP 位址。
 
     ```console
     kubectl get services
     ```
 
-    這會輸出的執行狀態_情感_服務中的 POD:
+    Pod 中_情感_服務執行狀態的輸出:
 
     ```
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
@@ -148,9 +148,9 @@ ms.locfileid: "67561242"
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
 
-[!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
+[!INCLUDE [Verify the sentiment analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
 * 使用更多[認知服務容器](../../cognitive-services-container-support.md)
-* 使用[文字分析已連線服務](../vs-text-connected-service.md)
+* 使用[文字分析聯機服務](../vs-text-connected-service.md)

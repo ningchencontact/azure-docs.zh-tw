@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: snehaa
-ms.openlocfilehash: e5b4777adfcbb5babbf5db792a10d025c79b1a8b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302375"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372479"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -20,20 +20,8 @@ ms.locfileid: "68302375"
 ## <a name="general"></a>一般
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Azure Migrate 支援哪些 Azure 地理區？
-Azure Migrate 目前支援多個可建立 Azure Migrate 專案的地理位置。 雖然您只能在這些地理位置中建立專案, 但您仍然可以針對其他目標位置, 評估或遷移您的電腦。 專案地理位置只會用來儲存探索到的資料。
 
-
-**地理位置** | **中繼資料儲存位置**
---- | ---
-Azure Government | 美國政府維吉尼亞州
-亞洲 | 東南亞或東亞
-歐洲 | 歐洲南部或西歐
-英國 | 英國南部或英國西部
-美國 | 美國中部或美國西部2
-
-
-> [!NOTE]
-> Azure Government 的支援目前僅適用于[舊版](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions)的 Azure Migrate。
+您可以在這裡找到適用于[VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects)的清單, 以及[這裡的 hyper-v](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects)。
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Azure Migrate 和 Azure Site Recovery 有何不同？
 
@@ -51,7 +39,7 @@ Azure Migrate 提供集中式的中樞, 以啟動、執行和追蹤機器和工�
 
 ### <a name="can-i-harden-the-appliance-vm-i-set-up-with-the-template"></a>我可以強化我使用範本設定的設備 VM 嗎？
 
-您可以將其他元件 (例如防毒軟體) 新增至範本, 只要 Azure Migrate 設備所需的通訊和防火牆規則保持不維持。   
+您可以將其他元件 (例如防毒軟體) 新增到範本中, 只要 Azure Migrate 設備所需的通訊和防火牆規則保持不到。   
 
 ### <a name="what-data-is-collected-by-azure-migrate-appliance"></a>Azure Migrate 設備會收集哪些資料？
 
@@ -99,7 +87,7 @@ Azure Migrate 設備會持續收集內部部署環境的相關資訊。 不過, 
 
 您可以使用單一遷移設備探索最多10000個 VMware Vm 和最多5000部 Hyper-v Vm。  如果您的內部部署環境中有更多電腦, 請瞭解如何調整[hyper-v](scale-hyper-v-assessment.md)和[VMware](scale-vmware-assessment.md)評估。
 
-## <a name="azure-migrate-server-assessment"></a>Azure Migrate：伺服器評定
+## <a name="azure-migrate-server-assessment"></a>Azure Migrate：伺服器評量
 
 ### <a name="does-azure-migrate-server-assessment-support-assessment-of-physical-servers"></a>Azure Migrate:伺服器評估支援對實體伺服器進行評估嗎？
 

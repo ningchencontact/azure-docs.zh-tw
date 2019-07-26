@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5bdd5049b7ddeaac4425734aa6f4d633b08cd3b4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0707f08d7c1447ff9aaae919cabfe1a668b25e3d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057468"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404382"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 基礎結構最佳做法
 
@@ -36,15 +36,15 @@ ms.locfileid: "67057468"
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>在 HDInsight 中檢查 Hadoop 元件可用性
 
-每個 HDInsight 版本是一組 Hadoop 真假難系統元件的雲端發佈。 如需所有 HDInsight 元件與其最新版本的詳細資訊，請參閱 [HDInsight 元件版本設定](../hdinsight-component-versioning.md)。
+每個 HDInsight 版本都是一組 Hadoop 生態系統元件的雲端發佈。 如需所有 HDInsight 元件與其最新版本的詳細資訊，請參閱 [HDInsight 元件版本設定](../hdinsight-component-versioning.md)。
 
 您也可以使用 Apache Ambari UI 或 Ambari REST API ，在 HDInsight 中檢查 Hadoop 元件和版本。
 
-邊緣節點上，或在與 HDInsight 叢集相同的 VNet 中 VM 上，可以新增應用程式或元件已在內部部署叢集中提供，但不是 HDInsight 叢集的一部分。 協力廠商 Hadoop 應用程式無法在 Azure HDInsight 上使用，但可以在 HDInsight 叢集中使用「應用程式」選項安裝。 自訂 Hadoop 應用程式可使用「指令碼動作」在 HDInsight 叢集上安裝。 下表列出一些常見應用程式及其 HDInsight 整合選項：
+在內部部署叢集中提供但不屬於 HDInsight 叢集的應用程式或元件, 可以新增至邊緣節點或與 HDInsight 叢集位於相同 VNet 中的 VM 上。 協力廠商 Hadoop 應用程式無法在 Azure HDInsight 上使用，但可以在 HDInsight 叢集中使用「應用程式」選項安裝。 自訂 Hadoop 應用程式可使用「指令碼動作」在 HDInsight 叢集上安裝。 下表列出一些常見應用程式及其 HDInsight 整合選項：
 
 |**應用程式**|**整合**
 |---|---|
-|氣流|IaaS 或 HDInsight 的邊緣節點
+|氣流|IaaS 或 HDInsight 邊緣節點
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|無 (僅 HDP)
@@ -55,9 +55,9 @@ ms.locfileid: "67057468"
 |Ignite|IaaS
 |Jethro|IaaS 
 |Mapador|IaaS 
-|Mongo|IaaS (Azure 上的替代方案為 CosmosDB)
+|芒戈文|IaaS (Azure 上的替代方案為 CosmosDB)
 |NiFi|IaaS 
-|Presto|IaaS 或 HDInsight 的邊緣節點
+|Presto|IaaS 或 HDInsight 邊緣節點
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
@@ -102,7 +102,7 @@ HDInsight 提供預先撰寫的指令碼以在 HDInsight 叢集上安裝下列�
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>使用 Bootstrap 自訂 HDInsight 設定
 
-您可以使用 Bootstrap 針對設定檔 (例如 `core-site.xml`、`hive-site.xml` 和 `oozie-env.xml`) 中的設定進行變更。 下列指令碼是使用下列 Powershell 範例[AZ 模組](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)cmdlet[新增 AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+您可以使用 Bootstrap 針對設定檔 (例如 `core-site.xml`、`hive-site.xml` 和 `oozie-env.xml`) 中的設定進行變更。 下列腳本是使用 Powershell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) Cmdlet [AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)的範例:
 
 ```powershell
 # hive-site.xml configuration
@@ -127,7 +127,7 @@ New—AzHDInsightCluster `
     —Config $config
 ```
 
-如需詳細資訊，請參閱 [使用 Bootstrap 自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-bootstrap.md)一文。  此外，請參閱 <<c0> [ 使用 Apache Ambari REST API 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari-rest-api.md)。
+如需詳細資訊，請參閱 [使用 Bootstrap 自訂 HDInsight 叢集](../hdinsight-hadoop-customize-cluster-bootstrap.md)一文。  另請參閱[使用 Apache Ambari 管理 HDInsight 叢集 REST API](../hdinsight-hadoop-manage-ambari-rest-api.md)。
 
 ## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>從 HDInsight Hadoop 叢集邊緣節點存取用戶端工具
 
@@ -147,8 +147,8 @@ New—AzHDInsightCluster `
 
 HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的背景工作節點數。 此功能可讓您在下班時間或是週末縮小叢集，並於業務需求達到高峰的期間擴大叢集。 如需詳細資訊，請參閱：
 
-* [調整 HDInsight 叢集](../hdinsight-scaling-best-practices.md)。
-* [調整叢集](../hdinsight-administer-use-portal-linux.md#scale-clusters)。
+* [調整 HDInsight](../hdinsight-scaling-best-practices.md)叢集。
+* [調整叢集規模](../hdinsight-administer-use-portal-linux.md#scale-clusters)。
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>搭配使用 HDInsight 與 Azure 虛擬網路
 
@@ -160,7 +160,7 @@ Azure 虛擬網路透過篩選和路由傳送網路流量，讓 Azure 資源 (�
 - 將 HDInsight 連線至 Azure 虛擬網路中的資料存放區。
 - 直接存取無法透過網際網路公開使用的 Hadoop 服務。 例如，Kafka API 或 HBase Java API。
 
-HDInsight 可以新增到新的或現有的 Azure 虛擬網路。 如果 HDInsight 已新增到現有的虛擬網路，則需要更新現有的網路安全性群組和使用者定義的路由，以允許對 Azure 資料中心內的[數個 IP 位址](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)進行不受限制的存取。 此外，請確定未封鎖的流量[連接埠](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports)，其中會在使用 HDInsight 服務。
+HDInsight 可以新增到新的或現有的 Azure 虛擬網路。 如果 HDInsight 已新增到現有的虛擬網路，則需要更新現有的網路安全性群組和使用者定義的路由，以允許對 Azure 資料中心內的[數個 IP 位址](../hdinsight-management-ip-addresses.md)進行不受限制的存取。 此外, 請確定不會封鎖對 HDInsight 服務所使用之[埠](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)的流量。
 
 > [!Note]  
 > HDInsight 目前不支援強制通道。 強制通道是一種子網路設定，可強制裝置的輸出網際網路流量以進行檢查和記錄。 先移除強制通道，再將 HDInsight 安裝至子網路，或建立 HDInsight 的新子網路。 HDInsight 也不支援限制輸出網路連線。
@@ -168,11 +168,11 @@ HDInsight 可以新增到新的或現有的 Azure 虛擬網路。 如果 HDInsig
 如需詳細資訊，請參閱下列文章：
 
 - [Azure 虛擬網路概觀](../../virtual-network/virtual-networks-overview.md)
-- [使用 Azure 虛擬網路延伸 Azure HDInsight](../hdinsight-extend-hadoop-virtual-network.md)
+- [使用 Azure 虛擬網路延伸 Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>使用 Azure 虛擬網路服務端點安全地連線到 Azure 服務
 
-HDInsight 支援[虛擬網路服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)，可讓您安全地連線到 Azure Blob 儲存體、 Azure Data Lake 儲存體 Gen2、 Cosmos DB 和 SQL 資料庫。 藉由啟用 Azure HDInsight 的服務端點，來自 Azure 資料中心內的流量就可流經受保護的路由。 透過此網路層的增強式安全性等級，您可以將巨量資料儲存體帳戶鎖定至其指定的虛擬網路 (VNET)，並繼續使用 HDInsight 叢集順暢地存取和處理其資料。
+HDInsight 支援[虛擬網路服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md), 可讓您安全地連接到 Azure Blob 儲存體、Azure Data Lake Storage Gen2、COSMOS DB 和 SQL 資料庫。 藉由啟用 Azure HDInsight 的服務端點，來自 Azure 資料中心內的流量就可流經受保護的路由。 透過此網路層的增強式安全性等級，您可以將巨量資料儲存體帳戶鎖定至其指定的虛擬網路 (VNET)，並繼續使用 HDInsight 叢集順暢地存取和處理其資料。
 
 如需詳細資訊，請參閱下列文章：
 

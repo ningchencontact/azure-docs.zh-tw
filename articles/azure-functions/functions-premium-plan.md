@@ -1,6 +1,6 @@
 ---
-title: Azure Functions 的進階方案 （預覽） |Microsoft Docs
-description: 詳細資料和 Azure Functions 的進階組態選項 (VNet，沒有冷啟動 」、 「 無限制的執行持續時間) 計劃。
+title: Azure Functions Premium 方案 (預覽) |Microsoft Docs
+description: Azure Functions Premium 方案的詳細資料和設定選項 (VNet, 無冷啟動、無限制的執行持續時間)。
 services: functions
 author: jeffhollan
 manager: jeconnoc
@@ -10,45 +10,47 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ad09550e572c98931346b44a6c6f84da29a85e4
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492707"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443977"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Azure Functions 的進階方案 （預覽）
+# <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium 方案 (預覽)
 
-Azure Functions Premium 方案是函式應用程式的裝載選項。 「 進階 」 方案提供的功能，像是 VNet 連線能力、 沒有冷啟動，以及進階硬體。  可以將多個函式應用程式部署到相同的進階方案，並計劃可讓您設定計算執行個體大小、 基本方案大小，以及最大的計畫大小。  「 進階 」 方案和其他的計劃，以及裝載型別比較，請參閱[函式級別和裝載選項](functions-scale.md)。
+Azure Functions Premium 方案是函數應用程式的裝載選項。 Premium 方案提供 VNet 連線能力、無冷啟動和 Premium 硬體等功能。  多個函數應用程式可以部署到相同的高階方案, 而方案則可讓您設定計算實例大小、基本方案大小和最大方案大小。  如需高階計畫和其他計畫和裝載類型的比較, 請參閱[函數級別和裝載選項](functions-scale.md)。
 
-> [!NOTE]
-> 高階方案預覽目前支援執行.NET、 節點或 Java 中透過 Windows 基礎結構的函式。
-
-## <a name="create-a-premium-plan"></a>建立進階方案
+## <a name="create-a-premium-plan"></a>建立 Premium 方案
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-您也可以從 Azure CLI 來建立進階方案
+您也可以使用 Azure CLI 中的[az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create)來建立高階計畫。 下列範例會建立_彈性 Premium 1_層方案:
 
 ```azurecli-interactive
-az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --number-of-workers 1 --sku EP1
+az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
+--location <REGION> --sku EP1
 ```
+
+在此範例中, `<RESOURCE_GROUP>`請將取代為您`<PLAN_NAME>`的資源群組, 並以您方案的名稱 (在資源群組中是唯一的)。 指定[支援`<REGION>`](#regions)的。 若要建立支援 Linux 的 Premium 方案, 請包含`--is-linux`選項。
+
+建立計畫之後, 您可以使用[az functionapp create](/cli/azure/functionapp#az-functionapp-create)來建立函數應用程式。 在入口網站中, 會同時建立方案和應用程式。 
 
 ## <a name="features"></a>功能
 
-部署到進階方案的函式應用程式提供下列功能。
+下列功能可供部署至 Premium 方案的函數應用程式使用。
 
-### <a name="pre-warmed-instances"></a>已預先準備的執行個體
+### <a name="pre-warmed-instances"></a>預先準備就緒的實例
 
-未發生任何事件和執行立即在取用方案中，您的應用程式可能會相應減少為零的執行個體。 當有新的事件時的新執行個體必須在其上執行的應用程式進行特製化。  特製化的新執行個體可能需要一些時間，取決於應用程式。  第一次呼叫此額外的延遲通常稱為應用程式冷啟動。
+如果目前在取用方案中沒有發生任何事件和執行, 您的應用程式可能會相應減少為零個實例。 當新事件進入時, 必須將新的實例專門提供給在其上執行的應用程式。  根據應用程式, 將新的實例特製化可能需要一些時間。  第一次呼叫時的此額外延遲通常稱為應用程式冷啟動。
 
-在 「 進階 」 方案，您可以讓您預先準備的執行個體，但不超過最小的計劃大小的指定數目的應用程式。  已預先準備的執行個體也可讓您預先調整之前高負載的應用程式。 應用程式相應放大，它首先會調整成預先 warmed 的執行個體。 其他執行個體會繼續緩衝和暖立即在下一個調整規模作業的準備。 擁有已預先準備的執行個體的緩衝區，您可以有效避免冷啟動延遲。  已預先準備的執行個體是 「 進階 」 方案的功能和您需要保留至少一個執行的執行個體，可在所有時間計劃是使用中。
+在高階方案中, 您可以讓應用程式預先準備就緒指定的實例數目, 最多可達您最小的方案大小。  預先準備就緒的實例也可讓您在高負載前預先調整應用程式。 當應用程式相應放大時, 它會先調整為預先準備就緒的實例。 其他實例會繼續緩衝並立即準備好進行下一個調整作業。 藉由擁有預先準備就緒之實例的緩衝區, 您可以有效地避免冷啟動延遲。  預先準備就緒的實例是高階方案的一項功能, 而且您必須至少保留一個執行中的實例, 而且在計畫作用中的任何時候都可以使用。
 
-您可以設定預先準備的執行個體數目，在 Azure 入口網站會藉由選取您**函式應用程式**、 負責**平台功能**索引標籤，然後選取**Scale Out**選項。 在函式應用程式的 [編輯] 視窗中，已預先準備的執行個體是針對該應用程式，但最小和最大執行個體套用至整個計劃。
+您可以選取您的**函數應用程式**、前往 [**平臺功能**] 索引標籤, 然後選取**Scale Out**選項, 以在 Azure 入口網站中設定預先準備就緒的實例數目。 在 [函數應用程式] [編輯] 視窗中, 預先準備就緒的實例是該應用程式特有的, 但最小和最大實例適用于整個計畫。
 
-![彈性的調整規模設定](./media/functions-premium-plan/scale-out.png)
+![彈性調整規模設定](./media/functions-premium-plan/scale-out.png)
 
-您也可以使用 Azure CLI 來設定應用程式已預先準備的執行個體
+您也可以使用 Azure CLI 為應用程式設定預先準備就緒的實例
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -56,79 +58,81 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>私人網路連線能力
 
-部署到進階方案的 azure Functions 會利用[新的 VNet 整合的 web 應用程式](../app-service/web-sites-integrate-with-vnet.md)。  設定時，您的應用程式可以與您的 VNet 內的資源通訊，或透過服務端點保護。  IP 限制也有應用程式，可限制連入流量。
+部署至 Premium 方案的 Azure Functions 會利用[web 應用程式的新 VNet 整合](../app-service/web-sites-integrate-with-vnet.md)。  設定之後, 您的應用程式就可以與 VNet 內的資源通訊, 或透過服務端點來保護其安全。  應用程式也可以使用 IP 限制來限制連入流量。
 
-指派給函式應用程式的子網路，在進階方案，您會需要有足夠的 IP 位址的子網路的每個可能的執行個體。 雖然執行個體數目上限可能有所差異，在預覽期間，我們需要至少 100 個可用的位址與 IP 區塊。
+將子網指派給高階方案中的函式應用程式時, 您需要有足夠的 IP 位址可用於每個潛在實例的子網。 雖然實例的最大數目可能會在預覽期間有所不同, 但我們需要至少具有100個可用位址的 IP 區塊。
 
-如需詳細資訊，請參閱[將您的函式應用程式與 VNet 整合](functions-create-vnet.md)。
+如需詳細資訊, 請參閱[整合您的函數應用程式與 VNet](functions-create-vnet.md)。
 
-### <a name="rapid-elastic-scale"></a>快速彈性延展
+### <a name="rapid-elastic-scale"></a>快速彈性調整
 
-取用方案為使用相同的快速調整邏輯應用程式，會自動新增額外的計算執行個體。  若要深入了解如何調整的運作方式，請參閱[函式級別和裝載](./functions-scale.md#how-the-consumption-and-premium-plans-work)。
+系統會使用與取用方案相同的快速調整邏輯, 為您的應用程式自動新增額外的計算實例。  若要深入瞭解調整如何運作, 請參閱[函數級別和裝載](./functions-scale.md#how-the-consumption-and-premium-plans-work)。
 
-### <a name="unbounded-run-duration"></a>執行持續時間的未繫結
+### <a name="unbounded-run-duration"></a>未系結的執行持續時間
 
-取用方案中的 azure 函式僅限於單一執行 10 分鐘的時間。  在 「 進階 」 方案，執行持續期間預設值為 30 分鐘，以防止失控的執行。 不過，您可以[修改 host.json 組態](./functions-host-json.md#functiontimeout)若要將此進階方案的應用程式的未繫結。
+取用方案中的 Azure Functions 僅限10分鐘的時間執行一次。  在 Premium 方案中, 回合持續時間預設為30分鐘, 以防止執行失控。 不過, 您可以[修改 host. json](./functions-host-json.md#functiontimeout)設定, 讓 Premium 方案應用程式不受限制。
 
-在預覽中，您的持續期間不保證過去的 12 分鐘的時間，而且必須執行超過 30 分鐘，如果您的應用程式並未調升超出其最小的背景工作計數的最佳機會。
+在預覽中, 您的持續時間不保證超過12分鐘, 而且如果您的應用程式未調整到超過其最小工作者計數, 則會有30分鐘以上的執行機會。
 
-## <a name="plan-and-sku-settings"></a>計劃和 SKU 的設定
+## <a name="plan-and-sku-settings"></a>方案和 SKU 設定
 
-當您建立方案時，您會設定兩個設定： 執行個體 （或計劃大小） 的最小數目和最大的高載的限制。  進階方案的最小執行個體為 1，而最大的高載，在預覽期間為 20。  最小執行個體都已保留，一律執行。
+當您建立方案時, 可以設定兩個設定: 實例的最小數目 (或方案大小) 和最大高載限制。  高階方案的最小實例為 1, 而在預覽期間的最大高載為20。  實例的最小值為保留且一律正在執行。
 
 > [!IMPORTANT]
-> 向您收取每個執行個體配置的最小執行個體計數無論或不執行函式。
+> 不論函式是否正在執行, 您都會針對每個配置於最小實例計數的實例向您收費。
 
-如果您的應用程式需要超過您的方案大小的執行個體，它可以繼續相應放大，直到執行個體數目達到最大的高載的限制。  您會收到帳單，針對超過您的方案大小的執行個體而它們正在執行且可租給您。  我們將盡力調整您的應用程式至其定義的最大限制，而您的應用程式期間都保證最低的方案執行個體。
+如果您的應用程式需要超過方案大小的實例, 它可以繼續相應放大, 直到實例數目達到最大高載限制為止。  只有在執行並出租給您的情況下, 才會向您收取方案大小以外的實例費用。  我們會盡力將您的應用程式調整為其定義的最大限制, 而最小方案實例則可保證您的應用程式。
 
-您可以設定的計畫大小和最大值，在 Azure 入口網站中選取**相應放大**計劃] 或 [函數應用程式部署至該方案中的選項 (底下**平台功能**)。
+您可以藉由選取方案中的**Scale Out**選項或部署至該方案的函式應用程式 (在 [**平臺功能**] 底下), 來設定 Azure 入口網站中的計畫大小和上限。
 
-您也可以增加從 Azure CLI 的最大的高載限制：
+您也可以從 Azure CLI 增加最大的高載限制:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
 ```
 
-### <a name="available-instance-skus"></a>可用的執行個體 Sku
+### <a name="available-instance-skus"></a>可用的實例 Sku
 
-當建立或調整您的計劃時，您可以選擇三個執行個體大小。  您將支付的核心和每秒取用的記憶體總數。  您的應用程式可以自動相應放大至多個執行個體所需。  
+建立或調整您的方案時, 您可以選擇三種實例大小。  系統會向您收取每秒耗用的核心和記憶體總數。  您的應用程式可以視需要自動相應放大至多個實例。  
 
-|SKU|核心|記憶體|儲存體|
+|SKU|核心|記憶體|存放區|
 |--|--|--|--|
-|EP1|1|3.5GB|250 GB|
+|EP1|1|3.5 GB|250 GB|
 |EP2|2|7 GB|250 GB|
 |EP3|4|14 GB|250 GB|
 
 ## <a name="regions"></a>Regions
 
-以下是針對公開預覽版目前支援的區域。
+以下是每個 OS 的公開預覽目前支援的區域。
 
-|區域|
-|--|
-|澳洲東部|
-|澳大利亞東南部|
-|加拿大中部|
-|美國中部|
-|東亞|
-|美國東部 2|
-|法國中部|
-|日本西部|
-|南韓中部|
-|美國中北部|
-|北歐|
-|美國中南部|
-|印度南部|
-|東南亞|
-|英國西部|
-|西歐|
-|印度西部|
-|美國西部|
+|區域| Windows | Linux |
+|--| -- | -- |
+|澳大利亞東部| ✔ | |
+|澳大利亞東南部 | ✔ | ✔ |
+|加拿大中部| ✔ |  |
+|美國中部| ✔ |  |
+|東亞| ✔ |  |
+|East US | | ✔ |
+|美國東部 2| ✔ |  |
+|法國中部| ✔ |  |
+|日本東部|  | ✔ |
+|日本西部| ✔ | |
+|南韓中部| ✔ |  |
+|美國中北部| ✔ |  |
+|北歐| ✔ | ✔ |
+|美國中南部| ✔ |  |
+|印度南部 | ✔ | |
+|東南亞| ✔ | ✔ |
+|英國西部| ✔ |  |
+|西歐| ✔ | ✔ |
+|印度西部| ✔ |  |
+|美國西部| ✔ | ✔ |
 
 ## <a name="known-issues"></a>已知問題
 
-您可以追蹤的已知問題的狀態[公開預覽版的 GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues)。
+您可以[在 GitHub 上追蹤公開預覽](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues)的已知問題狀態。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [了解 Azure Functions 的級別和裝載選項](functions-scale.md)
+> [瞭解 Azure Functions 規模和裝載選項](functions-scale.md)

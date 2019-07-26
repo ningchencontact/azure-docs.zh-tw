@@ -1,8 +1,8 @@
 ---
 title: Azure SQL 資料倉儲中的 CREATE TABLE AS SELECT (CTAS) | Microsoft Docs
-description: 說明和中 Azure SQL 資料倉儲以便開發解決方案的 CREATE TABLE AS SELECT (CTAS) 陳述式的範例。
+description: 在開發方案的 Azure SQL 資料倉儲中, CREATE TABLE AS SELECT (CTAS) 語句的說明和範例。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,26 +11,26 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 91de474cc0610099b4264cc6d0dfbd26e8df0618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b4ccd7742f8a84eec2d63a86e1387733d4c1864
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851456"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479689"
 ---
-# <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中建立 TABLE AS SELECT (CTAS)
+# <a name="create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>CREATE TABLE 為 Azure SQL 資料倉儲中的 SELECT (CTAS)
 
-這篇文章會說明 Azure SQL 資料倉儲中的 CREATE TABLE AS SELECT (CTAS) T-SQL 陳述式，以便開發解決方案。 本文也會提供程式碼範例。
+本文說明在 Azure SQL 資料倉儲中用來開發解決方案的 CREATE TABLE AS SELECT (CTAS) T-sql 語句。 本文也提供程式碼範例。
 
 ## <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-[CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) 陳述式是其中一個最重要的 T-SQL 功能。 CTAS 是建立新的資料表的 SELECT 陳述式的輸出為基礎的平行作業。 CTAS 是最簡單且最快速的方式，來建立，並將資料插入資料表，以使用單一命令。
+[CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) 語句是最重要的其中一個可用的 t-sql 功能。 CTAS 是一種平行作業, 會根據 SELECT 語句的輸出來建立新的資料表。 CTAS 是使用單一命令來建立資料並將其插入資料表的最簡單且最快速的方式。
 
-## <a name="selectinto-vs-ctas"></a>選取此項目...至 vs。CTAS
+## <a name="selectinto-vs-ctas"></a>選取 .。。到 vs。CTAS
 
-CTAS 是自訂程度版本[選取...到](/sql/t-sql/queries/select-into-clause-transact-sql)陳述式。
+CTAS 是更容易自訂的[SELECT .。。INTO](/sql/t-sql/queries/select-into-clause-transact-sql)語句。
 
-以下是 SELECT 的簡單的範例...到：
+以下是簡單 SELECT ... 的範例登錄
 
 ```sql
 SELECT *
@@ -38,9 +38,9 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-選取此項目...為不允許您的作業期間變更分散方法或索引類型。 您建立`[dbo].[FactInternetSales_new]`使用 ROUND_ROBIN 的預設散發類型和叢集資料行存放區索引的預設資料表結構。
+選取 .。。INTO 不允許您變更散發方法或索引類型做為作業的一部分。 您可以`[dbo].[FactInternetSales_new]`使用預設的 ROUND_ROBIN 散發類型, 以及叢集資料行存放區索引的預設資料表結構來建立。
 
-相反地，使用 CTAS，您可以指定分佈資料表的資料，以及資料表的結構類型。 若要轉換成 CTAS 先前的範例：
+另一方面, 使用 CTAS, 您可以同時指定資料表資料的分佈, 以及資料表結構類型。 若要將上一個範例轉換為 CTAS:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -56,13 +56,13 @@ FROM    [dbo].[FactInternetSales]
 ```
 
 > [!NOTE]
-> 如果您只想要變更您的 CTAS 作業中的索引，來源資料表是雜湊散發，維護相同的散發資料行和資料類型。 這可以避免跨散發資料移動作業期間，也就是更有效率。
+> 如果您只想要在 CTAS 作業中變更索引, 而且來源資料表是雜湊散發, 請維護相同的散發資料行和資料類型。 這可避免在作業期間進行跨散發資料移動, 這會更有效率。
 
-## <a name="use-ctas-to-copy-a-table"></a>使用 CTAS 複製資料表
+## <a name="use-ctas-to-copy-a-table"></a>使用 CTAS 來複製資料表
 
-可能 CTAS 最常見用途之一建立一份資料表，才能變更 DDL。 讓我們假設您原先將資料表建立為`ROUND_ROBIN`，而現在想要將它變更為散發資料行的資料表。 CTAS 是來變更散發資料行。 您也可以使用 CTAS 來變更資料分割、 索引或資料行的類型。
+最常見的 CTAS 使用方式之一, 就是建立資料表的複本, 以便變更 DDL。 假設您最初已將資料表建立為`ROUND_ROBIN`, 而現在想要將它變更為在資料行上散發的資料表。 CTAS 是變更散發資料行的方式。 您也可以使用 CTAS 來變更資料分割、索引或資料行類型。
 
-讓我們假設您建立此資料表使用的預設散發類型`ROUND_ROBIN`，不指定散發資料行中的`CREATE TABLE`。
+假設您是使用的預設散發類型`ROUND_ROBIN`建立此資料表, 而不是`CREATE TABLE`在中指定散發資料行。
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -93,7 +93,7 @@ CREATE TABLE FactInternetSales
 );
 ```
 
-現在您想要建立這個資料表的新複本`Clustered Columnstore Index`，因此您可以利用叢集資料行存放區資料表的效能。 您也想要散發此資料表上`ProductKey`，因為您預期這個資料行的聯結，而且想要避免聯結期間的資料移動上`ProductKey`。 最後，您也想要加入資料分割上`OrderDateKey`，因此您可以卸除舊的資料分割，以快速刪除舊的資料。 以下是 CTAS 陳述式，這會將您的舊資料表複製到新的資料表。
+現在您想要使用`Clustered Columnstore Index`建立這個資料表的新複本, 讓您可以利用叢集資料行存放區資料表的效能。 您也想要在上`ProductKey`散發此資料表, 因為您預期會在此資料行上進行聯結, 而且想要避免在聯結期間的`ProductKey`資料移動。 最後, 您也想要在上`OrderDateKey`新增資料分割, 因此您可以藉由卸載舊的磁碟分割來快速刪除舊的資料。 以下是 CTAS 語句, 它會將您的舊資料表複製到新的資料表中。
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -114,7 +114,7 @@ WITH
 AS SELECT * FROM FactInternetSales;
 ```
 
-最後，您可以重新命名資料表，以便交換在新的資料表，然後再卸除舊的資料表。
+最後, 您可以重新命名您的資料表, 以在新的資料表中交換, 然後卸載舊的資料表。
 
 ```sql
 RENAME OBJECT FactInternetSales TO FactInternetSales_old;
@@ -125,18 +125,18 @@ DROP TABLE FactInternetSales_old;
 
 ## <a name="use-ctas-to-work-around-unsupported-features"></a>使用 CTAS 來解決不支援的功能
 
-您也可以使用 CTAS 來解決不支援的功能下面所列的數目。 這個方法通常可以證明很有幫助，因為不只您的程式碼會相容，但它通常執行速度會在 SQL 資料倉儲。 此效能是完全平行化設計的結果。 案例包括：
+您也可以使用 CTAS 來解決下列幾個不支援的功能。 這個方法通常很有用, 因為您的程式碼不僅符合規範, 而且通常會在 SQL 資料倉儲上執行得更快。 這項效能是其完全平行化設計的結果。 案例包括:
 
 * ANSI JOINS on UPDATEs
 * ANSI JOINs on DELETEs
 * MERGE 陳述式
 
 > [!TIP]
-> 請想想"CTAS 第一次。 」 使用 CTAS 來解決問題通常是不錯的方法，即使您如此一來撰寫更多資料。
+> 請嘗試考慮「先 CTAS」。 使用 CTAS 解決問題通常是很好的方法, 即使您要撰寫更多資料亦然。
 
 ## <a name="ansi-join-replacement-for-update-statements"></a>update 陳述式的 ANSI 聯結取代
 
-您可能會發現您有複雜的更新。 更新執行 UPDATE 或 DELETE 使用 ANSI 聯結語法，請以一起加入兩個以上的資料表。
+您可能會發現您有複雜的更新。 此更新會使用 ANSI 聯結語法來執行更新或刪除, 以結合兩個以上的資料表。
 
 假設您必須更新此資料表：
 
@@ -153,7 +153,7 @@ WITH
 ;
 ```
 
-原始的查詢可能看起來如下列範例：
+原始查詢可能看起來像這個範例:
 
 ```sql
 UPDATE    acs
@@ -178,9 +178,9 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 ;
 ```
 
-SQL 資料倉儲不支援中的 ANSI 聯結`FROM`子句`UPDATE`陳述式，因此您無法使用上述的範例，但無法加以修改。
+SQL 資料倉儲在`FROM` `UPDATE`語句的子句中不支援 ANSI 聯結, 因此您不能使用上述範例, 而不需要修改。
 
-您可以使用 CTAS 和隱含聯結的組合來取代先前的範例：
+您可以使用 CTAS 和隱含聯結的組合來取代先前的範例:
 
 ```sql
 -- Create an interim table
@@ -216,9 +216,9 @@ DROP TABLE CTAS_acs
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>delete 陳述式的 ANSI 聯結取代
 
-有時候刪除資料的最佳方法是使用 CTAS，特別是針對`DELETE`陳述式，使用 ANSI 聯結語法。 這是因為 SQL 資料倉儲不支援中的 ANSI 聯結`FROM`子句`DELETE`陳述式。 而非刪除資料，選取您想要保留的資料。
+有時候刪除資料的最佳方法是使用 CTAS, 特別`DELETE`是使用 ANSI 聯結語法的語句。 這是因為 SQL 資料倉儲不支援在語句的`FROM`子句中使用`DELETE` ANSI 聯結。 請選取您想要保留的資料, 而不是刪除資料。
 
-以下是範例轉換的`DELETE`陳述式：
+以下是已轉換`DELETE`的語句範例:
 
 ```sql
 CREATE TABLE dbo.DimProduct_upsert
@@ -241,9 +241,9 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 
 ## <a name="replace-merge-statements"></a>取代 merge 陳述式
 
-您可以取代 merge 陳述式中，至少在部分中，使用 CTAS。 您可以結合`INSERT`而`UPDATE`為單一陳述式。 任何已刪除的記錄應該限制不得`SELECT`陳述式，從結果中略過。
+您可以使用 CTAS 來取代 merge 語句 (至少在部分中)。 您可以將`INSERT` `UPDATE`和合併成單一語句。 所有已刪除的記錄都應該限制`SELECT`在語句中, 以便從結果中省略。
 
-下列範例是針對`UPSERT`:
+下列範例適用于`UPSERT`:
 
 ```sql
 CREATE TABLE dbo.[DimProduct_upsert]
@@ -276,7 +276,7 @@ RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 
 ## <a name="explicitly-state-data-type-and-nullability-of-output"></a>明確陳述資料類型和輸出可為 null
 
-在移轉程式碼時，您可能會發現您遇到這種類型的程式碼撰寫模式：
+在遷移程式碼時, 您可能會發現, 您可以在這種編碼模式中執行:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -292,9 +292,9 @@ SELECT @d*@f
 ;
 ```
 
-您可能會認為您應該將此程式碼移轉至 CTAS，而系統會以正確的方式將。 不過，還有一個隱藏的問題。
+您可能認為應該將此程式碼遷移至 CTAS, 而且您是正確的。 不過, 這裡有一個隱藏的問題。
 
-下列程式碼不會產生相同的結果：
+下列程式碼不會產生相同的結果:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -308,9 +308,9 @@ SELECT @d*@f as result
 ;
 ```
 
-請注意，資料行 "result" 沿用運算式的資料類型和可為 null 值。 執行資料型別轉送可能會導致值出現細微的變化如果您不小心。
+請注意，資料行 "result" 沿用運算式的資料類型和可為 null 值。 如果您不小心, 將資料類型轉送會導致值的細微差異。
 
-請嘗試此範例中：
+請嘗試此範例:
 
 ```sql
 SELECT result,result*@d
@@ -322,18 +322,18 @@ from ctas_r
 ;
 ```
 
-儲存的結果值是不同的。 結果資料行中的持續的值用在其他運算式時，錯誤會變得更加明顯。
+儲存的結果值是不同的。 當結果資料行中的保存值用於其他運算式時, 錯誤會變得更重要。
 
-![螢幕擷取畫面的 CTAS 結果](media/sql-data-warehouse-develop-ctas/ctas-results.png)
+![CTAS 結果的螢幕擷取畫面](media/sql-data-warehouse-develop-ctas/ctas-results.png)
 
-這是很重要的資料移轉。 即使第二個查詢無疑更為準確，還有一個問題。 資料會有不同相較於來源系統時，，因而導致資料移轉的完整性問題。 這是「錯誤」答案其實是正確答案的少數原因之一！
+這對資料移轉而言很重要。 雖然第二個查詢是比較精確的, 但仍有問題。 相較于來源系統, 資料會不同, 這會導致遷移中的完整性問題。 這是「錯誤」答案其實是正確答案的少數原因之一！
 
-我們會看到兩個結果之間差異的原因是因為隱含類型轉換。 在第一個範例中，資料表會定義資料行定義。 插入資料列時，就會發生隱含類型轉換。 在第二個範例中，沒有任何隱含類型轉換因為運算式會定義資料行的資料類型。
+我們在兩個結果之間看到差異的原因, 是因為隱含的類型轉換。 在第一個範例中, 資料表會定義資料行定義。 插入資料列時, 會發生隱含類型轉換。 在第二個範例中, 沒有隱含的類型轉換, 因為運算式會定義資料行的資料類型。
 
-另請注意，第二個範例中的資料行已定義為 Null 的資料行，而在第一個範例中沒有。 當建立資料表時，第一個範例中時，已明確定義資料行 null 屬性。 在第二個範例中，它會保留為運算式，並依預設會產生一個 NULL 定義。
+另外也請注意, 第二個範例中的資料行已定義為可為 Null 的資料行, 而在第一個範例中則沒有。 在第一個範例中建立資料表時, 已明確定義資料行 null 屬性。 在第二個範例中, 它會留給運算式, 而且預設會產生 Null 定義。
 
-若要解決這些問題，您必須明確設定型別轉換和可 null 性在 CTAS 陳述式的 SELECT 部分中。 您無法在 CREATE TABLE 中設定這些屬性。
-下列範例示範如何修正程式碼：
+若要解決這些問題, 您必須在 CTAS 語句的 SELECT 部分中明確設定類型轉換和可為 null 屬性。 您無法在 ' CREATE TABLE ' 中設定這些屬性。
+下列範例示範如何修正程式碼:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -347,15 +347,15 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 
 請注意下列事項：
 
-* 您可以使用轉型或轉換。
-* 您可以使用 ISNULL、 不是 COALESCE，來強制可 null 性。 請參閱下列附註。
-* ISNULL 是最外層的函式。
-* ISNULL 的第二個部分是常數，0。
+* 您可以使用 CAST 或 CONVERT。
+* 使用 ISNull, 而非聯合, 強制 Null 屬性。 請參閱下列注意事項。
+* ISNull 是最外層的函式。
+* ISNull 的第二個部分是常數, 0。
 
 > [!NOTE]
-> 正確設定可為 null 屬性，請務必使用 ISNULL 而不是 COALESCE。 COALESCE 不是具決定性的函數，並因此運算式的結果一律可為 Null。 但 ISNULL 不同。 它是具決定性。 因此，當 ISNULL 函數的第二個部分是常數或常值，產生的值會是 NOT NULL。
+> 若要正確設定 null 屬性, 請務必使用 ISNull, 而不要聯合。 聯合不是具決定性的函數, 因此運算式的結果一律可為 Null。 但 ISNULL 不同。 這是決定性的。 因此, 當 ISNull 函式的第二個部分是常數或常值時, 產生的值將不會是 Null。
 
-確保您的計算的完整性也很重要的資料表資料分割切換。 假設您有這個資料表定義為事實資料表：
+確保計算的完整性對於資料表分割切換也很重要。 假設您已將此資料表定義為事實資料表:
 
 ```sql
 CREATE TABLE [dbo].[Sales]
@@ -378,9 +378,9 @@ WITH
 ;
 ```
 
-不過，[數量] 欄位是計算的運算式。 它不是來源資料的一部分。
+不過, [金額] 欄位是一個計算運算式。 它不是來源資料的一部分。
 
-若要建立分割的資料集，您可能想要使用下列程式碼：
+若要建立分割的資料集, 您可能會想要使用下列程式碼:
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -404,7 +404,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-執行查詢就非常適合。 問題出在當您嘗試進行資料分割切換。 資料表定義不相符。 若要讓資料表定義相符，修改將 CTAS`ISNULL`函式，以保留資料行的 null 屬性。
+查詢可以順利執行。 當您嘗試執行資料分割切換時, 就會發生此問題。 資料表定義不相符。 若要讓資料表定義相符, 請修改 CTAS 來加入`ISNULL`函數, 以保留資料行的可為 null 屬性。
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -427,9 +427,9 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-您可以看到類型一致性以及維護 CTAS 上的可 null 性屬性就是工程的最佳做法。 它有助於維護計算的完整性，並也可確保資料分割切換的可能。
+您可以看到 CTAS 上的類型一致性和維護可 null 性屬性是工程的最佳作法。 它有助於維護計算的完整性, 同時也可確保能夠切換分割區。
 
-CTAS 是其中一個最重要的陳述式，SQL 資料倉儲中。 請確定您已徹底了解。 請參閱[CTAS 文件](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)。
+CTAS 是 SQL 資料倉儲中最重要的其中一個語句。 請確定您已徹底了解。 請參閱[CTAS 檔](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)。
 
 ## <a name="next-steps"></a>後續步驟
 

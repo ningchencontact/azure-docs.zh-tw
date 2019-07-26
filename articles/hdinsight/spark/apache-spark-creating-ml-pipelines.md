@@ -2,18 +2,18 @@
 title: 建立 Apache Spark 機器學習服務管線 - Azure HDInsight
 description: 使用 Apache Spark 機器學習服務程式庫以建立資料管線。
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: c539460177a0a85938b886d161803e1fdf0e9e68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/22/2019
+ms.openlocfilehash: 4ad68ef33eb469c7949c3f3efcd55d6765da4158
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730189"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441872"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>建立 Apache Spark 機器學習服務管線
 
@@ -29,7 +29,7 @@ Transformer 或 Estimator 的每個無狀態執行個體皆有自己唯一的識
 
 ## <a name="pipeline-example"></a>管線範例
 
-為了示範機器學習服務管線的實際應用情況，此範例針對您的 HDInsight 叢集 (Azure 儲存體或 Data Lake Storage)，使用在預設儲存體中預先載入的 `HVAC.csv` 資料檔案範例。 若要檢視檔案的內容，請瀏覽至 `/HdiSamples/HdiSamples/SensorSampleData/hvac` 目錄。 `HVAC.csv` 包含一系列各種建築物中 HVAC (暖氣、通風和空調  ) 系統的目標和實際溫度。 目標是在資料上定型模型，並為指定的建築物產生預測溫度。
+為了示範機器學習服務管線的實際應用情況，此範例針對您的 HDInsight 叢集 (Azure 儲存體或 Data Lake Storage)，使用在預設儲存體中預先載入的 `HVAC.csv` 資料檔案範例。 若要檢視檔案的內容，請瀏覽至 `/HdiSamples/HdiSamples/SensorSampleData/hvac` 目錄。 `HVAC.csv` 包含一系列各種建築物中 HVAC (暖氣、通風和空調) 系統的目標和實際溫度。 目標是在資料上定型模型，並為指定的建築物產生預測溫度。
 
 下列程式碼：
 
@@ -56,19 +56,23 @@ from pyspark.sql import Row
 LabeledDocument = Row("BuildingID", "SystemInfo", "label")
 
 # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
+
+
 def parseDocument(line):
     values = [str(x) for x in line.split(',')]
     if (values[3] > values[2]):
         hot = 1.0
     else:
-        hot = 0.0        
+        hot = 0.0
 
     textValue = str(values[4]) + " " + str(values[5])
 
     return LabeledDocument((values[6]), textValue, hot)
 
+
 # Load the raw HVAC.csv file, parse it using the function
-data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+data = sc.textFile(
+    "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()

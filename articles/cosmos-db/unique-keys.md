@@ -5,14 +5,14 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: af3c7771ce977cf248c5f1b61ba1c535a10ccd3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5b8eb4d5334eb198ff6699897c56b516ded069e
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242502"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467573"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵限制式
 
@@ -45,7 +45,7 @@ ms.locfileid: "66242502"
 
 * 若要為現有容器設定唯一索引鍵，請使用唯一索引鍵限制式建立新的容器。 使用適當的資料移轉工具，將資料從現有的容器移至新的容器。 針對 SQL 容器，使用[資料移轉工具](import-data.md)來移動資料。 對於 MongoDB 容器，使用 [mongoimport.exe 或 mongorestore.exe](mongodb-migrate.md) 來移動資料。
 
-* 唯一索引鍵原則最多可包含 16 個路徑值。 例如，值可以是`/firstName`， `/lastName`，和`/address/zipCode`。 每個唯一索引鍵原則最多可以有 10 個唯一索引鍵條件約束或組合。 每個唯一索引限制式的組合路徑不得超過 60 個位元組。 在前一個範例中，名字、姓氏和電子郵件地址合起來是一個限制式。 此限制式會使用 16 個可能路徑中的 3 個。
+* 唯一索引鍵原則最多可包含 16 個路徑值。 例如, 值可以是`/firstName`、 `/lastName`和`/address/zipCode`。 每個唯一索引鍵原則最多可以有 10 個唯一索引鍵條件約束或組合。 每個唯一索引限制式的組合路徑不得超過 60 個位元組。 在前一個範例中，名字、姓氏和電子郵件地址合起來是一個限制式。 此限制式會使用 16 個可能路徑中的 3 個。
 
 * 如果容器具有唯一索引鍵原則，則建立、更新和刪除項目時產生的[要求單位 (RU)](request-units.md) 費用要略高一些。
 
@@ -56,4 +56,4 @@ ms.locfileid: "66242502"
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解[邏輯分割區](partition-data.md)
-* 瀏覽[如何定義唯一索引鍵](how-to-define-unique-keys.md)建立容器時
+* 探索如何在建立容器時[定義唯一索引鍵](how-to-define-unique-keys.md)

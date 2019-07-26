@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 506847b436eeb3e1f612a17bf1182359a0e00947
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123359"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348418"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在向外延展的雲端資料庫之間移動資料
 
@@ -101,7 +101,7 @@ ms.locfileid: "66123359"
 
     分區對應的 `SchemaInfo` API 提供參考資料表與分區資料表的比較資訊。 下列範例說明如何在給定的分區對應管理員物件上使用這些 API：
 
-    ```c#
+    ```csharp
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
@@ -176,7 +176,7 @@ ms.locfileid: "66123359"
 - 要求處理期間，某些 Shardlet 資料可能會同時出現在來源和目標分區。 為了防止 Shardlet 移動期間失敗，這是必要的。 分割合併與分區對應的整合，可確保在分區對應上透過資料相依路由 API 使用 **OpenConnectionForKey** 方法來連線時，不會出現任何不一致的過渡狀態。 不過，當連線到來源或目標分區不是使用 **OpenConnectionForKey** 方法時，則在分割/合併/移動要求進行時，可能會出現不一致的過渡狀態。 這些連接可能會顯示不完整或重複的結果，視連接之下的時間或分區而定。 這項限制目前包括 Elastic Scale 多分區查詢所建立的連接。
 - 不同角色之間不可共用分割合併服務的中繼資料資料庫。 例如，在預備環境中執行分割合併服務的角色，必須指向與生產角色不同的中繼資料資料庫。
 
-## <a name="billing"></a>計費
+## <a name="billing"></a>帳務
 
 分割合併服務是以 Microsoft Azure 訂用帳戶中的雲端服務執行。 因此會對您的服務執行個體收取雲端服務的費用。 除非您經常執行分割/合併/移動作業，否則建議您刪除分割合併雲端服務。 這可以節省執行中或已部署的雲端服務執行個體的成本。 每當您需要執行分割或合併作業時，您可以重新部署和啟動可立即運作的組態。
 
@@ -218,7 +218,7 @@ ms.locfileid: "66123359"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 針對 NuGet 封裝所提供的 Web 和背景工作角色，若要使用診斷組態啟用監視和診斷，請使用 Azure PowerShell 執行下列命令：
 

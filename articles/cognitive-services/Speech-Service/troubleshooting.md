@@ -3,31 +3,31 @@ title: 對語音 SDK 進行疑難排解 - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 本文提供的資訊可協助您解決在使用語音 SDK 時可能會遇到的問題。
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: 8682cd8b91d17b16a56e401661856e141ac5f0c1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 99cb23afcdb40f74485a7dcec34435a46d0e7476
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606225"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405899"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>針對語音 SDK 進行疑難排解
 
 本文提供的資訊可協助您解決在使用語音 SDK 時可能會遇到的問題。
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>錯誤：WebSocket 升級失敗，發生驗證錯誤 (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>錯誤:WebSocket 升級失敗，發生驗證錯誤 (403)
 
 您的區域或服務可能有錯誤的端點。 請檢查 URI 以確保其正確無誤。
 
 此外，您的訂用帳戶金鑰或授權權杖也可能有問題。 如需詳細資訊，請參閱下一節。
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>錯誤：HTTP 403 禁止或 HTTP 401 未授權
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>錯誤:HTTP 403 禁止或 HTTP 401 未授權
 
 此錯誤通常是由驗證問題引起的。 連線要求如果沒有有效的 `Ocp-Apim-Subscription-Key` 或 `Authorization` 標頭，就會被服務以 401 或 403 的狀態拒絕。
 
@@ -107,11 +107,11 @@ ms.locfileid: "67606225"
 
 ---
 
-## <a name="error-http-400-bad-request"></a>錯誤：HTTP 400 不正確的要求
+## <a name="error-http-400-bad-request"></a>錯誤:HTTP 400 不正確的要求
 
 此錯誤通常發生在要求本文包含無效的音訊資料時。 僅支援 WAV 格式。 此外，請檢查要求的標頭，以確保針對 `Content-Type` 和 `Content-Length` 指定適當的值。
 
-## <a name="error-http-408-request-timeout"></a>錯誤：HTTP 408 要求逾時
+## <a name="error-http-408-request-timeout"></a>錯誤:HTTP 408 要求逾時
 
 此錯誤最有可能的原因，是因為沒有將任何音訊資料傳送至服務。 此錯誤也可能是由網路問題造成的。
 

@@ -3,23 +3,17 @@ title: 監視 Azure 雲端服務 | Microsoft Docs
 description: 描述監視 Azure 雲端服務所涉及的作業以及您的一些選項。
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: ''
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432889"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359105"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>雲端服務監視簡介
 
@@ -60,7 +54,7 @@ ms.locfileid: "61432889"
 
 首先，如果您沒有**傳統**儲存體帳戶，則請[建立傳統儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。 請確定建立已指定**傳統部署模型**的儲存體帳戶。
 
-接下來，巡覽至 [儲存體帳戶 (傳統)]  資源。 選取 [設定]   > [存取金鑰]  ，然後複製 [主要連接字串]  值。 雲端服務需要有此值。 
+接下來，巡覽至 [儲存體帳戶 (傳統)] 資源。 選取 [設定] > [存取金鑰]，然後複製 [主要連接字串] 值。 雲端服務需要有此值。 
 
 您必須變更兩個設定檔才能啟用進階診斷：**ServiceDefinition.csdef** 和 **ServiceConfiguration.cscfg**。
 

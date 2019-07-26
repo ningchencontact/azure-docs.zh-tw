@@ -1,6 +1,6 @@
 ---
-title: 適用於 Azure Service Fabric 常見的安全性屬性
-description: 用來評估 Azure Service Fabric 的常見安全性屬性檢查清單
+title: Azure Service Fabric 的安全性屬性
+description: 評估 Azure Service Fabric 的安全性屬性檢查清單
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin
@@ -9,16 +9,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c1718298c3f7c3fea28fa0b18569085f071696f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23c7f8bdcf67d59ccdd5cd0b00bc0e0960ba1d8f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003062"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443862"
 ---
 # <a name="security-attributes-for-azure-service-fabric"></a>Azure Service Fabric 的安全性屬性
 
-這篇文章說明 Azure Service Fabric 內建的安全性屬性。 
+本文記載 Azure Service Fabric 內建的安全性屬性。 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,10 +26,10 @@ ms.locfileid: "66003062"
 
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
-| 待用加密：<ul><li>伺服器端加密</li><li>使用客戶管理的金鑰進行伺服器端加密</li><li>其他加密功能 (例如用戶端、一律加密等)</ul>| 是 | 客戶擁有叢集和虛擬機器擴展集上建立叢集。 可以在虛擬機器擴展集上啟用 azure 磁碟加密。 |
-| 傳輸中加密：<ul><li>Express Route 加密</li><li>在 VNet 加密</li><li>VNet-VNet 加密</ul>| 是 |  |
-| 加密金鑰處理 （CMK、 BYOK）| 是 | 客戶擁有叢集和虛擬機器擴展集上建立叢集。 可以在虛擬機器擴展集上啟用 azure 磁碟加密。 |
-| 資料行層級加密 (Azure Data Services)| N/A |  |
+| 待用加密 (例如伺服器端加密、使用客戶管理金鑰的伺服器端加密, 以及其他加密功能)| 是 | 客戶擁有叢集, 以及用來建立叢集的虛擬機器擴展集。 可以在虛擬機器擴展集上啟用 Azure 磁片加密。 |
+| 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 |  |
+| 加密金鑰處理 (CMK、BYOK 等)| 是 | 客戶擁有叢集, 以及用來建立叢集的虛擬機器擴展集。 可以在虛擬機器擴展集上啟用 Azure 磁片加密。 |
+| 資料行層級加密 (Azure 資料服務)| N/A |  |
 | API 呼叫加密| 是 | Service Fabric API 呼叫會透過 Azure Resource Manager 進行。 需要有效的 JSON Web 權杖 (JWT)。 |
 
 ## <a name="network-segmentation"></a>網路分割
@@ -38,14 +38,14 @@ ms.locfileid: "66003062"
 |---|---|--|
 | 服務端點支援| 是 |  |
 | VNet 插入支援| 是 |  |
-| 網路隔離，而且防火牆支援| 是 | 使用網路安全性群組 (NSG)。 |
-| 強制通道的支援| 是 | Azure 網路提供強制通道功能。 |
+| 網路隔離和防火牆支援| 是 | 使用網路安全性群組 (NSG)。 |
+| 強制通道支援| 是 | Azure 網路提供強制通道功能。 |
 
 ## <a name="detection"></a>偵測
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Azure 監視支援 （Log analytics、 App insights）| 是 | 使用 Azure 監視支援和第三方支援。 |
+| Azure 監視支援 (Log analytics、App insights 等)| 是 | 使用 Azure 監視支援和協力廠商支援。 |
 
 ## <a name="identity-and-access-management"></a>身分識別和存取管理
 
@@ -59,11 +59,11 @@ ms.locfileid: "66003062"
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| 控制和管理平面記錄與稽核| 是 | 所有控制平面作業都須通過稽核和核准的程序。 |
-| 資料平面記錄與稽核| N/A | 客戶擁有叢集。  |
+| 控制和管理平面記錄和審核| 是 | 所有控制平面作業都須通過稽核和核准的程序。 |
+| 資料平面記錄和審核| N/A | 客戶擁有叢集。  |
 
 ## <a name="configuration-management"></a>設定管理
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| 組態管理支援 （版本設定的組態等）。| 是 | |
+| 設定管理支援 (設定的版本設定等)| 是 | |

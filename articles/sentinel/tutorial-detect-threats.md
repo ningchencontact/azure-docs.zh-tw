@@ -1,6 +1,6 @@
 ---
-title: 調查警示與 Azure Sentinel 預覽 |Microsoft Docs
-description: 您可以使用本教學課程，了解如何調查警示與 Azure 的 Sentinel。
+title: 使用 Azure Sentinel 預覽來調查警示 |Microsoft Docs
+description: 使用本教學課程, 瞭解如何使用 Azure Sentinel 來調查警示。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,48 +13,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e20f6fc0dc8dbe02b09490f62ce84af12aa31b87
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621241"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370700"
 ---
-# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>教學課程：偵測到以 Azure Sentinel 預覽版的威脅
+# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>教學課程：使用 Azure Sentinel Preview 偵測威脅
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-之後您[連接的資料來源](quickstart-onboard.md)Sentinel Azure，您要在發生可疑發生時收到通知。 為了讓您執行這項操作，Azure Sentinel 可讓您建立進階產生情況下，您可以將指定的警示規則和用以深入調查異常和您的環境中的威脅。 
+在您將[資料來源連接](quickstart-onboard.md)到 Azure Sentinel 之後, 您會想要在發生可疑的情況時收到通知。 為了讓您執行這項操作, Azure Sentinel 可讓您建立高階警示規則, 以產生可指派的案例, 並用於深入調查環境中的異常和威脅。 
 
-本教學課程可協助您偵測與 Azure Sentinel 的威脅。
+本教學課程可協助您偵測 Azure Sentinel 的威脅。
 > [!div class="checklist"]
-> * 建立 偵測規則
-> * 回應威脅
+> * 建立偵測規則
+> * 將威脅回應自動化
 
-## <a name="create-detection-rules"></a>建立 偵測規則
+## <a name="create-detection-rules"></a>建立偵測規則
 
-若要調查的情況下，您首先必須建立偵測規則。 
+若要調查案例, 您必須先建立偵測規則。 
 
 > [!NOTE]
-> 在 Azure Sentinel 所產生的警示都是透過[Microsoft Graph Security](https://aka.ms/securitygraphdocs)。 請參閱[Microsoft Graph 安全性警示文件](https://aka.ms/graphsecurityreferencebetadocs)詳情及整合合作夥伴。
+> Azure Sentinel 中產生的警示可透過[Microsoft Graph 安全性](https://aka.ms/securitygraphdocs)來取得。 請參閱[Microsoft Graph 安全性警示檔](https://aka.ms/graphsecurityreferencebetadocs), 以取得進一步的詳細資料和整合合作夥伴。
 
-偵測規則類型為基礎的威脅與異常狀況可能是您想要立即了解您環境中的可疑確保它們呈現、 調查，並進行補救。 
+偵測規則是根據您想要立即瞭解的環境中可能會有疑問的威脅和異常類型, 確保其呈現、調查及補救。 
 
-1. 在 Azure 入口網站中 Azure Sentinel 底下，選取**Analytics**。
+1. 在 Azure Sentinel 的 Azure 入口網站中, 選取 **分析**。
 
    ![分析](./media/tutorial-detect-threats/alert-rules.png)
 
-2. 在頂端功能表列中，按一下 **+ 新增**。  
+2. 在頂端功能表列中, 按一下 [ **+ 新增**]。  
 
    ![建立警示規則](./media/tutorial-detect-threats/create-alert-rule.png)
 
-3. 底下**建立警示規則**、 提供描述性的名稱，以及設定**嚴重性**視。 
+3. 在 [**建立警示規則**] 底下, 提供描述性的名稱, 並視需要設定**嚴重性**。 
 
-4. 在 Log Analytics 中建立查詢，並貼到**設定警示規則**欄位。 以下是範例查詢會異常的資源數量會在 Azure 活動時警示您。
+4. 在 Log Analytics 中建立查詢, 然後將它貼入 [**設定警示規則**] 欄位中。 以下是一個範例查詢, 會在 Azure 活動中建立了異常數量的資源時發出警示。
 
         AzureActivity
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
@@ -62,42 +62,52 @@ ms.locfileid: "67621241"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
 
    > [!NOTE]
-   > 查詢長度必須介於 1 到 10000 個字元，而且不能包含 「 搜尋 *"和"union *"。
+   > 查詢長度應介於1到10000個字元之間, 且不能包含 "search *" 和 "union *"。
 
 
-5. 在 **實體對應**區段中，使用底下的欄位**實體類型**在查詢中的資料行對應至 Azure Sentinel 可辨識的實體欄位。 針對每個欄位，對應中建立 Log Analytics 中的適當實體欄位的查詢的相關資料行。 選取相關的資料行名稱之下**屬性**。 每個實體都包含多個欄位，例如 SID、 GUID、 等等。您可以將對應的欄位，而不只是上方的層級實體的任何實體。
+5. 在 [**實體對應**] 區段中, 使用 [**實體類型**] 底下的欄位, 將查詢中的資料行對應至 Azure Sentinel 所識別的實體欄位。 針對每個欄位, 將您在 Log Analytics 中建立之查詢中的相關資料行對應至適當的實體欄位。 在**屬性**下選取相關的資料行名稱。 每個實體都包含多個欄位, 例如 SID、GUID 等。您可以根據任何欄位來對應實體, 而不只是最上層實體。
 
-6. 定義警示的觸發程序條件**警示觸發程序**。 這會定義觸發警示的條件。 
+6. 在 [**警示觸發**程式] 下定義警示觸發程式條件。 這會定義觸發警示的條件。 
 
-7. 設定**頻率**針對查詢的執行頻率-經常每 5 分鐘，或為一天一次不常。 
+7. 設定查詢執行頻率的**頻率**-頻率是每隔5分鐘, 或一天不常進行一次。 
 
-8. 設定**期間**控制開啟-執行查詢的資料量的時間間隔比方說，它可以執行每隔一小時在 60 分鐘的資料。
+8. 設定**期間**以控制查詢執行多少資料的時間範圍, 例如, 它可以每小時在資料的60分鐘內執行。
 
-9. 您也可以設定**歸併**。 當您想要停止從相同的事件所觸發的重複警示，隱藏是很有用。 如此一來，您可以停止在特定期間內觸發的警示。 這可協助您避免警示重複相同的事件，並讓您隱藏連續警示一段時間。 比方說，如果**警示排程** **頻率**設定為 60 分鐘，而**警示排程週期**為兩個小時，和查詢結果超過定義臨界值，就會觸發警示兩次之後當第一次偵測到在過去的 60 分鐘，, 並再次時在 2 小時的資料取樣的前 60 分鐘。 我們建議如果便會觸發警示，隱藏項目應該可以在警示期間所設定的時間。 在我們的範例中，您可能要設定隱藏項目 60 分鐘，以便在最近一小時期間發生的事件，只會觸發警示。
+9. 您也可以設定**隱藏**專案。 當您想要停止針對相同事件觸發重複的警示時, 隱藏功能就很有用。 如此一來, 您就可以在特定期間停止觸發警示。 這可協助您避免相同事件的重複警示, 並允許您在一段時間內抑制連續警示。 例如, 如果 [**警示排程** **頻率**] 設定為 [60 分鐘], 而 [**警示排程期間**] 設定為兩個小時, 且查詢結果超過定義的閾值, 則會觸發警示兩次, 並在第一次偵測到在過去60分鐘內, 如果是在取樣的2小時資料的前60分鐘內, 則再次發生。 我們建議在觸發警示時, 隱藏專案應該是在警示期間所設定的時間量。 在我們的範例中, 您可能會想要將隱藏專案設定為60分鐘, 以便只針對最近一小時發生的事件觸發警示。
 
-8. 貼上您查詢後**設定警示規則**欄位中，您可以立即查看在警示的模擬**邏輯警示模擬**，讓您能夠了解資料量會產生一段特定時間間隔，如您所建立的警示。 這將取決於您為設定**頻率**並**閾值**。 如果您看到，平均而言，您就會觸發警示頻率太高，您會想要設定較高的結果數目，使其值高於平均的基準。
+8. 將查詢貼入 [**設定警示規則**] 欄位之後, 您可以立即在 [**邏輯警示模擬**] 底下看到警示的模擬, 讓您能夠瞭解在警示的特定時間間隔內將產生多少資料。您已建立。 這將取決於您為 [**頻率**] 和 [**閾值**] 所設定的內容。 如果您看到平均觸發警示的頻率太高, 您會想要將結果數目設定為高於您的平均基準。
 
-9. 按一下 **建立**來初始化您的警示規則。 建立警示之後，案例會建立包含警示。 您可以看到已定義的偵測規則中的資料列**安全性分析** 索引標籤。您也可以看到符合的項目集的每個規則觸發的警示數目。 從這份清單中，您可以啟用、 停用，或刪除每個規則。 您可以也右邊選取來編輯、 停用、 複製、 顯示相符項目，或刪除規則的每個警示的資料列結尾的省略符號 （...）。 **Analytics**頁面是所有作用中警示規則的資源庫，包括範本您啟用並根據範本建立的警示規則。
+9. 按一下 [**建立**] 以初始化您的警示規則。 建立警示之後, 會建立一個包含警示的案例。 在 [**安全性分析**] 索引標籤中, 您可以看到已定義的偵測規則做為資料列。您也可以查看每個規則的相符專案數-觸發的警示。 從這份清單中, 您可以啟用、停用或刪除每個規則。 您也可以用滑鼠右鍵選取每個警示資料列結尾的省略號 (...), 以編輯、停用、複製、顯示相符專案或刪除規則。 [**分析**] 頁面是所有作用中警示規則的資源庫, 包括您啟用的範本, 以及根據範本所建立的警示規則。
 
-1. 中可以看到的警示規則的結果**案例**頁面上，其中您可以分類[調查案例](tutorial-investigate-cases.md)，和修復威脅。
+1. 您可以在 [**案例**] 頁面中看到警示規則的結果, 您可以在其中分級、[調查案例](tutorial-investigate-cases.md), 以及補救威脅。
 
 
 
-## <a name="respond-to-threats"></a>回應威脅
+## <a name="automate-threat-responses"></a>將威脅回應自動化
 
-Azure 的 Sentinel，可讓您使用劇本的威脅回應的兩個主要選項。 您可以設定觸發警示時，或您可以手動執行以回應警示的腳本時自動執行的劇本。
+SIEM/SOC 小組可以定期收到安全性警示。 產生的警示數量很大, 因此可用的安全性系統管理員已淹沒。 在無法調查許多警示的情況下, 這會造成太多的結果, 讓組織容易遭受未察覺的攻擊。 
 
-- 設定當您設定劇本時，會觸發警示時自動執行的劇本。 
+許多 (如果不是多數) 這些警示都符合可由特定和定義的補救動作解決的週期性模式。 Azure Sentinel 已經可讓您在腳本中定義您的補救措施。 您也可以將即時自動化設定為您腳本定義的一部分, 讓您能夠完全自動化針對特定安全性警示所定義的回應。 藉由使用即時自動化, 回應小組可以藉由完全自動化週期性警示類型的例行回應, 大幅降低工作負載, 讓您更專注于獨特的警示、分析模式、威脅搜尋等等。
 
-- 手動執行按一下的 警示，在從腳本**檢視劇本**，然後選取要執行的劇本。
+若要自動化回應:
 
+1. 選擇您想要自動化回應的警示。
+1. 從 [Azure Sentinel] 工作區導覽功能表中, 選取 [**分析**]。
+1. 選取您想要自動化的警示。 
+1. 在 [**編輯警示規則**] 頁面的 [**即時自動化**] 底下, 選擇要在符合此警示規則時執行的**觸發**腳本。
+1. 選取 [ **儲存**]。
+
+   ![即時自動化](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+此外, 您也可以手動補救警示, 方法是從警示內執行腳本, 方法是按一下 [ **View**腳本], 然後選取要執行的腳本。 若要瞭解如何建立新的腳本或編輯現有的腳本, 請參閱[使用 Azure Sentinel 中的操作手冊](tutorial-respond-threats-playbook.md)。
 
 
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何開始使用 Azure Sentinel 的潛在威脅的偵測。 
+在本教學課程中, 您已瞭解如何使用 Azure Sentinel 開始偵測威脅。 
 
-若要了解如何以自動化您的回應威脅，[如何回應潛在威脅，使用自動化的腳本](tutorial-respond-threats-playbook.md)。
+若要瞭解如何將您對威脅的回應自動化,[如何使用自動化](tutorial-respond-threats-playbook.md)的腳本來回應威脅。
 > [!div class="nextstepaction"]
-> [因應威脅](tutorial-respond-threats-playbook.md)自動化威脅的回應。
+> [回應威脅](tutorial-respond-threats-playbook.md), 將您對威脅的回應自動化。
 

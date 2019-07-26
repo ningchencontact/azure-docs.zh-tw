@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 31f6c34089c1825eca21283b01eae181c8112216
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: da5cdd36e70166d274d50fcb093c0889cf534172
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312173"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489006"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>使用 Spark & Hive 工具進行 Visual Studio Code
 
@@ -21,7 +21,7 @@ ms.locfileid: "68312173"
 Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括 Windows、Linux 和 macOS。 您可在下面找到不同平台的必要條件。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 需要有下列項目才能完成本文中的步驟：
 
@@ -37,7 +37,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
 1. 開啟 Visual Studio Code。
 
-2. 從功能表列，瀏覽至 [檢視]   >  [延伸模組]  。
+2. 從功能表列，瀏覽至 [檢視]  >  [延伸模組]。
 
 3. 在 [搜尋] 方塊中, 輸入**Spark & Hive**。
 
@@ -52,9 +52,9 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
 完成下列步驟，以開啟工作資料夾，並且在 Visual Studio Code 中建立檔案：
 
-1. 從功能表列，瀏覽至 [檔案]   >  [開啟資料夾...]   >  **C:\HD\HDexample**，然後選取 [選取資料夾]  按鈕。 資料夾會出現在左側的 [總管]  檢視中。
+1. 從功能表列，瀏覽至 [檔案]  >  [開啟資料夾...]  >  **C:\HD\HDexample**，然後選取 [選取資料夾] 按鈕。 資料夾會出現在左側的 [總管] 檢視中。
 
-2. 從 [總管]  檢視中，選取資料夾 **HDexample**，然後選取工作資料夾旁邊的 [新增檔案]  圖示。
+2. 從 [總管] 檢視中，選取資料夾 **HDexample**，然後選取工作資料夾旁邊的 [新增檔案]圖示。
 
    ![新增檔案](./media/hdinsight-for-vscode/new-file.png)
 
@@ -83,11 +83,11 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
 ## <a name="link-a-cluster"></a>連結叢集
 
-### <a name="link-azure-hdinsight"></a>LinkAzure HDInsight
+### <a name="link-azure-hdinsight"></a>連結:Azure HDInsight
 
-您可以使用 [Apache Ambari](https://ambari.apache.org/) 受控使用者名稱來連結正常的叢集，或可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結企業安全性套件保護 Hadoop 叢集。
+您可以使用 [Apache Ambari](https://ambari.apache.org/) 受控使用者名稱來連結正常的叢集，或可以使用網域使用者名稱 (例如：`user1@contoso.com`) 來連結企業安全性套件保護 Hadoop 叢集。
 
-1. 從功能表列中, 流覽   > 至 流覽 **命令**選擇區 ... **, 然後輸入 Spark/Hive:** 連結叢集。
+1. 從功能表列中, 流覽  > 至 流覽 **命令**選擇區 ... **, 然後輸入 Spark/Hive:** 連結叢集。
 
    ![連結叢集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -103,33 +103,33 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
 7. 設定叢集的顯示名稱 (選擇性)。
 
-8. 檢閱 [輸出]  檢視以進行驗證。
+8. 檢閱 [輸出] 檢視以進行驗證。
 
    > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，則會使用連結的使用者名稱和密碼。  
 
 
-### <a name="link-generic-livy-endpoint"></a>Link泛型 Livy 端點
+### <a name="link-generic-livy-endpoint"></a>連結:泛型 Livy 端點
 
-1. 從功能表列中, 流覽   > 至 流覽 **命令**選擇區 ... **, 然後輸入 Spark/Hive:** 連結叢集。
+1. 從功能表列中, 流覽  > 至 流覽 **命令**選擇區 ... **, 然後輸入 Spark/Hive:** 連結叢集。
 
-2. 選取連結的叢集類型 [泛型 Livy 端點]  。
+2. 選取連結的叢集類型 [泛型 Livy 端點]。
 
 3. 輸入泛型 Livy 端點，例如：http\://10.172.41.42:18080。
 
-4. 選取授權類型 [基本]  或 [無]  。  如果是 [基本]  ，則：  
+4. 選取授權類型 [基本] 或 [無]。  如果是 [基本]，則：  
     &emsp;a. 輸入 Ambari 使用者名稱，預設值是 **admin**。  
     &emsp;b. 輸入 Ambari 密碼。
 
-5. 檢閱 [輸出]  檢視以進行驗證。
+5. 檢閱 [輸出] 檢視以進行驗證。
 
 ## <a name="list-clusters"></a>列出叢集
 
-1. 從功能表列中, 流覽   > 至 [流覽] [**命令**選擇區 ... **], 然後輸入 Spark/Hive:列出叢集**。
+1. 從功能表列中, 流覽  > 至 [流覽] [**命令**選擇區 ... **], 然後輸入 Spark/Hive:列出叢集**。
 
 2. 選取所需的訂用帳戶。
 
-3. 檢閱 [輸出]  檢視。  檢視會顯示您的 Azure 訂用帳戶下的連結叢集和所有叢集。
+3. 檢閱 [輸出] 檢視。  檢視會顯示您的 Azure 訂用帳戶下的連結叢集和所有叢集。
 
     ![設定預設叢集組態](./media/hdinsight-for-vscode/list-cluster-result.png)
 
@@ -171,9 +171,9 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
    ![互動式 Hive 結果](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - [結果]  面板：您可以將整個結果以 CSV、JSON 或 Excel 檔案的形式儲存到本機路徑，或只選取多行。
+    - [結果] 面板：您可以將整個結果以 CSV、JSON 或 Excel 檔案的形式儲存到本機路徑，或只選取多行。
 
-    - [訊息]  面板：當您選取 [行號]  時，它就會跳至執行中指令碼的第一行。
+    - [訊息] 面板：當您選取 [行號] 時，它就會跳至執行中指令碼的第一行。
 
 ## <a name="submit-interactive-pyspark-queries"></a>提交互動式 PySpark 查詢
 
@@ -208,7 +208,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
    ![pyspark 互動式 python 互動式視窗](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
 
-7. 輸入 **"%% info"** , 然後按**Shift + enter**以查看作業資訊。 (選用)
+7. 輸入 **"%% info"** , 然後按**Shift + enter**以查看作業資訊。 (選擇性)
 
    ![查看作業資訊](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -216,7 +216,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
    ![Pyspark 互動式視圖結果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
-   當您執行查詢時, 提交狀態會顯示在底部狀態列的左邊。 當狀態為 [PySpark 核心 (忙碌)]  時，請勿提交其他查詢。  
+   當您執行查詢時, 提交狀態會顯示在底部狀態列的左邊。 當狀態為 [PySpark 核心 (忙碌)] 時，請勿提交其他查詢。  
 
    > [!NOTE] 
    >
@@ -262,7 +262,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
    ![提交 Python 作業結果](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
-在提交 Python 作業後，提交記錄會出現在 Visual Studio Code 的 [輸出]  視窗中。 此外也會顯示 **Spark UI URL** 和 **Yarn UI URL**。 您可以在網頁瀏覽器中開啟 URL 來追蹤作業狀態。
+在提交 Python 作業後，提交記錄會出現在 Visual Studio Code 的 [輸出] 視窗中。 此外也會顯示 **Spark UI URL** 和 **Yarn UI URL**。 您可以在網頁瀏覽器中開啟 URL 來追蹤作業狀態。
 
 ## <a name="apache-livy-configuration"></a>Apache Livy 設定
 
@@ -271,9 +271,9 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 <a id="triggerlivyconf"></a>**如何觸發 Livy 設定**
 
 方法 1  
-1. 從功能表，瀏覽至 [檔案]   >  [喜好設定]   >  [設定]  。  
-2. 在 [搜尋設定]  文字方塊中輸入 **HDInsight Job Sumission：Livy Conf**。  
-3. 選取 [在 settings.json 中編輯]  以取得相關搜尋結果。
+1. 從功能表，瀏覽至 [檔案]  >  [喜好設定]  >  [設定]。  
+2. 在 [搜尋設定] 文字方塊中輸入 **HDInsight Job Sumission：Livy Conf**。  
+3. 選取 [在 settings.json 中編輯] 以取得相關搜尋結果。
 
 方法 2   
 提交檔案，但請注意，.vscode 資料夾會自動新增至工作資料夾。 您可以按一下 **.vscode\settings.json** 以尋找 Livy 組態。
@@ -292,7 +292,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
     | name | description | type | 
     | :- | :- | :- | 
-    | file | 要執行的應用程式所在的檔案 | 路徑 (必要) | 
+    | 檔案 | 要執行的應用程式所在的檔案 | 路徑 (必要) | 
     | proxyUser | 要在執行作業時模擬的使用者 | string | 
     | className | 應用程式 Java/Spark 主要類別 | string |
     | args | 應用程式的命令列引數 | 字串的清單 | 
@@ -314,11 +314,11 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
     | name | description | type | 
     | :- | :- | :- | 
-    | id | 工作階段識別碼 | ssNoversion | 
-    | appId | 此工作階段的應用程式識別碼 |  字串 |
+    | ID | 工作階段識別碼 | ssNoversion | 
+    | appId | 此工作階段的應用程式識別碼 |  String |
     | appInfo | 詳細的應用程式資訊 | key=val 的對應 |
-    | log | 記錄行 | 字串的清單 |
-    | state |   批次狀態 | string |
+    | 記錄檔 | 記錄行 | 字串的清單 |
+    | 狀態 |   批次狀態 | string |
 
 >[!NOTE]
 >指派的 Livy 組態會在提交指令碼執行時顯示於輸出窗格中。
@@ -329,7 +329,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
 1. [連接](#connect-to-azure-account)到您的 Azure 帳戶, 或連結叢集 (如果您尚未這麼做)。
 
-2. 從功能表列，瀏覽至 [檢視]   >  [總管]  。
+2. 從功能表列，瀏覽至 [檢視]  >  [總管]。
 
 3. 從左窗格中，展開 **AZURE HDINSIGHT**。  可用的訂用帳戶和叢集 (支援 Spark、Hadoop 和 HBase) 將會列出。 
 
@@ -386,7 +386,7 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
 ## <a name="reader-only-role"></a>僅限讀取者角色
 
-具有「**僅限**叢集**讀取**者」**角色**的使用者無法再將作業提交至 HDInsight 叢集, 也無法查看 Hive 資料庫。 請洽詢叢集系統管理員, 將您的角色升級至[Azure 入口網站](https://ms.portal.azure.com/)中的[ **HDInsight**  叢集**操作員**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 。 如果您知道 Ambari 認證, 您可以依照下列指示手動連結叢集。
+具有「**僅限**叢集**讀取**者」**角色**的使用者無法再將作業提交至 HDInsight 叢集, 也無法查看 Hive 資料庫。 請洽詢叢集系統管理員, 將您的角色升級至[Azure 入口網站](https://ms.portal.azure.com/)中的[ **HDInsight** 叢集**操作員**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 。 如果您知道 Ambari 認證, 您可以依照下列指示手動連結叢集。
 
 ### <a name="browse-hdinsight-cluster"></a>流覽 HDInsight 叢集  
 
@@ -429,15 +429,15 @@ Spark & Hive 工具可以安裝在 Visual Studio Code 支援的平臺上, 包括
 
 ## <a name="unlink-cluster"></a>取消連結叢集
 
-1. 從功能表列中, 流覽   > 至 [流覽] [命令選擇區 **...** ] **, 然後輸入 Spark/Hive:Unlink a Cluster**。  
+1. 從功能表列中, 流覽  > 至 [流覽] [命令選擇區 **...** ] **, 然後輸入 Spark/Hive:Unlink a Cluster**。  
 
 2. 選取要取消連結的叢集。  
 
-3. 檢閱 [輸出]  檢視以進行驗證。  
+3. 檢閱 [輸出] 檢視以進行驗證。  
 
 ## <a name="sign-out"></a>登出  
 
-從功能表列中, 流覽   > 至 [流覽] [命令選擇區 **...** ] **, 然後輸入 Azure:** 登出。
+從功能表列中, 流覽  > 至 [流覽] [命令選擇區 **...** ] **, 然後輸入 Azure:** 登出。
 
 
 ## <a name="next-steps"></a>後續步驟

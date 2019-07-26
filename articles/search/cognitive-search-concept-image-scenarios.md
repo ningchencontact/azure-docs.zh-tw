@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448457"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423016"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何在認知搜尋案例中處理影像並從影像擷取資訊
 
@@ -30,11 +30,11 @@ ms.locfileid: "67448457"
 
 在文件破解的過程中，會有一組新的索引子設定參數，用於處理影像檔或內嵌在檔案中的影像。 這些參數會用來標準化影像，以進行更進一步的下游處理。 標準化後的影像會更為一致。 大型影像的大小會調整成最大高度和寬度，使其便於使用。 若影像有提供方向的中繼資料，則會旋轉影像以便垂直載入。 系統會以針對每個影像建立的複雜類型，來擷取中繼資料調整項目。 
 
-影像標準化無法關閉。 反覆執行影像的技術會產生標準化影像。 啟用的索引子上的映像標準化，需要的技能組合，附加至該索引子。
+影像標準化無法關閉。 反覆執行影像的技術會產生標準化影像。 在索引子上啟用映射正規化時, 需要將技能集附加至該索引子。
 
 | 設定參數 | 描述 |
 |--------------------|-------------|
-| imageAction   | 如果無需對內嵌影像或影像檔案採取任何動作，則設為「none」。 <br/>若設為「generateNormalizedImages」，則會在文件破解期間產生一系列的標準化影像。<br/>設為 "generateNormalizedImagePerPage" 以產生標準化映像的陣列，其中針對您資料來源中的 PDF，每個頁面都會轉譯成單一輸出映像。  其功能與適用於非 PDF 檔案類型的 "generateNormalizedImages" 相同。<br/>針對不是 "none" 的所有選項，這些影像將會公開在 *normalized_images* 欄位中。 <br/>預設值為「none」。 當「dataToExtract」設為「contentAndMetadata」時，此設定僅與 blob 資料來源有直接相關。 <br/>會從給定文件中擷取最多 1000年映像。 如果文件中有超過 1000 個映像，將擷取的前 1000 個，並且會產生警告。 |
+| imageAction   | 如果無需對內嵌影像或影像檔案採取任何動作，則設為「none」。 <br/>若設為「generateNormalizedImages」，則會在文件破解期間產生一系列的標準化影像。<br/>設為 "generateNormalizedImagePerPage" 以產生標準化映像的陣列，其中針對您資料來源中的 PDF，每個頁面都會轉譯成單一輸出映像。  其功能與適用於非 PDF 檔案類型的 "generateNormalizedImages" 相同。<br/>針對不是 "none" 的所有選項，這些影像將會公開在 *normalized_images* 欄位中。 <br/>預設值為「none」。 當「dataToExtract」設為「contentAndMetadata」時，此設定僅與 blob 資料來源有直接相關。 <br/>最多可從指定的檔解壓縮1000個影像。 如果檔中有超過1000的影像, 將會解壓縮第一個 1000, 並產生警告。 |
 |  normalizedImageMaxWidth | 所產生的標準化影像的最大寬度 (以像素為單位)。 預設值為 2000。|
 |  normalizedImageMaxHeight | 所產生標準化影像的最大高度 (以像素為單位)。 預設值為 2000。|
 
@@ -66,7 +66,7 @@ ms.locfileid: "67448457"
 
 | 影像成員       | 描述                             |
 |--------------------|-----------------------------------------|
-| data               | 以 BASE64 編碼的 JPEG 格式標準化影像字串。   |
+| 資料               | 以 BASE64 編碼的 JPEG 格式標準化影像字串。   |
 | width              | 標準化影像的寬度，以像素為單位。 |
 | height             | 標準化影像的高度，以像素為單位。 |
 | originalWidth      | 影像標準化之前的原始寬度。 |
@@ -102,8 +102,6 @@ ms.locfileid: "67448457"
 ### <a name="ocr-skill"></a>OCR 技術
 
 [OCR 技術](cognitive-search-skill-ocr.md)會從 JPG、PNG、點陣圖這類影像檔案中擷取文字。 其可擷取文字及版面配置資訊。 版面配置資訊會為每個識別出的字串提供週框方塊。
-
-OCR 技術可讓您選取要用來偵測影像中文字的演算法。 目前支援兩種演算法，一種用於列印的文字，另一種用於手寫文字。
 
 ## <a name="embedded-image-scenario"></a>內嵌影像案例
 
@@ -217,7 +215,7 @@ OCR 技術可讓您選取要用來偵測影像中文字的演算法。 目前支
         }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 + [建立索引子 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)(英文)
 + [分析影像技術](cognitive-search-skill-image-analysis.md) (英文)
 + [OCR 技術](cognitive-search-skill-ocr.md) (英文)

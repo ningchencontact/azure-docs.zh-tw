@@ -1,5 +1,5 @@
 ---
-title: 自訂 SAML 權杖對 Azure AD 中的企業應用程式發出的宣告 | Microsoft Docs
+title: 在 Azure AD 中自訂企業應用程式的 SAML 權杖宣告 |Microsoft Docs
 description: 了解如何針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 services: active-directory
 documentationcenter: ''
@@ -18,56 +18,56 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636086ce0d055ab8de1d1b95dbbf7e5d96c7d7ef
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 3f5930f2d3db94f615321eda480aed0d4d196911
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483056"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380823"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>作法：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>HOW TO：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
-現在，Azure Active Directory (Azure AD) 支援單一登入 (SSO) 與大部分的企業應用程式，包括兩個預先整合的 Azure AD 應用程式庫以及自訂應用程式的應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含稱為使用者的相關資訊的片段*宣告*。
+現今, Azure Active Directory (Azure AD) 支援大部分企業應用程式的單一登入 (SSO), 包括 Azure AD 應用程式資源庫中預先整合的應用程式, 以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含使用者的相關資訊, 稱為*宣告*。
 
 *宣告*是身分識別提供者核發權杖給使用者時，所提供的權杖內部使用者相關資訊。 在 [SAML 權杖](https://en.wikipedia.org/wiki/SAML_2.0)中，此資料通常包含在 SAML 屬性陳述式中。 使用者的唯一識別碼通常在 SAML Subject 中表示，也稱為「名稱識別碼」。
 
-根據預設，Azure AD 會發出 SAML 權杖中包含您應用程式`NameIdentifier`宣告可唯一識別使用者的 Azure AD 中使用者的使用者名稱 （也稱為使用者主體名稱） 的值。 SAML 權杖也包含額外的宣告，其包含使用者的電子郵件地址、名字和姓氏。
+根據預設, Azure AD 會將 SAML 權杖發行至您的應用程式`NameIdentifier` , 其中包含的宣告具有 Azure AD 中的使用者名稱 (也稱為使用者主體名稱) 值, 可唯一識別使用者。 SAML 權杖也包含額外的宣告，其包含使用者的電子郵件地址、名字和姓氏。
 
-若要檢視或編輯在 SAML 權杖中對應用程式發出的宣告，請在 Azure 入口網站中開啟應用程式。 然後開啟**使用者屬性] & [宣告**一節。
+若要檢視或編輯在 SAML 權杖中對應用程式發出的宣告，請在 Azure 入口網站中開啟應用程式。 然後, & 宣告 區段中開啟 **使用者屬性**。
 
-![在 Azure 入口網站中開啟 使用者屬性與宣告區段](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
+![在 Azure 入口網站中開啟 [使用者屬性 & 宣告] 區段](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
 編輯在 SAML 權杖中簽發的宣告有兩個可能原因：
 
-* 應用程式需要`NameIdentifier`或 NameID 宣告必須是儲存在 Azure AD 使用者名稱 （或使用者主體名稱） 以外的項目。
+* 應用程式要求`NameIdentifier`或 NameID 宣告必須是儲存在 Azure AD 中的使用者名稱 (或使用者主體名稱) 以外的專案。
 * 應用程式是設計為要求不同的宣告 URI 組或宣告值。
 
 ## <a name="editing-nameid"></a>編輯 NameID
 
-若要編輯 NameID （名稱識別項值）：
+若要編輯 NameID (名稱識別碼值):
 
-1. 開啟**命名的識別項值**頁面。
-1. 選取您想要套用至屬性的轉換的屬性。 （選擇性） 您可以指定想要有的 NameID 宣告的格式。
+1. 開啟 [**名稱識別碼值**] 頁面。
+1. 選取您想要套用至屬性的屬性或轉換。 (選擇性) 您可以指定要讓 NameID 宣告具有的格式。
 
-   ![編輯 NameID （名稱識別項） 值](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
+   ![編輯 NameID (名稱識別碼) 值](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 
 ### <a name="nameid-format"></a>NameID 格式
 
-如果 SAML 要求中包含以特定格式的 NameIDPolicy 元素，Azure AD 會接受要求的格式。
+如果 SAML 要求包含以特定格式 NameIDPolicy 的元素, 則 Azure AD 會接受要求中的格式。
 
-如果 SAML 要求不包含 NameIDPolicy 元素，然後 Azure AD 會發出 NameID 與您指定的格式。 如果沒有指定任何格式是 Azure AD 會使用選取的宣告來源相關聯的預設來源格式。
+如果 SAML 要求未包含 NameIDPolicy 的元素, 則 Azure AD 會以您指定的格式發出 NameID。 如果未指定格式, Azure AD 將會使用與所選宣告來源相關聯的預設來源格式。
 
-從**選擇名稱識別碼格式**下拉式清單中，您可以選取下列選項之一。
+從 [**選擇名稱識別碼格式**] 下拉式清單中, 您可以選取下列其中一個選項。
 
 | NameID 格式 | 描述 |
 |---------------|-------------|
-| **預設值** | Azure AD 會使用預設的來源格式。 |
-| **持續性** | Azure AD 會使用永續做為 NameID 格式。 |
-| **EmailAddress** | Azure AD 會使用 EmailAddress 做為 NameID 格式。 |
-| **未指定** | Azure AD 會使用未指定，做為 NameID 格式。 |
-| **暫時性** | Azure AD 會使用暫時性做為 NameID 格式。 |
+| **預設值** | Azure AD 將會使用預設的來源格式。 |
+| **持續** | Azure AD 將使用持續性作為 NameID 格式。 |
+| **EmailAddress** | Azure AD 會使用 EmailAddress 作為 NameID 格式。 |
+| **識別** | Azure AD 將使用 [未指定] 做為 NameID 格式。 |
+| **暫時** | Azure AD 將使用暫時性作為 NameID 格式。 |
 
-若要深入了解 NameIDPolicy 屬性，請參閱[單一登入 SAML 通訊協定](single-sign-on-saml-protocol.md)。
+若要深入瞭解 NameIDPolicy 屬性, 請參閱[單一登入 SAML 通訊協定](single-sign-on-saml-protocol.md)。
 
 ### <a name="attributes"></a>屬性
 
@@ -76,58 +76,58 @@ ms.locfileid: "67483056"
 | 名稱 | 描述 |
 |------|-------------|
 | Email | 使用者的電子郵件地址 |
-| userprincipalName | 使用者主體名稱 (UPN)，使用者的 |
+| userprincipalName | 使用者的使用者主體名稱 (UPN) |
 | onpremisessamaccount | 已從內部部署 Azure AD 同步處理的 SAM 帳戶名稱 |
-| objectid | 在 Azure AD 中使用者的 objectid |
-| employeeid | 使用者 employeeid |
+| objectid | 使用者在 Azure AD 中的 objectid |
+| employeeid | 使用者的員工 |
 | 目錄擴充 | 目錄擴充[從使用 Azure AD Connect 同步的內部部署 Active Directory 同步處理](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | 擴充屬性 1-15 | 內部部署擴充屬性，用來擴充 Azure AD 結構描述 |
 
-如需詳細資訊，請參閱[表 3:每個來源的有效識別碼值](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)。
+如需詳細資訊, [請參閱表 3:每個來源](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)的有效識別碼值。
 
 ### <a name="special-claims---transformations"></a>特殊宣告-轉換
 
 您也可以使用宣告轉換函式。
 
-| 函式 | 描述 |
+| 函數 | 描述 |
 |----------|-------------|
-| **ExtractMailPrefix()** | 移除電子郵件地址或使用者主體名稱的網域尾碼。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。 |
+| **ExtractMailPrefix()** | 從電子郵件地址或使用者主體名稱中移除網域尾碼。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。 |
 | **Join()** | 加入具有已驗證網域的屬性。 如果選取的使用者識別碼值具有網域，它會擷取使用者名稱以附加所選的已驗證網域。 例如，如果您選取電子郵件 (joe_smith@contoso.com) 作為使用者識別碼值，並選取 contoso.onmicrosoft.com 作為已驗證的網域，這樣會產生 joe_smith@contoso.onmicrosoft.com。 |
 | **ToLower()** | 將所選取屬性中的字元轉換成小寫字元。 |
 | **ToUpper()** | 將所選取屬性中的字元轉換成大寫字元。 |
 
 ## <a name="adding-application-specific-claims"></a>新增應用程式特定的宣告
 
-若要新增應用程式特定的宣告：
+若要新增應用程式特定的宣告:
 
-1. 在**使用者屬性和宣告**，選取**新增新的宣告**以開啟**管理使用者宣告**頁面。
-1. 請輸入**名稱**的宣告。 值不嚴格遵循 URI 模式，每個 SAML 規格的需要。如果您需要的 URI 模式，您可以將它放**命名空間**欄位。
-1. 選取 **來源**宣告要擷取其值。 您可以從 來源 屬性下拉式清單中選取 使用者屬性或轉換套用至的使用者屬性，再發出做為宣告。
+1. 在 [**使用者屬性 & 宣告**] 中, 選取 [**加入新**宣告] 以開啟 [**管理使用者宣告**] 頁面。
+1. 輸入宣告的**名稱**。 根據 SAML 規格, 此值不一定需要遵循 URI 模式。如果您需要 URI 模式, 可以將它放在 [**命名空間**] 欄位中。
+1. 選取宣告要取得其值的**來源**。 您可以從 [來源屬性] 下拉式清單中選取使用者屬性, 或將轉換套用至使用者屬性, 再將其發出為宣告。
 
-### <a name="application-specific-claims---transformations"></a>應用程式特定的宣告集轉換
+### <a name="application-specific-claims---transformations"></a>應用程式特定的宣告-轉換
 
 您也可以使用宣告轉換函式。
 
-| 函式 | 描述 |
+| 函數 | 描述 |
 |----------|-------------|
-| **ExtractMailPrefix()** | 移除電子郵件地址或使用者主體名稱的網域尾碼。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。 |
-| **Join()** | 藉由聯結兩個屬性建立新的值。 （選擇性） 您可以使用兩個屬性之間的分隔符號。 |
+| **ExtractMailPrefix()** | 從電子郵件地址或使用者主體名稱中移除網域尾碼。 這只會擷取使用者名稱的第一個部分 (例如，"joe_smith" 而不是 joe_smith@contoso.com)。 |
+| **Join()** | 藉由聯結兩個屬性來建立新的值。 (選擇性) 您可以在這兩個屬性之間使用分隔符號。 |
 | **ToLower()** | 將所選取屬性中的字元轉換成小寫字元。 |
 | **ToUpper()** | 將所選取屬性中的字元轉換成大寫字元。 |
-| **Contains()** | 輸出的屬性或常數，如果輸入符合指定的值。 否則您可以指定另一個輸出，如果沒有相符項目。<br/>例如，如果您想要發出的宣告，其中的值是使用者的電子郵件地址時如果它包含網域"@contoso.com」，否則在您想要輸出的使用者主體名稱。 若要這樣做，您會設定下列值：<br/>*參數 1(input)* : user.email<br/>*值*: 「@contoso.com"<br/>參數 2 （輸出）： user.email<br/>參數 3 （如果沒有相符的輸出）： user.userprincipalname |
-| **EndWith()** | 輸出的屬性或常數，如果輸入結束使用指定的值。 否則您可以指定另一個輸出，如果沒有相符項目。<br/>比方說，如果您想要發出的宣告，其中的值是使用者的 employeeid 如果 employeeid 結尾為"000"，否則您想要輸出的延伸模組屬性。 若要這樣做，您會設定下列值：<br/>*參數 1(input)* : user.employeeid<br/>*值*："000"<br/>參數 2 （輸出）： user.employeeid<br/>參數 3 （如果沒有相符的輸出）： user.extensionattribute1 |
-| **StartWith()** | 輸出的屬性或常數，如果輸入的開頭指定的值。 否則您可以指定另一個輸出，如果沒有相符項目。<br/>比方說，如果您想要發出的宣告，其中的值是使用者的 employeeid 如果國家/地區的開頭 「 美國 」，否則您想要輸出的延伸模組屬性。 若要這樣做，您會設定下列值：<br/>*參數 1(input)* : user.country<br/>*值*：「 我們的 」<br/>參數 2 （輸出）： user.employeeid<br/>參數 3 （如果沒有相符的輸出）： user.extensionattribute1 |
-| **Extract （)-比對之後** | 它會比對指定的值之後，傳回子字串。<br/>比方說，如果輸入的值為"Finance_BSimon 」，相符的值是"Finance_ 」，然後宣告的輸出是"是 BSimon"。 |
-| **Extract （)-之前比對** | 傳回子字串，直到比對指定的值。<br/>比方說，如果輸入的值為"BSimon_US 」，相符的值是"_US 」，然後宣告的輸出是"是 BSimon"。 |
-| **Extract （)-之間比對** | 傳回子字串，直到比對指定的值。<br/>比方說，如果輸入的值為"Finance_BSimon_US 」，第一個相符的值是"Finance_ 」，第二個相符的值是"_US 」，然後宣告的輸出是"是 BSimon"。 |
-| **ExtractAlpha()-前置詞** | 傳回字串的前置詞依字母順序排列的一部分。<br/>例如，如果輸入的值為"BSimon_123 」，然後它會傳回"是 BSimon"。 |
-| **ExtractAlpha() - Suffix** | 傳回字串的後置詞依字母順序排列的一部分。<br/>例如，如果輸入的值為"123_Simon 」，然後它會傳回"名為 Simon"。 |
-| **ExtractNumeric() - Prefix** | 傳回字串的前置詞數值部分。<br/>例如，如果輸入的值為"123_BSimon 」，然後它會傳回"123"。 |
-| **ExtractNumeric() - Suffix** | 傳回字串的後置詞數值部分。<br/>例如，如果輸入的值為"BSimon_123 」，然後它會傳回"123"。 |
-| **IfEmpty()** | 輸出的屬性或常數，如果輸入是 null 或空白。<br/>比方說，如果您想要輸出儲存在 extensionattribute，如果是空的指定使用者的 employeeid 屬性。 若要這樣做，您會設定下列值：<br/>參數 1(input): user.employeeid<br/>參數 2 （輸出）： user.extensionattribute1<br/>參數 3 （如果沒有相符的輸出）： user.employeeid |
-| **IfNotEmpty()** | 輸出的屬性或常數，如果輸入不是 null 或空白。<br/>比方說，如果您想要輸出儲存在 extensionattribute，如果指定使用者的 employeeid 不是空的屬性。 若要這樣做，您會設定下列值：<br/>參數 1(input): user.employeeid<br/>參數 2 （輸出）： user.extensionattribute1 |
+| **Contains()** | 如果輸入符合指定的值, 則輸出屬性或常數。 否則, 如果沒有符合的結果, 您可以指定另一個輸出。<br/>例如, 如果您想要發出宣告, 其中的值為使用者的電子郵件地址 (如果它包含網域 "@contoso.com"), 則為, 否則您會想要輸出使用者主體名稱。 若要這樣做, 您可以設定下列值:<br/>*參數 1 (輸入)* : 使用者。電子郵件<br/>*值*: "@contoso.com"<br/>參數 2 (輸出): 使用者電子郵件<br/>參數 3 (如果沒有符合的輸出): user. userprincipalname |
+| **EndWith()** | 如果輸入的結尾是指定的值, 則會輸出屬性或常數。 否則, 如果沒有符合的結果, 您可以指定另一個輸出。<br/>例如, 如果您想要發出宣告, 其中的值是使用者的員工 id (如果員工的結尾是 "000"), 否則您會想要輸出擴充屬性。 若要這樣做, 您可以設定下列值:<br/>*參數 1 (輸入)* : 使用者. 員工。<br/>*值*：10000<br/>參數 2 (輸出): 使用者. 員工。<br/>參數 3 (如果沒有符合的輸出): user. extensionattribute1 |
+| **StartWith()** | 如果輸入的開頭為指定的值, 則會輸出屬性或常數。 否則, 如果沒有符合的結果, 您可以指定另一個輸出。<br/>例如, 如果您想要發出宣告, 其中的值為使用者的「員工 id」, 如果國家/地區以「美國」開頭, 則為, 否則您會想要輸出擴充屬性。 若要這樣做, 您可以設定下列值:<br/>*參數 1 (輸入)* : 使用者 country<br/>*值*：回饋<br/>參數 2 (輸出): 使用者. 員工。<br/>參數 3 (如果沒有符合的輸出): user. extensionattribute1 |
+| **解壓縮 ()-比對之後** | 傳回符合指定值的子字串。<br/>例如, 如果輸入的值為 "Finance_BSimon", 則相符的值為 "Finance_", 而宣告的輸出為 "BSimon"。 |
+| **解壓縮 ()-比對之前** | 傳回子字串, 直到它符合指定的值為止。<br/>例如, 如果輸入的值為 "BSimon_US", 則相符的值為 "_US", 而宣告的輸出為 "BSimon"。 |
+| **解壓縮 ()-比對之間** | 傳回子字串, 直到它符合指定的值為止。<br/>例如, 如果輸入的值為 "Finance_BSimon_US", 第一個相符的值為 "Finance_", 第二個相符的值為 "_US", 則宣告的輸出為 "BSimon"。 |
+| **ExtractAlpha ()-Prefix** | 傳回字串的前置詞字母部分。<br/>例如, 如果輸入的值為 "BSimon_123", 則會傳回 "BSimon"。 |
+| **ExtractAlpha ()-尾碼** | 傳回字串的後置詞字母部分。<br/>例如, 如果輸入的值為 "123_Simon", 則會傳回 "Simon"。 |
+| **ExtractNumeric ()-Prefix** | 傳回字串的前置數位部分。<br/>例如, 如果輸入的值為 "123_BSimon", 則會傳回 "123"。 |
+| **ExtractNumeric ()-尾碼** | 傳回字串的尾碼數值部分。<br/>例如, 如果輸入的值為 "BSimon_123", 則會傳回 "123"。 |
+| **IfEmpty()** | 如果輸入為 null 或空白, 則輸出屬性或常數。<br/>例如, 如果您想要輸出儲存在 system.runtime.compilerservices.extensionattribute 中的屬性 (如果指定的使用者的「員工」是空的)。 若要這樣做, 您可以設定下列值:<br/>參數 1 (輸入): 使用者. 員工。<br/>參數 2 (輸出): 使用者. extensionattribute1<br/>參數 3 (如果沒有符合的輸出): 使用者. 員工。 |
+| **IfNotEmpty()** | 如果輸入不是 null 或空白, 則輸出屬性或常數。<br/>例如, 如果您想要輸出儲存在 system.runtime.compilerservices.extensionattribute 中的屬性 (如果指定的使用者的「員工」不是空的)。 若要這樣做, 您可以設定下列值:<br/>參數 1 (輸入): 使用者. 員工。<br/>參數 2 (輸出): 使用者. extensionattribute1 |
 
-如果您需要額外的轉換，請提交您的想法，在[在 Azure AD 中的意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599)下方*SaaS 應用程式*類別目錄。
+如果您需要額外的轉換, 請在 [ *SaaS 應用程式*] 類別底下[Azure AD 的意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599)中提交您的想法。
 
 ## <a name="next-steps"></a>後續步驟
 

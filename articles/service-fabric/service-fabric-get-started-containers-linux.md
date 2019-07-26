@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f117e7c5291216b5716aee40995e6f224705fa
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302269"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359358"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "66302269"
 > [!NOTE]
 > 本文適用於 Linux 開發環境。  Service Fabric 叢集執行階段與 Docker 執行階段必須在相同的作業系統上執行。  您無法在 Windows 叢集上執行 Linux 容器。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * 執行下列項目的開發電腦︰
   * [Service Fabric SDK 和工具](service-fabric-get-started-linux.md)。
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -44,7 +44,7 @@ ms.locfileid: "66302269"
 
 在 Dockerfile 中指定您的 Docker 容器。 Dockerfile 包含下列相關指示：設定您容器內的環境、載入您要執行的應用程式，以及對應連接埠。 Dockerfile 是 `docker build` 命令的輸入，該命令可建立映像。 
 
-建立空的目錄並建立 Dockerfile  檔案 (沒有副檔名)。 將下列內容新增至 Dockerfile  並儲存變更：
+建立空的目錄並建立 Dockerfile 檔案 (沒有副檔名)。 將下列內容新增至 Dockerfile 並儲存變更：
 
 ```
 # Use an official Python runtime as a base image
@@ -72,22 +72,24 @@ CMD ["python", "app.py"]
 如需詳細資訊，請參閱 [Dockerfile 參考](https://docs.docker.com/engine/reference/builder/)。
 
 ## <a name="create-a-basic-web-application"></a>建立基本 Web 應用程式
-建立 Flask Web 應用程式，其會在連接埠 80 上接聽並傳回 "Hello World!"。 在相同的目錄中，建立 requirements.txt  檔案。 新增下列內容並儲存變更：
+建立 Flask Web 應用程式，其會在連接埠 80 上接聽並傳回 "Hello World!"。 在相同的目錄中，建立 requirements.txt 檔案。 新增下列內容並儲存變更：
 ```
 Flask
 ```
 
-此外，建立 app.py  檔案並新增下列程式碼片段：
+此外，建立 app.py 檔案並新增下列程式碼片段：
 
 ```python
 from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
@@ -120,9 +122,9 @@ helloworldapp                 latest              86838648aab6        2 minutes 
 docker run -d -p 4000:80 --name my-web-site helloworldapp
 ```
 
-name  - 提供執行中容器的名稱 (而不是容器識別碼)。
+name - 提供執行中容器的名稱 (而不是容器識別碼)。
 
-連線到執行中的容器。 開啟網頁瀏覽器指向 IP 位址所傳回的連接埠 4000，例如"http:\//localhost:4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟網頁瀏覽器, 指向埠4000上傳回的 IP 位址, 例如 "HTTP:\//localhost: 4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ![Hello World!][hello-world]
 
@@ -141,9 +143,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>將映像推送至容器登錄
 確認應用程式在 Docker 中執行後，將映像推送至 Azure Container Registry 中您的登錄。
 
-執行`docker login`登入您的容器登錄搭配您[登錄認證](../container-registry/container-registry-authentication.md)。
+執行`docker login` , 以使用您的登錄[認證](../container-registry/container-registry-authentication.md)登入您的 container registry。
 
-下列範例會傳遞 Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md) 的識別碼和密碼。 例如，您可能基於自動化案例已指派服務主體到您的登錄庫。 或者，您可以使用登入您的登錄使用者名稱和密碼。
+下列範例會傳遞 Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md) 的識別碼和密碼。 例如，您可能基於自動化案例已指派服務主體到您的登錄庫。 或者, 您可以使用登錄使用者名稱和密碼來登入。
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -232,9 +234,9 @@ service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-docker-healthcheck"></a>設定 Docker HEALTHCHECK 
 
-從 6.1 版開始，Service Fabric 會自動將 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件整合至其系統健康情況報告。 這表示，如果您的容器已啟用 **HEALTHCHECK**，每當 Docker 報告容器的健康情況狀態發生變更時，Service Fabric 就會報告健康情況。 如果 health_status  為「狀況良好」  ，則 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中的健康情況報告會顯示 **OK (正常)** ，如果 health_status  為「狀況不良」  ，則顯示 **WARNING (警告)** 。 
+從 6.1 版開始，Service Fabric 會自動將 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件整合至其系統健康情況報告。 這表示，如果您的容器已啟用 **HEALTHCHECK**，每當 Docker 報告容器的健康情況狀態發生變更時，Service Fabric 就會報告健康情況。 如果 health_status 為「狀況良好」，則 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中的健康情況報告會顯示 **OK (正常)** ，如果 health_status 為「狀況不良」，則顯示 **WARNING (警告)** 。 
 
-V6.4 的最新的重新整理版本開始，您可以指定 docker HEALTHCHECK 評估都應該報告為錯誤。 如果啟用此選項時， **[確定]** 健全狀況報表會顯示 *（正常)* 會*狀況良好*並**錯誤**會顯示*如果*是*狀況不良*。
+從6.4 版的最新重新整理版本開始, 您可以選擇指定 docker HEALTHCHECK 評估應回報為錯誤。 如果啟用此選項, 當*health_status*狀況*良好*時, 即會出現 **[確定]** 健康情況報告, 而當*health_status*狀況*不良*時, 將會出現**錯誤**。
 
 **HEALTHCHECK** 指令會指向針對監視容器健康情況而執行的實際檢查，該指令必須存在產生容器映像時使用的 Dockerfile 中。
 
@@ -258,11 +260,11 @@ V6.4 的最新的重新整理版本開始，您可以指定 docker HEALTHCHECK �
     </Policies>
 </ServiceManifestImport>
 ```
-依預設*IncludeDockerHealthStatusInSystemHealthReport*設為 **，則為 true**， *RestartContainerOnUnhealthyDockerHealthStatus*設為**false**，並*TreatContainerUnhealthyStatusAsError*設定為**false**。 
+根據預設, *IncludeDockerHealthStatusInSystemHealthReport*會設定**為 true**, *RestartContainerOnUnhealthyDockerHealthStatus*會設定為**false**, 而*TreatContainerUnhealthyStatusAsError*會設定為**false**. 
 
 如果 *RestartContainerOnUnhealthyDockerHealthStatus* 設為 **true**，則報告中重複出現狀況不良的容器就會重新啟動 (可能在其他節點上重新啟動)。
 
-如果*TreatContainerUnhealthyStatusAsError*設為 **，則為 true**，**錯誤**健全狀況報表會顯示容器的*如果*是*狀況不良*。
+如果*TreatContainerUnhealthyStatusAsError*設定為**true**, 當容器的*health_status*狀況*不良*時, 將會出現**錯誤**健康情況報告。
 
 如果您需要停用整個 Service Fabric 叢集的 **HEALTHCHECK** 整合，就必須將 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 設為 **false**。
 
@@ -282,9 +284,9 @@ sfctl cluster select --endpoint http://localhost:19080
 ./install.sh
 ```
 
-開啟瀏覽器並瀏覽至 Service Fabric Explorer，http:\//localhost:19080 / (如果在 Mac OS X 上使用 Vagrant 在 VM 的私人 IP 取代 Localhost)。 展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個則是該類型的第一個執行個體。
+開啟瀏覽器並流覽至 Service Fabric Explorer, 網址為\/HTTP:/localhost: 19080/Explorer (如果在 Mac OS X 上使用 Vagrant, 請以 VM 的私人 IP 取代 localhost)。 展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個則是該類型的第一個執行個體。
 
-連線到執行中的容器。 開啟網頁瀏覽器指向 IP 位址所傳回的連接埠 4000，例如"http:\//localhost:4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟網頁瀏覽器, 指向埠4000上傳回的 IP 位址, 例如 "HTTP:\//localhost: 4000"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 ![Hello World!][hello-world]
 
@@ -475,7 +477,7 @@ Service Fabric 執行階段會配置 20 分鐘來下載及擷取容器映像，�
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>使用自訂引數啟動 Docker 精靈
 
-若使用 6.2 版和更新版本的 Service Fabric 執行階段，您可以使用自訂引數啟動 Docker 精靈。 若指定了自訂引數，除了 `--pidfile` 引數外，Service Fabric 就不會再將任何其他引數傳遞至 Docker 引擎。 因此，不應該將 `--pidfile` 當作引數來傳遞。 此外，此引數也應該繼續讓 Docker 精靈在 Windows 的預設名稱管道 (若在 Linux 上，則是 Unix 網域通訊端) 上接聽，Service Fabric 才能與精靈通訊。 您可以在叢集資訊清單 [主控]  區段的 **ContainerServiceArguments** 底下指定自訂引數。 範例如下列程式碼片段所示： 
+若使用 6.2 版和更新版本的 Service Fabric 執行階段，您可以使用自訂引數啟動 Docker 精靈。 若指定了自訂引數，除了 `--pidfile` 引數外，Service Fabric 就不會再將任何其他引數傳遞至 Docker 引擎。 因此，不應該將 `--pidfile` 當作引數來傳遞。 此外，此引數也應該繼續讓 Docker 精靈在 Windows 的預設名稱管道 (若在 Linux 上，則是 Unix 網域通訊端) 上接聽，Service Fabric 才能與精靈通訊。 您可以在叢集資訊清單 [主控] 區段的 **ContainerServiceArguments** 底下指定自訂引數。 範例如下列程式碼片段所示： 
  
 
 ```json

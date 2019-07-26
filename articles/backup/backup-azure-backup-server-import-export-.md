@@ -1,19 +1,18 @@
 ---
 title: Azure 備份 - 適用於 DPM 和 Azure 備份伺服器的離線備份
 description: 了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。 此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料。
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 18f84062bcaf2766ee0abd5248f876c3d8acef3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a8571230b24d76482c505ec22d6faaa0caec5e6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304026"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466712"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>適用於 DPM 和 Azure 備份伺服器的離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 Azure 備份會壓縮初始備份。 透過離線植入程序，Azure 備份可以使用磁碟將壓縮後的初始備份資料離線上傳至 Azure。
@@ -29,7 +28,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 > [!div class="checklist"]
 > * 不透過網路傳送備份資料，而是將備份資料寫入到*暫存位置*中
-> * 接著，使用 *AzureOfflineBackupDiskPrep* 公用程式將「暫存位置」  上的資料寫入到一或多個 SATA 磁碟中
+> * 接著，使用 *AzureOfflineBackupDiskPrep* 公用程式將「暫存位置」上的資料寫入到一或多個 SATA 磁碟中
 > * 公用程式會自動建立 Azure 匯入作業
 > * 接著，將 SATA 磁碟機送到最鄰近的 Azure 資料中心
 > * 將備份資料上傳至 Azure 的作業完成之後，Azure 備份就會將備份資料複製至備份保存庫，並排程增量備份。
@@ -42,7 +41,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 > * 使用 System Center Data Protection Manager (SC DPM) 來備份所有工作負載和檔案
 > * 使用「Microsoft Azure 備份伺服器」來備份所有工作負載和檔案 <br/>
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 起始「離線備份」工作流程之前，請先確定已符合下列先決條件
 * 已建立[復原服務保存庫](backup-azure-recovery-services-vault-overview.md)。 若要建立保存庫，請參閱[這篇文章](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)中的步驟
 * 已在 Windows Server/Windows 用戶端 (依據適用情況) 上安裝「Azure 備份」代理程式、「Azure 備份伺服器」或 SC DPM，並已向「復原服務保存庫」註冊該電腦。 請確定只使用[最新版的 Azure 備份](https://go.microsoft.com/fwlink/?linkid=229525)。
@@ -53,13 +52,13 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
     | 美國 | [連結](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | 中國 | [連結](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* 在您從中下載發佈設定檔案的訂用帳戶中，已建立採用「傳統」  部署模型的「Azure 儲存體」帳戶，如下所示：
+* 在您從中下載發佈設定檔案的訂用帳戶中，已建立採用「傳統」部署模型的「Azure 儲存體」帳戶，如下所示：
 
   ![建立傳統儲存體帳戶](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * 已建立具有足夠磁碟空間來存放初始複本的內部或外部暫存位置 (可能是網路共用或電腦上任何額外的磁碟機)。 例如：若您正在嘗試備份 500 GB 的檔案伺服器，請確定預備區域至少有 500 GB 的空間 (由於壓縮的關係，實際使用量會較少)。
 * 針對將送到 Azure 的磁碟，確保僅使用 2.5 英吋的 SSD，或是 2.5 英吋或 3.5 英吋的 SATA II/III 內部硬碟。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/common/storage-import-export-requirements.md#supported-hardware)以取得服務所支援的最新磁碟機組合。
-* SATA 磁碟機必須連接至要執行將備份資料從「暫存位置」  複製到 SATA 磁碟機之作業的電腦 (稱為「複本電腦」  )。 請確定已在「複本電腦」  上啟用 BitLocker
+* SATA 磁碟機必須連接至要執行將備份資料從「暫存位置」複製到 SATA 磁碟機之作業的電腦 (稱為「複本電腦」)。 請確定已在「複本電腦」上啟用 BitLocker
 
 ## <a name="workflow"></a>工作流程
 本節資訊可協助您完成離線備份工作流程，以便將您的資料傳遞至 Azure 資料中心，並上傳至 Azure 儲存體。 若您有關於匯入服務或處理程序任何層面的問題，請參閱稍早的 [匯入服務概觀](../storage/common/storage-import-export-service.md) 參考文件。
@@ -81,13 +80,13 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
    * **Azure 儲存體帳戶**：與「Azure 發佈設定」檔案關聯之 Azure 訂用帳戶中的儲存體帳戶名稱。
    * **Azure 儲存體容器**：Azure 儲存體帳戶中備份資料的匯入目的地儲存體 Blob 名稱。
 
-     請儲存您所提供的「暫存位置」  和「Azure 匯入作業名稱」  ，因為這是準備磁碟時所需的資訊。  
+     請儲存您所提供的「暫存位置」和「Azure 匯入作業名稱」 ，因為這是準備磁碟時所需的資訊。  
 
-2. 完成工作流程，然後若要起始離線備份複製，請在「Azure 備份」代理程式管理主控台中按一下 [立即備份]  。 作為此步驟的一部分，初始備份會寫入預備區域。
+2. 完成工作流程，然後若要起始離線備份複製，請在「Azure 備份」代理程式管理主控台中按一下 [立即備份]。 作為此步驟的一部分，初始備份會寫入預備區域。
 
     ![立即備份](./media/backup-azure-backup-import-export/backupnow.png)
 
-    若要在 System Center Data Protection Manager 或「Azure 備份」伺服器中完成對應的工作流程，請在 [保護群組]  上按一下滑鼠右鍵，然後選擇 [建立復原點]  選項。 您接著要選擇 [線上保護]  選項。
+    若要在 System Center Data Protection Manager 或「Azure 備份」伺服器中完成對應的工作流程，請在 [保護群組] 上按一下滑鼠右鍵，然後選擇 [建立復原點] 選項。 您接著要選擇 [線上保護]  選項。
 
     ![SC DPM 和 Azure 備份伺服器立即備份](./media/backup-azure-backup-import-export/dpmbackupnow.png)
 
@@ -98,9 +97,9 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>準備 SATA 磁碟機並寄送到 Azure
 *AzureOfflineBackupDiskPrep* 公用程式可用來準備要送到最鄰近之 Azure 資料中心的 SATA 磁碟機。 此公用程式位於「復原服務」代理程式之安裝目錄的以下路徑中：
 
-*\\Microsoft Azure 復原服務代理程式\\公用程式\\*
+*\\Microsoft Azure 復原服務代理\\程式 Utils\\*
 
-1. 移至該目錄，然後將 [AzureOfflineBackupDiskPrep]  目錄複製到已連接要準備之 SATA 磁碟機的複本電腦。 確認下列與複本電腦有關的事項：
+1. 移至該目錄，然後將 [AzureOfflineBackupDiskPrep] 目錄複製到已連接要準備之 SATA 磁碟機的複本電腦。 確認下列與複本電腦有關的事項：
 
    * 複本電腦可使用在 **起始離線備份** 工作流程中所提供的相同網路路徑，存取離線植入工作流程的預備位置。
    * 已在複本電腦上啟用 BitLocker。
@@ -153,7 +152,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:`
 
-   您可以選擇從不同的電腦 (例如「複本電腦」  )，以 *AzureOfflineBackupDiskPrep* 公用程式目錄作為目前的目錄來執行下列命令：
+   您可以選擇從不同的電腦 (例如「複本電腦」)，以 *AzureOfflineBackupDiskPrep* 公用程式目錄作為目前的目錄來執行下列命令：
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 

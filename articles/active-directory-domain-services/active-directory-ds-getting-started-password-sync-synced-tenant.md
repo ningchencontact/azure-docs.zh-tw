@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e252774d99eecac3623fcbae4ce9fdc0e1591672
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3ea4ebe652679ee9e4c0a165493fa86756ca7868
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474097"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494557"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的密碼同步
 在先前工作中，您已啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services。 下一項工作是啟用 NT LAN Manager (NTLM) 和 Kerberos 驗證所需的認證雜湊與 Azure AD Domain Services 的同步。 設定認證同步處理後，使用者即可使用他們的公司認證來登入受控網域。
@@ -41,7 +41,7 @@ ms.locfileid: "67474097"
 已同步處理的 Azure AD 租用戶會設定為使用 Azure AD Connect 來與您組織的內部部署目錄同步處理。 根據預設，Azure AD Connect 不會將 NTLM 和 Kerberos 認證雜湊同步到 Azure AD。 若要使用 Azure AD 網域服務，您需要設定 Azure AD Connect 以同步處理 NTLM 和 Kerberos 驗證所需的認證雜湊。 下列步驟能夠將必要的認證雜湊從內部部署目錄同步到 Azure AD 租用戶。
 
 > [!NOTE]
-> **如果您的組織具有從您的內部部署目錄同步的使用者帳戶，則您必須啟用 NTLM 與 Kerberos 雜湊的同步，才能使用受控網域。** 同步的使用者帳戶是已在內部部署目錄中建立的帳戶，並會使用 Azure AD Connect 同步到 Azure AD 租用戶。
+> **如果您的組織具有從您的內部部署目錄同步的使用者帳戶，則您必須啟用 NTLM 與 Kerberos 雜湊的同步，才能使用受控網域。** 同步的使用者帳戶是已在內部部署目錄中建立的帳戶，並會使用 Azure AD Connect 同步到 Azure AD 租用戶。  密碼雜湊同步處理與使用者/物件同步不同。您需要停用/啟用密碼雜湊同步處理以取得完整密碼同步, 然後您會在應用程式事件記錄檔中看到批次密碼雜湊更新。
 >
 >
 
@@ -77,6 +77,9 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 視目錄的大小而定 (使用者、群組等的數目)，將認證雜湊同步處理到 Azure AD 需要花一點時間。 將認證雜湊同步處理到 Azure AD 之後，密碼短時間內就能在 Azure Actuve Directory Domain Services 的受控網域上使用。
+
+> [!NOTE]
+> **密碼雜湊同步**處理與使用者/物件同步不同。您需要停用/啟用密碼雜湊同步處理以取得完整密碼同步, 然後您會在應用程式事件記錄檔中看到批次密碼雜湊更新。
 
 ## <a name="related-content"></a>相關內容
 * [為僅限雲端的 Azure AD 目錄啟用 AAD 網域服務的密碼同步處理](active-directory-ds-getting-started-password-sync.md)

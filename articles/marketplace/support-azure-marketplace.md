@@ -2,41 +2,40 @@
 title: 支援 Azure Marketplace 和 AppSource | Azure
 description: Azure Marketplace 和 AppSource 的支援資訊和連結
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: nunoc
-ms.openlocfilehash: 1c27b85aca45f25354d6351c1a335b14cb9bc446
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.date: 7/25/2019
+ms.author: v-qiwe
+ms.openlocfilehash: 525bcc0ba148c4cb3e679dee1209953e4a3d87b6
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297813"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501296"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace 的支援  
 以下是 Marketplace 的支援選項清單。  
 
 此外，您可以在 [C + AI 社群論壇的 Marketplace 頻道](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222)取得許多問題的解答。  
 
-## <a name="onboarding"></a>登入
+## <a name="onboarding"></a>上架
 
 使用 Microsoft [marketplace 發行者支援](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)開啟票證, 以取得上線和開始使用的問題, 如果您對 Microsoft 合作夥伴網路有任何疑問, 請向 microsoft[合作夥伴支援服務](https://partner.microsoft.com/support)。
 
-## <a name="cloud-partner-portal"></a>雲端合作夥伴入口網站  
+## <a name="partner-center-or-cloud-partner-portal"></a>合作夥伴中心或 Cloud Partner 入口網站  
 
 | 支援通道 | 描述 | 可用性 |  
 |:--- |:--- |:--- |  
-| 如需協助，請瀏覽位於 [Marketplace 支援服務](https://go.microsoft.com/fwlink/?linkid=844975) \(英文\) 的「建立事件」頁面</li> </ul> | 支援「Cloud Partner 入口網站」。 | 提供支援的時間為太平洋標準時間早上 6 點到晚上 6 點。 |  
+| 如需協助，請瀏覽位於 [Marketplace 支援服務](https://go.microsoft.com/fwlink/?linkid=844975) \(英文\) 的「建立事件」頁面</li> </ul> | 合作夥伴中心或 Cloud Partner 入口網站的支援。 | 提供支援的時間為太平洋標準時間早上 6 點到晚上 6 點。 |  
 
-## <a name="technical"></a>技術需求  
+## <a name="technical"></a>技術  
 
 | 支援通道 | 描述 |  
 |:--- |:--- |  
 | MSDN 論壇：Marketplace：[social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network 論壇。 |  
 | Stack Overflow：Azure 位於 [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | 可供取得解決方案及詢問 Azure Marketplace 所有相關問題的 Stack Overflow 環境。<ul> <li>Stack Overflow：Azure Marketplace 位於 [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow：Azure Resource Manager 位於 [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow：Azure 上位於 [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine) 的虛擬機器</li> <li>Stack Overflow：Azure 上位於 [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container) 的容器</li> </ul> |
-| AppSource 的支援：[appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | 支援「Dynamics 應用程式」的發佈 |
 
 ## <a name="marketing-resources"></a>行銷資源  
 

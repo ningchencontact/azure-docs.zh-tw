@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/09/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 2e6eb449f4e7a8dcd6c4547162a575d21f303f83
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 43d1942b1413569d77c6c17fee9fff14dc83c924
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712426"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362468"
 ---
 ### <a name="what-is-expressroute-direct"></a>什麼是 ExpressRoute Direct？
 
-ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對等互連位置，都直接連線至 Microsoft 全球網路的能力。 ExpressRoute 直接提供雙重 100 或 10 Gbps 連線能力，可支援大規模的主動/主動連線。 
+ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對等互連位置，都直接連線至 Microsoft 全球網路的能力。 ExpressRoute Direct 提供雙100或 10 Gbps 的連線能力, 可大規模支援主動/主動連線能力。 
 
 ### <a name="how-do-customers-connect-to-expressroute-direct"></a>客戶如何連線至 ExpressRoute Direct？ 
 
@@ -25,7 +25,7 @@ ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>哪些位置目前支援 ExpressRoute Direct？ 
 
-可用的連接埠將會是動態的，且將可透過 PowerShell 來檢視容量。 位置包括如下，且根據可用性可能會有所變更  ：
+可用的連接埠將會是動態的，且將可透過 PowerShell 來檢視容量。 位置包括如下，且根據可用性可能會有所變更：
 
 * 阿姆斯特丹
 * 阿姆斯特丹2
@@ -35,7 +35,6 @@ ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對
 * 都柏林
 * 香港特別行政區
 * 倫敦
-* 洛杉磯
 * 墨爾本
 * New York City
 * 伯斯
@@ -43,12 +42,12 @@ ExpressRoute Direct 為客戶提供能夠將策略性分散於世界各地的對
 * Seattle
 * 首爾
 * 矽谷
-* 新加坡 2 
+* 新加坡2 
 * 雪梨
 * 台北
 * 東京
 * 多倫多
-* 華盛頓
+* 華盛頓特區
 * 華盛頓特區2
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>ExpressRoute Direct 的 SLA 為何？
@@ -57,12 +56,12 @@ ExpressRoute Direct 會利用相同的[企業級 ExpressRoute](https://azure.mic
 
 ### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>客戶應針對哪些案例考慮使用 ExpressRoute Direct？  
 
-ExpressRoute 直接提供直接的 100 或 10 Gbps 的連接埠組客戶到 Microsoft 的全球骨幹。 能為客戶提供絕佳好處的案例包括：大規模資料擷取、針對受嚴格規範市場的物理隔離和高載案例 (例如轉譯) 的專用容量。 
+ExpressRoute Direct 為客戶提供了直接100或 10 Gbps 的埠配對, 成為 Microsoft 全球骨幹。 能為客戶提供絕佳好處的案例包括：大規模資料擷取、針對受嚴格規範市場的物理隔離和高載案例 (例如轉譯) 的專用容量。 
 
 ### <a name="what-is-the-billing-model-for-expressroute-direct"></a>ExpressRoute Direct 的計費模型為何？ 
 
 ExpressRoute Direct 會針對連接埠配對收取固定的金額。 標準線路將包含在內，不會計算額外時數，而進階線路將會有些許附加元件費用。 輸出將會根據對等位置的區域，按每個線路計費。
 
-### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>何時會計費開始的 ExpressRoute 直接連接埠配對？
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>ExpressRoute Direct 通訊埠配對的計費開始時間為何？
 
 ExpressRoute Direct 的連接埠配對在建立 ExpressRoute Direct 資源 45 天後或在啟用其中一個或同時兩個連結 (視何者先) 時收費。 在 45 天寬限期內會允許客戶與共置提供者完成跨連線程序。

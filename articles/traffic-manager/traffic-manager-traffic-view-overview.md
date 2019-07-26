@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 5a34cf3e41e04367b1cf38015861518fb74dd3f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070954"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333703"
 ---
 # <a name="traffic-manager-traffic-view"></a>流量管理員流量檢視
 
@@ -36,14 +36,14 @@ ms.locfileid: "67070954"
 流量檢視的運作方式是讓流量管理員查看在過去七天內針對已啟用此功能之設定檔所收到的連入查詢。 流量檢視會根據連入查詢資訊擷取 DNS 解析程式的來源 IP，然後用來作為使用者位置的代表。 然後會在 DNS 解析程式層級資料粒度群組在一起，藉由使用由流量管理員維護之 IP 位址的地理資訊，來建立使用者群體區域。 流量管理員接著會查看查詢路由前往的 Azure 區域，並且為這些區域的使用者建構流量流程對應。  
 在下一個步驟中，流量管理員會將 Azure 區域對應的使用者群組區域與它為不同使用者網路維護的網路智慧延遲資料表相互關聯，以了解當連接到 Azure 區域時，這些區域的使用者所體驗的平均延遲。 所有這些計算接著會在呈現給您之前，在每個本機 DNS 解析程式 IP 層級上合併。 您可以用各種方式使用該資訊。
 
-流量檢視資料更新的頻率取決於多個內部的服務變數。 不過，資料通常會更新一次每隔 24 小時。
+流量視圖資料更新的頻率取決於多個內部服務變數。 不過, 資料通常會每隔24小時更新一次。
 
 >[!NOTE]
 >流量檢視中所述的延遲是使用者與已連線 Azure 區域間的代表性延遲，不是 DNS 查詢延遲。 流量檢視對本機 DNS 解析程式與查詢路由前往的 Azure 區域之間的延遲進行最佳投入量估算，如果資料不足，則傳回的延遲將為 Null。 
 
 ## <a name="visual-overview"></a>視覺效果概觀
 
-當您瀏覽至流量管理員頁面中的 [流量檢視]  區段時，您會看到覆蓋流量檢視深入分析的地理區域地圖。 地圖會提供流量管理員設定檔的使用者群體和端點相關資訊。
+當您瀏覽至流量管理員頁面中的 [流量檢視] 區段時，您會看到覆蓋流量檢視深入分析的地理區域地圖。 地圖會提供流量管理員設定檔的使用者群體和端點相關資訊。
 
 ### <a name="user-base-information"></a>使用者群體資訊
 
@@ -64,10 +64,29 @@ ms.locfileid: "67070954"
 
 您可以在 Azure 入口網站中以表格形式檢視流量檢視資料。 每個 DNS 解析程式 IP / 端點配對都有一個項目會顯示 DNS 解析程式的 IP 位置、端點所在位置 (如果有的話) 的 Azure 區域名稱與地理位置、與 DNS 解析程式到該端點相關聯的要求數量，以及與使用 DNS 的使用者相關聯的代表性延遲 (如果有的話)。 您也可以將流量檢視資料下載為 CSV 檔案，這可作為所選分析流程的一部分使用。
 
-## <a name="billing"></a>計費
+## <a name="billing"></a>帳務
 
 當您使用流量檢視時，您會根據用來建立呈現之深入資訊的資料點數目收到帳單。 目前，唯一使用的資料點類型是流量管理員設定檔收到的查詢。 如需價格的詳細資訊，請瀏覽[流量管理員定價分頁](https://azure.microsoft.com/pricing/details/traffic-manager/)。
 
+## <a name="faqs"></a>常見問題集
+
+* [交通視圖有哪些功能？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+
+* [如何使用「流量視圖」來受益？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+
+* [流量視圖與透過 Azure 監視器提供的流量管理員計量有何不同？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+
+* [流量視圖使用的是 EDNS 用戶端子網資訊嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+
+* [流量視圖使用多少天的資料？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+
+* [流量視圖如何處理外部端點？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+
+* [我是否需要針對我的訂用帳戶中的每個設定檔啟用流量視圖？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+
+* [如何關閉流量視圖？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+
+* [流量查看計費的運作方式為何？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
 
 ## <a name="next-steps"></a>後續步驟
 

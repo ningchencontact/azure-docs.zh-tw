@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966389"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381958"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -63,70 +63,70 @@ ms.locfileid: "65966389"
 
 如果沒有看到 Kubernetes 儀表板，請檢查 `kube-proxy` Pod 是否正在 `kube-system` 命名空間中執行。 如果它並未處於執行中狀態，請刪除該 Pod，而它會重新啟動。
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到 「 伺服器發生錯誤： 錯誤撥號後端： 撥接 tcp...」。 我該怎麼辦？
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>我無法使用 kubectl 記錄取得記錄，或無法連線到 API 伺服器。 我收到「伺服器發生錯誤: 撥接後端: 撥接 tcp ...」。 我該怎麼辦？
 
-請確定未修改預設網路安全性群組，且連接埠 22 已開啟至 API 伺服器的連線。 檢查是否`tunnelfront`pod 中執行*kube 系統*命名空間使用`kubectl get pods --namespace kube-system`命令。 若非如此，請強制刪除該 Pod，而它會重新啟動。
+請確定預設的網路安全性群組並未修改, 而且埠22和9000已開放給 API 伺服器連接。 `tunnelfront` 使用`kubectl get pods --namespace kube-system`命令, 檢查 pod 是否正在*kube 系統*命名空間中執行。 若非如此，請強制刪除該 Pod，而它會重新啟動。
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>我正嘗試升級或調整，卻收到「訊息：不允許變更 'ImageReference' 屬性」錯誤。 如何修正此問題？
 
 您可能會因為修改了 AKS 叢集內代理程式節點中的標記而收到此錯誤。 修改和刪除 MC_* 資源群組中資源的標記和其他屬性可能會導致非預期的結果。 在 AKS 叢集中修改 MC_* 群組下的資源會破壞服務層級目標 (SLO)。
 
-## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>我收到錯誤，我的叢集處於失敗狀態，並修正之前升級或調整將會無法運作
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>我收到錯誤, 指出我的叢集處於失敗狀態, 而且升級或調整規模必須等到修正後才會生效
 
-*從重新導向到這個疑難排解的協助 https://aka.ms/aks-cluster-failed*
+*此疑難排解協助的導向來源 https://aka.ms/aks-cluster-failed*
 
-當叢集有多種原因進入失敗的狀態時，就會發生此錯誤。 請遵循下列步驟來解決您的叢集失敗狀態，再重試先前失敗的作業：
+當叢集因多種原因而進入失敗狀態時, 就會發生此錯誤。 在重試先前失敗的作業之前, 請遵循下列步驟來解決叢集失敗狀態:
 
-1. 直到叢集共`failed`狀態，`upgrade`和`scale`作業會失敗。 常見的根本問題和解決方式包括：
-    * 使用自動調整規模**不足，無法計算 (CRP) 配額**。 若要解決，第一次調整您的叢集回到穩定的目標狀態在配額內。 請遵循這些[步驟來要求的計算配額增加](../azure-supportability/resource-manager-core-quotas-request.md)之前嘗試相應增加一次除了初始的配額限制。
-    * 調整叢集的進階網路功能及**不足的子網路 （網路） 資源**。 若要解決，第一次調整您的叢集回到穩定的目標狀態在配額內。 然後依照[這些步驟來要求資源配額增加](../azure-resource-manager/resource-manager-quota-errors.md#solution)之前嘗試相應增加一次除了初始的配額限制。
-2. 一旦解決升級失敗的根本原因，您的叢集應該處於成功狀態。 狀態為已成功驗證後，請再試一次原始作業。
+1. 直到叢集的`upgrade` `scale`狀態不正常, 且作業不會成功。 `failed` 常見的根本問題和解決方式包括:
+    * 使用**不足的計算 (CRP) 配額**進行調整。 若要解決此問題, 請先將叢集調整回配額內的穩定目標狀態。 然後, 請遵循下列[步驟來要求增加計算配額](../azure-supportability/resource-manager-core-quotas-request.md), 然後再嘗試重新擴充超過初始配額限制。
+    * 使用 advanced 網路和**不足的子網 (網路) 資源**來調整叢集。 若要解決此問題, 請先將叢集調整回配額內的穩定目標狀態。 然後[, 遵循下列步驟來要求增加資源配額,](../azure-resource-manager/resource-manager-quota-errors.md#solution)再嘗試重新相應增加超過初始配額限制。
+2. 解決升級失敗的根本原因之後, 您的叢集應該會處於成功狀態。 一旦驗證成功狀態之後, 請重試原始操作。
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>我收到錯誤時嘗試升級或小數位數指出我的叢集目前正在執行升級或升級失敗
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>我在嘗試升級或調整狀態時收到錯誤。我的叢集目前正在升級或升級失敗
 
-*從重新導向到這個疑難排解的協助 https://aka.ms/aks-pending-upgrade*
+*此疑難排解協助的導向來源 https://aka.ms/aks-pending-upgrade*
 
-發生作用中的升級作業，或升級已嘗試，但後續失敗時，叢集作業會受到限制。 若要診斷問題執行`az aks show -g myResourceGroup -n myAKSCluster -o table`擷取在叢集上的詳細的狀態。 根據結果：
+當執行中的升級作業或嘗試升級, 但後續失敗時, 叢集作業會受到限制。 若要診斷問題, `az aks show -g myResourceGroup -n myAKSCluster -o table`請執行以取出叢集上的詳細狀態。 根據結果:
 
-* 如果叢集正在主動升級，等到作業會終止。 如果成功，重試先前失敗的作業。
-* 如果叢集已經無法升級，請遵循上述步驟
+* 如果叢集正在主動升級, 請等候作業終止。 如果成功, 請再次嘗試先前失敗的操作。
+* 如果叢集升級失敗, 請遵循上面所述的步驟
 
-## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>可以我我將叢集移至不同的訂用帳戶或訂用帳戶與我的叢集，以新的租用戶？
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>我是否可以將叢集移至不同的訂用帳戶, 或將我的訂用帳戶新增至新的租使用者？
 
-如果您已將 AKS 叢集移至不同的訂用帳戶擁有新的租用戶的訂用帳戶的叢集，叢集將會遺失由於遺失的角色指派和服務主體權限的功能。 **AKS 不支援跨訂用帳戶或租用戶移動叢集**因為這個條件約束。
+如果您已將 AKS 叢集移至不同的訂用帳戶或主控訂用帳戶的叢集至新的租使用者, 叢集將會因為遺失角色指派和服務主體許可權而失去功能。 AKS 不支援在訂用帳戶或租使用者**之間移動**叢集, 因為此條件約束。
 
-## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>我收到錯誤，嘗試使用需要虛擬機器擴展集的功能
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>我在嘗試使用需要虛擬機器擴展集的功能時收到錯誤
 
-*Aka.ms/aks vmss-啟用從導向此疑難排解的協助*
+*此疑難排解協助是從 aka.ms/aks-vmss-enablement 導向*
 
-您可能會收到錯誤指出您的 AKS 叢集不在虛擬機器擴展集，如下列範例：
+您可能會收到錯誤, 指出您的 AKS 叢集不在虛擬機器擴展集上, 如下列範例所示:
 
-**AgentPool 'agentpool' 已設定自動調整為已啟用，但不是虛擬機器擴展集上**
+**AgentPool ' AgentPool ' 已將自動調整設定為 [已啟用], 但不在虛擬機器擴展集**
 
-若要使用功能，例如叢集中自動調整程式或多個節點集區，AKS 叢集必須建立使用虛擬機器擴展集。 如果您嘗試使用取決於虛擬機器擴展集的功能，而且您為目標的一般、 非虛擬機器擴展集 AKS 叢集，則會傳回錯誤。 虛擬機器擴展集支援目前為預覽狀態，AKS 中。
+若要使用叢集自動調整程式或多個節點集區之類的功能, 您必須建立使用虛擬機器擴展集的 AKS 叢集。 如果您嘗試使用相依于虛擬機器擴展集的功能, 並將目標設為一般非虛擬機器擴展集 AKS 叢集, 則會傳回錯誤。 虛擬機器擴展集支援目前在 AKS 中處於預覽狀態。
 
-請遵循*在您開始之前*預覽正確註冊虛擬機器擴展集功能適當的文件中的步驟，並建立 AKS 叢集：
+遵循適當檔中的*開始之前*的步驟, 正確地註冊虛擬機器擴展集功能預覽並建立 AKS 叢集:
 
-* [使用叢集中自動調整程式](cluster-autoscaler.md)
-* [建立及使用多個節點的集區](use-multiple-node-pools.md)
+* [使用叢集自動調整程式](cluster-autoscaler.md)
+* [建立和使用多個節點集區](use-multiple-node-pools.md)
  
-## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>AKS 資源和參數，都會強制執行哪些命名的限制？
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>AKS 資源和參數會強制執行哪些命名限制？
 
-*Aka.ms/aks-命名-規則導向此疑難排解的協助*
+*此疑難排解協助是從 aka.ms/aks-naming-rules 導向*
 
-命名限制的實作方式在 Azure 平台和 AKS 中。 如果資源名稱或參數會中斷這些限制的其中一個，會傳回錯誤，會要求您提供不同的輸入。 適用於下列的一般命名指導方針：
+命名限制是由 Azure 平臺和 AKS 所執行。 如果資源名稱或參數違反其中一個限制, 則會傳回錯誤, 要求您提供不同的輸入。 以下是適用的一般命名指導方針:
 
-* AKS *MC_* 資源群組名稱和資源名稱，結合了資源群組名稱。 自動產生的語法`MC_resourceGroupName_resourceName_AzureRegion`必須不超過 80 個字元。 如有需要減少您的資源群組名稱或 AKS 叢集名稱的長度。
-* *DnsPrefix*必須開頭和結尾為英數字元值。 有效字元包括英數字元值和連字號 （-）。 *DnsPrefix*不能包含特殊字元像是句號 （.）。
+* AKS *MC_* 資源組名結合了資源組名與資源名稱。 自動產生的`MC_resourceGroupName_resourceName_AzureRegion`語法必須不超過80個字元。 如有需要, 請縮短您的資源組名或 AKS 叢集名稱的長度。
+* *DnsPrefix*的開頭和結尾都必須是英數位元值。 有效的字元包括英數位元值和連字號 (-)。 *DnsPrefix*不能包含特殊字元, 例如句號 (.)。
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>我嘗試建立、 更新、 調整、 刪除或不允許作業，因為另一個作業正在進行中的叢集升級時收到錯誤。
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>我在嘗試建立、更新、調整、刪除或升級叢集時收到錯誤, 因為另一個作業正在進行中, 所以不允許該作業。
 
-*此疑難排解的協助是從 aka.ms/aks-暫止的作業重新導向到*
+*此疑難排解協助是從 aka.ms/aks-pending-operation 導向*
 
-先前的作業仍在進行中時，叢集作業會受到限制。 若要擷取您的叢集的詳細的狀態，請使用`az aks show -g myResourceGroup -n myAKSCluster -o table`命令。 視需要使用您自己的資源群組和 AKS 叢集名稱。
+當先前的作業仍在進行中時, 叢集作業會受到限制。 若要取得叢集的詳細狀態, 請使用`az aks show -g myResourceGroup -n myAKSCluster -o table`命令。 視需要使用您自己的資源群組和 AKS 叢集名稱。
 
-根據叢集狀態的輸出：
+根據叢集狀態的輸出:
 
-* 如果叢集不是任何佈建狀態*Succeeded*或是*失敗*，等到作業 (*升級 / 更新 / 建立 / 調整 / 刪除 / 移轉*) 會終止。 當先前的作業完成時，重試一次最新的叢集作業。
+* 如果叢集處於 [*成功*] 或 [*失敗*] 以外的任何布建狀態, 請等候作業 (*升級/更新/建立/調整/刪除/遷移*) 終止。 當先前的作業完成時, 請重新嘗試最新的叢集操作。
 
-* 如果叢集升級失敗，請依照下列所述的步驟[我收到我的叢集處於失敗狀態的錯誤，而且升級或直到修正調整將無法運作](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)。
+* 如果叢集的升級失敗, 請遵循我[收到的錯誤: 「我的叢集處於失敗狀態, 而且升級或調整無法正常執行, 直到修正為止](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)」。

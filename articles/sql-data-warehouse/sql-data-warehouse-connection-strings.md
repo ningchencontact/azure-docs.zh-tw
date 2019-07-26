@@ -2,7 +2,7 @@
 title: 適用於 Azure SQL 資料倉儲的連接字串 | Microsoft Docs
 description: 適用於 SQL 資料倉儲的連接字串
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,15 +10,15 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8f7843714395664b98383c32911de40ca064779e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc8dbfa0bc1b1ad37e5f1a0f290c42998ed1e4b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873619"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479713"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>適用於 Azure SQL 資料倉儲的連接字串
-您可以使用數個不同的應用程式通訊協定 (例如 [ADO.NET][ADO.NET]、[ODBC][ODBC]、[PHP][PHP] 及 [JDBC][JDBC]) 連線到 SQL 資料倉儲。 以下是每個通訊協定連接字串的一些範例。  您也可以使用 Azure 入口網站來建立連接字串。  若要使用 Azure 入口網站建置連接字串，請瀏覽至您資料庫的刀鋒視窗，在 [程式集]  底下，按一下 [顯示資料庫連接字串]  。
+您可以使用數種不同的應用程式協定 (例如[ADO.NET][ADO.NET] , [ODBC][ODBC]、 [php][php]和[JDBC][JDBC]) 來連線到 SQL 資料倉儲。 以下是每個通訊協定連接字串的一些範例。  您也可以使用 Azure 入口網站來建立連接字串。  若要使用 Azure 入口網站建置連接字串，請瀏覽至您資料庫的刀鋒視窗，在 [程式集] 底下，按一下 [顯示資料庫連接字串]。
 
 ## <a name="sample-adonet-connection-string"></a>範例 ADO.NET 連接字串
 ```csharp
@@ -46,7 +46,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>後續步驟
-若要透過 Visual Studio 和其他應用程式開始查詢您的資料倉儲，請參閱[使用 Visual Studio 查詢][Query with Visual Studio]。
+若要透過 Visual Studio 和其他應用程式開始查詢您的資料倉儲，請參閱 [使用 Visual Studio 查詢][Query with Visual Studio]。
 
 <!--Image references-->
 
