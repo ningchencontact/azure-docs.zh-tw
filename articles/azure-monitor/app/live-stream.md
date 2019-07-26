@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: f8203cade1d2e34a9852e945df03dc2fddc1fbe5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303820"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359408"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>即時計量資料流：以 1 秒的延遲進行監視與診斷
 
-使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的即時計量資料流，探查您即時生產環境 Web 應用程式中的活動訊號。 選取並篩選要即時監看的計量和效能計數器，而不會對您的服務造成任何干擾。 檢查失敗要求和例外狀況範例中的堆疊追蹤。 搭配[Profiler](../../azure-monitor/app/profiler.md)，[快照集偵錯工具](../../azure-monitor/app/snapshot-debugger.md)。 即時計量 Stream 即時網站提供功能強大且非侵入式的診斷工具。
+使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的即時計量資料流，探查您即時生產環境 Web 應用程式中的活動訊號。 選取並篩選要即時監看的計量和效能計數器，而不會對您的服務造成任何干擾。 檢查失敗要求和例外狀況範例中的堆疊追蹤。 與[Profiler](../../azure-monitor/app/profiler.md)、[快照偵錯工具](../../azure-monitor/app/snapshot-debugger.md)搭配使用。 即時計量資料流為您的即時網站提供強大且非侵入性的診斷工具。
 
 您可以使用即時計量資料流：
 
@@ -36,13 +36,13 @@ ms.locfileid: "67303820"
 
 [![即時計量資料流影片](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-即時計量目前支援 ASP.NET、 ASP.NET Core、 Azure Functions、 Java 和 Node.js 應用程式。
+目前支援 ASP.NET、ASP.NET Core、Azure Functions、JAVA 和 node.js 應用程式的即時計量。
 
 ## <a name="get-started"></a>開始使用
 
 1. 如果您尚未在 Web 應用程式中[安裝 Application Insights](../../azure-monitor/azure-monitor-app-hub.md)，請立即安裝。
 2. 除了標準 Application Insights 套件之外，還需要 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)，才能啟用「即時計量」串流。
-3. **更新至最新版本**的 Application Insights 套件。 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [管理 Nuget 套件]  。 開啟 [更新]  索引標籤，然後選取所有 Microsoft.ApplicationInsights.* 套件。
+3. **更新至最新版本**的 Application Insights 套件。 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選擇 [管理 Nuget 套件]。 開啟 [更新] 索引標籤，然後選取所有 Microsoft.ApplicationInsights.* 套件。
 
     重新部署您的應用程式。
 
@@ -52,7 +52,7 @@ ms.locfileid: "67303820"
 
 ### <a name="nodejs"></a>Node.js
 
-即時計量以 Node.js 來使用，您必須更新成 1.30 或更新的 sdk 版本。 預設會停用 Node.js SDK 中的即時計量。 若要啟用即時計量新增`setSendLiveMetrics(true)`至您[組態方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)如初始化 SDK。
+若要搭配使用即時計量與 node.js, 您必須更新至1.30 版或更高版本的 SDK。 根據預設, 會停用 node.js SDK 中的即時計量。 若要啟用即時計量`setSendLiveMetrics(true)` , 請在初始化 SDK 時新增至您的設定[方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)。
 
 ### <a name="no-data-check-your-server-firewall"></a>沒有資料？ 請檢查您的伺服器防火牆
 
@@ -94,9 +94,9 @@ ms.locfileid: "67303820"
 
 ![自訂即時摘要](./media/live-stream/live-stream-events.png)
 
-注意：目前針對以例外狀況訊息為基礎的準則，請使用最外部的例外狀況訊息。 在上述範例中，若要使用內部例外狀況訊息 (後接 "<--" 分隔符號)「用戶端中斷連線。」將良性的例外狀況篩選掉， 請使用不包含「讀取要求內容時發生錯誤」準則的訊息。
+注意:目前針對以例外狀況訊息為基礎的準則，請使用最外部的例外狀況訊息。 在上述範例中，若要使用內部例外狀況訊息 (後接 "<--" 分隔符號)「用戶端中斷連線。」將良性的例外狀況篩選掉， 請使用不包含「讀取要求內容時發生錯誤」準則的訊息。
 
-按一下即時摘要中的項目，以查看它的詳細資料。 您可以按一下 [暫停]  或只向下捲動，或是按一下項目來將摘要暫停。 在您捲動回到頂端後，或是按一下暫停時所收集到的項目計數器，即時摘要就會繼續進行。
+按一下即時摘要中的項目，以查看它的詳細資料。 您可以按一下 [暫停] 或只向下捲動，或是按一下項目來將摘要暫停。 在您捲動回到頂端後，或是按一下暫停時所收集到的項目計數器，即時摘要就會繼續進行。
 
 ![取樣的即時失敗](./media/live-stream/live-metrics-eventdetail.png)
 
@@ -167,7 +167,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 就「Azure 函數應用程式 (v2)」而言，可以藉由環境變數來達到使用 API 金鑰保護通道的目的。 
 
-請從 Application Insights 資源內部建立 API 金鑰，然後前往您「函數應用程式」的 [應用程式設定]  。 選取 [新增設訂]  ，然後輸入名稱 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` 及與您 API 金鑰對應的值。
+請從 Application Insights 資源內部建立 API 金鑰，然後前往您「函數應用程式」的 [應用程式設定]。 選取 [新增設訂]，然後輸入名稱 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` 及與您 API 金鑰對應的值。
 
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (需要 Application Insights ASP.NET Core SDK 2.3.0-beta 或更新版本)
 
@@ -175,13 +175,13 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 第一次新增
 
-``` C#
+```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
 然後在 ConfigureServices 方法內新增：
 
-``` C#
+```csharp
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 

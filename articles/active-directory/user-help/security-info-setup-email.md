@@ -12,21 +12,23 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec93574a8da051b5cf77a37af1030d0c22dfc4a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60480560"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382893"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>將安全性資訊 (預覽) 設定為使用電子郵件地址
-您可以遵循下列步驟來新增密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊]  頁面來新增、更新或刪除安全性資訊。
+
+您可以遵循下列步驟來新增密碼重設方法。 在您首次將此設定好之後，即可返回 [安全性資訊] 頁面來新增、更新或刪除安全性資訊。
 
 在設定密碼重設方法之後，您還必須設定使用[驗證器應用程式](security-info-setup-auth-app.md)、[簡訊](security-info-setup-text-msg.md)或[電話](security-info-setup-phone-number.md)的雙因素驗證方法。
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>從安全性資訊頁面設定電子郵件地址
+
 根據組織的設定，您或許可以使用電子郵件地址來作為其中一個安全性資訊方法。
 
 >[!Note]
@@ -38,42 +40,44 @@ ms.locfileid: "60480560"
 
     ![[我的設定檔] 頁面，顯示醒目提示的 [安全性資訊] 連結](media/security-info/securityinfo-myprofile-page.png)
 
-2. 以左側瀏覽窗格或是 [安全性資訊]  區塊中的連結選取 [安全性資訊]  ，然後在 [安全性資訊]  頁面選取 [新增方法]  。
+2. 以左側瀏覽窗格或是 [安全性資訊] 區塊中的連結選取 [安全性資訊]，然後在 [安全性資訊] 頁面選取 [新增方法]。
 
     ![醒目提示新增方法選項的安全性資訊頁面](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. 在 [新增方法]  頁面上，從下拉式清單中選取 [電子郵件]  ，然後選取 [新增]  。
+3. 在 [新增方法] 頁面上，從下拉式清單中選取 [電子郵件]，然後選取 [新增]。
 
     ![已選取 [電子郵件] 的 [新增方法] 方塊](media/security-info/securityinfo-myprofile-addemail.png)
 
-4. 在 [電子郵件]  頁面上，輸入您的電子郵件地址 (例如 alain@gmail.com)，然後選取 [下一步]  。
+4. 在 [電子郵件] 頁面上，輸入您的電子郵件地址 (例如 alain@gmail.com)，然後選取 [下一步]。
 
     ![新增電話號碼，然後選擇電話](media/security-info/securityinfo-myprofile-emailaddress.png)
 
     >[!Important]
     >這個電子郵件地址不能是您的公司或學校電子郵件。
 
-5. 輸入傳送至指定電子郵件地址的代碼，然後選取 [下一步]  。
+5. 輸入傳送至指定電子郵件地址的代碼，然後選取 [下一步]。
 
     ![新增電話號碼，然後選擇簡訊](media/security-info/securityinfo-myprofile-emailcode.png)
 
     安全性資訊便會更新，並可讓您在使用密碼重設時，使用電子郵件地址來驗證您的身分識別。
 
 ## <a name="delete-your-email-address-from-your-security-info-methods"></a>從您的安全性資訊方法中刪除電子郵件地址
-如果您不想再使用電子郵件地址作為安全性資訊方法，您可以從 [安全性資訊]  頁面中刪除應用程式。
+
+如果您不想再使用電子郵件地址作為安全性資訊方法，您可以從 [安全性資訊] 頁面中刪除應用程式。
 
 >[!Important]
 >若不小心刪除電子郵件地址，就無法再復原。 您必須依照本文中[設定電子郵件地址](#set-up-your-email-address-from-the-security-info-page)一節的步驟，再次新增該方法。
 
 ### <a name="to-delete-your-email-address"></a>刪除電子郵件地址
 
-1. 在 [安全性資訊]  頁面上，選取 [電子郵件]  選項旁的 [刪除]  連結。
+1. 在 [安全性資訊] 頁面上，選取 [電子郵件] 選項旁的 [刪除] 連結。
 
     ![從安全性資訊刪除電話方法的連結](media/security-info/securityinfo-myprofile-emaildelete.png)
 
-2. 從確認方塊中選取 [是]  ，以刪除 [電子郵件]  帳戶。 刪除電子郵件帳戶之後，該帳戶就會從您的安全性資訊中移除，並且從 [安全性資訊]  頁面上消失。
+2. 從確認方塊中選取 [是]，以刪除 [電子郵件] 帳戶。 刪除電子郵件帳戶之後，該帳戶就會從您的安全性資訊中移除，並且從 [安全性資訊] 頁面上消失。
 
 ## <a name="additional-security-info-methods"></a>其他安全性資訊方法
+
 根據您要嘗試執行的動作，您會有組織如何連絡您來驗證您身分識別的其他選項。 選項包括：
 
 - **驗證器應用程式。** 下載並使用驗證器應用程式，以取得核准通知或隨機產生的核准代碼來進行雙步驟驗證或密碼重設。 如需如何設定和使用 Microsoft Authenticator 應用程式的逐步指示，請參閱[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)。
@@ -82,8 +86,10 @@ ms.locfileid: "60480560"
 
 - **行動裝置或公司電話。** 輸入您的行動裝置號碼，然後等候來電以進行雙步驟驗證或密碼重設。 如需如何透過電話號碼驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用電話](security-info-setup-phone-number.md)。
 
+- **安全性金鑰。** 註冊與 Microsoft 相容的安全性金鑰, 並使用它搭配 PIN 進行雙步驟驗證或密碼重設。 如需如何使用安全性金鑰驗證您身分識別的逐步指示, 請參閱[將安全性資訊設定為使用安全性金鑰](security-info-setup-security-key.md)。
+
 - **安全性問題。** 回答由您的系統管理員為組織所建立的一些安全性問題。 此選項僅適用於密碼重設，不適用雙步驟驗證。 如需如何設定安全性問題的逐步指示，請參閱[將安全性資訊設定為使用安全性問題](security-info-setup-questions.md)一文。
-    
+
     >[!Note]
     >如果這其中一些選項遺失，很可能是因為您的組織不允許那些方法。 如果發生這種情況，您將必須選擇可用的方法，或連絡您的系統管理員以取得更多協助。
 

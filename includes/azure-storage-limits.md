@@ -5,23 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 01/11/2018
+ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 54050116f9894f9a7903dad53caf6b01228313b7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e692b4704d14a1f0d18f2a3be7397a13a969bc40
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326979"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371768"
 ---
-下表說明 Azure 一般用途 v1、v2 和 Blob 儲存體帳戶的預設限制。 輸入  限制是指傳送至儲存體帳戶之要求中的所有資料。 輸出  限制是指從儲存體帳戶接收的回應中的所有資料。
+下表說明 Azure 一般用途 v1、v2 和 Blob 儲存體帳戶的預設限制。 輸入限制是指傳送至儲存體帳戶之要求中的所有資料。 輸出限制是指從儲存體帳戶接收的回應中的所有資料。
 
 | Resource | 預設限制 |
 | --- | --- |
 | 每個區域中每個訂用帳戶的儲存體帳戶數目，包括標準和進階帳戶 | 250 |
-| 儲存體帳戶容量上限 | 2 PB, 適用于美國和歐洲, 而所有其他區域的 500 TB (含英國) <sup>1</sup>|
-| 每個儲存體帳戶的 blob 容器、blob、檔案共用、資料表、佇列、實體或訊息數目上限 | 沒有限制 |
+| 儲存體帳戶容量上限 | 2 PB, 適用于美國和歐洲, 而所有其他區域的 500 TB (含英國)<sup>1</sup>|
+| 每個儲存體帳戶的 blob 容器、blob、檔案共用、資料表、佇列、實體或訊息數目上限 | 無限制 |
 | 每一儲存體帳戶的要求率上限<sup>1</sup> | 每秒 20,000 個要求 |
 | 每一儲存體帳戶的輸入上限<sup>1</sup> (美國、歐洲地區) | 25 Gbps |
 | 每一儲存體帳戶的輸入上限<sup>1</sup> (美國和歐洲以外的地區) | 如果啟用了 RA-GRS/GRS, 則為 5 gbps, LRS/ZRS 為 10 Gbps<sup>2</sup> |

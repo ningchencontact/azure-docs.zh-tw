@@ -10,22 +10,25 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67292813"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370686"
 ---
-# <a name="standard-properties-in-azure-monitor-logs"></a>在 Azure 監視器記錄檔中的標準屬性
-Azure 監視器記錄檔中的資料[儲存為一組可以在 Log Analytics 工作區或 Application Insights 應用程式中的記錄](../log-query/logs-structure.md)，每個都有特定的資料類型具有一組唯一的屬性。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
+# <a name="standard-properties-in-azure-monitor-logs"></a>Azure 監視器記錄中的標準屬性
+Azure 監視器記錄檔中的資料會[儲存為 Log Analytics 工作區或 Application Insights 應用程式中的一組記錄](../log-query/logs-structure.md), 每一個都具有具有一組唯一屬性的特定資料類型。 有許多資料類型都具有多種類型之間通用的標準屬性。 本文將說明這些屬性，並提供在查詢中加以使用的範例。
 
-其中有部分屬性尚在實作程序中，因此您可能會在某些資料類型中看到這些屬性，但在其他類型中卻沒看到。
+> [!NOTE]
+> 某些標準 propertis 不會顯示在 Log Analytics 中的架構視圖或 intellisense 中, 除非您在輸出中明確指定屬性, 否則不會顯示在查詢結果中。
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated 和時間戳記
-**TimeGenerated** （在 Log Analytics 工作區中） 及**時間戳記**（Application Insights 應用程式） 的屬性包含記錄的建立時間與日期。 其提供以時間進行篩選或彙總時所用的共通屬性。 當您在 Azure 入口網站中選取的檢視或儀表板的時間範圍時，它會使用 TimeGenerated 或時間戳記來篩選結果。
+**TimeGenerated** (Log Analytics 工作區) 和**時間戳記**(Application Insights 應用程式) 屬性包含資料來源建立記錄的日期和時間。 如需詳細資訊, 請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
+
+**TimeGenerated**和**timestamp**提供通用的屬性, 可用於依時間篩選或摘要。 當您在 Azure 入口網站中選取視圖或儀表板的時間範圍時, 它會使用 TimeGenerated 或 timestamp 來篩選結果。 
 
 ### <a name="examples"></a>範例
 
@@ -39,7 +42,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-下列查詢會傳回前一週中每一天建立的例外狀況的數量。
+下列查詢會傳回上一周中每天所建立的例外狀況數目。
 
 ```Kusto
 exceptions
@@ -48,8 +51,22 @@ exceptions
 | sort by timestamp asc 
 ```
 
-## <a name="type-and-itemtype"></a>型別和 itemType
-**型別**（在 Log Analytics 工作區中） 及**itemType** （Application Insights 應用程式） 屬性保留的記錄讓您能夠從中也擷取的資料表名稱視為記錄型別。 在結合多份資料表中記錄的查詢中 (例如使用 `search` 運算子的那些查詢)，此屬性十分適合用來區分不同類型的記錄。 **$table** 可用來取代某些位置中的**類型**。
+## <a name="timereceived"></a>\_TimeReceived
+TimeReceived 屬性包含 Azure 雲端中的 Azure 監視器內嵌點收到記錄的日期和時間。 **\_** 這有助於識別資料來源與雲端之間的延遲問題。 其中一個例子就是網路問題, 這會造成從代理程式傳送資料的延遲。 如需詳細資訊, 請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
+
+下列查詢提供來自代理程式之事件記錄的平均延遲 (以小時為單位)。 這包括從代理程式到雲端的時間, 以及記錄查詢可使用的總時間。
+
+```Kusto
+Event
+| where TimeGenerated > ago(1d) 
+| project TimeGenerated, TimeReceived = _TimeReceived, IngestionTime = ingestion_time() 
+| extend AgentLatency = toreal(datetime_diff('Millisecond',TimeReceived,TimeGenerated)) / 1000
+| extend TotalLatency = toreal(datetime_diff('Millisecond',IngestionTime,TimeGenerated)) / 1000
+| summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
+``` 
+
+## <a name="type-and-itemtype"></a>類型和 itemType
+[**類型**(Log Analytics 工作區)] 和 [ **itemType** (Application Insights 應用程式)] 屬性會保存從中抓取記錄之資料表的名稱, 也可以將其視為記錄類型。 在結合多份資料表中記錄的查詢中 (例如使用 `search` 運算子的那些查詢)，此屬性十分適合用來區分不同類型的記錄。 **$table** 可用來取代某些位置中的**類型**。
 
 ### <a name="examples"></a>範例
 下列查詢會依據類型傳回過去一小時所收集的記錄計數。
@@ -58,7 +75,11 @@ exceptions
 search * 
 | where TimeGenerated > ago(1h)
 | summarize count() by Type
+
 ```
+## <a name="itemid"></a>\_ItemId
+ItemId 屬性會保存記錄的唯一識別碼。 **\_**
+
 
 ## <a name="resourceid"></a>\_ResourceId
 **\_ResourceId** 屬性會保存與記錄相關聯的資源唯一識別碼。 這可讓您有標準屬性可用來將查詢範圍限定於來自特定資源的記錄，或跨多個資料表聯結相關的資料。
@@ -94,7 +115,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-下列查詢會剖析 **_ResourceId**和彙總計費資料磁碟區，每個 Azure 訂用帳戶。
+下列查詢會剖析 **_ResourceId** , 並匯總每個 Azure 訂用帳戶的計費資料量。
 
 ```Kusto
 union withsource = tt * 
@@ -136,6 +157,7 @@ union withsource = tt *
 ## <a name="billedsize"></a>\_BilledSize
 如果 **\_IsBillable** 為 true， **\_BilledSize** 屬性可指定將計入 Azure 帳戶的資料大小 (以位元組為單位)。
 
+
 ### <a name="examples"></a>範例
 若要查看每部電腦擷取的可計費事件的大小，請使用大小以位元組計算的 `_BilledSize` 屬性：
 
@@ -145,7 +167,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
-若要查看每個訂用帳戶擷取的可計費事件的大小，請使用下列查詢：
+若要查看每個訂用帳戶所內嵌的可計費事件大小, 請使用下列查詢:
 
 ```Kusto
 union withsource=table * 
@@ -154,7 +176,7 @@ union withsource=table *
 | summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
 ```
 
-若要查看每個資源群組所擷取的可計費事件的大小，請使用下列查詢：
+若要查看每個資源群組內嵌的可計費事件大小, 請使用下列查詢:
 
 ```Kusto
 union withsource=table * 
@@ -180,7 +202,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-若要查看從特定電腦的可計費的資料類型的計數，請使用下列查詢：
+若要從特定電腦查看可計費資料類型的計數, 請使用下列查詢:
 
 ```Kusto
 union withsource = tt *

@@ -4,22 +4,17 @@ description: 了解發生影響 Azure 雲端服務的 Azure 服務中斷事件�
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: 976bb43fd3e6d6fdb19c733affd4afa2e49e482c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 269bb59210e24623a16b27d21d7276c084e4cca7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967679"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359667"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>發生影響 Azure 雲端服務的 Azure 服務中斷事件時該怎麼辦
 Microsoft 的同仁一向努力確保提供您需要的服務。 有時候因為不可抗力之影響，造成服務意外中斷。
@@ -36,14 +31,14 @@ Azure 已經有許多支援高可用性應用程式的內建平台功能。 如�
 >
 
 
-## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>選項 1：使用備份部署透過 Azure 流量管理員
+## <a name="option-1-use-a-backup-deployment-through-azure-traffic-manager"></a>選項 1：透過 Azure 流量管理員使用備份部署
 最強固的災害復原解決方案涉及維護您的應用程式在不同區域中的多個部署，然後使用 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)導向其間的流量。 Azure 流量管理員會提供多種[路由方式](../traffic-manager/traffic-manager-routing-methods.md)，因此您可以選擇使用主要/備份模型來管理您的部署，或分割其間的流量。
 
 ![使用 Azure 流量管理員平衡區域間的 Azure 雲端服務](./media/cloud-services-disaster-recovery-guidance/using-azure-traffic-manager.png)
 
 若要對遺失區域做出最快的回應，請務必設定流量管理員的[端點監視](../traffic-manager/traffic-manager-monitoring.md)。
 
-## <a name="option-2-deploy-your-application-to-a-new-region"></a>選項 2：應用程式部署至新的區域
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>選項 2：將您的應用程式部署到新的區域
 如前一個選項所述維護多個作用中的部署，會造成額外的成本。 如果您的復原時間目標 (RTO) 有足夠的彈性，且您具有原始程式碼或已編譯的雲端服務套件，您即可在其他區域中建立應用程式的新執行個體並更新您的 DNS 記錄，以指向新的部署。
 
 如需如何建立和部署雲端服務應用程式的詳細資訊，請參閱[如何建立和部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
@@ -51,7 +46,7 @@ Azure 已經有許多支援高可用性應用程式的內建平台功能。 如�
 根據您的應用程式資料來源，您可能需要檢查應用程式資料來源的復原程序。
 
 * 如需 Azure 儲存體資料來源，請參閱 [Azure 儲存體複寫](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) ，以根據您針對應用程式所選擇的複寫模型來查看可用的選項。
-* SQL Database 來源讀取[概觀：雲端商務持續性與資料庫的災害復原 SQL Database](../sql-database/sql-database-business-continuity.md)來檢查可用的選項會根據所選擇的複寫模型，您的應用程式。
+* 如需 SQL Database 來源, [請參閱總覽:雲端商務持續性和資料庫嚴重損壞修復](../sql-database/sql-database-business-continuity.md)與 SQL Database, 可以根據您為應用程式選擇的複寫模型來查看可用的選項。
 
 
 ## <a name="option-3-wait-for-recovery"></a>選項 3：等待復原

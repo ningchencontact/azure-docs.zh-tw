@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f535bc7d67198b3fe06326260bc1910b6afd36f2
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512751"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346764"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的 RESTful 技術設定檔
 
@@ -159,8 +159,8 @@ Azure Active Directory (Azure AD) B2C 可支援您自己的 RESTful 服務。 Az
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| version | 是 | 1.0.0 | 
-| status | 是 | 409 | 
+| 版本 | 是 | 1.0.0 | 
+| 狀態 | 是 | 409 | 
 | code | 否 | RESTful 端點提供者的錯誤代碼，在啟用 `DebugMode` 時顯示。 | 
 | requestId | 否 | RESTful 端點提供者的要求識別碼，在啟用 `DebugMode` 時顯示。 | 
 | userMessage | 是 | 向使用者顯示的錯誤訊息。 | 
@@ -183,7 +183,7 @@ Azure Active Directory (Azure AD) B2C 可支援您自己的 RESTful 服務。 Az
 
 下列範例顯示的是傳回錯誤訊息的 C# 類別：
 
-```C#
+```csharp
 public class ResponseContent
 {
   public string version { get; set; }
@@ -196,7 +196,7 @@ public class ResponseContent
 }
 ```
 
-## <a name="examples"></a>範例：
+## <a name="examples"></a>範例:
 - [將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為使用者輸入的驗證](active-directory-b2c-custom-rest-api-netfw.md) 
 - [使用 HTTP 基本驗證保護 RESTful 服務](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [使用用戶端憑證保護您的 RESTful 服務](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

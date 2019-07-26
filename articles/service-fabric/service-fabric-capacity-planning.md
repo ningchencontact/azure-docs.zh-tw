@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: d7ca566b86ed79aa773d7af2553223c79ed9944a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f2aa4b848172ab8b6a7e74de7dc1bc5f80639a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701846"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335655"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Service Fabric 應用程式的容量規劃
 本文將說明您如何估計執行 Azure Service Fabric 應用程式所需的資源量 (CPU、RAM、磁碟儲存空間)。 資源需求隨著時間改變是很常見的。 開發/測試您的服務時通常需要少數資源，之後進入生產環境且您的應用程式受歡迎度增長時會需要更多資源。 設計您的應用程式時，請考慮長期需求，並且選擇可讓您調整以符合高度客戶需求的服務。
@@ -51,7 +51,7 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 以上假設使用單一的具狀態服務。 如果您有多個具狀態服務，則必須將與其他服務相關聯的 DB_Size 加入方程式。 或者，您可以分別為每個具狀態服務計算節點數目。  您的服務的複本或資料分割可能不平衡。 請記住，有些資料分割的資料可能比其他資料分割還多。 如需有關分割的詳細資訊，請參閱 [最佳作法的分割文章](service-fabric-concepts-partitioning.md)。 不過，上述方程式不受資料分割或複本影響，因為 Service Fabric 會確保複本以最佳化方式分散在節點之間。
 
 ## <a name="use-a-spreadsheet-for-cost-calculation"></a>使用試算表進行成本計算
-現在，讓我們在公式中放入一些實際的數字。 [範例試算表](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) 示範如何規劃包含三種資料物件類型的應用程式的容量。 針對每個物件，我們會估計其大小以及我們預計具有的物件數。 我們也選取對每個物件類型我們想要的複本數。 試算表會計算要在叢集中儲存的記憶體數量總計。
+現在，讓我們在公式中放入一些實際的數字。 [範例試算表](https://github.com/Azure/service-fabric/raw/master/docs_resources/SF_VM_Cost_calculator-NEW.xlsx) 示範如何規劃包含三種資料物件類型的應用程式的容量。 針對每個物件，我們會估計其大小以及我們預計具有的物件數。 我們也選取對每個物件類型我們想要的複本數。 試算表會計算要在叢集中儲存的記憶體數量總計。
 
 然後，我們輸入 VM 大小和每月成本。 根據 VM 大小，試算表會告訴您必須用來將資料分割的最少分割數量，以實際上納入節點。 您可能想要較大量的資料分割以配合您的應用程式特定的計算和網路流量需求。 試算表顯示目前管理使用者設定檔物件的資料分割數目已從 1 增加到 6。
 
@@ -60,7 +60,7 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 ![成本計算的試算表][Image1]
 
 ## <a name="next-steps"></a>後續步驟
-查看[分割 Service Fabric 服務][10]來深入了解分割您的服務。
+查看資料[分割 Service Fabric 服務][10], 以深入瞭解分割您的服務。
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png

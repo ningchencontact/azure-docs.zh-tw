@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1a849732539dbc9e066bee7cc20141f56ffe10c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746060"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348365"
 ---
 # <a name="symmetric-key-attestation"></a>對稱金鑰證明
 
@@ -48,7 +48,7 @@ SAS 權杖具有下列格式：
 
 | 值 | 描述 |
 | --- | --- |
-| {signature} |HMAC-SHA256 簽章字串。 對於個別註冊，此簽章是使用對稱金鑰（主要或次要）來執行雜湊所產生的。 對於註冊群組，衍生自註冊群組索引鍵的索引鍵會用來執行雜湊。 雜湊是在表單的訊息上執行：`URL-encoded-resourceURI + "\n" + expiry`。 **重要**：然後用它來執行 HMAC-SHA256 計算，必須從 base64 解碼的索引鍵。 此外，簽章結果必須以 URL 編碼。 |
+| {signature} |HMAC-SHA256 簽章字串。 對於個別註冊，此簽章是使用對稱金鑰（主要或次要）來執行雜湊所產生的。 對於註冊群組，衍生自註冊群組索引鍵的索引鍵會用來執行雜湊。 雜湊是在表單的訊息上執行：`URL-encoded-resourceURI + "\n" + expiry`。 **重要**：金鑰必須先從 base64 解碼, 才能用來執行 HMAC-SHA256 計算。 此外，簽章結果必須以 URL 編碼。 |
 | {resourceURI} |可以使用此權杖存取的註冊端點 URI，開頭為裝置佈建服務執行個體的範圍 ID。 例如： `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |從新紀元時間 (Epoch) 1970 年 1 月 1日 00:00:00 UTC 時間至今秒數的 UTF8 字串。 |
 | {URL-encoded-resourceURI} |小寫資源 URI 的小寫 URL 編碼 |
@@ -75,7 +75,7 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 對於裝置定義註冊識別碼後，註冊群組的對稱金鑰會用來計算註冊識別碼的 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)雜湊，以產生衍生的裝置金鑰。 下列 C# 程式碼可以執行註冊識別碼的雜湊：
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -92,7 +92,7 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 

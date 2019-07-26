@@ -6,36 +6,36 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.openlocfilehash: 46aca2c1a7d40df69b89e15917ff07b983f5ff5f
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 7a6c42da3fb92dc7dda014faa64fb8daa8c58774
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561476"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359458"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫
 適用於 MySQL 的 Azure 資料庫支援使用安全通訊端層 (SSL)，將適用於 MySQL 的 Azure 資料庫伺服器連線至用戶端應用程式。 在您的資料庫伺服器和用戶端應用程式之間強制使用 SSL 連線，可將伺服器與應用程式之間的資料流加密，有助於抵禦「中間人」攻擊。
 
-## <a name="step-1-obtain-ssl-certificate"></a>步驟 1：取得 SSL 憑證
+## <a name="step-1-obtain-ssl-certificate"></a>步驟 1:取得 SSL 憑證
 從 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) 下載要透過 SSL 與「適用於 MySQL 的 Azure 資料庫」伺服器通訊所需的憑證，並將該憑證檔儲存到本機磁碟機 (例如，本教學課程使用 c:\ssl)。
 **針對 Microsoft Internet Explorer 和 Microsoft Edge：** 在下載完成後，請將憑證重新命名為 BaltimoreCyberTrustRoot.crt.pem。
 
-## <a name="step-2-bind-ssl"></a>步驟 2：繫結 SSL
+## <a name="step-2-bind-ssl"></a>步驟 2:繫結 SSL
 
-如需特定程式設計語言的連接字串，請參閱[範例程式碼](howto-configure-ssl.md#sample-code)如下。
+如需特定的程式設計語言連接字串, 請參閱下面的[範例程式碼](howto-configure-ssl.md#sample-code)。
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>使用 MySQL Workbench 透過 SSL 連線至伺服器
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>使用 MySQL 工作臺透過 SSL 連線到伺服器
 設定使 MySQL Workbench 安全地透過 SSL 連線。 
 
-1. 從 [設定新連線] 對話方塊，瀏覽至 [SSL]  索引標籤。 
+1. 從 [設定新連線] 對話方塊，瀏覽至 [SSL] 索引標籤。 
 
-1. 更新**使用 SSL**欄位設為 「 需要 」。
+1. 將 [**使用 SSL** ] 欄位更新為 [需要]。
 
-1. 在 [SSL CA 檔案:]  欄位中輸入 BaltimoreCyberTrustRoot.crt.pem 的檔案位置。 
+1. 在 [SSL CA 檔案:] 欄位中輸入 BaltimoreCyberTrustRoot.crt.pem 的檔案位置。 
     
     ![儲存 SSL 設定](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-對於現有的連線，您可以將 SSL 繫結 連線 圖示上按一下滑鼠右鍵，然後選擇 編輯。 然後瀏覽至 [SSL]  索引標籤上，並繫結憑證檔案。
+針對現有的連線, 您可以用滑鼠右鍵按一下連線圖示來系結 SSL, 然後選擇 [編輯]。 然後瀏覽至 [SSL] 索引標籤上，並繫結憑證檔案。
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>使用 MySQL CLI 透過 SSL 連線至伺服器
 有另一個繫結 SSL 憑證的方法，就是藉由執行下列命令來使用 MySQL 命令列介面。 
@@ -49,7 +49,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>步驟 3：強制在 Azure 中使用 SSL 連線 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
-使用 Azure 入口網站，瀏覽適用於 MySQL 的 Azure 資料庫伺服器，然後按一下 [連線安全性]  。 使用切換按鈕來啟用或停用 [強制使用 SSL 連線]  設定，然後按一下 [儲存]  。 Microsoft 建議一律啟用 [強制使用 SSL 連線]  設定，以增強安全性。
+使用 Azure 入口網站，瀏覽適用於 MySQL 的 Azure 資料庫伺服器，然後按一下 [連線安全性]。 使用切換按鈕來啟用或停用 [強制使用 SSL 連線] 設定，然後按一下 [儲存]。 Microsoft 建議一律啟用 [強制使用 SSL 連線] 設定，以增強安全性。
 ![啟用 ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>使用 Azure CLI
@@ -77,7 +77,7 @@ if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 ```
-### <a name="php-using-pdo"></a>PHP （使用 PDO）
+### <a name="php-using-pdo"></a>PHP (使用 PDO)
 ```phppdo
 $options = array(
     PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
@@ -87,22 +87,22 @@ $db = new PDO('mysql:host=mydemoserver.mysql.database.azure.com;port=3306;dbname
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python
 try:
-    conn=mysql.connector.connect(user='myadmin@mydemoserver', 
-        password='yourpassword', 
-        database='quickstartdb', 
-        host='mydemoserver.mysql.database.azure.com', 
-        ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+    conn = mysql.connector.connect(user='myadmin@mydemoserver',
+                                   password='yourpassword',
+                                   database='quickstartdb',
+                                   host='mydemoserver.mysql.database.azure.com',
+                                   ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
 
 ### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
-conn = pymysql.connect(user = 'myadmin@mydemoserver', 
-        password = 'yourpassword', 
-        database = 'quickstartdb', 
-        host = 'mydemoserver.mysql.database.azure.com', 
-        ssl = {'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+conn = pymysql.connect(user='myadmin@mydemoserver',
+                       password='yourpassword',
+                       database='quickstartdb',
+                       host='mydemoserver.mysql.database.azure.com',
+                       ssl={'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 
 ### <a name="django-pymysql"></a>Django (PyMySQL)
@@ -145,7 +145,7 @@ var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')   
 db, _ := sql.Open("mysql", connectionString)
 ```
-### <a name="java-mysql-connector-for-java"></a>Java （適用於 Java 的 MySQL 連接器）
+### <a name="java-mysql-connector-for-java"></a>JAVA (MySQL Connector for JAVA)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -172,7 +172,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
-### <a name="java-mariadb-connector-for-java"></a>Java （適用於 Java 的 MariaDB 連接器）
+### <a name="java-mariadb-connector-for-java"></a>JAVA (適用于 JAVA 的適用于 mariadb 連接器)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+

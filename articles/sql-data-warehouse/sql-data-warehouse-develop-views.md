@@ -2,7 +2,7 @@
 title: 在 Azure SQL 資料倉儲中使用 T-SQL 檢視 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中使用 T-SQL 檢視開發解決方案的秘訣。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595507"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479530"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的檢視
 在 Azure SQL 資料倉儲中使用 T-SQL 檢視開發解決方案的秘訣。 
@@ -25,7 +25,7 @@ ms.locfileid: "67595507"
 
 
 > [!IMPORTANT]
-> 請參閱在新的具體化的檢視語法[建立具體化檢視 AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)。  如需詳細資訊，請參閱 <<c0> [ 版本資訊](/azure/sql-data-warehouse/release-notes-10-0-10106-0)。
+> 請參閱[CREATE 具體化 VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)中的 new 具體化 view 語法。  如需詳細資訊, 請參閱[版本](/azure/sql-data-warehouse/release-notes-10-0-10106-0)資訊。
 >
 
 

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 796118999041b2bef2d51657901e9e399578e97c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6b9ebb2f7ef46fd2900d036f178201863ecbc8d4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327042"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358814"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -140,7 +140,7 @@ ms.locfileid: "68327042"
 
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
-``` 
+```
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>選擇性自動產生 Swagger 架構
 
@@ -190,6 +190,7 @@ from azureml.core.model import Model
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
+
 def init():
     global model
     # note here "sklearn_regression_model.pkl" is the name of the model registered under
@@ -198,8 +199,10 @@ def init():
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = np.array([[10,9,8,7,6,5,4,3,2,1]])
+
+input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
 output_sample = np.array([3726.995])
+
 
 @input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -230,19 +233,27 @@ from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
 
+
 def init():
     global model
-    model_path = Model.get_model_path('model_name')   # replace model_name with your actual model name, if needed
+    # replace model_name with your actual model name, if needed
+    model_path = Model.get_model_path('model_name')
     # deserialize the model file back into a sklearn model
     model = joblib.load(model_path)
 
-input_sample = pd.DataFrame(data=[{
-              "input_name_1": 5.1,         # This is a decimal type sample. Use the data type that reflects this column in your data
-              "input_name_2": "value2",    # This is a string type sample. Use the data type that reflects this column in your data
-              "input_name_3": 3            # This is a integer type sample. Use the data type that reflects this column in your data
-            }])
 
-output_sample = np.array([0])              # This is a integer type sample. Use the data type that reflects the expected result
+input_sample = pd.DataFrame(data=[{
+    # This is a decimal type sample. Use the data type that reflects this column in your data
+    "input_name_1": 5.1,
+    # This is a string type sample. Use the data type that reflects this column in your data
+    "input_name_2": "value2",
+    # This is a integer type sample. Use the data type that reflects this column in your data
+    "input_name_3": 3
+}])
+
+# This is a integer type sample. Use the data type that reflects the expected result
+output_sample = np.array([0])
+
 
 @input_schema('data', PandasParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
@@ -268,7 +279,7 @@ def run(data):
 推斷設定會描述如何設定模型來進行預測。 下列範例示範如何建立推斷設定。 此設定會指定執行時間、專案腳本, 以及 (選擇性) conda 環境檔案:
 
 ```python
-inference_config = InferenceConfig(runtime= "python",
+inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
@@ -279,32 +290,9 @@ inference_config = InferenceConfig(runtime= "python",
 
 ### <a name="cli-example-of-inferenceconfig"></a>InferenceConfig 的 CLI 範例
 
-下列 JSON 檔是用於機器學習 CLI 的範例推斷設定:
+[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
 
-```JSON
-{
-   "entryScript": "x/y/score.py",
-   "runtime": "python",
-   "condaFile": "env/myenv.yml",
-   "sourceDirectory":"C:/abc",
-}
-```
-
-下列實體在此檔案中是有效的:
-
-* __entryScript__:本機檔案的路徑, 其中包含要為映射執行的程式碼。
-* __運行__時間:要用於影像的執行時間。 目前支援的執行時間為 ' spark-.py ' 和 ' python '。
-* __condaFile__(選擇性):本機檔案的路徑, 其中包含要用於影像的 conda 環境定義。
-* __extraDockerFileSteps__(選擇性):本機檔案的路徑, 其中包含設定映射時要執行的其他 Docker 步驟。
-* __sourceDirectory__(選擇性):資料夾的路徑, 其中包含要建立映射的所有檔案。
-* __enableGpu__(選擇性):是否要在映射中啟用 GPU 支援。 GPU 映射必須用於 Microsoft Azure 服務, 例如 Azure 容器實例、Azure Machine Learning 計算、Azure 虛擬機器和 Azure Kubernetes Service。 預設值為 False。
-* __baseImage__(選擇性):要當做基底映射使用的自訂映射。 如果未指定基底映射, 則會根據指定的執行時間參數來使用基底映射。
-* __baseImageRegistry__(選擇性):包含基底映射的映射登錄。
-* __cudaVersion__(選擇性):要為需要 GPU 支援的映射安裝的 CUDA 版本。 GPU 映射必須用於 Microsoft Azure 服務, 例如 Azure 容器實例、Azure Machine Learning 計算、Azure 虛擬機器和 Azure Kubernetes Service。 支援的版本為9.0、9.1 和10.0。 如果設定了 ' enable_gpu ', 則預設為 ' 9.1 '。
-
-這些實體會對應至[InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)類別的參數。
-
-三個下列命令示範如何使用 CLI 部署模型:
+下列命令示範如何使用 CLI 部署模型:
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
@@ -312,7 +300,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 在此範例中, 設定包含下列專案:
 
-* 包含推斷所需資產的目錄
 * 此模型需要 Python
 * [輸入腳本](#script), 用來處理傳送至已部署服務的 web 要求
 * 描述推斷所需之 Python 套件的 conda 檔案
@@ -366,21 +353,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
   az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-    `deploymentconfig.json`檔中的專案會對應至 LocalWebservice 的參數[。 deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py)。 下表描述 JSON 檔中的實體與方法的參數之間的對應:
-
-    | JSON 實體 | 方法參數 | 描述 |
-    | ----- | ----- | ----- |
-    | `computeType` | NA | 計算目標。 若為本機, 此值必須`local`是。 |
-    | `port` | `port` | 要在其上公開服務之 HTTP 端點的本機埠。 |
-
-    下列 JSON 是與 CLI 搭配使用的範例部署設定:
-
-    ```json
-    {
-        "computeType": "local",
-        "port": 32267
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
 
 ### <a id="aci"></a>Azure 容器實例 (DEVTEST)
 
@@ -407,38 +380,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
     az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
     ```
 
-    `deploymentconfig.json`檔中的專案會對應至 AciWebservice 的參數[。 deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py)。 下表描述 JSON 檔中的實體與方法的參數之間的對應:
-
-    | JSON 實體 | 方法參數 | 描述 |
-    | ----- | ----- | ----- |
-    | `computeType` | NA | 計算目標。 若為 ACI, 此值必須`ACI`是。 |
-    | `containerResourceRequirements` | NA | 包含配置給容器的 CPU 和記憶體的設定元素。 |
-    | &emsp;&emsp;`cpu` | `cpu_cores` | 要為此 web 服務配置的 CPU 核心數目。 設置`0.1` |
-    | &emsp;&emsp;`memoryInGB` | `memory_gb` | 要為此 web 服務配置的記憶體數量 (以 GB 為單位)。 預設`0.5` |
-    | `location` | `location` | 要部署此 Webservice 的 Azure 區域。 如果未指定, 則會使用工作區位置。 如需可用區域的詳細資訊, 請參閱:[ACI 區域](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
-    | `authEnabled` | `auth_enabled` | 是否要啟用此 Webservice 的驗證。 預設為 False |
-    | `sslEnabled` | `ssl_enabled` | 是否要為此 Webservice 啟用 SSL。 預設值為 False。 |
-    | `appInsightsEnabled` | `enable_app_insights` | 是否要為此 Webservice 啟用 AppInsights。 預設為 False |
-    | `sslCertificate` | `ssl_cert_pem_file` | 若已啟用 SSL, 則需要憑證檔案 |
-    | `sslKey` | `ssl_key_pem_file` | 啟用 SSL 時所需的金鑰檔 |
-    | `cname` | `ssl_cname` | 如果 SSL 已啟用, 則為的 cname |
-    | `dnsNameLabel` | `dns_name_label` | 評分端點的 dns 名稱標籤。 如果未指定, 則會產生評分端點的唯一 dns 名稱標籤。 |
-
-    下列 JSON 是與 CLI 搭配使用的範例部署設定:
-
-    ```json
-    {
-        "computeType": "aci",
-        "containerResourceRequirements":
-        {
-            "cpu": 0.5,
-            "memoryInGB": 1.0
-        },
-        "authEnabled": true,
-        "sslEnabled": false,
-        "appInsightsEnabled": false
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
 
 + **使用 VS Code**
 
@@ -476,65 +418,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
   az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
-    `deploymentconfig.json`檔中的專案會對應至 AksWebservice 的參數[。 deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)。 下表描述 JSON 檔中的實體與方法的參數之間的對應:
-
-    | JSON 實體 | 方法參數 | 描述 |
-    | ----- | ----- | ----- |
-    | `computeType` | NA | 計算目標。 若為 AKS, 此值必須`aks`是。 |
-    | `autoScaler` | NA | 包含自動調整的設定元素。 請參閱自動調整程式資料表。 |
-    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | 是否要啟用 web 服務的自動調整。 如果`numReplicas`  = 為,`True`則為,`False`否則為。 `0` |
-    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | 自動調整此 web 服務時所要使用的容器數目下限。 預設值`1`:。 |
-    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | 自動調整此 web 服務時所要使用的容器數目上限。 預設值`10`:。 |
-    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | 自動調整程式嘗試調整此 web 服務的頻率。 預設值`1`:。 |
-    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | 自動調整程式應該嘗試為此 web 服務維護的目標使用率 (以百分比100為單位)。 預設值`70`:。 |
-    | `dataCollection` | NA | 包含資料收集的設定元素。 |
-    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | 是否要啟用 web 服務的模型資料收集。 預設值`False`:。 |
-    | `authEnabled` | `auth_enabled` | 是否要啟用 web 服務的驗證。 預設值`True`:。 |
-    | `containerResourceRequirements` | NA | 包含配置給容器的 CPU 和記憶體的設定元素。 |
-    | &emsp;&emsp;`cpu` | `cpu_cores` | 要為此 web 服務配置的 CPU 核心數目。 設置`0.1` |
-    | &emsp;&emsp;`memoryInGB` | `memory_gb` | 要為此 web 服務配置的記憶體數量 (以 GB 為單位)。 預設`0.5` |
-    | `appInsightsEnabled` | `enable_app_insights` | 是否要啟用 web 服務的 Application Insights 記錄。 預設值`False`:。 |
-    | `scoringTimeoutMs` | `scoring_timeout_ms` | 對 web 服務評分呼叫強制執行的時間。 預設值`60000`:。 |
-    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | 此 web 服務每個節點的並行要求數目上限。 預設值`1`:。 |
-    | `maxQueueWaitMs` | `max_request_wait_time` | 在傳回503錯誤之前, 要求會停留在三個佇列中的時間上限 (以毫秒為單位)。 預設值`500`:。 |
-    | `numReplicas` | `num_replicas` | 要為此 web 服務配置的容器數目。 沒有預設值。 如果未設定此參數, 則預設會啟用自動調整程式。 |
-    | `keys` | NA | 包含索引鍵的設定元素。 |
-    | &emsp;&emsp;`primaryKey` | `primary_key` | 要用於此 Webservice 的主要驗證金鑰 |
-    | &emsp;&emsp;`secondaryKey` | `secondary_key` | 要用於此 Webservice 的次要驗證金鑰 |
-    | `gpuCores` | `gpu_cores` | 要為此 Webservice 配置的 GPU 核心數目。 預設值為 1。 |
-    | `livenessProbeRequirements` | NA | 包含活動探查需求的設定元素。 |
-    | &emsp;&emsp;`periodSeconds` | `period_seconds` | 執行活動探查的頻率 (以秒為單位)。 預設為10秒。 最小值為1。 |
-    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | 在起始活動探查之前, 容器啟動後的秒數。 預設為310 |
-    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | 活動探查超時之前的秒數。預設為2秒。 最小值為1 |
-    | &emsp;&emsp;`successThreshold` | `success_threshold` | 成功之後, 成功將活動探查視為成功的最小連續成功。 預設值為 1。 最小值為1。 |
-    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | 當 Pod 啟動且活動探查失敗時, Kubernetes 會先嘗試 failureThreshold 時間再放棄。 預設值為3。 最小值為1。 |
-    | `namespace` | `namespace` | Webservice 部署所在的 Kubernetes 命名空間。 最多63小寫英數位元 (' a'-'z-a'-'z '、' 0 '-' 9 ') 和連字號 ('-') 字元。 第一個和最後一個字元不可以是連字號。 |
-
-    下列 JSON 是與 CLI 搭配使用的範例部署設定:
-
-    ```json
-    {
-        "computeType": "aks",
-        "autoScaler":
-        {
-            "autoscaleEnabled": true,
-            "minReplicas": 1,
-            "maxReplicas": 3,
-            "refreshPeriodInSeconds": 1,
-            "targetUtilization": 70
-        },
-        "dataCollection":
-        {
-            "storageEnabled": true
-        },
-        "authEnabled": true,
-        "containerResourceRequirements":
-        {
-            "cpu": 0.5,
-            "memoryInGB": 1.0
-        }
-    }
-    ```
+    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
 
 + **使用 VS Code**
 
@@ -566,12 +450,12 @@ prov_config = AksCompute.provisioning_configuration()
 
 aks_name = 'myaks'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws,
-                                    name = aks_name,
-                                    provisioning_configuration = prov_config)
+aks_target = ComputeTarget.create(workspace=ws,
+                                  name=aks_name,
+                                  provisioning_configuration=prov_config)
 
 # Wait for the create process to complete
-aks_target.wait_for_completion(show_output = True)
+aks_target.wait_for_completion(show_output=True)
 ```
 
 如需有關在 Azure Machine Learning SDK 之外建立 AKS 叢集的詳細資訊, 請參閱下列文章:
@@ -609,8 +493,8 @@ cluster_name = 'mycluster'
 # attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 #                                         cluster_name = cluster_name,
 #                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
-attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-                                         cluster_name = cluster_name)
+attach_config = AksCompute.attach_configuration(resource_group=resource_group,
+                                                cluster_name=cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 ```
 
@@ -629,19 +513,20 @@ aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 import requests
 import json
 
-headers = {'Content-Type':'application/json'}
+headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
 
 print(headers)
-    
+
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
-    [10,9,8,7,6,5,4,3,2,1]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ]})
 
-response = requests.post(service.scoring_uri, data=test_sample, headers=headers)
+response = requests.post(
+    service.scoring_uri, data=test_sample, headers=headers)
 print(response.status_code)
 print(response.elapsed)
 print(response.json())
@@ -668,18 +553,18 @@ from azureml.core.webservice import Webservice
 from azureml.core.model import Model
 
 # register new model
-new_model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
-                       model_name = "sklearn_mnist",
-                       tags = {"key": "0.1"},
-                       description = "test",
-                       workspace = ws)
+new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
+                           model_name="sklearn_mnist",
+                           tags={"key": "0.1"},
+                           description="test",
+                           workspace=ws)
 
 service_name = 'myservice'
 # Retrieve existing service
-service = Webservice(name = service_name, workspace = ws)
+service = Webservice(name=service_name, workspace=ws)
 
 # Update to new model(s)
-service.update(models = [new_model])
+service.update(models=[new_model])
 print(service.state)
 print(service.get_logs())
 ```

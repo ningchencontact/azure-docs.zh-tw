@@ -2,24 +2,17 @@
 title: 在入口網站中自動調整雲端服務 | Microsoft Docs
 description: 了解如何使用入口網站在 Azure 中設定雲端服務 web 角色或背景工作角色的自動調整規則。
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435236"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359618"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>如何在入口網站中設定雲端服務的自動調整
 
@@ -47,8 +40,8 @@ ms.locfileid: "61435236"
 ## <a name="where-scale-is-located"></a>調整所在之處
 當您選取雲端服務之後，應該會看見雲端服務刀鋒視窗。
 
-1. 在 [雲端服務] 刀鋒視窗的 [角色和執行個體]  圖格上，選取雲端服務的名稱。   
-   **重要事項**：請務必按一下雲端服務角色，而不是下列角色的角色執行個體。
+1. 在 [雲端服務] 刀鋒視窗的 [角色和執行個體] 圖格上，選取雲端服務的名稱。   
+   **重要事項**：請務必按一下雲端服務角色, 而不是角色底下的角色實例。
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. 選取 [調整]  磚。
@@ -58,7 +51,7 @@ ms.locfileid: "61435236"
 ## <a name="automatic-scale"></a>自動調整
 您可以使用下列任一種模式來設定角色的調整規模設定：**手動**或**自動**。 「手動」是您預期的模式，您會設定執行個體的絕對計數。 但是，「自動」讓您能夠設定規則來控制您應該調整的方式和程度。
 
-將 [調整規模依據]  選項設定為 [排程及效能規則]  。
+將 [調整規模依據] 選項設定為 [排程及效能規則]。
 
 ![具有設定檔與規則的雲端服務調整規模設定](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
@@ -66,11 +59,11 @@ ms.locfileid: "61435236"
 2. 新增父設定檔的規則。
 3. 新增另一個設定檔。
 
-選取 [新增設定檔]  。 設定檔決定您要用於調整規模的模式︰**一律**、**週期性**、**固定日期**。
+選取 [新增設定檔]。 設定檔決定您要用於調整規模的模式︰**一律**、**週期性**、**固定日期**。
 
 當您設定設定檔與規則之後，請選取頂端的 [儲存]  圖示。
 
-#### <a name="profile"></a>設定檔
+#### <a name="profile"></a>個人資料
 設定檔會設定調整規模的最小和最大執行個體個數，而且也會在此調整範圍作用中時。
 
 * **一律**
@@ -101,7 +94,7 @@ ms.locfileid: "61435236"
 當您設定規則之後，請選取規則刀鋒視窗底部的 [確定]  按鈕。
 
 ## <a name="back-to-manual-scale"></a>回到手動調整
-瀏覽至[調整規模設定](#where-scale-is-located)，並將 [調整規模依據]  選項設定為 [手動輸入的執行個體計數]  。
+瀏覽至[調整規模設定](#where-scale-is-located)，並將 [調整規模依據] 選項設定為 [手動輸入的執行個體計數]。
 
 ![具有設定檔與規則的雲端服務調整規模設定](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 

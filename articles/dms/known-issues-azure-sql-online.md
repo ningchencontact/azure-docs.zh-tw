@@ -10,20 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/09/2019
-ms.openlocfilehash: 00ed2f20884c3cd8f49307bd726f14f3007f884f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.date: 07/23/2019
+ms.openlocfilehash: b95e37b4782920f25a16f0750211555d0bef1207
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534392"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383839"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>線上移轉到 Azure SQL DB 的已知問題/移轉限制
 
 從 SQL Server 線上移轉到 Azure SQL Database 的相關聯已知問題和限制，如下所述。
 
 > [!IMPORTANT]
-> 進行移轉到 Azure SQL Database 的 SQL server 的線上作業，不支援 SQL_variant 資料類型的移轉。
+> 透過 SQL Server Azure SQL Database 的線上遷移, 不支援 SQL_variant 資料類型的遷移。
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>不支援移轉時態表
 
@@ -43,7 +43,7 @@ ms.locfileid: "60534392"
      ``` 
      select name,temporal_type,temporal_type_desc,* from sys.tables where temporal_type <>0
      ```
-2. 從 [進行移轉設定]  刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
+2. 從 [進行移轉設定] 刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
 
 3. 重新執行移轉活動。
 
@@ -67,7 +67,7 @@ ms.locfileid: "60534392"
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-2. 從 [進行移轉設定]  刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
+2. 從 [進行移轉設定] 刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
 
 3. 重新執行移轉活動。
 
@@ -97,7 +97,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **因應措施**
 
-如果您有大於 32 KB 的 LOB 資料行，請連絡工程團隊[詢問的 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
+如果您有大於 32 KB 的 LOB 資料行, 請聯絡工程小組,[詢問 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
 
 ### <a name="issues-with-timestamp-columns"></a>時間戳記資料行的問題
 
@@ -107,13 +107,13 @@ DMS 不會遷移來源時間戳記值；相反地，DMS 會在目標資料表中
 
 **因應措施**
 
-如果您需要移轉的來源資料表中儲存的確切的時間戳記值的 DMS，請連絡工程團隊[詢問的 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
+如果您需要 DMS 來遷移儲存在來源資料表中的確切時間戳記值, 請洽詢工程小組,[詢問 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
 
-### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>資料移轉錯誤不提供其他詳細資料，在 [資料庫詳細的狀態] 刀鋒視窗上。
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>資料移轉錯誤不會在 [資料庫詳細狀態] 分頁上提供其他詳細資訊。
 
 **徵兆**
 
-當您遇到移轉失敗，資料庫的詳細資料狀態檢視中時，選取**資料的移轉錯誤**頂端功能區上的連結可能不會提供特定移轉失敗的其他詳細資料。
+當您在 [資料庫詳細資料] 狀態視圖中遇到跨遷移失敗時, 選取頂端功能區上的 [**資料移轉錯誤**] 連結, 可能不會提供有關遷移失敗的其他詳細資訊。
 
 ![資料移轉錯誤沒有詳細資料範例](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
@@ -125,4 +125,14 @@ DMS 不會遷移來源時間戳記值；相反地，DMS 會在目標資料表中
 
      ![移轉活動畫面](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
-2. 選取 [查看錯誤詳細資料]  ，以檢視特定錯誤訊息，協助您針對移轉錯誤進行疑難排解。
+2. 選取 [查看錯誤詳細資料]，以檢視特定錯誤訊息，協助您針對移轉錯誤進行疑難排解。
+
+### <a name="geography-datatype-not-supported-in-sqldb-online-migration"></a>SQLDB online 遷移中不支援 Geography 資料類型
+
+**徵兆**
+
+遷移失敗, 並出現包含下列文字的錯誤訊息:
+
+ "* * 發生嚴重錯誤", "errorEvents":<Table>.<Column> 屬於「GEOGRAPHY」類型, 在「完整 LOB」支援模式下不支援「完整載入」。」
+
+因應措施雖然 Azure 資料庫移轉服務支援 [Geography] 資料類型以進行離線遷移至 Azure SQL Database, 但對於線上遷移而言, 不支援 Geography 資料類型。 嘗試使用替代方法, 將來源的資料類型變更為支援的類型, 然後再嘗試使用 Azure 資料庫移轉服務來進行此資料庫的線上遷移。 

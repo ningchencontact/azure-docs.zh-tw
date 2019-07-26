@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: edf120fa7997cf2d0381dcb7cd3ee0d4e16dd72b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321411"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405549"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您設定角色來使用「自動化」  客體 OS 更新，如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述，則不一定要閱讀此頁面。
@@ -76,7 +76,7 @@ ms.locfileid: "68321411"
 ###### <a name="october-12-2018"></a>**2018 年 10 月 12 日**
 9 月客體 OS 已發行。
 
-## <a name="releases"></a>版次
+## <a name="releases"></a>版本
 
 ## <a name="family-6-releases"></a>系列 6 版次
 **Windows Server 2019**
@@ -110,7 +110,7 @@ ms.locfileid: "68321411"
 ## <a name="family-5-releases"></a>系列 5 版次
 **Windows Server 2016**
 
-安裝的 .NET Framework：3.5、4.6.2、4.7。2
+安裝的 .NET Framework：3.5、4。6
 
 > [!NOTE]
 > 作業系統系列 5 的 RDP 密碼至少需要 10 個字元。

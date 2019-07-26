@@ -8,12 +8,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 609d16994cf88f1777584243b1031368ddc79724
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 0fcce6bd6ee9461790ca7618f65be9a20a821afc
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849079"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360335"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>將資料匯出至 Azure Blob 儲存體
 
@@ -25,7 +25,7 @@ ms.locfileid: "67849079"
 > 同樣地，當您開啟連續資料匯出時，只會取得從該時刻起的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 您必須是 IoT Central 應用程式中的系統管理員
 
@@ -37,13 +37,13 @@ ms.locfileid: "67849079"
 ## <a name="create-storage-account"></a>建立儲存體帳戶
 
 1. [在 Azure 入口網站中建立新儲存體帳戶](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。 您可以透過 [Azure 儲存體文件](https://aka.ms/blobdocscreatestorageaccount)深入了解。
-2. 針對帳戶類型，請選擇 [一般用途]  或 [Blob 儲存體]  。
+2. 針對帳戶類型，請選擇 [一般用途] 或 [Blob 儲存體]。
 3. 選擇訂用帳戶。 
 
     > [!Note] 
     > 您現在可以將資料匯出至與隨用隨付 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
 
-4. 在您的儲存體帳戶中建立容器。 移至您的儲存體帳戶。 在 [Blob 服務]  下，選取 [瀏覽 Blob]  。 選取頂端的 [ **+ 容器**] 以建立新的容器
+4. 在您的儲存體帳戶中建立容器。 移至您的儲存體帳戶。 在 [Blob 服務] 下，選取 [瀏覽 Blob]。 選取頂端的 [ **+ 容器**] 以建立新的容器
 
 
 ## <a name="set-up-continuous-data-export"></a>設定連續資料匯出
@@ -66,26 +66,26 @@ ms.locfileid: "67849079"
 
     ![建立新的連續資料匯出](media/howto-export-data/export_new1.png)
 
-4. 在下拉式清單方塊中, 選取您的**儲存體帳戶命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]  。 
+4. 在下拉式清單方塊中, 選取您的**儲存體帳戶命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
 
     > [!NOTE] 
-    > 您只會在與**IoT Central 應用程式相同的訂**用帳戶中看到儲存體帳戶命名空間。 如果您想要匯出到此訂用帳戶外的目的地，請選擇 [輸入連接字串]  ，然後參閱步驟 5。
+    > 您只會在與**IoT Central 應用程式相同的訂**用帳戶中看到儲存體帳戶命名空間。 如果您想要匯出到此訂用帳戶外的目的地，請選擇 [輸入連接字串]，然後參閱步驟 5。
 
     > [!NOTE] 
     > 如果是 7 天試用版應用程式，則設定連續資料匯出的唯一方式是透過連接字串。 這是因為 7 天試用版應用程式並沒有相關聯的 Azure 訂用帳戶。
 
     ![建立新的 cde 事件中樞](media/howto-export-data/export-create-blob.png)
 
-5. (選擇性) 如果您選擇 [輸入連接字串]  ，就會顯示一個可供您貼上連接字串的新方塊。 取得下列項目的連接字串：
+5. (選擇性) 如果您選擇 [輸入連接字串]，就會顯示一個可供您貼上連接字串的新方塊。 取得下列項目的連接字串：
     - 儲存體帳戶, 請移至 Azure 入口網站中的儲存體帳戶。
         - 在 [**設定**] 底下, 選取 [**存取金鑰**]
         - 複製 key1 連接字串或 key2 連接字串
  
 6. 從下拉式清單方塊中選擇容器。
 
-7. 在 [要匯出的資料]  下，透過將類型設定為 [開啟]  以指定每種要匯出的資料類型。
+7. 在 [要匯出的資料] 下，透過將類型設定為 [開啟] 以指定每種要匯出的資料類型。
 
-6. 若要開啟連續資料匯出，請務必將 [資料匯出]  設定為 [開啟]  。 選取 [ **儲存**]。
+6. 若要開啟連續資料匯出，請務必將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
 
    ![設定連續資料匯出](media/howto-export-data/export-list-blob.png)
 
@@ -99,7 +99,7 @@ ms.locfileid: "67849079"
 - 裝置：{container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 - 裝置範本：{container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
-### <a name="measurements"></a>量測
+### <a name="measurements"></a>度量
 
 匯出的度量資料包含 IoT Central 在該時間期間從所有裝置收到的所有新訊息。 匯出之檔案所使用的格式與 [IoT 中樞訊息路由](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)匯出至 Blob 儲存體的訊息檔案格式相同。
 
@@ -286,6 +286,7 @@ import json
 import pandavro as pdx
 import pandas as pd
 
+
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
     # where each record is a single row.
@@ -297,16 +298,17 @@ def parse(filePath):
 
     # The SystemProperties column contains a dictionary
     # with the device ID located under the connectionDeviceId key.
-    transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
+    transformed["device_id"] = measurements["SystemProperties"].apply(
+        lambda x: x["connectionDeviceId"])
 
     # The Body column is a series of UTF-8 bytes that is stringified
     # and parsed as JSON. This example pulls the humidity property
     # from each column to get the humidity field.
-    transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
+    transformed["humidity"] = measurements["Body"].apply(
+        lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
 
     # Finally, print the new DataFrame with our device IDs and humidities.
     print(transformed)
-
 ```
 
 #### <a name="parse-a-devices-avro-file"></a>剖析裝置 Avro 檔案
@@ -315,6 +317,7 @@ def parse(filePath):
 import json
 import pandavro as pdx
 import pandas as pd
+
 
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
@@ -330,17 +333,19 @@ def parse(filePath):
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
-    transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
-    transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
+    transformed["template_id"] = devices["deviceTemplate"].apply(
+        lambda x: x["id"])
+    transformed["template_version"] = devices["deviceTemplate"].apply(
+        lambda x: x["version"])
 
     # The fanSpeed setting value is located in a nested dictionary
     # under the settings column.
-    transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
+    transformed["fan_speed"] = devices["settings"].apply(
+        lambda x: x["device"]["fanSpeed"])
 
     # Finally, print the new DataFrame with our device and template
     # information, along with the value of the fan speed.
     print(transformed)
-
 ```
 
 #### <a name="parse-a-device-templates-avro-file"></a>剖析裝置範本 Avro 檔案
@@ -349,6 +354,7 @@ def parse(filePath):
 import json
 import pandavro as pdx
 import pandas as pd
+
 
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
@@ -365,7 +371,8 @@ def parse(filePath):
 
     # The fanSpeed setting value is located in a nested dictionary
     # under the settings column.
-    transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
+    transformed["fan_speed"] = templates["settings"].apply(
+        lambda x: x["device"]["fanSpeed"])
 
     # Finally, print the new DataFrame with our device and template
     # information, along with the value of the fan speed.

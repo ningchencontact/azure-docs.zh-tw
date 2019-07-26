@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 1a26950f355fd10d9dd502851886a8b8101d4a83
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508272"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377339"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -51,7 +51,7 @@ ms.locfileid: "67508272"
 
 ### <a name="c-example"></a>C# 範例
 
-下列範例所示[C#函式](functions-dotnet-class-library.md)分鐘有整除的值每次執行的五個 (例如如果函式開始 18:57:00 下, 一步 的效能會變 19:00:00)。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+下列範例顯示[ C# ](functions-dotnet-class-library.md)每次分鐘有一個可被五個值整除的函式 (例如, 如果函式是從18:57:00 開始, 下一個效能將會是 19:00:00)。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -67,7 +67,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>C# 指令碼範例
 
-下列範例示範 function.json  檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -95,7 +95,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F# 範例
 
-下列範例示範 function.json  檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -135,7 +135,7 @@ public void keepAlive(
 
 ### <a name="javascript-example"></a>JavaScript 範例
 
-下列範例示範 function.json  檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 A[計時器物件](#usage)傳遞至函式。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [計時器物件](#usage)會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -166,7 +166,7 @@ module.exports = function (context, myTimer) {
 
 ### <a name="python-example"></a>Python 範例
 
-下列範例會使用計時器觸發程序繫結的組態所述*function.json*檔案。 實際[Python 函式](functions-reference-python.md)，會使用繫結所述 *__init__.py*檔案。 傳遞至函式的物件屬於類型[azure.functions.TimerRequest 物件](/python/api/azure-functions/azure.functions.timerrequest)。 函數邏輯寫入記錄檔，以指出目前的引動過程是否因為遺失的排程項目。 
+下列範例會使用計時器觸發程式系結, 其設定會在函式 *. json*檔案中加以描述。 使用系結的實際[Python](functions-reference-python.md)函式會在 *.py*檔案中描述。 傳入函式的物件為[TimerRequest 物件](/python/api/azure-functions/azure.functions.timerrequest)類型。 函式邏輯會寫入記錄, 指出目前的叫用是否因錯過的排程發生而造成。 
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -232,11 +232,11 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> 建議不要在生產環境中將 **runOnStartup** 設定為 `true`。 使用此設定會在極度無法預期的情況下執行程式碼。 在特定的生產環境設定中，對於取用量方案中託管的應用程式，這些額外的執行會導致成本大幅增加。 例如，使用**runOnStartup**啟用每當相應函式應用程式時，會叫用觸發程序。 請確定在生產環境中啟用 **runOnStartup** 之前，您完全了解函式的實際執行行為。   
+> 建議不要在生產環境中將 **runOnStartup** 設定為 `true`。 使用此設定會在極度無法預期的情況下執行程式碼。 在特定的生產環境設定中，對於取用量方案中託管的應用程式，這些額外的執行會導致成本大幅增加。 例如, 啟用**runOnStartup**時, 每當調整您的函數應用程式時, 就會叫用觸發程式。 請確定在生產環境中啟用 **runOnStartup** 之前，您完全了解函式的實際執行行為。   
 
 ## <a name="usage"></a>使用量
 
-叫用計時器觸發程序函式時，計時器物件會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。
+叫用計時器觸發程式函式時, 計時器物件會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。
 
 ```json
 {
@@ -261,7 +261,7 @@ Azure Functions 會使用 [NCronTab](https://github.com/atifaziz/NCrontab) \(英
 
 每個欄位可以具備下列類型的值：
 
-|類型  |範例  |觸發時間  |
+|Type  |範例  |觸發時間  |
 |---------|---------|---------|
 |特定值 |<nobr>"0 5 * * * *"</nobr>|於 hh:05:00，其中 hh 是每小時 (一小時一次)|
 |所有值 (`*`)|<nobr>"0 * 5 * * *"</nobr>|於每天 5:mm:00，其中 mm 是小時中的每一分鐘 (一天 60 次)|
@@ -319,7 +319,8 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 |---------|---------|
 |"01:00:00" | 每小時        |
 |"00:01:00"|每分鐘         |
-|"24:00:00" | 每天        |
+|"24:00:00" | 每 24 天        |
+|"1.00:00:00" | 每天        |
 
 ## <a name="scale-out"></a>向外延展
 
@@ -327,7 +328,7 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 
 ## <a name="function-apps-sharing-storage"></a>共用儲存體的函式應用程式
 
-如果您在多個函式應用程式中共用儲存體帳戶，請確定每個函式應用程式在 host.json  中具有不同的 `id`。 您可以省略 `id` 屬性或將每個函式應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函式應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
+如果您在多個函式應用程式中共用儲存體帳戶，請確定每個函式應用程式在 host.json 中具有不同的 `id`。 您可以省略 `id` 屬性或將每個函式應用程式的 `id` 手動設定為不同的值。 計時器觸發程序會使用儲存體鎖定，以確保當函數應用程式相應放大至多個執行個體時，只會有一個計時器執行個體。 如果兩個函式應用程式共用相同的 `id`，且每一個都是使用計時器觸發程序，則只有一個計時器會執行。
 
 ## <a name="retry-behavior"></a>重試行為
 

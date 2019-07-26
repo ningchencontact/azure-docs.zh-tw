@@ -8,34 +8,34 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620811"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413376"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 
 Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 語言建構記載在[串流分析查詢語言參考](/stream-analytics-query/stream-analytics-query-language-reference)指南中。 
 
-查詢設計，可以表示簡單的傳遞邏輯，以將事件資料從一個輸入資料流移至輸出資料存放區中，或它可以執行豐富的模式比對和時態性分析，以計算彙總中的各種時間範圍[建置 IoT使用 Stream Analytics 的解決方案](stream-analytics-build-an-iot-solution-using-stream-analytics.md)指南。 您可以將資料從多個輸入合併資料流的事件，而且您可以執行查閱，針對要擴充的事件值的靜態參考資料。 您也可以將資料寫入多個輸出中。
+查詢設計可以表達簡單的傳遞邏輯, 將事件資料從某個輸入資料流程移至輸出資料存放區, 也可以執行豐富的模式比對和時態性分析, 以計算各種時間視窗的匯總, 如同[建立 IoT 解決方案使用串流分析](stream-analytics-build-an-iot-solution-using-stream-analytics.md)指南。 您可以聯結多個輸入的資料來結合串流事件, 也可以對靜態參考資料進行查閱, 以擴充事件值。 您也可以將資料寫入多個輸出。
 
-這篇文章概述幾個真實世界案例為基礎的常見查詢模式的解決方案。
+本文概述以真實世界案例為基礎的數個常見查詢模式的解決方案。
 
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>在 JSON 和 AVRO 中使用複雜資料類型
 
 Azure 串流分析可處理資料格式為 CSV、JSON 和 Avro 的事件。
 
-JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如需有關使用這些複雜的資料類型的詳細資訊，請參閱[剖析 JSON 和 AVRO 資料](stream-analytics-parsing-json.md)文章。
+JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如需使用這些複雜資料類型的詳細資訊, 請參閱[剖析 JSON 和 AVRO 資料](stream-analytics-parsing-json.md)一文。
 
 ## <a name="query-example-convert-data-types"></a>查詢範例：轉換資料類型
 
-**描述**：在輸入資料流上定義屬性類型。 比方說，汽車重量即將在輸入資料流為字串，而必須轉換成**INT**來執行**總和**。
+**描述**：在輸入資料流上定義屬性類型。 例如, 汽車權數以字串的形式進入資料流程, 而且需要轉換為**INT**以執行**總和**。
 
 **輸入**：
 
-| 請確定 | Time | Weight |
+| 請確定 | Time | 權數 |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -59,9 +59,9 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
         TumblingWindow(second, 10)
 ```
 
-**說明**：使用 [Weight]  欄位中的 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](/stream-analytics-query/data-types-azure-stream-analytics) 中的支援資料類型清單。
+**說明**：使用 [Weight] 欄位中的 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](/stream-analytics-query/data-types-azure-stream-analytics) 中的支援資料類型清單。
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查詢範例：使用 LIKE/NOT 等進行模式比對
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查詢範例：使用 LIKE/NOT LIKE 來執行模式比對
 
 **描述**：檢查事件上的欄位值是否符合特定模式。
 例如，檢查結果是否會傳回開頭為 A 且結尾為 9 的車牌。
@@ -92,7 +92,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
         LicensePlate LIKE 'A%9'
 ```
 
-**說明**：使用 **LIKE** 陳述式檢查 [LicensePlate]  欄位值。 它應該以字母 A 開頭然後有任何零或多個字元的字串數字 9 結尾。 
+**說明**：使用 **LIKE** 陳述式檢查 [LicensePlate] 欄位值。 它的開頭應該是字母 A, 然後有任何零或多個字元的字串, 然後以數位9結尾。 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>查詢範例：針對不同的案例/值指定邏輯 (CASE 陳述式)
 
@@ -121,7 +121,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp() AS Time
+        System.TimeStamp() AS AsaTime
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -173,7 +173,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
 
     SELECT
         Make,
-        System.TimeStamp() AS Time,
+        System.TimeStamp() AS AsaTime,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -186,7 +186,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
         [Count] >= 3
 ```
 
-**說明**：**INTO** 子句會告訴串流分析要從此陳述式將資料寫入哪個輸出。 第一個查詢是傳遞至名為輸出接收的資料**ArchiveOutput**。 第二個的查詢會執行一些簡單的彙總及篩選，並將結果傳送至下游的警示系統**AlertOutput**。
+**說明**：**INTO** 子句會告訴串流分析要從此陳述式將資料寫入哪個輸出。 第一個查詢是接收到名為**archiveoutput 輸出**之輸出的資料傳遞。 第二個查詢會執行一些簡單的匯總和篩選, 並將結果傳送到下游警示系統**AlertOutput**。
 
 請注意，您也可以在多個輸出陳述式中重複使用通用資料表運算式 (CTE) 的結果 (例如 **WITH** 陳述式)。 此選項多了一項優點，就是對輸入來源開放的讀取器較少。
 
@@ -231,7 +231,7 @@ JSON 和 Avro 可能包含巢狀物件 (記錄) 或陣列等複雜類型。 如�
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP() AS TIME
+     System.TIMESTAMP() AS AsaTIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -308,7 +308,7 @@ GROUP BY
         IsFirst(minute, 10) = 1
 ```
 
-現在讓我們變更問題，並每隔 10 分鐘的間隔中尋找特定廠牌的第一輛車。
+現在讓我們來變更問題, 並以每隔10分鐘的時間找出特定的第一輛車。
 
 | LicensePlate | 請確定 | Time |
 | --- | --- | --- |
@@ -379,10 +379,9 @@ GROUP BY
 
 **說明**：查詢中有兩個步驟。 第一個步驟會尋找 10 分鐘時間範圍內最新的時間戳記。 第二個步驟會將第一個查詢的結果與原始串流聯結在一起，在每個時間範圍內尋找符合最後一個時間戳記的事件。 
 
-## <a name="query-example-detect-the-absence-of-events"></a>查詢範例：偵測不存在的事件
+## <a name="query-example-locate-correlated-events-in-a-stream"></a>查詢範例：在資料流程中尋找相互關聯的事件
 
-**描述**：檢查串流中是否沒有和特定準則相符的值。
-例如，在最後的 90 秒內連續有 2 部相同廠牌的車輛進入收費道路？
+**描述**：尋找資料流程中的相互關聯事件。 例如，在最後的 90 秒內連續有 2 部相同廠牌的車輛進入收費道路？
 
 **輸入**：
 
@@ -424,8 +423,8 @@ GROUP BY
 
 | 使用者 | 功能 | Event - 事件 | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |開始 |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |結束 |2015-01-01T00:00:08.0000000Z |
 
 **輸出**：  
 
@@ -456,7 +455,7 @@ GROUP BY
 
 **輸入**：
 
-| 請確定 | Time | Weight |
+| 請確定 | Time | 權數 |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -537,7 +536,7 @@ GROUP BY
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**說明**：此查詢會每隔 5 秒產生事件，並輸出先前所收到的最後一個事件。 [跳動視窗](/stream-analytics-query/hopping-window-azure-stream-analytics)持續時間會決定回溯到多久此查詢會尋找以找出最新的事件 （在此範例中的 300 秒）。
+**說明**：此查詢會每隔 5 秒產生事件，並輸出先前所收到的最後一個事件。 跳動[視窗](/stream-analytics-query/hopping-window-azure-stream-analytics)持續時間會決定查詢要回到多久後, 才能找到最新的事件 (在此範例中為300秒)。
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>查詢範例：將相同串流內的兩個事件類型相互關聯
@@ -615,7 +614,7 @@ WHERE
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>查詢範例：獨立於裝置時鐘誤差 (子串流) 的處理事件
 
-**描述**：事件會因事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲，而導致延遲發生或順序錯誤。 在下列範例中，TollID 2 的裝置時鐘為 TollID 1 背後的五秒且裝置時鐘 TollID 3 是 10 秒背後 TollID 1。 
+**描述**：事件會因事件產生器之間的時鐘誤差、分割之間的時鐘誤差或網路延遲，而導致延遲發生或順序錯誤。 在下列範例中, TollID 2 的裝置時鐘是 TollID 1 後的五秒, 而 TollID 3 的裝置時鐘是 TollID 1 之後的10秒。 
 
 **輸入**：
 
@@ -656,11 +655,11 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ## <a name="query-example-remove-duplicate-events-in-a-window"></a>查詢範例：移除時間範圍內的重複事件
 
-**描述**：執行如計算指定時間範圍內事件平均值的作業時，應該要將重複的事件篩選出來。 在下列範例中，第二個事件是第一個重複的。
+**描述**：執行如計算指定時間範圍內事件平均值的作業時，應該要將重複的事件篩選出來。 在下列範例中, 第二個事件是第一個的重複專案。
 
 **輸入**：  
 
-| deviceId | Time | 屬性 | 值 |
+| DeviceId | Time | 屬性 | 值 |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |溫度 |50 |
@@ -671,7 +670,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **輸出**：  
 
-| AverageValue | deviceId |
+| AverageValue | DeviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -701,14 +700,14 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 
 **說明**：[COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) 會傳回時間範圍內 Time 資料行中的相異值數目。 您可以接著使用此步驟的輸出，透過捨棄重複項目來計算每個裝置的平均值。
 
-## <a name="geofencing-and-geospatial-queries"></a>地理圍欄和地理空間查詢
-Azure Stream Analytics 提供內建的地理空間函式，可用來實作案例，例如車隊管理，寫共用、 連網汽車及資產追蹤。 地理空間資料可以內嵌 GeoJSON 或 well-known text，WKT 格式，為事件資料流的一部分，或參考資料。 如需詳細資訊，請參閱[地理柵欄和地理空間彙總案例中的使用 Azure Stream Analytics](geospatial-scenarios.md)文章。
+## <a name="geofencing-and-geospatial-queries"></a>地理柵欄和地理空間查詢
+Azure 串流分析提供內建的地理空間函式, 可用來實行車隊管理、分享、連線 cars 和資產追蹤等案例。 地理空間資料可以用 GeoJSON 或 WKT 格式內嵌成事件資料流程或參考資料的一部分。 如需詳細資訊, 請參閱[使用 Azure 串流分析的地理柵欄和地理空間匯總案例](geospatial-scenarios.md)一文。
 
-## <a name="language-extensibility-through-javascript-and-c"></a>透過 JavaScript 語言擴充性和C#
-Azure Stream Ananlytics 查詢 langugae 可以擴充以 JavaScript 撰寫的自訂函式或C#語言。 如需詳細資訊，請參閱一併發行項：
-* [Azure Stream Analytics JavaScript 使用者定義函式](stream-analytics-javascript-user-defined-functions.md)
-* [Azure Stream Analytics JavaScript 使用者定義彙總](stream-analytics-javascript-user-defined-aggregates.md)
-* [開發.NET Standard 的使用者定義函式，如 Azure Stream Analytics Edge 作業](stream-analytics-edge-csharp-udf-methods.md)
+## <a name="language-extensibility-through-javascript-and-c"></a>透過 JavaScript 和的語言擴充性C#
+您可以使用以 JavaScript 或C#語言撰寫的自訂函式來擴充 Azure 串流 Ananlytics 查詢 langugae。 如需詳細資訊, 請參閱 foolowing 文章:
+* [Azure 串流分析 JavaScript 使用者定義函數](stream-analytics-javascript-user-defined-functions.md)
+* [Azure 串流分析 JavaScript 使用者定義匯總](stream-analytics-javascript-user-defined-aggregates.md)
+* [針對 Azure 串流分析 Edge 作業開發 .NET Standard 的使用者定義函數](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>取得說明
 

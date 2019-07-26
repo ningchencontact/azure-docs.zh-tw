@@ -10,14 +10,14 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: d57a65bd7c9e5eefdf35b53b210585001be8a2a8
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876773"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385471"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例：適用於邏輯應用程式的例外狀況處理與記錄錯誤
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例:適用於邏輯應用程式的例外狀況處理與記錄錯誤
 
 本案例說明如何擴充邏輯應用程式，以提升對於例外狀況處理的支援。 我們已使用真實使用案例來回答問題：「Azure Logic Apps 是否支援例外狀況和錯誤處理？」
 
@@ -42,7 +42,7 @@ ms.locfileid: "67876773"
 
 我們選擇以 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 做為記錄檔和錯誤記錄的存放庫 (Cosmos DB 會將記錄當做文件)。 由於 Azure Logic Apps 具有適用於所有回應的標準範本，因此我們不需要建立自訂結構描述。 我們可以建立 API 應用程式來**插入**及**查詢**錯誤和記錄檔記錄。 我們也可以為 API 應用程式中的每個項目定義結構描述。  
 
-另一個需求是要在特定日期之後清除記錄。 Cosmos DB 具有稱為[存留時間 (英文)](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "存留時間") (TTL) 的屬性，這可讓我們設定每一筆記錄或每一個集合的「存留時間」  值。 此功能讓我們不需手動在 Cosmos DB 中刪除記錄。
+另一個需求是要在特定日期之後清除記錄。 Cosmos DB 具有稱為[存留時間 (英文)](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "存留時間") (TTL) 的屬性，這可讓我們設定每一筆記錄或每一個集合的「存留時間」值。 此功能讓我們不需手動在 Cosmos DB 中刪除記錄。
 
 > [!IMPORTANT]
 > 為了完成本教學課程，您必須建立一個 Cosmos DB 資料庫和兩個集合 (記錄和錯誤)。
@@ -100,7 +100,7 @@ ms.locfileid: "67876773"
 1. 我們必須從 Dynamics CRM Online 取得新的預約記錄。
 
    來自 CRM 的觸發程序會提供我們 **CRM PatentId**、**記錄類型**、**新的或更新的記錄** (新增或更新布林值) 和 **SalesforceId**。 **SalesforceId** 可以是 null，因為它只會用於更新。
-   我們使用 CRM **PatientID** 和 [記錄類型]  來取得 CRM 記錄。
+   我們使用 CRM **PatientID** 和 [記錄類型] 來取得 CRM 記錄。
 
 2. 接下來，必須新增 Azure Cosmos DB SQL API 應用程式 **InsertLogEntry** 作業，如以下「邏輯應用程式設計工具」所示。
 
@@ -469,7 +469,7 @@ Azure Cosmos DB 中的每個文件都必須具有唯一識別碼。 我們將會
  }
 ```
 
-上述程式碼範例的運算式會檢查 Create_NewPatientRecord  狀態是否為 **Failed**。
+上述程式碼範例的運算式會檢查 Create_NewPatientRecord 狀態是否為 **Failed**。
 
 ## <a name="summary"></a>總結
 
@@ -485,4 +485,4 @@ Logic Apps 例外狀況管理 API 應用程式的原始程式碼可在此 [GitHu
 
 * [檢視更多邏輯應用程式的範例和案例](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [了解如何監視邏輯應用程式](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [建立邏輯應用程式的自動化部署範本](../logic-apps/logic-apps-create-deploy-template.md)
+* [自動化邏輯應用程式部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 851943ad967a79a6800a899b31d0cf9f90a6889b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312246"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385536"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -27,13 +27,13 @@ ms.locfileid: "68312246"
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>檢視邏輯應用程式的執行和觸發程序歷程記錄
 
-1. 若要在 [Azure 入口網站](https://portal.azure.com)中尋找邏輯應用程式，請在主要 Azure 功能表上選擇 [所有服務]  。 在搜尋方塊中，輸入「邏輯應用程式」，然後選擇 [邏輯應用程式]  。
+1. 若要在 [Azure 入口網站](https://portal.azure.com)中尋找邏輯應用程式，請在主要 Azure 功能表上選擇 [所有服務]。 在搜尋方塊中，輸入「邏輯應用程式」，然後選擇 [邏輯應用程式]。
 
    ![尋找邏輯應用程式](./media/logic-apps-monitor-your-logic-apps/find-your-logic-app.png)
 
    Azure 入口網站會顯示與 Azure 訂用帳戶相關聯的所有邏輯應用程式。 
 
-2. 選取邏輯應用程式，然後選擇 [概觀]  。
+2. 選取邏輯應用程式，然後選擇 [概觀]。
 
    Azure 入口網站會顯示邏輯應用程式的執行歷程記錄和觸發程序歷程記錄。 例如:
 
@@ -45,15 +45,15 @@ ms.locfileid: "68312246"
    如需狀態描述，請參閱[針對邏輯應用程式進行疑難排解](../logic-apps/logic-apps-diagnosing-failures.md)。
 
    > [!TIP]
-   > 如果找不到您預期的資料，請在工具列上選擇 [重新整理]  。
+   > 如果找不到您預期的資料，請在工具列上選擇 [重新整理]。
 
-3. 若要檢視特定執行的步驟，請在 [執行歷程記錄]  下選取該執行。 
+3. 若要檢視特定執行的步驟，請在 [執行歷程記錄] 下選取該執行。 
 
    監視檢視會顯示該執行中的每個步驟。 例如:
 
    ![特定執行的動作](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
-4. 若要取得執行的其他詳細資訊，請選擇 [執行詳細資料]  。 這項資訊摘要說明執行的步驟、狀態、輸入和輸出。 
+4. 若要取得執行的其他詳細資訊，請選擇 [執行詳細資料]。 這項資訊摘要說明執行的步驟、狀態、輸入和輸出。 
 
    ![選擇 [執行詳細資料]](media/logic-apps-monitor-your-logic-apps/run-details.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "68312246"
    > [!NOTE]
    > 在 Logic Apps 服務內，會加密所有執行階段詳細資料和事件。 只有在使用者要求檢視該資料時，才對其進行解密。 您也可以使用 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md) 來控制對這些事件的存取權。
 
-6. 若要取得特定觸發程序事件的詳細資料，請回到 [概觀]  窗格。 在 [觸發程序歷程記錄]  下，選取觸發程序事件。 您現在可以檢閱輸入和輸出這類詳細資料，例如：
+6. 若要取得特定觸發程序事件的詳細資料，請回到 [概觀] 窗格。 在 [觸發程序歷程記錄] 下，選取觸發程序事件。 您現在可以檢閱輸入和輸出這類詳細資料，例如：
 
    ![觸發程序事件輸出詳細資料](media/logic-apps-monitor-your-logic-apps/trigger-details.png)
 
@@ -84,20 +84,20 @@ ms.locfileid: "68312246"
 
    ![移至 [監視]、[診斷]、[診斷設定]](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
-3. 在 [診斷設定]  下，選擇 [開啟]  。
+3. 在 [診斷設定] 下，選擇 [開啟]。
 
    ![開啟診斷記錄](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
 4. 現在選取用於記錄的 Log Analytics 工作區和事件類別目錄，如下所示：
 
-   1. 選取 [傳送至 Log Analytics]  。 
-   2. 在 [Log Analytics]  下，選擇 [設定]  。 
-   3. 在 [OMS 工作區]  下，選取要用於記錄的工作區。
+   1. 選取 [傳送至 Log Analytics]。 
+   2. 在 [Log Analytics] 下，選擇 [設定]。 
+   3. 在 [OMS 工作區] 下，選取要用於記錄的工作區。
       > [!NOTE]
       > OMS 工作區現在稱為 Log Analytics 工作區。
-   4. 在 [記錄]  下，選取 [WorkflowRuntime]  分類。
+   4. 在 [記錄] 下，選取 [WorkflowRuntime] 分類。
    5. 選擇計量間隔。
-   6. 完成之後，請選擇 [儲存]  。
+   6. 完成之後，請選擇 [儲存]。
 
    ![選取用於記錄的 Log Analytics 工作區和資料](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -109,15 +109,15 @@ ms.locfileid: "68312246"
 
 若要在邏輯應用程式中尋找並檢視觸發程序事件、執行事件和動作事件這類事件，請遵循下列步驟。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]  。 搜尋「記錄分析」，然後選擇 [Log Analytics]  ，如下所示：
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]。 搜尋「記錄分析」，然後選擇 [Log Analytics]，如下所示：
 
    ![選擇 [Log Analytics]](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. 在 [Log Analytics]  下，尋找並選取 Log Analytics 工作區。 
+2. 在 [Log Analytics] 下，尋找並選取 Log Analytics 工作區。 
 
    ![選取 Log Analytics 工作區](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. 在 [管理]  下，選擇 [記錄搜尋]  。
+3. 在 [管理] 下，選擇 [記錄搜尋]。
 
    ![選擇 [記錄搜尋]](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
@@ -130,18 +130,18 @@ ms.locfileid: "68312246"
    深入瞭解[如何在 Azure 監視器記錄中尋找資料](../log-analytics/log-analytics-log-searches.md)。
 
 5. 在結果頁面上，於左列中選擇您想要檢視的時間範圍。
-若要新增篩選來調整您的查詢，請選擇 [+新增]  。
+若要新增篩選來調整您的查詢，請選擇 [+新增]。
 
    ![選擇查詢結果的時間範圍](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-6. 在 [新增篩選]  下，輸入篩選名稱，以找到您想要的篩選。 選取篩選，然後選擇 [+新增]  。
+6. 在 [新增篩選] 下，輸入篩選名稱，以找到您想要的篩選。 選取篩選，然後選擇 [+新增]。
 
    此範例使用 "status" 這個字，在 **AzureDiagnostics** 下尋找失敗事件。
    在這裡，已選取 **status_s** 的篩選。
 
    ![選取篩選](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-7. 在左列中，選取您想要使用的篩選值，然後選擇 [套用]  。
+7. 在左列中，選取您想要使用的篩選值，然後選擇 [套用]。
 
    ![選取篩選值，然後選擇 [套用]](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
@@ -149,7 +149,7 @@ ms.locfileid: "68312246"
 
    ![回到具有已篩選結果的查詢](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-9. 若要儲存查詢供日後使用，請選擇 [儲存]  。 了解[如何儲存查詢](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query)。
+9. 若要儲存查詢供日後使用，請選擇 [儲存]。 了解[如何儲存查詢](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query)。
 
 <a name="extend-diagnostic-data"></a>
 
@@ -180,16 +180,16 @@ ms.locfileid: "68312246"
 
 若要設定不含[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)的警示, 請遵循下列步驟。 如需更多的警示準則和動作, 請同時[設定 Azure 監視器記錄](#azure-diagnostics)。
 
-1. 在邏輯應用程式刀鋒視窗功能表上，於 [監視]  下選擇 [診斷]   > [警示規則]   > [新增警示]  ，如下所示：
+1. 在邏輯應用程式刀鋒視窗功能表上，於 [監視] 下選擇 [診斷] > [警示規則] > [新增警示]，如下所示：
 
    ![新增邏輯應用程式的警示](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
-2. 在 [新增警示規則]  刀鋒視窗上，建立您的警示，如下所示：
+2. 在 [新增警示規則] 刀鋒視窗上，建立您的警示，如下所示：
 
-   1. 在 [資源]  下，選取尚未選取的邏輯應用程式。 
+   1. 在 [資源] 下，選取尚未選取的邏輯應用程式。 
    2. 提供警示的名稱和描述。
-   3. 選取您想要追蹤的 [計量]  或事件。
-   4. 選取 [條件]  ，並指定計量的 [閾值]  ，然後選取用於監視此計量的 [期間]  。
+   3. 選取您想要追蹤的 [計量] 或事件。
+   4. 選取 [條件]，並指定計量的 [閾值]，然後選取用於監視此計量的 [期間]。
    5. 選取是否傳送警示的郵件。 
    6. 指定用於傳送警示的任何其他電子郵件地址。 
    您也可以指定要傳送警示的 Webhook URL。
@@ -293,6 +293,6 @@ ms.locfileid: "68312246"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [建立範本以進行邏輯應用程式部署和發行管理](../logic-apps/logic-apps-create-deploy-template.md)
+* [自動化邏輯應用程式部署](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [B2B 案例搭配企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [監視 B2B 訊息](../logic-apps/logic-apps-monitor-b2b-message.md)

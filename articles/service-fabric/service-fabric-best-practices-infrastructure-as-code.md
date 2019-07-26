@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae1cd0912733116dce1b550dd937cc9fc5f8737b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237422"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359780"
 ---
 # <a name="infrastructure-as-code"></a>基礎結構即程式碼
 
@@ -86,19 +86,21 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
-microservices_sfpkg = zipfile.ZipFile(self.microservices_app_package_name, 'w', zipfile.ZIP_DEFLATED)
+microservices_sfpkg = zipfile.ZipFile(
+    self.microservices_app_package_name, 'w', zipfile.ZIP_DEFLATED)
 package_length = len(self.microservices_app_package_path)
 
 for root, dirs, files in os.walk(self.microservices_app_package_path):
     root_folder = root[package_length:]
     for file in files:
-        microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
+        microservices_sfpkg.write(os.path.join(
+            root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
 ```
 
-## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Azure 虛擬機器的作業系統自動升級設定 
-升級您的虛擬機器是由使用者啟動的作業，並建議您改用[虛擬機器擴展集自動作業系統升級](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)適用於 Azure Service Fabric 叢集主機修補程式管理;修補程式協調流程應用程式是一種替代的解決方案，適用於 Azure、 外部裝載雖然 POA 可以在 Azure 中，搭配裝載在 Azure 中常見的原因，偏好使用虛擬機器的作業系統自動升級的 POA 的額外負荷透過 POA。 以下是要啟用自動 OS 升級計算虛擬機器擴展集 Resource Manager 範本內容：
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Azure 虛擬機器作業系統自動升級設定 
+升級您的虛擬機器是使用者起始的作業, 建議您針對 Azure Service Fabric 叢集主機修補程式管理使用[虛擬機器擴展集的自動作業系統升級](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade);修補程式協調流程應用程式是一種替代方案, 適用于在 azure 外部託管時, 雖然 POA 可以在 azure 中使用, 但在 Azure 中裝載 POA 的額外負荷, 是偏好虛擬機器作業系統自動升級的常見原因透過 POA。 以下是計算虛擬機器擴展集 Resource Manager 範本屬性, 以啟用自動 OS 升級:
 
 ```json
 "upgradePolicy": {
@@ -109,11 +111,11 @@ microservices_sfpkg.close()
     }
 },
 ```
-搭配使用時自動 OS 升級 Service Fabric，新的 OS 映像會推出一個更新網域來維持在 Service Fabric 中執行之服務的高可用性一次。 若要在 Service Fabric 中利用自動 OS 升級，您的叢集必須設定為使用銀級耐久性層或更高。
+搭配 Service Fabric 使用自動 OS 升級時, 新的 OS 映射會一次推出一個更新網域, 以維持 Service Fabric 中執行之服務的高可用性。 若要在 Service Fabric 中利用自動 OS 升級，您的叢集必須設定為使用銀級耐久性層或更高。
 
-請確定下列登錄機碼設定為 false，以防止 windows 主機電腦啟動未經協調的更新：HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+請確認下列登錄機碼設定為 false, 以防止您的 windows 主機電腦起始未經協調更新:HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-以下是將 WindowsUpdate 登錄機碼設定為 false 計算虛擬機器擴展集 Resource Manager 範本內容：
+以下是計算虛擬機器擴展集 Resource Manager 範本屬性, 以將 Windowsupdate.log 登錄機碼設定為 false:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -126,12 +128,12 @@ microservices_sfpkg.close()
       },
 ```
 
-## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Azure Service Fabric 叢集的升級設定
-以下是 Service Fabric 叢集 Resource Manager 範本屬性，以啟用自動升級：
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Azure Service Fabric 叢集升級設定
+以下是 Service Fabric 叢集 Resource Manager 範本 屬性, 以啟用自動升級:
 ```json
 "upgradeMode": "Automatic",
 ```
-若要手動升級您的叢集，下載封包/deb 發佈至叢集虛擬機器，並接著叫用下列 PowerShell:
+若要手動升級您的叢集, 請將 cab/deb 散發套件下載到叢集虛擬機器, 然後叫用下列 PowerShell:
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"

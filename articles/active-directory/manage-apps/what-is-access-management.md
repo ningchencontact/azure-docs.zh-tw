@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f86dfd414309e8420dc19c92c1cd20c40a5a13a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99c7947b6469f64f2ea05b2290305710db1ee796
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108191"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477100"
 ---
 # <a name="managing-access-to-apps"></a>管理應用程式的存取
 在應用程式整合到您的組織的身分識別系統之後，進行中的存取管理、使用方式評估和報告持續成為一項挑戰。 在許多情況下，IT 系統管理員或技術服務人員都需要持續積極地為您管理應用程式存取權。 有時候，指派是由一般或分區 IT 小組執行。 通常，指派決策要委派給商務決策人員，在 IT 進行指派之前需要其核准。  其他組織投資於與現有的自動化身分識別與存取管理系統的整合，像是角色型存取控制 (RBAC) 或屬性型存取控制 (ABAC)。 整合與規則開發往往需要特製且所費不貲。 監視或報告任一管理方式是自己單獨、昂貴且複雜的投資。
@@ -27,7 +27,7 @@ ms.locfileid: "67108191"
 ## <a name="how-does-azure-active-directory-help"></a>Azure Active Directory 有何助益？
  Azure AD 對於已設定的應用程式支援廣泛的存取管理，讓組織得以透過委派並納入系統管理員管理，輕易地達成正確的存取原則，範圍包括自動、屬性式指派 (ABAC 或 RBAC 案例)。 有了 Azure AD，您可以輕鬆地達成複雜的原則，結合單一應用程式的多個管理模型並且甚至可以在具有相同對象的應用程式之間重覆使用管理規則。
 
-* [加入新的或現有的應用程式](configure-single-sign-on-portal.md)
+* [加入新的或現有的應用程式](add-gallery-app.md)
 
   Azure AD 的應用程式指派著重於兩種主要的指派模式：
 
@@ -54,5 +54,5 @@ ms.locfileid: "67108191"
 系統管理員可以運用[Azure AD 條件式存取](../active-directory-conditional-access-azure-portal.md)來設定特定角色的存取原則。 這些原則可以包括是否允許公司環境外部的存取，甚至是 Multi-Factor Authentication 或裝置需求，以在各種情況下達成存取。
 
 ## <a name="next-steps"></a>後續步驟
-* [保護應用程式使用條件式存取](../active-directory-conditional-access-azure-portal.md)
+* [使用條件式存取保護應用程式](../active-directory-conditional-access-azure-portal.md)
 * [自助式群組管理/SSAA](../users-groups-roles/groups-self-service-management.md)

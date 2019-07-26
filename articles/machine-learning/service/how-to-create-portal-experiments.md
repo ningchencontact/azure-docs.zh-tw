@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 5eb3e94ff65e8a8b74f357a4cb8a517fd3837c5a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871817"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358840"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>在 Azure 入口網站中建立及探索自動化機器學習服務實驗 (預覽)
 
@@ -24,7 +24,7 @@ ms.locfileid: "67871817"
 
  如果您偏好更以程式碼為基礎的經驗, 您也可以使用[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py),[在 Python 中設定自動化機器學習實驗](how-to-configure-auto-train.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -60,7 +60,7 @@ ms.locfileid: "67871817"
 
     欄位|描述
     ---|---
-    計算名稱| 輸入可識別計算內容的唯一名稱。
+    Compute 名稱| 輸入可識別計算內容的唯一名稱。
     虛擬機器大小| 選取您計算的虛擬機器大小。
     其他設定| *最小節點*:輸入您的計算節點數目下限。 AML 計算的節點數目下限為0。 若要啟用資料分析, 您必須有一或多個節點。 <br> *節點上限*:輸入您計算的節點數目上限。 AML 計算的預設值是6個節點。
 
@@ -180,7 +180,7 @@ ms.locfileid: "67871817"
 
 ### <a name="view-training-run-details"></a>View 定型執行詳細資料
 
-向下切入任何輸出模型, 以查看定型執行詳細資料, 例如效能計量和散發圖表。 [深入瞭解圖表](how-to-track-experiments.md#understanding-automated-ml-charts)。
+向下切入任何輸出模型, 以查看定型執行詳細資料, 例如效能計量和散發圖表。 [深入瞭解圖表](how-to-understand-automated-ml.md)。
 
 ![反復專案詳細資料](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -213,7 +213,7 @@ ms.locfileid: "67871817"
 
     您可以依其描述來識別模型, 其中會包含執行識別碼、反復專案編號, 格式如下: *< Run_ID > _ < Iteration_number > _Model*
 
-    ![機型建立映射](media/how-to-create-portal-experiments/model-create-image.png)
+    ![型號:建立映像](media/how-to-create-portal-experiments/model-create-image.png)
 
 1. 輸入影像的名稱。 
 1. 選取 [評分檔案] 方塊旁的 **[流覽]** 按鈕, 上傳您先前下載的評分檔案 (scoring.py)。
@@ -225,7 +225,7 @@ ms.locfileid: "67871817"
       >[!Important]
       > 檔案名的長度必須是32個字元, 而且必須以英數位元開頭和結尾。 可能包含虛線、底線、點和之間的英數位元。 不允許使用空格。
 
-    ![建立映射](media/how-to-create-portal-experiments/create-image.png)
+    ![建立映像](media/how-to-create-portal-experiments/create-image.png)
 
 1. 選取 [建立] 按鈕以開始建立映射。 這需要幾分鐘的時間才能完成, 完成後, 您會在頂端列看到一則訊息。
 1. 移至 [映射] 索引標籤, 勾選您要部署之映射旁的核取方塊, 然後選取 [建立部署]。 [深入瞭解部署](how-to-deploy-and-where.md)。
@@ -236,11 +236,12 @@ ms.locfileid: "67871817"
 
      ![圖像建立部署](media/how-to-create-portal-experiments/images-create-deployment.png)
 
-1. 完成後，請選取 [建立]  。 部署模型可能需要幾分鐘的時間, 每個管線才會完成執行。
+1. 完成後，請選取 [建立]。 部署模型可能需要幾分鐘的時間, 每個管線才會完成執行。
 
 1. 就這麼容易！ 您擁有可運作的 web 服務來產生預測。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [深入瞭解自動化機器學習](concept-automated-ml.md)和 Azure Machine Learning。
+* [瞭解自動化的機器學習結果](how-to-understand-automated-ml.md)。
 * [瞭解如何使用 web 服務](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service)。

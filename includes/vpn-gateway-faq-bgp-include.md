@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 23386139364a72b0275936cdc458c8cd2a5771c9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659767"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386831"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>所有的 Azure VPN 閘道 SKU 上是否都支援 BGP？
 否，Azure **VpnGw1** **VpnGw2** **VpnGw3** **Standard** 和 **HighPerformance** VPN 閘道支援 BGP。 **基本** SKU。
@@ -85,10 +85,10 @@ Azure VPN 閘道會通告下列路由至您的內部部署 BGP 裝置︰
 是的。 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Azure VPN 閘道會對 BGP 對等互連 IP 使用什麼位址？
-Azure VPN 閘道會從作用中-待命 VPN 閘道的 GatewaySubnet 範圍或主動-主動 VPN 閘道的兩個 IP 位址配置的單一 IP 位址。 您可以取得實際的 BGP IP 位址配置使用 PowerShell (Get-AzVirtualNetworkGateway，尋找"bgpPeeringAddress 」 屬性)，或在 Azure 入口網站中 （在 [閘道組態] 頁面上的 「 設定 BGP ASN 」 屬性）。
+Azure VPN 閘道會從作用中待命 VPN 閘道的 GatewaySubnet 範圍, 或主動-主動 VPN 閘道的兩個 IP 位址, 配置單一 IP 位址。 您可以使用 PowerShell (Set-azvirtualnetworkgateway、尋找 "bgpPeeringAddress" 屬性), 或在 Azure 入口網站 (在 [閘道設定] 頁面的 [設定 BGP ASN] 屬性底下), 取得所配置的實際 BGP IP 位址。
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>我的 VPN 裝置上的 BGP 對等互連 IP 位址有哪些需求？
-您內部部署 BGP 對等互連位址 **不得** 與您的 VPN 裝置的公用 IP 位址相同。 在 VPN 裝置上針對 BGP 對等互連 IP 使用不同的 IP 位址。 它可以是指派給裝置上的回送介面的位址，但請注意，它不能是 APIPA (169.254.x.x) 位址。 在代表位置的對應本機網路閘道中指定這個位址。
+您的內部部署 BGP 對等互連位址**不得**與您的 VPN 裝置的公用 IP 位址或 VPN 閘道的 Vnet 位址空間相同。 在 VPN 裝置上針對 BGP 對等互連 IP 使用不同的 IP 位址。 它可以是指派給裝置上的回送介面的位址，但請注意，它不能是 APIPA (169.254.x.x) 位址。 在代表位置的對應本機網路閘道中指定這個位址。
 
 ### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp"></a>使用 BGP 時，應將區域網路閘道的位址首碼指定為什麼？
 Azure 區域網路閘道會指定內部部署網路的起始位址首碼。 若具有 BGP，您必須配置 BGP 對等互連 IP 位址的主機首碼 (/32 首碼) 作為該內部部署網路的位址空間。 如果 BGP 對等互連 IP 為 10.52.255.254，您應該指定「10.52.255.254/32」作為代表此內部部署網路的區域網路閘道的 localNetworkAddressSpace。 這是為了確保 Azure VPN 閘道透過 S2S VPN 通道建立 BGP 工作階段。

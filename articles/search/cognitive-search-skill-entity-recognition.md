@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ca3b953f84677c13908028af968d5a2bf28b57c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023452"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347741"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>實體辨識認知技能
 
@@ -32,7 +32,7 @@ ms.locfileid: "65023452"
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>資料限制
-記錄的大小上限應該是 50,000 個字元 (以 `String.Length` 為測量單位)。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
+記錄的大小上限應為50000個字元, 如所測量[`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)。 如果您需要先分割資料，然後再將該資料傳送至關鍵片語擷取器，請考慮使用 [文字分割技能](cognitive-search-skill-textsplit.md)。
 
 ## <a name="skill-parameters"></a>技能參數
 
@@ -44,7 +44,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 |defaultLanguageCode |  輸入文字的語言代碼。 支援下列語言：`de, en, es, fr, it`|
 |minimumPrecision | 未使用。 保留供未來使用。 |
 |includeTypelessEntities | 設定為 True 時，如果文字包含已知的實體，但無法分類為其中一個受支援的類別，則會作為 `"entities"` 複雜輸出欄位的一部分傳回。 
-這些是已知的良好，但不是會歸類為目前支援 「 類別 」 的一部分的實體。 比方說 「 Windows 10 」 是已知的實體 （產品），但是 「 產品 」 不是目前支援的類別。 預設值為 `false` |
+這些是已知的實體, 但未分類為目前支援的「類別」的一部分。 比方說, 「Windows 10」是知名的實體 (產品), 但是「產品」並不是目前支援的類別。 預設值為 `false` |
 
 
 ## <a name="skill-inputs"></a>技能輸入
@@ -52,7 +52,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | 輸入名稱      | 描述                   |
 |---------------|-------------------------------|
 | languageCode  | 選擇性。 預設值為 `"en"`。  |
-| text          | 要分析的文字。          |
+| 文字          | 要分析的文字。          |
 
 ## <a name="skill-outputs"></a>技能輸出
 
@@ -68,7 +68,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | 日期時間  | 字串陣列，其中每個字串代表日期時間 (如其在文字中所示) 值。 |
 | URL | 字串陣列，其中每個字串代表 URL |
 | 電子郵件 | 字串陣列，其中每個字串代表電子郵件 |
-| namedEntities | 複雜類型的陣列，包含下列欄位： <ul><li>category</li> <li>值 （實際的實體名稱）</li><li>位移 (在文字中找到的位置)</li><li>信賴 (目前未使用。 將會設定為 -1 的值)</li></ul> |
+| namedEntities | 複雜類型的陣列，包含下列欄位： <ul><li>category</li> <li>值 (實際機構名稱)</li><li>位移 (在文字中找到的位置)</li><li>信賴 (目前未使用。 將會設定為 -1 的值)</li></ul> |
 | 實體 | 複雜類型陣列，其中包含從文字中擷取的實體相關豐富資訊，包含下列欄位 <ul><li> 名稱 (實際實體名稱。 這代表「標準化」格式)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (實體的維基百科頁面連結)</li><li>bingId</li><li>類型 (已辨識實體的類別)</li><li>子類型 (僅適用於特定類別，可提供實體類型的漸進式檢視)</li><li> 符合 (包含的複雜集合)<ul><li>文字 (實體的原始文字)</li><li>位移 (找到的位置)</li><li>長度 (原始實體文字的長度)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>範例定義
