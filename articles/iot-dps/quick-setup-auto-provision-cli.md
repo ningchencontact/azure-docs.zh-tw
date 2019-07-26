@@ -10,10 +10,10 @@ services: iot-dps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "60363711"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>使用 Azure CLI 設定 IoT 中樞裝置佈建服務
@@ -27,12 +27,14 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 >
 
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
 使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 westus 位置建立名為 my-sample-resource-group 的資源群組。
+下列範例會在 westus  位置建立名為 my-sample-resource-group  的資源群組。
 
 ```azurecli-interactive 
 az group create --name my-sample-resource-group --location westus
@@ -47,7 +49,7 @@ az group create --name my-sample-resource-group --location westus
 
 使用 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 命令建立 IoT 中樞。
 
-下列範例會在 westus 位置建立名為 my-sample-hub 的 IoT 中樞。  
+下列範例會在 westus  位置建立名為 my-sample-hub  的 IoT 中樞。  
 
 ```azurecli-interactive 
 az iot hub create --name my-sample-hub --resource-group my-sample-resource-group --location westus
@@ -57,7 +59,7 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 使用 [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) 命令建立佈建服務。 
 
-下列範例會在 westus 位置建立名為 my-sample-dps 的佈建服務。  
+下列範例會在 westus  位置建立名為 my-sample-dps  的佈建服務。  
 
 ```azurecli-interactive 
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
@@ -72,7 +74,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 您需要 IoT 中樞的連接字串，才能將它與裝置佈建服務連結。 使用 [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) 命令取得連接字串，並使用其輸出來設定將在連結兩項資源時使用的變數。 
 
-下列範例會將 hubConnectionString 變數設定為連接字串的值，作為中樞之 iothubowner 原則的主索引鍵。 您可以使用 `--policy-name` 參數來指定不同的原則。 此命令會使用 Azure CLI [查詢](/cli/azure/query-azure-cli)和[輸出](/cli/azure/format-output-azure-cli#tsv-output-format)選項，從命令輸出中擷取連接字串。
+下列範例會將 hubConnectionString  變數設定為連接字串的值，作為中樞之 iothubowner  原則的主索引鍵。 您可以使用 `--policy-name` 參數來指定不同的原則。 此命令會使用 Azure CLI [查詢](/cli/azure/query-azure-cli)和[輸出](/cli/azure/format-output-azure-cli#tsv-output-format)選項，從命令輸出中擷取連接字串。
 
 ```azurecli-interactive 
 hubConnectionString=$(az iot hub show-connection-string --name my-sample-hub --key primary --query connectionString -o tsv)
@@ -92,7 +94,7 @@ echo $hubConnectionString
 
 使用 [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create) 命令來連結 IoT 中樞與佈建服務。 
 
-下列範例會在 westus 位置建立名為 my-sample-hub 的 IoT 中樞，以及建立名為 my-sample-dps 的裝置佈建服務。 它會使用上一個步驟的 hubConnectionString 變數中儲存之 my-sample-hub 的連接字串。
+下列範例會在 westus  位置建立名為 my-sample-hub  的 IoT 中樞，以及建立名為 my-sample-dps  的裝置佈建服務。 它會使用上一個步驟的 hubConnectionString  變數中儲存之 my-sample-hub  的連接字串。
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus
@@ -102,7 +104,7 @@ az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample
 
 使用 [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show) 命令取得佈建服務的詳細資料。
 
-下列範例會取得名為 my-sample-dps 的佈建服務詳細資料。 連結的 IoT 中樞會顯示在 properties.iotHubs 集合中。
+下列範例會取得名為 my-sample-dps  的佈建服務詳細資料。 連結的 IoT 中樞會顯示在 properties.iotHubs  集合中。
 
 ```azurecli-interactive
 az iot dps show --name my-sample-dps
