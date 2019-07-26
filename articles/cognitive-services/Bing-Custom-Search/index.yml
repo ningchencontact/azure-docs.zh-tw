@@ -6,7 +6,7 @@ metadata:
   description: 了解如何使用 Bing 自訂搜尋入口網站和 API 來建立自訂搜尋體驗
   services: cognitive-services
   author: v-deken
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

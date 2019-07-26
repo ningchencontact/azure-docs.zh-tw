@@ -6,7 +6,7 @@ metadata:
   description: 了解如何使用表單辨識器，以智慧方式從表單文件中擷取索引鍵值資料。
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na

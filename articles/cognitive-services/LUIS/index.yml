@@ -6,7 +6,7 @@ metadata:
   title: Language Understanding (LUIS) - 教學課程、快速入門、API 參考
   description: 了解如何使用 Language Understanding 服務，讓應用程式了解人在文字中所表達的意思。
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

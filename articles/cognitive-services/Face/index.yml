@@ -6,7 +6,7 @@ metadata:
   description: 了解如何使用臉部 API 來偵測及識別影像中的人臉並傳回臉部資訊。 教學課程會示範如何建置使用 API 的應用程式。
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.tgt_pltfrm: na

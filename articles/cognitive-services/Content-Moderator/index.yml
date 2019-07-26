@@ -6,7 +6,7 @@ metadata:
   description: 了解如何使用 Content Moderator 檢查文字、影像和視訊內容是否含有可能具冒犯意味、有風險或不當的資料。
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: content-moderator
   ms.tgt_pltfrm: na

@@ -6,7 +6,7 @@ metadata:
   description: 了解如何使用自訂視覺服務來建置、部署並改善自訂影像分類。 教學課程會示範如何建置使用 API 的應用程式。
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: custom-vision
   ms.tgt_pltfrm: na

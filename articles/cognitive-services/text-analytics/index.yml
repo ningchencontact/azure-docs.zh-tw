@@ -6,7 +6,7 @@ metadata:
   description: 文字分析 API 是一種雲端式服務，可針對原始的文字提供進階的自然語言處理，同時包含四種主要功能：情感分析、關鍵片語擷取、具名實體辨識和語言偵測。
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics

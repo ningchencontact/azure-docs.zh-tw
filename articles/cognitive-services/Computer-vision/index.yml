@@ -6,7 +6,7 @@ metadata:
   description: 了解如何使用電腦視覺來處理影像，並傳回資訊。 教學課程會示範如何建置使用 API 的應用程式。
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
   ms.tgt_pltfrm: na

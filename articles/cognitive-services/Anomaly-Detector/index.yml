@@ -6,7 +6,7 @@ metadata:
   description: 使用異常偵測器 API 來監視一段時間的資料，並透過機器學習偵測異常情況。 取得資料摸深入解析，包括磁碟區、產業或案例等資訊。
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

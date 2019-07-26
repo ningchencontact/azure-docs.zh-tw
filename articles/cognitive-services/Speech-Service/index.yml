@@ -7,7 +7,7 @@ metadata:
   description: 語音服務可讓開發人員輕鬆地為其應用程式新增強大的語音功能。 範例包含語音命令控制項及對話方塊、自然語音對話、語音轉譯和聽寫以及語音翻譯。
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: speech-service

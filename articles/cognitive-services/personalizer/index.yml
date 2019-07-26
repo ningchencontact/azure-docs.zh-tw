@@ -6,7 +6,7 @@ metadata:
   title: 個人化工具 - 教學課程、快速入門、API 參考
   description: 了解如何使用個人化工具服務，讓您的應用程式選擇最佳體驗來對使用者展現，進而從其即時行為中學習。
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

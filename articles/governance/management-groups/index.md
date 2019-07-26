@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237172"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516980"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -98,7 +98,7 @@ Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角
 |讀取者                      |        |        |        |        |               |               | X     |
 |MG 讀取者*                  |        |        |        |        |               |               | X     |
 |資源原則參與者 |        |        |        |        |               | X             |       |
-|使用者存取系統管理員   |        |        |        |        | X             |               |       |
+|使用者存取系統管理員   |        |        |        |        | X             | X             |       |
 
 *：MG 參與者和 MG 讀取者僅允許使用者執行管理群組範圍的動作。  
 **：在根管理群組上的角色指派不需要將訂用帳戶或管理群組來回移動。  如需在階層中移動項目的詳細資訊，請參閱[使用管理群組管理您的資源](manage.md)。

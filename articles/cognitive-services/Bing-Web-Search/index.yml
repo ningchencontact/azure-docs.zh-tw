@@ -7,7 +7,7 @@ metadata:
   description: 了解如何使用 Bing Web 搜尋 API 搜尋網路上的網頁、影像、影片、新聞和其他資訊。
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-web-search
   ms.tgt_pltfrm: na

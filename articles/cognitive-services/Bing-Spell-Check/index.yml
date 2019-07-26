@@ -7,7 +7,7 @@ metadata:
   description: 了解如何使用 Bing Spell Check API 來取得文字文件的建議修正。 教學課程會示範如何建置使用 API 的應用程式。
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
   ms.tgt_pltfrm: na
