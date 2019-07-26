@@ -408,8 +408,9 @@
                   href: app/telemetry-channels.md
                 - name: TelemetryProcessors
                   displayname: 'processors, filtering, telemetry filtering, telemetry processor'
-                - name: 遙測相互關聯
                   href: app/api-filtering-sampling.md
+                - name: 遙測相互關聯
+                  href: app/correlation.md
                 - name: 在 .NET SDK 之中追蹤自訂作業
                   href: app/custom-operations-tracking.md
                 - name: 自訂電子郵件報告
@@ -603,6 +604,8 @@
                       href: insights/vminsights-enable-at-scale-powershell.md
                     - name: 針對混合式環境啟用
                       href: insights/vminsights-enable-hybrid-cloud.md
+                    - name: 與 Operations Manager 整合
+                      href: insights/service-map-scom.md
                 - name: 監視健康情況
                   href: insights/vminsights-health.md
                 - name: 對應相依性
@@ -621,14 +624,8 @@
               href: insights/vmware.md
             - name: Wire Data 解決方案
               href: insights/wire-data.md
-            - name: 服務對應
-              items:
-                - name: 使用
-                  href: insights/service-map.md
-                - name: 設定
-                  href: insights/service-map-configure.md
-                - name: 與 Operations Manager 整合
-                  href: insights/service-map-scom.md
+            - name: 服務對應解決方案
+              href: insights/service-map.md
             - name: 電腦群組
               href: platform/computer-groups.md
             - name: 組態管理員

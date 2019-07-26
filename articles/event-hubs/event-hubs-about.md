@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7056d127aac8268a131d62c2b20655407e2336b2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 242f2fa9885f3f85439caddd061f650baafb8df4
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304062"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314422"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure 事件中樞 — 巨量資料串流平台和事件擷取服務
 Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒可接收和處理數百萬個事件。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。
@@ -31,7 +31,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務。 其每秒�
 - 使用者遙測處理
 - 裝置遙測串流
 
-[!VIDEO https://www.youtube.com/watch?v=45wgY-VSk9I]
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>為何使用事件中樞？
 

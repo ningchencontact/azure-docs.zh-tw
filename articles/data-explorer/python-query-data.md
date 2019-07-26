@@ -7,16 +7,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 4de8f68e0384742cea4ce50ccd23a7455b186893
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048736"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360230"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>快速入門：使用 Azure 資料總管 Python 程式庫查詢資料
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供一個[適用於 Python 的資料用戶端程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data) \(英文\)。 此程式庫可讓您從程式碼中查詢資料。 在本快速入門中，您要連線到「說明叢集」上的資料表，我們已設定此叢集來協助學習。 您接著要查詢該叢集上的資料表，並傳回結果。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供一個[適用於 Python 的資料用戶端程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data) \(英文\)。 此程式庫可讓您從程式碼中查詢資料。 在本快速入門中，您要連線到「說明叢集」  上的資料表，我們已設定此叢集來協助學習。 您接著要查詢該叢集上的資料表，並傳回結果。
 
 本快速入門也可用來作為 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb) \(英文\)。
 
@@ -62,23 +62,24 @@ https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```python
 AAD_TENANT_ID = "<TenantId>"
 KUSTO_CLUSTER = "https://help.kusto.windows.net/"
-KUSTO_DATABASE  = "Samples"
+KUSTO_DATABASE = "Samples"
 ```
 
 現在來建構連接字串。 此範例使用服務驗證來存取叢集。 您也可以使用 [AAD 應用程式憑證](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24)、[AAD 應用程式金鑰](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)，以及 [AAD 使用者和密碼](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)。
 
 ```python
-KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
+KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_CLUSTER)
 KCSB.authority_id = AAD_TENANT_ID
 ```
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>連線到 Azure 資料總管並執行查詢
 
-針對叢集執行查詢，然後將輸出儲存於資料框架中。 此程式碼執行時，它會傳回類似以下的訊息：*若要登入，請使用網頁瀏覽器開啟頁面 https://microsoft.com/devicelogin，並輸入代碼 F3W4VWZDM 以進行驗證*。 請遵循下列步驟來登入，然後返回以執行下一個程式碼區塊。
+針對叢集執行查詢，然後將輸出儲存於資料框架中。 此程式碼執行時，它會傳回類似以下的訊息：*若要登入，請使用網頁瀏覽器開啟頁面 https://microsoft.com/devicelogin ，並輸入代碼 F3W4VWZDM 以進行驗證*。 請遵循下列步驟來登入，然後返回以執行下一個程式碼區塊。
 
 ```python
-KUSTO_CLIENT  = KustoClient(KCSB)
-KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
+KUSTO_CLIENT = KustoClient(KCSB)
+KUSTO_QUERY = "StormEvents | sort by StartTime desc | take 10"
 
 RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```

@@ -3,18 +3,18 @@ title: 什麼是 Azure Container Instances？
 description: Azure Container Instances 服務提供最簡單快速的方法，讓您無需管理虛擬機器或採用更高層級的協調器，就能在 Azure 中執行隔離的容器。
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073295"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325750"
 ---
 # <a name="what-is-azure-container-instances"></a>什麼是 Azure Container Instances？
 
@@ -70,7 +70,7 @@ Azure Container Instances 支援排程共用主機、區域網路、儲存體和
 Azure 容器執行個體的這個功能 (目前處於預覽狀態) 可以[將容器執行個體部署至 Azure 虛擬網路](container-instances-vnet.md)。 藉由將容器執行個體部署至您虛擬網路內的子網路，這些執行個體可以安全地與虛擬網路中的其他資源通訊，包括內部部署的資源 (透過 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [ExpressRoute](../expressroute/expressroute-introduction.md))。
 
 > [!IMPORTANT]
-> Azure Container Instances 的某些功能為預覽狀態，而且[適用一些限制](container-instances-vnet.md#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 在公開上市 (GA) 之前，這些功能的某些領域可能會變更。
+> Azure Container Instances 的某些功能為預覽狀態，而且[適用一些限制](container-instances-vnet.md#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，這些功能的某些領域可能會變更。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,7 +1,6 @@
 ---
 title: Azure 快速入門 - 使用 Azure CLI 來備份 VM
 description: 了解如何使用 Azure CLI 來備份虛擬機器
-services: backup
 author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
@@ -11,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d3ed9370726d35f67edfbcf32dfd25e74d7865e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d431cceee80175710f339e4734972340ed3469d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127674"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467244"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>使用 CLI 在 Azure 中備份虛擬機器
 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure CLI 在 Azure 中備份虛擬機器 (VM)。 您也可以透過 [Azure PowerShell](quick-backup-vm-powershell.md) 或在 [Azure 入口網站](quick-backup-vm-portal.md)中執行這些步驟。
@@ -84,7 +83,7 @@ az backup protection enable-for-vm \
 - `--item-name` 是您的 VM 名稱
 - `--retain-until` 值應設定為您希望使用復原點的最後可用日期 (採用 UTC 時間格式 **dd-mm-yyyy**)。
 
-下列範例會備份名為 myVM 的 VM，並將復原點的到期日設定為 2017 年 10 月 18 日：
+下列範例會備份名為 myVM  的 VM，並將復原點的到期日設定為 2017 年 10 月 18 日：
 
 ```azurecli-interactive 
 az backup protection backup-now \
@@ -106,7 +105,7 @@ az backup job list \
     --output table
 ```
 
-輸出會類似下列範例，其顯示的備份作業為 InProgress︰
+輸出會類似下列範例，其顯示的備份作業為 InProgress  ︰
 
 ```
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -115,7 +114,7 @@ a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-當備份作業的「狀態」回報 Completed，您的 VM 已受復原服務保護並已儲存完整復原點。
+當備份作業的「狀態」  回報 Completed  ，您的 VM 已受復原服務保護並已儲存完整復原點。
 
 
 ## <a name="clean-up-deployment"></a>清除部署

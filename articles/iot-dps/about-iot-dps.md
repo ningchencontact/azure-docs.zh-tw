@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051457"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360275"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中樞裝置佈建服務來佈建裝置
 Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所有的 IoT 方案需求。 IoT 中樞裝置佈建服務是 IoT 中樞的協助程式服務，無須人為介入，即可對正確的 IoT 中樞進行 Just-In-Time 自動佈建，讓客戶能以安全又可調整的方式佈建數百萬個裝置。
@@ -66,7 +66,7 @@ Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所�
 服務設定為自動佈建之後，必須準備進行註冊裝置。 這個步驟是由裝置運算子完成，該裝置運算子知道裝置的必要設定，並在尋找其 IoT 中樞時，負責確定佈建服務可以適當證明裝置的身分識別。 裝置運算子會向製造商取得識別金鑰資訊，並將它新增至註冊清單。 隨著使用裝置的最新相關資訊來新增新的項目或更新現有的項目時，會對註冊清單進行後續更新。
 
 ## <a name="registration-and-provisioning"></a>註冊和佈建
-佈建表示根據在當中使用字詞的產業之各種項目。 在將 IoT 裝置佈建到其雲端解決方案的內容中，佈建是一個包含兩個部分的程序：
+佈建  表示根據在當中使用字詞的產業之各種項目。 在將 IoT 裝置佈建到其雲端解決方案的內容中，佈建是一個包含兩個部分的程序：
 
 1. 第一個部分是在裝置與 IoT 解決方案之間註冊裝置來建立初始連線。
 2. 第二個部分是以其註冊之解決方案的特定需求作為基礎套用正確的組態。
@@ -108,8 +108,9 @@ Microsoft Azure 提供一組豐富的整合式公用雲端服務，可滿足所�
 ## <a name="quotas"></a>配額
 每個 Azure 訂用帳戶都有預設配額限制，而此限制會對 IoT 解決方案的範圍造成影響。 目前每個訂用帳戶的限制為每個訂用帳戶 10 個裝置佈建服務。
 
-如需有關配額限制的詳細資料：
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
+如需有關配額限制的詳細資料：
 * [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>相關的 Azure 元件

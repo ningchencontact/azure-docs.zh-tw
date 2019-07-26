@@ -34,6 +34,13 @@ sections:
             image:
               src: /media/common/i_learn-about.svg
             title: 透過 Microsoft Learn 增進您的技巧
+  - title: 保護範例應用程式
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-web-app">Linux 容器中的 Web 應用程式</a>
   - title: 概念
     items:
       - type: list

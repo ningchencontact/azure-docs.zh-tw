@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 5/6/2019
-ms.openlocfilehash: 33d127c25fdb38071f44f21257df9b74b69dfa2e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/06/2019
+ms.openlocfilehash: 6984cd456c0c119e86fec0960160e93e79d4d361
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067388"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359344"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-java-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫 - 單一伺服器：使用 Java 連線並查詢資料
 本快速入門示範如何使用 Java 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Java 進行開發，但不熟悉適用於 PostgreSQL 的 Azure 資料庫。
@@ -31,9 +31,9 @@ ms.locfileid: "65067388"
 取得連線到 Azure Database for PostgreSQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
 3. 按一下伺服器名稱。
-4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
+4. 從伺服器的 [概觀]  面板，記下 [伺服器名稱]  和 [伺服器管理員登入名稱]  。 如果您忘記密碼，您也可以從此面板重設密碼。
  ![適用於 PostgreSQL 的 Azure 資料庫伺服器名稱](./media/connect-java/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>連線、建立資料表及插入資料

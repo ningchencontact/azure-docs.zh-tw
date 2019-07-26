@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: fcc1a093f8df87da24f9d7f7945c490d7b58c9bd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447941"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320572"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>快速入門：使用 JAVA 查詢 Azure SQL 資料庫
 
@@ -37,8 +37,7 @@ ms.locfileid: "58447941"
   |||[現場的連線能力](sql-database-managed-instance-configure-p2s.md)
   |載入資料|每個快速入門載入的 Adventure Works|[還原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||從 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 中的 [BACPAC](sql-database-import.md) 檔案還原或匯入 Adventure Works|
-  |||
-
+  
   > [!IMPORTANT]
   > 本文中已撰寫的指令碼會使用 Adventure Works 資料庫。 對於受控執行個體，您必須將 Adventure Works 資料庫匯入執行個體資料庫中，或將本文中的指令碼修改為使用 Wide World Importers 資料庫。
 
@@ -56,19 +55,19 @@ ms.locfileid: "58447941"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至 [SQL 資料庫] 或 [SQL 受控執行個體] 頁面。
+2. 瀏覽至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
 
-3. 在 [概觀] 頁面上，針對單一資料庫檢閱 [伺服器名稱] 旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機] 旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製] 圖示。 
+3. 在 [概觀]  頁面上，針對單一資料庫檢閱 [伺服器名稱]  旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機]  旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製]  圖示。 
 
 ## <a name="create-the-project"></a>建立專案
 
-1. 從命令提示字元，建立名為 sqltest 的新 Maven 專案。
+1. 從命令提示字元，建立名為 sqltest  的新 Maven 專案。
 
     ```bash
     mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
     ```
 
-1. 將資料夾切換到 *sqltest*，並使用您慣用的文字編輯器開啟 pom.xml。 使用下列代碼將 **Microsoft JDBC Driver for SQL Server** 新增到專案的相依性。
+1. 將資料夾切換到 *sqltest*，並使用您慣用的文字編輯器開啟 pom.xml  。 使用下列代碼將 **Microsoft JDBC Driver for SQL Server** 新增到專案的相依性。
 
     ```xml
     <dependency>
@@ -78,7 +77,7 @@ ms.locfileid: "58447941"
     </dependency>
     ```
 
-1. 此外，在 pom.xml 中，將下列屬性新增至您的專案。 如果您沒有屬性區段，您可以將它新增在相依性後面。
+1. 此外，在 pom.xml  中，將下列屬性新增至您的專案。 如果您沒有屬性區段，您可以將它新增在相依性後面。
 
    ```xml
    <properties>
@@ -87,11 +86,11 @@ ms.locfileid: "58447941"
    </properties>
    ```
 
-1. 儲存並關閉 pom.xml。
+1. 儲存並關閉 pom.xml  。
 
 ## <a name="add-code-to-query-database"></a>新增程式碼以查詢資料庫
 
-1. 您的 Maven 專案中應該已經有名為 App.java 的檔案，位於：
+1. 您的 Maven 專案中應該已經有名為 App.java  的檔案，位於：
 
    *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
@@ -168,7 +167,7 @@ ms.locfileid: "58447941"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [設計您的第一個 Azure SQL Database](sql-database-design-first-database.md)  
+- [設計您的第一個 Azure SQL 資料庫](sql-database-design-first-database.md)  
 
 - [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)  
 

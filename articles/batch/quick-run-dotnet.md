@@ -3,19 +3,19 @@ title: Azure 快速入門 - 執行 Batch 作業 - .NET
 description: 使用 Batch .NET 用戶端程式庫快速執行 Batch 作業和工作。
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595340"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322334"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>快速入門：使用 .NET API 執行您的第一個 Azure Batch 作業
 

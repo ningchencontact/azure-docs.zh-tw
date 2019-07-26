@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f3877538d26e55bf0550a995ca0c50699de5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65914142"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360122"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -78,7 +78,8 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 大部分專案內容都已經在您的本機電腦上。 因此，您只需要在該目錄中建立設定檔，並在您的程式碼中參照它，就能連線到您的工作區。 若要繼續使用包含您檔案和指令碼的本機目錄，請在 ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 命令中或使用 `az ml project attach` CLI 命令指定目錄的名稱。  例如︰
 ```python
-run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+run = exp.submit(source_directory=script_folder,
+                 script='train.py', run_config=run_config_system_managed)
 ```
 
 [建立工作區](setup-create-workspace.md#portal)即可開始使用。

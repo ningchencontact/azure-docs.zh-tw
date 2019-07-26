@@ -321,6 +321,18 @@
     - name: 預先建置的網域參考
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
+    - name: 自訂實體參考
+      items:
+        - name: 複合實體
+          href: reference-entity-composite.md
+        - name: 清單實體
+          href: reference-entity-list.md
+        - name: Pattern.any 實體
+          href: reference-entity-pattern-any.md
+        - name: 規則運算式實體
+          href: reference-entity-regular-expression.md
+        - name: 簡單實體
+          href: reference-entity-simple.md
     - name: Azure CLI
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell

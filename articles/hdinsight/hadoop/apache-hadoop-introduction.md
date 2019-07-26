@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4482cf8a92778cb20672f63dc2b8eca828d58fc8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5e36a4691c485472b1e0b43b9d8c551790bc68e9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446890"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442122"
 ---
 # <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>什麼是 Apache HDInsight 中的 Apache Hadoop？
 
@@ -42,7 +42,7 @@ Azure HDInsight 是 Hadoop 元件的雲端發行版。 Azure HDInsight 可輕鬆
 |---------|---------|
 |雲端原生     |     Azure HDInsight 可讓您在 Azure 上建立 [Hadoop](apache-hadoop-linux-tutorial-get-started.md)、 [Spark](../spark/apache-spark-jupyter-spark-sql.md)、 [互動式查詢 (LLAP)](../interactive-query/apache-interactive-query-get-started.md)、 [Kafka](../kafka/apache-kafka-get-started.md)、 [Storm](../storm/apache-storm-tutorial-get-started-linux.md)、 [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) 和  [ML 服務](../r-server/r-server-overview.md)的最佳化叢集。 HDInsight 也提供所有生產工作負載的端對端 SLA。  |
 |低成本且可調整     | HDInsight 可讓您[相應](../hdinsight-administer-use-portal-linux.md#scale-clusters) 增加或減少工作負載。 您可以 [依照需求建立叢集](../hdinsight-hadoop-create-linux-clusters-adf.md) 來降低成本，且只支付您所使用的部分。 您也可以建置資料管線來施行您的作業。 低耦合的計算和儲存體可提供更好的效能和彈性。 |
-|安全且符合規範    | HDInsight 可讓您使用 [Azure 虛擬網路](../hdinsight-extend-hadoop-virtual-network.md)、[加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)，以及與 [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md) 整合來保護企業資料資產。 HDInsight 也符合最受歡迎的產業和政府[合規性標準](https://azure.microsoft.com/overview/trusted-cloud)。        |
+|安全且符合規範    | HDInsight 可讓您使用 [Azure 虛擬網路](../hdinsight-plan-virtual-network-deployment.md)、[加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)，以及與 [Azure Active Directory](../domain-joined/hdinsight-security-overview.md) 整合來保護企業資料資產。 HDInsight 也符合最受歡迎的產業和政府[合規性標準](https://azure.microsoft.com/overview/trusted-cloud)。        |
 |監視    | Azure HDInsight 與 [Azure 監視器記錄](../hdinsight-hadoop-oms-log-analytics-tutorial.md)整合後會提供單一介面，以便監視所有的叢集。        |
 |正式上市 | HDInsight 的適用 [區域](https://azure.microsoft.com/regions/services/) 超過任何其他巨量資料分析供應項目。 Azure HDInsight 也會適用於 Azure Government、中國和德國，可讓您符合您在重要主權區域中的企業需求。 |  
 |生產力     |  Azure HDInsight 可讓您在慣用的開發環境中，使用多種 Hadoop 與 Spark 的生產工具。 這些開發環境包括適用於 Scala、Python、R、Java 和 .NET 支援的 [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)、[VSCode](../hdinsight-for-vscode.md)、[Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) 和 [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md)。 資料科學家也可以使用熱門 Notebook (例如 [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) 和 [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)) 共同作業。    |
@@ -96,7 +96,7 @@ HDInsight 包含特定叢集類型和叢集自訂功能，例如新增元件、�
 
 ## <a name="open-source-components-in-hdinsight"></a>HDInsight 中的開放原始碼元件
 
-Azure HDInsight 可讓您透過開放原始碼架構 (例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm、HBase 和 R) 建立叢集。根據預設，這些叢集隨附叢集上包含的其他開放原始碼元件，例如 [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)、[Avro](https://avro.apache.org/docs/current/spec.html)、[Apache Hive](https://hive.apache.org)、[HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/)、[Apache Mahout](https://mahout.apache.org/)、[Apache Hadoop MapReduce](https://wiki.apache.org/hadoop/MapReduce)、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)、[Apache Phoenix](https://phoenix.apache.org/)、[Apache Pig](https://pig.apache.org/)、[Apache Sqoop](https://sqoop.apache.org/)、[Apache Tez](https://tez.apache.org/)、[Apache Oozie](https://oozie.apache.org/)、[Apache ZooKeeper](https://zookeeper.apache.org/)。  
+Azure HDInsight 可讓您透過開放原始碼架構 (例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm、HBase 和 R) 建立叢集。根據預設，這些叢集隨附叢集上包含的其他開放原始碼元件，例如 [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)、[Avro](https://avro.apache.org/docs/current/spec.html)、[Apache Hive](https://hive.apache.org)、[HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/)、[Apache Mahout](https://mahout.apache.org/)、[Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)、[Apache Phoenix](https://phoenix.apache.org/)、[Apache Pig](https://pig.apache.org/)、[Apache Sqoop](https://sqoop.apache.org/)、[Apache Tez](https://tez.apache.org/)、[Apache Oozie](https://oozie.apache.org/)、[Apache ZooKeeper](https://zookeeper.apache.org/)。  
 
 ## <a name="programming-languages-in-hdinsight"></a>HDInsight 中的程式設計語言
 

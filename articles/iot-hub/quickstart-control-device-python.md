@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 9c9b892f7d1f992210a18f2290bb199d12aeaf49
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: fe0c16962eef38ac26490eb7928d1705ef63a217
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330500"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355034"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>快速入門：控制連線到 IoT 中樞的裝置 (Python)
 
@@ -44,11 +44,11 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取�
 您可以使用下列命令之一，以確認開發電腦上目前的 Python 版本：
 
 ```python
-python --version
+python - -version
 ```
 
 ```python
-python3 --version
+python3 - -version
 ```
 
 執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。

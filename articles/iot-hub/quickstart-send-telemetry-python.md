@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: a8abd71609d3e063c92541485007a3bde44be954
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c92b019e15c6a9ee5b2d38e240ae4f9891621f72
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051247"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360205"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (Python)
 
@@ -40,11 +40,11 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 您可以使用下列命令之一，以確認開發電腦上目前的 Python 版本：
 
 ```python
-python --version
+python - -version
 ```
 
 ```python
-python3 --version
+python3 - -version
 ```
 
 執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。

@@ -101,6 +101,8 @@
           href: container-registry-tasks-scheduled.md
         - name: 多步驟工作
           href: container-registry-tasks-multi-step.md
+        - name: 使用 Buildpacks 建置映像 (預覽)
+          href: container-registry-tasks-pack-build.md
         - name: 使用受控識別
           href: container-registry-tasks-authentication-managed-identity.md
     - name: 登錄和其他 Azure 服務

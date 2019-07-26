@@ -255,6 +255,8 @@
               href: devtest-lab-guidance-prescriptive-adoption.md
             - name: 參考架構
               href: devtest-lab-reference-architecture.md
+            - name: 遞交概念證明
+              href: deliver-proof-concept.md
             - name: 相應增加您的 DevTest Labs 部署
               href: devtest-lab-guidance-scale.md
             - name: 協調 DevTest Labs 實作

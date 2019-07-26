@@ -1,7 +1,6 @@
 ---
 title: Azure 快速入門 - 使用 PowerShell 來備份 VM
 description: 了解如何使用 Azure PowerShell 來備份虛擬機器
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
@@ -10,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 05432f5a38c3d907afa95ac7b1b3adfe9c5515fe
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3766b3b7f9dbab23673498eefd3f335b8e7f6c16
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236332"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467153"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中備份虛擬機器
 
@@ -144,7 +143,7 @@ ms.locfileid: "65236332"
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
-    輸出會類似下列範例，其顯示的作業為 [進行中]︰
+    輸出會類似下列範例，其顯示的作業為 [進行中]  ︰
 
     ```
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
@@ -153,7 +152,7 @@ ms.locfileid: "65236332"
     myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
     ```
 
-2. 當作業狀態為 [已完成] 時，表示 VM 受到保護，並已儲存完整的復原點。
+2. 當作業狀態為 [已完成]  時，表示 VM 受到保護，並已儲存完整的復原點。
 
 
 ## <a name="clean-up-the-deployment"></a>清除部署
