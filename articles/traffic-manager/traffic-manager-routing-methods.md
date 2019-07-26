@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320078"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333748"
 ---
 # <a name="traffic-manager-routing-methods"></a>流量管理員路由方法
 
@@ -23,12 +23,12 @@ Azure 流量管理員支援六種流量路由方法，以決定如何將網路�
 
 流量管理員可提供下列流量路由方法：
 
-* **[優先順序](#priority)：** 如果您想要針對所有流量使用某個主要服務端點，請選取 [優先順序]  ，並提供備用方案，以防萬一發生主要端點或備份端點無法使用的情況。
-* **[加權](#weighted)︰** 如果您想要將流量分配給一組端點 (不論是平均分配還是根據您定義的權數)，請選取 [加權]  。
-* **[效能](#performance)：** 如果您的端點位於不同的地理位置，而您希望使用者使用「最靠近」(亦即網路延遲最低) 的端點，請選取 [效能]  。
-* **[地理](#geographic)︰** 選取 [地理]  ，以根據使用者的 DNS 查詢來自哪個地理位置，將使用者導向特定端點 (Azure、外部或巢狀)。 在必須知道使用者的地理區域，並據以路由傳送使用者的情況下，這可讓流量管理員客戶應付自如。 例如，遵守資料主權規定、內容和使用者經驗的當地語系化，以及測量來自不同區域的流量。
-* **[多值](#multivalue)：** 針對只能將 IPv4/IPv6 位址當作端點的流量管理員設定檔選取 [MultiValue]  。 當系統收到此設定檔的查詢時，會傳回所有狀況良好的端點。
-* **[子網路](#subnet)：** 選取 [子網路]  流量路由方法，以將使用者 IP 位址範圍集對應到流量管理員設定檔中的特定端點。 當收到要求時，傳回的端點會是對應至該要求來源 IP 位址的端點。 
+* **[優先順序](#priority)：** 如果您想要針對所有流量使用某個主要服務端點，請選取 [優先順序]，並提供備用方案，以防萬一發生主要端點或備份端點無法使用的情況。
+* **[加權](#weighted)︰** 如果您想要將流量分配給一組端點 (不論是平均分配還是根據您定義的權數)，請選取 [加權]。
+* **[效能](#performance)：** 如果您的端點位於不同的地理位置，而您希望使用者使用「最靠近」(亦即網路延遲最低) 的端點，請選取 [效能]。
+* **[地理](#geographic)︰** 選取 [地理]，以根據使用者的 DNS 查詢來自哪個地理位置，將使用者導向特定端點 (Azure、外部或巢狀)。 在必須知道使用者的地理區域，並據以路由傳送使用者的情況下，這可讓流量管理員客戶應付自如。 例如，遵守資料主權規定、內容和使用者經驗的當地語系化，以及測量來自不同區域的流量。
+* **[多值](#multivalue)：** 針對只能將 IPv4/IPv6 位址當作端點的流量管理員設定檔選取 [MultiValue]。 當系統收到此設定檔的查詢時，會傳回所有狀況良好的端點。
+* **[子網路](#subnet)：** 選取 [子網路] 流量路由方法，以將使用者 IP 位址範圍集對應到流量管理員設定檔中的特定端點。 當收到要求時，傳回的端點會是對應至該要求來源 IP 位址的端點。 
 
 
 所有流量管理員設定檔都支援監視端點健康狀態和自動容錯移轉。 如需詳細資訊，請參閱 [流量管理員端點監視](traffic-manager-monitoring.md)。 單一「流量管理員」設定檔只能使用一個流量路由方法。 您可以隨時為您的設定檔選取不同的流量路由方法。 變更會在 1 分鐘內套用，不會造成任何停機時間。 透過使用巢狀「流量管理員」設定檔可以將流量路由方法加以結合。 巢狀可讓您建立精密又有彈性的流量路由設定，以滿足更大又複雜的應用程式的需求。 如需詳細資訊，請參閱 [巢狀流量管理員設定檔](traffic-manager-nested-profiles.md)。
@@ -109,7 +109,7 @@ Azure 流量管理員支援六種流量路由方法，以決定如何將網路�
 
 ![Azure 流量管理員「地理」流量路由方法](./media/traffic-manager-routing-methods/geographic.png)
 
-流量管理員會讀取 DNS 查詢的來源 IP 位址，判斷查詢的來源地理區域。 然後尋找是否有此地理區域對應的端點。 查閱時會從最低細微層級開始 (州/省 - 若支援，否則是國家/地區層級)，一直到最高層級，也就是「世界」  。 經過此周遊找到的第一個相符項目，就指定為要在查詢回應中傳回的端點。 符合「巢狀」類型端點時，則會根據路由方法，傳回該子設定檔中的端點。 此行為有下列幾個特點︰
+流量管理員會讀取 DNS 查詢的來源 IP 位址，判斷查詢的來源地理區域。 然後尋找是否有此地理區域對應的端點。 查閱時會從最低細微層級開始 (州/省 - 若支援，否則是國家/地區層級)，一直到最高層級，也就是「世界」。 經過此周遊找到的第一個相符項目，就指定為要在查詢回應中傳回的端點。 符合「巢狀」類型端點時，則會根據路由方法，傳回該子設定檔中的端點。 此行為有下列幾個特點︰
 
 - 當路由類型是「地理路由」時，在流量管理員設定檔中，一個地理區域只能對應至一個端點。 這可確保使用者路由是具決定性，讓客戶在地理界限必須明確的情況下應付自如。
 - 如果使用者的區域出現在兩個不同端點的地理對應中，流量管理員會選取細微度最低的端點，不會考慮將該區域的要求路由傳送至另一個端點。 例如，假設「地理路由」類型設定檔有兩個端點 - 端點 1 和端點 2。 端點 1 設定為接收來自愛爾蘭的流量，端點 2 設定接收來自歐洲的流量。 如果要求是來自愛爾蘭，則永遠會路由傳送至端點 1。
@@ -148,6 +148,14 @@ Azure 流量管理員支援六種流量路由方法，以決定如何將網路�
 ## <a name = "multivalue"></a>多值流量路由方法
 **多值**流量路由方法可讓您在單一 DNS 查詢回應中取得多個狀況良好的端點。 這可讓呼叫端在傳回之端點無回應的事件中，透過其他端點執行用戶端重試。 此模式可提高服務的可用性，且可減少透過新的 DNS 查詢來取得狀況良好端點的相關延遲。 只有在所有端點類型為「外部」且指定為 IPv4 或 IPv6 位址時，才適用多值路由方法。 當系統收到此設定檔的查詢時，會傳回所有狀況良好的端點，您可以設定回傳計數上限來限制回傳數量。
 
+### <a name="faqs"></a>常見問題集
+
+* [多值路由有説明的一些使用案例？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+
+* [使用多值路由時, 會傳回多少個端點？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+
+* [使用多值路由時, 是否會取得相同的端點集合？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+
 ## <a name = "subnet"></a>子網路流量路由方法
 **子網路**流量路由方法可讓您將一組使用者 IP 位址範圍對應至設定檔中的特定端點。 在那之後，如果流量管理員收到該設定檔的 DNS 查詢，它會檢查該要求的來源 IP 位址 (在大部分情況下，這會是呼叫端使用之 DNS 解析程式的連出 IP 位址)，判斷其所對應至的端點，並將會在查詢回應中傳回該端點。 
 
@@ -155,6 +163,19 @@ Azure 流量管理員支援六種流量路由方法，以決定如何將網路�
 如果您定義不含任何位址範圍的端點，則該端點會用來作為後援，並從任何剩餘的子網路取得流量。 如果未包含任何後援端點，流量管理員就會針對任何未定義的範圍傳送 NODATA 回應。 因此，強烈建議您定義後援端點，或確定會跨您的端點指定所有可能的 IP 範圍。
 
 子網路路由可為來自特定 IP 空間的使用者提供不同體驗。 例如，使用子網路路由，客戶可以讓來自公司辦公室的所有要求路由至不同端點，他們可能在其中測試其應用程式的內部版本。 另一種情況是如果您想要為來自特定 ISP 連線的使用者提供不同體驗 (例如封鎖來至指定 ISP 的使用者)。
+
+### <a name="faqs"></a>常見問題集
+
+* [子網路由很有用的部分使用案例有哪些？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [流量管理員如何得知終端使用者的 IP 位址？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [使用子網路由時, 如何指定 IP 位址？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [使用子網路由時, 如何指定 fallback 端點？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [如果子網路由類型設定檔中的端點已停用, 會發生什麼事？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+
 
 ## <a name="next-steps"></a>後續步驟
 

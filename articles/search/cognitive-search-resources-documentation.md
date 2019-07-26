@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 41637fae5592ac292da22303071d51b43116c78b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 3a23828d98b14c094aa751d3fb2e53575c5e6479
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671913"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347824"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>認知搜尋工作負載的文件資源
 
-認知服務，現在已正式推出，是的新擴充圖層在 Azure 搜尋服務索引中尋找非文字來源並無差別的文字，將它轉換成 Azure 搜尋服務中的全文檢索搜尋內容中潛在的資訊。
+認知搜尋 (現已正式運作) 是 Azure 搜尋服務索引中的新擴充層, 可在非文字來源和無差異文字中尋找潛在資訊, 並將其轉換成 Azure 搜尋服務中的全文可搜尋內容。
 
 下列文章是認知搜尋的完整文件。
 
@@ -27,7 +27,7 @@ ms.locfileid: "67671913"
 + [什麼是認知搜尋？](cognitive-search-concept-intro.md)
 + [快速入門：在入口網站試用認知搜尋](cognitive-search-quickstart-blob.md)
 + [教學課程：了解認知搜尋 API](cognitive-search-tutorial-blob.md)
-+ [範例：建立自訂的技能，認知搜尋](cognitive-search-create-custom-skill-example.md)
++ [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>做法指引
 + [如何定義技能集](cognitive-search-defining-skillset.md)
@@ -41,15 +41,23 @@ ms.locfileid: "67671913"
 ## <a name="reference"></a>參考資料
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
-  + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
+  + [KeyPhraseExtractionSkill。](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  + [TranslationSkill (預覽)](cognitive-search-skill-text-translation.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
+  + [Util. ConditionalSkill](cognitive-search-skill-conditional.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
+
++ 自訂技能
+  + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
+
++ [已淘汰的技能](cognitive-search-skill-deprecated.md)
+  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
 + [REST API](https://docs.microsoft.com/rest/api/searchservice/)
   + [建立技能集 (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

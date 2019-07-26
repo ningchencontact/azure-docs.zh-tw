@@ -1,6 +1,6 @@
 ---
-title: 適用於 Azure NetApp 檔案的指導方針的網路規劃 |Microsoft Docs
-description: 描述可協助您使用 Azure NetApp 檔案來設計有效的網路架構的指導方針。
+title: 適用于 Azure NetApp Files 網路規劃的指導方針 |Microsoft Docs
+description: 描述可協助您使用 Azure NetApp Files 設計有效網路架構的指導方針。
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,117 +14,117 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 087ecee053069a02e4d4dd6f636d05ea15269e2e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705209"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383496"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>適用於 Azure NetApp Files 網路方案的指導方針
 
-網路架構計劃是設計任何應用程式基礎結構的重要項目。 這篇文章可協助您設計有效的網路架構，為您的工作負載受益於 Azure NetApp 檔案豐富的功能。
+網路架構規劃是設計任何應用程式基礎結構的關鍵元素。 本文可協助您設計有效的網路架構, 讓您的工作負載受益于 Azure NetApp Files 的豐富功能。
 
-Azure NetApp 檔案磁碟區設計用來呼叫的特殊用途子網路中可包含[委派的子網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)您的 Azure 虛擬網路內。 因此，您可以存取磁碟區直接從您的 VNet，在相同區域中，對等互連的 Vnet 或內部部署虛擬網路閘道 （ExpressRoute 或 VPN 閘道） 視。 子網路專屬於 Azure NetApp 檔案，並沒有其他 Azure 服務或網際網路連線。
+Azure NetApp Files 磁片區的設計目的是要包含在 Azure 虛擬網路中稱為[委派子](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)網的特殊用途子網中。 因此, 您可以視需要直接從 VNet、從相同區域中的對等互連 Vnet, 或從內部部署透過虛擬網路閘道 (ExpressRoute 或 VPN 閘道) 存取磁片區。 子網專門用於 Azure NetApp Files, 而且沒有其他 Azure 服務或網際網路的連線能力。
 
 ## <a name="considerations"></a>考量  
 
-規劃 Azure NetApp 檔案網路時，您應該了解的一些考量。
+當您規劃 Azure NetApp Files network 時, 您應該瞭解一些考慮事項。
 
 ### <a name="constraints"></a>條件約束
 
-適用於 Azure NetApp 檔案目前不支援下列功能︰ 
+Azure NetApp Files 目前不支援下列功能: 
 
-* 網路安全性群組 (Nsg) 套用至委派的子網路
-* 使用者定義路由 (Udr) 和 Azure NetApp 檔案的子網路的下一個躍點
-* Azure NetApp 檔案介面上的 azure 原則 （例如，自訂命名原則）
-* Azure NetApp 檔案流量的負載平衡器
+* 已套用至委派子網的網路安全性群組 (Nsg)
+* 使用下一個躍點作為 Azure NetApp files 子網的使用者定義路由 (Udr)
+* Azure NetApp Files 介面上的 azure 原則 (例如, 自訂命名原則)
+* 適用于 Azure NetApp Files 流量的負載平衡器
 
-下列的網路限制適用於 Azure NetApp 檔案：
+下列網路限制適用于 Azure NetApp Files:
 
-* 在具有 Azure NetApp 檔案 （包括對等互連的 Vnet） 的 VNet 中使用的 Ip 數目不能超過 1000年。
+* 在具有 Azure NetApp Files (包括對等互連 Vnet) 的 VNet 中使用的 Ip 數目不能超過1000。
 * 在每個 Azure 虛擬網路 (VNet) 中，都只有一個子網路可委派給 Azure NetApp Files。
 
 
 ### <a name="supported-network-topologies"></a>支援的網路拓撲
 
-下表說明 Azure NetApp 檔案服務支援的網路拓撲。  此外，本文也將說明不支援的拓撲的因應措施。 
+下表說明 Azure NetApp Files 支援的網路拓撲。  它也會描述不支援拓撲的因應措施。 
 
 |    拓撲    |    支援    |     因應措施    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    連線到本機的 VNet 中的磁碟區    |    是    |         |
-|    對等互連的 VNet （相同的區域） 中的磁碟區的連線    |    是    |         |
-|    連線能力 （跨區域或全域對等互連） 的對等互連 VNet 中的磁碟區    |    否    |    None    |
-|    透過 ExpressRoute 閘道的磁碟區的連線    |    是    |         |
-|    從內部部署至輪輻 VNet ExpressRoute 閘道和閘道傳輸與對等互連的 VNet 中的磁碟區的連線能力    |    否    |    中樞 VNet (與閘道的 Azure VNet) 中建立委派的子網路    |
-|    在內部部署 VPN 閘道的輪輻 VNet 中的磁碟區的連線    |    是    |         |
-|    從內部部署至輪輻 VNet VPN 閘道和閘道傳輸與對等互連的 VNet 中的磁碟區的連線    |    是    |         |
+|    本機 VNet 中的磁片區連線    |    是    |         |
+|    連線至對等互連 VNet 中的磁片區 (相同區域)    |    是    |         |
+|    連線至對等互連 VNet 中的磁片區 (跨區域或全域對等互連)    |    否    |    None    |
+|    透過 ExpressRoute 閘道連接到磁片區    |    是    |         |
+|    透過 ExpressRoute 閘道和 VNet 對等互連與閘道傳輸, 從內部部署連線到輪輻 VNet 中的磁片區    |    是    |        |
+|    透過 VPN 閘道從內部部署連線到輪輻 VNet 中的磁片區    |    是    |         |
+|    透過 VPN 閘道和 VNet 對等互連與閘道傳輸, 從內部部署連線到輪輻 VNet 中的磁片區    |    是    |         |
 
 
-## <a name="virtual-network-for-azure-netapp-files-volumes"></a>針對 Azure NetApp 檔案磁碟區的虛擬網路
+## <a name="virtual-network-for-azure-netapp-files-volumes"></a>適用于 Azure NetApp Files 磁片區的虛擬網路
 
-本章節說明概念，協助您規劃虛擬網路。
+本節說明可協助您進行虛擬網路規劃的概念。
 
 ### <a name="azure-virtual-networks"></a>Azure 虛擬網路
 
-之前佈建 Azure NetApp 檔案磁碟區，您必須建立 Azure 虛擬網路 (VNet)，或使用您的訂用帳戶中已經存在的。 VNet 定義網路界限的磁碟區。  如需有關如何建立虛擬網路的詳細資訊，請參閱 < [Azure 虛擬網路文件](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。
+布建 Azure NetApp Files 磁片區之前, 您必須先建立 Azure 虛擬網路 (VNet), 或使用您的訂用帳戶中已存在的資源。 VNet 會定義磁片區的網路界限。  如需有關建立虛擬網路的詳細資訊, 請參閱[Azure 虛擬網路檔](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)。
 
 ### <a name="subnets"></a>子網路
 
-子網路會分成可供在他們的 Azure 資源的個別位址空間中的虛擬網路。  在呼叫的特殊用途子網路包含 azure 的 NetApp 檔案磁碟區[委派的子網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)。 
+子網會將虛擬網路分成不同的位址空間, 以供 Azure 資源使用。  Azure NetApp Files 磁片區包含在名為「[委派的子網](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)」的特殊用途子網中。 
 
-子網路的委派提供明確的權限給 Azure NetApp 檔案服務來建立子網路中的服務特定資源。  它會使用中部署服務的唯一識別碼。 在此情況下，才能連接至 Azure NetApp 檔案建立的網路介面。
+子網委派會提供明確的許可權給 Azure NetApp Files 服務, 以在子網中建立服務特定資源。  它會在部署服務時使用唯一識別碼。 在此情況下, 會建立網路介面來啟用 Azure NetApp Files 的連線。
 
-如果您使用新的 VNet，您可以建立子網路，並委派至 Azure NetApp 檔案的子網路中的下列指示[委派至 Azure NetApp 檔案的子網路](azure-netapp-files-delegate-subnet.md)。 您也可以委派現有的空白子網路，已經不委派給其他服務。
+如果您使用新的 VNet, 您可以依照將[子網委派給 Azure Netapp files](azure-netapp-files-delegate-subnet.md)中的指示, 建立子網, 並將子網委派給 Azure netapp files。 您也可以委派尚未委派給其他服務的現有空白子網。
 
-如果與另一個 VNet 對等互連的 VNet，您無法展開 「 VNet 位址空間。 基於這個理由，需要 「 VNet 位址空間內建立新委派的子網路。 如果您需要擴充的位址空間，您必須刪除 VNet 對等互連之前展開的位址空間。
+如果 VNet 與另一個 VNet 對等互連, 您就無法展開 VNet 位址空間。 基於這個理由, 必須在 VNet 位址空間內建立新的委派子網。 如果您需要擴充位址空間, 您必須先刪除 VNet 對等互連, 才能展開位址空間。
 
 ### <a name="udrs-and-nsgs"></a>Udr 和 Nsg
 
-使用者定義路由 (Udr) 」 和 「 網路安全性群組 (Nsg) 不支援委派的子網路上 Azure NetApp 檔案。
+Azure NetApp Files 的委派子網不支援使用者定義的路由 (Udr) 和網路安全性群組 (Nsg)。
 
-因應措施，您可以將 Nsg 套用至其他子網路，允許或拒絕委派 Azure NetApp 檔案的子網路的流量。  
+因應措施是, 您可以將 Nsg 套用至其他子網, 以允許或拒絕進出 Azure NetApp Files 委派子網的流量。  
 
-## <a name="azure-native-environments"></a>Azure 的原生環境
+## <a name="azure-native-environments"></a>Azure 原生環境
 
-下圖說明 Azure 原生環境：
+下圖說明 Azure 原生環境:
 
-![Azure 原生的網路環境](../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png)
+![Azure-原生網路環境](../media/azure-netapp-files/azure-netapp-files-network-azure-native-environment.png)
 
 ### <a name="local-vnet"></a>本機 VNet
 
-基本的案例是建立或從相同 VNet 中的虛擬機器 (VM) 連線到 Azure NetApp 檔案磁碟區。 在上圖中的 VNet 2，磁碟區 1 中委派子網路建立，並可在 VM 1 預設子網路中掛接。
+基本案例是從相同 VNet 中的虛擬機器 (VM) 建立或連接到 Azure NetApp Files 磁片區。 對於上圖中的 VNet 2, 磁片區1是在委派的子網中建立, 而且可以掛接在預設子網的 VM 1 上。
 
-### <a name="vnet-peering"></a>VNet 對等互連
+### <a name="vnet-peering"></a>VNet 對等
 
-如果您有額外的 Vnet，需要存取彼此的資源位於相同區域時，可以使用連線的 Vnet [VNet 對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)以啟用透過 Azure 基礎結構的安全連線。 
+如果您在相同區域中有額外的 Vnet 需要存取彼此的資源, 則可以使用[VNet 對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)來連線 vnet, 以啟用透過 Azure 基礎結構的安全連線能力。 
 
-在上圖中，請考慮 VNet 2 和 3 的 VNet。 如果 VM 2 需要連線到 VM 3 或磁碟區 2 或 VM 3 需要連接到 VM 2 或磁碟區 1，您就必須啟用 VNet 對等互連 VNet 2 和 VNet 3 之間。 
+請考慮上圖中的 VNet 2 和 VNet 3。 如果 VM 2 需要連線到 VM 3 或磁片區 2, 或 VM 3 需要連線到 VM 2 或磁片區 1, 則您需要啟用 VNet 2 與 VNet 3 之間的 VNet 對等互連。 
 
-此外，請考慮 VNet 2 中，對等互連 VNet 1 和 2 的 VNet 對等互連 VNet 相同的區域中的 3 的案例。 將資源從 VNet 1 可以連線至 VNet 2 中的資源，但它無法連線到 VNet 3 中的資源除非 VNet 1 和 3 的 VNet 對等互連。 
+此外, 請考慮使用 vnet 2 對等互連 VNet 1 的案例, 並在相同區域中使用 vnet 3 對等互連 VNet 2。 VNet 1 中的資源可以連線到 VNet 2 中的資源, 但它無法連線到 VNet 3 中的資源, 除非 VNet 1 和 VNet 3 已對等互連。 
 
-在上圖中，雖然 VM 3 可連接到磁碟區 1 VM 4 無法連線到磁碟區 2。  這是因為，輪輻 Vnet 沒有對等互連，並_透過 VNet 對等互連不支援傳輸路由_。
+在上圖中, 雖然 VM 3 可以連接到磁片區 1, 但 VM 4 無法連線到磁片區2。  這是因為輪輻 Vnet 並未對等互連, 且_VNet 對等互連不支援傳輸路由_。
 
 ## <a name="hybrid-environments"></a>混合式環境
 
-下圖說明混合式環境： 
+下圖說明混合式環境: 
 
-![混合式網路功能環境](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
+![混合式網路環境](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-在混合式案例中，從內部部署資料中心的應用程式會需要在 Azure 中資源的存取權。  這是您想要將您的資料中心延伸至 Azure，還是您想要使用 Azure 的原生服務或災害復原。 請參閱[VPN 閘道規劃選項](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable)如需有關如何連接到透過站對站 VPN 或 ExpressRoute 在 Azure 中部署資源的多個內部資源資訊。
+在混合式案例中, 來自內部部署資料中心的應用程式需要存取 Azure 中的資源。  無論您想要將資料中心延伸至 Azure, 或想要使用 Azure 原生服務或嚴重損壞修復, 都是如此。 如需有關如何透過站對站 VPN 或 ExpressRoute, 將內部部署的多個資源連線至 Azure 中資源的詳細資訊, 請參閱[VPN 閘道規劃選項](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable)。
 
-在混合式中樞輪輻拓撲中，中樞 VNet，在 Azure 中作為中心點，對您的內部部署網路的連線。 輪輻 Vnet 對等互連的中樞，並可用於隔離工作負載。
+在混合式中樞輪輻拓撲中, Azure 中的中樞 VNet 會作為內部部署網路的連線中心點。 輪輻是與中樞 Vnet 對等互連, 而且可以用來隔離工作負載。
 
-根據組態，您可以連接內部部署資源的中樞和支點中的資源。
+視設定而定, 您可以將內部部署資源連線到中樞和輪輻中的資源。
 
-在如上所示的拓撲，在內部部署網路連線至中樞 VNet，在 Azure 中，並有 2 個輪輻 Vnet 位於相同的區域與中樞 VNet 進行對等互連。  在此案例中，支援 Azure NetApp 檔案磁碟區的連線能力選項如下所示：
+在上述的拓撲中, 內部部署網路會連線到 Azure 中的中樞 VNet, 而且相同區域中有2個輪輻 Vnet 與中樞 VNet 對等互連。  在此案例中, Azure NetApp Files 磁片區支援的連線選項如下所示:
 
-* VM 1 和 VM 2 的內部部署資源可以透過連線到磁碟區 1 在中樞站台對站 VPN 或 ExpressRoute 線路。 
-* VM 1 和 VM 2 的內部部署資源可以透過站對站 VPN 和區域 Vnet 對等互連連線到磁碟區 2 或磁碟區 3。
-* VM 3 在中樞 VNet 可連接到磁碟區 2 在輪輻 VNet 1 和磁碟區 3 輪輻 VNet 2 中。
-* 從輪輻 VNet 1 VM 4 和 5 輪輻 VNet 2 VM 可以中樞 VNet 中連接到磁碟區 1。
+* 內部部署資源 VM 1 和 VM 2 可以透過站對站 VPN 或 ExpressRoute 線路連線到中樞的磁片區1。 
+* 內部部署資源 VM 1 和 VM 2 可以透過站對站 VPN 和區域 Vnet 對等互連連線到磁片區2或磁片區3。
+* 中樞 VNet 中的 VM 3 可以連接到輪輻 vnet 1 中的磁片區 2, 而在輪輻 VNet 2 中連線到第3卷。
+* 來自輪輻 vnet 1 和 VM 5 的 VM 4, 可以連接到中樞 VNet 中的磁片區1。
 
-輪輻 VNet 2 中，輪輻 VNet 1 中的 VM 4 無法連線到磁碟區 3。 此外，在支點中的 VM 5 VNet2 無法連線到磁碟區 2 輪輻 VNet 1 中。 這是因為未對等互連輪輻 Vnet 並_透過 VNet 對等互連不支援傳輸路由_。
+輪輻 VNet 1 中的 VM 4 無法連接到輪輻 VNet 2 中的磁片區3。 此外, 輪輻 VNet2 中的 VM 5 無法連接到輪輻 VNet 1 中的磁片區2。 這是因為輪輻 Vnet 不是對等互連, 且_不支援透過 VNet 對等互連的傳輸路由_。
 
 ## <a name="next-steps"></a>後續步驟
 

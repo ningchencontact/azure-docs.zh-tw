@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Active Directory 應用程式 Proxy (預覽) 進行內部部署應用程式的 SAML 單一登入 |Microsoft Docs
+title: 使用 Azure AD App Proxy 進行內部部署應用程式的 SAML 單一登入 |Microsoft Docs
 description: 瞭解如何為使用 SAML 驗證保護的內部部署應用程式提供單一登入。 使用應用程式 Proxy 提供內部部署應用程式的遠端存取。
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f4ab79a9fc9b8fec26cce98d9a878b6fa2a0c3
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: ff5152a2d65ea3921f0fef7f3a020bcea80d1769
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853775"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421263"
 ---
-# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>使用應用程式 Proxy 進行內部部署應用程式的 SAML 單一登入 (預覽)
+# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>使用應用程式 Proxy 進行內部部署應用程式的 SAML 單一登入
 
 您可以為使用 SAML 驗證保護的內部部署應用程式提供單一登入 (SSO), 並透過應用程式 Proxy 提供這些應用程式的遠端存取。 使用 SAML 單一登入, Azure Active Directory (Azure AD) 會使用使用者的 Azure AD 帳戶向應用程式進行驗證。 Azure AD 與應用程式透過連線通訊協定，進行登入資訊通訊。 您也可以根據您在 SAML 宣告中定義的規則, 將使用者對應至特定的應用程式角色。 除了 SAML SSO 以外, 啟用應用程式 Proxy, 您的使用者將可存取應用程式和順暢的 SSO 體驗。
 
@@ -43,13 +43,13 @@ SAML SSO 與應用程式 Proxy 也適用于 SAML 權杖加密功能。 如需詳
 
 2. 在 [**新增您自己的應用**程式] 下, 選取 [**非資源庫應用程式**]。
 
-3. 輸入新應用程式的顯示名稱, 然後選取 [新增  ]。
+3. 輸入新應用程式的顯示名稱, 然後選取 [新增]。
 
 4. 在應用程式的 **[總覽**] 頁面上, 選取 [**單一登入**]。
 
 5. 選取 [ **SAML** ] 做為單一登入方法。
 
-6. 第一次設定 SAML SSO 在公司網路上運作。 在 [以**SAML 設定單一登入**] 頁面中, 移至 [**基本 SAML**設定] 標題, 然後選取其 [**編輯**] 圖示 (鉛筆)。 依照[輸入基本 SAML](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on)設定中的步驟, 為應用程式設定 SAML 型驗證。
+6. 第一次設定 SAML SSO 在公司網路上運作。 在 [以**SAML 設定單一登入**] 頁面中, 移至 [**基本 SAML**設定] 標題, 然後選取其 [**編輯**] 圖示 (鉛筆)。 依照[輸入基本 SAML](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration)設定中的步驟, 為應用程式設定 SAML 型驗證。
 
 7. 將至少一個使用者新增至應用程式, 並確定測試帳戶具有應用程式的存取權。 連線到公司網路時, 請使用測試帳戶來查看您是否有應用程式的單一登入。 
 

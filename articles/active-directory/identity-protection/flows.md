@@ -2,29 +2,24 @@
 title: 使用 Azure AD Identity Protection 時的登入體驗 | Microsoft Docs
 description: 當 Identity Protection 已降低或補救使用者時，或是原則需要 Multi-Factor Authentication 時，請提供使用者經驗的概觀。
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e513027eed44ec7649f41f8786882aed8511bc6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295188"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335487"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 時的登入體驗
+
 透過 Azure Active Directory Identity Protection，您可以：
 
 * 要求使用者進行註冊，以進行 Multi-Factor Authentication
@@ -110,5 +105,5 @@ ms.locfileid: "60295188"
 ![補救](./media/flows/160.png "補救")
 
 ## <a name="see-also"></a>另請參閱
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
 
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 

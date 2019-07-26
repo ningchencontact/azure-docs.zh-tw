@@ -3,7 +3,7 @@ title: Azure 使用量 API 概觀 | Microsoft Docs
 description: 了解 Azure 使用量 API 如何讓您以程式設計方式存取 Azure 資源的成本和使用量資料。
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
-ms.author: erikre
-ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 2a2922daef5e75af41252119f9a467fae976bcda
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615887"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443263"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure 使用量 API 概觀 
 

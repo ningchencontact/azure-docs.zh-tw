@@ -1,19 +1,18 @@
 ---
 title: 在 Azure 備份伺服器中使用新式備份儲存體
 description: 了解 Azure 備份伺服器中的新功能。 本文說明如何升級您的備份伺服器安裝。
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a265579593c8eb39f0df4037f8ec39c788ddbce
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812959"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465112"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>在 Azure 備份伺服器中新儲存體
 
@@ -39,33 +38,33 @@ Azure 備份伺服器 V2 和更新版本支援 Modern Backup Storage，可節省
 
 以磁碟區作為磁碟儲存體來使用備份伺服器 V2 或更新版本可協助您掌控儲存體。 磁碟區可以是單一磁碟。 不過，如果您日後想要擴充儲存體，請從使用儲存體空間所建立的磁碟中建立磁碟區。 如果您想要擴充磁碟區以供儲存備份，這麼做會有所幫助。 本節會提供最佳做法，讓您了解如何建立具有此設定的磁碟區。
 
-1. 在 [伺服器管理員] 中，選取 [檔案和存放服務]   > [磁碟區]   > [儲存集區]  。 在 [實體磁碟]  底下，選取 [新增儲存集區]  。
+1. 在 [伺服器管理員] 中，選取 [檔案和存放服務] > [磁碟區] > [儲存集區]。 在 [實體磁碟] 底下，選取 [新增儲存集區]。
 
     ![建立新的儲存集區](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
-2. 在 [工作]  下拉式方塊中，選取 [新增虛擬磁碟]  。
+2. 在 [工作] 下拉式方塊中，選取 [新增虛擬磁碟]。
 
     ![新增虛擬磁碟](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
-3. 選取儲存集區，然後選取 [新增實體磁碟]  。
+3. 選取儲存集區，然後選取 [新增實體磁碟]。
 
     ![新增實體磁碟](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
-4. 選取實體磁碟，然後選取 [擴充虛擬磁碟]  。
+4. 選取實體磁碟，然後選取 [擴充虛擬磁碟]。
 
     ![擴充虛擬磁碟](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
 
-5. 選取虛擬磁碟，然後選取 [新增磁碟區]  。
+5. 選取虛擬磁碟，然後選取 [新增磁碟區]。
 
     ![建立新的磁碟區](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. 在 [選取伺服器和磁碟]  對話方塊中，選取伺服器和新的磁碟。 然後，選取 [下一步]  。
+6. 在 [選取伺服器和磁碟] 對話方塊中，選取伺服器和新的磁碟。 然後，選取 [下一步]。
 
     ![選取伺服器和磁碟](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
 ## <a name="add-volumes-to-backup-server-disk-storage"></a>在備份伺服器磁碟儲存體中新增磁碟區
 
-若要在備份伺服器中新增磁碟區，請於 [管理]  窗格重新掃描儲存體，然後選取 [新增]  。 隨即會出現可供為備份伺服器儲存體新增的所有磁碟區清單。 在可用的磁碟區新增到已選取的磁碟區清單後，您可以為他們提供易記名稱，以方便您管理這些磁碟區。 若要將這些磁碟區格式化為 ReFS，讓備份伺服器可以利用新式備份儲存體的好處，請選取 [確定]  。
+若要在備份伺服器中新增磁碟區，請於 [管理] 窗格重新掃描儲存體，然後選取 [新增]。 隨即會出現可供為備份伺服器儲存體新增的所有磁碟區清單。 在可用的磁碟區新增到已選取的磁碟區清單後，您可以為他們提供易記名稱，以方便您管理這些磁碟區。 若要將這些磁碟區格式化為 ReFS，讓備份伺服器可以利用新式備份儲存體的好處，請選取 [確定]。
 
 ![新增可用的磁碟區](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
@@ -75,7 +74,7 @@ Azure 備份伺服器 V2 和更新版本支援 Modern Backup Storage，可節省
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-您可以使用 PowerShell cmdlet Update-dpmdiskstorage，這會更新 Azure 備份伺服器上的儲存體集區中的磁碟區的屬性來設定工作負載感知儲存區。 
+您可以使用 PowerShell Cmdlet 更新-Update-dpmdiskstorage 來設定工作負載感知存放裝置, 這會在 Azure 備份伺服器上更新存放集區中的磁片區屬性。 
 
 語法：
 
@@ -98,13 +97,13 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 您可以選擇是否將保護群組更新為使用新式備份儲存體。 若要更新保護群組，請使用保留資料選項來停止保護所有資料來源。 然後，將資料來源新增至新的保護群組。
 
-1. 在管理員主控台中選取 [保護]  功能。 在 [保護群組成員]  清單中，以滑鼠右鍵按一下成員，然後選取 [停止保護成員]  。
+1. 在管理員主控台中選取 [保護] 功能。 在 [保護群組成員] 清單中，以滑鼠右鍵按一下成員，然後選取 [停止保護成員]。
 
    ![停止保護成員](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. 在 [從群組中移除]  對話方塊中，檢閱儲存集區中已使用的磁碟空間和可用空間。 預設值是讓復原點留在磁碟上，並讓復原點按照所關聯的保留原則來到期。 按一下 [確定 **Deploying Office Solutions**]。
+2. 在 [從群組中移除] 對話方塊中，檢閱儲存集區中已使用的磁碟空間和可用空間。 預設值是讓復原點留在磁碟上，並讓復原點按照所關聯的保留原則來到期。 按一下 [確定] 。
 
-   如果您想要立即將已使用的磁碟空間歸還給可用的儲存集區，請選取 [刪除磁碟上的複本]  核取方塊，以刪除與該成員相關聯的備份資料 (與復原點)。
+   如果您想要立即將已使用的磁碟空間歸還給可用的儲存集區，請選取 [刪除磁碟上的複本] 核取方塊，以刪除與該成員相關聯的備份資料 (與復原點)。
 
    ![[從群組中移除] 對話方塊](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
@@ -116,13 +115,13 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 若要新增磁碟儲存體：
 
-1. 在管理員主控台中，選取 [管理]   > [磁碟儲存體]   > [新增]  。
+1. 在管理員主控台中，選取 [管理] > [磁碟儲存體] > [新增]。
 
     ![[新增磁碟儲存體] 對話方塊](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. 在 [新增磁碟儲存體]  對話方塊中選取 [新增磁碟]  。
+4. 在 [新增磁碟儲存體] 對話方塊中選取 [新增磁碟]。
 
-5. 在可用磁碟清單中選取您要新增的磁碟，選取 [新增]  ，然後選取 [確定]  。
+5. 在可用磁碟清單中選取您要新增的磁碟，選取 [新增]，然後選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 在安裝備份伺服器之後，請了解如何準備您的伺服器或開始保護工作負載。

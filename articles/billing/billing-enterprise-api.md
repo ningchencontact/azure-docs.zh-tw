@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: erikre
-ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: f706ad86493981d5b38248ec209a7c8b936f6817
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244825"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443219"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>適用於企業客戶的報告 API 概觀
 報告 API 可讓企業 Azure 客戶以程式設計方式提取使用情況和帳單資料，以使用慣用的資料分析工具進行分析。 企業客戶已經與 Azure 簽署一份 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)，以便進行綁約金協商，並獲得 Azure 資源的自訂價格。
@@ -44,7 +44,7 @@ ms.locfileid: "66244825"
 
 * **價位表** - [價位表 API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) 可針對指定註冊和計費週期的每個計量提供適用的費率。
 
-* **保留執行個體詳細資料**-[保留執行個體使用情況 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)傳回購買保留執行個體的使用方式。 [保留的執行個體費用 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)顯示進行計費的交易。 
+* **保留實例詳細資料**-[保留實例使用方式 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)會傳回購買保留實例的使用方式。 「[保留實例費用 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) 」會顯示所進行的計費交易。 
 
 ## <a name="data-freshness"></a>資料有效期限
 系統會傳回 Etag 以回應上述所有 API。 Etag 的變更表示資料已重新整理。  在使用相同參數對相同 API 進行的後續呼叫中，傳遞所擷取的 Etag，在其中的 http 要求標頭中包含索引鍵 “If-None-Match”。 如果資料未進一步重新整理且未傳回任何資料，則回應狀態碼會是 "NotModified"。 每當 etag 有變更時，API 就會針對所需期間傳回完整的資料集。
@@ -57,9 +57,9 @@ ms.locfileid: "66244825"
 |回應狀態碼|Message|描述|
 |-|-|-|
 |200| [確定]|沒有錯誤|
-|401| 未經授權| API 金鑰找不到、無效或過期等。|
+|401| 未授權| API 金鑰找不到、無效或過期等。|
 |404| 無法使用| 找不到報告端點|
-|400| 不正確的要求| 無效的參數 - 資料範圍、EA 編號等。|
+|400| 錯誤的要求| 無效的參數 - 資料範圍、EA 編號等。|
 |500| 伺服器錯誤| 處理要求時發生未預期的錯誤| 
 
 

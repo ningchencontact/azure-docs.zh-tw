@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921212"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442425"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 
@@ -78,7 +78,7 @@ ms.locfileid: "65921212"
 
 -   **原則區段︰** 輸入、輸出
 
--   **原則範圍︰** 全域、產品、API、作業
+-   **原則範圍：** 所有範圍
 
 ## <a name="LimitCallRate"></a>依訂用帳戶限制呼叫頻率
 
@@ -90,7 +90,7 @@ ms.locfileid: "65921212"
 > [原則運算式](api-management-policy-expressions.md)無法使用於此原則的任何原則屬性。
 
 > [!CAUTION]
-> 由於節流架構的分散式本質，速率限制是永遠不會完全正確。 設定之間的差異，實際允許的數目不同要求根據要求量和速率、 後端延遲，以及其他因素。
+> 由於節流架構的分散式特性, 因此速率限制絕不會完全精確。 [已設定] 和 [實際允許的要求數] 之間的差異, 會根據要求數量和速率、後端延遲和其他因素而有所不同。
 
 ### <a name="policy-statement"></a>原則陳述式
 
@@ -121,8 +121,8 @@ ms.locfileid: "65921212"
 | 名稱      | 描述                                                                                                                                                                                                                                                                                              | 必要項 |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | set-limit | 根元素。                                                                                                                                                                                                                                                                                            | 是      |
-| api       | 新增一或多個這些元素，以對強加呼叫頻率限制 api 產品內。 產品和 API 呼叫頻率限制會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。                    | 否       |
-| operation | 新增一或多個這些元素，以對強加呼叫頻率限制對 API 內的作業。 產品、API 和作業呼叫頻率限制會獨立套用。 作業可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。 | 否       |
+| API       | 新增一或多個這些元素, 以對產品內的 Api 強加呼叫頻率限制。 產品和 API 呼叫頻率限制會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。                    | 否       |
+| operation | 新增一或多個這些元素, 以對 API 內的作業強加呼叫頻率限制。 產品、API 和作業呼叫頻率限制會獨立套用。 作業可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。 | 否       |
 
 ### <a name="attributes"></a>屬性
 
@@ -136,9 +136,9 @@ ms.locfileid: "65921212"
 
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
--   **原則區段︰** 輸入
+-   **原則區段︰** inbound
 
--   **原則範圍︰** 產品
+-   **原則範圍:** 產品、api、作業
 
 ## <a name="LimitCallRateByKey"></a>依金鑰限制呼叫頻率
 
@@ -150,7 +150,7 @@ ms.locfileid: "65921212"
 如需此原則範例的詳細資訊，請參閱[以 Azure API 管理進行進階要求節流](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)。
 
 > [!CAUTION]
-> 由於節流架構的分散式本質，速率限制是永遠不會完全正確。 設定之間的差異，實際允許的數目不同要求根據要求量和速率、 後端延遲，以及其他因素。
+> 由於節流架構的分散式特性, 因此速率限制絕不會完全精確。 [已設定] 和 [實際允許的要求數] 之間的差異, 會根據要求數量和速率、後端延遲和其他因素而有所不同。
 
 ### <a name="policy-statement"></a>原則陳述式
 
@@ -191,7 +191,7 @@ ms.locfileid: "65921212"
 
 | 名稱                | 描述                                                                                           | 必要項 | 預設 |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| calls               | 在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。 | 是      | N/A     |
+| 呼叫               | 在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。 | 是      | N/A     |
 | counter-key         | 用於頻率限制原則的金鑰。                                                             | 是      | N/A     |
 | increment-condition | 此布林運算式指定要求是否應該計入配額 (`true`)。        | 否       | N/A     |
 | renewal-period      | 重設配額的時間週期 (以秒為單位)。                                              | 是      | N/A     |
@@ -202,7 +202,7 @@ ms.locfileid: "65921212"
 
 -   **原則區段︰** inbound
 
--   **原則範圍︰** 全域、產品、API、作業
+-   **原則範圍：** 所有範圍
 
 ## <a name="RestrictCallerIPs"></a>限制呼叫端 IP
 
@@ -219,7 +219,7 @@ ms.locfileid: "65921212"
 
 ### <a name="example"></a>範例
 
-在下列範例中，原則只允許來自從單一 IP 位址或 IP 位址範圍指定的要求
+在下列範例中, 原則只允許來自指定的單一 IP 位址或 IP 位址範圍的要求
 
 ```xml
 <ip-filter action="allow">
@@ -248,7 +248,7 @@ ms.locfileid: "65921212"
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** inbound
--   **原則範圍︰** 全域、產品、API、作業
+-   **原則範圍：** 所有範圍
 
 ## <a name="SetUsageQuota"></a>依訂用帳戶設定使用量配額
 
@@ -288,8 +288,8 @@ ms.locfileid: "65921212"
 | 名稱      | 描述                                                                                                                                                                                                                                                                                  | 必要項 |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | 根元素。                                                                                                                                                                                                                                                                                | 是      |
-| api       | 新增一或多個這些元素，以對強加產品內的 Api 呼叫配額。 產品和 API 呼叫配額會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。                    | 否       |
-| operation | 新增一或多個這些元素，以對強加呼叫配額 API 內的作業。 產品、API 和作業呼叫配額會獨立套用。 作業可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。 | 否       |
+| API       | 新增一或多個這些元素, 以對產品內的 Api 強加呼叫配額。 產品和 API 呼叫配額會獨立套用。 API 可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。                    | 否       |
+| operation | 新增一或多個這些元素, 以對 API 內的作業強加呼叫配額。 產品、API 和作業呼叫配額會獨立套用。 作業可以透過 `name` 或 `id` 參考。 如果同時提供兩個屬性，則會使用 `id` 而忽略 `name`。 | 否       |
 
 ### <a name="attributes"></a>屬性
 
@@ -355,7 +355,7 @@ ms.locfileid: "65921212"
 
 | 名稱                | 描述                                                                                               | 必要項                                                         | 預設 |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| bandwidth           | 在 `renewal-period` 中指定的時間週期內允許的 KB 總數上限。 | 必須指定 `calls`、`bandwidth`，或同時指定兩者。 | N/A     |
+| 頻寬           | 在 `renewal-period` 中指定的時間週期內允許的 KB 總數上限。 | 必須指定 `calls`、`bandwidth`，或同時指定兩者。 | N/A     |
 | calls               | 在 `renewal-period` 中指定的時間週期內允許的呼叫總數上限。     | 必須指定 `calls`、`bandwidth`，或同時指定兩者。 | N/A     |
 | counter-key         | 用於配額原則的金鑰。                                                                      | 是                                                              | N/A     |
 | increment-condition | 此布林運算式指定要求是否應該計入配額 (`true`)。             | 否                                                               | N/A     |
@@ -366,7 +366,7 @@ ms.locfileid: "65921212"
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** inbound
--   **原則範圍︰** 全域、產品、API、作業
+-   **原則範圍：** 所有範圍
 
 ## <a name="ValidateJWT"></a>驗證 JWT
 
@@ -471,7 +471,7 @@ ms.locfileid: "65921212"
 
 #### <a name="authorize-access-to-operations-based-on-token-claims"></a>根據權杖宣告授與作業的存取權
 
-此範例示範如何使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT)原則來授權存取作業會根據權杖宣告值。
+這個範例示範如何使用[驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT)原則, 根據權杖宣告值來授權作業的存取權。
 
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
@@ -536,24 +536,24 @@ ms.locfileid: "65921212"
 | clock-skew                      | 時間範圍。 用來指定權杖簽發者和 API 管理執行個體的系統時鐘之間最大預期時間差異。                                                                                                                                                                                                                                                                                                               | 否                                                                               | 0 秒                                                                         |
 | failed-validation-error-message | 如果 JWT 未通過驗證，在 HTTP 回應主體中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。                                                                                                                                                                                                                                                                                                 | 否                                                                               | 預設錯誤訊息視驗證問題而定，例如「JWT 不存在」。 |
 | failed-validation-httpcode      | JWT 未通過驗證時所要傳回的 HTTP 狀態碼。                                                                                                                                                                                                                                                                                                                                                                                         | 否                                                                               | 401                                                                               |
-| header-name                     | 保留權杖的 HTTP 標頭名稱。                                                                                                                                                                                                                                                                                                                                                                                                         | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
-| query-parameter-name            | 保留權杖的查詢參數名稱。                                                                                                                                                                                                                                                                                                                                                                                                     | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
-| token-value                     | 運算式會傳回字串，包含 JWT 權杖                                                                                                                                                                                                                                                                                                                                                                                                     | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
-| id                              | `key` 元素的 `id` 屬性可讓您指定要與權杖中的 `kid` 宣告 (如果存在) 進行比對的字串，以找出適合用於簽章驗證的金鑰。                                                                                                                                                                                                                                           | 否                                                                               | N/A                                                                               |
-| match                           | `claim` 元素的 `match` 屬性可指定原則中的每個宣告值是否都必須存在於權杖，才能驗證成功。 可能的值包括：<br /><br /> - `all` - 原則中的每個宣告值都必須存在於權杖，才能驗證成功。<br /><br /> - `any` - 至少一個宣告必須存在於權杖，才能驗證成功。                                                       | 否                                                                               | 所有                                                                               |
-| require-expiration-time         | 布林值。 指定權杖中是否需有逾期宣告。                                                                                                                                                                                                                                                                                                                                                                               | 否                                                                               | true                                                                              |
+| header-name                     | 保留權杖的 HTTP 標頭名稱。                                                                                                                                                                                                                                                                                                                                                                                                         | 必須指定`header-name`、 `query-parameter-name` 或`token-value`其中之一。 | N/A                                                                               |
+| query-parameter-name            | 保留權杖的查詢參數名稱。                                                                                                                                                                                                                                                                                                                                                                                                     | 必須指定`header-name`、 `query-parameter-name` 或`token-value`其中之一。 | N/A                                                                               |
+| token-值                     | 傳回包含 JWT 權杖之字串的運算式                                                                                                                                                                                                                                                                                                                                                                                                     | 必須指定`header-name`、 `query-parameter-name` 或`token-value`其中之一。 | N/A                                                                               |
+| ID                              | `key` 元素的 `id` 屬性可讓您指定要與權杖中的 `kid` 宣告 (如果存在) 進行比對的字串，以找出適合用於簽章驗證的金鑰。                                                                                                                                                                                                                                           | 否                                                                               | N/A                                                                               |
+| match                           | `claim` 元素的 `match` 屬性可指定原則中的每個宣告值是否都必須存在於權杖，才能驗證成功。 可能的值包括：<br /><br /> - `all` - 原則中的每個宣告值都必須存在於權杖，才能驗證成功。<br /><br /> - `any` - 至少一個宣告必須存在於權杖，才能驗證成功。                                                       | 否                                                                               | 全部                                                                               |
+| require-expiration-time         | 布林值。 指定權杖中是否需有逾期宣告。                                                                                                                                                                                                                                                                                                                                                                               | 否                                                                               | 真                                                                              |
 | require-scheme                  | 權杖結構描述的名稱，例如"Bearer"。 當已設定此屬性時，原則將會確定指定的結構描述存在於授權標頭值中。                                                                                                                                                                                                                                                                                    | 否                                                                               | N/A                                                                               |
-| require-signed-tokens           | 布林值。 指定是否需要簽署權杖。                                                                                                                                                                                                                                                                                                                                                                                           | 否                                                                               | true                                                                              |
+| require-signed-tokens           | 布林值。 指定是否需要簽署權杖。                                                                                                                                                                                                                                                                                                                                                                                           | 否                                                                               | 真                                                                              |
 | 分隔符號                       | 字串。 指定用於從多重值宣告中擷取一組值的分隔符號 (例如 ",")。                                                                                                                                                                                                                                                                                                                                          | 否                                                                               | N/A                                                                               |
 | url                             | 可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 回應應該根據 URL 所定義的規格：`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`。 對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。 | 是                                                                              | N/A                                                                               |
-output-token-variable-name|字串。 將會收到權杖值的型別物件的內容變數的名稱[ `Jwt` ](api-management-policy-expressions.md)成功的權杖驗證時|否|N/A
+output-token-variable-name|字串。 在成功的權杖驗證時, 將會以類型[`Jwt`](api-management-policy-expressions.md)的物件形式接收權杖值的內容變數名稱|否|N/A
 
 ### <a name="usage"></a>使用量
 
 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** inbound
--   **原則範圍︰** 全域、產品、API、作業
+-   **原則範圍：** 所有範圍
 
 ## <a name="next-steps"></a>後續步驟
 

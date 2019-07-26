@@ -1,5 +1,5 @@
 ---
-title: 為 Azure AD 租用戶中特定應用程式的權杖，自訂發出的宣告 (公開預覽)
+title: 在 Azure AD 租使用者中自訂應用程式的宣告 (公開預覽)
 description: 此頁面說明 Azure Active Directory 宣告對應。
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e923cde3cfcffe594226f6b8b665053d1fc584f6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324999"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381062"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>HOW TO：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
@@ -107,7 +107,7 @@ ms.locfileid: "68324999"
 | grant_type |
 | graph |
 | group_sids |
-| groups |
+| 群組 |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -144,7 +144,7 @@ ms.locfileid: "68324999"
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| password |
+| 密碼 |
 | platf |
 | polids |
 | pop_jwk |
@@ -179,7 +179,7 @@ ms.locfileid: "68324999"
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| userName |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -297,7 +297,7 @@ ms.locfileid: "68324999"
 | 使用者 | department|department|
 | 使用者 | onpremisessamaccountname | 內部部署 SAM 帳戶名稱 |
 | 使用者 | netbiosname| NetBios 名稱 |
-| 使用者 | dnsdomainname | DNS 功能變數名稱 |
+| 使用者 | dnsdomainname | DNS 網域名稱 |
 | 使用者 | onpremisesecurityidentifier | 內部部署安全識別碼 |
 | 使用者 | companyname| 組織名稱 |
 | 使用者 | streetaddress | 街道地址 |
@@ -323,7 +323,7 @@ ms.locfileid: "68324999"
 | 使用者 | othermail | 其他郵件 |
 | 使用者 | country | Country |
 | 使用者 | city | City |
-| 使用者 | state | State |
+| 使用者 | 狀態 | State |
 | 使用者 | jobtitle | 職稱 |
 | 使用者 | employeeid | 員工識別碼 |
 | 使用者 | facsimiletelephonenumber | 傳真電話號碼 |
@@ -362,7 +362,7 @@ ms.locfileid: "68324999"
 
 |TransformationMethod|預期的輸入|預期的輸出|描述|
 |-----|-----|-----|-----|
-|Join|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
+|加入|string1、string2、分隔符號|outputClaim|可在輸入字串之間使用分隔符號來聯結這些字串。 例如：string1:"foo@bar.com" , string2:"sandbox" , separator:"." 會導致 outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|擷取電子郵件地址的本機部分。 例如：mail:"foo@bar.com" 會導致 outputClaim:"foo"。 如果沒有 \@ 符號，原始輸入字串會以現狀傳回。|
 
 **InputClaims：** 使用 InputClaims 元素可從宣告結構描述項目將資料傳遞至轉換。 它有兩個屬性：**ClaimTypeReferenceId** 和 **TransformationClaimType**。
@@ -413,7 +413,7 @@ ms.locfileid: "68324999"
 | TransformationMethod | 限制 |
 | ----- | ----- |
 | ExtractMailPrefix | None |
-| Join | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
+| 加入 | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
 
 ### <a name="custom-signing-key"></a>自訂簽署金鑰
 
@@ -449,7 +449,7 @@ ms.locfileid: "68324999"
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>範例：建立並指派原則, 以省略簽發給服務主體之權杖的基本宣告
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>範例:建立並指派原則, 以省略簽發給服務主體之權杖的基本宣告
 
 在此範例中，您將會建立原則，以從核發給連結之服務主體的權杖中移除基本宣告集。
 
@@ -472,7 +472,7 @@ ms.locfileid: "68324999"
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>範例：建立並指派原則，在核發給服務主體的權杖中加入 EmployeeID 和 TenantCountry 作為宣告
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>範例:建立並指派原則，在核發給服務主體的權杖中加入 EmployeeID 和 TenantCountry 作為宣告
 
 在此範例中，您將會建立原則，以在核發給連結之服務主體的權杖中新增 EmployeeID 和 TenantCountry。 在 SAML 權杖和 JWT 中，系統會以名稱宣告類型來發出 EmployeeID。 在 SAML 權杖和 JWT 中，系統會以國家/地區宣告類型來發出 TenantCountry。 在此範例中，我們會繼續在權杖中納入基本宣告集。
 
@@ -496,7 +496,7 @@ ms.locfileid: "68324999"
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>範例：建立並指派在核發給服務主體的權杖中使用宣告轉換的原則
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>範例:建立並指派在核發給服務主體的權杖中使用宣告轉換的原則
 
 在此範例中，您將會建立原則，以對核發給連結之服務主體的 JWT 發出自訂宣告「JoinedData」。 這個宣告會包含藉由聯結資料 (儲存於使用者物件上的 extensionattribute1 屬性中) 與「.sandbox」所建立的值。 在此範例中，我們會在權杖中排除基本宣告集。
 

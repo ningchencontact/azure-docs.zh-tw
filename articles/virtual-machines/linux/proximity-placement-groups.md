@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 0d44e38343d6f7113b296b57353080e2de068bb6
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: a3009c9863d8322e3fe34bd99d64b93f0aa3d858
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278292"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385739"
 ---
 # <a name="preview-deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>預覽：使用 Azure CLI 將 Vm 部署至鄰近放置群組
 
@@ -63,7 +63,13 @@ az vm create \
    -l westus
 ```
 
-## <a name="availability-sets"></a>可用性設定組 (Availability Sets)
+您可以使用[az ppg show](/cli/azure/ppg#az-ppg-show)在鄰近放置群組中查看 VM。
+
+```azurecli-interactive
+az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
+```
+
+## <a name="availability-sets"></a>可用性設定組
 您也可以在鄰近放置群組中建立可用性設定組。 使用相同`--ppg`的參數搭配[az vm availability-set create](/cli/azure/vm/availability-set#az-vm-availability-set-create)來建立可用性設定組, 而且可用性設定組中的所有 vm 也會在相同的鄰近放置群組中建立。
 
 ## <a name="scale-sets"></a>擴展集
