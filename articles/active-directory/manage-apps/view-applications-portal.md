@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae5e16aa00147d6ea434090720b51af06e8e0c5
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807556"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477185"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>檢視您的 Azure Active Directory 租用戶應用程式
 
@@ -79,4 +79,4 @@ Azure AD 租用戶應用程式會顯示在 Azure 入口網站的 [企業應用�
 現在，您已經找到所要的應用程式，您可以繼續[將更多應用程式新增至租用戶](add-application-portal.md)。 或者，可以選取要檢視或編輯屬性和設定選項的應用程式。 例如，您可以設定單一登入。
 
 > [!div class="nextstepaction"]
-> [設定單一登入](configure-single-sign-on-portal.md)
+> [設定單一登入](configure-single-sign-on-non-gallery-applications.md)
