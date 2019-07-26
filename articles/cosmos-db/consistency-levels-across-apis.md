@@ -5,53 +5,53 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1129152c1823fbffb3d6c9ec918d7b8cb4426bbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26cea6243a8b6d06c132325f0b2fe830c4030e9d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235620"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467766"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性層級與 Azure Cosmos DB API
 
-Azure Cosmos DB 會提供原生支援的網路通訊協定相容的 Api，針對熱門的資料庫。 這些包括 MongoDB、 Apache Cassandra、 Gremlin 和 Azure 資料表儲存體。 這些資料庫不提供精確地定義的一致性模型或 SLA 為後盾的一致性層級的保證。 它們通常只提供由 Azure Cosmos DB 所提供的五個一致性模型子集。 
+Azure Cosmos DB 為熱門資料庫提供與有線通訊協定相容的 Api 原生支援。 這些包括 MongoDB、Apache Cassandra、Gremlin 和 Azure 資料表儲存體。 這些資料庫不提供精確定義的一致性模型或一致性層級的 SLA 支援保證。 它們通常只提供由 Azure Cosmos DB 所提供的五個一致性模型子集。 
 
-使用 SQL API、 Gremlin API 和資料表 API 時，會使用 Azure Cosmos 帳戶上設定的預設一致性層級。 
+使用 SQL API、Gremlin API 和資料表 API 時, 會使用在 Azure Cosmos 帳戶上設定的預設一致性層級。 
 
-當使用適用於 MongoDB 的 Cassandra API 或 Azure Cosmos DB 的 API，應用程式會取得一組完整的一致性層級分別提供 Apache Cassandra 和 MongoDB，甚至更強的一致性和持久性保證。 這份文件會顯示對應的 Azure Cosmos DB 一致性層級的 Apache Cassandra 與 MongoDB 的一致性層級。
+使用 Cassandra API 或 Azure Cosmos DB 適用于 MongoDB 的 API 時, 應用程式會分別取得 Apache Cassandra 和 MongoDB 提供的一組完整一致性層級, 並提供更強的一致性和持久性保證。 本檔說明 Apache Cassandra 和 MongoDB 一致性層級的對應 Azure Cosmos DB 一致性層級。
 
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 與 Azure Cosmos DB 一致性層級之間的對應
 
-不同於 AzureCosmos DB Apache Cassandra 並不會以原生方式提供精確地定義的一致性保證。  相反地，Apache Cassandra 提供寫入的一致性層級和讀取的一致性層級，若要啟用的高可用性、 一致性和延遲的取捨。 當使用 Azure Cosmos DB 的 Cassandra API: 
+不同于 AzureCosmos DB, Apache Cassandra 本身並不提供精確定義的一致性保證。  取而代之的是, Apache Cassandra 會提供寫入一致性層級和讀取一致性層級, 以實現高可用性、一致性和延遲的取捨。 使用 Azure Cosmos DB 的 Cassandra API 時: 
 
-* Apache Cassandra 的寫一致性層級會對應至您的 Azure Cosmos 帳戶上設定的預設一致性層級。 
+* Apache Cassandra 的寫入一致性層級會對應至 Azure Cosmos 帳戶上設定的預設一致性層級。 
 
-* Azure Cosmos DB 會以動態方式將 Cassandra 用戶端驅動程式，以動態方式設定的讀取要求上的 Azure Cosmos DB 一致性層級的其中一個所指定的讀取的一致性層級的對應。 
+* Azure Cosmos DB 會將 Cassandra 用戶端驅動程式所指定的讀取一致性層級, 動態對應至在讀取要求上動態設定的其中一個 Azure Cosmos DB 一致性層級。 
 
-下表將說明如何在原生的 Cassandra 一致性層級對應至 Azure Cosmos DB 的一致性層級使用 Cassandra API 時：  
+下表說明使用 Cassandra API 時, 原生 Cassandra 一致性層級如何對應至 Azure Cosmos DB 的一致性層級:  
 
-[![Cassandra 的一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[![Cassandra 一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
-## <a id="mongo-mapping"></a>MongoDB 和 Azure Cosmos DB 的一致性層級之間的對應
+## <a id="mongo-mapping"></a>MongoDB 與 Azure Cosmos DB 一致性層級之間的對應
 
-原生 MongoDB 不像 Azure Cosmos DB 中，無法提供精確地定義的一致性保證。 相反地，原生 MongoDB 可讓使用者設定下列的一致性保證： 寫入考量、 讀取的問題和 Ismaster="0 指示詞-導向到主要或次要複本，以達到所需的一致性層級的讀取的作業。 
+不同于 Azure Cosmos DB, 原生 MongoDB 不會提供精確定義的一致性保證。 取而代之的是, 原生 MongoDB 可讓使用者設定下列一致性保證: 寫入考慮、讀取考慮, 以及 isMaster 指示詞, 以將讀取作業導向至主要或次要複本, 以達到所需的一致性層級。 
 
-使用適用於 MongoDB 的 Azure Cosmos DB 的 API，MongoDB 驅動程式會將您的寫入區域視為主要複本和所有其他區域所讀取的複本。 您可以選擇與您的 Azure Cosmos 帳戶作為主要的複本相關聯的區域。 
+使用 Azure Cosmos DB 適用于 MongoDB 的 API 時, MongoDB 驅動程式會將您的寫入區域視為主要複本, 而所有其他區域都是讀取複本。 您可以選擇與您的 Azure Cosmos 帳戶相關聯的區域作為主要複本。 
 
-同時使用適用於 MongoDB 的 Azure Cosmos DB 的 API:
+使用 Azure Cosmos DB 適用于 MongoDB 的 API 時:
 
-* 寫入考量會對應至您的 Azure Cosmos 帳戶上設定的預設一致性層級。
+* 寫入考慮會對應至 Azure Cosmos 帳戶上設定的預設一致性層級。
  
-* Azure Cosmos DB 會以動態方式將對應 MongoDB 用戶端驅動程式，以動態方式設定的讀取要求的 Azure Cosmos DB 一致性層級的其中一個所指定的讀取的考量。 
+* Azure Cosmos DB 會將 MongoDB 用戶端驅動程式所指定的讀取考慮動態對應至在讀取要求上動態設定的其中一個 Azure Cosmos DB 一致性層級。 
 
-* 您可以標註藉由第一個可寫入區域的區域，與您的 Azure Cosmos 帳戶，作為 「 主要 」 相關聯的特定區域。 
+* 您可以藉由將區域做為第一個可寫入的區域, 將與您的 Azure Cosmos 帳戶相關聯的特定區域標注為「主要」。 
 
-下表說明原生 MongoDB 寫入/讀取考量的如何使用適用於 MongoDB 的 Azure Cosmos DB 的 API 時，會對應至 Azure Cosmos 一致性層級：
+下表說明使用適用于 MongoDB 的 Azure Cosmos DB API 時, 原生 MongoDB 寫入/讀取考慮如何對應至 Azure Cosmos 一致性層級:
 
-[![MongoDB 的一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[![MongoDB 一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

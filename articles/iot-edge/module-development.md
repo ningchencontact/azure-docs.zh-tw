@@ -4,17 +4,17 @@ description: 開發可與執行階段和 IoT 中樞通訊的 Azure IoT Edge 自�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/25/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5285490ca1a27494cbcd3ea3d6527b78c7d38c8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc17cb48f7e06757dacdca5f291ed4604bfc10ee
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833428"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414398"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>開發您自己的 IoT Edge 模組
 
@@ -48,7 +48,7 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 最後，使用下列系統屬性來為 Edge 中樞所處理的裝置到雲端訊息加上戳記：
 
-| 屬性 | 描述 |
+| 內容 | 描述 |
 | -------- | ----------- |
 | $connectionDeviceId | 傳送訊息之用戶端的裝置識別碼 |
 | $connectionModuleId | 傳送訊息之模組的模組識別碼 |
@@ -62,12 +62,40 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 建立 ModuleClient 執行個體，以便將您的模組連接到裝置上執行的 IoT Edge 中樞，這與 DeviceClient 執行個體將 IoT 裝置連接到 IoT 中樞的方式類似。 如需 ModuleClient 類別及其通訊方法的詳細資訊，請參閱您慣用 SDK 語言的 API 參考：[C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)、[C 和 Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)、[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) 或 [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)。
 
+## <a name="language-and-architecture-support"></a>語言和架構支援
+
+IoT Edge 支援多種作業系統、裝置架構和開發語言, 讓您能夠建立符合您需求的案例。 請使用本節來瞭解開發自訂 IoT Edge 模組的選項。 您可以在[準備 IoT Edge 的開發和測試環境](development-environment.md)中, 深入瞭解每種語言的工具支援和需求。
+
+### <a name="linux"></a>Linux
+
+對於下表中的所有語言, IoT Edge 支援 AMD64 和 ARM32 Linux 裝置的開發。 
+
+| 開發語言 | 開發工具 |
+| -------------------- | ----------------- |
+| C | Visual Studio Code<br>Visual Studio 2017/2019 |
+| C# | Visual Studio Code<br>Visual Studio 2017/2019 |
+| Java | Visual Studio Code |
+| Node.js | Visual Studio Code |
+| Python | Visual Studio Code |
+
+>[!NOTE]
+>ARM64 Linux 裝置的開發和偵錯工具支援現供[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 如需詳細資訊, 請參閱[Visual Studio Code (預覽) 中的開發和偵錯工具 ARM64 IoT Edge 模組](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)。
+
+### <a name="windows"></a>Windows
+
+對於下表中的所有語言, IoT Edge 支援 AMD64 Windows 裝置的開發。
+
+| 開發語言 | 開發工具 |
+| -------------------- | ----------------- |
+| C | Visual Studio 2017/2019 |
+| C# | Visual Studio Code (沒有任何調試功能)<br>Visual Studio 2017/2019 |
 
 ## <a name="next-steps"></a>後續步驟
 
-[準備 IoT Edge 開發和測試環境](development-environment.md)
+[準備 IoT Edge 的開發和測試環境](development-environment.md)
 
-[使用 Visual Studio 來開發C#適用於 IoT Edge 模組](how-to-visual-studio-develop-module.md)
+[使用 Visual Studio 開發C#適用于 IoT Edge 的模組](how-to-visual-studio-develop-module.md)
 
-[使用 Visual Studio Code 開發 IoT Edge 模組](how-to-vs-code-develop-module.md)
+[使用 Visual Studio Code 開發適用于 IoT Edge 的模組](how-to-vs-code-develop-module.md)
 
+[瞭解及使用 Azure IoT 中樞 Sdk](/iot-hub/iot-hub-devguide-sdks.md)

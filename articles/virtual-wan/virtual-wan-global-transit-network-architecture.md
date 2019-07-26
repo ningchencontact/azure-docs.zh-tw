@@ -1,110 +1,109 @@
 ---
-title: Azure 虛擬 WAN 的全域傳輸網路架構 |Microsoft Docs
-description: 了解全域傳輸網路架構的虛擬 WAN
+title: Azure 虛擬 WAN 全球傳輸網路架構 |Microsoft Docs
+description: 瞭解適用于虛擬 WAN 的全球傳輸網路架構
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965976"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421421"
 ---
-# <a name="global-transit-network-architecture-and-virtual-wan"></a>全域傳輸網路架構與虛擬 WAN
+# <a name="global-transit-network-architecture-and-virtual-wan"></a>全球傳輸網路架構和虛擬 WAN
 
-企業整合、 連接及控制以雲端為中心的新式企業 IT 使用量被採用全域的傳輸網路架構。 在新式的以雲端為中心 enterprise 中，網路流量不會不需要是總部的 backhauled。 全域傳輸網路架構根據網路等熟悉的概念和特有雲端和雲端架構的新概念。
+企業採用全球傳輸網路架構來整合、連接及控制以雲端為中心的現代化企業 IT 足跡。 在新式以雲端為中心的企業中, 網路流量不需要 backhauled 至 HQ。 全球傳輸網路架構以熟悉的網路概念為基礎, 以及雲端和雲端架構特有的新概念。
 
 ![架構](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
 
-**圖 1：全域的傳輸網路與虛擬 WAN**
+**圖 1：具有虛擬 WAN 的全球傳輸網路**
 
-現代企業需要跨雲端和內部部署的無所不在超分散式應用程式、 資料和使用者之間的連線。 Azure 虛擬 WAN 可讓全域傳輸網路架構無所不在、 任意-到-任意 Vnet、 站台、 應用程式和使用者的全域散發組之間的連線。 Azure 虛擬 WAN 是 Microsoft 管理的服務。 所有的網路元件所組成的這項服務裝載，並由 Microsoft 管理。 如需虛擬 WAN 的詳細資訊，請參閱[虛擬 WAN 概觀](virtual-wan-about.md)文章。
+現代化企業需要跨雲端和內部部署的超分散式應用程式、資料和使用者之間進行廣泛的連線。 Azure 虛擬 WAN 藉由在 Vnet、網站、應用程式和使用者的全域分散式集合之間啟用各種不同的連線, 來允許全球傳輸網路架構。 Azure 虛擬 WAN 是一種受 Microsoft 管理的服務。 此服務所組成的所有網路元件都是由 Microsoft 託管及管理。 如需有關虛擬 WAN 的詳細資訊, 請參閱[虛擬 Wan 總覽](virtual-wan-about.md)文章。
 
-在 Azure 虛擬 WAN 架構中，Azure 區域作為的中樞的中，您可以選擇將您的分支。 一旦連線分支，您可以利用 Azure 的骨幹，若要建立新分支-VNet，並選擇性地分支-分支連線。
+在 Azure 虛擬 WAN 架構中, Azure 區域會作為中樞, 供您選擇用來連接分支。 連接分支之後, 您就可以利用 Azure 骨幹來建立分支對 VNet, 並選擇性地使用分支對分支連線能力。
 
-您可以建立單一虛擬 WAN 中樞的支點 （分支 Vnet，使用者），最大數目的區域中，然後連接到中樞的其他區域中的支點，以建立虛擬 WAN。 或者，如果支點分散在各地，您可以也具現化區域集線器，相互連線的中樞。 中樞都是屬於相同的虛擬 WAN，但可以是不同區域的原則相關聯。
+您可以建立虛擬 WAN, 方法是在擁有最多輪輻 (分支、Vnet、使用者) 的區域中建立單一虛擬 WAN 中樞, 然後將其他區域中的輪輻連接到中樞。 或者, 如果輪輻散佈在不同的地理位置, 您也可以具現化區域中樞, 並將中樞互連。 中樞全都屬於相同的虛擬 WAN, 但它們可以與不同的地區原則相關聯。
 
-## <a name="hub"></a>中樞和支點傳輸
+## <a name="hub"></a>中樞和輪輻傳輸
 
-全域傳輸網路架構根據傳統的中樞和支點連線模型，其中裝載的雲端網路 'hub' 可讓可轉移可能會分散在不同類型的 '支點' 的端點之間的連線。
+全球傳輸網路架構是以傳統的中樞和輪輻連線模式為基礎, 其中雲端託管網路「中樞」可在可能分散于不同類型「輪輻」的端點之間啟用可轉移的連線。
   
-在此模型中，支點可以是：
+在此模型中, 輪輻可以是:
 
 * 虛擬網路 (Vnet)
-* 實體的新分支站台
+* 實體分支網站
 * 遠端使用者
-* Internet
+* 網際網路
 
-![中樞和支點全域傳輸圖表](./media/virtual-wan-global-transit-network-architecture/architecture.png)
+![中樞和輪輻全球運輸圖表](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 
-**圖 2：中樞和支點**
+**圖 2：中樞和輪輻**
 
-[圖 2] 顯示其中地理位置分散的使用者、 實體的網站和 Vnet 會彼此互相透過網路的中樞裝載在雲端的全域網路的邏輯檢視。 此架構可讓網路端點之間的邏輯的一個躍點傳輸連線。 支點會由各種 Azure 網路服務，例如 ExpressRoute 或站台對站 VPN 實體的分支，VNet 對等互連的 Vnet，以及為遠端使用者的點對站 VPN 連線至中樞。
+[圖 2] 顯示全球網路的邏輯觀點, 地理位置分散的使用者、實體網站和 Vnet 透過雲端中裝載的網路中樞進行互連。 此架構可啟用網路端點之間的邏輯單一躍點傳輸連線。 輪輻會透過各種 Azure 網路服務 (例如 ExpressRoute 或站對站 VPN) 連接到中樞, 用於實體分支、適用于 Vnet 的 VNet 對等互連, 以及遠端使用者的點對站 VPN。
 
-## <a name="crossregion"></a>跨區域連接
+## <a name="crossregion"></a>跨區域連線能力
 
-企業中，針對雲端耗用量通常會遵循實際使用量。 大多數的企業從其實體站台和使用者最接近的區域存取雲端。 其中一個全域網路架構的索引鍵的主體是以啟用網路實體與端點之間的跨區域連線。 雲端使用量可以跨越多個區域。 這表示，另一個分支或使用中樞-中樞連線目前處於預覽狀態的不同區域中的 VNet，可以觸達流量從已連線到雲端，在一個區域中的分支。
+對於企業而言, 雲端足跡通常會遵循實體的使用量。 大部分的企業都會從最接近其實體網站和使用者的區域存取雲端。 全域網路架構的其中一個主要原則是啟用網路實體與端點之間的跨區域連線。 雲端使用量可以跨越多個區域。 這表示從一個區域中連線到雲端的分支流量, 可以使用中樞對中樞連線到位於不同區域的另一個分支或 VNet, 這目前在我們的藍圖中。
 
-## <a name="any"></a>任意-到-任意的連線
+## <a name="any"></a>任何對任何連線能力
 
-全域傳輸網路架構可讓*任意-到-任意連線*透過中央網路集線器。 此架構可消除或減少完整網狀或部分的網狀連線模型來建立及維護更複雜。 此外，在中樞和支點與網狀結構網路路由的控制項是容易設定和維護。
+全域傳輸網路架構會透過中央網路中樞啟用*任何對任何連線能力*。 此架構可消除或減少建立和維護更複雜的完整網狀模式或部分網格連線性模型的需求。 此外, 中樞和輪輻與網狀架構網路中的路由控制較容易設定和維護。
 
-任意-到-任意的連線內容中的通用架構中，可讓具備分散在世界各地的使用者、 分支、 資料中心、 Vnet 和應用程式透過傳輸集線器連接到彼此的企業。 傳輸中樞做為全域的傳輸系統。
+全域架構內容中的任何對任何連線能力, 可讓具有全域散發使用者、分支、資料中心、Vnet 和應用程式的企業透過傳輸中樞彼此連接。 傳輸中樞會作為全域傳輸系統。
 
-![傳輸路徑](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
+![流量路徑](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
 
 **圖 3：虛擬 WAN 流量路徑**
 
-Azure 虛擬 WAN 支援下列全域的傳輸連線路徑。 在括號中的字母對應圖 3。
+Azure 虛擬 WAN 支援下列全球傳輸連接路徑。 括弧中的字母會對應到 [圖 3]。
 
 * 分支對 VNet (a)  
-* 分支-分支 (b)
+* 分支對分支 (b)
 * 遠端使用者對 VNet (c)
-* 遠端使用者-至-分支 (d)
-* VNet 對 VNet 使用 VNet 對等互連 (e)
-* ExpressRoute 遍及全球的觸角 
+* 遠端使用者對分支 (d)
+* 使用 VNet 對等互連的 VNet 對 VNet (e)
+* ExpressRoute 全球範圍 
 
-### <a name="branchvnet"></a>若要對 VNet 的分支
+### <a name="branchvnet"></a>分支對 VNet
 
-分支-VNet 是 Azure 虛擬 WAN 支援的主要路徑。 這個路徑可讓您連接到 Azure IAAS 企業工作負載部署在 Azure Vnet 中的 分支。 分支可以連接到虛擬 WAN 透過 ExpressRoute 或站對站 VPN。 連線到虛擬 WAN 中樞，透過 VNet 連線的 vnet 流量傳輸。
+分支對 VNet 是 Azure 虛擬 WAN 支援的主要路徑。 此路徑可讓您將分支連線至 azure Vnet 中部署的 Azure IAAS 企業工作負載。 分支可以透過 ExpressRoute 或站對站 VPN 連線到虛擬 WAN。 流量會傳輸到透過 VNet 連線連接到虛擬 WAN 中樞的 Vnet。
 
-### <a name="branchbranch"></a>分支-分支
+### <a name="branchbranch"></a>分支對分支
 
-分支可以連接到 Azure 虛擬 WAN 中樞，使用 ExpressRoute 線路和/或站對站 VPN 連線。 您可以連接分支到虛擬 WAN 分支最接近的區域中的中樞。
+您可以使用 ExpressRoute 線路和/或站對站 VPN 連線, 將分支連接到 Azure 虛擬 WAN 中樞。 您可以將分支連接到最接近分支區域中的虛擬 WAN 中樞。
 
-此選項可讓企業利用 Azure 的骨幹，連接的分支。 不過，即使這項功能可供使用，您應該衡量透過 Azure 虛擬 WAN 連線分支，與使用私用 WAN 的優點。
+此選項可讓企業利用 Azure 骨幹來連接分支。 不過, 即使這項功能可供使用, 您還是應該衡量透過 Azure 虛擬 WAN 連接分支的優點, 與使用私人 WAN。
 
 ### <a name="usertovnet"></a>遠端使用者對 VNet
 
-您可以啟用直接且安全的遠端存取，使用點對站連線從遠端使用者用戶端虛擬 WAN 到 azure。 企業遠端使用者不再需要在雲端中使用公司的 VPN 的 hairpin。
+您可以使用從遠端使用者用戶端到虛擬 WAN 的點對站連線, 啟用對 Azure 的直接安全遠端存取。 企業遠端使用者不再需要使用公司 VPN hairpin 到雲端。
 
-### <a name="usertobranch"></a>遠端是 「 使用者-分支
+### <a name="usertobranch"></a>遠端使用者對分支
 
-遠端是 「 使用者-分支路徑可讓遠端使用者使用 Azure 存取內部部署工作負載和應用程式的點對站連線傳送到雲端。 這個路徑可讓遠端使用者彈性存取工作負載，部署在 Azure 和內部部署。 企業可以啟用在 Azure 虛擬 WAN 的中央雲端安全的遠端存取服務。
+遠端使用者到分支路徑可讓使用點對站連線至 Azure 的遠端使用者, 透過雲端傳輸來存取內部部署工作負載和應用程式。 此路徑可讓遠端使用者彈性地存取部署在 Azure 和內部部署環境中的工作負載。 企業可以在 Azure 虛擬 WAN 中啟用以雲端為基礎的集中式安全遠端存取服務。
 
 ### <a name="vnetvnet"></a>使用 VNet 對等互連的 VNet 對 VNet 傳輸
 
-若要連接到彼此的 Vnet，以支援跨多個 Vnet 所實作的多層式應用程式，使用 VNet 對等互連。 透過 Azure 虛擬 WAN 的 VNet 對 VNet 傳輸案例目前不支援，但位於 Azure 的藍圖。 透過 VNet 對等互連連線的 Vnet 是建議的解決方案需要彼此連線的 vnet。 [閘道傳輸](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity)（在 VNet 對等互連的內容） 並不需要虛擬 WAN 因為虛擬 WAN 會自動啟用閘道傳輸。
+若要將 Vnet 彼此連線以支援跨多個 Vnet 執行的多層式應用程式, 請使用 VNet 對等互連。 目前不支援透過 Azure 虛擬 WAN 進行 VNet 對 VNet 傳輸案例, 但在 Azure 藍圖上。 透過 VNet 對等互連連接 Vnet 是需要彼此連線的 Vnet 建議解決方案。 [閘道傳輸](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity)(在 VNet 對等互連的內容中) 不是虛擬 WAN 的必要項, 因為虛擬 WAN 會自動啟用閘道傳輸。
 
-### <a name="globalreach"></a>ExpressRoute 遍及全球的觸角
+### <a name="globalreach"></a>ExpressRoute 全球範圍
 
-ExpressRoute 是私人且有彈性的方式，您的內部部署網路連線到 Microsoft 雲端。 ExpressRoute 觸及全球範圍是 ExpressRoute 的附加元件功能。 使用觸及全球範圍，您可以連結方式來產生您的內部部署網路之間的私人網路的 ExpressRoute 線路。 連線到 Azure 虛擬 WAN 使用 ExpressRoute 的分支需要 ExpressRoute 觸及全球範圍來彼此通訊。
+ExpressRoute 是將內部部署網路連線至 Microsoft Cloud 的私用和可復原方式。 ExpressRoute Global 觸及是 ExpressRoute 的附加元件功能。 有了全球範圍, 您可以將 ExpressRoute 線路連結在一起, 以在內部部署網路之間建立私人網路。 使用 ExpressRoute 連線到 Azure 虛擬 WAN 的分支需要 ExpressRoute 全域觸達彼此通訊。
 
-在此模型中，使用 ExpressRoute 的虛擬 WAN 中樞連線的每個分支可以連線到 Vnet 使用的分支到 VNet 的路徑。 分支-分支流量不會傳輸集線器，因為 ExpressRoute 全域連線到透過 WAN Azure 啟用較佳的路徑。
+在此模型中, 使用 ExpressRoute 連線到虛擬 WAN 中樞的每個分支, 都可以使用分支對 VNet 路徑連接到 Vnet。 分支對分支流量不會傳輸中樞, 因為 ExpressRoute Global 觸及可透過 Azure WAN 提供更佳的路徑。
 
-## <a name="security"></a>安全性和原則控制
+## <a name="security"></a>安全性與原則控制
 
-中樞虛擬網路互連，可能會看到所有的傳輸流量。 它可以是主控件集中的網路功能和服務，例如這類雲端路由、 網路原則和安全性和網際網路存取控制的位置。
+虛擬網路中樞會進行互連, 而且可能會看到所有傳輸流量。 它可以是裝載中央網路功能和服務的位置, 例如雲端路由、網路原則和安全性, 以及網際網路存取控制。
 
 ## <a name="next-steps"></a>後續步驟
 
-建立使用虛擬 WAN 連線。
+使用虛擬 WAN 建立連接。
 
 * [使用虛擬 WAN 的站對站連線](virtual-wan-site-to-site-portal.md)
-* [使用虛擬 WAN 的點對站連線](virtual-wan-point-to-site-portal.md)
 * [使用虛擬 WAN 的 ExpressRoute 連線](virtual-wan-expressroute-portal.md)

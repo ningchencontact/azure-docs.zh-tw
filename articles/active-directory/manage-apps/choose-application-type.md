@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e5e7ae02cfdc921d593d204151ac501c8c8ee80
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ROBOTS: NOINDEX
+ms.openlocfilehash: fb2c49d6436a14e9b6cbb0a92eb0dfba077c8e4d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807664"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424253"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>在 Azure Active Directory 中新增應用程式時，選擇應用程式類型
 
@@ -28,7 +29,7 @@ ms.locfileid: "67807664"
 
 ## <a name="what-are-the-types-of-applications"></a>應用程式類型是什麼？
 
-Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用程式]  下的 [新增]  功能新增這幾種類型。 它們包括：
+Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用程式]下的 [新增] 功能新增這幾種類型。 它們包括：
 
 - **Azure AD 資源庫應用程式** – 與 Azure AD 預先整合以啟用單一登入的應用程式。
 
@@ -42,7 +43,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 在 Azure AD 中，上述四種應用程式類型都支援下列功能︰
 
-- **快速啟動** – 依照[簡單部署步驟](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)快速開始使用應用程式
+- **快速入門**–遵循[簡單的部署步驟](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)快速開始使用應用程式
 
 - **一般屬性管理** – 取得應用程式的[直接深層連結](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)、為應用程式[自訂商標](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal)或對所有使用者[停用應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal)。
 
@@ -62,7 +63,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 下表說明前述每個應用程式類型所支援的不同單一登入和佈建模式。 請利用此表格，協助您了解需要新增哪個應用程式以支援特定目標。
 
-  ![表格：不同的 SSO 和佈建每個應用程式類型所支援的模式](./media/choose-application-type/table1.png)
+  ![資料表:每個應用程式類型所支援的不同 SSO 和布建模式](./media/choose-application-type/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>如何選擇單一登入模式
 
@@ -105,18 +106,18 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 ## <a name="how-to-set-an-applications-single-sign-on-mode"></a>如何設定應用程式的單一登入模式
 
-若要設定應用程式的單一登入模式，請遵循下列指示：
+若要設定應用程式的單一登入模式, 請遵循下列指示:
 
-1. 開啟 [Azure 入口網站  ](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
-1. 按一下左側主導覽功能表底部的 [所有服務]  ，以開啟 [Azure Active Directory 延伸模組]  。
-1. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory]  項目。
-1. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]  。
-1. 按一下 [所有應用程式]  ，以檢視所有應用程式的清單。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+1. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+1. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+1. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單]  頂端的 [篩選]  控制項，並將 [顯示]  選項設定為 [所有應用程式]  。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 1. 選取您要設定單一登入的應用程式。
-1. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]  。
+1. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>如何選擇佈建模式
 
@@ -136,16 +137,16 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 若要設定應用程式的**佈建**模式，請遵循下列指示：
 
-1. 開啟 [Azure 入口網站  ](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
-1. 按一下左側主導覽功能表底部的 [所有服務]  ，以開啟 [Azure Active Directory 延伸模組]  。
-1. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory]  項目。
-1. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]  。
-1. 按一下 [所有應用程式]  ，以檢視所有應用程式的清單。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+1. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+1. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+1. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單]  頂端的 [篩選]  控制項，並將 [顯示]  選項設定為 [所有應用程式]  。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 1. 選取您要設定佈建的應用程式。
-1. 應用程式載入之後，按一下應用程式左側導覽功能表中的 [佈建]  。
+1. 應用程式載入之後，按一下應用程式左側導覽功能表中的 [佈建]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,7 +2,7 @@
 title: 在 Azure SQL 資料倉儲中使用交易 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,17 +10,17 @@ ms.subservice: development
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b6f95607c7cfc574d647be3046cef4a4b61906f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f00f8a25d0abf3af6d76b372b44145546a79879
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861757"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479600"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用交易
 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
 
-## <a name="what-to-expect"></a>未來展望
+## <a name="what-to-expect"></a>預期的情況
 如您所預期，SQL 資料倉儲支援交易做為資料倉儲工作負載的一部分。 不過，為了確保 SQL 資料倉儲的效能維持在一定的程度，某些功能會受到限制 (相較於 SQL Server)。 本文特別強調差異，並列出其他交易。 
 
 ## <a name="transaction-isolation-levels"></a>交易隔離層級
@@ -36,7 +36,7 @@ SQL 資料倉儲實作 ACID 交易。 不過，交易支援的隔離等級僅限
 
 ## <a name="gen2"></a>Gen2
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | 限制每個散發套件 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
+| [DWU](sql-data-warehouse-overview-what-is.md) | 每個散發的上限 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -57,7 +57,7 @@ SQL 資料倉儲實作 ACID 交易。 不過，交易支援的隔離等級僅限
 
 ## <a name="gen1"></a>Gen1
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | 限制每個散發套件 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
+| [DWU](sql-data-warehouse-overview-what-is.md) | 每個散發的上限 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79bc5e640498788ef805d07a26dd29e943117b58
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003127"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476964"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服務匯流排寄不出的信件佇列的概觀
 
-Azure 服務匯流排佇列和主題訂用帳戶提供次要的子佇列，稱為「無效信件佇列」  (DLQ)。 寄不出的信件佇列並不需要明確建立，而且無法刪除或以其他方式在主要實體之外管理。
+Azure 服務匯流排佇列和主題訂用帳戶提供次要的子佇列，稱為「無效信件佇列」(DLQ)。 寄不出的信件佇列並不需要明確建立，而且無法刪除或以其他方式在主要實體之外管理。
 
 本文說明服務匯流排中的無效信件佇列。 大部分的討論內容是以 GitHub 上的[無效信件佇列範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue)加以說明。
  
@@ -49,7 +49,7 @@ Azure 服務匯流排佇列和主題訂用帳戶提供次要的子佇列，稱�
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing 和 SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |訊息已過期，且已停止傳送。 |
 | SubscriptionDescription.RequiresSession |工作階段識別碼為 null。 |啟用工作階段的實體不允許工作階段識別項為 null 的訊息。 |
-| ！寄不出的信件佇列 |MaxTransferHopCountExceeded |Null |
+| ！寄不出的信件佇列 | MaxTransferHopCountExceeded | 在佇列之間轉送時允許的躍點數目上限。 值設為4。 |
 | 應用程式明確停止傳送 |應用程式所指定 |應用程式所指定 |
 
 ## <a name="exceeding-maxdeliverycount"></a>超過 MaxDeliveryCount
@@ -103,15 +103,15 @@ while(true)
 }
 ```
 
-## <a name="path-to-the-dead-letter-queue"></a>寄不出信件佇列路徑
-您可以使用下列語法來存取寄不出信件佇列：
+## <a name="path-to-the-dead-letter-queue"></a>寄不出的信件佇列的路徑
+您可以使用下列語法來存取寄不出的信件佇列:
 
 ```
 <queue path>/$deadletterqueue
 <topic path>/Subscription/<subscription path>/$deadletterqueue
 ```
 
-如果您使用.NET SDK，您可以使用 SubscriptionClient.FormatDeadLetterPath() 方法來取得寄不出信件佇列的路徑。 這個方法會採用主題名稱/訂用帳戶名稱，並具有字尾 **/$DeadLetterQueue**。
+如果您使用 .NET SDK, 您可以使用 SubscriptionClient. FormatDeadLetterPath () 方法來取得寄不出的信件佇列的路徑。 這個方法會採用主題名稱/訂用帳戶名稱, 以及具有 **/$DeadLetterQueue**的尾碼。
 
 
 ## <a name="next-steps"></a>後續步驟

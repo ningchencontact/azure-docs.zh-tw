@@ -4,15 +4,15 @@ description: 這篇文章說明 Azure Cosmos DB 如何提供高可用性
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 38629ed2246f4eb67e4183354fe4feaaaee16805
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: 4dde41479c05151fa4e14c9fe4b534b9f7edf9b4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305453"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467745"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB 的高可用性
 
@@ -49,9 +49,9 @@ Azure Cosmos DB 會以透明方式，在與 Cosmos 帳戶相關聯的所有 Azur
 - 使用多重寫入區域設定的多重區域帳戶，將針對寫入和讀取維持高可用性。 區域性容錯移轉是即時的，不需要對應用程式進行任何變更。
 
 - **具有單一寫入區域的多重區域帳戶 (寫入區域中斷):** 
-  * 在寫入區域中斷期間，這些帳戶將針對讀取維持高可用性。 不過, 針對寫入, 您必須在您的 Cosmos 帳戶上**啟用自動容錯移轉**, 以將受影響的區域容錯移轉至另一個區域。 容錯移轉將依照您所指定的區域優先順序進行。 
-  * 當受影響的區域重新上線時, 在中斷期間出現在受影響寫入區域中的未複製資料, 會透過[衝突](how-to-manage-conflicts.md#read-from-conflict-feed)摘要提供。 應用程式可以讀取衝突摘要, 根據應用程式特定邏輯解決衝突, 並適當地將更新的資料寫回 Cosmos 容器。 
-  * 一旦先前受影響的寫入區域復原，它將自動作為讀取區域使用。 您可以切換回已復原的區域做為寫入區域。 您可以使用[Azure CLI 或 Azure 入口網站](how-to-manage-database-account.md#manual-failover)來切換區域。 在手動容錯移轉之前、期間或之後，沒有**遺失任何資料或可用性**。 應用程式可繼續保有高可用性。 
+  * 在寫入區域中斷期間，這些帳戶將針對讀取維持高可用性。 若要讓寫入要求成功, 您必須在您的 Azure Cosmos 帳戶上開啟 [**啟用自動容錯移轉**] 選項。 啟用此選項會將受影響的區域容錯移轉至另一個區域, 依您指定的區域優先順序排序。 
+  * 當先前受影響的區域重新上線時, 在區域失敗時未複製的任何寫入資料, 都可透過[衝突](how-to-manage-conflicts.md#read-from-conflict-feed)摘要取得。 應用程式可以讀取衝突摘要、根據應用程式特定邏輯解決衝突, 並適當地將更新的資料寫回 Azure Cosmos 容器。 
+  * 一旦先前受影響的寫入區域復原，它將自動作為讀取區域使用。 您可以切換回已復原的區域做為寫入區域。 您可以使用[Azure CLI 或 Azure 入口網站](how-to-manage-database-account.md#manual-failover)來切換區域。 在您切換寫入區域的期間或之後, 以及您的應用程式持續成為高可用性之前, 不會**遺失任何資料或可用性**。 
 
 - **具有單一寫入區域的多重區域帳戶 (讀取區域中斷):** 
   * 在讀取區域中斷期間，這些帳戶將針對讀取和寫入維持高可用性。 
@@ -98,7 +98,7 @@ Azure Cosmos DB 是全域散發的多宿主資料庫服務, 可在區域中斷�
 |寫入延遲    |   跨區域   |  跨區域    |   低   |
 |區域中斷-資料遺失    |   資料遺失      |  資料遺失       |   資料遺失 <br/><br/> 搭配多個主要和多個區域使用限定過期一致性時, 資料遺失僅限於您帳戶上設定的限定過期。 <br/><br/> 藉由設定多個區域的強式一致性, 可以避免區域中斷期間的資料遺失。 此選項包含會影響可用性和效能的取捨。      |
 |區域中斷-可用性  |  可用性損失       |  可用性損失       |  無可用性損失  |
-|Throughput    |  X RU/秒布建輸送量      |  X RU/秒布建輸送量       |  2倍 RU/秒布建輸送量 <br/><br/> 相較于具有可用性區域的單一區域, 此設定模式需要兩倍的輸送量, 因為有兩個區域。   |
+|輸送量    |  X RU/秒布建輸送量      |  X RU/秒布建輸送量       |  2倍 RU/秒布建輸送量 <br/><br/> 相較于具有可用性區域的單一區域, 此設定模式需要兩倍的輸送量, 因為有兩個區域。   |
 
 > [!NOTE] 
 > 若要啟用多重區域 Azure Cosmos 帳戶的可用性區域支援, 帳戶必須啟用多宿主寫入。

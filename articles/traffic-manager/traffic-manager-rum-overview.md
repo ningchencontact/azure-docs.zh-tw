@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: cbde96f135aa52ada9bb10b47ca81687992e5833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4aa2649ba2e49e1fec1b9b124a9b82313280cee9
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070974"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333721"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>流量管理員實際使用者度量概觀
 
@@ -34,6 +34,46 @@ ms.locfileid: "67070974"
 經過一段時間，這個作業會在許多網路之間發生許多次，讓流量管理員取得更多使用者所在之網路的延遲特性相關精確資訊。 這項資訊開始納入流量管理員進行的路由決策中。 如此一來，就會根據傳送的實際使用者度量，增加這些決策的精確度。
 
 當您使用實際使用者度量時，您會根據傳送給流量管理員的度量數目收到帳單。 如需價格的詳細資訊，請瀏覽[流量管理員定價分頁](https://azure.microsoft.com/pricing/details/traffic-manager/)。
+
+## <a name="faqs"></a>常見問題集
+
+* [使用實際使用者度量的優點為何？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
+
+* [我可以將實際使用者度量與非 Azure 區域搭配使用嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-non-azure-regions)
+
+* [哪些路由方法受益于實際使用者度量？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#which-routing-method-benefits-from-real-user-measurements)
+
+* [我是否需要分別對每個設定檔啟用實際使用者度量？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-real-user-measurements-each-profile-separately)
+
+* [如何? 關閉我訂用帳戶的實際使用者度量嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-turn-off-real-user-measurements-for-my-subscription)
+
+* [我可以將實際使用者度量與網頁以外的用戶端應用程式搭配使用嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
+
+* [每次呈現實際使用者度量啟用的網頁時, 會進行多少測量？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
+
+* [在 [我的網頁] 中的實際使用者度量腳本執行之前是否有延遲？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
+
+* [我可以只搭配我想要測量的 Azure 區域來使用實際使用者度量嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
+
+* [我可以限制對特定數位所做的測量數目嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-limit-the-number-of-measurements-made-to-a-specific-number)
+
+* [我可以看到用戶端應用程式在實際使用者度量中所採用的度量嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
+
+* [我可以修改流量管理員所提供的度量腳本嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-modify-the-measurement-script-provided-by-traffic-manager)
+
+* [其他人是否可以看到我用來搭配實際使用者度量的金鑰？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
+
+* [其他人是否可以濫用我的 RUM 金鑰？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-others-abuse-my-rum-key)
+
+* [我需要將度量 JavaScript 放在所有的網頁嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages)
+
+* [如果我使用實際使用者度量, 可以流量管理員識別我的終端使用者的相關資訊嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
+
+* [測量實際使用者度量的網頁是否需要使用流量管理員來進行路由？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
+
+* [我是否需要在 Azure 區域上裝載任何服務, 以用於實際使用者度量？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
+
+* [當我使用實際使用者度量時, 我的 Azure 頻寬使用量會增加嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何使用[具有網頁的實際使用者度量](traffic-manager-create-rum-web-pages.md)

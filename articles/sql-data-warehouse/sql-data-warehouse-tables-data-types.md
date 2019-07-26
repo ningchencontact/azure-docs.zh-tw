@@ -2,7 +2,7 @@
 title: 定義資料類型 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中定義資料表資料類型的建議。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 06a273d3bfd5d416039a992e36bd4b0f72a85f78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61bb977271186699b0a72389e1538573f978c56b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851555"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479375"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的資料表資料類型
 在 Azure SQL 資料倉儲中定義資料表資料類型的建議。 

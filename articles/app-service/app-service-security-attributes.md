@@ -1,6 +1,6 @@
 ---
 title: Azure App Service 的安全性屬性
-description: 評估 Azure App Service 的安全性屬性的檢查清單
+description: 評估 Azure App Service 的安全性屬性檢查清單
 services: app-service
 documentationcenter: ''
 author: msmbaldwin
@@ -9,16 +9,16 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e38e1479c1e094f691e8f22f0a48f9342cae5cf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 299262610c027529749840720f46d6dc97a07b21
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475089"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442261"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Azure App Service 的安全性屬性
 
-這篇文章說明 Azure App Service 內建的一般安全性屬性。
+本文記載 Azure App Service 內建的安全性屬性。
 
 [!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 
@@ -26,45 +26,45 @@ ms.locfileid: "66475089"
 
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
-| 靜態加密 （例如伺服器端加密，使用客戶管理的金鑰，伺服器端加密和其他加密功能） | 是 | 網站檔案內容會儲存在 Azure 儲存體，這會自動加密待用內容。 請參閱[待用資料的 Azure 儲存體加密](../storage/common/storage-service-encryption.md)。<br><br>提供的客戶機密資料皆在待用加密。 密碼會加密待用時儲存在應用程式服務組態資料庫。<br><br>在本機連接的磁碟 （選擇性） 可用來當做暫存儲存體的網站 （D:\local 和 %TMP%)。 在本機連接的磁碟不會進行待用加密。 |
-| （例如 ExpressRoute 加密，在 VNet 加密和 VNet 對 VNet 加密） 的傳輸中加密| 是 | 客戶可以設定 web sites 設定成需要與輸入流量使用 HTTPS。 請參閱部落格文章[如何讓 Azure 應用程式服務僅限 HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/)。 |
-| 加密金鑰處理 （CMK、 BYOK）| 是 | 客戶可以選擇將應用程式祕密儲存在金鑰保存庫，並在執行階段擷取它們。 請參閱[App Service 和 Azure Functions （預覽） 會使用 Key Vault 參考](app-service-key-vault-references.md)。|
-| 資料行層級加密 (Azure Data Services)| N/A | |
-| API 呼叫加密| 是 | 若要設定 App Service 管理呼叫發生透過[Azure Resource Manager](../azure-resource-manager/index.yml)透過 HTTPS 的呼叫。 |
+| 待用加密 (例如伺服器端加密、使用客戶管理金鑰的伺服器端加密, 以及其他加密功能) | 是 | 網站檔案內容會儲存在 Azure 儲存體中, 這會自動將待用內容加密。 請參閱待用[資料的 Azure 儲存體加密](../storage/common/storage-service-encryption.md)。<br><br>客戶提供的秘密會在待用時加密。 秘密會在待用時加密, 並儲存在 App Service 設定資料庫中。<br><br>網站 (D:\local 和% TMP%) 可以選擇性地使用本機連接的磁片做為暫時儲存。 本機連接的磁片不會在待用時加密。 |
+| 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 | 客戶可以將網站設定為要求並使用 HTTPS 來輸入流量。 請參閱 blog 文章[如何僅讓 AZURE APP SERVICE HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/)。 |
+| 加密金鑰處理 (CMK、BYOK 等)| 是 | 客戶可以選擇將應用程式秘密儲存在 Key Vault 中, 並在執行時間取得它們。 請參閱[使用 App Service 和 Azure Functions 的 Key Vault 參考 (預覽)](app-service-key-vault-references.md)。|
+| 資料行層級加密 (Azure 資料服務)| N/A | |
+| API 呼叫加密| 是 | 透過 HTTPS [Azure Resource Manager](../azure-resource-manager/index.yml)呼叫來設定 App Service 進行管理呼叫。 |
 
 ## <a name="network-segmentation"></a>網路分割
 
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
-| 服務端點支援| 是 | 目前可供預覽的 App Service。 請參閱[Azure App Service 的存取限制](app-service-ip-restrictions.md)。 |
-| VNet 插入支援| 是 | App Service 環境都是以插入客戶的虛擬網路的單一客戶專用的 App service 的私用實作。 請參閱[App Service Environment 簡介](environment/intro.md)。 |
-| 網路隔離和 Firewalling 支援| 是 | App Service 的公用多租用戶變化，客戶可以設定網路 Acl （IP 限制） 鎖定允許輸入流量。  請參閱[Azure App Service 的存取限制](app-service-ip-restrictions.md)。  App Service 環境會直接部署到虛擬網路，因此您可以使用 Nsg 保護。 |
-| 強制通道的支援| 是 | App Service Environment 可以部署到客戶的強制通道設定所在的虛擬網路中。 客戶必須依照[設定您的 App Service Environment 使用強制通道](environment/forced-tunnel-support.md)。 |
+| 服務端點支援| 是 | 目前可在 App Service 預覽中使用。 請參閱[Azure App Service 的存取限制](app-service-ip-restrictions.md)。 |
+| VNet 插入支援| 是 | App Service 環境是專用於單一客戶的 App Service 私用, 並插入客戶的虛擬網路中。 請參閱[App Service 環境簡介](environment/intro.md)。 |
+| 網路隔離和防火牆支援| 是 | 針對 App Service 的公用多租使用者變化, 客戶可以設定網路 Acl (IP 限制) 來鎖定允許的輸入流量。  請參閱[Azure App Service 的存取限制](app-service-ip-restrictions.md)。  App Service 環境會直接部署到虛擬網路中, 因此可以使用 Nsg 來保護。 |
+| 強制通道支援| 是 | App Service 環境可以部署到客戶的虛擬網路, 其中已設定強制通道。 客戶必須遵循[使用強制通道設定您的 App Service 環境](environment/forced-tunnel-support.md)中的指示。 |
 
 ## <a name="detection"></a>偵測
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| Azure 監視支援 （Log analytics、 App insights）| 是 | App Service 整合 Application Insights 的支援 （完整的.NET Framework、.NET Core、 Java 和 Node.JS） 的 Application Insights 的語言。  請參閱[監視 Azure App Service 的效能](../azure-monitor/app/azure-web-apps.md)。 App Service 也會傳送至 「 Azure 監視器的應用程式計量。 請參閱[監視 Azure App Service 中的應用程式](web-sites-monitor.md)。 |
+| Azure 監視支援 (Log analytics、App insights 等)| 是 | App Service 與支援 Application Insights 的語言 Application Insights 整合 (完整 .NET Framework、.NET Core、JAVA 和 NODE.JS)。  請參閱[監視 Azure App Service 效能](../azure-monitor/app/azure-web-apps.md)。 App Service 也會將應用程式計量傳送至 Azure 監視器。 請參閱[監視 Azure App Service 中的應用程式](web-sites-monitor.md)。 |
 
 ## <a name="identity-and-access-management"></a>身分識別和存取管理
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| 驗證| 是 | 客戶可以建置自動整合的 App Service 上的應用程式[Azure Active Directory (Azure AD)](../active-directory/index.yml)以及其他 OAuth 相容的身分識別提供者，請參閱[中驗證和授權Azure App Service](overview-authentication-authorization.md)。 管理 App Service 的資產的存取，所有的存取會受到驗證的 Azure AD 主體和 Azure Resource Manager RBAC 角色的組合。 |
-| Authorization| 是 | 管理 App Service 的資產的存取，所有的存取會受到驗證的 Azure AD 主體和 Azure Resource Manager RBAC 角色的組合。  |
+| 驗證| 是 | 客戶可以在自動與[Azure Active Directory (Azure AD)](../active-directory/index.yml)以及其他與 OAuth 相容身分識別提供者整合的 App Service 上建立應用程式;請參閱[Azure App Service 中的驗證和授權](overview-authentication-authorization.md)。 對於 App Service 資產的管理存取權, 所有存取都是由 Azure AD 已驗證主體和 Azure Resource Manager RBAC 角色的組合來控制。 |
+| Authorization| 是 | 對於 App Service 資產的管理存取權, 所有存取都是由 Azure AD 已驗證主體和 Azure Resource Manager RBAC 角色的組合來控制。  |
 
 
 ## <a name="audit-trail"></a>稽核線索
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| 控制和管理平面記錄與稽核| 是 | App Service 物件上執行的所有管理作業都都會透過[Azure Resource Manager](../azure-resource-manager/index.yml)。 這些作業的歷程記錄可在入口網站中和透過 CLI;請參閱[Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md#microsoftweb)並[az 監視活動記錄檔](/cli/azure/monitor/activity-log)。 |
-| 資料平面記錄與稽核 | 否 | 資料層應用程式服務是包含客戶已部署的網站內容的遠端檔案共用。  沒有任何稽核遠端檔案共用。 |
+| 控制和管理平面記錄和審核| 是 | 在 App Service 物件上執行的所有管理作業都是透過[Azure Resource Manager](../azure-resource-manager/index.yml)進行。 這些作業的歷程記錄可以在入口網站中和透過 CLI 取得。請參閱[Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md#microsoftweb)和[az monitor activity-log](/cli/azure/monitor/activity-log)。 |
+| 資料平面記錄和審核 | 否 | App Service 的資料平面是遠端檔案共用, 其中包含客戶已部署的網站內容。  不會對遠端檔案共用進行任何審核。 |
 
 ## <a name="configuration-management"></a>設定管理
 
 | 安全性屬性 | 是/否 | 注意|
 |---|---|--|
-| 組態管理支援 （版本設定的組態等）。| 是 | 管理作業，應用程式服務組態的狀態可以匯出為 Azure Resource Manager 範本和建立版本一段時間。 執行階段作業，客戶可以維護多個不同的即時版本，使用 App Service 部署位置功能的應用程式。 | 
+| 設定管理支援 (設定的版本設定等)| 是 | 針對管理作業, App Service 設定的狀態可以匯出為 Azure Resource Manager 範本, 並在一段時間後進行版本設定。 針對執行時間作業, 客戶可以使用 App Service 部署位置 功能來維護應用程式的多個不同即時版本。 | 
 

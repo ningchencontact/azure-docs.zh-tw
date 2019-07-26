@@ -1,19 +1,18 @@
 ---
 title: Azure 備份 - 使用 PowerShell 備份 DPM 工作負載
 description: 了解如何使用 PowerShell 部署和管理 Data Protection Manager (DPM) 的 Azure 備份
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a269db3d97f23c16e848026ce78fc04c7a1182e8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127745"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465140"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>使用 PowerShell 部署和管理 Data Protection Manager (DPM) 伺服器的 Azure 備份
 
@@ -42,7 +41,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要開始，[下載最新版的 Azure PowerShell](/powershell/azure/install-az-ps)。
+若要開始, 請[下載最新的 Azure PowerShell](/powershell/azure/install-az-ps)。
 
 PowerShell 可以自動化下列設定和註冊工作：
 
@@ -68,7 +67,7 @@ PowerShell 可以自動化下列設定和註冊工作：
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. 使用**新增 AzRecoveryServicesVault** cmdlet 來建立新的保存庫。 請務必為保存庫指定與用於資源群組相同的位置。
+3. 使用**new-azrecoveryservicesvault** Cmdlet 來建立新的保存庫。 請務必為保存庫指定與用於資源群組相同的位置。
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -88,9 +87,9 @@ PowerShell 可以自動化下列設定和註冊工作：
 
 ## <a name="view-the-vaults-in-a-subscription"></a>在訂用帳戶中檢視保存庫
 
-使用**Get AzRecoveryServicesVault**來檢視目前的訂用帳戶中所有保存庫的清單。 您可以使用此命令來檢查是否已建立新的保存庫，或查看訂用帳戶中有哪些保存庫可用。
+使用**new-azrecoveryservicesvault**來查看目前訂用帳戶中所有保存庫的清單。 您可以使用此命令來檢查是否已建立新的保存庫，或查看訂用帳戶中有哪些保存庫可用。
 
-執行命令，取得 AzRecoveryServicesVault，並會列出訂用帳戶中的所有保存庫。
+執行命令 New-azrecoveryservicesvault, 並列出訂用帳戶中的所有保存庫。
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -119,9 +118,9 @@ MARSAgentInstaller.exe /q
 
 這會以所有預設選項安裝代理程式。 安裝作業會在背景中進行幾分鐘。 如果您沒有指定 */nu* 選項，則安裝結束時會開啟 **Windows Update** 視窗以檢查是否有任何更新。
 
-代理程式會顯示在已安裝的程式清單中。 若要查看已安裝的程式清單，請移至 [控制台]   > [程式]   > [程式和功能]  。
+代理程式會顯示在已安裝的程式清單中。 若要查看已安裝的程式清單，請移至 [控制台] > [程式] > [程式和功能]。
 
-![已安裝代理程式](./media/backup-dpm-automation/installed-agent-listing.png)
+![安裝的代理程式](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>安裝選項
 
@@ -274,7 +273,7 @@ $MPG = Get-ModifiableProtectionGroup $PG
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-現在使用 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) Cmdlet 擷取 ```$server``` 上的資料來源清單。 在此範例中，我們會篩選磁碟區*d:\\* 我們想要針對備份設定。 然後此資料來源會使用 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) Cmdlet 新增至保護群組。 記得使用 *「可修改的」* 保護群組物件 ```$MPG``` 來進行新增。
+現在使用 [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605) Cmdlet 擷取 ```$server``` 上的資料來源清單。 在此範例中, 我們會篩選要設定備份的磁片區*D:\\*  。 然後此資料來源會使用 [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732) Cmdlet 新增至保護群組。 記得使用 *「可修改的」* 保護群組物件 ```$MPG``` 來進行新增。
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }

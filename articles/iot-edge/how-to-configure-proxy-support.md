@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1bf66fdb18398aaf233980ee7f2fd45fe1cc543b
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 47d3018015d05d0587e841c216a5eb89f2a0ae20
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260502"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414561"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
@@ -64,7 +64,7 @@ Proxy URL 採用下列格式：**protocol**://**proxy_host**:**proxy_port**。
 
 ### <a name="linux"></a>Linux
 
-若您正於 Linux 裝置上安裝 IoT Edge 執行階段，請設定套件管理員以 Proxy 伺服器存取安裝套件。 例如，[設定 apt-get 以使用 http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy) \(英文\)。 設定您的套件管理員之後，請依照[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)或[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)中的指示執行。
+若您正於 Linux 裝置上安裝 IoT Edge 執行階段，請設定套件管理員以 Proxy 伺服器存取安裝套件。 例如，[設定 apt-get 以使用 http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy) \(英文\)。 一旦設定您的套件管理員, 請依照往常在[Linux 上安裝 Azure IoT Edge 執行時間](how-to-install-iot-edge-linux.md)中的指示進行。
 
 ### <a name="windows"></a>Windows
 
@@ -214,9 +214,9 @@ IoT Edge 代理程式是在任何 IoT Edge 裝置上皆應第一個啟動的模�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-當您使用 [設定模組]  精靈來針對 IoT Edge 裝置建立部署時，每個模組都會有 [環境變數]  區段可供您用來設定 Proxy 伺服器連線。 
+當您使用 [設定模組] 精靈來針對 IoT Edge 裝置建立部署時，每個模組都會有 [環境變數] 區段可供您用來設定 Proxy 伺服器連線。 
 
-若要設定 IoT Edge 代理程式和 IoT Edge 中樞模組，請在精靈的第一個步驟中選取 [設定進階 Edge 執行階段設定]  。 
+若要設定 IoT Edge 代理程式和 IoT Edge 中樞模組，請在精靈的第一個步驟中選取 [設定進階 Edge 執行階段設定]。 
 
 ![設定進階 Edge 執行階段設定](./media/how-to-configure-proxy-support/configure-runtime.png)
 

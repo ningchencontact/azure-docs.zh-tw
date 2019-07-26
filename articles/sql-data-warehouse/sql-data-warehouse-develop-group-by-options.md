@@ -2,7 +2,7 @@
 title: 使用 Azure SQL 資料倉儲中的分組方式選項 | Microsoft Docs
 description: 根據 Azure SQL 資料倉儲中的選項實作群組以便開發解決方案的秘訣。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b158048929d3db8672d76027666331448a91a0a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f6614f32c31338c9cf4f00307c475db4e02f553
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861794"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479645"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>根據 SQL 資料倉儲中的選項分組
 根據 Azure SQL 資料倉儲中的選項實作群組以便開發解決方案的秘訣。

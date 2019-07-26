@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: 8cfa429b18fb282f5c1f85d2fd1637704653b855
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192112"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443038"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>使用 REST API 檢閱訂用帳戶計費
 
@@ -47,10 +47,10 @@ Authorization: Bearer
 
 |要求標頭|描述|
 |--------------------|-----------------|
-|*Content-Type:*|必要。 設定為 `application/json`。|
-|*Authorization:*|必要。 設定為無效的 `Bearer` [存取權杖](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)。 |
+|*Content-Type:*|必要項。 設定為 `application/json`。|
+|*Authorization:*|必要項。 設定為無效的 `Bearer` [存取權杖](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)。 |
 
-## <a name="response"></a>Response
+## <a name="response"></a>回應
 
 傳回狀態碼 200 (確定) 表示成功回應，其中包含您帳戶的詳細費用清單。
 
@@ -79,7 +79,7 @@ Authorization: Bearer
 }
 ```
 
-[值]  中的每個項目代表與使用服務相關的詳細資料：
+[值] 中的每個項目代表與使用服務相關的詳細資料：
 
 |回應屬性|描述|
 |----------------|----------|

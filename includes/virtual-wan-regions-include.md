@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8ec5c39342f0477bd2b529da38fd4d1292476c93
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e8ae2fd99ee57062a0bf99f0550e58a5bb4857a3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173885"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426857"
 ---
 下表針對 GA 的功能，列出可用的支援區域。
 
@@ -24,11 +24,10 @@ ms.locfileid: "67173885"
 | 歐洲 | 法國中部、法國南部、北歐、西歐、英國西部、英國南部 |
 | 亞洲 | 東亞、東南亞 |
 | 日本  | 日本西部、日本東部 |
-| 澳大利亞 | 澳洲東南部、澳洲東部 | 
+| 澳洲 | 澳洲東南部、澳洲東部 | 
 | 澳洲政府 | 澳大利亞中部、澳大利亞中部 2 |
 | 印度 | 印度西部、印度中部、印度南部 |
 | 南韓 | 南韓中部、南韓南部 |
-| 南非 | 南非北部、 南非西部 |
+| 南非 | 南非北部、南非西部 |
 
 * 如需有關 ExpressRoute 預覽的資訊，請參閱[虛擬 WAN 和 ExpressRoute - 預覽](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register)。
-* 如需有關點對站預覽的資訊，請參閱[虛擬 WAN 和點對站 - 預覽](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register)。

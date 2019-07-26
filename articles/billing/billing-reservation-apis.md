@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702610"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478925"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>適用於 Azure 保留自動化的 API
 
@@ -30,9 +30,9 @@ ms.locfileid: "64702610"
 
 ## <a name="buy-a-reservation"></a>購買保留項目
 
-您可以購買 Azure 保留的項目和軟體計劃以程式設計方式使用 REST Api。 若要進一步了解，請參閱[保留訂單-採購單 API](/rest/api/reserved-vm-instances/reservationorder/purchase)。
+您可以使用 REST Api 以程式設計方式購買 Azure 保留和軟體方案。 若要深入瞭解, 請參閱[保留訂單-購買 API](/rest/api/reserved-vm-instances/reservationorder/purchase)。
 
-以下是購買使用 REST API 的範例要求：
+以下是使用 REST API 進行購買的範例要求:
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
@@ -61,7 +61,7 @@ PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/
 }
 ```
 
-您也可以購買 Azure 入口網站中的保留項目。 如需詳細資訊，請參閱下列文章：
+您也可以在 Azure 入口網站中購買保留。 如需詳細資訊，請參閱下列文章：
 
 服務方案：
 - [虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
@@ -104,11 +104,11 @@ PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/
 
 ## <a name="change-scope-for-a-reservation"></a>變更保留範圍
 
-保留的範圍可以是單一訂用帳戶或您的計費內容中的所有訂用帳戶。 如果您將範圍設定為單一訂用帳戶，此保留會對應至所選訂用帳戶中執行的資源。 如果您將範圍設定為共用，Azure 會將保留對應至計費內容中所有訂用帳戶上執行的資源。 計費內容取決於您購買此保留所用的訂用帳戶。 如需詳細資訊，請參閱[管理保留 - 變更範圍](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)。
+保留範圍可以是單一訂用帳戶、單一資源群組或帳單內容中的所有訂閱。 如果您將範圍設定為 [單一訂用帳戶] 或 [單一資源群組], 則保留會對應至所選訂用帳戶中的執行中資源。 如果您刪除或移動訂用帳戶或資源群組, 將不會使用保留。  如果您將範圍設定為共用，Azure 會將保留對應至計費內容中所有訂用帳戶上執行的資源。 計費內容取決於您購買此保留所用的訂用帳戶。 您可以選取購買的範圍, 或在購買後隨時變更。 如需詳細資訊，請參閱[管理保留 - 變更範圍](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)。
 
 若要以程式設計方式變更範圍，請使用 API [保留 - 更新](/rest/api/reserved-vm-instances/reservation/update)。
 
-## <a name="learn-more"></a>深入了解
+## <a name="learn-more"></a>更多資訊
 
 - [什麼是 Azure 的保留](billing-save-compute-costs-reservations.md)
 - [了解 VM 保留折扣的套用方式](billing-understand-vm-reservation-charges.md)

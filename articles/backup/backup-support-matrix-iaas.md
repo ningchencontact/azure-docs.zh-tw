@@ -1,19 +1,18 @@
 ---
 title: Azure VM 備份的 Azure 備份支援矩陣
 description: 摘要說明使用 Azure 備份服務來備份 Azure VM 時的支援設定和限制。
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: 3823bca0601f825323a44773f8c70be371ec8781
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3b979b6bcf2078e83564a8f008d392fd8e0a7c78
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311652"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464896"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)來備份內部部署機器和工作負載, 以及 Azure 虛擬機器 (vm)。 本文摘要說明使用 Azure 備份備份 Azure Vm 時的支援設定和限制。
@@ -43,7 +42,7 @@ ms.locfileid: "68311652"
 建立 Windows Azure VM 時啟用備份 | 支援： <br/><br/> -Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM 和 SP1 標準)
 建立 Linux VM 時啟用備份 | 支援：<br/><br/> - Ubuntu Server：18.04、17.10、17.04、16.04 (LTS)、14.04 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4、12 SP2、12 SP3、15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
 備份已關閉/離線 VM 的 VM | 支援。<br/><br/> 僅建立絕對一致快照集，而非應用程式一致快照集。
-遷移至受控磁片之後備份磁片 | 支援。<br/><br/> 備份會繼續運作。 不需採取任何動作。
+遷移至受控磁片之後備份磁片 | 支援。<br/><br/> 備份會繼續運作。 不需要任何動作。
 啟用資源群組鎖定後備份受控磁碟 | 不支援。<br/><br/> Azure 備份無法刪除較舊的還原點, 而且當達到還原點的最大限制時, 備份將會開始失敗。
 修改 VM 的備份原則 | 支援。<br/><br/> 系統會使用新原則中的排程和保留期設定來備份 VM。 如果延長保留期設定，就會標示現有的復原點，並加以保留。 如果降低, 現有的復原點將會在下一次清除作業中剪除, 最後刪除。
 取消備份作業 | 在快照集程序中支援。<br/><br/> 在快照集傳輸至保存庫期間不支援。
@@ -144,8 +143,7 @@ DPM/MABS 磁碟上的復原點 | 64 (適用于檔案伺服器) 和 448 (適用�
 **計算** | **支援**
 --- | ---
 VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小。<br/><br/> [深入了解。](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-備份[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets)中的 VM | 支援。<br/><br/> 您無法使用快速建立 VM 的選項, 來還原可用集合中的 VM。 相反地, 當您還原 VM 時, 請復原磁碟並使用它來部署 VM, 或復原磁碟並使用它來取代現有的磁片。
-備份[可用性區域](https://docs.microsoft.com/azure/availability-zones/az-overview)中的 VM |  不支援。
+備份[可用性設定組](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets)中的 VM | 支援。<br/><br/> 您無法使用快速建立 VM 的選項, 來還原可用集合中的 VM。 相反地, 當您還原 VM 時, 請復原磁碟並使用它來部署 VM, 或復原磁碟並使用它來取代現有的磁片。
 備份使用[混合式使用優勢 (中樞)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)部署的 vm | 支援。
 備份部署在[擴展集中](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)的 vm |  不支援。
 備份從[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)部署的 vm<br/><br/> (由 Microsoft、協力廠商發行) |  支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。 我們不會還原做為 Vm 的 Azure Marketplace Vm, 因為這些虛擬機器需要購買資訊, 但只能做為磁片。
@@ -208,7 +206,7 @@ Azure 備份支援傳輸中和待用資料的加密：
 
 資料安全性：
 
-- 備份 Azure Vm 時, 您需要在虛擬機器內設定加密  。
+- 備份 Azure Vm 時, 您需要在虛擬機器內設定加密 。
 - Azure 備份支援 Azure 磁碟加密, 這會在 Windows 虛擬機器上使用 BitLocker, 而在 Linux 虛擬機器上則是**crypt** 。
 - 在後端，Azure 備份會使用 [Azure 儲存體服務加密](../storage/common/storage-service-encryption.md)，以保護待用資料。
 

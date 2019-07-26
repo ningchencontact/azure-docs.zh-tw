@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: 174147aca75452dfaee02d20df5377fa1f6070c1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325101"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443310"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -31,7 +31,7 @@ ms.locfileid: "68325101"
 當您使用自動容錯移轉群組與自動容錯移轉原則時，任何影響 SQL Database 伺服器或受控執行個體中資料庫的中斷，都會導致自動容錯移轉。 您可以使用下列方法管理自動容錯移轉群組：
 
 - [Azure 入口網站](sql-database-implement-geo-distributed-database.md)
-- [PowerShell：容錯移轉群組](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell：容錯移轉群組](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [REST API：容錯移轉群組](https://docs.microsoft.com/rest/api/sql/failovergroups)。
 
 容錯移轉之後，請確認已在新的主要資料庫上設定伺服器和資料庫的驗證需求。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。
@@ -310,7 +310,7 @@ ms.locfileid: "68325101"
 |  | |
 
 > [!IMPORTANT]
-> 如需範例指令碼，請參閱[設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)。
+> 如需範例指令碼，請參閱[設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-add-single-db-to-failover-group-powershell.md)。
 >
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell：使用受控執行個體管理容錯移轉叢集 (預覽)
@@ -371,7 +371,7 @@ ms.locfileid: "68325101"
 - 如需範例指令碼，請參閱：
   - [使用作用中異地複寫設定單一資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [使用作用中異地複寫設定集區資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+  - [設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - 如需商務持續性概觀和案例，請參閱 [商務持續性概觀](sql-database-business-continuity.md)
 - 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
 - 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)。

@@ -10,28 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: db79f2b1d3857aac2f71d2e18a3949f068b746eb
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: dd2fb0c9ef157e3706ca3d902f7feebaf4c2f279
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990066"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478916"
 ---
-# <a name="languages---officially-supported-by-application-insights-team"></a>語言-Application Insights 小組正式支援
+# <a name="supported-languages"></a>支援的語言
 
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [JavaScript web pages](../../azure-monitor/app/javascript.md)
+* [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## <a name="community-sdks"></a>社區 Sdk
+## <a name="supported-platforms-and-frameworks"></a>支援的平台和架構
 
-有許多的「社區 Azure 應用程式深入解析 Sdk」, 其中大部分都是由 Microsoft 所撰寫。 Microsoft 不會正式維護社區 Sdk。 我們無法針對不在正式支援清單上的任何 SDK 提供支援。 這些 Sdk 會被視為實驗性, 不建議用於生產環境使用。
-
-## <a name="platforms-and-frameworks"></a>平台和架構
 ### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>已部署之應用程式的檢測 (無程式碼, 以代理程式為基礎)
 * [Azure VM 和 Azure 虛擬機器擴展集](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
@@ -59,3 +56,7 @@ ms.locfileid: "67990066"
 ## <a name="export-and-data-analysis"></a>匯出和資料分析
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [串流分析](../../azure-monitor/app/export-power-bi.md)
+
+## <a name="unsupported-community-sdks"></a>不支援的社區 Sdk
+
+有許多社區 Application Insights Sdk。 Microsoft 不會正式支援及維護社區 Sdk。 我們無法針對不在正式支援清單上的任何 SDK 提供支援。 

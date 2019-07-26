@@ -2,24 +2,15 @@
 author: msmbaldwin
 ms.service: security
 ms.topic: include
-ms.date: 04/17/2019
+ms.date: 07/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 762393e501475001d2af6defc563b3e489788309
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 4aea8c1d1d7112ac1f9ff9042ff01d173ed986c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795636"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440865"
 ---
-品質或功能的一項 Azure 服務的安全性屬性。 它提供服務的能力，以防止、 偵測及回應安全性弱點。
+安全性屬性是 Azure 服務的品質或功能。 它有助於服務預防、偵測及回應安全性弱點的能力。
 
-安全性屬性可分類為︰
-* 預防
-* 網路分割
-* 偵測
-* 支援的身分識別與存取管理
-* 稽核線索
-* 存取控制 (如有使用)
-* 組態管理 (如有使用)
-
-在每個類別中，我們將會顯示"Yes"No"，表示是否要使用的屬性。 某些服務中，我們會示範 [不適用] 不適用的屬性。 我們也可能會提供任何提示或屬性的詳細資訊的連結。
+在每個類別中, 我們會顯示「是」或「否」, 以指出是否使用屬性。 針對某些服務, 我們會針對不適用的屬性顯示 "N/A"。 我們也可以提供附注或有關屬性詳細資訊的連結。

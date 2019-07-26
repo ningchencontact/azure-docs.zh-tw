@@ -4,27 +4,27 @@ description: 讓 Azure Functions 執行階段藉由掛接部署套件檔案 (內
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: 83a98a493068d3427e34f3ac2ca5c24baa48dda1
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 96dbe9b15831a349afc0e68c15c39c1cb31b1032
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508238"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444060"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>從套件檔案執行 Azure Functions
-
-> [!NOTE]
-> 這篇文章中所述的功能不適用於在 Linux 上執行的函式應用程式[App Service 方案](functions-scale.md#app-service-plan)。
 
 在 Azure 中，您可以直接從函式應用程式中的部署套件檔案執行函式。 另一個選項是將您的檔案部署在函式應用程式的 `d:\home\site\wwwroot` 目錄中。
 
 本文說明從套件執行函式的優點。 文中也會說明如何在函式應用程式中啟用這項功能。
+
+> [!IMPORTANT]
+> 將函式部署至高階[方案](functions-scale.md#premium-plan)中的 Linux 函式應用程式時, 您應該一律從封裝檔案執行, 並[使用 Azure Functions Core Tools 發佈應用程式](functions-run-local.md#project-file-deployment)。
 
 ## <a name="benefits-of-running-from-a-package-file"></a>從套件檔案執行的優點
   
@@ -44,11 +44,11 @@ ms.locfileid: "67508238"
 
 | 值  | 描述  |
 |---------|---------|
-| **`1`**  | 建議在 Windows 上執行的函式應用程式。 從函式應用程式中 `d:\home\data\SitePackages` 資料夾內的套件檔案執行。 如果沒有[部署與 zip 部署](#integration-with-zip-deployment)，這個選項要求也具有一個名為檔案的資料夾`packagename.txt`。 此檔案只會包含資料夾內套件檔案的名稱，且不含任何空白字元。 |
+| **`1`**  | 建議用於 Windows 上執行的函數應用程式。 從函式應用程式中 `d:\home\data\SitePackages` 資料夾內的套件檔案執行。 如果不是[使用 zip deploy 進行部署](#integration-with-zip-deployment), 此選項會要求資料夾也要有名`packagename.txt`為的檔案。 此檔案只會包含資料夾內套件檔案的名稱，且不含任何空白字元。 |
 |**`<url>`**  | 所要執行的特定套件檔案所在的位置。 使用 Blob 儲存體時，請搭配使用私用容器與[共用存取簽章 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) 來讓 Functions 執行階段能夠存取套件。 您可以使用 [Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)將套件檔案上傳至 Blob 儲存體帳戶。         |
 
 > [!CAUTION]
-> 當在 Windows 上執行的函式應用程式，外部 URL 選項會產生更糟的是冷啟動效能。 當您的函式應用程式部署至 Windows 中，您應該設定`WEBSITE_RUN_FROM_PACKAGE`至`1`及 zip 部署發行。
+> 在 Windows 上執行函數應用程式時, [外部 URL] 選項會產生較差的冷啟動效能。 將您的函式應用程式部署到 Windows 時`WEBSITE_RUN_FROM_PACKAGE` , `1`您應該將設為, 並使用 zip 部署進行發佈。
 
 下圖顯示的函式應用程式已設定為要從裝載於 Azure Blob 儲存體的 .zip 檔案來執行：
 
@@ -59,7 +59,7 @@ ms.locfileid: "67508238"
 
 ## <a name="integration-with-zip-deployment"></a>與 zip 部署的整合
 
-[壓縮部署][Zip deployment for Azure Functions]是一項功能，可讓您將函式應用程式專案部署至 Azure App Service`wwwroot`目錄。 專案會封裝為 .zip 部署檔案。 您可以使用相同的 API 將套件部署至 `d:\home\data\SitePackages` 資料夾。 `WEBSITE_RUN_FROM_PACKAGE` 應用程式設定值若為 `1`，zip 部署 API 就會將套件複製到 `d:\home\data\SitePackages` 資料夾，而不會將檔案解壓縮到 `d:\home\site\wwwroot`。 它也會建立 `packagename.txt` 檔案。 然後，函式應用程式就會在重新啟動後從套件執行，且 `wwwroot` 會變成唯讀。 如需 zip 部署的詳細資訊，請參閱 [Azure Functions 的 zip 部署](deployment-zip-push.md)。
+「 [Zip 部署][Zip deployment for Azure Functions]」是 Azure App Service 的一項功能, 可讓您將函式`wwwroot`應用程式專案部署至目錄。 專案會封裝為 .zip 部署檔案。 您可以使用相同的 API 將套件部署至 `d:\home\data\SitePackages` 資料夾。 `WEBSITE_RUN_FROM_PACKAGE` 應用程式設定值若為 `1`，zip 部署 API 就會將套件複製到 `d:\home\data\SitePackages` 資料夾，而不會將檔案解壓縮到 `d:\home\site\wwwroot`。 它也會建立 `packagename.txt` 檔案。 然後，函式應用程式就會在重新啟動後從套件執行，且 `wwwroot` 會變成唯讀。 如需 zip 部署的詳細資訊，請參閱 [Azure Functions 的 zip 部署](deployment-zip-push.md)。
 
 ## <a name="adding-the-websiterunfrompackage-setting"></a>新增 WEBSITE_RUN_FROM_PACKAGE 設定
 
@@ -67,10 +67,10 @@ ms.locfileid: "67508238"
 
 ## <a name="troubleshooting"></a>疑難排解
 
-- 執行從套件可讓`wwwroot`唯讀，因此這個目錄中寫入檔案時，您會收到錯誤。
-- 不支援 tar 和 gzip 格式。
-- 這項功能無法使用本機快取組成。
-- 為了改善冷啟動效能，請使用本機的 Zip 選項 (`WEBSITE_RUN_FROM_PACKAGE`= 1)。
+- [從封裝執行`wwwroot` ] 會變成隻讀, 因此當您將檔案寫入此目錄時, 將會收到錯誤。
+- 不支援 Tar 和 gzip 格式。
+- 這項功能不會使用本機快取來撰寫。
+- 若要改善冷啟動效能, 請使用本機 Zip 選項 (`WEBSITE_RUN_FROM_PACKAGE`= 1)。
 
 ## <a name="next-steps"></a>後續步驟
 

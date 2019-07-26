@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/23/2019
 ms.author: normesta
-ms.openlocfilehash: fd3875c5c78a02efab1251166ec7113902be3e08
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 010b7bc38caf83c12dd0d8b8e731fdbad6e45256
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723246"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422875"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 處理巨量資料需求
 
@@ -35,9 +35,9 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 ## <a name="create-a-file-system"></a>建立檔案系統
 
-「檔案系統」  是資料夾和檔案的容器。 您需要至少一個檔案系統，才能開始擷取您儲存體帳戶中的資料。  以下是您可用來建立檔案系統的工具清單。
+「檔案系統」是資料夾和檔案的容器。 您需要至少一個檔案系統，才能開始擷取您儲存體帳戶中的資料。  以下是您可用來建立檔案系統的工具清單。
 
-|工具 | 指引 |
+|Tool | 指引 |
 |---|--|
 |Azure 儲存體總管 | [使用儲存體總管建立檔案系統](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
 |AzCopy | [使用 AzCopyV10 建立 Blob 容器或檔案共用](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
@@ -66,7 +66,7 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 下表顯示如何授與每個 Azure 服務或工具的存取權。
 
-|工具 | 授與存取權 | 指引 |
+|Tool | 授與存取權 | 指引 |
 |---|--|---|
 |儲存體總管| 將角色指派給使用者和群組 | [使用 Azure Active Directory 將系統管理員和非系統管理員角色指派給使用者](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| 將角色指派給使用者和群組 <br>**or**<br> 使用 SAS 權杖| [使用 Azure Active Directory 將系統管理員和非系統管理員角色指派給使用者](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[輕鬆地建立 SAS 以從 Azure 儲存體下載檔案 – 使用 Azure 儲存體總管](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
@@ -81,7 +81,7 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 * [檔案和目錄的存取控制清單](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
-若要了解如何設定其他層面的安全性，請參閱 [Azure Data Lake Storage Gen2 安全性指南](https://review.docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+若要了解如何設定其他層面的安全性，請參閱 [Azure Data Lake Storage Gen2 安全性指南](https://docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 ## <a name="ingest-the-data"></a>內嵌資料
 
@@ -106,7 +106,7 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 以下是您可用來擷取串流資料的工具清單。
 
-|工具 | 指引 |
+|Tool | 指引 |
 |---|--|
 |Azure HDInsight Storm | [從 HDInsight 上的 Apache Storm 寫入 Apache Hadoop HDFS](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
 
@@ -116,7 +116,7 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 以下是您可用來擷取關聯式資料的工具清單。
 
-|工具 | 指引 |
+|Tool | 指引 |
 |---|--|
 |Azure Data Factory | [Azure Data Factory 中的複製活動](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
@@ -126,7 +126,7 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 以下是您可用來擷取網頁伺服器記錄資料的工具清單。
 
-|工具 | 指引 |
+|Tool | 指引 |
 |---|--|
 |Azure Data Factory | [Azure Data Factory 中的複製活動](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 
@@ -138,11 +138,11 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 以下是您可用來擷取 HDInsight 叢集相關資料的工具清單。
 
-|工具 | 指引 |
+|Tool | 指引 |
 |---|--|
 |Apache DistCp | [使用 DistCp 在 Azure 儲存體 Blob 與 Azure Data Lake Storage Gen2 之間複製資料](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |AzCopy 工具 | [使用 AzCopy 轉送資料](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [使用 Azure Data Factory 從 Azure Data Lake 儲存體 Gen2 來回複製資料](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Azure Data Factory | [使用 Azure Data Factory 從 Azure Data Lake Storage Gen2 複製資料](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>儲存於內部部署環境或 IaaS Hadoop 叢集中的資料
 
@@ -167,7 +167,7 @@ Azure ExpressRoute 可讓您在 Azure 資料中心與內部部署的基礎結構
 
 以下是您可用來對儲存在 Data Lake Storage Gen2 中的資料執行資料分析工作的工具清單。
 
-|工具 | 指引 |
+|Tool | 指引 |
 |---|--|
 |Azure HDInsight | [搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[快速入門：使用 Azure Databricks 分析 Azure Data Lake Storage Gen2 中的資料](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[教學課程：使用 Azure Databrick 擷取、轉換和載入資料](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
@@ -193,7 +193,7 @@ Azure ExpressRoute 可讓您在 Azure 資料中心與內部部署的基礎結構
 
 以下是您可用來從 Data Lake Storage Gen2 下載資料的工具清單。
 
-|工具 | 指引 |
+|Tool | 指引 |
 |---|--|
 |Azure Data Factory | [Azure Data Factory 中的複製活動](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 |Apache DistCp | [使用 DistCp 在 Azure 儲存體 Blob 與 Azure Data Lake Storage Gen2 之間複製資料](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

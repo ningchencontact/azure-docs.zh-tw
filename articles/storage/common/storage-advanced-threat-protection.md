@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: fb221d774d9d00a5dc7b0d94edc35a5651443a5b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874063"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479893"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階威脅防護
 
@@ -34,11 +34,11 @@ Azure 儲存體的進階威脅防護可多提供一道安全智慧，偵測儲�
 
 1. 在 [https://portal.azure.com](https://portal.azure.com/) 上啟動 Azure 入口網站。
 
-2. 瀏覽至您要保護之 Azure 儲存體帳戶的設定頁面。 在 [設定]  頁面中，選取 [進階威脅防護]  。
+2. 瀏覽至您要保護之 Azure 儲存體帳戶的設定頁面。 在 [設定] 頁面中，選取 [進階威脅防護]。
 
-3. 在 [進階威脅防護]  設定刀鋒視窗中
-    * **開啟**進階「威脅防護」 
-    * 按一下 [儲存]  ，以儲存新的或更新的進階威脅防護原則。 (映射中的價格僅供範例之用)。
+3. 在 [進階威脅防護] 設定刀鋒視窗中
+    * **開啟**進階「威脅防護」
+    * 按一下 [儲存]，以儲存新的或更新的進階威脅防護原則。 (映射中的價格僅供範例之用)。
 
 ![開啟 Azure 儲存體進階威脅防護](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
@@ -52,11 +52,11 @@ Azure 儲存體的進階威脅防護可多提供一道安全智慧，偵測儲�
 
     ![選取訂用帳戶](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
-1. 按一下 [定價層]  。
+1. 按一下 [定價層] 。
 1. 在 [**依資源類型選取定價層**] 區段的 [**儲存體帳戶**] 資料列中, 按一下 [**已啟用**] 或 [**已停用**]。
 
     ![在資訊安全中心中啟用 ATP](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. 按一下 [儲存]  。
+1. 按一下 [儲存] 。
 
 ### <a name="using-azure-resource-manager-templates"></a>使用 Azure 資源管理員範本
 
@@ -66,7 +66,7 @@ Azure 儲存體的進階威脅防護可多提供一道安全智慧，偵測儲�
 
 使用 Azure 原則, 在特定訂用帳戶或資源群組下的儲存體帳戶之間啟用先進的威脅防護。
 
-1. [Azure**原則-定義**] 頁面的午餐。
+1. 啟動 [Azure**原則-定義**] 頁面。
 
 1. 搜尋在**儲存體帳戶上部署先進的威脅防護**原則。
 

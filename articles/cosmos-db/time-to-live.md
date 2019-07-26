@@ -4,15 +4,15 @@ description: Microsoft Azure Cosmos DB 可讓您利用 TTL 在一段時間後自
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 0b32665b09eb02c337a12ac3cfc2b474fa82711a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7a29e9446a8c3b703c2ec3140711f44f3c81535f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447236"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467578"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的存留時間 (TTL) 
 
@@ -26,9 +26,9 @@ ms.locfileid: "67447236"
 
    - 如果遺失 (或設為 null)，項目便不會自動過期。
 
-   - 如果存在且值設定為"-1"，則為無限，和依預設不會過期的項目。
+   - 如果存在且值設定為 "-1", 則等於無限大, 而專案預設不會過期。
 
-   - 如果存在且值設定為某個數字 *"n 名"* – 項目將過期 *"n"* 之後其上次修改時間的秒數。
+   - 如果存在且值設為某個數位 *"n"* –專案會在其上次修改時間後的 *"n"* 秒到期。
 
 2. **項目的存留時間** (使用 `ttl` 設定)：
 
@@ -38,7 +38,7 @@ ms.locfileid: "67447236"
 
 ## <a name="time-to-live-configurations"></a>存留時間組態
 
-* 如果將某個容器的 TTL 設定為 “n”，該容器中的項目將在 n 秒之後過期。    如果同一容器中的項目有自己的存留時間且已設定為 -1 (表示不會過期)，或某些項目已使用不同的值來覆寫存留時間設定，則系統會根據這些項目自己的已設定 TTL 值設定為過期。 
+* 如果將某個容器的 TTL 設定為 “n”，該容器中的項目將在 n 秒之後過期。  如果同一容器中的項目有自己的存留時間且已設定為 -1 (表示不會過期)，或某些項目已使用不同的值來覆寫存留時間設定，則系統會根據這些項目自己的已設定 TTL 值設定為過期。 
 
 * 如果未設定容器的 TTL，則此容器中項目的存留時間沒有任何作用。 
 
@@ -48,39 +48,39 @@ ms.locfileid: "67447236"
 
 ## <a name="examples"></a>範例
 
-此區段會顯示不同存留時間值指派給容器和項目使用的一些範例：
+本節顯示指派給容器和專案之存留時間值不同的一些範例:
 
 ### <a name="example-1"></a>範例 1
 
-在容器上的 TTL 設定為 null (DefaultTimeToLive = null)
+容器上的 TTL 設定為 null (Defaulttimetolive 還長 = null)
 
-|項目上的 TTL| 結果|
+|專案上的 TTL| 結果|
 |---|---|
-|ttl = null|    已停用 TTL。 項目永遠不會過期 （預設值）。|
-|ttl = -1   |已停用 TTL。 項目永遠不會到期。|
-|ttl = 2000年 |已停用 TTL。 項目永遠不會到期。|
+|ttl = null|    已停用 TTL。 專案永遠不會過期 (預設值)。|
+|ttl =-1   |已停用 TTL。 專案永遠不會過期。|
+|ttl = 2000 |已停用 TTL。 專案永遠不會過期。|
 
 
 ### <a name="example-2"></a>範例 2
 
-在容器上的 TTL 設定為-1 (DefaultTimeToLive =-1)
+容器上的 TTL 設定為-1 (Defaulttimetolive 還長 =-1)
 
-|項目上的 TTL| 結果|
+|專案上的 TTL| 結果|
 |---|---|
-|ttl = null |啟用 TTL 為止。 項目永遠不會過期 （預設值）。|
-|ttl = -1   |啟用 TTL 為止。 項目永遠不會到期。|
-|ttl = 2000年 |啟用 TTL 為止。 在 2000 秒後逾期項目。|
+|ttl = null |已啟用 TTL。 專案永遠不會過期 (預設值)。|
+|ttl =-1   |已啟用 TTL。 專案永遠不會過期。|
+|ttl = 2000 |已啟用 TTL。 此專案會在2000秒後過期。|
 
 
 ### <a name="example-3"></a>範例 3
 
-在容器上的 TTL 設為 1000年 (DefaultTimeToLive = 1000年)
+容器上的 TTL 設定為 1000 (Defaulttimetolive 還長 = 1000)
 
-|項目上的 TTL| 結果|
+|專案上的 TTL| 結果|
 |---|---|
-|ttl = null|    啟用 TTL 為止。 項目將到期之後 1000 秒 （預設值）。|
-|ttl = -1   |啟用 TTL 為止。 項目永遠不會到期。|
-|ttl = 2000年 |啟用 TTL 為止。 在 2000 秒後逾期項目。|
+|ttl = null|    已啟用 TTL。 此專案會在1000秒後過期 (預設值)。|
+|ttl =-1   |已啟用 TTL。 專案永遠不會過期。|
+|ttl = 2000 |已啟用 TTL。 此專案會在2000秒後過期。|
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 868df2c8d1e14000f743686dcb6d4174d851be86
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596636"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403228"
 ---
 # <a name="get-started-with-device-management-node"></a>開始使用裝置管理 (Node)
 
@@ -21,7 +21,7 @@ ms.locfileid: "65596636"
 
 本教學課程說明如何：
 
-* 使用[Azure 入口網站](https://portal.azure.com)建立 IoT 中樞，並在 IoT 中樞建立裝置身分識別。
+* 使用[Azure 入口網站](https://portal.azure.com)建立 IoT 中樞, 並在您的 IoT 中樞中建立裝置身分識別。
 
 * 建立模擬裝置應用程式，其包含可將該裝置重新開機的直接方法。 直接方法是從雲端叫用。
 
@@ -35,7 +35,7 @@ ms.locfileid: "65596636"
 
 若要完成此教學課程，您需要下列項目：
 
-* Node.js 版本 10.0.x 或更新版本。 [準備開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 Node.js。
+* Node.js 10.0. x 版或更新版本。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
@@ -43,15 +43,11 @@ ms.locfileid: "65596636"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>擷取 IoT 中樞的連接字串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>建立模擬裝置應用程式
 
-在本節中，您會執行下列步驟：
+在本節中, 您將執行下列步驟:
 
 * 建立 Node.js 主控台應用程式，以回應雲端所呼叫的直接方法
 
@@ -149,6 +145,12 @@ ms.locfileid: "65596636"
 
 > [!NOTE]
 > 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)一文中所建議，實作重試原則 (例如指數型輪詢)。
+
+## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
+
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在裝置上觸發遠端重新啟動
 

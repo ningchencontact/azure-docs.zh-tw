@@ -1,24 +1,24 @@
 ---
 title: 使用 Azure 資料總管 Python 程式庫內嵌資料
-description: 在本文中，您會學習如何 （負載） 資料內嵌至使用 Python 的 Azure 資料總管。
+description: 在本文中, 您將瞭解如何使用 Python 將資料內嵌 (載入) 至 Azure 資料總管。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da23ec91891776e9a459b04c5718147427843991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496928"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355926"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 資料總管 Python 程式庫內嵌資料
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供兩個適用於 Python 的用戶端程式庫：[內嵌程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest)和[資料程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本文中，您先建立資料表和叢集中的資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供兩個適用於 Python 的用戶端程式庫：[內嵌程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest)和[資料程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data)。 這些程式庫可讓您將資料內嵌 (載入) 至叢集，並從您的程式碼查詢資料。 在本文中, 您會先在叢集中建立資料表和資料對應。 然後，您將叢集的擷取排入佇列並驗證結果。
 
-這篇文章也會當作[Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb)。
+這篇文章也以[Azure 筆記本](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb)的形式提供。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -73,9 +73,11 @@ KUSTO_DATABASE = "<DatabaseName>"
 您可以在稍後的步驟中建立目的地資料表和對應。
 
 ```python
-KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_INGEST_URI, AAD_TENANT_ID)
+KCSB_INGEST = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_INGEST_URI, AAD_TENANT_ID)
 
-KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_URI, AAD_TENANT_ID)
+KCSB_DATA = KustoConnectionStringBuilder.with_aad_device_authentication(
+    KUSTO_URI, AAD_TENANT_ID)
 
 DESTINATION_TABLE = "StormEvents"
 DESTINATION_TABLE_COLUMN_MAPPING = "StormEvents_CSV_Mapping"
@@ -95,7 +97,8 @@ SAS_TOKEN = "?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=20
 FILE_PATH = "StormEvents.csv"
 FILE_SIZE = 64158321    # in bytes
 
-BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + "/" + FILE_PATH + SAS_TOKEN
+BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
+    CONTAINER + "/" + FILE_PATH + SAS_TOKEN
 ```
 
 ## <a name="create-a-table-on-your-cluster"></a>在叢集上建立資料表
@@ -131,12 +134,14 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
 # All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
-INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference = DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # FILE_SIZE is the raw size of the data in bytes
-INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
+INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv,
+                                           mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
+# FILE_SIZE is the raw size of the data in bytes
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
+INGESTION_CLIENT.ingest_from_blob(
+    BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
 
 print('Done queuing up ingestion with Azure Data Explorer')
-
 ```
 
 ## <a name="query-data-that-was-ingested-into-the-table"></a>查詢已內嵌至資料表的資料
@@ -170,7 +175,7 @@ dataframe_from_result_table(RESPONSE.primary_results[0])
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算遵循我們的其他文章，讓您建立的資源。 否則，請在資料庫中執行下列命令，來清除 StormEvents 資料表。
+如果您打算遵循其他文章, 請保留您建立的資源。 否則，請在資料庫中執行下列命令，來清除 StormEvents 資料表。
 
 ```Kusto
 .drop table StormEvents

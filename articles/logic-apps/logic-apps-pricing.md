@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 40a783f702db580618d49fa34a1dae67e3e067da
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: e1285f6bc3bd081eae03cf1e5a124a86cac7a2ae
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327064"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335982"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -49,17 +49,17 @@ ms.locfileid: "68327064"
 
 * 使用您想要的多個連接的[企業連接器](../connectors/apis-list.md#enterprise-connectors)
 
-* [整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)的使用量不會以您的[ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)為基礎, 而是免費的:
+* [整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)的使用量不需額外費用, 視您的[ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)而定:
 
   * **PREMIUM SKU**:單一[標準層](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)整合帳戶
 
   * **開發人員 SKU**:單一[免費層](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)整合帳戶
 
-  每個 ISE SKU 的總整合帳戶限制為5個。 如需額外成本, 您有更多整合帳戶, 以 ISE SKU 為基礎:
+  每個 ISE SKU 的總整合帳戶限制為5個。 如需額外費用, 您可以根據 ISE SKU 擁有更多整合帳戶:
 
-  * **PREMIUM SKU**:最多四個標準帳戶, 無免費或基本帳戶
+  * **PREMIUM SKU**:最多四個標準帳戶。 沒有免費或基本帳戶。
 
-  * **開發人員 SKU**:最多4個標準帳戶, 或最多5個標準帳戶, 沒有基本帳戶
+  * **開發人員 SKU**:最多4個標準帳戶, 或最多5個標準帳戶。 沒有基本帳戶。
 
 如需整合帳戶限制的詳細資訊, 請參閱[Logic Apps 限制和](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)設定。 您可以在本主題稍後深入瞭解[整合帳戶層及其計價模式](#integration-accounts)。 
 
@@ -92,7 +92,7 @@ Azure Logic Apps 連接器藉由提供[觸發](#triggers)程式、[動作](#acti
 
 <a name="actions"></a>
 
-## <a name="actions"></a>動作
+## <a name="actions"></a>個動作
 
 Azure Logic Apps 計量「內建」動作 (例如 HTTP) 做為原生動作。 例如, 內建動作包括 HTTP 呼叫、來自 Azure Functions 或 API 管理的呼叫, 以及控制流程步驟 (例如條件、迴圈和 switch 語句)。 每個動作都有自己的動作類型。 例如, 呼叫[連接器](https://docs.microsoft.com/connectors)的動作會有 "ApiConnection" 類型。 這些連接器會分類為標準或企業連接器, 並根據其各自的[定價](https://azure.microsoft.com/pricing/details/logic-apps)計量。 *預覽*中的企業連接器是以標準連接器收費。
 
@@ -144,7 +144,7 @@ Azure Logic Apps 提供免費、基本和標準整合帳戶。 「基本」和�
 
 1. 從邏輯應用程式的功能表中, 選取 [**監視**] 底下的 [**計量**]。
 
-1. 在右窗格的 [**圖表標題**] 底下, 從 [計量  ] 清單中選取 [**儲存體耗用量執行] 的 [計費使用量**]。
+1. 在右窗格的 [**圖表標題**] 底下, 從 [計量 ] 清單中選取 [**儲存體耗用量執行] 的 [計費使用量**]。
 
    此計量會提供您每月的儲存耗用量單位數 (GB)。
 

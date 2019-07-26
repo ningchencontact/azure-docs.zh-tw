@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1b0ea2f808c982a587392edbe57eb75c532ee2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324715"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477050"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>HOW TO：在 Azure Active Directory 應用程式庫中列出您的應用程式
 
@@ -38,7 +38,7 @@ ms.locfileid: "68324715"
 - 共同客戶可取得逐步設定教學課程。
 - 使用 SCIM 的客戶可以使用相同應用程式的佈建。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 對於同盟應用程式 (Open ID 與 SAML/WS-Fed)，應用程式必須支援 SaaS 模型，才列於 Azure AD 資源庫中。 企業資源庫應用程式應支援多個客戶設定，而非任何特定的客戶。
 
@@ -49,6 +49,8 @@ ms.locfileid: "68324715"
 - 若為「密碼單一登入」，請確定您的應用程式支援表單驗證，讓密碼保存可以完成，以使單一登入能如預期般運作。
 
 - 若為「自動使用者佈建」要求，應用程式應列於資源庫中，並使用 SAML 2.0/WS-Fed 啟用單一登入功能。 您可以在入口網站上一起要求「單一登入」與「使用者佈建」(若未列出的話)。
+
+- 需要永久帳戶以進行測試, 且至少要有2個使用者註冊。
 
 >[!NOTE]
 >我們正在執行大量的 SCIM 連接器要求, 因此我們已停止在入口網站上提出新的要求。 請保留您的要求, 直到進一步通知為止。 我們讀者表達歉意這種延遲, 而且可能造成的任何不便。
@@ -63,11 +65,11 @@ ms.locfileid: "68324715"
 
 新增帳戶後，您就可以登入 Microsoft 應用程式網路入口網站。
 
-如果在登入之後出現下列頁面，請在文字方塊中提供需要存取權的業務理由，然後選取 [要求存取]  。
+如果在登入之後出現下列頁面，請在文字方塊中提供需要存取權的業務理由，然後選取 [要求存取]。
 
   ![SharePoint 入口網站上的存取要求](./media/howto-app-gallery-listing/accessrequest.png)
 
-我們的小組會檢閱此詳細資料，並據以提供存取權給您。 一旦要求通過核准，就可以登入入口網站並提交要求，方法是按一下首頁中的 [提交要求 (ISV)]  圖格。
+我們的小組會檢閱此詳細資料，並據以提供存取權給您。 一旦要求通過核准，就可以登入入口網站並提交要求，方法是按一下首頁中的 [提交要求 (ISV)] 圖格。
 
 ![SharePoint 入口網站首頁](./media/howto-app-gallery-listing/homepage.png)
 
@@ -109,8 +111,8 @@ ms.locfileid: "68324715"
 
     ![在資源庫中列出 SAML 應用程式的時間表](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * 如果您想要更新現有的應用程式，請選取 [更新現有的應用程式清單]  。
-    * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請選取 [移除現有的應用程式清單]  。
+    * 如果您想要更新現有的應用程式，請選取 [更新現有的應用程式清單]。
+    * 如果您想要從 Azure AD 資源庫中移除現有的應用程式，請選取 [移除現有的應用程式清單]。
     * 如果您有任何存取方面的問題，請與 [Azure AD SSO 整合小組](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)連絡。 
 
 ## <a name="listing-requests-by-customers"></a>列出客戶提出的要求

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f1c6f8074dab19b18f695763b160e4aeffe3ac44
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: b0a03eee06ba114ab929c8c584f382861a006bbc
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204841"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360752"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 儲存體 Blob 的虛刪除
 Azure 儲存體現在提供 Blob 物件的虛刪除功能，因此，當應用程式或其他儲存體帳戶使用者錯誤地修改或刪除您的資料時，您將可更輕鬆地復原資料。
 
-## <a name="how-does-it-work"></a>運作方式
+## <a name="how-does-it-work"></a>其運作方式為何?
 虛刪除開啟時，可讓您在 Blob 或 Blob 快照集遭到刪除時儲存並復原您的資料。 這項保護也延伸至因覆寫而遭到清除的 Blob 資料。
 
 資料刪除後會轉換為虛刪除狀態，而不是永久清除狀態。 當您在虛刪除開啟的情況下覆寫資料時，將會產生虛刪除的快照集，以儲存覆寫資料的狀態。 虛刪除的物件是不可見的，除非明確列出。 您可以設定虛刪除的資料在永久失效之前可進行復原的時間長度。
@@ -141,19 +141,19 @@ Copy a snapshot over the base blob:
 
 ## <a name="quickstart"></a>快速入門
 ### <a name="azure-portal"></a>Azure 入口網站
-若要啟用虛刪除，請瀏覽至 [Blob 服務]  下的 [虛刪除]  選項。 然後，按一下 [啟用]  ，並輸入您要保留虛刪除資料的天數。
+若要啟用虛刪除，請瀏覽至 [Blob 服務] 下的 [虛刪除] 選項。 然後，按一下 [啟用]，並輸入您要保留虛刪除資料的天數。
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
-若要檢視已虛刪除的 Blob，請選取 [顯示已刪除的 Blob]  核取方塊。
+若要檢視已虛刪除的 Blob，請選取 [顯示已刪除的 Blob] 核取方塊。
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
-若要檢視指定 Blob 的虛刪除快照集，請選取 Blob，然後按一下 [檢視快照集]  。
+若要檢視指定 Blob 的虛刪除快照集，請選取 Blob，然後按一下 [檢視快照集]。
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
-請確定 [顯示已刪除的快照集]  核取方塊已選取。
+請確定 [顯示已刪除的快照集] 核取方塊已選取。
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
@@ -161,11 +161,11 @@ Copy a snapshot over the base blob:
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-properties.png)
 
-請記住，取消刪除 Blob 時也會取消刪除所有相關聯的快照集。 若要取消刪除作用中 Blob 的虛刪除快照集，請按一下該 Blob，然後選取 [取消刪除所有快照集]  。
+請記住，取消刪除 Blob 時也會取消刪除所有相關聯的快照集。 若要取消刪除作用中 Blob 的虛刪除快照集，請按一下該 Blob，然後選取 [取消刪除所有快照集]。
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
-在您取消刪除 Blob 的快照集後，您可以按一下 [升階]  將快照集複製到根 Blob，藉以將 Blob 還原至該快照集。
+在您取消刪除 Blob 的快照集後，您可以按一下 [升階] 將快照集複製到根 Blob，藉以將 Blob 還原至該快照集。
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
@@ -227,10 +227,12 @@ from azure.storage.blob import BlockBlobService
 from azure.storage.common.models import DeleteRetentionPolicy
 
 # Initialize a block blob service
-block_blob_service = BlockBlobService(account_name='<enter your storage account name>', account_key='<enter your storage account key>')
+block_blob_service = BlockBlobService(
+    account_name='<enter your storage account name>', account_key='<enter your storage account key>')
 
 # Set the blob client's service property settings to enable soft delete
-block_blob_service.set_blob_service_properties(delete_retention_policy = DeleteRetentionPolicy(enabled = True, days = 7))
+block_blob_service.set_blob_service_properties(
+    delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
 ### <a name="net-client-library"></a>.NET 用戶端程式庫
@@ -274,8 +276,8 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>有使用虛刪除的任何特殊考量嗎？
-如果您的資料有可能意外遭到應用程式或其他儲存體帳戶使用者修改或刪除，建議您開啟虛刪除。 啟用虛刪除經常覆寫資料可能會導致增加的儲存容量的費用，並增加的延遲列出 blob 時。 您可以停用的虛刪除時，將經常覆寫的資料儲存在個別的儲存體帳戶來降低。 
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>使用虛刪除是否有任何特殊考慮？
+如果您的資料有可能意外遭到應用程式或其他儲存體帳戶使用者修改或刪除，建議您開啟虛刪除。 為經常覆寫的資料啟用虛刪除, 可能會導致儲存體容量費用增加, 並在列出 blob 時增加延遲。 您可以藉由將經常覆寫的資料儲存在不同的儲存體帳戶, 並停用虛刪除, 來減輕此問題。 
 
 ## <a name="faq"></a>常見問題集
 **哪些儲存體類型可以使用虛刪除？**  
@@ -288,7 +290,7 @@ blockBlob.StartCopy(copySource);
 是，虛刪除適用於所有儲存層，包括經常性儲存層、非經常性儲存層和封存層。 不過，虛刪除不會為封存層中的 Blob 提供覆寫保護。
 
 **是否可以使用「設定 Blob 層 API」將具有虛刪除快照集的 Blob 分層？**  
-是。 已虛刪除的快照集會留在原始階層，但基底 Blob 會移到新階層。 
+是的。 已虛刪除的快照集會留在原始階層，但基底 Blob 會移到新階層。 
 
 **進階儲存體帳戶有每個 Blob 100 個快照集的限制。虛刪除快照集是否會計入這項限制中？**  
 不會，虛刪除快照集不會計入這項限制中。

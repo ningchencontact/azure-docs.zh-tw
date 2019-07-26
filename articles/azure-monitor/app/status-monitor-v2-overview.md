@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 38359858d16a20f73cf845fa547899bdc5ee7fd3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 0264cf3a972c35edb3ad6dc600ca39bdaa076dfd
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326238"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333697"
 ---
 # <a name="status-monitor-v2"></a>狀態監視器 v2
 
@@ -33,7 +33,7 @@ ms.locfileid: "68326238"
 ![PowerShell 資源庫](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
-## <a name="instructions"></a>範例的指示
+## <a name="instructions"></a>指示
 - 請參閱開始使用的[指示](status-monitor-v2-get-started.md), 以取得簡單的程式碼範例。
 - 如需深入瞭解如何開始使用, 請參閱[詳細指示](status-monitor-v2-detailed-instructions.md)。
 
@@ -62,13 +62,13 @@ ms.locfileid: "68326238"
   
 - 如何? 確認啟用成功嗎？
 
-   沒有 Cmdlet 可驗證啟用是否成功。
-建議您使用[即時計量](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)來快速判斷您的應用程式是否正在傳送遙測。
+  - [ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)指令程式可以用來驗證啟用是否成功。
+  - 建議您使用[即時計量](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)來快速判斷您的應用程式是否正在傳送遙測。
 
-   您也可以使用[Log Analytics](../log-query/get-started-portal.md)來列出目前正在傳送遙測的所有雲端角色:
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - 您也可以使用[Log Analytics](../log-query/get-started-portal.md)來列出目前正在傳送遙測的所有雲端角色:
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## <a name="next-steps"></a>後續步驟
 

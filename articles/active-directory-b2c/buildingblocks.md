@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 67770661f0660b9a84d16bbbc7d86cfcbca2cfdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ab2b11749aa57065a1a4d688b02fed97731ab7c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511595"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464754"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -67,6 +67,8 @@ ms.locfileid: "66511595"
     - 從原則中提供的參數建立字串宣告。
     - 使用隨機號碼產生器來建立隨機字串。
     - 根據提供的格式字串來將宣告格式化。 此轉換會使用 C# `String.Format` 方法。
+    
+- InputValidation-此元素可讓您執行與*和*和*或*類似的布林值匯總。
 
 - [ContentDefinitions](contentdefinitions.md)：包含要在使用者旅程圖中使用之 HTML5 範本的 URL。 在自訂原則中，內容定義會定義要在使用者旅程圖中針對指定步驟使用的 HTML5 頁面 URI。 例如，登入或註冊、密碼重設或錯誤網頁。 您可以透過覆寫該 HTML5 檔案的 LoadUri 來修改外觀及操作。 或者，可以根據您的需求來建立新的內容定義。 這個元素可能會使用當地語系化識別碼來包含當地語系化的資源參考。
 

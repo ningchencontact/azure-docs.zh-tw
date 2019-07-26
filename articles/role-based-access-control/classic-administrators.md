@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924659"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444341"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 傳統訂用帳戶管理員
 
@@ -38,17 +38,17 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
     共同管理員只能在訂用帳戶範圍內指派。
 
-1. 按一下 [存取控制 (IAM)]  。
+1. 按一下 [存取控制 (IAM)]。
 
-1. 按一下 [傳統管理員]  索引標籤。
+1. 按一下 [傳統管理員] 索引標籤。
 
     ![開啟傳統系統管理員的螢幕擷取畫面](./media/classic-administrators/classic-administrators.png)
 
-1. 按一下 [新增]   >  [新增共同管理員]  以開啟 [新增共同管理員] 窗格。
+1. 按一下 [新增]  >  [新增共同管理員] 以開啟 [新增共同管理員] 窗格。
 
     如果 [新增共同管理員] 選項已停用，則表示您沒有權限。
 
-1. 選擇要新增的使用者，然後按一下 [新增]  。
+1. 選擇要新增的使用者，然後按一下 [新增]。
 
     ![新增共同管理員的螢幕擷取畫面](./media/classic-administrators/add-coadmin.png)
 
@@ -71,15 +71,15 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 1. 開啟[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)，並選取訂用帳戶。
 
-1. 按一下 [存取控制 (IAM)]  。
+1. 按一下 [存取控制 (IAM)]。
 
-1. 按一下 [傳統管理員]  索引標籤。
+1. 按一下 [傳統管理員] 索引標籤。
 
 1. 在要移除的共同管理員旁邊新增核取記號。
 
-1. 按一下 [移除]  。
+1. 按一下 [移除] 。
 
-1. 在出現的訊息方塊中，按一下 [確定]  。
+1. 在出現的訊息方塊中，按一下 [確定]。
 
     ![移除共同管理員的螢幕擷取畫面](./media/classic-administrators/remove-coadmin.png)
 
@@ -91,31 +91,31 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 請確定您的案例支援藉由檢查變更服務管理員的限制。
+1. 檢查變更服務系統管理員的限制, 以確保您的案例受到支援。
 
 1. 以帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. 開啟[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)，並選取訂用帳戶。
 
-1. 按一下 [內容]  。
+1. 按一下 [內容] 。
 
     ![顯示帳戶系統管理員的螢幕擷取畫面](./media/classic-administrators/account-admin.png)
 
-1. 在頂端，按一下 [服務管理]  以開啟 [服務管理員] 窗格。
+1. 在頂端，按一下 [服務管理] 以開啟 [服務管理員] 窗格。
 
     如果 [服務管理] 按鈕已停用，表示您沒有權限。 只有帳戶管理員的使用者可以變更訂用帳戶的服務管理員。
 
-1. 選取新的服務管理員，然後按一下 [儲存]  。
+1. 選取新的服務管理員，然後按一下 [儲存]。
 
 ### <a name="account-center"></a>帳戶中心
 
-1. 請確定您的案例支援藉由檢查變更服務管理員的限制。
+1. 檢查變更服務系統管理員的限制, 以確保您的案例受到支援。
 
 1. 以帳戶管理員身分登入[帳戶中心](https://account.windowsazure.com/subscriptions)。
 
 1. 按一下訂用帳戶。
 
-1. 按一下右側的 [編輯訂用帳戶詳細資料]  。
+1. 按一下右側的 [編輯訂用帳戶詳細資料] 。
 
     ![顯示帳戶中心裡 [編輯訂用帳戶] 按鈕的螢幕擷取畫面](./media/classic-administrators/editsub.png)
 
@@ -127,14 +127,14 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>變更服務管理員的限制
 
-每個訂用帳戶都與 Azure AD 目錄相關聯。 若要尋找與訂用帳戶相關聯的目錄，請在 Azure 入口網站中開啟 [訂用帳戶]  ，然後選取訂用帳戶以查看目錄。
+每個訂用帳戶都與 Azure AD 目錄相關聯。 若要尋找與訂用帳戶相關聯的目錄，請在 Azure 入口網站中開啟 [訂用帳戶]，然後選取訂用帳戶以查看目錄。
 
-如果您以公司或學校帳戶登入，可以將組織中的其他帳戶新增為服務管理員。 例如，abby@contoso.com 可以將 bob@contoso.com 新增為服務管理員，但若想新增 john@notcontoso.com 為服務管理員，則 contoso.com 目錄中必須要有 john@notcontoso.com 才能這麼做。 以公司或學校帳戶登入的使用者可以繼續將 Microsoft 帳戶使用者新增為服務管理員。
+如果您以公司或學校帳戶登入，可以將組織中的其他帳戶新增為服務管理員。 例如，abby@contoso.com 可以將 bob@contoso.com 新增為服務管理員，但若想新增 john@notcontoso.com 為服務管理員，則 contoso.com 目錄中必須要有 john@notcontoso.com 才能這麼做。 以公司或學校帳戶登入的使用者可以繼續將 Microsoft 帳戶使用者新增為服務管理員。 每個 Azure 訂用帳戶只能有一個服務系統管理員。
 
   | 登入方法 | 要將 Microsoft 帳戶使用者新增為服務管理員嗎？ | 要將同一組織中的公司或學校帳戶新增為服務管理員嗎？ | 要將不同組織中的公司或學校帳戶新增為服務管理員嗎？ |
   | --- | --- | --- | --- |
   |  Microsoft 帳戶 |是 |否 |否 |
-  |  公司帳戶或學校帳戶 |是 |是 |否 |
+  |  工作或學校帳戶 |是 |是 |否 |
 
 ## <a name="view-the-account-administrator"></a>檢視帳戶管理員
 
@@ -146,9 +146,9 @@ Microsoft 建議您使用角色型存取控制 (RBAC) 管理 Azure 資源存取�
 
 1. 開啟[訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)，並選取訂用帳戶。
 
-1. 按一下 [內容]  。
+1. 按一下 [內容] 。
 
-    該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。
+    該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員] 方塊中。
 
     ![顯示帳戶系統管理員的螢幕擷取畫面](./media/classic-administrators/account-admin.png)
 

@@ -1,19 +1,19 @@
 ---
 title: Azure HDInsight 中的 Spark 結構化串流
 description: 如何在 HDInsight Spark 叢集上使用 Spark 結構化串流應用程式。
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.author: maxluk
-ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: hrasheed
+ms.openlocfilehash: 0aaca127fec82d35da0ba943e97221834c2e42ed
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711333"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441899"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 結構化串流的概觀
 
@@ -30,13 +30,13 @@ ms.locfileid: "64711333"
 
 ## <a name="streams-as-tables"></a>資料表形式的串流
 
-Spark 結構化串流會將資料流表示為無限深度的資料表，也就是資料表會在新資料到達時繼續成長。 此「輸入資料表」會  由長時間執行的查詢持續進行處理，而結果會傳送至「輸出資料表」  ：
+Spark 結構化串流會將資料流表示為無限深度的資料表，也就是資料表會在新資料到達時繼續成長。 此「輸入資料表」會由長時間執行的查詢持續進行處理，而結果會傳送至「輸出資料表」：
 
 ![結構化串流概念](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
 
-在結構化串流中，資料會送達系統並立即內嵌到輸入資料表中。 您可撰寫查詢 (使用 DataFrame 和資料集 API) 來對此輸入資料表執行作業。 查詢輸出會產生另一個資料表：「結果資料表」  。 結果資料表包含您的查詢結果，您可以從中提取資料以用於外部資料存放區 (如關聯式資料庫)。 「觸發間隔」  會控制從輸入資料表處理資料的時機。 根據預設，觸發間隔為零，所以結構化串流會在資料到達時立即嘗試處理資料。 實際上，這表示只要是結構化串流處理完前一個查詢的執行後，就會針對任何新收到的資料啟動另一個處理執行。 您可以將觸發程序設定為依據間隔執行，從而以時間為基礎的批次方式處理串流資料。 
+在結構化串流中，資料會送達系統並立即內嵌到輸入資料表中。 您可撰寫查詢 (使用 DataFrame 和資料集 API) 來對此輸入資料表執行作業。 查詢輸出會產生另一個資料表：「結果資料表」。 結果資料表包含您的查詢結果，您可以從中提取資料以用於外部資料存放區 (如關聯式資料庫)。 「觸發間隔」會控制從輸入資料表處理資料的時機。 根據預設，觸發間隔為零，所以結構化串流會在資料到達時立即嘗試處理資料。 實際上，這表示只要是結構化串流處理完前一個查詢的執行後，就會針對任何新收到的資料啟動另一個處理執行。 您可以將觸發程序設定為依據間隔執行，從而以時間為基礎的批次方式處理串流資料。 
 
-結果資料表中的資料可只包含自上次處理查詢後的新資料 (「附加模式」  )，或是每次有新資料時，結果資料表中的資料就會完全重新整理，使該資料表包含自串流查詢開始後的所有輸出資料 (「完整模式」  )。
+結果資料表中的資料可只包含自上次處理查詢後的新資料 (「附加模式」)，或是每次有新資料時，結果資料表中的資料就會完全重新整理，使該資料表包含自串流查詢開始後的所有輸出資料 (「完整模式」)。
 
 ### <a name="append-mode"></a>附加模式
 
@@ -127,7 +127,7 @@ Spark 結構化串流會將資料流表示為無限深度的資料表，也就�
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>檢查點與預寫記錄
 
-為了提供備援和容錯，結構化串流會藉由「檢查點」  來確保串流處理即使在發生節點錯誤時，也能夠持續而不中斷。 在 HDInsight 中，Spark 會在可靠的儲存體 (Azure 儲存體或 Data Lake Storage) 上建立檢查點。 這些檢查點會儲存有關串流查詢的進度資訊。 此外，結構化串流會使用「預寫記錄檔 (WAL)」  。 WAL 會擷取已接收但未由查詢處理的內嵌資料。 如果發生失敗，處理作業會從 WAL 重新啟動，這樣一來從來源收到的任何事件就不會遺失。
+為了提供備援和容錯，結構化串流會藉由「檢查點」來確保串流處理即使在發生節點錯誤時，也能夠持續而不中斷。 在 HDInsight 中，Spark 會在可靠的儲存體 (Azure 儲存體或 Data Lake Storage) 上建立檢查點。 這些檢查點會儲存有關串流查詢的進度資訊。 此外，結構化串流會使用「預寫記錄檔 (WAL)」。 WAL 會擷取已接收但未由查詢處理的內嵌資料。 如果發生失敗，處理作業會從 WAL 重新啟動，這樣一來從來源收到的任何事件就不會遺失。
 
 ## <a name="deploying-spark-streaming-applications"></a>部署 Spark 串流處理應用程式
 

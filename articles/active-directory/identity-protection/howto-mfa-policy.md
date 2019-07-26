@@ -4,58 +4,58 @@ description: 了解如何設定 Azure AD Identity Protection 多重要素驗證�
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2019
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 434d07163713a139b42a5dbe1664f81dafc2a1ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: aeef0886bcfe12cf4e67bbbccec1dde7fe47c69d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108948"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335433"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>如何：設定 Azure Multi-factor Authentication 註冊原則
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>如何：設定 Azure 多重要素驗證註冊原則
 
-Azure AD Identity Protection 可協助您藉由設定條件式存取原則來要求 MFA 註冊，無論您登入哪些應用程式管理導入的 multi-factor authentication (MFA) 註冊。 這篇文章會說明哪些原則可用於和如何加以設定。
+Azure AD Identity Protection 藉由設定條件式存取原則來要求進行 MFA 註冊, 而不論您登入哪一個應用程式, 都能協助您管理「多重要素驗證」 (MFA) 註冊的推出。 本文說明原則可用於哪些內容, 以及如何進行設定。
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>什麼是 Azure Multi-factor Authentication 註冊原則？
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>什麼是 Azure 多重要素驗證註冊原則？
 
-Azure Multi-factor Authentication 提供方法來確認您使用多個只是使用者名稱和密碼。 它提供第二個使用者登入的安全性層級。為了讓使用者能夠回應 MFA 提示，他們必須先註冊 Azure Multi-factor authentication。
+Azure 多因素驗證提供一種方法來驗證您使用的不只是使用者名稱和密碼。 它提供使用者登入的第二層安全性。為了讓使用者能夠回應 MFA 提示, 他們必須先註冊 Azure 多重要素驗證。
 
-我們建議您針對使用者登入需要 Azure Multi-factor Authentication，因為它：
+我們建議您針對使用者登入要求 Azure 多重要素驗證, 因為它:
 
 - 提供增強式驗證與一系列簡單的驗證選項
-- 扮演關鍵性的角色，以準備您的組織，保護及復原從 Identity Protection 中的風險事件
+- 在準備您的組織保護和復原 Identity Protection 中的風險事件時, 扮演著重要的角色
 
-如需 MFA 的詳細資訊，請參閱[什麼是 Azure Multi-factor Authentication？](../authentication/howto-mfa-getstarted.md)
+如需 MFA 的詳細資訊, 請參閱[什麼是 Azure 多重要素驗證？](../authentication/howto-mfa-getstarted.md)
 
-## <a name="how-do-i-access-the-registration-policy"></a>如何存取登錄原則？
+## <a name="how-do-i-access-the-registration-policy"></a>如何? 存取註冊原則？
 
-MFA 註冊原則位於 [Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 頁面的 [設定]  區段中。
+MFA 註冊原則位於 [Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy) 頁面的 [設定] 區段中。
 
 ![MFA 原則](./media/howto-mfa-policy/1014.png)
 
 ## <a name="policy-settings"></a>原則設定
 
-當您設定 MFA 註冊原則時，您需要進行下列組態變更：
+當您設定 MFA 註冊原則時, 您需要進行下列設定變更:
 
-- 使用者和群組要套用原則。 排除您的組織，請記得[緊急存取帳戶](../users-groups-roles/directory-emergency-access.md)。
+- 套用原則的使用者和群組。 請記得排除貴組織的[緊急存取帳戶](../users-groups-roles/directory-emergency-access.md)。
 
     ![使用者和群組](./media/howto-mfa-policy/11.png)
 
-- 您想要強制執行-控制項**需要 Azure MFA 註冊**
+- 您想要強制執行的控制項-**需要 AZURE MFA 註冊**
 
-    ![Access](./media/howto-mfa-policy/12.png)
+    ![存取權](./media/howto-mfa-policy/12.png)
 
-- 強制執行原則應該設為**上**。
+- [強制執行原則] 應該設定為 [**開啟**]。
 
     ![強制執行原則](./media/howto-mfa-policy/14.png)
 
-- **儲存**您的原則
+- **儲存**原則
 
 ## <a name="user-experience"></a>使用者體驗
 

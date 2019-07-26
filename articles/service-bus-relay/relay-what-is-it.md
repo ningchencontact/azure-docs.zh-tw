@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60420297"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422927"
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 Azure 轉送服務可讓您在公用雲端中安全地公開公司網路中所執行的服務。 您不需要開啟防火牆上的連線，也不需要對公司網路基礎結構進行侵入式變更，就能做到這一點。 
@@ -37,7 +37,7 @@ Azure 轉送不同於網路層級的整合技術，例如 VPN。 Azure 轉送可
 1. 內部部署服務透過輸出連接埠連線到轉送服務。 
 2. 它會建立雙向通訊端以供進行繫結至特定位址的通訊。 
 3. 用戶端接著可將流量傳送至以該位址為目標的轉送服務，藉此與內部部署服務通訊。 
-4. 轉送服務接著會透過用戶端專用的雙向通訊端，將資料「轉送」  至內部部署服務。 用戶端不需要直接連線到內部部署服務。 它不需要知道服務的所在位置。 而且，內部部署服務也不需要在防火牆上開啟任何輸入連接埠。
+4. 轉送服務接著會透過用戶端專用的雙向通訊端，將資料「轉送」至內部部署服務。 用戶端不需要直接連線到內部部署服務。 它不需要知道服務的所在位置。 而且，內部部署服務也不需要在防火牆上開啟任何輸入連接埠。
 
 
 ## <a name="features"></a>功能 
@@ -46,7 +46,7 @@ Azure 轉送有兩項功能︰
 - [混合式連線](#hybrid-connections) - 使用開放式標準 Web 通訊端來啟用多平台案例。
 - WCF 轉送 - 使用 Windows Communication Foundation (WCF) 來啟用遠端程序呼叫。 WCF 轉送是舊版的轉送供應項目，許多客戶已將該服務用於其 WCF 程式設計模型。
 
-## <a name="hybrid-connections"></a>混合式連線
+## <a name="hybrid-connections"></a>混合式連接
 
 Azure 轉送中的混合式連線功能，是從先前存在的轉送功能演化而來的安全、開放式通訊協定。 您可以在任何平台以任何語言使用它。 Azure 轉送中的混合式連線功能會以 HTTP 和 Websocket 通訊協定作為基礎。 它可讓您透過 Web 通訊端或 HTTP (S) 傳送要求並接收回應。 此功能可與常用網頁瀏覽器中的 WebSocket API 相容。 
 
@@ -56,12 +56,12 @@ Azure 轉送中的混合式連線功能，是從先前存在的轉送功能演�
 > Azure 轉送的混合式連線取代了 BizTalk 服務舊有的混合式連線功能。 BizTalk 服務中的混合式連線功能是建置在 Azure 服務匯流排的 WCF 轉送之上。 Azure 轉送中的混合式連線功能可補充既有 WCF 轉送功能的不足之處。 這兩個服務功能 (WCF 轉送和混合式連線) 並存於 Azure 轉送服務中。 它們共用通用的閘道，但有不同的實作方式。
 
 ## <a name="wcf-relay"></a>WCF 轉送
-WCF 轉送適用於完整的 .NET Framework 和 WCF。 您可以在內部部署服務與使用一組 WCF「轉送」繫結的轉送服務之間建立連線。 轉送繫結會對應至新的傳輸繫結元素，其設計來建立與雲端中服務匯流排整合的 WCF 通道元件。 如需詳細資訊，請參閱[開始使用 WCF 轉送](relay-wcf-dotnet-get-started.md)。
+WCF 轉送適用於完整的 .NET Framework 和 WCF。 您可以在內部部署服務與使用一組 WCF「轉送」繫結的轉送服務之間建立連線。 轉送繫結會對應至新的傳輸繫結元素，其設計來建立與雲端中服務匯流排整合的 WCF 通道元件。 如需詳細資訊，請參閱[開始使用 WCF 轉送](service-bus-relay-tutorial.md)。
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>混合式連線與WCF 轉送
 混合式連線和 WCF 轉送都能夠對存在於網路內的資產進行安全的連線。 視您的特定需求使用其中一項功能，詳述於下表︰
 
-|  | WCF 轉送 | 混合式連線 |
+|  | WCF 轉送 | 混合式連接 |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
@@ -82,7 +82,7 @@ WCF 轉送適用於完整的 .NET Framework 和 WCF。 您可以在內部部署�
 5. 閘道會將連線要求轉送給閘道存放區中提及的正確閘道。 
 6. 閘道會將要求傳送給接聽方用戶端，讓它對最接近傳送方用戶端的閘道節點建立暫時通道。 
 7. 接聽方用戶端會建立暫時通道，並傳送回應給最接近傳送方用戶端的閘道。 現在，用戶端之間已透過閘道建立連線，用戶端可以開始互相交換訊息。 
-8. 閘道會接聽用戶端從任何訊息轉送傳送用戶端。 
+8. 閘道會將來自接聽用戶端的任何訊息轉送至傳送用戶端。 
 9. 閘道會將來自傳送方用戶端的任何訊息轉送至接聽方用戶端。  
 
 ## <a name="next-steps"></a>後續步驟

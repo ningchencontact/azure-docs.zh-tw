@@ -1,5 +1,5 @@
 ---
-title: 使用隱含流程的單一頁面登入-Azure Active Directory B2C |Microsoft Docs
+title: 使用隱含流程的單一頁面登入-Azure Active Directory B2C
 description: 瞭解如何搭配 Azure Active Directory B2C 使用 OAuth 2.0 隱含流程來新增單一頁面登入。
 services: active-directory-b2c
 author: mmacy
@@ -7,25 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ade9740d6c5e9edcda4a01c72b94c6f84686447d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 1196f3b186abcd914c409db06b52654f82f4158b
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248800"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377329"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OAuth 2.0 隱含流程的單一頁面登入
 
-許多現代化應用程式都有單一頁面應用程式前端, 主要是以 JavaScript 撰寫。 應用程式通常會使用回應、角度或 Vue 等架構來撰寫。 主要在瀏覽器上執行的單一頁面應用程式和其他 JavaScript 應用程式，在驗證時會面臨一些額外的挑戰：
+許多現代化應用程式都有單一頁面應用程式前端, 主要是以 JavaScript 撰寫。 應用程式通常會使用回應、角度或 Vue 之類的架構來撰寫。 主要在瀏覽器上執行的單一頁面應用程式和其他 JavaScript 應用程式，在驗證時會面臨一些額外的挑戰：
 
 - 這些應用程式的安全性特性與傳統的以伺服器為基礎的 web 應用程式不同。
 - 許多授權伺服器與識別提供者不支援跨原始來源資源共用 (CORS) 要求。
 - 從應用程式重新導向的整頁瀏覽器可能會侵入使用者體驗。
 
-為了支援這些應用程式，Azure Active Directory B2C (Azure AD B2C) 使用 OAuth 2.0 隱含流程。 如需 OAuth 2.0 授權隱含授權流程的說明，請參閱 [OAuth 2.0 規格的 4.2 節](https://tools.ietf.org/html/rfc6749) 。 在隱含流程中，應用程式會直接從 Azure Active Directory (Azure AD) 授權端點接收權杖，而不需執行任何伺服器對伺服器交換。 所有驗證邏輯和會話處理都會完全在 JavaScript 用戶端中完成, 而不需要額外的頁面重新導向。
+為了支援這些應用程式，Azure Active Directory B2C (Azure AD B2C) 使用 OAuth 2.0 隱含流程。 如需 OAuth 2.0 授權隱含授權流程的說明，請參閱 [OAuth 2.0 規格的 4.2 節](https://tools.ietf.org/html/rfc6749) 。 在隱含流程中，應用程式會直接從 Azure Active Directory (Azure AD) 授權端點接收權杖，而不需執行任何伺服器對伺服器交換。 所有驗證邏輯和會話處理都是透過頁面重新導向或快顯方塊, 完全在 JavaScript 用戶端中完成。
 
 Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而不僅止於簡單的驗證與授權。 Azure AD B2C 導入了[原則參數](active-directory-b2c-reference-policies.md)。 利用原則參數，您可以使用 OAuth 2.0 來為應用程式新增原則，例如註冊、登入和設定檔管理使用者流程。 在本文的範例 HTTP 要求中, 會使用**fabrikamb2c.onmicrosoft.com**作為範例。 您可以將`fabrikamb2c`取代為您的租使用者名稱 (如果有的話), 並建立使用者流程。
 
@@ -86,7 +86,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | 否 | 應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
 | response_mode | 否 | 指定用來將產生的權杖送回應用程式的方法。  針對隱含流程，請使用 `fragment`。 |
 | scope | 是 | 範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 對於 Web 應用程式， `offline_access` 範圍是選擇性。 它指出您的應用程式需要重新整理權杖，才能長久存取資源。 |
-| state | 否 | 包含於也會隨權杖回應傳回之要求中的值。 它可以是您想要使用之任何內容的字串。 通常會使用隨機產生的唯一值來防止跨網站偽造要求攻擊。 驗證要求出現前，也會先使用此狀態來為使用者在應用程式中的狀態相關資訊編碼，例如他們先前所在的網頁。 |
+| 狀態 | 否 | 包含於也會隨權杖回應傳回之要求中的值。 它可以是您想要使用之任何內容的字串。 通常會使用隨機產生的唯一值來防止跨網站偽造要求攻擊。 驗證要求出現前，也會先使用此狀態來為使用者在應用程式中的狀態相關資訊編碼，例如他們先前所在的網頁。 |
 | nonce | 是 | 要求中所含的值 (由應用程式產生)，它會以宣告形式包含於產生的識別碼權杖中。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
 | p | 是 | 要執行的原則。 這是在您的 Azure AD B2C 租用戶中建立的原則 (使用者流程) 名稱。 原則名稱值的開頭應該為**b2c\_1\_** 。 |
 | prompt | 否 | 需要的使用者互動類型。 目前唯一支援的值為 `login`。 此參數會強制使用者在該要求上輸入其認證。 單一登入不會生效。 |
@@ -95,7 +95,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 當使用者完成使用者流程之後，Azure AD 會透過您用於 `redirect_uri` 的值，將回應傳回給您的應用程式。 它會使用 `response_mode` 參數中指定的方法。 對於每個使用者動作情節來說，回應完全相同，與已執行的使用者流程無關。
 
-### <a name="successful-response"></a>成功回應
+### <a name="successful-response"></a>成功的回應
 使用 `response_mode=fragment` 和 `response_type=id_token+token` 的成功回應如下所示 (內含換行符號以利閱讀)：
 
 ```
@@ -115,7 +115,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | 存取權杖的有效時間長度 (以秒為單位)。 |
 | scope | 權杖有效的範圍。 您也可以使用範圍來快取權杖，以供稍後使用。 |
 | id_token | 應用程式所要求的識別碼權杖。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 如需識別碼權杖及其內容的詳細資料，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。 |
-| state | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。 |
+| 狀態 | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。 |
 
 ### <a name="error-response"></a>錯誤回應
 錯誤回應也能傳送到重新導向 URI，以便讓應用程式能夠適當地處理它們：
@@ -131,7 +131,7 @@ error=access_denied
 | --------- | ----------- |
 | error | 用來分類發生的錯誤類型的程式碼。 |
 | error_description | 可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
-| state | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。|
+| 狀態 | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應該驗證要求和回應中的 `state` 值完全相同。|
 
 ## <a name="validate-the-id-token"></a>驗證識別碼權杖
 
@@ -176,7 +176,6 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點。 應用程式可以使�
 在一般 web 應用程式流程中, 您會對`/token`端點提出要求。 不過, 端點不支援 CORS 要求, 因此無法選擇進行 AJAX 呼叫來取得重新整理權杖。 相反地，您可以在隱藏的 HTML iframe 元素中使用隱含流程，為其他 Web API 取得新權杖。 以下是範例 (內含換行符號以利閱讀)：
 
 ```
-
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -186,8 +185,6 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&domain_hint=organizations
-&login_hint=myuser@mycompany.com
 &p=b2c_1_sign_in
 ```
 
@@ -198,15 +195,15 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |建議 |應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
 | scope |必要項 |範圍的空格分隔清單。  若要取得權杖，請包含您針對所需資源要求的所有範圍。 |
 | response_mode |建議 |指定將產生之權杖送回到應用程式要使用的方法。  可以是 `query`、`form_post` 或 `fragment`。 |
-| state |建議 |會隨權杖回應傳回之要求中所包含的值。  它可以是您想要使用之任何內容的字串。  通常會使用隨機產生的唯一值來防止跨網站偽造要求攻擊。  此狀態也用來在驗證要求出現之前，於應用程式中將使用者狀態的相關資訊編碼。 例如，使用者所在的網頁或檢視。 |
+| 狀態 |建議 |會隨權杖回應傳回之要求中所包含的值。  它可以是您想要使用之任何內容的字串。  通常會使用隨機產生的唯一值來防止跨網站偽造要求攻擊。  此狀態也用來在驗證要求出現之前，於應用程式中將使用者狀態的相關資訊編碼。 例如，使用者所在的網頁或檢視。 |
 | nonce |必要項 |要求中所含的值 (由應用程式產生)，它會以宣告形式包含於產生的識別碼權杖中。  應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
 | prompt |必要項 |若要重新整理並取得隱藏 iframe 中的權杖，請使用 `prompt=none` 以確保 iframe 不會停滯在登入頁面上，並立即返回。 |
-| login_hint |必要項 |若要重新整理並取得隱藏 iframe 中的權杖，請在此提示中包含使用者的使用者名稱，以區分使用者在特定時間點可能具有的多個工作階段。 您可以使用 `preferred_username` 宣告來擷取先前登入的使用者名稱。 |
-| domain_hint |必要項 |可以是 `consumers` 或 `organizations`。  若要重新整理並取得隱藏 iframe 中的`domain_hint`權杖, 請在要求中包含值。  從先前登入的識別碼權杖擷取 `tid` 宣告，以判斷要使用哪一個值。  如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，請使用 `domain_hint=consumers`。  否則，使用 `domain_hint=organizations`。 |
+| login_hint |必要項 |若要重新整理並取得隱藏 iframe 中的權杖，請在此提示中包含使用者的使用者名稱，以區分使用者在特定時間點可能具有的多個工作階段。 您可以使用`preferred_username`宣告從稍早的登入中解壓縮使用者名稱 (必須要`profile`有此範圍才能接收`preferred_username`宣告)。 |
+| domain_hint |必要項 |可以是 `consumers` 或 `organizations`。  若要重新整理並取得隱藏 iframe 中的`domain_hint`權杖, 請在要求中包含值。  從先前登入的識別碼權杖中解壓縮宣告, 以判斷要使用的值`profile` (必須要有範圍才能接收`tid`宣告)。 `tid` 如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，請使用 `domain_hint=consumers`。  否則，使用 `domain_hint=organizations`。 |
 
 一旦設定 `prompt=none` 參數，此要求就會立即成功或失敗，並返回您的應用程式。  藉由使用 `response_mode` 參數中指定的方法，以指定的重新導向 URI 將成功的回應傳送至您的應用程式。
 
-### <a name="successful-response"></a>成功回應
+### <a name="successful-response"></a>成功的回應
 使用`response_mode=fragment`的成功回應如下列範例所示:
 
 ```
@@ -222,7 +219,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | --- | --- |
 | access_token |應用程式要求的權杖。 |
 | token_type |權杖類型一律為持有人。 |
-| state |如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的 `state` 值完全相同。 |
+| 狀態 |如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和回應中的 `state` 值完全相同。 |
 | expires_in |存取權杖的有效期 (以秒為單位)。 |
 | scope |存取權杖有效的範圍。 |
 
@@ -262,6 +259,17 @@ p=b2c_1_sign_in
 | post_logout_redirect_uri |建議 |使用者在成功登出之後，應該要前往的 URL。若未包含此項，Azure AD B2C 就會向使用者顯示一般訊息。 |
 
 > [!NOTE]
-> 將使用者導向至 `end_session_endpoint`，會利用 Azure AD B2C 清除使用者的部分單一登入狀態。 不過，它不會將使用者登出使用者的社交身分識別提供者工作階段。 如果使用者之後在登入時選取相同的識別提供者，該使用者不必輸入自己的認證，就能讓系統重新驗證自己的身分。 舉例來說，如果使用者想要登出您的 Azure AD B2C 應用程式，不一定代表他們想要完全登出自己的 Facebook 帳戶。 不過，如果使用本機帳戶，使用者的工作階段將會正確地結束。
+> 將使用者導向至 `end_session_endpoint`，會利用 Azure AD B2C 清除使用者的部分單一登入狀態。 不過，它不會將使用者登出使用者的社交身分識別提供者工作階段。 如果使用者在後續登入時選取相同的識別提供者, 則會重新驗證使用者, 而不需要輸入其認證。 舉例來說，如果使用者想要登出您的 Azure AD B2C 應用程式，不一定代表他們想要完全登出自己的 Facebook 帳戶。 不過，如果使用本機帳戶，使用者的工作階段將會正確地結束。
 >
 
+## <a name="next-steps"></a>後續步驟
+
+### <a name="code-sample-hellojs-with-azure-ad-b2c"></a>程式碼範例: 使用 Azure AD B2C 的 hello .js
+
+[以 Azure AD B2C 建立的單一頁面應用程式][github-hello-js-example]GitHub
+
+GitHub 上的此範例旨在協助您開始使用以[node.js][github-hello-js]建立的簡單 web 應用程式中的 Azure AD B2C, 並使用快顯樣式驗證。
+
+<!-- Links - EXTERNAL -->
+[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js]: https://github.com/MrSwitch/hello.js

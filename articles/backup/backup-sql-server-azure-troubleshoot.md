@@ -1,29 +1,28 @@
 ---
-title: 疑難排解 SQL Server 資料庫備份使用 Azure 備份 |Microsoft Docs
+title: 使用 Azure 備份對 SQL Server 資料庫備份進行疑難排解 |Microsoft Docs
 description: 適用於在 Azure VM 上執行並使用 Azure 備份進行備份之 SQL Server 資料庫的疑難排解資訊。
-services: backup
 author: anuragm
 manager: sivan
 ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: anuragm
-ms.openlocfilehash: b2822a3c7dfa23065f2cbd35ef4e506efae026f2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c601ecb6997834aa216de094e2809670833dd9cb
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704856"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464908"
 ---
-# <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>使用 Azure 備份來進行疑難排解 SQL Server 資料庫備份
+# <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>使用 Azure 備份對 SQL Server 資料庫備份進行疑難排解
 
-本文章提供在 Azure 虛擬機器上執行的 SQL Server 資料庫的疑難排解資訊。
+本文提供在 Azure 虛擬機器上執行之 SQL Server 資料庫的疑難排解資訊。
 
-如需有關備份程序和限制的詳細資訊，請參閱 <<c0> [ 關於 SQL Server 中備份 Azure Vm 中的](backup-azure-sql-database.md#feature-consideration-and-limitations)。
+如需備份程式和限制的詳細資訊, 請參閱[關於 Azure vm 中的 SQL Server 備份](backup-azure-sql-database.md#feature-consideration-and-limitations)。
 
 ## <a name="sql-server-permissions"></a>SQL Server 權限
 
-若要設定的虛擬機器上的 SQL Server 資料庫的保護，您必須安裝**AzureBackupWindowsWorkload**該虛擬機器上的延伸模組。 如果您收到錯誤**UserErrorSQLNoSysadminMembership**，這表示您的 SQL Server 執行個體沒有必要的備份權限。 若要修正這個錯誤，請遵循[設定 VM 的權限](backup-azure-sql-database.md#set-vm-permissions)。
+若要設定虛擬機器上 SQL Server 資料庫的保護, 您必須在該虛擬機器上安裝**AzureBackupWindowsWorkload**延伸模組。 如果您收到錯誤**UserErrorSQLNoSysadminMembership**, 表示您的 SQL Server 實例沒有必要的備份許可權。 若要修正此錯誤, 請依照[設定 VM 許可權](backup-azure-sql-database.md#set-vm-permissions)中的步驟進行。
 
 ## <a name="error-messages"></a>錯誤訊息
 
@@ -31,124 +30,124 @@ ms.locfileid: "67704856"
 
 | Severity | 描述 | 可能的原因 | 建議的動作 |
 |---|---|---|---|
-| 警告 | 目前的設定，此資料庫不支援特定的備份類型出現在相關聯的原則。 | <li>只有完整資料庫備份作業可以在 master 資料庫上執行。 差異備份和交易記錄備份都不是可行的。 </li> <li>在簡單復原模式中的任何資料庫不允許的交易記錄備份。</li> | 修改資料庫設定，使其支援原則中的所有備份類型。 或者，您也可以變更目前的原則，以納入僅支援的備份類型。 否則，排定的備份期間將略過不支援的備份類型或臨機操作備份的備份作業將會失敗。
+| 警告 | 此資料庫的目前設定不支援相關聯原則中存在的特定備份類型。 | <li>只有完整資料庫備份作業可以在 master 資料庫上執行。 差異備份或交易記錄備份都不可行。 </li> <li>簡單復原模式中的任何資料庫都不允許備份交易記錄。</li> | 修改資料庫設定，使其支援原則中的所有備份類型。 或者, 將目前的原則變更為僅包含支援的備份類型。 否則, 在排程備份期間將會略過不支援的備份類型, 否則臨機操作備份的備份作業將會失敗。
 
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 此 SQL 資料庫不支援所要求的備份類型。 | 當資料庫復原模式不允許所要求的備份類型時便會發生。 此錯誤會於下列情況時發生： <br/><ul><li>使用簡單復原模式的資料庫不允許記錄備份。</li><li>Master 資料庫不允許差異及記錄備份。</li></ul>如需詳細資訊，請參閱 < [SQL Server 復原模式](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)文件。 | 如果在簡單復原模式資料庫的記錄檔備份失敗，請嘗試其中一個選項：<ul><li>如果資料庫處於簡單復原模式，請停用記錄備份。</li><li>使用[SQL Server 文件](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server)變更為完整的資料庫復原模式或大量記錄。 </li><li> 如果您不想變更復原模式，而且所用來備份多個資料庫的標準原則無法變更，則請忽略此錯誤。 完整和差異備份會依排程運作。 記錄備份則會略過，這符合此案例的預期。</li></ul>如果它是主要資料庫，並已設定的差異或記錄備份，請使用下列其中一種方式：<ul><li>您可以使用入口網站變更為完整的 master 資料庫中，備份原則排程。</li><li>如果所用來備份多個資料庫的標準原則無法變更，則請忽略此錯誤。 完整備份會依排程運作。 差異或記錄備份則不會進行，這符合此案例的預期。</li></ul> |
-| 作業遭到取消，原因是同一個資料庫上已在執行衝突的作業。 | 請參閱[備份和還原的限制相關的部落格項目](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database)同時執行。| [使用 SQL Server Management Studio (SSMS) 來監視備份作業](manage-monitor-sql-database-backup.md)。 衝突的操作失敗之後，重新啟動作業。|
+| 此 SQL 資料庫不支援所要求的備份類型。 | 當資料庫復原模式不允許所要求的備份類型時便會發生。 此錯誤會於下列情況時發生： <br/><ul><li>使用簡單復原模式的資料庫不允許記錄備份。</li><li>Master 資料庫不允許差異和記錄備份。</li></ul>如需詳細資訊, 請參閱[SQL Server 復原模式](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)檔。 | 如果簡單復原模式中的資料庫記錄備份失敗, 請嘗試下列其中一個選項:<ul><li>如果資料庫處於簡單復原模式，請停用記錄備份。</li><li>使用[SQL Server 檔](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server), 將資料庫復原模式變更為完整或大量記錄。 </li><li> 如果您不想變更復原模式，而且所用來備份多個資料庫的標準原則無法變更，則請忽略此錯誤。 完整和差異備份會依排程運作。 記錄備份則會略過，這符合此案例的預期。</li></ul>如果它是 master 資料庫, 而且您已設定差異或記錄備份, 請使用下列其中一個步驟:<ul><li>使用入口網站將 master 資料庫的備份原則排程變更為 [完整]。</li><li>如果所用來備份多個資料庫的標準原則無法變更，則請忽略此錯誤。 完整備份會依排程運作。 差異或記錄備份則不會進行，這符合此案例的預期。</li></ul> |
+| 作業遭到取消，原因是同一個資料庫上已在執行衝突的作業。 | 請參閱[有關同時執行之備份和還原限制的 blog 專案](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database)。| [使用 SQL Server Management Studio (SSMS) 來監視備份作業](manage-monitor-sql-database-backup.md)。 衝突的作業失敗之後, 請重新開機作業。|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| SQL 資料庫不存在。 | 資料庫已遭到刪除或重新命名。 | 檢查資料庫是否已意外遭到刪除或重新命名。<br/><br/> 如果資料庫意外遭到刪除，卻要繼續備份，請將資料庫還原到原始位置。<br/><br/> 如果您刪除了該資料庫，且不需要未來的備份，然後在 復原服務保存庫中，選取**停止備份**具有**保留備份資料**或是**刪除備份資料**。 如需詳細資訊，請參閱 <<c0> [ 管理並監視備份 SQL Server 資料庫](manage-monitor-sql-database-backup.md)。
+| SQL 資料庫不存在。 | 資料庫已遭到刪除或重新命名。 | 檢查資料庫是否已意外遭到刪除或重新命名。<br/><br/> 如果資料庫意外遭到刪除，卻要繼續備份，請將資料庫還原到原始位置。<br/><br/> 如果您已刪除資料庫, 而不需要未來的備份, 請在復原服務保存庫中, 選取 [**停止備份**並**保留備份資料**] 或 [**刪除備份資料**]。 如需詳細資訊, 請參閱[管理和監視備份的 SQL Server 資料庫](manage-monitor-sql-database-backup.md)。
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 記錄鏈結中斷。 | 資料庫或 VM 備份到另一個的備份解決方案，會截斷記錄檔鏈結。|<ul><li>檢查是否有其他備份解決方案或指令碼正在使用中。 如果有，請停止其他備份解決方案。 </li><li>如果備份是臨機操作的記錄備份，請觸發完整備份，才能開始新的記錄鏈結。 為排程的記錄備份，因為 Azure 備份服務會自動觸發完整備份以修正此問題不需要採取任何動作。</li>|
+| 記錄鏈結中斷。 | 資料庫或 VM 會透過另一個備份解決方案進行備份, 這會截斷記錄鏈。|<ul><li>檢查是否有其他備份解決方案或指令碼正在使用中。 如果有，請停止其他備份解決方案。 </li><li>如果備份是臨機操作的記錄備份, 請觸發完整備份來啟動新的記錄檔鏈。 針對排定的記錄備份, 不需要採取任何動作, 因為 Azure 備份服務會自動觸發完整備份以修正此問題。</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| Azure 備份無法連線至 SQL 執行個體。 | Azure 備份無法連線到 SQL Server 執行個體。 | 使用 Azure 入口網站錯誤功能表上的其他詳細資料，以縮小的根本原因。 請參閱 [SQL 備份疑難排解](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine)以修正錯誤。<br/><ul><li>如果預設的 SQL 設定不允許遠端連線，請變更設定。 請參閱下列文章來變更設定的相關資訊：<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>如果有登入問題，請使用下列連結加以修正：<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure 備份無法連線至 SQL 執行個體。 | Azure 備份無法連接到 SQL Server 實例。 | 使用 [Azure 入口網站錯誤] 功能表上的 [其他詳細資料] 來縮小根本原因。 請參閱 [SQL 備份疑難排解](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine)以修正錯誤。<br/><ul><li>如果預設的 SQL 設定不允許遠端連線, 請變更設定。 如需變更設定的詳細資訊, 請參閱下列文章:<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>如果有登入問題, 請使用下列連結來加以修正:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### <a name="usererrorparentfullbackupmissing"></a>UserErrorParentFullBackupMissing
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 此資料來源的第一個完整備份遺失。 | 資料庫的完整備份遺失。 記錄檔和差異備份是完整備份的父代，因此請務必進行完整備份之前觸發差異或記錄備份。 | 觸發臨機操作的完整備份。   |
+| 此資料來源的第一個完整備份遺失。 | 資料庫的完整備份遺失。 記錄和差異備份是完整備份的父系, 因此請務必在觸發差異或記錄備份之前, 先進行完整備份。 | 觸發特定的完整備份。   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 資料來源的交易記錄已滿，所以無法擷取備份。 | 資料庫的交易記錄空間已滿。 | 若要修正此問題，請參閱[SQL Server 文件](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error)。 |
+| 資料來源的交易記錄已滿，所以無法擷取備份。 | 資料庫的交易記錄空間已滿。 | 若要修正此問題, 請參閱[SQL Server 檔](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error)。 |
 
 ### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 目標位置上已經有同名的資料庫存在。 | 目標還原目的地已經有相同名稱的資料庫。  | <ul><li>變更目標資料庫名稱。</li><li>或者，您也可以使用 [還原] 頁面上的 [強制] 覆寫選項。</li> |
+| 目標位置上已經有同名的資料庫存在。 | 目標還原目的地已經有相同名稱的資料庫。  | <ul><li>變更目標資料庫名稱。</li><li>或者, 使用 [還原] 頁面上的 [強制覆寫] 選項。</li> |
 
 ### <a name="usererrorrestorefaileddatabasecannotbeofflined"></a>UserErrorRestoreFailedDatabaseCannotBeOfflined
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 還原失敗，原因是無法讓資料庫離線。 | 當您要進行還原時，目標資料庫必須離線。 Azure 備份無法使這項資料離線。 | 使用 Azure 入口網站錯誤功能表上的其他詳細資料，以縮小的根本原因。 如需詳細資訊，請參閱 < [SQL Server 文件](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)。 |
+| 還原失敗，原因是無法讓資料庫離線。 | 當您執行還原時, 目標資料庫必須離線。 Azure 備份無法使此資料離線。 | 使用 [Azure 入口網站錯誤] 功能表上的 [其他詳細資料] 來縮小根本原因。 如需詳細資訊, 請參閱[SQL Server 檔](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)。 |
 
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 在目標上找不到具有指紋的伺服器憑證。 | 在目的地執行個體上的 master 資料庫沒有有效的加密憑證指紋。 | 匯入的來源執行個體，目標執行個體上使用有效的憑證指紋。 |
+| 在目標上找不到具有指紋的伺服器憑證。 | 目的地實例上的 master 資料庫沒有有效的加密指紋。 | 將來源實例上使用的有效憑證指紋匯入目標實例。 |
 
 ### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 用於復原的記錄備份包含大量記錄的變更。 根據 SQL 指導方針，其無法用來在任意時間點停止。 | 在大量記錄復原模式資料庫時，就無法復原大量記錄交易與下一個記錄交易之間的資料。 | 選擇不同的點進行復原的時間。 [深入了解](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))。
+| 用於復原的記錄備份包含大量記錄的變更。 根據 SQL 指導方針，其無法用來在任意時間點停止。 | 當資料庫處於大量記錄復原模式時, 無法復原大量記錄交易和下一個記錄交易之間的資料。 | 請選擇不同的恢復時間點。 [深入了解](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))。
 
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 無法符合 SQL Always On 可用性群組的備份喜好設定，原因是可用性群組有某些節點並未註冊。 | 執行備份所需的節點未註冊或無法連線。 | <ul><li>確定要執行此資料庫的備份所需的所有節點已註冊且狀況良好，然後重試此作業。</li><li>變更 SQL Server Always On 可用性群組的備份喜好設定。</li></ul> |
+| 無法符合 SQL Always On 可用性群組的備份喜好設定，原因是可用性群組有某些節點並未註冊。 | 執行備份所需的節點未註冊或無法連線。 | <ul><li>請確認執行此資料庫備份所需的所有節點都已註冊且狀況良好, 然後再次嘗試操作。</li><li>變更 SQL Server Always On 可用性群組的備份喜好設定。</li></ul> |
 
 ### <a name="vmnotinrunningstateusererror"></a>VMNotInRunningStateUserError
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| SQL 伺服器 VM 已關閉，無法供 Azure 備份服務存取。 | 關閉 VM。 | 確定 SQL Server 執行個體正在執行。 |
+| SQL 伺服器 VM 已關閉，無法供 Azure 備份服務存取。 | VM 已關閉。 | 確定 SQL Server 實例正在執行。 |
 
 ### <a name="guestagentstatusunavailableusererror"></a>GuestAgentStatusUnavailableUserError
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| Azure 備份服務使用 Azure VM 客體代理程式來執行備份，但目標伺服器上無法使用客體代理程式。 | 客體代理程式未啟用，或狀況不良。 | 手動[安裝 VM 客體代理程式](../virtual-machines/extensions/agent-windows.md)。 |
+| Azure 備份服務使用 Azure VM 客體代理程式來執行備份，但目標伺服器上無法使用客體代理程式。 | 來賓代理程式未啟用或狀況不良。 | 手動[安裝 VM 客體代理程式](../virtual-machines/extensions/agent-windows.md)。 |
 
 ### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
-| 自動保護用途可能已移除或不再有效。 | 當您啟用自動保護 SQL Server 執行個體上**設定備份**作業會執行該執行個體中的所有資料庫。 如果您停用自動保護，而工作正在執行，則**進行中**工作會取消，並出現此錯誤碼。 | 啟用自動保護一次一次，以協助保護所有剩餘的資料庫。 |
+| 自動保護用途可能已移除或不再有效。 | 當您在 SQL Server 實例上啟用自動保護時, 請設定該實例中所有資料庫的**備份**作業執行。 如果您停用自動保護，而工作正在執行，則**進行中**工作會取消，並出現此錯誤碼。 | 再次啟用自動保護, 以協助保護所有剩餘的資料庫。 |
 
 ## <a name="re-registration-failures"></a>重新註冊失敗
 
-觸發重新註冊作業之前，先檢查一或多個下列症狀：
+在觸發重新註冊作業之前, 請先檢查下列一個或多個徵兆:
 
-* 所有作業 （例如備份、 還原及設定備份） 上具有下列錯誤碼的其中一個 VM 失敗：**WorkloadExtensionNotReachable**， **UserErrorWorkloadExtensionNotInstalled**， **WorkloadExtensionNotPresent**， **WorkloadExtensionDidntDequeueMsg**.
-* **備份狀態**區域中備份的項目會顯示**無法連線到**。 排除所有的其他原因，可能會導致相同的狀態：
+* 所有作業 (例如備份、還原和設定備份) 都會在 VM 上失敗, 並出現下列其中一個錯誤代碼:**WorkloadExtensionNotReachable**、 **UserErrorWorkloadExtensionNotInstalled**、 **WorkloadExtensionNotPresent**、 **WorkloadExtensionDidntDequeueMsg**。
+* 備份專案的 [**備份狀態**] 區域顯示為 [**無法**連線]。 排除可能會導致相同狀態的所有其他原因:
 
-  * 缺少的權限執行的 VM 上的備份相關作業  
-  * 關閉 VM，因此無法進行備份
+  * 缺少在 VM 上執行備份相關作業的許可權  
+  * 關閉 VM, 因此無法進行備份
   * 網路問題  
 
-  !["Not reachable"狀態中重新註冊 VM](./media/backup-azure-sql-database/re-register-vm.png)
+  ![重新註冊 VM 時「無法連線」狀態](./media/backup-azure-sql-database/re-register-vm.png)
 
-* 在 Always On 可用性群組，備份會開始失敗之後變更備份喜好設定，或在容錯移轉之後。
+* 在 Always On 可用性群組的情況下, 當您變更備份喜好設定或容錯移轉之後, 備份就會開始失敗。
 
-這些徵兆可能會發生一個或多個原因如下：
+這些徵兆可能因下列一或多個原因而發生:
 
-* 延伸模組已刪除，或從入口網站解除安裝。 
-* 延伸模組已從解除安裝**控制台中**底下的 VM 上**解除安裝或變更程式**。
-* 在透過就地磁碟還原的時間，已還原 VM。
-* VM 已關閉長，因此在其上的擴充功能組態已過期。
-* 已刪除 VM，並具有相同名稱和相同的資源群組，為已刪除的 VM 中建立另一個 VM。
-* 其中一個可用性群組節點未收到完整的備份設定。 這種情形時的可用性群組已註冊至保存庫，或加入新的節點。
+* 已從入口網站刪除或卸載擴充功能。 
+* 在 [**卸載或變更程式**] 下, 已從 VM 上的 [**控制台**] 卸載擴充功能。
+* VM 已透過就地磁片還原還原回來。
+* VM 已關閉一段較長的時間, 因此其上的延伸模組設定已過期。
+* 已刪除 VM, 並在與已刪除的 VM 相同的資源群組中建立了另一個 VM。
+* 其中一個可用性群組節點未收到完整的備份設定。 當可用性群組註冊至保存庫, 或加入新的節點時, 就會發生這種情況。
 
-在上述案例中，我們建議您觸發 VM 上的重新註冊作業。 現在，此選項則是只能透過 PowerShell 項目。
+在先前的案例中, 我們建議您在 VM 上觸發重新註冊操作。 目前, 只有透過 PowerShell 才能使用此選項。
 
-## <a name="size-limit-for-files"></a>檔案大小限制
+## <a name="size-limit-for-files"></a>檔案的大小限制
 
-檔案的字串總大小不只上的檔案數目取決也取決於它們的名稱和路徑。 每個資料庫檔案，取得的邏輯檔案名稱和實體路徑。 您可以使用這個 SQL 查詢：
+檔案的總字串大小不只取決於檔案數目, 同時也是在其名稱和路徑上。 針對每個資料庫檔案, 取得邏輯檔案名和實體路徑。 您可以使用此 SQL 查詢:
 
 ```
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
@@ -156,7 +155,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
                WHERE db.name = N'<Database Name>'"
 ```
 
-現在將它們排列成下列格式：
+現在請以下列格式排列:
 
 ```
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
@@ -168,13 +167,13 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
 ```
 
-如果內容的字串大小超過 20,000 個位元組，則資料庫檔案，將儲存在以不同的方式。 在復原期間，您無法將還原的目標檔案路徑。 SQL Server 所提供的預設 SQL 路徑，將會還原檔案。
+如果內容的字串大小超過20000個位元組, 則會以不同的方式儲存資料庫檔案。 在復原期間, 您將無法設定還原的目標檔案路徑。 檔案將還原為 SQL Server 所提供的預設 SQL 路徑。
 
-### <a name="override-the-default-target-restore-file-path"></a>覆寫預設目標還原檔案路徑
+### <a name="override-the-default-target-restore-file-path"></a>覆寫預設的目標還原檔案路徑
 
-您可以將 JSON 檔案，其中包含對應到目標還原目錄資料庫檔案的覆寫目標還原檔案路徑在還原作業期間。 建立`database_name.json`檔案，並將它放在位置*C:\Program Files\Azure 工作負載 Backup\bin\plugins\SQL*。
+在還原作業期間, 您可以將包含資料庫檔案對應的 JSON 檔案放到目標還原路徑, 以覆寫目標還原檔案路徑。 建立檔案, 並將它放在 [location *C:\Program Files\Azure 工作負載] Backup\bin\plugins\SQL*中。 `database_name.json`
 
-此格式應該是檔案的內容：
+檔案的內容應該採用下列格式:
 ```
 [
   {
@@ -207,7 +206,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 ]
 ```
 
-在上述的內容中，您可以使用下列 SQL 查詢來取得資料庫檔案的邏輯名稱：
+在上述內容中, 您可以使用下列 SQL 查詢來取得資料庫檔案的邏輯名稱:
 
 ```
 SELECT mf.name AS LogicalName FROM sys.master_files mf
@@ -216,8 +215,8 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
   ```
 
 
-應放置這個檔案，再觸發還原作業。
+在您觸發還原作業之前, 應該先放置此檔案。
 
 ## <a name="next-steps"></a>後續步驟
 
-SQL Server Vm （公開預覽） 的 Azure 備份的相關資訊，請參閱[適用於 SQL Vm 的 Azure 備份](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup)。
+如需 SQL Server Vm Azure 備份的詳細資訊 (公開預覽), 請參閱[適用于 SQL vm 的 Azure 備份](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup)。

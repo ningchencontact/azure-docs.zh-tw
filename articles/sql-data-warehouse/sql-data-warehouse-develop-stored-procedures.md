@@ -2,7 +2,7 @@
 title: 在 Azure SQL 資料倉儲中使用預存程序 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中實作預存程序以便開發解決方案的秘訣。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,17 +10,17 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 200433d95d62edf2e878e58e5089a6baff290775
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c12a679ed5f0a1574deb34df8c0151e737d2d01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850576"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479598"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用預存程序
 在 Azure SQL 資料倉儲中實作預存程序以便開發解決方案的秘訣。
 
-## <a name="what-to-expect"></a>未來展望
+## <a name="what-to-expect"></a>預期的情況
 
 SQL 資料倉儲支援許多 SQL Server 中使用的 T-SQL 功能。 更重要的是有相應放大的特定功能，您可用來將解決方案效能最大化。
 

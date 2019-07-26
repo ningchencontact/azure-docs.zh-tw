@@ -1,7 +1,6 @@
 ---
 title: Azure 備份：從 Azure VM 備份復原檔案和資料夾
 description: 從 Azure 虛擬機器的復原點復原檔案
-services: backup
 author: pvrk
 manager: shivamg
 keywords: 項目層級復原；從 Azure VM 備份檔案復原；從 Azure VM 中還原檔案
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 678b187eb49c84b5b4cf17fe063d21d09b333434
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240217"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465657"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -29,23 +28,23 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
 若要從復原點還原檔案或資料夾，請移至虛擬機器，然後選擇所需的復原點。
 
-1. 登入 [Azure 入口網站](https://portal.Azure.com)，按一下左窗格中的 [虛擬機器]  。 從虛擬機器的清單中，選取虛擬機器以開啟該虛擬機器的儀表板。
+1. 登入 [Azure 入口網站](https://portal.Azure.com)，按一下左窗格中的 [虛擬機器]。 從虛擬機器的清單中，選取虛擬機器以開啟該虛擬機器的儀表板。
 
-2. 在虛擬機器的功能表中，按一下 [備份]  來開啟 [備份] 儀表板。
+2. 在虛擬機器的功能表中，按一下 [備份] 來開啟 [備份] 儀表板。
 
     ![開啟復原服務保存庫備份項目](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. 在 [備份] 儀表板功能表中，按一下 [檔案復原]  。
+3. 在 [備份] 儀表板功能表中，按一下 [檔案復原]。
 
     ![[檔案復原] 按鈕](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
-    [檔案復原]  功能表隨即開啟。
+    [檔案復原] 功能表隨即開啟。
 
     ![[檔案復原] 功能表](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
-4. 從 [選取復原點]  下拉式選單中，選取包含您所需檔案的復原點。 根據預設，已選取最近的復原點。
+4. 從 [選取復原點] 下拉式選單中，選取包含您所需檔案的復原點。 根據預設，已選取最近的復原點。
 
-5. 若要下載用來從復原點複製檔案的軟體，請按一下 [下載可執行檔]  (適用於 Microsoft Azure VM) 或 [下載指令碼]  (適用於 Linux Azure VM，會產生 Python 指令碼)。
+5. 若要下載用來從復原點複製檔案的軟體，請按一下 [下載可執行檔] (適用於 Microsoft Azure VM) 或 [下載指令碼] (適用於 Linux Azure VM，會產生 Python 指令碼)。
 
     ![產生的密碼](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -55,7 +54,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
     若要以系統管理員的身分執行可執行檔或指令碼，建議先將下載項目儲存到電腦上。
 
-6. 可執行檔或指令碼受到密碼保護，因此需輸入密碼。 在 [檔案復原]  功能表上，按一下 [複製] 按鈕以將密碼載入記憶體中。
+6. 可執行檔或指令碼受到密碼保護，因此需輸入密碼。 在 [檔案復原] 功能表上，按一下 [複製] 按鈕以將密碼載入記憶體中。
 
     ![產生的密碼](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
@@ -67,16 +66,16 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
     - download.microsoft.com
     - 復原服務 URL (geo-name 是指復原服務保存庫所在的區域)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com （適用於 Azure 公用地區）
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn （如 Azure 中國）
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us （如 Azure 美國政府）
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de （如 Azure 德國）
+        - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.com (適用于 Azure 公用地區)
+        - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.cn (適用于 Azure 中國)
+        - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.us (適用于 Azure 美國政府)
+        - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.de (適用于 Azure 德國)
     - 輸出連接埠 3260
 
 > [!Note]
 > 
-> * 將已下載的指令碼檔案名稱**地理名稱**要填入在 URL 中。 針對例如：下載的指令碼名稱開頭\'VMname\'\_\'geoname\'_\'GUID\'，例如 ContosoVM_wcus_12345678...<br><br>
-> * URL 會是"https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> * 下載的指令檔名將會在 URL 中填入**地區名稱**。 如需:下載的\'腳本名稱以 VMname\_ \' \'geoname_\' GUID開頭\', 例如 ContosoVM_wcus_12345678 ....。\'<br><br>
+> * URL 會是 "HTTPs:\//pod01-rec2.wcus.backup.windowsazure.com"
 
 
    若為 Linux，指令碼需要 'open-iscsi' 和 'lshw' 元件來連接到復原點。 如果元件不存在於執行指令碼的電腦上，則指令碼會要求安裝元件的權限。 同意安裝必要的元件。
@@ -101,7 +100,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
 
 ## <a name="closing-the-connection"></a>關閉連線
 
-在識別檔案並將它們複製到本機儲存體位置之後，移除 (或卸載) 其他磁碟機。 若要卸載磁碟機，請在 Azure 入口網站的 [檔案復原]  功能表中，按一下 [卸載磁碟]  。
+在識別檔案並將它們複製到本機儲存體位置之後，移除 (或卸載) 其他磁碟機。 若要卸載磁碟機，請在 Azure 入口網站的 [檔案復原] 功能表中，按一下 [卸載磁碟]。
 
 ![取消掛接磁碟](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -196,7 +195,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 在 Linux 中，用來還原檔案的電腦作業系統必須支援受保護虛擬機器的檔案系統。 選取要執行指令碼的電腦時，請確認該電腦具有相容的作業系統，且使用下表中列出的其中一個版本：
 
-|Linux 作業系統 | 版本  |
+|Linux OS | 版本  |
 | --------------- | ---- |
 | Ubuntu | 12.04 和更新版本 |
 | CentOS | 6.5 和更新版本  |
@@ -207,8 +206,8 @@ $ mount [RAID Disk Path] [/mountpath]
 | openSUSE | 42.2 和更新版本 |
 
 > [!Note]
-> 我們在 SLES 12 SP4 os 的機器上執行檔案復原指令碼發現一些問題。 調查與 SLES 小組。
-> 目前，執行檔案復原指令碼正在使用 SLES 12 SP2 和 SP3 OS 版本的機器。
+> 我們發現在具有 SLES 12 SP4 OS 的電腦上執行檔案復原腳本時發生一些問題。 使用 SLES team 進行調查。
+> 目前, 執行檔案復原腳本的作業是在具有 SLES 12 SP2 和 SP3 OS 版本的電腦上運作。
 >
 
 指令碼也需要 Python 和 Bash 元件，才能夠執行並安全地連線至復原點。
@@ -225,48 +224,48 @@ $ mount [RAID Disk Path] [/mountpath]
 
 | 錯誤訊息 / 案例 | 可能的原因 | 建議的動作 |
 | ------------------------ | -------------- | ------------------ |
-| Exe 輸出：連線到目標的例外狀況  |指令碼無法存取復原點    | 檢查電腦是否符合上述的存取需求。 |  
-| Exe 輸出：目標已透過 iSCSI 工作階段登入。  | 指令碼已在相同電腦上執行，並已附加磁碟機 | 復原點磁碟區已連接。 它們可能未使用原始 VM 的相同磁碟機代號裝載。 在檔案總管中的檔案瀏覽所有可用的磁碟區 |
+| Exe 輸出：連線到目標的例外狀況 |指令碼無法存取復原點    | 檢查電腦是否符合上述的存取需求。 |  
+| Exe 輸出：目標已透過 iSCSI 工作階段登入。 | 指令碼已在相同電腦上執行，並已附加磁碟機 | 復原點磁碟區已連接。 它們可能未使用原始 VM 的相同磁碟機代號裝載。 在檔案總管中的檔案瀏覽所有可用的磁碟區 |
 | Exe 輸出：這個指令碼無效，因為磁碟已透過入口網站/超過 12 小時限制卸載。*從入口網站下載新的指令碼。* |    已從入口網站卸載磁碟或超過 12 小時的限制 | 此特定 exe 目前無效，無法執行。 如果您想要存取該復原點時間的檔案，請瀏覽新 exe 的入口網站|
-| 在執行 exe 的電腦上：按一下 [卸載] 按鈕之後不會卸載新的磁碟區 | 電腦上的 iSCSI 啟動器沒有回應/重新整理與目標的連線並維護快取。 |  按一下 [卸載]  後，請稍候幾分鐘。 如果新磁碟區並未卸載，請瀏覽所有磁碟區。 瀏覽所有磁碟區會強制啟動器重新整理連線，且會卸載磁碟區，並出現磁碟無法使用的錯誤訊息。|
+| 在執行 exe 的電腦上：按一下 [卸載] 按鈕之後不會卸載新的磁碟區 | 電腦上的 iSCSI 啟動器沒有回應/重新整理與目標的連線並維護快取。 |  按一下 [卸載] 後，請稍候幾分鐘。 如果新磁碟區並未卸載，請瀏覽所有磁碟區。 瀏覽所有磁碟區會強制啟動器重新整理連線，且會卸載磁碟區，並出現磁碟無法使用的錯誤訊息。|
 | Exe 輸出：指令碼成功執行，但指令碼輸出上不會顯示「附加的新磁碟區」 |    這是暫時性的錯誤    | 磁碟區可能已經附加。 開啟檔案總管以瀏覽。 如果您每次都使用同一部電腦執行指令碼，請考慮重新啟動電腦，清單應該會顯示在後續的 exe 執行。 |
 | Linux 特定︰無法檢視所需的磁碟區 | 執行指令碼所在電腦的作業系統可能無法辨識受保護 VM 的底層檔案系統 | 檢查復原點是否損毀一致還是檔案一致。 如果檔案一致，請在作業系統可辨識受保護 VM 檔案系統的其他電腦上執行指令碼 |
 | Windows 特定︰無法檢視所需的磁碟區 | 已連接磁碟，但未設定磁碟區 | 從 [磁碟管理] 畫面上，找出與復原點相關的其他磁碟。 如果有任何這些磁碟處於離線狀態，請透過在磁碟上按一下滑鼠右鍵並按一下 [上線]，來嘗試使狀態成為上線|
 
 ## <a name="security"></a>安全性
 
-本節討論從 Azure VM 備份復原檔案的實作所需的各種安全性措施，這類的使用者了解安全性方面的功能。
+本節討論從 Azure VM 備份執行檔案復原所採取的各種安全性措施, 讓使用者知道該功能的安全性層面。
 
 ### <a name="feature-flow"></a>功能流程
 
-這項功能已內建存取而不需要還原整個 VM 或 VM 的 VM 資料磁碟並在最小的步驟。 VM 資料的存取權提供的指令碼 （掛接復原磁碟區時執行，如下所示），因此它會構成所有安全性實作的基石
+這項功能的建立是用來存取 VM 資料, 而不需要還原整個 VM 或 VM 磁片, 並以最少的步驟執行。 VM 資料的存取是由腳本所提供 (執行如下所示的掛接復原磁片區), 因此它會形成所有安全性實現的基石。
 
-  ![安全性功能的流程](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
+  ![安全性功能流程](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
 
-### <a name="security-implementations"></a>安全性實作
+### <a name="security-implementations"></a>安全性實現
 
-#### <a name="select-recovery-point-who-can-generate-script"></a>選取復原點 （可以產生指令碼）
+#### <a name="select-recovery-point-who-can-generate-script"></a>選取復原點 (可產生腳本的人員)
 
-指令碼會提供存取 VM 資料，務必要管理誰可以在第一時間產生。 其中一個需要登入 Azure 入口網站，而且應該[RBAC 授權](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)能夠產生的指令碼。
+腳本會提供 VM 資料的存取權, 因此請務必控制可在一開始就產生它的人員。 其中一個需要登入 Azure 入口網站, 而且應該是已[獲授權](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)可以產生腳本的 RBAC。
 
-檔案復原需要相同的層級，視需要授權的還原 VM 和磁碟還原。 換句話說，只有獲得授權的使用者可以檢視 VM 的資料可以產生指令碼。
+檔案復原需要 VM 還原和磁片還原所需的相同授權層級。 換句話說, 只有授權的使用者可以查看 VM 資料才能產生腳本。
 
-官方 Microsoft 憑證簽署產生的指令碼的 Azure 備份服務。 使用指令碼的任何竄改表示簽章會中斷，而且任何嘗試執行指令碼會反白顯示為潛在的風險由 OS。
+產生的腳本會使用 Azure 備份服務的官方 Microsoft 憑證進行簽署。 任何對腳本進行的篡改, 都表示簽章已中斷, 而且任何執行腳本的嘗試都會被反白顯示為作業系統的潛在風險。
 
-#### <a name="mount-recovery-volume-who-can-run-script"></a>掛接復原磁碟區 （可以執行指令碼）
+#### <a name="mount-recovery-volume-who-can-run-script"></a>掛接復原磁片區 (可執行腳本的人員)
 
-只有系統管理員可以執行指令碼，並應該在提高權限模式中執行它。 指令碼只會執行一組預先產生的步驟，並不接受來自任何外部來源的輸入。
+只有系統管理員可以執行腳本, 而且應該在提高許可權的模式中執行。 此腳本只會執行一組預先產生的步驟, 而且不接受來自任何外部來源的輸入。
 
-若要執行指令碼，其中一個需要只會顯示已獲授權的使用者產生的指令碼時在 Azure 入口網站或 PowerShell/CLI 的密碼。 這是為了確保授權下載指令碼的使用者也會負責執行指令碼。
+若要執行腳本, 需要密碼, 只有在 Azure 入口網站或 PowerShell/CLI 中的腳本產生時, 才會向授權的使用者顯示。 這是為了確保下載腳本的授權使用者也會負責執行腳本。
 
-#### <a name="browse-files-and-folders"></a>瀏覽檔案和資料夾
+#### <a name="browse-files-and-folders"></a>流覽檔案和資料夾
 
-瀏覽檔案和資料夾，指令碼會在機器中使用的 iSCSI 啟動器，並連接到復原點設定為 iSCSI 目標。 這裡您可以假設的案例，其中會嘗試模擬/詐騙是/全部元件。
+若要流覽檔案和資料夾, 腳本會使用電腦中的 iSCSI 啟動器, 並聯機至設定為 iSCSI 目標的復原點。 這裡可以假設有一個嘗試模擬/所有元件的案例。
 
-我們會使用相互 CHAP 驗證機制，讓每個元件驗證其他。 這表示連線到 iSCSI 目標和假的目標，以便連線到機器指令碼執行所在的假啟動器極為困難。
+我們會使用相互 CHAP 驗證機制, 讓每個元件彼此驗證。 這表示很難讓假的啟動器連接到 iSCSI 目標, 並使用假的目標來連接到執行腳本的電腦。
 
-復原服務與電腦之間的資料流程會受到建置安全的 SSL 通道，透過 TCP ([應該支援 TLS 1.2](#system-requirements)機器執行指令碼中)
+復原服務與電腦之間的資料流程受到透過 TCP 建立安全 SSL 通道的保護 (執行腳本的電腦[應支援 TLS 1.2](#system-requirements) )
 
-存取控制清單 (ACL) 出現在父代/已備份 VM 的任何檔案也保留已掛接的檔案系統中。
+所有存在於父系/備份 VM 中的檔案存取控制清單 (ACL) 都會保留在裝載的檔案系統中。
 
-指令碼提供唯讀存取權的復原點，並只在 12 小時內無效。 如果使用者想要稍早移除存取權，然後登入 Azure 入口網站/PowerShell/CLI，並執行**取消掛接磁碟**為該特定復原點。 指令碼將會立即失效。
+此腳本會提供復原點的唯讀存取權, 且只適用于12小時。 如果使用者想要移除先前的存取權, 請登入 Azure 入口網站/PowerShell/CLI, 並執行該特定復原點的**卸載磁片**。 腳本會立即失效。

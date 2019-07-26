@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 72be96e89cd46267d0c0795bd5121de76e48cf6f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: a9de7c75ef2bd29b2e401ba387ca16a5dfda34fb
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484086"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442039"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -46,9 +46,9 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 | Apache Storm | - | 1.1.0 | 1.0.1 | 0.10.0 | 0.10.0 | 0.9.3 |
 | Apache Mahout | - | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0 |
 | Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
-| Apache Spark | 2.3.1, 2.4 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2、2.0 | 1.6.0 | 1.5.2 | 1.3.1 (僅限 Windows) |
-| Apache Livy | 0.5 | 0.4, 0.4, 0.3 | 0.3 | 0.3 | 0.2 | - |
-| Apache Kafka | 1.1.1, 2.1 | 1.1、1.0 *(請參閱下方注意事項) | 0.10.0 | 0.9.0 | - | - |
+| Apache Spark | 2.3.1、2。4 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2、2.0 | 1.6.0 | 1.5.2 | 1.3.1 (僅限 Windows) |
+| Apache Livy | 0.5 | 0.4、0.4、0。3 | 0.3 | 0.3 | 0.2 | - |
+| Apache Kafka | 1.1.1, 2。1 | 1.1、1.0 *(請參閱下方注意事項) | 0.10.0 | 0.9.0 | - | - |
 | Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
 | Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
 | Mono | 4.2.1 | 4.2.1 | 4.2.1 | 3.2.8 | - | - |
@@ -58,7 +58,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>檢查目前的 Hadoop 元件版本資訊
 
-在 HDInsight 的更新中，可能會變更與 HDInsight 叢集版本相關聯的 Hadoop 生態系統元件版本。 若要檢查 Hadoop 元件和驗證叢集所使用的版本，請使用 Ambari REST API。 **GetComponentInformation** 命令會擷取服務元件的相關資訊。 如需詳細資訊，請參閱 < [Apache Ambari 文件](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
+在 HDInsight 的更新中，可能會變更與 HDInsight 叢集版本相關聯的 Hadoop 生態系統元件版本。 若要檢查 Hadoop 元件和驗證叢集所使用的版本，請使用 Ambari REST API。 **GetComponentInformation** 命令會擷取服務元件的相關資訊。 如需詳細資訊, 請參閱[Apache Ambari 檔](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
 ### <a name="release-notes"></a>版本資訊
 
@@ -75,7 +75,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 | HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |是 |是 |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | 2020 年 6 月 30日日 |2020 年 12 月 31日日 |是 |是 |
+| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | 2020年6月30日 |2020年12月31日 |是 |是 |
 
 
 > [!NOTE]  
@@ -109,9 +109,9 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
     在過去，您只能使用本機系統管理員使用者和本機 SSH 使用者來建立 HDInsight 叢集。 本機系統管理員使用者可以存取所有的檔案、資料夾、資料表和資料行。  您可以利用企業安全性套件來啟用角色型存取控制，方法是將 HDInsight 叢集與您自己的 Active Directory 整合，叢集中會包含 IaaS 虛擬機器上的內部部署 Active Directory、Azure Active Directory Domain Services 或 Active Directory。 叢集上的網域系統管理員可以授與使用者使用自己公司 (網域) 的使用者名稱和密碼來存取叢集。 
 
-    如需詳細資訊，請參閱
+    如需詳細資訊，請參閱：
 
-    - [已加入網域之 HDInsight 叢集的 Apache Hadoop 安全性簡介](./domain-joined/apache-domain-joined-introduction.md)
+    - [已加入網域之 HDInsight 叢集的 Apache Hadoop 安全性簡介](./domain-joined/hdinsight-security-overview.md)
     - [規劃 HDInsight 中已加入網域的 Azure Apache Hadoop 叢集](./domain-joined/apache-domain-joined-architecture.md)
     - [設定已加入網域的沙箱環境](./domain-joined/apache-domain-joined-configure.md)
     - [使用 Azure Active Directory Domain Services 設定已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
@@ -121,7 +121,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
   - 與 Apache Ranger 整合可取得 Hive、Spark SQL 和 Yarn 佇列的授權。
   - 您可以設定檔案和資料夾的存取控制。
 
-    如需詳細資訊，請參閱
+    如需詳細資訊，請參閱：
 
   - [在已加入網域的 HDInsight 中設定 Apache Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
 
@@ -146,12 +146,12 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 叢集版本的服務等級協定
 
-服務等級協定 (SLA) 是根據「支援期間」  來定義。 支援期間是 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。 如果已超過版本的「支援到期日」  ，則表示該 HDInsight 叢集不在支援期間內。 特定 HDInsight 版本 X (在較新的 X+1 版本推出後) 的支援到期日計算方式會以下列較晚的時間為準：  
+服務等級協定 (SLA) 是根據「支援期間」來定義。 支援期間是 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。 如果已超過版本的「支援到期日」，則表示該 HDInsight 叢集不在支援期間內。 特定 HDInsight 版本 X (在較新的 X+1 版本推出後) 的支援到期日計算方式會以下列較晚的時間為準：  
 
 * 公式 1：將 HDInsight 叢集版本 X 的發行日期加上 180 天。
 * 公式 2：將 Azure 入口網站中推出 HDInsight 叢集版本 X+1 的日期加上 90 天。
 
-「停用日期」  是在此日期之後便無法在 HDInsight 上建立叢集版本。 從 2017 年 7 月 31 日開始，您就無法在 HDInsight 叢集的停用日期之後調整叢集。 
+「停用日期」是在此日期之後便無法在 HDInsight 上建立叢集版本。 從 2017 年 7 月 31 日開始，您就無法在 HDInsight 叢集的停用日期之後調整叢集。 
 
 > [!NOTE]  
 > HDInsight Windows 叢集 (包括版本 2.1、3.0、3.1、3.2 和 3.3) 均可在 Azure 客體 OS 系列第 4 版上執行，此系列使用 64 位元版的 Windows Server 2012 R2。 Azure 客體 OS 系列第 4 版支援 .NET Framework 版本 4.0、4.5、4.5.1 和 4.5.2。
@@ -161,19 +161,19 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 本節提供 Hortonworks Data Platform 發佈的版本資訊，以及與 HDInsight 搭配使用的 Apache 元件。
 * HDInsight 叢集 4.0 版採用以 [Hortonworks Data Platform 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html) 為基礎的 Hadoop 散發
 * HDInsight 叢集 3.6 版採用以 [Hortonworks Data Platform 2.6](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) 為基礎的 Hadoop 散發套件。
-* HDInsight 叢集 3.5 版採用以 [Hortonworks Data Platform 2.5](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html) 為基礎的 Hadoop 散發套件。 HDInsight 叢集版本 3.5 是在 Azure 入口網站中建立的「預設」  Hadoop 叢集。
+* HDInsight 叢集 3.5 版採用以 [Hortonworks Data Platform 2.5](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html) 為基礎的 Hadoop 散發套件。 HDInsight 叢集版本 3.5 是在 Azure 入口網站中建立的「預設」 Hadoop 叢集。
 * HDInsight 叢集 3.4 版採用以 [Hortonworks Data Platform 2.4](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html)為基礎的 Hadoop 散發套件。
 * HDInsight 叢集 3.3 版採用以 [Hortonworks Data Platform 2.3](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)為基礎的 Hadoop 散發。
 
   * [Apache Storm 版本資訊](https://storm.apache.org/2015/11/05/storm0100-released.html) \(英文\) 可從 Apache 網站上取得。
   * [Apache Hive 版本資訊](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) \(英文\) 可從 Apache 網站上取得。
-* HDInsight 叢集 3.2 版採用以為基礎的 Hadoop 散發套件[Hortonworks Data Platform 2.2][hdp-2-2]。
+* HDInsight 叢集版本3.2 使用以[Hortonworks 資料平臺 2.2][hdp-2-2]為基礎的 Hadoop 散發套件。
 
   * 以下提供特定 Apache 元件的版本資訊：[Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450)、[Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954)、[HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810)、[Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581)、[M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180)、[HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181)、[YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197)、[Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179)、[Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742)、[Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486)、[Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) 及 [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620)。
-* HDInsight 叢集 3.1 版採用以為基礎的 Hadoop 散發套件[Hortonworks Data Platform 2.1.7][hdp-2-1-7]. HDInsight 3.1 clusters created before November, 7, 2014, are based on [Hortonworks Data Platform 2.1.1][hdp-2-1-1]。
-* HDInsight 叢集 3.0 版採用以為基礎的 Hadoop 散發套件[Hortonworks Data Platform 2.0][hdp-2-0-8]。
-* HDInsight 叢集 2.1 版採用以為基礎的 Hadoop 散發套件[Hortonworks Data Platform 1.3][hdp-1-3-0]。
-* HDInsight 叢集 1.6 版採用以為基礎的 Hadoop 散發套件[Hortonworks Data Platform 1.1][hdp-1-1-0]。
+* HDInsight 叢集版本3.1 使用以[Hortonworks 資料平臺 2.1.7][hdp-2-1-7] . HDInsight 3.1 clusters created before November, 7, 2014, are based on [Hortonworks Data Platform 2.1.1][hdp-2-1-1]為基礎的 Hadoop 散發套件。
+* HDInsight 叢集版本3.0 使用以[Hortonworks 資料平臺 2.0][hdp-2-0-8]為基礎的 Hadoop 散發套件。
+* HDInsight 叢集版本2.1 使用以[Hortonworks 資料平臺 1.3][hdp-1-3-0]為基礎的 Hadoop 散發套件。
+* HDInsight 叢集版本1.6 使用以[Hortonworks 資料平臺 1.1][hdp-1-1-0]為基礎的 Hadoop 散發套件。
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>適用於叢集的預設節點設定和虛擬機器大小
 
@@ -204,8 +204,8 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 |ZooKeeper：建議的 VM 大小||A4 v2||A2 v2|||A2M v2|
 |||A8 v2||A4 v2|||D3 v2|
 |||A2m v2||A8 v2|||E8 v3|
-|ML 服務： 預設 VM 大小||||||D4 v2||
-|ML 服務： 建議的 VM 大小||||||D4 v2||
+|ML 服務: 預設 VM 大小||||||D4 v2||
+|ML 服務: 建議的 VM 大小||||||D4 v2||
 |||||||D12 v2||
 |||||||D13 v2||
 |||||||D14 v2||
@@ -224,13 +224,13 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
   | 背景工作：建議的 VM 大小 |D3、<br/> D4、<br/> D12 |D3、<br/> D4、<br/> D12  | D13、<br/> D14 |D3、<br/> D4、<br/> D12 |D4、<br/> D12、<br/> D13、<br/> D14 | D4、<br/> D12、<br/> D13、<br/> D14 |
   | ZooKeeper：預設 VM 大小 | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper：建議的 VM 大小 | |A2、<br/> A3、<br/> A4 | |A2、<br/> A3、<br/> A4 | | |
-  | ML 服務： 預設 VM 大小 | | | | | |D4 |
-  | ML 服務： 建議的 VM 大小 | | | | | |D4、<br/> D12、<br/> D13、<br/> D14 |
+  | ML 服務: 預設 VM 大小 | | | | | |D4 |
+  | ML 服務: 建議的 VM 大小 | | | | | |D4、<br/> D12、<br/> D13、<br/> D14 |
 
 > [!NOTE]
-> - 前端稱為 Storm 叢集類型的 Nimbus  。
-> - 背景工作角色稱為 Storm 叢集類型的「監督員」  。
-> - 背景工作角色稱為 HBase 叢集類型的「區域」  。
+> - 前端稱為 Storm 叢集類型的 Nimbus。
+> - 背景工作角色稱為 Storm 叢集類型的「監督員」。
+> - 背景工作角色稱為 HBase 叢集類型的「區域」。
 
 ## <a name="next-steps"></a>後續步驟
 - [使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)

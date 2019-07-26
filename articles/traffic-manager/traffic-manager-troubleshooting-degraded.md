@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60329718"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357220"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>疑難排解 Azure 流量管理員上的已降級狀態
 
-本文說明如何針對顯示降級狀態的 Azure 流量管理員設定檔進行疑難排解。 在此案例中，假設您已設定流量管理員設定檔來指向您的一些 cloudapp.net 託管服務。 如果流量管理員的健康情況顯示 [降級]  狀態，則可能有一或多個端點的狀態是 [降級]  ：
+本文說明如何針對顯示降級狀態的 Azure 流量管理員設定檔進行疑難排解。 針對 Azure 流量管理員降級狀態進行疑難排解的第一個步驟是啟用診斷記錄。  如需詳細資訊, 請參閱[啟用診斷記錄](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs)。 在此案例中，假設您已設定流量管理員設定檔來指向您的一些 cloudapp.net 託管服務。 如果流量管理員的健康情況顯示 [降級] 狀態，則可能有一或多個端點的狀態是 [降級]：
 
 ![降級端點狀態](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-如果流量管理員的健康情況顯示 [非使用中]  狀態，則可能有一或多個端點的狀態是 [非使用中]  ：
+如果流量管理員的健康情況顯示 [非使用中] 狀態，則可能有一或多個端點的狀態是 [非使用中]：
 
 ![非使用中流量管理員狀態](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "60329718"
 
 您也可以在 Internet Explorer 中，使用 [F12 偵錯工具] 的 [網路] 索引標籤來檢視 HTTP 回應。
 
-此範例中我們想要查看來自探查 URL 的回應： http:\//watestsdp2008r2.cloudapp.net:80/Probe。 下列 PowerShell 範例說明問題。
+在此範例中, 我們想要查看來自探查 URL 的回應: HTTP\/:/watestsdp2008r2.cloudapp.net:80/Probe。 下列 PowerShell 範例說明問題。
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

@@ -1,37 +1,39 @@
 ---
-title: Azure 受控應用程式中的檢視定義的概觀 |Microsoft Docs
-description: 說明建立 Azure 受控應用程式的檢視定義的概念。
+title: Azure 受控應用程式中的 view definition 總覽 |Microsoft Docs
+description: 說明建立 Azure 受控應用程式之 view 定義的概念。
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: 6735787f9b43f98ab611584f3c7191c9f927dbc2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: ff96bddef1b34f5a8bf743ccaaccba2da01534dc
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478741"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335121"
 ---
-# <a name="view-definition-artifact-in-azure-managed-applications"></a>Azure 受控應用程式中的檢視定義成品
+# <a name="view-definition-artifact-in-azure-managed-applications"></a>Azure 受控應用程式中的 View definition 成品
 
-檢視表定義具中 Azure 受控應用程式的選擇性成品。 它可讓自訂 [概觀] 頁面，並加入更多的檢視，例如計量與自訂資源。
+View definition 是 Azure 受控應用程式中的選擇性成品。 它可讓您自訂 [總覽] 頁面, 並新增更多視圖, 例如計量和自訂資源。
 
-本文章提供檢視定義成品的概觀，以及其功能。
+本文提供視圖定義成品及其功能的總覽。
 
 ## <a name="view-definition-artifact"></a>檢視定義成品
 
-必須命名為檢視定義成品**viewDefinition.json**並放在相同的層級**createUiDefinition.json**並**mainTemplate.json**中將.zip建立受控應用程式定義的封裝。 若要了解如何建立.zip 套件並發佈受控應用程式定義，請參閱[發佈 Azure 受控應用程式定義](publish-managed-app-definition-quickstart.md)
+視圖定義成品必須命名為**viewDefinition** , 並放在建立受控應用程式定義的 .zip 封裝中, 與**createUiDefinition**相同的層級。 若要瞭解如何建立 .zip 套件併發布受控應用程式定義, 請參閱[發佈 Azure 受控應用程式定義](publish-managed-app-definition-quickstart.md)
 
-## <a name="view-definition-schema"></a>檢視定義結構描述
+## <a name="view-definition-schema"></a>視圖定義架構
 
-**ViewDefinition.json**檔案有只有一個頂層`views`屬性，這是檢視的陣列。 每一個檢視表所示的受管理的應用程式使用者介面為個別的功能表項目資料表中的內容。 每個檢視有`kind`設定的檢視類型的屬性。 它必須設定為下列值之一：[概觀](#overview)，[計量](#metrics)， [CustomResources](#custom-resources)。 如需詳細資訊，請參閱目前[viewDefinition.json 的 JSON 結構描述](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)。
+**ViewDefinition**檔案只有一個最上層`views`屬性, 這是一個 views 陣列。 每個視圖都會顯示在受控應用程式使用者介面中, 作為目錄中的另一個功能表項目。 每個視圖都`kind`有設定檢視類型的屬性。 它必須設定為下列其中一個值:[總覽](#overview)、[計量](#metrics)、 [CustomResources](#custom-resources)。 如需詳細資訊, 請參閱 viewDefinition 的目前[json 架構](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)。
 
-如需檢視定義的範例 JSON:
+View 定義的範例 JSON:
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+    "contentVersion": "0.0.0.1",
     "views": [
         {
             "kind": "Overview",
@@ -84,7 +86,7 @@ ms.locfileid: "67478741"
                         "displayName": "Custom Context Action",
                         "path": "testCustomResource/testContextAction",
                         "icon": "Stop",
-                        "createUIDefinition": { },
+                        "createUIDefinition": { }
                     }
                 ],
                 "columns": [
@@ -99,11 +101,11 @@ ms.locfileid: "67478741"
 
 ```
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 `"kind": "Overview"`
 
-當您提供的這個檢視中**viewDefinition.json**，它會覆寫在 managed 應用程式中的 [預設概觀] 頁面。
+當您在**viewDefinition**中提供此視圖時, 它會覆寫受控應用程式中的預設 [總覽] 頁面。
 
 ```json
 {
@@ -121,17 +123,19 @@ ms.locfileid: "67478741"
 }
 ```
 
-|屬性|必要項|描述|
+|內容|必要項|描述|
 |---------|---------|---------|
-|頁首|否|[概觀] 頁面的標頭。|
-|description|否|您受管理的應用程式的描述。|
-|命令|否|陣列的其他工具列按鈕的 [概觀] 頁面中，請參閱[命令](#commands)。|
+|頁首|否|[總覽] 頁面的標頭。|
+|description|否|受控應用程式的描述。|
+|命令|否|[總覽] 頁面的其他工具列按鈕陣列, 請參閱[命令](#commands)。|
 
-## <a name="metrics"></a>度量
+![總覽](./media/view-definition/overview.png)
+
+## <a name="metrics"></a>計量
 
 `"kind": "Metrics"`
 
-[計量] 檢視可讓您收集和彙總資料，您受管理的應用程式中的資源[Azure 監視器計量](../azure-monitor/platform/data-platform-metrics.md)。
+計量視圖可讓您從[Azure 監視器計量](../azure-monitor/platform/data-platform-metrics.md)中的受控應用程式資源收集和匯總資料。
 
 ```json
 {
@@ -158,37 +162,39 @@ ms.locfileid: "67478741"
 }
 ```
 
-|屬性|必要項|描述|
+|內容|必要項|描述|
 |---------|---------|---------|
-|displayName|否|此檢視顯示的標題。|
-|version|否|用來呈現檢視的平台版本。|
-|圖表|是|圖表的 [度量] 頁面的陣列。|
+|displayName|否|視圖的顯示標題。|
+|版本|否|用來呈現視圖的平臺版本。|
+|圖表|是|[度量] 頁面的圖表陣列。|
 
 ### <a name="chart"></a>圖表
 
-|屬性|必要項|描述|
+|內容|必要項|描述|
 |---------|---------|---------|
-|displayName|是|圖表顯示的標題。|
-|chartType|否|要用於此圖表的視覺效果。 根據預設，它會使用折線圖。 支援的圖表類型： `Bar, Line, Area, Scatter`。|
-|metrics|是|此圖表上繪製的度量資訊的陣列。 若要深入了解在 Azure 入口網站中支援的計量，請參閱[支援 Azure 監視器的度量](../azure-monitor/platform/metrics-supported.md)|
+|displayName|是|圖表的顯示標題。|
+|chartType|否|要用於此圖表的視覺效果。 根據預設, 它會使用折線圖。 支援的圖表類型`Bar, Line, Area, Scatter`:。|
+|計量|是|要在此圖表上繪製的度量陣列。 若要深入瞭解 Azure 入口網站中支援的計量, 請參閱[支援的計量, Azure 監視器](../azure-monitor/platform/metrics-supported.md)|
 
-### <a name="metric"></a>計量
+### <a name="metric"></a>度量
 
-|屬性|必要項|描述|
+|內容|必要項|描述|
 |---------|---------|---------|
 |name|是|計量的名稱。|
-|aggregationType|是|若要使用此計量彙總類型。 支援的彙總類型： `none, sum, min, max, avg, unique, percentile, count`|
-|namespace|否|若要判斷正確的計量提供者時所使用的其他資訊。|
-|resourceTagFilter|否|資源標記的陣列 (會以分隔`or`word) 會顯示涉及哪些計量。 適用於資源類型篩選之上。|
-|resourceType|是|計量會顯示資源類型。|
+|aggregationType|是|要用於此度量的匯總類型。 支援的匯總類型:`none, sum, min, max, avg, unique, percentile, count`|
+|命名空間|否|判斷正確的計量提供者時所要使用的其他資訊。|
+|resourceTagFilter|否|要顯示計量的資源標記陣列 (將`or`以單字分隔)。 適用于資源類型篩選器之上。|
+|resourceType|是|要顯示計量的資源類型。|
+
+![計量](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>自訂資源
 
 `"kind": "CustomResources"`
 
-您可以定義此類型的多個檢視。 每個檢視代表**唯一**自訂資源類型的自訂提供者中定義**mainTemplate.json**。 如需自訂提供者的簡介，請參閱 [Azure Custom Providers Preview 概觀](custom-providers-overview.md)\(英文\)。
+您可以定義此類型的多個視圖。 每個 view 都代表您在**mainTemplate**中定義之自訂提供者的**唯一**自訂資源類型。 如需自訂提供者的簡介，請參閱 [Azure Custom Providers Preview 概觀](custom-providers-overview.md)\(英文\)。
 
-在此檢視，您可以執行 GET、 PUT、 刪除和發佈您的自訂資源類型的作業。 POST 作業可能是自訂的全域動作或在內容中的自訂資源類型的自訂動作。
+在此視圖中, 您可以針對您的自訂資源類型執行 GET、PUT、DELETE 和 POST 作業。 POST 作業可以是全域自訂動作, 或自訂資源類型內容中的自訂動作。
 
 ```json
 {
@@ -221,16 +227,18 @@ ms.locfileid: "67478741"
 
 |屬性|必要項|描述|
 |---------|---------|---------|
-|displayName|是|此檢視顯示的標題。 標題應該**唯一**中的每個 CustomResources 檢視您**viewDefinition.json**。|
-|version|否|用來呈現檢視的平台版本。|
-|resourceType|是|自訂資源類型。 必須是**唯一**自訂提供者的自訂資源類型。|
-|createUIDefinition|否|建立 UI 定義結構描述建立自訂資源的命令。 如需建立 UI 定義，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)|
-|命令|否|陣列的其他工具列按鈕的 CustomResources 檢視中，請參閱[命令](#commands)。|
-|columns|否|自訂資源的資料行的陣列。 如果未定義`name`預設會顯示資料行。 資料行必須有`"key"`和`"displayName"`。 針對索引鍵，提供要在檢視中顯示之屬性的索引鍵。 如果巢狀，使用點做為分隔符號，例如`"key": "name"`或`"key": "properties.property1"`。 顯示名稱 中，提供要在檢視中顯示之屬性的顯示名稱。 您也可以提供`"optional"`屬性。 當設為 true，資料行預設為隱藏在檢視中。|
+|displayName|是|視圖的顯示標題。 在您的**viewDefinition**中, 每個 CustomResources 視圖的標題都應該是**唯一**的。|
+|版本|否|用來呈現視圖的平臺版本。|
+|resourceType|是|自訂資源類型。 必須是自訂提供者的**唯一**自訂資源類型。|
+|createUIDefinition|否|建立 [建立自訂資源] 命令的 UI 定義架構。 如需建立 UI 定義的簡介, 請參閱[CreateUiDefinition](create-uidefinition-overview.md)使用者入門|
+|命令|否|CustomResources 視圖的其他工具列按鈕陣列, 請參閱[命令](#commands)。|
+|columns|否|自訂資源的資料行陣列。 如果未定義, `name`則預設會顯示該資料行。 此資料行必須`"key"`具有`"displayName"`和。 針對 [金鑰], 提供要在視圖中顯示之屬性的索引鍵。 如果是 nested, 請使用點做為分隔符號, `"key": "name"`例如`"key": "properties.property1"`或。 在 [顯示名稱] 中, 提供要在視圖中顯示之屬性的顯示名稱。 您也可以提供`"optional"`屬性。 設定為 true 時, 預設會在視圖中隱藏資料行。|
+
+![CustomResources](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>命令
 
-命令會顯示在頁面上的其他工具列按鈕的陣列。 每個命令則代表從 Azure 自訂提供者中定義的後置動作**mainTemplate.json**。 如需自訂提供者，請參閱 < [Azure 自訂提供者概觀](custom-providers-overview.md)。
+命令是顯示在頁面上的其他工具列按鈕陣列。 每個命令都代表**mainTemplate**中定義的來自 Azure 自訂提供者的 POST 動作。 如需自訂提供者的簡介, 請參閱[Azure 自訂提供者總覽](custom-providers-overview.md)。
 
 ```json
 {
@@ -247,12 +255,17 @@ ms.locfileid: "67478741"
 
 |屬性|必要項|描述|
 |---------|---------|---------|
-|displayName|是|命令按鈕的顯示的名稱。|
-|path|是|自訂提供者的動作名稱。 動作必須定義於**mainTemplate.json**。|
-|圖示|否|命令按鈕的圖示。 支援的圖示清單中定義[JSON 結構描述](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)。|
-|createUIDefinition|否|建立 UI 定義命令的結構描述。 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。|
+|displayName|是|命令按鈕的顯示名稱。|
+|路徑|是|自訂提供者動作名稱。 動作必須定義在**mainTemplate**中。|
+|圖示|否|命令按鈕的圖示。 支援的圖示清單定義于[JSON 架構](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)中。|
+|createUIDefinition|否|建立命令的 UI 定義架構。 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。|
+
+## <a name="looking-for-help"></a>尋求協助
+
+如果您對 Azure 受控應用程式有任何疑問, 請嘗試詢問[Stack Overflow](http://stackoverflow.com/questions/tagged/azure-managedapps)。 可能已經詢問和回答類似的問題, 因此請先檢查再張貼。 新增標記`azure-managedapps`以取得快速回應!
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如需受控應用程式的簡介，請參閱 [Azure 受控應用程式概觀](overview.md)。
-- 如需自訂提供者，請參閱 < [Azure 自訂提供者概觀](custom-providers-overview.md)。
+- 如需自訂提供者的簡介, 請參閱[Azure 自訂提供者總覽](custom-providers-overview.md)。
+- 如需使用 azure 自訂提供者建立 azure 受控應用[程式, 請參閱教學課程:建立具有自訂提供者動作和資源類型的受控應用程式](tutorial-create-managed-app-with-custom-provider.md)
