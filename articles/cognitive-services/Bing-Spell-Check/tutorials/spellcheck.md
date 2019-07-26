@@ -1,6 +1,6 @@
 ---
 title: 教學課程：使用 Bing 拼字檢查 API 取得拼字檢查結果
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 示範如何使用 Bing 拼字檢查。
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 0a7b8637ae3ca7342a04f6bf3f8a808539d980eb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: dc3a30418615d1c6b30ca4059292425076327f00
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886157"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500796"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>教學課程：建置網頁拼字檢查用戶端
 
@@ -283,7 +283,7 @@ function bingSpellCheck(query, key) {
 
 ## <a name="display-results"></a>顯示結果
 
-在您的瀏覽器中開啟網頁。 出現提示時，輸入您的 Bing 拼字檢查 API 訂用帳戶金鑰。 在 [拼字檢查] 文字方塊中輸入查詢 (例如 "Hollo, wlrd!")，然後按下 **Enter**。 網頁就會顯示查詢結果。
+在您的瀏覽器中開啟網頁。 出現提示時，輸入您的 Bing 拼字檢查 API 訂用帳戶金鑰。 在 [拼字檢查]  文字方塊中輸入查詢 (例如 "Hollo, wlrd!")，然後按下 **Enter**。 網頁就會顯示查詢結果。
 
 ```json
 {

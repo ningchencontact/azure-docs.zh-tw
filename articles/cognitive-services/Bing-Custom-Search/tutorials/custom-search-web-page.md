@@ -1,6 +1,6 @@
 ---
 title: 教學課程：建立自訂搜尋網頁 - Bing 自訂搜尋
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 描述如何設定自訂搜尋執行個體，並將它整合到網頁。
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 0870983fe9f0ae64090652f02c526a370064b8ab
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 3a8d6a831adf24212191a103dcf356bbe74d7962
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595883"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405224"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>教學課程：建置自訂搜尋網頁
 

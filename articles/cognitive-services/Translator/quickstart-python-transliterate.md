@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: c6c6bb526c78ce87b9ee2acca05f478fee0ae5ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cafaf67cfaa07d27bf4569efbc7f76196222cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704333"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348725"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來直譯文字
 
@@ -24,7 +24,7 @@ ms.locfileid: "67704333"
 本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和翻譯工具文字資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
 
 >[!TIP]
-> 如果您想要同時查看所有程式碼，您可以在 [GitHub]() 上找到此範例的原始程式碼。
+> 如果您想要同時查看所有程式碼，您可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 

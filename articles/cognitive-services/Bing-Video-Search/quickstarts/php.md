@@ -1,6 +1,6 @@
 ---
 title: 快速入門：使用 Bing 影片搜尋 REST API 和 PHP 來搜尋影片
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用本快速入門，以使用 PHP 將要求傳送至 Bing 影片搜尋 REST API
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2e5d05c32c9c3271cfc49e7abd0609ec7b090778
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8ecbba5ef046a284e9b4134f8703580021adb9d8
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435301"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500095"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>快速入門：使用 Bing 影片搜尋 REST API 和 PHP 來搜尋影片
 

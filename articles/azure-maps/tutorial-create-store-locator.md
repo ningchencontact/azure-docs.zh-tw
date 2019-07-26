@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0d7ca38ecb66dbf92678eae4da7d8706f68cbaa2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273829"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478866"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>使用 Azure 地圖服務建立商店定位器
 
@@ -139,7 +139,7 @@ ms.locfileid: "67273829"
 1. 新增 Azure 地圖服務模組的參考。 此模組是一個 JavaScript 程式庫，其中包覆了 Azure 地圖服務 REST 服務，並可使其更容易在 JavaScript 中使用。 此模組可用於加強搜尋功能。
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. 新增 *index.js* 和 *index.css* 的參考：

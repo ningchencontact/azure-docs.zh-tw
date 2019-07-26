@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure 備份服務備份 Azure 檔案儲存體檔案共用
 description: 本教學課程說明如何備份 Azure 檔案共用。
-services: backup
 author: dcurwin
 ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 474d5454e30c35d3f3ccf4ea994093ef47bd6ceb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: a06504438340f62d5b338165cb8b159459ae35dc
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276166"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467081"
 ---
 # <a name="back-up-azure-file-shares"></a>備份 Azure 檔案共用
 本文說明如何使用 Azure 入口網站來備份和還原 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。

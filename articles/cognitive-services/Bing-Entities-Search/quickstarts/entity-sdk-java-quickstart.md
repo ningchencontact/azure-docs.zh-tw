@@ -1,6 +1,6 @@
 ---
 title: 快速入門：使用適用於 Java 的 Bing 實體搜尋 SDK 來搜尋實體
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用本快速入門，透過適用於 Java 的 Bing 實體搜尋 SDK 來搜尋實體
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 15958033ef305a44f9c5254409fa111acd9d1eb5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63312dcbad515f364bd4b66c5541f1db90af85b6
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813709"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479049"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 實體搜尋 SDK 來傳送搜尋要求
 

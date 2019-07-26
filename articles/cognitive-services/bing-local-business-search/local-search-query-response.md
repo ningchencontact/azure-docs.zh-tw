@@ -1,20 +1,20 @@
 ---
-title: 傳送並使用 Bing 當地商家搜尋 API 查詢和回應 | Microsoft Docs
+title: 傳送並使用 Bing 當地商家搜尋 API 查詢和回應
 titleSuffix: Azure Cognitive Services
 description: 使用本文了解如何使用 Bing 當地商家搜尋 API 來傳送和使用搜尋查詢。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: cf622f658208ab85fe0a0670a0e034bd58a5047d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
-ms.translationtype: MT
+ms.openlocfilehash: 5a26324f22ed46d0c06ecb0eb7ecaf74f589051e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849947"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423434"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>傳送並使用 Bing 當地商家搜尋 API 查詢和回應
 
@@ -22,7 +22,7 @@ ms.locfileid: "67849947"
 
 ## <a name="creating-a-request"></a>建立要求
 
-若要將要求傳送至 Bing 當地商家搜尋 API，請在將 `q=` 參數新增至 API 端點之前將搜尋詞彙新增至該參數，並包含 `Ocp-Apim-Subscription-Key` 標頭。 例如:
+若要將要求傳送至 Bing 當地商家搜尋 API，請在將 `q=` 參數新增至 API 端點之前將搜尋詞彙新增至該參數，並包含 `Ocp-Apim-Subscription-Key` 標頭。 例如︰
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 

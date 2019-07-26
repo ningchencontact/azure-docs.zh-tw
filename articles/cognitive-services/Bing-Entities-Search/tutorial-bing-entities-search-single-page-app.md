@@ -1,6 +1,6 @@
 ---
 title: 教學課程：Bing 實體搜尋單頁 Web 應用程式
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 示範如何在單頁 Web 應用程式中使用 Bing 實體搜尋 API。
 services: cognitive-services
 author: aahill
@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 1b8cf36c631755458bc0c531773a6b2aba7f1038
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406385"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423982"
 ---
 # <a name="tutorial-single-page-web-app"></a>教學課程：單一頁面 Web 應用程式
 
-Bing 實體搜尋 API 可讓您搜尋網路上的「實體」和「地點」相關資訊。 您可以在指定查詢中要求任何一種結果，或兩者都要求。 以下提供地點和實體的定義。
+Bing 實體搜尋 API 可讓您搜尋網路上的「實體」  和「地點」  相關資訊。 您可以在指定查詢中要求任何一種結果，或兩者都要求。 以下提供地點和實體的定義。
 
 |||
 |-|-|
 |實體|您可以依名稱尋找的已知人物、地點和事項|
-|地點|您可以依名稱「或」類型 (義大利餐廳) 尋找的餐廳、旅館及其他本地商家|
+|地點|您可以依名稱「或」  類型 (義大利餐廳) 尋找的餐廳、旅館及其他本地商家|
 
 在本教學課程中，我們會建置單頁 Web 應用程式，以使用 Bing 實體搜尋 API 直接在頁面中顯示搜尋結果。 該應用程式包含 HTML、CSS 和 JavaScript 元件。
 
@@ -247,7 +247,7 @@ function bingMapsCallback(response) {
 }
 ```
 
-除了緯度和經度，Bing 實體搜尋查詢還需要「半徑範圍」，以指出位置資訊的精確度。 我們使用 Bing 地圖服務回應中提供的「週框方塊」來計算半徑範圍。 週框方塊是圍繞整個位置的矩形。 例如，若使用者輸入 `NYC`，結果會大致包含紐約市的中心座標及圍繞城市的週框方塊。 
+除了緯度和經度，Bing 實體搜尋查詢還需要「半徑範圍」  ，以指出位置資訊的精確度。 我們使用 Bing 地圖服務回應中提供的「週框方塊」  來計算半徑範圍。 週框方塊是圍繞整個位置的矩形。 例如，若使用者輸入 `NYC`，結果會大致包含紐約市的中心座標及圍繞城市的週框方塊。 
 
 我們會先使用函式 `haversineDistance()` (未顯示)，計算從主要座標到週框方塊四個邊角的距離。 我們使用四個距離中的最大值作為半徑範圍。 最小半徑範圍為一公里。 若回應中未提供週框方塊，此值也會作為預設值。
 
@@ -376,7 +376,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> 成功的 HTTP 要求「不」一定表示搜尋本身成功。 若搜尋作業中發生錯誤，Bing 實體搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求速率受到限制，API 會傳回空白回應。
+> 成功的 HTTP 要求「不」  一定表示搜尋本身成功。 若搜尋作業中發生錯誤，Bing 實體搜尋 API 會傳回非 200 HTTP 狀態碼，並在 JSON 回應中包含錯誤資訊。 此外，若要求速率受到限制，API 會傳回空白回應。
 
 上述兩個函式中大部分的程式碼都是專門用來處理錯誤的。 下列階段可能會發生錯誤：
 
@@ -404,7 +404,7 @@ Bing 實體搜尋 API [要求您依指定順序顯示結果](use-display-require
 
 | | |
 |-|-|
-|`id`|`id` 看起來像是 URL，但不應該用於連結。 排名結果的 `id` 類型符合回應集合中任一搜尋結果項目的 `id`，「或」整個回應集合 (例如`Entities`)。
+|`id`|`id` 看起來像是 URL，但不應該用於連結。 排名結果的 `id` 類型符合回應集合中任一搜尋結果項目的 `id`，「或」  整個回應集合 (例如`Entities`)。
 |`answerType`<br>`resultIndex`|`answerType` 會參照包含結果的最上層答案集合 (例如 `Entities`)。 `resultIndex` 會參照該集合內的結果索引。 若省略 `resultIndex`，排名結果是指整個集合。
 
 > [!NOTE]
@@ -535,7 +535,7 @@ searchItemRenderers = {
 
 接下來，將 HTML 檔案中的 Bing Web 搜尋端點變更為：
 
-    https://localhost:9090/httpss://api.cognitive.microsoft.com/bing/v7.0/search
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
 最後，使用下列命令啟動 CORS Proxy：
 

@@ -1,6 +1,6 @@
 ---
 title: 將查詢傳送至 Bing 新聞搜尋 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何將搜尋要求傳送至 Bing 新聞搜尋 API。
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: ce3cada557c4e32fe8b0ba3a85e574fe049889f5
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: cfa9cd23e19788d847fd9177d70ee2af89c69272
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542728"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423822"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>將查詢傳送至 Bing 新聞搜尋 API
 

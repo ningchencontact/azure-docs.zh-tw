@@ -1,19 +1,18 @@
 ---
 title: 將 SQL Server 資料庫備份至 Azure | Microsoft Docs
 description: 本教學課程說明如何將 SQL Server 備份至 Azure。
-services: backup
 author: dcurwin
 manager: ''
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b5e2ccef3b2a91f903706745d74a4bf16e1003d4
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 31549ddbc0fbe237b9cca1b2b7a4893bc98abaf9
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305230"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467090"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 

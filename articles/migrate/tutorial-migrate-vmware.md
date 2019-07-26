@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3510c0505a5a3c1353642baf5060a83d13fdd43a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 885c877f219f59ab5049cf7b8e01243077d6d3eb
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67808108"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348394"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>將 VMware VM 遷移至 Azure (無代理程式)
 
@@ -72,7 +72,7 @@ ms.locfileid: "67808108"
 
     ![選取工具](./media/tutorial-migrate-vmware/select-migration-tool.png)
 
-4. 在工具清單中，選取 [Azure Migrate：伺服器移轉]   > [新增工具] 
+4. 在工具清單中選取 **[Azure Migrate：伺服器移轉]**  > [新增工具] 
 
     ![伺服器移轉工具](./media/tutorial-migrate-vmware/server-migration-tool.png)
 
@@ -104,7 +104,7 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 **Action** | **詳細資料** | **指示**
 --- | --- | ---
 確定 Azure VM 中的 Windows 磁碟區使用與內部部署 VM 相同的磁碟機代號指派。 | 將 [SAN 原則] 設定為 [全都線上]。 | 1.使用系統管理員帳戶登入 VM，然後開啟命令視窗。<br/> 2.輸入 **diskpart** 以執行 Diskpart 公用程式。<br/> 3.輸入 **SAN POLICY=OnlineAll**<br/> 4.輸入 Exit 離開 Diskpart，然後關閉命令提示字元。
-啟用 Azure VM 的 Azure 序列存取主控台 | 這有助於進行疑難排解。 您不需要重新啟動 VM。 Azure VM 會使用磁碟映像來開機，這相當於新 VM 的重新開機。 | 請遵循[這些指示](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console#enable-serial-console-in-custom-or-older-images)來啟用。
+啟用 Azure VM 的 Azure 序列存取主控台 | 這有助於進行疑難排解。 您不需要重新啟動 VM。 Azure VM 會使用磁碟映像來開機，這相當於新 VM 的重新開機。 | 請遵循[這些指示](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console)來啟用。
 安裝 Hyper-V 來賓整合 | 如果您要遷移執行 Windows Server 2003 的機器，請在 VM 作業系統上安裝 Hyper-V 來賓 Integration Services。 | [深入了解](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services)。
 遠端桌面 | 在 VM 上啟用遠端桌面，然後確認 Windows 防火牆不會封鎖任何網路設定檔上的遠端桌面存取。 | [深入了解](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access)。
 
@@ -128,7 +128,7 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
 完成探索之後，您就可以開始將 VMware VM 複寫至 Azure。
 
-1. 在 [Azure Migrate 專案] > [伺服器]  、[Azure Migrate：伺服器移轉]  中，按一下 [複寫]  。
+1. 在 [Azure Migrate 專案] > [伺服器]  、 **[Azure Migrate：伺服器移轉]** 中，按一下 [複寫]  。
 
     ![複寫 VM](./media/tutorial-migrate-vmware/select-replicate.png)
 
@@ -198,7 +198,7 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
 您可以在入口網站通知中追蹤作業狀態。
 
-您可以監視複寫狀態，只要按一下 [複寫伺服器]  即可 (位於 [Azure Migrate：伺服器移轉]  中)。
+您可以監視複寫狀態，只要按一下 [複寫伺服器]  即可 (位於 **[Azure Migrate：伺服器移轉]** 中)。
 ![監視複寫](./media/tutorial-migrate-vmware/replicating-servers.png)
 
 
@@ -216,7 +216,7 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 依照下列方式執行測試移轉：
 
 
-1. 在 [移轉目標]   > [伺服器]   > [Azure Migrate：伺服器移轉]  中，按一下 [測試遷移的伺服器]  。
+1. 在 [移轉目標]   > [伺服器]   >  **[Azure Migrate：伺服器移轉]** 中，按一下 [測試遷移的伺服器]  。
 
      ![測試遷移的伺服器](./media/tutorial-migrate-vmware/test-migrated-servers.png)
 
@@ -236,7 +236,7 @@ Azure Migrate 需要稍微變更 VM，以確保 VM 可以遷移至 Azure。
 
 確認測試移轉如預期運作之後，您就可以遷移內部部署機器。
 
-1. 在 [Azure Migrate 專案] > [伺服器]   > [Azure Migrate：伺服器移轉]  中，按一下 [複寫伺服器]  。
+1. 在 [Azure Migrate 專案] > [伺服器]   >  **[Azure Migrate：伺服器移轉]** 中，按一下 [複寫伺服器]  。
 
     ![複寫伺服器](./media/tutorial-migrate-vmware/replicate-servers.png)
 

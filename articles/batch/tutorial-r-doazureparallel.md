@@ -3,7 +3,7 @@ title: 使用 Azure Batch 執行平行 R 模擬
 description: 教學課程 - 使用 R doAzureParallel 套件在 Azure Batch 中執行 Monte Carlo 財務模擬的逐步指示
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a3f760f31bcd27c5f3d3289aa799d6886df17e15
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779979"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321914"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>教學課程：使用 Azure Batch 執行平行 R 模擬 
 
@@ -62,7 +62,7 @@ library(doAzureParallel)
 ```
 安裝可能需要數分鐘的時間。
 
-若要使用您先前取得的帳戶認證設定 doAzureParallel，請在工作目錄中產生名為 credentials.json 的設定檔： 
+若要使用您先前取得的帳戶認證設定 doAzureParallel，請在工作目錄中產生名為 credentials.json  的設定檔： 
 
 ```R
 generateCredentialsConfig("credentials.json") 
@@ -107,8 +107,8 @@ generateClusterConfig("cluster.json")
 
 針對此教學課程變更設定，如下所示：
 
-* 將 `maxTasksPerNode` 增加至 2，以利用每個節點上的兩個核心
-* 將 `dedicatedNodes` 設定為 0，即可嘗試 Batch 可用的低優先順序 VM。 將 `lowPriorityNodes` 的 `min` 設定為 5， 以及將 `max` 設定為 10，或者視需要選擇較小的數字。 
+* 將 `maxTasksPerNode` 增加至 2  ，以利用每個節點上的兩個核心
+* 將 `dedicatedNodes` 設定為 0  ，即可嘗試 Batch 可用的低優先順序 VM。 將 `lowPriorityNodes` 的 `min` 設定為 5  ， 以及將 `max` 設定為 10  ，或者視需要選擇較小的數字。 
 
 保留其餘設定的預設值，然後儲存檔案。 看起來應該會像下面這樣：
 
@@ -151,7 +151,7 @@ registerDoAzureParallel(cluster)
 getDoParWorkers() 
 ```
 
-輸出會顯示 doAzureParallel 的「執行背景工作角色」數目。 這個數字是節點數目乘以 `maxTasksPerNode` 的值。 如果您已如先前所述修改叢集設定，則此數字為 10。 
+輸出會顯示 doAzureParallel 的「執行背景工作角色」數目。 這個數字是節點數目乘以 `maxTasksPerNode` 的值。 如果您已如先前所述修改叢集設定，則此數字為 10  。 
  
 ## <a name="run-a-parallel-simulation"></a>執行平行模擬
 
@@ -226,7 +226,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time() 
 ```
 
-模擬作業會將工作分配給 Batch 集區中的節點。 您可以在 Azure 入口網站中看見此集區的熱度圖活動。 移至 **Batch 帳戶** > myBatchAccount。 按一下 [集區] > myPoolName。 
+模擬作業會將工作分配給 Batch 集區中的節點。 您可以在 Azure 入口網站中看見此集區的熱度圖活動。 移至 **Batch 帳戶** > myBatchAccount  。 按一下 [集區]   > myPoolName  。 
 
 ![執行平行 R 工作之集區的熱度圖](media/tutorial-r-doazureparallel/pool.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 快速入門：使用 C# 來執行 Web 搜尋 - Bing Web 搜尋 REST API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用此快速入門以運用 Java 來傳送要求給「Bing 新聞搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 351bc71046df1bdd677d8c64411b6ae09dfc1ef1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 414287b4a279ac76abf62d3721a51627380a8668
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206129"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423766"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>快速入門：使用 Java 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 

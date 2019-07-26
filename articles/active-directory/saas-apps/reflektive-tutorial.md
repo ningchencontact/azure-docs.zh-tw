@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: ca2a7edff4b8c06b2838474449360b4b14b3e393
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092973"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383231"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>教學課程：Azure Active Directory 與 Reflektive 整合
 
@@ -138,7 +138,7 @@ Reflektive 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-reflektive-single-sign-on"></a>設定 Reflektive 單一登入
 
-若要在 **Reflektive** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [Reflektive 支援小組](mailto: https://support@reflektive.com/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Reflektive** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [Reflektive 支援小組](mailto:support@reflektive.com/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -192,7 +192,7 @@ Reflektive 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-reflektive-test-user"></a>建立 Reflektive 測試使用者
 
-在本節中，您會在 Reflektive 中建立名為 Britta Simon 的使用者。 請與 [Reflektive 支援小組](mailto: https://support@reflektive.com/)合作，在 Reflektive 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Reflektive 中建立名為 Britta Simon 的使用者。 請與 [Reflektive 支援小組](mailto:support@reflektive.com/)合作，在 Reflektive 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

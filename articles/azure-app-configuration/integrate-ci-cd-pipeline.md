@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 26bd49af7245d6e6dde3162a2e1d95c54f13e35b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e2f682a2782eb1a61dd44e02d665175e31c441f8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415926"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357025"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>與 CI/CD 管線整合
 
@@ -45,18 +45,18 @@ ms.locfileid: "65415926"
 
 ### <a name="export-an-app-configuration-store"></a>匯出應用程式設定存放區
 
-1. 開啟 .csproj 檔案，並新增下列指令碼：
+1. 開啟 .csproj  檔案，並新增下列指令碼：
 
     ```xml
     <Target Name="Export file" AfterTargets="Build">
         <Message Text="Export the configurations to a temp file. " />
-        <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -f $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
+        <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
 
-    將與您應用程式設定存放區相關的 ConnectionString 新增為環境變數。
+    將與您應用程式設定存放區相關的 ConnectionString  新增為環境變數。
 
-2. 開啟 Program.cs，並藉由呼叫 `config.AddJsonFile()` 方法，將 `CreateWebHostBuilder` 方法更新為使用匯出的 JSON 檔案。
+2. 開啟 Program.cs  ，並藉由呼叫 `config.AddJsonFile()` 方法，將 `CreateWebHostBuilder` 方法更新為使用匯出的 JSON 檔案。
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

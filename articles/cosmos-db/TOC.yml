@@ -272,6 +272,8 @@
         - name: 角色型存取控制
           displayName: rbac
           href: role-based-access-control.md
+        - href: cosmos-db-advanced-threat-protection.md
+          name: 進階威脅防護
         - name: 安全性屬性
           href: cosmos-db-security-attributes.md
     - name: 企業整備

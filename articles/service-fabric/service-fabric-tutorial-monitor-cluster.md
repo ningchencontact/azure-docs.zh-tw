@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
+ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158016"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385270"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中監視 Service Fabric 叢集
 
@@ -62,9 +62,9 @@ Azure 監視器記錄會從裝載於雲端的應用程式和服務收集和分�
 
 若要存取 Service Fabric 分析解決方案，移至 [Azure 入口網站](https://portal.azure.com)，然後選取您建立 Service Fabric 分析解決方案所在的資源群組。
 
-選取資源 **ServiceFabric(mysfomsworkspace)**。
+選取資源 **ServiceFabric(mysfomsworkspace)** 。
 
-在 [概觀] 中，您會看到每個已啟用解決方案的圖格均以圖形形式顯示，其中包括一個適用於 Service Fabric 的圖格。 按一下 [Service Fabric] 圖形以繼續進行「Service Fabric 分析」解決方案。
+在 [概觀]  中，您會看到每個已啟用解決方案的圖格均以圖形形式顯示，其中包括一個適用於 Service Fabric 的圖格。 按一下 [Service Fabric]  圖形以繼續進行「Service Fabric 分析」解決方案。
 
 ![Service Fabric 解決方案](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
@@ -236,15 +236,15 @@ ServiceFabricReliableActorEvent
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>使用 Azure 監視器記錄檢視效能計數器
 若要檢視效能計數器，請依序移至 [Azure 入口網站](https://portal.azure.com)及您建立 Service Fabric 分析解決方案所在的資源群組。 
 
-依序選取資源 **ServiceFabric(mysfomsworkspace)**、[Log Analytics 工作區] 及 [進階設定]。
+依序選取資源 **ServiceFabric(mysfomsworkspace)** 、[Log Analytics 工作區]  及 [進階設定]  。
 
-按一下 [資料]，然後按一下 [Windows 效能計數器]。 有一個預設計數器清單，您可以從中選擇啟用，也可以設定收集間隔。 您也可以新增想收集的[其他效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 [本文](/windows/desktop/PerfCtrs/specifying-a-counter-path)參照適當的格式。 按一下 [儲存]，然後按一下 [確定]。
+按一下 [資料]  ，然後按一下 [Windows 效能計數器]  。 有一個預設計數器清單，您可以從中選擇啟用，也可以設定收集間隔。 您也可以新增想收集的[其他效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 [本文](/windows/desktop/PerfCtrs/specifying-a-counter-path)參照適當的格式。 按一下 [儲存]  ，然後按一下 [確定]  。
 
-關閉 [進階設定] 刀鋒視窗，然後選取 [一般] 標題下方的 [工作區摘要]。 針對每個啟用的解決方案，會有一個圖形化圖格，其中包括一個適用於 Service Fabric 的圖格。 按一下 [Service Fabric] 圖形以繼續進行「Service Fabric 分析」解決方案。
+關閉 [進階設定] 刀鋒視窗，然後選取 [一般]  標題下方的 [工作區摘要]  。 針對每個啟用的解決方案，會有一個圖形化圖格，其中包括一個適用於 Service Fabric 的圖格。 按一下 [Service Fabric]  圖形以繼續進行「Service Fabric 分析」解決方案。
 
-有適用於操作通道和 Reliable Services 事件的圖形化圖格。 針對您所選取計數器流入的資料圖形表示將顯示於 [節點計量] 底下。 
+有適用於操作通道和 Reliable Services 事件的圖形化圖格。 針對您所選取計數器流入的資料圖形表示將顯示於 [節點計量]  底下。 
 
-選取 [容器計量] 圖形，以查看其他詳細資料。 您也可以使用 Kusto 查詢語言來查詢效能計數器資料 (與節點上的叢集事件和篩選條件類似)、效能計數器名稱以及值。
+選取 [容器計量]  圖形，以查看其他詳細資料。 您也可以使用 Kusto 查詢語言來查詢效能計數器資料 (與節點上的叢集事件和篩選條件類似)、效能計數器名稱以及值。
 
 ## <a name="query-the-eventstore-service"></a>查詢 EventStore 服務
 [EventStore 服務](service-fabric-diagnostics-eventstore.md)可讓您了解叢集或工作負載在指定時間點的狀態。 EventStore 是具狀態的 Service Fabric 服務，可維護叢集中的事件。 事件會透過 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)、REST 和 API 公開。 EventStore 會直接查詢叢集，以取得叢集中有關所有實體的診斷資料。若要查看 EventStore 中可用的事件完整清單，請參閱 [Service Fabric 事件](service-fabric-diagnostics-event-generation-operational.md)。
