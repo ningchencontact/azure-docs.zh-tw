@@ -5,7 +5,7 @@ metadata:
   title: 資料科學虛擬機器文件 - Azure
   description: 了解如何使用資料科學虛擬機器，特別是針對執行資料科學所建置的 Azure 雲端中的實驗環境。 它已預先安裝和預先設定許多常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。
   services: machine-learning
-  author: gopitk
+  author: vijetajo
   manager: cgronlun
   ms.service: machine-learning
   ms.subservice: data-science-vm
@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
-  ms.author: gokuma
+  ms.author: vijetaj
 abstract:
   description: 資料科學和深入學習虛擬機器是 Azure 中自訂的 VM 映像，由用來建置智慧型應用程式以進行進階分析的資料科學工具載入。
 sections:
