@@ -155,6 +155,8 @@
           href: logic-apps-enterprise-integration-b2b-business-continuity.md
     - name: 連線到具有隔離環境的虛擬網路
       href: connect-virtual-network-vnet-isolated-environment.md
+    - name: 將成品新增到整合服務環境
+      href: add-artifacts-integration-service-environment-ise.md
     - name: 存取內部部署資料
       items:
         - name: 安裝資料閘道
@@ -295,6 +297,8 @@
           href: manage-logic-apps-with-visual-studio.md
         - name: 管理整合帳戶
           href: logic-apps-enterprise-integration-accounts.md
+        - name: 管理整合服務環境
+          href: ise-manage-integration-service-environment.md
         - name: 遷移至最新的結構描述
           href: ../connectors/connectors-schema-migration.md
     - name: 測試
