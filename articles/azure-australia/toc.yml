@@ -1,0 +1,54 @@
+- name: Azure Australia 文件
+  href: index.yml
+- name: 概觀
+  items:
+    - name: 什麼是 Azure Australia？
+      href: australia-overview.md
+- name: 概念
+  items:
+    - name: Azure Australia 中的安全性
+      items:
+        - name: 資料安全性
+          href: secure-your-data.md
+        - name: Azure VPN 閘道組態
+          href: vpn-gateway.md
+        - name: Azure 金鑰保存庫
+          href: azure-key-vault.md
+        - name: 身分識別同盟
+          href: identity-federation.md
+        - name: RBAC 和 PIM
+          href: role-privileged.md
+        - name: Essential 8 站台復原和備份
+          href: recovery-backup.md
+        - name: Azure 系統監視
+          href: system-monitor.md
+        - name: Azure 原則和 Azure 藍圖
+          href: azure-policy.md
+    - name: Azure Australia 中的閘道
+      items:
+        - name: 閘道記錄、稽核及可見度
+          href: gateway-log-audit-visibility.md
+        - name: 閘道安全遠端管理
+          href: gateway-secure-remote-administration.md
+        - name: 閘道資料輸入控制項
+          href: gateway-ingress-traffic.md
+        - name: 閘道資料輸出控制項
+          href: gateway-egress-traffic.md
+- name: 資源
+  items:
+    - name: Azure Australia 安全性說明
+      href: security-explained.md
+    - name: Azure Australia 其他資源
+      href: reference-library.md
+    - name: 澳大利亞網路安全中心 (ACSC) 網站
+      href: 'https://cyber.gov.au/'
+    - name: 澳大利亞認證的雲端服務清單 (CCSL)
+      href: 'https://acsc.gov.au/infosec/irap/certified_clouds.htm'
+    - name: Microsoft 服務信任入口網站上的澳大利亞頁面
+      href: 'https://aka.ms/au-irap'
+    - name: Australia PROTECTED Blueprints 適用於 IaaS 和 PaaS Web 應用程式的受保護澳大利亞藍圖
+      href: 'https://aka.ms/au-protected'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'

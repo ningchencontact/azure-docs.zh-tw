@@ -308,7 +308,13 @@
               displayname: 'live, quickpulse, quick pulse, live metrics'
               href: app/live-stream.md
             - name: 度量
-              href: app/metrics-explorer.md
+              items:
+                - name: 記錄檔型與預先彙總的計量
+                  href: app/pre-aggregated-metrics-log-metrics.md
+                - name: 記錄型計量定義
+                  href: platform/app-insights-metrics.md
+                - name: 傳統計量瀏覽器
+                  href: app/metrics-explorer.md
             - name: Search
               href: app/diagnostic-search.md
             - name: 分析工具
@@ -425,8 +431,6 @@
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
                   href: app/configuration-with-applicationinsights-config.md
-                - name: 記錄檔型與預先彙總的計量
-                  href: app/pre-aggregated-metrics-log-metrics.md
                 - name: 交易診斷
                   href: app/transaction-diagnostics.md
                 - name: 將自訂資料來源相互關聯
@@ -659,15 +663,13 @@
                 - name: 在記錄中收集
                   href: platform/diagnostic-logs-stream-log-store.md
                 - name: 從 Azure 儲存體收集
-                  href: platform/collect-azure-metrics-logs.md
+                  href: platform/azure-storage-iis-table.md
                 - name: 封存至儲存體
                   href: platform/archive-diagnostic-logs.md
                 - name: 將資料串流至事件中樞
                   href: platform/diagnostic-logs-stream-event-hubs.md
                 - name: 搭配資源管理員範本啟用
                   href: platform/diagnostic-logs-stream-template.md
-                - name: Service 記錄與計量
-                  href: platform/azure-storage-iis-table.md
             - name: 將資料串流至事件中樞
               href: platform/stream-monitoring-data-event-hubs.md
             - name: 金鑰保存庫分析
@@ -736,8 +738,8 @@
               href: platform/metrics-getting-started.md
             - name: 計量瀏覽器進階功能
               href: platform/metrics-charts.md
-            - name: 記錄型計量
-              href: platform/app-insights-metrics.md
+            - name: 計量圖表範例
+              href: platform/metric-chart-samples.md
             - name: 針對計量圖表進行疑難排解
               href: platform/metrics-troubleshoot.md
         - name: 記錄
