@@ -132,7 +132,7 @@ ms.locfileid: "66427576"
 
 1. 從 [Microsoft Azure IoT 解決方案加速器](https://www.azureiotsolutions.com/Accelerators#dashboard)啟動您的遠端監視儀表板。
 
-1. 使用 [裝置]  頁面來新增模擬裝置。 當您新增模擬裝置時，您的新裝置模型可以供您選擇。
+1. 使用 [裝置] 頁面來新增模擬裝置。 當您新增模擬裝置時，您的新裝置模型可以供您選擇。
 
 1. 您可以使用儀表板來檢視裝置遙測資料並呼叫裝置方法。
 
@@ -140,7 +140,7 @@ ms.locfileid: "66427576"
 
 如果您打算進一步探索，請讓遠端監視解決方案加速器維持部署。
 
-如果您不再需要解決方案加速器，可加以選取，然後按一下 [刪除解決方案]  ，從[已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard)頁面中加以刪除。
+如果您不再需要解決方案加速器，可加以選取，然後按一下 [刪除解決方案]，從[已佈建的解決方案](https://www.azureiotsolutions.com/Accelerators#dashboard)頁面中加以刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

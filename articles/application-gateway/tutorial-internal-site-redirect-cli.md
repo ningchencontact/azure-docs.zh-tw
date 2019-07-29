@@ -42,7 +42,7 @@ ms.locfileid: "66133533"
 
 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group) 建立資源群組。
 
-下列範例會在 eastus  位置建立名為 myResourceGroupAG  的資源群組。
+下列範例會在 eastus 位置建立名為 myResourceGroupAG 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源 
 
-使用 [az network vnet create](/cli/azure/network/vnet) 建立名為 myVNet  的虛擬網路，以及名為 myAGSubnet  的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet)，以新增伺服器後端集區所需且名為 *myBackendSubnet* 的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress  的公用 IP 位址。
+使用 [az network vnet create](/cli/azure/network/vnet) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet)，以新增伺服器後端集區所需且名為 *myBackendSubnet* 的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -72,7 +72,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-您可以使用 [az network application-gateway create](/cli/azure/network/application-gateway) 來建立名為 myAppGateway  的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet  和 myAGPublicIPAddress  。 
+您可以使用 [az network application-gateway create](/cli/azure/network/application-gateway) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myAGPublicIPAddress。 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -92,11 +92,11 @@ az network application-gateway create \
 
 可能需要幾分鐘的時間來建立應用程式閘道。 建立應用程式閘道後，您可以看到它的這些新功能：
 
-- appGatewayBackendPool  - 應用程式閘道必須至少有一個後端位址集區。
-- appGatewayBackendHttpSettings  - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
-- appGatewayHttpListener  - 與 appGatewayBackendPool  相關聯的預設接聽程式。
-- appGatewayFrontendIP  - 將 myAGPublicIPAddress  指派給 appGatewayHttpListener  。
-- rule1  - 與 appGatewayHttpListener  相關聯的預設路由規則。
+- appGatewayBackendPool - 應用程式閘道必須至少有一個後端位址集區。
+- appGatewayBackendHttpSettings - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
+- appGatewayHttpListener - 與 appGatewayBackendPool 相關聯的預設接聽程式。
+- appGatewayFrontendIP - 將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
+- rule1 - 與 appGatewayHttpListener 相關聯的預設路由規則。
 
 
 ## <a name="add-listeners-and-rules"></a>新增接聽程式和規則 

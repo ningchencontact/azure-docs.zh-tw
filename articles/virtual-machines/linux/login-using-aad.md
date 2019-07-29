@@ -93,7 +93,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-在 VM 上安裝擴充功能後，會顯示 [成功]  的 *ProvisioningState*。
+在 VM 上安裝擴充功能後，會顯示 [成功] 的 *ProvisioningState*。
 
 ## <a name="configure-role-assignments-for-the-vm"></a>設定 VM 的角色指派
 
@@ -103,9 +103,9 @@ Azure 角色型存取控制 (RBAC) 原則會決定哪些人可以登入 VM。 �
 - **虛擬機器使用者登入**：被指派此角色的使用者能夠以一般使用者權限登入 Azure 虛擬機器。
 
 > [!NOTE]
-> 若要讓使用者透過 SSH 登入 VM，您必須指派 [虛擬機器系統管理員登入]  或 [虛擬機器使用者登入]  角色。 被指派 VM 的 [擁有者]  或 [參與者]  角色的 Azure 使用者，並不會自動取得透過 SSH 登入 VM 的權限。
+> 若要讓使用者透過 SSH 登入 VM，您必須指派 [虛擬機器系統管理員登入] 或 [虛擬機器使用者登入] 角色。 被指派 VM 的 [擁有者] 或 [參與者] 角色的 Azure 使用者，並不會自動取得透過 SSH 登入 VM 的權限。
 
-下列範例會使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 將 [虛擬機器系統管理員登入]  角色指派給您目前 Azure 使用者的 VM。 作用中 Azure 帳戶的使用者名稱可透過 [az account show](/cli/azure/account#az-account-show) 來取得，而*範圍*會設定為在上一個步驟中使用 [az vm show](/cli/azure/vm#az-vm-show) 建立的 VM。 範圍也可指派於資源群組或訂用帳戶層級上，並套用一般 RBAC 繼承權限。 如需詳細資訊，請參閱[角色型存取控制](../../role-based-access-control/overview.md)
+下列範例會使用 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 將 [虛擬機器系統管理員登入] 角色指派給您目前 Azure 使用者的 VM。 作用中 Azure 帳戶的使用者名稱可透過 [az account show](/cli/azure/account#az-account-show) 來取得，而*範圍*會設定為在上一個步驟中使用 [az vm show](/cli/azure/vm#az-vm-show) 建立的 VM。 範圍也可指派於資源群組或訂用帳戶層級上，並套用一般 RBAC 繼承權限。 如需詳細資訊，請參閱[角色型存取控制](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -118,7 +118,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> 如果 AAD 網域和登入使用者名稱網域不相符，您必須以 --assignee-object-id  指定使用者帳戶的物件識別碼，而不只是以 -assignee  指定使用者名稱。 您可以使用 [az ad user list](/cli/azure/ad/user#az-ad-user-list) 取得使用者帳戶的物件識別碼。
+> 如果 AAD 網域和登入使用者名稱網域不相符，您必須以 --assignee-object-id 指定使用者帳戶的物件識別碼，而不只是以 -assignee 指定使用者名稱。 您可以使用 [az ad user list](/cli/azure/ad/user#az-ad-user-list) 取得使用者帳戶的物件識別碼。
 
 如需關於如何使用 RBAC 來管理 Azure 訂用帳戶資源存取權的詳細資訊，請參閱使用 [Azure CLI](../../role-based-access-control/role-assignments-cli.md)、[Azure 入口網站](../../role-based-access-control/role-assignments-portal.md)或 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)。
 
@@ -149,7 +149,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
-關閉瀏覽器視窗，返回 SSH 提示字元，然後按 **Enter** 鍵。 您此時會已使用指派的角色權限 (例如 [VM 使用者]  或 [VM 系統管理員]  ) 登入 Azure Linux 虛擬機器。 如果您的使用者帳戶已被指派 [虛擬機器系統管理員登入]  角色，您可以使用 `sudo` 執行需要根權限的命令。
+關閉瀏覽器視窗，返回 SSH 提示字元，然後按 **Enter** 鍵。 您此時會已使用指派的角色權限 (例如 [VM 使用者]或 [VM 系統管理員]) 登入 Azure Linux 虛擬機器。 如果您的使用者帳戶已被指派 [虛擬機器系統管理員登入] 角色，您可以使用 `sudo` 執行需要根權限的命令。
 
 ## <a name="sudo-and-aad-login"></a>Sudo 和 AAD 登入
 
@@ -171,7 +171,7 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>拒絕存取：未指派 RBAC 角色
 
-如果您在 SSH 提示字元中看到下列錯誤，請確認您已為 VM 設定 RBAC 原則，而可為使用者授與 [虛擬機器系統管理員登入]  或 [虛擬機器使用者登入]  角色：
+如果您在 SSH 提示字元中看到下列錯誤，請確認您已為 VM 設定 RBAC 原則，而可為使用者授與 [虛擬機器系統管理員登入] 或 [虛擬機器使用者登入] 角色：
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

@@ -8,15 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496432"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566876"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>教學課程：保護單一或集區資料庫
 
@@ -58,7 +57,7 @@ Azure SQL Database 可讓您以下列方式保護單一或集區資料庫中的�
 
 Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資料庫的所有連線皆會遭拒，除非是來自其他 Azure 服務的連線。 若要深入了解，請參閱 [Azure SQL Database 伺服器層級和資料庫層級的防火牆規則](sql-database-firewall-configure.md)。
 
-最安全的設定是將 [允許存取 Azure 服務] 設為 [關閉]。 接著，針對需要連線的資源 (例如 Azure VM 或雲端服務)，建立[保留的 IP (傳統部署)](../virtual-network/virtual-networks-reserved-public-ip.md)，而且只允許透過防火牆的 IP 位址存取。 如果您使用[資源管理員](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)部署模型，則每個資源都需要專用的公用 IP 位址。
+最安全的設定是將 [允許存取 Azure 服務]  設為 [關閉]  。 接著，針對需要連線的資源 (例如 Azure VM 或雲端服務)，建立[保留的 IP (傳統部署)](../virtual-network/virtual-networks-reserved-public-ip.md)，而且只允許透過防火牆的 IP 位址存取。 如果您使用[資源管理員](/azure/virtual-network/virtual-network-ip-addresses-overview-arm)部署模型，則每個資源都需要專用的公用 IP 位址。
 
 > [!NOTE]
 > SQL Database 會透過連接埠 1433 通訊。 如果您嘗試從公司網路連線，您網路的防火牆可能不允許透過連接埠 1433 的連出流量。 若情況如此，除非系統管理員開啟連接埠 1433，否則您無法連線至 Azure SQL Database 伺服器。
@@ -69,25 +68,25 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
 
 若要設定伺服器層級的防火牆規則：
 
-1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]，然後選取 [SQL 資料庫] 頁面上的資料庫。
+1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]  ，然後選取 [SQL 資料庫]  頁面上的資料庫。
 
     ![伺服器防火牆規則](./media/sql-database-security-tutorial/server-name.png)
 
     > [!NOTE]
     > 請務必複製完整的伺服器名稱 (例如 *yourserver.database.windows.net*)，以便稍後在本教學課程中使用。
 
-1. 在 [概觀] 頁面上，選取 [設定伺服器防火牆]。 資料庫伺服器的 [防火牆設定] 頁面隨即開啟。
+1. 在 [概觀]  頁面上，選取 [設定伺服器防火牆]  。 資料庫伺服器的 [防火牆設定]  頁面隨即開啟。
 
-   1. 選取工具列上的 [新增用戶端 IP]，以將目前的 IP 位址新增至新的防火牆規則。 此規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。 選取 [ **儲存**]。
+   1. 選取工具列上的 [新增用戶端 IP]  ，以將目前的 IP 位址新增至新的防火牆規則。 此規則可以針對單一 IP 位址或 IP 位址範圍開啟連接埠 1433。 選取 [ **儲存**]。
 
       ![設定伺服器防火牆規則](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-   1. 選取 [確定] 並關閉 [防火牆設定] 頁面。
+   1. 選取 [確定]  並關閉 [防火牆設定]  頁面。
 
 您現在可以連線到資料庫中任何具有指定 IP 位址或 IP 位址範圍的伺服器。
 
 > [!IMPORTANT]
-> 根據預設，已在 [允許存取 Azure 服務] 之下，對所有 Azure 服務啟用透過 SQL Database 防火牆存取。 選擇 [關閉] 即可對所有 Azure 服務停用存取。
+> 根據預設，已在 [允許存取 Azure 服務]  之下，對所有 Azure 服務啟用透過 SQL Database 防火牆存取。 選擇 [關閉]  即可對所有 Azure 服務停用存取。
 
 ### <a name="setup-database-firewall-rules"></a>設定資料庫防火牆規則
 
@@ -97,7 +96,7 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
 
 1. 連線至資料庫，例如使用 [SQL Server Management Studio](./sql-database-connect-query-ssms.md)。
 
-1. 在 [物件總管] 中，以滑鼠右鍵按一下資料庫，然後選取 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下資料庫，然後選取 [新增查詢]  。
 
 1. 在查詢視窗中，新增此陳述式並將 IP 位址修改為您的公用 IP 位址：
 
@@ -105,7 +104,7 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
     EXECUTE sp_set_database_firewall_rule N'Example DB Rule','0.0.0.4','0.0.0.4';
     ```
 
-1. 在工具列上，選取 [執行] 以建立防火牆規則。
+1. 在工具列上，選取 [執行]  以建立防火牆規則。
 
 > [!NOTE]
 > 您也可使用 [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) 命令在 SSMS 中以建立伺服器層級的防火牆規則，但必須連線到 *master* 資料庫。
@@ -118,26 +117,26 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
 
 若要設定 Azure AD 管理員：
 
-1. 在 Azure 入口網站的 [SQL Server] 頁面上，選取 [Active Directory 系統管理員]。接下來，選取 [設定管理員]。
+1. 在 Azure 入口網站的 [SQL Server]  頁面上，選取 [Active Directory 系統管理員]  。接下來，選取 [設定管理員]  。
 
     ![選取 Active Directory](./media/sql-database-security-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
     > 您必須是「公司系統管理員」或「全域管理員」，才能執行此工作。
 
-1. 在 [新增管理員] 頁面上，搜尋並選取的 AD 使用者或群組，然後選擇 [選取]。 Active Directory 的所有成員和群組都會列出，而且不支援將呈現灰色的項目作為 Azure AD 管理員。 請參閱 [Azure AD 功能和限制](sql-database-aad-authentication.md#azure-ad-features-and-limitations)。
+1. 在 [新增管理員]  頁面上，搜尋並選取的 AD 使用者或群組，然後選擇 [選取]  。 Active Directory 的所有成員和群組都會列出，而且不支援將呈現灰色的項目作為 Azure AD 管理員。 請參閱 [Azure AD 功能和限制](sql-database-aad-authentication.md#azure-ad-features-and-limitations)。
 
     ![選取管理員](./media/sql-database-security-tutorial/admin-select.png)
 
     > [!IMPORTANT]
     > 角色型存取控制 (RBAC) 僅適用於入口網站，不會傳播至 SQL Server。
 
-1. 在 [Active Directory 管理員] 頁面頂端，選取 [儲存]。
+1. 在 [Active Directory 管理員]  頁面頂端，選取 [儲存]  。
 
-    變更管理員的程序可能需要幾分鐘的時間。 新的管理員會出現在 [Active Directory 管理員] 方塊中。
+    變更管理員的程序可能需要幾分鐘的時間。 新的管理員會出現在 [Active Directory 管理員]  方塊中。
 
 > [!NOTE]
-> 設定 Azure AD 管理員時，新的管理員名稱 (使用者或群組) 不能在 master 資料庫中作為 SQL Server 驗證使用者存在。 如果存在，此設定會失敗並復原變更，表示這樣的管理員名稱已經存在。 由於 SQL Server 驗證使用者並非 Azure AD 的成員，因此使用 Azure AD 驗證來連線到使用者的一切努力都會失敗。
+> 設定 Azure AD 管理員時，新的管理員名稱 (使用者或群組) 不能在 master  資料庫中作為 SQL Server 驗證使用者存在。 如果存在，此設定會失敗並復原變更，表示這樣的管理員名稱已經存在。 由於 SQL Server 驗證使用者並非 Azure AD 的成員，因此使用 Azure AD 驗證來連線到使用者的一切努力都會失敗。
 
 如需有關設定 Azure AD 的詳細資訊，請參閱：
 
@@ -164,7 +163,7 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
 
 1. 連線至資料庫，例如使用 [SQL Server Management Studio](./sql-database-connect-query-ssms.md)。
 
-1. 在 [物件總管] 中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]  。
 
 1. 在查詢視窗中，輸入下列命令︰
 
@@ -172,7 +171,7 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
     CREATE USER ApplicationUser WITH PASSWORD = 'YourStrongPassword1';
     ```
 
-1. 在工具列上，選取 [執行] 以建立使用者。
+1. 在工具列上，選取 [執行]  以建立使用者。
 
 1. 依預設，使用者可與資料庫連線，但沒有權限可讀取或寫入資料。 若要授與這些權限，請在新的查詢視窗中執行下列命令：
 
@@ -186,12 +185,12 @@ Azure 中的 SQL 資料庫是由防火牆保護。 依預設，伺服器與資�
 
 ### <a name="azure-ad-authentication"></a>Azure AD 驗證
 
-Azure Active Directory 驗證要求將資料庫使用者建立為自主資料庫使用者。 自主資料庫使用者會對應至 Azure AD 目錄中與資料庫關聯的身分識別，而沒有 master 資料庫的登入。 Azure AD 身分識別可用於個別的使用者或群組。 如需詳細資訊，請參閱[自主資料庫使用者，使資料庫可攜](https://msdn.microsoft.com/library/ff929188.aspx)，並檢閱 [Azure AD 教學課程](./sql-database-aad-authentication-configure.md)以了解如何使用 Azure AD 進行驗證。
+Azure Active Directory 驗證要求將資料庫使用者建立為自主資料庫使用者。 自主資料庫使用者會對應至 Azure AD 目錄中與資料庫關聯的身分識別，而沒有 master  資料庫的登入。 Azure AD 身分識別可用於個別的使用者或群組。 如需詳細資訊，請參閱[自主資料庫使用者，使資料庫可攜](https://msdn.microsoft.com/library/ff929188.aspx)，並檢閱 [Azure AD 教學課程](./sql-database-aad-authentication-configure.md)以了解如何使用 Azure AD 進行驗證。
 
 > [!NOTE]
 > 您無法使用 Azure 入口網站建立資料庫使用者 (排除系統管理員)。 Azure RBAC 角色不會傳播至 SQL Server、資料庫或資料倉儲。 這類角色只用來管理 Azure 資源，並不會套用到資料庫權限。
 >
-> 例如，「SQL Server 參與者」角色不會授與可連線到資料庫或資料倉儲的存取權。 必須使用 Transact-SQL 陳述式在資料庫內授與此權限。
+> 例如，「SQL Server 參與者」  角色不會授與可連線到資料庫或資料倉儲的存取權。 必須使用 Transact-SQL 陳述式在資料庫內授與此權限。
 
 > [!IMPORTANT]
 > 不支援在 T-SQL `CREATE LOGIN` 和 `CREATE USER` 陳述式中的使用者名稱內使用冒號 `:` 或 `&` 等特殊字元。
@@ -200,7 +199,7 @@ Azure Active Directory 驗證要求將資料庫使用者建立為自主資料庫
 
 1. 使用至少具有 *ALTER ANY USER* 權限的 Azure AD 帳戶連線至您的 Azure SQL 伺服器。
 
-1. 在 [物件總管] 中，以滑鼠右鍵按一下資料庫，然後選取 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下資料庫，然後選取 [新增查詢]  。
 
 1. 在查詢視窗中輸入下列命令，並將 `<Azure_AD_principal_name>` 修改為 Azure AD 使用者的主體名稱或 Azure AD 群組的顯示名稱：
 
@@ -222,9 +221,9 @@ Azure Active Directory 驗證要求將資料庫使用者建立為自主資料庫
 
 若要複製安全的連接字串：
 
-1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]，然後選取 [SQL 資料庫] 頁面上的資料庫。
+1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]  ，然後選取 [SQL 資料庫]  頁面上的資料庫。
 
-1. 在 [概觀] 頁面上，選取 [顯示資料庫連接字串]。
+1. 在 [概觀]  頁面上，選取 [顯示資料庫連接字串]  。
 
 1. 選取驅動程式索引標籤並複製完整的連接字串。
 
@@ -243,23 +242,23 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 
 若要啟用進階資料安全性：
 
-1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]，然後選取 [SQL 資料庫] 頁面上的資料庫。
+1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]  ，然後選取 [SQL 資料庫]  頁面上的資料庫。
 
-1. 在 [概觀] 頁面上，選取 [伺服器名稱] 連結。 將會開啟資料庫伺服器頁面。
+1. 在 [概觀]  頁面上，選取 [伺服器名稱]  連結。 將會開啟資料庫伺服器頁面。
 
-1. 在 [SQL 伺服器] 頁面上，尋找 [安全性] 區段並選取 [進階資料安全性]。
+1. 在 [SQL 伺服器]  頁面上，尋找 [安全性]  區段並選取 [進階資料安全性]  。
 
-   1. 選取 [進階資料安全性] 下的 [開啟] 來啟用此功能。 選擇儲存弱點評定結果的儲存體帳戶。 然後選取 [儲存]。
+   1. 選取 [進階資料安全性]  下的 [開啟]  來啟用此功能。 選擇儲存弱點評定結果的儲存體帳戶。 然後選取 [儲存]  。
 
       ![瀏覽窗格](./media/sql-database-security-tutorial/threat-settings.png)
 
       您也可以設定電子郵件來接收安全性警示、儲存體詳細資料及威脅偵測類型。
 
-1. 返回資料庫的 [SQL 資料庫] 頁面，然後選取 [安全性] 區段下的 [進階資料安全性]。 您可以在這裡找到資料庫可用的各種安全性指標。
+1. 返回資料庫的 [SQL 資料庫]  頁面，然後選取 [安全性]  區段下的 [進階資料安全性]  。 您可以在這裡找到資料庫可用的各種安全性指標。
 
     ![威脅狀態](./media/sql-database-security-tutorial/threat-status.png)
 
-如果偵測到異常活動，您會收到一封含有事件相關資訊的電子郵件。 其中包含活動性質、資料庫、伺服器、事件時間、可能原因和建議動作，以協助您調查並減輕潛在威脅。 如果收到這類電子郵件，請選取 [Azure SQL 稽核記錄] 連結以啟動 Azure 入口網站，並顯示事件時間的相關稽核記錄。
+如果偵測到異常活動，您會收到一封含有事件相關資訊的電子郵件。 其中包含活動性質、資料庫、伺服器、事件時間、可能原因和建議動作，以協助您調查並減輕潛在威脅。 如果收到這類電子郵件，請選取 [Azure SQL 稽核記錄]  連結以啟動 Azure 入口網站，並顯示事件時間的相關稽核記錄。
 
    ![威脅偵測電子郵件](./media/sql-database-security-tutorial/threat-email.png)
 
@@ -269,15 +268,15 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 
 若要啟用稽核：
 
-1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]，然後選取 [SQL 資料庫] 頁面上的資料庫。
+1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]  ，然後選取 [SQL 資料庫]  頁面上的資料庫。
 
-1. 在 [安全性] 區段中，選取 [稽核]。
+1. 在 [安全性]  區段中，選取 [稽核]  。
 
-1. 在 [稽核] 設定之下，設定下列值：
+1. 在 [稽核]  設定之下，設定下列值：
 
-   1. 將 [稽核] 設定為 [開啟]。
+   1. 將 [稽核]  設定為 [開啟]  。
 
-   1. 選取 [稽核記錄目的地] 作為下列任何一項：
+   1. 選取 [稽核記錄目的地]  作為下列任何一項：
 
        - **儲存體**，其中儲存事件記錄並可下載為 *.xel* 檔案的 Azure 儲存體帳戶。
 
@@ -295,7 +294,7 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 
       ![稽核設定](./media/sql-database-security-tutorial/audit-settings.png)
 
-1. 現在您可以選取 [檢視稽核記錄] 來檢視資料庫事件資料。
+1. 現在您可以選取 [檢視稽核記錄]  來檢視資料庫事件資料。
 
     ![稽核記錄](./media/sql-database-security-tutorial/audit-records.png)
 
@@ -308,11 +307,11 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 
 若要啟用資料遮罩：
 
-1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]，然後選取 [SQL 資料庫] 頁面上的資料庫。
+1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]  ，然後選取 [SQL 資料庫]  頁面上的資料庫。
 
-1. 在 [安全性] 區段中，選取 [動態資料遮罩]。
+1. 在 [安全性]  區段中，選取 [動態資料遮罩]  。
 
-1. 在 [動態資料遮罩] 設定之下，選取 [新增遮罩] 以新增遮罩規則。 Azure 會自動填入可用的資料庫結構描述、資料表和資料行，以供選擇。
+1. 在 [動態資料遮罩]  設定之下，選取 [新增遮罩]  以新增遮罩規則。 Azure 會自動填入可用的資料庫結構描述、資料表和資料行，以供選擇。
 
     ![遮罩設定](./media/sql-database-security-tutorial/mask-settings.png)
 
@@ -326,11 +325,11 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 
 若要啟用或確認加密：
 
-1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]，然後選取 [SQL 資料庫] 頁面上的資料庫。
+1. 在 Azure 入口網站中，從左側功能表中選取 [SQL 資料庫]  ，然後選取 [SQL 資料庫]  頁面上的資料庫。
 
-1. 在 [安全性] 區段中，選取 [透明資料加密]。
+1. 在 [安全性]  區段中，選取 [透明資料加密]  。
 
-1. 如有必要，請將 [資料加密] 設為 [開啟]。 選取 [ **儲存**]。
+1. 如有必要，請將 [資料加密]  設為 [開啟]  。 選取 [ **儲存**]。
 
     ![透明資料加密](./media/sql-database-security-tutorial/encryption-settings.png)
 
@@ -350,4 +349,4 @@ Azure SQL Database 會提供可使用 Azure 入口網站存取的安全性功能
 前進至下一個教學課程，以了解如何實作地理分散。
 
 > [!div class="nextstepaction"]
->[實作異地分散資料庫](sql-database-implement-geo-distributed-database.md)
+>[實作異地分散式資料庫](sql-database-implement-geo-distributed-database.md)

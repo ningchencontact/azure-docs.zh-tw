@@ -3,7 +3,7 @@ title: 在 Azure 中的 Service Fabric 上監視和診斷 Windows 容器 | Micro
 description: 在本教學課程中，您會設定 Azure 監視器記錄，以便監視和診斷 Azure Service Fabric 上的 Windows 容器。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: ae3366d6918ced1526da1c9be10e977ae0a53cd5
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385250"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598781"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>教學課程：使用 Azure 監視器記錄監視 Service Fabric 上的 Windows 容器
 

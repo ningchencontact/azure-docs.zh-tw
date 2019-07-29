@@ -60,7 +60,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>在可用性區域中使用受控磁碟
 
-若要在可用性區域中建立磁碟，請使用 [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) 並搭配 `-Zone` 參數。 下列範例會在區域 1  建立磁碟。
+若要在可用性區域中建立磁碟，請使用 [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) 並搭配 `-Zone` 參數。 下列範例會在區域 1 建立磁碟。
 
 ```powershell
 $rgName = 'myResourceGroup'

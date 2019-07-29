@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: f66a3653bc85925349dde84551310fd24f4c9336
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cfd5cf77b9df8cdd5b856a0b36b9010077a7078a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173664"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562466"
 ---
 藉由選取 [檔案]   > [組建設定]  來開啟 [組建設定]  。
 
@@ -21,8 +21,3 @@ ms.locfileid: "67173664"
 
 關閉 [組建設定]  視窗。
 
-### <a name="download-and-import-the-unity-arkit-plugin"></a>下載並匯入 Unity ARKit 外掛程式
-
-下載 [Unity ARKit 外掛程式 2.0.0 版](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip)，並將封存檔解壓縮。
-
-從解壓縮的 Unity ARKit 外掛程式資料夾中，將 `Assets` 資料夾的內容複製到範例的 `Assets` 資料夾。

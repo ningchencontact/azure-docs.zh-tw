@@ -16,7 +16,7 @@ ms.lasthandoff: 12/17/2018
 ms.locfileid: "53547417"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>使用 Azure CLI 列出及更新適用於 MariaDB 的 Azure 資料庫伺服器組態
-這個範例 CLI 指令碼會列出所有可用的組態參數，以及其對於「適用於 MariaDB 的 Azure 資料庫」伺服器的允許值，並將 innodb_lock_wait_timeout 設定為預設值以外的值。
+這個範例 CLI 指令碼會列出所有可用的組態參數，以及其對於「適用於 MariaDB 的 Azure 資料庫」伺服器的允許值，並將 innodb_lock_wait_timeout  設定為預設值以外的值。
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 

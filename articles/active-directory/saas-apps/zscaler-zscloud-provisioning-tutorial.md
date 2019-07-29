@@ -15,21 +15,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 99c94792f48db7a932e670f05216bcea0e90a27c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 34d3a7fb299ba143eee01b6b7184f1c566d41aba
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672816"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515449"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>教學課程：設定 Zscaler ZSCloud 來自動佈建使用者
 
 在此教學課程中，您將了解如何設定 Azure Active Directory (Azure AD) 來對 Zscaler ZSCloud 自動佈建及取消佈建使用者和/或群組。
 
 > [!NOTE]
-> 此教學課程會描述建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題答案等重要詳細資訊，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建](../active-directory-saas-app-provisioning.md)。
->
-> 此連接器目前為公開預覽版。 如需有關預覽功能的一般 Azure 使用規定詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此教學課程會描述建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題答案等重要詳細資訊，請參閱[使用 Azure Active Directory 自動對 SaaS 應用程式進行和取消使用者的佈建](../active-directory-saas-app-provisioning.md)。
+
 
 ## <a name="prerequisites"></a>必要條件
 

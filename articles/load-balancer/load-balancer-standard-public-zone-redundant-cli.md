@@ -82,7 +82,7 @@ az network lb create \
 
 ## <a name="create-health-probe-on-port-80"></a>在連接埠 80 上建立健康狀態探查
 
-健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以傳送網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 請使用 az network lb probe create 來建立健康狀態探查，以監視虛擬機器的健康狀態。 若要建立 TCP 健康狀態探查，請使用 [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)。 下列範例會建立名為 myHealthProbe  的健康狀態探查：
+健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以傳送網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 請使用 az network lb probe create 來建立健康狀態探查，以監視虛擬機器的健康狀態。 若要建立 TCP 健康狀態探查，請使用 [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)。 下列範例會建立名為 myHealthProbe 的健康狀態探查：
 
 ```azurecli-interactive
 az network lb probe create \
@@ -218,7 +218,7 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>建立區域虛擬機器
 使用 [az vm create](/cli/azure/vm#az-vm-create) 在區域 1、區域 2 及區域 3 建立 VM。 下列範例會在每個區域建立 VM 並產生 SSH 金鑰 (如果尚未存在的話)︰
 
-在 westeurope  位置的每個區域 (區域 1、區域 2 和區域 3) 中建立 VM。
+在 westeurope 位置的每個區域 (區域 1、區域 2 和區域 3) 中建立 VM。
 
 ```azurecli-interactive
 for i in `seq 1 3`; do

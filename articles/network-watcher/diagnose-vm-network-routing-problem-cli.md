@@ -36,13 +36,13 @@ ms.locfileid: "64688205"
 
 ## <a name="create-a-vm"></a>建立 VM
 
-您必須先建立資源群組來包含 VM，才能建立 VM。 使用 [az group create](/cli/azure/group#az-group-create) 來建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
+您必須先建立資源群組來包含 VM，才能建立 VM。 使用 [az group create](/cli/azure/group#az-group-create) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az vm create](/cli/azure/vm#az-vm-create) 建立 VM。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 下列範例會建立名為 myVm  的 VM：
+使用 [az vm create](/cli/azure/vm#az-vm-create) 建立 VM。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 下列範例會建立名為 myVm 的 VM：
 
 ```azurecli-interactive
 az vm create \
@@ -85,7 +85,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-幾秒之後，輸出會通知您 [nextHopType]  是 [網際網路]  ，而 [routeTableId]  是 [系統路由]  。 此結果可讓您知道通往目的地的路由是有效的。
+幾秒之後，輸出會通知您 [nextHopType] 是 [網際網路]，而 [routeTableId] 是 [系統路由]。 此結果可讓您知道通往目的地的路由是有效的。
 
 測試從 VM 輸出至 172.31.0.100 的通訊：
 
@@ -99,7 +99,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-傳回的輸出會通知您 [nextHopType]  是 [無]  ，而 [routeTableId]  也是 [系統路由]  。 此結果可讓您知道，雖然通往目的地的系統路由是有效的，但沒有下一個躍點可將流量路由至目的地。
+傳回的輸出會通知您 [nextHopType] 是 [無]，而 [routeTableId] 也是 [系統路由]。 此結果可讓您知道，雖然通往目的地的系統路由是有效的，但沒有下一個躍點可將流量路由至目的地。
 
 ## <a name="view-details-of-a-route"></a>檢視路由的詳細資料
 
@@ -149,7 +149,7 @@ az network nic show-effective-route-table \
 },
 ```
 
-如同來自 `az network watcher nic show-effective-route-table` 命令的輸出中所示，雖然有通往 172.16.0.0/12 前置詞的預設路由，且其中包含 172.31.0.100 位址，但 [nextHopType]  是 [無]  。 Azure 會建立通往 172.16.0.0/12 的預設路由，但不會指定下一個躍點類型，除非有理由這麼做。 例如，如果您將 172.16.0.0/12 位址範圍新增至虛擬網路的位址空間，則 Azure 會將此路由的 **nextHopType** 變更為 **Virtual network**。 執行檢查就會看到 **Virtual network** 顯示為 **nextHopType**。
+如同來自 `az network watcher nic show-effective-route-table` 命令的輸出中所示，雖然有通往 172.16.0.0/12 前置詞的預設路由，且其中包含 172.31.0.100 位址，但 [nextHopType] 是 [無]。 Azure 會建立通往 172.16.0.0/12 的預設路由，但不會指定下一個躍點類型，除非有理由這麼做。 例如，如果您將 172.16.0.0/12 位址範圍新增至虛擬網路的位址空間，則 Azure 會將此路由的 **nextHopType** 變更為 **Virtual network**。 執行檢查就會看到 **Virtual network** 顯示為 **nextHopType**。
 
 ## <a name="clean-up-resources"></a>清除資源
 

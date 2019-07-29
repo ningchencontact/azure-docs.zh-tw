@@ -36,13 +36,13 @@ ms.locfileid: "64690436"
 
 ## <a name="create-a-vm"></a>建立 VM
 
-您必須先建立資源群組來包含 VM，才能建立 VM。 使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+您必須先建立資源群組來包含 VM，才能建立 VM。 使用 [az group create](/cli/azure/group) 來建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-使用 [az vm create](/cli/azure/vm) 建立 VM。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 下列範例會建立名為 myVm 的 VM：
+使用 [az vm create](/cli/azure/vm) 建立 VM。 如果預設金鑰位置中還沒有 SSH 金鑰，此命令將會建立這些金鑰。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。 下列範例會建立名為 myVm  的 VM：
 
 ```azurecli-interactive
 az vm create \

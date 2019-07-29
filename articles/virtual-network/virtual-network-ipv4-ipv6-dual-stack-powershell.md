@@ -173,7 +173,7 @@ $lb = New-AzLoadBalancer `
 ### <a name="create-an-availability-set"></a>建立可用性設定組
 若要改善您應用程式的高可用性，請將 VM 放在可用性設定組中。
 
-使用 [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) 建立可用性設定組。 下列範例會建立名為 myAvailabilitySet  的可用性設定組：
+使用 [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) 建立可用性設定組。 下列範例會建立名為 myAvailabilitySet 的可用性設定組：
 
 ```azurepowershell-interactive
 $avset = New-AzAvailabilitySet `
@@ -236,7 +236,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVnet  的虛擬網路和 mySubnet  ：
+使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVnet 的虛擬網路和 mySubnet：
 
 ```azurepowershell-interactive
 # Create dual stack subnet

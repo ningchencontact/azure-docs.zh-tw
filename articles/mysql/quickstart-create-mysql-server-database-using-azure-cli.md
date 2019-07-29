@@ -200,7 +200,7 @@ mysql>
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>使用 MySQL Workbench GUI 工具連線到伺服器
 1. 在您的用戶端電腦上啟動 MySQL Workbench 應用程式。 您可以從[這裡](https://dev.mysql.com/downloads/workbench/)下載並安裝 MySQL Workbench。
 
-2. 在 [設定新連線] 對話方塊的 [參數] 索引標籤上輸入下列資訊︰
+2. 在 [設定新連線]  對話方塊的 [參數]  索引標籤上輸入下列資訊︰
 
    ![設定新連線](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
@@ -213,7 +213,7 @@ mysql>
 | 使用者名稱 | myadmin@mydemoserver | 先前記下的伺服器管理員登入。 |
 | 密碼 | **** | 使用您稍早設定的管理帳戶密碼。 |
 
-按一下 [測試連線] 以測試所有參數是否都已設定正確。
+按一下 [測試連線]  以測試所有參數是否都已設定正確。
 您現在可以按一下連線，以成功連線到伺服器。
 
 ## <a name="clean-up-resources"></a>清除資源

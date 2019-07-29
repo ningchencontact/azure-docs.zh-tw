@@ -43,7 +43,7 @@ ms.locfileid: "66166019"
 
 使用 [az group create](/cli/azure/group) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location eastus
 
 使用 [az vm create](/cli/azure/vm) 命令來建立 VM。 
 
-下列範例會建立名為 myVM 的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
+下列範例會建立名為 myVM  的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  
 
 ```azurecli-interactive 
 az vm create \
@@ -226,11 +226,11 @@ sudo systemctl start kibana.service
 az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 ```
 
-開啟 Kibana 主控台，然後選取 [建立]，以便根據您稍早傳送至 Elasticsearch 的 syslog 資料，產生預設索引。 
+開啟 Kibana 主控台，然後選取 [建立]  ，以便根據您稍早傳送至 Elasticsearch 的 syslog 資料，產生預設索引。 
 
 ![瀏覽 Kibana 中的 Syslog 事件](media/elasticsearch-install/kibana-index.png)
 
-選取 Kibana 主控台上的 [探索]，以搜尋、瀏覽並篩選 syslog 事件。
+選取 Kibana 主控台上的 [探索]  ，以搜尋、瀏覽並篩選 syslog 事件。
 
 ![瀏覽 Kibana 中的 Syslog 事件](media/elasticsearch-install/kibana-search-filter.png)
 

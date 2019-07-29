@@ -44,7 +44,7 @@ ms.locfileid: "66170496"
 >[!NOTE]
 > 本教學課程將逐步說明建立及使用一般化 VM 映像的程序。 不支援從特製化 VM 映像建立擴展集。
 
-首先，請使用 [az group create](/cli/azure/group) 來建立資源群組，然後使用 [az vm create](/cli/azure/vm)來建立 VM。 接著，此 VM 會用來當作自訂 VM 映像的來源。 下列範例會在名為 myResourceGroup 的資源群組中建立名為 myVM 的 VM：
+首先，請使用 [az group create](/cli/azure/group) 來建立資源群組，然後使用 [az vm create](/cli/azure/vm)來建立 VM。 接著，此 VM 會用來當作自訂 VM 映像的來源。 下列範例會在名為 myResourceGroup  的資源群組中建立名為 myVM  的 VM：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -63,15 +63,15 @@ VM 的公用 IP 位址會顯示在 [az vm create](/cli/azure/vm)命令的輸出�
 ssh azureuser@<publicIpAddress>
 ```
 
-若要自訂您的 VM，請安裝基本 Web 伺服器。 部署擴展集中的 VM 執行個體時，其中就會有執行 Web 應用程式所需的所有必要套件。 請依下列方式使用 `apt-get` 安裝 NGINX：
+若要自訂您的 VM，請安裝基本 Web 伺服器。 部署擴展集中的 VM 執行個體時，其中就會有執行 Web 應用程式所需的所有必要套件。 請依下列方式使用 `apt-get` 安裝 NGINX  ：
 
 ```bash
 sudo apt-get install -y nginx
 ```
 
-準備您的 VM 以作為自訂映像使用的最後一個步驟是取消佈建 VM。 此步驟會從 VM 移除機器專屬的資訊，並讓您能夠從單一映像部署多個 VM。 取消佈建 VM 時，主機名稱會重設為 localhost.localdomain。 SSH 主機金鑰、名稱伺服器設定、根密碼及快取的 DHCP 租用也會一併刪除。
+準備您的 VM 以作為自訂映像使用的最後一個步驟是取消佈建 VM。 此步驟會從 VM 移除機器專屬的資訊，並讓您能夠從單一映像部署多個 VM。 取消佈建 VM 時，主機名稱會重設為 localhost.localdomain  。 SSH 主機金鑰、名稱伺服器設定、根密碼及快取的 DHCP 租用也會一併刪除。
 
-若要取消佈建 VM，請使用 Azure VM 代理程式 (waagent)。 Azure VM 代理程式會安裝在每個 VM 上，用來與 Azure 平台通訊。 `-force` 參數會指示代理程式接受提示，以重設機器專屬的資訊。
+若要取消佈建 VM，請使用 Azure VM 代理程式 (waagent  )。 Azure VM 代理程式會安裝在每個 VM 上，用來與 Azure 平台通訊。 `-force` 參數會指示代理程式接受提示，以重設機器專屬的資訊。
 
 ```bash
 sudo waagent -deprovision+user -force
@@ -97,7 +97,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 解除配置及一般化 VM 可能需要幾分鐘的時間。
 
-使用 [az image create](/cli//azure/image) 建立 VM 的映像。 下列範例會從您的 VM 建立名為 myImage 的映像：
+使用 [az image create](/cli//azure/image) 建立 VM 的映像。 下列範例會從您的 VM 建立名為 myImage  的映像：
 
 ```azurecli-interactive
 az image create \
@@ -108,7 +108,7 @@ az image create \
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>從自訂 VM 映像建立擴展集
-使用 [az vmss create](/cli/azure/vmss#az-vmss-create) 建立擴展集。 請勿使用 UbuntuLTS 或 CentOS 這類平台映像，而是指定自訂 VM 映像的名稱。 下列範例會建立名為 myScaleSet 的擴展集，其使用前一步驟中名為 myImage 的自訂映像：
+使用 [az vmss create](/cli/azure/vmss#az-vmss-create) 建立擴展集。 請勿使用 UbuntuLTS  或 CentOS  這類平台映像，而是指定自訂 VM 映像的名稱。 下列範例會建立名為 myScaleSet  的擴展集，其使用前一步驟中名為 myImage  的自訂映像：
 
 ```azurecli-interactive
 az vmss create \
@@ -123,7 +123,7 @@ az vmss create \
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要允許流量觸達擴展集，並確認 Web 伺服器正常運作，請使用 [az network lb rule create](/cli/azure/network/lb/rule) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb 的規則，其會允許 TCP 連接埠 80 上的流量：
+若要允許流量觸達擴展集，並確認 Web 伺服器正常運作，請使用 [az network lb rule create](/cli/azure/network/lb/rule) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb  的規則，其會允許 TCP  連接埠 80  上的流量：
 
 ```azurecli-interactive
 az network lb rule create \
@@ -137,7 +137,7 @@ az network lb rule create \
   --protocol tcp
 ```
 
-若要查看作用中的擴展集，可使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立為擴展集一部分的 myScaleSetLBPublicIP IP 位址︰
+若要查看作用中的擴展集，可使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立為擴展集一部分的 myScaleSetLBPublicIP  IP 位址︰
 
 ```azurecli-interactive
 az network public-ip show \

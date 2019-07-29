@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: 4e7145570cbc906ea540c9d8f95f6c3cbde1c610
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928623"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598046"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>將 R 套件新增至 Azure SQL Database 機器學習服務 (預覽)
 
@@ -164,7 +164,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> 將 R 套件安裝到 Azure SQL 資料庫的另一個方法，是使用 **CREATE EXTERNAL LIBRARY** T-SQL 陳述式從位元組資料流上傳 R 套件。 請參閱 [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 參考文件中的[從位元組資料流建立程式庫](/sql/t-sql/statements/create-external-library-transact-sql#c-create-a-library-from-a-byte-stream)。
+> 將 R 套件安裝到 Azure SQL 資料庫的另一個方法，是使用 **CREATE EXTERNAL LIBRARY** T-SQL 陳述式從位元組資料流上傳 R 套件。 請參閱 [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) 參考文件中的[從位元組資料流建立程式庫](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream)。
 
 ## <a name="next-steps"></a>後續步驟
 

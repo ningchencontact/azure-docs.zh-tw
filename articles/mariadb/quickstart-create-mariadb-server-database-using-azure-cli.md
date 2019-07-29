@@ -56,8 +56,8 @@ location | **westus** | 伺服器的 Azure 位置。
 ssl-enforcement | **已啟用** | 是否應針對此伺服器啟用 SSL。 允許的值：**Enabled**、**Disabled**。
 storage-size | **51200** | 伺服器的儲存體容量 (單位為 MB)。 有效的儲存體大小為 5120 MB (最小值)，並以 1024 MB 的增量增加。 如需儲存體大小限制的詳細資訊，請參閱[定價層](./concepts-pricing-tiers.md)。 
 version | **10.2** | MariaDB 主要引擎版本。
-admin-user | myadmin | 適用於系統管理員登入的使用者名稱。 **admin-user** 參數不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
-admin-password | 您的密碼 | 系統管理員使用者的密碼。 您的密碼必須包含 8 到 128 個字元。 它必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字及非英數字元。
+admin-user | myadmin  | 適用於系統管理員登入的使用者名稱。 **admin-user** 參數不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
+admin-password | 您的密碼  | 系統管理員使用者的密碼。 您的密碼必須包含 8 到 128 個字元。 它必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字及非英數字元。
 
 sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
 + `--sku-name B_Gen5_1` 對應於基本、第 5 代和 1 個虛擬核心。 此選項是最小的可用 SKU。
@@ -141,7 +141,7 @@ az mariadb server show --resource-group myresourcegroup --name mydemoserver
 
 ## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>使用 mysql 命令列工具連線到伺服器
 
-使用 mysql 命令列工具連線到伺服器。 您可以[下載](https://dev.mysql.com/downloads/)此命令列工具，並將它安裝於電腦上。 選取本文中程式碼範例上的 [試試看] 按鈕，也可以存取此命令列工具。 另一種存取此命令列工具的方法是選取 Azure 入口網站右上方工具列上的 **>_** 按鈕，以開啟 **Azure Cloud Shell**。
+使用 mysql 命令列工具連線到伺服器。 您可以[下載](https://dev.mysql.com/downloads/)此命令列工具，並將它安裝於電腦上。 選取本文中程式碼範例上的 [試試看]  按鈕，也可以存取此命令列工具。 另一種存取此命令列工具的方法是選取 Azure 入口網站右上方工具列上的 **>_** 按鈕，以開啟 **Azure Cloud Shell**。
 
 若要使用 mysql 命令列工具連線到伺服器：
 
@@ -207,7 +207,7 @@ az mariadb server show --resource-group myresourcegroup --name mydemoserver
 
 1. 開啟用戶端電腦上的 MySQL Workbench。 如果尚未安裝，請[下載](https://dev.mysql.com/downloads/workbench/)並安裝此應用程式。
 
-2. 在 [設定新連線] 對話方塊的 [參數] 索引標籤上，輸入下列資訊︰
+2. 在 [設定新連線]  對話方塊的 [參數]  索引標籤上，輸入下列資訊︰
 
    ![設定新的連線](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
@@ -218,9 +218,9 @@ az mariadb server show --resource-group myresourcegroup --name mydemoserver
    | 主機名稱 | **mydemoserver.mariadb.database.azure.com** | 您先前記下的伺服器名稱。 |
    | Port | **3306** | 適用於 MariaDB 的 Azure 資料庫的預設連接埠。 |
    | 使用者名稱 | **myadmin\@mydemoserver** | 您先前記下的伺服器管理員登入。 |
-   | 密碼 | 您的密碼 | 使用您稍早設定的管理帳戶密碼。 |
+   | 密碼 | 您的密碼  | 使用您稍早設定的管理帳戶密碼。 |
 
-3. 若要檢查所有參數是否設定正確，請選取 [測試連線]。
+3. 若要檢查所有參數是否設定正確，請選取 [測試連線]  。
 
 4. 選取此連線以成功連線到伺服器。
 

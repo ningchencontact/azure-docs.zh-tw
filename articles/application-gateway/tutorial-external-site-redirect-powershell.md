@@ -157,7 +157,7 @@ $appgw = New-AzApplicationGateway `
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-您應該會看到瀏覽器中出現 bing.com  。
+您應該會看到瀏覽器中出現 bing.com。
 
 ## <a name="next-steps"></a>後續步驟
 

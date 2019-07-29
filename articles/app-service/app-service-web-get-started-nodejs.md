@@ -54,7 +54,7 @@ const port = process.env.PORT || 1337;
 
 App Service 會將 process.env.PORT 插入您的應用程式中，讓程式碼使用變數來知道要接聽哪個通訊埠。 
 
-在終端機視窗中，瀏覽至 Node.js 專案範例的**根目錄** (包含 index.js 的目錄)。
+在終端機視窗中，瀏覽至 Node.js 專案範例的**根目錄** (包含 index.js  的目錄)。
 
 ## <a name="run-the-app-locally"></a>在本機執行應用程式
 
@@ -77,7 +77,7 @@ npm start
 
 ## <a name="create-a-project-zip-file"></a>建立專案 ZIP 檔案
 
-確定您仍在專案範例的**根目錄**中 (包含 index.js 的目錄)。 在專案中建立所有項目的 ZIP 封存。 下列命令會使用您終端機中的預設工具：
+確定您仍在專案範例的**根目錄**中 (包含 index.js  的目錄)。 在專案中建立所有項目的 ZIP 封存。 下列命令會使用您終端機中的預設工具：
 
 ```
 # Bash
@@ -165,7 +165,7 @@ Node.js 範例程式碼正在 Azure App Service Web 應用程式中執行。
 response.end("Hello Azure!");
 ```
 
-在本機的終端機視窗中，瀏覽至應用程式的**根目錄** (包含 index.js 的目錄)，然後為更新後的專案建立新的 ZIP 檔案。
+在本機的終端機視窗中，瀏覽至應用程式的**根目錄** (包含 index.js  的目錄)，然後為更新後的專案建立新的 ZIP 檔案。
 
 ```azurecli-interactive
 # Bash
@@ -185,7 +185,7 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 
 請移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的 Web 應用程式。
 
-按一下左側功能表中的 [應用程式服務]，然後按一下 Azure 應用程式的名稱。
+按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 

@@ -96,7 +96,7 @@ Azure Resource Manager 範本可讓您部署相關資源的群組。 範本是�
 
 
 ## <a name="add-a-sample-application"></a>新增範例應用程式
-若要測試您的擴展集，請安裝基本的 Web 應用程式。 當您部署擴展集時，VM 延伸模組可以提供後置部署設定和自動化工作，例如安裝應用程式。 您可以從 Azure 儲存體或 GitHub 下載指令碼，或是在擴充功能執行階段將指令碼提供給 Azure 入口網站。 若要將延伸模組套用至擴展集，請將 extensionProfile 區段新增至上述資源範例。 延伸模組設定檔通常會定義下列屬性：
+若要測試您的擴展集，請安裝基本的 Web 應用程式。 當您部署擴展集時，VM 延伸模組可以提供後置部署設定和自動化工作，例如安裝應用程式。 您可以從 Azure 儲存體或 GitHub 下載指令碼，或是在擴充功能執行階段將指令碼提供給 Azure 入口網站。 若要將延伸模組套用至擴展集，請將 extensionProfile  區段新增至上述資源範例。 延伸模組設定檔通常會定義下列屬性：
 
 - 延伸模組類型
 - 延伸模組發行者
@@ -106,7 +106,7 @@ Azure Resource Manager 範本可讓您部署相關資源的群組。 範本是�
 
 [Linux 上的 Python HTTP 伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)範本會使用自訂指令碼延伸模組來安裝 [Bottle](https://bottlepy.org/docs/dev/)、Python web 架構，以及簡單的 HTTP 伺服器。 
 
-fileUris 中定義的兩個指令碼  -  installserver.sh 和 workserver.py。 會從 GitHub 下載這些檔案，然後 commandToExecute 會執行 `bash installserver.sh`來安裝和設定應用程式：
+fileUris  中定義的兩個指令碼  -  installserver.sh  和 workserver.py  。 會從 GitHub 下載這些檔案，然後 commandToExecute  會執行 `bash installserver.sh`來安裝和設定應用程式：
 
 ```json
 "extensionProfile": {
@@ -133,7 +133,7 @@ fileUris 中定義的兩個指令碼  -  installserver.sh 和 workserver.py。 �
 
 
 ## <a name="deploy-the-template"></a>部署範本
-您可以使用下列 [部署至 Azure] 按鈕來部署 [Linux 上的 Python HTTP 伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)範本。 這個按鈕會開啟 Azure 入口網站、載入完整的範本，並提示輸入幾個參數，例如擴展集名稱、執行個體計數和管理員認證。
+您可以使用下列 [部署至 Azure]  按鈕來部署 [Linux 上的 Python HTTP 伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)範本。 這個按鈕會開啟 Azure 入口網站、載入完整的範本，並提示輸入幾個參數，例如擴展集名稱、執行個體計數和管理員認證。
 
 [![將範本部署到 Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
@@ -161,7 +161,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-http:\//publicIpAddress:9000/do_work 格式，將負載平衡器的公用 IP 位址輸入網頁瀏覽器中。 負載平衡器會將流量散發至您的其中一個 VM 執行個體，如下列範例所示：
+http:\//publicIpAddress:9000/do_work  格式，將負載平衡器的公用 IP 位址輸入網頁瀏覽器中。 負載平衡器會將流量散發至您的其中一個 VM 執行個體，如下列範例所示：
 
 ![NGINX 中的預設網頁](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

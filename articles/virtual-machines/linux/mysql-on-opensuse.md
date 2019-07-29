@@ -33,13 +33,13 @@ ms.locfileid: "67876028"
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>建立執行 OpenSUSE Linux 的虛擬機器
 
-首先，建立資源群組。 在此範例中，資源群組的名稱為 mySQSUSEResourceGroup  ，並且會建立在「美國東部」  區域。
+首先，建立資源群組。 在此範例中，資源群組的名稱為 mySQSUSEResourceGroup，並且會建立在「美國東部」區域。
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-建立 VM。 在此範例中，VM 的名稱為 myVM  ，而 VM 的大小為 Standard_D2s_v3  ，但您應該選擇您認為最適合您工作負載的 [VM 大小](sizes.md)。
+建立 VM。 在此範例中，VM 的名稱為 myVM，而 VM 的大小為 Standard_D2s_v3，但您應該選擇您認為最適合您工作負載的 [VM 大小](sizes.md)。
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -149,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 只有連線到資料庫的指令碼會使用資料庫使用者名稱和密碼。  資料庫使用者帳戶名稱不一定代表系統上的實際使用者帳戶。
 
-啟用從另一部電腦登入。 在此範例中，允許從中登入的電腦 IP 位址是 10.112.113.114  。
+啟用從另一部電腦登入。 在此範例中，允許從中登入的電腦 IP 位址是 10.112.113.114。
 
 ```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

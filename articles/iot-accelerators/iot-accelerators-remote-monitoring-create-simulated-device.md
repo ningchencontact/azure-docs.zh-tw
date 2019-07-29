@@ -105,13 +105,13 @@ ms.locfileid: "65832586"
 
 ### <a name="run-the-storage-adapter-microservice"></a>執行儲存體配接器微服務
 
-在 Visual Studio Code 中開啟 **remote-monitoring-services-dotnet-master\storage-adapter** 資料夾。 按一下任何 [還原]  按鈕，以修正任何無法解決的相依性。
+在 Visual Studio Code 中開啟 **remote-monitoring-services-dotnet-master\storage-adapter** 資料夾。 按一下任何 [還原] 按鈕，以修正任何無法解決的相依性。
 
 開啟**storage-adapter/WebService/appsettings.ini**檔案，並指派您 Cosmos DB 連接字串**documentDBConnectionString**變數。
 
-若要在本機執行微服務，請按一下 [偵錯] > [開始偵錯]  。
+若要在本機執行微服務，請按一下 [偵錯] > [開始偵錯]。
 
-Visual Studio Code 中的 [終端機]  視窗會顯示執行中微服務的輸出，包括 Web 服務健康情況檢查的 URL：[http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)。 當您瀏覽至此位址時，其狀態應該是"[確定]:保持運作和"。
+Visual Studio Code 中的 [終端機] 視窗會顯示執行中微服務的輸出，包括 Web 服務健康情況檢查的 URL：[http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)。 當您瀏覽至此位址時，其狀態應該是"[確定]:保持運作和"。
 
 在完成後續步驟時，請讓儲存體配接器微服務繼續在 Visual Studio Code 的這個執行個體中執行。
 
@@ -422,7 +422,7 @@ Visual Studio Code 中的 [終端機]  視窗會顯示執行中微服務的輸�
 
 ### <a name="run-the-device-simulation-microservice"></a>執行裝置模擬微服務
 
-在 Visual Studio Code 的新執行個體中，開啟您從 GitHub 下載的 **device-simulation-dotnet-master** 資料夾。 按一下任何 [還原]  按鈕，以修正任何無法解決的相依性。
+在 Visual Studio Code 的新執行個體中，開啟您從 GitHub 下載的 **device-simulation-dotnet-master** 資料夾。 按一下任何 [還原] 按鈕，以修正任何無法解決的相依性。
 
 開啟**WebService/appsettings.ini**檔案，並指派您 Cosmos DB 連接字串**documentdb_connstring**變數，以及修改的設定，如下所示：
 
@@ -432,9 +432,9 @@ device_models_folder = C:\temp\devicemodels\
 device_models_scripts_folder = C:\temp\devicemodels\scripts\
 ```
 
-若要在本機執行微服務，請按一下 [偵錯] > [開始偵錯]  。
+若要在本機執行微服務，請按一下 [偵錯] > [開始偵錯]。
 
-Visual Studio Code 中的 [終端機]  視窗會顯示執行中微服務的輸出。
+Visual Studio Code 中的 [終端機] 視窗會顯示執行中微服務的輸出。
 
 在完成後續步驟時，請讓裝置模擬微服務繼續在 Visual Studio Code 的這個執行個體中執行。
 
@@ -462,23 +462,23 @@ az iot hub monitor-events --hub-name device-simulation-test
 
 1. 在本機電腦上開啟 Postman。
 
-1. 按一下 [檔案] > [匯入]  。 然後按一下 [選擇檔案]  。
+1. 按一下 [檔案] > [匯入]。 然後按一下 [選擇檔案]。
 
-1. 瀏覽至 **device-simulation-dotnet-master/docs/postman** 資料夾。 選取 [Azure IoT Device Simulation solution accelerator.postman_collection]  和 [Azure IoT Device Simulation solution accelerator.postman_environment]  ，然後按一下 [開啟]  。
+1. 瀏覽至 **device-simulation-dotnet-master/docs/postman** 資料夾。 選取 [Azure IoT Device Simulation solution accelerator.postman_collection] 和 [Azure IoT Device Simulation solution accelerator.postman_environment]，然後按一下 [開啟]。
 
 1. 將 **Azure IoT Device Simulation solution accelerator** 展開至您可以傳送的要求。
 
-1. 按一下 [無環境]  ，然後選取 [Azure IoT Device Simulation solution accelerator]  。
+1. 按一下 [無環境]，然後選取 [Azure IoT Device Simulation solution accelerator]。
 
 現在，您已在 Postman 工作區中載入集合和環境，以供用來與裝置模擬微服務互動。
 
 若要設定和執行模擬：
 
-1. 在 Postman 集合中，選取 [建立已修改的 Chiller 模擬]  ，然後按一下 [傳送]  。 此要求會針對模擬的 Chiller 裝置類型建立四個執行個體。
+1. 在 Postman 集合中，選取 [建立已修改的 Chiller 模擬]，然後按一下 [傳送]。 此要求會針對模擬的 Chiller 裝置類型建立四個執行個體。
 
 1. Azure CLI 視窗中的事件監視器輸出會顯示模擬裝置的遙測資料，包括新的 **internal_temperature** 值。
 
-若要停止模擬，請在 Postman 中選取 [停止模擬]  要求，然後按一下 [傳送]  。
+若要停止模擬，請在 Postman 中選取 [停止模擬] 要求，然後按一下 [傳送]。
 
 ### <a name="create-a-simulation-with-the-lightbulb-device-type"></a>使用燈泡裝置類型來建立模擬
 
@@ -486,15 +486,15 @@ az iot hub monitor-events --hub-name device-simulation-test
 
 若要設定和執行模擬：
 
-1. 在 Postman 集合中，選取 [建立燈泡模擬]  ，然後按一下 [傳送]  。 此要求會針對模擬的燈泡裝置類型建立兩個執行個體。
+1. 在 Postman 集合中，選取 [建立燈泡模擬]，然後按一下 [傳送]。 此要求會針對模擬的燈泡裝置類型建立兩個執行個體。
 
 1. Azure CLI 視窗中的事件監視器輸出會顯示模擬燈泡的遙測資料。
 
-若要停止模擬，請在 Postman 中選取 [停止模擬]  要求，然後按一下 [傳送]  。
+若要停止模擬，請在 Postman 中選取 [停止模擬] 要求，然後按一下 [傳送]。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您可以停止兩個在其 Visual Studio Code 執行個體中本機執行的微服務 ([偵錯] > [停止偵錯]  )。
+您可以停止兩個在其 Visual Studio Code 執行個體中本機執行的微服務 ([偵錯] > [停止偵錯])。
 
 如果您不再需要 IoT 中樞和 Cosmos DB 執行個體，請從 Azure 訂用帳戶中加以刪除，以避免產生任何不必要的費用。
 

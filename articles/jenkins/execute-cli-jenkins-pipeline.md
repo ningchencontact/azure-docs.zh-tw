@@ -36,7 +36,7 @@ ms.locfileid: "66162190"
 「Azure 認證」外掛程式可讓您將 Microsoft Azure 服務主體認證儲存在 Jenkins 中。 在 1.2 版中，我們已新增支援，因此 Jenkins 管線可以取得 Azure 認證。 
 
 請確定您擁有的版本是 1.2 或更新版本：
-* 在 Jenkins 儀表板中，按一下 [Manage Jenkins] \(管理 Jenkins\) -> [Plugin Manager] \(外掛程式管理員\)，然後搜尋 [Azure Credential] \(Azure 認證\)。 
+* 在 Jenkins 儀表板中，按一下 [Manage Jenkins] \(管理 Jenkins\) -> [Plugin Manager] \(外掛程式管理員\)  ，然後搜尋 [Azure Credential] \(Azure 認證\)  。 
 * 如果版本比 1.2 版舊，請更新外掛程式。
 
 Jenkins Master 中也必須有 Java JDK 和 Maven。 若要安裝，請使用 SSH 登入 Jenkins Master，然後執行下列命令：
@@ -49,8 +49,8 @@ sudo apt-get install -y maven
 
 必須要有 Azure 認證，才能執行 Azure CLI。
 
-* 在 Jenkins 儀表板中，按一下 [Credentials] \(認證\) -> [System] \(系統\) -> 。 按一下 [Global credentials(unrestricted)] \(全域認證 (不受限)\)。
-* 按一下 [Add Credentials] \(新增認證\) 來填寫 [Subscription ID] \(訂用帳戶 ID\)、[Client ID] \(用戶端識別碼\)、[Client Secret] \(用戶端祕密\) 及 [OAuth 2.0 Token Endpoint] \(OAuth 2.0 權杖端點\)，以新增 [Microsoft Azure 服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)。 請提供一個要在後續步驟中使用的識別碼。
+* 在 Jenkins 儀表板中，按一下 [Credentials] \(認證\) -> [System] \(系統\) ->  。 按一下 [Global credentials(unrestricted)] \(全域認證 (不受限)\)  。
+* 按一下 [Add Credentials] \(新增認證\)  來填寫 [Subscription ID] \(訂用帳戶 ID\)、[Client ID] \(用戶端識別碼\)、[Client Secret] \(用戶端祕密\) 及 [OAuth 2.0 Token Endpoint] \(OAuth 2.0 權杖端點\)，以新增 [Microsoft Azure 服務主體](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)。 請提供一個要在後續步驟中使用的識別碼。
 
 ![新增認證](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
@@ -129,7 +129,7 @@ az webapp config set \
 ```
 
 ## <a name="prepare-a-github-repository"></a>準備 GitHub 存放庫
-開啟[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)存放庫。 為了將存放庫分支至您自己的 GitHub 帳戶，按一下右上角的 [分支] 按鈕。
+開啟[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)存放庫。 為了將存放庫分支至您自己的 GitHub 帳戶，按一下右上角的 [分支]  按鈕。
 
 * 在 GitHub Web UI 中，開啟 **Jenkinsfile** 檔案。 按一下鉛筆圖示來編輯此檔案，更新您 Web 應用程式的資源群組和名稱 (分別位於第 20 行和第 21 行)。
 
@@ -145,18 +145,18 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ```
 
 ## <a name="create-jenkins-pipeline"></a>建立 Jenkins 管線
-在網頁瀏覽器中開啟 Jenkins，按一下 [New Item] \(新增項目\)。 
+在網頁瀏覽器中開啟 Jenkins，按一下 [New Item] \(新增項目\)  。 
 
-* 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)。 按一下 [確定]。
-* 接著，按一下 [Pipeline] \(管線\) 索引標籤。 
-* 針對 [Definition] \(定義\)，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)。
-* 針對 [SCM]，選取 [Git]。
+* 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)  。 按一下 [確定]  。
+* 接著，按一下 [Pipeline] \(管線\)  索引標籤。 
+* 針對 [Definition] \(定義\)  ，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)  。
+* 針對 [SCM]  ，選取 [Git]  。
 * 輸入您分支存放庫的 GitHub URL：https:\<您的分支存放庫\>.git
 * 按一下 [儲存] 
 
 ## <a name="test-your-pipeline"></a>測試您的管線
-* 移至您建立的管線，按一下 [Build Now] \(立即建置\)
-* 應該在幾秒內就會順利完成一個組建，您可以移至該組建，然後按一下 [Console Output] \(主控台輸出\) 來查看詳細資料
+* 移至您建立的管線，按一下 [Build Now] \(立即建置\) 
+* 應該在幾秒內就會順利完成一個組建，您可以移至該組建，然後按一下 [Console Output] \(主控台輸出\)  來查看詳細資料
 
 ## <a name="verify-your-web-app"></a>確認您的 Web 應用程式
 若要確認 WAR 檔案是否已順利部署到您的 Web 應用程式， 請開啟網頁瀏覽器：

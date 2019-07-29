@@ -59,7 +59,7 @@ az account show --query "{subscriptionId:id, tenantId:tenantId}"
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-現在，您可以建立要與 Terraform 搭配使用的服務主體。 使用 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)，並將 [範圍]  設為您的訂用帳戶，如下所示：
+現在，您可以建立要與 Terraform 搭配使用的服務主體。 使用 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)，並將 [範圍] 設為您的訂用帳戶，如下所示：
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"

@@ -36,7 +36,7 @@ ms.locfileid: "67705314"
 
 使用 [az group create](/cli/azure/group) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
+下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -84,7 +84,7 @@ ssh azureuser@<publicIpAddress>
 
 Marketplace 映像上已安裝 Oracle 軟體。 建立範例資料庫，如下所示。 
 
-1.  切換至 oracle  超級使用者，然後將接聽程式初始化以啟用記錄功能：
+1.  切換至 oracle 超級使用者，然後將接聽程式初始化以啟用記錄功能：
 
     ```bash
     $ sudo su - oracle
@@ -145,7 +145,7 @@ Marketplace 映像上已安裝 Oracle 軟體。 建立範例資料庫，如下�
 
 3. 設定 Oracle 變數
 
-在連線之前，您需要設定兩個環境變數︰ORACLE_HOME  和 ORACLE_SID  。
+在連線之前，您需要設定兩個環境變數︰ORACLE_HOME 和 ORACLE_SID。
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -246,7 +246,7 @@ export ORACLE_SID=cdb1
     esac
     ```
 
-4.  使用 chmod  變更檔案的權限，如下所示：
+4.  使用 chmod 變更檔案的權限，如下所示：
 
     ```bash
     chgrp dba /etc/init.d/dbora
@@ -311,7 +311,7 @@ export ORACLE_SID=cdb1
     https://<VM ip address or hostname>:5502/em
     ```
 
-您可以使用 SYS  帳戶進行登入，然後勾選 as sysdba  核取方塊。 使用您在安裝期間設定的密碼 OraPasswd1  。 
+您可以使用 SYS 帳戶進行登入，然後勾選 as sysdba 核取方塊。 使用您在安裝期間設定的密碼 OraPasswd1。 
 
 ![Oracle OEM Express 登入頁面的螢幕擷取畫面](./media/oracle-quick-start/oracle_oem_express_login.png)
 

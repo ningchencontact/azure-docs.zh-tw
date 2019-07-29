@@ -170,7 +170,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    az account get-access-token
    ```
 
-2. 使用下列 CURL 命令呼叫 Azure Resource Manager REST 端點，以便在您的虛擬機器擴展集上啟用系統指派的受控識別 (如同在要求本文中由 myVMSS  虛擬機器擴展集的 `{"identity":{"type":"SystemAssigned"}` 值所識別)。  將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
+2. 使用下列 CURL 命令呼叫 Azure Resource Manager REST 端點，以便在您的虛擬機器擴展集上啟用系統指派的受控識別 (如同在要求本文中由 myVMSS 虛擬機器擴展集的 `{"identity":{"type":"SystemAssigned"}` 值所識別)。  將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
    
    > [!IMPORTANT]
    > 若要確保您不會刪除虛擬機器擴展集指派的任何現有使用者指派識別，需要使用下列 CURL 命令來列出使用者指派的受控識別：`curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`。 如有任何使用者指派的受控識別是指派給回應中 `identity` 值識別的虛擬機器擴展集，請跳至步驟 3，此步驟將說明如何保留使用者指派的受控識別，同時在虛擬機器擴展集上啟用系統指派的受控識別。
@@ -281,7 +281,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    az account get-access-token
    ```
 
-2. 使用 CURL 呼叫 Azure Resource Manager REST 端點來停用系統指派的受控識別，以便更新虛擬機器擴展集。  下列範例會停用系統指派的受控識別 (如同在要求本文中由 myVMSS  虛擬機器擴展集中的 `{"identity":{"type":"None"}}` 值所識別)。  將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
+2. 使用 CURL 呼叫 Azure Resource Manager REST 端點來停用系統指派的受控識別，以便更新虛擬機器擴展集。  下列範例會停用系統指派的受控識別 (如同在要求本文中由 myVMSS 虛擬機器擴展集中的 `{"identity":{"type":"None"}}` 值所識別)。  將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
 
    > [!IMPORTANT]
    > 若要確保您不會刪除虛擬機器擴展集指派的任何現有使用者指派識別，需要使用下列 CURL 命令來列出使用者指派的受控識別：`curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`。 如有任何使用者指派的受控識別是指派給虛擬機器擴展集，請跳至步驟 3，此步驟將說明如何保留使用者指派的受控識別，同時從虛擬機器擴展集移除系統指派的受控識別。
@@ -339,7 +339,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 4. 使用以下找到的指示建立使用者指派的受控識別：[建立使用者指派的受控識別](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)。
 
-5. 使用 CURL 呼叫 Azure Resource Manager REST 端點來建立虛擬機器擴展集。 下列範例會使用使用者指派的受控識別 `ID1` (如同在要求本文中由 `"identity":{"type":"UserAssigned"}` 值所識別)，在資源群組 myResourceGroup  中建立名為 myVMSS  的虛擬機器擴展集。 將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
+5. 使用 CURL 呼叫 Azure Resource Manager REST 端點來建立虛擬機器擴展集。 下列範例會使用使用者指派的受控識別 `ID1` (如同在要求本文中由 `"identity":{"type":"UserAssigned"}` 值所識別)，在資源群組 myResourceGroup 中建立名為 myVMSS 的虛擬機器擴展集。 將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
  
    **API 版本 2018-06-01**
 

@@ -33,7 +33,7 @@ Azure CLI。 如果您尚未安裝 Azure CLI，請參閱[安裝 Azure CLI](https
 
 ## <a name="create-a-cluster"></a>建立叢集
 
-1. 您的 Azure 訂用帳戶的登入。 如果您打算使用 Azure Cloud Shell，可直接選取程式碼區塊右上角的 [試試看]  。 或者，請輸入以下命令：
+1. 您的 Azure 訂用帳戶的登入。 如果您打算使用 Azure Cloud Shell，可直接選取程式碼區塊右上角的 [試試看]。 或者，請輸入以下命令：
 
     ```azurecli-interactive
     az login

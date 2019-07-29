@@ -38,7 +38,7 @@ az group create --name MyResourceGroup --location "East US"
 
 使用 `az network dns zone create` 命令建立 DNS 區域。 若要查看此命令的說明，請輸入 `az network dns zone create -h`。
 
-下列範例會在 MyResourceGroup 資源群組中建立稱為 contoso.xyz 的 DNS 區域。 使用範例來建立 DNS 區域，並將值替換為您自己的值。
+下列範例會在 MyResourceGroup  資源群組中建立稱為 contoso.xyz  的 DNS 區域。 使用範例來建立 DNS 區域，並將值替換為您自己的值。
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz

@@ -31,7 +31,7 @@ ms.locfileid: "65149569"
 ## <a name="setting-up-storage-account-cors-rules"></a>設定儲存體帳戶 CORS 規則 
 您必須先設定帳戶以啟用[跨原始資源共用](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) (或簡稱為 CORS)，Web 應用程式才可從用戶端存取 Blob 儲存體。 
 
-返回 Azure 入口網站，然後選取您的儲存體帳戶。 若要定義新的 CORS 規則，請返回 [設定] 區段，然後按一下 [CORS] 連結。 接著，按一下 [新增] 按鈕，以開啟 [新增 CORS 規則] 視窗。 在此快速入門中，您會建立開啟的 CORS 規則：
+返回 Azure 入口網站，然後選取您的儲存體帳戶。 若要定義新的 CORS 規則，請返回 [設定]  區段，然後按一下 [CORS]  連結。 接著，按一下 [新增]  按鈕，以開啟 [新增 CORS 規則]  視窗。 在此快速入門中，您會建立開啟的 CORS 規則：
 
 ![Azure Blob 儲存體帳戶 CORS 設定](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
 
@@ -81,9 +81,9 @@ az storage account generate-sas
 
 | 參數        | 值   | 說明  |
 |------------------|---------|---------|
-| *權限*    | racwdl  | 此 SAS 允許讀取、附加、建立、寫入、刪除和列出功能。 |
-| *resource-types* | sco     | 受到 SAS 影響的資源為服務、容器和物件。 |
-| *services*       | b       | 受到 SAS 影響的服務為 Blob 服務。 |
+| *權限*    | racwdl  | 此 SAS 允許讀取  、附加  、建立  、寫入  、刪除  和列出  功能。 |
+| *resource-types* | sco     | 受到 SAS 影響的資源為服務  、容器  和物件  。 |
+| *services*       | b       | 受到 SAS 影響的服務為 Blob  服務。 |
 
 現在，SAS 已產生，請將主控台中傳回的值複製到文字編輯器中。 您將在後續步驟中使用此值。
 
@@ -108,7 +108,7 @@ npm init -y
 ```bash
 npm i http-server
 ```
-接著，編輯 package.json 檔案，並將現有的指令碼定義取代為下列程式碼片段：
+接著，編輯 package.json  檔案，並將現有的指令碼  定義取代為下列程式碼片段：
 
 ```javascript
 "scripts": {
@@ -122,10 +122,10 @@ npm start
 ```
 
 ### <a name="get-the-blob-storage-client-library"></a>取得 Blob 儲存體用戶端程式庫
-[下載 JavaScript 用戶端程式庫](https://aka.ms/downloadazurestoragejs)、解壓縮 zip 的內容，並將 bundle 資料夾中的指令碼檔案放入名為 scripts 的資料夾中。
+[下載 JavaScript 用戶端程式庫](https://aka.ms/downloadazurestoragejs)、解壓縮 zip 的內容，並將 bundle  資料夾中的指令碼檔案放入名為 scripts  的資料夾中。
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>將用戶端指令碼參考新增至頁面
-在 azure-blob-javascript 資料夾的根目錄建立 HTML 網頁，並將其命名為 index.html。 此頁面建立後，請在頁面中新增下列標記。
+在 azure-blob-javascript  資料夾的根目錄建立 HTML 網頁，並將其命名為 index.html  。 此頁面建立後，請在頁面中新增下列標記。
 
 ```html
 <!DOCTYPE html>
@@ -148,9 +148,9 @@ npm start
 ```
 此標記會將下列項目新增至頁面：
 
-- scripts/azure-storage.blob.js 的參考
+- scripts/azure-storage.blob.js  的參考
 - 用來建立容器，上傳、列出及刪除 Blob 的按鈕
-- 用來上傳檔案的 INPUT 元素
+- 用來上傳檔案的 INPUT  元素
 - 儲存體專用程式碼的預留位置
 
 ### <a name="create-an-instance-of-blobservice"></a>建立 BlobService 執行個體 
@@ -184,7 +184,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>上傳 Blob
-若要從 HTML 表單上傳 Blob，您可以從 INPUT 元素取得所選檔案的參考。 當元素的「類型」設為「檔案」時，您可以透過`files` 陣列取得選取的檔案。
+若要從 HTML 表單上傳 Blob，您可以從 INPUT  元素取得所選檔案的參考。 當元素的「類型」  設為「檔案」  時，您可以透過`files` 陣列取得選取的檔案。
 
 透過指令碼，您可以參考 HTML 元素，並將選取的檔案傳遞至 Blob 服務。
 
@@ -228,7 +228,7 @@ document.getElementById('list-button').addEventListener('click', () => {
 });
 ```
 
-listBlobsSegmented 方法會傳回 Blob 的集合。 預設的集合數量為 5,000 個 Blob，但您可以調整此值以符合您的需求。 [接續範例](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132)會示範如何處理大量 Blob 以及用戶端程式庫如何支援分頁作業。 
+listBlobsSegmented  方法會傳回 Blob 的集合。 預設的集合數量為 5,000 個 Blob，但您可以調整此值以符合您的需求。 [接續範例](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132)會示範如何處理大量 Blob 以及用戶端程式庫如何支援分頁作業。 
 
 
 ### <a name="delete-blobs"></a>刪除 Blob
@@ -249,10 +249,10 @@ document.getElementById('delete-button').addEventListener('click', () => {
 });
 ```
 > [!WARNING]
-> 若要讓此程式碼範例運作，您必須提供 blobName 的字串值。
+> 若要讓此程式碼範例運作，您必須提供 blobName  的字串值。
 
 ## <a name="clean-up-resources"></a>清除資源
-若要清除在此快速入門期間建立的資源，請返回 [Azure 入口網站](https://portal.azure.com)，並選取您的儲存體帳戶。 選取之後，您可以移至下列位置刪除儲存體帳戶：[概觀 > 刪除儲存體帳戶]。
+若要清除在此快速入門期間建立的資源，請返回 [Azure 入口網站](https://portal.azure.com)，並選取您的儲存體帳戶。 選取之後，您可以移至下列位置刪除儲存體帳戶：[概觀 > 刪除儲存體帳戶]  。
 
 ## <a name="next-steps"></a>後續步驟
 瀏覽範例以了解如何下載 Blob，並在檔案上傳期間報告進度。

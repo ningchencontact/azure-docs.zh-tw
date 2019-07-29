@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 87bd22ec4f2cfae62d1f80284ad8346ca292d016
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882050"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567679"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教學課程：Azure SQL Database 中使用 Azure AD 伺服器主體 (登入) 的受控執行個體安全性
 
@@ -73,7 +72,7 @@ ms.locfileid: "58882050"
 
 1. 使用 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)，透過屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 來登入受控執行個體。
 
-2. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
+2. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 
 3. 在查詢視窗中，使用下列語法來為 Azure AD 帳戶建立本機登入：
 
@@ -93,7 +92,7 @@ ms.locfileid: "58882050"
     GO
     ```
 
-4. 在工具列上，選取 [執行] 以建立登入。
+4. 在工具列上，選取 [執行]  以建立登入。
 
 5. 藉由執行下列 T-SQL 命令來檢查新增的登入：
 
@@ -126,7 +125,7 @@ ms.locfileid: "58882050"
 
 1. 再次登入受控執行個體，或使用現有連往 SQL 主體 (屬於 `sysadmin`) 的連線。
 
-1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 
 1. 使用下列 T-SQL 語法，為 Azure AD 伺服器主體 (登入) 授與 `sysadmin` 伺服器角色：
 
@@ -156,11 +155,11 @@ ms.locfileid: "58882050"
 
      如需詳細資訊，請參閱下列文章：[SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](sql-database-ssms-mfa-authentication.md)
 
-1. 選取 [Active Directory - 通用，具 MFA 支援]。 此時會出現 Multi-Factor Authentication (MFA) 登入視窗。 使用 Azure AD 密碼來登入。
+1. 選取 [Active Directory - 通用，具 MFA 支援]  。 此時會出現 Multi-Factor Authentication (MFA) 登入視窗。 使用 Azure AD 密碼來登入。
 
     ![mfa-login-prompt.png](media/sql-database-managed-instance-security-tutorial/mfa-login-prompt.png)
 
-1. 在 SSMS 的 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
+1. 在 SSMS 的 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 1. 在查詢視窗中，使用下列語法來為另一個 Azure AD 帳戶建立登入：
 
     ```sql
@@ -182,7 +181,7 @@ ms.locfileid: "58882050"
     ```
 
 1. 使用 [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) 語法在受控執行個體中建立資料庫。 此資料庫將會用來在下一節測試使用者登入。
-    1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
+    1. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
     1. 在查詢視窗中，使用下列語法來建立名為 **MyMITestDB** 的資料庫。
 
         ```sql
@@ -190,11 +189,11 @@ ms.locfileid: "58882050"
         GO
         ```
 
-1. 為 Azure AD 中的群組建立受控執行個體登入。 該群組必須先存在於 Azure AD，您才能將登入新增到受控執行個體。 請參閱[使用 Azure Active Directory 建立基本群組並新增成員](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 建立 mygroup 群組，並對此群組新增成員。
+1. 為 Azure AD 中的群組建立受控執行個體登入。 該群組必須先存在於 Azure AD，您才能將登入新增到受控執行個體。 請參閱[使用 Azure Active Directory 建立基本群組並新增成員](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 建立 mygroup  群組，並對此群組新增成員。
 
 1. 在 SQL Server Management Studio 中開啟新的查詢視窗。
 
-    這個範例假設 Azure AD 中有一個稱為 mygroup 的群組。 執行以下命令：
+    這個範例假設 Azure AD 中有一個稱為 mygroup  的群組。 執行以下命令：
 
     ```sql
     USE master
@@ -204,7 +203,7 @@ ms.locfileid: "58882050"
     ```
 
 1. 作為測試，請使用新建立的登入或群組來登入受控執行個體。 開啟連往受控執行個體的新連線，並在驗證時使用新的登入。
-1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後針對新連線選擇 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後針對新連線選擇 [新增查詢]  。
 1. 執行下列命令，檢查新建立的 Azure AD 伺服器主體 (登入) 的伺服器權限：
 
       ```sql
@@ -228,7 +227,7 @@ ms.locfileid: "58882050"
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>建立 Azure AD 使用者並建立範例資料表
 
 1. 使用 SQL Server Management Studio，以 `sysadmin` 帳戶登入您的受控執行個體。
-1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 1. 在查詢視窗中，使用下列語法從 Azure AD 伺服器主體 (登入) 建立 Azure AD 使用者：
 
     ```sql
@@ -249,7 +248,7 @@ ms.locfileid: "58882050"
 
 1. 此外也支援從群組形式的 Azure AD 伺服器主體 (登入) 建立 Azure AD 使用者。
 
-    下列範例會為存在於 Azure AD 的 Azure AD 群組 mygroup 建立登入。
+    下列範例會為存在於 Azure AD 的 Azure AD 群組 mygroup  建立登入。
 
     ```sql
     USE MyMITestDB
@@ -294,7 +293,7 @@ ms.locfileid: "58882050"
 
 1. 使用 SQL Server Management Studio，以 `sysadmin` 帳戶登入您的受控執行個體。
 
-1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 
 1. 使用下列 T-SQL 語法，對 Azure AD 使用者授與 `db_datareader` 資料庫角色：
 
@@ -304,7 +303,7 @@ ms.locfileid: "58882050"
     GO
     ```
 
-    下列範例會對使用者 bob@aadsqlmi.net 和群組 mygroup 提供 **MyMITestDB** 資料庫上的 `db_datareader` 權限：
+    下列範例會對使用者 bob@aadsqlmi.net 和群組 mygroup  提供 **MyMITestDB** 資料庫上的 `db_datareader` 權限：
 
     ```sql
     USE MyMITestDB
@@ -323,7 +322,7 @@ ms.locfileid: "58882050"
     ```
 
 1. 使用已新增至 `db_datareader` 角色的使用者，建立連往受控執行個體的新連線。
-1. 在 [物件總管] 中展開資料庫以查看資料表。
+1. 在 [物件總管]  中展開資料庫以查看資料表。
 
     ![ssms-test-table.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table.png)
 
@@ -346,7 +345,7 @@ ms.locfileid: "58882050"
 
 1. 使用 SQL Server Management Studio，以 `sysadmin` 帳戶登入您的受控執行個體。
 
-1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 
 1. 在查詢視窗中，使用下列命令來建立新的預存程序：
 
@@ -386,7 +385,7 @@ ms.locfileid: "58882050"
 系統支援讓具有 Azure AD 伺服器主體 (登入) 的 Azure AD 帳戶進行跨資料庫查詢。 若要使用 Azure AD 群組來測試跨資料庫查詢，我們需要建立另一個資料庫和資料表。 如果已有既存的資料庫和資料表，則可以略過建立步驟。
 
 1. 使用 SQL Server Management Studio，以 `sysadmin` 帳戶登入您的受控執行個體。
-1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]。
+1. 在 [物件總管]  中，以滑鼠右鍵按一下伺服器，然後選擇 [新增查詢]  。
 1. 在查詢視窗中，使用下列命令來建立名為 **MyMITestDB2** 的資料庫和名為 **TestTable2** 的資料表：
 
     ```sql
@@ -403,7 +402,7 @@ ms.locfileid: "58882050"
     );
     ```
 
-1. 在新的查詢視窗中，執行下列命令以在新的資料庫 **MyMITestDB2** 中建立使用者 mygroup，並對 mygroup 授與該資料庫的 SELECT 權限：
+1. 在新的查詢視窗中，執行下列命令以在新的資料庫 **MyMITestDB2** 中建立使用者 mygroup  ，並對 mygroup  授與該資料庫的 SELECT 權限：
 
     ```sql
     USE MyMITestDB2
@@ -414,7 +413,7 @@ ms.locfileid: "58882050"
     GO
     ```
 
-1. 使用 SQL Server Management Studio，以 Azure AD 群組 mygroup 成員的身分登入受控執行個體。 開啟新的查詢視窗，並執行跨資料庫 SELECT 陳述式：
+1. 使用 SQL Server Management Studio，以 Azure AD 群組 mygroup  成員的身分登入受控執行個體。 開啟新的查詢視窗，並執行跨資料庫 SELECT 陳述式：
 
     ```sql
     USE MyMITestDB

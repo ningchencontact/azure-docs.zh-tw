@@ -52,7 +52,7 @@ ms.locfileid: "68325933"
 
 ### <a name="use-a-managed-identity"></a>建立受控識別
 
-若要使用受控識別，必須一開始就將訂用帳戶中一或多個 Azure 服務資源 (例如 Web 應用程式、Key Vault 或儲存體帳戶) 的存取權授與該身分識別。 若要從執行中的容器存取 Azure 資源，您的程式碼必須向 Azure AD 端點取得「存取權杖」  。 接著，您的程式碼會藉由呼叫將存取權杖傳送給支援 Azure AD 驗證的服務。 
+若要使用受控識別，必須一開始就將訂用帳戶中一或多個 Azure 服務資源 (例如 Web 應用程式、Key Vault 或儲存體帳戶) 的存取權授與該身分識別。 若要從執行中的容器存取 Azure 資源，您的程式碼必須向 Azure AD 端點取得「存取權杖」。 接著，您的程式碼會藉由呼叫將存取權杖傳送給支援 Azure AD 驗證的服務。 
 
 在執行中的容器中使用受控識別基本上與在 Azure VM 中使用身分識別相同。 如需了解如何使用[權杖](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)、[Azure PowerShell 或 Azure CLI](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) 或 [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)，請參閱 VM 指引。
 

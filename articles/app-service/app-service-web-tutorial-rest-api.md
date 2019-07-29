@@ -76,7 +76,7 @@ dotnet run
 
 瀏覽至 `http://localhost:5000/api/todo` 並查看 ToDo JSON 項目清單。
 
-瀏覽至 `http://localhost:5000` 並使用瀏覽器應用程式播放。 稍後，您會將瀏覽器應用程式指向 App Service 中的遠端 API，以測試 CORS 功能。 瀏覽器應用程式的程式碼位於存放庫的 wwwroot 目錄中。
+瀏覽至 `http://localhost:5000` 並使用瀏覽器應用程式播放。 稍後，您會將瀏覽器應用程式指向 App Service 中的遠端 API，以測試 CORS 功能。 瀏覽器應用程式的程式碼位於存放庫的 wwwroot  目錄中。
 
 如需隨時停止 ASP.NET Core，請在終端機上按下 `Ctrl+C`。
 
@@ -138,7 +138,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ![在 Azure App Service 中執行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
-瀏覽至 `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` 以查看您已部署 API 的 swagger.json。
+瀏覽至 `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` 以查看您已部署 API 的 swagger.json  。
 
 瀏覽至 `http://<app_name>.azurewebsites.net/api/todo` 以查看您已部署的 API 是否能運作。
 
@@ -148,9 +148,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ### <a name="test-cors-in-sample-app"></a>在範例應用程式中測試 CORS
 
-在您的本機存放庫中，開啟 wwwroot/index.html。
+在您的本機存放庫中，開啟 wwwroot/index.html  。
 
-在第 51 行中，將 `apiEndpoint` 變數設定為已部署 API 的 URL (`http://<app_name>.azurewebsites.net`)。 以您在 App Service 中的應用程式名稱取代 _\<appname>_。
+在第 51 行中，將 `apiEndpoint` 變數設定為已部署 API 的 URL (`http://<app_name>.azurewebsites.net`)。 以您在 App Service 中的應用程式名稱取代 _\<appname>_ 。
 
 在您的本機終端機視窗中，再次執行範例應用程式。
 
@@ -158,7 +158,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 dotnet run
 ```
 
-瀏覽至位於 `http://localhost:5000` 的瀏覽器應用程式。 在瀏覽器中開啟 [開發人員工具] 視窗 (在適用於 Windows 的 Chrome 中按 `Ctrl`+`Shift`+`i`)，並檢查 [主控台] 索引標籤。您現在會看到錯誤訊息：`No 'Access-Control-Allow-Origin' header is present on the requested resource`。
+瀏覽至位於 `http://localhost:5000` 的瀏覽器應用程式。 在瀏覽器中開啟 [開發人員工具] 視窗 (在適用於 Windows 的 Chrome 中按 `Ctrl`+`Shift`+`i`)，並檢查 [主控台]  索引標籤。您現在會看到錯誤訊息：`No 'Access-Control-Allow-Origin' header is present on the requested resource`。
 
 ![瀏覽器用戶端中的 CORS 錯誤](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
@@ -181,7 +181,7 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 ### <a name="test-cors-again"></a>再次測試 CORS
 
-重新整理位於 `http://localhost:5000` 的瀏覽器應用程式。 [主控台] 視窗中的錯誤訊息現已消失，而且您可看到來自已部署 API 的資料並與其互動。 您的遠端 API 現在對在本機執行的瀏覽器應用程式支援 CORS。 
+重新整理位於 `http://localhost:5000` 的瀏覽器應用程式。 [主控台]  視窗中的錯誤訊息現已消失，而且您可看到來自已部署 API 的資料並與其互動。 您的遠端 API 現在對在本機執行的瀏覽器應用程式支援 CORS。 
 
 ![瀏覽器用戶端中的 CORS 成功](./media/app-service-web-tutorial-rest-api/cors-success.png)
 

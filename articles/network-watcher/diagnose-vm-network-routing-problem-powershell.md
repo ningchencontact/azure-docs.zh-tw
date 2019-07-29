@@ -40,7 +40,7 @@ ms.locfileid: "66730743"
 
 ## <a name="create-a-vm"></a>建立 VM
 
-您必須先建立資源群組來包含 VM，才能建立 VM。 使用 [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) 來建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
+您必須先建立資源群組來包含 VM，才能建立 VM。 使用 [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 36d172daed487372401691c7046215fb6c4a63ee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384936"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598525"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶中的資料
 
@@ -261,7 +261,7 @@ ms.locfileid: "68384936"
 >
 >
 
-容器可使用 **CosmosDatabase** 類別的 [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) 或 [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) 函式來建立。 容器中包含項目 (在 SQL API 中為 JSON 文件) 和 JavaScript 中相關聯的伺服器端應用程式邏輯，例如預存程序、使用者定義的函式和觸發程序。
+容器可使用 **CosmosDatabase** 類別的 [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) 或 [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) 函式來建立。 容器中包含項目 (在 SQL API 中為 JSON 文件) 和 JavaScript 中相關聯的伺服器端應用程式邏輯，例如預存程序、使用者定義的函式和觸發程序。
 
 1. 將 **CreateContainerAsync** 方法複製並貼到 **CreateDatabaseAsync** 方法底下。 **CreateContainerAsync** 會以識別碼 ``FamilyContainer`` 建立新的容器 (如果該容器不存在)，此識別碼會指定於由 ``LastName`` 屬性分割的 ``containerId`` 欄位中。
 
@@ -286,7 +286,7 @@ ms.locfileid: "68384936"
 恭喜！ 您已成功建立 Azure Cosmos DB 容器。  
 
 ## <a id="CreateDoc"></a>步驟 6：將項目新增至容器
-項目可以使用 **CosmosContainer** 類別的 [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainer) 函式來建立。 使用 SQL API 時，預期的項目會是文件，這是使用者定義的 (任意) JSON 內容。 您現在可以將項目插入 Azure Cosmos DB 容器中。
+項目可以使用 **CosmosContainer** 類別的 [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) 函式來建立。 使用 SQL API 時，預期的項目會是文件，這是使用者定義的 (任意) JSON 內容。 您現在可以將項目插入 Azure Cosmos DB 容器中。
 
 首先，我們來建立 **Family** 類別，以代表此範例中儲存在 Azure Cosmos DB 內的物件。 我們也會建立 **Family** 內使用的 **Parent**、**Child**、**Pet**、**Address** 子類別。 請注意，項目必須將 **Id** 屬性序列化為 JSON 中的**識別碼**。
 

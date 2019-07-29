@@ -34,13 +34,13 @@ ms.locfileid: "66149257"
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-請先使用 [az group create](/cli/azure/group) 建立資源群組，才可以建立擴展集。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+請先使用 [az group create](/cli/azure/group) 建立資源群組，才可以建立擴展集。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-現在使用 [az vmss create](/cli/azure/vmss) 建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet 的擴展集，其已設定為在套用變更時自動更新，並在 ~/.ssh/id_rsa 中沒有 SSH 金鑰時產生 SSH 金鑰。 如果您需要登入 VM 執行個體，就會用到這些 SSH 金鑰。 若要使用現有的 SSH 金鑰組，請改為使用 `--ssh-key-value` 參數，並指定您的金鑰所在位置。
+現在使用 [az vmss create](/cli/azure/vmss) 建立虛擬機器擴展集。 下列範例會建立名為 myScaleSet  的擴展集，其已設定為在套用變更時自動更新，並在 ~/.ssh/id_rsa  中沒有 SSH 金鑰時產生 SSH 金鑰。 如果您需要登入 VM 執行個體，就會用到這些 SSH 金鑰。 若要使用現有的 SSH 金鑰組，請改為使用 `--ssh-key-value` 參數，並指定您的金鑰所在位置。
 
 ```azurecli-interactive
 az vmss create \
@@ -72,7 +72,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>允許流量流向應用程式
-建立擴展集後，系統會自動部署 Azure 負載平衡器。 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 若要允許流量觸達範例 Web 應用程式，請使用 [az network lb rule create](/cli/azure/network/lb/rule) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb 的規則：
+建立擴展集後，系統會自動部署 Azure 負載平衡器。 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 若要允許流量觸達範例 Web 應用程式，請使用 [az network lb rule create](/cli/azure/network/lb/rule) 建立負載平衡器規則。 下列範例會建立名為 myLoadBalancerRuleWeb  的規則：
 
 ```azurecli-interactive
 az network lb rule create \
@@ -88,7 +88,7 @@ az network lb rule create \
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要查看有效的擴展集，請在網頁瀏覽器中存取範例 Web 應用程式。 使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetLBPublicIP IP 位址︰
+若要查看有效的擴展集，請在網頁瀏覽器中存取範例 Web 應用程式。 使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetLBPublicIP  IP 位址︰
 
 ```azurecli-interactive
 az network public-ip show \

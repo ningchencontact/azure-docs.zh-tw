@@ -39,7 +39,7 @@ Azure 磁碟加密支援：
 
 Azure 金鑰保存庫儲存可讓您安全地在應用程式和服務中實作的金鑰和密碼 (Secret 或 Password)。 密碼編譯金鑰會使用軟體保護功能儲存在 Azure 金鑰保存庫中，或者您可以在 FIPS 140-2 第 2 級標準認證的硬體安全性模組 (HSM) 中匯入或產生金鑰。 這些密碼編譯金鑰用來加密及解密連接到 VM 的虛擬磁碟。 您可保留這些密碼編譯金鑰的控制權，並可稽核其使用情況。
 
-使用 [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) 建立 Key Vault。 若要允許 Key Vault 用於磁碟加密，請設定 EnabledForDiskEncryption  參數。 下列範例也會定義資源群組名稱、Key Vault 名稱和位置的變數。 提供您自己唯一的 Key Vault 名稱：
+使用 [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) 建立 Key Vault。 若要允許 Key Vault 用於磁碟加密，請設定 EnabledForDiskEncryption 參數。 下列範例也會定義資源群組名稱、Key Vault 名稱和位置的變數。 提供您自己唯一的 Key Vault 名稱：
 
 ```azurepowershell-interactive
 $rgName="myResourceGroup"
@@ -54,7 +54,7 @@ New-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $locat
 
 如果您有想要用於磁碟加密的現有 Key Vault，才需要這個步驟。 如果您已在上一節中建立 Key Vault，請略過此步驟。
 
-您可以使用 [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-AzKeyVaultAccessPolicy)，在與磁碟加密的擴展集相同之訂用帳戶與區域中，啟用現有的 Key Vault。 在 $vaultName  變數中定義現有 Key Vault 的名稱，如下所示：
+您可以使用 [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-AzKeyVaultAccessPolicy)，在與磁碟加密的擴展集相同之訂用帳戶與區域中，啟用現有的 Key Vault。 在 $vaultName 變數中定義現有 Key Vault 的名稱，如下所示：
 
 
 ```azurepowershell-interactive
@@ -100,7 +100,7 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
 ```
 
-出現提示時，輸入 y  以繼續擴展集虛擬機器執行個體上的磁碟加密程序。
+出現提示時，輸入 y 以繼續擴展集虛擬機器執行個體上的磁碟加密程序。
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>包裝金鑰使用 KEK 來啟用加密
 
@@ -131,7 +131,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 Get-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
-當虛擬機器執行個體已加密時，EncryptionSummary  程式碼會報告 ProvisioningState/succeeded  ，如下列範例輸出所示：
+當虛擬機器執行個體已加密時，EncryptionSummary 程式碼會報告 ProvisioningState/succeeded，如下列範例輸出所示：
 
 ```powershell
 ResourceGroupName            : myResourceGroup

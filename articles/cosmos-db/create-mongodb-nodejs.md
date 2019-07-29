@@ -100,7 +100,7 @@ az login
 
 下列範例會在西歐區域中建立一個資源群組。 選擇資源群組的唯一名稱。
 
-如果您是使用 Azure Cloud Shell，請按一下 [試用]、遵循畫面上的提示登入，然後將命令複製到命令提示字元。
+如果您是使用 Azure Cloud Shell，請按一下 [試用]  、遵循畫面上的提示登入，然後將命令複製到命令提示字元。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -204,7 +204,7 @@ npm start
 
 主控台訊息現在應告訴您開發環境已啟動並在執行中。 
 
-在瀏覽器中，瀏覽至 `http://localhost:3000` 。 按一下上層功能表中的 [註冊]，然後嘗試建立兩位虛擬使用者。 
+在瀏覽器中，瀏覽至 `http://localhost:3000` 。 按一下上層功能表中的 [註冊]  ，然後嘗試建立兩位虛擬使用者。 
 
 MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果您成功且 MEAN.js 自動登入至所建立的使用者，則您的 Cosmos DB 連線正在運作中。 
 

@@ -58,7 +58,7 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 此 Cmdlet 的輸出會顯示新建立 Key Vault 的屬性。 請記下下列兩個屬性：
 
 - **保存庫名稱**：在此範例中是 **Contoso-Vault2**。 您將在其他 Key Vault 命令中使用此名稱。
-- **保存庫 URI**：在此範例中是 https://contoso-vault2.vault.azure.net/。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
+- **保存庫 URI**：在此範例中是 https://contoso-vault2.vault.azure.net/ 。 透過其 REST API 使用保存庫的應用程式必須使用此 URI。
 
 此時，您的 Azure 帳戶是唯一獲得授權在此新保存庫上執行任何作業的帳戶。
 

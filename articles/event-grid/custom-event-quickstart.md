@@ -38,7 +38,7 @@ Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組
 
 使用 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。 
 
-下列範例會在 westus2 位置建立名為 gridResourceGroup 的資源群組。
+下列範例會在 westus2  位置建立名為 gridResourceGroup  的資源群組。
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2

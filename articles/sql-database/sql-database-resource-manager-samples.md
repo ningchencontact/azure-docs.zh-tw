@@ -10,14 +10,13 @@ ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: b967dc872529ec8b045df81542eec4c555b17a6c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 81f3e4beb29f21f1b752a876827e9b35856c713a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418445"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566898"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>適用於 Azure SQL Database 的 Azure Resource Manager 範本
 

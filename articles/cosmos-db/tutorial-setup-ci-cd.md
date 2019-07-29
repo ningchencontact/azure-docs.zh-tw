@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dad99a7e3d0463263e912aa05b5312edbcb89c0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069234"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597666"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>使用 Azure Cosmos DB 模擬器建置工作在 Azure DevOps 中設定 CI/CD 管線
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 模擬器提供了一個模擬 Azure Cosmos DB 服務的本機�
 接下來，選擇要在其中安裝擴充功能的組織。 
 
 > [!NOTE]
-> 若要將擴充功能安裝到 Azure DevOps 組織，您必須是帳戶擁有者或專案集合管理員。 如果您沒有權限，但是您是帳戶成員，可以改為要求擴充功能。 [深入了解。](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> 若要將擴充功能安裝到 Azure DevOps 組織，您必須是帳戶擁有者或專案集合管理員。 如果您沒有權限，但是您是帳戶成員，可以改為要求擴充功能。 [深入了解。](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts)
 
 ![選擇要安裝擴充功能的 Azure DevOps 組織](./media/tutorial-setup-ci-cd/addExtension_2.png)
 

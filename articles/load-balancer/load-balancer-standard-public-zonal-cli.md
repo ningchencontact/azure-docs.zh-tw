@@ -83,7 +83,7 @@ az network lb create \
 
 ## <a name="create-health-probe-on-port-80"></a>在連接埠 80 上建立健康狀態探查
 
-健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以傳送網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 請使用 az network lb probe create 來建立健康狀態探查，以監視虛擬機器的健康狀態。 若要建立 TCP 健康狀態探查，請使用 [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)。 下列範例會建立名為 myHealthProbe  的健康狀態探查：
+健全狀況探查會檢查所有虛擬機器執行個體，確認它們可以傳送網路流量。 探查檢查失敗的虛擬機器執行個體會從負載平衡器上移除，直到其恢復正常運作且探查判斷其健全狀況良好為止。 請使用 az network lb probe create 來建立健康狀態探查，以監視虛擬機器的健康狀態。 若要建立 TCP 健康狀態探查，請使用 [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)。 下列範例會建立名為 myHealthProbe 的健康狀態探查：
 
 ```azurecli-interactive
 az network lb probe create \

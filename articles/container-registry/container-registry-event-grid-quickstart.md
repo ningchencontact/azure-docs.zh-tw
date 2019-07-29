@@ -101,7 +101,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-registry-events"></a>訂閱登錄事件
 
-在事件方格中，您可以訂閱「主題」  ，以告知它您想要追蹤的事件，以及要將它們傳送至何處。 下列[az eventgrid event-訂][az-eventgrid-event-subscription-create]用帳戶 create 命令會訂閱您所建立的容器登錄, 並指定 web 應用程式的 URL 做為它應該傳送事件的目標端點。 您在先前小節中所填入的環境變數會在此處重複使用，因此不需進行任何編輯。
+在事件方格中，您可以訂閱「主題」，以告知它您想要追蹤的事件，以及要將它們傳送至何處。 下列[az eventgrid event-訂][az-eventgrid-event-subscription-create]用帳戶 create 命令會訂閱您所建立的容器登錄, 並指定 web 應用程式的 URL 做為它應該傳送事件的目標端點。 您在先前小節中所填入的環境變數會在此處重複使用，因此不需進行任何編輯。
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)

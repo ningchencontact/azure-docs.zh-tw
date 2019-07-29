@@ -34,7 +34,7 @@ ms.locfileid: "68275697"
 
 使用 [az group create](https://docs.microsoft.com/cli/azure/group) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-下列範例會在 eastus2  位置建立名為 myresourcegroupoutbound  的資源群組：
+下列範例會在 eastus2 位置建立名為 myresourcegroupoutbound 的資源群組：
 
 ```azurecli-interactive
   az group create \
@@ -42,7 +42,7 @@ ms.locfileid: "68275697"
     --location eastus2
 ```
 ## <a name="create-virtual-network"></a>建立虛擬網路
-使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)，在 myresourcegroupoutbound  中建立名為 myvnetoutbound  且子網路名為 mysubnetoutbound  的虛擬網路。
+使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)，在 myresourcegroupoutbound 中建立名為 myvnetoutbound 且子網路名為 mysubnetoutbound 的虛擬網路。
 
 ```azurecli-interactive
   az network vnet create \
@@ -55,7 +55,7 @@ ms.locfileid: "68275697"
 
 ## <a name="create-inbound-public-ip-address"></a>建立輸入公用 IP 位址 
 
-若要在網際網路上存取您的 Web 應用程式，您需要負載平衡器的公用 IP 位址。 標準負載平衡器只支援標準公用 IP 位址。 使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)，在 myresourcegroupoutbound  中建立名為 mypublicipinbound  的標準公用 IP 位址。
+若要在網際網路上存取您的 Web 應用程式，您需要負載平衡器的公用 IP 位址。 標準負載平衡器只支援標準公用 IP 位址。 使用 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip)，在 myresourcegroupoutbound 中建立名為 mypublicipinbound 的標準公用 IP 位址。
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipinbound --sku standard
@@ -81,7 +81,7 @@ ms.locfileid: "68275697"
 
 ### <a name="create-load-balancer"></a>建立負載平衡器
 
-使用[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)命名*lb*建立具有輸入 ip 位址的 Load Balancer, 其中包含與公用 IP 位址  *相關聯的輸入前端 IP 設定和後端集區 bepoolinbound*您在上一個步驟中建立的 mypublicipinbound。
+使用[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)命名*lb*建立具有輸入 ip 位址的 Load Balancer, 其中包含與公用 IP 位址 *相關聯的輸入前端 IP 設定和後端集區 bepoolinbound*您在上一個步驟中建立的 mypublicipinbound。
 
 ```azurecli-interactive
   az network lb create \
@@ -106,7 +106,7 @@ ms.locfileid: "68275697"
 ```
 
 ### <a name="create-outbound-frontend-ip"></a>建立輸出前端 IP
-使用 [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 建立 Load Balancer 的輸出前端 IP 組態，其包含名為 myfrontendoutbound  且與公用 IP 位址 mypublicipoutbound  相關聯的輸出前端 IP 組態
+使用 [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 建立 Load Balancer 的輸出前端 IP 組態，其包含名為 myfrontendoutbound 且與公用 IP 位址 mypublicipoutbound 相關聯的輸出前端 IP 組態
 
 ```azurecli-interactive
   az network lb frontend-ip create \
@@ -132,7 +132,7 @@ ms.locfileid: "68275697"
 
 ### <a name="create-load-balancing-rule"></a>建立負載平衡規則
 
-負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 建立負載平衡器規則 myinboundlbrule  ，用來接聽前端集區 myfrontendinbound  中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 bepool  (也是使用連接埠 80)。 
+負載平衡器規則可定義連入流量的前端 IP 組態及接收流量的後端集區，以及所需的來源和目的地連接埠。 使用 [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 建立負載平衡器規則 myinboundlbrule，用來接聽前端集區 myfrontendinbound 中的連接埠 80，以及用來將負載平衡的網路流量傳送到後端位址集區 bepool (也是使用連接埠 80)。 
 
 >[!NOTE]
 >此負載平衡規則會因為具有 --disable-outbound-snat 參數而停用自動輸出 (S)NAT。 只有輸出規則會提供輸出 NAT。
@@ -153,7 +153,7 @@ az network lb rule create \
 
 ### <a name="create-outbound-rule"></a>建立輸出規則
 
-輸出規則會定義前端公用 IP (由前端 myfrontendoutbound  來表示)，以供用於所有輸出 NAT 流量以及要套用此規則的後端集區。  建立輸出規則 myoutboundrule  以便轉譯 bepool  後端集區中所有虛擬機器 的輸出網路 (NIC IP 組態)。  下列命令也會將輸出閒置逾時從 4 分鐘變更為 15 分鐘，並配置 10000 個 SNAT 連接埠，而不是 1024 個。  如需詳細資訊，請檢閱[輸出規則](https://aka.ms/lboutboundrules)。
+輸出規則會定義前端公用 IP (由前端 myfrontendoutbound 來表示)，以供用於所有輸出 NAT 流量以及要套用此規則的後端集區。  建立輸出規則 myoutboundrule 以便轉譯 bepool 後端集區中所有虛擬機器 的輸出網路 (NIC IP 組態)。  下列命令也會將輸出閒置逾時從 4 分鐘變更為 15 分鐘，並配置 10000 個 SNAT 連接埠，而不是 1024 個。  如需詳細資訊，請檢閱[輸出規則](https://aka.ms/lboutboundrules)。
 
 ```azurecli-interactive
 az network lb outbound-rule create \

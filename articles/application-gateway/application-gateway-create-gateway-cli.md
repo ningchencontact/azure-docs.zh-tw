@@ -33,7 +33,7 @@ ms.locfileid: "66136123"
 
 使用 [az group create](/cli/azure/group#az-group-create) 建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 eastus  位置建立名為 myResourceGroupAG  的資源群組。
+下列範例會在 eastus 位置建立名為 myResourceGroupAG 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -153,11 +153,11 @@ az network application-gateway create \
 
 可能需要幾分鐘的時間來建立應用程式閘道。 建立應用程式閘道後，您可以看到它的這些功能：
 
-- appGatewayBackendPool  - 應用程式閘道必須至少有一個後端位址集區。
-- appGatewayBackendHttpSettings  - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
-- appGatewayHttpListener  - 與 appGatewayBackendPool  相關聯的預設接聽程式。
-- appGatewayFrontendIP  - 將 myAGPublicIPAddress  指派給 appGatewayHttpListener  。
-- rule1  - 與 appGatewayHttpListener  相關聯的預設路由規則。
+- appGatewayBackendPool - 應用程式閘道必須至少有一個後端位址集區。
+- appGatewayBackendHttpSettings - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
+- appGatewayHttpListener - 與 appGatewayBackendPool 相關聯的預設接聽程式。
+- appGatewayFrontendIP - 將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
+- rule1 - 與 appGatewayHttpListener 相關聯的預設路由規則。
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 

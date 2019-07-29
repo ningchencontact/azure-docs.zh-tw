@@ -47,9 +47,9 @@ ms.locfileid: "66170454"
 
 
 ## <a name="create-custom-script-extension-definition"></a>建立自訂指令碼擴充功能的定義
-當您以 Azure 範本定義虛擬機器擴展集時，Microsoft.Compute/virtualMachineScaleSets 資源提供者可包含擴充功能上的區段。 extensionsProfile 會詳細列出套用到擴展集中 VM 執行個體的項目。 若要使用自訂指令碼擴充功能，您可以將發行者指定為 Microsoft.Azure.Extensions，以及將類型指定為 CustomScript。
+當您以 Azure 範本定義虛擬機器擴展集時，Microsoft.Compute/virtualMachineScaleSets  資源提供者可包含擴充功能上的區段。 extensionsProfile  會詳細列出套用到擴展集中 VM 執行個體的項目。 若要使用自訂指令碼擴充功能，您可以將發行者指定為 Microsoft.Azure.Extensions  ，以及將類型指定為 CustomScript  。
 
-FileUris 屬性會用來定義來源安裝指令碼和套件。 若要啟動安裝程序，必要的指令碼皆定義於 commandToExecute。 下列範例會定義 GitHub 中用來安裝及設定 NGINX Web 伺服器的範例指令碼：
+FileUris  屬性會用來定義來源安裝指令碼和套件。 若要啟動安裝程序，必要的指令碼皆定義於 commandToExecute  。 下列範例會定義 GitHub 中用來安裝及設定 NGINX Web 伺服器的範例指令碼：
 
 ```json
 "extensionProfile": {
@@ -77,7 +77,7 @@ FileUris 屬性會用來定義來源安裝指令碼和套件。 若要啟動安�
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-讓我們使用範例範本來建立擴展集和套用自訂指令碼擴充功能。 首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
+讓我們使用範例範本來建立擴展集和套用自訂指令碼擴充功能。 首先，使用 [az group create](/cli/azure/group) 建立資源群組。 下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -97,7 +97,7 @@ az group deployment create \
 
 
 ## <a name="test-your-scale-set"></a>測試您的擴展集
-若要查看作用中的 web 伺服器，可使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetPublicIP IP 位址︰
+若要查看作用中的 web 伺服器，可使用 [az network public-ip show](/cli/azure/network/public-ip) 取得負載平衡器的公用 IP 位址。 下列範例會取得建立作為擴展集一部分的 myScaleSetPublicIP  IP 位址︰
 
 ```azurecli-interactive
 az network public-ip show \
@@ -115,7 +115,7 @@ az network public-ip show \
 
 
 ## <a name="update-app-deployment"></a>更新應用程式部署
-在擴展集的整個生命週期中，您可能需要部署更新版的應用程式。 透過自訂指令碼擴充功能，您可以參考已更新的部署指令碼，然後將擴充功能重新套用至擴展集。 在上一個步驟中建立擴展集時，*upgradePolicy* 已被設定為 [自動]。 此設定可讓擴展集中的 VM 執行個體自動更新並套用最新版的應用程式。
+在擴展集的整個生命週期中，您可能需要部署更新版的應用程式。 透過自訂指令碼擴充功能，您可以參考已更新的部署指令碼，然後將擴充功能重新套用至擴展集。 在上一個步驟中建立擴展集時，*upgradePolicy* 已被設定為 [自動]  。 此設定可讓擴展集中的 VM 執行個體自動更新並套用最新版的應用程式。
 
 若要更新自訂指令碼擴充功能的定義，請編輯您的範本，以參考新的安裝指令碼。 新的檔案名稱必須用於讓自訂指令碼擴充功能辨識變更。 自訂指令碼擴充功能不會檢查指令碼內容來判斷任何變更。 下列定義會使用更新的安裝指令碼，並將_v2  附加至其名稱：
 
@@ -141,7 +141,7 @@ az network public-ip show \
 }
 ```
 
-使用 [az group deployment create](/cli/azure/group/deployment)，再次將自訂指令碼擴充功能組態套用到擴展集中的 VM 執行個體。 azuredeployv2.json 範本會用來套用更新版的應用程式。 實際上，您會編輯現有的 azuredeploy.json 範本，以參考更新的安裝指令碼，如前一節中所示。 出現提示時，輸入您第一次建立擴展集時使用的相同使用者名稱和密碼認證：
+使用 [az group deployment create](/cli/azure/group/deployment)，再次將自訂指令碼擴充功能組態套用到擴展集中的 VM 執行個體。 azuredeployv2.json  範本會用來套用更新版的應用程式。 實際上，您會編輯現有的 azuredeploy.json  範本，以參考更新的安裝指令碼，如前一節中所示。 出現提示時，輸入您第一次建立擴展集時使用的相同使用者名稱和密碼認證：
 
 ```azurecli-interactive
 az group deployment create \
