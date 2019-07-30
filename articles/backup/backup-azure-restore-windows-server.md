@@ -1,23 +1,22 @@
 ---
 title: 將 Azure 中的資料還原至 Windows Server 或 Windows 電腦
 description: 了解如何將儲存於 Azure 中的資料還原至 Windows Server 或 Windows 電腦。
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460268"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465689"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型將檔案還原至 Windows
 
-此文章說明如何從備份保存庫還原資料。 若要還原資料，可以使用 Microsoft Azure 復原服務 (MARS) 代理程式中的 [復原資料精靈]。 您可以：
+此文章說明如何從備份保存庫還原資料。 若要還原資料，可以使用 Microsoft Azure 復原服務 (MARS) 代理程式中的 [復原資料精靈]。 您可以:
 
 * 將資料還原到進行備份的相同電腦。
 * 將資料還原至其他電腦。
@@ -48,7 +47,7 @@ ms.locfileid: "67460268"
 
     ![復原資料精靈 [開始使用] 頁面的螢幕擷取畫面](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. 在 [**選取復原模式**頁面上，選擇**個別檔案及資料夾** > **下一步]** 。
+4. 在 [**選取復原模式**] 頁面上, 選擇 [**個別檔案與資料夾** > **] [下一步]** 。
 
     ![復原資料精靈 [選取復原模式] 頁面的螢幕擷取畫面](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -93,11 +92,11 @@ ms.locfileid: "67460268"
 這些步驟包括以下術語：
 
 * *來源電腦* – 建立備份且目前無法使用的原始電腦。
-*  – 復原資料時的目標電腦。
+* – 復原資料時的目標電腦。
 * *範例保存庫* – 來源電腦和目標電腦註冊所在的復原服務保存庫。 <br/>
 
 > [!NOTE]
-> 備份無法還原到執行舊版作業系統的目標電腦。 例如，從 Windows 7 電腦建立的備份可以還原 Windows 7 （或更新版本） 電腦上。 從 Windows 8 電腦建立的備份無法還原至 Windows 7 電腦。
+> 備份無法還原到執行舊版作業系統的目標電腦。 例如, 從 Windows 7 電腦取得的備份可以在 Windows 7 (或更新版本) 的電腦上還原。 從 Windows 8 電腦建立的備份無法還原至 Windows 7 電腦。
 >
 >
 
