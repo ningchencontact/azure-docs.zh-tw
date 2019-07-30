@@ -8,21 +8,21 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 06/21/2018
+ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 1265a97b8902d69dd260d8e9e0191180f2eb4379
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 99197d0e2fb80d2774142238e9cd6b005a72699c
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004834"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443560"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>教學課程：使用事件中樞將資料串流至 Azure Databricks
 
 > [!IMPORTANT]
-> 現已無法再透過 [apps.twitter.com](https://apps.twitter.com/) 建立 Twitter 應用程式。 本教學課程正在進行更新，以納入新的 Twitter API。
+> 本教學課程適用於 Azure Databricks 執行階段 5.2 版。
 
-在本教學課程中，您會連線資料擷取系統與 Azure Databricks，以近乎即時地將資料串流到 Apache Spark 叢集。 您會使用 Azure 事件中樞設定資料擷取系統，並將其連線到 Azure Databricks 以處理流經此處的訊息。 為了存取資料流，您會使用 Twitter API 將推文擷取至事件中樞。 在 Azure Databricks 中擁有資料後，您就可以執行分析作業以進一步分析資料。 
+在本教學課程中，您會連線資料擷取系統與 Azure Databricks，以近乎即時地將資料串流到 Apache Spark 叢集。 您會使用 Azure 事件中樞設定資料擷取系統，並將其連線到 Azure Databricks 以處理流經此處的訊息。 為了存取資料流，您會使用 Twitter API 將推文擷取至事件中樞。 在 Azure Databricks 中擁有資料後，您就可以執行分析作業以進一步分析資料。
 
 本教學課程結束時，您將已從 Twitter 獲得串流推文 (其中含有 "Azure" 一詞)，並會在 Azure Databricks 中讀取推文。
 
@@ -57,7 +57,7 @@ ms.locfileid: "60004834"
 
 您可以藉由完成[建立 Azure 事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)一文中的步驟，以符合這些需求。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -65,11 +65,11 @@ ms.locfileid: "60004834"
 
 在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。
 
-1. 在 Azure 入口網站中，選取 [建立資源] > [資料 + 分析] > [Azure Databricks]。
+1. 在 Azure 入口網站中，選取 [建立資源]   > [資料 + 分析]   > [Azure Databricks]  。
 
     ![Azure 入口網站上的 Databricks](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Azure 入口網站上的 Databricks")
 
-3. 在 [Azure Databricks 服務] 底下，提供值以建立 Databricks 工作區。
+3. 在 [Azure Databricks 服務]  底下，提供值以建立 Databricks 工作區。
 
     ![建立 Azure Databricks 工作區](./media/databricks-stream-from-eventhubs/create-databricks-workspace.png "建立 Azure Databricks 工作區")
 
@@ -80,48 +80,52 @@ ms.locfileid: "60004834"
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
     |**訂用帳戶**     | 從下拉式清單中選取您的 Azure 訂用帳戶。        |
     |**資源群組**     | 指定您是要建立新的資源群組，還是使用現有資源群組。 資源群組是存放 Azure 方案相關資源的容器。 如需詳細資訊，請參閱 [Azure 資源群組概觀](../azure-resource-manager/resource-group-overview.md)。 |
-    |**位置**     | 選取 [美國東部 2]。 如需其他可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
-    |定價層     |  選擇 [標準] 或 [進階]。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
+    |**位置**     | 選取 [美國東部 2]  。 如需其他可用的區域，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/services/)。        |
+    |定價層      |  選擇 [標準]  或 [進階]  。 如需這些定價層的詳細資訊，請參閱 [Databricks 定價頁面](https://azure.microsoft.com/pricing/details/databricks/)。       |
 
-    選取 [釘選到儀表板]，然後選取 [建立]。
+    選取 [釘選到儀表板]  ，然後選取 [建立]  。
 
-4. 建立帳戶需要幾分鐘的時間。 建立帳戶期間，入口網站右側會顯示 [提交 Azure Databricks 部署] 圖格。 您可能需要在儀表板上向右捲動以查看此圖格。 另外在畫面頂端附近還會顯示一個進度列。 您可以查看任何進度區域。
+4. 建立帳戶需要幾分鐘的時間。 建立帳戶期間，入口網站右側會顯示 [提交 Azure Databricks 部署]  圖格。 您可能需要在儀表板上向右捲動以查看此圖格。 另外在畫面頂端附近還會顯示一個進度列。 您可以查看任何進度區域。
 
     ![Databricks 部署圖格](./media/databricks-stream-from-eventhubs/databricks-deployment-tile.png "Databricks 部署圖格")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>在 Databricks 中建立 Spark 叢集
 
-1. 在 Azure 入口網站中，移至您所建立的 Databricks 工作區，然後選取 [啟動工作區]。
+1. 在 Azure 入口網站中，移至您所建立的 Databricks 工作區，然後選取 [啟動工作區]  。
 
-2. 系統會將您重新導向至 Azure Databricks 入口網站。 在入口網站中選取 [叢集]。
+2. 系統會將您重新導向至 Azure Databricks 入口網站。 在入口網站中選取 [叢集]  。
 
     ![Azure 上的 Databricks](./media/databricks-stream-from-eventhubs/databricks-on-azure.png "Azure 上的 Databricks")
 
-3. 在 [新增叢集] 頁面上，提供值以建立叢集。
+3. 在 [新增叢集]  頁面上，提供值以建立叢集。
 
     ![在 Azure 上建立 Databricks Spark 叢集](./media/databricks-stream-from-eventhubs/create-databricks-spark-cluster.png "在 Azure 上建立 Databricks Spark 叢集")
 
     接受下列值以外的所有其他預設值：
 
    * 輸入叢集的名稱。
-   * 針對本文，使用 **4.0** 執行階段建立叢集。
-   * 請確定您已選取 [在活動\_\_分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
+   * 針對本文，使用 **5.2** 執行階段建立叢集。
+   * 請確定您已選取 [在活動\_\_分鐘後終止]  核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
-     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
+   選取符合您技術準則和[預算](https://azure.microsoft.com/en-us/pricing/details/databricks/)的叢集背景工作角色和驅動程式節點大小。
+
+     選取 [建立叢集]  。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
 ## <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
 若要收到推文的串流，您必須在 Twitter 中建立應用程式。 請依照下列指示建立 Twitter 應用程式，並記錄要完成本教學課程所需的值。
 
-1. 從網頁瀏覽器移至 [Twitter 應用程式管理](https://apps.twitter.com/) ，然後選取 [建立新的應用程式]。
+1. 從網頁瀏覽器，移至 [Twitter For Developers](https://developer.twitter.com/en/apps)，然後選取 [Create an app (建立應用程式)]  。 您可能會看到一則訊息，指出您必須申請 Twitter 開發人員帳戶。 您可以隨意執行此動作，在您的應用程式獲得核准之後，您應該會看到一封確認電子郵件。 核准開發人員帳戶可能需要幾天的時間。
 
-    ![建立 Twitter 應用程式](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "建立 Twitter 應用程式")
+    ![Twitter 開發人員帳戶確認](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "Twitter 開發人員帳戶確認")
 
-2. 在 [建立應用程式] 頁面上，提供新應用程式的詳細資料，然後選取 [建立 Twitter 應用程式]。
+2. 在 [建立應用程式]  頁面上，提供新應用程式的詳細資料，然後選取 [建立 Twitter 應用程式]  。
 
     ![Twitter 應用程式詳細資料](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Twitter 應用程式詳細資料")
 
-3. 在應用程式頁面上，選取 [金鑰和存取權杖] 索引標籤，並複製 [取用金鑰] 和 [取用者秘密] 的值。 此外，請選取 [建立我的存取權杖] 來產生存取權杖。 複製 [存取權杖] 和 [存取權杖祕密] 的值。
+    ![Twitter 應用程式詳細資料](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details-create.png "Twitter 應用程式詳細資料")
+
+3. 在應用程式頁面中，選取 [金鑰和權杖]  索引標籤，並複製 [取用者 API 金鑰]  和 [取用者 API 秘密金鑰]  的值。 此外，選取 [存取權杖和存取權杖密碼]  底下的 [建立]  來產生存取權杖。 複製 [存取權杖]  和 [存取權杖祕密]  的值。
 
     ![Twitter 應用程式詳細資料](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Twitter 應用程式詳細資料")
 
@@ -129,30 +133,30 @@ ms.locfileid: "60004834"
 
 ## <a name="attach-libraries-to-spark-cluster"></a>將程式庫連結至 Spark 叢集
 
-在本教學課程中，您會使用 Twitter API 將推文傳送至事件中樞。 您也會使用 [Apache Spark 事件中樞連接器](https://github.com/Azure/azure-event-hubs-spark)來讀取資料並將資料寫入至 Azure 事件中樞。 若要在叢集中使用這些 API，請將其作為程式庫新增至 Azure Databricks，然後讓這些 API 與您的 Spark 叢集產生關聯。 下列指示說明如何將程式庫新增至工作區中的 [共用] 資料夾。
+在本教學課程中，您會使用 Twitter API 將推文傳送至事件中樞。 您也會使用 [Apache Spark 事件中樞連接器](https://github.com/Azure/azure-event-hubs-spark)來讀取資料並將資料寫入至 Azure 事件中樞。 若要在叢集中使用這些 API，請將其作為程式庫新增至 Azure Databricks，讓這些 API 與您的 Spark 叢集產生關聯。 下列指示說明如何新增程式庫。
 
-1. 在 Azure Databricks 工作區中，選取 [工作區]，然後以滑鼠右鍵按一下 [共用]。 從快顯功能表中，選取 [建立] > [程式庫]。
+1. 在 Azure Databricks 工作區，選取 [叢集]  ，然後選擇現有的 Spark 叢集。 在叢集功能表內，選擇 [程式庫]  ，然後按一下 [安裝新的]  。
 
-   ![新增程式庫對話方塊](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "新增程式庫對話方塊")
+   ![新增程式庫對話方塊](./media/databricks-stream-from-eventhubs/databricks-add-library-locate-cluster.png "新增程式庫尋找叢集")
 
-2. 在 [新增程式庫] 頁面上，於 [來源] 中選取 [Maven 座標]。 在 [座標] 中輸入您要新增之套件的座標。 以下是本教學課程所使用之程式庫的 Maven 座標：
+   ![新增程式庫對話方塊](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "新增程式庫安裝新的")
 
-   * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+2. 在 [新增程式庫] 頁面中，針對 [來源]  選取 [Maven]  。 針對 [座標]  ，針對您要新增的套件按一下 [搜尋套件]  。 以下是本教學課程所使用之程式庫的 Maven 座標：
 
-     ![提供 Maven 座標](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "提供 Maven 座標")
+   * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
 
-3. 選取 [建立程式庫]。
+     ![提供 Maven 座標](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "提供 Maven 座標")
 
-4. 選取程式庫新增所在的資料夾，然後選取程式庫名稱。
+     ![提供 Maven 座標](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "搜尋 Maven 座標")
 
-    ![選取要新增的程式庫](./media/databricks-stream-from-eventhubs/select-library.png "選取要新增的程式庫")
+3. 選取 [安裝]  。
 
-5. 在程式庫頁面上，選取要在其中使用程式庫的叢集。 在程式庫成功地與叢集產生關聯後，狀態會立即變更為 [已連結]。
+4. 在叢集功能表中，確定已正確安裝並連結兩個程式庫。
 
-    ![將程式庫連結至叢集](./media/databricks-stream-from-eventhubs/databricks-library-attached.png "將程式庫連結至叢集")
+    ![檢查程式庫](./media/databricks-stream-from-eventhubs/databricks-add-library-check.png "檢查程式庫")
 
-6. 對 Twitter 套件 `twitter4j-core:4.0.6` 重複執行這些步驟。
+6. 對 Twitter 套件 `twitter4j-core:4.0.7` 重複執行這些步驟。
 
 ## <a name="create-notebooks-in-databricks"></a>在 Databricks 中建立 Notebook
 
@@ -161,15 +165,15 @@ ms.locfileid: "60004834"
 - **SendTweetsToEventHub** - 生產者 Notebook，可供用來從 Twitter 取得推文，再將推文串流至事件中樞。
 - **ReadTweetsFromEventHub** - 取用者 Notebook，可供用來從事件中樞讀取推文。
 
-1. 在左側窗格中，選取 [工作區]。 從 [工作區] 下拉式清單選取 [建立] > [Notebook]。
+1. 在左側窗格中，選取 [工作區]  。 從 [工作區]  下拉式清單選取 [建立]   > [Notebook]  。
 
     ![在 Databricks 中建立 Notebook](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "在 Databricks 中建立 Notebook")
 
-2. 在 [建立 Notebook] 對話方塊中輸入 **SendTweetsToEventHub**，選取 [Scala] 作為語言，然後選取您先前建立的 Spark 叢集。
+2. 在 [建立 Notebook]  對話方塊中輸入 **SendTweetsToEventHub**，選取 [Scala]  作為語言，然後選取您先前建立的 Spark 叢集。
 
     ![在 Databricks 中建立 Notebook](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "在 Databricks 中建立 Notebook")
 
-    選取 [建立] 。
+    選取 [建立]  。
 
 3. 重複上述步驟以建立 **ReadTweetsFromEventHub** Notebook。
 
@@ -177,11 +181,16 @@ ms.locfileid: "60004834"
 
 在 **SendTweetsToEventHub** Notebook 中貼上下列程式碼，並將預留位置取代為您稍早所建立之事件中樞命名空間和 Twitter 應用程式的值。 此 Notebook 會將含有關鍵字 "Azure" 的推文即時串流到事件中樞。
 
+> [!NOTE]
+> Twitter API 有某些要求限制和[配額](https://developer.twitter.com/en/docs/basics/rate-limiting.html)。 如果您不滿意 Twitter API 中的標準速率限制，在此範例中，您不需使用 Twitter API 即可產生文字內容。 若要這麼做，請將變數 **dataSource** 設定為 `test` 而不是 `twitter`，並使用慣用的測試輸入填入清單 **testSource**。
+
 ```scala
-    import java.util._
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
     import java.util.concurrent._
+    import scala.collection.immutable._
+    import scala.concurrent.Future
+    import scala.concurrent.ExecutionContext.Implicits.global
 
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
@@ -193,56 +202,78 @@ ms.locfileid: "60004834"
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey)
 
-    val pool = Executors.newFixedThreadPool(1)
+    val pool = Executors.newScheduledThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
-    def sendEvent(message: String) = {
+    def sleep(time: Long): Unit = Thread.sleep(time)
+
+    def sendEvent(message: String, delay: Long) = {
+      sleep(delay)
       val messageData = EventData.create(message.getBytes("UTF-8"))
       eventHubClient.get().send(messageData)
       System.out.println("Sent event: " + message + "\n")
     }
 
-    import twitter4j._
-    import twitter4j.TwitterFactory
-    import twitter4j.Twitter
-    import twitter4j.conf.ConfigurationBuilder
+    // Add your own values to the list
+    val testSource = List("Azure is the greatest!", "Azure isn't working :(", "Azure is okay.")
 
-    // Twitter configuration!
-    // Replace values below with yours
+    // Specify 'test' if you prefer to not use Twitter API and loop through a list of values you define in `testSource`
+    // Otherwise specify 'twitter'
+    val dataSource = "test"
 
-    val twitterConsumerKey = "<CONSUMER KEY>"
-    val twitterConsumerSecret = "<CONSUMER SECRET>"
-    val twitterOauthAccessToken = "<ACCESS TOKEN>"
-    val twitterOauthTokenSecret = "<TOKEN SECRET>"
+    if (dataSource == "twitter") {
 
-    val cb = new ConfigurationBuilder()
-      cb.setDebugEnabled(true)
-      .setOAuthConsumerKey(twitterConsumerKey)
-      .setOAuthConsumerSecret(twitterConsumerSecret)
-      .setOAuthAccessToken(twitterOauthAccessToken)
-      .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+      import twitter4j._
+      import twitter4j.TwitterFactory
+      import twitter4j.Twitter
+      import twitter4j.conf.ConfigurationBuilder
 
-    val twitterFactory = new TwitterFactory(cb.build())
-    val twitter = twitterFactory.getInstance()
+      // Twitter configuration!
+      // Replace values below with you
 
-    // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+      val twitterConsumerKey = "<CONSUMER API KEY>"
+      val twitterConsumerSecret = "<CONSUMER API SECRET>"
+      val twitterOauthAccessToken = "<ACCESS TOKEN>"
+      val twitterOauthTokenSecret = "<TOKEN SECRET>"
 
-    val query = new Query(" #Azure ")
-    query.setCount(100)
-    query.lang("en")
-    var finished = false
-    while (!finished) {
-      val result = twitter.search(query)
-      val statuses = result.getTweets()
-      var lowestStatusId = Long.MaxValue
-      for (status <- statuses.asScala) {
-        if(!status.isRetweet()){
-          sendEvent(status.getText())
+      val cb = new ConfigurationBuilder()
+        cb.setDebugEnabled(true)
+        .setOAuthConsumerKey(twitterConsumerKey)
+        .setOAuthConsumerSecret(twitterConsumerSecret)
+        .setOAuthAccessToken(twitterOauthAccessToken)
+        .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+
+      val twitterFactory = new TwitterFactory(cb.build())
+      val twitter = twitterFactory.getInstance()
+
+      // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+      val query = new Query(" #Azure ")
+      query.setCount(100)
+      query.lang("en")
+      var finished = false
+      while (!finished) {
+        val result = twitter.search(query)
+        val statuses = result.getTweets()
+        var lowestStatusId = Long.MaxValue
+        for (status <- statuses.asScala) {
+          if(!status.isRetweet()){
+            sendEvent(status.getText(), 5000)
+          }
+          lowestStatusId = Math.min(status.getId(), lowestStatusId)
         }
-        lowestStatusId = Math.min(status.getId(), lowestStatusId)
-        Thread.sleep(2000)
+        query.setMaxId(lowestStatusId - 1)
       }
-      query.setMaxId(lowestStatusId - 1)
+
+    } else if (dataSource == "test") {
+      // Loop through the list of test input data
+      while (true) {
+        testSource.foreach {
+          sendEvent(_,5000)
+        }
+      }
+
+    } else {
+      System.out.println("Unsupported Data Source. Set 'dataSource' to \"twitter\" or \"test\"")
     }
 
     // Closing connection to the Event Hub
@@ -271,15 +302,23 @@ ms.locfileid: "60004834"
 在 **ReadTweetsFromEventHub** Notebook 中貼上下列程式碼，並將預留位置取代為您稍早所建立之 Azure 事件中樞的值。 此 Notebook 會讀取您稍早使用 **SendTweetsToEventHub** Notebook 串流至事件中樞的推文。
 
 ```scala
+
     import org.apache.spark.eventhubs._
+    import com.microsoft.azure.eventhubs._
 
     // Build connection string with the above information
-    val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-      .setEventHubName("<EVENT HUB NAME>")
-      .build
+    val namespaceName = "<EVENT HUBS NAMESPACE>"
+    val eventHubName = "<EVENT HUB NAME>"
+    val sasKeyName = "<POLICY NAME>"
+    val sasKey = "<POLICY KEY>"
+    val connStr = new com.microsoft.azure.eventhubs.ConnectionStringBuilder()
+                .setNamespaceName(namespaceName)
+                .setEventHubName(eventHubName)
+                .setSasKeyName(sasKeyName)
+                .setSasKey(sasKey)
 
     val customEventhubParameters =
-      EventHubsConf(connectionString)
+      EventHubsConf(connStr.toString())
       .setMaxEventsPerTrigger(5)
 
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
@@ -370,11 +409,11 @@ ms.locfileid: "60004834"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-在本教學課程執行完後，您可以終止叢集。 若要這樣做，請從 Azure Databricks 工作區的左窗格中選取 [叢集]。 對於您想要終止的叢集，將游標移到 [動作] 資料行底下的省略符號上，然後選取 [終止] 圖示。
+在本教學課程執行完後，您可以終止叢集。 若要這樣做，請從 Azure Databricks 工作區的左窗格中選取 [叢集]  。 對於您想要終止的叢集，將游標移到 [動作]  資料行底下的省略符號上，然後選取 [終止]  圖示。
 
 ![停止 Databricks 叢集](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "停止 Databricks 叢集")
 
-如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 \_\_ 分鐘後終止] 核取方塊。 在這種情況下，叢集將會在停止活動達指定時間後自動停止。
+如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 \_\_ 分鐘後終止]  核取方塊。 在這種情況下，叢集將會在停止活動達指定時間後自動停止。
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何：
@@ -388,7 +427,7 @@ ms.locfileid: "60004834"
 > * 將推文傳送至事件中樞
 > * 從事件中樞讀取推文
 
-請前進到下一個教學課程，以了解如何使用 Azure Databricks 和 [Microsoft 認知服務 API](../cognitive-services/text-analytics/overview.md) 對串流資料執行情感分析。
+請前進到下一個教學課程，以了解如何使用 Azure Databricks 和[認知服務 API](../cognitive-services/text-analytics/overview.md) 對串流資料執行情感分析。
 
 > [!div class="nextstepaction"]
 >[使用 Azure Databricks 對串流資料進行情感分析](databricks-sentiment-analysis-cognitive-services.md)

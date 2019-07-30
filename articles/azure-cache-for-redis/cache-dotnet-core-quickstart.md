@@ -15,31 +15,22 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: df615b940873cd59341424d0b40a9e399d710126
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf241b788c0027c6905c6898352bb3352da64825
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896240"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326505"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>快速入門：搭配使用 Azure Cache for Redis 與 .NET Core 應用程式
 
-
-
-本快速入門示範如何開始搭配使用 Microsoft Azure Cache for Redis 與 .NET Core。 Microsoft Azure Cache for Redis 會以熱門的開放原始碼 Azure Cache for Redis 為根據。 它可讓您存取由 Microsoft 所管理的安全、專用 Azure Cache for Redis。 使用 Azure Cache for Redis 建立的快取，可透過 Microsoft Azure 內的任何應用程式加以存取。
-
-在本快速入門中，您會在 .NET Core 主控台應用程式中搭配使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 用戶端與 C\# 程式碼。 您會建立快取，並設定 .NET Core 用戶端應用程式。 然後，您會在快取中新增並更新物件。 
-
-您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
-
-![主控台應用程式已完成](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+在本快速入門中，您會將 Azure Cache for Redis 納入 .NET Core 應用程式中，以便存取可從 Azure 內的任何應用程式存取的安全專用快取。 您會在 .NET Core 主控台應用程式中明確地搭配使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 用戶端與 C# 程式碼。 
 
 ## <a name="prerequisites"></a>必要條件
 
-* [.NET SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) 或更新版本。
-* StackExchange.Redis 用戶端需要 [.NET Framework 4 或更新版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
+- Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
+- [.NET Framework 4 或更新版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)，這是 StackExchange.Redis 用戶端的必要項目。
 
 ## <a name="create-a-cache"></a>建立快取
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -252,7 +243,7 @@ dotnet add package Newtonsoft.json
 using Newtonsoft.Json;
 ```
 
-將下列 `Employee` 類別定義新增至 Program.cs：
+將下列 `Employee` 類別定義新增至 Program.cs  ：
 
 ```csharp
         class Employee
@@ -311,13 +302,13 @@ dotnet run
 > 刪除資源群組是無法回復的動作，資源群組和其內的所有資源將會永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您是在包含有需要保留之資源的現有資源群組內，建立用來裝載此範例的資源，則可以從每個資源各自的刀鋒視窗中個別刪除每個資源，而不必刪除正個資源群組。
 >
 
-登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
+登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]  。
 
-在 [依名稱篩選...] 文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources 的資源群組。 在結果清單中的目標資源群組上方，按一下 **...**，然後按一下 [刪除資源群組]。
+在 [依名稱篩選...]  文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources  的資源群組。 在結果清單中的目標資源群組上方，按一下 **...** ，然後按一下 [刪除資源群組]  。
 
 ![刪除](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
-系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]。
+系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]  。
 
 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 

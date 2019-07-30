@@ -3,17 +3,18 @@ title: 教學課程 - 準備 Azure 容器執行個體的容器映像
 description: Azure 容器執行個體教學課程第 1 部分 (共 3 部分) - 在容器映像中準備應用程式以部署至 Azure 容器執行個體
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5d6ac81cc2553cc4a2d7b86c21417aa5ab1d572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990633"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325576"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>教學課程：建立容器影像以部署至 Azure 容器執行個體
 
@@ -44,11 +45,11 @@ Azure Container Instances 能夠將 Docker 容器部署至 Azure 基礎結構，
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
-您也可以直接從 GitHub [下載 ZIP 封存檔][aci-helloworld-zip]。
+您也可以直接從 GitHub[ 下載 ZIP 封存檔][aci-helloworld-zip]。
 
 ## <a name="build-the-container-image"></a>建置容器映像
 
-範例應用程式中的 Dockerfile 會示範如何建置容器。 首先會使用以 [Alpine Linux][alpine-linux] 為基礎的[官方 Node.js 映像][docker-hub-nodeimage]，這是一個很適合用於容器的小型散發。 接著會將應用程式檔案複製到容器、使用節點套件管理員來安裝相依性，最後就啟動應用程式。
+範例應用程式中的 Dockerfile 會示範如何建置容器。 它先會使用以 [官方 Node.js 映像][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux]，這是一個很適合用於容器的小型散發。 接著會將應用程式檔案複製到容器、使用節點套件管理員來安裝相依性，最後就啟動應用程式。
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -59,7 +60,7 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-使用 [docker build][docker-build] 命令來建立容器映像，並標記成 aci-tutorial-app：
+使用 [docker build][docker-build] 命令建立容器映像，並將其標記為 *aci-tutorial-app*：
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
@@ -103,7 +104,7 @@ aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 
 ## <a name="run-the-container-locally"></a>在本機執行容器
 
-將容器部署至 Azure Container Instances 之前，請先使用 [docker run][docker-run] 在本機執行它並確認可以運作。 `-d` 參數可讓容器在背景中執行，而 `-p` 可讓您將電腦上的任意連接埠對應至容器中的連接埠 80。
+將容器部署至 Azure Container Instances 之前，請先使用 [docker run][docker-run] 在本機加以執行並確認可以運作。 `-d` 參數可讓容器在背景中執行，而 `-p` 可讓您將電腦上的任意連接埠對應至容器中的連接埠 80。
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app

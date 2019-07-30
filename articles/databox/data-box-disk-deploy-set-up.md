@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 49f3f608ff34847905b219047af843db00da78c4
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147497"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68480056"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
 本教學課程說明如何針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定。
@@ -173,7 +175,7 @@ ms.locfileid: "67147497"
  
 5. 輸入 `y` 繼續安裝。 指令碼安裝的套件如下︰ 
    - **epel-release** - 包含下列三個套件的存放庫。 
-   - **dislocker 和 fuse-dislocker** - 此公用程式可協助將 BitLocker 加密磁碟解密。 
+   - **dislocker 和 fuse-dislocker** - 這些公用程式可協助將 BitLocker 加密磁碟解密。 
    - **ntfs-3g** - 可協助掛接 NTFS 磁碟區的套件。 
  
      成功安裝套件後，終端機會顯示該效果的通知。     
@@ -259,6 +261,54 @@ ms.locfileid: "67147497"
 
 如果您在解除鎖定磁碟時遇到任何問題，請參閱如何[針對解除鎖定問題進行疑難排解](data-box-disk-troubleshoot-unlock.md)。 
 
+::: zone-end
+
+::: zone target="chromeless"
+
+1. 打開磁碟包裝並使用內含的纜線將磁碟連接到用戶端電腦。
+2. 在您用來複製資料的相同電腦上，下載並解壓縮資料箱磁碟工具組。
+
+    > [!div class="nextstepaction"]
+    > [下載適用於 Windows 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolswin)
+
+    或
+    > [!div class="nextstepaction"]
+    > [下載適用於 Linux 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolslinux) 
+
+3. 解除鎖定 Windows 用戶端上的磁碟，在相同電腦上以系統管理員身分，開啟 [命令提示字元] 視窗或執行 Windows PowerShell：
+
+    - 在安裝資料箱磁碟解除鎖定工具的相同資料夾中輸入下列命令。
+
+        ``` 
+        .\DataBoxDiskUnlock.exe
+        ```
+    -  提供您在 Azure 入口網站中從 [一般] > [裝置詳細資料]  取得的通行金鑰。 指派給磁碟的磁碟機代號隨即顯示。 
+4. 若要解除鎖定 Linux 用戶端上的磁碟，請開啟終端機。 移至您下載軟體的資料夾。 輸入下列命令來變更檔案權限，以便執行這些檔案： 
+
+    ```
+    chmod +x DataBoxDiskUnlock_x86_64
+    chmod +x DataBoxDiskUnlock_Prep.sh
+    ``` 
+    執行指令碼以安裝所有必要的二進位檔。
+
+    ```
+    sudo ./DataBoxDiskUnlock_Prep.sh
+    ```
+    執行資料箱磁碟解除鎖定工具。 前往 [一般] > [裝置詳細資料]  ，從 Azure 入口網站提供通行金鑰。 選擇性地指定單引號內要解除鎖定的 BitLocker 加密磁碟區清單。
+
+    ```
+    sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
+    ```      
+5. 請針對日後任何磁碟重新插入重複解除鎖定步驟。 如果您需要資料箱磁碟解除鎖定工具的說明，請使說明命令。
+
+將磁碟解除鎖定之後，您就可以檢視磁碟的內容。
+
+如需有關如何設定及解除鎖定磁碟的詳細資訊，請前往[教學課程：針對 Azure 資料箱磁碟解除封裝、連線然後解除鎖定](data-box-disk-deploy-set-up.md)。
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解 Azure 資料箱磁碟的相關主題，像是：
@@ -274,4 +324,6 @@ ms.locfileid: "67147497"
 
 > [!div class="nextstepaction"]
 > [複製資料箱磁碟上的資料](./data-box-disk-deploy-copy-data.md)
+
+::: zone-end
 

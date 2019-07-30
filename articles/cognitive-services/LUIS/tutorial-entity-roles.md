@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 061bd94a839d83f75566412ac546ab3208543780
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149275"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467639"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教學課程：從語句擷取內容相關的資料
 
@@ -55,9 +55,9 @@ ms.locfileid: "65149275"
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. 選取 [Create new intent] \(建立新意圖\)。 
+1. 選取 [Create new intent] \(建立新意圖\)  。 
 
-1. 在快顯對話方塊方塊中輸入 `MoveEmployeeToCity`，然後選取 [完成]。 
+1. 在快顯對話方塊方塊中輸入 `MoveEmployeeToCity`，然後選取 [完成]  。 
 
     ![建立新意圖對話方塊的螢幕擷取畫面](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -81,18 +81,18 @@ ms.locfileid: "65149275"
 
 預先建置實體 geographyV2 擷取位置資訊，包括縣/市名稱。 由於表達有兩個縣/市名稱，在內容中彼此相關，因此使用角色來擷取該內容。
 
-1. 從左側瀏覽列中，選取 [實體]。
+1. 從左側瀏覽列中，選取 [實體]  。
 
-1. 選取 [加入預先建置的實體]，然後在搜尋列中選取 `geo` 以篩選預先建置的實體。 
+1. 選取 [加入預先建置的實體]  ，然後在搜尋列中選取 `geo` 以篩選預先建置的實體。 
 
     ![將 geographyV2 預先建置的實體新增至應用程式](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
-1. 選取此核取方塊，然後選取 [完成]。
-1. 在 [實體] 清單中，選取 [geographyV2] 開啟新的實體。 
+1. 選取此核取方塊，然後選取 [完成]  。
+1. 在 [實體]  清單中，選取 [geographyV2]  開啟新的實體。 
 1. 新增兩個角色，`Origin` 和 `Destination`。 
 
     ![將角色新增至預先建置的實體](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. 從左側導覽中選取 [意圖]，然後選取 [MoveEmployeeToCity] 意圖。 請注意，縣/市名稱會加上預先建置的實體 **geogrpahyV2**。
-1. 在清單的第一個表達中，選取出發地位置。 此時會出現下拉式選單。 在清單中選取 **geographyV2**，然後依照功能表選取 [出發地]。
+1. 從左側導覽中選取 [意圖]  ，然後選取 [MoveEmployeeToCity]  意圖。 請注意，縣/市名稱會加上預先建置的實體 **geographyV2**。
+1. 在清單的第一個表達中，選取出發地位置。 此時會出現下拉式選單。 在清單中選取 **geographyV2**，然後依照功能表選取 [出發地]  。
 1. 使用上一步中的方法標記所有表達中所有位置的角色。 
 
 

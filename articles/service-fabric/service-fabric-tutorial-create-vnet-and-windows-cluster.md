@@ -3,7 +3,7 @@ title: 在 Azure 中建立執行 Windows 的 Service Fabric 叢集 | Microsoft D
 description: 在本教學課程中，您會了解如何使用 PowerShell，將 Windows Service Fabric 叢集部署到 Azure 虛擬網路和網路安全性群組。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158101"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598887"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>教學課程：將執行 Windows 的 Service Fabric 叢集部署到 Azure 虛擬網路
 
@@ -194,7 +194,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 > [!NOTE]
 > 對於國家雲 (例如 Azure Government、Azure 中國、Azure 德國)，指定 `-Location` 參數。
 
-您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的*租用戶識別碼*或目錄識別碼。 選取 [Azure Active Directory] >  [屬性]，然後複製 [目錄識別碼] 值。
+您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的*租用戶識別碼*或目錄識別碼。 選取 [Azure Active Directory]   >  [屬性]  ，然後複製 [目錄識別碼]  值。
 
 *ClusterName* 會用來為指令碼所建立的 Azure AD 應用程式加上前置詞。 它不需要與實際叢集名稱完全相符。 它只會使您能夠更輕鬆地將 Azure AD 成品對應到使用中的 Service Fabric 叢集。
 

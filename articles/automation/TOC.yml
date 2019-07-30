@@ -253,6 +253,9 @@
         - name: 編譯 DSC 設定
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
+        - name: 補救不相容的 DSC 伺服器
+          href: automation-dsc-remediate.md
+          displayName: 'state configuration, DSC, remediate'
         - name: 設定使用複合資源撰寫 DSC
           href: compose-configurationwithcompositeresources.md
         - name: 使用 Chocolatey 持續進行部署

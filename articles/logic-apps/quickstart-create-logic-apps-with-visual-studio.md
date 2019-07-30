@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: a8857d62b3078d78bdd0a339ebadf766ddb2fb43
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 51d1af24a22f7ed86b01b1c7c79b204cd552a7ea
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295812"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385390"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立自動化工作、程序和工作流程 - Visual Studio
 
@@ -64,6 +64,8 @@ ms.locfileid: "67295812"
   例如，針對 Dynamics CRM Online 連線，設計工具會檢查 CRM 執行個體的預設和自訂屬性。
 
 * Logic Apps 支援的電子郵件帳戶 (例如 Office 365 Outlook、Outlook.com 或 Gmail)。 對於其他提供者，請[檢閱這裡的連接器清單](https://docs.microsoft.com/connectors/)。 此範例使用 Office 365 Outlook。 如果您使用不同的提供者，則整體步驟相同，但您的 UI 可能稍有不同。
+
+<a name="create-resource-group-project"></a>
 
 ## <a name="create-azure-resource-group-project"></a>建立 Azure 資源群組專案
 
@@ -141,6 +143,8 @@ ms.locfileid: "67295812"
 
 1. 儲存您的 Visual Studio 解決方案。 (鍵盤：Ctrl + S)
 
+<a name="deploy-to-Azure"></a>
+
 ## <a name="deploy-logic-app-to-azure"></a>將邏輯應用程式部署至 Azure
 
 先從 Visual Studio 將邏輯應用程式部署至 Azure，您才能執行和測試該應用程式。
@@ -173,6 +177,22 @@ ms.locfileid: "67295812"
    ![Outlook 會針對每個新的 RSS 項目傳送電子郵件](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
 
 恭喜，您已透過 Visual Studio 成功建置和部署您的邏輯應用程式。 若要管理應用程式邏輯並檢閱其執行歷程記錄，請參閱[使用 Visual Studio 管理邏輯應用程式](../logic-apps/manage-logic-apps-with-visual-studio.md)。
+
+## <a name="add-new-logic-app"></a>新增邏輯應用程式
+
+如果您有現有的 Azure 資源群組專案，您可以使用 [JSON 大綱] 視窗將全新的邏輯應用程式新增至該專案。
+
+1. 在方案總管中開啟 `<logic-app-name>.json` 檔案。
+
+1. 從 [檢視]  功能表中，選取 [其他視窗]   > [JSON 大綱]  。
+
+1. 若要將資源新增至範本檔案，請選擇 [JSON 大綱] 視窗頂端的 [新增資源]  。 或在 [JSON 大綱] 視窗中，以滑鼠右鍵按一下 [資源]  ，然後選取 [新增資源]  。
+
+   ![[JSON 大綱] 視窗](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+
+1. 在 [新增資源]  對話方塊中，尋找並選取 [邏輯應用程式]  。 為您的邏輯應用程式命名，然後選擇 [新增]  。
+
+   ![新增資源](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

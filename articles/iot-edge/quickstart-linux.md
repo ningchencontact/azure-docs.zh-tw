@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e4b2f9eaa243c0cbef66f88544be769481dd6722
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: a3d2b51824f4293dc790979ca2513d011b60fd9c
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798644"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414436"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux 裝置
 
@@ -66,7 +66,7 @@ IoT Edge 裝置：
 
    當您建立新的虛擬機器時，請記住在建立命令輸出中提供的 **publicIpAddress**。 您稍後將在本快速入門中使用此公用 IP 位址來連線到虛擬機器。
 
-* 如果您想要在自己的裝置上執行 Azure IoT Edge 執行階段，請依照[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)或[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)的指示操作。
+* 如果您想要在自己的裝置上執行 Azure IoT Edge 執行階段，請依照[在 Linux 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)的指示操作。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -130,7 +130,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
-如果您是在本機電腦或 ARM32 裝置上執行 IoT Edge，則您需要在您的裝置上安裝 IoT Edge 執行階段及其必要項目。 遵循[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)或[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)中的指示操作，然後返回此快速入門。
+如果您是在本機電腦或 ARM32 或 ARM64 裝置上執行 IoT Edge，則您需要在您的裝置上安裝 IoT Edge 執行階段及其必要項目。 遵循[在 Linux 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)中的指示，然後回到本快速入門。
 
 ### <a name="view-the-iot-edge-runtime-status"></a>檢視 IoT Edge 執行階段狀態
 

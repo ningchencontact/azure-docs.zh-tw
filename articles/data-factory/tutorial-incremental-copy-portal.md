@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 52cb11b015bb231b91184a2270e333e4c9aa8303
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312650"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424289"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL 資料庫載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL 資料庫中的資料表載入到 Azure Blob 儲存體。 
@@ -238,7 +238,7 @@ END
 
         ![第二個查閱活動 - 新增資料集](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. 按一下頂端的 [管線] 索引標籤或左側樹狀檢視中的管線名稱，即可切換到管線編輯器。 在 [查閱]  活動的 [屬性] 視窗中，確認已為 [來源資料集]  欄位選取 [SourceDataset]  。 
-18. 為[使用查詢]  欄位選取 [查詢]  ，並輸入下列查詢：您從 **data_source_table** 中選取的只有 **LastModifytime** 的最大值。 請確認您也已勾選 [僅限第一列]  。
+18. 為[使用查詢]  欄位選取 [查詢]  ，並輸入下列查詢：您從 **data_source_table** 中選取的只有 **LastModifytime** 的最大值。 請確定您也已勾選 [僅限第一列]  。
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table

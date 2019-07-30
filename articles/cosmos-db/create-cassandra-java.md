@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519028"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325470"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>快速入門：使用 Java SDK 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -71,7 +71,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="review-the-code"></a>檢閱程式碼
 
-此為選用步驟。 如果您有興趣了解程式碼如何建立資料庫資源，您可以檢閱下列程式碼片段。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 這些程式碼片段全都取自 `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java` 檔案。  
+此為選用步驟。 如果您有興趣了解程式碼如何建立資料庫資源，您可以檢閱下列程式碼片段。 或者也可以直接跳至[更新您的連接字串](#update-your-connection-string)。 這些程式碼片段摘錄自 *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* 檔案。  
 
 * Cassandra 主機、連接埠、使用者名稱、密碼與 SSL 選項皆已設定。 連接字串資訊來自 Azure 入口網站的連接字串頁面。
 
@@ -85,7 +85,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     return cluster.connect();
     ```
 
-下列程式碼片段取自 `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` 檔案。
+下列程式碼片段摘錄自 *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java* 檔案。
 
 * 建立新的 keyspace。
 

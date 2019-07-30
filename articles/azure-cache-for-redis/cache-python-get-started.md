@@ -15,27 +15,21 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 73c14b3d3023dcca113589d63276216fcfdd17f1
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 70a8e4cd694a90e83bf78e00a7c725a8c887b2eb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513454"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324080"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>快速入門：搭配使用 Azure Cache for Redis 與 Python
 
-
-## <a name="introduction"></a>簡介
-
-本快速入門示範如何使用 Python 連線至 Azure Cache for Redis 來讀取和寫入快取。 
-
-![Python 測試已完成](./media/cache-python-get-started/cache-python-completed.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+在本快速入門中，您會將 Azure Cache for Redis 納入 Python 應用程式中，以便存取可從 Azure 內任何應用程式存取的安全、專用快取。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 已使用 [pip](https://pypi.org/project/pip/) 安裝 [Python 2 或 Python 3 環境](https://www.python.org/downloads/)。 
+- Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+- [Python 2 或3](https://www.python.org/downloads/)
 
 ## <a name="create-an-azure-cache-for-redis-on-azure"></a>在 Azure 上建立 Azure Cache for Redis
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -127,13 +121,10 @@ for c in result:
 
 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 
-
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
 > [建立可使用 Azure Cache for Redis 的簡單 ASP.NET Web 應用程式。](./cache-web-app-howto.md)
-
-
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

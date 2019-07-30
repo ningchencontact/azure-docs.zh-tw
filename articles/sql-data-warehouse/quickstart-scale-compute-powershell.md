@@ -2,20 +2,20 @@
 title: 快速入門：相應放大 Azure SQL 資料倉儲中的計算 - PowerShell | Microsoft Docs
 description: 在 PowerShell 中調整 Azure SQL 資料倉儲中的計算。 相應放大計算以提升效能，或將計算調整回來以節省成本。
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: igorstan
-ms.openlocfilehash: bd137b71cab4a345afce835effd2ecb0c03df312
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddf33c927054512d1807d1c9e3429edaa5de25b9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66167016"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479242"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>快速入門：在 PowerShell 中調整 Azure SQL 資料倉儲中的計算
 
@@ -56,8 +56,8 @@ Set-AzContext -SubscriptionName "MySubscription"
 遵循下列步驟來尋找您資料倉儲的位置資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料倉儲]。
-3. 從 [SQL 資料倉儲] 頁面中，選取 [mySampleDataWarehouse]。 這會開啟資料倉儲。
+2. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料倉儲]  。
+3. 從 [SQL 資料倉儲]  頁面中，選取 [mySampleDataWarehouse]  。 這會開啟資料倉儲。
 
     ![伺服器名稱和資源群組](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
@@ -68,10 +68,10 @@ Set-AzContext -SubscriptionName "MySubscription"
 
 在 SQL 資料倉儲中，您可以藉由調整資料倉儲單位來增加或減少計算資源。 [建立與連線 - 入口網站](create-data-warehouse-portal.md)已建立 **mySampleDataWarehouse**，並以 400 DWU 加以初始化。 下列步驟會調整 **mySampleDataWarehouse** 的 DWU。
 
-若要變更資料倉儲單位，請使用 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell Cmdlet。 下列範例將資料庫 **mySampleDataWarehouse** 的資料倉儲單位設定為 DW300，此資料庫裝載於伺服器 **mynewserver-20180430** 上的資源群組 **myResourceGroup** 中。
+若要變更資料倉儲單位，請使用 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell Cmdlet。 下列範例將資料庫 **mySampleDataWarehouse** 的資料倉儲單位設定為 DW300c，此資料庫裝載於伺服器 **mynewserver-20180430** 上的資源群組 **myResourceGroup** 中。
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>檢查資料倉儲狀態
@@ -98,7 +98,7 @@ MaxSizeBytes                  : 263882790666240
 Status                        : Online
 CreationDate                  : 11/20/2017 9:18:12 PM
 CurrentServiceObjectiveId     : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
-CurrentServiceObjectiveName   : DW300
+CurrentServiceObjectiveName   : DW300c
 RequestedServiceObjectiveId   : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
 RequestedServiceObjectiveName :
 ElasticPoolName               :

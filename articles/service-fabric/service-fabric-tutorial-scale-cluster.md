@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2019
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e34984dde4ae09540ff73a8ddd1a90c11d5bef4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157987"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385198"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中調整 Service Fabric 叢集
 
@@ -68,8 +68,8 @@ ms.locfileid: "66157987"
 * 執行生產工作負載的主要節點類型應該具備金級或銀級的[持久性層級][durability]，而且一律具有五個以上的節點。
 * 執行具狀態生產工作負載的非主要節點類型，應一律具有五個以上的節點。
 * 執行無狀態生產工作負載的非主要節點類型，應一律具有兩個以上的節點。
-* 金級或銀級[持久性層級][durability]的任何節點類型，都應一律具有五個以上的節點。
-* 如果將主要節點類型相應縮小 (從中移除節點)，您應該永遠不會將執行個體數目減少為低於[可靠性層級][ reliability]所需的數目。
+* 任何具有金級或銀級[持久性層級][durability]的節點類型，應一律具有五個或更多節點。
+* 如果將主要節點類型相應縮小 (從中移除節點)，您應該永遠不會將執行個體數目減少為低於[可靠性層級][reliability]所需的數目。
 
 如需詳細資訊，請參閱[叢集容量指引](service-fabric-cluster-capacity.md)。
 
@@ -79,11 +79,11 @@ ms.locfileid: "66157987"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)，移至包含叢集的資源群組 (**sfclustertutorialgroup**，前提是您已遵循本教學課程)。 
 
-2. 在左窗格中，選取 [部署]，或選取 [部署] 下方的連結。 
+2. 在左窗格中，選取 [部署]  ，或選取 [部署]  下方的連結。 
 
 3. 從清單中選取最新的成功部署。
 
-4. 在左窗格中，選取 [範本]，然後選取 [下載] 以將範本匯出為 ZIP 檔案。  將範本和參數儲存到您的本機電腦。
+4. 在左窗格中，選取 [範本]  ，然後選取 [下載]  以將範本匯出為 ZIP 檔案。  將範本和參數儲存到您的本機電腦。
 
 ## <a name="add-nodes-to-or-remove-nodes-from-a-node-type"></a>從節點類型中新增或移除節點
 
@@ -91,7 +91,7 @@ ms.locfileid: "66157987"
 
 ### <a name="update-the-template"></a>更新範本
 
-從最新部署的資源群組中[匯出範本和參數檔案](#export-the-template-for-the-resource-group)。  開啟 *parameters.json* 檔案。  如果您使用本教學課程中的[範例範本][ template]來部署叢集，則叢集中會有三個叢集類型，以及三個可針對每個節點類型設定節點數目的參數：*nt0InstanceCount*、*nt1InstanceCount* 及 *nt2InstanceCount*。  *nt1InstanceCount* 參數，例如，設定第二個節點類型的執行個體計數，並在相關聯的虛擬機器擴展集中設定 VM 數目。
+從最新部署的資源群組中[匯出範本和參數檔案](#export-the-template-for-the-resource-group)。  開啟 *parameters.json* 檔案。  如果您使用本教學課程中的[範例範本][template]來部署叢集，則叢集中會有三個叢集類型，以及三個可針對每個節點類型設定節點數目的參數：*nt0InstanceCount*、*nt1InstanceCount* 和 *nt2InstanceCount*。  *nt1InstanceCount* 參數，例如，設定第二個節點類型的執行個體計數，並在相關聯的虛擬機器擴展集中設定 VM 數目。
 
 因此，您可以藉由更新 *nt1InstanceCount* 的值，來變更第二個節點類型中的節點數目。  請記住，您無法將節點類型相應放大為 100 個以上的節點。  執行具狀態生產工作負載的非主要節點類型，應一律具有五個以上的節點。 執行無狀態生產工作負載的非主要節點類型，應一律具有兩個以上的節點。
 
@@ -820,7 +820,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 > [!WARNING]
 > 不建議經常使用 Remove-AzServiceFabricNodeType 從生產環境叢集移除節點類型。 它是非常危險的命令，因為它會刪除節點類型後的虛擬機器擴展集資源。 
 
-若要移除節點類型，請執行 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) Cmdlet。  節點類型必須是銀級或金級[持久性層級][ durability]。此 Cmdlet 會刪除與節點類型相關聯的擴展集，而且需要一些時間才能完成。  接著在每個要移除的節點上執行 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) Cmdlet，以刪除節點狀態，並從叢集中移除節點。 如果節點上有服務，則會先將服務移出至另一個節點。 如果叢集管理員找不到複本/服務的節點，則作業會延遲/封鎖。
+若要移除節點類型，請執行 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) Cmdlet。  節點類型必須是銀級或金級[持久性層級][durability]。此 Cmdlet 會刪除與節點類型相關聯的擴展集，而且需要一些時間才能完成。  接著在每個要移除的節點上執行 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) Cmdlet，以刪除節點狀態，並從叢集中移除節點。 如果節點上有服務，則會先將服務移出至另一個節點。 如果叢集管理員找不到複本/服務的節點，則作業會延遲/封鎖。
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

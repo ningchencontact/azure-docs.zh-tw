@@ -2,20 +2,20 @@
 title: 快速入門：相應放大 Azure SQL 資料倉儲中的計算 - T-SQL | Microsoft Docs
 description: 使用 T-SQL 和 SQL Server Management Studio (SSMS) 調整 Azure SQL 資料倉儲中的計算。 相應放大計算以提升效能，或將計算調整回來以節省成本。
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: igorstan
-ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b5f3eb8a8e323add287dba8d9c590e89ea4e1fa7
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460339"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479240"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>快速入門：使用 T-SQL 調整 Azure SQL 資料倉儲中的計算
 
@@ -37,13 +37,13 @@ ms.locfileid: "55460339"
 
 1. 開啟 SQL Server Management Studio。
 
-2. 在 [連接到伺服器] 對話方塊中，輸入下列資訊：
+2. 在 [連接到伺服器]  對話方塊中，輸入下列資訊：
 
    | 設定       | 建議的值 | 說明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | 伺服器類型 | 資料庫引擎 | 這是必要值 |
    | 伺服器名稱 | 完整伺服器名稱 | 範例如下：**mynewserver-20171113.database.windows.net**。 |
-   | 驗證 | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
+   | Authentication | SQL Server 驗證 | SQL 驗證是本教學課程中設定的唯一驗證類型。 |
    | 登入 | 伺服器管理帳戶 | 您在建立伺服器時所指定的帳戶。 |
    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |
 
@@ -51,7 +51,7 @@ ms.locfileid: "55460339"
 
 4. 按一下 [ **連接**]。 [物件總管] 視窗隨即在 SSMS 中開啟。 
 
-5. 在 [物件總管] 中，展開 [資料庫]。 然後展開 [mySampleDatabase] 可檢視新資料庫中的物件。
+5. 在 [物件總管] 中，展開 [資料庫]  。 然後展開 [mySampleDatabase]  可檢視新資料庫中的物件。
 
     ![資料庫物件](media/create-data-warehouse-portal/connected.png) 
 
@@ -60,8 +60,8 @@ ms.locfileid: "55460339"
 
 若要檢視資料倉儲目前的資料倉儲單位：
 
-1. 在 **mynewserver-20171113.database.windows.net** 的連線下，展開 [系統資料庫]。
-2. 以滑鼠右鍵按一下 [主要]，然後選取 [新增查詢]。 新的查詢視窗隨即開啟。
+1. 在 **mynewserver-20171113.database.windows.net** 的連線下，展開 [系統資料庫]  。
+2. 以滑鼠右鍵按一下 [主要]  ，然後選取 [新增查詢]  。 新的查詢視窗隨即開啟。
 3. 執行下列查詢，以從 sys.database_service_objectives 動態管理檢視中選取。 
 
     ```sql
@@ -87,12 +87,12 @@ ms.locfileid: "55460339"
 
 若要變更資料倉儲單位：
 
-1. 以滑鼠右鍵按一下 [主要]，然後選取 [新增查詢]。
+1. 以滑鼠右鍵按一下 [主要]  ，然後選取 [新增查詢]  。
 2. 使用 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL 陳述式來修改服務目標。 執行下列查詢，將服務目標變更為 DW300。 
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
     ;
     ```
 
@@ -101,7 +101,7 @@ ms.locfileid: "55460339"
 
 若要輪詢服務物件變更狀態：
 
-1. 以滑鼠右鍵按一下 [主要]，然後選取 [新增查詢]。
+1. 以滑鼠右鍵按一下 [主要]  ，然後選取 [新增查詢]  。
 2. 執行下列查詢，以輪詢 sys.dm_operation_status DMV。
 
     ```sql

@@ -72,6 +72,8 @@
               href: connect-cisco.md
         - name: 連線威脅情報
           href: connect-threat-intelligence.md
+        - name: 連線 Azure Stack VM
+          href: connect-azure-stack.md
     - name: 搜捕
       href: hunting.md
       items:

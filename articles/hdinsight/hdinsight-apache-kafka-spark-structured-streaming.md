@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 51f84234ac35be5f60d1aaa5dac661ad9ce5e0c2
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: da31b6a880344de918a3b3e0f89f60d985db2ce7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257892"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406032"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教學課程：將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka
 
@@ -44,7 +44,7 @@ Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允�
 > 
 > 為了方便您使用，本文件會連結至可建立所有必要 Azure 資源的範本。 
 >
-> 如需在虛擬網路中使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路擴充 HDInsight](hdinsight-extend-hadoop-virtual-network.md) 文件。
+> 如需在虛擬網路中使用 HDInsight 的詳細資訊，請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)文件。
 
 ## <a name="structured-streaming-with-apache-kafka"></a>搭配 Apache Kafka 使用結構化串流
 
@@ -142,9 +142,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     | 設定 | 值 |
     | --- | --- |
-    | 訂用帳戶 | 您的 Azure 訂用帳戶 |
-    | 資源群組 | 包含資源的資源群組。 |
-    | 位置 | 資源建立所在的 Azure 區域。 |
+    | Subscription | 您的 Azure 訂用帳戶 |
+    | Resource group | 包含資源的資源群組。 |
+    | Location | 資源建立所在的 Azure 區域。 |
     | Spark 叢集名稱 | Spark 叢集的名稱。 前六個字元必須與 Kafka 叢集名稱不同。 |
     | Kafka 叢集名稱 | Kafka 叢集的名稱。 前六個字元必須與 Spark 叢集名稱不同。 |
     | 叢集登入使用者名稱 | 叢集的管理員使用者名稱。 |

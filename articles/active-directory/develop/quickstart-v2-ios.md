@@ -3,7 +3,7 @@ title: Microsoft 身分識別平台 iOS 快速入門 | Azure
 description: 了解如何在 iOS 應用程式中登入使用者及查詢 Microsoft Graph。
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: brandwe
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.author: brandwe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3802d8f92913e416cc6a80f899179fde80cec30
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: bfb136529c606cafa235a525fcbe6e03b1d583d0
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962584"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335589"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入門：從 iOS 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -90,8 +90,7 @@ ms.locfileid: "65962584"
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
->
->    ```
+>    ``` 
 > 1. 以滑鼠右鍵按一下 **Info.plist**，然後選取 [開啟為]   > [原始程式碼]  。
 > 1. 在 dict 根節點下方，使用您的***套件組合識別碼***來取代：
 >
@@ -108,6 +107,10 @@ ms.locfileid: "65962584"
 > 
 >    ```
 > 1. 建置並執行應用程式！ 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 本快速入門支援 Enter_the_Supported_Account_Info_Here。
 
 > [!div renderon="docs"]
 >
@@ -253,3 +256,8 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 > [呼叫 Graph API iOS 教學課程](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+協助我們改善 Microsoft 身分識別平台。 完成問卷調查簡短的兩個問題，告訴我們您的想法。
+
+> [!div class="nextstepaction"]
+> [Microsoft 身分識別平台問卷調查](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

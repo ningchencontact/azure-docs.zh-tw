@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/08/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 496cf801a44638af61306b43791abce9466e2cb2
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835676"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369568"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>教學課程：使用 Azure Active Directory B2C 在單頁應用程式中啟用驗證
 
@@ -41,7 +41,7 @@ ms.locfileid: "67835676"
 此外，您的開發環境中需要下列項目：
 
 * 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/) 或 [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.0.0](https://www.microsoft.com/net/core) 或更新版本
+* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) 或更新版本
 * [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>更新應用程式
@@ -115,7 +115,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="sign-up-using-an-email-address"></a>使用電子郵件地址註冊
 
-1. 按一下 [登入]  以應用程式的使用者身分註冊。 這會使用您在上一個步驟中指定的 **B2C_1_signupsignin1** 使用者流程。
+1. 按一下 [登入]  ，以起始您在先前的步驟中指定的 *B2C_1_signupsignin1* 使用者流程。
 1. Azure AD B2C 會顯示含有註冊連結的登入頁面。 由於您還沒有帳戶，因此請按一下 [立即註冊]  連結。
 1. 註冊工作流程會顯示一個使用電子郵件地址來收集並驗證使用者身分識別的頁面。 註冊工作流程也會收集使用者的密碼，以及在使用者流程中定義的要求屬性。
 
@@ -133,11 +133,15 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 登入之後，應用程式會顯示權限不足錯誤 - 這是**預期的**：
 
-`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
 
-您因為嘗試從示範目錄存取資源而收到此錯誤，但您的存取權杖僅適用於您的 Azure AD 目錄。 因此，API 呼叫未經授權。
+由於 Web 應用程式嘗試存取的 Web API 受到示範目錄 *fabrikamb2c* 保護，因此您會收到此錯誤。 由於您的存取權杖只對您的 Azure AD 目錄有效，所以此 API 呼叫未經授權。
 
-繼續進行本系列中的下一個教學課程 (請參閱[後續步驟](#next-steps))，為您的目錄建立受保護的 Web API。
+若要修正此錯誤，請繼續進行本系列中的下一個教學課程 (請參閱[後續步驟](#next-steps))，為您的目錄建立受保護的 Web API。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -151,4 +155,4 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 現在移至本系列的下一個教學課程，以授與從 SPA 存取受保護 Web API 的權限：
 
 > [!div class="nextstepaction"]
-> [教學課程：使用 Azure Active Directory B2C 授與從單頁應用程式存取 ASP.NET Core Web API 的權限](active-directory-b2c-tutorials-spa-webapi.md)
+> [教學課程：使用 Azure AD B2C 授與從 SPA 存取 ASP.NET Core Web API 的權限 >](active-directory-b2c-tutorials-spa-webapi.md)

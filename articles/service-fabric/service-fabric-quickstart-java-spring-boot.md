@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2c98b069e042f9cbd07ccee643028ac84b3471c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886675"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327153"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>快速入門：將 Java Spring Boot 應用程式部署到 Service Fabric
 
@@ -90,7 +90,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-1. 在 `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` 檔案中新增 [端點] 資源
+1. 在 *gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml* 檔案中新增**端點**資源
 
     ```xml 
         <Resources>
@@ -176,13 +176,13 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
 若要調整 Web 前端服務，請執行下列動作：
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://localhost:19080`。
-1. 按一下樹狀檢視中 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點旁邊的省略符號 (三個點)，然後選擇 [調整服務]。
+1. 按一下樹狀檢視中 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點旁邊的省略符號 (三個點)，然後選擇 [調整服務]  。
 
     ![Service Fabric Explorer 的 [調整服務]](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     您現在可以選擇調整服務的執行個體數目。
 
-1. 將數字變更為 **3**，然後按一下 [縮放服務]。
+1. 將數字變更為 **3**，然後按一下 [縮放服務]  。
 
     使用命令列調整服務的替代方式如下所示。
 

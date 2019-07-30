@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 336cc7dae00d06e38e4be8671f1cb11ed73e5edc
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147520"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414636"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
 本教學課程說明如何從主機電腦複製資料，然後產生總和檢查碼來確認資料完整性。
@@ -287,3 +289,43 @@ ms.locfileid: "67147520"
 
 > [!div class="nextstepaction"]
 > [將您的 Azure 資料箱寄回給 Microsoft](./data-box-disk-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="copy-data-to-disks"></a>將資料複製到磁碟
+
+執行下列步驟以從電腦連線到資料箱磁碟，並且複製資料。
+
+1. 檢視已解除鎖定磁碟機的內容。 根據建立資料箱磁碟訂單時所選取的選項而定，磁碟中預先建立的資料夾和子資料夾清單會有所不同。
+2. 將資料複製到與適當資料格式相對應的資料夾。 例如，將非結構化資料複製到 *BlockBlob* 資料夾、將 VHD 或 VHDX 資料複製到 *PageBlob* 資料夾，以及將檔案複製到 *AzureFile*。 如果資料格式與適當資料夾 (儲存體類型) 不相符，則在稍後步驟中，資料上傳至 Azure 的作業將會失敗。
+
+    - 系統會在 Azure 儲存體帳戶中為 BlockBlob 和 PageBlob 資料夾下的每個子資料夾建立容器。 BlockBlob  和 PageBlob  資料夾下的所有檔案，都會複製到 Azure 儲存體帳戶下的預設容器 $root。 
+    - $root 容器中的任何檔案一律會上傳為區塊 Blob。
+    - 將檔案複製到 *AzureFile* 資料夾內的資料夾。 *AzureFile* 資料夾內的子資料夾會建立檔案共用。 直接複製到 *AzureFile* 資料夾的檔案會失敗並上傳為區塊 Blob。
+    - 如果根目錄中有檔案和資料夾存在，則您必須在開始複製資料之前，將這些項目移到不同的資料夾。
+    - 如果訂單的其中一個儲存體目的地為受控磁碟，請參閱[受控磁碟](data-box-disk-limits.md#managed-disk-naming-conventions)的命名慣例。
+
+    > [!IMPORTANT]
+    > 所有容器、Blob 和檔案都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)和 [Azure 物件大小限制](data-box-disk-limits.md#azure-object-size-limits)。 如果未遵循這些規則或限制，則將資料上傳至 Azure 的作業將會失敗。
+
+3. 請使用檔案總管的拖放功能，或任何與 SMB 相容的檔案複製工具 (例如 Robocopy)，來複製資料。 您可以使用下列命令起始多個複製作業：
+
+    ```
+    Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt
+    ```
+4. 開啟目標資料夾，以檢視並確認已複製的檔案。 如果您在複製程序期間遇到任何錯誤，請下載記錄檔以進行疑難排解。 記錄檔位於 robocopy 命令所指定的位置。
+
+如果您使用多個磁碟，而且具有必須分割並複製到所有磁碟上的大型資料集，請使用[分割和複製](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks)的選擇性程序。
+
+## <a name="validate-data"></a>驗證資料
+
+請執行下列步驟以驗證資料。
+
+1. 在磁碟機的 DataBoxDiskImport  資料夾中執行 `DataBoxDiskValidation.cmd`，以進行總和檢查碼驗證。
+2. 使用選項 2 來驗證您的檔案並產生總和檢查碼。 視您的資料大小而定，此步驟可能需要一段時間。 如果在驗證和產生總和檢查碼期間發生任何錯誤，您會收到通知及錯誤記錄的連結。
+
+    如果您在驗證期間看到錯誤，請參閱[針對驗證錯誤進行疑難排解](data-box-disk-troubleshoot.md)。
+
+::: zone-end

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1dae1b8577c4f90211c3b377dbf88efe6907326
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 66cb7218b5217565529e1e15d875c23dff10e06f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243877"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382279"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>重設您自己的公司或學校密碼概觀
 
@@ -34,5 +34,5 @@ ms.locfileid: "66243877"
 
 |文章 |說明 |
 |------|------------|
-|[註冊自助式密碼重設](active-directory-passwords-reset-register.md)| 說明如何確認驗證方法並註冊自助式密碼重設，以便可以重設您自己的密碼。|
-|[重設密碼](user-help-reset-password.md)| 說明如何將公司或學校帳戶的密碼加以重設或解除鎖定。|
+| [註冊自助式密碼重設](active-directory-passwords-reset-register.md) ] 說明如何確認驗證方法並註冊自助式密碼重設，以便可以重設您自己的密碼。|
+| [重設您的密碼](user-help-reset-password.md) ] 說明如何將公司或學校帳戶的密碼加以重設或解除鎖定。|

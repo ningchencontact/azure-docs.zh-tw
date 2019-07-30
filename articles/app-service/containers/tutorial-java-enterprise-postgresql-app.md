@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: dcd1ef5c54885b758ac9a301616d79a163999bc9
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 2d26d9e145030e5972289c224dc2f76078d67527
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509628"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498490"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java EE 和 Postgres Web 應用程式
 
@@ -169,7 +169,7 @@ az postgres server create \
 
 - **postgresql-42.2.5.jar**：這個 JAR 檔案是 Postgres 的 JDBC 驅動程式。 如需詳細資訊，請參閱[官方網站](https://jdbc.postgresql.org/index.html)。
 - **postgres-module.xml**：這個 XML 檔案會宣告 Postgres 模組 (org.postgres) 的名稱。 此外，它也會指定所要使用模組的必要資源和相依性。
-- **jboss_cli_commands.cl**：這個檔案包含 JBoss CLI 所將會執行的組態命令。 這些命令會將 Postgres 模組新增至 WildFly 應用程式伺服器、提供認證、宣告 JNDI 名稱、設定逾時閾值等等。如果您不熟悉 JBoss CLI，請參閱[官方文件](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli)。
+- **jboss_cli_commands.cli**：這個檔案包含 JBoss CLI 所將會執行的組態命令。 這些命令會將 Postgres 模組新增至 WildFly 應用程式伺服器、提供認證、宣告 JNDI 名稱、設定逾時閾值等等。如果您不熟悉 JBoss CLI，請參閱[官方文件](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli)。
 - **startup_script.sh**：最後，每當 App Service 執行個體啟動時，就會執行這個殼層指令碼。 此指令碼只會執行一個函式：將 jboss_cli_commands.cli  中的命令以管道傳送至 JBoss CLI。
 
 建議您一定要閱讀這些檔案的內容，尤其是 *jboss_cli_commands.cli* 檔案。
@@ -194,7 +194,7 @@ az postgres server create \
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-恭喜！ 應用程式現在會使用 Postgres 資料庫，且應用程式中所建立的任何記錄都會儲存到 Postgres，而非以前的 H3 記憶體內部資料庫。 若要確認這一點，您可以進行記錄，並重新啟動 App Service。 應用程式重新啟動時，記錄仍會位於該處。
+恭喜！ 應用程式現在會使用 Postgres 資料庫，且應用程式中所建立的任何記錄都會儲存到 Postgres，而非以前的 H2 記憶體內部資料庫。 若要確認這一點，您可以進行記錄，並重新啟動 App Service。 應用程式重新啟動時，記錄仍會位於該處。
 
 ## <a name="clean-up"></a>清除
 

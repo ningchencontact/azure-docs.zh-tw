@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 0fef3bffd30c19d0313e5fce7eb610ae7f6349f5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: bb0e44f83e2101a7b21e7b7ec6fdc75974c6d6d8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607001"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333602"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>快速入門：使用 Python 分析文字內容中的不當題材
 
@@ -38,41 +38,34 @@ pip install azure-cognitiveservices-vision-contentmoderator
 
 ## <a name="import-modules"></a>匯入模組
 
-建立名為 _ContentModeratorQS.py_ 的新 Python 指令碼，然後新增下列程式碼來匯入 SDK 的必要組件。
+建立名為 _ContentModeratorQS.py_ 的新 Python 指令碼，然後新增下列程式碼來匯入 SDK 的必要組件。 其中包含美化顯示模組，以利輕鬆讀取 JSON 回應。
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=1-10)]
-
-此外，還會匯入「美化顯示」函式來處理最終輸出。
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=12)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=imports)]
 
 
 ## <a name="initialize-variables"></a>將變數初始化
 
-接下來，針對您的 Content Moderator 訂用帳戶金鑰和端點 URL 來新增變數。 您必須使用您的金鑰值取代 `<your subscription key>`。 您可能也需要變更 `endpoint_url` 的值，以使用對應到您訂用帳戶金鑰的區域識別碼。 **westus** 區域會產生免費試用的訂用帳戶金鑰。
+接下來，針對您的 Content Moderator 訂用帳戶金鑰和端點 URL 來新增變數。 將名稱 `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 新增至您的環境變數，並以您的訂用帳戶金鑰作為其值。 針對您的基底端點 URL，請將 `CONTENT_MODERATOR_ENDPOINT` 新增至環境變數，並以您的區域特定 URL 作為其值，例如 `https://westus.api.cognitive.microsoft.com`。 **westus** 區域會產生免費試用的訂用帳戶金鑰。
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=14-16)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
+系統將會仲裁檔案中的多行文字字串。 將 [content_moderator_text_moderation.txt](https://github.com/Azure-Samples/cognitive-services-content-moderator-samples/blob/master/documentation-samples/python/content_moderator_text_moderation.txt) 檔案包含在本機根資料夾中，並將其檔案名新增至您的變數：
 
-為了簡單起見，您將直接從指令碼分析文字。 定義要仲裁之文字內容的新字串：
-
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=18-21)]
-
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModerationFile)]
 
 ## <a name="query-the-moderator-service"></a>查詢仲裁者服務
 
-使用您的訂用帳戶金鑰和端點 URL，來建立 **ContentModeratorClient** 執行個體。 然後，使用其成員 **TextModerationOperations** 執行個體來呼叫仲裁 API。 如需如何呼叫它的詳細資訊，請參閱 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** \(英文\) 參考文件。
+使用您的訂用帳戶金鑰和端點 URL，來建立 **ContentModeratorClient** 執行個體。 
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=23-36)]
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=client)]
 
-## <a name="print-the-response"></a>列印回應
+然後，使用您的用戶端及其成員 **TextModerationOperations** 執行個體來呼叫函式 `screen_text` 的仲裁 API。 如需如何呼叫它的詳細資訊，請參閱 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** \(英文\) 參考文件。
 
-最後，檢查呼叫已順利完成並傳回 **Screen** 執行個體。 然後將傳回的資料列印至主控台。
+[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=textModeration)]
 
-[!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/text-moderation-quickstart-python.py?range=38-39)]
+## <a name="check-the-printed-response"></a>檢查列印的回應
 
-
-本快速入門中使用的範例文字會產生下列輸出：
+執行範例並確認回應。 順利完成時，會傳回**過濾**執行個體。 成功的結果顯示如下：
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '

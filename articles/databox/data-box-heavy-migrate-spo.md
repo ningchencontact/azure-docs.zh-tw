@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4955b28dff3193a95950912562cc3b6ec789479d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592342"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325278"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>使用 Azure Data Box Heavy 將檔案共用內容遷移至 SharePoint Online
 
@@ -66,8 +66,8 @@ Microsoft Azure 資料箱服務可讓您從 Microsoft Azure 入口網站訂購�
 2. 收到 Data Box Heavy 後，請[設定 Data Box Heavy](data-box-heavy-deploy-set-up.md)。 用纜線將裝置上的兩個節點接好，並進行設定。
 3. [將資料複製到 Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md)。 複製時請務必：
 
-    - 只使用 Data Box Heavy 中的 AzureFile  資料夾來複製資料。 這是因為您想要讓資料最終進入到 Azure 檔案共用，而不是進入區塊 Blob 或分頁 Blob。
-    - 將檔案複製到 *AzureFile* 資料夾內的資料夾。 AzureFile  資料夾內的子資料夾會建立檔案共用。 直接複製到 *AzureFile* 資料夾的檔案會失敗並上傳為區塊 Blob。 這是您會在下一個步驟中於 VM 上掛接的檔案共用。
+    - 只使用 Data Box Heavy 中的 *StorageAccountName_AzFile* 資料夾來複製資料。 這是因為您想要讓資料最終進入到 Azure 檔案共用，而不是進入區塊 Blob 或分頁 Blob。
+    - 將檔案複製到 *StorageAccountName_AzFile* 資料夾內的資料夾。 *StorageAccountName_AzFile* 資料夾內的子資料夾會建立檔案共用。 直接複製到 *StorageAccountName_AzFile* 資料夾的檔案將會失敗，並以區塊 Blob 的形式上傳。 這是您會在下一個步驟中於 VM 上掛接的檔案共用。
     - 將資料複製到 Data Box Heavy 的兩個節點中。
 3. 在裝置上執行[準備寄送](data-box-heavy-deploy-picked-up.md#prepare-to-ship)。 「準備寄送」若能成功，便可確保檔案也能成功上傳至 Azure。
 4. [返還裝置](data-box-heavy-deploy-picked-up.md#ship-data-box-heavy-back)。
@@ -75,7 +75,7 @@ Microsoft Azure 資料箱服務可讓您從 Microsoft Azure 入口網站訂購�
 
 ## <a name="use-spmt-to-migrate-data"></a>使用 SPMT 來遷移資料
 
-從 Azure 資料小組得知資料已確實複製完成後，您便可立即繼續將資料遷移至 SharePoint Online。
+從 Azure 資料小組得知資料已確實複製完成後，請繼續將資料遷移至 SharePoint Online。
 
 如需最佳效能和連線能力，建議您建立 Azure 虛擬機器 (VM)。
 

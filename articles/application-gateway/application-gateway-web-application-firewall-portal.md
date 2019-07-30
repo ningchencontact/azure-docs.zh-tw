@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 4/16/2019
+ms.date: 07/24/2019
 ms.author: victorh
-ms.openlocfilehash: 206895768ea48e352e4f7fe90ab597f3756586dd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 3a2d6f107bbdb28997834f14f8f0d9e773b9b10b
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682843"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442332"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建立包含 Web 應用程式防火牆的應用程式閘道
 
@@ -42,146 +42,209 @@ ms.locfileid: "59682843"
 
 Azure 需要虛擬網路才能在資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，您會建立新的虛擬網路。 您建立應用程式閘道時，可以同時建立虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
 
-在 Azure 入口網站的左側功能表上選取 [建立資源]。 [新增] 視窗隨即出現。
+在 Azure 入口網站的左側功能表上選取 [建立資源]  。 [新增]  視窗隨即出現。
 
-在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
+在 [精選]  清單中選取 [網路]  ，然後選取 [應用程式閘道]  。
 
-### <a name="basics-page"></a>基本頁面
+### <a name="basics-tab"></a>[基本] 索引標籤
 
-1. 在 [基本] 頁面上，為下列應用程式閘道設定輸入這些值：
-   - **名稱**：輸入 myAppGateway 作為應用程式閘道的名稱。
-   - **資源群組**：選取 **myResourceGroupAG** 作為資源群組。 如果資源群組不存在，請選取 [新建] 加以建立。
-   - 選取 [WAF] 作為應用程式閘道層。![建立新的應用程式閘道](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+1. 在 [基本]  索引標籤上，為下列應用程式閘道設定輸入這些值：
 
-接受其他設定的預設值，然後按一下 [確定]。
+   - **資源群組**：選取 **myResourceGroupAG** 作為資源群組。 如果資源群組不存在，請選取 [新建]  加以建立。
+   - **應用程式閘道名稱**：輸入 myAppGateway  作為應用程式閘道的名稱。
+   - **階層**：選取 [WAF V2] 
 
-### <a name="settings-page"></a>設定頁面
+     ![建立新的應用程式閘道：基本概念](./media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png)
 
-1. 在 [設定] 頁面的 [子網路組態] 下方，選取 [選擇虛擬網路]。 <br>
-2. 在 [選擇虛擬網路] 頁面上選取 [新建]，然後輸入下列虛擬網路設定的值：
-   - **名稱**：輸入 myVNet 作為虛擬網路的名稱。
-   - **位址空間**：輸入 10.0.0.0/16 作為虛擬網路位址空間。
-   - **子網路名稱**：輸入 myAGSubnet 作為子網路名稱。<br>應用程式閘道子網路只能包含應用程式閘道。 不允許任何其他資源。
-   - **子網路位址範圍**︰輸入 10.0.0.0/24 作為子網路位址範圍。![建立虛擬網路](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
-3. 按一下 [確定] 以建立虛擬網路和子網路。
-4. 選擇 [前端 IP 設定]。 在 [前端 IP 組態] 下方，確認 [IP 位址類型] 設為 [公用]。 在 [公用 IP 位址] 下方，確認已選取 [新建]。 <br>您可以根據自己的使用案例，設定為公用或私人前端 IP。 在此，您會選擇公用前端 IP。
-5. 輸入 myAGPublicIPAddress 作為公用 IP 位址名稱。
-6. 接受其他設定的預設值，然後選取 [確定]。<br>為求簡化，您會在本教學課程中選擇預設值，但可根據自己的使用案例，設定其他設定的自訂值。
+2.  Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，您將會在建立應用程式閘道時，同時建立新的虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
 
-### <a name="summary-page"></a>摘要頁面
+    在 [設定虛擬網路]  底下，選取 [新建]  以建立新的虛擬網路。 在隨即開啟的 [建立虛擬網路]  視窗中，輸入下列值以建立虛擬網路和兩個子網路：
 
-檢閱 [摘要] 頁面上的設定，然後選取 [確定] 以建立網路資源、公用 IP 位址和應用程式閘道。 Azure 建立應用程式閘道可能需要幾分鐘的時間。 請等候部署成功完成後，再繼續進行至下一節。
+    - **名稱**：輸入 myVNet  作為虛擬網路的名稱。
 
-## <a name="add-backend-pool"></a>新增後端集區
+    - **子網路名稱** (應用程式閘道子網路)：[子網路]  方格將會顯示名為 *Default* 的子網路。 將此子網路的名稱變更為 *myAGSubnet*。<br>應用程式閘道子網路只能包含應用程式閘道。 不允許任何其他資源。
 
-後端集區可用來將要求路由傳送至能為要求提供服務的後端伺服器。 後端集區可以包含 NIC、虛擬機器擴展集、公用 IP、內部 IP、完整的網域名稱 (FQDN)，以及 Azure App Service 等多租用戶後端。 將您的後端目標新增至後端集區。
+    - **子網路名稱** (後端伺服器子網路)：在 [子網路]  方格的第二列中，於 [子網路名稱]  欄中輸入 *myBackendSubnet*。
 
-在此範例中，您會使用虛擬機器作為目標後端。 您可以使用現有的虛擬機器，或建立新的虛擬機器。 再此，您會建立兩個虛擬機器，供 Azure 作為應用程式閘道的後端伺服器。 若要這樣做，請：
+    - **位址範圍** (後端伺服器子網路)：在 [子網路]  方格的第二列中，輸入沒有與 *myAGSubnet* 的位址範圍重疊的位址範圍。 例如，如果 *myAGSubnet* 的位址範圍是 10.0.0.0/24，請針對 *myBackendSubnet* 的位址範圍輸入 *10.0.1.0/24*。
 
-1. 建立新的子網路 (*myBackendSubnet*)，以在其中建立新的 VM。 
-2. 建立 2 個新的 VM (*myVM* 與 *myVM2*)，以作為後端伺服器。
-3. 在虛擬機器上安裝 IIS，以確認成功建立應用程式閘道。
-4. 將後端伺服器新增至後端集區。
+    選取 [確定]  以關閉 [建立虛擬網路]  視窗並儲存虛擬網路設定。
 
-### <a name="add-a-subnet"></a>新增子網路
+     ![建立新的應用程式閘道：虛擬網路](./media/application-gateway-web-application-firewall-portal/application-gateway-create-vnet.png)
+    
+3. 在 [基本]  索引標籤上，接受其他設定的預設值，然後選取 [下一步:  前端]。
 
-依照下列步驟將子網路新增至您建立的虛擬網路：
+### <a name="frontends-tab"></a>[前端] 索引標籤
 
-1. 在 Azure 入口網站的左側功能表上選取 [所有資源]，並在搜尋方塊中輸入 myVNet，然後從搜尋結果中選取 [myVNet]。
+1. 在 [前端]  索引標籤上，確認 [前端 IP 位址類型]  已被設為 [公用]  。 <br>您可以根據自己的使用案例，設定為公用或私人前端 IP。 在此範例中，您會選擇公用前端 IP。
+   > [!NOTE]
+   > 對於應用程式閘道 v2 SKU，您只能選擇 [公用]  前端 IP 組態。 目前未針對此 v2 SKU 啟用私人前端 IP 設定。
 
-2. 從左側功能表中選取 [子網路]，然後選取 [+ 子網路]。 
+2. 針對 [公用 IP 位址]  選擇 [新建]  ，然後針對公用 IP 位址名稱輸入 *myAGPublicIPAddress*，然後選取 [確定]  。 
 
-   ![建立子網路](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
+     ![建立新的應用程式閘道：前端](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
-3. 在 [新增子網路] 頁面中輸入 myBackendSubnet 作為子網路的 [名稱]，然後選取 [確定]。
+3. 完成時，選取 [下一步:  後端]。
+
+### <a name="backends-tab"></a>[後端] 索引標籤
+
+後端集區用於將要求路由傳送至可為要求提供服務的後端伺服器。 後端集區可以包含 NIC、虛擬機器擴展集、公用 IP、內部 IP、完整的網域名稱 (FQDN)，以及如 Azure App Service 的多租用戶後端。 在此範例中，您將會搭配應用程式閘道建立空的後端集區，然後將後端目標新增至該後端集區。
+
+1. 在 [後端]  索引標籤上，選取 [+新增後端集區]  。
+
+2. 在隨即開啟的 [新增後端集區]  視窗中，輸入下列值以建立空的後端集區：
+
+    - **名稱**：輸入 *myBackendPool* 作為後端集區的名稱。
+    - **新增不含目標的後端集區**：選取 [是]  以建立不含目標的後端集區。 您將會在建立應用程式閘道之後再新增後端目標。
+
+3. 在 [新增後端集區]  視窗中，選取 [新增]  以儲存後端集區設定，並返回 [後端]  索引標籤。
+
+     ![建立新的應用程式閘道：後端](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+
+4. 在 [後端]  索引標籤上，選取 [下一步:  設定]。
+
+### <a name="configuration-tab"></a>組態索引標籤
+
+在 [設定]  索引標籤上，您將會連線至您使用路由規則所建立的前端和後端集區。
+
+1. 選取 [路由規則]  欄中的 [新增規則]  。
+
+2. 在隨即開啟的 [新增路由規則]  視窗中，針對 [規則名稱]  輸入 *myRoutingRule*。
+
+3. 路由規則需要接聽程式。 在 [新增路由規則]  視窗內的 [接聽程式]  索引標籤上，針對接聽程式輸入下列值：
+
+    - **接聽程式名稱**：輸入 *myListener* 作為接聽程式的名稱。
+    - **前端 IP**：選取 [公用]  以選擇您針對前端所建立的公用 IP。
+  
+      接受 [接聽程式]  索引標籤上其他設定的預設值，然後選取 [後端目標]  索引標籤以設定其餘的路由規則。
+
+   ![建立新的應用程式閘道：接聽程式](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+
+4. 在 [後端目標]  索引標籤上，針對 [後端目標]  選取 [myBackendPool]  。
+
+5. 針對 [HTTP 設定]  ，選取 [新建]  以建立新的 HTTP 設定。 HTTP 設定將會決定路由規則的行為。 在隨即開啟的 [新增 HTTP 設定]  視窗中，針對 [HTTP 設定名稱]  輸入 *myHTTPSetting*。 接受 [新增 HTTP 設定]  視窗中其餘設定的預設值，然後選取 [新增]  以返回 [新增路由規則]  視窗。 
+
+     ![建立新的應用程式閘道：HTTP 設定](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+
+6. 在 [新增路由規則]  視窗上，選取 [新增]  以儲存路由規則，並返回 [設定]  索引標籤。
+
+     ![建立新的應用程式閘道：路由規則](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+
+7. 完成時，選取 [下一步:  標籤]，然後選取 [下一步:  檢閱 + 建立]。
+
+### <a name="review--create-tab"></a>[檢閱 + 建立] 索引標籤
+
+檢閱 [檢閱 + 建立]  索引標籤上的設定，然後選取 [建立]  以建立虛擬網路、公用 IP 位址和應用程式閘道。 Azure 建立應用程式閘道可能需要幾分鐘的時間。 
+
+請等候部署成功完成後，再繼續進行至下一節。
+
+## <a name="add-backend-targets"></a>新增後端目標
+
+在此範例中，您會使用虛擬機器作為目標後端。 您可以使用現有的虛擬機器，或建立新的虛擬機器。 您會建立兩個虛擬機器，供 Azure 作為應用程式閘道的後端伺服器。
+
+若要這麼做，您將：
+
+1. 建立 2 個新的 VM (*myVM* 與 *myVM2*)，以作為後端伺服器。
+2. 在虛擬機器上安裝 IIS，以確認成功建立應用程式閘道。
+3. 將後端伺服器新增至後端集區。
 
 ### <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-1. 在 Azure 入口網站上，選取 [建立資源]。 [新增] 視窗隨即出現。
-2. 選取 [計算]，然後選取 [精選] 清單中的 [Windows Server 2016 Datacenter]。 [建立虛擬機器] 頁面隨即出現。<br>應用程式閘道可將流量路由至其後端集區中所用任何類型的虛擬機器。 在此範例中，您會使用 Windows Server 2016 Datacenter。
-3. 在 [基本] 索引標籤中，為下列虛擬機器設定輸入這些值：
-   - **資源群組**：選取 **myResourceGroupAG** 作為資源群組名稱。
-   - **虛擬機器名稱**：輸入 myVM 作為虛擬機器的名稱。
-   - **使用者名稱**：輸入 azureuser 作為系統管理員使用者名稱。
-   - **密碼**：輸入Azure123456! 作為系統管理員密碼。
-4. 接受其他預設值，然後選取 [下一步：**磁碟]**。  
-5. 接受 [磁碟] 索引標籤的預設值，然後選取 [下一步：網路功能]。
-6. 在 [網路] 索引標籤上，確認已選取 [myVNet] 作為[虛擬網路]，且 [子網路] 設為 [myBackendSubnet]。 接受其他預設值，然後選取 [下一步：**管理]**。<br>「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但您需要確保具有 IP 連線能力。
-7. 在 [管理] 索引標籤上，將 [開機診斷] 設為 [關閉]。 接受其他預設值，然後選取 [檢閱 + 建立]。
-8. 在 [檢閱 + 建立] 索引標籤上檢閱設定，並更正任何驗證錯誤，然後選取 [建立]。
+1. 在 Azure 入口網站上，選取 [建立資源]  。 [新增]  視窗隨即出現。
+2. 選取 [熱門]  清單中的 [Windows Server 2016 Datacenter]  。 [建立虛擬機器]  頁面隨即出現。<br>應用程式閘道可將流量路由至其後端集區中所用任何類型的虛擬機器。 在此範例中，您會使用 Windows Server 2016 Datacenter。
+3. 在 [基本]  索引標籤中，為下列虛擬機器設定輸入這些值：
+
+    - **資源群組**：選取 **myResourceGroupAG** 作為資源群組名稱。
+    - **虛擬機器名稱**：輸入 myVM  作為虛擬機器的名稱。
+    - **使用者名稱**：輸入 azureuser  作為系統管理員使用者名稱。
+    - **密碼**：輸入Azure123456!  作為系統管理員密碼。
+4. 接受其他預設值，然後選取 [下一步：**磁碟]** 。  
+5. 接受 [磁碟]  索引標籤的預設值，然後選取 [下一步：  網路功能]。
+6. 在 [網路]  索引標籤上，確認已選取 [myVNet]  作為[虛擬網路]  ，且 [子網路]  設為 [myBackendSubnet]  。 接受其他預設值，然後選取 [下一步：**管理]** 。<br>「應用程式閘道」可與其虛擬網路外的執行個體進行通訊，但您需要確保具有 IP 連線能力。
+7. 在 [管理]  索引標籤上，將 [開機診斷]  設為 [關閉]  。 接受其他預設值，然後選取 [檢閱 + 建立]  。
+8. 在 [檢閱 + 建立]  索引標籤上檢閱設定，並更正任何驗證錯誤，然後選取 [建立]  。
 9. 請等候虛擬機器建立完成，再繼續操作。
 
 ### <a name="install-iis-for-testing"></a>安裝 IIS 進行測試
 
-在此範例中，您會在虛擬機器上安裝 IIS，只是為了驗證 Azure 已成功建立應用程式閘道。 
+在此範例中，您在虛擬機器上安裝 IIS，只為了驗證 Azure 已成功建立應用程式閘道。
 
-1. 開啟 [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)。 若要這樣做，請從 Azure 入口網站的頂端導覽列中選取 [Cloud Shell]，然後從下拉式清單中選取 [PowerShell]。 
+1. 開啟 [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)。 若要這樣做，請從 Azure 入口網站的頂端導覽列中選取 [Cloud Shell]  ，然後從下拉式清單中選取 [PowerShell]  。 
 
-   ![安裝自訂延伸模組](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
+    ![安裝自訂延伸模組](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
 2. 執行下列命令以在虛擬機器上安裝 IIS： 
 
-   ```azurepowershell-interactive
-   Set-AzVMExtension `
-     -ResourceGroupName myResourceGroupAG `
-     -ExtensionName IIS `
-     -VMName myVM `
-     -Publisher Microsoft.Compute `
-     -ExtensionType CustomScriptExtension `
-     -TypeHandlerVersion 1.4 `
-     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-     -Location EastUS
-   ```
+    ```azurepowershell-interactive
+    Set-AzVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-3. 建立第二個虛擬機器，並使用您先前完成的步驟來安裝 IIS。 請使用 myVM2 作為虛擬機器名稱，並作為 **Set-AzVMExtension** Cmdlet 的 **VMName** 設定。
+3. 建立第二個虛擬機器，並使用您先前完成的步驟來安裝 IIS。 請使用 myVM2  作為虛擬機器名稱，並作為 **Set-AzVMExtension** Cmdlet 的 **VMName** 設定。
 
 ### <a name="add-backend-servers-to-backend-pool"></a>將後端伺服器新增至後端集區
 
-1. 選取 [所有資源]，然後選取 [myAppGateway]。
+1. 選取 [所有資源]  ，然後選取 [myAppGateway]  。
 
-2. 從左側功能表中中選取 [後端集區]。 當您建立應用程式閘道時，Azure 已自動建立預設集區 **appGatewayBackendPool**。 
+2. 從左側功能表中中選取 [後端集區]  。
 
-3. 選取 **appGatewayBackendPool**。
+3. 選取 [myBackendPool]  。
 
-4. 在 [目標] 下方，從下拉式清單中選取 [虛擬機器]。
+4. 在 [目標]  下方，從下拉式清單中選取 [虛擬機器]  。
 
-5. 在 [虛擬機器] 和 [網路介面] 下方，從下拉式清單中選取 **myVM** 和 **myVM2** 虛擬機器及其相關聯的網路介面。
+5. 在 [虛擬機器]  和 [網路介面]  下方，從下拉式清單中選取 **myVM** 和 **myVM2** 虛擬機器及其相關聯的網路介面。
 
-   ![新增後端伺服器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+    ![新增後端伺服器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. 選取 [ **儲存**]。
+
+7. 等候部署完成，再繼續進行下一個步驟。
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>建立儲存體帳戶並設定診斷
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-在本教學課程中，應用程式閘道會使用儲存體帳戶來儲存資料，以達到偵測與預防的目的。 您也可以使用 Azure 監視器記錄或事件中樞來記錄資料。
+在本文中，應用程式閘道會使用儲存體帳戶來儲存資料，以達到偵測與預防的目的。 您也可以使用 Azure 監視器記錄或事件中樞來記錄資料。
 
-1. 按一下 Azure 入口網站左上角的 [新增]。
-2. 選取 [儲存體]，然後選取 [儲存體帳戶 - blob、檔案、資料表、佇列]。
-3. 輸入儲存體帳戶的名稱，針對資源群組選取 [使用現有的]，然後選取 [myResourceGroupAG]。 在此範例中，儲存體帳戶名稱是 myagstore1。 接受其他設定的預設值，然後按一下 [建立]。
+1. 選取 Azure 入口網站左上角的 [建立資源]  。
+1. 選取 [儲存體]  ，然後選取 [儲存體帳戶]  。
+1. 針對 [資源群組]  ，選取 **myResourceGroupAG** 作為資源群組。
+1. 輸入 *myagstore1*作為儲存體帳戶的名稱。
+1. 接受其他設定的預設值，然後選取 [檢閱 + 建立]  。
+1. 檢閱設定，然後選取 [建立]  。
 
 ### <a name="configure-diagnostics"></a>設定診斷
 
 設定診斷以將資料記錄到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 記錄。
 
-1. 在左側功能表中，按一下 [所有資源]，然後選取 [myAppGateway]。
-2. 在 [監視] 底下，按一下 [診斷記錄]。
-3. 按一下 [新增診斷設定]。
-4. 輸入 myDiagnosticsSettings 作為診斷設定的名稱。
-5. 選取 [保存到儲存體帳戶]，然後按一下 [設定] 以選取您先前建立的 myagstore1 儲存體帳戶。
-6. 選取要收集的應用程式閘道記錄並加以保留。
-7. 按一下 [檔案] 。
+1. 在左側功能表中，選取 [所有資源]  ，然後選取 [myAppGateway]  。
+2. 在 [監視] 下方，選取 [診斷設定]  。
+3. 選取 [新增診斷設定]  。
+4. 輸入 myDiagnosticsSettings  作為診斷設定的名稱。
+5. 選取 [保存到儲存體帳戶]  ，然後選取 [設定]  以選取您先前建立的 myagstore1  儲存體帳戶，然後選取 [確定]  。
+6. 選取要收集及保留的應用程式閘道記錄。
+7. 選取 [ **儲存**]。
 
     ![設定診斷](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-雖然不需要 IIS 即可建立應用程式閘道，但您仍會在本快速入門中加以安裝，以確認 Azure 是否已成功建立應用程式閘道。 使用 IIS 測試應用程式閘道：
+雖然不需要 IIS 即可建立應用程式閘道，但您仍會加以安裝，以確認 Azure 是否已成功建立應用程式閘道。 使用 IIS 測試應用程式閘道：
 
-1. 在 [概觀] 頁面上尋找應用程式閘道的公用 IP 位址。![記錄應用程式閘道公用 IP 位址](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)或者，您可以選取 [所有資源]，並在搜尋方塊中輸入 *myAGPublicIPAddress*，然後在搜尋結果中加以選取。 Azure 會在 [概觀] 頁面上顯示公用 IP 位址。
-2. 將公用 IP 位址複製並貼到您瀏覽器的網址列。
-3. 檢查回應。 有效的回應會確認應用程式閘道已成功建立，並可與後端順利連線。![測試應用程式閘道](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+1. 在 [概觀]  頁面上尋找應用程式閘道的公用 IP 位址。![記錄應用程式閘道公用 IP 位址](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) 
+
+   或者，您可以選取 [所有資源]  ，並在搜尋方塊中輸入 myAGPublicIPAddress  ，然後在搜尋結果中加以選取。 Azure 會在 [概觀]  頁面上顯示公用 IP 位址。
+1. 將公用 IP 位址複製並貼到您瀏覽器的網址列。
+1. 檢查回應。 有效的回應會確認應用程式閘道已成功建立，並可與後端順利連線。
+
+   ![測試應用程式閘道](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -189,12 +252,12 @@ Azure 需要虛擬網路才能在資源之間進行通訊。 您可以建立新�
 
 若要移除資源群組：
 
-1. 在 Azure 入口網站的左側功能表上，選取 [資源群組]。
-2. 在 [資源群組] 頁面上，在清單中搜尋 **myResourceGroupAG** 並加以選取。
-3. 在 [資源群組] 頁面上，選取 [刪除資源群組]。
-4. 針對 [輸入資源群組名稱] 輸入 myResourceGroupAG，然後選取 [刪除]
+1. 在 Azure 入口網站的左側功能表上，選取 [資源群組]  。
+2. 在 [資源群組]  頁面上，在清單中搜尋 **myResourceGroupAG** 並加以選取。
+3. 在 [資源群組]  頁面上，選取 [刪除資源群組]  。
+4. 針對 [輸入資源群組名稱]  輸入 myResourceGroupAG  ，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [深入了解 Azure 應用程式閘道的用途](application-gateway-introduction.md)
+> [深入了解 Web 應用程式防火牆](waf-overview.md)

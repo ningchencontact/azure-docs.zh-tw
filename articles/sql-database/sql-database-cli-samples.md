@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad4706ce038feb316d238c1cabc12b27621c8085
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66150230"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443339"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure SQL Database 的 Azure CLI 範例
 
@@ -41,6 +41,8 @@ ms.locfileid: "66150230"
 |**調整單一資料庫和彈性集區**||
 | [調整單一資料庫](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會在查詢單一 Azure SQL 資料庫的大小資訊後，將其調整為不同的計算大小。 |
 | [調整彈性集區](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | 此 CLI 指令碼範例會將 SQL 彈性集區調整為不同的計算大小。  |
+|**容錯移轉群組**||
+| [將單一資料庫新增至容錯移轉群組](scripts/sql-database-add-single-db-to-failover-group-cli.md?toc=%2fcli%2fazure%2ftoc.json)| 此 CLI 指令碼會建立資料庫和容錯移轉群組，將資料庫新增至容錯移轉群組，並測試容錯移轉至次要伺服器。|
 |||
 
 深入了解[單一資料庫 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)。

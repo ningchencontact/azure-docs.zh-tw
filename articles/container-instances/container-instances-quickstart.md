@@ -3,17 +3,18 @@ title: 快速入門 - 將 Docker 容器部署至 Azure 容器執行個體 - CLI
 description: 在本快速入門中，您可以使用 Azure CLI 快速地部署在隔離式 Azure 容器執行個體中執行的容器化的 Web 應用程式
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8e504a081f8685107871aed920077dd75a70dfa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a4a1c24211e644a796b4e60537978c327501383
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65908075"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325777"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>快速入門：使用 Azure CLI 部署容器執行個體
 
@@ -23,7 +24,7 @@ ms.locfileid: "65908075"
 
 ![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][aci-app-browser]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [[免費帳戶]][azure-account]。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][azure-account] 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,7 +34,7 @@ ms.locfileid: "65908075"
 
 Azure 容器執行個體和所有 Azure 資源相同，都必須部署到資源群組中。 資源群組可讓您組織和管理相關的 Azure 資源。
 
-首先，使用下列 [az group create][az-group-create] 命令，在 *eastus* 位置中建立名為 *myResourceGroup* 的資源群組：
+首先，使用下列 [az group create][az-group-create] 命令，在 *eastus* 位置中建立一個名為 *myResourceGroup* 的資源群組：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -51,7 +52,7 @@ az group create --name myResourceGroup --location eastus
 az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
-您應該會在幾秒內獲得 Azure CLI 的回應，指出部署已。 請使用 [az container show][az-container-show] 命令查看其狀態：
+您應該會在幾秒內獲得 Azure CLI 的回應，指出部署已。 請使用 [az container show][az-container-show] 命令來檢查其狀態：
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
@@ -66,7 +67,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-如果容器的 `ProvisioningState` 為 [成功]，請在瀏覽器中瀏覽至其 FQDN。 如果您看到如下的網頁，恭喜您！ 您已將 Docker 容器中執行的應用程式成功部署至 Azure。
+如果容器的 `ProvisioningState` 為 [成功]  ，請在瀏覽器中瀏覽至其 FQDN。 如果您看到如下的網頁，恭喜您！ 您已將 Docker 容器中執行的應用程式成功部署至 Azure。
 
 ![顯示在 Azure 容器執行個體中執行之應用程式的瀏覽器螢幕擷取畫面][aci-app-browser]
 

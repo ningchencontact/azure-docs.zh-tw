@@ -13,24 +13,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2cb9ad28a21842987f8c0f7c75151ab8c7fe6fa0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735807"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326590"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>快速入門：使用 Azure CLI 將 Azure 應用程式組態事件路由傳送至 Web 端點
 
-Azure 應用程式組態使用者可以訂閱修改索引鍵/值時所發出的事件。 這些事件可以觸發 Webhook、Azure Functions、Azure 儲存體佇列，或 [Azure 事件方格](https://docs.microsoft.com/azure/event-grid/event-handlers)所支援的任何其他事件處理常式。 在本文中，您將了解如何使用 Azure CLI 訂閱 Azure 應用程式組態事件。
+在本快速入門中，您將了解如何設定 Azure 應用程式組態事件訂用帳戶，以將索引鍵/值修改事件傳送至 Web 端點。 Azure 應用程式組態使用者可以訂閱修改索引鍵/值時所發出的事件。 這些事件可以觸發 Webhook、Azure Functions、Azure 儲存體佇列，或 Azure 事件方格所支援的任何其他事件處理常式。 通常，您會將事件傳送至可處理事件資料及採取行動的端點。 不過，若要簡化這篇文章，您可將事件傳送至可收集及顯示訊息的 Web 應用程式。
 
-通常，您會將事件傳送至可處理事件資料及採取行動的端點。 不過，若要簡化這篇文章，您可將事件傳送至可收集及顯示訊息的 Web 應用程式。
+## <a name="prerequisites"></a>必要條件
 
-當您完成本文所述的步驟時，會看到事件資料已傳送至 Web 應用程式。
-
-![訂用訂用帳戶事件](./media/quickstarts/event-grid/view-results.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+- Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)。 您可以選擇性地使用 Azure Cloud Shell。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -144,3 +140,4 @@ az group delete --name <resource_group_name>
 
 - [回應索引鍵/值事件](concept-app-configuration-event.md)
 - [關於 Event Grid](../event-grid/overview.md)
+- [Azure 事件方格處理常式](../event-grid/event-handlers.md)

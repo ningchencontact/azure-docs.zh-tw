@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 07/04/2019
-ms.openlocfilehash: 2ff5ebefbe379edda94dcf8ac066027398e2f3f4
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: baf3c372d0c84d4daf439fdc92fa6eeac5d12d0b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565552"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501027"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態下將 MongoDB 遷移至 Azure Cosmos DB 的 Mongo 版 API
 
@@ -128,6 +128,8 @@ ms.locfileid: "67565552"
      https://blobnameurl/container?SASKEY
      ```
 
+     在 Azure 儲存體總管中可以找到此 Blob 容器 SAS 連接字串。 建立相關容器的 SAS 將為您提供上述要求格式的 URL。
+     
      此外，根據 Azure 儲存體中的類型傾印資訊，請留意下列詳細資料。
 
      * 就 BSON 傾印而言，Blob 容器內的資料必須採用 bsondump 格式，使資料檔案以 collection.bson 的格式放入依所屬資料庫命名的資料夾中。 中繼資料檔案 (如果有的話) 則應使用 *collection*.metadata.json 的格式命名。

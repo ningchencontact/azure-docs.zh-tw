@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/23/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: b392f7fd6438b25a741aecb86a72f142d785f0e3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 245df0632765c4000bdf5da3e428187d2b068866
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237907"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402048"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Azure Cosmos DB 中使用 Apache Spark (預覽) 的內建作業分析 
 
@@ -57,7 +57,7 @@ Azure Cosmos DB 中的 Apache Spark 支援在 Apache Spark 執行階段提供內
 
 Azure Cosmos DB 為多模型資料庫，現在透過索引鍵值、文件、圖形、資料行系列資料模型提供**統一的 Apache Spark 無伺服器體驗**，進而擴充其 OSS API 支援。 使用 MongoDB、Cassandra、Gremlin、Etcd 和 SQL API 支援不同的資料模型 - 全都在相同的基礎資料上運作。 
 
-使用 Azure Cosmos DB 中的 Apache Spark 支援時，您可以原生方式支援以 Scala、Python、Java 撰寫的應用程式，以及使用數個適用於 SQL 且緊密整合的程式庫。 這些程式庫包括 ([Spark SQL](https://spark.apache.org/sql/))、機器學習 (Spark [MLlib](https://spark.apache.org/mllib/))、串流處理 ([Spark 結構化串流](https://spark.apache.org/streaming/))，以及圖形處理 (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html))。 這些工具可讓您更輕鬆地將 Apache Spark 運用於各種使用案例。 您不必處理 Spark 或 Spark 叢集的管理。 您可以使用熟悉的 Apache Spark API 和 **Jupyter Notebook** 進行分析，以及使用 SQL API 或任何 OSS NoSQL API (如 Cassandra ) 同時對相同的基礎資料進行交易處理。
+使用 Azure Cosmos DB 中的 Apache Spark 支援時，您可以原生方式支援以 Scala、Python、Java 撰寫的應用程式，以及使用數個適用於 SQL 且緊密整合的程式庫。 這些程式庫包括 ([Spark SQL](https://spark.apache.org/sql/))、機器學習 (Spark [MLlib](https://spark.apache.org/mllib/))、串流處理 ([Spark 結構化串流](https://spark.apache.org/streaming/))，以及圖形處理 (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html))。 這些工具可讓您更輕鬆地將 Apache Spark 用於各種使用案例。 您不必處理 Spark 或 Spark 叢集的管理。 您可以使用熟悉的 Apache Spark API 和 **Jupyter Notebook** 進行分析，以及使用 SQL API 或任何 OSS NoSQL API (如 Cassandra ) 同時對相同的基礎資料進行交易處理。
 
 ### <a name="no-schema-or-index-management"></a>不需要任何結構描述或索引管理
 
@@ -74,6 +74,68 @@ Apache Spark 作業會有 Azure Cosmos DB 優點，例如領先業界的全方�
 ### <a name="mixed-workloads"></a>混合的工作負載
 
 將 Apache Spark 整合到 Azure Cosmos DB 中，可跨越交易與分析區隔，當客戶建置全球規模的雲端原生應用程式時，此種區隔已成為主要的痛苦點之一。 
+
+## <a name="scenarios-for-azure-cosmos-db-spark-support"></a>Azure Cosmos DB Spark 支援案例
+
+### <a name="retail-and-consumer-goods"></a>零售與消費性商品
+
+您可以使用 Azure Cosmos DB 中的 Spark 支援來提供即時建議和供應項目。 您可以協助客戶透過即時個人化和產品建議探索他們所需的專案。
+
+* 您可以使用 Apache Spark 執行階段所提供的內建 Machine Learning 支援，產生各個產品目錄的即時建議。
+
+* 您可以採擷點選流資料、購買資料和客戶資料，以提供可推動存留期價值的目標建議。
+
+* 使用 Azure Cosmos DB 的全域散發功能時，分散於不同區域的大量產品資料將可在數毫秒內完成分析。
+
+* 您可以快速深入了解分散各地的使用者和資料。 您可以在適當時機將適當的廣告提供給對的使用者，以提升促銷轉換率。
+
+* 您可以利用內建的 Spark 串流功能，藉由將即時資料與靜態客戶資料結合來擴充資料。 如此，您就可以即時提供更加個人化、目標更明確的廣告，並且與客戶的行為緊密呼應。
+
+下圖顯示如何使用 Azure Cosmos DB Spark 支援來最佳化定價和促銷：
+
+![最佳化定價和促銷的 Azure Cosmos DB Spark 支援](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
+
+
+下圖顯示如何在即時建議引擎中使用 Azure Cosmos DB Spark 支援：
+
+![即時建議引擎中的 Azure Cosmos DB Spark 支援](./media/spark-api-introduction/real-time-recommendation-engine.png)
+
+### <a name="manufacturing-and-iot"></a>製造和 IoT
+
+Azure Cosmos DB 的內建分析平台可讓您從全球各地的數百萬個裝置啟用 IoT 資料的即時分析。 您可以進行現代化的創新，例如預測天氣模式、預測性分析和能源最佳化。
+
+* 藉由使用 Azure Cosmos DB，您可以採擷即時資產計量和天氣因素之類的資料，然後套用智慧電網分析，以最佳化現場連線裝置的效能。 智慧電網分析是控制營運成本、提升電網可靠性，以及為消費者提供個人化能源服務的重要關鍵。
+
+下圖顯示如何使用 Azure Cosmos DB 的 Spark 支援讀取來自 IoT 裝置的計量，並套用智慧電網分析：
+
+![讀取 IoT 裝置計量的 Azure Cosmos DB Spark 支援](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
+
+
+### <a name="predictive-maintenance"></a>預測性維護
+
+* 維護深水平台的小型鑽探設備所使用的資產 (例如壓縮機)，是一項複雜的工作。 這些資產分佈於全球各地，並產生數以 PB 計的資料。 藉由使用 Azure Cosmos DB，您可以建置端對端預測性資料管線，以使用 Spark 串流來處理大量的感應器遙測資料、儲存資產組件和感應器對應資料。
+
+* 您可以建置並部署機器學習模型，以在資產故障發生之前先行預測，並發出維護工單。
+
+下圖顯示如何使用 Azure Cosmos DB Spark 支援來建置預測性維護系統：
+
+![建置預測性維護系統的 Azure Cosmos DB Spark 支援](./media/spark-api-introduction/predictive-maintenance-system.png)
+
+下圖顯示如何使用 Azure Cosmos DB Spark 支援來建置即時車輛診斷系統：
+
+![建置即時車輛診斷系統的 Azure Cosmos DB Spark 支援](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
+
+### <a name="gaming"></a>玩遊戲
+
+* 透過內建 Spark 支援，Azure Cosmos DB 可讓您在短短幾分鐘內輕鬆建立、調整及部署進階分析和機器學習模型，以產生最理想的遊戲體驗。
+
+* 您可以分析玩家、購買和行為資料以建立相關的個人化供應項目，進而達到高轉換率。
+
+* 使用 Spark 機器學習，可以分析並深入了解遊戲的遙測資料。 您可以診斷及防止載入時間緩慢和遊戲中的問題。
+
+下圖顯示如何在遊戲分析中使用 Azure Cosmos DB Spark 支援：
+
+![遊戲分析中的 Azure Cosmos DB Spark 支援](./media/spark-api-introduction/gaming-analytics.png)
 
 ## <a name="built-in-jupyter-notebooks-support"></a>內建 Jupyter Notebook 支援
 

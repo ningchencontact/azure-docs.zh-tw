@@ -3,17 +3,18 @@ title: 教學課程 - 準備 Azure 容器執行個體的容器登錄
 description: Azure 容器執行個體教學課程第 2 部分 (共 3 部分) - 準備 Azure Container Registry 並推送映像
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c1a4313f9a8174b9ea6e6cff694b9a0a9cf395d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538148"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325613"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>教學課程：部署 Azure Container Registry 並推送容器映像
 
@@ -34,21 +35,21 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄。 在本教學課
 
 ## <a name="create-azure-container-registry"></a>建立 Azure Container Registry
 
-建立容器登錄之前，您需要「資源群組」才能部署它。 資源群組是在其中部署及管理所有 Azure 資源的邏輯集合。
+建立容器登錄之前，您需要「資源群組」  才能部署它。 資源群組是在其中部署及管理所有 Azure 資源的邏輯集合。
 
-使用 [az group create][az-group-create] 命令來建立資源群組。 在下列範例中，會在 eastus 區域中建立名為 myResourceGroup 的資源群組：
+使用 [az group create][az-group-create] 命令來建立資源群組。 在下列範例中，會在 eastus  區域中建立名為 myResourceGroup  的資源群組：
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-建立資源群組後，請使用 [az acr create][az-acr-create] 命令來建立 Azure Container Registry。 容器登錄名稱在 Azure 內必須是唯一的，且必須包含 5-50 個英數字元。 以登錄的唯一名稱取代 `<acrName>`：
+建立資源群組後，請使用 [az acr create][az-acr-create] 命令建立 Azure Container Registry。 容器登錄名稱在 Azure 內必須是唯一的，且必須包含 5-50 個英數字元。 以登錄的唯一名稱取代 `<acrName>`：
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-以下是名為 mycontainerregistry082 之新 Azure Container Registry 之輸出 (此處顯示的內容遭到截斷)：
+以下是名為 mycontainerregistry082  之新 Azure Container Registry 之輸出 (此處顯示的內容遭到截斷)：
 
 ```console
 $ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
@@ -77,7 +78,7 @@ $ az acr create --resource-group myResourceGroup --name mycontainerregistry082 -
 
 ## <a name="log-in-to-container-registry"></a>登入容器登錄
 
-您必須先登入 Azure Container Registry 執行個體，才能將映像推送給它。 請使用 [az acr login][az-acr-login] 命令完成此作業。 您必須提供在建立容器登錄時提供的唯一名稱。
+您必須先登入 Azure Container Registry 執行個體，才能將映像推送給它。 使用 [az acr login][az-acr-login] 命令來完成此作業。 您必須提供在建立容器登錄時提供的唯一名稱。
 
 ```azurecli
 az acr login --name <acrName>
@@ -100,7 +101,7 @@ Login Succeeded
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-例如，如果您的登錄名稱為 mycontainerregistry082：
+例如，如果您的登錄名稱為 mycontainerregistry082  ：
 
 ```console
 $ az acr show --name mycontainerregistry082 --query loginServer --output table
@@ -109,13 +110,13 @@ Result
 mycontainerregistry082.azurecr.io
 ```
 
-現在，使用 [docker images][docker-images] 命令來顯示您的本機映像清單：
+現在，使用 [docker images][docker-images] 命令顯示您的本機映像清單：
 
 ```bash
 docker images
 ```
 
-除了電腦上的任何其他映像，您應會看到在[上一個教學課程](container-instances-tutorial-prepare-app.md)中建立的 aci-tutorial-app 映像：
+除了電腦上的任何其他映像，您應會看到在[上一個教學課程](container-instances-tutorial-prepare-app.md)中建立的 aci-tutorial-app  映像：
 
 ```console
 $ docker images
@@ -140,7 +141,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>將映像推送至 Azure Container Registry
 
-既然已使用私人登錄的完整登入伺服器名稱標記 aci-tutorial-app 映像，您可以使用 [docker push][docker-push] 將它推送至登錄。 以您在稍早步驟中取得的完整登入伺服器名稱取代 `<acrLoginServer>`。
+您已使用私人登錄的完整登入伺服器名稱標記 aci-tutorial-app  映像，接下來您可以使用 [docker push][docker-push] 將它推送至登錄。 以您在稍早步驟中取得的完整登入伺服器名稱取代 `<acrLoginServer>`。
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -177,7 +178,7 @@ Result
 aci-tutorial-app
 ```
 
-若要查看特定映像的「標籤」，請使用 [az acr repository show-tags][az-acr-repository-show-tags] 命令。
+若要查看特定映像的「標籤」  ，請使用 [az acr repository show-tags][az-acr-repository-show-tags] 命令。
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table

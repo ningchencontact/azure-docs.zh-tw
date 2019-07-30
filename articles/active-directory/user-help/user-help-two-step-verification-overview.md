@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d33a18aaca923bd49858671546ab053cf3fb21a3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174039"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382137"
 ---
 # <a name="two-step-verification-overview"></a>雙步驟驗證概觀
 
@@ -30,9 +30,9 @@ ms.locfileid: "56174039"
 
 |文章 |說明 |
 |------|------------|
-|[設定體驗](multi-factor-authentication-end-user-first-time.md) |說明如何第一次設定雙步驟驗證。|
-|[開始使用雙步驟驗證](multi-factor-authentication-end-user.md)|說明雙步驟驗證對您的意義。| 
-|[登入方式](user-help-sign-in.md)|說明如何使用您指定的驗證方法進行登入。|
-|[變更您的設定](multi-factor-authentication-end-user-manage-settings.md) |說明如何變更您的設定，例如電話號碼或慣用的註冊方法。|
-|[協助進行雙步驟驗證](multi-factor-authentication-end-user-troubleshoot.md) |說明如何使用雙步驟驗證，針對常見的問題進行疑難排解。|
-|[管理應用程式密碼](multi-factor-authentication-end-user-app-passwords.md) |說明如何建立及使用應用程式密碼。|
+| [設定體驗](multi-factor-authentication-end-user-first-time.md) |說明如何第一次設定雙步驟驗證。|
+| [開始使用雙步驟驗證](multi-factor-authentication-end-user.md)：說明雙步驟驗證對您的意義。| 
+| [登入方式](user-help-sign-in.md)：說明如何使用您指定的驗證方法進行登入。|
+| [變更您的設定](multi-factor-authentication-end-user-manage-settings.md) |說明如何變更您的設定，例如電話號碼或慣用的註冊方法。|
+| [協助進行雙步驟驗證](multi-factor-authentication-end-user-troubleshoot.md) |說明如何使用雙步驟驗證，針對常見的問題進行疑難排解。|
+| [管理應用程式密碼](multi-factor-authentication-end-user-app-passwords.md) |說明如何建立及使用應用程式密碼。|

@@ -14,24 +14,22 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e27635d153e58f96dad7db6870ed1dc3f640236a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393558"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326477"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 Java Spring 應用程式
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式組態建立 Java Spring 應用程式
 
-Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務納入 Java Spring 應用程式中。
-
-您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
+在本快速入門中，您會將 Azure 應用程式組態納入 Java Spring 應用程式中，以集中儲存和管理應用程式設定 (與您的程式碼分開)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本快速入門，請安裝支援的 [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) 第 8 版和 [Apache Maven](https://maven.apache.org/) 3.0 版或更新版本。
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+- 受支援的 [Java 開發套件 (JDK)](https://docs.microsoft.com/java/azure/jdk) 第 8 版。
+- [Apache Maven](https://maven.apache.org/download.cgi) 3.0 版或更新版本。
 
 ## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
 

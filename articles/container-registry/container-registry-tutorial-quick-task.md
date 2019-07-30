@@ -3,17 +3,18 @@ title: 教學課程：在雲端中建置容器映像 - Azure Container Registry 
 description: 在本教學課程中，您將了解如何使用 Azure Container Registry 工作 (ACR 工作) 在 Azure 中建置 Docker 容器映像，然後將其部署至 Azure 容器執行個體。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152103"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310448"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>教學課程：使用 Azure Container Registry 工作在雲端中建置和部署容器映像
 
@@ -34,7 +35,7 @@ ms.locfileid: "66152103"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您想要在本機使用 Azure CLI，您必須安裝 Azure CLI **2.0.46** 版或更新版本，並使用 [az login][az-login] 登入。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI][azure-cli]。
+如果您想要在本機使用 Azure CLI，必須安裝 Azure CLI **2.0.46** 版或更新版本，並使用 [az login][az-login] 登入。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級 CLI，請參閱[安裝 Azure CLI][azure-cli]。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -191,7 +192,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 您現在需要建立服務主體，並將它的認證儲存在金鑰保存庫中。
 
-使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令建立服務主體，並使用 [az keyvault secret set][az-keyvault-secret-set] 將服務主體的**密碼**儲存在保存庫中：
+使用 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] 將服務主體的**密碼**儲存在保存庫中：
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)
@@ -206,9 +207,9 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-在前面的命令中，`--role` 引數設定服務主體具有 acrpull 角色，授與主體僅限提取登錄的存取權。 若要同時授與發送和提取存取權，請將 `--role` 引數變更為 acrpush。
+在前面的命令中，`--role` 引數設定服務主體具有 acrpull  角色，授與主體僅限提取登錄的存取權。 若要同時授與發送和提取存取權，請將 `--role` 引數變更為 acrpush  。
 
-接下來，在保存庫中儲存服務主體的 appId，也就是您傳遞給 Azure Container Registry 進行驗證的**使用者名稱**：
+接下來，在保存庫中儲存服務主體的 appId  ，也就是您傳遞給 Azure Container Registry 進行驗證的**使用者名稱**：
 
 ```azurecli-interactive
 # Store service principal ID in AKV (the registry *username*)

@@ -7,22 +7,22 @@
 - name: 快速入門
   expaned: true
   items:
-    - name: 定型自訂模型和擷取資料
+    - name: 使用 REST API
       items:
-        - name: 使用 REST API
+        - name: 定型自訂模型和擷取資料
           items:
             - name: cURL
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
-    - name: 使用預先建置的回條模型
-      items:
-        - name: 使用 REST API
+        - name: 使用預先建置的回條模型
           items:
             - name: cURL
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+    - name: 使用 .NET SDK
+      href: quickstarts/dotnet-sdk.md
 - name: 使用說明指南
   items:
     - name: 建置訓練資料集

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: b958711c498f0826f2a48d92d4892eb43ec8d18a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446086"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377244"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>快速入門：使用 C Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH 和 RDP 輸送 (預覽)
 
@@ -149,7 +149,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
 ### <a name="run-the-device-local-proxy-application"></a>執行裝置本機 Proxy 應用程式
 
-1. 編輯 iothub_client/samples/iothub_client_c2d_streaming_sample   資料夾中的 iothub_client_c2d_streaming_sample.c 來源檔案，然後提供您的裝置連接字串、目標裝置 IP/主機名稱和 SSH 連線埠 22：
+1. 編輯 iothub_client/samples/iothub_client_c2d_streaming_proxy_sample  資料夾中的 iothub_client_c2d_streaming_proxy_sample  來源檔案，然後提供您的裝置連接字串、目標裝置 IP/主機名稱和 SSH 連線埠 22：
 
    ```C
    /* Paste in your iothub connection string  */

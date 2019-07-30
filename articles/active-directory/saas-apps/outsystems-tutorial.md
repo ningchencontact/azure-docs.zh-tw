@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c689c6624a47a01e8e85c8aec33b956459981f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f631a641ab63d33d27d1e4520a000b4b01132be
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095358"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478574"
 ---
 # <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>教學課程：整合 OutSystems Azure AD 與 Azure Active Directory
 
@@ -101,7 +101,7 @@ ms.locfileid: "67095358"
 
 ### <a name="configure-outsystems-azure-ad"></a>設定 OutSystems Azure AD
 
-若要在  端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [OutSystems 支援小組](mailto:support@outsystems.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 OutSystems 端設定單一登入，您必須下載 [IdP forge](https://www.outsystems.com/forge/component-overview/599/idp)元件，如[指示](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Configure_your_application_to_use_IdP_connector)中所述進行設定。 安裝此元件並進行必要的程式碼變更之後，請根據下列[指示](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Azure_AD_.2F_ADFS)，從 Azure 入口網站下載同盟中繼資料 XML 並在 OutSystems IdP 元件上傳，以設定 Azure AD。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -135,7 +135,7 @@ ms.locfileid: "67095358"
 
 ### <a name="create-outsystems-azure-ad-test-user"></a>建立 OutSystems Azure AD 測試使用者
 
-本節會在 OutSystems 中建立名為 Britta Simon 的使用者。 OutSystems 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 OutSystems 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 OutSystems 中建立名為 B.Simon 的使用者。 OutSystems 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 OutSystems 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-sso"></a>測試 SSO
 

@@ -15,38 +15,31 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 487a51b6f644cca88011383b8035515d437857e6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5930ac3834c0b697a4c03ce5b110dfeac105436a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237887"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324440"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>快速入門：搭配使用 Azure Cache for Redis 與 .NET 應用程式
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>快速入門：搭配使用 Azure Cache for Redis 與 .NET Framework 應用程式
 
-
-
-本快速入門示範如何開始搭配使用 Microsoft Azure Cache for Redis 與 .NET。 Microsoft Azure Cache for Redis 會以熱門的開放原始碼 Azure Cache for Redis 為根據。 它可讓您存取由 Microsoft 所管理的安全、專用 Azure Cache for Redis。 使用 Azure Cache for Redis 建立的快取，可透過 Microsoft Azure 內的任何應用程式加以存取。
-
-在這個快速入門中，您會在主控台應用程式中搭配使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 用戶端與 C\# 程式碼。 您會建立快取，並設定 .NET 用戶端應用程式。 然後，您會在快取中新增並更新物件。 
-
-![主控台應用程式已完成](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+在本快速入門中，您會將 Azure Cache for Redis 納入 .NET Framework 應用程式中，以便存取可從 Azure 內的任何應用程式存取的安全專用快取。 您會在 .NET 主控台應用程式中明確地搭配使用 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 用戶端與 C# 程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
-* StackExchange.Redis 用戶端需要 [.NET Framework 4 或更新版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)。
+- Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+- [.NET Framework 4 或更新版本](https://www.microsoft.com/net/download/dotnet-framework-runtime)，這是 StackExchange.Redis 用戶端的必要項目。
 
 ## <a name="create-a-cache"></a>建立快取
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-在電腦上建立名為 CacheSecrets.config 的檔案，並將它放在應用程式範例的原始程式碼不會簽入的位置。 在本快速入門中，CacheSecrets.config 檔案位於這裡 (C:\AppSecrets\CacheSecrets.config)。
+在電腦上建立名為 CacheSecrets.config  的檔案，並將它放在應用程式範例的原始程式碼不會簽入的位置。 在本快速入門中，CacheSecrets.config  檔案位於這裡 (C:\AppSecrets\CacheSecrets.config)  。
 
-編輯 CacheSecrets.config 檔案，並新增下列內容：
+編輯 CacheSecrets.config  檔案，並新增下列內容：
 
 ```xml
 <appSettings>
@@ -61,9 +54,9 @@ ms.locfileid: "56237887"
 
 ## <a name="create-a-console-app"></a>建立主控台應用程式
 
-在 Visual Studio 中，按一下 [檔案] > [新增] > [專案]。
+在 Visual Studio 中，按一下 [檔案]   > [新增]   > [專案]  。
 
-在 **Visual C#** 下，按一下 [Windows 傳統桌面]，然後按一下 [主控台應用程式] 和 [確定]，以建立新的主控台應用程式。
+在 **Visual C#** 下，按一下 [Windows 傳統桌面]  ，然後按一下 [主控台應用程式]  和 [確定]  ，以建立新的主控台應用程式。
 
 
 <a name="configure-the-cache-clients"></a>
@@ -72,7 +65,7 @@ ms.locfileid: "56237887"
 
 在本節中，您會設定主控台應用程式，以使用適用於 .NET 的 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 用戶端。
 
-在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [Package Manager Console]，然後從 Package Manager Console 視窗執行下列命令。
+在 Visual Studio 中，按一下 [工具]   > [NuGet 套件管理員]   > [Package Manager Console]  ，然後從 Package Manager Console 視窗執行下列命令。
 
 ```powershell
 Install-Package StackExchange.Redis
@@ -83,7 +76,7 @@ Install-Package StackExchange.Redis
 
 ## <a name="connect-to-the-cache"></a>連接到快取
 
-在 Visual Studio 中開啟 App.config 檔案，並將其更新為包含 `appSettings` `file` 屬性 (會參考 CacheSecrets.config 檔案)。
+在 Visual Studio 中開啟 App.config  檔案，並將其更新為包含 `appSettings` `file` 屬性 (會參考 CacheSecrets.config  檔案)。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -97,9 +90,9 @@ Install-Package StackExchange.Redis
 </configuration>
 ```
 
-在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [新增參考]。 新增 **System.Configuration** 組件的參考。
+在 [方案總管] 中，以滑鼠右鍵按一下 [參考]  ，然後按一下 [新增參考]  。 新增 **System.Configuration** 組件的參考。
 
-將下列 `using` 陳述式新增至 Program.cs：
+將下列 `using` 陳述式新增至 Program.cs  ：
 
 ```csharp
 using StackExchange.Redis;
@@ -110,7 +103,7 @@ using System.Configuration;
 
 請勿將認證儲存在原始程式碼中。 為了簡化這個範例，我只使用外部密碼組態檔。 搭配使用 [Azure 金鑰保存庫與憑證](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios)會更好。
 
-在 Program.cs 中，對主控台應用程式的 `Program` 類別新增下列成員：
+在 Program.cs  中，對主控台應用程式的 `Program` 類別新增下列成員：
 
 ```csharp
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -131,7 +124,7 @@ using System.Configuration;
 
 這個在應用程式中共用 `ConnectionMultiplexer` 執行個體的方法，會使用可傳回已連線執行個體的靜態屬性。 此程式碼會提供安全執行緒方式，只初始化一個已連線的 `ConnectionMultiplexer` 執行個體。 `abortConnect` 會設為 false，這表示即使無法建立與 Azure Cache for Redis 的連線，呼叫也會成功。 `ConnectionMultiplexer` 的主要功能之一，就是一旦網路問題或其他原因獲得解決，它就會自動恢復與快取的連接。
 
-CacheConnection appSetting 的值可用來從 Azure 入口網站中將快取連接字串參考作為密碼參數。
+CacheConnection  appSetting 的值可用來從 Azure 入口網站中將快取連接字串參考作為密碼參數。
 
 ## <a name="executing-cache-commands"></a>執行快取命令
 
@@ -193,19 +186,19 @@ Azure Cache for Redis 可以快取 .NET 物件及基本資料類型，但必須�
 
 將物件序列化的其中一個簡單方法就是使用 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) 中的 `JsonConvert` 序列化方法並進行 JSON 的雙向序列化。 在本節中，您會對快取新增 .NET 物件。
 
-在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [Package Manager Console]，然後從 Package Manager Console 視窗執行下列命令。
+在 Visual Studio 中，按一下 [工具]   > [NuGet 套件管理員]   > [Package Manager Console]  ，然後從 Package Manager Console 視窗執行下列命令。
 
 ```powershell
 Install-Package Newtonsoft.Json
 ```
 
-在 Program.cs 開頭處新增以下 `using` 陳述式：
+在 Program.cs  開頭處新增以下 `using` 陳述式：
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-將下列 `Employee` 類別定義新增至 Program.cs：
+將下列 `Employee` 類別定義新增至 Program.cs  ：
 
 ```csharp
         class Employee
@@ -223,7 +216,7 @@ using Newtonsoft.Json;
         }
 ```
 
-在 Program.cs 中的 `Main()` 程序底部，於 `Dispose()` 呼叫之前，對快取新增下列程式碼，並擷取已序列化的 .NET 物件：
+在 Program.cs  中的 `Main()` 程序底部，於 `Dispose()` 呼叫之前，對快取新增下列程式碼，並擷取已序列化的 .NET 物件：
 
 ```csharp
             // Store .NET object to cache
@@ -254,13 +247,13 @@ using Newtonsoft.Json;
 > 刪除資源群組是無法回復的動作，資源群組和其內的所有資源將會永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您是在包含有需要保留之資源的現有資源群組內，建立用來裝載此範例的資源，則可以從每個資源各自的刀鋒視窗中個別刪除每個資源，而不必刪除正個資源群組。
 >
 
-登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
+登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]  。
 
-在 [依名稱篩選...] 文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources 的資源群組。 在結果清單中的目標資源群組上方，按一下 **...**，然後按一下 [刪除資源群組]。
+在 [依名稱篩選...]  文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources  的資源群組。 在結果清單中的目標資源群組上方，按一下 **...** ，然後按一下 [刪除資源群組]  。
 
 ![刪除](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]。
+系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]  。
 
 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 

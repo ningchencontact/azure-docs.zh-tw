@@ -50,6 +50,18 @@
       href: ../hdinsight-version-release.md
     - name: 使用 Ambari 和 Azure 監視器記錄監視叢集可用性
       href: ../hdinsight-cluster-availability.md
+    - name: 疑難排解
+      items:
+        - name: OutOfMemoryError 例外狀況
+          items:
+            - name: 堆積記憶體不足
+              href: ./apache-spark-troubleshoot-outofmemory-heap.md
+        - name: IllegalArgumentException 例外狀況
+          href: ./apache-spark-troubleshoot-illegalargumentexception.md
+        - name: Apache Spark 串流應用程式停止
+          href: ./apache-spark-troubleshoot-application-stops.md
+        - name: RpcTimeoutException 例外狀況
+          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
 - name: 作法
   items:
     - name: 使用叢集儲存體

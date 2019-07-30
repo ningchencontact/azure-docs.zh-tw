@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2554501ecf6d4ef115e3283fa635c24510b8c797
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 728bf785edebcd17599b6a56edea1e26ed2d2fbc
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249596"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311781"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>將實體或虛擬化伺服器遷移至 Azure 
 
@@ -72,8 +72,8 @@ ms.locfileid: "68249596"
 ### <a name="assign-permissions-to-create-project"></a>指派建立專案的權限
 
 1. 在 Azure 入口網站中開啟訂用帳戶，然後選取 [存取控制 (IAM)]  。
-2. 在 [檢查存取權]  中尋找相關的帳戶，然後按一下該帳戶以檢視權限。
-3. 您應該會有**參與者**或**擁有者**權限。
+2. 在 [檢查存取權]  中，尋找相關的帳戶，然後按一下以查看權限。
+3. 您應該會具有「參與者」  或「擁有者」  權限。
     - 如果您剛建立免費的 Azure 帳戶，您就是訂用帳戶的擁有者。
     - 如果您不是訂用帳戶擁有者，請與擁有者合作以指派角色。
 
@@ -111,7 +111,7 @@ ms.locfileid: "68249596"
 在 Azure Migrate 專案所在的資源群組上指派角色指派權限，如下所示：
 
 1. 在 Azure 入口網站的資源群組中，選取 [存取控制 (IAM)]  。
-2. 在 [檢查存取權]  中尋找相關的帳戶，然後按一下該帳戶以檢視權限。 您需要**擁有者** (或**參與者**和**使用者存取系統管理員**) 權限。
+2. 在 [檢查存取權]  中，尋找相關的帳戶，然後按一下以查看權限。 您需要**擁有者** (或**參與者**和**使用者存取系統管理員**) 權限。
 3. 如果您沒有必要權限，請向資源群組擁有者提出要求。 
 
 ## <a name="prepare-for-migration"></a>為移轉做準備
@@ -214,7 +214,7 @@ ms.locfileid: "68249596"
 4. 將安裝程式檔案複製到要遷移的機器。
 5. 確定您具有先前部署設備時所產生的複雜密碼。
     - 將檔案儲存在機器上的暫存文字檔中。
-    - 您可以在複寫設備上取得此複雜密碼。 從命令列執行 **C:\ProgramData\ASR\svsystems\bin\genpassphrase.exe -v**，可檢視目前的複雜密碼。
+    - 您可以在複寫設備上取得此複雜密碼。 從命令列執行 **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v**，可檢視目前的複雜密碼。
     - 請勿重新產生複雜密碼。 這會使連線中斷，而您將必須重新註冊複寫設備。
 
 
@@ -269,7 +269,7 @@ ms.locfileid: "68249596"
     ![複寫 VM](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
 7. 在 [虛擬機器]  的 [從評量匯入移轉設定?]  中，保留預設設定 [否，我將手動指定移轉設定]  。
-8. 檢查您要遷移的每個 VM。 然後按 [下一步：**目標設定]** 。
+8. 檢查您要遷移的每個 VM。 然後按 [下一步：  目標設定]。
 
     ![選取 VM](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
@@ -357,7 +357,7 @@ ms.locfileid: "68249596"
 3. 在 [遷移]   > [將虛擬機器關機，在沒有資料遺失的情況下執行計劃性移轉]  中，選取 [是]   > [確定]  。
     - 根據預設，Azure Migrate 會關閉內部部署 VM，並執行隨選複寫，以同步處理上次複寫執行後發生的任何 VM 變更。 這樣可確保不會遺失任何資料。
     - 如果您不想關閉 VM，請選取 [否] 
-4. 啟動 VM 的移轉作業。 在 Azure 通知中追蹤作業。
+4. VM 會啟動移轉作業。 請在 Azure 通知中追蹤該作業。
 5. 作業完成後，您可以從 [虛擬機器]  頁面檢視及管理 VM。
 
 ## <a name="complete-the-migration"></a>完成移轉

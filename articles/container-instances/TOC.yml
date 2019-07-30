@@ -61,7 +61,7 @@
           href: container-instances-restart-policy.md
         - name: 設定環境變數 (env)
           href: container-instances-environment-variables.md
-        - name: 覆寫容器的進入點
+        - name: 設定容器啟動命令 (entrypoint)
           href: container-instances-start-command.md
         - name: 執行命令 (exec)
           href: container-instances-exec.md

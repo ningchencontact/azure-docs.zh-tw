@@ -4,14 +4,14 @@ description: 了解如何設定 IP 存取控制原則，以提供 Azure Cosmos D
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 24ebc7eb4c9abc72a89419611e4b4b3fa2db88b4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0b8ad6c5addbff293e9f7e9b8af6ed34d4dd274b
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241972"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494885"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中設定 IP 防火牆
 
@@ -49,7 +49,7 @@ ms.locfileid: "66241972"
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>允許來自全球 Azure 資料中心或 Azure 中其他來源的要求
 
-如果您從不提供靜態 IP 的服務 (例如 Azure 串流分析和 Azure Functions) 存取 Azure Cosmos DB 帳戶，您仍然可以使用 IP 防火牆來限制存取。 若要允許從這類服務存取 Azure Cosmos DB 帳戶，請將 IP 位址 0.0.0.0 新增至允許的 IP 位址清單。 0.0.0.0 位址會限制只能從 Azure 資料中心 IP 範圍向您的 Azure Cosmos DB 帳戶提出要求。 此設定不允許針對任何其他 IP 範圍存取您的 Azure Cosmos DB 帳戶。
+如果您從不提供靜態 IP 的服務 (例如 Azure 串流分析和 Azure Functions) 存取 Azure Cosmos DB 帳戶，您仍然可以使用 IP 防火牆來限制存取。 若要允許從這類服務存取 Azure Cosmos DB 帳戶，請將 IP 位址 0.0.0.0 新增至允許的 IP 位址清單。 0\.0.0.0 位址會限制只能從 Azure 資料中心 IP 範圍向您的 Azure Cosmos DB 帳戶提出要求。 此設定不允許針對任何其他 IP 範圍存取您的 Azure Cosmos DB 帳戶。
 
 > [!NOTE]
 > 這個選項會將防火牆設定為允許所有來自 Azure 的連線，包括來自 Azure 中所部署之其他客戶訂用帳戶的連線。 此選項所允許的 IP 清單範圍寬鬆，因而限制了防火牆原則的效果。 只有當您的要求不是來自靜態 IP 或虛擬網路中的子網路時，才使用此選項。 由於 Azure 入口網站部署於 Azure 中，因此，選擇此選項就會自動允許從 Azure 入口網站存取。
@@ -94,21 +94,24 @@ ms.locfileid: "66241972"
 
 ## <a id="configure-ip-firewall-arm"></a>使用 Resource Manager 範本設定 IP 防火牆
 
-為了設定 Azure Cosmos DB 帳戶的存取控制，請確定 Resource Manager 範本指定 **ipRangeFilter** 屬性，其中含有允許的 IP 範圍清單。 例如，將下列 JSON 程式碼新增至您的範本：
+為了設定 Azure Cosmos DB 帳戶的存取控制，請確定 Resource Manager 範本指定 **ipRangeFilter** 屬性，其中含有允許的 IP 範圍清單。 如果將 IP 防火牆設定為已部署的 Cosmos 帳戶，請確保 `locations` 陣列符合目前所部署的項目。 您無法同時修改 `locations` 陣列和其他屬性。 如需 Azure Cosmos DB 的 ARM 範本詳細資訊和範例，請參閱[適用於 Azure Cosmos DB 的 Azure Resource Manager 範本](resource-manager-samples.md)
 
 ```json
-   {
-     "apiVersion": "2015-04-08",
-     "type": "Microsoft.DocumentDB/databaseAccounts",
-     "kind": "GlobalDocumentDB",
-     "name": "[parameters('databaseAccountName')]",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "databaseAccountOfferType": "Standard",
-       "name": "[parameters('databaseAccountName')]",
-       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
-     }
-   }
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2016-03-31",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
+    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  }
+}
 ```
 
 ## <a id="configure-ip-firewall-cli"></a>使用 Azure CLI 設定 IP 存取控制原則

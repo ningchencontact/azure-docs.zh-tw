@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860466"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478466"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>教學課程：使用 Visual Studio 中的連線服務連線至文字分析服務
 
@@ -54,7 +54,7 @@ ms.locfileid: "65860466"
    瀏覽此連結，以取得定價層的詳細資料。
 
 1. 選擇 [新增]  以新增連線服務的支援。
-   Visual Studio 會修改專案，以新增 NuGet 套件、設定檔項目與其他變更，以支援文字分析服務的連線。 [輸出視窗]  會顯示您的專案發生什麼情形的記錄。 您應該會看到如下的內容：
+   Visual Studio 會修改專案，以新增 NuGet 套件、設定檔項目與其他變更，以支援文字分析服務的連線。 [輸出視窗]  會顯示您的專案發生什麼情形的記錄。 輸出看起來應該如下所示：
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -90,7 +90,7 @@ ms.locfileid: "65860466"
       }
    ```
 
-1. 在 Controllers 資料夾中，新增一個稱為 DemoTextAnalyzeController 的類別檔案，並將其內容取代為下列程式碼：
+1. 在 Controllers  資料夾中新增一個稱為 `DemoTextAnalyzeController` 的類別檔案，並以下列程式碼取代其內容：
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ ms.locfileid: "65860466"
     }
     ```
     
-    此程式碼包含 GetTextAnalyzeClient，可取得您能夠用來呼叫文字分析 API 的用戶端物件，並要求能夠針對指定的文字，呼叫 DetectLanguage 的處理常式。
+    此程式碼包含 `GetTextAnalyzeClient`，可取得可用來呼叫文字分析 API 的用戶端物件，並要求能夠針對指定的文字，呼叫 DetectLanguage 的處理常式。
 
 1. 新增上述程式碼使用的 MyHandler 協助程式類別。
 
@@ -171,7 +171,7 @@ ms.locfileid: "65860466"
         }
     ```
 
-1. 在 [模型] 資料夾中，新增模型的類別。
+1. 在 Models  資料夾中，新增模型的類別。
 
     ```csharp
     using System;

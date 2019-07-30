@@ -47,6 +47,8 @@
           href: functions-integrate-storage-queue-output-binding.md
         - name: 儲存體 - Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
+        - name: 儲存體 - Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
 - name: 教學課程
   items:
     - name: 搭配使用 Functions 與 Logic Apps

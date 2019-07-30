@@ -2,31 +2,25 @@
 title: Azure Active Directory Identity Protection | Microsoft Docs
 description: 了解 Azure AD Identity Protection 如何讓您限制攻擊者利用遭入侵的身分識別或裝置的能力，以及保護先前疑似或已知遭到入侵的身分識別或裝置。
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.openlocfilehash: 99a542d3208d5871d88c966fffc65cf16e0fbeee
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440503"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335385"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 是什麼？
 
-Azure Active Directory[識別](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)Protection 可讓組織就能設定自動回應偵測到使用者的身分識別相關的可疑活動。
+Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection 可讓組織設定自動回應，以偵測與使用者身分識別相關的可疑動作。
 
 ## <a name="get-started"></a>開始使用
 
@@ -37,12 +31,11 @@ Microsoft 保護雲端身分識別已經超過十多年。 在您的環境中使
 如此一來，您必須：
 
 - 保護所有的識別身分，不論其權限層級
-
 - 主動防止遭入侵的身分識別被濫用
 
 探索遭入侵的身分識別並不容易。 Azure Active Directory 使用調適性機器學習運算法和啟發學習法來偵測表示可能遭入侵身份識別的異常與可疑事件。 Identity Protection 會使用此資料來產生報告和警示，讓您評估偵測到的問題並採取適當的緩和或補救動作。
 
-Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 這些原則，除了 Azure Active Directory 所提供的其他條件式存取控制並[Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS)，可以自動封鎖或起始包括的調適性補救動作重設密碼以及強制 multi-factor authentication。
+Azure Active Directory Identity Protection 不只是監視和報告工具而已。 若要保護您組織的身分識別，您可以設定以風險為基礎的原則，當達到指定風險層級時自動回應偵測到的問題。 除了 Azure Active Directory 與 [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS) 所提供的其他條件式存取控制以外，這些的原則可以自動封鎖或起始調適性補救動作，包括重設密碼以及強制 Multi-Factor Authentication。
 
 ### <a name="identity-protection-capabilities"></a>Identity Protection 功能
 
@@ -59,7 +52,7 @@ Azure Active Directory Identity Protection 不只是監視和報告工具而已�
 - 提供基本工作流程來追蹤調查
 - 讓您輕鬆存取補救動作，例如重設密碼
 
-**風險型條件式存取原則：**
+**風險條件式存取原則：**
 
 - 此原則可藉由封鎖登入或要求多重要素驗證挑戰，以儘量阻止高風險登入
 - 此原則會封鎖或保護有風險的使用者帳戶

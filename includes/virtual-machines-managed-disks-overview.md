@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198903"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68319993"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -37,11 +37,23 @@ ms.locfileid: "65198903"
 
 ### <a name="azure-backup-support"></a>Azure 備份支援
 
-為了防止發生區域災難，可使用 [Azure 備份](../articles/backup/backup-introduction-to-azure-backup.md)透過時間型備份和備份保留原則，來建立備份作業。 如此即可隨心所欲地執行簡易虛擬機器還原。 目前 Azure 備份支援的磁碟大小上限為四個 TiB 磁碟。 如需詳細資訊，請參閱[搭配使用受控磁碟 VM 與 Azure 備份](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。
+為了防止發生區域災難，可使用 [Azure 備份](../articles/backup/backup-overview.md)透過時間型備份和備份保留原則，來建立備份作業。 如此即可隨心所欲地執行簡易虛擬機器還原。 目前 Azure 備份支援的磁碟大小上限為四個 TiB 磁碟。  Azure 備份支援受控磁碟的備份和還原。 [深入了解](../articles/backup/backup-support-matrix-iaas.md) Azure VM 備份支援。
 
 ### <a name="granular-access-control"></a>細微的存取控制
 
 您可以使用 [Azure 角色型存取控制 (RBAC)](../articles/role-based-access-control/overview.md) 將受控磁碟的特定權限指派給一個或多個使用者。 受控磁碟公開各種不同的作業，包括讀取、寫入 (建立/更新)、刪除和擷取磁碟的[共用存取簽章 (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)。 您可以授權某人只能存取他份內工作所需的作業。 例如，如果您不想讓某人將受控磁碟複製到儲存體帳戶，您可以選擇不要授權存取該受控磁碟的匯出動作。 同樣地，如果您不想讓某人使用 SAS URI 來複製受控磁碟，您可以選擇不要授與有關受控磁碟的這種權限。
+
+## <a name="encryption"></a>加密
+
+受控磁片提供兩種不同的加密。 第一種是「儲存體服務加密」(SSE)，這會由儲存體服務執行。 第二種是「Azure 磁碟加密」，您可以在您 VM 的作業系統和資料磁碟上啟用它。
+
+### <a name="storage-service-encryption-sse"></a>儲存體服務加密 (SSE)
+
+[Azure 儲存體服務加密](../articles/storage/common/storage-service-encryption.md)提供待用加密，並保護資料安全，以符合組織安全性和合規性承諾。 在所有可用受控磁碟的區域中，所有受控磁碟、快照集和映像預設都會啟用 SSE。 如需詳細資訊，請造訪[受控磁碟常見問題頁面](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)。
+
+### <a name="azure-disk-encryption-ade"></a>Azure 磁碟加密 (ADE)
+
+Azure 磁碟加密可讓您加密由 IaaS 虛擬機器所使用的作業系統和資料磁碟。 此加密包含受控磁碟。 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 加密程序會與 Azure Key Vault 整合，可讓您控制和管理磁碟加密金鑰。 如需詳細資訊，請參閱 [IaaS 虛擬機器適用的 Azure 磁碟加密](../articles/security/azure-security-disk-encryption-overview.md)。
 
 ## <a name="disk-roles"></a>磁碟角色
 
@@ -61,11 +73,11 @@ Azure 中有三個主要磁碟角色：資料磁碟、OS 磁碟和暫存磁碟�
 
 ### <a name="temporary-disk"></a>暫存磁碟
 
-每個虛擬機器皆包含一個暫存磁碟，此非受控磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期間或當您[重新佈署虛擬機器](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)時遺失。 在 Azure Linux VM 上，暫存磁碟預設為 /dev/sdb，而在 Windows VM 上，暫存磁碟預設為 E:。 在 VM 的成功標準重新開機期間，暫存磁碟上的資料將保留。
+每個虛擬機器皆包含一個暫存磁碟，此非受控磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期間或當您[重新佈署虛擬機器](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)時遺失。 在 Azure Linux VM 上，暫存磁碟預設為 /dev/sdb，而在 Windows VM 上，暫存磁碟預設為 D:。 在 VM 的成功標準重新開機期間，暫存磁碟上的資料將保留。
 
 ## <a name="managed-disk-snapshots"></a>受控磁碟快照集
 
-受控磁碟快照集是受控磁碟的完整唯讀複本，預設會儲存為標準受控磁碟。 快照集可讓您在任何時間點備份受控磁碟。 這些快照集可在來源磁碟外獨立存在，還能用來建立新的受控磁碟。 它們是根據使用的大小來計費。 例如，如果建立佈建容量為 64 GiB 的受控磁碟快照集，而實際使用資料大小為 10 GiB，則只會對已使用的 10 GiB 資料大小收取快照集費用。  
+受控磁碟快照集是受控磁碟的絕對一致完整唯讀複本，預設會儲存為標準受控磁碟。 快照集可讓您在任何時間點備份受控磁碟。 這些快照集可在來源磁碟外獨立存在，還能用來建立新的受控磁碟。 它們是根據使用的大小來計費。 例如，如果建立佈建容量為 64 GiB 的受控磁碟快照集，而實際使用資料大小為 10 GiB，則只會對已使用的 10 GiB 資料大小收取快照集費用。  
 
 若要深入了解如何建立受控磁碟的快照集，請參閱下列資源︰
 
@@ -89,6 +101,22 @@ Azure 中有三個主要磁碟角色：資料磁碟、OS 磁碟和暫存磁碟�
 
 快照集只會感知到本身包含的磁碟，對其他任何磁碟一概不知。 若要在需要協調多個磁碟的情況下 (例如等量分割) 使用，這會出現問題。 快照集必須能夠彼此協調，但目前不支援。
 
+## <a name="disk-allocation-and-performance"></a>磁碟配置和效能
+
+下圖使用三層佈建系統，說明進行磁碟的頻寬和 IOPS 即時配置：
+
+![顯示頻寬和 IOPS 配置的三層佈建系統](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
+
+第一層佈建會設定每個磁碟的 IOPS 和頻寬指派。  在第二層，計算伺服器主機會實作 SSD 佈建，只將它套用至伺服器 SSD 上儲存的資料，包括具有快取 (ReadWrite 和 ReadOnly) 的磁碟，以及本機和暫存磁碟。 最後，VM 網路佈建會針對計算主機傳送到 Azure 儲存體後端的任何 I/O 在第三層進行。 使用此配置時，VM 的效能取決於各種不同的因素，包括 VM 如何使用本機 SSD、連結的磁碟數目，以及其所連結磁碟的效能和快取類型。
+
+在這些限制的範例中，Standard_DS1v1 VM 因為 SSD 和網路層級的限制而無法達到 P30 磁碟的 5,000 IOPS 潛能 (不論是否快取)：
+
+![Standard_DS1v1 範例配置](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+
+Azure 會針對磁碟流量使用依優先順序的網路通道，其優先順序高於其他低優先順序的網路流量。 這可協助磁碟在網路爭用的情況下維持其預期的效能。 同樣地，Azure 儲存體會使用自動負載平衡來處理背景中的資源爭用和其他問題。 當您建立磁碟時，Azure 儲存體會配置所需的資源，並套用資源的主動式和回應式平衡來處理流量層級。 這可進一步確保磁碟可維持其預期的 IOPS 和輸送量目標。 您可以視需要使用 VM 層級和磁碟層級計量來追蹤效能和設定警示。
+
+請參閱我們的[高效能設計](../articles/virtual-machines/windows/premium-storage-performance.md)一文，以了解最佳化 VM 和磁碟組態的最佳作法，以便您達到所需的效能
+
 ## <a name="next-steps"></a>後續步驟
 
-請參閱磁碟類型的相關文章，深入了解 Azure 提供的各種磁碟類型，找出何種類型最符合您的需求。
+請參閱磁碟類型的相關文章，深入了解 Azure 提供的各種磁碟類型，找出何種類型最符合您的需求，以及了解其效能目標。

@@ -3,17 +3,18 @@ title: 快速入門 - 在 Azure 中建立私用的 Docker 登錄 - PowerShell
 description: 快速了解如何在 Azure 中使用 PowerShell 建立私用的 Docker 容器登錄。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82771d005ce38972cdb1484a02e071a30e577a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152168"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309487"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立私人容器登錄
 
@@ -25,13 +26,13 @@ Azure Container Registry 是受控的私用 Docker 容器登錄服務，用於�
 
 本快速入門需要 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 來判斷您安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
-您也必須在本機上安裝 Docker。 Docker 提供 [macOS][docker-mac], [Windows][docker-windows] 及 [Linux][docker-linux] 系統適用的封裝。
+您也必須在本機上安裝 Docker。 Docker 提供 [macOS][docker-mac], [Windows][docker-windows] 和 [Linux][docker-linux] 系統適用的套件。
 
 由於 Azure Cloud Shell 未包含所有必要的 Docker 元件 (`dockerd` 精靈)，因此您無法使用本快速入門中的 Cloud Shell。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-使用 [Connect-AzAccount][Connect-AzAccount] 命令登入 Azure 訂用帳戶，並遵循畫面上的指示進行。
+使用 [Connect-AzAccount][Connect-AzAccount] 命令登入 Azure 訂用帳戶，並依照畫面上的指示操作。
 
 ```powershell
 Connect-AzAccount
@@ -39,7 +40,7 @@ Connect-AzAccount
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-在您已經過 Azure 的驗證後，請使用 [New-AzResourceGroup][New-AzResourceGroup] 建立資源群組。 資源群組是一種邏輯容器，您可在其中部署與管理 Azure 資源。
+通過 Azure 的驗證後，請使用 [New-AzResourceGroup][New-AzResourceGroup] 建立資源群組。 資源群組是一種邏輯容器，您可在其中部署與管理 Azure 資源。
 
 ```powershell
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -55,7 +56,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-您在本快速入門中會建立「基本」登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層級的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
+您在本快速入門中會建立「基本」  登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層級的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
 
 ## <a name="log-in-to-registry"></a>登入登錄
 
@@ -65,7 +66,7 @@ $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-接下來，執行 [docker login][docker-login] 登入：
+接下來，執行 [docker login][docker-login] 以進行登入：
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin

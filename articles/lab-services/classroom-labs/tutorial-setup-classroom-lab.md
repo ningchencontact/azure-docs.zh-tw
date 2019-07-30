@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123248"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385663"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -113,14 +113,14 @@ ms.locfileid: "67123248"
 您可以使用下列步驟來設定每位使用者的配額： 
 
 1. 如果頁面還不是在作用中，請選取左側功能表上的 [使用者]  。 
-2. 選取工具列上的 [每位使用者的配額:]  。 
+2. 選取 **[每位使用者的配額：10 小時]** (位於工具列上)。 
 3. 在 [每位使用者的配額]  頁面上，指定您想要給予每位使用者 (學生) 的時數： 
+    1. **每位使用者的實驗室總時數**。 使用者**除了排定的時間之外**，還可以在設定的時數 (針對此欄位指定) 內使用其 VM。 如果選取此選項，請在文字方塊中輸入**時數**。 
+
+        ![每位使用者的時數](../media/how-to-configure-student-usage/number-of-hours-per-user.png)上也提供本文中使用的原始碼。 
     1. **0 小時 (僅排程)** 。 使用者只能在排定的時間期間或是當身為試驗室擁有者的您為他們開啟 VM 時，才能使用他們的 VM。
 
         ![零小時 - 僅排定的時間](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **每位使用者的實驗室總時數**。 使用者**除了排定的時間之外**，還可以在設定的時數 (針對此欄位指定) 內使用其 VM。 如果選取此選項，請在文字方塊中輸入**時數**。 
-
-        ![每位使用者的時數](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. 選取 [ **儲存**]。 
 5. 您會立即在工具列上看到變更的值：**每位使用者的配額：&lt;時數&gt;** 。 
 

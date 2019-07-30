@@ -3,16 +3,17 @@ title: Azure Container Instances 配額和區域可用性
 description: Azure Container Instances 服務的配額、限制和區域可用性。
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: danlep
-ms.openlocfilehash: c01243a33094a93da1b05ea3b58324b0f3cb2bf9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d78cb72e6aa10334e82032280b1253e6d4c92960
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539712"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325738"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Azure Container Instances 的配額和限制
 
@@ -26,7 +27,7 @@ ms.locfileid: "57539712"
 
 ## <a name="next-steps"></a>後續步驟
 
-某些預設限制和配額可以增加。 若要要求增加一或多個支援此類增加的資源，請提交 [Azure 支援要求][azure-support] (針對 [問題類型] 選取 [配額])。
+某些預設限制和配額可以增加。 若要要求增加一或多個支援此類增加的資源，請提交 [Azure 支援要求][azure-support] (針對 [問題類型]  選取 [配額])。
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

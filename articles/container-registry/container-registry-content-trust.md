@@ -3,16 +3,17 @@ title: Azure Container Registry 中的內容信任
 description: 了解如何為您的 Azure Container Registry 啟用內容信任，以及推送和提取已簽署的映像。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65069210"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356541"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry 中的內容信任
 
@@ -173,7 +174,7 @@ No valid trust data for unsigned
 ~/.docker/trust/private
 ```
 
-若要備份根金鑰和存放庫金鑰，請將其壓縮並封存，儲存於安全的離線位置 (例如 USB 儲存裝置上)。 例如，在 Bash 中：
+將根金鑰和存放庫金鑰壓縮在封存檔中，並儲存於安全的位置，加以備份。 例如，在 Bash 中：
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
@@ -194,7 +195,9 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱 [Docker 中的內容信任][docker-content-trust]，以取得關於內容信任的其他資訊。 本文已討論若干要點，但內容信任涉及的主題十分廣泛，這在 Docker 文件中會有更深入的說明。
+* 請參閱 [Docker 中的內容信任][docker-content-trust]，以取得關於內容信任的其他資訊。 本文已討論若干要點，但內容信任涉及的主題十分廣泛，這在 Docker 文件中會有更深入的說明。
+
+* 在建置和推送 Docker 映像時如需使用內容信任的範例，請參閱 [Azure Pipelines](/azure/devops/pipelines/build/content-trust) 文件。
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

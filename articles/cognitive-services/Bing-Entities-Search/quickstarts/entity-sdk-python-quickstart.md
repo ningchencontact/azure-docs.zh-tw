@@ -1,21 +1,21 @@
 ---
-title: 快速入門：Bing 實體搜尋 SDK (Python)
-titlesuffix: Azure Cognitive Services
-description: 設定 Bing 實體搜尋 SDK 主控台應用程式。
+title: 快速入門：使用適用於 Python 的 Bing 實體搜尋 SDK 來搜尋實體
+titleSuffix: Azure Cognitive Services
+description: 使用本快速入門，透過適用於 Python 的 Bing 實體搜尋 SDK 來搜尋實體。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 9a66df03ceb03885ba5f61b4adeb54cb1876338d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0a4a4e3ce6f318a693b8ee760a0d892eaecb2c82
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813620"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479010"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>快速入門：使用 Python 的 Bing 實體搜尋 SDK
 
@@ -27,7 +27,7 @@ ms.locfileid: "65813620"
 
 * [適用於 Python 的 Bing 實體搜尋 SDK](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-建議您使用 Python 虛擬環境。 您可以使用 venv 模組來安裝和初始化虛擬環境。 您可以透過下列方式安裝適用於 Python 2.7 的 virtualenv：
+建議您使用 Python 虛擬環境。 您可以使用 venv 模組來安裝和初始化虛擬環境。 您可以透過下列方式安裝 virtualenv：
 
 ```Console
 python -m venv mytestenv

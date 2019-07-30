@@ -3,17 +3,18 @@ title: 快速入門 - 在 Azure 中建立私人 Docker 登錄 - Azure CLI
 description: 快速了解如何使用 Azure CLI 建立私用的 Docker 容器登錄。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 24bdd52673c65d039166dc28f9f0a0a784569a1a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678695"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309522"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立私人容器登錄
 
@@ -21,7 +22,7 @@ Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Dock
 
 進行此快速入門時，您必須執行 Azure CLI (建議使用 2.0.55 版或更新版本)。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
-您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
+您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何 [macOS][docker-mac], [Windows][docker-windows]或 [Linux][docker-linux] 系統上設定 Docker 的套件。
 
 由於 Azure Cloud Shell 未包含所有必要的 Docker 元件 (`dockerd` 精靈)，因此您無法使用本快速入門中的 Cloud Shell。
 
@@ -29,7 +30,7 @@ Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Dock
 
 使用 [az group create][az-group-create] 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -37,9 +38,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
-您在本快速入門中會建立「基本」登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層級的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
+您在本快速入門中會建立「基本」  登錄，這是正在學習 Azure Container Registry 的開發人員所適用的成本最佳化選項。 如需可用服務層級的詳細資訊，請參閱[容器登錄 SKU][container-registry-skus]。
 
-使用 [az acr create][az-acr-create] 命令建立 ACR 執行個體。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
+使用 [az acr create][az-acr-create] 命令，以建立 ACR 執行個體。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic

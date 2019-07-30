@@ -1,29 +1,29 @@
 ---
-title: Azure Cosmos DB 觸發程序連線原則
-description: 了解如何設定 Azure Cosmos DB 觸發程序所使用的連線原則
+title: Azure Functions 的 Cosmos DB 觸發程序連線原則
+description: 了解如何設定 Azure Functions 的 Cosmos DB 觸發程序所使用的連線原則
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/05/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 584d59884b70d2ee8243216e6f907fc9ec2d8ad4
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 359b6a905e64046aad62b70ae53b993c86884ad2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755456"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335637"
 ---
-# <a name="how-to-configure-the-connection-policy-used-by-azure-cosmos-db-trigger"></a>如何設定 Azure Cosmos DB 觸發程序所使用的連線原則
+# <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>如何設定 Azure Functions 的 Cosmos DB 觸發程序所使用的連線原則
 
-本文說明如何設定使用 Azure Cosmos DB 觸發程序連線到 Azure Cosmos 帳戶時的連線原則。
+本文說明如何設定使用 Azure Functions 的 Cosmos DB 觸發程序連線到 Azure Cosmos 帳戶時的連線原則。
 
 ## <a name="why-is-the-connection-policy-important"></a>連線原則為何很重要？
 
-有兩種連線模式 - 直接模式和閘道模式。 若要深入了解這些連線模式，請參閱[效能祕訣](./performance-tips.md#networking)一文。 根據預設，[閘道]  用來建立 Azure Cosmos DB 觸發程序上的所有連線。 不過，它可能不是效能導向案例的最佳選項。
+有兩種連線模式 - 直接模式和閘道模式。 若要深入了解這些連線模式，請參閱[效能祕訣](./performance-tips.md#networking)一文。 依預設會使用**閘道**來建立 Azure Functions 的 Cosmos DB 觸發程序的所有連線。 不過，它可能不是效能導向案例的最佳選項。
 
 ## <a name="changing-the-connection-mode-and-protocol"></a>變更連接模式和通訊協定
 
-有兩個重要組態設定可用來設定用戶端連線原則 - **連線模式**和**連線通訊協定**。 您可以變更 Azure Cosmos DB 觸發程序使用的預設連線模式和通訊協定，以及所有的 [Azure Cosmos DB 繫結](../azure-functions/functions-bindings-cosmosdb-v2.md#output)。 若要變更預設設定，您需要在您的 Azure Functions 專案或 Azure Functions 應用程式中找出 `host.json` 檔案，並新增下列[額外設定](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings)：
+有兩個重要組態設定可用來設定用戶端連線原則 - **連線模式**和**連線通訊協定**。 您可以變更 Azure Functions 的 Cosmos DB 觸發程序所使用的預設連線模式和通訊協定，以及所有的 [Azure Cosmos DB 繫結](../azure-functions/functions-bindings-cosmosdb-v2.md#output)。 若要變更預設設定，您需要在您的 Azure Functions 專案或 Azure Functions 應用程式中找出 `host.json` 檔案，並新增下列[額外設定](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings)：
 
 ```js
 {

@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807549"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421396"
 ---
 # <a name="what-is-azure-data-share-preview"></a>什麼是 Azure Data Share Preview？
 
@@ -24,6 +24,8 @@ Azure Data Share Preview 可讓組織輕鬆安全地與多個客戶和合作夥�
 資料提供者可以隨時掌控其資料的處理方法，只要為其資料共用指定使用規定即可。 資料取用者必須先接受這些規定才能接收資料。 資料提供者可以指定資料取用者收到更新的頻率。 資料提供者可以隨時撤銷新更新的存取權。 
 
 Azure Data Share 可藉由讓您輕鬆地結合第三方的資料來豐富分析和 AI 案例而強化見解。 請輕鬆地使用 Azure 分析工具的強大能力，來準備、處理和分析使用 Azure Data Share 所共用的資料。 
+
+資料提供者和資料取用者都必須具有 Azure 訂用帳戶，才能共用和接收資料。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="scenarios-for-azure-data-share"></a>Azure Data Share 的案例
 
@@ -78,6 +80,7 @@ Azure Data Share 會利用 Azure 提供的基礎安全性來保護待用資料�
 您可以在 Azure Data Share 資源層級設定存取控制，以確保資料存取者有獲得授權。 
 
 Azure Data Share 會利用 Azure 資源的受控身分識別 (先前稱為 MSI) 來自動管理 Azure Active Directory 中的身分識別。 Azure 資源的受控身分識別可用來存取要用於資料共用的儲存體帳戶。 資料提供者與資料取用者之間不會交換認證。 如需詳細資訊，請參閱 [Azure 資源的受控身分識別頁面](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)。 
+
 
 ## <a name="supported-regions"></a>支援區域
 

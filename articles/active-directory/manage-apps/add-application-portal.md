@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702543"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477310"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>快速入門：新增應用程式到您的 Azure Active Directory 租用戶
 
@@ -137,9 +137,8 @@ Azure Active Directory (Azure AD) 有一個資源庫，其中包含數千個預�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何將資源庫應用程式新增至您的 Azure AD 租用戶。 您已了解如何編輯應用程式的屬性。
+現在您已將應用程式新增至您的 Azure AD 組織，[請選擇您想使用的單一登入方法](what-is-single-sign-on.md#choosing-a-single-sign-on-method)並參閱下列適當的文章：
 
-現在，您可以為應用程式設定單一登入。
-
-> [!div class="nextstepaction"]
-> [設定單一登入](configure-single-sign-on-portal.md)
+- [設定 SAML 型單一登入](configure-single-sign-on-non-gallery-applications.md)
+- [設定密碼單一登入](configure-password-single-sign-on-non-gallery-applications.md)
+- [設定連結的登入](configure-linked-sign-on.md)

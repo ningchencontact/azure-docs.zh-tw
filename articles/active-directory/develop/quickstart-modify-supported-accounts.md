@@ -1,5 +1,5 @@
 ---
-title: 修改使用 Microsoft 身分識別平台註冊的應用程式所支援的帳戶 | Azure
+title: 修改 Microsoft 身分識別平台應用程式帳戶 | Azure
 description: 設定使用 Microsoft 身分識別平台所註冊的應用程式，以變更可以存取應用程式的使用者或帳戶。
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00d99ae48abfcb3e4d4abc0d63565994df45f746
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545718"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380773"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>快速入門：修改應用程式所支援的帳戶
 
@@ -44,8 +44,8 @@ ms.locfileid: "65545718"
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊]。
-1. 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀] 或主要註冊頁面。
+1. 在左側導覽窗格中，選取 [Azure Active Directory]  服務，然後選取 [應用程式註冊]  。
+1. 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀]  或主要註冊頁面。
 1. 遵循相關步驟來[變更應用程式註冊以支援不同的帳戶](#change-the-application-registration-to-support-different-accounts)。
 1. 如果您有單頁應用程式，請[啟用 OAuth 2.0 隱含授與](#enable-oauth-20-implicit-grant-for-single-page-applications)。
 
@@ -54,14 +54,14 @@ ms.locfileid: "65545718"
 如果您正在撰寫想要提供給組織外的客戶或合作夥伴使用的應用程式，您必須在 Azure 入口網站中更新應用程式定義。
 
 > [!IMPORTANT]
-> Azure AD 會要求多租用戶應用程式的應用程式識別碼 URI 必須是全域唯一的。 「應用程式識別碼 URI」是其中一種可在通訊協定訊息中識別應用程式的方式。 在單一租用戶應用程式中，只要該租用戶內有唯一的應用程式識別碼 URI 就已足夠。 就多租用戶應用程式而言，該 URI 則必須具全域唯一性，Azure AD 才能在所有租用戶中找到該應用程式。 系統會透過要求「應用程式識別碼 URI」必須具有與已驗證的 Azure AD 租用戶網域相符的主機名稱，來強制執行全域唯一性。 例如，如果租用戶的名稱是 contoso.onmicrosoft.com，則有效的應用程式識別碼 URI 會是 https://contoso.onmicrosoft.com/myapp。 如果租用戶的已驗證網域是 contoso.com，則有效的應用程式識別碼 URI 也會是 https://contoso.com/myapp。 如果「應用程式識別碼 URI」沒有按照這個模式，將應用程式設定成多租用戶時就會失敗。
+> Azure AD 會要求多租用戶應用程式的應用程式識別碼 URI 必須是全域唯一的。 「應用程式識別碼 URI」是其中一種可在通訊協定訊息中識別應用程式的方式。 在單一租用戶應用程式中，只要該租用戶內有唯一的應用程式識別碼 URI 就已足夠。 就多租用戶應用程式而言，該 URI 則必須具全域唯一性，Azure AD 才能在所有租用戶中找到該應用程式。 系統會透過要求「應用程式識別碼 URI」必須具有與已驗證的 Azure AD 租用戶網域相符的主機名稱，來強制執行全域唯一性。 例如，如果租用戶的名稱是 contoso.onmicrosoft.com，則有效的應用程式識別碼 URI 會是 https://contoso.onmicrosoft.com/myapp 。 如果租用戶的已驗證網域是 contoso.com，則有效的應用程式識別碼 URI 也會是 https://contoso.com/myapp 。 如果「應用程式識別碼 URI」沒有按照這個模式，將應用程式設定成多租用戶時就會失敗。
 
 ### <a name="to-change-who-can-access-your-application"></a>變更可以存取應用程式的使用者
 
-1. 從應用程式的 [概觀] 頁面，選取 [驗證] 區段，然後變更 [支援的帳戶類型] 底下所選取的值。
-    * 如果您要建置企業營運 (LOB) 應用程式，請選取 [只有這個目錄中的帳戶]。 如果未在目錄中註冊應用程式，則無法使用此選項。
-    * 如果您想要鎖定所有商業和教育客戶，請選取 [任何組織目錄中的帳戶]。
-    * 選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶] 以鎖定最廣泛的一組客戶。
+1. 從應用程式的 [概觀]  頁面，選取 [驗證]  區段，然後變更 [支援的帳戶類型]  底下所選取的值。
+    * 如果您要建置企業營運 (LOB) 應用程式，請選取 [只有這個目錄中的帳戶]  。 如果未在目錄中註冊應用程式，則無法使用此選項。
+    * 如果您想要鎖定所有商業和教育客戶，請選取 [任何組織目錄中的帳戶]  。
+    * 選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]  以鎖定最廣泛的一組客戶。
 1. 選取 [ **儲存**]。
 
 ## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>啟用單頁應用程式的 OAuth 2.0 隱含授與
@@ -74,9 +74,9 @@ ms.locfileid: "65545718"
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>啟用 OAuth 2.0 隱含授權
 
-1. 從應用程式的 [概觀] 頁面，選取 [驗證] 區段。
-1. 在 [進階設定] 底下，找到 [隱含授與] 區段。
-1. 選取 [識別碼權杖] 和 (或) [存取權杖]。
+1. 從應用程式的 [概觀]  頁面，選取 [驗證]  區段。
+1. 在 [進階設定]  底下，找到 [隱含授與]  區段。
+1. 選取 [識別碼權杖]  和 (或) [存取權杖]  。
 1. 選取 [ **儲存**]。
 
 ## <a name="next-steps"></a>後續步驟

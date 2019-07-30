@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 93cda8680bc665055d449e86c24d6565f6fc525f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296495"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414150"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>建立和共用 Log Analytics 資料的儀表板
 
@@ -75,7 +75,7 @@ Perf
 
 ![儲存查詢](media/tutorial-logs-dashboards/save-query.png)
 
-在 [儲存查詢]  控制台中，提供像是「Azure VM - 處理器使用率」  的名稱，和例如「儀表板」  的分類，然後按一下 [儲存]  。  這樣一來，您可以建立可使用及修改的常用查詢程式庫。  最後，從頁面右上角選取 [釘選]  ，然後選取儀表板名稱，將此釘選在稍早建立的共用儀表板。
+在 [儲存查詢]  控制台中，提供像是「Azure VM - 處理器使用率」  的名稱，和例如「儀表板」  的分類，然後按一下 [儲存]  。  這樣一來，您可以建立可使用及修改的常用查詢程式庫。  最後，從頁面右上角選取 [釘選到儀表板]  ，然後選取儀表板名稱，將此項目釘選在稍早建立的共用儀表板。
 
 現在我們已將查詢釘選在儀表板，您會注意到其下方會有一般標題與註解。
 

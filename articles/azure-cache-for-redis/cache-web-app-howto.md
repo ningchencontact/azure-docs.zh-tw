@@ -15,28 +15,21 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864827"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326488"
 ---
-# <a name="quickstart-create-an-aspnet-web-app"></a>快速入門：建立 ASP.NET Web 應用程式 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>快速入門：搭配使用 Azure Cache for Redis 與 ASP.NET Web 應用程式 
 
-## <a name="introduction"></a>簡介
-
-本快速入門說明如何使用 Visual Studio 2019，在 Azure App Service 中建立和部署 ASP.NET Web 應用程式。 範例應用程式會連線到 Azure Cache for Redis 來儲存資料，以及從快取擷取資料。 完成本快速入門後，您將會有執行中的 Web 應用程式裝載於 Azure 中，可對 Azure Cache for Redis 進行讀取和寫入。
-
-![簡單的測試已完成 Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+在本快速入門中，您會使用 Visual Studio 2019 建立 ASP.NET Web 應用程式，並連線至 Azure Cache for Redis 以儲存資料和從快取擷取資料。 接著，您會將應用程式部署到 Azure App Service。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，您必須使用下列環境安裝 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
-* ASP.NET 和 Web 開發
-* Azure 開發
+- Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)，包含 **ASP.NET 與 Web 開發**和 **Azure 開發**工作負載。
 
 ## <a name="create-the-visual-studio-project"></a>建立 Visual Studio 專案
 

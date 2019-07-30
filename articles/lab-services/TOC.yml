@@ -249,6 +249,8 @@
               href: devtest-lab-integrate-ci-cd-vsts.md
             - name: 將環境與您的 Azure DevOps CI/CD 管線整合
               href: integrate-environments-devops-pipeline.md
+            - name: 使用 Azure DevOps 建置和發行管線中的 DevTest 實驗室
+              href: use-devtest-labs-build-release-pipelines.md
         - name: 企業中的 DevTest Labs
           items:
             - name: 企業規模的 DevTest Labs

@@ -12,16 +12,16 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcd0338f9195afae0e326155dbc4e10dd4fc1f91
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 5d1ebb4b094ab5c03343486e7af6624273288453
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723897"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421214"
 ---
 # <a name="application-management-with-azure-active-directory"></a>搭配 Azure Active Directory 的應用程式管理
 
-Azure Active Directory (Azure AD) 可藉由為雲端和內部部署應用程式提供單一的身分識別系統，來簡化應用程式的管理方式。 您可以在 Azure AD 中新增軟體即服務 (SaaS) 應用程式、內部部署應用程式和企業營運 (LOB) 應用程式。 然後，使用者僅需登入一次，便可以安全且順暢地存取這些應用程式以及 Office 365 和其他來自 Microsoft 的商務應用程式。 您可以藉由將使用者佈建自動化來減少系統管理成本。 您也可以使用多重要素驗證及條件式存取原則來提供安全的應用程式存取。
+Azure Active Directory (Azure AD) 可藉由為雲端和內部部署應用程式提供單一的身分識別系統，來簡化應用程式的管理方式。 您可以在 Azure AD 中新增軟體即服務 (SaaS) 應用程式、內部部署應用程式和企業營運 (LOB) 應用程式。 然後，使用者僅需登入一次，便可以安全且順暢地存取這些應用程式以及 Office 365 和其他來自 Microsoft 的商務應用程式。 您可以藉由[將使用者佈建自動化](user-provisioning.md)來降低管理成本。 您也可以使用多重要素驗證及條件式存取原則來提供安全的應用程式存取。
 
 ![此圖表顯示透過 Azure AD 同盟的應用程式](media/what-is-application-management/app-management-overview.png)
 

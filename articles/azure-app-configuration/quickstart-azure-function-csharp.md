@@ -14,26 +14,22 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 5eb9d0631a4d5f4221b5184198290a5109655408
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798436"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326574"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>快速入門：使用應用程式設定建立 Azure 函式
+# <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式組態建立 Azure 函式
 
-Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務納入 Azure 函式中。 
-
-您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
-
-![快速入門完成 (本機)](./media/quickstarts/dotnet-core-function-launch-local.png)
+在本快速入門中，您會將 Azure 應用程式組態服務納入 Azure 函式中，以集中儲存和管理您所有的應用程式設定 (與您的程式碼分開)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要進行本快速入門，請安裝 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)。 確定也已經安裝 **Azure 開發**工作負載。 還要安裝[最新的 Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)。
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+- 包含 **Azure 開發**工作負載的 [Visual Studio 2019](https://visualstudio.microsoft.com/vs)。
+- [Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## <a name="create-an-app-configuration-store"></a>建立應用程式設定存放區
 

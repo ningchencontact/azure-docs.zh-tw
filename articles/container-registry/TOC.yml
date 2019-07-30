@@ -77,6 +77,8 @@
       items:
         - name: 限制虛擬網路的存取 (預覽)
           href: container-registry-vnet.md
+        - name: 在防火牆外存取
+          href: container-registry-firewall-access-rules.md
         - name: Authentication
           items:
             - name: 驗證概觀

@@ -5,23 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/22/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 46f3f87fac5b65229e03ee91d8f2b93b1a1590e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f1576e963f9c25821b5e3f57907662e3d86df4e0
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795289"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406339"
 ---
 # <a name="what-is-azure-virtual-wan"></a>什麼是 Azure 虛擬 WAN？
 
 Azure 虛擬 WAN 是一種網路服務，可將最佳且自動化的分支連線提供給 Azure，或透過 Azure 提供最佳且自動化的分支連線。 Azure 區域作為中樞，您可以選擇將您的分支連線到該中樞。 您也可以利用 Azure 骨幹來連接分支，並享受分支對 VNet 的連線能力。 我們有一份夥伴清單，這些夥伴都支援透過 Azure 虛擬 WAN VPN 的自動連線。 如需詳細資訊，請參閱[虛擬 WAN 夥伴與位置](virtual-wan-locations-partners.md)一文。
 
-Azure 虛擬 WAN 將許多 Azure 雲端連線服務 (例如站對站 VPN、ExpressRoute 和點對站使用者 VPN) 結合到單一操作介面。 使用虛擬網路連線可建立與 Azure Vnet 的連線。
+Azure 虛擬 WAN 將許多 Azure 雲端連線服務 (例如站對站 VPN 和 ExpressRoute) 結合到單一操作介面。 使用虛擬網路連線可建立與 Azure Vnet 的連線。
 
-虛擬 WAN 的 ExpressRoute 和點對站使用者 VPN 目前為預覽狀態。
+虛擬 WAN 的 ExpressRoute 目前是預覽狀態。
 
 ![虛擬 WAN 的圖表](./media/virtual-wan-about/virtualwan1.png)
 
@@ -51,7 +51,7 @@ Azure 虛擬 WAN 將許多 Azure 雲端連線服務 (例如站對站 VPN、Expre
 
 ## <a name="connectivity"></a>連線能力
 
-虛擬 WAN 允許三種連線類型：站對站、點對站 (預覽) 和 ExpressRoute (預覽)。
+虛擬 WAN 允許兩種類型的連線：站對站和 ExpressRoute (預覽)。
 
 ### <a name="s2s"></a>站對站 VPN 連線
 
@@ -71,11 +71,6 @@ Azure 虛擬 WAN 將許多 Azure 雲端連線服務 (例如站對站 VPN、Expre
 
 如需可用夥伴和位置的清單，請參閱[虛擬 WAN 夥伴與位置](virtual-wan-locations-partners.md)一文。
 
-### <a name="p2s"></a>點對站 VPN 連線 (預覽)
-
-點對站 (P2S) 連線可讓您建立從個別用戶端電腦到虛擬中樞的安全連線。 P2S 連線的建立方式是從用戶端電腦開始。 此解決方案適用於想要從遠端位置 (例如從住家或會議) 連線的遠距工作者。 當您只有少數用戶端必須連線時，P2S VPN 也是很實用的解決方案 (而不是 S2S VPN)。
-
-若要建立連線，請參閱[使用 Azure 虛擬 WAN 建立點對站連線](virtual-wan-point-to-site-portal.md)。
 
 ### <a name="er"></a>ExpressRoute 連線 (預覽)
 

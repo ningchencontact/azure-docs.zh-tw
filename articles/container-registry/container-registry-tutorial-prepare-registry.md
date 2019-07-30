@@ -3,17 +3,18 @@ title: 教學課程 - 在 Azure 中建立異地複寫的 Docker 登錄
 description: 建立 Azure Container Registry、設定異地複寫、準備 Docker 映像並將其部署至登錄。 三段式教學課程的第一段。
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7aec257335e3380fa99669c1191ee89857ec975d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533659"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68309577"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教學課程：準備異地複寫的 Azure Container Registry
 
@@ -43,7 +44,7 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
 登入 [Azure 入口網站](https://portal.azure.com)。
 
-選取 [建立資源] > [容器] > [Azure Container Registry]。
+選取 [建立資源]   > [容器]   > [Azure Container Registry]  。
 
 ![在 Azure 入口網站中建立容器登錄][tut-portal-01]
 
@@ -55,7 +56,7 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 * **管理員使用者**：`Enable` (必要項目；可讓用於容器的 Web 應用程式提取映像)
 * **SKU**：`Premium` (異地複寫的必要項目)
 
-選取 [建立] 以部署 ACR 執行個體。
+選取 [建立]  以部署 ACR 執行個體。
 
 ![在 Azure 入口網站中建立容器登錄][tut-portal-02]
 
@@ -69,7 +70,7 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
 現在，您已經具備進階登錄，即可設定異地複寫。 這樣一來，您的 Web 應用程式即可從最近的登錄來提取其容器映像 (在下一個教學課程中，您會將 Web 應用程式設為在兩個區域中執行)。
 
-在 Azure 入口網站中，巡覽至您的新容器登錄，並選取 [服務] 下方的 [複寫]：
+在 Azure 入口網站中，巡覽至您的新容器登錄，並選取 [服務]  下方的 [複寫]  ：
 
 ![在 Azure 入口網站的容器登錄 UI 中進行複寫][tut-portal-03]
 
@@ -77,11 +78,11 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
  ![Azure 入口網站的區域圖][tut-map-01]
 
-選取美國東部地區的綠色六邊形，然後選取 [建立複寫] 下方的 [建立]，將登錄複寫到美國東部地區：
+選取美國東部地區的綠色六邊形，然後選取 [建立複寫]  下方的 [建立]  ，將登錄複寫到美國東部地區：
 
  ![在 Azure 入口網站中建立複寫 UI][tut-portal-04]
 
-完成複寫時，入口網站會將這兩個區域顯示為 [就緒]。 使用 [重新整理] 按鈕，以重新整理複寫的狀態；建立並同步處理複本可能需要一分鐘左右的時間。
+完成複寫時，入口網站會將這兩個區域顯示為 [就緒]  。 使用 [重新整理]  按鈕，以重新整理複寫的狀態；建立並同步處理複本可能需要一分鐘左右的時間。
 
 ![Azure 入口網站中的複寫狀態 UI][tut-portal-05]
 
@@ -209,7 +210,7 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-由於您已將登錄設定為要進行異地複寫，因此系統會使用單一 `docker push` 命令，將您的映像自動複寫至「美國西部」和「美國東部」地區。
+由於您已將登錄設定為要進行異地複寫，因此系統會使用單一 `docker push` 命令，將您的映像自動複寫至「美國西部」  和「美國東部」  地區。
 
 ```console
 $ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1

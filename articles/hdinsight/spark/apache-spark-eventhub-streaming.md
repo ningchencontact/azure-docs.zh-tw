@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: c8c99d976f416d0c1d07fb3a266d37ecd6235fdb
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295360"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489796"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>教學課程：使用 Azure 事件中樞與 HDInsight 中的 Apache Spark 處理推文
 
@@ -48,7 +48,7 @@ ms.locfileid: "67295360"
     |---|---|
     |Name|提供應用程式名稱。 針對本教學課程所使用的值是 **HDISparkStreamApp0423**。 此名稱必須是唯一的名稱。|
     |說明|提供應用程式的簡短描述。 針對本教學課程所使用的值是**簡單的 HDInsight Spark 串流應用程式**。|
-    |網站|提供應用程式的網站。 不需是有效的網站。  針對本教學課程所使用的值是 **http://www.contoso.com** 。|
+    |網站|提供應用程式的網站。 不需是有效的網站。  本教學課程使用的值為 `http://www.contoso.com`。|
     |回呼 URL|您可以將其保留為空白。|
 
 1. 選取 [Yes, I have read and agree to the Twitter Developer Agreement]  \(是，我已閱讀並同意 Twitter 開發人員合約\)，然後選取 [Create your Twitter application]  \(建立 Twitter 應用程式\)。
@@ -84,9 +84,9 @@ ms.locfileid: "67295360"
     |---|---|
     |Name|輸入事件中樞的名稱。  針對本教學課程所使用的值是 **myeventhubns20180403**。|
     |定價層|選取 [標準]  。|
-    |訂用帳戶|選取適當的訂用帳戶。|
-    |資源群組|從下拉式清單中選取現有的資源群組，或選取 [新建]  來建立新的資源群組。|
-    |位置|選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以降低延遲和成本。|
+    |Subscription|選取適當的訂用帳戶。|
+    |Resource group|從下拉式清單中選取現有的資源群組，或選取 [新建]  來建立新的資源群組。|
+    |Location|選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以降低延遲和成本。|
     |啟用自動擴充 (選用) |自動擴充會在您流量超過指派給事件中樞命名空間的輸送量單位容量時，自動調整指派的輸送量單位數目。  |
     |自動擴充輸送量單位上限 (選用)|此滑桿只會在您核取 [啟用自動擴充]  時出現。  |
 

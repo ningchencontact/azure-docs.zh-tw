@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f92d8ce8e95962558b3bdb7b4a4d8fe70c725f46
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 523c839ad274b8234a79a89ec45be9a9a4551bf5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604502"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312037"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -65,7 +65,7 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 - 必須以 JPEG、PNG、GIF 或 BMP 格式呈現的影像
 - 影像的檔案大小必須小於 4 MB
 - 影像的維度必須大於 50 x 50 像素
-  - 針對 OCR，影像的大小必須介於 50 x 50 與 4200 x 4200 像素之間
+  - 針對讀取 API，影像的大小必須介於 50 x 50 與 10000 x 10000 像素之間。
 
 ## <a name="data-privacy-and-security"></a>資料隱私權和安全性
 

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 73f9ee597682cc995f3a2cc783abeee92bf11bd2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718368"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501132"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>教學課程：啟動沈浸式閱讀程式 (Node.js)
 
@@ -33,7 +33,7 @@ ms.locfileid: "67718368"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 沈浸式閱讀程式的訂用帳戶金鑰。 依照[下列指示](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)取得金鑰。
+* 為 Azure Active Directory (Azure AD) 驗證所設定的沈浸式閱讀程式資源。 遵循[這些指引](./azure-active-directory-authentication.md)來設定。 設定環境屬性時，您需要這裡建立的一些值。 將工作階段的輸出儲存到文字檔中，以供日後參考。
 * [Node.js](https://nodejs.org/) 和 [Yarn](https://yarnpkg.com)
 * 整合式開發環境，例如 [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -55,20 +55,31 @@ yarn add request
 yarn add dotenv
 ```
 
-## <a name="acquire-an-access-token"></a>取得存取權杖
+## <a name="acquire-an-azure-ad-authentication-token"></a>取得 Azure AD 驗證權杖
 
-接下來，撰寫後端 API 以使用訂用帳戶金鑰來取出存取權杖。 這個步驟您需要訂用帳戶金鑰和端點。 您可以在 Azure 入口網站沈浸式閱讀程式資源的 [金鑰] 頁面中找到您的訂用帳戶金鑰。 您可以在 [概觀] 頁面中找到您的端點。
+接下來，撰寫後端 API 以擷取 Azure AD 驗證權杖。
 
-擁有訂用帳戶金鑰和端點之後，請建立名為 _.env_ 的新檔案，然後將下列程式碼貼入，分別使用您的訂用帳戶金鑰和端點取代 `{YOUR_SUBSCRIPTION_KEY}` 和 `{YOUR_ENDPOINT}`。
+這一部分，您需要上述 Azure AD 驗證組態先決步驟中的一些值。 請回頭參考您在該工作階段儲存的文字檔。
+
+````text
+TenantId     => Azure subscription TenantId
+ClientId     => Azure AD ApplicationId
+ClientSecret => Azure AD Application Service Principal password
+Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+````
+
+擁有這些值之後，請建立名為 _.env_ 的新檔案，然後將下列程式碼貼入其中，並提供上述的自訂屬性值。
 
 ```text
-SUBSCRIPTION_KEY={YOUR_SUBSCRIPTION_KEY}
-ENDPOINT={YOUR_ENDPOINT}
+TENANT_ID={YOUR_TENANT_ID}
+CLIENT_ID={YOUR_CLIENT_ID}
+CLIENT_SECRET={YOUR_CLIENT_SECRET}
+SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
 請勿將此檔案認可到原始檔控制，因為它包含不應公開的機密資料。
 
-接著，開啟 _app.js_ 並將下列新增至檔案開頭處。 這樣可將訂用帳戶金鑰和端點以環境變數載入 Node。
+接著，開啟 _app.js_ 並將下列新增至檔案開頭處。 這會將 .env 檔案中定義的屬性當作環境變數載入 Node 中。
 
 ```javascript
 require('dotenv').config();
@@ -80,31 +91,45 @@ require('dotenv').config();
 var request = require('request');
 ```
 
-接著，將下列程式碼直接加在該行下方。 此程式碼會建立可使用訂用帳戶金鑰取得存取權杖的 API 端點，然後傳回該權杖。
+接著，將下列程式碼直接加在該行下方。 此程式碼會建立 API 端點，其可使用服務主體密碼取得 Azure AD 驗證權杖，然後傳回該權杖。 另外還有可供存取子網域的第二個端點。
 
 ```javascript
-router.get('/token', function(req, res, next) {
-  request.post({
-    headers: {
-        'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
-        'content-type': 'application/x-www-form-urlencoded'
-    },
-    url: process.env.ENDPOINT
-  },
-  function(err, resp, token) {
-    return res.send(token);
-  });
+router.get('/getimmersivereadertoken', function(req, res) {
+  request.post ({
+          headers: {
+              'content-type': 'application/x-www-form-urlencoded'
+          },
+          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+          form: {
+              grant_type: 'client_credentials',
+              client_id: process.env.CLIENT_ID,
+              client_secret: process.env.CLIENT_SECRET,
+              resource: 'https://cognitiveservices.azure.com/'
+          }
+      },
+      function(err, resp, token) {
+          if (err) {
+              return res.status(500).send('CogSvcs IssueToken error');
+          }
+
+          return res.send(JSON.parse(token).access_token);
+      }
+  );
+});
+
+router.get('/subdomain', function (req, res) {
+    return res.send(process.env.SUBDOMAIN);
 });
 ```
 
-此 API 端點應以某種形式的驗證方法受到保護 (例如 [OAuth](https://oauth.net/2/))，該作業已超出本教學課程的範圍。
+**getimmersivereadertoken** API 端點在某種形式的驗證 (例如 [OAuth](https://oauth.net/2/)) 後面應受到保護，以防止未經授權的使用者取得權杖，用於沈浸式閱讀程式服務和計費；該工作已超出本教學課程的範圍。
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>使用範例內容啟動沈浸式閱讀程式
 
 1. 開啟 _views\layout.pug_，並在 `head` 標籤底下、`body` 標籤之前新增下列程式碼。 這些 `script` 標籤會載入[沈浸式閱讀程式 SDK](https://github.com/Microsoft/immersive-reader-sdk) 和 jQuery。
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js')
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
@@ -118,21 +143,47 @@ router.get('/token', function(req, res, next) {
       p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
       div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
       script.
-        function launchImmersiveReader() {
-          // First, get a token using our /token endpoint
-          $.ajax('/token', { success: token => {
-            // Second, grab the content from the page
+
+        function getImmersiveReaderTokenAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/getimmersivereadertoken',
+                    type: 'GET',
+                    success: token => {
+                        resolve(token);
+                    },
+                    error: err => {
+                        console.log('Error in getting token!', err);
+                        reject(err);
+                    }
+                });
+            });
+        }
+
+        function getSubdomainAsync() {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '/subdomain',
+                    type: 'GET',
+                    success: subdomain => { resolve(subdomain); },
+                    error: err => { reject(err); }
+                });
+            });
+        }
+
+        async function launchImmersiveReader() {
             const content = {
-              title: document.getElementById('title').innerText,
-              chunks: [ {
-                content: document.getElementById('content').innerText + '\n\n',
-                lang: 'en'
-              } ]
+                title: document.getElementById('title').innerText,
+                chunks: [{
+                    content: document.getElementById('content').innerText + '\n\n',
+                    lang: 'en'
+                }]
             };
 
-            // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, content);
-          }});
+            const token = await getImmersiveReaderTokenAsync();
+            const subdomain = await getSubdomainAsync();
+
+            ImmersiveReader.launchAsync(token, subdomain, content);
         }
     ```
 
@@ -214,4 +265,4 @@ router.get('/token', function(req, res, next) {
 ## <a name="next-steps"></a>後續步驟
 
 * 探索[沈浸式閱讀程式 SDK](https://github.com/Microsoft/immersive-reader-sdk) 和[沈浸式閱讀程式 SDK 參考](./reference.md)
-* 檢視 [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp) 上的程式碼範例
+* 檢視 [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/advanced-csharp) 上的程式碼範例

@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448219"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424245"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>教學課程：退回 Azure 資料箱磁碟，並確認資料上傳至 Azure
 
 這是一系列教學課程的最後一個：部署 Azure 資料箱磁碟。 在本教學課程中，您將了解如何：
@@ -28,6 +30,7 @@ ms.locfileid: "67448219"
 ## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您已完成[教學課程：將資料複製到 Azure 資料箱磁碟並確認](data-box-disk-deploy-copy-data.md)。
+
 
 ## <a name="ship-data-box-disk-back"></a>寄回資料箱磁碟
 
@@ -229,5 +232,41 @@ ms.locfileid: "67448219"
 
 > [!div class="nextstepaction"]
 > [使用 Azure 入口網站來管理 Azure 資料箱磁碟](./data-box-portal-ui-admin.md)
+
+::: zone-end
+
+
+::: zone target="chromeless"
+
+# <a name="return-the-disk-and-verify-upload-to-azure"></a>退回磁碟並確認已上傳至 Azure
+
+## <a name="ship-to-azure"></a>寄送到 Azure
+
+1. 完成資料驗證後，請拔除磁碟。 移除連接纜線。
+2. 使用發泡包裝材料將所有磁碟和連接纜線包裝在一起，然後放入包裹。 如果遺漏配件，則可能酌收費用。
+    - 重複使用最初出貨的包裝。  
+    - 我們建議您使用安全的氣泡片來包裝磁碟。
+    - 確保穩固裝入磁碟，以免在箱子內移動。
+3. 後續步驟則取決於您退回裝置的地點。
+    - [如果是在美國和加拿大退回裝置，請安排由 UPS 取貨](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada)。
+    - 造訪 DHL 的網站並指定空運提單號碼，[安排由歐洲地區的 DHL 取貨](data-box-disk-deploy-picked-up.md#pick-up-in-europe)。
+    - [安排澳洲/太平洋區域國家的取貨](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region)，例如澳洲、日本、韓國和新加坡。
+4. 一旦承運業者收取磁碟，入口網站的訂單狀態就會更新，並顯示追蹤識別碼。
+
+## <a name="verify-upload-to-azure"></a>確認已上傳至 Azure
+
+資料上傳至 Azure 後，請先確認您的資料位於儲存體帳戶中，再從來源予以刪除。 您的資料可以位於：
+
+- 您的 Azure 儲存體帳戶。 當您將資料複製到資料箱時，資料會上傳到 Azure 儲存體帳戶中的下列其中一個路徑，視類型而定。
+
+    - **區塊 Blob 和分頁 Blob**： https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **Azure 檔案儲存體**： https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+
+    或者，您可以在 Azure 入口網站中移至您 Azure 儲存體帳戶，並從該處瀏覽。
+
+- 您的受控磁碟資源群組。 建立受控磁碟時，會上傳 VHD 以作為分頁 Blob，接著轉換為受控磁碟。 受控磁碟會連結至訂單建立時所指定的資源群組。
+
+::: zone-end
 
 

@@ -15,35 +15,23 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 739f0bd6381e872b5f989f9ecb4dd97fdbdb52c9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc629133a393c4ff8f9193b02e9080d7f08f4958
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238091"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326469"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>快速入門：如何搭配使用 Azure Cache for Redis 與 Node.js
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>快速入門：使用 Azure Cache for Redis 搭配 Node.js
 
-
-
-Azure Cache for Redis 可讓您存取由 Microsoft 所管理的安全、專用 Azure Cache for Redis。 從 Microsoft Azure 內的任何應用程式都可以存取您的快取。
-
-本主題示範如何開始搭配使用 Azure Cache for Redis 與 Node.js。 
-
-您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
-
-![快取應用程式已完成](./media/cache-nodejs-get-started/cache-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+在本快速入門中，您會將 Azure Cache for Redis 納入 Node.js 應用程式中，以便存取可從 Azure 內任何應用程式存取的安全、專用快取。
 
 ## <a name="prerequisites"></a>必要條件
-安裝 [node_redis](https://github.com/mranney/node_redis)：
 
-    npm install redis
+- Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+- [node_redis](https://github.com/mranney/node_redis)，您可以使用命令 `npm install redis` 進行安裝。 
 
-本教學課程使用 [node_redis](https://github.com/mranney/node_redis)。 如需使用其他 Node.js 用戶端的範例，請參閱列在 [Node.js Redis 用戶端](https://redis.io/clients#nodejs)之 Node.js 用戶端的個別文件。
-
+如需使用其他 Node.js 用戶端的範例，請參閱列在 [Node.js Redis 用戶端](https://redis.io/clients#nodejs)之 Node.js 用戶端的個別文件。
 
 ## <a name="create-a-cache"></a>建立快取
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -57,7 +45,6 @@ Azure Cache for Redis 可讓您存取由 Microsoft 所管理的安全、專用 A
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
 
 ## <a name="connect-to-the-cache"></a>連接到快取
 
@@ -75,7 +62,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
 
 ## <a name="create-a-new-nodejs-app"></a>建立新的 Node.js 應用程式
 
-建立名為 redistest.js 的新指令檔。
+建立名為 redistest.js  的新指令檔。
 
 在檔案中新增下列 JavaScript 範例。 此程式碼示範如何使用快取主機名稱和金鑰環境變數來連線至 Azure Cache for Redis 執行個體。 此程式碼也會將字串值儲存到快取中，以及擷取其中的字串值。 `PING` 和 `CLIENT LIST` 命令也會執行。 如需更多搭配使用 Redis 與 [node_redis](https://github.com/mranney/node_redis) 用戶端的範例，請參閱 [https://redis.js.org/](https://redis.js.org/)。
 
@@ -128,7 +115,6 @@ node redistest.js
 
 ![快取應用程式已完成](./media/cache-nodejs-get-started/cache-app-complete.png)
 
-
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您準備繼續進行下一個教學課程，則可以保留在本快速入門中所建立的資源，並重複使用它們。
@@ -139,17 +125,15 @@ node redistest.js
 > 刪除資源群組是無法回復的動作，資源群組和其內的所有資源將會永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您是在包含有需要保留之資源的現有資源群組內，建立用來裝載此範例的資源，則可以從每個資源各自的刀鋒視窗中個別刪除每個資源，而不必刪除正個資源群組。
 >
 
-登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
+登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]  。
 
-在 [依名稱篩選...] 文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources 的資源群組。 在結果清單中的目標資源群組上方，按一下 **...**，然後按一下 [刪除資源群組]。
+在 [依名稱篩選...]  文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 TestResources  的資源群組。 在結果清單中的目標資源群組上方，按一下 **...** ，然後按一下 [刪除資源群組]  。
 
 ![刪除](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
 
-系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]。
+系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]  。
 
 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
-
-
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -157,6 +141,3 @@ node redistest.js
 
 > [!div class="nextstepaction"]
 > [建立可使用 Azure Cache for Redis 的 ASP.NET Web 應用程式。](./cache-web-app-howto.md)
-
-
-

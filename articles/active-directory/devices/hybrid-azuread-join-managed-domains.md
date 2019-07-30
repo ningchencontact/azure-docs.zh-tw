@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24888934d7e89a13b1b07b7138be476575fc306
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7781651536275eba60bfde49e00a450dde6d3e1
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204623"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357038"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>教學課程：設定適用於受控網域的混合式 Azure Active Directory Join
 
@@ -73,7 +73,7 @@ ms.locfileid: "67204623"
 > [!NOTE]
 > 如果您使用 WinHTTP 設定在電腦上設定 Proxy 設定，則任何無法連線到所設定 Proxy 的電腦將無法連線到網際網路。
 
-如果您的組織需要透過已驗證的輸出 Proxy 存取網際網路，您就必須確定 Windows 10 電腦可以成功向輸出 Proxy 進行驗證。 Windows 10 電腦會使用電腦內容來執行裝置註冊，因此必須使用電腦內容來設定輸出 Proxy 驗證。 請向您的輸出 Proxy 提供者洽詢相關設定需求。
+如果您的組織需要透過已驗證的輸出 Proxy 存取網際網路，您就必須確定 Windows 10 電腦可以成功向輸出 Proxy 進行驗證。 因為 Windows 10 電腦會使用電腦內容來執行裝置註冊，所以必須使用電腦內容來設定輸出 Proxy 驗證。 請向您的輸出 Proxy 提供者洽詢相關設定需求。
 
 ## <a name="configure-hybrid-azure-ad-join"></a>設定混合式 Azure AD Join
 
@@ -139,11 +139,11 @@ ms.locfileid: "67204623"
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`
 
-您也必須在使用者的近端內部網路區域中啟用 [允許透過指令碼更新狀態列]  。
+您也必須在使用者的本機內部網路區域中啟用 [允許透過指令碼更新狀態列]  。
 
 ### <a name="configure-seamless-sso"></a>設定無縫 SSO
 
-若要在使用 [PHS]../hybrid/whatis-phs.md) or [PTA](../hybrid/how-to-connect-pta.md) 作為 Azure AD 雲端驗證方法的受控網域中，順利完成舊版 Windows 裝置的混合式 Azure AD Join，您也必須[設定無縫 SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature)。
+若要在使用 [PHS](../hybrid/whatis-phs.md) 或 [PTA](../hybrid/how-to-connect-pta.md) 作為 Azure AD 雲端驗證方法的受控網域中，順利完成舊版 Windows 裝置的混合式 Azure AD Join，您也必須[設定無縫 SSO](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature)。
 
 ### <a name="install-microsoft-workplace-join-for-windows-downlevel-computers"></a>為舊版 Windows 電腦安裝 Microsoft Workplace Join
 
@@ -165,14 +165,14 @@ ms.locfileid: "67204623"
 
 **若要查看服務詳細資料**：
 
-1. 以系統管理理員身分開啟 Windows PowerShell。
+1. 以系統管理員身分開啟 Windows PowerShell。
 1. 輸入 `Connect-MsolService` 以連線至您的 Azure 租用戶。  
 1. 輸入 `get-msoldevice -deviceId <deviceId>` 。
 1. 確認 [已啟用]  設為 [True]  。
 
 ## <a name="troubleshoot-your-implementation"></a>對您的實作進行疑難排解
 
-如果您為已加入網域的 Windows 裝置執行混合式 Azure AD Join 時遇到問題，請參閱：
+如果您為已加入網域的 Windows 裝置完成混合式 Azure AD Join 時遇到問題，請參閱：
 
 - [針對現行 Windows 裝置的混合式 Azure AD Join 進行疑難排解](troubleshoot-hybrid-join-windows-current.md)
 - [針對舊版 Windows 裝置的混合式 Azure AD Join 進行疑難排解](troubleshoot-hybrid-join-windows-legacy.md)
