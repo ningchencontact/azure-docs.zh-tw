@@ -5,13 +5,12 @@ metadata:
   title: Azure Site Recovery 文件 - 教學課程和 API 參考 | Microsoft Docs
   meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
   services: site-recovery
-  author: czeumault
-  manager: carolz
+  author: carmonmills
+  manager: carmonm
   ms.service: site-recovery
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 11/27/2018
-  ms.author: carolz
+  ms.author: carmonm
 abstract:
   description: Azure Site Recovery 可協調和管理 Azure VM 以及內部部署 VM 和實體伺服器的災害復原。 了解如何透過我們的快速入門及教學課程來複寫、容錯移轉和容錯回復。
 sections:

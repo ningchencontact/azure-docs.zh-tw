@@ -5,14 +5,12 @@ metadata:
   title: Batch 文件 - 教學課程和 API 參考 | Microsoft Docs
   description: 使用 Batch 在雲端有效率地執行大規模的平行和高效能運算 (HPC) 應用程式。 定義 Azure 計算資源，進而以平行方式或大規模執行應用程式，而不需要手動設定或管理基礎結構。 排程需要大量計算的工作，並依需求動態新增或移除計算資源。 了解如何透過快速入門、教學課程和範例使用 Azure Batch。
   services: batch
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: batch
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/30/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 使用 Batch 在雲端有效率地執行大規模的平行和高效能運算 (HPC) 應用程式。 定義 Azure 計算資源，進而以平行方式或大規模執行應用程式，而不需要手動設定或管理基礎結構。 排程需要大量計算的工作，並依需求動態新增或移除計算資源。 了解如何透過快速入門、教學課程和範例使用 Azure Batch。
 sections:

@@ -6,14 +6,12 @@ metadata:
   title: Azure Linux 虛擬機器文件 - 教學課程和 API 參考
   meta.description: Learn how to create a virtual machine using the Linux distribution of your choice. Documentation shows different ways to create VM templates.
   services: virtual-machines\linux
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines-linux
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Azure Linux 虛擬機器依您的選擇使用 Red Hat、Ubuntu 或 Linux 發行版本提供隨選、高度可調整、安全且虛擬化的基礎結構。 了解如何使用快速入門、教學課程和範例，建立、設定、管理、更新和調整 Linux VM。
   aside:

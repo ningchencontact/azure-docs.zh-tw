@@ -5,6 +5,7 @@
     - name: 何謂 Azure IoT 中心？
       href: about-iot-hub.md
 - name: 快速入門
+  expanded: true
   items:
     - name: 傳送遙測
       items:

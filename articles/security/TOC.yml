@@ -1,52 +1,52 @@
 - name: Azure 安全性文件
   href: index.md
 - name: 架構與設計
-  href: azure-security.md
+  href: ./fundamentals/overview.md
   expanded: false
   items:
     - name: 進階威脅偵測
       displayName: 'vulnerability, virus, IDs, incident'
-      href: azure-threat-detection.md
+      href: ./fundamentals/threat-detection.md
     - name: Azure 記錄與稽核
       displayName: incident
-      href: azure-log-audit.md
+      href: ./fundamentals/log-audit.md
     - name: Azure 網路安全性
       displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
-      href: abstract-azure-network-security.md
+      href: ./fundamentals/abstract-network-security.md
     - name: Azure 無伺服器平台安全性
-      href: abstract-serverless-platform-security.md
+      href: ./fundamentals/abstract-serverless-platform-security.md
     - name: Azure 中的容器安全性
-      href: abstract-container-security-microsoft-azure.md
+      href: ./fundamentals/abstract-container-security.md
     - name: 啟用作業安全性
       displayName: 'policy, policies, azure monitor, soc'
-      href: abstract-azure-operational-security.md
+      href: ./fundamentals/abstract-operational-security.md
     - name: Azure 雲端中的隔離
       displayName: trust boundary
-      href: azure-isolation.md
+      href: ./fundamentals/isolation-choices.md
     - name: 安全混合式網路架構
       displayName: trust boundary
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 安全性技術功能
-      href: azure-security-technical-capabilities.md
+      href: ./fundamentals/technical-capabilities.md
     - name: 在 Azure 上開發安全的應用程式
-      href: abstract-develop-secure-apps.md
+      href: ./fundamentals/abstract-develop-secure-apps.md
 - name: 資料安全性與加密
-  href: security-azure-encryption-overview.md
+  href: ./fundamentals/encryption-overview.md
   items:
     - name: 資料庫安全性
-      href: azure-database-security-overview.md
+      href: ./fundamentals/database-security-overview.md
       items:
         - name: 最佳作法
-          href: azure-database-security-best-practices.md
+          href: ./fundamentals/database-best-practices.md
         - name: 安全性檢查清單
-          href: azure-database-security-checklist.md
+          href: ./fundamentals/database-security-checklist.md
     - name: 磁碟加密
       items:
         - name: 最佳作法
           displayName: transit
-          href: azure-security-data-encryption-best-practices.md
+          href: ./fundamentals/data-encryption-best-practices.md
         - name: 資料靜態加密
-          href: azure-security-encryption-atrest.md
+          href: ./fundamentals/encryption-atrest.md
         - name: 為 IaaS 虛擬機器進行磁碟加密
           items:
             - name: 有關 Azure 磁碟加密
@@ -91,89 +91,89 @@
                       displayName: active directory
                       href: azure-security-disk-encryption-linux-aad.md
     - name: Azure 儲存體安全性
-      href: security-storage-overview.md
+      href: ./fundamentals/storage-overview.md
     - name: 儲存體安全性指南
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: 客戶加密箱
-      href: azure-customer-lockbox-overview.md
+      href: ./fundamentals/customer-lockbox-overview.md
 - name: 平台與基礎結構
   items:
     - name: 基礎結構安全性
-      href: azure-security-infrastructure.md
+      href: ./fundamentals/infrastructure.md
       items:
         - name: 實體安全性
-          href: azure-physical-security.md
+          href: ./fundamentals/physical-security.md
         - name: 可用性
-          href: azure-infrastructure-availability.md
+          href: ./fundamentals/infrastructure-availability.md
         - name: 元件和界線
-          href: azure-infrastructure-components.md
+          href: ./fundamentals/infrastructure-components.md
         - name: 網路架構
           displayName: 'ssl, https'
-          href: azure-infrastructure-network.md
+          href: ./fundamentals/infrastructure-network.md
         - name: 生產網路
-          href: azure-production-network.md
+          href: ./fundamentals/production-network.md
         - name: SQL Database
-          href: azure-infrastructure-sql.md
+          href: ./fundamentals/infrastructure-sql.md
         - name: 作業
-          href: azure-infrastructure-operations.md
+          href: ./fundamentals/infrastructure-operations.md
         - name: 監視
-          href: azure-infrastructure-monitoring.md
+          href: ./fundamentals/infrastructure-monitoring.md
         - name: 完整性
-          href: azure-infrastructure-integrity.md
+          href: ./fundamentals/infrastructure-integrity.md
         - name: 資料保護
-          href: azure-protection-of-customer-data.md
+          href: ./fundamentals/protection-customer-data.md
     - name: Microsoft Antimalware
       displayName: virus
-      href: azure-security-antimalware.md
+      href: ./fundamentals/antimalware.md
     - name: IaaS 安全性
-      href: security-virtual-machines-overview.md
+      href: ./fundamentals/virtual-machines-overview.md
       items:
         - name: 最佳做法 - IaaS 工作負載
           displayName: patch
-          href: azure-security-iaas.md
+          href: ./fundamentals/iaas.md
         - name: Azure 市集映像
-          href: security-recommendations-azure-marketplace-images.md
+          href: ./fundamentals/azure-marketplace-images.md
     - name: 身分識別管理
-      href: security-identity-management-overview.md
+      href: ./fundamentals/identity-management-overview.md
       items:
         - name: 選擇 Azure AD 驗證
           displayName: 'identity, active directory, seamless sso'
-          href: azure-ad-choose-authn.md
+          href: ./fundamentals/choose-ad-authn.md
         - name: 安全性檢查清單
           displayName: 'identity, active directory, password'
-          href: azure-ad-secure-steps.md
+          href: ./fundamentals/steps-secure-identity.md
         - name: 選擇無密碼
           displayName: 'identity, active directory, passwordless'
-          href: azure-ad-passwordless.md
+          href: ./fundamentals/ad-passwordless.md
         - name: 最佳作法
           displayName: 'password, identity, active directory'
-          href: azure-security-identity-management-best-practices.md
+          href: ./fundamentals/identity-management-best-practices.md
         - name: 訂用帳戶系統管理員強制執行 MFA
           displayName: identity
-          href: azure-security-global-admin.md
+          href: ./fundamentals/global-admin.md
     - name: 網路安全性
       displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
-      href: security-network-overview.md
+      href: ./fundamentals/network-overview.md
       items:
         - name: 最佳作法
-          href: azure-security-network-security-best-practices.md
+          href: ./fundamentals/network-best-practices.md
         - name: DDoS保護
-          href: azure-ddos-best-practices.md
+          href: ./fundamentals/ddos-best-practices.md
         - name: 邊界安全性
           href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: Application
   items:
     - name: PaaS
-      href: security-paas-deployments.md
+      href: ./fundamentals/paas-deployments.md
       items:
         - name: 適用於 PaaS 的 Azure App Service
-          href: security-paas-applications-using-app-services.md
+          href: ./fundamentals/paas-applications-using-app-services.md
         - name: 適用於 PaaS 的 Azure 儲存體
-          href: security-paas-applications-using-storage.md
+          href: ./fundamentals/paas-applications-using-storage.md
         - name: 適用於 PaaS 的資料庫最佳做法
-          href: security-paas-applications-using-sql.md
+          href: ./fundamentals/paas-applications-using-sql.md
     - name: IoT
-      href: security-internet-of-things-overview.md
+      href: ./fundamentals/iot-overview.md
       items:
         - name: IoT 安全性最佳做法
           href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
@@ -182,14 +182,14 @@
         - name: 保護您的 IoT 部署
           href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Service Fabric 安全性
-      href: azure-service-fabric-security-overview.md
+      href: ./fundamentals/service-fabric-overview.md
       items:
         - name: 最佳作法
-          href: azure-service-fabric-security-best-practices.md
+          href: ./fundamentals/service-fabric-best-practices.md
         - name: 安全性檢查清單
-          href: azure-service-fabric-security-checklist.md
+          href: ./fundamentals/service-fabric-checklist.md
 - name: 監視、稽核與作業
-  href: security-management-and-monitoring-overview.md
+  href: ./fundamentals/management-monitoring-overview.md
   items:
     - name: 稽核和記錄
       items:
@@ -197,31 +197,31 @@
           displayName: 'vulnerability, incident, virus,'
           href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
         - name: 遠端管理安全性
-          href: azure-security-management.md
+          href: ./fundamentals/management.md
         - name: Azure 記錄整合
           items:
             - name: 簡介
-              href: security-azure-log-integration-overview.md
+              href: ./fundamentals/azure-log-integration-overview.md
             - name: 開始使用
-              href: security-azure-log-integration-get-started.md
+              href: ./fundamentals/azure-log-integration-get-started.md
             - name: 整合 Azure AD 稽核記錄
               displayName: active directory
-              href: security-azure-log-integration-ad.md
+              href: ./fundamentals/azure-log-integration-ad.md
             - name: 整合資訊安全中心警示
               displayName: splunk
               href: ../security-center/security-center-export-data-to-siem.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
             - name: 整合 Key Vault 中的記錄
               displayName: keyvault
-              href: security-azure-log-integration-keyvault-eventhub.md
+              href: ./fundamentals/azure-log-integration-keyvault-eventhub.md
             - name: 常見問題集
-              href: security-azure-log-integration-faq.md
+              href: ./fundamentals/azure-log-integration-faq.md
     - name: 作業安全性
-      href: azure-operational-security-overview.md
+      href: ./fundamentals/operational-overview.md
       items:
         - name: 最佳作法
-          href: azure-operational-security-best-practices.md
+          href: ./fundamentals/operational-best-practices.md
         - name: 安全性檢查清單
-          href: azure-operational-security-checklist.md
+          href: ./fundamentals/operational-checklist.md
 - name: 治理和合規性
   displayName: 'blueprint, privacy, certifications'
   items:
@@ -312,26 +312,26 @@
         - name: PaaS Web 應用程式
           href: ./blueprints/ukofficial-paaswa-overview.md
 - name: 白皮書
-  href: security-white-papers.md
+  href: ./fundamentals/white-papers.md
 - name: Azure 安全性服務
-  href: azure-security-services-technologies.md
+  href: ./fundamentals/services-technologies.md
 - name: 技術概觀
-  href: security-overviews.md
+  href: ./fundamentals/overviews.md
 - name: 最佳作法
-  href: security-best-practices-and-patterns.md
+  href: ./fundamentals/best-practices-and-patterns.md
 - name: 資源
   items:
     - name: 常見安全性屬性
-      href: common-security-attributes.md
+      href: ./fundamentals/common-security-attributes.md
     - name: Azure 安全性 MVP 計畫
-      href: azure-security-mvp.md
+      href: ./fundamentals/mvp.md
     - name: 網路安全性諮詢
-      href: azure-security-cyber-services.md
+      href: ./fundamentals/cyber-services.md
     - name: 記錄安全性事件支援票證
-      href: azure-security-event-support-ticket.md
+      href: ./fundamentals/event-support-ticket.md
     - name: 滲透測試
       displayName: penetration
-      href: azure-security-pen-testing.md
+      href: ./fundamentals/pen-testing.md
     - name: Microsoft 威脅模型化工具
       displayName: stride
       href: azure-security-threat-modeling-tool.md

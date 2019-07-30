@@ -6,14 +6,12 @@ metadata:
   title: Azure Container Service 與 Kubernetes 文件 - 教學課程、API 參考 | Microsoft Docs
   meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.'
   services: container-service
-  author: carolz
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07-21-2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Azure Container Service 可讓您快速部署可進行生產的 Kubernetes 叢集。 了解如何透過快速入門、教學課程和範例來使用 Azure Container Service 搭配 Kubernetes。
 sections:

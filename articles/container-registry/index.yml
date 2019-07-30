@@ -5,14 +5,12 @@ metadata:
   title: Azure Container Registry 文件 - 教學課程 | Microsoft Docs
   description: Azure Container Registry 可讓您建置、儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。
   services: container-registry
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Azure Container Registry 可讓您建置、儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。
 sections:

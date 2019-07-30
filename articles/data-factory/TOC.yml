@@ -556,6 +556,8 @@
           href: how-to-create-schedule-trigger.md
         - name: 建立輪轉視窗觸發程序
           href: how-to-create-tumbling-window-trigger.md
+        - name: 建立輪轉視窗觸發程序相依性
+          href: tumbling-window-trigger-dependency.md
     - name: 範本
       items:
         - name: 範本的概觀

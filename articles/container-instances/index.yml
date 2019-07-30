@@ -5,14 +5,12 @@ metadata:
   title: Azure Container Instances 文件 - 教學課程 | Microsoft Docs
   description: Azure Container Instances 提供更簡單快速的方法，讓您無需佈建任何虛擬機器或採用更高層級的服務，就能在 Azure 中執行容器。
   services: container-instances
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-instances
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Azure Container Instances 提供更簡單快速的方法，讓您無需佈建任何虛擬機器或採用更高層級的服務，就能在 Azure 中執行容器。 了解如何使用快速入門、教學課程和範例來建立和管理容器執行個體。<p>如果您需要完整的容器協調流程解決方案，請參閱 <a href="/azure/aks/">Azure Kubernetes Service (AKS) 文件</a>。</p>
 sections:

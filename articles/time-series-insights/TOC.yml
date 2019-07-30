@@ -5,6 +5,7 @@
     - name: 關於時間序列深入解析
       href: time-series-insights-update-overview.md
 - name: 快速入門
+  expanded: true
   items:
     - name: Azure 時間序列深入解析 GA
       items:

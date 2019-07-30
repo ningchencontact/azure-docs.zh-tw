@@ -5,14 +5,12 @@ metadata:
   title: Azure API 管理文件 - 教學課程和 API 參考 | Microsoft Docs
   description: 了解如何使用 API 管理功能，大規模且安全地向外部、合作夥伴和員工開發人員發佈 API。 教學課程、API 參考和其他文件會顯示如何建立及管理隨處裝載之現有後端服務的新式 API 閘道。
   services: api-management
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: api-management
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/15/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 了解如何使用 API 管理功能，大規模且安全地向外部、合作夥伴和員工開發人員發佈 API。 教學課程、API 參考和其他文件會顯示如何建立及管理隨處裝載之現有後端服務的新式 API 閘道。
 sections:
