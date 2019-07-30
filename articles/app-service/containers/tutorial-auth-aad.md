@@ -303,7 +303,7 @@ git push frontend master
 
 ![在 Azure App Service 中執行的 ASP.NET Core API](./media/tutorial-auth-aad/resources-enable-write.png)
 
-在左側瀏覽器中，按一下 **訂用帳戶** > ** _&lt;your\_subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **提供者** > **Microsoft.Web** > **網站** >  ** _\<front\_end\_app\_name>_**  > **組態** > **authsettings**。
+在左側瀏覽器中，按一下 **訂用帳戶** >  **_&lt;your\_subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **提供者** > **Microsoft.Web** > **網站** >  **_\<front\_end\_app\_name>_**  > **組態** > **authsettings**。
 
 在 **authsettings** 檢視中，按一下 [編輯]  。 使用您複製的應用程式識別碼，將 `additionalLoginParams` 設為下列 JSON 字串。 
 

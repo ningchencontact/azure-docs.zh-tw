@@ -1,19 +1,18 @@
 ---
 title: Azure 備份：將系統狀態還原到 Windows Server
 description: 如何從 Azure 中的備份來還原 Windows Server 系統狀態的逐步解說。
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48eb9fce7b9863c84518546270a6566bb0cec711
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472496"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465639"
 ---
 # <a name="restore-system-state-to-windows-server"></a>將系統狀態還原到 Windows Server
 
@@ -73,8 +72,8 @@ ms.locfileid: "65472496"
 
 這些步驟中所使用的術語包含：
 
--  – 用來進行備份且目前無法使用的的原始電腦。
--  – 復原資料時的目標電腦。
+- – 用來進行備份且目前無法使用的的原始電腦。
+- – 復原資料時的目標電腦。
 - 「範例保存庫」  –「來源電腦」  和「目標電腦」  註冊的復原服務保存庫。 <br/>
 
 > [!NOTE]
@@ -83,17 +82,17 @@ ms.locfileid: "65472496"
 
 1. 在「目標電腦」  上開啟 [Microsoft Azure 備份]  嵌入式管理單元。
 2. 確定「目標電腦」  和「來源電腦」  均已註冊到相同的復原服務保存庫。
-3. 按一下 [復原資料]  初始化工作流程。
-4. 選取 [其他伺服器] 
+3. 按一下 [復原資料] 初始化工作流程。
+4. 選取 [其他伺服器]
 
     ![其他伺服器](./media/backup-azure-restore-system-state/anotherserver.png)
 
-5. 提供與「範例保存庫」  相對應的保存庫認證檔。 如果保存庫認證檔無效 (或已過期)，請從 Azure 入口網站中的「範例保存庫」  下載新的保存庫認證檔。 一旦提供保存庫認證檔，即會顯示與保存庫認證檔相關聯的復原服務保存庫。
+5. 提供與「範例保存庫」相對應的保存庫認證檔。 如果保存庫認證檔無效 (或已過期)，請從 Azure 入口網站中的「範例保存庫」  下載新的保存庫認證檔。 一旦提供保存庫認證檔，即會顯示與保存庫認證檔相關聯的復原服務保存庫。
 
 6. 在 [選取備份伺服器]  窗格上，從顯示的電腦清單選取 [來源電腦]。
 7. 在 [選取復原模式] 窗格上，選擇 [系統狀態]  ，然後按 [下一步]  。
 
-    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![搜尋](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. 在 [選取磁碟區和日期]  窗格的行事曆上，選取復原點。 您可以從任何時間的復原點還原。 **粗體**的日期表示至少有一個復原點可用。 一旦您選取一個日期，如果有多個復原點可用，您可以從 [時間]  下拉式功能表選擇特定的復原點。
 

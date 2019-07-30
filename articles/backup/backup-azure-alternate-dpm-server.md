@@ -1,19 +1,18 @@
 ---
 title: 從 Azure 備份伺服器復原資料
 description: 從登錄至復原服務保存庫的任何 Azure 備份伺服器，復原該保存庫中保護的資料。
-services: backup
 author: kasinh
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: 770baeeacb5f3808eba05f9e262bcbca75c6baad
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: aaa2efa706822bee85dc867ad35bc312f4c700a1
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705219"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466904"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>從 Azure 備份伺服器復原資料
 您可以使用 Azure 備份伺服器，將您已備份到復原服務保存庫的資料復原。 要這麼做的程序就是整合到 Azure 備份伺服器管理主控台，且類似於其他 Azure 備份元件的復原工作流程。
@@ -45,13 +44,13 @@ ms.locfileid: "67705219"
     檔案和資料夾清單會出現在底部窗格中，方便您瀏覽並復原到任何位置。
 
     ![外部 DPM 伺服器復原點](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. 在適當的項目上按一下滑鼠右鍵，然後按一下 [復原]  。
+5. 在適當的項目上按一下滑鼠右鍵，然後按一下 [復原]。
 
     ![外部 DPM 復原](./media/backup-azure-alternate-dpm-server/recover.png)
-6. 檢閱「復原選取項目」  。 請確認要復原之備份複本的資料和時間，以及建立備份複本的來源。 如果選取項目不正確，請按一下 [取消]  ，往回瀏覽至 [復原] 索引標籤，以選取適當的復原點。 如果選取項目正確，請按 [下一步]  。
+6. 檢閱「復原選取項目」。 請確認要復原之備份複本的資料和時間，以及建立備份複本的來源。 如果選取項目不正確，請按一下 [取消] ，往回瀏覽至 [復原] 索引標籤，以選取適當的復原點。 如果選取項目正確，請按 [下一步]。
 
     ![外部 DPM 復原摘要](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
-7. 選取 [復原到替代位置]  。  到正確的復原位置。
+7. 選取 [復原到替代位置]。 到正確的復原位置。
 
     ![外部 DPM 復原替代位置](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
 8. 選擇與 [建立複本]  、[略過]  或 [覆寫]  相關的選項。
@@ -60,12 +59,12 @@ ms.locfileid: "67705219"
    * **跳過** - 如果名稱有衝突，就不會復原離開原始檔的檔案。
    * **覆寫** - 如果名稱有衝突，就會覆寫檔案的現有副本。
 
-     請選擇適當的選項來「還原安全性」  。 您可以在建立復原點時，針對將資料復原至其中的目的地電腦，套用其安全性設定，或是套用適用於產品的安全性設定。
+     請選擇適當的選項來「還原安全性」。 您可以在建立復原點時，針對將資料復原至其中的目的地電腦，套用其安全性設定，或是套用適用於產品的安全性設定。
 
      確認是否要在復原成功完成後，傳送「通知」  。
 
      ![外部 DPM 復原通知](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. [摘要]  畫面會列出到目前為止已選擇的選項。 按一下 [復原]  之後，資料就會復原到適當的內部部署位置。
+9. [摘要] 畫面會列出到目前為止已選擇的選項。 按一下 [復原]  之後，資料就會復原到適當的內部部署位置。
 
     ![外部 DPM 復原選項摘要](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
@@ -83,13 +82,13 @@ ms.locfileid: "67705219"
 | 資料分割 | 錯誤訊息 | 疑難排解步驟 |
 |:---:|:--- |:--- |
 | 1. |保存庫認證所指定的保存庫中未登錄此伺服器。 |**原因：** 如果選取的保存庫認證檔案不屬於與所嘗試復原之 Azure 備份伺服器關聯的復原服務保存庫，就會出現此錯誤。 <br> **解決方案：** 從已登錄 Azure 備份伺服器的復原服務保存庫下載保存庫認證檔。 |
-| 2. |可復原資料無法使用，或選取的伺服器不是 DPM 伺服器。 |**原因：** 沒有任何其他 Azure 備份伺服器已向復原服務保存庫中，或伺服器有尚未上傳中繼資料，或選取的伺服器不是 Azure 備份伺服器 （使用 Windows Server 或 Windows 用戶端）。 <br> **解決方案：** 如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。 <br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
+| 2. |可復原資料無法使用，或選取的伺服器不是 DPM 伺服器。 |**原因：** 沒有其他 Azure 備份伺服器向復原服務保存庫註冊, 或伺服器尚未上傳中繼資料, 或選取的伺服器不是 Azure 備份伺服器 (使用 Windows Server 或 Windows 用戶端)。 <br> **解決方案：** 如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。 <br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
 | 3. |此保存庫未登錄其他 DPM 伺服器。 |**原因：** 沒有任何其他 Azure 備份伺服器已向嘗試復原的保存庫登錄。<br>**解決方案：** 如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。<br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
-| 4. |與下列伺服器關聯的複雜密碼不符合提供的加密複雜密碼： **\<伺服器名稱 >** |**原因：** 在加密來自要復原之 Azure 備份伺服器的資料過程中使用的加密複雜密碼，與所提供的加密複雜密碼不符。 代理程式無法解密資料。 因此復原失敗。<br>**解決方案：** 請提供與要復原資料的 Azure 備份伺服器關聯且完全相同的加密複雜密碼。 |
+| 4. |提供的加密複雜密碼與下列伺服器相關聯的複雜密碼不相符:  **\<伺服器名稱 >** |**原因：** 在加密來自要復原之 Azure 備份伺服器的資料過程中使用的加密複雜密碼，與所提供的加密複雜密碼不符。 代理程式無法解密資料。 因此復原失敗。<br>**解決方案：** 請提供與要復原資料的 Azure 備份伺服器關聯且完全相同的加密複雜密碼。 |
 
 ## <a name="next-steps"></a>後續步驟
 
 閱讀其他常見問題集：
 
-- [常見的問題](backup-azure-vm-backup-faq.md)有關 Azure VM 備份
+- 關於 Azure VM 備份的[常見問題](backup-azure-vm-backup-faq.md)
 - 「Azure 備份」代理程式的相關[常見問題](backup-azure-file-folder-backup-faq.md)

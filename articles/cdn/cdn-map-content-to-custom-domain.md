@@ -145,7 +145,7 @@ ms.locfileid: "67666100"
  
 1. 確定您有在端點上快取的公用內容。 例如，如果您的 CDN 端點與儲存體帳戶相關聯，則 Azure CDN 會快取公用容器中的內容。 若要測試自訂網域，請確認您的容器設定為允許公用存取，且至少包含一個檔案。
 
-2. 在瀏覽器中，使用自訂網域瀏覽至檔案的位址。 例如，如果您的自訂網域是 www.contoso.com，則快取檔案的 URL 應會類似於下列 URL：http:\//www.contoso.com/my-public-container/my-file.jpg。 確認結果與您直接在 *&lt;endpoint hostname&gt;* .azureedge.net 上存取 CDN 端點時相同。
+2. 在瀏覽器中，使用自訂網域瀏覽至檔案的位址。 例如，如果您的自訂網域是 [www.contoso.com](www.contoso.com)，則快取檔案的 URL 應會類似於下列 URL：http:\//www.contoso.com/my-public-container/my-file.jpg。 確認結果與您直接在 *&lt;endpoint hostname&gt;* .azureedge.net 上存取 CDN 端點時相同。
 
 
 ## <a name="map-the-permanent-custom-domain"></a>對應永久自訂網域
