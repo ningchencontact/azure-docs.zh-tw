@@ -114,7 +114,7 @@ Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源�
     ```
 
 2. 編輯範本以符合您的需求。 檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
-3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json  。   
+3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json。   
 4. 您已準備好部署此範本。 從包含範本的資料夾使用下列命令：
 
     ```azurecli
