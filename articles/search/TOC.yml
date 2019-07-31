@@ -231,7 +231,9 @@
           href: cognitive-search-resources-documentation.md
     - name: 知識存放區 (預覽)
       items:
-        - name: 如何開始使用
+        - name: 使用 Power BI 連線
+          href: knowledge-store-connect-powerbi.md
+        - name: 使用 REST 和 Postman 建立
           href: knowledge-store-howto.md
     - name: 查詢資料
       items:

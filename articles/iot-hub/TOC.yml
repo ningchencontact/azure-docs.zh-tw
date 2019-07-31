@@ -91,6 +91,8 @@
       href: iot-hub-scaling.md
     - name: 高可用性和災害復原
       href: iot-hub-ha-dr.md
+    - name: 瞭解 IoT 中樞 IP 位址
+      href: iot-hub-understand-ip-address.md
     - name: 支援其他通訊協定
       href: iot-hub-protocol-gateway.md
     - name: 比較訊息和事件路由

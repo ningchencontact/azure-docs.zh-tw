@@ -105,8 +105,14 @@
           href: container-registry-tasks-multi-step.md
         - name: 使用 Buildpacks 建置映像 (預覽)
           href: container-registry-tasks-pack-build.md
-        - name: 使用受控識別
-          href: container-registry-tasks-authentication-managed-identity.md
+        - name: 使用受控識別存取受保護的資源
+          items:
+            - name: 在工作中啟用受控識別
+              href: container-registry-tasks-authentication-managed-identity.md
+            - name: 從工作進行跨登錄驗證
+              href: container-registry-tasks-cross-registry-authentication.md
+            - name: 使用金鑰保存庫進行外部驗證
+              href: container-registry-tasks-authentication-key-vault.md
     - name: 登錄和其他 Azure 服務
       items:
         - name: Azure Container Instances

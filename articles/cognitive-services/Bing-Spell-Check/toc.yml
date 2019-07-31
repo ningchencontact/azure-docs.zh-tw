@@ -70,7 +70,8 @@
 - name: 資源
   items:
     - name: Bing 拼字檢查 API 的分析
-      href: bing-spell-check-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: 語言與區域支援
       href: language-support.md
     - name: 價格
