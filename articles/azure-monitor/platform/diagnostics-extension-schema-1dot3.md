@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60238060"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
@@ -31,7 +31,7 @@ ms.locfileid: "60238060"
 
 當診斷監視器啟動時，此處所述的組態檔會用來設定診斷組態設定。  
 
-延伸模組會在與 Azure 監視器 」，它包含 Application Insights 和 Log Analytics 等其他 Microsoft 診斷產品搭配使用。
+此延伸模組會與其他 Microsoft 診斷產品 (例如 Azure 監視器) 搭配使用, 其中包括 Application Insights 和 Log Analytics。
 
 
 
@@ -420,7 +420,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**PublicConfig**|必要。 請參閱本頁面上其他部分的說明。|  
+|**PublicConfig**|必要項。 請參閱本頁面上其他部分的說明。|  
 |**PrivateConfig**|選擇性。 請參閱本頁面上其他部分的說明。|  
 |**IsEnabled**|布林值。 請參閱本頁面上其他部分的說明。|  
 
@@ -431,7 +431,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**WadCfg**|必要。 請參閱本頁面上其他部分的說明。|  
+|**WadCfg**|必要項。 請參閱本頁面上其他部分的說明。|  
 |**StorageAccount**|要儲存資料的 Azure 儲存體帳戶名稱。 可能也會在執行 Set-AzureServiceDiagnosticsExtension Cmdlet 時指定為參數。|  
 |**StorageType**|可以是 Table  、Blob  或 TableAndBlob  。 預設值是 Table。 若選擇 TableAndBlob，系統會將診斷資料寫入兩次 -- 每種類型寫入一次。|  
 |**LocalResourceDirectory**|虛擬機器上監視代理程式儲存事件資料的目錄。 如果沒有，請設定，否則會使用預設的目錄：<br /><br /> 針對背景工作/web 角色：`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 針對虛擬機器：`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> - **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> - **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
@@ -482,7 +482,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|必要。 定義每個處理序的組態值。<br /><br /> 以下也是必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
+|**CrashDumpConfiguration**|必要項。 定義每個處理序的組態值。<br /><br /> 以下也是必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
 
 ## <a name="directories-element"></a>Directories 元素
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
@@ -507,7 +507,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|必要。 必要屬性：<br /><br /> **containerName** - 在您的 Azure 儲存體帳戶中用來儲存記錄檔的 Blob 容器名稱。|  
+|**DirectoryConfiguration**|必要項。 必要屬性：<br /><br /> **containerName** - 在您的 Azure 儲存體帳戶中用來儲存記錄檔的 Blob 容器名稱。|  
 
 
 
@@ -610,7 +610,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  定義基本 Azure 記錄的緩衝區組態。  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
 |**scheduledTransferLogLevelFilter**|**string**|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
@@ -642,11 +642,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  定義要傳送診斷資料的目標位置。 例如 Application Insights 服務。  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**name**|string|識別 sinkname 的字串。|  
 
-|元素|type|描述|  
+|元素|Type|描述|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|僅會在將資料傳送至 Application Insights 時使用。 包含您有權存取之使用中 Application Insights 帳戶的檢測金鑰。|  
 |**Channels**|string|每個可額外篩選該資料流的其中一個|  
@@ -658,7 +658,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  針對通過接收之記錄資料的資料流定義篩選器。  
 
-|元素|type|描述|  
+|元素|Type|描述|  
 |-------------|----------|-----------------|  
 |**Channel**|string|請參閱本頁面上其他部分的說明。|  
 
@@ -669,7 +669,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  定義要傳送診斷資料的目標位置。 例如 Application Insights 服務。  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**，會傳輸所有記錄。 其他可能的值 (按照從大到小的順序排列) 為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
 |**name**|**string**|要參考之通道的唯一名稱|  

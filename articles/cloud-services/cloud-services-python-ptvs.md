@@ -3,23 +3,18 @@ title: 開始使用 Python 和 Azure 雲端服務 | Microsoft Docs
 description: 使用 Python Tools for Visual Studio 建立 Azure 雲端服務的概觀，包括 Web 角色和背景工作角色。
 services: cloud-services
 documentationcenter: python
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 981b1cc4a7adb98ba68ebf3a7673b7116479e704
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125435"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68359566"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>採用 Python Tools for Visual Studio 的 Python Web 和背景工作角色
 
@@ -28,15 +23,15 @@ ms.locfileid: "62125435"
 ## <a name="prerequisites"></a>先決條件
 * [Visual Studio 2013、2015 或 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] 或  
-[Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] 或  
-[Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
+* [適用于 VS 2013 或的 Azure SDK Tools][Azure SDK Tools for VS 2013]  
+[適用于 VS 2015 或的 Azure SDK Tools][Azure SDK Tools for VS 2015]  
+[適用于 VS 2017 的 Azure SDK Tools][Azure SDK Tools for VS 2017]
 * [Python 2.7 32 位元][Python 2.7 32-bit]或 [Python 3.5 32 位元][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>什麼是 Python Web 和背景工作角色？
-Azure 提供三種用以執行應用程式的計算模型：[Azure App Service 中的 Web Apps 功能][execution model-web sites]、[Azure 虛擬機器][execution model-vms]及 [Azure 雲端服務][execution model-cloud services]。 這三種模型都支援 Python。 雲端服務 (包含 Web 和背景工作角色) 可提供*平台即服務 (PaaS)* 。 在雲端服務中，Web 角色應用程式會提供專用的 Internet Information Services (IIS) Web 伺服器，用以代管前端 Web 應用程式，而背景工作角色則可執行獨立於使用者互動或輸入以外的非同步、長時間執行或持續性工作。
+Azure 提供三種用以執行應用程式的計算模型：Azure App Service、 [azure 虛擬機器][execution model-vms]和[azure 雲端服務][execution model-cloud services][中的 Web Apps 功能][execution model-web sites]。 這三種模型都支援 Python。 雲端服務 (包含 Web 和背景工作角色) 可提供*平台即服務 (PaaS)* 。 在雲端服務中，Web 角色應用程式會提供專用的 Internet Information Services (IIS) Web 伺服器，用以代管前端 Web 應用程式，而背景工作角色則可執行獨立於使用者互動或輸入以外的非同步、長時間執行或持續性工作。
 
 如需詳細資訊，請參閱[什麼是雲端服務？] (英文)。
 
@@ -312,7 +307,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 ![Solution Startup Project Properties](./media/cloud-services-python-ptvs/startup.png)
 
-## <a name="publish-to-azure"></a>發佈至 Azure
+## <a name="publish-to-azure"></a>發行至 Azure
 若要發佈，請以滑鼠右鍵按一下方案中的雲端服務專案，然後選取 [發佈]  。
 
 ![Microsoft Azure Publish Sign In](./media/cloud-services-python-ptvs/publish-sign-in.png)

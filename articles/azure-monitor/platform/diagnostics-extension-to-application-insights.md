@@ -9,10 +9,10 @@ ms.date: 03/19/2016
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: f7e21b805c64522005dce3e7d04aa158e1c21032
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60396105"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>將雲端服務、虛擬機器或 Service Fabric 診斷資料傳送至 Application Insights
@@ -66,12 +66,12 @@ Application Insights 的接收器組態範例：
 
 - **Channels** 元素包含一個或多個 **Channel** 元素。
     - name  屬性可唯一參考該通道。
-    - loglevel  屬性可讓您指定通道允許的記錄等級。 可用的記錄等級從最多到最少資訊依序為：
+    - loglevel 屬性可讓您指定通道允許的記錄等級。 可用的記錄等級從最多到最少資訊依序為：
         - 詳細資訊
         - 資訊
         - 警告
-        - 錯誤
-        - 重要
+        - Error
+        - 重大
 
 通道就像篩選條件，可讓您選取要傳送至目標接收器的特定記錄等級。 例如，您可以收集詳細記錄，將它們傳送至儲存體，但只將「錯誤」傳送至接收器。
 

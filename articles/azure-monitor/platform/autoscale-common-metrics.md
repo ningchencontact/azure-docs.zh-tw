@@ -9,10 +9,10 @@ ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129738"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 監視器自動調整的常用度量
@@ -51,7 +51,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 您可以建立下列度量的警示：
 
-| 度量名稱 | 單位 |
+| 計量名稱 | 單位 |
 | --- | --- |
 | \Processor(_Total)\% Processor Time |Percent |
 | \Processor(_Total)\% Privileged Time |Percent |
@@ -69,12 +69,12 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk(_Total)\% Disk Time |Percent |
 | \PhysicalDisk(_Total)\% Disk Read Time |Percent |
 | \PhysicalDisk(_Total)\% Disk Write Time |Percent |
-| \PhysicalDisk(_Total)\每秒的磁碟傳輸數 |每秒計數 |
-| \PhysicalDisk(_Total)\Disk Reads/sec |每秒計數 |
+| \PhysicalDisk(_Total)\每秒的磁碟傳輸數 |CountPerSecond |
+| \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Writes/sec |每秒計數 |
-| \PhysicalDisk(_Total)\Disk Bytes/sec |每秒位元組 |
-| \PhysicalDisk(_Total)\Disk Read Bytes/sec |每秒位元組 |
-| \PhysicalDisk(_Total)\Disk Write Bytes/sec |每秒位元組 |
+| \PhysicalDisk(_Total)\Disk Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Read Bytes/sec |BytesPerSecond |
+| \PhysicalDisk(_Total)\Disk Write Bytes/sec |BytesPerSecond |
 | \PhysicalDisk(_Total)\Avg.磁碟佇列長度 |Count |
 | \PhysicalDisk(_Total)\Avg.磁碟讀取佇列長度 |Count |
 | \PhysicalDisk(_Total)\Avg.磁碟寫入佇列長度 |Count |
@@ -92,16 +92,16 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
  您可以建立下列度量的警示：
 
-| 度量名稱 | 單位 |
+| 計量名稱 | 單位 |
 | --- | --- |
 | \Memory\AvailableMemory |位元組 |
 | \Memory\PercentAvailableMemory |Percent |
 | \Memory\UsedMemory |位元組 |
 | \Memory\PercentUsedMemory |Percent |
 | \Memory\PercentUsedByCache |Percent |
-| \Memory\PagesPerSec |每秒計數 |
-| \Memory\PagesReadPerSec |每秒計數 |
-| \Memory\PagesWrittenPerSec |每秒計數 |
+| \Memory\PagesPerSec |CountPerSecond |
+| \Memory\PagesReadPerSec |CountPerSecond |
+| \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |位元組 |
 | \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |位元組 |
@@ -114,12 +114,12 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \Processor\PercentDPCTime |Percent |
 | \Processor\PercentProcessorTime |Percent |
 | \Processor\PercentIOWaitTime |Percent |
-| \PhysicalDisk\BytesPerSecond |每秒位元組 |
-| \PhysicalDisk\ReadBytesPerSecond |每秒位元組 |
-| \PhysicalDisk\WriteBytesPerSecond |每秒位元組 |
-| \PhysicalDisk\TransfersPerSecond |每秒計數 |
-| \PhysicalDisk\ReadsPerSecond |每秒計數 |
-| \PhysicalDisk\WritesPerSecond |每秒計數 |
+| \PhysicalDisk\BytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
+| \PhysicalDisk\TransfersPerSecond |CountPerSecond |
+| \PhysicalDisk\ReadsPerSecond |CountPerSecond |
+| \PhysicalDisk\WritesPerSecond |CountPerSecond |
 | \PhysicalDisk\AverageReadTime |秒 |
 | \PhysicalDisk\AverageWriteTime |秒 |
 | \PhysicalDisk\AverageTransferTime |秒 |
@@ -145,7 +145,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 您可以針對這些度量發出警示通知或以其為調整依據。
 
-| 度量名稱 | 單位 |
+| 計量名稱 | 單位 |
 | --- | --- |
 | CpuPercentage |Percent |
 | MemoryPercentage |Percent |

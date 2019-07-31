@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60237849"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 診斷 1.0 組態結構描述
@@ -21,7 +21,7 @@ ms.locfileid: "60237849"
 > Azure 診斷是一種元件，可針對 Azure 虛擬機器、虛擬機器擴展集，Service Fabric 以及雲端服務，收集相關效能計數器和其他統計資料。  此頁面只在您使用其中一個服務時才相關。
 >
 
-Azure 診斷是 Azure 監視器 」，它包含 Application Insights 和 Log Analytics 等其他 Microsoft 診斷產品搭配使用。
+Azure 診斷與其他 Microsoft 診斷產品 (例如 Azure 監視器) 搭配使用, 其中包括 Application Insights 和 Log Analytics。
 
 Azure 診斷組態檔會定義用來初始化診斷監視器的值。 在診斷監視器啟動時，會使用此檔案來初始化診斷組態設定。  
 
@@ -101,7 +101,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 屬性：
 
-|屬性  |type   |必要項| 預設 | 描述|  
+|屬性  |Type   |必要項| 預設 | 描述|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|選擇性 | PT1M| 指定診斷監視器輪詢診斷組態變更的間隔。|  
 |**overallQuotaInMB**|unsignedInt|選擇性| 4000 MB。 如果您提供值，該值不能超過此數量 |針對所有記錄緩衝區配置的檔案系統儲存體總數量。|  
@@ -111,26 +111,26 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 父元素名稱：DiagnosticMonitorConfiguration 元素。  
 
-屬性：
+屬性:
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
 |**scheduledTransferLogLevelFilter**|string|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**scheduledTransferPeriod**|持續時間|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="logs-element"></a>Logs 元素  
  定義基本 Azure 記錄的緩衝區組態。
 
  父元素名稱：DiagnosticMonitorConfiguration 元素。  
 
-屬性：  
+屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
 |**scheduledTransferLogLevelFilter**|string|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**scheduledTransferPeriod**|持續時間|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="directories-element"></a>Directories 元素  
 定義您可以定義之檔案式記錄的緩衝區組態。
@@ -138,21 +138,21 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 父元素名稱：DiagnosticMonitorConfiguration 元素。  
 
 
-屬性：  
+屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**scheduledTransferPeriod**|持續時間|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
  定義損毀傾印目錄。
 
  父元素名稱：Directories 元素。  
 
-屬性：  
+屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**container**|string|要傳輸目錄內容的容器名稱。|  
 |**directoryQuotaInMB**|unsignedInt|選擇性。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
@@ -162,9 +162,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  父元素︰Directories 元素。  
 
-屬性：  
+屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**container**|string|要傳輸目錄內容的容器名稱。|  
 |**directoryQuotaInMB**|unsignedInt|選擇性。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
@@ -174,9 +174,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  父元素︰Directories 元素。  
 
-屬性：  
+屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**container**|string|要傳輸目錄內容的容器名稱。|  
 |**directoryQuotaInMB**|unsignedInt|選擇性。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
@@ -191,9 +191,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  父元素名稱：DataSources 元素。
 
-屬性：
+屬性:
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**container**|string|要傳輸目錄內容的容器名稱。|  
 |**directoryQuotaInMB**|unsignedInt|選擇性。 指定目錄的大小上限，以 MB 為單位。<br /><br /> 預設值為 0。|  
@@ -203,24 +203,24 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  父元素名稱：DirectoryConfiguration 元素。  
 
-屬性：  
+屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
-|**path**|string|必要。 要監視之目錄的絕對路徑。|  
-|**expandEnvironment**|boolean|必要。 如果設定為 **true**，就會展開路徑中的環境變數。|  
+|**path**|string|必要項。 要監視之目錄的絕對路徑。|  
+|**expandEnvironment**|boolean|必要項。 如果設定為 **true**，就會展開路徑中的環境變數。|  
 
 ## <a name="localresource-element"></a>LocalResource 元素  
  定義相對於服務定義中所定義之本機資源的路徑。
 
  父元素名稱：DirectoryConfiguration 元素。  
 
-屬性：  
+屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
-|**name**|string|必要。 包含要監視之目錄的本機資源名稱。|  
-|**relativePath**|string|必要。 相對於要監視之本機資源的路徑。|  
+|**name**|string|必要項。 包含要監視之目錄的本機資源名稱。|  
+|**relativePath**|string|必要項。 相對於要監視之本機資源的路徑。|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
  定義要收集之效能計數器的路徑。
@@ -228,46 +228,46 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  父元素名稱：DiagnosticMonitorConfiguration 元素。
 
 
- 屬性：  
+ 屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
-|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**scheduledTransferPeriod**|持續時間|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration 元素  
  定義要收集的效能計數器。
 
  父元素名稱：PerformanceCounters 元素。  
 
- 屬性：  
+ 屬性:  
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|string|必要。 要收集之效能計數器的路徑。|  
-|**sampleRate**|duration|必要。 應收集效能計數器的頻率。|  
+|**counterSpecifier**|string|必要項。 要收集之效能計數器的路徑。|  
+|**sampleRate**|持續時間|必要項。 應收集效能計數器的頻率。|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素  
  定義要監視的事件記錄。
 
  父元素名稱：DiagnosticMonitorConfiguration 元素。
 
-  屬性：
+  屬性:
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|選擇性。 指定適用於所指定資料的檔案系統儲存體數量上限。<br /><br /> 預設值為 0。|  
 |**scheduledTransferLogLevelFilter**|string|選擇性。 指定所傳輸記錄項目的最低嚴重性層級。 預設值為 **Undefined**。 其他可能的值為 **Verbose**、**Information**、**Warning**、**Error** 及 **Critical**。|  
-|**scheduledTransferPeriod**|duration|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
+|**scheduledTransferPeriod**|持續時間|選擇性。 指定排程傳輸資料之間的間隔，無條件進位到最接近的分鐘數。<br /><br /> 預設值為 PT0S。|  
 
 ## <a name="datasource-element"></a>DataSource 元素  
  定義要監視的事件記錄。
 
  父元素名稱：WindowsEventLog 元素。  
 
- 屬性：
+ 屬性:
 
-|屬性|type|描述|  
+|屬性|Type|描述|  
 |---------------|----------|-----------------|  
-|**name**|string|必要。 指定要收集之記錄的 XPath 運算式。|  
+|**name**|string|必要項。 指定要收集之記錄的 XPath 運算式。|  
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
 ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66242455"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>新增 Azure 虛擬機器的擴充計量
@@ -28,10 +28,10 @@ Cloudyn 會使用 Azure VM 的 Azure 計量資料來顯示其資源的詳細資�
 - 根據使用量調整大小以控制您的成本。
 - 從 Cloudyn 取得有效調整成本大小的最佳化建議。
 
-例如，您可以監視 Azure VM 的 CPU % 和記憶體 %。 Azure VM 計量會對應至_CPU 百分比_並 _\Memory\% Committed Bytes In Use_。
+例如，您可以監視 Azure VM 的 CPU % 和記憶體 %。 Azure VM 計量會對應到使用中的 CPU 和 _\Memory\%認可位元組_ _百分比_。
 
 > [!NOTE]
-> 目前僅支援將擴充的計量資料收集用於 Azure 來賓層級監視。 Cloudyn 與不相容的 Azure 監視器記錄 VM 擴充功能。
+> 目前僅支援將擴充的計量資料收集用於 Azure 來賓層級監視。 Cloudyn 與 Azure 監視器記錄檔 VM 延伸模組不相容。
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>決定是否啟用擴充計量
 
@@ -44,7 +44,7 @@ Cloudyn 會使用 Azure VM 的 Azure 計量資料來顯示其資源的詳細資�
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>在 Azure 入口網站中啟用擴充計量
 
-標準計量是主機電腦計量。 _CPU 百分比_計量是一個例子。 來賓 VM 也有一些基本計量，它們也稱為擴充計量。 擴充計量的範例包括 _\Memory\% Committed Bytes In Use_並 _\Memory\Available 位元組_。
+標準計量是主機電腦計量。 _CPU 計量百分比_是其中一個範例。 來賓 VM 也有一些基本計量，它們也稱為擴充計量。 擴充計量的範例包括_使用\%中的 \Memory 認可位元組_和 _\Memory\Available 的位元組_。
 
 啟用擴充計量相當簡單。 針對每個 VM 啟用來賓層級監視。 當您啟用來賓層級的監視時，Azure 診斷代理程式就會安裝在 VM 上。 依預設會新增一組基本的擴充計量。 下列程序對傳統和一般 VM 而言一樣，而對於 Windows 和 Linux VM 而言也一樣。
 

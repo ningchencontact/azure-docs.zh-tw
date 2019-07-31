@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67875306"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>使用 StorSimple 做為 Veeam 的備份目標
@@ -276,11 +276,11 @@ StorSimple 提供下列優點︰
 
     ![Veeam 管理主控台，備份儲存機制頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  在 [新增備份儲存機制]  對話方塊中，輸入儲存機制的名稱和描述。 選取 [下一步]  。
+2.  在 [新增備份儲存機制]  對話方塊中，輸入儲存機制的名稱和描述。 選取 [下一步]。
 
     ![Veeam 管理主控台，名稱和描述頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  選取 [Microsoft Windows Server]  做為類型。 選取 Veeam 伺服器。 選取 [下一步]  。
+3.  選取 [Microsoft Windows Server]  做為類型。 選取 Veeam 伺服器。 選取 [下一步]。
 
     ![Veeam 管理主控台，選取備份存放庫的類型](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -289,11 +289,11 @@ StorSimple 提供下列優點︰
     ![Veeam 管理主控台，選取磁碟區](./media/storsimple-configure-backup-target-using-veeam/veeamimage4.png)
 
 
-5.  在 [儲存體相容性設定]  對話方塊中，選取 [使用每個 VM 的備份檔案]  核取方塊。
+5.  在 [儲存體相容性設定]對話方塊中，選取 [使用每個 VM 的備份檔案]  核取方塊。
 
     ![Veeam 管理主控台，存放裝置相容性設定](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  在 [新增備份儲存機制]  對話方塊中，選取 [在裝載伺服器上啟用 vPower NFS 服務 (建議)]  核取方塊。 選取 [下一步]  。
+6.  在 [新增備份儲存機制]  對話方塊中，選取 [在裝載伺服器上啟用 vPower NFS 服務 (建議)]  核取方塊。 選取 [下一步]。
 
     ![Veeam 管理主控台，備份儲存機制頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -345,7 +345,7 @@ StorSimple 提供下列優點︰
 
     ![Veeam 管理主控台，新增備份作業頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
-5. 在 [進階設定]  對話方塊的 [備份]  索引標籤上，選取 [增量]  。 確定已清除 [定期建立綜合的完整備份]  核取方塊。 選取 [定期建立作用中的完整備份]  核取方塊。 在 [作用中的完整備份]  之下，針對星期六選取 [每週選取的日期]  核取方塊。
+5. 在 [進階設定] 對話方塊的 [備份]  索引標籤上，選取 [增量]  。 確定已清除 [定期建立綜合的完整備份]  核取方塊。 選取 [定期建立作用中的完整備份]  核取方塊。 在 [作用中的完整備份]  之下，針對星期六選取 [每週選取的日期]  核取方塊。
 
     ![Veeam 管理主控台，新增備份作業進階設定頁面](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 

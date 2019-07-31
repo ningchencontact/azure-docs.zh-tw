@@ -1,6 +1,6 @@
 ---
 title: 將監視和診斷新增到 Azure 虛擬機器 | Microsoft Docs
-description: 使用 Azure Resource Manager 範本來建立新的 Windows 虛擬機器使用 Azure 診斷擴充功能。
+description: 使用 Azure Resource Manager 範本來建立具有 Azure 診斷擴充功能的新 Windows 虛擬機器。
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -17,10 +17,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8d1c5598bd7ea5b3f35d5447935953d4cd55664a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67706763"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>使用 Windows VM 和 Azure Resource Manager 範本的監視和診斷
@@ -29,7 +29,7 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>將 Azure 診斷延伸模組新增至 VM 資源定義
 若要在 Windows 虛擬機器上啟用診斷擴充功能，您必須新增擴充功能作為 Resource Manager 範本中的 VM 資源。
 
-針對簡單以資源管理員為基礎的虛擬機器，將延伸模組組態新增至虛擬機器的「資源」  陣列： 
+針對簡單以資源管理員為基礎的虛擬機器，將延伸模組組態新增至虛擬機器的「資源」 陣列： 
 
 ```json
 "resources": [
@@ -164,7 +164,7 @@ PT1M  及 PT1H  的 MetricAggregation 值分別表示超過一分鐘的彙總及
 * **V2S**：字串常數
 * **yyyymmdd**：資料表開始收集資料的日期
 
-範例：*WADMetricsPT1HP10DV2S20151108* 包含從 2015 年 11 月 11 日開始 10 天內，所有超過一小時的彙總計量資料    
+範例:*WADMetricsPT1HP10DV2S20151108* 包含從 2015 年 11 月 11 日開始 10 天內，所有超過一小時的彙總計量資料    
 
 每個 WADMetrics 資料表都包含下列資料行：
 
