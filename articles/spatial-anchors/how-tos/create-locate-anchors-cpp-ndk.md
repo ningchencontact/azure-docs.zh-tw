@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d0295512452367cb0f70f1d9ca6e950d6649353
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2578202c2464248c1c765368d308ca669d918057
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669330"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562534"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>如何在 C++/NDK 中使用 Azure Spatial Anchors 建立和尋找錨點
 
@@ -39,7 +39,7 @@ Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 
 - 已完整閱讀 [Azure Spatial Anchors 概觀](../overview.md)。
 - 已完成其中一個 [5 分鐘快速入門](../index.yml)。
 - 已基本了解 C++ 和 <a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>。
-- 已基本了解 <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7。
+- 已基本了解 <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>。
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

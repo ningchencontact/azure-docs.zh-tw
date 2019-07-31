@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173666"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562479"
 ---
 選取 [組建]  。 在開啟的對話方塊中，選取要匯出 Xcode 專案的目的地資料夾。
 
@@ -18,7 +18,7 @@ ms.locfileid: "67173666"
 > [!NOTE]
 > 如果出現詢問您是否要取代或附加的視窗，我們建議您選取 [附加]  ，因為速度較快。 如果您是變更場景中的資產，應該只需要選取 [取代]  。 (例如，如果您新增、移除或變更父/子關連性，或者如果您新增、移除或變更屬性。)如果您只是變更原始程式碼，[附加]  應該就夠了。
 
-### <a name="open-the-xcode-project"></a>開啟 Xcode 專案
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>將 Xcode 專案轉換為包含 Azure Spatial Anchors 參考的 xcworkspace
 
 在匯出的 Xcode 專案資料夾中，在終端機執行此命令以安裝專案所需的 CocoaPods：
 

@@ -12,17 +12,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d336d6a53b6d234048c56d8492d278bef6fed64
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 07/26/2019
+ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957509"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596806"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>教學課程：使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中建立預測模型
 
-在這個三部分教學課程系列的第二部分中，您將使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中建立兩個預測模型，然後選取最精確的模型。
+在這個三部分教學課程系列的第二部分中，您將在 R 中建立兩個預測模型，然後選取最精確的模型。 在本系列的下一個部分中，您將使用 Azure SQL Database 機器學習服務 (預覽) 在 SQL 資料庫中部署此模型。
 
 在本文中，您將了解如何：
 
@@ -31,9 +31,9 @@ ms.locfileid: "65957509"
 > * 從這兩種模型進行預測
 > * 比較結果以選擇最精確的模型
 
-在[第一部分](sql-database-tutorial-predictive-model-prepare-data.md)中，您已了解如何將範例資料庫匯入 Azure SQL 資料庫中，然後準備要用來在 R 中定型預測模型的資料。
+在[第一部分](sql-database-tutorial-predictive-model-prepare-data.md)中，您已了解如何匯入資料庫範例，然後準備要用來在 R 中定型預測模型的資料。
 
-在[第三部分](sql-database-tutorial-predictive-model-deploy.md)中，您將了解如何將模型儲存在資料庫中，然後建立可根據新資料進行預測的預存程序。
+在[第三部分](sql-database-tutorial-predictive-model-deploy.md)中，您會了解如何將模型儲存在資料庫中，然後從您在第一和第二部分中開發的 R 指令碼建立預存程序。 預存程序會在 SQL 資料庫中執行，以根據新資料做出預測。
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

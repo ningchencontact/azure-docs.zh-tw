@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7c8c5de469439f7ada294215682a1919022bcc1d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7bc4a2251fa07f201d35e385806d2eb49cd8851e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672063"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562523"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>如何在 Java 中使用 Azure Spatial Anchors 建立和尋找錨點
 
@@ -39,7 +39,7 @@ Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 
 - 已完整閱讀 [Azure Spatial Anchors 概觀](../overview.md)。
 - 已完成其中一個 [5 分鐘快速入門](../index.yml)。
 - 已基本了解 Java。
-- 已基本了解 <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7。
+- 已基本了解 <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a>。
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

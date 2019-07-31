@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57244dd9f3365b3899bcc1dde6382cc3b51719d9
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7e7d4a542146fb8d342cce6c34f9d97e72349f84
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722953"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561384"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>教學課程：使用 Azure Spatial Anchors 新建 HoloLens Unity 應用程式的逐步指示
 
@@ -23,7 +23,7 @@ ms.locfileid: "67722953"
 
 若要完成本教學課程，請確定您具有下列項目︰
 
-1. 已安裝 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> 的 Windows 機器，並且具有**通用 Windows 平台開發**工作負載和 **Windows 10 SDK (10.0.17763.0 或更新版本)** 元件，以及 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
+1. 已安裝 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> 的 Windows 機器，並且具有**通用 Windows 平台開發**工作負載和 **Windows 10 SDK (10.0.18362.0 或更新版本)** 元件，以及 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
 2. 從 [Visual Studio Marketplace](https://marketplace.visualstudio.com/) 安裝 Visual Studio 的 [C++/WinRT Visual Studio 延伸模組 (VSIX)](https://aka.ms/cppwinrt/vsix)。
 3. 已啟用[開發人員模式](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)的 HoloLens 裝置。 本文需要具有 [Windows 10 2018 年 10 月更新](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (也稱為 RS5) 的 HoloLens 裝置。 若要在 HoloLens 上更新至最新版本，請開啟**設定**應用程式，移至 [更新與安全性]  ，然後選取 [檢查更新]  按鈕。
 
@@ -57,10 +57,10 @@ ms.locfileid: "67722953"
 > [!NOTE]
 > 若未看到 Windows 市集圖示，請仔細檢查以確定您在安裝之前已選取 Windows 市集 .NET 指令碼後端。 如果沒有，您可能需要以正確的 Windows 安裝重新安裝 Unity。
 
-**驗證 .NET 組態**
+**確認指令碼後端組態**
 1. 移至 [編輯]   > [專案設定]   > [播放器]  (先前步驟中的**播放器**可能仍開啟)。
 2. 在 [播放程式設定]  的 [偵測器面板]  中，選取 **Windows 市集**圖示。
-3. 在 [其他設定]  組態區段中，確定 [指令碼後端]  設為 [.NET]  。
+3. 在 [其他設定]  組態區段中，確定 [指令碼後端]  設為 [IL2CPP]  。
 
 **設定功能**
 1. 移至 [編輯]   > [專案設定]   > [播放器]  (先前步驟中的**播放器**可能仍開啟)。

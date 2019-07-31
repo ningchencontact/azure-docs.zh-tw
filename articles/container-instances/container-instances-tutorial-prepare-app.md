@@ -10,10 +10,10 @@ ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325576"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>教學課程：建立容器影像以部署至 Azure 容器執行個體
@@ -49,7 +49,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>建置容器映像
 
-範例應用程式中的 Dockerfile 會示範如何建置容器。 它先會使用以 [官方 Node.js 映像][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux]，這是一個很適合用於容器的小型散發。 接著會將應用程式檔案複製到容器、使用節點套件管理員來安裝相依性，最後就啟動應用程式。
+範例應用程式中的 Dockerfile 會示範如何建置容器。 首先會使用以 [Alpine Linux][alpine-linux] 為基礎的[官方 Node.js 映像][docker-hub-nodeimage]，這是一個很適合用於容器的小型散發。 接著會將應用程式檔案複製到容器、使用節點套件管理員來安裝相依性，最後就啟動應用程式。
 
 ```Dockerfile
 FROM node:8.9.3-alpine

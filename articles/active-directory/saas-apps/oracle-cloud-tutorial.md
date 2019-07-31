@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164144"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596432"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>教學課程：整合 Oracle Cloud Infrastructure Console 與 Azure Active Directory
 
@@ -165,7 +165,7 @@ ms.locfileid: "67164144"
 
       ![組態](./media/oracle-cloud-tutorial/config09.png)
 
-   1. 針對 [識別提供者群組]  欄位，輸入在 Azure 入口網站中設定的群組名稱和群組識別碼。 群組必須與 [OCI 群組]  欄位中的對應群組相對應。
+   1. [識別提供者群組]  應選取為 [自訂群組]。 [群組識別碼] 應為來自 Azure Active Directory 的群組 GUID。 群組必須與 [OCI 群組]  欄位中的對應群組相對應。
 
    1. 您可以依據 Azure 入口網站中的每個設定，或是貴組織的需求，對應多個群組。 按一下 [+ 新增對應]  視需要新增任意數量的群組。
 

@@ -12,30 +12,32 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: aa9c41ee34a50ab9b1409357bfe7d123166601bf
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978735"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596676"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>教學課程：準備使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中定型預測模型所需的資料
 
-在這個三部分教學課程系列的第一部分中，您將準備 Azure SQL 資料庫中的資料，以供您透過 Azure SQL Database 機器學習服務 (預覽) 在 R 中定型預測模型。
+在這個三部分教學課程系列的第一部分中，您會使用 R 來匯入和準備來自 Azure SQL 資料庫中的資料。在本系列稍後的內容中，您則會使用此資料透過 Azure SQL Database 機器學習服務 (預覽) 在 R 中定型和部署預測性的機器學習模型。
 
 在本教學課程系列中，我們假設您是滑雪設備的出租業者，且您想要預測未來某個日期的出租數目。 這項資訊將可協助您備妥庫存、人力和相關設施。
+
+在本系列的第一和第二部分中，您會在 RStudio 中開發一些 R 指令碼，以便準備資料並定型機器學習模型。 然後，在第三部分中，則會使用預存程序在 SQL 資料庫內執行這些 R 指令碼。
 
 在本文中，您將了解如何：
 
 > [!div class="checklist"]
-> * 將範例資料庫匯入 Azure SQL 資料庫中
-> * 使用 R 將 Azure SQL 資料庫中的資料載入資料框架中
-> * 依某些資料行分類以進行資料準備
+> * 使用 R 將資料庫範例匯入到 Azure SQL 資料庫
+> * 將 Azure SQL 資料庫中的資料載入到 R 資料框架中
+> * 藉由依某些資料行分類來以 R 準備資料
 
-在[第二部分](sql-database-tutorial-predictive-model-build-compare.md)中，您將了解如何建立及定型多個模型，然後選擇最精確的模型。
+在[第二部分](sql-database-tutorial-predictive-model-build-compare.md)中，您將了解如何在 R 中建立及定型多個機器學習模型，然後選擇最精確的模型。
 
-在[第三部分](sql-database-tutorial-predictive-model-deploy.md)中，您將了解如何將模型儲存在資料庫中，然後建立可根據新資料進行預測的預存程序。
+在[第三部分](sql-database-tutorial-predictive-model-deploy.md)中，您會了解如何將模型儲存在資料庫中，然後從您在第一和第二部分中開發的 R 指令碼建立預存程序。 預存程序會在 SQL 資料庫中執行，以根據新資料做出預測。
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -158,9 +160,9 @@ $ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
 
 在本教學課程系列的第一部分中，您已完成下列步驟：
 
-* 將資料庫備份檔案匯入 Azure SQL 資料庫中
-* 使用 R 將 Azure SQL 資料庫中的資料載入資料框架中
-* 依某些資料行分類以進行資料準備
+* 使用 R 將資料庫範例匯入到 Azure SQL 資料庫
+* 將 Azure SQL 資料庫中的資料載入到 R 資料框架中
+* 藉由依某些資料行分類來以 R 準備資料
 
 若要建立會使用 TutorialDB 資料庫中所含資料的機器學習模型，請遵循本教學課程系列的第二部分：
 

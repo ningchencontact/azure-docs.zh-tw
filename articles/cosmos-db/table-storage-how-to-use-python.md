@@ -10,10 +10,10 @@ author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
 ms.openlocfilehash: 0f0acc721fd8888953d80976234b431943985ebf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68356276"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>以 Python 開始使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
@@ -56,7 +56,7 @@ Azure 表格儲存體和 Azure Cosmos DB 是可將結構化的 NoSQL 資料儲�
 
 ## <a name="import-the-tableservice-and-entity-classes"></a>匯入 TableService 和實體類別
 
-若要在 Python 的 Azure 表格服務中使用實體，可以使用 [TableService][py_TableService] and [Entity][py_Entity] 類別。 在靠近您 Python 檔案的頂端處新增此程式碼，以匯入這兩者：
+若要在 Python 的 Azure 表格服務中使用實體，可以使用 [TableService][py_TableService] 和[實體][py_Entity]類別。 在靠近您 Python 檔案的頂端處新增此程式碼，以匯入這兩者：
 
 ```python
 from azure.cosmosdb.table.tableservice import TableService
@@ -89,9 +89,9 @@ table_service.create_table('tasktable')
 
 ## <a name="add-an-entity-to-a-table"></a>將實體新增至資料表
 
-若要新增實體，首先建立一個代表您實體的物件，然後將物件傳遞至 [TableService.insert_entity 方法][py_TableService]. The entity object can be a dictionary or an object of type [Entity][py_Entity]，並定義實體的屬性名稱和值。 除了您為實體定義的任何其他屬性外。每個實體必須包含必要的 [PartitionKey and RowKey](#partitionkey-and-rowkey) 屬性。 此範例會建立一個代表實體的字典物件，然後將該物件傳遞至 [insert_entity][py_insert_entity] 方法，以將它新增至資料表：
+若要新增實體，首先建立一個代表您實體的物件，然後將物件傳遞至 [TableService.insert_entity 方法][py_TableService]。 實體物件可以是字典或類型為 [Entity][py_Entity] 的物件，並定義您實體的屬性名稱與值。 除了您為實體定義的任何其他屬性外。每個實體必須包含必要的 [PartitionKey and RowKey](#partitionkey-and-rowkey) 屬性。
 
-此範例會建立[實體][py_Entity] object, then passes it to the [insert_entity][py_insert_entity] 方法，以將它新增至資料表：
+此範例會建立一個代表實體的字典物件，然後將該物件傳遞至 [insert_entity][py_insert_entity] 方法，以將它新增至資料表：
 
 ```python
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
@@ -99,7 +99,7 @@ task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
 table_service.insert_entity('tasktable', task)
 ```
 
-PartitionKey 和 RowKey
+此範例會建立一個代表[實體][py_Entity]的物件，然後將該物件傳遞至 [insert_entity][py_insert_entity] 方法，以將它新增至資料表：
 
 ```python
 task = Entity()
@@ -110,15 +110,15 @@ task.priority = 100
 table_service.insert_entity('tasktable', task)
 ```
 
-### <a name="partitionkey-and-rowkey"></a>您必須為每個實體指定 **PartitionKey** 與 **RowKey** 屬性。
+### <a name="partitionkey-and-rowkey"></a>PartitionKey 和 RowKey
 
-這些屬性是您實體的唯一識別碼，共同形成實體的主要索引鍵。 使用這些值查詢的速度遠快於使用任何其他實體屬性查詢，因為系統只會將這些屬性編製索引。 表格服務會使用 **PartitionKey**，以智慧化方式在儲存體節點之間分散資料表實體。
+您必須為每個實體指定 **PartitionKey** 與 **RowKey** 屬性。 這些屬性是您實體的唯一識別碼，共同形成實體的主要索引鍵。 使用這些值查詢的速度遠快於使用任何其他實體屬性查詢，因為系統只會將這些屬性編製索引。
 
-具有相同 **PartitionKey** 的實體會儲存在相同的節點上。 **RowKey** 是實體在其所屬資料分割內的唯一識別碼。 更新實體
+表格服務會使用 **PartitionKey**，以智慧化方式在儲存體節點之間分散資料表實體。 具有相同 **PartitionKey** 的實體會儲存在相同的節點上。 **RowKey** 是實體在其所屬資料分割內的唯一識別碼。
 
-## <a name="update-an-entity"></a>若要更新實體的所有屬性值，請呼叫 [update_entity][py_update_entity] 方法。
+## <a name="update-an-entity"></a>更新實體
 
-此範例說明如何以實體的更新版本取代現有的實體： 如果正在更新的實體已不存在，則更新操作便會失敗。
+若要更新實體的所有屬性值，請呼叫 [update_entity][py_update_entity] 方法。 此範例說明如何以實體的更新版本取代現有的實體：
 
 ```python
 task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
@@ -126,7 +126,7 @@ task = {'PartitionKey': 'tasksSeattle', 'RowKey': '001',
 table_service.update_entity('tasktable', task)
 ```
 
-如果您想要儲存實體，無論其是否存在，請使用 [insert_or_replace_entity][py_insert_or_replace_entity]。 在下列範例中，第一個呼叫將取代現有實體。 第二個呼叫將插入新實體，因為資料表中沒有具有指定 PartitionKey 和 RowKey 的實體存在。 [update_entity][py_update_entity] 方法會取代現有實體其所有的屬性與值，您也可以用它們來移除現有實體的屬性。
+如果正在更新的實體已不存在，則更新操作便會失敗。 如果您想要儲存實體，無論其是否存在，請使用 [insert_or_replace_entity][py_insert_or_replace_entity]。 在下列範例中，第一個呼叫將取代現有實體。 第二個呼叫將插入新實體，因為資料表中沒有具有指定 PartitionKey 和 RowKey 的實體存在。
 
 ```python
 # Replace the entity created earlier
@@ -141,13 +141,13 @@ table_service.insert_or_replace_entity('tasktable', task)
 ```
 
 > [!TIP]
-> 您可以使用 [merge_entity][py_merge_entity] 方法以新的或已修改的屬性值來更新現有的實體，而不完全取代該實體。 修改多個實體
+> [update_entity][py_update_entity] 方法會取代現有實體其所有的屬性與值，您也可以用它們來移除現有實體的屬性。 您可以使用 [merge_entity][py_merge_entity] 方法以新的或已修改的屬性值來更新現有的實體，而不完全取代該實體。
 
-## <a name="modify-multiple-entities"></a>若要確保表格服務對要求的處理為不可部分完成，您可以在一個批次中一起提交多個作業。
+## <a name="modify-multiple-entities"></a>修改多個實體
 
-首先，使用 [TableBatch][py_TableBatch] 類別將多個作業新增至單一批次。 接著，呼叫 [TableService][py_TableService].[commit_batch][py_commit_batch] 以不可部分完成的作業提交這些作業。 要以批次修改的所有文件必須在同一個分割中。 此範例會在一個批次中同時新增兩個實體：
+若要確保表格服務對要求的處理為不可部分完成，您可以在一個批次中一起提交多個作業。 首先，使用 [TableBatch][py_TableBatch] 類別將多個作業新增至單一批次。 接著，呼叫 [TableService][py_TableService].[commit_batch][py_commit_batch] 以不可部分完成的作業提交這些作業。 要以批次修改的所有文件必須在同一個分割中。
 
-批次也可以與內容管理員語法搭配使用：
+此範例會在一個批次中同時新增兩個實體：
 
 ```python
 from azure.cosmosdb.table.tablebatch import TableBatch
@@ -161,7 +161,7 @@ batch.insert_entity(task005)
 table_service.commit_batch('tasktable', batch)
 ```
 
-查詢實體
+批次也可以與內容管理員語法搭配使用：
 
 ```python
 task006 = {'PartitionKey': 'tasksSeattle', 'RowKey': '006',
@@ -174,9 +174,9 @@ with table_service.batch('tasktable') as batch:
     batch.insert_entity(task007)
 ```
 
-## <a name="query-for-an-entity"></a>若要查詢資料表中的實體，請將其 PartitionKey 與 RowKey 傳遞至 [TableService][py_TableService].[get_entity][py_get_entity] 方法。
+## <a name="query-for-an-entity"></a>查詢實體
 
-查詢實體集合
+若要查詢資料表中的實體，請將其 PartitionKey 與 RowKey 傳遞至 [TableService][py_TableService].[get_entity][py_get_entity] 方法。
 
 ```python
 task = table_service.get_entity('tasktable', 'tasksSeattle', '001')
@@ -184,9 +184,9 @@ print(task.description)
 print(task.priority)
 ```
 
-## <a name="query-a-set-of-entities"></a>您可以提供一個含 **filter** 參數的篩選字串，來查詢一組實體。
+## <a name="query-a-set-of-entities"></a>查詢實體集合
 
-此範例會對 PartitionKey 套用篩選條件，以尋找西雅圖中的所有工作： 查詢實體屬性的子集
+您可以提供一個含 **filter** 參數的篩選字串，來查詢一組實體。 此範例會對 PartitionKey 套用篩選條件，以尋找西雅圖中的所有工作：
 
 ```python
 tasks = table_service.query_entities(
@@ -196,14 +196,14 @@ for task in tasks:
     print(task.priority)
 ```
 
-## <a name="query-a-subset-of-entity-properties"></a>您也可以限制會為查詢中的每個實體傳回哪些屬性。
+## <a name="query-a-subset-of-entity-properties"></a>查詢實體屬性的子集
 
-這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體或結果集而言)  。 使用 **select** 參數並傳遞您要傳回到用戶端的屬性名稱。 下列程式碼中的查詢只會傳回資料表中各實體的說明。
+您也可以限制會為查詢中的每個實體傳回哪些屬性。 這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體或結果集而言)  。 使用 **select** 參數並傳遞您要傳回到用戶端的屬性名稱。
 
-下列程式碼片段只針對 Azure 儲存體運作。
+下列程式碼中的查詢只會傳回資料表中各實體的說明。
 
 > [!NOTE]
-> 儲存體模擬器並不支援此程式碼片段。 刪除實體
+> 下列程式碼片段只針對 Azure 儲存體運作。 儲存體模擬器並不支援此程式碼片段。
 
 ```python
 tasks = table_service.query_entities(
@@ -212,29 +212,29 @@ for task in tasks:
     print(task.description)
 ```
 
-## <a name="delete-an-entity"></a>藉由將實體的 **PartitionKey** 與 **RowKey** 傳遞至 [delete_entity][py_delete_entity] 方法，將實體刪除。
+## <a name="delete-an-entity"></a>刪除實體
 
-刪除資料表
+藉由將實體的 **PartitionKey** 與 **RowKey** 傳遞至 [delete_entity][py_delete_entity] 方法，將實體刪除。
 
 ```python
 table_service.delete_entity('tasktable', 'tasksSeattle', '001')
 ```
 
-## <a name="delete-a-table"></a>如果您不再需要資料表及其內的任何實體，請呼叫 [delete_table][py_delete_table] 方法，將資料表永久地從 Azure 儲存體中刪除。
+## <a name="delete-a-table"></a>刪除資料表
 
-後續步驟
+如果您不再需要資料表及其內的任何實體，請呼叫 [delete_table][py_delete_table] 方法，將資料表永久地從 Azure 儲存體中刪除。
 
 ```python
 table_service.delete_table('tasktable')
 ```
 
-## <a name="next-steps"></a>[常見問題集 - 利用資料表 API 進行開發](https://docs.microsoft.com/azure/cosmos-db/faq)
+## <a name="next-steps"></a>後續步驟
 
+* [常見問題集 - 利用資料表 API 進行開發](https://docs.microsoft.com/azure/cosmos-db/faq)
 * [Azure Cosmos DB SDK for Python API 參考資料](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python) \(英文\)
 * [Python 開發人員中心](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)：一個免費、跨平台的應用程式，以視覺化方式在 Windows、macOS 和 Linux 上使用 Azure 儲存體資料。
 * [在 Visual Studio 中使用 Python (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
-* <bpt id="p1">[</bpt>Working with Python in Visual Studio (Windows)<ept id="p1">](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)</ept>
 
 
 [py_commit_batch]: https://docs.microsoft.com/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python

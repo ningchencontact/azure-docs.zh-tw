@@ -12,31 +12,31 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 17b68f71f4034e5eb637d40b975cc22d94438fb7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978695"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596765"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>教學課程：使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中部署預測模型
 
-在這個三部分教學課程的第三部分中，您將使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中部署預測模型。
+在這個三部分教學課程的第三部分中，您將使用 Azure SQL Database 機器學習服務 (預覽) 在 SQL 資料庫中部署以 R 開發的預測模型。
 
 您將使用內嵌的 R 指令碼建立預存程序，以使用模型進行預測。 您的模型執行於 Azure SQL 資料庫中，因此能夠根據儲存在資料庫中的資料輕易定型。
 
-在本文中，您將了解如何：
+在本文中，藉由使用您在第一和第二部分中所開發的 R 指令碼，您會了解如何：
 
 > [!div class="checklist"]
-> * 將預測模型儲存在資料庫資料表中
-> * 建立會產生模型的預存程序
+> * 建立會產生機器學習模型的預存程序
+> * 將模型儲存在資料庫資料表中
 > * 建立會使用模型進行預測的預存程序
 > * 執行含有新資料的模型
 
-在[第一部分](sql-database-tutorial-predictive-model-prepare-data.md)中，您已了解如何將範例資料庫匯入 Azure SQL 資料庫中，然後準備要用來在 R 中定型預測模型的資料。
+在[第一部分](sql-database-tutorial-predictive-model-prepare-data.md)中，您已了解如何匯入資料庫範例，然後準備要用來在 R 中定型預測模型的資料。
 
-在[第二部分](sql-database-tutorial-predictive-model-build-compare.md)中，您已了解如何建立及定型多個模型，然後選擇最精確的模型。
+在[第二部分](sql-database-tutorial-predictive-model-build-compare.md)中，您已了解如何在 R 中建立及定型多個機器學習模型，然後選擇最精確的模型。
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "65978695"
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>建立會產生模型的預存程序
 
-在本教學課程系列的第二部分中，您已判定決策樹 (dtree) 是最精確的模型。 現在，請建立預存程序 (`generate_rental_rx_model`)，以使用 RevoScaleR 套件中的 rxDTree 來定型及產生 dtree 模型。
+在本教學課程系列的第二部分中，您已判定決策樹 (dtree) 是最精確的模型。 現在，請使用所開發的 R 指令碼建立預存程序 (`generate_rental_rx_model`)，以使用 RevoScaleR 套件中的 rxDTree 來定型及產生 dtree 模型。
 
 在 Azure Data Studio 或 SSMS 中執行下列命令。
 
@@ -214,8 +214,8 @@ RentalCount_Predicted
 
 在本教學課程系列的第三部分中，您已完成下列步驟：
 
-* 將預測模型儲存在資料庫資料表中
-* 建立會產生模型的預存程序
+* 建立會產生機器學習模型的預存程序
+* 將模型儲存在資料庫資料表中
 * 建立會使用模型進行預測的預存程序
 * 執行含有新資料的模型
 

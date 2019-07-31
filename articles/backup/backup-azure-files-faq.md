@@ -3,16 +3,16 @@ title: 備份 Azure 檔案服務常見問題集
 description: 本文提供關於如何保護 Azure 檔案共用的詳細資料。
 author: dcurwin
 ms.author: dacurwin
-ms.date: 01/31/2019
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: e3f94badb3af2e3f26a857f27f0b68a78338db92
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466317"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601760"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -33,7 +33,7 @@ ms.locfileid: "68466317"
 ### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-did-not-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>在嘗試備份檔案共用時，我按了一下 [儲存體帳戶] 來探索其中的檔案共用。 不過，我並未保護它們。 如何使用任何其他保存庫來保護這些檔案共用？
 嘗試備份，並選取 [儲存體帳戶] 以探索其中的檔案共用時，向保存庫註冊此 [儲存體帳戶]。 如果您選擇使用不同的保存庫來保護檔案共用，從這個保存庫[取消註冊](troubleshoot-azure-files.md#configuring-backup)所選的儲存體帳戶。
 
-### <a name="can-i-change-the-vault-to-which-i-backup-my-file-shares"></a>可以將保存庫變更為我備份檔案共用的保存庫嗎？
+### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>可以將保存庫變更為我備份檔案共用的保存庫嗎？
 是。 不過，您必須從已連線的保存庫[停止保護](backup-azure-files.md#stop-protecting-an-azure-file-share)，[取消註冊](troubleshoot-azure-files.md#configuring-backup)這個儲存體帳戶，然後從不同的保存庫加以保護。
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>我可以在哪些地區備份 Azure 檔案共用 <br/>
@@ -76,6 +76,9 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 沒有。 一個儲存體帳戶中的所有檔案共用只能由相同的保存庫保護。
 
 ## <a name="backup"></a>Backup
+
+### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>每個檔案共用可以設定多少個排程備份？
+Azure 備份目前支援對 Azure 檔案共用設定每日一次的排程備份。 
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>每個檔案共用可以進行多少個隨選備份？ <br/>
 在任何時間點，檔案共用最多可以有 200 個快照集。 如您的原則所定義，此限制包含 Azure 備份所產生的快照集。 如果您的備份在達到此限制之後開始失敗，請刪除隨選還原點，以便未來備份成功。

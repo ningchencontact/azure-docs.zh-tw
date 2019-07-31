@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e9be7ef5c4f37c66f7cbf2c6226936438b367108
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689500"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515158"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>教學課程：使用 Azure 虛擬 WAN 來建立站對站連線
 
@@ -63,7 +63,12 @@ ms.locfileid: "64689500"
    * **訂用帳戶** - 請確認訂用帳戶。
    * **資源群組** - 要使用的資源群組。
    * **位置**
-4. 按一下 [進階顯示]  即可檢視其他設定。 您可以選取 **BGP** 以啟用 BGP (會在 Azure 中針對為此網站所建立的所有連線啟用 BGP 功能)。 您也可以輸入 [裝置資訊]  (選擇性欄位)。 這樣做可協助 Azure 小組深入了解您的環境，以便在未來增加額外最佳化的可能性，或協助您進行疑難排解。
+4. 按一下 [進階顯示]  即可檢視其他設定。 
+
+   您可以選取 **BGP** 以啟用 BGP (會在 Azure 中針對為此網站所建立的所有連線啟用 BGP 功能)。 在虛擬 WAN 上設定 BGP 就等同於在 Azure VPN 閘道上設定 BGP。 內部部署 BGP 對等互連位址「不得」  與裝置 VPN 的公用 IP 位址或 VPN 網站的 VNet 位址空間相同。 在 VPN 裝置上，請針對 BGP 對等互連 IP 使用不同的 IP 位址。 它可以是指派給裝置上的回送介面的位址。 但「不能」  是 APIPA (169.254.x  .x  ) 位址。 在代表位置的對應本機網路閘道中指定這個位址。 如需 BGP 必要條件，請參閱[關於 BGP 與 Azure VPN 閘道](../vpn-gateway/vpn-gateway-bgp-overview.md)。
+
+   您也可以輸入 [裝置資訊]  (選擇性欄位)。 這樣做可協助 Azure 小組深入了解您的環境，以便在未來增加額外最佳化的可能性，或協助您進行疑難排解。
+   
 5. 按一下 [確認]  。
 6. 按一下 [確認]  之後，檢視 [VPN 網站] 頁面上的狀態。 網站會從 [正在佈建]  變成 [已佈建]  。
 

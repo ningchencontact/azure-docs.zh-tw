@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 7/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52346e2ff9c47e58f2bd040582bee29eaf08bb13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: cdfe22b67585221e2d7e17f47c6a09ba929d68ef
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621200"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599009"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>教學課程：在 Azure Sentinel 預覽版中設定自動化威脅回應
 
@@ -36,6 +36,7 @@ ms.locfileid: "67621200"
 > * 了解劇本
 > * 建立劇本
 > * 執行劇本
+> * 將威脅回應自動化
 
 
 ## <a name="what-is-a-security-playbook-in-azure-sentinel"></a>什麼是 Azure Sentinel 中的安全性劇本？
@@ -95,9 +96,29 @@ ms.locfileid: "67621200"
 
 
 
+## <a name="automate-threat-responses"></a>將威脅回應自動化
+
+定期傳來的安全性警示會讓 SIEM/SOC 小組應接不暇。 由於產生的警示數量龐大，所有有空的安全性系統管理員都會忙得昏天暗地。 這往往會導致許多警示並未受到調查，而讓組織容易不知不覺地遭到攻擊。 
+
+其中的許多 (但並非大多數) 警示會符合週期性模式，因此可透過特定且已定義的補救動作來加以解決。 Azure Sentinel 已可讓您在劇本中定義補救措施。 您也可以在劇本定義內設定即時自動化，以便能夠讓針對特定安全性警示所定義的回應完全自動地進行。 藉由使用即時自動化，回應小組可以藉由讓針對週期性類型的警示所制定的例行回應完全自動地進行、讓您能夠更專注地應付獨特警示、分析模式、威脅搜尋等等，而大幅降低工作量。
+
+若要讓回應自動化：
+
+1. 選擇想要讓回應自動化的警示。
+1. 從 Azure Sentinel 工作區的導覽功能表中，選取 [分析]  。
+1. 選取您想要自動化的警示。 
+1. 在 [編輯警示規則]  頁面的 [即時自動化]  底下，選擇要在符合此警示規則時執行的 [觸發劇本]  。
+1. 選取 [ **儲存**]。
+
+   ![即時自動化](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+
+
+
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解如何在 Azure Sentinel 中執行劇本。 若要深入了解 Azure Sentinel，請參閱下列文章：在本教學課程中，您已了解如何在 Azure Sentinel 中執行劇本。 繼續了解使用 Azure Sentine [主動尋找威脅的方式](hunting.md)。
-> [!div class="nextstepaction"]
-> [尋找威脅](hunting.md)以主動找出您網路上的威脅。
+
+在本教學課程中，您已了解如何在 Azure Sentinel 中執行劇本。 繼續了解使用 Azure Sentine [主動尋找威脅的方式](hunting.md)。
+
 

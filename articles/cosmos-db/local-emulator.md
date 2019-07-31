@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
-ms.date: 07/16/2019
-ms.openlocfilehash: 3a03829c39deb954a8baa908de63b9ff6f31238e
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.date: 07/26/2019
+ms.openlocfilehash: 626f71c3938b944cb705dfea4a964c6c33c42164
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297856"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565441"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -122,7 +122,7 @@ DocumentClient client = new DocumentClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Azure Cosmos DB API
 
-如果您使用[適用於 MongoDB 的 Azure Cosmos DB API](mongodb-introduction.md)，請使用下列連接字串：
+在桌面上執行 Azure Cosmos 模擬器之後，就可以使用[適用於 MongoDB 的 Azure Cosmos DB API](mongodb-introduction.md) 來與模擬器互動。 從命令提示字元中，以系統管理員身分使用 "/EnableMongoDbEndpoint" 來啟動模擬器。 然後使用下列連接字串來連線至 MongoDB API 帳戶：
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
