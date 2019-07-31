@@ -36,7 +36,6 @@ sections:
         items:
           - html: <a href="quickstart-run-cloud-notebook">在雲端中執行實驗</a> (無需安裝)。
           - html: <a href="quickstart-run-local-notebook">使用本機 Notebook 伺服器執行實驗</a> (本機 SDK 安裝)。
-          - html: <a href="ui-quickstart-run-experiment">準備資料並加以視覺化，不需在 虛擬介面中撰寫程式碼</a>。
   - title: 逐步教學課程
     items:
       - type: paragraph

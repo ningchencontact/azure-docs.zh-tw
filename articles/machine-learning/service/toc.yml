@@ -24,11 +24,6 @@
         - name: 在本機執行實驗
           displayName: 'workspace, install, sdk'
           href: quickstart-run-local-notebook.md
-    - name: 視覺化介面
-      items:
-        - name: 準備資料並加以視覺化
-          displayName: experiment drag-and-drop
-          href: ui-quickstart-run-experiment.md
 - name: 教學課程
   items:
     - name: Python SDK

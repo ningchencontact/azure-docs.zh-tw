@@ -34,7 +34,6 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">在雲端中執行實驗</a> (無需安裝)
           - html: <a href="service/quickstart-run-local-notebook">使用本機 Notebook 伺服器執行實驗</a> (本機 SDK 安裝)
-          - html: <a href="service/ui-quickstart-run-experiment">在虛擬介面中執行實驗</a> (無需程式碼)
         style: unordered
         type: list
       - text: <b>教學課程：使用 SDK 的 MNIST 資料影像分類：</b>
