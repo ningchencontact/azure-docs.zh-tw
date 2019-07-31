@@ -289,6 +289,9 @@
           href: idp-pass-through-user-flow.md
         - name: 要求存取權杖
           href: active-directory-b2c-access-tokens.md
+        - name: 支援多個權杖簽發者
+          href: multiple-token-endpoints.md
+          displayName: 'migrate, b2clogin, owin, jwt'
     - name: 使用 b2clogin.com
       href: b2clogin.md
     - name: 使用 Azure AD Graph API

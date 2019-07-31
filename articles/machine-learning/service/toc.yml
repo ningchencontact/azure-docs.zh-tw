@@ -33,6 +33,12 @@
   items:
     - name: Python SDK
       items:
+        - name: 建立第一個 ML 實驗
+          items:
+            - name: 1. 設定工作區和開發環境
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. 定型您的第一個模型
+              href: tutorial-1st-experiment-sdk-train.md
         - name: 影像分類 (MNIST 資料)
           items:
             - name: 1. 將模型定型

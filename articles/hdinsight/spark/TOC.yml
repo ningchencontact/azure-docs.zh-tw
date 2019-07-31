@@ -58,6 +58,8 @@
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
             - name: Java 堆積空間
               href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+            - name: Livy 伺服器無法啟動
+              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
         - name: 緩慢 Apache Spark 作業 - 儲存體容器
           href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: IllegalArgumentException 例外狀況
@@ -68,6 +70,8 @@
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
         - name: 封鎖跨原始來源 API
           href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+        - name: Kryo 序列化失敗
+          href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
 - name: 作法
   items:
     - name: 使用叢集儲存體
