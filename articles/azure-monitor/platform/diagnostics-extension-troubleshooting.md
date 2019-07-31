@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "65471790"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
@@ -29,7 +29,7 @@ ms.locfileid: "65471790"
 以下是一些重要記錄和構件的路徑。 稍後在本文中我們會參考這些資訊。
 
 ### <a name="azure-cloud-services"></a>Azure 雲端服務
-| 構件 | `Path` |
+| 成品 | `Path` |
 | --- | --- |
 | **Azure 診斷組態檔** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **記錄檔** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ ms.locfileid: "65471790"
 | **MonAgentHost 記錄檔** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>虛擬機器
-| 構件 | `Path` |
+| 成品 | `Path` |
 | --- | --- |
 | **Azure 診斷組態檔** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **記錄檔** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -104,14 +104,14 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 解決方案：更正診斷組態，並重新安裝診斷程式。
 
-如果儲存體帳戶是已正確設定的遠端存取電腦，並確認*DiagnosticsPlugin.exe*並*MonAgentCore.exe*正在執行。 如果這兩個執行檔並未執行，請依照 [Azure 診斷未啟動](#azure-diagnostics-is-not-starting)中的步驟操作。
+如果已正確設定儲存體帳戶, 請從遠端存取電腦, 並確認*diagnosticsplugin.log*和*monagentcore.exe 正在*正在執行。 如果這兩個執行檔並未執行，請依照 [Azure 診斷未啟動](#azure-diagnostics-is-not-starting)中的步驟操作。
 
 如果處理序正在執行，請移至[是否正在本機擷取資料](#is-data-getting-captured-locally)，並依照該處的指示操作。
 
-如果這樣做無法解決問題，請試著：
+如果這樣做無法解決問題, 請嘗試:
 
 1. 解除安裝代理程式
-2. Remove directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+2. 移除目錄 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
 3. 重新安裝代理程式
 
 

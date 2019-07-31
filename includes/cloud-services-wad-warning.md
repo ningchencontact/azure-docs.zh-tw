@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: jeconnoc
 ms.openlocfilehash: f23d5246401f23694755e63a51c52da5dbf5ac1b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67174321"
 ---
 > [!WARNING]
-> 當您在現有角色上啟用診斷功能時，您已設定的任何擴充功能都會在部署套件時停用。 其中包含：
+> 當您在現有角色上啟用診斷功能時，您已設定的任何擴充功能都會在部署套件時停用。 它們包括：
 >
 > * Microsoft Monitoring Agent 診斷
 > * Microsoft Azure 安全性監控

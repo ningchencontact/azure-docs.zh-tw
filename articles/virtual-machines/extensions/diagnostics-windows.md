@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 ms.openlocfilehash: 19d30d207e67e1dfd8cdec2fe9951c763a921a0e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "67706080"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在執行 Windows 的虛擬機器中啟用 Azure 診斷
@@ -81,7 +81,7 @@ Cmdlet 會傳回包含診斷設定的 *PublicSettings*。 系統支援兩種設�
 
 您需要更新組態以包含下列各項：
 
-* 需要以 VM 的資源識別碼更新 [計量]  元素的 **resourceID** 屬性。
+* 需要以 VM 的資源識別碼更新 [計量] 元素的 **resourceID** 屬性。
   
   * 可以使用下列模式來建構資源識別碼："/subscriptions/{*具有 VM 之訂用帳戶的訂用帳戶 ID*}/resourceGroups/{*VM 的資源群組名稱*}/providers/Microsoft.Compute/virtualMachines/{*VM 名稱*}"。
   * 例如，如果 VM 執行所在訂用帳戶的訂用帳戶 ID 為 **11111111-1111-1111-1111-111111111111**、資源群組的資源群組名稱為 **MyResourceGroup** 和 VM 名稱為 **MyWindowsVM**，則 *resourceID* 的值會是：

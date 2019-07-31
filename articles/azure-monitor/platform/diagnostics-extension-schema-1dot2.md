@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60237843"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 診斷 1.2 組態結構描述
@@ -21,7 +21,7 @@ ms.locfileid: "60237843"
 > Azure 診斷是一種元件，可針對 Azure 虛擬機器、虛擬機器擴展集，Service Fabric 以及雲端服務，收集相關效能計數器和其他統計資料。  此頁面只在您使用其中一個服務時才相關。
 >
 
-Azure 診斷是 Azure 監視器 」，它包含 Application Insights 和 Log Analytics 等其他 Microsoft 診斷產品搭配使用。
+Azure 診斷與其他 Microsoft 診斷產品 (例如 Azure 監視器) 搭配使用, 其中包括 Application Insights 和 Log Analytics。
 
 此結構描述定義當診斷監視器啟動，您可以用來初始化診斷組態設定的可能值。  
 
@@ -98,7 +98,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名稱|描述|  
 |------------------|-----------------|  
-|**WadCfg**|必要。 要收集之遙測資料的組態設定。|  
+|**WadCfg**|必要項。 要收集之遙測資料的組態設定。|  
 |**StorageAccount**|要儲存資料的 Azure 儲存體帳戶名稱。 這可能也會在執行 Set-AzureServiceDiagnosticsExtension Cmdlet 時指定為參數。|  
 |**LocalResourceDirectory**|虛擬機器上監視代理程式用來儲存事件資料的目錄。 如果沒有設定，會使用預設的目錄：<br /><br /> 針對背景工作/web 角色：`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 針對虛擬機器：`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> -                      **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> -                      **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
 
@@ -107,7 +107,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名稱|描述|  
 |------------------|-----------------|  
-|**DiagnosticMonitorConfiguration**|必要。 選用屬性包括：<br /><br /> -                     **overallQuotaInMB** - 可供 Azure 診斷所收集的各種類型診斷資料取用的本機磁碟空間量上限。 預設設定為 5120 MB。<br /><br /> -                     **useProxyServer** - 設定 Azure 診斷來使用 Proxy 伺服器設定，如 IE 設定中所設定。|  
+|**DiagnosticMonitorConfiguration**|必要項。 選用屬性包括：<br /><br /> -                     **overallQuotaInMB** - 可供 Azure 診斷所收集的各種類型診斷資料取用的本機磁碟空間量上限。 預設設定為 5120 MB。<br /><br /> -                     **useProxyServer** - 設定 Azure 診斷來使用 Proxy 伺服器設定，如 IE 設定中所設定。|  
 |**CrashDumps**|啟用收集損毀傾印。 選用屬性包括：<br /><br /> -                     **containerName** - 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。<br /><br /> -                     **crashDumpType** - 設定 Azure 診斷來收集迷你或完整的損毀傾印。<br /><br /> -                     **directoryQuotaPercentage**- 設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
 |**DiagnosticInfrastructureLogs**|啟用收集 Azure 診斷所產生的記錄。 診斷基礎結構記錄適用於疑難排解診斷系統本身。 選用屬性包括：<br /><br /> -                     **scheduledTransferLogLevelFilter** - 設定所收集之記錄的最低嚴重性層級。<br /><br /> -                     **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 |**Directories**|啟用收集目錄、IIS 失敗的存取要求記錄和/或 IIS 記錄的內容。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
@@ -121,7 +121,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名稱|描述|  
 |------------------|-----------------|  
-|**CrashDumpConfiguration**|必要。 必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
+|**CrashDumpConfiguration**|必要項。 必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
 |**crashDumpType**|設定 Azure 診斷來收集迷你或完整的損毀傾印。|  
 |**directoryQuotaPercentage**|設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
 
@@ -139,7 +139,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名稱|描述|  
 |------------------|-----------------|  
-|**DirectoryConfiguration**|必要。 必要屬性：<br /><br /> **containerName** - 在您的 Azure 儲存體帳戶中用來儲存記錄檔的 Blob 容器名稱。|  
+|**DirectoryConfiguration**|必要項。 必要屬性：<br /><br /> **containerName** - 在您的 Azure 儲存體帳戶中用來儲存記錄檔的 Blob 容器名稱。|  
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration 元素  
  **DirectoryConfiguration** 可能包括 **Absolute** 或 **LocalResource** 元素，但非兩者。 下表說明子元素：  
