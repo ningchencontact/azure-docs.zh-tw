@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370771d44e2fbbf0fca7af453f7425ebc1b1bdcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 99d17b354e267d003e23e507ca190b951e3ed4a0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612605"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608088"
 ---
 # <a name="what-is-conditional-access"></a>何謂條件式存取？
 
@@ -73,7 +73,7 @@ ms.locfileid: "67612605"
 
 ## <a name="azure-ad-conditional-access-and-federated-authentication"></a>Azure AD 條件式存取和同盟驗證
 
-條件式存取原則可完美地與[同盟驗證](../../security/azure-ad-choose-authn.md#federated-authentication)搭配使用。 此支援包括所有支援的條件及控制項，以及可了解如何使用 [Azure AD 報告](../reports-monitoring/concept-sign-ins.md)將原則套用至作用中的使用者登入。
+條件式存取原則可完美地與[同盟驗證](../../security/fundamentals/choose-ad-authn.md#federated-authentication)搭配使用。 此支援包括所有支援的條件及控制項，以及可了解如何使用 [Azure AD 報告](../reports-monitoring/concept-sign-ins.md)將原則套用至作用中的使用者登入。
 
 「使用 Azure AD 進行同盟驗證」  表示受信任驗證服務會處理 Azure AD 的使用者驗證。 受信任的驗證服務可能是 Active Directory 同盟服務 (AD FS)，或任何其他同盟服務。 在此組態中，主要的使用者驗證會在服務上執行，而 Azure AD 會用來登入個別的應用程式。 需先套用 Azure AD 條件式存取，才能將存取權授與使用者要存取的應用程式。 
 

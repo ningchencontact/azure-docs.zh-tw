@@ -5,14 +5,14 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
-ms.openlocfilehash: ae2dd7d88f07d75115eabd6a0069a981936f1b47
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: dd511375c6b007222185f25610aecbd9931a742b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444442"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640037"
 ---
-在此步驟中，您將建立資源群組和 Azure SQL Database 單一資料庫。 
+在此步驟中，您將建立資源群組和 Azure SQL Database 單一資料庫。
 
 > [!IMPORTANT]
 > 務必設定防火牆規則，使用您在本文中執行步驟的電腦所用的公用 IP 位址。 
@@ -20,7 +20,8 @@ ms.locfileid: "68444442"
 > 如需資訊，請參閱[建立資料庫層級防火牆規則](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)，或者，若要判斷對於電腦的伺服器層級防火牆規則所用的 IP 位址，請參閱[建立伺服器層級防火牆](../sql-database-server-level-firewall-rule.md)。  
 
 # <a name="azure-portaltabazure-portal"></a>[Azure 入口網站](#tab/azure-portal)
-使用 Azure 入口網站建立您的資源群組和單一資料庫。 
+
+使用 Azure 入口網站建立您的資源群組和單一資料庫。
 
 1. 選取 Azure 入口網站左上角的 [建立資源]  。
 2. 選取 [資料庫]  ，然後選取 [SQL Database]  以開啟 [建立 SQL Database]  頁面。
@@ -47,7 +48,7 @@ ms.locfileid: "68444442"
 
       > [!IMPORTANT]
       > 請記得記錄下伺服器管理員登入和密碼，以便在進行這個和其他快速入門時能夠登入伺服器和資料庫。 如果您忘記登入或密碼，您可以在 [SQL Server]  頁面上取得登入名稱或重設密碼。 若要開啟 [SQL Server]  頁面，請在資料庫建立後，選取資料庫 [概觀]  頁面上的伺服器名稱。
-        
+
    - **您要使用 SQL 彈性集區嗎**：選取 [否]  選項。
    - **計算 + 儲存體**：選取 [設定資料庫]  。 
 
@@ -62,7 +63,7 @@ ms.locfileid: "68444442"
    - 選取 [套用]  。
 
 5. 選取 [其他設定]  索引標籤。 
-6. 在 [資料來源]  區段的 [使用現有資料]  下方，選取 `Sample`。 
+6. 在 [資料來源]  區段的 [使用現有資料]  下方，選取 `Sample`。
 
    ![其他 SQL DB 設定](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
@@ -78,7 +79,7 @@ ms.locfileid: "68444442"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-使用 PowerShell 建立您的資源群組和單一資料庫。 
+使用 PowerShell 建立您的資源群組和單一資料庫。
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -89,8 +90,7 @@ ms.locfileid: "68444442"
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"
    $databaseName = "mySampleDatabase"
-   
-   
+
    # The ip address range that you want to allow to access your server 
    # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
    $startIp = "0.0.0.0"
@@ -100,18 +100,18 @@ ms.locfileid: "68444442"
    Write-host "Resource group name is" $resourceGroupName 
    Write-host "Password is" $password  
    Write-host "Server name is" $serverName 
-   
+
    # Connect to Azure
    Connect-AzAccount
 
    # Set subscription ID
    Set-AzContext -SubscriptionId $subscriptionId 
-   
+
    # Create a resource group
    Write-host "Creating resource group..."
    $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
    $resourceGroup
-   
+
    # Create a server with a system wide unique server name
    Write-host "Creating primary logical server..."
    $server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
@@ -120,14 +120,14 @@ ms.locfileid: "68444442"
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
       -ArgumentList $adminLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
    $server
-   
+
    # Create a server firewall rule that allows access from the specified IP range
    Write-host "Configuring firewall for primary logical server..."
    $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
    $serverFirewallRule
-   
+
    # Create General Purpose Gen4 database with 1 vCore
    Write-host "Creating a gen5 2 vCore database..."
    $database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
@@ -142,8 +142,8 @@ ms.locfileid: "68444442"
    ```
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
-使用 AZ CLI 建立您的資源群組和單一資料庫。 
 
+使用 AZ CLI 建立您的資源群組和單一資料庫。
 
    ```azurecli-interactive
    #!/bin/bash
@@ -158,7 +158,7 @@ ms.locfileid: "68444442"
    drLocation=NorthEurope
    drServerName=mysqlsecondary-$RANDOM
    failoverGroupName=failovergrouptutorial-$RANDOM
-   
+
    # The ip address range that you want to allow to access your DB. 
    # Leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB
    startip=0.0.0.0
@@ -169,14 +169,14 @@ ms.locfileid: "68444442"
 
    # Set the subscription context for the Azure account
    az account set -s $subscriptionID
-   
+
    # Create a resource group
    echo "Creating resource group..."
    az group create \
       --name $resourceGroupName \
       --location $location \
       --tags Owner[=SQLDB-Samples]
-   
+
    # Create a logical server in the resource group
    echo "Creating primary logical server..."
    az sql server create \
@@ -185,7 +185,7 @@ ms.locfileid: "68444442"
       --location $location  \
       --admin-user $adminLogin \
       --admin-password $password
-   
+
    # Configure a firewall rule for the server
    echo "Configuring firewall..."
    az sql server firewall-rule create \
@@ -194,7 +194,7 @@ ms.locfileid: "68444442"
       -n AllowYourIp \
       --start-ip-address $startip \
       --end-ip-address $endip
-   
+
    # Create a gen5 1vCore database in the server 
    echo "Creating a gen5 2 vCore database..."
    az sql db create \

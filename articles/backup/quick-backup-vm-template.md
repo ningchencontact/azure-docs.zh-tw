@@ -1,20 +1,20 @@
 ---
 title: Azure 快速入門 - 以 Resource Manager 範本備份 VM
 description: 了解如何使用 Azure Resource Manager 範本來備份虛擬機器
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 643ae23ef566cb433bd3890e6ab2f38050cb1f47
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 7075e127192635c08aa2da2b4798dea6d6abb13b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467141"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639407"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>使用 Resource Manager 範本在 Azure 中備份虛擬機器
 

@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3ea45056b0112769105ddd997ce1abc79f59679f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785212"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663353"
 ---
 # <a name="migrating-applications-to-msalnet"></a>將應用程式遷移至 Azure
 
@@ -55,7 +55,7 @@ ADAL.NET 可取得「資源」  的權杖，但 MSAL.NET 可取得「範圍」  
 
 - ADAL.NET 使用 [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) 作為您透過授權單位連線至 Security Token Service (STS) 或授權伺服器的表示法。 相反地，MSAL.NET 的設計是以[用戶端應用程式](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications)為主。 其提供兩個不同的類別：`PublicClientApplication` 和 `ConfidentialClientApplication`
 
-- 取得權杖：ADAL.NET 和 MSAL.NET 具有相同的驗證呼叫 (ADAL.NET 適用的 `AcquireTokenAsync` 和 `AcquireTokenSilentAsync`，以及 MSAL.NET 適用的 `AqquireTokenInteractive` 和 `AcquireTokenSilent`)，但所需的參數不同。 其中一項差異就是在 MSAL.NET 中，您不必再於每次 AcquireTokenXX 呼叫中傳入應用程式的 `ClientID`。 建置 `IPublicClientApplication` 或 `IConfidentialClientApplication` 時，`ClientID` 確實只會設定一次。
+- 取得權杖：ADAL.NET 和 MSAL.NET 具有相同的驗證呼叫 (ADAL.NET 適用的 `AcquireTokenAsync` 和 `AcquireTokenSilentAsync`，以及 MSAL.NET 適用的 `AcquireTokenInteractive` 和 `AcquireTokenSilent`)，但所需的參數不同。 其中一項差異就是在 MSAL.NET 中，您不必再於每次 AcquireTokenXX 呼叫中傳入應用程式的 `ClientID`。 建置 `IPublicClientApplication` 或 `IConfidentialClientApplication` 時，`ClientID` 確實只會設定一次。
 
 ### <a name="iaccount-not-iuser"></a>IAccount，而非 IUser
 
@@ -141,7 +141,7 @@ MSAL.NET 讓權杖快取成為密封類別，並移除其擴充功能。 因此�
 
 在 v1.0 中，如果您使用 https://login.microsoftonline.com/common 授權單位，即可讓使用者使用任何 AAD 帳戶 (適用於任何組織) 登入。 請參閱 [ADAL.NET 中的授權單位驗證](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
-如果您在 v2.0 中使用 https://login.microsoftonline.com/common 授權單位，即可讓使用者使用任何 AAD 組織或 Microsoft 個人帳戶 (MSA) 登入。 在 MSAL.NET 中，如果您想要將登入限制為任何 AAD 帳戶 (與 ADAL.NET 相同的行為)，您需要使用 https://login.microsoftonline.com/organizations。 如需詳細資訊，請參閱[公用用戶端應用程式](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication)中的 `authority` 參數。
+如果您在 v2.0 中使用 https://login.microsoftonline.com/common 授權單位，即可讓使用者使用任何 AAD 組織或 Microsoft 個人帳戶 (MSA) 登入。 在 MSAL.NET 中，如果您想要將登入限制為任何 AAD 帳戶 (與 ADAL.NET 相同的行為)，您需要使用 https://login.microsoftonline.com/organizations 。 如需詳細資訊，請參閱[公用用戶端應用程式](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication)中的 `authority` 參數。
 
 ## <a name="v10-and-v20-tokens"></a>v1.0 和 v2.0 權杖
 
@@ -161,7 +161,7 @@ OAuth2 權限是 v1.0 Web API (資源) 應用程式公開給用戶端應用程�
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>要求存取 v1.0 應用程式特定 OAuth2 權限的範圍
 
-如果您想要取得 v1.0 應用程式特定範圍的權杖 (例如 AAD 圖形，也就是 https://graph.windows.net))，則必須藉由串連該資源所需的資源識別碼與所需的 OAuth2 權限來建立 `scopes`。
+如果您想要取得 v1.0 應用程式特定範圍的權杖 (例如 AAD 圖形，也就是 https://graph.windows.net) )，則必須藉由串連該資源所需的資源識別碼與所需的 OAuth2 權限來建立 `scopes` 。
 
 比方說，若要以使用者名稱存取應用程式識別碼 URI 為 `ResourceId` 的 v1.0 Web API，您可以使用：
 
@@ -192,7 +192,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 Azure AD 所用的邏輯如下所示：
 - 若為具有 v1.0 存取權杖 (唯一可能) 的 ADAL (v1.0) 端點，則 aud=resource
 - 若為要求資源存取權杖並接受 v2.0 權杖的 MSAL (v2.0 端點)，則 aud=resource.AppId
-- 對於要求資源存取權杖並接受 v1.0 存取權杖 (上述案例) 的 MSAL (v2.0 端點)，Azure AD 會採用最後一個斜線之前的一切並以它作為資源識別碼，藉此剖析要求範圍中的所需對象。 因此，如果 https:\//database.windows.net 預期的對象為 "https://database.windows.net/"，您必須要求 https:\//database.windows.net//.default 的範圍。 另請參閱問題 #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)：資源 url 的結尾斜線會被省略，進而導致 sql 驗證失敗 #747
+- 對於要求資源存取權杖並接受 v1.0 存取權杖 (上述案例) 的 MSAL (v2.0 端點)，Azure AD 會採用最後一個斜線之前的一切並以它作為資源識別碼，藉此剖析要求範圍中的所需對象。 因此，如果 https:\//database.windows.net 預期的對象為 "https://database.windows.net/ "，您必須要求 https:\/ /database.windows.net//.default 的範圍。 另請參閱問題 #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)：資源 url 的結尾斜線會被省略，進而導致 sql 驗證失敗 #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>要求存取 v1.0 應用程式所有權限的範圍

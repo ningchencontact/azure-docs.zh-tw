@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: b01ad5a4fd8808c1e841ba2fb47ea06ece011010
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051056"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598981"
 ---
 # <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>什麼是 Azure 開放資料集 (預覽)，以及如何使用它們？
 
@@ -58,4 +58,4 @@ Azure 開放資料集中經過策劃的開放式公用資料集已針對機器�
 ## <a name="next-steps"></a>後續步驟
 * [範例筆記本](samples.md)
 * [教學課程：含紐約計程車資料的迴歸模型](tutorial-opendatasets-automl.md)
-* [適用於開放資料集的 Python SDK](https://aka.ms/open-datasets-api)
+* [適用於開放資料集的 Python SDK](/python/api/azureml-opendatasets/?view=azure-ml-py)

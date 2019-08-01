@@ -1,19 +1,19 @@
 ---
 title: 何謂 Azure 備份？
 description: 提供 Azure 備份服務的概觀，並說明如何將它提供給商務持續性和災害復原 (BCDR) 策略。
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: overview
 ms.date: 04/24/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: e3577a1a0da7809298697c55c84662bc15b0f1e7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688724"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639643"
 ---
 # <a name="what-is-azure-backup"></a>何謂 Azure 備份？
 

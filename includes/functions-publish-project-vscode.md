@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3cfa36331f8f4ad45f3bf8ff32eee7d89c7d8852
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ba3cf3e77e5414804e881e0cddb151fb14fb7fd5
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608114"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669561"
 ---
 ## <a name="publish-the-project-to-azure"></a>將專案發佈到 Azure
 
 Visual Studio Code 可讓您將函式專案直接發佈到 Azure。 在這過程中，您會在 Azure 訂用帳戶中建立函式應用程式和相關的資源。 函式應用程式會為函式提供執行內容。 專案會封裝並部署到您 Azure 訂用帳戶中的新函式應用程式。
 
-根據預設，Visual Studio 會建立所有建立函式應用程式所需的 Azure 資源。 這些資源的名稱會以您選擇的函式應用程式名稱為基礎。 如果您需要所建立資源的完整控制權，您可以[使用進階選項發佈](../articles/azure-functions/functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options)。
+根據預設，Visual Studio 會建立所有建立函式應用程式所需的 Azure 資源。 這些資源的名稱會以您選擇的函式應用程式名稱為基礎。 如果您需要所建立資源的完整控制權，您可以[使用進階選項發佈](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options)。
 
 本節假設您要在 Azure 中建立新的函式應用程式。
 

@@ -2,23 +2,23 @@
 title: 註冊 Premium 版本 - Azure Active Directory | Microsoft Docs
 description: 關於如何註冊 Azure Active Directory Premium 版本的指示。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/07/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 016fbc8808c11f861dd4388ea5fb062c840187ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287055"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561986"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>註冊 Azure Active Directory Premium 版本
 您可以使用您的 Azure 訂用帳戶來購買 Azure Active Directory (Azure AD) Premium 版本並與其產生關聯。 如果您需要建立新的 Azure 訂用帳戶，您也需要啟用授權方案及 Azure AD 服務存取。
@@ -63,13 +63,13 @@ Enterprise Mobility + Security 是一個套件，其中包含 Azure AD Premium�
 如果您是使用新的 Azure AD 授權方案註冊，您必須使用在購買後傳送的確認電子郵件來為您的組織啟用該方案。
 
 ### <a name="to-activate-your-license-plan"></a>啟用您的授權方案
-- 開啟您在註冊後從 Microsoft 接收到的確認電子郵件，然後按一下 [登入] 或 [註冊]。
+- 開啟您在註冊後從 Microsoft 接收到的確認電子郵件，然後按一下 [登入]  或 [註冊]  。
    
     ![含有登入與註冊連結的確認電子郵件](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **登入**： 如果您有現有的租用戶，請選擇這個連結，然後使用現有的系統管理員帳戶登入。 您必須是要啟用授權之租用戶的全域管理員。
 
-    - **註冊**： 如果您想要開啟 [建立帳戶設定檔] 頁面，並針對授權方案建立新的 Azure AD 租用戶，請選擇這個連結。
+    - **註冊**： 如果您想要開啟 [建立帳戶設定檔]  頁面，並針對授權方案建立新的 Azure AD 租用戶，請選擇這個連結。
 
         ![包含範例資訊的建立帳戶設定檔頁面](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
@@ -87,7 +87,7 @@ Enterprise Mobility + Security 是一個套件，其中包含 Azure AD Premium�
 
 ### <a name="to-activate-your-azure-ad-access"></a>啟用您的 Azure AD 存取
 
-1. 開啟**歡迎電子郵件**，然後按一下 [登入]。
+1. 開啟**歡迎電子郵件**，然後按一下 [登入]  。
    
     ![反白顯示登入連結的歡迎電子郵件](media/active-directory-get-started-premium/AADEmail.png)
 

@@ -11,14 +11,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d8f12e699c17787d897a7f5ed23eccdbf3659921
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357130"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569137"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 Visual Studio Code 連接及查詢 Azure SQL Database
 
@@ -75,9 +74,9 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至 [SQL 資料庫] 或 [SQL 受控執行個體] 頁面。
+2. 瀏覽至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
 
-3. 在 [概觀] 頁面上，針對單一資料庫檢閱 [伺服器名稱] 旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機] 旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製] 圖示。
+3. 在 [概觀]  頁面上，針對單一資料庫檢閱 [伺服器名稱]  旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機]  旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製]  圖示。
 
 ## <a name="set-language-mode-to-sql"></a>將語言模式設定為 SQL
 
@@ -87,9 +86,9 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 2. 按 **Ctrl**+**N**。 此時會開啟新的純文字檔。
 
-3. 選取狀態列右下角的 [純文字]。
+3. 選取狀態列右下角的 [純文字]  。
 
-4. 在開啟的 [選取語言模式] 下拉式功能表中，選取 [SQL]。
+4. 在開啟的 [選取語言模式]  下拉式功能表中，選取 [SQL]  。
 
 ## <a name="connect-to-your-database"></a>連接到您的資料庫
 
@@ -100,9 +99,9 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 
 1. 在 Visual Studio Code 中，按 **Ctrl+Shift+P** (或 **F1**) 以開啟命令選擇區。
 
-2. 選取 [MS SQL: 連線] 然後選擇 **Enter**。
+2. 選取 [MS SQL: 連線]  然後選擇 **Enter**。
 
-3. 選取 [建立連線設定檔]。
+3. 選取 [建立連線設定檔]  。
 
 4. 請依照提示指定新設定檔的連線屬性。 指定每個值之後，選擇 **ENTER** 繼續。
 
@@ -113,7 +112,7 @@ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
    | **驗證** | SQL 登入| 本教學課程使用 SQL 驗證。 |
    | **使用者名稱** | 使用者名稱 | 建立伺服器時所使用伺服器系統管理員帳戶的使用者名稱。 |
    | **密碼 (SQL 登入)** | 密碼 | 建立伺服器時所使用伺服器系統管理員帳戶的密碼。 |
-   | **儲存密碼？** | 是或否 | 如果您不希望每次都要輸入密碼，請選取 [是]。 |
+   | **儲存密碼？** | 是或否 | 如果您不希望每次都要輸入密碼，請選取 [是]  。 |
    | **輸入這個設定檔的名稱** | 設定檔名稱，例如 **mySampleProfile** | 儲存設定檔可讓您在後續登入時加快連線速度。 |
 
    如果成功會顯示通知，指出您的設定檔已建立並連線。

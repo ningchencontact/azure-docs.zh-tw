@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5f41263113568cf9f3771119135be8db37119181
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dbcb0e87159efc7cc33101cdd5eee55afbdf3c10
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442947"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516645"
 ---
 # <a name="what-is-azure-maps"></a>什麼是 Azure 地圖服務？
 
@@ -174,14 +174,10 @@ Azure 地圖服務會使用金鑰型驗證結構描述。 您的帳戶隨附已�
 
 Azure 地圖服務 API 目前可在下列國家以外的所有國家/地區中使用：
 
-* 阿根廷
 * 中國
-* 印度
-* 摩洛哥
-* 巴基斯坦
 * 南韓
 
-確認您目前 IP 位址的位置不是在未受支援的國家/地區。
+確認您目前 IP 位址的位置不在上述未受支援的國家/地區中。
 
 ## <a name="next-steps"></a>後續步驟
 

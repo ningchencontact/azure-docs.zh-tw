@@ -9,16 +9,18 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 5fe011d740b1c08ae3b9cf4e3ea67d2cdd4fee66
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: f96d1956fececbe00bf9f33bd146056836c2c4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360089"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564990"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
 
 在本快速入門中，您會了解如何使用 Python 在 Azure Blob 儲存體的容器中上傳、下載及列出區塊 Blob。 Blobs 只是能持有任何數量文字或二進位資料 (如影像、文件、串流媒體，資料等、封存等) 的物件，且在 Azure 儲存體中與檔案共用、無結構描述資料表及訊息佇列有所區別。 (如需詳細資訊，請參閱 [Azure 儲存體簡介](/azure/storage/common/storage-introduction)。)
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
-manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8a3a325cbfced13b6e2ac4cb842b5d5f4f764750
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356836"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567471"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入門：將資料庫還原到受控執行個體
 
@@ -47,7 +46,7 @@ ms.locfileid: "59356836"
 在 SSMS 中，遵循這些步驟以將 Wide World Importers 資料庫還原至您的受控執行個體。 資料庫備份檔案儲存在預先設定的 Azure Blob 儲存體帳戶中。
 
 1. 開啟 SMSS 並連線到您的受控執行個體。
-2. 從左側功能表中，以滑鼠右鍵按一下您的受控執行個體，並選取 [新增查詢] 以開啟新的查詢視窗。
+2. 從左側功能表中，以滑鼠右鍵按一下您的受控執行個體，並選取 [新增查詢]  以開啟新的查詢視窗。
 3. 執行下列 SQL 指令碼，它會使用預先設定的儲存體帳戶和 SAS 金鑰，在您的受控執行個體中[建立認證](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql)。
 
    ```sql
