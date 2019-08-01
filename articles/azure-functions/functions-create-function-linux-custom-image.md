@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: a8a216a7d2ce048ed5131997df762942998aaa88
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444097"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619620"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>在 Linux 上使用自訂映像建立函式
 
@@ -190,7 +190,7 @@ v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 1796
 
 ## <a name="create-a-premium-plan"></a>建立進階方案
 
-針對[專用 (App Service) 方案](functions-scale.md#app-service-plan)和[進階方案](functions-scale.md#premium-plan)上支援的自訂 Functions 容器進行 Linux 主控。 本教學課程使用可視需要進行調整的進階方案。 若要深入了解裝載，請參閱 [Azure Functions 裝載方案比較](functions-scale.md)。
+針對[專用 (App Service) 方案](functions-scale.md#app-service-plan)和[進階方案](functions-premium-plan.md#features)上支援的自訂 Functions 容器進行 Linux 主控。 本教學課程使用可視需要進行調整的進階方案。 若要深入了解裝載，請參閱 [Azure Functions 裝載方案比較](functions-scale.md)。
 
 下列範例會在 [彈性進階 1]  定價層 (`--sku EP1`)、在美國西部區域 (`-location WestUS`)，以及在 Linux 容器 (`--is-linux`) 中建立名為 `myPremiumPlan` 的進階方案。
 

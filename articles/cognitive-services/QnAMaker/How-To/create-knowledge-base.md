@@ -1,7 +1,7 @@
 ---
-title: 建立知識庫
-titleSuffix: QnA Maker API - Azure Cognitive Services
-description: 使用 QnA Maker API 服務入口網站中，將會建立知識庫，且 chit 聊天。 這可讓您的應用程式更吸引人。 將閒聊內容預先匯入知識庫中，作為聊天機器人閒聊起始點，節省您從頭開始編寫它們的時間和成本。
+title: 建立知識庫-QnA Maker
+titleSuffix: Azure Cognitive Services
+description: 使用 QnA Maker API 服務入口網站, 以使用閒聊來新增建立知識庫。 這可讓您的應用程式更吸引人。 將閒聊內容預先匯入知識庫中，作為聊天機器人閒聊起始點，節省您從頭開始編寫它們的時間和成本。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 8c674d33d7f0958fbce8f080f43404c480c7410c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dfd0663c09b78539a1d6b78aa7820385b9ddbdca
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447449"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563090"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>快速入門：建立使用 QnA Maker API 服務入口網站的知識庫
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>快速入門：使用 QnA Maker API 服務入口網站建立知識庫
 
-QnA Maker API 服務入口網站可以輕鬆將現有資料來源，當建立知識庫。 您可以從下列文件類型建立新的 QnA Maker 知識庫：
+QnA Maker API 服務入口網站可讓您在建立知識庫時, 輕鬆地加入現有的資料來源。 您可以從下列文件類型建立新的 QnA Maker 知識庫：
 
 <!-- added for scanability -->
 * 常見問題集頁面
@@ -50,7 +50,7 @@ QnA Maker API 服務入口網站可以輕鬆將現有資料來源，當建立知
     - 針對您想要擷取的資料上傳檔案。 請參閱[定價資訊](https://aka.ms/qnamaker-pricing)，以了解您可以新增多少文件。
     - 如果您想要手動新增 QnA，可以略過上圖中顯示的**步驟 4**。
 
-1. 將**閒聊**新增至您的 KB。 選擇加入 chit 對談支援，針對您的 bot，選擇其中一個人物。 
+1. 將**閒聊**新增至您的 KB。 選擇其中一個特質, 為您的 bot 新增閒聊的交談支援。 
 
     ![將閒聊新增至知識庫](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
@@ -70,7 +70,7 @@ QnA Maker API 服務入口網站可以輕鬆將現有資料來源，當建立知
 
 ## <a name="next-steps"></a>後續步驟
 
-對於成本的省電措施，您可以[共用](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker)QnA Maker 所建立的部分而不是所有 Azure 的資源。
+針對成本節約量值, 您可以[共用](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker)部分 (而非所有) 為 QnA Maker 建立的 Azure 資源。
 
 > [!div class="nextstepaction"]
 > [新增閒聊特質](./chit-chat-knowledge-base.md)

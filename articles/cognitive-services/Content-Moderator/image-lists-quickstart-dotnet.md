@@ -1,6 +1,6 @@
 ---
 title: 在 C# 中根據自訂清單檢查影像 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for C# 以自訂影像清單仲裁影像。
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 915b308b0129d714e51ac50b4230d8447b5c933a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603402"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564474"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>在 C# 中使用自訂影像清單進行仲裁
 
@@ -32,7 +32,7 @@ ms.locfileid: "67603402"
 > [!NOTE]
 > 上限是 **5 個影像清單**，且每個清單**不可超過 10,000 個影像**。
 
-本指南中的主控台應用程式會模擬一些您可以使用映像清單 API 執行的工作。
+本指南的主控台應用程式會模擬一些您可以使用影像清單 API 來執行的工作。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>建立方法以將影像集合新增至清單
 
-將下列方法新增至 **Program** 類別。 本指南不會示範如何將標籤套用至清單中的映像。 
+將下列方法新增至 **Program** 類別。 本指南不會示範如何將標籤套用至清單中的影像。 
 
 ```csharp
 /// <summary>

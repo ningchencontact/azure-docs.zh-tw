@@ -1,6 +1,6 @@
 ---
-title: 設定容器
-titlesuffix: Face - Azure Cognitive Services
+title: 設定容器-臉部 API
+titleSuffix: Azure Cognitive Services
 description: 適用於容器的組態設定。
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6dd047b0ba7f9a123ffcc014cff5604466946d07
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320532"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564104"
 ---
 # <a name="configure-face-docker-containers"></a>設定臉部 Docker 容器
 
@@ -43,7 +43,7 @@ ms.locfileid: "68320532"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。  `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。 `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
@@ -125,7 +125,7 @@ ms.locfileid: "68320532"
 |選擇性| 名稱 | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | String | 臉部容器不會使用此項目。|
-|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
+|選擇性| `Output` | String | 輸出裝載的目標。 預設值是 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -143,7 +143,7 @@ ms.locfileid: "68320532"
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](face-how-to-install-containers.md#billing)。
-> ApiKey 值是 [Azure  `Cognitive Services`資源金鑰] 頁面中的金鑰。 
+> ApiKey 值是 [Azure `Cognitive Services`資源金鑰] 頁面中的金鑰。 
 
 ## <a name="face-container-docker-examples"></a>臉部容器 Docker 範例
 

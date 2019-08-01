@@ -3,26 +3,26 @@ title: 詞彙 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 自訂翻譯工具詞彙
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 3781969f74b8314ebb4633697b922f47c12196ae
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b00e38259bc3fe8cb6998c64ec453a17963a5ee5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443385"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595782"
 ---
-# <a name="glossary"></a>詞彙
+# <a name="glossary"></a>字彙
 
 [自訂翻譯工具](https://portal.customtranslator.azure.ai)詞彙說明使用自訂翻譯工具時可能遇到的字詞。
 
 | **單字或片語**       | **定義**                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 來源語言          | 來源語言是指要轉換成另一種語言 (「目標」) 的原始語言。                                                                                                                                                                                                                                                                                                                                                         |
+| 原始語言          | 來源語言是指要轉換成另一種語言 (「目標」) 的原始語言。                                                                                                                                                                                                                                                                                                                                                         |
 | 目標語言          | 目標語言是指您要讓機器翻譯在接收到來源語言後提供的語言。                                                                                                                                                                                                                                                                                                                                               |
 | 單一語言檔案         | 單一語言檔案具有不與使用不同語言的另一個檔案配對的單一語言。                                                                                                                                                                                                                                                                                                                                                                 |
 | 平行檔案           | 平行檔案是具有對應文字的兩個檔案相互的組合。 一個檔案具有來源語言。 另一個檔案則有目標語言。                                                                                                                                                                                                                                                                                                                                         |

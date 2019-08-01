@@ -1,6 +1,6 @@
 ---
 title: 在 LUIS 入口網站中測試應用程式
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用 Language Understanding (LUIS) 來持續調整您的應用程式，以改善應用程式及提升其語言理解能力。
 services: cognitive-services
 author: diberry
@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31d979b92bdf050f28ac5d7549218016dc5e473c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199023"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637984"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中測試您的 LUIS 應用程式
 <a name="train-your-app"></a>
-[測試](luis-concept-test.md)應用程式是一種反覆程序。 在您定型 LUIS 應用程式之後，請使用範例語句來測試它，查看它是否能正確地辨識意圖和實體。 如果為否，請更新 LUIS 應用程式，然後重新進行定型和測試。 
+
+# <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中測試您的 LUIS 應用程式
+
+[測試](luis-concept-test.md)應用程式是一種反復的進程。 在您定型 LUIS 應用程式之後，請使用範例語句來測試它，查看它是否能正確地辨識意圖和實體。 如果為否，請更新 LUIS 應用程式，然後重新進行定型和測試。 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -31,13 +33,13 @@ ms.locfileid: "60199023"
 
 1. 在 [我的應用程式]  頁面上選取應用程式名稱，來存取應用程式。 
 
-2. 若要存取 [測試]  滑出面板，請選取應用程式上方面板中的 [測試]  。
+1. 若要存取 [測試]  滑出面板，請選取應用程式上方面板中的 [測試]  。
 
     ![定型和測試應用程式頁面](./media/luis-how-to-interactive-test/test.png)
 
-3. 在文字方塊中輸入語句，並選取 Enter。 您可以針對 [測試]  輸入任意數目的測試語句，但一次只能輸入一個語句。
+1. 在文字方塊中輸入語句，並選取 Enter。 您可以針對 [測試]  輸入任意數目的測試語句，但一次只能輸入一個語句。
 
-4. 該語句，連同評分最高的意圖及其分數，會被新增至文字方塊底下的語句清單中。
+1. 該語句，連同評分最高的意圖及其分數，會被新增至文字方塊底下的語句清單中。
 
     ![互動式測試識別出錯誤意圖](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ ms.locfileid: "60199023"
 
     ![選取 [檢查] 按鈕以查看測試結果的相關詳細資料](./media/luis-how-to-interactive-test/inspect.png)
 
-2. [檢查]  面板隨即出現。 該面板包含評分最高的意圖，以及任何已識別的實體。 該面板會顯示所選語句的結果。
+1. [檢查]  面板隨即出現。 該面板包含評分最高的意圖，以及任何已識別的實體。 該面板會顯示所選語句的結果。
 
     ![該面板包含評分最高的意圖，以及任何已識別的實體。 該面板會顯示所選語句的結果。](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +59,7 @@ ms.locfileid: "60199023"
 
 1. 若評分最高的意圖是錯誤的，請選取 [編輯]  按鈕。
 
-2.  在下拉式清單中，為該語句選取正確的意圖。
+1.  在下拉式清單中，為該語句選取正確的意圖。
 
     ![選取正確的意圖](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -103,16 +105,14 @@ ms.locfileid: "60199023"
 
 1. 在 [測試]  窗格中輸入語句。 當系統預測出該語句時，請選取位於您所輸入語句下方的 [[檢查](#inspect-score)]  。 
 
-2. 當 [檢查]  面板開啟時，選取 [[與已發行比較](#compare-with-published-version)]  。 
+1. 當 [檢查]  面板開啟時，選取 [[與已發行比較](#compare-with-published-version)]  。 
 
-3. 當 [已發行]  面板開啟時，選取 [[其他設定](#additional-settings-in-test-panel)]  。
+1. 當 [已發行]  面板開啟時，選取 [[其他設定](#additional-settings-in-test-panel)]  。
 
-4. 在快顯對話方塊中，輸入您的 **Bing 拼字檢查**服務金鑰。 
-    ![輸入 Bing 拼字檢查服務金鑰](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. 在快顯對話方塊中, 勾選 [**啟用 Bing 拼寫檢查**] 並輸入金鑰, 然後選取 [**完成**]。 
+    ![輸入 Bing 拼字檢查服務金鑰](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. 輸入具有錯誤拼字的查詢 (例如 `book flite to seattle`)，然後選取 Enter。 在傳送至 LUIS 的查詢中，系統會取代單字 `flite` 的錯誤拼字，因此結果的 JSON 會同時顯示原始的查詢 (`query`)，以及已修正拼字的查詢 (`alteredQuery`)。
-
-    ![已修正拼字的 JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. 輸入具有錯誤拼字的查詢 (例如 `book flite to seattle`)，然後選取 Enter。 在傳送至 LUIS 的查詢中，系統會取代單字 `flite` 的錯誤拼字，因此結果的 JSON 會同時顯示原始的查詢 (`query`)，以及已修正拼字的查詢 (`alteredQuery`)。
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

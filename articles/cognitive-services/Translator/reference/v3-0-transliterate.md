@@ -1,6 +1,6 @@
 ---
 title: 翻譯文字 API 轉換方法
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用翻譯文字 API 轉換方法。
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: ddf4ca1939e09f5f63999657e7a751c9e53693e2
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 0be56bbd421bcd12e3c494a671db2f322e07c575
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357651"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594937"
 ---
 # <a name="translator-text-api-30-transliterate"></a>翻譯工具文字 API 3.0：Transliterate
 
@@ -41,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
     <td>必要參數  。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
-    <td>語言</td>
+    <td>language</td>
     <td>必要參數  。<br/>指定要從某個指令碼轉換成另一個指令碼的文字語言。 向服務查詢其[支援語言](./v3-0-languages.md)而取得的 `transliteration` 範圍列出可能的語言。</td>
   </tr>
   <tr>
@@ -57,7 +57,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">標頭</th>
   <th>描述</th>
   <tr>
     <td>驗證標頭</td>
@@ -73,11 +73,11 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>可选  。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
-## <a name="request-body"></a>Request body
+## <a name="request-body"></a>要求本文
 
 要求的本文是 JSON 陣列。 每個陣列項目都是字串屬性名為 `Text` 的 JSON 物件，其代表要轉換的字串。
 
@@ -114,7 +114,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ## <a name="response-headers"></a>回應標頭
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">標頭</th>
   <th>描述</th>
   <tr>
     <td>X-RequestId</td>
@@ -139,7 +139,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
@@ -147,11 +147,11 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>伺服器拒絕要求，因為用戶端已超過要求限制。</td>
+    <td>伺服器已拒絕要求, 因為用戶端已超過要求限制。</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>

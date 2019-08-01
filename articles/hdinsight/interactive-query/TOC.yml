@@ -28,6 +28,8 @@
           items:
             - name: 超過 GC 額外負荷限制
               href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Hive LLAP 查詢效能
+          href: ./interactive-query-troubleshoot-query-performance.md
 - name: 作法
   items:
     - name: 將 Hive 工作負載移轉至 HDInsight 4.0

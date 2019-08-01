@@ -1,6 +1,6 @@
 ---
 title: 使用文字仲裁 API 來仲裁文字 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用線上主控台中的「文字仲裁 API」來試用文字仲裁。
 services: cognitive-services
 author: sanjeev3
@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: a3eb134d655f2a25acb45e0d249aa421667d1520
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621394"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561177"
 ---
 # <a name="moderate-text-from-the-api-console"></a>從 API 主控台仲裁文字
 
-使用[文字審核 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) Azure 內容仲裁來掃描您的文字內容的不雅內容，並比較對自訂和共用的清單中。
+使用 Azure 內容仲裁中的[文字仲裁 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)來掃描您的文字內容是否不雅, 並與自訂和共用清單進行比較。
 
 ## <a name="get-your-api-key"></a>取得 API 金鑰
 
@@ -73,7 +73,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>分析回應
 
-以下回應顯示來自 API 的各種深入解析。 它包含潛在的不雅內容、 個人資料、 分類 （預覽），以及自動更正的版本。
+以下回應顯示來自 API 的各種深入解析。 它包含潛在的不雅內容、個人資料、分類 (預覽), 以及自動校正的版本。
 
 > [!NOTE]
 > 電腦輔助「分類」功能目前為預覽版且僅支援英文。
@@ -172,8 +172,8 @@ Also, 999-99-9999 looks like a social security number (SSN).
 }
 ```
 
-JSON 回應中的所有區段的詳細說明，請參閱[文字審核](text-moderation-api.md)概念指南。
+如需 JSON 回應中所有區段的詳細說明, 請參閱[文字審核](text-moderation-api.md)概念指南。
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的程式碼中使用 REST API 或開頭[文字審核.NET 快速入門](text-moderation-quickstart-dotnet.md)與您的應用程式整合。
+在您的程式碼中使用 REST API, 或從[文字仲裁 .net 快速入門](text-moderation-quickstart-dotnet.md)開始, 以與您的應用程式整合。

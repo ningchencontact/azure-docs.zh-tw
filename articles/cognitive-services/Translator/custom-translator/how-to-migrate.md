@@ -3,18 +3,18 @@ title: 要移轉 Microsoft Translator Hub 工作區和專案嗎？ - 自訂翻�
 titleSuffix: Azure Cognitive Services
 description: 將您的中樞工作區和專案移轉至自訂翻譯工具。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ce81c23a42895f72545a8241d2e002d9798fec05
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cd821ad8fce813d269ace8fb4945cb796c2ae758
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447996"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595730"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>將中樞工作區和專案移轉至自訂翻譯工具
 
@@ -27,7 +27,7 @@ ms.locfileid: "67447996"
 * 您隨時都可在模型的 TrainingDetails 頁面中找到從 Hub 訓練移轉的 BLEU 分數，其標題為「MT Hub 中的 Bleu 分數」。
 
 > [!Note]
-> 對於成功的訓練，10000 的唯一擷取句子至少需要自訂轉譯器。 自訂轉譯器不能進行訓練，少於[建議的最小](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences)。
+> 若要成功定型, 自訂翻譯需要至少10000個唯一的解壓縮句子。 自訂翻譯無法以少於[建議的最小值](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences)來進行定型。
 
 ## <a name="find-custom-translator-workspace-id"></a>尋找自訂翻譯工具工作區識別碼
 
@@ -119,10 +119,10 @@ ms.locfileid: "67447996"
 如果您希望專案、定型和文件有更詳細的相關移轉報告，您可以選擇將詳細資料匯出為 CSV。
 
 ## <a name="implementation-notes"></a>實作附註
-* 系統語言組不還提供自訂轉譯器僅可供存取資料，或透過自訂轉譯器解除部署。 這些專案將標示為 「 無法使用 」，在 [專案] 頁面上。 隨著我們啟用新的語言組和自訂轉譯器時，專案會變成作用來定型和部署。 
+* 自訂翻譯中尚未提供語言組的系統, 將只能透過自訂翻譯存取資料或解除部署。 這些專案在 [專案] 頁面上會標示為 [無法使用]。 當我們以自訂翻譯啟用新語言組時, 專案將會變成作用中以進行定型和部署。 
 * 將專案從 Hub 移轉至自訂翻譯工具，並不會對您的 Hub 訓練或專案造成任何影響。 在移轉期間，我們不會從 Hub 中刪除專案或文件，也不會將模型解除部署。
 * 您的每個專案只能移轉一次。 如果您需要重複移轉某個專案，請與我們連絡。
-* 自訂轉譯器支援從英文來回 NMT 語言組。 [檢視支援語言的完整清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)。 Hub 不需要基準模型，因此可支援數千種語言。 您可以移轉不受支援的語言組，但我們只會執行文件和專案定義的移轉。 我們無法為新模型定型。 此外，這些文件和專案將會顯示為非作用中，以指出它們目前無法使用。 如果新增了這些專案和 (或) 文件的支援，它們就會變成作用中狀態，且可以定型。
+* 自訂翻譯支援與英文的 NMT 語言組。 [查看支援語言的完整清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)。 Hub 不需要基準模型，因此可支援數千種語言。 您可以移轉不受支援的語言組，但我們只會執行文件和專案定義的移轉。 我們無法為新模型定型。 此外，這些文件和專案將會顯示為非作用中，以指出它們目前無法使用。 如果新增了這些專案和 (或) 文件的支援，它們就會變成作用中狀態，且可以定型。
 * 自訂翻譯工具目前不支援單一語言定型資料。 和不受支援的語言組一樣，您可以移轉單一語言文件，但在單一語言資料受到支援之前，這些文件都會顯示為非作用中。
 * 自訂翻譯工具需要 10k 個平行句子才能執行定型。 Microsoft Hub 無法對較小的資料集定型。 不符合此需求的訓練若進行移轉，則不會定型。
 
@@ -139,9 +139,9 @@ ms.locfileid: "67447996"
 | 新的統一語音服務自訂 | 否    | 是 |
 | 不追蹤 | 是 | 是 |
 
-## <a name="new-languages"></a>新的語言
+## <a name="new-languages"></a>新語言
 
-如果您是社群或組織的 Microsoft Translator 中建立新的語言系統，向[ custommt@microsoft.com ](mailto:custommt@microsoft.com)如需詳細資訊。
+如果您是使用為 Microsoft Translator 建立新語言系統的社區或組織, 請前往以[custommt@microsoft.com](mailto:custommt@microsoft.com)取得詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

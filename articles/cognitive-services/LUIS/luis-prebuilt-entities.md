@@ -1,5 +1,5 @@
 ---
-title: 預先建置的實體
+title: Language Understanding 的預建實體
 titleSuffix: Azure Cognitive Services
 description: LUIS 包含一組預先建置的實體，用於辨識常見的資訊類型，例如日期、時間、數字、計量及貨幣。 預先建置的實體支援會因 LUIS 應用程式的文化特性而異。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 0cfc4ff58cfeb65f80f9ac5ce2dd532defde5ef8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db0fb8962030b536b6ea73f4141da551434cd528
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596129"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560348"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>預先建置的實體可辨識常見的資料類型
 
@@ -32,7 +32,7 @@ LUIS 包含一組預先建置的實體，用於辨識常見的資訊類型，例
 
     ![新增預先建置的實體對話方塊](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
 
-1. 選取 [完成]  。
+1. 選取 [完成]。
 
 ## <a name="publish-the-app"></a>發佈應用程式
 

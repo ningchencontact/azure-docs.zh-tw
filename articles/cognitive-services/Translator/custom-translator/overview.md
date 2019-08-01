@@ -3,18 +3,18 @@ title: 什麼是自訂翻譯工具？
 titleSuffix: Azure Cognitive Services
 description: 自訂翻譯工具所提供的功能，類似於 Microsoft Translator Hub 針對統計機器翻譯 (SMT) 所提供的功能，但前者專供類神經機器翻譯 (NMT) 系統來使用。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: a137c3ff5805a41924cdef609bc072eb029e25ef
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cdbbe9006f57c8b29e19fda85eefc0795da95a00
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449445"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595502"
 ---
 # <a name="what-is-custom-translator"></a>什麼是自訂翻譯工具？
 

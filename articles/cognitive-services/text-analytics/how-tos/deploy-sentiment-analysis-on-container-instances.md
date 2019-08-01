@@ -1,7 +1,7 @@
 ---
-title: 執行 Azure 容器執行個體
+title: 執行 Azure 容器實例-文字分析
 titleSuffix: Azure Cognitive Services
-description: 文字分析將容器部署與情感分析映像到 Azure 容器執行個體，並在網頁瀏覽器中進行測試。
+description: 將具有情感分析映射的文字分析容器部署至 Azure 容器實例, 並在網頁瀏覽器中進行測試。
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 9f174d54fcc74eed613eb69412bc0e515f15897b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9ef529c9d505e5b305602c80a8dbef906f52269c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711934"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552535"
 ---
-# <a name="deploy-a-sentiment-analysis-container-to-azure-container-instances"></a>將情感分析容器部署至 Azure Container Instances
+# <a name="deploy-a-sentiment-analysis-container-to-azure-container-instances"></a>將情感分析容器部署至 Azure 容器實例
 
-了解如何部署認知服務[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)情感分析映像至 Azure 容器[Container Instances](https://docs.microsoft.com/azure/container-instances/)。 建立文字分析的資源，建立相關聯的情感分析映像，以及能夠練習從瀏覽器兩個此協調流程，舉例說明此程序。 使用容器可以轉移遠離管理基礎結構，以改為專注於應用程式開發的開發人員的注意。
+瞭解如何使用情感分析映射將認知服務[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)容器部署至 Azure[容器實例](https://docs.microsoft.com/azure/container-instances/)。 此程式會」舉例說明建立文字分析資源、建立相關聯的情感分析映射, 以及從瀏覽器執行這兩項協調流程的能力。 使用容器可以將開發人員的注意力轉移到管理基礎結構之外, 改為專注于應用程式開發。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -34,4 +34,4 @@ ms.locfileid: "67711934"
 ## <a name="next-steps"></a>後續步驟 
 
 * 使用更多[認知服務容器](../../cognitive-services-container-support.md)
-* 使用[文字分析已連線服務](../vs-text-connected-service.md)
+* 使用[文字分析聯機服務](../vs-text-connected-service.md)

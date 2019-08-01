@@ -1,7 +1,7 @@
 ---
-title: 使用 Azure 語音服務的語音轉換文字
+title: 語音轉換文字-語音服務
 titleSuffix: Azure Cognitive Services
-description: 來自 Azure 語音服務的語音轉換文字 (也稱為語音轉換文字) 可將音訊串流即時轉譯成文字, 讓您的應用程式、工具或裝置可以取用、顯示和採取動作作為命令輸入。 這項服務是由 Microsoft 用於 Cortana 和 Office 產品的相同辨識技術所支援, 而且可與翻譯和文字轉換語音緊密搭配運作。
+description: 語音服務中的語音轉換文字功能 (也稱為語音轉換文字) 可將音訊串流即時轉譯成文字, 讓您的應用程式、工具或裝置可以取用、顯示和採取動作作為命令輸入。 這項服務是由 Microsoft 用於 Cortana 和 Office 產品的相同辨識技術所支援, 而且可與翻譯和文字轉換語音緊密搭配運作。
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cb9362c4d58deb5472c8d5adab39cdd1cc4e2600
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333564"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558855"
 ---
 # <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 

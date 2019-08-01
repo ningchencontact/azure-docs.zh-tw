@@ -1,21 +1,21 @@
 ---
-title: Extact 文字比對實體
+title: Extact 文字元合實體-LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解如何新增清單實體以協助 LUIS 標記字組或片語的差異。
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da6e8e794520a737a96ba45f94459fb8c1a5ff18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117443"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637825"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用清單實體增加實體偵測 
 本教學課程將示範如何使用[清單實體](luis-concept-entity-types.md)增加實體偵測。 清單實體不需要標籤，因為其與字詞完全相符。  
@@ -27,7 +27,7 @@ ms.locfileid: "62117443"
 > * 新增正規化的值和同義字
 > * 驗證改善的實體識別
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!div class="checklist"]
 > * 最新版的 [Node.js](https://nodejs.org)

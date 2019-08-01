@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 建立認知服務資源
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 藉由使用 Azure 命令列介面來建立和訂閱資源, 以開始使用 Azure 認知服務。
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: 05b679fd969dc766d697070979416312c3bad622
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 8f3d30866ac6db0cdece9af8144fcfa266871172
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334261"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697896"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>使用 Azure 命令列介面 (CLI) 建立認知服務資源
 
@@ -162,6 +162,14 @@ az login
 ```
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>定價層和計費
+
+定價層 (以及您收取的金額) 是根據您使用驗證資訊傳送的交易數目。 每個定價層都會指定:
+* 每秒允許的交易數目上限 (TP)。
+* 在定價層中啟用的服務功能。
+* 預先定義的交易量成本。 超過此數量會導致您服務的[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/)中所指定的額外費用。
+
 
 ## <a name="clean-up-resources"></a>清除資源
 

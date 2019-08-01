@@ -1,7 +1,7 @@
 ---
 title: 語音轉換文字 API 參考 (REST)-語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用語音轉換文字 REST API。 在本文中，您會了解到授權選項、查詢選項，以及如何建構要求與接收回應。
+description: 瞭解如何使用語音轉換文字 REST API。 在本文中，您會了解到授權選項、查詢選項，以及如何建構要求與接收回應。
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d967fa4d5ba54e4470dadc5e797067454e1769a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606346"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552975"
 ---
 # <a name="speech-to-text-rest-api"></a>語音轉換文字 REST API
 
-做為替代[語音 SDK](speech-sdk.md)，語音服務可讓您將語音轉換文字使用 REST API。 每個可存取的端點皆與區域相關聯。 您的應用程式需要您打算使用之端點的訂用帳戶金鑰。
+語音服務是語音[SDK](speech-sdk.md)的替代方案, 可讓您使用 REST API 將語音轉換成文字。 每個可存取的端點皆與區域相關聯。 您的應用程式需要您打算使用之端點的訂用帳戶金鑰。
 
-之前使用語音轉換文字 REST API，了解：
-* 使用 REST API 的要求只能包含 10 秒的錄製音訊。
+使用語音轉換文字 REST API 之前, 請先瞭解:
+* 使用 REST API 的要求只能包含10秒的錄製音訊。
 * 語音轉文字 REST API 只會傳回最終結果， 不提供部分的結果。
 
 如果您的應用程式需要傳送更長的音訊，請考慮使用[語音 SDK](speech-sdk.md) 或[批次轉譯](batch-transcription.md)。
@@ -41,7 +41,7 @@ REST 要求的查詢字串中可能包括這些參數。
 
 | 參數 | 描述 | 必要/選用 |
 |-----------|-------------|---------------------|
-| `language` | 識別正在辨識的口說語言。 請參閱[支援的語言](language-support.md#speech-to-text)。 | 必要 |
+| `language` | 識別正在辨識的口說語言。 請參閱[支援的語言](language-support.md#speech-to-text)。 | 必要項 |
 | `format` | 指定結果格式。 接受的值為 `simple` 和 `detailed`。 簡單的結果包含 `RecognitionStatus`、`DisplayText`、`Offset` 和 `Duration`。 詳細的回應包含多個具有信賴值的結果和四個不同的表示法。 預設設定為 `simple`。 | 選擇性 |
 | `profanity` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `masked` (以星號取代不雅內容)、`removed` (移除結果中所有的不雅內容)，或 `raw` (結果中包含不雅內容)。 預設設定為 `masked`。 | 選擇性 |
 
@@ -55,8 +55,8 @@ REST 要求的查詢字串中可能包括這些參數。
 | `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必須有此標頭或 `Ocp-Apim-Subscription-Key`。 |
 | `Content-type` | 描述所提供音訊資料的格式和轉碼器。 接受的值為 `audio/wav; codecs=audio/pcm; samplerate=16000` 和 `audio/ogg; codecs=opus`。 | 必要項 |
 | `Transfer-Encoding` | 指定正在傳送的音訊資料區塊，而不是單一檔案。 只有在以區塊處理音訊資料時，才能使用此標頭。 | 選擇性 |
-| `Expect` | 如果使用區塊傳輸，請傳送 `Expect: 100-continue`。 語音服務會確認初始要求，並且等候其他資料。| 如果傳送的是音訊資料區塊，則為必要。 |
-| `Accept` | 如果提供，則必須是 `application/json`。 語音服務提供 JSON 中的結果。 如果您未指定預設值，則有些 Web 要求架構會提供不相容的預設值，因此一律包含 `Accept` 是很好的做法。 | 此為選用步驟，但建議執行。 |
+| `Expect` | 如果使用區塊傳輸，請傳送 `Expect: 100-continue`。 語音服務會確認初始要求並等候其他資料。| 如果傳送的是音訊資料區塊，則為必要。 |
+| `Accept` | 如果提供，則必須是 `application/json`。 語音服務會以 JSON 提供結果。 如果您未指定預設值，則有些 Web 要求架構會提供不相容的預設值，因此一律包含 `Accept` 是很好的做法。 | 此為選用步驟，但建議執行。 |
 
 ## <a name="audio-formats"></a>自動格式
 
@@ -68,7 +68,7 @@ REST 要求的查詢字串中可能包括這些參數。
 | OGG | OPUS | 16 位元 | 16 kHz，單聲道 |
 
 >[!NOTE]
->透過 REST API 和語音服務中的 WebSocket 支援上述的格式。 [語音 SDK](speech-sdk.md) 目前僅支援具備 PCM 轉碼器的 WAV 格式。
+>您可以透過語音服務中的 REST API 和 WebSocket 來支援上述格式。 [語音 SDK](speech-sdk.md) 目前僅支援具備 PCM 轉碼器的 WAV 格式。
 
 ## <a name="sample-request"></a>範例要求
 
@@ -90,15 +90,15 @@ Expect: 100-continue
 
 | HTTP 狀態碼 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
-| 100 | Continue | 已接受初始要求。 繼續傳送其餘的資料。 (搭配區塊傳輸使用。) |
+| 100 | 繼續 | 已接受初始要求。 繼續傳送其餘的資料。 (搭配區塊傳輸使用。) |
 | 200 | [確定] | 要求成功；回應主體是 JSON 物件。 |
 | 400 | 不正確的要求 | 未提供語言代碼，或不是支援的語言；無效的音訊檔案。 |
-| 401 | 未經授權 | 訂用帳戶金鑰或授權權杖在指定的區域中無效，或是無效的端點。 |
+| 401 | 未授權 | 訂用帳戶金鑰或授權權杖在指定的區域中無效，或是無效的端點。 |
 | 403 | 禁止 | 遺漏訂用帳戶金鑰或授權權杖。 |
 
 ## <a name="chunked-transfer"></a>區塊傳輸
 
-區塊傳輸 (`Transfer-Encoding: chunked`) 可協助降低辨識延遲，因為它可讓開始處理音訊檔案，它是傳送語音服務。 REST API 不會提供部分或中間的結果。 此選項僅僅為了改善回應能力。
+區塊傳輸 (`Transfer-Encoding: chunked`) 可協助減少辨識延遲, 因為它可讓語音服務在音訊檔案進行傳輸時開始處理。 REST API 不會提供部分或中間的結果。 此選項僅僅為了改善回應能力。
 
 此程式碼範例說明如何以區塊傳送音訊。 只有第一個區塊應該包含音訊檔案的標頭。 `request` 是連線到適當 REST 端點的 HTTPWebRequest 物件。 `audioFile` 是音訊檔案在磁碟上的路徑。
 
@@ -143,7 +143,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 結果以 JSON 格式提供。 `simple` 格式包含以下的最上層欄位。
 
-| 參數 | 說明  |
+| 參數 | 描述  |
 |-----------|--------------|
 |`RecognitionStatus`|狀態，例如 `Success` 代表辨識成功。 請參閱下一個表格。|
 |`DisplayText`|在大寫字、標點符號、反向文字正規化 (將語音文字轉換為較短的形式，例如 200 表示 "two hundred" 或將 "Dr.Smith" 表示 "doctor smith")，以及不雅內容遮罩之後辨識的文字。 只會在成功時呈現。|
@@ -152,7 +152,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 欄位可包含下列的值：
 
-| 狀態 | 說明 |
+| 狀態 | 描述 |
 |--------|-------------|
 | `Success` | 辨識成功並顯示 `DisplayText` 欄位。 |
 | `NoMatch` | 音訊串流中偵測到語音，但目標語言中沒有符合的字組。 通常表示辨識語言與使用者的口語語言不同。 |
@@ -163,11 +163,11 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 > [!NOTE]
 > 如果音訊只包含不雅內容，而且 `profanity` 查詢參數設為 `remove`，則服務不會傳回語音結果。
 
-`detailed`格式包含相同的資料`simple`格式，以及使用`NBest`，替代的解譯，相同的辨識結果的清單。 這些結果會從最有可能項目，到最不可能。 第一個項目與主要辨識結果相同。  使用 `detailed` 格式時，系統會提供 `DisplayText` 作為 `NBest` 清單中每個結果的 `Display`。
+格式包含與`simple`格式相同的資料, 以及`NBest`相同辨識結果的替代解釋清單。 `detailed` 這些結果的排名是從最可能到最低的。 第一個項目與主要辨識結果相同。  使用 `detailed` 格式時，系統會提供 `DisplayText` 作為 `NBest` 清單中每個結果的 `Display`。
 
 `NBest` 清單中的每個物件包括：
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 |-----------|-------------|
 | `Confidence` | 項目的信賴分數從 0.0 (不信賴) 到 1.0 (完全信賴) |
 | `Lexical` | 已辨識文字的語彙形式：已辨識的實際文字。 |

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73f9ee597682cc995f3a2cc783abeee92bf11bd2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ea9728ac54ae357925bd666ffecf270172137f77
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501132"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688293"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>教學課程：啟動沈浸式閱讀程式 (Node.js)
 
@@ -126,7 +126,7 @@ router.get('/subdomain', function (req, res) {
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>使用範例內容啟動沈浸式閱讀程式
 
-1. 開啟 _views\layout.pug_，並在 `head` 標籤底下、`body` 標籤之前新增下列程式碼。 這些 `script` 標籤會載入[沈浸式閱讀程式 SDK](https://github.com/Microsoft/immersive-reader-sdk) 和 jQuery。
+1. 開啟 _views\layout.pug_，並在 `head` 標籤底下、`body` 標籤之前新增下列程式碼。 這些 `script` 標籤會載入[沈浸式閱讀程式 SDK](https://github.com/microsoft/immersive-reader-sdk) 和 jQuery。
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
@@ -264,5 +264,5 @@ router.get('/subdomain', function (req, res) {
 
 ## <a name="next-steps"></a>後續步驟
 
-* 探索[沈浸式閱讀程式 SDK](https://github.com/Microsoft/immersive-reader-sdk) 和[沈浸式閱讀程式 SDK 參考](./reference.md)
-* 檢視 [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/advanced-csharp) 上的程式碼範例
+* 探索[沈浸式閱讀程式 SDK](https://github.com/microsoft/immersive-reader-sdk) 和[沈浸式閱讀程式 SDK 參考](./reference.md)
+* 檢視 [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp) 上的程式碼範例

@@ -1,6 +1,6 @@
 ---
 title: 測試和重塑模型 - 自訂視覺服務
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何測試影像，然後使用它來重塑模型。
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: d516cee81aef66ec58399cb5ff23c89db16bf2ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f78f0b992581a44b030387f1bd0e37664df4cfd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816618"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560916"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>使用自訂視覺服務測試和重塑模型
 
@@ -35,7 +35,7 @@ ms.locfileid: "60816618"
 
 您現在可以將這個測試影像新增到模型，然後重塑模型。
 
-## <a name="use-the-predicted-image-for-training"></a>用於定型的預測的映像
+## <a name="use-the-predicted-image-for-training"></a>使用預測的映射進行定型
 
 若要使用先前送出的影像來定型，請使用下列步驟：
 

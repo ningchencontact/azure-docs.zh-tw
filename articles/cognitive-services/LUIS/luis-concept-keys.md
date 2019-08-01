@@ -1,6 +1,6 @@
 ---
-title: 訂用帳戶金鑰
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 訂用帳戶金鑰-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 會使用兩個金鑰，一是用來建立模型的免費撰寫金鑰，另一個則是計量付費端點金鑰，用來查詢使用者談話的預測端點。
 services: cognitive-services
 author: diberry
@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69b4a92470b33ab6615eead16be044a88436d64e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473583"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619769"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS 中的撰寫與查詢預測端點金鑰
 LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)。 當您建立 LUIS 帳戶時，系統會自動為您建立撰寫金鑰。 當您已做好發佈 LUIS 應用程式的準備時，必須[建立端點金鑰](luis-how-to-azure-subscription.md)、[將它指派](luis-how-to-azure-subscription.md)給 LUIS 應用程式，然後[將它與端點查詢搭配使用](#use-endpoint-key-in-query)。 
 
-|Key|目的|
+|Key|用途|
 |--|--|
 |[授權金鑰](#programmatic-key)|撰寫、發佈、管理共同作業者、進行版本設定|
 |[端點金鑰](#endpoint-key)| 查詢|
@@ -29,6 +29,7 @@ LUIS 使用兩個金鑰：[撰寫](#programmatic-key)和[端點](#endpoint-key)�
 請務必在您也要進行發佈及查詢的[區域](luis-reference-regions.md#publishing-regions)中撰寫 LUIS 應用程式。
 
 <a name="programmatic-key" ></a>
+
 ## <a name="authoring-key"></a>撰寫金鑰
 
 撰寫金鑰也稱為入門金鑰，會在您建立 LUIS 帳戶時自動為您建立，並且是免費的。 針對每個撰寫[區域](luis-reference-regions.md)，您都會有一個跨所有 LUIS 應用程式的撰寫金鑰。 提供撰寫金鑰的目的是要撰寫 LUIS 應用程式或測試端點查詢。 

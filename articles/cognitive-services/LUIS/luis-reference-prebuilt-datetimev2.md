@@ -1,6 +1,6 @@
 ---
-title: DatetimeV2 預先建置的實體
-titleSuffix: Azure
+title: DatetimeV2 預先建立的實體-LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 中 datetimeV2 預先建置的實體資訊。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a19ab6e02249bad689f1a05c5761150b7a817df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148644"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560287"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
@@ -82,14 +82,14 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 |屬性名稱|屬性描述|
 |--|--|
 |timex|以遵循 [ISO 8601 標準](https://en.wikipedia.org/wiki/ISO_8601)的 TIMEX 格式表示的時間、日期或日期範圍，並對註解的 TIMEX3 屬性使用 TimeML 語言。 此註解會在 [TIMEX 指導方針](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf) \(英文\) 中說明。|
-|type|子類型可以是下列項目之一： `datetime`， `date`， `time`， `daterange`， `timerange`， `datetimerange`， `duration`， `set`。|
+|type|子類型, 可以是下列其中一個專案: `datetime`、 `date`、 `time`、 `daterange`、 `timerange`、 `datetimerange`、 `duration`、 `set`。|
 |value|**選用。** 使用 yyyy:MM:dd (date)，HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime) 格式的 datetime 物件。 如果 `type` 是 `duration`，則值會是秒數 (duration) <br/> 只有當 `type` 是 `datetime` 或 `date`、`time` 或 `duration 時才能使用。|
 
 ## <a name="valid-date-values"></a>有效的日期值
 
 **datetimeV2** 支援的日期範圍如下：
 
-| Min | max |
+| 最小值 | 最大值 |
 |----------|-------------|
 | 1900 年 1 月 1 日   | 2099 年 12 月 31 日 |
 
@@ -206,15 +206,15 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+## <a name="preview-api-version-3x"></a>預覽 API 版本3。x
 
-API V3 中，已變更 DatetimeV2 JSON 回應。 
+API V3 中的 DatetimeV2 JSON 回應已經變更。 
 
-從 API V2 變更：
-* `datetimeV2.timex.type` 因為它會傳回在父層級中，不會再傳回屬性`datetimev2.type`。 
-* `datetimeV2.timex`屬性重新命名為`datetimeV2.value`。
+API V2 的變更:
+* `datetimeV2.timex.type`不再傳回屬性, `datetimev2.type`因為它是在父層級傳回的。 
+* 屬性已重新命名為`datetimeV2.value`。 `datetimeV2.timex`
 
-針對 [utterance]， `8am on may 2nd 2017`，DatetimeV2 V3 版本是：
+針對語句, `8am on may 2nd 2017`, DatetimeV2 的 V3 版本是:
 
 ```JSON
 {
@@ -244,7 +244,7 @@ API V3 中，已變更 DatetimeV2 JSON 回應。
 }
 ```
 
-下列 JSON 是以`verbose`參數設定為`false`:
+下列 JSON 是`verbose`將參數設定為`false`:
 
 ```json
 {

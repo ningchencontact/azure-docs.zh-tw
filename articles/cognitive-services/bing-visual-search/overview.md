@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4da4340176259265fd36c55d2b81ecfc3f4ed5f8
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 15abbfd8892464f3a2c21a85c07bc5b8e94e47ad
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657691"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594698"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>什麼是 Bing 圖像式搜尋 API？
 
@@ -47,7 +47,7 @@ Bing 圖像式搜尋的結果也會包含影像中相關區域的週框。 例�
 
 Bing 圖像式搜尋 API 是一種 RESTful Web 服務，因此可輕易地從任何可發出 HTTP 要求及剖析 JSON 的程式設計語言呼叫。 您可以對此服務使用 REST API 或 SDK。
 
-1. 建立[認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)來存取 Bing 搜尋 API。 如果您沒有 Azure 訂用帳戶，可以[建立免費帳戶](https://azure.microsoft.com/free/)。 您可以在建立帳戶後從 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#get-the-keys-for-your-subscription)取得訂用帳戶金鑰，也可以在啟用免費試用版後從 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis)來取得。
+1. 建立[認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)來存取 Bing 搜尋 API。 如果您沒有 Azure 訂用帳戶，可以[建立免費帳戶](https://azure.microsoft.com/free/)。 您可以在建立帳戶後從 [Azure 入口網站](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)取得訂用帳戶金鑰，也可以在啟用免費試用版後從 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis)來取得。
 2. 使用有效的搜尋查詢，將要求傳送至 API。
 3. 剖析傳回的 JSON 訊息以處理 API 回應。
 

@@ -1,7 +1,7 @@
 ---
-title: 序數 V2 預先建置的實體
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 這篇文章包含序數 V2 預先建置的實體資訊中 Language Understanding (LUIS)。
+title: 序數 V2 預建實體-LUIS
+titleSuffix: Azure Cognitive Services
+description: 本文包含 Language Understanding (LUIS) 中的序數 V2 預建實體資訊。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,21 +11,21 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 862b962f5642e01d7ed8250f49d51a6132447083
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 972f75fd1c977e79a2fa70c44bb3069e2c69a2c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67486197"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563401"
 ---
-# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>序數 V2 預先建置的實體，LUIS 應用程式
-序數 V2 數目會展開[序數](luis-reference-prebuilt-ordinal.md)提供相對參照，例如`next`， `last`，和`previous`。 這些不會擷取使用序數預先建置的實體。
+# <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的序數 V2 預建實體
+序數 V2 數位會展開[序數](luis-reference-prebuilt-ordinal.md)以提供相對參考`next`, 例如、 `last`和`previous`。 這些不會使用序數預建實體來解壓縮。
 
-## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>預先建置的序數 V2 實體解析
+## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>預先建立的序數 V2 實體解析
 
-### <a name="api-version-2x"></a>API 版本 2.x
+### <a name="api-version-2x"></a>API 2.x 版
 
-下列範例示範的解析度**builtin.ordinalV2**實體。
+下列範例顯示**ordinalV2**實體的解決方式。
 
 ```json
 {
@@ -55,9 +55,9 @@ ms.locfileid: "67486197"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
 
-下列 JSON 是以`verbose`參數設定為`false`:
+下列 JSON 是`verbose`將參數設定為`false`:
 
 ```json
 {
@@ -82,7 +82,7 @@ ms.locfileid: "67486197"
 }
 ```
 
-下列 JSON 是以`verbose`參數設定為`true`:
+下列 JSON 是`verbose`將參數設定為`true`:
 
 ```json
 {
@@ -124,4 +124,4 @@ ms.locfileid: "67486197"
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[百分比](luis-reference-prebuilt-percentage.md)，[電話號碼](luis-reference-prebuilt-phonenumber.md)，並[溫度](luis-reference-prebuilt-temperature.md)實體。 
+瞭解[百分比](luis-reference-prebuilt-percentage.md)、[電話號碼](luis-reference-prebuilt-phonenumber.md)和[溫度](luis-reference-prebuilt-temperature.md)實體。 

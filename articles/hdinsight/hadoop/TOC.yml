@@ -54,6 +54,14 @@
     - name: 了解受控身分識別
       href: ../hdinsight-managed-identities.md
       maintainContext: true
+    - name: 疑難排解
+      items:
+        - name: 無法將節點新增至 HDInsight 叢集
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - 叢集建立失敗
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: 轉換服務主體憑證
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: 作法
   items:
     - name: 使用 Apache Hadoop 沙箱

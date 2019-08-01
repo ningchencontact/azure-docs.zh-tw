@@ -1,6 +1,6 @@
 ---
-title: 訓練應用程式
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 訓練應用程式-LUIS
+titleSuffix: Azure Cognitive Services
 description: 訓練程序會教導您的 Language Understanding (LUIS) 應用程式版本，以改善其自然語言理解。 在模型的更新之後訓練 LUIS 應用程式，例如新增、編輯、加上標籤或刪除實體、意圖或語調。
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d85aee498f178fa708d3997c65509e2f7241157
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195845"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637894"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>訓練您 LUIS 應用程式的作用中版本 
 
@@ -44,9 +44,9 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 >[!NOTE]
 >若應用程式中有一或多個未包含範例語調的意圖，則無法訓練應用程式。 新增所有意圖的語調。 如需詳細資訊，請參閱[新增範例語調](luis-how-to-add-example-utterances.md)。
 
-## <a name="training-date-and-time"></a>訓練的日期和時間
+## <a name="training-date-and-time"></a>訓練日期和時間
 
-訓練的日期和時間是 GMT + 2。 
+訓練日期和時間為 GMT + 2。 
 
 ## <a name="train-with-all-data"></a>以所有資料進行訓練
 

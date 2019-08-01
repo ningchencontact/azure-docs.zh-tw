@@ -1,6 +1,6 @@
 ---
-title: 安裝及執行容器
-titlesuffix: Face - Azure Cognitive Services
+title: 安裝和執行容器-臉部 API
+titleSuffix: Azure Cognitive Services
 description: 在本逐步解說教學課程中, 下載、安裝及執行臉部的容器。
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f4abf17c774fb75a0314c8890f5f4383058e37fd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321386"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564135"
 ---
 # <a name="install-and-run-face-containers"></a>安裝和執行臉部容器
 

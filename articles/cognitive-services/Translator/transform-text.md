@@ -1,6 +1,6 @@
 ---
 title: 轉換文字 - 翻譯工具文字 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 轉換文字。
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 5caefad7b681970e79e727367619ca494335c390
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435012"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594903"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>如何使用 TransformText 方法
 
@@ -30,8 +30,8 @@ TransformText 方法是一個社交媒體的文字正規化函式，會傳回輸
 
 | 參數 | 描述 |
 |:---|:---|
-| 驗證標頭 | **必要** 用來識別應用程式的 HTTP 標頭。 使用索引鍵：「Authorization」與值：「Bearer」+ " " + 存取權杖。 如需詳細資料，請參閱這裡。|
-| 語言 | **必要** 一個代表語言代碼的字串。 此參數僅支援英文，以 **en** 作為語言名稱。|
+| 授權標頭 | **必要** 用來識別應用程式的 HTTP 標頭。 使用索引鍵：「Authorization」與值：「Bearer」+ " " + 存取權杖。 如需詳細資料，請參閱這裡。|
+| language | **必要** 一個代表語言代碼的字串。 此參數僅支援英文，以 **en** 作為語言名稱。|
 | category | **選擇性** 一個包含翻譯之分類或領域的字串。 此參數僅支援預設選項 **general**。|
 | sentence | **必要** 您想要校正的句子。 |
 

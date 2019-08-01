@@ -1,6 +1,6 @@
 ---
 title: 字元計數 - 翻譯工具文字 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 翻譯工具文字 API 如何計算字元。
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cfd5823009b66b6b525c7add1fb56953d3c1a507
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445254"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595998"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>翻譯工具文字 API 如何計算字元
 
@@ -33,7 +33,7 @@ ms.locfileid: "67445254"
 * 以 Unicode 定義的每個字碼指標
 * 重複的翻譯，即使您先前已翻譯過相同文字亦然
 
-對於以中文和日文漢字等表意文字為基礎的指令碼，翻譯工具文字 API 仍會計算 Unicode 字碼指標的數目，每一個表意文字計為一個字元。 例外狀況：Unicode Surrogate 會算成兩個字元。
+對於以中文和日文漢字等表意文字為基礎的指令碼，翻譯工具文字 API 仍會計算 Unicode 字碼指標的數目，每一個表意文字計為一個字元。 例外狀況:Unicode Surrogate 會算成兩個字元。
 
 要求、字組、位元組或句子的數目與字元計數無關。
 

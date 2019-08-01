@@ -1,6 +1,6 @@
 ---
 title: 快速入門：使用適用於 C# 的自訂視覺 SDK 建立影像分類專案
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用 .NET SDK 和 C# 進行預測。
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: anroth
-ms.openlocfilehash: 28ea62ffa7a2b163b984c089649c1cd99d5e4556
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: e79dcef1bdf415c13dafe31e925b08a4bd0f0cbf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827561"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564254"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>快速入門：使用自訂視覺 .NET SDK 建立影像分類專案
 

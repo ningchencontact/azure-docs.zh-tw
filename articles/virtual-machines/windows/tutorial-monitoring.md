@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 05fd9f06bec2a68455d42bfd460f0a5a419a255e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 25160c50cd4844fdb5b3a3454213b2067ef91d01
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708046"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608017"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Windows 虛擬機器
 
@@ -300,4 +300,4 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 請前進到下一個教學課程，了解 Azure 資訊安全中心。
 
 > [!div class="nextstepaction"]
-> [管理 VM 安全性](./tutorial-azure-security.md)
+> [管理 VM 安全性](../../security/fundamentals/overview.md)

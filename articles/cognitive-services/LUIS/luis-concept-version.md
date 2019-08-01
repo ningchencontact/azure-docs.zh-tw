@@ -1,6 +1,6 @@
 ---
-title: 版本控制
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 版本控制-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 中的版本類似於傳統程式設計中的版本。 每個版本都是應用程式階段的快照集。 在變更應用程式之前，請建立新版本。 很容易就能回到確切的應用程式，然後嘗試讓應用程式的意圖和語句回到先前的狀態。
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60509667"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619695"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>了解如何及何時使用 LUIS 版本
 
@@ -35,7 +35,7 @@ LUIS 中的版本類似於傳統程式設計中的版本。 每個版本都是�
 
 目前作用中版本的名稱會顯示在左上方面板應用程式名稱的後面。 
 
-[![變更作用中版本](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![變更使用中版本](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>版本和發佈位置
 您可以發佈至預備位置和產品位置。 每個位置的版本可以不同，也可以相同。 這在透過端點 (Bot 或其他 LUIS 呼叫應用程式可用的端點) 確認模型版本之間的變更時，相當有用。 

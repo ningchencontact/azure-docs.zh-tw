@@ -10,20 +10,20 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5c373505cd381108366206c21ff09f25516d7969
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 92124a53c871be7a83d7b276e31f000d7c674358
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884278"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698019"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>快速入門：使用 Node.js 的 URL 預覽 
 
-下列 Node 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。
+下列 Node 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en 。
 
 ## <a name="prerequisites"></a>必要條件
 
-取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
+取得免費試用版[認知服務實驗室](https://labs.cognitive.microsoft.com/en-us/project-answer-search)的存取金鑰
 
 ## <a name="code-scenario"></a>程式碼案例 
 

@@ -1,7 +1,7 @@
 ---
-title: 新增精確度的模式
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 加入模式以提高預測準確度，Language Understanding (LUIS) 應用程式中的範本。
+title: 模式新增精確度-LUIS
+titleSuffix: Azure Cognitive Services
+description: 新增模式範本, 以改善 Language Understanding (LUIS) 應用程式中的預測精確度。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7b6c8ba1517de44d01ffbceec812749403465e63
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196636"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638085"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式，以提高預測準確度
-LUIS 應用程式接收端點表達方式之後，請使用[模式](luis-concept-patterns.md)以提高預測準確度的顯示模式，以文字順序和 word 選擇的發音。 模式使用特定[語法](luis-concept-patterns.md#pattern-syntax)若要指出的位置：[實體](luis-concept-entity-types.md)，實體[角色](luis-concept-roles.md)，及選擇性的文字。
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式以改善預測精確度
+LUIS 應用程式收到端點語句之後, 請使用[模式](luis-concept-patterns.md)來改善以單字順序和字組選擇顯示模式之語句的預測精確度。 模式會使用特定的[語法](luis-concept-patterns.md#pattern-syntax)來指出的位置:[實體](luis-concept-entity-types.md)、實體[角色](luis-concept-roles.md)和選擇性文字。
 
 ## <a name="add-template-utterance-to-create-pattern"></a>將範本語句新增至建立模式
 1. 在 [我的應用程式]  頁面上選取您的應用程式名稱加以開啟，然後在 [改善應用程式效能]  之下，選取左面板中的 [模式]  。
@@ -34,7 +34,7 @@ LUIS 應用程式接收端點表達方式之後，請使用[模式](luis-concept
 
     ![模式的實體螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    如果您的實體包含[角色](luis-concept-roles.md)，表示單一的冒號，角色`:`之後的實體名稱，例如`{Location:Origin}`。 實體的角色清單會顯示在清單中。 選取角色，然後選取 Enter。 
+    如果您的實體包含[角色](luis-concept-roles.md), 請在實體`:` `{Location:Origin}`名稱後面指定具有單一冒號的角色, 例如。 實體的角色清單會顯示在清單中。 選取角色，然後選取 Enter。 
 
     ![實體與角色的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
@@ -56,22 +56,22 @@ LUIS 應用程式接收端點表達方式之後，請使用[模式](luis-concept
 <a name="remove-entity-or-intent-filter"></a>
 <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
 
-## <a name="use-contextual-toolbar"></a>使用 [內容] 工具列
+## <a name="use-contextual-toolbar"></a>使用內容相關的工具列
 
-模式清單上方的 [內容] 工具列可讓您：
+模式清單上方的內容相關工具列可讓您:
 
 * 搜尋模式
 * 編輯模式
 * 將個別模式重新指派至不同的意圖
 * 將數個模式重新指派至不同的意圖
-* 刪除的單一模式
+* Delete-a-單一模式
 * 刪除數個模式
 * 依實體篩選模式清單
-* Filter-pattern-list-by-intent
+* 篩選模式-依意圖列出
 * 移除實體或意圖篩選條件
 * 在意圖或實體頁面上從現有的語句新增模式
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何[建置的模式](luis-tutorial-pattern.md)pattern.any 與教學課程的角色。
+* 瞭解如何使用模式[建立模式](luis-tutorial-pattern.md)。任何和角色都有教學課程。
 * 了解如何[訓練](luis-how-to-train.md)您的應用程式。

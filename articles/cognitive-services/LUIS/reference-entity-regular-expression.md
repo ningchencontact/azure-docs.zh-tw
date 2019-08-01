@@ -1,6 +1,6 @@
 ---
-title: 正則運算式實體類型
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 正則運算式實體類型-LUIS
+titleSuffix: Azure Cognitive Services
 description: 規則運算式最適用於未經處理的語句文字。 這會忽略大小寫並忽略文化特性變體。  在字元等級而非權杖等級的拼字檢查修改之後，才會套用規則運算式比對。
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: dfffea26ccd8dfcecea2c6a2e07234f3ab27f72b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 82cce359f2161800c53ccce7cdb0342bba759d43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480313"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559934"
 ---
 # <a name="regular-expression-entity"></a>規則運算式實體 
 

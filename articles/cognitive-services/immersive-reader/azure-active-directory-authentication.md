@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 8af56d0d7c0f320e607421f12effdb9b37d5f78d
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444632"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688801"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>搭配使用 Azure Active Directory (Azure AD) 驗證與沉浸式讀取器服務
 
@@ -29,7 +29,7 @@ ms.locfileid: "68444632"
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
-2. 接下來, 建立具有自訂子域的[沉浸式讀取器資源](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0)。 
+2. 接下來, 建立具有自訂子域的[沉浸式讀取器資源](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0)。
 
    >[!NOTE]
    > 使用 launchAsync 函數啟動讀取器時, 會在沉浸式讀取器 SDK 中使用子功能變數名稱稱。
@@ -37,7 +37,7 @@ ms.locfileid: "68444632"
    -SkuName 可以是 F0 (免費層) 或 S0 (標準層, 在公開預覽期間也免費)。 S0 層具有較高的呼叫率限制, 而且沒有每月的呼叫數目配額。
 
    -Location 可以是下列任何一項: `eastus`、 `westus`、 `australiaeast`、 `centralindia`、 `japaneast`、 `northeurope`、`westeurope`
-   
+
    -CustomSubdomainName 必須是全域唯一的, 而且不能包含特殊字元, 例如: "."、"!"、","。
 
 
@@ -63,7 +63,7 @@ ms.locfileid: "68444632"
 
    // Display the Resource info
    $resource
-   ```   
+   ```
 
 ## <a name="assign-a-role-to-a-service-principal"></a>將角色指派給服務主體
 
@@ -83,7 +83,7 @@ ms.locfileid: "68444632"
    $aadApp
    ```
 
-   在這裡, 我們會將新建立的 Azure AD 應用程式物件捕捉到 **$aadApp**變數中, 以供下一個步驟使用。   
+   在這裡, 我們會將新建立的 Azure AD 應用程式物件捕捉到 **$aadApp**變數中, 以供下一個步驟使用。
 
 2. 接下來, 您必須建立 Azure AD 應用程式的[服務主體](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0)。
 
@@ -128,11 +128,11 @@ ms.locfileid: "68444632"
    ```
 
    >[!NOTE]
-   > 沉浸式讀取器 SDK 會使用權杖的 AccessToken 屬性, 例如 $token。AccessToken. 如需詳細資訊, 請參閱 SDK[參考](reference.md)和程式碼[範例](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples)。
+   > 沉浸式讀取器 SDK 會使用權杖的 AccessToken 屬性, 例如 $token。AccessToken. 如需詳細資訊, 請參閱 SDK[參考](reference.md)和程式碼[範例](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples)。
 
 或者, 也可以使用憑證來驗證服務主體。 除了服務主體之外, 也支援透過另一個 Azure AD 應用程式委派的許可權來提供使用者主體。 在此情況下, 當取得權杖時, 系統會提示使用者進行雙因素驗證, 而不是密碼或憑證。
 
 ## <a name="next-steps"></a>後續步驟
 
 * 檢視[教學課程](./tutorial.md)以查看您還可以使用沈浸式閱讀程式 SDK 來執行哪些作業
-* 探索[沈浸式閱讀程式 SDK](https://github.com/Microsoft/immersive-reader-sdk) 和[沈浸式閱讀程式 SDK 參考](./reference.md)
+* 探索[沈浸式閱讀程式 SDK](https://github.com/microsoft/immersive-reader-sdk) 和[沈浸式閱讀程式 SDK 參考](./reference.md)

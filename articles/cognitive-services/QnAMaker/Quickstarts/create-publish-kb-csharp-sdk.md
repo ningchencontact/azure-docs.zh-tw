@@ -1,6 +1,6 @@
 ---
 title: 快速入門：適用於 .NET 的 QnA Maker 用戶端程式庫
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 開始使用適用於 .NET 的 QnA Maker 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。  QnA Maker 可讓您加強常見問題集文件或 URL 及產品手冊等半結構化內容中的問題與解答服務。
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: f38cbfa0efd3b9be9ca091942dca7ffcd91b6019
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: af3de85cb2d32b4828a4641318f66f91c9254e24
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828071"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563024"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>快速入門：適用於 .NET 的 QnA Maker 用戶端程式庫
 

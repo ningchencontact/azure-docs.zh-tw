@@ -1,6 +1,6 @@
 ---
-title: 安裝及執行容器
-titleSuffix: Text Analytics -  Azure Cognitive Services
+title: 安裝和執行容器-文字分析
+titleSuffix: Azure Cognitive Services
 description: 本逐步解說教學課程的內容包含如何下載、安裝及執行適用於文字分析的容器。
 services: cognitive-services
 author: IEvangelist
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: 39f15cf8d1374ca95b10ccbddb8a59ec3e98f4f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: f1df962208fe466c3833faa82b6f9dff5c5e7046
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488759"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697882"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安裝並執行文字分析容器
 
@@ -36,7 +36,7 @@ ms.locfileid: "68488759"
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
-|文字分析資源 |若要使用此容器，您必須具備：<br><br>Azure[文字分析](text-analytics-how-to-access-key.md)資源, 用來取得相關聯的 API 金鑰和端點 URI。 這兩個值可在 Azure 入口網站的 [文字分析概觀和金鑰] 頁面上取得，需要這些值才能啟動容器。<br><br>**{API_KEY}** :[**金鑰**] 頁面上有兩個可用的資源金鑰之一<br><br>**{ENDPOINT_URI}** :[**總覽**] 頁面上所提供的端點|
+|文字分析資源 |若要使用此容器，您必須具備：<br><br>Azure[文字分析資源](../../cognitive-services-apis-create-account.md), 用來取得相關聯的 API 金鑰和端點 URI。 這兩個值可在 Azure 入口網站的 [文字分析概觀和金鑰] 頁面上取得，需要這些值才能啟動容器。<br><br>**{API_KEY}** :[**金鑰**] 頁面上有兩個可用的資源金鑰之一<br><br>**{ENDPOINT_URI}** :[**總覽**] 頁面上所提供的端點|
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 

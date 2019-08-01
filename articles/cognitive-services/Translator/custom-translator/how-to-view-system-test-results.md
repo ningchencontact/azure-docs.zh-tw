@@ -3,18 +3,18 @@ title: 檢視系統測試結果和部署 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 在定型成功後，請檢閱系統測試以分析您的定型結果。 如果您滿意定型結果，請為定型的模型提出部署要求。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442489"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595611"
 ---
 # <a name="view-system-test-results"></a>檢視系統測試結果
 
@@ -26,7 +26,7 @@ ms.locfileid: "67442489"
 
 測試索引標籤會顯示：
 
-1.  **系統測試結果：** 您可以在測試程序的結果。 測試程序會產生 BLEU 分數。
+1.  **系統測試結果:** 定型中的測試程式結果。 測試程序會產生 BLEU 分數。
 
     **句子計數：** 在測試集中使用了多少個平行句子。
 
@@ -80,7 +80,7 @@ ms.locfileid: "67442489"
 5.  您可以在 [狀態] 資料行中檢視模型的狀態。
 
 >[!Note]
->自訂轉譯器支援 10 個已部署的模型，在任何時間點工作區中的時間。
+>自訂翻譯在任何時間點都支援工作區中10個已部署的模型。
 
 ## <a name="update-deployment-settings"></a>更新部署設定
 

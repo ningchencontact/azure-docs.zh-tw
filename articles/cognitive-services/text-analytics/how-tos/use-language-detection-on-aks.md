@@ -1,6 +1,6 @@
 ---
-title: 執行 Kubernetes 服務
-titleSuffix: Text Analytics - Azure Cognitive Services
+title: 執行 Kubernetes 服務-文字分析
+titleSuffix: Azure Cognitive Services
 description: 將語言偵測容器以及執行範例部署到 Azure Kubernetes Service，並在網頁瀏覽器中進行測試。
 services: cognitive-services
 author: IEvangelist
@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: ba6fde66b6173bdbff8e9acc08b16f47c5bf7ea4
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 7b6621273b04d019791f604ca0db26a73c289f2b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377107"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562607"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>將語言偵測容器部署到 Azure Kubernetes Service
 
 了解如何部署語言偵測容器。 此程式說明如何建立本機 Docker 容器、將容器推送至您自己的私人容器登錄、在 Kubernetes 叢集中執行容器, 以及在網頁瀏覽器中進行測試。 使用容器可以將您的注意力轉移到管理基礎結構之外, 改為專注于應用程式開發。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此程序需要必須安裝並在本機執行的多個工具。 請勿使用 Azure Cloud Shell。 您需要下列項目：
 

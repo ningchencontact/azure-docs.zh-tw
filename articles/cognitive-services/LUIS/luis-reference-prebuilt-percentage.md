@@ -1,6 +1,6 @@
 ---
-title: 百分比預先建置的實體
-titleSuffix: Azure
+title: 百分比預先建立的實體-LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 中預先建置的百分比實體資訊。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 75538519b7d43aa702e15ce3c22ea4acc73ade87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9daaa78003b3d789c3c7b746e6c0689b96e89428
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072207"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563392"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的百分比預先建置實體
 百分比數字可顯示為分數 `3 1/2` 或百分比 `2%`。 由於此實體已經定型，因此您不需要將包含百分比的範例語句加入至應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援百分比實體。 
@@ -26,7 +26,7 @@ ms.locfileid: "65072207"
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>解析預先建置的百分比實體
 
-### <a name="api-version-2x"></a>API 版本 2.x
+### <a name="api-version-2x"></a>API 2.x 版
 
 下列範例說明 **builtin.percentage** 實體的解析。
 
@@ -57,9 +57,9 @@ ms.locfileid: "65072207"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
 
-下列 JSON 是以`verbose`參數設定為`false`:
+下列 JSON 是`verbose`將參數設定為`false`:
 
 ```json
 {
@@ -81,7 +81,7 @@ ms.locfileid: "65072207"
 }
 ```
 
-下列 JSON 是以`verbose`參數設定為`true`:
+下列 JSON 是`verbose`將參數設定為`true`:
 
 ```json
 {

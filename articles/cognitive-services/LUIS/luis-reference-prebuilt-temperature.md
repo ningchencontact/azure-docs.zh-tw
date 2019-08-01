@@ -1,6 +1,6 @@
 ---
-title: 溫度預先建置的實體
-titleSuffix: Azure
+title: 溫度預先建立的實體-LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 temperature 實體資訊。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 8d5e10a7a4fe7fb12bc4140690fcabffa16b32be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ecf977e1a477eb4b9178a6259fbe26ef18a9ec2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072102"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560149"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的溫度預先建置實體
 Temperature 實體會擷取各種溫度類型。 因為此實體已經定型，所以您不需要將包含溫度的範例語句加入應用程式。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 temperature 實體。 
@@ -26,7 +26,7 @@ Temperature 實體會擷取各種溫度類型。 因為此實體已經定型，�
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>解析預先建置的 temperature 實體
 
-### <a name="api-version-2x"></a>API 版本 2.x
+### <a name="api-version-2x"></a>API 2.x 版
 
 下列範例顯示解析的 **builtin.temperature** 實體。
 
@@ -58,9 +58,9 @@ Temperature 實體會擷取各種溫度類型。 因為此實體已經定型，�
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
 
-下列 JSON 是以`verbose`參數設定為`false`:
+下列 JSON 是`verbose`將參數設定為`false`:
 
 ```json
 {
@@ -85,7 +85,7 @@ Temperature 實體會擷取各種溫度類型。 因為此實體已經定型，�
 }
 ```
 
-下列 JSON 是以`verbose`參數設定為`true`:
+下列 JSON 是`verbose`將參數設定為`true`:
 
 ```json
 {

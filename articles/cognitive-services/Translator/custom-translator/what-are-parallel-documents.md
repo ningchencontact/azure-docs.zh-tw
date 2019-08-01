@@ -3,18 +3,18 @@ title: 什麼是平行處理的文件？ - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 平行文件是配對文件，其中的一份文件是另一份文件的翻譯。 該配對中的一份文件會包含原始語言的句子，而另一分文件會包含已翻譯成目標語言的這些句子。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447399"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595439"
 ---
 # <a name="what-are-parallel-documents"></a>什麼是平行處理的文件？
 
@@ -23,7 +23,7 @@ ms.locfileid: "67447399"
 
 ## <a name="requirements"></a>需求
 
-您必須至少 10,000 唯一的平行句子給訓練的系統。 最佳做法是，您可以持續新增更多平行處理的內容並重新定型，以改善翻譯系統的品質。
+您至少需要10000個唯一的平行句子來訓練系統。 最佳做法是，您可以持續新增更多平行處理的內容並重新定型，以改善翻譯系統的品質。
 
 Microsoft 要求，上傳到自訂翻譯工具的文件不可違反第三方著作權或智慧財產權。 如需詳細資訊，請參閱[使用規定](https://azure.microsoft.com/support/legal/cognitive-services-terms/)。
 使用入口網站上傳文件，並不會改變文件本身的智慧財產權歸屬。

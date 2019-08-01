@@ -8,14 +8,14 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c24979d9aef74b6cc840427a010b9ce70f2c0b8a
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 82f0313a237358fcaa1ae52e92821abef2b52af7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356946"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697308"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>快速入門：使用 Python SDK 呼叫文字分析服務 
 <a name="HOLTop"></a>
@@ -31,8 +31,6 @@ ms.locfileid: "68356946"
     `pip install --upgrade azure-cognitiveservices-language-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-您也必須具備在註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。
 
 ## <a name="create-a-new-python-application"></a>建立新的 Python 應用程式
 

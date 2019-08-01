@@ -1,6 +1,6 @@
 ---
-title: 執行 Azure Kubernetes Service
-titleSuffix: Text Analytics - Azure Cognitive Services
+title: 執行 Azure Kubernetes Service-文字分析
+titleSuffix: Azure Cognitive Services
 description: 部署具有情感分析影像的文字分析容器以 Azure Kubernetes Service, 並在網頁瀏覽器中進行測試。
 services: cognitive-services
 author: IEvangelist
@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 290a01e7e478f718607c0550702474cd31979a63
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 44ee5fab5b4e8900b823453e5674fc9bdb5fe9ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377437"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552267"
 ---
 # <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-service"></a>將情感分析容器部署到 Azure Kubernetes Service
 
 瞭解如何將具有情感分析影像的 Azure 認知服務[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)容器部署至 AZURE KUBERNETES SERVICE (AKS)。 此程式會示範如何建立文字分析資源、如何建立相關聯的情感分析影像, 以及如何從瀏覽器執行這兩個協調流程。 使用容器可以將您的注意力轉移到管理基礎結構之外, 改為專注于應用程式開發。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 此程序需要必須安裝並在本機執行的多個工具。 請勿使用 Azure Cloud Shell。 您需要下列項目：
 

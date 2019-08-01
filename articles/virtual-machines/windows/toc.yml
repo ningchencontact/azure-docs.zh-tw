@@ -108,6 +108,8 @@
           href: compute-benchmark-scores.md
         - name: vCPU 配額
           href: quotas.md
+    - name: 專用主機
+      href: dedicated-hosts.md
     - name: 維護和更新
       href: maintenance-and-updates.md
     - name: 磁碟儲存體
@@ -146,6 +148,12 @@
   items:
     - name: 建立 VM
       items:
+        - name: 使用專用主機
+          items:
+            - name: PowerShell
+              href: dedicated-hosts-powershell.md
+            - name: 入口網站
+              href: dedicated-hosts-portal.md
         - name: '使用 C#'
           href: csharp.md
         - name: 使用特製化磁碟

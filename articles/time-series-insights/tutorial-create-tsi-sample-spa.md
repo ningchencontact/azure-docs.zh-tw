@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 8ee4cd30d5742896df96ccfd714d85ebbab194f9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595708"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677733"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式
 
@@ -30,9 +30,9 @@ ms.locfileid: "67595708"
 > * [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial) 上有提供此教學課程的原始程式碼。
 > * 會裝載時間序列深入解析[用戶端應用程式範例](https://insights.timeseries.azure.com/clientsample)以顯示本教學課程所使用的已完成應用程式。
 
-## <a name="prerequisites"></a>必要條件
+如果您沒有帳戶，請註冊[免費 Azure 訂用帳戶](https://azure.microsoft.com/free/)。
 
-* 如果您沒有帳戶，請註冊[免費 Azure 訂用帳戶](https://azure.microsoft.com/free/)。
+## <a name="prerequisites"></a>必要條件
 
 * 免費的 Visual Studio。 下載 [2017 或 2019 社群版本](https://www.visualstudio.com/downloads/)來開始使用。
 
@@ -57,7 +57,7 @@ ms.locfileid: "67595708"
 1. 建立用來儲存應用程式專案檔的資料夾。 然後，移至下列每個 URL。 以滑鼠右鍵按一下頁面右上角的 [原始]  連結，然後選取 [另存新檔]  將檔案儲存到專案目錄。
 
    - [index.html](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html)  ：頁面的 HTML 和 JavaScript
-   - [sampleStyles.css]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css)  ：CSS 樣式表
+   - [sampleStyles.css](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css)  ：CSS 樣式表
 
    > [!NOTE]
    > 根據瀏覽器，您可能必須先將副檔名變更為 .html 或 .css 再儲存檔案。

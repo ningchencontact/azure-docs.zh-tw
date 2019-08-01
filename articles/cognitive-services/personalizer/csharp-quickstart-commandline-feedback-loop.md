@@ -3,19 +3,19 @@ title: 快速入門：建立意見反應迴圈 - 個人化工具
 titleSuffix: Azure Cognitive Services
 description: 使用個人化工具服務將此 C# 快速入門中的內容個人化。
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 06/11/2019
-ms.author: edjez
-ms.openlocfilehash: 0b856b8d134cc160b8bb759fce0408204cf0ba61
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 54aa23071fef09058a1702218d6b7fc920363518
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722431"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662804"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>快速入門：使用 C# 將內容個人化 
 

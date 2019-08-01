@@ -1,6 +1,6 @@
 ---
-title: 共同作業
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 共同作業-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 應用程式需要允許多人撰寫單一應用程式的單一擁有者和選擇性的共同作業者。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53ba9f24e40837a823e6012340358113d490f46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473524"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560792"
 ---
 # <a name="collaborating-with-other-authors"></a>其他作者與共同作業
 
@@ -31,7 +31,7 @@ LUIS 帳戶會與單一 [Microsoft Live](https://login.live.com/) 帳戶關聯�
 
 ## <a name="luis-app-owner"></a>LUIS 應用程式擁有者
 
-建立應用程式的帳戶是擁有者和每個應用程式都有單一的擁有者。 擁有者會列在應用程式 **[設定](luis-how-to-collaborate.md)** 頁面。 當端點配額達到 75%的每月限制時，擁有者會收到電子郵件。 
+建立應用程式的帳戶是擁有者, 而每個應用程式都有單一擁有者。 擁有者會列在 [應用程式 **[設定](luis-how-to-collaborate.md)** ] 頁面上。 當端點配額達到每月限制的 75% 時, 擁有者會收到電子郵件。 
 
 ## <a name="authorization-roles"></a>授權角色
 對於擁有者和共同作業者，LUIS 不支援不同的角色，但有一個例外。 擁有者是可以刪除應用程式的唯一帳戶。
@@ -52,7 +52,7 @@ LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>管理相同應用程式內的多個版本
 針對每個作者，一開始先從基底版本[複製](luis-how-to-manage-versions.md#clone-a-version)。 
 
-每位作者在其自己的應用程式版本中會變更。 在每個作者對模型感到滿意之後，請將新版本匯出成 JSON 檔案。  
+每位作者都會對自己的應用程式版本進行變更。 在每個作者對模型感到滿意之後，請將新版本匯出成 JSON 檔案。  
 
 匯出的應用程式會是 JSON 格式的檔案，可用來比較變更。 結合檔案以建立新版本的單一 JSON 檔案。 變更 JSON 中的 **versionId** 屬性，以表示新的合併版本。 將該版本匯入至原始應用程式。 
 
@@ -63,9 +63,9 @@ LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用
 
 匯出的應用程式會是 JSON 格式的檔案，可用來與基底匯出版本比較變更。 結合檔案以建立新版本的單一 JSON 檔案。 變更 JSON 中的 **versionId** 屬性，以表示新的合併版本。 將該版本匯入至原始應用程式。
 
-## <a name="collaborator-roles-vs-entity-roles"></a>共同作業者角色與實體的角色
+## <a name="collaborator-roles-vs-entity-roles"></a>共同作業者角色與實體角色
 
-[實體的角色](luis-concept-roles.md)套用至 LUIS 應用程式的資料模型。 共同作業者角色適用於撰寫存取層級。 
+[實體角色](luis-concept-roles.md)適用于 LUIS 應用程式的資料模型。 共同作業者角色適用于撰寫存取層級。 
 
 ## <a name="next-steps"></a>後續步驟
 

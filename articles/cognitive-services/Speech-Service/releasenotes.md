@@ -1,7 +1,7 @@
 ---
-title: 版本資訊 - 語音服務
-titlesuffix: Azure Cognitive Services
-description: 請參閱 Azure 語音服務的功能版本、功能改進、Bug 修正和已知問題的執行記錄。
+title: 版本資訊-語音服務
+titleSuffix: Azure Cognitive Services
+description: 查看語音服務的功能版本、改進、bug 修正和已知問題的執行記錄。
 services: cognitive-services
 author: BrianMouncer
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: e641051b75620ef5308bc81bca21b3ceda105d09
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 12eecc4998153cbeedeb907ecad33c56141a50e6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404826"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559118"
 ---
 # <a name="release-notes"></a>版本資訊
 

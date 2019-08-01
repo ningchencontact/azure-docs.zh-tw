@@ -1,6 +1,6 @@
 ---
 title: 快速入門：從知識庫取得答案 - REST (Node.js) - QnA Maker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 這個以 Node.js REST 為基礎的快速入門會逐步引導您以程式設計方式從知識庫取得答案。
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 389d6ed369de513125a2bcd0d0de881f524dcd82
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e80f852a48d7da9480e6c0eddc675e6bcf524eb7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791534"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562971"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>使用 Node.js 從知識庫取得答案
 
@@ -25,8 +25,8 @@ ms.locfileid: "65791534"
 
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請在 QnA Maker 資源的 Azure 儀表板中選取 [資源管理] 下方的 [金鑰]。 
-* [發佈] 頁面設定。 如果您沒有已發佈的知識庫，請建立空白的知識庫，在 [設定] 頁面上匯入知識庫，然後發佈。 您可以下載並使用[這個基本知識庫](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)。 
+* 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請在 QnA Maker 資源的 Azure 儀表板中選取 [資源管理]  下方的 [金鑰]  。 
+* [發佈]  頁面設定。 如果您沒有已發佈的知識庫，請建立空白的知識庫，在 [設定]  頁面上匯入知識庫，然後發佈。 您可以下載並使用[這個基本知識庫](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv)。 
 
     發佈頁面設定包括 POST 路由值、主機值以及 EndpointKey 值。 
 
@@ -46,7 +46,7 @@ ms.locfileid: "65791534"
 
 ## <a name="add-the-required-constants"></a>新增必要的常數
 
-接下來，新增必要常數以存取 QnA Maker。 在您發佈知識庫之後，這些值都位於 [發佈] 頁面上。 
+接下來，新增必要常數以存取 QnA Maker。 在您發佈知識庫之後，這些值都位於 [發佈]  頁面上。 
 
 [!code-nodejs[Add the required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=6-22 "Add the required constants")]
 

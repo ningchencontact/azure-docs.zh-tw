@@ -1,6 +1,6 @@
 ---
 title: 改善您的分類器 - 自訂視覺服務
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何改善分類器的品質。
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60606862"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561048"
 ---
 # <a name="how-to-improve-your-classifier"></a>如何改善分類器
 
@@ -29,7 +29,7 @@ ms.locfileid: "60606862"
 1. 使用新影像來測試預測
 1. 根據預測結果修改現有的定型資料
 
-## <a name="prevent-overfitting"></a>防止過度配適
+## <a name="prevent-overfitting"></a>避免過度學習
 
 有時候，分類器會學習如何根據您影像共同的任意特性進行預測。 例如，如果您建立蘋果與柑橘的分類器，且已使用手拿蘋果與白盤裝柑橘的影像，分類器可能過度重視手與白盤來，而不是蘋果與柑橘。
 
@@ -39,7 +39,7 @@ ms.locfileid: "60606862"
 
 ## <a name="data-quantity"></a>資料品質
 
-定型影像數目是最重要的因素。 我們建議使用每個標籤至少 50 個映像做為起點。 使用較少影像，過度學習的風險比較高，雖然您的效能數字可能暗示品質良好，但您的模型可能在與真實世界的資料奮戰。 
+定型影像數目是最重要的因素。 我們建議每個標籤至少使用50個映射做為起點。 使用較少影像，過度學習的風險比較高，雖然您的效能數字可能暗示品質良好，但您的模型可能在與真實世界的資料奮戰。 
 
 ## <a name="data-balance"></a>資料平衡
 
@@ -73,7 +73,7 @@ ms.locfileid: "60606862"
 
     ![樣式範例影像](./media/getting-started-improving-your-classifier/style.png)
 
-## <a name="negative-images"></a>負數的映像
+## <a name="negative-images"></a>負面影像
 
 在專案中的某個時間點，您可能需要新增_負向範例_，協助分類器更精確。 負向範例是不符合其他任何標記的範例。 您上傳這些影像時，將特別的 [負向]  標籤套用於影像。
 

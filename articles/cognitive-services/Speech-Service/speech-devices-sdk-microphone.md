@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: cb30b476471e140f96fa1d159e9a16898f529607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b110e9ddc42d07c8356eb25b9ea2294e470d5fdc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277483"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558961"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>語音裝置 SDK 麥克風陣列建議
 
@@ -31,7 +31,7 @@ ms.locfileid: "68277483"
 |----------|-------------------|-------------------|----------------|----------------|
 |          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \#麥克風  | 7                 | 4                 | 4              | 2              |
-| 性質 | 6個外部, 1 個中心, 半徑 = 42.5 mm, 平均間距| 3個外部, 1 個中心, 半徑 = 42.5 mm, 平均間距 | 長度 = 120 mm, 間距 = 40 mm | 間距 = 40 mm |
+| 幾何 | 6個外部, 1 個中心, 半徑 = 42.5 mm, 平均間距| 3個外部, 1 個中心, 半徑 = 42.5 mm, 平均間距 | 長度 = 120 mm, 間距 = 40 mm | 間距 = 40 mm |
 
 您應該根據上述每個陣列所描述的編號來排序麥克風頻道, 從0增加。  Microsoft 音訊堆疊需要音訊播放的額外參考串流, 才能執行 echo 取消作業。
 

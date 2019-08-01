@@ -3,19 +3,19 @@ title: 探索 - 個人化工具
 titleSuffix: Azure Cognitive Services
 description: 透過探索，即使使用者行為變更，個人化工具還是能夠繼續提供良好的結果。 選擇探索設定是一項業務決策，用來決定要探索多少比例的使用者互動，才能改善模型。
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: edjez
-ms.openlocfilehash: ebb59b6bb7c36f4558b2bd63d2d55fa95823c4c3
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722474"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663389"
 ---
 # <a name="exploration-and-exploitation"></a>探索 (Exploration) 和利用 (Exploitation)
 

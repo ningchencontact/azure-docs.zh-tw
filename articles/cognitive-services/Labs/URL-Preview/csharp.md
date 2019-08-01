@@ -10,26 +10,26 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ec0c8ad06480cd596365f43f13ca57fb242d364c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827155"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698040"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>快速入門：C# 中的 URL 預覽查詢
 
-下列 C# 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。
+下列 C# 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en 。
 
 ## <a name="prerequisites"></a>必要條件
 
 您將需要 [Visual Studio 2017 或更新版本](https://www.visualstudio.com/downloads/)，才能在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
 
-取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
+取得免費試用版[認知服務實驗室](https://labs.cognitive.microsoft.com/en-us/project-answer-search)的存取金鑰
 
 ## <a name="code-scenario"></a>程式碼案例
 
-下列 C# 程式碼會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。 
+下列 C# 程式碼會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en 。 
 
 其實作的步驟如下：
 1. 宣告變數以指定用於預覽的端點和查詢 URL。  

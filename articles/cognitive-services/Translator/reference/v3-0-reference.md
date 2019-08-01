@@ -1,6 +1,6 @@
 ---
 title: 翻譯工具文字 API V3.0 參考
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 翻譯工具文字 API V3.0 參考文件。
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad619ad965cf4b7d94b781818c658152f71250a7
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868404"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594997"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -55,7 +55,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 目前位�
 
 有三個標頭可供用來驗證您的訂用帳戶。 下表提供其各自的使用方式說明：
 
-|headers|描述|
+|標頭|描述|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶  。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
 |Authorization|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶  。<br/>此值是持有人權杖：`Bearer <token>`。|
@@ -106,7 +106,7 @@ Authorization: Bearer <Base64-access_token>
 如果您使用持有人權杖，則必須從區域端點取得權杖：`https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`。
 
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>錯誤
 
 標準錯誤回應是名稱/值組為 `error` 的 JSON 物件。 此值也可以是具有下列屬性的 JSON 物件：
 
@@ -164,6 +164,6 @@ Authorization: Bearer <Base64-access_token>
 | 408002| 要求已等候傳入串流。 用戶端未在伺服器準備等候的時間內產生要求。 用戶端可能會在不修改的時間之後, 重複要求。|
 | 415000| Content-Type 標頭遺漏或無效。|
 | 429000、429001、429002| 伺服器已拒絕要求, 因為用戶端已超過要求限制。|
-| 500000| 發生意外錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
+| 500000| 發生未預期的錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 | 503000| 服務暫時無法使用。 請再試一次。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|
 

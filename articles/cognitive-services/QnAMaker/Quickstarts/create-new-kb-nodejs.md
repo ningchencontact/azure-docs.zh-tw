@@ -1,5 +1,6 @@
 ---
 title: 快速入門：建立知識庫 - REST (Node.js) - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 這個以 REST 為基礎的快速入門會逐步引導您以程式設計方式建立範例 QnA Maker 知識庫，且該知識庫會出現在認知服務 API 帳戶的 Azure 儀表板中。
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 02ef954ba19b7d750f1b76c2e4f8643ed74cc82b
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 4d9766a0147dfc88f440bf5f44e94405aab018f3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254135"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563030"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>快速入門：使用 Node.js 在 QnA Maker 中建立知識庫
 

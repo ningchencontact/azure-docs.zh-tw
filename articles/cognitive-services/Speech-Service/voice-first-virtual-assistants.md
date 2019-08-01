@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: c9b85895e701ff74e025d6f7895bc32513bc29a1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806894"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552553"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>關於自訂語音優先虛擬助理預覽
 

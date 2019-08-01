@@ -1,6 +1,6 @@
 ---
-title: LUIS 預先建置的 email 實體參考 - Azure| Microsoft Docs
-titleSuffix: Azure
+title: LUIS 預先建立的實體電子郵件參考
+titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 email 實體資訊。
 services: cognitive-services
 author: diberry
@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2b11446c84ede0e8ecfce23eda1026919777fc66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c9c7b373f820dd23c70a67a1de8545935a1d93c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072064"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560242"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的電子郵件預先建置實體
 擷取的電子郵件包含語句中的整個電子郵件地址。 因為此實體已經定型，所以您不需要將包含電子郵件的範例語句加入應用程式意圖。 只有 `en-us` 文化特色才支援 email 實體。 
 
 ## <a name="resolution-for-prebuilt-email"></a>解析預先建置的電子郵件
 
-### <a name="api-version-2x"></a>API 版本 2.x
+### <a name="api-version-2x"></a>API 2.x 版
 
 下列範例顯示解析的 **builtin.email** 實體。
 
@@ -54,9 +54,9 @@ ms.locfileid: "65072064"
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
 
-下列 JSON 是以`verbose`參數設定為`false`:
+下列 JSON 是`verbose`將參數設定為`false`:
 
 ```json
 {
@@ -79,7 +79,7 @@ ms.locfileid: "65072064"
 ```
 
 
-下列 JSON 是以`verbose`參數設定為`true`:
+下列 JSON 是`verbose`將參數設定為`true`:
 
 ```json
 {

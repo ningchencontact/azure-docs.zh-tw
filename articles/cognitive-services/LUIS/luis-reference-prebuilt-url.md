@@ -1,6 +1,6 @@
 ---
-title: 預先建置的 URL 實體
-titleSuffix: Azure
+title: URL 預先建立的實體-LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 url 實體資訊。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d59020eb45f7dcced5ea8da04b3b908def34fb70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4b2db4accb638e6e4147a19d94d0a323cfe7c81
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072234"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560117"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 URL 預先建置實體
 URL 實體會擷取含有網域名稱或 IP 位址的 URL。 因為此實體已經定型，所以您不需要將包含 URL 的範例語句加入應用程式。 只有 `en-us` 文化特色才支援 URL 實體。 
@@ -26,7 +26,7 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>解析預先建置的 URL 實體
 
-### <a name="api-version-2x"></a>API 版本 2.x
+### <a name="api-version-2x"></a>API 2.x 版
 
 下列範例顯示解析的 **builtin.url** 實體。
 
@@ -54,9 +54,9 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 }
 ```
 
-### <a name="preview-api-version-3x"></a>預覽 API 版本 3.x
+### <a name="preview-api-version-3x"></a>預覽 API 版本3。x
 
-下列 JSON 是以`verbose`參數設定為`false`:
+下列 JSON 是`verbose`將參數設定為`false`:
 
 ```json
 {
@@ -78,7 +78,7 @@ URL 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob
 }
 ```
 
-下列 JSON 是以`verbose`參數設定為`true`:
+下列 JSON 是`verbose`將參數設定為`true`:
 
 ```json
 {

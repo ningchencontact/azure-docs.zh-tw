@@ -1,6 +1,6 @@
 ---
 title: 翻譯工具文字 API 字典查閱方法
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 字典查閱方法。
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8cc37c9edd5679158f8454e00bd27a53e4491004
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 9a06c8e3b50c3f54971694f8d3924a3a5ba5f071
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357705"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595031"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>翻譯工具文字 API 3.0：字典查閱
 
@@ -41,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
     <td>必要參數  。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
-    <td>from</td>
+    <td>寄件者</td>
     <td>必要參數  。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
   </tr>
   <tr>
@@ -53,7 +53,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">標頭</th>
   <th>描述</th>
   <tr>
     <td>驗證標頭</td>
@@ -69,11 +69,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>可选  。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
-## <a name="request-body"></a>Request body
+## <a name="request-body"></a>要求本文
 
 要求的本文是 JSON 陣列。 每個陣列項目都是字串屬性名為 `Text` 的 JSON 物件，其表示要查閱的字詞。
 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/21/2019
-ms.openlocfilehash: 09d81e281b92b662572cefc220f2227651b69838
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371729"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668416"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>教學課程：透過視覺化介面預測汽車價格
 
@@ -94,8 +94,6 @@ ms.locfileid: "68371729"
 ## <a name="run-the-experiment"></a>執行實驗
 
 您隨時可以按一下資料集或模組的輸出連接埠，以查看資料於該時間點在資料流程中的型態。 如果 [視覺化]  選項已停用，則必須先執行實驗。
-
-對計算目標執行實驗，此目標為連結至工作區的計算資源。 建立計算目標之後，您可以將其重複用於未來的執行。
 
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 

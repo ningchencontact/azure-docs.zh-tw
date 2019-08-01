@@ -1,6 +1,6 @@
 ---
 title: 教學課程：搭配 Windows ML 使用 ONNX 模型 - 自訂視覺服務
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何建立 Windows UWP 應用程式來使用從 Azure 認知服務匯出的 ONNX 模型。
 services: cognitive-services
 author: larryfr
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: ee8115a29911d0c3d1ccf87366f939b4184e1ba2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 65956ab9fa182794b4cb9ac1fc1800198f2dcdaa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606900"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561120"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>教學課程：搭配使用自訂視覺中的 ONNX 模型與 Windows ML (預覽)
 

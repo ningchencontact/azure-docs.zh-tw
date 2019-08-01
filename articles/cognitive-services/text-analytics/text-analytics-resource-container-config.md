@@ -1,6 +1,6 @@
 ---
-title: 設定容器
-titlesuffix: Text Analytics - Azure Cognitive Services
+title: 設定容器-文字分析
+titleSuffix: Azure Cognitive Services
 description: 文字分析為每個容器提供了常見的設定架構，因此您可以輕易地設定及管理您容器的儲存體、記錄和遙測，以及安全性設定。
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: dapine
-ms.openlocfilehash: 2a9b9ce5109315d940d6dcadf395489612faddec
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 65d88e6c201f633a260e31544444341e636e9941
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356930"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552257"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>設定文字分析 Docker 容器
 
@@ -80,7 +80,7 @@ ms.locfileid: "68356930"
 |選擇性| 名稱 | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | String | 文字分析容器不會使用此項目。|
-|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
+|選擇性| `Output` | String | 輸出裝載的目標。 預設值是 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -98,7 +98,7 @@ ms.locfileid: "68356930"
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
-> ApiKey 值是 [Azure  `Text Analytics`資源金鑰] 頁面中的金鑰。 
+> ApiKey 值是 [Azure `Text Analytics`資源金鑰] 頁面中的金鑰。 
 
 ## <a name="key-phrase-extraction-container-docker-examples"></a>關鍵字組解壓縮容器 docker 範例
 

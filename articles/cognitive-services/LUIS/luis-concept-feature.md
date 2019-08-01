@@ -1,6 +1,6 @@
 ---
-title: 功能
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 功能-LUIS
+titleSuffix: Azure Cognitive Services
 description: 將特性新增至語言模型，以針對如何辨識您想要標示或分類的輸入，提供相關提示。
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812932"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639204"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 應用程式中的片語清單功能
 
@@ -35,7 +35,7 @@ ms.locfileid: "60812932"
 
 ## <a name="how-to-use-phrase-lists"></a>如何使用片語清單
 
-您的應用程式有如下所示的重要單字或片語時，建立片語清單：
+當您的應用程式具有對應用程式很重要的單字或片語時, 請[建立片語](luis-how-to-add-features.md)清單, 例如:
 
 * 業界術語
 * 俚語
@@ -46,7 +46,7 @@ ms.locfileid: "60812932"
 
 您輸入幾個單字或片語後，使用**建議**功能尋找相關的值。 加入到您的片語清單值之前，請檢閱相關的值。
 
-|清單類型|目的|
+|清單類型|用途|
 |--|--|
 |可交換|同義字或字組 (當變更為清單中的另一個字組時) 具有相同的意圖和實體擷取。|
 |不可交換|應用程式詞彙 (特別是您的應用程式) 通常比該語言中的其他字組還要多。|
@@ -79,7 +79,7 @@ ms.locfileid: "60812932"
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>片語清單有助於識別簡單的可交換實體
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>片語清單有助於識別簡單的可互換實體
 可交換的片語清單是調整 LUIS 應用程式效能的好方法。 如果您的應用程式無法將語句預測為正確的意圖，或辨識實體，請思考語句是否包含不尋常的字組，或意義可能會模稜兩可的字組。 這些字組是要包含在片語清單中的理想候選項目。
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>片語清單有助於以更加理解的內容來識別意圖
@@ -88,19 +88,19 @@ ms.locfileid: "60812932"
 新增片語清單是將更多範例語句新增至意圖的替代方式。 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>何時使用片語清單與清單實體
-雖然片語清單和清單實體都可能影響所有意圖的語句，但各自會以不同方式帶來影響。 使用片語清單來影響意圖預測分數。 使用清單實體來影響全文相符實體的擷取。 
+雖然片語清單和[清單實體](reference-entity-list.md)都可能影響所有意圖的語句, 但每個都會以不同的方式來執行這項工作。 使用片語清單來影響意圖預測分數。 使用清單實體來影響全文相符實體的擷取。 
 
 ### <a name="use-a-phrase-list"></a>使用片語清單
 使用片語清單，LUIS 仍可將內容納入考量並且一般化，以識別類似但並未與清單中的項目完全相符的項目。 如果您希望 LUIS 應用程式能夠一般化並識別類別中的新項目，請使用字詞清單。 
 
-當您想要能夠辨識的實體，應該會辨識新的連絡人或應該會辨識新的產品庫存應用程式的名稱會議排程器之類的新執行個體時使用另一種機器學習的實體，例如簡單的實體。 然後建立字組和片語的片語清單，協助 LUIS 尋找其他類似於實體的字組。 這份清單會將額外的重要性新增至這些個字組的值，引導 LUIS 辨識實體範例。 
+當您想要能夠辨識實體的新實例時 (例如, 應辨識新連絡人名稱的會議排程器), 或應辨識新產品的清查應用程式時, 請使用另一種機器學習的實體, 例如簡單實體。 然後建立字組和片語的片語清單，協助 LUIS 尋找其他類似於實體的字組。 這份清單會將額外的重要性新增至這些個字組的值，引導 LUIS 辨識實體範例。 
 
 片語清單就像是網域專屬詞彙，有助於增強意圖和實體的理解品質。 片語清單的常見用法是專有名詞，例如城市名稱。 城市名稱可以是包含連字號或單引號的幾個字組。
  
 ### <a name="dont-use-a-phrase-list"></a>請勿使用片語清單 
 清單實體會明確地定義實體可以採用的每個值，而且只會識別完全相符的值。 清單實體可能適用於下列應用程式：其中實體的所有執行個體均為已知且不會經常變更。 範例為餐廳菜單上不常變更的食物項目。 如果您需要全文相符的實體，請勿使用片語清單。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 了解[最佳做法](luis-concept-best-practices.md)。
 
 ## <a name="next-steps"></a>後續步驟

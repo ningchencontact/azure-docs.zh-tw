@@ -1,6 +1,6 @@
 ---
 title: 影像仲裁 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用內容仲裁的電腦輔助影像仲裁以及人工審核工具來審核成人和猥褻內容的影像。
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699268"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564899"
 ---
 # <a name="learn-image-moderation-concepts"></a>了解影像仲裁概念
 
@@ -66,7 +66,7 @@ ms.locfileid: "60699268"
 
 ## <a name="detecting-faces"></a>偵測臉部
 
-有助於偵測影像中的個人資料，例如臉部偵測的臉部。 您可以偵測每個影像中的潛在臉部和潛在臉部數量。
+偵測臉部有助於偵測個人資料, 例如影像中的臉部。 您可以偵測每個影像中的潛在臉部和潛在臉部數量。
 
 回應包含下列資訊：
 

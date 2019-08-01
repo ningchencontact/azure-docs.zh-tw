@@ -1,6 +1,6 @@
 ---
 title: 透過 API 主控台來仲裁影像 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用 Azure Content Moderator 中的影像審查 API 來起始影像內容的掃描與檢閱審查工作流程。
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 20353d488cba255925d21017b77d1def2d06b30b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607485"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561244"
 ---
 # <a name="moderate-images-from-the-api-console"></a>從 API 主控台審核影像
 

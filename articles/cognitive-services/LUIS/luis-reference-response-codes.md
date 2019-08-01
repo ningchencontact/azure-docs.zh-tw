@@ -1,6 +1,6 @@
 ---
-title: API HTTP 回應碼
-titleSuffix: Azure
+title: API HTTP 回應碼-LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解哪些 HTTP 回應碼會從 LUIS 撰寫和 API 端點傳回
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c92bcf55b571c37efa308d9121ee4aee714e684a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522977"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560075"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>常見的 API 回應碼及其意義
 
@@ -25,15 +25,15 @@ ms.locfileid: "65522977"
 ## <a name="common-status-codes"></a>常見狀態碼
 下表針對[撰寫](https://go.microsoft.com/fwlink/?linkid=2092087)和[端點](https://go.microsoft.com/fwlink/?linkid=2092356) API 列出一些最常見的 HTTP 回應狀態碼：
 
-|代碼|API|說明|
+|程式碼|API|說明|
 |:--|--|--|
 |400|撰寫、端點|要求的參數不正確，表示必要參數遺失、格式不正確或太大|
 |400|撰寫、端點|要求的本文不正確，表示 JSON 遺失、格式不正確或太大|
-|401|編寫|使用端點訂用帳戶金鑰，而不是撰寫金鑰|
+|401|製作|使用端點訂用帳戶金鑰，而不是撰寫金鑰|
 |401|撰寫、端點|無效、格式不正確或空的金鑰|
 |401|撰寫、端點| 金鑰不符合區域|
-|401|編寫|您不是擁有者或共同作業者|
-|401|編寫|無效的 API 呼叫順序|
+|401|製作|您不是擁有者或共同作業者|
+|401|製作|無效的 API 呼叫順序|
 |403|撰寫、端點|超過每月的金鑰總配額限制|
 |409|端點|應用程式仍在載入中|
 |410|端點|應用程式需要重新訓練並重新發行|

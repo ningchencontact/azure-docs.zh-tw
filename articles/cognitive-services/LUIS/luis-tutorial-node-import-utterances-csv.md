@@ -1,6 +1,6 @@
 ---
-title: 使用 Node.js 匯入語句
-titleSuffix: Azure
+title: 使用 node.js 匯入語句-LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解如何使用「LUIS 撰寫 API」，從 CSV 格式的既有資料，以程式設計方式建置 LUIS 應用程式。
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 314d121e8964ba1cdbb457260826d85bf8505fbc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 79a372087e162fedc5b2e014a5cd4976df3cb2ce
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60494865"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637817"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以程式設計方式建置 LUIS 應用程式
 
@@ -24,23 +24,35 @@ LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的�
 
 ## <a name="prerequisites"></a>必要條件
 
-* 登入 [LUIS](luis-reference-regions.md) 網站，然後在 [帳戶設定] 中尋找您的[撰寫金鑰](luis-concept-keys.md#authoring-key)。 您可以使用此金鑰來呼叫「撰寫 API」。
+* 登入[LUIS](luis-reference-regions.md)網站, 然後在 [帳戶設定] 中尋找您的[撰寫金鑰](luis-concept-keys.md#authoring-key)。 您可以使用此金鑰來呼叫「撰寫 API」。
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 * 本教學課程會從一個假設性公司的使用者要求記錄 CSV 檔開始著手。 在 [這裡](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)下載。
 * 安裝含有 NPM 的最新 Node.js。 請從[這裡](https://nodejs.org/en/download/)下載。
 * **[建議使用]** 適用於 IntelliSense 和偵錯的 Visual Studio Code，請從[這裡](https://code.visualstudio.com/)免費下載。
 
+此教學課程中的所有程式碼皆位於 [Azure-Samples Language Understanding GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv)。 
+
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>將既有資料對應至意圖和實體
 即使您的系統在建立時並未將 LUIS 納入考量，只要它包含與使用者所要執行之各種不同工作對應的文字資料，您便可能得以提供一個現有使用者輸入分類與 LUIS 中意圖的對應。 如果您可以識別出使用者話語中的重要單字或片語，這些單字便可能對應至實體。
 
-開啟 `IoT.csv` 檔案。 它包含使用者對假設性家庭自動化服務的查詢記錄，其中包括查詢分類方式、使用者語句，以及一些含有從它們當中提取之實用資訊的資料行。 
+[`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)開啟檔案。 它包含使用者對假設性家庭自動化服務的查詢記錄，其中包括查詢分類方式、使用者語句，以及一些含有從它們當中提取之實用資訊的資料行。 
 
 ![預先存在資料的 CSV 檔案](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 您會看到 **RequestType** 資料行可能為意圖，而 **Request** 資料行則顯示範例語句。 其他欄位如果有出現在語句中，則可能為實體。 由於有意圖、實體及範例語句，因此您需要一個簡單的範例應用程式。
 
 ## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>從非 LUIS 資料產生 LUIS 應用程式的步驟
-若要從來源檔案產生一個新的 LUIS 應用程式，您需先剖析來自 CSV 檔案的資料，然後使用「撰寫 API」將此資料轉換成您可以上傳到 LUIS 的格式。 從剖析的資料中，您會收集有關其中所含意圖和實體的資訊。 接著，您會發出 API 呼叫來建立應用程式，然後新增從所剖析資料收集的意圖和實體。 建立 LUIS 應用程式之後，您便可以從所剖析的資料新增範例語句。 您可以在下列程式碼的最後部分看到此流程。 請複製或[下載](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js)此程式碼，並將其儲存成 `index.js`。
+若要從 CSV 檔案產生新的 LUIS 應用程式:
+
+* 剖析 CSV 檔案中的資料:
+    * 轉換成您可以使用撰寫 API 上傳至 LUIS 的格式。 
+    * 從剖析的資料收集意圖和實體的相關資訊。 
+* 撰寫 API 呼叫以進行下列動作:
+    * 建立應用程式。
+    * 新增從剖析的資料收集而來的意圖和實體。 
+    * 建立 LUIS 應用程式之後，您便可以從所剖析的資料新增範例語句。 
+
+您可以在檔案的最後一個部分`index.js`看到此程式流程。 請複製或[下載](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js)此程式碼，並將其儲存成 `index.js`。
 
    [!code-javascript[Node.js code for calling the steps to build a LUIS app](~/samples-luis/examples/build-app-programmatically-csv/index.js)]
 
@@ -119,7 +131,7 @@ LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的�
 
 ```javascript
 // Change these values
-const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
+const LUIS_programmaticKey = "YOUR_AUTHORING_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
@@ -167,7 +179,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>開啟 LUIS 應用程式
-當指令碼完成之後，您可以登入 [LUIS](luis-reference-regions.md)，然後在 [我的應用程式]  底下查看您建立的 LUIS 應用程式。 您應該能夠在 [TurnOn]  、[TurnOff]  及 [None]  意圖底下看到您所新增的語句。
+腳本完成後, 您可以登入[LUIS](luis-reference-regions.md) , 並查看您在**我的應用程式**底下建立的 LUIS 應用程式。 您應該能夠在 [TurnOn]  、[TurnOff]  及 [None]  意圖底下看到您所新增的語句。
 
 ![TurnOn 意圖](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 

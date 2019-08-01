@@ -1,5 +1,5 @@
 ---
-title: 儀表板-Language Understanding
+title: 儀表板-Language Understanding-LUIS
 titleSuffix: Azure Cognitive Services
 description: 流量分析儀表板 (視覺化的報告工具) 來修正意圖。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: f068aa7ca6b396ebba05b9d9462d9e95faf7fbaa
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296428"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563628"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用儀表板來改善您的應用程式
 
@@ -33,7 +33,7 @@ ms.locfileid: "68296428"
 |問題|圖表色彩|說明|
 |--|--|--|
 |資料不平衡|-|當範例語句數量大幅變化時, 就會發生這種情況。 所有意圖都必須有_大致_相同的範例語句數, 但 None 意圖除外。 應用程式中的總語句數量應該只有 10%-15%。<br><br> 如果資料已不平衡, 但意圖精確度高於特定閾值, 則不會將此不平衡回報為問題。<br><br>**從這個問題開始, 這可能是其他問題的根本原因。**|
-|不清楚的預測|橙色|當最上層意圖和下一個意圖的分數已接近下一次定型時, 就會發生這種情況, 因為已將[負面取樣](luis-how-to-train.md#train-with-all-data)或更多範例語句新增至意圖。 |
+|不清楚的預測|橘色|當最上層意圖和下一個意圖的分數已接近下一次定型時, 就會發生這種情況, 因為已將[負面取樣](luis-how-to-train.md#train-with-all-data)或更多範例語句新增至意圖。 |
 |不正確的預測|紅色|當範例語句未針對標示的意圖 (其所在的意圖) 進行預測時, 就會發生這種情況。|
 
 正確的預測以藍色表示。
@@ -154,7 +154,7 @@ ms.locfileid: "68296428"
 
 此篩選準則可讓您尋找具有特定問題的意圖:
 
-|Filter|建議的百分比|用途|
+|篩選器|建議的百分比|用途|
 |--|--|--|
 |最有問題的意圖|-|**從這裡開始**-修正此意圖中的語句將可改善應用程式, 而不是其他修正。|
 |更正以下的預測|60%|這是所選意圖中正確的語句百分比, 但低於閾值的信賴分數。 |

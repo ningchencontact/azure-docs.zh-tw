@@ -71,6 +71,8 @@
               href: billing-prepay-app-service-isolated-stamp.md
             - name: Azure 軟體方案
               href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+            - name: 更新保留項目
+              href: billing-reservation-renew.md
         - name: 如何套用折扣
           items:
             - name: 保留的 VM 執行個體

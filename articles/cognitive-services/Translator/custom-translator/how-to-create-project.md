@@ -3,18 +3,18 @@ title: 如何建立專案？ - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 如何在自訂翻譯工具中建立專案？
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 6c8b46c35c03b472863bdc71d29552198dbb0d77
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a62cc6133fe01bf7478166c526e32b3215ceebf1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448337"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595745"
 ---
 # <a name="create-a-project"></a>建立專案
 
@@ -32,7 +32,7 @@ ms.locfileid: "67448337"
 
     a.  專案名稱 (必要)：為您的專案提供唯一且有意義的名稱。 您不需要在標題中提到語言。
 
-    b.  Description:專案的簡短摘要。 此描述並不會影響自訂翻譯工具或所產生自訂系統的行為，但可協助您區分不同專案。
+    b.  描述:專案的簡短摘要。 此描述並不會影響自訂翻譯工具或所產生自訂系統的行為，但可協助您區分不同專案。
 
     c.  語言組 (必要)：選取要翻譯的原始語言和目標語言。
 

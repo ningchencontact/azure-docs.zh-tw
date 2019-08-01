@@ -3,18 +3,18 @@ title: 資料篩選 - 自訂翻譯
 titleSuffix: Azure Cognitive Services
 description: 當您提交要用於訓練自訂系統的文件時，文件會經歷一系列的處理和篩選步驟，準備進行訓練。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a224a30114d03468c5764528e6c7472572a93f1c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1028443eaaf6c483cd7cd57289b0dcf2a9f11902
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443443"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595897"
 ---
 # <a name="data-filtering"></a>資料篩選
 
@@ -23,7 +23,7 @@ ms.locfileid: "67443443"
 ## <a name="sentence-alignment"></a>句子對齊
 如果文件不是 XLIFF、TMX 或 ALIGN 格式，則「自訂翻譯」會逐句對齊來源與目標文件的句子。 翻譯工具不會執行文件對齊，它會依照您的文件命名方式來尋找其他語言的相符文件。 在文件中，「自訂翻譯」會嘗試在其他語言中尋找對應的句子。 它會使用文件標記 (如內嵌 HTML 標記) 來協助對齊。  
 
-如果您看到的來源中的句子數目大不一致的情況，而且目標端的文件，文件可能並未平行一開始，或因為其他原因而無法對齊。 您需要再次查看每一端上句子差異很大 (> 10%) 的文件配對，以確保它們確實平行。 如果句子計數疑似不同，則「自訂翻譯」會在文件旁邊顯示警告。  
+如果來源和目標端檔中的句子數目不一致, 您的檔可能不會在第一次進行平行處理, 或因其他原因而無法對齊。 您需要再次查看每一端上句子差異很大 (> 10%) 的文件配對，以確保它們確實平行。 如果句子計數疑似不同，則「自訂翻譯」會在文件旁邊顯示警告。  
 
 
 ## <a name="deduplication"></a>重複資料刪除
@@ -45,7 +45,7 @@ ms.locfileid: "67443443"
 以單一執行個體取代多個句子結尾標點符號字元。  
 
 ## <a name="japanese-character-normalization"></a>日文字元正規化
-將全形字母和數字轉換為半形字元。
+將全形字母和數位轉換為半形字元。
 
 ## <a name="unescaped-xml-tags"></a>未逸出的 XML 標記
 篩選作業會將未逸出的標記轉換成逸出的標記：

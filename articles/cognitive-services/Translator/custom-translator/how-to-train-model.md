@@ -3,18 +3,18 @@ title: 訓練模型 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 建置翻譯模型時，訓練模型是很重要的步驟。 訓練會根據您為該訓練選取的文件來進行。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 8804285bf419bce5ca85cc5070cd47ce9a87392a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447953"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595692"
 ---
 # <a name="train-a-model"></a>將模型定型
 
@@ -53,7 +53,7 @@ ms.locfileid: "67447953"
     ![訓練模型頁面](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->自訂轉譯器支援 10 個並行的訓練，在任何時間點工作區中的時間。
+>自訂翻譯在任何時間點都支援工作區中的10個並行訓練。
 
 
 ## <a name="edit-a-model"></a>編輯模型

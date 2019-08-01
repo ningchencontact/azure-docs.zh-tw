@@ -1,7 +1,7 @@
 ---
 title: 文字轉換語音 API 參考 (REST)-語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用文字轉換語音的 REST API。 在本文中，您會了解到授權選項、查詢選項，以及如何建構要求與接收回應。
+description: 瞭解如何使用文字轉換語音 REST API。 在本文中，您會了解到授權選項、查詢選項，以及如何建構要求與接收回應。
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604893"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559182"
 ---
 # <a name="text-to-speech-rest-api"></a>文字轉換語音 REST API
 
-語音服務可讓您[將文字轉換成合成語音](#convert-text-to-speech)並[取得一份支援的語音](#get-a-list-of-voices)區域，使用一組 REST Api。 每個可用的端點會與區域相關聯。 需要您打算使用該端點/地區的訂用帳戶金鑰。
+語音服務可讓您[將文字轉換成合成的語音](#convert-text-to-speech), 並使用一組 REST api 取得區域的[支援語音清單](#get-a-list-of-voices)。 每個可用的端點都會與某個區域相關聯。 您打算使用的端點/區域必須要有訂用帳戶金鑰。
 
 文字轉語音 API 支援類神經和標準文字轉語音，且各支援依地區設定所識別的特定語言和方言。
 
@@ -29,21 +29,21 @@ ms.locfileid: "67604893"
 > [!IMPORTANT]
 > 標準、自訂和神經語音的成本各不相同。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)。
 
-之前使用此 API，了解：
+使用此 API 之前, 請先瞭解:
 
 * 文字轉語音 REST API 需要授權標頭。 這表示需要完成權杖交換，才能存取服務。 如需詳細資訊，請參閱[驗證](#authentication)。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="get-a-list-of-voices"></a>取得語音的清單
+## <a name="get-a-list-of-voices"></a>取得語音清單
 
-`voices/list`端點可讓您在特定區域/端點取得語音的完整清單。
+`voices/list`端點可讓您取得特定區域/端點的完整語音清單。
 
 ### <a name="regions-and-endpoints"></a>區域與端點
 
 | 區域 | 端點 |
 |--------|----------|
-| 澳洲東部 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 澳大利亞東部 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 巴西南部 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 加拿大中部 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 美國中部 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -69,11 +69,11 @@ ms.locfileid: "67604893"
 
 | 標頭 | 描述 | 必要/選用 |
 |--------|-------------|---------------------|
-| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要 |
+| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要項 |
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 
-本文並不適用`GET`對此端點的要求。
+對於`GET`此端點的要求, 不需要主體。
 
 ### <a name="sample-request"></a>範例要求
 
@@ -88,10 +88,10 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="sample-response"></a>範例回應
 
-此回應已被截斷來說明回應的結構。
+此回應已被截斷, 以說明回應的結構。
 
 > [!NOTE]
-> 語音可用性會因地區/端點而異。
+> 語音可用性因地區/端點而異。
 
 ```json
 [
@@ -135,18 +135,18 @@ Authorization: Bearer [Base64 access_token]
 
 每個回應的 HTTP 狀態碼會指出成功或常見的錯誤。
 
-| HTTP 狀態碼 | 說明 | 可能的原因 |
+| HTTP 狀態碼 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
 | 200 | [確定] | 要求成功。 |
-| 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
-| 401 | 未經授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
+| 400 | 錯誤的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
+| 401 | 未授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
 | 429 | 太多要求 | 您已超出訂用帳戶允許的配額或要求率。 |
-| 502 | 錯誤的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
+| 502 | 不正確的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
 
 
 ## <a name="convert-text-to-speech"></a>將文字轉換成語音
 
-`v1`端點可讓您將轉換設定使用的文字轉換語音[語音合成標記語言 (SSML)](speech-synthesis-markup.md)。
+端點可讓您使用[語音合成標記語言 (SSML)](speech-synthesis-markup.md)將文字轉換為語音。 `v1`
 
 ### <a name="regions-and-endpoints"></a>區域與端點
 
@@ -160,14 +160,14 @@ Authorization: Bearer [Base64 access_token]
 
 | 標頭 | 描述 | 必要/選用 |
 |--------|-------------|---------------------|
-| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要 |
-| `Content-Type` | 指定所提供文字的內容類型。 接受的值為 `application/ssml+xml`。 | 必要 |
-| `X-Microsoft-OutputFormat` | 指定音訊輸出格式。 如需接受值的完整清單，請參閱[音訊輸出](#audio-outputs)。 | 必要 |
-| `User-Agent` | 應用程式名稱。 提供的值必須是少於 255 個字元。 | 必要 |
+| `Authorization` | 前面加入 `Bearer` 這個字的授權權杖。 如需詳細資訊，請參閱[驗證](#authentication)。 | 必要項 |
+| `Content-Type` | 指定所提供文字的內容類型。 接受的值為 `application/ssml+xml`。 | 必要項 |
+| `X-Microsoft-OutputFormat` | 指定音訊輸出格式。 如需接受值的完整清單，請參閱[音訊輸出](#audio-outputs)。 | 必要項 |
+| `User-Agent` | 應用程式名稱。 提供的值必須少於255個字元。 | 必要項 |
 
 ### <a name="audio-outputs"></a>音訊輸出
 
-此清單列出了每個要求中系統做為 `X-Microsoft-OutputFormat` 標頭的傳送的支援音訊格式。 每個格式皆包含位元速率和編碼類型。 語音服務支援 24 kHz，16 kHz，和 8 kHz 音訊輸出。
+此清單列出了每個要求中系統做為 `X-Microsoft-OutputFormat` 標頭的傳送的支援音訊格式。 每個格式皆包含位元速率和編碼類型。 語音服務支援 24 kHz、16 kHz 和 8 kHz 音訊輸出。
 
 |||
 |-|-|
@@ -180,9 +180,9 @@ Authorization: Bearer [Base64 access_token]
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> 如果您選取的語音和輸出格式具有不同的位元速率，則會視需要重新進行音訊取樣。 不過，不支援 24 kHz 語音`audio-16khz-16kbps-mono-siren`和`riff-16khz-16kbps-mono-siren`輸出格式。
+> 如果您選取的語音和輸出格式具有不同的位元速率，則會視需要重新進行音訊取樣。 不過, 24 kHz 語音不支援`audio-16khz-16kbps-mono-siren`和`riff-16khz-16kbps-mono-siren`輸出格式。
 
-### <a name="request-body"></a>Request body
+### <a name="request-body"></a>要求本文
 
 每個 `POST` 要求的本文都會以[語音合成標記語言 (SSML)](speech-synthesis-markup.md) 形式傳送。 SSML 可讓您選擇文字轉換語音服務所傳回合成語音的語音和語言。 如需支援的完整語音清單，請參閱[語言支援](language-support.md#text-to-speech)。
 
@@ -208,7 +208,7 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-如需語言特定範例的快速入門，請參閱：
+如需特定語言的範例, 請參閱快速入門:
 
 * [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
 * [Python](quickstart-python-text-to-speech.md)
@@ -221,12 +221,12 @@ Authorization: Bearer [Base64 access_token]
 | HTTP 狀態碼 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
 | 200 | [確定] | 要求成功；回應主體是音訊檔案。 |
-| 400 | 不正確的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
-| 401 | 未經授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
+| 400 | 錯誤的要求 | 必要的參數遺失、為空白或 Null。 或者，傳遞至必要或選用參數的值無效。 常見的問題是標頭太長。 |
+| 401 | 未授權 | 要求未經授權。 請檢查以確定您的訂用帳戶金鑰或權杖有效，並且位於正確的區域。 |
 | 413 | 要求實體太大 | SSML 輸入的長度大於 1024 個字元。 |
-| 415 | 不支援的媒體類型 | 可能的錯誤`Content-Type`所提供。 `Content-Type` 應該設定為`application/ssml+xml`。 |
+| 415 | 不支援的媒體類型 | 可能是提供了錯誤`Content-Type`的。 `Content-Type`應設定為`application/ssml+xml`。 |
 | 429 | 太多要求 | 您已超出訂用帳戶允許的配額或要求率。 |
-| 502 | 錯誤的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
+| 502 | 不正確的閘道 | 網路或伺服器端問題。 也可能表示標頭無效。 |
 
 如果 HTTP 狀態為 `200 OK`，則回應主體會包含所要求格式的音訊檔案。 會在將此檔案傳輸、儲存到緩衝區或儲存到檔案時播放。
 

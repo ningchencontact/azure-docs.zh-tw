@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488821"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688321"
 ---
 # <a name="immersive-reader-sdk-reference"></a>沉浸式讀取器 SDK 參考
 
@@ -87,7 +87,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 }
 ```
 
-### <a name="error"></a>錯誤
+### <a name="error"></a>Error
 
 包含錯誤的相關資訊。
 
@@ -136,5 +136,5 @@ SDK 會為啟動沉浸式讀取器的按鈕提供預設樣式。 `immersive-read
 
 ## <a name="next-steps"></a>後續步驟
 
-* 探索 [GitHub 上的沈浸式閱讀程式 SDK](https://github.com/Microsoft/immersive-reader-sdk)
+* 探索 [GitHub 上的沈浸式閱讀程式 SDK](https://github.com/microsoft/immersive-reader-sdk)
 * [快速入門：建立可啟動沉浸式讀取器的 web 應用C#程式 ()](./quickstart.md)

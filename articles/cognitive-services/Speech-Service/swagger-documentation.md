@@ -1,5 +1,5 @@
 ---
-title: Swagger 文件 - 語音服務
+title: Swagger 檔-語音服務
 titleSuffix: Azure Cognitive Services
 description: Swagger 文件可用於為多種程式設計語言自動產生 SDK。 Swagger 支援我們服務中的所有作業
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f6420ea8918816f7356e567ec48cb0f7456065e0
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 232435a424d2461bce4598356a986473cb1d3644
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604760"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552572"
 ---
 # <a name="swagger-documentation"></a>Swagger 文件
 

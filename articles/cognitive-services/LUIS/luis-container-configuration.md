@@ -1,6 +1,6 @@
 ---
-title: Docker 容器設定
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Docker 容器設定-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 容器執行階段環境可使用 `docker run` 命令引數來設定。 LUIS 有數個必要的設定，和一些選擇性的設定。
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 7858d94b6e2a9ef07da9121cb84ffaf6adaa24d3
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e6a13688bba1c3a0e62e427e078e78c8f8dd4e70
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360530"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560617"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>設定 Language Understanding 的 Docker 容器 
 
@@ -47,7 +47,7 @@ ms.locfileid: "68360530"
 此設定可在下列位置找到：
 
 * Azure 入口網站：**認知服務**[**金鑰**] 下的 [資源管理]
-* LUIS 入口網站：[金鑰和端點設定] 頁面。 
+* LUIS 入口網站：[金鑰和端點設定]  頁面。 
 
 請勿使用入門金鑰或撰寫金鑰。 
 
@@ -57,12 +57,12 @@ ms.locfileid: "68360530"
 
 ## <a name="billing-setting"></a>帳單支援
 
-設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。  `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。 `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
 * Azure 入口網站：**認知服務**總覽, 加上標籤`Endpoint`
-* LUIS 入口網站：[金鑰和端點設定] 頁面，包含在端點 URI 中。
+* LUIS 入口網站：[金鑰和端點設定]  頁面，包含在端點 URI 中。
 
 請記得在 URL `luis/v2.0`中包含路由, 如下表所示:
 
@@ -99,7 +99,7 @@ LUIS 容器不會使用輸入或輸出裝載來儲存訓練或服務資料。
 
 |必要項| 名稱 | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
-|是| `Input` | String | 輸入裝載的目標。 預設值為 `/input`。 這是 LUIS 套件檔案的位置。 <br><br>範例:<br>`--mount type=bind,src=c:\input,target=/input`|
+|是| `Input` | String | 輸入裝載的目標。 預設值是 `/input`。 這是 LUIS 套件檔案的位置。 <br><br>範例:<br>`--mount type=bind,src=c:\input,target=/input`|
 |否| `Output` | String | 輸出裝載的目標。 預設值是 `/output`。 這是記錄的位置。 其中包括 LUIS 查詢記錄和容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令

@@ -1,5 +1,5 @@
 ---
-title: 語言支援
+title: 語言支援 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS 在服務內有各種不同的功能。 並非所有功能都有相同的語言地位。 請確定您有興趣的功能支援您所針對的語言文化特性。 LUIS 應用程式是特定文化特性，一旦設定就無法變更。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26127f9f6ed718e33a77b986f2edb0d2dc81b2c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072368"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563564"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -53,7 +53,7 @@ LUIS 可理解下列語言的語句：
 
  - 在 `zh-cn` 文化特性中，LUIS 預期會有簡體中文字元集，而不是繁體字元集。
  - 意圖、實體、功能和規則運算式的名稱可能採用中文或羅馬字元。
- - 請參閱[預先建置的網域參考](luis-reference-prebuilt-domains.md)所在中支援預先建置的網域資訊`zh-cn`文化特性。
+ - 如需在`zh-cn`文化特性中支援哪些預建網域的相關資訊, 請參閱預先建立的[網域參考](luis-reference-prebuilt-domains.md)。
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*日文支援附註
@@ -95,16 +95,16 @@ LUIS 可理解下列語言的語句：
 |西班牙文 (es-ES)|✔||||
 |西班牙文 (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>自訂權杖化工具版本
+### <a name="custom-tokenizer-versions"></a>自訂 tokenizer 版本
 
-下列的文化特性具有自訂權杖化工具版本：
+下列文化特性具有自訂 tokenizer 版本:
 
-|文化特性|Version|目的|
+|文化特性|Version|用途|
 |--|--|--|
-|德文<br>`de-de`|1.0.0|會將它們使用機器學習式 tokenizer 嘗試分解成其單一元件的複合字分割，token 化文字。<br>如果使用者輸入`Ich fahre einen krankenwagen`作為 [utterance] 中，它會變成`Ich fahre einen kranken wagen`。 允許的標記`kranken`和`wagen`分開為不同的實體。|
-|德文<br>`de-de`|1.0.2|會將它們分割的空間，token 化文字。<br> 如果使用者輸入`Ich fahre einen krankenwagen`utterance 中，它維持單一語彙基元。 因此`krankenwagen`標示為單一實體。 |
+|德文<br>`de-de`|1.0.0|使用以機器學習為基礎的 tokenizer 來分割它們, 以嘗試將複合單字細分成單一元件, 以 token 化單字。<br>如果使用者輸入`Ich fahre einen krankenwagen`做為語句, 就會`Ich fahre einen kranken wagen`變成。 允許將`kranken`和`wagen`獨立標記為不同的實體。|
+|德文<br>`de-de`|1.0.2|藉由在空間上分割來 token 化單字。<br> 如果使用者輸入`Ich fahre einen krankenwagen`做為語句, 它會保持為單一權杖。 因此`krankenwagen` , 會標示為單一實體。 |
 
-### <a name="migrating-between-tokenizer-versions"></a>Tokenizer 版本之間移轉
+### <a name="migrating-between-tokenizer-versions"></a>在 tokenizer 版本之間遷移
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
@@ -207,6 +207,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Token 化會發生在應用程式層級。 沒有任何支援的版本層級 token 化。 
+Token 化會在應用層級發生。 不支援版本層級 token 化。 
 
-[為新的應用程式將檔案匯入](luis-how-to-start-new-app.md#import-an-app-from-file)，而不是版本。 此動作表示新的應用程式都有不同的應用程式識別碼，但會使用檔案中指定的權杖化工具版本。 
+將檔案匯[入為新的應用程式](luis-how-to-start-new-app.md#import-an-app-from-file), 而不是版本。 此動作表示新的應用程式具有不同的應用程式識別碼, 但使用檔案中指定的 tokenizer 版本。 

@@ -1,6 +1,6 @@
 ---
-title: 簡單實體類型
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 簡單實體類型-LUIS
+titleSuffix: Azure Cognitive Services
 description: 簡單實體是描述單一概念並從機器學習內容學習到的一般實體。 因為簡單實體通常是名稱 (例如公司名稱、產品名稱或其他類別的名稱), 所以在使用簡單實體來提升所使用名稱的信號時, 請新增片語清單。
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 3f03b33f685bb5c7c9ba8f2267b8556c5dadade4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: c1514b6cd512924a162a524d11e888055fa06514
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480311"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563199"
 ---
 # <a name="simple-entity"></a>簡單實體 
 

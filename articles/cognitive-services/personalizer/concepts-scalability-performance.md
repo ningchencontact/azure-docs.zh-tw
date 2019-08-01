@@ -1,21 +1,21 @@
 ---
-title: 延展性和效能-Personalizer
+title: 擴充性和效能-個人化工具
 titleSuffix: Azure Cognitive Services
 description: 高效能且高流量的網站和應用程式有兩個考慮使用個人化工具以獲得延展性和效能的主要因素：延遲和訓練輸送量。
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 06c2e65c723e18acc515dd7effc61aae0564f411
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: d116f6bd389b1404ea723c965111cd05880e6c30
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722430"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662826"
 ---
 # <a name="scalability-and-performance"></a>延展性和效能
 

@@ -1,7 +1,7 @@
 ---
-title: 對應方式
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 單一意圖表示的工作，或想要執行的動作的使用者。 它是使用者語句中表達的目的或目標。 請定義一組與使用者想要在您應用程式中執行之動作對應的意圖。
+title: 意圖-LUIS
+titleSuffix: Azure Cognitive Services
+description: 單一意圖代表使用者想要執行的工作或動作。 它是使用者語句中表達的目的或目標。 請定義一組與使用者想要在您應用程式中執行之動作對應的意圖。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813451"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619913"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>在您 LUIS 應用程式中關於意圖的概念
 
@@ -31,7 +31,7 @@ ms.locfileid: "60813451"
  CheckWeather | 「波士頓的天氣如何？」 <br/> 「顯示本週的預測」 |
  None         | 「給我餅乾食譜」<br>「湖人隊贏了嗎？」 |
 
-所有應用程式隨附預先定義的目的，「[無](#none-intent-is-fallback-for-app)」，這是後援的意圖。 
+所有應用程式都有預先定義的意圖 "[None](#none-intent-is-fallback-for-app)", 這是回溯意圖。 
 
 ## <a name="prebuilt-domains-provide-intents"></a>預先建置的定義域會提供意圖
 除了您定義的意圖之外，還可以使用來自其中一個預先建置之定義域的預先建置意圖。 如需詳細資訊，請參閱[使用 LUIS 應用程式中的預先建置定義域](luis-how-to-use-prebuilt-domains.md)，以了解如何從預先建置的定義域自訂意圖，以在您的應用程式中使用。
@@ -42,12 +42,15 @@ ms.locfileid: "60813451"
 ## <a name="intent-compared-to-entity"></a>意圖與實體的比較
 意圖代表 Chatbot 應該為使用者執行的動作，且所根據的是整個語句。 實體代表語句內所包含的單字或片語。 一個語句只能有一個最高分的意圖，但可以有許多個實體。 
 
-<a name="how-do-intents-relate-to-entities"></a> 當使用者的「意圖」  會觸發用戶端應用程式中的動作 (例如對 checkweather() 函式的呼叫) 時，請建立意圖。 然後建立實體來代表執行該動作所需的參數。 
+<a name="how-do-intents-relate-to-entities"></a>
+
+當使用者想要在您的  用戶端應用程式中觸發動作時 (例如呼叫 checkweather () 函式), 建立意圖。 然後建立實體來代表執行該動作所需的參數。 
 
 |範例意圖   | 實體 | 範例語句中的實體   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 
+||||
 
 ## <a name="custom-intents"></a>自訂意圖
 
@@ -59,7 +62,7 @@ ms.locfileid: "60813451"
 
 ## <a name="none-intent"></a>None 意圖
 
-**無**意圖很重要每個應用程式，而且不應該有零的發音。
+「**無**」意圖對於每個應用程式都很重要, 而且不應該有零語句。
 
 ### <a name="none-intent-is-fallback-for-app"></a>None 意圖是應用程式的後援
 **None** 是一個全部擷取或後援意圖。 它可用來教導 LUIS 在應用程式定義域 (主題區域) 中不重要的語句。 **None** 意圖應該佔應用程式中語句總數的百分之 10 到 20。 請勿將 None 留空。 
@@ -83,9 +86,9 @@ ms.locfileid: "60813451"
 
 ## <a name="intents-and-patterns"></a>意圖和模式
 
-如果您有範例談話，您可以部分或整個做為規則運算式定義，請考慮使用[規則運算式的實體](luis-concept-entity-types.md#regular-expression-entity)搭配[模式](luis-concept-patterns.md)。 
+如果您有範例語句 (可在部分或整體中定義為正則運算式), 請考慮使用與[模式](luis-concept-patterns.md)配對的[正則運算式實體](luis-concept-entity-types.md#regular-expression-entity)。 
 
-使用規則運算式的實體可以保證資料擷取，以便比對模式。 模式比對，可保證會傳回精確的含義。 
+使用正則運算式實體可保證資料解壓縮, 以符合模式。 模式比對保證會傳回確切的意圖。 
 
 ## <a name="intent-balance"></a>意圖平衡
 應用程式定義域應該讓各個意圖之間的語句平衡。 請勿讓一個意圖有 10 個語句，而另一個意圖有 500 個語句。 這樣會造成不平衡。 如果您有這種情況，請檢閱有 500 個語句的意圖，看看是否可以將許多意圖都重新組織成[模式](luis-concept-patterns.md)。 

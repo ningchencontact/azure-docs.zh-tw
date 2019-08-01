@@ -1,6 +1,6 @@
 ---
-title: 最佳作法
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 最佳做法-LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解從 LUIS 應用程式的模型獲得最佳結果的 LUIS 最佳做法。
 services: cognitive-services
 author: diberry
@@ -9,25 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812896"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639284"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>使用認知服務建置語言理解應用程式的最佳做法
-使用應用程式撰寫程序來建置您的 LUIS 應用程式。 
+使用應用程式撰寫流程來建立 LUIS 應用程式: 
 
 * 建置語言模型
 * 新增一些定型範例語句 (每一意圖 10-15 個)
-* 發佈 
+* 發行 
 * 從端點測試 
 * 新增功能
 
-[發佈](luis-how-to-publish-app.md)您的應用程式之後，請使用新增功能、發佈及從端點測試的撰寫循環。 請勿以新增更多範例語句的方式來開始下一個撰寫循環。 這並不會讓 LUIS 藉由真實世界使用者語句學習您的模型。 
+一旦您的應用程式[發佈](luis-how-to-publish-app.md)之後, 請使用撰寫迴圈來新增功能、發佈, 並從端點進行測試。 請勿以新增更多範例語句的方式來開始下一個撰寫循環。 這並不會讓 LUIS 藉由真實世界使用者語句學習您的模型。 
 
 為了讓 LUIS 能有效率地進行學習，請勿擴充語句，直到目前這組範例和端點語句傳回確信的高預測分數為止。 請使用[主動式學習](luis-concept-review-endpoint-utterances.md)、[模式](luis-concept-patterns.md)及[片語清單](luis-concept-feature.md)來提升分數。 
 
@@ -62,7 +62,7 @@ ms.locfileid: "60812896"
 其他資訊：
 * 概念：[在您 LUIS 應用程式中關於意圖的概念](luis-concept-intent.md)
 * 教學課程：[建置 LUIS 應用程式來判斷使用者的用意](luis-quickstart-intents-only.md)
-* 作法：[新增意圖以判斷語句的使用者用意](luis-how-to-add-intents.md)
+* HOW TO：[新增意圖以判斷語句的使用者用意](luis-how-to-add-intents.md)
 
 
 ## <a name="do-find-sweet-spot-for-intents"></a>請務必找出意圖的最佳點
@@ -78,7 +78,7 @@ ms.locfileid: "60812896"
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>請務必在稍後的反覆項目中新增片語清單和模式
 
-最佳做法是在您的應用程式進行測試之前，請勿套用這些做法。 您應該了解應用程式新增片語清單和模式，因為這些功能會比範例談話較重的加權，而且會扭曲信心之前的行為。 
+最佳做法是在您的應用程式進行測試之前，請勿套用這些做法。 在新增[片語清單](luis-concept-feature.md)和[模式](luis-concept-patterns.md)之前, 您應該先瞭解應用程式的行為, 因為這些功能的加權高於範例語句, 而且會扭曲信賴度。 
 
 一旦您了解應用程式缺乏上述功能時的運作方式之後，新增每個適用於您應用程式的功能。 您不需要在每次[反覆運算](luis-concept-app-iteration.md)時新增這些功能，也不需要為每個版本變更功能。 
 

@@ -1,32 +1,32 @@
 ---
-title: 詞彙
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 詞彙-LUIS
+titleSuffix: Azure Cognitive Services
 description: 此詞彙說明使用 LUIS API Service 時可能遇到的字詞。
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302514"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638284"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>常用詞彙和概念的語言理解詞彙
 Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇到的字詞。
 
 ## <a name="active-version"></a>使用中版本
 
-使用中的 LUIS 版本是收到模型任何變更的版本。 在 [LUIS](luis-reference-regions.md) 網站中，如果您想要變更某個不是使用中版本的版本，則必須先將該版本設定為使用中。
+使用中的 LUIS 版本是收到模型任何變更的版本。 在[LUIS](luis-reference-regions.md)入口網站中, 如果您想要變更不是作用中版本的版本, 您必須先將該版本設定為使用中。
 
 ## <a name="authoring"></a>編寫
 
-編寫是指建立、管理和部署 [LUIS 應用程式](#luis-app) (使用 [LUIS](luis-reference-regions.md) 網站或[編寫 API](https://go.microsoft.com/fwlink/?linkid=2092087)) 的能力。
+撰寫是使用[LUIS](luis-reference-regions.md)入口網站或[撰寫 api](https://go.microsoft.com/fwlink/?linkid=2092087)來建立、管理和部署[LUIS 應用程式](#luis-app)的功能。
 
 ## <a name="authoring-key"></a>編寫金鑰
 
@@ -34,30 +34,12 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 ## <a name="batch-test-json-file"></a>批次文字 JSON 檔案
 
-批次檔是一個 JSON 陣列。 陣列中的每個元素都有三個屬性：`text`、`intent` 和 `entities`。 `entities` 屬性是一個陣列。 陣列可以是空的。 如果 `entities` 陣列不是空的，則必須精確地識別實體。
+批次測試是能夠以一致且已知的使用者語句測試集來驗證目前 LUIS 應用程式的模型。 批次測試是在[JSON 格式](luis-concept-batch-test.md#batch-file-format)的檔案中定義。
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+另請參閱： 
+* [概念](luis-concept-batch-test.md)
+* [如何](luis-how-to-batch-test.md)
+* [教學課程] luis-教學課程-批次 testing.md)
 
 
 ## <a name="collaborator"></a>共同作業者
@@ -82,11 +64,11 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 |查詢字串參數|description|
 |--|--|
-|region| [發佈的區域](luis-reference-regions.md#publishing-regions) |
+|地區| [發佈的區域](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 應用程式識別碼 |
 |subscriptionID | 在 Azure 入口網站中建立的 LUIS 端點 (訂用帳戶) 金鑰 |
 |q | 語句 |
-|timezoneOffset| minutes|
+|timezoneOffset| 分鐘|
 
 ## <a name="entity"></a>實體
 
@@ -114,7 +96,7 @@ Language Understanding (LUIS) 詞彙說明使用 LUIS API Service 時可能遇�
 
 ## <a name="labeling"></a>加上標籤
 
-加上標籤是將意圖[語句](#utterance)中的單字或片語與[實體](#entity) (資料類型) 相關聯的程序。
+標記或標示, 是將意圖[語句](#utterance)中的單字或片語與[實體](#entity)(資料類型) 產生關聯的程式。
 
 ## <a name="luis-app"></a>LUIS 應用程式
 

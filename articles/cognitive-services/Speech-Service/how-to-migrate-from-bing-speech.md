@@ -1,7 +1,7 @@
 ---
-title: 從 Bing 語音遷移至 Azure 語音服務
+title: 從 Bing 語音遷移至語音服務
 titleSuffix: Azure Cognitive Services
-description: 瞭解如何從現有的 Bing 語音訂用帳戶遷移至 Azure 語音服務。
+description: 瞭解如何從 Azure 認知服務從現有的 Bing 語音訂用帳戶遷移至語音服務。
 services: cognitive-services
 author: wsturman
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 205ca0baa195a3859fd7d5cc04e3057411ecbe1c
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 5694894a78a46ad658ec18f210c6a82fb82df23f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845899"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559595"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>從 Bing 語音移轉至語音服務
 

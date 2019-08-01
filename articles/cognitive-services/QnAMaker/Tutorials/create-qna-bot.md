@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/31/2019
 ms.author: diberry
-ms.openlocfilehash: 1d475d988847bd4cc9e37b91a0c5d28678cb05f2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4bb987a5a091871bec2c0cc8cec6d9ab804bb244
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446642"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697999"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>教學課程：使用 Azure Bot 服務 v4 建立 QnA Bot
 
@@ -50,9 +50,9 @@ ms.locfileid: "67446642"
     |設定|值|目的|
     |--|--|--|
     |Bot 名稱|`my-tutorial-kb-bot`|這是 Bot 的 Azure 資源名稱。|
-    |訂用帳戶|請參閱用途。|選取您用來建立 QnA Maker 資源的相同訂用帳戶。|
-    |資源群組|`my-tutorial-rg`|用於所有 Bot 相關 Azure 資源的資源群組。|
-    |位置|`west us`|Bot 的 Azure 資源位置。|
+    |Subscription|請參閱用途。|選取您用來建立 QnA Maker 資源的相同訂用帳戶。|
+    |Resource group|`my-tutorial-rg`|用於所有 Bot 相關 Azure 資源的資源群組。|
+    |Location|`west us`|Bot 的 Azure 資源位置。|
     |定價層|`F0`|Azure Bot 服務的免費層。|
     |應用程式名稱|`my-tutorial-kb-bot-app`|這是僅支援您的 Bot 的 Web 應用程式。 此應用程式名稱不應與您的 QnA Maker 服務已使用的相同。 不支援與任何其他資源共用 QnA Maker 的 Web 應用程式。|
     |SDK 語言|C#|這是 Bot Framework SDK 所使用的基礎程式設計語言。 您可以選擇 [C#](https://github.com/Microsoft/botbuilder-dotnet) 或 [Node.js](https://github.com/Microsoft/botbuilder-js)。|
@@ -101,7 +101,7 @@ ms.locfileid: "67446642"
 
 ## <a name="related-to-qna-maker-bots"></a>QnA Maker Bot 相關資訊
 
-* QnA Maker 說明 Bot 用於 QnA Maker 入口網站中，可當作 [Bot 範例](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot)使用。
+* QnA Maker 說明 Bot 用於 QnA Maker 入口網站中，可當作 [Bot 範例](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support)使用。
     ![QnA Maker 說明 Bot 圖示是紅色的機器人](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
 * [醫療保健 Bot](https://docs.microsoft.com/HealthBot/qna_model_howto) 使用 QnA Maker 作為其[語言模型](https://docs.microsoft.com/HealthBot/qna_model_howto)之一。
 

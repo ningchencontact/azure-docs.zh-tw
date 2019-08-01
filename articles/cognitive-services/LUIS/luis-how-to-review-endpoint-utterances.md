@@ -1,7 +1,7 @@
 ---
-title: 檢閱使用者語句
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: 主動學習擷取端點的查詢，並選取使用者的不確定的結束點談話。 您檢閱這些談話選取目的，並將標示這些讀取世界的發音的實體。 接受範例談話到這些變更，則定型和發佈。 LUIS 然後更精確地識別談話。
+title: 審查使用者語句-LUIS
+titleSuffix: Azure Cognitive Services
+description: 主動式學習會捕捉端點查詢, 並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖, 並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更, 然後進行定型和發佈。 然後, LUIS 會更準確地識別語句。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2f49d4bf573cc2dc2e1a3b8fc13413a738df8ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195077"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560443"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>如何檢閱主動式學習 LUIS 入口網站中的端點表達方式
+# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>如何在 LUIS 入口網站中審查用於主動式學習的端點語句
 
-[主動學習](luis-concept-review-endpoint-utterances.md)擷取端點的查詢，並選取使用者的不確定的結束點談話。 您檢閱這些談話選取目的，並將標示這些讀取世界的發音的實體。 接受範例談話到這些變更，則定型和發佈。 LUIS 然後更精確地識別談話。
+[主動式學習](luis-concept-review-endpoint-utterances.md)會捕捉端點查詢, 並選取不確定的使用者端點語句。 您可以檢查這些語句來選取意圖, 並標記這些讀取世界語句的實體。 在您的範例語句中接受這些變更, 然後進行定型和發佈。 然後, LUIS 會更準確地識別語句。
 
 
-## <a name="enable-active-learning"></a>啟用主動學習
+## <a name="enable-active-learning"></a>啟用主動式學習
 
-若要啟用主動式學習，記錄使用者的查詢。 這可以藉由設定[端點查詢](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)使用`log=true`querystring 參數和值。
+若要啟用主動式學習, 請記錄使用者查詢。 這是藉由使用`log=true` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)來完成。
 
-## <a name="disable-active-learning"></a>停用主動學習
+## <a name="disable-active-learning"></a>停用主動式學習
 
-若要停用主動式學習，不會記錄使用者的查詢。 這可以藉由設定[端點查詢](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)使用`log=false`querystring 參數和值。
+若要停用主動式學習, 請不要記錄使用者查詢。 這是藉由使用`log=false` querystring 參數和值來設定[端點查詢](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)來完成。
 
 ## <a name="filter-utterances"></a>篩選語句
 

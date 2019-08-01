@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 00cca0cbf500ea4e884a9f9334896a18fe7b0978
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541533"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597861"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>教學課程：使用電腦視覺在 Azure 儲存體中產生影像中繼資料
 
@@ -42,7 +42,7 @@ ms.locfileid: "65541533"
 
 您必須為您的 Azure 帳戶建立電腦視覺資源；這項資源會管理您對 Azure 電腦視覺服務的存取。 
 
-1. 請遵循[建立 Azure 認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription)中的指示來建立電腦視覺資源。
+1. 請遵循[建立 Azure 認知服務資源](../../cognitive-services-apis-create-account.md#single-service-resource)中的指示來建立電腦視覺資源。
 
 1. 接著，移至您資源群組的功能表，然後按一下您剛建立的電腦視覺 API 訂用帳戶。 將 [端點]  下方的 URL 複製到您可輕鬆快速加以擷取之處。 然後，按一下 [顯示存取金鑰]  。
 

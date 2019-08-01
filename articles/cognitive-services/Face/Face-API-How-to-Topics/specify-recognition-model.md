@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
 ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68254352"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定臉部辨識模式
@@ -69,7 +69,7 @@ string personGroupId = "mypersongroupid";
 await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
-在此程式碼中 , 會建立`mypersongroupid`識別碼為的 PersonGroup, 並將其設定為使用_recognition_02_模型來將臉部功能解壓縮。
+在此程式碼中  , 會建立`mypersongroupid`識別碼為的 PersonGroup, 並將其設定為使用_recognition_02_模型來將臉部功能解壓縮。
 
 同樣地, 您必須指定偵測臉部以與此**PersonGroup** (透過[臉部-]偵測 API) 比較時所要使用的模型。 您使用的模型應該一律與**PersonGroup**的設定一致;否則, 作業將會因為模型不相容而失敗。
 

@@ -1,5 +1,5 @@
 ---
-title: 話務中心轉譯 - 語音服務
+title: 話務中心轉譯-語音服務
 titleSuffix: Azure Cognitive Services
 description: 語音轉換文字的常見案例是轉譯可能來自各種系統 (例如互動式語音回應 (IVR)) 的大量電話語音資料。 音訊可以是立體聲或單聲道，而且是幾乎沒有對訊號執行後處理的原始狀態。 企業可以使用語音服務與整合語音模型，透過許多音訊擷取系統來取得高品質的轉譯。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b7c7bfffb5ddf947dc9bd25e6828e2816a7325cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603313"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559730"
 ---
 # <a name="speech-services-for-telephony-data"></a>電話語音資料的語音服務
 
@@ -59,7 +59,7 @@ ms.locfileid: "67603313"
 ### <a name="translation"></a>轉譯
 有些公司正在試驗提供外國語言支援通話的翻譯文字記錄，以便交付經理了解其客戶的全球體驗。 我們可提供卓越的[翻譯](translation.md)功能。 我們可以從大量的地區設定進行音訊到音訊或音訊到文字的翻譯。
 
-### <a name="text-to-speech"></a>文字轉語音
+### <a name="text-to-speech"></a>文字轉換語音
 實作可與客戶互動的 Bot 時，[文字轉換語音](text-to-speech.md)是另一個重要領域。 典型的路徑是客戶說話、其語音會轉譯為文字、分析文字的意圖、根據所辨識的意圖來合成回應，然後將資產呈現給客戶或產生合成的語音回應。 當然，這一切都快速發生 – 因此延遲是這些系統的重要成功元件。
 
 若考量到各種相關技術，例如[語音轉換文字](speech-to-text.md)[LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)、[Bot Framework](https://dev.botframework.com/)、[文字轉換語音](text-to-speech.md)，我們的端對端延遲相當低。
@@ -116,9 +116,9 @@ ms.locfileid: "67603313"
 
 Azure 語音服務可順利地與內建模型搭配使用，不過，您可以進一步自訂及調整體驗，以搭配您的產品或環境。 從原音模型調整到專屬於自身品牌的獨特聲音音調，都是自訂選項的範圍。 建立自訂模型之後，您可以即時或以批次模式，將其與任何 Azure 語音服務搭配使用。
 
-| 語音服務 | 模型 | 說明 |
+| 語音服務 | 模型 | 描述 |
 |----------------|-------|-------------|
-| 語音轉文字 | [原音模型](how-to-customize-acoustic-models.md) | 針對用於特定環境 (例如汽車或工廠) 的應用程式、工具或裝置建立自訂原音模型，而這每一個的錄音條件都較特殊。 例如，帶有口音的語音、特定背景雜音或使用特定麥克風來錄音。 |
+| 語音轉換文字 | [原音模型](how-to-customize-acoustic-models.md) | 針對用於特定環境 (例如汽車或工廠) 的應用程式、工具或裝置建立自訂原音模型，而這每一個的錄音條件都較特殊。 例如，帶有口音的語音、特定背景雜音或使用特定麥克風來錄音。 |
 | | [語言模型](how-to-customize-language-model.md) | 建立自訂語言模型來提升特定產業的詞彙和文法轉譯，例如醫療術語或 IT 專業術語。 |
 | | [發音模型](how-to-customize-pronunciation.md) | 使用自訂發音模型，您可以定義語音形式和顯示字組或字詞。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 - 簡單的 .txt 檔。 |
 | 文字轉換語音 | [聲音音調](how-to-customize-voice-font.md) | 自訂聲音音調可讓您為自己的品牌建立可辨識的獨特聲音。 只需少量資料即可開始建立。 提供的資料愈多，您的聲音音調聽起來就愈自然且愈像真人。 |

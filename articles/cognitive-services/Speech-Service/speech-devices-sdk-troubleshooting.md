@@ -1,7 +1,7 @@
 ---
-title: 疑難排解語音裝置 SDK-語音服務
+title: 針對語音裝置 SDK-語音服務進行疑難排解
 titleSuffix: Azure Cognitive Services
-description: 本文章提供當您使用語音裝置 SDK 時，可能會遇到的資訊可協助您解決問題。
+description: 本文提供的資訊可協助您解決使用語音裝置 SDK 時可能會遇到的問題。
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: f55171a177dfcbebb9bc6df5ce125a8f29494946
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606305"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558907"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>針對語音裝置 SDK 進行疑難排解
 
-本文章提供當您使用語音裝置 SDK 時，可能會遇到的資訊可協助您解決問題。
+本文提供的資訊可協助您解決使用語音裝置 SDK 時可能會遇到的問題。
 
 ## <a name="certificate-failures"></a>憑證失敗
 
-如果使用語音服務時，您會收到憑證失敗，，請確定您的裝置有正確的日期和時間：
+如果您在使用語音服務時遇到憑證失敗, 請確定您的裝置具有正確的日期和時間:
 
-1. 移至 [設定]  。 在 [System] \(系統\)  底下，選取 [Date & time] \(日期與時間\)  。
+1. 移至 [設定]。 在 [System] \(系統\)  底下，選取 [Date & time] \(日期與時間\)  。
 
     ![在 [Settings] \(設定\) 底下，選取 [Date & time] \(日期與時間\)](media/speech-devices-sdk/qsg-12.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 將模型匯出至行動裝置 - 自訂視覺服務
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何匯出您的模型，用以建立行動應用程式。
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 7bf8217f5076c0a95d4db6c1c7cbea7bc93b91f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 554a392a7f815a6e646927f137b1e6c2856099bd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550548"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561072"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>匯出您的模型以用於行動裝置
 
@@ -69,10 +69,10 @@ ms.locfileid: "65550548"
 
 ## <a name="next-steps"></a>後續步驟
 
-將您匯出的模型整合到應用程式中，瀏覽下列文章或範例的其中一個：
+藉由流覽下列其中一個文章或範例, 將您匯出的模型整合到應用程式:
 
-* [搭配 Python 使用 Tensorflow 模型](export-model-python.md)
-* [搭配 Windows Machine Learning 中使用您的 ONNX 模型](custom-vision-onnx-windows-ml.md)
-* 請參閱範例[CoreML 模型的 iOS 應用程式](https://go.microsoft.com/fwlink/?linkid=857726)Swift 與即時的影像分類。
-* 請參閱範例[Android 應用程式中的 Tensorflow 模型](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)在 Android 上的即時的影像分類。
-* 請參閱範例[CoreML 模型，使用 Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) Xamarin iOS 應用程式的即時的影像分類。
+* [搭配 Python 使用您的 Tensorflow 模型](export-model-python.md)
+* [搭配 Windows Machine Learning 使用您的 ONNX 模型](custom-vision-onnx-windows-ml.md)
+* 請參閱[iOS 應用程式中的 CoreML 模型](https://go.microsoft.com/fwlink/?linkid=857726)範例, 以取得使用 Swift 的即時影像分類。
+* 請參閱[android 應用程式中的 Tensorflow 模型](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)範例, 以取得 android 上的即時影像分類。
+* 如需 Xamarin iOS 應用程式中的即時影像分類, 請參閱[使用 xamarin 進行 CoreML 模型](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)的範例。

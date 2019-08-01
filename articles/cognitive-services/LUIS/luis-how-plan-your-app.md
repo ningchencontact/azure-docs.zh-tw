@@ -1,6 +1,6 @@
 ---
-title: 規劃您的應用程式
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 規劃您的應用程式-LUIS
+titleSuffix: Azure Cognitive Services
 description: 概述相關的應用程式意圖和實體，然後在 Language Understanding Intelligent Service (LUIS) 中建立應用程式計畫。
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196230"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638306"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>以主體領域、意圖和實體規劃您的 LUIS 應用程式
 
-規劃應用程式是很重要的。 請識別您的領域，包括與您的應用程式有關的可能意圖和實體。  
+若要規劃您的應用程式, 請識別您的主題區域網域。 這包括與您的應用程式相關的可能意圖和實體。  
 
 ## <a name="identify-your-domain"></a>識別您的領域
 
@@ -39,11 +39,13 @@ LUIS 應用程式是以領域特定的主題為核心。  例如，您可能準�
 
 ## <a name="create-example-utterances-for-each-intent"></a>建立每個意圖的範例語句
 
-在您判定意圖後，請為每個意圖建立 10 到 15 個範例語句。 一開始的語句不應低於此數量，但也不應為每個意圖建立許多語句。 每個語句都應該與上一個語句不同。 良好的語句變化包括整體字數、用字選擇、動詞時態和標點符號。 
+決定意圖之後, 請為每個意圖建立15到30個範例語句。 一開始, 請不要少於此數目, 或為每個意圖建立太多語句。 每個語句都應該與上一個語句不同。 良好的語句變化包括整體字數、用字選擇、動詞時態和標點符號。 
+
+如需詳細資訊, 請參閱[語句](luis-concept-utterance.md)。
 
 ## <a name="identify-your-entities"></a>識別您的實體
 
-在範例語句中，識別您要擷取的實體。 若要預訂航班，您需要如目的地、日期、航空公司、票證類別及艙等之類的資訊。 您可以為這些資料類型建立實體，並且在範例語句中標示這些[實體](luis-concept-entity-types.md)，因為它們是完成意圖的要件。 
+在範例語句中，識別您要擷取的實體。 若要預訂航班, 您需要「目的地」、「日期」、「航空公司」、「票證」類別和「旅遊」等資訊。 建立這些資料類型的實體, 然後在範例語句中標示[實體](luis-concept-entity-types.md), 因為它們對於完成意圖很重要。 
 
 當您判斷出要在應用程式中使用哪些實體之後，請記得您可以使用不同類型的實體，來擷取不同類型物件之間的關聯性。 [LUIS 中的實體](luis-concept-entity-types.md)能提供有關這些不同類型的詳細資料。
 

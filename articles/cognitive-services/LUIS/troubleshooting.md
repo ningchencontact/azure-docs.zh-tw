@@ -1,5 +1,5 @@
 ---
-title: 常見問題集 (FAQ)
+title: 常見問題 (FAQ)-LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 常見問題集的解答。
 author: diberry
@@ -9,26 +9,26 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5122a5a88f5a0d67799930999236f2993bc43f8f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204109"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609756"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
 本文包含 Language Understanding (LUIS) 常見問題集的解答。
 
-## <a name="whats-new"></a>新功能
+## <a name="whats-new"></a>新增功能
 
-[了解更多](whats-new.md)有關的 Language Understanding 新功能。
+[深入瞭解](whats-new.md)Language Understanding 的新功能。
 
 <a name="luis-authoring"></a>
 
-## <a name="authoring"></a>編寫
+## <a name="authoring"></a>製作
 
 ### <a name="what-are-the-luis-best-practices"></a>LUIS 最佳做法為何？
 從[撰寫週期](luis-concept-app-iteration.md)開始，然後閱讀[最佳做法](luis-concept-best-practices.md)。
@@ -68,13 +68,13 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>如何移轉 LUIS 應用程式的擁有權？
 若要將 LUIS 應用程式傳送至不同的 Azure 訂用帳戶，請匯出 LUIS 應用程式，並使用新的帳戶匯入它。 在呼叫 LUIS 應用程式的用戶端應用程式中，更新 LUIS 應用程式識別碼。 新應用程式可能會傳回與原始應用程式略為不同的 LUIS 分數。
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>範例 [utterance] 而不是我的自訂實體中加上標記的預先建置的實體。 如何修正此警示? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>預建實體會在範例語句中加上標籤, 而不是我的自訂實體。 如何修正此警示? 
 
-請參閱[疑難排解預先建置的實體](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)。
+請參閱針對預先建立的[實體進行疑難排解](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)。
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>我嘗試匯入的應用程式或版本的檔案，但是我收到錯誤，發生了什麼事？ 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>我嘗試匯入應用程式或版本檔案, 但收到錯誤訊息, 發生了什麼事？ 
 
-深入了解[版本匯入錯誤](luis-how-to-manage-versions.md#import-errors)並[應用程式匯入錯誤](luis-how-to-start-new-app.md#import-errors)。
+深入瞭解[版本匯入錯誤](luis-how-to-manage-versions.md#import-errors)和[應用程式匯入錯誤](luis-how-to-start-new-app.md#import-errors)。
 
 <a name="luis-collaborating"></a>
 
@@ -123,7 +123,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>LUIS 應用程式昨天還可以運作，但現在我收到 403 錯誤。 我未變更應用程式。 如何修正問題？
-遵循下一個常見問題集中的[指示](#how-do-i-create-and-assign-a-luis-endpoint-key)來建立 LUIS 端點金鑰，並將它指派給應用程式。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。
+請遵循這些[指示](#how-do-i-create-and-assign-a-luis-endpoint-key)來建立 LUIS 端點金鑰, 並將它指派給應用程式。 接著, 您必須將用戶端應用程式的 HTTP 要求變更為端點, 以[使用新的端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。 如果您在不同的區域中建立了新的資源, 也請變更 HTTP 用戶端要求的區域。
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>如何保護 LUIS 端點？
 請參閱[保護端點](luis-concept-security.md#securing-the-endpoint)。
@@ -189,11 +189,11 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>我收到了有關超出配額的錯誤。 如何修正問題？ 
 
-查看，請[修正的 HTTP 狀態碼 403 和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429)若要深入了。
+若要深入瞭解, 請參閱[修正 HTTP 狀態碼403和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 。
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>我需要處理更多端點查詢。 該怎麼做？ 
 
-查看，請[修正的 HTTP 狀態碼 403 和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429)若要深入了。
+若要深入瞭解, 請參閱[修正 HTTP 狀態碼403和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 。
 
 
 
@@ -286,25 +286,25 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 是，如果您必須測量連線使用量，可以在這些情況下，使用 LUIS [容器](luis-container-howto.md)。 
 
-## <a name="migrating-to-the-next-version"></a>移轉至下一個版本
+## <a name="migrating-to-the-next-version"></a>遷移至下一個版本
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>如何移轉預覽 V3 API？ 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>如何? 遷移至預覽 V3 API 嗎？ 
 
-請參閱[API v2 至 v3 的移轉指南 LUIS 應用程式](luis-migration-api-v3.md)
+請參閱[API v2 至 v3 的 LUIS 應用程式遷移指南](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>2019 大會宣布
+## <a name="build-2019-conference-announcements"></a>組建2019會議公告
 
-2019 大會上發行的下列功能：
+組建2019會議已發行下列功能:
 
-* [V3 API 移轉指南的預覽](luis-migration-api-v3.md)
-* [改善的分析儀表板](luis-how-to-use-dashboard.md)
-* [改善預先建置的網域](luis-reference-prebuilt-domains.md) 
-* [動態清單的實體](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [V3 API 遷移指南的預覽](luis-migration-api-v3.md)
+* [改良的分析儀表板](luis-how-to-use-dashboard.md)
+* [改良的預建網域](luis-reference-prebuilt-domains.md) 
+* [動態清單實體](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [外部實體](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 影片：
 
-* [如何使用 Azure 交談式 AI 來調整您的企業下, 一代](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [如何使用 Azure 對話式 AI 來調整您的企業以進行下一代](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>後續步驟
 

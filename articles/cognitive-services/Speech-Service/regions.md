@@ -1,6 +1,6 @@
 ---
-title: 區域 - 語音服務
-titlesuffix: Azure Cognitive Services
+title: 區域-語音服務
+titleSuffix: Azure Cognitive Services
 description: 「語音服務」區域的參考。
 services: cognitive-services
 author: mahilleb-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: c0414277b4851891911908ba4f42e92abedc86e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466981"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553194"
 ---
 # <a name="speech-service-supported-regions"></a>語音服務支援的區域
 
@@ -28,9 +28,9 @@ ms.locfileid: "67466981"
 
 在[語音 SDK](speech-sdk.md) 中，區域會指定為字串 (例如，在適用於 C# 的語音 SDK 中，作為 `SpeechConfig.FromSubscription` 的參數)。
 
-### <a name="speech-to-text-text-to-speech-and-translation"></a>語音轉換文字、 文字轉換語音，以及轉譯
+### <a name="speech-to-text-text-to-speech-and-translation"></a>語音轉換文字、文字轉換語音和翻譯
 
-在這些區域中的語音 SDK 是可用**語音辨識**，**文字轉換語音**，並**轉譯**:
+語音 SDK 適用于**語音辨識**、**文字到語音**轉換和**翻譯**這兩個區域:
 
   區域 | 語音 SDK 參數 | 語音自訂入口網站
  ------|-------|--------
@@ -46,7 +46,7 @@ ms.locfileid: "67466981"
  東南亞 | `southeastasia` | https://southeastasia.cris.ai
  日本東部 | `japaneast` | https://japaneast.cris.ai
  南韓中部 | `koreacentral` | https://koreacentral.cris.ai
- 澳洲東部 | `australiaeast` | https://australiaeast.cris.ai
+ 澳大利亞東部 | `australiaeast` | https://australiaeast.cris.ai
  加拿大中部 | `canadacentral` | https://canadacentral.cris.ai
  北歐 | `northeurope` | https://northeurope.cris.ai
  西歐 | `westeurope` | https://westeurope.cris.ai
@@ -61,7 +61,7 @@ ms.locfileid: "67466981"
  ------|-------|--------
  亞洲 | 東亞 | `eastasia`
  亞洲 | 東南亞 | `southeastasia`
- 澳大利亞 | 澳洲東部 | `australiaeast`
+ 澳洲 | 澳大利亞東部 | `australiaeast`
  歐洲 | 北歐 | `northeurope`
  歐洲 | 西歐 | `westeurope`
  北美洲 | East US | `eastus`
@@ -76,7 +76,7 @@ ms.locfileid: "67466981"
 
 ### <a name="voice-first-virtual-assistants"></a>語音優先虛擬助理
 
-[語音 SDK](speech-sdk.md)支援**語音第一個虛擬助理**在這些區域中的功能：
+[語音 SDK](speech-sdk.md)支援下欄區域中的**語音優先虛擬助理**功能:
 
 區域 | 語音 SDK 參數
 -------|---------------------
@@ -92,14 +92,14 @@ East US | `eastus`
 
 語音服務也會針對語音轉換文字與文字轉換語音要求公開 REST 端點。
 
-### <a name="speech-to-text"></a>語音轉文字
+### <a name="speech-to-text"></a>語音轉換文字
 
-語音轉換文字的參考文件，請參閱[語音轉換文字 API](rest-speech-to-text.md)。
+如需語音轉換文字的參考檔, 請參閱[語音轉換文字 REST API](rest-speech-to-text.md)。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>文字轉換語音
 
-如需文字轉換語音的參考文件，請參閱[文字轉換語音 API](rest-text-to-speech.md)。
+如需文字轉換語音的參考檔, 請參閱[文字轉換語音 REST API](rest-text-to-speech.md)。
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e56926b9a23e0dd649fb85347e521a6dda7863a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479881"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697354"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>教學課程：將 Power BI 與文字分析認知服務整合
 
@@ -36,7 +36,7 @@ Microsoft Power BI Desktop 是免費的應用程式，可讓您將您的資料�
 - Microsoft Power BI Desktop。 [免費下載](https://powerbi.microsoft.com/get-started/)。
 - Microsoft Azure 帳戶。 [開始免費試用](https://azure.microsoft.com/free/)或[登入](https://portal.azure.com/)。
 - 具有文字分析 API 的認知服務 API 帳戶。 如果您沒有帳戶，可以[註冊](../../cognitive-services-apis-create-account.md)並使用免費層提供的 5,000 筆交易/月 (請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)以完成此教學課程)。
-- 您在註冊過程中為您產生的[文字分析存取金鑰](../how-tos/text-analytics-how-to-access-key.md)。
+- 您在註冊過程中為您產生的[文字分析存取金鑰](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)。
 - 客戶評論。 您可以使用[我們的範例資料](https://aka.ms/cogsvc/ta)，或是自己的資料。 此教學課程假設您使用我們的範例資料。
 
 ## <a name="load-customer-data"></a>載入客戶資料

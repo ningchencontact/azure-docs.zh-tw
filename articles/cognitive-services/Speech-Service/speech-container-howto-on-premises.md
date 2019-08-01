@@ -1,5 +1,5 @@
 ---
-title: 使用 Kubernetes 搭配 Helm
+title: 搭配 Kubernetes 和 Helm 使用-語音服務
 titleSuffix: Azure Cognitive Services
 description: 使用 Kubernetes 和 Helm 來定義語音轉換文字和文字轉換語音的容器映射, 我們將建立 Kubernetes 套件。 此套件將會部署到內部部署的 Kubernetes 叢集。
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: ba292a7d3bdf58ff78764bc2095fdf4a8c486070
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 06f2db708385c4c3fbf8d005b701b633ac52776a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326213"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559138"
 ---
 # <a name="use-with-kubernetes-and-helm"></a>使用 Kubernetes 搭配 Helm
 
 管理內部部署語音容器的一個選項是使用 Kubernetes 和 Helm。 使用 Kubernetes 和 Helm 來定義語音轉換文字和文字轉換語音的容器映射, 我們將建立 Kubernetes 套件。 此套件將會部署到內部部署的 Kubernetes 叢集。 最後, 我們將探討如何測試已部署的服務和各種設定選項。 如需在沒有 Kubernetes 協調流程的情況下執行 Docker 容器的詳細資訊, 請參閱[安裝和執行語音服務容器](speech-container-howto.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在內部部署使用語音容器之前, 請先遵循下列必要條件:
 
@@ -30,7 +30,7 @@ ms.locfileid: "68326213"
 | Azure 帳戶 | 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶][free-azure-account] 。 |
 | 容器登錄存取 | 為了讓 Kubernetes 將 docker 映射提取到叢集, 它需要容器登錄的存取權。 您必須先[要求對 container registry 的存取權][speech-preview-access]。 |
 | Kubernetes CLI | 需要[KUBERNETES CLI][kubernetes-cli] , 才能從容器登錄中管理共用認證。 Helm 之前也需要 Kubernetes, 這是 Kubernetes 套件管理員。 |
-| Helm CLI | 作為[HELM CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]的一部分。 |
+| Helm CLI | 在[HELM CLI][helm-install]安裝過程中, 您也需要初始化 Helm, 這將會安裝[Tiller][tiller-install]。 |
 |語音資源 |若要使用這些容器，您必須具備：<br><br>用來取得相關聯計費金鑰和計費端點 URI 的_語音_Azure 資源。 這兩個值都可在 Azure 入口網站的 [**語音**總覽] 和 [金鑰] 頁面上取得, 而且必須要有才能啟動容器。<br><br>**{API_KEY}** : 資源金鑰<br><br>**{ENDPOINT_URI}** : 端點 URI 範例為:`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>建議的主機電腦設定

@@ -1,6 +1,6 @@
 ---
 title: 設定容器 - 電腦視覺
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 在電腦視覺中設定辨識文字容器的各種設定。
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3e1dc68ec67e8a7a24c3459519df80a8faf2fc01
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321349"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565643"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>設定辨識文字 Docker 容器
 
@@ -43,7 +43,7 @@ ms.locfileid: "68321349"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。  `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+設定會指定 Azure 上用來計量容器帳單資訊之認知服務資源的端點 URI。 `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_認知服務_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 
@@ -102,7 +102,7 @@ ms.locfileid: "68321349"
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](computer-vision-how-to-install-containers.md#billing)。
-> ApiKey 值是 [Azure  `Cognitive Services`資源金鑰] 頁面中的金鑰。 
+> ApiKey 值是 [Azure `Cognitive Services`資源金鑰] 頁面中的金鑰。 
 
 ## <a name="recognize-text-container-docker-examples"></a>辨識文字容器 Docker 範例
 

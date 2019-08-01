@@ -1,6 +1,6 @@
 ---
-title: 模式可協助預測
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 模式協助預測-LUIS
+titleSuffix: Azure Cognitive Services
 description: 模式可讓您取得更精確的意圖，而不需提供更多的語句。
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bad3bdc2b4508c082ca50647d5de5e7265c763a1
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813556"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639188"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可改善預測精確度
 模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多的語句。 
@@ -31,12 +31,12 @@ ms.locfileid: "60813556"
 |Who is Tom's subordinate?|GetOrgChart|.30|
 |Who is the subordinate of Tom?|GetOrgChart|.30|
 
-如果應用程式含有的 10 到 20 個語句具有不同的句子長度、不同的字組順序，甚至不同的字組 ("subordinate"、"manage"、"report" 的同義字)，LUIS 可能會傳回很低的信賴分數。 建立以協助了解文字順序的重要性的 LUIS 的模式。 
+如果應用程式含有的 10 到 20 個語句具有不同的句子長度、不同的字組順序，甚至不同的字組 ("subordinate"、"manage"、"report" 的同義字)，LUIS 可能會傳回很低的信賴分數。 建立模式以協助 LUIS 瞭解文字順序的重要性。 
 
 模式可解決下列狀況： 
 
-* 意圖分數不足
-* 正確的目的不是最高的分數，但太靠近最高的分數。 
+* 意圖分數偏低
+* 正確的意圖不是最高分, 但太接近最高分。 
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>模式不是意圖保證
 模式會混合使用多個預測技術。 在模式中設定範本語句的意圖並不是意圖預測的保證，但卻是很強的示意訊號。 
@@ -45,7 +45,7 @@ ms.locfileid: "60813556"
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>模式不會改善機器學習的實體偵測
 
-模式主要是用來協助預測的意圖和角色。 Pattern.any 實體用來擷取自由格式的實體。 模式會使用實體，而模式無法協助偵測機器學習的實體。  
+模式主要是用來協助預測意圖和角色。 模式。任何實體都是用來將自由格式的實體解壓縮。 當模式使用實體時, 模式不會協助偵測機器學習的實體。  
 
 如果將多個語句摺疊成單一模式，則不要期望看到改善的實體預測。 若要引發簡單實體，您需要新增語句或使用清單實體，否則您的模式不會引發。
 
@@ -61,55 +61,55 @@ ms.locfileid: "60813556"
 ## <a name="pattern-syntax"></a>模式語法
 模式語法是語句的範本。 此範本應該包含您要比對的字組和實體，以及您要忽略的字組和標點符號。 它**不是**一個規則運算式。 
 
-模式中的實體是用大括弧 `{}` 括住。 模式可以包含實體，以及具有角色的實體。 [Pattern.any](luis-concept-entity-types.md#patternany-entity)是只用於模式中的實體。 
+模式中的實體是用大括弧 `{}` 括住。 模式可以包含實體，以及具有角色的實體。 [Pattern。 any](luis-concept-entity-types.md#patternany-entity)是僅用於模式的實體。 
 
-模式的語法支援下列語法：
+模式語法支援下列語法:
 
-|函式|語法|巢狀層級|範例|
+|函數|語法|嵌套層級|範例|
 |--|--|--|--|
-|實體| {} 層大括號|2|其中是表單 {實體-名稱}？|
-|選用|[]-方括號<BR><BR>3 的選擇性和群組的任意組合的巢狀層級上的限制 |2|問號是選擇性的 [？]|
-|群組|（)-括號|2|是 ( \| b）。|
-|或| \| -分隔號 （管線）<br><br>在垂直軸 （或者） 在一個群組 2 的限制 |-|其中是表單 ({表單-名稱-簡短} &#x7c; {表單名稱-長時間} &#x7c; {表單 number})| 
-|開頭和/或結束 [utterance]|^-插入號|-|^ 開始 [utterance]<br>完成 [utterance] ^<br>^ 嚴格常值相符項目與 {number} 實體的整個 utterance ^|
+|實體| {}-大括弧|2|其中的格式為 {entity-name}？|
+|選擇性|[]-方括弧<BR><BR>任何選擇性和群組組合的嵌套層級上有3個限制 |2|問號是選擇性的 [？]|
+|群組|()-括弧|2|為 (a \| b)|
+|或| \|-分隔號 (管線)<br><br>在一個群組中的分隔號 (或) 上有2個限制 |-|其中的格式為 ({格式名稱-簡短} &#x7c; {表單名稱-long} &#x7c; {表單編號})| 
+|語句的開始和/或結束|^-插入號|-|^ 開始語句<br>語句已完成 ^<br>具有 {number} 個實體 ^ 的整個語句之 ^ strict 常值比對|
 
-## <a name="nesting-syntax-in-patterns"></a>在模式中的巢狀語法
+## <a name="nesting-syntax-in-patterns"></a>在模式中嵌套語法
 
-**選擇性**語法中的，使用方括弧括住，可以是巢狀的兩個層級。 例如： `[[this]is] a new form` 。 此範例允許下列的表達方式： 
+**選擇性**的語法 (以方括弧括住) 可以嵌套兩個層級。 例如： `[[this]is] a new form` 。 這個範例允許下列語句: 
 
-|巢狀的選擇性 [utterance] 範例|說明|
+|Nested 選擇性語句範例|說明|
 |--|--|
-|這是新的表單|比對模式中的所有文字|
-|是新的表單|相符項目外部的選擇性 word 和非選擇性的文字模式中|
-|新的表單|只有所需的相符項目文字|
+|這是新的表單|符合模式中的所有文字|
+|是新的表單|符合模式中的外部選擇性單字和非選擇性單字|
+|新表單|僅符合必要的單字|
 
-**分組**語法，加上括弧，可以是巢狀的兩個層級。 例如： `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 。 這項功能可讓任何要比對的三個實體。 
+使用括弧的**群組**語法可以嵌套兩個層級。 例如： `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 。 這項功能可讓三個實體中的任何一個相符。 
 
-如果 Entity1 是與原始 （西雅圖） 和目的地 (Cairo) 等角色的位置，而實體 2 的已知的建置名稱，從清單中的實體 (RedWest C)，下列的表達方式會對應至這個模式中：
+如果 Entity1 是具有「來源」 (西雅圖) 和「目的地」 (Cairo) 等角色的位置, 而「實體2」是來自清單實體 (RedWest) 的已知建築物名稱, 則下列語句會對應到此模式:
 
-|巢狀的群組 [utterance] 範例|說明|
+|嵌套群組語句範例|說明|
 |--|--|
 |RedWest-C|符合外部群組實體|
 |Seattle|符合其中一個內部群組實體|
-|開羅|符合其中一個內部群組實體|
+|Cairo|符合其中一個內部群組實體|
 
-## <a name="nesting-limits-for-groups-with-optional-syntax"></a>巢狀限制具有選擇性語法的群組
+## <a name="nesting-limits-for-groups-with-optional-syntax"></a>使用選擇性語法為群組嵌套限制
 
-組合**分組**具有**選擇性**語法有 3 個巢狀層級的限制。
+使用**選擇性**語法**分組**的組合具有3個嵌套層級的限制。
 
-|允許|範例|
+|已允許|範例|
 |--|--|
 |是|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
 |否|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
 
-## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>巢狀群組或-ing 語法的限制
+## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>使用 or-ing 語法來嵌套群組的限制
 
-組合**分組**具有**或-ing**語法的上限為 2 的垂直線。
+**群組**與**或-ing**語法的組合具有2個分隔號的限制。
 
-|允許|範例|
+|已允許|範例|
 |--|--|
-|是|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
-|否|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
+|是|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
+|否|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>將實體新增至模式範本的語法
 若要將實體新增至模式範本，請用大括弧括住實體名稱，例如 `Who does {Employee} manage?`。 
@@ -140,14 +140,14 @@ Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵�
 |How much does **ask** cost and what format is it available in?|
 |How much does **The Curious Incident of the Dog in the Night-Time** cost and what format is it available in?| 
 
-書籍標題的文字不造成混淆 LUIS LUIS 知道書名結束的位置，因為 Pattern.any 實體為基礎。
+書籍標題的單字不會對 LUIS 造成混淆, 因為 LUIS 會根據模式來知道書名的結尾。任何實體。
 
 ## <a name="explicit-lists"></a>明確清單
 
-建立[明確清單](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)透過撰寫的 API，以允許例外狀況時：
+透過撰寫 API 建立[明確清單](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8), 以便在下列情況中允許例外狀況:
 
-* 您的模式包含[Pattern.any](luis-concept-entity-types.md#patternany-entity)
-* 該模式的語法是用來根據 [utterance] 不正確的實體擷取的可能性。 
+* 您的模式包含[模式。](luis-concept-entity-types.md#patternany-entity)
+* 而且該模式語法允許根據語句來進行不正確的實體解壓縮。 
 
 例如，假設您有一個模式，其包含選用語法 `[]` 和實體語法 `{}`，且以錯誤擷取資料的方式合併在一起。
 
@@ -160,7 +160,7 @@ Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵�
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-在上表中，主體應該`the man from La Mancha`（書名），但因為主體包含選擇性的字`from`，標題會不正確地預測。 
+在上表中, 主旨應該是`the man from La Mancha` (書籍標題), 但因為主旨包含選擇性的單字`from`, 所以不會正確預測標題。 
 
 若要修正模式的這個例外狀況，請使用[撰寫明確清單的 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)，新增 `the man from la mancha` 作為符合 {subject} 實體的明確清單。
 
@@ -169,15 +169,15 @@ Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵�
 
 |模式與選用文字|意義|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find` 和`from {person}`是選擇性的|
-|`Can you help me[?]|是選擇性的標點符號|
+|`[find] email about {subject} [from {person}]`|`find`和`from {person}`是選擇性的|
+|' 可以協助我 [？]|標點符號是選擇性的|
 
-標點符號 (`?`， `!`， `.`) 應該予以忽略，而且您需要略過它們在模式中使用括號語法。 
+應該忽略標點符號`?`( `!`、 `.`、), 而且您必須在模式中使用方括弧語法來忽略它們。 
 
 ## <a name="pattern-only-apps"></a>僅限模式的應用程式
-只要每個項目的的模式，您可以建置應用程式，但有沒有範例的發音的意圖。 僅限模式的應用程式中，因為這些需要範例談話模式時，不應包含機器學習的實體。 
+只要有每個意圖的模式, 您就可以使用沒有範例語句的意圖來建立應用程式。 針對僅限模式的應用程式, 模式不應包含機器學習的實體, 因為這需要範例語句。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 了解[最佳做法](luis-concept-best-practices.md)。
 
 ## <a name="next-steps"></a>後續步驟

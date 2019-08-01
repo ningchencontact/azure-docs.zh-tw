@@ -1,6 +1,6 @@
 ---
-title: 支援和協助選項
-titlesuffix: Azure Cognitive Services
+title: 支援和協助選項-語音服務
+titleSuffix: Azure Cognitive Services
 description: 了解如何在建立與「語音服務」整合的應用程式時，取得問題的協助和支援
 services: cognitive-services
 author: jhakulin
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 981851ab9c4bbc39a2bd5df9f97a080b4f6ea388
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404796"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558839"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
 您剛開始探索語音服務的功能嗎？ 您的應用程式是否要實作新功能？ 開發人員可遵循以下建議來取得協助。
 
 > [!div class="checklist"]
-> * 掌握「Azure 認知服務」的最新發展，或尋找與「語音服務」相關的最新消息。
+> * 掌握「Azure 認知服務」  的最新發展，或尋找與「語音服務」  相關的最新消息。
 > * 版本資訊包含所有版本的相關資訊。
 > * 搜尋以查看社群是否已經在討論您的問題，或者您想要實作的功能是否已有現有文件。
-> * 如果您找不到滿意的答案，請在 Stack Overflow 上發問。
-> * 如果您發現 GitHub 上的其中一個範例有問題，請提出 GitHub 問題。
-> * 在「使用者心聲論壇」中搜尋解決方案。
+> * 如果您找不到滿意的答案，請在 Stack Overflow  上發問。
+> * 如果您發現 GitHub 上的其中一個範例有問題，請提出 GitHub  問題。
+> * 在「使用者心聲論壇」  中搜尋解決方案。
 
 ## <a name="stay-informed"></a>掌握最新資訊
 
@@ -80,7 +80,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 ## <a name="create-a-github-issue"></a>建立 GitHub 問題
 
-範例通常會發佈為開放原始碼。 如有問題，請在各自的 GitHub 存放庫中建立「問題」。 您也可以提交提取要求。 下列清單包含範例存放庫的連結：
+範例通常會發佈為開放原始碼。 如有問題，請在各自的 GitHub 存放庫中建立「問題」  。 您也可以提交提取要求。 下列清單包含範例存放庫的連結：
 
 * [語音 SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [語音裝置 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)

@@ -9,12 +9,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 21dda323cf465f56fb3f43160dd04c27a81d5590
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294037"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698082"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>快速入門：使用 Node 進行專案答案搜尋
 
@@ -22,7 +22,7 @@ ms.locfileid: "58294037"
 
 ## <a name="prerequisites"></a>必要條件
 
-取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
+取得免費試用版[認知服務實驗室](https://labs.cognitive.microsoft.com/en-us/project-answer-search)的存取金鑰
 
 此範例使用 Node v8.9.4
 

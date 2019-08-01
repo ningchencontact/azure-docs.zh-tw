@@ -1,6 +1,6 @@
 ---
 title: 最佳做法 - QnA Maker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用下列最佳做法可改善您的知識庫，並為您的應用程式/聊天機器人使用者提供更好的結果。
 services: cognitive-services
 author: diberry
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: dd4f85822a5e6615e7ea6e31b4231c04c9d4e88c
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: bbd6c55337eb30c883ecbd542abbdfc0f842e3f9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542844"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563114"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的最佳做法
 
-[知識庫開發生命週期](../Concepts/development-lifecycle-knowledge-base.md)可引導您了解如何從頭到尾管理知識庫。 改善您的知識庫，提供更好的結果，您的用戶端應用程式或聊天機器人的終端使用者使用這些最佳作法。
+[知識庫開發生命週期](../Concepts/development-lifecycle-knowledge-base.md)可引導您了解如何從頭到尾管理知識庫。 使用這些最佳作法來改善您的知識庫, 並為您的用戶端應用程式或聊天機器人的使用者提供更好的結果。
 
 ## <a name="extraction"></a>擷取
 
@@ -28,9 +28,9 @@ QnA Maker 服務會持續改進從內容中擷取 QnA 的演算法，並擴充�
 
 一般情況下，常見問題集頁面應獨立存在，而不會與其他資訊結合。 產品手冊應有清楚的標題，且最好有索引頁面。 
 
-### <a name="configuring-multi-turn"></a>設定多開啟
+### <a name="configuring-multi-turn"></a>設定多回合
 
-建立啟用多開啟擷取您的知識庫。 如果您的知識庫不會或應該支援問題階層，此階層可以從文件擷取或建立之後會擷取文件。 
+啟用多回合解壓縮以建立您的知識庫。 如果您的知識庫會執行或應該支援問題階層, 則可以從檔解壓縮此階層, 或在檔解壓縮之後建立。 
 
 <!--is this a global setting that can only be configured at kb creation time? -->
 
@@ -43,64 +43,64 @@ QnA Maker 服務會持續改進從內容中擷取 QnA 的演算法，並擴充�
 您可視需要新增多個替代問題，但要讓替代問題維持一樣的簡單性。 新增更多的單字或片語並非問題的主要目的，也無助於 QnA Maker 尋找答案。 
 
 
-### <a name="add-relevant-alternative-questions"></a>新增相關的其他問題
+### <a name="add-relevant-alternative-questions"></a>新增相關的替代問題
 
-您的使用者可能輸入的文字，使用對話樣式問題`How do I add a toner cartridge to my printer?`或搜尋，例如關鍵字`toner cartridge`。 知識庫應該有兩種樣式的問題，才能正確地傳回的最佳回應。 如果您不確定客戶輸入的關鍵字，請使用 Application Insights 資料，來分析查詢。
+您的使用者可能會以交談風格的文字`How do I add a toner cartridge to my printer?`或關鍵字搜尋 (例如) `toner cartridge`輸入問題。 知識庫應該有兩種問題樣式, 才能正確地傳回最佳答案。 如果您不確定客戶輸入的關鍵字, 請使用 Application Insights 資料來分析查詢。
 
 ### <a name="good-answers"></a>良好的解答
 
-最佳解答是簡單的答案，但不是太簡單。 這類不使用解答`yes`和`no`。 如果您的答案應該連結到其他來源，或提供豐富的體驗媒體和連結，使用[中繼資料標記](./knowledge-base.md#key-knowledge-base-concepts)區別答案，然後[提交查詢](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)搭配中的中繼資料標籤`strictFilters`屬性，以取得正確答案的版本。
+最佳的答案是簡單的答案, 但不太簡單。 請勿使用像是`yes`和`no`的答案。 如果您的答案應連結至其他來源, 或透過媒體和連結提供豐富的體驗, 請使用[元資料標記](./knowledge-base.md#key-knowledge-base-concepts)來區別答案, 然後以`strictFilters`屬性中的元資料標記[提交查詢](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration), 以取得正確的答案。版本。
 
 ## <a name="chit-chat"></a>閒聊
-將閒聊新增至您的 Bot，輕而易舉地讓 Bot 變得更健談且吸引人。 您可以輕鬆地建立知識庫時，從預先定義的自身個性遭到新增 chit 聊天資料集，並隨時變更這些。 了解如何[將閒聊新增至您的 KB](../How-To/chit-chat-knowledge-base.md)。 
+將閒聊新增至您的 Bot，輕而易舉地讓 Bot 變得更健談且吸引人。 您可以在建立知識庫時, 輕鬆地從預先定義的特質加入閒聊的資料集, 並隨時加以變更。 了解如何[將閒聊新增至您的 KB](../How-To/chit-chat-knowledge-base.md)。 
 
 ### <a name="choosing-a-personality"></a>選擇特質
-支援數個預先定義的自身個性遭到 chit 對談： 
+閒聊-針對數個預先定義的特質支援聊天: 
 
-|人格 |QnA Maker 資料集檔案 |
+|風格 |QnA Maker 資料集檔案 |
 |---------|-----|
 |專業 |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
 |易記 |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
 |詼諧 |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
-|在意 |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
-|很有興趣 |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
+|管也 |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|熱心 |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-回應的範圍從正式到非正式和不敬。 您應該選取最符合您希望 Bot 所用語調的特質。 您可以檢視[資料集](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)，並選擇一個作為您的機器人的基底，然後以自訂回應。 
+回應的範圍從正式到非正式和不敬。 您應該選取最符合您希望 Bot 所用語調的特質。 您可以查看[資料集](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), 並選擇做為 bot 基底的一個, 然後自訂回應。 
 
 ### <a name="edit-bot-specific-questions"></a>編輯 Bot 特有問題
 有一些屬於閒聊資料集的 Bot 特有問題，而且已填入泛型回答。 變更下列回答，充分反映您的 Bot 詳細資料。 
 
 建議讓下列閒聊 QnA 更加明確：
 
-* 你是誰？
+* 您是誰?
 * 您該怎麼辦？
-* 你幾歲？
+* 您的年齡為何?
 * 誰建立了你？
 * 您好
    
-### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>新增自訂 chit-交談的中繼資料標記
+### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>使用元資料標記新增自訂閒聊-交談
 
-如果您新增您自己 chit 聊天 QnA 組，請務必新增中繼資料，因此會傳回上述問題的答案。 中繼資料名稱/值組是`editorial:chitchat`。
+如果您新增自己的閒聊交談 QnA 配對, 請務必新增中繼資料, 以便傳回這些答案。 中繼資料名稱/值組為`editorial:chitchat`。
 
 ## <a name="searching-for-answers"></a>搜尋解答
 
-GenerateAnswer API 使用的問題和答案來搜尋使用者查詢的最佳解答。
+GenerateAnswer API 會使用這兩個問題和答案來搜尋使用者查詢的最佳解答。
 
-### <a name="searching-questions-only-when-answer-is-not-relevant"></a>是不相關的回應時，才搜尋問題
+### <a name="searching-questions-only-when-answer-is-not-relevant"></a>僅在答案不相關時搜尋問題
 
-使用[ `RankerType=QuestionOnly` ](#choosing-ranker-type)如果您不想要搜尋的解答。 
+[`RankerType=QuestionOnly`](#choosing-ranker-type)如果您不想要搜尋答案, 請使用。 
 
-這個範例時，「 知識庫 」 是一個首字母縮略字為問題與答案作為其完整形式的目錄。 答案的值將無法協助搜尋適當的回應。
+其中一個範例是, 當知識庫是以完整形式做為解答的問題目錄時, 即為縮寫。 答案的值將不會協助搜尋適當的答案。
 
 ## <a name="rankingscoring"></a>排名/評分
 請務必充分利用 QnA Maker 所支援的排名功能。 這樣將可提高指定的使用者查詢獲得適當回應的可能性。
 
 ### <a name="choosing-a-threshold"></a>選擇閾值
 
-預設值[信心分數](confidence-score.md)，作為臨界值為 50，但您可以[變更閾值](confidence-score.md#set-threshold)您根據您需求的 kb。 每個知識庫各有不同，因此您應該測試並選擇最適合您知識庫的閾值。 
+用來作為臨界值的預設[信賴分數](confidence-score.md)為 50, 不過您可以根據需求變更 KB 的[閾值](confidence-score.md#set-threshold)。 每個知識庫各有不同，因此您應該測試並選擇最適合您知識庫的閾值。 
 
 ### <a name="choosing-ranker-type"></a>選擇 Ranker 類型
-根據預設，QnA Maker 搜尋問答集。 如果您想要搜尋只問題時，若要產生答案，請使用`RankerType=QuestionOnly`GenerateAnswer 要求 POST 主體中。
+根據預設, QnA Maker 會搜尋問題和答案。 如果您只想要搜尋問題, 若要產生解答, 請`RankerType=QuestionOnly`在 GenerateAnswer 要求的 POST 主體中使用。
 
 ### <a name="add-alternate-questions"></a>新增替代問題
 [替代問題](../How-To/edit-knowledge-base.md)可提高使用者查詢產生相符項目的可能性。 在同樣的問題可用多種方式提問時，替代問題就有其效用。 這可以包括文句結構和字組樣式的變更。
@@ -114,14 +114,14 @@ GenerateAnswer API 使用的問題和答案來搜尋使用者查詢的最佳解�
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>使用中繼資料標記來篩選問題和答案
 
-[中繼資料](../How-To/edit-knowledge-base.md)新增用戶端應用程式知道它的功能不應該接受所有的答案而縮小根據中繼資料標記的使用者查詢的結果。 即使查詢相同，知識庫解答也可能根據中繼資料標記而不同。 例如，如果餐廳分店的地點不同 (亦即，中繼資料為「地點：西雅圖」   和「地點：雷德蒙」  的不同)，「停車場在哪裡」就可能有不同的回答。
+[中繼資料](../How-To/edit-knowledge-base.md)可讓用戶端應用程式知道它不會採取所有答案, 而是根據元資料標記來縮小使用者查詢結果的範圍。 即使查詢相同，知識庫解答也可能根據中繼資料標記而不同。 例如，如果餐廳分店的地點不同 (亦即，中繼資料為「地點：西雅圖」   和「地點：雷德蒙」  的不同)，「停車場在哪裡」就可能有不同的回答。
 
 ### <a name="use-synonyms"></a>使用同義字
-一些支援的英文語言的同義字時，使用透過不區分大小寫的單字更改[更改 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace)將同義字新增至採用不同格式的關鍵字。 同義字是 QnA Maker 服務層級加入，並由所有知識庫中的服務共用。
+雖然英文語言有一些同義字的支援, 但透過更改[API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace)使用不區分大小寫的文字變異, 將同義字新增至採用不同形式的關鍵字。 同義字會加入至 QnA Maker 服務層級, 並由服務中的所有知識庫共用。
 
 |原始字組|同義字|
 |--|--|
-|buy|purchase<br>net-banking<br>net banking|
+|buy|購買<br>網路-銀行<br>net banking|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>使用相異字詞區隔問題
 QnA Maker 排名演算法會比對使用者查詢與知識庫中的所含問題，在每個問題分別處理不同的需求時，可獲得最佳效果。 若在不同問題間有相同的字組重複出現，就比較難以用這些字組為指定的使用者查詢選擇正確的解答。 
@@ -140,9 +140,9 @@ QnA Maker 可讓使用者對知識庫進行[共同作業](../How-to/collaborate-
 
 
 
-## <a name="active-learning"></a>主動學習
+## <a name="active-learning"></a>主動式學習
 
-[主動式學習](../How-to/improve-knowledge-base.md)具有各種品質和數量的使用者查詢時，其在建議替代問題方面的表現最好。 務必讓用戶端應用程式的使用者查詢參與主動式回饋迴圈，而不需要審查。 一旦 QnA Maker 入口網站中，所建議的問題，您可以 **[篩選-依建議](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** 然後檢閱並接受或拒絕這些建議。 
+[主動式學習](../How-to/improve-knowledge-base.md)具有各種品質和數量的使用者查詢時，其在建議替代問題方面的表現最好。 務必讓用戶端應用程式的使用者查詢參與主動式回饋迴圈，而不需要審查。 在 QnA Maker 入口網站中建議問題之後, 您可以 **[依建議進行篩選](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** , 然後複習並接受或拒絕這些建議。 
 
 ## <a name="next-steps"></a>後續步驟
 

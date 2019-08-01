@@ -1,21 +1,21 @@
 ---
 title: 快速入門：使用異常偵測器 REST API 與 Python 偵測批次異常行為
 titleSuffix: Azure Cognitive Services
-description: 使用異常偵測器 API 來偵測資料數列中的異常狀況，以批次或串流資料為單位。
+description: 使用 Anomaly Detector API 來偵測資料序列中的異常狀況 (以批次或串流資料為單位)。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: c69bc4db35a198d73f9b29ee3ed2fa6b6f71be49
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f40f1b94b3e7c2732fd8bed0bc6e503277b533c3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721459"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565827"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>快速入門：使用異常偵測器 REST API 與 Python 偵測時間序列資料中的異常行為
 
@@ -23,7 +23,7 @@ ms.locfileid: "67721459"
 
 | API 要求                                        | 應用程式輸出                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| 偵測批次異常行為                        | JSON 回應包含時間序列資料中每個資料點的異常狀態 (和其他資料)，以及偵測到的任何異常行為的位置。 |
+| 以批次方式偵測異常狀況                        | JSON 回應包含時間序列資料中每個資料點的異常狀態 (和其他資料)，以及偵測到的任何異常狀況的位置。 |
 | 偵測最新資料點的異常狀態 | JSON 回應包含時間序列資料中最新資料點的異常狀態 (和其他資料)。                                                                                                                                         |
 
  雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
@@ -75,7 +75,7 @@ ms.locfileid: "67721459"
 
 ## <a name="create-a-function-to-send-requests"></a>建立傳送要求的函式
 
-1. 建立名為 `send_request()` 的新函式，取用上方建立的變數。 然後執行下列步驟。
+1. 建立名為 `send_request()` 的新函式，取用上面建立的變數。 然後執行下列步驟。
 
 2. 建立要求標頭的字典。 將 `Content-Type` 設為 `application/json`，並將您的訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。
 
@@ -92,13 +92,13 @@ def send_request(endpoint, url, subscription_key, request_data):
 
 ## <a name="detect-anomalies-as-a-batch"></a>偵測批次異常行為
 
-1. 建立名為 `detect_batch()` 的方法，以在整個批次資料中偵測異常行為。 使用端點、URL、訂用帳戶金鑰和 json 資料呼叫上方建立的 `send_request()` 方法。
+1. 建立名為 `detect_batch()` 的方法，以批次方式偵測整個資料的異常狀況。 使用端點、URL、訂用帳戶金鑰和 json 資料呼叫上方建立的 `send_request()` 方法。
 
 2. 在結果上呼叫 `json.dumps()` 以將其格式化，並列印到主控台。
 
 3. 如果回應包含 `code` 欄位，則列印錯誤碼和錯誤訊息。
 
-4. 否則，在資料集中尋找異常情況的位置。 回應的 `isAnomaly` 欄位包含與指定的資料點是否為異常相關的布林值。 逐一查看清單，並列印任何 `True` 值的索引。 如果有找到，這些值會對應到異常資料點的索引。
+4. 否則，在資料集中尋找異常狀況的位置。 回應的 `isAnomaly` 欄位包含與指定的資料點是否為異常相關的布林值。 逐一查看清單，並列印任何 `True` 值的索引。 如果有找到，這些值會對應到異常資料點的索引。
 
 ```python
 def detect_batch(request_data):
@@ -150,7 +150,7 @@ detect_latest(json_data)
 
 成功的回應會以 JSON 格式傳回。 按一下以下連結，在 GitHub 上檢視 JSON 回應：
 * [批次偵測回應範例](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [最新點偵測回應範例](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [最新資料點偵測回應範例](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 ## <a name="next-steps"></a>後續步驟
 

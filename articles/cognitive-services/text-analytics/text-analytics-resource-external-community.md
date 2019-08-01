@@ -1,7 +1,7 @@
 ---
 title: 文字分析 API 的外部和社群內容
 titleSuffix: Azure Cognitive Services
-description: 夥伴部落格、YouTube 影片、Azure 上 Microsoft 認知服務文字分析 API 的訓練。
+description: 合作夥伴 blog、YouTube 影片、Azure 認知服務文字分析 API 的訓練。
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51263af978ed599d7a7b8a2159c0c9c3c25b33a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827930"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558816"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>文字分析認知服務的外部和社群內容
 
@@ -47,7 +47,7 @@ ms.locfileid: "60827930"
 
 您正在尋找未涵蓋功能或使用案例的相關資訊嗎？ 請考慮在 [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics) 上要求或對它投票。 
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
  [StackOverflow：Azure 文字分析 API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow：Azure 認知服務](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

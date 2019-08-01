@@ -1,6 +1,6 @@
 ---
-title: 適當的範例語句
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 良好的範例語句-LUIS
+titleSuffix: Azure Cognitive Services
 description: 語句是應用程式需要解譯的使用者輸入。 收集您認為使用者會輸入的片語。 納入意義相同但以不同單字長度和單字位置建構的語句。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073163"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638321"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解適合您 LUIS 應用程式的語句
 
@@ -74,23 +74,23 @@ LUIS 會利用由 LUIS 模型建立者精挑細選的語句來建置有效的模
 
 最好從少量語句開始，然後[檢閱端點語句](luis-how-to-review-endpoint-utterances.md)，以正確地預測意圖和擷取實體。
 
-## <a name="utterance-normalization"></a>Utterance 正規化
+## <a name="utterance-normalization"></a>語句正規化
 
-Utterance 正規化是定型和預測期間忽略標點符號和變音符號的效果，程序。
+語句正規化是在定型和預測期間忽略標點符號和變音符號效果的程式。
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>變音符號和標點符號 utterance 正規化
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>變音符號和標點符號的語句正規化
 
-當您建立或匯入應用程式，因為它是應用程式的 JSON 檔案中設定，被定義 utterance 正規化。 Utterance 正規化設定預設會關閉。 
+當您建立或匯入應用程式時, 會定義語句正規化, 因為它是應用程式 JSON 檔案中的設定。 預設會關閉語句正規化設定。 
 
-變音符號是標記或符號內的文字，例如： 
+變音符號是文字中的標記或符號, 例如: 
 
 ```
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-如果您的應用程式啟動時正規化，在中的評分**測試** 窗格中，批次測試，以及端點查詢的所有使用讀音符號或標點符號的表達方式會變更。
+如果您的應用程式開啟正規化, 則在 [**測試**] 窗格中, 批次測試和端點查詢的分數會針對所有使用變音符號或標點符號的語句進行變更。
 
-開啟 [utterance] 正規化變音符號或對 LUIS JSON 的應用程式檔案中的標點符號`settings`參數。
+在參數中, 為您的`settings` LUIS JSON 應用程式檔開啟語句正規化的字元或標點符號。
 
 ```JSON
 "settings": [
@@ -99,22 +99,26 @@ Utterance 正規化是定型和預測期間忽略標點符號和變音符號的�
 ] 
 ```
 
-正規化**標點符號**表示接受訓練您的模型，並在您的端點之前取得預測查詢之前，標點符號會被移除的表達方式從。 
+正規化**標點符號**表示在您的模型經過定型之前, 在您的端點查詢預測之前, 會從語句中移除標點符號。 
 
-正規化**變音符號**會變音符號與一般字元的談話中取代的字元。 例如：`Je parle français`會變成`Je parle francais`。 
+正規化**變音符號**會以一般字元, 在語句中以變音符號取代字元。 例如: `Je parle français`變成`Je parle francais`。 
 
-正規化並不表示您將不是，請參閱標點符號與變音符號範例的發音或預測回應中只是，則會忽略它們定型和預測期間。
+正規化並不表示您不會在範例語句或預測回應中看到標點符號和變音符號, 只是在定型和預測期間會忽略它們。
 
 
 ### <a name="punctuation-marks"></a>標點符號
 
-如果標點符號不會正規化，LUIS 不忽略標點符號，根據預設，因為某些用戶端應用程式可能會對這些標記的重要性。 請確定您的範例語句應有使用標點符號和不使用標點符號兩種版本，讓這兩種樣式傳回相同的相對分數。 
+標點符號在 LUIS 中是個別的語彙基元。 在結尾處包含句號的語句, 以及在結尾不包含句號的語句是兩個不同的語句, 而且可能會得到兩個不同的預測。 
 
-如果標點符號用戶端應用程式中有沒有特定的意義，請考慮[忽略標點符號](#utterance-normalization)藉由將正規化的標點符號。 
+如果標點符號不正規化, LUIS 預設不會忽略標點符號, 因為有些用戶端應用程式可能會對這些標記有重要性。 請確定您的範例語句應有使用標點符號和不使用標點符號兩種版本，讓這兩種樣式傳回相同的相對分數。 
+
+請確定模型會在[範例語句](luis-concept-utterance.md) (含標點符號和不含標點符號) 或在更容易使用特殊語法來忽略標點符號的[模式](luis-concept-patterns.md)中處理標點符號：`I am applying for the {Job} position[.]`
+
+如果標點符號在您的用戶端應用程式中沒有特定意義, 請考慮以正規化標點符號來[忽略標點符號](#utterance-normalization)。 
 
 ### <a name="ignoring-words-and-punctuation"></a>忽略單字和標點符號
 
-如果您想要忽略特定的單字或標點符號模式中的，使用[圖樣](luis-concept-patterns.md#pattern-syntax)具有_忽略_語法的方括號， `[]`。 
+如果您想要忽略模式中的特定單字或標點符號, 請搭配使用[模式](luis-concept-patterns.md#pattern-syntax)與_略_過`[]`方括弧的語法。 
 
 ## <a name="training-utterances"></a>將語句定型
 
@@ -128,7 +132,7 @@ Utterance 正規化是定型和預測期間忽略標點符號和變音符號的�
 
 在將模型定型、發佈及接收[端點](luis-glossary.md#endpoint)查詢之後，請[檢閱 LUIS 所建議的語句](luis-how-to-review-endpoint-utterances.md)。 LUIS 會選取對意圖或實體而言分數低的端點語句。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 檢閱[最佳做法](luis-concept-best-practices.md)，並將其套用為一般撰寫週期的一部分。
 

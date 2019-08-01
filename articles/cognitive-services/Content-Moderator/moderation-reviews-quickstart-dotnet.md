@@ -1,6 +1,6 @@
 ---
 title: 使用 .NET 建立審核項目 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 如何使用 Azure Content Moderator SDK for .NET 建立審核項目。
 services: cognitive-services
 author: sanjeev3
@@ -10,23 +10,23 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9938c79c2ba1b2f80c8f147fafe6ce79e247df43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607182"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564460"
 ---
 # <a name="create-human-reviews-net"></a>建立人工審核 (.NET)
 
-檢閱儲存，並且顯示人力仲裁者，以評估的內容。 當使用者完成檢閱時，結果會傳送至指定的回呼端點。 本指南提供資訊和程式碼範例，可協助您開始使用[內容仲裁者 SDK for.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)來：
+審查儲存和顯示內容, 供人力仲裁者評估。 當使用者完成審查時, 會將結果傳送至指定的回呼端點。 本指南提供資訊和程式碼範例, 可協助您開始使用[內容仲裁 SDK for .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)來執行下列動作:
 
 - 為人工審核者建立一組審核項目
 - 為人工審核者取得現有審核項目的狀態
 
 ## <a name="prerequisites"></a>必要條件
 
-- 登入或建立帳戶，在內容仲裁[審核工具](https://contentmoderator.cognitive.microsoft.com/)站台。
+- 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>請確定您的 API 金鑰可呼叫審核 API 以建立審核項目
 
@@ -159,7 +159,7 @@ public static class Clients
 >
 > 免費層金鑰有一個 RPS 速率限制。
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>新增下列常數，以便**程式**Program.cs 中的類別
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>將下列常數新增至 Program.cs 中的**Program**類別
 
 ```csharp
 /// <summary>
@@ -181,7 +181,7 @@ public static class Clients
     private const string OutputFile = "OutputLog.txt";
 ```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>新增下列常數和靜態欄位來**程式**Program.cs 中的類別
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>將下列常數和靜態欄位新增至 Program.cs 中的**Program**類別
 
 更新這些值，以包含您訂用帳戶和小組專屬的資訊。
 
@@ -238,7 +238,7 @@ private const string MetadataKey = "sc";
 private const string MetadataValue = "true";
 ```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>加入以下的靜態欄位，供**程式**Program.cs 中的類別
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>將下列靜態欄位新增至 Program.cs 中的**Program**類別
 
 您可以使用這些欄位來追蹤應用程式狀態。
 
@@ -382,7 +382,7 @@ private static void CreateReviews(ContentModeratorClient client)
 
 將以下程式碼新增至 **Main** 方法。
 
-此程式碼會模擬許多您在定義和管理清單，以及使用清單來過濾影像時，會執行的作業。 記錄功能可讓您查看內容 mModerator 服務的 SDK 呼叫所產生的回應物件。
+此程式碼會模擬許多您在定義和管理清單，以及使用清單來過濾影像時，會執行的作業。 記錄功能可讓您查看 SDK 對 Content mModerator 服務的呼叫所產生的回應物件。
 
 ```csharp
 using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -536,4 +536,4 @@ Creating reviews for the following images:
 
 ## <a name="next-steps"></a>後續步驟
 
-取得[內容仲裁者.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)並下載[Visual Studio 方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)此對話方塊和其他內容仲裁快速入門，適用於.NET，並開始在您的整合。
+取得[內容仲裁 .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) , 並為此和其他適用于 .Net 的內容仲裁快速入門下載[Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator), 並開始進行您的整合。

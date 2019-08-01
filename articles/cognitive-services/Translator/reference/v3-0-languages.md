@@ -1,6 +1,6 @@
 ---
 title: 翻譯工具文字 API 語言方法
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 語言方法。
 services: cognitive-services
 author: swmachan
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 7bac97b7edbfa0f7a03a65e462106b33160c6d1a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c5298c038f056942ddc754482cbf4ec8cd77b48b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435087"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595016"
 ---
-# <a name="translator-text-api-30-languages"></a>翻譯工具文字 API 3.0：Languages
+# <a name="translator-text-api-30-languages"></a>翻譯工具文字 API 3.0：語言
 
 取得翻譯工具文字 API 其他作業目前支援的語言集合。 
 
@@ -48,7 +48,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 要求標頭為：
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">標頭</th>
   <th>描述</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ## <a name="response-headers"></a>回應標頭
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">標頭</th>
   <th>描述</th>
   <tr>
     <td>ETag</td>
@@ -263,11 +263,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>伺服器拒絕要求，因為用戶端已超過要求限制。</td>
+    <td>伺服器已拒絕要求, 因為用戶端已超過要求限制。</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
+    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 `X-RequestId` 的要求識別碼，以及來自要求標頭 `X-ClientTraceId` 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>

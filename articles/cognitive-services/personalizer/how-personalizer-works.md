@@ -2,19 +2,19 @@
 title: 個人化工具的運作方式 - 個人化工具
 titleSuffix: Azure Cognitive Services
 description: 個人化工具會使用機器學習來探索要在內容中使用的動作。 每個學習迴圈都會有一個模型，這個模型會專門根據您透過排名和報酬呼叫而傳送給模型的資料來進行定型。 每個學習迴圈彼此完全無關。
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 7bdafafc0d542a98b80f2b6f5db2c14c8777bf5b
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.author: diberry
+ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423252"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663921"
 ---
 # <a name="how-personalizer-works"></a>個人化工具的運作方式
 
@@ -27,13 +27,13 @@ ms.locfileid: "68423252"
 
 **排名** API 會決定使用：
 
-* 利用：目前的模型，其會根據過去的資料來決定最佳的動作。
-* 探索：選取不同的動作，而非最佳動作。
+* 利用  ：目前的模型，其會根據過去的資料來決定最佳的動作。
+* 探索  ：選取不同的動作，而非最佳動作。
 
 **報酬** API：
 
 * 會收集資料，藉由記錄每個排名呼叫的特性和報酬分數來將模型定型。
-* 會使用該資料，根據「學習原則」中指定的設定來更新模型。
+* 會使用該資料，根據「學習原則」  中指定的設定來更新模型。
 
 ## <a name="architecture"></a>架構
 
@@ -57,7 +57,7 @@ ms.locfileid: "68423252"
 
 * **學習迴圈**：您可以針對會受益於個人化的應用程式，為其各個組件建立學習迴圈。 如果您有多個要個人化的經驗，請為每個經驗各建立一個迴圈。 
 
-* **動作**：動作是可從中選擇的內容項目，例如產品或促銷活動。 個人化工具會透過排名 API 選擇最佳動作來對使用者顯示，此動作也稱為「報酬動作」。 每個動作都可以有使用排名要求所提交的特性。
+* **動作**：動作是可從中選擇的內容項目，例如產品或促銷活動。 個人化工具會透過排名 API 選擇最佳動作來對使用者顯示，此動作也稱為「報酬動作」  。 每個動作都可以有使用排名要求所提交的特性。
 
 * **Context**：若要提供更精確的排名，請提供內容的相關資訊，例如：
     * 您的使用者。

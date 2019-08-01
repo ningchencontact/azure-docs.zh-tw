@@ -1,5 +1,5 @@
 ---
-title: 如何使用語音 SDK 選取音訊輸入裝置 - 語音服務
+title: 如何使用語音 SDK 選取音訊輸入裝置-語音服務
 titleSuffix: Azure Cognitive Services
 description: 了解如何在語音 SDK 中選取音訊輸入裝置。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 16b8f81a09efc60f1214a2dc6ac60da9155e7794
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 8324f9fccbe46cf6fc0ce297aac29b0d8025b078
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605103"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562737"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>使用語音 SDK 選取音訊輸入裝置
 

@@ -1,6 +1,6 @@
 ---
-title: 建立新的應用程式
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 建立新的應用程式-LUIS
+titleSuffix: Azure Cognitive Services
 description: 在 Language Understanding (LUIS) 網頁上建立及管理應用程式。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b8b0cebf4ba47f875caacfcfbf89b84551b41333
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 7f9809fde088a03d4b20b5c739253f446c7a84b6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341866"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563612"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中建立新的 LUIS 應用程式
 有好幾種方法可建立 LUIS 應用程式。 您可以在 [LUIS](https://www.luis.ai) 入口網站中建立 LUIS 應用程式，或透過 LUIS 撰寫 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)。
@@ -59,27 +59,27 @@ ms.locfileid: "67341866"
 ## <a name="import-an-app-from-file"></a>從檔案匯入應用程式
 
 1. 在 [我的應用程式]  頁面上，選取 [匯入新的應用程式]  。
-1. 在快顯對話方塊中，請選取有效的應用程式的 JSON 檔案，然後按**完成**。
+1. 在快顯視窗中, 選取有效的應用程式 JSON 檔案, 然後選取 [**完成**]。
 
 ### <a name="import-errors"></a>匯入錯誤
 
-可能的錯誤是： 
+可能的錯誤包括: 
 
-* 已經存在具有該名稱的應用程式。 若要修正此問題，重新匯入應用程式，並設定**選擇性名稱**至新的名稱。 
+* 具有該名稱的應用程式已經存在。 若要修正此問題, 請重新匯入應用程式, 並將**選擇性名稱**設定為新名稱。 
 
-## <a name="export-app-for-backup"></a>匯出進行備份的應用程式
+## <a name="export-app-for-backup"></a>匯出應用程式以進行備份
 
-1. 在 **我的應用程式**頁面上，選取**匯出**。
-1. 選取 **將匯出為 JSON**。 您的瀏覽器會下載應用程式的作用中版本。
-1. 您可以將這個檔案加入您要封存之模型的備份系統。
+1. 在**我的應用程式** 頁面上, 選取 **匯出**。
+1. 選取 [**匯出為 JSON**]。 您的瀏覽器會下載應用程式的作用中版本。
+1. 將此檔案新增至您的備份系統以封存模型。
 
-## <a name="export-app-for-containers"></a>適用於容器的匯出應用程式
+## <a name="export-app-for-containers"></a>匯出容器的應用程式
 
-1. 在 **我的應用程式**頁面上，選取**匯出**。
-1. 選取 **匯出為容器**然後選取 您要匯出哪一個已發佈的位置 （「 生產 」 或 「 階段 」）。
-1. 使用此檔案與您[LUIS 容器](luis-container-howto.md)。 
+1. 在**我的應用程式** 頁面上, 選取 **匯出**。
+1. 選取 [**匯出為容器**], 然後選取您想要匯出的已發佈位置 (生產或階段)。
+1. 將此檔案與您的[LUIS 容器](luis-container-howto.md)搭配使用。 
 
-    如果您有興趣，但未定型的匯出，但與 LUIS 容器所使用的已發行的模型中，請移至**版本**頁面上，及從中匯出。 
+    如果您想要匯出已定型但尚未發行的模型以與 LUIS 容器搭配使用, 請移至 [**版本**] 頁面, 並從該處匯出。 
 
 ## <a name="delete-app"></a>刪除應用程式
 

@@ -1,5 +1,5 @@
 ---
-title: 對語音 SDK 進行疑難排解 - 語音服務
+title: 疑難排解語音 SDK-語音服務
 titleSuffix: Azure Cognitive Services
 description: 本文提供的資訊可協助您解決在使用語音 SDK 時可能會遇到的問題。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 99cb23afcdb40f74485a7dcec34435a46d0e7476
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405899"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558881"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>針對語音 SDK 進行疑難排解
 

@@ -1,6 +1,6 @@
 ---
 title: 在 C# 中根據自訂字詞清單檢查文字 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for C# 以自訂字詞清單仲裁文字。
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 144137109f97a8c2049430ed1e05117ea6c95d7f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604092"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564404"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>在 C# 中根據自訂字詞清單檢查文字
 
@@ -415,7 +415,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>執行應用程式以查看此輸出
 
-您的主控台輸出會如下所示：
+您的主控台輸出看起來會像下面這樣:
 
 ```console
 Creating term list.

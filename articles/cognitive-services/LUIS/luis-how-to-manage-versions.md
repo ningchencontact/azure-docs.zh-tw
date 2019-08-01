@@ -1,6 +1,6 @@
 ---
-title: 管理版本
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 管理版本-LUIS
+titleSuffix: Azure Cognitive Services
 description: 版本可讓您建置及發佈不同的模型。 理想的做法是先將目前作用中的模型複製到不同的應用程式版本，再對模型進行變更。
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd3cd13b14f58e1ece0b91f924ebefb25682bbf7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198846"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638108"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本進行編輯和測試而不影響預備或生產應用程式
 
@@ -24,7 +24,7 @@ ms.locfileid: "60198846"
 
 若要使用版本，請在 [我的應用程式]  頁面上選取應用程式的名稱來開啟應用程式，接著選取頂端列中的 [管理]  ，然後選取左側導覽中的 [版本]  。 
 
-版本的清單會顯示哪一個版本都會發佈，發佈，而是目前使用哪個版本。 
+版本清單會顯示發行的版本、發行的位置, 以及目前使用中的版本。 
 
 [![管理區段, 版本頁面](./media/luis-how-to-manage-versions/versions-import.png "管理區段, 版本頁面")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -59,13 +59,13 @@ ms.locfileid: "60198846"
 
 ### <a name="import-errors"></a>匯入錯誤
 
-* Tokenizer 的錯誤：如果您收到**tokenizer 錯誤**匯入時，您嘗試匯入使用不同的版本[tokenizer](luis-language-support.md#custom-tokenizer-versions)比目前使用的應用程式。 若要修正此問題，請參閱[tokenizer 版本之間移轉](luis-language-support.md#migrating-between-tokenizer-versions)。
+* Tokenizer 錯誤:如果您在匯入時收到**tokenizer 錯誤**, 表示您嘗試匯入的版本所使用的[tokenizer](luis-language-support.md#custom-tokenizer-versions)與應用程式目前所使用的不同。 若要修正此問題, 請參閱[在 tokenizer 版本之間進行遷移](luis-language-support.md#migrating-between-tokenizer-versions)。
 
 <a name = "export-version"></a>
 
 ## <a name="other-actions"></a>其他動作
 
-* 若要**刪除**版本，請從清單中選取版本，然後從工具列中選取 [刪除]  。 選取 [確定]  。 
+* 若要**刪除**版本，請從清單中選取版本，然後從工具列中選取 [刪除]  。 選取  **Ok**。 
 * 若要**重新命名**版本，請從清單中選取版本，然後從工具列中選取 [重新命名]  。 輸入新的名稱，然後選取 [完成]  。 
-* 若要**匯出**版本，請從清單中選取版本，然後從工具列中選取 [匯出應用程式]  。 選擇要匯出的備份，請選擇 JSON**匯出容器**要[使用 LUIS 容器中的此應用程式](luis-container-howto.md)。  
+* 若要**匯出**版本，請從清單中選取版本，然後從工具列中選取 [匯出應用程式]  。 選擇 [JSON] 匯出以進行備份, 選擇 [**匯出容器**] 以[在 LUIS 容器中使用此應用程式](luis-container-howto.md)。  
 

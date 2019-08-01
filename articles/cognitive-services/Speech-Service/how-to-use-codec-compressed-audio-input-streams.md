@@ -1,7 +1,7 @@
 ---
-title: Stream 轉碼器壓縮的音訊與 Speech SDK-語音服務
+title: 使用語音 SDK 的串流編解碼器壓縮音訊-語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何將串流處理至 Azure 的語音服務與 Speech SDK 壓縮的音訊。 適用於C++， C#，和適用於 Linux 的 Java。
+description: 瞭解如何使用語音 SDK 將壓縮的音訊串流至 Azure 語音服務。 適用于C++Linux C#的、和 JAVA。
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,39 +10,39 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: d23190dc8f7980cb8a94ba295f45ae67fc7d4678
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b29b42dea9522526d49c1bda017a522855946def
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605099"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559556"
 ---
-# <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>使用的轉碼器壓縮音訊輸入與 Speech SDK
+# <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>搭配使用編解碼器壓縮的音訊輸入與語音 SDK
 
-語音 SDK**壓縮音訊輸入 Stream** API 可用來串流處理壓縮的音訊到語音服務使用 PullStream 或 PushStream。
+語音 SDK 的**壓縮音訊輸入資料流程**API 提供了使用 PullStream 或 PushStream 將壓縮的音訊串流至語音服務的方式。
 
 > [!IMPORTANT]
-> 壓縮的音訊資料流處理，才支援C++， C#，和在 Linux （Ubuntu 16.04，Ubuntu 18.04，Debian 9） 上的 Java。
-> 語音 SDK 1.4.0 版或更高的需要。
+> 只有、 C#和 Linux (ubuntu 16.04 C++、ubuntu 18.04、Debian 9) 上的 JAVA 支援串流壓縮音訊。
+> 需要1.4.0 或更高版本的語音 SDK。
 
-Wav/PCM，請參閱主線語音文件。  外部 wav/PCM，支援下列的轉碼器壓縮輸入的格式：
+針對 wav/PCM, 請參閱主線語音檔。  在 wav/PCM 以外, 支援下列編解碼器壓縮的輸入格式:
 
 - MP3
-- 這種門外漢只/OGG
+- OPUS/OGG
 
-## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>若要使用轉碼器的必要條件壓縮音訊輸入
+## <a name="prerequisites-to-using-codec-compressed-audio-input"></a>使用編解碼器壓縮音訊輸入的必要條件
 
-安裝這些其他的相依性，以壓縮的音訊輸入搭配適用於 Linux 的語音 SDK:
+安裝這些額外的相依性, 以搭配適用于 Linux 的語音 SDK 來使用壓縮的音訊輸入:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
 ```
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>範例程式碼使用的轉碼器壓縮音訊輸入
+## <a name="example-code-using-codec-compressed-audio-input"></a>使用編解碼器壓縮音訊輸入的範例程式碼
 
-若要串流處理以壓縮的音訊格式的語音服務，建立`PullAudioInputStream`或`PushAudioInputStream`。 接著，建立`AudioConfig`從您的資料流類別的執行個體，指定資料流的壓縮格式。
+若要以壓縮的音訊格式串流到語音服務, 請`PullAudioInputStream`建立`PushAudioInputStream`或。 然後, `AudioConfig`從您的資料流程類別的實例建立, 並指定資料流程的壓縮格式。
 
-假設您有呼叫的輸入資料流類別`myPushStream`，而使用這種門外漢只/OGG。 您的程式碼可能如下所示：
+假設您有一個名`myPushStream`為的輸入資料流程類別, 而且使用 OPUS/OGG。 您的程式碼看起來可能像這樣:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

@@ -1,6 +1,6 @@
 ---
 title: 移轉至 V3 - 翻譯工具文字 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何將 Translator Text API 從 V2 移轉至 V3。
 services: cognitive-services
 author: swmachan
@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 8a2530a4eb4365a022ab11279b344a5d2852430b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9ce9dc330ec1b0c32ce045437fadb5d8c191529e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448305"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595237"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 到 V3 的移轉
 
 > [!NOTE]
-> V2 已於 2018 年 4 月 30 日淘汰。 請將應用程式移轉至 V3 若要利用以獨佔方式在 V3 中使用的新功能。
+> V2 已于2018年4月30日淘汰。 請將您的應用程式遷移至 V3, 以利用在 V3 中專門提供的新功能。
 > 
-> Microsoft Translator 中樞將於 2019 5 月 17 日淘汰。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。  
+> Microsoft Translator Hub 將于 2019 5 月17日淘汰。 [查看重要的遷移資訊和日期](https://www.microsoft.com/translator/business/hub/)。  
 
 Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 本版包含對 Microsoft Translator 服務傳送和接收資料的新功能、汰用方法和新格式。 本文件提供將應用程式變更為使用 V3 的資訊。 
 
@@ -110,7 +110,7 @@ Microsoft Translator V3 的定價方式與 V2 相同，即依字元計價，包�
 
 > [!NOTE]
 > 
-> Microsoft Translator 中樞將於 2019 5 月 17 日淘汰。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。   
+> Microsoft Translator Hub 將于 2019 5 月17日淘汰。 [查看重要的遷移資訊和日期](https://www.microsoft.com/translator/business/hub/)。   
 
 Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無法搭配 Microsoft Translator Hub 使用。 Translator Hub 僅支援傳統統計機器翻譯。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解如何自訂類神經機器翻譯](custom-translator/overview.md)
 

@@ -1,6 +1,6 @@
 ---
 title: 翻譯工具文字 API 字典範例方法
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 字典範例方法。
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: e4665157803409b884c3333d9a3514403e5630bd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 15d23016df9b0c85b9d252b4c4a9ea48d3608f75
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435113"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595062"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>翻譯工具文字 API 3.0：字典範例
 
@@ -41,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
     <td>必要參數  。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
-    <td>from</td>
+    <td>寄件者</td>
     <td>必要參數  。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
   </tr>
   <tr>
@@ -53,7 +53,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">標頭</th>
   <th>描述</th>
   <tr>
     <td>驗證標頭</td>
@@ -69,11 +69,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>可选  。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
-## <a name="request-body"></a>Request body
+## <a name="request-body"></a>要求本文
 
 要求的本文是 JSON 陣列。 每個陣列元素都是具有下列屬性的 JSON 物件：
 

@@ -1,5 +1,5 @@
 ---
-title: 批次測試
+title: 批次測試-LUIS
 titleSuffix: Azure Cognitive Services
 description: 本教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6b3f864ded8b6f5ac0a1d839768801788d7d765
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146166"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560125"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教學課程：批次測試資料集
 
@@ -28,7 +28,7 @@ ms.locfileid: "65146166"
 
 * 每個測試最多 1000 個語句。 
 * 沒有重複項目。 
-* 允許的實體類型： 簡單和複合唯一台學到的實體。 批次測試僅適用於機器學習的意圖和實體。
+* 允許的實體類型: 僅限已加工學習的簡單和複合實體。 批次測試僅適用於機器學習的意圖和實體。
 
 使用本教學課程以外的應用程式時，請「不要」  使用已新增到某個意圖的範例語句。 
 
@@ -95,7 +95,7 @@ ms.locfileid: "65146166"
 
 ## <a name="review-batch-results"></a>檢閱批次結果
 
-批次圖表會顯示四個象限的結果。 圖表的右邊是一個篩選條件。 根據預設，會將該篩選條件設定為清單中第一個意圖。 篩選包含所有意圖和只有簡單和複合的實體。 當您選取某個[圖表區段](luis-concept-batch-test.md#batch-test-results)或圖表內的某一點時，相關聯的語句即會顯示於圖表下方。 
+批次圖表會顯示四個象限的結果。 圖表的右邊是一個篩選條件。 根據預設，會將該篩選條件設定為清單中第一個意圖。 此篩選包含所有意圖, 而且只包含簡單和複合實體。 當您選取某個[圖表區段](luis-concept-batch-test.md#batch-test-results)或圖表內的某一點時，相關聯的語句即會顯示於圖表下方。 
 
 將滑鼠停留在圖表上方時，滑鼠滾輪可以放大或縮小圖表中的顯示。 當圖表上有許多點緊密聚集在一起時，這非常有用。 
 
@@ -169,7 +169,7 @@ ms.locfileid: "65146166"
 
 ## <a name="create-batch-file-with-entities"></a>建立含有實體的批次檔 
 
-為了在批次測試中確認實體，必須在批次 JSON 檔案中標示實體。 使用機器學習的實體： 簡單和複合實體。 不要新增非機器學習的實體，因為一律可透過規則運算式或明確的文字相符項目找到它們。
+為了在批次測試中確認實體，必須在批次 JSON 檔案中標示實體。 只會使用機器學習的實體: 簡單和複合實體。 不要新增非機器學習的實體，因為一律可透過規則運算式或明確的文字相符項目找到它們。
 
 適用於文字 ([語彙基元](luis-glossary.md#token)) 總計數的實體變化可能會影響預測品質。 若已將定型資料提供給含有已標示語句的意圖，請確定這類資料包括各種實體長度。 
 
@@ -205,11 +205,11 @@ ms.locfileid: "65146166"
 
 ## <a name="review-entity-batch-results"></a>檢閱實體批次結果
 
-圖表隨即開啟，並顯示已正確預測的所有意圖。 向下捲動來尋找實體預測，但發生錯誤的右端篩選中。 
+圖表隨即開啟，並顯示已正確預測的所有意圖。 在右邊的篩選中向下移動, 以尋找具有錯誤的實體預測。 
 
 1. 在篩選條件中選取 [作業]  實體。
 
-    ![在篩選中的錯誤實體預測](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![篩選中的錯誤實體預測](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     此圖表會變更以顯示實體預測。 
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 626f71c3938b944cb705dfea4a964c6c33c42164
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3e07b448e73bf64a3c1ec257948b3d61415480f0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565441"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619830"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -97,7 +97,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > Azure Cosmos 模擬器所支援的主要金鑰僅能與模擬器搭配使用。 您無法將生產用的 Azure Cosmos DB 帳戶和金鑰與 Azure Cosmos 模擬器搭配使用。
 
 > [!NOTE]
-> 如果您使用 /Key 選項來啟動模擬器，則使用產生的金鑰，而非 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`。 如需 /Key 選項的詳細資訊，請參閱[命令列工具參考](#command-line-syntax)。
+> 如果您使用 /Key 選項來啟動模擬器，則使用產生的金鑰，而非 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`。 如需 /Key 選項的詳細資訊，請參閱[命令列工具參考](#command-line)。
 
 就像 Azure Cosmos DB 一樣，Azure Cosmos 模擬器僅支援透過 SSL 的安全通訊。
 

@@ -3,18 +3,18 @@ title: 文件詳細資料 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 文件清單頁面會顯示您的工作區中的前 10 個文件。 對於每個文件，將會顯示其名稱、配對、類型、語言、上傳時間戳記，以及文件者的使用者電子郵件地址。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 267d60c2e9941c66ab128f68bd7aaf1cc54fedd9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442499"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595586"
 ---
 # <a name="view-document-details"></a>檢視文件詳細資料
 

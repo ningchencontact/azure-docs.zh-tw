@@ -10,20 +10,20 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: afb64b799e826abc3e6aad661a97211b43304dc6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 19a226fb580f3d4215b7c3f04f17c3f92505987e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873269"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697985"
 ---
 # <a name="quickstart-url-preview-with-python"></a>快速入門：使用 Python 的 URL 預覽
 
-下列 Python 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。
+下列 Python 範例會建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en 。
 
 ## <a name="prerequisites"></a>必要條件
 
-取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
+取得免費試用版[認知服務實驗室](https://labs.cognitive.microsoft.com/en-us/project-answer-search)的存取金鑰
 
 此範例使用 Python 3.6。
 

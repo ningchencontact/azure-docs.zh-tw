@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2eaf07e041998efade1091861144a2dc4d78c56d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c0da596e84ac827b55affd5545c516e7623980f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860298"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698071"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>快速入門：使用 Python 進行專案答案搜尋
 
@@ -23,7 +23,7 @@ ms.locfileid: "55860298"
 
 ## <a name="prerequisites"></a>必要條件
 
-取得免費試用版[認知服務實驗室](https://aka.ms/answersearchsubscription)的存取金鑰
+取得免費試用版[認知服務實驗室](https://labs.cognitive.microsoft.com/en-us/project-answer-search)的存取金鑰
 
 此範例使用 Python 3.6.4
 

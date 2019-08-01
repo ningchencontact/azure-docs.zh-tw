@@ -2,18 +2,19 @@
 title: 大規模備份 Azure 虛擬機器
 description: 同時備份多部虛擬機器至 Azure
 keywords: 虛擬機器備份; 虛擬機器備份; 備份 VM; 備份 VM; 備份 Azure VM; 備份與災害復原
-author: rayne-wiselman
-ms.author: raynew
+author: dcurwin
+manager: carmonm
+ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: da2a9e634567dbe657410a61e5bfe0526197309d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: fa9f13bf4f4e06973f7b9125897366ad53d06857
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467125"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688440"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 入口網站備份多部虛擬機器
 

@@ -3,19 +3,19 @@ title: 道德和負責任的使用 - 個人化工具
 titleSuffix: Azure Cognitive Services
 description: 這些指導方針旨在協助您以有助於在公司和服務中建立信任的方式實作個人化。 請務必花點時間研究、了解並審慎評估個人化對人們的生活將有何影響。 如有疑問，請尋求指引。
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: edjez
-ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722403"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662777"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>負責任地實作個人化工具的指導方針
 
@@ -183,7 +183,7 @@ AI 系統應將所有人一視同仁  。
 
 任何人在考量使用任何技術的副作用時，都會受限於個人的觀點和生命經驗。 讓更多元的意見心聲進入您的小組、使用者或諮詢委員會，可鼓勵他們力陳己見。 請考慮建立訓練與學習材料，以進一步拓展小組成員在這個領域的知識，並提升討論複雜和敏感主題的能力。
 
-請考慮將負責使用的相關工作視為應用程式生命週期中的其他跨領域工作，例如與使用者體驗、安全性或 DevOps 相關的工作。 這些工作及其需求必須事先考量。 在整個應用程式生命週期內都必須討論並驗證負責的使用。
+請考慮將關於責任使用的工作視為應用程式生命週期中的其他剖面圖工作, 例如與使用者經驗、安全性或 DevOps 相關的工作。 這些工作及其需求必須事先考量。 在整個應用程式生命週期內都必須討論並驗證負責的使用。
  
 ## <a name="questions-and-feedback"></a>問題與意見反應
 

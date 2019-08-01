@@ -1,6 +1,6 @@
 ---
 title: Collaborative Translation Framework (CTF) 報告 - 翻譯工具文字 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 如何使用 Collaborative Translation Framework (CTF) 報告。
 services: cognitive-services
 author: swmachan
@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443452"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595932"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>如何使用 Collaborative Translation Framework (CTF) 報告
 
 > [!NOTE]
 > 此方法已被取代。 Translator Text API V3.0 中不提供此功能。
 > 
-> 先前在 Translator Text API V2.0 中提供的 Collaborative Translations Framework (CTF) 自 2018 年 2 月 1 日起已被取代。 AddTranslation 和 AddTranslationArray 函式可讓使用者透過 Collaborative Translation Framework 啟用校正功能。 在 2018 年 1 月 31 日之後，這兩個函式便不接受新的句子提交，而使用者則會收到錯誤訊息。 這些函式已淘汰，而且不會被取代。
+> 先前在 Translator Text API V2.0 中提供的 Collaborative Translations Framework (CTF) 自 2018 年 2 月 1 日起已被取代。 AddTranslation 和 AddTranslationArray 函式可讓使用者透過 Collaborative Translation Framework 啟用校正功能。 在 2018 年 1 月 31 日之後，這兩個函式便不接受新的句子提交，而使用者則會收到錯誤訊息。 這些函式已淘汰, 將不會被取代。
 
 「Collaborative Translation Framework (CTF) 報告 API」會傳回統計資料和 CTF 存放區中的實際內容。 此 API 與 GetTranslations() 方法不同，因為它：
 * 只會從您的帳戶 (appId 或 Azure Marketplace 帳戶) 傳回翻譯後的內容及其總計數。
@@ -76,16 +76,16 @@ ms.locfileid: "67443452"
 |:---|:---|
 | appId | **必要** 如果使用 Authorization 標頭，請將 appid 欄位保留空白，否則請指定一個包含 "Bearer" + " " + 存取權杖的字串。|
 | uriPrefix | **選擇性** 一個包含翻譯 URI 前置詞的字串。|
-| from | **選擇性** 一個代表翻譯文字之語言代碼的字串。 |
+| 寄件者 | **選擇性** 一個代表翻譯文字之語言代碼的字串。 |
 | to | **選擇性** 一個代表文字之目標翻譯語言代碼的字串。|
 | minRating| **選擇性** 一個代表翻譯後文字之品質評分下限的整數值。 有效值介於 -10 到 10 之間。 預設值為 1。|
 | maxRating| **選擇性** 一個代表翻譯後文字之品質評分上限的整數值。 有效值介於 -10 到 10 之間。 預設值為 1。|
-| user | **選擇性** 一個可根據提交項目建立者來篩選結果的字串。 |
+| 使用者 | **選擇性** 一個可根據提交項目建立者來篩選結果的字串。 |
 | category| **選擇性** 一個包含翻譯之分類或領域的字串。 此參數僅支援預設選項 general。|
 | minDateUtc| **選擇性** 您想要開始擷取翻譯的日期。 此日期必須是 UTC 格式。 |
 | maxDateUtc| **選擇性** 您想要停止擷取翻譯的日期。 此日期必須是 UTC 格式。 |
-| skip| **選擇性** 您想要在頁面上略過的結果數目。 例如，如果您想要略過前 20 列結果並從第 21 個結果記錄開始檢視，請為此參數指定 20。 此參數的預設值為 0。|
-| take |  您想要擷取的結果數目。 每個要求的數目上限為 100。 預設值為 100。|
+| 略過| **選擇性** 您想要在頁面上略過的結果數目。 例如，如果您想要略過前 20 列結果並從第 21 個結果記錄開始檢視，請為此參數指定 20。 此參數的預設值為 0。|
+| take | 您想要擷取的結果數目。 每個要求的數目上限為 100。 預設值為 100。|
 
 > [!NOTE]
 > skip 和 take 要求參數可讓您將大量結果記錄分頁。
@@ -96,11 +96,11 @@ ms.locfileid: "67443452"
 
 | 欄位 | 描述 |
 |:---|:---|
-| 計數| 所擷取的結果數目|
-| 從 | 來源語言|
+| Count| 所擷取的結果數目|
+| 起始 | 來源語言|
 | Rating| 提交者在 AddTranslation() 方法呼叫中套用的評分|
 | 至| 目標語言|
-| Uri| AddTranslation() 方法呼叫中套用的 URI|
+| URI| AddTranslation() 方法呼叫中套用的 URI|
 | 使用者| 使用者名稱|
 
 **例外狀況**
@@ -147,16 +147,16 @@ ms.locfileid: "67443452"
 |:---|:---|
 | appId | **必要** 如果使用 Authorization 標頭，請將 appid 欄位保留空白，否則請指定一個包含 "Bearer" + " " + 存取權杖的字串。|
 | uriPrefix| **選擇性** 一個包含翻譯 URI 前置詞的字串。|
-| from| **選擇性** 一個代表翻譯文字之語言代碼的字串。|
+| 寄件者| **選擇性** 一個代表翻譯文字之語言代碼的字串。|
 | to| **選擇性** 一個代表文字之目標翻譯語言代碼的字串。|
 | minRating| **選擇性** 一個代表翻譯後文字之品質評分下限的整數值。 有效值介於 -10 到 10 之間。 預設值為 1。|
 | maxRating| **選擇性** 一個代表翻譯後文字之品質評分上限的整數值。 有效值介於 -10 到 10 之間。 預設值為 1。|
-| user| **選擇性。一個可根據提交項目建立者來篩選結果的字串**|
+| 使用者| **選擇性。一個可根據提交項目建立者來篩選結果的字串**|
 | category| **選擇性** 一個包含翻譯之分類或領域的字串。 此參數僅支援預設選項 general。|
 | minDateUtc| **選擇性** 您想要開始擷取翻譯的日期。 此日期必須是 UTC 格式。|
 | maxDateUtc| **選擇性** 您想要停止擷取翻譯的日期。 此日期必須是 UTC 格式。|
-| skip| **選擇性** 您想要在頁面上略過的結果數目。 例如，如果您想要略過前 20 列結果並從第 21 個結果記錄開始檢視，請為此參數指定 20。 此參數的預設值為 0。|
-| take|  您想要擷取的結果數目。 每個要求的數目上限為 100。 預設值為 50。|
+| 略過| **選擇性** 您想要在頁面上略過的結果數目。 例如，如果您想要略過前 20 列結果並從第 21 個結果記錄開始檢視，請為此參數指定 20。 此參數的預設值為 0。|
+| take| 您想要擷取的結果數目。 每個要求的數目上限為 100。 預設值為 50。|
 
 > [!NOTE]
 > skip 和 take 要求參數可讓您將大量結果記錄分頁。
@@ -168,12 +168,12 @@ ms.locfileid: "67443452"
 | 欄位 | 描述 |
 |:---|:---|
 | CreatedDateUtc| 使用 AddTranslation() 之項目的建立日期|
-| 從| 來源語言|
+| 起始| 來源語言|
 | OriginalText| 提交要求時所使用的來源語言文字|
 |Rating |提交者在 AddTranslation() 方法呼叫中套用的評分|
 |至|    目標語言|
 |TranslatedText|    AddTranslation() 方法呼叫中所提交的翻譯|
-|Uri|   AddTranslation() 方法呼叫中套用的 URI|
+|URI|   AddTranslation() 方法呼叫中套用的 URI|
 |使用者   |使用者名稱|
 
 **例外狀況**

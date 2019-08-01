@@ -2,17 +2,17 @@
 title: 針對 Azure 檔案共用備份進行移難排解
 description: 本文說明如何排解您在保護 Azure 檔案共用時所發生的問題。
 ms.service: backup
-author: rayne-wiselman
-ms.author: raynew
+author: dcurwin
+ms.author: dacurwin
 ms.date: 07/22/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: c44819bfda2f48195c25ad6be7608383162f3c61
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 486c0ae674f1549206b7aa3110faf31132c22f2a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467102"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639405"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>針對備份 Azure 檔案共用的問題進行疑難排解
 您可以使用下列表格中所列的資訊，針對使用 Azure 檔案共用備份時所發生的問題和錯誤進行疑難排解。

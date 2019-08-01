@@ -1,6 +1,6 @@
 ---
 title: 翻譯自訂 - 翻譯工具文字 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 以慣用的術語和樣式，使用 Microsoft Translator Hub 建置您自己的電腦翻譯系統。
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 87c47fc970ccb96419818e3b3e39c939201708f0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447328"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595302"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
 
@@ -27,7 +27,7 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 
 利用自訂翻譯工具，您可以建置類神經翻譯系統，以了解您自己的企業和產業中使用的術語。 然後，自訂的翻譯系統會整合到現有的應用程式、工作流程和網站。
 
-### <a name="how-does-it-work"></a>運作方式
+### <a name="how-does-it-work"></a>其運作方式為何?
 
 使用您之前翻譯的文件 (傳單、網頁、文件等) 來建置反映特定領域術語和樣式的翻譯系統，比一般翻譯系統更好。 使用者可以上傳 TMX、XLIFF、TXT、DOCX 和 XLSX 文件。  
 
@@ -43,7 +43,7 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
 > [!NOTE]
-> 將於 2019 5 月 17 日淘汰舊版的 Microsoft Translator 中樞。 [檢視重要的移轉資訊和日期](https://www.microsoft.com/translator/business/hub/)。  
+> 舊版 Microsoft Translator Hub 將于 2019 5 月17日淘汰。 [查看重要的遷移資訊和日期](https://www.microsoft.com/translator/business/hub/)。  
 
 ## <a name="custom-translator-versus-hub"></a>自訂翻譯工具與中樞
 

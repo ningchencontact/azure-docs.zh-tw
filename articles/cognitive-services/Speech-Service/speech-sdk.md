@@ -1,5 +1,5 @@
 ---
-title: 關於語音 SDK - 語音服務
+title: 關於語音 SDK-語音服務
 titleSuffix: Azure Cognitive Services
 description: 語音軟體開發套件 (SDK) 可讓您的應用程式以原生方式存取「語音服務」的功能，使其能夠更輕鬆地開發軟體。 本文提供關於適用於 Windows、Linux 和 Android 的 SDK 其他詳細資料。
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 120dd4a6a342732f3e07d87786009779d23be829
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c5e12812a4305493be2cdc234946796b21dd26d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606414"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558934"
 ---
 # <a name="about-the-speech-sdk"></a>關於語音 SDK
 
-語音軟體開發套件 (SDK) 可讓您的應用程式存取權的函式語音服務，讓您更輕鬆地開發具備語音功能的軟體。 目前，Sdk 會提供存取權**語音轉換文字**，**文字轉換語音**，**語音翻譯**，**意圖辨識**，及**Bot Framework 直接列語音通道**。 可以找到之功能和支援的平台相關的一般概觀，文件上[項目頁面](https://aka.ms/csspeech)。
+語音軟體發展工具組 (SDK) 可讓您的應用程式存取語音服務的功能, 讓您更輕鬆地開發具備語音功能的軟體。 目前, Sdk 提供對語音轉換**文字**、**文字到語音** **轉換、語音翻譯**、**意圖**辨識和**Bot Framework Direct Line 語音通道的**存取。 您可以在檔[輸入頁面](https://aka.ms/csspeech)上找到有關功能和支援平臺的一般總覽。
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "67606414"
 
 ## <a name="get-the-sdk"></a>取得 SDK
 
-### <a name="windows"></a>視窗
+### <a name="windows"></a>Windows
 
 針對 Windows，我們支援下列語言：
 
@@ -38,9 +38,9 @@ ms.locfileid: "67606414"
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> 目前的電腦上支援 Ubuntu 16.04，Ubuntu 18.04 和 Debian 9 (x86 或 x64 的C++開發和.NET Core、 Java 和 Python 的 x64)。
+> 目前, 我們只支援在電腦上使用 Ubuntu 16.04、Ubuntu 18.04 和 Debian 9 (x86 或 x64 適用C++于開發, 而 x64 適用于 .net Core、JAVA 和 Python)。
 
-請確定您具有執行下列 shell 命令來安裝必要的程式庫：
+執行下列 shell 命令, 確定您已安裝必要的程式庫:
 
 在 Ubuntu 上：
 

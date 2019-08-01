@@ -1,6 +1,6 @@
 ---
-title: 實體類型
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 實體類型-LUIS
+titleSuffix: Azure Cognitive Services
 description: '實體會從語句中解壓縮資料。 實體類型可讓您進行可預測的資料提取。 實體有兩種類型: 機器學習和非機器學習。 請務必知道您在語句中使用哪一種類型的實體。'
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: a5a3ba8c25107317e7c47ee358f9a6ebe7d4556f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 9919b6d07e874bd306bdba9da2cd3357bedc48f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479122"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563999"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>實體類型和其在 LUIS 中的目的
 
@@ -213,7 +213,7 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 
 LUIS 也提供非機器學習但可讓您的 LUIS 應用程式指定固定值清單的清單實體類型。 請參閱 [LUIS 界限](luis-boundaries.md)參考，以檢閱「清單」實體類型的限制。 
 
-如果您已考慮這些實體, 而且仍然需要超過限制, 請聯絡支援人員。 若要這樣做，請收集關於您系統的詳細資訊、前往 [LUIS](luis-reference-regions.md#luis-website) 網站，然後選取 [支援]。 如果您的 Azure 訂用帳戶包含支援服務，請與 [Azure 技術支援人員](https://azure.microsoft.com/support/options/)連絡。 
+如果您已考慮這些實體, 而且仍然需要超過限制, 請聯絡支援人員。 若要這樣做，請收集關於您系統的詳細資訊、前往 [LUIS](luis-reference-regions.md#luis-website) 網站，然後選取 [支援]  。 如果您的 Azure 訂用帳戶包含支援服務，請與 [Azure 技術支援人員](https://azure.microsoft.com/support/options/)連絡。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: 認知服務和機器學習
-titlesuffix: Azure Cognitive Services
+title: 認知服務和 Machine Learning
+titleSuffix: Azure Cognitive Services
 description: 了解 Microsoft 認知服務如何與其他機器學習相關的 Azure 供應項目搭配使用。
 services: cognitive-services
 author: diberry
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: 15faacccfa1e0f7dd759f719c02e106918d735bb
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414702"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697929"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>認知服務和機器學習
 
@@ -105,11 +105,11 @@ ms.locfileid: "68414702"
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[說話者辨識器](./speaker-recognition/home.md)||x||
 |[語音文字轉換語音 (TTS)](speech-service/text-to-speech.md)|x|x||
-|[語音轉換文字 (STT)](/speech-service/speech-to-text.md)|x|x||
+|[語音轉換文字 (STT)](speech-service/speech-to-text.md)|x|x||
 |[語音翻譯](speech-service/speech-translation.md)|x|||
 |[文字分析](./text-analytics/overview.md)|x|||
 |[翻譯工具文字](./translator/translator-info-overview.md)|x|||
-|[翻譯工具文字-自訂翻譯工具]()||x||
+|[翻譯工具文字-自訂翻譯工具](./translator/custom-translator/overview.md)||x||
 
 \* 個人化工具只需要服務所收集的訓練資料 (因為它會即時運作), 以評估您的原則和資料。 個人化工具不需要用來進行前置或批次定型的大型歷程資料集。 
 

@@ -3,28 +3,28 @@ title: 檢視模型詳細資料 - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 任何專案底下的 [模型] 索引標籤都會顯示每個模型的詳細資料，例如模型名稱、模型狀態、BLEU 分數、定型、微調、測試句子計數。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 92f5275b85b4a257e8841f43424d356db702cacd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442459"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595558"
 ---
 # <a name="view-model-details"></a>檢視模型詳細資料
 
 專案底下的 [模型] 索引標籤會顯示該專案中的所有模型。 針對該專案定型的所有模型，都會列在此索引標籤中。
 
-每個模型專案中，會顯示這些詳細資料。
+針對專案中的每個模型, 會顯示這些詳細資料。
 
 1.  模型名稱：顯示指定模型的模型名稱。
 
-2.  狀態：顯示指定模型的狀態。 新的定型狀態將會是「已提交」，直到被接受為止。 狀態將會變更為「資料處理」，同時服務會評估您文件的內容。 當文件的評估完成時，狀態將會變更為「正在執行」，且您將會看到屬於定型一部分的句子數目，包括自動為您建立的微調和測試集。 以下是說明模型狀態的模型狀態清單。
+2.  狀態:顯示指定模型的狀態。 新的定型狀態將會是「已提交」，直到被接受為止。 狀態將會變更為「資料處理」，同時服務會評估您文件的內容。 當文件的評估完成時，狀態將會變更為「正在執行」，且您將會看到屬於定型一部分的句子數目，包括自動為您建立的微調和測試集。 以下是說明模型狀態的模型狀態清單。
 
     -  已提交：指出後端正在處理該模型的文件。
 

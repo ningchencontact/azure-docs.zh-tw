@@ -1,6 +1,6 @@
 ---
 title: 快速入門：在 C# 中分析文字內容 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for .NET 分析各種令人反感的文字內容
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 45ac641948531aa27334762704eba3333aebba4d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604052"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564331"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>快速入門：使用 C# 分析文字內容中的不當題材
 

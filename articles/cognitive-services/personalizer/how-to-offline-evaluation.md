@@ -1,21 +1,21 @@
 ---
-title: 離線評估-Personalizer
+title: 離線評估-個人化工具
 titleSuffix: Azure Cognitive Services
 description: 了解如何透過離線評估來分析您的學習迴圈
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: b719e6e693471415350007a4f4fabed917b8e12d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722322"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663882"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>如何透過離線評估來分析您的學習迴圈
 
@@ -60,6 +60,6 @@ ms.locfileid: "67722322"
 1. 動作和內容的[功能](concepts-features.md)有效性。
 
 
-## <a name="more-information"></a>相關資訊
+## <a name="more-information"></a>更多資訊
 
 * 了解[離線評估的運作方式](concepts-offline-evaluation.md)。

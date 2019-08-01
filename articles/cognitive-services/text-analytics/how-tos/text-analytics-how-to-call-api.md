@@ -1,6 +1,6 @@
 ---
 title: 呼叫文字分析 API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 了解如何呼叫文字分析 REST API。
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e98979ac43945ebc9af82d5f89db01855429ca70
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304196"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697852"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何呼叫文字分析 REST API
 
@@ -28,9 +28,9 @@ ms.locfileid: "67304196"
 > [!Tip]
 > 若要進行單次呼叫以了解 API 的運作方式，您可以從內建的 **API 測試主控台** (可於任何 [API 文件頁面](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) \(英文\) 取得) 傳送 POST 要求。 不需任何設定，而唯一的需求便是將存取金鑰和 JSON 文件貼至要求內。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-您必須具有含文字分析 API 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)，以及在您註冊認知服務時所產生的[端點和存取金鑰](text-analytics-how-to-access-key.md)。 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="json-schema"></a>
 
@@ -40,10 +40,10 @@ ms.locfileid: "67304196"
 
 您目前可以針對所有文字分析作業提交相同的文件：情感、關鍵片語、語言偵測，以及實體識別。 (未來結構描述很有可能會針對每個分析而有所不同)。
 
-| 元素 | 有效值 | 必要項？ | 使用量 |
+| 項目 | 有效值 | 必要項？ | 使用量 |
 |---------|--------------|-----------|-------|
 |`id` |資料類型是字串，但實際上文件識別碼通常是整數。 | 必要項 | 系統會使用您所提供的識別碼作為輸出的結構。 語言代碼、關鍵片語及情感分數會針對要求中的每個識別碼產生。|
-|`text` | 非結構化未經處理文字，最多 5,120 的字元。 | 必要項 | 針對語言偵測，文字可以透過任何語言表示。 針對情感分析、關鍵片語擷取及實體識別，文字必須為[支援的語言](../text-analytics-supported-languages.md)。 |
+|`text` | 非結構化原始文字, 最多5120個字元。 | 必要項 | 針對語言偵測，文字可以透過任何語言表示。 針對情感分析、關鍵片語擷取及實體識別，文字必須為[支援的語言](../text-analytics-supported-languages.md)。 |
 |`language` | 適用於[支援語言](../text-analytics-supported-languages.md)的 2 個字元 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 代碼 | 視情況而異 | 針對情感分析、關鍵片語擷取及實體連結為必要，針對語言偵測為選擇性。 排除它將不會產生錯誤，但分析的效果會因此而減弱。 語言代碼應該對應至您提供的 `text`。 |
 
 如需限制的詳細資訊，請參閱[文字分析概觀 > 資料限制](../overview.md#data-limits)。 
@@ -87,11 +87,11 @@ ms.locfileid: "67304196"
   + [實體辨識](text-analytics-how-to-entity-linking.md)  
 
 
-6. 按一下 [Send]  \(傳送\) 以提交要求。 請參閱[資料限制](../overview.md#data-limits)一節中的要求，您可以傳送每分鐘和秒數的詳細資訊的概觀。
+6. 按一下 [Send]  \(傳送\) 以提交要求。 請參閱總覽中的[資料限制](../overview.md#data-limits)一節, 以取得您每分鐘和第二次可以傳送的要求數目的相關資訊。
 
    在 Postman 中，回應會以單一 JSON 文件的形式顯示在下一個視窗中，且在要求中所提供的每個文件識別碼都會有一個項目。
 
-## <a name="see-also"></a>請參閱 
+## <a name="see-also"></a>另請參閱 
 
  [文字分析概觀](../overview.md)  
  [常見問題集 (FAQ)](../text-analytics-resource-faq.md)

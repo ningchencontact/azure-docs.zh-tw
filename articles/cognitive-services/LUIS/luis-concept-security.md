@@ -1,6 +1,6 @@
 ---
-title: 共同作業時的安全性
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 共同作業時的安全性-LUIS
+titleSuffix: Azure Cognitive Services
 description: 撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。
 services: cognitive-services
 author: diberry
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25f6b675846f028b4ba9d49cce9e075bc79eece9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058529"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560669"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>撰寫和端點的使用者存取權
-撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 公用應用程式中，端點存取可供每個人都有自己的 Azure[認知服務](../cognitive-services-apis-create-account.md)或是[LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal)資源，並具有公用應用程式的識別碼。 
+撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 對於公用應用程式, 擁有自己的 Azure[認知服務](../cognitive-services-apis-create-account.md)或[LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal)資源的所有人都可以使用端點存取, 而且具有公用應用程式的識別碼。 
 
 ## <a name="access-to-authoring"></a>存取撰寫
 從 [LUIS](luis-reference-regions.md#luis-website) 網站或[撰寫 API](https://go.microsoft.com/fwlink/?linkid=2092087) 存取應用程式時，會受到應用程式擁有者所控制。 
@@ -34,7 +34,7 @@ ms.locfileid: "67058529"
 |匯入版本||
 |將應用程式設定為公用|當應用程式為公用時，任何具有撰寫或端點金鑰的使用者都可查詢該應用程式。|
 |修改模型|
-|發佈|
+|發行|
 |檢閱用於[主動式學習](luis-how-to-review-endpoint-utterances.md)的端點語句|
 |定型|
 

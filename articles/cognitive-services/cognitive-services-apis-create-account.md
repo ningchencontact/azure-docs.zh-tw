@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 入口網站中建立認知服務資源
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 藉由建立及訂閱 Azure 入口網站中的資源, 開始使用 Azure 認知服務。
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: e9616f3014288e4b2580f474c49c646928db5a08
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: af01c0c2586ce7df1902a0bcc502c6fd06a5215d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334237"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697918"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>使用 Azure 入口網站建立認知服務資源
 
@@ -30,7 +30,7 @@ ms.locfileid: "68334237"
 
 建立認知服務資源之前, 您必須擁有包含資源的 Azure 資源群組。 當您建立新的資源時, 您可以選擇建立新的資源群組, 或使用現有的一個。 本文說明如何建立新的資源群組。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [+ 建立資源]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [+ 建立資源]  。
 
     ![選取認知服務 API](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "68334237"
     
         ![選取認知服務 API](media/cognitive-services-apis-create-account/azureMarketplace.png)
 
-3. 在 [建立] 頁面上，提供下列資訊：
+3. 在 [建立]  頁面上，提供下列資訊：
 
     > [!IMPORTANT]
     > 請記住您的 Azure 位置, 因為您在呼叫 Azure 認知服務時可能需要它。
@@ -62,9 +62,16 @@ ms.locfileid: "68334237"
 
 ## <a name="get-the-keys-for-your-resource"></a>取得資源的金鑰
 
-建立資源後，如果有釘選該資源，就可以在 Azure 儀表板上直接存取。 若未釘選，可以在 [資源群組]中找到。 選取您的資源之後, 您可以在 [**資源管理**] 底下選取 [**金鑰**] 來取得金鑰。
+建立資源後，如果有釘選該資源，就可以在 Azure 儀表板上直接存取。 若未釘選，可以在 [資源群組]  中找到。 選取您的資源之後, 您可以在 [**資源管理**] 底下選取 [**金鑰**] 來取得金鑰。
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>定價層和計費
+
+定價層 (以及您收取的金額) 是根據您使用驗證資訊傳送的交易數目。 每個定價層都會指定:
+* 每秒允許的交易數目上限 (TP)。
+* 在定價層中啟用的服務功能。
+* 預先定義的交易量成本。 超過此數量會導致您服務的[定價詳細資料](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/)中所指定的額外費用。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -72,9 +79,9 @@ ms.locfileid: "68334237"
 
 若要使用 Azure 入口網站刪除資源群組：
 
-1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [資源群組] 以顯示資源群組的清單。
+1. 在 Azure 入口網站中，展開左側功能表以開啟服務的功能表，然後選擇 [資源群組]  以顯示資源群組的清單。
 2. 找出要刪除的資源群組, 然後以滑鼠右鍵按一下清單右側的 [更多] 按鈕 (...)。
-3. 選取 [刪除資源群組] 並且確認。
+3. 選取 [刪除資源群組]  並且確認。
 
 ## <a name="see-also"></a>另請參閱
 

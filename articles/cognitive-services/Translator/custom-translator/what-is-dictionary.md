@@ -3,24 +3,24 @@ title: 什麼是字典？ - 自訂翻譯工具
 titleSuffix: Azure Cognitive Services
 description: 字典是已對齊的文件，可指定您想要 Microsoft Translator 一律以相同方式翻譯的片語或句子清單。 字典有時也稱為字彙或詞彙。
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: c837399778723b0b084c26422b7bea762f0e7709
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5103526956b5041771a1d8e4abb5e8800b971059
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447369"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595380"
 ---
 # <a name="what-is-a-dictionary"></a>什麼是字典？
 
 字典是已對齊的一組文件，用來指定片語或句子及其對應之翻譯的清單。 在定型中使用字典，當您想要 Microsoft Translator 一律翻譯原始片語或句子的任何實例時，就會使用您在字典中提供的翻譯。 字典有時稱為字彙或詞彙。 您可以將字典視為針對您所列出的所有字詞，強制執行「複製並取代」。
 
-字典僅適用於語言組中有完整支援之 Microsoft 類神經機器翻譯 (NMT) 系統作為後盾的專案。 [檢視完整的語言清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)。
+字典僅適用於語言組中有完整支援之 Microsoft 類神經機器翻譯 (NMT) 系統作為後盾的專案。 請[參閱完整的語言清單](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)。
 
 ## <a name="phrase-dictionary"></a>片語字典
 當您在定型模型中包含片語字典，則其中所列的任何單字或片語都會以您指定的方式翻譯。 句子的其餘部分會如往常般翻譯。 您可以使用片語字典來指定不應翻譯的片語，方法是在字典中的原始和目標檔案內提供相同的未翻譯片語。

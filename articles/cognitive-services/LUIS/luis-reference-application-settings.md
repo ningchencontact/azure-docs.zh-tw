@@ -1,5 +1,5 @@
 ---
-title: 應用程式設定
+title: 應用程式設定-LUIS
 titleSuffix: Azure Cognitive Services
 description: 瞭解語言理解應用程式的應用程式設定。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7dec738fca6991cbcbd822c192b96bf6b1cc6d87
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275916"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563508"
 ---
 # <a name="application-settings"></a>應用程式設定
 
@@ -24,8 +24,8 @@ ms.locfileid: "68275916"
 
 |設定|預設值|注意|
 |--|--|--|
-|NormalizePunctuation|True|移除標點符號。|
-|NormalizeDiacritics|True|移除變音符號。|
+|NormalizePunctuation|真|移除標點符號。|
+|NormalizeDiacritics|真|移除變音符號。|
 
 ## <a name="diacritics-normalization"></a>變音符號正規化 
 
