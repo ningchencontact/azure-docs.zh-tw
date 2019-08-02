@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227312"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608083"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>基準原則:封鎖舊版驗證 (預覽)
 
@@ -37,7 +37,7 @@ ms.locfileid: "68227312"
 
 1. 流覽至**Azure 入口網站** >  **Azure Active Directory**  > 登**入**。
 1. 新增 [用戶端應用程式] 欄 (如果未顯示, 請按一下 [資料**行** > ] [**用戶端應用程式**])
-1. 依**用戶端應用程式** > 的**其他用戶端**篩選, 然後按一下 [套用]。 
+1. 依**用戶端應用程式** > 的**其他用戶端**篩選, 然後按一下 [套用]。
 
 篩選只會顯示舊版驗證通訊協定所進行的登入嘗試。 按一下每個個別的登入嘗試, 將會顯示其他詳細資料。 [**基本資訊**] 索引標籤下的 [**用戶端應用程式**] 欄位會指出所使用的舊版驗證通訊協定。
 
@@ -49,7 +49,7 @@ ms.locfileid: "68227312"
 
 本節提供如何將您的環境更新為新式驗證的逐步概述。 在您的組織中啟用舊版驗證封鎖原則之前, 請先閱讀下列步驟。
 
-### <a name="step-1-enable-modern-authentication-in-your-directory"></a>步驟 1：在您的目錄中啟用新式驗證
+### <a name="step-1-enable-modern-authentication-in-your-directory"></a>步驟 1:在您的目錄中啟用新式驗證
 
 啟用新式驗證的第一個步驟, 是確定您的目錄支援新式驗證。 2017年8月1日當天或之後所建立的目錄, 預設會啟用新式驗證。 如果您的目錄是在此日期之前建立的, 您必須使用下列步驟, 為您的目錄手動啟用新式驗證:
 
@@ -58,7 +58,7 @@ ms.locfileid: "68227312"
 
 請務必先完成此步驟, 再繼續進行。 請務必先變更目錄設定, 因為這些設定會規定所有 Office 用戶端將使用的通訊協定。 即使您使用的是支援新式驗證的 Office 用戶端, 如果您的目錄上已停用新式驗證, 則會預設為使用舊版通訊協定。
 
-### <a name="step-2-office-applications"></a>步驟 2：Office 應用程式
+### <a name="step-2-office-applications"></a>步驟 2:Office 應用程式
 
 在您的目錄中啟用新式驗證之後, 您就可以藉由啟用 Office 用戶端的新式驗證來開始更新應用程式。 根據預設, Office 2016 或更新版本的用戶端支援新式驗證。 不需要額外的步驟。
 
@@ -117,5 +117,5 @@ SharePoint Online 已啟用新式驗證預設值。 針對2017年8月1日之後�
 如需詳細資訊，請參閱：
 
 * [條件式存取基準保護原則](concept-baseline-protection.md)
-* [可保護身分識別基礎結構的五個步驟](../../security/azure-ad-secure-steps.md)
+* [可保護身分識別基礎結構的五個步驟](../../security/fundamentals/steps-secure-identity.md)
 * [什麼是 Azure Active Directory 中的條件式存取？](overview.md)

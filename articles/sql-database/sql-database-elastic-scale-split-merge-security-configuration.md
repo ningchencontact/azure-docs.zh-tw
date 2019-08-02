@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335218"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568361"
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
 
@@ -121,7 +120,7 @@ ms.locfileid: "60335218"
 預設組態會允許對 HTTPS 端點的所有存取。 這項設定可能會進一步限制。
 
 ### <a name="changing-the-configuration"></a>變更組態
-中所設定的群組，以存取控制規則和端點 **\<EndpointAcls >** 一節中**服務組態檔**。
+適用于和端點的存取控制規則群組是在**服務設定檔**的 **\<EndpointAcls >** 區段中設定。
 
 ```xml
 <EndpointAcls>
@@ -130,7 +129,7 @@ ms.locfileid: "60335218"
 </EndpointAcls>
 ```
 
-中所設定的存取控制群組中的規則\<AccessControl 名稱 =""> 服務組態檔區段。 
+存取控制群組中的規則設定于服務設定檔\<的 AccessControl name = "" > 區段中。 
 
 網路存取控制清單文件會說明其格式。
 例如，若只要允許範圍 100.100.0.0 至 100.100.255.255 中的 IP 存取 HTTPS 端點，則規則看起來如下：
@@ -358,9 +357,9 @@ ms.locfileid: "60335218"
 * 在開啟的 [憑證] 對話方塊中，選取 [詳細資料] 索引標籤
 * 請確定 [顯示] 是顯示 [全部]
 * 在清單中選取名為 [憑證指紋] 的欄位
-* 複製憑證指紋值
-  * 刪除第一個數字前面不可見的 Unicode 字元
-  * 刪除所有的空格
+* 複製指紋的值
+  * 刪除第一個數位前面不可見的 Unicode 字元
+  * 刪除所有空格
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>在服務組態檔中設定允許的用戶端
 使用允許存取服務的用戶端憑證指紋的逗號分隔清單，在服務組態檔中更新下列設定的值：
@@ -421,9 +420,9 @@ ms.locfileid: "60335218"
 1. 執行 mmc.exe。
 2. [檔案] -> [新增/移除嵌入式管理單元]
 3. 選取 [ **憑證**]。
-4. 按一下 [新增]  。
+4. 按一下 [新增]。
 5. 選擇憑證存放區位置。
-6. 按一下 [完成]  。
+6. 按一下 [完成]。
 7. 按一下 [確定 **Deploying Office Solutions**]。
 8. 展開 [ **憑證**]。
 9. 展開憑證存放區節點。
@@ -433,18 +432,18 @@ ms.locfileid: "60335218"
 ## <a name="export-certificate"></a>匯出憑證
 在 [ **憑證匯出精靈**] 中：
 
-1. 按一下 [下一步]  。
-2. 選取 [是]  ，再選取 [匯出私密金鑰]  。
-3. 按一下 [下一步]  。
+1. 按一下 [下一步]。
+2. 選取 [是]，再選取 [匯出私密金鑰]。
+3. 按一下 [下一步]。
 4. 選取想要的輸出檔案格式。
 5. 核取所需的選項。
 6. 核取 [ **密碼**]。
 7. 輸入強式密碼並加以確認。
-8. 按一下 [下一步]  。
+8. 按一下 [下一步]。
 9. 輸入或瀏覽至用來儲存憑證的檔案名稱 (使用 .PFX 副檔名)。
-10. 按一下 [下一步]  。
-11. 按一下 [完成]  。
-12. 按一下 [確定 **Deploying Office Solutions**]。
+10. 按一下 [下一步]。
+11. 按一下 [完成]。
+12. 按一下 [確定]。
 
 ## <a name="import-certificate"></a>匯入憑證
 在 [憑證匯入精靈] 中：
@@ -453,23 +452,23 @@ ms.locfileid: "60335218"
    
    * 如果只有在目前使用者下執行的處理程序會存取服務，請選取 [ **目前使用者** ]
    * 如果這台電腦中的其他處理程序會存取服務，請選取 [ **本機電腦** ]
-2. 按一下 [下一步]  。
+2. 按一下 [下一步]。
 3. 如果從檔案匯入，請確認檔案路徑。
 4. 如果匯入 .PFX 檔案：
    1. 輸入密碼以保護私密金鑰
    2. 選取匯入選項
 5. 選取將憑證「放入」以下的存放區
-6. 按一下 [瀏覽]  。
+6. 按一下 [瀏覽]。
 7. 選取所需的存放區。
-8. 按一下 [完成]  。
+8. 按一下 [完成]。
    
    * 若已選擇 [受信任的根憑證授權單位] 存放區，請按一下 [ **是**]。
 9. 在所有對話方塊視窗上，按一下 [ **確定** ]。
 
-## <a name="upload-certificate"></a>Upload certificate
+## <a name="upload-certificate"></a>上傳憑證
 在 [Azure 入口網站](https://portal.azure.com/)中
 
-1. 選取 [雲端服務]  。
+1. 選取 [雲端服務]。
 2. 選取雲端服務。
 3. 按一下頂端功能表的 [ **憑證**]。
 4. 按一下底列的 [ **上傳**]。

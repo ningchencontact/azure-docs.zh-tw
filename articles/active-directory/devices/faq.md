@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499804"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706321"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
+
+## <a name="general-faq"></a>一般常見問題
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>問：我最近註冊了裝置。 為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？ 或者, 為什麼裝置擁有者會針對混合式 Azure Active Directory (Azure AD) 加入的裝置標示為 N/A？
 
@@ -39,6 +41,11 @@ ms.locfileid: "68499804"
 
 - 針對 Windows 10 和 Windows Server 2016 或更新的裝置，請執行 `dsregcmd.exe /status`。
 - 針對舊版 OS 版本，請執行`%programFiles%\Microsoft Workplace Join\autoworkplace.exe`。
+
+**答：** 如需疑難排解資訊，請參閱下列文章：
+- [使用 dsregcmd.exe 命令針對裝置進行疑難排解](troubleshoot-device-dsregcmd.md)
+- [針對已加入混合式 Azure Active Directory 的 Windows 10 和 Windows Server 2016 裝置進行疑難排解](troubleshoot-hybrid-join-windows-current.md)
+- [針對已加入混合式 Azure Active Directory 的下層裝置進行疑難排解](troubleshoot-hybrid-join-windows-legacy.md)
 
 ---
 
@@ -65,6 +72,8 @@ ms.locfileid: "68499804"
 **答：** 這是刻意安排的作業。 在此情況下, 裝置無法存取雲端中的資源。 系統管理員可以針對過時、遺失或遭竊的裝置執行此動作, 以防止未經授權的存取。 如果不小心執行此動作, 您必須重新啟用或重新註冊裝置, 如下所述
 
 - 如果裝置已在 Azure AD 中停用, 具備足夠許可權的系統管理員可以從 Azure AD 入口網站啟用它  
+  > [!NOTE]
+  > 如果您使用 Azure AD Connect 同步處理裝置, 則會在下一次同步處理週期期間自動重新啟用混合式 Azure AD 聯結裝置。 因此, 如果您需要停用已加入混合式 Azure AD 裝置, 您必須將它從內部部署 AD 中停用
 
  - 如果 Azure AD 中刪除裝置, 您必須重新註冊裝置。 若要重新註冊, 您必須在裝置上採取手動動作。 請參閱下方的指示, 以瞭解如何根據裝置狀態重新註冊。 
 
@@ -114,20 +123,30 @@ ms.locfileid: "68499804"
 
 **問：為什麼使用者仍然能夠從我已在 Azure 入口網站中停用的裝置存取資源？**
 
-**答：** 套用撤銷最多需要一小時的時間才能完成。
+**答：** 從 Azure AD 裝置標記為停用的時間起, 最多需要一小時才能套用撤銷。
 
 >[!NOTE] 
 >針對已註冊的裝置，建議您將裝置抹除，以確保使用者無法存取資源。 如需詳細資訊，請參閱[什麼是裝置註冊？](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)。 
 
 ---
 
+### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>問：為什麼在 Azure 入口網站中的已註冊資料行下, 將裝置標示為「擱置」？
+
+**答**：[暫止] 表示裝置未註冊。 此狀態表示已使用 Azure AD 從內部部署 AD 連線並已準備好進行裝置註冊, 來同步處理裝置。 這些裝置的 [聯結類型] 設定為 [已加入混合式 Azure AD]。 深入瞭解[如何規劃您的混合式 Azure Active Directory 聯結執行](hybrid-azuread-join-plan.md)。
+
+>[!NOTE]
+>裝置也可以從已註冊的狀態變更為「擱置」
+>* 如果裝置已刪除, 且從內部部署 AD 重新同步處理, 則為 Azure AD。
+>* 如果裝置已從 Azure AD Connect 上的同步處理範圍中移除, 並已新增回去。
+>
+>在這兩種情況下, 您都必須在每個裝置上手動重新註冊裝置。 若要檢查裝置先前是否已註冊, 您可以[使用 dsregcmd.exe 命令對裝置進行疑難排解](troubleshoot-device-dsregcmd.md)。
+
+---
 ## <a name="azure-ad-join-faq"></a>Azure AD Join 常見問題集
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>問：如何? 在本機裝置上退出已加入 Azure AD 的裝置嗎？
 
-**答：** 
-- 針對已加入混合式 Azure AD 的裝置，請務必關閉自動註冊。 如此一來，排定的工作就不會重新註冊該裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，若要進行大量退出，請以指令碼方式跨多個裝置執行此命令。
-- 針對純粹的已加入 Azure AD 裝置，請確定您具有離線的本機系統管理員帳戶，或建立一個這樣的帳戶。 您無法使用任何 Azure AD 使用者認證來登入。 接下來，移至 [設定] > [帳戶] > [存取公司或學校資源]。 選取您的帳戶，然後選取 [中斷連線]。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
+**答：** 針對純粹的已加入 Azure AD 裝置，請確定您具有離線的本機系統管理員帳戶，或建立一個這樣的帳戶。 您無法使用任何 Azure AD 使用者認證來登入。 接下來，移至 [設定] > [帳戶] > [存取公司或學校資源]。 選取您的帳戶，然後選取 [中斷連線]。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
 
 ---
 
@@ -223,6 +242,10 @@ ms.locfileid: "68499804"
 
 ## <a name="hybrid-azure-ad-join-faq"></a>混合式 Azure AD Join 常見問題集
 
+### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>問：如何? 在本機裝置上退出已加入混合式 Azure AD 的裝置嗎？
+
+**答：** 針對已加入混合式 Azure AD 的裝置，請務必關閉自動註冊。 如此一來，排定的工作就不會重新註冊該裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，若要進行大量退出，請以指令碼方式跨多個裝置執行此命令。
+
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>問：哪裡可以找到診斷混合式 Azure AD 聯結失敗的疑難排解資訊？
 
 **答：** 如需疑難排解資訊，請參閱下列文章：
@@ -234,7 +257,7 @@ ms.locfileid: "68499804"
 
 **答：** 當使用者在已加入網域的裝置上將其帳戶新增至應用程式時，系統可能會對他們顯示「將帳戶新增至 Windows？」提示。 如果他們在出現提示時輸入**是**，裝置就會向 Azure AD 註冊。 信任類型會標示為 [Azure AD 已註冊]。 在您於組織中啟用混合式 Azure AD Join 之後，裝置也會加入混合式 Azure AD。 如此一來，針對同一個裝置就會顯示兩個裝置狀態。 
 
-混合式 Azure AD Join 的優先順序會高於 Azure AD 已註冊狀態。 因此, 您的裝置會被視為混合式 Azure AD 以進行任何驗證和條件式存取評估。 您可以從 Azure AD 入口網站中放心地刪除 Azure AD 已註冊裝置記錄。 了解如何[在 Windows 10 機器上避免或清除此雙重狀態](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)。 
+混合式 Azure AD Join 的優先順序會高於 Azure AD 已註冊狀態。 因此, 您的裝置會被視為混合式 Azure AD 以進行任何驗證和條件式存取評估。 您可以從 Azure AD 入口網站中放心地刪除 Azure AD 已註冊裝置記錄。 了解如何[在 Windows 10 機器上避免或清除此雙重狀態](hybrid-azuread-join-plan.md#review-things-you-should-know)。 
 
 ---
 
@@ -258,10 +281,19 @@ ms.locfileid: "68499804"
 
 ## <a name="azure-ad-register-faq"></a>Azure AD 註冊常見問題集
 
+### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>問：如何? 移除裝置上本機 Azure AD 已註冊的裝置嗎？
+
+**答：** 
+- 若為 Windows 10 Azure AD 註冊的裝置, 請移至 [**設定** > ] [**帳戶** > ] [**存取公司或學校**]。 選取您的帳戶，然後選取 [中斷連線]。 裝置註冊是 Windows 10 上的每個使用者設定檔。
+- 針對 iOS 和 Android, 您可以使用 [Microsoft Authenticator 應用程式**設定** > ]**裝置註冊**, 然後選取 [**取消註冊裝置**]。
+- 針對 macOS, 您可以使用 Microsoft Intune 公司入口網站應用程式從管理中取消註冊裝置, 並移除任何註冊。 
+
+---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>問：我可以註冊 Android 或 iOS BYOD 裝置嗎？
 
 **答：** 可以，但只能使用 Azure 裝置註冊服務，且僅適用於混合式客戶。 不支援使用「Active Directory 同盟服務」(AD FS) 中的內部部署裝置註冊服務。
 
+---
 ### <a name="q-how-can-i-register-a-macos-device"></a>問：如何註冊 macOS 裝置？
 
 **答：** 請執行下列步驟：
@@ -274,6 +306,7 @@ ms.locfileid: "68499804"
 - 條件式存取原則中包含的使用者需要[支援的 Office 版本 macOS](../conditional-access/technical-reference.md#client-apps-condition) , 才能存取資源。 
 - 在第一次嘗試存取時，系統會提示使用者使用公司入口網站來註冊裝置。
 
+---
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解 [Azure AD 裝置註冊](concept-azure-ad-register.md)

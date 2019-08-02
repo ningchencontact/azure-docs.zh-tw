@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 99440e22eb736522a25c2ee56bb07ef1d9967e66
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325658"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619671"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>在容器實例中設定命令列, 以覆寫預設的命令列操作
 
@@ -23,9 +23,9 @@ ms.locfileid: "68325658"
 
 ## <a name="command-line-guidelines"></a>命令列指導方針
 
-* 根據預設, 命令列會指定在容器中沒有 shell 的情況下*啟動的單一進程*。 例如, 命令列可能會執行 Python 腳本或可執行檔。 
+* 根據預設, 命令列會指定在容器中沒有 shell 的情況下*啟動的單一進程*。 例如, 命令列可能會執行 Python 腳本或可執行檔。 進程可以指定其他參數或引數。
 
-* 若要執行多個命令, 請在容器作業系統中設定支援的 shell 環境, 以開始您的命令列。 範例：
+* 若要執行多個命令, 請在容器作業系統中設定支援的 shell 環境, 以開始您的命令列。 範例:
 
   |作業系統  |預設 shell  |
   |---------|---------|
@@ -66,7 +66,7 @@ ms.locfileid: "68325658"
 
 例如, 修改[microsoft/aci-wordcount][aci-wordcount]容器映射的行為, 它會分析 Shakespeare 的*hamlet 文字*中的文字, 以尋找最常出現的文字。 您可以設定指向不同文字來源的命令列, 而不是分析*hamlet 文字*。
 
-查看[microsoft/aci-wordcount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create]命令的輸出。 未指定 start 命令列, 因此會執行預設的容器命令。 為了方便說明, 這個範例會設定[環境變數](container-instances-environment-variables.md), 以尋找至少五個字母長的前3個單字:
+若要在分析預設文字時查看[microsoft/aci-wordcount][aci-wordcount]容器的輸出, 請使用下列[az container create][az-container-create]命令來執行。 未指定 start 命令列, 因此會執行預設的容器命令。 為了方便說明, 這個範例會設定[環境變數](container-instances-environment-variables.md), 以尋找至少五個字母長的前3個單字:
 
 ```azurecli-interactive
 az container create \
@@ -77,13 +77,13 @@ az container create \
     --restart-policy OnFailure
 ```
 
-容器的狀態顯示為「已*終止*」 (使用[az container show][az-container-show] to check state), display the log with [az container logs][az-container-logs]查看輸出)。
+容器的狀態顯示為「已*終止*」 (使用[az container show][az-container-show]來檢查狀態) 後, 請使用[az container logs][az-container-logs]來顯示記錄檔, 以查看輸出。
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-輸出：
+輸出:
 
 ```console
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
@@ -103,13 +103,13 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-同樣地，一旦容器是「已終止」  ，藉由顯示容器的記錄來檢視輸出：
+同樣地，一旦容器是「已終止」，藉由顯示容器的記錄來檢視輸出：
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-輸出：
+輸出:
 
 ```console
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]

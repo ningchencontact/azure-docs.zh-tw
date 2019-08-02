@@ -3,7 +3,7 @@ title: 設定 Azure Service Fabric 容器服務的網路模式 | Microsoft Docs
 description: 了解如何設定 Azure Service Fabric 所支援的不同網路模式。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d749e1355e69ad93c8c211474043f88127ec76f0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621940"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599397"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -30,12 +30,12 @@ ms.locfileid: "67621940"
 當某個容器服務重新啟動或移到叢集中的另一個節點時，IP 位址便會變更。 因此，不建議使用以動態方式指派的 IP 位址來探索容器服務。 只有 Service Fabric 命名服務或 DNS 服務可用於服務探索。 
 
 >[!WARNING]
->Azure 可讓每個虛擬網路的 65,356 Ip 總計。 節點數目和容器服務執行個體 （也就使用 Open 模式） 的數字的總和不得超過 65,356 Ip，虛擬網路內。 針對高密度的情況，建議使用 nat 網路模式。 此外，其他的相依性，例如負載平衡器會有其他[限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)考量。 目前最多至 50 Ip 每個節點都已通過測試且經過實證的穩定。 
+>Azure 允許每個虛擬網路總共65356個 Ip。 節點數目和容器服務實例數目的總和 (使用開啟模式) 不能超過虛擬網路中的65356個 Ip。 針對高密度的情況，建議使用 nat 網路模式。 此外, 其他相依性 (例如負載平衡器) 將會有其他[限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)。 目前每個節點最多50個 Ip 已經過測試且經過證實穩定。 
 >
 
 ## <a name="set-up-open-networking-mode"></a>設定 Open 網路模式
 
-1. 設定 Azure Resource Manager 範本。 在叢集資源的 [fabricSettings]  區段中，啟用 DNS 服務及 IP 提供者： 
+1. 設定 Azure Resource Manager 範本。 在叢集資源的 [fabricSettings] 區段中，啟用 DNS 服務及 IP 提供者： 
 
     ```json
     "fabricSettings": [
@@ -202,12 +202,12 @@ ms.locfileid: "67621940"
 
    |設定 |值 | |
    | --- | --- | --- |
-   |優先順序 |2000 | |
+   |Priority |2000 | |
    |名稱 |Custom_Dns  | |
    |Source |VirtualNetwork | |
    |目的地 | VirtualNetwork | |
    |服務 | DNS (UDP/53) | |
-   |動作 | 允許  | |
+   |Action | 允許  | |
    | | |
 
 4. 在每個服務的應用程式資訊清單中指定網路模式：`<NetworkConfig NetworkType="Open">`。 **Open** 網路模式會使服務取得專用 IP 位址。 如果未指定模式，服務會預設為 **nat** 模式。 在下列資訊清單範例中，`NodeContainerServicePackage1` 和 `NodeContainerServicePackage2` 服務可以分別在相同的連接埠上接聽 (這兩個服務都會在 `Endpoint1` 上接聽)。 指定 Open 網路模式之後，就無法指定 `PortBinding` 設定。
@@ -245,7 +245,7 @@ ms.locfileid: "67621940"
     >在 Linux 叢集上，不支援針對不同服務混合網路模式。 
     >
 
-5. 選取 [開啟]  模式時，服務資訊清單中的 [端點]  定義應該明確地指向對應至端點的程式碼套件，即使服務套件中只有一個程式碼套件也是一樣。 
+5. 選取 [開啟] 模式時，服務資訊清單中的 [端點] 定義應該明確地指向對應至端點的程式碼套件，即使服務套件中只有一個程式碼套件也是一樣。 
    
    ```xml
    <Resources>

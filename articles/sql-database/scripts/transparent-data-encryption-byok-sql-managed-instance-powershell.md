@@ -10,28 +10,27 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: c2c4bd7bffd923430d0817cb6ea975f4c1596623
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8f0f4a8e603a9040d166b00682077cff23abd8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729170"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569693"
 ---
-# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>管理中使用您自己的金鑰，從 Azure Key Vault （預覽） 的受控執行個體的透明資料加密
+# <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault-preview"></a>從 Azure Key Vault 使用您自己的金鑰來管理受控執行個體中的透明資料加密 (預覽)
 
-此 PowerShell 指令碼範例會設定 Azure SQL 受控執行個體，使用 Azure Key vault 金鑰在攜帶您自己的金鑰 （預覽） 案例中的透明資料加密 (TDE)。 若要深入了解具有「攜帶您自己的金鑰」(BYOK) 支援的 TDE，請參閱[將 TDE 攜帶您自己的金鑰用於 Azure SQL](../transparent-data-encryption-byok-azure-sql.md)。
+此 PowerShell 腳本範例會使用 Azure Key Vault 中的金鑰, 在 Azure SQL 受控執行個體的攜帶您自己的金鑰 (預覽) 案例中設定透明資料加密 (TDE)。 若要深入了解具有「攜帶您自己的金鑰」(BYOK) 支援的 TDE，請參閱[將 TDE 攜帶您自己的金鑰用於 Azure SQL](../transparent-data-encryption-byok-azure-sql.md)。
 
 ## <a name="prerequisites"></a>先決條件
 
-- 現有的 「 受控執行個體 」。 請參閱[使用 PowerShell 建立 Azure SQL Database 受控執行個體](sql-database-create-configure-managed-instance-powershell.md)。
+- 現有的受控執行個體。 請參閱[使用 PowerShell 建立 Azure SQL Database 受控實例](sql-database-create-configure-managed-instance-powershell.md)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-在本機使用這兩個 PowerShell，或使用 Azure Cloud Shell 需要 AZ PowerShell 1.1.1-preview 或更新版本的預覽版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)，或執行下列安裝模組的範例指令碼。
+在本機使用 PowerShell 或使用 Azure Cloud Shell 需要 AZ PowerShell 1.1.1-preview 或較新的預覽版本。 如果您需要升級, 請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps), 或執行下列範例腳本來安裝模組。
 
 `Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease -Force`
 

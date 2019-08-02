@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf8d4889c277d59d0c42894281a89345fbf90a84
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512844"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716684"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -54,7 +54,7 @@ ms.locfileid: "66512844"
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
-      <Description>The policy profile</Description> 
+      <Description>The policy profile</Description>
       <Protocol Name="OpenIdConnect" />
       <Metadata>collection of key/value pairs of data</Metadata>
       <OutputClaims>
@@ -110,7 +110,7 @@ ms.locfileid: "66512844"
 
 **UserJourneyBehaviors** 元素包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 項目 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | 使用者旅程圖之單一登入 (SSO) 工作階段行為的範圍。 |
 | SessionExpiryType |0:1 | 工作階段的驗證行為。 可能的值：`Rolling` 或 `Absolute`。 `Rolling` 值 (預設) 表示，只要使用者在應用程式中持續為作用中狀態，該使用者就會保持登入。 `Absolute` 值表示在經過應用程式工作階段存留期所指定的期間之後，就會強制使用者進行重新驗證。 |
@@ -133,18 +133,18 @@ ms.locfileid: "66512844"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| TelemetryEngine | 是 | 值必須是 `ApplicationInsights`。 | 
+| TelemetryEngine | 是 | 值必須是 `ApplicationInsights`。 |
 | InstrumentationKey | 是 | 字串，其中包含 Application Insights 元素的檢測金鑰。 |
 | DeveloperMode | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，Application Insights 就會透過處理管線加速遙測。 此設定適用於開發，但僅限於大量磁碟區。詳細的活動記錄只是設計來協助開發自訂原則。 請勿在生產環境中使用開發模式。 記錄會收集往返識別提供者在開發期間所傳送的所有宣告。 如果在生產環境中使用，開發人員會負責他們自己的 App Insights 記錄中收集的 PII (私人識別資訊)。 將此值設定為 `true` 時，只會收集這些詳細的記錄。|
-| ClientEnabled | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，則傳送 ApplicationInsights 用戶端指令碼來追蹤頁面檢視和用戶端錯誤。 | 
-| ServerEnabled | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，則將現有的 UserJourneyRecorder JSON 當作自訂事件傳送至 Application Insights。 | 
-| TelemetryVersion | 是 | 值必須是 `1.0.0`。 | 
+| ClientEnabled | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，則傳送 ApplicationInsights 用戶端指令碼來追蹤頁面檢視和用戶端錯誤。 |
+| ServerEnabled | 是 | 可能的值：`true` 或 `false`。 如果是 `true`，則將現有的 UserJourneyRecorder JSON 當作自訂事件傳送至 Application Insights。 |
+| TelemetryVersion | 是 | 值必須是 `1.0.0`。 |
 
 如需詳細資訊，請參閱[收集記錄](active-directory-b2c-troubleshoot-custom.md)
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
-使用 Azure AD B2C 中的自訂原則，您可以在查詢字串中傳送參數。 將參數傳遞至您的 HTML 端點，即可動態變更網頁內容。 例如，視您從 Web 或行動裝置應用程式傳遞的參數而定，您可以變更 Azure AD B2C 註冊或登入背景影像。 Azure AD B2C 會將查詢字串參數傳遞到您的動態 HTML 檔案，例如 aspx 檔案。 
+使用 Azure AD B2C 中的自訂原則，您可以在查詢字串中傳送參數。 將參數傳遞至您的 HTML 端點，即可動態變更網頁內容。 例如，視您從 Web 或行動裝置應用程式傳遞的參數而定，您可以變更 Azure AD B2C 註冊或登入背景影像。 Azure AD B2C 會將查詢字串參數傳遞到您的動態 HTML 檔案，例如 aspx 檔案。
 
 下列範例會在查詢字串中傳遞名為 `campaignId` 且值為 `hawaii` 的參數：
 
@@ -169,14 +169,14 @@ ms.locfileid: "66512844"
 **TechnicalProfile** 元素包含下列屬性：
 
 | 屬性 | 必要項 | 描述 |
-| --------- | -------- | ----------- | 
+| --------- | -------- | ----------- |
 | Id | 是 | 值必須是 `PolicyProfile`。 |
 
 **TechnicalProfile** 包含下列元素：
 
-| 元素 | 發生次數 | 描述 |
+| 項目 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔名稱。 |
+| 顯示名稱 | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔名稱。 |
 | 描述 | 0:1 | 字串，其中包含要向使用者顯示的技術設定檔說明。 |
 | Protocol | 1:1 | 用於同盟的通訊協定。 |
 | 中繼資料 | 0:1 | 金鑰/值組的 *Item* 集合，通訊協定會在交易過程中利用它來與端點進行通訊，以設定信賴憑證者與其他社群參與者之間的互動。 |
@@ -208,7 +208,7 @@ ms.locfileid: "66512844"
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 使用 **SubjectNameingInfo** 元素，您可以控制權杖主體的值：
-- **JWT 權杖**-`sub`宣告。 這是權杖判斷資訊時所針對的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來執行安全的授權檢查，例如，將權杖用於存取資源時。 根據預設，主體宣告會填入目錄中使用者的物件識別碼。 如需詳細資訊，請參閱[權杖、工作階段及單一登入設定](active-directory-b2c-token-session-sso.md)。
+- **JWT 權杖**- `sub`宣告。 這是權杖判斷資訊時所針對的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來執行安全的授權檢查，例如，將權杖用於存取資源時。 根據預設，主體宣告會填入目錄中使用者的物件識別碼。 如需詳細資訊，請參閱[權杖、工作階段及單一登入設定](active-directory-b2c-token-session-sso.md)。
 - **SAML 權杖**：可識別主體元素的 `<Subject><NameID>` 元素。
 
 **SubjectNamingInfo** 元素包含下列屬性：
@@ -217,7 +217,7 @@ ms.locfileid: "66512844"
 | --------- | -------- | ----------- |
 | ClaimType | 是 | 對輸出宣告之 **PartnerClaimType** 的參考。 輸出宣告必須定義於信賴憑證者原則 **OutputClaims** 集合中。 |
 
-下列範例示範如何定義 OpenId Connect 信賴憑證者。 主體名稱資訊會設定為 `objectId`：
+下列範例顯示如何定義 OpenID Connect 信賴憑證者。 主體名稱資訊會設定為 `objectId`：
 
 ```XML
 <RelyingParty>

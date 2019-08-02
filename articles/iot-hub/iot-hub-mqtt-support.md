@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 0fc641431f97a12797d675a42a1a1b8b2355fcf0
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9b1f0042f501cefc99343d53bbf2ad39f0ae1f4c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440951"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640461"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -97,11 +97,11 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
 1. 移至 [裝置總管] 中的 [管理] 索引標籤。
 
-2. 按一下 [SAS 權杖]  \(右上角)。
+2. 按一下 [SAS 權杖] \(右上角)。
 
 3. 在 [SASTokenForm] 的 [DeviceID] 下拉式清單中，選取您的裝置。 設定您的 **TTL**。
 
-4. 按一下 [產生]  來建立您的權杖。
+4. 按一下 [產生] 來建立您的權杖。
 
    產生的 SAS 權杖具有下列結構：
 
@@ -195,6 +195,10 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
+
+以下是必要條件的安裝指示。
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="sending-device-to-cloud-messages"></a>傳送裝置到雲端訊息
 

@@ -2,23 +2,23 @@
 title: 從另一個群組新增或移除群組 - Azure Active Directory | Microsoft Docs
 description: 關於如何使用 Azure Active Directory 從另一個群組新增或移除群組的指示。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68b6c1e037992930a70630b0d218cc98beba931d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 896a8b2c96dc10afbc3f179aed5a8497a8948ca9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60249222"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561927"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>使用 Azure Active Directory 從另一個群組新增或移除群組
 本文可協助您使用 Azure Active Directory 從另一個群組新增或移除群組。
@@ -36,26 +36,26 @@ ms.locfileid: "60249222"
 
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 選取 [Azure Active Directory]  ，然後選取 [群組]  。
+2. 選取 [Azure Active Directory]，然後選取 [群組]。
 
-3. 在 [群組 - 所有群組]  頁面上，搜尋並選取會要成為另一個群組成員的群組。 在本練習中，我們使用 [MDM 原則 - 西部]  群組。
+3. 在 [群組 - 所有群組] 頁面上，搜尋並選取會要成為另一個群組成員的群組。 在本練習中，我們使用 [MDM 原則 - 西部]群組。
 
     >[!Note]
-    >您一次只能將做為成員的群組新增到一個群組中。 此外，[選取群組]  方塊會根據將您的輸入內容，與使用者或裝置名稱的任何部分進行比對來篩選顯示項目。 但是不支援萬用字元。
+    >您一次只能將做為成員的群組新增到一個群組中。 此外，[選取群組] 方塊會根據將您的輸入內容，與使用者或裝置名稱的任何部分進行比對來篩選顯示項目。 但是不支援萬用字元。
 
     ![[群組 - 所有群組] 頁面上已選取 [MDM 原則 - 西部] 群組](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
 
-4. 在 [MDM 原則 - 西部 - 群組成員資格] 頁面上，選取 [群組成員資格]，選取 [新增]，找出您要加入成員群組的群組，然後選擇 [選取]。     在本練習中，我們使用 [MDM 原則 - 所有組織]  群組。
+4. 在 [MDM 原則 - 西部 - 群組成員資格] 頁面上，選取 [群組成員資格]，選取 [新增]，找出您要加入成員群組的群組，然後選擇 [選取]。 在本練習中，我們使用 [MDM 原則 - 所有組織]群組。
 
-    [MDM 原則 - 西部] 群組現在是 [MDM 原則 - 所有組織] 群組的成員，繼承了 [MDM 原則 - 所有組織] 群組的所有屬性和設定。  
+    [MDM 原則 - 西部] 群組現在是 [MDM 原則 - 所有組織] 群組的成員，繼承了 [MDM 原則 - 所有組織] 群組的所有屬性和設定。
 
     ![將群組新增至另一個群組中以建立群組成員資格](media/active-directory-groups-membership-azure-portal/add-group-membership.png)
 
-5. 檢閱 [MDM 原則 - 西部 - 群組成員資格]  頁面以查看群組和成員資格。
+5. 檢閱 [MDM 原則 - 西部 - 群組成員資格] 頁面以查看群組和成員資格。
 
     ![[MDM 原則 - 西部 - 群組成員資格] 頁面顯示父群組](media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
 
-6. 若要更詳細檢視群組和成員關係，請選取群組名稱 ([MDM 原則 - 所有組織]  ) 並查看 [MDM 原則 - 西部]  頁面詳細資訊。
+6. 若要更詳細檢視群組和成員關係，請選取群組名稱 ([MDM 原則 - 所有組織]) 並查看 [MDM 原則 - 西部] 頁面詳細資訊。
 
     ![[群組成員資格] 頁面顯示成員和群組詳細資訊](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
@@ -63,13 +63,13 @@ ms.locfileid: "60249222"
 您可以從另一個安全性群組中移除現有的安全性群組。 不過，移除群組也會移除其使用者繼承的任何屬性和內容。
 
 ### <a name="to-remove-a-member-group-from-another-group"></a>若要從另一個群組中移除成員群組
-1. 在 [群組 - 所有群組]  頁面上，搜尋並選取會要從另一個群組中移除的成員群組。 在本練習中，我們再次使用 [MDM 原則 - 西部]  群組。
+1. 在 [群組 - 所有群組] 頁面上，搜尋並選取會要從另一個群組中移除的成員群組。 在本練習中，我們再次使用 [MDM 原則 - 西部]群組。
 
-2. 在 [MDM 原則 - 西部概觀]  頁面上，選取 [群組成員資格]  。
+2. 在 [MDM 原則 - 西部概觀] 頁面上，選取 [群組成員資格]。
 
     ![[MDM 原則 - 西部概觀] 頁面](media/active-directory-groups-membership-azure-portal/group-membership-overview.png)
 
-3. 在 [MDM 原則 - 西部 - 群組成員資格] 頁面中選取 [MDM 原則 - 所有組織] 群組，然後再於 [MDM 原則 - 西部] 頁面詳細資訊中選取 [移除]。    
+3. 在 [MDM 原則 - 西部 - 群組成員資格] 頁面中選取 [MDM 原則 - 所有組織] 群組，然後再於 [MDM 原則 - 西部] 頁面詳細資訊中選取 [移除]。
 
     ![[群組成員資格] 頁面顯示成員和群組詳細資訊](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 

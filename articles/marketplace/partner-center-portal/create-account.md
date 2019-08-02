@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 24ed03cde967f0fef7abdc4c2df1f8e5d6bdb6ab
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327133"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668349"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>在合作夥伴中心建立商業 Marketplace 帳戶
 
@@ -52,7 +52,7 @@ ms.locfileid: "68327133"
 
 #### <a name="agree-to-terms-and-conditions"></a>同意條款及條件
 
-您必須同意兩組條款及條件, 包括[Microsoft 線上訂](https://go.microsoft.com/fwlink/?LinkId=870457)用帳戶合約和[Microsoft Marketplace 發行者合約](https://go.microsoft.com/fwlink/?linkid=843476)。
+您必須同意[Microsoft Marketplace 發行者合約](http://go.microsoft.com/fwlink/?LinkID=699560)中的條款及條件。
 
 #### <a name="provide-your-publisher-profile"></a>提供您的發行者設定檔
 
@@ -79,7 +79,7 @@ ms.locfileid: "68327133"
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>將新的發行者新增至商業 Marketplace 方案
 
-組織可以有多個與商業 Marketplace 帳戶相關聯的發行者。 在登入合作夥伴中心之後, 現有的使用者可以藉由選取 [**帳戶設定** ->    ->  **] [發行者] [新增發行者]** 來新增更多發行者。
+組織可以有多個與商業 Marketplace 帳戶相關聯的發行者。 在登入合作夥伴中心之後, 現有的使用者可以藉由選取 [**帳戶設定** ->   ->  **] [發行者] [新增發行者]** 來新增更多發行者。
 
 >[!Note]
 >新增發行者之前, 您可以藉由登入合作夥伴中心來檢查現有的發行者, 然後選取 [**帳戶設定** -> ] [**發行者**] 以查看現有發行者的清單。

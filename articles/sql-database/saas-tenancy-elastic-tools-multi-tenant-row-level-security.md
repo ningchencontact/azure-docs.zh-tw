@@ -10,25 +10,24 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 996d4e2ba62c06992b0433fd255800ba8cea0af3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234135"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570177"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式
 
-[彈性資料庫工具](sql-database-elastic-scale-get-started.md)和[資料列層級安全性 (RLS)][rls] 共同運作，讓您可以透過 Azure SQL Database 調整多租用戶應用程式的資料層。 綜合這些技術可協助您建置具有高擴充性資料層的應用程式。 資料層支援多租用戶分區，並使用 **ADO.NET SqlClient** 或 **Entity Framework**。 如需詳細資訊，請參閱[多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式](saas-tenancy-app-design-patterns.md)。
+[彈性資料庫工具和資料](sql-database-elastic-scale-get-started.md)[列層級安全性 (RLS)][rls]合作, 可讓您使用 Azure SQL Database 來調整多租使用者應用程式的資料層。 綜合這些技術可協助您建置具有高擴充性資料層的應用程式。 資料層支援多租用戶分區，並使用 **ADO.NET SqlClient** 或 **Entity Framework**。 如需詳細資訊，請參閱[多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式](saas-tenancy-app-design-patterns.md)。
 
-- **彈性資料庫工具**可讓開發人員透過使用 .NET 程式庫和 Azure 服務範本的業界標準分區化作法，相應放大資料層。 使用[彈性資料庫用戶端程式庫][s-d-elastic-database-client-library]管理分區，有助於自動化及簡化許多常與分區化相關的基礎結構工作。
+- **彈性資料庫工具**可讓開發人員透過使用 .NET 程式庫和 Azure 服務範本的業界標準分區化作法，相應放大資料層。 使用[彈性資料庫用戶端程式庫][s-d-elastic-database-client-library]管理分區, 有助於自動化及簡化許多通常與分區化相關聯的基礎結構工作。
 - **資料列層級安全性**可讓開發人員在相同資料庫中安全地儲存多個租用戶的資料。 RLS 安全性原則會篩選掉不屬於執行查詢之租用戶的資料列。 將篩選邏輯集中在資料庫中，簡化了維護工作，並且降低安全性錯誤的風險。 只仰賴用戶端程式碼來強制執行安全性是種極具風險的替代方案。
 
 透過搭配使用這些功能，應用程式可以在同一個分區資料庫中儲存多個租用戶的資料。 當租用戶共用資料庫時，每個租用戶所花費的成本更少。 然而，相同的應用程式也可以為進階租用戶提供付費選項，讓它們取得專屬的單一租用戶分區。 隔離出單一租用戶的一個好處在於能保證較穩固的效能， 因為在單一租用戶的資料庫中，不會有其他租用戶競爭資源。
 
-目標是要使用彈性資料庫用戶端程式庫[資料依存路由](sql-database-elastic-scale-data-dependent-routing.md) API，來將每個指定的租用戶自動連線到正確的分區資料庫。 只有一個分區包含指定租用戶的特定 TenantId 值。 TenantId 是「分區索引鍵」  。 建立連線之後，資料庫中的 RLS 安全性原則可確保指定的租用戶只能存取包含其 TenantId 的資料列。
+目標是要使用彈性資料庫用戶端程式庫[資料依存路由](sql-database-elastic-scale-data-dependent-routing.md) API，來將每個指定的租用戶自動連線到正確的分區資料庫。 只有一個分區包含指定租用戶的特定 TenantId 值。 TenantId 是「分區索引鍵」。 建立連線之後，資料庫中的 RLS 安全性原則可確保指定的租用戶只能存取包含其 TenantId 的資料列。
 
 > [!NOTE]
 > 租用戶識別碼可能由多個資料行組成。 為了方便此討論進行，我們直接假設使用單一資料行的 TenantId。
@@ -302,12 +301,12 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> 如果您針對 Entity Framework 專案使用預設條件約束，建議您「不要」  在 EF 資料模型中包含 TenantId 資料行。 此建議的原因是 Entity Framework 查詢會自動提供預設值，以覆寫 T-SQL 中使用 SESSION\_CONTEXT 建立的預設條件約束。
+> 如果您針對 Entity Framework 專案使用預設條件約束，建議您「不要」在 EF 資料模型中包含 TenantId 資料行。 此建議的原因是 Entity Framework 查詢會自動提供預設值，以覆寫 T-SQL 中使用 SESSION\_CONTEXT 建立的預設條件約束。
 > 若要使用範例專案中的預設條件約束，舉例來說，您可以從 DataClasses.cs 移除 TenantId (並在 Package Manager Console 中執行 Add-Migration)，然後使用 T-SQL 確保欄位只存在於資料庫資料表中。 如此一來，EF 就不會在插入資料時，自動提供不正確的預設值。
 
-### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(選擇性) 啟用「進階使用者」  來存取所有資料列
+### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(選擇性) 啟用「進階使用者」來存取所有資料列
 
-某些應用程式可能會想要建立能存取所有資料列的「進階使用者」  。 進階使用者可以啟用跨所有分區上之租用戶的報告。 進階使用者也可以對涉及在資料庫之間移動資料列的分區執行分割合併作業。
+某些應用程式可能會想要建立能存取所有資料列的「進階使用者」。 進階使用者可以啟用跨所有分區上之租用戶的報告。 進階使用者也可以對涉及在資料庫之間移動資料列的分區執行分割合併作業。
 
 若要啟用進階使用者，請在每個分區資料庫中建立新的 SQL 使用者 (在此範例中為 `superuser`)。 然後使用新的述詞函式修改安全性原則，允許此使用者存取所有資料列。 此類函式如下。
 
@@ -346,7 +345,7 @@ GO
 
 ## <a name="summary"></a>摘要
 
-您可以將彈性資料庫工具與資料列層級安全性搭配使用，以支援多租用戶和單一租用戶的分區，藉此向外延展應用程式的資料層。 多租用戶分區可以用來更有效率地儲存資料。 當大量租用戶只有少量資料列的資料時，此效率特別顯著。 單一租用戶分區可支援效能和隔離需求更嚴格的進階租用戶。 如需詳細資訊，請參閱[資料列層級安全性參考資料][rls]。
+您可以將彈性資料庫工具與資料列層級安全性搭配使用，以支援多租用戶和單一租用戶的分區，藉此向外延展應用程式的資料層。 多租用戶分區可以用來更有效率地儲存資料。 當大量租用戶只有少量資料列的資料時，此效率特別顯著。 單一租用戶分區可支援效能和隔離需求更嚴格的進階租用戶。 如需詳細資訊，請參閱 [資料列層級安全性參考資料][rls]。
 
 ## <a name="additional-resources"></a>其他資源
 

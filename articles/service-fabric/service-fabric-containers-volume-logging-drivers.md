@@ -2,24 +2,19 @@
 title: Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽) | Microsoft Docs
 description: Service Fabric 支援使用 Azure 檔案服務以備份來自您容器的磁碟區。 這目前為預覽狀態。
 services: service-fabric
-documentationcenter: other
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
-ms.devlang: other
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/10/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: 09ee729fea952665350aa25c21cdb3d5823b899f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.author: atsenthi
+ms.openlocfilehash: 36a3bb385064009f25a585ea299558d54714fc27
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489904"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599698"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽)
 Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/) \(英文\)，針對 Docker 容器提供以 [Azure 檔案服務](https:///azure/storage/files/storage-files-introduction)為基礎的磁碟區。 此 Docker 磁碟區外掛程式會封裝為可部署至 Service Fabric 叢集的 Service Fabric 應用程式。 其目的是為部署至叢集的其他 Service Fabric 容器應用程式提供以 Azure 檔案儲存體為基礎的磁片區。
@@ -28,7 +23,7 @@ Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https:
 > Azure 檔案儲存體磁片區外掛程式的版本6.5.516.9494 是本檔提供的預覽版本。 因為是預覽版本，此版本並**不**支援在生產環境中使用。
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * Azure 檔案服務磁碟區外掛程式的 Windows 版本只能在 [Windows Server 1709 版](https:///windows-server/get-started/whats-new-in-windows-server-1709)、[Windows 10 1709 版](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709)或更新版本的作業系統上運作。
 
 * Azure 檔案服務磁碟區外掛程式的 Linux 版本可在 Service Fabric 所支援的所有作業系統版本上運作。

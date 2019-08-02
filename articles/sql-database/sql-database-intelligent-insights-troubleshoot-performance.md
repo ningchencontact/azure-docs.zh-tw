@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f6b20806f75cc28b5f4f740ffb67faae491ae84
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703487"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567904"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
-此頁面提供透過 [Intelligent Insights](sql-database-intelligent-insights.md) 資料庫效能診斷記錄偵測到之 Azure SQL Database 和受控執行個體效能問題的相關資訊。 診斷記錄遙測可以串流處理至[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)， [Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)， [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)，或第三方解決方案，可自訂的 DevOps 警示和報告功能。
+此頁面提供透過 [Intelligent Insights](sql-database-intelligent-insights.md) 資料庫效能診斷記錄偵測到之 Azure SQL Database 和受控執行個體效能問題的相關資訊。 診斷記錄遙測可以串流處理至[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)、 [Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、 [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案, 以取得自訂的 DevOps 警示和報告功能。
 
 > [!NOTE]
 > 如需使用 Intelligent Insights 進行快速 SQL Database 效能疑難排解的指南，請參閱此文件中的[建議的疑難排解流程](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow)流程圖。
@@ -111,7 +110,7 @@ SQL Database 上的資源通常是指 [DTU](sql-database-what-is-a-dtu.md) 或�
 
 如需其他疑難排解建議，請參閱[記憶體授與深思：有許多名稱的神秘 SQL Server 記憶體取用者](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/) \(英文\)。
 
-## <a name="locking"></a>鎖定
+## <a name="locking"></a>正在鎖定
 
 ### <a name="what-is-happening"></a>發生的情況
 
@@ -189,7 +188,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 > 如需 SQL Database 的持續效能最佳化，建議您啟用 [SQL Database 自動調整](sql-database-automatic-tuning.md)。 這個獨特的 SQL Database 內建智慧功能，能夠持續監視您的 SQL 資料庫，並自動為資料庫調整及建立索引。
 >
 
-## <a name="new-query"></a>新查詢
+## <a name="new-query"></a>新增查詢
 
 ### <a name="what-is-happening"></a>發生的情況
 
@@ -209,7 +208,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 
 這個可偵測的效能模式表示與過去七天的工作負載基準相比，工作負載效能降低，其中發現有效能不佳的查詢。
 
-在此情況中，系統無法將效能不佳的查詢歸類至任何其他標準的可偵測效能類別，但它偵測到等候統計資料是造成迴歸的原因。 因此，系統會將那些查詢判斷為具有「增加的等候統計資料」  ，並同時公開造成迴歸的等候統計資料。 
+在此情況中，系統無法將效能不佳的查詢歸類至任何其他標準的可偵測效能類別，但它偵測到等候統計資料是造成迴歸的原因。 因此，系統會將那些查詢判斷為具有「增加的等候統計資料」，並同時公開造成迴歸的等候統計資料。 
 
 ### <a name="troubleshooting"></a>疑難排解
 
@@ -255,7 +254,7 @@ SQL Database 上的資源通常稱為 [DTU 資源](sql-database-purchase-models.
 
 SQL 資料庫會判斷出查詢執行成本最低的查詢執行計畫。 隨著查詢類型和工作負載發生變更，有時現有的計畫會變得不再有效率，或 SQL Database 可能並未做出理想的評估。 為了更正這種狀況，您可以手動強制執行查詢執行計畫。
 
-這個可偵測的效能模式結合了三種不同的計畫迴歸案例：新計畫迴歸、舊計畫迴歸，以及現有計畫變更工作負載。 所發生之計畫迴歸的特定類型，會在診斷記錄的 [詳細資料]  屬性中提供。
+這個可偵測的效能模式結合了三種不同的計畫迴歸案例：新計畫迴歸、舊計畫迴歸，以及現有計畫變更工作負載。 所發生之計畫迴歸的特定類型，會在診斷記錄的 [詳細資料] 屬性中提供。
 
 新計畫迴歸情況所指的狀態是 SQL Database 開始執行效率比舊計畫差的新查詢執行計畫。 舊計畫迴歸情況所指的狀態是 SQL Database 從使用較有效率的新計畫切換成使用效率比新計畫差的舊計畫。 現有計畫變更工作負載迴歸所指的狀態是新計畫和舊計畫會不斷交替，並逐漸朝向效能不佳的計畫方向發展。
 

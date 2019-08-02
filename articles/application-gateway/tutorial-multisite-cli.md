@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 5508a1dbd105fc47a4ed7b3484f55532904956ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407069"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717274"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>使用 Azure CLI，以建立有多站台裝載的應用程式閘道
 
@@ -227,7 +227,7 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在瀏覽器的網址列中輸入您的網域名稱。 例如， http://www.contoso.com 。
+在瀏覽器的網址列中輸入您的網域名稱。 例如 HTTP\://www.contoso.com。
 
 ![在應用程式閘道中測試 contoso 網站](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

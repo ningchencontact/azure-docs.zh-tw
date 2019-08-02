@@ -5,15 +5,15 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772134"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708127"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護檔案伺服器 
 
@@ -56,7 +56,7 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 
 |環境  |建議  |考慮事項 |
 |---------|---------|---------|
-|有或沒有 DFSR 的檔案伺服器環境|   [使用 Site Recovery 進行複寫](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支援共用磁碟叢集或網路連接儲存裝置 (NAS)。 如果您的環境使用這些組態，請在適當時使用任何其他方法。 <br> Site Recovery 不支援 SMB 3.0。 只有在對檔案所做的變更已在檔案的原始位置中更新時，複寫的 VM 才會納入變更。
+|有或沒有 DFSR 的檔案伺服器環境|   [使用 Site Recovery 進行複寫](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支援共用磁碟叢集或網路連接儲存裝置 (NAS)。 如果您的環境使用這些組態，請在適當時使用任何其他方法。 <br> Site Recovery 不支援 SMB 3.0。 只有在對檔案所做的變更已在檔案的原始位置中更新時，複寫的 VM 才會納入變更。<br>  Site Recovery 提供近乎同步的資料複寫程式, 因此在發生未規劃的容錯移轉案例時, 可能會遺失資料, 而且可能會造成 USN 不相符的問題。
 |有 DFSR 的檔案伺服器環境     |  [將 DFSR 延伸到 Azure IaaS 虛擬機器](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR 適用於頻寬極端變換的環境。 要使用此方法，Azure VM 必須隨時處於啟動並執行中的狀態。 您必須在規劃時計算 VM 的成本。         |
 |Azure IaaS VM     |     檔案同步    |     如果您在災害復原案例中使用檔案同步，在容錯移轉期間，您必須手動執行動作，以確保用戶端機器可以透明的方式存取檔案共用。 要使用「檔案同步」，必須從用戶端機器開啟連接埠 445。     |
 
@@ -68,12 +68,14 @@ DFSR 使用名為「遠端差異壓縮 (RDC)」的壓縮演算法，可用來在
 |---------|---------|---------|
 |Azure| -|是|
 |Hyper-V|   是 |是
-|VMware |是|   是
+|VMWare |是|   是
 |實體伺服器|   是 |是
  
 
 > [!IMPORTANT]
 > 在您進行以下三種方法的任何一種之前，請先確定已處理下列相依性。
+
+
 
 **站對站連線能力**：必須在內部部署網站與 Azure 網路之間建立直接連線，以允許伺服器之間的通訊。 請使用安全的站對站 VPN 連線，連線到作為災害復原網站的 Azure 虛擬網路。 如需詳細資訊，請參閱[在內部部署網站與 Azure 網路之間建立站對站 VPN 連線](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)。
 
@@ -159,10 +161,10 @@ Azure 檔案服務可用來完全取代或補充傳統內部部署檔案伺服�
 
 1. 請移至 Azure 入口網站，然後選取您的復原服務保存庫。
 2. 選取為檔案伺服器環境建立的復原計畫。
-3. 選取 [測試容錯移轉]  。
+3. 選取 [測試容錯移轉]。
 4. 選取復原點和 Azure 虛擬網路，以啟動測試容錯移轉程序。
 5. 次要環境啟動後，請執行驗證。
-6. 驗證完成後，請選取復原計畫上的 [清除測試容錯移轉]  ，測試容錯移轉環境隨即清除。
+6. 驗證完成後，請選取復原計畫上的 [清除測試容錯移轉]，測試容錯移轉環境隨即清除。
 
 如需關於如何執行測試容錯移轉的詳細資訊，請參閱 [Site Recovery 的測試容錯移轉](site-recovery-test-failover-to-azure.md)。
 
@@ -172,7 +174,7 @@ Azure 檔案服務可用來完全取代或補充傳統內部部署檔案伺服�
 
 1. 移至 Azure 入口網站，然後選取您的復原服務保存庫。
 2. 選取為檔案伺服器環境建立的復原計畫。
-3. 選取 [容錯移轉]  。
+3. 選取 [容錯移轉]。
 4. 選取復原點，以啟動容錯移轉程序。
 
 如需關於如何執行容錯移轉的詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。

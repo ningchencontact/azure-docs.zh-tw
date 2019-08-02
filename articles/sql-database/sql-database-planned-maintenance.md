@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 235d29c876616948516bbe4309ddd630bc3f6dca
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 1bb88d6f74ab4b93e226fe8630f07f0a96f4ba47
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67852592"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567045"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>規劃 Azure SQL Database 的 Azure 維護事件
 
@@ -39,7 +38,7 @@ ms.locfileid: "67852592"
 
 平均而言，每個月會發生 1.7 次計劃性維護事件。
 
-## <a name="resource-health"></a>資源健全狀況
+## <a name="resource-health"></a>資源健康狀態
 
 若您的 SQL 資料庫發生登入失敗，請查看 [Azure 入口網站](https://portal.azure.com)中的[資源健康狀態](../service-health/resource-health-overview.md#get-started)視窗，了解目前狀態。 [健康情況歷程記錄] 區段會包含每個事件停止運作的原因 (如果有的話)。
 

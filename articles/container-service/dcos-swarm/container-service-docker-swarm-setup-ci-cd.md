@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60643486"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598547"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(已淘汰) 使用 Azure DevOps Services 搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式的完整 CI/CD 管線
 
@@ -69,7 +69,7 @@ ms.locfileid: "60643486"
 
 ### <a name="install-the-docker-integration-azure-devops-services-extension"></a>安裝 Docker Integration Azure DevOps Services 擴充功能
 
-Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程序中與 Docker 搭配使用。 此擴充功能可在 [Azure DevOps Services Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.docker) 中取得。 按一下 [安裝]  以將此擴充功能新增到您的 Azure DevOps Services 組織：
+Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程序中與 Docker 搭配使用。 此擴充功能可在 [Azure DevOps Services Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscs-rm.docker) 中取得。 按一下 [安裝] 以將此擴充功能新增到您的 Azure DevOps Services 組織：
 
 ![安裝 Docker 整合](./media/container-service-docker-swarm-setup-ci-cd/install-docker-vsts.png)
 
@@ -79,15 +79,15 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
 設定您的 Azure DevOps Services 專案與 GitHub 帳戶之間的連線。
 
-1. 在您的 Azure DevOps Services 專案中，按一下工具列中的 [設定]  圖示，然後選取 [服務]  。
+1. 在您的 Azure DevOps Services 專案中，按一下工具列中的 [設定] 圖示，然後選取 [服務]。
 
     ![Azure DevOps Services - 外部連線](./media/container-service-docker-swarm-setup-ci-cd/vsts-services-menu.png)
 
-1. 在左側，按一下 [新增服務端點]   > [GitHub]  。
+1. 在左側，按一下 [新增服務端點] > [GitHub]。
 
     ![Azure DevOps Services - GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
 
-1. 若要授權讓 Azure DevOps Services 與您的 GitHub 帳戶搭配使用，請按一下 [授權]  ，並依照開啟視窗中的程序操作。
+1. 若要授權讓 Azure DevOps Services 與您的 GitHub 帳戶搭配使用，請按一下 [授權]，並依照開啟視窗中的程序操作。
 
     ![Azure DevOps Services - 授權 GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-authorize.png)
 
@@ -95,13 +95,13 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
 進入 CI/CD 管線的最後一步是設定外部連線，來連線到您的容器登錄和您在 Azure 中的 Docker Swarm 叢集。 
 
-1. 在您 Azure DevOps Services 專案的 [服務]  設定中，新增 [Docker 登錄]  類型的服務端點。 
+1. 在您 Azure DevOps Services 專案的 [服務] 設定中，新增 [Docker 登錄] 類型的服務端點。 
 
 1. 在開啟的快顯視窗中，輸入您的 Azure 容器登錄的 URL 和認證。
 
     ![Azure DevOps Services - Docker 登錄](./media/container-service-docker-swarm-setup-ci-cd/vsts-registry.png)
 
-1. 針對 Docker Swarm 叢集新增 [SSH]  類型的端點。 然後輸入您的 Swarm 叢集的 SSH 連線資訊。
+1. 針對 Docker Swarm 叢集新增 [SSH] 類型的端點。 然後輸入您的 Swarm 叢集的 SSH 連線資訊。
 
     ![Azure DevOps Services - SSH](./media/container-service-docker-swarm-setup-ci-cd/vsts-ssh.png)
 
@@ -113,21 +113,21 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
 ### <a name="initial-pipeline-setup"></a>初始管線設定
 
-1. 若要建立組建管線，請連線到您的 Azure DevOps Services 專案，然後按一下 [組建與發行]  。 
+1. 若要建立組建管線，請連線到您的 Azure DevOps Services 專案，然後按一下 [組建與發行]。 
 
-1. 在 [組件定義]  區段中，按一下 [+ 新增]  。 選取 [空白]  範本。
+1. 在 [組件定義] 區段中，按一下 [+ 新增]。 選取 [空白] 範本。
 
     ![Azure DevOps - 新增組建管線](./media/container-service-docker-swarm-setup-ci-cd/create-build-vsts.png)
 
-1. 使用 GitHub 存放庫來源設定新組建，選取 [持續整合]  ，然後選取註冊 Linux 代理程式所在的代理程式佇列。 按一下 [建立]  以建立組建管線。
+1. 使用 GitHub 存放庫來源設定新組建，選取 [持續整合]，然後選取註冊 Linux 代理程式所在的代理程式佇列。 按一下 [建立] 以建立組建管線。
 
     ![Azure DevOps Services - 建立組建管線](./media/container-service-docker-swarm-setup-ci-cd/vsts-create-build-github.png)
 
-1. 在 [組建定義]  頁面中，先開啟 [儲存機制]  索引標籤，並使用您在必要條件中建立的 MyShop 專案分叉來設定組建。 請確定您是選取 *acs-docs* 做為 [預設分支]  。
+1. 在 [組建定義] 頁面中，先開啟 [儲存機制] 索引標籤，並使用您在必要條件中建立的 MyShop 專案分叉來設定組建。 請確定您是選取 *acs-docs* 做為 [預設分支]。
 
     ![Azure DevOps Services - 組建存放庫組態](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-repo-conf.png)
 
-1. 在 [觸發程序]  索引標籤上，將組建設為在每次認可之後觸發。 選取 [持續整合]  和 [批次變更]  。
+1. 在 [觸發程序] 索引標籤上，將組建設為在每次認可之後觸發。 選取 [持續整合] 和 [批次變更]。
 
     ![Azure DevOps Services - 組建觸發程序組態](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-trigger-conf.png)
 
@@ -142,7 +142,7 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
 您需要為每個映像新增兩個 [Docker] 步驟，一個是建置映像，另一個是將映像推送至 Azure 容器登錄。 
 
-1. 若要在組建工作流程中新增步驟，按一下 [+ 加入建置步驟]  然後選取 [Docker]  。
+1. 若要在組建工作流程中新增步驟，按一下 [+ 加入建置步驟] 然後選取 [Docker]。
 
     ![Azure DevOps Services - 新增組建步驟](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-add-task.png)
 
@@ -150,7 +150,7 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
     ![Azure DevOps Services - Docker 組建](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-build.png)
 
-    針對建置作業，選取您的 Azure 容器登錄，選取 [Build an image]  \(建置映像) 動作，以及定義每個映像的 Dockerfile。 將 [Build context]  \(組件內容) 設為 Dockerfile 根目錄，並定義 [Image Name]  \(映像名稱)。 
+    針對建置作業，選取您的 Azure 容器登錄，選取 [Build an image] \(建置映像) 動作，以及定義每個映像的 Dockerfile。 將 [Build context] \(組件內容) 設為 Dockerfile 根目錄，並定義 [Image Name] \(映像名稱)。 
     
     如上一個畫面顯示，使用您 Azure 容器登錄的 URI 做為映像名稱的開頭。 (您也可以使用組建變數將映像的標籤參數化，就像此範例中的組建識別碼一樣。)
 
@@ -170,7 +170,7 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
     ![Azure DevOps Services - 發佈 Compose 檔案](./media/container-service-docker-swarm-setup-ci-cd/vsts-publish-compose.png) 
 
-1. 按一下 [儲存]  並命名您的組建管線。
+1. 按一下 [儲存] 並命名您的組建管線。
 
 ## <a name="step-3-create-the-release-pipeline"></a>步驟 3：建立發行管線
 
@@ -180,13 +180,13 @@ Azure DevOps Services 可讓您[跨環境管理發行](https://www.visualstudio.
 
 ### <a name="initial-release-setup"></a>初始發行設定
 
-1. 若要建立發行管線，請按一下 [發行]   > [+ 發行] 
+1. 若要建立發行管線，請按一下 [發行] > [+ 發行]
 
-1. 若要設定構件來源，請按一下 [構件]   > [連結構件來源]  。 在此，請將這個新的發行管線連結到您在上一個步驟中定義的組建。 如此一來，就可以在發行程序中取得 docker-compose.yml 檔案。
+1. 若要設定構件來源，請按一下 [構件] > [連結構件來源]。 在此，請將這個新的發行管線連結到您在上一個步驟中定義的組建。 如此一來，就可以在發行程序中取得 docker-compose.yml 檔案。
 
     ![Azure DevOps Services - 發行成品](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
-1. 若要設定發行觸發程序，請按一下 [觸發程序]  ，然後選取 [持續部署]  。 在相同的構件來源上設定觸發程序。 此設定可確保一旦順利完成建置，就會立即開始新的發行。
+1. 若要設定發行觸發程序，請按一下 [觸發程序]，然後選取 [持續部署]。 在相同的構件來源上設定觸發程序。 此設定可確保一旦順利完成建置，就會立即開始新的發行。
 
     ![Azure DevOps Services - 發行觸發程序](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-trigger.png) 
 
@@ -194,7 +194,7 @@ Azure DevOps Services 可讓您[跨環境管理發行](https://www.visualstudio.
 
 發行工作流程由您新增的兩個工作組成。
 
-1. 設定工作並使用您先前設定的 SSH 連線來安全地將 Compose 檔案複製到 Docker Swarm 主要節點上的 [deploy]  資料夾。 請參閱以下畫面了解詳細資料。
+1. 設定工作並使用您先前設定的 SSH 連線來安全地將 Compose 檔案複製到 Docker Swarm 主要節點上的 [deploy] 資料夾。 請參閱以下畫面了解詳細資料。
 
     ![Azure DevOps Services - 發行 SCP](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-scp.png)
 
@@ -204,13 +204,13 @@ Azure DevOps Services 可讓您[跨環境管理發行](https://www.visualstudio.
 
     在主要節點上執行的命令會使用 Docker CLI 和 Docker-Compose CLI 執行下列工作：
 
-   - 登入 Azure 容器登錄 (它使用 [變數]  索引標籤中定義的三個組建變數)
+   - 登入 Azure 容器登錄 (它使用 [變數] 索引標籤中定義的三個組建變數)
    - 定義 **DOCKER_HOST** 變數來與 Swarm 端點 (:2375) 搭配使用
-   - 瀏覽到先前安全複製工作建立的 [deploy]  資料夾，其中包含 docker-compose.yml 檔案 
+   - 瀏覽到先前安全複製工作建立的 [deploy] 資料夾，其中包含 docker-compose.yml 檔案 
    - 執行提取新映像的 `docker-compose` 命令，停止服務並移除服務，然後建立容器。
 
      >[!IMPORTANT]
-     > 如先前畫面所示，讓 [在 STDERR 上失敗]  核取方塊保持未選取。 這個設定很種要，因為 `docker-compose` 會在標準錯誤輸出上印出數個診斷訊息 (例如容器已停止或已刪除)。 如果您選取該核取方塊，即使一切正常運作，Azure DevOps Services 仍會報告發行期間出現錯誤。
+     > 如先前畫面所示，讓 [在 STDERR 上失敗] 核取方塊保持未選取。 這個設定很種要，因為 `docker-compose` 會在標準錯誤輸出上印出數個診斷訊息 (例如容器已停止或已刪除)。 如果您選取該核取方塊，即使一切正常運作，Azure DevOps Services 仍會報告發行期間出現錯誤。
      >
 1. 儲存這個新的發行管線。
 
@@ -225,4 +225,4 @@ Azure DevOps Services 可讓您[跨環境管理發行](https://www.visualstudio.
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 CI/CD 與 Azure DevOps Services 的相關詳細資訊，請參閱 [Azure DevOps Services 組建概觀](https://www.visualstudio.com/docs/build/overview)。
+* 如需 CI/CD 與 Azure DevOps Services 的詳細資訊, 請參閱[Azure Pipelines 檔](/azure/devops/pipelines/?view=azure-devops)文章。

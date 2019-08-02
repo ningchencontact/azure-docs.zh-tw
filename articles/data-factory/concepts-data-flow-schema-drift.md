@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: b5777300f5033569caf3868218e747df3ff83a76
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314814"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640222"
 ---
-# <a name="mapping-data-flow-schema-drift"></a>對應資料流程結構描述漂移
+# <a name="mapping-data-flow-schema-drift"></a>對應資料流程架構漂移
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -65,7 +65,7 @@ Azure Data Factory 資料流程語法會使用 $$ 表示您的比對模式中每
 
 ```round(sum ($$))```
 
-您可以使用 Azure Data Factory 資料流程範例「計程車示範」測試看看。 使用 [資料流程] 設計介面頂端的 [偵錯] 切換開關來開啟 [偵錯] 工作階段，您便可以互動方式查看您的結果：
+您可以在使用 Azure Data Factory 資料流程範例「計程車示範」時看到此架構漂移功能。 使用 [資料流程] 設計介面頂端的 [偵錯] 切換開關來開啟 [偵錯] 工作階段，您便可以互動方式查看您的結果：
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
@@ -75,6 +75,9 @@ Azure Data Factory 資料流程語法會使用 $$ 表示您的比對模式中每
 * 使用 "byPosition", 依位置號碼來識別新的資料行。
 * 使用 "byName", 依其名稱來識別新的資料行。
 * 在 [資料行模式] 中, 使用 [名稱]、[資料流程]、[位置] 或 [類型] 或任何組合, 以符合新的資料行。
+
+## <a name="rule-based-mapping"></a>以規則為基礎的對應
+[選取和接收] 轉換透過以規則為基礎的對應來支援模式比對。 這可讓您建立規則, 以將漂移的資料行對應至資料行別名, 並將這些資料行接收到您的目的地。
 
 ## <a name="next-steps"></a>後續步驟
 在[資料流程運算式語言](data-flow-expression-functions.md)中, 您會發現資料行模式和架構漂移的其他設備, 包括 "byName" 和 "byPosition"。

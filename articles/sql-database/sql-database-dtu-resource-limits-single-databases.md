@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/20/2019
-ms.openlocfilehash: 0e4d87ee0d0d09a84e960d511ded87dc226515ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84e39a727d5be842b356e5bd30333cb154df86aa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762671"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568783"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的單一資料庫資源限制
 
@@ -30,7 +29,7 @@ ms.locfileid: "65762671"
 下表顯示單一資料庫在每個服務層級和計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 來為單一資料庫設定服務層、計算大小與儲存體數量。
 
 > [!IMPORTANT]
-> 調整指引和考量，請參閱[調整單一資料庫](sql-database-single-database-scale.md)
+> 如需調整指引和考慮, 請參閱[調整單一資料庫](sql-database-single-database-scale.md)
 
 ### <a name="basic-service-tier"></a>基本服務層級
 
@@ -73,19 +72,19 @@ ms.locfileid: "65762671"
 | **計算大小** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | 最大 DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| 內含儲存體 (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
-| 最大儲存體選擇 (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
+| 內含儲存體 (GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
+| 最大儲存體選擇 (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
 | OLTP 記憶體內部儲存體上限 (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | 並行背景工作 (要求) 數上限| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | 並行工作階段數上限 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\* 從 1024 GB 達 4096 GB 為增量單位為 256 GB
+\*從 1024 GB 到 4096 GB, 以 256 GB 為增量
 
 > [!IMPORTANT]
 > 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)。  
 > [!NOTE]
-> 針對`tempdb`限制，請參閱[tempdb 限制](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)。
+> 如`tempdb`需限制, 請參閱[tempdb 限制](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)。
 
 ## <a name="next-steps"></a>後續步驟
 

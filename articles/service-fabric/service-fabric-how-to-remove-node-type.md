@@ -3,7 +3,7 @@ title: 在 Azure Service Fabric 中移除節點類型 | Microsoft Docs
 description: 學習如何從在 Azure 中執行的 Service Fabric 叢集移除節點類型。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: vturecek
 ms.assetid: ''
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo
-ms.openlocfilehash: 779051135a994574cb2bed7bfc4879270ec1d8fa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: atsenthi
+ms.openlocfilehash: 44f25adf4168f4339a31e9270c2b23a8466a8889
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443025"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599484"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>移除 Service Fabric 節點類型
 此文章說明如何透過將現有的節點類型從叢集移除，來調整 Azure Service Fabric 叢集的規模。 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 屬於叢集一部分的機器或 VM 都稱為節點。 虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Azure 叢集中定義的每個節點類型，會[設定為不同的擴展集](service-fabric-cluster-nodetypes.md)。 隨後，您即可個別管理每個節點類型。 建立 Service Fabric 叢集之後，您可以透過移除節點類型 (虛擬機器擴展集) 與其所有節點，來水平調整叢集規模。  您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。  在叢集進行調整時，您的應用程式也會自動調整。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-使用[移除 AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype)移除 Service Fabric 節點類型。
+請使用[remove-azservicefabricnodetype](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype)移除 Service Fabric 節點類型。
 
-移除 AzServiceFabricNodeType 呼叫時，發生的三個作業為：
+呼叫 Remove-azservicefabricnodetype 時所發生的三項作業如下:
 1.  刪除節點類型後的虛擬機器擴展集。
 2.  從叢集移除節點類型。
 3.  針對該節點類型內的所有節點，從系統移除該節點的整體狀態。 如果該節點上有服務，則服務會先移出至另一個節點。 如果叢集管理員找不到複本/服務的節點，則作業會延遲/封鎖。
@@ -37,7 +37,7 @@ ms.locfileid: "67443025"
 > 不建議經常使用 Remove-AzServiceFabricNodeType 從生產環境叢集移除節點類型。 它是非常危險的命令，因為它會刪除節點類型後的虛擬機器擴展集資源。 
 
 ## <a name="durability-characteristics"></a>持久性特性
-使用移除 AzServiceFabricNodeType 時，會安全優先於速度。 節點類型必須是銀級或金級[持久性層級](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)，因為：
+使用 Remove-azservicefabricnodetype 時, 安全性的優先順序高於速度。 節點類型必須是銀級或金級[持久性層級](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)，因為：
 - 銅級不提供關於儲存狀態資訊的任何保證。
 - 銀級和金級持久性可以攔截對擴展集的任何變更。
 - 金級也可提供您對擴展集下 Azure 更新的控制。
@@ -50,7 +50,7 @@ Service Fabric 會「協調」基礎結構變更和更新，如此資料就不�
 
 ## <a name="recommended-node-type-removal-process"></a>建議的節點類型移除程序
 
-若要移除節點類型，請執行 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) Cmdlet。  這個 Cmdlet 需要一些時間才能完成。  一旦所有 Vm 都都已消失 （表示為 「 關閉 」） 的 fabric: / System/InfrastructureService / [nodetype name] 會顯示錯誤狀態。
+若要移除節點類型，請執行 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) Cmdlet。  這個 Cmdlet 需要一些時間才能完成。  一旦所有 Vm 都消失 (以「向下」表示), fabric:/System/InfrastructureService/[nodetype name] 就會顯示錯誤狀態。
 
 ```powershell
 $groupname = "mynodetype"
@@ -66,9 +66,9 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.a
           -StoreLocation CurrentUser -StoreName My
 ```
 
-然後，您可以更新叢集資源，若要移除的節點型別。 您可以使用 ARM 範本部署，或編輯叢集資源，透過[Azure resource manager](https://resources.azure.com)。 這會啟動叢集升級會移除 fabric: / System/InfrastructureService / [nodetype name] 服務，處於錯誤狀態。
+然後, 您可以更新叢集資源來移除節點類型。 您可以使用 ARM 範本部署, 或透過[Azure resource manager](https://resources.azure.com)來編輯叢集資源。 這會啟動叢集升級, 這會移除處於錯誤狀態的 fabric:/System/InfrastructureService/[nodetype name] 服務。
 
-您仍然會看到的節點是 「 關閉 」 在 Service Fabric Explorer。 在每個您要移除的節點上執行 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps)。
+您仍然會在 Service Fabric Explorer 中看到節點處於「關閉」狀態。 在每個您要移除的節點上執行 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps)。
 
 
 ```powershell

@@ -3,7 +3,7 @@ title: 變更 Azure Service Fabric 叢集設定 | Microsoft Docs
 description: 本文說明您可以自訂的網狀架構設定和網狀架構升級原則。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
@@ -13,13 +13,13 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
-ms.author: aljo
-ms.openlocfilehash: 951c244d7f7d037c8d2ae117f36c18acd902436f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.author: atsenthi
+ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850061"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599877"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -101,7 +101,7 @@ ms.locfileid: "67850061"
 |UpgradeHealthCheckInterval |時間 (秒)，預設值為 60 |動態|受監視應用程式升級期間的健康狀態檢查頻率 |
 |UpgradeStatusPollInterval |時間 (秒)，預設值為 60 |動態|輪詢應用程式升級狀態的頻率。 此值決定任何 GetApplicationUpgradeProgress 呼叫的更新速率 |
 
-## <a name="common"></a>一般
+## <a name="common"></a>通用
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -132,8 +132,8 @@ ms.locfileid: "67850061"
 |ApplicationLogsFormatVersion |整數，預設值為 0 | 動態 |應用程式記錄格式的版本。 支援的值為 0 和 1。 版本 1 所包含的 ETW 事件記錄欄位比版本 0 多。 |
 |AuditHttpRequests |布林值，預設值為 false | 動態 | 開啟或關閉 HTTP 審核。 「審核」的目的是要查看針對叢集執行的活動;包括起始要求的物件。 請注意, 這是最佳的嘗試記錄;而且可能會發生追蹤遺失的情況。 不會記錄具有「使用者」驗證的 HTTP 要求。 |
 |CaptureHttpTelemetry|布林值，預設值為 false | 動態 | 開啟或關閉 HTTP 遙測。 遙測的目的是要讓 Service Fabric 能夠捕獲遙測資料, 以協助規劃未來的工作並找出問題區域。 遙測不會記錄任何個人資料或要求主體。 除非另有設定, 否則遙測會捕捉所有 HTTP 要求。 |
-|ClusterId |字串 | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
-|ConsumerInstances |字串 | 動態 |DCA 取用者執行個體的清單。 |
+|ClusterId |String | 動態 |叢集的唯一識別碼。 此參數會在建立叢集時產生。 |
+|ConsumerInstances |String | 動態 |DCA 取用者執行個體的清單。 |
 |DiskFullSafetySpaceInMB |整數，預設值為 1024 | 動態 |要防止 DCA 使用的剩餘磁碟空間 (MB)。 |
 |EnableCircularTraceSession |布林值，預設值為 false | Static |旗標會指出是否應使用循環追蹤工作階段。 |
 |EnablePlatformEventsFileSink |布林值，預設值為 false | Static |啟用/停用寫入磁片的平臺事件 |
@@ -141,7 +141,7 @@ ms.locfileid: "67850061"
 |FailuresOnlyHttpTelemetry | 布林值，預設值為 true | 動態 | 如果已啟用 HTTP 遙測捕捉, 則為,只捕捉失敗的要求。 這是為了協助減少針對遙測產生的事件數目。 |
 |HttpTelemetryCapturePercentage | 整數, 預設值為50 | 動態 | 如果已啟用 HTTP 遙測捕捉, 則為,只捕捉隨機百分比的要求。 這是為了協助減少針對遙測產生的事件數目。 |
 |MaxDiskQuotaInMB |整數，預設值為 65536 | 動態 |Windows Fabric 記錄檔的磁碟配額 (MB)。 |
-|ProducerInstances |字串 | 動態 |DCA 產生者執行個體的清單。 |
+|ProducerInstances |String | 動態 |DCA 產生者執行個體的清單。 |
 
 ## <a name="dnsservice"></a>DnsService
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
@@ -411,7 +411,7 @@ ms.locfileid: "67850061"
 |WriteBufferMemoryPoolMaximumInKB | 整數，預設值為 0 |動態|允許寫入緩衝區記憶體集區成長達到的 KB 數目。 使用 0 表示無限制。 |
 |WriteBufferMemoryPoolMinimumInKB |整數，預設值為 8388608 |動態|一開始要為寫入緩衝區記憶體集區配置的 KB 數目。 使用 0 表示無限制。預設值應與下面的 SharedLogSizeInMB 一致。 |
 
-## <a name="management"></a>管理性
+## <a name="management"></a>管理
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -501,7 +501,7 @@ ms.locfileid: "67850061"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|Counters |字串 | 動態 |要收集之效能計數器的逗號分隔清單。 |
+|Counters |String | 動態 |要收集之效能計數器的逗號分隔清單。 |
 |IsEnabled |布林值，預設值為 true | 動態 |旗標會指出是否啟用本機節點的效能計數器收集。 |
 |MaxCounterBinaryFileSizeInMB |整數，預設值為 1 | 動態 |每個效能計數器之二進位檔案的大小上限 (MB)。 |
 |NewCounterBinaryFileCreationIntervalInMinutes |整數，預設值為 10 | 動態 |間隔上限 (秒)，在此時間過後便會建立新的效能計數器二進位檔案。 |
@@ -551,7 +551,7 @@ ms.locfileid: "67850061"
 |PlacementConstraintValidationCacheSize | 整數，預設值為 10000 |動態| 用來進行快速驗證和快取放置條件約束運算式的資料表大小限制。 |
 |PlacementSearchTimeout | 時間 (秒)，預設值為 0.5 |動態| 以秒為單位指定時間範圍。 在放置服務時，至少搜尋這麼長的時間再傳回結果。 |
 |PLBRefreshGap | 時間 (秒)，預設值為 1 |動態| 以秒為單位指定時間範圍。 定義在 PLB 再次重新整理狀態之前，必須經過的時間量下限。 |
-|PreferredLocationConstraintPriority | 整數，預設值為 2| 動態|決定慣用位置條件約束的優先順序︰0︰硬式、1︰軟式、2︰最佳化、負數：略過 |
+|PreferredLocationConstraintPriority | 整數，預設值為 2| 動態|決定慣用位置條件約束的優先順序︰0︰硬式、1︰軟式、2︰最佳化、負數：忽略 |
 |PreferUpgradedUDs|布林值，預設值為 TRUE|動態|開啟或關閉偏好移至已升級之 UD 的邏輯。|
 |PreventTransientOvercommit | 布林值，預設值為 false | 動態|決定 PLB 是否應立即計算所起始之移動將釋放的資源。 根據預設，PLB 可以在相同節點上起始移出和移入，以便能建立暫時性的過量使用。 將此參數設為 true 將會避免這類過量使用，且會停用隨選重組 (也稱為 placementWithMove)。 |
 |ScaleoutCountConstraintPriority | 整數，預設值為 0 |動態| 決定向外擴充計數條件約束的優先順序︰0︰硬式、1︰軟式、負數︰忽略。 |
@@ -824,11 +824,11 @@ ms.locfileid: "67850061"
 | --- | --- | --- | --- |
 |ContainerNetworkName|字串，預設值為 ""| Static |要在設定容器網路時使用的網路名稱。|
 |ContainerNetworkSetup|布林值，預設值為 FALSE| Static |是否要設定容器網路。|
-|FabricDataRoot |字串 | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
-|FabricLogRoot |字串 | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
+|FabricDataRoot |String | 不允許 |Service Fabric 資料的根目錄。 預設為 Azure d:\svcfab |
+|FabricLogRoot |String | 不允許 |Service Fabric 記錄的根目錄。 這是放置 SF 記錄和追蹤的位置。 |
 |NodesToBeRemoved|字串，預設值為 ""| 動態 |應在設定升級過程中移除的節點。 (僅適用於獨立部署)|
-|ServiceRunAsAccountName |字串 | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
-|SkipContainerNetworkResetOnReboot|布林值，預設值為 FALSE|NotAllowed|是否在重新開機時跳過重設容器網路。|
+|ServiceRunAsAccountName |String | 不允許 |用來執行網狀架構主機服務的帳戶名稱。 |
+|SkipContainerNetworkResetOnReboot|布林值，預設值為 FALSE|不允許|是否在重新開機時跳過重設容器網路。|
 |SkipFirewallConfiguration |布林值，預設值為 false | 不允許 |指定是否需要由系統設定防火牆設定。 這只有當您使用 Windows 防火牆時才適用。 如果您使用協力廠商防火牆，則您必須開啟要供系統和應用程式使用的連接埠 |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService
@@ -841,7 +841,7 @@ ms.locfileid: "67850061"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|Level |整數，預設值為 4 | 動態 |追蹤 etw 層級可以接受值 1、2、3、4。 您必須保持在追蹤層級 4，才可以支援 |
+|層級 |整數，預設值為 4 | 動態 |追蹤 etw 層級可以接受值 1、2、3、4。 您必須保持在追蹤層級 4，才可以支援 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
 

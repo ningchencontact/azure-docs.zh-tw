@@ -1,6 +1,6 @@
 ---
-title: 什麼是 IoT 預覽的 Azure 資訊安全中心 |Microsoft Docs
-description: 了解 Azure 資訊安全中心的 IoT 功能和服務。
+title: 什麼是 IoT 的 Azure 資訊安全中心 |Microsoft Docs
+description: 瞭解 IoT 功能與服務的 Azure 資訊安全中心。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,53 +13,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 2e454d3be536d908003ad9163a44089eb3a5eb99
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fdccf486cacabda4f363f4629a4d6daa4a00c8e4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618051"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597165"
 ---
-# <a name="introducing-azure-security-center-for-iot"></a>簡介 Azure 資訊安全中心的 IoT
+# <a name="introducing-azure-security-center-for-iot"></a>IoT Azure 資訊安全中心簡介
 
-> [!IMPORTANT]
-> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+整合安全性管理, 並在混合式雲端工作負載和您的 Azure IoT 解決方案之間啟用端對端威脅偵測和分析。 
 
-## <a name="secure-your-azure-iot-solution"></a>保護您的 Azure IoT 解決方案 
+## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>保護 IoT 和混合式雲端工作負載免于不斷進化的網路攻擊
 
-統一安全性管理，並啟用跨混合式雲端工作負載和您的 Azure IoT 解決方案的端對端 threat analysis 與保護。 
+物聯網會快速地轉換我們的世界。 藉由從您的連線裝置和後端系統發掘見解, 您現在可以將這些深入解析轉換成功能強大的應用程式和服務, 以協助您的組織達到前所未有的營運和業務效能層級。 不過, 因為數十億個新裝置連線到網際網路, 並整合到我們的每日生活和我們的企業,您的安全性作業小組必須確保其安全性策略的發展速度, 足以涵蓋這些新的攻擊面。 就像任何其他系統一樣, 保護您的 IoT 解決方案在每個執行階段都需要保護。 
 
-## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>保護 IoT 和混合式雲端工作負載對進化的網路攻擊
+適用于 IoT 的 Azure 資訊安全中心藉由在邊緣、內部部署、Azure 和其他環境中執行的工作負載, 提供統一的可見度和控制、彈性的威脅防護, 以及智慧型威脅偵測和回應, 來簡化混合式工作負載保護雲和. 
 
-物聯網正快速改變我們的世界。 發掘出有用見解從連接的裝置和後端系統的能力，您現在可以轉換這些強大的應用程式和服務，以協助組織達到前所未有的操作和商務績效的深入。 不過，如數十億個新的裝置會連線到網際網路，並整合到我們日常生活與我們的企業;您的安全性作業小組必須確保其安全性策略夠快速發展來涵蓋這些新的受攻擊面。 像任何其他的系統，保護您的 IoT 解決方案需要您實作的每個階段的保護。 
+![IoT 架構的 Azure 資訊安全中心](./media/architecture/azure-iot-security-architecture.png)
 
-IoT 的 azure 資訊安全中心 (ASC) 執行的工作負載在邊緣，內部部署，和在 Azure 中，提供統一的可見性和控制，調適性威脅防護和智慧型威脅偵測和回應的簡化混合式工作負載保護其他雲端中。 
+### <a name="unified-visibility-and-control"></a>統一的可見度和控制
 
-![IoT 架構的 ASC](./media/architecture/asc-for-iot-architecture.png)
+可讓您統一檢視跨內部部署和雲端所有工作負載的安全性，包括 Azure IoT 解決方案。 將新裝置上線, 並在您的工作負載 (分葉裝置、Microsoft Edge 裝置、IoT 中樞) 中套用安全性原則, 以確保符合安全性標準和改良的安全性狀態。
 
-### <a name="unified-visibility-and-control"></a>統一的可見性和控制
+### <a name="adaptive-threat-prevention"></a>適應性威脅防護
 
-可讓您統一檢視跨內部部署和雲端所有工作負載的安全性，包括 Azure IoT 解決方案。 自動探索新的裝置以進行上線，並將安全性原則套用至所有工作負載 (分葉裝置、 Edge 裝置、IOT 中樞)，以確保符合安全性標準。
-
-### <a name="adaptive-threat-prevention"></a>調適性威脅防護
-
-使用 iot ASC 以持續監視機器、 網路和 Azure 服務，包括您的 Azure IoT 解決方案 edge 裝置的應用程式的安全性。 您可以選擇使用來自數百個內建安全性評定或建立您自己的 IoT 中樞的儀表板中央的 ASC 中。 使用針對虛擬機器、網路、應用程式和資料的建議動作，將您的安全性設定最佳化，並提升您的安全分數。 現在，您可以使用新增的 IoT 功能，減少 Azure IoT 解決方案的受攻擊面，並在遭到惡意探索前補救問題。
+使用適用于 IoT 的 Azure 資訊安全中心, 持續監視機器、網路和 Azure 服務的安全性。 從數百個內建安全性評量中進行選擇, 或在 IoT 中樞儀表板的中央 Azure 資訊安全中心中建立您自己的安全性評定。 使用跨虛擬機器、網路、應用程式和資料的可操作建議, 將您的安全性設定優化並改善您的安全性分數。 透過新增的 IoT 功能, 您現在可以減少 Azure IoT 解決方案的受攻擊面, 並補救問題, 然後再加以利用。
 
 ### <a name="intelligent-threat-detection-and-response"></a>智慧型威脅偵測和回應
 
-使用進階的分析和 Microsoft Intelligent Security Graph 勝過不斷進化的網路攻擊。 內建行為分析和機器學習服務識別攻擊和零時差惡意探索。 監控您的 IoT 解決方案，以偵測外來攻擊與入侵後活動。 簡化裝置的調查與補救互動式的工具與內容相關威脅情報。
+使用 advanced analytics 和 Microsoft Intelligent Security Graph 來取得不斷演進的網路攻擊的優勢。 內建行為分析和機器學習服務可識別攻擊和零時差入侵。 監控您的 IoT 解決方案，以偵測外來攻擊與入侵後活動。 使用互動式工具和內容相關威脅情報來簡化裝置調查和補救。
 
 ## <a name="next-steps"></a>後續步驟
 
-在此概觀中，您已了解的功能和服務的 ASC iot。 若要進一步了解 ASC 的 IoT 架構中，必要條件，並了解如何開始使用，請參閱下列文章：
+在此總覽中, 您已瞭解適用于 IoT 的 Azure 資訊安全中心功能和服務。 若要深入瞭解 IoT 架構的 Azure 資訊安全中心、必要條件, 並瞭解如何開始使用, 請參閱下列文章:
 
 - [架構](architecture.md)
-- [服務的必要條件](service-prerequisites.md)
+- [服務必要條件](service-prerequisites.md)
 - [開始使用](getting-started.md)
 - [定義您的解決方案](quickstart-configure-your-solution.md)
-- [ASC iot 常見問題集](resources-frequently-asked-questions.md)
-- [ASC IoT 警示](concept-security-alerts.md)
+- [IoT 的 Azure 資訊安全中心常見問題](resources-frequently-asked-questions.md)
+- [IoT 警示的 Azure 資訊安全中心](concept-security-alerts.md)
 

@@ -3,7 +3,7 @@ title: Azure Service Fabric Reliable Collections 中的交易和鎖定模式 | M
 description: Azure Service Fabric Reliable State Manager 和 Reliable Collections 交易和鎖定。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: aljo
-ms.openlocfilehash: 9785a09a3ac3e119507b4ac28075d887c7edc619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 8e77e488a3c0a40a714a0e8efffba0a2947454bf
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774058"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599324"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric Reliable Collections 中的交易和鎖定模式
 
@@ -48,8 +48,8 @@ ms.locfileid: "60774058"
 
 | 作業 \ 角色 | 主要 | 次要 |
 | --- |:--- |:--- |
-| 單一實體讀取 |可重複讀取 |快照 |
-| 列舉、計數 |快照 |快照 |
+| 單一實體讀取 |可重複讀取 |快照集 |
+| 列舉、計數 |快照集 |快照集 |
 
 > [!NOTE]
 > 單一實體作業的常見範例包括 `IReliableDictionary.TryGetValueAsync`、`IReliableQueue.TryPeekAsync`。

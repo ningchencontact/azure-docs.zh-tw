@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: 29ece0677c71a2cb423e541cf2e9f4a06947e44c
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413377"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567335"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -125,7 +124,7 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上:第4代和�
 
      ![問題類型配額](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. 按一下 [下一步] 。
+3. 按一下 [下一步]。
 4. 在新支援要求的 [**問題]** 索引標籤上:
    - 針對 [嚴重性]，選取問題的嚴重性層級。
    - 針對 [詳細資料]，提供關於問題的其他資訊，包括錯誤訊息在內。
@@ -139,9 +138,9 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上:第4代和�
      > - 在配額增加之後, 現有子網中的每個服務層級所需的虛擬核心數目 (如果需要擴充任何現有的子網)。
      > - 新子網中的每個服務層級所需的新子網數和虛擬核心總數 (如果您需要在新的子網中部署受控實例)。
 
-5. 按一下 [下一步] 。
+5. 按一下 [下一步]。
 6. 在新支援要求的 [連絡資訊] 索引標籤上，輸入慣用的連絡方法 (電子郵件或電話) 和連絡人詳細資料。
-7. 按一下 [建立] 。
+7. 按一下 [建立]。
 
 ## <a name="next-steps"></a>後續步驟
 

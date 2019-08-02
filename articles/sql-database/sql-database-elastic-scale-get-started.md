@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa0827bdf6deb388123ed701013ee95f5493eee3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584982"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568474"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>開始使用彈性資料庫工具
 
@@ -92,7 +91,7 @@ ms.locfileid: "60584982"
 
 5. 若要深入了解用戶端程式庫功能，請利用各種選項進行實驗。 請記下應用程式在主控台輸出中採用的步驟，並盡情探索其後的程式碼。
    
-    ![Progress][4]
+    ![進度][4]
 
 恭喜您！ 您已使用彈性資料庫工具，在 SQL Database 上成功建置並執行您的第一個分區化應用程式。 請使用 Visual Studio 或 SQL Server Management Studio 連接到您的 SQL 資料庫，以快速瀏覽範例所建立的分區。 您會看見範例所建立的新範例分區資料庫和分區對應管理員資料庫。
 

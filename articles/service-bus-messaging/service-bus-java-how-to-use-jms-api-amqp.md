@@ -1,5 +1,5 @@
 ---
-title: 如何搭配 JAVA JMS 服務匯流排 API 使用 AMQP 1.0 |Microsoft Docs
+title: 搭配使用 AMQP 1.0 與 JAVA 訊息服務 API 和 Azure 服務匯流排
 description: 如何搭配 Azure 服務匯流排和 Advanced Message Queuing Protodol (AMQP) 1.0 使用 Java Message Service (JMS)。
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-july2019
+ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318448"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662889"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。
@@ -66,7 +67,7 @@ queue.QUEUE = queue1
 
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>設定 JNDI 內容及設定 ConnectionFactory
 
-參考在 [Azure 入口網站](https://portal.azure.com)的 [共用存取原則] 中，於 [主要連接字串]  下可取得的 [連接字串] 
+參考在 [Azure 入口網站](https://portal.azure.com)的 [共用存取原則] 中，於 [主要連接字串] 下可取得的 [連接字串]
 ```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
@@ -298,7 +299,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>執行應用程式
-傳遞來自 [共用存取原則] 的 [連接字串]  ，以執行應用程式。
+傳遞來自 [共用存取原則] 的 [連接字串]，以執行應用程式。
 以下是執行應用程式的表單輸出：
 
 ```Output
@@ -374,6 +375,7 @@ JMS 主題發行者端與服務匯流排相容, 如這個範例所示, 但動態
 | createBrowser               | 不支援。 使用服務匯流排 API 的 Peek() 功能                         |
 | createQueue                 | 透過管理 API/工具/入口網站建立佇列                                           | 
 | createTemporaryQueue        | 透過管理 API/工具/入口網站建立佇列，且 *AutoDeleteOnIdle* 設為到期時間 |
+| receiveNoWait               | 利用服務匯流排 SDK 所提供的 receive () 方法, 並指定非常低或零的超時 |
 
 ## <a name="summary"></a>總結
 本作法指南說明如何以常用的 JMS API 和 AMQP 1.0 從 Java 使用服務匯流排代理訊息功能 (佇列和發佈/訂閱主題)。

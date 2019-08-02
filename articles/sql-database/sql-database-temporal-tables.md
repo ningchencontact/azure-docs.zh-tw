@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: ac57e873a6948e85e78849bd4e22db85491c4bfb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 39c19661a71a8b466aa6ff25be9e895189dfbfb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441547"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566363"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>開始使用 Azure SQL Database 中的時態表
 
@@ -29,11 +28,11 @@ ms.locfileid: "67441547"
 
 此案例的資料庫模型非常簡單：使用者活動度量是以單一整數欄位 **PageVisited** 表示，而且會與使用者設定檔上的基本資訊一起被擷取。 此外，對於以時間為基礎的分析，您要為每個使用者保留一連串的資料列，其中每個資料列都代表一段特定時間內特定使用者瀏覽過的頁數。
 
-![結構描述](./media/sql-database-temporal-tables/AzureTemporal1.png)
+![架構](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
 幸運的是，您不需要在您的 app 上花太多精力，就可以維護此活動資訊。 您可以使用時態表，將此程序自動化：讓您在網站設計期間有完整的彈性以及更多的時間，得以將重點放在資料分析本身。 您只需要確保將 **WebSiteInfo** 資料表設定為 [時態系統設定版本](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0)。 在此案例中使用時態表的確切步驟如下所述。
 
-## <a name="step-1-configure-tables-as-temporal"></a>步驟 1：將資料表設定為時態表
+## <a name="step-1-configure-tables-as-temporal"></a>步驟 1:將資料表設定為時態表
 根據您要開始新的開發工作，還是升級現有的應用程式，您將會建立時態表，或透過新增時態屬性來修改現有的資料表。 在一般情況下，您的案例可能會混用這兩個選項。 使用 [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS)、[SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) 或其他任何 Transact-SQL 開發工具執行下列動作。
 
 > [!IMPORTANT]
@@ -106,10 +105,10 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ```
 
-## <a name="step-2-run-your-workload-regularly"></a>步驟 2：定期執行您的工作負載
+## <a name="step-2-run-your-workload-regularly"></a>步驟 2:定期執行您的工作負載
 時態表的主要優點是您不需要以任何方式變更或調整您的網站，就可以執行變更追蹤。 一旦建立時態表之後，當您每次對資料進行修改時，便會自動保存先前的資料列版本。 
 
-若要使用自動變更追蹤此特定案例，讓我們只更新資料行**PagesVisited**每次使用者結束其網站上的工作階段：
+為了利用此特定案例的自動變更追蹤, 讓我們在每次使用者于網站上結束會話時, 就更新資料行**pagesvisited 即可**:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -196,6 +195,6 @@ ALTER TABLE dbo.WebsiteUserInfo
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需有關時態表的詳細資訊，請參閱 < 請參閱[時態表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)。
+- 如需有關時態表的詳細資訊, 請參閱簽出[時態表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)。
 - 瀏覽 Channel 9，聽聽[真實客戶的時態表實作成功案例](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)，並觀看[時態表的即時示範](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)。
 

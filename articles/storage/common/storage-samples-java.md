@@ -1,20 +1,18 @@
 ---
 title: 使用 Java 的 Azure 儲存體範例 | Microsoft Docs
 description: 檢視、下載及執行 Azure 儲存體的範例程式碼和應用程式。 探索使用 Java 儲存體用戶端程式庫之 Blob、佇列、資料表和檔案的入門範例。
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: java
-ms.topic: article
-ms.date: 05/03/2019
 ms.author: mhopkins
+ms.date: 05/03/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 3d241f1905244d3a8039372262f84ba0fd25220d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.topic: sample
+ms.openlocfilehash: 4348400e66e4b975d1eeb899cab8bb5024260149
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209785"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721827"
 ---
 # <a name="azure-storage-samples-using-java"></a>使用 Java 的 Azure 儲存體範例
 
@@ -22,7 +20,7 @@ ms.locfileid: "65209785"
 
 下表提供我們的範例儲存機制和每個範例所涵蓋案例的概觀。 按一下連結即可檢視 GitHub 中對應的範例程式碼。
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">端點</th><th style="font-size:110%">狀況</th><th style="font-size:110%">範例程式碼</th></tr></thead><tbody>
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">端點</th><th style="font-size:110%">案例</th><th style="font-size:110%">範例程式碼</th></tr></thead><tbody>
 <tr>
 <td rowspan="16"><b>Blob</b></td>
 <td>附加 Blob</td>

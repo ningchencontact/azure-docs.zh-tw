@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 7cde18f2da764a055443900e7daf160f72e2eeb5
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 4130bb746a4faa4907353654d16f7c20c0cc7817
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68301662"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598940"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>設定評估的相依性視覺效果
 
-本文說明如何在 Azure Migrate 中設定相依性對應:伺服器評估。
+本文說明如何在 Azure Migrate 中設定相依性對應:。
 
 相依性對應可協助您將所有要評估和遷移的機器相依性視覺化。
 
@@ -30,16 +30,16 @@ ms.locfileid: "68301662"
 ## <a name="before-you-start"></a>開始之前
 
 - 請確定您已[建立](how-to-add-tool-first-time.md)Azure Migrate 專案。
-- 如果您已經建立專案, 請確定您已[新增](how-to-assess.md)Azure Migrate:伺服器評估工具。
-- 請確定您已在 Azure Migrate 中探索到您的電腦。若要這麼做, 您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器, 然後將中繼資料和效能資料傳送至 Azure Migrate:伺服器評估。 [深入了解](migrate-appliance.md)。
+- 如果您已經建立專案, 請確定您已[新增](how-to-assess.md)Azure Migrate:伺服器評量工具。
+- 請確定您已在 Azure Migrate 中探索到您的電腦。若要這麼做, 您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器, 然後將中繼資料和效能資料傳送至 Azure Migrate:。 [深入了解](migrate-appliance.md)。
 
 
 **特性** | **注意**
 --- | ---
 可用性 | Azure Government 無法使用相依性視覺效果。
 服務對應 | 相依性視覺效果會使用 Azure 監視器記錄中的服務對應解決方案。 [服務對應](../azure-monitor/insights/service-map-configure.md)會自動探索並顯示伺服器之間的連接。
-代理程式 | 若要使用相依性視覺效果, 請在您想要對應的電腦上安裝幾個代理程式:<br/> - [Azure Log Analytics](../azure-monitor/platform/log-analytics-agent.md)代理程式 (先前稱為 MICROSOFT MONITORING AGENT (MMA)。<br/> -服務對應 Dependency agent。<br/><br/> 若要自動安裝代理程式, 您可以使用部署工具, 例如 System Center Configuration Manager 或具有 Azure Migrate 之代理程式部署解決方案的合作夥伴工具 (例如[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration))。
-相依性代理程式 | 審查 Dependency agent 對[Windows](/azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)和[Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems)的支援。<br/><br/> [深入瞭解](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)如何使用腳本來安裝 Dependency agent。
+Agent | 若要使用相依性視覺效果, 請在您想要對應的電腦上安裝幾個代理程式:<br/> - [Azure Log Analytics](../azure-monitor/platform/log-analytics-agent.md)代理程式 (先前稱為 MICROSOFT MONITORING AGENT (MMA)。<br/> -服務對應 Dependency agent。<br/><br/> 若要自動安裝代理程式, 您可以使用部署工具, 例如 System Center Configuration Manager 或具有 Azure Migrate 之代理程式部署解決方案的合作夥伴工具 (例如[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration))。
+相依性代理程式 | 審查 Dependency agent 對[Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)和[Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems)的支援。<br/><br/> [深入瞭解](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)如何使用腳本來安裝 Dependency agent。
 Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent)MMA 安裝方法。<br/><br/> 針對 System Center Operations Manager 2012 R2 或更新版本監視的機器, 您不需要安裝 MMA 代理程式。 服務對應與 Operations Manager 整合。 您可以使用[此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)的指導方針來啟用整合。 但請注意，在這些電腦上必須安裝相依性代理程式。<br/><br/> 請[參閱](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)Log Analytics 代理程式所支援的 Linux 作業系統。
 評量群組 | 您想要將相依性視覺化的群組不應該包含超過 10 部的機器。 如果您有超過10部電腦, 請將它們分割成較小的群組, 以將相依性視覺化。
 
@@ -50,7 +50,7 @@ Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-
 - 您只能將工作區附加在 Azure Migrate 專案訂用帳戶中。
 - 您可以附加現有的工作區, 或建立一個新的。
 - 您第一次設定電腦的相依性視覺效果時, 會附加工作區。
-- 您只能在探索 Azure Migrate 專案中的機器之後, 才連接工作區。 若要這麼做, 您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器, 然後將中繼資料和效能資料傳送至 Azure Migrate:伺服器評估。 [深入了解](migrate-appliance.md)。
+- 您只能在探索 Azure Migrate 專案中的機器之後, 才連接工作區。 若要這麼做, 您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器, 然後將中繼資料和效能資料傳送至 Azure Migrate:。 [深入了解](migrate-appliance.md)。
 
 附加工作區, 如下所示:
 
@@ -83,10 +83,10 @@ Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-
 在 Windows 電腦上安裝代理程式：
 
 1. 按兩下下載的代理程式。
-2. 在 [歡迎]  頁面中按 [下一步]  。 在 [授權條款]  頁面上，按一下 [我同意]  以接受授權。
-3. 在 [目的地資料夾]  中，保留或修改預設的安裝資料夾 > [下一步]  。
-4. 在 [代理程式安裝選項]  中，選取 [Azure Log Analytics]   > [下一步]  。
-5. 按一下 [新增]  以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 按一下 [下一步]  。
+2. 在 [歡迎] 頁面中按 [下一步]。 在 [授權條款] 頁面上，按一下 [我同意] 以接受授權。
+3. 在 [目的地資料夾] 中，保留或修改預設的安裝資料夾 > [下一步]。
+4. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics] > [下一步]。
+5. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 按一下 [下一步]。
 
 #### <a name="install-the-agent-on-a-linux-machine"></a>在 Linux 電腦上安裝代理程式
 
@@ -127,7 +127,7 @@ Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-
     - 若要新增電腦, 請再次執行探索, 並確認已探索到機器。
 
 8. 如果您需要建立此群組的評估，請選取核取方塊來建立新的群組評估。
-8. 按一下 [確定]  以儲存群組。
+8. 按一下 [確定] 以儲存群組。
 
 建立群組之後, 建議您在群組中的所有機器上安裝代理程式, 然後將整個群組的相依性視覺化。
 
@@ -140,7 +140,7 @@ Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-
 
 執行相依性資料的查詢, 如下所示:
 
-1. 安裝代理程式之後，請移至入口網站，然後按一下 [概觀]  。
+1. 安裝代理程式之後，請移至入口網站，然後按一下 [概觀]。
 2. 在**Azure Migrate:伺服器評估**, 按一下 **[總覽**]。 按一下向下箭號以展開 [**基本**]。
 3. 在 [ **OMS 工作區**] 中, 按一下工作區名稱。
 3. 在 [Log Analytics 工作區] 頁面上 > **[一般**], 按一下 [**記錄**]。
@@ -150,7 +150,7 @@ Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-
 
 我們提供可供您用來解壓縮相依性資料的數個範例查詢。
 
-- 您可以修改查詢來解壓縮慣用的資料點。
+- 您可以修改查詢以擷取慣用的資料點。
 - [查看](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)相依性資料記錄的完整清單。
 - [查看](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)其他範例查詢。
 
@@ -159,7 +159,7 @@ Log Analytics 代理程式 (MMA) | [深入瞭解](../azure-monitor/platform/log-
 檢查一組 Vm 的輸入連線。
 
 - 連接計量 (VMConnection) 資料表中的記錄不代表個別的實體網路連線。
-- 多個實體網路連線會分組成一個邏輯連線。
+- 將多個實體網路連線分組為一個邏輯連線。
 - [深入瞭解](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections)如何在 VMConnection 中匯總實體網路連接資料。
 
 ```

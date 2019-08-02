@@ -4,7 +4,7 @@ description: 了解預先安裝在「資料科學虛擬機器」上的機器學�
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 3b05d076a61593e8c34ce642f2fe2fd137e07109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502078"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565239"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>機器學習與資料科學工具
 「Azure 資料科學虛擬機器」具有一組以各種熱門語言提供 (例如 Python、R 及 Julia)、適用於機器學習 (ML) 的豐富工具和程式庫。 
@@ -31,18 +31,18 @@ ms.locfileid: "60502078"
 ## <a name="azure-machine-learninghttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   |   Azure Machine Learning 是一項雲端服務，可供您用來開發及部署 ML 模型。 您可以使用 Python SDK，在進行模型建置、定型、調整規模及管理時加以追蹤。 將模型部署成容器，並在雲端、內部部署環境或 Azure IoT Edge 上執行。   |
+| 這是什麼?   |   Azure Machine Learning 是一項雲端服務，可供您用來開發及部署 ML 模型。 您可以使用 Python SDK，在進行模型建置、定型、調整規模及管理時加以追蹤。 將模型部署成容器，並在雲端、內部部署環境或 Azure IoT Edge 上執行。   |
 | 支援的版本     | Windows (Conda 環境：AzureML)、Linux (Conda 環境：py36)    |
 | 典型的使用案例      | 一般 ML 平台      |
 | 如何設定或安裝它？      |  搭配 GPU 支援安裝   |
-| 如何使用或執行它      | 作為 Python SDK 和 Azure CLI。 啟動至 Conda 環境 `AzureML` (Windows 版)「或」  啟動至 `py36` (Linux 版)。      |
+| 如何使用或執行它      | 作為 Python SDK 和 Azure CLI。 啟動至 Conda 環境 `AzureML` (Windows 版)「或」啟動至 `py36` (Linux 版)。      |
 | 範例的連結      | 範例 Jupyter Notebook 包含在 `AzureML` 目錄中的 Notebook 底下。  |
 | 相關工具      | Visual Studio Code、Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   |    XGBoost 是一個適用於 Python、R、Java、Scala、C++ 等語言的快速、可攜且分散式漸層提升 (GBDT、GBRT 或 GBM) 程式庫。 它可在單一機器、Hadoop 及 Spark 上執行。    |
+| 這是什麼?   |    XGBoost 是一個適用於 Python、R、Java、Scala、C++ 等語言的快速、可攜且分散式漸層提升 (GBDT、GBRT 或 GBM) 程式庫。 它可在單一機器、Hadoop 及 Spark 上執行。    |
 | 支援的版本     | Windows、Linux     |
 | 典型的使用案例      | 一般 ML 程式庫      |
 | 如何設定或安裝它？      |  搭配 GPU 支援安裝   |
@@ -55,7 +55,7 @@ ms.locfileid: "60502078"
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   |   Vowpal Wabbit (也稱為 "VW") 是一個開放原始碼的快速核心外學習系統程式庫。    |
+| 這是什麼?   |   Vowpal Wabbit (也稱為 "VW") 是一個開放原始碼的快速核心外學習系統程式庫。    |
 | 支援的版本     | Windows、Linux     |
 | 典型的使用案例      | 一般 ML 程式庫      |
 | 如何設定或安裝它？      |  Windows--msi 安裝程式、Linux--apt-get |
@@ -67,17 +67,17 @@ ms.locfileid: "60502078"
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   |  Weka 是資料採礦工作的 ML 演算法集合。 您可以將這些演算法直接套用至資料集，也可以從您自己的 Java 程式碼呼叫它們。 Weka 包含資料前置處理、分類、迴歸、群集、關聯規則和視覺效果的工具。 |
+| 這是什麼?   |  Weka 是資料採礦工作的 ML 演算法集合。 您可以將這些演算法直接套用至資料集，也可以從您自己的 Java 程式碼呼叫它們。 Weka 包含資料前置處理、分類、迴歸、群集、關聯規則和視覺效果的工具。 |
 | 支援的版本     | Windows、Linux     |
 | 典型的使用案例      | 一般 ML 工具     |
-| 如何使用或執行它      | 在 Windows 上，於 [開始] 功能表中搜尋 Weka。 在 Linux 上，使用 X2Go 進行登入，然後移至 [應用程式]   > [開發]   > [Weka]  。 |
+| 如何使用或執行它      | 在 Windows 上，於 [開始] 功能表中搜尋 Weka。 在 Linux 上，使用 X2Go 進行登入，然後移至 [應用程式] > [開發] > [Weka]。 |
 | 範例的連結      | [Weka 範例](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) \(英文\) |
 | 相關工具      |LightGBM、Rattle、XGBoost   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   |   Rattle 是一個適用於使用 R 進行資料採礦的圖形化使用者介面。   |
+| 這是什麼?   |   Rattle 是一個適用於使用 R 進行資料採礦的圖形化使用者介面。   |
 | 支援的版本     | Windows、Linux     |
 | 典型的使用案例      | 適用於 R 的一般 UI 資料採礦工具    |
 | 如何使用或執行它      | UI 工具。 在 Windows 上，啟動命令提示字元、執行 R，然後在 R 內執行 `rattle()`。 在 Linux 上，使用 X2Go 進行連線、啟動終端機、執行 R，然後在 R 內執行 `rattle()`。 |
@@ -87,7 +87,7 @@ ms.locfileid: "60502078"
 ## <a name="lightgbm"></a>LightGBM
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | LightGBM 是一種以決策樹演算法為基礎的快速、分散式、高效能漸層提升 (GBDT、GBRT、GBM 或 MART) 架構。 它可用於排名、分類及許多其他 ML 工作。    |
+| 這是什麼?   | LightGBM 是一種以決策樹演算法為基礎的快速、分散式、高效能漸層提升 (GBDT、GBRT、GBM 或 MART) 架構。 它可用於排名、分類及許多其他 ML 工作。    |
 | 支援的版本      | Windows、Linux    |
 | 典型的使用案例      | 一般用途的漸層提升架構      |
 | 如何設定或安裝它？      | 在 Windows 上，LightGBM 是以 Python 套件的形式安裝。 在 Linux 上，命令列可執行檔位於 `/opt/LightGBM/lightgbm`，R 套件和 Python 套件皆已安裝。     |
@@ -97,7 +97,7 @@ ms.locfileid: "60502078"
 ## <a name="h2o"></a>H2O
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | H2O 是一個開放原始碼 AI 平台，支援記憶體內部、分散式、快速及可調式 ML。  |
+| 這是什麼?   | H2O 是一個開放原始碼 AI 平台，支援記憶體內部、分散式、快速及可調式 ML。  |
 | 支援的版本      | Linux   |
 | 典型的使用案例      | 一般用途的分散式、可調式 ML   |
 | 如何設定或安裝它？      | H2O 是安裝在 `/dsvm/tools/h2o` 中。      |

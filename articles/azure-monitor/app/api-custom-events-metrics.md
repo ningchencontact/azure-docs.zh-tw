@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314797"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717460"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -54,7 +54,7 @@ ms.locfileid: "68314797"
   * [Java 專案](../../azure-monitor/app/java-get-started.md)
   * [Node.js 專案](../../azure-monitor/app/nodejs.md)
   * [每個網頁中的 JavaScript](../../azure-monitor/app/javascript.md) 
-* 在裝置或 Web 伺服器程式碼中，加入：
+* 在您的裝置或網頁伺服器程式碼中加入:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -114,7 +114,7 @@ telemetry.getContext().getDevice().setId("...");
 
 ## <a name="trackevent"></a>TrackEvent
 
-在 Application Insights 中，「自訂事件」  是您可以在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)顯示為彙總計數，以及在[診斷搜尋](../../azure-monitor/app/diagnostic-search.md)中顯示為個別發生點的資料點。 (它與 MVC 或其他架構的「事件」不相關。)
+在 Application Insights 中，「自訂事件」是您可以在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)顯示為彙總計數，以及在[診斷搜尋](../../azure-monitor/app/diagnostic-search.md)中顯示為個別發生點的資料點。 (它與 MVC 或其他架構的「事件」不相關。)
 
 在您的程式碼中插入 `TrackEvent` 呼叫，以計算各種事件。 使用者選擇特定功能的頻率、達成特定目標的頻率，或他們犯特定類型錯誤的頻率。
 
@@ -163,8 +163,6 @@ telemetry.trackEvent({name: "WinGame"});
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
@@ -300,7 +298,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 * `valueSum` - 這是測量結果的總和。 若要取得平均值，請將它除以 `valueCount`。
 * `valueCount` - 彙總到這個 `trackMetric(..)` 呼叫的測量數目。
 
-## <a name="page-views"></a>頁面檢視
+## <a name="page-views"></a>頁面瀏覽數
 
 在裝置或網頁應用程式中，每個畫面或頁面載入時預設會傳送頁面檢視遙測。 但是，您可以變更為在其他或不同的時間追蹤頁面檢視。 例如，在顯示索引標籤或刀鋒視窗的應用程式中，您可能想要在使用者每次開啟新的刀鋒視窗時追蹤頁面。
 
@@ -431,7 +429,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 
 在作業範圍內回報的遙測項目會變成這類作業的「子項目」。 作業內容可以是巢狀。
 
-在搜尋中，會使用作業內容來建立 [相關項目]  清單：
+在搜尋中，會使用作業內容來建立 [相關項目] 清單：
 
 ![相關項目](./media/api-custom-events-metrics/21.png)
 
@@ -741,7 +739,7 @@ telemetry.flush();
 
 在理想情況下，flush() 方法應該用於應用程式的關閉活動。
 
-## <a name="authenticated-users"></a>驗證的使用者
+## <a name="authenticated-users"></a>經過驗證的使用者
 
 在 Web 應用程式中，預設是透過 Cookie 來識別使用者。 如果使用者從不同的電腦或瀏覽器存取您的 app 或刪除 Cookie，就可能多次計算他們。
 
@@ -783,7 +781,7 @@ function Authenticated(signInId) {
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)中，您可建立可計算 [已驗證的使用者]  和 [使用者帳戶]  的圖表。
+在[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md)中，您可建立可計算 [已驗證的使用者] 和 [使用者帳戶] 的圖表。
 
 您也可以[搜尋](../../azure-monitor/app/diagnostic-search.md)具有特定使用者名稱和帳戶的用戶端資料點。
 
@@ -1053,7 +1051,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 telemetry.config.disableAppInsights = true;
 ```
 
-若要在初始化時「停用選取的標準收集器」  (例如，效能計數器、HTTP 要求或相依性)，請將設定方法鏈結至您的 SDK 初始化程式碼：
+若要在初始化時「停用選取的標準收集器」(例如，效能計數器、HTTP 要求或相依性)，請將設定方法鏈結至您的 SDK 初始化程式碼：
 
 ```javascript
 applicationInsights.setup()

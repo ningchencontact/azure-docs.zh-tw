@@ -1,20 +1,18 @@
 ---
 title: Azure 儲存體程式碼範例 | Microsoft Docs
 description: 檢視、下載及執行 Azure 儲存體的範例程式碼和應用程式。 探索使用 .NET、Java、Node.js 和 C++ 的儲存體用戶端程式庫之 Blob、佇列、資料表和檔案的入門範例。
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 06/03/2017
 ms.author: mhopkins
-ms.reviewer: seguler
+ms.date: 06/03/2017
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: c3bf695527db19513125d9190796c9b5df312aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.topic: sample
+ms.openlocfilehash: ad2881221d1c748016ff4f026ac8ffb3ed683f43
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153493"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721759"
 ---
 # <a name="azure-storage-samples"></a>Azure 儲存體範例
 

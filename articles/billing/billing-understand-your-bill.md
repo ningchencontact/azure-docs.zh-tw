@@ -2,28 +2,28 @@
 title: 了解 Azure 帳單
 description: 瞭解如何閱讀並瞭解您的 Azure 訂用帳戶使用量和帳單。
 author: bandersmsft
-manager: jureid
+manager: dougeby
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 07/28/2019
 ms.author: banders
-ms.openlocfilehash: 69659e700ee47c8961ec21f0fb23573e13d72588
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383624"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610129"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>瞭解您的 Microsoft Azure 帳單
 若要瞭解您的 Azure 帳單, 請比較您的發票與詳細的每日使用量檔案, 以及 Azure 入口網站中的成本管理報告。
 
-本文不適用於 Azure Enterprise 合約客戶 (EA 客戶)。 如果您是 EA 客戶, 請參閱[瞭解使用 Enterprise 合約的 Azure 客戶帳單](billing-understand-your-bill-ea.md)。
-
-本文不適用於具有[Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)的 Azure 客戶。 如果您有 Microsoft 客戶合約, 請參閱[瞭解您的 Microsoft 客戶合約發票上的 Azure 費用](billing-mca-understand-your-bill.md)。
+本文不適用於下列客戶:
+- 具有 Enterprise 合約 (EA 客戶) 的 Azure 客戶。 如果您是 EA 客戶, 請參閱[瞭解使用 Enterprise 合約的 Azure 客戶帳單](billing-understand-your-bill-ea.md)。
+- 具有[Microsoft 客戶合約](#check-access-to-a-microsoft-customer-agreement)的 Azure 客戶。 如果您有 Microsoft 客戶合約, 請參閱[瞭解您的 Microsoft 客戶合約發票上的 Azure 費用](billing-mca-understand-your-bill.md)。
 
 如需 Azure 雲端解決方案提供者 (Azure CSP) 計畫的計費方式說明 (包括計費週期、定價和使用量)，請參閱 [Azure CSP 計費概觀](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/)。
 
@@ -88,7 +88,7 @@ Azure 入口網站也可協助您確認費用。 若要取得您發票上使用�
 
 ## <a name="external"></a>外部服務會分開計費
 
-外部服務 (或 Marketplace) 費用為協力廠商軟體廠商建立的資源費用。 您可以從 Azure Marketplace 取得並使用這些資源。 例如，Barracuda Firewall 是由協力廠商提供的 Azure Marketplace 資源。 適用於該防火牆和其相對應計量的所有費用都會顯示為外部服務費用。
+外部服務或 marketplace 費用適用于協力廠商軟體廠商所建立的資源。 這些資源可從 Azure Marketplace 使用。 例如, Barracuda 防火牆是協力廠商所提供的 Azure Marketplace 資源。 適用於該防火牆和其相對應計量的所有費用都會顯示為外部服務費用。
 
 外部服務費用會分開計費。 費用不會顯示在 Azure 發票上。 若要深入了解，請參閱[了解您的 Azure 外部服務費用](billing-understand-your-azure-marketplace-charges.md)。
 
@@ -130,7 +130,7 @@ Azure 不會直接根據資源成本計費。 資源費用會使用一或多個�
   - [Azure 定價計算機](https://azure.microsoft.com/pricing/calculator/)
   - [擁有權總成本 (TCO) 計算機](https://aka.ms/azure-tco-calculator)
   - [每種服務的詳細定價資訊](https://azure.microsoft.com/pricing/)
-- [定期在 Azure 入口網站檢閱您的使用量和成本](billing-getting-started.md#costs)。
+- [在 Azure 入口網站中定期檢查您的使用量和成本](billing-getting-started.md#costs)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>檢查 Microsoft 客戶合約的存取權
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 5d892005881436dec89c0d0d010f7f02e7bdebf9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 659022f625604fe31c2ce47978d1132b20b7ffc8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585193"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567021"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Azure SQL Database 的查詢效能深入解析
 
@@ -33,7 +32,7 @@ ms.locfileid: "60585193"
 > [!TIP]
 > 若要對 Azure SQL Database 進行基本的效能監視，建議您使用查詢效能深入解析。 請留意本文所列的產品限制。 若要對資料庫效能大規模的進階監視，建議您使用 [Azure SQL 分析](../azure-monitor/insights/azure-sql.md)。 它具有可自動執行效能疑難排解的內建智慧。 若要自動調整一些最常見資料庫效能問題，建議您使用[自動調整](sql-database-automatic-tuning.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 「查詢效能深入解析」要求 [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx) 在您的資料庫上為作用中狀態。 依預設會為所有 Azure SQL 資料庫啟用此項目。 如果查詢存放區未執行，Azure 入口網站會提示您加以啟用。
 
@@ -53,13 +52,13 @@ ms.locfileid: "60585193"
 「查詢效能深入解析」很容易使用︰
 
 1. 開啟[Azure 入口網站](https://portal.azure.com/)，然後尋找您想要檢查的資料庫。
-2. 從左側功能表中，開啟 [智慧效能]   > [查詢效能深入解析]  。
+2. 從左側功能表中，開啟 [智慧效能] > [查詢效能深入解析]。
   
    ![功能表上的查詢效能深入解析](./media/sql-database-query-performance/tile.png)
 
 3. 在第一個索引標籤上，檢閱排名最前面的資源取用查詢清單。
 4. 選取個別的查詢來檢視其詳細資料。
-5. 開啟 [智慧效能]   > [效能建議]  ，並查看是否有可供使用的效能建議。 如需關於內建效能建議的詳細資訊，請參閱 [SQL Database Advisor](sql-database-advisor.md)。
+5. 開啟 [智慧效能] > [效能建議]，並查看是否有可供使用的效能建議。 如需關於內建效能建議的詳細資訊，請參閱 [SQL Database Advisor](sql-database-advisor.md)。
 6. 使用滑桿或縮放圖示來變更觀測的間隔。
 
    ![效能儀表板](./media/sql-database-query-performance/performance.png)
@@ -73,7 +72,7 @@ ms.locfileid: "60585193"
 
 1. 使用核取方塊，選取或清除圖表要包含或排除的個別查詢。
 
-    第一行會顯示資料庫的整體 DTU 百分比。 長條圖會顯示選取的查詢在所選間隔期間內耗用的 CPU 百分比。 例如，如果選取 [過去一週]  ，則每個長條分別代表一天。
+    第一行會顯示資料庫的整體 DTU 百分比。 長條圖會顯示選取的查詢在所選間隔期間內耗用的 CPU 百分比。 例如，如果選取 [過去一週]，則每個長條分別代表一天。
 
     ![最高排名的查詢](./media/sql-database-query-performance/top-queries.png)
 
@@ -84,11 +83,11 @@ ms.locfileid: "60585193"
    >
    > 如需更精細的比較 (最精細為一分鐘)，請考慮建立自訂 DTU 使用率圖表：
    >
-   > 1. 在 Azure 入口網站中，選取 [Azure SQL Database]   > [監視]  。
-   > 2. 選取 [計量]  。
-   > 3. 選取 [+新增圖表]  。
+   > 1. 在 Azure 入口網站中，選取 [Azure SQL Database] > [監視]。
+   > 2. 選取 [計量]。
+   > 3. 選取 [+新增圖表]。
    > 4. 選取圖表上的 DTU 百分比。
-   > 5. 此外，在左上方的功能表上選取 [過去 24 小時]  ，並將其變更為一分鐘。
+   > 5. 此外，在左上方的功能表上選取 [過去 24 小時]，並將其變更為一分鐘。
    >
    > 使用資料詳細程度更精細的自訂 DTU 圖表，與查詢執行圖表進行比較。
 
@@ -99,13 +98,13 @@ ms.locfileid: "60585193"
    * 每個查詢的持續時間，這同樣也取決於彙總函式。
    * 特定查詢的總執行次數。
 
-2. 如果您的資料過期了，請選取 [重新整理]  按鈕。
+2. 如果您的資料過期了，請選取 [重新整理] 按鈕。
 
 3. 使用滑桿和縮放按鈕來變更觀測間隔，並調查耗用量尖峰︰
 
    ![用來變更間隔的滑桿和縮放按鈕](./media/sql-database-query-performance/zoom.png)
 
-4. 您可以選擇性地選取 [自訂]  索引標籤，以自訂下列項目的檢視：
+4. 您可以選擇性地選取 [自訂] 索引標籤，以自訂下列項目的檢視：
 
    * 計量 (CPU、持續時間、執行計數)。
    * 時間間隔 (過去 24 小時、過去一週，或過去一個月)。
@@ -114,7 +113,7 @@ ms.locfileid: "60585193"
   
    ![自訂索引標籤](./media/sql-database-query-performance/custom-tab.png)
   
-5. 選取 [前往 >]  按鈕以檢視自訂檢視。
+5. 選取 [前往 >] 按鈕以檢視自訂檢視。
 
    > [!IMPORTANT]
    > 「查詢效能深入解析」限定為顯示最耗用資源的 5 到 20 個查詢，視您選取的項目而定。 您的資料庫所執行的查詢數可能遠高於最高排名所顯示的，但這些查詢並不會包含在圖表中。
@@ -144,7 +143,7 @@ ms.locfileid: "60585193"
 
    ![查詢詳細資料](./media/sql-database-query-performance/query-details.png)
 
-3. (選擇性) 使用滑桿、使用縮放按鈕或選取 [設定]  ，來自訂查詢資料的顯示方式或挑選不同的時間範圍。
+3. (選擇性) 使用滑桿、使用縮放按鈕或選取 [設定]，來自訂查詢資料的顯示方式或挑選不同的時間範圍。
 
    > [!IMPORTANT]
    > 「查詢效能深入解析」不會擷取任何 DDL 查詢。 在某些情況下，它可能不會擷取所有的臨機操作查詢。
@@ -158,8 +157,8 @@ ms.locfileid: "60585193"
 
 若要識別長時間執行的查詢：
 
-1. 針對選取的資料庫，在 [查詢效能深入解析] 中開啟 [自訂]  索引標籤。
-2. 將計量變更為 [持續時間]  。
+1. 針對選取的資料庫，在 [查詢效能深入解析] 中開啟 [自訂] 索引標籤。
+2. 將計量變更為 [持續時間]。
 3. 選取查詢數目和觀測間隔。
 4. 選取彙總函式：
 
@@ -169,18 +168,18 @@ ms.locfileid: "60585193"
 
    ![查詢持續時間](./media/sql-database-query-performance/top-duration.png)
 
-5. 選取 [前往 >]  按鈕以檢視自訂檢視。
+5. 選取 [前往 >] 按鈕以檢視自訂檢視。
 
    > [!IMPORTANT]
    > 調整查詢檢視並不會更新 DTU 行。 DTU 行一律會顯示間隔內的最大耗用量值。
    >
    > 若要更詳盡地了解資料庫的 DTU 耗用量 (最詳細為一分鐘)，請考慮在 Azure 入口網站中建立自訂圖表：
    >
-   > 1. 選取 [Azure SQL Database]   > [監視]  。
-   > 2. 選取 [計量]  。
-   > 3. 選取 [+新增圖表]  。
+   > 1. 選取 [Azure SQL Database] > [監視]。
+   > 2. 選取 [計量]。
+   > 3. 選取 [+新增圖表]。
    > 4. 選取圖表上的 DTU 百分比。
-   > 5. 此外，在左上方的功能表上選取 [過去 24 小時]  ，並將其變更為一分鐘。
+   > 5. 此外，在左上方的功能表上選取 [過去 24 小時]，並將其變更為一分鐘。
    >
    > 建議您使用自訂 DTU 圖表與查詢效能圖表相比較。
    >
@@ -195,10 +194,10 @@ ms.locfileid: "60585193"
 
 若要識別經常執行的 (「多對話」) 查詢：
 
-1. 針對選取的資料庫，在 [查詢效能深入解析] 中開啟 [自訂]  索引標籤。
-2. 將計量變更為 [執行計數]  。
+1. 針對選取的資料庫，在 [查詢效能深入解析] 中開啟 [自訂] 索引標籤。
+2. 將計量變更為 [執行計數]。
 3. 選取查詢數目和觀測間隔。
-4. 選取 [前往 >]  按鈕以檢視自訂檢視。
+4. 選取 [前往 >] 按鈕以檢視自訂檢視。
 
    ![查詢執行計數](./media/sql-database-query-performance/top-execution.png)
 
@@ -237,7 +236,7 @@ ms.locfileid: "60585193"
 
 保留期原則有兩種：
 
-* **以大小為依據**：此原則設為 [自動]  時，將會在收集的資料量接近容量上限時自動清除資料。
+* **以大小為依據**：此原則設為 [自動] 時，將會在收集的資料量接近容量上限時自動清除資料。
 * **以時間為基礎**：根據預設，此原則會設為 30 天。 如果查詢存放區的空間用盡，就會刪除 30 天之前的查詢資訊。
 
 您可以將擷取原則設為：
@@ -246,7 +245,7 @@ ms.locfileid: "60585193"
 * **自動**：查詢存放區會忽略不常執行的查詢，以及編譯和執行持續時間微不足道的查詢。 執行次數、編譯持續時間和執行階段持續時間的閾值皆由內部決定。 這是預設選項。
 * **無**：查詢存放區會停止擷取新的查詢，不過仍然會收集已擷取查詢的執行階段統計資料。
 
-建議您從 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或 Azure 入口網站執行下列命令，將所有原則設為 [自動]  ，並將清除原則設為 30 天。 (請將 `YourDB` 取代為資料庫名稱)。
+建議您從 [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 或 Azure 入口網站執行下列命令，將所有原則設為 [自動]，並將清除原則設為 30 天。 (請將 `YourDB` 取代為資料庫名稱)。
 
 ```sql
     ALTER DATABASE [YourDB]

@@ -101,14 +101,18 @@
       items:
         - name: 管理您的應用程式
           href: howto-administer.md
+        - name: 管理使用者和角色
+          href: howto-manage-users-roles.md
+        - name: 檢視您的帳單
+          href: howto-view-bill.md
+        - name: 自訂應用程式 UI
+          href: howto-customize-ui.md
         - name: 準備及上傳映像
           href: howto-prepare-images.md
         - name: 設定應用程式儀表板
           href: howto-configure-homepage.md
         - name: 使用儀表板圖格
           href: howto-use-tiles.md
-        - name: 自訂應用程式 UI
-          href: howto-customize-ui.md
         - name: 使用應用程式範本
           href: howto-use-app-templates.md
         - name: 從 Azure 入口網站管理

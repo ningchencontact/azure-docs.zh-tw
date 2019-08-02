@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 208224e10c3acfb17bc5fd89d2d66152943811dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479219"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566763"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>業務關鍵層 - Azure SQL Database
 
@@ -27,7 +26,7 @@ ms.locfileid: "66479219"
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
 - 一般目的/標準 
 - 業務關鍵/進階
-- 超大規模資料庫
+- 超大規模
 
 進階/業務關鍵服務層級模型會以資料庫引擎程序的叢集作為基礎。 此架構模型依賴事實上一律有法定的可用資料庫引擎節點數，而且對您工作負載的效能影響最小 (即使在維護活動期間亦然)。
 
@@ -49,7 +48,7 @@ SQL 資料庫引擎程序和基礎 mdf/ldf 檔案都放在具有本機連接 SSD
 
 ## <a name="next-steps"></a>後續步驟
 
-- 尋找資源特性 （數字的核心，IO、 記憶體） 中的業務關鍵層[受控執行個體](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)的單一資料庫[vCore 模型](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier)或[DTU 模型](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)，或彈性集區內[虛擬核心模型](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes)並[DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)。
+- 尋找[受控執行個體](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中業務關鍵層的資源特性 (核心數目、IO、記憶體)、 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier)中的單一資料庫或[dtu 模型](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), 或[VCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes)和[dtu 模型](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)中的彈性集區。
 - 了解[一般目的](sql-database-service-tier-general-purpose.md)和[超大規模資料庫](sql-database-service-tier-hyperscale.md)層。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 如需其他高可用性和災害復原的選項，請參閱[商務持續性](sql-database-business-continuity.md)。

@@ -3,25 +3,25 @@ title: 將泡泡圖層新增至 Azure 地圖服務 | Microsoft Docs
 description: 如何將泡泡圖層新增至 Javascript 地圖
 author: rbrundritt
 ms.author: richbrun
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 516e4f35c88ae9c0e2d63e8a4ee40eb57c05ac29
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769680"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639032"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>將泡泡圖層新增至地圖
 
 本文會說明如何將資料來源中的點資料轉譯為地圖上的泡泡圖層。 泡泡圖層會將點轉譯為地圖上像素半徑固定的圓圈。 
 
 > [!TIP]
-> 根據預設，泡泡圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層，使它只會呈現點幾何功能組`filter`的圖層屬性`['==', ['geometry-type'], 'Point']`或`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`如果您想要包含 MultiPoint 的功能。
+> 根據預設，泡泡圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層, 使其只轉譯點幾何特徵, `filter`請將圖層的`['==', ['geometry-type'], 'Point']`屬性`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`設為, 或者, 如果您也想要包含 MultiPoint 功能, 則設定為。
 
 ## <a name="add-a-bubble-layer"></a>新增泡泡圖層
 

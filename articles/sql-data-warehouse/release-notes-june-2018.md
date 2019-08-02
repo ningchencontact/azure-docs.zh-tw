@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67626159"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 6 月
@@ -25,7 +25,7 @@ Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 6 月導入的新
 ## <a name="user-defined-restore-points"></a>使用者定義的還原點
 SQL 資料倉儲每 8 小時自動拍攝資料倉儲的快照集，保證八小時復原點目標 (RPO)。 雖然此自動快照集可以減輕執行資料倉儲的管理負擔，但仍需要根據業務需求，在關鍵時刻拍攝快照集。 例如，在重要資料載入之前拍攝快照集或將新指令碼部署到資料倉儲中，以在作業之前啟用還原點。 
 
-SQL 資料倉儲現在支援[使用者定義的還原點](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)透過[新增 AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet。
+SQL 資料倉儲現在透過[AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) Cmdlet 支援[使用者定義的還原點](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)。
 
 ```powershell
 New-AzSqlDatabaseRestorePoint
@@ -111,7 +111,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>後續步驟
-既然您已稍微了解 SQL 資料倉儲，了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]. If you are new to Azure, you may find the [Azure glossary][Azure glossary]很有幫助您遇到新術語。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
+既然您已經稍微瞭解 SQL 資料倉儲, 請瞭解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary] 在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
 * [部落格]

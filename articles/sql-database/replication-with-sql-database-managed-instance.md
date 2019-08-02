@@ -1,5 +1,5 @@
 ---
-title: 在 Azure SQL Database 受控執行個體資料庫中設定複寫 |Microsoft Docs
+title: 在 Azure SQL Database 受控實例資料庫中設定複寫 |Microsoft Docs
 description: 了解如何在 Azure SQL Database 受控執行個體資料庫中設定異動複寫
 services: sql-database
 ms.service: sql-database
@@ -10,39 +10,38 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e4d056aacf8f3969b645747e2303574f3fea3bda
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 96571b55158733f8189ddf87402fb634330ca80d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357111"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570463"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL Database 受控執行個體資料庫中設定複寫
 
 異動複寫可讓您將資料從 SQL Server 資料庫或其他執行個體資料庫複寫到 Azure SQL Database 受控執行個體資料庫。 
 
-您也可以使用異動複寫，將 Azure SQL Database 受控執行個體中要執行個體資料庫中所做的變更：
+您也可以使用異動複寫, 將 Azure SQL Database 受控實例中實例資料庫所做的變更推送至:
 
 - SQL Server 資料庫。
-- Azure SQL Database 中單一資料庫。
-- Azure SQL Database 彈性集區中的集區的資料庫。
+- Azure SQL Database 中的單一資料庫。
+- Azure SQL Database 彈性集區中的集區資料庫。
  
-異動複寫上處於公開預覽[Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。 受控執行個體可以裝載發行者、散發者和訂閱者資料庫。 如需可用設定的相關資訊，請參閱[異動複寫設定](sql-database-managed-instance-transactional-replication.md#common-configurations)。
+異動複寫在[Azure SQL Database 受控實例](sql-database-managed-instance.md)上處於公開預覽狀態。 受控執行個體可以裝載發行者、散發者和訂閱者資料庫。 如需可用設定的相關資訊，請參閱[異動複寫設定](sql-database-managed-instance-transactional-replication.md#common-configurations)。
 
   > [!NOTE]
-  > 這篇文章的目的是引導中使用的 Azure 資料庫設定複寫的使用者管理執行個體從端對端，開始建立資源群組。 如果您已經有 managed 執行個體部署，請直接跳到[步驟 4](#4---create-a-publisher-database)來建立您的發行者資料庫，或[步驟 6](#6---configure-distribution)如果您已經有發行者和訂閱者的資料庫，並且已準備好開始設定複寫。  
+  > 本文旨在引導使用者從端對端設定 Azure 資料庫受控實例的複寫, 從建立資源群組開始。 如果您已經部署受控實例, 請直接跳到[步驟 4](#4---create-a-publisher-database)來建立發行者資料庫, 如果您已經有發行者和訂閱者資料庫, 而且準備好開始設定複寫, 請略過步驟[6](#6---configure-distribution) 。  
 
 ## <a name="requirements"></a>需求
 
-設定受管理的執行個體做為 「 發行者 」 和/或 「 散發者 」 需要：
+將受控實例設定為「發行者」和/或「散發者」時, 需要:
 
 - 受控執行個體目前未參與異地複寫關聯性。
-- 「 發行者 」 端受控執行個體位於相同的虛擬網路，做為 「 散發者 」 和 「 訂閱者 」，或是[vNet 對等互連](../virtual-network/tutorial-connect-virtual-networks-powershell.md)已建立虛擬網路的所有三個實體之間。 
+- 發行者受控實例與散發者和訂閱者位於相同的虛擬網路上, 或已在所有三個實體的虛擬網路之間建立[vNet 對等互連](../virtual-network/tutorial-connect-virtual-networks-powershell.md)。 
 - 連線會在複寫參與者之間使用 SQL 驗證。
 - 複寫工作目錄的 Azure 儲存體帳戶共用。
-- 在安全性規則的 NSG，以受管理的執行個體來存取 Azure 檔案共用中開啟連接埠 445 (TCP 輸出)。 
+- 埠 445 (TCP 輸出) 已在 NSG 的安全性規則中開啟, 以供受控實例存取 Azure 檔案共用。 
 
 
  > [!NOTE]
@@ -51,43 +50,43 @@ ms.locfileid: "67357111"
 
 ## <a name="features"></a>功能
 
-支援：
+支援:
 
 - 混用 SQL Server 內部部署和 Azure SQL Database 中受控執行個體的異動與快照式複寫。
-- 訂閱者可以在內部部署 SQL Server 資料庫，在 Azure SQL Database 或 Azure SQL Database 彈性集區中的集區的資料庫中的 單一資料庫/受控執行個體。
+- 訂閱者可以位於內部部署 SQL Server 資料庫、Azure SQL Database 中的單一資料庫/受控實例, 或 Azure SQL Database 彈性集區中的集區資料庫。
 - 單向或雙向複寫。
 
 Azure SQL Database 的受控執行個體中不支援下列功能：
 
-- [可更新訂閱](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication)。
-- [作用中異地複寫](sql-database-active-geo-replication.md)並[自動容錯移轉群組](sql-database-auto-failover-group.md)不應在異動複寫設定。
+- [可更新的訂閱](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication)。
+- 如果已設定異動複寫, 則不應使用「[主動式異地](sql-database-active-geo-replication.md)複寫」和「[自動容錯移轉群組](sql-database-auto-failover-group.md)」。
  
 ## <a name="1---create-a-resource-group"></a>1-建立資源群組
 
-使用[Azure 入口網站](https://portal.azure.com)來建立資源群組名稱`SQLMI-Repl`。  
+使用[Azure 入口網站](https://portal.azure.com)來建立名稱`SQLMI-Repl`為的資源群組。  
 
-## <a name="2---create-managed-instances"></a>2-建立受控執行個體
+## <a name="2---create-managed-instances"></a>2-建立受控實例
 
-使用[Azure 入口網站](https://portal.azure.com)建立兩個[受管理執行個體](sql-database-managed-instance-create-tutorial-portal.md)相同虛擬網路和子網路上。 兩個受管理的執行個體應該命名為：
+使用[Azure 入口網站](https://portal.azure.com)在相同的虛擬網路和子網上建立兩個[受控實例](sql-database-managed-instance-create-tutorial-portal.md)。 這兩個受控實例的名稱應該是:
 
 - `sql-mi-pub`
 - `sql-mi-sub`
 
-您也必須[設定 Azure VM 連線](sql-database-managed-instance-configure-vm.md)到您的 Azure SQL Database 受控執行個體。 
+您也需要[設定 AZURE VM, 以](sql-database-managed-instance-configure-vm.md)連線到您 Azure SQL Database 的受控實例。 
 
 ## <a name="3---create-azure-storage-account"></a>3-建立 Azure 儲存體帳戶
 
-[建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)的工作目錄，然後建立[檔案共用](../storage/files/storage-how-to-create-file-share.md)儲存體帳戶內。 
+建立工作目錄的[Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account), 然後在儲存體帳戶內建立檔案[共用](../storage/files/storage-how-to-create-file-share.md)。 
 
-複製檔案共用路徑，格式為： `\\storage-account-name.file.core.windows.net\file-share-name`
+以下列格式複製檔案共用路徑:`\\storage-account-name.file.core.windows.net\file-share-name`
 
-複製儲存體存取金鑰的格式： `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+以下列格式複製儲存體存取金鑰:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
  如需詳細資訊，請參閱 [檢視和複製儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys)。 
 
 ## <a name="4---create-a-publisher-database"></a>4-建立發行者資料庫
 
-連接到您`sql-mi-pub`受控執行個體使用 SQL Server Management Studio，並執行下列的 TRANSACT-SQL (T-SQL) 程式碼，以建立您的發行者資料庫：
+使用 SQL Server Management Studio 連接`sql-mi-pub`到您的受控實例, 並執行下列 transact-sql (t-sql) 程式碼, 以建立發行者資料庫:
 
 ```sql
 USE [master]
@@ -121,7 +120,7 @@ GO
 
 ## <a name="5---create-a-subscriber-database"></a>5-建立訂閱者資料庫
 
-連接到您`sql-mi-sub`受控執行個體使用 SQL Server Management Studio，並執行下列 T-SQL 程式碼，建立空白的訂閱者資料庫：
+使用 SQL Server Management Studio 連線`sql-mi-sub`到您的受控實例, 並執行下列 t-sql 程式碼來建立空的訂閱者資料庫:
 
 ```sql
 USE [master]
@@ -142,7 +141,7 @@ GO
 
 ## <a name="6---configure-distribution"></a>6-設定散發
 
-連接到您`sql-mi-pub`受控執行個體使用 SQL Server Management Studio，並執行下列 T-SQL 程式碼來設定您的散發資料庫。 
+使用 SQL Server Management Studio 連接`sql-mi-pub`到您的受控實例, 並執行下列 t-sql 程式碼來設定散發資料庫。 
 
 ```sql
 USE [master]
@@ -153,9 +152,9 @@ EXEC sp_adddistributiondb @database = N'distribution';
 GO
 ```
 
-## <a name="7---configure-publisher-to-use-distributor"></a>7-設定以使用散發者的發行者 
+## <a name="7---configure-publisher-to-use-distributor"></a>7-將發行者設定為使用散發者 
 
-在您的發行者上受控執行個體`sql-mi-pub`，變更執行查詢[SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor)模式並執行下列的程式碼，以向發行者註冊新的散發者。 
+在發行者受控實例`sql-mi-pub`上, 將查詢執行變更為[SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor)模式, 然後執行下列程式碼, 向發行者註冊新的散發者。 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -175,11 +174,11 @@ EXEC sp_adddistpublisher
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
-此指令碼會在受管理的執行個體，來設定本機 「 發行者 」 新增連結的伺服器，並建立一組工作的 SQL Server agent。 
+此腳本會在受控實例上設定本機發行者、加入連結的伺服器, 並為 SQL Server Agent 建立一組作業。 
 
 ## <a name="8---create-publication-and-subscriber"></a>8-建立發行集和訂閱者
 
-使用[SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor)模式中，執行下列 T-SQL 指令碼，以啟用複寫您的資料庫，並設定 「 發行者 」、 「 散發者 」 與 「 訂閱者 」 之間的複寫。 
+使用[SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor)模式, 執行下列 t-sql 腳本來啟用資料庫的複寫, 並設定發行者、散發者和訂閱者之間的複寫。 
 
 ```sql
 -- Set variables
@@ -258,9 +257,9 @@ EXEC sp_startpublication_snapshot
 
 ## <a name="9---modify-agent-parameters"></a>9-修改代理程式參數
 
-Azure SQL Database 受控執行個體目前的複寫代理程式的連線發生一些後端的問題。 此問題時已特別處理定址，增加的複寫代理程式的登入逾時值的因應措施。 
+Azure SQL Database 受控實例目前遇到一些與複寫代理程式連接的後端問題。 雖然此問題已解決, 但因應措施是增加複寫代理程式的登入超時值。 
 
-增加登入逾時的 「 發行者 」 端，執行下列 T-SQL 命令： 
+在發行者上執行下列 T-sql 命令, 以增加登入超時: 
 
 ```sql
 -- Increase login timeout to 150s
@@ -268,7 +267,7 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 150'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-執行下列 T-SQL 命令來登入逾時重設為預設值，要這樣做應該：
+再次執行下列 T-sql 命令, 將登入超時設定為預設值 (如果您需要這麼做):
 
 ```sql
 -- Increase login timeout to 30
@@ -276,19 +275,19 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 30'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-重新啟動所有的三個代理程式，才能套用這些變更。 
+重新開機所有三個代理程式以套用這些變更。 
 
 ## <a name="10---test-replication"></a>10-測試複寫
 
-一旦已設定複寫，您可以插入新的項目，「 發行者 」 端，監看的變更傳播到 「 訂閱者 」 來進行測試。 
+一旦設定了複寫, 您就可以在發行者上插入新的專案, 並監看這些變更傳播到訂閱者, 藉以進行測試。 
 
-執行下列 T-SQL 程式碼片段，以檢視在訂閱者上的資料列：
+執行下列 T-sql 程式碼片段以查看訂閱者上的資料列:
 
 ```sql
 select * from dbo.ReplTest
 ```
 
-執行下列 T-SQL 程式碼片段，以插入其他 「 發行者 」 上的資料列，然後檢查 一次在 「 訂閱者 」 上的資料列。 
+執行下列 T-sql 程式碼片段, 在「發行者」上插入其他資料列, 然後再次檢查「訂閱者」上的資料列。 
 
 ```sql
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
@@ -296,7 +295,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若要卸除發行集，請執行下列 T-SQL 命令：
+若要卸載發行集, 請執行下列 T-sql 命令:
 
 ```sql
 -- Drops the publication
@@ -305,7 +304,7 @@ EXEC sp_droppublication @publication = N'PublishData'
 GO
 ```
 
-若要從資料庫移除複寫選項，請執行下列 T-SQL 命令：
+若要從資料庫中移除複寫選項, 請執行下列 T-sql 命令:
 
 ```sql
 -- Disables publishing of the database
@@ -314,7 +313,7 @@ EXEC sp_removedbreplication
 GO
 ```
 
-若要停用發行和散發，請執行下列 T-SQL 命令：
+若要停用發行和散發, 請執行下列 T-sql 命令:
 
 ```sql
 -- Drops the distributor
@@ -323,10 +322,10 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-您可以清除您的 Azure 資源所[刪除資源群組的受管理的執行個體資源](../azure-resource-manager/manage-resources-portal.md#delete-resources)然後刪除資源群組`SQLMI-Repl`。 
+您可以[從資源群組中刪除受控實例資源](../azure-resource-manager/manage-resources-portal.md#delete-resources), 然後刪除資源群組`SQLMI-Repl`, 以清除您的 Azure 資源。 
 
    
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 
 - [異動複寫](sql-database-managed-instance-transactional-replication.md)
 - [什麼是受控執行個體？](sql-database-managed-instance.md)

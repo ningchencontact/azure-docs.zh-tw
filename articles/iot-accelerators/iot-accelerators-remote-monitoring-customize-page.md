@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447075"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607963"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>在遠端監視解決方案加速器 Web UI 中新增自訂頁面
 
@@ -24,7 +24,7 @@ ms.locfileid: "61447075"
 
 其他操作說明指南會擴充此案例，將更多功能新增至您所新增的頁面。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本操作指南中的部署，您必須在本機開發機器上安裝下列軟體：
 
@@ -160,7 +160,7 @@ npm start
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    您只應該在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應儘速再次加以停用](../security/azure-security-network-security-best-practices.md)。
+    您只應該在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應儘速再次加以停用](../security/fundamentals/network-best-practices.md)。
 
 1. 使用 Azure 入口網站或 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 來尋找虛擬機器的名稱和公用 IP 位址。 例如:
 

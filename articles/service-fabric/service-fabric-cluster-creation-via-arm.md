@@ -3,7 +3,7 @@ title: 建立 Azure Service Fabric 叢集 | Microsoft Docs
 description: 了解如何使用 Azure Resource Manager 在 Azure 中設定安全的 Service Fabric 叢集。  您可以使用預設範本或您自己的叢集範本來建立叢集。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
-ms.author: aljo
-ms.openlocfilehash: 709b59d257dd974e81d8b4058983f6e264ba0708
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925863"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599965"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -30,18 +30,18 @@ ms.locfileid: "64925863"
 
 [Azure Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組透過網路連線的虛擬機器，您可以將微服務部署到其中並進行管理。  在 Azure 中執行的 Service Fabric 叢集是 Azure 資源，而且是使用 Azure Resource Manager 部署的。 本文說明如何使用 Resource Manager 在 Azure 中部署安全的 Service Fabric 叢集。 您可以使用預設叢集範本或自訂範本。  如果您還沒有自訂範本，您可以[了解如何建立自訂範本](service-fabric-cluster-creation-create-template.md)。
 
-叢集安全性是在第一次設定叢集時所設定，而且稍後無法變更。 設定叢集之前，請閱讀 [Service Fabric 叢集安全性案例][service-fabric-cluster-security]。 在 Azure 中，Service Fabric 使用 x509 憑證來保護您的叢集與其端點、驗證用戶端，以及加密資料。 也建議您使用 Azure Active Directory 來保護對管理端點的存取。 必須在建立叢集之前先建立 Azure AD 租用戶與使用者。  如需詳細資訊，請閱讀[設定 Azure AD 以驗證用戶端](service-fabric-cluster-creation-setup-aad.md)。
+叢集安全性是在第一次設定叢集時所設定，而且稍後無法變更。 在設定叢集之前, 請先閱讀[Service Fabric 叢集安全性案例][service-fabric-cluster-security]。 在 Azure 中，Service Fabric 使用 x509 憑證來保護您的叢集與其端點、驗證用戶端，以及加密資料。 也建議您使用 Azure Active Directory 來保護對管理端點的存取。 必須在建立叢集之前先建立 Azure AD 租用戶與使用者。  如需詳細資訊，請閱讀[設定 Azure AD 以驗證用戶端](service-fabric-cluster-creation-setup-aad.md)。
 
 部署生產叢集以執行生產工作負載之前，請務必先閱讀[生產整備檢查清單](service-fabric-production-readiness-checklist.md)。
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 在本文中使用 Service Fabric RM Powershell 或 Azure CLI 模組來部署叢集：
 
 * [Azure PowerShell 4.1 和更新版本][azure-powershell]
-* [Azure CLI 2.0 版與更新版本][azure-CLI]
+* [Azure CLI 2.0 版和更新版本][azure-CLI]
 
 您可以在此找到 Service Fabric 模組的參考文件：
 * [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
@@ -71,10 +71,10 @@ az account set --subscription $subscriptionId
 
 所用範本可於 [Azure Service Fabric 範本範例：Windows 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)和 [Ubuntu 範本](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)上取得
 
-下列命令可以建立 Windows 或 Linux 叢集，您需要指定適用的作業系統。 PowerShell/CLI 命令也會在指定的 CertificateOutputFolder  中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
+下列命令可以建立 Windows 或 Linux 叢集，您需要指定適用的作業系統。 PowerShell/CLI 命令也會在指定的 CertificateOutputFolder 中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
 
 > [!NOTE]
-> 下列 PowerShell 命令僅適用於使用 Azure PowerShell`Az`模組。 若要檢查最新版的 Azure Resource Manager PowerShell 版本，請執行下列 PowerShell 命令"Get-module Az"。 遵循[此連結](/powershell/azure/install-Az-ps)即可升級 Azure Resource Manager PowerShell 版本。 
+> 下列 PowerShell 命令僅適用于 Azure PowerShell `Az`模組。 若要檢查目前版本的 Azure Resource Manager PowerShell 版本, 請執行下列 PowerShell 命令 "Get-help Az"。 遵循[此連結](/powershell/azure/install-Az-ps)即可升級 Azure Resource Manager PowerShell 版本。 
 >
 >
 
@@ -118,7 +118,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-your-own-custom-template"></a>使用您自己的自訂範本
 
-如果您需要撰寫自訂範本以符合需求，強烈建議您使用 [Azure Service Fabric 範本範例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)上提供的其中一個範本。 了解如何[自訂您的叢集範本][customize-your-cluster-template]。
+如果您需要撰寫自訂範本以符合需求，強烈建議您使用 [Azure Service Fabric 範本範例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)上提供的其中一個範本。 瞭解如何[自訂您][customize-your-cluster-template]的叢集範本。
 
 如果您已有自訂範本，則請再次確認範本及參數檔案中三個與憑證相關的參數，其命名如下所示，且值也如下所示為 Null：
 
@@ -211,7 +211,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ### <a name="use-your-own-custom-cluster-template"></a>使用您自己的自訂叢集範本
-如果您需要撰寫自訂範本以符合需求，強烈建議您使用 [Azure Service Fabric 範本範例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)上提供的其中一個範本。 了解如何[自訂您的叢集範本][customize-your-cluster-template]。
+如果您需要撰寫自訂範本以符合需求，強烈建議您使用 [Azure Service Fabric 範本範例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)上提供的其中一個範本。 瞭解如何[自訂您][customize-your-cluster-template]的叢集範本。
 
 如果您已有自訂範本，則請再次確認範本及參數檔案中三個與憑證相關的參數，其命名如下所示，且值也如下所示為 Null。
 

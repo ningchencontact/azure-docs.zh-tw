@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489077"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618323"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理 (預覽) 中建立及管理目錄
 
@@ -34,7 +34,7 @@ ms.locfileid: "68489077"
 
 目錄是資源和存取封裝的容器。 當您想要將相關的資源和存取封裝分組時, 請建立類別目錄。 建立類別目錄的人員會成為第一個目錄擁有者。 目錄擁有者可以新增其他目錄擁有者。
 
-**必要角色：** 使用者系統管理員或目錄建立者
+**必要角色：** 全域管理員、使用者系統管理員或目錄建立者
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -102,7 +102,7 @@ ms.locfileid: "68489077"
 
 您可以編輯目錄的名稱和描述。 使用者會在存取套件的詳細資料中看到這項資訊。
 
-**必要角色：** 使用者系統管理員或目錄擁有者
+**必要角色：** 全域管理員、使用者系統管理員或目錄擁有者
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -112,13 +112,13 @@ ms.locfileid: "68489077"
 
 1. 編輯目錄的 [名稱] 或 [描述]。
 
-1. 按一下 [儲存] 。
+1. 按一下 [儲存]。
 
 ## <a name="delete-a-catalog"></a>刪除目錄
 
 您可以刪除類別目錄, 但只有在它沒有任何存取套件時才可刪除。
 
-**必要角色：** 使用者系統管理員或目錄擁有者
+**必要角色：** 全域管理員、使用者系統管理員或目錄擁有者
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 

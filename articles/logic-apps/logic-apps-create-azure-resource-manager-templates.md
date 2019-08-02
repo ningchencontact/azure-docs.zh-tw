@@ -9,25 +9,27 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 7d216a3706c13a5fff312850e244a521ab22ae9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386534"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706513"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>建立 Azure Resource Manager 範本來自動化 Azure Logic Apps 的部署
 
 為了協助您自動建立和部署邏輯應用程式, 本文說明您可以為邏輯應用程式建立[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)的方式。 如需有關範本的結構和語法的總覽, 其中包含您的工作流程定義和部署所需的其他[資源, 請參閱總覽:使用 Azure Resource Manager 範本](logic-apps-azure-resource-manager-templates-overview.md)自動部署邏輯應用程式。
 
-Azure Logic Apps 提供預先建立的[邏輯應用程式 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json), 您可以重複使用它, 而不只是用來建立邏輯應用程式, 還能定義要用於部署的資源和參數。 您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。 如需 Azure Resource Manager 範本的詳細資訊, 請參閱下列主題:
+Azure Logic Apps 提供預先建立的[邏輯應用程式 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json), 您可以重複使用它, 而不只是用來建立邏輯應用程式, 還能定義要用於部署的資源和參數。 您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。
+
+> [!IMPORTANT]
+> 請確定您範本中的連線使用與邏輯應用程式相同的 Azure 資源群組和位置。
+
+如需 Azure Resource Manager 範本的詳細資訊, 請參閱下列主題:
 
 * [Azure Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
 * [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
 * [針對雲端一致性開發 Azure Resource Manager 範本](../azure-resource-manager/templates-cloud-consistency.md)
-
-> [!IMPORTANT]
-> 您範本中的連接必須使用與邏輯應用程式相同的 Azure 資源群組和位置。
 
 <a name="visual-studio"></a>
 
@@ -47,6 +49,13 @@ Azure Logic Apps 提供預先建立的[邏輯應用程式 Azure Resource Manager
 您可以使用 Azure PowerShell 搭配[LogicAppTemplate 模組](https://github.com/jeffhollan/LogicAppTemplateCreator)來建立 Resource Manager 範本。 這個開放原始碼模組會先評估您的邏輯應用程式, 以及邏輯應用程式所使用的任何連接。 此模組接著會使用部署所需的參數來產生範本資源。
 
 例如, 假設您有一個邏輯應用程式, 它會從 Azure 服務匯流排佇列接收訊息, 並將資料上傳至 Azure SQL 資料庫。 模組會保留所有協調流程邏輯, 並參數化 SQL 和服務匯流排連接字串, 讓您可以根據您的部署需求來提供和變更這些值。
+
+這些範例示範如何使用 Azure Resource Manager 範本、Azure DevOps 中的 Azure Pipelines 和 Azure PowerShell 來建立和部署邏輯應用程式:
+
+* [範例：從 Azure Logic Apps 連接到 Azure 服務匯流排的佇列](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：從 Azure Logic Apps 連接到 Azure 儲存體帳戶](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：為 Azure Logic Apps 設定函數應用程式動作](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：從 Azure Logic Apps 連接到整合帳戶](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>安裝 PowerShell 模組
 
