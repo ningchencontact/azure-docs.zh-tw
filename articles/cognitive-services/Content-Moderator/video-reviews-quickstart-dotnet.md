@@ -1,6 +1,6 @@
 ---
 title: 使用 .NET 來建立影片審核項目 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 本文提供資訊和範例程式碼，可協助您快速開始將 C# 搭配 Content Moderator SDK 使用，以建立影片審核項目。
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b0ad4b5d8a16c8d46fcf6de67c46dab29ba51d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726841"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564301"
 ---
 # <a name="create-video-reviews-using-net"></a>使用 .NET 來建立影片審核項目
 
@@ -29,7 +29,7 @@ ms.locfileid: "64726841"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 登入或建立帳戶，在內容仲裁[審核工具](https://contentmoderator.cognitive.microsoft.com/)站台。
+- 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 - 本文假設您已[仲裁影片 (請參閱快速入門)](video-moderation-api.md)，而且具有回應資料。 您需要使用它來為人工仲裁者建立以畫面為基礎的審核項目。
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>請確定您的 API 金鑰可呼叫審核 API 以建立審核項目
@@ -174,7 +174,7 @@ public static ContentModeratorClient NewClient()
 - **Status**。 請將值設定為 "Unpublished"。 如果您未設定此屬性，則會預設為 "Pending"，意謂著已發佈影片審核項目而正等待人工審核。 發佈影片審核項目之後，您就無法再將影片畫面、文字記錄或文字記錄仲裁結果新增至該審核項目。
 
 > [!NOTE]
-> **CreateVideoReviews**會傳回 IList\<字串 >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。 
+> **Createvideoreviews 專案識別碼**會傳回 >\<的 IList 字串。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。 
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 

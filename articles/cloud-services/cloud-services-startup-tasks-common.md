@@ -3,23 +3,17 @@ title: 雲端服務的常見啟動工作 | Microsoft Docs
 description: 提供一些常見的啟動工作範例，做為您在雲端服務 Web 角色或背景工作角色中執行的參考。
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 1d78ab917589af0eae72eb70e3cdc2cc751072eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 2eb299ad841444a3100eac207b225d5377959f85
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076431"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358965"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>常見的雲端服務啟動工作
 本文提供一些常見的啟動工作範例，做為您在雲端服務中執行的參考。 您可以利用啟動工作，在角色啟動之前執行作業。 您可能想要執行的作業包括安裝元件、註冊 COM 元件、設定登錄機碼，或啟動長時間執行的處理序。 

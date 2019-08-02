@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 78db25fed7c284b31491bdc9e5498493da4c7479
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544733"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618840"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>規劃和準備您的 Service Fabric 獨立叢集部署
 
@@ -65,7 +65,7 @@ ms.locfileid: "60544733"
 * 至少 40 GB 的可用磁碟空間
 * 4 核心或更高的 CPU
 * 所有電腦的安全網路連線
-* 已安裝 Windows Server 作業系統 (有效版本：2012 R2、2016、1709 或 1803)
+* 已安裝 Windows Server 作業系統 (有效版本：2012 R2、2016、1709、1803或 2019)
 * [.NET Framework 4.5.1 或更高版本](https://www.microsoft.com/download/details.aspx?id=40773)，完整安裝
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * [RemoteRegistry 服務](https://technet.microsoft.com/library/cc754820) 應該在所有電腦上執行

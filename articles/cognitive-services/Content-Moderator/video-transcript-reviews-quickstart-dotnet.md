@@ -1,6 +1,6 @@
 ---
 title: 使用 .NET 來建立影片文字記錄審核項目 - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用 Content Moderator SDK for .NET 來建立影片文字記錄審核項目
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: fa782f687979f1d32cdf1c18bd08f6672e39adfe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bbdfb995ab6c819b0782a30e2ade4df4e5e0551
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868599"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564239"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
@@ -25,9 +25,9 @@ ms.locfileid: "64868599"
 - 將仲裁過的文字記錄新增至審核項目
 - 發佈審核項目
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-- 登入或建立帳戶，在內容仲裁[審核工具](https://contentmoderator.cognitive.microsoft.com/)站台，如果您已經還沒有這麼做。
+- 如果您尚未這麼做, 請先在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 - 本文假設您已[仲裁影片](video-moderation-api.md)，並已在審核工具中[建立影片審核項目](video-reviews-quickstart-dotnet.md)以供進行人工決策。 您現在想要在審核工具中新增仲裁過的影片文字記錄。
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>請確定您的 API 金鑰可呼叫審核 API (作業建立)
@@ -162,7 +162,7 @@ public static ContentModeratorClient NewClient()
 - **Status**。 請將值設定為 "Unpublished"。 如果您未設定此屬性，則會預設為 "Pending"，意謂著已發佈影片審核項目而正等待人工審核。 發佈影片審核項目之後，您就無法再將影片畫面、文字記錄或文字記錄仲裁結果新增至該審核項目。
 
 > [!NOTE]
-> **CreateVideoReviews**會傳回 IList\<字串 >。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
+> **Createvideoreviews 專案識別碼**會傳回 >\<的 IList 字串。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 
@@ -252,7 +252,7 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 
 文字記錄的格式必須是 WebVTT。 如需詳細資訊，請參閱 [WebVTT：網路影片文字播放軌格式](https://www.w3.org/TR/webvtt1/) \(英文\)。
 
-將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 它也將結果轉譯成 IList\<TranscriptModerationBodyItem >，並將提交至**AddVideoTranscriptModerationResult**。
+將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 它也會將結果轉譯為 IList\<TranscriptModerationBodyItem >, 並提交至**AddVideoTranscriptModerationResult**。
 
 ```csharp
 /// <summary>

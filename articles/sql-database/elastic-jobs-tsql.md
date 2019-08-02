@@ -10,14 +10,13 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: d1123affa79f401b5142af604adbd757bdfb7d73
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568280"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641052"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -193,7 +192,7 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 根據預設，作業代理程式會建立資料表將傳回的結果儲存於其中。 因此，與用於輸出認證相關聯的登入必須要有足夠的權限能執行此作業。 如果您想要事先手動建立資料表，則必須具有下列屬性：
 1. 結果集使用正確名稱和資料類型的資料行。
 2. internal_execution_id 的其他資料行 (資料類型為 uniqueidentifier)。
-3. 非叢集索引，名為`IX_<TableName>_Internal_Execution_ID`internal_execution_id 資料行上。
+3. 在 internal_execution_id 資料行`IX_<TableName>_Internal_Execution_ID`上名為的非叢集索引。
 
 連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
@@ -284,7 +283,7 @@ select * from jobs.jobsteps
 ```
 
 
-## <a name="begin-ad-hoc-execution-of-a-job"></a>開始執行臨機操作作業
+## <a name="begin-ad-hoc-execution-of-a-job"></a>開始特定作業執行
 
 下列範例說明如何立即啟動作業。  
 連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
@@ -351,7 +350,7 @@ ORDER BY start_time DESC
 ```
 
 
-## <a name="cancel-a-job"></a>取消作业
+## <a name="cancel-a-job"></a>取消工作
 
 下列範例說明如何取消作業。  
 連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
@@ -450,10 +449,10 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 [ **\@job_name =** ] 'job_name'  
 作業的名稱。 名稱必須是唯一的，且不可包含百分比 (%) 字元。 job_name 是 nvarchar(128)，沒有預設值。
 
-[ **\@description =** ] 'description'  
+**[\@描述 =** ] ' 描述 '  
 作業的描述。 description 是 nvarchar (512)，預設值為 NULL。 如果省略 description，則會使用空字串。
 
-[ **\@enabled =** ] enabled  
+**[\@enabled =** ] 已啟用  
 指定是否啟用作業的排程。 Enabled 是位元，預設值是 0 (停用)。 如果為 0，則不會啟用作業，且不會依據排程執行作業；但您可以手動執行作業。 如果為 1，則會依據排程執行作業，且您可以手動執行作業。
 
 [ **\@schedule_interval_type =** ] schedule_interval_type  
@@ -474,7 +473,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 [ **\@schedule_end_time =** ] schedule_end_time  
 可停止執行作業的日期。 schedule_end_time 是 DATETIME2，預設值為 9999-12-31 11:59:59.0000000。 
 
-[ **\@job_id =** ] job_id OUTPUT  
+**[\@job_id =** ] job_id 輸出  
 在作業成功建立後指派給作業的識別碼。 job_id 是 uniqueidentifier 類型的輸出變數。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -485,7 +484,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資料庫執行。
 在執行 sp_add_job 以新增作業後，可以使用 sp_add_jobstep 新增相關步驟，以執行作業的活動。 作業的初始版本號碼為 0，而其後會在新增第一個步驟時累加為 1。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 
 - jobs_reader
@@ -516,10 +515,10 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 [ **\@new_name =** ] 'new_name'  
 作業的新名稱。 new_name 是 nvarchar(128)。
 
-[ **\@description =** ] 'description'  
+**[\@描述 =** ] ' 描述 '  
 作業的描述。 description 是 nvarchar(512)。
 
-[ **\@enabled =** ] enabled  
+**[\@enabled =** ] 已啟用  
 指定要啟用 (1) 還是不啟用 (0) 作業的排程。 Enabled 是位元。
 
 [ **\@schedule_interval_type=** ] schedule_interval_type  
@@ -547,7 +546,7 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 #### <a name="remarks"></a>備註
 在執行 sp_add_job 以新增作業後，可以使用 sp_add_jobstep 新增相關步驟，以執行作業的活動。 作業的初始版本號碼為 0，而其後會在新增第一個步驟時累加為 1。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -579,7 +578,7 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 #### <a name="remarks"></a>備註
 作業歷程記錄會在作業刪除時自動刪除。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -641,7 +640,7 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 
 如果指定，則值必須是內嵌。
 
-[ **\@command =** ] 'command'  
+**[\@command =** ] ' 命令 '  
 command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執行。 command 是 nvarchar(max)，預設值為 NULL。
 
 [ **\@credential_name =** ] 'credential_name'  
@@ -656,7 +655,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 重試之間的延遲上限。 如果重試之間的延遲時間超出此值，該延遲將會限定為此值。 maximum_retry_interval_seconds 是 int，預設值為 120。
 
-[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+**[\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 在多個作業步驟執行嘗試失敗時要套用至重試延遲的乘數。 例如，如果第一次重試的延遲為 5 秒，降速乘數為 2.0，則第二次重試的延遲將是 10 秒，第三次重試的延遲將是 20 秒。 retry_interval_backoff_multiplier 是實數，預設值為 2.0。
 
 [ **\@retry_attempts =** ] retry_attempts  
@@ -691,10 +690,10 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@output_table_name =** ] 'output_table_name'  
 如果不是 Null，則為命令的第一個結果集將會寫入的目標資料表名稱。 如果資料表尚不存在，則會根據傳回的結果集所具備的結構描述建立資料表。 如果 output_type 是 SqlDatabase，則必須指定。 output_table_name 是 nvarchar(128)，預設值為 NULL。
 
-[  **\@job_version =** ] job_version 輸出  
+**[\@job_version =** ] job_version 輸出  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
-[ **\@max_parallelism =** ] max_parallelism OUTPUT  
+**[\@max_parallelism =** ] max_parallelism 輸出  
 每個彈性集區的平行處理原則最大層級。 如果設定，則作業步驟將會限定為最多僅為每個彈性集區執行該數量的資料庫。 此項目會套用至直接包含在目標群組中的每個彈性集區，或目標群組所含伺服器內的每個彈性集區。 max_parallelism 是 int。
 
 
@@ -704,7 +703,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 #### <a name="remarks"></a>備註
 當 sp_add_jobstep 成功時，作業目前的版本號碼將會累加。 在下次執行作業時，將會使用新版本。 如果作業目前正在執行，該執行將不會包含新的步驟。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：  
 
 - jobs_reader
@@ -771,7 +770,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 如果指定，則值必須是內嵌。
 
-[ **\@command =** ] 'command'  
+**[\@command =** ] ' 命令 '  
 command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執行。 command 是 nvarchar(max)，預設值為 NULL。
 
 [ **\@credential_name =** ] 'credential_name'  
@@ -786,7 +785,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 重試之間的延遲上限。 如果重試之間的延遲時間超出此值，該延遲將會限定為此值。 maximum_retry_interval_seconds 是 int，預設值為 120。
 
-[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+**[\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 在多個作業步驟執行嘗試失敗時要套用至重試延遲的乘數。 例如，如果第一次重試的延遲為 5 秒，降速乘數為 2.0，則第二次重試的延遲將是 10 秒，第三次重試的延遲將是 20 秒。 retry_interval_backoff_multiplier 是實數，預設值為 2.0。
 
 [ **\@retry_attempts =** ] retry_attempts  
@@ -815,10 +814,10 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@output_table_name =** ] 'output_table_name'  
 如果不是 Null，則為命令的第一個結果集將會寫入的目標資料表名稱。 如果資料表尚不存在，則會根據傳回的結果集所具備的結構描述建立資料表。 如果 output_type 是 SqlDatabase，則必須指定。 若要將 output_server_name 的值重設為 NULL，請將此參數的值設為 '' (空字串)。 output_table_name 是 nvarchar(128)，預設值為 NULL。
 
-[  **\@job_version =** ] job_version 輸出  
+**[\@job_version =** ] job_version 輸出  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
-[ **\@max_parallelism =** ] max_parallelism OUTPUT  
+**[\@max_parallelism =** ] max_parallelism 輸出  
 每個彈性集區的平行處理原則最大層級。 如果設定，則作業步驟將會限定為最多僅為每個彈性集區執行該數量的資料庫。 此項目會套用至直接包含在目標群組中的每個彈性集區，或目標群組所含伺服器內的每個彈性集區。 若要將 max_parallelism 的值重設為 Null，請將此參數的值設為 -1。 max_parallelism 是 int。
 
 
@@ -828,7 +827,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 #### <a name="remarks"></a>備註
 任何執行中的作業都不會受到影響。 當 sp_update_jobstep 成功時，作業的版本號碼將會累加。 在下次執行作業時，將會使用新版本。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 
 - jobs_reader
@@ -862,7 +861,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@step_name =** ] 'step_name'  
 要刪除的步驟名稱。 必須指定 step_id 或 step_name。 step_name 是 nvarchar(128)。
 
-[  **\@job_version =** ] job_version 輸出  
+**[\@job_version =** ] job_version 輸出  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -873,7 +872,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 其他作業步驟將會自動重新編碼，以填補已刪除的作業步驟所留下的空號。
  
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -900,7 +899,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@job_name =** ] 'job_name'  
 要從中移除步驟的作業名稱。 job_name 是 nvarchar(128)，沒有預設值。
 
-[ **\@job_execution_id =** ] job_execution_id OUTPUT  
+**[\@job_execution_id =** ] job_execution_id 輸出  
 將會被指派作業執行識別碼的輸出參數。job_version 是 uniqueidentifier。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -909,7 +908,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 #### <a name="remarks"></a>備註
 無。
  
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -937,7 +936,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 #### <a name="remarks"></a>備註
 無。
  
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -961,7 +960,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@target_group_name =** ] 'target_group_name'  
 要建立的目標群組名稱。 target_group_name 是 nvarchar(128)，沒有預設值。
 
-[  **\@target_group_id =** ] target_group_id 輸出目標群組建立成功時，指派給作業的識別碼。 target_group_id 是 uniqueidentifier 類型的輸出變數，預設值為 NULL。
+[  **\@target_group_id =** ] target_group_id 會輸出指派給作業的目標群組識別編號 (如果已成功建立)。 target_group_id 是 uniqueidentifier 類型的輸出變數，預設值為 NULL。
 
 #### <a name="return-code-values"></a>傳回碼值
 0 (成功) 或 1 (失敗)
@@ -969,7 +968,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 #### <a name="remarks"></a>備註
 目標群組可讓您輕鬆地設定資料庫集合的作業。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -997,7 +996,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 #### <a name="remarks"></a>備註
 無。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -1046,14 +1045,14 @@ SQL Database 伺服器的名稱。 refresh_credential_name 是 nvarchar(128)，�
 [ **\@shard_map_name =** ] 'shard_map_name'  
 應新增至指定目標群組的分區對應集區名稱。 當 target_type 為 ‘SqlSqlShardMap’ 時，即應指定 elastic_pool_name。 shard_map_name 是 nvarchar(128)，沒有預設值。
 
-[ **\@target_id =** ] target_group_id OUTPUT  
+**[\@target_id =** ] target_group_id 輸出  
 在目標群組成員新增至目標群組時指派給該成員的目標識別碼。 target_id 是 uniqueidentifier 類型的輸出變數，預設值為 NULL。
 傳回碼值 0 (成功) 或 1 (失敗)
 
 #### <a name="remarks"></a>備註
 當目標群組中包含 SQL Database 伺服器或彈性集區時，在執行期間會對 SQL Database 伺服器或彈性集區內的所有單一資料庫執行作業。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -1118,7 +1117,7 @@ Arguments [ @target_group_name = ] 'target_group_name'
 #### <a name="remarks"></a>備註
 目標群組可讓您輕鬆地設定資料庫集合的作業。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -1169,7 +1168,7 @@ GO
 #### <a name="return-code-values"></a>傳回碼值
 0 (成功) 或 1 (失敗) 備註：目標群組可讓您輕鬆地設定資料庫集合的作業。
 
-#### <a name="permissions"></a>權限
+#### <a name="permissions"></a>Permissions
 根據預設，系統管理員固定伺服器角色的成員可執行此預存程序。 他們會將使用者限定為只能監視作業，而您可以為使用者授與權限，使其在建立作業代理程式時所指定的作業代理程式資料庫中成為下列資料庫角色的一部分：
 - jobs_reader
 
@@ -1193,9 +1192,9 @@ GO
 [作業資料庫](sql-database-job-automation-overview.md#job-database)中提供下列檢視。
 
 
-|檢視  |描述  |
+|檢視表  |描述  |
 |---------|---------|
-|[jobs_executions](#jobs_executions-view)     |  顯示作業執行歷程記錄。      |
+|[job_executions](#job_executions-view)     |  顯示作業執行歷程記錄。      |
 |[jobs](#jobs-view)     |   顯示所有作業。      |
 |[job_versions](#job_versions-view)     |   顯示所有作業版本。      |
 |[jobsteps](#jobsteps-view)     |     顯示每項作業的目前版本中包含的所有步驟。    |
@@ -1204,9 +1203,9 @@ GO
 |[target_group_members](#target_groups_members-view)     |   顯示所有目標群組的所有成員。      |
 
 
-### <a name="jobs_executions-view"></a>jobs_executions 檢視
+### <a name="job_executions-view"></a>job_executions 視圖
 
-[jobs].[jobs_executions]
+[作業]。[job_executions]
 
 顯示作業執行歷程記錄。
 
@@ -1216,14 +1215,14 @@ GO
 |**job_execution_id**   |uniqueidentifier|  作業執行的執行個體唯一識別碼。
 |**job_name**   |nvarchar(128)  |作業的名稱。
 |**job_id** |uniqueidentifier|  作業的唯一識別碼。
-|**job_version**    |int    |作業的版本 (會在作業每次修改時自動更新)。
-|**step_id**    |int|   步驟的唯一識別碼 (用於此作業)。 NULL 表示這是父作業執行。
+|**job_version**    |ssNoversion    |作業的版本 (會在作業每次修改時自動更新)。
+|**step_id**    |ssNoversion|   步驟的唯一識別碼 (用於此作業)。 NULL 表示這是父作業執行。
 |**is_active**| bit |表示資訊是使用中還是非使用中。 1 表示使用中的作業，0 表示非使用中。
 |**lifecycle**| nvarchar(50)|表示作業狀態的值：‘Created’、‘In Progress’、‘Failed’、‘Succeeded’、‘Skipped’、'SucceededWithSkipped’|
 |**create_time**|   datetime2(7)|   建立作業的日期和時間。
 |**start_time** |datetime2(7)|  作業開始執行的日期和時間。 如果作業尚未執行，則為 NULL。
 |**end_time**|  datetime2(7)    |作業執行完成的日期和時間。 如果作業尚未執行或尚未完成執行，則為 NULL。
-|**current_attempts**   |int    |重試步驟的次數。 父作業將是 0，子作業執行將是 1 或更大的值，視執行原則而定。
+|**current_attempts**   |ssNoversion    |重試步驟的次數。 父作業將是 0，子作業執行將是 1 或更大的值，視執行原則而定。
 |**current_attempt_start_time** |datetime2(7)|  作業開始執行的日期和時間。 NULL 表示這是父作業執行。
 |**last_message**   |nvarchar(max)| 作業或步驟歷程記錄訊息。 
 |**target_type**|   nvarchar(128)   |包含伺服器中的所有資料庫、彈性集區中的所有資料庫或個別資料庫的目標資料庫或資料庫集合的類型。 Target_type 的有效值為 'SqlServer'、'SqlElasticPool' 或 'SqlDatabase'。 NULL 表示這是父作業執行。
@@ -1243,15 +1242,15 @@ GO
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |作業的名稱。|
 |**job_id**|    uniqueidentifier    |作業的唯一識別碼。|
-|**job_version**    |int    |作業的版本 (會在作業每次修改時自動更新)。|
+|**job_version**    |ssNoversion    |作業的版本 (會在作業每次修改時自動更新)。|
 |**description**    |nvarchar(512)| 作業的描述。 enabled bit 會指出作業是啟用還是停用。 1 表示啟用的作業，0 表示停用的作業。|
 |**schedule_interval_type** |nvarchar(50)   |指出何時要執行作業的值：「單次、「分鐘」、「小時」、「天」、「週」、「月」
-|**schedule_interval_count**|   int|    每次執行作業之間所發生的 schedule_interval_type 期間數目。|
+|**schedule_interval_count**|   ssNoversion|    每次執行作業之間所發生的 schedule_interval_type 期間數目。|
 |**schedule_start_time**    |datetime2(7)|  作業上次開始執行的日期和時間。|
 |**schedule_end_time**| datetime2(7)|   作業上次執行完成的日期和時間。|
 
 
-### <a name="job_versions-view"></a>job_versions 檢視
+### <a name="job_versions-view"></a>job_versions 視圖
 
 [jobs].[job_versions]
 
@@ -1261,7 +1260,7 @@ GO
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |作業的名稱。|
 |**job_id**|    uniqueidentifier    |作業的唯一識別碼。|
-|**job_version**    |int    |作業的版本 (會在作業每次修改時自動更新)。|
+|**job_version**    |ssNoversion    |作業的版本 (會在作業每次修改時自動更新)。|
 
 
 ### <a name="jobsteps-view"></a>作業步驟檢視
@@ -1274,8 +1273,8 @@ GO
 |------|------|-------|
 |**job_name**   |nvarchar(128)| 作業的名稱。|
 |**job_id** |uniqueidentifier   |作業的唯一識別碼。|
-|**job_version**|   int|    作業的版本 (會在作業每次修改時自動更新)。|
-|**step_id**    |int    |步驟的唯一識別碼 (用於此作業)。|
+|**job_version**|   ssNoversion|    作業的版本 (會在作業每次修改時自動更新)。|
+|**step_id**    |ssNoversion    |步驟的唯一識別碼 (用於此作業)。|
 |**step_name**  |nvarchar(128)  |步驟的唯一名稱 (用於此作業)。|
 |**command_type**   |nvarchar(50)   |要在作業步驟中執行的命令類型。 針對 v1，值必須等於並預設為 ‘TSql’。|
 |**command_source** |nvarchar(50)|  命令的位置。 針對 v1，「內嵌」是預設且唯一可接受的值。|
@@ -1283,11 +1282,11 @@ GO
 |**credential_name**|   nvarchar(128)   |用來執行作業的資料庫範圍認證名稱。|
 |**target_group_name**| nvarchar(128)   |目標群組的名稱。|
 |**target_group_id**|   uniqueidentifier|   目標群組的唯一識別碼。|
-|**initial_retry_interval_seconds**|    int |第一次重試之前的延遲時間。 預設值為 1。|
-|**maximum_retry_interval_seconds** |int|   重試之間的延遲上限。 如果重試之間的延遲時間超出此值，該延遲將會限定為此值。 預設值為 120。|
+|**initial_retry_interval_seconds**|    ssNoversion |第一次重試之前的延遲時間。 預設值為 1。|
+|**maximum_retry_interval_seconds** |ssNoversion|   重試之間的延遲上限。 如果重試之間的延遲時間超出此值，該延遲將會限定為此值。 預設值為 120。|
 |**retry_interval_backoff_multiplier**  |real|  在多個作業步驟執行嘗試失敗時要套用至重試延遲的乘數。 預設值為 2.0。|
-|**retry_attempts** |int|   此步驟失敗時嘗試使用的重試次數。 預設值為 10，表示不會重試。|
-|**step_timeout_seconds**   |int|   重試間隔的時間長度 (秒)。 預設值為 0，表示 0 分鐘的間隔。|
+|**retry_attempts** |ssNoversion|   此步驟失敗時嘗試使用的重試次數。 預設值為 10，表示不會重試。|
+|**step_timeout_seconds**   |ssNoversion|   重試間隔的時間長度 (秒)。 預設值為 0，表示 0 分鐘的間隔。|
 |**output_type**    |nvarchar(11)|  命令的位置。 在目前的預覽版中，「內嵌」是預設且唯一可接受的值。|
 |**output_credential_name**|    nvarchar(128)   |要用來連線至目的地伺服器以存放結果集的認證名稱。|
 |**output_subscription_id**|    uniqueidentifier|   查詢執行結果集的目的地伺服器\資料庫的訂用帳戶唯一識別碼。|
@@ -1296,16 +1295,16 @@ GO
 |**output_database_name**   |nvarchar(128)| 結果集的目的地資料庫名稱。|
 |**output_schema_name** |nvarchar(max)| 目的地結構描述的名稱。 若未指定，則預設為 dbo。|
 |**output_table_name**| nvarchar(max)|  用來存放查詢結果的結果集資料表名稱。 如果資料表尚不存在，則會根據結果集的結構描述自動建立資料表。 結構描述必須符合結果集的結構描述。|
-|**max_parallelism**|   int|    每個彈性集區將逐一執行作業步驟的資料庫數目上限。 預設值為 NULL，表示沒有限制。 |
+|**max_parallelism**|   ssNoversion|    每個彈性集區將逐一執行作業步驟的資料庫數目上限。 預設值為 NULL，表示沒有限制。 |
 
 
-### <a name="jobstep_versions-view"></a>jobstep_versions 檢視
+### <a name="jobstep_versions-view"></a>jobstep_versions 視圖
 
 [jobs].[jobstep_versions]
 
 顯示每項作業的所有版本中包含的所有步驟。 結構描述等同於[作業步驟](#jobsteps-view)。
 
-### <a name="target_groups-view"></a>target_groups 檢視
+### <a name="target_groups-view"></a>target_groups 視圖
 
 [jobs].[target_groups]
 
@@ -1316,7 +1315,7 @@ GO
 |**target_group_name**| nvarchar(128)   |要刪除的目標群組 (資料庫集合) 的名稱。 
 |**target_group_id**    |uniqueidentifier   |目標群組的唯一識別碼。
 
-### <a name="target_groups_members-view"></a>target_groups_members 檢視
+### <a name="target_groups_members-view"></a>target_groups_members 視圖
 
 [jobs].[target_groups_members]
 
@@ -1326,7 +1325,7 @@ GO
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128|要刪除的目標群組 (資料庫集合) 的名稱。 |
 |**target_group_id**    |uniqueidentifier   |目標群組的唯一識別碼。|
-|**membership_type**    |int|   指定是否要在目標群組中包含或排除目標群組成員。 target_group_name 的有效值為「包含」或「排除」。|
+|**membership_type**    |ssNoversion|   指定是否要在目標群組中包含或排除目標群組成員。 target_group_name 的有效值為「包含」或「排除」。|
 |**target_type**    |nvarchar(128)| 包含伺服器中的所有資料庫、彈性集區中的所有資料庫或個別資料庫的目標資料庫或資料庫集合的類型。 Target_type 的有效值為 'SqlServer'、'SqlElasticPool'、'Sql Database' 或 'SqlShardMap'。|
 |**target_id**  |uniqueidentifier|  目標群組成員的唯一識別碼。|
 |**refresh_credential_name**    |nvarchar(128)  |用來連線至目標群組成員的資料庫範圍認證的名稱。|

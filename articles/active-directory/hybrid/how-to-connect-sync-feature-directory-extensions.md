@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 88fdfce58bdd8e13637e77d01d4b6c0ab21f696a
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347944"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607645"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步：目錄擴充
 您可以使用目錄擴充功能，從內部部署 Active Directory 利用自己的屬性擴充 Azure Active Directory (Azure AD) 中的結構描述。 此功能可讓您建置 LOB 應用程式，方法是取用您在內部部署中持續進行管理的屬性。 透過 [Azure AD 圖形 API 目錄擴充功能](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)或 [Microsoft Graph](https://developer.microsoft.com/graph/) 即可取用這些屬性。 若要查看可用的屬性，您可以分別使用 [Azure AD Graph 總管](https://graphexplorer.azurewebsites.net/)和 [Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer)。
@@ -62,7 +62,7 @@ Azure AD 中的物件最多可有 100 個目錄擴充功能的屬性。 長度�
 或者，您可以使用 [Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer#)，透過 Microsoft 圖形 API 查詢屬性。
 
 >[!NOTE]
-> 您必須要求要傳回的屬性。 明確地選取屬性，像是： https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division。 
+> 您必須要求要傳回的屬性。 明確選取如下的屬性: HTTPs\: //graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com？ $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division。 
 >
 > 如需詳細資訊，請參閱 [Microsoft Graph：使用查詢參數](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter) \(英文\)。
 

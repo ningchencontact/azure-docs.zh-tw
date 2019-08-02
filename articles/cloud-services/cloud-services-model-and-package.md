@@ -2,24 +2,17 @@
 title: 什麼是雲端服務模型和封裝 | Microsoft Docs
 description: 說明 Azure 中的雲端服務模型 (.csdef、.cscfg) 和封裝 (.cspkg)
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080766"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359547"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>什麼是雲端服務模型？如何封裝？
 雲端服務是從三個元件建立的，也就是服務定義 (.csdef)  、服務組態 (.cscfg)  和服務封裝 (.cspkg)  。 **ServiceDefinition.csdef** 和 **ServiceConfig.cscfg** 這兩個檔案是以 XML 為基礎，描述雲端服務的結構及其設定方式，統稱為模型。 **ServicePackage.cspkg** 是從 **ServiceDefinition.csdef** 產生的 zip 檔案，此外，包含所有必要的二進位型相依性。 Azure 會從 **ServicePackage.cspkg** 和 **ServiceConfig.cscfg** 建立雲端服務。
@@ -34,7 +27,7 @@ ms.locfileid: "67080766"
   * [建立雲端服務][vs_create]
   * [重新設定現有的雲端服務][vs_reconfigure]
   * [部署雲端服務專案][vs_deploy]
-  * [從遠端桌面進入雲端服務執行個體][remotedesktop]
+  * [從遠端桌面進入雲端服務實例][remotedesktop]
 
 <a name="csdef"></a>
 
@@ -280,7 +273,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 ## <a name="next-steps"></a>後續步驟
 我打算建立雲端服務封裝，而且我想要...
 
-* [設定雲端服務執行個體的遠端桌面][remotedesktop]
+* [設定雲端服務實例的遠端桌面][remotedesktop]
 * [部署雲端服務專案][deploy]
 
 我打算使用 Visual Studio，而我想要...
@@ -288,7 +281,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 * [建立新的雲端服務][vs_create]
 * [重新設定現有的雲端服務][vs_reconfigure]
 * [部署雲端服務專案][vs_deploy]
-* [設定雲端服務執行個體的遠端桌面][vs_remote]
+* [設定雲端服務實例的遠端桌面][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
