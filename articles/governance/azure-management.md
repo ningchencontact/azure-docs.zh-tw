@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: d68e7d9ec3b60b93f0050250d7e7d718db7aa5b8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488488"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608202"
 ---
-# <a name="overview-of-management-services-in-azure"></a>在 Azure 中的管理服務的概觀
+# <a name="overview-of-management-services-in-azure"></a>Azure 中的管理服務總覽
 
 在 Azure 中治理是 Azure 管理的其中一個層面。 本文說明在 Azure 中部署及維護資源的各種管理領域。
 
@@ -22,7 +22,7 @@ ms.locfileid: "67488488"
 
 下圖說明維護應用程式或資源所需的不同管理範圍。 您可以將這些不同的區域視為生命週期。 在資源的存留期間內，各個領域必須接續進行。 此一資源生命週期始於最初的部署，在經歷持續的作業後，因遭到淘汰而告終。
 
-![在 Azure 中管理的訓練](../monitoring/media/management-overview/management-capabilities.png)
+![Azure 中的管理專業領域](../monitoring/media/management-overview/management-capabilities.png)
 
 沒有單一 Azure 服務能完全符合特定管理領域的需求。 必須在多項服務的搭配運作下，才能符合這些需求。 某些服務可提供針對 Web 應用程式進行監視的功能，例如 Application Insights。 有些服務則可儲存其他服務的管理資料，例如 Azure 監視器記錄。 這項功能可讓您對不同服務所收集的不同資料類型進行分析。
 
@@ -44,9 +44,9 @@ ms.locfileid: "67488488"
 
 ## <a name="secure"></a>安全
 
-管理資源和資料的安全性。 安全性計畫包括評估威脅、收集和分析資料，以及確保應用程式和資源的合規性。 安全性監視和威脅分析由 [Azure 資訊安全中心](../security-center/security-center-intro.md)所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。 請參閱 [Azure 安全性簡介](../security/azure-security.md)，以取得與保護 Azure 資源有關的完整資訊和指導方針。
+管理資源和資料的安全性。 安全性計畫包括評估威脅、收集和分析資料，以及確保應用程式和資源的合規性。 安全性監視和威脅分析由 [Azure 資訊安全中心](../security-center/security-center-intro.md)所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。 請參閱 [Azure 安全性簡介](../security/fundamentals/overview.md)，以取得與保護 Azure 資源有關的完整資訊和指導方針。
 
-## <a name="protect"></a>Protect
+## <a name="protect"></a>保護
 
 保護是指即使發生了您無法控制的中斷狀況，也能確保應用程式和資料的可用性。 Azure 中的保護是由兩個服務提供。 [Azure 備份](../backup/backup-introduction-to-azure-backup.md)提供雲端或內部部署中資料的備份和復原。 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 可在災害發生時提供商務持續性和立即復原的能力。
 

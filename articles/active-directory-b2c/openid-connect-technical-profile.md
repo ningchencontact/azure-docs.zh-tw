@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 自訂原則中定義的 OpenId Connect 的技術設定檔 |Microsoft Docs
-description: 在 Azure Active Directory B2C 自訂原則中定義的 OpenId Connect 的技術設定檔。
+title: 在 Azure Active Directory B2C 的自訂原則中定義 OpenID Connect 技術設定檔 |Microsoft Docs
+description: 在 Azure Active Directory B2C 的自訂原則中定義 OpenID Connect 技術設定檔。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e8f03b17c5e8ea68affa9fe83875382fd5d8512
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512905"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716707"
 ---
-# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義的 OpenId Connect 的技術設定檔
+# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OpenID Connect 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 通訊協定識別提供者。 OpenID Connect 1.0 會定義 OAuth 2.0 上的身分識別層，是先進新式驗證通訊協定的代表。 使用 OpenId Connect 技術設定檔，您可以與 OpenId Connect 型的識別提供者，例如 Azure AD 同盟。 同盟身分識別提供者，可讓使用者使用其現有的社交登入或企業身分識別。
+Azure Active Directory (Azure AD) B2C 提供[OpenID connect](https://openid.net/2015/04/17/openid-connect-certification-program/)通訊協定識別提供者的支援。 OpenID Connect 1.0 會定義 OAuth 2.0 上的身分識別層，是先進新式驗證通訊協定的代表。 使用 OpenID Connect 技術設定檔, 您可以與 OpenID Connect 型識別提供者同盟, 例如 Azure AD。 與身分識別提供者聯盟可讓使用者使用其現有的社交或企業身分識別登入。
 
 ## <a name="protocol"></a>Protocol
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.
 <TechnicalProfile Id="MSA-OIDC">
   <DisplayName>Microsoft Account</DisplayName>
   <Protocol Name="OpenIdConnect" />
-  ...    
+  ...
 ```
 
 ## <a name="input-claims"></a>輸入宣告
@@ -46,13 +46,13 @@ Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.
 
 ## <a name="output-claims"></a>輸出宣告
 
-**OutputClaims** 元素包含 OpenId Connect 識別提供者傳回的宣告清單。 您可能需要將原則中定義的宣告名稱對應至識別提供者中定義的名稱。 只要設定了 `DefaultValue` 屬性，也可以加入識別提供者未傳回的宣告。
+**OutputClaims**元素包含 OpenID connect 識別提供者所傳回的宣告清單。 您可能需要將原則中定義的宣告名稱對應至識別提供者中定義的名稱。 只要設定了 `DefaultValue` 屬性，也可以加入識別提供者未傳回的宣告。
 
 **OutputClaimsTransformations** 元素可能含有 **OutputClaimsTransformation** 的集合，用於修改輸出宣告或產生新的輸出宣告。
 
 下列範例顯示 Microsoft 帳戶識別提供者傳回的宣告：
 
-- **Sub**宣告對應至**issuerUserId**宣告。
+- 對應至**issuerUserId**宣告的**子**宣告。
 - 對應至 **displayName** 宣告的 **name** 宣告。
 - **email** 無名稱對應。
 
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.
 | ProviderName | 否 | 識別提供者的名稱。 |
 | response_types | 否 | 根據 OpenID Connect Core 1.0 規格的回應類型。 可能的值：`id_token`、`code` 或 `token`。 |
 | response_mode | 否 | 識別提供者用來將結果傳送回 Azure AD B2C 的方法。 可能的值：`query`、`form_post` (預設值) 或 `fragment`。 |
-| scope | 否 | 要求根據 OpenID Connect Core 1.0 規格所定義的範圍。 例如，`openid`、`profile` 和 `email`。 |
+| scope | 否 | 根據 OpenID Connect Core 1.0 規格定義的要求範圍。 例如，`openid`、`profile` 和 `email`。 |
 | HttpBinding | 否 | 繫結至存取權杖和宣告權杖端點的預期 HTTP。 可能的值：`GET` 或 `POST`。  |
 | ValidTokenIssuerPrefixes | 否 | 此金鑰可在使用多租戶識別提供者 (例如 Azure Active Directory) 時，用於登入每個租用戶。 |
 | UsePolicyInRedirectUri | 否 | 表明在建構重新導向 URI 時，是否使用原則。 在設定識別提供者中的應用程式時，需要指定重新導向 URI。 重新導向 URI 會指向 Azure AD B2C，`https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` (login.microsoftonline.com 可能會隨著 your-tenant-name.b2clogin.com 而變更)。  如果指定 `false`，則需要為每個使用的原則新增重新導向 URI。 例如： `https://login.microsoftonline.com/te/{tenant}/{policy}/oauth2/authresp` 。 |
@@ -94,15 +94,15 @@ Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| client_secret | 是 | 識別提供者應用程式的用戶端密碼。 只有在 **response_types** 中繼資料設為 `code` 時，才需要密碼編譯金鑰。 在此情況下，Azure AD B2C 會進行另一次呼叫，以交換存取權杖的授權碼。 如果中繼資料設為 `id_token`，您可以省略密碼編譯金鑰。  |  
+| client_secret | 是 | 識別提供者應用程式的用戶端密碼。 只有在 **response_types** 中繼資料設為 `code` 時，才需要密碼編譯金鑰。 在此情況下，Azure AD B2C 會進行另一次呼叫，以交換存取權杖的授權碼。 如果中繼資料設為 `id_token`，您可以省略密碼編譯金鑰。  |
 
 ## <a name="redirect-uri"></a>重新導向 Uri
- 
-在設定識別提供者的重新導向 URI 時，請輸入 `https://login.microsoftonline.com/te/tenant/oauth2/authresp`。 請務必取代**租用戶**與您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 或租用戶的識別碼。 重新導向 URI 必須全部小寫。
+
+在設定識別提供者的重新導向 URI 時，請輸入 `https://login.microsoftonline.com/te/tenant/oauth2/authresp`。 請務必將**tenant**取代為您的租使用者名稱 (例如, contosob2c.onmicrosoft.com) 或租使用者的識別碼。 重新導向 URI 必須全部小寫。
 
 如果使用的是 **b2clogin.com** 網域，而非使用 **login.microsoftonline.com**，請務必使用 b2clogin.com，而非使用 login.microsoftonline.com。
 
-範例：
+範例:
 
 - [使用自訂原則新增 Microsoft 帳戶 (MSA) 作為識別提供者](active-directory-b2c-custom-setup-msa-idp.md)
 - [使用 Azure AD 帳戶來登入](active-directory-b2c-setup-aad-custom.md)

@@ -1,20 +1,18 @@
 ---
 title: 如何使用適用於 Java v7 的用戶端程式庫在 Azure 儲存體中建立 Blob | Microsoft Docs
 description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Java v7 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 8cb9a9c6dd2e84318cd4d05bf6e67e127fc39ce3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154406"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726372"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>如何使用適用於 Java v7 的用戶端程式庫上傳、下載及列出 Blob
 
@@ -47,7 +45,7 @@ ms.locfileid: "65154406"
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-此命令會將存放庫複製到本機的 git 資料夾。 若要開啟專案，請啟動 Eclipse 並關閉歡迎畫面。 選取 [File] \(檔案\)  ，然後選取 [Open Projects from File System] \(從檔案系統中開啟專案\)  。 請確定已核取 [Detect and configure project natures] \(偵測並設定專案性質\)  。 選取 [Directory] \(目錄\)  ，然後瀏覽至您儲存複製存放庫的位置。 在複製的存放庫中選取 [blobAzureApp]  資料夾。 請確定 **blobAzureApp** 專案顯示為 Eclipse 專案，然後選取 [Finish] \(完成\)  。
+此命令會將存放庫複製到本機的 git 資料夾。 若要開啟專案，請啟動 Eclipse 並關閉歡迎畫面。 選取 [File] \(檔案\)，然後選取 [Open Projects from File System] \(從檔案系統中開啟專案\)。 請確定已核取 [Detect and configure project natures] \(偵測並設定專案性質\)。 選取 [Directory] \(目錄\)，然後瀏覽至您儲存複製存放庫的位置。 在複製的存放庫中選取 [blobAzureApp] 資料夾。 請確定 **blobAzureApp** 專案顯示為 Eclipse 專案，然後選取 [Finish] \(完成\)。
 
 當專案完成匯入之後，開啟 **AzureApp.java** (位於 **src/main/java** 內的 **blobQuickstart.blobAzureApp**)，並取代 `storageConnectionString` 字串內的 `accountname` 和 `accountkey`。 然後執行應用程式。 下列各節會說明可用來完成這些工作的特定指示。
 
@@ -66,7 +64,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>執行範例
 
-此應用程式範例會在您預設的目錄 (如果是 Windows 使用者，則是 C:\Users\<user>\AppData\Local\Temp  ) 中建立測試檔案、將它上傳至 Blob 儲存體、列出容器中的 Blob，然後以新名稱下載該檔案，以便比較新舊檔案。 
+此應用程式範例會在您預設的目錄 (如果是 Windows 使用者，則是 C:\Users\<user>\AppData\Local\Temp) 中建立測試檔案、將它上傳至 Blob 儲存體、列出容器中的 Blob，然後以新名稱下載該檔案，以便比較新舊檔案。 
 
 在命令列上使用 Maven 執行範例。 開啟殼層，然後瀏覽至複製目錄內的 **blobAzureApp**。 然後輸入 `mvn compile exec:java`。 
 
@@ -85,7 +83,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-在繼續之前，請先檢查預設目錄 (如果是 Windows 使用者，則是 C:\Users\<user>\AppData\Local\Temp  ) 是否有範例檔案。 複製主控台視窗的 Blob URL，將它貼至瀏覽器以檢視 Blob 儲存體中的檔案內容。 如果您比較目錄中的範例檔案與 Blob 儲存體中儲存的內容，您會發現兩者相同。 
+在繼續之前，請先檢查預設目錄 (如果是 Windows 使用者，則是 C:\Users\<user>\AppData\Local\Temp) 是否有範例檔案。 複製主控台視窗的 Blob URL，將它貼至瀏覽器以檢視 Blob 儲存體中的檔案內容。 如果您比較目錄中的範例檔案與 Blob 儲存體中儲存的內容，您會發現兩者相同。 
 
   >[!NOTE]
   >您也可以使用 [Azure 儲存體總管](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。

@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68466981"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>在 Batch 計算節點上執行作業準備和作業解除工作
@@ -31,7 +31,7 @@ ms.locfileid: "68466981"
 
 作業準備和發行工作會提供熟悉的 Batch 工作功能, 例如檔案下載 ([資源檔][net_job_prep_resourcefiles])、提升許可權的執行、自訂環境變數、最大執行持續時間、重試計數和檔案保留時間。
 
-在下列各節中, 您將瞭解如何使用在[Batch .net][api_net]程式庫中找到的[JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release]類別。
+在下列各節中, 您將瞭解如何使用在[Batch .net][api_net]程式庫中找到的[JobPreparationTask][net_job_prep]和[JobReleaseTask][net_job_release]類別。
 
 > [!TIP]
 > 作業準備和作業解除工作在「共用集區」環境中特別有用；在這種環境中，計算節點的集區會在作業執行之間保存，並由許多作業使用。
@@ -64,7 +64,7 @@ Batch 作業通常需要一組常用的資料做為作業工作的輸入。 例�
 作業準備工作只會在排定執行工作的節點上執行。 這可避免未指派工作的節點執行不必要的準備工作。 這種情況會發生在當作業的工作數目小於集區中的節點數目時。 此外，也適用於已啟用 [並行工作執行](batch-parallel-node-tasks.md) 時，而如果作業計數小於可能的並行工作總數，則會讓一些節點閒置。 藉由不在閒置的節點上執行作業準備工作，您在資料傳輸費用上可以花費更少金錢。
 
 > [!NOTE]
-> [JobPreparationTask][net_job_prep_cloudjob]differs from [CloudPool.StartTask][pool_starttask]在中, JobPreparationTask 會在每個作業開始時執行, 而 StartTask 只會在計算節點第一次加入集區或重新開機時執行。
+> [JobPreparationTask][net_job_prep_cloudjob]與[CloudPool][pool_starttask]不同, 該 JobPreparationTask 會在每個作業開始時執行, 而 StartTask 只會在計算節點第一次加入集區或重新開機時執行。
 > 
 > 
 
@@ -79,7 +79,7 @@ Batch 作業通常需要一組常用的資料做為作業工作的輸入。 例�
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>使用 Batch .NET 進行作業準備和作業解除工作
-若要使用作業準備工作, 請指派[JobPreparationTask][net_job_prep] object to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob]屬性。 同樣地, 初始化[JobReleaseTask][net_job_release] , 並將它指派給作業的[CloudJob. JobReleaseTask][net_job_prep_cloudjob]屬性, 以設定作業的發行工作。
+若要使用作業準備工作, 請將[JobPreparationTask][net_job_prep]物件指派給作業的[CloudJob. JobPreparationTask][net_job_prep_cloudjob]屬性。 同樣地, 初始化[JobReleaseTask][net_job_release] , 並將它指派給作業的[CloudJob. JobReleaseTask][net_job_prep_cloudjob]屬性, 以設定作業的發行工作。
 
 在此程式碼片段中`myBatchClient` , 是[BatchClient][net_batch_client]的實例, 而且`myPool`是 Batch 帳戶內的現有集區。
 
@@ -107,7 +107,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-如先前所述，終止或刪除作業時會執行解除任務。 使用 JobOperations 來終止作業[。 joboperations.terminatejobasync][net_job_terminate] . Delete a job with [JobOperations.DeleteJobAsync][net_job_delete]。 您通常會在作業的工作完成時或達到定義之逾時時終止或刪除作業。
+如先前所述，終止或刪除作業時會執行解除任務。 使用 JobOperations 來終止作業[。 joboperations.terminatejobasync][net_job_terminate]。 使用[JobOperations. joboperations.deletejobasync 刪除][net_job_delete]刪除作業。 您通常會在作業的工作完成時或達到定義之逾時時終止或刪除作業。
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the

@@ -1,20 +1,18 @@
 ---
 title: 使用 Python 開發 Azure 檔案服務 | Microsoft Docs
 description: 了解如何開發使用 Azure 檔案服務的 Python 應用程式和服務來儲存檔案資料。
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3a741216b50811868687b124463e10e65355094
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360058"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699386"
 ---
 # <a name="develop-for-azure-files-with-python"></a>使用 Python 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

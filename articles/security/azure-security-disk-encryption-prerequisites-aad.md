@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5fa8e54a6a665b1bad91a87ca8e58f873df1ae8a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: da3cb81eaeaa3b1609ffe67b2aea92a69b6bb47a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672307"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726257"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure 磁碟加密必要條件 (舊版)
 
@@ -32,34 +32,34 @@ ms.locfileid: "67672307"
 
 ### <a name="windows"></a>Windows
 
-- Windows 用戶端：Windows 8 和更新版本。
+- Windows 用戶端:Windows 8 和更新版本。
 - Windows Server：Windows Server 2008 R2 和更新版本。  
  
 > [!NOTE] 
-> Windows Server 2008 R2 需要.NET Framework 4.5 安裝加密;安裝從 Windows Update 以選用更新適用於 Windows Server 2008 R2 x64 型系統的 Microsoft.NET Framework 4.5.2 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983))。  
+> Windows Server 2008 R2 需要安裝 .NET Framework 4.5 以進行加密;使用適用于 Windows Server 2008 R2 x64 型系統 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)) 的選擇性更新 Microsoft .NET Framework 4.5.2, 從 Windows Update 進行安裝。  
 >  
-> Windows Server 2012 R2 Core 和 Windows Server 2016 Core 需要加密的 VM 上安裝的 bdehdcfg 元件。
+> Windows Server 2012 R2 Core 和 Windows Server 2016 Core 需要在 VM 上安裝 bdehdcfg 元件, 才能進行加密。
 
 ### <a name="linux"></a>Linux 
 
-子集上支援 azure 磁碟加密[經 Azure 背書的 Linux 散發套件](../virtual-machines/linux/endorsed-distros.md)、 哪些是本身的所有 Linux 伺服器可能散發套件子集。
+在經[Azure 背書的 linux](../virtual-machines/linux/endorsed-distros.md)散發套件的子集中, 支援 Azure 磁碟加密, 這本身是所有 Linux 伺服器可能散發套件的子集。
 
-![支援 Azure 磁碟加密的文氏圖的 Linux 伺服器散發套件](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+![支援 Azure 磁碟加密的 Linux 伺服器散發套件的卞氏圖表](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-不由 Azure 背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密，而且這些所背書的只有下列散發套件和版本支援 Azure 磁碟加密：
+未由 Azure 背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密, 而且對於背書的散發套件, 只有下列散發套件和版本支援 Azure 磁碟加密:
 
 | Linux 散發套件 | Version | 支援加密的磁碟區類型|
 | --- | --- |--- |
 | Ubuntu | 18.04| 作業系統和資料磁碟 |
 | Ubuntu | 16.04| 作業系統和資料磁碟 |
 | Ubuntu | 14.04.5</br>[搭配更新至 4.15 或更新版本的 Azure 調整核心](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | 作業系統和資料磁碟 |
-| RHEL | 7.6 | 作業系統和資料磁碟 （請參閱下列附註） |
-| RHEL | 7.5 | 作業系統和資料磁碟 （請參閱下列附註） |
-| RHEL | 7.4 | 作業系統和資料磁碟 （請參閱下列附註） |
-| RHEL | 7.3 | 作業系統和資料磁碟 （請參閱下列附註） |
-| RHEL | 7.2 | 作業系統和資料磁碟 （請參閱下列附註） |
-| RHEL | 6.8 | 資料磁碟 （請參閱下列附註） |
-| RHEL | 6.7 | 資料磁碟 （請參閱下列附註） |
+| RHEL | 7.6 | 作業系統和資料磁片 (請參閱下面的附注) |
+| RHEL | 7.5 | 作業系統和資料磁片 (請參閱下面的附注) |
+| RHEL | 7.4 | 作業系統和資料磁片 (請參閱下面的附注) |
+| RHEL | 7.3 | 作業系統和資料磁片 (請參閱下面的附注) |
+| RHEL | 7.2 | 作業系統和資料磁片 (請參閱下面的附注) |
+| RHEL | 6.8 | 資料磁片 (請參閱下面的附注) |
+| RHEL | 6.7 | 資料磁片 (請參閱下面的附注) |
 | CentOS | 7.6 | 作業系統和資料磁碟 |
 | CentOS | 7.5 | 作業系統和資料磁碟 |
 | CentOS | 7.4 | 作業系統和資料磁碟 |
@@ -71,18 +71,18 @@ ms.locfileid: "67672307"
 | SLES | 12-SP3 | 資料磁碟 |
 
 > [!NOTE]
-> 新的 ADE 實作適用於 RHEL OS 和資料磁碟 RHEL7 隨用隨付映像的支援。 ADE 目前不支援 RHEL 自備訂用帳戶 (BYOS) 映像。 請參閱[適用於 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)如需詳細資訊。
+> 適用于 RHEL7 隨用隨付映射的 RHEL OS 和資料磁片支援新的 ADE 執行。 ADE 目前不支援 RHEL 自備訂用帳戶 (BYOS) 映像。 如需詳細資訊, 請參閱[適用于 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)。
 
 - Azure 磁碟加密需要您的金鑰保存庫和 VM 位於相同的 Azure 區域和訂用帳戶中。 若在不同的區域設定資源，會導致 Azure 磁碟加密功能啟用失敗。
 
-#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Linux IaaS Vm 適用的其他必要條件 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Linux IaaS Vm 的其他必要條件 
 
-- Azure 磁碟加密需要 dm crypt 和 vfat 模組是在系統上。 移除或停用的預設映像的 vfat 會造成系統無法讀取金鑰的磁碟區和取得解除鎖定上後續的重新開機的磁碟所需的金鑰。 從系統移除 vfat 模組的系統強化步驟不使用 Azure 磁碟加密相容。 
+- Azure 磁碟加密需要在系統上出現 dm crypt 和 vfat 模組。 從預設映射移除或停用 vfat, 將會導致系統無法讀取金鑰磁片區, 並取得在後續重新開機時解除鎖定磁片所需的金鑰。 從系統中移除 vfat 模組的系統強化步驟, 與 Azure 磁碟加密不相容。 
 - 在啟用加密之前，所要加密的資料磁碟必須在 /etc/fstab 中正確列出。 請為此項目使用永續性區塊裝置名稱，原因是採用「/dev/sdX」格式的裝置名稱不一定會在重新開機時與相同的磁碟相關聯，在套用加密後尤其如此。 如需此行為的詳細資訊，請參閱：[針對 Linux VM 裝置名稱變更進行疑難排解](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - 確定 /etc/fstab 設定已正確設定而能夠掛接。 若要設定這些設定，請執行 mount -a 命令，或重新啟動 VM 再以該方式觸發重新掛接。 完成之後，檢查 lsblk 命令的輸出以確認所需的磁碟機仍有掛接。 
   - 如果 /etc/fstab 檔案還未正確掛接磁碟機就啟用加密，Azure 磁碟加密將無法正確地掛接磁碟機。
   - Azure 磁碟加密程序會在加密程序進行期間，將掛接資訊從 /etc/fstab 移出，並移入自己的設定檔中。 在資料磁碟機加密完成之後，若發現 /etc/fstab 中有項目遺失，請不要擔心。
-  - 開始加密，請務必停止之前所有的服務和程序，可能會寫入掛接資料磁碟，並停用它們，以便他們不要自動重新啟動之後重新開機。 這些可以讓檔案保持為開啟這些分割區，導致重新掛接它們，造成失敗之加密的加密程序上。 
+  - 開始加密之前, 請務必停止所有可能寫入已掛接之資料磁片的服務和處理常式, 並將其停用, 使其不會在重新開機後自動重新開機。 這些磁碟分割上的檔案可能會保持開啟狀態, 防止加密程式重新掛接它們, 因而導致加密失敗。 
   - 重新開機後，Azure 磁碟加密程序需要一點時間才能掛接新加密的磁碟。 這些磁碟無法在重新開機後立即可供使用。 此程序需要時間來將加密的磁碟機啟動、解除鎖定再加以掛接，然後這些磁碟機才可供其他程序來存取。 視系統特性而定，在重新開機後，此程序可能需要進行超過一分鐘。
 
 如需可用來掛接資料磁碟並建立所需 /etc/fstab 項目的命令範例，請見[此指令檔的第 244 至 248 行](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248)。 
@@ -111,11 +111,11 @@ ms.locfileid: "67672307"
 **群組原則：**
  - Azure 磁碟加密解決方案對 Windows IaaS VM 使用 BitLocker 外部金鑰保護裝置。 對於加入網域的 VM，請勿推送任何會強制使用 TPM 保護裝置的群組原則。 如需關於「在不含相容 TPM 的情形下允許使用 BitLocker」的群組原則相關資訊，請參閱 [BitLocker 群組原則參考文件](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)。
 
--  具有自訂群組原則之已加入網域虛擬機器上的 BitLocker 原則必須包含下列設定：[設定使用者存放裝置的 BitLocker 修復資訊-> 允許 256 位元修復金鑰](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 當 BitLocker 的自訂群組原則設定不相容時，Azure 磁碟加密將會失敗。 在沒有正確原則設定的電腦上，您可能必須套用新的原則、強制新的原則進行更新 (gpupdate.exe /force)，然後重新啟動。  
+-  具有自訂群組原則之已加入網域虛擬機器上的 BitLocker 原則必須包含下列設定：[設定 BitLocker 修復資訊的使用者儲存體-> 允許256位的修復金鑰](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 當 BitLocker 的自訂群組原則設定不相容時，Azure 磁碟加密將會失敗。 在沒有正確原則設定的電腦上，您可能必須套用新的原則、強制新的原則進行更新 (gpupdate.exe /force)，然後重新啟動。  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
-[Azure PowerShell](/powershell/azure/overview) 提供了一組 Cmdlet，它們會使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 模型來管理 Azure 資源。 您可以在瀏覽器中將它與 [Azure Cloud Shell](../cloud-shell/overview.md) 搭配使用，也可以使用下列指示將它安裝在本機電腦上，以在任何 PowerShell 工作階段中使用它。 如果您已經有在本機安裝，請確定您使用最新版的 Azure PowerShell 來設定 Azure 磁碟加密。
+[Azure PowerShell](/powershell/azure/overview) 提供了一組 Cmdlet，它們會使用 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 模型來管理 Azure 資源。 您可以在瀏覽器中將它與 [Azure Cloud Shell](../cloud-shell/overview.md) 搭配使用，也可以使用下列指示將它安裝在本機電腦上，以在任何 PowerShell 工作階段中使用它。 如果您已將它安裝在本機, 請務必使用最新版本的 Azure PowerShell 來設定 Azure 磁碟加密。
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>安裝 Azure PowerShell 以便在本機電腦上使用 (選擇性)：  
 1. [安裝和設定 Azure PowerShell](/powershell/azure/install-az-ps)。 
@@ -131,7 +131,7 @@ ms.locfileid: "67672307"
       Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
       Get-Module AzureAD -ListAvailable | Select-Object -Property Name,Version,Path
       ```
-4. 若要設定使用的 Azure 登入[Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet。
+4. 使用[disconnect-azaccount](/powershell/module/az.accounts/connect-azaccount) Cmdlet 登入 Azure。
      
      ```powershell
      Connect-AzAccount
@@ -183,7 +183,7 @@ ms.locfileid: "67672307"
 
 ## <a name="prerequisite-workflow-for-key-vault-and-the-azure-ad-app"></a>Key Vault 和 Azure AD 應用程式的先決條件工作流程
 
-如果您已經熟悉 Azure 磁碟加密的 Key Vault 和 Azure AD 必要條件，您可以使用 [Azure 磁碟加密必要條件 PowerShell 指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )。 如需有關使用必要指令碼的詳細資訊，請參閱 [VM 加密快速入門](quick-encrypt-vm-powershell.md)和 [Azure 磁碟加密附錄](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)。 
+如果您已經熟悉 Azure 磁碟加密的 Key Vault 和 Azure AD 必要條件，您可以使用 [Azure 磁碟加密必要條件 PowerShell 指令碼](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )。 如需使用必要條件腳本的詳細資訊, 請參閱[Azure 磁碟加密附錄](azure-security-disk-encryption-appendix.md#bkmk_prereq-script)。 
 
 1. 建立金鑰保存庫。 
 2. 設定 Azure AD 應用程式和服務主體。
@@ -200,17 +200,17 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 ### <a name="bkmk_KVPSH"></a> 使用 PowerShell 建立金鑰保存庫
 
-您可以使用 Azure PowerShell 建立 key vault[新增 AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet。 金鑰保存庫的其他 cmdlet，請參閱[Az.KeyVault](/powershell/module/az.keyvault/)。 
+您可以使用[AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) Cmdlet, 以 Azure PowerShell 建立金鑰保存庫。 如需 Key Vault 的其他 Cmdlet, 請參閱[Az. KeyVault](/powershell/module/az.keyvault/)。 
 
 1. 如有需要，請[連線至 Azure 訂用帳戶](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)。 
-2. 如有需要建立新的資源群組，具有[新增 AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)。  若要列出的資料中心位置，請使用[Get AzLocation](/powershell/module/az.resources/get-azlocation)。 
+2. 如有需要, 請使用[remove-azresourcegroup](/powershell/module/az.Resources/New-azResourceGroup)建立新的資源群組。  若要列出資料中心位置, 請使用[get-azlocation](/powershell/module/az.resources/get-azlocation)。 
      
      ```azurepowershell-interactive
      # Get-AzLocation 
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-3. 建立新的金鑰保存庫使用[新增 AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
+3. 使用[AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)建立新的金鑰保存庫
     
       ```azurepowershell-interactive
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
@@ -242,8 +242,8 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 您可以使用 [Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)來建立金鑰保存庫。
 
-1. 在 Azure 快速入門範本中，按一下 [部署至 Azure]  。
-2. 選取訂用帳戶、資源群組、資源群組位置、Key Vault 名稱、物件識別碼、法律條款和協議，然後按一下 [購買]  。 
+1. 在 Azure 快速入門範本中，按一下 [部署至 Azure]。
+2. 選取訂用帳戶、資源群組、資源群組位置、Key Vault 名稱、物件識別碼、法律條款和協議，然後按一下 [購買]。 
 
 
 ## <a name="bkmk_ADapp"></a> 設定 Azure AD 應用程式和服務主體 
@@ -254,7 +254,7 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 若要執行下列命令，請取得並使用 [Azure AD PowerShell 模組](/powershell/azure/active-directory/install-adv2)。 
 
 1. 如有需要，請[連線至 Azure 訂用帳戶](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)。
-2. 使用[新增 AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell cmdlet 來建立 Azure AD 應用程式。 MyApplicationHomePage 和 MyApplicationUri 可以是任何您想要的值。
+2. 使用[AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell Cmdlet 來建立 Azure AD 應用程式。 MyApplicationHomePage 和 MyApplicationUri 可以是任何您想要的值。
 
      ```azurepowershell
      $aadClientSecret = "My AAD client secret"
@@ -268,7 +268,7 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 ### <a name="bkmk_ADappCLI"></a> 使用 Azure CLI 設定 Azure AD 應用程式和服務主體
 
-您可以搭配使用 Azure CLI 和 [az ad sp](/cli/azure/ad/sp) 命令來管理服務主體。 如需詳細資訊，請參閱 <<c0> [ 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)。
+您可以搭配使用 Azure CLI 和 [az ad sp](/cli/azure/ad/sp) 命令來管理服務主體。 如需詳細資訊, 請參閱[建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)。
 
 1. 如有需要，請[連線至 Azure 訂用帳戶](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI)。
 2. 建立新的服務主體。
@@ -285,9 +285,9 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 2. [建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - 在建立應用程式時，您可以使用任何您想要的名稱和登入 URL。
 3. [取得應用程式識別碼和驗證金鑰](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)。 
-     - 驗證金鑰是用戶端密碼，並作為組 AzVMDiskEncryptionExtension AadClientSecret。 
+     - 驗證金鑰是用戶端密碼, 用來做為 AzVMDiskEncryptionExtension 的 AadClientSecret。 
         - 應用程式會使用驗證金鑰作為認證來登入 Azure AD。 在 Azure 入口網站中，此密碼稱為金鑰，但實際上與金鑰保存庫並無任何關聯。 請適當地保護這個祕密。 
-     - 應用程式識別碼將用於稍後的組 AzVMDiskEncryptionExtension AadClientId 以及如組 AzKeyVaultAccessPolicy ServicePrincipalName。 
+     - 稍後會使用應用程式識別碼做為 AzVMDiskEncryptionExtension 的 AadClientId, 並做為 Set-azkeyvaultaccesspolicy 的 ServicePrincipalName。 
 
 ## <a name="bkmk_KVAP"></a> 設定 Azure AD 應用程式的金鑰保存庫存取原則
 為了將加密祕密寫入指定的 Key Vault，Azure 磁碟加密需要有權將祕密寫入 Key Vault 的 Azure Active Directory 應用程式用戶端識別碼和用戶端密碼。 
@@ -296,7 +296,7 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 > 若要使用 Azure 磁碟加密，您必須對 Azure AD 用戶端應用程式設定下列存取原則：_WrapKey_ 和 _Set_ 權限。
 
 ### <a name="bkmk_KVAPPSH"></a> 使用 Azure PowerShell 設定 Azure AD 應用程式的金鑰保存庫存取原則
-您的 Azure AD 應用程式需要權限，才能存取保存庫中的金鑰或密碼。 使用[組 AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet 可授與權限的應用程式中，然後再使用用戶端識別碼 （登錄應用程式時所產生） 做為 _-ServicePrincipalName_參數值。 若要深入了解，請參閱部落格文章 [Azure Key Vault - 逐步解說](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)。 
+您的 Azure AD 應用程式需要權限，才能存取保存庫中的金鑰或密碼。 使用[set-azkeyvaultaccesspolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)指令程式, 將許可權授與應用程式, 並使用用戶端識別碼 (在註冊應用程式時所產生) 做為 _– ServicePrincipalName_參數值。 若要深入了解，請參閱部落格文章 [Azure Key Vault - 逐步解說](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx)。 
 
 1. 如有需要，請[連線至 Azure 訂用帳戶](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)。
 2. 使用 PowerShell 設定 AD 應用程式的金鑰保存庫存取原則。
@@ -321,11 +321,11 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 ### <a name="bkmk_KVAPRM"></a> 使用入口網站設定 Azure AD 應用程式的金鑰保存庫存取原則
 
 1. 使用金鑰保存庫開啟資源群組。
-2. 選取金鑰保存庫，移至 [存取原則]  ，然後按一下 [新增]  。
-3. 在 [選取主體]  底下，搜尋您所建立的 Azure AD 應用程式，並加以選取。 
-4. 針對 [金鑰權限]  ，勾選 [密碼編譯作業]  底下的 [包裝金鑰]  。
-5. 針對 [祕密權限]  ，勾選 [祕密管理作業]  底下的 [設定]  。
-6. 按一下 [確定]  以儲存存取原則。 
+2. 選取金鑰保存庫，移至 [存取原則]，然後按一下 [新增]。
+3. 在 [選取主體] 底下，搜尋您所建立的 Azure AD 應用程式，並加以選取。 
+4. 針對 [金鑰權限]，勾選 [密碼編譯作業] 底下的 [包裝金鑰]。
+5. 針對 [祕密權限]，勾選 [祕密管理作業] 底下的 [設定]。
+6. 按一下 [確定] 以儲存存取原則。 
 
 ![Azure Key Vault 密碼編譯作業 - 包裝金鑰](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
@@ -335,7 +335,7 @@ Azure 磁碟加密會與 [Azure Key Vault](https://azure.microsoft.com/documenta
 Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該資訊可供 VM 用來開機和解密磁碟區。 在金鑰保存庫或部署上啟用磁碟加密將會失敗。  
 
 ### <a name="bkmk_KVperPSH"></a> 使用 Azure PowerShell 設定金鑰保存庫進階存取原則
- 使用金鑰保存庫 PowerShell cmdlet[組 AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)啟用磁碟加密金鑰保存庫。
+ 使用金鑰保存庫 PowerShell Cmdlet[設定-set-azkeyvaultaccesspolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)來啟用金鑰保存庫的磁片加密。
 
   - **針對磁碟加密啟用 Key Vault**：Azure 磁碟加密需要 EnabledForDiskEncryption。
       
@@ -377,18 +377,18 @@ Azure 平台需要存取您金鑰保存庫中的加密金鑰或密碼，讓該�
 
 ### <a name="bkmk_KVperrm"></a> 透過 Azure 入口網站設定金鑰保存庫進階存取原則
 
-1. 選取金鑰保存庫，移至 [存取原則]  ，然後**按一下以顯示進階存取原則**。
+1. 選取金鑰保存庫，移至 [存取原則]，然後**按一下以顯示進階存取原則**。
 2. 選取標示為**為磁碟區加密啟用對 Azure 磁碟加密的存取**的方塊。
-3. 視需要選取 [為部署啟用對 Azure 虛擬機器的存取]  及/或 [為範本部署啟用對 Azure Resource Manager 的存取]  。 
-4. 按一下 [儲存]  。
+3. 視需要選取 [為部署啟用對 Azure 虛擬機器的存取] 及/或 [為範本部署啟用對 Azure Resource Manager 的存取]。 
+4. 按一下 [儲存]。
 
 ![Azure 金鑰保存庫進階存取原則](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
 
 ## <a name="bkmk_KEK"></a> 設定金鑰加密金鑰 (選擇性)
-如果您想使用金鑰加密金鑰 (KEK) 來為加密金鑰額外添加一層安全性，請將 KEK 新增至金鑰保存庫。 使用[新增 AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet 來建立金鑰保存庫中的金鑰加密金鑰。 您也可以從內部部署金鑰管理 HSM 匯入 KEK。 如需詳細資訊，請參閱 [Key Vault 文件](../key-vault/key-vault-hsm-protected-keys.md)。 若指定了金鑰加密金鑰，Azure 磁碟加密會先使用該金鑰包裝加密祕密，再寫入 Key Vault。 
+如果您想使用金鑰加密金鑰 (KEK) 來為加密金鑰額外添加一層安全性，請將 KEK 新增至金鑰保存庫。 使用[AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) Cmdlet, 在金鑰保存庫中建立金鑰加密金鑰。 您也可以從內部部署金鑰管理 HSM 匯入 KEK。 如需詳細資訊，請參閱 [Key Vault 文件](../key-vault/key-vault-hsm-protected-keys.md)。 若指定了金鑰加密金鑰，Azure 磁碟加密會先使用該金鑰包裝加密祕密，再寫入 Key Vault。 
 
-* 當產生金鑰，使用 RSA 金鑰類型。 Azure 磁碟加密還不支援使用橢圓曲線金鑰。
+* 產生金鑰時, 請使用 RSA 金鑰類型。 Azure 磁碟加密還不支援使用橢圓曲線鍵。
 
 * 您的金鑰保存庫密碼和 KEK URL 必須已設定版本。 Azure 會強制執行設定版本的這項限制。 針對有效的密碼和 KEK URL，請參閱下列範例︰
 

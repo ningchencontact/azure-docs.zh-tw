@@ -1,18 +1,18 @@
 ---
 title: 關於 Azure VM 備份
 description: 深入了解 Azure VM 備份，並記下一些最佳做法。
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465221"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639738"
 ---
 # <a name="about-azure-vm-backup"></a>關於 Azure VM 備份
 
@@ -111,8 +111,8 @@ Azure 備份會根據備份排程來取得快照集。
 當您要設定 VM 備份時, 我們建議您遵循下列做法:
 
 - 修改在原則中設定的預設排程時間。 例如, 如果原則中的預設時間是上午 12:00, 請將計時增加數分鐘, 以便以最佳方式使用資源。
-- 針對使用 premium 儲存體的 Vm 備份, 建議您執行最新版本的 Azure 備份 ([立即還原](backup-instant-restore-capability.md))。 如果您不是執行最新版本, 則備份會配置大約 50% 的總儲存空間。 備份服務需要此空間, 才能將快照集複製到相同的儲存體帳戶, 並將其傳送至保存庫。
 - 如果您要從單一保存庫還原 Vm, 強烈建議您使用不同[的一般用途 v2 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade), 以確保目標儲存體帳戶不會受到節流。 例如, 每個 VM 都必須有不同的儲存體帳戶。 例如, 如果還原10個 Vm, 請使用10個不同的儲存體帳戶。
+- 若要備份使用高階儲存體的 Vm, 請使用立即還原, 建議您配置*50%* 的可用空間 (已配置的儲存空間總計, 只有在第一次備份時**才**需要)。 第一次備份完成後, 備份不需要 50% 的可用空間
 - 從一般用途 v1 儲存層 (快照集) 進行的還原將會在幾分鐘內完成, 因為快照集位於相同的儲存體帳戶中。 從一般用途 v2 儲存層 (保存庫) 進行還原可能需要數小時的時間。 在一般用途 v1 儲存體中提供資料的情況下, 建議您使用「[立即還原](backup-instant-restore-capability.md)」功能進行更快速的還原。 (如果必須從保存庫還原資料, 則需要更多時間。)
 - 每個儲存體帳戶的磁片數目限制相對於基礎結構即服務 (IaaS) VM 上執行的應用程式所存取的磁片數量。 一般的作法是, 如果單一儲存體帳戶上有5到10個磁片 (或更多), 請將一些磁片移至不同的儲存體帳戶來平衡負載。
 

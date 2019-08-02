@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 資訊安全中心的 IoT 預覽存取資料 |Microsoft Docs
-description: 深入了解如何使用 iot 的 Azure 資訊安全中心時存取您的安全性警示和建議資料。
+title: 使用適用于 IoT 的 Azure 資訊安全中心存取資料 |Microsoft Docs
+description: 瞭解如何在使用適用于 IoT 的 Azure 資訊安全中心時存取您的安全性警示和建議資料。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,47 +13,43 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 2d3f3c6ad194ff8c9582f0c9e71a29b37ba5d967
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3ddd9b2c8373746a65cd78f0a81b60d097cd9f38
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616742"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597174"
 ---
 # <a name="access-your-security-data"></a>存取您的安全性資料 
 
-> [!IMPORTANT]
-> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
-IoT 的 azure 資訊安全中心 (ASC) 會儲存安全性警示、 建議和未經處理的安全性資料 （如果您選擇將它儲存） 在您的 Log Analytics 工作區中。
+適用于 IoT 的 Azure 資訊安全中心會將安全性警示、建議和未經處理的安全性資料 (如果您選擇儲存) 儲存在 Log Analytics 工作區中。
 
 ## <a name="log-analytics"></a>Log Analytics
 
-若要設定在使用 Log Analytics 工作區：
+若要設定使用的 Log Analytics 工作區:
 
 1. 開啟 IoT 中樞。
-1. 按一下 **安全性**
-2. 按一下 **設定**，並變更您的 Log Analytics 工作區設定。
+1. 按一下 [**安全性**] 區段下的 [**總覽**] 分頁
+2. 按一下 [**設定**], 並變更 Log Analytics 工作區設定。
 
-若要存取您的 Log Analytics 工作區設定之後：
+若要在設定之後存取 Log Analytics 工作區中的警示和建議:
 
-1. 選擇 iot 在 ASC 警示或建議。 
-2. 按一下 **進一步調查**，然後按一下**若要查看哪些裝置有此警示，請按一下這裡並檢視 DeviceId 欄**。
+1. 選擇 IoT Azure 資訊安全中心中的警示或建議。 
+2. 按一下 [**進一步調查**], 然後按一下**以查看哪些裝置具有此警示, 請按一下這裡並查看 DeviceId 資料行**。
 
-如需從 Log Analytics 查詢資料的詳細資訊，請參閱[開始使用 Log Analytics 中的查詢](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries)。
+如需從 Log Analytics 查詢資料的詳細資訊, 請參閱[在 Log analytics 中開始使用查詢](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries)。
 
 ## <a name="security-alerts"></a>安全性警示
 
-安全性警示會儲存在_AzureSecurityOfThings.SecurityAlert_ IoT 解決方案 ASC 設定 Log Analytics 工作區中的資料表。
+安全性警示會儲存在 Log Analytics 工作區中的_AzureSecurityOfThings SecurityAlert_資料表中, 其設定適用于 IoT 解決方案的 Azure 資訊安全中心。
 
-我們提供一些有用的查詢，可協助您立即開始探索安全性警示。
+我們提供了一些實用的查詢, 可協助您開始探索安全性警示。
 
 ### <a name="sample-records"></a>範例記錄
 
-選取幾個隨機資料錄
+選取幾個隨機記錄
 
 ```
 // Select a few random records
@@ -70,18 +66,18 @@ SecurityAlert
 | take 3
 ```
 
-| TimeGenerated           | IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | 描述                                             | ExtendedProperties                                                                                                                                                             |
+| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | 顯示名稱                           | 描述                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 成功的暴力密碼破解攻擊           | 在裝置上的暴力密碼破解強制攻擊成功。        |    { "Full Source Address": "[\"10.165.12.18:\"]", "User Names": "[\"\"]", "DeviceId":"IoT-Device-Linux" }                                                                       |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 成功在裝置上的本機登入      | 偵測到成功的本機登入裝置     | { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id":"28207", "User Name": "attacker", "DeviceId":"IoT-Device-Linux" } |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 在裝置上的本機登入嘗試失敗  | 偵測到裝置的本機登入失敗的嘗試 |  { "Remote Address": "?", "Remote Port": "", "Local Port": "", "Login Shell": "/bin/su", "Login Process Id":"22644", "User Name": "attacker", "DeviceId":"IoT-Device-Linux" } |
+| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 暴力密碼破解攻擊成功           | 裝置上的暴力密碼破解攻擊已成功        |    {"完整來源位址": "[\"10.165.12.18:\"]", "使用者名稱": "[\" \"]", "DeviceId":「IoT-裝置-Linux」}                                                                       |
+| 2018-11-19T12:40: 31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 裝置上的本機登入成功      | 偵測到裝置的本機登入成功     | {"遠端位址": "？", "遠端埠": "", "本機埠": "", "Login Shell": "/bin/su", "登入處理序識別碼":"28207"、"使用者名稱": "攻擊者"、"DeviceId":「IoT-裝置-Linux」} |
+| 2018-11-19T12:40: 31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 裝置上的本機登入嘗試失敗  | 偵測到對裝置的本機登入嘗試失敗 |  {"遠端位址": "？", "遠端埠": "", "本機埠": "", "Login Shell": "/bin/su", "登入處理序識別碼":"22644"、"使用者名稱": "攻擊者"、"DeviceId":「IoT-裝置-Linux」} |
 
 ### <a name="device-summary"></a>裝置摘要
 
-選取 IoT 中樞、 裝置、 警示嚴重性、 警示類型所偵測到過去一週的獨特的安全性警示數目。
+取得過去一周偵測到的相異安全性警示數目, 依 IoT 中樞、裝置、警示嚴重性、警示類型分組。
 
 ```
-// Select number of distinct security alerts detected last week by 
+// Get the number of distinct security alerts detected in the last week, grouped by 
 //   IoT hub, device, alert severity, alert type
 //
 SecurityAlert
@@ -93,16 +89,16 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | Count |
+| IoTHubId                                                                                                       | DeviceId      | AlertSeverity | 顯示名稱                           | Count |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 成功的暴力密碼破解攻擊           | 9   |   
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中        | 在裝置上的本機登入嘗試失敗  | 242 |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 成功在裝置上的本機登入      | 31  |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中        | 密碼編譯錢幣來比喻 Miner                     | 4   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 暴力密碼破解攻擊成功           | 9   |   
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中等        | 裝置上的本機登入嘗試失敗  | 242 |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 裝置上的本機登入成功      | 31  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中等        | 加密硬幣 Miner                     | 4   |
 
-### <a name="iot-hub-summary"></a>摘要的 IoT 中樞
+### <a name="iot-hub-summary"></a>IoT 中樞摘要
 
-選取不同的裝置已在過去一週，透過 IoT 中樞、 警示嚴重性、 警示類型的警示數
+選取過去一周內有警示的不同裝置數, 依 IoT 中樞、警示嚴重性、警示類型
 
 ```
 // Select number of distinct devices which had alerts in the last week, by 
@@ -117,22 +113,22 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
+| IoTHubId                                                                                                       | AlertSeverity | 顯示名稱                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 高          | 成功的暴力密碼破解攻擊           | 1          |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 中        | 在裝置上的本機登入嘗試失敗  | 1          | 
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 高          | 成功在裝置上的本機登入      | 1          |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 中        | 密碼編譯錢幣來比喻 Miner                     | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 高          | 暴力密碼破解攻擊成功           | 1          |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 中等        | 裝置上的本機登入嘗試失敗  | 1          | 
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 高          | 裝置上的本機登入成功      | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | 中等        | 加密硬幣 Miner                     | 1          |
 
 ## <a name="security-recommendations"></a>安全性建議
 
-安全性建議會儲存在_AzureSecurityOfThings.SecurityRecommendation_ IoT 解決方案 ASC 設定 Log Analytics 工作區中的資料表。
+安全性建議會儲存在 Log Analytics 工作區中的_AzureSecurityOfThings SecurityRecommendation_資料表中, 其設定適用于 IoT 解決方案的 Azure 資訊安全中心。
 
-我們提供了一些有用的查詢，可協助您開始探索安全性建議。
+我們提供了一些實用的查詢, 可協助您開始探索安全性建議。
 
 ### <a name="sample-records"></a>範例記錄
 
-選取幾個隨機資料錄
+選取幾個隨機記錄
 
 ```
 // Select a few random records
@@ -150,17 +146,17 @@ SecurityRecommendation
 | take 2
 ```
     
-| TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | 描述 | RecommendationAdditionalData |
+| TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | 描述 | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中 | Active | 找不到輸入鏈結中的寬鬆的防火牆規則 | 已找到在防火牆中的規則，其中包含各種不同的 IP 位址或連接埠的寬鬆模式 | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中 | Active | 找不到輸入鏈結中的寬鬆的防火牆規則 | 已找到在防火牆中的規則，其中包含各種不同的 IP 位址或連接埠的寬鬆模式 | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中等 | 有效 | 在輸入鏈中找到寬鬆的防火牆規則 | 防火牆有規則包含允許廣泛 IP 位址或連接埠範圍的寬鬆模式 | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中等 | 有效 | 在輸入鏈中找到寬鬆的防火牆規則 | 防火牆有規則包含允許廣泛 IP 位址或連接埠範圍的寬鬆模式 | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
 
 ### <a name="device-summary"></a>裝置摘要
 
-選取 IoT 中樞、 裝置、 建議嚴重性和類型的不同作用中的安全性建議數目。
+取得相異的 active security 建議數目, 依 IoT 中樞、裝置、建議嚴重性和類型分組。
 
 ```
-// Select number of distinct active security recommendations by 
+// Get the number of distinct active security recommendations, grouped by by 
 //   IoT hub, device, recommendation severity and type
 //
 SecurityRecommendation
@@ -170,17 +166,17 @@ SecurityRecommendation
 | summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
 ```
 
-| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | Count |
+| IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Count |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 2   |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中        | 1 |  
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中等        | 1 |  
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 高          | 1  |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中        | 4   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | 中等        | 4   |
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- 閱讀 IoT ASC[概觀](overview.md)
-- 了解 ASC IoT[架構](architecture.md)
-- 了解和探索[ASC IoT 警示](concept-security-alerts.md)
-- 了解和探索[ASC IoT 建議](concept-recommendations.md)
+- 閱讀適用于 IoT 的 Azure 資訊安全中心[總覽](overview.md)
+- 瞭解 IoT[架構](architecture.md)的 Azure 資訊安全中心
+- 瞭解及探索[IoT 警示的 Azure 資訊安全中心](concept-security-alerts.md)
+- 瞭解及探索[IoT 推薦 Azure 資訊安全中心](concept-recommendations.md)

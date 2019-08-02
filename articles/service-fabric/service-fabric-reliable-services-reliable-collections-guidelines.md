@@ -3,7 +3,7 @@ title: Azure Service Fabric 中 Reliable Collection 的指導方針與建議 | M
 description: 使用 Service Fabric Reliable Collection 的指導方針與建議
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: aljo
-ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774092"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599332"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collection 的指導方針與建議
 本節提供使用 Reliable State Manager 和 Reliable Collection 的指導方針。 目標是要協助使用者避開常見的陷阱。
 
-指導方針會編排成簡單的建議，前面再加上「請」、「請考慮」、「請避免」或「請不要」字詞     。
+指導方針會編排成簡單的建議，前面再加上「請」、「請考慮」、「請避免」或「請不要」字詞。
 
 * 請不要修改讀取作業所傳回自訂類型的物件 (例如 `TryPeekAsync` 或 `TryGetValueAsync`)。 可靠的集合就像並行的集合一樣，會傳回物件參考而不是複本。
 * 請不要在未經修改之前，就深層複製傳回的自訂類型物件。 由於結構和內建類型都是傳值 (pass-by-value)，因此您不需要在其上執行深層複製，除非其包含您想要修改的參考類型欄位或屬性。
@@ -32,7 +32,7 @@ ms.locfileid: "60774092"
 * 在認可、中止或處置交易之後，請勿使用該交易。
 * 請不要在其所建立的交易範圍之外使用列舉。
 * 請不要在另一個交易的 `using` 陳述式內建立交易，因為它會造成死結。
-* 請勿建立可靠的狀態與`IReliableStateManager.GetOrAddAsync`，並使用相同交易中可靠的狀態。 這會導致 InvalidOperationException。
+* 請勿使用建立可靠的`IReliableStateManager.GetOrAddAsync`狀態, 並在相同的交易中使用可靠的狀態。 這會導致 InvalidOperationException。
 * 務必確保 `IComparable<TKey>` 實作是正確的。 系統會對 `IComparable<TKey>` 採取相依性以合併檢查點與資料列。
 * 請不要在讀取需更新的項目時使用更新鎖定，以避免發生特定類別的死結。
 * 請考慮將每個分割區可靠的集合數目保持小於 1000。 偏好具有較多項目可靠集合，勝過於具有較少項目的可靠集合。

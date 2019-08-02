@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB：大量執行程式 .NET API、SDK 和資源
+title: Azure Cosmos DB：大量執行程式 .NET API、SDK & 資源
 description: 了解所有大量執行程式 .NET API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB 大量執行程式 .NET SDK 每個版本之間所作出的變更。
 author: tknandu
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 098cc3d76fff69b6b213514ac85835e7474b6233
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471435"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637738"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫：下載資訊 
+# <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫:下載資訊 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -28,12 +28,12 @@ ms.locfileid: "66471435"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [大量執行程式 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [大量執行程式 - Java](sql-api-sdk-bulk-executor-java.md)
+> * [大量執行程式-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [大量執行程式-JAVA](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-| **描述**| 大量執行程式程式庫可讓用戶端應用程式執行大量的 Azure Cosmos DB 帳戶作業。 大量執行程式程式庫提供 BulkImport、BulkUpdate 和 BulkDelete 命名空間。 BulkImport 模組能夠以最佳化方式大量內嵌文件，如此就能充分取用為集合佈建的輸送量。 BulkUpdate 模組能夠以修補程式的形式，大量更新 Azure Cosmos DB 容器中的現有資料。 BulkDelete 模組能夠以最佳化方式大量刪除文件，如此就能充分取用為集合佈建的輸送量。|
+| **描述**| .Net 大量執行程式程式庫可讓用戶端應用程式對 Azure Cosmos DB 帳戶執行大量作業。 此程式庫提供 BulkImport、BulkUpdate 和 BulkDelete 命名空間。 BulkImport 模組能夠以最佳化方式大量內嵌文件，如此就能充分取用為集合佈建的輸送量。 BulkUpdate 模組能夠以修補程式的形式，大量更新 Azure Cosmos DB 容器中的現有資料。 BulkDelete 模組能夠以最佳化方式大量刪除文件，如此就能充分取用為集合佈建的輸送量。|
 |**SDK 下載**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **GitHub 中的 BulkExecutor 程式庫**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API 文件**|[.NET API 參考文件](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
@@ -44,15 +44,15 @@ ms.locfileid: "66471435"
 
 ### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
-* 新增的 graph 大量執行程式，以接受頂點和邊緣上的 ttl 的支援
+* 已新增圖形大量執行程式的支援, 以接受頂點和邊緣的 ttl
 
 ### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
-* 已修正的問題，期間可彈性調整的 Azure Cosmos DB 閘道模式中執行時造成例外狀況。 此修正可讓功能上相當於 1.4.1 版本。
+* 已修正問題, 這會在以閘道模式執行時, 于彈性調整 Azure Cosmos DB 時造成例外狀況。 此修正讓它在功能上相當於1.4.1 版本。
 
 ### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
-* 已新增的 BulkDelete 支援 SQL API 帳戶，以接受資料分割索引鍵，若要刪除的文件識別碼 tuple。 這項變更可讓功能上相當於 1.4.0 版。
+* 已新增 SQL API 帳戶的 BulkDelete 支援, 以接受要刪除的資料分割索引鍵、檔識別碼元組。 這項變更使其在功能上相當於1.4.0 版本。
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -64,19 +64,19 @@ ms.locfileid: "66471435"
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
-* 更新大量執行程式，現在會使用最新版的 Azure Cosmos DB.NET SDK (2.4.0)
+* 已更新大量執行程式, 現在使用最新版的 Azure Cosmos DB .NET SDK (2.4.0)
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
 
-* 新增的 graph 大量執行程式，以接受頂點和邊緣上的 ttl 的支援
+* 已新增圖形大量執行程式的支援, 以接受頂點和邊緣的 ttl
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
-* 已修正的問題，期間可彈性調整的 Azure Cosmos DB 閘道模式中執行時造成例外狀況。
+* 已修正問題, 這會在以閘道模式執行時, 于彈性調整 Azure Cosmos DB 時造成例外狀況。
 
 ### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
 
-* 已新增的 BulkDelete 支援 SQL API 帳戶，以接受資料分割索引鍵，若要刪除的文件識別碼 tuple。
+* 已新增 SQL API 帳戶的 BulkDelete 支援, 以接受要刪除的資料分割索引鍵、檔識別碼元組。
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
@@ -114,6 +114,6 @@ ms.locfileid: "66471435"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解大量執行程式的 Java 程式庫，請參閱下列文章：
+若要深入瞭解大量執行程式 JAVA 程式庫, 請參閱下列文章:
 
-[Java 大量執行程式程式庫 SDK 和版本資訊](sql-api-sdk-bulk-executor-java.md)
+[JAVA 大量執行程式程式庫 SDK 和發行資訊](sql-api-sdk-bulk-executor-java.md)

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: dbc92502cdab6e76ba6b8730fca7e0aed3966a43
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.date: 08/01/2019
+ms.openlocfilehash: 083c908609ebcf1bdc6dcad5e37ae03daa41758f
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494925"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706496"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>部署 Azure Logic Apps 的 Azure Resource Manager 範本
 
@@ -35,7 +35,7 @@ ms.locfileid: "68494925"
 
 [![部署至 Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-例如, 在您登入 Azure 入口網站之後, 系統會提示您輸入這項資訊:
+例如, 在您登入 Azure 入口網站之後, 系統會提示您輸入下列資訊:
 
 * Azure 訂用帳戶名稱
 * 您想要使用的資源群組
@@ -59,7 +59,7 @@ ms.locfileid: "68494925"
 
 ## <a name="deploy-with-azure-powershell"></a>使用 Azure PowerShell 部署
 
-若要部署到特定的 Azure 資源群組, 請使用下列命令:
+若要部署至特定的*Azure 資源群組*, 請使用下列命令:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
@@ -74,7 +74,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -Te
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 進行部署
 
-若要部署到特定的*Azure 資源群組*, 請使用下列命令:
+若要部署至特定的*Azure 資源群組*, 請使用下列命令:
 
 ```azurecli
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
@@ -91,10 +91,14 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 
 若要部署邏輯應用程式範本和管理環境, 小組通常會使用[Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services)中的[Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines)工具。 Azure Pipelines 提供[Azure 資源群組部署](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)工作, 您可以將其新增至任何組建或發行管線。 對於部署和產生發行管線的授權, 您也需要 Azure Active Directory (AD)[服務主體](../active-directory/develop/app-objects-and-service-principals.md)。 深入瞭解如何[使用 Azure Pipelines 的服務主體](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure)。
 
-如需有關使用 Azure Pipelines Azure Resource Manager 範本的持續整合與持續部署 (CI/CD) 的詳細資訊, 請參閱下列主題:
+如需有關使用 Azure Pipelines Azure Resource Manager 範本的持續整合與持續部署 (CI/CD) 的詳細資訊, 請參閱下列主題和範例:
 
 * [整合 Resource Manager 範本與 Azure Pipelines](../azure-resource-manager/vs-resource-groups-project-devops-pipelines.md)
 * [教學課程：使用 Azure Pipelines Azure Resource Manager 範本的持續整合](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
+* [範例：從 Azure Logic Apps 連接到 Azure 服務匯流排佇列, 並使用 Azure Pipelines 在 Azure DevOps 中進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：從 Azure Logic Apps 連接到 Azure 儲存體帳戶, 並使用 Azure Pipelines 在 Azure DevOps 中進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：設定 Azure Logic Apps 的函式應用程式動作, 並在 Azure DevOps 中使用 Azure Pipelines 進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [範例：從 Azure Logic Apps 連接到整合帳戶, 並在 Azure DevOps 中使用 Azure Pipelines 進行部署](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 以下是使用 Azure Pipelines 的一般高階步驟:
 

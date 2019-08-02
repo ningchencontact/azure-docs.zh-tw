@@ -10,17 +10,17 @@ ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325566"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>從 Azure Container Registry 部署至 Azure 容器執行個體
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) 是 Azure 型的受控容器登錄服務，可用來儲存私人 Docker 容器映像。 本文說明如何將儲存於 Azure Container Registry 的容器映像部署至 Azure Container Instances。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 **Azure 容器登錄**：您需要 Azure 容器登錄，且登錄中至少有一個容器映像，才能完成本文中的步驟。 如果您需要登錄，請參閱[使用 Azure CLI 建立容器登錄](../container-registry/container-registry-get-started-azure-cli.md)。
 
@@ -50,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 您現在需要建立服務主體，並將它的認證儲存在金鑰保存庫中。
 
-下列命令會使用[az ad sp create for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set]將服務主體的**密碼**儲存在保存庫中。
+下列命令會使用[az ad sp create for-rbac][az-ad-sp-create-for-rbac]來建立服務主體, 並使用[az keyvault secret set][az-keyvault-secret-set]將服務主體的**密碼**儲存在保存庫中。
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -65,9 +65,9 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-在前面的命令中，`--role` 引數設定服務主體具有 acrpull  角色，授與主體僅限提取登錄的存取權。 若要同時授與發送和提取存取權，請將 `--role` 引數變更為 acrpush  。
+在前面的命令中，`--role` 引數設定服務主體具有 acrpull 角色，授與主體僅限提取登錄的存取權。 若要同時授與發送和提取存取權，請將 `--role` 引數變更為 acrpush。
 
-接下來，在保存庫中儲存服務主體的 appId  ，也就是您傳遞給 Azure Container Registry 進行驗證的**使用者名稱**。
+接下來，在保存庫中儲存服務主體的 appId，也就是您傳遞給 Azure Container Registry 進行驗證的**使用者名稱**。
 
 ```azurecli
 # Store service principal ID in AKV (the registry *username*)
@@ -94,7 +94,7 @@ az keyvault secret set \
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
 ```
 
-執行下列[az container create][az-container-create]命令來部署容器實例。 此命令使用儲存在 Azure Key Vault 中的服務主體認證來向容器登錄驗證，並假設您已事先將 [aci-helloworld](container-instances-quickstart.md) 映像推送到登錄。 如果您想要使用不同於登錄的映像，請更新 `--image` 的值。
+執行下列 [az container create][az-container-create] 命令來部署容器執行個體。 此命令使用儲存在 Azure Key Vault 中的服務主體認證來向容器登錄驗證，並假設您已事先將 [aci-helloworld](container-instances-quickstart.md) 映像推送到登錄。 如果您想要使用不同於登錄的映像，請更新 `--image` 的值。
 
 ```azurecli
 az container create \
@@ -139,9 +139,9 @@ $ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_L
 
 1. 在 Azure 入口網站中，瀏覽到您的容器登錄。
 
-1. 若要確認已啟用管理帳戶，請選取 [存取金鑰]  ，然後在 [管理使用者]  之下選取 [啟用]  。
+1. 若要確認已啟用管理帳戶，請選取 [存取金鑰]，然後在 [管理使用者] 之下選取 [啟用]。
 
-1. 選取 [存放庫]  ，接著選取您想要從中部署的存放庫、以滑鼠右鍵按一下您想要部署之容器映像的標籤，然後選取 [執行執行個體]  。
+1. 選取 [存放庫]，接著選取您想要從中部署的存放庫、以滑鼠右鍵按一下您想要部署之容器映像的標籤，然後選取 [執行執行個體]。
 
     ![Azure 入口網站內 Azure Container Registry 中的 [執行執行個體]][acr-runinstance-contextmenu]
 

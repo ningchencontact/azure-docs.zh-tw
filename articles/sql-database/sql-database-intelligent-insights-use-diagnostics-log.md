@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8180fc4db10019a3183af40cf21d9d92b0102201
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703161"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567889"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>使用 Intelligent Insights Azure SQL Database 效能診斷記錄
 
-此頁面提供有關如何使用 [Intelligent Insights](sql-database-intelligent-insights.md) 所產生 Azure SQL Database 效能診斷記錄的使用方式、其格式及其所含資料的資訊，來因應您的自訂開發需求。 您可以傳送到此診斷記錄[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)， [Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)， [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)，或是提供自訂的 DevOps 警示和報告的第三方解決方案功能。
+此頁面提供有關如何使用 [Intelligent Insights](sql-database-intelligent-insights.md) 所產生 Azure SQL Database 效能診斷記錄的使用方式、其格式及其所含資料的資訊，來因應您的自訂開發需求。 您可以將此診斷記錄傳送至[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)、 [Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、 [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案, 以取得自訂的 DevOps 警示和報告功能。
 
 ## <a name="log-header"></a>記錄標頭
 
@@ -81,7 +80,7 @@ Intelligent Insights 效能記錄的下一個區段包含透過內建的人工�
 | 達到資源限制 | <li>受影響的資源</li><li>查詢雜湊</li><li>資源耗用量百分比</li> |
 | 工作負載增加 | <li>執行時間增加的查詢數目</li><li>對工作負載增加影響最大之查詢的查詢雜湊</li> |
 | 記憶體壓力 | <li>記憶體 Clerk</li> |
-| 鎖定 | <li>受影響的查詢雜湊</li><li>封鎖查詢雜湊</li> |
+| 正在鎖定 | <li>受影響的查詢雜湊</li><li>封鎖查詢雜湊</li> |
 | MAXDOP 增加 | <li>查詢雜湊</li><li>CXP 等候時間</li><li>等候時間</li> |
 | 頁面閂鎖爭用 | <li>造成爭用之查詢的查詢雜湊</li> |
 | 遺漏索引 | <li>查詢雜湊</li> |
@@ -114,7 +113,7 @@ Intelligent Insights 記錄的下一個區段提供受所偵測到之效能問�
 }]
 ```
 
-### <a name="metrics"></a>度量
+### <a name="metrics"></a>計量
 
 計量 (metric) 屬性底下會提供所回報之每個計量的度量單位，可能的值為：秒、數字及百分比。 值 (value) 屬性中會回報所測量計量的值。
 
@@ -135,7 +134,7 @@ Intelligent Insights 效能記錄的最後部分是關於所識別之效能降�
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-您可以使用 Intelligent Insights 效能記錄檔[Azure 監視器記錄]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)或協力廠商解決方案，提供自訂的 DevOps 警示和報告功能。
+您可以使用 Intelligent Insights 效能記錄檔搭配[Azure 監視器記錄]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)或協力廠商解決方案, 以取得自訂的 DevOps 警示和報告功能。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 [Intelligent Insights](sql-database-intelligent-insights.md) 概念。

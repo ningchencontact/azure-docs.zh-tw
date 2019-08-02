@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 計量和診斷記錄 | Microsoft Docs
-description: 了解如何在 Azure SQL Database 來儲存資訊的資源使用率和查詢執行統計資料中啟用診斷。
+description: 瞭解如何在 Azure SQL Database 中啟用診斷, 以儲存資源使用率和查詢執行統計資料的相關資訊。
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 05/21/2019
-ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447813"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567257"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
-本主題中，您將了解如何設定記錄的診斷遙測為 Azure SQL Database 透過 Azure 入口網站、 PowerShell、 Azure CLI、 Azure 監視器 REST API 和 Azure Resource Manager 範本。 這些診斷可用來量測計的資源使用率和查詢執行統計資料。
+在本主題中, 您將瞭解如何透過 Azure 入口網站、PowerShell、Azure CLI、Azure 監視器 REST API 和 Azure Resource Manager 範本來設定 Azure SQL Database 的診斷遙測記錄。 這些診斷可用於測量資源使用率和查詢執行統計資料。
 
 單一資料庫、彈性集區中的集區資料庫，以及受控執行個體中的執行個體資料庫可以傳輸計量和診斷記錄，讓您以較輕鬆的方式監視效能。 您可以將資料庫設定為將資源使用量、背景工作角色與工作階段及連線傳輸下列其中一項 Azure 資源：
 
@@ -48,42 +47,42 @@ ms.locfileid: "67447813"
 - Azure 監視器 REST API
 - Azure Resource Manager 範本
 
-启用指标和诊断日志记录时，需要指定收集诊断遥测数据的 Azure 资源目标。 可用的選項包括：
+當您啟用計量和診斷記錄時, 您需要指定用來收集診斷遙測資料的 Azure 資源目的地。 可用的選項包括：
 
 - Azure SQL 分析
-- Azure 事件中心
+- Azure 事件中樞
 - Azure 儲存體
 
-您可以佈建新的 Azure 資源，或選取現有的資源。 使用 [診斷設定]  選項選擇資源之後，指定要收集的資料。
+您可以佈建新的 Azure 資源，或選取現有的資源。 使用 [診斷設定]選項選擇資源之後，指定要收集的資料。
 
-## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>Azure SQL database 和執行個體的資料庫支援診斷記錄
+## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>支援 Azure SQL 資料庫和實例資料庫的診斷記錄
 
 在 SQL Database 啟用預設未啟用的計量和診斷記錄功能。
 
-您可以收集下列診斷遙測資料設定 Azure SQL database，然後執行個體資料庫：
+您可以設定 Azure SQL 資料庫和實例資料庫, 以收集下列診斷遙測:
 
-| 監視資料庫的遙測 | 單一資料庫和集區資料庫支援 | 執行個體的資料庫支援 |
+| 監視資料庫的遙測 | 單一資料庫和集區資料庫支援 | 實例資料庫支援 |
 | :------------------- | ----- | ----- |
 | [基本計量](#basic-metrics):包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | 是 | 否 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含 （項目查詢等候） 的查詢等候統計資料的相關資訊這類是 CPU、 LOG 和 LOCKING。 | 是 | 是 |
-| [錯誤](#errors-dataset)：包含在資料庫上的 SQL 錯誤的相關資訊。 | 是 | 是 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含資料庫花費在不同等候類型的等候時間的資訊。 | 是 | 否 |
-| [逾時](#time-outs-dataset)：包含在資料庫上逾時的相關資訊。 | 是 | 否 |
-| [封鎖](#blockings-dataset)：包含有關在資料庫上的事件資訊。 | 是 | 否 |
-| [死結](#deadlocks-dataset):包含在資料庫上死結事件的相關資訊。 | 是 | 否 |
-| [AutomaticTuning](#automatic-tuning-dataset):包含資料庫的自動調整建議的相關資訊。 | 是 | 否 |
-| [SQLInsights](#intelligent-insights-dataset)：包含 Intelligent Insights 資料庫效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含有關查詢等候統計資料的資訊 (您的查詢等候的時間), 例如 CPU、記錄和鎖定。 | 是 | 是 |
+| [錯誤](#errors-dataset)：包含有關資料庫上 SQL 錯誤的資訊。 | 是 | 是 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含資料庫花在不同等候類型的等候時間的相關資訊。 | 是 | 否 |
+| [逾時](#time-outs-dataset)：包含有關資料庫的超時資訊。 | 是 | 否 |
+| [封鎖](#blockings-dataset)：包含有關資料庫上封鎖事件的資訊。 | 是 | 否 |
+| [鎖死](#deadlocks-dataset):包含資料庫上之鎖死事件的相關資訊。 | 是 | 否 |
+| [AutomaticTuning](#automatic-tuning-dataset):包含資料庫之自動調整建議的相關資訊。 | 是 | 否 |
+| [SQLInsights](#intelligent-insights-dataset)：包含資料庫的效能 Intelligent Insights。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
 
 > [!IMPORTANT]
-> 彈性集區和受管理的執行個體都有自己個別的診斷遙測，從其所包含的資料庫。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
+> 彈性集區和受控實例有自己的個別診斷遙測, 其來自其所包含的資料庫。 這一點很重要, 因為診斷遙測會針對每個資源分別設定, 如下所述。
 
 > [!NOTE]
-> （雖然在螢幕上顯示），無法啟用安全性稽核和 SQLSecurityAuditEvents 記錄從資料庫的診斷設定。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
+> 無法從資料庫診斷設定 (雖然顯示在畫面上) 來啟用安全性 Audit 和 SQLSecurityAuditEvents 記錄。 若要啟用 audit 記錄串流, 請參閱[設定資料庫的審核](sql-database-auditing.md#subheading-2), 以及[Azure 監視器記錄和 Azure 事件中樞中的審核記錄](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-您可以使用**診斷設定**功能表每寫單一、 集區，或執行個體在 Azure 入口網站來設定診斷遙測串流中的資料庫。 此外，診斷遙測也可以設定個別資料庫的容器： 彈性集區和受管理的執行個體。 可设置以下目标来流式传输诊断遥测数据：Azure 存储、Azure 事件中心和 Azure Monitor 日志。
+您可以在 Azure 入口網站中, 針對每個單一、集區或實例資料庫使用 [**診斷設定**] 功能表, 以設定診斷遙測的串流處理。 此外, 也可以為資料庫容器分別設定診斷遙測: 彈性集區和受控實例。 您可以設定下列目的地以串流診斷遙測:Azure 儲存體、Azure 事件中樞和 Azure 監視器記錄檔。
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>設定彈性集區診斷遙測的串流處理
 
@@ -91,59 +90,59 @@ ms.locfileid: "67447813"
 
 您可以設定彈性集區資源，以收集下列診斷遙測：
 
-| 資源 | 監視遙測 |
+| Resource | 監視遙測 |
 | :------------------- | ------------------- |
-| **彈性集區** | [基本計量](sql-database-metrics-diag-logging.md#basic-metrics)包含 eDTU/CPU 百分比、 eDTU/CPU 限制、 實體資料讀取百分比、 記錄寫入百分比、 工作階段百分比、 背景工作百分比、 儲存體、 儲存體百分比、 儲存體限制和 XTP 儲存體百分比。 |
+| **彈性集區** | [基本計量](sql-database-metrics-diag-logging.md#basic-metrics)包含 EDTU/cpu 百分比、EDTU/cpu 限制、實體資料讀取百分比、記錄寫入百分比、會話百分比、背景工作百分比、儲存體、儲存體百分比、儲存體限制, 以及 XTP 儲存體百分比。 |
 
-若要設定的彈性集區和彈性集區中的資料庫的診斷遙測串流，您必須個別設定**兩者**下列動作：
+若要針對彈性集區中的彈性集區和資料庫設定診斷遙測的串流處理, 您必須分別設定下列**兩者**:
 
-- 啟用串流功能的彈性集區，診斷遙測**和**
-- 啟用資料流的每個資料庫在彈性集區中的診斷遙測
+- 啟用彈性集區診斷遙測的串流處理,**以及**
+- 針對彈性集區中的每個資料庫啟用診斷遙測的串流處理
 
-這是因為彈性集區會與它自己在分開的個別資料庫遙測的遙測資料庫容器。
+這是因為彈性集區是一個資料庫容器, 其本身的遙測與個別的資料庫遙測分開。
 
 若要啟用彈性集區資源診斷遙測的串流處理，請遵循下列步驟：
 
-1. 移至**彈性集區**在 Azure 入口網站中的資源。
-1. 選取 [診斷設定]  。
-1. 如果沒有先前的設定存在，請選取 [開啟診斷]  ，或者選取 [編輯設定]  來編輯先前的設定。
+1. 移至 Azure 入口網站中的**彈性集**區資源。
+1. 選取 [診斷設定]。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
 
    ![啟用彈性集區的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
 1. 輸入供您自己參考的設定名稱。
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
-1. Log analytics，請選取**設定**並選取來建立新的工作區 **+ 建立新的工作區**，或選取現有的工作區。
+1. 針對 log analytics, 選取 [ **+ 建立新的工作區**], 或選取現有的工作區來**設定**並建立新的工作區。
 1. 選取彈性集區診斷遙測的核取方塊：**基本**計量。
-   ![設定彈性集區的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+   ![設定彈性集區的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. 選取 [ **儲存**]。
-1. 此外，設定診斷遙測，為您想要在下一節中所述的下列步驟來監視彈性集區中每個資料庫的資料流。
+1. 此外, 請遵循下一節所述的步驟, 為您想要監視的彈性集區中的每個資料庫設定診斷遙測的串流。
 
 > [!IMPORTANT]
-> 除了設定彈性集區的診斷遙測，您也需要在彈性集區，設定診斷遙測的每個資料庫，如下所述。
+> 除了設定彈性集區的診斷遙測以外, 您還需要為彈性集區中的每個資料庫設定診斷遙測, 如下所述。
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>为单一数据库或弹性池中的数据库配置诊断遥测数据的流式传输
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>針對單一資料庫或彈性集區中的資料庫設定診斷遙測的串流處理
 
    ![SQL Database 圖示](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-若要为单一数据库或入池数据库启用诊断遥测数据的流式传输，请执行以下步骤：
+若要啟用單一或集區資料庫之診斷遙測的串流處理, 請遵循下列步驟:
 
 1. 移至 Azure **SQL database**資源。
-1. 選取 [診斷設定]  。
-1. 如果沒有先前的設定存在，請選取 [開啟診斷]  ，或者選取 [編輯設定]  來編輯先前的設定。
+1. 選取 [診斷設定]。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
    - 您最多可建立三個平行連線來串流處理診斷遙測。
-   - 選取 [+新增診斷設定]  建立診斷資料到多個資源的多個平行串流處理。
+   - 選取 [+新增診斷設定] 建立診斷資料到多個資源的多個平行串流處理。
 
    ![啟用單一、集區式或執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. 輸入供您自己參考的設定名稱。
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. 若為標準的事件型監視體驗，請勾選下列的資料庫診斷記錄遙測核取方塊：**SQLInsights**、**AutomaticTuning**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**、**錯誤**、**DatabaseWaitStatistics**、**逾時**、**區塊**和**死結**。
-1. 進階、 一分鐘基礎的監視體驗，選取核取方塊**基本**計量。
-   ![設定診斷單一、 集區，或執行個體資料庫](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+1. 如需以一分鐘為基礎的先進監視體驗, 請選取 [**基本**計量] 的核取方塊。
+   ![設定單一、集區式或實例資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. 選取 [ **儲存**]。
-1. 針對您想要監視每個資料庫重複這些步驟。
+1. 針對您想要監視的每個資料庫重複這些步驟。
 
 > [!NOTE]
-> （雖然畫面所示），無法啟用安全性稽核和 SQLSecurityAuditEvents 記錄從資料庫的診斷設定。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
+> 無法從資料庫診斷設定 (雖然顯示在螢幕上) 啟用安全性 Audit 和 SQLSecurityAuditEvents 記錄。 若要啟用 audit 記錄串流, 請參閱[設定資料庫的審核](sql-database-auditing.md#subheading-2), 以及[Azure 監視器記錄和 Azure 事件中樞中的審核記錄](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 > [!TIP]
 > 針對您想要監視的每個 Azure SQL Database 重複執行這些步驟。
 
@@ -153,65 +152,65 @@ ms.locfileid: "67447813"
 
 您可以設定受控執行個體，以收集下列診斷遙測：
 
-| 資源 | 監視遙測 |
+| Resource | 監視遙測 |
 | :------------------- | ------------------- |
 | **受控執行個體** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) 包含 V 核心計數、平均 CPU 百分比、IO 要求、讀取/寫入的位元組、保留的儲存空間，以及使用的儲存空間。 |
 
-若要設定的受管理的執行個體和資料庫執行個體的診斷遙測串流，您必須個別設定**兩者**下列動作：
+若要設定受控實例和實例資料庫診斷遙測的串流處理, 您必須分別設定下列**兩者**:
 
-- 啟用受管理的執行個體的診斷遙測串流**和**
-- 啟用資料流的每個執行個體資料庫的診斷遙測
+- 啟用受控實例診斷遙測的串流處理,**以及**
+- 針對每個實例資料庫啟用診斷遙測的串流處理
 
-這是因為受控執行個體是與它自己的遙測，分開的個別執行個體資料庫遙測資料庫容器。
+這是因為受控實例是具有自己的遙測的資料庫容器, 與個別實例資料庫遙測分開。
 
 若要啟用受控執行個體資源診斷遙測的串流，請遵循下列步驟：
 
-1. 移至**受管理的執行個體**在 Azure 入口網站中的資源。
-1. 選取 [診斷設定]  。
-1. 如果沒有先前的設定存在，請選取 [開啟診斷]  ，或者選取 [編輯設定]  來編輯先前的設定。
+1. 移至 Azure 入口網站中的**受控實例**資源。
+1. 選取 [診斷設定]。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
 
    ![啟用受控執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 1. 輸入供您自己參考的設定名稱。
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
-1. Log analytics，請選取**設定**並選取來建立新的工作區 **+ 建立新的工作區**，或使用現有的工作區。
+1. 針對 log analytics, 選取 [ **+ 建立新的工作區**], 或使用現有的工作區, 以選取 [**設定**並建立新的工作區]。
 1. 勾選執行個體診斷遙測的核取方塊：**ResourceUsageStats**。
-   ![設定受管理的執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+   ![設定受控實例的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. 選取 [ **儲存**]。
-1. 此外，設定診斷遙測，您想要遵循下一節所述的步驟來監視受管理的執行個體中每個執行個體資料庫的資料流。
+1. 此外, 請遵循下一節所述的步驟, 為您要監視的受控實例中的每個實例資料庫設定診斷遙測的串流。
 
 > [!IMPORTANT]
-> 除了設定受管理的執行個體的診斷遙測，您也需要設定診斷遙測，每個執行個體資料庫，如下所述。
+> 除了設定受控實例的診斷遙測以外, 您還需要為每個實例資料庫設定診斷遙測, 如下所述。
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>設定串流診斷遙測的執行個體資料庫
+### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>設定實例資料庫診斷遙測的串流處理
 
    ![受控執行個體中的執行個體資料庫圖示](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
 
-若要啟用的串流診斷遙測執行個體的資料庫，請遵循下列步驟：
+若要啟用實例資料庫診斷遙測的串流處理, 請遵循下列步驟:
 
-1. 移至**執行個體資料庫**受管理的執行個體內的資源。
-1. 選取 [診斷設定]  。
-1. 如果沒有先前的設定存在，請選取 [開啟診斷]  ，或者選取 [編輯設定]  來編輯先前的設定。
+1. 移至受控實例中的**實例資料庫**資源。
+1. 選取 [診斷設定]。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
    - 您最多可建立三 (3) 個平行連線來串流處理診斷遙測。
-   - 選取 [+新增診斷設定]  建立診斷資料到多個資源的多個平行串流處理。
+   - 選取 [+新增診斷設定] 建立診斷資料到多個資源的多個平行串流處理。
 
    ![啟用執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
 1. 輸入供您自己參考的設定名稱。
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. 勾選資料庫診斷遙測的核取方塊：**SQLInsights**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**和**錯誤**。
-   ![設定診斷執行個體資料庫](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![設定實例資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. 選取 [ **儲存**]。
-1. 針對您想要監視的每個執行個體資料庫中重複這些步驟。
+1. 針對您想要監視的每個實例資料庫重複這些步驟。
 
 > [!TIP]
-> 針對您想要監視的每個執行個體資料庫中重複這些步驟。
+> 針對您想要監視的每個實例資料庫重複這些步驟。
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 您可以使用 PowerShell 啟用計量和診斷記錄功能。
 
@@ -269,7 +268,7 @@ ms.locfileid: "67447813"
 您可以使用 Azure CLI 啟用計量和診斷記錄功能。
 
 > [!NOTE]
-> Azure CLI v1.0 支持通过脚本来启用诊断日志记录。 请注意，目前不支持 CLI v2.0。
+> Azure CLI v1.0 支援啟用診斷記錄的腳本。 請注意, 目前不支援 CLI 2.0 版。
 
 - 若要啟用儲存體帳戶中診斷記錄的儲存體，請使用下列命令：
 
@@ -313,7 +312,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 ![Azure SQL 分析概觀](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-使用入口網站的 [診斷設定] 索引標籤中內建的 [傳送至 Log Analytics]  選項，即可將 SQL Database 計量和診斷記錄串流到 Azure SQL 分析中。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用日志分析。
+使用入口網站的 [診斷設定] 索引標籤中內建的 [傳送至 Log Analytics] 選項，即可將 SQL Database 計量和診斷記錄串流到 Azure SQL 分析中。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API, 使用診斷設定來啟用 log analytics。
 
 ### <a name="installation-overview"></a>安裝概觀
 
@@ -331,17 +330,17 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
    ![在入口網站中搜尋 Azure SQL 分析](./media/sql-database-metrics-diag-logging/sql-analytics-in-marketplace.png)
 
-2. 在解決方案的 [概觀] 畫面上選取 [建立]  。
+2. 在解決方案的 [概觀] 畫面上選取 [建立]。
 
 3. 在 Azure SQL 分析表單中填入所需的其他資訊：工作區名稱、訂用帳戶、資源群組、位置及定價層。
 
    ![在入口網站中設定 Azure SQL 分析](./media/sql-database-metrics-diag-logging/sql-analytics-configuration-blade.png)
 
-4. 選取 [確定]  確認，然後選取 [建立]  。
+4. 選取 [確定] 確認，然後選取 [建立]。
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>將資料庫設定為記錄計量和診斷記錄
 
-設定資料庫，記錄計量的最簡單方式是使用 Azure 入口網站。 如上所述，在 Azure 入口網站中，移至您的 SQL Database 資源，並選取 [診斷設定]  。
+若要設定資料庫記錄計量的位置, 最簡單的方式是使用 Azure 入口網站。 如上所述，在 Azure 入口網站中，移至您的 SQL Database 資源，並選取 [診斷設定]。
 
 如果您使用的是彈性集區或受控執行個體，則也需要設定這些資源的診斷設定，以便將診斷遙測串流到工作區中。
 
@@ -351,7 +350,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 ## <a name="stream-into-event-hubs"></a>串流至事件中樞
 
-您可以使用 Azure 入口網站中內建的 [串流至事件中樞]  選項，將 SQL Database 計量和診斷記錄串流到事件中樞。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API 使用診斷設定來啟用服務匯流排規則識別碼。
+您可以使用 Azure 入口網站中內建的 [串流至事件中樞] 選項，將 SQL Database 計量和診斷記錄串流到事件中樞。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API 使用診斷設定來啟用服務匯流排規則識別碼。
 
 ### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>如何在事件中樞處理計量和診斷記錄
 
@@ -370,7 +369,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 ## <a name="stream-into-storage"></a>串流到儲存體
 
-使用 Azure 入口網站中內建的 [封存至儲存體帳戶]  選項，就可以將 SQL Database 計量和診斷記錄儲存在 Azure 儲存體。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API 使用診斷設定來啟用儲存體。
+使用 Azure 入口網站中內建的 [封存至儲存體帳戶] 選項，就可以將 SQL Database 計量和診斷記錄儲存在 Azure 儲存體。 您也可以透過 PowerShell Cmdlet、Azure CLI 或 Azure 監視器 REST API 使用診斷設定來啟用儲存體。
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>儲存體帳戶中的計量和診斷記錄結構描述
 
@@ -386,7 +385,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-例如，基本計量的 blob 名稱可能是：
+例如, 基本計量的 blob 名稱可能是:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -400,20 +399,20 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="data-retention-policy-and-pricing"></a>資料保留原則和價格
 
-如果您選取事件中樞或儲存體帳戶，您可以指定保留原則。 此原則會刪除早於選取時間期間的資料。 如果您指定 Log Analytics，則保留原則取決於所選的定價層。 在這種情況下，所提供的免費資料擷取單位可以每個月免費監視多個資料庫。 超過免費單位的診斷遙測耗用量可能會收取費用。 請注意，相較於閒置的資料庫，較繁重工作負載的作用中資料庫會擷取更多資料。 有关详细信息，请参阅 [Log Analytics 定价](https://azure.microsoft.com/pricing/details/monitor/)。
+如果您選取事件中樞或儲存體帳戶，您可以指定保留原則。 此原則會刪除早於選取時間期間的資料。 如果您指定 Log Analytics，則保留原則取決於所選的定價層。 在這種情況下，所提供的免費資料擷取單位可以每個月免費監視多個資料庫。 超過免費單位的診斷遙測耗用量可能會收取費用。 請注意，相較於閒置的資料庫，較繁重工作負載的作用中資料庫會擷取更多資料。 如需詳細資訊, 請參閱[Log analytics 定價](https://azure.microsoft.com/pricing/details/monitor/)。
 
-如果您使用的是 Azure SQL 分析，您可以藉由選取 Azure SQL 分析導覽功能表上的 [OMS 工作區]  ，然後選取 [使用量]  和 [估計成本]  ，監視您解決方案中的資料擷取使用量。
+如果您使用的是 Azure SQL 分析，您可以藉由選取 Azure SQL 分析導覽功能表上的 [OMS 工作區]，然後選取 [使用量] 和 [估計成本]，監視您解決方案中的資料擷取使用量。
 
 ## <a name="metrics-and-logs-available"></a>可用的計量和記錄
 
-監視 Azure SQL Database 所提供的遙測，彈性集區和受管理的執行個體是如下所述。 在 SQL Analytics 收集的監視遙測可用於您自己自訂的分析和應用程式開發使用[Azure 監視器的記錄檔查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)語言。
+監視適用于 Azure SQL Database、彈性集區和受控實例的遙測, 如下所述。 您可以使用[Azure 監視器記錄查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)語言, 將 SQL 分析中收集的監視遙測用於您自己的自訂分析和應用程式開發。
 
 ## <a name="basic-metrics"></a>基本計量
 
-下表的基本計量的詳細參考資源。
+如需有關資源的基本計量詳細資料, 請參閱下表。
 
 > [!NOTE]
-> 所有計量以前都稱為基本計量選項。 所做的變更已命名的只有且不會變更監視的計量。 這項變更被起始以供未來推出的其他計量類別目錄。
+> [基本計量] 選項先前稱為 [所有計量]。 所做的變更僅限於命名, 而且不會變更受監視的計量。 已起始這項變更, 以允許未來引進額外的計量類別。
 
 ### <a name="basic-metrics-for-elastic-pools"></a>彈性集區的基本計量
 
@@ -421,32 +420,32 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |---|---|
 |彈性集區|eDTU 百分比、使用的 eDTU、eDTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、儲存體限制、XTP 儲存體百分比 |
 
-### <a name="basic-metrics-for-azure-sql-databases"></a>Azure SQL database 的基本計量
+### <a name="basic-metrics-for-azure-sql-databases"></a>Azure SQL 資料庫的基本計量
 
 |**Resource**|**計量**|
 |---|---|
-|Azure SQL 資料庫|DTU 百分比、使用的 DTU、DTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、XTP 儲存體百分比和死結 |
+|Azure SQL Database|DTU 百分比、使用的 DTU、DTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、XTP 儲存體百分比和死結 |
 
-## <a name="basic-logs"></a>基本的記錄檔
+## <a name="basic-logs"></a>基本記錄
 
-下表中記載的所有記錄檔可用的遙測的詳細資料。 請參閱[支援診斷記錄](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases)來了解特定的資料庫類別-單一 Azure SQL 支援的記錄集區，或執行個體的資料庫。
+適用于所有記錄的遙測詳細資料記載于下表中。 請參閱[支援的診斷記錄](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases), 以瞭解特定資料庫類別支援哪些記錄-Azure SQL 單一、集區或實例資料庫。
 
-### <a name="resource-usage-stats-for-managed-instance"></a>受控執行個體的資源使用量統計資料
+### <a name="resource-usage-stats-for-managed-instance"></a>受控實例的資源使用狀況統計資料
 
 |屬性|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure|
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|類別|類別名稱。 一律：ResourceUsageStats |
-|資源|資源名稱 |
+|Category|類別名稱。 一律：ResourceUsageStats |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：MANAGEDINSTANCES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
 |LogicalServerName_s|受控執行個體的名稱 |
-|ResourceId|資源 URI |
+|resourceId|資源 URI |
 |SKU_s|受控執行個體產品 SKU |
 |virtual_core_count_s|可用的虛擬核心數目 |
 |avg_cpu_percent_s|CPU 百分比平均 |
@@ -458,23 +457,23 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-runtime-statistics"></a>查詢存放區執行階段統計資料
 
-|屬性|描述|
+|內容|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|類別|類別名稱。 一律：QueryStoreRuntimeStatistics |
+|Category|類別名稱。 一律：QueryStoreRuntimeStatistics |
 |OperationName|作業名稱。 一律：QueryStoreRuntimeStatisticsEvent |
-|資源|資源名稱 |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
 |LogicalServerName_s|資料庫伺服器的名稱 |
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
-|ResourceId|資源 URI |
+|resourceId|資源 URI |
 |query_hash_s|查詢雜湊 |
 |query_plan_hash_s|查詢計劃雜湊 |
 |statement_sql_handle_s|陳述式 SQL 控制代碼 |
@@ -509,23 +508,23 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-wait-statistics"></a>查詢存放區等候統計資料
 
-|屬性|描述|
+|內容|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|類別|類別名稱。 一律：QueryStoreWaitStatistics |
+|Category|類別名稱。 一律：QueryStoreWaitStatistics |
 |OperationName|作業名稱。 一律：QueryStoreWaitStatisticsEvent |
-|資源|資源名稱 |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
 |LogicalServerName_s|資料庫伺服器的名稱 |
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
-|ResourceId|資源 URI |
+|resourceId|資源 URI |
 |wait_category_s|等候的類別 |
 |is_parameterizable_s|查詢是否可參數化 |
 |statement_type_s|陳述式類型 |
@@ -549,25 +548,25 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 |屬性|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQ |
-|類別|類別名稱。 一律：Errors |
+|Category|類別名稱。 一律：錯誤 |
 |OperationName|作業名稱。 一律：錯誤事件 |
-|資源|資源名稱 |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
 |LogicalServerName_s|資料庫伺服器的名稱 |
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
-|ResourceId|資源 URI |
-|訊息|純文字的錯誤訊息 |
+|resourceId|資源 URI |
+|Message|純文字的錯誤訊息 |
 |user_defined_b|錯誤是否為使用者定義的位元 |
 |error_number_d|錯誤碼 |
-|严重性|錯誤的嚴重性 |
+|Severity|錯誤的嚴重性 |
 |state_d|錯誤的狀態 |
 |query_hash_s|失敗查詢的查詢雜湊 (如果有) |
 |query_plan_hash_s|失敗查詢的查詢計劃雜湊 (如果有) |
@@ -576,23 +575,23 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="database-wait-statistics-dataset"></a>資料庫等候統計資料資料集
 
-|屬性|描述|
+|內容|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|類別|類別名稱。 一律：DatabaseWaitStatistics |
+|Category|類別名稱。 一律：DatabaseWaitStatistics |
 |OperationName|作業名稱。 一律：DatabaseWaitStatisticsEvent |
-|資源|資源名稱 |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
 |LogicalServerName_s|資料庫伺服器的名稱 |
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
-|ResourceId|資源 URI |
+|resourceId|資源 URI |
 |wait_type_s|等候類型的名稱 |
 |start_utc_date_t [UTC]|測量的時段開始時間 |
 |end_utc_date_t [UTC]|測量的時段結束時間 |
@@ -605,46 +604,46 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="time-outs-dataset"></a>逾時資料集
 
-|屬性|描述|
+|內容|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|類別|類別名稱。 一律：逾時 |
+|Category|類別名稱。 一律：逾時 |
 |OperationName|作業名稱。 一律：TimeoutEvent |
-|資源|資源名稱 |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
 |LogicalServerName_s|資料庫伺服器的名稱 |
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
-|ResourceId|資源 URI |
+|resourceId|資源 URI |
 |error_state_d|錯誤狀態碼 |
 |query_hash_s|查詢雜湊 (如果有) |
 |query_plan_hash_s|查詢計劃雜湊 (如果有) |
 
 ### <a name="blockings-dataset"></a>封鎖資料集
 
-|屬性|描述|
+|內容|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|類別|類別名稱。 一律：區塊 |
+|Category|類別名稱。 一律：區塊 |
 |OperationName|作業名稱。 一律：BlockEvent |
-|資源|資源名稱 |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
 |LogicalServerName_s|資料庫伺服器的名稱 |
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
-|ResourceId|資源 URI |
+|resourceId|資源 URI |
 |lock_mode_s|查詢所使用的鎖定模式 |
 |resource_owner_type_s|鎖定擁有者 |
 |blocked_process_filtered_s|已封鎖的處理序報告 XML |
@@ -652,36 +651,36 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="deadlocks-dataset"></a>死結 (Deadlock) 資料集
 
-|屬性|描述|
+|內容|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC] |記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|類別|類別名稱。 一律：死結 |
+|Category|類別名稱。 一律：死結 |
 |OperationName|作業名稱。 一律：DeadlockEvent |
-|資源|資源名稱 |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
 |LogicalServerName_s|資料庫伺服器的名稱 |
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
-|ResourceId|資源 URI |
+|resourceId|資源 URI |
 |deadlock_xml_s|死結報表 XML |
 
 ### <a name="automatic-tuning-dataset"></a>自動調整資料集
 
-|屬性|描述|
+|內容|描述|
 |---|---|
-|TenantId|租户 ID |
+|TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
-|類型|一律：AzureDiagnostics |
+|Type|一律：AzureDiagnostics |
 |ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
-|類別|類別名稱。 一律：AutomaticTuning |
-|資源|資源名稱 |
+|Category|類別名稱。 一律：AutomaticTuning |
+|Resource|資源的名稱 |
 |ResourceType|資源類型名稱。 一律：SERVERS/DATABASES |
 |SubscriptionId|資料庫的訂用帳戶 GUID |
 |ResourceGroup|資料庫的資源群組名稱 |
@@ -689,7 +688,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |LogicalDatabaseName_s|資料庫名稱 |
 |ElasticPoolName_s|資料庫的彈性集區名稱 (如果有) |
 |DatabaseName_s|資料庫名稱 |
-|ResourceId|資源 URI |
+|resourceId|資源 URI |
 |RecommendationHash_s|自動調整建議的唯一雜湊 |
 |OptionName_s|自動調整作業 |
 |Schema_s|資料庫結構描述 |

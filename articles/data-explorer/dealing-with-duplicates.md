@@ -1,20 +1,20 @@
 ---
-title: 處理 Azure 資料總管 中的重複資料
-description: 本主題將說明各種方法來處理具有重複資料時使用 Azure 的資料。
+title: 處理 Azure 資料總管中的重復資料
+description: 本主題將說明使用 Azure 資料總管時, 處理重復資料的各種方法。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445765"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608222"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>處理 Azure 資料總管 中的重複資料
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>處理 Azure 資料總管中的重復資料
 
 將資料傳送至雲端的裝置會維持資料的本機快取。 根據資料大小，本機快取可能會將資料儲存數天或甚至數個月。 您想要保護分析資料庫，以免受到會重新傳送快取資料並造成分析資料庫中資料重複的故障裝置影響。 本主題概述處理這幾種情況下重複資料的最佳做法。
 
@@ -70,7 +70,7 @@ DeviceEventsAll
 
 ### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>解決方案 3：在擷取程序期間篩選重複項目
 
-另一個解決方案是在擷取程序期間篩選重複項目。 系統會在內嵌 Kusto 資料表時忽略重複的資料。 移除重複的資料列之後，資料會內嵌到暫存資料表中，並複製到另一個資料表。 此解決方案的優點是相較於先前的解決方案，查詢效能大幅改善。 缺點包括增加的擷取時間和其他資料儲存體成本。
+另一個解決方案是在擷取程序期間篩選重複項目。 系統會在內嵌 Kusto 資料表時忽略重複的資料。 移除重複的資料列之後，資料會內嵌到暫存資料表中，並複製到另一個資料表。 此解決方案的優點是相較於先前的解決方案，查詢效能大幅改善。 缺點包括增加的擷取時間和其他資料儲存體成本。 Additionaly, 此解決方案只適用于重複問題不會同時內嵌的情況。 如果有多個並行擷取包含重複的記錄, 則可能會內嵌全部, 因為重復資料刪除程式在資料表中找不到任何現有的相符記錄。    
 
 下列範例可說明此方法：
 

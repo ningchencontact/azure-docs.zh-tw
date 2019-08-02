@@ -1,27 +1,18 @@
 ---
 title: 將 Azure 中的 Linux 虛擬機器從非受控磁碟轉換成受控磁碟 - Azure 受控磁碟 | Microsoft Docs
 description: 如何在 Resource Manager 部署模型中使用 Azure CLI 將 Linux VM 從非受控磁碟轉換成受控磁碟
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eb6a5ed74073a1a31fc9bb1972266e76c7bc2782
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0157e75d0c8d2c2493792bcd8d30a856f8072b6
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418476"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696081"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>將 Linux 虛擬機器從非受控磁碟轉換成受控磁碟
 
@@ -34,7 +25,7 @@ ms.locfileid: "66418476"
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* VM 在傳換前使用的原始 VHD 和儲存體帳戶不會遭到刪除。 這些項目會繼續產生費用。 若要避免為這些成果支付費用，請在確認轉換完成之後，刪除原始的 VHD Blob。 如果您要尋找這些未連結的磁碟才能加以刪除，請參閱我們的文件[尋找及刪除未連結的 Azure 受控和非受控磁碟](find-unattached-disks.md)。
+* VM 在傳換前使用的原始 VHD 和儲存體帳戶不會遭到刪除。 這些項目會繼續產生費用。 若要避免為這些成果支付費用，請在確認轉換完成之後，刪除原始的 VHD Blob。 如果您需要尋找這些未連結的磁片以刪除它們, 請參閱[尋找及刪除未連結的 Azure 受控和非受控磁片](find-unattached-disks.md)一文。
 
 ## <a name="convert-single-instance-vms"></a>轉換單一執行個體 VM
 本節說明如何將單一執行個體 Azure VM 從非受控磁碟轉換為受控磁碟。 (如果您的 VM 位於可用性設定組中，請參閱下一節)。您可以使用此程序將 VM 從進階 (SSD) 非受控磁碟轉換成進階受控磁碟，或從標準 (HDD) 非受控磁碟轉換成標準受控磁碟。
@@ -105,9 +96,9 @@ ms.locfileid: "66418476"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 從入口網站的 VM 清單中選取 VM。
-3. 在 VM 刀鋒視窗中，從功能表選取 [磁碟]  。
-4. 在 [磁碟]  刀鋒視窗頂端，選取 [遷移至受控磁碟]  。
-5. 如果您的 VM 位於可用性設定組中，[遷移至受控磁碟]  刀鋒視窗上會出現警告，您需要先轉換可用性設定組。 此警告應有一個連結，您可以按一下該連結來轉換可用性設定組。 轉換可用性設定組後，或者如果您的 VM 不在可用性設定組中，請按一下 [遷移]  開始將磁碟遷移至受控磁碟的程序。
+3. 在 VM 刀鋒視窗中，從功能表選取 [磁碟]。
+4. 在 [磁碟] 刀鋒視窗頂端，選取 [遷移至受控磁碟]。
+5. 如果您的 VM 位於可用性設定組中，[遷移至受控磁碟] 刀鋒視窗上會出現警告，您需要先轉換可用性設定組。 此警告應有一個連結，您可以按一下該連結來轉換可用性設定組。 轉換可用性設定組後，或者如果您的 VM 不在可用性設定組中，請按一下 [遷移] 開始將磁碟遷移至受控磁碟的程序。
 
 VM 將會停止，並且在移轉完成後重新啟動。
 

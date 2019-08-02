@@ -12,20 +12,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127135"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517095"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>部署 StorSimple Virtual Array - 準備 Azure 入口網站
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+
+
 ## <a name="overview"></a>總覽
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 我們提供一系列如何將虛擬陣列完全部署為檔案伺服器或 iSCSI 伺服器 (使用 Resource Manager 模型) 的佈署教學課程，而這是該系列的第一篇文章。 本文章說明在佈建虛擬陣列之前，要建立並設定 StorSimple 裝置管理員服務所需的準備工作。 本文章也連結到部署設定檢查清單及設定必要條件。
 
@@ -90,7 +94,7 @@ ms.locfileid: "62127135"
 
 請依照下列逐步指示，為您的 StorSimple 裝置管理員服務準備入口網站。
 
-## <a name="step-1-create-a-new-service"></a>步驟 1：建立新的服務
+## <a name="step-1-create-a-new-service"></a>步驟 1:建立新的服務
 
 單一 StorSimple 裝置管理員服務執行個體就能管理多個 StorSimple Virtual Array。 執行下列步驟來建立 StorSimple 裝置管理員服務的執行個體。 如果您已經有 StorSimple 裝置管理員服務來管理虛擬陣列，請略過此步驟，並移至[步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)。
 
@@ -104,7 +108,7 @@ ms.locfileid: "62127135"
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>步驟 2：取得服務註冊金鑰。
+## <a name="step-2-get-the-service-registration-key"></a>步驟 2:取得服務註冊金鑰。
 
 當 StorSimple 裝置管理員服務已啟動並執行之後，您就必須取得服務註冊金鑰。 這個金鑰是用來註冊和將 StorSimple 裝置與服務連接。
 
@@ -131,8 +135,8 @@ ms.locfileid: "62127135"
 #### <a name="to-get-the-virtual-array-image"></a>若要取得虛擬陣列映像
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。 
-2. 在 Azure 入口網站中，按一下 [瀏覽] > [StorSimple 裝置管理員]  。
-3. 選取現有的 StorSimple 裝置管理員服務。 在 [StorSimple 裝置管理員]  刀鋒視窗中，按一下 [快速啟動]  。 
+2. 在 Azure 入口網站中，按一下 [瀏覽] > [StorSimple 裝置管理員]。
+3. 選取現有的 StorSimple 裝置管理員服務。 在 [StorSimple 裝置管理員] 刀鋒視窗中，按一下 [快速啟動]。 
 4. 按一下與您想要從「Microsoft 下載中心」下載的映像對應的連結。 映像檔大約是 4.8 GB。
    
    * VHDX (適用於 Windows Server 2012 及更新版本上的 Hyper-V)
@@ -150,18 +154,18 @@ ms.locfileid: "62127135"
 
 #### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>若要新增儲存體帳戶認證，而且其 Azure 訂用帳戶與裝置管理員服務相同
 
-1. 瀏覽至您的裝置管理員服務，選取它並按兩下。 這會開啟 [概觀]  刀鋒視窗。
-2. 在 [設定]  區段內選取 [儲存體帳戶認證]  。
-3. 按一下 [新增]  。
-4. 在 [加入儲存體帳戶]  刀鋒視窗中，執行下列動作︰
+1. 瀏覽至您的裝置管理員服務，選取它並按兩下。 這會開啟 [概觀] 刀鋒視窗。
+2. 在 [設定] 區段內選取 [儲存體帳戶認證]。
+3. 按一下 [新增]。
+4. 在 [加入儲存體帳戶] 刀鋒視窗中，執行下列動作︰
    
-   1. 在 [訂用帳戶]  中，選取 [目前]  。
+   1. 在 [訂用帳戶] 中，選取 [目前]。
    
    2. 提供您 Azure 儲存體帳戶的名稱。
    
-   3. 選取 [啟用]  ，為 StorSimple 裝置與雲端之間的網路通訊建立安全通道。 只有當您在私人雲端內操作時，才選取 [停用]  。
+   3. 選取 [啟用]，為 StorSimple 裝置與雲端之間的網路通訊建立安全通道。 只有當您在私人雲端內操作時，才選取 [停用]。
    
-   4. 按一下 [新增]  。 成功建立儲存體帳戶之後會通知您。<br></br>
+   4. 按一下 [新增]。 成功建立儲存體帳戶之後會通知您。<br></br>
    
       ![新增現有儲存體帳戶認證](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 07/17/2019
+ms.date: 07/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: cbf642b47e4233cec2e2d860288b3bb35b419cf2
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 7bb775184a0d567fedf9da07cee60e5ba5a2097f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304175"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562371"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>從 Azure Data Lake Storage 將資料載入 SQL 資料倉儲
 使用 PolyBase 外部資料表將資料從 Azure Data Lake Storage 載入 Azure SQL 資料倉儲。 雖然您可以對儲存在 Data Lake Storage 中的資料執行臨機操作查詢, 但建議您將資料匯入 SQL 資料倉儲以獲得最佳效能。
@@ -32,20 +32,16 @@ ms.locfileid: "68304175"
 
 若要執行此教學課程，您需要：
 
-* 如果您要從 Gen1 載入, 請 Azure Active Directory 應用程式用於服務對服務驗證。 若要建立，請依照 [Active Directory 驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)中的指示執行
-
->[!NOTE] 
-> 如果您是從 Azure Data Lake 儲存體 Gen1 載入, 您需要 Active Directory 應用程式的用戶端識別碼、金鑰和 OAuth 2.0 權杖端點值, 才能從 SQL 資料倉儲連接到您的儲存體帳戶。 上面的連結提供如何取得這些值的詳細資訊。 Azure Active Directory 應用程式註冊使用應用程式識別碼作為用戶端識別碼。
-> 
+* Azure Active Directory 應用程式，用於服務對服務驗證。 若要建立，請依照 [Active Directory 驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)中的指示執行
 
 * Azure SQL 資料倉儲。 請參閱[建立和查詢 Azure SQL 資料倉儲](create-data-warehouse-portal.md)。
 
 * Data Lake Storage 帳戶。 請參閱[開始使用 Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)。 
 
 ##  <a name="create-a-credential"></a>建立認證
-若要存取您的 Data Lake Storage 帳戶, 您必須建立資料庫主要金鑰來加密您在下一個步驟中使用的認證密碼。 接著, 您要建立資料庫範圍認證。 針對 Gen1, 資料庫範圍認證會儲存 AAD 中設定的服務主體認證。 您必須在 Gen2 的資料庫範圍認證中使用儲存體帳戶金鑰。 
+若要存取您的 Data Lake Storage 帳戶, 您必須建立資料庫主要金鑰來加密您在下一個步驟中使用的認證密碼。 接著, 您要建立資料庫範圍認證。 使用服務主體進行驗證時, 資料庫範圍認證會儲存 AAD 中設定的服務主體認證。 您也可以在 Gen2 的資料庫範圍認證中使用儲存體帳戶金鑰。 
 
-若要連線到 Data Lake Storage Gen1，您必須**先**建立 Azure Active Directory 應用程式、建立存取金鑰，並對應用程式授與 Data Lake Storage Gen1 資源的存取權。 如需相關指示，請參閱[使用 Active Directory 向 Azure Data Lake Storage Gen1 進行驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。
+若要使用服務主體連接到 Data Lake Storage, 您必須**先**建立 Azure Active Directory 應用程式、建立存取金鑰, 並將該應用程式的存取權授與 Data Lake Storage 帳戶。 如需指示, 請參閱[使用 Active Directory 向 Azure Data Lake Storage 進行驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。
 
 ```sql
 -- A: Create a Database Master Key.
@@ -56,7 +52,7 @@ ms.locfileid: "68304175"
 CREATE MASTER KEY;
 
 
--- B (for Gen1): Create a database scoped credential
+-- B (for service principal authentication): Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
@@ -67,7 +63,7 @@ WITH
     SECRET = '<key>'
 ;
 
--- B (for Gen2): Create a database scoped credential
+-- B (for Gen2 storage key authentication): Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
 
@@ -77,7 +73,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this for Gen1:
+-- It should look something like this when authenticating using service principals:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -109,7 +105,7 @@ WITH (
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION='abfss://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    LOCATION='abfs[s]://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfss endpoint for when your account has secure transfer enabled
     CREDENTIAL = ADLSCredential
 );
 ```
@@ -221,13 +217,9 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 > * 已建立所需的資料庫物件以從 Data Lake Storage Gen1 載入。
 > * 已連線至 Data Lake Storage Gen1 目錄。
 > * 將資料載入到 Azure SQL 資料倉儲。
-> 
+>
 
 載入資料是開發使用 SQL 資料倉儲之資料倉儲解決方案的第一步。 請參閱我們的開發資源。
 
 > [!div class="nextstepaction"]
->[了解如何開發 SQL 資料倉儲中的資料表](sql-data-warehouse-tables-overview.md)
-
-
-
-
+> [了解如何開發 SQL 資料倉儲中的資料表](sql-data-warehouse-tables-overview.md)

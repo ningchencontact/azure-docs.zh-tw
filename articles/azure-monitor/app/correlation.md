@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 743f15c13a2e4fe7215229145b49fd87a32a1f18
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073247"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663269"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -35,7 +35,7 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 
 您可以將 `operation_Id`、`operation_parentId` 和 `request.id` 與 `dependency.id` 搭配使用，來建置分散式邏輯作業的檢視。 這些欄位也會定義遙測呼叫的因果順序。
 
-在微服務環境中，來自元件的追蹤可能會前往不同的儲存體項目。 每個元件在 Application Insights 中都可能有自己的檢測金鑰。 若要取得邏輯作業的遙測，Application Insights UX 會查詢每個儲存體項目資料。 當儲存體項目的數目很龐大時，您將需要有關下一個尋找位置的提示。 Application Insights 資料模型會定義兩個欄位來解決這個問題：`request.source` 和 `dependency.target`。 第一個欄位會識別起始相依性要求的元件，而第二個欄位會識別傳回相依性呼叫回應的元件。
+在微服務環境中，來自元件的追蹤可能會前往不同的儲存體項目。 每個元件在 Application Insights 中都可能有自己的檢測金鑰。 為了取得邏輯作業的遙測, Application Insights UX 會查詢每個儲存專案的資料。 當儲存體項目的數目很龐大時，您將需要有關下一個尋找位置的提示。 Application Insights 資料模型會定義兩個欄位來解決這個問題：`request.source` 和 `dependency.target`。 第一個欄位會識別起始相依性要求的元件，而第二個欄位會識別傳回相依性呼叫回應的元件。
 
 ## <a name="example"></a>範例
 
@@ -85,6 +85,14 @@ Application Insights 會定義相互關聯 HTTP 通訊協定的[延伸](https://
 
 - 在 `RequestTrackingTelemetryModule` 底下，新增值設定為 `true` 的 `EnableW3CHeadersExtraction` 元素。
 - 在 `DependencyTrackingTelemetryModule` 底下，新增值設定為 `true` 的 `EnableW3CHeadersInjection` 元素。
+- 在`W3COperationCorrelationTelemetryInitializer`下方加入`TelemetryInitializers`如下的 
+
+```xml
+<TelemetryInitializers>
+  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
+   ...
+</TelemetryInitializers> 
+```
 
 #### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>啟用 ASP.NET Core 應用程式的 W3C 分散式追蹤支援
 
@@ -184,9 +192,9 @@ Application Insights SDK 從 2.4.0-beta1 版開始，會使用 `DiagnosticSource
 
 目前不支援跨訊息技術 (例如 Kafka、RabbitMQ、Azure 服務匯流排) 自動傳播內容。 不過，您可以使用 `trackDependency` 和 `trackRequest` API 來手動撰寫這類案例的程式碼。 在這些 API 中，相依性遙測代表由產生者排入佇列的訊息，而要求則代表取用者所處理的訊息。 在此情況下，`operation_id` 和 `operation_parentId` 應該同時在訊息的屬性中傳播。
 
-### <a name="telemetry-correlation-in-asynchronous-java-application"></a>非同步 Java 應用程式中的遙測相互關聯
+### <a name="telemetry-correlation-in-asynchronous-java-application"></a>非同步 JAVA 應用程式中的遙測相互關聯
 
-若要將非同步的 Spring Boot 應用程式中的遙測相互關聯，請遵循[這](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications)相關文章。 它提供指導方針進行檢測的 Spring [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) ，以及[ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html)。 
+若要使非同步彈簧開機應用程式中的遙測相互關聯, 請遵循[這](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications)篇深入探討的文章。 它提供檢測春季[ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html)和[ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html)的指導方針。 
 
 
 <a name="java-role-name"></a>

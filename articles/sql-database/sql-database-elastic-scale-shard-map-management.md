@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332268"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568340"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分區對應管理員相應放大資料庫
 
@@ -44,7 +43,7 @@ ms.locfileid: "60332268"
 
 ![範圍對應][2]
 
-或者，您可以使用「清單對應」  來實作多租用戶資料庫模型，以將多個租用戶指派給個別資料庫。 例如，DB1 是用來儲存租用戶 ID 1 和 5 的相關資訊，而 DB2 是用來儲存租用戶 7 和租用戶 10 的資料。
+或者，您可以使用「清單對應」來實作多租用戶資料庫模型，以將多個租用戶指派給個別資料庫。 例如，DB1 是用來儲存租用戶 ID 1 和 5 的相關資訊，而 DB2 是用來儲存租用戶 7 和租用戶 10 的資料。
 
 ![單一資料庫上的多個租用戶][3]
 
@@ -54,12 +53,12 @@ Elastic Scale 支援下列類型作為分區化索引鍵：
 
 | .NET | Java |
 | --- | --- |
-| integer |integer |
+| 整數 |整數 |
 | long |long |
 | GUID |uuid |
 | byte[]  |byte[] |
 | datetime | timestamp |
-| 時間範圍 | duration|
+| 時間範圍 | 持續時間|
 | datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>清單和範圍分區對應

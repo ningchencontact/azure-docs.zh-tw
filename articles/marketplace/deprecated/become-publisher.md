@@ -1,5 +1,5 @@
 ---
-title: 成為發行者在 marketplace 店面 |Azure Marketplace
+title: 成為 marketplace 店面的發行者 |Azure Marketplace
 description: 本文將說明如何成為市集上的發行者。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
@@ -8,21 +8,21 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dd9aa28703003d2e286197d57e9f00361e2b460d
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 11ab9f6bb4ab61a669c9c898ee9f5668b7cd568f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653992"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598652"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
 本文將說明如何註冊為雲端市集發行者。 根據您選取的發行選項和目前在 Microsoft 合作夥伴網路上的成員資格，可能不需要進行下列某些步驟。 註冊後，您將能夠建立 Azure Marketplace 或 AppSource 的市集供應項目。
 
 
-|  | 註冊步驟 | Duration | 詳細資料 |  
+|  | 註冊步驟 | 持續時間 | 詳細資料 |  
 |:--- |:--- |:--- |:--- |  
-| 1 | 在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | [在 Microsoft 合作夥伴網路中註冊](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#register-for-an-account-using-the-enrollment-page) |  
+| 1 | 在 Microsoft 合作夥伴網路中註冊 | 15 分鐘 | [在 Microsoft 合作夥伴網路中註冊](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 2 | 建立 Microsoft 帳戶 <ul>(對於 Azure Marketplace 交易供應項目而言是必要的；對於其他項目則是建議)</ul> | 15 分鐘 | [建立 Microsoft ID](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 3 | 建立合作夥伴中心帳戶 | 15 分鐘 | [建立合作夥伴中心帳戶](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  登入 Cloud Partner 入口網站 | 1-3 天 | [登入 Cloud Partner 入口網站](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#sign-in-with-a-work-account) |  
@@ -39,13 +39,13 @@ ms.locfileid: "67653992"
 *   了解 [Microsoft 合作夥伴網路](https://partner.microsoft.com/commercial)的權益
 *   如果您的組織已擁有成員資格，可以在註冊時加入您的組織。 如果您使用[合作夥伴中心](https://partnercenter.microsoft.com/partner/home)，可以在合作夥伴中心帳戶中看到識別碼。 如果您使用 [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)，可以在 Partner Membership Center 帳戶中看到識別碼。 
 
-與 Microsoft 建立票證[合作夥伴支援](https://partner.microsoft.com/support)的 MPN 註冊時發生問題。
+向 Microsoft[合作夥伴支援](https://partner.microsoft.com/support)開啟票證, 以取得 MPN 註冊的問題。
 
 ---
 
 ## <a name="2-create-a-microsoft-account"></a>2.建立 Microsoft 帳戶  
 | 15 分鐘 |  
-Microsoft 帳戶，例如 *\@outlook.com 或\@live.com*，用來存取許多 Microsoft 裝置和服務。 這對於 Azure Marketplace 交易供應項目而言是必要的，而我們建議您將其用於所有雲端發行者。 如需深入了解 Microsoft 帳戶的優勢與用途，[請瀏覽此頁面](https://account.microsoft.com/account/)。 您將使用個人的 Microsoft 帳戶來存取 Cloud Partner 入口網站，也就是要用來建立及管理市集供應項目的發行平台。 
+Microsoft 帳戶 (例如 *\@ \@outlook.com 或 live.com*) 可用來存取許多 Microsoft 裝置和服務。 這對於 Azure Marketplace 交易供應項目而言是必要的，而我們建議您將其用於所有雲端發行者。 如需深入了解 Microsoft 帳戶的優勢與用途，[請瀏覽此頁面](https://account.microsoft.com/account/)。 您將使用個人的 Microsoft 帳戶來存取 Cloud Partner 入口網站，也就是要用來建立及管理市集供應項目的發行平台。 
 
 [! 重要] 請注意，與您工作電子郵件相關聯的 Microsoft 帳戶將不允許用來存取入口網站。
 
@@ -62,7 +62,7 @@ Microsoft 帳戶，例如 *\@outlook.com 或\@live.com*，用來存取許多 Mic
 ## <a name="3-create-a-partner-center-account"></a>3.建立合作夥伴中心帳戶  
 | 15 分鐘 |  
 
-[提交解決方案](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)到 Marketplace 之後，我們的上線團隊便會連絡您，為您的發行體驗提供支援。 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)如需詳細資訊。
+[提交解決方案](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)到 Marketplace 之後，我們的上線團隊便會連絡您，為您的發行體驗提供支援。 如需詳細資訊, 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)。
 
 <!---
 Complete this brief [registration form](https://azuremarketplace.microsoft.com/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
@@ -93,12 +93,12 @@ You will be asked to include the following information:
 [開發人員中心](https://developer.microsoft.com/store/register)內的個人註冊必須是組織的有效代表，而且必須提供個人資訊以驗證其身分識別。 使用您在步驟 2 中建立的 Microsoft 帳戶進行註冊，並且使用您用來存取 Cloud Partner 入口網站的相同 Microsoft 帳戶。
 
 *   若要註冊[開發人員中心](https://developer.microsoft.com/store/register)帳戶，[請在此開始註冊程序](https://developer.microsoft.com/store/register)。
-*   如需有關如何建立 Microsoft 帳戶的詳細資訊，請瀏覽＜建立 Microsoft 帳戶＞  一節。
+*   如需有關如何建立 Microsoft 帳戶的詳細資訊，請瀏覽＜建立 Microsoft 帳戶＞一節。
  
-一旦您已完成[開發人員中心](https://developer.microsoft.com/store/register)註冊，連結您的雲端合作夥伴設定檔與您[開發人員中心](https://developer.microsoft.com/store/register)帳戶 ([詳細說明，請參閱以下步驟](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile))。 此步驟必須在發行交易供應項目之前完成。 
+完成[開發人員中心](https://developer.microsoft.com/store/register)註冊之後, 請將您的雲端合作夥伴設定檔與您的[開發人員中心](https://developer.microsoft.com/store/register)帳戶連結 ([請參閱這裡的詳細步驟](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile))。 此步驟必須在發行交易供應項目之前完成。 
 
 >[!Note]
->若要免除 $99 的開發人員中心註冊費用，請填寫[市集註冊表單](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)，您便會收到包含促銷代碼的電子郵件。 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)如需詳細資訊。
+>若要免除 $99 的開發人員中心註冊費用，請填寫[市集註冊表單](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv)，您便會收到包含促銷代碼的電子郵件。 如需詳細資訊, 請參閱如何[建立合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)。
 
 >[!Important]
 >建立 Microsoft 開發人員中心帳戶之前，請確認組織還沒有開發人員中心帳戶，以避免重複的帳戶。 如需詳細資訊，請瀏覽[在開發人員中心註冊](https://docs.microsoft.com/azure/marketplace/register-dev-center)一節。

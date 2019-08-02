@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 1fcb308c73ee93308515d91398bedee3c41ccf38
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 938d7e0cbd493dcb269418e9fd364611d734a085
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362470"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68589934"
 ---
 ## <a name="trigger"></a>觸發程序
 
@@ -250,7 +250,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 以下是 JavaScript 程式碼：
 
 ```javascript
-module.exports = function (context, eventHubMessage) {
+module.exports = function (context, myEventHubMessage) {
     context.log('Function triggered to process a message: ', myEventHubMessage);
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('SequenceNumber =', context.bindingData.sequenceNumber);
@@ -401,7 +401,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 事件中樞觸發程序提供數個[中繼資料屬性](../articles/azure-functions/./functions-bindings-expressions-patterns.md)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 類別的屬性。
 
-|內容|Type|描述|
+|屬性|Type|描述|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext` 執行個體。|
 |`EnqueuedTimeUtc`|`DateTime`|加入佇列的時間 (UTC)。|
@@ -721,7 +721,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }  
 ```
 
-|屬性  |預設 | 描述 |
+|內容  |預設 | 描述 |
 |---------|---------|---------|
 |maxBatchSize|64|每個接收迴圈接收到的事件計數上限。|
 |prefetchCount|n/a|基礎 EventProcessorHost 將使用的預設 PrefetchCount。|

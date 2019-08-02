@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: b1aa8f2ce7d271187657d57993032069639ca9c7
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d3e4e0f4e7b1f8d3e100b3f1b3446907cfd587c5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404095"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716954"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>使用 IoT 中樞 (Node) 傳送雲端到裝置訊息
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>使用 IoT 中樞 (node.js) 傳送雲端到裝置訊息
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -41,7 +41,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 * **SendCloudToDeviceMessage**, 它會透過 IoT 中樞將雲端到裝置訊息傳送至模擬裝置應用程式, 然後接收其傳遞通知。
 
 > [!NOTE]
-> 「IoT 中樞」透過 Azure IoT 裝置 SDK 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中樞](https://azure.microsoft.com/develop/iot)。
+> IoT 中樞透過 Azure IoT 裝置 Sdk, 為許多裝置平臺和語言 (包括 C、JAVA、Python 和 JAVAscript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中樞](https://azure.microsoft.com/develop/iot)。
 >
 
 若要完成此教學課程，您需要下列項目：
@@ -53,33 +53,26 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 在本節中, 您會修改在[將遙測資料從裝置傳送至 iot 中樞](quickstart-send-telemetry-node.md)中建立的模擬裝置應用程式, 以接收來自 IoT 中樞的雲端到裝置訊息。
 
-1. 使用文字編輯器開啟 SimulatedDevice.js 檔案。
+1. 使用文字編輯器, 開啟 [ **SimulatedDevice** ] 檔案。 此檔案位於您在將[遙測從裝置傳送至 iot 中樞](quickstart-send-telemetry-node.md)快速入門中下載的 node.js 範例程式碼根資料夾中的**iot-hub\Quickstarts\simulated-device**資料夾。
 
-2. 修改 **connectCallback** 函式來處理從 IoT 中樞傳送的訊息。 在此範例中，裝置永遠會叫用 **完整** 函式，目的是通知 IoT 中樞訊息已處理完畢。 新版的 **connectCallback** 函式看起來會像下列程式碼片段︰
+2. 向裝置用戶端註冊處理常式, 以接收從 IoT 中樞傳送的訊息。 將呼叫新增至`client.on`建立裝置用戶端的那一行之後, 如下列程式碼片段所示:
 
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('complete error: ' + err.toString());
+        } else {
+          console.log('complete sent');
+        }
+      });
+    });
     ```
+
+    在此範例中, 裝置會叫用**complete**函式來通知 IoT 中樞其已處理訊息。 如果您使用 MQTT 傳輸, 而且可以省略, 則不需要**完成**的呼叫。 這是 HTTPS 和 AMQP 的必要參數。
   
    > [!NOTE]
    > 如果您使用 HTTPS 而不是使用 MQTT 或 AMQP 作為傳輸，**DeviceClient** 執行個體將不會經常 (頻率低於每隔 25 分鐘) 檢查「IoT 中樞」是否有訊息。 如需有關 MQTT、AMQP 和 HTTPS 支援之間的差異, 以及 IoT 中樞節流的詳細資訊, 請參閱[IoT 中樞開發人員指南](iot-hub-devguide-messaging.md)。
@@ -87,13 +80,13 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 ## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
 
-在本文中, 您會建立後端服務, 透過您在[將遙測從裝置傳送至 iot 中樞](quickstart-send-telemetry-node.md)中建立的 IoT 中樞傳送雲端到裝置訊息。 若要傳送雲端到裝置的訊息, 您的服務需要**服務連接**許可權。 根據預設, 每個 IoT 中樞都會使用名為**服務**的共用存取原則來建立, 以授與此許可權。
+在本文中, 您會建立後端服務, 透過您在[將遙測從裝置傳送至 iot 中樞](quickstart-send-telemetry-node.md)中建立的 IoT 中樞, 傳送雲端到裝置訊息。 若要傳送雲端到裝置的訊息, 您的服務需要**服務連接**許可權。 根據預設, 每個 IoT 中樞都會使用名為**服務**的共用存取原則來建立, 以授與此許可權。
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="send-a-cloud-to-device-message"></a>傳送雲端到裝置訊息
 
-在本節中，您會建立 Node.js 主控台應用程式，將雲端到裝置訊息傳送至模擬裝置應用程式。 您需要在將[遙測資料從裝置傳送至 IoT 中樞](quickstart-send-telemetry-node.md)快速入門中所新增裝置的裝置識別碼。 您也需要先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 iot 中樞連接字串。
+在本節中，您會建立 Node.js 主控台應用程式，將雲端到裝置訊息傳送至模擬裝置應用程式。 您需要在將[遙測資料從裝置傳送至 IoT 中樞](quickstart-send-telemetry-node.md)快速入門中所新增裝置的裝置識別碼。 您也需要先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 IoT 中樞連接字串。
 
 1. 建立新的名為 **sendcloudtodevicemessage**的空資料夾。 在 **sendcloudtodevicemessage** 資料夾中，於命令提示字元使用下列命令建立 package.json 檔案。 接受所有預設值：
 
@@ -173,7 +166,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 現在您已經準備好執行應用程式。
 
-1. 在命令提示字元中，於 **simulateddevice** 資料夾中執行下列命令，將遙測傳送至 IoT 中樞並接聽雲端到裝置訊息：
+1. 在**模擬裝置**資料夾的命令提示字元中, 執行下列命令以將遙測傳送至 IoT 中樞並接聽雲端到裝置訊息:
 
     ```shell
     node SimulatedDevice.js

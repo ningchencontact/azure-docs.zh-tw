@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055352"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640612"
 ---
 # <a name="reference---iot-hub-endpoints"></a>參考 - IoT 中樞端點
 
@@ -21,7 +21,7 @@ ms.locfileid: "67055352"
 
 ## <a name="iot-hub-names"></a>IoT 中樞名稱
 
-您可以在入口網站中，於 IoT 中樞的 [概觀]  頁面上找到端點裝載所在的 IoT 中樞主機名稱。 根據預設，IoT 中樞的 DNS 名稱看起來像：`{your iot hub name}.azure-devices.net`。
+您可以在入口網站中，於 IoT 中樞的 [概觀] 頁面上找到端點裝載所在的 IoT 中樞主機名稱。 根據預設，IoT 中樞的 DNS 名稱看起來像：`{your iot hub name}.azure-devices.net`。
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>內建 IoT 中樞端點清單
 
@@ -41,9 +41,9 @@ Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動�
 
 * **裝置端點**。 針對身分識別登錄中的每個裝置，IoT 中樞會公開一組端點：
 
-  * 傳送裝置到雲端的訊息  。 裝置會使用這個端點來[傳送裝置到雲端的訊息](iot-hub-devguide-messages-d2c.md)。
+  * 傳送裝置到雲端的訊息。 裝置會使用這個端點來[傳送裝置到雲端的訊息](iot-hub-devguide-messages-d2c.md)。
 
-  * 接收雲端到裝置的訊息  。 使用此端點來接收目標[雲端到裝置訊息](iot-hub-devguide-messages-c2d.md)的裝置。
+  * 接收雲端到裝置的訊息。 使用此端點來接收目標[雲端到裝置訊息](iot-hub-devguide-messages-c2d.md)的裝置。
 
   * *起始檔案上傳*。 裝置會使用這個端點從 IoT 中樞接收 Azure 儲存體 SAS URI，以[上傳檔案](iot-hub-devguide-file-upload.md)。
 
@@ -82,14 +82,14 @@ IoT 中樞目前支援下列 Azure 服務做為額外的端點︰
 
 如需您可以新增的端點數目限制，請參閱[配額和節流](iot-hub-devguide-quotas-throttling.md)。
 
-您可以使用 REST API[取得的端點健全狀況](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)取得端點的健全狀況狀態。 我們建議您使用[IoT 中樞度量](iot-hub-metrics.md)相關路由的訊息延遲，找出並偵錯錯誤，當端點健康狀態無作用或狀況不良，我們預期在這些狀態的其中一個端點時要較高的延遲。
+您可以使用 REST API[取得端點健全狀況](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)來取得端點的健全狀況狀態。 我們建議使用與路由訊息延遲相關的[IoT 中樞計量](iot-hub-metrics.md), 在端點健康狀態為 [無作用] 或 [狀況不良] 時識別和偵測錯誤, 因為當端點處於其中一種狀態時, 我們預期會有更高的延遲。
 
 |健全狀況狀態|描述|
 |---|---|
-|healthy|端點會接受訊息，如預期般運作。|
-|狀況不良|端點不接受訊息，如預期般，IoT 中樞正在重試將資料傳送至這個端點。 IoT 中樞已建立最終一致的健全狀況狀態時，將更新的狀況不良的端點狀態為狀況良好。|
-|未知|IoT 中樞已不會建立與端點的連線。 已傳遞到任何訊息或拒絕此端點。|
-|無效信件|端點不接受訊息，IoT 中樞重試傳送訊息的 retrial 期間之後。|
+|良好|端點會如預期般接受訊息。|
+|isapi|端點不會如預期般接受訊息, IoT 中樞會重試將資料傳送到此端點。 當 IoT 中樞已建立最終一致的健全狀況狀態時, 狀態不良的端點就會更新為狀況良好。|
+|未知|IoT 中樞尚未與端點建立連接。 未將任何訊息傳遞至此端點或從中拒絕。|
+|損|在 IoT 中樞重試傳送 retrial 期間的訊息之後, 端點不接受訊息。|
 
 ## <a name="field-gateways"></a>現場閘道器
 
@@ -104,3 +104,4 @@ IoT 中樞目前支援下列 Azure 服務做為額外的端點︰
 * [裝置對應項、作業和訊息路由的 IoT 中樞查詢語言](iot-hub-devguide-query-language.md)
 * [配額和節流](iot-hub-devguide-quotas-throttling.md)
 * [IoT 中樞的 MQTT 支援](iot-hub-mqtt-support.md)
+* [瞭解您的 IoT 中樞 IP 位址](iot-hub-understand-ip-address.md)

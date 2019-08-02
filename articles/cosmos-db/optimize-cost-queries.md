@@ -4,14 +4,14 @@ description: 了解如何評估查詢的要求單位費用，並在效能和成�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
-ms.openlocfilehash: 2d1ac054abf4bb8228bdb5cc20d79cb751af7a33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967450"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717012"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化查詢成本
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 中的查詢通常已依輸送量排序，從最快/最有效率
 
 將一些資料儲存在 Azure Cosmos 容器中後，可以使用 Azure 入口網站中的 [資料總管] 來建構及執行您的查詢。 您也可以使用 [資料總管] 取得查詢的成本。 這個方法可讓您了解系統支援的典型查詢和作業所涉及的實際費用。
 
-您還可以使用 SDK 以程式設計方式取得查詢的成本。 若要測量任何作業 (如建立、更新或刪除) 的額外負荷，請在使用 REST API 時檢查 `x-ms-request-charge` 標頭。 如果您使用.NET 或 Java SDK，`RequestCharge`屬性是要取得的要求費用的對等屬性，這個屬性是 ResourceResponse 或 FeedResponse 內出現。
+您還可以使用 SDK 以程式設計方式取得查詢的成本。 若要測量任何作業 (如建立、更新或刪除) 的額外負荷，請在使用 REST API 時檢查 `x-ms-request-charge` 標頭。 如果您使用 .net 或 JAVA SDK, `RequestCharge`屬性會是取得要求費用的對等屬性, 而此屬性會出現在 ResourceResponse 或 FeedResponse 內。
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -53,13 +53,13 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>影響查詢的要求單位費用的因素
 
-查詢的要求單位取決於許多因素。 比方說，Azure Cosmos 傳回的項目數載入/，針對索引，也就是查詢編譯的查詢數目的時間等詳細資料。 Azure Cosmos DB 保證在相同資料上執行時，相同的查詢將一律使用相同數量的要求單位，即使重複執行也是如此。 使用查詢執行計量的查詢設定檔，可讓您清楚了解要求單位的使用情況。  
+查詢的要求單位取決於許多因素。 例如, 已載入/傳回的 Azure Cosmos 專案數目、針對索引的查閱次數、查詢編譯時間等詳細資料。 Azure Cosmos DB 保證在相同資料上執行時，相同的查詢將一律使用相同數量的要求單位，即使重複執行也是如此。 使用查詢執行計量的查詢設定檔，可讓您清楚了解要求單位的使用情況。  
 
 在某些情況下，您可能會在分頁式查詢執行中看到一連串的 200 和 429 回應以及變數的要求單位，這是因為查詢會根據可用的 RU 盡快執行。 您可能會看到查詢執行分成伺服器和用戶端之間的多個頁面/來回行程。 例如，10,000 個項目可能會以多個頁面傳回，每個頁面根據該頁面上執行的計算來收費。 當您加總這些頁面時，您應該取得與整個查詢相同的 RU 數。  
 
 ## <a name="metrics-for-troubleshooting"></a>用於疑難排解的計量
 
-由查詢、使用者定義函數 (UDF) 耗用的效能和輸送量主要取決於函式主體。 找出 UDF 中查詢執行花費的時間以及消耗的 RU 數目，最簡單的方式是啟用查詢計量。 如果您使用.NET SDK，以下是 SDK 所傳回的範例查詢計量：
+由查詢、使用者定義函數 (UDF) 耗用的效能和輸送量主要取決於函式主體。 找出 UDF 中查詢執行花費的時間以及消耗的 RU 數目，最簡單的方式是啟用查詢計量。 如果您使用 .NET SDK, 以下是 SDK 所傳回的範例查詢計量:
 
 ```bash
 Retrieved Document Count                 :               1              

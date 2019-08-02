@@ -3,34 +3,23 @@ title: 使用 Web 應用程式防火牆來限制網路流量 - Azure PowerShell
 description: 了解如何使用 Azure PowerShell，在應用程式閘道上使用 Web 應用程式防火牆來限制網路流量。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e962d76bc82edabf750af52c50ec45ed9ed76e17
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
-ms.translationtype: HT
+ms.openlocfilehash: 219c2a36d1a241db8361ae1f8f2f74b9a68780ca
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596848"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688271"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>使用 Azure PowerShell 啟用 Web 應用程式防火牆
 
-> [!div class="op_single_selector"]
->
-> - [Azure 入口網站](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
-
 您可以使用 [Web 應用程式防火牆](waf-overview.md) (WAF)，限制[應用程式閘道](overview.md)上的流量。 WAF 會使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 規則來保護您的應用程式。 這些規則包括防禦諸如 SQL 插入攻擊、跨網站指令碼攻擊，以及工作階段劫持等攻擊。 
 
-在本教學課程中，您了解如何：
+在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 設定網路
@@ -40,7 +29,7 @@ ms.locfileid: "68596848"
 
 ![Web 應用程式防火牆範例](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
-如果您想要，您可以使用 [Azure CLI](tutorial-restrict-web-traffic-cli.md) 完成本教學課程。
+如果您想要的話, 可以使用[Azure 入口網站](application-gateway-web-application-firewall-portal.md)或[Azure CLI](tutorial-restrict-web-traffic-cli.md)來完成這篇文章。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -48,7 +37,7 @@ ms.locfileid: "68596848"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 1.0.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell, 本文會要求 Azure PowerShell 模組1.0.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -60,7 +49,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源 
 
-使用 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 建立名為 myBackendSubnet  和 myAGSubnet  的子網路設定。 使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 搭配子網路組態來建立名為 myVNet  的虛擬網路。 最後，使用 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 來建立名為 *myAGPublicIPAddress* 的公用 IP 位址。 這些資源可用來為應用程式閘道及其相關聯的資源提供網路連線。
+使用 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 建立名為 myBackendSubnet 和 myAGSubnet 的子網路設定。 使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 搭配子網路組態來建立名為 myVNet 的虛擬網路。 最後，使用 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 來建立名為 *myAGPublicIPAddress* 的公用 IP 位址。 這些資源可用來為應用程式閘道及其相關聯的資源提供網路連線。
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -82,16 +71,17 @@ $pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Dynamic
+  -AllocationMethod Static `
+  -Sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-在本節中，您會建立支援應用程式閘道的資源，並在最後建立應用程式閘道和 WAF。 您所建立的資源包括：
+在本節中, 您會建立支援應用程式閘道的資源, 最後建立它和一個 WAF。 您所建立的資源包括：
 
-- IP 組態和前端連接埠  - 將您先前建立的子網路與應用程式閘道產生關聯，並且指派用來存取它的連接埠。
-- 預設集區  - 所有應用程式閘道都必須具有至少一個伺服器後端集區。
-- 預設接聽程式和規則  - 預設接聽程式會接聽所指派連接埠上的流量，而預設規則會將流量傳送到預設集區。
+- IP 組態和前端連接埠 - 將您先前建立的子網路與應用程式閘道產生關聯，並且指派用來存取它的連接埠。
+- 預設集區 - 所有應用程式閘道都必須具有至少一個伺服器後端集區。
+- 預設接聽程式和規則 - 預設接聽程式會接聽所指派連接埠上的流量，而預設規則會將流量傳送到預設集區。
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>建立 IP 設定與前端連接埠
 
@@ -137,7 +127,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 需要接聽程式才能讓應用程式閘道將流量適當地路由到後端位址集區。 在此範例中，您會建立基本接聽程式，接聽根 URL 的流量。 
 
-使用 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 搭配您先前建立的前端設定和前端連接埠，來建立名為 *mydefaultListener* 的接聽程式。 接聽程式需要規則以便知道要針對連入流量使用哪個後端集區。 使用 [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 建立名為 rule1  的基本規則。
+使用 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 搭配您先前建立的前端設定和前端連接埠，來建立名為 *mydefaultListener* 的接聽程式。 接聽程式需要規則以便知道要針對連入流量使用哪個後端集區。 使用 [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 建立名為 rule1 的基本規則。
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzApplicationGatewayHttpListener `
@@ -156,12 +146,12 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway-with-the-waf"></a>建立包含 WAF 的應用程式閘道
 
-您已經建立必要的支援資源，接著請使用 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) 指定應用程式閘道的參數。 使用 [New-AzApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/az.network/new-azapplicationgatewaywebapplicationfirewallconfiguration) 指定 WAF 設定。 然後使用 [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) 建立名為 myAppGateway  的應用程式閘道。
+您已經建立必要的支援資源，接著請使用 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) 指定應用程式閘道的參數。 使用 [New-AzApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/az.network/new-azapplicationgatewaywebapplicationfirewallconfiguration) 指定 WAF 設定。 然後使用 [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) 建立名為 myAppGateway 的應用程式閘道。
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
-  -Name WAF_Medium `
-  -Tier WAF `
+  -Name WAF_v2 `
+  -Tier WAF_v2 `
   -Capacity 2
 
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
@@ -258,11 +248,11 @@ Update-AzVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>建立儲存體帳戶並設定診斷
 
-在本教學課程中，應用程式閘道會使用儲存體帳戶來儲存資料，以達到偵測與預防的目的。 您也可以使用 Azure 監視器記錄或事件中樞來記錄資料。
+在本文中，應用程式閘道會使用儲存體帳戶來儲存資料，以達到偵測與預防的目的。 您也可以使用 Azure 監視器記錄或事件中樞來記錄資料。
 
 ### <a name="create-the-storage-account"></a>建立儲存體帳戶
 
-使用 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) 建立名為 myagstore1  的儲存體帳戶。
+使用 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) 建立名為 myagstore1 的儲存體帳戶。
 
 ```azurepowershell-interactive
 $storageAccount = New-AzStorageAccount `
@@ -314,13 +304,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定網路
-> * 建立已啟用 WAF 的應用程式閘道
-> * 建立虛擬機器擴展集
-> * 建立儲存體帳戶並設定診斷
-
-> [!div class="nextstepaction"]
-> [建立具有 SSL 終止的應用程式閘道](./tutorial-ssl-powershell.md)
+[建立具有 SSL 終止的應用程式閘道](./tutorial-ssl-powershell.md)

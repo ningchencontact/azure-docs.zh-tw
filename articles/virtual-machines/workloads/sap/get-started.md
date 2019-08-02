@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 07/29/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f4352a1f6a065d1e9be78f01bde95c8f00593a3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 60474148d1eac6ca9d85fbc1d103ad612787aeae
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479782"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607878"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -43,7 +43,7 @@ ms.locfileid: "68479782"
 - 為[SAP Hana (大型實例) 網路架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)和相關檔中的 HANA 大型實例引進 ExpressRoute 快速路徑和全球接觸
 - [透過 Azure 入口網站發行 AZURE HANA 大型實例控制](hana-li-portal.md)
 - [使用適用于 Sap 應用程式的 Azure NetApp Files 在 SUSE Linux Enterprise Server 上的 Azure vm 上的 SAP NetWeaver 版本高可用性](high-availability-guide-suse-netapp-files.md)
-
+- [Azure NetAppFiles (及) BETA 版的 INSTALL SAP NETWEAVER ASCS for SAP Hana](lama-installation.md)版本
 
 
 

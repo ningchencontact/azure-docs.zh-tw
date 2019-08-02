@@ -1,20 +1,18 @@
 ---
 title: 如何使用適用於 Node.js v2 的用戶端程式庫在 Azure 儲存體中建立 Blob
 description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js v2 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 7ca1eacd1add7453833b4b9ad1d4bd0fbef13ca7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149427"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721977"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>如何使用適用於 Node.js v2 的用戶端程式庫上傳、下載及列出 Blob
 
@@ -37,17 +35,17 @@ ms.locfileid: "65149427"
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
 ```
 
-若要開啟應用程式，請尋找 storage-blobs-node-quickstart  資料夾，然後在您慣用的程式碼編輯環境中加以開啟。
+若要開啟應用程式，請尋找 storage-blobs-node-quickstart 資料夾，然後在您慣用的程式碼編輯環境中加以開啟。
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>設定儲存體連接字串
 
-在執行應用程式之前，您必須先提供儲存體帳戶的連接字串。 存放庫範例包含名為 .env.example  的檔案。 您可以藉由移除 .example  副檔名來將這個檔案重新命名，從而產生名為 .env  的檔案。 在 .env  檔案內，於 AZURE_STORAGE_CONNECTION_STRING  索引鍵後面新增您的連接字串值。
+在執行應用程式之前，您必須先提供儲存體帳戶的連接字串。 存放庫範例包含名為 .env.example 的檔案。 您可以藉由移除 .example 副檔名來將這個檔案重新命名，從而產生名為 .env 的檔案。 在 .env 檔案內，於 AZURE_STORAGE_CONNECTION_STRING 索引鍵後面新增您的連接字串值。
 
 ## <a name="install-required-packages"></a>安裝必要的套件
 
-在應用程式目錄中，執行 npm install  來安裝應用程式的所需套件。
+在應用程式目錄中，執行 npm install 來安裝應用程式的所需套件。
 
 ```bash
 npm install
@@ -89,7 +87,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
-dotenv  模組在本機執行應用程式進行偵錯會載入環境變數。 變數值會定義於名為 .env  的檔案中並載入目前的執行環境中。 在生產環境中，伺服器組態會提供這些值，這就是為何只有當指令碼未在「生產」環境下執行時，此程式碼才會執行。
+dotenv 模組在本機執行應用程式進行偵錯會載入環境變數。 變數值會定義於名為 .env 的檔案中並載入目前的執行環境中。 在生產環境中，伺服器組態會提供這些值，這就是為何只有當指令碼未在「生產」環境下執行時，此程式碼才會執行。
 
 ```javascript
 const path = require('path');
@@ -98,21 +96,21 @@ const storage = require('azure-storage');
 
 這些模組的目的如下： 
 
-名為 .env  的檔案會載入目前的執行環境中
-- path  是必要項目，有此項目才能判斷要上傳至 Blob 儲存體之檔案的絕對檔案路徑
-- azure-storage  是 Node.js 的 [Azure 儲存體用戶端程式庫](https://docs.microsoft.com/javascript/api/azure-storage) 模組
+名為 .env 的檔案會載入目前的執行環境中
+- path 是必要項目，有此項目才能判斷要上傳至 Blob 儲存體之檔案的絕對檔案路徑
+- azure-storage 是 Node.js 的 [Azure 儲存體用戶端程式庫](https://docs.microsoft.com/javascript/api/azure-storage) 模組
 
-接下來，blobService  變數會初始化為 Azure Blob 服務的新執行個體。
+接下來，blobService 變數會初始化為 Azure Blob 服務的新執行個體。
 
 ```javascript
 const blobService = storage.createBlobService();
 ```
 
-在下列實作中，每個 blobService  函式都會包裝在 Promise  中，以允許存取 JavaScript 的 async  函式和 await  運算子來簡化 [Azure 儲存體 API](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 的回呼性質。 當每個函式都有成功的回應傳回時，promise 會使用相關資料以及動作特有的訊息來解析。
+在下列實作中，每個 blobService 函式都會包裝在 Promise 中，以允許存取 JavaScript 的 async 函式和 await 運算子來簡化 [Azure 儲存體 API](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 的回呼性質。 當每個函式都有成功的回應傳回時，promise 會使用相關資料以及動作特有的訊息來解析。
 
 ### <a name="list-containers"></a>列出容器
 
-ListContainers  函式會呼叫 [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)，以傳回群組中的容器集合。
+ListContainers 函式會呼叫 [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)，以傳回群組中的容器集合。
 
 ```javascript
 const listContainers = async () => {
@@ -128,11 +126,11 @@ const listContainers = async () => {
 };
 ```
 
-群組的大小可透過 [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest) 設定。 呼叫 listContainersSegmented  會將 Blob 中繼資料傳回為 [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest) 執行個體的陣列。 結果會以 5,000 的增量批次 (區段) 傳回。 如果容器中有 5,000 個以上的 Blob，結果中會包含 *continuationToken* 的值。 若要列出 Blob 容器的後續區段，您可以將接續權杖回傳給 listContainersSegment  作為第二個引數。
+群組的大小可透過 [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest) 設定。 呼叫 listContainersSegmented 會將 Blob 中繼資料傳回為 [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest) 執行個體的陣列。 結果會以 5,000 的增量批次 (區段) 傳回。 如果容器中有 5,000 個以上的 Blob，結果中會包含 *continuationToken* 的值。 若要列出 Blob 容器的後續區段，您可以將接續權杖回傳給 listContainersSegment 作為第二個引數。
 
 ### <a name="create-a-container"></a>建立容器
 
-CreateContainer  函式會呼叫 [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 並為 Blob 設定適當的存取層級。
+CreateContainer 函式會呼叫 [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 並為 Blob 設定適當的存取層級。
 
 ```javascript
 const createContainer = async (containerName) => {
@@ -148,9 +146,9 @@ const createContainer = async (containerName) => {
 };
 ```
 
-**createContainerIfNotExists** 的第二個參數 (options  ) 會接受 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 的值。 publicAccessLevel  的 Blob  值會指定要公開的特定 Blob 資料。 此設定可和 container  存取層級相比較，後者可授與列出容器內容的能力。
+**createContainerIfNotExists** 的第二個參數 (options) 會接受 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 的值。 publicAccessLevel 的 Blob 值會指定要公開的特定 Blob 資料。 此設定可和 container 存取層級相比較，後者可授與列出容器內容的能力。
 
-使用 **createContainerIfNotExists** 可讓應用程式執行 createContainer  命令多次，而不會在容器早已存在時傳回錯誤。 在生產環境中，由於整個應用程式都使用相同的容器，因此您往往只會呼叫 **CreateIfNotExists** 一次。 在這些情況下，您可以透過入口網站或透過 Azure CLI 事先建立容器。
+使用 **createContainerIfNotExists** 可讓應用程式執行 createContainer 命令多次，而不會在容器早已存在時傳回錯誤。 在生產環境中，由於整個應用程式都使用相同的容器，因此您往往只會呼叫 **CreateIfNotExists** 一次。 在這些情況下，您可以透過入口網站或透過 Azure CLI 事先建立容器。
 
 ### <a name="upload-text"></a>上傳文字
 
@@ -171,7 +169,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>上傳本機檔案
 
-uploadLocalFile  函式會使用 [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) 將檔案從檔案系統上傳及寫入或覆寫到 Blob 儲存體。 
+uploadLocalFile 函式會使用 [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) 將檔案從檔案系統上傳及寫入或覆寫到 Blob 儲存體。 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -192,7 +190,7 @@ const uploadLocalFile = async (containerName, filePath) => {
 
 ### <a name="list-the-blobs"></a>列出 blob
 
-listBlobs  函式會呼叫 [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) 方法以傳回容器中 Blob 中繼資料的清單。 
+listBlobs 函式會呼叫 [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) 方法以傳回容器中 Blob 中繼資料的清單。 
 
 ```javascript
 const listBlobs = async (containerName) => {
@@ -208,11 +206,11 @@ const listBlobs = async (containerName) => {
 };
 ```
 
-呼叫 listBlobsSegmented  會將 Blob 中繼資料傳回為 [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest) 執行個體的陣列。 結果會以 5,000 的增量批次 (區段) 傳回。 如果容器中有 5,000 個以上的 Blob，結果中會包含 **continuationToken** 的值。 若要列出 Blob 容器的後續區段，您可以將接續權杖回傳給 **listBlobSegmented** 作為第二個引數。
+呼叫 listBlobsSegmented 會將 Blob 中繼資料傳回為 [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest) 執行個體的陣列。 結果會以 5,000 的增量批次 (區段) 傳回。 如果容器中有 5,000 個以上的 Blob，結果中會包含 **continuationToken** 的值。 若要列出 Blob 容器的後續區段，您可以將接續權杖回傳給 **listBlobSegmented** 作為第二個引數。
 
 ### <a name="download-a-blob"></a>下載 Blob
 
-downloadBlob  函式會使用 [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 將 Blob 的內容下載至指定的絕對檔案路徑。
+downloadBlob 函式會使用 [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) 將 Blob 的內容下載至指定的絕對檔案路徑。
 
 ```javascript
 const downloadBlob = async (containerName, blobName) => {
@@ -250,7 +248,7 @@ const deleteBlob = async (containerName, blobName) => {
 
 ### <a name="delete-a-container"></a>刪除容器
 
-從 blob 服務外呼叫 deleteContainer  方法並傳入容器名稱，就會刪除容器。
+從 blob 服務外呼叫 deleteContainer 方法並傳入容器名稱，就會刪除容器。
 
 ```javascript
 const deleteContainer = async (containerName) => {
@@ -268,7 +266,7 @@ const deleteContainer = async (containerName) => {
 
 ### <a name="calling-code"></a>呼叫程式碼
 
-為了支援 JavaScript 的 async/await  語法，所有呼叫程式碼都會包裝在名為 execute  函式中。 接著會呼叫 execute 並當作 promise 處理。
+為了支援 JavaScript 的 async/await 語法，所有呼叫程式碼都會包裝在名為 execute 函式中。 接著會呼叫 execute 並當作 promise 處理。
 
 ```javascript
 async function execute() {

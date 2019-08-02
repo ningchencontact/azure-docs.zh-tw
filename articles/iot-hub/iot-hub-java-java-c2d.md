@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: e844fbe542e0517ffe1f99b550544e6eaca22885
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 28d01f1acbc6d9ff033567b10efc801925752191
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402407"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618491"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>使用 IoT 中樞傳送雲端到裝置訊息 (Java)
 
@@ -41,7 +41,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 * **c2d-訊息**會透過 IoT 中樞將雲端到裝置訊息傳送至模擬裝置應用程式, 然後接收其傳遞通知。
 
 > [!NOTE]
-> 「IoT 中樞」透過 Azure IoT 裝置 SDK 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中樞](https://azure.microsoft.com/develop/iot)。
+> IoT 中樞透過 Azure IoT 裝置 Sdk, 為許多裝置平臺和語言 (包括 C、JAVA、Python 和 JAVAscript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中樞](https://azure.microsoft.com/develop/iot)。
 
 若要完成此教學課程，您需要下列項目：
 

@@ -9,38 +9,36 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3738ffe8b3faedc328bde01173400289403652f4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297941"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668487"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
-在本文中，您將了解如何設定開發環境以使用 Azure Machine Learning 服務。 Machine Learning 服務與平台無關。
+在本文中，您將了解如何設定開發環境以使用 Azure Machine Learning 服務。 Azure Machine Learning 服務與平臺無關。 您的開發環境唯一的硬性需求是 Python 3。 也建議使用隔離的環境, 例如 Anaconda 或 Virtualenv。
 
-您開發環境的唯一需求是 Python 3、Anaconda (適用于隔離環境), 以及包含您 Azure Machine Learning 工作區資訊的設定檔。
+下表顯示本文涵蓋的每個開發環境, 以及優缺點。
 
-本文著重於下列環境和工具：
+| 環境 | 優點 | 缺點 |
+| --- | --- | --- |
+| [以雲端為基礎的筆記本 VM](#notebookvm) | 最簡單的入門方式。 整個 SDK 已安裝在您的工作區 VM 中, 且筆記本教學課程已預先複製並可供執行。 | 缺少開發環境和相依性的控制權。 Linux VM 所產生的額外成本 (VM 可以在未使用時停止, 以避免費用)。 請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)。 |
+| [本機環境](#local) | 完全控制您的開發環境和相依性。 使用您選擇的任何組建工具、環境或 IDE 來執行。 | 開始使用較長的時間。 必須安裝必要的 SDK 套件, 如果您還沒有環境, 也必須安裝它。 |
+| [Azure Databricks](#aml-databricks) | 適用于在可調整的 Apache Spark 平臺上執行大規模的機器學習工作流程。 | 適用于實驗性機器學習服務的大材小用, 或較小規模的實驗和工作流程。 Azure Databricks 所產生的額外成本。 請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/databricks/)。 |
+| [資料科學虛擬機器 (DSVM)](#dsvm) | 類似于雲端式筆記本 VM (已預先安裝 Python 和 SDK), 但已預先安裝其他常用的資料科學和機器學習工具。 易於調整, 並與其他自訂工具和工作流程結合。 | 相較于以雲端為基礎的筆記本 VM, 更慢的使用者入門體驗。 |
+| [Azure Notebooks](#aznotebooks) | 已預先安裝 Python 和 SDK 的免費和輕量快速入門體驗。 | 相較于以雲端為基礎的筆記本 VM, 更不會有更強大的 VM 可用。 與工作區和其他資源隔離。 |
 
-* 您自己[的雲端式筆記本 VM](#notebookvm):使用您工作站中的計算資源來執行 Jupyter 筆記本。 這是最簡單的入門方式，因為已經安裝了 Azure Machine Learning SDK。
-
-* [資料科學虛擬機器 (DSVM)](#dsvm)：Azure 雲端中預先設定的開發或實驗環境，此環境專為資料科學工作而設計，並可部署至純 CPU VM 執行個體或 GPU 型執行個體。 已安裝 Python 3、Conda、Jupyter Notebook 和 Azure Machine Learning SDK。 VM 隨附適用於開發機器學習解決方案的常用機器學習和深度學習架構、工具及編輯器。 針對 Azure 平台上的機器學習，它可能是最完整的開發環境。
+本文也提供下列工具的其他使用秘訣:
 
 * [Jupyter Notebook](#jupyter)：如果您已經在使用 Jupyter Notebook，則 SDK 有一些您應該安裝的附加功能。
 
 * [Visual Studio Code](#vscode)：如果您使用 Visual Studio Code，則有一些您可以安裝的實用擴充功能。
 
-* [Azure Databricks](#aml-databricks)：以 Apache Spark 為基礎的常用資料分析平台。 了解如何將 Azure Machine Learning SDK 安裝在您的叢集上，讓您可以部署模型。
-
-* [Azure Notebooks](#aznotebooks)：裝載於 Azure 雲端中的 Jupyter Notebook 服務。 這也是開始使用的簡單方式, 因為已安裝 Azure Machine Learning SDK。  
-
-如果您已經擁有 Python 3 環境，或者只是想要安裝 SDK 的基本步驟，請參閱[本機電腦](#local)一節。
-
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)。 您只需要工作區, 就能開始使用自己的[雲端式筆記本伺服器](#notebookvm)、 [DSVM](#dsvm)、 [Azure Databricks](#aml-databricks)或[Azure Notebooks](#aznotebooks)。
 
@@ -57,9 +55,9 @@ Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建�
 
 ## <a id="notebookvm"></a>您自己的雲端式筆記本 VM
 
-筆記本虛擬機器 (預覽) 是安全的雲端式 Azure 工作站, 可為數據科學家提供 Jupyter 筆記本伺服器、JupyterLab 和完整備妥的 ML 環境。 
+筆記本虛擬機器 (預覽) 是安全的雲端式 Azure 工作站, 可為數據科學家提供 Jupyter 筆記本伺服器、JupyterLab 和完整備妥的 ML 環境。
 
-筆記本 VM 是: 
+筆記本 VM 是:
 
 + **安全**。 由於 VM 和筆記本存取是使用 HTTPS 來保護, 而且預設 Azure Active Directory, 因此 IT 專業人員可以輕鬆地強制執行單一登入和其他安全性功能, 例如多重要素驗證。
 
@@ -68,17 +66,17 @@ Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建�
   + 自動設定以使用您的工作區
   + Jupyter 筆記本伺服器
   + JupyterLab 筆記本 IDE
-  + 預先設定的 GPU 驅動程式 
+  + 預先設定的 GPU 驅動程式
   + 深度學習架構的選取範圍
- 
 
-  如果您要進入程式碼, VM 會包含可協助您探索及瞭解如何使用 Azure Machine Learning 服務的教學課程和範例。 範例筆記本會儲存在工作區的 Azure Blob 儲存體帳戶中, 讓它們可在 Vm 之間共用。 執行時, 他們也可以存取您工作區的資料存放區和計算資源。 
+
+  如果您要進入程式碼, VM 會包含可協助您探索及瞭解如何使用 Azure Machine Learning 服務的教學課程和範例。 範例筆記本會儲存在工作區的 Azure Blob 儲存體帳戶中, 讓它們可在 Vm 之間共用。 執行時, 他們也可以存取您工作區的資料存放區和計算資源。
 
 + **簡單設定**:從您的 Azure Machine Learning 工作區中隨時建立一個。 只提供名稱, 並指定 Azure VM 類型。 立即試用此[快速入門:使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning](quickstart-run-cloud-notebook.md)。
 
 + **可自訂**。 在受管理且安全的 VM 供應專案中, 您可以保留硬體功能的完整存取權, 並根據您的需求進行自訂。 例如, 您可以快速建立最新的 NVidia V100 供電 VM, 以執行 novel 類神經網路架構的逐步偵錯工具。
 
-若要停止產生筆記本 VM 費用, 請[停止筆記本 vm](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)。 
+若要停止產生筆記本 VM 費用, 請[停止筆記本 vm](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)。
 
 ## <a id="dsvm"></a>資料科學虛擬機器
 
@@ -264,7 +262,7 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
 1. 若要了解如何使用 Visual Studio Code 進行 Python 開發，請參閱[在 VSCode 中開始使用 Python](https://code.visualstudio.com/docs/python/python-tutorial)。
 
 1. 若要選取 Conda 環境，請開啟 VS Code，然後選取 Ctrl+Shift+P (Linux 和 Windows) 或 Command+Shift+P (Mac)。
-    [命令棧板]  隨即開啟。
+    [命令棧板] 隨即開啟。
 
 1. 輸入 __Python:Select Interpreter__，然後選取 Conda 環境。
 
@@ -285,9 +283,9 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
 Azure Databricks 是 Azure 雲端中以 Apache Spark 為基礎的環境。 它提供以 CPU 或 GPU 為基礎的計算叢集的共同作業筆記本型環境。
 
 Azure Databricks 如何與 Azure Machine Learning 服務搭配運作:
-+ 您可以使用 Spark MLlib 來定型模型, 並從 Azure Databricks 內將模型部署至 ACI/AKS。 
++ 您可以使用 Spark MLlib 來定型模型, 並從 Azure Databricks 內將模型部署至 ACI/AKS。
 + 您也可以在具有 Azure Databricks 的特殊 Azure ML SDK 中, 使用[自動化機器學習](concept-automated-ml.md)功能。
-+ 您可以使用 Azure Databricks 做為來自[Azure Machine Learning 管線](concept-ml-pipelines.md)的計算目標。 
++ 您可以使用 Azure Databricks 做為來自[Azure Machine Learning 管線](concept-ml-pipelines.md)的計算目標。
 
 ### <a name="set-up-your-databricks-cluster"></a>設定 Databricks 叢集
 
@@ -298,17 +296,17 @@ Azure Databricks 如何與 Azure Machine Learning 服務搭配運作:
 
 | 設定 |適用於| 值 |
 |----|---|---|
-| 叢集名稱 |總是| yourclustername |
-| Databricks 執行階段 |總是| 任何非 ML 執行階段 (非 ML 4.x、5.x) |
-| Python 版本 |總是| 3 |
-| 背景工作角色 |總是| 2 個以上 |
+| 叢集名稱 |永遠| yourclustername |
+| Databricks 執行階段 |永遠| 任何非 ML 執行階段 (非 ML 4.x、5.x) |
+| Python 版本 |永遠| 3 |
+| 背景工作 |永遠| 2 個以上 |
 | 背景工作節點 VM 類型 <br>(判斷並行反覆運算的最大數目) |自動化 ML<br>才| 建議使用已記憶體最佳化的 VM |
 | 啟用自動調整 |自動化 ML<br>才| 取消選取 |
 
 請靜候至叢集運作，再繼續操作。
 
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>將正確的 SDK 安裝到 Databricks 程式庫
-叢集執行之後, 請[建立程式庫](https://docs.databricks.com/user-guide/libraries.html#create-a-library), 以將適當的 Azure Machine Learning SDK 套件附加至您的叢集。 
+叢集執行之後, 請[建立程式庫](https://docs.databricks.com/user-guide/libraries.html#create-a-library), 以將適當的 Azure Machine Learning SDK 套件附加至您的叢集。
 
 1. **只選擇一個**選項 (不支援其他 SDK 安裝)
 
@@ -323,31 +321,31 @@ Azure Databricks 如何與 Azure Machine Learning 服務搭配運作:
    * 請勿選取 [**自動附加至所有**叢集]。
    * 選取 **附加**旁您的叢集名稱。
 
-1. 監視錯誤直到狀態變更為 [已**附加**], 這可能需要幾分鐘的時間。  如果此步驟失敗, 請檢查下列各項: 
+1. 監視錯誤直到狀態變更為 [已**附加**], 這可能需要幾分鐘的時間。  如果此步驟失敗, 請檢查下列各項:
 
    嘗試重新開機您的叢集:
-   1. 在左窗格中，選取 [叢集]  。
+   1. 在左窗格中，選取 [叢集]。
    1. 請選取表格中您的叢集名稱。
-   1. 在 [程式庫]  索引標籤上，選取 [重新啟動]  。
-      
+   1. 在 [程式庫] 索引標籤上，選取 [重新啟動]。
+
    也請考慮:
    + 在 Automl config 中, 使用 Azure Databricks 時, 請新增下列參數:
-       1. ```max_concurrent_iterations```是根據叢集中的背景工作節點數目。 
-        2. ```spark_context=sc```是以預設 spark 內容為基礎。 
+       1. ```max_concurrent_iterations```是根據叢集中的背景工作節點數目。
+        2. ```spark_context=sc```是以預設 spark 內容為基礎。
    + 或者, 如果您有舊的 SDK 版本, 請從叢集的已安裝的程式庫中取消選取它, 並移至垃圾桶。 安裝新版 SDK，並重新啟動叢集。 如果在此之後發生問題，請中斷連結再重新連結叢集。
 
 如果安裝成功, 則匯入的程式庫看起來應該像下列其中一項:
-   
+
 Sdk for Databricks, **_不含_** 自動化![機器學習服務 Azure Machine Learning sdk for Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK for Databricks  搭配自動化機器![學習服務 sdk, 並在 Databricks 上安裝自動化機器學習服務](./media/how-to-configure-environment/automlonadb.jpg)
+SDK for Databricks搭配自動化機器![學習服務 sdk, 並在 Databricks 上安裝自動化機器學習服務](./media/how-to-configure-environment/automlonadb.jpg)
 
 ### <a name="start-exploring"></a>開始探索
 
 試試看:
-+ 下載 Azure Databricks/Azure Machine Learning SDK 的[筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc)封存檔案, 並將封存檔案匯[入您的](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive)Databricks 叢集中。  
++ 下載 Azure Databricks/Azure Machine Learning SDK 的[筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc)封存檔案, 並將封存檔案匯[入您的](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive)Databricks 叢集中。
   雖然有許多範例筆記本可供使用, 但**只有[這些範例筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks)適用于 Azure Databricks。**
-  
+
 + 瞭解如何[使用 Databricks 作為訓練計算來建立管線](how-to-create-your-first-pipeline.md)。
 
 ## <a id="aznotebooks"></a>Azure Notebooks
@@ -381,7 +379,7 @@ SDK for Databricks  搭配自動化機器![學習服務 sdk, 並在 Databricks �
 
 * **遵循[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#sdk)中的步驟**:*config.json* 檔案是在 Azure Notebook 程式庫中建立的。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
 
-* **下載檔案**:在 [Azure 入口網站](https://ms.portal.azure.com)中，從您工作區的 [概觀]  區段選取 [下載 config.json]  。
+* **下載檔案**:在 [Azure 入口網站](https://ms.portal.azure.com)中，從您工作區的 [概觀] 區段選取 [下載 config.json]。
 
      ![Azure 入口網站](./media/how-to-configure-environment/configure.png)
 

@@ -1,19 +1,18 @@
 ---
 title: Azure 檔案儲存體效能疑難排解指南
 description: Azure 檔案共用和相關的因應措施的已知效能問題。
-services: storage
 author: gunjanj
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 1a5e59bd0276477bad1eab9a544dc4070e662016
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6b28d004ceacda3cec13e96ceae84d5d1ff1a2e5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249885"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699162"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>針對 Azure 檔案儲存體效能問題進行疑難排解
 
@@ -31,11 +30,11 @@ Premium 共用上的預設配額為 100 GiB, 可提供100基準 IOPS (最高可�
 
 1. 選取 [**所有服務**], 然後搜尋 [**計量**]。
 
-1. 選取 [計量]  。
+1. 選取 [計量]。
 
 1. 選取您的儲存體帳戶作為資源。
 
-1. 選取  [檔案] 做為計量命名空間。
+1. 選取 [檔案] 做為計量命名空間。
 
 1. 選取 [**交易**] 作為 [度量]。
 

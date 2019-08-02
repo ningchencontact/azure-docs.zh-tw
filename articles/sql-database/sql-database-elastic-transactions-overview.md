@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506857"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568288"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨雲端資料庫的分散式交易
 
@@ -128,13 +127,13 @@ Azure 會提供數個供應項目，以裝載 .NET 應用程式。 如需不同�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 在 Azure SQL Database 中，支援跨越不同 SQL Database 伺服器的彈性資料庫交易。 當交易跨越 SQL Database 伺服器的界限時，參與的伺服器首先必須進入一個相互通訊關聯性。 一旦建立通訊關聯性之後，任一部伺服器中的任何資料庫都可以和另一部伺服器中的資料庫一起參與彈性交易。 對於跨越兩部以上 SQL Database 伺服器的交易，任何一組 SQL Database 伺服器都必須先具備通訊關聯性。
 
 使用下列 PowerShell Cmdlet 管理跨伺服器的通訊關聯性，以進行彈性資料庫交易：
 
-* **New-AzSqlServerCommunicationLink**:使用這個 Cmdlet 建立 Azure SQL Database 中兩部 SQL Database 伺服器之間的新通訊關聯性。 此關聯性是對稱的，也就是說，這兩部伺服器彼此都可以起始交易。
+* **新 AzSqlServerCommunicationLink**:使用這個 Cmdlet 建立 Azure SQL Database 中兩部 SQL Database 伺服器之間的新通訊關聯性。 此關聯性是對稱的，也就是說，這兩部伺服器彼此都可以起始交易。
 * **Get-AzSqlServerCommunicationLink**:使用這個 Cmdlet 擷取現有的通訊關聯性及其屬性。
 * **Remove-AzSqlServerCommunicationLink**:使用這個 Cmdlet 移除現有的通訊關聯性。 
 

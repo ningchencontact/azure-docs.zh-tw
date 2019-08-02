@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
-manager: jroth
 ms.date: 06/19/2019
-ms.openlocfilehash: a9c4fb43717788703184522109301e88d4c94f0e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 0507b3cb64b4b12bac92cc6bc90120ab4ec56dee
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444808"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568752"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>教學課程：將 Azure SQL Database 彈性集區新增至容錯移轉群組
 
@@ -57,7 +56,7 @@ ms.locfileid: "68444808"
 
    - **計算 + 儲存體**：選取 [**設定彈性集**區] 以設定您的計算、儲存體, 並將您的單一資料庫新增至彈性集區。 在 [**集區設定**] 索引標籤上, 保留預設值第5代, 其中包含2虛擬核心和32gb。 
 
-1. 在 [**設定**] 頁面上, 選取 [**資料庫**] 索引標籤, 然後選擇 [**新增資料庫**]。 選擇您在第1節中建立的資料庫, 然後選取 [套用], 將它新增至您的彈性集區。 再次選取 [套用] 以套用您的彈性集區設定, 然後關閉 [**設定**] 頁面。 
+1. 在 [**設定**] 頁面上, 選取 [**資料庫**] 索引標籤, 然後選擇 [**新增資料庫**]。 選擇您在第1節中建立的資料庫,然後選取 [套用], 將它新增至您的彈性集區。 再次選取 [套用] 以套用您的彈性集區設定, 然後關閉 [**設定**] 頁面。 
 
     ![將 SQL DB 新增至彈性集區](media/sql-database-elastic-pool-create-failover-group-tutorial/add-database-to-elastic-pool.png)
 

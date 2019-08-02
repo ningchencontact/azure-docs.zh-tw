@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204946"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667175"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的應用程式設定參考
 
@@ -35,11 +35,11 @@ ms.locfileid: "67204946"
 
 ## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-在版本 2.x 的 Functions 執行階段中，會設定執行階段環境為基礎的應用程式行為。 這個值是[在初始化期間讀取](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)。 您可以設定`AZURE_FUNCTIONS_ENVIRONMENT`為任何值，但[三個值](/dotnet/api/microsoft.aspnetcore.hosting.environmentname)支援：[開發](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)，[預備](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)，以及[生產](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)。 當`AZURE_FUNCTIONS_ENVIRONMENT`未設定，則會預設為`Production`。 應該使用這項設定，而不是`ASPNETCORE_ENVIRONMENT`設定執行階段環境。 
+在2.x 版的函式執行時間中, 會根據執行時間環境設定應用程式行為。 此值會[在初始化期間讀取](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)。 您可以將`AZURE_FUNCTIONS_ENVIRONMENT`設定為任何值, 但支援[三個值](/dotnet/api/microsoft.aspnetcore.hosting.environmentname):[開發](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)、[預備](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)和[生產環境](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)。 若未設定, 則會在本機環境和`Production` Azure 上預設為`Development`。 `AZURE_FUNCTIONS_ENVIRONMENT` 應該使用此設定, 而不`ASPNETCORE_ENVIRONMENT`是設定執行時間環境。 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-選擇性儲存體帳戶連接字串，用於儲存記錄並將它們顯示在入口網站的 [監視器]  索引標籤中。 儲存體帳戶必須是一般用途的帳戶，支援 Blob、佇列和資料表。 請參閱[儲存體帳戶](functions-infrastructure-as-code.md#storage-account)和[儲存體帳戶需求](functions-create-function-app-portal.md#storage-account-requirements)。
+選擇性儲存體帳戶連接字串，用於儲存記錄並將它們顯示在入口網站的 [監視器] 索引標籤中。 儲存體帳戶必須是一般用途的帳戶，支援 Blob、佇列和資料表。 請參閱[儲存體帳戶](functions-infrastructure-as-code.md#storage-account)和[儲存體帳戶需求](functions-create-function-app-portal.md#storage-account-requirements)。
 
 |Key|範例值|
 |---|------------|
@@ -54,7 +54,7 @@ ms.locfileid: "67204946"
 
 |Key|範例值|
 |---|------------|
-|AzureWebJobsDisableHomepage|true|
+|AzureWebJobsDisableHomepage|真|
 
 省略這個應用程式設定或將其設為 `false` 時，會顯示與下列範例類似的頁面，以回應 URL `<functionappname>.azurewebsites.net`。
 
@@ -66,7 +66,7 @@ ms.locfileid: "67204946"
 
 |Key|範例值|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|true|
+|AzureWebJobsDotNetReleaseCompilation|真|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -82,7 +82,7 @@ ms.locfileid: "67204946"
 
 |Key|範例值|
 |---|------------|
-|AzureWebJobsSecretStorageType|文件|
+|AzureWebJobsSecretStorageType|檔案|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -102,7 +102,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 ## <a name="functionappeditmode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-指出是否啟用在 Azure 入口網站中編輯。 有效值為 "readwrite" 和 "readonly"。
+指示是否已啟用在 Azure 入口網站中編輯。 有效值為 "readwrite" 和 "readonly"。
 
 |Key|範例值|
 |---|------------|
@@ -118,7 +118,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 ## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-要在函式應用程式中載入的語言背景工作角色執行階段。  這會對應至您應用程式 (例如，"dotnet") 中所使用的語言。 對於使用多種語言的函式，您必須將其發佈到多個應用程式，每個都有對應的背景工作角色執行階段值。  有效值`dotnet`(C#/F#)， `node` (JavaScript/TypeScript) `java` (Java)， `powershell` (PowerShell)，以及`python`(Python)。
+要在函式應用程式中載入的語言背景工作角色執行階段。  這會對應至您應用程式 (例如，"dotnet") 中所使用的語言。 對於使用多種語言的函式，您必須將其發佈到多個應用程式，每個都有對應的背景工作角色執行階段值。  有效的值`dotnet`為C#(F#/) `node` 、(JavaScript/TypeScript) `java` 、(JAVA) `powershell` 、(PowerShell) 和`python` (Python)。
 
 |Key|範例值|
 |---|------------|
@@ -126,7 +126,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-僅限取用量方案。 函式應用程式碼和設定儲存所在之儲存體帳戶的連接字串。 請參閱[建立函式應用程式](functions-infrastructure-as-code.md#create-a-function-app)。
+僅限耗用量 & Premium 方案。 函式應用程式碼和設定儲存所在之儲存體帳戶的連接字串。 請參閱[建立函式應用程式](functions-infrastructure-as-code.md#create-a-function-app)。
 
 |Key|範例值|
 |---|------------|
@@ -134,7 +134,7 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 ## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
 
-僅限取用量方案。 函式應用程式碼和設定的檔案路徑。 Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. 預設值是開頭為函式應用程式名稱的唯一字串。 請參閱[建立函式應用程式](functions-infrastructure-as-code.md#create-a-function-app)。
+僅限耗用量 & Premium 方案。 函式應用程式碼和設定的檔案路徑。 Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. 預設值是開頭為函式應用程式名稱的唯一字串。 請參閱[建立函式應用程式](functions-infrastructure-as-code.md#create-a-function-app)。
 
 |Key|範例值|
 |---|------------|
@@ -175,8 +175,8 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 |Key|值|描述|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|若呼叫使用指向本機函數應用程式中之函數的後端 URL，則不再將呼叫直接傳送到函式，而是將改為導向回到函數應用程式的 HTTP 前端|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|這是預設值。 若呼叫使用指向本機函數應用程式的後端 URL，則會將呼叫直接轉送到該函式|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|真|若呼叫使用指向本機函數應用程式中之函數的後端 URL，則不再將呼叫直接傳送到函式，而是將改為導向回到函數應用程式的 HTTP 前端|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|偽|這是預設值。 若呼叫使用指向本機函數應用程式的後端 URL，則會將呼叫直接轉送到該函式|
 
 
 ## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
@@ -185,8 +185,8 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 |Key|值|描述|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|若路由參數含有已編碼的斜線，就必須將它們解碼。 `example.com/api%2ftest` 將成為 `example.com/api/test`|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|此為預設行為。 所有路由參數都將依原樣傳遞|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|真|若路由參數含有已編碼的斜線，就必須將它們解碼。 `example.com/api%2ftest` 將成為 `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|偽|此為預設行為。 所有路由參數都將依原樣傳遞|
 
 ### <a name="example"></a>範例
 
@@ -205,10 +205,10 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
     }
 }
 ```
-|URL 解碼|輸入|輸出|
+|URL 解碼|輸入|Output|
 |-|-|-|
-|true|myfunction.com/test%2fapi|example.com/test/api
-|false|myfunction.com/test%2fapi|example.com/test%2fapi|
+|真|myfunction.com/test%2fapi|example.com/test/api
+|偽|myfunction.com/test%2fapi|example.com/test%2fapi|
 
 
 ## <a name="next-steps"></a>後續步驟

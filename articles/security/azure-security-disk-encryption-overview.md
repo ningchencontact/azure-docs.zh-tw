@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 07/17/2019
+ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a67f19f0823827dad74e7aba15a92d696fbf580b
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: c5e568dd073376295e4865994fba8ae5b5ac59a0
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304275"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640988"
 ---
 # <a name="azure-disk-encryption-overview"></a>Azure 磁碟加密總覽
 
@@ -72,6 +72,7 @@ Azure 磁碟加密不適用於下列案例、功能和技術:
 * Azure 檔案 (共用檔案系統)。
 * 網路檔案系統 (NFS)。
 * 動態磁碟區。
+* 暫時的 OS 磁片。
 
 ## <a name="encryption-features"></a>加密功能
 
@@ -153,7 +154,7 @@ Azure 磁碟加密不適用於下列案例、功能和技術:
 | 術語 | 定義 |
 | --- | --- |
 | Azure AD | [Azure AD](https://azure.microsoft.com/documentation/services/active-directory/) 帳戶可用來從金鑰保存庫驗證、儲存及擷取祕密。 |
-| Azure 金鑰保存庫 | Key Vault 是一個密碼編譯金鑰管理服務，以「美國聯邦資訊處理標準」(FIPS) 已驗證的硬體安全性模組為基礎。 這些標準可協助您保護密碼編譯金鑰和敏感性祕密。 如需詳細資訊，請參閱 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 文件。 |
+| Azure Key Vault | Key Vault 是一個密碼編譯金鑰管理服務，以「美國聯邦資訊處理標準」(FIPS) 已驗證的硬體安全性模組為基礎。 這些標準可協助您保護密碼編譯金鑰和敏感性祕密。 如需詳細資訊，請參閱 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 文件。 |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx)是業界認可的 windows 磁片區加密技術, 可用來在 Windows vm 上啟用磁片加密。 |
 | BEK | BitLocker 加密金鑰 (BEK) 可用來加密 OS 開機磁碟區和資料磁碟區。 BEK 會在金鑰保存庫中作為祕密受到保護。 |
 | Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) 已針對從命令列管理 Azure 資源進行最佳化。|

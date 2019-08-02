@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2edd12435643f88a0923abf0927149993d49e424
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357320"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567804"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 
@@ -29,7 +28,7 @@ ms.locfileid: "66357320"
 
 本文將討論以 Azure SQL Database 作為平台的一些核心特性，以便您可以在使用彈性集區中的單一資料庫和集區資料庫時充分運用。 這些特性如下所示：
 
-- 監視資料庫使用 Azure 入口網站
+- 使用 Azure 入口網站監視資料庫
 - 業務持續性和災害復原 (BCDR)
 - 安全性與合規性
 - 智慧型資料庫監視和維護
@@ -40,18 +39,18 @@ ms.locfileid: "66357320"
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 入口網站監視資料庫
 
-在  [Azure 入口網站](https://portal.azure.com/)，您可以監視個別資料庫的使用率選取您的資料庫，然後按一下**監視**圖表。 如此會帶出您可變更的 [度量]  視窗，只要按一下 [編輯圖表]  按鈕即可。 新增下列度量：
+在[Azure 入口網站](https://portal.azure.com/)中, 您可以選取您的資料庫, 然後按一下 [**監視**] 圖表, 來監視個別資料庫的使用率。 如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。 新增下列度量：
 
 - CPU 百分比
 - DTU 百分比
 - 資料 IO 百分比
 - 資料庫大小百分比
 
-新增這些計量之後，您就能在 [計量]  視窗上含有詳細資訊的 [監視]  圖表中繼續檢視它們。 這四個度量都會顯示與資料庫 **DTU** 相對的平均使用率百分比。 如需服務層的相關詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)文章。  
+新增這些計量之後，您就能在 [計量] 視窗上含有詳細資訊的 [監視] 圖表中繼續檢視它們。 這四個度量都會顯示與資料庫 **DTU** 相對的平均使用率百分比。 如需服務層的相關詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)文章。  
 
 ![資料庫效能的服務層監視。](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
-您也可以在效能度量中設定警示。 按一下 [度量]  視窗中的 [新增警示]  按鈕。 遵循精靈的指示以設定警示。 您可以選擇在度量超出或低於特定臨界值時發出警示。
+您也可以在效能度量中設定警示。 按一下 [度量] 視窗中的 [新增警示] 按鈕。 遵循精靈的指示以設定警示。 您可以選擇在度量超出或低於特定臨界值時發出警示。
 
 例如，如果您預期資料庫中的工作負載會成長，可以選擇設定電子郵件警示，以便在資料庫的任何效能度量達到 80% 時收到警示。 您可以使用此警示作為早期警告，協助您判斷何時需要切換至更高的計算大小。
 
@@ -65,7 +64,7 @@ ms.locfileid: "66357320"
 
 您未在 Azure SQL DB 上建立備份，而這是因為您不需要。 SQL Database 會自動為您備份資料庫，因此您不再需要擔心排程、取得及管理備份。 該平台會每週進行完整備份，每幾小時進行差異備份，以及每隔 5 分鐘進行記錄備份，以確保災害復原有效率並且資料遺失最少。 在您建立資料庫時，就會開始進行第一個完整備份。 這些備份可供您使用一段時間 (稱為「保留期限」)，而且可能因您選擇的服務層級而異。 SQL Database 使用[時間點復原 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)，讓您能夠還原為此保留期間內的任何時間點。
 
-|服務層|保留期間 (天)|
+|服務層級|保留期間 (天)|
 |---|:---:|
 |基本|7|
 |標準|35|
@@ -180,7 +179,7 @@ SQL Database 提供[兩個驗證方法](sql-database-control-access.md#authentic
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>如何才能限制存取我資料庫中的敏感性資料
 
-每個應用程式的資料庫中會有某些敏感性資料需要加以保護，不讓每個人都看見。 組織內的特定人員可能需要檢視此資料，但其他人卻不應該能夠檢視此資料。 其中一個範例是員工薪資。 經理需要的薪資資訊的存取其直屬員工不過，個別團隊成員不應該存取其同儕的薪資資訊。 另一個案例是可能會在開發階段或測試期間與敏感性資料互動的資料開發人員，例如，客戶的 SSN。 重申，此資訊不需公開給開發人員。 在這種情況下，可能需要將您的敏感性資料遮罩，或完全不公開。 SQL Database 提供兩個這類方法來防止未經授權的使用者檢視敏感性資料：
+每個應用程式的資料庫中會有某些敏感性資料需要加以保護，不讓每個人都看見。 組織內的特定人員可能需要檢視此資料，但其他人卻不應該能夠檢視此資料。 其中一個範例是員工薪資。 管理員需要存取其直屬員工的工資資訊, 但個別小組成員則不應擁有其對等的薪資資訊存取權。 另一個案例是可能會在開發階段或測試期間與敏感性資料互動的資料開發人員，例如，客戶的 SSN。 重申，此資訊不需公開給開發人員。 在這種情況下，可能需要將您的敏感性資料遮罩，或完全不公開。 SQL Database 提供兩個這類方法來防止未經授權的使用者檢視敏感性資料：
 
 [動態資料遮罩](sql-database-dynamic-data-masking-get-started.md)是一項資料遮罩功能，藉由將敏感性資料進行遮罩處理，使得應用程式層上不具權限的使用者看不見這些資料來限制資料的公開方式。 您可以定義可以建立遮罩模式的遮罩規則 (例如，僅顯示國民身分證 SSN 的最後 4 位數：XXX-XX-0000 並將其大部分標記為 X) 並確定要從遮罩規則中排除哪些使用者。 遮罩會快速發生，並且有各種不同遮罩函數可供各種資料類別使用。 動態資料遮罩可讓您自動偵測資料庫中的敏感性資料，並對其套用遮罩。
 
@@ -227,7 +226,7 @@ Express Route 也可讓您高載至所購買的頻寬限制最多 2 倍，不額
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database 是否符合任何法規需求，以及這對於自己組織的合規性有何幫助
 
-SQL Database 符合各種法規規範。 若要檢視的最新一組規範已符合 SQL database，請瀏覽[Microsoft 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)和向下切入，務必使用您的組織查看 SQL Database 是否包含在相容的規範Azure 服務。 請務必注意，雖然 SQL Database 可能被公認為合規的服務，這有助於您組織的服務合規性，但不自動保證這點。
+SQL Database 符合各種法規規範。 若要查看 SQL Database 符合的最新規範, 請造訪[Microsoft 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), 並向下切入您組織的重要規範, 以查看符合規範的 Azure 服務是否包含 SQL Database。 請務必注意，雖然 SQL Database 可能被公認為合規的服務，這有助於您組織的服務合規性，但不自動保證這點。
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>移轉之後的智慧型資料庫監視及維護
 
@@ -281,9 +280,9 @@ SQL Azure 平台會分析伺服器中不同資料庫的使用量歷程記錄，�
 
 ![查詢效能深入解析](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL 分析 （預覽） 中 Azure 監視器記錄檔
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure 監視器記錄中的 Azure SQL 分析 (預覽)
 
-[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)可讓您收集和視覺化主要的 Azure SQL Azure 效能計量，最多支援 150,000 個 SQL Database 和 5,000 個 SQL 彈性集區，每個工作區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
+[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)可讓您收集和視覺化主要的 Azure sql Azure 效能計量, 每個工作區最多支援150000個 sql 資料庫和5000個 sql 彈性集區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>我注意到效能問題：我的 SQL Database 和 SQL Server 疑難排解方法有何不同
 

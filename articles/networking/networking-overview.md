@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2019
 ms.author: kumud
-ms.openlocfilehash: 9fb7fc9b4f0e5af0847876ff41b6a307f8a09749
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 857b38693ca85d6ab397cbe850f0cd530fefc88c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348036"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598384"
 ---
 # <a name="azure-networking"></a>Azure 網路
 
@@ -38,7 +38,7 @@ Azure 中的網路服務提供各種不同的網路功能, 可一起或分開使
 |[VPN 閘道](#vpngateway)|透過公用網際網路在 Azure 虛擬網路與內部部署位置之間傳送加密的流量。|<p>[站對站連線](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet 對 VNet 連線](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[點對站連線](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[虛擬 WAN](#virtualwan)|將分支連線優化並自動執行至 Azure。 Azure 區域作為中樞，您可以選擇將您的分支連線到該中樞。|<p>[站對站](../virtual-wan/virtual-wan-site-to-site-portal.md)連線、 [ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)連線</p>|
 |[Azure DNS](#dns)|裝載使用 Microsoft Azure 基礎結構來提供名稱解析的 DNS 網域。|<p>[在 Azure DNS 上託管您的網域](../dns/dns-delegate-domain-azure-dns.md)</p><p>[建立 web 應用程式的 DNS 記錄](../dns/dns-web-sites-custom-domain.md)</p> <p>[建立流量管理員的別名記錄](../dns/tutorial-alias-tm.md)</p> <p>[建立公用 IP 位址的別名記錄](../dns/tutorial-alias-pip.md)</p> <p>[建立區域資源記錄的別名記錄](../dns/tutorial-alias-rr.md)</p>|
-|[Azure 防禦 (預覽)](#bastion)|直接在 Azure 入口網站中，透過 SSL 設定與虛擬機器之間安全且順暢的 RDP/SSH 連線。 當您透過 Azure 防禦進行連接時, 您的虛擬機器不需要公用 IP 位址|<p>[建立 Azure 防禦主機](../bastion/bastion-create-host-portal.md)</p><p>[使用 SSH 連接至 Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[使用 RDP 連接到 Windows VM](/bastion/bastion-connect-vm-rdp.md)</p>|
+|[Azure 防禦 (預覽)](#bastion)|直接在 Azure 入口網站中，透過 SSL 設定與虛擬機器之間安全且順暢的 RDP/SSH 連線。 當您透過 Azure 防禦進行連接時, 您的虛擬機器不需要公用 IP 位址|<p>[建立 Azure 防禦主機](../bastion/bastion-create-host-portal.md)</p><p>[使用 SSH 連接至 Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[使用 RDP 連接到 Windows VM](../bastion/bastion-connect-vm-rdp.md)</p>|
 ||||
 
 
@@ -74,7 +74,7 @@ Azure 虛擬 WAN 是一種網路服務，可將最佳且自動化的分支連線
 Azure DNS 是 DNS 網域的主機服務，採用 Microsoft Azure 基礎結構來提供名稱解析。 只要將您的網域裝載於 Azure，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。 如需詳細資訊, 請參閱[什麼是 Azure DNS？](../dns/dns-overview.md)。
 
 ### <a name="bastion"></a>Azure 防禦 (預覽)
-Azure Bastion 服務是您可在虛擬網路內佈建的新完全平台受控 PaaS 服務。 直接在 Azure 入口網站中，透過 SSL 提供與虛擬機器之間安全且順暢的 RDP/SSH 連線。 透過 Azure Bastion 連線時，虛擬機器不需要公用 IP 位址。 如需詳細資訊, 請參閱[什麼是 Azure 防禦？](/bastion/bastion-overview.md)。
+Azure Bastion 服務是您可在虛擬網路內佈建的新完全平台受控 PaaS 服務。 直接在 Azure 入口網站中，透過 SSL 提供與虛擬機器之間安全且順暢的 RDP/SSH 連線。 透過 Azure Bastion 連線時，虛擬機器不需要公用 IP 位址。 如需詳細資訊, 請參閱[什麼是 Azure 防禦？](../bastion/bastion-overview.md)。
 
 ![Azure 防禦架構](./media/networking-overview/architecture.png)
 

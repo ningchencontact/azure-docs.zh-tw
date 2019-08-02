@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 79bc5e640498788ef805d07a26dd29e943117b58
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476964"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516586"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服務匯流排寄不出的信件佇列的概觀
 
@@ -108,7 +108,7 @@ while(true)
 
 ```
 <queue path>/$deadletterqueue
-<topic path>/Subscription/<subscription path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
 如果您使用 .NET SDK, 您可以使用 SubscriptionClient. FormatDeadLetterPath () 方法來取得寄不出的信件佇列的路徑。 這個方法會採用主題名稱/訂用帳戶名稱, 以及具有 **/$DeadLetterQueue**的尾碼。

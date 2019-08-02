@@ -3,25 +3,25 @@ title: 什麼是群組型授權 - Azure Active Directory | Microsoft Docs
 description: 了解 Azure Active Directory 群組型授權，包括其運作方式及最佳做法。
 services: active-directory
 keywords: Azure AD 授權
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/29/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41c8edf3985e77e0f67a54013d1b59abbaf72f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a89443062f7d5cc697e83cc4039d0f3a47ad3077
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297552"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561846"
 ---
-# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的群組型授權？
+# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>什麼是 Azure Active Directory 中以群組為基礎的授權?
 
 Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Security、Dynamics 365 及其他類似的產品) 需要授權。 這些授權指派給每位需要存取這些服務的使用者。 若要管理授權，系統管理員需要使用其中一個管理入口網站 (Office 或 Azure) 和 PowerShell Cmdlet。 Azure Active Directory (Azure AD) 是支援所有 Microsoft 雲端服務身分識別管理的基礎結構。 Azure AD 會儲存使用者授權指派狀態的相關資訊。
 

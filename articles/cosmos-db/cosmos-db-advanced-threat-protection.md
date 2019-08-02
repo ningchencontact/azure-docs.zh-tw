@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: 02281a1cad9c7e6f9680441a699fa5d34558b890
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 0504da45cbbd60629954d3e3ca3230e05761c1d6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501490"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640353"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB 的先進威脅防護
 
@@ -23,7 +23,7 @@ Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報, 可�
 > [!NOTE]
 >
 > * Azure Cosmos DB 的先進威脅防護目前僅適用于 SQL API。
-> * 適用于 Azure Cosmos DB 的先進威脅防護目前適用于 Azure 政府和主權雲端區域。
+> * Azure Cosmos DB 的先進威脅防護目前無法在 Azure 政府和主權雲端區域中使用。
 
 如需安全性警示的完整調查體驗, 建議您[在 Azure Cosmos DB 中啟用診斷記錄](https://docs.microsoft.com/azure/cosmos-db/logging), 這會記錄資料庫本身的作業, 包括對所有檔、容器和資料庫的 CRUD 作業。
 

@@ -9,24 +9,24 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
 ms.openlocfilehash: 2e96ef73c3ff89fd7941fa14a8a1e53e6d4d8593
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325416"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接秘密磁碟區
 
-使用「秘密」  磁碟區，將敏感性資訊提供給容器群組中的容器。 「秘密」  磁碟區會將您的祕密儲存在磁碟區內的檔案中，容器群組中的容器即可存取這些檔案。 藉由在「秘密」  磁碟區中儲存密碼，您可以避免將 SSH 金鑰或資料庫認證等敏感性資料新增至您的應用程式程式碼。
+使用「秘密」磁碟區，將敏感性資訊提供給容器群組中的容器。 「秘密」磁碟區會將您的祕密儲存在磁碟區內的檔案中，容器群組中的容器即可存取這些檔案。 藉由在「秘密」磁碟區中儲存密碼，您可以避免將 SSH 金鑰或資料庫認證等敏感性資料新增至您的應用程式程式碼。
 
 所有的*秘密*磁片區都是由[tmpfs][tmpfs]所支援, 這是以 RAM 為後盾的檔案系統;其內容永遠不會寫入至非變動性儲存體。
 
 > [!NOTE]
-> 「祕密」  磁碟需目前僅限於 Linux 容器。 了解如何在[設定環境變數](container-instances-environment-variables.md)中，為 Windows 和 Linux 容器傳遞安全的環境變數。 雖然我們正致力於將所有功能帶入 Windows 容器, 但是您可以在[總覽](container-instances-overview.md#linux-and-windows-containers)中找到目前的平臺差異。
+> 「祕密」磁碟需目前僅限於 Linux 容器。 了解如何在[設定環境變數](container-instances-environment-variables.md)中，為 Windows 和 Linux 容器傳遞安全的環境變數。 雖然我們正致力於將所有功能帶入 Windows 容器, 但是您可以在[總覽](container-instances-overview.md#linux-and-windows-containers)中找到目前的平臺差異。
 
 ## <a name="mount-secret-volume---azure-cli"></a>掛接秘密磁碟區 - Azure CLI
 
-若要使用 Azure CLI 來部署具有一或多個秘密的容器, 請`--secrets`在`--secrets-mount-path` [az container create][az-container-create]命令中包含和參數。 此範例會在 `/mnt/secrets` 掛接由兩個祕密 ("mysecret1" 和 "mysecret2") 所組成的「秘密」  磁碟區：
+若要使用 Azure CLI 來部署具有一或多個秘密的容器, 請`--secrets`在`--secrets-mount-path` [az container create][az-container-create]命令中包含和參數。 此範例會在 `/mnt/secrets` 掛接由兩個祕密 ("mysecret1" 和 "mysecret2") 所組成的「秘密」磁碟區：
 
 ```azurecli-interactive
 az container create \
@@ -58,7 +58,7 @@ Bye.
 
 當您透過 YAML 範本進行部署時，範本中的祕密值必須為 **Base64 編碼**。 不過，祕密值會出現於容器中檔案內的純文字。
 
-下列 YAML 範本可定義含有一個容器的容器群組，而該容器會在 `/mnt/secrets` 掛接「祕密」  磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
+下列 YAML 範本可定義含有一個容器的容器群組，而該容器會在 `/mnt/secrets` 掛接「祕密」磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -102,9 +102,9 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 首先，填入範本的容器群組 `properties` 區段中的 `volumes` 陣列。 當您透過 Resource Manager 範本進行部署時，範本中的祕密值必須為 **Base64 編碼**。 不過，祕密值會出現於容器中檔案內的純文字。
 
-接下來，針對您想要掛接祕密  磁碟區所在容器群組中的每個容器，填入容器定義之 `properties` 區段中的 `volumeMounts` 陣列。
+接下來，針對您想要掛接祕密磁碟區所在容器群組中的每個容器，填入容器定義之 `properties` 區段中的 `volumeMounts` 陣列。
 
-下列 Resource Manager 範本可定義含有一個容器的容器群組，而該容器會在 `/mnt/secrets` 掛接「祕密」  磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
+下列 Resource Manager 範本可定義含有一個容器的容器群組，而該容器會在 `/mnt/secrets` 掛接「祕密」磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]

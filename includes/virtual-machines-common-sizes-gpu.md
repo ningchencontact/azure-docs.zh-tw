@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 0325fc8cabc43988fb27a307921977b9b487c123
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 402379a99be467e9db7fb692d7d532e9d39a54a6
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286282"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68700783"
 ---
 GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製化虛擬機器。 這些大小是專門針對計算密集型、圖形密集型及視覺效果的工作負載所設計。 本文章提供有關 GPU、vCPU、資料磁碟及 NIC 之數量和類型的資訊。 另說明此群組中每個大小的輸送量和網路頻寬。
 
@@ -25,9 +25,9 @@ GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製
 
 ## <a name="nc-series"></a>NC 系列
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取:不支援
+進階儲存體快取:不受支援
 
 NC 系列 Vm 是由[NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf)卡和 Intel 2690 E5-V3 (Haswell) 處理器提供技術支援。 使用者可以藉由將 CUDA 用於能源探勘應用程式、當機模擬、光線追蹤轉譯、深度學習等等，更快速地處理資料。 NC24r 設定提供低延遲且高輸送量網路介面，最適合用於緊密結合的平行計算工作負載。
 
@@ -56,7 +56,7 @@ NC24rs v2 組態提供低延遲且高輸送量網路介面，最適合用於緊�
 > 對於這個大小的系列，一開始會在您的訂用帳戶中，將每個區域中的 vCPU (核心) 配額設為 0。 在[可用區域](https://azure.microsoft.com/regions/services/)中，針對這個系列[要求增加 vCPU 配額](../articles/azure-supportability/resource-manager-core-quotas-request.md)。
 >
 
-| Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | GPU 記憶體：GiB | 最大資料磁碟 | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC |
+| Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD):GiB | GPU | GPU 記憶體：GiB | 最大資料磁碟 | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
 | Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/200 | 4 |
 | Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000/400 | 8 |
@@ -79,7 +79,7 @@ NCv3 系列 VM 是由 [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-cent
 > 對於這個大小的系列，一開始會在您的訂用帳戶中，將每個區域中的 vCPU (核心) 配額設為 0。 在[可用區域](https://azure.microsoft.com/regions/services/)中，針對這個系列[要求增加 vCPU 配額](../articles/azure-supportability/resource-manager-core-quotas-request.md)。
 >
 
-| Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | GPU | GPU 記憶體：GiB | 最大資料磁碟 | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC |
+| Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD):GiB | GPU | GPU 記憶體：GiB | 最大資料磁碟 | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 20000 / 200 | 4 |
 | Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 40000/400 | 8 |
@@ -103,9 +103,9 @@ NDv2 系列虛擬機器是 GPU 家族的新增項目，專為 HPC、AI 和機器
 [於預覽期間註冊並存取這些機器](https://aka.ms/ndv2signup)。
 <br>
 
-| Size | vCPU | GPU | 記憶體 | NIC (最大) | 暫存儲存體 (SSD) GiB | 最大 資料磁碟 | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大網路頻寬 | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 2948 | 32 | 80000/800 | 24000 Mbps |
+| Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD):GiB | GPU | GPU 記憶體:GiB | 最大資料磁碟 | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大網路頻寬 | 最大 NIC |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 80000/800 | 24000 Mbps | 8 |
 
 ## <a name="nd-series"></a>ND 系列
 
@@ -132,9 +132,9 @@ ND 系列的虛擬機器是 GPU 系列的新成員，專為 AI 和深度學習�
 
 ## <a name="nv-series"></a>NV 系列
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取:不支援
+進階儲存體快取:不受支援
 
 NV 系列虛擬機器是由 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) \(英文\) GPU 和 NVIDIA GRID 技術提供技術支援，適用於桌面加速應用程式和虛擬桌面，可供客戶將其資料或模擬視覺化。 使用者能夠在 NV 執行個體上，將其圖形密集型工作流程視覺化以獲得較佳的圖形功能，此外還能夠執行單精確度工作負載，例如編碼和轉譯。 NV 系列 Vm 也是由 Intel 2690 v3 (Haswell) Cpu 提供技術支援。
 

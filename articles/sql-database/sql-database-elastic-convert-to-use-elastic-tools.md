@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d6d5c51cb381c089633ba010a1d64c8486ddcd8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075160"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568729"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>將現有的資料庫移轉到相應放大的資料庫
 使用 Azure SQL Database 資料庫工具 (例如 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md))，輕鬆地管理現有相應放大的分區化資料庫。 請先轉換現有的資料庫，才能使用[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。 
@@ -73,7 +72,7 @@ ms.locfileid: "61075160"
 
 ![範圍對應][2]
 
-或者，您可以使用「清單對應」  來實作多租用戶資料庫模型，以將多個租用戶指派給個別資料庫。 例如，DB1 是用來儲存租用戶 ID 1 和 5 的相關資訊，而 DB2 是用來儲存租用戶 7 和租用戶 10 的資料。 
+或者，您可以使用「清單對應」來實作多租用戶資料庫模型，以將多個租用戶指派給個別資料庫。 例如，DB1 是用來儲存租用戶 ID 1 和 5 的相關資訊，而 DB2 是用來儲存租用戶 7 和租用戶 10 的資料。 
 
 ![單一資料庫上的多個租用戶][3] 
 

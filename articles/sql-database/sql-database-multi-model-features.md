@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939523"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567128"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
@@ -26,11 +25,11 @@ ms.locfileid: "64939523"
 ## <a name="when-to-use-multi-model-capabilities"></a>使用多模型功能的時機
 
 Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般用途應用程式的大部分情況下達到最佳效能。 不過，Azure SQL Database 不限於關聯式資料。 Azure SQL Database 可讓您使用緊密整合到關聯式模型中的各種非關聯式格式。
-您應該考慮使用 Azure SQL Database 的多模型的功能在下列情況：
-- 您有一些資訊或結構，會更適合用於 NoSQL 模型，而且您不想要使用不同的 NoSQL 資料庫。
-- 多數資料適用於關聯式模型中，並且您要建立您的資料，NoSQL 樣式中的某些部分的模型。
-- 您想要利用豐富的 TRANSACT-SQL 語言來查詢及分析關聯式和 NoSQL 資料，並將它與各種不同的工具和應用程式可以使用 SQL 語言整合。
-- 您想要套用的資料庫功能，例如[記憶體內部技術](sql-database-in-memory.md)提升您分析效能或處理您的 NoSQL 資料 strucutres，使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取複本](sql-database-read-scale-out.md)上其他位置中建立資料複本，並卸載某些分析的工作負載，從主要資料庫。
+在下列情況下, 您應該考慮使用 Azure SQL Database 的多模型功能:
+- 您有一些較適合 NoSQL 模型的資訊或結構, 而且您不想要使用個別的 NoSQL 資料庫。
+- 大部分的資料都適用于關聯式模型, 而您需要以 NoSQL 樣式為數據的某些部分建立模型。
+- 您想要利用豐富的 Transact-sql 語言來查詢和分析關聯式和 NoSQL 資料, 並將其與可使用 SQL 語言的各種工具和應用程式整合。
+- 您想要套用如[記憶體內部技術](sql-database-in-memory.md)的資料庫功能, 以改善 NoSQL 資料 strucutres 的分析或處理效能, 請使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取的複本](sql-database-read-scale-out.md)來建立資料的複本另一個地方, 然後從主資料庫卸載一些分析工作負載。
 
 ## <a name="overview"></a>總覽
 
@@ -90,7 +89,7 @@ Azure SQL Database 可讓您輕鬆使用 JSON 資料，並將資料庫與新式�
 
 ## <a name="spatial-features"></a>空間功能
 
-空間資料代表幾何物件的實體位置和圖形相關資訊。 這些物件可以是點位置或更為複雜的物件，例如國家/地區、 道路或湖泊。
+空間資料代表幾何物件的實體位置和圖形相關資訊。 這些物件可以是點位置或更複雜的物件, 例如國家/地區、道路或 lake。
 
 Azure SQL Database 支援兩種空間資料類型 - 幾何資料類型和地理資料類型。
 - 幾何類型代表歐氏 (平面) 座標系統中的資料。

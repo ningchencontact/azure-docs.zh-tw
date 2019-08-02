@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 925461ba6c74fe0bcf286692c1a19bb4e7c02dfa
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6217fe51a0231ee1bd34f9fbe8edef47ee073209
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254412"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609714"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -101,7 +101,7 @@ CSR 只是文字檔。 不必從最終會使用憑證的電腦建立它。 雖
     Select-AzureSubscription -Current -SubscriptionName <your subscription name>
     Get-AzurePublishSettingsFile
 
-**Get-AzurePublishSettingsFile** 會在 Azure 入口網站的 [訂用帳戶]   > [管理憑證]  中建立新的管理憑證。 新憑證的名稱如下 "YourSubscriptionNam]-[CurrentDate]-credentials"。
+**Get-AzurePublishSettingsFile** 會在 Azure 入口網站的 [訂用帳戶] > [管理憑證] 中建立新的管理憑證。 新憑證的名稱如下 "YourSubscriptionNam]-[CurrentDate]-credentials"。
 
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>如何將主要 SSL 憑證 (.pfx) 和中繼憑證 (.p7b) 的安裝自動化？
 
@@ -194,7 +194,7 @@ Windows 10 和 Windows Server 2016 隨附用戶端和伺服器端上的 HTTP/2 �
 3. 建立名為 **DuoEnabled** 的新 DWORD 值。
 4. 將值設為 1。
 5. 重新啟動您的伺服器。
-6. 移至**預設網站**，並在 [繫結]  下方 使用剛才建立的自我簽署憑證來建立新的 TLS 繫結。 
+6. 移至**預設網站**，並在 [繫結] 下方 使用剛才建立的自我簽署憑證來建立新的 TLS 繫結。 
 
 如需詳細資訊，請參閱：
 
@@ -228,7 +228,7 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 
 如果您使用的 RDP 檔案來自已加入 Azure Active Directory 的機器，即可能會發生這個錯誤。 若要解決此問題，請依照下列步驟執行︰
 
-1. 以滑鼠右鍵按一下您下載的 RDP 檔案，然後選取 [編輯]  。
+1. 以滑鼠右鍵按一下您下載的 RDP 檔案，然後選取 [編輯]。
 2. 新增 "&#92;" 作為使用者名稱的前置詞。 例如，使用 **.\username** 而不是 **username**。
 
 ## <a name="scaling"></a>縮放
@@ -297,7 +297,7 @@ Azure 不會將任何內容寫入 %approot% 磁碟機。 一旦從 .cspkg 建立
 - [建立 PowerShell 啟動工作](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-如需反惡意程式碼部署情節及如何從入口網站加以啟用的詳細資訊，請參閱[反惡意程式碼部署情節](../security/azure-security-antimalware.md#antimalware-deployment-scenarios)。
+如需反惡意程式碼部署情節及如何從入口網站加以啟用的詳細資訊，請參閱[反惡意程式碼部署情節](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)。
 
 ### <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>如何啟用雲端服務的伺服器名稱指示 (SNI)？
 

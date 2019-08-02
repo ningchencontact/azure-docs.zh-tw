@@ -9,18 +9,19 @@ manager: barbkess
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security
+ms.subservice: security-develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 66719d43db277e6c82d89ee17c602309d16140f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489974"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728807"
 ---
 # <a name="develop-a-secure-web-app"></a>開發安全的 web 應用程式
 
@@ -137,7 +138,7 @@ ms.locfileid: "68489974"
 - 系統上的[Git](https://git-scm.com/) 。 Git 是用來在本機複製原始程式碼。
 - [jq](https://stedolan.github.io/jq/), 這是用來以方便使用的方式查詢 JSON 的 UNIX 工具。
 
-您需要 Azure 訂用帳戶, 才能部署範例應用程式的資源。 如果您沒有 Azure 訂用帳戶, 您可以[建立免費帳戶](https://azure.microsoft.com/en-us/free/)來測試範例應用程式。
+您需要 Azure 訂用帳戶, 才能部署範例應用程式的資源。 如果您沒有 Azure 訂用帳戶, 您可以[建立免費帳戶](https://azure.microsoft.com/free/)來測試範例應用程式。
 
 安裝這些工具之後, 您就可以開始在 Azure 上部署應用程式。
 
@@ -353,7 +354,7 @@ $$ LANGUAGE PLPGSQL;
 容器中包含根憑證。 取得憑證所採取的步驟如下:
 
 1. 從[憑證授權單位](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)單位下載憑證檔案。
-2. [在您的電腦上下載並安裝 OpenSSL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine)。
+2. [在您的電腦上下載並安裝 OpenSSL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security)。
 3. 將憑證檔案解碼:
 
    ```powershell
@@ -800,7 +801,7 @@ Application Insights 是一項服務, 會收集可由使用者或系統產生的
 若要建立 Application Insights 實例:
 
 1. 使用 Azure 入口網站中的 [搜尋] 方塊來搜尋**Application Insights** 。
-2. 選取 [Application Insights] 。 提供此處顯示的詳細資料, 以建立實例。
+2. 選取 [Application Insights]。 提供此處顯示的詳細資料, 以建立實例。
 
    ![建立 Application Insights 實例](./media/secure-web-app/app-insights-data.png)
 

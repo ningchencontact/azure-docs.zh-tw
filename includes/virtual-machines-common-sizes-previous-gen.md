@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/16/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bb945695e0525876e044117e26c239e21d66473f
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: cfffc29a467a89416964564b9c55a73cbf77377d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673258"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601306"
 ---
-本節提供在上一個層代的虛擬機器大小上的資訊。 這些大小仍可使用，但有較新一代的大小可供使用。 
+本節提供舊版虛擬機器大小的相關資訊。 這些大小仍可使用，但有較新一代的大小可供使用。 
 
 ## <a name="f-series"></a>F 系列
 
@@ -25,9 +25,9 @@ F 系列是以 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，�
 
 ACU：210 - 250
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取：不支援
+進階儲存體快取:不受支援
 
 | Size         | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟/輸送量：IOPS | 最大 NIC/預期的網路頻寬 (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -45,14 +45,14 @@ ACU：210 - 250
 
 進階儲存體：支援
 
-進階儲存體快取：支援
+進階儲存體快取:支援
 
 | Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量IOPS / MBps (快取大小，以 GiB 為單位) | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_F1s |1 |2 |4 |4 |4000 / 32 (12) |3200 / 48 |2 / 750 |
-| Standard_F2s |2 |4 |8 |8 |8000 / 64 (24) |6400 / 96 |2 / 1500 |
-| Standard_F4s |4 |8 |16 |16 |16000 / 128 (48) |12800 / 192 |4 / 3000 |
-| Standard_F8s |8 |16 |32 |32 |32000 / 256 (96) |25600 / 384 |8 / 6000 |
+| Standard_F1s |1 |2 |4 |4 |4000/32 (12) |3200 / 48 |2 / 750 |
+| Standard_F2s |2 |4 |8 |8 |8000/64 (24) |6400/96 |2 / 1500 |
+| Standard_F4s |4 |8 |16 |16 |16000/128 (48) |12800/192 |4 / 3000 |
+| Standard_F8s |8 |16 |32 |32 |32000 / 256 (96) |25600/384 |8 / 6000 |
 | Standard_F16s |16 |32 |64 |64 |64000 / 512 (192) |51200 / 768 |8 / 12000 |
 
 MBps = 每秒 10^6 位元組，而 GiB = 1024^3 位元組。
@@ -63,20 +63,20 @@ MBps = 每秒 10^6 位元組，而 GiB = 1024^3 位元組。
 
 Ls 系列使用[Intel® Xeon® 處理器 E5 v3 系列](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)，提供最多 32 個 vCPU。 Ls 系列會取得與 G/GS 系列相同的 CPU 效能，而且每個 vCPU 會有 8 GiB 的記憶體。
 
-Ls 系列不支援建立本機快取，來增加可由耐久資料磁碟達成的 IOPS。 高輸送量和 IOPS 的本機磁碟讓 Ls 系列 Vm 很適合用於將資料複寫到多個 Vm 來達到持續性的單一 VM 失敗時的 Apache Cassandra 等 MongoDB 的 NoSQL 存放區。
+Ls 系列不支援建立本機快取，來增加可由耐久資料磁碟達成的 IOPS。 本機磁片的高輸送量和 IOPS 讓 Ls 系列 Vm 適用于 NoSQL 存放區 (例如 Apache Cassandra 和 MongoDB), 其會將資料複寫到多個 Vm, 以在單一 VM 失敗時達到持續性。
 
 ACU：180-240
 
 進階儲存體：支援
 
-進階儲存體快取：不支援
+進階儲存體快取:不受支援
  
 | Size          | vCPU | 記憶體 (GiB) | 暫存儲存體 (GiB) | 最大資料磁碟 | 最大暫存儲存體輸送量 (IOPS / MBps) | 最大未快取磁碟輸送量 (IOPS / MBps) | 最大 NIC/預期的網路頻寬 (Mbps) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s   | 4  | 32  | 678   | 16 | 20000 / 200 | 5000 / 125  | 2 / 4000  | 
-| Standard_L8s   | 8  | 64  | 1388 | 32 | 40000 / 400 | 10000 / 250 | 4 / 8000  | 
-| Standard_L16s  | 16 | 128 | 2807 | 64 | 80000 / 800 | 20000 / 500 | 8 / 16000 | 
-| Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5630 | 64   | 160000 / 1600   | 40000 / 1000     | 8 / 20000 | 
+| Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000 / 250 | 4 / 8000  | 
+| Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8 / 16000 | 
+| Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5630 | 64   | 160000/1600   | 40000/1000     | 8 / 20000 | 
 
 Ls 系列 VM 的最大磁碟輸送量，可能會受到任何連結磁碟的數量、大小和串接所限制。 如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md)。
 
@@ -84,7 +84,7 @@ Ls 系列 VM 的最大磁碟輸送量，可能會受到任何連結磁碟的數�
 
 ## <a name="nvv2-series-preview"></a>NVv2 系列 (預覽)
 
-**較新的大小建議**:[NVv3 系列 （預覽）](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series-preview-1)
+**較新的大小建議**:[NVv3 系列 (預覽)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 NVv2 系列的虛擬機器採用 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 以及具備 Intel Broadwell CPU 的 NVIDIA GRID 技術。 這些虛擬機器專用於 GPU 高速圖形應用程式以及虛擬桌面，客戶可用於將其資料視覺化、將結果模擬到檢視中、運用於 CAD 之上，或是轉譯內容及串流內容。 除此之外，這些虛擬機器可以執行單一的精密工作負載，像是編碼及轉譯。 NVv2 虛擬機器支援進階儲存體，同時相較於之前的 NV 系列，配備兩倍的系統記憶體 (RAM)。  
 

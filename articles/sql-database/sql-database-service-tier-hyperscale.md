@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 707f7f47b050d22d0bd225cf412181902ae84f50
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67974454"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566727"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>超大規模資料庫服務層級, 最高可達 100 TB
 
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
 - 一般目的/標準 
--  超大規模資料庫
+-  超大規模
 -  業務關鍵/進階
 
 Azure SQL Database 中的超大規模服務層是以虛擬核心為基礎的購買模型中的最新服務層。 此服務層級是可高度擴充的儲存體和計算效能層，可利用 Azure 架構以相應放大 Azure SQL Database 的儲存體和計算資源，而大幅超過一般用途和商務關鍵性服務層級的可用限制。
@@ -153,7 +152,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 Azure SQL Database 超大規模資料庫層目前可在下欄區域使用:
 
-- 澳洲東部
+- 澳大利亞東部
 - 澳大利亞東南部
 - 巴西南部
 - 加拿大中部
@@ -214,7 +213,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用:
     > 估計的 TB 數 
     >
 
-10. 選擇 [嚴重性 C] 
+10. 選擇 [嚴重性 C]
 
 11. 選擇適當的 [連絡人] 方法, 並填寫詳細資料。
 

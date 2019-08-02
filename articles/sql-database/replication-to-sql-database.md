@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646790"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570482"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>複寫至 SQL Database 單一資料庫與集區資料庫
 
@@ -64,7 +63,7 @@ ms.locfileid: "60646790"
 ### <a name="typical-replication-scenario"></a>一般複寫案例  
 
 1. 在內部部署 SQL Server 資料庫上建立異動複寫發行集。  
-2. 在內部部署 SQL Server 上使用 [新增訂閱精靈]  或 Transact-SQL 陳述式，來建立對 Azure SQL Database 的發送訂閱。  
+2. 在內部部署 SQL Server 上使用 [新增訂閱精靈] 或 Transact-SQL 陳述式，來建立對 Azure SQL Database 的發送訂閱。  
 3. 使用 Azure SQL Database 中的單一和集區資料庫，初始資料集是由快照集代理程式建立且由散發代理程式散發並套用的快照集。 使用受控執行個體資料庫時，也可以使用資料庫備份來植入訂閱者資料庫。
 
 ### <a name="data-migration-scenario"></a>資料移轉案例  

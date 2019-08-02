@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b000610b5cba6f768a629ad797500a57597f2569
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 25f8c19ad1c574f6a3d84d50d911b4da6b52cfc3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335706"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516513"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>將已啟用 Azure 磁碟加密的虛擬機器複寫至另一個 Azure 區域
 
@@ -23,9 +23,9 @@ ms.locfileid: "68335706"
 >Azure Site Recovery 目前僅支援執行 Windows OS 且[已使用 Azure Active Directory (Azure AD) 進行加密](https://aka.ms/ade-aad-app)的 Azure vm。
 
 ## <a id="required-user-permissions"></a>必要的使用者權限
-Site Recovery 要求使用者必須擁有在目的地區域中建立金鑰保存庫的許可權, 並將金鑰複製到該區域。
+Site Recovery 要求使用者必須擁有在目的地區域中建立金鑰保存庫的許可權, 並將金鑰從來源區域金鑰保存庫複製到目的地區域金鑰保存庫。
 
-若要啟用從 Azure 入口網站複寫已啟用磁片加密的 Vm, 使用者需要下列許可權:
+若要啟用從 Azure 入口網站複寫已啟用磁片加密的 Vm, 使用者需要**來源區域和目的地區域**金鑰保存庫的下列許可權。
 
 - 金鑰保存庫權限
     - 列出、建立和取得
@@ -42,7 +42,7 @@ Site Recovery 要求使用者必須擁有在目的地區域中建立金鑰保存
 
 若要管理許可權, 請移至入口網站中的金鑰保存庫資源。 為使用者新增必要的許可權。 下列範例示範如何對來源區域中的金鑰保存庫*ContosoWeb2Keyvault*啟用許可權。
 
-1. 前往**Home**  >  KeyvaultsContosoWeb2KeyVault >  **> 存取原則**。
+1. 前往**Home**  > KeyvaultsContosoWeb2KeyVault >  **> 存取原則**。
 
    ![金鑰保存庫許可權視窗](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
@@ -153,7 +153,7 @@ Azure Site Recovery 至少需要來源區域金鑰保存庫的讀取權限, 以�
 
 [目標金鑰保存庫](#required-user-permissions)上所需的許可權
 
-**修正方式：** 移至**Home**  >  **Keyvaults**  >  ContosotargetKeyvaultAccess > **原則**並新增適當的許可權。
+**修正方式：** 移至**Home**  >  **Keyvaults**  > ContosotargetKeyvaultAccess > **原則**並新增適當的許可權。
 
 ## <a name="next-steps"></a>後續步驟
 

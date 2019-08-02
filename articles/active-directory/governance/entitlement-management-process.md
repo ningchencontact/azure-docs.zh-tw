@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ad17f4c4d338e1d0b8118c1a172e0aaad7118e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489090"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678135"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Azure AD 權利管理 (預覽) 中的要求處理和電子郵件通知
 
@@ -47,7 +47,7 @@ ms.locfileid: "68489090"
 | 已過期 | 如果沒有核准者核准要求超時內的要求, 要求就會過期。 若要再試一次, 使用者將必須重新提交其要求。 |
 | 已遭拒 | 核准者拒絕要求。 |
 | 已允許 | 核准者核准要求。 |
-| 正在傳遞 | 使用者尚未獲指派存取封裝中所有資源的存取權。 如果這是外部使用者, 則使用者尚未存取資原始目錄並接受許可權提示。 |
+| 正在傳遞 | 使用者尚未獲指派存取封裝中所有資源的存取權。 如果這是外部使用者, 則使用者可能尚未存取資原始目錄並接受同意提示。 |
 | 已傳遞 | 使用者已獲指派存取封裝中所有資源的存取權。 |
 | 存取擴充 | 如果原則中允許延伸模組, 則使用者會擴充指派。 |
 | 存取已過期 | 使用者對存取套件的存取權已過期。 若要再次取得存取權, 使用者必須提交要求。 |

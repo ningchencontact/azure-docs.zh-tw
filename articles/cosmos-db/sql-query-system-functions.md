@@ -1,51 +1,51 @@
 ---
 title: 系統函式
-description: 深入了解 Azure Cosmos DB 中的 SQL 系統函數。
+description: 深入瞭解 Azure Cosmos DB 中的 SQL 系統函數。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 11a6fdad187670bcb5af4c56198fd7343680690d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b0e9c751d46f805af75196da464a39783c95ae6a
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342688"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619988"
 ---
 # <a name="system-functions"></a>系統函式
 
  Cosmos DB 提供許多內建 SQL 函式。 內建函式的分類如下所示。  
   
-|函式|描述|  
+|函數|描述|  
 |--------------|-----------------|  
 |[數學函式](#mathematical-functions)|每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。|  
 |[類型檢查函式](#type-checking-functions)|類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。|  
 |[字串函式](#string-functions)|下列字串函式會對字串輸入值執行作業，並傳回字串、數值或布林值。|  
 |[陣列函式](#array-functions)|下列陣列函式會對陣列輸入值執行作業，並傳回數值、布林值或陣列值。|
-|[日期和時間函數](#date-time-functions)|日期和時間函數可讓您以兩種形式，取得目前的 UTC 日期和時間數值的時間戳記，其值為 Unix epoch 以來毫秒，或為符合 ISO 8601 格式的字串。|
+|[日期和時間函數](#date-time-functions)|日期和時間函數可讓您以兩種形式取得目前的 UTC 日期和時間;數值時間戳記, 其值為 Unix epoch (以毫秒為單位), 或符合 ISO 8601 格式的字串。|
 |[空間函式](#spatial-functions)|下列空間函數會對空間物件輸入值執行作業，並傳回數值或布林值。|  
 
-以下是每個分類內的函式的清單：
+以下是每個類別中的函式清單:
 
 | 函式群組 | 作業 |
 |---------|----------|
-| 數學函數 | ABS、CEILING、EXP、FLOOR、LOG、LOG10、POWER、ROUND、SIGN、SQRT、SQUARE、TRUNC、ACOS、ASIN、ATAN、ATN2、COS、COT、DEGREES、PI、RADIANS、SIN、TAN |
+| 數學函數 | ABS、上限、EXP、FLOOR、LOG、LOG10、POWER、ROUND、SIGN、SQRT、正方形、TRUNC、ACOS、ASIN、ATAN、ATN2、COS、COT、度數、PI、RADIANS、RAND、SIN、TAN |
 | 類型檢查函式 | IS_ARRAY、IS_BOOL、IS_NULL、IS_NUMBER、IS_OBJECT、IS_STRING、IS_DEFINED、IS_PRIMITIVE |
 | 字串函數 | CONCAT、CONTAINS、ENDSWITH、INDEX_OF、LEFT、LENGTH、LOWER、LTRIM、REPLACE、REPLICATE、REVERSE、RIGHT、RTRIM、STARTSWITH、SUBSTRING、UPPER |
 | 陣列函數 | ARRAY_CONCAT、ARRAY_CONTAINS、ARRAY_LENGTH 和 ARRAY_SLICE |
-| 日期和時間函數 | GETCURRENTDATETIME，GETCURRENTTIMESTAMP，  |
+| 日期和時間函數 | GETCURRENTDATETIME, GETCURRENTTIMESTAMP,  |
 | 空間函數 | ST_DISTANCE、ST_WITHIN、ST_INTERSECTS、ST_ISVALID、ST_ISVALIDDETAILED |
 
-如果您目前使用的使用者定義的函數 (UDF) 已提供內建函式，相對應的內建函式會加快執行速度且更有效率。
+如果您目前使用的使用者定義函數 (UDF) 已可使用內建函數, 則對應的內建函數會更快速地執行, 而且更有效率。
 
-Cosmos DB 函式和 ANSI SQL 函式的主要差異是 Cosmos DB 函數的設計適用於無結構描述和混合的結構描述的資料。 比方說，如果屬性已遺失，或具有非數值例如`unknown`，項目會略過而不是傳回錯誤。
+Cosmos DB 函式和 ANSI SQL 函數的主要差異在於, Cosmos DB 函數是設計來搭配無架構和混合架構資料運作。 例如, 如果屬性遺失或具有非數值的值`unknown`(例如), 則會略過該專案, 而不會傳回錯誤。
 
 ##  <a name="mathematical-functions"></a>數學函式  
 
 每個數學函式都會執行計算，通常以提供來作為引數的輸入值為基礎，並傳回數值。
 
-您可以執行查詢，如下列範例所示：
+您可以執行如下列範例所示的查詢:
 
 ```sql
     SELECT VALUE ABS(-4)
@@ -66,9 +66,9 @@ Cosmos DB 函式和 ANSI SQL 函式的主要差異是 Cosmos DB 函數的設計�
 |[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[RAND](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|
+|[SIGN](#bk_sign)|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  傳回指定之數值運算式的絕對 (正) 值。  
@@ -555,13 +555,7 @@ SELECT LOG10(100) AS log10
 ```  
 PI ()  
 ```  
-  
- **引數**  
-  
-- `numeric_expression`  
-  
-   為數值運算式。  
-  
+   
   **傳回類型**  
   
   傳回數值運算式。  
@@ -677,7 +671,7 @@ ROUND(<numeric_expression>)
   
   **備註**
   
-  執行的捨入作業會遵循遠離零四捨五入的中間點。 如果輸入是介於兩個整數之間的確切的數值運算式的結果會是最接近的整數值，遠離零。  
+  執行的舍入運算會遵循從零開始舍入的點距離。 如果輸入是介於兩個整數之間的數值運算式, 則結果會是離零最接近的整數值。  
   
   |<numeric_expression>|圓角|
   |-|-|
@@ -699,7 +693,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+#### <a name="bk_rand"></a>RAND
+ 從 [0, 1) 傳回隨機產生的數位值。
+ 
+ **語法**  
   
+```  
+RAND ()  
+```  
+
+  **傳回類型**  
+  
+  傳回數值運算式。  
+  
+  **範例**  
+  
+  下列範例會傳回隨機產生的數位值。  
+  
+```  
+SELECT RAND() AS rand 
+```  
+  
+ 以下為結果集。  
+  
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
+
 ####  <a name="bk_sign"></a> SIGN  
  傳回指定之數值運算式的正數 (+1)、零 (0) 或負數 (-1) 符號。  
   
@@ -900,7 +921,7 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 
 ## <a id="type-checking-functions"></a>類型檢查函式
 
-類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。 若要判斷在即時的項目屬性的型別在變數或未知時，您可以使用類型檢查函式。 以下是支援的內建類型檢查函數的資料表：
+類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。 當專案為變數或未知時, 您可以使用類型檢查函式來即時判斷其中的屬性類型。 以下是支援的內建類型檢查函數表:
 
 下列函式支援針對輸入值檢查類型，並且會傳回布林值。  
   
@@ -1225,7 +1246,7 @@ SELECT
 
 ## <a id="string-functions"></a>字串函式
 
-下列純量函數會對字串輸入值執行作業，並傳回字串、 數值或布林值：
+下列純量函數會對字串輸入值執行運算, 並傳回字串、數值或布林值:
   
 ||||  
 |-|-|-|  
@@ -1717,7 +1738,7 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 ```  
 
   ####  <a name="bk_stringtoarray"></a> StringToArray  
- 傳回轉譯成陣列的運算式。 如果運算式無法轉譯，會傳回未定義。  
+ 傳回轉譯成陣列的運算式。 如果無法轉譯運算式, 則會傳回 undefined。  
   
  **語法**  
   
@@ -1729,17 +1750,17 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   是任何有效的純量運算式評估為 JSON 陣列運算式。 請注意，必須為有效的雙引號括住寫入巢狀的字串值。 如需 JSON 格式的詳細資訊，請參閱[json.org](https://json.org/)
+   這是要評估為 JSON 陣列運算式的任何有效純量運算式。 請注意, 嵌套字串值必須以雙引號寫成有效的。 如需 JSON 格式的詳細資訊, 請參閱[json.org](https://json.org/)
   
   **傳回類型**  
   
-  傳回陣列運算式，或未定義。  
+  傳回陣列運算式或未定義。  
   
   **範例**  
   
-  下列範例會示範 StringToArray 跨不同類型的運作方式。 
+  下列範例顯示 StringToArray 在不同類型之間的行為方式。 
   
- 以下是範例，以有效的輸入。
+ 以下是具有有效輸入的範例。
 
 ```
 SELECT 
@@ -1756,10 +1777,10 @@ SELECT
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
-以下是輸入的無效的範例。 
+以下是無效輸入的範例。 
    
  陣列中的單引號不是有效的 JSON。
-即使是在查詢中有效，它們不會剖析有效的陣列。 字串陣列字串內必須是逸出"[\\"\\"]"或周圍的引號必須是單一 ' [""]'。
+雖然它們在查詢中是有效的, 但它們不會剖析為有效的陣列。 陣列字串中的字串必須是轉義 "[\\"\\"]", 或周圍的引號必須是單一 ' [""] '。
 
 ```
 SELECT
@@ -1772,9 +1793,9 @@ SELECT
 [{}]
 ```
 
-以下是輸入的範例無效。
+以下是無效輸入的範例。
    
- 傳遞的運算式會剖析為 JSON 陣列;下列不會評估輸入陣列，並因此會傳回未定義。
+ 傳遞的運算式會剖析為 JSON 陣列;下列的不會評估為類型陣列, 因此會傳回 undefined。
    
 ```
 SELECT
@@ -1792,7 +1813,7 @@ SELECT
 ```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
- 傳回轉譯成布林值的運算式。 如果運算式無法轉譯，會傳回未定義。  
+ 傳回轉譯成布林值的運算式。 如果無法轉譯運算式, 則會傳回 undefined。  
   
  **語法**  
   
@@ -1804,19 +1825,19 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   是任何有效的純量運算式，才能評估為布林的運算式。  
+   這是要評估為布林運算式的任何有效純量運算式。  
   
   **傳回類型**  
   
-  傳回布林運算式，或未定義。  
+  傳回布林運算式或未定義。  
   
   **範例**  
   
-  下列範例會示範 StringToBoolean 跨不同類型的運作方式。 
+  下列範例顯示 StringToBoolean 在不同類型之間的行為方式。 
  
- 以下是範例，以有效的輸入。
+ 以下是具有有效輸入的範例。
 
-只有之前或之後"true"/"false"，將允許空白字元。
+只有在 "true"/"false" 之前或之後才允許空白字元。
 
 ```  
 SELECT 
@@ -1831,9 +1852,9 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
-以下是範例具有無效的輸入。
+以下是具有無效輸入的範例。
 
- 布林值會區分大小寫，而且必須寫入所有小寫字元，也就是"true"和"false"。
+ 布林值區分大小寫, 而且必須寫成所有小寫字元, 亦即 "true" 和 "false"。
 
 ```  
 SELECT 
@@ -1847,7 +1868,7 @@ SELECT
 [{}]
 ``` 
 
-傳遞的運算式會剖析為布林的運算式;這些輸入不會評估輸入布林值，並因此會傳回未定義。
+傳遞的運算式會剖析為布林運算式;這些輸入不會評估為布林類型, 因此會傳回 undefined。
 
 ```  
 SELECT 
@@ -1865,7 +1886,7 @@ SELECT
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
- 傳回轉譯成 null 的運算式。 如果運算式無法轉譯，會傳回未定義。  
+ 傳回轉譯為 null 的運算式。 如果無法轉譯運算式, 則會傳回 undefined。  
   
  **語法**  
   
@@ -1877,19 +1898,19 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   是任何有效的純量運算式，才能評估為 null 的運算式。
+   這是要評估為 null 運算式的任何有效純量運算式。
   
   **傳回類型**  
   
-  傳回 null 的運算式，或未定義。  
+  傳回 null 運算式或未定義。  
   
   **範例**  
   
-  下列範例會示範 StringToNull 跨不同類型的運作方式。 
+  下列範例顯示 StringToNull 在不同類型之間的行為方式。 
 
-以下是範例，以有效的輸入。
+以下是具有有效輸入的範例。
 
- 只有之前或之後"null"，將允許空白字元。
+ 只有在 "null" 之前或之後才允許空白字元。
 
 ```  
 SELECT 
@@ -1904,9 +1925,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
-以下是範例具有無效的輸入。
+以下是具有無效輸入的範例。
 
-Null 會區分大小寫，而且必須寫入所有小寫字元也就是 「 null 的 」。
+Null 會區分大小寫, 而且必須寫成所有小寫字元, 亦即 "null"。
 
 ```  
 SELECT    
@@ -1920,7 +1941,7 @@ SELECT
 [{}]
 ```  
 
-傳遞的運算式會剖析為 null 的運算式;這些輸入不會評估輸入 null，因此會傳回未定義。
+傳遞的運算式會剖析為 null 運算式;這些輸入不會評估為 null 類型, 因此會傳回 undefined。
 
 ```  
 SELECT    
@@ -1936,8 +1957,8 @@ SELECT
 [{}]
 ```  
 
-####  <a name="bk_stringtonumber"></a> StringToNumber  
- 傳回轉譯成數字的運算式。 如果運算式無法轉譯，會傳回未定義。  
+####  <a name="bk_stringtonumber"></a>StringToNumber  
+ 傳回轉譯為數字的運算式。 如果無法轉譯運算式, 則會傳回 undefined。  
   
  **語法**  
   
@@ -1949,17 +1970,17 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   是任何有效的純量運算式評估為 JSON 數字運算式。 在 JSON 中的數字必須是整數或浮點數。 如需 JSON 格式的詳細資訊，請參閱[json.org](https://json.org/)  
+   這是要評估為 JSON 數位運算式的任何有效純量運算式。 JSON 中的數位必須是整數或浮點數。 如需 JSON 格式的詳細資訊, 請參閱[json.org](https://json.org/)  
   
   **傳回類型**  
   
-  傳回數字的運算式，或未定義。  
+  傳回數位運算式或未定義。  
   
   **範例**  
   
-  下列範例會示範 StringToNumber 跨不同類型的運作方式。 
+  下列範例顯示 StringToNumber 在不同類型之間的行為方式。 
 
-只有之前或之後的數字，將允許空白字元。
+只有在數位之前或之後, 才允許使用空格。
 
 ```  
 SELECT 
@@ -1975,7 +1996,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-在 JSON 中必須是有效的數字是整數或浮點數。
+在 JSON 中, 有效的數位必須是整數或浮點數。
 
 ```  
 SELECT   
@@ -1988,7 +2009,7 @@ SELECT
 {{}}
 ```  
 
-傳遞的運算式會剖析為編號的運算式;這些輸入不會評估輸入數字，因此會傳回未定義。 
+傳遞的運算式會剖析為數字運算式;這些輸入不會評估為類型數位, 因此會傳回 undefined。 
 
 ```  
 SELECT 
@@ -2007,7 +2028,7 @@ SELECT
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
- 傳回轉譯成物件的運算式。 如果運算式無法轉譯，會傳回未定義。  
+ 傳回轉譯成物件的運算式。 如果無法轉譯運算式, 則會傳回 undefined。  
   
  **語法**  
   
@@ -2019,17 +2040,17 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   是任何有效的純量運算式評估為 JSON 物件運算式。 請注意，必須為有效的雙引號括住寫入巢狀的字串值。 如需 JSON 格式的詳細資訊，請參閱[json.org](https://json.org/)  
+   這是要評估為 JSON 物件運算式的任何有效純量運算式。 請注意, 嵌套字串值必須以雙引號寫成有效的。 如需 JSON 格式的詳細資訊, 請參閱[json.org](https://json.org/)  
   
   **傳回類型**  
   
-  傳回的物件運算式，或未定義。  
+  傳回物件運算式或未定義。  
   
   **範例**  
   
-  下列範例會示範 StringToObject 跨不同類型的運作方式。 
+  下列範例顯示 StringToObject 在不同類型之間的行為方式。 
   
- 以下是範例，以有效的輸入。
+ 以下是具有有效輸入的範例。
 
 ``` 
 SELECT 
@@ -2048,10 +2069,10 @@ SELECT
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- 以下是範例具有無效的輸入。
-即使是在查詢中有效，它們不會剖析有效的物件。 物件的字串內的字串必須是逸出"{\\」\\":\\"str\\"}"或周圍的引號必須是單一 ' {"a":"str"}'。
+ 以下是具有無效輸入的範例。
+雖然它們在查詢中是有效的, 但它們不會剖析成有效的物件。 物件字串內的字串必須\\是 "{" a\\":\\" str\\"}", 或周圍的引號必須是單一 ' {"a": "str"} '。
 
-單引號周圍的屬性名稱不是有效的 JSON。
+括住屬性名稱的單引號不是有效的 JSON。
 
 ``` 
 SELECT 
@@ -2064,7 +2085,7 @@ SELECT
 [{}]
 ```  
 
-不含周圍的引號的屬性名稱不是有效的 JSON。
+沒有周圍引號的屬性名稱不是有效的 JSON。
 
 ``` 
 SELECT 
@@ -2077,9 +2098,9 @@ SELECT
 [{}]
 ``` 
 
-以下是範例具有無效的輸入。
+以下是具有無效輸入的範例。
 
- 傳遞的運算式會剖析為 JSON 物件;這些輸入不會評估輸入物件，並因此會傳回未定義。
+ 傳遞的運算式會剖析為 JSON 物件;這些輸入不會評估為 object 類型, 因此會傳回 undefined。
 
 ``` 
 SELECT 
@@ -2282,7 +2303,7 @@ SELECT UPPER("Abc") AS upper
 
 ## <a id="array-functions"></a>陣列函數
 
-下列純量函數會執行上陣列輸入的值並傳回數值、 布林值或陣列值的作業：
+下列純量函數會對陣列輸入值執行運算, 並傳回數值、布林值或陣列值:
   
 ||||  
 |-|-|-|  
@@ -2473,16 +2494,16 @@ SELECT
            "s7": [] 
 }]  
 ```  
-## <a id="date-time-functions"></a>日期和時間函式
+## <a id="date-time-functions"></a>日期和時間函數
 
-下列純量函數可讓您以兩種形式，取得目前的 UTC 日期和時間數值的時間戳記，其值為 Unix epoch 以來毫秒，或為符合 ISO 8601 格式的字串。 
+下列純量函數可讓您以兩種形式取得目前的 UTC 日期和時間;數值時間戳記, 其值為 Unix epoch (以毫秒為單位), 或符合 ISO 8601 格式的字串。 
 
 |||
 |-|-|
 |[GETCURRENTDATETIME](#bk_get_current_date_time)|[GETCURRENTTIMESTAMP](#bk_get_current_timestamp)||
 
-####  <a name="bk_get_current_date_time"></a> GETCURRENTDATETIME
- 傳回目前的 UTC 日期和時間以 ISO 8601 字串形式。
+####  <a name="bk_get_current_date_time"></a>GETCURRENTDATETIME
+ 以 ISO 8601 字串的形式傳回目前的 UTC 日期和時間。
   
  **語法**
   
@@ -2492,33 +2513,33 @@ GETCURRENTDATETIME ()
   
   **傳回類型**
   
-  傳回目前 UTC 日期和時間使用 ISO 8601 字串值。 
+  傳回目前的 UTC 日期和時間 ISO 8601 字串值。 
 
-  這表示，格式為 YYYY-MM-DDThh:mm:ss.sssZ 其中：
+  這會以 DDThh: mm: ss. sssZ 的格式表示, 其中:
   
   |||
   |-|-|
-  |YYYY|四位數年份|
-  |MM|兩位數月份 (01 = 年 1 月，等等。)|
-  |DD|兩位數天數的月份 (01 到 31)|
-  |T|從開始時間項目的 signifier|
-  |hh|兩位數的小時 (從 00 到 23)|
-  |mm|兩位數的分鐘 (00 到 59)|
-  |ss|兩位數的秒鐘 (00 到 59)|
-  |.sss|小數秒的三個數字|
-  |Z|UTC （國際標準時間） 指示項||
+  |YYYY|四位數的年份|
+  |MM|兩位數的月份 (01 = 一月等等)|
+  |DD|兩位數的月份日期 (01 到 31)|
+  |T|時間元素開頭的 signifier|
+  |hh|兩位數小時 (00 到 23)|
+  |mm|兩位數的分鐘數 (00 到 59)|
+  |ss|兩位數的秒數 (00 到 59)|
+  |.sss|三位數的十進位數 (秒)|
+  |Z|UTC (國際標準時間) 指示項||
   
-  如需有關 ISO 8601 格式的詳細資訊，請參閱[ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+  如需 ISO 8601 格式的詳細資訊, 請參閱[ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
   **備註**
 
-  GETCURRENTDATETIME 是不具決定性的函式。 
+  GETCURRENTDATETIME 是不具決定性的函數。 
   
-  傳回的結果會是 UTC （國際標準時間）。
+  傳回的結果是 UTC (國際標準時間)。
 
   **範例**  
   
-  下列範例示範如何取得目前的 UTC 日期時間使用 GetCurrentDateTime 內建函式。
+  下列範例顯示如何使用 GetCurrentDateTime 內建函數來取得目前的 UTC 日期時間。
   
 ```  
 SELECT GETCURRENTDATETIME() AS currentUtcDateTime
@@ -2532,8 +2553,8 @@ SELECT GETCURRENTDATETIME() AS currentUtcDateTime
 }]  
 ```  
 
-####  <a name="bk_get_current_timestamp"></a> GETCURRENTTIMESTAMP
- 傳回 00:00:00 1970 年 1 月 1 日，星期四以來所經過的毫秒的數。 
+####  <a name="bk_get_current_timestamp"></a>GETCURRENTTIMESTAMP
+ 傳回自00:00:00 年 1970 1 月1日星期四以來經過的毫秒數。 
   
  **語法**  
   
@@ -2543,17 +2564,17 @@ GETCURRENTTIMESTAMP ()
   
   **傳回類型**  
   
-  傳回數值，目前的以來所經過的 Unix epoch 以來也就是 00:00:00 1970 年 1 月 1 日，星期四以來所經過的毫秒數的毫秒數。
+  傳回數值, 這是自 Unix epoch 以來已過的毫秒數, 也就是自00:00:00 年1月 1 1970 日星期四以來所經過的毫秒數。
 
   **備註**
 
-  GETCURRENTTIMESTAMP 是不具決定性的函式。
+  GETCURRENTTIMESTAMP 是不具決定性的函數。
   
-  傳回的結果會是 UTC （國際標準時間）。
+  傳回的結果是 UTC (國際標準時間)。
 
   **範例**  
   
-  下列範例示範如何取得目前的時間戳記使用 GetCurrentTimestamp 內建函式。
+  下列範例顯示如何使用 GetCurrentTimestamp 內建函數來取得目前的時間戳記。
   
 ```  
 SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
@@ -2567,7 +2588,7 @@ SELECT GETCURRENTTIMESTAMP() AS currentUtcTimestamp
 }]  
 ```
 
-## <a id="spatial-functions"></a>空間函式
+## <a id="spatial-functions"></a>空間函數
 
 Cosmos DB 支援下列「開放地理空間協會」(OGC) 內建地理空間查詢函數。 下列純量值函式會對空間物件輸入值執行作業，並傳回數值或布林值。  
   
@@ -2597,7 +2618,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
   **範例**  
   
-  以下範例顯示如何使用ST_DISTANCE 內建函式傳回所有家族文件，且這些文件在 30 公里的指定位置內。 上也提供本文中使用的原始碼。  
+  以下範例顯示如何使用ST_DISTANCE 內建函式傳回所有家族文件，且這些文件在 30 公里的指定位置內。 .  
   
 ```  
 SELECT f.id   
@@ -2778,5 +2799,5 @@ SELECT ST_ISVALIDDETAILED({
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure Cosmos DB 簡介](introduction.md)
-- [UDFs](sql-query-udfs.md)
-- [彙總](sql-query-aggregates.md)
+- [Udf](sql-query-udfs.md)
+- [總計](sql-query-aggregates.md)

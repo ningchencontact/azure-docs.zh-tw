@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: ea7e4757aac0fccf60a44c70e9de6a63c1ec9498
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3338bed8cd8067d58eb2600854de6c0d8e34d1a3
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147015"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668468"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>使用 Azure CLI 搭配 Azure 儲存體
 
@@ -26,6 +26,8 @@ ms.locfileid: "65147015"
 本指南中的範例假設在 Ubuntu 上使用 Bash 殼層，但其他平台應以類似方式執行。 
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>先決條件
 本指南假設您已了解 Azure 儲存體的基本概念。 而且假設您可以滿足針對 Azure 和儲存體服務所指定的帳戶建立需求。
@@ -323,6 +325,17 @@ az storage blob copy start \
 
 ```azurecli
 az storage blob delete --container-name <container_name> --name <blob_name>
+```
+
+### <a name="set-the-content-type"></a>設定內容類型
+
+內容類型也稱為 MIME 類型，可識別 blob 中的資料格式。 瀏覽器和其他軟體會使用內容類型來決定如何處理資料。 例如, PNG 影像的內容類型為`image/png`。 若要設定內容類型, 請使用`blob update`命令:
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>建立和管理檔案共用

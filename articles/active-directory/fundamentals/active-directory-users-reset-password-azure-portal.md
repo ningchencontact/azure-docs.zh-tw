@@ -2,7 +2,7 @@
 title: 重設使用者的密碼 - Azure Active Directory | Microsoft Docs
 description: 如何使用 Azure Active Directory 重設使用者密碼的相關指引。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 382ffab090613a2b14ce710a45be10b4c36e5222
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248011"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561742"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>使用 Azure Active Directory 重設使用者的密碼
 
@@ -33,15 +33,15 @@ ms.locfileid: "60248011"
 
 ## <a name="to-reset-a-password"></a>重設密碼
 
-1. 登入[Azure 入口網站](https://portal.azure.com/)為使用者的系統管理員或密碼系統管理員。 如需可用角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. 以使用者系統管理員或密碼管理員身分登入[Azure 入口網站](https://portal.azure.com/)。 如需可用角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
-2. 依序選取 [Azure Active Directory]  和 [使用者]  ，搜尋並選取需要重設的使用者，然後選取 [重設密碼]  。
+2. 依序選取 [Azure Active Directory] 和 [使用者]，搜尋並選取需要重設的使用者，然後選取 [重設密碼]。
 
-    [Alain Charon - 設定檔]  頁面隨即出現，其中包含 [重設密碼]  選項。
+    [Alain Charon - 設定檔] 頁面隨即出現，其中包含 [重設密碼] 選項。
 
     ![使用者的設定檔頁面，已醒目提示 [重設密碼] 選項](media/active-directory-users-reset-password-azure-portal/user-profile-reset-password-link.png)
 
-3. 在 [重設密碼]  頁面中，選取 [重設密碼]  。
+3. 在 [重設密碼] 頁面中，選取 [重設密碼]。
 
     系統會為使用者自動產生暫時密碼。
 

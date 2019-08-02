@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
 ms.openlocfilehash: 09610782f211b4cfb80a1291b73ab543328376a3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68424190"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整叢集, 以符合 Azure Kubernetes Service 上的應用程式需求 (AKS)
@@ -32,7 +32,7 @@ ms.locfileid: "68424190"
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要使用叢集自動調整程式, 您需要*aks-preview* CLI 擴充功能版本0.4.4 或更高版本。 使用[az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]命令來安裝*aks-preview* Azure CLI 擴充功能:
+若要使用叢集自動調整程式, 您需要*aks-preview* CLI 擴充功能版本0.4.4 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新:
 
 ```azurecli-interactive
 # Install the aks-preview extension

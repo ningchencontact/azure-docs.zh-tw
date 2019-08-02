@@ -1,7 +1,7 @@
 ---
-title: 在入口網站中建立和探索實驗
+title: 使用自動化 ML 來建立和部署機器學習模型
 titleSuffix: Azure Machine Learning service
-description: 瞭解如何在入口網站中建立和管理自動化機器學習實驗
+description: 在 Azure 入口網站中建立、管理和部署自動化的機器學習實驗
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: cgronlun
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/2019
-ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.date: 08/02/2019
+ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358840"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720244"
 ---
-# <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>在 Azure 入口網站中建立及探索自動化機器學習服務實驗 (預覽)
+# <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>在 Azure 入口網站中建立、探索自動化機器學習服務實驗並加以部署 (預覽)
 
- 在本文中, 您將瞭解如何在不需使用任何程式碼的情況下, 建立、執行及探索自動化機器學習實驗 Azure 入口網站。 自動化機器學習服務會自動化選取最佳演算法以用於特定資料的程式, 因此您可以快速產生機器學習模型。 [深入瞭解自動化機器學習](concept-automated-ml.md)服務。
+ 在本文中, 您將瞭解如何在不使用任何程式碼的情況下, 于 Azure 入口網站中建立、探索及部署自動化的機器學習實驗。 自動化機器學習服務會自動化選取最佳演算法以用於特定資料的程式, 因此您可以快速產生機器學習模型。 [深入瞭解自動化機器學習](concept-automated-ml.md)服務。
 
  如果您偏好更以程式碼為基礎的經驗, 您也可以使用[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py),[在 Python 中設定自動化機器學習實驗](how-to-configure-auto-train.md)。
 
@@ -36,27 +36,19 @@ ms.locfileid: "68358840"
 
 ![Azure 入口網站流覽窗格](media/how-to-create-portal-experiments/nav-pane.png)
 
- 如果這是您第一次使用自動化 Machine Learning 進行實驗, 您會看到下列內容:
+ 如果這是您第一次執行任何實驗, 您會看到 [**歡迎使用自動 Machine Learning** ] 畫面。 
 
-![Azure 入口網站實驗登陸頁面](media/how-to-create-portal-experiments/landing-page.png)
-
-否則, 您會看到自動化機器學習服務儀表板, 並概述所有自動化機器學習服務實驗, 包括以 SDK 建立的測試。 在這裡, 您可以依日期、實驗名稱和執行狀態來篩選和探索您的執行。
-
-![Azure 入口網站實驗儀表板](media/how-to-create-portal-experiments/dashboard.png)
+否則, 您會看到**自動化機器學習**服務儀表板, 並概述所有自動化機器學習服務實驗, 包括以 SDK 建立的測試。 在這裡, 您可以依日期、實驗名稱和執行狀態來篩選和探索您的執行。
 
 ## <a name="create-an-experiment"></a>建立實驗
 
-選取 [建立實驗] 按鈕以填入下列表單。
+選取 [**建立實驗**], 並填入 [**建立新的自動化機器學習服務實驗**] 表單。
 
-![建立實驗表單](media/how-to-create-portal-experiments/create-exp-name-compute.png)
-
-1. 輸入您的實驗名稱。
+1. 輸入唯一的實驗名稱。
 
 1. 選取資料分析和訓練作業的計算。 您現有計算的清單可在下拉式清單中取得。 若要建立新的計算, 請遵循步驟3中的指示。
 
-1. 選取 [建立新的計算] 按鈕以開啟下方窗格, 並設定此實驗的計算內容。
-
-    ![建立新的實驗計算](media/how-to-create-portal-experiments/create-new-compute.png)
+1. 選取 [**建立新的計算**], 以設定此實驗的計算內容。
 
     欄位|描述
     ---|---
@@ -64,38 +56,35 @@ ms.locfileid: "68358840"
     虛擬機器大小| 選取您計算的虛擬機器大小。
     其他設定| *最小節點*:輸入您的計算節點數目下限。 AML 計算的節點數目下限為0。 若要啟用資料分析, 您必須有一或多個節點。 <br> *節點上限*:輸入您計算的節點數目上限。 AML 計算的預設值是6個節點。
 
-      若要開始建立新的計算, 請選取 [**建立**]。 這可能需要幾分鐘的時間。
+      選取 [建立]。 建立新的計算可能需要幾分鐘的時間。
 
       >[!NOTE]
       > 您的計算名稱會指出您選取/建立的計算是否已啟用程式碼*剖析*。 (如需資料分析的詳細資訊, 請參閱 7b)。
 
-1. 為您的資料選取儲存體帳戶。 公開預覽僅支援本機檔案上傳和 Azure Blob 儲存體帳戶。
+1. 為您的資料選取儲存體帳戶。 
 
 1. 選取儲存體容器。
 
-1. 選取儲存體容器中的資料檔案, 或從您的本機電腦將檔案上傳至容器。
+1. 選取儲存體容器中的資料檔案, 或從您的本機電腦將檔案上傳至容器。 公開預覽僅支援本機檔案上傳和 Azure Blob 儲存體帳戶。
 
-    ![選取用於實驗的資料檔案](media/how-to-create-portal-experiments/select-file.png)
+    [![選取資料檔案](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
 1. 使用 [預覽] 和 [設定檔] 索引標籤, 進一步設定此實驗的資料。
 
-    1. 在 [預覽] 索引標籤上, 指出您的資料是否包含標題, 並使用每個功能資料行中**包含**的切換按鈕, 選取定型的功能 (資料行)。
+    1. 在 [**預覽**] 索引標籤上, 指出您的資料是否包含標題, 並使用每個功能資料行中**包含**的切換按鈕, 選取定型的功能 (資料行)。
 
-        ![資料預覽](media/how-to-create-portal-experiments/data-preview.png)
-
-    1. 在 [設定檔] 索引標籤上, 您可以依功能來查看[資料設定檔](#profile), 以及每個的散發、類型和摘要統計資料 (mean、中位數、最大/最小值等等)。
-
-        ![資料設定檔索引標籤](media/how-to-create-portal-experiments/data-profile.png)
+    1. 在 [**設定檔**] 索引標籤上, 您可以依功能來查看[資料設定檔](#profile), 以及每個的散發、類型和摘要統計資料 (mean、中位數、最大/最小值等等)。
 
         >[!NOTE]
         > 如果您的計算內容**未**啟用分析, 將會出現下列錯誤訊息:*資料分析僅適用于已在執行中的計算目標*。
 
 1. 選取定型作業類型: [分類]、[回歸] 或 [預測]。
 
-1. 選取目標資料行。 您想要對其執行預測的資料行。
+1. 選取目標資料行;這是您想要對其執行預測的資料行。
 
 1. 針對預測:
     1. 選取時間資料行:此資料行包含要使用的時間資料。
+
     1. 選取預測範圍:指出模型能夠預測未來的時間單位數 (分鐘/小時/天/周/月/年)。 需要進一步預測模型, 使其變得更不精確。 [深入瞭解預測和水準預測](how-to-auto-train-forecast.md)。
 
 1. 選擇性[高級設定]: 您可以用來更有效控制訓練作業的其他設定。
@@ -109,48 +98,35 @@ ms.locfileid: "68358840"
     並行| 選取您想要在使用多核心計算時使用的多核心限制。
     封鎖的演算法| 選取您想要從定型作業中排除的演算法。
 
-   ![Advanced 設定表單](media/how-to-create-portal-experiments/advanced-settings.png)
-
-> [!NOTE]
-> 如需有關欄位的詳細資訊, 請按一下資訊工具提示。
-
 <a name="profile"></a>
 
-### <a name="data-profiling"></a>資料分析
+## <a name="data-profiling--summary-stats"></a>資料分析 & 摘要統計資料
 
 您可以在資料集內取得各式各樣的摘要統計資料, 以確認您的資料集是否為 ML 備妥。 若是非數值資料行, 則只會包含基本統計資料, 例如最小值、最大值和錯誤計數。 針對數值資料行, 您也可以查看其統計時間和預估分量。 具體而言, 我們的資料設定檔包括:
 
-* **功能**: 摘要資料行的名稱。
+>[!NOTE]
+> 具有無關類型的功能會顯示空白專案。
 
-* **設定檔**: 根據所推斷之類型的內嵌視覺效果。 例如, 字串、布林值和日期會有數值計數, 而小數 (數值) 則具有近似長條圖。 這可讓您快速瞭解資料的散發。
-
-* **類型散發**: 資料行內類型的內建值計數。 Null 是其本身的類型, 因此此視覺效果適用于偵測奇數或遺漏值。
-
-* **類型**: 資料行的推斷類型。 可能的值包括: 字串、布林值、日期和小數。
-
-* **Min**: 資料行的最小值。 如果功能的類型沒有固有的順序 (例如布林值), 則會出現空白專案。
-
-* **Max**: 資料行的最大值。 就像「最小」, 空白專案會針對具有無關類型的功能出現。
-
-* **Count**: 資料行中遺漏和非遺漏專案的總數。
-
-* **未遺漏計數**: 資料行中沒有遺漏的專案數。 請注意, 空字串和錯誤會被視為值, 因此它們不會參與「未遺漏計數」。
-
-* **分量**(0.1、1、5、25、50、75、95、99和 99.9% 間隔): 每個分量的近似值, 以提供資料分佈的意義。 具有無關類型的功能會顯示空白專案。
-
-* **Mean**: 資料行的算術平均值。 具有無關類型的功能會顯示空白專案。
-
-* **標準差**: 資料行的標準差。 具有無關類型的功能會顯示空白專案。
-
-* **差異**: 資料行的變異數。 具有無關類型的功能會顯示空白專案。
-
-* **偏斜**: 資料行的偏斜度。 具有無關類型的功能會顯示空白專案。
-
-* **峰值**: 資料行的峰度。 具有無關類型的功能會顯示空白專案。
+統計資料|描述
+------|------
+功能| 摘要資料行的名稱。
+個人資料| 以推斷的型別為基礎的內嵌視覺效果。 例如, 字串、布林值和日期會有數值計數, 而小數 (數值) 則具有近似長條圖。 這可讓您快速瞭解資料的散發。
+類型散發| 資料行內類型的內建數值計數。 Null 是其本身的類型, 因此此視覺效果適用于偵測奇數或遺漏值。
+Type|推斷的資料行類型。 可能的值包括: 字串、布林值、日期和小數。
+最小值| 資料行的最小值。 如果功能的類型沒有固有的順序 (例如布林值), 則會出現空白專案。
+最大值| 資料行的最大值。 
+Count| 資料行中遺漏和不遺失的專案總數。
+未遺漏計數| 資料行中未遺漏的專案數。 空字串和錯誤會被視為值, 因此它們不會參與「未遺漏計數」。
+分量| 每個分量的近似值可讓您瞭解資料的分佈。
+平均數| 資料行的算術平均值或平均值。
+標準差| 此資料行資料的散佈或變化量的測量單位。
+Variance| 量值分佈在此資料行中的值是來自其平均值。 
+偏度| 測量此資料行的資料與一般散發的不同之處。
+峰度| 測量此資料行的資料與一般散發的比較程度。
 
 <a name="preprocess"></a>
 
-### <a name="advanced-preprocessing"></a>先進前置處理
+## <a name="advanced-preprocessing-options"></a>Advanced 前置處理選項
 
 在設定您的實驗時, 您可以啟用 [ `Preprocess`advanced] 設定。 這麼做表示會自動執行下列資料前置處理和特徵化步驟。
 
@@ -168,15 +144,15 @@ ms.locfileid: "68358840"
 
 ## <a name="run-experiment-and-view-results"></a>執行實驗並查看結果
 
-若要執行實驗, 請按一下 [啟動]。 實驗準備程式需要幾分鐘的時間。
+選取 [**啟動**] 以執行您的實驗。 實驗準備程式需要幾分鐘的時間。
 
 ### <a name="view-experiment-details"></a>查看實驗詳細資料
 
-實驗準備階段完成後, 您會看到 [執行詳細資料] 畫面。 這會提供您所建立之模型的完整清單。 根據預設, 以您的參數為最高分數的模型會在清單頂端。 當定型作業嘗試多個模型時, 它們會加入至反復專案清單和圖表中。 使用反復專案圖表來快速比較目前為止所產生之模型的計量。
+實驗準備階段完成後, 您會看到 [執行詳細資料] 畫面開始填入。 此畫面會提供您所建立之模型的完整清單。 根據預設, 以所選計量為最高分數的模型會在清單頂端。 當定型作業嘗試多個模型時, 它們會加入至反復專案清單和圖表中。 使用反復專案圖表來快速比較目前為止所產生之模型的計量。
 
 定型作業可能需要一段時間, 每個管線才會完成執行。
 
-![執行詳細資料儀表板](media/how-to-create-portal-experiments/run-details.png)
+[![執行詳細資料儀表板](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### <a name="view-training-run-details"></a>View 定型執行詳細資料
 
@@ -184,64 +160,39 @@ ms.locfileid: "68358840"
 
 ![反復專案詳細資料](media/how-to-create-portal-experiments/iteration-details.png)
 
-## <a name="deploy-model"></a>部署模型
+## <a name="deploy-your-model"></a>部署模型
 
 當您手邊擁有最佳模型之後, 就可以將它部署為 web 服務, 以預測新的資料。
 
 自動化 ML 可協助您部署模型, 而不需要撰寫程式碼:
 
 1. 您有幾個部署選項。 
-    1. 如果您想要根據您為實驗設定的計量準則來部署最佳模型, 請從 [**執行詳細資料**] 頁面選取 [**部署最佳模型**]。
 
-        ![[部署模型] 按鈕](media/how-to-create-portal-experiments/deploy-model-button.png)
+    + 選項 1：若要部署最佳模型 (根據您所定義的度量準則), 請從 [執行詳細資料] 頁面選取 [部署最佳模型]。
 
-    1. 如果您想要部署特定的模型反復專案, 請向下切入模型以開啟其特定的執行詳細資料頁面, 然後選取 [**部署模型**]。
+    + 選項 2：若要從此實驗部署特定模型反復專案, 請向下切入模型以開啟其 [執行詳細資料] 頁面, 然後選取 [部署模型]。
+1. 填入 [**部署模型**] 窗格,
 
-        ![[部署模型] 按鈕](media/how-to-create-portal-experiments/deploy-model-button2.png)
+    欄位| 值
+    ----|----
+    部署名稱| 為您的部署輸入唯一的名稱。
+    部署描述| 輸入描述, 以更清楚地識別此部署的用途。
+    計分腳本| 自動產生或上傳您自己的評分檔案。 [深入瞭解評分腳本](how-to-deploy-and-where.md#script)
+    環境腳本| 自動產生或上傳您自己的環境檔案。
+    >[!Important]
+    > 檔案名的長度必須是32個字元, 而且必須以英數位元開頭和結尾。 可能包含虛線、底線、點和之間的英數位元。 不允許使用空格。
 
-1. 第一個步驟是在服務中註冊模型。 選取 [註冊模型], 並等候註冊程式完成。
+1. 選取 [部署]。 部署可能需要大約20分鐘的時間才能完成。
 
-    ![部署模型分頁](media/how-to-create-portal-experiments/deploy-model-blade.png)
+    當部署成功完成時, 會出現下列訊息。
 
-1. 註冊模型之後, 您將能夠下載評分腳本 (scoring.py) 和環境腳本 (condaEnv. yml), 以在部署期間使用。
+    ![部署完成](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-1. 下載評分腳本和環境腳本時, 請移至左側流覽窗格的 [**資產**] 分頁, 然後選取 [**模型**]。
-
-    ![流覽窗格模型](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. 選取您註冊的模型, 然後選取 [建立映射]。
-
-    您可以依其描述來識別模型, 其中會包含執行識別碼、反復專案編號, 格式如下: *< Run_ID > _ < Iteration_number > _Model*
-
-    ![型號:建立映像](media/how-to-create-portal-experiments/model-create-image.png)
-
-1. 輸入影像的名稱。 
-1. 選取 [評分檔案] 方塊旁的 **[流覽]** 按鈕, 上傳您先前下載的評分檔案 (scoring.py)。
-
-1. 選取 [Conda 檔案] 方塊旁的 **[流覽]** 按鈕, 上傳您先前下載的環境檔案 (condaEnv. yml)。
-
-    您可以使用自己的評分腳本和 conda 檔, 以及上傳其他檔案。 [深入瞭解評分腳本](how-to-deploy-and-where.md#script)。
-
-      >[!Important]
-      > 檔案名的長度必須是32個字元, 而且必須以英數位元開頭和結尾。 可能包含虛線、底線、點和之間的英數位元。 不允許使用空格。
-
-    ![建立映像](media/how-to-create-portal-experiments/create-image.png)
-
-1. 選取 [建立] 按鈕以開始建立映射。 這需要幾分鐘的時間才能完成, 完成後, 您會在頂端列看到一則訊息。
-1. 移至 [映射] 索引標籤, 勾選您要部署之映射旁的核取方塊, 然後選取 [建立部署]。 [深入瞭解部署](how-to-deploy-and-where.md)。
-
-    有2個選項可供部署。
-     + Azure 容器實例 (ACI)-這可用於測試用途, 而不是大規模的營運部署。 請務必至少針對_CPU 保留容量_填入一個核心的值, 並至少為_記憶體保留容量_填入一個 gb
-     + Azure Kubernetes Service (AKS))-這個選項適用于大規模部署。 您必須準備好以 AKS 為基礎的計算。
-
-     ![圖像建立部署](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. 完成後，請選取 [建立]。 部署模型可能需要幾分鐘的時間, 每個管線才會完成執行。
-
-1. 就這麼容易！ 您擁有可運作的 web 服務來產生預測。
+現在您已有可運作的 web 服務來產生預測!
 
 ## <a name="next-steps"></a>後續步驟
 
+* 嘗試[使用 Azure Machine Learning 建立您的第一個自動化 ML 實驗](tutorial-first-experiment-automated-ml.md)的端對端教學課程。 
 * [深入瞭解自動化機器學習](concept-automated-ml.md)和 Azure Machine Learning。
 * [瞭解自動化的機器學習結果](how-to-understand-automated-ml.md)。
 * [瞭解如何使用 web 服務](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service)。

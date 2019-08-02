@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 625f31252942c3d8dea9ca9b4772af19f60e17ab
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60546534"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720718"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料以及複製資料至 Salesforce
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -35,9 +35,9 @@ ms.locfileid: "60546534"
 - Salesforce Developer、Professional、Enterprise 或 Unlimited 版本。
 - 從 Salesforce 生產環境、沙箱、自訂網域複製資料，以及將資料複製到這些位置。
 
-Salesforce 連接器已內建的 Salesforce REST/大量 API，之上[v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm)複製資料並[v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm)複製資料。
+Salesforce 連接器建置於 Salesforce REST/Bulk API 之上, 並具有[v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) , 可用於複製資料, 並將其複製到[v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 必須在 Salesforce 中啟用 API 權限。 如需詳細資訊，請參閱[在 Salesforce 中透過權限集啟用 API 存取權](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)。
 
@@ -64,8 +64,8 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 |:--- |:--- |:--- |
 | type |type 屬性必須設為 **Salesforce**。 |是 |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
-| userName |指定使用者帳戶的使用者名稱。 |是 |
-| password |指定使用者帳戶的密碼。<br/><br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
+| username |指定使用者帳戶的使用者名稱。 |是 |
+| 密碼 |指定使用者帳戶的密碼。<br/><br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | securityToken |指定使用者帳戶的安全性權杖。 如需如何重設及取得安全性權杖的指示，請參閱[取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。<br/><br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 如果來源連結服務沒有整合執行階段，則對於來源而言為「否」；對於接收而言為「是」 |
 
@@ -138,13 +138,13 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 若要從 Salesforce 複製資料以及將資料複製到 Salesforce，請將資料集的 type 屬性設定為 **SalesforceObject**。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設為 **SalesforceObject**。  | 是 |
 | objectApiName | 要從其中擷取資料的 Salesforce 物件名稱。 | 否 (來源)；是 (接收) |
 
 > [!IMPORTANT]
-> 所有自訂物件的 [API 名稱]  都要有 "__c" 部分。
+> 所有自訂物件的 [API 名稱]都要有 "__c" 部分。
 
 ![Data Factory Salesforce 連線的 API 名稱](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
@@ -155,12 +155,13 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
     "name": "SalesforceDataset",
     "properties": {
         "type": "SalesforceObject",
+        "typeProperties": {
+            "objectApiName": "MyTable__c"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Salesforce linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "objectApiName": "MyTable__c"
         }
     }
 }
@@ -180,16 +181,16 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="salesforce-as-a-source-type"></a>Salesforce 作為來源類型
 
-若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 [來源]  區段支援下列屬性。
+若要從 Salesforce 複製資料，請將複製活動中的來源類型設定為 **SalesforceSource**。 複製活動的 [來源] 區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **SalesforceSource**。 | 是 |
-| query |使用自訂查詢來讀取資料。 您可以使用 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢或 SQL-92 查詢。 請參閱[查詢秘訣](#query-tips)一節中的秘訣。 如果未指定查詢，將會在資料集內擷取 "objectApiName" 中所指定之 Salesforce 物件的所有資料。 | 否 (如果在資料集中指定 "objectApiName") |
+| 查詢 |使用自訂查詢來讀取資料。 您可以使用 [Salesforce 物件查詢語言 (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 查詢或 SQL-92 查詢。 請參閱[查詢秘訣](#query-tips)一節中的秘訣。 如果未指定查詢，將會在資料集內擷取 "objectApiName" 中所指定之 Salesforce 物件的所有資料。 | 否 (如果在資料集中指定 "objectApiName") |
 | readBehavior | 指出是要查詢現有記錄，還是要查詢包含已刪除記錄在內的所有記錄。 如果未指定，預設行為是前者。 <br>允許的值：**query** (預設值)、**queryAll**。  | 否 |
 
 > [!IMPORTANT]
-> 所有自訂物件的 [API 名稱]  都要有 "__c" 部分。
+> 所有自訂物件的 [API 名稱]都要有 "__c" 部分。
 
 ![Data Factory Salesforce 連線的 API 名稱清單](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
@@ -230,9 +231,9 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce 作為接收類型
 
-若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 [接收]  區段支援下列屬性。
+若要將資料複製到 Salesforce，請將複製活動中的接收器類型設定為 **SalesforceSink**。 複製活動的 [接收] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為 **SalesforceSink**。 | 是 |
 | writeBehavior | 作業的寫入行為。<br/>允許的值為 **Insert** 和 **Upsert**。 | 否 (預設為 Insert) |
@@ -291,7 +292,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 語法 | SOQL 模式 | SQL 模式 |
 |:--- |:--- |:--- |
-| 資料行選擇 | 要列舉的欄位，例如複製在查詢中， `SELECT field1, filed2 FROM objectname` | 支援 `SELECT *` (資料行選取除外)。 |
+| 資料行選擇 | 需要列舉要在查詢中複製的欄位, 例如`SELECT field1, filed2 FROM objectname` | 支援 `SELECT *` (資料行選取除外)。 |
 | 引號 | 欄位/物件名稱不能加上引號。 | 欄位/物件名稱可以加上引號，例如 `SELECT "id" FROM "Account"` |
 | 日期時間格式 |  請參閱[這裡](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm)的詳細資料和下一節中的範例。 | 請參閱[這裡](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017)的詳細資料和下一節中的範例。 |
 | 布林值 | 以 `False` 和 `True` 表示，例如 `SELECT … WHERE IsDeleted=True`。 | 以 0 或 1 表示，例如 `SELECT … WHERE IsDeleted=1`。 |
@@ -305,9 +306,9 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 * **SOQL 範例**：`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 範例**`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformedquerytruncated"></a>錯誤的 MALFORMED_QUERY： 截斷
+### <a name="error-of-malformedquerytruncated"></a>MALFORMED_QUERY 錯誤: 已截斷
 
-如果您遇到的錯誤 」 MALFORMED_QUERY:截斷 」，通常它是因為資料中有 JunctionIdList 類型資料行和 Salesforce 有支援這類資料，且含有大量資料列的限制。 若要減輕此項目，請嘗試 JunctionIdList 資料行排除或限制複製的資料列數目 （您可以分割到多個複製活動執行）。
+如果您遇到錯誤「MALFORMED_QUERY:已被截斷」, 通常是因為您在資料中有 JunctionIdList 類型資料行, 而 Salesforce 有大量資料列支援這類資料的限制。 若要減輕此問題, 請嘗試排除 JunctionIdList 資料行, 或限制要複製的資料列數目 (您可以分割成多個複製活動執行)。
 
 ## <a name="data-type-mapping-for-salesforce"></a>Salesforce 的資料類型對應
 
@@ -317,15 +318,15 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 |:--- |:--- |
 | Auto Number |String |
 | Checkbox |Boolean |
-| Currency |Decimal |
+| Currency |DECIMAL |
 | Date |DateTime |
 | Date/Time |DateTime |
 | Email |String |
 | Id |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
-| Number |Decimal |
-| Percent |Decimal |
+| Number |DECIMAL |
+| Percent |DECIMAL |
 | Phone |String |
 | Picklist |String |
 | Text |String |

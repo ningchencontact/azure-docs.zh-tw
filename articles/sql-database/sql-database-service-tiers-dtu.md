@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 服務層 - 以 DTU 為基礎的購買模式 | Microsoft Docs
-description: 對於提供計算大小和儲存體大小的單一和集區資料庫，了解以 DTU 為基礎的購買模式的服務層。
+title: Azure SQL Database 服務層級 - 以 DTU 為基礎的購買模型 | Microsoft Docs
+description: 對於提供計算大小和儲存體大小的單一和集區資料庫，了解以 DTU 為基礎的購買模型的服務層。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,33 +10,32 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357232"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566681"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
-以 DTU 為基礎的購買模式的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 以 DTU 為基礎的購買模型中的所有服務層皆都可彈性變更計算大小搭配最低限度[停機](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); 不過，沒有交換器期間內，會失去連線能力對資料庫短的時間，其中您可以降低使用重試邏輯。 單一資料庫和彈性集區會根據服務層和計算大小，以每小時為單位來計費。
+以 DTU 為基礎的購買模式的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 以 DTU 為基礎的購買模型中的所有服務層級, 在[停機時間](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)最短的情況之下, 提供變更計算大小的彈性不過, 有一段很短的時間會將連線中斷連接到資料庫, 而這可以使用重試邏輯來減輕。 單一資料庫和彈性集區會根據服務層級和計算大小，以每小時為單位來計費。
 
 > [!IMPORTANT]
 > SQL Database 受控執行個體不支援以 DTU 為基礎的購買模型。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
 > [!NOTE]
-> 如需以虛擬核心為基礎之服務層的相關資訊，請參閱[以虛擬核心為基礎的服務層](sql-database-service-tiers-vcore.md)。 如需如何區分以 DTU 為基礎及以虛擬核心為基礎之服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-purchase-models.md)。
+> 如需以虛擬核心為基礎之服務層級的相關資訊，請參閱[以虛擬核心為基礎的服務層級](sql-database-service-tiers-vcore.md)。 如需如何區分以 DTU 為基礎及以虛擬核心為基礎之服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-purchase-models.md)。
 
-## <a name="compare-the-dtu-based-service-tiers"></a>比較以 DTU 為基礎的服務層
+## <a name="compare-the-dtu-based-service-tiers"></a>比較以 DTU 為基礎的服務層級
 
-服務層的選擇主要視業務持續性、儲存體和效能需求而定。
+服務層級的選擇主要視業務持續性、儲存體和效能需求而定。
 
 ||基本|標準|進階|
 | :-- | --: |--:| --:|
 |目標工作負載|開發與生產|開發與生產|開發與生產|
 |執行時間 SLA|99.99%|99.99%|99.99%|
-|備份保留期|7 天|35 天|35 天|
+|備份保留|7 天|35 天|35 天|
 |CPU|低|低、中、高|中、高|
 |IO 輸送量 (大約) |每一 DTU 2.5 IOPS| 每一 DTU 2.5 IOPS | 每一 DTU 48 IOPS|
 |IO 延遲 (大約)|5 毫秒 (讀取)，10 毫秒 (寫入)|5 毫秒 (讀取)，10 毫秒 (寫入)|2 毫秒 (讀取/寫入)|
@@ -45,7 +44,7 @@ ms.locfileid: "67357232"
 |||||
 
 > [!NOTE]
-> 您可以取得免費的 Azure SQL database 搭配使用 Azure 免費帳戶探索 Azure 的基本服務層。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
+> 您可以在基本服務層級取得免費的 Azure SQL 資料庫, 並搭配 Azure 免費帳戶來探索 Azure。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
 
 ## <a name="single-database-dtu-and-storage-limits"></a>單一資料庫 DTU 和儲存空間限制
 
@@ -90,7 +89,7 @@ ms.locfileid: "67357232"
 
 基準測試可測量基本資料庫作業混合的效能，這些作業最常發生在線上交易處理 (OLTP) 工作負載中。 雖然基準測試在設計時考量到雲端運算，但是資料庫結構描述、資料母體和交易的設計都廣泛代表 OLTP 工作負載中最常使用的基本元素。
 
-### <a name="schema"></a>結構描述
+### <a name="schema"></a>架構
 
 結構描述的設計具有足夠的多樣性和複雜性才能支援廣泛的作業。 對包含六個資料表的資料庫執行基準測試。 資料表分成三個類別：固定大小、調整和成長。 有兩個固定大小資料表、三個調整資料表，和一個成長資料表。 固定大小資料表有固定數目的資料列。 調整資料表有與資料庫效能成正比但不會在基準測試期間變更的基數。 成長資料表的大小在初始載入時類似調整資料表，但是在執行基準測試做為資料列的過程中，會插入並刪除基數變更。
 
@@ -109,27 +108,27 @@ ms.locfileid: "67357232"
 | 輕度讀取 |SELECT；記憶體中；唯讀 |
 | 中度讀取 |SELECT；大部分記憶體中；唯讀 |
 | 重度讀取 |SELECT；大部分非記憶體中；唯讀 |
-| Update Lite |UPDATE；記憶體中；讀寫 |
-| Update Heavy |UPDATE；大部分非記憶體中；讀寫 |
+| 輕度更新 |UPDATE；記憶體中；讀寫 |
+| 重度更新 |UPDATE；大部分非記憶體中；讀寫 |
 | 輕度插入 |INSERT；記憶體中；讀寫 |
 | 重度插入 |INSERT；大部分非記憶體中；讀寫 |
-| 刪除 |DELETE；記憶體中與非記憶體中的混合；讀寫 |
-| CPU Heavy |SELECT；記憶體中；非常重度的 CPU 負載；唯讀 |
+| DELETE |DELETE；記憶體中與非記憶體中的混合；讀寫 |
+| 重度 CPU |SELECT；記憶體中；非常重度的 CPU 負載；唯讀 |
 
 ### <a name="workload-mix"></a>工作負載混合
 
 利用下列整體混合從加權分佈中隨機選取交易。 整體混合具有大約 2:1 的讀/寫比率。
 
-| 事务类型 | 混合 % |
+| 交易類型 | 混合 % |
 | --- | --- |
 | 輕度讀取 |35 |
-| Read Medium |20 |
-| Read Heavy |5 |
+| 中度讀取 |20 |
+| 重度讀取 |5 |
 | 輕度更新 |20 |
 | 重度更新 |3 |
-| Insert Lite |3 |
+| 輕度插入 |3 |
 | 重度插入 |2 |
-| Delete |2 |
+| DELETE |2 |
 | 重度 CPU |10 |
 
 ### <a name="users-and-pacing"></a>使用者與步調
@@ -156,7 +155,7 @@ ms.locfileid: "67357232"
 
 有效的基準測試執行需要至少一個小時的穩定狀態測量持續時間。
 
-### <a name="metrics"></a>指标
+### <a name="metrics"></a>計量
 
 基準測試中的關鍵度量是輸送量和回應時間。
 
@@ -165,7 +164,7 @@ ms.locfileid: "67357232"
 
 | 服務類別 | 輸送量測量 | 回應時間需求 |
 | --- | --- | --- |
-| 進階 |每秒交易 |0\.5 秒時第 95 個百分位數 |
+| 進階 |每秒交易數 |0\.5 秒時第 95 個百分位數 |
 | 標準 |每分鐘交易 |1\.0 秒時第 90 個百分位數 |
 | 基本 |每小時交易 |2\.0 秒時第 80 個百分位數 |
 

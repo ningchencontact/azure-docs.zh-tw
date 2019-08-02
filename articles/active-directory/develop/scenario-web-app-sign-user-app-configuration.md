@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c962e95b3d213c4089b51f58139cab17a3332cbd
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: a96d17ae7fbe94877032e7b4b2aacb63f6e070ca
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853077"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562261"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>登入使用者的 Web 應用程式-程式碼設定
 
@@ -110,7 +110,7 @@ ms.locfileid: "67853077"
 
 ### <a name="initialization-code"></a>初始化程式碼
 
-在 ASP.NET Core Web Apps (和 Web api) 中, 執行應用程式初始化的程式碼位於檔案`Startup.cs`中, 而若要使用 Microsoft 身分識別平臺 (先前為 Azure AD) v2.0 來新增驗證, 您必須新增下列程式碼。 程式碼中的批註應該一目了然。
+在 ASP.NET Core Web Apps (和 Web api) 中, 執行應用程式初始化的程式碼位於檔案`Startup.cs`中, 而若要使用 Microsoft 身分識別平臺 (先前為 Azure AD v2.0) 新增驗證, 您必須新增下列程式碼。 程式碼中的批註應該一目了然。
 
   > [!NOTE]
   > 如果您使用 Visual studio 內的預設 ASP.NET core Web 專案來啟動專案, `dotnet new mvc`或使用`AddAzureAD`方法, 則預設會提供, 因為相關的套件會自動載入。 不過, 如果您從頭開始建立專案, 並嘗試使用下面的程式碼, 建議您將 NuGet 套件 **"AspNetCore** " 新增至您的`AddAzureAD`專案, 讓方法可供使用。
@@ -122,7 +122,7 @@ ms.locfileid: "67853077"
  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
  {
   // The ASP.NET core templates are currently using Azure AD v1.0, and compute
-  // the authority (as {Instance}/{TenantID}). We want to use the Microsoft Identity Platform v2.0 endpoint
+  // the authority (as {Instance}/{TenantID}). We want to use the Microsoft identity platform endpoint
   options.Authority = options.Authority + "/v2.0/";
 
   // If you want to restrict the users that can sign-in to specific organizations
@@ -133,7 +133,7 @@ ms.locfileid: "67853077"
 
   // Set the nameClaimType to be preferred_username.
   // This change is needed because certain token claims from Azure AD v1.0 endpoint
-  // (on which the original .NET core template is based) are different in Azure AD v2.0 endpoint.
+  // (on which the original .NET core template is based) are different in Microsoft identity platform endpoint.
   // For more details see [ID Tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens)
   // and [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
   options.TokenValidationParameters.NameClaimType = "preferred_username";
@@ -176,7 +176,7 @@ ms.locfileid: "67853077"
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+     // The `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0
      // The `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
      ClientId = clientId,

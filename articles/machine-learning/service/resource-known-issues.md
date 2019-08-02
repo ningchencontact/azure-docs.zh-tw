@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 206a8d9ba45dcb948dfffff86bab17b58a33e464
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358624"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716543"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 
@@ -151,3 +151,9 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 ```
 
 例如，如果您嘗試從 ML 管線建立或連結為遠端執行所提交的計算目標，您會收到錯誤。
+
+## <a name="overloaded-azurefile-storage"></a>多載的 AzureFile 儲存體
+
+如果您收到錯誤「無法將專案檔案上傳至 AzureFile 中的工作目錄, 因為儲存體已多載」, 請套用下列因應措施。
+
+如果您使用檔案共用來進行其他工作負載 (例如資料傳輸), 建議使用 blob, 讓檔案共用可免費用於提交執行。 您也可以在兩個不同的工作區之間分割工作負載。

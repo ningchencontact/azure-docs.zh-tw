@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839006"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716648"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
@@ -113,7 +113,7 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 如果有下列情況，請將您的應用程式隔離至新的 App Service 方案中：
 
 - 應用程式會耗用大量資源。
-- 您希望單獨調整應用程式，不需要現有方案中的其他應用程式。
+- 您想要從現有方案中的其他應用程式獨立調整應用程式。
 - 應用程式需要不同地理區域中的資源。
 
 這樣可讓您為應用程式配置一組新的資源，更充分掌控您的應用程式。

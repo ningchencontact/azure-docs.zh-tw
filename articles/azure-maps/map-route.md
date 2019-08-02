@@ -3,18 +3,18 @@ title: 使用 Azure 地圖服務顯示指示 | Microsoft Docs
 description: 如何在 JavaScript 地圖上顯示兩個位置之間的指示
 author: jingjing-z
 ms.author: jinzh
-ms.date: 3/7/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 9e9469e012f2e6b54d9bb84858a9dfc970873b4c
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 65f8337585e0a4d1077897274fd07505024af22c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476798"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638956"
 ---
 # <a name="show-directions-from-a-to-b"></a>顯示從甲地到乙地的指示
 
@@ -27,9 +27,9 @@ ms.locfileid: "68476798"
 <iframe height='500' scrolling='no' title='在地圖上顯示從甲地到乙地的指示 (服務模組)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆<a href='https://codepen.io/azuremaps/pen/RBZbep/'>在地圖上顯示從甲地到乙地的指示 (服務模組)</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-在上述程式碼中, 程式碼的第一個區塊會建立地圖物件, 並將驗證機制設定為使用訂用帳戶金鑰。 如需相關指示，您可以查看[建立對應](./map-create.md)。
+在上述程式碼中, 程式碼的第一個區塊會建立地圖物件, 並將驗證機制設定為使用存取權杖。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-第二個程式碼區塊會`SubscriptionKeyCredentialPolicy`建立, 以使用訂用帳戶金鑰來驗證 Azure 地圖服務的 HTTP 要求。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest)執行個體。 `routeURL` 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
+第二個程式碼區塊會`TokenCredential`建立, 以使用存取權杖來驗證 Azure 地圖服務的 HTTP 要求。 然後, 它會`TokenCredential`將`atlas.service.MapsURL.newPipeline()`傳遞至, 並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest)實例。 `routeURL` 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
 
 第三個程式碼區塊會建立[DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)物件, 並將其新增至對應。
 
@@ -50,7 +50,7 @@ ms.locfileid: "68476798"
 <iframe height='500' scrolling='no' title='在地圖上顯示從甲地到乙地的指示' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>在地圖上顯示從甲地到乙地的指示</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-在上述程式碼中, 程式碼的第一個區塊會建立地圖物件, 並將驗證機制設定為使用訂用帳戶金鑰。 如需相關指示，您可以查看[建立對應](./map-create.md)。
+在上述程式碼中, 程式碼的第一個區塊會建立地圖物件, 並將驗證機制設定為使用存取權杖。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
 第二個程式碼區塊會建立 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 物件並將其新增至地圖。
 

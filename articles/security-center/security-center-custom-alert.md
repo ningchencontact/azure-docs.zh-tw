@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8845cb0a91edefa0350558f35488519ec37d064d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485287"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663575"
 ---
-# <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure 資訊安全中心內的自訂警示規則 (預覽)
-本文件可協助您在 Azure 資訊安全中心內建立自訂警示規則。
+# <a name="custom-alert-rules-in-azure-security-center-retired"></a>Azure 資訊安全中心中的自訂警示規則 (已淘汰)
+本檔可協助您建立 Azure 資訊安全中心中的自訂警示規則 (預覽)。
 
 > [!NOTE]
-> 自訂警示已從資訊安全中心已淘汰。 
+> 自訂警示已于2019年6月30日從 Azure 資訊安全中心淘汰。 
 
-## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>在 Azure 資訊安全中心中的停用的自訂警示規則
+## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>停用 Azure 資訊安全中心中的自訂警示規則
 
-自訂警示 體驗已淘汰於 2019 年 6 月 30 日，因為它依賴基礎結構的淘汰。 retriement 之前所定義的任何自訂警示未生效，不會產生這些自訂警示規則為基礎的安全性警示。 您仍然可以檢視在資訊安全中心的自訂警示規則的查詢，以重新建立它們在下面所述的替代方案：
+自訂警示體驗已于2019年6月30日淘汰, 因為已淘汰其依賴的基礎結構。 在 retriement 之前定義的任何自訂警示都不會生效, 且不會產生以這些自訂警示規則為基礎的安全性警示。 您仍然可以在資訊安全中心中查看自訂警示規則的查詢, 以便在下列所述的替代專案中重新建立:
 
-其中一個建議使用者：
-- 啟用[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) ，並使用內建[analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)功能來重新建立其警示的規則
-- 重新建立其警示與 Azure 監視器記錄警示
+建議使用者執行下列其中一項:
+- 啟用[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)並使用其內建[分析](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)功能來重新建立其警示規則
+- 使用 Azure 監視器記錄警示重新建立警示
                                      
-若要保留您現有的警示，並重新建立它們在 Azure 的 Sentinel，請[啟動 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一個步驟中，選取 [儲存您自訂的警示] 工作區，然後選取 「 分析 」 功能表項目，來設定您的自訂警示規則。 請瀏覽[文件](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)如需詳細資訊。
+若要保留現有的警示, 並在 Azure Sentinel 中重新建立, 請[啟動 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一個步驟是選取您的自訂警示儲存所在的工作區, 然後選取 [分析] 功能表項目來設定您的自訂警示規則。 如需其他資訊, 請造訪[檔](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)。
 
 > [!NOTE]
-> 使用自訂的警示[搜尋](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries)或是[聯集](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html)陳述式查詢不支援 Azure Sentinel。 請執行移轉之前，編輯這些警示。
+> Azure Sentinel 中不支援使用[Search](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries)或[Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html)語句查詢的自訂警示。 執行遷移之前, 請先編輯這些警示。
 
-若要重新建立您使用 Azure 監視器記錄警示的警示，請參閱：[建立、 檢視及管理使用 Azure 監視器的記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)如需有關如何建立記錄警示。 針對 Azure 監視器中的記錄警示的一般概觀，請按一下[此處](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)。
+若要瞭解如何使用 Azure 監視器記錄警示來重新建立警示, 請參閱[使用 Azure 監視器建立、查看和記錄管理警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)。 如需一般總覽, 請參閱[Azure 監視器中的記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)。
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>何謂資訊安全中心內的自訂警示規則？
 
@@ -55,10 +55,10 @@ ms.locfileid: "67485287"
 
 ## <a name="how-to-create-a-custom-alert-rule-in-security-center"></a>如何在資訊安全中心建立自訂警示規則？
 
-開啟 [資訊安全中心]  儀表板，並遵循下列步驟來建立自訂警示規則：
+開啟 [資訊安全中心] 儀表板，並遵循下列步驟來建立自訂警示規則：
 
-1.  在左窗格的 [偵測]  下，按一下 [自訂警示規則 (預覽)]  。
-2.  在 [資訊安全中心 – 自訂警示規則 (預覽)]  頁面上，按一下 [新增自訂警示規則]  。
+1.  在左窗格的 [偵測] 下，按一下 [自訂警示規則 (預覽)]。
+2.  在 [資訊安全中心 – 自訂警示規則 (預覽)] 頁面上，按一下 [新增自訂警示規則]。
 
     ![自訂警示](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
 
@@ -66,11 +66,11 @@ ms.locfileid: "67485287"
 
     ![建立](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
-4.  在 [名稱]  欄位中，輸入此自訂規則的名稱。
-5.  在 [描述]  欄位中，輸入簡短描述以反映此規則的目的。
-6.  在 [嚴重性]  欄位中，根據您的需求選取嚴重性層級 ([高]、[中]、[低])。
-7.  在 [訂用帳戶]  欄位中，選取要適用此規則的訂用帳戶。
-8.  在 [工作區]  欄位中，選取您想要使用此規則監視的工作區，然後在 [搜尋查詢]  欄位中，選取要用來取得結果的查詢。
+4.  在 [名稱] 欄位中，輸入此自訂規則的名稱。
+5.  在 [描述] 欄位中，輸入簡短描述以反映此規則的目的。
+6.  在 [嚴重性] 欄位中，根據您的需求選取嚴重性層級 ([高]、[中]、[低])。
+7.  在 [訂用帳戶] 欄位中，選取要適用此規則的訂用帳戶。
+8.  在 [工作區] 欄位中，選取您想要使用此規則監視的工作區，然後在 [搜尋查詢] 欄位中，選取要用來取得結果的查詢。
 
     > [!NOTE]
     > 在您選取用來儲存自訂警示的工作區中，需要這個工作區的寫入權限。
@@ -81,23 +81,23 @@ ms.locfileid: "67485287"
 
     ![查詢](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
-10. 在 [期間]  欄位中，選取要執行上述查詢的時間範圍。 請注意，此欄位底部的搜尋結果會根據您所選取的時間範圍而有所變更。
+10. 在 [期間] 欄位中，選取要執行上述查詢的時間範圍。 請注意，此欄位底部的搜尋結果會根據您所選取的時間範圍而有所變更。
 
     ![期間](./media/security-center-custom-alert/security-center-custom-alert-fig4.png)
 
-11. 在 [評估]  欄位中，選取此規則應有的評估和執行頻率。
-12. 在 [結果數目]  欄位中，選取運算子 (大於或小於)。
-13. 在 [閾值]  欄位中，輸入要供先前所選取之運算子參考的數字。
-14. 如果您想要設定資訊安全中心在傳送此規則的另一個警示前所應該等候的時間，請啟用 [隱藏警示]  選項。
-15. 按一下 [確定]  以完成。
+11. 在 [評估] 欄位中，選取此規則應有的評估和執行頻率。
+12. 在 [結果數目] 欄位中，選取運算子 (大於或小於)。
+13. 在 [閾值] 欄位中，輸入要供先前所選取之運算子參考的數字。
+14. 如果您想要設定資訊安全中心在傳送此規則的另一個警示前所應該等候的時間，請啟用 [隱藏警示] 選項。
+15. 按一下 [確定] 以完成。
 
-新的警示規則在建立完成後，就會出現在自訂警示規則的清單中。 一旦有符合該規則的條件時，系統便會觸發新的警示，而您可以在 [安全性警示]  儀表板中看到。
+新的警示規則在建立完成後，就會出現在自訂警示規則的清單中。 一旦有符合該規則的條件時，系統便會觸發新的警示，而您可以在 [安全性警示] 儀表板中看到。
 
 ![警示](./media/security-center-custom-alert/security-center-custom-alert-fig5.png)
 
 請注意，規則建立期間所建立的參數 (搜尋查詢、閾值等) 均可在此自訂規則的警示中找到。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 在本文件中，您已了解如何在 Azure 資訊安全中心內建立自訂警示規則。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

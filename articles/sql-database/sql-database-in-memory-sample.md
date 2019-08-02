@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f6f4ce4fc77533a4d893472298ef3a20f153136
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035709"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567996"
 ---
 # <a name="in-memory-sample"></a>記憶體內部範例
 
@@ -46,7 +45,7 @@ Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效�
 
 #### <a name="installation-steps"></a>安裝步驟
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，於伺服器上建立進階或業務關鍵資料庫。 將 [來源]  設定為 AdventureWorksLT 範例資料庫。 如需詳細指示，請參閱[建立您的第一個 Azure SQL 資料庫](sql-database-single-database-get-started.md)。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，於伺服器上建立進階或業務關鍵資料庫。 將 [來源] 設定為 AdventureWorksLT 範例資料庫。 如需詳細指示，請參閱[建立您的第一個 Azure SQL 資料庫](sql-database-single-database-get-started.md)。
 
 2. 使用 SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx)連接到資料庫。
 
@@ -88,7 +87,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 - Demo.DemoSalesOrderDetailSeed
 
 
-您可以透過 SSMS 中的 [物件總管]  ，檢查記憶體最佳化資料表。 以滑鼠右鍵按一下 [資料表]   > [篩選]   > [篩選設定]   > [記憶體已最佳化嗎]  。 值等於 1。
+您可以透過 SSMS 中的 [物件總管]，檢查記憶體最佳化資料表。 以滑鼠右鍵按一下 [資料表] > [篩選] > [篩選設定] > [記憶體已最佳化嗎]。 值等於 1。
 
 
 或者您可以查詢目錄檢視，例如：
@@ -115,7 +114,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 ### <a name="run-the-sample-oltp-workload"></a>執行範例 OLTP 工作負載
 
-下列兩個預存程序  的唯一差別在於第一個程序會使用記憶體最佳化資料表版本，而第二個程序會使用一般磁碟資料表：
+下列兩個預存程序 的唯一差別在於第一個程序會使用記憶體最佳化資料表版本，而第二個程序會使用一般磁碟資料表：
 
 - SalesLT **.** usp_InsertSalesOrder **_inmem**
 - SalesLT **.** usp_InsertSalesOrder **_ondisk**
@@ -139,7 +138,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 本節顯示 ostress.exe 命令列中內嵌的 T-SQL 指令碼。 此指令碼會使用您稍早安裝的 T-SQL 指令碼所建立的項目。
 
 
-下列指令碼會在下列記憶體最佳化資料表  中插入有 5 個細項的範例銷售訂單：
+下列指令碼會在下列記憶體最佳化資料表中插入有 5 個細項的範例銷售訂單：
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
@@ -199,10 +198,10 @@ whereas for SQL 2016+
 
 
 
-### <a name="run-the-inmem-stress-workload-first"></a>先執行 _inmem  壓力工作負載
+### <a name="run-the-inmem-stress-workload-first"></a>先執行 _inmem 壓力工作負載
 
 
-您可以使用 RML 命令提示字元  視窗來執行 ostress.exe 命令列。 命令列參數會將 `ostress` 導向至：
+您可以使用 RML 命令提示字元 視窗來執行 ostress.exe 命令列。 命令列參數會將 `ostress` 導向至：
 
 - 同時執行 100 個連線 (-n100)。
 - 每個連線會執行 T-SQL 指令碼 50 次 (-r50)。
@@ -237,10 +236,10 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-ondisk-then-rerun"></a>重設，針對 _ondisk  編輯，然後重新執行
+#### <a name="reset-edit-for-ondisk-then-rerun"></a>重設，針對 _ondisk 編輯，然後重新執行
 
 
-在獲得 _inmem  執行的結果之後，請針對 _ondisk  執行回合執行下列步驟：
+在獲得 _inmem 執行的結果之後，請針對 _ondisk 執行回合執行下列步驟：
 
 
 1. 在 SSMS 中執行下列命令來重設資料庫，以刪除先前執行插入的所有資料：
@@ -257,7 +256,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 #### <a name="expected-comparison-results"></a>預期的比較結果
 
-就這個過度簡單的工作負載而言，我們的「記憶體內部」測試顯示當 `ostress` 是在與資料庫相同 Azure 區域中的 Azure VM 上執行時，可獲得「九倍」  的效能改善。
+就這個過度簡單的工作負載而言，我們的「記憶體內部」測試顯示當 `ostress` 是在與資料庫相同 Azure 區域中的 Azure VM 上執行時，可獲得「九倍」的效能改善。
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
@@ -295,9 +294,9 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 #### <a name="key-tables-and-columnstore-indexes"></a>重要資料表和資料行存放區索引
 
 
-- dbo.FactResellerSalesXL_CCI 是具有叢集資料行存放區索引的資料表，此資料表已在「資料」  層級進一步壓縮。
+- dbo.FactResellerSalesXL_CCI 是具有叢集資料行存放區索引的資料表，此資料表已在「資料」層級進一步壓縮。
 
-- dbo.FactResellerSalesXL_PageCompressed 是具有對等一般叢集式索引的資料表，此資料表只在「頁面」  層級壓縮。
+- dbo.FactResellerSalesXL_PageCompressed 是具有對等一般叢集式索引的資料表，此資料表只在「頁面」層級壓縮。
 
 
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>用來比較資料行存放區索引的重要查詢

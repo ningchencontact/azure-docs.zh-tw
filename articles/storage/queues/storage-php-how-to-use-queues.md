@@ -1,21 +1,19 @@
 ---
-title: 如何使用 PHP-Azure 儲存體的佇列儲存體
+title: 如何使用 PHP 的佇列儲存體-Azure 儲存體
 description: 了解如何使用 Azure 佇列儲存體服務來建立和刪除佇列，以及插入、取得和刪除訊息。 範例是以 PHP 撰寫的。
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: php
-ms.topic: article
-ms.date: 01/11/2018
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 01/11/2018
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: b175c34f131a7a0f172c7be0dda083fbfda3dc1e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951207"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721450"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何使用 PHP 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,14 +21,14 @@ ms.locfileid: "65951207"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>總覽
-本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例是透過[適用於 PHP 的 Azure 儲存體用戶端程式庫][download]的類別所撰寫。 所涵蓋的案例包括插入、查看、取得和刪除佇列訊息，以及建立和刪除佇列。
+本指南說明如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例是透過適用于 PHP 的[Azure 儲存體用戶端程式庫][download]中的類別所撰寫。 所涵蓋的案例包括插入、查看、取得和刪除佇列訊息，以及建立和刪除佇列。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>建立 PHP 應用程式
-若要建立 PHP 應用程式並使其存取 Azure 佇列儲存體，唯一要求就是在您的程式碼中參考[適用於 PHP 的 Azure 儲存體用戶端程式庫][download]中的類別。 您可以使用任何開發工具來建立應用程式 (包括 [記事本])。
+建立可存取 Azure 佇列儲存體的 PHP 應用程式的唯一需求, 就是從您的程式碼中參考[適用于 PHP 的 Azure 儲存體用戶端程式庫][download]中的類別。 您可以使用任何開發工具來建立應用程式 (包括 [記事本])。
 
 在本指南中，您將使用可從 PHP 應用程式內本機呼叫的佇列儲存體服務功能，或可在 Azure Web 角色、背景工作角色或網站內執行的程式碼中呼叫的佇列儲存體功能。
 
@@ -45,14 +43,14 @@ ms.locfileid: "65951207"
       }
     }
     ```
-2. 將 **[composer.phar][composer-phar]** 下載到專案根目錄中。
+2. 在您的專案根目錄中下載 **[composer.phar][composer-phar]** 。
 3. 開啟命令提示字元，在專案根目錄中執行下列命令
    
     ```
     php composer.phar install
     ```
 
-或者，移至 GitHub 上的 [Azure 儲存體 PHP 用戶端程式庫][download]來複製原始程式碼。
+或者, 移至 GitHub 上的[AZURE 儲存體 PHP 用戶端程式庫][download]來複製原始程式碼。
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>設定您的應用程式以存取佇列儲存體
 若要使用 Azure 佇列儲存體的 API，您需要：

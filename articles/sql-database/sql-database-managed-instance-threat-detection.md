@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a8e9dfe70e300e6b1d0d50aae60660644f2ab31d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d1f2a9547f01de91a8e7739d827a91154842d7b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61313879"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567300"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體中設定威脅偵測 (預覽)
 
@@ -30,12 +29,12 @@ ms.locfileid: "61313879"
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>使用 Azure 入口網站為受控執行個體設定威脅偵測
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 上啟動 Azure 入口網站。
-2. 瀏覽至您要保護的受控執行個體組態頁面。 在 [設定]  頁面中，選取 [威脅偵測]  。
+2. 瀏覽至您要保護的受控執行個體組態頁面。 在 [設定] 頁面中，選取 [威脅偵測]。
 3. 在威脅偵測組態頁面中
-   - [開啟]  威脅偵測。
+   - [開啟] 威脅偵測。
    - 設定在偵測到異常資料庫活動時收到安全性警示的**電子郵件清單**。
-   - 選取儲存異常威脅稽核記錄的 [Azure 儲存體帳戶]  。
-4. 按一下 [儲存]  ，以儲存新的或更新的威脅偵測原則。
+   - 選取儲存異常威脅稽核記錄的 [Azure 儲存體帳戶]。
+4. 按一下 [儲存] ，以儲存新的或更新的威脅偵測原則。
 
    ![威脅偵測](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 

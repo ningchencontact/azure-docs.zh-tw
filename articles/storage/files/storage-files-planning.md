@@ -1,19 +1,18 @@
 ---
 title: 規劃 Azure 檔案服務部署 | Microsoft Docs
 description: 了解規劃 Azure 檔案服務部署時的考量事項。
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501424"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721717"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -98,7 +97,7 @@ Azure 備份適用于 premium 檔案共用, Azure Kubernetes Service 支援1.13 
 > [!IMPORTANT]
 > Premium 檔案共用僅適用于 LRS, 而且在提供儲存體帳戶的大部分區域中都有提供。 若要找出您的區域目前是否有 premium 檔案共用, 請參閱 Azure 的[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=storage)頁面。
 
-### <a name="provisioned-shares"></a>佈建共用
+#### <a name="provisioned-shares"></a>佈建共用
 
 進階檔案共用會以固定的 GiB/IOPS/輸送量比例為基礎佈建。 對於每個佈建的 GiB，共用將會發出一個 IOPS 和 0.1 MiB/秒輸送量，直到每個共用的上限為止。 允許佈建的最小值為 100 GiB 與最小 IOPS/輸送量。
 
@@ -135,7 +134,7 @@ Azure 備份適用于 premium 檔案共用, Azure Kubernetes Service 支援1.13 
 > [!NOTE]
 > 檔案共用效能受限於機器網路限制、可用的網路頻寬、IO 大小、平行處理, 還有許多其他因素。 若要達到最大效能等級, 請將負載分散到多個 Vm。 請參閱[疑難排解指南](storage-troubleshooting-files-performance.md), 以瞭解一些常見的效能問題和因應措施。
 
-### <a name="bursting"></a>負載平衡
+#### <a name="bursting"></a>負載平衡
 
 高階檔案共用可以將其 IOPS 高載至三倍。 高載會自動化, 並根據信用系統運作。 高載會以最大的方式運作, 而且高載限制並不保證, 檔案共用*最多可達*限制。
 
@@ -206,11 +205,15 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 標準檔案共用適用于最多 5 TiB 的所有區域。 在特定區域中, 有 100 TiB 限制可用, 這些區域會列在下表中:
 
-|區域  |支援的冗余  |支援現有的儲存體帳戶  |
-|---------|---------|---------|
-|東南亞     |LRS|否         |
-|西歐     |LRS、ZRS|否         |
-|美國西部 2     |LRS、ZRS|否         |
+|區域 |支援的冗余 |支援現有的儲存體帳戶 |入口網站支援 *   |
+|-------|---------|---------|---------|
+|澳大利亞東部  |LRS|否         |是|
+|法國中部  |LRS|否         |尚未提供|
+|東南亞  |LRS、ZRS|否         |僅限 LRS, ZRS-尚未|
+|西歐     |LRS、ZRS|否       |是|
+|美國西部 2       |LRS、ZRS|否         |是|
+
+\* 對於沒有入口網站支援的區域, 您仍然可以使用 PowerShell 或 Azure 命令列介面 (CLI) 來建立大於5個 TiB 的共用。 Altenatively, 透過入口網站建立新的共用, 而不指定配額。 這會建立預設大小為 100 TiB 的共用, 稍後可透過 PowerShell 或 Azure CLI 進行更新。
 
 為協助我們設定新區域和功能的優先順序, 請填寫這[份問卷](https://aka.ms/azurefilesatscalesurvey)。
 

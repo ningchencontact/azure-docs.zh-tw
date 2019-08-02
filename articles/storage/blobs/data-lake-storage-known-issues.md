@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/31/2019
 ms.author: normesta
-ms.openlocfilehash: fc2d7e4f611e1eee9c369ef26aa7bf66feb7c888
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 910e23814b627233395a2f7a646513d9cb6874d8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385691"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699025"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -100,7 +100,7 @@ Blob 儲存體 Api 已停用, 以防止可能發生的功能操作問題, 因為
 | **Blobfuse** |尚不支援|
 | **自訂網域** |尚不支援|
 | **檔案系統 Explorer** | 有限支援 |
-| **診斷記錄** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取權](data-lake-storage-multi-protocol-access.md)時才支援。|
+| **診斷記錄** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取](data-lake-storage-multi-protocol-access.md)時, 才支援診斷記錄。 <br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>請務必指定`Blob`作為`-ServiceType`參數的值, 如下列範例所示。 
 | **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓您將資料儲存在[WORM (一次寫入, 多次讀取)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
 | **物件層級層** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取權](data-lake-storage-multi-protocol-access.md)時, 才支援非經常性和封存層。 <br><br> 尚不支援其他所有存取層。|
 | **Powershell 和 CLI 支援** | 有限的功能 <br><br>支援建立帳戶之類的管理作業。 資料平面作業 (例如上傳和下載檔案) 在[Data Lake Storage 的多重通訊協定存取](data-lake-storage-multi-protocol-access.md)過程中是公開預覽。 尚不支援使用目錄及設定存取控制清單 (Acl)。 |

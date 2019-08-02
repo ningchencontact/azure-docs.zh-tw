@@ -1,5 +1,5 @@
 ---
-title: 查詢資料從 Azure 時間序列深入解析 GA 環境使用C#程式碼 |Microsoft Docs
+title: 使用C#程式碼從 Azure 時間序列深入解析 GA 環境查詢資料 |Microsoft Docs
 description: 本文說明如何編製以 C# (c-sharp) .NET 語言撰寫的自訂應用程式，以從 Azure 時間序列深入解析環境查詢資料。
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,16 +12,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28f255c66c0e4a929914d037ee9c93b509a3602b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66728956"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677773"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>從 Azure 時間序列深入解析 GA 環境使用的查詢資料C#
+# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>使用從 Azure 時間序列深入解析 GA 環境查詢資料C#
 
-這個C#範例示範如何從 Azure 時間序列深入解析 ga 版環境查詢資料。
+這個C#範例示範如何從 Azure 時間序列深入解析 GA 環境查詢資料。
 
 範例會顯示查詢 API 使用方式的數個基本範例︰
 
@@ -31,11 +31,11 @@ ms.locfileid: "66728956"
 1. 在 Web 通訊端要求的範例中，要求感興趣環境的事件彙總資料。 要求整個可用性時間範圍內的資料。
 
 > [!NOTE]
-> 範例程式碼位於[ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)。
+> 您可以在[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)找到範例程式碼。
 
 ## <a name="project-dependencies"></a>專案相依性
 
-新增 NuGet 封裝`Microsoft.IdentityModel.Clients.ActiveDirectory`和`Newtonsoft.Json`。
+新增 NuGet 套件`Microsoft.IdentityModel.Clients.ActiveDirectory`和`Newtonsoft.Json`。
 
 ## <a name="c-example"></a>C# 範例
 
@@ -43,6 +43,6 @@ ms.locfileid: "66728956"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解查詢，請閱讀[查詢 API 參考](/rest/api/time-series-insights/ga-query-api)。
+- 若要深入瞭解查詢, 請參閱[查詢 API 參考](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api)。
 
-- 如何讀取到[JavaScript 單一頁面應用程式連線](tutorial-create-tsi-sample-spa.md)至時間序列深入解析。
+- 閱讀如何將[JavaScript 單一頁面應用程式](tutorial-create-tsi-sample-spa.md)連線至時間序列深入解析。

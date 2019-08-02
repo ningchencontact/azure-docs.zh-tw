@@ -1,18 +1,19 @@
 ---
 title: 在 Azure Stack VM 中備份檔案
 description: 使用 Azure 備份可備份 Azure Stack 檔案和應用程式，並復原到 Azure Stack 環境。
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
-ms.author: adigan
-ms.openlocfilehash: 36e7fceb63e6013ca09e8c2e2db18d6795f61273
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7214cf4c16cc4ee5e76d479d153395085a7e3a6e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465086"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688949"
 ---
 # <a name="back-up-files-on-azure-stack"></a>在 Azure Stack 上備份檔案
 您可以使用 Azure 備份在 Azure Stack 上保護 (或備份) 檔案和應用程式。 若要備份檔案和應用程式，請將 Microsoft Azure 備份伺服器安裝成為在 Azure Stack 上執行的虛擬機器。 您可以保護在相同虛擬網路中任何 Azure Stack 伺服器上的檔案。 在您安裝 Azure 備份伺服器後，請新增 Azure 磁碟，以增加可保存短期備份資料的本機存放區。 Azure 備份伺服器會使用 Azure 存放區進行長期保存。
@@ -50,13 +51,13 @@ ms.locfileid: "68465086"
 
     Microsoft 建議將所有共用保護原則的資料置於一個保護群組中。 如需規劃和部署保護群組的完整資訊，請參閱 System Center DPM 文章：[部署保護群組](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)。
 
-4. 在 [選取資料保護方式] 畫面中，鍵入保護群組的名稱。 選取 [我想要使用下列項目進行短期保護：] 和 [我想要線上保護] 的核取方塊。 按一下 [下一步] 。
+4. 在 [選取資料保護方式] 畫面中，鍵入保護群組的名稱。 選取 [我想要使用下列項目進行短期保護：] 和 [我想要線上保護] 的核取方塊。 按一下 [下一步]。
 
     ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
     若要選取 [我想要線上保護]，您必須先選取 [我想要使用下列項目進行短期保護：磁碟]。 Azure 備份伺服器不會保護至磁帶，因此磁碟是進行短期保護的唯一選擇。
 
-5. 在 [指定短期目標] 畫面上，選擇保留儲存至磁碟之復原點的時間長度，以及儲存增量備份的時機。 按一下 [下一步] 。
+5. 在 [指定短期目標] 畫面上，選擇保留儲存至磁碟之復原點的時間長度，以及儲存增量備份的時機。 按一下 [下一步]。
 
     > [!IMPORTANT]
     > 您**不應該**將作業復原 (備份) 資料保留在 Azure 備份伺服器連結的磁碟上超過五天。

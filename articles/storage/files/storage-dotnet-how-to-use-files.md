@@ -1,7 +1,6 @@
 ---
 title: 使用 .NET 開發 Azure 檔案服務 | Microsoft Docs
 description: 了解如何開發使用 Azure 檔案服務來儲存檔案資料的 .NET 應用程式和服務。
-services: storage
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 38bafdb4753b41a9c8acd599e6b7215e1777c6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779474"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699773"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務
 
@@ -45,28 +44,28 @@ API | 使用時機 | 注意
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>建立主控台應用程式並取得組件
 在 Visual Studio 中，建立新的 Windows 主控台應用程式。 下列步驟示範如何在 Visual Studio 2017 中建立主控台應用程式，但步驟類似其他版本的 Visual Studio。
 
-1. 選取 [檔案]   > [新增]   > [專案] 
-2. 選取 [安裝]   > [範本]   > [Visual C#]   > [Windows 傳統桌面] 
+1. 選取 [檔案] > [新增] > [專案]
+2. 選取 [安裝] > [範本] > [Visual C#] > [Windows 傳統桌面]
 3. 選取 **主控台應用程式 (.NET Framework)**
-4. 在 [名稱：]  欄位中輸入應用程式的名稱
-5. 選取 [確定] 
+4. 在 [名稱：] 欄位中輸入應用程式的名稱
+5. 選取 [確定]
 
 本教學課程中的所有程式碼範例均可新增至您主控台應用程式的 `Program.cs` 檔案中的 `Main()` 方法。
 
-您可以使用 Azure 儲存體用戶端程式庫，在任何類型的.NET 應用程式，包括 Azure 雲端服務或 web 應用程式和桌面和行動應用程式。 在本指南中，為求簡化，我們會使用主控台應用程式。
+您可以在任何類型的 .NET 應用程式中使用 Azure 儲存體用戶端程式庫, 包括 Azure 雲端服務或 web 應用程式, 以及桌面和行動應用程式。 在本指南中，為求簡化，我們會使用主控台應用程式。
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 來安裝必要的封裝
 您必須在您的專案中參考下列兩個套件，才能完成本教學課程︰
 
-* [適用於.NET 的 Microsoft Azure 儲存體通用程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/):此封裝提供以程式設計方式存取您的儲存體帳戶中的通用資源。
-* [適用於.NET 的 Microsoft Azure 儲存體 Blob 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/):此封裝提供以程式設計方式存取 Blob 儲存體帳戶中的資源。
+* [適用于 .net 的 Microsoft Azure 儲存體通用程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/):此套件可讓您以程式設計方式存取儲存體帳戶中的一般資源。
+* [適用于 .net 的 Microsoft Azure 儲存體 Blob 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/):此套件可讓您以程式設計方式存取儲存體帳戶中的 Blob 資源。
 * [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)：此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
 
 您可以使用 NuGet 來取得這兩個封裝。 請遵循下列步驟：
 
-1. 在 [方案總管]  中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]  。
-2. 在線上搜尋 "WindowsAzure.Storage"，然後按一下 [安裝]  以安裝 Storage Client Library 與其相依項目。
-3. 在線上搜尋 "WindowsAzure.ConfigurationManager"，然後按一下 [安裝]  以安裝 Azure Configuration Manager。
+1. 在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
+2. 在線上搜尋 "WindowsAzure.Storage"，然後按一下 [安裝] 以安裝 Storage Client Library 與其相依項目。
+3. 在線上搜尋 "WindowsAzure.ConfigurationManager"，然後按一下 [安裝] 以安裝 Azure Configuration Manager。
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>將您的儲存體帳戶認證儲存到 app.config 檔案
 接著，將您的認證儲存到專案的 app.config 檔案。 編輯 app.config 檔案，使其看起來類似下列範例，並使用您的儲存體帳戶名稱來取代 `myaccount`，以及使用您的儲存體帳戶金鑰來取代 `mykey`。
@@ -402,7 +401,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 ## <a name="troubleshooting-azure-files-using-metrics"></a>使用計量針對 Azure 檔案服務進行疑難排解
 Azure 儲存體分析現在支援 Azure 檔案服務的計量。 利用度量資料，您可以追蹤要求及診斷問題。
 
-您可以從 Azure 檔案啟用度量[Azure 入口網站](https://portal.azure.com)。 您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
+您可以從[Azure 入口網站](https://portal.azure.com)啟用 Azure 檔案儲存體的計量。 您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
 
 下列程式碼範例會示範如何使用適用於 .NET 的儲存體用戶端程式庫，啟用 Azure 檔案服務的計量。
 

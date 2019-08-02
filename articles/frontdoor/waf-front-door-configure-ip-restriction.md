@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 611a52f43b5b0e076ae37df9df86479ec894c6f4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: a610a2c01a1e935c55942b621e5b3799cb002fc0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849156"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698634"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>使用 Azure Front 開門服務的 web 應用程式防火牆來設定 IP 限制規則
 本文說明如何使用 Azure CLI、Azure PowerShell 或 Azure Resource Manager 範本, 在 Azure Front 門板服務的 web 應用程式防火牆 (WAF) 中設定 IP 限制規則。
@@ -40,7 +40,7 @@ ms.locfileid: "67849156"
 
 ### <a name="create-a-waf-policy"></a>建立 WAF 原則
 
-使用[az network WAF-policy create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create)命令來建立 WAF 原則。 在接下來的範例中, 將原則名稱*IPAllowPolicyExampleCLI*取代為唯一的原則名稱。
+使用[az network WAF-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create)命令來建立 WAF 原則。 在接下來的範例中, 將原則名稱*IPAllowPolicyExampleCLI*取代為唯一的原則名稱。
 
 ```azurecli-interactive 
 az network waf-policy create \
@@ -50,7 +50,7 @@ az network waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>新增自訂 IP 存取控制規則
 
-使用[az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create)命令, 為您剛建立的 waf 原則新增自訂 IP 存取控制規則。
+使用[az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create)命令, 為您剛建立的 waf 原則新增自訂 IP 存取控制規則。
 
 在下列範例中:
 -  將*IPAllowPolicyExampleCLI*取代為您稍早建立的唯一原則。
@@ -82,7 +82,7 @@ az network waf-policy custom-rule create \
 ```
     
 ### <a name="find-the-id-of-a-waf-policy"></a>尋找 WAF 原則的識別碼 
-使用[az network WAF-policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show)命令來尋找 WAF 原則的識別碼。 以您稍早建立的唯一原則取代下列範例中的*IPAllowPolicyExampleCLI* 。
+使用[az network WAF-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show)命令來尋找 WAF 原則的識別碼。 以您稍早建立的唯一原則取代下列範例中的*IPAllowPolicyExampleCLI* 。
 
    ```azurecli
    az network waf-policy show \
@@ -106,7 +106,7 @@ az network waf-policy custom-rule create \
 
 ## <a name="configure-a-waf-policy-with-azure-powershell"></a>使用 Azure PowerShell 設定 WAF 原則
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 在您開始設定 IP 限制原則之前, 請先設定您的 PowerShell 環境, 並建立 Azure Front 服務設定檔。
 
 #### <a name="set-up-your-powershell-environment"></a>設定 PowerShell 環境

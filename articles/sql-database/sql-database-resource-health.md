@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 4757236d179e4d6ceb626f58f12cfe48799eed7a
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 1c2720d61c7b4ea918a3d0c1ff7f41984ea42c69
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854372"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566908"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用資源健康情況對 Azure SQL Database 的連線問題進行疑難排解
 
@@ -35,27 +34,27 @@ SQL Database 的[資源健康情況](../service-health/resource-health-overview.
 
 ### <a name="available"></a>可用
 
-若狀態為 [可用]  ，表示資源健康情況未偵測到因 SQL 資源的系統錯誤而造成的登入失敗。
+若狀態為 [可用]，表示資源健康情況未偵測到因 SQL 資源的系統錯誤而造成的登入失敗。
 
 ![可用](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
 ### <a name="degraded"></a>已降級
 
-若狀態為 [已降級]  ，表示資源健康情況大多偵測到成功的登入，但也有一些失敗。 這些很可能是暫時性的登入錯誤。 若要減少暫時性登入錯誤所導致的連線問題影響，請在程式碼中實作[重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)。
+若狀態為 [已降級]，表示資源健康情況大多偵測到成功的登入，但也有一些失敗。 這些很可能是暫時性的登入錯誤。 若要減少暫時性登入錯誤所導致的連線問題影響，請在程式碼中實作[重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)。
 
 ![已降級](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>無法使用
 
-若狀態為 [無法使用]  ，表示資源健康情況偵測到持續性的 SQL 資源登入失敗。 如果您的資源長時間處於此狀態，請連絡支援人員。
+若狀態為 [無法使用]，表示資源健康情況偵測到持續性的 SQL 資源登入失敗。 如果您的資源長時間處於此狀態，請連絡支援人員。
 
 ![無法使用](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>不明
+### <a name="unknown"></a>未知
 
-[不明]  健康狀態表示資源健康狀態超過 10 分鐘未收到此資源的相關資訊。 雖然此狀態並非資源狀態的明確指示，卻是疑難排解程序中的重要資料點。 如果資源如預期般執行，幾分鐘後資源的狀態會變更為 [可用]。 如果您遇到資源問題，[不明] 健康狀態可能暗示資源受到平台事件影響。
+[不明] 健康狀態表示資源健康狀態超過 10 分鐘未收到此資源的相關資訊。 雖然此狀態並非資源狀態的明確指示，卻是疑難排解程序中的重要資料點。 如果資源如預期般執行，幾分鐘後資源的狀態會變更為 [可用]。 如果您遇到資源問題，[不明] 健康狀態可能暗示資源受到平台事件影響。
 
-![不明](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
+![未知](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>歷程記錄資訊
 
@@ -65,7 +64,7 @@ SQL Database 的[資源健康情況](../service-health/resource-health-overview.
 
 當您的 SQL Database 發生停止運作的狀況時，系統會執行分析以判斷原因。 找到的停止運作原因會報告在 [資源健康狀態] 的 [健康情況歷程記錄] 區段中。 停止運作的原因通常會在事件發生後的 30 分鐘發佈。
 
-#### <a name="planned-maintenance"></a>預定的維修
+#### <a name="planned-maintenance"></a>計劃性維護
 
 Azure 基礎結構會定期執行規劃的維護 – 資料中心的軟硬體元件升級。 在資料庫進行維護的期間，SQL 可能會終止某些現有的連線，並拒絕新連線。 在計劃性維護期間發生的登入失敗通常是暫時性的，[重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)可有效降低其影響。 如果持續發生登入，請連絡支援人員。
 

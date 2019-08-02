@@ -2,7 +2,7 @@
 title: 常見問題集 (FAQ) - Azure Active Directory | Microsoft Docs
 description: 有關 Azure 及 Azure Active Directory、密碼管理和應用程式存取的常見問題與解答。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c67eec3a17e949d630bedf920c690f9f5a36424d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4c1ee5e849d8004f828a2d92d728ad7925fc05c4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204556"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693959"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>關於 Azure Active Directory 的常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) �
 
 **答：** 若要存取 Azure 入口網站，每位使用者都必須擁有 Azure 訂用帳戶的權限。 如果您有付費的 Office 365 或 Azure AD 訂用帳戶，請移至 [https://aka.ms/accessAAD](https://aka.ms/accessAAD) 以進行一次性啟用步驟。 否則，您必須啟用免費 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)或付費的訂用帳戶。
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)
 
@@ -59,7 +59,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 ---
 **問：是否有報告可顯示 Azure AD 使用者授權何時即將過期？**
 
-**答：** 沒有。  目前無法使用此功能。
+**答：** 資料分割  目前無法使用此功能。
 
 ---
 
@@ -68,7 +68,8 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 
 **問：當我新增為共同作業人員時如何離開租用戶？**
 
-<a name="a-when-you-are-added-to-another-organizations-tenant-as-a-collaborator-you-can-use-the-tenant-switcher-in-the-upper-right-to-switch-between-tenants--currently-there-is-no-way-to-leave-the-inviting-organization-and-microsoft-is-working-on-providing-this-functionality--until-this-feature-is-available-you-can-ask-the-inviting-organization-to-remove-you-from-their-tenant"></a>**答：** 當您新增為另一個組織租用戶的共同作業人員時，您可以使用右上方的「租用戶切換器」來切換租用戶。  目前沒有任何方法可離開邀請組織，Microsoft 正在努力提供此功能。  在這項功能可用之前，您可以要求邀請組織將您從其租用戶中移除。
+**答：** 當您新增為另一個組織租用戶的共同作業人員時，您可以使用右上方的「租用戶切換器」來切換租用戶。  目前沒有任何方法可離開邀請組織，Microsoft 正在努力提供此功能。  在這項功能可用之前，您可以要求邀請組織將您從其租用戶中移除。
+
 ---
 **問：如何將內部部署目錄連線至 Azure AD？**
 
@@ -88,14 +89,14 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 ---
 **問：Azure AD 是否為組織中的使用者提供自助入口網站？**
 
-**答：** 是，Azure AD 會為您提供 [Azure AD 存取面板](https://myapps.microsoft.com)，以供使用者進行自助服務和應用程式存取。 如果您是 Office 365 客戶，您可以找到許多相同的功能，在[Office 365 入口網站](https://portal.office.com)。
+**答：** 是，Azure AD 會為您提供 [Azure AD 存取面板](https://myapps.microsoft.com)，以供使用者進行自助服務和應用程式存取。 如果您是 Office 365 客戶, 您可以在[office 365 入口網站](https://portal.office.com)中找到許多相同的功能。
 
 如需詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ---
 **問：Azure AD 是否會協助我管理內部部署基礎結構？**
 
-**答：** 是。 Azure AD Premium Edition 可為您提供 Azure AD Connect Health。 Azure AD Connect Health 可協助您監視和了解內部部署身分識別基礎結構和同步處理服務。  
+**答：** 是的。 Azure AD Premium Edition 可為您提供 Azure AD Connect Health。 Azure AD Connect Health 可協助您監視和了解內部部署身分識別基礎結構和同步處理服務。  
 
 如需詳細資訊，請參閱[在雲端中監視內部部署身分識別基礎結構和同步處理服務](../hybrid/whatis-hybrid-identity-health.md)。  
 
@@ -158,7 +159,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 
 **答：** 若您使用 Azure AD Premium，就可以新增及設定您想要的任何應用程式。 視應用程式功能和您的喜好設定而定，您可以設定 SSO 和自動化佈建。  
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](../manage-apps/use-scim-to-provision-users-and-groups.md)
@@ -180,7 +181,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 
 **答：** Azure AD 針對驗證和授權支援許多標準化的通訊協定，例如 SAML 2.0、OpenID Connect、OAuth 2.0 和 WS-同盟。 Azure AD 也可針對僅支援表單型驗證的應用程式，支援密碼存放和自動化登入功能。  
 
-如需詳細資訊，請參閱
+如需詳細資訊，請參閱：
 
 * [Azure AD 的驗證案例](../develop/authentication-scenarios.md)
 * [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)
@@ -196,7 +197,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 ---
 **問：如何對存取特定應用程式的使用者要求多重要素驗證？**
 
-**答：** 使用 Azure AD 條件式存取，您可以指派唯一的存取原則，每個應用程式。 您可以在原則中要求一律要進行 Multi-Factor Authentication，或在使用者未連線到區域網路時才進行。  
+**答：** 有了 Azure AD 條件式存取, 您就可以為每個應用程式指派唯一的存取原則。 您可以在原則中要求一律要進行 Multi-Factor Authentication，或在使用者未連線到區域網路時才進行。  
 
 如需詳細資訊，請參閱[保護對 Office 365 及其他連接至 Azure Active Directory 之應用程式的存取](../active-directory-conditional-access-azure-portal.md)。
 
@@ -210,4 +211,4 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 ---
 **問：是否可以設定與 Azure AD 之間的安全 LDAP 連線？**
 
-**答：** 沒有。 Azure AD 不支援輕量型目錄存取通訊協定 (LDAP) 通訊協定或安全 LDAP 直接。 不過，就可以啟用 Azure AD 租用戶使用透過 Azure 網路來達成 LDAP 連線已正確設定的網路安全性群組上的 Azure AD Domain Services (Azure AD DS) 執行個體。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap 。
+**答：** 資料分割 Azure AD 不支援輕量型目錄存取協定 (LDAP) 通訊協定或直接安全 LDAP。 不過, 您可以透過 Azure 網路功能適當設定網路安全性群組, 在您的 Azure AD 租使用者上啟用 Azure AD Domain Services (Azure AD DS) 實例, 以達到 LDAP 連線能力。 如需詳細資訊，請參閱 https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap 。

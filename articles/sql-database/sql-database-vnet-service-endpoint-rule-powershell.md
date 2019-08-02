@@ -10,52 +10,51 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd8cabb14ad65b4da562c7d6048a52b574513b26
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331140"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566183"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell：為 SQL 建立虛擬服務端點與 VNet 規則
 
-「虛擬網路規則」  是一個防火牆安全性功能，可控制適用於 Azure [SQL Database](sql-database-technical-overview.md) 中單一資料庫和彈性集區的資料庫伺服器，或是適用於 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)中資料庫的資料庫伺服器，是否會接受虛擬網路中特定子網路所傳來的通訊。
+「虛擬網路規則」是一個防火牆安全性功能，可控制適用於 Azure [SQL Database](sql-database-technical-overview.md) 中單一資料庫和彈性集區的資料庫伺服器，或是適用於 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)中資料庫的資料庫伺服器，是否會接受虛擬網路中特定子網路所傳來的通訊。
 
 > [!IMPORTANT]
-> 本文適用於 Azure SQL Server，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 本文「不」  適用 Azure SQL Database 中的**受控執行個體**部署，因為它沒有相關聯的服務端點。
+> 本文適用於 Azure SQL Server，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 本文「不」適用 Azure SQL Database 中的**受控執行個體**部署，因為它沒有相關聯的服務端點。
 
 本文提供並說明可執行下列動作的 PowerShell 指令碼：
 
-1. 在您的子網路上建立 Microsoft Azure「虛擬服務端點」  。
-2. 將端點加入 Azure SQL Database 伺服器的防火牆，以建立「虛擬網路規則」  。
+1. 在您的子網路上建立 Microsoft Azure「虛擬服務端點」。
+2. 將端點加入 Azure SQL Database 伺服器的防火牆，以建立「虛擬網路規則」。
 
 有關為何要建立規則的說明，請參閱：[Azure SQL Database 的虛擬服務端點][sql-db-vnet-service-endpoint-rule-overview-735r]。
 
 > [!TIP]
-> 如果您需要的是評估 SQL Database 的虛擬服務端點「類型名稱」  或將它加入子網路，則可以直接跳到更為[直接的 PowerShell 指令碼](#a-verify-subnet-is-endpoint-ps-100)。
+> 如果您需要的是評估 SQL Database 的虛擬服務端點「類型名稱」或將它加入子網路，則可以直接跳到更為[直接的 PowerShell 指令碼](#a-verify-subnet-is-endpoint-ps-100)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 ## <a name="major-cmdlets"></a>主要 Cmdlet
 
-這篇文章強調**新增 AzSqlServerVirtualNetworkRule**您的 Azure SQL Database 伺服器，藉此建立規則會將子網路端點新增至存取控制清單 (ACL) 的 cmdlet。
+本文強調**AzSqlServerVirtualNetworkRule**指令程式, 此 Cmdlet 會將子網端點新增至 Azure SQL Database 伺服器的存取控制清單 (ACL), 藉此建立規則。
 
-下列清單顯示一系列其他*主要*cmdlet，您必須執行以準備來呼叫**新增 AzSqlServerVirtualNetworkRule**。 在本文中，這些呼叫發生於[指令碼 3「虛擬網路規則」](#a-script-30)中：
+下列清單顯示您必須執行以準備呼叫**新 AzSqlServerVirtualNetworkRule**的其他*主要*Cmdlet 順序。 在本文中，這些呼叫發生於[指令碼 3「虛擬網路規則」](#a-script-30)中：
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig):建立子網路物件。
-2. [新 AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork):建立您的虛擬網路，並指定它的子網路。
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig):為您的子網路指派虛擬服務端點。
-4. [設定 AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork):保存對虛擬網路的更新。
+1. [新 new-azvirtualnetworksubnetconfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig):建立子網路物件。
+2. [新 new-azvirtualnetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork):建立您的虛擬網路，並指定它的子網路。
+3. [New-azvirtualnetworksubnetconfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig):為您的子網路指派虛擬服務端點。
+4. [New-azvirtualnetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork):保存對虛擬網路的更新。
 5. [新 AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule):子網路成為端點之後，將子網路加入 Azure SQL Database 伺服器的 ACL 作為虛擬網路規則。
    - 從 Azure RM PowerShell 模組 5.1.1 版開始，此 Cmdlet 就提供參數 **-IgnoreMissingVnetServiceEndpoint**。
 
 ## <a name="prerequisites-for-running-powershell"></a>執行 PowerShell 的必要條件
 
-- 您已經可以登入 Azure，例如透過 [Azure 入口網站][http-azure-portal-link-ref-477t]。
+- 您已經可以登入 Azure, 例如透過[Azure 入口網站][http-azure-portal-link-ref-477t]。
 - 您已經可以執行 PowerShell 指令碼。
 
 > [!NOTE]
@@ -470,13 +469,13 @@ Completed script 4, the "Clean-Up".
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>確認您的子網路是端點
 
-子網路可能已被指派 **Microsoft.Sql** 類型名稱，這表示它已是虛擬服務端點。 您可以使用 [Azure 入口網站][http-azure-portal-link-ref-477t]從端點建立虛擬網路規則。
+子網路可能已被指派 **Microsoft.Sql** 類型名稱，這表示它已是虛擬服務端點。 您可以使用[Azure 入口網站][http-azure-portal-link-ref-477t], 從端點建立虛擬網路規則。
 
 或者，您可能不確定您的子網路是否具有 **Microsoft.Sql** 類型名稱。 您可以執行下列 PowerShell 指令碼以進行下列動作：
 
 1. 確定您的子網路是否具有 **Microsoft.Sql** 類型名稱。
 2. 選擇性地指派類型名稱 (若沒有的話)。
-    - 指令碼會先要求您「確認」  ，然後再套用缺少的類型名稱。
+    - 指令碼會先要求您「確認」，然後再套用缺少的類型名稱。
 
 ### <a name="phases-of-the-script"></a>指令碼的階段
 

@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f289da08c63f655006801d89f82640c6e3c6b7be
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173944"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68622128"
 ---
 務必針對您執行的應用程式，保護虛擬機器 (VM) 的安全。 保護 VM 可包含一或多項 Azure 服務和功能，其中涵蓋保護 VM 的存取權及保護資料的儲存體。 本文提供可讓您保護 VM 和應用程式的資訊。
 
-## <a name="antimalware"></a>反惡意程式碼
+## <a name="antimalware"></a>反惡意程式碼軟體
 
-現今雲端環境的威脅型態非常多變，因此為了符合法規和達到安全性需求，在維護有效保護機制方面增加許多壓力。 [適用於 Azure 的 Microsoft Antimalware](../articles/security/azure-security-antimalware.md) 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 您可設定警示，在已知惡意或非必要軟體嘗試自行安裝或在您的 VM 上執行時通知您。
+現今雲端環境的威脅型態非常多變，因此為了符合法規和達到安全性需求，在維護有效保護機制方面增加許多壓力。 [適用於 Azure 的 Microsoft Antimalware](../articles/security/fundamentals/antimalware.md) 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 您可設定警示，在已知惡意或非必要軟體嘗試自行安裝或在您的 VM 上執行時通知您。
 
 ## <a name="azure-security-center"></a>Azure 資訊安全中心
 
@@ -53,4 +53,4 @@ Azure Active Directory (Azure AD) 中適用於 Azure 資源的受控識別功能
 
 
 ## <a name="next-steps"></a>後續步驟
-- 逐步執行步驟，以使用 Azure 資訊安全中心來監視 [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md) 虛擬機器安全性。
+- 逐步執行步驟，以使用 Azure 資訊安全中心來監視 [Linux](../articles/security/fundamentals/overview.md) 或 [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md) 虛擬機器安全性。

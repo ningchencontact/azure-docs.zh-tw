@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2fc552211ed55239259ce84d84584c451733d70
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499864"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608177"
 ---
 # <a name="what-are-baseline-policies"></a>什麼是基準原則？
 
@@ -97,7 +97,7 @@ ms.locfileid: "68499864"
 
 如需詳細資訊，請參閱：
 
-* [可保護身分識別基礎結構的五個步驟](../../security/azure-ad-secure-steps.md)
+* [可保護身分識別基礎結構的五個步驟](../../security/fundamentals/steps-secure-identity.md)
 * [什麼是 Azure Active Directory 中的條件式存取？](overview.md)
 * [需要系統管理員的 MFA (預覽)](howto-baseline-protect-administrators.md)
 * [終端使用者保護 (預覽)](howto-baseline-protect-end-users.md)

@@ -1,6 +1,6 @@
 ---
-title: 指派和移除使用 Azure PowerShell-Azure Active Directory 系統管理員角色指派 |Microsoft Docs
-description: 對於經常管理角色指派的使用者而言，您現在可以管理使用 Azure PowerShell 的 Azure AD 管理員角色的成員。
+title: 指派和移除具有 Azure PowerShell Azure Active Directory 的系統管理員角色指派 |Microsoft Docs
+description: 對於經常管理角色指派的人員, 您現在可以使用 Azure PowerShell 管理 Azure AD 系統管理員角色的成員。
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4bddf84720265afe361dff665f10ff8184f6f6
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60469089"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706492"
 ---
-# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>將使用 PowerShell 的 Azure Active Directory 系統管理員角色指派
+# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>使用 PowerShell 指派 Azure Active Directory 系統管理員角色
 
-您可以自動角色指派給使用 Azure PowerShell 的使用者帳戶。 這篇文章會使用[Azure Active Directory PowerShell 第 2 版](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles)模組。
+您可以使用 Azure PowerShell, 將角色指派給使用者帳戶的作業自動化。 本文使用[Azure Active Directory PowerShell 第2版](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles)模組。
 
 ## <a name="prepare-powershell"></a>準備 PowerShell
 
@@ -50,11 +50,11 @@ get-module azuread
 
 ## <a name="permissions-required"></a>所需的權限
 
-連接到使用全域管理員帳戶來指派或移除角色的 Azure AD 租用戶。
+使用全域系統管理員帳戶連接到您的 Azure AD 租使用者, 以指派或移除角色。
 
-## <a name="assign-a-single-role"></a>將單一角色指派
+## <a name="assign-a-single-role"></a>指派單一角色
 
-若要指派角色，您必須先取得它的顯示名稱和您要指派的角色的名稱。 當您擁有帳戶的顯示名稱和角色的名稱時，使用下列 cmdlet 來將角色指派給使用者。
+若要指派角色, 您必須先取得其顯示名稱和您所指派之角色的名稱。 當您擁有帳戶的顯示名稱和角色的名稱時, 請使用下列 Cmdlet 將角色指派給使用者。
 
 ``` PowerShell
 # Fetch user to assign to role
@@ -103,7 +103,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADServicePrin
 
 ## <a name="multiple-role-assignments"></a>多角色指派
 
-指派和一次移除多個角色的範例。
+一次指派和移除多個角色的範例。
 
 ```powershell
 #File name
@@ -141,7 +141,7 @@ for ($i=2; $i -le $count; $i++)
 
 ## <a name="remove-a-role-assignment"></a>移除角色指派
 
-此範例會移除指定之使用者的角色指派。
+這個範例會移除指定使用者的角色指派。
 
 ```powershell
 # Fetch user to assign to role
@@ -149,16 +149,16 @@ $roleMember = Get-AzureADUser -ObjectId "username@contoso.com"
 
 #Fetch list of all directory roles with object id
 Get-AzureADDirectoryRole
- 
+
 # Fetch a directory role by id
 $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
- 
+
 # Remove user from role
 Remove-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -MemberId $roleMember.ObjectId 
 
 # Fetch role membership for role to confirm
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
- 
+
 ```
 
 ## <a name="next-steps"></a>後續步驟

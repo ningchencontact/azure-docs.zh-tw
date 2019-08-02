@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 963d7d44ef3ef77604fc5a9faac479a9e4c91ee6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487356"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570100"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 應用程式
 
@@ -36,41 +35,41 @@ ms.locfileid: "61487356"
 
 每一租用戶一個獨立應用程式模式會使用每個租用戶分別有一個資料庫的單一租用戶應用程式。 每個租用戶的應用程式 (包含其資料庫) 會部署在個別的 Azure 資源群組中。 此資源群組可以部署在服務提供者的訂用帳戶或租用戶的訂用帳戶中，並且由提供者代表租用戶加以管理。 每一租用戶一個獨立應用程式模式會提供最大的租用戶隔離性，但通常最耗費資源，因為無法在多個租用戶之間共用資源。  此模式相當適合可能更複雜、且部署至較少租用戶的應用程式。  透過獨立部署，相較於其他模式，可更輕鬆地針對每個租用戶自訂應用程式。  
 
-請參閱[教學課程][docs-tutorials-for-wingtip-sa]和 GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa] 上的程式碼。
+查看 GitHub 上的[教學][docs-tutorials-for-wingtip-sa]課程和程式碼[../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa]。
 
 ## <a name="database-per-tenant-pattern"></a>每一租用戶一個資料庫的模式
 
 對於注重租用戶隔離性，並且想要執行集中式服務以有效運用共用資源而發揮成本效益的服務提供者，使用「每一租用戶一個資料庫的模式」將有其效用。 針對每個場所或租用戶分別會建立一個資料庫，且所有資料庫會集中受到管理。 資料庫可裝載於彈性集區中，以提供符合成本效益且便利的管理程序，而妥善因應租用戶無法預期的工作負載模式。 目錄資料庫會包含租用戶和其資料庫之間的對應。 此對應可使用能夠對應用程式進行有效連線管理的[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)的分區對應管理功能來管理。
 
-請參閱[教學課程][docs-tutorials-for-wingtip-dpt]和 GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt] 上的程式碼。
+查看 GitHub 上的[教學][docs-tutorials-for-wingtip-dpt]課程和程式碼[../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt]。
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>分區化多租用戶資料庫模式
 
 對於想要降低每一租用戶的成本，並且可承受較低租用戶隔離性的服務提供者，多租用戶資料庫將有其效用。 此模式可將大量租用戶封裝到個別資料庫中，而降低每一租用戶的成本。 藉由將多個租用戶分區化到多個資料庫間，將可達到近乎無限大的規模。 目錄資料庫會將租用戶對應到資料庫。  
 
-此模式也可支援混合  模型，讓您可透過在一個資料庫中包含多個租用戶的方式進行成本最佳化，或透過每一租用戶各有其資料庫的方式進行隔離性最佳化。 您可以在租用戶佈建時或是稍後，就個別的租用戶進行這項選擇，而不會對應用程式造成影響。  必須以不同方式處理租用戶的群組時，可以有效地使用此模型。 例如，可以將低成本的租用戶指派給共用資料庫，而將進階租用戶指派給他們自己的資料庫。 
+此模式也可支援混合模型，讓您可透過在一個資料庫中包含多個租用戶的方式進行成本最佳化，或透過每一租用戶各有其資料庫的方式進行隔離性最佳化。 您可以在租用戶佈建時或是稍後，就個別的租用戶進行這項選擇，而不會對應用程式造成影響。  必須以不同方式處理租用戶的群組時，可以有效地使用此模型。 例如，可以將低成本的租用戶指派給共用資料庫，而將進階租用戶指派給他們自己的資料庫。 
 
-請參閱[教學課程][docs-tutorials-for-wingtip-mt]和 GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt] 上的程式碼。
+查看 GitHub 上的[教學][docs-tutorials-for-wingtip-mt]課程和程式碼[../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt]。
 
 ## <a name="next-steps"></a>後續步驟
 
 #### <a name="conceptual-descriptions"></a>概念說明
 
-- 如需應用程式租用模式的詳細說明，請參閱[多租用戶 SaaS 資料庫租用模式][saas-tenancy-app-design-patterns-md]
+- 如需應用程式租用模式的詳細說明, 請查看[多租使用者 SaaS 資料庫租用模式][saas-tenancy-app-design-patterns-md]
 
 #### <a name="tutorials-and-code"></a>教學課程和程式碼
 
 - 每個租用戶獨立應用程式：
-    - [獨立應用程式的教學課程][docs-tutorials-for-wingtip-sa]。
-    - [獨立應用程式的程式碼，位於 GitHub][github-code-for-wingtip-sa]。
+    - [獨立應用程式的教學][docs-tutorials-for-wingtip-sa]課程。
+    - [獨立應用程式的程式碼, 位於 GitHub][github-code-for-wingtip-sa]。
 
 - 每一租用戶一個資料庫：
-    - [每一租用戶一個資料庫的教學課程][docs-tutorials-for-wingtip-dpt]。
-    - [每一租用戶一個資料庫的程式碼，位於 GitHub][github-code-for-wingtip-dpt]。
+    - [每個租使用者的資料庫教學][docs-tutorials-for-wingtip-dpt]課程。
+    - [GitHub 上的每個租使用者資料庫的程式碼][github-code-for-wingtip-dpt]。
 
 - 分區化多租用戶：
-    - [分區化多租用戶的教學課程][docs-tutorials-for-wingtip-mt]。
-    - [分區化多租用戶的程式碼，位於 GitHub][github-code-for-wingtip-mt]。
+    - [分區化多租][docs-tutorials-for-wingtip-mt]使用者的教學課程。
+    - [在 GitHub 上分區化多租使用者的程式碼][github-code-for-wingtip-mt]。
 
 
 

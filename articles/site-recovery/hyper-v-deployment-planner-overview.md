@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/18/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e7da548eb2cc6e314d446270cc04d1c57be7ae3
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149115"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618826"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>關於 Hyper-V 至 Azure 災害復原的 Azure Site Recovery 部署規劃工具
 
@@ -73,7 +73,7 @@ Azure Site Recovery 部署規劃工具是一項命令列工具，適用於 Hyper
 | | **VMware 至 Azure** |**Hyper-V 至 Azure**|**Azure 至 Azure**|**Hyper-V 至次要網站**|**VMware 至次要網站**
 --|--|--|--|--|--
 支援的案例 |是|是|否|是*|否
-支援的版本 | vCenter 6.7、 6.5、 6.0 或 5.5| Windows Server 2016、Windows Server 2012 R2 | NA |Windows Server 2016、Windows Server 2012 R2|NA
+支援的版本 | vCenter 6.7、6.5、6.0 或5。5| Windows Server 2016、Windows Server 2012 R2 | NA |Windows Server 2016、Windows Server 2012 R2|NA
 支援的設定|vCenter、ESXi| Hyper-V 叢集、Hyper-V 主機|NA|Hyper-V 叢集、Hyper-V 主機|NA|
 每個執行中的 Azure Site Recovery 部署規劃工具執行個體可以分析的伺服器數目 |單一 (屬於一個 vCenter Server 或一個 ESXi 伺服器的 VM 可同時加以分析)|多個 (跨多部主機或主機叢集的 VM 可同時加以分析)| NA |多個 (跨多部主機或主機叢集的 VM 可同時加以分析)| NA
 
@@ -121,7 +121,7 @@ E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>更新至最新版的部署規劃工具
 
-摘要說明最新的更新 Deployment Planner[版本歷程記錄](site-recovery-deployment-planner-history.md)。
+部署規劃工具[版本歷程記錄](site-recovery-deployment-planner-history.md)中會摘要說明最新的更新。
 
 如果您的部署規劃工具是舊版的，請執行下列任一動作：
  * 如果最新版本不包含分析修正程式，並已在您目前的規劃工具版本上進行分析，則會繼續執行分析。
@@ -135,8 +135,8 @@ E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
   >每個新的 Deployment Planner 都是 .zip 檔的累積更新。 您不需要將最新的檔案複製到先前的資料夾。 您可以建立及使用新的資料夾。
 
 ## <a name="version-history"></a>版本歷程記錄
-2\.4 為最新的 Azure Site Recovery Deployment Planner 工具版本。
-請參閱[Azure Site Recovery 部署規劃工具版本記錄](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)頁面的每個更新中所新增的修正程式。
+最新的 Azure Site Recovery 部署規劃工具工具版本為2.5。
+請參閱[Azure Site Recovery 部署規劃工具版本歷程記錄](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)頁面, 以取得每個更新中所新增的修正程式。
 
 
 ## <a name="next-steps"></a>後續步驟

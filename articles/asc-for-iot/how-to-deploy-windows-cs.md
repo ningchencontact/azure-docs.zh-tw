@@ -1,6 +1,6 @@
 ---
-title: Azure 資訊安全中心的 IoT 代理程式預覽的 Windows 安裝 |Microsoft Docs
-description: 深入了解如何安裝 Azure 資訊安全中心在 32 位元或 64 位元的 Windows 裝置上的 IoT 代理程式。
+title: 適用于 IoT 代理程式的 Azure 資訊安全中心 Windows 安裝 |Microsoft Docs
+description: 瞭解如何在32位或64位的 Windows 裝置上安裝適用于 IoT 代理程式的 Azure 資訊安全中心。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: b22faa6ea02a1a3d093aee1dec84ca1680da54d2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: acc99f260931de7fd8c7566a3ff6daf43f34c5ef
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616753"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597222"
 ---
-# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>針對 IoT 部署 Azure 資訊安全中心C#為基礎的 Windows 安全性代理程式
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>為適用于 Windows 的C#IoT 型安全性代理程式部署 Azure 資訊安全中心
 
-> [!IMPORTANT]
-> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
-本指南說明如何安裝 Azure 資訊安全中心 (ASC) 適用於 IoT C#-在 Windows 上的安全性代理程式。
+本指南說明如何在 Windows 上安裝以 IoT C#為基礎之安全性代理程式的 Azure 資訊安全中心。
 
 在本指南中，您將了解如何： 
 > [!div class="checklist"]
@@ -37,26 +33,29 @@ ms.locfileid: "67616753"
 > * 解除安裝代理程式
 > * 疑難排解 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-如需其他平台和代理程式類型，請參閱[選擇正確的安全性代理程式](how-to-deploy-agent.md)。
+如需其他平臺和代理程式類別, 請參閱[選擇正確的安全性代理程式](how-to-deploy-agent.md)。
 
-1. 您想要安裝在電腦上的本機系統管理權限。 
+1. 您想要安裝的電腦上的本機系統管理員許可權。 
 
 1. 為裝置[建立安全性模組](quickstart-create-security-twin.md)。
 
 ## <a name="installation"></a>安裝 
 
-若要安裝安全性代理程式，請執行下列步驟：
+若要安裝安全性代理程式, 請使用下列工作流程:
 
-1. 若要安裝適用於 IoT Windows ASCC#代理程式在裝置上，下載最新版本到您的電腦與 ASC iot [GitHub 存放庫](https://github.com/Azure/Azure-IoT-Security-Agent-CS)。
+1. 在裝置上安裝適用于C# IoT Windows 代理程式的 Azure 資訊安全中心。 從適用于 IoT [GitHub 存放庫](https://github.com/Azure/Azure-IoT-Security-Agent-CS)的 Azure 資訊安全中心, 將最新版本下載至您的電腦。
 
-2. 解壓縮套件的內容，然後瀏覽至 /Install 資料夾。
+1. 解壓縮套件的內容，然後瀏覽至 /Install 資料夾。
 
-3. 系統管理員身分開啟 Windows PowerShell。 
-    1. 執行 ```Unblock-File .\InstallSecurityAgent.ps1``` 將執行權限新增至 InstallSecurityAgent 指令碼
+1. 以系統管理員身分開啟 Windows PowerShell。 
+1. 執行下列程式碼, 以將執行中的許可權新增至 InstallSecurityAgent 腳本:<br>
+    ```
+    Unblock-File .\InstallSecurityAgent.ps1
+    ```
     
-        然後執行：
+    然後執行:
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
@@ -68,13 +67,13 @@ ms.locfileid: "67616753"
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
     ```
     
-    如需驗證參數的詳細資訊，請參閱[如何設定驗證](concept-security-agent-authentication-methods.md)。
+    如需驗證參數的詳細資訊, 請參閱[如何設定驗證](concept-security-agent-authentication-methods.md)。
 
-此指令碼會執行下列動作︰
+此腳本會執行下列動作:
 
 - 安裝必要條件。
 
-- 新增服務的使用者 (並停用互動式登入)。
+- 新增服務使用者 (已停用互動式登入)。
 
 - 將代理程式安裝為**系統服務**。
 
@@ -101,11 +100,11 @@ ms.locfileid: "67616753"
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果代理程式無法啟動，請開啟記錄 (預設會「關閉」  記錄) 以取得詳細資訊。
+如果代理程式無法啟動，請開啟記錄 (預設會「關閉」記錄) 以取得詳細資訊。
 
 若要開啟記錄：
 
-1. 開啟 [使用標準檔案編輯器編輯的組態檔 (General.config)]。
+1. 開啟設定檔案 (一般 .config) 以使用標準檔案編輯器進行編輯。
 
 1. 編輯下列值：
 
@@ -140,8 +139,8 @@ ms.locfileid: "67616753"
 
 
 ## <a name="next-steps"></a>後續步驟
-- 閱讀適用於 IoT 的 ASC 服務[概觀](overview.md)
-- 深入了解適用於 IoT 的 ASC [架構](architecture.md)
+- 閱讀 IoT 服務的 Azure 資訊安全中心[總覽](overview.md)
+- 深入瞭解 IoT[架構](architecture.md)的 Azure 資訊安全中心
 - 啟用[服務](quickstart-onboard-iot-hub.md)
 - 閱讀[常見問題集](resources-frequently-asked-questions.md)
 - 了解[警示](concept-security-alerts.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64e190e3e70459846b50e1f68158b0a5c458a216
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482065"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562188"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>內部部署資源的 SSO 如何在加入 Azure AD 的裝置上運作
 
@@ -51,7 +51,7 @@ Windows Hello 企業版需要其他設定，才能從已加入 Azure AD 的裝�
 - 存取 AD 成員伺服器上的 UNC 路徑
 - 存取已設定 Windows 整合式安全性的 AD 成員 Web 伺服器 
 
-如果您想要從 Windows 裝置管理內部部署 AD，請安裝[適用於 Windows 10 的遠端伺服器管理工具](https://www.microsoft.com/en-us/download/details.aspx?id=45520)。
+如果您想要從 Windows 裝置管理內部部署 AD，請安裝[適用於 Windows 10 的遠端伺服器管理工具](https://www.microsoft.com/download/details.aspx?id=45520)。
 
 您可以使用：
 

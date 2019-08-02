@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: mayg
-ms.openlocfilehash: 35fa26112a6026ab05bd59b38621de7ee802c715
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: eb29f8280ac1da3cd366b0c54cc6e2ce92b06286
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491902"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726483"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute 搭配 Azure Site Recovery
 
@@ -25,24 +25,24 @@ Microsoft Azure ExpressRoute 可讓您透過連線提供者所提供的私人連
 
 ExpressRoute 線路代表您的內部部署基礎結構與 Microsoft 雲端服務之間，透過連線提供者的邏輯連線。 您可以訂購多條 ExpressRoute 線路。 每一條線路可以位於相同或不同區域，且可透過不同的連線提供者連線到您的內部環境。 請在[這裡](../expressroute/expressroute-circuit-peerings.md)深入了解 ExpressRoute 線路。
 
-ExpressRoute 線路有多個與其相關聯的路由網域。 請在[這裡](../expressroute/expressroute-circuit-peerings.md#peeringcompare)深入了解和比較 ExpressRoute 路由網域。
+ExpressRoute 線路有多個相關聯的路由網域。 請在[這裡](../expressroute/expressroute-circuit-peerings.md#peeringcompare)深入了解和比較 ExpressRoute 路由網域。
 
 ## <a name="on-premises-to-azure-replication-with-expressroute"></a>使用 ExpressRoute 的內部部署到 Azure 複寫
 
 Azure Site Recovery 能夠針對內部部署的 [Hyper-V 虛擬機器](hyper-v-azure-architecture.md)、[VMware 虛擬機器](vmware-azure-architecture.md)和[實體伺服器](physical-azure-architecture.md)進行災害復原並移轉到 Azure。 針對所有內部部署到 Azure 的案例，會將複寫資料傳送到並儲存於 Azure 儲存體帳戶。 在複寫期間，您不需支付任何虛擬機器費用。 當您容錯移轉到 Azure 時，Site Recovery 會自動建立 Azure IaaS 虛擬機器。
 
-Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體帳戶或複本受控磁碟上的目標 Azure 區域。 若要 Site Recovery 複寫流量使用 ExpressRoute，您可以利用[Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)或現有[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)（新建立的已過時）。 Microsoft 對等互連是建議用於複寫的路由網域。 請注意，複寫不支援透過私人對等互連。
+Site Recovery 會透過公用端點, 將資料複製到目標 Azure 區域上的 Azure 儲存體帳戶或複本受控磁片。 若要使用 ExpressRoute 來 Site Recovery 複寫流量, 您可以利用[Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)或現有的[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)(已取代為新的建立)。 Microsoft 對等互連是建議用於複寫的路由網域。 請注意, 不支援透過私用對等互連進行複寫。
 
-請確認[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)也會符合組態伺服器。 Site Recovery 複寫的協調流程，特定 Url 的連線所需的組態伺服器。 無法為此連線使用 ExpressRoute。 
+請確定也符合設定伺服器的[網路需求](vmware-azure-configuration-server-requirements.md#network-requirements)。 設定伺服器需要連線到特定的 Url, 才能進行 Site Recovery 複寫的協調流程。 ExpressRoute 無法用於此連線。 
 
-如果您在內部部署中使用 proxy，而想要針對複寫流量使用 ExpressRoute，您需要設定組態伺服器和處理序伺服器上的 Proxy 略過清單。 請依照下列步驟執行：
+如果您在內部部署使用 proxy, 而且想要針對複寫流量使用 ExpressRoute, 您必須在設定伺服器和進程伺服器上設定 Proxy 略過清單。 請依照下列步驟執行：
 
-- 下載 PsExec 工具，從[此處](https://aka.ms/PsExec)存取系統的使用者內容。
-- 開啟 Internet Explorer 在系統使用者內容中，執行下列命令列的 psexec-s-i"%programfiles%\Internet Explorer\iexplore.exe"
+- 從[這裡](https://aka.ms/PsExec)下載 PsExec 工具以存取系統使用者內容。
+- 執行下列命令列 psexec-s-i "%programfiles%\Internet Explorer\iexplore.exe", 以在系統使用者內容中開啟 Internet Explorer
 - 在 IE 中新增 proxy 設定
-- 在略過清單中，新增 Azure 儲存體 URL *.blob.core.windows.net
+- 在 [略過] 清單中, 新增 Azure 儲存體 URL *. blob.core.windows.net
 
-這可確保，只複寫流量流經 ExpressRoute 時的通訊可以通過 proxy。
+這可確保只有複寫流量會流經 ExpressRoute, 而通訊則可以通過 proxy。
 
 將虛擬機器容錯移轉到 Azure 虛擬網路之後，您就可以使用[私用對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)存取它們。 
 
@@ -56,10 +56,10 @@ Azure Site Recovery 會啟用 [Azure 虛擬機器](azure-to-azure-architecture.m
 
 如果您已經使用 ExpressRoute 從內部部署資料中心連線到來源區域上的 Azure VM，則可以規劃在容錯移轉目標區域上重新建立 ExpressRoute 連線。 您可以透過新的虛擬網路連線，使用相同的 ExpressRoute 線路連線到目標區域，或利用不同的 ExpressRoute 線路和連線進行災害復原。 [這裡](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute)說明各種可能案例。
 
-您可以將 Azure 虛擬機器複寫到相同地理叢集內的任何 Azure 區域，如[這裡](../site-recovery/azure-to-azure-support-matrix.md#region-support)所詳述。 如果選擇的目標 Azure 區域與來源位於不同的地緣政治區域內，則您可能需要啟用 ExpressRoute Premium。 如需詳細資訊，請參閱 [ExpressRoute 位置](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region)和 [ExpressRoute 價格](https://azure.microsoft.com/pricing/details/expressroute/)。
+您可以將 Azure 虛擬機器複寫到相同地理叢集內的任何 Azure 區域，如[這裡](../site-recovery/azure-to-azure-support-matrix.md#region-support)所詳述。 如果選擇的目標 Azure 區域與來源位於不同的地緣政治區域內，則您可能需要啟用 ExpressRoute Premium。 如需詳細資訊，請參閱 [ExpressRoute 位置](../expressroute/expressroute-locations.md)和 [ExpressRoute 價格](https://azure.microsoft.com/pricing/details/expressroute/)。
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解 [ExpressRoute 線路](../expressroute/expressroute-circuit-peerings.md)。
 - 深入了解 [ExpressRoute 路由網域](../expressroute/expressroute-circuit-peerings.md#peeringcompare)。
 - 深入了解 [ExpressRoute 位置](../expressroute/expressroute-locations.md)。
-- 深入了解災害復原[透過 ExpressRoute 的 Azure 虛擬機器](azure-vm-disaster-recovery-with-expressroute.md)。
+- 深入瞭解[使用 ExpressRoute 進行 Azure 虛擬機器](azure-vm-disaster-recovery-with-expressroute.md)的嚴重損壞修復。

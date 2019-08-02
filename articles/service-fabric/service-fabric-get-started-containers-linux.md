@@ -3,7 +3,7 @@ title: 在 Linux 上建立 Azure Service Fabric 容器應用程式 | Microsoft D
 description: 在 Azure Service Fabric 上建立第一個 Linux 容器應用程式。 使用您的應用程式建置 Docker 映像、將映像推送到容器登錄，建置和部署 Service Fabric 容器應用程式。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: aljo
-ms.openlocfilehash: 16f117e7c5291216b5716aee40995e6f224705fa
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: atsenthi
+ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359358"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599561"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]

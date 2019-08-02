@@ -5,13 +5,13 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1bfa7104425b5013f9cdf36ff3c1dd88107d3ec7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 08/01/2019
+ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467863"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717560"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 使用以雜湊為基礎的資料分割, 將邏輯磁碟分割�
 
 * 單一邏輯分割區的儲存空間上限為 10 GB。  
 
-* Azure Cosmos 容器的輸送量最低為每秒400個要求單位 (RU/秒)。 對相同分割區索引鍵的要求不能超過配置給分割區的輸送量。 如果要求超過配置的輸送量, 則要求會受到速率限制。 因此，請務必挑選不會在應用程式內產生「作用點」的分割區索引鍵。
+* Azure Cosmos 容器的輸送量最低為每秒400個要求單位 (RU/秒)。 在資料庫上布建輸送量時, 每個容器的最小 ru 為每秒100個要求單位 (RU/秒)。 對相同分割區索引鍵的要求不能超過配置給分割區的輸送量。 如果要求超過配置的輸送量, 則要求會受到速率限制。 因此，請務必挑選不會在應用程式內產生「作用點」的分割區索引鍵。
 
 * 選擇具有各種不同值的分割區索引鍵，以及存取平均分散到邏輯分割區的模式。 這有助於將容器中的資料和活動分散到一組邏輯分割區, 讓資料儲存和輸送量的資源可以分散到邏輯分割區。
 

@@ -3,20 +3,20 @@ title: 疑難排解 Azure 流量管理員上的已降級狀態
 description: 如何在流量管理員顯示為降級狀態時疑難排解流量管理員設定檔。
 services: traffic-manager
 documentationcenter: ''
-author: chadmath
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: genli
-ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: rohink
+ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357220"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565870"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>疑難排解 Azure 流量管理員上的已降級狀態
 
@@ -30,11 +30,11 @@ ms.locfileid: "68357220"
 
 ## <a name="understanding-traffic-manager-probes"></a>了解流量管理員探查
 
-* 只有當探查收到探查路徑傳回 HTTP 200 回應時，流量管理員才會將端點視為在「線上」。 其他任何非 200 的回應都是失敗。
-* 即使重新導向的 URL 傳回 200，30x 重新導向也會失敗。
+* 只有當探查收到探查路徑傳回 HTTP 200 回應時，流量管理員才會將端點視為在「線上」。 如果您的應用程式傳回任何其他 HTTP 回應碼, 您應該將該回應碼新增至流量管理員設定檔的[預期狀態碼範圍](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring)。
+* 除非您已在流量管理員設定檔的[預期狀態碼範圍](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring)中指定此回應碼, 否則會將30倍重新導向回應視為失敗。 流量管理員不會探查重新導向目標。
 * 若為 HTTP 探查，會忽略憑證錯誤。
 * 只要傳回 200，探查路徑的實際內容並不重要。 探查靜態內容 (例如 "/favicon.ico") 的 URL 是常用的技巧。 即使應用程式狀況良好，動態內容 (例如 ASP 頁面) 也不一定會傳回 200。
-* 最佳做法是將探查路徑設為有足夠邏輯判斷網站是運作或關閉的項目。 在上述範例中，您將路徑設為 "favicon.ico"，只是測試 w3wp.exe 是否有回應。 此探查可能不會指出您的 Web 應用程式狀況良好。 較好的選擇是將路徑設為 "/Probe.aspx" 之類的項目，它具有邏輯可判斷網站的健康狀態。 例如，您可以使用效能計數器來監視 CPU 使用率，或測量失敗的要求數。 或者，您可以嘗試存取資料庫資源或工作階段狀態，以確定 Web 應用程式正在運作。
+* 最佳做法是將探查路徑設定為具有足夠邏輯的專案, 以判斷網站已啟動或關閉。 在上述範例中，您將路徑設為 "favicon.ico"，只是測試 w3wp.exe 是否有回應。 此探查可能不會指出您的 Web 應用程式狀況良好。 較好的選擇是將路徑設為 "/Probe.aspx" 之類的項目，它具有邏輯可判斷網站的健康狀態。 例如，您可以使用效能計數器來監視 CPU 使用率，或測量失敗的要求數。 或者，您可以嘗試存取資料庫資源或工作階段狀態，以確定 Web 應用程式正在運作。
 * 如果設定檔中的所有端點都已降級，流量管理員會將所有端點視為狀況良好，並將流量路由傳送至所有端點。 此行為可確保探查機制的問題不會造成您的服務完全中斷。
 
 ## <a name="troubleshooting"></a>疑難排解

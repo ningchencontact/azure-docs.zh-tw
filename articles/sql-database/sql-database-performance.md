@@ -9,20 +9,19 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39a100c487588fb717c642036c7713150a95e047
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584767"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567080"
 ---
 # <a name="monitor-and-improve-performance"></a>監視並改善效能
 
 Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧型微調動作和建議來建議可以改善工作負載效能的動作。
 
-若要檢閱您的資料庫效能，請使用 [概觀] 頁面上的 [效能]  圖格，或往下瀏覽到 [支援 + 疑難排解] 區段：
+若要檢閱您的資料庫效能，請使用 [概觀] 頁面上的 [效能] 圖格，或往下瀏覽到 [支援 + 疑難排解] 區段：
 
    ![檢視效能](./media/sql-database-performance/entries.png)
 
@@ -40,10 +39,10 @@ Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧�
 
 ![效能](./media/sql-database-performance/performance.png)
 
-* [建議]  圖格會提供適用於資料庫的微調建議分解 (如果有多個建議，則會顯示前三個)。 按一下此圖格，即會帶您前往 [[效能建議](#performance-recommendations)]  。 
-* [微調活動]  圖格會提供資料庫進行中和已完成微調動作的摘要，讓您快速檢視調整活動的歷程記錄。 按一下此圖格會帶您前往您的資料庫的完整微調記錄檢視。
-* [自動調整]  圖格會顯示資料庫的[自動調整設定](sql-database-automatic-tuning-enable.md) (自動套用至資料庫的微調選項)。 按一下此圖格會開啟 [自動化組態] 對話方塊。
-* [資料庫查詢]  圖格會顯示資料庫的查詢效能摘要 (整體 DTU 使用量和排名最前面的資源取用查詢)。 按一下此圖格，即會帶您前往 [[查詢效能深入解析](#query-performance-insight)]  。
+* [建議] 圖格會提供適用於資料庫的微調建議分解 (如果有多個建議，則會顯示前三個)。 按一下此圖格，即會帶您前往 [[效能建議](#performance-recommendations)]。 
+* [微調活動] 圖格會提供資料庫進行中和已完成微調動作的摘要，讓您快速檢視調整活動的歷程記錄。 按一下此圖格會帶您前往您的資料庫的完整微調記錄檢視。
+* [自動調整] 圖格會顯示資料庫的[自動調整設定](sql-database-automatic-tuning-enable.md) (自動套用至資料庫的微調選項)。 按一下此圖格會開啟 [自動化組態] 對話方塊。
+* [資料庫查詢] 圖格會顯示資料庫的查詢效能摘要 (整體 DTU 使用量和排名最前面的資源取用查詢)。 按一下此圖格，即會帶您前往 [[查詢效能深入解析](#query-performance-insight)]。
 
 ## <a name="performance-recommendations"></a>效能建議
 
@@ -59,7 +58,7 @@ Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧�
 
 在[尋找和套用效能建議](sql-database-advisor-portal.md)文章中，了解如何找到和套用效能建議。
 
-## <a name="automatic-tuning"></a>自動微調
+## <a name="automatic-tuning"></a>自動調整
 
 Azure SQL 資料庫能透過套用[效能建議](sql-database-advisor.md)來自動調整資料庫效能。 若要深入了解，請參閱[自動調整文章](sql-database-automatic-tuning.md)。 若要啟用它，請參閱[如何啟用自動調整](sql-database-automatic-tuning-enable.md)。
 

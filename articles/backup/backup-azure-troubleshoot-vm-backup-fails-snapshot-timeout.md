@@ -1,19 +1,20 @@
 ---
 title: 針對 Azure 備份失敗進行疑難排解：無法使用客體代理程式狀態
 description: 與代理程式、延伸模組及磁碟相關之 Azure 備份失敗的徵狀、原因和解決方案。
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Azure 備份; VM 代理程式; 網路連線;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465322"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688988"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -77,9 +78,9 @@ ms.locfileid: "68465322"
 **原因 2：[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
 **原因 3：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot 擴充功能作業失敗
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks-VMSnapshot 延伸模組作業失敗
 
-**錯誤碼**：ExtentionOperationFailedForManagedDisks <br>
+**錯誤碼**：ExtensionOperationFailedForManagedDisks <br>
 **錯誤訊息**：VMSnapshot 擴充作業失敗<br>
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
@@ -106,7 +107,7 @@ ms.locfileid: "68465322"
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
 **錯誤訊息**：目前 Azure 備份不支援大於4095GB 的磁片大小 <br>
 
-當備份磁片大小大於4095GB 的 VM 時, 您的備份操作可能會失敗。 即將推出對大型磁片的支援。  
+當備份磁片大小大於4095GB 的 VM 時, 您的備份操作可能會失敗。 若要註冊 Azure 備份大型磁片支援的私人預覽, 大於4TB 大小上限為30TB 的磁片, 請回寫給我們AskAzureBackupTeam@microsoft.com。
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中
 
@@ -204,7 +205,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 若要將解除安裝解除安裝：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，移至發生備份失敗的 VM。
-2. 選取 [Settings] \(設定) 。
+2. 選取 [Settings] \(設定)。
 3. 選取 [擴充功能]。
 4. 選取 [Vmsnapshot 解除安裝]。
 5. 選取 [解除安裝]。

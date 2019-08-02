@@ -1,19 +1,18 @@
 ---
 title: 規劃 Azure 檔案同步部署 | Microsoft Docs
 description: 了解規劃 Azure 檔案服務部署時的考量事項。
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798673"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699326"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -69,10 +68,10 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure 檔案同步系統需求和互通性 
 本節涵蓋 Azure 檔案同步代理程式與 Windows Server 功能和角色以及第三方解決方案的系統需求和互通性。
 
-### <a name="evaluation-cmdlet"></a>評估 cmdlet
-在部署 Azure 檔案同步，您應該評估是否與您使用 Azure 檔案同步評估 cmdlet 的系統相容。 此 cmdlet 會檢查潛在的問題，與您的檔案系統和資料集，例如不支援的字元或不受支援的作業系統版本。 請注意，此工具會檢查下列提到的大部分功能 (但不是全部)；我們建議您仔細閱讀本節的其餘部分，以確保您的部署可順利進行。 
+### <a name="evaluation-cmdlet"></a>評估 Cmdlet
+部署 Azure 檔案同步之前, 您應該先使用 Azure 檔案同步評估 Cmdlet 來評估它是否與您的系統相容。 此 Cmdlet 會檢查檔案系統和資料集的潛在問題, 例如不支援的字元或不支援的作業系統版本。 請注意，此工具會檢查下列提到的大部分功能 (但不是全部)；我們建議您仔細閱讀本節的其餘部分，以確保您的部署可順利進行。 
 
-評估指令程式可以安裝所安裝的 Az PowerShell 模組，可依照此處的指示進行安裝：[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
+您可以藉由安裝 Az PowerShell module 來安裝評估 Cmdlet, 此模組可依照此處的指示安裝:[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
 #### <a name="usage"></a>使用量  
 您可以使用幾個不同的方式來叫用評估工具：您可以執行系統檢查、資料集檢查，或兩者都執行。 若要執行系統和資料集的檢查： 
@@ -123,11 +122,11 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 | 功能 | 支援狀態 | 注意 |
 |---------|----------------|-------|
 | 存取控制清單 (ACL) | 完全支援 | Azure 檔案同步會保留 Windows ACL，並由 Windows Server 在伺服器端點上強制執行。 如果檔案是直接在雲端中存取，則 Azure 檔案服務尚未支援 Windows ACL。 |
-| 永久連結 | Skipped | |
-| 符號連結 | Skipped | |
+| 永久連結 | 已略過 | |
+| 符號連結 | 已略過 | |
 | 掛接點 | 部分支援 | 掛接點可能是伺服器端點的根目錄，但如果伺服器端點的命名空間中包含它們，系統會予以略過。 |
-| 接合 | Skipped | 例如，分散式檔案系統 DfrsrPrivate 和 DFSRoots 資料夾。 |
-| 重新分析點 | Skipped | |
+| 接合 | 已略過 | 例如，分散式檔案系統 DfrsrPrivate 和 DFSRoots 資料夾。 |
+| 重新分析點 | 已略過 | |
 | NTFS 壓縮 | 完全支援 | |
 | 疏鬆檔案 | 完全支援 | 疏鬆檔案會同步 (不會封鎖)，但它們會以完整檔案的形式同步至雲端。 如果檔案內容在雲端中 (或另一部伺服器上) 有所變更，該檔案在變更下載之後就不再是疏鬆檔案。 |
 | 替代資料流 (ADS) | 已保留，但未同步 | 例如，不會同步「檔案分類基礎結構」所建立的分類標籤。 每個伺服器端點上檔案的現有分類標籤會原封不動。 |
@@ -137,7 +136,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 ### <a name="files-skipped"></a>跳過的檔案
 
-| 檔案/資料夾 | 附註 |
+| 檔案/資料夾 | 注意 |
 |-|-|
 | Desktop.ini | 系統專用檔案 |
 | ethumbs.db$ | 暫存檔案的縮圖 |
@@ -156,30 +155,30 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
 > 必須在容錯移轉叢集中的每個節點上安裝 Azure 檔案同步代理程式，同步才能正確運作。
 
 ### <a name="data-deduplication"></a>重複資料刪除
-**代理程式版本 5.0.2.0 或更新版本**   
-重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 啟用重複資料刪除磁碟區上，以啟用雲端階層處理，可讓您快取多個檔案內部，不需要佈建更多儲存空間。 
+**代理程式版本5.0.2.0 或更新版本**   
+重複資料刪除會在 Windows Server 2016 和 Windows Server 2019 中，已啟用雲端階層處理的磁碟區上受到支援。 在啟用雲端階層處理的磁片區上啟用重復資料刪除, 可讓您在內部部署快取更多檔案, 而不需要布建更多 
 
-重複資料刪除磁碟區上啟用以啟用雲端階層處理時，重複資料刪除最佳化檔案內的伺服器端點的位置會分層類似於一般的檔案為基礎的雲端階層處理原則設定。 一次最佳化的檔案已分層儲存重複資料刪除，重複資料刪除記憶體回收工作會自動執行不必要區塊移除，不再參考回收磁碟空間的磁碟區上的其他檔案。
+在啟用雲端階層處理的磁片區上啟用重復資料刪除時, 伺服器端點位置中的重復資料刪除優化檔案將會根據雲端階層處理原則設定, 與一般檔案分層。 當重復資料刪除優化檔案已分層之後, 重復資料刪除垃圾收集工作將會自動執行, 藉由移除磁片區上其他檔案不再參考的不必要區塊來回收磁碟空間。
 
-請注意省下的磁碟區只會套用到伺服器;Azure 檔案共用中的資料將不會重複資料刪除。
+請注意, 磁片區節省費用僅適用于伺服器;您在 Azure 檔案共用中的資料將不會重復資料刪除。
 
 **Windows Server 2012 R2 或舊版代理程式**  
 針對未啟用雲端階層處理的磁碟區，Azure 檔案同步支援在磁碟區上啟用 Windows Server 重複資料刪除。
 
 **注意事項**
-- 如果在安裝 Azure 檔案同步代理程式之前安裝重複資料刪除，則重新啟動，才支援重複資料刪除和雲端階層處理相同的磁碟區上。
-- 如果重複資料刪除磁碟區上啟用後雲端階層是否啟用，初始的重複資料刪除最佳化工作將會最佳化磁碟區上，不已分層，並會在雲端上有下列影響的檔案分層：
-    - 使用熱度圖，可用空間原則將會繼續根據可用空間的磁碟區上的層檔案。
-    - 日期原則會略過的可能已否則適合因為重複資料刪除最佳化工作存取的檔案分層的檔案階層處理。
-- 進行中的重複資料刪除最佳化工作，針對雲端階層處理日期原則將取得延遲，重複資料刪除[MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps)設定，如果檔案已經不會分層。 
-    - 範例：如果將 MinimumFileAgeDays 設定為 7 天雲端階層處理日期原則是 30 天，原則將 37 天後層檔案的日期。
-    - 注意:一旦檔案已分層的 Azure 檔案同步，重複資料刪除最佳化工作會略過檔案。
-- 如果已安裝 Azure 檔案同步代理程式執行 Windows Server 2012 R2 的伺服器已升級至 Windows Server 2016 或 Windows Server 2019，則必須以支援重複資料刪除和雲端階層處理相同的磁碟區上執行下列步驟：  
-    - 解除安裝 Windows Server 2012 R2 的 Azure 檔案同步代理程式，並重新啟動伺服器。
-    - 下載新的伺服器作業系統版本 （Windows Server 2016 或 Windows Server 2019） 的 Azure 檔案同步代理程式。
-    - 安裝 Azure 檔案同步代理程式，並重新啟動伺服器。  
+- 如果在安裝 Azure 檔案同步代理程式之前已安裝重復資料刪除, 則需要重新開機, 以支援相同磁片區上的重復資料刪除和雲端階層處理。
+- 如果在啟用雲端階層處理之後, 磁片區上啟用重復資料刪除功能, 初始重復資料刪除優化工作將會優化尚未階層式磁片區上的檔案, 而且會對雲端階層處理產生下列影響:
+    - [可用空間] 原則會根據磁片區上的可用空間, 使用熱度圖繼續將檔案分層。
+    - 日期原則會略過可能因為存取檔案的重復資料刪除優化作業而有資格進行階層式檔案分層。
+- 針對進行中的重復資料刪除優化作業, 如果檔案尚未分層, 則 [重復資料刪除] [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps)設定會延遲具有日期原則的雲端階層處理。 
+    - 範例:如果 MinimumFileAgeDays 設定為7天, 而雲端階層處理日期原則為30天, 則日期原則會在37天后將檔案分層。
+    - 注意:一旦以 Azure 檔案同步將檔案分層之後, 重復資料刪除優化工作將會略過該檔案。
+- 如果執行 Windows Server 2012 R2 並已安裝 Azure 檔案同步代理程式的伺服器已升級為 Windows Server 2016 或 Windows Server 2019, 則必須執行下列步驟, 以支援相同磁片區上的重復資料刪除和雲端階層處理:  
+    - 卸載 Windows Server 2012 R2 的 Azure 檔案同步代理程式, 然後重新開機伺服器。
+    - 下載新伺服器作業系統版本的 Azure 檔案同步代理程式 (Windows Server 2016 或 Windows Server 2019)。
+    - 安裝 Azure 檔案同步代理程式並重新啟動伺服器。  
     
-    注意:解除安裝並重新安裝代理程式時，會保留在伺服器上的 Azure 檔案同步組態設定。
+    注意:卸載並重新安裝代理程式時, 會保留伺服器上的 Azure 檔案同步設定。
 
 ### <a name="distributed-file-system-dfs"></a>分散式檔案系統 (DFS)
 Azure 檔案同步支援與 DFS 命名空間 (DFS-N) 和 DFS 複寫 (DFS-R) 互通。
@@ -211,7 +210,7 @@ Azure 檔案同步和 DFS-R 如需並存使用：
 作為 Microsoft 內部防毒解決方案的 Windows Defender 和 System Center Endpoint Protection (SCEP)，皆會自動略過讀取已設定此屬性的檔案。 我們已經測試這兩個解決方案並找到一個小問題：當您將伺服器新增至現有同步群組時，會在新的伺服器上重新叫用 (下載) 小於 800 個位元組的檔案。 這些檔案會保留在新的伺服器上，而且不會分層，因為這些檔案不符合階層處理大小需求 (> 64 kb)。
 
 > [!Note]  
-> 防毒軟體廠商可以檢查其產品和 Azure 檔案同步使用之間的相容性[Azure 檔案同步防毒軟體相容性測試套件](https://www.microsoft.com/download/details.aspx?id=58322)，適用於 Microsoft Download Center 下載。
+> 防毒軟體廠商可以使用[Azure 檔案同步的防毒軟體相容性測試套件](https://www.microsoft.com/download/details.aspx?id=58322)(可從 Microsoft 下載中心下載), 檢查其產品與 Azure 檔案同步之間的相容性。
 
 ### <a name="backup-solutions"></a>備份解決方案
 備份解決方案類似防毒解決方案，可能會導致階層式檔案的重新叫用。 建議使用雲端備份解決方案來備份 Azure 檔案共用，而不要使用內部部署備份產品。
@@ -244,33 +243,33 @@ Azure 檔案同步僅於下列區域提供：
 
 | 區域 | 資料中心位置 |
 |--------|---------------------|
-| 澳洲東部 | 新南威爾斯 |
-| 澳大利亞東南部 | 維多利亞 |
-| 巴西南部 | 聖保羅 Paolo 狀態 |
+| 澳大利亞東部 | New South Wales |
+| 澳大利亞東南部 | Victoria |
+| 巴西南部 | 聖多美 Paolo 狀態 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
 | 印度中部 | 浦那 |
-| 美國中部 | 愛荷華州 |
+| 美國中部 | Iowa |
 | 東亞 | 香港特別行政區 |
-| East US | 維吉尼亞州 |
-| 美國東部 2 | 維吉尼亞州 |
+| East US | Virginia |
+| 美國東部 2 | Virginia |
 | 法國中部 | 巴黎 |
-| 南韓中部| 首爾 |
-| 南韓南部| 斧山 |
+| 南韓中部| Seoul |
+| 南韓南部| Busan |
 | 日本東部 | 東京，埼玉 |
 | 日本西部 | 大阪 |
-| 美國中北部 | 伊利諾州 |
+| 美國中北部 | Illinois |
 | 北歐 | 愛爾蘭 |
 | 美國中南部 | Texas |
 | 印度南部 | 辰內 |
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
 | 英國西部 | 卡地夫 |
-| 美國政府亞利桑那州 | 亞利桑那州 |
-| 美國政府德克薩斯州 | Texas |
-| 美國政府維吉尼亞州 | 維吉尼亞州 |
+| US Gov 亞利桑那州 | 美國亞歷桑那時間 |
+| US Gov 德克薩斯州 | Texas |
+| US Gov 維吉尼亞州 | Virginia |
 | 西歐 | 荷蘭 |
-| 美國中西部 | 懷俄明州 |
+| 美國中西部 | Wyoming |
 | 美國西部 | California |
 | 美國西部 2 | Washington |
 
@@ -286,8 +285,8 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 
 | 主要區域      | 配對的區域      |
 |---------------------|--------------------|
-| 澳洲東部      | 澳大利亞東南部|
-| 澳大利亞東南部 | 澳洲東部     |
+| 澳大利亞東部      | 澳大利亞東南部|
+| 澳大利亞東南部 | 澳大利亞東部     |
 | 巴西南部        | 美國中南部   |
 | 加拿大中部      | 加拿大東部        |
 | 加拿大東部         | 加拿大中部     |
@@ -308,9 +307,9 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 東南亞      | 東亞          |
 | 英國南部            | 英國西部            |
 | 英國西部             | 英國南部           |
-| 美國政府亞利桑那州      | 美國政府德克薩斯州       |
-| US Gov 愛荷華州         | 美國政府維吉尼亞州    |
-| 美國政府維吉尼亞州      | 美國政府德克薩斯州       |
+| US Gov 亞利桑那州      | US Gov 德克薩斯州       |
+| US Gov 愛荷華州         | US Gov 維吉尼亞州    |
+| US Gov 維吉尼亞州      | US Gov 德克薩斯州       |
 | 西歐         | 北歐       |
 | 美國中西部     | 美國西部 2          |
 | 美國西部             | East US            |

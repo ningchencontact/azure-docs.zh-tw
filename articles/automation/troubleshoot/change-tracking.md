@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f733db97f79282bfc255e3ac4b9991a3b6abc18
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477538"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564861"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>針對變更追蹤和清查進行疑難排解
 
@@ -35,7 +35,7 @@ ms.locfileid: "67477538"
 3. 無法下載變更追蹤的管理組件。
 4. 所要上線的 VM 可能來自一部已安裝 Microsoft Monitoring Agent 但未執行過 sysprep 的所複製機器。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
 1. 確認 **Microsoft Monitoring Agent** (HealthService.exe) 是否正在機器上執行。
 1. 請檢查機器上的**事件檢視器**，並尋找其中有 `changetracking` 字組的任何事件。
@@ -51,7 +51,7 @@ ms.locfileid: "67477538"
 在代理程式電腦上，瀏覽至 `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` 並執行下列命令：
 
 ```cmd
-set stop healthservice
+net stop healthservice
 StopTracing.cmd
 StartTracing.cmd VER
 net start healthservice
@@ -66,4 +66,4 @@ net start healthservice
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

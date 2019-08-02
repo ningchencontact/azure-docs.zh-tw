@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 588c4c267c16c72a7673c09a4c5726058302fccb
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 27c38f51104dfb170c59860c96a8e3a86973bb1e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310501"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638929"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 工作參考：YAML
 
@@ -23,7 +23,7 @@ ms.locfileid: "68310501"
 
 ## <a name="acr-taskyaml-file-format"></a>acr-task.yaml 檔案格式
 
-「ACR 工作」支援採用標準 YAML 語法的多步驟工作宣告。 您會在 YAML 檔案中定義工作的步驟。 接著, 您可以將檔案傳遞至在 Git 認可或基底映射更新上自動觸發的[az acr run][az-acr-run] command. Or, use the file to create a task with [az acr task create][az-acr-task-create] , 以手動方式執行工作。 雖然此文章以 `acr-task.yaml` 作為包含步驟的檔案，但「ACR 工作」支援任何使用[支援的副檔名](#supported-task-filename-extensions)的有效檔案名稱。
+「ACR 工作」支援採用標準 YAML 語法的多步驟工作宣告。 您會在 YAML 檔案中定義工作的步驟。 接著, 您可以將檔案傳遞至[az acr run][az-acr-run]命令, 以手動方式執行工作。 或者, 使用檔案來建立具有[az acr task create][az-acr-task-create]的工作, 該工作會在 Git 認可或基底映射更新時自動觸發。 雖然此文章以 `acr-task.yaml` 作為包含步驟的檔案，但「ACR 工作」支援任何使用[支援的副檔名](#supported-task-filename-extensions)的有效檔案名稱。
 
 最上層 `acr-task.yaml` 原始物件是**工作屬性** **步驟類型** 及 **步驟屬性**：
 
@@ -56,13 +56,13 @@ steps: # A collection of image or container actions.
 
 ### <a name="supported-task-filename-extensions"></a>支援的工作副檔名
 
-「ACR 工作」保留了數個將視為工作檔案來處理的副檔名，包括 `.yaml`。 所有「未」  包含在下列清單中的副檔名都會被「ACR 工作」視為 Dockerfile：.yaml、.yml、.toml、.json、.sh、.bash、.zsh、.ps1、.ps、.cmd、.bat、.ts、.js、.php、.py、.rb、.lua
+「ACR 工作」保留了數個將視為工作檔案來處理的副檔名，包括 `.yaml`。 所有「未」包含在下列清單中的副檔名都會被「ACR 工作」視為 Dockerfile：.yaml、.yml、.toml、.json、.sh、.bash、.zsh、.ps1、.ps、.cmd、.bat、.ts、.js、.php、.py、.rb、.lua
 
 YAML 是「ACR 工作」目前唯一支援的檔案格式。 其他副檔名則保留供可能的未來支援使用。
 
 ## <a name="run-the-sample-tasks"></a>執行範例工作
 
-此文章接下來的各節中會參考數個範例工作檔案。 範例工作位於公用 GitHub 存放庫中, 也就是[Azure 範例/acr 作業][acr-tasks]. You can run them with the Azure CLI command [az acr run][az-acr-run]。 範例命令會類似於：
+此文章接下來的各節中會參考數個範例工作檔案。 範例工作位於公用 GitHub 存放庫中, 也就是[Azure 範例/acr 作業][acr-tasks]。 您可以使用 Azure CLI 命令[az acr run][az-acr-run]來執行它們。 範例命令會類似於：
 
 ```azurecli
 az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
@@ -93,17 +93,17 @@ az configure --defaults acr=myregistry
 
 Secret 物件具有下列屬性。
 
-| 屬性 | Type | 選擇性 | 描述 | 預設值 |
+| 內容 | Type | 選擇性 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | 否 | 密碼的識別碼。 | None |
 | `keyvault` | string | 是 | Azure Key Vault 秘密 URL。 | None |
-| `clientID` | string | 是 | 適用于 Azure 資源之使用者指派受控識別的用戶端識別碼。 | None |
+| `clientID` | string | 是 | 適用于 Azure 資源之[使用者指派受控識別](container-registry-tasks-authentication-managed-identity.md)的用戶端識別碼。 | None |
 
 ### <a name="network"></a>網路
 
 Network 物件具有下列屬性。
 
-| 屬性 | Type | 選擇性 | 描述 | 預設值 |
+| 內容 | Type | 選擇性 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | 否 | 網路的名稱。 | None |
 | `driver` | string | 是 | 用來管理網路的驅動程式。 | None |
@@ -363,7 +363,7 @@ steps:
 
 每個步驟類型都支援數個適用於其類型的屬性。 下表定義所有可用的步驟屬性。 並非所有步驟類型都支援所有屬性。 若要查看每個步驟類型可使用這當中哪些屬性，請參閱 [cmd](#cmd)、[build](#build)及 [push](#push) 步驟類型參考小節。
 
-| 屬性 | Type | 選擇性 | 描述 | 預設值 |
+| 內容 | Type | 選擇性 | 描述 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | 是 | 執行時是否應將容器中斷連結。 | `false` |
 | `disableWorkingDirectoryOverride` | bool | 是 | 是否要停`workingDirectory`用覆寫功能。 將此與`workingDirectory`搭配使用, 即可完整控制容器的工作目錄。 | `false` |
@@ -381,14 +381,14 @@ steps:
 | `repeat` | ssNoversion | 是 | 重複執行容器的重試次數。 | 0 |
 | `retries` | ssNoversion | 是 | 容器失敗執行時嘗試的重試次數。 只有當容器的結束代碼不是零時, 才會嘗試重試。 | 0 |
 | `retryDelay` | 整數 (秒) | 是 | 容器執行重試之間的延遲 (以秒為單位)。 | 0 |
-| `secret` | object | 是 | 識別 Azure 資源的 Azure Key Vault 秘密或受控識別。 | None |
+| `secret` | object | 是 | 識別 Azure 資源的 Azure Key Vault 秘密或[受控識別](container-registry-tasks-authentication-managed-identity.md)。 | None |
 | `startDelay` | 整數 (秒) | 是 | 延遲容器執行的秒數。 | 0 |
 | `timeout` | 整數 (秒) | 是 | 終止步驟前可允許步驟執行的秒數上限。 | 600 |
 | [`when`](#example-when) | [字串, 字串, ...] | 是 | 設定步驟與工作內一或多個其他步驟的相依性。 | None |
 | `user` | string | 是 | 容器的使用者名稱或 UID | None |
 | `workingDirectory` | string | 是 | 設定步驟的工作目錄。 「ACR 工作」預設會建立根目錄作為工作目錄。 不過，如果您的組建含有數個步驟，則可藉由指定相同的工作目錄，讓較前面的步驟與較後面的步驟共用成品。 | `$HOME` |
 
-### <a name="examples-task-step-properties"></a>範例：工作步驟屬性
+### <a name="examples-task-step-properties"></a>範例:工作步驟屬性
 
 #### <a name="example-id"></a>範例：id
 

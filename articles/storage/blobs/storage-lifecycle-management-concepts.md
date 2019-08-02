@@ -1,20 +1,19 @@
 ---
 title: 管理 Azure 儲存體生命週期
 description: 了解如何建立生命週期原則規則，以將過時資料從「經常性」層轉換到「非經常性」層和「封存」層。
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 6902bf73707dc749da76cd32fe48911fcc88ba1e
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.topic: conceptual
+ms.reviewer: yzheng
+ms.openlocfilehash: 77ed643afaf5e69f41224af68f5e9f8a93fcace5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305714"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722088"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -29,17 +28,19 @@ ms.locfileid: "68305714"
 
 假設資料在生命週期的早期階段中經常存取, 但只是在兩周後才會取得。 第一個月過後，就已經很少會存取該資料集。 在這種情況下，經常性儲存層最適合早期階段。 非經常性儲存體最適合偶爾存取。 封存儲存體是每個月的資料年齡後的最佳層選項。 藉由根據資料存在時間來調整儲存層，您就可以按照自己的需求設計最便宜的儲存體選項。 若要達成這項轉換，可使用生命週期管理原則規則將過時資料移至較少存取的階層。
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## <a name="storage-account-support"></a>儲存體帳戶支援
 
 生命週期管理原則適用于一般用途 v2 (GPv2) 帳戶、Blob 儲存體帳戶, 以及 Premium 區塊 Blob 儲存體帳戶。 在 Azure 入口網站中, 您可以將現有的一般用途 (GPv1) 帳戶升級至 GPv2 帳戶。 如需有關儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)。  
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 生命週期管理功能是免費的。 客戶需針對 [List Blobs ](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (列出 Blob) 和[Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (設定 Blob 層) API 呼叫的一般作業成本支付費用。 刪除作業是免費的。 如需定價的詳細資訊，請參閱[區塊 Blob 價格](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 ## <a name="regional-availability"></a>區域可用性
 
-生命週期管理功能適用于所有全域 Azure 和 Azure Government 區域。
+生命週期管理功能適用于所有 Azure 區域。
 
 ## <a name="add-or-remove-a-policy"></a>新增或移除原則
 
@@ -82,7 +83,7 @@ ms.locfileid: "68305714"
 
 8. 選取 [審核] [ **+ 新增**] 以審查原則設定。
 
-9. 選取  [新增] 以新增原則。
+9. 選取 [新增] 以新增原則。
 
 #### <a name="azure-portal-code-view"></a>Azure 入口網站程式碼視圖
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
@@ -229,10 +230,10 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 | 參數名稱 | 參數類型 | 注意 | 必要項 |
 |----------------|----------------|-------|----------|
-| `name`         | 字串 |規則名稱最多可包含256個英數位元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | True |
-| `enabled`      | Boolean | 選擇性布林值, 允許暫時停用規則。 如果未設定, 預設值為 true。 | False | 
-| `type`         | 列舉值 | 目前的有效類型為`Lifecycle`。 | True |
-| `definition`   | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 | True |
+| `name`         | String |規則名稱最多可包含256個英數位元。 規則名稱會區分大小寫。  它在原則內必須是唯一的。 | 真 |
+| `enabled`      | Boolean | 選擇性布林值, 允許暫時停用規則。 如果未設定, 預設值為 true。 | 偽 | 
+| `type`         | 列舉值 | 目前的有效類型為`Lifecycle`。 | 真 |
+| `definition`   | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 | 真 |
 
 ## <a name="rules"></a>規則
 
@@ -281,7 +282,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 篩選準則包括:
 
-| 篩選名稱 | 篩選類型 | 注意 | 必要 |
+| 篩選名稱 | 篩選類型 | 注意 | 必要的 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 預先定義的列舉值陣列。 | 目前的版本支援`blockBlob`。 | 是 |
 | prefixMatch | 要比對前置詞的字串陣列。 每個規則最多可以定義10個首碼。 前置詞字串必須以容器名稱開頭。 例如, 如果您想要比`https://myaccount.blob.core.windows.net/container1/foo/...`對底下的所有 blob, 則 prefixMatch 為。 `container1/foo` | 如果您未定義 prefixMatch, 此規則會套用至儲存體帳戶內的所有 blob。  | 否 |
@@ -292,11 +293,11 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 生命週期管理支援分層及刪除 blob 和刪除 blob 快照集。 在 Blob 或 Blob 快照集上每項規則至少需定義一個動作。
 
-| Action        | 基底 Blob                                   | 快照      |
+| Action        | 基底 Blob                                   | 快照集      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | 支援目前在經常性儲存層的 Blob         | 不支援 |
 | tierToArchive | 支援目前在經常儲存性或非經常性儲存層的 Blob | 不支援 |
-| delete        | 支援                                   | 支援     |
+| 刪除        | 支援                                   | 支援     |
 
 >[!NOTE]
 >如果在同一個 Blob 上定義多個動作，生命週期管理會將最便宜的動作套用至 Blob。 例如，動作 `delete` 比動作 `tierToArchive` 更便宜。 而動作 `tierToArchive` 比動作 `tierToCool` 更便宜。

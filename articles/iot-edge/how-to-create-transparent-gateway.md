@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 50d91c03ac33c32577ddf3838ed6b10024133333
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414548"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698610"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
@@ -50,8 +50,8 @@ ms.locfileid: "68414548"
 ## <a name="prerequisites"></a>必要條件
 
 設定為閘道的 Azure IoT Edge 裝置。 針對下列其中一個作業系統, 請使用 IoT Edge 安裝步驟:
-  * [Windows](/how-to-install-iot-edge-windows.md)
-  * [Linux](/how-to-install-iot-edge-linux.md)
+  * [Windows](how-to-install-iot-edge-windows.md)
+  * [Linux](how-to-install-iot-edge-linux.md)
 
 本文是指在數個點的*閘道主機名稱*。 閘道主機名稱會在 IoT Edge 閘道裝置上 yaml 檔案的**hostname**參數中宣告。 它是用來建立本文中的憑證, 而在下游裝置的連接字串中則稱為。 閘道主機名稱必須可解析為 IP 位址, 方法是使用 DNS 或主機檔案專案。
 
@@ -260,7 +260,7 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
 
 3. 選取 [設定模組]。
 
-4. 選取 [下一步] 。
+4. 選取 [下一步]。
 
 5. 在 [指定路由] 頁面中，您應該會有可將所有模組中的所有訊息傳送至 IoT 中樞的預設路由。 如果沒有，請新增下列程式碼，然後選取 [下一步]。
 

@@ -1,6 +1,6 @@
 ---
-title: 設定公用端點-Azure SQL Database 受控執行個體 |Microsoft Docs
-description: 了解如何設定受管理的執行個體的公用端點
+title: 設定公用端點-Azure SQL Database 受控實例 |Microsoft Docs
+description: 瞭解如何設定受控實例的公用端點
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,48 +9,47 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cebe6b4ca61b835e7c77f51592c20799fe271853
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65465208"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567399"
 ---
-# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控執行個體中設定公用端點
+# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>在 Azure SQL Database 受控實例中設定公用端點
 
-公用端點[受管理的執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)可讓您從您的受控執行個體外部的資料存取[虛擬網路](../virtual-network/virtual-networks-overview.md)。 您可從多租用戶的 Azure 服務，例如 Power BI、 Azure App Service 或在內部網路存取您的受控執行個體。 藉由使用受管理的執行個體的公用端點，您不需要使用 VPN，可協助避免 VPN 問題。
+[受控實例](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)的公用端點可讓您從[虛擬網路](../virtual-network/virtual-networks-overview.md)外部對您的受控實例進行資料存取。 您可以從多租使用者 Azure 服務 (例如 Power BI、Azure App Service 或內部部署網路) 存取您的受控實例。 藉由使用受控實例上的公用端點, 您不需要使用 VPN, 這有助於避免 VPN 輸送量問題。
 
 在本文中，您將了解如何：
 
 > [!div class="checklist"]
-> - 啟用您受控執行個體，在 Azure 入口網站中的公用端點
-> - 啟用您受控執行個體，使用 PowerShell 的公用端點
-> - 設定受管理的執行個體網路安全性群組允許流量傳送到受管理的執行個體的公用端點
-> - 取得受管理的執行個體的公用端點連接字串
+> - 在 Azure 入口網站中啟用受控實例的公用端點
+> - 使用 PowerShell 為您的受控實例啟用公用端點
+> - 將您的受控實例網路安全性群組設定為允許流向受控實例公用端點的流量
+> - 取得受控實例公用端點連接字串
 
 ## <a name="permissions"></a>Permissions
 
-由於在受管理的執行個體中的資料的敏感度，組態資訊才能啟用受管理的執行個體的公用端點需要雙步驟程序。 此安全性措施遵守責任劃分 (SoD) 區隔：
+由於受控實例中的資料敏感度, 啟用受控實例公用端點的設定需要兩個步驟的程式。 此安全性措施符合責任劃分 (SoD):
 
-- 啟用公用端點上的受管理的執行個體必須由受管理的執行個體的系統管理員。受控執行個體系統管理員都位於**概觀**頁面 SQL 受控執行個體的資源。
-- 使用需要網路系統管理員所進行的網路安全性群組允許流量如需詳細資訊，請參閱 <<c0> [ 網路安全性群組權限](../virtual-network/manage-network-security-group.md#permissions)。
+- 在受控實例上啟用公用端點必須由受控實例管理員完成。受控實例管理員可在 SQL 受控實例資源的 **[總覽**] 頁面上找到。
+- 允許使用網路安全性群組 (需要由網路系統管理員完成) 的流量。如需詳細資訊, 請參閱[網路安全性群組許可權](../virtual-network/manage-network-security-group.md#permissions)。
 
-## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>啟用在 Azure 入口網站中的 managed 執行個體的公用端點
+## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>在 Azure 入口網站中啟用受控實例的公用端點
 
-1. 啟動 Azure 入口網站， <https://portal.azure.com/.>
-1. 受管理的執行個體，以開啟資源群組，然後選取**SQL 受控執行個體**您想要設定公用端點上。
-1. 在 [**安全性**值，請選取**虛擬網路**] 索引標籤。
-1. 在 [虛擬網路組態] 頁面中，選取**啟用**，然後**儲存**圖示，以更新組態。
+1. 啟動 Azure 入口網站, 網址為<https://portal.azure.com/.>
+1. 開啟具有受控實例的資源群組, 然後選取您想要在其上設定公用端點的**SQL 受控實例**。
+1. 在 [**安全性**] 設定中, 選取 [**虛擬網路**] 索引標籤。
+1. 在 [虛擬網路設定] 頁面中, 依序選取 [**啟用**] 和 [**儲存**] 圖示以更新設定。
 
 ![mi-vnet-config.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-config.png)
 
-## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>使用 PowerShell 的 managed 執行個體啟用公用端點
+## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>使用 PowerShell 為受控實例啟用公用端點
 
 ### <a name="enable-public-endpoint"></a>啟用公用端點
 
-請執行下列 PowerShell 命令。 取代**訂用帳戶識別碼**與您的訂用帳戶識別碼。 Names **rg 名稱**取代為您的受管理的執行個體，並取代的資源群組**mi 名稱**您受管理的執行個體的名稱。
+請執行下列 PowerShell 命令。 將**訂**用帳戶識別碼取代為您的訂用帳戶識別碼。 同時, 將**rg 名稱**取代為受控實例的資源群組, 並將**mi 名稱**取代為受控實例的名稱。
 
 ```powershell
 Install-Module -Name Az
@@ -73,48 +72,48 @@ $mi = $mi | Set-AzSqlInstance -PublicDataEndpointEnabled $true -force
 
 ### <a name="disable-public-endpoint"></a>停用公用端點
 
-若要停用使用 PowerShell 的公用端點，您會執行下列命令 （和也不忘記關閉 3342 的輸入連接埠的 NSG，如果您已經設定）：
+若要使用 PowerShell 停用公用端點, 您可以執行下列命令 (如果已設定, 也不要忘記關閉輸入埠3342的 NSG):
 
 ```powershell
 Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ```
 
-## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>允許的網路安全性群組上的公用端點的流量
+## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>允許網路安全性群組上的公用端點流量
 
-1. 如果您有受管理的執行個體仍開啟的 組態 頁面，瀏覽至**概觀** 索引標籤。否則，請回到您**SQL 受控執行個體**資源。 選取 **虛擬網路/子網路**連結會帶您前往 虛擬網路組態 頁面。
+1. 如果您有受控實例的 [設定] 頁面仍開啟, 請流覽至 [**總覽**] 索引標籤。否則, 請回到您的**SQL 受控實例**資源。 選取 [**虛擬網路/子網**] 連結, 這會帶您前往 [虛擬網路設定] 頁面。
 
     ![mi-overview.png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
 
-1. 選取 **子網路**索引標籤左邊的組態窗格中，您的虛擬網路，並記下**安全性群組**您受管理的執行個體。
+1. 選取虛擬網路左側設定窗格中的 [**子網**] 索引標籤, 並記下受控實例的**安全性群組**。
 
     ![mi-vnet-subnet.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-subnet.png)
 
-1. 回到您的資源群組，其中包含您受管理的執行個體。 您應該會看到**網路安全性群組**先前所述的名稱。 選取要移至 [網路安全性群組組態] 頁面的名稱。
+1. 返回您的資源群組, 其中包含您的受控實例。 您應該會看到上面所述的**網路安全性群組**名稱。 選取 [名稱] 以進入 [網路安全性群組設定] 頁面。
 
-1. 選取**輸入安全性規則**索引標籤上，並**新增**規則的優先順序高於**deny_all_inbound**規則具有下列設定： </br> </br>
+1. 選取 [**輸入安全性規則**] 索引標籤, 然後使用下列設定**新增**優先順序高於**deny_all_inbound**規則的規則: </br> </br>
 
     |設定  |建議值  |描述  |
     |---------|---------|---------|
-    |**Source**     |任何 IP 位址或服務標籤         |<ul><li>對於像是 Power BI 的 Azure 服務，選取 Azure 雲端服務標籤</li> <li>您的電腦或 Azure VM，請使用 NAT IP 位址</li></ul> |
-    |**來源連接埠範圍**     |*         |此選項可讓 * （任何），來源連接埠通常是動態配置，因此，無法預測 |
-    |**目的地**     |Any         |保留做為可允許流量連到受管理的執行個體子網路的任何目的地 |
-    |**目的地連接埠範圍**     |3342         |範圍目的地連接埠 3342，也就是受管理的執行個體的公用 TDS 端點 |
-    |**通訊協定**     |TCP         |受控執行個體使用的 TCP 通訊協定的 TDS |
-    |**動作**     |允許         |允許輸入的流量透過公用端點的受控執行個體 |
-    |**優先順序**     |1300         |請確定此規則是優先順序高於**deny_all_inbound**規則 |
+    |**Source**     |任何 IP 位址或服務標記         |<ul><li>針對 Power BI 之類的 Azure 服務, 請選取 [Azure 雲端服務] 標籤</li> <li>針對您的電腦或 Azure VM, 使用 NAT IP 位址</li></ul> |
+    |**來源埠範圍**     |*         |將此設為 * (任何), 因為來源埠通常會動態配置, 因此無法預測 |
+    |**位置**     |Any         |將目的地保留為任何, 以允許流量進入受控實例子網 |
+    |**目的地埠範圍**     |3342         |將目的地埠範圍設為 3342, 這是受控實例公用 TDS 端點 |
+    |**通訊協定**     |TCP         |受控實例使用 TDS 的 TCP 通訊協定 |
+    |**動作**     |允許         |允許透過公用端點對受控實例進行輸入流量 |
+    |**優先順序**     |1300         |請確定此規則的優先順序高於**deny_all_inbound**規則 |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
-    > 連接埠 3342 用於公用端點連線至受控執行個體，且無法在此時變更。
+    > 埠3342用於受控實例的公用端點連線, 此時就無法變更。
 
-## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>取得受管理的執行個體的公用端點連接字串
+## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>取得受控實例公用端點連接字串
 
-1. 瀏覽至 [SQL 受控執行個體組態] 頁面已啟用公用端點。 選取 **連接字串**索引標籤下**設定**組態。
-1. 請注意公用端點主機名稱來自 < mi_name > 格式。**公開**。 < dns_zone >。 database.windows.net 和連接所使用的連接埠是 3342。
+1. 流覽至已針對公用端點啟用的 [SQL 受控實例] 設定頁面。 選取 [**設定] 設定**底下的 [**連接字串**] 索引標籤。
+1. 請注意, 公用端點主機名稱的格式為 < mi_name >。< dns_zone >. net, 而用於連線的埠是3342。
 
     ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[使用 Azure SQL Database 受控執行個體，使用公用端點的安全地](sql-database-managed-instance-public-endpoint-securely.md)。
+- 深入瞭解如何透過[公用端點安全地使用 Azure SQL Database 受控實例](sql-database-managed-instance-public-endpoint-securely.md)。

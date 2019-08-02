@@ -1,21 +1,19 @@
 ---
-title: 如何使用 Java-Azure 儲存體的佇列儲存體
+title: 如何使用 JAVA 的佇列儲存體-Azure 儲存體
 description: 了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。 範例以 Java 撰寫。
-services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.devlang: java
-ms.topic: article
-ms.date: 12/08/2016
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 12/08/2016
 ms.subservice: queues
-ms.openlocfilehash: 3cbd1445640f37cbc63d74d1366c390c774aecd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: 5d2bd94f6b95ff993ae367b99f48746c091f5739
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151119"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721423"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>如何使用 Java 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,7 +21,7 @@ ms.locfileid: "65151119"
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>總覽
-本指南將示範如何使用 Azure 佇列儲存體服務執行一般案例。 相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。 所涵蓋的案例包括**插入**、**查看**、**取得**和**刪除**佇列訊息，以及**建立**和**刪除**佇列。 如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。 相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。 所涵蓋的案例包括**插入**、**查看**、**取得**和**刪除**佇列訊息，以及**建立**和**刪除**佇列。 如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 注意:有一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。 如需詳細資訊，請參閱 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 
@@ -46,7 +44,7 @@ import com.microsoft.azure.storage.queue.*;
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>設定 Azure 儲存體連接字串
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。 在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 AccountName  和 AccountKey  值要使用您儲存體帳戶的名稱，以及在 [Azure 入口網站](https://portal.azure.com)中針對該儲存體帳戶而列出的主要存取金鑰)。 本範例將示範如何宣告靜態欄位來存放連接字串：
+Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。 在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 AccountName 和 AccountKey 值要使用您儲存體帳戶的名稱，以及在 [Azure 入口網站](https://portal.azure.com)中針對該儲存體帳戶而列出的主要存取金鑰)。 本範例將示範如何宣告靜態欄位來存放連接字串：
 
 ```java
 // Define the connection-string with your values.
@@ -393,7 +391,7 @@ catch (Exception e)
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
 * [Azure Storage SDK for Java][Azure Storage SDK for Java]
-* [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考]
+* [Azure 儲存體用戶端 SDK 參考][Azure Storage Client SDK Reference]
 * [Azure 儲存體服務 REST API][Azure Storage Services REST API]
 * [Azure 儲存體團隊部落格][Azure Storage Team Blog]
 

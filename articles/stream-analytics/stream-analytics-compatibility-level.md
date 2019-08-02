@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: 8e3ae84242a1a9b76fbb18a8d8164c97a62a97d9
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: a6e5cd69a0655bf8235bf5755ab596ca2bde0387
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68003921"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716166"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
 
@@ -90,6 +90,12 @@ Upsert 行為是*insert 或 replace*。
 **先前的層級:** 已根據目標型別截斷值。
 
 **1.2 層級:** 不符合目標型別的值會根據輸出錯誤原則進行處理。
+
+### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>寫入 SQL 輸出時的記錄和陣列序列化
+
+**先前的層級:** 記錄是以「記錄」的形式寫入, 而陣列則是以「陣列」的形式寫入。
+
+**1.2 層級:** 記錄和陣列會以 JSON 格式序列化。
 
 ### <a name="strict-validation-of-prefix-of-functions"></a>函數前置詞的嚴格驗證
 

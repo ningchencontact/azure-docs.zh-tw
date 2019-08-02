@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2b1e8b9829bab56f0e49eafc50b7c56594de96b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347774"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720824"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Dynamics AX 複製資料 (預覽)
 
@@ -38,7 +38,7 @@ ms.locfileid: "61347774"
 
 下列各節提供屬性的相關詳細資料，您可使用這些屬性來定義 Dynamics AX 連接器專屬的 Data Factory 實體。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用服務主體驗證，請遵循下列步驟：
 
@@ -54,13 +54,13 @@ ms.locfileid: "61347774"
 
 以下是針對 Dynamics AX 已連結服務所支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | [type]  屬性必須設定為 [DynamicsAX]  。 |是 |
+| type | [type] 屬性必須設定為 [DynamicsAX]。 |是 |
 | url | Dynamics AX (或 Dynamics 365 Finance and Operations) 執行個體 OData 端點。 |是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
-| tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
+| 租用戶 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
 | aadResourceId | 指定您要求授權的 AAD 資源。 例如，如果您的 Dynamics URL 是 `https://sampledynamics.sandbox.operations.dynamics.com/data/`，則對應的 AAD 資源通常會是 `https://sampledynamics.sandbox.operations.dynamics.com`。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以選擇 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，則會使用預設的 Azure Integration Runtime。 |否 |
 
@@ -96,12 +96,12 @@ ms.locfileid: "61347774"
 
 如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 
 
-若要從 Dynamics AX 複製資料，請將資料集的 [type]  屬性設定為 [DynamicsAXResource]  。 以下是支援的屬性：
+若要從 Dynamics AX 複製資料，請將資料集的 [type] 屬性設定為 [DynamicsAXResource]。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 [type]  屬性必須設定為 [DynamicsAXResource]  。 | 是 |
-| path | Dynamics AX OData 實體的路徑。 | 是 |
+| type | 資料集的 [type] 屬性必須設定為 [DynamicsAXResource]。 | 是 |
+| 路徑 | Dynamics AX OData 實體的路徑。 | 是 |
 
 **範例**
 
@@ -113,6 +113,7 @@ ms.locfileid: "61347774"
         "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Dynamics AX linked service name>",
             "type": "LinkedServiceReference"
@@ -129,12 +130,12 @@ ms.locfileid: "61347774"
 
 ### <a name="dynamics-ax-as-source"></a>Dynamics AX 作為來源
 
-若要從 Dynamics AX 複製資料，請將複製活動中的 [source]  類型設定為 [DynamicsAXSource]  。 複製活動的 [來源]  區段支援下列屬性：
+若要從 Dynamics AX 複製資料，請將複製活動中的 [source] 類型設定為 [DynamicsAXSource]。 複製活動的 [來源] 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 [type]  屬性必須設定為 [DynamicsAXSource]  。 | 是 |
-| query | 用來篩選資料的 OData 查詢選項。 範例： `"?$select=Name,Description&$top=5"`.<br/><br/>**注意**：連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
+| type | 複製活動來源的 [type] 屬性必須設定為 [DynamicsAXSource]。 | 是 |
+| 查詢 | 用來篩選資料的 OData 查詢選項。 範例： `"?$select=Name,Description&$top=5"`.<br/><br/>**注意**：連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 
 **範例**
 

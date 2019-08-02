@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4e13075eabcdb482616f1e500fd739ca58a39003
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: f739bdbd295662006a964f890147ad67c373d7b5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501232"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698621"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>將下游裝置連線到 Azure IoT Edge 閘道
 
@@ -39,7 +39,7 @@ ms.locfileid: "68501232"
 下游裝置可以是使用 [Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub)雲端服務建立身分識別的任何應用程式或平台。 在許多情況下，這些應用程式都會使用 [Azure IoT 裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md)。 下游裝置甚至可以是在 IoT Edge 閘道裝置本身上執行的應用程式。 不過, 另一個 IoT Edge 裝置不能是 IoT Edge 閘道的下游。 
 
 >[!NOTE]
->已在 IoT 中樞中註冊身分識別的 IoT 裝置, 可以使用[模組 twins](/iot-hub/iot-hub-devguide-module-twins.md)來隔離單一裝置上的不同進程、硬體或功能。 IoT Edge 閘道支援使用對稱金鑰驗證 (而不是 x.509 憑證驗證) 的下游模組連線。 
+>已在 IoT 中樞中註冊身分識別的 IoT 裝置, 可以使用[模組 twins](../iot-hub/iot-hub-devguide-module-twins.md)來隔離單一裝置上的不同進程、硬體或功能。 IoT Edge 閘道支援使用對稱金鑰驗證 (而不是 x.509 憑證驗證) 的下游模組連線。 
 
 若要將下游裝置連線到 IoT Edge 閘道，您需要具備兩樣東西：
 

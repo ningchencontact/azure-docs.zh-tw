@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: e6bbe15727a6f989d8c16c67591d39d7870d5708
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874903"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638371"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>讀取適用於 MariaDB 的 Azure 資料庫中的複本
 
-[讀取複本] 功能可讓您將適用於 MariaDB 的 Azure 資料庫伺服器的資料複寫到唯讀伺服器。 您可以從主伺服器複寫到最多五個複本。 複本會使用適用于 mariadb 引擎的二進位記錄檔 (binlog) 以檔案位置為基礎的複寫技術 (具有全域交易識別碼 (GTID)) 以非同步方式更新。 若要深入了解 binlog 複寫，請參閱 [binlog 複寫概觀](https://mariadb.com/kb/en/library/replication-overview/) \(英文\)。
+[讀取複本] 功能可讓您將適用於 MariaDB 的 Azure 資料庫伺服器的資料複寫到唯讀伺服器。 您可以從主要伺服器複寫到最多五個複本。 複本會使用適用于 mariadb 引擎的二進位記錄檔 (binlog) 以檔案位置為基礎的複寫技術 (具有全域交易識別碼 (GTID)) 以非同步方式更新。 若要深入了解 binlog 複寫，請參閱 [binlog 複寫概觀](https://mariadb.com/kb/en/library/replication-overview/) \(英文\)。
 
 > [!IMPORTANT]
 > 您可以在與主伺服器相同的區域中, 或在您選擇的任何其他 Azure 區域中建立讀取複本。 讀取複本 (相同區域和跨區域) 目前為公開預覽狀態。
@@ -133,3 +133,4 @@ mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 ## <a name="next-steps"></a>後續步驟
 
 - 了解如何[使用 Azure 入口網站來建立及管理讀取複本](howto-read-replicas-portal.md)
+- 了解如何[使用 Azure CLI 來建立及管理讀取複本](howto-read-replicas-cli.md)

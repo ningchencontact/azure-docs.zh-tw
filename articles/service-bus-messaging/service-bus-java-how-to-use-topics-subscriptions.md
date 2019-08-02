@@ -1,5 +1,5 @@
 ---
-title: 如何搭配 Java 使用 Azure 服務匯流排主題 | Microsoft Docs
+title: 搭配 JAVA 使用 Azure 服務匯流排主題和訂用帳戶
 description: 使用 Azure 中的服務匯流排主題和訂用帳戶。
 services: service-bus-messaging
 documentationcenter: java
@@ -14,31 +14,32 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 578fd0caa8986c48b3fd50a7890bb66b14bee2f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 822fadb661fd9fcdde8ff75fa4f9e60dfa44c97b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991732"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663411"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何透過 Java 使用服務匯流排主題和訂用帳戶
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-在本快速入門中，您會撰寫 Java 程式碼，以將訊息傳送至服務匯流排主題，並接著在該主題的訂用帳戶接收訊息。 
+在本快速入門中, 您會撰寫 JAVA 程式碼以將訊息傳送至服務匯流排主題, 然後從該主題的訂用帳戶接收訊息。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
-2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)，以執行下列工作：
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF), 或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 依照快速入門中[的步驟進行:使用 Azure 入口網站建立服務匯流排主題和主題的訂用帳戶](service-bus-quickstart-topics-subscriptions-portal.md)，以執行下列工作：
     1. 建立服務匯流排**命名空間**。
     2. 取得**連接字串**。
-    3. 建立**主題**命名空間中。
-    4. 建立**三個訂用帳戶**命名空間中的主題。
-3. [Azure SDK for Java][Azure SDK for Java]。
+    3. 在命名空間中建立**主題**。
+    4. 在命名空間中建立**三個**主題的訂用帳戶。
+3. [適用于 JAVA 的 AZURE SDK][Azure SDK for Java]。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
-在建置此範例之前，請先確定您已安裝 [Azure SDK for Java][Azure SDK for Java]。 如果您使用的是 Eclipse，則可以安裝包含 Azure SDK for Java 的[適用於 Eclipse 的 Azure 工具組][Azure Toolkit for Eclipse]。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
+先確定已安裝 [Azure SDK for Java][Azure SDK for Java] 再建置此範例。 如果使用 Eclipse，您可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
 
 ![Eclipse 組建路徑中的程式庫](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
@@ -458,7 +459,7 @@ Message sending: Id = 9
 > 您可以使用[服務匯流排總管](https://github.com/paolosalvatori/ServiceBusExplorer/)來管理服務匯流排資源。 服務匯流排總管可讓使用者連線到服務匯流排命名空間，並以簡便的方式管理傳訊實體。 此工具提供進階的功能 (例如匯入/匯出功能) 或測試主題、佇列、訂用帳戶、轉送服務、通知中樞和事件中樞的能力。 
 
 ## <a name="next-steps"></a>後續步驟
-如需詳細資訊，請參閱[服務匯流排佇列、主題和訂用帳戶][Service Bus queues, topics, and subscriptions]。
+如需詳細資訊, 請參閱[服務匯流排佇列、主題和][Service Bus queues, topics, and subscriptions]訂用帳戶。
 
 [Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse

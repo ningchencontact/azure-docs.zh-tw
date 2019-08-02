@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2b101aebd048b94ac95e1dba0f6504446d6d6803
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584942"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568442"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>彈性資料庫工具常見問題集 (FAQ)
 
@@ -55,6 +54,6 @@ ms.locfileid: "60584942"
 
 ## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>分割合併工具是否會在分割或合併作業期間佈建 (或刪除) 資料庫
 
-資料分割 如果是「分割」  作業，目標資料庫必須有適當的結構描述，而且必須向分區對應管理員登錄。  如果是「合併」  作業，您必須從分區對應管理員刪除分區，然後再刪除資料庫。
+資料分割 如果是「分割」 作業，目標資料庫必須有適當的結構描述，而且必須向分區對應管理員登錄。  如果是「合併」 作業，您必須從分區對應管理員刪除分區，然後再刪除資料庫。
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

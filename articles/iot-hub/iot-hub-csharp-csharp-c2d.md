@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 5a7cb4ecde599a76b2d42cf874420d9cbcfda3d5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f8ba9508bdbb7fd436d3b693e638f29bac5065bf
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402638"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618651"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
 
@@ -43,7 +43,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 * **SendCloudToDevice**, 它會透過 IoT 中樞將雲端到裝置訊息傳送到裝置應用程式, 然後接收其傳遞通知。
 
 > [!NOTE]
-> IoT 中樞會透過 [Azure IoT 裝置 SDK](iot-hub-devguide-sdks.md) 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連線至 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 中樞開發人員指南](iot-hub-devguide.md)。
+> IoT 中樞透過[Azure IoT 裝置 sdk](iot-hub-devguide-sdks.md), 為許多裝置平臺和語言 (包括 C、JAVA、Python 和 JAVAscript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連線至 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 中樞開發人員指南](iot-hub-devguide.md)。
 >
 
 若要完成此教學課程，您需要下列項目：
@@ -77,7 +77,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
     }
    ```
 
-   `ReceiveAsync` 方法會以非同步方式，在裝置收到訊息時，傳回收到的訊息。 它會在可指定的逾時期間過後傳回「null」  (在本例中，使用的是預設值 1 分鐘)。 當應用程式收到 *null* 時，應繼續等待新訊息。 這項要求是 `if (receivedMessage == null) continue` 行的的原因。
+   `ReceiveAsync` 方法會以非同步方式，在裝置收到訊息時，傳回收到的訊息。 它會在可指定的逾時期間過後傳回「null」 (在本例中，使用的是預設值 1 分鐘)。 當應用程式收到 *null* 時，應繼續等待新訊息。 這項要求是 `if (receivedMessage == null) continue` 行的的原因。
 
     對 `CompleteAsync()` 的呼叫會通知 IoT 中樞，說明已成功處理訊息。 可以安全地從裝置佇列中移除該訊息。 如果因故導致裝置應用程式無法完成訊息處理作業，「IoT 中樞」將會重新傳遞該訊息。 因此，裝置應用程式中的訊息處理邏輯必須是「等冪」，如此一來，多次接收相同的訊息才會產生相同的結果。 
 

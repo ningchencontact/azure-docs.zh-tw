@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 22c3987121e2ab3479274c89c359c679f5f1135e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e7c6fe10467bb68417172dc95fef874d37fc97b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61087117"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696249"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>以 Azure API 管理進行進階要求節流
 能夠節流傳入要求是 Azure API 管理的重要角色。 藉由控制要求的速率或傳輸的要求/資料總量，API 管理讓 API 提供者能夠保護其 API 不被濫用，並建立不同 API 產品層級的價值。
@@ -28,6 +28,9 @@ ms.locfileid: "61087117"
 到目前為止，速率節流功能都侷限於特定產品訂用帳戶的範圍內，定義於 Azure 入口網站。 這可協助 API 提供者將限制套用至註冊使用其 API 的開發人員，不過，舉例來說，它無法協助對 API 的個別使用者進行節流。 想讓開發人員的應用程式的單一使用者取用整個配額，並讓開發人員的其他客戶無法使用應用程式，是有可能的。 同樣的，數個產生大量要求的客戶可能會限制偶爾使用者的存取權。
 
 ## <a name="custom-key-based-throttling"></a>依自訂索引鍵節流
+
+> 注意:在`rate-limit-by-key` Azure API 管理的取用層中, 無法使用此原則。 
+
 新的 [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) 和 [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) 原則能提供更有彈性的流量控制解決方案。 這些新原則可讓您定義運算式，以識別要用來追蹤流量使用量的索引鍵。 其運作的方式用範例來說明最簡單。 
 
 ## <a name="ip-address-throttling"></a>IP 位址節流

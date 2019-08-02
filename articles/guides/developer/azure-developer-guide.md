@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 665eeb60012d5cec08b8a3ad919d7ddfdadc2d23
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570561"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609589"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -170,7 +170,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
   > 
   > **開始使用**：若要深入了解 App Service 中的驗證，請參閱 [Azure App Service 中的驗證和授權](../../app-service/overview-authentication-authorization.md)。
 
-若要深入了解 Azure 中的安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](../../security/security-best-practices-and-patterns.md)。
+若要深入了解 Azure 中的安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](../../security/fundamentals/best-practices-and-patterns.md)。
 
 ### <a name="monitoring"></a>監視
 
@@ -199,7 +199,7 @@ Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您�
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>選擇您應用程式和資料的最佳區域
 
-使用 Azure 的其中一個優點是您可以將應用程式部署至全球各地的各種資料中心。 您選擇的區域可能會影響應用程式的效能。 例如，最好選擇較接近大多數客戶的區域，以減少網路要求延遲。 您也可以選取區域，以符合在某些國家/地區散發應用程式的法律需求。 最好一律將應用程式資料儲存在相同的資料中心內，或儲存在最接近裝載應用程式之資料中心的資料中心內。
+使用 Azure 的其中一個優點是您可以將應用程式部署至全球各地的各種資料中心。 您選擇的區域可能會影響應用程式的效能。 例如，最好選擇較接近大多數客戶的區域，以減少網路要求延遲。 您也可以選取您的區域, 以符合在某些國家/地區發佈應用程式的法律需求。 最好一律將應用程式資料儲存在相同的資料中心內，或儲存在最接近裝載應用程式之資料中心的資料中心內。
 
 ### <a name="multi-region-apps"></a>多區域應用程式
 
@@ -265,9 +265,9 @@ Azure 是以支援 Azure 入口網站 UI 的一組 REST API 所建置。 也支�
 
 每個 Azure 訂用帳戶都會與 Azure AD 執行個體有信任關係。 這表示它信任該目錄來驗證使用者、服務和裝置。 多個訂用帳戶可以信任相同的目錄，但是一個訂用帳戶只能信任一個目錄。 若要深入了解，請參閱 [Azure 訂用帳戶與 Azure Active Directory 建立關聯的方式](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
-除了定義個別 Azure 帳戶身分識別 (也稱為「使用者」  ) 之外，您還可以在 Azure AD 中定義「群組」  。 建立使用者群組是使用角色型存取控制 (RBAC) 管理訂用帳戶中資源存取權的好方法。 若要了解如何建立群組，請參閱[在 Azure Active Directory Preview 中建立群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 您也可以[使用 PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md) 建立和管理群組。
+除了定義個別 Azure 帳戶身分識別 (也稱為「使用者」) 之外，您還可以在 Azure AD 中定義「群組」。 建立使用者群組是使用角色型存取控制 (RBAC) 管理訂用帳戶中資源存取權的好方法。 若要了解如何建立群組，請參閱[在 Azure Active Directory Preview 中建立群組](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。 您也可以[使用 PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md) 建立和管理群組。
 
-### <a name="manage-your-subscriptions"></a>管理訂用帳戶
+### <a name="manage-your-subscriptions"></a>管理您的訂閱
 
 訂用帳戶是連結至 Azure 帳戶之 Azure 服務的邏輯分組。 單一 Azure 帳戶可以包含多個訂用帳戶。 Azure 服務是根據訂用帳戶計費。 如需依類型的可用訂用帳戶供應項目清單，請參閱 [Microsoft Azure 供應項目詳細資料](https://azure.microsoft.com/support/legal/offer-details/)。 Azure 訂用帳戶有可完全掌控訂用帳戶的「帳戶管理員」，以及可控制訂用帳戶中所有服務的「服務管理員」。 如需有關傳統訂用帳戶管理員的資訊，請參閱[新增或變更 Azure 訂用帳戶管理員](../../billing/billing-add-change-azure-subscription-administrator.md)。 除了系統管理員之外，也可以使用[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md) 對個別帳戶授與 Azure 資源的細部控制權。
 
@@ -281,7 +281,7 @@ Azure 資源總管是很棒的工具，可用來以視覺化方式檢視您已�
 
 當您允許存取 Azure 資源時，最好一律為使用者提供執行指定工作所需的最低權限。
 
-- **角色型存取控制 (RBAC)** ：在 Azure 中，您可以將存取權授與指定範圍的使用者帳戶 (主體)：訂用帳戶、資源群組或個別資源。 RBAC 可讓您將一組資源部署至資源群組，並將權限授與特定使用者或群組。 它也可讓您限制只有隸屬於目標資源群組資源的存取權。 您也可以授與對單一資源的存取，例如虛擬機器或虛擬網路。 若要授與存取權，請將角色指派給使用者、群組或服務主體。 有許多預先定義的角色，而且您也可以定義自己的自訂角色。 若要深入了解，請參閱[什麼是角色型存取控制 (RBAC)？](../../role-based-access-control/overview.md)
+- **角色型存取控制 (RBAC)** ：在 Azure 中，您可以將存取權授與指定範圍的使用者帳戶 (主體)：訂用帳戶、資源群組或個別資源。 RBAC 可讓您將一組資源部署至資源群組，並將權限授與特定使用者或群組。 它也可讓您限制只能存取屬於目標資源群組的資源。 您也可以授與對單一資源的存取，例如虛擬機器或虛擬網路。 若要授與存取權，請將角色指派給使用者、群組或服務主體。 有許多預先定義的角色，而且您也可以定義自己的自訂角色。 若要深入了解，請參閱[什麼是角色型存取控制 (RBAC)？](../../role-based-access-control/overview.md)
 
   > **使用時機**：當您需要使用者和群組的更細緻存取管理時，或當您需要將使用者設定為訂用帳戶的擁有者時。
   > 
@@ -295,7 +295,7 @@ Azure 資源總管是很棒的工具，可用來以視覺化方式檢視您已�
 
 Azure Resource Manager 可讓您將自訂標記指派給個別資源。 當您需要組織資源以進行計費或監視時，標記 (即鍵值組) 可能特別有用。 標記提供一種方法來追蹤多個資源群組的資源。 您可以使用 REST API、Azure CLI 或 PowerShell，以程式設計方式在入口網站中於 Azure Resource Manager 範本中指派標記。 您可以將多個標記指派給每個資源。 若要深入了解，請參閱[使用標記來組織 Azure 資源](../../resource-group-using-tags.md)。
 
-### <a name="billing"></a>計費
+### <a name="billing"></a>帳務
 
 從內部部署運算移至雲端託管服務時，追蹤和預估服務使用和相關成本十分重要。 請務必預估每月執行新資源的成本。 您也需要可以預測計費如何根據目前消費來尋找指定的月份。
 

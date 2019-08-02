@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: ad927de0274d415ac268d3a29abf2c135ee22d52
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: fc7cb7f82fce4f7da02f39b0b423841ac270dcbd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480218"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564818"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -261,7 +261,7 @@ public void run(
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  該屬性的建構函式採用路徑字串，指示要監看的容器以及可選的 [Blob 名稱模式](#trigger---blob-name-patterns)。 以下是範例：
+  該屬性的建構函式採用路徑字串，指示要監看的容器以及可選的 [Blob 名稱模式](#trigger---blob-name-patterns)。 以下為範例：
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -392,7 +392,7 @@ public void run(
 
 Blob 觸發程序提供數個中繼資料屬性。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些值的語意與 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) 類型相同。
 
-|屬性  |類型  |描述  |
+|屬性  |Type  |描述  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|觸發 Blob 的路徑。|
 |`Uri`|`System.Uri`|Blob 的主要位置 URI。|
@@ -421,13 +421,13 @@ Azure Functions 執行階段可確保不會針對一樣新或更新的 blob 多�
 
 Azure Functions 會將 blob 回條儲存在您函數應用程式 (`AzureWebJobsStorage` 應用程式設定所定義) 的 Azure 儲存體帳戶中名為 *azure-webjobs-hosts*的容器中。 Blob 回條具有下列資訊：
 
-* 已觸發的函數 ("&lt;函數應用程式名稱>  .Functions.&lt;函數名稱>  "，例如："MyFunctionApp.Functions.CopyBlob")
+* 已觸發的函數 ("&lt;函數應用程式名稱>.Functions.&lt;函數名稱>"，例如："MyFunctionApp.Functions.CopyBlob")
 * 容器名稱
 * Blob 類型 ("BlockBlob" 或 "PageBlob")
 * Blob 名稱
 * ETag (Blob 版本識別碼，例如："0x8D1DC6E70A277EF")
 
-要強制重新處理某個 Blob，可以從 *azure-webjobs-hosts* 容器中手動刪除該 Blob 的 Blob 回條。 雖然重新處理可能會立即發生，sprite 會在稍後的時間點發生的時間。
+要強制重新處理某個 Blob，可以從 *azure-webjobs-hosts* 容器中手動刪除該 Blob 的 Blob 回條。 雖然重新處理可能不會立即發生, 但一定會在稍後的時間點發生。
 
 ## <a name="trigger---poison-blobs"></a>觸發程序 - 有害的 Blob
 
@@ -451,7 +451,7 @@ JavaScript 和 Java 函式會將整個 Blob 載入記憶體中，而 C# 函式�
 
 ## <a name="trigger---polling"></a>觸發程序 - 輪詢
 
-如果受監視的 blob 容器包含超過 10,000 個 blob （跨越所有容器），Functions 執行階段掃描記錄檔以監看新增或變更的 blob。 此程序可能會導致延遲。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。
+如果受監視的 blob 容器包含超過10000個 blob (跨所有容器), 函數執行時間會掃描記錄檔以監看新的或已變更的 blob。 此程序可能會導致延遲。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。
 
 > [!WARNING]
 > 此外，[會以「最大努力」建立儲存體記錄](/rest/api/storageservices/About-Storage-Analytics-Logging)。 並不保證會擷取所有事件。 在某些情況下可能會遺失記錄。
@@ -492,7 +492,7 @@ public static void Run(
 
 <!--Same example for input and output. -->
 
-下列範例所示範的是使用繫結之 function.json  檔案，以及 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼中的 Blob 輸入和輸出繫結。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼中的 Blob 輸入和輸出繫結。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
 
 在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
 
@@ -590,7 +590,7 @@ module.exports = function(context) {
 
 <!--Same example for input and output. -->
 
-下列範例所示範的是使用繫結之 function.json  檔案，以及 [Python 指令碼](functions-reference-python.md)程式碼中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [Python 指令碼](functions-reference-python.md)程式碼中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
 
 在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
 
@@ -765,7 +765,7 @@ public static void Run(
 
 在 JavaScript 中，使用 `context.bindings.<name from function.json>` 存取 Blob 資料。
 
-## <a name="output"></a>輸出
+## <a name="output"></a>Output
 
 使用 Blob 儲存體輸出繫結來寫入 Blob。
 
@@ -784,23 +784,40 @@ public static void Run(
 下列範例是使用一個 Blob 觸發程序和兩個輸出 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 此函式是藉由在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。
 
 ```csharp
+using System.Collections.Generic;
+using System.IO;
+using Microsoft.Azure.WebJobs;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+
 [FunctionName("ResizeImage")]
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
 {
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
+    IImageFormat format;
 
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+    using (Image<Rgba32> input = Image.Load(image, out format))
+    {
+      ResizeImage(input, imageSmall, ImageSize.Small, format);
+    }
 
     image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
+    using (Image<Rgba32> input = Image.Load(image, out format))
+    {
+      ResizeImage(input, imageMedium, ImageSize.Medium, format);
+    }
+}
 
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+public static void ResizeImage(Image<Rgba32> input, Stream output, ImageSize size, IImageFormat format)
+{
+    var dimensions = imageDimensionsTable[size];
+
+    input.Mutate(x => x.Resize(dimensions.Item1, dimensions.Item2));
+    input.Save(output, format);
 }
 
 public enum ImageSize { ExtraSmall, Small, Medium }
@@ -816,7 +833,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <!--Same example for input and output. -->
 
-下列範例所示範的是使用繫結之 function.json  檔案，以及 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼中的 Blob 輸入和輸出繫結。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [C# 指令碼 (.csx)](functions-reference-csharp.md) 程式碼中的 Blob 輸入和輸出繫結。 此函式會建立文字 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
 
 在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
 
@@ -914,7 +931,7 @@ module.exports = function(context) {
 
 <!--Same example for input and output. -->
 
-下列範例所示範的是使用繫結之 function.json  檔案，以及 [Python 指令碼](functions-reference-python.md)程式碼中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [Python 指令碼](functions-reference-python.md)程式碼中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
 
 在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
 
@@ -1071,7 +1088,7 @@ public static void Run(
 |**type** | n/a | 必須設為 `blob`。 |
 |**direction** | n/a | 必須針對輸出繫結設定為 `out`。 例外狀況在[使用方式](#output---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。  設為 `$return` 以參考函式傳回值。|
-|**path** |**BlobPath** | Blob 容器路徑。 |
+|**path** |**BlobPath** | Blob 容器的路徑。 |
 |**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |n/a | **Access** | 指出您是否將讀取或寫入。 |
 
@@ -1108,7 +1125,7 @@ public static void Run(
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
-| 繫結 |  參考 |
+| 繫結 |  參考資料 |
 |---|---|
 | Blob | [Blob 錯誤碼](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Bob、資料表、佇列 |  [儲存體錯誤碼](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

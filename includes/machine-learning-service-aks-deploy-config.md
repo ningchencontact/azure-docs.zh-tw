@@ -2,14 +2,14 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/19/2019
+ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: 31d20f4824b034230bc941858e8ecb20cc00b6b2
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348563"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68729324"
 ---
 `deploymentconfig.json`檔中的專案會對應至 AksWebservice 的參數[。 deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)。 下表描述 JSON 檔中的實體與方法的參數之間的對應:
 
@@ -24,7 +24,8 @@ ms.locfileid: "68348563"
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | 自動調整程式應該嘗試為此 web 服務維護的目標使用率 (以百分比100為單位)。 預設值`70`:。 |
 | `dataCollection` | NA | 包含資料收集的設定元素。 |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | 是否要啟用 web 服務的模型資料收集。 預設值`False`:。 |
-| `authEnabled` | `auth_enabled` | 是否要啟用 web 服務的驗證。 預設值`True`:。 |
+| `authEnabled` | `auth_enabled` | 是否要啟用 web 服務的金鑰驗證。 `True`和`tokenAuthEnabled` 都`authEnabled`不能是。 預設值`True`:。 |
+| `tokenAuthEnabled` | `token_auth_enabled` | 是否要啟用 web 服務的權杖驗證。 `True`和`tokenAuthEnabled` 都`authEnabled`不能是。 預設值`False`:。 |
 | `containerResourceRequirements` | NA | CPU 和記憶體實體的容器。 |
 | &emsp;&emsp;`cpu` | `cpu_cores` | 要為此 web 服務配置的 CPU 核心數目。 設置`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | 要為此 web 服務配置的記憶體數量 (以 GB 為單位)。 預設`0.5` |

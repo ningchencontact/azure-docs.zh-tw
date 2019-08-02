@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 2a4d636ccb03e36f7c495f3c10c90033d7c3c93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417907"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637743"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 
@@ -29,8 +29,8 @@ ms.locfileid: "66417907"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [大量執行程式-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [大量執行程式-JAVA](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -44,9 +44,9 @@ ms.locfileid: "66417907"
 ### <a name="v2-builds"></a>v2 組建
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
-* 改善的負載平衡案例的策略，取得所有租用時所花費的時間超過租用到期間隔時間，例如由於網路問題：
-  * 在此案例中負載平衡演算法用於錯誤地視為租用過期，導致竊取租用從作用中的擁有者。 這可能會觸發重新平衡過的租用期很多不必要。
-  * 在此版本中修正此問題，藉由避免發生衝突時的重試時取得變更的擁有者尚未到期的租用，而且 posponing 取得到期租用的下一步 的負載平衡的反覆項目。
+* 針對取得所有租用時間超過租用到期時間間隔 (例如網路問題) 的案例, 改善負載平衡策略:
+  * 在此案例中, 負載平衡演算法用來誤將租用視為已過期, 導致來自作用中擁有者的竊取租用。 這可能會觸發許多租用的不必要重新平衡。
+  * 此版本已修正此問題, 方法是在取得過期的租用時, 不會發生衝突重試, 並 posponing 取得過期的租用以進行下一個負載平衡反復專案。
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * 改善觀察者例外狀況的處理。
@@ -137,7 +137,7 @@ ms.locfileid: "66417907"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * 穩定性改進。
-  * 修正處理已取消的工作的問題可能會導致某些資料分割上，停止觀察者。
+  * 修正處理已取消的工作問題, 可能會導致某些分割區上的已停止觀察者。
 * 支援手動檢查點。
 * 與 [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 版和更新版本相容。
 
@@ -170,7 +170,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| [2.2.7](#2.2.7) |2019 5 月 14日日 |--- |
+| [2.2.7](#2.2.7) |2019 5 月14日 |--- |
 | [2.2.6](#2.2.6) |2019 年 1 月 29 日 |--- |
 | [2.2.5](#2.2.5) |2018 年 12 月 13 日 |--- |
 | [2.2.4](#2.2.4) |2018 年 11 月 29 日 |--- |

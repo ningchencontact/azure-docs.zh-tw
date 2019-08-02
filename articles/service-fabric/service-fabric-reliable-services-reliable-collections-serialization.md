@@ -3,7 +3,7 @@ title: Azure Service Fabric 中的 Reliable Collection 物件序列化 | Microso
 description: Azure Service Fabric Reliable Collections 物件序列化
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
-ms.author: aljo
-ms.openlocfilehash: 2445b37e8152d8f55dad6eff057d273851dc2209
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: atsenthi
+ms.openlocfilehash: d5e7dfb84f6e8a8fbd029ccc0b15c17f68216c33
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340683"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599301"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric 中的 Reliable Collection 物件序列化
 Reliable Collections 會複寫並保存其項目，以確保在電腦發生失敗和電力中斷時能持續保留這些項目。
@@ -43,8 +43,8 @@ Reliable State Manager 具有下列類型的內建序列化程式：
 - string
 - decimal
 - double
-- float
-- int
+- FLOAT
+- ssNoversion
 - uint
 - long
 - ulong
@@ -55,7 +55,7 @@ Reliable State Manager 具有下列類型的內建序列化程式：
 
 自訂序列化程式通常是用來提升效能，或是透過網路和在磁碟上加密資料。 自訂序列化程式通常比一般序列化程式更有效率，最主要的原因是因為它們不需要將類型的相關資訊序列化。 
 
-[IReliableStateManager.TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer)用來註冊自訂序列化程式指定的型別 t。這項註冊應該在建構 StatefulServiceBase 以確保復原啟動之前，所有 Reliable Collections 會有相關的序列化程式讀取其保存的資料的存取。
+[IReliableStateManager. TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer)用來為指定的類型 T 註冊自訂序列化程式。此註冊應會在 StatefulServiceBase 的結構中進行, 以確保在復原開始之前, 所有可靠的集合都可以存取相關的序列化程式來讀取其保存的資料。
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,10 +73,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>如何實作自訂序列化程式
 
-自訂序列化程式必須實作[IStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1)介面。
+自訂序列化程式需要執行[\<IStateSerializer T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1)介面。
 
 > [!NOTE]
-> IStateSerializer\<T > 包含多載的 Write 和 Read 接受額外 t 呼叫基底值。 此 API 適用於差異序列化。 目前並未公開差異序列化功能。 因此，將等到公開並啟用差異序列化之後，才會呼叫這兩個多載。
+> IStateSerializer\<T > 包括寫入和讀取的多載, 它會採用額外的 T 呼叫基底值。 此 API 適用於差異序列化。 目前並未公開差異序列化功能。 因此，將等到公開並啟用差異序列化之後，才會呼叫這兩個多載。
 
 以下是一個名為 OrderKey 且包含四個屬性的範例自訂類型
 
@@ -96,7 +96,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-以下是 IStateSerializer 範例實作\<OrderKey >。
+以下是 IStateSerializer\<OrderKey > 的範例執行。
 請注意，接受 baseValue 的 Read 和 Write 多載會呼叫其個別的多載以滿足向後相容性。
 
 ```csharp

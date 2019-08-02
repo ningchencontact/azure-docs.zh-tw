@@ -8,22 +8,25 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 2030496548df312b4f4cfab60c216d5f332c7ac2
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310397"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619893"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>使用 Azure 虛擬網路或防火牆規則來限制對 Azure container registry 的存取
 
 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)為您的 azure 和內部部署資源提供安全的私用網路。 藉由限制從 Azure 虛擬網路存取您的私用 Azure container registry, 您可以確保只有虛擬網路中的資源會存取登錄。 針對跨單位案例, 您也可以設定防火牆規則, 只允許來自特定 IP 位址的登錄存取。
 
-本文說明建立網路存取規則以限制 Azure container registry 存取的兩個案例: 從部署在虛擬網路中的虛擬機器, 或從 VM 的公用 IP 位址。
+本文說明在容器登錄上設定輸入網路存取規則的兩個案例: 從部署在虛擬網路中的虛擬機器, 或從 VM 的公用 IP 位址。
 
 > [!IMPORTANT]
 > 此功能目前在預覽階段，但[有某些限制](#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 >
+
+如果您改為設定資源的存取規則, 以從防火牆後方連線至容器登錄, 請參閱設定[規則以存取防火牆後方的 Azure container registry](container-registry-firewall-access-rules.md)。
+
 
 ## <a name="preview-limitations"></a>預覽限制
 
@@ -35,11 +38,11 @@ ms.locfileid: "68310397"
 
 * 每個登錄最多支援100個虛擬網路規則。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 若要使用本文中的 Azure CLI 步驟, 需要 Azure CLI 版本2.0.58 或更新版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
-* 如果您還沒有容器登錄, 請建立一個 (需要 Premium SKU) 並`hello-world`從 Docker Hub 推送範例映射 (例如)。 例如, 使用[Azure 入口網站][quickstart-portal] or the [Azure CLI][quickstart-cli]來建立登錄。 
+* 如果您還沒有容器登錄, 請建立一個 (需要 Premium SKU) 並`hello-world`從 Docker Hub 推送範例映射 (例如)。 例如, 使用[Azure 入口網站][quickstart-portal]或[Azure CLI][quickstart-cli]來建立登錄。 
 
 * 如果您想要使用不同 Azure 訂用帳戶中的虛擬網路來限制登錄存取, 您必須在該訂用帳戶中註冊 Azure Container Registry 的資源提供者。 例如:
 
@@ -108,7 +111,7 @@ sudo apt install docker.io -y
 sudo docker run -it hello-world
 ```
 
-輸出：
+輸出:
 
 ```
 Hello from Docker!
@@ -136,7 +139,7 @@ This message shows that your installation appears to be working correctly.
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
 ```
 
-輸出：
+輸出:
 
 ```console
 [
@@ -168,7 +171,7 @@ az network vnet subnet show \
   --output tsv
 ``` 
 
-輸出：
+輸出:
 
 ```
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
@@ -216,7 +219,7 @@ az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
 1. 在入口網站中, 流覽至您的 container registry。
 1. 在 [**設定**] 底下, 選取 [**防火牆和虛擬網路**]。
 1. 若要預設拒絕存取，請選擇允許**所選網路**存取權。 
-1. 選取 [**新增現有的虛擬網路**], 然後選取您使用服務端點設定的虛擬網路和子網。 選取 [新增]  。
+1. 選取 [**新增現有的虛擬網路**], 然後選取您使用服務端點設定的虛擬網路和子網。 選取 [新增]。
 1. 選取 [ **儲存**]。
 
 ![設定用於 container registry 的虛擬網路][acr-vnet-portal]

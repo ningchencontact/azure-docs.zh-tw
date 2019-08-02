@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/23/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a9c38d82c4b460564077690d3cddd731ec6c2b89
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414515"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565352"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的模組，並對其進行偵錯
 
@@ -27,7 +27,7 @@ ms.locfileid: "68414515"
 本文提供以多種語言針對多個架構來開發和偵測模組的指示。 目前, Visual Studio Code 提供以C#、C、Python、Node.js 和 JAVA 撰寫之模組的支援。 支援的裝置架構為 X64 和 ARM32。 如需有關支援的作業系統、語言和架構的詳細資訊, 請參閱[語言和架構支援](module-development.md#language-and-architecture-support)。
 
 >[!NOTE]
->Linux ARM64 裝置的開發和偵錯工具支援現供[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 如需詳細資訊, 請參閱[Visual Studio Code (預覽) 中的開發和偵錯工具 ARM64 IoT Edge 模組](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)。
+>Linux ARM64 裝置的開發和偵錯工具支援現供[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 如需詳細資訊，請參閱[在 Visual Studio Code (預覽)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview) 中開發和偵錯 ARM64 IoT Edge 模組。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -100,7 +100,7 @@ Visual Studio Code 會採用您提供的資訊、建立 IoT Edge 解決方案，
 
 - 一個包含偵錯組態的 **.vscode** 資料夾。
 
-- 一個 **modules** 資料夾，其中包含每個模組的子資料夾。  在每個模組的資料夾中, 都有一個檔案 (**模組. json**), 可控制模組的建立和部署方式。  您必須修改此檔案, 才能將模組部署容器 regristry 從 localhost 變更為遠端登入。 此時, 您只有一個模組。  但是您可以在命令選擇區中使用 [Azure IoT Edge：新增 IoT Edge 模組] 命令來新增更多項目。
+- 一個 **modules** 資料夾，其中包含每個模組的子資料夾。  在每個模組的資料夾中, 都有一個檔案 (**模組. json**), 可控制模組的建立和部署方式。  您必須修改此檔案, 才能將模組部署容器登錄從 localhost 變更為遠端登入。 此時, 您只有一個模組。  但是您可以在命令選擇區中使用 [Azure IoT Edge：新增 IoT Edge 模組] 命令來新增更多項目。
 
 - 一個 **.env** 檔案，會列出您的環境變數。 如果您的登錄是 Azure Container Registry，您會有 Azure Container Registry 使用者名稱和密碼。
 

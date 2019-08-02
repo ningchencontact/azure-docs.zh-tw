@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 70ce03834910447e92f0272fc67034caa59c43f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6548f4add8a794276bd4e7f7fa3c0bd7e24a2d5c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074075"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726018"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Salesforce Marketing Cloud 複製資料 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "67074075"
 
 您可以將資料從 Salesforce Marketing Cloud 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-Salesforce 行銷雲端連接器支援 OAuth 2 驗證。 它內建的上方[Salesforce 行銷雲端 REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm)。
+Salesforce Marketing 雲端連接器支援 OAuth 2 驗證。 它建置於[Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm)之上。
 
 >[!NOTE]
 >此連接器不支援擷取自訂物件或自訂資料延伸模組。
@@ -45,7 +45,7 @@ Salesforce 行銷雲端連接器支援 OAuth 2 驗證。 它內建的上方[Sale
 
 以下是針對 Salesforce Marketing Cloud 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SalesforceMarketingCloud** | 是 |
 | clientId | 與 Salesforce Marketing Cloud 應用程式相關聯的用戶端識別碼。  | 是 |
@@ -82,7 +82,7 @@ Salesforce 行銷雲端連接器支援 OAuth 2 驗證。 它內建的上方[Sale
 
 若要從 Salesforce Marketing Cloud 複製資料，請將資料集的類型屬性設定為 **SalesforceMarketingCloudObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**SalesforceMarketingCloudObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -94,11 +94,12 @@ Salesforce 行銷雲端連接器支援 OAuth 2 驗證。 它內建的上方[Sale
     "name": "SalesforceMarketingCloudDataset",
     "properties": {
         "type": "SalesforceMarketingCloudObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SalesforceMarketingCloud linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -114,7 +115,7 @@ Salesforce 行銷雲端連接器支援 OAuth 2 驗證。 它內建的上方[Sale
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**SalesforceMarketingCloudSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 

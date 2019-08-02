@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 62e88d912c55015f87cc00f21527010ad01ee00c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 72022510676548fad79031d4334a2c95571fc16d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615693"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566383"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>使用保留原則管理時態表中的歷史資料
 
@@ -35,7 +34,7 @@ ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
 
 ## <a name="how-to-configure-retention-policy"></a>如何設定保留原則？
 
-在設定時態表的保留原則之前，請先檢查是否已在「資料庫層級」  啟用時態記錄保留。
+在設定時態表的保留原則之前，請先檢查是否已在「資料庫層級」啟用時態記錄保留。
 
 ```
 SELECT is_temporal_history_retention_enabled, name
@@ -84,7 +83,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 ```
 
 > [!IMPORTANT]
-> 將 SYSTEM_VERSIONING 設定為 OFF「不會保留」  保留期限值。 如果將 SYSTEM_VERSIONING 設為 ON，但未明確指定 HISTORY_RETENTION_PERIOD，則會形成 INFINITE 保留期限。
+> 將 SYSTEM_VERSIONING 設定為 OFF「不會保留」保留期限值。 如果將 SYSTEM_VERSIONING 設為 ON，但未明確指定 HISTORY_RETENTION_PERIOD，則會形成 INFINITE 保留期限。
 
 若要檢閱保留原則的目前狀態，請使用下列查詢，其中結合資料庫層級的時態保留啟用旗標和個別資料表的保留期限︰
 
@@ -104,8 +103,8 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>SQL Database 如何刪除過時資料列？
 
-清除程序取決於記錄資料表的索引配置。 請務必注意，具有叢集索引 (B 型樹狀目錄或資料行存放區) 的記錄資料表才能設定有限保留原則  。 對於設定有限保留期限的所有時態表，將會建立背景工作來清除過時資料。
-資料列存放區 (B 型樹狀目錄) 叢集索引的清除邏輯會以較小區塊刪除過時資料列 (最多 10K)，以儘量減輕資料庫記錄檔和 IO 子系統的壓力。 雖然清除邏輯採用必要的 B 型樹狀目錄索引，但在刪除比保留期限更舊的資料列時，就無法確實保證刪除順序。 因此，在您的應用程式中，絕對不要依賴清除順序  。
+清除程序取決於記錄資料表的索引配置。 請務必注意，具有叢集索引 (B 型樹狀目錄或資料行存放區) 的記錄資料表才能設定有限保留原則。 對於設定有限保留期限的所有時態表，將會建立背景工作來清除過時資料。
+資料列存放區 (B 型樹狀目錄) 叢集索引的清除邏輯會以較小區塊刪除過時資料列 (最多 10K)，以儘量減輕資料庫記錄檔和 IO 子系統的壓力。 雖然清除邏輯採用必要的 B 型樹狀目錄索引，但在刪除比保留期限更舊的資料列時，就無法確實保證刪除順序。 因此，在您的應用程式中，絕對不要依賴清除順序。
 
 叢集資料行存放區的清除工作會一次移除整個[資料列群組](https://msdn.microsoft.com/library/gg492088.aspx) (每個通常包含 1 百萬個資料列)，這非常有效率，特別當歷史資料快速產生時。
 
@@ -149,7 +148,7 @@ CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
 
 ## <a name="querying-tables-with-retention-policy"></a>使用保留原則來查詢資料表
 
-時態表上的所有查詢會自動篩選掉符合有限保留原則的歷史資料列，以避免非預期和不一致的結果，因為清除工作可以「隨時以任意順序」  刪除過時資料列。
+時態表上的所有查詢會自動篩選掉符合有限保留原則的歷史資料列，以避免非預期和不一致的結果，因為清除工作可以「隨時以任意順序」刪除過時資料列。
 
 下圖顯示簡單查詢的查詢計劃︰
 
@@ -169,7 +168,7 @@ SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
 
 ## <a name="point-in-time-restore-considerations"></a>還原時間點考量
 
-當您[將現有資料庫還原到特定時間點](sql-database-recovery-using-backups.md)來建立新的資料庫時，資料庫層級上會停用時態保留 (**is_temporal_history_retention_enabled** 旗標設為 OFF)。 這項功能可讓您在還原時檢查所有歷史資料列，而不必擔心過時資料列在您開始查詢之前就被移除。 這可用來「檢查超出設定保留期限的歷史資料」  。
+當您[將現有資料庫還原到特定時間點](sql-database-recovery-using-backups.md)來建立新的資料庫時，資料庫層級上會停用時態保留 (**is_temporal_history_retention_enabled** 旗標設為 OFF)。 這項功能可讓您在還原時檢查所有歷史資料列，而不必擔心過時資料列在您開始查詢之前就被移除。 這可用來「檢查超出設定保留期限的歷史資料」。
 
 假設時態表已指定一個 MONTH 保留期限。 如果是在高階服務層中建立資料庫，您可以使用過去最多 35 天的資料庫狀態來建立資料庫副本。 實際上，這可讓您直接查詢記錄資料表，以分析過去最多 65 天的歷史資料列。
 

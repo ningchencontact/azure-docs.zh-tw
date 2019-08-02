@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 150d30085976c89e9053d4715da98e487684e45c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498427"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717248"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -23,7 +23,7 @@ ms.locfileid: "68498427"
 您可以直接從您的「Azure 自動化」帳戶啟用虛擬機器的「更新管理」。 若要了解如何從您的自動化帳戶啟用虛擬機器的「更新管理」，請參閱[管理多部虛擬機器的更新](manage-update-multi.md)。 您也可以至 Azure 入口網站的虛擬機器頁面，啟用虛擬機器的「更新管理」。 此案例適用於 [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) 與 [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) 虛擬機器。
 
 > [!NOTE]
-> 更新管理解決方案需要將 Log Analytics 工作區連結至您的自動化帳戶。 如需支援區域的確切清單, 請參閱 [/how-to/region-mappings.md]。 區域對應並不會影響在不同于您的自動化帳戶的區域中管理虛擬機器的能力。
+> 更新管理解決方案需要將 Log Analytics 工作區連結至您的自動化帳戶。 如需支援區域的確切清單, 請參閱 https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings []。 區域對應並不會影響在不同于您的自動化帳戶的區域中管理虛擬機器的能力。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -99,6 +99,11 @@ ms.locfileid: "68498427"
 #### <a name="windows"></a>Windows
 
 Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠存取 Microsoft Update。 您可以搭配 System Center Configuration Manager 使用「更新管理」。 若要深入了解整合案例，請參閱[整合 System Center Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../azure-monitor/platform/agent-windows.md)。 此代理程式會在您讓 Azure 虛擬機器上線時自動安裝。
+
+> [!NOTE]
+> 使用者可以修改群組原則, 讓電腦重新開機只能由使用者執行, 而不是由系統執行。 如果更新管理沒有重新開機電腦的許可權, 而沒有使用者的手動互動, 則受管理的機器可能會停滯。
+>
+> 如需詳細資訊, 請參閱[設定自動更新的群組原則設定](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates)。
 
 #### <a name="linux"></a>Linux
 

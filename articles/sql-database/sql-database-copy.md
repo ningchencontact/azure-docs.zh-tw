@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: dc82ace4c5bf1204075bfa5e34d0b1489a3acb98
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e9cc5aaaf11a799b17cc87b40113e166fcd93afb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876278"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568999"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>複製 Azure SQL 資料庫的交易一致性複本
 
@@ -42,7 +41,7 @@ Azure SQL Database 提供數種方法, 可在相同伺服器或不同的伺服�
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>使用 Azure 入口網站來複製資料庫
 
-若要使用 Azure 入口網站來複製資料庫，請開啟資料庫頁面，然後按一下 [複製]  。 
+若要使用 Azure 入口網站來複製資料庫，請開啟資料庫頁面，然後按一下 [複製]。 
 
    ![資料庫複本](./media/sql-database-copy/database-copy.png)
 

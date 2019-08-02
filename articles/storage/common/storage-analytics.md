@@ -10,24 +10,26 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b588ebe577e61014c6c2bbeaae751b2783dd6f80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e812bf03bf2adb852becf56954e7039aa3eb0633
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153912"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565913"
 ---
 # <a name="storage-analytics"></a>儲存體分析
 
 Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料。 您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。 您可以從[Azure 入口網站](https://portal.azure.com)。 如需詳細資訊，請參閱 <<c0> [ 監視儲存體帳戶在 Azure 入口網站中的](storage-monitor-storage-account.md)。 您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。 使用[設定 Blob 服務屬性](/rest/api/storageservices/set-blob-service-properties)，[設定佇列服務屬性](/rest/api/storageservices/set-queue-service-properties)，[設定表格服務屬性](/rest/api/storageservices/set-table-service-properties)，和[設定檔案服務屬性](/rest/api/storageservices/Get-File-Service-Properties)每個服務啟用儲存體分析的作業。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。 您可以從 [ [Azure 入口網站](https://portal.azure.com)] 加以啟用。 如需詳細資訊, 請參閱[在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)。 您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。 使用 [[設定 Blob 服務屬性](/rest/api/storageservices/set-blob-service-properties)]、[[設定佇列服務屬性](/rest/api/storageservices/set-queue-service-properties)]、[[設定資料表服務屬性](/rest/api/storageservices/set-table-service-properties)] 和 [配置[檔案服務屬性](/rest/api/storageservices/Get-File-Service-Properties)] 作業, 為每個服務啟用儲存體分析。
 
 彙總的資料會儲存於已知的 Blob (用於記錄) 和已知的資料表 (用於度量) 中，您可以使用 Blob 服務和資料表服務 API 來存取。
 
 儲存體分析在儲存的資料量上有 20 TB 的限制，但此限制與儲存體帳戶的總限制無關。 如需儲存體帳戶限制的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)。
 
 如需使用儲存體分析和其他工具來識別、診斷及疑難排解 Azure 儲存體相關問題的深入指南，請參閱 [監視、診斷及疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)。
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="billing-for-storage-analytics"></a>儲存體分析計費
 

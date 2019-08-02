@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ec27c75ff5ba9164b44b0524f90a4e28ab20f1
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488984"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678062"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>疑難排解 Azure AD 權利管理 (預覽)
 
@@ -41,7 +41,7 @@ ms.locfileid: "68488984"
 
 * 若要讓應用程式成為存取套件中的資源, 它必須至少有一個可以指派的資源角色。 角色是由應用程式本身定義, 並在 Azure AD 中進行管理。 請注意, Azure 入口網站可能也會顯示無法選取為應用程式之服務的服務主體。  特別是, **Exchange online**和**SharePoint online**是服務, 而不是在目錄中具有資源角色的應用程式, 因此不能包含在存取套件中。  相反地, 請使用以群組為基礎的授權, 為需要存取這些服務的使用者建立適當的授權。
 
-* 若要讓群組成為存取套件中的資源, 必須能夠在 Azure AD 中進行修改。  源自內部部署 Active Directory 的群組無法指派為資源, 因為無法在 Azure AD 中變更其擁有者或成員屬性。  
+* 若要讓群組成為存取套件中的資源, 必須能夠在 Azure AD 中進行修改。  源自內部部署 Active Directory 的群組無法指派為資源, 因為無法在 Azure AD 中變更其擁有者或成員屬性。   源自 Exchange Online 的群組, 因為通訊群組無法在 Azure AD 中修改。 
 
 * SharePoint Online 文件庫和個別檔無法新增為資源。  相反地, 請建立 Azure AD 安全性群組、在存取套件中包含該群組和網站角色, 然後在 SharePoint Online 中使用該群組來控制文件庫或檔的存取權。
 
@@ -55,9 +55,9 @@ ms.locfileid: "68488984"
 
 ## <a name="checklist-for-request-issues"></a>要求問題的檢查清單
 
-* 當使用者想要要求存取套件的存取權時, 請確定他們使用的是存取套件的**我的存取權入口網站連結**。 如需詳細資訊, 請參閱[複製我的存取權入口網站連結](entitlement-management-access-package-edit.md#copy-my-access-portal-link)。
+* 當使用者想要要求存取套件的存取權時, 請確定他們使用的是存取套件的**我的存取權入口網站連結**。 如需詳細資訊, 請參閱[複製我的存取權入口網站連結](entitlement-management-access-package-edit.md#copy-my-access-portal-link)。  如果外部使用者造訪**myaccess.microsoft.com**, 他們會在自己的組織中看到可供他們使用的存取套件。
 
-* 當使用者登入我的存取權入口網站以要求存取套件時, 請務必使用其組織帳戶進行驗證。 組織帳戶可以是資原始目錄中的帳戶, 或包含在存取封裝其中一個原則中的目錄。 如果使用者的帳戶不是組織帳戶, 或該目錄未包含在原則中, 則使用者不會看到存取套件。 如需詳細資訊, 請參閱[要求存取封裝的存取權](entitlement-management-request-access.md)。
+* 當不在您目錄中的使用者登入我的存取權入口網站以要求存取套件時, 請務必使用其組織帳戶進行驗證。 組織帳戶可以是資原始目錄中的帳戶, 或包含在存取封裝其中一個原則中的目錄。 如果使用者的帳戶不是組織帳戶, 或其驗證所在的目錄未包含在原則中, 則使用者將看不到存取套件。 如需詳細資訊, 請參閱[要求存取封裝的存取權](entitlement-management-request-access.md)。
 
 * 如果使用者遭到封鎖而無法登入資原始目錄, 他們將無法在我的存取權入口網站中要求存取權。 在使用者可以要求存取之前, 您必須先從使用者的設定檔中移除登入區塊。 若要移除登入區塊, 請在 Azure 入口網站中, 按一下  **Azure Active Directory**, 按一下 **使用者**, 按一下使用者, 然後按一下 **設定檔**。 編輯 [**設定**] 區段, 並將 [**封鎖登入**] 變更為 [**否**]。 如需詳細資訊, 請參閱[使用 Azure Active Directory 新增或更新使用者的設定檔資訊](../fundamentals/active-directory-users-profile-azure-portal.md)。  您也可以檢查使用者是否因身分[識別保護原則](../identity-protection/howto-unblock-user.md)而遭到封鎖。
 

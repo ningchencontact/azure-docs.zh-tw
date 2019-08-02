@@ -1,18 +1,19 @@
 ---
 title: Azure 備份 - 適用於 DPM 和 Azure 備份伺服器的離線備份
 description: 了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。 此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料。
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
-ms.author: saurse
-ms.openlocfilehash: 8a8571230b24d76482c505ec22d6faaa0caec5e6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4bc0421f16d56d34e3f3156700a7a141d38fd63d
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466712"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689387"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>適用於 DPM 和 Azure 備份伺服器的離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 Azure 備份會壓縮初始備份。 透過離線植入程序，Azure 備份可以使用磁碟將壓縮後的初始備份資料離線上傳至 Azure。
@@ -41,7 +42,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 > * 使用 System Center Data Protection Manager (SC DPM) 來備份所有工作負載和檔案
 > * 使用「Microsoft Azure 備份伺服器」來備份所有工作負載和檔案 <br/>
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 起始「離線備份」工作流程之前，請先確定已符合下列先決條件
 * 已建立[復原服務保存庫](backup-azure-recovery-services-vault-overview.md)。 若要建立保存庫，請參閱[這篇文章](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)中的步驟
 * 已在 Windows Server/Windows 用戶端 (依據適用情況) 上安裝「Azure 備份」代理程式、「Azure 備份伺服器」或 SC DPM，並已向「復原服務保存庫」註冊該電腦。 請確定只使用[最新版的 Azure 備份](https://go.microsoft.com/fwlink/?linkid=229525)。
@@ -86,7 +87,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
     ![立即備份](./media/backup-azure-backup-import-export/backupnow.png)
 
-    若要在 System Center Data Protection Manager 或「Azure 備份」伺服器中完成對應的工作流程，請在 [保護群組] 上按一下滑鼠右鍵，然後選擇 [建立復原點] 選項。 您接著要選擇 [線上保護]  選項。
+    若要在 System Center Data Protection Manager 或「Azure 備份」伺服器中完成對應的工作流程，請在 [保護群組] 上按一下滑鼠右鍵，然後選擇 [建立復原點] 選項。 您接著要選擇 [線上保護] 選項。
 
     ![SC DPM 和 Azure 備份伺服器立即備份](./media/backup-azure-backup-import-export/dpmbackupnow.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666152"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562213"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>HOW TO：規劃 Azure AD 聯結實作
 
@@ -30,17 +30,17 @@ Azure AD Join 可讓您直接將裝置加入 Azure AD，而不需要加入內部
 
 ## <a name="plan-your-implementation"></a>計劃您的實作
 
-若要規劃您的 Azure AD 聯結實作，您應該熟悉：
+若要規劃您的 Azure AD 聯結執行, 您應該熟悉:
 
 |   |   |
 |---|---|
-|![勾選][1]|檢閱您的案例|
-|![勾選][1]|檢閱您的身分識別基礎結構|
-|![勾選][1]|存取您的裝置管理|
-|![勾選][1]|了解應用程式和資源的考量|
-|![勾選][1]|了解您的佈建選項|
-|![勾選][1]|設定企業狀態漫遊|
-|![勾選][1]|設定條件式存取|
+|![檢查][1]|檢閱您的案例|
+|![檢查][1]|檢閱您的身分識別基礎結構|
+|![檢查][1]|存取您的裝置管理|
+|![檢查][1]|了解應用程式和資源的考量|
+|![檢查][1]|了解您的佈建選項|
+|![檢查][1]|設定企業狀態漫遊|
+|![檢查][1]|設定條件式存取|
 
 ## <a name="review-your-scenarios"></a>檢閱您的案例 
 
@@ -70,7 +70,7 @@ Azure AD Join 在受控和同盟環境中均可運作。
 - **WS-Fed：** 必須使用此通訊協定，才能將裝置加入 Azure AD。
 - **WS-Trust：** 必須使用此通訊協定，才能登入已加入 Azure AD 的裝置。 
 
-如果您的識別提供者不支援這些通訊協定，則 Azure AD Join 無法原生運作。 從 Windows 10 1809 開始，您的使用者即可經由 SAML 型識別提供者透過 [Windows 10 的 Web 登入](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)來登入已加入 Azure AD 的裝置。 目前 web 登入是一項預覽功能，不建議用於生產環境部署。
+如果您的識別提供者不支援這些通訊協定，則 Azure AD Join 無法原生運作。 從 Windows 10 1809 開始，您的使用者即可經由 SAML 型識別提供者透過 [Windows 10 的 Web 登入](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)來登入已加入 Azure AD 的裝置。 目前, web 登入是一項預覽功能, 不建議用於生產環境部署。
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>智慧卡和憑證型驗證
 
@@ -101,10 +101,10 @@ Azure AD Join：
 
 ### <a name="management-platform"></a>管理平台
 
-Azure AD 已加入裝置的裝置管理為基礎的 MDM 平台，例如 Intune 和 MDM Csp。 Windows 10 有內建的 MDM 代理程式，可與所有相容的 MDM 解決方案搭配運作。
+Azure AD 已加入裝置的裝置管理是以 MDM 平臺 (如 Intune) 和 MDM Csp 為基礎。 Windows 10 有內建的 MDM 代理程式，可與所有相容的 MDM 解決方案搭配運作。
 
 > [!NOTE]
-> 因為在未連線至內部部署 Active Directory 群組原則不支援在 Azure AD 加入裝置。 Azure AD 已加入裝置的管理，才可以透過 MDM
+> Azure AD 加入的裝置不支援群組原則, 因為它們未連線到內部部署 Active Directory。 僅能透過 MDM 來管理已加入 Azure AD 的裝置
 
 有兩種方法可用來管理已加入 Azure AD 的裝置：
 
@@ -208,23 +208,23 @@ Azure AD 已加入裝置的裝置管理為基礎的 MDM 平台，例如 Intune �
 
 ## <a name="configure-your-device-settings"></a>設定您的裝置設定
 
-Azure 入口網站可讓您控制如何將已加入 Azure AD 的裝置部署到您的組織中。 若要設定相關設定，請在 [Azure Active Directory ]  頁面上選取 `Devices > Device settings`。
+Azure 入口網站可讓您控制如何將已加入 Azure AD 的裝置部署到您的組織中。 若要設定相關設定，請在 [Azure Active Directory ] 頁面上選取 `Devices > Device settings`。
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>使用者可以將裝置加入 Azure AD
 
-請根據您部署的範圍，和您要允許哪些人設定已加入 Azure AD 的裝置，將此選項設為 [全部]  或 [選取的]  。 
+請根據您部署的範圍，和您要允許哪些人設定已加入 Azure AD 的裝置，將此選項設為 [全部] 或 [選取的]。 
 
 ![使用者可以將裝置加入 Azure AD](./media/azureadjoin-plan/01.png)
 
 ### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>已加入 Azure AD 的裝置上的其他本機系統管理員
 
-選擇 [選取的]  ，然後選取您要在所有已加入 Azure AD 的裝置上新增至本機系統管理員群組的使用者。 
+選擇 [選取的]，然後選取您要在所有已加入 Azure AD 的裝置上新增至本機系統管理員群組的使用者。 
 
 ![已加入 Azure AD 的裝置上的其他本機系統管理員](./media/azureadjoin-plan/02.png)
 
 ### <a name="require-multi-factor-auth-to-join-devices"></a>需要多因素驗證才能加入裝置
 
-如果您要求使用者在將裝置加入 Azure AD 時必須執行 MFA，請選取 [是]  。 針對使用 MFA 將裝置加入 Azure AD 的使用者，裝置本身會成為第 2 個因素。
+如果您要求使用者在將裝置加入 Azure AD 時必須執行 MFA，請選取 [是]。 針對使用 MFA 將裝置加入 Azure AD 的使用者，裝置本身會成為第 2 個因素。
 
 ![需要多因素驗證才能加入裝置](./media/azureadjoin-plan/03.png)
 
@@ -234,17 +234,17 @@ Azure 入口網站可讓您控制如何將已加入 Azure AD 的裝置部署到�
 
 **若要新增 MDM 提供者**：
 
-1. 在 [Azure Active Directory]  頁面的 [管理]  區段中，按一下 `Mobility (MDM and MAM)`。 
-1. 按一下 [新增應用程式]  。
+1. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 `Mobility (MDM and MAM)`。 
+1. 按一下 [新增應用程式]。
 1. 從清單中選取您的 MDM 提供者。
 
-   ![新增應用程式](./media/azureadjoin-plan/04.png)
+   ![加入應用程式](./media/azureadjoin-plan/04.png)
 
 選取您的 MDM 提供者以設定相關設定。 
 
 ### <a name="mdm-user-scope"></a>MDM 使用者範圍
 
-根據您的部署範圍選取 [部分]  或 [全部]  。 
+根據您的部署範圍選取 [部分] 或 [全部]。 
 
 ![MDM 使用者範圍](./media/azureadjoin-plan/05.png)
 
@@ -261,7 +261,7 @@ Azure 入口網站可讓您控制如何將已加入 Azure AD 的裝置部署到�
 - MDM 探索 URL 
 - MDM 合規性 URL
 
-![新增應用程式](./media/azureadjoin-plan/06.png)
+![加入應用程式](./media/azureadjoin-plan/06.png)
 
 每個 URL 都有預先定義的預設值。 如果這些欄位是空的，請連絡您的 MDM 提供者以取得詳細資訊。
 
@@ -271,7 +271,7 @@ MAM 不適用於 Azure AD Join。
 
 ## <a name="configure-enterprise-state-roaming"></a>設定企業狀態漫遊
 
-如果您想要啟用 Azure AD 的狀態漫遊，讓使用者可在裝置間同步其設定，請參閱[在 Azure Active Directory 中啟用企業狀態漫遊](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable)。 
+如果您想要啟用 Azure AD 的狀態漫遊，讓使用者可在裝置間同步其設定，請參閱[在 Azure Active Directory 中啟用企業狀態漫遊](enterprise-state-roaming-enable.md)。 
 
 **建議**：即使對混合式 Azure AD Join 裝置也可啟用此設定。
 
@@ -279,9 +279,9 @@ MAM 不適用於 Azure AD Join。
 
 如果您為已加入 Azure AD 的裝置設定了 MDM 提供者，只要裝置受到管理，提供者即會將裝置標示為符合規範。 
 
-![符合規範的裝置](./media/azureadjoin-plan/46.png)
+![符合規範裝置](./media/azureadjoin-plan/46.png)
 
-您可以使用此實作[需要受管理的裝置存取雲端應用程式使用條件式存取](../conditional-access/require-managed-devices.md)。
+您可以使用此執行方式, 透過[條件式存取要求受管理的裝置存取雲端應用程式](../conditional-access/require-managed-devices.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

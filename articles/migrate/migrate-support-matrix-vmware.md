@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 00ca474a6cb32c7ad3e47aef750126e958e43501
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372458"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640799"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 評量和移轉的支援矩陣
 
-您可以使用[Azure Migrate 服務](migrate-overview.md)來評估電腦, 並將機器遷移至 Microsoft Azure 雲端。 本文摘要說明評估和遷移內部部署 VMware Vm 的支援設定和限制。
+您可以使用[Azure Migrate](migrate-overview.md)來評估電腦, 並將機器遷移至 Microsoft Azure 雲端。 本文摘要說明評估和遷移內部部署 VMware Vm 的支援設定和限制。
 
 
 ## <a name="vmware-scenarios"></a>VMware 案例
@@ -27,35 +27,32 @@ ms.locfileid: "68372458"
 **部署** | **詳細資料**
 --- | ---
 **評估內部部署 VMware Vm** | [設定](tutorial-prepare-vmware.md)您的第一個評估。<br/><br/> [執行](scale-vmware-assessment.md)大規模的評量。
-**遷移 VMware VM** | 您可以使用無代理程式遷移來進行遷移, 但有一些限制, 或使用以代理程式為基礎的遷移。 [深入了解](server-migrate-overview.md)
+**遷移 VMware VM** | 您可以使用無代理程式遷移來進行遷移, 或使用以代理程式為基礎的遷移。 [深入了解](server-migrate-overview.md)
 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 專案
 
 **支援** | **詳細資料**
 --- | ---
-Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
-VMware 限制  | 在單一專案中評估最多35000個 VMware Vm。
+**Azure 許可權** | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
+**VMware 限制**  | 在單一專案中評估最多35000個 VMware Vm。 您可以在 Azure 訂用帳戶中建立多個專案。
+**專案限制** | 專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
+**地理位置** | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您只能在這些地理位置中建立專案, 但您可以評估或遷移其他目標位置的機器。 專案地理位置只會用來儲存探索到的資料。
 
-專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
-
-**區域**有幾個地理位置可以建立 Azure Migrate 專案。 雖然您只能在這些地理位置中建立專案, 但您仍然可以針對其他目標位置, 評估或遷移您的電腦。 專案地理位置只會用來儲存探索到的資料。
-
-
- **地理位置** | **中繼資料儲存位置**
- --- | ---
- Azure Government | US Gov 維吉尼亞州
- 亞太地區 | 東南亞或東亞
- 歐洲 | 歐洲南部或西歐
- 英國 | 英國南部或英國西部
- 美國 | 美國中部或美國西部2
+**地理位置** | **中繼資料儲存位置**
+--- | ---
+Azure Government | US Gov 維吉尼亞州
+亞太地區 | 東南亞或東亞
+歐洲 | 歐洲南部或西歐
+英國 | 英國南部或英國西部
+美國 | 美國中部或美國西部2
 
 
  > [!NOTE]
  > Azure Government 的支援目前僅適用于[舊版](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions)的 Azure Migrate。
 
 
-## <a name="assessment-vmware-server-requirements"></a>評量-VMware 伺服器需求
+## <a name="assessment-vcenter-server-requirements"></a>評量-vCenter Server 需求
 
 下表摘要說明 VMware 虛擬化伺服器的評量支援和限制。
 
@@ -65,12 +62,15 @@ VMware 限制  | 在單一專案中評估最多35000個 VMware Vm。
 
 ## <a name="assessment-vcenter-server-permissions"></a>評量-vCenter Server 許可權
 
-若只是要進行評估，您需要一個可使用 vCenter Server 的唯讀帳戶。
+針對評量, 您需要 vCenter Server 的唯讀帳戶。
 
 ## <a name="assessment-appliance-requirements"></a>評量-設備需求
 
+適用于 VMware 的 Azure Migrate 設備是使用匯入 vCenter Server 的 OVA 範本進行部署。
+
 **支援** | **詳細資料**
 --- | ---
+**vCenter Server** | 您的 vCenter Server 需要足夠的資源來配置具有 32 GB 記憶體、4個 vcpu 和外部虛擬交換器的 VM。<br/><br/> 設備必須直接或透過 proxy 存取網際網路。
 **ESXi** | 設備 VM 必須部署在執行5.5 版或更新版本的 ESXi 主機上。
 **Azure Migrate 專案** | 應用裝置可以與單一專案相關聯。
 **vCenter Server** | 設備可以在 vCenter Server 上探索最多10000個 VMware Vm。<br/> 設備可以連接到一個 vCenter Server。
@@ -81,7 +81,7 @@ VMware 限制  | 在單一專案中評估最多35000個 VMware Vm。
 Azure Migrate 設備需要網際網路連線到網際網路。
 
 - 當您部署設備時, Azure Migrate 會對下表中摘要說明的 Url 進行連線檢查。
-- 如果您使用以 URL 為基礎的防火牆, 請允許存取這些 Url, 並確定 proxy 會解析查詢 Url 時所收到的任何 CNAME 記錄。
+- 如果您使用以 URL 為基礎的 proxy 來連線到網際網路, 請允許存取這些 Url, 確保 proxy 會解析查詢 Url 時所收到的任何 CNAME 記錄。
 
 **URL** | **詳細資料**  
 --- | --- |
@@ -94,14 +94,14 @@ dc.services.visualstudio.com | 上傳用於內部監視的應用程式記錄。
 *.servicebus.windows.net | 設備與 Azure Migrate 服務之間的通訊。
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | 連接到 Azure Migrate 服務 Url。
 *.blob.core.windows.net | 將資料上傳至儲存體帳戶。
-
+http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | 用於 Azure Migrate 設備更新。
 
 ## <a name="assessment-port-requirements"></a>評量-埠需求
 
 **裝置** | **連接**
 --- | ---
-設備 | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式: HTTPs://< 設備-ip 或名稱 >: 44368 <br/>埠443上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
-vCenter Server | TCP 通訊埠443上的輸入連線, 以允許設備收集設定和效能中繼資料以進行評量。 <br/> 根據預設, 設備會連線到埠443上的 vCenter。 如果 vCenter server 在不同的埠上接聽, 您可以在設定探索時修改埠。
+設備 | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/><br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式:```https://<appliance-ip-or-name>:44368``` <br/><br/>埠443上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
+vCenter Server | TCP 通訊埠443上的輸入連線, 以允許設備收集設定和效能中繼資料以進行評量。 <br/><br/> 根據預設, 設備會連線到埠443上的 vCenter。 如果 vCenter server 在不同的埠上接聽, 您可以在設定探索時修改埠。
 
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>無代理程式遷移-VMware 伺服器需求
@@ -110,7 +110,8 @@ vCenter Server | TCP 通訊埠443上的輸入連線, 以允許設備收集設定
 
 **支援** | **詳細資料**
 --- | ---
-**vCenter Server** | 使用無代理程式遷移進行遷移的 VMware Vm, 必須由執行5.5、6.0、6.5 或6.7 的一部或多部 vCenter Server 管理。
+vCenter Server | 版本5.5、6.0、6.5 或6.7。
+VMware vSphere | 5\.5、6.0、6.5 或6.7 版本
 
 ## <a name="agentless-migration-vcenter-server-permissions"></a>無代理程式遷移-vCenter Server 許可權
 
@@ -134,10 +135,20 @@ VirtualMachine.SnapshotManagement.* | 允許建立和管理 VM 快照集以進�
 **Azure 的必要變更** | 有些 Vm 可能需要變更, 才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更:<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統, 您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。
 **Linux 開機** | 如果/boot 是在專用磁碟分割上, 它應該位於 OS 磁片上, 而不會散佈到多個磁片上。<br/> 如果/boot 是根 (/) 分割區的一部分, 則 '/' 磁碟分割應該位於 OS 磁片上, 而不是跨越其他磁片。
 **UEFI 開機** | 不支援使用 UEFI 開機的 Vm 進行遷移。
+**磁碟大小** | 2 TB 的 OS 磁片;4 TB 的資料磁片。
+**磁片限制** |  每個 VM 最多60個磁片。
 **加密的磁片/磁片區** | 不支援使用加密磁片/磁片區的 Vm 進行遷移。
+**共用磁碟叢集** | 不支援。
+**獨立磁片** | 不支援。
 **RDM/傳遞磁片** | 如果 Vm 有 RDM 或 passthrough 磁片, 這些磁片將不會複寫到 Azure。
 **NFS** | 裝載為 Vm 上之磁片區的 NFS 磁片區不會複寫。
-**目標磁片** | Vm 只能遷移至 Azure 中的受控磁片 (標準 HHD、premium SSD)。
+**iSCSI 目標** | 無代理程式遷移不支援具有 iSCSI 目標的 Vm。
+**多重路徑 IO** | 不支援。
+**儲存體 vMotion** | 不支援。 如果 VM 使用儲存體 vMotion, 複寫將無法正常執行。
+**組合的 Nic** | 不支援。
+**IPv6** | 不支援。
+**目標磁片** | Vm 只能遷移至 Azure 中的受控磁片 (標準 HDD、premium SSD)。
+**同時複寫** | 每個 vCenter Server 100 個 Vm。 如果您有更多, 請以100的批次方式來遷移它們。
 
 
 ## <a name="agentless-migration-appliance-requirements"></a>無代理程式遷移-設備需求
@@ -148,14 +159,14 @@ VirtualMachine.SnapshotManagement.* | 允許建立和管理 VM 快照集以進�
 **ESXi** | 設備 VM 必須部署在執行5.5 版或更新版本的 ESXi 主機上。
 **Azure Migrate 專案** | 應用裝置可以與單一專案相關聯。
 **vCenter Server** | 設備可以在 vCenter Server 上探索最多10000個 VMware Vm。<br/> 設備可以連接到一個 vCenter Server。
-**VDDK** | 如果您是使用 Azure Migrate 伺服器遷移來執行無代理程式遷移, 則必須在應用裝置 VM 上安裝 VMware vSphere 虛擬磁片開發工具組 (VDDK)。
+**VDDK** | 如果您是使用 Azure Migrate 伺服器遷移來執行無代理程式遷移, 則必須在應用裝置 VM 上安裝 VMware vSphere VDDK。
 
 ## <a name="agentless-migration-url-access-requirements"></a>無代理程式遷移-URL 存取需求
 
 Azure Migrate 設備需要網際網路連線到網際網路。
 
 - 當您部署設備時, Azure Migrate 會對下表中摘要說明的 Url 進行連線檢查。
-- 如果您使用以 URL 為基礎的防火牆, 請允許存取這些 Url, 並確定 proxy 會解析查詢 Url 時所收到的任何 CNAME 記錄。
+- 如果您使用以 URL 為基礎的 proxy, 請允許存取這些 Url, 並確定 proxy 會解析查詢 Url 時所收到的任何 CNAME 記錄。
 
 **URL** | **詳細資料**  
 --- | ---
@@ -166,16 +177,17 @@ management.azure.com | 建立設備 Active Directory 應用程式, 以與 Azure 
 dc.services.visualstudio.com | 上傳用於內部監視的應用程式記錄。
 *.vault.azure.net | 管理 Azure Key Vault 中的秘密。
 *.servicebus.windows.net | 設備與 Azure Migrate 服務之間的通訊。
-*.discoverysrv.windowsazure.com<br/> *.migration.windowsazure.com<br/> *.hypervrecoverymanager.windowsazure.com | 連接到 Azure Migrate 服務 Url。
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | 連接到 Azure Migrate 服務 Url。
 *.blob.core.windows.net | 將資料上傳至儲存體帳戶。
+http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | 用於 Azure Migrate 設備更新。
 
 
 ## <a name="agentless-migration-port-requirements"></a>無代理程式遷移-埠需求
 
 **裝置** | **連接**
 --- | ---
-設備 | 輸出 TCP 埠 3389, 可將複寫的資料上傳至 Azure, 並與 Azure Migrate 進行通訊, 以進行複寫和遷移。
-vCenter Server | TCP 通訊埠443上的輸入連線, 可讓設備協調複寫-建立快照集、複製資料、發行快照集
+設備 | 埠443上的輸出連線可將複寫的資料上傳至 Azure, 以及與 Azure Migrate 服務進行通訊, 以協調複寫與遷移。
+vCenter Server | 埠443上的輸入連線可讓設備協調複寫-建立快照集、複製資料、發行快照集
 vSphere/EXSI 主機 | TCP 埠902上用於設備的輸入, 以從快照集複寫資料。
 
 
@@ -185,36 +197,12 @@ vSphere/EXSI 主機 | TCP 埠902上用於設備的輸入, 以從快照集複寫�
 
 **支援** | **詳細資料**
 --- | ---
-**vCenter server/ESXI** | 您遷移的 VMware Vm 必須由執行5.5、6.0、6.5 或6.7 的一部或多部 vCenter 伺服器管理, 或在 vSphere 版本5.5、6.0、6.5 或6.7 的 ESXI 主機上執行。
+vCenter Server | 版本5.5、6.0、6.5 或6.7。
+VMware vSphere | 版本5.5、6.0、6.5 或6.7。
 
 ### <a name="agent-based-migration-vcenter-server-permissions"></a>以代理程式為基礎的遷移-vCenter Server 許可權
 
-**Permissions** | **詳細資料**
---- | ---
-Datastore.AllocateSpace | 允許 VM、快照、複製或虛擬磁片的資料存放區配置空間。
-Datastore.Browse | 允許流覽 VM 記錄檔, 以針對快照集的建立和刪除進行疑難排解。
-Datastore.LowLevelFileOperations | 允許在資料存放區瀏覽器中進行讀取、寫入、刪除和重新命名作業, 以針對快照集的建立/刪除進行疑難排解。
-Datastore.UpdateVirtualMachineFiles | Resignatured 資料存放區之後, 允許在資料存放區上更新 VM 檔案的路徑。
-Network.AssignNetwork | 允許將網路指派給 VM 資源。
-AssignVirtualMachineToResourcePool | 允許將 VM 指派給資源集區。
-Resource.MigratePoweredOffVirtualMachine | 允許將已關閉電源的 VM 遷移至不同的資源集區或主機。
-Resource.MigratePoweredOnVirtualMachine | 允許使用開機 VM 的 vMotion 進行遷移至不同的資源集區或主機。
-Tasks.CreateTask | 允許擴充功能來建立使用者定義的工作。
-Tasks.UpdateTask | 允許延伸模組更新使用者定義的工作。
-VirtualMachine。 | 允許設定 VM 選項和裝置。
-虛擬機器。 AnswerQuestion | 允許解決 VM 狀態轉換或執行階段錯誤的問題。
-虛擬機器。 DeviceConnection | 允許變更 VM 的 disconnectable 虛擬裝置的線上狀態。
-虛擬機器。 ConfigureCDMedia | 允許虛擬 DVD 或 CD-ROM 裝置的設定。
-虛擬機器。 ConfigureFloppyMedia | 允許虛擬磁碟裝置的設定。
-虛擬機器。互動。關機 | 允許在遷移至 Azure 期間關閉 VM 的電源。
-虛擬機器。 PowerOn | 允許在電源關閉的 VM 上開機, 並繼續已暫停的 VM。
-虛擬機器。 VMwareToolsInstall | 允許掛接 VMware 工具 CD 安裝程式, 並將其卸載為客體作業系統的 CD-ROM。
-VirtualMachine.Inventory.CreateNew | 允許建立 VM 並配置所需的資源。
-VirtualMachine.Inventory.Register | 允許將現有的 VM 新增至 vCenter Server 或主機清查。
-VirtualMachine.Inventory.Unregister | 允許從 vCenter Server 或主機清查中取消註冊 Vm。
-VirtualMachine.Provisioning.AllowVirtualMachineFilesUpload | 允許在與 VM 相關聯的檔案上進行寫入作業, 包括 vmx、磁片、記錄和 nvram。
-VirtualMachine.Provisioning.AllowVirtualMachineDownload | 允許與 VM 相關聯之檔案的讀取作業, 以下載記錄以進行疑難排解。
-VirtualMachine.SnapshotManagement.RemoveSnapshot | 允許從快照記錄移除快照集。
+VCenter Server 的唯讀帳戶。
 
 ## <a name="agent-based-migration-replication-appliance-requirements"></a>以代理程式為基礎的遷移-複寫設備需求
 
@@ -228,8 +216,8 @@ VirtualMachine.SnapshotManagement.RemoveSnapshot | 允許從快照記錄移除�
 **元件** | **需求**
 --- | ---
  | **VMware 設定**(VMware VM 應用裝置)
-**PowerCLI** | 如果複寫設備在 VMware VM 上執行, 則應該安裝[PowerCLI 6.0 版](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)。
-**NIC 類型** | VMXNET3 (如果設備是 VMware VM)
+PowerCLI | 如果複寫設備在 VMware VM 上執行, 則應該安裝[PowerCLI 6.0 版](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)。
+NIC 類型 | VMXNET3 (如果設備是 VMware VM)
  | **硬體設定**
 CPU 核心 | 8
 RAM | 16 GB
@@ -242,7 +230,7 @@ RAM | 16 GB
 TLS | 應啟用 TLS 1.2。
 .NET Framework | 應該在電腦上安裝 .NET Framework 4.6 或更新版本 (啟用強式密碼編譯)。
 MySQL | MySQL 應該安裝在設備上。<br/> 應該安裝 MySQL。 您可以手動安裝, 或 Site Recovery 可以在應用裝置部署期間進行安裝。
-其他應用程式 | 您不應該在複寫應用裝置上執行其他應用程式。
+其他應用程式 | 不要在複寫設備上執行其他應用程式。
 Windows Server 角色 | 請勿啟用這些角色： <br> - Active Directory Domain Services <br>- 網際網路資訊服務 <br> - Hyper-V
 群組原則 | 請勿啟用這些群組原則： <br> - 防止存取命令提示字元。 <br> - 防止存取登錄編輯工具。 <br> - 檔案附件的信任邏輯。 <br> - 開啟指令碼執行。 <br> [深入了解](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - 沒有預先存在的預設網站 <br> - 沒有預先存在的網站/應用程式接聽連接埠 443 <br>- 啟用[匿名驗證](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 啟用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 設定
@@ -273,11 +261,11 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 您可以使用其中一種方法, 將 MySQL 安裝在複寫應用裝置上。
 
-**安裝** | **詳細資料**
+**方法** | **詳細資料**
 --- | ---
 手動下載並安裝 | 下載 MySQL 應用程式 & 將它放在 C:\Temp\ASRSetup 資料夾中, 然後手動安裝。<br/> 當您設定應用裝置時, MySQL 會顯示為已安裝。
-不要線上下載 | 將 MySQL installer 應用程式放在資料夾 C:\temp\asrsetup 中。中 當您安裝設備並按一下以下載並安裝 MySQL 時, 安裝程式將會使用您新增的安裝程式。
-從 Azure Migrate 下載 | 當您安裝設備, 並會提示您提供 MySQL 時, 請選取 [**下載並安裝**]。
+不需要線上下載 | 將 MySQL installer 應用程式放在資料夾 C:\temp\asrsetup 中。中 當您安裝設備並按一下以下載並安裝 MySQL 時, 安裝程式將會使用您新增的安裝程式。
+在 Azure Migrate 中下載並安裝 | 當您安裝設備, 並會提示您提供 MySQL 時, 請選取 [**下載並安裝**]。
 
 
 
@@ -291,16 +279,30 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 **網路/儲存體** | 如需最新資訊, 請參閱 Site Recovery 的[網路](../site-recovery/vmware-physical-azure-support-matrix.md#network)和[儲存體](../site-recovery/vmware-physical-azure-support-matrix.md#storage)必要條件。 Azure Migrate 提供相同的網路/儲存需求。
 **Azure 需求** | 如需最新資訊, 請參閱 Site Recovery 的[Azure 網路](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)、[儲存體](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)和[計算](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute)需求。 Azure Migrate 對於 VMware 遷移具有相同的需求。
 **行動服務** | 行動服務代理程式必須安裝在您想要遷移的每個 VM 上。
-**目標磁片** | Vm 只能遷移至 Azure 中的受控磁片 (標準 HHD、premium SSD)。
+**UEFI 開機** | Azure 中已遷移的 VM 會自動轉換為 BIOS 開機 VM。<br/><br/> OS 磁片應該有最多四個磁碟分割, 而且磁片區應該使用 NTFS 格式化。
+**目標磁片** | Vm 只能遷移至 Azure 中的受控磁片 (標準 HDD、premium SSD)。
+**磁碟大小** | 2 TB 的 OS 磁片;適用于資料磁片的 8 TB。
+**磁片限制** |  每個 VM 最多63個磁片。
+**加密的磁片/磁片區** | 不支援使用加密磁片/磁片區的 Vm 進行遷移。
+**共用磁碟叢集** | 不支援。
+**獨立磁片** | 支援。
+**傳遞磁片** | 支援。
+**NFS** | 裝載為 Vm 上之磁片區的 NFS 磁片區不會複寫。
+iSCSI 目標 | 無代理程式遷移不支援具有 iSCSI 目標的 Vm。
+**多重路徑 IO** | 不支援。
+**儲存體 vMotion** | 支援
+**組合的 Nic** | 不支援。
+**IPv6** | 不支援。
+
 
 
 
 ## <a name="agent-based-migration-url-access-requirements"></a>以代理程式為基礎的遷移-URL 存取需求
 
-在 VMware Vm 上執行的行動服務需要網際網路連線到網際網路。
+在 VMware Vm 上執行的行動服務需要網際網路連線能力。
 
-- 當您部署行動服務時, 它會對下表中摘要說明的 Url 進行連線檢查。
-- 如果您使用以 URL 為基礎的防火牆, 請允許存取這些 Url, 並確定 proxy 會解析查詢 Url 時所收到的任何 CNAME 記錄。
+當您部署行動服務時, 它會對下表中摘要說明的 Url 進行連線檢查。
+
 
 **URL** | **詳細資料**  
 --- | ---
@@ -318,9 +320,9 @@ dc.services.visualstudio.com | 上傳用於內部監視的應用程式記錄。
 
 **裝置** | **連接**
 --- | ---
-VM | 在 Vm 上執行的行動服務會與埠 HTTPS 443 輸入上的內部部署設定伺服器通訊, 以進行複寫管理。<br/><br/> VM 會透過輸入連接埠 HTTPS 9443 將複寫資料傳送至處理伺服器 (在設定伺服器電腦上執行)。 您可以修改此連接埠。
+VM | 在 Vm 上執行的行動服務會與埠 HTTPS 443 輸入上的內部部署複寫設備 (設定伺服器) 進行通訊, 以進行複寫管理。<br/><br/> VM 會透過輸入連接埠 HTTPS 9443 將複寫資料傳送至處理伺服器 (在設定伺服器電腦上執行)。 您可以修改此連接埠。
 複寫設備 | 複寫設備會透過埠 HTTPS 443 輸出來協調與 Azure 的複寫。
-處理伺服器 | 處理伺服器會透過輸出連接埠 443 接收複寫資料、將其最佳化並加密，然後傳送至 Azure 儲存體。<br/> 根據預設, 進程伺服器會在複寫設備上執行。
+處理伺服器 | 進程伺服器會接收復寫資料、將其優化並加以加密, 並透過埠443輸出將它傳送至 Azure 儲存體。<br/> 根據預設, 進程伺服器會在複寫設備上執行。
 
 ## <a name="azure-vm-requirements"></a>Azure VM 需求
 

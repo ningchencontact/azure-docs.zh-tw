@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dc17cb48f7e06757dacdca5f291ed4604bfc10ee
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 923859fdb0b398d04e710810a96c33fb1c3cd9da
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414398"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698572"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>開發您自己的 IoT Edge 模組
 
@@ -48,7 +48,7 @@ IoT Edge 中樞會根據[模組資訊清單](module-composition.md)中所述的�
 
 最後，使用下列系統屬性來為 Edge 中樞所處理的裝置到雲端訊息加上戳記：
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 | -------- | ----------- |
 | $connectionDeviceId | 傳送訊息之用戶端的裝置識別碼 |
 | $connectionModuleId | 傳送訊息之模組的模組識別碼 |
@@ -79,7 +79,7 @@ IoT Edge 支援多種作業系統、裝置架構和開發語言, 讓您能夠建
 | Python | Visual Studio Code |
 
 >[!NOTE]
->ARM64 Linux 裝置的開發和偵錯工具支援現供[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 如需詳細資訊, 請參閱[Visual Studio Code (預覽) 中的開發和偵錯工具 ARM64 IoT Edge 模組](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)。
+>ARM64 Linux 裝置的開發和偵錯工具支援現供[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 如需詳細資訊，請參閱[在 Visual Studio Code (預覽)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview) 中開發和偵錯 ARM64 IoT Edge 模組。
 
 ### <a name="windows"></a>Windows
 
@@ -98,4 +98,4 @@ IoT Edge 支援多種作業系統、裝置架構和開發語言, 讓您能夠建
 
 [使用 Visual Studio Code 開發適用于 IoT Edge 的模組](how-to-vs-code-develop-module.md)
 
-[瞭解及使用 Azure IoT 中樞 Sdk](/iot-hub/iot-hub-devguide-sdks.md)
+[瞭解及使用 Azure IoT 中樞 Sdk](../iot-hub/iot-hub-devguide-sdks.md)

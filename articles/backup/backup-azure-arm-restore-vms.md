@@ -1,19 +1,20 @@
 ---
 title: Azure 備份：使用 Azure 入口網站還原虛擬機器
 description: 使用 Azure 入口網站從復原點還原 Azure 虛擬機器
-author: geethalakshmig
-manager: vijayts
+ms.reviewer: geg
+author: dcurwin
+manager: carmonm
 keywords: 還原備份；如何還原；復原點；
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: geg
-ms.openlocfilehash: 951e42c4eb7a9d897140a7422364cdbfe83e57cc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f961f472c0b00932bf5ee6302af58f39fa8421ed
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466893"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720437"
 ---
 # <a name="restore-azure-vms"></a>還原 Azure VM
 
@@ -111,7 +112,8 @@ Azure 備份提供數種方法來還原 VM。
 
 4. 在 [還原設定] 中，選取 [確定]。 在 [還原] 中，按一下 [還原] 以觸發還原作業。
 
-在 VM 還原期間, Azure 備份不會使用儲存體帳戶。 但是, 如果是**復原磁碟**和**立即還原**, 則會使用儲存體帳戶來儲存範本。
+當您的虛擬機器使用受控磁片, 並選取 [**建立虛擬機器**] 選項時, Azure 備份不會使用指定的儲存體帳戶。 在**復原磁碟**和**立即還原**的案例中, 儲存體帳戶僅用於儲存範本。 受控磁片會建立在指定的資源群組中。
+當您的虛擬機器使用非受控磁片時, 它們會以 blob 的形式還原至儲存體帳戶。
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>使用範本自訂還原的 VM
 
@@ -162,7 +164,7 @@ Azure 備份提供數種方法來還原 VM。
 **區域釘選的 Vm** | Azure 備份支援備份和還原已分區的固定 Vm。 [深入了解](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>追蹤還原作業
-在觸發還原作業之後，備份服務會建立用於追蹤的作業。 Azure 備份會在入口網站中顯示作業的相關通知。 如果沒有顯示，請按一下 [通知] 符號來加以查看。
+在觸發還原作業之後，備份服務會建立用於追蹤的作業。 Azure 備份會在入口網站中顯示作業的相關通知。 如果看不到它們, 請選取 [**通知**] 符號, 然後選取 [**查看所有作業**] 以查看還原程式狀態。
 
 ![已觸發還原](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 

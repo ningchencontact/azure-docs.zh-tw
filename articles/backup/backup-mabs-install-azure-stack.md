@@ -1,20 +1,20 @@
 ---
 title: 在 Azure Stack 上安裝 Azure 備份伺服器 | Microsoft Docs
 description: 使用 Azure 備份伺服器來保護或備份 Azure Stack 中的工作負載。
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: raynew
-ms.openlocfilehash: 77f418a37c47850cf8a763dc399109d86925feff
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: da941d0234fe78791f9a1c2f2a7d01122247534c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465249"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639851"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安裝 Azure 備份伺服器
 
@@ -108,7 +108,7 @@ Azure 備份伺服器一律加入網域。 如果您需要將 Azure 備份伺服
 若要編輯儲存體複寫設定︰
 
 1. 選取保存庫以開啟保存庫儀表板和 [設定] 功能表。 如果 [設定] 功能表未開啟，請按一下保存庫儀表板中的 [所有設定]。
-2. 在 [設定] 功能表上按一下 [備份基礎結構] > [備份組態]，開啟 [備份組態] 功能表。 在 [備份組態]  功能表上，選擇保存庫的儲存體複寫選項。
+2. 在 [設定] 功能表上按一下 [備份基礎結構] > [備份組態]，開啟 [備份組態] 功能表。 在 [備份組態] 功能表上，選擇保存庫的儲存體複寫選項。
 
     ![備份保存庫的清單](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -213,7 +213,7 @@ Azure 備份伺服器與 Data Protection Manager 共用程式碼。 您會在 Az
 
     ![Azure 備份伺服器 - 歡迎使用和必要條件檢查](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    如果您的環境具有所需的必要條件，就會看到訊息指出機器符合需求。 按一下 [下一步] 。  
+    如果您的環境具有所需的必要條件，就會看到訊息指出機器符合需求。 按一下 [下一步]。  
 
     ![Azure 備份伺服器 - 必要條件檢查通過](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 

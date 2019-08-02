@@ -3,7 +3,7 @@ title: 升級 Azure Service Fabric 獨立叢集 | Microsoft Docs
 description: 了解如何升級 Service Fabric 獨立叢集的版本或組態。  T
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
-ms.author: aljo
-ms.openlocfilehash: 1d96a2e81917af5e80bb847ea25610ccb71ad70f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: bf99d5d59354745508d8ca88abfc4b42fe608025
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711046"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599795"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>升級和更新 Service Fabric 獨立叢集
 
@@ -32,7 +32,7 @@ ms.locfileid: "60711046"
 
 ## <a name="customize-configuration-settings"></a>自訂組態設定
 
-在 ClusterConfig.json  檔案中可設定許多不同的[組態設定](service-fabric-cluster-manifest.md)，例如叢集和節點屬性的可靠性層級。  若要深入了解，請參閱[升級獨立叢集的組態](service-fabric-cluster-config-upgrade-windows-server.md)。  也可以自訂其他許多更進階的設定。  如需詳細資訊，請參閱 [Service Fabric 叢集網狀架構設定](service-fabric-cluster-fabric-settings.md)。
+在 ClusterConfig.json 檔案中可設定許多不同的[組態設定](service-fabric-cluster-manifest.md)，例如叢集和節點屬性的可靠性層級。  若要深入了解，請參閱[升級獨立叢集的組態](service-fabric-cluster-config-upgrade-windows-server.md)。  也可以自訂其他許多更進階的設定。  如需詳細資訊，請參閱 [Service Fabric 叢集網狀架構設定](service-fabric-cluster-fabric-settings.md)。
 
 ## <a name="define-node-properties"></a>定義節點屬性
 有時候您可以確保工作負載只在叢集中的特定節點類型上執行。 例如，某些工作負載可能需要 GPU 或 SSD，而有些則不用。 針對叢集中的每種節點類型，您可以將自訂節點屬性新增至叢集節點。 條件約束是陳述式，會附加至針對一或多個節點屬性選取的個別服務。 放置條件約束會定義應該執行服務的位置。

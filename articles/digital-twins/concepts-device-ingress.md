@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a3a5555bf163aedd9b41a9c9aa363a883deb4cb8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60925856"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638513"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>裝置連線能力與遙測輸入
 
@@ -50,7 +50,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 | *YOUR_DEVICE_GUID* | 裝置識別碼 |
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
 | 參數值 | 更換為 |
@@ -61,7 +61,7 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
 ## <a name="device-to-cloud-message"></a>裝置到雲端的訊息
 
-您可以自訂裝置的訊息格式和承載，以符合您解決方案的需求。 請使用任何可序列化為位元組陣列或資料流，並且由 [Azure IoT 裝置用戶端訊息類別 Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___) 所支援的資料合約。 訊息可以是自訂的二進位格式，但您必須在對應的使用者定義函式中解碼資料合約。 裝置到雲端的訊息只有一項需求。 您必須維護一組屬性，以確保您的訊息會正確地路由至處理引擎。
+您可以自訂裝置的訊息格式和承載，以符合您解決方案的需求。 請使用任何可序列化為位元組陣列或資料流，並且由 [Azure IoT 裝置用戶端訊息類別 Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___) 所支援的資料合約。 訊息可以是自訂的二進位格式，但您必須在對應的使用者定義函式中解碼資料合約。 裝置到雲端的訊息只有一項需求。 維護一組屬性, 以確保您的訊息會正確地路由傳送至處理引擎。
 
 ### <a name="telemetry-properties"></a>遙測屬性
 

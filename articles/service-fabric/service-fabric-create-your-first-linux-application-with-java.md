@@ -3,7 +3,7 @@ title: 在 Linux 上建立 Azure Service Fabric Reliable Actors Java 應用程�
 description: 了解如何在五分鐘內建立和部署 Java Service Fabric Reliable Actors 應用程式。
 services: service-fabric
 documentationcenter: java
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
-ms.author: aljo
-ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394014"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599676"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上建立第一個 Java Service Fabric Reliable Actors 應用程式
 > [!div class="op_single_selector"]
@@ -216,7 +216,7 @@ Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令
 這些命令的參數可以在應用程式套件內產生的資訊清單中找到。
 
 部署應用程式後，開啟瀏覽器並瀏覽至 [http://localhost:19080/Explorer](http://localhost:19080/Explorer) 的 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)。
-接著展開 [應用程式]  節點，請注意，您的應用程式類型現在有一個項目，而另一個項目則在該類型的第一個執行個體。
+接著展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個項目則在該類型的第一個執行個體。
 
 > [!IMPORTANT]
 > 若要將應用程式部署到 Azure 中的安全 Linux 叢集，您需要設定憑證來向 Service Fabric 執行階段驗證您的應用程式。 這樣做讓您的 Reliable Actors 服務能夠與基礎 Service Fabric 執行階段 API 進行通訊。 若要深入了解，請參閱[將 Reliable Services 應用程式設定為在 Linux 叢集上執行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。  
@@ -243,11 +243,11 @@ Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令
     watch -n 1 ./testclient.sh
     ```
 
-2. 在 Service Fabric Explorer 中，找出裝載動作項目服務主要複本的節點。 在以下的螢幕擷取畫面中是節點 3。 主要服務複本會處理讀取和寫入作業。  服務狀態變更會接著複寫至次要複本，在 0 和 1 以下螢幕擷取畫面中的節點上執行。
+2. 在 Service Fabric Explorer 中，找出裝載動作項目服務主要複本的節點。 在以下的螢幕擷取畫面中是節點 3。 主要服務複本會處理讀取和寫入作業。  服務狀態的變更接著會複寫到次要複本, 並在下列螢幕擷取畫面中的節點0和1上執行。
 
     ![在 Service Fabric Explorer 中尋找主要複本][sfx-primary]
 
-3. 在 [節點]  中，按一下您在上一個步驟中找到的節點，然後從 [動作] 功能表選取 [停用 (重新啟動)]  。 此動作會重新啟動執行主要服務複本的節點，並強制容錯移轉至在另一個節點上執行的其中一個次要複本。  該次要複本會提升為主要，不同節點上會建立另一個次要複本，而且主要複本會開始採取讀取/寫入作業。 當節點重新啟動時，請留意測試用戶端的輸出，並注意儘管是容錯移轉，計數器仍會繼續增加。
+3. 在 [節點] 中，按一下您在上一個步驟中找到的節點，然後從 [動作] 功能表選取 [停用 (重新啟動)]。 此動作會重新啟動執行主要服務複本的節點，並強制容錯移轉至在另一個節點上執行的其中一個次要複本。  該次要複本會提升為主要，不同節點上會建立另一個次要複本，而且主要複本會開始採取讀取/寫入作業。 當節點重新啟動時，請留意測試用戶端的輸出，並注意儘管是容錯移轉，計數器仍會繼續增加。
 
 ## <a name="remove-the-application"></a>移除應用程式
 使用範本中提供的解除安裝指令碼來刪除應用程式執行個體、取消註冊應用程式套件，並從叢集的映像存放區中移除此應用程式套件。
@@ -256,7 +256,7 @@ Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令
 ./uninstall.sh
 ```
 
-在 Service Fabric 總管中，您可看到不再出現於 [應用程式]  節點中的應用程式和應用程式類型。
+在 Service Fabric 總管中，您可看到不再出現於 [應用程式] 節點中的應用程式和應用程式類型。
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven 上的 Service Fabric Java 程式庫
 Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``pom.xml`` 或 ``build.gradle`` 中新增相依性，以從 **mavenCentral** 使用 Service Fabric Java 程式庫。 

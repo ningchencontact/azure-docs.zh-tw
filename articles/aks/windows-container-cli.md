@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
 ms.openlocfilehash: 305901007180cfb197cf5c0dfb338800449560a1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68382040"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>預覽-使用 Azure CLI 在 Azure Kubernetes Service (AKS) 叢集上建立 Windows Server 容器
@@ -42,7 +42,7 @@ Azure Kubernetes Service (AKS) 是受控 Kubernetes 服務，可讓您快速部�
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要使用 Windows Server 容器, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]命令來安裝*aks-preview* Azure CLI 擴充功能::
+若要使用 Windows Server 容器, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -120,7 +120,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
-若要執行支援 Windows Server 容器之節點集區的 AKS 叢集, 您的叢集必須使用使用[AZURE CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]的網路原則。 使用[az aks create][az-aks-create]命令來建立名為*myAKSCluster*的 aks 叢集。 此命令將會建立所需的網路資源 (如果不存在)。
+若要執行支援 Windows Server 容器之節點集區的 AKS 叢集, 您的叢集必須使用使用[AZURE CNI][azure-cni-about] (advanced) 網路外掛程式的網路原則。 如需協助規劃必要子網範圍和網路考慮的詳細資訊, 請參閱[設定 AZURE CNI 網路][use-advanced-networking]功能。 使用[az aks create][az-aks-create]命令來建立名為*myAKSCluster*的 aks 叢集。 此命令將會建立所需的網路資源 (如果不存在)。
   * 叢集已設定一個節點
   * *Windows-admin-password*和*windows-admin-username*參數會針對在叢集上建立的任何 windows Server 容器, 設定系統管理員認證。
 
@@ -194,7 +194,7 @@ aksnpwin987654                      Ready    agent   108s   v1.14.1
 
 ## <a name="run-the-application"></a>執行應用程式
 
-Kubernetes 資訊清單檔會定義所需的叢集狀態，例如要執行哪些容器映像。 在本文中, 資訊清單可用來建立在 Windows Server 容器中執行 ASP.NET 範例應用程式所需的所有物件。 此資訊清單包含從網際網路存取應用程式的[Kubernetes 部署][kubernetes-deployment] for the ASP.NET sample application and an external [Kubernetes service][kubernetes-service] 。
+Kubernetes 資訊清單檔會定義所需的叢集狀態，例如要執行哪些容器映像。 在本文中, 資訊清單可用來建立在 Windows Server 容器中執行 ASP.NET 範例應用程式所需的所有物件。 此資訊清單包含 ASP.NET 範例應用程式的[Kubernetes 部署][kubernetes-deployment], 以及從網際網路存取應用程式的外部[Kubernetes 服務][kubernetes-service]。
 
 ASP.NET 範例應用程式會當做[.NET Framework 範例][dotnet-samples]的一部分提供, 並在 Windows Server 容器中執行。 AKS 需要 Windows Server 容器以*Windows server 2019*或更新版本的映射為基礎。 Kubernetes 資訊清單檔案也必須定義[節點選取器][node-selector], 以指示您的 AKS 叢集在可執行 Windows Server 容器的節點上執行 ASP.NET 範例應用程式的 pod。
 

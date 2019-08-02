@@ -1,20 +1,19 @@
 ---
 title: 開始使用 Azure IoT 中樞裝置管理 (Python) | Microsoft Docs
 description: 如何使用 IoT 中樞裝置管理來起始遠端裝置重新開機。 您可以使用適用於 Python 的 Azure IoT SDK，實作模擬裝置應用程式 (包含直接方法) 和服務應用程式 (叫用直接方法)。
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.author: kgremban
-ms.openlocfilehash: c4c8957e8d9b355216e10503d58915977c3b9b1a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 07/30/2019
+ms.author: robinsh
+ms.openlocfilehash: daba6601c0da2bd6d1b76897e7ce1ff75da67b5b
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403399"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667989"
 ---
 # <a name="get-started-with-device-management-python"></a>開始使用裝置管理 (Python)
 
@@ -34,17 +33,11 @@ ms.locfileid: "68403399"
 
 * **dmpatterns_getstarted_service.py**，它會在模擬裝置應用程式上呼叫直接方法，顯示回應，並顯示更新的報告屬性。
 
-若要完成此教學課程，您需要下列項目：
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-* [Python 2.x 或](https://www.python.org/downloads/)3.x。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
+以下是必要條件的安裝指示。
 
-* 使用命令來安裝[azure iothub-裝置用戶端](https://pypi.org/project/azure-iothub-device-client/)套件`pip install azure-iothub-device-client`
-
-* 使用命令來安裝[azure iothub-服務用戶端](https://pypi.org/project/azure-iothub-service-client/)套件`pip install azure-iothub-service-client`
-
-* 如果您是使用 Windows 作業系統，則 [Visual C++ 可轉散發套件](https://www.microsoft.com/download/confirmation.aspx?id=48145)允許使用 Python 的原生 DLL。
-
-* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
