@@ -1,20 +1,21 @@
 ---
 title: Azure 備份：使用 REST API 備份 Azure Vm
 description: 使用 REST API 管理 Azure VM 備份的備份作業
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: REST API; Azure VM 備份; Azure VM 還原;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: e78c7ca9e5b39beb160aeef96dbbf6bce07613e4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466845"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688733"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>透過 REST API 使用 Azure 備份來備份 Azure VM
 

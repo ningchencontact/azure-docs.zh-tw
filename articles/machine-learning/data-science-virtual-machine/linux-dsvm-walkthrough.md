@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: 如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 editor: cgronlun
 ms.custom: seodec18
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516889"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557360"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
@@ -31,13 +31,13 @@ ms.locfileid: "60516889"
 
 在本逐步解說中，我們會分析 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 資料集。 這是一組標示為垃圾郵件或非垃圾郵件 (亦即這些郵件不是垃圾郵件) 的電子郵件，並同時包含關於電子郵件內容的一些統計資料。 其中所含的統計資料會在下下一節中討論。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 您必須先具有下列項目，才可以使用 Linux 資料科學虛擬機器：
 
 * **Azure 訂用帳戶**。 如果您還沒有訂用帳戶，請參閱 [立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 * [**Linux 資料科學 VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm)。 如需佈建此 VM 的相關資訊，請參閱 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md)。
 * [X2Go](https://wiki.x2go.org/doku.php) 已安裝在電腦上並已開啟 XFCE 工作階段。 如需安裝和設定 **X2Go 用戶端**的相關資訊，請參閱[安裝和設定 X2Go 用戶端](linux-dsvm-intro.md#installing-and-configuring-x2go-client)。
-* 若要享受更平滑的捲動體驗，請切換 VM FireFox 瀏覽器的 about:config 中的 gfx.xrender.enabled 旗標。 [請參閱這裡深入了解](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 另請考慮將 *mousewheel.enable_pixel_scrolling* 切換為 False。 [請參閱這裡的指示。](https://support.mozilla.org/en-US/questions/981140)
+* 若要享受更平滑的捲動體驗，請切換 VM FireFox 瀏覽器的 about:config 中的 gfx.xrender.enabled 旗標。 [請參閱這裡深入了解](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/)。 另請考慮將 *mousewheel.enable_pixel_scrolling* 切換為 False。 [請參閱這裡的指示。](https://support.mozilla.org/questions/981140)
 * **AzureML 帳戶**。 如果您還沒有帳戶，請在 [AzureML 首頁](https://studio.azureml.net/)註冊新帳戶。 裡面有免費的使用量層級可幫助您開始使用。
 
 ## <a name="download-the-spambase-dataset"></a>下載 spambase 資料集
@@ -97,7 +97,7 @@ ms.locfileid: "60516889"
 
 這會顯示每個變數的類型和資料集內的前幾個值。
 
-「spam」  資料行已讀取為整數，但它實際上是類別變數 (或係數)。 若要設定其類型︰
+「spam」 資料行已讀取為整數，但它實際上是類別變數 (或係數)。 若要設定其類型︰
 
     data$spam <- as.factor(data$spam)
 
@@ -185,9 +185,9 @@ ms.locfileid: "60516889"
 
 若要部署上一節的決策樹程式碼，您需要登入 Azure Machine Learning Studio。 您需要工作區識別碼和驗證權杖才能登入。 若要找到這些值並以值初始化 Azure Machine Learning 變數︰
 
-選取左側功能表上的 [設定]  。 記下您的**工作區識別碼**。 ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
+選取左側功能表上的 [設定]。 記下您的**工作區識別碼**。 ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
-從上方的功能表選取 [授權權杖]  並記下您的**主要授權權杖**。![3](./media/linux-dsvm-walkthrough/workspace-token.png)
+從上方的功能表選取 [授權權杖] 並記下您的**主要授權權杖**。![3](./media/linux-dsvm-walkthrough/workspace-token.png)
 
 載入 **AzureML** 封裝，然後在 DSVM 的 R 工作階段中以您的權杖和工作區識別碼設定變數值：
 
@@ -361,28 +361,28 @@ Rattle 使用索引標籤式介面。 大部分索引標籤會對應至 [資料�
 
 若要載入和設定資料集︰
 
-* 若要載入檔案，請選取 [資料]  索引標籤，然後
+* 若要載入檔案，請選取 [資料] 索引標籤，然後
 * 選擇 **Filename** 旁的選取器，然後選擇 **spambaseHeaders.data**。
-* 若要載入檔案。 選取最上方按鈕列中的 [執行]  。 您應該會看到每個資料行的摘要，包括其識別的資料類型、其為輸入、目標還是其他類型的變數，以及唯一值數目。
-* Rattle 已將 [垃圾郵件]  資料行正確地識別為目標。 選取 [垃圾郵件] 資料行，然後將 [目標資料類型]  設定為 [類別]  。
+* 若要載入檔案。 選取最上方按鈕列中的 [執行]。 您應該會看到每個資料行的摘要，包括其識別的資料類型、其為輸入、目標還是其他類型的變數，以及唯一值數目。
+* Rattle 已將 [垃圾郵件] 資料行正確地識別為目標。 選取 [垃圾郵件] 資料行，然後將 [目標資料類型] 設定為 [類別]。
 
 若要瀏覽資料︰
 
-* 選取 [瀏覽]  索引標籤。
-* 依序按一下 [摘要]  和 [執行]  ，以查看一些關於變數類型的資訊和某些摘要統計資料。
-* 若要檢視關於每個變數的其他類型的統計資料，請選取其他選項，例如 [描述]  或 [基本資訊]  。
+* 選取 [瀏覽] 索引標籤。
+* 依序按一下 [摘要] 和 [執行]，以查看一些關於變數類型的資訊和某些摘要統計資料。
+* 若要檢視關於每個變數的其他類型的統計資料，請選取其他選項，例如 [描述] 或 [基本資訊]。
 
-[瀏覽]  索引標籤也可讓您產生許多具洞察力的繪圖。 若要繪製資料的長條圖︰
+[瀏覽] 索引標籤也可讓您產生許多具洞察力的繪圖。 若要繪製資料的長條圖︰
 
-* 選取 [分佈]  。
-* 為 **word_freq_remove** 和 **word_freq_you** 勾選 [長條圖]  。
-* 選取 [執行]  。 您應該會在單一圖形視窗中看到這兩個密度圖，其中清楚顯示「you」這個字在電子郵件中的出現頻率遠高於「remove」。
+* 選取 [分佈]。
+* 為 **word_freq_remove** 和 **word_freq_you** 勾選 [長條圖]。
+* 選取 [執行]。 您應該會在單一圖形視窗中看到這兩個密度圖，其中清楚顯示「you」這個字在電子郵件中的出現頻率遠高於「remove」。
 
 相互關聯圖也很有趣。 若要建立此圖：
 
-* 選擇 [相互關聯]  做為 [類型]  ，然後
-* 選取 [執行]  。
-* Rattle 會警告您，它建議的上限為 40 個變數。 選取 [是]  以檢視此圖。
+* 選擇 [相互關聯] 做為 [類型]，然後
+* 選取 [執行]。
+* Rattle 會警告您，它建議的上限為 40 個變數。 選取 [是] 以檢視此圖。
 
 圖中會浮現一些有趣的相互關聯：例如，「technology」與「HP」和「labs」有高度相互關聯性。 它也與「650」有高度相互關聯性，因為資料集捐贈者的區碼是 650。
 
@@ -390,7 +390,7 @@ Rattle 使用索引標籤式介面。 大部分索引標籤會對應至 [資料�
 
 Rattle 可以轉換資料集來處理一些常見的問題。 例如，它可讓您調整功能大小、插補遺漏值、處理離群值，以及移除具有遺失資料的變數或觀察值。 Rattle 也可以識別觀察值和 (或) 變數之間的關聯規則。 這些索引標籤不在此入門逐步解說的討論範圍內。
 
-Rattle 也可以執行叢集分析。 讓我們排除部分功能以讓輸出更方便閱讀。 在 [資料]  索引標籤上，選擇每個變數旁的 [忽略]  ，但下面這十個項目除外︰
+Rattle 也可以執行叢集分析。 讓我們排除部分功能以讓輸出更方便閱讀。 在 [資料] 索引標籤上，選擇每個變數旁的 [忽略]，但下面這十個項目除外︰
 
 * word_freq_hp
 * word_freq_technology
@@ -403,27 +403,27 @@ Rattle 也可以執行叢集分析。 讓我們排除部分功能以讓輸出更
 * word_freq_business
 * spam
 
-然後返回 [叢集]  索引標籤，選擇 [KMeans]  ，並將 [叢集數目]  設定為 4。 然後**執行**。 結果會顯示在輸出視窗中。 有一個叢集具有高頻率的「george」和「hp」，因此可能是合法的商業電子郵件。
+然後返回 [叢集] 索引標籤，選擇 [KMeans]，並將 [叢集數目] 設定為 4。 然後**執行**。 結果會顯示在輸出視窗中。 有一個叢集具有高頻率的「george」和「hp」，因此可能是合法的商業電子郵件。
 
 若要建置簡單的決策樹機器學習服務模型︰
 
-* 選取 [模型]  索引標籤。
-* 選擇 [樹狀結構]  做為 [類型]  。
-* 選取 [執行]  ，在輸出視窗中以文字形式顯示樹狀結構。
-* 選取 [繪製]  按鈕以檢視圖形化版本。 此版本看起來非常類似我們稍早使用「rpart」  取得的樹狀結構。
+* 選取 [模型] 索引標籤。
+* 選擇 [樹狀結構] 做為 [類型]。
+* 選取 [執行] ，在輸出視窗中以文字形式顯示樹狀結構。
+* 選取 [繪製] 按鈕以檢視圖形化版本。 此版本看起來非常類似我們稍早使用「rpart」取得的樹狀結構。
 
 Rattle 的其中一項優秀功能是能夠執行數個機器學習服務方法和快速評估這些方法。 程序如下：
 
-* 選擇 [全部]  做為 [類型]  。
-* 選取 [執行]  。
-* 執行完畢後，您可以按一下任何單一 [類型]  \(例如 **SVM**) 並檢視結果。
-* 您也可以使用 [評估]  索引標籤比較驗證集上模型的效能。例如，[錯誤矩陣]  選取項目會顯示驗證集上每個模型的混淆矩陣、整體錯誤和平均類別錯誤。
+* 選擇 [全部] 做為 [類型]。
+* 選取 [執行]。
+* 執行完畢後，您可以按一下任何單一 [類型] \(例如 **SVM**) 並檢視結果。
+* 您也可以使用 [評估] 索引標籤比較驗證集上模型的效能。例如，[錯誤矩陣] 選取項目會顯示驗證集上每個模型的混淆矩陣、整體錯誤和平均類別錯誤。
 * 您也可以繪製 ROC 曲線、執行敏感度分析和進行其他類型的模型評估。
 
-建置完模型之後，選取 [記錄]  索引標籤來檢視 Rattle 在工作階段期間執行的 R 程式碼。 您可以選取 [匯出]  按鈕來加以儲存。
+建置完模型之後，選取 [記錄] 索引標籤來檢視 Rattle 在工作階段期間執行的 R 程式碼。 您可以選取 [匯出] 按鈕來加以儲存。
 
 > [!NOTE]
-> 最新版 Rattle 中有一個錯誤。 若要修改指令碼，或使用稍後重複執行步驟，您必須插入 # 字元前面*匯出此記錄檔...* 文字中的記錄檔。
+> 最新版 Rattle 中有一個錯誤。 若要修改腳本或使用它在稍後重複執行步驟, 您必須在記錄檔文字中的 [*匯出此記錄檔 ...* ] 前面插入 # 字元。
 >
 >
 
@@ -479,39 +479,39 @@ DSVM 隨附安裝 PostgreSQL。 PostgreSQL 是複雜的開放原始碼關聯式�
 
 若要開始使用，請從 [應用程式] 功能表啟動 Squirrel SQL。 若要設定驅動程式︰
 
-* 依序選取 [Windows]  和 [檢視驅動程式]  。
-* 以滑鼠右鍵按一下 [PostgreSQL]  ，然後選取 [修改驅動程式]  。
-* 依序選取 [額外類別路徑]  和 [新增]  。
-* 輸入 ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** 做為 [檔案名稱]  。
-* 選取 [開啟]  。
-* 選擇 [列出驅動程式]，接著在 [類別名稱]  中選取 [org.postgresql.Driver]  ，然後選取 [確定]  。
+* 依序選取 [Windows] 和 [檢視驅動程式]。
+* 以滑鼠右鍵按一下 [PostgreSQL]，然後選取 [修改驅動程式]。
+* 依序選取 [額外類別路徑] 和 [新增]。
+* 輸入 ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** 做為 [檔案名稱]。
+* 選取 [開啟]。
+* 選擇 [列出驅動程式]，接著在 [類別名稱] 中選取 [org.postgresql.Driver]，然後選取 [確定]。
 
 若要設定與本機伺服器的連線︰
 
-* 依序選取 [Windows]  和 [檢視別名]  。
+* 依序選取 [Windows] 和 [檢視別名]。
 * 選擇 [+] **+** 按鈕建立新的別名。
-* 將其命名為*垃圾郵件資料庫*，然後選擇 [驅動程式]  下拉式清單中的 [PostgreSQL]  。
+* 將其命名為*垃圾郵件資料庫*，然後選擇 [驅動程式] 下拉式清單中的 [PostgreSQL]。
 * 將 URL 設定為 *jdbc:postgresql://localhost/spam*。
 * 輸入您的*使用者名稱*和*密碼*。
-* 按一下 [確定]  。
-* 若要開啟 [連線]  視窗，請按兩下***垃圾郵件資料庫***別名。
+* 按一下 [確定]。
+* 若要開啟 [連線] 視窗，請按兩下***垃圾郵件資料庫***別名。
 * 選取 [ **連接**]。
 
 若要執行一些查詢︰
 
-* 選取 [SQL]  索引標籤。
+* 選取 [SQL] 索引標籤。
 * 在 [SQL] 索引標籤頂端的查詢文字方塊中輸入簡單的查詢，例如 `SELECT * from data;` 。
 * 按 **Ctrl-Enter** 來加以執行。 依預設，Squirrel SQL 會傳回查詢的前 100 個資料列。
 
-還有許多可供您執行以瀏覽此資料的查詢。 例如，「make」  一字在垃圾郵件和非垃圾郵件之間的出現頻率有何差異？
+還有許多可供您執行以瀏覽此資料的查詢。 例如，「make」 一字在垃圾郵件和非垃圾郵件之間的出現頻率有何差異？
 
     SELECT avg(word_freq_make), spam from data group by spam;
 
-或者，經常包含「3d」  的電子郵件有何特性？
+或者，經常包含「3d」的電子郵件有何特性？
 
     SELECT * from data order by word_freq_3d desc;
 
-大部分頻繁出現「3d」  的電子郵件顯然是垃圾郵件，因此是很適合用來建置預測性模型以分類電子郵件的特徵。
+大部分頻繁出現「3d」 的電子郵件顯然是垃圾郵件，因此是很適合用來建置預測性模型以分類電子郵件的特徵。
 
 如果您想要對 PostgreSQL 資料庫中儲存的資料執行機器學習服務，請考慮使用 [MADlib](https://madlib.incubator.apache.org/)。
 

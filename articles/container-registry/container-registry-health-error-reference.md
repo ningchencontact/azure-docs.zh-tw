@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 672d446fa8dc27612c7b046cac109bfa4ca5fec5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4585749c83432c19b6e62f57c1d954b3afc5ee33
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309382"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608391"
 ---
 # <a name="health-check-error-reference"></a>健全狀況檢查錯誤參考
 
@@ -63,7 +63,7 @@ ms.locfileid: "68309382"
 
 ## <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-此錯誤表示指定登錄的挑戰端點回應了403禁止的 HTTP 狀態。 此錯誤表示使用者無法存取登錄, 很可能是因為虛擬網路設定。
+此錯誤表示指定登錄的挑戰端點回應了403禁止的 HTTP 狀態。 此錯誤表示使用者無法存取登錄, 很可能是因為虛擬網路設定。 若要查看目前設定的防火牆規則, `az acr show --query networkRuleSet --name <registry>`請執行。
 
 *可能的解決方案*:移除虛擬網路規則, 或將目前的用戶端 IP 位址新增至允許清單。
 

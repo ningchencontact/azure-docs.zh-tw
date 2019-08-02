@@ -4,15 +4,15 @@ description: 本文說明如何在 Azure Cosmos DB 中建立和使用資料庫�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467760"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598492"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用資料庫、容器和專案
 
@@ -124,6 +124,9 @@ Azure Cosmos 容器具備一組系統定義的屬性。 視您使用的 API 而�
 |\_供電 | 系統產生的 | 項目的可定址 URI | 是 | 否 | 否 | 否 | 否 |
 |ID | 無論是 | 邏輯分割區中使用者定義的唯一名稱。 如果使用者未指定識別碼, 系統會自動產生一個 ID。 | 是 | 是 | 是 | 是 | 是 |
 |任意使用者定義的屬性 | 使用者定義 | 以 API 原生標記法表示的使用者定義屬性 (包括 JSON、BSON 和 CQL) | 是 | 是 | 是 | 是 | 是 |
+
+> [!NOTE]
+> `id`屬性的唯一性只會在每個邏輯分割區內強制執行。 多個檔可以具有具有`id`不同分割區索引鍵值的相同屬性。
 
 ### <a name="operations-on-items"></a>項目上的作業
 

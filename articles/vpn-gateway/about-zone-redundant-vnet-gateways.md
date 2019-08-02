@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0ba818ef3c24d0e88e662adf87b22cc938fe5fab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391039"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725590"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>關於在 Azure 可用性區域中的區域備援虛擬網路閘道
 
@@ -57,7 +57,7 @@ ms.locfileid: "60391039"
 
 ## <a name="pipskus"></a>公用 IP SKU
 
-區域備援閘道和分區閘道皆會依賴 Azure 公用 IP 資源的「標準」  SKU。 Azure 公用 IP 資源組態可決定您部署的閘道是區域備援或分區閘道。 如果您以「基本」  SKU 建立公用 IP 資源，閘道就不會有任何區域備援，且閘道資源將會是區域性的。
+區域備援閘道和分區閘道皆會依賴 Azure 公用 IP 資源的「標準」SKU。 Azure 公用 IP 資源組態可決定您部署的閘道是區域備援或分區閘道。 如果您以「基本」SKU 建立公用 IP 資源，閘道就不會有任何區域備援，且閘道資源將會是區域性的。
 
 ### <a name="pipzrg"></a>區域備援閘道
 
@@ -86,7 +86,7 @@ ms.locfileid: "60391039"
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>我可以在哪些區域中使用新的 SKU？
 
-新的 SKU 可在具有 Azure 可用性區域的 Azure 區域 (美國中部、法國中部、北歐、西歐和美國西部 2 區域) 中取得。 接下來，我們會在其他 Azure 公用區域中推出區域備援閘道。
+新的 Sku 可在 Azure 可用性區域具有「美國中部」、「法國中部」、「北歐」、「西歐」和美國西部2區域、美國東部、美國東部2、東南亞、日本東部、英國南部的 Azure 區域中使用。 接下來，我們會在其他 Azure 公用區域中推出區域備援閘道。
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>我可以將現有的虛擬網路閘道變更/遷移/升級為區域備援或分區閘道嗎？
 

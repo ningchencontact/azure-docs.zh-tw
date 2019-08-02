@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5a09b8e589b0d4ae9daa3bbd32c38f4946d16d0e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274010"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567629"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>將您的應用程式連線到 Azure SQL Database 受控執行個體
 
@@ -45,7 +44,7 @@ ms.locfileid: "67274010"
 對等互連選項是偏好選項，因為對等互連使用 Microsoft 骨幹網路，所以從連線的觀點來看，對等互連 VNet 與相同 VNet 中虛擬機器之間的延遲沒有明顯差異。 VNet 對等互連受限於相同區域中的網路。  
 
 > [!IMPORTANT]
-> 由於[全域虛擬網路對等互連的條件約束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，受控執行個體的 VNet 對等互連案例會受限於相同區域中的網路。 另請參閱相關的小節[Azure 虛擬網路常見問題集](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)文章以取得詳細資料。 
+> 由於[全域虛擬網路對等互連的條件約束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)，受控執行個體的 VNet 對等互連案例會受限於相同區域中的網路。 如需更多詳細資料, 另請參閱[Azure 虛擬網路常見問題](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相關章節。 
 
 ## <a name="connect-an-on-premises-application"></a>連線內部部署應用程式
 
@@ -56,7 +55,7 @@ ms.locfileid: "67274010"
 - 站對站 VPN 連線 ([Azure 入口網站](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)、[PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)、[Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) 連線  
 
-如果您已成功建立內部部署與 Azure 的連線，而且您無法建立連線至受控執行個體，請檢查您的防火牆是否開啟的輸出連接上的 SQL 連接埠 1433年，以及 11000-11999 範圍的連接埠以便重新導向。
+如果您已成功建立內部部署至 Azure 連線, 但無法建立受控執行個體的連線, 請檢查您的防火牆是否已在 SQL 埠1433上開啟輸出連線, 以及是否有11000-11999 範圍的埠可進行重新導向。
 
 ## <a name="connect-an-application-on-the-developers-box"></a>連線開發人員方塊上的應用程式
 
@@ -66,12 +65,12 @@ ms.locfileid: "67274010"
 
 客戶所實作的另一種案例是，VPN 閘道安裝在個別的虛擬網路中，而訂用帳戶則位於裝載受控執行個體的虛擬網路中。 這兩個虛擬網路隨後會對等互連。 下列範例架構圖顯示其實作方式。
 
-![VNet 對等互連](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+![VNet 對等](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
-在您設定基本的基礎結構後，您必須修改某些設定，使 VPN 閘道可以看到裝載受控執行個體的虛擬網路中所包含的 IP 位址。 若要這麼做，請在 [對等互連設定]  下方設定下列特定變更。
+在您設定基本的基礎結構後，您必須修改某些設定，使 VPN 閘道可以看到裝載受控執行個體的虛擬網路中所包含的 IP 位址。 若要這麼做，請在 [對等互連設定] 下方設定下列特定變更。
 
-1. 在裝載 VPN 閘道的 VNet 中移至 [對等互連]  ，接著移至受控執行個體的對等互連 VNet 連線，然後按一下 [允許閘道傳輸]  。
-2. 在裝載受控執行個體的 VNet 中移至 [對等互連]  ，接著移至 VPN 閘道的對等互連 VNet 連線，然後按一下 [使用遠端閘道]  。
+1. 在裝載 VPN 閘道的 VNet 中移至 [對等互連]，接著移至受控執行個體的對等互連 VNet 連線，然後按一下 [允許閘道傳輸]。
+2. 在裝載受控執行個體的 VNet 中移至 [對等互連]，接著移至 VPN 閘道的對等互連 VNet 連線，然後按一下 [使用遠端閘道]。
 
 ## <a name="connect-an-azure-app-service-hosted-application"></a>連線 Azure App Service 裝載應用程式
 
@@ -96,8 +95,8 @@ ms.locfileid: "67274010"
 
 若要對連線問題進行疑難排解，請檢閱以下幾點︰
 
-- 如果您無法從 Azure 虛擬機器相同的 VNet，但不同的子網路內連線到受控執行個體時，請檢查您是否可能會封鎖存取的 VM 子網路上設定網路安全性群組。此外請注意，您必須在範圍 11000-11999 中開啟 SQL 連接埠 1433年，以及連接埠的輸出連線，因為這些都需要透過 Azure 界限內的重新導向連線。
-- 確定已針對與 VNet 相關聯的路由表將 BGP 傳播設定為 [已啟用]  。
+- 如果您無法從相同 VNet 但不同子網中的 Azure 虛擬機器連線到受控執行個體, 請檢查是否有設定在 VM 子網上的網路安全性群組可能會封鎖存取。此外, 請注意, 您必須在 SQL 埠1433以及範圍11000-11999 中的埠上開啟輸出連線, 因為它們需要透過 Azure 界限內的重新導向來進行連線。
+- 確定已針對與 VNet 相關聯的路由表將 BGP 傳播設定為 [已啟用]。
 - 如果使用 P2S VPN，請檢查 Azure 入口網站中的組態，以確認您是否看到**輸入/輸出**數值。 非零的數值表示 Azure 會將流量路由至內部部署，或從中輸出流量。
 
    ![輸入/輸出數值](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)

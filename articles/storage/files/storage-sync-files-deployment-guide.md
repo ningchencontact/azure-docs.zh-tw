@@ -1,31 +1,30 @@
 ---
 title: 部署 Azure 檔案同步 | Microsoft Docs
 description: 了解部署 Azure 檔案同步的完整程序。
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6a41830dcb7f681713db7a7802ab430581dc844f
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 7b9c9a7639ed7a9938052197758e5796fb9fc879
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371134"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699428"
 ---
 # <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
 強烈建議您先閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)和[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)，再完成本文章中描述的步驟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 您想要部署 Azure 檔案同步的相同區域中的 Azure 檔案共用。如需詳細資訊，請參閱：
     - Azure 檔案同步的[區域可用性](storage-sync-files-planning.md#region-availability)。
     - [建立檔案共用](storage-how-to-create-file-share.md)以取得如何建立檔案共用的逐步說明。
 * 至少有一個 Windows Server 或 Windows Server 叢集的受支援執行個體，以與 Azure 檔案同步進行同步處理。如需 Windows Server 受支援版本的詳細資訊，請參閱[與 Windows Server 的互通性](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability)。
-* Az PowerShell 模組可用於 PowerShell 5.1 或 PowerShell 6 +。 您可以在任何支援的系統 (包括非 Windows 系統) 上使用 Az PowerShell 模組來進行 Azure 檔案同步, 不過, 伺服器註冊 Cmdlet 一律必須在您要註冊的 Windows Server 實例上執行 (可以直接或透過 PowerShell 來執行)遠端處理)。 在 Windows Server 2012 R2 上, 您可以確認您至少執行 PowerShell 5.1。藉由查看 **$PSVersionTable**物件的 PSVersion 屬性值:  \*
+* Az PowerShell 模組可用於 PowerShell 5.1 或 PowerShell 6 +。 您可以在任何支援的系統 (包括非 Windows 系統) 上使用 Az PowerShell 模組來進行 Azure 檔案同步, 不過, 伺服器註冊 Cmdlet 一律必須在您要註冊的 Windows Server 實例上執行 (可以直接或透過 PowerShell 來執行)遠端處理)。 在 Windows Server 2012 R2 上, 您可以確認您至少執行 PowerShell 5.1。藉由查看 **$PSVersionTable**物件的 PSVersion 屬性值: \*
 
     ```powershell
     $PSVersionTable.PSVersion

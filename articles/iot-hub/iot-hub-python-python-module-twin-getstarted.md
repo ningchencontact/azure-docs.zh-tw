@@ -6,16 +6,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/30/2019
 ms.author: menchi
-ms.openlocfilehash: 428f13c1c70171404da4cbb6f731d95056813914
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 2c388ff86e782c916916bfb08c7a55ec5c845b13
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402332"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667922"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>透過 Python 後端和 Python 裝置開始使用 IoT 中樞模組身分識別和模組對應項
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>開始使用 IoT 中樞模組身分識別和模組對應項 (Python)
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [模組身分識別與模組對應項](iot-hub-devguide-module-twins.md)類似於 Azure IoT 中樞裝置身分識別與裝置對應項，但提供更精細的細微性。 雖然 Azure IoT 中樞裝置身分識別與裝置對應項可讓後端應用程式設定裝置並提供裝置狀況的可見性，但模組身分識別和模組對應項可提供裝置個別元件的上述功能。 在具備多個元件的可用裝置 (例如以作業系統為基礎的裝置或韌體裝置) 上，它允許每個元件有獨立的組態和狀況。
@@ -27,15 +29,11 @@ ms.locfileid: "68402332"
 
 * **UpdateModuleTwinReportedProperties**，這會將已更新的模組對應項報告的屬性傳送到您的 IoT 中樞。
 
-> [!NOTE]
-> 如需可用來建置兩個應用程式，以在裝置上與解決方案後端執行的 Azure IoT SDK 詳細資訊，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
->
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-若要完成此教學課程，您需要下列項目：
+以下是必要條件的安裝指示。
 
-* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
-
-* 安裝最新的 [Python SDK](https://github.com/Azure/azure-iot-sdk-python)。
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 

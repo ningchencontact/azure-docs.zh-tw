@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: b56993b9ad03f2ab50fe3954ab5e8855d0d8bc0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0d3ea3f4a63e7c69a190cf856929437d6f0b9d8
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371629"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608303"
 ---
 # <a name="azure-management---monitoring"></a>Azure 管理 - 監視
 
@@ -43,10 +43,10 @@ ms.locfileid: "60371629"
 治理提供多項機制和流程，以便維持控制 Azure 中的應用程式與資源。  它同時也涉及規劃您的新措施，以及設定策略層級的優先順序。  在 Azure 中的治理主要是透過兩個服務進行實作。  [Azure 原則](../governance/policy/overview.md)可讓您建立、指派和管理會對資源強制執行不同規則和動作的原則定義，讓這些資源能符合公司標準和服務等級協定的規範。 針對您的 Azure 資源及包含 AWS 和 Google 在內的其他雲端服務提供者，[Cloudyn 的 Azure 成本管理](../cost-management/overview.md)可讓您追蹤雲端使用量和費用。
 
 ## <a name="secure"></a>安全
-管理應用程式、資源和資料的安全性涉及多種動作的組合，其中包括評估威脅、收集和分析安全性資料，以及確保您的應用程式和資源是以安全方式來設計及設定的。  安全性監視和威脅分析是由 [Azure 資訊安全中心](../security-center/security-center-intro.md)所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。  另請參閱 [Azure 安全性簡介](../security/azure-security.md)，了解 Azure 中更完整的安全性資訊，以及安全地設定 Azure 資源的指導方針。
+管理應用程式、資源和資料的安全性涉及多種動作的組合，其中包括評估威脅、收集和分析安全性資料，以及確保您的應用程式和資源是以安全方式來設計及設定的。  安全性監視和威脅分析是由 [Azure 資訊安全中心](../security-center/security-center-intro.md)所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。  另請參閱 [Azure 安全性簡介](../security/fundamentals/overview.md)，了解 Azure 中更完整的安全性資訊，以及安全地設定 Azure 資源的指導方針。
 
 
-## <a name="protect"></a>Protect
+## <a name="protect"></a>保護
 保護是指即使發生了您無法控制的中斷意外，也能確保您的應用程式和資料永遠都可以使用。  Azure 中的保護是由兩個服務提供。  [Azure 備份](../backup/backup-introduction-to-azure-backup.md)提供雲端或內部部署中資料的備份和復原。    [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 可在災害發生時提供商務持續性與立即復原，以確保應用程式的高可用性。
 
 ## <a name="migrate"></a>移轉 

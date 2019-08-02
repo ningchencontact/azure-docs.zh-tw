@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273214"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609861"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>建立您可以從 Azure Logic Apps 呼叫的自訂 API
 
@@ -25,7 +25,7 @@ ms.locfileid: "68273214"
 * 協助客戶使用您的服務來管理專業或個人工作。
 * 展開您服務的觸達、搜尋功能以及用途。
 
-基本上，連接器是使用 REST 作為隨插即用介面、[Swagger 中繼資料格式](https://swagger.io/specification/)作為文件，以及 JSON 作為其資料交換格式的 web API。 因為連接器是透過 HTTP 端點進行通訊的 REST API，您可以使用諸如 .NET、Java 或 Node.js 等任何語言來建置連接器。 您也可以在 [Azure App Service](../app-service/overview.md) 上裝載您的 API，Azure App Service 是平台即服務 (PaaS) 供應項目，能為 API 裝載提供最佳、最簡單且擴充性最高的方法。 
+基本上，連接器是使用 REST 作為隨插即用介面、[Swagger 中繼資料格式](https://swagger.io/specification/)作為文件，以及 JSON 作為其資料交換格式的 web API。 由於連接器是透過 HTTP 端點進行通訊的 REST Api, 因此您可以使用任何語言 (例如 .NET、JAVA、Python 或 node.js) 來建立連接器。 您也可以在 [Azure App Service](../app-service/overview.md) 上裝載您的 API，Azure App Service 是平台即服務 (PaaS) 供應項目，能為 API 裝載提供最佳、最簡單且擴充性最高的方法。 
 
 若要讓自訂 API 與 Logic Apps 搭配使用，您的 API 可以提供[*動作*](./logic-apps-overview.md#logic-app-concepts)，能在邏輯應用程式工作流程中執行特定的工作。 您的 API 也可作為[*觸發程序*](./logic-apps-overview.md#logic-app-concepts)，當新資料或事件符合指定的條件時，能啟動邏輯應用程式工作流程。 本主題描述常見的模式，以您想要 API 提供的行為作為基礎，加以遵循即可在您的 API 中建置動作和觸發程序。
 
@@ -45,7 +45,7 @@ ms.locfileid: "68273214"
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>自訂 API 與自訂連接器有何不同？
 
-自訂 API 和[自訂連接器](../logic-apps/custom-connector-overview.md)是針對可插式介面使用 REST、針對文件使用 [Swagger 中繼資料格式](https://swagger.io/specification/)以及使用 JSON 作為其資料交換格式的 Web API。 而由於這些 API 和連接器是透過 HTTP 端點進行通訊的 REST API，因此您可以使用任何語言 (例如 .NET、Java 或 Node.js) 來建置自訂 API 和連接器。
+自訂 API 和[自訂連接器](../logic-apps/custom-connector-overview.md)是針對可插式介面使用 REST、針對文件使用 [Swagger 中繼資料格式](https://swagger.io/specification/)以及使用 JSON 作為其資料交換格式的 Web API。 而且, 由於這些 Api 和連接器是透過 HTTP 端點進行通訊的 REST Api, 因此您可以使用任何語言 (例如 .NET、JAVA、Python 或 node.js) 來建立自訂 Api 和連接器。
 
 自訂 API 可讓您呼叫不是連接器的 API，並提供您可以使用 HTTP + Swagger、「Azure API 管理」或「應用程式服務」來呼叫的端點。 自訂連接器的運作方式與自訂 API 類似，但還具有下列屬性：
 
@@ -104,7 +104,7 @@ ms.locfileid: "68273214"
    
    `202 ACCEPTED` 回應應包含這些標頭：
    
-   * 必要  ：`location` 標頭所指定的 URL 絕對路徑，可讓 Logic Apps 引擎在其中檢查您的 API 作業狀態
+   * 必要：`location` 標頭所指定的 URL 絕對路徑，可讓 Logic Apps 引擎在其中檢查您的 API 作業狀態
 
    * *選擇性*：`retry-after` 標頭所指定的秒數，是引擎在檢查 `location` URL 以了解作業狀態時所需等候的時間。 
 
@@ -156,7 +156,7 @@ ms.locfileid: "68273214"
 
 ### <a name="check-for-new-data-or-events-regularly-with-the-polling-trigger-pattern"></a>使用輪詢觸發程序模式定期檢查新的資料或事件
 
-輪詢觸發程序  作用很像本主題先前所述的[輪詢動作](#async-pattern)。 Logic Apps 引擎會定期呼叫並檢查新的資料或事件，以查看觸發程序端點。 如果引擎發現符合您指定條件的新資料或事件，就會引發觸發程序。 然後，引擎會建立處理資料的邏輯應用程式執行個體作為輸入。 
+輪詢觸發程序作用很像本主題先前所述的[輪詢動作](#async-pattern)。 Logic Apps 引擎會定期呼叫並檢查新的資料或事件，以查看觸發程序端點。 如果引擎發現符合您指定條件的新資料或事件，就會引發觸發程序。 然後，引擎會建立處理資料的邏輯應用程式執行個體作為輸入。 
 
 ![輪詢觸發程序](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
 
@@ -193,7 +193,7 @@ ms.locfileid: "68273214"
 
 ### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>等候並接聽使用 webhook 觸發程序模式的新資料或事件
 
-Webhook 觸發程序是推送觸發程序  ，會等候並接聽您服務端點中的新資料或事件。 如果新的資料或事件符合指定的條件，觸發程序就會引發，並建立邏輯應用程式執行個體，然後處理資料作為輸入。
+Webhook 觸發程序是推送觸發程序，會等候並接聽您服務端點中的新資料或事件。 如果新的資料或事件符合指定的條件，觸發程序就會引發，並建立邏輯應用程式執行個體，然後處理資料作為輸入。
 Webhook 觸發程序作用很像本主題之前所述的 [webhook 動作](#webhook-actions)，並使用 `subscribe` 和 `unsubscribe` 端點加以設定。 
 
 * `subscribe` 端點：當您在邏輯應用程式中新增及儲存 Webhook 觸發程序時，Logic Apps 引擎會呼叫 `subscribe` 端點。 這個步驟會導致邏輯應用程式建立您 API 所儲存的回呼 URL。 當沒有新的資料或事件符合指定的條件時，您的 API 會使用 HTTP POST 回呼 URL。 內容承載和標頭會作為輸入傳遞至邏輯應用程式。

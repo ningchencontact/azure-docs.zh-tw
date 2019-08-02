@@ -18,3 +18,17 @@
           href: secure-develop.md
         - name: 部署安全的應用程式
           href: secure-deploy.md
+- name: 解決方案
+  expanded: true
+  items:
+    - name: Microsoft 安全性程式碼分析
+      expanded: true
+      items:
+        - name: 概觀
+          href: security-code-analysis-overview.md
+        - name: 上線和安裝
+          href: security-code-analysis-onboard.md
+        - name: 組態
+          href: security-code-analysis-customize.md
+        - name: 常見問題集
+          href: security-code-analysis-faq.md

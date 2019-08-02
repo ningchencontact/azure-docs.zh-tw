@@ -4,16 +4,16 @@ description: Azure 檔案同步代理程式的版本資訊。
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/24/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: de0482f49e919d0cbb500e9ee8b27ccf8287fb99
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: ad0927c551f331a3a6f719797dae7598961d78c1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489558"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721662"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -26,7 +26,7 @@ Azure 檔案同步代理程式支援下列版本：
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
 | 2019年7月更新彙總套件- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019年7月24日 | 支援-[試驗](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| 2019年7月更新彙總套件- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019年7月12日 | 支援-[試驗](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| 2019年7月更新彙總套件- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019年7月12日 | 支援 |
 | V7 版本- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019年6月19日 | 支援 |
 | 2019年6月更新彙總套件- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019年6月27日 | 支援 |
 | 2019年6月更新彙總套件- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 2019年6月13日 | 支援 |

@@ -4,16 +4,16 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 72ccad94301e053d8103ca949d41202e58d9f5bb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eef073f5f4d1eb39fd5ccd8dafacd7074158fa37
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174086"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667827"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
+> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
@@ -35,11 +35,11 @@ ms.locfileid: "67174086"
 
 裝置對應項會儲存在 IoT 中樞，並且包含︰
 
-* 標籤  ，只有解決方案後端可存取裝置中繼資料；
+* 標籤，只有解決方案後端可存取裝置中繼資料；
 
-* 所需屬性  ，JSON 物件可由解決方案後端修改並且可由裝置應用程式觀察，以及
+* 所需屬性，JSON 物件可由解決方案後端修改並且可由裝置應用程式觀察，以及
 
-* 報告屬性  ，JSON 物件可由裝置應用程式修改並且可由解決方案後端讀取。 標籤和屬性不能包含陣列，但物件可以是巢狀的。
+* 報告屬性，JSON 物件可由裝置應用程式修改並且可由解決方案後端讀取。 標籤和屬性不能包含陣列，但物件可以是巢狀的。
 
 ![顯示功能的裝置對應項影像](./media/iot-hub-selector-twin-get-started/twin.png)
 
@@ -49,6 +49,6 @@ ms.locfileid: "67174086"
 
 本教學課程說明如何：
 
-* 建立後端應用程式，將「標籤」  新增至裝置對應項，以及建立模擬裝置應用程式，以裝置對應項上的「報告屬性」  來報告其連線通道。
+* 建立後端應用程式，將「標籤」新增至裝置對應項，以及建立模擬裝置應用程式，以裝置對應項上的「報告屬性」來報告其連線通道。
 
 * 使用先前建立的標籤和屬性上的篩選器，從您的後端應用程式查詢裝置。

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227147"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716757"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>關於 Azure Active Directory B2C 中的使用者介面自訂
 
@@ -48,7 +48,7 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
 
 針對 v2 使用者流程，您可以選擇預先設計的範本，，可讓您的預設頁面外觀更好，並為您的自訂提供良好的基礎。
 
-在左側功能表的 [自訂]  下方，選取 [頁面配置]  。 然後選取 [範本 (預覽)]  。
+在左側功能表的 [自訂] 下方，選取 [頁面配置]。 然後選取 [範本 (預覽)]。
 
 ![Azure 入口網站的 [使用者流程] 頁面中的範本選取下拉式選單](media/customize-ui-overview/template.png)
 
@@ -56,7 +56,7 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
 
 ![在註冊登入頁面上轉譯的海運藍色範本範例](media/customize-ui-overview/ocean-blue.png)
 
-選擇範本時，選取的配置將套用到使用者流程中的所有頁面，並且每一頁的 URI 會顯示在 [自訂頁面 URI]  欄位中。
+選擇範本時，選取的配置將套用到使用者流程中的所有頁面，並且每一頁的 URI 會顯示在 [自訂頁面 URI] 欄位中。
 
 ## <a name="where-do-i-store-ui-content"></a>UI 內容應儲存於何處？
 
@@ -118,13 +118,13 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
 | 本機帳戶註冊 | 包含可供使用者根據電子郵件地址或使用者名稱進行本機帳戶註冊的表單。 此表單可以包含不同的輸入控制項，例如文字輸入方塊、密碼輸入方塊、選項按鈕、單選下拉式清單方塊和多選核取方塊。 |
 | 社交帳戶註冊 | 可在使用社交識別提供者 (例如 Facebook 或 Google) 的現有帳戶註冊時顯示。 必須向使用註冊表單的客戶收集其他資訊時，則需要使用。 |
 | 統一的註冊或登入 | 可處理客戶的註冊和登入，這些客戶可使用社交識別提供者 (例如 Facebook、Google) 或本機帳戶。 |
-| Multi-Factor Authentication | 客戶可以在註冊或登入期間驗證其電話號碼 (使用文字或語音)。 |
-| 錯誤 | 提供錯誤資訊給客戶。 |
+| 多重要素驗證 | 客戶可以在註冊或登入期間驗證其電話號碼 (使用文字或語音)。 |
+| Error | 提供錯誤資訊給客戶。 |
 
 
 ## <a name="how-do-i-localize-content"></a>如何將內容當地語系化？
 
-您可以在 Azure AD B2C 租用戶上啟用[語言自訂](active-directory-b2c-reference-language-customization.md)，以將 HTML 內容當地語系化。 啟用此功能會讓 Azure AD B2C 將 Open ID Connect 參數 `ui-locales` 轉送給端點。 內容伺服器可使用此參數來提供語言特定的 HTML 頁面。
+您可以在 Azure AD B2C 租用戶上啟用[語言自訂](active-directory-b2c-reference-language-customization.md)，以將 HTML 內容當地語系化。 啟用此功能可讓 Azure AD B2C 將 OpenID connect 參數`ui-locales`轉送至您的端點。 內容伺服器可使用此參數來提供語言特定的 HTML 頁面。
 
 您可以根據所使用的地區設定，從不同的地方提取內容。 在已啟用 CORS 的端點中，您可以針對特定語言設定主機內容的資料夾結構。 如果您使用萬用字元值 {Culture:RFC5646}，則會呼叫正確的語言。 例如，您的自訂頁面可能會顯示為 `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`。 您可以從 `https://contoso.blob.core.windows.net/fr/myHTML/unified.html` 提取內容，以載入以法文顯示的頁面
 

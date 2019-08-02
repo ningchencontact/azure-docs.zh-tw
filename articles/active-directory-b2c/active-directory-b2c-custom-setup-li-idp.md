@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9f854e1771eec1d02fd14e040510688bf33c59c8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9465c1991418c7ebef8c4eed825affc7b1d93492
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442437"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693335"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
 
@@ -23,11 +23,11 @@ ms.locfileid: "68442437"
 
 此文章說明如何在 Azure Active Directory (Azure AD) B2C 中透過使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用者能夠從 LinkedIn 帳戶登入。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 - LinkedIn 帳戶-如果您還沒有, 請[建立一個帳戶](https://www.linkedin.com/start/join)。
-- LinkedIn 頁面-您必須要有[Linkedin 頁面](https://www.linkedin.com/company/setup/new/), 才能與您在下一節中建立的 linkedin 應用程式產生關聯。
+- LinkedIn 頁面-您必須要有[Linkedin 頁面](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page), 才能與您在下一節中建立的 linkedin 應用程式產生關聯。
 
 ## <a name="create-an-application"></a>建立應用程式
 
@@ -68,7 +68,7 @@ ms.locfileid: "68442437"
 7. 輸入原則金鑰的 [名稱]。 例如： `LinkedInSecret` 。 前置詞*B2C_1A_* 會自動新增至您的金鑰名稱。
 8. 在 [**秘密**] 中, 輸入您先前記錄的用戶端密碼。
 9. 針對 [金鑰使用方法]，選取 `Signature`。
-10. 按一下 [建立] 。
+10. 按一下 [建立]。
 
 ## <a name="add-a-claims-provider"></a>新增宣告提供者
 
@@ -177,7 +177,7 @@ LinkedIn 技術設定檔需要將**ExtractGivenNameFromLinkedInResponse**和**Ex
 
 1. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
 2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
-3. 按一下 [上傳] 。
+3. 按一下 [上傳]。
 
 ## <a name="register-the-claims-provider"></a>註冊宣告提供者
 
@@ -224,8 +224,8 @@ LinkedIn 技術設定檔需要將**ExtractGivenNameFromLinkedInResponse**和**Ex
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 選取 [應用程式]，然後選取 [新增]。
 5. 輸入應用程式的名稱，例如 testapp1。
-6. 針對 [Web 應用程式 / Web API] ，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
-7. 按一下 [建立] 。
+6. 針對 [Web 應用程式 / Web API]，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
+7. 按一下 [建立]。
 
 ## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 

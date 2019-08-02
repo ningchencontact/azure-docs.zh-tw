@@ -9,12 +9,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Visual Studio Code 如何與 Azure Dev Spaces 搭配運作
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: 0d80643b366b6d7313f24e73258056e492eb56fc
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7809f0215137b0c473e13143404a031497906ebf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297861"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725804"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Visual Studio Code 如何與 Azure Dev Spaces 搭配運作
 
@@ -41,7 +41,7 @@ Dockerfile、Helm 圖表和`azds.yaml`檔案是執行`azds prep`時所產生的�
 
 您必須建立 AKS 叢集, 並在 Visual Studio Code 以外的叢集中啟用 Azure Dev Spaces。 例如, 您可以使用 Azure CLI 或 Azure 入口網站來執行此設定。 您可以重複使用現有的 dockerfile、Helm 圖表`azds.yaml`和 Visual Studio Code 外部建立的檔案, 例如執行所產生`azds prep`的資產。 如果您重複使用在 Visual Studio Code 外部產生的資產, 您仍然需要擁有`.vscode`目錄。 此`.vscode`目錄可由 Visual Studio 程式碼和 Azure Dev Spaces 延伸模組來重新產生, 且不會覆寫現有的資產。
 
-針對 .net Core 專案, 您必須安裝[ C#延伸][csharp-extension] installed to run your .NET service from Visual Studio Code. Also for Java projects using Maven, you must have the [Java Debugger for Azure Dev Spaces extension][java-extension]模組, 以及[安裝 Maven 並設定][Maven] , 以從 Visual Studio Code 執行 JAVA 服務。
+針對 .net Core 專案, 您必須安裝[ C#延伸][csharp-extension]模組, 才能從 Visual Studio Code 執行 .net 服務。 此外, 針對使用 Maven 的 JAVA 專案, 您必須安裝[適用于 Azure Dev Spaces 擴充功能的 JAVA 偵錯工具][java-extension], 以及[安裝和設定的 Maven][maven] , 以從 Visual Studio Code 執行 java 服務。
 
 ## <a name="debug-your-service-in-aks"></a>在 AKS 中對服務進行偵錯工具
 
@@ -52,9 +52,9 @@ Dockerfile、Helm 圖表和`azds.yaml`檔案是執行`azds prep`時所產生的�
 
 在下列快速入門中, 您可以看到 Visual Studio Code 和 Azure Dev Spaces 延伸模組使用 Azure Dev Spaces:
 
-* [使用 JAVA 進行開發][quickstart-java]
-* [使用 .NET 進行開發][quickstart-netcore]
-* [使用 node.js 進行開發][quickstart-node]
+* [使用 Visual Studio Code 和 JAVA 快速反復查看和調試][quickstart-java]
+* [使用 Visual Studio Code 和 .NET 快速反復查看和調試][quickstart-netcore]
+* [使用 Visual Studio Code 和 node.js 快速反復查看和調試][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works.md#prepare-your-code

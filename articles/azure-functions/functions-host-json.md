@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371689"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564778"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
@@ -147,7 +147,10 @@ ms.locfileid: "68371689"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-指出所有函式的逾時持續期間。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。 在 App Service 方案中，並沒有整體限制，而預設值則是取決於執行階段版本。 在 2.x 版中，App Service 方案的預設值是 30 分鐘。 在 1.x 版中，則是 *null*，表示沒有逾時。 它不能設定為無限。 如果我們未明確設定此值, 將會採用預設的30分鐘值。
+指出所有函式的逾時持續期間。 它會遵循 timespan 字串格式。 在無伺服器的使用情況方案中，有效範圍是從 1 秒到 10 分鐘，而預設值是 5 分鐘。  
+在專用 (App Service) 方案中, 沒有整體限制, 而且預設值取決於執行階段版本: 
++ 1\.x 版: 預設值為*null*, 表示沒有超時。   
++ 2\.x 版: 預設值為30分鐘。 的值表示`-1`未系結的執行。
 
 ```json
 {
@@ -171,7 +174,7 @@ ms.locfileid: "68371689"
 }
 ```
 
-|內容  |預設 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |enabled|真|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
@@ -260,7 +263,7 @@ Singleton 鎖定行為的組態設定。 如需詳細資訊，請參閱[單一�
 }
 ```
 
-|內容  |預設 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|取得函式層級鎖定的期間。 鎖定會自動更新。| 
 |listenerLockPeriod|00:01:00|接聽程式鎖定所需的期間。| 

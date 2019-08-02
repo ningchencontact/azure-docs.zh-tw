@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: ff747e7bc3329d3665b52f6fa8e72e1ca308a87e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 721f4038090021c526a8878f15c07874074effd5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310339"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725953"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -28,22 +28,28 @@ ms.locfileid: "68310339"
 > * [依位置的提供者](expressroute-locations-providers.md)
 
 
-本文中的資料表會提供有關 ExpressRoute 連線提供者、ExpressRoute 地理涵蓋範圍、透過 ExpressRoute 支援的 Microsoft 雲端服務，以及 ExpressRoute 系統整合者 (SI) 的資訊。
+本文中的表格提供 ExpressRoute 地理涵蓋範圍和位置、ExpressRoute 連線提供者, 以及 ExpressRoute 系統整合者 (SIs) 的相關資訊。
 
-## <a name="partners"></a>ExpressRoute 連線提供者
-所有的 Azure 區域和位置都支援 ExpressRoute。 以下地圖提供了 Azure 區域和 ExpressRoute 位置的清單。 ExpressRoute 位置是指 Microsoft 與數個服務提供者對等互連的位置。
+> [!Note]
+> Azure 區域和 ExpressRoute 位置是兩個不同的概念, 瞭解兩者之間的差異對於探索 Azure 混合式網路連線非常重要。 
+>
+>
 
-![位置圖][0]
+## <a name="azure-regions"></a>Azure 區域
+Azure 區域是「Azure 計算」、「網路」和「儲存體」資源所在的全球資料中心。 建立 Azure 資源時, 客戶需要選取資源位置。 資源位置會決定資源建立所在的 Azure 資料中心 (或可用性區域)。
+
+## <a name="expressroute-locations"></a>ExpressRoute 位置
+ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 是 Microsoft Enterprise Edge (MSEE) 裝置所在的共同位置設施。 ExpressRoute 位置是 Microsoft 網路的進入點, 而且會全域散發, 讓客戶有機會連接到全球各地的 Microsoft 網路。 這些位置是 ExpressRoute 合作夥伴和 ExpressRoute Direct 客戶向 Microsoft 網路發出交叉連線的地方。 一般而言, ExpressRoute 位置不需要符合 Azure 區域。 例如, 客戶可以在*西雅圖*對等互連位置中, 建立資源位置為*美國東部*的 ExpressRoute 線路。
 
 如果您至少與地緣政治區域內的一個 ExpressRoute 位置連線，您將有權存取地緣政治區域內所有區域中的 Azure 服務。
 
-### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>地緣政治區域內 ExpressRoute 位置的 Azure 區域。
+## <a name="locations"></a>地緣政治區域內 ExpressRoute 位置的 Azure 區域。
 下表提供地緣政治區域內 ExpressRoute 位置的 Azure 區域對應。
 
 | **地緣政治區域** | **區域** | **Azure 區域** | **ExpressRoute 位置** |
 | --- | --- | --- | --- |
 | **澳洲政府** | 1 | 澳大利亞中部、澳大利亞中部 2 |坎培拉、坎培拉 2 |
-| **歐洲** | 1 |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、阿姆斯特丹2、都柏林、法蘭克福、倫敦、倫敦2、馬賽、紐波特 (威爾士)、巴黎、蘇黎世 |
+| **歐洲** | 1 |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、阿姆斯特丹2、哥本哈根、都柏林、法蘭克福、倫敦、倫敦2、馬賽、紐波特 (威爾士)、巴黎、斯德哥爾摩、蘇黎世 |
 | **北美洲** | 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、芝加哥、達拉斯、丹佛、內華達州、洛杉磯、邁阿密、紐約、San Antonio、西雅圖、矽谷、矽 Valley2、華盛頓特區、華盛頓特區、蒙特利爾、魁北克市、多倫多 |
 | **亞洲** | 2 |東亞、東南亞 |香港特別行政區、吉隆坡、新加坡、新加坡2、臺北 |
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
@@ -52,10 +58,10 @@ ms.locfileid: "68310339"
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
 | **阿拉伯聯合大公國** | 3 | 阿拉伯聯合大公國中部, 阿拉伯聯合大公國北部 | 杜拜、Dubai2 |
 | **南非** | 3 |南非西部, 南非北部 |開普敦、約翰尼斯堡 |
-| **南美洲** | 3 |巴西南部 |聖保羅 |
+| **南美洲** | 3 |巴西南部 |Sao Paulo |
 
 
-### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>國家雲端的區域和地理政治界限
+## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>國家雲端的區域和地理政治界限
 下表提供國家雲端的區域和地理政治界限等資訊。
 
 | **地緣政治區域** | **Azure 區域** | **ExpressRoute 位置** |
@@ -67,9 +73,9 @@ ms.locfileid: "68310339"
 
 標準 ExpressRoute SKU 不支援跨地緣政治區域的連線。 您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。 不支援連線至國家雲端環境。 如果有需要的話，您可以聯絡您的連線提供者。
 
-## <a name="locations"></a>連線提供者位置
+## <a name="partners"></a>ExpressRoute 連線提供者
 
-下表顯示服務提供者的位置。 如果您想依位置檢視可用的提供者，請參閱[位置服務提供者](expressroute-locations-providers.md#locations)。
+下表顯示服務提供者的位置。 如果您想依位置檢視可用的提供者，請參閱[位置服務提供者](expressroute-locations-providers.md)。
 
 
 ### <a name="production-azure"></a>生產 Azure
@@ -77,9 +83,9 @@ ms.locfileid: "68310339"
 | **服務提供者** | **Microsoft Azure** | **Office 365 和 Dynamics 365** | **位置** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |支援 |支援 |墨爾本、雪梨 |
-| **[Airtel](https://www.airtel.in/creatingsmiles/)** | 支援 | 支援 | 辰內 2、孟買 2 |
+| **[Airtel](https://www.airtel.in/business/#/)** | 支援 | 支援 | 辰內 2、孟買 2 |
 | **[Aryaka Networks](https://www.aryaka.com/)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、香港特別行政區、聖保羅、西雅圖、矽谷、新加坡、東京、華盛頓特區 |
-| **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |支援 |支援 |聖保羅 |
+| **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |支援 |支援 |Sao Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、倫敦、矽谷、新加坡、雪梨、東京、多倫多、華盛頓特區 |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |支援 |支援 |蒙特婁、多倫多、魁北克市 |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |支援 |支援 |阿姆斯特丹、香港特別行政區、約翰尼斯堡、倫敦、紐波特 (威爾士)、聖保羅、矽谷、新加坡、悉尼、東京、華盛頓特區 |
@@ -87,7 +93,7 @@ ms.locfileid: "68310339"
 | **CDC** | 支援 | 支援 | 坎培拉、坎培拉 2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |支援 |支援 |阿姆斯特丹2、芝加哥、香港、內華達州、紐約、巴黎、San Antonio、矽谷、東京、多倫多、華盛頓特區 |
 | **Chief Telecom** |支援 |支援 |香港特別行政區, 臺北 |
-| **China Telecom Global** |支援 |不支援 |香港特別行政區 |
+| **China Telecom Global** |支援 |不受支援 |香港特別行政區 |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |支援 |支援 |芝加哥、達拉斯、蒙特婁、多倫多、華盛頓特區 |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |支援 |支援 |阿姆斯特丹、都柏林、倫敦、紐波特、大阪、巴黎、新加坡2、東京 |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |支援 |支援 |芝加哥、矽谷、華盛頓特區 |
@@ -95,10 +101,10 @@ ms.locfileid: "68310339"
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | 支援 |支援 |阿姆斯特丹2、法蘭克福、馬賽|
 | **[Devoli](https://devoli.com/expressroute)** | 支援 |支援 | 奧克蘭, 墨爾本, 悉尼 |
 | **du datamena** |支援 |支援 | Dubai2 |
-| **eir** |支援 |支援 |都柏林|
+| **eir** |支援 |支援 |Dublin|
 | **[Epsilon 全球通訊](https://www.epsilontel.com/solutions/direct-cloud-connect)** |支援 |支援 |新加坡、新加坡 2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |支援 |支援 |阿姆斯特丹、亞特蘭大、芝加哥、達拉斯、都柏林、香港特別行政區、倫敦、倫敦2、洛杉磯、墨爾本、邁阿密、紐約、大阪、巴黎、聖保羅、西雅圖、矽谷、新加坡、悉尼、東京、多倫多、華盛頓特區 |
-| **Etisalat 阿拉伯聯合大公國** |支援 |支援 |杜拜|
+| **Etisalat 阿拉伯聯合大公國** |支援 |支援 |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |支援 |支援 |阿姆斯特丹、都柏林、倫敦 |
 | **FarEasTone** |支援 |支援 |台北|
 | **GÉANT** |支援 |支援 |阿姆斯特丹 |
@@ -107,11 +113,11 @@ ms.locfileid: "68310339"
 | **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |支援 |支援 |芝加哥、達拉斯、華盛頓特區 |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |支援 |支援 |大阪、東京 |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |支援 |支援 |開普敦、約翰尼斯堡、倫敦 |
-| **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |支援 |支援 |阿姆斯特丹、阿姆斯特丹2、都柏林、法蘭克福、倫敦、馬賽、巴黎、蘇黎世 |
+| **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |支援 |支援 |阿姆斯特丹、阿姆斯特丹2、哥本哈根、都柏林、法蘭克福、倫敦、馬賽、巴黎、蘇黎世 |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|支援 |支援 | 阿姆斯特丹、倫敦2、矽谷、多倫多 |
 | **Jaguar 網路** |支援 |支援 |馬賽|
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |支援 |支援 |倫敦 |
-| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |支援 |支援 |首爾 |
+| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |支援 |支援 |Seoul |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | 支援 |支援 |奧克蘭, 悉尼 |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | 支援 | 支援 | 阿姆斯特丹 | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、倫敦、新港 (威爾斯)、聖保羅、西雅圖、矽谷、新加坡、華盛頓特區 |
@@ -134,21 +140,21 @@ ms.locfileid: "68310339"
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |支援 |支援 |辰內、孟買 2 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |支援 |支援 |新加坡、新加坡 2 |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |支援 |支援 |大阪、東京 |
-| **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |支援 |支援 |雪梨 |
+| **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |支援 |支援 |奧克蘭, 悉尼 |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |支援 |支援 |芝加哥、矽谷、華盛頓特區 |
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |支援 |支援 |阿姆斯特丹、辰內、香港特別行政區、倫敦、孟買、聖保羅、矽谷、新加坡、華盛頓特區 |
 | **Telecity Group** |支援 |支援 |阿姆斯特丹 |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |支援 |支援 |阿姆斯特丹、聖保羅 |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)**  |支援 |支援 |倫敦 |
 | **Telenor** |支援 |支援 |阿姆斯特丹、倫敦 |
-| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | 支援 | 支援 |阿姆斯特丹、芝加哥、達拉斯、香港、倫敦、巴黎、華盛頓特區 |
+| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | 支援 | 支援 |阿姆斯特丹、芝加哥、達拉斯、香港、倫敦、巴黎、矽谷、斯德哥爾摩、華盛頓特區 |
 | **Telmex Uninet**| 支援 | 支援 | 達拉斯 |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |支援 |支援 |墨爾本、新加坡、雪梨 |
 | **[Telus](https://www.telus.com)** |支援 |支援 |蒙特利爾、西雅圖、多倫多 |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |支援 |支援 |開普敦、約翰尼斯堡 |
-| **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/cloud-interconnect)** | 支援 | 支援 | 吉隆坡 |
+| **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/cloud-interconnect)** | 支援 | 支援 | Kuala Lumpur |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |支援 |支援 |達拉斯, + 洛杉磯|
-| **[UOLDIVEO](https://www.uoldiveo.com.br/)** |支援 |支援 |聖保羅 |
+| **[UOLDIVEO](https://www.uoldiveo.com.br/)** |支援 |支援 |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、香港特別行政區、倫敦、孟買、矽谷、新加坡、悉尼、東京、多倫多、華盛頓特區 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | 支援 | 支援 | 奧克蘭, 悉尼 |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |支援 |支援 |阿姆斯特丹2、倫敦、新加坡 |
@@ -174,8 +180,8 @@ ms.locfileid: "68310339"
 
 | **服務提供者** | **Microsoft Azure** | **Office 365** | **位置** |
 | --- | --- | --- | --- |
-| **China Telecom** |支援 |不支援 |北京, 北京 2, 上海, 上海2 |
-| **[GDS](http://en.gds-services.com/news_detail/newsId=21.html)** |支援 |不支援 |北京 2、上海 2 |
+| **China Telecom** |支援 |不受支援 |北京, 北京 2, 上海, 上海2 |
+| **[GDS](http://en.gds-services.com/news_detail/newsId=21.html)** |支援 |不受支援 |北京 2、上海 2 |
 
 若要深入了解，請參閱 [ExpressRoute (中國)](http://www.windowsazure.cn/home/features/expressroute/)。
 
@@ -183,12 +189,12 @@ ms.locfileid: "68310339"
 
 | **服務提供者** | **Microsoft Azure** | **Office 365** | **位置** |
 | --- | --- | --- | --- |
-| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |支援 |不支援 |法蘭克福 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |支援 |不支援 |法蘭克福 |
-| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |支援 |不支援 |柏林 |
-| **Interxion** |支援 |不支援 |法蘭克福 |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援  | 不支援 | 柏林 |
-| **T-Systems** |支援 |不支援 |柏林 |
+| **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |支援 |不受支援 |法蘭克福 |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |支援 |不受支援 |法蘭克福 |
+| **[e-shelter](https://www.e-shelter.de/en/microsoft-expressroutetm)** |支援 |不受支援 |柏林 |
+| **Interxion** |支援 |不受支援 |法蘭克福 |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |支援  | 不受支援 | 柏林 |
+| **T-Systems** |支援 |不受支援 |柏林 |
 
 ## <a name="connectivity-through-exchange-providers"></a>透過 Exchange 提供者連線
 
@@ -236,7 +242,7 @@ ms.locfileid: "68310339"
 | **[指數 E](https://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | 倫敦 |
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | 阿姆斯特丹 |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | 魁北克市 |
-| **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | 華盛頓 |
+| **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | 華盛頓特區 |
 | **[Gulf Bridge International](https://www.gbiinc.com/microsoft-azure-expressroute/)** | Equinix | 阿姆斯特丹 |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | 倫敦、斯勞 |
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | 多倫多 |
@@ -245,7 +251,7 @@ ms.locfileid: "68310339"
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |香港特別行政區 
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | 雪梨 |
 | **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | 阿姆斯特丹 |
-| **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | 華盛頓 |
+| **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | 華盛頓特區 |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** | Teraco | 開普敦、約翰尼斯堡 |
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | 倫敦 |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | 阿姆斯特丹、法蘭克福 |
@@ -261,12 +267,12 @@ ms.locfileid: "68310339"
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | 阿姆斯特丹 |
 | **[ThinkTel](https://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | 多倫多 | 
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | 新加坡 |
-| **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Equinix | 聖保羅 |
+| **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Equinix | Sao Paulo |
 | **[Webair](https://www.webair.com/microsoft-express-route-partnership/)**| Megaport | 紐約 |
 | **[Windstream](https://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | 芝加哥、矽谷、華盛頓特區 |
 | **[X2nsat Inc.](https://www.x2nsat.com/expressroute/)** |Coresite |矽谷、矽谷2|
 | **Zain** |Equinix |倫敦|
-| **[Zertia](https://www.zertia.es)**| Level 3 | 馬德里 |
+| **[Zertia](https://www.zertia.es)**| Level 3 | Madrid |
 | **[Zirro](https://zirro.com/services/)**| Cologix、Equinix | 蒙特婁、多倫多 |
 
 ## <a name="connectivity-through-datacenter-providers"></a>透過資料中心提供者連線
@@ -315,8 +321,8 @@ ms.locfileid: "68310339"
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | 北美洲 |
 | **[FlexManage](https://www.flexmanage.com/cloud)** | 北美洲 |
 | **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | 北美洲 |
-| **[The IT Consultancy Group](https://itconsult.com.au/)** | 澳大利亞 |
-| **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | 澳大利亞 |
+| **[The IT Consultancy Group](https://itconsult.com.au/)** | 澳洲 |
+| **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | 澳洲 |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | 歐洲 (德國) |
 | **[Nelite](https://www.nelite.com/offres-services/)** | 歐洲 |
 | **[New Signature](https://newsignature.com/technologies/express-route/)** | 歐洲 |
@@ -326,7 +332,7 @@ ms.locfileid: "68310339"
 | **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | 北美洲 |
 | **[sol-tec](https://www.sol-tec.com/services)** | 歐洲 |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | 南美洲 |
-| **[Vigilant.IT](https://vigilant.it/expressroute)** | 澳大利亞 |
+| **[Vigilant.IT](https://vigilant.it/expressroute)** | 澳洲 |
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。

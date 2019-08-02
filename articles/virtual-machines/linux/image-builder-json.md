@@ -3,16 +3,16 @@ title: 建立 Azure 映射構建者範本 (預覽)
 description: 瞭解如何建立範本以與 Azure 映射產生器搭配使用。
 author: cynthn
 ms.author: cynthn
-ms.date: 05/10/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248143"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695391"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>預覽：建立 Azure 映射產生器範本 
 
@@ -185,6 +185,19 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 `imageVersionId`應該是映射版本的 ResourceId。 使用[az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list)列出映射版本。
 
+## <a name="properties-buildtimeoutinminutes"></a>屬性: buildTimeoutInMinutes
+根據預設, 映射產生器將會執行240分鐘。 之後, 不論映射組建是否已完成, 它都會超時並停止。 如果遇到超時時間, 您會看到類似下面的錯誤:
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+
+如果您未指定 buildTimeoutInMinutes 值, 或將它設定為 0, 則會使用預設值。 您可以增加或減少此值, 最多可達 960mins (16hrs)。 對於 Windows, 我們不建議將此設定為低於60分鐘。 如果您發現您達到的是超時時間, 請檢查[記錄](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)檔, 查看自訂步驟是否正在等待類似使用者輸入的專案。 
+
+如果您發現您需要更多時間才能完成自訂, 請將此專案設定為您想要的需求, 但有一些額外負荷。 但請不要將它設得太高, 因為您可能必須等候它超時, 才能看到錯誤。 
+
+
 ## <a name="properties-customize"></a>屬性: 自訂
 
 
@@ -194,7 +207,6 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 - 您可以使用多個自建立者, 但它們必須`name`具有唯一的。
 - 自建者會依照範本中指定的循序執行。
 - 如果一個自訂程式失敗, 則整個自訂群組件將會失敗, 並回報錯誤。
-- 考慮您的映射組建所需的時間, 並調整 ' buildTimeoutInMinutes ' 屬性以允許影像產生器足夠的時間完成。
 - 強烈建議您先徹底測試腳本, 再于範本中使用。 在您自己的 VM 上進行腳本的偵錯工具會變得更容易。
 - 請勿將機密資料放在腳本中。 
 - 除非您使用[MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage), 否則腳本位置必須可公開存取。
@@ -469,7 +481,7 @@ OS 支援:Windows 和 Linux
 
 - **類型**-VHD。
 - **runOutputName** –用來識別散發的唯一名稱。  
--  標籤-選擇性的使用者指定的機碼值組標記。
+- 標籤-選擇性的使用者指定的機碼值組標記。
  
 Azure 映射產生器不允許使用者指定儲存體帳戶位置, 但是您可以查詢的狀態`runOutputs`以取得位置。  
 

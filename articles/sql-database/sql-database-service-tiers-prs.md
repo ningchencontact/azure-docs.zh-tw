@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790417"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566641"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database 進階 RS 服務層級 (預覽狀態) 進入淘汰階段 - 移轉選項
 
@@ -27,7 +26,7 @@ ms.locfileid: "65790417"
 
 - 虛擬核心服務層級
 
-  [以虛擬核心為基礎購買模型](sql-database-service-tiers-vcore.md)中的**一般用途**與**業務關鍵**服務層級。 這兩個服務層級可供一般使用。 以 vCore 為基礎的購買模型也提供**超大規模**配合視您的工作負載需求自動調整每個資料庫最多 100 TB 的服務層。 超大規模資料庫的服務層提供相當於[以 DTU 為基礎購買模型](sql-database-service-tiers-dtu.md)中的進階服務層，價格更接近進階 RS 服務層。
+  [以虛擬核心為基礎購買模型](sql-database-service-tiers-vcore.md)中的**一般用途**與**業務關鍵**服務層級。 這兩個服務層級可供一般使用。 VCore 為基礎的購買模型也提供**超大規模資料庫**服務層級, 可根據您的工作負載需求調整, 並在每個資料庫中自動相應增加至 100 TB。 超大規模資料庫的服務層提供相當於[以 DTU 為基礎購買模型](sql-database-service-tiers-dtu.md)中的進階服務層，價格更接近進階 RS 服務層。
 - 開發/測試定價
 
   [開發/測試定價](https://azure.microsoft.com/pricing/dev-test/)可讓 Visual Studio 訂用帳戶省下高達 55% 的隨附授權費率。
@@ -70,10 +69,10 @@ ms.locfileid: "65790417"
 
 |**如果您目前使用的是…**|**移轉至可相比的以虛擬核心為基礎…**|**移轉至可相比的以 DTU 為基礎…**|
 |---|---|---|
-|進階 RS 1| 超大規模 1 虛擬核心 （第 4 代） 或業務關鍵 1 虛擬核心 （第 4 代）|進階 1|
-|進階 RS 2| 超大規模的 2 個 Vcore （第 4 代） 或業務關鍵 2 虛擬核心 （第 4 代|進階 2|
-|進階 RS 4| 超大規模的 4 個 Vcore （第 4 代） 或業務關鍵的 4 個 Vcore （第 4 代）|進階 4
-|進階 RS 6| 超大規模 6 虛擬核心 （第 4 代） 或業務關鍵 6 虛擬核心 （第 4 代）|進階 6|
+|進階 RS 1| 超大規模資料庫 1 vCore (第4代) 或商務關鍵性 1 vCore (第4代)|進階 1|
+|進階 RS 2| 超大規模資料庫2虛擬核心 (第4代) 或商務關鍵性2虛擬核心 (第4代|進階 2|
+|進階 RS 4| 超大規模資料庫4虛擬核心 (第4代) 或商務關鍵性4虛擬核心 (第4代)|進階 4
+|進階 RS 6| 超大規模資料庫6虛擬核心 (第4代) 或商務關鍵性6虛擬核心 (第4代)|進階 6|
 
 |**如果您目前使用的是…**|**移轉至可相比的以虛擬核心為基礎…**|**移轉至可相比的以 DTU 為基礎…**|
 |---|---|---|

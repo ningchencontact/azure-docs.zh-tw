@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc13a1d0a7710a9f96110f1516fe2e48d538fe7e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400706"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720769"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>使用 Azure Data Factory 從 HBase 複製資料 
 
@@ -39,15 +39,15 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 HBase 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**HBase** | 是 |
-| host | HBase 伺服器的 IP 位址或主機名稱。 （也就是 `[clustername].azurehdinsight.net`， `192.168.222.160`)  | 是 |
+| 主機 | HBase 伺服器的 IP 位址或主機名稱。 亦即. `[clustername].azurehdinsight.net`, )`192.168.222.160`  | 是 |
 | port | HBase 執行個體用來接聽用戶端連線的 TCP 連接埠。 預設值為 9090。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 否 |
 | httpPath | 部分 URL 對應至 HBase 伺服器，例如使用 HDInsights 叢集時的 `/hbaserest0`。 | 否 |
 | authenticationType | 用來連線到 HBase 伺服器的驗證機制。 <br/>允許的值包括：**匿名**、**基本** | 是 |
-| userName | 用來連線到 HBase 執行個體的使用者名稱。  | 否 |
-| password | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
+| username | 用來連線到 HBase 執行個體的使用者名稱。  | 否 |
+| 密碼 | 對應到使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
 | trustedCertPath | .pem 檔案的完整路徑，其中包含在透過 SSL 連線時，用來驗證伺服器的受信任 CA 憑證。 只有在自我裝載 IR 上使用 SSL 時，才能設定這個屬性。 預設值為隨 IR 安裝的 cacerts.pem 檔案。  | 否 |
 | allowHostNameCNMismatch | 指定在透過 SSL 連線時，是否要求 CA 所核發的 SSL 憑證名稱符合伺服器的主機名稱。 預設值為 False。  | 否 |
@@ -120,7 +120,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 HBase 複製資料，請將資料集的類型屬性設定為 **HBaseObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**HBaseObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -132,11 +132,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "name": "HBaseDataset",
     "properties": {
         "type": "HBaseObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<HBase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -149,10 +150,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 HBase 複製資料，請將複製活動中的來源類型設定為 **HBaseSource**. 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**HBaseSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 

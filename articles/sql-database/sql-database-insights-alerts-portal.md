@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9468dbd71ee8da88cbabc3ca9f76c77d47adc221
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61035924"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567930"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>使用 Azure 入口網站建立 Azure SQL Database 和資料倉儲警示
 
@@ -47,21 +46,21 @@ ms.locfileid: "61035924"
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 入口網站建立計量的警示規則
 1. 在 [入口網站](https://portal.azure.com/)中，找到您要監視的資源並選取。
-2. 選取 [監視] 區段底下的 [警示 (傳統)]  。 不同資源的文字和圖示會有些許不同。  
+2. 選取 [監視] 區段底下的 [警示 (傳統)]。 不同資源的文字和圖示會有些許不同。  
    
      ![監視](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **僅限 SQL DW**：按一下 [DWU 使用量]  圖表。 選取 [檢視傳統警示] 
+   - **僅限 SQL DW**：按一下 [DWU 使用量] 圖表。 選取 [檢視傳統警示]
 
-3. 選取 [新增計量警示 (傳統)]  按鈕，並填寫各欄位。
+3. 選取 [新增計量警示 (傳統)] 按鈕，並填寫各欄位。
    
-    ![新增警示](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
-4. 為您的警示規則命名 ([名稱]  )，選擇將會顯示在電子郵件通知中的 [描述]  。
-5. 選取您要監視的 [計量]  ，然後為計量選擇 [條件]  和 [臨界值]  。 同時選擇警示觸發程序之前，計量規則必須滿足的 [期間]  。 例如，如果您使用「PT5M」期間，且您的警示會尋找高於 80% 的 CPU，當**平均** CPU 已高於 80% 5 分鐘，就會觸發警示。 一旦發生第一次觸發，它會在平均 CPU 低於 80 % 5 分鐘時再次觸發。 CPU 度量每隔 1 分鐘發生一次。 支援的時間範圍，請參閱下方的資料表，並彙總輸入每個警示會使用 not 所有警示都使用的平均值。   
-6. 如果您想要在警示引發時傳送電子郵件給系統管理員和共同管理員，請勾選 [電子郵件的擁有者...]  。
-7. 如果您想要讓其他電子郵件信箱在警示引發時收到通知，在 [其他系統管理員電子郵件]  欄位新增它們。 以分號區隔-分隔多個電子郵件*電子郵件\@contoso.com;email2\@contoso.com*
-8. 如果您想在警示引發時呼叫webhook，在[webhook]  欄位中放入有效的 URI。
-9. 完成後選取 [確定]  建立警示。   
+    ![加入警示](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
+4. 為您的警示規則命名 ([名稱])，選擇將會顯示在電子郵件通知中的 [描述]。
+5. 選取您要監視的 [計量]，然後為計量選擇 [條件] 和 [臨界值]。 同時選擇警示觸發程序之前，計量規則必須滿足的 [期間]。 例如，如果您使用「PT5M」期間，且您的警示會尋找高於 80% 的 CPU，當**平均** CPU 已高於 80% 5 分鐘，就會觸發警示。 一旦發生第一次觸發，它會在平均 CPU 低於 80 % 5 分鐘時再次觸發。 CPU 度量每隔 1 分鐘發生一次。 支援的時間範圍，請參閱下方的資料表，並彙總輸入每個警示會使用 not 所有警示都使用的平均值。   
+6. 如果您想要在警示引發時傳送電子郵件給系統管理員和共同管理員，請勾選 [電子郵件的擁有者...] 。
+7. 如果您想要讓其他電子郵件信箱在警示引發時收到通知，在 [其他系統管理員電子郵件] 欄位新增它們。 以分號分隔多個電子郵件-  *\@contoso .com;\@email2 contoso.com*
+8. 如果您想在警示引發時呼叫webhook，在[webhook] 欄位中放入有效的 URI。
+9. 完成後選取 [確定] 建立警示。   
 
 在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
@@ -75,23 +74,23 @@ ms.locfileid: "61035924"
 
 ## <a name="sql-database-alert-values"></a>SQL Database 警示值
 
-| 資源類型 | 度量名稱 | 易記名稱 | 彙總類型 | 警示時間間隔下限|
+| 資源類型 | 計量名稱 | 易記名稱 | 彙總類型 | 警示時間間隔下限|
 | --- | --- | --- | --- | --- |
-| SQL Database | cpu_percent | CPU 百分比 | Average | 5 分鐘 |
-| SQL Database | physical_data_read_percent | 資料 IO 百分比 | Average | 5 分鐘 |
-| SQL Database | log_write_percent | 記錄 IO 百分比 | Average | 5 分鐘 |
-| SQL Database | dtu_consumption_percent | DTU 百分比 | Average | 5 分鐘 |
-| SQL Database | 儲存體 | 資料庫大小總計 | 最大值 | 30 分鐘 |
-| SQL Database | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
-| SQL Database | connection_failed | 失敗的連線 | 總計 | 10 分鐘 |
-| SQL Database | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |
-| SQL Database | 死結 | 死結 | 總計 | 10 分鐘 |
-| SQL Database | storage_percent | 資料庫大小百分比 | 最大值 | 30 分鐘 |
-| SQL Database | xtp_storage_percent | 記憶體中 OLTP 儲存體百分比 (預覽) | Average | 5 分鐘 |
-| SQL Database | workers_percent | 背景工作角色百分比 | Average | 5 分鐘 |
-| SQL Database | sessions_percent | 工作階段百分比 | Average | 5 分鐘 |
+| SQL 資料庫 | cpu_percent | CPU 百分比 | Average | 5 分鐘 |
+| SQL 資料庫 | physical_data_read_percent | 資料 IO 百分比 | Average | 5 分鐘 |
+| SQL 資料庫 | log_write_percent | 記錄 IO 百分比 | Average | 5 分鐘 |
+| SQL 資料庫 | dtu_consumption_percent | DTU 百分比 | Average | 5 分鐘 |
+| SQL 資料庫 | 儲存體 | 資料庫大小總計 | 最大值 | 30 分鐘 |
+| SQL 資料庫 | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
+| SQL 資料庫 | connection_failed | 失敗的連接 | 總計 | 10 分鐘 |
+| SQL 資料庫 | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |
+| SQL 資料庫 | 死結 | 死結 | 總計 | 10 分鐘 |
+| SQL 資料庫 | storage_percent | 資料庫大小百分比 | 最大值 | 30 分鐘 |
+| SQL 資料庫 | xtp_storage_percent | 記憶體中 OLTP 儲存體百分比 (預覽) | Average | 5 分鐘 |
+| SQL 資料庫 | workers_percent | 背景工作角色百分比 | Average | 5 分鐘 |
+| SQL 資料庫 | sessions_percent | 工作階段百分比 | Average | 5 分鐘 |
 | SQL Database | dtu_limit | DTU 限制 | Average | 5 分鐘 |
-| SQL Database | dtu_used | 已使用 DTU | Average | 5 分鐘 |
+| SQL 資料庫 | dtu_used | 已使用 DTU | Average | 5 分鐘 |
 ||||||
 | 彈性集區 | cpu_percent | CPU 百分比 | Average | 10 分鐘 |
 | 彈性集區 | physical_data_read_percent | 資料 IO 百分比 | Average | 10 分鐘 |
@@ -102,12 +101,12 @@ ms.locfileid: "61035924"
 | 彈性集區 | eDTU_limit | eDTU 限制 | Average | 10 分鐘 |
 | 彈性集區 | storage_limit | 儲存體限制 | Average | 10 分鐘 |
 | 彈性集區 | eDTU_used | 已使用 eDTU | Average | 10 分鐘 |
-| 彈性集區 | storage_used | 已使用儲存體 | Average | 10 分鐘 |
+| 彈性集區 | storage_used | 使用的儲存體 | Average | 10 分鐘 |
 ||||||               
 | SQL 資料倉儲 | cpu_percent | CPU 百分比 | Average | 10 分鐘 |
 | SQL 資料倉儲 | physical_data_read_percent | 資料 IO 百分比 | Average | 10 分鐘 |
 | SQL 資料倉儲 | connection_successful | 成功的連線 | 總計 | 10 分鐘 |
-| SQL 資料倉儲 | connection_failed | 失敗的連線 | 總計 | 10 分鐘 |
+| SQL 資料倉儲 | connection_failed | 失敗的連接 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | blocked_by_firewall | 遭到防火牆封鎖 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | service_level_objective | 資料庫的服務層 | 總計 | 10 分鐘 |
 | SQL 資料倉儲 | dwu_limit | dwu 限制 | 最大值 | 10 分鐘 |

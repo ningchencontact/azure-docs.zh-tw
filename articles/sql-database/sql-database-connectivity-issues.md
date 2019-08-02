@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/14/2019
-ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: da2107a0573fafd10394931be21fb446f83fd5f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144040"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569071"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>處理 SQL Database 連線問題和暫時性錯誤
 
@@ -77,8 +76,8 @@ ms.locfileid: "67144040"
 
 使用重試邏輯的程式碼範例位於：
 
-- [使用 ADO.NET 復原連線 SQL][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [使用 PHP 復原連線 SQL][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [使用 ADO.NET 復原連接 SQL][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Step 4: Connect resiliently to SQL with PHP (步驟 4：使用 PHP 復原連接 SQL)][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -91,9 +90,9 @@ ms.locfileid: "67144040"
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。 錯誤是：
 
 - **SqlException.Number** = 11001
-- 訊息：“此主机不存在”
+- 訊息:「不知道這種主機」
 
-第一次重試嘗試的一部分，您可以重新連線到網路的用戶端電腦，並嘗試連線。
+第一次重試時, 您可以將用戶端電腦重新連線到網路, 然後嘗試連接。
 
 若要使這項測試可行，請先中斷電腦的網路連線，再啟動您的程式。 然後，您的程式會辨識一個執行階段參數，以便程式：
 
@@ -109,7 +108,7 @@ ms.locfileid: "67144040"
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。 錯誤是：
 
 - **SqlException.Number** = 18456
-- 訊息：“用户 'WRONG_MyUserName' 的登录失败。”
+- 訊息:「使用者 ' WRONG_MyUserName ' 登入失敗。」
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連線。
 
@@ -134,12 +133,12 @@ ms.locfileid: "67144040"
 當您為 [SqlConnection](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 物件建立**連接字串**時，請調整下列參數的值：
 
 - **ConnectRetryCount**：&nbsp;&nbsp;預設值為 1。 範圍是 0 到 255。
-- **ConnectRetryInterval**:&nbsp;&nbsp;預設值為 10 秒。 範圍是 1 到 60。
+- **ConnectRetryInterval** &nbsp; :&nbsp;預設值為10秒。 範圍是 1 到 60。
 - **Connection Timeout**：&nbsp;&nbsp;預設值為 15 秒。 範圍是 0 到 2147483647。
 
 具體來說，您選擇的值應該會讓下列等式成立：Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
-例如，如果计数等于 3 且间隔等于 10 秒，超时值仅为 29 秒未给系统足够的时间进行其第三次也是最后一次连接重试，因为 29 < 3 * 10。
+例如, 如果計數等於 3, 且間隔等於10秒, 則只有29秒的時間才會讓系統有足夠的時間來進行第三個和最後一次的重試連接:29 < 3 * 10。
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -150,7 +149,7 @@ ms.locfileid: "67144040"
 - mySqlConnection.Open 方法呼叫
 - mySqlConnection.Execute 方法呼叫
 
-有一些微妙的差異。 若在執行「查詢」  時發生暫時性錯誤，您的 **SqlConnection** 物件並不會重試連線作業。 而且絕對不會重試查詢。 不過，在傳送您的查詢以供執行之前， **SqlConnection** 會先快速檢查連接。 如果快速檢查偵測到連接問題， **SqlConnection** 會重試連接作業。 如果重試成功，就會傳送您的查詢以供執行。
+有一些微妙的差異。 若在執行「查詢」 時發生暫時性錯誤，您的 **SqlConnection** 物件並不會重試連線作業。 而且絕對不會重試查詢。 不過，在傳送您的查詢以供執行之前， **SqlConnection** 會先快速檢查連接。 如果快速檢查偵測到連接問題， **SqlConnection** 會重試連接作業。 如果重試成功，就會傳送您的查詢以供執行。
 
 ### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>是否應該將 ConnectRetryCount 與應用程式重試邏輯結合
 
@@ -188,7 +187,7 @@ ms.locfileid: "67144040"
 例如，當用戶端程式裝載在 Windows 電腦上時，您可在主機上使用 Windows 防火牆來開啟通訊埠 1433。
 
 1. 開啟 [控制台]。
-2. 選取 [所有控制台項目]   > [Windows 防火牆]   > [進階設定]   > [輸出規則]   > [動作]   > [新增規則]  。
+2. 選取 [所有控制台項目] > [Windows 防火牆] > [進階設定] > [輸出規則]  > [動作] > [新增規則]。
 
 如果您的用戶端程式裝載在 Azure 虛擬機器 (VM) 上，請閱讀[適用於 ADO.NET 4.5 和 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
@@ -196,7 +195,7 @@ ms.locfileid: "67144040"
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-462-or-later"></a>連線：ADO.NET 4.6.2 或更高版本
+### <a name="connection-adonet-462-or-later"></a>連線：ADO.NET 4.6.2 或更新版本
 
 如果您的程式使用 **System.Data.SqlClient.SqlConnection** 之類的 ADO.NET 類別來連線到 SQL Database，建議您使用 .NET Framework 4.6.2 版或更新版本。
 
@@ -219,7 +218,7 @@ ms.locfileid: "67144040"
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>诊断：测试实用程序是否可以连接
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>檢測測試公用程式是否可以連接
 
 如果您的程式無法連線到 SQL Database，有一個診斷選項可嘗試透過公用程式連線。 在理想的情況下，此公用程式會使用您的程式使用的同一程式庫進行連線。
 
@@ -232,7 +231,7 @@ ms.locfileid: "67144040"
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>诊断：检查打开的端口
+### <a name="diagnostics-check-the-open-ports"></a>檢測檢查開啟的埠
 
 如果您懷疑連線嘗試因為連接埠問題而失敗，您可以在報告連接埠組態的電腦上執行公用程式。
 
@@ -261,28 +260,28 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>诊断：记录错误
+### <a name="diagnostics-log-your-errors"></a>檢測記錄您的錯誤
 
 有時診斷間歇問題的最好方式，就是數天或數週偵測一般模式。
 
 您的用戶端可以記錄其遇到的所有錯誤來協助診斷。 您可以使記錄項目與 SQL Database 本身內部記錄的錯誤資料相互關聯。
 
-Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 有关详细信息，请参阅：[5 - 与写入日志一样简单：使用日志记录应用程序块](https://msdn.microsoft.com/library/dn440731.aspx)。
+Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如需詳細資訊, [請參閱 5-簡單地關閉記錄檔:使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731.aspx)。
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>诊断：在系统日志中检查错误
+### <a name="diagnostics-examine-system-logs-for-errors"></a>檢測檢查系統記錄是否有錯誤
 
 以下是一些可查詢錯誤記錄和其他資訊的 Transact-SQL SELECT 陳述式。
 
 | 記錄查詢 | 描述 |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 檢視可提供個別事件的資訊，包括會導致暫時性錯誤或連線失敗的某些事件。<br/><br/>在理想的情況下，您可以讓 **start_time** 或 **end_time** 值與用戶端程式發生問題時的相關資訊相互關聯。<br/><br/>您必須連線到 master  資料庫來執行此查詢。 |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 檢視可針對其他診斷提供事件類型的彙總計數。<br/><br/>您必須連線到 master  資料庫來執行此查詢。 |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 檢視可提供個別事件的資訊，包括會導致暫時性錯誤或連線失敗的某些事件。<br/><br/>在理想的情況下，您可以讓 **start_time** 或 **end_time** 值與用戶端程式發生問題時的相關資訊相互關聯。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 檢視可針對其他診斷提供事件類型的彙總計數。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>诊断：在 SQL 数据库日志中搜索问题事件
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>檢測在 SQL Database 記錄檔中搜尋問題事件
 
 您可以在 SQL Database 記錄中搜尋有關問題事件的項目。 在 *master* 資料庫中嘗試下列 Transact-SQL SELECT 陳述式：
 
@@ -327,7 +326,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 SQL Database 服務。 若要找出 EntLib60 所能協助之每個領域的專用主題，請參閱 [Enterprise Library 6 - 2013 年 4 月](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)。
 
-在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 有关详细信息，请参阅 [4 - 锲而不舍是一切成功的秘密：使用暂时性故障处理应用程序块](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
+在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 如需詳細資訊, [請參閱 4-堅持是, all 成功秘方的秘密:使用暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
 
 > [!NOTE]
 > EntLib60 的原始程式碼可從[下載中心](https://go.microsoft.com/fwlink/p/?LinkID=290898)公開下載。 Microsoft 沒有計劃進一步更新或維護 EntLib 的功能。
@@ -354,13 +353,13 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 以下是 EntLib60 相關資訊的一些連結：
 
-- 免费书籍下载：[Microsoft Enterprise Library 版本 2 开发人员指南](https://www.microsoft.com/download/details.aspx?id=41145)
-- 最佳做法：[重試一般指引](../best-practices-retry-general.md)有深入探討重試邏輯。
-- NuGet 下载：[Enterprise Library - 暂时性故障处理应用程序块 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
+- 免費書籍下載:[Microsoft Enterprise Library 第2版的開發人員指南](https://www.microsoft.com/download/details.aspx?id=41145)。
+- 最佳做法：[重試一般指引](../best-practices-retry-general.md)提供重試邏輯的絕佳深入討論。
+- NuGet 下載:[企業程式庫-暫時性錯誤處理應用程式區塊 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60：日志记录块
+### <a name="entlib60-the-logging-block"></a>EntLib60記錄區塊
 
 - 記錄區塊是高度彈性且可設定的解決方案，您可用於：
   - 建立記錄訊息，並儲存在各種不同的位置中。
@@ -368,7 +367,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
   - 收集有助於偵錯和追蹤的內容資訊，以及用於稽核和一般記錄需求的內容資訊。
 - 記錄區塊可彙總來自記錄目的地的記錄功能，使應用程式程式碼能夠一致，而不必理會目標記錄存放區的的位置和類型。
 
-有关详细信息，请参阅：[5 - 与写入日志一样简单：使用日志记录应用程序块](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)。
+如需詳細資訊, [請參閱 5-簡單地關閉記錄檔:使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)。
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
@@ -447,7 +446,7 @@ public bool IsTransient(Exception ex)
 - 如需針對其他常見 SQL Database 連線問題進行疑難排解的詳細資訊，請參閱[針對 Azure SQL Database 連線問題進行疑難排解](sql-database-troubleshoot-common-connection-issues.md)。
 - [SQL Database 和 SQL Server 的連線庫](sql-database-libraries.md)
 - [SQL Server 連線集區 (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
-- [Retrying  是 Apache 2.0 授權的一般用途重試程式庫 (以 Python 撰寫)](https://pypi.python.org/pypi/retrying)，可簡化可對任何案例新增重試行為的工作。
+- [Retrying 是 Apache 2.0 授權的一般用途重試程式庫 (以 Python 撰寫)](https://pypi.python.org/pypi/retrying)，可簡化可對任何案例新增重試行為的工作。
 
 <!-- Link references. -->
 

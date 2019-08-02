@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143439"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608014"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>自訂遠端監視解決方案加速器
 
@@ -37,7 +37,7 @@ ms.locfileid: "66143439"
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    請只在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應該在使用完畢之後儘速加以停用](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines)。
+    請只在測試和開發期間啟用 SSH 存取。 如果您啟用 SSH，[您應該在使用完畢之後儘速加以停用](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines)。
 
 1. 使用 Azure 入口網站或 Azure Cloud Shell 尋找虛擬機器的名稱和公用 IP 位址。 例如:
 
@@ -73,7 +73,7 @@ ms.locfileid: "66143439"
     npm start
     ```
 
-1. 前一個命令 UI 會在本機執行 http:\//localhost:3000 / 儀表板。 您可以在網站執行期間編輯程式碼，並看到它動態更新。
+1. 上一個命令會在本機的 HTTP:\//localhost: 3000/儀表板上執行 UI。 您可以在網站執行期間編輯程式碼，並看到它動態更新。
 
 ## <a name="customize-the-layout"></a>自訂版面配置
 

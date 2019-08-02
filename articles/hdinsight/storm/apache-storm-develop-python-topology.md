@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 元件-Azure HDInsight 的 Apache Storm
+title: 使用 Python 元件 Apache Storm-Azure HDInsight
 description: 了解如何建立使用 Python 元件的 Apache Storm 拓撲。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3b808a12c7a669a272bf6a1bbb253ed6b4625288
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b9faf33734ba17e9912246fe9c5c2ac45c55ba44
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078204"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598468"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 開發 Apache Storm 拓撲
 
@@ -25,7 +25,7 @@ ms.locfileid: "67078204"
 
 此專案的程式碼位於 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Python 2.7 或更新版本
 
@@ -33,7 +33,7 @@ ms.locfileid: "67078204"
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi)
 
-* (選擇性) 本機 Storm 開發環境。 只有當您想要在本機執行拓撲時，才需要本機 Storm 環境。 如需詳細資訊，請參閱[設定開發環境](https://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html)。
+* (選擇性) 本機 Storm 開發環境。 只有當您想要在本機執行拓撲時，才需要本機 Storm 環境。 如需詳細資訊，請參閱[設定開發環境](http://storm.apache.org/releases/current/Setting-up-development-environment.html)。
 
 ## <a name="storm-multi-language-support"></a>Storm 多語言支援
 
@@ -140,7 +140,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 > Storm 拓撲啟動之後會一直執行到停止為止。 若要停止拓撲，請使用下列其中一種方法：
 >
 > * 從命令列執行 `storm kill TOPOLOGYNAME` 命令
-> * Storm UI 中的 [終止]  按鈕。
+> * Storm UI 中的 [終止] 按鈕。
 
 
 ## <a name="next-steps"></a>後續步驟

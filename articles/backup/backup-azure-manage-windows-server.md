@@ -1,18 +1,18 @@
 ---
 title: 管理 Azure 復原服務保存庫與伺服器
 description: 管理 Azure 復原服務保存庫中的作業和警示。
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: raynew
-ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466361"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639873"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -84,7 +84,7 @@ ms.locfileid: "68466361"
 
 | 警示層級 | 產生警示的事件 |
 | ----------- | ----------- |
-| 重要 | 您會在下列情況中收到重大警示：備份作業失敗、復原作業失敗，以及當您在伺服器停止保護時，但保留資料。|
+| 重大 | 您會在下列情況中收到重大警示：備份作業失敗、復原作業失敗，以及當您在伺服器停止保護時，但保留資料。|
 | 警告 | 您會在以下情況收到警示：備份作業完成，但有警告 (例如，當不到 100 個檔案因為損毀問題而未備份，或是有超過 1,000,000 個檔案成功備份時)。 |
 | 資訊 | 目前沒有使用中的資訊警示。 |
 
@@ -111,7 +111,7 @@ ms.locfileid: "68466361"
 
    ![備份警示](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
 
-   [選擇資料行]  功能表隨即開啟。
+   [選擇資料行] 功能表隨即開啟。
 
 2. 在 [選擇資料行] 功能表中，選擇您想要在報告中顯示的詳細資料。
 

@@ -9,24 +9,46 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477514"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688121"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>針對 Desired State Configuration (DSC) 問題進行疑難排解
 
 本文提供有關針對 Desired State Configuration (DSC) 問題進行疑難排解的資訊。
 
+## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>疑難排解 Desired State Configuration 的步驟 (DSC)
+
+當您在 Azure 狀態設定中編譯或部署設定發生錯誤時, 以下是可協助您診斷問題的幾個步驟。
+
+1. **請確定您的設定在本機電腦上成功編譯:** Azure 狀態設定建置於 PowerShell DSC 上。 您可以在[POWERSHELL dsc](/powershell/dsc/overview/overview)檔中找到 DSC 語言和語法的檔。
+
+   藉由在本機電腦上編譯 DSC 設定, 您可以探索並解決常見錯誤, 例如:
+
+   - **遺失的模組**
+   - **語法錯誤**
+   - **邏輯錯誤**
+2. **在您的節點上查看 DSC 記錄:** 如果您的設定成功編譯, 但套用至節點時失敗, 您可以在記錄檔中找到詳細資訊。 如需有關哪裡可以找到 DSC 記錄的資訊, 請參閱[Dsc 事件記錄檔的位置](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)。
+
+   Futhermore, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics)可以協助您剖析來自 DSC 記錄檔的詳細資訊。 如果您聯繫支援服務, 他們將需要這些記錄以 dianose 您的問題。
+
+   您可以使用[安裝穩定版本模組](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)底下找到的指示, 在本機電腦上安裝**xDscDiagnostics** 。
+
+   若要在您的 Azure 電腦上安裝**xDscDiagnostics** , 您可以使用[az vm run-command](/cli/azure/vm/run-command)或[Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)。 您也可以[依照在具有執行命令的 WINDOWS VM 中執行 PowerShell 腳本](../../virtual-machines/windows/run-command.md)中的步驟, 使用入口網站中的 [**執行命令**] 選項。
+
+   如需使用**xDscDiagnostics**的詳細資訊, 請參閱[使用 XDSCDIAGNOSTICS 來分析 DSC 記錄](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs)檔, 以及[xDscDiagnostics Cmdlet](https://github.com/PowerShell/xDscDiagnostics#cmdlets)。
+3. **請確定您的節點和自動化工作區具有必要的模組:** Desired State Configuration 取決於節點上安裝的模組。  使用 Azure 自動化狀態設定時, 請使用匯[入模組](../shared-resources/modules.md#import-modules)中列出的步驟, 將任何必要的模組匯入到您的自動化帳戶。 設定也可能相依于特定版本的模組。  如需詳細資訊, 請參閱針對[模組進行疑難排解](shared-resources.md#modules)。
+
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>使用 Desired State Configuration (DSC) 時的常見錯誤
 
-### <a name="unsupported-characters"></a>案例：無法從入口網站中刪除具有特殊字元的組態
+### <a name="unsupported-characters"></a>案例：無法從入口網站刪除具有特殊字元的設定
 
 #### <a name="issue"></a>問題
 
-嘗試將從入口網站中刪除 DSC 設定時，您會看到下列錯誤：
+嘗試從入口網站刪除 DSC 設定時, 您會看到下列錯誤:
 
 ```error
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
@@ -34,19 +56,19 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 #### <a name="cause"></a>原因
 
-此錯誤是打算解決的暫時性問題。
+此錯誤是計畫要解決的暫時性問題。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
-* 若要刪除的組態使用 Az Cmdlet 」 移除 AzAutomationDscConfiguration"。
-* 此 cmdlet 的文件尚未更新。  在那之前，請參閱文件以取得 AzureRM 模組。
+* 使用 Az Cmdlet "Remove-AzAutomationDscConfiguration" 來刪除設定。
+* 此 Cmdlet 的檔尚未更新。  在那之前, 請參閱 AzureRM 模組的檔。
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-to-register-agent"></a>案例：無法註冊 Dsc 代理程式
 
 #### <a name="issue"></a>問題
 
-當您嘗試執行時`Set-DscLocalConfigurationManager`或另一個 DSC cmdlet，您會收到錯誤：
+當嘗試執行`Set-DscLocalConfigurationManager`或另一個 DSC Cmdlet 時, 您會收到錯誤:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -61,17 +83,17 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 #### <a name="cause"></a>原因
 
-此錯誤通常被因為防火牆、 proxy 伺服器或其他網路錯誤後方的電腦。
+此錯誤通常是由防火牆、位於 proxy 伺服器後方的電腦, 或其他網路錯誤所造成。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
-確認您的電腦具有適當的端點的存取權的 Azure 自動化 DSC，並再試一次。 如需連接埠和位址所需的清單，請參閱[網路規劃](../automation-dsc-overview.md#network-planning)
+請確認您的電腦可存取適當的 Azure 自動化 DSC 端點, 然後再試一次。 如需所需的埠和地址清單, 請參閱[網路規劃](../automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>案例：節點處於失敗狀態，並發生「找不到」錯誤
 
 #### <a name="issue"></a>問題
 
-節點的報告具有「失敗」  狀態且包含錯誤：
+節點的報告具有「失敗」狀態且包含錯誤：
 
 ```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
@@ -81,13 +103,13 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 此錯誤通常發生在將節點指派給設定名稱 (例如 ABC)，而不是指派給節點設定名稱 (例如 ABC.WebServer) 的情況下。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
-* 請確定您要指派具有 「 節點組態名稱 」 而不是 「 組態名稱"的節點。
+* 請確定您指派的節點具有「節點設定名稱」, 而不是「設定名稱」。
 * 您可以使用 Azure 入口網站或使用 PowerShell Cmdlet，將節點組態指派至節點。
 
-  * 若要將節點組態指派給節點，使用 Azure 入口網站中，開啟**DSC 節點**頁面上，然後選取節點，然後按一下**指派節點組態** 按鈕。  
-  * 若要將節點組態指派至節點，使用 PowerShell cmdlet，請使用**Set-azurermautomationdscnode** cmdlet
+  * 若要使用 Azure 入口網站將節點設定指派給節點, 請開啟 [ **DSC 節點**] 頁面, 然後選取一個節點, 再按一下 [**指派節點**設定] 按鈕。
+  * 若要使用 PowerShell Cmdlet 將節點設定指派給節點, 請使用**unregister-azurermautomationdscnode** Cmdlet
 
 ### <a name="no-mof-files"></a>案例：編譯設定時，沒有產生任何節點設定 (MOF 檔案)
 
@@ -103,11 +125,11 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 當 DSC 設定中緊接在 **Node** 關鍵字後面的運算式評估為 `$null` 時，便不會產生任何節點設定。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
 下列任何一個解決方案都可以修正此問題：
 
-* 請確定運算式旁的**節點**$null 不評估組態定義中的關鍵字。
+* 請確定設定定義中**Node**關鍵字旁的運算式未評估為 $null。
 * 如果您在編譯組態時傳遞 ConfigurationData，請確定您傳遞的是組態向 [ConfigurationData](../automation-dsc-compile.md#configurationdata)要求的預期值。
 
 ### <a name="dsc-in-progress"></a>案例：DSC 節點報告變成停留在「進行中」狀態
@@ -124,9 +146,9 @@ No instance found with given property values
 
 您已將 WMF 版本升級，且有損毀的 WMI。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
-若要修正此問題，請依照中的指示[DSC 已知問題和限制](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc)文章。
+若要修正此問題, 請依照[DSC 已知問題和限制](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc)一文中的指示進行。
 
 ### <a name="issue-using-credential"></a>案例：無法在 DSC 設定中使用認證
 
@@ -140,17 +162,17 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="cause"></a>原因
 
-您已在組態中使用的認證，但沒有提供適當**ConfigurationData**來設定**PSDscAllowPlainTextPassword**設為 true，每個節點組態。
+您已在設定中使用認證, 但未提供適當的**ConfigurationData** , 將每個節點設定的**PSDscAllowPlainTextPassword**設為 true。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
-* 請確認傳入適當**ConfigurationData**來設定**PSDscAllowPlainTextPassword**設為 true，每個節點組態設定中所述。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#assets)。
+* 請務必傳入適當的**ConfigurationData** , 以針對設定中所述的每個節點設定, 將**PSDscAllowPlainTextPassword**設為 true。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#assets)。
 
-### <a name="failure-processing-extension"></a>案例：上架的 dsc 擴充功能，「 失敗的處理延伸模組 」 的錯誤
+### <a name="failure-processing-extension"></a>案例：從 dsc 延伸模組上線, 「失敗處理延伸模組」錯誤
 
 #### <a name="issue"></a>問題
 
-使用 DSC 延伸模組，失敗的登入發生包含錯誤時：
+當使用 DSC 延伸模組上線時, 會發生失敗, 其中包含錯誤:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -158,18 +180,18 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 #### <a name="cause"></a>原因
 
-節點指派節點組態名稱不存在服務中時，通常就會發生此錯誤。
+當節點指派的節點設定名稱不存在於服務中時, 通常會發生此錯誤。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
-* 請確定您要指派具有完全符合的名稱，在服務中的節點組態名稱的節點。
-* 您可以選擇不包含節點，但未指派節點設定，將會導致上架的節點組態名稱
+* 請確定您所指派的節點的節點設定名稱與服務中的名稱完全相符。
+* 您可以選擇不包含節點設定名稱, 這會導致節點上架, 但不會指派節點設定
 
-### <a name="failure-linux-temp-noexec"></a>案例：套用組態，以在 Linux 中的，發生失敗且發生一般錯誤
+### <a name="failure-linux-temp-noexec"></a>案例：在 Linux 中套用設定, 發生一般錯誤時失敗
 
 #### <a name="issue"></a>問題
 
-當套用在 Linux 中的設定，就會發生失敗包含錯誤：
+在 Linux 中套用設定時, 會發生失敗, 其中包含錯誤:
 
 ```error
 This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
@@ -177,11 +199,11 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>原因
 
-客戶已識別，如果 /tmp 位置設定為 noexec，DSC 的目前版本無法套用設定。
+客戶已發現, 如果/tmp 位置設為 noexec, 則目前的 DSC 版本將無法套用設定。
 
-#### <a name="resolution"></a>解決方案
+#### <a name="resolution"></a>解決方法
 
-* Noexec 選項移除 /tmp 位置。
+* 從/tmp 位置移除 noexec 選項。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -189,4 +211,4 @@ This event indicates that failure happens when LCM is processing the configurati
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。
-* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
+* 如果需要更多協助，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

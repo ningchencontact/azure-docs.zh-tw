@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3b3b1b652515241950e7f87416122125fbe67f43
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400590"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640584"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
-本文章說明用來保護 Azure IoT 中樞的選項。 IoT 中樞使用「權限」  ，授與每個 IoT 中樞端點的存取權。 權限可根據功能限制 IoT 中樞的存取權。
+本文章說明用來保護 Azure IoT 中樞的選項。 IoT 中樞使用「權限」，授與每個 IoT 中樞端點的存取權。 權限可根據功能限制 IoT 中樞的存取權。
 
 本文將介紹：
 
@@ -37,10 +37,10 @@ ms.locfileid: "60400590"
 
 * **IoT 中樞層級的共用存取原則**。 共用存取原則可以授與上面所列[權限](#iot-hub-permissions)的任意組合。 您可以使用 [IoT 中樞資源 REST API](/rest/api/iothub/iothubresource)，或使用 [az iot hub policy](/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI，以程式設計方式在 [Azure 入口網站](https://portal.azure.com)中定義原則。 新建立的 IoT 中樞有下列預設原則︰
   
-  | 共用的存取原則 | Permissions |
+  | 共用存取原則 | Permissions |
   | -------------------- | ----------- |
   | iothubowner | 所有權限 |
-  | service | **ServiceConnect** 權限 |
+  | 服務 | **ServiceConnect** 權限 |
   | 裝置 | **DeviceConnect** 權限 |
   | registryRead | **RegistryRead** 權限 |
   | registryReadWrite | **RegistryRead** 和 **RegistryWrite** 權限 |
@@ -49,9 +49,9 @@ ms.locfileid: "60400590"
 
 例如，在典型的 IoT 解決方案中︰
 
-* 裝置管理元件使用 registryReadWrite  原則。
-* 事件處理器元件使用 service  原則。
-* 執行階段裝置商務邏輯元件使用 service  原則。
+* 裝置管理元件使用 registryReadWrite 原則。
+* 事件處理器元件使用 service 原則。
+* 執行階段裝置商務邏輯元件使用 service 原則。
 * 個別裝置會使用 IoT 中樞身分識別登錄內儲存的認證進行連接。
 
 > [!NOTE]
@@ -194,6 +194,11 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
+
+以下是必要條件的安裝指示。
+
+[!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
 
 C# 中用來產生安全性權杖的功能是：
 
@@ -401,9 +406,9 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ## <a name="custom-device-and-module-authentication"></a>自訂裝置與模組驗證
 
-您可以使用 IoT 中樞[身分識別登錄](iot-hub-devguide-identity-registry.md)，利用[權杖](iot-hub-devguide-security.md#security-tokens)來設定每個裝置/模組的安全性認證和存取控制。 如果 IoT 解決方案已經有自訂身分識別登錄及/或驗證配置，請考慮建立「權杖服務」  ，將這個基礎結構與 IoT 中樞整合。 如此一來，您可以在解決方案中使用其他 IoT 功能。
+您可以使用 IoT 中樞[身分識別登錄](iot-hub-devguide-identity-registry.md)，利用[權杖](iot-hub-devguide-security.md#security-tokens)來設定每個裝置/模組的安全性認證和存取控制。 如果 IoT 解決方案已經有自訂身分識別登錄及/或驗證配置，請考慮建立「權杖服務」，將這個基礎結構與 IoT 中樞整合。 如此一來，您可以在解決方案中使用其他 IoT 功能。
 
-權杖服務是自訂雲端服務。 建立具備 **DeviceConnect** 或 **ModuleConnect** 權限的 IoT 中樞「共用存取原則」  ，以建立「裝置範圍」  或「模組範圍」  權杖。 這些權杖可讓裝置與模組連線到 IoT 中樞。
+權杖服務是自訂雲端服務。 建立具備 **DeviceConnect** 或 **ModuleConnect** 權限的 IoT 中樞「共用存取原則」，以建立「裝置範圍」或「模組範圍」權杖。 這些權杖可讓裝置與模組連線到 IoT 中樞。
 
 ![權杖服務模式的步驟](./media/iot-hub-devguide-security/tokenservice.png)
 
@@ -426,7 +431,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ### <a name="comparison-with-a-custom-gateway"></a>和自訂閘道器的比較
 
-權杖服務模式為使用 IoT 中樞實作自訂身分識別登錄/驗證配置的建議方式。 建議此模式是因為 IoT 中樞會繼續處理大部分的解決方案流量。 不過，如果自訂驗證配置與通訊協定密不可分，您可能需要「自訂閘道」  來處理所有流量。 使用[傳輸層安全性 (TLS) 和預先共用金鑰 (PSK)](https://tools.ietf.org/html/rfc4279) \(英文\) 是這類案例的範例之一。 如需詳細資訊，請參閱[通訊協定閘道](iot-hub-protocol-gateway.md)一文。
+權杖服務模式為使用 IoT 中樞實作自訂身分識別登錄/驗證配置的建議方式。 建議此模式是因為 IoT 中樞會繼續處理大部分的解決方案流量。 不過，如果自訂驗證配置與通訊協定密不可分，您可能需要「自訂閘道」來處理所有流量。 使用[傳輸層安全性 (TLS) 和預先共用金鑰 (PSK)](https://tools.ietf.org/html/rfc4279) \(英文\) 是這類案例的範例之一。 如需詳細資訊，請參閱[通訊協定閘道](iot-hub-protocol-gateway.md)一文。
 
 ## <a name="reference-topics"></a>參考主題：
 
@@ -436,11 +441,11 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 下表列出可用來控制您的 IoT 中樞存取權的權限。
 
-| 權限 | 注意 |
+| 使用權限 | 注意 |
 | --- | --- |
 | **RegistryRead** |為身分識別登錄授與讀取權限。 如需詳細資訊，請參閱[身分識別登錄](iot-hub-devguide-identity-registry.md)。 <br/>後端雲端服務會使用此權限。 |
 | **RegistryReadWrite** |為身分識別登錄授與讀取和寫入權限。 如需詳細資訊，請參閱[身分識別登錄](iot-hub-devguide-identity-registry.md)。 <br/>後端雲端服務會使用此權限。 |
-| **ServiceConnect** |授與雲端服務面向通訊和監視端點的存取權。 <br/>授與權限以接收裝置到雲端的訊息、傳送雲端到裝置的訊息，以及擷取對應的傳遞通知。 <br/>授與權限以擷取檔案上傳的傳遞認可。 <br/>授與權限以存取對應項，以便更新標籤及所需屬性、擷取報告的屬性，以及執行查詢。 <br/>後端雲端服務會使用此權限。 |
+| **ServiceConnect** |授與雲端服務面向通訊和監視端點的存取權。 <br/>授與權限以接收裝置到雲端的訊息、傳送雲端到裝置的訊息，以及擷取對應的傳遞通知。 <br/>授與取得檔案上傳傳遞通知的許可權。 <br/>授與權限以存取對應項，以便更新標籤及所需屬性、擷取報告的屬性，以及執行查詢。 <br/>後端雲端服務會使用此權限。 |
 | **DeviceConnect** |授與裝置面向端點的存取權。 <br/>授與權限以傳送裝置到雲端的訊息和接收雲端到裝置的訊息。 <br/>授與權限以從裝置執行檔案上傳。 <br/>授與權限以接收裝置對應項所需的屬性通知，並更新裝置對應項報告的屬性。 <br/>授與權限以執行檔案上傳。 <br/>裝置會使用此權限。 |
 
 ## <a name="additional-reference-material"></a>其他參考資料

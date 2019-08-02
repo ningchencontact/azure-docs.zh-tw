@@ -1,19 +1,20 @@
 ---
 title: Azure 備份：從 Azure VM 備份復原檔案和資料夾
 description: 從 Azure 虛擬機器的復原點復原檔案
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: 項目層級復原；從 Azure VM 備份檔案復原；從 Azure VM 中還原檔案
 ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
-ms.author: pullabhk
-ms.openlocfilehash: 678b187eb49c84b5b4cf17fe063d21d09b333434
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 524d0854e8691428738cee321e394f572ea80112
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465657"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689183"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 

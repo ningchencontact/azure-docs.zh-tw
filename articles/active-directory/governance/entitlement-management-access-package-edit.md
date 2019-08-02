@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07f9dbcc21840bec4b4487225dfb8108586865e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489194"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618364"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理 (預覽) 中編輯和管理現有的存取套件
 
@@ -38,7 +38,7 @@ ms.locfileid: "68489194"
 
 資源角色是與資源相關聯的許可權集合。 將資源角色新增至您的存取套件, 讓使用者可以要求資源的方式。 您可以加入群組、應用程式和 SharePoint 網站的資源角色。
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -62,7 +62,7 @@ ms.locfileid: "68489194"
 您可以選取任何 Office 365 群組或 Azure AD 安全性群組。  系統管理員可以將任何群組新增至目錄;如果目錄擁有者是群組的擁有者, 則可以將任何群組新增至目錄。 選取群組時, 請記住下列 Azure AD 條件約束:
 
 - 當使用者 (包括來賓) 新增為群組的成員時, 他們可以看到該群組的所有其他成員。
-- Azure AD 無法變更使用 Azure AD Connect 從 Windows Server Active Directory 同步處理之群組的成員資格。  
+- Azure AD 無法變更從 Windows Server Active Directory 同步處理的群組成員資格, 其方式是使用 Azure AD Connect, 或在 Exchange Online 中建立為通訊群組。  
 - 藉由新增或移除成員, 無法更新動態群組的成員資格, 因此動態群組成員資格不適合與權利管理搭配使用。
 
 1. 在 [**新增資源角色以存取封裝**] 頁面上, 按一下 [**群組**] 以開啟 [選取群組] 窗格。
@@ -71,7 +71,7 @@ ms.locfileid: "68489194"
 
     ![存取套件-新增資源角色-選取群組](./media/entitlement-management-access-package-edit/group-select.png)
 
-1. 按一下 [選取] 。
+1. 按一下 [選取]。
 
 1. 在 [**角色**] 清單中, 選取 [**擁有**者] 或 [**成員**]。
 
@@ -79,7 +79,7 @@ ms.locfileid: "68489194"
 
     ![存取套件-新增群組的資源角色](./media/entitlement-management-access-package-edit/group-role.png)
 
-1. 按一下 [新增] 。
+1. 按一下 [新增]。
 
     新增至存取套件的任何使用者都會自動成為此群組的成員。
 
@@ -104,13 +104,13 @@ ms.locfileid: "68489194"
 
     ![存取套件-新增資源角色-選取應用程式](./media/entitlement-management-access-package-edit/application-select.png)
 
-1. 按一下 [選取] 。
+1. 按一下 [選取]。
 
 1. 在 [**角色**] 清單中, 選取應用程式角色。
 
     ![存取套件-新增應用程式的資源角色](./media/entitlement-management-access-package-edit/application-role.png)
 
-1. 按一下 [新增] 。
+1. 按一下 [新增]。
 
     在新增此應用程式時, 任何具有存取封裝之現有指派的使用者都會自動獲得存取權。
 
@@ -124,19 +124,19 @@ ms.locfileid: "68489194"
 
     ![存取套件-新增資源角色-選取 SharePoint Online 網站](./media/entitlement-management-access-package-edit/sharepoint-site-select.png)
 
-1. 按一下 [選取] 。
+1. 按一下 [選取]。
 
 1. 在 [**角色**] 清單中, 選取 SharePoint Online 網站角色。
 
     ![存取套件-新增 SharePoint Online 網站的資源角色](./media/entitlement-management-access-package-edit/sharepoint-site-role.png)
 
-1. 按一下 [新增] 。
+1. 按一下 [新增]。
 
     新增存取套件的任何使用者, 將會自動獲得此 SharePoint Online 網站的存取權。
 
 ## <a name="remove-resource-roles"></a>移除資源角色
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -158,7 +158,7 @@ ms.locfileid: "68489194"
 
 ![建立原則處理常式](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -178,7 +178,7 @@ ms.locfileid: "68489194"
 
 您可以隨時編輯原則。 如果您變更原則的到期日, 已處於 [待核准] 或 [已核准] 狀態之要求的到期日將不會變更。
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -200,7 +200,7 @@ ms.locfileid: "68489194"
 
 在某些情況下, 您可能會想要將特定使用者直接指派給存取套件, 讓使用者不必完成要求存取套件的程式。 若要直接指派使用者, 存取套件必須具有允許系統管理員直接指派的原則。
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -224,11 +224,11 @@ ms.locfileid: "68489194"
 
 1. 按一下 [**新增**], 將選取的使用者直接指派給存取封裝。
 
-    幾分鐘後, 按一下 [ 重新整理] 以查看 [指派] 清單中的使用者。
+    幾分鐘後, 按一下 [重新整理] 以查看 [指派] 清單中的使用者。
 
 ## <a name="view-who-has-an-assignment"></a>查看誰具有指派
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -248,7 +248,7 @@ ms.locfileid: "68489194"
 
 ## <a name="view-requests"></a>View 要求
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -260,7 +260,7 @@ ms.locfileid: "68489194"
 
 ## <a name="view-a-requests-delivery-errors"></a>查看要求的傳遞錯誤
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -270,7 +270,7 @@ ms.locfileid: "68489194"
 
 1. 選取您想要查看的要求。
 
-    如果要求有任何傳遞錯誤, 要求狀態將會是 [ 未傳遞], 而子狀態將會**部分傳遞**。
+    如果要求有任何傳遞錯誤, 要求狀態將會是 [未傳遞], 而子狀態將會**部分傳遞**。
 
     如果有任何傳遞錯誤, 在要求的詳細資料窗格中, 將會有傳遞錯誤的計數。
 
@@ -280,7 +280,7 @@ ms.locfileid: "68489194"
 
 您只能取消尚未傳遞的暫止要求。
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -296,7 +296,7 @@ ms.locfileid: "68489194"
 
 您目錄中的大部分使用者都可以登入我的存取權入口網站, 並自動查看他們可以要求的存取套件清單。 不過, 對於還不在您目錄中的外部商業夥伴使用者, 您將需要傳送一個連結, 讓他們可以用來要求存取封裝。 只要針對外部使用者啟用存取套件, 而且您有外部使用者目錄的原則, 外部使用者就可以使用我的存取權入口網站連結來要求存取套件。
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -312,7 +312,7 @@ ms.locfileid: "68489194"
 
 根據預設, 存取封裝是可探索的。 這表示如果原則允許使用者要求存取套件, 他們會自動看到其我的存取權入口網站中所列的存取套件。
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 
@@ -330,7 +330,7 @@ ms.locfileid: "68489194"
 
 只有在沒有作用中的使用者指派時, 才能刪除存取封裝。
 
-**必要角色：** 使用者系統管理員、目錄擁有者或存取套件管理員
+**必要角色：** 全域管理員、使用者系統管理員、目錄擁有者或存取套件管理員
 
 1. 在 Azure 入口網站中按一下 [Azure Active Directory]，然後按一下 [身分識別治理]。
 

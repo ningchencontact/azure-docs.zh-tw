@@ -12,24 +12,24 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: cshoe
-ms.openlocfilehash: ef8f2d5a63f7924097362f6aa0ebc78cc0f6455f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc0ffec1bfe55ee81573feffc58e1adb11421eec
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480715"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667438"
 ---
 # <a name="azure-functions-error-handling"></a>Azure 函式錯誤處理
 
 本主題提供您的函式在執行時所發生錯誤的處理之一般指引。 它也提供描述，可能會發生的繫結特定錯誤之主題的連結。 
 
-## <a name="handing-errors-in-functions"></a>處理函式中的錯誤
+## <a name="handling-errors-in-functions"></a>處理函數中的錯誤
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
  
 ## <a name="binding-error-codes"></a>繫結錯誤碼
 
-在與 Azure 服務整合時，您可能會遇到來自基礎服務 API 發出的錯誤。 這些服務的錯誤碼文件之連結，可以在下列觸發程序和繫結參考主題的＜例外狀況和傳回碼＞  小節中找到：
+在與 Azure 服務整合時，您可能會遇到來自基礎服務 API 發出的錯誤。 這些服務的錯誤碼文件之連結，可以在下列觸發程序和繫結參考主題的＜例外狀況和傳回碼＞小節中找到：
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
@@ -41,6 +41,6 @@ ms.locfileid: "67480715"
 
 + [佇列儲存體](functions-bindings-storage-queue.md#exceptions-and-return-codes)
 
-+ [服务总线](functions-bindings-service-bus.md#exceptions-and-return-codes)
++ [服務匯流排](functions-bindings-service-bus.md#exceptions-and-return-codes)
 
 + [資料表儲存體](functions-bindings-storage-table.md#exceptions-and-return-codes)

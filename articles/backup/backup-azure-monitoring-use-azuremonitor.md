@@ -1,20 +1,21 @@
 ---
 title: Azure 備份：使用 Azure 監視器監視 Azure 備份
 description: 使用 Azure 監視器監視 Azure 備份工作負載並建立自訂警示。
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Log Analytics;Azure 備份;Alerts診斷設定;動作群組
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 15b701a9ccc469636875736b6e316c150615aa16
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465938"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689199"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>使用 Azure 監視器進行大規模監視
 

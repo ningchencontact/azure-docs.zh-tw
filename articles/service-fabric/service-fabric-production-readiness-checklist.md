@@ -3,7 +3,7 @@ title: Azure Service Fabric 生產環境整備檢查清單 | Microsoft Docs
 description: 遵循最佳做法來使您的 Service Fabric 應用程式和叢集生產環境準備就緒。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/05/2019
-ms.author: aljo
-ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 9e86f7306ee70bee2e084b967867e2a9be5b66e1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729854"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599348"
 ---
 # <a name="production-readiness-checklist"></a>實際執行整備檢查清單
 
 您的應用程式和叢集已經準備好要接受生產環境流量嗎？ 執行並測試您的應用程式和叢集，不一定表示它已經準備好進入生產環境。 完成下列檢查清單，使您的應用程式和叢集保持順暢執行。 我們強烈建議您檢查這些所有項目。 您顯然可以選擇針對特定明細項目 (例如，您自己的診斷架構) 使用替代的解決方案。
 
 
-## <a name="prerequisites-for-production"></a>用於生產環境的必要條件
-1. Azure Service Fabric 最佳做法：[應用程式的設計](./service-fabric-best-practices-applications.md)，[安全性](./service-fabric-best-practices-security.md)，[網路](./service-fabric-best-practices-networking.md)，[容量規劃和調整](./service-fabric-best-practices-capacity-scaling.md)，[基礎結構即程式碼](./service-fabric-best-practices-infrastructure-as-code.md)，並[監視和診斷](./service-fabric-best-practices-monitoring.md)。 
+## <a name="prerequisites-for-production"></a>生產環境的必要條件
+1. Azure Service Fabric 最佳做法:[應用程式設計](./service-fabric-best-practices-applications.md)、[安全性](./service-fabric-best-practices-security.md)、[網路](./service-fabric-best-practices-networking.md)、[容量規劃和調整](./service-fabric-best-practices-capacity-scaling.md)、[基礎結構](./service-fabric-best-practices-infrastructure-as-code.md)即程式碼, 以及[監視和診斷](./service-fabric-best-practices-monitoring.md)。 
 1. 如果使用 Actors 程式設計模型，請實作 Reliable Actors 安全性設定
 1. 若叢集的核心超過 20 個或節點超過 10 個，請建立系統服務專用的主要節點類型。 新增[放置條件約束](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)，以保留系統服務的主要節點類型。
 1. 針對主要節點類型使用 D2v2 或更高的 SKU。 建議挑選至少具有 50 GB 硬碟容量的 SKU。
@@ -36,9 +36,9 @@ ms.locfileid: "66729854"
 1. 了解並設定[持久性層級](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)。 建議針對執行具狀態工作負載的節點類型使用銀級或更高的持久性層級。 主要節點類型的持久性層級應該設定為銀級或更高層級。
 1. 了解並挑選節點類型的[可靠性層級](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)。 建議採用銀級或更高層級的可靠性。
 1. 載入您的工作負載並進行調整測試，以識別叢集的[容量需求](service-fabric-cluster-capacity.md)。 
-1. 您的服務和應用程式會受到監視，並產生及儲存應用程式記錄，而且會發出警示。 例如，請參閱[將記錄新增至 Service Fabric 應用程式](service-fabric-how-to-diagnostics-log.md)並[使用 Azure 監視器記錄檔監視容器](service-fabric-diagnostics-oms-containers.md)。
-1. 叢集會監視與警示 (例如，使用[Azure 監視器記錄](service-fabric-diagnostics-event-analysis-oms.md))。 
-1. 基礎的虛擬機器擴展集基礎結構監視與警示 (例如，使用[Azure 監視器記錄](service-fabric-diagnostics-oms-agent.md)。
+1. 您的服務和應用程式會受到監視，並產生及儲存應用程式記錄，而且會發出警示。 例如, 請參閱[將記錄新增至您的 Service Fabric 應用程式](service-fabric-how-to-diagnostics-log.md)和[使用 Azure 監視器記錄監視容器](service-fabric-diagnostics-oms-containers.md)。
+1. 叢集會受到警示監視 (例如, 使用[Azure 監視器記錄](service-fabric-diagnostics-event-analysis-oms.md))。 
+1. 基礎虛擬機器擴展集基礎結構會受到警示監視 (例如, 使用[Azure 監視器記錄](service-fabric-diagnostics-oms-agent.md))。
 1. 叢集一律具有[主要和次要憑證](service-fabric-cluster-security-update-certs-azure.md) (讓您不會遭到鎖定)。
 1. 分別維護適用於開發、預備及生產環境的叢集。 
 1. [應用程式升級](service-fabric-application-upgrade.md)和[叢集升級](service-fabric-tutorial-upgrade-cluster.md)均會先在開發和預備叢集中進行測試。 

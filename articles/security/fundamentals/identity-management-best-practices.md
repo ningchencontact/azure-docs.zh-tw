@@ -1,0 +1,321 @@
+---
+title: Azure 身分識別和存取安全性的最佳做法 | Microsoft Docs
+description: 本文提供使用內建 Azure 功能的一些身分識別管理和存取控制最佳作法。
+services: security
+documentationcenter: na
+author: barclayn
+manager: barbkess
+editor: TomSh
+ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
+ms.service: security
+ms.subservice: security-fundamentals
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/03/2019
+ms.author: barclayn
+ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727250"
+---
+# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
+本文會討論一系列的 Azure 身分識別管理和存取控制安全性最佳做法。 這些最佳作法衍生自我們的 [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) 經驗和客戶的經驗。
+
+針對每個最佳做法，我們會說明︰
+
+* 最佳作法是什麼
+* 您為何想要啟用該最佳作法
+* 如果無法啟用最佳作法，結果可能為何
+* 最佳作法的可能替代方案
+* 如何學習啟用最佳作法
+
+這篇「Azure 身分識別管理和存取控制安全性最佳作法」是以共識意見及 Azure 平台功能和特性集 (因為在撰寫本文時已存在) 為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
+
+本文討論的 Azure 身分識別管理和存取控制安全性最佳作法包括：
+
+* 將身分識別視為主要安全性周邊
+* 集中管理身分識別
+* 管理已連線的租使用者
+* 啟用單一登入
+* 開啟條件式存取
+* 啟用密碼管理
+* 對使用者強制執行多重要素驗證
+* 使用角色型存取控制
+* 降低特殊權限帳戶的暴露風險
+* 控制資源所在的位置
+* 使用 Azure AD 進行儲存體驗證
+
+## <a name="treat-identity-as-the-primary-security-perimeter"></a>將身分識別視為主要安全性周邊
+
+許多人認為身分識別是安全性的主要周邊。 這種看法擺脫了傳統以網路安全性為主的觀點。 網路周邊持續變得更容易滲透，而且周邊防禦已不如 [BYOD](https://aka.ms/byodcg) 裝置和雲端應用程式遽增之前那麼有效。
+
+[Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 是用於管理身分識別和存取的 Azure 解決方案。 Azure AD 是 Microsoft 提供的多租用戶雲端式目錄和身分識別管理服務。 它將核心目錄服務、應用程式存取管理及身分識別保護結合到單個解決方案。
+
+下列各節列出使用 Azure AD 的身分識別和存取安全性最佳做法。
+
+## <a name="centralize-identity-management"></a>集中管理身分識別
+
+在[混合式身分識別](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?)案例中，建議您整合內部部署與雲端目錄。 整合可讓您的 IT 小組從一個位置管理帳戶, 而不論帳戶的建立位置為何。 整合也提供通用身分識別來存取雲端和內部部署資源, 協助您的使用者更具生產力。
+
+**最佳做法**：建立單一 Azure AD 實例。 一致性和單一授權來源會提高清楚程度, 並減少人為錯誤和設定複雜性的安全性風險。
+**詳細資料**：指定單一 Azure AD 目錄作為公司和組織帳戶的授權來源。
+
+**最佳做法**：整合您的內部部署目錄與 Azure AD。  
+**詳細資料**：使用 [Azure AD Connect](/azure/active-directory/connect/active-directory-aadconnect) 同步處理內部部署目錄與雲端目錄。
+
+> [!Note]
+> 有一些[因素會影響 Azure AD Connect 的效能](../../active-directory/hybrid/plan-connect-performance-factors.md)。 確保 Azure AD Connect 有足夠的容量, 讓表現不佳系統免于受到安全性和生產力的阻礙。 大型或複雜的組織 (布建超過100000個物件的組織) 應遵循[建議](../../active-directory/hybrid/whatis-hybrid-identity.md)來優化其 Azure AD Connect 的執行。
+
+**最佳做法**：請勿將帳戶同步處理到現有 Active Directory 實例中具有高許可權的 Azure AD。
+**詳細資料**：請勿變更篩選掉這些帳戶的預設[Azure AD Connect](../../active-directory/hybrid/how-to-connect-sync-configure-filtering.md)設定。 此設定可降低敵人從雲端切換至內部部署資產的風險 (這可能會造成主要事件)。
+
+**最佳做法**：開啟密碼雜湊同步處理。  
+**詳細資料**：密碼雜湊同步處理是一項功能, 可用來將使用者密碼雜湊從內部部署 Active Directory 實例同步處理至雲端式 Azure AD 實例。 這項同步處理有助於防止洩漏的認證從先前的攻擊中重新執行。
+
+即使您選擇使用與 Active Directory 同盟服務 (AD FS) 或其他身分識別提供者的同盟，仍可選擇性地設定密碼雜湊同步處理作為備用方式，以防內部部署伺服器失敗或暫時無法使用。 這項同步處理可讓使用者使用用來登入其內部部署 Active Directory 實例的相同密碼來登入服務。 此外, 如果使用者在其他未連接到 Azure AD 的服務上使用相同的電子郵件地址和密碼, Identity Protection 也可以藉由比較已同步處理的密碼雜湊與已知遭到破解的密碼, 來偵測遭盜用的認證。
+
+如需詳細資訊，請參閱[使用 Azure AD Connect 同步實作密碼雜湊同步處理](/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)。
+
+**最佳做法**：針對新的應用程式開發, 請使用 Azure AD 進行驗證。
+**詳細資料**：使用正確的功能來支援驗證:
+
+  - 員工的 Azure AD
+  - 適用于來賓使用者和外部合作夥伴的[AZURE AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/)
+  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) , 控制客戶在使用您的應用程式時, 如何註冊、登入及管理其設定檔
+
+未整合內部部署身分識別與雲端身分識別的組織，可能會有更多管理帳戶的額外負荷。 此額外負荷提高錯誤和安全性缺口的可能性。
+
+> [!Note]
+> 您需要選擇重要帳戶所在的目錄, 以及使用的系統管理工作站是否由新的雲端服務或現有的程式所管理。 使用現有的管理和身分識別布建程式可能會降低部分風險, 但也可能會造成攻擊者危害內部部署帳戶並在雲端上旋轉的風險。 您可能想要針對不同的角色 (例如, IT 系統管理員與業務單位管理員) 使用不同的策略。 您有兩個選擇。 第一個選項是建立未與您的內部部署 Active Directory 實例同步處理 Azure AD 帳戶。 將您的系統管理員工作站加入 Azure AD, 您可以使用 Microsoft Intune 來進行管理和修補。 第二個選項是透過同步處理至內部部署 Active Directory 實例, 來使用現有的系統管理員帳戶。 使用 Active Directory 網域中的現有工作站來進行管理和安全性。
+
+## <a name="manage-connected-tenants"></a>管理已連線的租使用者
+您的安全性組織需要查看風險, 並判斷是否遵循您組織的原則及任何法規需求。 您應該確定您的安全性組織能夠查看所有連線到生產環境和網路的訂用帳戶 (透過[Azure ExpressRoute](../../expressroute/expressroute-introduction.md)或[站對站 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md))。 Azure AD 中的[全域系統管理員/公司系統管理員](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)可以提高其對[使用者存取系統管理員](../../role-based-access-control/built-in-roles.md#user-access-administrator)角色的存取權, 並查看連線到您環境的所有訂用帳戶和受管理群組。
+
+請參閱提高[存取權以管理所有 Azure 訂用帳戶和管理群組](../../role-based-access-control/elevate-access-global-admin.md), 以確保您和您的安全性群組可以查看連線到您環境的所有訂用帳戶或管理群組。 在評估風險之後, 您應該移除此提高許可權的存取權。
+
+## <a name="enable-single-sign-on"></a>啟用單一登入
+
+在行動第一、雲端第一的世界中，無論是從什麼地方，都要讓使用者能單一登入 (SSO) 至裝置、應用程式和服務，他們才能隨時隨地保有生產力。 當您有多個身分識別解決方案要管理時，這不只會成為 IT 的系統管理問題，對於必須記住多組密碼的使用者而言也是個問題。
+
+將相同的身分識別解決方案使用於您所有的應用程式和資源，即可達成 SSO。 而不論資源位於內部部署或雲端，使用者都可以使用同一組認證來登入及存取他們所需的資源。
+
+**最佳做法**：啟用 SSO。  
+**詳細資料**：Azure AD 會[將內部部署 Active Directory 延伸](/azure/active-directory/connect/active-directory-aadconnect)至雲端。 使用者可以使用其主要公司或學校帳戶來登入已加入網域的裝置、公司資源，也能登入完成其作業所需的所有 Web 和 SaaS 應用程式。 使用者不需要記住多組使用者名稱和密碼，而且可根據其組織群組成員資格及其身為員工的狀態，自動佈建 (或解除佈建) 其應用程式存取權。 而且，您可以透過 [Azure AD 應用程式 Proxy](/azure/active-directory/active-directory-application-proxy-get-started) 控制資源庫應用程式或您已開發並發佈之自有內部部署應用程式的存取權。
+
+使用 SSO 讓使用者根據其在 Azure AD 中的公司或學校帳戶存取其 [SaaS 應用程式](/azure/active-directory/active-directory-appssoaccess-whatis)。 這不只適用於 Microsoft SaaS 應用程式，也適用於其他應用程式，例如 [Google Apps](/azure/active-directory/active-directory-saas-google-apps-tutorial) 和 [Salesforce](/azure/active-directory/active-directory-saas-salesforce-tutorial)。 您可以將應用程式設定為使用 Azure AD 作為 [SAML 型身分識別](/azure/active-directory/fundamentals-identity)提供者。 為了控制安全性，Azure AD 不會核發允許使用者登入應用程式的權杖，除非他們已透過 Azure AD 獲得存取權。 您可以直接授與存取權，或透過使用者所屬的群組授與。
+
+未建立通用身分識別來對使用者和應用程式建立 SSO 的組織，更容易遭遇使用者有多組密碼的情況。 這些情況會提高使用者重複使用密碼或使用弱式密碼的可能性。
+
+## <a name="turn-on-conditional-access"></a>開啟條件式存取
+
+使用者可以使用各種裝置和應用程式，從任何位置存取您組織的資源。 身為 IT 系統管理員, 您想要確保這些裝置符合您的安全性和合規性標準。 只將焦點放在誰可以存取資源，已不再足夠。
+
+若要平衡安全性與生產力, 您必須先考慮資源的存取方式, 才能進行存取控制的決策。 有了 Azure AD 條件式存取, 您就可以解決這項需求。 透過條件式存取, 您可以根據存取雲端應用程式的條件來做出自動化存取控制決策。
+
+**最佳做法**：管理和控制公司資源的存取權。  
+**詳細資料**：針對 SaaS 應用程式和 Azure AD 連線的應用程式, 設定以群組、位置和應用程式敏感性為基礎的 Azure AD[條件式存取](/azure/active-directory/active-directory-conditional-access-azure-portal)。
+
+**最佳做法**：封鎖舊版驗證通訊協定。
+**詳細資料**：攻擊者每天都會利用舊版通訊協定中的弱點, 特別是針對密碼噴灑攻擊。 設定條件式存取以封鎖舊版通訊協定。 請參閱影片[Azure AD:如需詳細資訊](https://www.youtube.com/watch?v=wGk0J4z90GI) , 請務必這麼做。
+
+## <a name="enable-password-management"></a>啟用密碼管理
+
+如果您有多個租用戶或想要讓使用者[重設其密碼](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md)，請務必使用適當的安全性原則來防止不當使用。
+
+**最佳做法**：為使用者設定自助式密碼重設 (SSPR)。  
+**詳細資料**：使用 Azure AD [自助式密碼重設](/azure/active-directory-b2c/active-directory-b2c-reference-sspr)功能。
+
+**最佳做法**：監視 SSPR 的使用方式或是否真的正在使用它。  
+**詳細資料**：使用 Azure AD [密碼重設註冊活動報告](/azure/active-directory/active-directory-passwords-get-insights)，監視正在註冊的使用者。 Azure AD 提供的報告功能可協助您使用預先建立的報告來回答問題。 如果您已適當地取得授權，則也可以建立自訂查詢。
+
+**最佳做法**：將雲端式密碼原則延伸至您的內部部署基礎結構。
+**詳細資料**：藉由對內部部署密碼變更執行相同的檢查, 來增強組織中的密碼原則, 如同雲端密碼變更一樣。 為內部部署的 Windows Server Active Directory 代理程式安裝[Azure AD 密碼保護](/azure/active-directory/authentication/concept-password-ban-bad), 以將禁用的密碼清單延伸到現有的基礎結構。 在內部部署環境中變更、設定或重設密碼的使用者和系統管理員, 必須符合與僅限雲端使用者相同的密碼原則。
+
+## <a name="enforce-multi-factor-verification-for-users"></a>對使用者強制執行多重要素驗證
+
+建議您要求所有使用者都使用雙步驟驗證。 這包括系統管理員，以及組織中帳戶遭到入侵時會造成重大影響的其他人員 (例如財務人員)。
+
+有很多選項可供您要求使用雙步驟驗證。 最適合您的選擇取決於您的目標、您正在執行的 Azure AD 版本，以及您的授權方案。 請參閱[如何要求使用者使用雙步驟驗證](/azure/active-directory/authentication/howto-mfa-userstates)，以判斷最適合您的選項。 如需有關授權和定價的詳細資訊，請參閱 [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) 和 [Azure Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 定價頁面。
+
+以下是啟用雙步驟驗證的選項和優點：
+
+**選項 1**：[藉由變更使用者狀態來啟用 Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-userstates.md)。   
+**優點**：這是要求使用雙步驟驗證的傳統方法。 同時適用於[雲端與 Azure Multi-Factor Authentication Server 中的 Azure Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-whichversion)。 使用此方法時, 使用者必須在每次登入時執行雙步驟驗證, 並覆寫條件式存取原則。
+
+若要判斷需要啟用多重要素驗證的位置, 請參閱[我的組織適合哪一版的 AZURE MFA？](/azure/active-directory/authentication/concept-mfa-whichversion)。
+
+**選項 2**：[使用條件式存取原則啟用多重要素驗證](/azure/active-directory/authentication/howto-mfa-getstarted)。
+**優點**：此選項可讓您使用[條件式存取](/azure/active-directory/active-directory-conditional-access-azure-portal), 在特定條件下提示進行雙步驟驗證。 特定條件可以是使用者從不同的位置、不受信任的裝置，或您認為有危險的應用程式登入。 定義您要求使用雙步驟驗證的特定條件，可讓您避免要持續提示使用者，這可能會帶來不愉快的使用者體驗。
+
+這是最具彈性的方法，可為您的使用者啟用雙步驟驗證。 啟用條件式存取原則只適用于雲端中的 Azure 多因素驗證, 而且是 Azure AD 的 premium 功能。 您可以在[部署雲端式 Azure Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted)中找到這個方法的詳細資訊。
+
+**選項 3**：藉由評估[Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa)的使用者和登入風險, 啟用條件式存取原則的多重要素驗證。   
+**優點**：此選項可讓您：
+
+- 偵測會影響貴組織身分識別的潛在弱點。
+- 針對偵測到的與您組織的身分識別有關的可疑動作，設定自動回應。
+- 調查可疑事件並採取適當動作以解決它們。
+
+這個方法使用 Azure AD Identity Protection 風險評估，根據所有雲端應用程式的使用者和登入風險來判斷是否需要雙步驟驗證。 這個方法需要 Azure Active Directory P2 授權。 您可以在 [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview) 中找到這個方法的詳細資訊。
+
+> [!Note]
+> 選項 1: 藉由變更使用者狀態來啟用多重要素驗證, 會覆寫條件式存取原則。 因為選項2和3使用條件式存取原則, 所以您無法對其使用選項1。
+
+未新增額外身分識別保護層 (例如雙步驟驗證) 的組織比較容易遭受認證竊取攻擊。 認證竊取攻擊可能會導致資料洩漏。
+
+## <a name="use-role-based-access-control"></a>使用角色型存取控制
+雲端資源的存取管理對於使用雲端的任何組織而言都非常重要。 [角色型存取控制 (RBAC)](/azure/role-based-access-control/overview)可協助您管理有權存取 Azure 資源的人員、他們可以使用這些資源來執行的工作, 以及他們有權存取的區域。
+
+指定在 Azure 中負責特定功能的群組或個別角色有助於避免混淆, 而導致產生安全性風險的人為和自動化錯誤。 對於想要強制執行資料存取安全性原則的組織，根據[需要知道](https://en.wikipedia.org/wiki/Need_to_know)和[最低權限](https://en.wikipedia.org/wiki/Principle_of_least_privilege)安全性原則限制存取權限是必須做的事。
+
+您的安全性小組需要瞭解您的 Azure 資源, 才能評估和補救風險。 如果安全性小組具有營運責任, 他們需要額外的許可權來執行其工作。
+
+您可以使用[RBAC](/azure/role-based-access-control/overview)將許可權指派給特定範圍的使用者、群組和應用程式。 角色指派的範圍可以是訂用帳戶、資源群組或單一資源。
+
+**最佳做法**：隔離小組內的職責, 僅授與使用者執行其工作所需的存取權數量。 不是在您的 Azure 訂用帳戶或資源中提供每個人不受限制的許可權, 而是只允許特定範圍的特定動作。
+**詳細資料**：在 Azure 中使用[內建的 RBAC 角色](/azure/role-based-access-control/built-in-roles), 將許可權指派給使用者。
+
+> [!Note]
+> 特定的許可權會造成不必要的複雜性和混淆, 累積成「舊版」設定, 這種設定很容易修正, 而不會擔心中斷問題。 避免資源特定的許可權。 相反地, 請將管理群組用於企業級的許可權和資源群組, 以取得訂用帳戶內的許可權。 避免使用者特定的許可權。 相反地, 請將存取權指派給 Azure AD 中的群組。
+
+**最佳做法**：將 azure 責任的存取權授與安全性小組, 以查看 Azure 資源, 讓他們能夠評估及補救風險。
+**詳細資料**：為安全性小組授與 RBAC[安全性讀取](/azure/role-based-access-control/built-in-roles#security-reader)者角色。 視責任範圍而定, 您可以使用根管理群組或區段管理群組:
+
+- 負責所有企業資源之小組的**根管理群組**
+- 具有有限範圍之小組的**區段管理群組**(通常是因為法規或其他組織界限)
+
+**最佳做法**：將適當的許可權授與具有直接操作責任的安全性小組。
+**詳細資料**：請參閱 RBAC 內建角色, 以進行適當的角色指派。 如果內建角色不符合您組織的特定需求, 您可以建立[Azure 資源的自訂角色](/azure/role-based-access-control/custom-roles)。 就像內建角色一樣, 您可以將自訂角色指派給訂用帳戶、資源群組和資源範圍的使用者、群組和服務主體。
+
+**最佳做法**：授與 Azure 資訊安全中心存取需要的安全性角色。 資訊安全中心可讓安全性小組快速找出並補救風險。
+**詳細資料**：將具有這些需求的安全性小組加入 RBAC[安全性系統管理員](/azure/role-based-access-control/built-in-roles#security-admin)角色, 讓他們可以查看安全性原則、查看安全性狀態、編輯安全性原則、查看警示和建議, 以及解除警示和建議。 您可以使用根管理群組或區段管理群組來執行這項操作, 視責任範圍而定。
+
+未使用 RBAC 等功能來強制執行資料存取控制的組織, 可能會對其使用者提供比所需更多的許可權。 這可能會讓使用者存取他們不應擁有的資料類型 (例如, 高度業務衝擊), 而導致資料洩露。
+
+## <a name="lower-exposure-of-privileged-accounts"></a>降低特殊權限帳戶的暴露風險
+
+保護特殊權限存取是保護企業資產很重要的第一個步驟。 將能夠存取安全資訊或資源的人數降到最低，可以降低惡意使用者取得該存取權，或者授權使用者無意中影響到敏感資源的機率。
+
+特殊權限帳戶是可管理 IT 系統的帳戶。 網路攻擊者會以這些帳戶為目標，來取得組織資料和系統的存取權。 為了保護特殊權限存取，您應該讓帳戶和系統遠離遭遇惡意使用者的風險。
+
+我們建議您擬定並遵循適當計劃以保護特殊權限存取，使網路攻擊者無法取得。 如需有關如何擬定詳細的藍圖，以保護 Azure AD、Microsoft Azure、Office 365 和其他雲端服務所管理或報告的身分識別和存取權，請檢閱[在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)。
+
+以下摘要說明[在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)中找到的最佳做法：
+
+**最佳做法**：管理、控制及監視特殊權限帳戶的存取權。   
+**詳細資料**：開啟 [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access)。 開啟 Privileged Identity Management 之後，您會收到有關於特殊權限存取角色有所變更的通知電子郵件訊息。 您目錄中的高特殊權限角色新增了其他使用者時，這些通知將會提供早期警告。
+
+**最佳做法**：確保所有重要的系統管理員帳戶都是 Azure AD 帳戶管理。
+**詳細資料**：從重要的系統管理員角色 (例如, hotmail.com、live.com 和 outlook.com 等 Microsoft 帳戶) 移除任何取用者帳戶。
+
+**最佳做法**：請確定所有重要的系統管理員角色都有個別的帳戶來進行系統管理工作, 以避免網路釣魚和其他攻擊危害系統管理許可權。
+**詳細資料**：建立另一個系統管理員帳戶, 指派執行系統管理工作所需的許可權。 封鎖使用這些系統管理帳戶來取得每日生產力工具, 例如 Microsoft Office 365 電子郵件或任意網頁流覽。
+
+**最佳做法**：識別及分類具備高特殊權限角色的帳戶。   
+**詳細資料**：在開啟 Azure AD Privileged Identity Management 之後，檢視具備全域管理員、特殊權限角色管理員和其他較高特殊權限角色的使用者。 請移除這些角色中不再需要的任何帳戶，並將指派給管理員角色的其餘帳戶分類：
+
+- 個別指派給系統管理使用者，並且可用於非系統管理用途 (例如個人電子郵件)
+- 個別指派給系統管理使用者，且指定為僅供系統管理之用
+- 在多個使用者之間共用
+- 用於緊急存取案例
+- 用於自動化指令碼
+- 用於外部使用者
+
+**最佳做法**：實作 Just-In-Time (JIT) 存取，以進一步降低權限的暴露時間，並提升使用特殊權限帳戶對您的能見度。   
+**詳細資料**：Azure AD Privileged Identity Management 可讓您：
+
+- 限制使用者只能 JIT 取用其權限。
+- 指派縮短持續時間的角色，而且有信心會自動撤銷權限。
+
+**最佳做法**：定義至少兩個緊急存取帳戶。   
+**詳細資料**：緊急存取帳戶可協助組織限制現有 Azure Active Directory 環境內的特殊權限存取。 這些帳戶具有高特殊權限，不會指派給特定個人。 緊急存取帳戶僅限用於無法使用一般系統管理帳戶的情況。 組織必須將緊急帳戶的使用量限制於僅只必要的時間量。
+
+請評估已指派或適用於全域管理員角色的帳戶。 如果使用 `*.onmicrosoft.com` 網域 (供緊急存取使用)，並未看到任何僅限雲端的帳戶，請加以建立。 如需詳細資訊，請參閱[在 Azure AD 中管理緊急存取系統管理帳戶](/azure/active-directory/users-groups-roles/directory-emergency-access)。
+
+**最佳做法**：在發生緊急狀況時, 請備妥「中斷玻璃」進程。
+**詳細資料**：請遵循在[Azure AD 中保護混合式和雲端部署](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)的特殊許可權存取中的步驟。
+
+**最佳做法**：要求所有重要的系統管理員帳戶都必須是不需要密碼的 (建議選項), 或需要多重要素驗證。
+**詳細資料**：使用[Microsoft Authenticator 應用程式](/azure/active-directory/authentication/howto-authentication-phone-sign-in)登入任何 Azure AD 帳戶, 而不使用密碼。 就像[Windows Hello 企業版](/windows/security/identity-protection/hello-for-business/hello-identity-verification)一樣, Microsoft Authenticator 使用以金鑰為基礎的驗證來啟用系結至裝置的使用者認證, 並使用生物識別驗證或 PIN。
+
+針對永久指派給一或多個 Azure AD 系統管理員角色的所有個別使用者, 在登入時需要 Azure 多重要素驗證:全域管理員、特殊許可權角色系統管理員、Exchange Online 系統管理員和 SharePoint Online 系統管理員。 [為您的系統管理員帳戶啟用多重要素驗證](/azure/active-directory/authentication/howto-mfa-userstates), 並確保系統管理員帳戶使用者已註冊。
+
+**最佳做法**：對於重要的系統管理員帳戶, 具有不允許生產工作的系統管理工作站 (例如, 流覽和電子郵件)。 這會保護您的系統管理員帳戶免于遭受使用流覽和電子郵件的攻擊媒介, 並大幅降低主要事件的風險。
+**詳細資料**：使用系統管理工作站。 選擇工作站安全性層級:
+
+- 高度安全的生產力裝置可為流覽和其他產能工作提供先進的安全性。
+- 特殊[許可權存取工作站 (paw)](/windows-server/identity/securing-privileged-access/privileged-access-workstations)提供了一個專門的作業系統, 可防止網際網路攻擊和機密工作的威脅向量。
+
+**最佳做法**：當員工離開您的組織時, 取消布建系統管理員帳戶。
+**詳細資料**：備妥進程, 在員工離開貴組織時停用或刪除管理帳戶。
+
+**最佳做法**：使用目前的攻擊技巧, 定期測試管理帳戶。
+**詳細資料**：使用 Office 365 攻擊模擬器或協力廠商供應專案, 在您的組織中執行實際的攻擊案例。 這可協助您在發生真正的攻擊之前, 先找出易受攻擊的使用者。
+
+**最佳做法**：採取步驟來減輕由最常被使用的攻擊技巧所造成的損害。  
+**詳細資料**：[識別系統管理角色中需要切換至公司或學校帳戶的 Microsoft 帳戶](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts)  
+
+[確認全域系統管理員帳戶的個別使用者帳戶和郵件轉寄](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)  
+
+[確訂系統管理帳戶的密碼近期做過變更](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+
+[開啟密碼雜湊同步處理](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#turn-on-password-hash-synchronization)  
+
+[所有具有特殊權限角色的使用者和公開的使用者，都必須進行多重要素驗證](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+
+[取得您的 Office 365 安全分數 (如果使用 Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
+
+[檢閱 Office 365 安全性與合規性指引 (如果使用 Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+
+[設定 Office 365 活動監視 (如果使用 Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
+
+[建立事件/緊急回應計劃擁有者](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#establish-incidentemergency-response-plan-owners)  
+
+[保護內部部署的特殊權限系統管理帳戶](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#turn-on-password-hash-synchronization)
+
+如果您不保護特殊權限的存取，則可能發現您有太多具備較高特殊權限角色的使用者，而且比較容易遭受攻擊。 包括網路攻擊者在內的惡意人士通常會以管理帳戶和特殊權限存取的其他元素為目標，以利用認證竊取來取得敏感性資料和系統的存取權。
+
+## <a name="control-locations-where-resources-are-created"></a>控制建立資源的位置
+
+讓雲端操作者能夠執行工作，同時防止他們違反管理組織資源所需的慣例極為重要。 想要控制資源建立位置的組織應將這些位置硬式編碼。
+
+您可以使用 [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) 來建立安全性原則，其定義會描述明確拒絕的動作或資源。 在所需範圍內指派那些原則定義，例如訂用帳戶、資源群組或是個別的資源。
+
+> [!NOTE]
+> 安全性原則與 RBAC 不同。 這類原則實際上使用 RBAC 來授權使用者建立這些資源。
+>
+>
+
+不控制資源建立方式的組織，比較容易遇到使用者因建立超過所需資源而濫用服務的情況。 強化資源建立程序是保護多租用戶案例的重要步驟。
+
+## <a name="actively-monitor-for-suspicious-activities"></a>主動監視可疑的活動
+
+主動身分識別監視系統可快速偵測可疑行為並觸發警示，以便進一步調查。 下表列出兩項可協助組織監視其身分識別的 Azure AD 功能：
+
+**最佳做法**：想辦法識別：
+
+- 嘗試在[不被追蹤](/azure/active-directory/active-directory-reporting-sign-ins-from-unknown-sources)的情況下登入。
+- 針對特定帳戶的[暴力密碼破解](/azure/active-directory/active-directory-reporting-sign-ins-after-multiple-failures)攻擊。
+- 嘗試從多個位置登入。
+- 從 [受感染的裝置登入](/azure/active-directory/active-directory-reporting-sign-ins-from-possibly-infected-devices)。
+- 可疑的 IP 位址。
+
+**詳細資料**：使用 Azure AD Premium 的[異常報告](/azure/active-directory/active-directory-view-access-usage-reports)。 備妥相關處理和程序，以便 IT 系統管理員每天或依需求執行這些報告 (通常出現在事件回應案例)。
+
+**最佳做法**：採用主動監視系統，該系統會將風險通知您，並可針對您的業務需求調整風險層級 (高、中或低)。   
+**詳細資料**：使用[Azure AD Identity Protection](/azure/active-directory/active-directory-identityprotection)，它會在自己的儀表板上標示目前的風險，並透過電子郵件傳送每日摘要通知。 若要協助保護貴組織的身分識別，您可設定以風險為基礎的原則，以在達到指定的風險層級時自動回應偵測到的問題。
+
+未主動監視其身分識別系統的組織有洩漏使用者認證的風險。 若不知道有透過這些認證進行的可疑活動，組織便無法減輕這類型的威脅。
+
+## <a name="use-azure-ad-for-storage-authentication"></a>使用 Azure AD 進行儲存體驗證
+[Azure 儲存體](/azure/storage/common/storage-auth-aad)支援對 Blob 儲存體和佇列儲存體的 Azure AD 進行驗證和授權。 透過 Azure AD authentication, 您可以使用 Azure 角色型存取控制, 將使用者、群組和應用程式的特定許可權, 授與個別 blob 容器或佇列的範圍。
+
+建議您使用[Azure AD 來驗證對儲存體的存取](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)。
+
+## <a name="next-step"></a>後續步驟
+
+如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。

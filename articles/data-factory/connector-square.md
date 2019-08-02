@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88c58bd52ea816aaef1c628913ccbd7fcf1cd35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462355"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720623"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 從 Square 複製資料
 
@@ -45,10 +45,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為：**Square** | 是 |
-| host | Square 執行個體的 URL。 (亦即 mystore.mysquare.com)  | 是 |
+| 主機 | Square 執行個體的 URL。 (亦即 mystore.mysquare.com)  | 是 |
 | clientId | 與您 Square 應用程式相關聯的用戶端識別碼。  | 是 |
 | clientSecret | 與您 Square 應用程式相關聯的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
-| redirectUri | Square 應用程式儀表板中指派的重新導向 URL。 (也就是 http:\//localhost:2500)  | 是 |
+| redirectUri | Square 應用程式儀表板中指派的重新導向 URL。 (亦即 HTTP:\//localhost: 2500)  | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -79,7 +79,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Square 複製資料，請將資料集的 type 屬性設定為 **SquareObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**SquareObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -91,11 +91,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "name": "SquareDataset",
     "properties": {
         "type": "SquareObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -108,10 +109,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Square 複製資料，請將複製活動中的來源類型設定為 **SquareSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**SquareSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Business"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Business"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 

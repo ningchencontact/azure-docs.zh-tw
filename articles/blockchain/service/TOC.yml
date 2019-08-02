@@ -21,7 +21,7 @@
           href: connect-truffle.md
 - name: 教學課程
   items:
-    - name: 傳送交易
+    - name: 使用智慧型合約
       href: send-transaction.md
 - name: 概念
   items:

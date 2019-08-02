@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0b97f2f6df87255e10faaf58c40ea9136354bff6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9966164ec1b6a37538a24d2ef8cb80007e6f6d29
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386300"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698236"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>使用自訂根 CA 產生 Azure 應用程式閘道自我簽署憑證
 
@@ -161,7 +161,7 @@ CSR 是在要求憑證時提供給 CA 的公開金鑰。 CA 會發出此特定�
    ![受信任的根憑證](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > 假設 DNS 已設定為將 web 伺服器名稱 (在此範例中為 www.fabrikam.com) 指向 web 伺服器的 IP 位址。 如果沒有, 您可以編輯[hosts](https://answers.microsoft.com/windows/forum/windows_10-other_settings-winpc/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d)檔案來解析名稱。
+   > 假設 DNS 已設定為將 web 伺服器名稱 (在此範例中為 www.fabrikam.com) 指向 web 伺服器的 IP 位址。 如果沒有, 您可以編輯[hosts](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d)檔案來解析名稱。
 1. 流覽至您的網站, 然後按一下瀏覽器網址方塊上的 [鎖定] 圖示, 以確認網站和憑證資訊。
 
 ## <a name="verify-the-configuration-with-openssl"></a>使用 OpenSSL 驗證設定

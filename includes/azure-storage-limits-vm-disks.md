@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: ef9c46c0b55f97b8931f16d751f1b1e6099e6c9d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328593"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669579"
 ---
 您可以將數個數據磁片連接到 Azure 虛擬機器。 根據 VM 資料磁片的擴充性和效能目標, 您可以決定您需要的磁片數目和類型, 以符合您的效能和容量需求。
 
@@ -18,13 +18,13 @@ ms.locfileid: "68328593"
 
 **針對 Azure 受控磁片:**
 
-下表說明每個訂用帳戶每個區域的預設和最大資源數目限制
+下表說明每個訂用帳戶每個區域的預設和最大資源數限制。 每個資源群組的受控磁碟、快照集和映射數目沒有限制。  
 
 > | Resource | 預設限制  | 上限 |
 > | --- | --- | --- |
 > | 標準受控磁碟 | 50,000 | 50,000 |
-> | 標準 SSD 受控磁片 | 50,000 | 50,000 |
-> | Premium 受控磁片 | 50,000 | 50,000 |
+> | 標準 SSD 受控磁碟 | 50,000 | 50,000 |
+> | 進階受控磁碟 | 50,000 | 50,000 |
 > | Standard_LRS 快照集 | 50,000 | 50,000 |
 > | Standard_ZRS 快照集 | 50,000 | 50,000 |
 > | 受控映射 | 50,000 | 50,000 |

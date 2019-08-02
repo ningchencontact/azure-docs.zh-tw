@@ -1,18 +1,19 @@
 ---
 title: 使用 Azure 備份來針對備份 SAP Hana 資料庫時的錯誤進行疑難排解 |Microsoft Docs
 description: 說明如何針對使用 Azure 備份備份 SAP Hana 資料庫時可能發生的常見錯誤進行疑難排解。
-author: pvrk
-manager: vijayts
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: pullabhk
-ms.openlocfilehash: 221b669c141681749709d6a5a406c78499f21032
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: a2711339f5e952747adeeb6217b283770cb6cc6b
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465480"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689051"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>針對 Azure 上 SAP Hana 資料庫的備份進行疑難排解
 

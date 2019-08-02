@@ -16,17 +16,17 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836721"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515179"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
 > [!NOTE]
-> 在這個階段，AAD V2 （包括 MSAL） 不支援 Azure App Service 和 Azure Functions。 請稍後回來查看更新。
+> 目前, Azure App 服務和 Azure Functions 不支援 AAD V2 (包括 MSAL)。 請回來查看是否有更新。
 >
 
 Azure App Service 提供內建的驗證和授權支援，因此您在 Web 應用程式、RESTful API 和行動裝置後端以及 [Azure Functions](../azure-functions/functions-overview.md) 中幾乎不需要寫入或完全無需寫入程式碼，即可登入使用者及存取資料。 本文說明 App Service 如何協助您簡化應用程式的驗證和授權。 
@@ -56,7 +56,7 @@ Azure App Service 提供內建的驗證和授權支援，因此您在 Web 應用
 
 ### <a name="user-claims"></a>使用者宣告
 
-在所有語言架構中，App Service 都會將使用者的宣告插入要求標頭內以供程式碼使用。 在 ASP.NET 4.6 應用程式中，App Service 會使用已驗證的使用者宣告填入 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)，因此您可以遵循標準的 .NET 程式碼模式，包括 `[Authorize]` 屬性。 同樣地，在 PHP 應用程式中，App Service 會填入 `_SERVER['REMOTE_USER']` 變數。 針對 Java 應用程式，會宣告[可以從 Tomcat servlet 存取](containers/configure-language-java.md#authenticate-users)。
+在所有語言架構中，App Service 都會將使用者的宣告插入要求標頭內以供程式碼使用。 在 ASP.NET 4.6 應用程式中，App Service 會使用已驗證的使用者宣告填入 [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current)，因此您可以遵循標準的 .NET 程式碼模式，包括 `[Authorize]` 屬性。 同樣地，在 PHP 應用程式中，App Service 會填入 `_SERVER['REMOTE_USER']` 變數。 針對 JAVA 應用程式,[可從 Tomcat servlet 存取](containers/configure-language-java.md#authenticate-users-easy-auth)宣告。
 
 在 [Azure Functions](../azure-functions/functions-overview.md) 中，系統不會針對 .NET 程式碼將 `ClaimsPrincipal.Current` 序列化，不過您仍可以在要求標頭中找到使用者宣告。
 
@@ -79,7 +79,7 @@ App Service 會提供內建的權杖存放區，也就是與 Web 應用程式、
 
 如果您[啟用應用程式記錄](troubleshoot-diagnostic-logs.md)，則會直接在記錄檔中看到驗證和授權追蹤。 如果您看到非預期的驗證錯誤，可以在現有的應用程式記錄中查看，輕鬆地找到所有詳細資料。 如果您啟用[失敗要求追蹤](troubleshoot-diagnostic-logs.md)，就可以看到驗證和授權模組可能在失敗要求中所扮演的確切角色。 在追蹤記錄中，尋找名為 `EasyAuthModule_32/64` 的模組參考。 
 
-## <a name="identity-providers"></a>識別提供者
+## <a name="identity-providers"></a>身分識別提供者
 
 App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_identity)，由第三方識別提供者為您管理使用者身分識別和驗證流程。 預設可用的識別提供者有五個： 
 
@@ -91,14 +91,14 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
-當您利用上述其中一個提供者啟用驗證和授權時，其登入端點即可用來驗證使用者，以及用來驗證提供者的驗證權杖。 您可以輕鬆地為使用者提供任何數目的上述登入選項。 您也可以整合其他識別提供者或[自己的自訂身分識別解決方案][custom-auth]。
+當您利用上述其中一個提供者啟用驗證和授權時，其登入端點即可用來驗證使用者，以及用來驗證提供者的驗證權杖。 您可以輕鬆地為使用者提供任何數目的上述登入選項。 您也可以整合其他身分識別提供者或[您自己的自訂身分識別解決方案][custom-auth]。
 
 ## <a name="authentication-flow"></a>驗證流程
 
 所有提供者的驗證流程皆相同，但會根據您是否要使用提供者的 SDK 登入而有所不同：
 
-- 不使用提供者 SDK：應用程式會將同盟登入委派給 App Service。 瀏覽器應用程式通常是這種情況，可以向使用者顯示提供者的登入頁面。 伺服器程式碼會管理登入程序，因此也稱為「伺服器導向流程」  或「伺服器流程」  。 此案例適用於瀏覽器應用程式。 它也適用於使用 Mobile Apps 用戶端 SDK 將使用者登入的原生應用程式，因為 SDK 會開啟 Web 檢視，使用 App Service 驗證將使用者登入。 
-- 使用提供者 SDK：應用程式會以手動方式將使用者登入提供者，然後將驗證權杖提交給 App Service 進行驗證。 無瀏覽器應用程式通常是這種情況，無法向使用者顯示提供者的登入頁面。 應用程式程式碼會管理登入程序，因此也稱為「用戶端導向流程」  或「用戶端流程」  。 此案例適用於 REST API、[Azure Functions](../azure-functions/functions-overview.md)、JavaScript 瀏覽器用戶端，以及在登入程序中需要更多彈性的瀏覽器應用程式。 它也適用於使用提供者 SDK 將使用者登入的原生行動應用程式。
+- 不使用提供者 SDK：應用程式會將同盟登入委派給 App Service。 瀏覽器應用程式通常是這種情況，可以向使用者顯示提供者的登入頁面。 伺服器程式碼會管理登入程序，因此也稱為「伺服器導向流程」或「伺服器流程」。 此案例適用於瀏覽器應用程式。 它也適用於使用 Mobile Apps 用戶端 SDK 將使用者登入的原生應用程式，因為 SDK 會開啟 Web 檢視，使用 App Service 驗證將使用者登入。 
+- 使用提供者 SDK：應用程式會以手動方式將使用者登入提供者，然後將驗證權杖提交給 App Service 進行驗證。 無瀏覽器應用程式通常是這種情況，無法向使用者顯示提供者的登入頁面。 應用程式程式碼會管理登入程序，因此也稱為「用戶端導向流程」或「用戶端流程」。 此案例適用於 REST API、[Azure Functions](../azure-functions/functions-overview.md)、JavaScript 瀏覽器用戶端，以及在登入程序中需要更多彈性的瀏覽器應用程式。 它也適用於使用提供者 SDK 將使用者登入的原生行動應用程式。
 
 > [!NOTE]
 > 您可以使用伺服器導向流程來驗證 App Service 中受信任瀏覽器應用程式的呼叫對 App Service 或 [Azure Functions](../azure-functions/functions-overview.md) 中另一個 REST API 的呼叫。 如需詳細資訊，請參閱[自訂 App Service 中的驗證與授權](app-service-authentication-how-to.md)。
@@ -133,13 +133,13 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 
 ### <a name="allow-only-authenticated-requests"></a>僅允許已驗證的要求
 
-選項為 [使用 \<提供者> 登入]  。 App Service 會將所有匿名要求重新導向至您所選提供者的 `/.auth/login/<provider>`。 如果匿名要求來自原生行動應用程式，則傳回的回應是 `HTTP 401 Unauthorized`。
+選項為 [使用 \<提供者> 登入]。 App Service 會將所有匿名要求重新導向至您所選提供者的 `/.auth/login/<provider>`。 如果匿名要求來自原生行動應用程式，則傳回的回應是 `HTTP 401 Unauthorized`。
 
 使用此選項時，您不需要在應用程式中撰寫任何驗證程式碼。 您可以藉由檢查使用者的宣告來處理更精細的授權 (例如特定角色授權，請參閱[存取使用者宣告](app-service-authentication-how-to.md#access-user-claims))。
 
 ### <a name="allow-all-requests-but-validate-authenticated-requests"></a>允許所有要求，但要驗證已驗證的要求
 
-選項為 [允許匿名要求]  。 此選項會開啟 App Service 中的驗證和授權，但是會延遲對應用程式程式碼的授權決策。 對於已驗證的要求，App Service 也會在 HTTP 標頭中一起傳送驗證資訊。 
+選項為 [允許匿名要求]。 此選項會開啟 App Service 中的驗證和授權，但是會延遲對應用程式程式碼的授權決策。 對於已驗證的要求，App Service 也會在 HTTP 標頭中一起傳送驗證資訊。 
 
 此選項會提供更大的彈性來處理匿名要求。 例如，它可讓您向使用者[顯示多個登入提供者](app-service-authentication-how-to.md#use-multiple-sign-in-providers)。 不過，您必須撰寫程式碼。 
 

@@ -1,20 +1,19 @@
 ---
-title: 使用 PowerShell 為 Azure 儲存體的 Azure 佇列儲存體上執行作業
+title: 使用 PowerShell 在 Azure 佇列儲存體上執行作業-Azure 儲存體
 description: 如何在使用 PowerShell 的 Azure 佇列儲存體上執行作業
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/15/2019
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/15/2019
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: bf5cf668620eb08e0d808c2052eac59b15af740c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991346"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721214"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 佇列儲存體作業
 
@@ -104,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>將訊息新增至佇列
 
-影響佇列中實際訊息的作業會使用 PowerShell 中公開的 .NET 儲存體用戶端程式庫。 若要將訊息加入佇列，建立訊息物件的新執行個體[Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message)類別。 接著，呼叫 [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) 方法。 您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 CloudQueueMessage。
+影響佇列中實際訊息的作業會使用 PowerShell 中公開的 .NET 儲存體用戶端程式庫。 若要將訊息新增至佇列, 請建立 message 物件[CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message)類別的新實例。 接著，呼叫 [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) 方法。 您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 CloudQueueMessage。
 
 下列範例示範如何將訊息新增至佇列。
 
@@ -132,7 +131,7 @@ $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 此**不可見逾時**定義在重新開放處理前，訊息維持不可見的時間。 預設值為 30 秒。
 
-您的程式碼可使用兩個步驟，從佇列讀取訊息。 當您呼叫[Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage)方法，會取得下一個訊息佇列中。 從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 若要完成從佇列移除訊息，請呼叫[Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage)方法。
+您的程式碼可使用兩個步驟，從佇列讀取訊息。 當您呼叫[CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage)方法時, 您會取得佇列中的下一個訊息。 從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 若要完成從佇列中移除訊息的作業, 請呼叫[CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage)方法。
 
 在下列範例中，您可以閱讀三個佇列訊息，然後等待 10 秒 (不可見逾時)。 接著重新讀取三個訊息，然後呼叫 **DeleteMessage** 來刪除讀取後的訊息。 如果嘗試在刪除訊息後讀取佇列，會將 $queueMessage 傳回成 NULL。
 

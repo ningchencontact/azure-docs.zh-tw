@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479740"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>連接到 Azure SQL 資料倉儲
@@ -31,7 +31,7 @@ ms.locfileid: "68479740"
     ![完整伺服器名稱][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>支援的驅動程式和連接字串
-Azure SQL 資料倉儲支援[ADO.NET][ADO.NET] , [ODBC][ODBC]、 [php][php]和[JDBC][JDBC]。 若要尋找最新版本和文件，請按一下前述的其中一個驅動程式。 若要從 Azure 入口網站自動為您使用的驅動程式產生連接字串，按一下前述範例中的 [顯示資料庫連接字串]。 下列一些範例顯示每個驅動程式的連接字串。
+Azure SQL 資料倉儲支援[ADO.NET][ADO.NET]、 [ODBC][ODBC]、 [PHP][PHP]和[JDBC][JDBC]。 若要尋找最新版本和文件，請按一下前述的其中一個驅動程式。 若要從 Azure 入口網站自動為您使用的驅動程式產生連接字串，按一下前述範例中的 [顯示資料庫連接字串]。 下列一些範例顯示每個驅動程式的連接字串。
 
 > [!NOTE]
 > 請考慮將連線逾時設定為 300 秒，以便在短時間無法使用時能夠維持連線。
@@ -69,7 +69,7 @@ SQL 資料倉儲會在連線和物件建立期間將一些設定標準化。 這
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>後續步驟
-若要使用 Visual Studio 進行連接和查詢, 請參閱[使用 Visual Studio][Query with Visual Studio] . To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse]查詢。
+若要使用 Visual Studio 連接及查詢，請參閱 [使用 Visual Studio 查詢][Query with Visual Studio]。 若要深入了解驗證選項，請參閱 [適用於 Azure SQL 資料倉儲的驗證][Authentication to Azure SQL Data Warehouse]。
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

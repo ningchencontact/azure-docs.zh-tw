@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure 備份伺服器來備份 VMware VM
 description: 使用 Azure 備份伺服器，備份在 VMware vCenter/ESXi 伺服器上執行的 VMware VM。
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: raynew
-ms.openlocfilehash: adb8cb6a5740b7d09848c792093ea62f69f521a7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466802"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639947"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份 VMware VM
 
@@ -254,7 +254,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![指定認證](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. 按一下 [新增] 以將 VMware 伺服器新增到伺服器清單。 然後按 [下一步] 。
+6. 按一下 [新增] 以將 VMware 伺服器新增到伺服器清單。 然後按 [下一步]。
 
     ![新增 VMWare 伺服器和認證](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -286,7 +286,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 1. 在 [選取保護群組類型] 頁面上，選取 [伺服器]，然後按 [下一步]。 [選取群組成員] 頁面隨即出現。
 
-1. 在 [選取群組成員] 中 > 選取您要備份的 VM (或 VM 資料夾)。 然後按 [下一步] 。
+1. 在 [選取群組成員] 中 > 選取您要備份的 VM (或 VM 資料夾)。 然後按 [下一步]。
 
     - 當您選取資料夾時，也會選取該資料夾內的 VM 或資料夾以進行備份。 您可以將不想備份的資料夾或 VM 取消選取。
 1. 如果 VM 或資料夾已經過備份，您就無法加以選取。 這確保不會為 VM 建立重複的復原點。 .
@@ -294,7 +294,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
      ![選擇群組成員](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
 
-1. 在 [選取資料保護方法] 頁面上，輸入保護群組的名稱和保護設定。 若要備份至 Azure，請將短期保護設定為 [磁碟]，並啟用線上保護。 然後按 [下一步] 。
+1. 在 [選取資料保護方法] 頁面上，輸入保護群組的名稱和保護設定。 若要備份至 Azure，請將短期保護設定為 [磁碟]，並啟用線上保護。 然後按 [下一步]。
 
     ![選擇資料保護方式](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -325,17 +325,17 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
      ![選擇複本的建立方式](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. 在 [一致性檢查選項] 中，選取如何及何時自動執行一致性檢查。 然後按 [下一步] 。
+1. 在 [一致性檢查選項] 中，選取如何及何時自動執行一致性檢查。 然後按 [下一步]。
       - 當複本資料變得不一致時，或依據設定的排程，您可以執行一致性檢查。
       - 如果您不想設定自動一致性檢查，可以執行手動檢查。 若要這樣做，以滑鼠右鍵按一下保護群組 > [執行一致性檢查]。
 
-1. 在 [指定線上保護資料] 頁面中，選取要備份的 VM 或 VM 資料夾。 您可以個別地選取成員，或按一下 [全選] 來選擇所有成員。 然後按 [下一步] 。
+1. 在 [指定線上保護資料] 頁面中，選取要備份的 VM 或 VM 資料夾。 您可以個別地選取成員，或按一下 [全選] 來選擇所有成員。 然後按 [下一步]。
 
       ![指定線上保護資料](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. 在 [指定線上備份排程] 頁面上，指定要從本機儲存體將資料備份至 Azure 的頻率。
 
-    - 資料的雲端復原點將會根據排程來產生。 然後按 [下一步] 。
+    - 資料的雲端復原點將會根據排程來產生。 然後按 [下一步]。
     - 復原點在產生後會傳輸至 Azure 中的復原服務保存庫。
 
       ![指定線上備份排程](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

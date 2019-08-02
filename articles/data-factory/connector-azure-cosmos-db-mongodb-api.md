@@ -10,14 +10,14 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfacecbaaf627b05d7706f60b4eb86cca9d856ba
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61259702"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720859"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 的 MongoDB 版 API，或從中複製資料
 
@@ -79,7 +79,7 @@ ms.locfileid: "61259702"
 
 如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 以下是 Azure Cosmos DB 的 MongoDB 版 API 資料集所支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的 **type** 屬性必須設定為 **CosmosDbMongoDbApiCollection**。 |是 |
 | collectionName |Azure Cosmos DB 集合的名稱。 |是 |
@@ -91,12 +91,13 @@ ms.locfileid: "61259702"
     "name": "CosmosDbMongoDBAPIDataset",
     "properties": {
         "type": "CosmosDbMongoDbApiCollection",
+        "typeProperties": {
+            "collectionName": "<collection name>"
+        },
+        "schema": [],
         "linkedServiceName":{
             "referenceName": "<Azure Cosmos DB's API for MongoDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "collectionName": "<collection name>"
         }
     }
 }
@@ -110,12 +111,12 @@ ms.locfileid: "61259702"
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-source"></a>以 Azure Cosmos DB 的 Mongo 版 API 作為來源
 
-複製活動的 [來源]  區段支援下列屬性：
+複製活動的 [來源] 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 **type** 屬性必須設定為 **CosmosDbMongoDbApiSource**。 |是 |
-| filter | 使用查詢運算子指定選取範圍篩選。 若要傳回集合中的所有文件，請省略此參數，或傳遞空白文件 ({})。 | 否 |
+| 篩選 | 使用查詢運算子指定選取範圍篩選。 若要傳回集合中的所有文件，請省略此參數，或傳遞空白文件 ({})。 | 否 |
 | cursorMethods.project | 指定要在文件中傳回以便投影的欄位。 若要傳回比對文件中的所有欄位，請省略此參數。 | 否 |
 | cursorMethods.sort | 指定查詢傳回比對文件的順序。 請參閱 [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort)。 | 否 |
 | cursorMethods.limit | 指定伺服器傳回的文件數目上限。 請參閱 [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit)。  | 否 | 
@@ -165,9 +166,9 @@ ms.locfileid: "61259702"
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb-as-sink"></a>以 Azure Cosmos DB 的 Mongo 版 API 作為接收
 
-複製活動的 [接收]  區段支援下列屬性：
+複製活動的 [接收] 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 **type** 屬性必須設定為 **CosmosDbMongoDbApiSink**。 |是 |
 | writeBehavior |描述如何將資料寫入至 Azure Cosmos DB。 允許的值：**insert** 和 **upsert**。<br/><br/>如果存在具有相同識別碼的文件，**upsert** 的行為會用來取代文件；否則會插入文字。<br /><br />**注意**：如果未在原始文件中或藉由資料行對應來指定識別碼，則 Data Factory 會自動為文件產生識別碼。 這表示您必須確定，為了讓 **upsert** 如預期般運作，您的文件具有識別碼。 |否<br />(預設值為 **insert**) |
@@ -217,7 +218,7 @@ ms.locfileid: "61259702"
 * 將 JSON 文件從 Azure Cosmos DB 集合匯出至各種檔案型存放區。
 * 在兩個 Azure Cosmos DB 集合之間依原樣複製文件。
 
-若要完成這種跨平台結構描述的複製，請跳過資料集中的「結構」(也稱為「結構描述」  ) 區段，以及複製活動中的結構描述對應。
+若要完成這種跨平台結構描述的複製，請跳過資料集中的「結構」(也稱為「結構描述」) 區段，以及複製活動中的結構描述對應。
 
 ## <a name="schema-mapping"></a>結構描述對應
 

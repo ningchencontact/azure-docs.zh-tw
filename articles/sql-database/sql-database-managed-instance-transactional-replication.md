@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: db295f7644cae96eb00670cecf6e4eeba9bb6bed
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696196"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567237"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中單一、集區和執行個體資料庫使用的異動複寫
 
@@ -59,7 +58,7 @@ ms.locfileid: "67696196"
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
-  > 散發者是執行個體的資料庫，並不是 「 訂閱者 」 時，不支援的提取訂閱。 
+  > 當散發者是實例資料庫而不支援提取訂閱時, 則不支援提取訂閱。 
 
 [複寫有不同類型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)：
 
@@ -78,27 +77,27 @@ ms.locfileid: "67696196"
   > - 嘗試使用舊版設定複寫可能會導致錯誤號碼 MSSQL_REPL20084 (處理序無法連線到訂閱者。) 和 MSSQ_REPL40532 (無法開啟登入所要求的公開伺服器 \<名稱>。 登入失敗。)。
   > - 若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。
   
-  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>執行個體的資料庫和內部部署系統的可支援性對照表
-  資料庫執行個體是相同的 SQL Server 內部部署複寫可支援性對照表。 
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>實例資料庫和內部部署系統的可支援性矩陣
+  實例資料庫的複寫可支援性對照表與內部部署 SQL Server 的相同。 
   
-  | **發行者**   | **散發者** | **訂閱者** |
+  | **發行者**   | **散發者** | **預訂** |
 | :------------   | :-------------- | :------------- |
 | SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
 | SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
-| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
-| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL SERVER 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL SERVER 2008 R2 <br/> SQL Server 2008 | 
+| SQL SERVER 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL SERVER 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL SERVER 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="requirements"></a>需求
 
 - 連線會在複寫參與者之間使用 SQL 驗證。 
 - 與工作目錄共用且用於複寫的 Azure 儲存體帳戶。 
-- 必須在存取 Azure 檔案共用的受控執行個體子網路的安全性規則中開啟連接埠 445 (TCP 輸出)。 
+- 埠 445 (TCP 輸出) 必須在受控執行個體子網的安全性規則中開啟, 才能存取 Azure 檔案共用。 
 - 如果發行者/散發者是在受控執行個體上且訂閱者在內部部署中，則需要開啟連接埠 1433 (TCP 輸出)。
 
   >[!NOTE]
-  > 連接到 Azure 儲存體檔案，輸出網路安全性 (nsg) 連接埠 445 遭到封鎖時散發者是執行個體的資料庫和訂閱者是在內部部署環境時，您可能會遇到錯誤 53。 [更新 vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)若要解決此問題。 
+  > 當「散發者」為實例資料庫且「訂閱者」為內部部署時, 如果輸出網路安全性群組 (NSG) 埠445遭到封鎖, 您可能會在連接到 Azure 儲存體檔案時遇到錯誤53。 [更新 VNET NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)以解決此問題。 
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>比較資料同步與異動複寫
 
@@ -139,7 +138,7 @@ ms.locfileid: "67696196"
 
 ## <a name="next-steps"></a>後續步驟
 
-1. [設定兩個受管理的執行個體之間的複寫](replication-with-sql-database-managed-instance.md)。 
+1. [設定兩個受控實例間](replication-with-sql-database-managed-instance.md)的複寫。 
 1. [建立發行集](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)。
 1. [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 `N'azuresqldbdns.database.windows.net`)，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。 )
 

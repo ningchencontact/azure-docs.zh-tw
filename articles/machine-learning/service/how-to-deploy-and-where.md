@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 6b9ebb2f7ef46fd2900d036f178201863ecbc8d4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c7c2ba104b4d528cd3f8443e6f5615aa6ab3e672
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358814"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720379"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -57,7 +57,7 @@ ms.locfileid: "68358814"
 + **使用 CLI**
 
   ```azurecli-interactive
-  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
   > [!TIP]
@@ -290,7 +290,7 @@ inference_config = InferenceConfig(runtime="python",
 
 ### <a name="cli-example-of-inferenceconfig"></a>InferenceConfig 的 CLI 範例
 
-[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
+[!INCLUDE [inference config](../../../includes/machine-learning-service-inference-config.md)]
 
 下列命令示範如何使用 CLI 部署模型:
 
@@ -308,7 +308,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 ### <a name="3-define-your-deployment-configuration"></a>3.定義您的部署設定
 
-部署之前, 您必須先定義部署設定。 部署設定適用于將裝載 web 服務的計算目標。 例如, 在本機部署時, 您必須指定服務接受要求的埠。
+部署之前, 您必須先定義部署設定。 __部署設定適用于將裝載 web 服務的計算目標__。 例如, 在本機部署時, 您必須指定服務接受要求的埠。
 
 您可能也需要建立計算資源。 例如, 如果您還沒有與工作區相關聯的 Azure Kubernetes Service。
 
@@ -320,191 +320,54 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 | Azure 容器執行個體 | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
-下列各節示範如何建立部署設定, 然後使用它來部署 web 服務。
-
-### <a name="optional-profile-your-model"></a>選用：分析模型
-
-在將您的模型部署為服務之前, 您可以使用 SDK 或 CLI 進行分析, 以判斷最佳的 CPU 和記憶體需求。  模型分析結果會以物件的`Run`形式發出。 [模型設定檔架構的完整詳細資料可以在 API 檔中找到](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)。
-
-深入瞭解[如何使用 SDK 來分析您的模型](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)。
-
-若要使用 CLI 來分析您的模型, 請使用[az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)。
+> [!TIP]
+> 在將您的模型部署為服務之前, 您可能會想要進行分析, 以判斷最佳的 CPU 和記憶體需求。 您可以使用 SDK 或 CLI 來分析您的模型。 如需詳細資訊, 請參閱[設定檔 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)和[az ml 模型設定檔](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)參考。
+>
+> 模型分析結果會以物件的`Run`形式發出。 如需詳細資訊, 請參閱[ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)類別參考。
 
 ## <a name="deploy-to-target"></a>部署至目標
+
+部署會使用推斷設定部署設定來部署模型。 無論計算目標為何, 部署程式都很類似。 部署至 AKS 稍有不同, 因為您必須提供 AKS 叢集的參考。
 
 ### <a id="local"></a>本機部署
 
 若要在本機部署, 您必須在本機電腦上**安裝 Docker** 。
 
-+ **使用 SDK**
+#### <a name="using-the-sdk"></a>使用 SDK
 
-  ```python
-  deployment_config = LocalWebservice.deploy_configuration(port=8890)
-  service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  ```
+```python
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
 
-+ **使用 CLI**
+如需詳細資訊, 請參閱[LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py)、 [Model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)和[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py)的參考檔。
 
-    若要使用 CLI 進行部署, 請使用下列命令。 以`mymodel:1`已註冊模型的名稱和版本取代:
+#### <a name="using-the-cli"></a>使用 CLI
 
-  ```azurecli-interactive
-  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+若要使用 CLI 進行部署, 請使用下列命令。 以`mymodel:1`已註冊模型的名稱和版本取代:
 
-    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
+```azurecli-interactive
+az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+```
+
+[!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
+
+如需詳細資訊, 請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。
 
 ### <a id="aci"></a>Azure 容器實例 (DEVTEST)
 
-如果符合下列一或多個條件，請使用 Azure 容器執行個體來將您的模型部署為 Web 服務：
-- 您需要快速部署及驗證模型。
-- 您正在測試處於開發狀態的模型。 
-
-若要查看 ACI 的配額和區域可用性, 請參閱[Azure 容器實例的配額和區域可用性](https://docs.microsoft.com/azure/container-instances/container-instances-quotas)一文。
-
-+ **使用 SDK**
-
-  ```python
-  deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-  service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  ```
-
-+ **使用 CLI**
-
-    若要使用 CLI 進行部署, 請使用下列命令。 將`mymodel:1`取代為已註冊模型的名稱和版本。 以`myservice`要提供此服務的名稱取代:
-
-    ```azurecli-interactive
-    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
-    ```
-
-    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
-
-+ **使用 VS Code**
-
-  若要[使用 VS Code 部署模型](how-to-vscode-tools.md#deploy-and-manage-models), 您不需要事先建立 aci 容器來進行測試, 因為 ACI 容器是即時建立的。
-
-如需詳細資訊，請參閱 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) \(英文\) 和 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) \(英文\) 類別的參考文件。
+請參閱[部署至 Azure 容器實例](how-to-deploy-azure-container-instance.md)。
 
 ### <a id="aks"></a>Azure Kubernetes Service (DEVTEST & 生產)
 
-您可以使用現有的 AKS 叢集，或使用 Azure Machine Learning SDK、CLI 或 Azure 入口網站建立新的叢集。
-
-<a id="deploy-aks"></a>
-
-如果您已附加 AKS 叢集, 您可以部署到該叢集。 如果您尚未建立或連接 AKS 叢集, 請依照程式來<a href="#create-attach-aks">建立新的 AKS</a>叢集。
-
-+ **使用 SDK**
-
-  ```python
-  aks_target = AksCompute(ws,"myaks")
-  # If deploying to a cluster configured for dev/test, ensure that it was created with enough
-  # cores and memory to handle this deployment configuration. Note that memory is also used by
-  # things such as dependencies and AML components.
-  deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-  service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
-  service.wait_for_deployment(show_output = True)
-  print(service.state)
-  print(service.get_logs())
-  ```
-
-+ **使用 CLI**
-
-    若要使用 CLI 進行部署, 請使用下列命令。 將`myaks`取代為 AKS 計算目標的名稱。 將`mymodel:1`取代為已註冊模型的名稱和版本。 以`myservice`要提供此服務的名稱取代:
-
-  ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
-
-    [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
-
-+ **使用 VS Code**
-
-  您也可以透過[VS Code 擴充功能部署至 AKS](how-to-vscode-tools.md#deploy-and-manage-models), 但您必須事先設定 AKS 叢集。
-
-若要深入瞭解 AKS 部署和自動調整, 請參閱[AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice)參考。
-
-#### 建立新的 AKS 叢集<a id="create-attach-aks"></a>
-**估計時間**：約 20 分鐘。
-
-建立或附加 AKS 叢集是工作區的一次性程式。 您可以重複使用此叢集進行多個部署。 如果您刪除叢集或包含該叢集的資源群組, 則必須在下次需要部署時建立新的叢集。 您可以將多個 AKS 叢集附加至您的工作區。
-
-如果您想要建立用於開發、驗證和測試的 AKS 叢集, 請在使用`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST` [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)時設定。 使用此設定建立的叢集只會有一個節點。
-
-> [!IMPORTANT]
-> 設定`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`會建立不適合用來處理生產流量的 AKS 叢集。 推斷時間可能會比針對生產環境建立的叢集還長。 開發/測試叢集也不保證容錯功能。
->
-> 我們建議針對開發/測試建立的叢集至少使用兩個虛擬 Cpu。
-
-下列範例示範如何建立新的 Azure Kubernetes Service 叢集:
-
-```python
-from azureml.core.compute import AksCompute, ComputeTarget
-
-# Use the default configuration (you can also provide parameters to customize this).
-# For example, to create a dev/test cluster, use:
-# prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksComputee.ClusterPurpose.DEV_TEST)
-prov_config = AksCompute.provisioning_configuration()
-
-aks_name = 'myaks'
-# Create the cluster
-aks_target = ComputeTarget.create(workspace=ws,
-                                  name=aks_name,
-                                  provisioning_configuration=prov_config)
-
-# Wait for the create process to complete
-aks_target.wait_for_completion(show_output=True)
-```
-
-如需有關在 Azure Machine Learning SDK 之外建立 AKS 叢集的詳細資訊, 請參閱下列文章:
-* [建立 AKS 叢集](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [建立 AKS 叢集 (入口網站)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
-
-如需參數的`cluster_purpose`詳細資訊, 請參閱[AksCompute. ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)參考。
-
-> [!IMPORTANT]
-> 針對 [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)，如果您要為 agent_count 和 vm_size 挑選自訂值，則必須先確定 agent_count 乘以 vm_size 會大於或等於 12 個虛擬 CPU。 例如，如果您使用的 vm_size 為 "Standard_D3_v2" (其具有 4 個虛擬 CPU)，則您應該挑選等於或大於 3 的 agent_count。
->
-> Azure Machine Learning SDK 不提供調整 AKS 叢集的支援。 若要調整叢集中的節點, 請在 Azure 入口網站中使用適用于 AKS 叢集的 UI。 您只能變更節點計數, 而不是叢集的 VM 大小。
-
-#### <a name="attach-an-existing-aks-cluster"></a>附加現有的 AKS 叢集
-**估計時間:** 大約5分鐘。
-
-如果您的 Azure 訂用帳戶中已經有 AKS 叢集, 而且它是1.12 版。 # #, 您可以使用它來部署您的映射。
-
-> [!WARNING]
-> 將 AKS 叢集附加至工作區時, 您可以藉由設定`cluster_purpose`參數來定義使用叢集的方式。
->
-> 如果您未設定`cluster_purpose`參數或設定`cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, 則叢集必須至少有12個可用的虛擬 cpu。
->
-> 如果您設定`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`了, 叢集就不需要有12個虛擬 cpu。 不過, 針對「開發/測試」設定的叢集將不適合用于生產層級的流量, 而且可能會增加推斷時間。
-
-下列程式碼示範如何將現有的 AKS 1.12. # # 叢集附加至您的工作區:
-
-```python
-from azureml.core.compute import AksCompute, ComputeTarget
-# Set the resource group that contains the AKS cluster and the cluster name
-resource_group = 'myresourcegroup'
-cluster_name = 'mycluster'
-
-# Attach the cluster to your workgroup. If the cluster has less than 12 virtual CPUs, use the following instead:
-# attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-#                                         cluster_name = cluster_name,
-#                                         cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
-attach_config = AksCompute.attach_configuration(resource_group=resource_group,
-                                                cluster_name=cluster_name)
-aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
-```
-
-如需有關的`attack_configuration()`詳細資訊, 請參閱[AksCompute. attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)參考。
-
-如需參數的`cluster_purpose`詳細資訊, 請參閱[AksCompute. ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)參考。
+請參閱[部署至 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)。
 
 ## <a name="consume-web-services"></a>取用 Web 服務
 
-每個已部署的 web 服務都會提供 REST API, 因此您可以使用各種程式設計語言來建立用戶端應用程式。 如果您已啟用服務的驗證, 則必須提供服務金鑰做為要求標頭中的權杖。
+每個已部署的 web 服務都會提供 REST API, 因此您可以使用各種程式設計語言來建立用戶端應用程式。 如果您已啟用服務的金鑰驗證, 則需要提供服務金鑰做為要求標頭中的權杖。
+如果您已啟用服務的權杖驗證, 則需要提供 Azure Machine Learning JWT 權杖做為要求標頭中的持有人權杖。
 
 ### <a name="request-response-consumption"></a>要求-回應耗用量
 
@@ -517,6 +380,8 @@ headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
+elif service.token_auth_enabled:
+    headers['Authorization'] = 'Bearer '+service.get_token()[0]
 
 print(headers)
 
@@ -546,28 +411,7 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 服務建立和
 
 ## <a id="update"></a>更新 web 服務
 
-當您建立新的模型時, 您必須手動更新您想要使用新模型的每個服務。 若要更新 Web 服務，請使用 `update` 方法。 下列程式碼示範如何將 web 服務更新為使用新的模型:
-
-```python
-from azureml.core.webservice import Webservice
-from azureml.core.model import Model
-
-# register new model
-new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
-                           model_name="sklearn_mnist",
-                           tags={"key": "0.1"},
-                           description="test",
-                           workspace=ws)
-
-service_name = 'myservice'
-# Retrieve existing service
-service = Webservice(name=service_name, workspace=ws)
-
-# Update to new model(s)
-service.update(models=[new_model])
-print(service.state)
-print(service.get_logs())
-```
+[!INCLUDE [aml-update-web-service](../../../includes/machine-learning-update-web-service.md)]
 
 ## <a name="continuous-model-deployment"></a>連續模型部署 
 

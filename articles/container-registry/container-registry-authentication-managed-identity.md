@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
 ms.openlocfilehash: 0672fb71ba4f56d0faf332df029100cb48741c8b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309891"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>使用 Azure 受控識別向 Azure 容器登錄進行驗證 
@@ -28,7 +28,7 @@ ms.locfileid: "68309891"
 
 若要建立 Azure，本文需要您執行 Azure CLI 2.0.55 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
-若要設定容器登錄並將容器映像推送至登錄，您也必須在本機安裝 Docker。 Docker 提供可輕鬆在任何[macOS][docker-mac] , [Windows][docker-windows]或[linux][docker linux]系統上設定 docker 的套件。
+若要設定容器登錄並將容器映像推送至登錄，您也必須在本機安裝 Docker。 Docker 提供可輕鬆在任何[macOS][docker-mac]、 [Windows][docker-windows]或[Linux][docker-linux]系統上設定 docker 的套件。
 
 ## <a name="why-use-a-managed-identity"></a>為什麼要使用受控識別？
 
@@ -60,7 +60,7 @@ ms.locfileid: "68309891"
 
 建立啟用 Docker 的 Ubuntu 虛擬機器。 您也需要在虛擬機器上安裝 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 如果您已經有 Azure 虛擬機器，請略過此步驟以建立虛擬機器。
 
-使用[az vm create][az-vm-create]部署預設的 Ubuntu Azure 虛擬機器。 下列範例會在名為 myResourceGroup  的現有資源群組中建立名為 myDockerVM  的 VM：
+使用[az vm create][az-vm-create]部署預設的 Ubuntu Azure 虛擬機器。 下列範例會在名為 myResourceGroup 的現有資源群組中建立名為 myDockerVM 的 VM：
 
 ```azurecli
 az vm create \
@@ -93,7 +93,7 @@ sudo apt install docker.io -y
 sudo docker run -it hello-world
 ```
 
-輸出：
+輸出:
 
 ```
 Hello from Docker!
@@ -107,7 +107,7 @@ This message shows that your installation appears to be working correctly.
 
 結束 SSH 工作階段。
 
-## <a name="example-1-access-with-a-user-assigned-identity"></a>範例 1：使用使用者指派的身分識別進行存取
+## <a name="example-1-access-with-a-user-assigned-identity"></a>範例 1:使用使用者指派的身分識別進行存取
 
 ### <a name="create-an-identity"></a>建立身分識別
 

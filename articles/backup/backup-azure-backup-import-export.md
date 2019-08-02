@@ -1,18 +1,19 @@
 ---
 title: Azure 備份 - 離線備份或使用 Azure 匯入/匯出服務進行初始植入
 description: 了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。 此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料。
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: saurse
-ms.openlocfilehash: e852e1595be5b564bd1a6326d41115496284506f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 2c628b94879e54616f294e4c5f349f241fbbb98b
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466778"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689466"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 透過離線植入程序，Azure 備份可以使用磁碟將離線備份資料上傳至 Azure。

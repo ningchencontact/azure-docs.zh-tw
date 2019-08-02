@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9ffd5a173bcfae41e08babbadae1e67047ed452
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60203409"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725978"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>使用 Azure Data Factory 從 ServiceNow 複製資料
 
@@ -39,13 +39,13 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 ServiceNow 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**ServiceNow** | 是 |
-| endpoint | ServiceNow 伺服器的端點 (`http://<instance>.service-now.com`)。  | 是 |
+| 端點 | ServiceNow 伺服器的端點 (`http://<instance>.service-now.com`)。  | 是 |
 | authenticationType | 要使用的驗證類型。 <br/>允許的值包括：**Basic**、**OAuth2** | 是 |
-| userName | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 是 |
-| password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 是 |
+| 密碼 | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | clientId | 用於 OAuth2 驗證的用戶端識別碼。  | 否 |
 | clientSecret | 用於 OAuth2 驗證的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
@@ -78,7 +78,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 ServiceNow 複製資料，請將資料集的 type 屬性設定為 **ServiceNowObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**ServiceNowObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -90,11 +90,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "name": "ServiceNowDataset",
     "properties": {
         "type": "ServiceNowObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**ServiceNowSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Actual.alm_asset"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Actual.alm_asset"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 在查詢中指定 ServiceNow 的結構描述和資料行時，請注意下列內容，並**參考有關複製效能含意的[效能祕訣](#performance-tips)** 。
 

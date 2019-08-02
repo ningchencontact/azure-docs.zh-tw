@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e411182a26e370ef82a20e67ee18cedd5d96d86
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296099"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722694"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>在 Azure 監視器中執行跨資源記錄查詢  
 
@@ -28,25 +28,22 @@ ms.locfileid: "67296099"
 
 ## <a name="cross-resource-query-limits"></a>跨資源查詢限制 
 
-* Application Insights 資源及 Log Analytics 工作區，您可以在 單一查詢中包含的數字會限制為 100。
-* 在檢視表設計工具中不支援跨資源查詢。 您可以撰寫在 Log Analytics 中的查詢，並將它釘選到 Azure 儀表板[以視覺化方式檢視記錄檔查詢](../learn/tutorial-logs-dashboards.md)。 
-* 在新支援記錄警示中的跨資源查詢[scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)。 根據預設，Azure 監視器會使用[舊版 Log Analytics 警示 API](../platform/api-alerts.md) 從 Azure 入口網站建立新的記錄警示規則，除非您從[舊版記錄警示 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 切換。 切換之後，新的 API 將成為 Azure 入口網站中新警示規則的預設值，並允許您建立跨資源查詢記錄警示規則。 您可以建立跨資源查詢記錄警示規則不開關利用[scheduledQueryRules API 的 Azure Resource Manager 範本](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)– 此警示規則是透過可管理，但[scheduledQueryRulesAPI](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)而不是從 Azure 入口網站。
+* 您可以包含在單一查詢中的 Application Insights 資源和 Log Analytics 工作區數目限制為100。
+* View Designer 不支援跨資源查詢。 您可以在 Log Analytics 中撰寫查詢, 並將它釘選到 Azure 儀表板, 以將[記錄查詢視覺化](../learn/tutorial-logs-dashboards.md)。 
+* 新的[SCHEDULEDQUERYRULES API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)支援記錄警示中的跨資源查詢。 根據預設，Azure 監視器會使用[舊版 Log Analytics 警示 API](../platform/api-alerts.md) 從 Azure 入口網站建立新的記錄警示規則，除非您從[舊版記錄警示 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 切換。 切換之後，新的 API 將成為 Azure 入口網站中新警示規則的預設值，並允許您建立跨資源查詢記錄警示規則。 您可以使用[SCHEDULEDQUERYRULES api 的 Azure Resource Manager 範本](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)來建立跨資源查詢記錄警示規則, 而不需進行切換, 但此警示規則可透過[scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)進行管理, 而不是從 Azure 入口網站.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>跨 Log Analytics 工作區和從 Application Insights 查詢
 若要在查詢中參考另一個工作區，請使用 [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) 識別項，而若要查詢來自 Application Insights 的應用程式，請使用 [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) 識別項。  
 
 ### <a name="identifying-workspace-resources"></a>識別工作區資源
-下列範例示範對 Log Analytics 工作區的查詢，從名為 contosoretail-it  工作區上的 Update 資料表，傳回記錄彙總計數。 
+下列範例示範對 Log Analytics 工作區的查詢，從名為 contosoretail-it 工作區上的 Update 資料表，傳回記錄彙總計數。 
 
 您可以下列數種方式之一來完成識別工作區：
 
-* 資源名稱 - 是人類看得懂的工作區名稱，有時稱為「元件名稱」  。 
+* 資源名稱 - 是人類看得懂的工作區名稱，有時稱為「元件名稱」。 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >以名稱來識別工作區時，會假設該名稱在所有可存取的訂用帳戶中是唯一的。 如果您有多個應用程式具有該指定名稱，查詢就會因為語意模糊而失敗。 在此情況下，您必須使用其中一種其他識別碼。
 
 * 限定名稱 - 是工作區的「完整名稱」，由訂用帳戶名稱、資源群組及元件名稱所組成，格式如下：*subscriptionName/resourceGroup/componentName*。 
 
@@ -72,9 +69,12 @@ ms.locfileid: "67296099"
 
 在 Application Insights 中識別應用程式可以使用 *app(Identifier)* 運算式來完成。  *Identifier* 引數會使用下列其中之一指定應用程式：
 
-* 資源名稱 - 是人類看得懂的應用程式名稱，有時稱為「元件名稱」  。  
+* 資源名稱 - 是人類看得懂的應用程式名稱，有時稱為「元件名稱」。  
 
     `app("fabrikamapp")`
+
+    >[!NOTE]
+    >依名稱識別應用程式會在所有可存取的訂用帳戶中採用唯一性。 如果您有多個應用程式具有該指定名稱，查詢就會因為語意模糊而失敗。 在此情況下，您必須使用其中一種其他識別碼。
 
 * 限定名稱 - 是應用程式的「完整名稱」，由訂用帳戶名稱、資源群組及元件名稱所組成，格式如下：*subscriptionName/resourceGroup/componentName*。 
 

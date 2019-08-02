@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 05c227e7de078c6bb371049f16e191598b9ca4e5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310384"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>將傳統的容器登錄升級
 
-有好幾個服務層級 ([也就是所謂的 SKU](container-registry-skus.md)) 會提供 Azure Container Registry (ACR)。 初始的 ACR 版本提供了單一 SKU (傳統)，該 SKU 缺少基本、標準和進階 SKU (統稱為「受控」  登錄) 固有的數種功能。
+有好幾個服務層級 ([也就是所謂的 SKU](container-registry-skus.md)) 會提供 Azure Container Registry (ACR)。 初始的 ACR 版本提供了單一 SKU (傳統)，該 SKU 缺少基本、標準和進階 SKU (統稱為「受控」登錄) 固有的數種功能。
 
 傳統 SKU 即將淘汰, 將在2019年4月後無法使用。 本文將詳細說明如何將非受控的傳統登錄移轉至其中一個受控 SKU，以便利用其經過強化的功能集。
 
@@ -53,11 +53,11 @@ ms.locfileid: "68310384"
 
 ## <a name="how-to-upgrade"></a>如何升級
 
-您可以透過數種方式將非受控的傳統登錄升級為其中一個受控 SKU。 在下列各節中, 我們會說明使用[Azure CLI][azure-cli] and the [Azure portal][azure-portal]的程式。
+您可以透過數種方式將非受控的傳統登錄升級為其中一個受控 SKU。 在下列各節中, 我們將說明使用[Azure CLI][azure-cli]和[Azure 入口網站][azure-portal]的程式。
 
 ## <a name="upgrade-in-azure-cli"></a>在 Azure CLI 中升級
 
-若要升級 Azure CLI 中的傳統登錄, 請執行[az acr update][az-acr-update]命令並指定登錄的新 SKU。 在下列範例中，名為 myclassicregistry  的傳統登錄會升級為進階 SKU：
+若要升級 Azure CLI 中的傳統登錄, 請執行[az acr update][az-acr-update]命令並指定登錄的新 SKU。 在下列範例中，名為 myclassicregistry 的傳統登錄會升級為進階 SKU：
 
 ```azurecli-interactive
 az acr update --name myclassicregistry --sku Premium
@@ -96,13 +96,13 @@ az acr update --name myclassicregistry --sku Premium
 
 當您使用 Azure 入口網站升級傳統登錄時, Azure 會自動選取 [標準] 或 [Premium] SKU, 視哪一個 SKU 可容納您的映射而定。 例如, 如果您的登錄在映射中包含少於100的 GiB, Azure 就會自動選取並將傳統登錄轉換成標準 (100 GiB 最大值)。
 
-若要使用 Azure 入口網站來為傳統登錄升級，請瀏覽至容器登錄 [概觀]  ，然後選取 [升級為受控登錄]  。
+若要使用 Azure 入口網站來為傳統登錄升級，請瀏覽至容器登錄 [概觀]，然後選取 [升級為受控登錄]。
 
 ![Azure 入口網站 UI 中的傳統登錄升級按鈕][update-classic-01-upgrade]
 
-選取 [確定]  以確認您要升級為受控登錄。
+選取 [確定] 以確認您要升級為受控登錄。
 
-在移轉期間，入口網站會指出登錄的 [佈建狀態]  是 [更新中]  。 如先前所述`docker push` , 作業會在前 10% 的遷移期間停用。 當遷移進行中時, 請勿刪除或更新傳統登錄所使用的儲存體帳戶--這麼做可能會導致映射損毀。
+在移轉期間，入口網站會指出登錄的 [佈建狀態] 是 [更新中]。 如先前所述`docker push` , 作業會在前 10% 的遷移期間停用。 當遷移進行中時, 請勿刪除或更新傳統登錄所使用的儲存體帳戶--這麼做可能會導致映射損毀。
 
 ![Azure 入口網站 UI 中的傳統登錄升級進度][update-classic-03-updating]
 

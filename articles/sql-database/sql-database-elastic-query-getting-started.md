@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556224"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568608"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨相應放大雲端資料庫報告 (預覽)
 
@@ -27,7 +26,7 @@ ms.locfileid: "60556224"
 
 若要了解查詢所需的 SQL 物件，請參閱 [跨水平分割資料庫查詢](sql-database-elastic-query-horizontal-partitioning.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 下載並執行 [彈性資料庫工具範例入門](sql-database-elastic-scale-get-started.md)。
 
@@ -112,15 +111,15 @@ ms.locfileid: "60556224"
 
 1. 啟動 Excel 2013。
 2. 瀏覽至 [ **資料** ] 功能區。
-3. 按一下 [從其他來源]  ，然後按一下 [從 SQL Server]  。
+3. 按一下 [從其他來源]，然後按一下 [從 SQL Server]。
 
    ![從其他來源的 Excel 匯入][5]
-4. 在 [ **資料連線精靈** ] 中，輸入伺服器名稱和登入認證。 然後按 [下一步]  。
-5. 在對話方塊 [選取包含您想要的資料的資料庫]  中，選取 **ElasticDBQuery** 資料庫。
-6. 在清單檢視中選取 [客戶]  資料表，然後按 [下一步]  。 然後按一下 [ **完成**]。
-7. 在 [匯入資料]  表單中，於 [選取您要在活頁簿中檢視此資料的方式]  下，選取 [資料表]  ，然後按一下 [確定]  。
+4. 在 [ **資料連線精靈** ] 中，輸入伺服器名稱和登入認證。 然後按 [下一步]。
+5. 在對話方塊 [選取包含您想要的資料的資料庫] 中，選取 **ElasticDBQuery** 資料庫。
+6. 在清單檢視中選取 [客戶] 資料表，然後按 [下一步]。 然後按一下 [ **完成**]。
+7. 在 [匯入資料] 表單中，於 [選取您要在活頁簿中檢視此資料的方式] 下，選取 [資料表]，然後按一下 [確定]。
 
-儲存在不同分區中、來自 [客戶]  資料表的所有資料列會填入 Excel 工作表。
+儲存在不同分區中、來自 [客戶] 資料表的所有資料列會填入 Excel 工作表。
 
 您現在可以使用 Excel 強大的資料視覺化功能。 您可以使用具備您的伺服器名稱、資料庫名稱和認證的連接字串來連接您的 BI 和資料整合工具至彈性查詢資料庫。 請確定 SQL Server 可支援做為您的工具的資料來源。 您可以參考彈性查詢資料庫和外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫和 SQL Server 資料表。
 

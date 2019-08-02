@@ -1,18 +1,19 @@
 ---
 title: Azure 備份的 Azure 監視器記錄資料模型
 description: 本文討論 Azure 備份資料的 Azure 監視器記錄資料模型詳細資料。
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: adigan
-ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466164"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689228"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>適用於 Azure 備份資料的 Log Analytics 資料模型
 
@@ -329,12 +330,12 @@ ms.locfileid: "68466164"
 
 |欄位  |資料類型  | 描述  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |Text         |備份管理伺服器的名稱        |
+|BackupManagementServerName_s     |Text         |備份管理伺服器的名稱        |
 |AzureBackupAgentVersion_s     |Text         |備份管理伺服器上 Azure 備份代理程式的版本          |
-|BackupManagmentServerVersion_s     |Text         |備份管理伺服器的版本|
-|BackupManagmentServerOSVersion_s     |Text            |備份管理伺服器的 OS 版本|
+|BackupManagementServerVersion_s     |Text         |備份管理伺服器的版本|
+|BackupManagementServerOSVersion_s     |Text            |備份管理伺服器的 OS 版本|
 |BackupManagementServerType_s     |Text         |備份管理伺服器的類型, 如 MABS, SC DPM|
-|BackupManagmentServerUniqueId_s     |Text         |唯一識別備份管理伺服器的欄位       |
+|BackupManagementServerUniqueId_s     |Text         |唯一識別備份管理伺服器的欄位       |
 
 ### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
 

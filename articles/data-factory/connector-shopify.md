@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c25232abf20bbe3d01672b7620e5d2f5e31d5c8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4bb56155e925f9e19570d89d091342afd594009
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343506"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725973"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 複製 Shopify 中的資料
 
@@ -45,7 +45,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Shopify** | 是 |
-| host | Shopify 伺服器的端點。 (也就是 mystore.myshopify.com)  | 是 |
+| 主機 | Shopify 伺服器的端點。 (也就是 mystore.myshopify.com)  | 是 |
 | accessToken | 可以用來存取 Shopify 資料的 API 存取權杖。 如果權杖是離線模式，則不會過期。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
@@ -75,7 +75,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Shopify 複製資料，請將資料集的類型屬性設定為 **ShopifyObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**ShopifyObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -87,11 +87,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "name": "ShopifyDataset",
     "properties": {
         "type": "ShopifyObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Shopify linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -104,10 +105,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Shopify 複製資料，請將複製活動中的來源類型設定為 **ShopifySource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**ShopifySource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM "Products" WHERE Product_Id = '123'"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM "Products" WHERE Product_Id = '123'"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 

@@ -3,7 +3,7 @@ title: 建立叢集的 Azure Load Balancer 規則
 description: 設定 Azure Load Balancer 來開啟 Azure Service Fabric 叢集的連接埠。
 services: service-fabric
 documentationcenter: na
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: aljo
-ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 440d5e37e03e58a39275e715ebce4fa07961cc84
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147471"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598575"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>開啟 Service Fabric 叢集的連接埠
 
@@ -111,4 +111,4 @@ $lb | Set-AzLoadBalancer
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[Service Fabric 中的網路功能](service-fabric-patterns-networking.md).rvice 網狀架構模式-networking.md)。
+深入瞭解[Service Fabric 中的網路](service-fabric-patterns-networking.md)功能 rvice-fabric-patterns-networking.md)。

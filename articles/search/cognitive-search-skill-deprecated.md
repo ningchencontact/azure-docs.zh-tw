@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a73c7e381cb6001b773251a1812466b3c82373f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd49cdf1bd6a49e8f89f8b805cbaa50276527de3
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541723"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698884"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>已被取代的認知搜尋技能
+# <a name="deprecated-cognitive-search-skills"></a>已淘汰的認知搜尋技能
 
 本文件描述已淘汰的認知技能。 使用下列指南取得內容：
 
 * 技能名稱：即將淘汰的技能名稱，其對應至 @odata.type 屬性。
 * 最後一個可用的 API 版本：可用於建立/更新包含對應已淘汰技能之技能集的 Azure 搜尋服務公用 API 最後一個版本。
 * 結束支援：對應技能已視為不受支援後的最後一天。 先前建立的技能集應會繼續運作，但建議使用者遷移出已淘汰的技能。
-* 建議：將路徑遷移至受支援的技能。 建議使用者遵循建議，以便繼續獲得支援。
+* 建議:將路徑遷移至受支援的技能。 建議使用者遵循建議，以便繼續獲得支援。
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ### <a name="last-available-api-version"></a>最後一個可用的 API 版本
 
-2019-05-06-Preview
+2017-11-11-Preview
 
 ### <a name="end-of-support"></a>結束支援
 
@@ -46,11 +46,11 @@ ms.locfileid: "65541723"
 > [!NOTE]
 > 目前不支援信賴分數作為概念。 `minimumPrecision` 參數會存在於 `EntityRecognitionSkill` 以供日後使用，並提供回溯相容性。
 
-1. 「(必要)」  將 `@odata.type` 從 `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` 變更至 `"#Microsoft.Skills.Text.EntityRecognitionSkill"`。
+1. 「(必要)」將 `@odata.type` 從 `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` 變更至 `"#Microsoft.Skills.Text.EntityRecognitionSkill"`。
 
-2. 「(選擇性)」  如果您正在使用 `entities` 輸出，請改為使用 `EntityRecognitionSkill` 中的 `namedEntities` 複雜集合輸出。 您可以使用技能定義中的 `targetName`，將其對應至稱為 `entities` 的註釋。
+2. 「(選擇性)」如果您正在使用 `entities` 輸出，請改為使用 `EntityRecognitionSkill` 中的 `namedEntities` 複雜集合輸出。 您可以使用技能定義中的 `targetName`，將其對應至稱為 `entities` 的註釋。
 
-3. 「(選擇性)」  如果您未明確指定 `categories`，則除了先前受 `NamedEntityRecognitionSkill` 支援的類別外，`EntityRecognitionSkill` 可能會傳回不同類型的類別。 如果您不希望有此行為，請務必將 `categories` 參數明確設定為 `["Person", "Location", "Organization"]`。
+3. 「(選擇性)」如果您未明確指定 `categories`，則除了先前受 `NamedEntityRecognitionSkill` 支援的類別外，`EntityRecognitionSkill` 可能會傳回不同類型的類別。 如果您不希望有此行為，請務必將 `categories` 參數明確設定為 `["Person", "Location", "Organization"]`。
 
     _範例移轉定義_
 

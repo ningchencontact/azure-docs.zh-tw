@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: ca6040bb74839f30a2f1b13297f6037f05240c67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03ad098b2f83341150a59247f47b9a4abaa1b9d2
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400435"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726096"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MongoDB 複製資料
 
@@ -32,7 +32,7 @@ ms.locfileid: "61400435"
 
 具體而言，這個 MongoDB 連接器所支援的**版本最高可達 3.4 版**。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要從不可公開存取的 MongoDB 資料庫複製資料，您必須設定一個「自我裝載 Integration Runtime」。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
@@ -79,7 +79,7 @@ ms.locfileid: "61400435"
 
 如需定義資料集的區段和屬性完整清單，請參閱[資料集和連結服務](concepts-datasets-linked-services.md)。 以下是針對 MongoDB 資料集支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**MongoDbV2Collection** | 是 |
 | collectionName |MongoDB 資料庫中集合的名稱。 |是 |
@@ -91,12 +91,13 @@ ms.locfileid: "61400435"
     "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbV2Collection",
+        "typeProperties": {
+            "collectionName": "<Collection name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<MongoDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "collectionName": "<Collection name>"
         }
     }
 }
@@ -110,10 +111,10 @@ ms.locfileid: "61400435"
 
 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**MongoDbV2Source** | 是 |
-| filter | 使用查詢運算子指定選取範圍篩選。 若要傳回集合中的所有文件，請省略此參數，或傳遞空白文件 ({})。 | 否 |
+| 篩選 | 使用查詢運算子指定選取範圍篩選。 若要傳回集合中的所有文件，請省略此參數，或傳遞空白文件 ({})。 | 否 |
 | cursorMethods.project | 指定要在文件中傳回以便投影的欄位。 若要傳回比對文件中的所有欄位，請省略此參數。 | 否 |
 | cursorMethods.sort | 指定查詢傳回比對文件的順序。 請參閱 [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort)。 | 否 |
 | cursorMethods.limit | 指定伺服器傳回的文件數目上限。 請參閱 [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit)。  | 否 |
@@ -163,7 +164,7 @@ ms.locfileid: "61400435"
 
 ## <a name="export-json-documents-as-is"></a>依原樣匯出 JSON 文件
 
-您可以使用這個 MongoDB 連接器，從 MongoDB 集合依原樣將 JSON 文件匯出至各種檔案型存放區或 Azure Cosmos DB。 若要達成這類無結構描述的複製，請略過資料集中的「結構」(也稱為「結構描述」  ) 區段，以及複製活動中的結構描述對應。
+您可以使用這個 MongoDB 連接器，從 MongoDB 集合依原樣將 JSON 文件匯出至各種檔案型存放區或 Azure Cosmos DB。 若要達成這類無結構描述的複製，請略過資料集中的「結構」(也稱為「結構描述」) 區段，以及複製活動中的結構描述對應。
 
 ## <a name="schema-mapping"></a>結構描述對應
 

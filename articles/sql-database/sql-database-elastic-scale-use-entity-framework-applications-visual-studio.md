@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/04/2019
-ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331908"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568299"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>搭配使用彈性資料庫用戶端程式庫與 Entity Framework
 
@@ -31,7 +30,7 @@ ms.locfileid: "60331908"
 * 從 MSDN 下載 [Elastic DB Tools for Azure SQL - Entity Framework 整合範例](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba)。 將範例解壓縮至您選擇的位置。
 * 啟動 Visual Studio。 
 * 在 Visual Studio 中，選取 [檔案] -> [開啟專案/方案]。 
-* 在 [開啟專案]  對話方塊中，瀏覽至您下載的範例，然後選取 **EntityFrameworkCodeFirst.sln** 以開啟範例。 
+* 在 [開啟專案] 對話方塊中，瀏覽至您下載的範例，然後選取 **EntityFrameworkCodeFirst.sln** 以開啟範例。 
 
 若要執行範例，您在 Azure SQL Database 中需要建立三個空的資料庫：
 

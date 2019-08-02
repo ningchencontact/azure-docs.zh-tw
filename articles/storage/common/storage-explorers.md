@@ -9,12 +9,12 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 14cbc076f4c9eebd2647cd667acc856b393e4d93
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443692"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665740"
 ---
 # <a name="azure-storage-client-tools"></a>Azure 儲存體用戶端工具
 Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工具，檢視他們資料或與其互動。 我們在下表中列出幾個可讓您這麼做的工具。 如果該區塊可以列舉及/或存取資料抽象，我們便在該區塊中放一個 "X"。 下表也會顯示該工具是否免費提供。 「試用」表示有免費試用版，但完整產品並非免費。 「Y/N」表示有某個版本可供免費使用，而另一個版本則需購買使用。
@@ -142,10 +142,10 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
     <td></td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td>Y</td>
-    <td></td>
     <td>X</td>
+    <td>Y</td>
+    <td>X</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>

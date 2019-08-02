@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: e4357007ec1cfac2cf6a10d339c6b3aa3ae41488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257108"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637784"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 大量執行程式程式庫概觀
  
@@ -38,17 +38,17 @@ Azure Cosmos DB 是一種快速且具有彈性的全域分散式資料庫服務�
 
 * 它能夠以修補程式的形式，大量更新 Azure Cosmos DB 容器中的現有資料。 
  
-## <a name="how-does-the-bulk-executor-operate"></a>Bulk Executor 如何運作？ 
+## <a name="how-does-the-bulk-executor-operate"></a>大量執行程式的運作方式為何？ 
 
 當以實體批次觸發匯入或更新文件的大量作業時，這些資料一開始會隨機打散到與 Azure Cosmos DB 分割區索引鍵範圍對應的貯體。 在與分割區索引鍵範圍對應的每個貯體中，資料會細分為小型批次，而每個小型批次都會作為可在伺服器端上認可的承載。 大量執行程式程式庫針對不論是在分割區索引鍵範圍內還是跨分割區索引鍵範圍，並行執行這些迷你批次，都提供內建的最佳化。 下圖說明大量執行程式如何將資料批次處理到不同的分割區索引鍵：  
 
 ![大量執行程式架構](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-Bulk Executor 程式庫可確保充分利用配置到集合的輸送量。 它會為每個 Azure Cosmos DB 分割區索引鍵範圍使用  [AIMD 樣式的壅塞控制機制](https://tools.ietf.org/html/rfc5681)，以有效率地處理速率限制和逾時。 
+大量執行程式程式庫可確保最常利用配置給集合的輸送量。 它會為每個 Azure Cosmos DB 分割區索引鍵範圍使用  [AIMD 樣式的壅塞控制機制](https://tools.ietf.org/html/rfc5681)，以有效率地處理速率限制和逾時。 
 
 ## <a name="next-steps"></a>後續步驟 
   
-* 您可以嘗試透過 [.NET](bulk-executor-dot-net.md) 和 [Java](bulk-executor-java.md) 使用應用程式範例來取用 Bulk Executor 程式庫，以對其有進一步了解。  
+* 若要深入瞭解, 請嘗試使用[.net](bulk-executor-dot-net.md)和[JAVA](bulk-executor-java.md)中的大量執行程式程式庫。  
 * 查看 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 中的大量執行程式 SDK 資訊和版本資訊。
-* Bulk Executor 程式庫已整合至 Cosmos DB Spark 連接器，若要進一步了解，請參閱 [Azure Cosmos DB Spark 連接器](spark-connector.md)一文。  
+* 大量執行程式程式庫已整合到 Cosmos DB Spark 連接器中, 若要深入瞭解, 請參閱[Azure Cosmos DB Spark 連接器](spark-connector.md)一文。  
 * 大量執行程式程式庫也已整合至新版 [Azure Cosmos DB 連接器](https://aka.ms/bulkexecutor-adf-v2)，可供 Azure Data Factory 複製資料。

@@ -10,22 +10,21 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: dfc48fec948ab0cf3d16a49bb60eb3c274f2864e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723265"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566134"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 和資料倉儲的透明資料加密
 
-透明資料加密 (TDE) 可以協助防止 Azure SQL Database、 Azure SQL 受控執行個體和 Azure 資料倉儲離線的惡意活動的威脅加密待用資料。 它會對資料庫、相關聯的備份和待用的交易記錄檔執行即時加密和解密，而不需變更應用程式。 根據預設，會為所有新部署的 Azure SQL 資料庫啟用 TDE。 TDE 無法用來加密 SQL Database 中的邏輯**主要**資料庫。  **主要**資料庫包含在使用者資料庫上執行 TDE 作業所需的物件。
+透明資料加密 (TDE) 可協助保護 Azure SQL Database、Azure SQL 受控執行個體和 Azure 資料倉儲, 使其免于透過加密待用資料的惡意離線活動威脅。 它會對資料庫、相關聯的備份和待用的交易記錄檔執行即時加密和解密，而不需變更應用程式。 根據預設，會為所有新部署的 Azure SQL 資料庫啟用 TDE。 TDE 無法用來加密 SQL Database 中的邏輯**主要**資料庫。  **主要**資料庫包含在使用者資料庫上執行 TDE 作業所需的物件。
 
 針對 Azure SQL 受控執行個體、舊版 Azure SQL Database 資料庫或 Azure SQL 資料倉儲，必須手動啟用 TDE。  
 
-透明資料加密會使用稱為資料庫加密金鑰的對稱金鑰，來將整個資料庫的儲存體加密。 此資料庫加密金鑰受到透明資料加密保護裝置的保護。 此保護裝置可以是服務管理的憑證 (服務管理的透明資料加密) 或儲存在 Azure Key Vault 中的非對稱金鑰 (攜帶您自己的金鑰)。 您要在 Azure SQL Database 和資料倉儲的伺服器層級，以及 Azure SQL 受控執行個體的執行個體層級設定透明資料加密保護裝置。 除非另有說明，「伺服器」  字詞在本文件中指的是伺服器和執行個體兩者。
+透明資料加密會使用稱為資料庫加密金鑰的對稱金鑰，來將整個資料庫的儲存體加密。 此資料庫加密金鑰受到透明資料加密保護裝置的保護。 此保護裝置可以是服務管理的憑證 (服務管理的透明資料加密) 或儲存在 Azure Key Vault 中的非對稱金鑰 (攜帶您自己的金鑰)。 您要在 Azure SQL Database 和資料倉儲的伺服器層級，以及 Azure SQL 受控執行個體的執行個體層級設定透明資料加密保護裝置。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
 
 在資料庫啟動時，加密的資料庫加密金鑰會進行解密，然後在 SQL Server Database Engine 程序中用於資料庫檔案的解密和重新加密。 透明資料加密會在頁面層級執行資料的即時 I/O 加密和解密。 每個頁面在讀取到記憶體時都會進行解密，然後再重新加密並寫入至磁碟。 如需透明資料加密的一般描述，請參閱[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)。
 
@@ -33,7 +32,7 @@ ms.locfileid: "67723265"
 
 ## <a name="service-managed-transparent-data-encryption"></a>服務管理的透明資料加密
 
-在 Azure 中，透明資料加密的預設設定是以內建伺服器憑證保護資料庫加密金鑰。 內建伺服器憑證是唯一的每一部伺服器，並使用的加密演算法是 AES 256。 如果資料庫具有異地複寫關聯性，則主要和異地次要資料庫都會受到主要資料庫的父伺服器金鑰保護。 如果兩個資料庫連線到相同的伺服器，則也會共用同一個內建憑證。  Microsoft 會遵循內部安全性原則來自動旋轉這些憑證，而根金鑰是由 Microsoft 內部祕密存放區保護。  客戶可以驗證 SQL Database 上可用的獨立第三方稽核報表中的內部安全性原則的合規性[Microsoft 信任中心](https://servicetrust.microsoft.com/)。
+在 Azure 中，透明資料加密的預設設定是以內建伺服器憑證保護資料庫加密金鑰。 內建伺服器憑證對每部伺服器而言是唯一的, 而且使用的加密演算法是 AES 256。 如果資料庫具有異地複寫關聯性，則主要和異地次要資料庫都會受到主要資料庫的父伺服器金鑰保護。 如果兩個資料庫連線到相同的伺服器，則也會共用同一個內建憑證。  Microsoft 會遵循內部安全性原則來自動旋轉這些憑證，而根金鑰是由 Microsoft 內部祕密存放區保護。  客戶可以在[Microsoft 信任中心](https://servicetrust.microsoft.com/)提供的獨立協力廠商審查報告中, 確認 SQL Database 與內部安全性原則相容。
 
 Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰。
 
@@ -42,10 +41,10 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>由客戶管理的透明資料加密：攜帶您自己的金鑰
 
-[Azure Key Vault 中使用由客戶管理之金鑰進行的 TDE](transparent-data-encryption-byok-azure-sql.md) 允許使用由客戶管理的非對稱金鑰 (稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。  這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。 在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保護裝置可以是[產生的金鑰保存庫，或傳輸至金鑰保存庫](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys)從開啟的內部部署 HSM 裝置。 儲存於資料庫開機頁面上的 TDE DEK，是由 TDE 保護裝置進行加密和解密，該保護裝置儲存於 Azure Key Vault 中且永遠都不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL 伺服器對金鑰保存庫的權限，資料庫將無法存取且會將所有資料加密。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對[Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)（BYOK 功能在預覽中的），TDE 保護裝置設定執行個體層級，而且它會繼承所有*加密*該執行個體上的資料庫。 除非另有說明，「伺服器」  字詞在本文件中指的是伺服器和執行個體兩者。
+[Azure Key Vault 中使用由客戶管理之金鑰進行的 TDE](transparent-data-encryption-byok-azure-sql.md) 允許使用由客戶管理的非對稱金鑰 (稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。  這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。 在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保護裝置可[由金鑰保存庫產生, 或](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys)從內部部署 HSM 裝置傳輸至金鑰保存庫。 儲存於資料庫開機頁面上的 TDE DEK，是由 TDE 保護裝置進行加密和解密，該保護裝置儲存於 Azure Key Vault 中且永遠都不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL 伺服器對金鑰保存庫的權限，資料庫將無法存取且會將所有資料加密。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對[AZURE SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)(預覽中的 BYOK 功能), TDE 保護裝置會在實例層級設定, 並由該實例上所有已*加密*的資料庫繼承。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
 
 透過與 Azure Key Vault 整合的 TDE，使用者可以使用 Azure Key Vault 功能來控制金鑰管理工作，包括金鑰輪替、金鑰保存庫權限、金鑰備份，以及啟用所有 TDE 保護裝置的稽核/報告功能。 Key Vault 可提供集中金鑰管理、使用嚴密監控的硬體安全性模組 (HSM)，並能區分管理金鑰和資料的責任，以協助符合安全性原則的合規性。
-若要深入了解使用 Azure Key Vault 整合 （攜帶您自己的金鑰支援） 的 Azure SQL Database、 SQL 受控執行個體 （BYOK 功能在預覽中） 和資料倉儲的透明資料加密，請參閱[與 Azure 金鑰的透明資料加密保存庫整合](transparent-data-encryption-byok-azure-sql.md)。
+若要深入瞭解適用于 Azure SQL Database、SQL 受控執行個體 (預覽中的 BYOK 功能) 和資料倉儲的透明資料加密與 Azure Key Vault 整合 (攜帶您自己的金鑰支援), 請參閱[使用 Azure Key Vault 的透明資料加密整合](transparent-data-encryption-byok-azure-sql.md)。
 
 若要開始使用與 Azure Key Vault 整合 (攜帶您自己的金鑰支援) 的透明資料加密，請參閱[透過 PowerShell 從 Key Vault 使用您自己的金鑰開啟透明資料加密](transparent-data-encryption-byok-azure-sql-configure.md)操作指南。
 
@@ -85,7 +84,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 若要透過 PowerShell 設定透明資料加密，您必須以 Azure 擁有者、參與者或 SQL 安全性管理員的身分連線。
 

@@ -5,26 +5,21 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/14/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f825b67baf36c9a1a9187d555522f5a5955d1c7
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471085"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620068"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>在 Site Recovery 部署規劃工具中檢閱針對 Azure 進行 VMware 災害復原的成本估計報告
 
 部署規劃工具報告在[建議](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)工作表中提供成本估計摘要，以及在成本估計工作表中提供詳細的成本分析。 其中包含每部 VM 的詳細成本分析。 
 
 >[!Note]
->目前版本的部署規劃工具不提供成本估計適用於 Vm 複寫至受控磁碟。
->* DR 演練成本估計值都相同的儲存體帳戶和受控的磁碟，當 使用受控磁碟 ' 參數設定為"Yes"在 計算與網路 刀鋒視窗上。
->* 若要取得複寫大約每年的成本預估，對暫存 cadena siguiente**成本估計**工作表頁：
->    * 在設定 「 成本持續時間 」 參數**設定**「 年 」 的資料表
->    * 在 **詳細成本分析**資料表中的 「 一年中的 DR 演練次數 」 資料行設定為 12 和"每次 DR 演練持續時間 （天） 」 為 30 
->    * 複寫成本將會類似於在每年中的資料行 'R' 也就是 DR 演練儲存體成本中填入的成本**DR 演練成本每年**子區段。
+>部署規劃工具的最新版本會針對複寫至受控磁碟的 Vm 提供成本預估。
 
 ### <a name="cost-estimation-summary"></a>成本估計摘要 
 此圖形會就您所選的目標區域和您針對報告產生所指定的貨幣，顯示災害復原 (DR) 至 Azure 之估計總成本的摘要檢視。
@@ -94,7 +89,6 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 此表顯示 Windows 和非 Windows VM 的數目，以及其 DR 演練計算成本。
 
 ### <a name="settings"></a>設定 
-**使用受控磁碟**：它會指定在 DR 演練時是否正在使用受控磁碟。 預設值為 [是]。 如果您已將 -UseManagedDisks 設為 [否]，它會使用非受控磁碟價格進行成本計算。
 
 **貨幣**：用於產生報告的貨幣。 成本持續時間：您可以檢視該月份或整年的所有成本。 
 
@@ -107,7 +101,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 * VM 數目、IaaS 大小 (您的選擇)
 * 儲存體類型 (標準/進階)
-* VM 總儲存體大小 (GB)
+* 來源機器的 VM 總儲存體大小 (GB)
 * 一年中的 DR 演練次數 
 * 每次 DR 演練持續時間 (天) 
 * OS 類型
@@ -128,7 +122,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 **儲存體類型**：VM 所使用的儲存體類型。 這是標準或進階儲存體。
 
-**VM 總儲存體大小 (GB)** ：VM 的總儲存體。
+**VM 總儲存體大小 (GB)** ：來源 VM 的總儲存體。
 
 **一年中的 DR 演練次數**：您在一年中執行 DR 演練的次數。 根據預設，一年中有 4 次。 在頂端列輸入新值，然後按一下 [套用到全部] 按鈕，即可修改特定 VM 的期間，或將新值套用至所有 VM。 根據一年中的 DR 演練次數和每次 DR 演練持續期間，計算 DR 演練總成本。  
 
@@ -158,13 +152,13 @@ Azure Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成
 
 |Currency|名稱||Currency|名稱||Currency|名稱|
 |---|---|---|---|---|---|---|---|
-|ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
-|加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||DKK|丹麥克朗 (kr)|
-|歐元|歐元 (€)||GBP|英鎊 (£)||港幣|港幣 (HK$)|
-|IDR|印尼盾 (Rp)||INR|印度盧比 (₹)||日圓|日圓 (¥)|
-|韓元|Korean Won (₩)||MXN|Mexican Peso (MX$)||馬來西亞林吉特|馬來西亞林吉特 (RM$)|
-|挪威克朗|挪威克朗 (kr)||紐西蘭幣|紐西蘭元 ($)||盧布|俄羅斯盧布 (руб)|
-|SAR 里亞爾|沙烏地里亞爾 (SR)||瑞典克朗|瑞典克朗 (kr)||新台幣|新台幣 (NT$)|
+|ARS 披索|阿根廷披索 ($)||AUD|澳幣 ($)||BRL|巴西里耳 (R$)|
+|CAD|加幣 ($)||CHF|瑞士法郎 (chf)||DKK|丹麥克朗 (kr)|
+|EUR|歐元 (€)||GBP|英磅 (£)||港幣|港幣 (HK$)|
+|IDR|印尼盾 (Rp)||INR|印度盧比 (₹)||JPY|日圓 (¥)|
+|KRW|韓國圜 (₩)||MXN|Mexican Peso (MX$)||馬來西亞林吉特|馬來西亞林吉特 (RM$)|
+|NOK|挪威克朗 (kr)||NZD|紐西蘭幣 ($)||RUB|俄羅斯盧布 (руб)|
+|SAR 里亞爾|沙烏地里亞爾 (SR)||SEK|瑞典克朗 (kr)||TWD|新台幣 (NT$)|
 |土耳其里拉|土耳其里拉 (TL)||美元| 美元 ($)||南非幣|南非蘭特 (R)|
 
 ## <a name="next-steps"></a>後續步驟

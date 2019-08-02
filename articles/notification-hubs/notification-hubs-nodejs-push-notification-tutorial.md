@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67706219"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中樞和 Node.js 傳送推播通知
@@ -46,7 +46,7 @@ Azure 通知中樞提供易用、多平台、可調整的基礎結構，用以�
 
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 
-本教學課程的第一個步驟是建立新的空白 Node.js 應用程式。 如需建立 Node.js 應用程式的指示，請參閱[建立及部署 Node.js 應用程式至 Azure 網站][nodejswebsite], [Node.js Cloud Service][Node.js Cloud Service]使用 Windows PowerShell，或[使用 WebMatrix 的網站][webmatrix]。
+本教學課程的第一個步驟是建立新的空白 Node.js 應用程式。 如需建立 node.js 應用程式的指示, 請參閱[建立 node.js 應用程式並將其部署到 Azure 網站][nodejswebsite]、使用 Windows PowerShell 的 Node.js[雲端服務][Node.js Cloud Service], 或[使用 WebMatrix 的網站][webmatrix]。
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>將應用程式設為使用通知中樞
 
@@ -79,10 +79,10 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 
 藉由執行下列步驟，從 [Azure 入口網站]取得連線 `connectionstring` 值：
 
-1. 在左導覽窗格中，按一下 [瀏覽]  。
-2. 選取 [通知中樞]  ，然後尋找您要用於範例的中樞。 您可以參考[Windows 市集開始使用教學課程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)如果您需要建立新的通知中樞的說明。
-3. 選取 [Settings] \(設定)  。
-4. 按一下 [存取原則]  。 您會看到兩個共用和完整存取連接字串。
+1. 在左導覽窗格中，按一下 [瀏覽]。
+2. 選取 [通知中樞]，然後尋找您要用於範例的中樞。 如果您需要建立新通知中樞的協助, 您可以參閱[Windows Store 消費者入門教學](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)課程。
+3. 選取 [Settings] \(設定)。
+4. 按一下 [存取原則]。 您會看到兩個共用和完整存取連接字串。
 
 ![Azure 入口網站 - 通知中樞](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
@@ -106,7 +106,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **Payload** - 訊息的 JSON 或原始字串承載。
 - **Callback** - 回呼函數。
 
-如需有關裝載格式的詳細資訊，請參閱[裝載的文件](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)。
+如需裝載格式的詳細資訊, 請參閱裝載[檔](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)。
 
 下列程式碼使用 `NotificationHubService` 所公開的 `GcmService` 執行個體，傳送推播通知至所有已註冊的用戶端。
 
@@ -153,7 +153,7 @@ notificationHubService.apns.send(null, payload, function(error){
 - **Tags** - 標籤識別碼。 若未提供標籤，通知會傳送至所有用戶端。
 - **Payload** - 訊息的 XML 承載。
 - **TargetName** - 快顯通知的 `toast`。 `token` 代表磚通知。
-- **NotificationClass** - 通知的優先順序。 如需有效值，請參閱[來自伺服器的推播通知](https://msdn.microsoft.com/library/hh221551.aspx)文件的＜HTTP 標頭元素＞  一節。
+- **NotificationClass** - 通知的優先順序。 如需有效值，請參閱[來自伺服器的推播通知](https://msdn.microsoft.com/library/hh221551.aspx)文件的＜HTTP 標頭元素＞一節。
 - **Options** - 選用的要求標頭。
 - **Callback** - 回呼函數。
 

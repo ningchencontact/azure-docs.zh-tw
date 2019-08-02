@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346898"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666293"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -31,6 +31,12 @@ ms.locfileid: "68346898"
 * 它們必須改善現有的作業程序，才能使用更安全的密碼。
 * 使用者通常會使用不安全的密碼。
 * 他們必須通知使用者即將進行的安全性強制變更、可能對他們造成的影響, 以及如何選擇更安全的密碼。
+
+也可以進行更強的密碼驗證, 以影響您現有的 Active Directory 網域控制站部署自動化。 我們建議在審查期間評估期間, 至少有一個 DC 升級和一個 DC 降級, 以協助您事先發現這類問題。  如需詳細資訊，請參閱：
+
+* [Ntdsutil.exe 無法設定弱式目錄服務修復模式密碼](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [網域控制站複本升級因弱式目錄服務修復模式密碼而失敗](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
+* [由於本機系統管理員密碼弱, 導致網域控制站降級失敗](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 在以 audit 模式執行此功能一段合理的時間之後, 您可以將設定從*audit*切換為*強制*性, 以要求更安全的密碼。 在此期間進行專注的監視是個不錯的主意。
 

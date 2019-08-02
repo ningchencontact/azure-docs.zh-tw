@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9128a747dcd42ada2feefd72ad8bfebdf7bfb25a
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334055"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667143"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Identity Protection 和 B2B 使用者
 
@@ -47,7 +47,7 @@ B2B 使用者的風險評估與補救會發生在其主目錄中。 由於這種
 
 ### <a name="how-do-i-prevent-b2b-collaboration-users-from-being-impacted-by-risk-based-policies"></a>如何? 防止 B2B 共同作業使用者受到以風險為基礎的原則影響？
 
-從貴組織以風險為基礎的條件式存取原則中排除 B2B 使用者, 會防止 B2B 使用者受到其風險評估的影響或封鎖。 若要排除這些 B2B 使用者, 請在 Azure AD 中建立群組, 其中包含貴組織的所有來賓使用者。 然後, 將此群組新增為您內建身分識別保護使用者風險和登入風險原則的排除, 以及使用者登入風險為條件的任何條件式存取原則。
+從貴組織以風險為基礎的條件式存取原則中排除 B2B 使用者, 會防止 B2B 使用者受到其風險評估的影響或封鎖。 若要排除這些 B2B 使用者, 請在 Azure AD 中建立群組, 其中包含貴組織的所有來賓使用者。 然後, 將此群組新增為您內建身分識別保護使用者風險和登入風險原則的排除, 以及任何使用登入風險做為條件的條件式存取原則。
 
 ## <a name="next-steps"></a>後續步驟
 

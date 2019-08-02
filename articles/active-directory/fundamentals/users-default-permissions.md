@@ -2,23 +2,23 @@
 title: 預設使用者權限 - Azure Active Directory | Microsoft Docs
 description: 深入了解 Azure Active Directory 中可用的不同使用者權限。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/16/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 206e501860691cccc0578a0df4eec2b161b99b4c
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 99ceb72930d756926bbc73508b20fbde8ea31324
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341373"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561605"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的預設使用者權限是什麼？
 在 Azure Active Directory (Azure AD) 中，所有使用者都會獲得一組預設權限。 使用者的存取權包含使用者類型、其[角色指派](active-directory-users-assign-role-azure-portal.md)，以及個別物件的擁有權。 本文說明這些預設權限，並包含成員與來賓使用者預設值的比較。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
@@ -26,72 +26,72 @@ ms.locfileid: "67341373"
 ## <a name="member-and-guest-users"></a>成員和來賓使用者
 使用者所收到的預設權限集取決於使用者是租用戶的原生成員 (成員使用者)，還是來自另一個目錄的 B2B 共同作業來賓 (來賓使用者)。 如需新增來賓使用者的詳細資訊，請參閱[什麼是 Azure AD B2B 共同作業？](../b2b/what-is-b2b.md)。
 * 成員使用者可以註冊應用程式、管理自己的設定檔相片和行動電話號碼、變更自己的密碼，以及邀請 B2B 來賓。 此外，使用者還可讀取所有目錄資訊 (但有一些例外狀況)。 
-* 來賓使用者具有受限的目錄權限。 例如，來賓使用者無法瀏覽其本身的設定檔資訊以外的租用戶資訊。 不過，來賓使用者可藉由提供使用者主體名稱或 objectId 來擷取另一位使用者的相關資訊。 不論 [來賓使用者權限受限]  設定為何，來賓使用者可以讀取所屬群組的屬性，包括群組成員資格。 來賓無法檢視任何其他租用戶物件的相關資訊。
+* 來賓使用者具有受限的目錄權限。 例如，來賓使用者無法瀏覽其本身的設定檔資訊以外的租用戶資訊。 不過，來賓使用者可藉由提供使用者主體名稱或 objectId 來擷取另一位使用者的相關資訊。 不論 [來賓使用者權限受限] 設定為何，來賓使用者可以讀取所屬群組的屬性，包括群組成員資格。 來賓無法檢視任何其他租用戶物件的相關資訊。
 
-預設會限制來賓的預設權限。 您可將來賓新增至系統管理員角色，將角色內含的完整讀取和寫入權限授予他們。 另外還有一項可用限制，就是來賓邀請其他來賓的能力。 將 [來賓可邀請]  設為 [否]  ，可防止來賓邀請其他來賓。 請參閱[委派 B2B 共同作業的邀請](../b2b/delegate-invitations.md)以了解詳情。 若要將與成員使用者相同的預設權限授予來賓使用者，請將 [來賓使用者權限受限]  設定為 [否]  。 此設定預設會將所有成員使用者權限授予來賓使用者，以及允許將來賓新增至系統管理角色。
+預設會限制來賓的預設權限。 您可將來賓新增至系統管理員角色，將角色內含的完整讀取和寫入權限授予他們。 另外還有一項可用限制，就是來賓邀請其他來賓的能力。 將 [來賓可邀請] 設為 [否]，可防止來賓邀請其他來賓。 請參閱[委派 B2B 共同作業的邀請](../b2b/delegate-invitations.md)以了解詳情。 若要將與成員使用者相同的預設權限授予來賓使用者，請將 [來賓使用者權限受限] 設定為 [否]。 此設定預設會將所有成員使用者權限授予來賓使用者，以及允許將來賓新增至系統管理角色。
 
 ## <a name="compare-member-and-guest-default-permissions"></a>比較成員與來賓預設的權限
 
 **領域** | **成員使用者權限** | **來賓使用者權限**
 ------------ | --------- | ----------
-使用者和連絡人 | 讀取使用者和連絡人的所有公用屬性<br>邀請來賓<br>變更自己的密碼<br>管理自己的行動電話號碼<br>管理自己的相片<br>使自己的重新整理權杖失效 | 讀取自己的屬性<br>讀取顯示名稱、 電子郵件、 登入名稱、 相片、 使用者主體名稱和其他使用者和連絡人的使用者類型屬性<br>變更自己的密碼
+使用者和連絡人 | 讀取使用者和連絡人的所有公用屬性<br>邀請來賓<br>變更自己的密碼<br>管理自己的行動電話號碼<br>管理自己的相片<br>使自己的重新整理權杖失效 | 讀取自己的屬性<br>讀取顯示名稱、電子郵件、登入名稱、相片、使用者主體名稱, 以及其他使用者和連絡人的使用者類型屬性<br>變更自己的密碼
 群組 | 建立安全性群組<br>建立 Office 365 群組<br>讀取群組的所有屬性<br>讀取非隱藏的群組成員資格<br>讀取已加入群組的隱藏 Office 365 群組成員資格<br>管理使用者擁有之群組的屬性、擁有權及成員資格<br>將來賓新增至擁有的群組<br>管理動態成員資格設定<br>刪除擁有的群組<br>還原擁有的 Office 365 群組 | 讀取群組的所有屬性<br>讀取非隱藏的群組成員資格<br>讀取已加入群組的隱藏 Office 365 群組成員資格<br>管理擁有的群組<br>將來賓新增至擁有的群組 (如果允許)<br>刪除擁有的群組<br>還原擁有的 Office 365 群組<br>讀取所屬群組的屬性，包括成員資格。
-[應用程式] | 註冊 (建立) 新的應用程式<br>讀取已註冊和企業應用程式的屬性<br>管理擁有之應用程式的應用程式屬性、指派及認證<br>建立或刪除使用者的應用程式密碼<br>刪除擁有的應用程式<br>還原擁有的應用程式 | 讀取已註冊和企業應用程式的屬性<br>管理擁有之應用程式的應用程式屬性、指派及認證<br>刪除擁有的應用程式<br>還原擁有的應用程式
-裝置 | 讀取裝置的所有屬性<br>管理擁有之裝置的所有屬性<br> | 沒有權限<br>刪除擁有的裝置<br>
+應用程式 | 註冊 (建立) 新的應用程式<br>讀取已註冊和企業應用程式的屬性<br>管理擁有之應用程式的應用程式屬性、指派及認證<br>建立或刪除使用者的應用程式密碼<br>刪除擁有的應用程式<br>還原擁有的應用程式 | 讀取已註冊和企業應用程式的屬性<br>管理擁有之應用程式的應用程式屬性、指派及認證<br>刪除擁有的應用程式<br>還原擁有的應用程式
+裝置 | 讀取裝置的所有屬性<br>管理擁有之裝置的所有屬性<br> | 沒有任何權限<br>刪除擁有的裝置<br>
 目錄 | 讀取所有公司資訊<br>讀取所有網域<br>讀取所有夥伴合約 | 讀取顯示名稱和已驗證的網域
-角色和範圍 | 讀取所有系統管理角色和成員資格<br>讀取系統管理單元的所有屬性和成員資格 | 沒有權限 
-Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有權限
-policies | 讀取原則的所有屬性<br>管理擁有之原則的所有屬性 | 沒有權限
+角色和範圍 | 讀取所有系統管理角色和成員資格<br>讀取系統管理單元的所有屬性和成員資格 | 沒有任何權限 
+Subscriptions | 讀取所有訂用帳戶<br>啟用服務方案成員 | 沒有任何權限
+policies | 讀取原則的所有屬性<br>管理擁有之原則的所有屬性 | 沒有任何權限
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>限制成員使用者的預設權限
 
 您可利用下列方式限制成員使用者的預設權限。
 
-權限 | 設定說明
+使用權限 | 設定說明
 ---------- | ------------
-使用者可以註冊應用程式 | 將此選項設定為 [否] 可防止使用者建立應用程式註冊。 能力可以再授與回特定的個人將它們新增至應用程式開發人員 」 角色。
-允許使用者與 LinkedIn 連線公司或學校帳戶 | 將此選項設定為 [否] 可防止使用者連線其 LinkedIn 帳戶的工作或學校帳戶。 如需詳細資訊，請參閱 < [LinkedIn 帳戶連線資料共用和同意](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent)。
-建立安全性群組的能力 | 將此選項設定為 [否] 可防止使用者建立安全性群組。 全域管理員和使用者管理員仍然可以建立安全性群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
-建立 Office 365 群組的能力 | 將此選項設定為 [否] 可防止使用者建立 Office 365 群組。 將此選項設定為 [部分] 可允許一組特定使用者建立 Office 365 群組。 全域管理員和使用者管理員還是能夠建立 Office 365 群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
-限制 Azure AD 系統管理入口網站的存取 | 將此選項設定為 [是] 可防止使用者透過 Azure 入口網站存取 Azure Active Directory。
-讀取其他使用者的能力 | 此設定僅在 PowerShell 中可用。 此旗標設定為 $false 可防止所有的非系統管理員從目錄讀取使用者資訊。 這個旗標不會防止讀取其他 Microsoft 服務，例如 Exchange Online 中的使用者資訊。 這項設定適用於特殊情況下，並不建議將此旗標設定為 $false。
+使用者可以註冊應用程式 | 將此選項設定為 [否] 可防止使用者建立應用程式註冊。 藉由將其新增至應用程式開發人員角色, 即可將其授與特定的個人。
+允許使用者利用 LinkedIn 連線公司或學校的帳戶 | 將此選項設定為 [否] 可防止使用者使用其 LinkedIn 帳戶連接其公司或學校帳戶。 如需詳細資訊, 請參閱[LinkedIn 帳戶連接資料共用和同意](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent)。
+建立安全性群組的能力 | 將此選項設定為 [否] 可防止使用者建立安全性群組。 全域管理員和使用者系統管理員仍然可以建立安全性群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
+建立 Office 365 群組的能力 | 將此選項設定為 [否] 可防止使用者建立 Office 365 群組。 將此選項設定為 [部分] 可允許一組特定使用者建立 Office 365 群組。 全域管理員和使用者系統管理員仍然可以建立 Office 365 群組。 請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-cmdlets.md) 以了解詳情。
+Azure AD 管理入口網站的存取限制 | 將此選項設定為 [是] 可防止使用者透過 Azure 入口網站存取 Azure Active Directory。
+讀取其他使用者的能力 | 此設定僅在 PowerShell 中可用。 將此旗標設定為 $false 可防止所有的非系統管理員讀取目錄中的使用者資訊。 此旗標不會防止讀取其他 Microsoft 服務 (例如 Exchange Online) 中的使用者資訊。 這種設定適用于特殊情況, 不建議將此旗標設定為 $false。
 
 ## <a name="object-ownership"></a>物件擁有權
 
 ### <a name="application-registration-owner-permissions"></a>應用程式註冊擁有者權限
 當使用者註冊應用程式時，系統會將他們自動新增為應用程式的擁有者。 身為擁有者的他們可以管理應用程式的中繼資料，例如應用程式要求的名稱和權限。 他們也可以管理應用程式的租用戶專屬設組態定，例如 SSO 組態和使用者指派。 擁有者也可以新增或移除其他擁有者。 不同於全域管理員，擁有者只能管理自己的應用程式。
 
-### <a name="enterprise-application-owner-permissions"></a>企業應用程式擁有者權限
-當使用者將新的企業應用程式時，它們會自動新增為擁有者。 身為擁有者，他們可以管理的應用程式，例如 SSO 組態、 佈建和使用者指派之租用戶特定的組態。 擁有者也可以新增或移除其他擁有者。 不同於全域管理員，擁有者可以管理他們自己的應用程式。
+### <a name="enterprise-application-owner-permissions"></a>企業應用程式擁有者許可權
+當使用者新增新的企業應用程式時, 系統會自動將他們新增為擁有者。 身為擁有者, 他們可以管理應用程式的租使用者特定設定, 例如 SSO 設定、布建和使用者指派。 擁有者也可以新增或移除其他擁有者。 不同于全域管理員, 擁有者只能管理他們所擁有的應用程式。
 
 ### <a name="group-owner-permissions"></a>群組擁有者權限
-當使用者建立群組時，他們會自動新增為該群組的擁有者。 身為擁有者的他們可以管理群組的屬性 (例如名稱)，以及管理群組成員資格。 擁有者也可以新增或移除其他擁有者。 不同於全域管理員和使用者系統管理員，擁有者只能管理自己的群組。 若要指派群組擁有者，請參閱[管理群組的擁有者](active-directory-accessmanagement-managing-group-owners.md)。
+當使用者建立群組時，他們會自動新增為該群組的擁有者。 身為擁有者的他們可以管理群組的屬性 (例如名稱)，以及管理群組成員資格。 擁有者也可以新增或移除其他擁有者。 不同于全域管理員和使用者系統管理員, 擁有者只能管理他們所擁有的群組。 若要指派群組擁有者，請參閱[管理群組的擁有者](active-directory-accessmanagement-managing-group-owners.md)。
 
-### <a name="ownership-permissions"></a>擁有權權限
-下表說明在 Azure Active Directory 成員的使用者所擁有的物件上發生的特定權限。 使用者僅擁有這些權限，他們所擁有的物件。
+### <a name="ownership-permissions"></a>擁有權許可權
+下表描述 Azure Active Directory 成員使用者在擁有的物件上擁有的特定許可權。 使用者只擁有他們所擁有之物件的這些許可權。
 
 #### <a name="owned-application-registrations"></a>擁有的應用程式註冊
-使用者可以執行下列動作，在擁有的應用程式註冊。
+使用者可以在所擁有的應用程式註冊上執行下列動作。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
-| microsoft.directory/applications/audience/update | 在 Azure Active Directory 中更新 applications.audience 屬性。 |
-| microsoft.directory/applications/authentication/update | 在 Azure Active Directory 中更新 applications.authentication 屬性。 |
-| microsoft.directory/applications/basic/update | 更新 Azure Active Directory 中 Applications 的基本屬性。 |
-| microsoft.directory/applications/credentials/update | 在 Azure Active Directory 中更新 applications.credentials 屬性。 |
+| microsoft.directory/applications/audience/update | 更新 Azure Active Directory 中的 applications.audience 屬性。 |
+| microsoft.directory/applications/authentication/update | 更新 Azure Active Directory 中的 applications.authentication 屬性。 |
+| microsoft.directory/applications/basic/update | 更新 Azure Active Directory 中應用程式的基本屬性。 |
+| microsoft.directory/applications/credentials/update | 更新 Azure Active Directory 中的 applications.credentials 屬性。 |
 | microsoft.directory/applications/delete | 刪除 Azure Active Directory 中的應用程式。 |
 | microsoft.directory/applications/owners/update | 更新 Azure Active Directory 中的 applications.owners 屬性。 |
-| microsoft.directory/applications/permissions/update | 在 Azure Active Directory 中更新 applications.permissions 屬性。 |
+| microsoft.directory/applications/permissions/update | 更新 Azure Active Directory 中的 applications.permissions 屬性。 |
 | microsoft.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
-| microsoft.directory/applications/restore | 還原 Azure Active Directory 中的 applications。 |
+| microsoft.directory/applications/restore | 還原 Azure Active Directory 中的應用程式。 |
 
 #### <a name="owned-enterprise-applications"></a>擁有的企業應用程式
-使用者可以擁有的企業應用程式上執行下列動作。 企業應用程式組成的服務主體、 一或多個應用程式的原則，以及有時在相同的租用戶的服務主體的應用程式物件。
+使用者可以在擁有的企業應用程式上執行下列動作。 企業應用程式是由服務主體、一或多個應用程式原則, 有時與服務主體在相同租使用者中的應用程式物件所組成。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
-| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.directory/policies/basic/update | 更新 Azure Active Directory 中 policies 的基本屬性。 |
+| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中 auditLogs 的所有屬性 (包含具有特殊權限的屬性)。 |
+| microsoft.directory/policies/basic/update | 更新 Azure Active Directory 中原則的基本屬性。 |
 | microsoft.directory/policies/delete | 刪除 Azure Active Directory 中的原則。 |
 | microsoft.directory/policies/owners/update | 更新 Azure Active Directory 中的 policies.owners 屬性。 |
 | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
@@ -104,28 +104,28 @@ policies | 讀取原則的所有屬性<br>管理擁有之原則的所有屬性 |
 | microsoft.directory/servicePrincipals/owners/update | 更新 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
 | microsoft.directory/servicePrincipals/permissions/update | 更新 Azure Active Directory 中的 servicePrincipals.permissions 屬性。 |
 | microsoft.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
-| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中 signInReports 的所有屬性 (包含具有特殊權限的屬性)。 |
 
 #### <a name="owned-devices"></a>擁有的裝置
-使用者可以擁有的裝置上執行下列動作。
+使用者可以在擁有的裝置上執行下列動作。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
-| microsoft.directory/devices/disable | 停用 Azure Active Directory 中的 devices。 |
+| microsoft.directory/devices/disable | 停用 Azure Active Directory 中的裝置。 |
 
 #### <a name="owned-groups"></a>擁有的群組
-使用者可以擁有的群組上執行下列動作。
+使用者可以在擁有的群組上執行下列動作。
 
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
-| microsoft.directory/groups/basic/update | 更新 Azure Active Directory 中 groups 的基本屬性。 |
-| microsoft.directory/groups/delete | 刪除 Azure Active Directory 中的 groups。 |
+| microsoft.directory/groups/basic/update | 更新 Azure Active Directory 中群組的基本屬性。 |
+| microsoft.directory/groups/delete | 刪除 Azure Active Directory 中的群組。 |
 | microsoft.directory/groups/dynamicMembershipRule/update | 更新 Azure Active Directory 中的 groups.dynamicMembershipRule 屬性。 |
 | microsoft.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
 | microsoft.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
-| microsoft.directory/groups/restore | 還原 Azure Active Directory 中的 groups。 |
+| microsoft.directory/groups/restore | 還原 Azure Active Directory 中的群組。 |
 | microsoft.directory/groups/settings/update | 更新 Azure Active Directory 中的 groups.settings 屬性。 |
 
 ## <a name="next-steps"></a>後續步驟

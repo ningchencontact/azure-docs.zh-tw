@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/31/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c60cb78c01d7e18801cbe43c8b767f622ef4b39
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473094"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694295"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>地理位置和 IP 位址處理
 
@@ -83,8 +83,8 @@ IP 位址會傳送至 Application Insights 作為遙測資料的一部分。 到
 
     ![螢幕擷取畫面會在 "IbizaAIExtension" 後面加上一個逗號, 並在下方新增包含 "DisableIpMasking" 的新行: true](media/ip-collection/save.png)
 
-    > [!NOTE]
-    > 如果您遇到錯誤, 指出:_資源群組所在的位置不受範本中的一或多個資源支援。請選擇不同的資源群組。_ 暫時從下拉式清單中選取不同的資源群組, 然後重新選取原始的資源群組以解決錯誤。
+    > [!WARNING]
+    > 如果您遇到錯誤, 指出: **_資源群組所在的位置不受範本中的一或多個資源支援。請選擇不同的資源群組。_** 暫時從下拉式清單中選取不同的資源群組, 然後重新選取原始的資源群組以解決錯誤。
 
 5. 選取 [**我同意** > **購買**]。 
 
@@ -92,7 +92,7 @@ IP 位址會傳送至 Application Insights 作為遙測資料的一部分。 到
 
     在此情況下, 我們只會更新現有 Application Insights 資源的設定, 而不會購買任何新的。
 
-6. 部署完成後, 會記錄前三個八位的遙測資料, 並填入 IP 和最後一個八位。
+6. 部署完成之後, 將會記錄前三個八位的 IP 和最後一個八位已清空的遙測資料。
 
     如果您再次選取並編輯範本, 您只會看到預設範本, 而且看不到新加入的屬性及其相關聯的值。 如果您看不到 IP 位址資料, 而且想要`"DisableIpMasking": true`確認已設定。 執行下列 PowerShell:(請`Fabrikam-dev`將取代為適當的資源和資源組名。)
     
@@ -130,10 +130,11 @@ Content-Length: 54
 
 如果您需要記錄整個 IP 位址, 而不只是前三個八位, 您可以使用[遙測初始化運算式](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer), 將 IP 位址複製到不會遮罩的自訂欄位。
 
-### <a name="aspnetaspnet-core"></a>ASP.NET/ASP.NET 核心
+### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
 namespace MyWebApp
@@ -142,15 +143,20 @@ namespace MyWebApp
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if(!string.IsNullOrEmpty(telemetry.Context.Location.Ip))
+            ISupportProperties propTelemetry = telemetry as ISupportProperties;
+
+            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
             {
-                telemetry.Context.Properties["client-ip"] = telemetry.Context.Location.Ip;
+                string clientIPValue = telemetry.Context.Location.Ip;
+                propTelemetry.Properties.Add("client-ip", clientIPValue);
             }
         }
-    }
-
+    } 
 }
 ```
+
+> [!NOTE]
+> 如果您無法存取`ISupportProperties`, 請檢查並確定您執行的是最新穩定版本的 Application Insights SDK。 `ISupportProperties`適用于高基數值, 而`GlobalProperties`較適用于較低的基數值, 例如區功能變數名稱稱、環境名稱等等。 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>啟用的遙測初始化運算式。ASP.NET
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 587d8040039080e15c61292279c5e5637d296b08
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351385"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639085"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>使用 Visual Studio Code 將 Python 部署至 Azure Functions
 
@@ -253,7 +253,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 1. 延伸模組會執行下列動作, 您可以在 Visual Studio Code 快顯訊息和 [**輸出**] 視窗中觀察此程式 (此程式需要幾分鐘的時間):
 
     - 使用您所提供的名稱 (移除連字號) 來建立資源群組。
-    - 在該資源群組中, 建立儲存體帳戶、主控方案和函數應用程式。 根據預設, 會建立取用[方案](functions-scale.md#consumption-plan)。 若要在專屬方案中執行您的函式, 您需要[使用 advanced create 選項來啟用發佈](functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options)功能。
+    - 在該資源群組中, 建立儲存體帳戶、主控方案和函數應用程式。 根據預設, 會建立取用[方案](functions-scale.md#consumption-plan)。 若要在專屬方案中執行您的函式, 您需要[使用 advanced create 選項來啟用發佈](functions-develop-vs-code.md)功能。
     - 將程式碼部署至函數應用程式。
 
     **Azure:[** 函數瀏覽器] 也會顯示進度:
@@ -413,7 +413,7 @@ func azure functionapp logstream <app_name> --browser
 
 1. 開啟 [命令選擇區] 並選取 **[Azure Functions], 將 Azure Functions 專案的遠端設定同步至您的*本機. 設定 json*檔案:下載遠端設定**。 開啟 [*本機. 設定*], 並檢查它是否包含的值`AzureWebJobsStorage`。 該值是儲存體帳戶的連接字串。
 
-1. 在資料夾中, 以滑鼠右鍵按一下 [*函數. json*], 然後選取 [新增系結]:  `HttpExample`
+1. 在資料夾中, 以滑鼠右鍵按一下 [*函數. json*], 然後選取 [新增系結]: `HttpExample`
 
     ![在 Visual Studio Code explorer 中新增 binding 命令](media/tutorial-vs-code-serverless-python/add-binding-command.png)
 

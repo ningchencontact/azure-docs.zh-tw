@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325492"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 Azure 檔案共用
@@ -55,7 +55,7 @@ az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STO
 echo $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
-我們已知道共用名稱 (在上述指令碼中定義為 acishare  )，因此只差儲存體帳戶金鑰，此金鑰可以使用下列命令來找到：
+我們已知道共用名稱 (在上述指令碼中定義為 acishare)，因此只差儲存體帳戶金鑰，此金鑰可以使用下列命令來找到：
 
 ```azurecli-interactive
 STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)
@@ -83,13 +83,13 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>管理已掛接磁碟區中的檔案
 
-一旦容器啟動之後, 您就可以使用透過 Microsoft [aci-aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show]命令所部署的簡單 web 應用程式:
+一旦容器啟動之後, 您就可以使用透過 Microsoft [aci-aci-hellofiles][aci-hellofiles]映射部署的簡單 web 應用程式, 在 Azure 檔案共用中, 于您指定的掛接路徑建立小型文字檔。 使用[az container show][az-container-show]命令來取得 web 應用程式的完整功能變數名稱 (FQDN):
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-使用應用程式儲存文字之後, 您可以使用[Azure 入口網站][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer]來取出和檢查寫入檔案共用的檔案。
+使用應用程式儲存文字之後, 您可以使用[Azure 入口網站][portal]或[Microsoft Azure 儲存體總管][storage-explorer]之類的工具來抓取和檢查寫入檔案共用的檔案。
 
 ## <a name="deploy-container-and-mount-volume---yaml"></a>部署容器和掛接磁片區-YAML
 

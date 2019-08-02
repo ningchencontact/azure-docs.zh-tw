@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
-ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53ead1caed47ae442670f0b6bcd54cd84956a759
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716750"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720607"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>以視覺化方式監視 Azure 資料處理站
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。
@@ -37,38 +37,38 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ## <a name="monitor-pipeline-runs"></a>監視管線回合
 顯示資料處理站 v2 管線之每個管線回合的清單檢視。 包含下列資料行：
 
-| **資料行名稱** | **說明** |
+| **資料行名稱** | **描述** |
 | --- | --- |
 | 管線名稱 | 管線的名稱。 |
-| 動作 | 可供檢視活動回合的單一動作。 |
+| 個動作 | 可供檢視活動回合的單一動作。 |
 | 回合開始 | 管線回合開始日期時間 (YYYY/MM/DD，上午/下午 HH:MM:SS) |
-| Duration | 回合持續時間 (HH:MM:SS) |
+| 持續時間 | 回合持續時間 (HH:MM:SS) |
 | 觸發方式 | [手動觸發]、[排程觸發] |
 | 狀態 | [失敗]、[成功]、[進行中] |
 | 參數 | 管線回合參數 (名稱、值組) |
-| 錯誤 | 管線回合錯誤 (若有) |
-| 回合識別碼 | 管線執行的識別碼 |
+| Error | 管線回合錯誤 (若有) |
+| 回合 ID | 管線執行的識別碼 |
 
 ![監視管線回合](media/monitor-visually/pipeline-runs.png)
 
 ## <a name="monitor-activity-runs"></a>監視活動回合
-顯示對應至每個管線回合之活動回合的清單檢視。 按一下位於 [活動]  資料行底下的 [活動回合]  圖示，以檢視每個管線回合的活動回合。 包含下列資料行：
+顯示對應至每個管線回合之活動回合的清單檢視。 按一下位於 [活動] 資料行底下的 [活動回合] 圖示，以檢視每個管線回合的活動回合。 包含下列資料行：
 
 | **資料行名稱** | **說明** |
 | --- | --- |
 | 活動名稱 | 管線內的活動名稱。 |
 | 活動類型 | 活動的類型 (也就是 [複製]、[HDInsightSpark]、[HDInsightHive] 等) |
 | 回合開始 | 活動回合開始日期時間 (YYYY/MM/DD，上午/下午 HH:MM:SS) |
-| Duration | 回合持續時間 (HH:MM:SS) |
+| 持續時間 | 回合持續時間 (HH:MM:SS) |
 | 狀態 | [失敗]、[成功]、[進行中] |
 | 輸入 | 描述活動輸入的 JSON 陣列 |
 | Output | 描述活動輸出的 JSON 陣列 |
-| 錯誤 | 活動回合錯誤 (若有) |
+| Error | 活動回合錯誤 (若有) |
 
 ![監視活動回合](media/monitor-visually/activity-runs.png)
 
 > [!IMPORTANT]
-> 您必須按一下位於上方的 [重新整理]  圖示，以重新整理管線和活動回合的清單。 目前不支援自動重新整理。
+> 您必須按一下位於上方的 [重新整理] 圖示，以重新整理管線和活動回合的清單。 目前不支援自動重新整理。
 
 ![重新整理](media/monitor-visually/refresh.png)
 
@@ -83,13 +83,13 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 依 [回合開始] 以遞減/遞增的順序對管線回合進行排序，然後依下列資料行對管線回合進行篩選：
 
-| **資料行名稱** | **描述** |
+| **資料行名稱** | **說明** |
 | --- | --- |
 | 管線名稱 | 管線的名稱。 選項包括針對 [過去 24 小時]、[上週]、[過去 30 天] 的快速篩選，或是選取自訂日期時間。 |
 | 回合開始 | 管線回合開始日期時間 |
 | 回合狀態 | 依狀態 (也就是 [成功]、[失敗]、[進行中]) 篩選回合 |
 
-![Filter](media/monitor-visually/filter.png)
+![篩選器](media/monitor-visually/filter.png)
 
 ### <a name="add-or-remove-columns"></a>新增或移除資料行
 以滑鼠右鍵按一下清單檢視標頭，然後選擇要顯示於清單檢視中的資料行
@@ -101,7 +101,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="promote-user-properties-to-monitor"></a>將使用者屬性升階以便監視
 
-您可以將任何管線活動屬性升階為使用者屬性，讓它變成您可以監視的實體。 例如，您可以將管線中「複製」活動的 **Source** 和 **Destination** 屬性升階為使用者屬性。 您也可以選取 [自動產生]  ，為「複製」活動產生 **Source** 和 **Destination** 使用者屬性。
+您可以將任何管線活動屬性升階為使用者屬性，讓它變成您可以監視的實體。 例如，您可以將管線中「複製」活動的 **Source** 和 **Destination** 屬性升階為使用者屬性。 您也可以選取 [自動產生]，為「複製」活動產生 **Source** 和 **Destination** 使用者屬性。
 
 ![建立使用者屬性](media/monitor-visually/monitor-user-properties-image1.png)
 
@@ -118,7 +118,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="rerun-activities-inside-a-pipeline"></a>在管線中重新執行活動
 
-您現在可以在管線中重新執行活動。 按一下 [檢視活動執行]  並選取管線中您想要重新執行管線的活動。
+您現在可以在管線中重新執行活動。 按一下 [檢視活動執行] 並選取管線中您想要重新執行管線的活動。
 
 ![檢視活動執行](media/monitor-visually/rerun-activities-image1.png)
 
@@ -134,19 +134,31 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ![檢視管線執行的歷程記錄](media/monitor-visually/rerun-history-image2.png)
 
+## <a name="gantt-views"></a>甘特圖視圖
+
+使用 [甘特圖] 視圖以快速視覺化您的管線和活動執行。 您可以查看每個管線的 [甘特圖] 或 [依您在管線上建立的批註/標記群組]。
+
+![甘特圖](media/monitor-visually/gantt1.png)
+
+![甘特圖注釋](media/monitor-visually/gantt2.png)
+
+橫條的長度會通知管線的持續時間。 您也可以按一下該列以查看更多詳細資料。
+
+![甘特圖持續時間](media/monitor-visually/gantt3.png)
+
 ## <a name="guided-tours"></a>導覽
 按一下左下方的 [資訊] 圖示，然後按一下 [導覽] 以取得監視管線及活動回合的逐步指示。
 
 ![導覽](media/monitor-visually/guided-tours.png)
 
-## <a name="feedback"></a>意見反應
+## <a name="feedback"></a>意見
 按一下 [意見反應] 圖示以針對各種功能或您遇到的任何問題向我們提供意見反應。
 
-![意見反應](media/monitor-visually/feedback.png)
+![意見](media/monitor-visually/feedback.png)
 
 ## <a name="alerts"></a>警示
 
-您可以針對 Data Factory 中支援的計量提出警示。 選取 [Data Factory 監視器] 頁面上的 [監視] -> [警示和計量]   ，即可開始使用。
+您可以針對 Data Factory 中支援的計量提出警示。 選取 [Data Factory 監視器] 頁面上的 [監視] -> [警示和計量] ，即可開始使用。
 
 ![](media/monitor-visually/alerts01.png)
 
@@ -156,11 +168,11 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ### <a name="create-alerts"></a>建立警示
 
-1.  按一下 [新增警示規則]    來新建警示。
+1.  按一下 [新增警示規則]  來新建警示。
 
     ![](media/monitor-visually/alerts02.png)
 
-1.  指定規則名稱，然後選取警示 [嚴重性]  。
+1.  指定規則名稱，然後選取警示 [嚴重性]。
 
     ![](media/monitor-visually/alerts03.png)
 
@@ -174,7 +186,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
     ![](media/monitor-visually/alerts06.png)
 
-1.  設定警示的 [電子郵件/簡訊/推送/語音]  通知。 建立或選擇警示通知的現有 [動作群組]  。
+1.  設定警示的 [電子郵件/簡訊/推送/語音] 通知。 建立或選擇警示通知的現有 [動作群組]。
 
     ![](media/monitor-visually/alerts07.png)
 

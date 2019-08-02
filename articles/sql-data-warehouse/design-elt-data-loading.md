@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/10/2019
+ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fa688f40f8eb968f2c388601b387e4f584951a91
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595594"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597461"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>設計 Azure SQL 資料倉儲的 PolyBase 資料載入策略
 
@@ -49,17 +49,17 @@ ms.locfileid: "67595594"
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 外部檔案格式
 
-PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除了分隔符號文字檔，它會從 Hadoop 檔案格式 RC 檔案、ORC 和 Parquet 載入。 PolyBase 也可以從 Gzip 和 Snappy 壓縮檔案載入資料。 PolyBase 目前不支援延伸的 ASCII、固定寬度格式和巢狀格式，例如 WinZip、JSON 和 XML。 如果您從 SQL Server 匯出，您可以使用 [bcp 命令列工具](/sql/tools/bcp-utility)將資料匯出到標示分隔符號的文字檔。 SQL DW 資料類型對應至 Parquet 如下所示：
+PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除了分隔符號文字檔，它會從 Hadoop 檔案格式 RC 檔案、ORC 和 Parquet 載入。 PolyBase 也可以從 Gzip 和 Snappy 壓縮檔案載入資料。 PolyBase 目前不支援延伸的 ASCII、固定寬度格式和巢狀格式，例如 WinZip、JSON 和 XML。 如果您從 SQL Server 匯出，您可以使用 [bcp 命令列工具](/sql/tools/bcp-utility)將資料匯出到標示分隔符號的文字檔。 Parquet 至 SQL DW 資料類型對應如下所示:
 
 | **Parquet 資料類型** |                      **SQL 資料類型**                       |
 | :-------------------: | :----------------------------------------------------------: |
 |        tinyint        |                           tinyint                            |
 |       smallint        |                           smallint                           |
 |          ssNoversion          |                             ssNoversion                              |
-|        bigint         |                            bigint                            |
+|        Bigint         |                            Bigint                            |
 |        boolean        |                             bit                              |
-|        double         |                            float                             |
-|         float         |                             real                             |
+|        double         |                            FLOAT                             |
+|         FLOAT         |                             real                             |
 |        double         |                            money                             |
 |        double         |                          SMALLMONEY                          |
 |        string         |                            nchar                             |
@@ -68,13 +68,13 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 |        string         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
-|       timestamp       |                             日期                             |
+|       timestamp       |                             date                             |
 |       timestamp       |                        smalldatetime                         |
-|       timestamp       |                          datetime2                           |
+|       timestamp       |                          日期時間2                           |
 |       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
-|       日期        | 1） 當做 int 載入並轉換成日期 </br> 2)[使用 Azure Databricks SQL DW 連接器](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse)與 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**更新即將推出**) |
-|        decimal        | [使用 Azure Databricks SQL DW 連接器](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse)與 </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**更新即將推出**) |
+|       date            |                             date                             |
+|        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2.讓資料登陸到 Azure Blob 儲存體或 Azure Data Lake Store
 
@@ -123,7 +123,7 @@ PolyBase 會從 UTF-8 和 UTF-16 編碼分隔符號文字檔載入資料。 除�
 - [PolyBase 與 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 非常適合於當您的資料是在 Azure Blob 儲存體或 Azure Data Lake Store 中的時候。 它給予您對於載入程序最多的控制權，但是也需要您定義外部資料物件。 其他方法會在您將來源資料表對應至目的地資料表時，在幕後定義這些物件。  若要協調 T-SQL 載入，您可以使用 Azure Data Factory、SSIS 或 Azure 函式。 
 - [PolyBase 與 SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) 非常適合於當您的來源資料是在 SQL Server 中的時候，無論是 SQL Server 內部部署或是在雲端。 SSIS 會定義來源至目的地資料表對應，也會協調載入。 如果您已經有 SSIS 套件，您可以將套件修改為搭配新的資料倉儲目的地。 
 - [PolyBase 與 Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) 是另一個協調工具。  它會定義管線並排程作業。 
-- [PolyBase 與 Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)將資料從 SQL 資料倉儲資料表傳輸到 Databricks 資料框架和/或從 Databricks 資料框架中寫入使用 PolyBase 的 SQL 資料倉儲資料表的資料。
+- [PolyBase 與 Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)會將 SQL 資料倉儲資料表的資料傳輸至 DataBricks 資料框架, 並 (或) 使用 PolyBase 將資料從 DataBricks 資料框架寫入 SQL 資料倉儲資料表。
 
 ### <a name="non-polybase-loading-options"></a>非 PolyBase 載入選項
 

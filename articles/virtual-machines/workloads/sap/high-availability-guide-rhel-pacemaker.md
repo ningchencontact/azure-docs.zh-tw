@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: cd56df8e88a84f52933e5ee43fecd598252ba6c0
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479764"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570560"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>在 Azure 中的 Red Hat Enterprise Linux 上設定 Pacemaker
 
@@ -39,8 +39,6 @@ ms.locfileid: "68479764"
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!TIP]
-> Red Hat Enterprise Linux 上的 Pacemaker 會使用 Azure Fence 代理程式隔離叢集節點 (如有必要)。 Azure 隔離代理程式的新版本可供使用, 如果資源停止失敗或叢集節點無法再彼此通訊, 則容錯移轉不再需要很長的時間。 如需詳細資訊，請閱讀[以 RHEL 高可用性叢集成員身分執行的 Azure VM 需要相當長時間完成隔離，或者 VM 關機前隔離失敗/逾時](https://access.redhat.com/solutions/3408711)
 
 請先閱讀下列 SAP Note 和文件：
 

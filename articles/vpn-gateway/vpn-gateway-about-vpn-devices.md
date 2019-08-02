@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 343bbf5c84ce97feb7b7d170523845f5a2f7c10d
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666265"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668426"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -37,8 +37,8 @@ ms.locfileid: "67666265"
 
 |**廠商**          |**裝置系列**     |**作業系統最低版本** |**原則式設定指示** |**路由式設定指示** |
 | ---                | ---                  | ---                   | ---            | ---           |
-| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |不相容  |[設定指南](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
-| Allied Telesis     |AR 系列 VPN 路由器 |AR 系列 5.4.7+               |敬請期待     |[設定指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
+| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |不相容  |[設定指南](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
+| Allied Telesis     |AR 系列 VPN 路由器 |AR 系列 5.4.7+               |即將推出     |[設定指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall F-series |原則式︰5.4.3<br>路由式：6.2.0 |[設定指南](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[設定指南](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-series |Barracuda Firewall 6.5 |[設定指南](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |不相容 |
 | Check Point |Security Gateway |R80.10 |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
@@ -49,7 +49,7 @@ ms.locfileid: "67666265"
 | Cisco |Meraki |N/A |不相容 |不相容 |
 | Citrix |NetScaler MPX、SDX、VPX |10.1 和更新版本 |[設定指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不相容 |
 | F5 |BIG-IP 系列 |12.0 |[設定指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[設定指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.6 |  |[設定指南](https://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
+| Fortinet |FortiGate |FortiOS 5.6 |  |[設定指南](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/030680/connecting-a-local-fortigate-to-an-azure-fortigate-via-site-to-site-vpn) |
 | Internet Initiative Japan (IIJ) |SEIL 系列 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[設定指南](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |不相容 |
 | Juniper |SRX |原則式︰JunOS 10.2<br>路由式：JunOS 11.4 |支援 |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |J 系列 |原則式︰JunOS 10.4r9<br>路由式：JunOS 11.4 |支援 |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
@@ -65,7 +65,7 @@ ms.locfileid: "67666265"
 | Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [設定指南](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [透過 IKEv2/IPsec 的 BGP](https://help.ubnt.com/hc/en-us/articles/115012374708) \(英文\)<br><br>[透過 IKEv2/IPsec 的 VTI](https://help.ubnt.com/hc/en-us/articles/115012305347) \(英文\)
 | WatchGuard |全部 |Fireware XTM<br> 原則式：v11.11.x<br>路由式：v11.12.x |[設定指南](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[設定指南](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
-| Zyxel |ZyWALL USG 系列<br>ZyWALL ATP 系列<br>ZyWALL VPN 系列 | ZLD v4.32+ | | [透過 IKEv2/IPsec 的 VTI](https://businessforum.zyxel.com/discussion/2648/) \(英文\)<br>[透過 IKEv2/IPsec 的 BGP](https://businessforum.zyxel.com/discussion/2650/) \(英文\)|
+| Zyxel |ZyWALL USG 系列<br>ZyWALL ATP 系列<br>ZyWALL VPN 系列 | ZLD v 4.32 + | | [透過 IKEv2/IPsec 的 VTI](https://businessforum.zyxel.com/discussion/2648/) \(英文\)<br>[透過 IKEv2/IPsec 的 BGP](https://businessforum.zyxel.com/discussion/2650/) \(英文\)|
 
 > [!NOTE]
 >
@@ -92,7 +92,7 @@ ms.locfileid: "67666265"
 ### <a name="to-edit-a-sample"></a>編輯範本：
 
 1. 使用 [記事本] 開啟範本。
-2. 搜尋所有 <文字  > 字串並使用適合您環境的值加以取代。 請務必加上 < 和 >。 當有指定名稱時，您選取的名稱應該是唯一名稱。 如果命令無法運作，請參閱裝置製造商文件。
+2. 搜尋所有 <文字> 字串並使用適合您環境的值加以取代。 請務必加上 < 和 >。 當有指定名稱時，您選取的名稱應該是唯一名稱。 如果命令無法運作，請參閱裝置製造商文件。
 
 | **範本中的文字** | **變更為** |
 | --- | --- |
@@ -101,11 +101,11 @@ ms.locfileid: "67666265"
 | &lt;RP_AccessList&gt; |您為此物件選擇的名稱。 例如：myAzureAccessList |
 | &lt;RP_IPSecTransformSet&gt; |您為此物件選擇的名稱。 例如：myIPSecTransformSet |
 | &lt;RP_IPSecCryptoMap&gt; |您為此物件選擇的名稱。 例如：myIPSecCryptoMap |
-| &lt;SP_AzureNetworkIpRange&gt; |指定範圍。 範例：192.168.0.0 |
-| &lt;SP_AzureNetworkSubnetMask&gt; |指定子網路遮罩。 範例：255.255.0.0 |
-| &lt;SP_OnPremisesNetworkIpRange&gt; |指定內部部署範圍。 範例：10.2.1.0 |
-| &lt;SP_OnPremisesNetworkSubnetMask&gt; |指定內部部署子網路遮罩。 範例：255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |此為您虛擬網路的特定資訊，位於管理入口網站中的 [閘道器 IP 位址]  。 |
+| &lt;SP_AzureNetworkIpRange&gt; |指定範圍。 範例:192.168.0.0 |
+| &lt;SP_AzureNetworkSubnetMask&gt; |指定子網路遮罩。 範例:255.255.0.0 |
+| &lt;SP_OnPremisesNetworkIpRange&gt; |指定內部部署範圍。 範例:10.2.1.0 |
+| &lt;SP_OnPremisesNetworkSubnetMask&gt; |指定內部部署子網路遮罩。 範例:255.255.255.0 |
+| &lt;SP_AzureGatewayIpAddress&gt; |此為您虛擬網路的特定資訊，位於管理入口網站中的 [閘道器 IP 位址]。 |
 | &lt;SP_PresharedKey&gt; |此資訊專屬於您的虛擬網路，是 [管理入口網站] 中的管理金鑰。 |
 
 ## <a name="ipsec"></a>IPsec/IKE 參數

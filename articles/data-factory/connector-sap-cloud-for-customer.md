@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30025499ae3073a04863d711423bd9556e7fc6c4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60578703"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726025"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Cloud for Customer (C4C) 複製資料
 
@@ -43,8 +43,8 @@ ms.locfileid: "60578703"
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapCloudForCustomer**。 | 是 |
 | url | SAP C4C OData 服務的 URL。 | 是 |
-| userName | 指定要連線到 SAP C4C 的使用者名稱。 | 是 |
-| password | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| username | 指定要連線到 SAP C4C 的使用者名稱。 | 是 |
+| 密碼 | 指定您為 username 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否 (來源)；是 (接收) |
 
 >[!IMPORTANT]
@@ -79,10 +79,10 @@ ms.locfileid: "60578703"
 
 若要從 SAP Cloud for Customer 複製資料，請將資料集的 type 屬性設定為 **SapCloudForCustomerResource**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**SapCloudForCustomerResource** |是 |
-| path | 指定 SAP C4C OData 實體的路徑。 |是 |
+| 路徑 | 指定 SAP C4C OData 實體的路徑。 |是 |
 
 **範例:**
 
@@ -94,6 +94,7 @@ ms.locfileid: "60578703"
         "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP C4C linked service>",
             "type": "LinkedServiceReference"
@@ -110,10 +111,10 @@ ms.locfileid: "60578703"
 
 若要從 SAP Cloud for Customer 複製資料，請將複製活動中的來源類型設定為 **SapCloudForCustomerSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapCloudForCustomerSource**  | 是 |
-| query | 指定自訂 OData 查詢來讀取資料。 | 否 |
+| 查詢 | 指定自訂 OData 查詢來讀取資料。 | 否 |
 
 取得特定日之資料的範例查詢：`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -153,7 +154,7 @@ ms.locfileid: "60578703"
 
 若要將資料複製到 SAP Cloud for Customer，請將複製活動中的接收類型設定為 **SapCloudForCustomerSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**SapCloudForCustomerSink**  | 是 |
 | writeBehavior | 作業的寫入行為。 可能是 “Insert”、“Update”。 | 資料分割 預設值為 “Insert”。 |

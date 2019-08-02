@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f06b0866f5a79756f3404d7911f03bcdcc7f67d7
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808402"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608045"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service 上的作業系統功能
 本文說明在 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)上執行的所有 Windows 應用程式可用的一般基礎作業系統功能。 此功能包含檔案、網路、登錄存取、診斷記錄和事件。 
@@ -32,7 +32,7 @@ ms.locfileid: "66808402"
 <a id="tiers"></a>
 
 ## <a name="app-service-plan-tiers"></a>App Service 計劃層
-App Service 會在多租用戶裝載環境中執行客戶應用程式。 部署在「免費」  和「共用」  層的應用程式，會在共用虛擬機器的背景工作角色處理序中執行，而部署在「標準」  和「Premium」  層的應用程式，則會在與單一客戶應用程式相關聯的專用虛擬機器上執行。
+App Service 會在多租用戶裝載環境中執行客戶應用程式。 部署在「免費」和「共用」層的應用程式，會在共用虛擬機器的背景工作角色處理序中執行，而部署在「標準」和「Premium」層的應用程式，則會在與單一客戶應用程式相關聯的專用虛擬機器上執行。
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -65,7 +65,7 @@ App Service 中的各種磁碟機，包含本機磁碟機和網路磁碟機。
 
 - 應用程序可能會擲回錯誤，指出磁碟上沒有足夠的空間。
 - 瀏覽至 Kudu 主控台時，您可能會看到磁碟錯誤。
-- 從 Azure DevOps 或 Visual Studio 的部署可能會失敗並`ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`。
+- 從 Azure DevOps 或 Visual Studio 的部署可能會`ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`失敗, 並出現。
 - 您的應用程式可能會效能變慢。
 
 <a id="NetworkDrives"></a>
@@ -96,7 +96,7 @@ App Service 中的每個應用程式都會以隨機獨特的低權限背景工�
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>網路存取
-應用程式程式碼可以使用 TCP/IP 和 UDP 型通訊協定，對公開外部服務的網際網路可存取端點進行輸出網路連線。 應用程式可以使用這些相同通訊協定來連接至 Azure&#151; 內的服務，例如，建立與 SQL Database 的 HTTPS 連線。
+應用程式程式碼可以使用 TCP/IP 和 UDP 型通訊協定，對公開外部服務的網際網路可存取端點進行輸出網路連線。 應用程式可以使用這些相同的通訊協定來連線到 Azure 中的服務, 例如, 藉由建立 SQL Database 的 HTTPS 連線。
 
 此外，應用程式可以在有限的情況下建立一個本機回送連線，並且讓應用程式在該本機回送通訊端上接聽。 這項功能主要是讓在本機回送通訊端上接聽的應用程式成為其功能的一部分。 每個應用程式都會看到「私人」回送連線。 應用程式 "A" 無法接聽由應用程式 "B" 建立的本機回送通訊端。
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 86c38818ee1632bf2d2f3fb1e1240954f3267887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce9a1d0fb9a5e8b242db26c433a08c2426df39d9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123698"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720743"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 HubSpot 複製資料 (預覽)
 
@@ -85,7 +85,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 HubSpot 複製資料，請將資料集的 type 屬性設定為 **HubspotObject**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**HubspotObject** | 是 |
 | tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
@@ -97,11 +97,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "name": "HubspotDataset",
     "properties": {
         "type": "HubspotObject",
+        "typeProperties": {},
+        "schema": [],        
         "linkedServiceName": {
             "referenceName": "<Hubspot linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -114,10 +115,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 HubSpot 複製資料，請將複製活動中的來源類型設定為 **HubspotSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**HubspotSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Companies where Company_Id = xxx"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Companies where Company_Id = xxx"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 

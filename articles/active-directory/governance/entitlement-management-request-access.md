@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f78d1853194cad000aa2e54b40d1ac5003544
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489054"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678119"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 權利管理 (預覽) 中的存取權套件要求存取權
 
@@ -44,7 +44,7 @@ ms.locfileid: "68489054"
 
 1. 登入我的存取權入口網站。
 
-    請務必使用您的組織帳戶。 如果您不確定, 請洽詢您的專案或商務經理。
+    請務必使用您的組織 (公司或學校) 帳戶。 如果您不確定, 請洽詢您的專案或商務經理。
 
 ## <a name="request-an-access-package"></a>要求存取套件
 
@@ -52,6 +52,9 @@ ms.locfileid: "68489054"
 
 **必要角色：** 要求者
 
+1. 在清單中尋找存取封裝。  如有需要, 您可以輸入搜尋字串, 然後選取 [**名稱**]、[**目錄**] 或 [**資源**] 篩選來進行搜尋。
+
+    ![我的存取權入口網站-資源搜尋](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
 1. 按一下核取記號以選取存取封裝。
 
     ![我的存取權入口網站 - 存取套件](./media/entitlement-management-shared/my-access-access-packages.png)

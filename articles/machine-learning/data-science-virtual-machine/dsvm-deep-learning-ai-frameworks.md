@@ -4,7 +4,7 @@ description: 了解「資料科學虛擬機器」上支援的深度學習架構�
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 08a740ec898f1ac46ff66de9002e4241d918adc0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130263"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558177"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](https://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](https://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。
@@ -32,7 +32,7 @@ ms.locfileid: "62130263"
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | Microsoft Cognitive Toolkit (CNTK) 安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。   |
 | 範例的連結      | 已包含範例 Jupyter 筆記本。     |
@@ -43,7 +43,7 @@ ms.locfileid: "62130263"
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | TensorFlow 安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。  |
 | 範例的連結      | 已包含範例 Jupyter 筆記本。     |
@@ -54,7 +54,7 @@ ms.locfileid: "62130263"
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 適用於 TensorFlow 的分散式深度學習架構      |
+| 這是什麼?   | 適用於 TensorFlow 的分散式深度學習架構      |
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Horovod 安裝在 [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中。  |
 | 範例的連結      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
@@ -65,7 +65,7 @@ ms.locfileid: "62130263"
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 高階深度學習 API      |
+| 這是什麼?   | 高階深度學習 API      |
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | TensorFlow 安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。 |
 | 範例的連結      | https://github.com/fchollet/keras/tree/master/examples      |
@@ -76,7 +76,7 @@ ms.locfileid: "62130263"
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Caffe 是安裝在 `/opt/caffe` 中。    |
 | 如何切換至 Python 2.7 | 執行 `source activate root` |
@@ -103,7 +103,7 @@ jupyter notebook
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Caffe2 安裝在 [Python 2.7 (root) conda 環境](dsvm-languages.md#python-linux-and-windows-server-2012-edition)。 原始檔在 `/opt/caffe2`。 |
 | 範例的連結      | JupyterHub 中包含範例筆記本。 |
@@ -115,7 +115,7 @@ jupyter notebook
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | Chainer 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中。 也會安裝 ChainerRL 和 ChainerCV。   |
 | 範例的連結      | JupyterHub 中包含範例筆記本。 |
@@ -127,7 +127,7 @@ jupyter notebook
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 適用於 H2O 的深度學習架構      |
+| 這是什麼?   | 適用於 H2O 的深度學習架構      |
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Deep Water 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中，`/dsvm/tools/deep_water` 中也提供。   |
 | 範例的連結      | JupyterHub 中包含範例筆記本。      |
@@ -150,7 +150,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | MXNet 是安裝在 Windows 上的 `C:\dsvm\tools\mxnet` 中，以及 Linux 上的 `/dsvm/tools/mxnet` 中。 Python 繫結安裝在 [Linux 和 Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 的 Python 3.5 中，以及安裝在 [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) 的 Python 3.6 中。 R 繫結也會安裝在 Ubuntu 上。   |
 | 範例的連結      | 已包含範例 Jupyter 筆記本。    |
@@ -162,7 +162,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 來自 NVIDIA 的深度學習系統，可用來快速訓練深度學習模型      |
+| 這是什麼?   | 來自 NVIDIA 的深度學習系統，可用來快速訓練深度學習模型      |
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | DIGITS 是安裝在 `/dsvm/tools/DIGITS` 中，並以稱為 _digits_ 之服務的形式提供。   |
 
@@ -180,7 +180,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 用來查詢 GPU 活動的 NVIDIA 工具      |
+| 這是什麼?   | 用來查詢 GPU 活動的 NVIDIA 工具      |
 | 支援的 DSVM 版本      | Windows、Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | _nvidia-smi_ 可於系統路徑上取得。   |
 | 如何使用/執行它？ | 啟動命令提示字元 (在 Windows 上) 或終端機 (在 Linux 上)，然後執行 _nvidia-smi_。
@@ -191,7 +191,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Theano 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。   |
 | DSVM 上的相關工具      | Keras      |
@@ -203,7 +203,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | Torch 是安裝在 `/dsvm/tools/torch` 中。 PyTorch 是安裝在 Python 2.7 (_root_) 及 Python 3.5 (_py35_) 環境中。   |
 | 範例的連結      | Torch 範例位於 `/dsvm/samples/torch`。 PyTorch 範例位於 `/dsvm/samples/pytorch`。      |
@@ -213,7 +213,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 深度學習架構      |
+| 這是什麼?   | 深度學習架構      |
 | 支援的 DSVM 版本      | Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | PyTorch 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中。  |
 | 範例的連結      | 隨附 Jupyter 筆記本範例，也可以在 /dsvm/samples/pytorch 中找到範例。      |
@@ -224,7 +224,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 建立 MXNet 和 ONNX 模型 HTTP 端點的伺服器      |
+| 這是什麼?   | 建立 MXNet 和 ONNX 模型 HTTP 端點的伺服器      |
 | 支援的 DSVM 版本      | Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _mxnet-model-server_。   |
 | 範例的連結      | 在 [MXNet 模型伺服器頁面](https://github.com/awslabs/mxnet-model-server)上尋找最新的範例。    |
@@ -234,7 +234,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | 要在 TensorFlow 模型上執行推斷的伺服器      |
+| 這是什麼?   | 要在 TensorFlow 模型上執行推斷的伺服器      |
 | 支援的 DSVM 版本      | Linux     |
 | 它是如何在 DSVM 上設定/安裝的？  | 可在終端機上使用 _tensorflow_model_server_。   |
 | 範例的連結      | 可從[線上](https://www.tensorflow.org/serving/)取得範例。      |
@@ -244,7 +244,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   | NVIDIA 的深度學習推斷伺服器。 |
+| 這是什麼?   | NVIDIA 的深度學習推斷伺服器。 |
 | 支援的 DSVM 版本      | Ubuntu     |
 | 它是如何在 DSVM 上設定/安裝的？  | TensorRT 是安裝為 _apt_ 套件。   |
 | 範例的連結      | 可從[線上](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples)取得範例。      |

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569836"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662961"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>在 Azure 資訊安全中心調查事件和警示 (預覽)
-這份文件可協助您使用 Azure 資訊安全中心的調查功能，以調查安全性事件和警示。
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>調查 Azure 資訊安全中心中的事件和警示 (已淘汰)
+本檔可協助您使用 Azure 資訊安全中心中的調查功能 (預覽) 來調查安全性事件和警示。
 
 > [!NOTE]
-> 警示和事件調查體驗將於 2019 年 7 月 31 日淘汰。 如需詳細資訊和替代的服務，請參閱 <<c0> [ 停用的資訊安全中心功能 (7 月 2019)](security-center-features-retirement-july2019.md#menu_investigate)。
+> 警示與事件調查 (預覽) 體驗已于2019年7月31日淘汰。 如需詳細資訊和替代服務, 請參閱[淘汰資訊安全中心功能 (2019 年7月)](security-center-features-retirement-july2019.md#menu_investigate)。
 
 ## <a name="what-is-investigation-in-security-center"></a>資訊安全中心的調查是什麼？
 資訊安全中心的 [調查] 功能可讓您分級、了解範圍，並追蹤可能[安全性事件](https://docs.microsoft.com/azure/security-center/security-center-incident)的根本原因。
@@ -35,7 +35,7 @@ ms.locfileid: "64569836"
 
 > [!NOTE]
 > * 資訊安全中心的調查功能不支援[自訂警示](security-center-custom-alert.md)。
-> * 調查才支援從 Windows 伺服器收集的資料為基礎的警示。
+> * 僅根據從 Windows 伺服器收集的資料來調查警示。
 
 
 ## <a name="how-investigation-works"></a>調查的運作方式？
@@ -51,33 +51,33 @@ ms.locfileid: "64569836"
 ![`Path`](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>一般資訊
-當實體出現在圖表中時，索引標籤會顯示這個實體的其他資訊。 [資訊]  索引標籤會顯示各種可用資訊來源的實體一般資訊。
+當實體出現在圖表中時，索引標籤會顯示這個實體的其他資訊。 [資訊] 索引標籤會顯示各種可用資訊來源的實體一般資訊。
 
 ![一般資訊](./media/security-center-investigation/security-center-investigation-fig3.png)
 
 [資訊] 索引標籤會顯示與對應中所選取之事件相關的資訊。 事件是一個容器，包括調查的結果。 每個調查會在事件內容中發生。
 
-只有當使用者針對特定警示按一下 [開始調查]  按鈕時，才會建立事件。 調查的可用基本功能是標示實體，例如使用者、電腦或警示。 當實體標示為相關時，會提供原因。 從此時開始，這個實體會直接顯示在圖表和事件實體清單中的事件底下。
+只有當使用者針對特定警示按一下 [開始調查] 按鈕時，才會建立事件。 調查的可用基本功能是標示實體，例如使用者、電腦或警示。 當實體標示為相關時，會提供原因。 從此時開始，這個實體會直接顯示在圖表和事件實體清單中的事件底下。
 
 ### <a name="entities"></a>實體
 
-[實體]  索引標籤會顯示依據類型分組的所有相關實體。 它適用於兩種情況：圖表中有太多實體要顯示時，以及實體名稱太長時，使用表格式方式更容易檢查它們。
+[實體] 索引標籤會顯示依據類型分組的所有相關實體。 它適用於兩種情況：圖表中有太多實體要顯示時，以及實體名稱太長時，使用表格式方式更容易檢查它們。
 
 ![實體](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Search
+### <a name="search"></a>搜尋
 
-[搜尋]  索引標籤會顯示實體可用的所有記錄類型。 您可以針對每個記錄類型，查看有多少記錄可用。 按一下每個記錄類型，系統就會帶領您前往搜尋畫面。 在搜尋畫面中，您可以調整您的搜尋，並使用不同的搜尋功能，例如設定警示。 在目前版本中，[搜尋] 索引標籤僅適用於使用者和電腦實體。
+[搜尋] 索引標籤會顯示實體可用的所有記錄類型。 您可以針對每個記錄類型，查看有多少記錄可用。 按一下每個記錄類型，系統就會帶領您前往搜尋畫面。 在搜尋畫面中，您可以調整您的搜尋，並使用不同的搜尋功能，例如設定警示。 在目前版本中，[搜尋] 索引標籤僅適用於使用者和電腦實體。
 
-![Search](./media/security-center-investigation/security-center-investigation-fig5.png)
+![搜尋](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>探索
 
-[探索]  索引標籤可讓調查員檢查與各種問題 (與實體相關) 相關的資料。 例如，調查機器時，針對它執行的處理序清單會顯示在 [探索] 索引標籤中。在某些情況下，[探索] 索引標籤會呈現可能表示可疑問題的資料。 調查員可以檢查索引標籤內的資料，或在搜尋畫面中開啟以檢查大型資料集，以及使用進階搜尋選項，例如篩選和匯出至 Excel。
+[探索] 索引標籤可讓調查員檢查與各種問題 (與實體相關) 相關的資料。 例如，調查機器時，針對它執行的處理序清單會顯示在 [探索] 索引標籤中。在某些情況下，[探索] 索引標籤會呈現可能表示可疑問題的資料。 調查員可以檢查索引標籤內的資料，或在搜尋畫面中開啟以檢查大型資料集，以及使用進階搜尋選項，例如篩選和匯出至 Excel。
 
 ![探索](./media/security-center-investigation/security-center-investigation-fig6.png)
 
-### <a name="timeline"></a>時間軸
+### <a name="timeline"></a>時間表
 
 圖表中顯示的大部分資料和各種索引標籤，是在特定時間週期相關。 此時間範圍是使用圖表左上方的時間範圍選取器進行設定。 調查員有各種方法可以選取時間範圍。
 
@@ -95,15 +95,15 @@ ms.locfileid: "64569836"
 - 如果事件包含實體，則它會顯示。
 
 > [!NOTE]
-> [搜尋]  和 [探索]  索引標籤只會顯示這個時間範圍內的記錄。
+> [搜尋] 和 [探索] 索引標籤只會顯示這個時間範圍內的記錄。
 
 ## <a name="how-to-perform-an-investigation"></a>如何執行調查？
 
-您可以從安全性事件或從警示開始調查，您所選擇的選項會根據您的需求而異。 應該遵循的步驟用來從警示開始調查：
+您可以從安全性事件或從警示開始調查，您所選擇的選項會根據您的需求而異。 接下來的步驟是用來從警示開始調查:
 
-1.  開啟 [資訊安全中心]  儀表板。
-2.  按一下 [安全性警示]  ，然後選取您想要調查的事件。
-3.  在事件的分頁上，按一下 [開始調查]  按鈕，[調查]  儀表板隨即出現。
+1.  開啟 [資訊安全中心] 儀表板。
+2.  按一下 [安全性警示]，然後選取您想要調查的事件。
+3.  在事件的分頁上，按一下 [開始調查] 按鈕，[調查] 儀表板隨即出現。
 
     ![警示](./media/security-center-investigation/security-center-investigation-fig8.png)
 

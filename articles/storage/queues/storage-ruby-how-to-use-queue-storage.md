@@ -1,21 +1,19 @@
 ---
-title: 如何使用 Ruby 的 Azure 儲存體的佇列儲存體
+title: 如何使用 Ruby Azure 儲存體的佇列儲存體
 description: 了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。 範例以 Ruby 撰寫。
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: ruby
-ms.topic: article
-ms.date: 12/08/2016
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 12/08/2016
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 30a090aeb2d66c732e70a9acce67d5f3374c32fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153157"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721297"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何使用 Ruby 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -24,7 +22,7 @@ ms.locfileid: "65153157"
 
 ## <a name="overview"></a>總覽
 本指南示範如何使用 Microsoft Azure 佇列儲存體服務執行常見案例。 這些範例是以 Ruby Azure API 撰寫的。
-所涵蓋的案例包括「插入」  、「查看」  、「取得」  和「刪除」  佇列訊息，以及「建立和刪除佇列」  。
+所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -59,7 +57,7 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽到您要使用的儲存體帳戶。
-3. 在右邊的 [設定] 刀鋒視窗中，按一下 [存取金鑰]  。
+3. 在右邊的 [設定] 刀鋒視窗中，按一下 [存取金鑰]。
 4. [存取金鑰] 刀鋒視窗隨即顯示，您會看到存取金鑰 1 和存取金鑰 2。 您可以使用其中一個存取金鑰。 
 5. 按一下複製圖示以將金鑰複製到剪貼簿。 
 

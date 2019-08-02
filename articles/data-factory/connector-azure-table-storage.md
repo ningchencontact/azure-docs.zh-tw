@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 7ef8f80f44c921cc1f2524351c8acb78ebd713bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4ea3c93daac1ebb88bae2b8cb01485d955be2bb
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153558"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726201"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -46,7 +46,7 @@ ms.locfileid: "66153558"
 
 您可以使用帳戶金鑰來建立 Azure 儲存體連結服務。 它可將儲存體的全域存取權提供給資料處理站。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為 **AzureTableStorage**。 |是 |
 | connectionString | 針對 connectionString 屬性指定連線到儲存體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將帳戶金鑰放在 Azure Key Vault 並從連接字串中提取 `accountKey` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 |是 |
@@ -121,10 +121,10 @@ ms.locfileid: "66153558"
 
 若要使用共用存取簽章驗證，以下是支援的屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為 **AzureTableStorage**。 |是 |
-| sasUri | 將共用存取簽章 URI 的 SAS URI 指定至資料表。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault，利用自動旋轉並移除語彙基元的部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
+| sasUri | 將共用存取簽章 URI 的 SAS URI 指定至資料表。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將 SAS 權杖放在 Azure Key Vault 中, 以運用自動輪替並移除權杖部分。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!NOTE]
@@ -183,7 +183,7 @@ ms.locfileid: "66153558"
 當您建立共用存取簽章 URI 時，請考慮下列各點：
 
 - 根據連結的服務 (讀取、寫入、讀取/寫入) 在資料處理站中的使用方式，在物件上設定適當的讀取/寫入權限。
-- 設定適當的 [過期時間]  。 請確定儲存體物件的存取權不會在管線的作用中期間內過期。
+- 設定適當的 [過期時間]。 請確定儲存體物件的存取權不會在管線的作用中期間內過期。
 - 應視需要在正確的資料表層級建立 URI。
 
 ## <a name="dataset-properties"></a>資料集屬性
@@ -205,12 +205,13 @@ ms.locfileid: "66153558"
     "properties":
     {
         "type": "AzureTable",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Table storage linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
@@ -231,7 +232,7 @@ ms.locfileid: "66153558"
 
 ### <a name="azure-table-as-a-source-type"></a>Azure 資料表作為來源類型
 
-若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 [來源]  區段支援下列屬性。
+若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 [來源] 區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -257,9 +258,9 @@ ms.locfileid: "66153558"
 
 ### <a name="azure-table-as-a-sink-type"></a>Azure 資料表作為接收類型
 
-若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 [接收]  區段支援下列屬性。
+若要將資料複製到 Azure 資料表，將複製活動中的接收類型設定為 **AzureTableSink**。 複製活動的 [接收] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為 **AzureTableSink**。 |是 |
 | azureTableDefaultPartitionKeyValue |可供接收使用的預設資料分割索引鍵值。 |否 |
@@ -334,7 +335,7 @@ ms.locfileid: "66153558"
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |上限為 64 KB 的位元組陣列。 |
 | Edm.Boolean |bool |布林值。 |
-| Edm.DateTime |Datetime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜開始。 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
+| Edm.DateTime |DateTime |以國際標準時間 (UTC) 表示的 64 位元值。 支援的 DateTime 範圍從西元 1601 年 1 月 1 日午夜開始。 (C.E.), UTC. 此範圍結束於 9999 年 12 月 31 日。 |
 | Edm.Double |double |64 位元的浮點值。 |
 | Edm.Guid |Guid |128 位元的全域唯一識別碼。 |
 | Edm.Int32 |Int32 |32 位元的整數。 |

@@ -1,21 +1,19 @@
 ---
-title: 如何使用 Node.js-Azure 儲存體中的佇列儲存體
+title: 如何使用 node.js 中的佇列儲存體-Azure 儲存體
 description: 了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。 範例以 Node.js 撰寫。
-services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.devlang: nodejs
-ms.topic: article
-ms.date: 12/08/2016
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 12/08/2016
 ms.subservice: queues
-ms.openlocfilehash: 01afe1ab7b9028f3f77d52f7d6f8ced27f6a79c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: 13da3adc1a3f95f9fdb29eb181eb9759e175cffe
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142704"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721273"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>如何使用 Node.js 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,7 +21,7 @@ ms.locfileid: "65142704"
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>總覽
-本指南示範如何使用 Microsoft Azure 佇列服務執行常見案例。 這些範例使用 Node.js API 撰寫。 所涵蓋的案例包括「插入」  、「查看」  、「取得」  和「刪除」  佇列訊息，以及「建立和刪除佇列」  。
+本指南示範如何使用 Microsoft Azure 佇列服務執行常見案例。 這些範例使用 Node.js API 撰寫。 所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -328,8 +326,8 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>後續步驟
 了解佇列儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
-* 造訪 [Azure 儲存體團隊部落格][Azure Storage Team Blog]。
-* 請造訪 GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 儲存機制。
+* 造訪 [Azure 儲存體團隊部落格][Azure Storage Team Blog](英文)。
+* 請造訪 GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 儲存機制 (英文)。
 
 
 

@@ -17,40 +17,41 @@ sections:
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
-        text: 了解如何使用 AKS 中的 Azure Dev Spaces：
+        text: 瞭解如何使用 Azure Dev Spaces 在 AKS 的微服務上共同作業：
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: 開發為小組的一部分
+              src: 'https://docs.microsoft.com/media/common/i_configure-teams.svg'
+            text: 開發微服務並作為小組的一部份
             href: quickstart-team-development.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: 執行應用程式
-            href: quickstart-cli.md
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: 使用 Dockerfile 執行應用程式
-            href: quickstart-cli-dockerfile.md
       - type: paragraph
-        text: 了解如何反覆地使用 Azure Dev Spaces，直接在 AKS 中開發和偵錯：
+        text: 了解如何使用 Azure Dev Spaces 快速逐一查看和進行內部迴圈開發體驗的偵錯：
       - type: list
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_java.svg'
-            text: 以 Java 開發
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: 使用 Visual Studio Code 搭配 Java
             href: quickstart-java.md
           - image:
               src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: 以 .NET 和 VS Code 開發
+            text: 使用 Visual Studio Code 搭配 .NET Core
             href: quickstart-netcore.md
           - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: 以 .NET 和 Visual Studio 開發
-            href: quickstart-netcore-visualstudio.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_nodejs.svg'
-            text: 以 Node.js 開發
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: 使用 Visual Studio Code 搭配 Node.js
             href: quickstart-nodejs.md
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: 使用 Visual Studio 搭配 .NET Core
+            href: quickstart-netcore-visualstudio.md
+      - type: paragraph
+        text: 了解如何使用 Azure CLI搭配 Azure Dev Spaces，為幾乎任何語言開發微服務：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: 使用 Azure CLI 開發
+            href: quickstart-cli.md

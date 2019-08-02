@@ -584,6 +584,12 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: 針對 Azure-SSIS IR 中的封裝執行問題進行疑難排解
           href: ssis-integration-runtime-ssis-activity-faq.md
+- name: 案例
+  items:
+    - name: 資料湖和 EDW 的資料移轉
+      items:
+        - name: 為何使用 Azure Data Factory
+          href: data-migration-guidance-overview.md
 - name: 參考
   items:
     - name: .NET

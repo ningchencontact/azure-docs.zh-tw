@@ -3,7 +3,7 @@ title: 以安全的方式連線到 Azure Service Fabric 叢集 | Microsoft Docs
 description: 說明如何驗證用戶端對 Service Fabric 叢集的存取，以及如何保護用戶端與叢集之間的通訊。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
-ms.author: aljo
-ms.openlocfilehash: 703830778edb73781a263ae4d92529f7f79a0eb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306848"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599705"
 ---
 # <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
 
@@ -87,7 +87,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>使用 Azure Active Directory 連線到安全的叢集
 
-若要連接至使用 Azure Active Directory 來授權叢集系統管理員存取權的安全叢集，請提供叢集憑證指紋，並使用 AzureActiveDirectory  旗標。  
+若要連接至使用 Azure Active Directory 來授權叢集系統管理員存取權的安全叢集，請提供叢集憑證指紋，並使用 AzureActiveDirectory 旗標。  
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -166,7 +166,7 @@ Service Fabric SDK 會提供叢集管理的 [FabricClient](https://docs.microsof
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
 ```
 
-針對在叢集 (例如，Reliable Service) 內執行的程式碼，建立 FabricClient 且不  指定叢集位址。 FabricClient 連接到目前正在執行程式碼之節點上的本機管理閘道，避免額外的網路躍點。
+針對在叢集 (例如，Reliable Service) 內執行的程式碼，建立 FabricClient 且不指定叢集位址。 FabricClient 連接到目前正在執行程式碼之節點上的本機管理閘道，避免額外的網路躍點。
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -355,7 +355,7 @@ Azure 入口網站的叢集基本資訊窗格中也會提供完整 URL。
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-您會自動提示您使用 AAD 登入。
+系統會自動提示您使用 AAD 登入。
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用用戶端憑證連線到安全的叢集
 

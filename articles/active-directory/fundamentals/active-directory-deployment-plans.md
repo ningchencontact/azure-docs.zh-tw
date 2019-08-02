@@ -2,22 +2,22 @@
 title: 部署方案 - Azure Active Directory | Microsoft Docs
 description: 如何部署眾多 Azure Active Directory 功能的相關端對端指引。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f695d9f0240f8c27ea0bedba7e532d37a177752
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: a19c78efb7d81dcdcd3c221f58d4e4cc7be5ccd1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304750"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722198"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 部署方案
 在尋找有關如何部署某些 Azure Active Directory (Azure AD) 功能的端對端指引嗎？ 下列部署方案會逐步帶您了解商業價值、規劃考量、設計，以及要成功推出數個較常見的 Azure AD 功能所需進行的操作程序。 
@@ -45,11 +45,11 @@ ms.locfileid: "68304750"
 
 - 用於執行專案計劃和結果的**R**esponsible 
 
--  專案計劃和結果的 pproval 
+- 專案計劃和結果的 pproval 
 
 - **C**ontributor 至專案計劃和結果 
 
--  專案計劃和結果 nformed
+- 專案計劃和結果 nformed
  
 ## <a name="deployment-plans"></a>部署計畫
 
@@ -69,3 +69,4 @@ ms.locfileid: "68304750"
 |[Azure AD 應用程式 Proxy](https://aka.ms/deploymentplans/appproxy)|現今的員工想要隨時隨地都能在任何裝置發揮生產力。 他們想要在自己的裝置上工作，不論這些裝置是平板電腦、手機或膝上型電腦。 而且員工期望能夠存取其所有的應用程式︰雲端中的 SaaS 應用程式以及內部部署的公司應用程式。 傳統上，提供內部部署應用程式的存取權會涉及虛擬私人網路 (VPN) 或周邊網路 (DMZ)。 這些解決方案不僅複雜且難以確保安全，而且設定及管理成本也很高。 還有更好的辦法！ - Azure AD 應用程式 Proxy|
 |[使用者佈建](https://aka.ms/UserProvisioningDPDownload)|Azure AD 可協助您自動化在雲端 (SaaS) 應用程式 (例如 Dropbox、Salesforce、ServiceNow 等等) 中建立、維護和移除使用者身分識別的作業。|
 |[Workday 導向的輸入使用者佈建](https://aka.ms/WorkdayDeploymentPlan)|對 Active Directory 進行 Workday 導向的輸入使用者佈建，可為進行中的身分識別治理建立基底，並為依賴權威性身分識別資料的商務程序加強品質。 您可以使用這項功能來設定規則，將「新進-調職-離職」程序 (例如新僱用、終止雇用、調職) 對應至 IT 佈建動作 (例如建立、啟用、停用、刪除帳戶)，以無縫地管理員工和約聘人員的身分識別週期。|
+|[報告和監視](https://aka.ms/deploymentplans/reporting)| Azure AD 報告和監視解決方案的設計取決於您的法律、安全性和營運需求, 以及現有的環境和程式。 本文提供各種不同的設計選項, 並引導您進行適當的部署策略。|

@@ -1,0 +1,62 @@
+---
+title: 將服務主體憑證內容轉換成以64為基底的編碼字串格式 (在 Azure HDInsight 中)
+description: 將服務主體憑證內容轉換成以64為基底的編碼字串格式 (在 Azure HDInsight 中)
+ms.service: hdinsight
+ms.topic: troubleshooting
+author: hrasheed-msft
+ms.author: hrasheed
+ms.date: 07/31/2019
+ms.openlocfilehash: 2045121d16d67d09826eaaad7800f21422776cdc
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68700271"
+---
+# <a name="scenario-converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-azure-hdinsight"></a>案例:將服務主體憑證內容轉換成以64為基底的編碼字串格式 (在 Azure HDInsight 中)
+
+本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
+
+## <a name="issue"></a>問題
+
+您會收到一則錯誤訊息, 指出輸入不是有效的 Base-64 字串, 因為它包含非基底64字元、超過兩個填補字元, 或在填補字元中有非空白字元。
+
+## <a name="cause"></a>原因
+
+使用 PowerShell 或 Azure 範本部署來建立具有 Data Lake 作為主要或其他儲存體的叢集時, 所提供用來存取 Data Lake 儲存體帳戶的服務主體憑證內容會採用 base-64 格式。 不正確地將 pfx 憑證內容轉換成以64編碼的字串, 可能會導致此錯誤。
+
+## <a name="resolution"></a>解決方法
+
+一旦您擁有 pfx 格式的服務主體憑證 (請參閱[這裡](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage)的範例服務主體建立步驟), 請使用下列 PowerShell 命令或C#程式碼片段, 將憑證內容轉換成64格式。
+
+```powershell
+$servicePrincipalCertificateBase64 = [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(path-to-servicePrincipalCertificatePfxFile))
+```
+
+```csharp
+using System;
+using System.IO;
+
+namespace ConsoleApplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var certContents = File.ReadAllBytes(@"<path to pfx file>");
+            string certificateData = Convert.ToBase64String(certContents);
+            System.Diagnostics.Debug.WriteLine(certificateData);
+        }
+    }
+}
+```
+
+## <a name="next-steps"></a>後續步驟
+
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
+
+* 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
+
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 藉由將 Azure 社區連接至適當的資源來改善客戶體驗: 解答、支援及專家。
+
+* 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

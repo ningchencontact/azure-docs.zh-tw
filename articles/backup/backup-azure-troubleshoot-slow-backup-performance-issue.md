@@ -1,18 +1,19 @@
 ---
 title: 疑難排解 Azure 備份的檔案和資料夾備份速度緩慢問題
 description: 提供疑難排解指導方針，以協助您診斷 Azure 備份效能問題的原因
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: 3a39d39412c8b64d1851ea0fc9511d116f3b232a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: dacurwin
+ms.openlocfilehash: 16a8eb4eea4e5e1e3bb49049c49d73adb99eef55
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 07/31/2019
-ms.locfileid: "68465348"
+ms.locfileid: "68688625"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>疑難排解 Azure 備份的檔案和資料夾備份速度緩慢問題
 這篇文章提供疑難排解指引，可協助您診斷當您使用 Azure 備份時，檔案與資料夾備份效能緩慢的原因。 當您使用 Azure 備份代理程式來備份檔案時，備份處理程序進行的時間可能比預期的還要久。 此延遲可能是因為下列一或多個原因所造成：

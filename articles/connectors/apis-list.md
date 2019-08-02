@@ -9,16 +9,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277649"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517228"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
-連接器可讓您快速存取其他應用程式、服務、系統、通訊協定和平臺上的事件、資料和動作 Azure Logic Apps。 藉由在您的邏輯應用程式中使用連接器, 您可以擴充您的雲端和內部部署應用程式的功能, 以使用您所建立且已有的資料來執行工作。
+連接器可讓您跨其他應用程式、服務、系統、通訊協定與平台快速從 Azure Logic Apps 存取事件、資料和動作。 在邏輯應用程式中使用連接器，即可擴充雲端和內部部署應用程式的功能，以便對您新建和已有的資料執行工作。
 
 雖然 Logic Apps 提供[數百個連接器](https://docs.microsoft.com/connectors), 但本文會描述數千個應用程式成功使用的常用和較常用的連接器, 以及用於處理資料和資訊的數百萬次執行。 若要尋找連接器的完整清單和每個連接器的參考資訊 (例如觸發程式、動作和限制), 請參閱[連接器總覽](https://docs.microsoft.com/connectors)底下的連接器參考頁面。 此外, 深入瞭解[觸發程式和動作](#triggers-actions)、 [Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md), 以及[Logic Apps 定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)。 
 
@@ -35,7 +35,7 @@ ms.locfileid: "68277649"
   > [整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)內的邏輯應用程式可以直接存取 Azure 虛擬網路中的資源。
   > 當您使用 ISE 時, 會顯示 [**核心**] 標籤的內建觸發程式和動作, 會在與邏輯應用程式相同的 ISE 中執行。 在您 ISE 中執行的邏輯應用程式、內建觸發程式和內建動作, 會使用與以耗用量為基礎的定價方案不同的定價方案。
   >
-  > 如需有關建立 Ise 的詳細資訊, 請參閱[從 Azure Logic Apps 連接到 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)。 
+  > 如需有關建立 Ise 的詳細資訊, 請參閱[從 Azure Logic Apps 連接到 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)。 
   > 如需價格的詳細資訊, 請參閱[Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md)。
 
 <a name="managed-connectors"></a>
@@ -63,7 +63,7 @@ ms.locfileid: "68277649"
   >
   > 針對連線到 Azure 虛擬網路的內部部署系統, 將您的 ISE 插入該網路, 讓您的邏輯應用程式可以使用具有**ISE**標籤、HTTP 動作或[自訂連接器](#custom)的連接器, 直接存取這些系統。 在 ISE 中執行的邏輯應用程式和連接器會使用與以耗用量為基礎的定價方案不同的定價方案。 
   >
-  > 如需有關建立 Ise 的詳細資訊, 請參閱[從 Azure Logic Apps 連接到 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)。
+  > 如需有關建立 Ise 的詳細資訊, 請參閱[從 Azure Logic Apps 連接到 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)。
   > 如需價格的詳細資訊, 請參閱[Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md)。
 
   如需連接器的完整清單和每個連接器的參考資訊 (例如動作和任何觸發程式, 這些都是由 OpenAPI (先前稱為 Swagger) 描述所定義), 加上任何限制, 您可以在[連接器總覽](/connectors/)底下找到完整清單。 如需定價資訊, 請參閱[Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md), 並[Logic Apps 定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)。 
@@ -76,8 +76,8 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API 圖示][schedule-icon]<br/>**排程**][recurrence-doc] | - 透過 [週期]  觸發程序，依照指定的排程執行邏輯應用程式 (範圍從基本到複雜週期)。 <p>- 透過 [延遲]  動作，在指定的持續時間內暫停邏輯應用程式。 <p>- 透過 [延遲直到]  動作，將邏輯應用程式暫停直到指定的日期和時間為止。 | [![API 圖示][http-icon]<br/> **HTTP**][http-doc] | 利用適用於 HTTP、HTTP + Swagger 以及 HTTP + Webhook 的觸發程序和動作，透過 HTTP 與任何端點通訊。 | 
-| [![API 圖示][http-request-icon]<br/>**要求**][http-request-doc] | - 透過 [要求]  觸發程序，讓邏輯應用程式得以從其他應用程式或服務呼叫、在 Event Grid 資源事件上觸發，或在 Azure 資訊安全中心警示的回應上觸發。 <p>- 透過 [回應]  動作，將回應傳送到應用程式或服務。 | [![API 圖示][batch-icon]<br/>**批次**][batch-doc] | - 透過 [批次訊息]  觸發程序，分批處理訊息。 <p>- 透過 [將訊息傳送至批次]  動作，呼叫具有現有批次觸發程序的邏輯應用程式。 | 
+| [![API 圖示][schedule-icon]<br/>**排程**][recurrence-doc] | - 透過 [週期] 觸發程序，依照指定的排程執行邏輯應用程式 (範圍從基本到複雜週期)。 <p>- 透過 [延遲] 動作，在指定的持續時間內暫停邏輯應用程式。 <p>- 透過 [延遲直到] 動作，將邏輯應用程式暫停直到指定的日期和時間為止。 | [![API 圖示][http-icon]<br/> **HTTP**][http-doc] | 利用適用於 HTTP、HTTP + Swagger 以及 HTTP + Webhook 的觸發程序和動作，透過 HTTP 與任何端點通訊。 | 
+| [![API 圖示][http-request-icon]<br/>**要求**][http-request-doc] | - 透過 [要求] 觸發程序，讓邏輯應用程式得以從其他應用程式或服務呼叫、在 Event Grid 資源事件上觸發，或在 Azure 資訊安全中心警示的回應上觸發。 <p>- 透過 [回應] 動作，將回應傳送到應用程式或服務。 | [![API 圖示][batch-icon]<br/>**批次**][batch-doc] | - 透過 [批次訊息] 觸發程序，分批處理訊息。 <p>- 透過 [將訊息傳送至批次] 動作，呼叫具有現有批次觸發程序的邏輯應用程式。 | 
 | [![API 圖示][azure-functions-icon]<br/> **Azure Functions**][azure-functions-doc] | 呼叫 Azure 函式，以從邏輯應用程式執行自訂程式碼片段 (C# 或 Node.js)。 | [![Api 圖示][azure-api-management-icon]</br> **Azure api 管理**][azure-api-management-doc] | 呼叫透過 Azure API 管理控管和發佈的自有 API 所定義的觸發程序和動作。 | 
 | [![API 圖示][azure-app-services-icon]<br/> **Azure App 服務**][azure-app-services-doc] | 呼叫 API Apps 或 Web Apps (裝載於 Azure App Service)。 如果包含 Swagger，這些應用程式所定義的動作與觸發程序看起來像是任何其他第一級觸發程序和動作。 | [![API 圖示][azure-logic-apps-icon]<br/> **Azure<br/>Logic Apps**][nested-logic-app-doc] | 呼叫透過 [要求] 觸發程序啟動的其他邏輯應用程式。 | 
 ||||| 
@@ -88,8 +88,8 @@ Logic Apps 提供內建動作, 以在邏輯應用程式的工作流程中結構�
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![內建圖示][condition-icon]<br/>**條件**][condition-doc] | 根據條件為 true 或 false，評估條件並執行不同的動作。 | [![內建圖示][for-each-icon]</br>  ][for-each-doc] | 對陣列中的每個項目執行相同的動作。 | 
-| [![內建圖示][scope-icon]<br/>**範圍**][scope-doc] | 將動作分成數個「範圍」  ，這些範圍會在範圍中的動作執行完成後取得自己的狀態。 | [![內建圖示][switch-icon]</br>**切換**][switch-doc] | 將動作分成數個「案例」  ，這些案例會獲派唯一值 (預設案例除外)。 僅執行其指派值符合運算式、物件或語彙基元結果的案例。 如果沒有相符項目存在，請執行預設案例。 | 
+| [![內建圖示][condition-icon]<br/>**條件**][condition-doc] | 根據條件為 true 或 false，評估條件並執行不同的動作。 | [![內建圖示][for-each-icon]</br>][for-each-doc] | 對陣列中的每個項目執行相同的動作。 | 
+| [![內建圖示][scope-icon]<br/>**範圍**][scope-doc] | 將動作分成數個「範圍」，這些範圍會在範圍中的動作執行完成後取得自己的狀態。 | [![內建圖示][switch-icon]</br>**切換**][switch-doc] | 將動作分成數個「案例」，這些案例會獲派唯一值 (預設案例除外)。 僅執行其指派值符合運算式、物件或語彙基元結果的案例。 如果沒有相符項目存在，請執行預設案例。 | 
 | [![內建圖示][terminate-icon]<br/>**終止**][terminate-doc] | 停止正在執行的邏輯應用程式工作流程。 | [![內建圖示][until-icon]<br/>**到**][until-doc] | 重複動作，直到符合指定的條件或某些狀態已改變為止。 | 
 ||||| 
 
@@ -128,7 +128,7 @@ Logic Apps 提供這些常用的標準連接器, 可讓您使用這些服務或�
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![API 圖示][biztalk-server-icon]<br/>**BizTalk**</br> **伺服器** | [![API 圖示][file-system-icon]<br/>**檔</br>系統**][file-system-doc] | [![API 圖示][ibm-db2-icon]<br/> **IBM DB2**][ibm-db2-doc] | [![API 圖示][ibm-informix-icon]<br/> **IBM** Informix</br>  ][ibm-informix-doc] | ![API 圖示][mysql-icon]<br/>**MySQL** | 
+| ![API 圖示][biztalk-server-icon]<br/>**BizTalk**</br> **伺服器** | [![API 圖示][file-system-icon]<br/>**檔</br>系統**][file-system-doc] | [![API 圖示][ibm-db2-icon]<br/> **IBM DB2**][ibm-db2-doc] | [![API 圖示][ibm-informix-icon]<br/> **IBM** Informix</br>][ibm-informix-doc] | ![API 圖示][mysql-icon]<br/>**MySQL** | 
 | [![API 圖示][oracle-db-icon]<br/> **Oracle DB**][oracle-db-doc] | ![API 圖示][postgre-sql-icon]<br/>**PostgreSQL** | [![API 圖示][sharepoint-server-icon]<br/> **SharePoint</br> Server**][sharepoint-server-doc] | [![API 圖示][sql-server-icon]<br/> **SQL</br> Server**][sql-server-doc] | ![API 圖示][teradata-icon]<br/>**Teradata** | 
 |||||
 
@@ -141,8 +141,8 @@ Logic Apps 提供這些常用的標準連接器, 可讓您使用這些服務或�
 |   |   |   |   | 
 |---|---|---|---| 
 | [![API 圖示][as2-icon]<br/> **AS2</br>解碼**][as2-doc] | [![API 圖示][as2-icon]<br/> **AS2</br>編碼**][as2-doc] | [![API 圖示][edifact-icon]<br/> **EDIFACT</br>解碼**][edifact-decode-doc] | [![API 圖示][edifact-icon]<br/> **EDIFACT</br>編碼**][edifact-encode-doc] | 
-| [![API 圖示][flat-file-decode-icon]<br/> **一般檔案解碼</br>** ][flat-file-decode-doc] | [![API 圖示][flat-file-encode-icon]<br/> **一般檔案編碼</br>** ][flat-file-encode-doc] | [![API 圖示][integration-account-icon]<br/>**整合<br/>帳戶**][integration-account-doc] | [![API 圖示][liquid-icon]<br/>**液體**轉換</br>  ][json-liquid-transform-doc] | 
-| [![API 圖示][x12-icon]<br/> **X12</br>解碼**][x12-decode-doc] | [![API 圖示][x12-icon]<br/> **X12</br>編碼**][x12-encode-doc] | [![API 圖示][xml-transform-icon]<br/> **XML**轉換</br>  ][xml-transform-doc] | [![API 圖示][xml-validate-icon]<br/> **XML <br/>驗證**][xml-validate-doc] |  
+| [![API 圖示][flat-file-decode-icon]<br/> **一般檔案解碼</br>** ][flat-file-decode-doc] | [![API 圖示][flat-file-encode-icon]<br/> **一般檔案編碼</br>** ][flat-file-encode-doc] | [![API 圖示][integration-account-icon]<br/>**整合<br/>帳戶**][integration-account-doc] | [![API 圖示][liquid-icon]<br/>**液體**轉換</br>][json-liquid-transform-doc] | 
+| [![API 圖示][x12-icon]<br/> **X12</br>解碼**][x12-decode-doc] | [![API 圖示][x12-icon]<br/> **X12</br>編碼**][x12-encode-doc] | [![API 圖示][xml-transform-icon]<br/> **XML**轉換</br>][xml-transform-doc] | [![API 圖示][xml-validate-icon]<br/> **XML <br/>驗證**][xml-validate-doc] |  
 ||||| 
 
 <a name="enterprise-connectors"></a>
@@ -177,7 +177,7 @@ Logic Apps 提供這些企業連接器來存取企業系統, 例如 SAP 和 IBM 
 
 ## <a name="connector-configuration"></a>連接器設定
 
-每個連接器的觸發程式和動作都會提供自己的屬性供您設定。 許多連接器也會要求您先建立目標  服務或系統的連線, 然後提供驗證認證或其他設定詳細資料, 才能在邏輯應用程式中使用觸發程式或動作。 例如, 您必須授權與 Twitter 帳戶的連線, 以存取資料或代表您張貼。 
+每個連接器的觸發程式和動作都會提供自己的屬性供您設定。 許多連接器也會要求您先建立目標服務或系統的連線, 然後提供驗證認證或其他設定詳細資料, 才能在邏輯應用程式中使用觸發程式或動作。 例如, 您必須授權與 Twitter 帳戶的連線, 以存取資料或代表您張貼。 
 
 對於使用 OAuth 的連接器, 建立連線表示登入服務 (例如 Office 365、Salesforce 或 GitHub), 您的存取權杖會加密並安全地儲存在 Azure 秘密存放區中。 其他連接器 (例如 FTP 和 SQL) 則需要有設定詳細資料的連線, 例如伺服器位址、使用者名稱和密碼。 這些連線的組態詳細資料也會加密並安全地儲存。 
 
@@ -187,7 +187,7 @@ Logic Apps 提供這些企業連接器來存取企業系統, 例如 SAP 和 IBM 
 
 ## <a name="custom-apis-and-connectors"></a>自訂 API 和連接器
 
-若要呼叫可執行自訂程式碼或不可作為連接器的 API，您可[建立自訂 API Apps](../logic-apps/logic-apps-create-api-app.md)，以擴充 Logic Apps 平台。 您也可以針對「任何」  以 REST 或 SOAP 為基礎的 API [建立自訂連接器](../logic-apps/custom-connector-overview.md)，以便將這些 API 提供給 Azure 訂用帳戶中的任何邏輯應用程式使用。
+若要呼叫可執行自訂程式碼或不可作為連接器的 API，您可[建立自訂 API Apps](../logic-apps/logic-apps-create-api-app.md)，以擴充 Logic Apps 平台。 您也可以針對「任何」以 REST 或 SOAP 為基礎的 API [建立自訂連接器](../logic-apps/custom-connector-overview.md)，以便將這些 API 提供給 Azure 訂用帳戶中的任何邏輯應用程式使用。
 若要對任何人公開自訂 API Apps 或連接器以使用於 Azure，您可以[提交連接器進行 Microsoft 認證](../logic-apps/custom-connector-submit-certification.md)。
 
 > [!NOTE]
@@ -196,7 +196,7 @@ Logic Apps 提供這些企業連接器來存取企業系統, 例如 SAP 和 IBM 
 >
 > 在 ISE 中建立的自訂連接器無法與內部部署資料閘道搭配使用。 不過, 這些連接器可以直接存取連線到裝載 ISE 之 Azure 虛擬網路的內部部署資料來源。 因此, ISE 中的邏輯應用程式在與這些資源通訊時, 很可能不需要資料閘道。
 >
-> 如需有關建立 Ise 的詳細資訊, 請參閱[從 Azure Logic Apps 連接到 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment)。
+> 如需有關建立 Ise 的詳細資訊, 請參閱[從 Azure Logic Apps 連接到 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

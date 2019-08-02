@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484831"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570136"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>使用 Azure SQL Database、SQL 資料倉儲、Data Factory 及 Power BI 探索 SaaS 分析
 
@@ -72,7 +71,7 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 
 若要完成本教學課程，請確定符合下列必要條件：
 - 已部署 Wingtip Tickets SaaS Database Per Tenant 應用程式。 若要在 5 分鐘內完成部署，請參閱[部署及探索 Wingtip SaaS 應用程式](saas-dbpertenant-get-started-deploy.md)。
-- Wingtip Tickets SaaS Database Per Tenant 指令碼和應用程式[原始程式碼](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)是從 GitHub 下載。 請參閱下載指示。 請務必在擷取檔案內容之前解除封鎖 zip 檔案  。
+- Wingtip Tickets SaaS Database Per Tenant 指令碼和應用程式[原始程式碼](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)是從 GitHub 下載。 請參閱下載指示。 請務必在擷取檔案內容之前解除封鎖 zip 檔案。
 - Power BI Desktop 已安裝。 [下載 Power BI Desktop](https://powerbi.microsoft.com/downloads/)。
 - 已佈建額外租用戶的批次，請參閱[**佈建租用戶教學課程**](saas-dbpertenant-provision-and-catalog.md)。
 
@@ -94,7 +93,7 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 
 現在，請檢閱您所部署的 Azure 資源：
 #### <a name="tenant-databases-and-analytics-store"></a>租用戶資料庫和分析存放區
-使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 連線到 **tenants1-dpt-&lt;user&gt;** 和 **catalog-dpt-&lt;user&gt;** 伺服器。 將 &lt;user&gt; 取代為您部署應用程式時所使用的值。 使用登入 =*開發人員*和 密碼 = *P\@ssword1*。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
+使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 連線到 **tenants1-dpt-&lt;user&gt;** 和 **catalog-dpt-&lt;user&gt;** 伺服器。 將 &lt;user&gt; 取代為您部署應用程式時所使用的值。 使用 Login = *developer*和 Password = *P\@ssword1*。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
 
 ![從 SSMS 連線到 SQL Database 伺服器](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -116,8 +115,8 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. 按一下 [wingtipstaginguser] **\<\>** 儲存體帳戶，探索現有物件。
-1. 按一下 [Blob]  圖格
-1. 按一下容器 [configfile] 
+1. 按一下 [Blob] 圖格
+1. 按一下容器 [configfile]
 1. 確認 **configfile** 包含名為 **TableConfig.json** 的 JSON 檔案。 這個檔案包含來源和目的地資料表名稱、資料行名稱以及追蹤器資料行名稱。
 
 #### <a name="azure-data-factory-adf"></a>Azure Data Factory (ADF)
@@ -127,7 +126,7 @@ SaaS 應用程式會保留雲端中可能非常大量的租用戶資料。 此�
 
 本節探索建立的 Data Factory。 請依照下列步驟來啟動 Data Factory：
 1. 在入口網站中，按一下名為 **dbtodwload-\<user\>** 的 Data Factory。
-2. 按一下 [撰寫與監視]  圖格，以在個別索引標籤中啟動 Data Factory 設計工具。 
+2. 按一下 [撰寫與監視] 圖格，以在個別索引標籤中啟動 Data Factory 設計工具。 
 
 ## <a name="extract-load-and-transform-data"></a>擷取、載入和轉換資料
 Azure Data Factory 可用來協調擷取、載入及轉換資料。 在本教學課程中，您必須從每個租用戶資料庫擷取四個不同 SQL 檢視的資料：**rawTickets**、**rawCustomers**、**rawEvents** 及 **rawVenues**。 這些檢視包括地點識別碼，因此您可以區分資料倉儲中每個地點的資料。 將資料載入資料倉儲中對應的暫存表格：**raw_Tickets**、**raw_customers**、**raw_Events** 及 **raw_Venue**。 預存程序轉換未經處理資料並填入星型結構描述資料表：**fact_Tickets**、**dim_Customers**、**dim_Venues**、**dim_Events** 及 **dim_Dates**。
@@ -139,7 +138,7 @@ Azure Data Factory 可用來協調擷取、載入及轉換資料。 在本教學
 
 ![adf_overview](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
-在 [概觀] 頁面中，切換至左側面板的 [建立者]  索引標籤，並觀察有三個 [管線](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 和三個已建立的 [資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。
+在 [概觀] 頁面中，切換至左側面板的 [建立者] 索引標籤，並觀察有三個 [管線](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 和三個已建立的 [資料集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)。
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
 三個巢狀管線為：SQLDBToDW、DBCopy 及 TableCopy。
@@ -150,7 +149,7 @@ Azure Data Factory 可用來協調擷取、載入及轉換資料。 在本教學
 
 **管道 3 - TableCopy** 使用 SQL Database 中的資料列版本號碼 (_rowversion_) 來識別已變更或更新的資料列。 此活動查詢開始和結束資料列版本，用以擷取來自來源資料表的資料列。 儲存在每個租用戶資料庫中的 **CopyTracker** 資料表，會追蹤每次執行中從各來源資料表擷取的最後一個資料列。 全新或變更過的資料列會複製到資料倉儲中對應的暫存表格：**raw_Tickets**、**raw_Customers**、**raw_Venues** 及 **raw_Events**。 最後，最後一個資料列版本會儲存在 **CopyTracker** 資料表，做為下次擷取的初始資料列版本。 
 
-此外還有三個參數化連結服務，將資料處理站連結至來源 SQL Database、目標 SQL 資料倉儲以及中繼 Blob 儲存體。 在 [建立者]  索引標籤上，按一下 [連線]  探索連結的服務，如下列影像所示：
+此外還有三個參數化連結服務，將資料處理站連結至來源 SQL Database、目標 SQL 資料倉儲以及中繼 Blob 儲存體。 在 [建立者] 索引標籤上，按一下 [連線] 探索連結的服務，如下列影像所示：
 
 ![adf_linkedservices](media/saas-tenancy-tenant-analytics/linkedservices.JPG)
 
@@ -167,14 +166,14 @@ SQL 資料倉儲可做為分析存放區使用，以便彙總租用戶資料。 
    
 ### <a name="trigger-the-pipeline-run"></a>觸發管道執行
 依照下列步驟，為所有租用戶資料庫執行完整的擷取、載入和轉換管道：
-1. 在 ADF 使用者介面的 [建立者]  索引標籤中，選取左側窗格 **SQLDBToDW** 管道。
-1. 按一下 [觸發]  並且從下拉式功能表按一下 [立即觸發]  。 這個動作會立即執行管道。 在生產案例中，您會定義執行管道的時間表，以便重新整理排程中的資料。
+1. 在 ADF 使用者介面的 [建立者] 索引標籤中，選取左側窗格 **SQLDBToDW** 管道。
+1. 按一下 [觸發] 並且從下拉式功能表按一下 [立即觸發]。 這個動作會立即執行管道。 在生產案例中，您會定義執行管道的時間表，以便重新整理排程中的資料。
   ![adf_trigger](media/saas-tenancy-tenant-analytics/adf_trigger.JPG)
-1. 在 [管道執行]  頁面上，按一下 [完成]  。
+1. 在 [管道執行] 頁面上，按一下 [完成]。
  
 ### <a name="monitor-the-pipeline-run"></a>監視管道執行
-1. 在 ADF 使用者介面中，從左側功能表切換至 [監視器]  索引標籤。
-1. 按一下 [重新整理]  ，直到 SQLDBToDW 管道的狀態顯示 [已成功]  。
+1. 在 ADF 使用者介面中，從左側功能表切換至 [監視器] 索引標籤。
+1. 按一下 [重新整理]，直到 SQLDBToDW 管道的狀態顯示 [已成功]。
   ![adf_monitoring](media/saas-tenancy-tenant-analytics/adf_monitoring.JPG)
 1. 使用 SSMS 連線到資料倉儲，並查詢星型結構描述資料表，以確認資料已載入這些資料表中。
 
@@ -189,17 +188,17 @@ SQL 資料倉儲可做為分析存放區使用，以便彙總租用戶資料。 
 使用下列步驟以連線至 Power BI，以及匯入您稍早建立的檢視：
 
 1. 啟動 Power BI Desktop。
-2. 從 [常用] 功能區選取 [取得資料]  ，然後選取 [更多…]  。
-3. 在 [取得資料]  視窗中，選取 [Azure SQL Database]  。
-4. 在資料庫登入視窗中，輸入您的伺服器名稱 (**catalog-dpt-&lt;User&gt;.database.windows.net**)。 針對 [資料連線模式]  選取 [匯入]  ，然後按一下 [確定]  。 
+2. 從 [常用] 功能區選取 [取得資料]，然後選取 [更多…] 。
+3. 在 [取得資料] 視窗中，選取 [Azure SQL Database]。
+4. 在資料庫登入視窗中，輸入您的伺服器名稱 (**catalog-dpt-&lt;User&gt;.database.windows.net**)。 針對 [資料連線模式] 選取 [匯入]，然後按一下 [確定]。 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 選取 **資料庫**的左窗格中，然後輸入使用者名稱 =*開發人員*，然後輸入密碼 = *P\@ssword1*。 按一下 **[連接]** 。  
+5. 在左窗格中選取 [**資料庫**], 然後輸入 user name = *developer*, 並輸入 password = *P\@ssword1*。 按一下 **[連接]** 。  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. 在分析資料庫底下的 [導覽]  窗格中，選取星型結構描述資料表：**fact_Tickets**、**dim_Events**、**dim_Venues**、**dim_Customers** 及 **dim_Dates**。 然後選取 [載入]  。 
+6. 在分析資料庫底下的 [導覽] 窗格中，選取星型結構描述資料表：**fact_Tickets**、**dim_Events**、**dim_Venues**、**dim_Customers** 及 **dim_Dates**。 然後選取 [載入]。 
 
 恭喜您！ 您已成功將資料載入 Power BI。 現在可以探索有趣的視覺效果，讓您深入解析您的租用戶。 您會逐步了解分析如何將部分資料驅動的建議提供給 Wingtip Tickets 業務小組。 建議可協助最佳化商務模型和客戶體驗。
 
@@ -229,7 +228,7 @@ Contoso Concert Hall 經過一段時間為每個活動累積的票證銷售繪�
 
 票證銷售模式的深入解析可能會引導 Wingtip Tickets 最佳化其商務模型。 Wingtip 或許應該引進不同計算大小的服務層級，而非對所有租用戶平均收費。 可以為需要每日銷售更多票證的較大地點，提供具有較高服務等級協定 (SLA) 的較高層級。 這些地點可以將其資料庫放在具有較高每個資料庫資源限制的集區中。 每個服務層級可以有每小時銷售配置，針對超過的配置收取額外費用。 具有定期銷售爆發的較大地點可以從較高的層級獲益，Wingtip Tickets 也可以更有效率地從其服務創造營收。
 
-同時，有些 Wingtip Tickets 客戶抱怨，他們在銷售足夠票證以攤平服務成本方面有難處。 或許在這些深入解析中，有機會可以為表現不佳的地點促進票證銷售。 較高的銷售會增加服務的認知值。 以滑鼠右鍵按一下 fact_Tickets，然後選取 [新的量值]  。 針對稱為 **AverageTicketsSold** 的新量值輸入下列運算式：
+同時，有些 Wingtip Tickets 客戶抱怨，他們在銷售足夠票證以攤平服務成本方面有難處。 或許在這些深入解析中，有機會可以為表現不佳的地點促進票證銷售。 較高的銷售會增加服務的認知值。 以滑鼠右鍵按一下 fact_Tickets，然後選取 [新的量值]。 針對稱為 **AverageTicketsSold** 的新量值輸入下列運算式：
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

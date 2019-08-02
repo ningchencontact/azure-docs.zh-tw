@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5657490474a401d9e3074ed6ab250a34ef0a5d8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585390"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568545"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>對不同結構描述的雲端資料庫執行查詢 (預覽)
 
@@ -177,7 +176,7 @@ SCHEMA_NAME 和 OBJECT_NAME 子句提供的功能可將外部資料表定義分�
 
 sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠端資料庫上執行指定的 T-SQL 陳述式。 它會使用外部資料來源的認證來連線至遠端資料庫。  
 
-範例： 
+範例: 
 
 ```sql
     EXEC sp_execute_remote
@@ -189,7 +188,7 @@ sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠
 
 您可以使用一般 SQL Server 連接字串，在啟用彈性查詢及定義外部資料表的 SQL DB 伺服器上，將 BI 和資料整合工具連接到資料庫。 請確定 SQL Server 可支援做為您的工具的資料來源。 然後參考彈性查詢資料庫和其外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫。 
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 * 確保遠端資料庫已藉由在 Azure 服務的 SQL DB 防火牆組態中啟用其存取權，獲得彈性查詢端點資料庫的存取權。 也請確定外部資料來源定義中提供的認證可以成功登入遠端資料庫，而且具有存取遠端資料表的權限。  
 * 彈性查詢最適合可在遠端資料庫上完成大部分運算的查詢。 使用可在遠端資料庫上評估的選擇性篩選述詞，或可在遠端資料庫上完全執行的聯結，通常可以獲得最佳查詢效能。 其他查詢模式可能需要從遠端資料庫載入大量的資料，而且執行效能可能會很差。 

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 520e7fe953256e4c489e4c540493d9f74dda3aef
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494362"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694349"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>使用 GPU 部署深度學習模型以進行推斷
 
@@ -25,6 +25,9 @@ ms.locfileid: "68494362"
 
 > [!TIP]
 > 雖然本文中的程式碼片段會 usee TensorFlow 模型, 但您可以將此資訊套用至任何支援 Gpu 的機器學習架構。
+
+> [!NOTE]
+> 本文中的資訊是[以如何部署至 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)一文中的資訊為基礎。 本文一般會涵蓋部署至 AKS, 本文涵蓋 GPU 特定部署。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -87,7 +90,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > 只要 AKS 叢集存在, Azure 就會向您收取費用。 當您完成 AKS 叢集時, 請務必將其刪除。
 
-如需有關搭配 Azure Machine Learning 服務使用 Azure Kubernetes Service 的詳細資訊, 請參閱[如何部署和位置](how-to-deploy-and-where.md#deploy-aks)。
+如需有關使用 AKS 搭配 Azure Machine Learning 服務的詳細資訊, 請參閱[如何部署至 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)。
 
 ## <a name="write-the-entry-script"></a>撰寫專案腳本
 
@@ -162,7 +165,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-如需詳細資訊, 請參閱 AksService 的參考檔[。 deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-)。
+如需詳細資訊, 請參閱 AksService 的參考檔[。 deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-)。
 
 ## <a name="define-the-inference-configuration"></a>定義推斷設定
 

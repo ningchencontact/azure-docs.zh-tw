@@ -1,20 +1,18 @@
 ---
 title: 使用 Azure 儲存體模擬器進行開發和測試 | Microsoft Docs
 description: Azure 儲存體模擬器提供免費的本機開發環境，針對 Azure 儲存體應用程式進行開發和測試。 了解如何授權要求、如何從應用程式連線到模擬器，以及如何使用命令列工具。
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 08/10/2018
 ms.author: mhopkins
-ms.reviewer: seguler
+ms.date: 08/10/2018
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 5f55228c80142b2a21af585cb04d16f148460af0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 8737e3b2445f5b89c62cead5fae34b8ad076113a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149107"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721737"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -40,7 +38,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 ## <a name="start-and-initialize-the-storage-emulator"></a>啟動及初始化儲存體模擬器
 
 啟動 Azure 儲存體模擬器：
-1. 選取 [開始]  按鈕或按下 [Windows]  鍵。
+1. 選取 [開始] 按鈕或按下 [Windows] 鍵。
 2. 開始輸入 `Azure Storage Emulator`。
 3. 從顯示的應用程式清單中選取模擬器。
 
@@ -78,7 +76,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 如需有關這些命令的詳細資訊，請參閱[儲存體模擬器命令列工具參考](#storage-emulator-command-line-tool-reference)。
 
 > [!TIP]
-> 您可以使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 來管理您的 SQL Server 執行個體，包括 LocalDB 安裝。 在 SMSS [連接到伺服器]  對話方塊中，於 [伺服器名稱:]  欄位中指定 `(localdb)\MSSQLLocalDb`，以連接到 LocalDB 執行個體。
+> 您可以使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 來管理您的 SQL Server 執行個體，包括 LocalDB 安裝。 在 SMSS [連接到伺服器] 對話方塊中，於 [伺服器名稱:] 欄位中指定 `(localdb)\MSSQLLocalDb`，以連接到 LocalDB 執行個體。
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>對儲存體模擬器的驗證要求
 一旦您安裝並啟動儲存體模擬器之後，就可以針對它測試您的程式碼。 就像雲端中的 Azure 儲存體一樣，您傳送給儲存體模擬器的每個要求都必須經過授權，除非它是匿名的要求。 您可以使用共用金鑰驗證或共用存取簽章 (SAS)，授權傳送給儲存體模擬器的要求。

@@ -1,5 +1,5 @@
 ---
-title: 如何搭配 Java 使用 Azure 服務匯流排佇列 | Microsoft Docs
+title: 搭配使用 Azure 服務匯流排佇列與 JAVA
 description: 了解如何使用 Azure 中的服務匯流排佇列。 程式碼範例以 Java 撰寫。
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: a7e6e86be8b6fc901d9637c85794cdfe1f744fd4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360803"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663433"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何將服務匯流排佇列搭配 Java 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -28,7 +29,7 @@ ms.locfileid: "68360803"
 > [!NOTE]
 > 您可以在 GitHub 的 [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) 中找到 Java 範例。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
 2. 如果您沒有要使用的佇列, 請遵循[使用 Azure 入口網站建立服務匯流排佇列一](service-bus-quickstart-portal.md)文中的步驟來建立佇列。
     1. 閱讀服務匯流排**佇列**的快速**總覽**。 
@@ -39,7 +40,7 @@ ms.locfileid: "68360803"
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>設定應用程式以使用服務匯流排
-請確定您已安裝[azure sdk for java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] , 其中包含 azure sdk for java。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
+先確定已安裝 [Azure SDK for Java][Azure SDK for Java] 再建置此範例。 如果使用 Eclipse，您可以安裝包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]。 然後您可以將 **Microsoft Azure Libraries for Java** 新增至您的專案：
 
 ![可新增程式庫之 [媒體櫃] 索引標籤的螢幕擷取畫面](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 

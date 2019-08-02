@@ -6,22 +6,22 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
-ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bb7309ae452b2885be279d1ab38b8467397f2f8
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60925777"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638489"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>了解 Digital Twins 物件模型和空間智慧圖形
 
 Azure Digital Twins 是一項 Azure IoT 服務，可針對實體環境和相關聯的裝置、感應器和使用者提供完整的虛擬表示法。 它能將網域特定的概念整理為有幫助的模型來改善開發。 這些模型接著會被置於空間智慧圖形內。 這類概念可忠實建立人員、空間和裝置之間的關聯性和互動方式的模型。
 
-Digital Twins 物件模型能描述網域特定的概念、類別和屬性。 模型是由想要依據自身需求自訂解決方案的使用者預先定義。 這些預先定義的 Digital Twins 物件模型會共同組成「本體」  。 智慧建築的本體會描述區域 (region)、地點、樓層、辦公室、區域 (zone)、會議室和聚焦會議室。 能源網的本體會描述各種發電站、變電站、能源資源和客戶。 透過使用 Digital Twins 物件模型和本體，便可以自訂各種案例和需求。
+Digital Twins 物件模型能描述網域特定的概念、類別和屬性。 模型是由想要依據自身需求自訂解決方案的使用者預先定義。 這些預先定義的 Digital Twins 物件模型會共同組成「本體」。 智慧建築的本體會描述區域 (region)、地點、樓層、辦公室、區域 (zone)、會議室和聚焦會議室。 能源網的本體會描述各種發電站、變電站、能源資源和客戶。 透過使用 Digital Twins 物件模型和本體，便可以自訂各種案例和需求。
 
-Digital Twins 物件模型和本體皆準備就緒後，即可填入「空間圖形」  。 空間圖形是與 IoT 解決方案相關的空間、裝置和人員之間各種關聯性的虛擬表示法。 此圖表顯示使用智慧建築本體的空間圖形範例。
+Digital Twins 物件模型和本體皆準備就緒後，即可填入「空間圖形」。 空間圖形是與 IoT 解決方案相關的空間、裝置和人員之間各種關聯性的虛擬表示法。 此圖表顯示使用智慧建築本體的空間圖形範例。
 
 ![Digital Twins 空間圖形建築][1]
 
@@ -76,7 +76,7 @@ Digital Twins 物件模型支援下列主要物件類別：
 
 ### <a name="spatial-intelligence-graph-management-apis"></a>空間智慧圖形管理 API
 
-在您從 [Azure 入口網站](https://portal.azure.com)部署 Digital Twins 之後，系統便會自動產生管理 API 的[Swagger](https://swagger.io/tools/swagger-ui/) \(英文\) URL。 它會以下列格式顯示在 Azure 入口網站中的 [概觀]  區段。
+在您從 [Azure 入口網站](https://portal.azure.com)部署 Digital Twins 之後，系統便會自動產生管理 API 的[Swagger](https://swagger.io/tools/swagger-ui/) \(英文\) URL。 它會以下列格式顯示在 Azure 入口網站中的 [概觀] 區段。
 
 ```plaintext
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger

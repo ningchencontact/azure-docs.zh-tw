@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: f4dc00623694fa1fd218f43e7bbd19edef48dec4
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 7c10bdf5e4f47f5bb5ac97b610c605132c4b4a00
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348120"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567208"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>什麼是 Azure SQL Database 受控實例？
 
@@ -61,7 +60,7 @@ ms.locfileid: "68348120"
 | 內建執行個體和資料庫的監視與計量 | 是 |
 | 自動軟體修補 | 是 |
 | 最新的資料庫引擎功能 | 是 |
-| 每個資料庫的資料檔案 (ROWS) 數目 | 多重選取 |
+| 每個資料庫的資料檔案 (ROWS) 數目 | 多重 |
 | 每個資料庫的記錄檔 (LOG) 數目 | 1 |
 | VNet - Azure Resource Manager 部署 | 是 |
 | VNet - 傳統部署模型 | 否 |
@@ -293,7 +292,7 @@ Azure 資料庫移轉服務是一個完全受控的服務，能夠從多個資�
 
 下表顯示數個透過 Transact SQL 使用的屬性，可用來檢測出應用程式正在使用受控執行個體，並擷取重要的屬性。
 
-|屬性|值|註解|
+|內容|值|註解|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|此值與 SQL Database 中的相同。|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|此值與 SQL Database 中的相同。|

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2f06b054e433c0320019548c56539d102beaad
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386495"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717390"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>將安全性資訊設定為使用安全性金鑰 (預覽)
 
@@ -30,26 +30,26 @@ ms.locfileid: "68386495"
 
 ## <a name="what-is-a-security-key"></a>什麼是安全性金鑰？
 
-我們目前支援使用[快速身分識別線上 (FIDO)](https://fidoalliance.org/fido2/) (FIDO2) 無密碼驗證方法的數個安全性金鑰設計和提供者。 此方法可讓您登入工作或學校帳戶一次, 以存取貴組織的所有雲端資源和支援的瀏覽器。
+我們目前支援使用[快速身分識別線上 (FIDO)](https://fidoalliance.org/fido2/) (FIDO2) 無密碼驗證通訊協定的數種安全性金鑰設計和提供者。 這些金鑰可讓您在支援的裝置和網頁瀏覽器上, 登入您的公司或學校帳戶, 以存取貴組織的雲端式資源。
 
 如果您的系統管理員或組織需要您的工作或學校帳戶, 請提供安全性金鑰。 您可以使用不同類型的安全性金鑰, 例如您插入裝置的 USB 金鑰, 或您在 NFC 讀取器上的 NFC 金鑰。 您可以從製造商的檔中, 瞭解有關安全性金鑰的詳細資訊, 包括其類型。
 
 > [!Note]
-> 如果您無法使用 FIDO2 的安全性金鑰, 您可以使用其他無密碼驗證方法, 例如 Microsoft Authenticator 應用程式或 Windows Hello。 如需 Microsoft Authenticator 應用程式的詳細資訊, 請參閱[什麼是 Microsoft Authenticator 應用程式？](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview)。 如需 Windows Hello 的詳細資訊, 請參閱[Windows hello 總覽](https://www.microsoft.com/windows/windows-hello)。
+> 如果您無法使用 FIDO2 的安全性金鑰, 您可以使用其他無密碼驗證方法, 例如 Microsoft Authenticator 應用程式或 Windows Hello。 如需 Microsoft Authenticator 應用程式的詳細資訊, 請參閱[什麼是 Microsoft Authenticator 應用程式？](user-help-auth-app-overview.md)。 如需 Windows Hello 的詳細資訊, 請參閱[Windows hello 總覽](https://www.microsoft.com/windows/windows-hello)。
 
 ## <a name="before-you-begin"></a>開始之前
 
-在您開始註冊安全性金鑰之前, 請先仔細檢查下列事項:
+在您能夠註冊安全性金鑰之前, 必須符合下列條件:
 
 - 您的系統管理員已開啟這項功能, 可在您的組織中使用。
 
-- 您所在的裝置至少執行 Windows 10 版本 1903, 並使用 Microsoft Edge 瀏覽器。
+- 您在執行 Windows 10 2019 版的裝置上會更新並使用支援的瀏覽器。
 
-- 您已從系統管理員或您的組織收到實體安全性金鑰。 您的安全性金鑰必須同時為 FIDO2 和 Microsoft 相容。 如果您有任何關於安全性金鑰的問題, 以及它是否相容, 請洽詢貴組織的技術支援人員。
+- 您的系統管理員或您的組織已核准實體安全性金鑰。 您的安全性金鑰必須同時為 FIDO2 和 Microsoft 相容。 如果您有任何關於安全性金鑰的問題, 以及它是否相容, 請洽詢貴組織的技術支援人員。
 
 ## <a name="register-your-security-key"></a>登錄您的安全性金鑰
 
-您必須先準備您的安全性金鑰, 才能使用 Windows 和唯一的 PIN 碼, 才能使用金鑰登入您的公司或學校帳戶。
+您必須先建立安全性金鑰並為其提供唯一的 PIN, 才能使用金鑰登入您的公司或學校帳戶。 您的帳戶最多可以註冊10個金鑰。 
 
 1. 移至位於 https://myprofile.microsoft.com 的 [**我的設定檔**] 頁面, 如果您尚未這麼做, 請登入。
 
@@ -80,7 +80,7 @@ ms.locfileid: "68386495"
 
     您會回到 [**設定新的登入方法**] 方塊。
 
-7. 選取 [下一步] 。
+7. 選取 [下一步]。
 
 8. 返回 [**安全性資訊**] 頁面上, 輸入您稍後會為新的安全性金鑰辨識的名稱, 然後選取 **[下一步]** 。
 
@@ -96,7 +96,7 @@ ms.locfileid: "68386495"
 
 ## <a name="delete-a-security-key-from-your-security-info"></a>從您的安全性資訊刪除安全性金鑰
 
-如果您不想再使用您的安全性金鑰, 您可以從安全性資訊中刪除金鑰。 雖然這會阻止安全性金鑰與您的工作或學校帳戶一起使用, 但安全性金鑰仍會繼續儲存您的資料和認證資訊。 若要從安全性金鑰本身刪除您的資料和認證資訊, 您必須遵循本文的[重設 Microsoft 相容的安全性金鑰](#reset-your-security-key)一節中的指示。
+如果您錯置或不想再使用安全性金鑰, 您可以從安全性資訊中刪除金鑰。 雖然這會阻止安全性金鑰與您的工作或學校帳戶一起使用, 但安全性金鑰仍會繼續儲存您的資料和認證資訊。 若要從安全性金鑰本身刪除您的資料和認證資訊, 您必須遵循本文的[重設 Microsoft 相容的安全性金鑰](#reset-your-security-key)一節中的指示。
 
 1. 從安全性金鑰選取要移除的 [**刪除**] 連結。
 
@@ -105,7 +105,7 @@ ms.locfileid: "68386495"
     您的安全性金鑰已刪除, 您將無法再使用它來登入您的公司或學校帳戶。
 
 >[!Important]
->如果您不小心刪除了此安全性金鑰, 則必須使用本文的[如何註冊安全性金鑰](#register-your-security-key)一節中的指示, 再次進行註冊。
+>如果您不小心刪除了安全性金鑰, 您可以使用本文中[如何註冊安全性金鑰](#register-your-security-key)一節中的指示, 再次進行註冊。
 
 ## <a name="manage-your-security-key-settings-from-windows-settings"></a>從 Windows 設定管理您的安全性金鑰設定
 
@@ -138,29 +138,19 @@ ms.locfileid: "68386495"
 
 1. 開啟 [Windows 設定] 應用程式, 選取 [**帳戶**], 選取 [登**入選項**], 選取 [**安全性金鑰**], 然後選取 [**管理**]。
 
-2. 將您的安全性金鑰插入 USB 埠, 或利用 NFC 讀取器來驗證您的身分識別。5
+2. 將您的安全性金鑰插入 USB 埠, 或透過您的 NFC 讀取器來驗證您的身分識別。
 3. 從 [**安全性金鑰 pin** ] 區域選取 [**新增**], 輸入並確認新的安全性金鑰 Pin, 然後選取 **[確定]** 。
 
-    安全性金鑰會以新的安全性金鑰 PIN 進行更新, 以便與您的工作或學校帳戶搭配使用。 如果您決定再次變更您的 PIN, 您可以選取 [**變更**] 按鈕6。
+     安全性金鑰會以新的安全性金鑰 PIN 進行更新, 以便與您的工作或學校帳戶搭配使用。 如果您決定再次變更您的 PIN, 您可以選取 [**變更**] 按鈕。
 4. 選取 [**關閉**] 以關閉 [**管理**] 畫面。
 
 ## <a name="additional-security-info-methods"></a>其他安全性資訊方法
 
-根據您要嘗試執行的動作，您會有組織如何連絡您來驗證您身分識別的其他選項。 選項包括：
-
-- **驗證器應用程式。** 下載並使用驗證器應用程式，以取得核准通知或隨機產生的核准代碼來進行雙步驟驗證或密碼重設。 如需如何設定和使用 Microsoft Authenticator 應用程式的逐步指示，請參閱[將安全性資訊設定為使用驗證器應用程式](security-info-setup-auth-app.md)。
-
-- **行動裝置簡訊。** 輸入您的行動裝置號碼，然後取得將用來進行雙步驟驗證或密碼重設的代碼簡訊。 如需如何透過簡訊 (SMS) 驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用簡訊 (SMS)](security-info-setup-text-msg.md)。
-
-- **行動裝置或公司電話。** 輸入您的行動裝置號碼，然後等候來電以進行雙步驟驗證或密碼重設。 如需如何透過電話號碼驗證您身分識別的逐步指示，請參閱[將安全性資訊設定為使用電話](security-info-setup-phone-number.md)。
-
-- **電子郵件地址。** 輸入您的公司或學校電子郵件地址以接收用於密碼重設的電子郵件。 此選項不適用於雙步驟驗證。 如需如何設定電子郵件的逐步指示，請參閱[將安全性資訊設定為使用電子郵件](security-info-setup-email.md)。
-
-- **安全性問題。** 回答由您的系統管理員為組織所建立的一些安全性問題。 此選項僅適用於密碼重設，不適用雙步驟驗證。 如需如何設定安全性問題的逐步指示，請參閱[將安全性資訊設定為使用安全性問題](security-info-setup-questions.md)一文。
+為了註冊安全性金鑰, 您必須至少註冊一個額外的安全性驗證方法。 如需詳細資訊, 請參閱[總覽一節](security-info-add-update-methods-overview.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需無密碼驗證方法的詳細資訊, 請閱讀[Microsoft 的 Azure AD 開始公開預覽 FIDO2 安全性金鑰、啟用無密碼](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins)登入 blog, 或閱讀[什麼是 Microsoft Authenticator 應用程式？](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview)和[Windows Hello 總覽](https://www.microsoft.com/windows/windows-hello)文章。
+- 如需無密碼驗證方法的詳細資訊, 請閱讀[Microsoft 的 Azure AD 開始公開預覽 FIDO2 安全性金鑰、啟用無密碼](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins)登入 blog, 或閱讀[什麼是 Microsoft Authenticator 應用程式？](user-help-auth-app-overview.md)和[Windows Hello 總覽](https://www.microsoft.com/windows/windows-hello)文章。
 
 - 如需[Microsoft 相容安全性金鑰](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)的詳細資訊。
 

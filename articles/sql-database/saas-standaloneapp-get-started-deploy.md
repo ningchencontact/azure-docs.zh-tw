@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304145"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570201"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>部署及探索使用 Azure SQL Database 的獨立單一租用戶應用程式
 
@@ -25,9 +24,9 @@ ms.locfileid: "66304145"
 
 獨立應用程式 (每一租用戶一個應用程式) 模式會為每個租用戶部署一個應用程式執行個體。  每個應用程式都已針對特定租用戶設定，並部署在個別的 Azure 資源群組中。 可以佈建應用程式的多個執行個體來提供多租用戶解決方案。 這個模式最適合少量租用戶，因為租用戶隔離是第一要務。 Azure 的夥伴程式可讓服務提供者將資源部署到租用戶的訂用帳戶中，並代表租用戶管理這些資源。 
 
-在本教學課程中，您會將三個租用戶的三個獨立應用程式部署到您的 Azure 訂用帳戶。  您可以完整存取探索和使用個別應用程式元件。
+在本教學課程中, 您將在 Azure 訂用帳戶中部署三個租使用者的三個獨立應用程式。  您可以完整存取探索和使用個別應用程式元件。
 
-在 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 存放庫可取得應用程式原始程式碼和管理指令碼。 應用程式使用 Visual Studio 2015 中，建立不會成功並且開啟在 Visual Studio 2019 編譯而不需要更新。
+在 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 存放庫可取得應用程式原始程式碼和管理指令碼。 應用程式是使用 Visual Studio 2015 所建立, 而且不會在沒有更新的情況下, 于 Visual Studio 2019 中順利開啟和編譯。
 
 
 您會在本教學課程中學到：
@@ -37,13 +36,13 @@ ms.locfileid: "66304145"
 > * 在何處取得應用程式原始程式碼和管理指令碼。
 > * 關於組成應用程式的伺服器和資料庫。
 
-將會推出其他教學課程。 他們將可讓您探索特定範圍的此應用程式模式為基礎的管理案例。   
+將會推出其他教學課程。 它們可讓您根據此應用程式模式, 探索各種管理案例。   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>部署 Wingtip Tickets SaaS Standalone 應用程式
 
 部署三個所提供之租用戶的應用程式：
 
-1. 按一下每個藍色的 [部署至 Azure]  按鈕可在 [Azure 入口網站](https://portal.azure.com)中開啟部署範本。 每個範本需要兩個參數值：新資源群組的名稱，以及區分此部署與應用程式中其他部署的使用者名稱。 下一個步驟將詳細說明如何設定這些值。<br><br>
+1. 按一下每個藍色的 [部署至 Azure] 按鈕可在 [Azure 入口網站](https://portal.azure.com)中開啟部署範本。 每個範本需要兩個參數值：新資源群組的名稱，以及區分此部署與應用程式中其他部署的使用者名稱。 下一個步驟將詳細說明如何設定這些值。<br><br>
     <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
 <br><br>
     <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
@@ -55,9 +54,9 @@ ms.locfileid: "66304145"
     > [!IMPORTANT]
     > 為了示範的目的，已刻意將某些驗證和伺服器防火牆設為不安全。 為每個應用程式部署**建立新的新資源群組**。  請勿使用現有的資源群組。 請不要將此應用程式或任何它所建立的資源用於生產環境。 當您不使用應用程式時，請刪除所有資源群組，以停止相關計費。
 
-    最好的方式是在您的資源名稱中使用小寫字母、 數字和連字號。
-    * 針對**資源群組**選取 [新建]，並為資源群組提供小寫的 [名稱]。 我們建議使用 **wingtip-sa-\<venueName\>-\<user\>** 模式。  針對\<venueName\>，場地的名稱取代為不含空格。 針對\<使用者\>，從下面將使用者的值。  採用此模式後，資源群組名稱可能會是 wingtip-sa-contosoconcerthall-af1  、wingtip-sa-dogwooddojo-af1  、wingtip-sa-fabrikamjazzclub-af1  。
-    * 從下拉式清單中選取 [位置]  。
+    在您的資源名稱中, 最好只使用小寫字母、數位和連字號。
+    * 針對**資源群組**選取 [新建]，並為資源群組提供小寫的 [名稱]。 我們建議使用 **wingtip-sa-\<venueName\>-\<user\>** 模式。  針對\< venueName\>, 請將場地名稱取代為不含空格。 針對\<[\>使用者], 取代以下的使用者值。  採用此模式後，資源群組名稱可能會是 wingtip-sa-contosoconcerthall-af1、wingtip-sa-dogwooddojo-af1、wingtip-sa-fabrikamjazzclub-af1。
+    * 從下拉式清單中選取 [位置]。
 
     * 針對**使用者** - 建議您選擇簡短的使用者 值，可以用您的姓名首字母加上數字，例如：*af1*。
 
@@ -65,9 +64,9 @@ ms.locfileid: "66304145"
 3. **部署應用程式**。
 
     * 按一下以同意條款和條件。
-    * 按一下 [購買]  。
+    * 按一下 [購買]。
 
-4. 按一下 [通知]  \(搜尋方塊右側的鈴鐺圖示) 來監視所有三個部署的部署狀態。 部署應用程式大約需要五分鐘的時間。
+4. 按一下 [通知]\(搜尋方塊右側的鈴鐺圖示) 來監視所有三個部署的部署狀態。 部署應用程式大約需要五分鐘的時間。
 
 
 ## <a name="run-the-applications"></a>執行應用程式
@@ -84,12 +83,12 @@ ms.locfileid: "66304145"
 
    ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
-為了控制連入要求的發佈，應用程式會使用 [*Azure 流量管理員*](../traffic-manager/traffic-manager-overview.md)。 每個租用戶專屬的應用程式執行個體都包含租用戶名稱，以在 URL 中作為網域名稱的一部分。 所有租用戶 URL 都包含您的特定 [使用者]  值。 URL 的格式如下︰
+為了控制連入要求的發佈，應用程式會使用 [*Azure 流量管理員*](../traffic-manager/traffic-manager-overview.md)。 每個租用戶專屬的應用程式執行個體都包含租用戶名稱，以在 URL 中作為網域名稱的一部分。 所有租用戶 URL 都包含您的特定 [使用者] 值。 URL 的格式如下︰
 - http://events.&lt ;venuename&gt;.&lt; user&gt;.trafficmanager.net
 
-每個租用戶的資料庫 [位置]  都包含在對應已部署應用程式的應用程式設定中。
+每個租用戶的資料庫 [位置] 都包含在對應已部署應用程式的應用程式設定中。
 
-在生產環境中，您通常會建立 CNAME DNS 記錄以[將公司網際網路網域指向  ](../traffic-manager/traffic-manager-point-internet-domain.md)流量管理員設定檔的 URL。
+在生產環境中，您通常會建立 CNAME DNS 記錄以[將公司網際網路網域指向](../traffic-manager/traffic-manager-point-internet-domain.md)流量管理員設定檔的 URL。
 
 
 ## <a name="explore-the-servers-and-tenant-databases"></a>探索伺服器和租用戶資料庫
@@ -100,7 +99,7 @@ ms.locfileid: "66304145"
 2. 您應該會看到三個租用戶資源群組。
 3. 開啟 **wingtip-sa-fabrikam-&lt;user&gt;** 資源群組，其中包含給 Fabrikam Jazz Club 部署的資源。  **fabrikamjazzclub-&lt;user&gt;** 伺服器內含 **fabrikamjazzclub** 資料庫。
 
-每個租用戶資料庫都是 50 DTU 獨立  資料庫。
+每個租用戶資料庫都是 50 DTU 獨立資料庫。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -126,6 +125,6 @@ ms.locfileid: "66304145"
 > * 關於組成應用程式的伺服器和資料庫。
 > * 如何刪除範例資源以停止相關計費。
 
-接下來請嘗試[Provision and Catalog](saas-standaloneapp-provision-and-catalog.md)教學課程中，您將在其中探索租用戶目錄來滿足多種跨租用戶案例，例如結構描述管理和租用戶分析使用。
+接下來, 請嘗試布建[和目錄](saas-standaloneapp-provision-and-catalog.md)教學課程, 其中會探索租使用者目錄的使用, 以啟用各種跨租使用者案例, 例如架構管理和租使用者分析。
  
 

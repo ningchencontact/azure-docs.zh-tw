@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 0c7fbe209a20182ac2a17fcdb467d1f2a03183e5
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c109627d2a2e9190afb2c27b9fb202e93baa68cb
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370736"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689657"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言中觸發程式和動作類型的參考
 
@@ -327,7 +327,7 @@ ms.locfileid: "68370736"
 
 *輸出*
 
-| 元素 | Type | 描述 |
+| 項目 | Type | 描述 |
 |---------|------|-------------| 
 | headers | JSON 物件 | 回應中的標頭 | 
 | 內容 | JSON 物件 | 回應中的本文 | 
@@ -2317,7 +2317,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
  "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
-        "Http": {
+        "HTTP": {
             "type": "Http",
             "inputs": {
                 "method": "GET",
@@ -2326,7 +2326,7 @@ Logic Apps 引擎會檢查是否可存取您想要呼叫的觸發程序，因此
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200])",
+    "expression": "@equals(outputs('HTTP')['statusCode'], 200)",
     "limit": {
         "count": 60,
         "timeout": "PT1H"
@@ -2698,7 +2698,7 @@ HTTP 端點支援各種驗證。 您可以針對這些 HTTP 觸發程序和動�
 
 針對使用 Azure Active Directory 的[憑證式驗證](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)，您的觸發程序或動作定義可以包含具有下表指定屬性的 `authentication` JSON 物件。 若要在執行階段存取參數值，您可以使用 `@parameters('parameterName')` 運算式 (由[工作流程定義語言](https://aka.ms/logicappsdocs)提供)。 如需了解可使用的用戶端憑證數量限制，請參閱 [Azure Logic Apps 的限制和設定](../logic-apps/logic-apps-limits-and-config.md)。
 
-| 屬性 | 必要項 | Value | 描述 |
+| 內容 | 必要項 | Value | 描述 |
 |----------|----------|-------|-------------|
 | **type** | 是 | "ClientCertificate" | 用於安全通訊端層 (SSL) 用戶端憑證的驗證類型。 雖支援自我簽署憑證，但不支援 SSL 自我簽署憑證。 |
 | **pfx** | 是 | "@parameters('pfxParam') | Base64 編碼的個人資訊交換 (PFX) 檔案內容 |

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 174184993e40b60dc89022d360f0c09fb31bc60b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501273"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561479"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>使用媒體服務動態加密來保護您的內容
 
@@ -121,7 +121,7 @@ HLS 通訊協定支援下列容器格式和加密配置。
 
 |容器格式|加密配置|URL 範例|
 |---|---|---|
-|所有|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
@@ -139,7 +139,7 @@ MPEG-破折號通訊協定支援下列容器格式和加密配置。
 
 |容器格式|加密配置|URL 範例
 |---|---|---|
-|所有|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|全部|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
@@ -170,7 +170,7 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 
 當您想要在沒有授權的情況下頒發授權給任何人時, 可能會使用開放限制的內容金鑰原則。 例如, 如果您的收益是以 ad 為基礎, 而不是以訂用帳戶為基礎。  
 
-使用權杖限制的內容金鑰原則時, 只會將內容金鑰傳送給用戶端, 以在授權/金鑰要求中出示有效的 JWT 權杖或簡單的 web 權杖。 此權杖必須由 STS 發行。 
+使用權杖限制的內容金鑰原則時, 只會將內容金鑰傳送給用戶端, 以在授權/金鑰要求中出示有效的 JWT 權杖或簡單 web 權杖 (SWT)。 此權杖必須由 STS 發行。 
 
 您可以使用 Azure AD 做為 STS 或部署自訂 STS。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果這兩個條件都存在, 媒體服務授權/金鑰傳遞服務會將要求的授權或金鑰傳回給用戶端:
 
@@ -196,8 +196,10 @@ Smooth Streaming 通訊協定支援下列容器格式和加密配置。
 
 客戶可能會選擇使用自訂 STS 來提供權杖。 原因包括：
 
-* 客戶使用的 IDP 不支援 STS。 在此情況下，自訂 STS 可能是一個選項。
-* 客戶在整合 STS 與客戶的訂閱者計費系統時，可能需要更多彈性或更緊密的控制。 例如，MVPD 業者可能會提供多個 OTT 訂閱者套件，例如高階、基本和運動。 業者可能需要讓權杖中的宣告與訂閱者套件相符，如此一來，只有正確套件中的內容可供使用。 在此情況下，自訂 STS 提供所需的彈性和控制。
+* 客戶使用的識別提供者 (IDP) 不支援 STS。 在此情況下，自訂 STS 可能是一個選項。
+* 客戶在整合 STS 與客戶的訂閱者計費系統時，可能需要更多彈性或更緊密的控制。 
+
+   例如, [OTT](https://en.wikipedia.org/wiki/Over-the-top_media_services)服務操作員可能會提供多個訂閱者封裝, 例如 premium、basic 和體育。 業者可能需要讓權杖中的宣告與訂閱者套件相符，如此一來，只有正確套件中的內容可供使用。 在此情況下，自訂 STS 提供所需的彈性和控制。
 * 在權杖中包含自訂宣告, 以使用不同的 DRM 授權參數 (訂用帳戶授權與出租授權) 在不同的 ContentKeyPolicyOptions 之間進行選取。
 * 包含宣告, 其代表權杖授與存取權之金鑰的內容金鑰識別碼。
 

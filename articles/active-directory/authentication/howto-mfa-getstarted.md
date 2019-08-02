@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa2254ff3223be4312f4e9b3db4d9d83da443c0
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 182b9da402e633033411f85eb59b31f76749f3cd
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311334"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666244"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃以雲端為基礎的 Azure 多因素驗證部署
 
@@ -24,7 +24,7 @@ ms.locfileid: "68311334"
 
 [Azure 多重要素驗證 (MFA)](concept-mfa-howitworks.md)可協助保護資料和應用程式的存取。 它使用第二種形式的驗證來提供一層額外的安全性。 組織可以使用[條件式存取](../conditional-access/overview.md), 讓解決方案符合他們的特定需求。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 開始部署 Azure 多重要素驗證之前, 必須考慮一些必要專案。
 
@@ -57,7 +57,7 @@ Azure 多重要素驗證是藉由強制執行具有條件式存取的原則來�
 * 網路位置或地理位置的 IP 位址
 * 用戶端應用程式
 * 登入風險 (需要身分識別保護)
-* 符合規範的裝置
+* 符合規範裝置
 * 已加入混合式 Azure AD 的裝置
 * 核准的用戶端應用程式
 
@@ -69,10 +69,10 @@ Azure 多重要素驗證是藉由強制執行具有條件式存取的原則來�
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md)會同時為 Azure 多因素驗證案例提供和自動化風險偵測和補救原則的註冊原則。 當有下列[事件](../reports-monitoring/concept-risk-events.md)的登入被視為有風險時, 可以建立原則來強制變更密碼, 或要求 MFA:
 
-* 認證外洩
+* 洩漏的認證
 * 從匿名 IP 位址登入
-* 不可能到達非典型位置的移動
-* 從不熟悉的位置登入
+* 不可能進入非慣用位置
+* 從不熟悉的位置登入的次數
 * 從受感染的裝置登入
 * 從具有可疑活動的 IP 位址登入
 
@@ -96,7 +96,7 @@ Azure Active Directory Identity Protection 偵測到的部分風險事件會即�
    2. 如果使用國家/地區
       1. 展開下拉式功能表, 然後選取您想要為此命名位置定義的國家或地區。
       2. 決定是否要包含未知的區域。 未知區域是無法對應至國家/地區的 IP 位址。
-7. 按一下 [建立] 
+7. 按一下 [建立]
 
 ## <a name="plan-authentication-methods"></a>規劃驗證方法
 
@@ -109,7 +109,7 @@ Azure Active Directory Identity Protection 偵測到的部分風險事件會即�
 > [!NOTE]
 > 如果您的組織有員工從事或前往中國, 則在**Android 裝置**上透過行動裝置**應用程式**方法的通知無法在該國家/地區運作。 其他方法應可供這些使用者使用。
 
-### <a name="verification-code-from-mobile-app"></a>行動應用程式傳回的驗證碼
+### <a name="verification-code-from-mobile-app"></a>行動應用程式的驗證碼
 
 Microsoft Authenticator 應用程式之類的行動應用程式每隔30秒會產生新的 OATH 驗證碼。 使用者會在登入介面中輸入此驗證碼。 無論電話是否有資料或行動電話信號, 都可以使用行動裝置應用程式選項。
 
@@ -127,13 +127,13 @@ Microsoft Authenticator 應用程式之類的行動應用程式每隔30秒會產
 
    ![從 Azure 入口網站中的 [Azure AD 使用者] 刀鋒視窗存取 Multi-Factor Authentication 入口網站](media/howto-mfa-getstarted/users-mfa.png)
 
-1. 在開啟的新索引標籤中，瀏覽至 [服務設定]  。
-1. 在 [驗證選項]  底下，核取使用者可用方法的所有方塊。
+1. 在開啟的新索引標籤中，瀏覽至 [服務設定]。
+1. 在 [驗證選項] 底下，核取使用者可用方法的所有方塊。
 
    ![在 [Multi-Factor Authentication 服務設定] 索引標籤中設定驗證方法](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
 1. 按一下 [ **儲存**]。
-1. 關閉 [服務設定]  索引標籤。
+1. 關閉 [服務設定] 索引標籤。
 
 ## <a name="plan-registration-policy"></a>規劃註冊原則
 
@@ -243,25 +243,25 @@ function Set-MfaState {
 ### <a name="create-conditional-access-policy"></a>建立條件式存取原則
 
 1. 使用全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-1. 瀏覽至 [Azure Active Directory]  、[條件式存取]  。
-1. 選取 [新增原則]  。
+1. 瀏覽至 [Azure Active Directory]、[條件式存取]。
+1. 選取 [新增原則]。
 1. 為原則提供有意義的名稱。
-1. 在 [使用者和群組]  底下：
-   * 在 [包含]  索引標籤上，選取 [所有使用者]  選項按鈕
+1. 在 [使用者和群組] 底下：
+   * 在 [包含] 索引標籤上，選取 [所有使用者] 選項按鈕
    * 在 [**排除**] 索引標籤上, 核取 [**使用者和群組**] 的方塊, 然後選擇您的緊急存取帳戶。
-   * 按一下 [完成]  。
-1. 在 [雲端應用程式]  下方，選取 [所有雲端應用程式]  選項按鈕。
-   * 選擇性：在 [排除]  索引標籤上，選擇組織不要要求使用 MFA 的雲端應用程式。
-   * 按一下 [完成]  。
-1. 在 [條件]  區段底下：
+   * 按一下 [完成]。
+1. 在 [雲端應用程式] 下方，選取 [所有雲端應用程式] 選項按鈕。
+   * 選擇性：在 [排除] 索引標籤上，選擇組織不要要求使用 MFA 的雲端應用程式。
+   * 按一下 [完成]。
+1. 在 [條件] 區段底下：
    * 選擇性：如果您已啟用 Azure Identity Protection，您可以選擇要在原則中評估登入風險。
    * 選擇性：如果您已設定信任的位置或具名位置，您可以指定要在原則中包含或排除這些位置。
-1. 在 [授與]  下方，確定已選取 [授與存取權]  選項按鈕。
-    * 核取 [需要多重要素驗證]  的方塊。
-    * 按一下 [選取]  。
-1. 略過 [工作階段]  區段。
-1. 將 [啟用原則]  切換為 [開啟]  。
-1. 按一下 [建立]  。
+1. 在 [授與] 下方，確定已選取 [授與存取權] 選項按鈕。
+    * 核取 [需要多重要素驗證] 的方塊。
+    * 按一下 [選取]。
+1. 略過 [工作階段] 區段。
+1. 將 [啟用原則] 切換為 [開啟]。
+1. 按一下 [建立]。
 
 ![建立條件式存取原則, 為試驗群組中的 Azure 入口網站使用者啟用 MFA](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
@@ -360,6 +360,9 @@ Windows 安全性記錄檔和 AD FS 系統管理員記錄檔中的標準 AD FS 2
    1. 使用[Identity Protection](../identity-protection/howto-mfa-policy.md)
 1. 傳送使用者通訊並讓使用者進行註冊[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [追蹤已註冊的人員](#identify-non-registered-users)
+
+> [!TIP]
+> 政府雲端使用者可以註冊于[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>管理您的解決方案
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b6b4cd38ce5f591d43f27f735a48993cc1a1ab63
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 27f0ebab1fd87eb1870c5a8be21c4f80be4132f1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414460"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698595"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全性精靈和執行階段
 
@@ -24,14 +24,6 @@ ms.locfileid: "68414460"
 如果您想要更新至較新的版本，IoT Edge 裝置將有兩個元件需要更新。 第一個元件是在裝置上執行，並在裝置啟動時啟動執行階段模組的安全性精靈。 目前，安全性精靈只能從裝置本身進行更新。 第二個元件是由 IoT Edge 中樞和 IoT Edge 代理程式模組組成的執行階段。 根據您建構部署的方式，執行階段可以從裝置或從遠端更新。 
 
 若要尋找最新版的 Azure IoT Edge，請參閱 [Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)。
-
->[!IMPORTANT]
->如果您在 Windows 裝置上執行 Azure IoT Edge，在下列其中一項適用於您的裝置時，請勿更新為版本 1.0.5： 
->* 您尚未將您的裝置升級到 Windows 組建 17763。 IoT Edge 版本 1.0.5 不支援 17763 以前的 Windows 組建。
->* 您在 Windows 裝置上執行 Java 或 Node.js 模組。 即使您已經將您的 Windows 裝置更新為最新的組建，也請跳過版本 1.0.5。 
->
->如需有關 IoT Edge 版本 1.0.5 的詳細資訊，請參閱 [1.0.5 版本資訊](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 如需如何防止您的開發工具更新為最新版本的詳細資訊, 請參閱[IoT 開發人員的 blog](https://devblogs.microsoft.com/iotdev/)。
-
 
 ## <a name="update-the-security-daemon"></a>更新安全性精靈
 

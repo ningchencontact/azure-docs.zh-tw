@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361021"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726288"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
@@ -37,8 +37,10 @@ ms.locfileid: "68361021"
 
 [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 類別可提供建立用戶端所需的資訊。 建立用戶端應用程式時，下列 `Webservice` 屬性很有用：
 
-* `auth_enabled` - 如果啟用驗證，則為 `True`；否則為 `False`。
+* `auth_enabled`-如果已啟用金鑰驗證, `True`則為, `False`否則為。
+* `token_auth_enabled`-如果已啟用權杖驗證, `True`則為, `False`否則為。
 * `scoring_uri` - REST API 的位址。
+
 
 有三種方法可以針對已部署的 Web 服務擷取這項資訊：
 
@@ -67,7 +69,15 @@ ms.locfileid: "68361021"
     print(service.scoring_uri)
     ```
 
-### <a name="authentication-key"></a>驗證金鑰
+### <a name="authentication-for-services"></a>服務的驗證
+
+Azure Machine Learning 提供兩種方式來控制對 web 服務的存取。 
+
+|驗證方法|ACI|AKS|
+|---|---|---|
+|Key|預設為停用| 預設為啟用|
+|權杖| 無法使用| 預設為停用 |
+#### <a name="authentication-with-keys"></a>使用金鑰進行驗證
 
 當您為部署啟用驗證時，您會自動建立驗證金鑰。
 
@@ -85,6 +95,26 @@ print(primary)
 
 > [!IMPORTANT]
 > 如果您需要重新產生金鑰，請使用 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)。
+
+
+#### <a name="authentication-with-tokens"></a>使用權杖進行驗證
+
+當您啟用 web 服務的權杖驗證時, 使用者必須提供 Azure Machine Learning 的 JWT 權杖給 web 服務, 才能存取它。 
+
+* 當您部署到 Azure Kubernetes Service 時, 預設會停用權杖驗證。
+* 當您部署至 Azure 容器實例時, 不支援權杖驗證。
+
+若要控制權杖驗證, 請`token_auth_enabled`在建立或更新部署時使用參數。
+
+如果已啟用權杖驗證, 您可以使用`get_token`方法來抓取持有人權杖和權杖到期時間:
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> 您將需要在權杖的`refresh_by`時間之後要求新的權杖。 
 
 ## <a name="request-data"></a>要求資料
 

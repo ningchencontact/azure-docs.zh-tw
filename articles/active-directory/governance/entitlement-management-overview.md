@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234635"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678147"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>什麼是 Azure AD 權利管理？ (預覽)
 
@@ -90,7 +90,7 @@ Azure AD 權利管理有助於解決這些挑戰。
 
 - 資源
 - 使用者資源所需的角色
-- 有資格要求存取權的內部使用者和外部使用者
+- 有資格要求存取權的外部使用者內部使用者和夥伴組織
 - 核准程式和可以核准或拒絕存取的使用者
 - 使用者存取的持續時間
 
@@ -121,14 +121,14 @@ Azure AD 權利管理有助於解決這些挑戰。
 | 存取套件 | 使用者可以要求之資源的許可權和原則集合。 存取套件一律包含在目錄中。 |
 | 存取要求 | 存取存取封裝的要求。 要求通常會經過工作流程。 |
 | policy | 定義存取生命週期的一組規則, 例如使用者取得存取權的方式、核准者, 以及使用者可以存取的時間長度。 範例原則包括員工存取權和外部存取。 |
-| catalog | 相關資源和存取封裝的容器。 |
+| 目錄 | 相關資源和存取封裝的容器。 |
 | 一般目錄 | 一律可使用的內建目錄。 若要將資源新增至一般目錄, 需要特定許可權。 |
-| resource | 使用者可被授與許可權的資產或服務 (例如群組、應用程式或網站)。 |
+| resource | 使用者可被授與許可權的資產或服務 (例如, Office 群組、安全性群組、應用程式或 SharePoint Online 網站)。 |
 | 資源類型 | 資源類型, 包括群組、應用程式和 SharePoint Online 網站。 |
 | 資源角色 | 與資源相關聯的許可權集合。 |
 | 資原始目錄 | 具有一或多個要共用之資源的目錄。 |
-| 指派的使用者 | 將存取套件指派給使用者或群組。 |
-| enable | 讓使用者可以要求存取套件的程式。 |
+| 指派的使用者 | 將存取套件指派給使用者, 讓使用者擁有該存取套件的所有資源角色。 |
+| 啟用 | 讓使用者可以要求存取套件的程式。 |
 
 ## <a name="license-requirements"></a>授權需求
 

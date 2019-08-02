@@ -1,5 +1,5 @@
 ---
-title: 內部部署上的 Azure AD 密碼保護常見問題集-Azure Active Directory
+title: 內部部署 Azure AD 密碼保護常見問題-Azure Active Directory
 description: 內部部署 Azure AD 密碼保護常見問題集
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702899"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666349"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
+
+本節提供有關 Azure AD 密碼保護的許多常見問題的解答。
 
 ## <a name="general-questions"></a>一般問題
 
@@ -36,17 +38,21 @@ ms.locfileid: "67702899"
 
 不支援。 部署並啟用之後，Azure AD 密碼保護會一視同仁，所有使用者都會受惠於相同的安全性優點。
 
-**問：密碼變更和已設定密碼 （或重設） 之間的差異為何？**
+**問：密碼變更和密碼設定 (或重設) 之間有何差異？**
 
-密碼變更時，使用者選擇新密碼之後證明他們已經知道舊密碼。 比方說，這是在使用者登入 Windows，而且系統會接著提示選擇新密碼時，會發生什麼事。
+密碼變更是指使用者在證明他們知道舊密碼之後, 選擇新密碼的時機。 例如, 當使用者登入 Windows 時, 就會發生這種情況, 然後提示您選擇新密碼。
 
-（有時稱為 「 密碼重設 」） 已設定密碼時，系統管理員帳戶的密碼以取代新的密碼，例如使用 Active Directory 使用者和電腦 管理工具。 這項作業需要高層級的權限 （通常是網域系統管理員），而且通常執行作業的人員沒有舊密碼的知識。 技術服務人員案例通常這樣做，例如當協助忘記密碼的使用者。 您也會看到 設定事件時正在第一次使用密碼建立全新的使用者帳戶的密碼。
+當系統管理員以新密碼取代帳戶的密碼 (例如, 使用 [Active Directory 使用者和電腦] 管理工具) 時, 就會設定密碼 (有時也稱為密碼重設)。 這項作業需要高層級的許可權 (通常是網域系統管理員), 而執行作業的人員通常不知道舊密碼。 服務台案例通常會執行此動作, 例如, 在協助已忘記其密碼的使用者時。 當您第一次使用密碼建立全新的使用者帳戶時, 也會看到密碼設定事件。
 
-密碼驗證原則的行為相同，不論是否已完成密碼變更或設定。 Azure AD 密碼保護 DC 代理程式服務會記錄不同的事件，通知您是否變更密碼，或設定作業已完成。  請參閱[監視和記錄的 Azure AD 密碼保護](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)。
+無論密碼是否已變更或設定完成, 密碼驗證原則的行為都相同。 Azure AD 密碼保護 DC 代理程式服務會記錄不同的事件, 以通知您密碼變更或設定操作是否已完成。  請參閱[Azure AD 密碼保護監視和記錄](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)。
 
-**問：嘗試設定弱式密碼時所記錄的重複的密碼拒絕事件為何要使用 [Active Directory 使用者和電腦管理] 嵌入式管理單元？**
+**問：為什麼在嘗試使用 [Active Directory 使用者和電腦] 管理嵌入式管理單元來設定弱式密碼時, 會記錄重複的密碼拒絕事件？**
 
-Active Directory 使用者和電腦管理 嵌入式管理單元會先嘗試設定新的密碼使用 Kerberos 通訊協定。 在失敗時嵌入式管理單元會讓第二個嘗試設定使用舊版 (SAM RPC) 通訊協定 （使用特定的通訊協定不重要） 的密碼。 如果新的密碼被視為弱式 Azure AD 密碼保護，這會導致兩組記錄的密碼重設拒絕事件。
+[Active Directory 使用者和電腦] 管理嵌入式管理單元會先嘗試使用 Kerberos 通訊協定來設定新密碼。 失敗時, 嵌入式管理單元會第二次嘗試使用舊版 (SAM RPC) 通訊協定來設定密碼 (使用的特定通訊協定並不重要)。 如果 Azure AD 密碼保護將新密碼視為弱式, 這會導致兩組密碼重設拒絕事件被記錄下來。
+
+**問：為什麼會以空的使用者名稱記錄 Azure AD 密碼保護密碼驗證事件？**
+
+Active Directory 支援測試密碼的能力, 以查看是否通過網域目前的密碼複雜性需求, 例如使用[NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api。 以這種方式驗證密碼時, 測試也會包含以密碼篩選器為基礎的產品 (例如 Azure AD 密碼保護) 進行驗證, 但傳遞至指定密碼篩選 dll 的使用者名稱將會是空的。 在此案例中 Azure AD 密碼保護仍然會使用目前作用中的密碼原則來驗證密碼, 並且會發出事件記錄檔訊息來捕捉結果, 不過事件記錄檔訊息會有空白的使用者名稱欄位。
 
 **問：是否支援同時安裝 Azure AD 密碼保護與其他密碼篩選產品？**
 
@@ -86,9 +92,9 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 是的。 Azure AD 密碼保護 Proxy 服務與 Azure AD Connect 之間永遠不會產生直接衝突。
 
-**問：以何種順序應該 DC 代理程式和 proxy 安裝並註冊嗎？**
+**問：DC 代理程式和 proxy 的安裝和註冊順序為何？**
 
-支援的 Proxy 代理程式安裝、 DC 代理程式安裝、 樹系註冊和 Proxy 註冊的任何排序。
+支援 Proxy 代理程式安裝、DC 代理程式安裝、樹系註冊和 Proxy 註冊的任何順序。
 
 **問：是否應該顧慮到部署此功能時，對網域控制站造成的效能衝擊？**
 
@@ -114,15 +120,15 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 資料分割
 
-**問：為什麼 Azure 仍拒絕弱式密碼即使我已設定的原則處於稽核模式？**
+**問：為什麼即使我已將原則設定為處於 Audit 模式, Azure 仍會拒絕弱式密碼？**
 
-稽核模式只有內部部署 Active Directory 環境中執行。 Azure 會隱含地一律是在 「 強制執行 」 模式時，它會評估密碼。
+只有內部部署 Active Directory 環境支援 Audit 模式。 在評估密碼時, Azure 會隱含地保持「強制」模式。
 
 ## <a name="additional-content"></a>其他內容
 
 下列連結並不屬於核心的 Azure AD 密碼保護文件，但可能是適用於此功能的其他資訊來源。
 
-[Azure AD 密碼保護現已正式推出 ！](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
+[Azure AD 密碼保護現已正式推出!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
 [電子郵件網路釣魚防護指南 – 第 15 節：實作 Microsoft Azure AD 密碼保護服務 (也適用於內部部署環境！)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 

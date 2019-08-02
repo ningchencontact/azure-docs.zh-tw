@@ -1,19 +1,20 @@
 ---
 title: Microsoft Azure 備份伺服器 v3 版本資訊
 description: 本文提供 MABS v3 已知問題和因應措施的相關資訊。
-author: JYOTHIRMAISURI
-manager: vvithal
+ms.reviewer: v-jysur
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/22/2018
-ms.author: v-jysur
+ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: e0bcdeeda2f8517b85059817669c19d66c723902
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: a80a5ac64b58d93bb0d4e4b799cb7424805c9baa
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465077"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698364"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure 備份伺服器版本資訊
 本文提供 Microsoft Azure 備份伺服器 (MABS) V3 的已知問題和因應措施。
@@ -60,7 +61,7 @@ ms.locfileid: "68465077"
 1.  [備份](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) 您的 SQL 資料庫，並解除安裝 MABS V2 (解除安裝期間，選擇此選項以保留受保護的資料)。
 2.  升級到 SQL 2017 (Enterprise).，並解除安裝報告，作為升級的一部分。
 3. [安裝](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS)。
-4.  [安裝](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-181) SQL Server Management Studio (SSMS)。
+4.  [安裝](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-182) SQL Server Management Studio (SSMS)。
 5.  使用 [SQL 2017 的 SSRS 設定](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs)中記錄的參數來設定報告。
 6.  [安裝](backup-azure-microsoft-azure-backup.md) MABS V3。
 7. 使用 SSMS 以[還原](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL，並執行 DPM 同步工具，如[此處](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10))所述。

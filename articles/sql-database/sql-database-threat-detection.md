@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 60839fa06d8436d3d2202d1d97735c42c5768e9e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5549d016978e8bf9491c3745e335e3c4c793212c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331466"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566325"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>適用於單一或集區資料庫的 Azure SQL Database 威脅偵測
 
@@ -30,11 +29,11 @@ ms.locfileid: "60331466"
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>使用 Azure 入口網站為資料庫設定威脅偵測
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 上啟動 Azure 入口網站。
-2. 瀏覽至所要保護的 Azure SQL Database 伺服器的組態頁面。 在 [安全性] 設定中，選取 [進階資料安全性]  。
-3. 在 [進階資料安全性]  組態頁面上：
+2. 瀏覽至所要保護的 Azure SQL Database 伺服器的組態頁面。 在 [安全性] 設定中，選取 [進階資料安全性]。
+3. 在 [進階資料安全性] 組態頁面上：
 
    - 在伺服器上啟用進階資料安全性。
-   - 在 [威脅偵測設定]  的 [傳送警示給]  文字方塊中，提供要在偵測到異常資料庫活動時收到安全性警示的電子郵件清單。
+   - 在 [威脅偵測設定] 的 [傳送警示給] 文字方塊中，提供要在偵測到異常資料庫活動時收到安全性警示的電子郵件清單。
   
    ![設定威脅偵測](./media/sql-database-threat-detection/set_up_threat_detection.png)
 

@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e8e0c69c93c992f31c515c2033a9ae57d2ee3e0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485900"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570306"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>使用分區化多租用 Azure SQL 資料庫在 SaaS 應用程式中對新的租用戶進行佈建及編目
 
-本文涵蓋在「多租用戶分區化資料庫」  模型或模式中，對新的租用戶進行佈建和編目。
+本文涵蓋在「多租用戶分區化資料庫」模型或模式中，對新的租用戶進行佈建和編目。
 
 本文有兩個主要部分：
 
@@ -70,12 +69,12 @@ ms.locfileid: "61485900"
 
 ### <a name="elastic-database-client-library"></a>彈性資料庫用戶端程式庫 
 
-在 Wingtip 中，目錄會在 *tenantcatalog* 資料庫中實作。 *tenantcatalog* 是使用[彈性資料庫用戶端程式庫 (EDCL)](sql-database-elastic-database-client-library.md) 的分區管理功能來建立的。 此程式庫可讓應用程式建立、管理及使用資料庫中所儲存的「分區對應」  。 分區對應會使用其分區來對租用戶金鑰進行交互參照，這表示它的分區化資料庫。
+在 Wingtip 中，目錄會在 *tenantcatalog* 資料庫中實作。 *tenantcatalog* 是使用[彈性資料庫用戶端程式庫 (EDCL)](sql-database-elastic-database-client-library.md) 的分區管理功能來建立的。 此程式庫可讓應用程式建立、管理及使用資料庫中所儲存的「分區對應」。 分區對應會使用其分區來對租用戶金鑰進行交互參照，這表示它的分區化資料庫。
 
 在租用戶佈建期間，可從應用程式或 PowerShell 指令碼使用 EDCL 函式來建立分區對應中的項目。 稍後可使用 EDCL 函式來連線到正確的資料庫。 EDCL 會快取連線資訊，以將對目錄資料庫的流量降到最低，並加快連線處理的速度。
 
 > [!IMPORTANT]
-> 請勿  透過直接存取來編輯目錄資料庫中的資料！ 不支援直接更新，因其會導致資料損毀的高風險。 請改為僅使用 EDCL API 編輯對應資料。
+> 請勿透過直接存取來編輯目錄資料庫中的資料！ 不支援直接更新，因其會導致資料損毀的高風險。 請改為僅使用 EDCL API 編輯對應資料。
 
 ## <a name="tenant-provisioning-pattern"></a>租用戶佈建模式
 
@@ -123,7 +122,7 @@ ms.locfileid: "61485900"
 > * 將一批租用戶佈建到多租用戶和單一租用戶資料庫
 > * 在目錄中註冊資料庫和租用戶對應
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定已完成下列必要條件：
 
@@ -135,7 +134,7 @@ ms.locfileid: "61485900"
     - 可在 [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。
     - 如需下載 Wingtip 指令碼以及將該指令碼解除封鎖的步驟，請參閱[一般指導方針](saas-tenancy-wingtip-app-guidance-tips.md)。 
 
-## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>在與其他租用戶「共用」  的資料庫中佈建租用戶
+## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>在與其他租用戶「共用」的資料庫中佈建租用戶
 
 在本節中，您會看到一份由 PowerShell 指令碼用於佈建的主要動作清單。 接著，您可以使用 PowerShell ISE 偵錯工具逐步執行指令碼，以查看程式碼中的動作。
 
@@ -150,7 +149,7 @@ ms.locfileid: "61485900"
 - **將租用戶的名稱新增至目錄延伸模組資料表**：場地名稱會新增至目錄中的租用戶資料表。  這個新增項目說明如何擴充目錄資料庫，以支援其他應用程式特定的資料。
 - **開啟新租用戶的事件頁面**：*Bushwillow Blues* 事件頁面隨即在瀏覽器中開啟。
 
-   ![活動](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![事件](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>偵錯工具步驟
 
@@ -161,7 +160,7 @@ ms.locfileid: "61485900"
    - **$VenueType** = **blues**，其中一個預先定義的場地類型：blues、classicalmusic、dance、jazz、judo、motorracing、multipurpose、opera、rockmusic、soccer (小寫、不含空格)。
    - **$DemoScenario** = **1**，在與其他租用戶共用的資料庫中佈建租用戶。
 
-2. 將游標置於第 38 行上的任一處加入中斷點：*新租用戶 '* ，然後按下**F9**。
+2. 將游標放在第38行的任何位置來新增中斷點, 這一行會顯示:[*新增-租*使用者], 然後按**F9**。
 
    ![中斷點](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -169,13 +168,13 @@ ms.locfileid: "61485900"
 
 4. 在指令碼於中斷點停止執行之後，請按 **F11** 進入程式碼。
 
-   ![debug](media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![偵錯](media/saas-multitenantdb-provision-and-catalog/debug.png)
 
-5. 使用 [偵錯]  功能表選項、**F10** 和 **F11** 追蹤指令碼的執行，可以跳過或進入呼叫的函式。
+5. 使用 [偵錯] 功能表選項、**F10** 和 **F11** 追蹤指令碼的執行，可以跳過或進入呼叫的函式。
 
 如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise) \(英文\)。
 
-## <a name="provision-a-tenant-in-its-own-database"></a>在它「自己」  的資料庫中佈建租用戶
+## <a name="provision-a-tenant-in-its-own-database"></a>在它「自己」的資料庫中佈建租用戶
 
 #### <a name="major-actions-of-provisioning"></a>佈建的主要動作
 
@@ -183,14 +182,14 @@ ms.locfileid: "61485900"
 
 - **計算新的租用戶金鑰**：會使用雜湊函式從租用戶名稱建立租用戶索引鍵。
 - **檢查租用戶金鑰是否已經存在**：會檢查目錄以確保尚未註冊金鑰。
-- **建立新的租用戶資料庫**：資料庫的建立方式為使用 Resource Manager 範本複製 basetenantdb  資料庫。  新的資料庫名稱是以租用戶的名稱作為基礎。
+- **建立新的租用戶資料庫**：資料庫的建立方式為使用 Resource Manager 範本複製 basetenantdb 資料庫。  新的資料庫名稱是以租用戶的名稱作為基礎。
 - **將資料庫新增至目錄**：新租用戶資料庫在目錄中會註冊為分區。
 - **在預設租用戶資料庫中初始化租用戶**：會更新租用戶資料庫來新增新的租用戶資訊。  
-- **在目錄中註冊租用戶**：將新租用戶金鑰與 sequoiasoccer  資料庫之間的對應新增至目錄。
+- **在目錄中註冊租用戶**：將新租用戶金鑰與 sequoiasoccer 資料庫之間的對應新增至目錄。
 - **租用戶名稱會新增至目錄**：場地名稱會新增至目錄中的租用戶延伸模組資料表。
-- **開啟新租用戶的事件頁面**：Sequoia Soccer  事件頁面隨即在瀏覽器中開啟。
+- **開啟新租用戶的事件頁面**：Sequoia Soccer 事件頁面隨即在瀏覽器中開啟。
 
-   ![活動](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
+   ![事件](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
 #### <a name="debugger-steps"></a>偵錯工具步驟
 
@@ -201,7 +200,7 @@ ms.locfileid: "61485900"
    - **$VenueType** = **soccer**，其中一個預先定義的場地類型：blues、classicalmusic、dance、jazz、judo、motorracing、multipurpose、opera、rockmusic、soccer (小寫、不含空格)。
    - **$DemoScenario** = **2**，在它自己的資料庫中佈建租用戶。
 
-2. 將游標置於以第 57 行 (該行顯示︰&&nbsp;$PSScriptRoot\New-TenantAndDatabase `  ) 上的任意位置來新增中斷點，然後按 **F9**。
+2. 將游標置於以第 57 行 (該行顯示︰&&nbsp;$PSScriptRoot\New-TenantAndDatabase `) 上的任意位置來新增中斷點，然後按 **F9**。
 
    ![中斷點](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
@@ -213,7 +212,7 @@ ms.locfileid: "61485900"
 
 此練習會佈建一批 17 個租用戶。 建議您在開始其他 Wingtip Tickets 教學課程之前佈建這一批租用戶，才會有較多資料庫可以使用。
 
-1. 在 PowerShell ISE  中，開啟 ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*，並將 $DemoScenario  參數變更為 4：
+1. 在 PowerShell ISE 中，開啟 ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*，並將 $DemoScenario 參數變更為 4：
    - **$DemoScenario** = **4**，在共用資料庫中佈建一批租用戶。
 
 2. 按 **F5** 並執行指令碼。
@@ -224,7 +223,7 @@ ms.locfileid: "61485900"
 
    ![資料庫清單](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
-儘管 Azure 入口網站會顯示租用戶資料庫，但它不會讓您查看  共用資料庫內的租用戶。 Wingtip 的 [事件中樞]  網頁中以及瀏覽目錄都可看到租用戶的完整清單。
+儘管 Azure 入口網站會顯示租用戶資料庫，但它不會讓您查看共用資料庫內的租用戶。 Wingtip 的 [事件中樞] 網頁中以及瀏覽目錄都可看到租用戶的完整清單。
 
 #### <a name="using-wingtip-tickets-events-hub-page"></a>使用 Wingtip Tickets 事件中樞頁面
 
@@ -237,13 +236,13 @@ ms.locfileid: "61485900"
 - 租用戶名稱會儲存在租用戶資料表中。
 - 資料庫名稱會儲存在分區管理資料表中。
 
-1. 在 SQL Server Management Studio (SSMS)，在連接到租用戶伺服器**catalog-mt\<使用者\>。 database.windows.net**，使用登入 =**開發人員**，和密碼 = **P\@ssword1**
+1. 在 SQL Server Management Studio (SSMS) 中, 連線到位於**目錄\<database.windows.net\>** 的租使用者伺服器, 登入 = **developer**, 密碼 =  **\@P ssword1**
 
     ![SSMS 連線對話方塊](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
 2. 在 [SSMS 物件總管] 中，瀏覽至 *tenantcatalog* 資料庫中的檢視。
 
-3. 以滑鼠右鍵按一下 *TenantsExtended* 檢視並選擇 [選取前 1000 個資料列]  。 請注意租用戶名稱與不同租用戶的資料庫之間的對應。
+3. 以滑鼠右鍵按一下 *TenantsExtended* 檢視並選擇 [選取前 1000 個資料列]。 請注意租用戶名稱與不同租用戶的資料庫之間的對應。
 
     ![SSMS 中的 ExtendedTenants 檢視](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

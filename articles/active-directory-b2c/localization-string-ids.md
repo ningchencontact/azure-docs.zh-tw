@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67846843"
 ---
 # <a name="localization-string-ids"></a>當地語系化字串識別碼
@@ -40,10 +40,10 @@ ms.locfileid: "67846843"
 | **password** | 密碼 |
 | **requiredField_password** | 請輸入您的密碼 |
 | **invalid_password** | 您輸入的密碼未採用預期的格式。 |
-| **forgotpassword_link** | 忘記密碼了嗎? |
-| **createaccount_intro** | 還沒有帳戶嗎？ |
+| **forgotpassword_link** | 忘記密碼？ |
+| **createaccount_intro** | 沒有帳戶嗎? |
 | **createaccount_link** | 立即註冊 |
-| **divider_title** | 或 |
+| **divider_title** | OR |
 | **cancel_message** | 使用者忘記密碼 |
 | **button_signin** | 登入 |
 | **social_intro** | 使用您的社交帳戶登入 |
@@ -86,7 +86,7 @@ ms.locfileid: "67846843"
 | **UserMessageIfInvalidPassword** | 您的密碼不正確。 |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 找不到您的帳戶。 |
 | **UserMessageIfOldPasswordUsed** | 您使用的似乎是舊密碼。 |
-| **DefaultMessage** | 無效的使用者名稱或密碼。 |
+| **DefaultMessage** | 使用者名稱或密碼無效。 |
 | **UserMessageIfUserAccountDisabled** | 您的帳戶已遭鎖定。 請連絡您的支援人員將其解除鎖定，然後再試一次。 |
 | **UserMessageIfUserAccountLocked** | 您的帳戶已暫時鎖定以防未經授權的使用。 請稍後再試。 |
 | **AADRequestsThrottled** | 目前的要求過多。 請稍後再重試。 |
@@ -104,7 +104,7 @@ ms.locfileid: "67846843"
 | **ver_but_send** | 傳送驗證碼 |
 | **alert_yes** | 是 |
 | **error_fieldIncorrect** | 有一或多個欄位填寫不正確。 請檢查您的輸入，然後再試一次。 |
-| **year** | Year |
+| **year** | 年份 |
 | **verifying_blurb** | 正在處理您的資訊，請稍候。 |
 | **button_cancel** | 取消 |
 | **ver_fail_no_retry** | 您已嘗試太多次，但都不正確。 請稍後再試一次。 |
@@ -170,7 +170,7 @@ ms.locfileid: "67846843"
 | **requiredField_code** | 請輸入您收到的驗證碼 |
 | **invalid_code** | 請輸入您收到的 6 位數代碼 |
 | **button_cancel** | 取消 |
-| **local_number_input_placeholder_text** | 電話號碼 |
+| **local_number_input_placeholder_text** | 手機號碼 |
 | **button_retry** | 重試 |
 | **alternative_text** | 我的手機不在身邊 |
 | **intro_phone_p** | 我們為您記錄了下列號碼。 請選擇一組電話號碼來讓我們撥打，從而驗證您的身分。 |

@@ -221,6 +221,8 @@
           items:
             - name: 資源庫應用程式使用者佈建
               href: application-provisioning-config-how-to.md
+            - name: 針對多租用戶應用程式啟用自動使用者佈建
+              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: 設定使用者自動佈建
               href: configure-automatic-user-provisioning-portal.md
             - name: 自訂應用程式屬性

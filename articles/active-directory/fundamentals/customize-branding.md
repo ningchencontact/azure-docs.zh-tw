@@ -2,23 +2,23 @@
 title: 將商標新增至組織的登入頁面 - Azure Active Directory | Microsoft Docs
 description: 以下相關指示說明如何將組織的商標新增至 Azure Active Directory 登入頁面。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3ae329bd031a2a57ea4fc2eec9cde1e532439bb4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204584"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561702"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>將商標新增至組織的 Azure Active Directory 登入頁面
 使用您組織的標誌和自訂色彩配置，在 Azure Active Directory (Azure AD) 登入頁面上展現一致的外觀與風格。 當使用者登入貴組織的 Web 應用程式 (如 Office 365)，且該應用程式使用 Azure AD 做為識別提供者時，即會顯示您的登入頁面。
@@ -29,7 +29,7 @@ ms.locfileid: "67204584"
 ## <a name="customize-your-azure-ad-sign-in-page"></a>自訂 Azure AD 登入頁面
 您可以自訂 Azure AD 登入頁面，該頁面會在使用者登入您組織的租用戶特定應用程式 (例如 [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com)) 時或傳遞網域變數 (例如 [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com)) 時出現。
 
-當您的使用者移至網站，例如 www 自訂商標不會立即出現\.office.com。 使用者必須先登入，您的自訂商標才會出現。
+當您的使用者前往 www\.office.com 之類的網站時, 您的自訂商標不會立即出現。 使用者必須先登入，您的自訂商標才會出現。
 
 > [!NOTE]
 > 所有商標元素均為選擇性使用。 舉例而言，如果您指定的橫幅標誌沒有背景影像，登入頁面會顯示您的標誌和目的地網站 (例如，Office 365) 的預設背景影像。<br><br>此外，登入頁面商標不會沿用至個人 Microsoft 帳戶。 如果使用者或商務來賓使用個人 Microsoft 帳戶登入，其登入頁面將不會出現貴組織的商標。
@@ -37,11 +37,11 @@ ms.locfileid: "67204584"
 ### <a name="to-customize-your-branding"></a>自訂您的商標
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [Azure Active Directory]  ，然後選取 [公司商標]  ，再選取 [設定]  。
+2. 選取 [Azure Active Directory]，然後選取 [公司商標]，再選取 [設定]。
 
     ![Contoso - 公司商標頁面，設定 選項反白顯示](media/customize-branding/company-branding-configure-button.png)
 
-3. 請在 [設定公司商標]  頁面上，提供下列部分或全部資訊。
+3. 請在 [設定公司商標] 頁面上，提供下列部分或全部資訊。
 
     >[!Important]
     >在此頁面新增的所有自訂影像均有其影像大小 (像素) 限制，而且可能有檔案大小 (KB) 限制。 由於有所限制，很可能必須使用相片編輯程式來建立適當大小的影像。
@@ -58,7 +58,7 @@ ms.locfileid: "67204584"
 
         - **橫幅標誌。** 請選取 .png 或 .jpg 格式的標誌，標誌會在使用輸入使用者名稱後出現在登入頁面上，也會出現在 **My Apps** 入口網站頁面上。
             
-            影像不能超過 60 像素的高度或寬度超過 280 像素為單位。 建議使用透明影像，因為背景可能會不符合您標誌的背景。 也建議不要在影像周圍加入邊框間距，否則會讓標誌看起來變小。
+            影像的高度不能大於60圖元或大於280圖元。 建議使用透明影像，因為背景可能會不符合您標誌的背景。 也建議不要在影像周圍加入邊框間距，否則會讓標誌看起來變小。
 
         - **使用者名稱提示。** 輸入使用者忘記使用者名稱時，就會向使用者顯示的提示文字。 此文字必須是 Unicode，不可含有任何連結或程式碼，而且不可超過 64 個字元。 如果來賓是登入您的應用程式，建議不要加入此提示。
 
@@ -70,24 +70,24 @@ ms.locfileid: "67204584"
 
         - **登入頁面背景色彩。** 請指定十六進位色彩 (例如，白色是 #FFFFFF)，此色彩會在低頻寬連線的情況下代替背景影像。 建議使用橫幅標誌的主要顏色或貴組織的代表顏色。
 
-        - **方形標誌影像。** 選取貴組織標誌的 .png (建議) 或 .jpg 格式影像，此影像會在新 Windows 10 Enterprise 裝置的安裝流程中向使用者顯示。 此影像只會用於 Windows 驗證，而且只有在租用戶使用 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) 部署或做為其他 Windows 10 使用體驗的密碼輸入頁面時，才會向此租用戶顯示。 在某些情況下它也可能會顯示同意對話方塊中。
+        - **方形標誌影像。** 選取貴組織標誌的 .png (建議) 或 .jpg 格式影像，此影像會在新 Windows 10 Enterprise 裝置的安裝流程中向使用者顯示。 此影像只會用於 Windows 驗證，而且只有在租用戶使用 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) 部署或做為其他 Windows 10 使用體驗的密碼輸入頁面時，才會向此租用戶顯示。 在某些情況下, 它可能也會出現在同意對話方塊中。
         
             影像不可超過 240x240 像素，且檔案大小必須小於 10 KB。 建議使用透明影像，因為背景可能會不符合您標誌的背景。 也建議不要在影像周圍加入邊框間距，否則會讓標誌看起來變小。
     
         - **方形標誌影像、暗色調佈景主題。** 與上述的方形標誌影像相同。 此標誌影像會取代深色背景下的方形標誌影像，例如，在全新體驗 (OOBE) 期間出現的 Windows 10 Azure AD 連結畫面。  如果您的標誌在白色、深藍色和黑色背景上看起來效果均不錯，則不需要加入此影像。 
         
-        - **顯示保持登入選項。** 您可以選擇讓使用者保持登入 Azure AD，直到明確登出為止。如果您選擇 [否]  ，此選項會隱藏，而且使用者必須在每次關閉並重新開啟瀏覽器時登入。
+        - **顯示保持登入選項。** 您可以選擇讓使用者保持登入 Azure AD，直到明確登出為止。如果您選擇 [否]，此選項會隱藏，而且使用者必須在每次關閉並重新開啟瀏覽器時登入。
         
             >[!Note]
-            >SharePoint Online 和 Office 2010 的某些功能取決於能夠選擇此選項以保持登入的使用者。 如果您將此選項設定為 [否]  ，使用者可能就會在登入時看見額外和非預期的提示。
+            >SharePoint Online 和 Office 2010 的某些功能取決於能夠選擇此選項以保持登入的使用者。 如果您將此選項設定為 [否]，使用者可能就會在登入時看見額外和非預期的提示。
    
 
-3. 您加入自己的商標完成之後，請選取 [儲存]  。
+3. 您加入自己的商標完成之後，請選取 [儲存]。
 
     如果此流程建立的是您第一個自訂商標設定，則會成為租用戶的預設值。 如果您有其他設定，則可以選擇預設設定。
     
     >[!Important]
-    >若要將更多公司商標設定新增給您的租用戶，必須選擇 [Contoso - 公司商標]  頁面上的 [新增語言]  。 這會開啟 [設定公司商標]  頁面，可在此按照上述相同步驟進行。
+    >若要將更多公司商標設定新增給您的租用戶，必須選擇 [Contoso - 公司商標] 頁面上的 [新增語言]。 這會開啟 [設定公司商標] 頁面，可在此按照上述相同步驟進行。
 
 ## <a name="update-your-custom-branding"></a>更新您的自訂商標
 建立自訂商標之後，可以返回並變更任何項目。
@@ -95,11 +95,11 @@ ms.locfileid: "67204584"
 ### <a name="to-edit-your-custom-branding"></a>編輯您的自訂商標
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [Azure Active Directory]  ，然後選取 [公司商標]  ，再選取 [設定]  。
+2. 選取 [Azure Active Directory]，然後選取 [公司商標]，再選取 [設定]。
 
     ![[Contoso - 公司商標] 頁面，會顯示預設設定](media/customize-branding/company-branding-default-config.png)
 
-3. 請在 [設定公司商標]  頁面上，按照本文的[自訂您的 Azure AD 登入頁面](#customize-your-azure-ad-sign-in-page)一節的說明，新增、移除或變更任何資訊。
+3. 請在 [設定公司商標] 頁面上，按照本文的[自訂您的 Azure AD 登入頁面](#customize-your-azure-ad-sign-in-page)一節的說明，新增、移除或變更任何資訊。
 
 4. 選取 [ **儲存**]。
 
@@ -112,15 +112,15 @@ ms.locfileid: "67204584"
 
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [Azure Active Directory]  ，然後選取 [公司商標]  ，再選取 [新增語言]  。
+2. 選取 [Azure Active Directory]，然後選取 [公司商標]，再選取 [新增語言]。
 
     ![[Contoso - 公司商標] 頁面，反白顯示 [新增語言] 選項](media/customize-branding/company-branding-new-language.png)
 
-3. 請在 [設定公司商標]  頁面上，選取您的語言 (例如，法文)，然後按照本文的[自訂您的 Azure AD 登入頁面](#customize-your-azure-ad-sign-in-page)一節的說明，新增經過翻譯的資訊。
+3. 請在 [設定公司商標] 頁面上，選取您的語言 (例如，法文)，然後按照本文的[自訂您的 Azure AD 登入頁面](#customize-your-azure-ad-sign-in-page)一節的說明，新增經過翻譯的資訊。
 
 4. 選取 [ **儲存**]。
 
-    [Contoso - 公司商標]  頁面會更新，以顯示新的法文設定。
+    [Contoso - 公司商標] 頁面會更新，以顯示新的法文設定。
 
     ![[Contoso - 公司商標] 頁面，會顯示預設設定](media/customize-branding/company-branding-french-config.png)
 

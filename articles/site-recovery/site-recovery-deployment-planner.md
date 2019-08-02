@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244335"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620051"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>關於 VMware 至 Azure 的 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery 部署規劃工具使用者指南。
@@ -41,10 +41,9 @@ ms.locfileid: "66244335"
 
 **Azure 基礎結構需求**
 
-* 每部 VM 的儲存體類型 (標準或進階儲存體帳戶) 需求
-* 為了複寫所要設定的標準和進階儲存體帳戶總數
+* 每部 VM 的儲存體類型 (標準或 premium 儲存體) 需求
+* 要為複寫設定的標準和 premium 儲存體帳戶總數 (包括快取儲存體帳戶)
 * 以儲存體指引為基礎的儲存體帳戶命名建議
-* 所有 VM 的儲存體帳戶配置
 * 在訂用帳戶上進行測試容錯移轉或容錯移轉之前所要設定的 Azure 核心數目
 * 每個內部部署 VM 的 Azure VM 建議大小
 
@@ -66,13 +65,13 @@ ms.locfileid: "66244335"
 | | **VMware 至 Azure** |**Hyper-V 至 Azure**|**Azure 至 Azure**|**Hyper-V 至次要網站**|**VMware 至次要網站**
 --|--|--|--|--|--
 支援的案例 |是|是|否|是*|否
-支援的版本 | vCenter 6.7、 6.5、 6.0 或 5.5| Windows Server 2016、Windows Server 2012 R2 | NA |Windows Server 2016、Windows Server 2012 R2|NA
+支援的版本 | vCenter 6.7、6.5、6.0 或5。5| Windows Server 2016、Windows Server 2012 R2 | NA |Windows Server 2016、Windows Server 2012 R2|NA
 支援的設定|vCenter、ESXi| Hyper-V 叢集、Hyper-V 主機|NA|Hyper-V 叢集、Hyper-V 主機|NA|
 每個執行中的 Site Recovery 部署規劃工具執行個體可以分析的伺服器數目 |單一 (屬於一個 vCenter Server 或一個 ESXi 伺服器的 VM 可同時加以分析)|多個 (跨多部主機或主機叢集的 VM 可同時加以分析)| NA |多個 (跨多部主機或主機叢集的 VM 可同時加以分析)| NA
 
 *此工具主要用於 Hyper-V 到 Azure 的災害復原案例。 若為 Hyper-V 到次要站台的災害復原，此工具只能用來了解來源端建議，例如所需的網路頻寬、每個來源 Hyper-V 伺服器上所需的可用儲存體空間，以及初始複寫批次處理數目和批次定義。 請忽略報告中的 Azure 建議和成本。 此外，取得輸送量作業不適用於 Hyper-V 到次要站台的災害復原案例。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 此工具有兩個主要階段：分析和報告產生。 另外還有第三個選項：只計算輸送量。 下表列出起始分析 / 輸送量測量之伺服器的需求。
 
 | 伺服器需求 | 描述|
@@ -105,7 +104,7 @@ ms.locfileid: "66244335"
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>更新至最新版的部署規劃工具
 
-摘要說明最新的更新 Deployment Planner[版本歷程記錄](site-recovery-deployment-planner-history.md)。
+部署規劃工具[版本歷程記錄](site-recovery-deployment-planner-history.md)中會摘要說明最新的更新。
 
 如果您的部署規劃工具是舊版的，請執行下列任一動作：
  * 如果最新版本不包含分析修正程式，並已在您目前的規劃工具版本上進行分析，則會繼續執行分析。
@@ -120,7 +119,7 @@ ms.locfileid: "66244335"
 
 
 ## <a name="version-history"></a>版本歷程記錄
-2\.4 為最新的 Site Recovery Deployment Planner 工具版本。
+最新的 Site Recovery 部署規劃工具工具版本為2.5。
 請參閱 [部署規劃工具版本記錄](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history)頁面，了解每個更新中所新增的修正。
 
 ## <a name="next-steps"></a>後續步驟

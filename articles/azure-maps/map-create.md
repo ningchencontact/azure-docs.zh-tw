@@ -3,18 +3,18 @@ title: 使用 Azure 地圖服務建立地圖 | Microsoft Docs
 description: 如何建立 Javascript 地圖
 author: jingjing-z
 ms.author: jinzh
-ms.date: 10/30/2018
+ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 222fc5e9083c03ff0d4e31927363c5f517cf32a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a4f67290e93d8b296added9023fe9b6947ba02c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108594"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638690"
 ---
 # <a name="create-a-map"></a>建立地圖
 
@@ -53,7 +53,7 @@ ms.locfileid: "62108594"
 
 ## <a name="try-out-the-code"></a>試用程式碼
 
-看一下上述範例程式碼。 您可以在左側的 [JS]  索引標籤上編輯 JavaScript 程式碼，並在右側的 [結果]  索引標籤上看到地圖檢視變更。 您也可以按一下 [在 CodePen 上編輯]  按鈕，並在 CodePen 中編輯程式碼。
+看一下上述範例程式碼。 您可以在左側的 [JS] 索引標籤上編輯 JavaScript 程式碼，並在右側的 [結果] 索引標籤上看到地圖檢視變更。 您也可以按一下 [在 CodePen 上編輯] 按鈕，並在 CodePen 中編輯程式碼。
 
 <a id="relatedReference"></a>
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2acaba4e82f499ce1ca08a0ce17469ccb0a7e541
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827784"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698438"
 ---
-# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>管理 Log Analytics 工作區中使用 Azure Resource Manager 範本
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics 工作區
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-您可以使用[Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)來建立及設定 Azure 監視器中的 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
+您可以使用[Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md), 在 Azure 監視器中建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
 
 * 建立工作區，包括設定定價層 
 * 新增解決方案
@@ -45,14 +45,14 @@ ms.locfileid: "67827784"
 
 | Resource | 資源類型 | API 版本 |
 |:---|:---|:---|
-| 工作區   | workspaces    | 2017-03-15-preview |
-| Search      | savedSearches | 2015-03-20 |
+| 工作區   | 工作區    | 2017-03-15-preview |
+| 搜尋      | savedSearches | 2015-03-20 |
 | 資料來源 | datasources   | 2015-11-01-preview |
-| 方案    | solutions     | 2015-11-01-preview |
+| 方案    | 解決方案     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>建立 Log Analytics 工作區
 
-下列範例會從您的本機電腦使用範本建立工作區。 顯示 JSON 範本，被設定為只需要提供名稱和新的工作區 （例如定價層和保留的其他工作區參數中使用的預設值） 的位置。  
+下列範例會從您的本機電腦使用範本建立工作區。 JSON 範本已設定為只需要新工作區的名稱和位置 (使用其他工作區參數的預設值, 例如定價層和保留期)。  
 
 ### <a name="create-and-deploy-template"></a>建立和部署範本
 
@@ -119,8 +119,8 @@ ms.locfileid: "67827784"
     ```
 
 2. 編輯範本以符合您的需求。 檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
-3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json  。
-4. 您已準備好部署此範本。 您可以使用 PowerShell 或命令列來建立工作區中，命令中指定的工作區名稱和位置。
+3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json。
+4. 您已準備好部署此範本。 您可以使用 PowerShell 或命令列來建立工作區, 並將工作區名稱和位置指定為命令的一部分。
 
    * 對於 PowerShell，從包含範本的資料夾使用下列命令：
    
@@ -186,7 +186,6 @@ ms.locfileid: "67827784"
         "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
-    {
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {

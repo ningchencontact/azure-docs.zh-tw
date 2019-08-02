@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24b7f769be3f4db3c36412e162b5cda40e3ca959
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234115"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568703"
 ---
 # <a name="building-scalable-cloud-databases"></a>建置可調整的雲端資料庫
 
@@ -49,7 +48,7 @@ ms.locfileid: "66234115"
 
 ## <a name="client-capabilities"></a>用戶端功能
 
-使用分區化  來相應放大應用程式，對開發人員和系統管理員而言都是一項挑戰。 用戶端程式庫藉由提供工具讓開發人員和系統管理員管理相應放大的資料庫，簡化了管理工作。 在典型的範例中，有許多稱為「分區」的資料庫要管理。 客戶共置於同一資料庫，而每位客戶 (單一租用戶配置) 一個資料庫。 用戶端程式庫包含下列功能：
+使用分區化 來相應放大應用程式，對開發人員和系統管理員而言都是一項挑戰。 用戶端程式庫藉由提供工具讓開發人員和系統管理員管理相應放大的資料庫，簡化了管理工作。 在典型的範例中，有許多稱為「分區」的資料庫要管理。 客戶共置於同一資料庫，而每位客戶 (單一租用戶配置) 一個資料庫。 用戶端程式庫包含下列功能：
 
 - **分區對應管理**：建立了稱為「分區對應管理員」的特殊資料庫。 分區對應管理可讓應用程式管理其分區的中繼資料。 開發人員可利用此功能將資料庫註冊為分區 (描述個別分區化索引鍵或索引鍵範圍至這些資料庫的對應)，並隨著資料庫的數量和組成發展來維護此中繼資料，以反映容量變更。 若沒有彈性資料庫用戶端程式庫，實作分區化時您必須花費大量時間撰寫管理程式碼。 如需詳細資訊，請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。
 

@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443310"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640098"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
 自動容錯移轉群組是一項 SQL Database 功能, 可讓您管理 SQL Database 伺服器上的一組資料庫, 或受控實例中的所有資料庫到另一個區域的複寫和容錯移轉。 它是現有[主動式異地](sql-database-active-geo-replication.md)複寫功能之上的宣告式抽象概念, 其設計目的是為了簡化大規模異地複寫資料庫的部署和管理。 您可以手動起始容錯移轉，也可以根據使用者定義的原則將其委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 容錯移轉群組可以包含一個或多個資料庫, 通常是由相同的應用程式所使用。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 在容錯移轉群組中，資料庫的主要和次要伺服器都必須位於相同的訂用帳戶。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
 
 > [!NOTE]
-> 在 SQL Database 伺服器上使用單一或集區資料庫時，若您希望在相同或不同區域中有多個次要資料庫，請使用[主動式異地複寫](sql-database-active-geo-replication.md)。
+> 在 SQL Database 伺服器上使用單一或集區資料庫時，若您希望在相同或不同區域中有多個次要資料庫，請使用[主動式異地複寫](sql-database-active-geo-replication.md)。 
 
 當您使用自動容錯移轉群組與自動容錯移轉原則時，影響群組中一或多個資料庫的任何中斷，都會導致自動容錯移轉。 此外，自動容錯移轉群組還提供在容錯移轉期間仍保持不變的讀寫和唯讀接聽程式端點。 無論您使用手動或自動啟動容錯移轉，容錯移轉都會將群組中所有次要資料庫切換到主要資料庫。 資料庫容錯移轉完成後，DNS 記錄會自動更新以將端點重新導向至新的區域。 針對特定的 RPO 和 RTO 資料，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
@@ -256,14 +255,14 @@ ms.locfileid: "68443310"
 
 ## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>啟用受控實例與其 Vnet 之間的異地複寫
 
-當您在兩個不同區域中的主要和次要受控實例之間設定容錯移轉群組時, 每個實例都會使用獨立的 VNet 進行隔離。 若要允許這些 Vnet 之間的複寫流量, 請確定符合下列必要條件:
+當您在兩個不同區域中的主要和次要受控實例之間設定容錯移轉群組時, 每個實例都會使用獨立的虛擬網路進行隔離。 若要允許這些 Vnet 之間的複寫流量, 請確定符合下列必要條件:
 
 1. 這兩個受控實例必須位於不同的 Azure 區域中。
-2. 您的次要受控執行個體必須是空的 (沒有使用者資料庫)。
-3. 主要和次要受控實例必須位於相同的資源群組中。
-4. 受控實例所屬的 Vnet 必須透過[VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)連接。 目前不支援轉移的全域 VNet 對等互連。
-5. 兩個受控實例 Vnet 不能有重迭的 IP 位址。
-6. 您必須設定網路安全性群組 (NSG), 讓埠5022和範圍 11000 ~ 12000 針對來自其他受控實例子網的連線開啟輸入和輸出。 這是為了允許執行個體之間的複寫流量
+1. 這兩個受控實例必須是相同的服務層級, 而且具有相同的儲存體大小。 
+1. 您的次要受控實例必須是空的 (沒有使用者資料庫)。
+1. 受控實例所使用的虛擬網路必須透過[VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)或 Express Route 來連接。 當兩個虛擬網路透過內部部署網路連線時, 請確定沒有防火牆規則封鎖埠5022和11000-11999。 目前不支援轉移的全域 VNet 對等互連。
+1. 兩個受控實例 Vnet 不能有重迭的 IP 位址。
+1. 您必須設定網路安全性群組 (NSG), 讓埠5022和範圍 11000 ~ 12000 針對來自其他受控實例子網的連線開啟輸入和輸出。 這是為了允許執行個體之間的複寫流量
 
    > [!IMPORTANT]
    > 設定錯誤的 NSG 安全性規則會導致資料庫複製作業停滯。
@@ -369,9 +368,9 @@ ms.locfileid: "68443310"
 ## <a name="next-steps"></a>後續步驟
 
 - 如需範例指令碼，請參閱：
-  - [使用作用中異地複寫設定單一資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [使用作用中異地複寫設定集區資料庫並進行容錯移轉](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+  - [在 Azure SQL Database 中, 使用 PowerShell 為單一資料庫設定主動式異地複寫](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [在 Azure SQL Database 中, 使用 PowerShell 為集區資料庫設定主動式異地複寫](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [使用 PowerShell 將 Azure SQL Database 單一資料庫新增至容錯移轉群組](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - 如需商務持續性概觀和案例，請參閱 [商務持續性概觀](sql-database-business-continuity.md)
 - 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
 - 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)。

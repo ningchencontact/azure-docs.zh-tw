@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585071"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567108"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>在 Azure SQL Database 中手動微調查詢效能
 
@@ -38,7 +37,7 @@ ms.locfileid: "60585071"
 
 - **因為「多對話」行為而使效能變差的應用程式**
 
-  多對話應用程式會產生過多對網路延遲敏感的資料存取作業。 您可能需要修改這類應用程式以減少 SQL Database 的資料存取作業數目。 比方說，您可能會使用批次處理臨機操作查詢，或將查詢移至預存程序之類的技術來改善應用程式效能。 如需詳細資訊，請參閱 [批次查詢](#batch-queries)。
+  多對話應用程式會產生過多對網路延遲敏感的資料存取作業。 您可能需要修改這類應用程式以減少 SQL Database 的資料存取作業數目。 例如, 您可以使用像是批次處理臨機操作查詢或將查詢移至預存程式等技術, 來改善應用程式效能。 如需詳細資訊，請參閱 [批次查詢](#batch-queries)。
 
 - **無法由整部單一電腦支援之具有大量工作負載的資料庫**
 

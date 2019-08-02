@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93b8a03a46645683c98b6be3f7af83b3c7ac0e06
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: de7066004c4baa6e3086f2909d9d5150b50d8e41
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708965"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570538"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>如何監視 Azure 上的 SAP HANA (大型執行個體)
 
@@ -32,13 +32,13 @@ Azure 上的 SAP HANA (大型執行個體) 與任何其他 IaaS 部署並無不�
 
 使用 Azure 虛擬機器時，您必須了解上述資源類別是否足夠，或是否已耗盡。 以下提供每個這些不同類別的更多詳細資料：
 
-**CPU 資源耗用量：** SAP 特定定義針對 HANA 工作負載的比率會強制執行，藉此確定應該有足夠的 CPU 資源可用來處理儲存在記憶體中的資料。 不過，可能會有因為遺漏索引或類似的問題，而導致 HANA 耗用許多執行查詢的 CPU 的情況。 這意謂著您不僅應該監視特定 HANA 服務所耗用的 CPU 資源，也應該監視 HANA 大型執行個體單位的 CPU 資源耗用量。
+**CPU 資源耗用量:** 會強制執行針對 HANA 的特定工作負載所定義之 SAP 的比率, 以確保有足夠的 CPU 資源可用來處理儲存在記憶體中的資料。 不過，可能會有因為遺漏索引或類似的問題，而導致 HANA 耗用許多執行查詢的 CPU 的情況。 這意謂著您不僅應該監視特定 HANA 服務所耗用的 CPU 資源，也應該監視 HANA 大型執行個體單位的 CPU 資源耗用量。
 
-**記憶體耗用量：** 請務必從監視在 HANA 內，以及 HANA 外部在單位上。 在 HANA 內，您可以監視資料如何耗用 HANA 已配置的記憶體，以便保持在 SAP 所要求的大小指導方針限制內。 您也可以監視「大型執行個體」層級的記憶體耗用量，以確保所安裝的額外非 HANA 軟體不會耗用太多記憶體而與 HANA 爭用記憶體。
+**記憶體耗用量:** 請務必從 HANA, 以及在該單位的 HANA 外部進行監視。 在 HANA 內，您可以監視資料如何耗用 HANA 已配置的記憶體，以便保持在 SAP 所要求的大小指導方針限制內。 您也可以監視「大型執行個體」層級的記憶體耗用量，以確保所安裝的額外非 HANA 軟體不會耗用太多記憶體而與 HANA 爭用記憶體。
 
-**網路頻寬：** 中的資料移動到 Azure VNet 中，因此監視 VNet 來找出如何關閉您正在 Azure 閘道 SKU，您所選取的限制內的所有 Azure Vm 所接收的資料很有幫助的頻寬受限於 Azure VNet 閘道。 在「HANA 大型執行個體」單位上，監視連入和連出網路流量，並隨著時間記錄所處理的磁碟區，是有意義的。
+**網路頻寬:** Azure VNet 閘道在移入 Azure VNet 的資料頻寬中受到限制, 因此您可以監視 VNet 內所有 Azure Vm 所接收的資料, 以找出您對所選 Azure 閘道 SKU 的限制。 在「HANA 大型執行個體」單位上，監視連入和連出網路流量，並隨著時間記錄所處理的磁碟區，是有意義的。
 
-**磁碟空間：** 磁碟空間耗用量通常會隨著時間增加。 最常見的原因包括：資料量增加、執行交易記錄備份、儲存追蹤檔案，以及執行儲存體快照集。 因此，監視磁碟空間使用量並管理與「HANA 大型執行個體」單位關聯的磁碟空間相當重要。
+**磁碟空間：** 磁碟空間耗用量通常會隨著時間而增加。 最常見的原因包括：資料量增加、執行交易記錄備份、儲存追蹤檔案，以及執行儲存體快照集。 因此，監視磁碟空間使用量並管理與「HANA 大型執行個體」單位關聯的磁碟空間相當重要。
 
 如果是**類型 II SKU** 的 HANA 大型執行個體，伺服器會隨附預先載入的系統診斷工具。 您可以利用這些診斷工具執行系統健康情況檢查。 執行下列命令可在 /var/log/health_check 產生健康情況檢查記錄檔。
 ```
@@ -51,4 +51,4 @@ tar  -czvf health_check_logs.tar.gz /var/log/health_check
 
 **後續步驟**
 
-- 請參閱[如何監視 Azure 上的 SAP HANA (大型執行個體)](troubleshooting-monitoring.md)。
+- 請參閱[如何監視 Azure 上的 SAP HANA (大型執行個體)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)。

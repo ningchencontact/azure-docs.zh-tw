@@ -62,6 +62,8 @@
               href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
         - name: Apache Spark 作業失敗 - NoClassDefFoundError
           href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+        - name: Apache Spark 作業失敗 - InvalidClassException
+          href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
         - name: 緩慢 Apache Spark 作業 - listStatus
           href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
         - name: 緩慢 Apache Spark 作業 - 儲存體容器

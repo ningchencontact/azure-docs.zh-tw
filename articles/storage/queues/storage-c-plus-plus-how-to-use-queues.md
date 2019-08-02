@@ -1,21 +1,19 @@
 ---
 title: 如何使用佇列儲存體 (C++)-Azure 儲存體
-description: 了解如何在 Azure 中使用佇列儲存體服務。 範例是以 C++ 撰寫的。
-services: storage
+description: 瞭解如何在 Azure 中使用佇列儲存體服務。 範例是以 C++ 撰寫的。
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: cpp
-ms.topic: article
-ms.date: 05/11/2017
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/11/2017
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 440033233bbd60421cc3245a04544cd04caec6f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: e268e30e8f8c512dd6efb5a50da45f173e526b62
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153113"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721645"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>如何使用 C++ 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,7 +21,7 @@ ms.locfileid: "65153113"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>總覽
-本指南將示範如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 所涵蓋的案例包括「插入」  、「查看」  、「取得」  和「刪除」  佇列訊息，以及「建立和刪除佇列」  。
+本指南將示範如何使用 Azure 佇列儲存體服務執行一般案例。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
 
 > [!NOTE]
 > 本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。 建議的版本是 Storage Client Library 2.2.0，可透過 [NuGet](https://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp/) 取得。
@@ -42,7 +40,7 @@ ms.locfileid: "65153113"
 若要安裝 Azure Storage Client Library for C++，您可以使用下列方法：
 
 * **Linux：** 遵循 [Azure Storage Client Library for C++ 讀我檔案](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 頁面中提供的指示進行。
-* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]  。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
+* **Windows：** 在 Visual Studio 中，按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。 在 [NuGet 套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 中輸入下列命令，然後按下 **Enter**。
 
 ```powershell
 Install-Package wastorage
@@ -71,7 +69,7 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-若要啟動 Azure 儲存體模擬器，選取 [開始]  按鈕或按下 [Windows]  鍵。 開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]  。
+若要啟動 Azure 儲存體模擬器，選取 [開始] 按鈕或按下 [Windows] 鍵。 開始輸入 **Azure 儲存體模擬器**，然後從應用程式清單選取 [Microsoft Azure 儲存體模擬器]。
 
 下列範例假設您已經使用這兩個方法之一來取得儲存體連接字串。
 
