@@ -55,7 +55,7 @@
 - name: 參考
   items:
     - name: 程式碼範例
-      href: 'https://azure.microsoft.com/resources/samples/?service=data-catalog'
+      href: data-catalog-samples.md
     - name: REST
       href: /rest/api/datacatalog/
     - name: 搜尋語法參考
