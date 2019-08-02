@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 904893d4881de6be2c9055fefa9a8267cb045afd
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849415"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592120"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase 或 B2C_1A_TrustFrameworkExtensionPolicy：
 
 使用者旅程圖定義使用者經歷的商務邏輯。 每個使用者旅程圖都是一組協調流程步驟，依照驗證和資訊集合的順序，執行一系列動作。
 
-[starter pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies)中的 **SocialAndLocalAccounts** 原則檔包含 SignUpOrSignIn、ProfileEdit、PasswordReset 使用者旅程圖。 您可以為其他案例新增更多使用者旅程, 例如變更電子郵件地址或連結和取消連結社交帳戶。
+[starter pack](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack)中的 **SocialAndLocalAccounts** 原則檔包含 SignUpOrSignIn、ProfileEdit、PasswordReset 使用者旅程圖。 您可以為其他案例新增更多使用者旅程, 例如變更電子郵件地址或連結和取消連結社交帳戶。
 
 協調流程步驟可呼叫[技術設定檔](technicalprofiles.md)。 技術設定檔提供一個架構，其中包含與不同類型的對象進行通訊的內建機制。 例如，技術設定檔可以執行以下動作：
 

@@ -10,22 +10,21 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c1f93bb7cfe1e088aa88d9ff194c8fbce9ea3c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61486782"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570223"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>影片索引與註解，適用主題為使用 Azure SQL Database 的多租用戶 SaaS 應用程式之影片
 
 就主題為 SaaS 租用模型或模式的影片，本文已將其 81 分鐘的片長編製成數個時間點的索引，並附上註解。 本文可讓您向後或向前跳到影片中感興趣的部分。 影片說明 Azure SQL Database 上多租用戶資料庫應用程式的主要設計選項。 該影片包括示範、管理程式碼的逐步解說，也會不時詳談書面文件中不曾有過的經驗。
 
 影片詳述以下書面文件中的資訊： 
-- *概念文件：* 多租用戶 SaaS 資料庫租用模式[saas-concept-design-patterns-563e]
-- *教學課程：* [Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
+- *概念文件：* [多租使用者 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]
+- *教學課程：* [Wingtip 票證 SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
 
 影片與文章說明在雲端的 Azure SQL Database 上建立多租用戶應用程式的許多階段。 Azure SQL Database 的特殊功能可更輕鬆地開發和實作多租用戶應用程式，同時易於管理且兼顧效能。
 
@@ -292,16 +291,16 @@ ms.locfileid: "61486782"
 #### <a name="38-resources-for-more-information-12035"></a>38.可取得詳細資訊的資源，1:20:35
 [![可取得詳細資訊的資源][image-wtip-min12042-resources-more-info]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4835)
 
-- [部落格文章，2017 年 5 月 22 日][resource-blog-saas-patterns-app-dev-sql-db-768h]
+- [2017的 Blog 文章, 5 月22日][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *概念文件：* 多租用戶 SaaS 資料庫租用模式[saas-concept-design-patterns-563e]
+- *概念文件：* [多租使用者 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]
 
-- *教學課程：* [Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
+- *教學課程：* [Wingtip 票證 SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
 
 - Wingtip 票證 SaaS 租用戶應用程式的 GitHub 存放庫：
-    - [GitHub 存放庫：獨立應用程式模型][github-wingtip-standaloneapp]。
-    - [GitHub 存放庫：每一租用戶一個資料庫模型][github-wingtip-dbpertenant]。
-    - [GitHub 存放庫：多租用戶資料庫模型][github-wingtip-multitenantdb]。
+    - [適用于-獨立應用程式模型的 GitHub][github-wingtip-standaloneapp]存放庫。
+    - GitHub 存放庫:[每一租使用者一個資料庫模型][github-wingtip-dbpertenant]。
+    - GitHub 存放庫:[多租使用者資料庫模型][github-wingtip-multitenantdb]。
 
 
 
@@ -309,7 +308,7 @@ ms.locfileid: "61486782"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [第一堂教學課程文章][saas-how-welcome-wingtip-app-679t]
+- [第一個教學課程文章][saas-how-welcome-wingtip-app-679t]
 
 
 

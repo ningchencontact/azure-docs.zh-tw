@@ -1,7 +1,7 @@
 ---
 title: 視覺化介面
 titleSuffix: Azure Machine Learning service
-description: 深入了解條款、 概念和 Azure Machine Learning 服務的視覺化介面 （預覽） 所組成的工作流程。
+description: 瞭解組成 Azure Machine Learning 服務的視覺介面 (預覽) 的術語、概念和工作流程。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,72 +9,71 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077367"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677976"
 ---
-# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務的視覺化介面？ 
+# <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的視覺化介面是什麼？ 
 
-Azure Machine Learning 服務的視覺化介面 （預覽） 可讓您準備資料、 定型、 測試、 部署、 管理及追蹤機器學習服務模型，而不需要撰寫程式碼。
+Azure Machine Learning 服務的視覺化介面 (預覽) 可讓您準備資料、定型、測試、部署、管理和追蹤機器學習模型, 而不需要撰寫程式碼。
 
-不需要任何程式設計，以視覺化方式連接[資料集](#dataset)並[模組](#module)來建構您的模型。
+不需要任何程式設計, 您會以視覺化方式連接[資料集](#dataset)和[模組](#module)來建立模型。
 
-視覺化介面會使用您的 Azure Machine Learning 服務[工作區](concept-workspace.md)來：
+視覺化介面會使用您的 Azure Machine Learning 服務[工作區](concept-workspace.md)來執行下列動作:
 
-+ 寫入的成品[實驗](#experiment)執行到的工作區。
-+ 存取權[資料集](#dataset)。
-+ 使用[計算資源](#compute)將工作區中執行實驗。 
++ 將[實驗](#experiment)執行的構件寫入工作區。
++ 存取[資料集](#dataset)。
++ 使用工作區中的[計算資源](#compute)來執行實驗。 
 + 註冊[模型](concept-azure-machine-learning-architecture.md#models)。
-+ [部署](#deployment)模型做為 web 服務上的計算的工作區中的資源。
++ 在工作區中的計算資源上, 將模型[部署](#deployment)為 web 服務。
 
-![視覺化介面的概觀](media/ui-concept-visual-interface/overview.png)
+![視覺化介面的總覽](media/ui-concept-visual-interface/overview.png)
 
 ## <a name="workflow"></a>工作流程
 
-視覺化介面，可讓您快速建置、 測試及模型，以反覆執行互動式的視覺化畫布。 
+視覺化介面提供互動式的視覺化畫布, 可讓您快速建立、測試及逐一查看模型。 
 
-+ 您拖放[模組](#module)拖曳至畫布。
-+ 模組連接在一起組成[實驗](#experiment)。
-+ 執行實驗使用的機器學習服務工作區的計算資源。
-+ 逐一查看模型設計，編輯實驗，然後再次執行它。
-+ 當您準備好時，轉換您**訓練實驗**要**預測性實驗**。
-+ [部署](#deployment)預測性實驗的 web 服務，讓其他人可以存取您的模型。
++ 將[模組](#module)拖放到畫布上。
++ 將模組連接在一起以形成[實驗](#experiment)。
++ 使用 Machine Learning 服務工作區的計算資源來執行實驗。
++ 藉由編輯實驗並再次執行, 逐一查看您的模型設計。
++ 當您準備好時, 請將您的**訓練實驗**轉換成**預測實驗**。
++ 將預測性實驗[部署](#deployment)為 web 服務, 讓其他人可以存取您的模型。
 
 ## <a name="experiment"></a>實驗
 
-從頭建立實驗，或使用現有的範例實驗做為範本。  每次執行實驗，成品會儲存在您的工作區。
+從頭開始建立實驗, 或使用現有的範例實驗做為範本。  每次執行實驗時, 成品都會儲存在您的工作區中。
 
-實驗是由資料集和您連接在一起，以建構模型中的分析模組所組成。 明確地說，有效的實驗有三個特性：
+實驗包含資料集和分析模組, 您可以將它們連接在一起, 以建立模型。 明確地說，有效的實驗有三個特性：
 
-* 資料集可能僅能連線至模組。
-* 模組可以連接到資料集或其他模組。
-* 所有模組的輸入連接埠必須有一些連接到資料流程。
-* 所有必要必須設定每個模組的參數。
+* 資料集可能只會連接到模組。
+* 模組可能會連接到資料集或其他模組。
+* 模組的所有輸入埠都必須有資料流程的一些連接。
+* 必須設定每個模組的所有必要參數。
 
-如需簡易實驗的範例，請參閱[快速入門：準備及視覺化資料，而不需要在 Azure Machine Learning 中撰寫程式碼](ui-quickstart-run-experiment.md)。
 
-預測性分析解決方案的更完整逐步解說，請參閱[教學課程：預測汽車的價格，透過視覺化介面](ui-tutorial-automobile-price-train-score.md)。
+若要瞭解如何開始使用視覺化介面, 請參閱[教學課程:使用視覺化介面](ui-tutorial-automobile-price-train-score.md)預測汽車價格。
 
-## <a name="dataset"></a>Dataset
+## <a name="dataset"></a>資料集
 
-資料集是已上傳至視覺化介面，以在模型化程序中使用的資料。 幾個範例資料集的隨附為您實驗，而且您可以上傳多個資料集，您需要的時候。
+「資料集」 (dataset) 是已上傳至視覺化介面以在模型化程式中使用的資料。 其中包含一些範例資料集供您進行實驗, 而且您可以視需要上傳更多資料集。
 
 ## <a name="module"></a>模組
 
-模組是指您在資料上可執行的演算法。 視覺化介面的範圍是從資料輸入函數到訓練、 評分和驗證程序的模組數目。
+模組是指您在資料上可執行的演算法。 視覺化介面具有許多模組, 範圍從資料輸入功能到定型、評分和驗證程式。
 
-模組可能有一組參數可用來設定模組的內部演算法。 當您選取畫布上的模組時，模組的參數會顯示在畫布右邊的 [屬性] 窗格中。 您可以在此窗格中修改參數來調整模型。
+模組可能有一組參數可用來設定模組的內部演算法。 當您在畫布上選取模組時, 模組的參數會顯示在畫布右邊的 [屬性] 窗格中。 您可以在此窗格中修改參數來調整模型。
 
 ![模組屬性](media/ui-concept-visual-interface/properties.png)
 
-某些說明瀏覽可用的機器學習演算法的程式庫，請參閱[演算法和模組參考概觀](../algorithm-module-reference/module-reference.md)
+如需流覽可用機器學習服務演算法程式庫的協助, 請參閱[演算法 & 模組參考總覽](../algorithm-module-reference/module-reference.md)
 
-## <a name="compute"></a> 計算資源
+## <a name="compute"></a>計算資源
 
-使用計算執行實驗或主應用程式已部署的模型作為 web 服務工作區的資源。 支援的計算目標包括：
+使用工作區中的計算資源來執行實驗, 或將部署的模型裝載為 web 服務。 支援的計算目標包括：
 
 
 | 計算目標 | 訓練 | 部署 |
@@ -82,22 +81,22 @@ Azure Machine Learning 服務的視覺化介面 （預覽） 可讓您準備資�
 | Azure Machine Learning Compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-計算目標會附加至您的 Machine Learning[工作區](concept-workspace.md)。 您管理您的工作區中的計算目標[Azure 入口網站](https://portal.azure.com)。
+計算目標會附加至您的 Machine Learning[工作區](concept-workspace.md)。 您會在[Azure 入口網站](https://portal.azure.com)的工作區中管理計算目標。
 
 ## <a name="deployment"></a>部署
 
-您的預測性分析模型準備就緒後，您將它部署為 web 服務，直接從視覺化介面。
+預測性分析模型準備就緒之後, 您就可以直接從視覺化介面將它部署為 web 服務。
 
-Web 服務提供應用程式與您的計分模型之間的介面。 外部應用程式可以與即時計分模型通訊。 Web 服務呼叫會傳回外部應用程式的預測結果。 若要進行 Web 服務呼叫，您可以傳遞在部署 Web 服務時所建立的 API 金鑰。 Web 服務根據其餘部分，web 程式設計專案是受歡迎的架構的選擇。
+Web 服務會在應用程式和評分模型之間提供介面。 外部應用程式可以即時與計分模型通訊。 呼叫 web 服務會將預測結果傳回外部應用程式。 若要進行 Web 服務呼叫，您可以傳遞在部署 Web 服務時所建立的 API 金鑰。 Web 服務是以 REST 為基礎, 這是一種熱門的 web 程式設計專案架構選擇。
 
-若要了解如何部署您的模型，請參閱[教學課程：部署機器學習服務模型透過視覺化介面](ui-tutorial-automobile-price-deploy.md)。
+若要瞭解如何部署您的模型, [請參閱教學課程:使用視覺化介面](ui-tutorial-automobile-price-deploy.md)部署機器學習模型。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解基本概念的預測性分析和機器學習服務與[快速入門：準備及視覺化資料，而不需要在 Azure Machine Learning 中撰寫程式碼](ui-quickstart-run-experiment.md)。
-* 使用其中一個範例，並修改套件為您的需求：
-    * [範例 1-迴歸：預測價格](ui-sample-regression-predict-automobile-price-basic.md)
-    * [範例 2-迴歸：預測價格，並比較演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-    * [範例 3-分類：預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
-    * [範例 4-分類：預測信用風險 （成本機密）](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-    * [範例 5-分類：預測客戶流失、 appetency，和向上銷售](ui-sample-classification-predict-churn.md)
+* 使用[教學課程來瞭解預測性分析和機器學習的基本概念:透過視覺化介面預測汽車價格](ui-tutorial-automobile-price-train-score.md)
+* 使用其中一個範例, 並進行修改以符合您的需求:
+    * [範例 1-回歸:預測價格](ui-sample-regression-predict-automobile-price-basic.md)
+    * [範例 2-回歸:預測價格和比較演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [範例 3-分類:預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
+    * [範例 4-分類:預測信用風險 (區分成本)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [範例 5-分類:預測流失、appetency 和向上銷售](ui-sample-classification-predict-churn.md)

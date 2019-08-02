@@ -1,19 +1,18 @@
 ---
 title: 適用於 Azure 檔案的共用快照集概觀 | Microsoft Docs
 description: Azure 共用快照集是在某個時間點拍攝的 Azure 檔案共用唯讀版本，是備份共用的一個方法。
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235809"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699360"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 檔案的共用快照集概觀 
 Azure 檔案提供為檔案共用拍攝共用快照集的功能。 共用快照集能擷取該時間點的共用狀態。 在本文中，我們說明共用快照集提供哪些功能，以及如何在您的自訂使用案例中運用這些功能。

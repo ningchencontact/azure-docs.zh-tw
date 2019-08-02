@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925418"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640827"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>網路安全性群組流量記錄簡介
 
@@ -77,8 +77,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 當起始流量時，會記錄流量狀態 *B*。 流量狀態 *C* 與流量狀態 *E* 是分別標記繼續傳送流量與流量終止的狀態。 *C* 與 *E* 狀態包含流量頻寬資訊。
 
-針對繼續 *C* 與結束 *E* 流量狀態，位元組與封包計數是從上一個流量 Tuple 記錄開始時的彙總計數。 參考上一個範例對話，已傳輸的封包總數是 1021+52+8005+47 = 9125。 已傳輸的位元組總數是 588096+29952+4610880+27072 = 5256000。
-
 **範例**：來自 185.170.185.105:35370 與 10.2.0.4:23 間之 TCP 對話的流量 Tuple：
 
 "1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
@@ -93,7 +91,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **流量記錄成本**：NSG 流量記錄是以產生的記錄量來計費。 高流量可能會產生大量流量記錄和相關費用。 NSG 流量記錄價格不包括儲存體的基礎結構費用。 透過 NSG 流量記錄使用保留原則功能可能會產生大量的儲存體作業和相關成本。 如果您不需要保留原則功能，建議您將此值設為 0。 如需詳細資訊，請參閱[網路監看員價格](https://azure.microsoft.com/pricing/details/network-watcher/)和 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 
-**輸入記錄來自網際網路的 Ip，而不需要公用 Ip 的 vm 的流程**:Vm 未透過與作為執行的執行個體層級公用 IP，NIC 相關聯的公用 IP 位址指派的公用 IP 位址或屬於基本負載平衡器後端集區，使用[預設 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat)和已指派的 IP 位址Azure，以進行輸出連線。 如此一來，您可能會看到流程的流程記錄項目從網際網路 IP 位址，如果流程的目的指派之 SNAT 連接埠的範圍中的連接埠。 Azure 不會讓這些流量到 VM，並同時嘗試會記錄，並依設計會出現在 網路監看員的 NSG 流量記錄。 我們建議您不想要的輸入的網際網路流量與 NSG 會明確遭到封鎖。
+**從網際網路 ip 記錄到沒有公用 ip 的 vm 的輸入流量**:未透過與 NIC 相關聯的公用 IP 位址來指派公用 ip 位址的 Vm 作為實例層級的公用 IP, 或屬於基本負載平衡器後端集區的一部分, 請使用[預設 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat)並具有 Azure 指派的 IP 位址, 以協助輸出連線能力。 因此, 如果流程是以指派給 SNAT 的埠範圍內的埠為目的地, 您可能會看到來自網際網路 IP 位址之流量的流量記錄專案。 雖然 Azure 不允許這些流量進入 VM, 但會記錄嘗試, 並依設計出現在網路監看員的 NSG 流量記錄中。 我們建議使用 NSG 明確封鎖不想要的輸入網際網路流量。
 
 ## <a name="sample-log-records"></a>範例記錄的記錄
 
@@ -101,7 +99,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 
 > [!NOTE]
-> \*flowTuples  屬性中的值是逗號分隔清單。
+> \*flowTuples 屬性中的值是逗號分隔清單。
  
 ### <a name="version-1-nsg-flow-log-format-sample"></a>第 1 版 NSG 流量記錄格式範例
 ```json
@@ -288,5 +286,5 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 - 若要了解如何啟用流量記錄，請參閱[啟用 NSG 流量記錄](network-watcher-nsg-flow-logging-portal.md)。
 - 若要了解如何讀取流量記錄，請參閱[讀取 NSG 流量記錄](network-watcher-read-nsg-flow-logs.md)。
-- 若要深入了解 NSG 記錄，請參閱[Azure 監視器記錄的網路安全性群組 (Nsg)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+- 若要深入瞭解 NSG 記錄, 請參閱[網路安全性群組的 Azure 監視器記錄 (nsg)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 - 若要判斷是否允許或拒絕流量進出 VM，請參閱[診斷 VM 網路流量篩選問題](diagnose-vm-network-traffic-filtering-problem.md)

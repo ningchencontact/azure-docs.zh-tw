@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c872d5151ac0b7bb650e2de68b9e631e8254ba94
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827902"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619034"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中的稽核活動報告 
 
@@ -41,27 +41,27 @@ ms.locfileid: "67827902"
  
 ## <a name="who-can-access-the-data"></a>誰可以存取資料？
 
-* 中的使用者**安全性系統管理員**，**安全性讀取者**，**報告讀取器**或是**全域管理員**角色
+* **安全性系統管理員**、**安全性讀取**者、**報告讀取**者或**全域管理員**角色中的使用者
 * 此外，所有使用者 (非系統管理員) 都可看到自己的稽核活動
 
 ## <a name="audit-logs"></a>稽核記錄
 
-Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取稽核報告，請選取 [Azure Active Directory]  中 [活動]  區段上的 [稽核記錄]  。 請注意，稽核記錄可能會延遲最多一小時，所以稽核活動資料可能會在您完成該工作的一個小時後，才會出現在入口網站中。
+Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取稽核報告，請選取 [Azure Active Directory] 中 [活動] 區段上的 [稽核記錄]。 請注意，稽核記錄可能會延遲最多一小時，所以稽核活動資料可能會在您完成該工作的一個小時後，才會出現在入口網站中。
 
-![稽核記錄](./media/concept-audit-logs/61.png "稽核記錄")
+
 
 稽核記錄的預設清單檢視顯示︰
 
 - 發生時間與日期
-- 記錄發生的服務
-- 類別和活動的名稱 (*什麼*) 
-- 活動 （成功或失敗） 的狀態
+- 記錄發生次數的服務
+- 活動的類別和名稱 (*what*) 
+- 活動的狀態 (成功或失敗)
 - 目標
 - 活動的啟動者/執行者 (對象)
 
 ![稽核記錄](./media/concept-audit-logs/listview.png "稽核記錄")
 
-您可以按一下工具列中的 [資料行]  來自訂清單檢視。
+您可以按一下工具列中的 [資料行] 來自訂清單檢視。
 
 ![稽核記錄](./media/concept-audit-logs/columns.png "稽核記錄")
 
@@ -83,12 +83,12 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 - activities
 - 狀態
 - 目標
-- 啟動者 (執行者)
+- 初始者 (執行者)
 - 日期範圍
 
 ![稽核記錄](./media/concept-audit-logs/filter.png "稽核記錄")
 
-**服務**篩選器可讓您選取從下拉式清單中的下列服務：
+**服務**篩選準則可讓您從下列服務的下拉式清單中選取:
 
 - 全部
 - 存取權檢閱
@@ -99,14 +99,14 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 - 條件式存取
 - 核心目錄
 - 權利管理
-- 身分識別保護
+- Identity Protection
 - 受邀的使用者
 - PIM
 - 自助式群組管理
-- 自助服務 Passord 管理
-- 使用條款
+- 自助式密碼管理
+- 使用規定
 
-**分類**篩選條件可讓您選取其中一個下列的篩選器：
+[**類別目錄**] 篩選器可讓您選取下列其中一個篩選準則:
 
 - 全部
 - AdministrativeUnit
@@ -125,21 +125,21 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 - RoleManagement
 - UserManagement
 
-**活動**篩選根據類別和活動資源類型的選擇。 您可以選取您想要查看的特定活動或選擇全部。 
+**活動**篩選準則是根據您所選取的 [類別] 和 [活動] 資源類型而定。 您可以選取您想要查看的特定活動或選擇全部。 
 
-您可以使用圖形 API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta 來取得所有稽核活動的清單 (其中，$tenantdomain 是網域名稱)，或請參閱[稽核報告事件](reference-audit-activities.md)一文。
+您可以使用圖形 API 來取得所有 Audit 活動的清單:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
-**狀態**篩選器可讓您篩選稽核作業的狀態為基礎。 狀態可以是下列其中一項：
+**狀態**篩選準則可讓您根據 audit 作業的狀態進行篩選。 狀態可以是下列其中一項:
 
 - 全部
 - 成功
 - 失敗
 
-**目標**篩選器可讓您依名稱或使用者主體名稱 (UPN) 搜尋特定的目標。 UPN 與目標名稱會區分大小寫。 
+**目標**篩選準則可讓您依名稱或使用者主體名稱 (UPN) 來搜尋特定的目標。 目標名稱和 UPN 會區分大小寫。 
 
-**由**篩選條件可讓您定義執行者的名稱或通用主要名稱 (UPN)。 UPN 與名稱會區分大小寫。
+[**起始者**] 篩選器可讓您定義動作專案的名稱或通用主要名稱 (UPN)。 名稱和 UPN 會區分大小寫。
 
-**日期範圍**篩選條件可讓您定義傳回資料的時間範圍。  
+[**日期範圍**] 篩選準則可讓您定義所傳回資料的時間範圍。  
 可能的值包括：
 
 - 1 個月
@@ -149,7 +149,7 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 
 當您選取自訂時間範圍時，可以設定開始時間和結束時間。
 
-您也可以選擇下載已篩選的資料，最多 250,000 記錄，方法是選取**下載** 按鈕。 您可以選擇下載 CSV 或 JSON 格式記錄。 您可以下載的記錄數目會受限於 [Azure Active Directory 報告保留原則](reference-reports-data-retention.md)。
+您也可以選擇下載篩選的資料, 最多可達250000筆記錄, 方法是選取 [**下載**] 按鈕。 您可以下載 CSV 或 JSON 格式的記錄。 您可以下載的記錄數目會受限於 [Azure Active Directory 報告保留原則](reference-reports-data-retention.md)。
 
 ![稽核記錄](./media/concept-audit-logs/download.png "稽核記錄")
 
@@ -180,11 +180,11 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 
 - 指派給群組或使用者的授權為何？
 
-如果您只想檢閱與使用者相關的稽核資料，您可以找到篩選過的檢視之下**稽核記錄檔**中**活動**一節**使用者** 索引標籤。此進入點**UserManagement**做為預先選取的類別目錄。
+如果您只想要檢查與使用者相關的資料, 您可以在 [**使用者**] 索引標籤的 [**活動**] 區段中, 找到 [ **Audit logs** ] 底下的篩選視圖。此進入點已**usermanagement program.cs**為預先選取的類別目錄。
 
 ![稽核記錄](./media/concept-audit-logs/users.png "稽核記錄")
 
-如果您只想檢閱與群組相關的稽核資料，您可以找到篩選過的檢視之下**稽核記錄檔**中**活動**一節**群組** 索引標籤。此進入點**GroupManagement**做為預先選取的類別目錄。
+如果您只想要查看與群組相關的資料, 您可以在 [**群組**] 索引標籤的 [**活動**] 區段中, 找到 [ **Audit logs** ] 底下的篩選視圖。此進入點已**GroupManagement**為預先選取的類別目錄。
 
 ![稽核記錄](./media/concept-audit-logs/groups.png "稽核記錄")
 
@@ -198,15 +198,15 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 * 應用程式的名稱已變更嗎？
 * 誰已同意應用程式？
 
-如果您想檢閱應用程式相關的稽核資料，可以在 [企業應用程式]  刀鋒視窗的 [活動]  區段中的 [稽核記錄]  之下找到篩選過的檢視。 此進入點**企業應用程式**預先選取作為**應用程式類型**。
+如果您想檢閱應用程式相關的稽核資料，可以在 [企業應用程式] 刀鋒視窗的 [活動] 區段中的 [稽核記錄] 之下找到篩選過的檢視。 此進入點會將**企業應用程式**預先選取為**應用程式類型**。
 
 ![稽核記錄](./media/concept-audit-logs/enterpriseapplications.png "稽核記錄")
 
 ## <a name="office-365-activity-logs"></a>Office 365 活動記錄
 
-您可以檢視從 Office 365 活動記錄[Microsoft 365 系統管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)。 即使 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源，只在 Microsoft 365 系統管理中心會提供 Office 365 活動記錄檔的完整檢視。 
+您可以從[Microsoft 365 系統管理中心](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)觀看 Office 365 活動記錄。 雖然 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源, 但只有 Microsoft 365 系統管理中心才會提供 Office 365 活動記錄的完整觀點。 
 
-您也可以透過使用 [Office 365 管理 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)，以程式設計的方式存取 Office 365 活動記錄。
+您也可以使用[office 365 管理 api](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview), 以程式設計方式存取 office 365 活動記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

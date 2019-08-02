@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: f99a54f5623100e057e0c02249f5886f46656a21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a67e716300254b7ae73cf5c608e4ab9177638456
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66355935"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677891"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
 
@@ -36,7 +36,7 @@ Azure 時間序列深入解析會將個人資料視為與時間序列深入解�
 
 不過，在您透過入口網站刪除客戶資料之前，應該在 Azure 入口網站中從時間序列深入解析環境移除使用者的存取原則。 如需詳細資訊，請參閱[使用 Azure 入口網站授與時間序列深入解析環境的資料存取權](time-series-insights-data-access.md)。
 
-您也可以使用 REST API，在存取原則上執行刪除作業。 如需詳細資訊，請參閱[存取原則 - 刪除](/rest/api/time-series-insights/management/accesspolicies/delete) \(英文\)。
+您也可以使用 REST API，在存取原則上執行刪除作業。 如需詳細資訊，請參閱[存取原則 - 刪除](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete) \(英文\)。
 
 時間序列深入解析與 Azure 入口網站中的 [原則] 刀鋒視窗整合。 時間序列深入解析和 [原則] 刀鋒視窗兩者都可讓您檢視、匯出及刪除服務內儲存的使用者資料。 在 Azure 入口網站的 [原則] 刀鋒視窗內採取的任何刪除動作，也會刪除時間序列深入解析內的使用者資料。 例如，如果使用者有儲存的個人查詢，該查詢會從時間序列深入解析總管中永久刪除。 如果使用者有儲存的共用查詢，該查詢仍會存在，但是會永久刪除使用者資訊。 下列附註包含如何完成這些工作的指示。
 
@@ -48,7 +48,7 @@ Azure 時間序列深入解析會將個人資料視為與時間序列深入解�
 
 如果您是租用戶系統管理員，便可以在 Azure 入口網站中檢視時間序列深入解析環境內的資料存取原則。 如需詳細資訊，請參閱[使用 Azure 入口網站授與時間序列深入解析環境的資料存取權](time-series-insights-data-access.md)。
 
-您也可以在提供的 REST API 中使用「依環境列出」作業，在存取原則上執行匯出作業。 如需詳細資訊，請參閱[存取原則 - 依環境列出](/rest/api/time-series-insights/management/accesspolicies/listbyenvironment) \(英文\)。
+您也可以在提供的 REST API 中使用「依環境列出」作業，在存取原則上執行匯出作業。 如需詳細資訊，請參閱[存取原則 - 依環境列出](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment) \(英文\)。
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>刪除儲存在時間序列深入解析內的資料
 
@@ -56,7 +56,7 @@ Azure 時間序列深入解析會將個人資料視為與時間序列深入解�
 
 **檢視和匯出資料**
 
-若要檢視和匯出儲存在時間序列深入解析內的資料，您需要搜尋該資料。 您可以使用時間序列深入解析總管或時間序列深入解析查詢 API 來檢視和匯出資料。 若要使用時間序列深入解析總管檢視和匯出資料，請先搜尋以找出所需的使用者資料。 搜尋之後，以滑鼠右鍵按一下圖表，然後選取 [探索事件]  。 此時會出現事件方格，並提供將資料匯出為 CSV 和 JSON 的選項。
+若要檢視和匯出儲存在時間序列深入解析內的資料，您需要搜尋該資料。 您可以使用時間序列深入解析總管或時間序列深入解析查詢 API 來檢視和匯出資料。 若要使用時間序列深入解析總管檢視和匯出資料，請先搜尋以找出所需的使用者資料。 搜尋之後，以滑鼠右鍵按一下圖表，然後選取 [探索事件]。 此時會出現事件方格，並提供將資料匯出為 CSV 和 JSON 的選項。
 
 如需詳細資訊，請參閱 [Azure 時間序列深入解析總管](time-series-insights-explorer.md)。
 
@@ -68,8 +68,8 @@ Azure 時間序列深入解析會將個人資料視為與時間序列深入解�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解[至 TSI 環境的資料存取權授與](./time-series-insights-data-access.md)。
+* 深入瞭解[將資料存取權授與 TSI 環境](./time-series-insights-data-access.md)。
 
-* 檢視[Azure Time Series Insights 總管](time-series-insights-explorer.md)。
+* 查看 [ [Azure 時間序列深入解析 explorer](time-series-insights-explorer.md)]。
 
-* 深入了解[在時間序列深入解析中設定保留](time-series-insights-how-to-configure-retention.md)。
+* 瞭解如何[在時間序列深入解析中設定保留期](time-series-insights-how-to-configure-retention.md)。

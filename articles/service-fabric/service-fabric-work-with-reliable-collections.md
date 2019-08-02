@@ -3,7 +3,7 @@ title: 使用可靠的集合 | Microsoft Docs
 description: 了解使用可靠的集合的最佳做法。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2019
-ms.author: aljo
-ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 2d1284115a35881087e0ced0ee735ea38ce3f5ce
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506734"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598716"
 ---
 # <a name="working-with-reliable-collections"></a>使用可靠的集合
 Service Fabric 透過可靠的集合向 .NET 開發人員提供具狀態的程式設計模型。 具體來說，Service Fabric 提供了可靠的字典和可靠的佇列類別。 當您使用這些類別時，您的狀態是分割的 (延展性)、複寫的 (可用性)，且在分割區內交易 (ACID 語意)。 讓我們看看可靠字典物件的一般用法，並查看它究竟做了些什麼。
@@ -207,7 +207,7 @@ public struct ItemId
 
 > [!WARNING]
 > 雖然您可以修改索引鍵的結構描述，但您必須確保索引鍵雜湊程式碼和 equals 演算法是穩定的。 如果您變更這些演算法其中一個的運作方式，您就再也無法在可靠的字典內查詢索引鍵。
-> .NET 字串便能以機碼，但是使用字串本身做為索引鍵-請勿使用 String.GetHashCode 的結果做為索引鍵。
+> .NET 字串可用來做為索引鍵, 但使用字串本身做為索引鍵--請勿使用 GetHashCode 的結果做為索引鍵。
 
 或者，您也可以執行通稱為兩階段升級的功能。 使用兩階段升級，即可將服務從 V1 升級至 V2：V2 包含知道如何處理新結構描述變更的程式碼，但這段程式碼不會執行。 當 V2 程式碼讀取 V1 資料時，它會在其上操作並寫入 V1 資料。 然後，在跨所有升級網域的升級都完成之後，您就可以通知執行中的 V2 執行個體，升級已完成。 (對此發出訊號的方式之一是推出設定升級，這就是使其成為兩階段升級的原因)。現在，V2 執行個體可以讀取 V1 資料，將它轉換成 V2 資料、操作它，然後寫出為 V2 資料。 當其他執行個體讀取 V2 資料時，不需要轉換它，只要操作並寫出 V2 資料即可。
 

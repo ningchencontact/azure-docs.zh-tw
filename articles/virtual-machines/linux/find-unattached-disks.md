@@ -1,27 +1,18 @@
 ---
 title: 尋找及刪除未連結的 Azure 受控和非受控磁碟 | Microsoft Docs
 description: 如何使用 Azure CLI 尋找及刪除未連結的 Azure 受控和非受控 (VHD/分頁 Blob) 磁碟。
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 21c15a943974b80469eb9bd71cbaf11a7bc34b4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e17292b3cf6edf851415efb83430331c54fbf610
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721827"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695538"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>尋找及刪除未連結的 Azure 受控和非受控磁碟
 當您在 Azure 中刪除虛擬機器 (VM) 時，不會刪除任何連結至 VM 的磁碟。 這項功能有助於預防因為不小心刪除 VM 所造成的資料遺失。 刪除 VM 之後，您將繼續支付未連結的磁碟。 本文示範如何尋找及刪除任何未連結的磁碟，並減少不必要的成本。 

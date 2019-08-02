@@ -3,7 +3,7 @@ title: 將現有的可執行檔部署至 Azure Service Fabric | Microsoft Docs
 description: 了解如何將現有應用程式封裝為來賓可執行檔，使其可以部署至 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: aljo
-ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 521c7a198d9085cdc93d325e63ad9d46cc4c7928
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946666"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599452"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>將現有可執行檔部署至 Service Fabric
 您可以在 Azure Service Fabric 中將任何類型的程式碼 (例如 Node.js、Java 或 C++) 當作服務來執行。 Service Fabric 將這些類型的服務稱為客體可執行檔。
@@ -33,14 +33,14 @@ Service Fabric 將來賓可執行檔視為無狀態服務。 因此會根據可�
 * 健康狀況監視。 Service Fabric 健全狀況監控會偵測應用程式是否正在執行，如果發生失敗情況，則會提供診斷資訊。   
 * 應用程式生命週期管理。 除了提供無需停機的升級，如果升級期間回報健全狀況不良事件，Service Fabric 也支援回復到舊版。    
 * 密度。 您可以在叢集中執行多個應用程式，每個應用程式不必在自己的硬體上執行。
-* 可探索性：您可以使用 REST 呼叫 Service Fabric 命名服務來尋找叢集中的其他服務。 
+* 發掘使用 REST, 您可以呼叫 Service Fabric 命名服務來尋找叢集中的其他服務。 
 
 ## <a name="samples"></a>範例
 * [封裝和部署來賓可執行檔的範例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [兩個客體可執行檔 (C# 和 nodejs) 使用 REST 透過命名服務進行通訊的範例](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## <a name="overview-of-application-and-service-manifest-files"></a>應用程式和服務資訊清單檔案的概觀
-在部署來賓執行檔的過程中，最好先了解 Service Fabric 封裝和部署模型，如[應用程式模型](service-fabric-application-model.md)中所述。 Service Fabric 封裝模型依賴兩個 XML 檔案：應用程式和服務資訊清單。 ApplicationManifest.xml 和 ServiceManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 一起安裝在 C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd  。
+在部署來賓執行檔的過程中，最好先了解 Service Fabric 封裝和部署模型，如[應用程式模型](service-fabric-application-model.md)中所述。 Service Fabric 封裝模型依賴兩個 XML 檔案：應用程式和服務資訊清單。 ApplicationManifest.xml 和 ServiceManifest.xml 檔案的結構描述定義是和 Service Fabric SDK 一起安裝在 C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd。
 
 * **應用程式資訊清單**：應用程式資訊清單用來描述應用程式。 其中列出組成該應用程式的服務，以及用來定義應如何部署一或多個服務的其他參數，例如執行個體數目。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6260a619ad3dfda65fcdfc1180cba4002dd23d0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499906"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514969"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -35,7 +35,7 @@ ms.locfileid: "68499906"
 | 帳戶鎖定 | 如果連續太多次驗證嘗試都遭到拒絕，就會在 Multi-Factor Authentication 服務中暫時鎖定帳戶。 這項功能僅適用於輸入 PIN 以進行驗證的使用者。 (MFA 伺服器) |
 | [封鎖/解除封鎖使用者](#block-and-unblock-users) | 用來封鎖特定使用者無法接收多重要素驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 使用者自封鎖的時刻起，將持續封鎖 90 天。 |
 | [詐騙警示](#fraud-alert) | 設定使用者報告詐騙驗證要求的能力相關設定 |
-| 通知 | 啟用 MFA 伺服器中事件的通知。 |
+| [通知](#notifications) | 啟用 MFA 伺服器中事件的通知。 |
 | [OATH 權杖](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | 用於雲端式 Azure MFA 環境，以管理使用者的 OATH 權杖。 |
 | [通話設定](#phone-call-settings) | 設定雲端和內部部署環境之通話和問候語相關的設定。 |
 | 提供者 | 這會顯示任何可能已與您帳戶建立關聯的現有驗證提供者。 自 2018 年 9 月 1 日起，可能無法建立新的驗證提供者 |
@@ -100,6 +100,12 @@ ms.locfileid: "68499906"
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [Azure Active Directory] > [登入]。詐騙報告現在是標準 Azure AD 登入報告的一部分。
 
+## <a name="notifications"></a>通知
+
+在此為將接收詐騙警示電子郵件的使用者設定電子郵件地址。
+
+![通知詐騙警示電子郵件範例](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
+
 ## <a name="phone-call-settings"></a>通話設定
 
 ### <a name="caller-id"></a>呼叫者識別碼
@@ -142,7 +148,7 @@ ms.locfileid: "68499906"
 1. 選擇問候語的類型。
 1. 選擇語言。
 1. 選取要上傳的 .mp3 或 .wav 音效檔。
-1. 選取 [新增] 。
+1. 選取 [新增]。
 
 ### <a name="custom-voice-message-defaults"></a>自訂語音訊息預設值
 
@@ -177,10 +183,10 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至 [Azure Active Directory] > [MFA] > [單次許可]。
-3. 選取 [新增] 。
+3. 選取 [新增]。
 4. 如有必要，請選取此許可的複寫群組。
 5. 輸入使用者名稱 **\@domain.com**作為使用者名稱。 輸入許可需持續的秒數。 輸入許可的原因。
-6. 選取 [新增] 。 時間限制會立即生效。 使用者必須在單次許可到期之前登入。
+6. 選取 [新增]。 時間限制會立即生效。 使用者必須在單次許可到期之前登入。
 
 ### <a name="view-the-one-time-bypass-report"></a>檢視單次許可報告
 
@@ -198,10 +204,10 @@ _單次許可_可讓使用者只驗證一次，不需要執行雙步驟驗證。
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至 [Azure Active Directory] > [MFA] > [快取規則]。
-3. 選取 [新增] 。
+3. 選取 [新增]。
 4. 從下拉式清單中選取 [快取類型]。 輸入**快取秒數**的最大數目。
 5. 如有必要，選取驗證類型並指定應用程式。
-6. 選取 [新增] 。
+6. 選取 [新增]。
 
 ## <a name="mfa-service-settings"></a>MFA 服務設定
 
@@ -372,7 +378,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 3. 選取 [多重要素驗證]。
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面的 [驗證選項] 下，選取/取消選取要提供給使用者的方法。
-6. 按一下 [儲存] 。
+6. 按一下 [儲存]。
 
 其他的驗證方法使用方式詳細資料，可在[驗證的方法](concept-authentication-methods.md)一文中找到。
 

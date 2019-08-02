@@ -4,16 +4,16 @@ description: 了解如何使用 Azure CLI，在應用程式閘道上使用 Web �
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 698191355ab9e014693b01cfb6546fb764a2b647
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955485"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688197"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>使用 Azure CLI 啟用 Web 應用程式防火牆
 
@@ -39,7 +39,7 @@ ms.locfileid: "65955485"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group#az-group-create) 建立名為 myResourceGroupAG  的 Azure 資源群組。
+資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group#az-group-create) 建立名為 myResourceGroupAG 的 Azure 資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -47,7 +47,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源
 
-這些虛擬網路和子網路可用來為應用程式閘道及其相關聯的資源提供網路連線。 使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) 和 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) 建立名為 myVNet  的虛擬網路，以及名為 myAGSubnet  的子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) 建立名為 myAGPublicIPAddress  的公用 IP 位址。
+這些虛擬網路和子網路可用來為應用程式閘道及其相關聯的資源提供網路連線。 建立名為*myVNet*的虛擬網路和名為*myAGSubnet*的子網。 然後建立名為*myAGPublicIPAddress*的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -66,12 +66,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>建立包含 WAF 的應用程式閘道
 
-您可以使用 [az network application-gateway create](/cli/azure/network/application-gateway) 來建立名為 myAppGateway  的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet  和 myAGPublicIPAddress  。
+您可以使用 [az network application-gateway create](/cli/azure/network/application-gateway) 來建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給*myAGSubnet*和*myAGPublicIPAddress*。
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -81,7 +83,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGSubnet \
   --capacity 2 \
-  --sku WAF_Medium \
+  --sku WAF_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -98,15 +100,15 @@ az network application-gateway waf-config set \
 
 可能需要幾分鐘的時間來建立應用程式閘道。 建立應用程式閘道後，您可以看到它的這些新功能：
 
-- appGatewayBackendPool  - 應用程式閘道必須至少有一個後端位址集區。
-- appGatewayBackendHttpSettings  - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
-- appGatewayHttpListener  - 與 appGatewayBackendPool  相關聯的預設接聽程式。
-- appGatewayFrontendIP  - 將 myAGPublicIPAddress  指派給 appGatewayHttpListener  。
-- rule1  - 與 appGatewayHttpListener  相關聯的預設路由規則。
+- appGatewayBackendPool - 應用程式閘道必須至少有一個後端位址集區。
+- appGatewayBackendHttpSettings - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
+- appGatewayHttpListener - 與 appGatewayBackendPool 相關聯的預設接聽程式。
+- appGatewayFrontendIP - 將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
+- rule1 - 與 appGatewayHttpListener 相關聯的預設路由規則。
 
 ## <a name="create-a-virtual-machine-scale-set"></a>建立虛擬機器擴展集
 
-在此範例中，您會建立虛擬機器擴展集，為應用程式閘道中的後端集區提供兩部伺服器。 擴展集中的虛擬機器會與 myBackendSubnet  子網路相關聯。 若要建立擴展集，您可以使用 [az vmss create](/cli/azure/vmss#az-vmss-create)。
+在此範例中，您會建立虛擬機器擴展集，為應用程式閘道中的後端集區提供兩部伺服器。 擴展集中的虛擬機器會與 myBackendSubnet 子網路相關聯。 若要建立擴展集，您可以使用 [az vmss create](/cli/azure/vmss#az-vmss-create)。
 
 ```azurecli-interactive
 az vmss create \
@@ -142,7 +144,7 @@ az vmss extension set \
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) 建立名為 myagstore1  的儲存體帳戶。
+使用 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) 建立名為 myagstore1 的儲存體帳戶。
 
 ```azurecli-interactive
 az storage account create \
@@ -155,7 +157,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>設定診斷
 
-設定診斷以將資料記錄到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 記錄。 使用您的訂用帳戶識別碼來取代 `<subscriptionId>`，然後使用 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 來設定診斷。
+設定診斷以將資料記錄到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 記錄。 將`<subscriptionId>`取代為您的訂用帳戶識別碼, 然後使用[az monitor 診斷-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create)來設定診斷。
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -191,4 +193,4 @@ az group delete --name myResourceGroupAG
 
 ## <a name="next-steps"></a>後續步驟
 
-* [建立具有 SSL 終止的應用程式閘道](./tutorial-ssl-cli.md)
+[建立具有 SSL 終止的應用程式閘道](./tutorial-ssl-cli.md)

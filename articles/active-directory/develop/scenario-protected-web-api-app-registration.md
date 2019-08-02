@@ -1,6 +1,6 @@
 ---
-title: 受保護的 web API-應用程式註冊 |Azure
-description: 了解如何建立受保護的 web API 與您要註冊應用程式所需的資訊。
+title: 受保護的 Web API-應用程式註冊 |Azure
+description: 瞭解如何建立受保護的 Web API, 以及註冊應用程式所需的資訊。
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,89 +16,89 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4622cffedc159ce85166eafe571ccb26c2c1b4d
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: bbccfc38a4e5e4b31cb625c614e838a3c92e7429
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536865"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562300"
 ---
-# <a name="protected-web-api-app-registration"></a>受保護的 web API:應用程式註冊
+# <a name="protected-web-api-app-registration"></a>受保護的 Web API:應用程式註冊
 
-這篇文章會說明應用程式註冊的詳細資訊，為受保護的 web api。
+本文說明受保護 Web API 的應用程式註冊細節。
 
-請參閱[快速入門：註冊應用程式與 Microsoft 身分識別平台](quickstart-register-app.md)註冊的應用程式的一般步驟。
+請參閱[快速入門：使用 Microsoft 身分識別平臺](quickstart-register-app.md)註冊應用程式, 以取得註冊應用程式的一般步驟。
 
-## <a name="accepted-token-version"></a>接受語彙基元的版本
+## <a name="accepted-token-version"></a>接受的權杖版本
 
-Microsoft 身分識別平台端點可以發出權杖的兩種： v1.0 權杖和 v2.0 權杖。 如需有關這些語彙基元的詳細資訊，請參閱 <<c0> [ 存取權杖](access-tokens.md)。 接受語彙基元的版本取決於**支援的帳戶類型**您選擇您在建立您的應用程式時：
+Microsoft 身分識別平臺端點可以發行兩種類型的權杖: v1.0 權杖和 v2.0 權杖。 如需這些權杖的詳細資訊, 請參閱[存取權杖](access-tokens.md)。 接受的權杖版本取決於您在建立應用程式時所選擇的**支援帳戶類型**:
 
-- 如果值**支援的帳戶類型**是**中任何組織的目錄和個人 Microsoft 帳戶 (例如 Skype、 Xbox、 Outlook.com) 帳戶**，接受語彙基元的版本將會 v2.0。
-- 否則，可接受權杖的版本將會 v1.0。
+- 如果**支援的帳戶類型**的值是**任何組織目錄中的帳戶, 以及個人 Microsoft 帳戶 (例如 Skype、Xbox、Outlook.com)** , 接受的權杖版本將會是2.0 版。
+- 否則, 接受的權杖版本將會是 v1.0。
 
-建立應用程式之後，您可以判斷或變更接受語彙基元的版本，遵循下列步驟：
+建立應用程式之後, 您可以依照下列步驟來判斷或變更接受的權杖版本:
 
-1. 在 Azure 入口網站中，選取您的應用程式，然後選取**資訊清單**應用程式。
-2. 在 資訊清單中，搜尋 **"accessTokenAcceptedVersion"** 。 請注意，其值是**2**。 這個屬性會指定 Azure Active Directory (Azure AD) web API 接受 v2.0 權杖。 如果值為**null**，接受語彙基元的版本是 v1.0。
-3. 如果您已經變更的語彙基元的版本，請選取**儲存**。
+1. 在 Azure 入口網站中, 選取您的應用程式, 然後選取應用程式的**資訊清單**。
+2. 在資訊清單中, 搜尋 **"accessTokenAcceptedVersion"** 。 請注意, 其值為**2**。 這個屬性會指定 Web API 接受 v2.0 權杖的 Azure Active Directory (Azure AD)。 如果值為**null**, 接受的 token 版本為 v1.0。
+3. 如果您已變更權杖版本, 請選取 [**儲存**]。
 
 > [!NOTE]
-> Web API 會指定它所接受的權杖的版本 （v1.0 或 v2.0）。 當用戶端會要求您的 web API 的權杖，從 Microsoft 身分識別平台 v2.0 端點時，他們會收到指出哪一個版本已接受由 web API 的權杖。
+> Web API 指定它接受的權杖版本 (v1.0 或 v2.0)。 當用戶端向 Microsoft 身分識別平臺 (v2.0) 端點要求您 Web API 的權杖時, 他們會取得權杖, 指出 Web API 所接受的版本。
 
-## <a name="no-redirect-uri"></a>未重新導向 URI
+## <a name="no-redirect-uri"></a>沒有重新導向 URI
 
-Web Api 不需要註冊重新導向 URI，因為使用者不以互動方式登入。
+Web Api 不需要註冊重新導向 URI, 因為沒有任何使用者以互動方式登入。
 
 ## <a name="expose-an-api"></a>公開 API
 
-另一個設定特定的 web Api 是公開的 API 和公開的範圍。
+Web Api 的另一個特定設定是公開的 API 和公開的範圍。
 
 ### <a name="resource-uri-and-scopes"></a>資源 URI 和範圍
 
-範圍通常會採用`resourceURI/scopeName`。 適用於 Microsoft Graph 的範圍具有類似的快速鍵`User.Read`。 此字串是捷徑`https://graph.microsoft.com/user.read`。
+範圍的格式`resourceURI/scopeName`通常是。 針對 Microsoft Graph, 範圍具有類似`User.Read`的快捷方式。 這個字串是的快捷方式`https://graph.microsoft.com/user.read`。
 
-應用程式註冊期間，您必須定義這些參數：
+在應用程式註冊期間, 您必須定義這些參數:
 
-- 資源 URI。 根據預設，應用程式註冊入口網站建議，您可以使用`api://{clientId}`。 此資源 URI 是唯一的但不是人類可讀取。 您可以將它變更，但請確定新的值是唯一的。
-- 一或多個*範圍*。 (用戶端應用程式，它們將會顯示為*委派的權限*為您的 web API。)
-- 一或多個*應用程式角色*。 (用戶端應用程式，它們將會顯示為*應用程式權限*為您的 web API。)
+- 資源 URI。 根據預設, 應用程式註冊入口網站會建議您使用`api://{clientId}`。 此資源 URI 是唯一的, 但不是人們可讀取的。 您可以變更它, 但請確定新的值是唯一的。
+- 一或多個*範圍*。 (對用戶端應用程式而言, 它們會顯示為您 Web API 的*委派許可權*)。
+- 一或多個*應用程式角色*。 (對用戶端應用程式而言, 它們會顯示為您 Web API 的*應用程式許可權*)。
 
-範圍也會呈現給您的應用程式的終端使用者在同意畫面上顯示。 因此，您必須提供描述範圍的對應字串：
+範圍也會顯示在顯示給應用程式使用者的同意畫面上。 因此, 您必須提供描述範圍的對應字串:
 
-- 由使用者所示。
-- 租用戶系統管理員所見，使用者可以授與系統管理員同意。
+- 如終端使用者所見。
+- 如租使用者系統管理員所見, 他可以授與系統管理員同意。
 
-### <a name="exposing-delegated-permissions-scopes"></a>公開委派的權限 （範圍）
+### <a name="exposing-delegated-permissions-scopes"></a>公開委派的許可權 (範圍)
 
-1. 選取 **公開 API**應用程式註冊中的區段。
-1. 選取 [新增範圍]  。
-1. 如果出現提示，請接受建議的應用程式識別碼 URI (`api://{clientId}`) 選取**儲存並繼續**。
-1. 輸入這些參數：
-      - 針對**領域名稱**，使用**access_as_user**。
-      - 針對**誰可以同意**，請確定**系統管理員和使用者**已選取。
-      - 在 **系統管理員同意顯示名稱**，輸入**的使用者身分存取 TodoListService**。
-      - 在 **系統管理員同意描述**，輸入**存取 TodoListService Web API，以使用者身分**。
-      - 在 **使用者同意顯示名稱**，輸入**的使用者身分存取 TodoListService**。
-      - 在 **使用者同意描述**，輸入**存取 TodoListService Web API，以使用者身分**。
-      - 保持**狀態**設為**已啟用**。
-      - 選取 **新增範圍**。
+1. 選取 [應用程式註冊] 中的 [**公開 API** ] 區段。
+1. 選取 [新增範圍]。
+1. 若出現提示, 請選取 [`api://{clientId}`**儲存並繼續**] 以接受建議的應用程式識別碼 URI ()。
+1. 輸入這些參數:
+      - 針對 [**領域名稱**], 使用**access_as_user**。
+      - 對於**可以同意的人員**, 請確定已選取 [系統**管理員] 和 [使用者**]。
+      - 在 [系統**管理員同意顯示名稱**] 中, 輸入**使用者的存取權 TodoListService**。
+      - 在 [**管理員同意描述**] 中, 輸入**以使用者身分存取 TodoListService Web API**。
+      - 在 [**使用者同意顯示名稱**] 中, 輸入**使用者的存取權 TodoListService**。
+      - 在 [**使用者同意描述**] 中, 輸入**以使用者身分存取 TodoListService Web API**。
+      - 將 [**狀態**] 設定為 [**已啟用**]。
+      - 選取 [**新增領域**]。
 
-### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>如果您的 web API 會呼叫精靈應用程式
+### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>如果您的 Web API 是由 daemon 應用程式所呼叫
 
-在本節中，您將了解如何註冊您的受保護的 web API，因此可以由精靈應用程式安全地呼叫。
+在本節中, 您將瞭解如何註冊受保護的 Web API, 讓 daemon 應用程式可以安全地呼叫它。
 
-- 您將需要公開*應用程式權限*。 您會宣告應用程式權限，因為精靈應用程式沒有使用者互動，因此委派的權限徒勞無功的舉動。
-- 租用戶系統管理員可以要求 Azure Active Directory (Azure AD) 來發行權杖，您才能存取 web API 的應用程式權限的其中一個已註冊的應用程式的 web API。
+- 您必須公開*應用程式許可權*。 您只會宣告應用程式許可權, 因為 daemon 應用程式不會與使用者互動, 因此委派的許可權並不合理。
+- 租使用者系統管理員可以要求 Azure Active Directory (Azure AD) 僅針對已註冊要存取其中一個 Web API 應用程式許可權的應用程式, 發出權杖給您的 Web API。
 
-#### <a name="exposing-application-permissions-app-roles"></a>公開的應用程式權限 （應用程式角色）
+#### <a name="exposing-application-permissions-app-roles"></a>公開應用程式許可權 (應用程式角色)
 
-若要公開應用程式權限，您將需要編輯資訊清單。
+若要公開應用程式許可權, 您必須編輯資訊清單。
 
-1. 在應用程式註冊您的應用程式中，選取**資訊清單**。
-1. 編輯資訊清單，藉由找出`appRoles`設定並新增一或多個應用程式角色。 角色定義會提供下列的範例 JSON 區塊。 離開`allowedMemberTypes`設定為`"Application"`只。 請確定`id`是唯一的 GUID，且所`displayName`和`value`不包含空格。
+1. 在應用程式的應用程式註冊中, 選取 [**資訊清單**]。
+1. 尋找`appRoles`設定並新增一或多個應用程式角色, 以編輯資訊清單。 角色定義會在下列範例 JSON 區塊中提供。 將設定`allowedMemberTypes`為`"Application"` [僅限]。 請確定`id`是唯一的 GUID `displayName` , `value`且不包含空格。
 1. 儲存資訊清單。
 
-下列範例顯示的內容`appRoles`。 (`id`可以是任何唯一的 GUID。)
+下列範例會顯示的內容`appRoles`。 (可以`id`是任何唯一的 GUID)。
 
 ```JSon
 "appRoles": [
@@ -115,28 +115,28 @@ Web Api 不需要註冊重新導向 URI，因為使用者不以互動方式登�
 ],
 ```
 
-#### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>確保 Azure AD 發出權杖，您的 web API，以只允許用戶端
+#### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>確保 Azure AD 會將 Web API 的權杖簽發給僅允許的用戶端
 
-Web API 會檢查應用程式角色。 （這是開發人員最好的公開應用程式權限）。但是，您也可以設定 Azure AD 租用戶系統管理員存取您的 API 核准的應用程式中只發給您的 web API 的權杖。 若要新增此更高的安全性：
+Web API 會檢查應用程式角色。 (這是公開應用程式許可權的開發人員)。但您也可以設定 Azure AD, 只為您的 Web API 發出權杖, 讓租使用者系統管理員核准的應用程式存取您的 API。 若要新增這種增強的安全性:
 
-1. 在應用程式**概觀**應用程式註冊頁面上，選取您的應用程式的名稱連結**受控應用程式中的本機目錄**。 此欄位的標題可能會被截斷。 例如，您可能會看到**受控應用程式中的...**
+1. 在應用程式註冊的 [應用程式**總覽**] 頁面上, 選取 [**本機目錄中受控應用程式**] 下的應用程式名稱連結。 此欄位的標題可能會被截斷。 例如, 您可能會**在中參閱受控應用程式**。
 
    > [!NOTE]
    >
-   > 當您選取此連結時，將會移至**企業應用程式概觀**與您的應用程式建立所在的租用戶中的服務主體相關聯的頁面。 您可以使用您的瀏覽器的 [上一頁] 按鈕瀏覽回到 [應用程式註冊] 頁面。
+   > 當您選取此連結時, 您會前往**企業應用程式**的 [總覽] 頁面, 並在您建立應用程式的租使用者中, 與服務主體相關聯。 您可以使用瀏覽器的 [上一頁] 按鈕, 流覽回應用程式註冊頁面。
 
-1. 選取 **屬性**頁面**管理**的企業應用程式頁面的區段。
-1. 如果您想要允許從特定用戶端存取您的 web API 的 Azure AD 時，設定**需要使用者指派嗎？** 要**是**。
+1. 在 [企業應用程式] 頁面的 [**管理**] 區段中, 選取 [**屬性**] 頁面。
+1. 如果您想要 Azure AD 只允許從特定用戶端存取您的 Web API, 請將 [**需要使用者指派嗎？** ] 設定為 **[是]** 。
 
    > [!IMPORTANT]
    >
-   > 如果您設定**需要使用者指派嗎？** 要**是**，要求存取權杖的 web API 時，Azure AD 會檢查用戶端應用程式角色指派。 如果用戶端不指派給任何應用程式角色，Azure AD 會傳回錯誤`invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`。
+   > 如果您將 [**需要使用者指派嗎？** ] 設定為 **[是]** , Azure AD 會在用戶端要求 Web API 的存取權杖時, 檢查其應用程式角色指派。 如果未將用戶端指派給任何應用程式角色, Azure AD 會傳回`invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`錯誤。
    >
-   > 如果您保留**需要使用者指派嗎？** 設為**No**，*當用戶端要求存取權杖以供您的 web API，Azure AD 不會檢查應用程式角色指派*。 任何背景程式用戶端 （也就是任何用戶端使用用戶端認證流程） 可以取得存取權杖的 api，只是藉由指定其對象。 任何應用程式可以存取 API，而不必要求它的權限。 但您的 web API 可以一律上, 一節中所述來確認應用程式已正確的角色 （這由租用戶系統管理員授權）。 API 執行此驗證來驗證存取權杖具有角色宣告，且此宣告的值正確。 (在本例中，值是`access_as_application`。)
+   > 如果您保留**需要使用者指派嗎？** 設定為 [**否**], *Azure AD 不會在用戶端要求您的 Web API 的存取權杖時檢查應用程式角色指派*。 任何背景程式用戶端 (也就是使用用戶端認證流程的用戶端) 只要指定其物件, 就能夠取得 API 的存取權杖。 任何應用程式都可以存取 API, 而不需要要求其許可權。 但您的 Web API 一律可以如上一節所述, 確認應用程式具有正確的角色 (由租使用者系統管理員授權)。 此 API 會藉由驗證存取權杖是否有角色宣告, 且此宣告的值正確, 來執行此驗證。 (在我們的案例中, 值`access_as_application`為)。
 
 1. 選取 [ **儲存**]。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [應用程式的程式碼組態](scenario-protected-web-api-app-configuration.md)
+> [應用程式的程式碼設定](scenario-protected-web-api-app-configuration.md)

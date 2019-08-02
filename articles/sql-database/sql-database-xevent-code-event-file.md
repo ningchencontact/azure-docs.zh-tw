@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0994f92444da338b18447eb1b248c74df9aa2d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233785"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566104"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的事件檔案目標程式碼
 
@@ -35,11 +34,11 @@ ms.locfileid: "65233785"
   * 將 Azure 儲存體容器指定為事件檔案目標。
   * 建立和啟動事件工作階段等等。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
@@ -52,7 +51,7 @@ ms.locfileid: "65233785"
   * [下載的直接連結。](https://go.microsoft.com/fwlink/?linkid=616025)
 * 您必須安裝 [Azure PowerShell 模組](https://go.microsoft.com/?linkid=9811175) 。
   
-  * 模組提供命令，這類**新增 AzStorageAccount**。
+  * 模組會提供如- **New-new-azstorageaccount**的命令。
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>第 1 階段：Azure 儲存體容器的 PowerShell 程式碼
 
@@ -72,7 +71,7 @@ ms.locfileid: "65233785"
 
 ### <a name="powershell-code"></a>PowerShell 程式碼
 
-此 PowerShell 指令碼假設您已安裝 Az 模組。 如需資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
+此 PowerShell 腳本假設您已安裝 Az 模組。 如需相關資訊, 請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -252,7 +251,7 @@ PowerShell 指令碼在結束時列印出幾個具名的值。 您必須編輯 T
 
 
 > [!WARNING]
-> 上述 PowerShell 指令碼所產生的 SAS 金鑰值可能會以 '?' (問號) 開頭。 當您在下列 T-SQL 指令碼中使用 SAS 金鑰時，您必須「移除前置 '?'」  。 否則您的動作可能會遭到安全性封鎖。
+> 上述 PowerShell 指令碼所產生的 SAS 金鑰值可能會以 '?' (問號) 開頭。 當您在下列 T-SQL 指令碼中使用 SAS 金鑰時，您必須「移除前置 '?'」。 否則您的動作可能會遭到安全性封鎖。
 
 
 ### <a name="transact-sql-code"></a>Transact-SQL 程式碼
@@ -464,9 +463,9 @@ GO
 
 ## <a name="output"></a>Output
 
-Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 一 **\<事件 >** 項目隨即會顯示一個 UPDATE 陳述式。
+Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 隨即顯示一個 **\<事件 >** 元素, 其中會顯示一個 UPDATE 語句。
 
-以下是其中一個 **\<事件 >** 測試期間所產生的項目：
+以下是測試期間所產生的一個 **\<事件 >** 元素:
 
 
 ```xml

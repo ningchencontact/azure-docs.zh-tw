@@ -9,14 +9,14 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: f1001df52b3bbb54f3b872f23276957fa01a7da5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 6e41b1999033c00b277cd35173b3247a727e9a8a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403209"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668143"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>以使用 .NET 的 IoT 中樞將檔案從裝置上傳至雲端
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>使用 IoT 中樞將檔案從裝置上傳至雲端 (.NET)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "68403209"
 * **ReadFileUploadNotification**，它會接收來自 IoT 中樞的檔案上傳通知。
 
 > [!NOTE]
-> IoT 中樞透過 Azure IoT 裝置 SDK 來支援許多裝置平台和語言 (包括 C、Java 及 Javascript)。 如需如何將您的裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心](https://azure.microsoft.com/develop/iot)。
+> IoT 中樞透過 Azure IoT 裝置 Sdk 來支援許多裝置平臺和語言 (包括 C、JAVA、Python 和 JAVAscript)。 如需如何將您的裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心](https://azure.microsoft.com/develop/iot)。
 
 若要完成此教學課程，您需要下列項目：
 
@@ -58,7 +58,7 @@ ms.locfileid: "68403209"
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，按一下 [新增]，然後按一下 [現有項目]。 瀏覽至影像檔並將它包含在您的專案中。 本教學課程假設影像名稱為 `image.jpg`。
 
-1. 以滑鼠右鍵按一下影像，然後按一下 [內容] 。 確定 [複製到輸出目錄] 是設為 [一律複製]。
+1. 以滑鼠右鍵按一下影像，然後按一下 [內容]。 確定 [複製到輸出目錄] 是設為 [一律複製]。
 
     ![顯示要在其中更新 [複製到輸出目錄] 映像屬性的位置](./media/iot-hub-csharp-csharp-file-upload/image-properties.png)
 

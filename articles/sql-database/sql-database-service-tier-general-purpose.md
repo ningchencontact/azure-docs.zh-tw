@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ef64fa1285efc2c271d8d7f37bdecabd67242cc0
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 711552501825e5d34d3547ede8dc998065083c96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874969"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566737"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>一般用途服務層級 - Azure SQL Database
 
@@ -28,7 +27,7 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 
 - 一般用途
 - 業務關鍵
-- 超大規模資料庫
+- 超大規模
 
 一般用途服務層級的架構模型是以計算和儲存體的分隔為基礎。 此架構模型仰賴 Azure Blob 儲存體的高可用性和可靠性，可以透明的方式複寫資料庫檔案，並保證當基礎結構發生失敗時也不會遺失資料。
 

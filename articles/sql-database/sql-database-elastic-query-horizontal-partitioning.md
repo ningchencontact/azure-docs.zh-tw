@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1416cbdc29d355e2ed83737140b46306de734127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694332"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568577"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>跨相應放大的雲端資料庫報告 (預覽)
 
@@ -187,7 +186,7 @@ DISTRIBUTION 子句會指定用於此資料表的資料散發。 查詢處理器
 
 sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠端資料庫上執行指定的 T-SQL 陳述式。 它會使用外部資料來源的認證連接 shardmap 管理員資料庫和遠端資料庫。  
 
-範例：
+範例:
 
 ```sql
     EXEC sp_execute_remote
@@ -199,7 +198,7 @@ sp\_execute\_remote 會使用叫用參數中提供的外部資料來源，在遠
 
 使用一般 SQL Server 連接字串，將您的應用程式、BI 和資料整合工具連接到包含外部資料表定義的資料庫。 請確定 SQL Server 可支援做為您的工具的資料來源。 然後像任何其他連接到工具的 SQL Server 資料庫一樣，參考彈性查詢資料庫，並如同本機資料表一樣，從您的工具或應用程式使用外部資料表。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 * 請確定分區對應資料庫和所有分區都已透過 SQL DB 防火牆取得彈性查詢端點資料庫的存取權。  
 * 驗證或強制執行外部資料表所定義的資料分佈。 如果您的實際資料分佈與資料表定義中指定的散發不同，您的查詢可能會產生非預期的結果。

@@ -3,9 +3,8 @@ title: 更新 Azure Service Fabric 叢集以使用憑證通用名稱 | Microsoft
 description: 了解如何切換 Service Fabric 叢集，將原本使用憑證指紋的叢集改為使用憑證通用名稱。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
-ms.author: aljo
-ms.openlocfilehash: a94fda5a1f3aedd5842bad92b5348a77177b4137
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 6bf24a0948ecee68d1bbf3cd3fe8b2bec5634de9
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302451"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600043"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>將叢集從憑證指紋變更為通用名稱
 由於憑證的指紋皆不相同，導致叢集憑證變換或管理變成艱難的任務。 然而，不同的憑證卻能擁有相同的通用名稱或主體。  將使用憑證指紋的已部署叢集切換為使用憑證通用名稱，有助於大幅簡化憑證管理作業。 本文章描述如何更新執行中的 Service Fabric 叢集，改為使用憑證通用名稱，而非憑證指紋。
@@ -102,7 +101,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > 擴展集祕密不支援將相同的資源識別碼用於兩個不同的祕密，因為每個祕密都是已設定版本的唯一資源。 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>從入口網站下載及更新範本
-憑證已安裝在基礎擴展集，不過您還需要更新 Service Fabric 叢集，才能使用該憑證和憑證的通用名稱。  現在，請下載叢集部署所需的範本。  登入[Azure 入口網站](https://portal.azure.com)並瀏覽至裝載在叢集的資源群組。  在 [設定]  中，選取 [部署]  。  選取最新的部署，然後按一下 [檢視範本]  。
+憑證已安裝在基礎擴展集，不過您還需要更新 Service Fabric 叢集，才能使用該憑證和憑證的通用名稱。  現在，請下載叢集部署所需的範本。  登入[Azure 入口網站](https://portal.azure.com), 然後流覽至裝載叢集的資源群組。  在 [設定] 中，選取 [部署]。  選取最新的部署，然後按一下 [檢視範本]。
 
 ![檢視範本][image1]
 
@@ -127,7 +126,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
     },
     ```
 
-    也請考慮移除*certificateThumbprint*，它可能不會再參考 Resource Manager 範本中。
+    也請考慮移除*certificateThumbprint*, 它可能不會再于 Resource Manager 範本中加以參考。
 
 2. 在 **Microsoft.Compute/virtualMachineScaleSets** 資源中，更新虛擬機器擴充功能以在憑證設定中使用通用名稱，而非使用指紋。  在 **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**，新增 `"commonNames": ["[parameters('certificateCommonName')]"],` 和移除 `"thumbprint": "[parameters('certificateThumbprint')]",`。
     ```json

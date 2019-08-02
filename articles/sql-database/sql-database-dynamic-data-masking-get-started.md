@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: 1db1535779d180994c9ce4350d11f4c696da9e3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 366b9437aab134985c73611fa8b46c6fbd3d309c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721545"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568758"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database 動態資料遮罩
 
@@ -43,7 +42,7 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 | 遮罩函數 | 遮罩邏輯 |
 | --- | --- |
-| **預設值** |**根據指定欄位的資料類型進行完整遮罩**<br/><br/>• 如果字串資料類型的欄位大小少於 4 個字元 (nchar、ntext、nvarchar)，請使用 XXXX 或更少 X。<br/>• 針對數值資料類型 (bigint、bit、decimal、int、money、numeric、smallint、smallmoney、tinyint、float、real)，使用零值。<br/>• 針對日期/時間資料類型 (date、datetime2、datetime、datetimeoffset、smalldatetime、time)，使用 01-01-1900 時間。<br/>• 對於 SQL 變數，會使用目前類型的預設值。<br/>• 對於 XML 文件\<遮罩 / > 使用。<br/>• 針對特殊資料類型 (時間戳記、資料表、hierarchyid、GUID、二進位值、影像、varbinary spatial 類型)，使用空值。 |
+| **預設值** |**根據指定欄位的資料類型進行完整遮罩**<br/><br/>• 如果字串資料類型的欄位大小少於 4 個字元 (nchar、ntext、nvarchar)，請使用 XXXX 或更少 X。<br/>• 針對數值資料類型 (bigint、bit、decimal、int、money、numeric、smallint、smallmoney、tinyint、float、real)，使用零值。<br/>• 針對日期/時間資料類型 (date、datetime2、datetime、datetimeoffset、smalldatetime、time)，使用 01-01-1900 時間。<br/>• 對於 SQL 變數，會使用目前類型的預設值。<br/>• For XML 會使用\<已遮罩/> 的檔。<br/>• 針對特殊資料類型 (時間戳記、資料表、hierarchyid、GUID、二進位值、影像、varbinary spatial 類型)，使用空值。 |
 | **信用卡** |**遮罩方法會公開指定欄位的末四碼**，並新增常數字串做為信用卡格式的前置詞。<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **電子郵件** |**遮罩方法會公開第一個字母並以 XXX.com 取代網域**，使用的常數字串前置詞會以電子郵件地址為格式。<br/><br/>aXX@XXXX.com |
 | **隨機數字** |**遮罩方法會產生一個隨機數字**，其根據為選取的界限與實際資料類型。 如果指定的邊界相等，則遮罩函數是常數。<br/><br/>![導覽窗格](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
@@ -53,9 +52,9 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 ### <a name="recommended-fields-to-mask"></a>要遮罩處理的建議欄位
 
-DDM 建議引擎會將您資料庫中的特定欄位標示為潛在敏感性欄位，而這類欄位可能適合進行遮罩處理。 在入口網站的 [動態資料遮罩] 刀鋒視窗中，您會看到您的資料庫的建議資料行。 您只需要對一或多個資料行按一下 [新增遮罩]  ，然後按一下 [儲存]  ，以對這些欄位套用遮罩。
+DDM 建議引擎會將您資料庫中的特定欄位標示為潛在敏感性欄位，而這類欄位可能適合進行遮罩處理。 在入口網站的 [動態資料遮罩] 刀鋒視窗中，您會看到您的資料庫的建議資料行。 您只需要對一或多個資料行按一下 [新增遮罩]，然後按一下 [儲存]，以對這些欄位套用遮罩。
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>設定動態資料遮罩您的資料庫使用 PowerShell cmdlet
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>使用 PowerShell Cmdlet 為您的資料庫設定動態資料遮罩
 
 請參閱 [Azure SQL Database Cmdlet](https://docs.microsoft.com/powershell/module/az.sql)。
 

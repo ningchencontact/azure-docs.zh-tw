@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/20/2019
 ms.author: shvija
-ms.openlocfilehash: 4e6f16a15547583baab63f452504d36eb2e43b85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbef1db94d7835bd9326102bd62921c6b3d88d74
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978432"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707057"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Azure 資源的受控識別與事件中樞
 
@@ -27,28 +27,28 @@ ms.locfileid: "65978432"
 一旦與受控識別產生關聯之後，事件中樞用戶端就可以執行所有授權的作業。 授權會藉由將受控識別與事件中樞角色產生關聯來授與。 
 
 ## <a name="event-hubs-roles-and-permissions"></a>事件中樞角色和權限
-您可以新增到受控身分識別**事件中樞資料擁有者**至事件中樞命名空間的角色。 此角色授與身分識別，命名空間中的所有實體的完整控制權 （適用於管理和資料作業）。
+您可以將受控識別新增至事件中樞命名空間的**事件中樞資料擁有**者角色。 此角色會針對命名空間中的所有實體, 授與身分識別、完全控制 (用於管理和資料作業)。
 
 >[!IMPORTANT]
-> 我們稍早支援新增至受管理的身分識別**擁有者**或是**參與者**角色。 不過，資料存取權限**擁有者**並**參與者**角色都不會再接受。 如果您使用**擁有者**或是**參與者**角色時，切換到使用**事件中樞資料擁有者**角色。
+> 我們先前支援將受控識別新增至**擁有**者或**參與者**角色。 不過, 「**擁有**者」和「**參與者**」角色的資料存取權限已不再遵守。 如果您使用的是「**擁有**者」或「**參與者**」角色, 請切換到使用**事件中樞資料擁有**者角色。
 
-若要使用新的內建角色，請遵循下列步驟： 
+若要使用新的內建角色, 請遵循下列步驟: 
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)
-2. 瀏覽至事件中樞命名空間。
-3. 在 **事件中樞命名空間**頁面上，選取**存取控制 （iam)** 從左側功能表中。
-4. 在 **存取控制 (IAM)** 頁面上，選取**新增**中**新增角色指派**一節。 
+2. 流覽至事件中樞命名空間。
+3. 在 [**事件中樞命名空間**] 頁面上, 從左側功能表中選取 **[存取控制 (IAM)** ]。
+4. 在 [**存取控制 (IAM)** ] 頁面上, 選取 [**新增角色指派**] 區段中的 [**新增**]。 
 
     ![[新增角色指派] 按鈕](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
-5. 在 **新增的角色指派**頁面上，執行下列步驟： 
-    1. 針對**角色**，選取**Azure 事件中樞資料擁有者**。 
-    2. 選取 **識別**可以加入至角色。
+5. 在 [**新增角色指派**] 頁面上, 執行下列步驟: 
+    1. 針對 [**角色**], 選取 [ **Azure 事件中樞資料擁有**者]。 
+    2. 選取要新增至角色的身分**識別**。
     3. 選取 [ **儲存**]。 
 
         ![事件中樞資料擁有者角色](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
-6. 若要切換**角色指派**頁面上，並確認使用者已新增至**Azure 事件中樞資料擁有者**角色。 
+6. 切換至 [**角色指派**] 頁面, 並確認使用者已新增至 [ **Azure 事件中樞資料擁有**者] 角色。 
 
-    ![確認使用者新增至角色](./media/event-hubs-managed-service-identity/role-assignments.png)
+    ![確認使用者已新增至角色](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>搭配使用事件中樞與 Azure 資源的受控識別
 
@@ -66,7 +66,7 @@ ms.locfileid: "65978432"
 
 ### <a name="set-up-the-managed-identity"></a>設定受控識別
 
-一旦您建立應用程式，在 Azure 入口網站瀏覽至新建立的 Web 應用程式 (也會在操作說明中顯示)，然後瀏覽至 [受控服務識別]  分頁，並啟用功能： 
+一旦您建立應用程式，在 Azure 入口網站瀏覽至新建立的 Web 應用程式 (也會在操作說明中顯示)，然後瀏覽至 [受控服務識別] 分頁，並啟用功能： 
 
 ![[受控服務識別] 頁面](./media/event-hubs-managed-service-identity/msi1.png)
  
@@ -74,15 +74,15 @@ ms.locfileid: "65978432"
 
 ### <a name="create-a-new-event-hubs-namespace"></a>建立新的事件中樞命名空間
 
-下一步[建立事件中樞命名空間](event-hubs-create.md)。 
+接下來,[建立事件中樞命名空間](event-hubs-create.md)。 
 
-瀏覽至入口網站上的命名空間 [存取控制 (IAM)]  頁面，然後按一下 [新增角色指派]  以將受控識別新增至 [擁有者]  角色。 若要這樣做，請在 [新增權限]  面板 [選取]  欄位中搜尋 Web 應用程式的名稱，然後按一下項目。 然後按一下 [儲存]  。 Web 應用程式的受控識別現在具有事件中樞命名空間的存取權，以及您先前建立之事件中樞的存取權。 
+瀏覽至入口網站上的命名空間 [存取控制 (IAM)] 頁面，然後按一下 [新增角色指派] 以將受控識別新增至 [擁有者] 角色。 若要這樣做，請在 [新增權限] 面板 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下項目。 然後按一下 [儲存]。 Web 應用程式的受控識別現在具有事件中樞命名空間的存取權，以及您先前建立之事件中樞的存取權。 
 
 ### <a name="run-the-app"></a>執行應用程式
 
-現在修改您建立之 ASP.NET 應用程式的預設分頁。 您也可以使用來自[這個 GitHub 存放庫](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp)的 Web 應用程式程式碼。 
+現在修改您建立之 ASP.NET 應用程式的預設分頁。 您也可以使用來自[這個 GitHub 存放庫](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp)的 Web 應用程式程式碼。 
 
-一旦您啟動應用程式，將您的瀏覽器指向 EventHubsMSIDemo.aspx。 您也可以將它設為您的起始頁面。 可以在 EventHubsMSIDemo.aspx.cs 檔案中找到程式碼。 結果是最小的 Web 應用程式，具有數個項目欄位，以及具有連線到事件中樞的 [傳送]  和 [接收]  按鈕，以傳送或接收事件。 
+一旦您啟動應用程式，將您的瀏覽器指向 EventHubsMSIDemo.aspx。 您也可以將它設為您的起始頁面。 可以在 EventHubsMSIDemo.aspx.cs 檔案中找到程式碼。 結果是最小的 Web 應用程式，具有數個項目欄位，以及具有連線到事件中樞的 [傳送] 和 [接收] 按鈕，以傳送或接收事件。 
 
 請注意 [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 物件如何初始化。 程式碼不會使用共用存取權杖 (SAS) 權杖提供者，而會改用 `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` 呼叫來建立受控識別的權杖提供者。 因此，不會儲存及使用祕密。 受控識別內容到事件中樞的流程以及授權交握，都會由權杖提供者自動處理，這是比使用 SAS 還要簡單的模型。
 
@@ -90,7 +90,7 @@ ms.locfileid: "65978432"
 
 ![匯入發行設定檔](./media/event-hubs-managed-service-identity/msi3.png)
  
-若要傳送或接收訊息，請輸入命名空間名稱和您建立之實體的名稱，然後按一下 [傳送]  或 [接收]  。 
+若要傳送或接收訊息，請輸入命名空間名稱和您建立之實體的名稱，然後按一下 [傳送] 或 [接收]。 
  
 受控識別只適用於 Azure 環境內部，而且只適用於您在其中設定它的 App Service 部署。 受控識別目前不會使用 App Service 部署位置。
 

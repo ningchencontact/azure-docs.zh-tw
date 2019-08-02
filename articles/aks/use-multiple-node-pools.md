@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
 ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68478335"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
@@ -32,7 +32,7 @@ ms.locfileid: "68478335"
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要使用多個 nodepools, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]命令來安裝*aks-preview* Azure CLI 擴充功能::
+若要使用多個 nodepools, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新::
 
 ```azurecli-interactive
 # Install the aks-preview extension

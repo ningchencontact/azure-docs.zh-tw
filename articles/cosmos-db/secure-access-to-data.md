@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 6ccb9afb528edf67b29c781217ca1de97b81e017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e321091f2abcff4c385b442ac6474c0592845e2e
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969213"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602042"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>安全存取 Azure Cosmos DB 中的資料
 
@@ -28,7 +28,7 @@ Azure Cosmos DB 會使用兩種類型的金鑰來驗證使用者，以允許存�
 
 ## <a name="master-keys"></a>主要金鑰 
 
-主要金鑰可讓資料庫帳戶存取所有系統管理資源。 主要金鑰：  
+主要金鑰可讓您存取資料庫帳戶的所有系統管理資源。 主要金鑰：  
 - 允許存取帳戶、資料庫、使用者和權限。 
 - 無法用來提供容器和文件的更細微的存取權。
 - 在帳戶建立期間建立。
@@ -104,7 +104,7 @@ Cosmos DB 資源權杖提供一個安全的替代方式，無需主要或唯讀�
 
 <a id="users"></a>
 
-## <a name="users"></a>使用者
+## <a name="users"></a>使用者人數
 Cosmos DB 使用者會與 Cosmos DB 資料庫相關聯。  每個資料庫都包含零個或多個 Cosmos DB 使用者。  下列程式碼範例示範如何建立 Cosmos DB 使用者資源。
 
 ```csharp
@@ -178,12 +178,12 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 若要將 Azure Cosmos DB 帳戶讀者存取權新增至您的使用者帳戶，請在 Azure 入口網站執行下列步驟，以取得訂用帳戶擁有者。
 
 1. 開啟 Azure 入口網站，選取您的 Azure Cosmos DB 帳戶。
-2. 按一下 [存取控制 (IAM)]  索引標籤，然後按一下 [+ 新增角色指派]  。
-3. 在 [新增角色指派]  窗格的 [角色]  方塊中，選取 [Cosmos DB 帳戶讀者角色]  。
-4. 在 [存取權指派對象為]  方塊中，選取 [Azure AD 使用者、群組或應用程式]  。
+2. 按一下 [存取控制 (IAM)] 索引標籤，然後按一下 [+ 新增角色指派]。
+3. 在 [新增角色指派] 窗格的 [角色] 方塊中，選取 [Cosmos DB 帳戶讀者角色]。
+4. 在 [存取權指派對象為] 方塊中，選取 [Azure AD 使用者、群組或應用程式]。
 5. 選取目錄中您要為其授與存取權的使用者、群組或應用程式。  您可以依顯示名稱、電子郵件地址或物件識別碼來搜尋目錄。
     選取的使用者、群組或應用程式會出現在選取的成員清單中。
-6. 按一下 [儲存]  。
+6. 按一下 [儲存]。
 
 實體現在已可讀取 Azure Cosmos DB 資源。
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055362"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640624"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
 
@@ -180,7 +180,7 @@ ms.locfileid: "67055362"
 
 * **接收對應項通知**。 這項作業可以在對應項修改時通知方案後端。 若要這樣做，您的 IoT 解決方案必須建立路由，並將資料來源設為等於 *twinChangeEvents*。 根據預設，預先不存在這類路由，因此不會傳送任何對應項通知。 如果變更率太高，或基於其他原因，例如內部失敗，IoT 中樞可能只會傳送一個包含所有變更的通知。 因此，如果您的應用程式需要可靠地稽核和記錄所有中間狀態，您應該使用裝置到雲端的訊息。 對應項通知訊息包含屬性和內文。
 
-  - 屬性
+  - Properties
 
     | 名稱 | 值 |
     | --- | --- |
@@ -231,7 +231,7 @@ ms.locfileid: "67055362"
 
 裝置應用程式會使用下列不可部分完成的作業來操作裝置對應項︰
 
-* **擷取裝置對應項**。 此作業會針對目前連線的裝置傳回裝置對應項文件 (包括標籤以及所需屬性、報告屬性和系統屬性)。
+* **擷取裝置對應項**。 這項作業會針對目前連線的裝置傳回裝置對應項檔 (包括所需和報告的系統屬性)。 (裝置應用程式看不到標記)。
 
 * **部分更新的報告屬性**。 此作業可針對目前連線裝置的報告屬性進行部分更新。 此作業使用的 JSON 更新格式，與解決方案後端用於局部更新所需屬性的格式相同。
 

@@ -3,7 +3,7 @@ title: 管理 Azure Service Fabric 叢集中的憑證 | Microsoft Docs
 description: 說明如何在 Service Fabric 叢集新增新的憑證、變換憑證及移除憑證。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo
-ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306906"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599947"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
 
-Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期日最久的已定義憑證；而不管其主要或次要設定定義為何。 切換回傳統行為非，建議使用進階的動作，而且需要將 「 UseSecondaryIfNewer"設定參數值設為 false Fabric.Code 設定中。
+Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期日最久的已定義憑證；而不管其主要或次要設定定義為何。 回到傳統行為是不建議的先進動作, 而且需要在您的網狀架構中將 "UseSecondaryIfNewer" 設定參數值設定為 false。
 
 當您在叢集建立期間設定憑證安全性時，除了用戶端憑證之外，Service Fabric 還可讓您指定兩個叢集憑證：主要與次要。 請參閱[透過入口網站建立 Azure 叢集](service-fabric-cluster-creation-via-portal.md)或[透過 Azure Resource Manager 建立 Azure 叢集](service-fabric-cluster-creation-via-arm.md)，以詳細了解如何在建立這些叢集時進行叢集設定。 如果您在建立時僅指定一個叢集憑證，該憑證就會作為主要憑證。 在叢集建立完成後，您可新增憑證做為次要憑證。
 
@@ -48,7 +48,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>使用 Resource Manager Powershell 來新增次要憑證
 > [!TIP]
-> 還有現在更好且更輕鬆的方法來新增次要憑證，使用[新增 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet。 您不需要遵循本節中的其餘步驟。  此外，您不需要原本用來建立及部署叢集時使用的範本[新增 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet。
+> 現在有更好的方法可以使用[AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) Cmdlet 來新增次要憑證。 您不需要遵循本節中的其餘步驟。  此外, 使用[AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) Cmdlet 時, 您不需要原本用來建立和部署叢集的範本。
 
 這些步驟是假設您已熟悉 Resource Manager 的運作方式，並已使用 Resource Manager 範本至少部署一個 Service Fabric 叢集，而且已讓您使用的範本將叢集設定妥當。 此外亦假設您可輕鬆自如地使用 JSON。
 
@@ -106,7 +106,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
          }
     ``` 
 
-    如果您想要「變換憑證」  ，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您透過單一部署步驟，就將目前的主要憑證變換成新憑證。
+    如果您想要「變換憑證」，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您透過單一部署步驟，就將目前的主要憑證變換成新憑證。
     
     ```JSON
           "properties": {
@@ -117,7 +117,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
          }
     ``` 
 
-4. 對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 捲動到 「 發行者 」:"Microsoft.Azure.ServiceFabric"，"virtualMachineProfile"底下。
+4. 對**所有** **Microsoft.Compute/virtualMachineScaleSets** 資源定義進行變更 - 找出 Microsoft.Compute/virtualMachineScaleSets 資源定義。 流覽至「發行者」:"VirtualMachineProfile" 底下的 "ServiceFabric"。
 
     在 Service Fabric 發行者設定中，您應該會看到像這樣的畫面。
     
@@ -138,7 +138,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
     
     ![Json_Pub_Setting2][Json_Pub_Setting2]
     
-    如果您想要「變換憑證」  ，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您在單一部署步驟中，將目前的憑證變換為新憑證。     
+    如果您想要「變換憑證」，請將新憑證指定為主要憑證，並將目前的主要憑證移轉為次要憑證。 這可讓您在單一部署步驟中，將目前的憑證變換為新憑證。     
 
     ```json
                    "certificate": {
@@ -195,7 +195,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 ### <a name="deploy-the-template-to-azure"></a>將範本部署到 Azure
 
 - 您現在已可將範本部署至 Azure。 開啟 Azure PS 版本 1+ 命令提示字元。
-- 登入您的 Azure 帳戶，並選取特定的 azure 訂用帳戶。 對於擁有多個 Azure 訂用帳戶存取權的使用者而言，這是一個重要步驟。
+- 登入您的 Azure 帳戶, 並選取特定的 azure 訂用帳戶。 對於擁有多個 Azure 訂用帳戶存取權的使用者而言，這是一個重要步驟。
 
 ```powershell
 Connect-AzAccount
@@ -210,7 +210,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your clus
 
 ```
 
-將範本部署至您的資源群組。 使用您目前在其中部署叢集的同一個資源群組。 執行新增 AzResourceGroupDeployment 命令。 您無須指定模式，因為預設值為 **增量**。
+將範本部署至您的資源群組。 使用您目前在其中部署叢集的同一個資源群組。 執行 New-azresourcegroupdeployment 命令。 您無須指定模式，因為預設值為 **增量**。
 
 > [!NOTE]
 > 若您將 [模式] 設為 [完整]，您可能會無意間刪除不在您範本中的資源。 因此請勿在此案例中使用該模式。
@@ -262,7 +262,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-client-certificates-to-the-cluster"></a>用戶端憑證部署至叢集。
+## <a name="deploying-client-certificates-to-the-cluster"></a>將用戶端憑證部署到叢集。
 
 您可以使用與上述步驟 5 中所述的相同步驟，將憑證從金鑰保存庫部署到節點。 您只需定義和使用不同的參數即可。
 

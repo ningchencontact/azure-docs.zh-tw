@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
 ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68348652"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
@@ -125,7 +125,7 @@ HADR 只是一種複寫功能。 它沒有任何失敗偵測, 也沒有自動接
   + 部署 Vm。
   + 更新 RHEL Linux 並設定檔案系統。
   + 安裝和設定 Pacemaker。
-  + 設定[glusterfs][glusterfs]叢集 or [Azure NetApp Files][anf-rhel]
+  + 設定[glusterfs][glusterfs]叢集或[Azure NetApp Files][anf-rhel]
   + [在不同的叢集上安裝 ASCS/ERS][ascs-ha-rhel]。
   + 安裝具有分散式/高可用性選項 (SWPM) 的 IBM Db2 資料庫。
   + 安裝並建立次要資料庫節點和實例, 並設定 HADR。
