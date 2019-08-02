@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: yaya
 ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67873888"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>下載 Azure SDK for PHP
@@ -45,7 +45,7 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 
 適用於 Azure 的 PHP 用戶端程式庫提供了一個介面，以便從任何作業系統存取 Azure 功能，例如資料管理服務和雲端服務。 您可以透過編輯器安裝這些程式庫。
 
-如需如何使用適用于 Azure 的 PHP 用戶端程式庫的詳細資訊, 請參閱[如何使用 Blob 服務][blob-service], [How to Use the Table Service][table-service]和[如何使用佇列服務][佇列-服務]。
+如需如何使用適用于 Azure 的 PHP 用戶端程式庫的詳細資訊, 請參閱[如何使用 Blob 服務][blob-service]、[如何使用資料表服務][table-service]和[如何使用佇列服務][queue-service]。
 
 ### <a name="install-via-composer"></a>透過編輯器安裝
 
