@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5e780dcab20befe19ca34020908eee93c290516
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 17e55dbe84cda87ee902c94e0024c9a3aad8b31b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409154"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698330"
 ---
 # <a name="cluster-tuning"></a>叢集調整
 
@@ -46,8 +46,6 @@ ms.locfileid: "60409154"
 若要在雲端 NAS 或閘道案例 (vFXT 叢集對雲端容器提供 NAS 樣式存取) 的 vFXT 叢集和雲端儲存體之間使用較高的資料速度，您的代表可能會建議變更諸如此類的這些設定，以便將資料從快取更積極地將推送到儲存體磁碟區：
 
 * 增加叢集與儲存體容器之間 TCP 連線的數目
-* 減少叢集與儲存體之間通訊的 REST 逾時值，以便在寫入未立即成功時，更快地重試寫入  
-* 增加區段大小，讓每個後端寫入區段傳輸 8 MB 區塊的資料而不是 1 MB 的資料
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>雲端負載平衡或混合式 WAN 最佳化
 

@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/14/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630275"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516716"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple Virtual Array 簡介
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 ## <a name="overview"></a>總覽
 
@@ -74,7 +76,7 @@ StorSimple 會在數分鐘內將使用者和伺服器連接到 Azure 儲存體�
 
 下表顯示所支援 StorSimple 工作負載的摘要。
 
-|狀況     |工作負載     |支援      |限制               | 適用版本|
+|狀況     |工作負載     |支援      |限制               | 適用的版本|
 |-------------|-------------|---------------|---------------------------|--------------------|
 |遠端辦公室/分公司 (ROBO)  |檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
 |雲端封存  |封存檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
@@ -101,13 +103,13 @@ StorSimple Virtual Array 特別適用於下列工作流程：
 ![雲端儲存體管理](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>與位置無關的備份
-運用虛擬陣列，雲端快照集可針對磁碟區或共用提供與位置無關的時間點複本。 預設會啟用雲端快照集，並且無法停用。 所有磁碟區和共用都是透過單一的每日備份原則，同時，也可以採用其他臨機操作備份需要的時候。
+運用虛擬陣列，雲端快照集可針對磁碟區或共用提供與位置無關的時間點複本。 預設會啟用雲端快照集，並且無法停用。 所有磁片區和共用都是透過單一每日備份原則同時備份, 而且您可以在必要時採取額外的特定備份。
 
 ### <a name="data-protection-and-disaster-recovery"></a>資料保護和災害復原
 虛擬陣列支援下列資料保護和災害復原案例：
 
 * **磁碟區或共用還原** – 使用還原作為新的工作流程來復原磁碟區或共用。 這種方法可用來復原整個磁碟區或共用。
-* **項目層級復原** – 共用可簡化對最新備份的存取。 您可以輕鬆地從雲端中可用的特殊 .backup  資料夾復原個別檔案。 這個還原功能是由使用者所驅動，而且不需要系統管理介入。
+* **項目層級復原** – 共用可簡化對最新備份的存取。 您可以輕鬆地從雲端中可用的特殊 .backup 資料夾復原個別檔案。 這個還原功能是由使用者所驅動，而且不需要系統管理介入。
 * **災害復原** – 使用容錯移轉功能來將所有磁碟區或共用復原到新的虛擬陣列。 您可以建立新的虛擬陣列，並向 StorSimple 裝置管理員服務進行註冊，然後容錯移轉原始虛擬陣列。 新的虛擬陣列之後將採用佈建的資源。
 
 ## <a name="storsimple-virtual-array-components"></a>StorSimple Virtual Array 元件

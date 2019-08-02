@@ -3,17 +3,16 @@ title: 了解藍圖生命週期
 description: 了解藍圖所會歷經的生命週期以及各階段的詳細資訊。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683184"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678995"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>了解 Azure 藍圖生命週期
 
@@ -34,14 +33,14 @@ ms.locfileid: "60683184"
 
 建立藍圖時，將成品新增至其中、儲存至管理群組或訂用帳戶，並提供唯一名稱與唯一版本。 藍圖現在處於**草稿**模式，尚無法指派。 然而在**草稿**模式中，它可以繼續更新及變更。
 
-處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義]  頁面上，顯示與**已發佈**藍圖不同的圖示。 **最新版本**會顯示為**草稿**這些永遠不會發佈藍圖。
+處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義] 頁面上，顯示與**已發佈**藍圖不同的圖示。 **最新版本**會針對這些從未發佈的藍圖顯示為**草稿**。
 
 使用 [Azure 入口網站](../create-blueprint-portal.md#create-a-blueprint)或 [REST API](../create-blueprint-rest-api.md#create-a-blueprint) 來建立及編輯藍圖。
 
 ## <a name="publishing-a-blueprint"></a>發佈藍圖
 
 對**草稿**模式的藍圖進行所有計劃性變更之後，該藍圖會處於**已發佈**狀態且可供指派。 藍圖的**已發佈**版本是無法改變的。
-一旦處於**已發佈**狀態，系統就會以與**草稿**藍圖不同的圖示來顯示藍圖，並在 [最新版本]  欄中顯示所提供的版本號碼。
+一旦處於**已發佈**狀態，系統就會以與**草稿**藍圖不同的圖示來顯示藍圖，並在 [最新版本] 欄中顯示所提供的版本號碼。
 
 使用 [Azure 入口網站](../create-blueprint-portal.md#publish-a-blueprint)或 [REST API](../create-blueprint-rest-api.md#publish-a-blueprint) 來發佈藍圖。
 
@@ -53,7 +52,7 @@ ms.locfileid: "60683184"
 
 ## <a name="publishing-a-new-version-of-the-blueprint"></a>發佈藍圖的新版本
 
-藍圖的每個編輯後版本必須**已發佈**，才能加以指派。 若已對藍圖進行**未發佈的變更**，但尚未**發佈**，編輯藍圖頁面上就會顯示 [發佈藍圖]  按鈕。 如果您看不到此按鈕，則表示藍圖**已發佈**且沒有**未發佈的變更**。
+藍圖的每個編輯後版本必須**已發佈**，才能加以指派。 若已對藍圖進行**未發佈的變更**，但尚未**發佈**，編輯藍圖頁面上就會顯示 [發佈藍圖] 按鈕。 如果您看不到此按鈕，則表示藍圖**已發佈**且沒有**未發佈的變更**。
 
 > [!NOTE]
 > 單一藍圖可以有多個**已發佈**版本，每個都可指派給訂用帳戶。
@@ -67,13 +66,13 @@ ms.locfileid: "60683184"
 > [!NOTE]
 > 您無法刪除擁有作用中指派的藍圖。 先刪除指派，然後再刪除您要移除的版本。
 
-1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
+1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 選取 **藍圖定義**從頁面左邊和篩選選項來找出您想要刪除的版本的藍圖的使用。 按一下該藍圖以開啟編輯頁面。
+1. 從左邊的頁面選取 [**藍圖定義**], 然後使用篩選選項來找出您想要刪除其版本的藍圖。 按一下該藍圖以開啟編輯頁面。
 
-1. 按一下 [已發佈的版本]  索引標籤，然後找出您要刪除的版本。
+1. 按一下 [已發佈的版本] 索引標籤，然後找出您要刪除的版本。
 
-1. 以滑鼠右鍵按一下要刪除選取的版本**刪除此版本**。
+1. 以滑鼠右鍵按一下要刪除的版本, 然後選取 [**刪除此版本**]。
 
 ## <a name="deleting-the-blueprint"></a>刪除藍圖
 
@@ -84,7 +83,7 @@ ms.locfileid: "60683184"
 
 使用 [Azure 入口網站](../create-blueprint-portal.md#delete-a-blueprint)或 [REST API](../create-blueprint-rest-api.md#delete-a-blueprint) 來刪除藍圖。
 
-## <a name="assignments"></a>指派
+## <a name="assignments"></a>工作分派
 
 在生命週期中，有數個時間點可將藍圖指派給訂用帳戶。 當藍圖版本的模式為**已發佈**時，即將將該版本指派給訂用帳戶。 此生命週期在新版本尚在開發時，就可使用並主動指派藍圖版本。
 
@@ -99,6 +98,17 @@ ms.locfileid: "60683184"
 - 將指派升級至藍圖的較新**已發佈**版本
 
 若要了解作法，請參閱[更新現有的指派](../how-to/update-existing-assignments.md)。
+
+### <a name="unassigning-assignments"></a>取消指派指派
+
+如果不再需要藍圖, 則可以從管理群組或訂用帳戶取消指派。 在藍圖解除期間, 會發生下列情況:
+
+- 移除[藍圖資源鎖定](resource-locking.md)
+- 刪除藍圖指派物件
+- 條件如果使用**系統指派的受控識別**, 它也會一併刪除
+
+> [!NOTE]
+> 藍圖指派所部署的所有資源都會保留在原處, 但不再受 Azure 藍圖保護。
 
 ## <a name="next-steps"></a>後續步驟
 

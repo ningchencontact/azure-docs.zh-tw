@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314199"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678535"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Azure Data Factory 對應資料流程選取轉換
+# <a name="mapping-data-flow-select-transformation"></a>對應資料流程選取轉換
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 將此轉換用於資料行選擇性 (減少資料行數目)、別名資料行和資料流程名稱, 以及重新排序資料行。
@@ -27,10 +27,7 @@ ms.locfileid: "68314199"
 
 選取也可以用來取消選取資料流程中的資料行。 例如，如果在接收中定義 6 個資料行，但是您只想要挑選其中 3 個進行轉換，然後流向接收，您可以使用選取轉換僅選取 3 個。
 
-> [!NOTE]
-> 您必須切換「全部選取」才能僅挑選特定的資料行
-
-![選取轉換](media/data-flow/select001.png "選取別名")
+![選取轉換](media/data-flow/newselect1.png "選取別名")
 
 ## <a name="options"></a>選項。
 * 「選取」的預設設定是包含所有內送的資料行，並保留這些原始名稱。 您可以設定 Select 轉換的名稱，為資料流設定別名。
@@ -38,6 +35,23 @@ ms.locfileid: "68314199"
 * 選擇 [略過重複專案], 以排除輸入或輸出中繼資料的重復資料行。
 
 ![略過重複專案](media/data-flow/select-skip-dup.png "略過重複專案")
+
+> [!NOTE]
+> 若要清除對應規則, 請按 [**重設**] 按鈕。
+
+## <a name="mapping"></a>對應
+根據預設, [選取] 轉換會自動對應所有資料行, 而這些資料行會在輸出上傳遞所有傳入的資料行到相同的名稱。 在 [選取設定] 中設定的輸出資料流程名稱會定義資料流程的新別名名稱。 如果您保留選取 [自動對應] 的集合, 則可以使用相同的所有資料行來為整個資料流程加上別名。
+
+![選取轉換規則]以(media/data-flow/rule2.png "規則為基礎的對應")
+
+如果您想要別名、移除、重新命名或重新排序資料行, 您必須先關閉「自動對應」。 根據預設, 您會看到為您輸入的預設規則, 稱為「所有輸入資料行」。 如果您想要一律允許所有傳入的資料行對應到其輸出上的相同名稱, 您可以將此規則保留在原處。
+
+不過, 如果您想要新增自訂規則, 您將按一下 [新增對應]。 欄位對應會為您提供要對應和別名的傳入和傳出資料行名稱清單。 選擇 [以規則為基礎的對應] 來建立模式比對規則。
+
+## <a name="rule-based-mapping"></a>以規則為基礎的對應
+當您選擇以規則為基礎的對應時, 您會指示 ADF 評估相符的運算式, 以符合傳入模式規則並定義外寄功能變數名稱。 您可以新增欄位和以規則為基礎之對應的任意組合。 然後, ADF 會根據來源的傳入中繼資料, 在執行時間產生功能變數名稱。 您可以在 debug 和使用 [資料預覽] 窗格期間, 查看所產生欄位的名稱。
+
+如需模式比對的詳細資訊, 請[參閱資料行模式檔](concepts-data-flow-column-pattern.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 使用 [選取] 來重新命名、重新排列和建立別名資料行之後, 請使用 [[接收] 轉換](data-flow-sink.md), 將您的資料放入資料存放區中。

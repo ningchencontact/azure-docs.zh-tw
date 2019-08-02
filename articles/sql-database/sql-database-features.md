@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 5bdbd9bebfb819ae18de884a014c574e12c53ebf
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 3f991d90dfdd5d31d1a7cf7119356f40458e7614
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371702"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568228"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server
 
@@ -89,9 +88,10 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [JSON 資料支援](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [是](sql-database-json-features.md) | [是](sql-database-json-features.md) |
 | [語言元素](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 大部分 - 請參閱個別元素 |  是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [連結的伺服器](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 請參閱[彈性查詢](sql-database-elastic-query-horizontal-partitioning.md) | 是的。 只有在沒有分散式交易的情況下, 才[SQL Server 和 SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) 。 |
+| 從檔案讀取的[連結伺服器](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine)(CSV、Excel)| 資料分割 使用[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file)或[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)作為 CSV 格式的替代方法。 | 資料分割 使用[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file)或[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)作為 CSV 格式的替代方法。 在[受控執行個體意見專案](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)上追蹤此要求|
 | [記錄傳送](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | 每個資料庫皆隨附[高可用性](sql-database-high-availability.md)。 [Azure SQL Database 的業務連續性概觀](sql-database-business-continuity.md)會討論災害復原 | 以原生方式內建為 DMS 遷移程式的一部分。 無法當做高可用性解決方案使用, 因為其他[高可用性](sql-database-high-availability.md)方法會包含在每個資料庫中, 不建議使用記錄傳送作為 HA 替代方案。 嚴重損壞修復會在[Azure SQL Database 的商務持續性總覽](sql-database-business-continuity.md)中討論。 無法當做資料庫之間的複寫機制使用-在[業務關鍵層](sql-database-service-tier-business-critical.md)、[自動容錯移轉群組](sql-database-auto-failover-group.md)或[異動複寫](sql-database-managed-instance-transactional-replication.md)上使用次要複本做為替代方案。 |
 | [登入和使用者](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | 是, 但`CREATE`和`ALTER` login 語句不提供所有選項 (沒有 Windows 和伺服器層級的 Azure Active Directory 登入)。 `EXECUTE AS LOGIN`不受支援-請`EXECUTE AS USER`改用。  | 是, 但有一些[差異](sql-database-managed-instance-transact-sql-information.md#logins-and-users)。 Windows 登入不受支援, 而且應該以 Azure Active Directory 登入來取代。 |
-| [最低記錄大量匯入](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 否 | 否 |
+| [最低記錄大量匯入](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 否, 只支援完整復原模式。 | 否, 只支援完整復原模式。 |
 | [修改系統資料](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | 否 | 是 |
 | [OLE Automation](https://docs.microsoft.com/sql/database-engine/configure-windows/ole-automation-procedures-server-configuration-option) | 否 | 否 |
 | [線上索引作業](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | 是 | 是 |
@@ -108,6 +108,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [述詞](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 是 | 是 |
 | [查詢通知](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | 否 | 是 |
 | [R 服務](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 是，現已在[公開預覽版](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)中推出  | 否 |
+| [復原模式](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) | 僅支援保證高可用性的完整復原。 簡單和大量記錄復原模式無法使用。 | 僅支援保證高可用性的完整復原。 簡單和大量記錄復原模式無法使用。 | 
 | [資源管理員](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 否 | 是 |
 | [RESTORE 陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 否 | 是, 在 Azure Blob 儲存體`FROM URL`上放置備份檔案的強制選項。 請參閱[還原差異](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [從備份還原資料庫](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 僅限從自動備份 - 請參閱[SQL Database 復原](sql-database-recovery-using-backups.md) | 從自動備份-請參閱[SQL Database](sql-database-recovery-using-backups.md)復原以及放在 Azure Blob 儲存體上的完整備份-請參閱[備份差異](sql-database-managed-instance-transact-sql-information.md#backup) |
@@ -148,6 +149,7 @@ Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外
 | [自動容錯移轉群組](sql-database-auto-failover-group.md) | 是-超大規模資料庫以外的所有服務層級 | 是，現已在[公開預覽版](sql-database-auto-failover-group.md)中推出|
 | [Azure 資源健康狀態](/azure/service-health/resource-health-overview) | 是 | 否 |
 | [資料移轉服務 (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | 是 | 是 |
+| 檔案系統存取 | 資料分割 使用[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)或[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) , 從 Azure Blob 儲存體存取和載入資料, 以做為替代方式。 | 資料分割 使用[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)或[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) , 從 Azure Blob 儲存體存取和載入資料, 以做為替代方式。 |
 | [異地還原](sql-database-recovery-using-backups.md#geo-restore) | 是-超大規模資料庫以外的所有服務層級 | 是-使用[Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa)。 |
 | [超大規模資料庫架構](sql-database-service-tier-hyperscale.md) | 是 | 否 |
 | [長期備份保留-LTR](sql-database-long-term-retention.md) | 是, 保持自動備份最多10年。 | 尚未提供。 使用`COPY_ONLY` [手動備份](sql-database-managed-instance-transact-sql-information.md#backup)做為暫時的因應措施。 |
@@ -167,7 +169,7 @@ Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外
 | [VNet](../virtual-network/virtual-networks-overview.md) | 部分, 它會使用[VNet 端點](sql-database-vnet-service-endpoint-rule-overview.md)來啟用限制存取 | 是, 受控執行個體會插入客戶的 VNet 中。 請參閱[子網](sql-database-managed-instance-transact-sql-information.md#subnet)和[VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
 
 ## <a name="tools"></a>工具
-Azure SQL database 支援各種資料工具, 可協助您管理您的資料。
+Azure SQL database 支援各種資料工具, 可協助您管理資料。
 
 | **SQL 工具** | **單一資料庫和彈性集區** | **受控實例** |
 | --- | --- | --- |

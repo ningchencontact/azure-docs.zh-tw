@@ -4,20 +4,20 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 60c0c700dde5afda2ca93a92b334cbc4f0134043
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174083"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667964"
 ---
 > [!div class="op_single_selector"]
-> * [裝置：Node.js 服務︰Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [裝置：C#服務：C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
-> * [裝置：Java 服務：Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
-> * [裝置：Python 服務：Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
+> * [Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
-後端應用程式可以使用 Azure IoT 中樞基元 (例如[裝置對應項][lnk-devtwin]和[直接方法][lnk-c2dmethod])，從遠端啟動並監視裝置上的裝置管理動作。 本教學課程會示範後端應用程式和裝置應用程式如何共同運作，以使用 IoT 中樞初始化和監視遠端裝置重新啟動。
+後端應用程式可以使用 Azure IoT 中樞的基本專案 (例如[裝置][lnk-devtwin]對應項和[直接方法][lnk-c2dmethod]), 從遠端啟動並監視裝置上的裝置管理動作。 本教學課程會示範後端應用程式和裝置應用程式如何共同運作，以使用 IoT 中樞初始化和監視遠端裝置重新啟動。
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 

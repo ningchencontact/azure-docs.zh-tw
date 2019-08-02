@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure SQL Database 和 Azure SQL 資料倉儲使用多重要素 AAD 驗證 |Microsoft Docs
+title: 搭配 Azure SQL Database 和 Azure SQL 資料倉儲使用多重要素 AAD 驗證 |Microsoft Docs
 description: Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」，從 SQL Server Management Studio (SSMS) 連線。
 services: sql-database
 ms.service: sql-database
@@ -10,36 +10,35 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-manager: craigg
 ms.date: 10/08/2018
-ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7add55380f2f7b3ef70db0603fe2c26127db8a78
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614166"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566448"
 ---
-# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>使用多重要素 AAD 驗證搭配 Azure SQL Database 和 Azure SQL 資料倉儲 （mfa 的 SSMS 支援）
-Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」  ，從 SQL Server Management Studio (SSMS) 連線。 這篇文章討論的各種驗證選項，以及與使用通用驗證相關聯的限制之間的差異。 
+# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>搭配使用多重要素 AAD 驗證與 Azure SQL Database 和 Azure SQL 資料倉儲 (適用于 MFA 的 SSMS 支援)
+Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」，從 SQL Server Management Studio (SSMS) 連線。 本文討論各種驗證選項之間的差異, 以及與使用通用驗證相關聯的限制。 
 
 **下載最新的 SSMS** - 在用戶端電腦上，從[下載 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下載最新版的 SSMS。 
 
 
-所有功能這篇文章所述，使用至少 2017 年 7 月 17.2 版。  最新的 [連線] 對話方塊中，看起來應該類似下圖：
+如需本文中討論的所有功能, 請使用至少2017年7月的版本17.2。  [最近的連接] 對話方塊看起來應該類似下圖:
  
   ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "完成 [使用者名稱] 方塊。")  
 
 ## <a name="the-five-authentication-options"></a>五個驗證選項  
 
-Active Directory 通用驗證支援兩種非互動式驗證方法：
-    - `Active Directory - Password` 驗證
-    - `Active Directory - Integrated` 驗證
+Active Directory 通用驗證支援兩種非互動式驗證方法:
+    - `Active Directory - Password`authentication
+    - `Active Directory - Integrated`authentication
 
-有兩種非互動式驗證模型，可以用於許多不同的應用程式 （ADO.NET、 JDCB、 ODC 等等）。 這兩種方法絕對不會產生快顯對話方塊中： 
+也有兩種非互動式驗證模型, 可用於許多不同的應用程式 (ADO.NET、JDCB、ODC 等等)。 這兩種方法永遠不會導致快顯對話方塊: 
 - `Active Directory - Password` 
 - `Active Directory - Integrated` 
 
-互動式的方法，也是 Azure multi-factor authentication (MFA) 的支援： 
+互動式方法也支援 Azure 多重要素驗證 (MFA), 也就是: 
 - `Active Directory - Universal with MFA` 
 
 
@@ -50,11 +49,11 @@ Azure MFA 有助於保護對資料與應用程式的存取，同時可以滿足�
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Azure AD 網域名稱或租用戶 ID 參數   
 
-從 [SSMS 第 17 版](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)開始，從其他 Azure Active Directory 匯入目前 Active Directory 的使用者 (如來賓使用者)，可以在連線時提供 Azure AD 網域名稱或租用戶 ID。 來賓使用者包括從其他 Azure AD、Microsoft 帳戶 (例如 outlook.com、hotmail.com、live.com) 或其他帳戶 (例如 gmail.com) 邀請的使用者。 此資訊可讓 [Active Directory 通用驗證搭配 MFA 驗證]  識別正確的驗證授權單位。 支援 Microsoft 帳戶 (MSA) (如 outlook.com、hotmail.com、live.com) 或非 MSA 帳戶時也需要此選項。 所有要使用通用驗證來進行驗證的這些使用者，皆必須輸入他們的 Azure AD 網域名稱或租用戶 ID。 此參數代表目前與 Azure 伺服器連結的 Azure AD 網域名稱/租用戶 ID。 例如，如果 Azure 伺服器與 Azure AD 網域 `contosotest.onmicrosoft.com` 相關聯，其中託管的使用者 `joe@contosodev.onmicrosoft.com` 是從 Azure AD 網域 `contosodev.onmicrosoft.com` 匯入，則用於驗證此使用者的必要網域名稱為 `contosotest.onmicrosoft.com`。 如果使用者是 Azure AD (與 Azure 伺服器連結) 的原生使用者，不是 MSA 帳戶，則不需要網域名稱或租用戶 ID。 若要輸入參數 (從 SSMS 第 17.2 版開始)，請在 [連線到資料庫]  對話方塊中完成對話方塊，並選取 [Active Directory - Universal with MFA]  ，按一下 [選項]  ，完成 [使用者名稱]  方塊，然後按一下 [連線屬性]  索引標籤。核取 [AD 網域名稱或租用戶 ID]  方塊並提供驗證授權單位，如網域名稱 (**contosotest.onmicrosoft.com**) 或租用戶 ID 的 GUID。  
+從 [SSMS 第 17 版](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)開始，從其他 Azure Active Directory 匯入目前 Active Directory 的使用者 (如來賓使用者)，可以在連線時提供 Azure AD 網域名稱或租用戶 ID。 來賓使用者包括從其他 Azure AD、Microsoft 帳戶 (例如 outlook.com、hotmail.com、live.com) 或其他帳戶 (例如 gmail.com) 邀請的使用者。 此資訊可讓 [Active Directory 通用驗證搭配 MFA 驗證]識別正確的驗證授權單位。 支援 Microsoft 帳戶 (MSA) (如 outlook.com、hotmail.com、live.com) 或非 MSA 帳戶時也需要此選項。 所有要使用通用驗證來進行驗證的這些使用者，皆必須輸入他們的 Azure AD 網域名稱或租用戶 ID。 此參數代表目前與 Azure 伺服器連結的 Azure AD 網域名稱/租用戶 ID。 例如，如果 Azure 伺服器與 Azure AD 網域 `contosotest.onmicrosoft.com` 相關聯，其中託管的使用者 `joe@contosodev.onmicrosoft.com` 是從 Azure AD 網域 `contosodev.onmicrosoft.com` 匯入，則用於驗證此使用者的必要網域名稱為 `contosotest.onmicrosoft.com`。 如果使用者是 Azure AD (與 Azure 伺服器連結) 的原生使用者，不是 MSA 帳戶，則不需要網域名稱或租用戶 ID。 若要輸入參數 (從 SSMS 第 17.2 版開始)，請在 [連線到資料庫] 對話方塊中完成對話方塊，並選取 [Active Directory - Universal with MFA]，按一下 [選項]，完成 [使用者名稱] 方塊，然後按一下 [連線屬性] 索引標籤。核取 [AD 網域名稱或租用戶 ID] 方塊並提供驗證授權單位，如網域名稱 (**contosotest.onmicrosoft.com**) 或租用戶 ID 的 GUID。  
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 企業對企業支援   
-在 Azure AD B2B 案例中，以來賓使用者身分支援的 Azure AD 使用者 (請參閱[什麼是 Azure B2B 共同作業](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md))，只能以在目前 Azure AD 中建立之群組的成員連線至 SQL Database 和 SQL 資料倉儲，並且在指定的資料庫中使用 Transact-SQL `CREATE USER` 手動對應。 例如，如果 `steve@gmail.com` 受邀加入 Azure AD `contosotest` (與 Azure Ad 網域`contosotest.onmicrosoft.com`)，則必須在 Azure AD 中建立包含 `steve@gmail.com` 成員的 Azure AD 群組 (例如 `usergroup`)。 然後，此群組必須建立特定的資料庫 (也就是 MyDatabase) 的 Azure AD SQL 系統管理員或 Azure AD DBO 藉由執行 TRANSACT-SQL`CREATE USER [usergroup] FROM EXTERNAL PROVIDER`陳述式。 建立資料庫使用者後，使用者 `steve@gmail.com` 就可以使用 SSMS 驗證選項 `Active Directory – Universal with MFA support` 來登入 `MyDatabase`。 根據預設，使用者群組只有 connect 權限，而任何進一步的資料存取權則需以一般方式進行授與。 請注意，身為來賓使用者的使用者 `steve@gmail.com` 必須核取此方塊，並且在 SSMS [連線屬性]  對話方塊中新增 AD 網域名稱 `contosotest.onmicrosoft.com`。 [AD 網域名稱或租用戶 ID]  選項僅對 [通用驗證搭配 MFA 連線] 選項提供支援，否則會呈現灰色。
+在 Azure AD B2B 案例中，以來賓使用者身分支援的 Azure AD 使用者 (請參閱[什麼是 Azure B2B 共同作業](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md))，只能以在目前 Azure AD 中建立之群組的成員連線至 SQL Database 和 SQL 資料倉儲，並且在指定的資料庫中使用 Transact-SQL `CREATE USER` 手動對應。 例如，如果 `steve@gmail.com` 受邀加入 Azure AD `contosotest` (與 Azure Ad 網域`contosotest.onmicrosoft.com`)，則必須在 Azure AD 中建立包含 `steve@gmail.com` 成員的 Azure AD 群組 (例如 `usergroup`)。 接著, 您必須藉由執行 transact-sql `CREATE USER [usergroup] FROM EXTERNAL PROVIDER`語句 Azure AD SQL 管理員或 Azure AD DBO, 為特定資料庫 (也就是 MyDatabase) 建立這個群組。 建立資料庫使用者後，使用者 `steve@gmail.com` 就可以使用 SSMS 驗證選項 `Active Directory – Universal with MFA support` 來登入 `MyDatabase`。 根據預設，使用者群組只有 connect 權限，而任何進一步的資料存取權則需以一般方式進行授與。 請注意，身為來賓使用者的使用者 `steve@gmail.com` 必須核取此方塊，並且在 SSMS [連線屬性] 對話方塊中新增 AD 網域名稱 `contosotest.onmicrosoft.com`。 [AD 網域名稱或租用戶 ID] 選項僅對 [通用驗證搭配 MFA 連線] 選項提供支援，否則會呈現灰色。
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>適用於 SQL Database 和 SQL 資料倉儲的通用驗證限制
 - SSMS 和 SqlPackage.exe 是目前唯一透過 Active Directory 通用驗證，針對 MFA 啟用的工具。
@@ -77,4 +76,4 @@ Azure MFA 有助於保護對資料與應用程式的存取，同時可以滿足�
 - [將 BACPAC 檔案匯入到新的 Azure SQL Database](../sql-database/sql-database-import.md)  
 - [將 Azure SQL 資料庫匯出到 BACPAC 檔案](../sql-database/sql-database-export.md)  
 - C# 介面 [IUniversalAuthProvider 介面](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- 使用 [Active Directory- 通用 MFA]  驗證時，自 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 開始可以使用 ADAL 追蹤功能。 預設為關閉，您可以使用 [Azure 服務]  、[Azure 雲端]  、[ADAL 輸出視窗的追蹤層級]  下的 [工具]  、[選項]  功能表，然後啟用 [檢視]  功能表中的 [輸出]  ，以開啟 ADAL 追蹤功能。 選取 [Azure Active Directory 選項]  時，可以在輸出視窗中取得追蹤結果。  
+- 使用 [Active Directory- 通用 MFA] 驗證時，自 [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 開始可以使用 ADAL 追蹤功能。 預設為關閉，您可以使用 [Azure 服務]、[Azure 雲端]、[ADAL 輸出視窗的追蹤層級] 下的 [工具]、[選項] 功能表，然後啟用 [檢視] 功能表中的 [輸出]，以開啟 ADAL 追蹤功能。 選取 [Azure Active Directory 選項] 時，可以在輸出視窗中取得追蹤結果。  

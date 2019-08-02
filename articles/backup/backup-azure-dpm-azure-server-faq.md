@@ -1,18 +1,19 @@
 ---
 title: Azure 備份伺服器和 DPM 常見問題
 description: 有關以下常見問題的解答：Azure 備份伺服器和 DPM。
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
-ms.openlocfilehash: 54727daa158172ae44379b847c70602ca998c65d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 16cf4bcb6d83d22417d83d0b20ee564431f82840
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466419"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689330"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure 備份伺服器和 DPM-常見問題
 本文會回答有關 Azure 備份伺服器和 DPM 的常見問題。

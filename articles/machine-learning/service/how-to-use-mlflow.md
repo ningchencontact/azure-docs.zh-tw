@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2030365cd78480c25e224edfea9e395aafa6661c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 55722c35dddcbf8a20f4f51958170938225e87e5
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227908"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668396"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>使用 MLflow 和 Azure Machine Learning 服務追蹤計量和部署模型 (預覽)
 
@@ -36,8 +36,9 @@ ms.locfileid: "68227908"
 
  MLflow 追蹤提供僅透過[Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)提供的計量記錄和成品儲存功能。
 
-| | MLflow 追蹤 & 部署 | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure 入口網站|
-|-|-|-|-|-|-|
+
+| | MLflow 追蹤 & 部署 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure 入口網站|
+|---|---|---|---|---|
 | 管理工作區 |   | ✓ | ✓ | ✓ |
 | 使用資料存放區  |   | ✓ | ✓ | |
 | 記錄計量      | ✓ | ✓ |   | |
@@ -349,15 +350,15 @@ aks_service.wait_for_deployment(show_output=True)
 
 如果您不打算在工作區中使用已記錄的計量和成品, 則無法個別刪除它們。 相反地, 請刪除包含儲存體帳戶和工作區的資源群組, 這樣您就不會產生任何費用:
 
-1. 在 Azure 入口網站中，選取最左邊的 [資源群組]  。
+1. 在 Azure 入口網站中，選取最左邊的 [資源群組]。
 
    ![在 Azure 入口網站中刪除](media/how-to-use-mlflow/delete-resources.png)
 
 1. 在清單中，選取您所建立的資源群組。
 
-1. 選取 [刪除資源群組]  。
+1. 選取 [刪除資源群組]。
 
-1. 輸入資源群組名稱。 然後選取 [刪除]  。
+1. 輸入資源群組名稱。 然後選取 [刪除]。
 
 
 ## <a name="example-notebooks"></a>Notebook 範例

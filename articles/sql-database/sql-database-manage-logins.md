@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: af6cec22ae455e6a6ead4c45fead2d7ff5b708d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a59e276c3ec9717634c8f0f3634b7337ebc47d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070514"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567712"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
@@ -40,7 +39,7 @@ ms.locfileid: "67070514"
   當您建立 Azure SQL server 時，您必須指定**伺服器管理員登入**。 SQL Server 會將該帳戶建立為 master 資料庫中的登入。 此帳戶會使用 SQL Server 驗證 (使用者名稱和密碼) 連接。 只有其中一個帳戶可以存在。
 
   > [!NOTE]
-  > 若要重設伺服器管理員的密碼，請移至 [Azure 入口網站](https://portal.azure.com)、按一下 [SQL Server]  、從清單中選取伺服器，然後按一下 [重設密碼]  。
+  > 若要重設伺服器管理員的密碼，請移至 [Azure 入口網站](https://portal.azure.com)、按一下 [SQL Server]、從清單中選取伺服器，然後按一下 [重設密碼]。
 
 - **Azure Active Directory 管理員**
 
@@ -64,7 +63,7 @@ ms.locfileid: "67070514"
 
 正確設定伺服器層級防火牆後，**SQL Database 管理員**和 **Azure Active Directory 管理員**可以使用用戶端工具 (例如 SQL Server Management Studio 或 SQL Server Data Tools) 進行連接。 只有最新的工具會提供所有的功能。 下圖顯示兩個系統管理員帳戶的一般組態。
 
-![兩個系統管理帳戶的設定](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![設定兩個系統管理帳戶](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 在伺服器層級防火牆中使用開啟的連接埠時，系統管理員可以連接到任何 SQL Database。
 
@@ -205,7 +204,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
   GO
   ```
   
-  相反地，使用下列 TRANSACT-SQL 陳述式：
+  請改用下列 Transact-sql 語句:
   
   ```sql
   DROP DATABASE IF EXISTS [database_name]

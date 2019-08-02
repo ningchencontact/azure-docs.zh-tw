@@ -1,18 +1,19 @@
 ---
 title: 針對 Azure 備份代理程式進行疑難排解
 description: 針對 Azure 備份代理程式的安裝和註冊進行疑難排解
-author: saurabhsensharma
-manager: sivan
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: saurse
-ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12cc584b27134c5c109f1a95eb4ccf8a7b2f0c64
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465975"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689226"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>針對 Microsoft Azure 復原服務 (MARS) 代理程式進行疑難排解
 
@@ -59,7 +60,7 @@ ms.locfileid: "68465975"
 1. 從`psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"`提高許可權的命令提示字元執行。
 
    此命令將會開啟 Internet Explorer。
-1. 移至 [**工具** > ] [**網際網路選項** >    > ] [連線] [**LAN 設定**]。
+1. 移至 [**工具** > ] [**網際網路選項** >   > ] [連線] [**LAN 設定**]。
 1. 檢查系統帳戶的 proxy 設定。
 1. 如果未設定 proxy, 並提供 proxy 詳細資料, 請移除詳細資料。
 1. 如果已設定 proxy, 而 proxy 詳細資料不正確, 請確定**PROXY IP**和**埠**詳細資料正確。
@@ -67,32 +68,32 @@ ms.locfileid: "68465975"
 
 ## <a name="unable-to-download-vault-credential-file"></a>無法下載保存庫認證檔
 
-| 錯誤   | 建議的動作 |
+| Error   | 建議的動作 |
 | ---     | ---    |
 |無法下載保存庫認證檔案。 (識別碼：403) | <ul><li> 請嘗試使用不同的瀏覽器來下載保存庫認證, 或採取下列步驟: <ul><li> 啟動 Internet Explorer。 選取 [F12]。 </li><li> 移至 [**網路**] 索引標籤, 並清除 [快取] 和 [cookie]。 </li> <li> 重新整理頁面。<br></li></ul> <li> 檢查訂用帳戶是否已停用/過期。<br></li> <li> 檢查是否有任何防火牆規則封鎖該下載。 <br></li> <li> 請確定您沒有用盡保存庫的限制 (每個保存庫50部電腦)。<br></li>  <li> 請確定使用者具有下載保存庫認證所需的 Azure 備份許可權, 並向保存庫註冊伺服器。 請參閱[使用以角色為基礎的存取控制來管理 Azure 備份復原點](backup-rbac-rs-vault.md)。</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure 復原服務代理程式無法連線至 Microsoft Azure 備份
 
-| 錯誤  | 可能的原因 | 建議的動作 |
+| Error  | 可能的原因 | 建議的動作 |
 | ---     | ---     | ---    |
 | <br /><ul><li>Microsoft Azure 復原服務代理程式無法連接到 Microsoft Azure 備份。 (識別碼：100050) 請檢查您的網路設定, 並確定您能夠連線到網際網路。<li>(407) 需要 Proxy 驗證。 |Proxy 正在封鎖連接。 |  <ul><li>在 Internet Explorer 中, 移至 [**工具** > ] [**Internet options**  >  **Security**  >  **Internet**]。 選取 [**自訂層級**], 並向下卷到 [檔案**下載**] 區段。 選取 [啟用]。<p>您也可能需要在 Internet Explorer 中將[url 和 IP 位址](backup-configure-vault.md#verify-internet-access)新增至信任的網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。<li> 如果您的電腦具有有限的網際網路存取權, 請確定電腦或 proxy 上的防火牆設定允許這些[url 和 IP 位址](backup-configure-vault.md#verify-internet-access)。 <li>如果您已在伺服器上安裝防毒軟體, 請將這些檔案從防毒軟體掃描中排除: <ul><li>CBEngine.exe (而不是 dpmra.exe)。<li>CSC.exe (與 .NET Framework 相關)。 伺服器上安裝的每個 .NET Framework 版本都有一個 CSC .exe。 在受影響的伺服器上排除所有 .NET Framework 版本的 CSC .exe 檔案。 <li>暫存檔案夾或快取位置。 <br>暫存檔案夾或快取路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\scratch。<li>C:\Program Files\Microsoft Azure Recovery Services Agent\Bin. 的 bin 資料夾
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>無法設定安全備份的加密金鑰
 
-| 錯誤 | 可能的原因 | 建議的動作 |
+| Error | 可能的原因 | 建議的動作 |
 | ---     | ---     | ---    |
 | <br />無法設定安全備份的加密金鑰。 啟用未完全成功, 但是加密複雜密碼已儲存至下列檔案。 |<li>伺服器已經向另一個保存庫註冊。<li>在設定期間，複雜密碼已損毀。| 從保存庫取消註冊伺服器, 然後使用新的複雜密碼重新註冊。
 
 ## <a name="the-activation-did-not-complete-successfully"></a>啟動沒有成功完成
 
-| 錯誤  | 可能的原因 | 建議的動作 |
+| Error  | 可能的原因 | 建議的動作 |
 |---------|---------|---------|
 |<br />啟動沒有成功完成。 由於發生內部服務錯誤 [0x1FC07]，導致目前的操作失敗。 請稍後再重試此操作。 如果問題持續發生，請連絡 Microsoft 支援服務。     | <li> 暫存檔案夾所在的磁片區沒有足夠的空間。 <li> 暫存資料夾的移動不正確。 <li> 遺失 OnlineBackup.KEK 檔案。         | <li>升級至[最新版本](https://aka.ms/azurebackup_agent)的 MARS 代理程式。<li>將暫存檔案夾或快取位置移至磁片區, 其可用空間介於備份資料大小總計的 5% 和 10% 之間。 若要正確地移動快取位置, 請參閱[有關備份檔案和資料夾的常見問題](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)中的步驟。<li> 確定 OnlineBackup.KEK 檔案存在。 <br>*暫存檔案夾或快取路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*。        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>未正確設定加密複雜密碼
 
-| 錯誤  | 可能的原因 | 建議的動作 |
+| Error  | 可能的原因 | 建議的動作 |
 |---------|---------|---------|
 | <br />錯誤 34506。 未正確設定儲存在這部電腦上的加密複雜密碼。    | <li> 暫存檔案夾所在的磁片區沒有足夠的空間。 <li> 暫存資料夾的移動不正確。 <li> 遺失 OnlineBackup.KEK 檔案。        | <li>升級至[最新版本](https://aka.ms/azurebackup_agent)的 MARS 代理程式。<li>將暫存檔案夾或快取位置移至磁片區, 其可用空間介於備份資料大小總計的 5% 和 10% 之間。 若要正確地移動快取位置, 請參閱[有關備份檔案和資料夾的常見問題](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)中的步驟。<li> 確定 OnlineBackup.KEK 檔案存在。 <br>*暫存檔案夾或快取路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*。         |
 

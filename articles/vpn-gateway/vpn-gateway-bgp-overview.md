@@ -6,14 +6,14 @@ author: yushwang
 manager: rossort
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 07/25/2019
 ms.author: yushwang
-ms.openlocfilehash: 91e9fe1eb6b3df0b64d05f2b1e300403a9e01db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e85eb756e416f1170a0cb2b19ab68888b5a9422f
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60762260"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516431"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>關於 BGP 與 Azure VPN 閘道
 這篇文章提供 Azure VPN 閘道中的 BGP (邊界閘道協定) 支援概觀。
@@ -21,7 +21,7 @@ ms.locfileid: "60762260"
 BGP 是常用於網際網路的標準路由通訊協定，可交換兩個或多個網路之間的路由和可執行性資訊。 在 Azure 虛擬網路的內容中使用時，BGP 會啟用 Azure VPN 閘道，以及內部部署 VPN 裝置 (稱為 BGP 對等互連或鄰近項目) 來交換「路由」，其會通知這兩個閘道對要通過閘道的首碼或所涉及之路由器的可用性和可執行性。 BGP 也可以傳播從一個 BGP 對等互連到所有其他 BGP 對等所識別的 BGP 閘道，來啟用多個網路之間的傳輸路由。 
 
 ## <a name="why"></a>為何要使用 BGP？
-BGP 是選用功能，可供您與 Azure 路由 VPN 閘道搭配使用。 您也應該要先確定您的內部部署 VPN 裝置支援 BGP 後，再啟用此功能。 您可以無需 BGP 即可繼續使用 Azure VPN 閘道和您的內部部署 VPN 裝置。 它相當於使用靜態路由 (不含 BGP)  與在您的網路和 Azure 之間使用具有 BGP 的動態路由。
+BGP 是選用功能，可供您與 Azure 路由 VPN 閘道搭配使用。 您也應該要先確定您的內部部署 VPN 裝置支援 BGP 後，再啟用此功能。 您可以無需 BGP 即可繼續使用 Azure VPN 閘道和您的內部部署 VPN 裝置。 它相當於使用靜態路由 (不含 BGP) 與在您的網路和 Azure 之間使用具有 BGP 的動態路由。
 
 BGP 具有數個優點和新功能：
 

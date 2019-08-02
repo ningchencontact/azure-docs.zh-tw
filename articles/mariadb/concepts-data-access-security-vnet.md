@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ca7a62ed6b9cd132e0cae226c2123043c833ffa
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332815"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610429"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>針對適用於 MariaDB 的 Azure 資料庫使用虛擬網路服務端點和規則
 
 *虛擬網路規則*是一項防火牆安全性功能，可控制適用於 MariaDB 的 Azure 資料庫伺服器是否接受從虛擬網路中特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓適用於 MariaDB 的 Azure 資料庫伺服器安全接受通訊的最佳選項。
 
-若要建立虛擬網路規則，必須先有[虛擬網路][vm-virtual-network-overview] (VNet) 和[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]可供規則參考。 下圖說明虛擬網路服務端點如何與適用於 MariaDB 的 Azure 資料庫搭配運作：
+若要建立虛擬網路規則, 必須先有[虛擬網路][vm-virtual-network-overview](VNet) 和[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d], 規則才能參考。 下圖說明虛擬網路服務端點如何與適用於 MariaDB 的 Azure 資料庫搭配運作：
 
 ![VNet 服務端點的運作方式範例](media/concepts-data-access-security-vnet/vnet-concept.png)
 
@@ -52,13 +52,13 @@ ms.locfileid: "60332815"
 
 ### <a name="a-allow-access-to-azure-services"></a>A. 允許存取 Azure 服務
 
-連線安全性窗格有一個標示為 [允許存取 Azure 服務]  的 [開啟/關閉]  按鈕。 [開啟]  設定允許來自所有 Azure IP 位址和所有 Azure 子網路的通訊。 這些 Azure IP 或子網路可能不是您所擁有。 此 [開啟]  設定可能會超出您想要開啟適用於 MariaDB 資料庫的 Azure 資料庫的幅度。 虛擬網路規則功能提供更細微的控制。
+連線安全性窗格有一個標示為 [允許存取 Azure 服務] 的 [開啟/關閉] 按鈕。 [開啟] 設定允許來自所有 Azure IP 位址和所有 Azure 子網路的通訊。 這些 Azure IP 或子網路可能不是您所擁有。 此 [開啟] 設定可能會超出您想要開啟適用於 MariaDB 資料庫的 Azure 資料庫的幅度。 虛擬網路規則功能提供更細微的控制。
 
 ### <a name="b-ip-rules"></a>B. IP 規則
 
-適用於 MariaDB 的 Azure 資料庫防火牆可讓您指定 IP 位址範圍，以接受來自此範圍內的通訊進入適用於 MariaDB 的 Azure 資料庫伺服器。 此方法對 Azure 私人網路外部的穩定 IP 位址很適合。 但 Azure 私人網路內部的許多節點都以「動態」  IP 位址設定。 動態 IP 位址可能變更，例如當 VM 重新啟動時。 在生產環境中，請勿在防火牆規則中指定動態 IP 位址。
+適用於 MariaDB 的 Azure 資料庫防火牆可讓您指定 IP 位址範圍，以接受來自此範圍內的通訊進入適用於 MariaDB 的 Azure 資料庫伺服器。 此方法對 Azure 私人網路外部的穩定 IP 位址很適合。 但 Azure 私人網路內部的許多節點都以「動態」IP 位址設定。 動態 IP 位址可能變更，例如當 VM 重新啟動時。 在生產環境中，請勿在防火牆規則中指定動態 IP 位址。
 
-您可以取得 VM 的「靜態」  IP 位址，以挽回 IP 選項。 如需詳細資料，請參閱[使用 Azure 入口網站設定虛擬機器的私人 IP 位址][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]。
+您可以取得 VM 的「靜態」IP 位址，以挽回 IP 選項。 如需詳細資訊, 請參閱[使用 Azure 入口網站設定虛擬機器的私人 IP 位址][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]。
 
 不過，靜態 IP 方法可能變得難以管理，在大規模使用時成本很高。 虛擬網路規則較容易建立和管理。
 
@@ -91,28 +91,29 @@ ms.locfileid: "60332815"
 - **網路管理：** &nbsp;開啟端點。
 - **資料庫管理：** &nbsp;更新存取控制清單 (ACL)，以將指定的子網路新增至適用於 MariaDB 的 Azure 資料庫伺服器。
 
-RBAC 替代方案： 
+RBAC 替代方案：
 
 「網路管理員」和「資料庫管理員」角色的能力已超過管理虛擬網路規則所需。 只需要其中一部分能力。
 
-在 Azure 中，您可以選擇使用[角色型存取控制 (RBAC)][ rbac-what-is-813s] 來建立單一自訂安全性角色，而且只給予一部分必要的能力。 可使用此自訂角色來代替，不必動用到「網路管理員」或「資料庫管理員」。將使用者新增至自訂角色，而不要新增至其他兩個主要的系統管理員角色，就可縮小安全性曝露面。
+您可以選擇在 Azure 中使用[角色型存取控制 (RBAC)][rbac-what-is-813s] , 以建立只具有必要功能子集的單一自訂角色。 可使用此自訂角色來代替，不必動用到「網路管理員」或「資料庫管理員」。將使用者新增至自訂角色，而不要新增至其他兩個主要的系統管理員角色，就可縮小安全性曝露面。
 
 > [!NOTE]
 > 在某些案例中，適用於 MariaDB 的 Azure 資料庫和 VNet 子網路是位於不同的訂用帳戶。 在這些情況下，您必須確保下列設定：
 > - 兩個訂用帳戶在相同的 Azure Active Directory 租用戶中。
 > - 使用者具備啟動作業的必要權限，例如啟用服務端點、將 VNet 子網路新增至指定的伺服器。
+> - 請確定這兩個訂用帳戶都已註冊**Microsoft .sql**資源提供者。 如需詳細資訊, 請參閱[資源管理員-註冊][resource-manager-portal]
 
 ## <a name="limitations"></a>限制
 
 針對適用於 MariaDB 的 Azure 資料庫，虛擬網路規則功能具有下列限制：
 
-- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要啟用 Web 應用程式具有 VNet 防火牆規則的伺服器的連線，您必須允許 Azure 服務存取伺服器上的伺服器。
+- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要啟用從 Web 應用程式到具有 VNet 防火牆規則之伺服器的連線, 您必須允許 Azure 服務存取伺服器上的伺服器。
 
 - 在適用於 MariaDB 的 Azure 資料庫防火牆中，每個虛擬網路規則都會參考一個子網路。 裝載所有這些參考子網路的地理區域，必須和裝載適用於 MariaDB 的 Azure 資料庫的地理區域相同。
 
 - 在任何指定的虛擬網路中，每個適用於 MariaDB 的 Azure 資料庫伺服器最多只能有 128 個 ACL 項目。
 
-- 虛擬網路規則只套用至 Azure Resource Manager 虛擬網路，而不是[傳統部署模型][resource-manager-deployment-model-568f]網路。
+- 虛擬網路規則只適用于 Azure Resource Manager 虛擬網路;而不是[傳統部署模型][resource-manager-deployment-model-568f]網路。
 
 - 使用 **Microsoft.Sql** 服務標記對適用於 MariaDB 的 Azure 資料庫開啟虛擬網路服務端點，也會對所有 Azure 資料庫服務啟用端點：適用於 MariaDB 的 Azure 資料庫、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫、Azure SQL Database 和 Azure SQL 資料倉儲。
 
@@ -120,11 +121,11 @@ RBAC 替代方案：
 
 - 在防火牆上，IP 位址範圍會套用到下列網路項目，但虛擬網路規則不這麼做：
     - [站對站 (S2S) 虛擬私人網路 (VPN)][vpn-gateway-indexmd-608y]
-    - 透過 [ExpressRoute][expressroute-indexmd-744v] 的內部部署
+    - 透過[ExpressRoute][expressroute-indexmd-744v]的內部部署
 
 ## <a name="expressroute"></a>ExpressRoute
 
-如果您的網路使用 [ExpressRoute][expressroute-indexmd-744v] 連線至 Azure 網路，則每個線路在 Microsoft Edge 會設定兩個公用 IP 位址。 兩個 IP 位址可使用 Azure 公用對等互連來連線至 Microsoft 服務，例如 Azure 儲存體。
+如果您的網路透過使用[ExpressRoute][expressroute-indexmd-744v]連線到 Azure 網路, 則會在 Microsoft Edge 上使用兩個公用 IP 位址來設定每個線路。 兩個 IP 位址可使用 Azure 公用對等互連來連線至 Microsoft 服務，例如 Azure 儲存體。
 
 若要允許從您的線路針對適用於 MariaDB 的 Azure 資料庫進行通訊，您必須為線路的公用 IP 位址建立 IP 網路規則。 若要尋找您 ExpressRoute 線路的公用 IP 位址，請使用 Azure 入口網站開啟具有 ExpressRoute 的支援票證。
 
@@ -160,3 +161,5 @@ RBAC 替代方案：
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
+
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

@@ -4,15 +4,15 @@ description: 這篇文章說明 Azure Cosmos DB 如何提供高可用性
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/31/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4dde41479c05151fa4e14c9fe4b534b9f7edf9b4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4b039e777748499e1b9a2a120e9498d94066b735
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467745"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688291"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB 的高可用性
 
@@ -81,6 +81,8 @@ Azure Cosmos DB 是全域散發的多宿主資料庫服務, 可在區域中斷�
 * East US
 * 美國東部 2 
 * 美國中部
+* 西歐
+* 美國西部 2
 
 > [!NOTE] 
 > 針對單一區域 Azure Cosmos 帳戶啟用可用性區域, 會產生相當於將額外區域新增至您帳戶的費用。 如需定價的詳細資訊, 請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)和[Azure Cosmos DB 文章中的多區域成本](optimize-cost-regions.md)。 

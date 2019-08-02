@@ -1,19 +1,20 @@
 ---
 title: Azure 備份：建立復原服務保存庫
 description: 建立可儲存備份和復原點的復原服務保存庫
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 keywords: 復原服務保存庫;Azure VM 備份;Azure VM 還原;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: sogup
-ms.openlocfilehash: 95ffe6aa0f65690e2df71c94b87d3e9f1ac7f7e5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: d13aff40d735e98e7745358f8caddcd8cdc20727
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465176"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688552"
 ---
 # <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 

@@ -3,7 +3,7 @@ title: 建立 Azure Service Fabric 叢集範本 | Microsoft Docs
 description: 了解如何為 Service Fabric 叢集建立 Resource Manager 範本。 為用戶端驗證設定安全性、Azure Key Vault 與 Azure Active Directory (Azure AD)。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
-ms.author: aljo
-ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 9030a1d9d0b1e3f9b84f6636b0d3d758ab4cfa3b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386871"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599981"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>建立 Service Fabric 叢集 Resource Manager 範本
 
 [Azure Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組透過網路連線的虛擬機器，您可以將微服務部署到其中並進行管理。 在 Azure 中執行的 Service Fabric 叢集是 Azure 資源，而且是使用 Resource Manager 來部署、管理及監視的。  此文章說明如何為在 Azure 中執行的 Service Fabric 叢集建立 Resource Manager 範本。  當範本完成時，您可以[在 Azure 上部署叢集](service-fabric-cluster-creation-via-arm.md)。
 
-叢集安全性是在第一次設定叢集時所設定，而且稍後無法變更。 設定叢集之前，請閱讀 [Service Fabric 叢集安全性案例][service-fabric-cluster-security]。 在 Azure 中，Service Fabric 使用 x509 憑證來保護您的叢集與其端點、驗證用戶端，以及加密資料。 也建議您使用 Azure Active Directory 來保護對管理端點的存取。 必須在建立叢集之前先建立 Azure AD 租用戶與使用者。  如需詳細資訊，請閱讀[設定 Azure AD 以驗證用戶端](service-fabric-cluster-creation-setup-aad.md)。
+叢集安全性是在第一次設定叢集時所設定，而且稍後無法變更。 在設定叢集之前, 請先閱讀[Service Fabric 叢集安全性案例][service-fabric-cluster-security]。 在 Azure 中，Service Fabric 使用 x509 憑證來保護您的叢集與其端點、驗證用戶端，以及加密資料。 也建議您使用 Azure Active Directory 來保護對管理端點的存取。 必須在建立叢集之前先建立 Azure AD 租用戶與使用者。  如需詳細資訊，請閱讀[設定 Azure AD 以驗證用戶端](service-fabric-cluster-creation-setup-aad.md)。
 
 部署生產叢集以執行生產工作負載之前，請務必先閱讀[生產整備檢查清單](service-fabric-production-readiness-checklist.md)。
 
@@ -35,16 +35,16 @@ ms.locfileid: "60386871"
 ## <a name="create-the-resource-manager-template"></a>建立 Resource Manager 範本
 您可以在 [GitHub 上的 Azure 範例](https://github.com/Azure-Samples/service-fabric-cluster-templates)中取得 Resource Manager 範本範例。 這些範本可以用作叢集範本的起點。
 
-此文章使用 [5 節點安全叢集][service-fabric-secure-cluster-5-node-1-nodetype]範例範本與範本參數。 將 *azuredeploy.json* 與 *azuredeploy.parameters.json* 下載到您的電腦，並在您慣用的文字編輯器中開啟這兩個檔案。
+本文使用[五個節點的安全][service-fabric-secure-cluster-5-node-1-nodetype]叢集範例範本和範本參數。 將 *azuredeploy.json* 與 *azuredeploy.parameters.json* 下載到您的電腦，並在您慣用的文字編輯器中開啟這兩個檔案。
 
 > [!NOTE]
 > 針對國家雲 (Azure Government、Azure 中國、Azure 德國)，您也應將下列 `fabricSettings` 新增至您的範本：`AADLoginEndpoint`、`AADTokenEndpointFormat` 和 `AADCertEndpointFormat`。
 
-## <a name="add-certificates"></a>新增憑證
+## <a name="add-certificates"></a>加入憑證
 您可以藉由參考包含憑證金鑰的 Key Vault，將憑證新增到叢集 Resource Manager 範本。 在 Resource Manager 範本參數檔案 (*azuredeploy.parameters.json*) 中新增金鑰保存庫參數和值。
 
 ### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>將所有憑證都新增到虛擬機器擴展集 osProfile
-安裝在叢集中的每個憑證都必須在擴展集資源 (Microsoft.Compute/virtualMachineScaleSets) 的 [osProfile]  區段中設定妥當。 此動作會指示資源提供者在 VM 上安裝憑證。 此安裝既包含叢集憑證，也包含任何您打算用於應用程式的應用程式安全性憑證︰
+安裝在叢集中的每個憑證都必須在擴展集資源 (Microsoft.Compute/virtualMachineScaleSets) 的 [osProfile] 區段中設定妥當。 此動作會指示資源提供者在 VM 上安裝憑證。 此安裝既包含叢集憑證，也包含任何您打算用於應用程式的應用程式安全性憑證︰
 
 ```json
 {

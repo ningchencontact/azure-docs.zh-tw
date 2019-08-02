@@ -1,6 +1,6 @@
 ---
-title: 安裝和部署 Linux 指南C#代理程式的 IoT 預覽的 Azure 資訊安全中心 |Microsoft Docs
-description: 了解如何在 32 位元和 64 位元的 Linux 上安裝 Azure 資訊安全中心，IoT 代理程式。
+title: 適用于 IoT 的 Linux C#代理程式安裝和部署 Azure 資訊安全中心的指南 |Microsoft Docs
+description: 瞭解如何在32位和64位的 Linux 上安裝適用于 IoT 代理程式的 Azure 資訊安全中心。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 808ff912a997a4c09a22048ada7546daab895701
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618256"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596296"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>針對 IoT 部署 Azure 資訊安全中心C#-適用於 Linux 的安全性代理程式
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>為適用于 Linux C#的 IoT 型安全性代理程式部署 Azure 資訊安全中心
 
-> [!IMPORTANT]
-> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-本指南說明如何安裝和部署 iot 的 Azure 資訊安全中心 (ASC) C#-以 Linux 為主的安全性代理程式。
+本指南說明如何在 Linux 上安裝和部署以 IoT C#為基礎之安全性代理程式的 Azure 資訊安全中心。
 
 在本指南中，您將了解如何： 
 > [!div class="checklist"]
@@ -37,9 +34,9 @@ ms.locfileid: "67618256"
 > * 解除安裝代理程式
 > * 疑難排解 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-如需其他平台和代理程式版本，請參閱[選擇正確的安全性代理程式](how-to-deploy-agent.md)。
+如需其他平臺和代理程式類別, 請參閱[選擇正確的安全性代理程式](how-to-deploy-agent.md)。
 
 1. 若要部署安全性代理程式，您必須在將要用來安裝代理程式的電腦上，擁有其本機系統管理員的權限。 
 
@@ -47,11 +44,11 @@ ms.locfileid: "67618256"
 
 ## <a name="installation"></a>安裝 
 
-若要部署安全性代理程式，請執行下列步驟：
+若要部署安全性代理程式, 請使用下列步驟:
 
-1. 從 [GitHub](https://aka.ms/iot-security-github-cs) 下載最新版本到您的電腦。
+1. 從[GitHub](https://aka.ms/iot-security-github-cs)下載最新版本到您的電腦。
 
-1. 解壓縮套件的內容，然後瀏覽至 /Install  資料夾。
+1. 解壓縮套件的內容，然後瀏覽至 /Install 資料夾。
 
 1. 執行 `chmod +x InstallSecurityAgent.sh` 將執行權限新增至 **InstallSecurityAgent** 指令碼 
 
@@ -61,17 +58,17 @@ ms.locfileid: "67618256"
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   如需驗證參數的詳細資訊，請參閱[如何設定驗證](concept-security-agent-authentication-methods.md)。
+   如需驗證參數的詳細資訊, 請參閱[如何設定驗證](concept-security-agent-authentication-methods.md)。
 
-此指令碼會執行下列動作︰
+此指令碼會執行下列動作：
 
 - 安裝必要條件。
 
-- 新增服務的使用者 (並停用互動式登入)。
+- 新增服務使用者 (已停用互動式登入)。
 
-- 將代理程式安裝為**精靈** - 這會假設裝置使用 **systemd** 來管理服務。
+- 將代理程式安裝為**Daemon** -假設裝置針對傳統部署模型使用**systemd** 。
 
-- 請設定 **sudoers** 以允許代理程式透過 root 身分執行特定工作。
+- 設定**sudoers**以允許代理程式以 root 身分執行特定工作。
 
 - 使用所提供的驗證參數來設定代理程式。
 
@@ -125,8 +122,8 @@ ms.locfileid: "67618256"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 閱讀適用於 IoT 的 ASC 服務[概觀](overview.md)
-- 深入了解適用於 IoT 的 ASC [架構](architecture.md)
+- 閱讀 IoT 服務的 Azure 資訊安全中心[總覽](overview.md)
+- 深入瞭解 IoT[架構](architecture.md)的 Azure 資訊安全中心
 - 啟用[服務](quickstart-onboard-iot-hub.md)
 - 閱讀[常見問題集](resources-frequently-asked-questions.md)
 - 了解[警示](concept-security-alerts.md)

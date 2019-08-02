@@ -9,12 +9,12 @@ ms.date: 07/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 469790660e843816cc431420e7e1407c90a7de05
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 2d0697567bfd2fcf95a1fe6ebf246646af5650c3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249910"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564896"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>使用適用于 Azure 資源的 Azure Active Directory 和受控識別, 授權對 blob 和佇列的存取
 
@@ -38,9 +38,9 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 
 如需指派 RBAC 角色的詳細資訊, 請參閱下列其中一篇文章:
 
-- [在 Azure 入口網站中使用 RBAC 授與 Azure blob 和佇列資料的存取權](storage-auth-aad-rbac-portal.md)
-- [使用 Azure CLI 以 RBAC 授與 Azure blob 和佇列資料的存取權](storage-auth-aad-rbac-cli.md)
-- [使用 PowerShell 以 RBAC 授與 Azure blob 和佇列資料的存取權](storage-auth-aad-rbac-powershell.md)
+- [在 Azure 入口網站中使用 RBAC 授與 Azure Blob 和佇列資料的存取權](storage-auth-aad-rbac-portal.md)
+- [透過 Azure CLI 使用 RBAC 授與 Azure Blob 和佇列資料的存取權](storage-auth-aad-rbac-cli.md)
+- [透過 PowerShell 使用 RBAC 授與 Azure Blob 和佇列資料的存取權](storage-auth-aad-rbac-powershell.md)
 
 ## <a name="azure-storage-resource-id"></a>Azure 儲存體資源識別碼
 
@@ -100,8 +100,7 @@ const string blobName = "https://storagesamples.blob.core.windows.net/sample-con
 
 // Get the initial access token and the interval at which to refresh it.
 AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider,
-                                            CancellationToken.None).GetAwaiter().GetResult();
+var tokenAndFrequency = await TokenRenewerAsync(azureServiceTokenProvider,CancellationToken.None);
 
 // Create storage credentials using the initial token, and connect the callback function
 // to renew the token just before it expires
@@ -117,7 +116,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName),
                                             storageCredentials);
 
 // Upload text to the blob.
-blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
+await blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
 
 // Continue to make requests against Azure Storage.
 // The token is automatically refreshed as needed in the background.
@@ -126,7 +125,7 @@ do
     // Read blob contents
     Console.WriteLine("Time accessed: {0} Blob Content: {1}",
                         DateTimeOffset.UtcNow,
-                        blob.DownloadTextAsync().Result);
+                        await blob.DownloadTextAsync());
 
     // Sleep for ten seconds, then read the contents of the blob again.
     Thread.Sleep(TimeSpan.FromSeconds(10));

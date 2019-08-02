@@ -1,7 +1,7 @@
 ---
-title: 如何部署模型使用自訂的 Docker 映像
+title: 使用自訂 Docker 映射部署模型
 titleSuffix: Azure Machine Learning service
-description: 了解如何部署 Azure 機器學習服務模型時，使用自訂的 Docker 映像。 當部署定型的模型，Docker 映像會建立主應用程式的映像、 web 伺服器和執行服務所需的其他元件。 雖然 Azure Machine Learning 服務為您提供的預設映像，您也可以使用自己的映像。
+description: 瞭解如何在部署 Azure Machine Learning 服務模型時使用自訂 Docker 映射。 部署定型的模型時, 會建立 Docker 映射來裝載映射、web 伺服器, 以及執行服務所需的其他元件。 雖然 Azure Machine Learning 服務會為您提供預設映射, 但您也可以使用自己的映射。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,90 +10,90 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: b8591fe750d4bb1441cdc28c488b2c860eb0bccb
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f51c6bdc6cb2e381d5d5b855bf2f87b07d7fc180
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840077"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638435"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>部署模型使用自訂的 Docker 映像
+# <a name="deploy-a-model-using-a-custom-docker-image"></a>使用自訂 Docker 映射部署模型
 
-了解如何部署與 Azure Machine Learning 服務的定型的模型時，使用自訂的 Docker 映像。
+瞭解如何在使用 Azure Machine Learning 服務部署定型模型時, 使用自訂的 Docker 映射。
 
-當您將定型的模型部署至 web 服務或 IoT Edge 裝置時，會建立 Docker 映像。 此映像包含模型、 conda 環境和使用模型所需的資產。 它也包含網頁伺服器來處理部署為 web 服務，以及使用 Azure IoT 中樞所需的元件時的連入要求。
+當您將定型的模型部署至 web 服務或 IoT Edge 裝置時, 會建立 Docker 映射。 此映射包含使用模型所需的模型、conda 環境和資產。 它也包含 web 伺服器, 可在部署為 web 服務時處理傳入的要求, 以及使用 Azure IoT 中樞所需的元件。
 
-Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔心建立一個。 您也可以使用您建立自訂映像_基底映像_。 映像建立部署時，基底映像可做為起點。 它提供的基礎作業系統和元件。 然後在部署程序會將額外的元件，例如您的模型、 conda 環境和其他資產，將再將它部署的映像中。
+Azure Machine Learning 服務提供預設 Docker 映射, 因此您不必擔心如何建立它。 您也可以使用您建立的自訂映射作為_基底映射_。 建立映射以供部署時, 會使用基底映射做為起點。 它提供基礎作業系統和元件。 然後部署程式會在部署之前, 將其他元件 (例如您的模型、conda 環境和其他資產) 新增至映射。
 
-一般而言，您建立自訂映像，當您想要控制元件版本，或儲存在部署期間的時間。 比方說，您可能要在特定版本的 Python、 Conda、 或其他元件上標準化。 您也可以安裝您的模型，其中的安裝程序會很長的時間所需的軟體。 建立基底映像時，安裝此軟體表示您不必安裝每個部署。
+一般而言, 當您想要在部署期間控制元件版本或節省時間時, 您會建立自訂映射。 例如, 您可能會想要在特定版本的 Python、Conda 或其他元件上進行標準化。 您可能也會想要安裝模型所需的軟體, 安裝程式會花很長的時間。 在建立基底映射時安裝軟體, 表示您不需要針對每個部署進行安裝。
 
 > [!IMPORTANT]
-> 在部署模型時，您無法覆寫核心元件，例如網頁伺服器或 IoT Edge 的元件。 這些元件提供已知的工作環境是測試與 Microsoft 支援。
+> 部署模型時, 您無法覆寫核心元件 (例如網頁伺服器或 IoT Edge 元件)。 這些元件會提供已知的工作環境, 並由 Microsoft 進行測試和支援。
 
 > [!WARNING]
-> Microsoft 可能無法協助疑難排解問題的自訂映像所造成。 如果您遇到問題，您可能會要求使用的預設映像或其中一個 Microsoft 提供給您的映像的特定問題時，請參閱映像。
+> Microsoft 可能無法協助疑難排解自訂映射所造成的問題。 如果您遇到問題, 系統可能會要求您使用預設影像或 Microsoft 提供的其中一個映射, 以查看問題是否為您的映射所特有。
 
-這份文件會分成兩個區段：
+本檔分成兩個部分:
 
-* 建立自訂映像：提供建立自訂映像和設定 Azure Container Registry 使用 Azure CLI 和 Machine Learning CLI 驗證的相關資訊給管理員和 DevOps。
-* 使用自訂映像：使用自訂映像，部署定型的模型，從 Python SDK 或 ML CLI 時資料科學家和 DevOps/MLOps 提供相關資訊。
+* 建立自訂映射:提供系統管理員和 DevOps 的資訊, 以建立自訂映射, 並使用 Azure CLI 和 Machine Learning CLI 設定 Azure Container Registry 的驗證。
+* 使用自訂映射:從 Python SDK 或 ML CLI 部署定型的模型時, 提供資料科學家的資訊, 以及使用自訂映射的 DevOps/MLOps。
 
 ## <a name="prerequisites"></a>先決條件
 
-* Azure 機器學習服務工作群組中。 如需詳細資訊，請參閱 <<c0> [ 建立工作區](setup-create-workspace.md)文章。
-* Azure Machine Learning SDK。 如需詳細資訊，請參閱 > 一節 Python SDK[建立工作區](setup-create-workspace.md#sdk)文章。
+* Azure Machine Learning 服務 workgroup。 如需詳細資訊, 請參閱[建立工作區](setup-create-workspace.md)文章。
+* Azure Machine Learning SDK。 如需詳細資訊, 請參閱[建立工作區](setup-create-workspace.md#sdk)文章的 Python SDK 一節。
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
-* [適用於 Azure Machine Learning CLI 擴充功能](reference-azure-machine-learning-cli.md)。
-* [Azure Container Registry](/azure/container-registry)或可在網際網路存取其他 Docker 登錄。
-* 這份文件中的步驟假設您熟悉建立和使用__推斷組態__物件做為模型部署的一部分。 如需詳細資訊，請參閱 「 準備部署 」 一節[部署位置和方式](how-to-deploy-and-where.md#prepare-to-deploy)。
+* [Azure Machine Learning 的 CLI 擴充](reference-azure-machine-learning-cli.md)功能。
+* 可在網際網路上存取的[Azure Container Registry](/azure/container-registry)或其他 Docker Registry。
+* 本檔中的步驟假設您已熟悉建立和使用__推斷__設定物件做為模型部署的一部分。 如需詳細資訊, 請參閱[部署位置和方式](how-to-deploy-and-where.md#prepare-to-deploy)的「準備部署」一節。
 
 ## <a name="create-a-custom-image"></a>建立自訂映像
 
-在本節中的資訊假設您使用 Azure Container Registry 來儲存 Docker 映像。 使用下列檢查清單規劃時，建立 Azure Machine Learning 服務的自訂映像：
+本節中的資訊假設您使用 Azure Container Registry 來儲存 Docker 映射。 規劃建立 Azure Machine Learning 服務的自訂映射時, 請使用下列檢查清單:
 
-* 您將使用 Azure 機器學習服務工作區中或獨立的 Azure Container Registry 建立 Azure Container Registry？
+* 您將使用為 Azure Machine Learning 服務工作區建立的 Azure Container Registry, 還是獨立 Azure Container Registry？
 
-    當使用映像儲存在__工作區的容器登錄庫__，您不需要向登錄進行驗證。 驗證工作區所處理。
+    使用儲存在__工作區的容器__登錄中的映射時, 您不需要向登錄進行驗證。 驗證是由工作區負責處理。
 
     > [!WARNING]
-    > 為您的工作區的 Azure 容器 Rzegistry__訓練，或將模型部署的第一次建立__使用的工作區。 如果您已建立新的工作區中，但不是受過訓練或建立模型，任何的 Azure Container Registry 會不存在的工作區。
+    > 您的工作區的 Azure Container Rzegistry 會__在您第一次使用工作區定型或部署模型時建立__。 如果您已建立新的工作區, 但未定型或建立模型, 則工作區不會有任何 Azure Container Registry。
 
-    如需有關擷取您的工作區的 Azure Container Registry 的名稱，請參閱[取得容器登錄名稱](#getname)一節。
+    如需有關抓取工作區 Azure Container Registry 名稱的詳細資訊, 請參閱本文的[取得容器登錄名稱](#getname)一節。
 
-    當使用映像儲存在__獨立容器登錄庫__，您必須設定至少具有讀取權限的服務主體。 您接著會提供的服務主體識別碼 （使用者名稱） 和密碼使用映像從登錄的任何人。 例外情況是如果您將容器登錄可公開存取。
+    使用儲存在__獨立容器__登錄中的映射時, 您必須設定至少具有「讀取」存取權的服務主體。 接著, 您可以將服務主體識別碼 (使用者名稱) 和密碼提供給使用登錄中映射的任何人。 如果您讓容器登錄可公開存取, 就會發生例外狀況。
 
-    如需建立私人 Azure 容器登錄的詳細資訊，請參閱[建立私人容器登錄庫](/azure/container-registry/container-registry-get-started-azure-cli)。
+    如需建立私人 Azure Container Registry 的詳細資訊, 請參閱[建立私人容器](/azure/container-registry/container-registry-get-started-azure-cli)登錄。
 
-    如需使用 Azure Container Registry 中的服務主體的資訊，請參閱[使用服務主體進行 Azure Container Registry 驗證](/azure/container-registry/container-registry-auth-service-principal)。
+    如需使用服務主體搭配 Azure Container Registry 的詳細資訊, 請參閱[使用服務主體 Azure Container Registry 驗證](/azure/container-registry/container-registry-auth-service-principal)。
 
-* Azure Container Registry 和映像的資訊：需要使用它的任何人提供的映像名稱。 例如，名為映像`myimage`、 在登錄中名為預存`myregistry`，參考為`myregistry.azurecr.io/myimage`時使用的模型部署的映像
+* Azure Container Registry 和影像資訊:將映射名稱提供給需要使用它的任何人。 例如, 名`myimage`為的映射 (儲存在名為`myregistry`的登錄中) 會`myregistry.azurecr.io/myimage`作為使用映射進行模型部署時的參考
 
-* 映像需求：Azure Machine Learning 服務僅支援 Docker 映像，提供下列軟體：
+* 映射需求:Azure Machine Learning 服務只支援提供下列軟體的 Docker 映射:
 
     * Ubuntu 16.04 或更新版本。
-    * Conda 4.5。 # 或更新版本。
-    * Python 3.5。 # 或 3.6。 #。
+    * Conda 4.5. # 或更新版本。
+    * Python 3.5. # 或 3.6. #。
 
 <a id="getname"></a>
 
 ### <a name="get-container-registry-information"></a>取得容器登錄資訊
 
-在本節中，了解如何取得您的 Azure 機器學習服務工作區中的 Azure Container Registry 的名稱。
+在本節中, 您將瞭解如何取得 Azure Machine Learning 服務工作區的 Azure Container Registry 名稱。
 
 > [!WARNING]
-> Azure Container registry，您的工作區__訓練，或將模型部署的第一次建立__使用的工作區。 如果您已建立新的工作區中，但不是受過訓練或建立模型，任何的 Azure Container Registry 會不存在的工作區。
+> 第一次使用工作區__訓練或部署模型__時, 會建立工作區的 Azure Container Registry。 如果您已建立新的工作區, 但未定型或建立模型, 則工作區不會有任何 Azure Container Registry。
 
-如果您已經已受過訓練，或部署使用 Azure 機器學習服務模型，為您工作區建立容器登錄庫。 若要尋找此容器登錄的名稱，請使用下列步驟：
+如果您已使用 Azure Machine Learning 服務來定型或部署模型, 則會為您的工作區建立容器登錄。 若要尋找此容器登錄的名稱, 請使用下列步驟:
 
-1. 開啟新的殼層或命令提示字元，並使用下列命令來驗證您的 Azure 訂用帳戶：
+1. 開啟新的 shell 或命令提示字元, 並使用下列命令來驗證您的 Azure 訂用帳戶:
 
     ```azurecli-interactive
     az login
     ```
 
-    遵循提示來驗證訂用帳戶。
+    遵循提示向訂用帳戶進行驗證。
 
-2. 您可以使用下列命令，列出工作區的容器登錄。 取代`<myworkspace>`以您的 Azure 機器學習服務工作區名稱。 取代`<resourcegroup>`與 Azure 資源群組，其中包含您的工作區：
+2. 使用下列命令來列出工作區的容器登錄。 將`<myworkspace>`取代為您的 Azure Machine Learning 服務工作區名稱。 將`<resourcegroup>`取代為包含您工作區的 Azure 資源群組:
 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
@@ -105,13 +105,13 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
     /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.ContainerRegistry/registries/<registry_name>
     ```
 
-    `<registry_name>`值是您的工作區的 Azure Container Registry 的名稱。
+    `<registry_name>`值是您工作區的 Azure Container Registry 名稱。
 
-### <a name="build-a-custom-image"></a>建置自訂映像
+### <a name="build-a-custom-image"></a>建立自訂映射
 
-此節逐步解說中您的 Azure Container Registry 中建立自訂的 Docker 映像中的步驟。
+本節中的步驟將逐步解說如何在您的 Azure Container Registry 中建立自訂的 Docker 映射。
 
-1. 建立新的文字檔案，名為`Dockerfile`，並使用下列文字做為內容：
+1. 建立名為`Dockerfile`的新文字檔, 並使用下列文字做為內容:
 
     ```text
     FROM ubuntu:16.04
@@ -138,82 +138,82 @@ Azure Machine Learning 服務會提供預設的 Docker 映像，讓您不必擔�
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;
     ```
 
-2. 在殼層或命令提示字元中，使用下列來向 Azure Container Registry 進行驗證。 取代`<registry_name>`具有您想要儲存在映像的容器登錄的名稱：
+2. 從 shell 或命令提示字元, 使用下列命令來驗證 Azure Container Registry。 `<registry_name>`以您想要用來儲存映射的容器登錄名稱取代:
 
     ```azurecli-interactive
     az acr login --name <registry_name>
     ```
 
-3. 若要上傳 Dockerfile 中，並建置該檔案，使用下列命令。 取代`<registry_name>`具有您想要儲存在映像的容器登錄的名稱：
+3. 若要上傳 Dockerfile, 並建立它, 請使用下列命令。 以`<registry_name>`您想要用來儲存映射的容器登錄名稱取代:
 
     ```azurecli-interactive
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
     ```
 
-    在建置過程中，會將資訊串流至回到命令列。 如果建置成功，您會收到類似下列文字的訊息：
+    在建立程式期間, 會將資訊串流處理回命令列。 如果組建成功, 您會收到類似下列文字的訊息:
 
     ```text
     Run ID: cda was successful after 2m56s
     ```
 
-如需有關如何建置使用 Azure Container Registry 的映像的詳細資訊，請參閱[建置並執行使用 Azure 容器登錄工作的容器映像](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
+如需使用 Azure Container Registry 建立映射的詳細資訊, 請參閱[使用 Azure Container Registry 工作建立和執行容器映射](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-如需有關如何將現有的映像上傳至 Azure Container Registry 的詳細資訊，請參閱 <<c0> [ 您的第一個映像推送至私人 Docker 容器登錄](/azure/container-registry/container-registry-get-started-docker-cli)。
+如需將現有映射上傳至 Azure Container Registry 的詳細資訊, 請參閱將[您的第一個映射推送至私人 Docker 容器](/azure/container-registry/container-registry-get-started-docker-cli)登錄。
 
 ## <a name="use-a-custom-image"></a>使用自訂映像
 
-若要使用自訂映像，您需要下列資訊：
+若要使用自訂映射, 您需要下列資訊:
 
-* __映像名稱__。 比方說，`mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`是基本的 Docker 映像，Microsoft 所提供的路徑。
-* 如果映像位於__私人存放庫__，您需要下列資訊：
+* __映射名稱__。 例如, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`是 Microsoft 所提供的基本 Docker 映射的路徑。
+* 如果映射位於__私人存放庫__中, 您需要下列資訊:
 
-    * 登錄__地址__。 例如： `myregistry.azureecr.io` 。
-    * 服務主體__使用者名稱__並__密碼__登錄具有讀取權限。
+    * 登錄__位址__。 例如： `myregistry.azureecr.io` 。
+    * 具有登錄讀取權限的服務主體使用者__名稱__和__密碼__。
 
-    如果您沒有此資訊，請向系統管理員，Azure Container registry，其中包含您的映像。
+    如果您沒有此資訊, 請向系統管理員詢問包含您映射的 Azure Container Registry。
 
-### <a name="publicly-available-images"></a>公開可用映像
+### <a name="publicly-available-images"></a>公開可用的映射
 
-Microsoft 提供數個 docker 映像可公開存取的存放庫，可用來進行這一節中的步驟：
+Microsoft 會在可公開存取的儲存機制上提供數個 docker 映射, 此存放庫可以與本節中的步驟搭配使用:
 
 | Image | 描述 |
 | ----- | ----- |
-| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 服務的基本映像 |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | 包含 ONNX 執行階段。 |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | 包含 ONNX 執行階段和 CUDA 元件。 |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | 包含 ONNX 執行階段和 TensorRT。 |
+| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning 服務的基本映射 |
+| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | 包含 ONNX 執行時間。 |
+| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | 包含 ONNX 執行時間和 CUDA 元件。 |
+| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | 包含 ONNX 執行時間和 TensorRT。 |
 
 > [!TIP]
-> 這些映像都可以公開使用，因為您不需要使用它們時提供的地址、 使用者名稱或密碼。
+> 由於這些映射可公開使用, 因此當您使用時, 不需要提供位址、使用者名稱或密碼。
 
 > [!IMPORTANT]
-> 使用 CUDA 或 TensorRT 的 Microsoft 映像必須只使用 Microsoft Azure 服務上。
+> 使用 CUDA 或 TensorRT 的 Microsoft 映射必須僅用於 Microsoft Azure 服務。
 
 > [!TIP]
->__如果您的模型訓練 Azure Machine Learning 計算__，並使用__1.0.22 版或更新版本__Azure 機器學習服務 sdk，在定型期間建立的映像。 若要找到此映像的名稱，請使用`run.properties["AzureML.DerivedImageName"]`。 下列範例示範如何使用此映像：
+>__如果您的模型是在 Azure Machine Learning 計算上定型__, 使用__版本1.0.22 或更高__的 Azure Machine Learning SDK, 則會在定型期間建立映射。 若要探索此映射的名稱, 請`run.properties["AzureML.DerivedImageName"]`使用。 下列範例示範如何使用此映射:
 >
 > ```python
 > # Use an image built during training with SDK 1.0.22 or greater
 > image_config.base_image = run.properties["AzureML.DerivedImageName"]
 > ```
 
-### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>使用 Azure 機器學習服務 SDK 中的映像
+### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 的映射
 
-若要使用自訂映像，將`base_image`的屬性[推斷組態物件](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)位址的映像：
+若要使用自訂映射, 請`base_image`將推斷設定[物件](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)的屬性設定為影像的位址:
 
 ```python
 # use an image from a registry named 'myregistry'
 inference_config.base_image = "myregistry.azurecr.io/myimage:v1"
 ```
 
-此格式適用於這兩個公開存取您的工作區和容器登錄的 Azure Container Registry 中儲存的映像。 例如，下列程式碼會使用 Microsoft 所提供的預設映像：
+此格式適用于您工作區的 Azure Container Registry 中儲存的影像, 以及可公開存取的容器登錄。 例如, 下列程式碼會使用 Microsoft 所提供的預設映射:
 
 ```python
 # use an image available in public Container Registry without authentication
 inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
 ```
 
-若要使用的映像__私人容器登錄庫__不在您的工作區中，您必須指定存放庫的使用者名稱和密碼的位址：
+若要使用不在您工作區中的__私人容器__登錄中的映射, 您必須指定存放庫的位址, 以及使用者名稱和密碼:
 
 ```python
 # Use an image available in a private Container Registry
@@ -223,12 +223,12 @@ inference_config.base_image_registry.username = "username"
 inference_config.base_image_registry.password = "password"
 ```
 
-### <a name="use-an-image-with-the-machine-learning-cli"></a>使用 Machine Learning CLI 中的映像
+### <a name="use-an-image-with-the-machine-learning-cli"></a>使用 Machine Learning CLI 的映射
 
 > [!IMPORTANT]
-> 目前的 Machine Learning CLI 可以使用映像從 Azure Container Registry 為您的工作區或可公開存取的存放庫。 它不能從獨立的私人登錄使用映像。
+> 目前 Machine Learning CLI 可以使用來自您工作區或可公開存取之儲存機制的 Azure Container Registry 映射。 它無法使用獨立私人登錄中的映射。
 
-在部署模型，使用 Machine Learning CLI，您會提供推斷組態檔參照自訂映像。 下列 JSON 文件會示範如何參考中的公用容器登錄的映像：
+使用 Machine Learning CLI 部署模型時, 您會提供參考自訂映射的推斷設定檔案。 下列 JSON 檔示範如何在公用容器登錄中參考映射:
 
 ```json
 {
@@ -243,15 +243,15 @@ inference_config.base_image_registry.password = "password"
 }
 ```
 
-此檔案會搭配`az ml model deploy`命令。 `--ic`參數用來指定推斷組態檔。
+此檔案會搭配`az ml model deploy`命令使用。 `--ic`參數是用來指定推斷設定檔案。
 
 ```azurecli
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
 ```
 
-如需有關使用 ML CLI 部署模型的詳細資訊，請參閱 「 模型註冊、 程式碼剖析和部署 > 一節[Azure Machine Learning 服務的 CLI 擴充功能](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment)文章。
+如需使用 ML CLI 部署模型的詳細資訊, 請參閱[Azure Machine Learning 服務的 CLI 延伸](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment)模組的 < 模型註冊、分析和部署一節。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解[部署位置和方式](how-to-deploy-and-where.md)。
-* 了解如何[定型和部署機器學習服務模型，使用 Azure 管線](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)。
+* 深入瞭解[部署的位置和](how-to-deploy-and-where.md)做法。
+* 瞭解如何[使用 Azure Pipelines 來定型和部署機器學習模型](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)。

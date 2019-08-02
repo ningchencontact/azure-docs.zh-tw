@@ -14,24 +14,24 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754761"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704385"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure 事件中樞 - 異地災害復原 
 
-當整個 Azure 區域或資料中心 (如果未使用[可用性區域](../availability-zones/az-overview.md)) 遇到停機時，最重要的是資料處理作業能夠繼續在不同的區域或資料中心運作。 因此，「地理災害復原」  和「異地複寫」  對於任何企業而言都是重要的功能。 Azure 事件中樞支援命名空間層級的地理災害復原和異地複寫。 
+當整個 Azure 區域或資料中心 (如果未使用[可用性區域](../availability-zones/az-overview.md)) 遇到停機時，最重要的是資料處理作業能夠繼續在不同的區域或資料中心運作。 因此，「地理災害復原」和「異地複寫」對於任何企業而言都是重要的功能。 Azure 事件中樞支援命名空間層級的地理災害復原和異地複寫。 
 
-地理災害復原功能適用於全球事件中心標準版和專用的 SKU。 請注意，您可以只地理配對的命名空間之間的同一個 SKU 層。 比方說，如果您只有在我們 「 專用 」 SKU 中提供的叢集中有命名空間，它可以只搭配另一個群集中的命名空間。 
+異地嚴重損壞修復功能適用于事件中樞標準和專用 SKU。 請注意, 您只能在相同的 SKU 層中進行地理配對的命名空間。 比方說, 如果您在只在我們專用 SKU 中提供的叢集中有命名空間, 它只能與另一個叢集中的命名空間配對。 
 
 ## <a name="outages-and-disasters"></a>中斷與災害
 
-請務必注意「中斷」和「災害」之間的差異。 「中斷」  是暫時無法使用 Azure 事件中樞，而且會影響服務的某些元件，例如訊息存放區，或甚至整個資料中心。 不過，修正問題之後，事件中樞就可再次使用。 中斷通常不會導致訊息或其他資料遺失。 這類中斷的範例可能是資料中心停電。 某些中斷只是因為暫時性或網路問題而造成的短暫連線中斷。 
+請務必注意「中斷」和「災害」之間的差異。 「中斷」是暫時無法使用 Azure 事件中樞，而且會影響服務的某些元件，例如訊息存放區，或甚至整個資料中心。 不過，修正問題之後，事件中樞就可再次使用。 中斷通常不會導致訊息或其他資料遺失。 這類中斷的範例可能是資料中心停電。 某些中斷只是因為暫時性或網路問題而造成的短暫連線中斷。 
 
-「災害」  定義為永久或較長期遺失事件中樞叢集、Azure 區域或資料中心。 區域或資料中心不一定能再次使用，也可能會關閉數小時或數天。 這類災害的範例包括火災、水災或地震。 會變成永久的災害可能會導致某些訊息、事件或其他資料遺失。 不過，在大部分情況下，應該不會遺失資料，而且在備份資料中心之後，就可以復原訊息。
+「災害」定義為永久或較長期遺失事件中樞叢集、Azure 區域或資料中心。 區域或資料中心不一定能再次使用，也可能會關閉數小時或數天。 這類災害的範例包括火災、水災或地震。 會變成永久的災害可能會導致某些訊息、事件或其他資料遺失。 不過，在大部分情況下，應該不會遺失資料，而且在備份資料中心之後，就可以復原訊息。
 
 Azure 事件中樞的地理災害復原功能就是一個災害復原解決方案。 本文中所述的概念和工作流程適用於災害案例，不適用暫時性或暫時中斷。 如需 Microsoft Azure 中災害復原的詳細討論，請參閱[本文](/azure/architecture/resiliency/disaster-recovery-azure-applications)。
 
@@ -78,13 +78,13 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 
 ![2][]
 
-## <a name="management"></a>管理性
+## <a name="management"></a>管理
 
 如果您發生錯誤；例如，您在初始化安裝期間配對錯誤的區域，您可以隨時中斷兩個命名空間的配對。 如果您想要使用配對的命名空間作為一般命名空間，請刪除別名。
 
 ## <a name="samples"></a>範例
 
-[GitHub 上的範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient)示範如何設定及初始化容錯移轉。 此範例示範下列概念︰
+[GitHub 上的範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient)示範如何設定及初始化容錯移轉。 此範例示範下列概念︰
 
 - 在 Azure Active Directory 中使用 Azure Resource Manager 與事件中樞所需的設定。 
 - 執行範例程式碼所需的步驟。 
@@ -115,7 +115,7 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [GitHub 上的範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient)會逐步解說簡單工作流程，以建立地理配對並在災害復原情況下起始容錯移轉。
+* [GitHub 上的範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient)會逐步解說簡單工作流程，以建立地理配對並在災害復原情況下起始容錯移轉。
 * [REST API 參考](/rest/api/eventhub/disasterrecoveryconfigs)描述用來執行地理災害復原設定的 API。
 
 如需事件中樞的詳細資訊，請造訪下列連結：

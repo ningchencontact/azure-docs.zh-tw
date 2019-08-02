@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
 ms.openlocfilehash: bf620178a0c10661126b3e52c7b908ccc9a90d89
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68311895"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
@@ -21,7 +21,7 @@ Azure Container Registry (ACR) 具有多個服務層級 (稱為SKU)。 這些 SK
 
 | SKU | 受控 | 描述 |
 | --- | :-------: | ----------- |
-| **基本** | 是 | 適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 基本登錄具有與 Standard 和 Premium 相同的程式設計功能 (例如 Azure Active Directory[驗證整合](container-registry-authentication.md#individual-login-with-azure-ad)、[映射刪除][container-registry-delete], and [webhooks][container-registry-webhook])。 不過，內含儲存體和映像輸送量最適合較低的使用方式情節。 |
+| **基本** | 是 | 適用於正在學習 Azure Container Registry 之開發人員的成本最佳化進入點。 基本登錄具有與 Standard 和 Premium 相同的程式設計功能 (例如 Azure Active Directory[驗證整合](container-registry-authentication.md#individual-login-with-azure-ad)、[映射刪除][container-registry-delete]和[webhook][container-registry-webhook])。 不過，內含儲存體和映像輸送量最適合較低的使用方式情節。 |
 | **標準** | 是 | 「標準」登錄提供與「基本」相同的功能，並且提高內含儲存體和映像輸送量。 「標準」登錄應該能滿足大部分實際執行案例的需求。 |
 | **高級** | 是 | 「進階」登錄提供最多的內含儲存體和並行作業，可啟用大量情節。 除了更高的映射輸送量以外, Premium 還新增了[異地][container-registry-geo-replication]複寫功能, 包括跨多個區域管理單一登入、映射標記簽署的[內容信任](container-registry-content-trust.md), 以及[防火牆和虛擬網路 (預覽)](container-registry-vnet.md)限制登錄的存取權。 |
 |  傳統 (*在2019年4月之後無法使用*) | 否 | 此 SKU 已啟用 Azure 中 Azure Container Registry 服務的初始版本。 Azure 在訂用帳戶中建立的儲存體帳戶支援「傳統」登錄，這會限制 ACR 提供更高層級功能的能力，例如提高輸送量和異地複寫。 |
@@ -51,13 +51,13 @@ az acr update --name myregistry --sku Premium
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-在 Azure 入口網站的容器登錄 [概觀]  中，選取 [更新]  ，然後從 SKU 下拉式清單中選取新的 **SKU**。
+在 Azure 入口網站的容器登錄 [概觀] 中，選取 [更新]，然後從 SKU 下拉式清單中選取新的 **SKU**。
 
 ![在 Azure 入口網站中更新容器登錄 SKU][update-registry-sku]
 
 如果您有傳統登錄，就無法在 Azure 入口網站中選取受控 SKU。 相反地, 您必須先[升級][container-registry-upgrade]至受控登錄。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 如需每個 Azure Container Registry SKU 的定價資訊，請參閱 [Container Registry 定價][container-registry-pricing]。
 

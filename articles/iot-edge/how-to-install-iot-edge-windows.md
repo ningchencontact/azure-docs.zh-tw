@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 7f20e04fa65d0266d9e77b8bbcf2e2c4b1fd9eab
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 1af6ed2743807f75e96bed0ae67d0070aa55c0ef
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227459"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677455"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安裝 Azure IoT Edge 執行階段
 
@@ -142,23 +142,21 @@ PowerShell 指令碼會下載並安裝 Azure IoT Edge 安全性精靈。 接著�
 
 1. 此時, IoT 核心版裝置可能會自動重新開機。 其他 Windows 10 或 Windows Server 裝置可能會提示您重新開機。 若是如此, 請立即重新開機您的裝置。 一旦您的裝置準備就緒, 請再次以系統管理員身分執行 PowerShell。
 
-1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 `-Dps`使用旗標來使用裝置布建服務, 而不是手動布建。
+1. **Initialize-IoTEdge** 命令會設定機器的 IoT Edge 執行階段。 此命令預設為 Windows 容器的手動佈建。 `-Dps`使用旗標來使用裝置布建服務, 而不是手動布建。 以`{scope ID}`裝置布建服務中的範圍識別碼取代, `{registration ID}`並以裝置中的註冊識別碼取代, 這兩者都應該在步驟1中抓取。
 
    使用**IoTEdge**命令搭配使用 DPS 與 TPM 證明:
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
    ```
 
    使用**IoTEdge**命令來搭配使用 DPS 與對稱金鑰證明。 取代`{symmetric key}`為裝置金鑰。
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
-
-1. 出現提示時, 請從您的裝置布建服務和裝置的註冊識別碼提供範圍識別碼, 這兩者都應該在步驟1中抓取。
 
 1. 使用[驗證成功安裝](#verify-successful-installation)中的步驟來檢查裝置上的 IoT Edge 狀態。 
 
@@ -285,7 +283,7 @@ IoTEdge 命令會下載並部署 IoT Edge 安全性守護程式及其相依性�
 | **Proxy** | Proxy URL | 如果您的裝置需要通過 Proxy 伺服器連線網際網路，請包含此參數。 如需詳細資訊，請參閱[設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)。 |
 | **OfflineInstallationPath** | 目錄路徑 | 如果包含此參數, 安裝程式會檢查列出的目錄中是否有安裝所需的 IoT Edge cab 和 VC Runtime MSI 檔案。 在目錄中找不到的任何檔案都會下載。 如果這兩個檔案都在目錄中, 您可以在沒有網際網路連線的情況下安裝 IoT Edge。 您也可以使用此參數來使用特定版本。 |
 | **InvokeWebRequestParameters** | 參數和值的雜湊表 | 在安裝期間，會提出數個 Web 要求。 您可以使用此欄位，為這些 Web 要求設定參數。 此參數對於設定 Proxy 伺服器的認證非常有用。 如需詳細資訊，請參閱[設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)。 |
-| **RestartIfNeeded** | None | 此旗標可讓部署腳本在必要時重新開機電腦, 而不需要提示。 |
+| **RestartIfNeeded** | 無 | 此旗標可讓部署腳本在必要時重新開機電腦, 而不需要提示。 |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -297,7 +295,7 @@ IoTEdge 命令會使用您的裝置連接字串和操作詳細資料來設定 Io
 | **Dps** | None | **切換參數**。 如果未指定布建類型, 則手動為預設值。<br><br>宣告您將提供裝置佈建服務 (DPS) 的範圍識別碼，以及透過 DPS 佈建的裝置註冊識別碼。  |
 | **DeviceConnectionString** | 此連接字串來自 IoT 中樞註冊的 IoT Edge 裝置，以單引號括住 | 此為手動安裝的**必要項目**。 如果您未提供指令碼參數中的連接字串，在安裝期間會提示您輸入一個連接字串。 |
 | **ScopeId** | 此範圍識別碼來自與您 IoT 中樞相關聯之裝置佈建服務的執行個體。 | 此為 DPS 安裝的**必要項目**。 如果您未提供指令碼參數中的範圍識別碼，在安裝期間會提示您輸入範圍識別碼。 |
-| **RegistrationId** | 由您裝置產生的註冊識別碼 | 此為 DPS 安裝的**必要項目**。 如果您未提供指令碼參數中的註冊識別碼，在安裝期間會提示您輸入註冊識別碼。 |
+| **RegistrationId** | 由您裝置產生的註冊識別碼 | 此為 DPS 安裝的**必要項目**。 |
 | **SymmetricKey** | 使用 DPS 時, 用來布建 IoT Edge 裝置身分識別的對稱金鑰 | 如果使用對稱金鑰證明, 則為 DPS 安裝的**必要**項。 |
 | **ContainerOs** | **Windows** 或 **Linux** | 如果未指定容器作業系統, Windows 就是預設值。<br><br>針對 Windows 容器, IoT Edge 會使用安裝中所包含的 moby 容器引擎。 對於 Linux 容器，您需要先安裝容器引擎，再開始安裝。 |
 | **InvokeWebRequestParameters** | 參數和值的雜湊表 | 在安裝期間，會提出數個 Web 要求。 您可以使用此欄位，為這些 Web 要求設定參數。 此參數對於設定 Proxy 伺服器的認證非常有用。 如需詳細資訊，請參閱[設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)。 |
@@ -313,14 +311,14 @@ IoTEdge 命令會使用您的裝置連接字串和操作詳細資料來設定 Io
 | **Proxy** | Proxy URL | 如果您的裝置需要通過 Proxy 伺服器連線網際網路，請包含此參數。 如需詳細資訊，請參閱[設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)。 |
 | **InvokeWebRequestParameters** | 參數和值的雜湊表 | 在安裝期間，會提出數個 Web 要求。 您可以使用此欄位，為這些 Web 要求設定參數。 此參數對於設定 Proxy 伺服器的認證非常有用。 如需詳細資訊，請參閱[設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)。 |
 | **OfflineInstallationPath** | 目錄路徑 | 如果包含此參數, 安裝程式會檢查列出的目錄中是否有安裝所需的 IoT Edge cab 和 VC Runtime MSI 檔案。 在目錄中找不到的任何檔案都會下載。 如果這兩個檔案都在目錄中, 您可以在沒有網際網路連線的情況下安裝 IoT Edge。 您也可以使用此參數來使用特定版本。 |
-| **RestartIfNeeded** | None | 此旗標可讓部署腳本在必要時重新開機電腦, 而不需要提示。 |
+| **RestartIfNeeded** | 無 | 此旗標可讓部署腳本在必要時重新開機電腦, 而不需要提示。 |
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | 參數 | 接受的值 | 註解 |
 | --------- | --------------- | -------- |
-| **使** | None | 如果先前的卸載嘗試失敗, 此旗標會強制卸載。 
-| **RestartIfNeeded** | None | 必要時, 此旗標可讓卸載腳本重新開機電腦, 而不需要提示。 |
+| **使** | 無 | 如果先前的卸載嘗試失敗, 此旗標會強制卸載。 
+| **RestartIfNeeded** | 無 | 必要時, 此旗標可讓卸載腳本重新開機電腦, 而不需要提示。 |
 
 ## <a name="next-steps"></a>後續步驟
 

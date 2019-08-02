@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c086f94a161853cba3a9ed2b98f13ea17b90dd20
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 662594f3ef0e4d5598b52cb07006b513e7f3c35a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478807"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564981"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>覆寫預設端點 Application Insights
 
@@ -158,6 +158,14 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 | Azure Government | 遙測通道 |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (即時計量) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | 設定檔查詢 |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+如果您目前使用的[是通常](https://dev.applicationinsights.io/
+)透過 ' api.applicationinsights.io ' 存取的 Application Insights REST API, 您將需要使用區域的本機端點:
+
+|區域 |  端點名稱 | 值 |
+|-----------------|:------------|:-------------|
+| Azure 中國 | REST API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST API | `api.applicationinsights.us`|
 
 > [!NOTE]
 > 在這些區域中,**目前不支援**無程式碼以代理程式/擴充功能為基礎的 Azure App 服務監視。 一旦推出此功能, 將會更新本文。

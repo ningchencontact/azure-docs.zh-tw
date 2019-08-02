@@ -1,6 +1,6 @@
 ---
-title: 授權 Azure Kubernetes Service (AKS) 中的 IP 範圍的 API 伺服器
-description: 了解如何保護您的叢集 IP 位址範圍用於 Azure Kubernetes Service (AKS) 中的 API 伺服器的存取權
+title: Azure Kubernetes Service (AKS) 中的 API 伺服器授權 IP 範圍
+description: 瞭解如何使用 IP 位址範圍來保護您的叢集, 以存取 Azure Kubernetes Service 中的 API 伺服器 (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67616248"
 ---
-# <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>預覽-對 API 伺服器中使用的安全存取授權的 Azure Kubernetes Service (AKS) 中的 IP 位址範圍
+# <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中使用授權的 IP 位址範圍來保護 API 伺服器的存取
 
-在 Kubernetes 中，API 伺服器會接收要求，例如叢集中執行動作，來建立資源，或調整規模的節點數目。 API 伺服器是集中的方式進行互動，並且管理叢集。 若要改善叢集安全性並減少攻擊，應該只能存取一組有限的 IP 位址範圍 API 伺服器。
+在 Kubernetes 中, API 伺服器會接收在叢集中執行動作的要求, 例如建立資源或調整節點數目。 API 伺服器是與叢集互動和管理叢集的主要方式。 為了改善叢集安全性並將攻擊降至最低, 您只能從一組有限的 IP 位址範圍存取 API 伺服器。
 
-本文說明如何使用 API 伺服器授權的 IP 位址範圍限制至控制平面的要求。 此功能目前為預覽狀態。
+本文說明如何使用 API 伺服器授權的 IP 位址範圍來限制控制平面的要求。 此功能目前為預覽狀態。
 
 > [!IMPORTANT]
-> AKS 預覽功能包括自助、 選擇加入。 它們可供收集從我們的社群的意見及 bug。 在預覽中，這些功能不適用於實際執行環境。 在公開預覽功能底下 '盡力' 支援。 AKS 技術支援小組的協助時可使用營業時間太平洋 」 (PST) 僅限 timezone。 如需詳細資訊，請參閱下列支援文章：
+> AKS 預覽功能是自助服務, 可加入宣告。 其提供用來從我們的社區收集意見反應和 bug。 在預覽中, 這些功能不適用於生產環境使用。 公開預覽中的功能落在「最佳」支援之下。 AKS 技術支援小組的協助僅適用于上班時間太平洋時區 (PST)。 如需其他資訊, 請參閱下列支援文章:
 >
 > * [AKS 支援原則][aks-support-policies]
 > * [Azure 支援常見問題集][aks-faq]
 
 ## <a name="before-you-begin"></a>開始之前
 
-API 伺服器授權的 IP 範圍只適用於新建立的 AKS 叢集。 這篇文章會示範如何建立 AKS 叢集使用 Azure CLI。
+API 伺服器授權的 IP 範圍僅適用于您所建立的新 AKS 叢集。 本文說明如何使用 Azure CLI 建立 AKS 叢集。
 
-您需要 Azure CLI 2.0.61 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您需要安裝並設定 Azure CLI 版本2.0.61 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級, 請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要設定 API 授權伺服器的 IP 範圍，您需要*aks 預覽*CLI 擴充功能版本 0.4.1 或更高版本。 安裝*aks 預覽*Azure CLI 擴充功能使用[az 延伸模組加入][az-extension-add]command, then check for any available updates using the [az extension update][az-extension-update]命令：
+若要設定 API 伺服器授權的 IP 範圍, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -44,24 +44,24 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### <a name="register-feature-flag-for-your-subscription"></a>註冊您的訂用帳戶的功能旗標
+### <a name="register-feature-flag-for-your-subscription"></a>註冊訂用帳戶的功能旗標
 
-若要使用 API 伺服器授權 IP 範圍，請先啟用您的訂用帳戶的功能旗標。 若要註冊*APIServerSecurityPreview*功能旗標，請使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
+若要使用 API 伺服器授權的 IP 範圍, 請先在您的訂用帳戶上啟用功能旗標。 若要註冊*APIServerSecurityPreview*功能旗標, 請使用[az feature register][az-feature-register]命令, 如下列範例所示:
 
 > [!CAUTION]
-> 當您註冊訂用帳戶上的功能時，您目前無法取消註冊該功能。 啟用某些預覽功能之後，可能會使用預設值，然後在 訂用帳戶中建立的所有 AKS 叢集。 請勿啟用生產訂用帳戶上的預覽功能。 若要測試預覽功能，並收集意見反應中使用不同的訂用帳戶。
+> 當您在訂用帳戶上註冊功能時, 目前無法取消註冊該功能。 啟用一些預覽功能之後, 預設值可能會用於在訂用帳戶中建立的所有 AKS 叢集。 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的訂用帳戶來測試預覽功能並收集意見反應。
 
 ```azurecli-interactive
 az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
 ```
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以檢查註冊狀態 using [az 功能清單][az-feature-list]命令：
+狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/APIServerSecurityPreview')].{Name:name,State:properties.state}"
 ```
 
-準備好時，重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register][az-provider-register]命令：
+準備好時, 請使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -69,23 +69,23 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="limitations"></a>限制
 
-當您設定 API 授權伺服器的 IP 範圍時，就會套用下列限制：
+當您設定 API 伺服器授權的 IP 範圍時, 適用下列限制:
 
-* 為使用 API 伺服器的通訊也已封鎖，您目前無法使用 Azure 開發人員的空格。
+* 您目前無法使用 Azure Dev Spaces, 因為與 API 伺服器的通訊也會遭到封鎖。
 
-## <a name="overview-of-api-server-authorized-ip-ranges"></a>授權 IP 範圍的 API 伺服器的概觀
+## <a name="overview-of-api-server-authorized-ip-ranges"></a>API 伺服器授權的 IP 範圍總覽
 
-Kubernetes API 伺服器為基礎的 Kubernetes Api 公開的方式。 此元件可提供管理工具的互動，例如 `kubectl` 或 Kubernetes 儀表板。 AKS 提供單一租用戶叢集主機，使用專用的 API 伺服器。 根據預設，API 伺服器指派公用 IP 位址，而且您應該控制使用角色型存取控制 (RBAC) 的存取。
+Kubernetes API 伺服器是基礎 Kubernetes Api 的公開方式。 此元件可提供管理工具的互動，例如 `kubectl` 或 Kubernetes 儀表板。 AKS 提供具有專用 API 伺服器的單一租使用者叢集主機。 根據預設, 會將公用 IP 位址指派給 API 伺服器, 而且您應該使用角色型存取控制 (RBAC) 來控制存取權。
 
-否則可公開存取的 AKS 控制平面的安全存取 / API 伺服器，您可以啟用和使用授權的 IP 範圍。 這些授權的 IP 範圍只允許已定義的 IP 位址範圍，以使用 API 伺服器進行通訊。 對 API 伺服器不屬於這些授權的 IP 範圍的 IP 位址的要求會遭到封鎖。 您應該繼續使用 RBAC，然後授權給使用者和它們所要求的動作。
+若要安全存取其他可公開存取的 AKS 控制平面/API 伺服器, 您可以啟用並使用已授權的 IP 範圍。 這些授權的 IP 範圍只允許已定義的 IP 位址範圍與 API 伺服器通訊。 從不屬於這些授權 IP 範圍的 IP 位址對 API 伺服器提出的要求會遭到封鎖。 您應該繼續使用 RBAC 來授權使用者和他們所要求的動作。
 
-如需 API 伺服器和其他叢集元件的詳細資訊，請參閱[Kubernetes AKS 的核心概念][concepts-clusters-workloads]。
+如需有關 API 伺服器和其他叢集元件的詳細資訊, 請參閱[AKS 的 Kubernetes 核心概念][concepts-clusters-workloads]。
 
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
-API 授權伺服器的 IP 範圍僅適用於新的 AKS 叢集。 隸屬於叢集建立作業，您無法啟用已授權的 IP 範圍。 如果您嘗試啟用已授權的 IP 範圍，為叢集的一部分建立處理程序，叢集節點都無法存取在部署期間的 API 伺服器的輸出 IP 位址不在該點定義。
+API 伺服器授權的 IP 範圍僅適用于新的 AKS 叢集。 您無法在叢集建立作業中啟用授權的 IP 範圍。 如果您嘗試在叢集建立程式中啟用授權的 IP 範圍, 叢集節點將無法在部署期間存取 API 伺服器, 因為輸出 IP 位址未在該時間點定義。
 
-首先，使用下列方法建立叢集[az aks 建立][az-aks-create]命令。 下列範例會建立名為單一節點叢集*myAKSCluster*資源群組中名為*myResourceGroup*。
+首先, 使用[az aks create][az-aks-create]命令來建立叢集。 下列範例會在名為*myResourceGroup*的資源群組中建立名為*myAKSCluster*的單一節點叢集。
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -104,12 +104,12 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="create-outbound-gateway-for-firewall-rules"></a>建立防火牆規則的輸出閘道
 
-若要確保叢集中的節點可以可靠地通訊與 API 伺服器時啟用授權的 IP 範圍，在下一節中，建立 Azure 防火牆作為輸出的閘道。 Azure 防火牆的 IP 位址再加入下一節中授權的 API 伺服器 IP 位址的清單。
+若要確保當您在下一節中啟用授權的 IP 範圍時, 叢集中的節點可以可靠地與 API 伺服器通訊, 請建立 Azure 防火牆作為輸出閘道使用。 接著, 在下一節中, Azure 防火牆的 IP 位址會新增至已授權的 API 伺服器 IP 位址清單。
 
 > [!WARNING]
-> 使用 Azure 的防火牆會造成顯著的成本，每月計費週期。 使用 Azure 防火牆需求應該只需要在這個初始預覽期間內。 如需詳細資訊和規劃成本，請參閱[Azure 防火牆定價][azure-firewall-costs]。
+> 使用 Azure 防火牆可能會在每月計費週期產生顯著的成本。 只有在此初始預覽期間才需要使用 Azure 防火牆的需求。 如需詳細資訊和成本規劃, 請參閱[Azure 防火牆定價][azure-firewall-costs]。
 
-首先，取得*MC_* AKS 叢集與虛擬網路的資源群組名稱。 接著，建立 子網路，使用[az vnet 子網路建立][az-network-vnet-subnet-create]命令。 下列範例會建立名為的子網路*AzureFirewallSubnet*使用的 CIDR 範圍*10.200.0.0/16*:
+首先, 取得 AKS 叢集和虛擬網路的*MC_* 資源組名。 然後, 使用[az network vnet subnet create][az-network-vnet-subnet-create]命令來建立子網。 下列範例會建立名為*AzureFirewallSubnet*且 CIDR 範圍為*10.200.0.0/16*的子網:
 
 ```azurecli-interactive
 # Get the name of the MC_ cluster resource group
@@ -131,7 +131,7 @@ az network vnet subnet create \
     --address-prefixes 10.200.0.0/16
 ```
 
-若要建立 Azure 防火牆，安裝*azure 防火牆*CLI 擴充功能使用[az 延伸模組加入][az-extension-add]command. Then, create a firewall using the [az network firewall create][az-network-firewall-create]命令。 下列範例會建立名為 Azure 防火牆*myAzureFirewall*:
+若要建立 Azure 防火牆, 請使用[az extension add][az-extension-add]命令來安裝*azure 防火牆*CLI 擴充功能。 然後, 使用[az network firewall create][az-network-firewall-create]命令來建立防火牆。 下列範例會建立名為*myAzureFirewall*的 Azure 防火牆:
 
 ```azurecli-interactive
 # Install the CLI extension for Azure Firewall
@@ -143,7 +143,7 @@ az network firewall create \
     --name myAzureFirewall
 ```
 
-Azure 的防火牆會指派輸出流量流經的公用 IP 位址。 公用位址，使用下列方法建立[az 網路公用 ip 建立][az-network-public-ip-create] command, then create an IP configuration on the firewall using the [az network firewall ip-config create][az-network-firewall-ip-config-create] ，適用於公用 IP:
+系統會為 Azure 防火牆指派輸出流量流經的公用 IP 位址。 使用[az network public-ip create][az-network-public-ip-create]命令建立公用位址, 然後使用適用于公用 ip 的[az network firewall ip-config create][az-network-firewall-ip-config-create]在防火牆上建立 ip 設定:
 
 ```azurecli-interactive
 # Create a public IP address for the firewall
@@ -162,7 +162,7 @@ az network firewall ip-config create \
     --public-ip-address myAzureFirewallPublicIP
 ```
 
-現在，建立 Azure 防火牆網路規則，以*允許*所有*TCP*流量使用[az 網路防火牆網路規則建立][az-network-firewall-network-rule-create]命令。 下列範例會建立名為的網路規則*AllowTCPOutbound*任何來源或目的地位址的流量：
+現在, 使用[az network firewall network-rule create][az-network-firewall-network-rule-create]命令來建立 Azure 防火牆網路規則, 以*允許*所有*TCP*流量。 下列範例會針對具有任何來源或目的地位址的流量, 建立名為*AllowTCPOutbound*的網路規則:
 
 ```azurecli-interactive
 az network firewall network-rule create \
@@ -178,7 +178,7 @@ az network firewall network-rule create \
     --destination-ports '*'
 ```
 
-若要將 Azure 的防火牆與網路路由產生關聯，取得現有的路由資料表資訊、 內部 IP 位址的 Azure 防火牆，然後 API 伺服器的 IP 位址。 若要控制如何流量應該會路由傳送的叢集通訊下一步 區段中指定這些 IP 位址。
+若要將 Azure 防火牆與網路路由建立關聯, 請取得現有的路由表資訊、Azure 防火牆的內部 IP 位址, 以及 API 伺服器的 IP 位址。 下一節會指定這些 IP 位址, 以控制流量應如何路由進行叢集通訊。
 
 ```azurecli-interactive
 # Get the AKS cluster route table
@@ -196,7 +196,7 @@ FIREWALL_INTERNAL_IP=$(az network firewall show \
 K8S_ENDPOINT_IP=$(kubectl get endpoints -o=jsonpath='{.items[?(@.metadata.name == "kubernetes")].subsets[].addresses[].ip}')
 ```
 
-最後，建立在現有 AKS 網路路由表中使用的路由[az 網路路由表路由建立][az-network-route-table-route-create]命令，以允許使用 API 伺服器通訊的 Azure 防火牆設備的流量。
+最後, 使用[az network route-table create][az-network-route-table-route-create]命令, 在現有的 AKS 網路路由表中建立路由, 讓流量可以使用 Azure 防火牆設備進行 API 伺服器通訊。
 
 ```azurecli-interactive
 az network route-table route create \
@@ -210,15 +210,15 @@ az network route-table route create \
 echo "Public IP address for the Azure Firewall instance that should be added to the list of API server authorized addresses is:" $FIREWALL_PUBLIC_IP
 ```
 
-記下您的 Azure 防火牆應用裝置的公用 IP 位址。 此位址會加入下一節中的 API 授權伺服器的 IP 範圍的清單。
+記下 Azure 防火牆設備的公用 IP 位址。 在下一節中, 此位址會新增至 API 伺服器授權的 IP 範圍清單。
 
 ## <a name="enable-authorized-ip-ranges"></a>啟用授權的 IP 範圍
 
-若要啟用 API 授權伺服器的 IP 範圍，您可以提供一份已獲授權的 IP 位址範圍。 當您指定的 CIDR 範圍時，開始在範圍內的第一個 IP 位址。 例如， *137.117.106.90/29*是有效的範圍，但請確定您指定第一個 IP 位址在範圍內，例如*137.117.106.88/29*。
+若要啟用 API 伺服器授權的 IP 範圍, 請提供授權的 IP 位址範圍清單。 當您指定 CIDR 範圍時, 請從範圍中的第一個 IP 位址開始。 例如, *137.117.106.90/29*是有效的範圍, 但請務必指定範圍中的第一個 IP 位址, 例如*137.117.106.88/29*。
 
-使用[更新 az aks][az-aks-update]命令，並指定 *-api-server-授權-ip 範圍*允許。 這些 IP 位址範圍通常是使用您的內部部署網路的位址範圍。 新增公用 IP 位址的取得，是在上一個步驟中，例如您的 Azure 防火牆*20.42.25.196/32*。
+使用[az aks update][az-aks-update]命令, 並指定要允許的 *--api 伺服器授權 ip 範圍*。 這些 IP 位址範圍通常是內部部署網路所使用的位址範圍。 新增您自己在上一個步驟中取得的 Azure 防火牆公用 IP 位址, 例如*20.42.25.196/32*。
 
-下列範例會啟用名為在叢集上的 API 伺服器授權 IP 範圍*myAKSCluster*資源群組中名為*myResourceGroup*。 若要授權的 IP 位址範圍是*20.42.25.196/32* （Azure 防火牆公用 IP 位址），然後*172.0.0.10/16*並*168.10.0.10/18*:
+下列範例會在名為*myResourceGroup*的資源群組中, 于名為*myAKSCluster*的叢集上啟用 API 伺服器授權的 IP 範圍。 要授權的 IP 位址範圍是*20.42.25.196/32* (Azure 防火牆公用 IP 位址), 然後是*172.0.0.10/16*和*168.10.0.10/18*:
 
 ```azurecli-interactive
 az aks update \
@@ -227,9 +227,9 @@ az aks update \
     --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
 ```
 
-## <a name="update-or-disable-authorized-ip-ranges"></a>更新或停用已獲授權的 IP 範圍
+## <a name="update-or-disable-authorized-ip-ranges"></a>更新或停用授權的 IP 範圍
 
-若要更新或停用已獲授權的 IP 範圍，您一次使用[az aks 更新][az-aks-update]命令。 指定更新的 CIDR 範圍，您想要允許或指定要停用 API 伺服器的空白範圍授權 IP 範圍，如下列範例所示：
+若要更新或停用已授權的 IP 範圍, 請再次使用[az aks update][az-aks-update]命令。 指定您想要允許的已更新 CIDR 範圍, 或指定空的範圍來停用 API 伺服器授權的 IP 範圍, 如下列範例所示:
 
 ```azurecli-interactive
 az aks update \
@@ -240,9 +240,9 @@ az aks update \
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您可以啟用 API 授權伺服器的 IP 範圍。 這種方法是執行安全的 AKS 叢集之方式的其中一部分。
+在本文中, 您已啟用 API 伺服器授權的 IP 範圍。 此方法是您可以如何執行安全 AKS 叢集的其中一個部分。
 
-如需詳細資訊，請參閱 <<c0> [ 的應用程式和 AKS 叢集的安全性概念][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security]。
+如需詳細資訊, 請參閱[AKS 中應用程式和叢集的安全性概念][concepts-security]和[AKS 中叢集安全性和升級的最佳做法][operator-best-practices-cluster-security]。
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/

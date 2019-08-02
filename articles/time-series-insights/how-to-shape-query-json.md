@@ -9,53 +9,53 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 089285637bb740fea47f1fd07de0906dfe46662b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 421e25570cd4c4495769530e4072cd8e0219f752
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244466"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666268"
 ---
-# <a name="shape-json-to-maximize-query-performance"></a>若要最大化查詢效能的 JSON 圖形 
+# <a name="shape-json-to-maximize-query-performance"></a>塑造 JSON 以最大化查詢效能 
 
-本文章提供有關如何將 Azure Time Series Insights 查詢的效率最大化的 JSON 圖形的指引。
+本文提供如何塑造 JSON 以將 Azure 時間序列深入解析查詢效率最大化的指引。
 
 ## <a name="video"></a>視訊
 
-### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>了解最佳做法成形以符合您的儲存體需求的 JSON。</br>
+### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>瞭解塑造 JSON 以符合您的儲存體需求的最佳做法。</br>
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
-## <a name="best-practices"></a>最佳作法
-請思考您將事件傳送至 Time Series Insights。 也就是，您永遠：
+## <a name="best-practices"></a>最佳做法
+考慮如何將事件傳送至時間序列深入解析。 亦即, 您一律會:
 
 1. 盡可能有效率地透過網路傳送資料。
-1. 請確定您的資料儲存方式，以便您可以執行適合您案例的彙總。
-1. 請確定您不會送達的 Time Series Insights 的最大值的屬性限制：
+1. 請確定您的資料是以一種方式儲存, 讓您可以執行適用于您案例的匯總。
+1. 請確定您未達到時間序列深入解析的最大屬性限制:
    - S1 環境為 600 個屬性 (資料行)。
    - S2 環境為 800 個屬性 (資料行)。
 
-下列指導方針可協助確保最佳的可能查詢效能：
+下列指導方針有助於確保最佳的查詢效能:
 
-1. 請勿使用動態屬性，例如標記識別項，做為屬性名稱。 此使用，因此有助於達到最大值的屬性限制。
-1. 請勿傳送不必要的屬性。 如果查詢屬性不是必要項目，最好不要將它傳送。 如此一來，避免儲存體限制。
-1. 使用[參考資料](time-series-insights-add-reference-data-set.md)以避免透過網路傳送的靜態資料。
-1. 共用更有效率地透過網路傳送資料的多個事件之間的維度屬性。
-1. 請勿使用深層陣列巢狀結構。 Time Series Insights 支援最多兩個層級的巢狀包含物件的陣列。 時間序列深入解析會將訊息中的陣列壓的屬性值組的多個事件。
-1. 如果所有或大部分的事件只存在少數的量值，最好將這些量值當作相同物件內的個別屬性來傳送。 將它們傳送到個別可減少事件數目，並可能會改善查詢效能，因為需要處理的事件數目較少。 幾個量值時，將它們傳送為中的單一屬性的值降至最低可能會達到最大值的屬性限制。
+1. 請勿使用動態屬性 (例如標記識別項) 做為屬性名稱。 這會使用來達到最大屬性限制。
+1. 請勿傳送不必要的屬性。 如果查詢屬性不是必要的, 最好不要傳送它。 如此一來, 您就可以避免儲存限制。
+1. 使用[參考資料](time-series-insights-add-reference-data-set.md), 以避免透過網路傳送靜態資料。
+1. 在多個事件之間共用維度屬性, 以更有效率地透過網路傳送資料。
+1. 請勿使用深層陣列巢狀結構。 時間序列深入解析支援最多兩個包含物件的嵌套陣列層級。 時間序列深入解析將訊息中的陣列壓平合併為具有屬性值組的多個事件。
+1. 如果所有或大部分的事件只存在少數的量值，最好將這些量值當作相同物件內的個別屬性來傳送。 將它們分開傳送可減少事件數目, 而且可能會改善查詢效能, 因為需要處理的事件較少。 有數個量值時, 將它們當做單一屬性中的值來傳送, 會使達到最大屬性限制的可能性降到最低。
 
-## <a name="example-overview"></a>範例概觀
+## <a name="example-overview"></a>範例總覽
 
-下列兩個範例示範如何傳送事件，以反白顯示上述的建議。 下列每個範例中，您可以看到已套用建議的方式。
+下列兩個範例示範如何傳送事件以反白顯示先前的建議。 在每個範例之後, 您可以看到建議的套用方式。
 
-這些範例是根據多部裝置傳送度量或訊號的案例而來。 度量或號誌，可以是流動率、 引擎石油壓力、 溫度和溼度。 在第一個範例中，有幾個度量會跨所有裝置。 第二個範例有許多裝置，而且每個裝置會傳送許多獨特的度量單位。
+這些範例是根據多部裝置傳送度量或訊號的案例而來。 測量或信號可以是流動率、引擎石油壓力、溫度和濕度。 在第一個範例中，有幾個度量會跨所有裝置。 第二個範例有許多裝置, 而每個裝置都會傳送許多獨特的測量。
 
-## <a name="scenario-one-only-a-few-measurements-exist"></a>案例一：只有少數的度量值存在
+## <a name="scenario-one-only-a-few-measurements-exist"></a>案例一:只有幾個度量存在
 
 > [!TIP]
-> 我們建議您傳送給每個度量或信號做為個別的屬性或資料行。
+> 我們建議您將每個量測或信號當做個別的屬性或資料行來傳送。
 
-在下列範例中，沒有單一的 Azure IoT 中樞訊息，其中外部陣列都包含共用通用的維度值區段。 外部陣列使用參考資料來提高訊息的效率。 參考資料包含裝置中繼資料不會變更每個事件，但它會提供有用的屬性進行資料分析。 批次處理常見的維度值，以及採用的參考資料可以節省透過網路傳送的位元組，這可讓訊息更有效率。
+在下列範例中, 有一個 Azure IoT 中樞訊息, 其中外部陣列包含通用維度值的共用區段。 外部陣列使用參考資料來提高訊息的效率。 參考資料報含每個事件都不會變更的裝置中繼資料, 但它會提供有用的資料分析屬性。 批次處理一般維度值和採用參考資料會節省透過網路傳送的位元組, 讓訊息更有效率。
 
 範例 JSON 承載：
 
@@ -88,14 +88,14 @@ ms.locfileid: "66244466"
 ]
 ```
 
-* 具有索引鍵屬性的參考資料資料表**deviceId**:
+* 具有 key 屬性**deviceId**的參考資料表:
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
    | FXXX | LINE\_DATA | EU |
    | FYYY | LINE\_DATA | US |
 
-* 時間序列深入解析事件資料表，壓平合併後：
+* 在簡維之後時間序列深入解析事件資料表:
 
    | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
    | --- | --- | --- | --- | --- | --- |
@@ -103,18 +103,18 @@ ms.locfileid: "66244466"
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
    | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
-在這兩個資料表上的資訊：
+這兩個數據表的附注:
 
-- **deviceId** 資料行是車隊中各種裝置的資料行標頭。 使 deviceId 值本身的屬性名稱限制 （適用於 S1 環境） 的 595 或與其他五個資料行 （適用於 S2 環境） 795 裝置總數。
-- 如範例的廠牌與型號的資訊，被避免不必要的屬性。 因為屬性不會在未來進行查詢，予以排除啟用更好的網路和儲存空間效率。
-- 使用參考資料來減少透過網路傳輸的位元組數目。 兩個屬性**messageId**並**deviceLocation**使用的索引鍵屬性加入**deviceId**。 這項資料在輸入階段聯結的遙測資料，並接著會儲存在時間序列深入解析查詢。
-- 使用兩個圖層的巢狀結構，這是支援的時間序列深入解析的巢狀結構的最大數量。 請務必避免巢狀結構很深的陣列。
-- 量值會傳送為相同的物件內的個別屬性，因為有幾個量值。 在本例中，**series.Flow Rate psi** 和 **series.Engine Oil Pressure ft3/s** 是唯一的資料行。
+- **deviceId** 資料行是車隊中各種裝置的資料行標頭。 將 deviceId 值設為其本身的屬性名稱, 會將裝置的總計限制為 595 (適用于 S1 環境) 或 795 (適用于 S2 環境), 以及其他五個數據行。
+- 可避免不必要的屬性, 例如, make 和 model 資訊。 因為未來不會查詢這些屬性, 所以排除它們可提高網路和儲存體的效率。
+- 使用參考資料來減少透過網路傳輸的位元組數目。 使用索引鍵屬性**deviceId**聯結兩個屬性**messageId**和**deviceLocation** 。 這項資料會在輸入時與遙測資料聯結, 然後儲存在時間序列深入解析以進行查詢。
+- 會使用兩層的嵌套, 這是時間序列深入解析所支援的最大嵌套數量。 請務必避免巢狀結構很深的陣列。
+- 量值會當做相同物件內的個別屬性來傳送, 因為有幾個量值。 在本例中，**series.Flow Rate psi** 和 **series.Engine Oil Pressure ft3/s** 是唯一的資料行。
 
-## <a name="scenario-two-several-measures-exist"></a>案例二：存在幾個量值
+## <a name="scenario-two-several-measures-exist"></a>案例二:有數個量值存在
 
 > [!TIP]
-> 我們建議您傳送的度量單位為 「 型別，」 「 單位，"和"value"的 tuple。
+> 我們建議您將度量當做「類型」、「單位」和「值」元組來傳送。
 
 範例 JSON 承載：
 
@@ -159,18 +159,18 @@ ms.locfileid: "66244466"
 ]
 ```
 
-* 有索引鍵屬性的參考資料資料表**deviceId**並**series.tagId**:
+* 具有索引鍵屬性**deviceId**和**tagId**的參考資料表:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | unit |
+   | deviceId | series.tagId | messageId | deviceLocation | type | 單位 |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | 流動率 | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | 引擎機油壓力 | psi |
    | FYYY | pumpRate | LINE\_DATA | US | 流動率 | ft3/s |
    | FYYY | oilPressure | LINE\_DATA | US | 引擎機油壓力 | psi |
 
-* 時間序列深入解析事件資料表，壓平合併後：
+* 在簡維之後時間序列深入解析事件資料表:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | type | 單位 | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | 流動率 | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | EU | 引擎機油壓力 | psi | 2018-01-17T01:17:00Z | 34.7 |
@@ -179,21 +179,21 @@ ms.locfileid: "66244466"
    | FYYY | pumpRate | LINE\_DATA | US | 流動率 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | US | 引擎機油壓力 | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-在這兩個資料表上的資訊：
+這兩個數據表的附注:
 
-- 資料行**deviceId**並**series.tagId**做為資料行標頭，針對各種裝置和團隊中的標記。 使用每個自己的屬性會限制查詢與 594 （適用於 S1 環境） 或 （適用於 S2 環境） 的 794 其他六個資料行使用的裝置總數。
-- 第一個範例中所述的原因，被避免不必要的屬性。
-- 參考資料用來減少透過網路傳送，藉由引進的位元組數目**deviceId**，它用於唯一配對**messageId**和**deviceLocation**. 複合索引鍵**series.tagId**用於唯一配對**型別**並**單元**。 複合索引鍵可讓**deviceId**並**series.tagId**要用來參考四個值組： **messageId，deviceLocation，輸入，** 並**單元**. 這項資料會在輸入階段聯結的遙測資料。 它接著會查詢儲存在時間序列深入解析。
-- 使用兩個圖層的巢狀結構，第一個範例中所述的原因。
+- 資料行**deviceId**和**tagId**可做為車隊中各種裝置和標記的欄標題。 使用每個做為其本身的屬性, 會將查詢限制為 594 (適用于 S1 環境) 或 794 (適用于 S2 環境) 與其他六個數據行的裝置總數。
+- 基於第一個範例中提及的原因, 已避免不必要的屬性。
+- 參考資料是用來減少透過網路傳輸的位元組數, 方法是引進**deviceId**, 這會用於唯一的**messageId**和**deviceLocation**。 複合索引鍵**序列. tagId**是用於**類型**和**單位**的唯一配對。 複合索引鍵可讓**deviceId**和**tagId 組**用來參考四個值: **messageId、deviceLocation、type**和**unit**。 此資料會在輸入時與遙測資料聯結。 然後, 它會儲存在時間序列深入解析以進行查詢。
+- 針對第一個範例中所述的原因, 會使用兩層的嵌套。
 
 ### <a name="for-both-scenarios"></a>針對這兩個案例
 
-大量的可能值的屬性，最好是以不同的值，而不是建立新的資料行，每個值的單一資料行內傳送。 在前兩個範例中：
+對於具有大量可能值的屬性, 最好以單一資料行中的相異值來傳送, 而不是針對每個值建立新的資料行。 在前兩個範例中：
 
-  - 在第一個範例中，有幾個屬性有數個值，因此很適合讓每個個別屬性。
-  - 在第二個範例中，量值不被指定為個別的屬性。 相反地，它們是常見的數列屬性底下的量值或值陣列。 新的金鑰**tagId**傳送時，它會建立新的資料行**series.tagId**扁平化資料表中。 新的屬性**型別**並**單元**藉由使用參考資料，如此一來，不會達到屬性限制。
+  - 在第一個範例中, 有幾個屬性有數個值, 因此最好讓每一個屬性都是不同的。
+  - 在第二個範例中, 不會將量值指定為個別屬性。 相反地, 它們是在通用數列屬性下的值或量值陣列。 會傳送新的索引鍵**tagId** , 這會在簡維資料表中建立新的**資料行數列 tagId** 。 新的屬性**類型**和**單位**是使用參考資料所建立, 因此不會達到屬性限制。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 讀取[Azure Time Series Insights 的查詢語法](/rest/api/time-series-insights/ga-query-syntax)若要深入了解查詢語法的 Time Series Insights 資料存取 REST API。
-- 了解[圖形事件如何](./time-series-insights-send-events.md)。
+- 若要深入瞭解時間序列深入解析資料存取 REST API 的查詢語法, 請參閱[Azure 時間序列深入解析查詢語法](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax)。
+- 瞭解[如何塑造事件](./time-series-insights-send-events.md)。

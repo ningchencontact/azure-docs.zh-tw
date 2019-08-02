@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 66b54c027cde6341b23aef2c10b43fa21bf357da
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383458"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554685"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>瞭解 Azure 使用量和費用檔案中的條款
 
@@ -28,7 +28,7 @@ ms.locfileid: "68383458"
 --- | --- | --- | --- | ---
 Enterprise 合約 (EA) | 是 | 是 | 是 | 否
 Microsoft 客戶合約 (MCA) | 是 | 是 | 是 | 是
-隨用隨付 (PAYG) | 是 | 否 | 否 | 否
+隨用隨付 (PAYG) | 是 | 是 | 否 | 否
 
 若要深入瞭解 Marketplace 訂單 (也稱為外部服務), 請參閱[瞭解您的 Azure 外部服務費用](billing-understand-your-azure-marketplace-charges.md)。
 
@@ -42,70 +42,69 @@ Microsoft 客戶合約 (MCA) | 是 | 是 | 是 | 是
 
 詞彙 | 帳戶類型 | 描述
 --- | --- | ---
-AccountName | EA、PAYG | EA 註冊帳戶或 PAYG 帳單帳戶的顯示名稱。
-AccountOwnerId | EA、PAYG | EA 註冊帳戶或 PAYG 帳單帳戶的唯一識別碼。
-AdditionalInfo | 所有 | 服務專屬的中繼資料。 例如，虛擬機器的影像類型。
-BillingAccountId | 所有 | 根帳單帳戶的唯一識別碼。
-BillingAccountName | 所有 | 帳單帳戶的名稱。
-BillingCurrency | 所有 | 與帳單帳戶相關聯的貨幣。
+帳戶名稱 | EA、PAYG | EA 註冊帳戶或 PAYG 帳單帳戶的顯示名稱。
+帳戶擁有者識別碼 | EA、PAYG | EA 註冊帳戶或 PAYG 帳單帳戶的唯一識別碼。
+AdditionalInfo | 全部 | 服務專屬的中繼資料。 例如，虛擬機器的影像類型。
+BillingAccountId | 全部 | 根帳單帳戶的唯一識別碼。
+BillingAccountName | 全部 | 帳單帳戶的名稱。
+BillingCurrency | 全部 | 與帳單帳戶相關聯的貨幣。
 BillingPeriod | EA、PAYG | 費用的計費期間。
-BillingPeriodEndDate | 所有 | 計費週期的結束日期。
-BillingPeriodStartDate | 所有 | 計費週期的開始日期。
-BillingProfileId | 所有 | EA 註冊、PAYG 訂閱、MCA 帳單設定檔或 AWS 合併帳戶的唯一識別碼。
-BillingProfileName | 所有 | EA 註冊、PAYG 訂閱、MCA 帳單設定檔或 AWS 合併帳戶的名稱。
-ChargeType | 所有 | 指出費用是否代表使用量 (**使用量**)、購買 (**購買**) 或退款 (**退款**)。
-ConsumedService | 所有 | 與費用相關聯的服務名稱。
-CostCenter | EA、MCA | 為訂用帳戶定義的成本中心, 用於追蹤成本 (僅適用于 MCA 帳戶的開放計費期間)。
+BillingPeriodEndDate | 全部 | 計費週期的結束日期。
+BillingPeriodStartDate | 全部 | 計費週期的開始日期。
+BillingProfileId | 全部 | EA 註冊、PAYG 訂閱、MCA 帳單設定檔或 AWS 合併帳戶的唯一識別碼。
+BillingProfileName | 全部 | EA 註冊、PAYG 訂閱、MCA 帳單設定檔或 AWS 合併帳戶的名稱。
+ChargeType | 全部 | 指出費用是否代表使用量 (**使用量**)、購買 (**購買**) 或退款 (**退款**)。
+ConsumedService | 全部 | 與費用相關聯的服務名稱。
+成本中心 | EA、MCA | 為訂用帳戶定義的成本中心, 用於追蹤成本 (僅適用于 MCA 帳戶的開放計費期間)。
 成本 | EA、PAYG | 請參閱 CostInBillingCurrency。
 CostInBillingCurrency | MCA | 在信用額度或稅金前的計費貨幣費用。
 CostInPricingCurrency | MCA | 在信用額度或稅金之前的定價貨幣費用。
 Currency | EA、PAYG | 請參閱 BillingCurrency。
-Date | 所有 | 費用的使用量或購買日期。
-EffectivePrice | 所有 | 期間的混合單位價格。 混合的價格會平均計算單價的任何波動, 例如評分階層處理, 這可減少數量隨時間增加的價格。
+Date | 全部 | 費用的使用量或購買日期。
+EffectivePrice | 全部 | 期間的混合單位價格。 混合的價格會平均計算單價的任何波動, 例如評分階層處理, 這可減少數量隨時間增加的價格。
 ExchangeRateDate | MCA | 兌換匯率的建立日期。
 ExchangeRatePricingToBilling | MCA | 用來將定價貨幣中的成本轉換成計費貨幣的匯率。
-頻率 | 所有 | 指出是否預期會重複收費。 費用可能會發生一次 (**OneTime**)、每月或每年重複 (**週期性**), 或以使用方式 (**UsageBased**) 為基礎。
-IncludedQuantity | PAYG | 目前計費期間免費包含的計量數量。
-InstanceId | PAGY | 請參閱 ResourceId。
+頻率 | 全部 | 指出是否預期會重複收費。 費用可能會發生一次 (**OneTime**)、每月或每年重複 (**週期性**), 或以使用方式 (**UsageBased**) 為基礎。
 InvoiceId | PAYG, MCA | 以發票 PDF 列出的唯一檔識別碼。
 InvoiceSection | MCA | 請參閱 InvoiceSectionName。
 InvoiceSectionId | EA、MCA | EA 部門或 MCA invoice 區段的唯一識別碼。
 InvoiceSectionName | EA、MCA | EA 部門或 MCA invoice 區段的名稱。
-IsAzureCreditEligible | 所有 | 指出費用是否有資格支付使用 Azure 點數 (值:True、False)。
+IsAzureCreditEligible | 全部 | 指出費用是否有資格支付使用 Azure 點數 (值:True、False)。
 Location | MCA | 正在執行資源的資料中心位置。
-MeterCategory | 所有 | 計量分類類別目錄的名稱。 例如,*雲端服務*和*網路*。
-計量識別碼 | 所有 | 計量的唯一識別碼。
-MeterName | 所有 | 計量的名稱。
-MeterRegion | 所有 | 根據位置定價之服務的資料中心位置名稱。 請參閱位置。
-MeterSubCategory | 所有 | 計量 subclassification 類別目錄的名稱。
-OfferId | 所有 | 購買的供應專案名稱。
+計量類別目錄 | 全部 | 計量分類類別目錄的名稱。 例如,*雲端服務*和*網路*。
+計量識別碼 | 全部 | 計量的唯一識別碼。
+計量名稱 | 全部 | 計量的名稱。
+MeterRegion | 全部 | 根據位置定價之服務的資料中心位置名稱。 請參閱位置。
+MeterSubCategory | 全部 | 計量 subclassification 類別目錄的名稱。
+OfferId | 全部 | 購買的供應專案名稱。
 PartNumber | EA、PAYG | 用來取得特定計量定價的識別碼。
 PlanName | EA、PAYG | Marketplace 方案名稱。
 PreviousInvoiceId | MCA | 如果此明細專案為退款, 則為原始發票的參考。
 PricingCurrency | MCA | 根據談判價格進行分級時所使用的貨幣。
-產品 | 所有 | 產品名稱。
-ProductId | MCA | 產品的唯一識別碼。
-ProductOrderId | 所有 | 產品訂單的唯一識別碼。
-ProductOrderName | 所有 | 產品訂單的唯一名稱。
-PublisherName | 所有 | Marketplace 服務的發行者。
-PublisherType | 所有 | 發行者的類型 (值:**Azure**、 **AWS**、 **Marketplace**)。
-數量 | 所有 | 購買或耗用的單位數。
+產品 | 全部 | 產品名稱。
+產品識別碼 | MCA | 產品的唯一識別碼。
+ProductOrderId | 全部 | 產品訂單的唯一識別碼。
+ProductOrderName | 全部 | 產品訂單的唯一名稱。
+PublisherName | 全部 | Marketplace 服務的發行者。
+PublisherType | 全部 | 發行者的類型 (值:**Azure**、 **AWS**、 **Marketplace**)。
+數量 | 全部 | 購買或耗用的單位數。
 ReservationId | EA、MCA | 已購買保留實例的唯一識別碼。
 ReservationName | EA、MCA | 所購買保留實例的名稱。
-ResourceGroup | 所有 | 資源所在的[資源組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)名。
-resourceId | 所有 | [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources)資源的唯一識別碼。
-ResourceLocation | 所有 | 正在執行資源的資料中心位置。 請參閱位置。
+ResourceGroup | 全部 | 資源所在的[資源組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)名。
+resourceId | 全部 | [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources)資源的唯一識別碼。
+ResourceLocation | 全部 | 正在執行資源的資料中心位置。 請參閱位置。
 ResourceName | EA、PAYG | 資源的名稱。
 ResourceType | MCA | 資源實例的類型。
 ServiceFamily | MCA | 服務所屬的服務系列。
-ServiceInfo1 | 所有 | 服務專屬的中繼資料。
-ServiceInfo2 | 所有 | 具有選擇性服務特定中繼資料的舊版欄位。
+ServiceInfo1 | 全部 | 服務專屬的中繼資料。
+ServiceInfo2 | 全部 | 具有選擇性服務特定中繼資料的舊版欄位。
 ServicePeriodEndDate | MCA | 已取用或已購買服務已定義和鎖定定價的評等期間的結束日期。
 ServicePeriodStartDate | MCA | 已使用或已購買服務的已定義和已鎖定定價之評等期間的開始日期。
-訂用帳戶 ID | 所有 | Azure 訂用帳戶的唯一識別碼。
-SubscriptionName | 所有 | Azure 訂用帳戶的名稱。
-Tags | 所有 | 指派給資源的標記。 不包含資源群組標記。 可以用來分組或散發內部退款的成本。 如需詳細資訊，請參閱[使用標記組織您的 Azure 資源](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)。
-UnitOfMeasure | 所有 | 服務計費的測量單位。 例如, 計算服務是以每小時計費。
+SubscriptionId | 全部 | Azure 訂用帳戶的唯一識別碼。
+訂用帳戶名稱 | 全部 | Azure 訂用帳戶的名稱。
+Tags | 全部 | 指派給資源的標記。 不包含資源群組標記。 可以用來分組或散發內部退款的成本。 如需詳細資訊，請參閱[使用標記組織您的 Azure 資源](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)。
+詞彙 | 全部 | 顯示供應專案有效性的詞彙。 例如: 如果是保留實例, 它會顯示12個月作為詞彙。 針對一次性購買或週期性購買, 期限為1個月 (SaaS、Marketplace 支援)。 這不適用於 Azure 耗用量。
+UnitOfMeasure | 全部 | 服務計費的測量單位。 例如, 計算服務是以每小時計費。
 UnitPrice | EA、PAYG | 費用的每單位價格。
 
 請注意, 某些欄位的大小寫和帳戶類型之間的間距可能有所不同。
@@ -116,10 +115,10 @@ UnitPrice | EA、PAYG | 費用的每單位價格。
 
 舊詞彙 | 新字詞
 --- | ---
-ConsumedQuantity | 數量
+已取用的數量 | 數量
 IncludedQuantity | N/A
 InstanceId | resourceId
-速率 | EffectivePrice
+費率 | EffectivePrice
 單位 | UnitOfMeasure
 UsageDate | Date
 UsageEnd | Date

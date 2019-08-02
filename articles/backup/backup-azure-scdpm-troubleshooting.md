@@ -1,18 +1,19 @@
 ---
 title: 使用 Azure 備份針對 System Center Data Protection Manager 進行疑難排解
 description: 針對 System Center Data Protection Manager 的問題進行疑難排解。
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 5e4aa113eda6ea53c520e6de52e4fa17d75f4095
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 501e61d06b7724147d7224ae51bde5de736279b3
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465382"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689023"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>針對 System Center Data Protection Manager 疑難排解
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 的 NetApp 檔案 Sdk |Microsoft Docs
-description: 列出 Azure NetApp 檔案服務支援的 Sdk。
+title: Azure NetApp Files Sdk |Microsoft Docs
+description: 列出 Azure NetApp Files 支援的 Sdk。
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,29 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 07/29/2019
 ms.author: b-juche
-ms.openlocfilehash: 44cacc388b8cb9977bdf36d4d1a86f8d15211608
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 499f9d14a20f665f545f5fdc3b31015cb57c193c
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957876"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667500"
 ---
 # <a name="azure-netapp-files-sdks"></a>Azure NetApp Files SDK
 
-這篇文章列出 Azure NetApp 檔案服務支援的 Sdk。
+本文列出 Azure NetApp Files 支援的 Sdk。
 
 ## <a name="supported-sdks"></a>支援的 SDK 
 
-下表列出支援的 Sdk。  您可以在 GitHub 中找到有關支援的 Sdk，在已發行之位置的詳細資料。  
+下表列出支援的 Sdk。  您可以在 GitHub 中的已發佈位置上找到支援 Sdk 的詳細資料。  
 
-|    語言    |    SDK 發行位置    |
+|    語言    |    SDK 發佈位置    |
 |------------------|--------------------------------------------------------------------------------------------|
-|    [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/)    |    `https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/NetApp`    |
-|    [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-netapp)    |    `https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-netapp`    |
+|    [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |    `https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp`    |
+|    [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |    `https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp`    |
 |    [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)    |    `https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp`       |
+|    [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) | `https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager` |
 |    [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |    `https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp`    |
 |    [Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |    `https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp`    |
 

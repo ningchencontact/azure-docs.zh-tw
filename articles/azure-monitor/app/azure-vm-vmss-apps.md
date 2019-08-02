@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 69ae6ab6caedd9e89d277b92558931685d2ea320
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f2c6b98fd0be2061e9d8cab5c063cafadf71476a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877307"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597445"
 ---
 # <a name="monitor-application-performance-hosted-on-azure-vm-and-azure-virtual-machine-scale-sets"></a>監視裝載在 Azure VM 和 Azure 虛擬機器擴展集上的應用程式效能
 
@@ -42,7 +42,7 @@ ms.locfileid: "67877307"
     * 如果您需要進行自訂 API 呼叫來追蹤預設不是以代理程式為基礎所捕捉的事件/相依性, 則必須使用此方法。 若要深入瞭解, 請參閱[自訂事件和計量的 API 一文](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics)。
 
 > [!NOTE]
-> 如果偵測到以代理程式為基礎的監視和以手動 SDK 為基礎的檢測, 則只會接受手動檢測設定。 這是為了防止傳送重複的資料。 若要深入瞭解, 請參閱下面的[疑難排解一節](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-apps#troubleshooting)。
+> 如果偵測到以代理程式為基礎的監視和以手動 SDK 為基礎的檢測, 則只會接受手動檢測設定。 這是為了防止傳送重複的資料。 若要深入瞭解, 請參閱下面的[疑難排解一節](#troubleshooting)。
 
 ## <a name="manage-agent-based-monitoring-for-net-applications-on-vm-using-powershell"></a>使用 PowerShell 在 VM 上管理 .NET 應用程式的代理程式型監視
 

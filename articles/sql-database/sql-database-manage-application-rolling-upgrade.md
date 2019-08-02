@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55b23b8d8e03a79aa0806a68306017f89c747760
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702570"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567778"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>使用 SQL Database 主動式異地複寫管理雲端應用程式的輪流升級
 
@@ -92,7 +91,7 @@ ms.locfileid: "60702570"
 
 1. 在主要區域中部署 Web 應用程式的預備環境 (6)。
 2. 在主要區域中建立次要資料庫 (7)。 設定 Web 應用程式的預備環境以連線到該環境。 
-3. 複寫主要區域中的次要資料庫，在備份區域中建立另一個異地備援次要資料庫 (8)。 (這個方法稱為「鏈結異地複寫」  ) (8)。
+3. 複寫主要區域中的次要資料庫，在備份區域中建立另一個異地備援次要資料庫 (8)。 (這個方法稱為「鏈結異地複寫」) (8)。
 4. 在備份區域中部署 Web 應用程式執行個體的預備環境 (9)，並將它設定為連線在 (8) 建立的異地備援次要資料庫。
 
 > [!NOTE]
@@ -110,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. 中斷連接次要複本 (11) 來終止異地複寫。 此動作會建立獨立但完全同步的生產資料庫複本。 此資料庫將會升級。 下列範例使用 Transact SQL，但[PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0)也會提供。 
+2. 中斷次要資料庫的連線以終止異地複寫 (11)。 此動作會建立獨立但完全同步的生產資料庫複本。 此資料庫將會升級。 下列範例使用 Transact-sql, 但也提供[PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) 。 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication

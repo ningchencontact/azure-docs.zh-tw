@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68405987"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Apache Hadoop 叢集的可用性和可靠性
@@ -108,7 +108,7 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 ![已安裝的服務](./media/hdinsight-high-availability-linux/services.png)
 
-服務旁可能會出現一系列圖示以表示狀態。 可以使用在頁面頂端的 [警示]  連結，檢視與服務相關的任何警示。  Ambari 提供數個預先定義的警示。
+服務旁可能會出現一系列圖示以表示狀態。 可以使用在頁面頂端的 [警示] 連結，檢視與服務相關的任何警示。  Ambari 提供數個預先定義的警示。
 
 下列警示可協助監視叢集的可用性:
 
@@ -153,7 +153,7 @@ HDInsight 叢集中的節點具有只能自叢集存取的內部 IP 位址和 FQ
 
 您可以選取每個服務來檢視其詳細資訊。
 
-雖然 [服務] 頁面會提供資訊之狀態和每個服務的組態，但並不提供該服務正在哪些前端節點上執行的資訊。 若要檢視這項資訊，請使用在頁面頂端的 [主機]  連結。 此頁面會顯示叢集內的主機，包括前端節點在內。
+雖然 [服務] 頁面會提供資訊之狀態和每個服務的組態，但並不提供該服務正在哪些前端節點上執行的資訊。 若要檢視這項資訊，請使用在頁面頂端的 [主機] 連結。 此頁面會顯示叢集內的主機，包括前端節點在內。
 
 ![主機清單](./media/hdinsight-high-availability-linux/hosts.png)
 
@@ -247,7 +247,7 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 只能在叢集建立期間選取節點的大小。 您可以在 [HDInsight 價格頁面](https://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單。
 
-建立叢集時，您可以指定節點的大小。 下列資訊提供如何使用[Azure 入口網站][preview-portal], [Azure PowerShell module Az][azure-powershell]和[Azure CLI][Azure CLI]來指定大小的指引:
+建立叢集時，您可以指定節點的大小。 下列資訊提供如何使用 [ [Azure 入口網站][preview-portal]]、[ [Azure PowerShell 模組 Az][azure-powershell]] 和 [ [Azure CLI][azure-cli]] 來指定大小的指引:
 
 * **Azure 入口網站**︰建立叢集時，您可以設定叢集所使用的節點大小：
 

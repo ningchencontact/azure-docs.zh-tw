@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a482ae44c796e1519ffad0a604510166b1ac63c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f2bb4a6d10f9e45a27b8b5e082b3cbec475b531
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165617"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677807"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用管理 Azure Time Series Insights 環境的 GA 參考資料C#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用管理 Azure 時間序列深入解析環境的 GA 參考資料C#
 
 本文說明您可以編譯的範例 C# 專案來管理 Azure 時間序列深入解析環境的參考資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 編譯及執行範例程式碼之前，您必須先完成下列步驟：
 
@@ -36,7 +36,7 @@ ms.locfileid: "67165617"
 1. 編輯範例程式碼以取代在接近程式碼開頭之 **#DUMMY#** 所指定的範例常數。
 
 > [!NOTE]
-> 檢視在 GA 範例程式碼[ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)。
+> 在[https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)中查看 GA 範例程式碼。
 
 ## <a name="project-dependencies"></a>專案相依性
 
@@ -247,4 +247,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## <a name="next-steps"></a>後續步驟
 
-- 讀取[參考資料 API](/rest/api/time-series-insights/ga-reference-data-api)。
+- 讀取[參考資料 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)。

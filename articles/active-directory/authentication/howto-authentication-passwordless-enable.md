@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: cce5de98fe4914e18ee0154d4ac5f1af008d32a6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499939"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561304"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>啟用 Azure AD 的無密碼登入 (預覽)
 
@@ -49,7 +49,7 @@ ms.locfileid: "68499939"
 若要以特定裝置群組為目標以啟用認證提供者, 請透過 Intune 使用下列自訂設定。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 流覽至**Microsoft Intune**  > **裝置配置** >  檔 > **建立設定檔**。
+1. 流覽至**Microsoft Intune**  > **裝置配置** > 檔 > **建立設定檔**。
 1. 使用下列設定來設定新的設定檔
    1. 名稱:Windows 登入的安全性金鑰
    1. 描述:啟用 FIDO 安全性金鑰以在 Windows 登入期間使用
@@ -69,9 +69,9 @@ ms.locfileid: "68499939"
 對於不受 Intune 管理的裝置, 可以安裝布建套件來啟用此功能。 您可以從[Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22)安裝 Windows 設定設計工具應用程式。
 
 1. 啟動 Windows 設定設計工具。
-1. 選取 [檔案] [**新增專案**]。   > 
+1. 選取 [檔案] [**新增專案**]。  > 
 1. 為您的專案命名, 並記下您的專案建立所在的路徑。
-1. 選取 [下一步] 。
+1. 選取 [下一步]。
 1. 將布建**套件**保留為**選取的專案工作流程**, 然後選取 **[下一步]** 。
 1. 選取 **[選擇要查看和設定的設定**] 下的**所有 Windows 桌上出版本**, 然後選取 **[下一步]** 。
 1. 選取 [完成]。
@@ -109,7 +109,7 @@ FIDO2 安全性金鑰的註冊功能依賴結合的註冊預覽。 請遵循下�
 ### <a name="enable-new-passwordless-authentication-methods"></a>啟用新的無密碼驗證方法
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)
-1. 流覽至**Azure Active Directory**  > **驗證方法** > **驗證方法原則 (預覽)**
+1. 流覽至**Azure Active Directory**  > **安全性** > **驗證**方法驗證 > **方法原則 (預覽)**
 1. 在每個**方法**底下, 選擇下列選項
    1. **啟用**-是或否
    1. **目標**-所有使用者或選取使用者
@@ -132,7 +132,7 @@ FIDO2 安全性金鑰的註冊功能依賴結合的註冊預覽。 請遵循下�
 1. 選擇**USB 裝置**或**NFC 裝置**
 1. 備妥您的金鑰, 然後選擇 **[下一步]**
 1. 隨即會出現一個方塊, 並要求您建立/輸入您的安全性金鑰的 PIN, 然後針對您的金鑰執行必要的手勢來進行生物識別或觸控。
-1. 您將會回到合併的註冊體驗, 並要求您為權杖提供有意義的名稱, 以便您可以在有多個時識別哪一個。 按一下 [下一步] 。
+1. 您將會回到合併的註冊體驗, 並要求您為權杖提供有意義的名稱, 以便您可以在有多個時識別哪一個。 按一下 [下一步]。
 1. 按一下 [**完成**] 以完成程式
 
 ### <a name="manage-security-key-biometric-pin-or-reset-security-key"></a>管理安全性金鑰生物識別、PIN 或重設安全性金鑰

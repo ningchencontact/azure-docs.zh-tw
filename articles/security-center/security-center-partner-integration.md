@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d94567800a9fd020784c9cb07b2c6824cd032509
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064281"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662943"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
 
 > [!NOTE]
-> 安全性解決方案的子集將於 2019 年 7 月 31 日淘汰。 如需詳細資訊和替代的服務，請參閱 <<c0> [ 停用的資訊安全中心功能 (7 月 2019)](security-center-features-retirement-july2019.md#menu_solutions)。
+> 安全性解決方案的子集已于2019年7月31日淘汰。 如需詳細資訊和替代服務, 請參閱[淘汰資訊安全中心功能 (2019 年7月)](security-center-features-retirement-july2019.md#menu_solutions)。
 
 ## <a name="integrated-azure-security-solutions"></a>整合式 Azure 安全性解決方案
 資訊安全中心可以使得在 Azure 中啟用整合式安全性解決方案變得簡單。 優點包括：
@@ -34,7 +34,7 @@ ms.locfileid: "67064281"
 - **整合偵測**：來自夥伴解決方案的安全性事件會自動收集、彙總以及顯示為資訊安全中心警示和事件的一部分。 這些事件也會與來自其他來源的偵測整合，以提供進階的威脅偵測功能。
 - **統一的健全狀況監視與管理**：客戶可使用整合式的健全狀況事件，一眼監視所有夥伴解決方案。 提供基本管理功能，而且可以讓您輕鬆使用夥伴解決方案存取進階設定。
 
-目前，整合式的安全性解決方案包括由的弱點評量[Qualys](https://www.qualys.com/public-clouds/microsoft-azure/)並[Rapid7](https://www.rapid7.com/products/insightvm/)和 Microsoft 應用程式閘道 Web 應用程式防火牆。
+目前, 整合式安全性解決方案包含[Qualys](https://www.qualys.com/public-clouds/microsoft-azure/)和[Rapid7](https://www.rapid7.com/products/insightvm/)和 Microsoft 應用程式閘道 Web 應用程式防火牆的弱點評量。
 
 > [!NOTE]
 > 資訊安全中心不會在合作夥伴虛擬設備上安裝 Microsoft Monitoring Agent，因為大部分的安全防護廠商都禁止在其設備上執行的外部代理程式。
@@ -42,7 +42,7 @@ ms.locfileid: "67064281"
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>安全性解決方案如何整合
-從資訊安全中心部署的 Azure 安全性解決方案會自動連線。 您也可以連線其他安全性資料來源，包括執行內部部署電腦或其他雲端中。
+從資訊安全中心部署的 Azure 安全性解決方案會自動連線。 您也可以連接其他安全性資料來源, 包括內部部署或其他雲端中執行的電腦。
 
 ![夥伴解決方案整合](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
@@ -50,19 +50,19 @@ ms.locfileid: "67064281"
 
 1. 登入 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。
 
-2. 在 [Microsoft Azure]  功能表中，選取 [資訊安全中心]  。 [資訊安全中心 - 概觀]  隨即開啟。
+2. 在 [Microsoft Azure] 功能表中，選取 [資訊安全中心]。 [資訊安全中心 - 概觀] 隨即開啟。
 
-3. 在 [資訊安全中心] 功能表下，選取 [安全性解決方案]  。
+3. 在 [資訊安全中心] 功能表下，選取 [安全性解決方案]。
 
    ![資訊安全中心概觀](./media/security-center-partner-integration/overview.png)
 
-在 [安全性解決方案]  之下，您可以檢視整合式 Azure 安全性解決方案的健康情況相關資訊，並且執行基本管理工作。 您也可以連線其他類型的安全性資料來源，例如常見事件格式 (CEF) 的 Azure Active Directory Identity Protection 警示和防火牆記錄。
+在 [安全性解決方案] 之下，您可以檢視整合式 Azure 安全性解決方案的健康情況相關資訊，並且執行基本管理工作。 您也可以連線其他類型的安全性資料來源，例如常見事件格式 (CEF) 的 Azure Active Directory Identity Protection 警示和防火牆記錄。
 
-### <a name="connected-solutions"></a>連線的解決方案
+### <a name="connected-solutions"></a>已連接的解決方案
 
-[連線的解決方案]  區段包含目前連線到資訊安全中心的安全性解決方案，和每個解決方案健康情況狀態的的資訊。  
+[連線的解決方案] 區段包含目前連線到資訊安全中心的安全性解決方案，和每個解決方案健康情況狀態的的資訊。  
 
-![連線的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
+![已連接的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 合作夥伴解決方案的狀態可以是︰
 
@@ -76,7 +76,7 @@ ms.locfileid: "67064281"
 >
 >
 
-1. 選取 [檢視]  以取得其他資訊和選項，包括：
+1. 選取 [檢視] 以取得其他資訊和選項，包括：
 
    - **解決方案主控台**。 開啟這個解決方案的管理體驗。
    - **連結 VM**。 開啟 [連結應用程式] 刀鋒視窗。 您可以在這裡將資源連接到合作夥伴解決方案。
@@ -85,24 +85,24 @@ ms.locfileid: "67064281"
 
    ![合作夥伴解決方案詳細資料](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
-### <a name="discovered-solutions"></a>探索到的解決方案
+### <a name="discovered-solutions"></a>搜索到的解決方案
 
-資訊安全中心會自動探索在 Azure 中執行但未連線到資訊安全中心的安全性解決方案，並且在 [搜索到的解決方案]  區段中顯示解決方案。 這包括 Azure 解決方案，例如 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)，以及在合作夥伴解決方案。
+資訊安全中心會自動探索在 Azure 中執行但未連線到資訊安全中心的安全性解決方案，並且在 [搜索到的解決方案] 區段中顯示解決方案。 這包括 Azure 解決方案，例如 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)，以及在合作夥伴解決方案。
 
 > [!NOTE]
 > 已探索解決方案功能的訂用帳戶層級需要資訊安全中心的標準層。 若要深入了解資訊安全中心的定價層，請參閱[價格](security-center-pricing.md)。
 >
 >
 
-選取解決方案下方的 [連線]  來與資訊安全中心整合，並可收到安全性警示通知。
+選取解決方案下方的 [連線] 來與資訊安全中心整合，並可收到安全性警示通知。
 
-![探索到的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+![搜索到的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
 資訊安全中心也會探索訂用帳戶中能夠轉寄通用事件格式 (CEF) 記錄的已部署解決方案。 了解如何[將安全性解決方案連線](quick-security-solutions.md) 到資訊安全中心，而該解決方案會使用 CEF 記錄。
 
 ### <a name="add-data-sources"></a>新增資料來源
 
-[新增資料來源]  區段包含可以連線的其他可用資料來源。 如需從這些來源新增資料的指示，請按一下 [新增]  。
+[新增資料來源] 區段包含可以連線的其他可用資料來源。 如需從這些來源新增資料的指示，請按一下 [新增]。
 
 ![資料來源](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 

@@ -1,6 +1,6 @@
 ---
-title: IoT 預覽的 Azure 資訊安全中心的驗證方法 |Microsoft Docs
-description: 了解可用的不同驗證方法時使用 Azure 資訊安全中心的 IoT 服務。
+title: 適用于 IoT 的 Azure 資訊安全中心驗證方法 |Microsoft Docs
+description: 瞭解使用 IoT 服務的 Azure 資訊安全中心時可用的不同驗證方法。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,79 +13,74 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d5701ae37d64e25fba981cd85deed2c4e4d87a15
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 16f7f91e02d118d9f9a295ebb79a6cd0187dd9fd
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618347"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596462"
 ---
 # <a name="security-agent-authentication-methods"></a>安全性代理程式驗證方法 
 
-> [!IMPORTANT]
-> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+本文說明您可以與 AzureIoTSecurity 代理程式搭配使用的不同驗證方法, 以 IoT 中樞進行驗證。
 
-這篇文章說明您可以使用與 AzureIoTSecurity 代理程式向 IoT 中樞的不同驗證方法。
-
-針對每個裝置上架到 Azure 資訊安全中心 (ASC) 在 IoT 中樞的 iot，安全性模組則是必要項目。 若要驗證的裝置，iot ASC，也可以使用兩種方法之一。 選擇最適合用於您現有的 IoT 解決方案的方法。 
+針對 IoT 中樞中的 IoT Azure 資訊安全中心的每個裝置上架, 需要安全性模組。 若要驗證裝置, 適用于 IoT 的 Azure 資訊安全中心可以使用兩種方法的其中一種。 選擇最適用于您現有 IoT 解決方案的方法。 
 
 > [!div class="checklist"]
-> * 安全性 [模組] 選項
+> * SecurityModule 選項
 > * 裝置選項
 
 ## <a name="authentication-methods"></a>驗證方法
 
-AzureIoTSecurity 代理程式來執行驗證之兩種方法：
+AzureIoTSecurity 代理程式執行驗證的兩種方法:
 
- - **模組**驗證模式<br>
-   模組是獨立的裝置對應項進行驗證。
-   如果您想要使用專用的驗證方法，透過安全性模組 （只有對稱金鑰） 的安全性代理程式，請使用這個驗證類型。
+ - **SecurityModule**驗證模式<br>
+   代理程式是使用與裝置身分識別無關的安全性模組識別進行驗證。
+   如果您想要讓安全性代理程式透過安全性模組使用專用的驗證方法 (僅限對稱金鑰), 請使用此驗證類型。
         
  - **裝置**驗證模式<br>
-    在此方法中，安全性代理程式第一次驗證的裝置身分識別。 初始驗證之後，執行 IoT 代理程式 ASC **REST**到 IoT 中樞與裝置的驗證資料使用 REST API 呼叫。 IoT 代理程式 ASC 接著要求的安全性模組驗證方法和資料，從 IoT 中樞。 在最後一個步驟中，ASC IoT 代理程式會執行 IoT 模組驗證 ASC。
+    在此方法中, 安全性代理程式會先使用裝置身分識別進行驗證。 初始驗證之後, IoT 代理程式的 Azure 資訊安全中心會使用 REST API 搭配裝置的驗證資料, 對 IoT 中樞執行**REST**呼叫。 IoT 代理程式的 Azure 資訊安全中心接著會向 IoT 中樞要求安全性模組驗證方法和資料。 在最後一個步驟中, IoT 代理程式的 Azure 資訊安全中心會針對 IoT 模組的 Azure 資訊安全中心執行驗證。
     
-    如果您想要重複使用現有的裝置驗證方法 （已自我簽署憑證或對稱金鑰） 的安全性代理程式，請使用這個驗證類型。 
+    如果您想要讓安全性代理程式重複使用現有的裝置驗證方法 (自我簽署的憑證或對稱金鑰), 請使用此驗證類型。 
 
-請參閱[安全性代理程式的安裝參數](#security-agent-installation-parameters)以了解如何設定。
+若要瞭解如何設定, 請參閱[安全性代理程式安裝參數](#security-agent-installation-parameters)。
                                 
-## <a name="authentication-methods-known-limitations"></a>已知限制的驗證方法
+## <a name="authentication-methods-known-limitations"></a>驗證方法的已知限制
 
-- **模組**驗證模式僅支援對稱金鑰驗證。
-- CA 簽署的憑證不受**裝置**驗證模式。  
+- **SecurityModule**驗證模式只支援對稱金鑰驗證。
+- **裝置**驗證模式不支援 CA 簽署的憑證。  
 
-## <a name="security-agent-installation-parameters"></a>安全性代理程式的安裝參數
+## <a name="security-agent-installation-parameters"></a>安全性代理程式安裝參數
 
-當[部署安全性代理程式](how-to-deploy-agent.md)，必須提供驗證詳細資料，做為引數。
-下表會記錄這些引數。
-
-
-|參數|說明|選項。|
-|---------|---------------|---------------|
-|**身分識別**|驗證模式| **模組**或**裝置**|
-|**type**|驗證類型|**SymmetricKey**或**SelfSignedCertificate**|
-|**filePath**|包含憑證或對稱金鑰之檔案的絕對完整路徑| |
-|**gatewayHostname**|IoT 中樞的 FQDN|範例：ContosoIotHub.azure-devices.net|
-|deviceId |裝置識別碼|範例：MyDevice1|
-|**certificateLocationKind**|憑證存放區位置|**LocalFile**或**存放區**|
+[部署安全性代理程式](how-to-deploy-agent.md)時, 必須提供驗證詳細資料做為引數。
+這些引數記載于下表。
 
 
-使用時安裝安全性代理程式指令碼，下列組態會自動執行。
+|Linux 參數名稱 | Windows 參數名稱 | 速記參數 |描述|選項。|
+|---------------------|---------------|---------|---------------|---------------|
+|驗證-身分識別|AuthenticationIdentity|aui|驗證身分識別| **SecurityModule**或**裝置**|
+|驗證方法|AuthenticationMethod|aum|驗證方法|**SymmetricKey**或**SelfSignedCertificate**|
+|檔案-路徑|FilePath|F|包含憑證或對稱金鑰之檔案的絕對完整路徑| |
+|主機名稱|HostName|hn|IoT 中樞的 FQDN|範例:ContosoIotHub.azure-devices.net|
+|裝置識別碼|DeviceId|di|裝置識別碼|範例:MyDevice1|
+|憑證-位置類型|CertificateLocationKind|cl|憑證儲存位置|**LocalFile**或**Store**|
+|
 
-若要手動編輯安全性代理程式驗證，編輯組態檔。 
 
-## <a name="change-authentication-method-after-deployment"></a>在部署後變更驗證方法
+使用安裝安全性代理程式腳本時, 會自動執行下列設定。 若要手動編輯安全性代理程式驗證, 請編輯設定檔。 
 
-當部署安全性代理程式安裝指令碼，會自動建立的組態檔。
+## <a name="change-authentication-method-after-deployment"></a>部署後變更驗證方法
 
-若要變更驗證方法，在部署之後，手動編輯組態檔是必要的。
+使用安裝腳本部署安全性代理程式時, 會自動建立設定檔。
+
+若要在部署後變更驗證方法, 則需要手動編輯設定檔。
 
 
-### <a name="c-based-security-agent"></a>C#-基礎安全性代理程式
+### <a name="c-based-security-agent"></a>C#以為基礎的安全性代理程式
 
-編輯_Authentication.config_具備下列參數：
+使用下列參數編輯_Authentication_ :
 
 ```xml
 <Authentication>
@@ -98,9 +93,9 @@ AzureIoTSecurity 代理程式來執行驗證之兩種方法：
 </Authentication>
 ```
 
-### <a name="c-based-security-agent"></a>C 為基礎的安全性代理程式
+### <a name="c-based-security-agent"></a>以 C 為基礎的安全性代理程式
 
-編輯_LocalConfiguration.json_具備下列參數：
+使用下列參數編輯_LocalConfiguration_ :
 
 ```json
 "Authentication" : {
@@ -113,6 +108,6 @@ AzureIoTSecurity 代理程式來執行驗證之兩種方法：
 ```
 
 ## <a name="see-also"></a>另請參閱
-- [安全性代理程式概觀](security-agent-architecture.md)
+- [安全性代理程式總覽](security-agent-architecture.md)
 - [部署安全性代理程式](how-to-deploy-agent.md)
-- [存取未經處理的安全性資料](how-to-security-data-access.md)
+- [存取原始安全性資料](how-to-security-data-access.md)

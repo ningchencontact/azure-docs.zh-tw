@@ -1,18 +1,19 @@
 ---
 title: Azure 立即還原功能
 description: Azure 立即還原功能和 VM 備份堆疊、Azure Resource Manager 部署模型的常見問題集
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: sogup
-ms.openlocfilehash: 8bbf24fdd05fa0d70bcadae4f21e599dc8bef3a5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465102"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698398"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>透過 Azure 備份的立即還原功能取得改良的備份和還原效能
 
@@ -25,7 +26,8 @@ ms.locfileid: "68465102"
 * 藉由本機預設保留 2 天的快照集，可減少備份和還原時間。 此預設快照集保留值可設定為介於1到5天的任何值。
 * 支援最多 4 TB 磁碟大小。 Azure 備份不建議調整磁片大小。
 * 支援標準 SSD 磁片以及標準 HDD 磁片和進階 SSD 磁片。
-*   還原時，能夠使用非受控 VM 的原始儲存體帳戶 (依據磁碟)。 即使 VM 的磁碟分散於多個儲存體帳戶，仍然具有此功能。 它能夠針對各種不同的 VM 設定，加快還原作業的速度。
+* 在還原時, 能夠使用非受控 Vm 的原始儲存體帳戶 (每一磁片)。 即使 VM 的磁碟分散於多個儲存體帳戶，仍然具有此功能。 它能夠針對各種不同的 VM 設定，加快還原作業的速度。
+* 若要備份使用高階儲存體的 Vm, 請使用立即還原, 建議您配置*50%* 的可用空間 (已配置的儲存空間總計, 只有在第一次備份時**才**需要)。 第一次備份完成後, 備份不需要 50% 的可用空間。
 
 
 ## <a name="whats-new-in-this-feature"></a>這項功能有什麼新增功能？
@@ -103,4 +105,4 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 除非刪除快照集 (第 1 層)，否則新模型不允許刪除還原點 (第 2 層)。 建議您排程大於快照集保留期間的還原點 (第 2 層) 保留期間。
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>為何在備份原則中設定的保留期間之後，我的快照集仍然存在？
-如果復原點具有快照集而且是最新的可用 RP，則會保留到有下一個成功備份的時候。 這是依據現今設計的 GC 原則，該原則要求一律至少有一個最新的 RP，以防所有備份由於 VM 問題進而失敗。 在正常情況下，RP 會在到期後的最多 24 小時內清除。
+如果復原點具有快照集而且是最新的可用 RP，則會保留到有下一個成功備份的時候。 這是根據設計的「垃圾收集」 (GC) 原則, 目前至少會要求一個最新的 RP 一律存在, 以免所有備份因 VM 中的問題而失敗。 在正常情況下，RP 會在到期後的最多 24 小時內清除。

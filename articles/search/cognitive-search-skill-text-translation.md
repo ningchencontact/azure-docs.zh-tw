@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
 ms.custom: seodec2018
-ms.openlocfilehash: 0268a16ecc07d578e1e3dc2b15ad9208509c2a8c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c267d6b2b5a8606c8caaba15c9316a8dbcb989b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351559"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698827"
 ---
-#   <a name="text-translation-cognitive-skill-preview"></a>文字翻譯認知技能 (預覽)
+#   <a name="text-translation-cognitive-skill"></a>文字翻譯認知技能
 
-**文字翻譯**技能會評估文字, 而針對每筆記錄, 會傳回轉譯為指定目的語言的文字。 這項技能使用認知服務中提供的[翻譯工具文字 API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) 。  目前可在最新的 Azure 搜尋服務正式運作的 API 版本中取得, 但它會被視為處於預覽狀態, 因此在宣佈正式推出之前, 應將其視為預覽版。
+**文字翻譯**技能會評估文字, 而針對每筆記錄, 會傳回轉譯為指定目的語言的文字。 這項技能使用認知服務中提供的[翻譯工具文字 API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) 。
 
 如果您預期檔可能並非全部都使用一種語言, 這項功能就很有用, 在這種情況下, 您可以將文字標準化為單一語言, 然後再進行搜尋的索引。  這也適用于當地語系化使用案例, 您可能會想要有多種語言的相同文字複本。
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: b649ea1c69f82840a663cf32391e4c74ac6cc33e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: dd4eef7998b83c7a527738762379d0d3e720d70f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319501"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699822"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -63,9 +63,9 @@ ms.locfileid: "68319501"
 
 若要變更執行持續時間和儲存體保留期的預設限制, 請遵循下列步驟。 如果需要指定超過上限的值，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
 
-1. 在 Azure 入口網站的邏輯應用程式功能表上，選擇 [工作流程設定]  。
+1. 在 Azure 入口網站的邏輯應用程式功能表上，選擇 [工作流程設定]。
 
-2. 在 [執行階段選項]  底下，從 [執行歷程記錄保留期 (天)]  清單中選擇 [自訂]  。
+2. 在 [執行階段選項] 底下，從 [執行歷程記錄保留期 (天)] 清單中選擇 [自訂]。
 
 3. 以輸入或拖曳滑桿的方式選擇所要的天數。
 
@@ -120,7 +120,7 @@ ms.locfileid: "68319501"
 
 以下是單一 HTTP 要求或同步連接器呼叫的限制：
 
-#### <a name="timeout"></a>逾時
+#### <a name="timeout"></a>等候逾時
 
 某些連接器作業會進行非同步呼叫或接聽 Webhook 要求，因此這些作業的逾時可能會超過這些限制。 如需詳細資訊，請參閱特定連接器的技術詳細資料以及[工作流程觸發程序和動作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)。
 
@@ -143,7 +143,7 @@ ms.locfileid: "68319501"
 
 | 名稱 | 限制 | 注意 |
 | ---- | ----- | ----- |
-| 重試次數 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
+| 重試嘗試 | 90 | 預設值為 4。 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲上限 | 1 天 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 | 重試延遲下限 | 5 秒 | 若要變更預設值，請使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)。 |
 ||||
@@ -162,7 +162,7 @@ ms.locfileid: "68319501"
 
 <a name="managed-identity"></a>
 
-## <a name="managed-identities"></a>受控身分識別
+## <a name="managed-identities"></a>受控識別
 
 | 名稱 | 限制 |
 | ---- | ----- |
@@ -175,7 +175,7 @@ ms.locfileid: "68319501"
 
 每個 Azure 訂用帳戶都有下列整合帳戶限制:
 
-* 單一[免費層](../logic-apps/logic-apps-pricing.md#integration-accounts)整合帳戶
+* 每個 Azure 區域一個[免費層](../logic-apps/logic-apps-pricing.md#integration-accounts)整合帳戶
 
 * 1000整合帳戶總數, 包括[開發人員和高階 sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)的任何[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)中的整合帳戶。
 
@@ -198,7 +198,7 @@ ms.locfileid: "68319501"
 > [!NOTE]
 > 僅針對探索案例 (而非生產案例) 使用免費層。 這個層會限制輸送量和使用量，且沒有任何服務等級協定 (SLA)。
 
-| 構件 | 免費 | 基本 | 標準 |
+| 成品 | 免費 | 基本 | 標準 |
 |----------|------|-------|----------|
 | EDI 交易協議 | 10 | 1 | 1,000 |
 | EDI 交易夥伴 | 25 | 2 | 1,000 |
@@ -213,11 +213,11 @@ ms.locfileid: "68319501"
 
 ### <a name="artifact-capacity-limits"></a>成品容量限制
 
-| 構件 | 限制 | 注意 |
+| 成品 | 限制 | 注意 |
 | -------- | ----- | ----- |
 | 組件 | 8 MB | 若要上傳大於 2 MB 的檔案，請使用 [Azure 儲存體帳戶和 Blob 容器](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 |
 | 對應 (XSLT 檔案) | 8 MB | 若要上傳大於 2 MB 的檔案，請使用 [Azure Logic Apps REST API - 對應](https://docs.microsoft.com/rest/api/logic/maps/createorupdate)。 |
-| 結構描述 | 8 MB | 若要上傳大於 2 MB 的檔案，請使用 [Azure 儲存體帳戶和 Blob 容器](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 |
+| 架構 | 8 MB | 若要上傳大於 2 MB 的檔案，請使用 [Azure 儲存體帳戶和 Blob 容器](../logic-apps/logic-apps-enterprise-integration-schemas.md)。 |
 ||||
 
 | 執行階段端點 | 限制 | 注意 |
@@ -253,9 +253,9 @@ ms.locfileid: "68319501"
 
 ## <a name="firewall-configuration-ip-addresses"></a>防火牆組態：IP 位址
 
-相同區域中的所有邏輯應用程式都會使用相同的 IP 位址範圍。 若要支援您的邏輯應用程式直接以 [HTTP](../connectors/connectors-native-http.md)、[HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 及其他 HTTP 要求進行的呼叫，請根據您邏輯應用程式的所在區域，使用 Logic Apps 服務使用的「所有」  [輸入](#inbound)  和[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸入**和**輸出**標題底下，並且依照區域排序。
+相同區域中的所有邏輯應用程式都會使用相同的 IP 位址範圍。 若要支援您的邏輯應用程式直接以 [HTTP](../connectors/connectors-native-http.md)、[HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 及其他 HTTP 要求進行的呼叫，請根據您邏輯應用程式的所在區域，使用 Logic Apps 服務使用的「所有」[輸入](#inbound)和[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸入**和**輸出**標題底下，並且依照區域排序。
 
-若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」  [輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。
+若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，使用這些連接器使用的「所有」[輸出](#outbound) IP 位址設定您的防火牆。 這些位址會出現在本節中的**輸出**標題底下，並且依照區域排序。
 
 對於 [Azure Government](../azure-government/documentation-government-overview.md) 和 [Azure 中國 21Vianet](https://docs.microsoft.com/azure/china/)，目前無法使用針對連接器保留的 IP 位址。
 
@@ -275,7 +275,7 @@ Logic Apps 不支援透過防火牆直接連線至 Azure 儲存體帳戶。 若�
 
 | 區域 | IP |
 |--------|----|
-| 澳洲東部 | 13.75.153.66、52.187.231.161、104.210.89.222、104.210.89.244 |
+| 澳大利亞東部 | 13.75.153.66、52.187.231.161、104.210.89.222、104.210.89.244 |
 | 澳大利亞東南部 | 13.73.115.153、40.115.78.70、40.115.78.237、52.189.216.28 |
 | 巴西南部 | 191.234.166.198、191.235.86.199、191.235.94.220、191.235.95.229 |
 | 加拿大中部 | 13.88.249.209、40.85.241.105、52.233.29.79、52.233.30.218 |
@@ -307,7 +307,7 @@ Logic Apps 不支援透過防火牆直接連線至 Azure 儲存體帳戶。 若�
 
 | 區域 | Logic Apps IP | 受控連接器 IP |
 |--------|---------------|-----------------------|
-| 澳洲東部 | 13.75.149.4、52.187.226.96、52.187.226.139、52.187.227.245、52.187.229.130、52.187.231.184、104.210.90.241、104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10 |
+| 澳大利亞東部 | 13.75.149.4、52.187.226.96、52.187.226.139、52.187.227.245、52.187.229.130、52.187.231.184、104.210.90.241、104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10 |
 | 澳大利亞東南部 | 13.70.159.205、13.73.114.207、13.77.3.139、13.77.56.167、13.77.58.136、52.189.214.42、52.189.220.75、52.189.222.77 | 13.77.50.240 - 13.77.50.255, 13.70.136.174 |
 | 巴西南部 | 191.234.161.28、191.234.161.168、191.234.162.131、191.234.162.178、191.234.182.26、191.235.82.221、191.235.91.7、191.237.255.116 | 191.233.203.192 - 191.233.203.207, 104.41.59.51 | 
 | 加拿大中部 | 13.71.184.150、13.71.186.1、40.85.250.135、40.85.250.212、40.85.252.47、52.233.29.92、52.228.39.241、52.228.39.244 | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126 |

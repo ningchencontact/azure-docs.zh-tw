@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.openlocfilehash: 2135a3a5a8f14cf6c2e7fd2984d9b221e2445c1d
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309519"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>使用 Azure Container Registry 作為應用程式圖表的 Helm 存放庫
 
-若要快速管理及部署 Kubernetes 的應用程式, 您可以使用[開放原始碼 Helm 套件管理員][helm]。 使用 Helm 時，應用程式會定義成儲存在 Helm 圖表存放庫中的「圖表」  。 這些圖表會定義設定和相依性，且在整個應用程式生命週期可進行版本設定。 Azure Container Registry 可用來作為 Helm 圖表存放庫的主機。
+若要快速管理及部署 Kubernetes 的應用程式, 您可以使用[開放原始碼 Helm 套件管理員][helm]。 使用 Helm 時，應用程式會定義成儲存在 Helm 圖表存放庫中的「圖表」。 這些圖表會定義設定和相依性，且在整個應用程式生命週期可進行版本設定。 Azure Container Registry 可用來作為 Helm 圖表存放庫的主機。
 
 使用 Azure Container Registry 時，您會擁有一個私人、安全的 Helm 圖表存放庫，此存放庫可與組建管線或其他 Azure 服務整合。 Azure Container Registry 中的 Helm 圖表存放庫包含異地複寫功能，可讓您的圖表靠近部署並提供備援。 您只需支付圖表所使用儲存體的費用，且所有 Azure Container Registry 價格層都有提供。
 
@@ -31,7 +31,7 @@ ms.locfileid: "68309519"
 若要完成此文章中的步驟，必須符合下列先決條件︰
 
 - **Azure Container Registry** - 在您的 Azure 訂用帳戶中建立容器登錄。 例如，使用 [Azure 入口網站](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-- **Helm 用戶端 2.11.0 版 (不是 RC 版本) 或更新版本** - 執行 `helm version` 以找出您目前的版本。 此外，您還需要一部在 Kubernetes 叢集內初始化的 Helm 伺服器 (Tiller)。 如有需要, 您可以[建立 Azure Kubernetes Service][aks-quickstart] . For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]叢集。
+- **Helm 用戶端 2.11.0 版 (不是 RC 版本) 或更新版本** - 執行 `helm version` 以找出您目前的版本。 此外，您還需要一部在 Kubernetes 叢集內初始化的 Helm 伺服器 (Tiller)。 如有需要, 您可以[建立 Azure Kubernetes Service][aks-quickstart]叢集。 如需有關如何安裝和升級 Helm 的詳細資訊, 請參閱[安裝 Helm][helm-install]。
 - **Azure CLI 2.0.46 版或更新版本** - 請執行 `az --version` 來找出版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="add-a-repository-to-helm-client"></a>將存放庫新增至 Helm 用戶端
@@ -69,7 +69,7 @@ mkdir ~/acr-helm && cd ~/acr-helm
 helm fetch stable/wordpress
 ```
 
-列出已下載的圖表，並記下檔案名稱中所包含的 Wordpress 版本。 `helm fetch stable/wordpress` 命令並未指定特定的版本，因此擷取的是「最新」  版本。 所有 Helm 圖都包含檔案名中的版本號碼, 遵循[SemVer 2][semver2]標準。 在下列範例輸出中，Wordpress 圖表的版本為 *2.1.10*：
+列出已下載的圖表，並記下檔案名稱中所包含的 Wordpress 版本。 `helm fetch stable/wordpress` 命令並未指定特定的版本，因此擷取的是「最新」版本。 所有 Helm 圖都包含檔案名中的版本號碼, 遵循[SemVer 2][semver2]標準。 在下列範例輸出中，Wordpress 圖表的版本為 *2.1.10*：
 
 ```
 $ ls
@@ -130,7 +130,7 @@ az acr helm list
 helm inspect <acrName>/wordpress
 ```
 
-未提供任何版本號碼時，會使用「最新」  版本。 Helm 會傳回您圖表的相關詳細資訊，如以下扼要的範例輸出所示：
+未提供任何版本號碼時，會使用「最新」版本。 Helm 會傳回您圖表的相關詳細資訊，如以下扼要的範例輸出所示：
 
 ```
 $ helm inspect myacrhelm/wordpress
@@ -158,7 +158,7 @@ version: 2.1.10
 [...]
 ```
 
-您也可以使用 Azure CLI [az acr helm show][az-acr-helm-show]命令來顯示圖表的資訊。 同樣地，預設會傳回圖表的「最新」  版本。 您可以附加 `--version` 來列出圖表的特定版本，例如 *2.1.10*：
+您也可以使用 Azure CLI [az acr helm show][az-acr-helm-show]命令來顯示圖表的資訊。 同樣地，預設會傳回圖表的「最新」版本。 您可以附加 `--version` 來列出圖表的特定版本，例如 *2.1.10*：
 
 ```azurecli
 az acr helm show wordpress

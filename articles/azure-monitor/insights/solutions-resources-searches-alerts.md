@@ -1,6 +1,6 @@
 ---
 title: 管理解決方案中儲存的搜尋 |Microsoft Docs
-description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何定義儲存在 Resource Manager 範本中的搜尋，讓它們可以包含於管理解決方案的 Log Analytics。
+description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋, 使其可以包含在管理解決方案中。
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -10,20 +10,20 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2019
+ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104815"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662900"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
 > [!IMPORTANT]
-> 此處關於使用 Resource Manager 範本建立警示的詳細資料已過期，因為 [Log Analytics 警示已擴充至 Azure 監視器](../platform/alerts-extend.md)。 如需使用 Resource Manager 範本建立記錄警示的詳細資訊，請參閱[使用 Azure 資源範本管理記錄警示](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)。
+> 如[先前所宣佈](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), 在*2019 年6月 1*日之後建立的 log analytics 工作區, 將只能使用 Azure ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)、 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)和 PowerShell 來管理警示規則[Cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)。 客戶可以輕鬆地為較舊的工作區[切換其慣用的警示規則管理方式](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api), 以利用 Azure 監視器 scheduledQueryRules 做為預設值, 並取得許多[新的優點](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api), 例如使用原生 PowerShell Cmdlet 的能力、增加回顧規則中的時間週期, 在不同的資源群組或訂用帳戶中建立規則, 還有更多其他功能。
 
 > [!NOTE]
 > 這是建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。
@@ -54,8 +54,8 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | savedSearches | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
 
-## <a name="saved-searches"></a>儲存的搜尋
-在解決方案中包含[儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)，可讓使用者查詢您解決方案所收集的資料。 儲存的搜尋會出現在 Azure 入口網站的 [儲存的搜尋]  下方。 每個警示也會需要儲存的搜尋。
+## <a name="saved-searches"></a>已儲存搜尋
+在解決方案中包含[儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)，可讓使用者查詢您解決方案所收集的資料。 儲存的搜尋會出現在 Azure 入口網站的 [儲存的搜尋] 下方。 每個警示也會需要儲存的搜尋。
 
 [Log Analytics 儲存的搜尋](../../azure-monitor/log-query/log-query-overview.md)資源都具有 `Microsoft.OperationalInsights/workspaces/savedSearches` 類型，並具備下列結構。 這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。
 
@@ -76,11 +76,11 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表說明儲存的搜尋的每個屬性。
 
-| 屬性 | Description |
+| 內容 | Description |
 |:--- |:--- |
 | category | 儲存的搜尋的類別。  同一個解決方案中所有儲存的搜尋通常都會共用單一類別，因此它們會在主控台中群組在一起。 |
 | displayName | 要在入口網站中顯示之儲存的搜尋名稱。 |
-| query | 要執行的查詢。 |
+| 查詢 | 要執行的查詢。 |
 
 > [!NOTE]
 > 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。 例如，如果查詢為 **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** ，就應該在方案檔中撰寫為 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 。
@@ -88,16 +88,12 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 ## <a name="alerts"></a>警示
 [Azure 記錄警示](../../azure-monitor/platform/alerts-unified-log.md)是由 Azure 警示規則所建立，以定期執行指定的記錄查詢。 如果查詢的結果符合指定的準則，就會建立警示記錄，並使用[動作群組](../../azure-monitor/platform/action-groups.md)執行一或多個動作。
 
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都已開始延伸至 Azure。 如需詳細資訊，請參閱[將警示延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來擷取或新增動作。
-管理解決方案中的警示規則是由下列三個不同資源所組成。
+針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來擷取或新增動作。
+舊版管理解決方案中的警示規則是由下列三個不同的資源所組成。
 
 - **儲存的搜尋。** 定義所執行的記錄搜尋。 多個警示規則可以共用單一儲存的搜尋。
 - **排程。** 定義記錄搜尋的執行頻率。 每個警示規則都只能有一個排程。
 - **警示動作。** 每個警示規則都會有一個具有一種**警示**類型的動作群組資源或動作資源 (舊版)，該類型會定義警示的詳細資料，像是建立警示記錄的時機及警示的嚴重性等準則。 [動作群組](../../azure-monitor/platform/action-groups.md)資源可以有一份設定來要在引發警示時採取的動作清單，例如，語音電話、SMS、電子郵件、Webhook、ITSM 工具、自動化 Runbook、邏輯應用程式等等。
-
-動作資源 (舊版) 將會選擇性地定義電子郵件和 Runbook 回應。
-- **Webhook 動作 (舊版)。** 如果警示規則呼叫 Webhook，則需要執行類型為 **Webhook** 的其他動作資源。
 
 儲存的搜尋資源如上所述。 其他資源將在後續內容中加以說明。
 
@@ -124,18 +120,17 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | enabled       | 是 | 指定在建立警示時是否要加以啟用。 |
-| interval      | 是 | 查詢的執行頻率，以分鐘為單位。 |
+| 間隔      | 是 | 查詢的執行頻率，以分鐘為單位。 |
 | queryTimeSpan | 是 | 評估結果的時間長度，以分鐘為單位。 |
 
 排程資源應該相依於儲存的搜尋，如此就會在排程之前建立該資源。
 > [!NOTE]
 > 排程名稱在指定工作區中必須是唯一的；兩個排程即使已儲存的相關聯搜尋不同，也不能有相同的識別碼。 此外，使用 Log Analytics API 建立並儲存的所有搜尋、排程和動作，都必須使用小寫名稱。
 
-### <a name="actions"></a>動作
+### <a name="actions"></a>個動作
 一個排程可以有多個動作。 一個動作可能定義一或多個處理序來執行，例如傳送郵件或啟動 Runbook，或也可能定義臨界值來判斷搜尋結果是否符合某些準則。 某些動作會同時定義這兩者，以便符合臨界值時執行處理序。
 動作可以使用 [動作群組] 資源或動作資源來定義。
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都已自動開始延伸至 Azure。 如需詳細資訊，請參閱[將警示延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來擷取或新增動作。
+
 **Type** 屬性會指定兩種類型的動作資源。 排程需要一個**警示**動作，其會定義警示規則的詳細資料，以及建立警示時要採取哪些動作。 動作資源具有 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions` 類型。
 
 警示動作具備下列結構。 這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。
@@ -193,9 +188,6 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。 加入此區段以供計量計量警示使用。
 
-> [!NOTE]
-> 計量測量警示目前是處於公開預覽狀態。
-
 | 元素名稱 | 必要項 | Description |
 |:--|:--|:--|
 | TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
@@ -203,7 +195,7 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 | Value | 是 | 必須符合準則以觸發警示的次數。 |
 
 
-#### <a name="throttling"></a>節流
+#### <a name="throttling"></a>正在節流
 此為選擇性區段。 如果您想要在建立警示之後的某一段時間內隱藏相同規則所產生的警示，請加入此區段。
 
 | 元素名稱 | 必要項 | Description |
@@ -221,62 +213,7 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 | CustomEmailSubject | 否 | 電子郵件的自訂主旨列，該電子郵件會傳送到相關聯動作群組中指定的所有地址。 |
 | CustomWebhookPayload | 否 | 針對相關動作群組中定義的所有 Webhook 端點，要傳送到端點的自訂酬載。 格式取決於 Webhook 所預期的內容，而且必須是已序列化的有效 JSON。 |
 
-#### <a name="actions-for-oms-legacy"></a>OMS (舊版) 的動作
-
-每個排程都會有一個**警示**動作。 這會定義警示的詳細資料，以及選擇性地定義通知和修復動作的詳細資料。 通知會將電子郵件傳送到一或多個地址。 修復會在 Azure 自動化中啟動 Runbook，以嘗試修復偵測到的問題。
-
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始，Log Analytics 工作區 Azure 公用雲端執行個體內的所有警示都已自動開始延伸至 Azure。 如需詳細資訊，請參閱[將警示延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可使用[動作群組 - Azure Resource Manager 範本](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)來擷取或新增動作。
-
-##### <a name="emailnotification"></a>EmailNotification
- 此為選擇性區段。如果您想要警示將郵件傳送給一或多位收件者，請包含此區段。
-
-| 元素名稱 | 必要項 | Description |
-|:--|:--|:--|
-| Recipients | 是 | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
-| Subject | 是 | 郵件的主旨列。 |
-| Attachment | 否 | 目前不支援附件。 如果包含此元素，就應該是 **None**。 |
-
-##### <a name="remediation"></a>補救
-此為選擇性區段。如果您想要讓 Runbook 啟動以回應警示，請包含此區段。 
-
-| 元素名稱 | 必要項 | Description |
-|:--|:--|:--|
-| RunbookName | 是 | 要啟動的 Runbook 名稱。 |
-| WebhookUri | 是 | Runbook 的 Webhook 的 Uri。 |
-| Expiry | 否 | 補救到期的日期和時間。 |
-
-##### <a name="webhook-actions"></a>Webhook 動作
-
-Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動處理序。 這些動作類似於「補救」動作，不同之處在於它們用於可能叫用 Azure 自動化 Runbook 以外之處理序的 webhook。 它們還提供另一個選項，可指定要傳遞到遠端處理序的承載。
-
-如果您的警示會呼叫 webhook，則除了**警示**動作資源之外，還需要一種 **Webhook** 類型的動作資源。
-
-    {
-      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
-      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-      "dependsOn": [
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
-      ],
-      "properties": {
-        "etag": "*",
-        "type": "[variables('Alert').Webhook.Type]",
-        "name": "[variables('Alert').Webhook.Name]",
-        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
-        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
-      }
-    }
-下表會說明 Webhook 動作資源的屬性。
-
-| 元素名稱 | 必要項 | 描述 |
-|:--|:--|:--|
-| Type | 是 | 動作的類型。 這適用於 Webhook 動作的 **Webhook**。 |
-| name | 是 | 動作的顯示名稱。 這不會顯示在主控台中。 |
-| webhookUri | 是 | Webhook 的 Uri。 |
-| customPayload | 否 | 要傳送至 webhook 的自訂內容。 格式取決於 Webhook 需要的內容。 |
-
-## <a name="sample"></a>範例
+## <a name="sample"></a>樣本
 
 以下是解決方案的範例，其中包含下列資源：
 

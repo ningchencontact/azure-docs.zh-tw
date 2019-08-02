@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08cf646d63e1a295a1bc2ff28180983cc462f084
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: add5584ccf3d9d6837e328bbf70d71598e5c0839
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360924"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694315"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
@@ -102,7 +102,7 @@ dflow.head(3)
 
 第三個記錄遺漏了緯度和經度值。 若要插補這些遺漏值, 您[`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py)可以使用來學習固定的運算式。 其可使用計算出的 `MIN`、`MAX` 或 `MEAN` 值或 `CUSTOM` 值來插補資料行。 未指定 `group_by_columns` 時，會使用各群組計算出的 `MIN`、`MAX` 和 `MEAN` 按群組插補遺漏值。
 
-使用函數來檢查 [緯度] 資料行的`MEAN`值。 [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) 此函式接受 `group_by_columns` 參數中的資料行陣列來指定彙總層級。 `summary_columns` 參數可接受 `SummaryColumnsValue` 呼叫。 此函式呼叫會指定目前的資料行名稱、新的導出欄位名稱，以及要執行的 `SummaryFunction`。
+使用函數來檢查 [緯度] 資料行的`MEAN`值。 [`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) 此函式接受 `group_by_columns` 參數中的資料行陣列來指定彙總層級。 `summary_columns` 參數可接受 `SummaryColumnsValue` 呼叫。 此函式呼叫會指定目前的資料行名稱、新的導出欄位名稱，以及要執行的 `SummaryFunction`。
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],

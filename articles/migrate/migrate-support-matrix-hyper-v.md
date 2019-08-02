@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 507ca6daa30a19b73848d6d3cf253390baf496af
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372468"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640860"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 評量和移轉的支援矩陣
 
@@ -36,20 +36,16 @@ ms.locfileid: "68372468"
 **支援** | **詳細資料**
 --- | ---
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
-Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。
+Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
+地理 | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您可以在特定 ographies 中建立專案, 但您可以評估或遷移其他目標位置的機器。 專案地理位置只會用來儲存探索到的資料。
 
-專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
-
-**區域**有幾個地理位置可以建立 Azure Migrate 專案。 雖然您只能在這些地理位置中建立專案, 但您仍然可以針對其他目標位置, 評估或遷移您的電腦。 專案地理位置只會用來儲存探索到的資料。
-
-
- **地理位置** | **中繼資料儲存位置**
- --- | ---
- Azure Government | US Gov 維吉尼亞州
- 亞太地區 | 東南亞或東亞
- 歐洲 | 歐洲南部或西歐
- 英國 | 英國南部或英國西部
- 美國 | 美國中部或美國西部2
+  **地理位置** | **中繼資料儲存位置**
+  --- | ---
+  Azure Government | US Gov 維吉尼亞州
+  亞太地區 | 東南亞或東亞
+  歐洲 | 歐洲南部或西歐
+  英國 | 英國南部或英國西部
+  美國 | 美國中部或美國西部2
 
 
  > [!NOTE]
@@ -74,8 +70,6 @@ Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。
 | **作業系統** | Azure 支援的所有[Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)和[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)作業系統。 |
 | **Permissions**           | 您需要您想要評估的每部 Hyper-v VM 上的系統管理員許可權。 |
 | **Integration Services**       | [Hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services)必須在您評估的 vm 上執行, 才能捕捉作業系統資訊。 |
-| **Azure 的必要變更** | 有些 Vm 可能需要變更, 才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更:<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統, 您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。 |
-| **Linux 開機**                 | 如果/boot 是在專用磁碟分割上, 它應該位於 OS 磁片上, 而不會散佈到多個磁片上。<br/> 如果/boot 是根 (/) 分割區的一部分, 則 '/' 磁碟分割應該位於 OS 磁片上, 而不是跨越其他磁片。 |
 | **UEFI 開機**                  | 不支援使用 UEFI 開機的 Vm 進行遷移。 |
 | **加密的磁片/磁片區**    | 不支援使用加密磁片/磁片區的 Vm 進行遷移。 |
 | **RDM/傳遞磁片**      | 如果 Vm 有 RDM 或 passthrough 磁片, 這些磁片將不會複寫到 Azure。 |
@@ -90,17 +84,15 @@ Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。
 | **支援**                | **詳細資料**               
 | :-------------------       | :------------------- |
 | **Azure Migrate 專案**  |  應用裝置可以與單一專案相關聯。<br/> 您可以使用單一設備探索最多5000個 Hyper-v Vm。
-| **Hyper-v 限制**    |  您會將設備部署為 Hyper-v VM。<br/> 提供的設備 VM 是 Hyper-v VM 5.0 版。<br/> VM 主機必須執行 Windows Server 2012 R2 或更新版本。<br/> 它需要足夠的空間來配置 16 GB RAM、4個虛擬處理器和1個適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址, 以及網際網路存取。
-| **Hyper-v 設備**      |  設備已設定為 Hyper-v VM。<br/> 提供下載的 VHD 是 Hyper-v VM 5.0 版。
-| **Host**                   | 執行設備 VM 的 VM 主機必須執行 Windows Server 2012 R2 或更新版本。<br/> 它需要足夠的空間來配置 16 GB RAM、4個虛擬處理器, 以及一個適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址, 以及網際網路存取。 |
-| **遷移支援**      | 若要開始複寫機器, 應用裝置上的遷移閘道服務必須是1.18.7141.12919 或更新版本。 登入設備 web 應用程式以檢查版本。 |
+| **Hyper-V**    |  您會將設備部署為 Hyper-v VM。<br/> 提供的設備 VM 是 Hyper-v VM 5.0 版。<br/> VM 主機必須執行 Windows Server 2012 R2 或更新版本。<br/> 它需要足夠的空間來配置 16 GB RAM、4個虛擬處理器和1個適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址, 以及網際網路存取。
+
 
 ## <a name="assessment-appliance-url-access"></a>評量-設備 URL 存取
 
 若要評估 Vm, Azure Migrate 設備需要網際網路連線能力。
 
 - 當您部署設備時, Azure Migrate 會對下表中摘要說明的 Url 進行連線檢查。
-- 如果您使用以 URL 為基礎的防火牆, 請允許存取資料表中的 Url, 確保 proxy 會解析查詢 Url 時所收到的任何 CNAME 記錄。
+- 如果您使用以 URL 為基礎的 proxy, 請允許存取資料表中的 Url, 確保 proxy 會解析查詢 Url 時所收到的任何 CNAME 記錄。
 - 如果您有攔截 proxy, 可能需要將伺服器憑證從 proxy 伺服器匯入設備。
 
 
@@ -112,6 +104,9 @@ Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。
 management.azure.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 dc.services.visualstudio.com | 記錄和監視
 *.vault.azure.net | 在應用裝置與服務之間進行通訊時, 管理 Azure Key Vault 中的秘密。
+aka.ms/* | 允許存取稱為的連結。
+https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下載。
+
 
 
 ## <a name="assessment-port-requirements"></a>評量-埠需求
@@ -120,7 +115,7 @@ dc.services.visualstudio.com | 記錄和監視
 
 **裝置** | **連接**
 --- | ---
-**台** | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式: HTTPs://< 設備-ip 或名稱 >: 44368<br/> 埠443上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
+**台** | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式:``` https://<appliance-ip-or-name>:44368 ```<br/> 埠443上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
 **Hyper-v 主機/叢集** | WinRM 埠 5985 (HTTP) 和 5986 (HTTPS) 上的輸入連線, 可使用通用訊息模型 (CIM) 會話提取 Hyper-v Vm 的設定和效能中繼資料。
 
 ## <a name="migration-hyper-v-host-requirements"></a>遷移-Hyper-v 主機需求
@@ -140,11 +135,19 @@ dc.services.visualstudio.com | 記錄和監視
 | **Integration Services**       | [Hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services)必須在您評估的 vm 上執行, 才能捕捉作業系統資訊。 |
 | **Azure 的必要變更** | 有些 Vm 可能需要變更, 才能在 Azure 中執行。 Azure Migrate 會針對下列作業系統自動進行這些變更:<br/> -Red Hat Enterprise Linux 6.5 +、7.0 +<br/> -CentOS 6.5 +、7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS、16.04 LTS、18.04 LTS<br/> -Debian 7、8<br/><br/> 如果是其他作業系統, 您必須在進行遷移之前手動進行調整。 相關文章包含如何執行這項操作的指示。 |
 | **Linux 開機**                 | 如果/boot 是在專用磁碟分割上, 它應該位於 OS 磁片上, 而不會散佈到多個磁片上。<br/> 如果/boot 是根 (/) 分割區的一部分, 則 '/' 磁碟分割應該位於 OS 磁片上, 而不是跨越其他磁片。 |
-| **UEFI 開機**                  | 不支援使用 UEFI 開機的 Vm 進行遷移。 |
-| **加密的磁片/磁片區**    | 不支援使用加密磁片/磁片區的 Vm 進行遷移。 |
-| **RDM/傳遞磁片**      | 如果 Vm 有 RDM 或 passthrough 磁片, 這些磁片將不會複寫到 Azure。 |
+| **UEFI 開機**                  | 不支援使用 UEFI 開機的 Vm 進行遷移。  |
+| **磁碟大小**                  | 2 TB 適用于 OS 磁片, 4 TB 適用于資料磁片。
+| **磁片編號** | 每個 VM 最多16個磁片。
+| **加密的磁片/磁片區**    | 不支援遷移。 |
+| **RDM/傳遞磁片**      | 不支援遷移。 |
+| **共用磁片** | 不支援使用共用磁片的 Vm 進行遷移。
 | **NFS**                        | 裝載為 Vm 上之磁片區的 NFS 磁片區不會複寫。 |
+| **ISCSI**                      | 不支援具有 iSCSI 目標的 Vm 進行遷移。
 | **目標磁片**                | 您只能使用受控磁片遷移至 Azure Vm。 |
+| **IPv6** | 不支援。
+| **NIC Teaming** | 不支援。
+| **Azure Site Recovery** | 如果 VM 已啟用 Azure Site Recovery 的複寫, 您就無法使用 Azure Migrate Server 遷移進行複寫。
+
 
 
 
@@ -171,11 +174,6 @@ time.windows.com | 驗證系統與通用時間之間的時間同步處理。
 Hyper-v 主機/Vm | HTTPS 埠443上的輸出連線, 可將 VM 複寫資料傳送至 Azure Migrate。
 
 
-## <a name="migration-vm-disk-support"></a>遷移-VM 磁片支援
-
-**支援** | **詳細資料**
---- | ---
-遷移的磁片 | Vm 只能遷移至 Azure 中的受控磁片 (標準 HHD、premium SSD)。
 
 
 ## <a name="next-steps"></a>後續步驟

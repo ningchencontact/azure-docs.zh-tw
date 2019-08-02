@@ -8,19 +8,19 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 07/26/2019
+ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325400"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516610"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>透過整合服務環境 (ISE) 從 Azure Logic Apps 存取 Azure 虛擬網路資源
 
 有時候, 您的邏輯應用程式和整合帳戶需要存取受保護的資源, 例如[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)內的虛擬機器 (vm) 和其他系統或服務。 若要設定此存取權, 您可以[建立*整合服務環境*(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) , 您可以在其中執行邏輯應用程式, 並建立整合帳戶。
 
-當您建立 ISE 時, Azure  會將 ise 插入您的 azure 虛擬網路, 然後將 Logic Apps 服務的私用和隔離實例部署至您的 azure 虛擬網路。 此私人執行個體使用專用資源 (例如儲存體)，並會與公用「全域」Logic Apps 服務分別執行。 分隔隔離的私用實例和公用全域實例也有助於降低其他 Azure 租使用者對您應用程式效能的影響, 也就是所謂的「[雜訊鄰近](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)程度」效果。
+當您建立 ISE 時, Azure會將 ise 插入您的 azure 虛擬網路, 然後將 Logic Apps 服務的私用和隔離實例部署至您的 azure 虛擬網路。 此私人執行個體使用專用資源 (例如儲存體)，並會與公用「全域」Logic Apps 服務分別執行。 分隔隔離的私用實例和公用全域實例也有助於降低其他 Azure 租使用者對您應用程式效能的影響, 也就是所謂的「[雜訊鄰近](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)程度」效果。
 
 建立 ISE 之後, 當您移至建立邏輯應用程式或整合帳戶時, 您可以選取您的 ISE 作為邏輯應用程式或整合帳戶的位置:
 
@@ -80,7 +80,22 @@ ISE 也會針對執行持續時間、儲存體保留、輸送量、HTTP 要求�
 
   提供可用於生產環境的 ISE, 並包含 SLA 支援、內建的觸發程式和動作、標準連接器、企業連接器、單一[標準層](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)整合帳戶、相應增加容量的選項, 以及期間的冗余回收每月固定費用。
 
+> [!IMPORTANT]
+> [SKU] 選項僅適用于 ISE 建立, 且稍後無法變更。
+
 如需定價費率, 請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。 若要瞭解 Ise 的定價和計費方式, 請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#fixed-pricing)。
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>ISE 端點存取
+
+當您建立 ISE 時, 您可以選擇使用內部或外部存取端點。 這些端點會判斷 ISE 中的邏輯應用程式上的要求或 webhook 觸發程式是否可以接收來自您虛擬網路外部的呼叫。 這些端點也會影響邏輯應用程式執行歷程記錄中的輸入和輸出存取。
+
+* **內部**：允許在您的 ISE 中呼叫邏輯應用程式的私用端點, 以及僅*從虛擬網路內部*執行歷程記錄中的輸入和輸出存取
+* **外部**：允許在您的 ISE 中呼叫邏輯應用程式的公用端點, 以及*從虛擬網路外部*執行歷程記錄中的輸入和輸出存取
+
+> [!IMPORTANT]
+> [存取端點] 選項僅適用于 ISE 建立, 且稍後無法變更。
 
 <a name="on-premises"></a>
 
@@ -102,10 +117,12 @@ ISE 也會針對執行持續時間、儲存體保留、輸送量、HTTP 要求�
 
 ## <a name="integration-accounts-with-ise"></a>使用 ISE 的整合帳戶
 
-您可以使用整合帳戶搭配整合服務環境 (ISE) 內的邏輯應用程式。 不過，這些整合帳戶必須使用「相同的 ISE」  作為連結的邏輯應用程式。 ISE 中的 Logic Apps 只能參考位於相同 ISE 中的整合帳戶。 當您建立整合帳戶時，您可以選取您的 ISE，作為您整合帳戶的位置。 若要瞭解如何使用 ISE 進行整合帳戶的定價和計費, 請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#fixed-pricing)。 如需定價費率, 請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。
+您可以使用整合帳戶搭配整合服務環境 (ISE) 內的邏輯應用程式。 不過，這些整合帳戶必須使用「相同的 ISE」作為連結的邏輯應用程式。 ISE 中的 Logic Apps 只能參考位於相同 ISE 中的整合帳戶。 當您建立整合帳戶時，您可以選取您的 ISE，作為您整合帳戶的位置。 若要瞭解如何使用 ISE 進行整合帳戶的定價和計費, 請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#fixed-pricing)。 如需定價費率, 請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何[從隔離式 Logic Apps 連線到 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [從隔離的邏輯應用程式連接到 Azure 虛擬網路](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [將構件新增至整合服務環境](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [管理整合服務環境](../logic-apps/ise-manage-integration-service-environment.md)
 * 深入了解 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)
 * 了解 [Azure 服務的虛擬網路整合](../virtual-network/virtual-network-for-azure-services.md)

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9af487e2eb35e7dc94e1b70945d5c03ffdde2ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65206643"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566081"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database 中的擴充事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -35,7 +34,7 @@ ms.locfileid: "65206643"
 - [快速入門：SQL Server 中的擴充事件](https://msdn.microsoft.com/library/mt733217.aspx)
 - [擴充事件](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 本主題假設您已經有一些下列項目的知識：
 
@@ -90,7 +89,7 @@ ms.locfileid: "65206643"
 | **sys.database_event_session_targets** |針對事件工作階段的每個事件目標傳回資料列。 |
 | **sys.database_event_sessions** |針對 SQL Database 資料庫中的每個事件工作階段傳回資料列。 |
 
-在 Microsoft SQL Server 中，類似的目錄檢視具有包含 .server_\_  而不是 .database\_  的名稱。 名稱模式類似 **sys.server_event_%** 。
+在 Microsoft SQL Server 中，類似的目錄檢視具有包含 .server_\_ 而不是 .database\_ 的名稱。 名稱模式類似 **sys.server_event_%** 。
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>新的動態管理檢視 [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
@@ -170,8 +169,8 @@ SELECT
 
 您針對 Azure 儲存體容器產生的 SAS 權杖必須指定權限的 **rwl** 。 **rwl** 值會提供下列權限：
 
-- 讀取
-- 寫入
+- 閱讀
+- 撰寫
 - List
 
 ## <a name="performance-considerations"></a>效能考量

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/14/2019
-ms.openlocfilehash: 6a2b3af4240a5c400bd1eaf4fd1e93b09fc702b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2bd193c53ee85a1423dc63bf669021de954231c8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075242"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568809"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>使用以 DTU 為基礎的購買模型的彈性集區資源限制
 
@@ -30,7 +29,7 @@ ms.locfileid: "61075242"
 針對 SQL Database 彈性集區，下表顯示每個服務層級與計算大小的可用資源。 您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)，來設定服務層、計算大小與儲存體數量。
 
 > [!IMPORTANT]
-> 調整指引和考量，請參閱[調整彈性集區](sql-database-elastic-pool-scale.md)
+> 如需調整指引和考慮, 請參閱[調整彈性集](sql-database-elastic-pool-scale.md)區
 > [!NOTE]
 > 根據 DTU 和服務層級，彈性集區中個別資料庫的資源限制通常與集區外部之單一資料庫的資源限制相同。 例如，S2 資料庫的並行背景工作數上限是 120 個背景工作。 因此，如果集區中每個資料庫的最大 DTU 是 50 DTU (這相當於 S2)，標準集區中的資料庫最大並行背景工作數上限也會是 120 個背景工作。
 
@@ -115,7 +114,7 @@ ms.locfileid: "61075242"
 如果彈性集區的所有 DTU 均已使用，則集區中的每個資料庫會收到等量的資源以處理查詢。 SQL Database 服務藉由確保運算時間的均等配量，提供資料庫之間的資源共用公平性。 彈性集區資源共用公平性不包括任何資源數量，否則當每個資料庫的最小 DTU 數設為非零的值時，便會對每個資料庫保證資源數量。
 
 > [!NOTE]
-> 針對`tempdb`限制，請參閱[tempdb 限制](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)。
+> 如`tempdb`需限制, 請參閱[tempdb 限制](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)。
 
 ### <a name="database-properties-for-pooled-databases"></a>集區資料庫的資料庫屬性
 
@@ -125,7 +124,7 @@ ms.locfileid: "61075242"
 |:--- |:--- |
 | 每資料庫的 eDTU 上限 |集區中任何資料庫可以使用的 eDTU 數目上限，是否可用則是根據集區中其他資料庫的使用量而定。 每個資料庫的 eDTU 數目上限不等於資料庫的資源保證。 這個設定是全域設定，會套用至集區中的所有資料庫。 將每個資料庫的 eDTU 設定為最上限，以處理資料庫使用率的尖峰。 某種程度的過量使用是可預期的情況，因為集區通常會假設資料庫的熱門和冷門使用模式；在這些模式中，所有資料庫不會同時處於尖峰期。 例如，假設每個資料庫的尖峰使用量是 20 個 DTU，且集區中的 100 個資料庫只有 20% 會同時暴增到尖峰。 如果每一資料庫的 eDTU 上限設為 20 個 eDTU，則以 5 倍的量過量使用集區，並將每集區 eDTU 設為 400 個是合理的作法。 |
 | 每資料庫的 eDTU 下限 |集區中單一資料庫能夠保證的最小 eDTU 數。 這個設定是全域設定，會套用至集區中的所有資料庫。 每個資料庫最小 eDTU 建議設定為 0，同時也是預設值。 此屬性會設為 0 到每一資料庫的 eDTU 使用量平均值之間的任意數。 集區中資料庫數目和每個資料庫 eDTU 數目下限的乘積不能超過每個集區的 eDTU。 例如，如果集區有 20 個資料庫，且每個資料庫的最小 eDTU 設定為 10 eDTU，則每個集區 eDTU 必須至少為 200 個 eDTU。 |
-| 每個資料庫的儲存體上限 |使用者所設定集區資料庫的資料庫大小上限。 不過，集區資料庫會共用配置的集區儲存體。 即使將「每個資料庫」  的儲存體上限總計設定為大於「集區空間」  的可用儲存體總計，但所有資料庫實際使用的總空間將不得超過可用的集區限制。 資料庫大小上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
+| 每個資料庫的儲存體上限 |使用者所設定集區資料庫的資料庫大小上限。 不過，集區資料庫會共用配置的集區儲存體。 即使將「每個資料庫」的儲存體上限總計設定為大於「集區空間」的可用儲存體總計，但所有資料庫實際使用的總空間將不得超過可用的集區限制。 資料庫大小上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
 |||
 
 ## <a name="next-steps"></a>後續步驟

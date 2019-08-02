@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326044"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>在容器實例中設定環境變數
@@ -33,7 +33,7 @@ ms.locfileid: "68326044"
 
 ## <a name="azure-cli-example"></a>Azure CLI 的範例
 
-若要查看[aci-wordcount][aci-wordcount] container, run it first with this [az container create][az-container-create]命令的預設輸出 (未指定任何環境變數):
+若要查看[aci wordcount][aci-wordcount]容器的預設輸出, 請先使用這個[az container create][az-container-create]命令來執行它 (未指定任何環境變數):
 
 ```azurecli-interactive
 az container create \
@@ -54,7 +54,7 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-一旦這兩個容器的狀態顯示為「已*終止*」 (使用[az container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs]查看輸出。
+一旦這兩個容器的狀態顯示為「已*終止*」 (使用[az container show][az-container-show]來檢查狀態), 請使用[az container logs][az-container-logs]顯示其記錄以查看輸出。
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -88,7 +88,7 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 在 PowerShell 中設定環境變數類似於 CLI，但是使用 `-EnvironmentVariable` 命令列引數。
 
-首先, 啟動[aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup]命令:
+首先, 使用下列[new-azcontainergroup][new-Azcontainergroup]命令, 以預設設定啟動[aci wordcount][aci-wordcount]容器:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
@@ -97,7 +97,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-現在, 請執行下列[new-azcontainergroup][new-Azcontainergroup]命令。 此命令會在填入陣列變數 `envVars` 後，指定 NumWords  和 MinLength  環境變數：
+現在, 請執行下列[new-azcontainergroup][new-Azcontainergroup]命令。 此命令會在填入陣列變數 `envVars` 後，指定 NumWords 和 MinLength 環境變數：
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}

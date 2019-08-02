@@ -16,10 +16,10 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 3bf9ba52bc4071755918b842da477384dcd38973
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323510"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>建立查詢以便有效率地列出 Batch 資源
@@ -29,7 +29,7 @@ ms.locfileid: "68323510"
 幾乎所有 Batch 應用程式都必須執行某種類型的監視或其他查詢 Batch 服務的作業，並且通常是定期執行。 例如，若要判斷作業中是否有任何剩餘的已排入佇列的工作，您必須取得作業內每項工作的資料。 若要判斷集區中節點的狀態，您必須取得集區中每個節點的資料。 這篇文章說明如何以最有效率的方式執行這類查詢。
 
 > [!NOTE]
-> Batch 服務會針對計算作業中的工作，以及計算 Batch 集區中的計算節點這類常見案例，提供特殊的 API 支援。 您可以呼叫「[取得工作計數][rest_get_task_counts] and [List Pool Node Counts][rest_get_node_counts] 」作業, 而不是使用清單查詢。 這些作業比清單查詢更有效率，但會傳回更多限制的資訊。 請參閱[依照狀態計算工作和計算節點](batch-get-resource-counts.md)。 
+> Batch 服務會針對計算作業中的工作，以及計算 Batch 集區中的計算節點這類常見案例，提供特殊的 API 支援。 您可以呼叫「[取得工作計數][rest_get_task_counts]」和「[列出集區節點計數][rest_get_node_counts]」作業, 而不是使用清單查詢。 這些作業比清單查詢更有效率，但會傳回更多限制的資訊。 請參閱[依照狀態計算工作和計算節點](batch-get-resource-counts.md)。 
 
 
 ## <a name="meet-the-detaillevel"></a>認識 DetailLevel
@@ -43,7 +43,7 @@ IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-不過，您可以藉由對查詢套用「詳細資料層級」，以進行更有效率的清單查詢。 您可以藉由提供[ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks]方法來完成此動作。 此程式碼片段只是傳回已完成之工作的識別碼、命令列和計算節點資訊屬性：
+不過，您可以藉由對查詢套用「詳細資料層級」，以進行更有效率的清單查詢。 若要這麼做, 請將[ODATADetailLevel][odata]物件提供給[JobOperations. joboperations.listtasks][net_list_tasks]方法。 此程式碼片段只是傳回已完成之工作的識別碼、命令列和計算節點資訊屬性：
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -60,12 +60,12 @@ IPagedEnumerable<CloudTask> completedTasks =
 在此範例案例中，如果作業中有數千個工作，則第二次查詢傳回結果的速度，通常會比第一次快很多。 使用 Batch .NET API 列出項目時，使用 ODATADetailLevel 的詳細資訊如 [下](#efficient-querying-in-batch-net)所示。
 
 > [!IMPORTANT]
-> 我們強烈建議「一律」  在 .NET API 清單呼叫中提供 ODATADetailLevel 物件，以確保應用程式發揮最高效率和效能。 透過指定詳細層級，您可以幫助縮短 Batch 服務回應時間、提高網路使用率，以及讓用戶端應用程式的記憶體使用量降到最低。
+> 我們強烈建議「一律」在 .NET API 清單呼叫中提供 ODATADetailLevel 物件，以確保應用程式發揮最高效率和效能。 透過指定詳細層級，您可以幫助縮短 Batch 服務回應時間、提高網路使用率，以及讓用戶端應用程式的記憶體使用量降到最低。
 > 
 > 
 
 ## <a name="filter-select-and-expand"></a>篩選、選取及展開
-[Batch .net][api_net] and [Batch REST][api_rest] api 可讓您減少清單中傳回的專案數, 以及為每個所傳回的資訊量。 您可以藉由在執行清單查詢時指定**篩選**、**選取**和**展開字串**來執行此動作。
+[Batch .net][api_net]和[batch REST][api_rest] api 可讓您減少清單中傳回的專案數, 以及針對每個所傳回的資訊量。 您可以藉由在執行清單查詢時指定**篩選**、**選取**和**展開字串**來執行此動作。
 
 ### <a name="filter"></a>Filter
 篩選字串是可減少傳回的項目數的運算式。 例如，只列出工作正在執行的作業，或只列出可執行作業的計算節點。
@@ -94,7 +94,7 @@ IPagedEnumerable<CloudTask> completedTasks =
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>篩選、選取和展開字串的規則
-* [篩選]、[選取] 和 [展開字串] 中的屬性名稱, 應該會如同在[批次 REST][api_rest] API--even when you use [Batch .NET][api_net]或其他其中一個 batch sdk 中一樣。
+* [篩選]、[選取] 和 [展開字串] 中的屬性名稱, 應該會如同在[BATCH REST][api_rest] API 中一樣, 即使您使用[batch .net][api_net]或其中一個 batch sdk 也一樣。
 * 所有屬性名稱都會區分大小寫，但屬性值不會區分大小寫。
 * 日期/時間字串有兩種格式，開頭必須加上 `DateTime`。
   
@@ -104,13 +104,13 @@ IPagedEnumerable<CloudTask> completedTasks =
 * 如果指定無效的屬性或運算子，將會導致 `400 (Bad Request)` 錯誤。
 
 ## <a name="efficient-querying-in-batch-net"></a>在 Batch .NET 中有效率地查詢
-在[Batch .net][api_net] API, the [ODATADetailLevel][odata]類別內, 會使用來提供篩選、選取和展開字串以列出作業。 ODataDetailLevel 物件有三個公用字串屬性，可以在建構函式中指定或是直接在物件上設定。 接著, 您可以將 ODataDetailLevel 物件當做參數傳遞至各種清單作業, 例如[ListPools][net_list_pools]、 [ListJobs][net_list_jobs] , and [ListTasks][net_list_tasks]。
+在[Batch .Net][api_net] API 中, [ODATADetailLevel][odata]類別是用來提供篩選、選取和展開字串以列出作業。 ODataDetailLevel 物件有三個公用字串屬性，可以在建構函式中指定或是直接在物件上設定。 接著, 您可以將 ODataDetailLevel 物件當做參數傳遞至各種清單作業, 例如[ListPools][net_list_pools]、 [ListJobs][net_list_jobs]和[joboperations.listtasks][net_list_tasks]。
 
-* [ODATADetailLevel][odata] .[FilterClause][odata_filter]:限制傳回的項目數。
-* [ODATADetailLevel][odata] .[SelectClause][odata_select]:指定隨著每個項目一起傳回的屬性值。
-* [ODATADetailLevel][odata] .[ExpandClause][odata_expand]:在單一 API 呼叫中擷取所有項目的資料，而不是針對每個項目個別呼叫。
+* [ODATADetailLevel][odata]。[Odatadetaillevel.filterclause][odata_filter]:限制傳回的項目數。
+* [ODATADetailLevel][odata]。[SelectClause][odata_select]:指定隨著每個項目一起傳回的屬性值。
+* [ODATADetailLevel][odata]。[ExpandClause][odata_expand]:在單一 API 呼叫中擷取所有項目的資料，而不是針對每個項目個別呼叫。
 
-下列程式碼片段使用 Batch .NET API，有效率地向 Batch 服務查詢一組特定集區的統計資料。 在此案例中，Batch 使用者具有測試與生產的集區。 這些測試集區識別碼前面會加上 "test"，而生產集區識別碼則會加上 "prod"。 在程式碼片段中，「myBatchClient」  是適當初始化的 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 類別的執行個體。
+下列程式碼片段使用 Batch .NET API，有效率地向 Batch 服務查詢一組特定集區的統計資料。 在此案例中，Batch 使用者具有測試與生產的集區。 這些測試集區識別碼前面會加上 "test"，而生產集區識別碼則會加上 "prod"。 在程式碼片段中，「myBatchClient」 是適當初始化的 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 類別的執行個體。
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -148,7 +148,7 @@ List<CloudPool> testPools =
 
 ### <a name="mappings-for-filter-strings"></a>篩選字串的對應
 * **.NET 清單方法**：此資料行中的每個 .NET API 方法都接受[ODATADetailLevel][odata]物件做為參數。
-* **REST 清單要求**：此資料行的每個 REST API 頁面都連結至一個資料表，其中指定「篩選」  字串中允許的屬性和作業。 當您建立[ODATADetailLevel odatadetaillevel.filterclause][odata_filter]字串時, 將會使用這些屬性名稱和作業。
+* **REST 清單要求**：此資料行的每個 REST API 頁面都連結至一個資料表，其中指定「篩選」字串中允許的屬性和作業。 當您建立[ODATADetailLevel odatadetaillevel.filterclause][odata_filter]字串時, 將會使用這些屬性名稱和作業。
 
 | .NET 清單方法 | REST 清單要求 |
 | --- | --- |
@@ -165,7 +165,7 @@ List<CloudPool> testPools =
 
 ### <a name="mappings-for-select-strings"></a>選取字串的對應
 * **Batch .NET 類型**：Batch .NET API 類型。
-* **REST API 實體**：此資料行中的每個頁面包含一個或多個資料表，其中列出類型的 REST API 屬性名稱。 建構「選取」  字串時會使用這些屬性名稱。 當您建立[ODATADetailLevel SelectClause][odata_select]字串時, 將會使用這些相同的屬性名稱。
+* **REST API 實體**：此資料行中的每個頁面包含一個或多個資料表，其中列出類型的 REST API 屬性名稱。 建構「選取」 字串時會使用這些屬性名稱。 當您建立[ODATADetailLevel SelectClause][odata_select]字串時, 將會使用這些相同的屬性名稱。
 
 | Batch .NET types | REST API entities |
 | --- | --- |
@@ -177,9 +177,9 @@ List<CloudPool> testPools =
 | [CloudTask][net_task] |[取得工作的相關資訊][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>範例：建構篩選字串
-當您為 ODATADetailLevel 建立篩選字串時, [odatadetaillevel.filterclause][odata_filter] , consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job][rest_list_tasks]會指定適用的屬性字串和允許的運算子:
+當您針對[ODATADetailLevel odatadetaillevel.filterclause][odata_filter]篩選字串時, 請參閱上面的「篩選字串的對應」底下的表格, 尋找與您要執行的清單作業相對應的 REST API 檔頁面。 在該頁面的第一個含有多資料列的資料表中，您可以找到可篩選的屬性及其支援的運算子。 如果您想要取出結束代碼為非零值的所有工作, 例如, 在[清單上的][rest_list_tasks]這個資料列會指定適用的屬性字串和允許的運算子:
 
-| 屬性 | 允許的作業 | Type |
+| 內容 | 允許的作業 | Type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -188,9 +188,9 @@ List<CloudPool> testPools =
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## <a name="example-construct-a-select-string"></a>範例：建構選取字串
-若要建立[ODATADetailLevel SelectClause][odata_select] , consult the table above under "Mappings for select strings" and navigate to the REST API page that corresponds to the type of entity that you are listing. You will find the selectable properties and their supported operators in the first multirow table on that page. If you wish to retrieve only the ID and command line for each task in a list, for example, you will find these rows in the applicable table on [Get information about a task][rest_get_task]:
+若要建立[ODATADetailLevel][odata_select], 請參閱上面的「選取字串的對應」底下的表格, 然後流覽至與您所列出之實體類型相對應的 [REST API] 頁面。 在該頁面的第一個含有多資料列的資料表中，您可以找到可選取的屬性及其支援的運算子。 例如, 如果您只想要針對清單中的每個工作取出識別碼和命令列, 您會在[取得工作相關資訊][rest_get_task]的適用資料表中找到這些資料列:
 
-| 屬性 | Type | 注意 |
+| 內容 | Type | 注意 |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -201,7 +201,7 @@ List<CloudPool> testPools =
 
 ## <a name="code-samples"></a>程式碼範例
 ### <a name="efficient-list-queries-code-sample"></a>有效率的清單查詢程式碼範例
-簽出[EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it makes multiple calls to the [JobOperations.ListTasks][net_list_tasks]方法, 並傳遞以不同屬性值設定的[ODATADetailLevel][odata]物件, 以改變要傳回的資料量。 它會產生類似下列的輸出：
+請查看 GitHub 上的[EfficientListQueries][efficient_query_sample]範例專案, 以瞭解有效率的清單查詢如何影響應用程式的效能。 這個 C# 主控台應用程式會建立並將大量工作加入至作業。 然後, 它會對[JobOperations. joboperations.listtasks][net_list_tasks]方法進行多次呼叫, 並傳遞以不同屬性值設定的[ODATADetailLevel][odata]物件, 以改變要傳回的資料量。 它會產生類似下列的輸出：
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -220,7 +220,7 @@ Sample complete, hit ENTER to continue...
 如同經過的時間所顯示的，您可以透過限制屬性和傳回的項目數目來大幅降低查詢回應時間。 您可以在 GitHub 上的[azure 批次範例][github_samples]存放庫中找到此和其他範例專案。
 
 ### <a name="batchmetrics-library-and-code-sample"></a>BatchMetrics 程式庫和程式碼範例
-除了上述的 EfficientListQueries 程式碼範例, 您還可以找到[BatchMetrics][batch_metrics] project in the [azure-batch-samples][github_samples] GitHub 存放庫。 BatchMetrics 範例專案會示範如何使用 Batch API 有效率地監視 Azure Batch 作業進度。
+除了上述的 EfficientListQueries 程式碼範例以外, 您還可以在[azure-批次範例][github_samples]GitHub 存放庫中找到[BatchMetrics][batch_metrics]專案。 BatchMetrics 範例專案會示範如何使用 Batch API 有效率地監視 Azure Batch 作業進度。
 
 [BatchMetrics][batch_metrics]範例包含一個 .net 類別庫專案, 您可以將它併入您自己的專案中, 以及一個簡單的命令列程式來練習和示範程式庫的使用。
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6a332ce265a4bb41a9ad3c0c3a29683187a0f0d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccdd2443254da065a15911f567577672492ddb4f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098400"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568883"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL Database 彈性集區之應用程式的災害復原策略
 
@@ -91,7 +90,7 @@ ms.locfileid: "62098400"
 
 您的應用程式目前在 DR 區域中重新上線。 所有付費客戶都可以存取其資料，而試用版客戶在存取其資料時會經歷到延遲。
 
-當 Azure 在您於 DR 區域中還原應用程式「之後」  復原主要區域時，您可以繼續在該區域中執行應用程式，也可以決定容錯回復到主要區域。 如果在完成容錯移轉程序「之前」  復原主要區域，請考慮立即容錯回復。 此容錯回復會採取下圖中所說明的步驟：
+當 Azure 在您於 DR 區域中還原應用程式「之後」 復原主要區域時，您可以繼續在該區域中執行應用程式，也可以決定容錯回復到主要區域。 如果在完成容錯移轉程序「之前」復原主要區域，請考慮立即容錯回復。 此容錯回復會採取下圖中所說明的步驟：
 
 ![圖 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 

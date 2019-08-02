@@ -18,10 +18,10 @@ ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f9264357ca1a0c1a612481f4254e86f05e41d8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479185"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -312,11 +312,11 @@ _**圖 4：** 用來保護 SAP 全域主機檔案的向外延展檔案共用_
 * 您必須使用 Azure 進階磁碟。
 * 建議您使用 Azure 受控磁碟。
 * 建議您使用復原檔案系統 (ReFS) 格式化磁碟區。
-    * 如需詳細資訊, 請參閱[sap 附注 1869038-][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem]在儲存空間直接存取中規劃磁片區一文中的 < ReFs 檔案系統的 sap 支援一章。
+    * 如需詳細資訊, 請參閱[Sap 附注 1869038-ReFs 檔案系統的 sap 支援][1869038]和在儲存空間直接存取中規劃磁片區一文中的[選擇檔案系統][planning-volumes-s2d-choosing-filesystem]一章。
     * 請確定您已安裝[MICROSOFT KB4025334 累計更新][kb4025334]。
 * 您可以使用 DS 系列或 DSv2 系列 Azure VM 大小。
 * 若要讓 VM 之間具備良好的網路效能，供儲存空間直接存取磁碟同步之用，請使用至少具有「高」網路頻寬的 VM 類型。
-    如需詳細資訊, 請參閱[DSv2 系列][dv2-series] and [DS-Series][ds-series]規格。
+    如需詳細資訊, 請參閱[DSv2 系列][dv2-series]和[DS 系列][ds-series]規格。
 * 建議您在儲存體集區中保留一些未配置的容量。 在儲存體集區中保留一些未配置的容量，可在磁碟機故障時，讓磁碟區空間「就地」修復。 這可改善資料安全性和效能。  如需詳細資訊, 請參閱[選擇磁片區大小][choosing-the-size-of-volumes-s2d]。
 * 您不需要為向外延展檔案共用網路名稱 (例如 \<SAP 全域主機\>) 設定 Azure 內部負載平衡器。 這是針對 SAP ASCS/SCS 執行個體的 \<ASCS/SCS 虛擬主機名稱\> 或針對 DBMS 進行。 向外延展檔案共用會在所有叢集節點之間向外延展負載。 \<SAP 全域主機\> 會對所有叢集節點使用本機 IP 位址。
 

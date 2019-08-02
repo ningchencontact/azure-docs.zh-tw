@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05596365dfa011675f38beda2435fdda1a53a5a3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 6e952b011eb760ebc9dcf5fe7250cf56ec67465f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488852"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562344"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的桌面應用程式-取得權杖
 
@@ -126,7 +126,7 @@ WithParentActivityOrWindow(object parent).
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例 (而不想要使用累加式同意, 這通常與 MSAL.NET/Microsoft 身分識別平臺 v2.0 搭配使用)。 如需詳細資訊, 請參閱[如何: 將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
+這個修飾詞用於您想要讓使用者預先同意數個資源的先進案例 (而不想要使用累加式同意, 這通常與 MSAL.NET/Microsoft 身分識別平臺搭配使用)。 如需詳細資訊, 請參閱[如何: 將使用者同意預先用於數個資源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
 
 ```CSharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -198,7 +198,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 - 此流程已針對 .net desktop、.net core 和 Windows 通用 (UWP) 應用程式啟用。 在 .NET core 中, 只有取得使用者名稱的多載可供使用, 因為 .NET Core 平臺無法向 OS 要求使用者名稱。
   
-如需有關同意的詳細資訊, 請參閱 v2.0[許可權和同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+如需有關同意的詳細資訊, 請參閱[Microsoft 身分識別平臺許可權和同意](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
 ### <a name="how-to-use-it"></a>如何使用它
 

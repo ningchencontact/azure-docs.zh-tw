@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
 ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309724"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>檢查 Azure container registry 的健全狀況
 
 使用 Azure container registry 時, 您可能偶爾會遇到問題。 例如, 您可能無法提取容器映射, 因為您的本機環境中有 Docker 的問題。 或者, 網路問題可能會讓您無法連接到登錄。 
 
-在第一個診斷步驟中, 執行[az acr 檢查健全狀況][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli]。
+作為第一個診斷步驟, 請執行[az acr check-health][az-acr-check-health]命令, 以取得環境健全狀況的相關資訊, 並選擇性地存取目標登錄。 此命令適用于 Azure CLI 版本2.0.67 或更新版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
 ## <a name="run-az-acr-check-health"></a>執行 az acr check-health
 

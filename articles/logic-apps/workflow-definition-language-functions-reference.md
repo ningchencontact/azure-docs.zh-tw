@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 08/15/2018
-ms.openlocfilehash: 8ad7d7497a0fbe6fcf20ad5b50ef4e6cac9ed51f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.date: 07/27/2019
+ms.openlocfilehash: 30123e03a686eed8df0595c8562f2f9d9351bbde
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868892"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706456"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure Logic Apps 和 Microsoft Flow 中工作流程定義語言的函式參考
 
@@ -49,10 +49,10 @@ ms.locfileid: "67868892"
 
 | 工作 | 運算式中的函式語法 |
 | ---- | -------------------------------- |
-| 將該項目傳遞至函式，以執行項目處理。 | "\@<functionName  >(<item  >)" |
-| 1.使用巢狀 `parameters()` 函式來取得 parameterName  的值。 </br>2.將該值傳遞至 functionName  ，以執行結果處理。 | "\@<functionName  >(parametersparameterName('<  >'))" |
-| 1.從巢狀內部函式 functionName  取得結果。 </br>2.將結果傳遞至外部函式 functionName2  。 | "\@<functionName2  >(<functionName  >(<item  >))" |
-| 1.從 functionName  取得結果。 </br>2.假設結果是具有 propertyName  屬性的物件，則會取得該屬性的值。 | "\@<functionName  >(<item  >).<propertyName  >" |
+| 將該項目傳遞至函式，以執行項目處理。 | "\@<functionName>(<item>)" |
+| 1.使用巢狀 `parameters()` 函式來取得 parameterName 的值。 </br>2.將該值傳遞至 functionName，以執行結果處理。 | "\@<functionName>(parametersparameterName('<>'))" |
+| 1.從巢狀內部函式 functionName 取得結果。 </br>2.將結果傳遞至外部函式 functionName2。 | "\@<functionName2>(<functionName>(<item>))" |
+| 1.從 functionName 取得結果。 </br>2.假設結果是具有 propertyName 屬性的物件，則會取得該屬性的值。 | "\@<functionName>(<item>).<propertyName>" |
 |||
 
 例如，`concat()` 函式可以採用兩個或多個字串值作為參數。 此函式會將這些字串合併成一個字串。
@@ -107,14 +107,14 @@ ms.locfileid: "67868892"
 | [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | 檢查集合是否具有特定項目。 |
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | 檢查集合是否是空的。 |
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | 傳回集合中的第一個項目。 |
-| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 在指定的多個集合中，傳回「只有」  共同項目的集合。 |
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 在指定的多個集合中，傳回「只有」共同項目的集合。 |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | 若用於透過陣列進行的重複動作中，則會在動作的目前反覆運算期間，傳回陣列中的目前項目。 |
-| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | 傳回具有陣列中「所有」  項目 (以指定的字元隔開) 的字串。 |
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | 傳回具有陣列中「所有」項目 (以指定的字元隔開) 的字串。 |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | 傳回集合中的最後一個項目。 |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | 傳回字串或陣列中的項目數目。 |
-| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | 移除集合前端的項目，並傳回「其他所有」  項目。 |
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | 移除集合前端的項目，並傳回「其他所有」項目。 |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | 傳回集合中的前端項目。 |
-| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | 傳回具有指定集合中「所有」  項目的集合。 |
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | 傳回具有指定集合中「所有」項目的集合。 |
 |||
 
 <a name="comparison-functions"></a>
@@ -139,7 +139,7 @@ ms.locfileid: "67868892"
 
 <a name="conversion-functions"></a>
 
-## <a name="conversion-functions"></a>轉換函式
+## <a name="conversion-functions"></a>轉換函數
 
 若要變更值的類型或格式，您可以使用這些轉換函式。
 例如，您可以將一個值從布林值變更為整數。
@@ -174,7 +174,7 @@ ms.locfileid: "67868892"
 
 <a name="math-functions"></a>
 
-## <a name="math-functions"></a>數學函式
+## <a name="math-functions"></a>數學函數
 
 若要處理整數和浮點數，您可以使用這些數學函式。
 如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
@@ -225,7 +225,7 @@ ms.locfileid: "67868892"
 
 <a name="workflow-functions"></a>
 
-## <a name="workflow-functions"></a>工作流程函式
+## <a name="workflow-functions"></a>工作流程函數
 
 這些工作流程函式可協助您：
 
@@ -240,24 +240,25 @@ ms.locfileid: "67868892"
 | ----------------- | ---- |
 | [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | 傳回目前動作在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 另請參閱 [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions)。 |
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | 傳回動作在執行階段的 `body` 輸出。 另請參閱 [body](../logic-apps/workflow-definition-language-functions-reference.md#body)。 |
-| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | 傳回動作在執行階段的輸出。 請參閱 [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions)。 |
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | 傳回動作在執行階段的輸出。 請參閱[輸出](../logic-apps/workflow-definition-language-functions-reference.md#outputs)和[動作](../logic-apps/workflow-definition-language-functions-reference.md#actions)。 |
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | 傳回動作在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 另請參閱 [action](../logic-apps/workflow-definition-language-functions-reference.md#action)。  |
 | [body](#body) | 傳回動作在執行階段的 `body` 輸出。 另請參閱 [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody)。 |
-| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | 建立帶有值的陣列，這些值會符合「表單資料」  或「表單編碼」  動作輸出中的索引鍵名稱。 |
-| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | 傳回單一值，此值會符合動作「表單資料」  或「表單編碼」  輸出的索引鍵名稱。 |
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | 建立帶有值的陣列，這些值會符合「表單資料」或「表單編碼」動作輸出中的索引鍵名稱。 |
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | 傳回單一值，此值會符合動作「表單資料」或「表單編碼」輸出的索引鍵名稱。 |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | 若用於透過陣列進行的重複動作中，則會在動作的目前反覆運算期間，傳回陣列中的目前項目。 |
 | [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | 在 Foreach 或 Until 迴圈內部, 從指定的迴圈傳回目前的專案。|
 | [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | 在 Until 迴圈內部, 傳回目前反復專案的索引值。 您可以在 nested Until 迴圈中使用這個函式。 |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | 傳回呼叫觸發程序或動作的「回呼 URL」。 |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 在具有多個部分的動作輸出中，傳回特定部分的內容。 |
+| [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | 傳回動作在執行階段的輸出。 |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 傳回工作流程定義中所述參數的值。 |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 傳回觸發程序在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 另請參閱 [triggerOutputs](#triggerOutputs) 和 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)。 |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 傳回觸發程序在執行階段的 `body` 輸出。 請參閱 [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 |
-| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | 在「表單資料」  或「表單編碼」  觸發程序輸出中，傳回符合索引鍵名稱的單一值。 |
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | 在「表單資料」或「表單編碼」觸發程序輸出中，傳回符合索引鍵名稱的單一值。 |
 | [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | 在觸發程序的多部分輸出中，傳回特定部分的內容。 |
-| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | 建立帶有值的陣列，這些值會符合「表單資料」  或「表單編碼」  觸發程序輸出中的索引鍵名稱。 |
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | 建立帶有值的陣列，這些值會符合「表單資料」或「表單編碼」觸發程序輸出中的索引鍵名稱。 |
 | [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | 傳回觸發程序在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 請參閱 [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 |
-| [變數](../logic-apps/workflow-definition-language-functions-reference.md#variables) | 傳回指定變數的值。 |
+| [variables](../logic-apps/workflow-definition-language-functions-reference.md#variables) | 傳回指定變數的值。 |
 | [workflow](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | 傳回執行階段期間與工作流程本身相關的所有詳細資料。 |
 |||
 
@@ -304,7 +305,7 @@ ms.locfileid: "67868892"
 
 ### <a name="action"></a>動作
 
-傳回執行階段上「目前」  動作的輸出，或來自其他 JSON 名稱-值配對的值，而您可以將其指派給運算式。
+傳回執行階段上「目前」動作的輸出，或來自其他 JSON 名稱-值配對的值，而您可以將其指派給運算式。
 根據預設，此函式會參考整個動作物件，但是您可以選擇性地指定其中有所需值的屬性。
 另請參閱 [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions)。
 
@@ -380,9 +381,7 @@ actionBody('Get_user')
 
 ### <a name="actionoutputs"></a>actionOutputs
 
-傳回動作在執行階段的輸出。
-`actions('<actionName>').outputs` 的簡略版。
-請參閱 [actions()](#actions)。
+傳回動作在執行階段的輸出。  和是的`actions('<actionName>').outputs`縮寫。 請參閱 [actions()](#actions)。 函式會在`outputs()`邏輯應用程式設計工具中解析為, 因此請考慮使用`actionOutputs()`[輸出 ()](#outputs), 而不是。 `actionOutputs()` 雖然這兩個函數的運作方式相同，但是較常使用 `outputs()`。
 
 ```
 actionOutputs('<actionName>')
@@ -647,14 +646,14 @@ addProperty(<object>, '<property>', <value>)
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | 是 | Object | 您要對其新增屬性的 JSON 物件 |
+| <*object*> | 是 | 物件 | 您要對其新增屬性的 JSON 物件 |
 | <*property*> | 是 | String | 要新增的屬性名稱 |
 | <*value*> | 是 | Any | 屬性的值 |
 |||||
 
 | 傳回值 | Type | 描述 |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Object | 具有指定屬性的更新 JSON 物件 |
+| <*updated-object*> | 物件 | 具有指定屬性的更新 JSON 物件 |
 ||||
 
 *範例*
@@ -807,7 +806,7 @@ and(equals(1, 2), equals(1, 3))
 
 <a name="array"></a>
 
-### <a name="array"></a>array
+### <a name="array"></a>陣列
 
 從單一指定輸入傳回的陣列。
 關於多個輸入的資訊，請參閱 [createArray()](#createArray)。
@@ -964,7 +963,7 @@ binary('hello')
 
 <a name="body"></a>
 
-### <a name="body"></a>body
+### <a name="body"></a>內容
 
 傳回動作在執行階段的 `body` 輸出。
 `actions('<actionName>').outputs.body` 的簡略版。
@@ -1112,7 +1111,7 @@ concat('Hello', 'World')
 
 <a name="contains"></a>
 
-### <a name="contains"></a>contains
+### <a name="contains"></a>包含
 
 檢查集合是否具有特定項目。
 找到項目時，傳回 True，或找不到項目時，傳回 False。
@@ -1125,9 +1124,9 @@ contains([<collection>], '<value>')
 
 具體而言，此函數會用在這些集合類型上：
 
-* 要尋找「子字串」  的「字串」 
-* 要尋找「值」  的「陣列」 
-* 要尋找「索引碼」  的「字典」 
+* 要尋找「子字串」的「字串」
+* 要尋找「值」的「陣列」
+* 要尋找「索引碼」的「字典」
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
@@ -1613,8 +1612,8 @@ div(<dividend>, <divisor>)
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | 是 | 整數或浮點數 | 要除以「除數」  的數字 |
-| <*divisor*> | 是 | 整數或浮點數 | 要除「被除數」  的數字，但不能為 0 |
+| <*dividend*> | 是 | 整數或浮點數 | 要除以「除數」的數字 |
+| <*divisor*> | 是 | 整數或浮點數 | 要除「被除數」的數字，但不能為 0 |
 |||||
 
 | 傳回值 | Type | 描述 |
@@ -1667,7 +1666,7 @@ encodeUriComponent('https://contoso.com')
 
 <a name="empty"></a>
 
-### <a name="empty"></a>empty
+### <a name="empty"></a>空的
 
 檢查集合是否是空的。
 集合若是空的，傳回 True，或集合若不是空的，則傳回 False。
@@ -1832,7 +1831,7 @@ float('<value>')
 
 | 傳回值 | Type | 描述 |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | 所指定字串的浮點數 |
+| <*float-value*> | 浮點數 | 所指定字串的浮點數 |
 ||||
 
 *範例*
@@ -1880,7 +1879,7 @@ formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 
 ### <a name="formdatamultivalues"></a>formDataMultiValues
 
-傳回帶有值的陣列，此值會符合動作「表單資料」  或「表單編碼」  輸出的索引鍵名稱。
+傳回帶有值的陣列，此值會符合動作「表單資料」或「表單編碼」輸出的索引鍵名稱。
 
 ```
 formDataMultiValues('<actionName>', '<key>')
@@ -1911,7 +1910,7 @@ formDataMultiValues('Send_an_email', 'Subject')
 
 ### <a name="formdatavalue"></a>formDataValue
 
-傳回單一值，此值會符合動作「表單資料」  或「表單編碼」  輸出的索引鍵名稱。
+傳回單一值，此值會符合動作「表單資料」或「表單編碼」輸出的索引鍵名稱。
 如果函式找到一個以上的相符項目，函式會擲回錯誤。
 
 ```
@@ -2376,7 +2375,7 @@ iterationIndexes('<loopName>')
 
 <a name="json"></a>
 
-### <a name="json"></a>json
+### <a name="json"></a>JSON
 
 傳回字串或 XML 的 JavaScript 物件標記法 (JSON) 類型值或物件。
 
@@ -2447,7 +2446,7 @@ json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> 
 
 ### <a name="intersection"></a>交集
 
-在指定的多個集合中，傳回「只有」  共同項目的集合。
+在指定的多個集合中，傳回「只有」共同項目的集合。
 項目若要出現在結果中，必須出現在所有傳遞至此函式的集合中。
 如果一個或多個項目有相同的名稱，則具有該名稱的最後一個項目會出現在結果中。
 
@@ -2458,7 +2457,7 @@ intersection('<collection1>', '<collection2>', ...)
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ... | 是 | 陣列或物件，但不可以兩者並存 | 您想要其中「只有」  共同項目的集合 |
+| <*collection1*>, <*collection2*>, ... | 是 | 陣列或物件，但不可以兩者並存 | 您想要其中「只有」共同項目的集合 |
 |||||
 
 | 傳回值 | Type | 描述 |
@@ -2474,13 +2473,13 @@ intersection('<collection1>', '<collection2>', ...)
 intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
-並傳回的「只有」  這些項目的陣列：`[1, 2]`
+並傳回的「只有」這些項目的陣列：`[1, 2]`
 
 <a name="join"></a>
 
 ### <a name="join"></a>Join
 
-傳回具有陣列中所有項目的字串，並以「分隔符號」  將每個字元隔開。
+傳回具有陣列中所有項目的字串，並以「分隔符號」將每個字元隔開。
 
 ```
 join([<collection>], '<delimiter>')
@@ -2704,7 +2703,7 @@ listCallbackUrl()
 
 <a name="max"></a>
 
-### <a name="max"></a>max
+### <a name="max"></a>上限
 
 從具有數字的清單或陣列中傳回最大值 (包含首尾兩端的值)。
 
@@ -2737,7 +2736,7 @@ max(createArray(1, 2, 3))
 
 <a name="min"></a>
 
-### <a name="min"></a>Min
+### <a name="min"></a>分鐘
 
 從數字集合或陣列中傳回最小值。
 
@@ -2781,8 +2780,8 @@ mod(<dividend>, <divisor>)
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | 是 | 整數或浮點數 | 要除以「除數」  的數字 |
-| <*divisor*> | 是 | 整數或浮點數 | 要除「被除數」  的數字，但不能為 0。 |
+| <*dividend*> | 是 | 整數或浮點數 | 要除以「除數」的數字 |
+| <*divisor*> | 是 | 整數或浮點數 | 要除「被除數」的數字，但不能為 0。 |
 |||||
 
 | 傳回值 | Type | 描述 |
@@ -2812,8 +2811,8 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*multiplicand1*> | 是 | 整數或浮點數 | 要與「被乘數 2」  相乘的數字 |
-| <*multiplicand2*> | 是 | 整數或浮點數 | 要與「被乘數 1」  相乘的數字 |
+| <*multiplicand1*> | 是 | 整數或浮點數 | 要與「被乘數 2」 相乘的數字 |
+| <*multiplicand2*> | 是 | 整數或浮點數 | 要與「被乘數 1」 相乘的數字 |
 |||||
 
 | 傳回值 | Type | 描述 |
@@ -2954,9 +2953,72 @@ or(equals(1, 2), equals(1, 3))
 * 第一個範例：至少有一個運算式為 True，所以函數傳回 `true`。
 * 第二個範例：兩個運算式都是 False，所以函式傳回 `false`。
 
+<a name="outputs"></a>
+
+### <a name="outputs"></a>outputs
+
+在執行時間傳回動作的輸出。 使用此函式, 而`actionOutputs()`不是在邏輯`outputs()`應用程式設計工具中解析為的。 雖然這兩個函數的運作方式相同，但是較常使用 `outputs()`。
+
+```
+outputs('<actionName>')
+```
+
+| 參數 | 必要項 | Type | 描述 |
+| --------- | -------- | ---- | ----------- |
+| <*actionName*> | 是 | String | 所需動作輸出的名稱 |
+|||||
+
+| 傳回值 | Type | 描述 |
+| ------------ | -----| ----------- |
+| <*output*> | String | 來自指定動作的輸出 |
+||||
+
+*範例*
+
+此範例會從 Twitter 動作 `Get user` 取得輸出：
+
+```
+outputs('Get_user')
+```
+
+並傳回此結果：
+
+```json
+{
+  "statusCode": 200,
+  "headers": {
+    "Pragma": "no-cache",
+    "Vary": "Accept-Encoding",
+    "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
+    "X-Content-Type-Options": "nosniff",
+    "Timing-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
+    "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
+    "X-AspNet-Version": "4.0.30319",
+    "X-Powered-By": "ASP.NET",
+    "Content-Type": "application/json; charset=utf-8",
+    "Expires": "-1",
+    "Content-Length": "339"
+  },
+  "body": {
+    "FullName": "Contoso Corporation",
+    "Location": "Generic Town, USA",
+    "Id": 283541717,
+    "UserName": "ContosoInc",
+    "FollowersCount": 172,
+    "Description": "Leading the way in transforming the digital workplace.",
+    "StatusesCount": 93,
+    "FriendsCount": 126,
+    "FavouritesCount": 46,
+    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
+  }
+}
+```
+
 <a name="parameters"></a>
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>參數
 
 傳回工作流程定義中所述參數的值。
 
@@ -3098,13 +3160,13 @@ removeProperty(<object>, '<property>')
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | 是 | Object | 您要從中移除屬性的 JSON 物件 |
+| <*object*> | 是 | 物件 | 您要從中移除屬性的 JSON 物件 |
 | <*property*> | 是 | String | 要移除的屬性名稱 |
 |||||
 
 | 傳回值 | Type | 描述 |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Object | 沒有指定屬性的更新 JSON 物件 |
+| <*updated-object*> | 物件 | 沒有指定屬性的更新 JSON 物件 |
 ||||
 
 *範例*
@@ -3128,14 +3190,14 @@ setProperty(<object>, '<property>', <value>)
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | 是 | Object | 您想要設定其屬性的 JSON 物件 |
+| <*object*> | 是 | 物件 | 您想要設定其屬性的 JSON 物件 |
 | <*property*> | 是 | String | 要設定的現有屬性或新屬性名稱 |
 | <*value*> | 是 | Any | 要為指定屬性設定的值 |
 |||||
 
 | 傳回值 | Type | 描述 |
 | ------------ | ---- | ----------- |
-| <*updated-object*> | Object | 您已設定其屬性的更新 JSON 物件 |
+| <*updated-object*> | 物件 | 您已設定其屬性的更新 JSON 物件 |
 ||||
 
 *範例*
@@ -3149,9 +3211,9 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-### <a name="skip"></a>skip
+### <a name="skip"></a>略過
 
-移除集合前端的項目，並傳回「其他所有」  項目。
+移除集合前端的項目，並傳回「其他所有」項目。
 
 ```
 skip([<collection>], <count>)
@@ -3397,8 +3459,8 @@ sub(<minuend>, <subtrahend>)
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*minuend*> | 是 | 整數或浮點數 | 要從中減去「減數」  的數字 |
-| <*subtrahend*> | 是 | 整數或浮點數 | 從「被減數」  中減去的數字 |
+| <*minuend*> | 是 | 整數或浮點數 | 要從中減去「減數」的數字 |
+| <*subtrahend*> | 是 | 整數或浮點數 | 從「被減數」中減去的數字 |
 |||||
 
 | 傳回值 | Type | 描述 |
@@ -3534,7 +3596,7 @@ take(createArray(0, 1, 2, 3, 4), 3)
 ### <a name="ticks"></a>刻度
 
 傳回指定時間戳記的 `ticks` 屬性值。
-一「刻度」  是 100 奈秒的間隔。
+一「刻度」是 100 奈秒的間隔。
 
 ```
 ticks('<timestamp>')
@@ -3653,7 +3715,7 @@ triggerBody()
 
 ### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
-傳回帶有值的陣列，此值會符合觸發程序「表單資料」  或「表單編碼」  輸出的索引鍵名稱。
+傳回帶有值的陣列，此值會符合觸發程序「表單資料」或「表單編碼」輸出的索引鍵名稱。
 
 ```
 triggerFormDataMultiValues('<key>')
@@ -3683,7 +3745,7 @@ triggerFormDataMultiValues('feedUrl')
 
 ### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
-傳回具有單一值的字串，此單一值會符合觸發程序「表單資料」  或「表單編碼」  輸出的索引鍵名稱。
+傳回具有單一值的字串，此單一值會符合觸發程序「表單資料」或「表單編碼」輸出的索引鍵名稱。
 如果函式找到一個以上的相符項目，函式會擲回錯誤。
 
 ```
@@ -3781,7 +3843,7 @@ trim(' Hello World  ')
 
 ### <a name="union"></a>union
 
-傳回具有指定集合中「所有」  項目的集合。
+傳回具有指定集合中「所有」項目的集合。
 出現在結果中的項目，可以出現在任何傳遞至此函式的集合中。 如果一個或多個項目有相同的名稱，則具有該名稱的最後一個項目會出現在結果中。
 
 ```
@@ -3791,7 +3853,7 @@ union([<collection1>], [<collection2>], ...)
 
 | 參數 | 必要項 | Type | 描述 |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ...  | 是 | 陣列或物件，但不可以兩者並存 | 您想要其中「所有」  項目的集合 |
+| <*collection1*>, <*collection2*>, ...  | 是 | 陣列或物件，但不可以兩者並存 | 您想要其中「所有」項目的集合 |
 |||||
 
 | 傳回值 | Type | 描述 |
@@ -3801,7 +3863,7 @@ union([<collection1>], [<collection2>], ...)
 
 *範例*
 
-此範例會從以下集合取得「所有」  項目：
+此範例會從以下集合取得「所有」項目：
 
 ```
 union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
@@ -4202,7 +4264,7 @@ xml('<value>')
 
 | 傳回值 | Type | 描述 |
 | ------------ | ---- | ----------- |
-| <*xml-version*> | Object | 所指定字串或 JSON 物件的編碼 XML |
+| <*xml-version*> | 物件 | 所指定字串或 JSON 物件的編碼 XML |
 ||||
 
 *範例 1*
@@ -4245,7 +4307,7 @@ xml('<value>')
 
 <a name="xpath"></a>
 
-### <a name="xpath"></a>xpath
+### <a name="xpath"></a>XPath
 
 檢查 XML 中是否有符合 XPath (XML 路徑語言) 運算式的節點或值，並傳回符合的節點或值。 XPath 運算式 (或 "XPath") 可協助您瀏覽 XML 文件結構，讓您可以在 XML 內容中選取節點或計算值。
 
@@ -4300,11 +4362,11 @@ xpath('<xml>', '<xpath>')
 
 在此範例中，有兩個運算式會在指定的引數中 (其中包含具有命名空間的 XML) 尋找符合 `<location></location>` 節點的節點。 此運算式使用反斜線字元 (\\) 作為雙引號 (") 的逸出字元。
 
-* 運算式 1 
+* 運算式 1
 
   `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 
-* 運算式2 
+* 運算式2
 
   `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 

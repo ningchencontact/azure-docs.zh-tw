@@ -1,20 +1,18 @@
 ---
 title: 在 Azure 磁碟儲存體 (受控磁碟) 上對您的應用程式進行效能評定
 description: 了解在 Azure 上對您的應用程式進行效能評定的程序。
-services: virtual-machines-windows,storage
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 8db1fb3c9b3ed551cd668cf14105eb8bfb486251
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 600b456cd77d866f1365b7dadfa9ea2473db0fa4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679737"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698766"
 ---
 # <a name="benchmarking-a-disk"></a>對磁碟進行效能評定
 
