@@ -17,10 +17,10 @@ ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 41f3eecb1b3f488c355b1bad65b90dae8c76126e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323445"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>使用適用於 .NET 的 Batch 管理用戶端程式庫來管理 Batch 帳戶和配額
@@ -36,7 +36,7 @@ ms.locfileid: "68323445"
 * **建立和刪除 Batch 帳戶** 。 比方說，身為獨立軟體廠商 (ISV)，您為每個獲派不同 Batch 帳戶的客戶針對計費目的提供服務，您可以將帳戶建立和刪除功能加入至客戶入口網站。
 * **擷取和重新產生帳戶金鑰** 。 這可協助您符合強制定期變換帳戶金鑰或讓帳戶金鑰過期的安全性原則。 當您在各種不同的 Azure 區域中有數個 Batch 帳戶時，將此變換程序自動化可增加解決方案的效率。
 * **檢查帳戶配額** 並採取反復試驗的猜測，判斷哪一個 Batch 帳戶有哪些限制。 藉由在開始作業、建立集區或新增計算節點之前檢查您的帳戶配額，您可以主動地調整建立計算資源的位置或時機。 您可以決定在帳戶中配置其他資源之前，哪些帳戶需要增加配額。
-* **結合其他 Azure 服務的功能**以獲得完整功能的管理體驗--藉由使用 Batch management .net, 在相同的應用程式中[Azure Active Directory][aad_about] , and the [Azure Resource Manager][resman_overview]在一起。 透過使用這些功能和其 API，您可以提供順暢的驗證體驗、建立和刪除資源群組的能力，以及上面所述的功能，以獲得端對端管理解決方案。
+* **結合其他 Azure 服務的功能**以獲得完整功能的管理體驗--在相同的應用程式中使用 Batch management .net、 [Azure Active Directory][aad_about]和[Azure Resource Manager][resman_overview] 。 透過使用這些功能和其 API，您可以提供順暢的驗證體驗、建立和刪除資源群組的能力，以及上面所述的功能，以獲得端對端管理解決方案。
 
 > [!NOTE]
 > 雖然這篇文章著重在以程式設計方式管理 Batch 帳戶、金鑰和配額, 但您可以使用[Azure 入口網站][azure_portal]來執行許多活動。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 Azure Batch 帳戶](batch-account-create-portal.md)和 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
@@ -44,7 +44,7 @@ ms.locfileid: "68323445"
 > 
 
 ## <a name="create-and-delete-batch-accounts"></a>建立和刪除 Batch 帳戶
-如上所述，Batch Management API 的主要功能之一就是在 Azure 區域內建立和刪除 Batch 帳戶。 若要這麼做, 請使用[BatchManagementClient. CreateAsync][net_create] and [DeleteAsync][net_delete]或其同步對應專案。
+如上所述，Batch Management API 的主要功能之一就是在 Azure 區域內建立和刪除 Batch 帳戶。 若要這麼做, 請使用[BatchManagementClient. CreateAsync][net_create]和[DeleteAsync][net_delete], 或其同步對應專案。
 
 下列程式碼片段會建立一個帳戶、從 Batch 服務取得新建立的帳戶，然後將它刪除。 在此程式碼片段和本文中的其他內容`batchManagementClient`中, 是[BatchManagementClient][net_mgmt_client]的完整初始化實例。
 
@@ -69,7 +69,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 > 
 
 ## <a name="retrieve-and-regenerate-account-keys"></a>擷取和重新產生帳戶金鑰
-使用[ListKeysAsync][net_list_keys] . You can regenerate those keys by using [RegenerateKeyAsync][net_regenerate_keys], 從訂用帳戶內的任何 Batch 帳戶取得主要和次要帳戶金鑰。
+使用[ListKeysAsync][net_list_keys], 從訂用帳戶內的任何 Batch 帳戶取得主要和次要帳戶金鑰。 您可以使用[RegenerateKeyAsync][net_regenerate_keys]重新產生這些金鑰。
 
 ```csharp
 // Get and print the primary and secondary keys
@@ -91,7 +91,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 ```
 
 > [!TIP]
-> 您可以為您的管理應用程式建立簡化的連線工作流程。 首先, 取得您想要使用[ListKeysAsync][net_list_keys] . Then, use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials][net_sharedkeycred]類別管理的 Batch 帳戶的帳戶金鑰, 這會在初始化[BatchClient][net_batch_client]時使用。
+> 您可以為您的管理應用程式建立簡化的連線工作流程。 首先, 取得您想要使用[ListKeysAsync][net_list_keys]管理之 Batch 帳戶的帳戶金鑰。 然後, 在初始化批次 .NET 程式庫的[BatchSharedKeyCredentials][net_sharedkeycred]類別時使用此金鑰, 這會在初始化[BatchClient][net_batch_client]時使用。
 > 
 > 
 
@@ -101,7 +101,7 @@ Azure 訂用帳戶和 Batch 之類的個別 Azure 服務均具有預設配額，
 ### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>檢查 Azure 訂用帳戶和 Batch 帳戶配額
 在區域中建立 Batch 帳戶之前，您可以檢查您的 Azure 訂用帳戶，以查看您是否能夠將帳戶加入該區域中。
 
-在下列程式碼片段中, 我們會先使用[BatchManagementClient][net_mgmt_listaccounts] to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [BatchManagementClient.Subscriptions][net_mgmt_subscriptions]來取得 Batch 帳戶配額, 並決定可以在該區域中建立多少帳戶 (如果有的話)。
+在下列程式碼片段中, 我們會先使用[BatchManagementClient][net_mgmt_listaccounts]來取得訂用帳戶內所有 Batch 帳戶的集合。 在我們取得此集合後，我們會判斷目標區域中有多少個帳戶。 然後, 我們會使用[BatchManagementClient][net_mgmt_subscriptions]來取得 Batch 帳戶配額, 並決定可以在該區域中建立多少帳戶 (如果有的話)。
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
@@ -125,7 +125,7 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-在上述程式碼片段中`creds` , 是 GitHub 上的[TokenCloudCredentials][azure_tokencreds] . To see an example of creating this object, see the [AccountManagement][acct_mgmt_sample]程式碼範例實例。
+在上述程式碼片段中`creds` , 是[TokenCloudCredentials][azure_tokencreds]的實例。 若要查看建立此物件的範例, 請參閱 GitHub 上的[AccountManagement][acct_mgmt_sample]程式碼範例。
 
 ### <a name="check-a-batch-account-for-compute-resource-quotas"></a>檢查 Batch 帳戶的計算資源配額
 在 Batch 方案中增加計算資源之前，您可以檢查以確定您要配置的資源不會超過帳戶的配額。 在下列程式碼片段中，我們會列印名為 `mybatchaccount` 的 Batch 帳戶配額資訊。 在您自己的應用程式中，您可以使用這類資訊來判斷帳戶是否可以處理要建立的其他資源。

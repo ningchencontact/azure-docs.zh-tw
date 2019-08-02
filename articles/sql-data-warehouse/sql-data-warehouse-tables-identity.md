@@ -2,7 +2,7 @@
 title: 使用 IDENTITY 建立 Surrogate 索引鍵 - Azure SQL 資料倉儲 | Microsoft Docs
 description: 在 Azure SQL 資料倉儲中的資料表上，使用 IDENTITY 屬性建立 Surrogate 索引鍵的建議與範例。
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,18 +10,18 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 19a06d0fdff324dc3bee246ef7a5a7011c089872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c65bf7cc8edfa246508bb22001aed40c34414f3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851606"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515580"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中，使用 IDENTITY 建立 Surrogate 索引鍵
 
 在 Azure SQL 資料倉儲中的資料表上，使用 IDENTITY 屬性建立 Surrogate 索引鍵的建議與範例。
 
-## <a name="what-is-a-surrogate-key"></a>什麼是 surrogate 索引鍵
+## <a name="what-is-a-surrogate-key"></a>什麼是代理鍵
 
 資料表上的 Surrogate 索引鍵是每個資料列都有唯一識別碼的資料行。 索引鍵並非從資料表資料產生。 資料製造模型者在設計資料倉儲模型時，都喜歡在其資料表上建立 Surrogate 索引鍵。 您可以使用 IDENTITY 屬性，在不影響載入效能的情況下，以簡單又有效的方式達成此目標。  
 
@@ -122,7 +122,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>載入資料
+## <a name="loading-data"></a>正在載入資料
 
 IDENTITY 屬性的存在會對您的資料載入程式碼造成一些影響。 本節會重點說明使用 IDENTITY 將資料載入資料表的一些基本模式。
 
@@ -241,5 +241,5 @@ AND     tb.name = 'T1'
 ## <a name="next-steps"></a>後續步驟
 
 - [資料表概觀](/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)
-- [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
+- [CREATE TABLE (Transact-sql) IDENTITY (屬性)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)
 - [DBCC CHECKINDENT](/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql)

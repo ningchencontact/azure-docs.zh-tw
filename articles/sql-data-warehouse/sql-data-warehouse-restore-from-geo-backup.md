@@ -11,10 +11,10 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68426651"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>異地還原 Azure SQL 資料倉儲
@@ -29,7 +29,7 @@ ms.locfileid: "68426651"
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>透過 PowerShell 從 Azure 地理區域還原
 
-若要從異地備份還原, 請使用[AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] and [Restore-AzSqlDatabase][Restore-AzSqlDatabase] Cmdlet。
+若要從異地備份還原, 請使用[AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup]和[restore-set-azsqldatabase 搭配][Restore-AzSqlDatabase]Cmdlet。
 
 > [!NOTE]
 > 您可以執行異地還原來還原至 Gen2！ 若要這麼做，請指定 Gen2 ServiceObjectiveName (例如 DW1000**c**) 作為選擇性參數。

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: d6e205c23545eb4a01ce58a8bc2b63c58200e32a
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 832f43d1f25393a29df4b836c353611a19e3a417
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228282"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567566"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>建立 Azure SQL Database 受控執行個體的虛擬網路
 
@@ -44,7 +43,7 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路](../vir
 
 1. 登入 Azure 入口網站。
 
-2. 選取 [部署至 Azure]  按鈕：
+2. 選取 [部署至 Azure] 按鈕：
 
    <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
@@ -57,7 +56,7 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路](../vir
 
    ![可供設定 Azure 網路的 Resource Manager 範本](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
-   您可以變更虛擬網路和子網路的名稱，以及調整與您的網路資源關聯的 IP 位址。 選取 [購買]  按鈕後，此表單就會建立並設定您的環境。 若您不需要兩個子網路，可將預設子網路刪除。
+   您可以變更虛擬網路和子網路的名稱，以及調整與您的網路資源關聯的 IP 位址。 選取 [購買] 按鈕後，此表單就會建立並設定您的環境。 若您不需要兩個子網路，可將預設子網路刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

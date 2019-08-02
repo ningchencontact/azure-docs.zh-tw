@@ -1,6 +1,6 @@
 ---
-title: IoT 裝置調查指南預覽的 azure 資訊安全中心 |Microsoft Docs
-description: 此作法指南說明如何使用 IoT 的 Azure 資訊安全中心調查可疑的 IoT 裝置，使用 Log Analytics。
+title: IoT 裝置調查指南的 Azure 資訊安全中心 |Microsoft Docs
+description: 本作法指南說明如何使用適用于 IoT 的 Azure 資訊安全中心, 利用 Log Analytics 來調查可疑的 IoT 裝置。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,24 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 884d001a65962d5e7e6e52dd47ce6ad7e02e1057
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618128"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596247"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>調查可疑的 IoT 裝置
 
-> [!IMPORTANT]
-> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+IoT 服務警示的 Azure 資訊安全中心在懷疑有可疑活動的介入, 或裝置遭到入侵的跡象時, 提供清楚的指示。 
 
-可疑的可疑活動，或指示存在裝置遭到入侵的參與的 IoT 裝置時，azure 資訊安全中心 (ASC) IoT 服務警示和辨識項會提供清楚的指示。 
-
-在本指南中，使用調查所提供的建議來協助判斷您組織的潛在風險，決定如何修復，並了解預防類似攻擊的最佳方法。  
+在本指南中, 請使用所提供的調查建議來協助判斷組織的潛在風險、決定如何進行修復, 以及探索未來避免類似攻擊的最佳方式。  
 
 > [!div class="checklist"]
 > * 尋找您的裝置資料
@@ -39,44 +35,44 @@ ms.locfileid: "67618128"
 
 ## <a name="how-can-i-access-my-data"></a>如何存取我的資料？
 
-根據預設，適用於 IoT 的 ASC 會在 Log Analytics 工作區中儲存您的安全性警示和建議。 您也可以選擇儲存未經處理的安全性資料。
+根據預設, IoT 的 Azure 資訊安全中心會將您的安全性警示和建議儲存在 Log Analytics 工作區中。 您也可以選擇儲存未經處理的安全性資料。
 
-若要找出用來儲存資料的 Log Analytics 工作區：
+若要尋找您的 Log Analytics 工作區來儲存資料:
 
 1. 開啟 IoT 中樞， 
-1. 底下**安全性**，按一下**概觀**，然後選取**設定**。
+1. 在 [**安全性**] 底下, 按一下 **[總覽**], 然後選取 [**設定**]。
 1. 變更 Log Analytics 工作區的組態詳細資料。 
-1. 按一下 [儲存]  。 
+1. 按一下 [儲存]。 
 
 下列組態，執行下列步驟來存取儲存在 Log Analytics 工作區中的資料：
 
-1. 在 IoT 中樞內選取並按一下適用於 IoT 的 ASC 警示。 
-1. 按一下 [進一步調查]  。 
-1. 選取 [若要查看哪些裝置有此警示，請按一下這裡並檢視 DeviceId 資料行]  。
+1. 在您的 IoT 中樞中, 選取並按一下 [適用于 IoT 警示的 Azure 資訊安全中心]。 
+1. 按一下 [進一步調查]。 
+1. 選取 [若要查看哪些裝置有此警示，請按一下這裡並檢視 DeviceId 資料行]。
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>可疑 IoT 裝置的調查步驟
 
-若要存取深入解析和關於您 IoT 裝置的未經處理資料，請移至您的 Log Analytics 工作區[存取您的資料](#how-can-i-access-my-data)。
+若要查看 IoT 裝置的深入解析和原始資料, 請移至您的 Log Analytics 工作區[以存取您的資料](#how-can-i-access-my-data)。
 
-檢查並調查下列詳細資料，並使用下列 kql 查詢活動的裝置資料。
+請參閱下面的範例 kql 查詢, 以開始調查裝置上的警示和活動。
 
-### <a name="related-alerts"></a>相關的警示
+### <a name="related-alerts"></a>相關警示
 
 若要了解同一時間前後是否觸發了其他警示，請使用下列 kql 查詢：
 
-  ~~~
+  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityAlert
   | where ExtendedProperties contains device and ResourceId contains tolower(hub)
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
-  ~~~
+  ```
 
-### <a name="users-with-access"></a>使用者的存取
+### <a name="users-with-access"></a>具有存取權的使用者
 
 若要了解哪些使用者可以存取此裝置，請使用下列 kql 查詢： 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -88,16 +84,16 @@ ms.locfileid: "67618128"
      GroupNames=extractjson("$.GroupNames", EventDetails, typeof(string)),
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
-  ~~~
+ ```
 請使用這項資料來了解︰ 
-  1. 哪些使用者可以存取此裝置？
-  2. 具有存取權的使用者有權限等級，如預期般運作嗎？ 
+- 哪些使用者可以存取此裝置？
+- 具有存取權的使用者是否具有所需的許可權等級？
 
 ### <a name="open-ports"></a>開啟連接埠
 
-若要查明哪些裝置中的連接埠目前正在使用中或已使用，請使用下列 kql 查詢： 
+若要找出裝置中目前正在使用或已使用的埠, 請使用下列 kql 查詢: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -113,18 +109,18 @@ ms.locfileid: "67618128"
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
-  ~~~
+ ```
 
-    Use this data to discover:
-  1. 裝置上目前作用中的接聽通訊端有哪些？
-  2. 若允許目前作用中接聽通訊端的資訊嗎？
-  3. 是否有任何可疑的遠端位址，連線到裝置？
+請使用這項資料來了解︰
+- 裝置上目前作用中的接聽通訊端有哪些？
+- 是否允許目前作用中的接聽通訊端？
+- 是否有任何可疑的遠端位址連線到裝置？
 
 ### <a name="user-logins"></a>使用者登入
 
-若要了解登入裝置的使用者，請使用下列 kql 查詢： 
+若要尋找登入裝置的使用者, 請使用下列 kql 查詢: 
  
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -144,18 +140,18 @@ ms.locfileid: "67618128"
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      Result=extractjson("$.Result", EventDetails, typeof(string))
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
-  ~~~
+ ```
 
-    Use the query results to discover:
-  1. 有哪些使用者登入過此裝置？
-  2. 登入的使用者應該能夠登入？
-  3. 登入過的使用者是從預期還是非預期的 IP 位址進行連線的？
+請使用查詢結果來了解︰
+- 有哪些使用者登入過此裝置？
+- 登入的使用者是否應該登入？
+- 登入過的使用者是從預期還是非預期的 IP 位址進行連線的？
   
-### <a name="process-list"></a>處理程序清單
+### <a name="process-list"></a>進程清單
 
-若要找出處理序清單是否如預期般，使用下列 kql 查詢： 
+若要找出流程清單是否如預期般運作, 請使用下列 kql 查詢: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -180,13 +176,13 @@ ms.locfileid: "67618128"
   ) on UserId
   | extend UserIdName = strcat("Id:", UserId, ", Name:", UserName)
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
-  ~~~
+```
 
-    Use the query results to discover:
+請使用查詢結果來了解︰
 
-  1. 裝置上是否執行了任何可疑的處理序？
-  2. 這些處理序是不是由適當的使用者來執行？
-  3. 是否有任何命令列執行包含正確且預期中的引數？
+- 裝置上是否執行了任何可疑的處理序？
+- 這些處理序是不是由適當的使用者來執行？
+- 是否有任何命令列執行包含正確且預期中的引數？
 
 ## <a name="next-steps"></a>後續步驟
 

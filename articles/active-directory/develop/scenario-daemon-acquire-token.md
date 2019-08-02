@@ -1,6 +1,6 @@
 ---
-title: 精靈應用程式呼叫 web Api （取得應用程式的權杖）-Microsoft 身分識別平台
-description: 了解如何建置精靈應用程式呼叫 web Api （取得權杖）
+title: 呼叫 web Api 的 Daemon 應用程式 (取得應用程式的權杖)-Microsoft 身分識別平臺
+description: 瞭解如何建立可呼叫 web Api (取得權杖) 的 daemon 應用程式
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,20 +16,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075366"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562354"
 ---
-# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api-的精靈應用程式取得權杖
+# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>呼叫 web Api 的 Daemon 應用程式-取得權杖
 
-一旦建構機密用戶端應用程式時，您可以藉由呼叫來取得應用程式的權杖``AcquireTokenForClient``，傳遞範圍內，並強制或不重新整理語彙基元。
+一旦建立機密用戶端應用程式, 您就可以藉由呼叫``AcquireTokenForClient``、傳遞範圍, 以及強制或不重新整理權杖來取得應用程式的權杖。
 
 ## <a name="scopes-to-request"></a>要求的範圍
 
-要求用戶端認證流程是資源的名稱範圍後面`/.default`。 這個標記法會指示要使用的 Azure AD**應用程式層級權限**應用程式註冊期間以靜態方式宣告。 此外，如先前所示，這些 API 的權限必須被授與租用戶系統管理員
+要求用戶端認證流程的範圍是資源的名稱, 後面接著`/.default`。 此標記法會告訴 Azure AD 在應用程式註冊期間, 使用靜態宣告的**應用層級許可權**。 此外, 如先前所見, 這些 API 許可權必須由租使用者系統管理員授與
 
 ### <a name="net"></a>.NET
 
@@ -40,7 +40,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 ### <a name="python"></a>Python
 
-MSAL。Python，組態檔應該像下列程式碼片段：
+在 MSAL 中。Python, 設定檔看起來會像下列程式碼片段:
 
 ```Python
 {
@@ -59,13 +59,13 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 ### <a name="all"></a>全部
 
-使用用戶端認證的範圍應該一律是 resourceId +"/。 預設"
+用於用戶端認證的範圍應該一律是 resourceId + "/.default"
 
-### <a name="case-of-v10-resources"></a>V1.0 資源的大小寫
+### <a name="case-of-azure-ad-v10-resources"></a>Azure AD (v1.0) 資源的案例
 
 > [!IMPORTANT]
-> 接受 v1.0 存取權杖的資源要求存取權杖的 msal （v2.0 端點），Azure AD 會剖析要求的範圍從目標對象所採取的最後一個斜線之前的所有項目，並使用它做為資源識別碼。
-> 因此如果，例如 Azure SQL ( **https://database.windows.net** ) 之資源所預期的結尾斜線的對象 (針對 Azure SQL: `https://database.windows.net/` )，您必須要求的範圍`https://database.windows.net//.default` （請注意兩個斜線）。 另請參閱 MSAL.NET 問題[#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747):省略資源 url 結尾的斜線，導致 sql 驗證失敗。
+> 針對 MSAL (Microsoft 身分識別平臺端點), 針對接受 v1.0 存取權杖的資源要求存取權杖, Azure AD 藉由在最後一個斜線之前取得所有專案, 並使用它作為資源識別碼, 從要求的範圍剖析所需的物件。
+> 因此, 如果 azure sql ( **https://database.windows.net** ) 之類的資源預期以斜線結尾的物件 (適用于 azure sql: `https://database.windows.net/` ), 您將需要要求的範圍`https://database.windows.net//.default` (請注意雙斜線)。 另請參閱 MSAL.NET 問題[#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747):會省略資源 url 的尾端斜線, 這會導致 sql 驗證失敗。
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
@@ -98,9 +98,9 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-#### <a name="application-token-cache"></a>應用程式的權杖快取
+#### <a name="application-token-cache"></a>應用程式權杖快取
 
-MSAL.NET，在`AcquireTokenForClient`會使用**應用程式的權杖快取**（其他 AcquireTokenXX 方法會使用使用者的權杖快取） 不要呼叫`AcquireTokenSilent`再呼叫`AcquireTokenForClient`為`AcquireTokenSilent`使用**使用者**權杖快取。 `AcquireTokenForClient` 會檢查**應用程式**權杖快取本身，並更新它。
+在 MSAL.NET 中`AcquireTokenForClient` , 使用**應用程式權杖**快取 (所有其他的 AcquireTokenXX 方法使用使用者 token 快取) `AcquireTokenSilent`在呼叫`AcquireTokenForClient`之前`AcquireTokenSilent`不會呼叫, 而是使用**使用者**權杖快取。 `AcquireTokenForClient`檢查**應用程式**權杖快取本身並加以更新。
 
 ### <a name="python"></a>Python
 
@@ -130,7 +130,7 @@ AuthenticationResult result = future.get();
 
 ### <a name="protocol"></a>Protocol
 
-如果您不需要您選擇的語言的程式庫，您可能想要直接使用通訊協定：
+如果您還沒有適用于您所選語言的程式庫, 您可能會想要直接使用此通訊協定:
 
 #### <a name="first-case-access-token-request-with-a-shared-secret"></a>第一種情況︰使用共用密碼的存取權杖要求
 
@@ -159,20 +159,20 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-### <a name="learn-more-about-the-protocol"></a>深入了解通訊協定
+### <a name="learn-more-about-the-protocol"></a>深入瞭解通訊協定
 
-如需詳細資訊，請參閱 < 通訊協定文件：[Azure Active Directory v2.0 和 OAuth 2.0 用戶端認證流程](v2-oauth2-client-creds-grant-flow.md)。
+如需詳細資訊, 請參閱通訊協定檔:[Microsoft 身分識別平臺和 OAuth 2.0 用戶端認證流程](v2-oauth2-client-creds-grant-flow.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 
-### <a name="did-you-use-the-resourcedefault-scope"></a>您未使用的資源 /。 預設範圍嗎？
+### <a name="did-you-use-the-resourcedefault-scope"></a>您使用的是 resource/. 預設範圍嗎？
 
-如果您收到錯誤訊息，告知您，您使用無效的範圍，您可能沒有使用`resource/.default`範圍。
+如果您收到錯誤訊息, 告知您使用了不正確範圍, 表示您可能未使用`resource/.default`範圍。
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>您是否忘記提供系統管理員同意？ 精靈應用程式需要的 ！
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>您忘了提供系統管理員同意嗎？ Daemon 應用程式需要!
 
-如果呼叫 API 時，收到錯誤**權限不足以完成作業**，租用戶系統管理員必須授與給應用程式的權限。 請參閱步驟 6 的註冊上述的用戶端應用程式。
-您通常會看到，錯誤會像下列的錯誤描述：
+如果您在呼叫 API 的**許可權不足而無法完成**作業時收到錯誤, 則租使用者系統管理員必須授與許可權給應用程式。 請參閱上面的註冊用戶端應用程式的步驟6。
+您通常會看到和錯誤, 如下列錯誤描述所示:
 
 ```JSon
 Failed to call the web API: Forbidden
@@ -191,4 +191,4 @@ Content: {
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [精靈應用程式-呼叫 web API](scenario-daemon-call-api.md)
+> [Daemon 應用程式-呼叫 Web API](scenario-daemon-call-api.md)

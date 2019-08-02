@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872479"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620116"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -55,7 +55,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 ![NSG 流量記錄處理的資料流程](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions"></a>支援區域
+## <a name="supported-regions-nsg"></a>支援的區域:NSG 
 
 您可以在下列任何支援的區域中使用 NSG 的流量分析：
 
@@ -74,7 +74,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 巴西南部
 * 英國西部
 * 英國南部
-* 澳洲東部
+* 澳大利亞東部
 * 澳大利亞東南部
 * 東亞
 * 東南亞
@@ -83,7 +83,9 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 印度南部
 * 日本東部 
 * 日本西部
-* 美國政府維吉尼亞州
+* US Gov 維吉尼亞州
+
+## <a name="supported-regions-log-analytics-workspaces"></a>支援的區域:Log Analytics 工作區
 
 Log Analytics 工作區必須存在於下列區域：
 * 加拿大中部
@@ -98,16 +100,16 @@ Log Analytics 工作區必須存在於下列區域：
 * 北歐
 * 西歐
 * 英國南部
-* 澳洲東部
+* 澳大利亞東部
 * 澳大利亞東南部
 * 東亞
 * 東南亞
 * 南韓中部
 * 印度中部
 * 日本東部
-* 美國政府維吉尼亞州
+* US Gov 維吉尼亞州
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 ### <a name="user-access-requirements"></a>使用者存取需求
 
@@ -117,7 +119,7 @@ Log Analytics 工作區必須存在於下列區域：
 |---------          |---------               |
 |Resource Manager   | 擁有者                  |
 |                   | 參與者            |
-|                   | 讀取者                 |
+|                   | 讀者                 |
 |                   | 網路參與者    |
 
 如果您的帳戶未指派給其中一個內建角色，則必須指派給一個[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)，且該角色已獲得下列訂用帳戶層級的動作：
@@ -137,17 +139,17 @@ Log Analytics 工作區必須存在於下列區域：
 
 ### <a name="enable-network-watcher"></a>啟用網路監看員
 
-若要分析流量，您必須具有現有的網路監看員，或在每個有 NSG 需要分析流量的區域中[啟用網路監看員](network-watcher-create.md)。 您可以為任何[支援區域](#supported-regions)中裝載的 NSG 啟用流量分析。
+若要分析流量，您必須具有現有的網路監看員，或在每個有 NSG 需要分析流量的區域中[啟用網路監看員](network-watcher-create.md)。 您可以為任何[支援區域](#supported-regions-nsg)中裝載的 NSG 啟用流量分析。
 
 ### <a name="select-a-network-security-group"></a>選取網路安全性群組
 
 啟用 NSG 流量記錄之前，您必須具有要記錄流量的網路安全性群組。 如果您沒有網路安全性群組，請參閱[建立網路安全性群組](../virtual-network/manage-network-security-group.md#create-a-network-security-group)，以建立此群組。
 
-在 Azure 入口網站左半部，依序選取 [監視器]  、[網路監看員]  和 [NSG 流量記錄]  。 選取要啟用 NSG 流量記錄的網路安全性群組，如下圖所示：
+在 Azure 入口網站左半部，依序選取 [監視器]、[網路監看員] 和 [NSG 流量記錄]。 選取要啟用 NSG 流量記錄的網路安全性群組，如下圖所示：
 
 ![選取需要啟用 NSG 流量記錄的 NSG](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-如果您嘗試為[支援區域](#supported-regions)以外的任何區域中裝載的 NSG 啟用流量分析，將會出現「找不到」錯誤。
+如果您嘗試為[支援區域](#supported-regions-nsg)以外的任何區域中裝載的 NSG 啟用流量分析，將會出現「找不到」錯誤。
 
 ## <a name="enable-flow-log-settings"></a>啟用流量記錄設定
 
@@ -172,25 +174,26 @@ New-AzStorageAccount `
 
 選取下列選項，如下圖所示：
 
-1. 針對 [狀態]  選取 [開啟]  。
+1. 針對 [狀態] 選取 [開啟]。
 2. 選取 [*第2版*] 作為 [**流量記錄版本**]。 第 2 版包含流量工作階段統計資料 (位元組和封包)
-3. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。
-4. 將 [保留]  設為您要儲存資料的天數。
-5. 針對 [流量分析狀態]  ，選取 [開啟]  。
-6. 選取現有的 Log Analytics (OMS) 工作區，或選取 [建立新的工作區]  以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#supported-regions)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+3. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。 請確定您的儲存體未將 [Data Lake Storage Gen2 階層式命名空間] 設定為 [true]。 此外, NSG 流量記錄不能儲存在具有防火牆的儲存體帳戶中。 
+4. 將 [保留] 設為您要儲存資料的天數。
+5. 針對 [流量分析狀態]，選取 [開啟]。
+6. 選取 [處理間隔]。 根據您的選擇, 會從儲存體帳戶收集流量記錄, 並由流量分析進行處理。 您可以選擇每隔1小時或每隔10分鐘的處理間隔。
+7. 選取現有的 Log Analytics (OMS) 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#supported-regions-log-analytics-workspaces)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
     裝載流量分析解決方案和 NSG 的記錄分析工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
-7. 選取 [ **儲存**]。
+8. 選取 [ **儲存**]。
 
-    ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
+    ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區, 因此請確定您國家/地區的當地法律和法規允許工作區所在區域中的資料儲存。
+針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。 如果您針對不同的 Nsg 設定了不同的處理間隔, 資料將會以不同的間隔收集。 例如: 您可以選擇針對 [重大 Vnet] 啟用 [10 分鐘] 的處理間隔, 並針對非關鍵性的 Vnet 選擇 [1 小時]。
 
 您也可以在 Azure PowerShell 中使用[AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell Cmdlet 來設定流量分析。 執行 `Get-Module -ListAvailable Az` 來了解您安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 ## <a name="view-traffic-analytics"></a>檢視流量分析
 
-在入口網站左側選取 [所有服務]  ，然後在 [篩選]  方塊中輸入 [監視器]  。 當 [監視器]  出現在搜尋結果中時，請加以選取。 若要開始瀏覽流量分析及其功能，請選取 [網路監看員]  ，然後選取 [流量分析]  。
+在入口網站左側選取 [所有服務]，然後在 [篩選] 方塊中輸入 [監視器]。 當 [監視器] 出現在搜尋結果中時，請加以選取。 若要開始瀏覽流量分析及其功能，請選取 [網路監看員]，然後選取 [流量分析]。
 
 ![存取流量分析儀表板](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
@@ -214,7 +217,7 @@ New-AzStorageAccount `
 - 允許/封鎖的惡意流量統計資料
   - 為什麼主機收到惡意流量，且為什麼允許惡意來源？ 這種行為需要進一步調查與可能的組態最佳化。
 
-    選取 [主機]  底下的 [檢視全部]  ，如下圖所示：
+    選取 [主機] 底下的 [檢視全部]，如下圖所示：
 
     ![詳盡顯示流量最大之主機的儀表板](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
@@ -230,7 +233,7 @@ New-AzStorageAccount `
     - 主機允許或封鎖大量流量的原因為何？
 - 最常交談的主機配對之間最常用的應用程式通訊協定：
     - 此網路上是否允許這些應用程式？
-    - 應用程式已正確設定？ 它們是否使用適當的通訊協定進行通訊？ 選取 [經常交談]  底下的 [檢視全部]  ，如下圖所示：
+    - 應用程式已正確設定？ 它們是否使用適當的通訊協定進行通訊？ 選取 [經常交談] 底下的 [檢視全部]，如下圖所示：
 
         ![顯示最常交談的儀表板](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
@@ -242,7 +245,7 @@ New-AzStorageAccount `
 
 - 您的環境中最常使用哪個應用程式通訊協定？哪些交談主機配對最常使用該應用程式通訊協定？
     - 此網路上是否允許這些應用程式？
-    - 應用程式已正確設定？ 它們是否使用適當的通訊協定進行通訊？ 預期的行為是通用連接埠，例如 80 和 443。 就標準通訊而言，如果顯示了任何不尋常的連接埠，則可能需要為其變更設定。 選取 [應用程式連接埠]  底下的 [檢視全部]  ，如下圖所示：
+    - 應用程式已正確設定？ 它們是否使用適當的通訊協定進行通訊？ 預期的行為是通用連接埠，例如 80 和 443。 就標準通訊而言，如果顯示了任何不尋常的連接埠，則可能需要為其變更設定。 選取 [應用程式連接埠] 底下的 [檢視全部]，如下圖所示：
 
         ![顯示最高排名應用程式通訊協定的儀表板](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
@@ -258,7 +261,7 @@ New-AzStorageAccount `
     - 每個 VPN SKU 都允許特定數量的頻寬。 VPN 閘道是否使用率過低？
     - 您的閘道是否達到容量？ 您應升級至下一個較高的 SKU 嗎？
 - 哪些是最常交談的主機？經由哪個 VPN 閘道？透過哪個連接埠？
-    - 此模式是否正常？ 選取 [VPN 閘道]  底下的 [檢視全部]  ，如下圖所示：
+    - 此模式是否正常？ 選取 [VPN 閘道] 底下的 [檢視全部]，如下圖所示：
 
         ![顯示最高排名使用中 VPN 連線的儀表板](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
@@ -274,7 +277,7 @@ New-AzStorageAccount `
   - 如果您發現資料中心的負載較高，您可以規劃有效率的流量分配。
   - 如果有 Rogue 網路在資料中心內交談，請更正 NSG 規則以封鎖這些網路。
 
-    選取 [您的環境]  底下的 [檢視對應]  ，如下圖所示：
+    選取 [您的環境] 底下的 [檢視對應]，如下圖所示：
 
     ![顯示流量分布的儀表板](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
@@ -296,7 +299,7 @@ New-AzStorageAccount `
   - 了解哪些虛擬網路正在互相交談。 如果交談不符預期，可加以更正。
   - 如果有 Rogue 網路與虛擬網路交談，您可以更正 NSG 規則以封鎖 Rogue 網路。
  
-    選取 [您的環境]  底下的 [檢視 Vnet]  ，如下圖所示：
+    選取 [您的環境] 底下的 [檢視 Vnet]，如下圖所示：
 
     ![顯示虛擬網路分布的儀表板](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
@@ -366,7 +369,7 @@ New-AzStorageAccount `
 
     ![記錄搜尋中的 NSG 規則詳細統計資料](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
 
-## <a name="frequently-asked-questions"></a>常見問題集
+## <a name="frequently-asked-questions"></a>常見問答集
 
 若要取得常見問題的解答，請參閱[流量分析常見問題集](traffic-analytics-faq.md)。
 

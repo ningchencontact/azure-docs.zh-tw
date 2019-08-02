@@ -3,7 +3,7 @@ title: 將現有的可執行檔部署至 Azure Service Fabric | Microsoft Docs
 description: 了解如何將現有應用程式封裝為來賓可執行檔，使其可以部署至 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: aljo
-ms.openlocfilehash: bfac14c598b405a398cad916787aa3312589bfd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393524"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599659"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>將現有可執行檔封裝和部署至 Service Fabric
 在封裝現有可執行檔作為[來賓可執行檔](service-fabric-guest-executables-introduction.md)時，您可以選擇使用 Visual Studio 專案範本，或是[手動建立應用程式套件](#manually)。 使用 Visual Studio 時，就可讓 [新增專案範本] 為您建立應用程式套件的結構和資訊清單檔案。
@@ -31,17 +31,17 @@ ms.locfileid: "60393524"
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>使用 Visual Studio 來封裝及部署現有的可執行檔
 Visual Studio 會提供 Service Fabric 服務範本，協助您將來賓可執行檔部署至 Service Fabric 叢集。
 
-1. 選擇 [檔案]   >  [新增專案]  ，然後建立 Service Fabric 應用程式。
-2. 選擇 [來賓執行檔]  做為服務範本。
-3. 按一下 [瀏覽]  以選取內含執行檔的資料夾，並填入其餘參數以建立服務。
-   * 「Code Package Behavior」  。 可設定為將資料夾的所有內容複製到 Visual Studio 專案，這在執行檔沒有變更時很有用。 如果您預期會變更可執行檔，並想要以動態方式取得新組建，則可以選擇改為連結到資料夾。 在 Visual Studio 中建立應用程式專案時，您可以使用連結的資料夾。 這會從專案內連結到來源位置，讓您可以在來源目的地更新來賓執行檔。 在組建時使這些更新會成為應用程式套件的一部分。
-   * 「Program」  指定應執行以便啟動服務的執行檔。
-   * 「Arguments」  指定應傳遞至執行檔的引數。 這可以是具有引數的參數清單。
-   * 「WorkingFolder」  指定即將啟動之程序的工作目錄。 您可以指定三個值：
+1. 選擇 [檔案]  >  [新增專案]，然後建立 Service Fabric 應用程式。
+2. 選擇 [來賓執行檔] 做為服務範本。
+3. 按一下 [瀏覽] 以選取內含執行檔的資料夾，並填入其餘參數以建立服務。
+   * 「Code Package Behavior」。 可設定為將資料夾的所有內容複製到 Visual Studio 專案，這在執行檔沒有變更時很有用。 如果您預期會變更可執行檔，並想要以動態方式取得新組建，則可以選擇改為連結到資料夾。 在 Visual Studio 中建立應用程式專案時，您可以使用連結的資料夾。 這會從專案內連結到來源位置，讓您可以在來源目的地更新來賓執行檔。 在組建時使這些更新會成為應用程式套件的一部分。
+   * 「Program」指定應執行以便啟動服務的執行檔。
+   * 「Arguments」指定應傳遞至執行檔的引數。 這可以是具有引數的參數清單。
+   * 「WorkingFolder」指定即將啟動之程序的工作目錄。 您可以指定三個值：
      * `CodeBase` 指定工作目錄即將設為應用程式套件中的 code 目錄 (先前檔案結構中所示的 `Code` 目錄)。
      * `CodePackage` 指定工作目錄即將設為應用程式套件中的根目錄 (先前檔案結構中所示的 `GuestService1Pkg`)。
      * `Work` 指定檔案放在名為 work 的子目錄中。
-4. 指定服務的名稱，然後按一下 [確定]  。
+4. 指定服務的名稱，然後按一下 [確定]。
 5. 如果服務需要用來進行通訊的端點，您現在可以將 protocol、port 和 type 新增至 ServiceManifest.xml 檔案。 例如：`<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`。
 6. 您現在可以藉由在 Visual Studio 中偵錯方案，對本機叢集執行封裝和發佈動作。 準備好時，即可將應用程式發佈至遠端叢集，或將方案簽入到原始檔控制。
 7. 請參閱[檢查您的執行中應用程式](#check-your-running-application)，以了解如何檢視 Service Fabric Explorer 中執行的來賓執行檔服務。
@@ -73,7 +73,7 @@ Yeoman 會建立應用程式套件，其中包含適當的應用程式和資訊�
 -->
 
 ### <a name="create-the-package-directory-structure"></a>建立套件目錄結構
-您可以開始建立目錄結構中所述[將 Azure Service Fabric 應用程式封裝](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)。
+您可以從建立目錄結構開始, 如[封裝 Azure Service Fabric 應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)中所述。
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>新增應用程式的程式碼和組態檔
 建立目錄結構之後，您可以在 code 和 config 目錄之下新增應用程式的程式碼和組態檔。 您也可以在 code 和 config 目錄之下建立其他目錄或子目錄。
@@ -228,7 +228,7 @@ WorkingFolder 適合用來設定正確的工作目錄，以便應用程式或初
 在 `ServiceManifest.xml` 檔案中，可使用 `ConsoleRedirection` 元素設定主控台重新導向。
 
 > [!WARNING]
-> 切勿在實際部署的應用程式中使用主控台重新導向原則，因為這可能會影響應用程式容錯移轉。 僅  將此原則用於本機開發及偵錯。  
+> 切勿在實際部署的應用程式中使用主控台重新導向原則，因為這可能會影響應用程式容錯移轉。 僅將此原則用於本機開發及偵錯。  
 >
 >
 

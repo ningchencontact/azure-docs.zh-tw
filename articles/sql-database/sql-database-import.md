@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 06/20/2019
-ms.openlocfilehash: 5726a11d37899517674d445711afda31731b901d
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ca098eba8e0cbad0d0240bd7819a401c502a869d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305822"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568033"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>快速入門：在 Azure SQL Database 中將 BACPAC 檔案匯入資料庫
 
@@ -30,14 +29,14 @@ ms.locfileid: "68305822"
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>在 Azure 入口網站中從 BACPAC 檔案匯入
 
-[Azure 入口網站](https://portal.azure.com)「僅」  支援在 Azure SQL Database 中建立單一資料庫，且「僅能」  從儲存在 Azure Blob 儲存體中的 BACPAC 檔案建立。
+[Azure 入口網站](https://portal.azure.com)「僅」支援在 Azure SQL Database 中建立單一資料庫，且「僅能」從儲存在 Azure Blob 儲存體中的 BACPAC 檔案建立。
 
 目前不支援使用 Azure PowerShell 從 BACPAC 檔案將資料庫移轉至[受控實例](sql-database-managed-instance.md)。 請改用 SQL Server Management Studio 或 SQLPackage。
 
 > [!NOTE]
 > 處理透過 Azure 入口網站或 PowerShell 提交的匯入/匯出要求的機器, 必須儲存 BACPAC 檔案, 以及資料層應用程式架構 (DacFX) 所產生的暫存檔案。 所需的磁碟空間在大小相同的資料庫之間有很大的差異, 而且可能需要最多3倍資料庫大小的磁碟空間。 執行匯入/匯出要求的機器僅具有450GB 本機磁碟空間。 因此, 某些要求可能會因錯誤`There is not enough space on the disk`而失敗。 在此情況下, 因應措施是在具有足夠本機磁碟空間的電腦上執行 sqlpackage。 我們建議使用[SqlPackage](#import-from-a-bacpac-file-using-sqlpackage)來匯入/匯出大於150GB 的資料庫, 以避免發生此問題。
  
-1. 若要使用 Azure 入口網站從 BACPAC 檔案匯入至單一資料庫，請開啟適當的資料庫伺服器頁面，然後在工具列上選取 [匯入資料庫]  。  
+1. 若要使用 Azure 入口網站從 BACPAC 檔案匯入至單一資料庫，請開啟適當的資料庫伺服器頁面，然後在工具列上選取 [匯入資料庫]。  
 
    ![資料庫匯入1](./media/sql-database-import/import1.png)
 
@@ -46,13 +45,13 @@ ms.locfileid: "68305822"
 
    ![資料庫匯入2](./media/sql-database-import/import2.png)
 
-4. 按一下 [確定 **Deploying Office Solutions**]。
+4. 按一下 [確定]。
 
-5. 若要監視匯入進度，請開啟資料庫的伺服器頁面，然後在 [設定]  下選取 [匯入/匯出記錄]  。 匯入成功時，會處於 [已完成]  狀態。
+5. 若要監視匯入進度，請開啟資料庫的伺服器頁面，然後在 [設定] 下選取 [匯入/匯出記錄]。 匯入成功時，會處於 [已完成] 狀態。
 
    ![資料庫匯入狀態](./media/sql-database-import/import-status.png)
 
-6. 若要確認資料庫伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]  ，並確認新的資料庫為 [線上]  狀態。
+6. 若要確認資料庫伺服器上的資料庫為線上狀態，請選取 [SQL 資料庫]，並確認新的資料庫為 [線上] 狀態。
 
 ## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>使用 SqlPackage 從 BACPAC 檔案匯入
 

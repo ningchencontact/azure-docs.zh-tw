@@ -5,7 +5,7 @@ description: 深入了解預先安裝在資料科學虛擬機器上的程式語�
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 1df3c986132de2a3e7ec9547a996abef60ea04ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502211"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558130"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的語言 
 
@@ -62,11 +62,11 @@ python --version
 使用安裝於 Visual Studio Community 版本的「適用於 Visual Studio 的 Python 工具」(PTVS)。 Python 3.6 是 PTVS 中預設唯一會自動設定的環境。 
 
 > [!NOTE]
-> 若要將 PTVS 指向 Python 2.7，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具]   -> [Python 工具]   -> [Python 環境]  ，然後按一下 [+ 自訂]  。 然後將位置設定為 `c:\anaconda\envs\python2`，並按一下 [自動偵測]  。 
+> 若要將 PTVS 指向 Python 2.7，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具] -> [Python 工具] -> [Python 環境]，然後按一下 [+ 自訂]。 然後將位置設定為 `c:\anaconda\envs\python2`，並按一下 [自動偵測]。 
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 3.6 將核心類型選擇為 [Python [Conda Root]]  ，並針對 Python 2.7 環境將核心類型選擇為 [Python [Conda env:python2]]  。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 3.6 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 2.7 環境將核心類型選擇為 [Python [Conda env:python2]]。 
 
 * 安裝 Python 套件
 
@@ -104,7 +104,7 @@ python --version
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]  ，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]  。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]。 
 
 * 安裝 Python 套件
 
@@ -129,11 +129,11 @@ python --version
 
 使用安裝於 Visual Studio Community 版本的「適用於 Visual Studio 的 Python 工具」(PTVS)。 Python 2.7 是 PTVS 中唯一會自動設定的環境。 
 > [!NOTE]
-> 若要將 PTVS 指向 Python 3.5，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具]   -> [Python 工具]   -> [Python 環境]  ，然後按一下 [+ 自訂]  。 然後將位置設定為 `c:\anaconda\envs\py35`，並按一下 [自動偵測]  。 
+> 若要將 PTVS 指向 Python 3.5，您必須在 PTVS 中建立自訂環境。 若要在 Visual Studio Community 版本中設定此環境路徑，請瀏覽至 [工具] -> [Python 工具] -> [Python 環境]，然後按一下 [+ 自訂]。 然後將位置設定為 `c:\anaconda\envs\py35`，並按一下 [自動偵測]。 
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]  ，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]  。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以針對 Python 2.7 將核心類型選擇為 [Python [Conda Root]]，並針對 Python 3.5 環境將核心類型選擇為 [Python [Conda env:py35]]。 
 
 * 安裝 Python 套件
 
@@ -162,7 +162,7 @@ DSVM 上的預設 Python 環境為全域環境，可由所有使用者讀取。 
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 [R]  以使用 Jupyter R 核心 (IRKernel)。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 [R] 以使用 Jupyter R 核心 (IRKernel)。 
 
 * 安裝 R 套件
 
@@ -180,7 +180,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 
 * 在 Jupyter 中使用
 
-開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 [R]  以使用 Jupyter R 核心 (IRKernel)。 
+開啟 Jupyter 並按一下 `New` 按鈕，以建立新的筆記本。 此時，您可以將核心類型選擇為 [R] 以使用 Jupyter R 核心 (IRKernel)。 
 
 * 安裝 R 套件
 
@@ -222,7 +222,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 開啟終端機並執行 `julia`。 
 * 在 IDE 中使用
 
-使用`Juno`安裝在 DSVM 上並可應用程式功能表捷徑的 Julia IDE。
+使用`Juno`安裝在 DSVM 上的 Julia IDE, 並以應用程式功能表快捷方式提供。
 
 * 在 Jupyter 中使用
 

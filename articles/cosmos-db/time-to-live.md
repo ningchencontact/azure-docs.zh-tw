@@ -4,19 +4,21 @@ description: Microsoft Azure Cosmos DB 可讓您利用 TTL 在一段時間後自
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7a29e9446a8c3b703c2ec3140711f44f3c81535f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467578"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597493"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的存留時間 (TTL) 
 
 使用**存留時間** ( TTL)，Azure Cosmos DB 提供在一段特定時間後自動從容器刪除項目的功能。 根據預設，您可以在容器層級設定存留時間，並覆寫每個項目的值。 在容器或項目層級設定 TTL 之後，Azure Cosmos DB 會在自從上次修改以來的時間週期後自動移除這些項目。 存留時間值是以秒為單位來設定的。 設定 TTL 之後，系統會根據 TTL 值自動刪除已過期的項，不需要用戶端應用程序明確地發出刪除作業。
+
+刪除過期的專案是一種背景工作, 它會取用由使用者要求未取用的要求單位, 而不會耗用由左至右的[要求單位](request-units.md)。 如果容器負載過重, 而且沒有任何要求單位留給維護工作, 則可能會延遲過期。
 
 ## <a name="time-to-live-for-containers-and-items"></a>容器和項目的存留時間
 

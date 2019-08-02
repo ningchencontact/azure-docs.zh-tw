@@ -1,18 +1,18 @@
 ---
 title: Azure VM 備份的 Azure 備份支援矩陣
 description: 摘要說明使用 Azure 備份服務來備份 Azure VM 時的支援設定和限制。
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.author: raynew
-ms.openlocfilehash: 3b979b6bcf2078e83564a8f008d392fd8e0a7c78
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464896"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639595"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)來備份內部部署機器和工作負載, 以及 Azure 虛擬機器 (vm)。 本文摘要說明使用 Azure 備份備份 Azure Vm 時的支援設定和限制。

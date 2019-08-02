@@ -5,30 +5,30 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/26/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5431dd74629b9ed76a6a072d8ada286ce71a7633
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61065034"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596074"
 ---
 # <a name="monitor-server-metrics"></a>監視伺服器計量
 
-Analysis Services 提供計量來協助您監視伺服器的效能和健康情況。 例如，監視記憶體和 CPU 使用率、用戶端連接數目，以及查詢資源消耗。 Analysis Services 和其他大部分的 Azure 服務一樣，採用相同的監視架構。 若要深入了解，請參閱 [Microsoft Azure 中的計量](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
+Analysis Services 提供 Azure 計量瀏覽器中的計量, 這是入口網站中的免費工具, 可協助您監視伺服器的效能和健康情況。 例如，監視記憶體和 CPU 使用率、用戶端連接數目，以及查詢資源消耗。 Analysis Services 和其他大部分的 Azure 服務一樣，採用相同的監視架構。 若要深入瞭解, 請參閱[開始使用 Azure 計量瀏覽器](../azure-monitor/platform/metrics-getting-started.md)。
 
-若要在資源群組或訂用帳戶中跨多個服務資源執行更多深入的診斷、追蹤效能及識別趨勢，請使用 [Azure 監視器](https://azure.microsoft.com/services/monitor/)。 使用 Azure 監視器 (服務) 可能需要付費。
+若要在資源群組或訂用帳戶中跨多個服務資源執行更多深入的診斷、追蹤效能及識別趨勢，請使用 [Azure 監視器](../azure-monitor/overview.md)。 使用 Azure 監視器 (服務) 可能需要付費。
 
 
 ## <a name="to-monitor-metrics-for-an-analysis-services-server"></a>監視 Analysis Services 伺服器的計量
 
-1. 在 Azure 入口網站中，選取 [計量]  。
+1. 在 Azure 入口網站中，選取 [計量]。
 
     ![在 Azure 入口網站中監視](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. 在 [可用的計量]  中，選取要併入圖表中的計量。 
+2. 在 [可用的計量] 中，選取要併入圖表中的計量。 
 
     ![監視器圖表](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -38,7 +38,7 @@ Analysis Services 提供計量來協助您監視伺服器的效能和健康情�
 
 請根據下表來決定哪些計量最適合您的監視情節。 同一圖表上只能顯示相同單位的計量。
 
-|計量|計量顯示名稱|單位|彙總類型|描述|
+|度量|計量顯示名稱|單位|彙總類型|描述|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|命令集區作業佇列長度|Count|Average|命令執行緒集區佇列中的作業數目。|
 |CurrentConnections|連線：目前的連線數|Count|Average|目前已建立的用戶端連接數目。|
@@ -55,17 +55,17 @@ Analysis Services 提供計量來協助您監視伺服器的效能和健康情�
 |MemoryLimitLow|記憶體：記憶體下限|位元組|Average|來自組態檔的記憶體下限。|
 |MemoryLimitVertiPaq|記憶體：記憶體限制 VertiPaq|位元組|Average|來自組態檔的記憶體內部限制。|
 |MemoryUsage|記憶體：記憶體使用量|位元組|Average|伺服器處理序用於計算清除器記憶體價格的記憶體使用量。 等於計數器 Process\PrivateBytes 加上記憶體對應的資料大小，忽略記憶體內部分析引擎 (VertiPaq) 在超出引擎記憶體限制時所對應或配置的任何記憶體。|
-|Quota|記憶體：Quota|位元組|Average|目前的記憶體配額，以位元組為單位。 記憶體配額也就是指授與使用的記憶體，或是保留的記憶體。|
+|配額|記憶體：配額|位元組|Average|目前的記憶體配額，以位元組為單位。 記憶體配額也就是指授與使用的記憶體，或是保留的記憶體。|
 |QuotaBlocked|記憶體：封鎖的配額|Count|Average|在釋放其他記憶體配額之前，目前已封鎖的配額要求數目。|
 |VertiPaqNonpaged|記憶體：未分頁的 VertiPaq|位元組|Average|工作集中已封鎖來供記憶體內部引擎使用的記憶體位元組。|
 |VertiPaqPaged|記憶體：分頁的 VertiPaq|位元組|Average|可供記憶體內部資料使用的分頁記憶體位元組。|
 |ProcessingPoolJobQueueLength|處理集區作業佇列長度|Count|Average|處理執行緒集區佇列中的非 I/O 作業數目。|
-|RowsConvertedPerSec|處理：每秒轉換的資料列|每秒計數|Average|處理期間資料列轉換的速率。|
-|RowsReadPerSec|處理：每秒讀取的資料列|每秒計數|Average|從所有關聯式資料庫讀取資料列的速率。|
-|RowsWrittenPerSec|處理：每秒寫入的資料列|每秒計數|Average|處理期間資料列寫入的速率。|
+|RowsConvertedPerSec|處理：每秒轉換的資料列|CountPerSecond|Average|處理期間資料列轉換的速率。|
+|RowsReadPerSec|處理：每秒讀取的資料列|CountPerSecond|Average|從所有關聯式資料庫讀取資料列的速率。|
+|RowsWrittenPerSec|處理：每秒寫入的資料列|CountPerSecond|Average|處理期間資料列寫入的速率。|
 |qpu_metric|QPU|Count|Average|QPU。 範圍 0-100 (S1)、0-200 (S2) 和 0-400 (S4)|
 |QueryPoolBusyThreads|查詢集區忙碌執行緒|Count|Average|查詢執行緒集區中的忙碌執行緒數目。|
-|SuccessfullConnectionsPerSec|每秒連線成功的次數|每秒計數|Average|成功完成連線的速率。|
+|SuccessfullConnectionsPerSec|每秒連線成功的次數|CountPerSecond|Average|成功完成連線的速率。|
 |CommandPoolBusyThreads|執行緒：命令集區的忙碌執行緒數|Count|Average|命令執行緒集區中的忙碌執行緒數。|
 |CommandPoolIdleThreads|執行緒：命令集區的閒置執行緒數|Count|Average|命令執行緒集區中的閒置執行緒數。|
 |LongParsingBusyThreads|執行緒：完整剖析的忙碌執行緒數|Count|Average|完整剖析執行緒集區中的忙碌執行緒數目。|
@@ -85,6 +85,6 @@ Analysis Services 提供計量來協助您監視伺服器的效能和健康情�
 |TotalConnectionRequests|連線要求的總計|Count|Average|連線要求的總計。 |
 
 ## <a name="next-steps"></a>後續步驟
-[在 Microsoft Azure 中監視](../monitoring-and-diagnostics/monitoring-overview.md)   
-[Microsoft Azure 中的計量](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
+[Azure 監視器總覽](../azure-monitor/overview.md)      
+[開始使用 Azure 計量瀏覽器](../azure-monitor/platform/metrics-getting-started.md)      
 [Azure 監視器 REST API 中的計量](/rest/api/monitor/metrics)

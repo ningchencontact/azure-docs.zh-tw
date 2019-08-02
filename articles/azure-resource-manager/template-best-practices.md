@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 07/12/2019
 ms.author: tomfitz
 ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67867397"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 範本最佳做法
@@ -40,7 +40,7 @@ ms.locfileid: "67867397"
 
 使用巢狀範本，即可超出一些範本限制。 如需詳細資訊，請參閱[在部署 Azure 資源時使用連結的範本](resource-group-linked-templates.md)。 若要減少參數、變數或輸出數目，您可以將數個值合併成一個物件。 如需詳細資訊，請參閱[物件作為參數](resource-manager-objects-as-parameters.md)。
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>資源群組
 
 當您將資源部署至資源群組時, 資源群組會儲存資源的相關中繼資料。 中繼資料會儲存在資源群組的位置。
 
@@ -198,7 +198,7 @@ ms.locfileid: "67867397"
    ]
    ```
 
-* 如果您使用範本中的公用端點  (例如 Azure Blob 儲存體公用端點)，請勿將命名空間硬式編碼  。 使用 **reference** 函式，動態擷取命名空間。 您可以使用此方法可將範本部署到不同的公用命名空間環境中，而不需要將範本中的端點手動變更。 將 API 版本設定成與您在範本中用於儲存體帳戶相同的版本：
+* 如果您使用範本中的公用端點 (例如 Azure Blob 儲存體公用端點)，請勿將命名空間硬式編碼。 使用 **reference** 函式，動態擷取命名空間。 您可以使用此方法可將範本部署到不同的公用命名空間環境中，而不需要將範本中的端點手動變更。 將 API 版本設定成與您在範本中用於儲存體帳戶相同的版本：
    
    ```json
    "osDisk": {

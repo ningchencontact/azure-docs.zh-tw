@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a833c255e7a4e83c003fbef72367c5e271f380c5
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 924ec20b9922d12da7291dc4f44b7413c68728c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347224"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569578"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted：保護機密資料，並將加密金鑰儲存在 Azure Key Vault 中
 
@@ -36,7 +35,7 @@ ms.locfileid: "68347224"
 * 建立資料庫資料表並將資料行加密。
 * 建立可插入、選取及顯示加密資料行資料的應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -105,14 +104,14 @@ ms.locfileid: "68347224"
    
     ![複製連接字串](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
 
-如果 [新增防火牆規則]  視窗開啟，請登入 Azure，讓 SSMS 為您建立新的防火牆規則。
+如果 [新增防火牆規則] 視窗開啟，請登入 Azure，讓 SSMS 為您建立新的防火牆規則。
 
 ## <a name="create-a-table"></a>建立資料表
 在本節中，您將建立資料表來保存病患的資料。 它一開始並未加密 -- 您將在下一節中設定加密。
 
-1. 展開 [資料庫] 。
+1. 展開 [資料庫]。
 2. 在 [Clinic] 資料庫上按一下滑鼠右鍵，然後按一下 [新增查詢]。
-3. 將下列 Transact-SQL (T-SQL) 貼到新的查詢視窗中並「執行」  它。
+3. 將下列 Transact-SQL (T-SQL) 貼到新的查詢視窗中並「執行」 它。
 
 ```sql
         CREATE TABLE [dbo].[Patients](
@@ -133,7 +132,7 @@ ms.locfileid: "68347224"
 ## <a name="encrypt-columns-configure-always-encrypted"></a>將資料行加密 (設定「一律加密」)
 SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密金鑰及加密的資料行，來協助您輕鬆設定「一律加密」。
 
-1. 展開 [資料庫]  > **空白** > ，藉由資料庫加密來保護 SQL Database 中的機密資料。
+1. 展開 [資料庫] > **空白** > ，藉由資料庫加密來保護 SQL Database 中的機密資料。
 2. 在 [Patients] 資料表上按一下滑鼠右鍵，然後選取 [加密資料行] 以開啟「一律加密精靈」：
    
     ![加密資料行](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
@@ -145,18 +144,18 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
 請加密每個病患的 **SSN** 和 **BirthDate** 資訊。 SSN 資料行將使用決定性加密，這可支援等式查閱、聯結及群組依據。 BirthDate 資料行將使用不支援操作的隨機加密。
 
-將 SSN 資料行的 [加密類型] 設定為 [決定性]，並將 BirthDate 資料行設定為 [隨機化]。 按一下 [下一步] 。
+將 SSN 資料行的 [加密類型] 設定為 [決定性]，並將 BirthDate 資料行設定為 [隨機化]。 按一下 [下一步]。
 
 ![加密資料行](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
 ### <a name="master-key-configuration"></a>主要金鑰組態
-您可以在 [主要金鑰組態]  頁面設定 CMK，以及選取要用來儲存 CMK 的金鑰存放區提供者。 目前，您可以將 CMK 儲存在 Windows 憑證存放區、「Azure 金鑰保存庫」或硬體安全性模組 (HSM) 中。
+您可以在 [主要金鑰組態] 頁面設定 CMK，以及選取要用來儲存 CMK 的金鑰存放區提供者。 目前，您可以將 CMK 儲存在 Windows 憑證存放區、「Azure 金鑰保存庫」或硬體安全性模組 (HSM) 中。
 
 本教學課程將說明如何將金鑰儲存在「Azure 金鑰保存庫」中。
 
-1. 選取 [Azure 金鑰保存庫] 。
+1. 選取 [Azure 金鑰保存庫]。
 2. 從下拉式清單中選取想要的金鑰保存庫。
-3. 按一下 [下一步] 。
+3. 按一下 [下一步]。
 
 ![主要金鑰組態](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -164,7 +163,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 您現在可以加密資料行，或儲存為 PowerShell 指令碼以供日後執行。 針對這個教學課程，請選取 [繼續以立即完成]，然後按 [下一步]。
 
 ### <a name="summary"></a>總結
-確認設定全都正確，然後按一下 [完成]  以完成 [一律加密] 的設定。
+確認設定全都正確，然後按一下 [完成] 以完成 [一律加密] 的設定。
 
 ![總結](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
@@ -599,7 +598,7 @@ Always Encrypted 精靈包含下列區段：**資料行選取**、**主要金鑰
 
 
 ## <a name="verify-that-the-data-is-encrypted"></a>確認資料已加密
-您可以透過使用 SSMS 來查詢 Patients 資料 (使用尚未啟用「資料行加密設定」  的目前連線)，快速檢查伺服器上的實際資料是否已加密。
+您可以透過使用 SSMS 來查詢 Patients 資料 (使用尚未啟用「資料行加密設定」 的目前連線)，快速檢查伺服器上的實際資料是否已加密。
 
 在 Clinic 資料庫上執行下列查詢。
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b2a2029dec917672d6f4ee8db24aed60e4f5bc5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143318"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568651"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>管理 Azure SQL Database 中的彈性集區
 
@@ -25,7 +24,7 @@ ms.locfileid: "66143318"
 
 ## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure 入口網站：管理彈性集區和集區資料庫
 
-所有集區設定都可以在一個位置找到：[設定集區]  刀鋒視窗。 若要前往該位置，請在入口網站中尋找彈性集區，然後從刀鋒視窗頂端或左側的資源功能表按一下 [設定集區]  。
+所有集區設定都可以在一個位置找到：[設定集區] 刀鋒視窗。 若要前往該位置，請在入口網站中尋找彈性集區，然後從刀鋒視窗頂端或左側的資源功能表按一下 [設定集區]。
 
 您可以從這裡進行下列任何變更並將變更全部儲存在一個批次中：
 
@@ -41,7 +40,7 @@ ms.locfileid: "66143318"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
 若要使用 Azure PowerShell 建立和管理 SQL Database 彈性集區和集區資料庫，請使用下列 PowerShell Cmdlet。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 若要建立及管理彈性集區的 SQL Database 伺服器，請參閱[建立及管理 SQL Database 伺服器](sql-database-servers.md)。 若要建立及管理防火牆規則，請參閱[使用 PowerShell 建立及管理防火牆規則](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell)。
 

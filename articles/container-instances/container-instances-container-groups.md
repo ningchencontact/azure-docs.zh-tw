@@ -10,15 +10,15 @@ ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b17004e7821bcac61ca98afdbeaf87644da2a441
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326059"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
-在 Azure Container Instances 中，最上層的資源就是容器群組  。 本文說明容器群組為何，以及這些群組能夠實現的案例類型。
+在 Azure Container Instances 中，最上層的資源就是容器群組。 本文說明容器群組為何，以及這些群組能夠實現的案例類型。
 
 ## <a name="how-a-container-group-works"></a>容器群組的運作方式
 
@@ -41,13 +41,13 @@ ms.locfileid: "68326059"
 
 ## <a name="deployment"></a>部署
 
-以下是兩種部署多容器群組的常見方式: 使用[Resource Manager 範本][resource-manager template] or a [YAML file][yaml-file]。 當您部署容器實例時, 如果需要部署其他 Azure 服務資源 (例如, [Azure 檔案儲存體共用][azure]檔案), 建議使用 Resource Manager 範本。 由於 YAML 格式的本質較簡潔, 當您的部署只包含容器實例時, 建議使用 YAML 檔案。
+以下是兩種部署多容器群組的常見方式: 使用[Resource Manager 範本][resource-manager template]或[YAML][yaml-file]檔案。 當您部署容器實例時, 如果需要部署其他 Azure 服務資源 (例如, [Azure 檔案儲存體共用][azure-files]), 建議使用 Resource Manager 範本。 由於 YAML 格式的本質較簡潔, 當您的部署只包含容器實例時, 建議使用 YAML 檔案。
 
 若要保留容器群組的設定, 您可以使用 Azure CLI 命令[az container export][az-container-export], 將設定匯出至 YAML 檔案。 匯出可讓您將容器群組設定儲存在版本控制中, 以取得「設定即程式碼」。 或者，在 YAML 中開發新組態時，您可以使用匯出的檔案作為起點。
 
 ## <a name="resource-allocation"></a>資源配置
 
-Azure 容器實例會配置資源, 例如群組中實例的 cpu、記憶體和選擇性[gpu][gpus] (preview) to a container group by adding the [resource requests][resource-requests] 。 以 CPU 資源為例, 如果您建立具有兩個實例的容器群組, 每個都要求1個 CPU, 則容器群組會配置2個 cpu。
+Azure 容器實例會藉由新增群組中實例的[資源要求][resource-requests], 將 cpu、記憶體和選擇性[gpu][gpus] (預覽) 等資源配置給容器群組。 以 CPU 資源為例, 如果您建立具有兩個實例的容器群組, 每個都要求1個 CPU, 則容器群組會配置2個 cpu。
 
 容器群組可用的資源上限取決於用於部署的[Azure 區域][region-availability]。
 
@@ -73,7 +73,7 @@ Azure 容器實例會配置資源, 例如群組中實例的 cpu、記憶體和�
 
 選擇性地將容器群組部署至[Azure 虛擬網路][virtual-network](預覽), 讓容器能夠安全地與虛擬網路中的其他資源進行通訊。
 
-## <a name="storage"></a>儲存體
+## <a name="storage"></a>存放區
 
 您可以指定要在容器群組內掛接的外部磁碟區。 您可以將這些磁碟區對應到群組之個別容器內的特定路徑。
 

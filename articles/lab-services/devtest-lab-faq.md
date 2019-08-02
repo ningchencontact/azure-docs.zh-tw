@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f38502cc543f19855dbca32c4724a5651b1a3f2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318112"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565333"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
 
-## <a name="blog-post"></a>Blog 文章
+## <a name="blog-post"></a>部落格文章
 我們的 DevTest Labs 小組 blog 已于2019年3月20日淘汰。 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>我可以從何處追蹤功能更新？
@@ -46,11 +46,11 @@ ms.locfileid: "68318112"
 ### <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
 如果此處未列出您的問題, 請讓我們知道, 讓我們可以協助您找到答案。
 
-- 將問題張貼在此常見問題集尾端。 與 Azure 快取小組和其他社群成員一起討論本文。
+- 將問題張貼在此常見問題集尾端。 
 - 若要觸及更多讀者，可將問題張貼在 [Azure DevTest Labs MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)。 與 Azure DevTest Labs 小組和社群的其他成員交流。
 - 若要提出功能要求，請將您的要求和想法提交到 [Azure DevTest Labs 使用者心聲](https://feedback.azure.com/forums/320373-azure-devtest-labs)。
 
-### <a name="what-is-a-microsoft-account"></a>什麼是 Microsoft 帳戶？
+### <a name="what-is-a-microsoft-account"></a>Microsoft 帳戶是什麼?
 Microsoft 帳戶是您使用 Microsoft 裝置和服務來執行幾乎所有作業時所使用的帳戶。 這是您用來登入 Skype、Outlook.com、OneDrive、Windows phone、Azure 和 Xbox Live 的電子郵件地址和密碼。 單一帳戶意味著不論您移到哪個裝置，檔案、相片、連絡人及設定都會跟著您移動。
  
 > [!NOTE]
@@ -109,7 +109,7 @@ DevTest Labs 資源應該由接近專案/應用程式小組的擁有者所擁有
 
 
 ### <a name="how-do-i-create-a-role-to-allow-users-to-do-a-specific-task"></a>如何? 建立可讓使用者執行特定工作的角色嗎？
-如需如何建立自訂角色並指派權限給該角色的完整文章，請參閱[將特定實驗室原則的權限授與使用者](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)。 以下指令碼範例會建立「DevTest Labs 進階使用者」  角色，其具有啟動和停止實驗室中所有 VM 的權限︰
+如需如何建立自訂角色並指派權限給該角色的完整文章，請參閱[將特定實驗室原則的權限授與使用者](devtest-lab-grant-user-permissions-to-specific-lab-policies.md)。 以下指令碼範例會建立「DevTest Labs 進階使用者」角色，其具有啟動和停止實驗室中所有 VM 的權限︰
 
 
 ```powershell
@@ -286,12 +286,12 @@ foreach($labVM in $labVMs)
 若要尋找與實驗室相關聯的目的地儲存體帳戶︰
 
 1.  登入 [Azure 入口網站](https://portal.azure.com)。
-2.  在左功能表上選取 [資源群組]  。
+2.  在左功能表上選取 [資源群組]。
 3.  尋找並選取與您的實驗室相關聯的資源群組。
-4.  在 [概觀]  底下，選取其中一個儲存體帳戶。
-5.  選取 [Blob]  。
+4.  在 [概觀] 底下，選取其中一個儲存體帳戶。
+5.  選取 [Blob]。
 6.  在清單中尋找要上傳的項目。 如果不存在任何項目，請返回步驟 4，然後嘗試另一個儲存體帳戶。
-7.  在 AzCopy 命令中使用 [URL]  作為目的地。
+7.  在 AzCopy 命令中使用 [URL] 作為目的地。
 
 何時應使用 Azure Marketplace 映像，而何時應使用我自己自訂的組織映像？
 
@@ -304,7 +304,7 @@ foreach($labVM in $labVMs)
 - 所有機器都必須具備的合規性或法規條件 (例如安全性原則)。
 - 使用自訂映射應該不會被視為輕量。 它們會帶來額外的複雜性, 因為您現在必須管理這些基礎基底映射的 VHD 檔案。 您也需要使用軟體更新來定期修補那些基本映像。 這些更新包括新的作業系統 (OS) 更新，以及軟體套件本身所需的任何更新或設定變更。
 
-## <a name="artifacts"></a>構件
+## <a name="artifacts"></a>成品
 
 ### <a name="what-are-artifacts"></a>何謂構件？
 構件是可用來在 VM 中部署最新版本或開發工具的可自訂項目。 在建立 VM 時，請將構件連結至 VM。 VM 佈建好之後，構件就會部署並設定 VM。 在我們的[公用 GitHub 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)中可取得各種預先存在的構件。 您也可以[撰寫您自己的構件](devtest-lab-artifact-author.md)。
@@ -388,7 +388,7 @@ VM 是資源群組中實驗室下的子資源。 當您使用 Resource Manager �
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>當 VM 部署失敗時，我可以在哪裡找到更多錯誤資訊？
 VM 部署錯誤會擷取至活動記錄中。 您可以在實驗室 VM 頁面的 [資源] 功能表上, 于 [ **Audit logs** ] 或 [**虛擬機器診斷**] 底下找到實驗室 vm 活動記錄 (在您從 [我的虛擬機器] 清單中選取 VM 之後, 該頁面就會出現)。
 
-系統有時候會在 VM 部署開始之前就發生部署錯誤。 舉例來說，如果您超過隨 VM 一起建立之資源的訂用帳戶限制時。 在此情況下，系統會將錯誤詳細資料擷取到實驗室層級的活動記錄中。 活動記錄位於 [組態和原則]  設定底部。 如需在 Azure 中使用活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](../azure-resource-manager/resource-group-audit.md)。
+系統有時候會在 VM 部署開始之前就發生部署錯誤。 舉例來說，如果您超過隨 VM 一起建立之資源的訂用帳戶限制時。 在此情況下，系統會將錯誤詳細資料擷取到實驗室層級的活動記錄中。 活動記錄位於 [組態和原則] 設定底部。 如需在 Azure 中使用活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](../azure-resource-manager/resource-group-audit.md)。
 
 ### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>當嘗試建立實驗室時, 為什麼會收到「無法提供資源類型的位置」錯誤？
 當您嘗試建立實驗室時, 您可能會看到類似下列的錯誤訊息: 
