@@ -54,8 +54,6 @@
           href: cloudsimple-faq.md
     - name: 教學課程
       items:
-        - name: 啟用資源提供者
-          href: enable-cloudsimple-service.md
         - name: 建立 CloudSimple 服務
           href: create-cloudsimple-service.md
         - name: 存取 CloudSimple 入口網站
