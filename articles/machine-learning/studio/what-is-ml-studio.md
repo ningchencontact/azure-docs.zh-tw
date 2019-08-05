@@ -4,9 +4,9 @@ titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio 是可從已準備就緒可供使用的演算法與模組程式庫快速建置模型的拖放工具。
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
-ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4ec9cff652bf1badf526d490547ad78de31ac5da
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024205"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678005"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。
@@ -40,17 +40,17 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>下載 Machine Learning Studio 概觀圖表
 下載 **Microsoft Azure Machine Learning Studio 功能概觀** 圖表，並取得 Machine Learning Studio 功能的概略檢視。 若要就近保留它，您可以將圖表列印於 Tabloid 大小 (11 x 17 英吋) 的紙張上。
 
-**在這裡下載圖表：[Microsoft Azure Machine Learning Studio 功能概觀](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**在這裡下載圖表：[Microsoft Azure Machine Learning Studio 功能概觀](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
 ![Microsoft Azure Machine Learning Studio 功能概觀](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>開始使用 Machine Learning Studio
-第一次進入 Machine Learning Studio (https://studio.azureml.net) 時，您會看到 [首頁]。 您可以從這裡檢視文件、影片、網路研討會，以及尋找其他重要資源。
+第一次進入 [Machine Learning Studio](https://studio.azureml.net) 時，您會看到 [首頁]  。 您可以從這裡檢視文件、影片和網路研討會，以及尋找其他重要資源。
 
 按一下左上方的功能表 ![功能表](./media/what-is-ml-studio/menu.png) 您會看到幾個選項。
 ### <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 這裡有兩個選項，**首頁** (您啟動的頁面)，和 **Studio**。
 
-按一下 [Studio]，系統會將您帶到 **Azure Machine Learning Studio**。 首先，會要求您使用您的 Microsoft 帳戶，或是公司帳戶或學校帳戶登入。 登入之後，您會在左邊看到下列索引標籤：
+按一下 [Studio]  ，系統會將您帶到 **Azure Machine Learning Studio**。 首先，會要求您使用您的 Microsoft 帳戶，或是公司帳戶或學校帳戶登入。 登入之後，您會在左邊看到下列索引標籤：
 
 * **專案** - 代表單一專案之實驗、資料集、Notebook 和其他資源的集合
 * **實驗** - 已建立及執行或儲存為草稿的實驗
@@ -61,7 +61,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 * **設定** - 可用來設定帳戶和資源的一組設定。
 
 ### <a name="gallery"></a>資源庫
-按一下 [資源庫]，會帶您進入 **[Azure AI 資源庫](https://gallery.azure.ai/)**。 [資源庫] 可以讓資料科學家和開發人員社群在此分享使用 Cortana Intelligence 套件的元件建立的解決方案。
+按一下 [資源庫]  ，會帶您進入 **[Azure AI 資源庫](https://gallery.azure.ai/)** 。 [資源庫] 可以讓資料科學家和開發人員社群在此分享使用 Cortana Intelligence 套件的元件建立的解決方案。
 
 如需有關資源庫的詳細資訊，請參閱[共用及探索 Azure AI 資源庫中的解決方案](gallery-how-to-use-contribute-publish.md)。
 
@@ -123,7 +123,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 |部署計算目標| 專屬 Web 服務格式 (不可自訂) | 企業安全性選項與 Azure Kubernetes 服務。 <br/>(SDK 中支援的[其他計算](../service/how-to-deploy-and-where.md)) |
 |自動化模型定型和超參數調整 | 否 | 尚未在視覺化介面中。 <br/> (在 SDK 和 Azure 入口網站中支援。) | 
 
-試用視覺介面 (預覽)，經由[快速入門：準備資料並加以視覺化 (不需撰寫程式碼)](../service/ui-quickstart-run-experiment.md)
+試用視覺介面 (預覽)，經由[教學課程：透過視覺化介面預測汽車價格](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
 > 在 Studio 中建立的模型無法由 Azure Machine Learning 服務進行部署或管理。 不過，可以透過 Azure Machine Learning 服務工作區管理在服務視覺化介面中建立和部署的模型。

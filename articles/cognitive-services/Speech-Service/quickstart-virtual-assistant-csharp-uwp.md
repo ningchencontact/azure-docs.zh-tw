@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6d88bcc6d9d2c2e46ef3a3cb841c9268a544e37c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604966"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609697"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>快速入門：使用語音 SDK、UWP 建立語音優先虛擬助理
 
 另備有[語音轉文字](quickstart-csharp-uwp.md)、[文字轉語音](quickstart-text-to-speech-csharp-uwp.md)和[語音翻譯](quickstart-translate-speech-uwp.md)的快速入門。
 
-在本文中，您會使用[語音 SDK](speech-sdk.md)來開發 C# 通用 Windows 平台 (UWP) 應用程式。 此程式會連線到先前撰寫和設定的 Bot，讓您從用戶端應用程式獲得語音優先虛擬助理體驗。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
+在本文中，您會使用[語音 SDK](speech-sdk.md)來開發 C# 通用 Windows 平台 (UWP) 應用程式。 此程式會連線到先前撰寫和設定的 Bot，讓您從用戶端應用程式獲得語音優先虛擬助理體驗。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 或更新版本 (任何版本) 所建置的。
 
 > [!NOTE]
 > 通用 Windows 平台可讓您開發應用程式，以在任何支援 Windows 10 的裝置 (包括 PC、Xbox、Surface Hub 與其他裝置) 上執行。
@@ -30,7 +30,7 @@ ms.locfileid: "67604966"
 
 本快速入門需要：
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 或更新版本
 * 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)或 [Azure 入口網站](https://portal.azure.com)上建立金要。
 * 先前建立且使用 [Direct Line Speech 頻道](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)設定的 Bot
 

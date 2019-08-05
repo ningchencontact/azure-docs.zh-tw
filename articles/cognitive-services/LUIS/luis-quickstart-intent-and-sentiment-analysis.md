@@ -1,5 +1,5 @@
 ---
-title: 情感分析
+title: 情感分析 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，建立一個應用程式，示範如何從語句中取得正面、負面和中性情感。 情感是從整個語句決定。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ad1dba3c35c0f1fa5640e484319b584731843dd8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479799"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563579"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>教學課程：取得語句的情感
 
@@ -38,7 +38,7 @@ ms.locfileid: "66479799"
 
 下列語句會顯示情感範例：
 
-|情感|分數|語句|
+|情感|Score|語句|
 |:--|:--|:--|
 |正面|0.91 |John W. Smith did a great job on the presentation in Paris.|
 |正面|0.84 |The Seattle engineers did fabulous work on the Parker sales pitch.|

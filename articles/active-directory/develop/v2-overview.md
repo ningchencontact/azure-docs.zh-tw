@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e4337f0593933a4e877f391df8132a9b2cd4af
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 12027581ae62588550407c8350f3b74f1e743561
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702690"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601834"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft 身分識別平台 (v2.0) 概觀
 
@@ -43,7 +43,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 開發人員�
 
 ## <a name="getting-started"></a>開始使用
 
-使用身分識別一點都不難。 選擇您適用的案例 — 每個案例路徑都有快速入門和概觀頁面，可讓您在短短幾分鐘內啟動並執行：
+使用身分識別一點都不難。 選擇您適用的[案例](authentication-flows-app-scenarios.md) — 每個案例路徑都有快速入門和概觀頁面，可讓您在短短幾分鐘內啟動並執行：
 
 - [建置單一頁面應用程式](scenario-spa-overview.md)
 - [建置可登入使用者的 Web 應用程式](scenario-web-app-sign-user-overview.md)
@@ -62,6 +62,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 開發人員�
 
 如果您想要深入了解核心驗證概念，建議您從下列主題著手：
 
+- [驗證流程和應用程式情節](authentication-flows-app-scenarios.md)
 - [驗證基本概念](authentication-scenarios.md)
 - [應用程式與服務主體](app-objects-and-service-principals.md)
 - [對象](v2-supported-account-types.md)

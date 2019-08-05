@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 37856c0833ecde1478d4bd588b8e3122e8eac0ca
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: be478a3f77996276f248d9b385954af813ac0397
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135240"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562512"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure 空間錨點來建立 Unity iOS 應用程式
 
@@ -24,7 +24,6 @@ ms.locfileid: "67135240"
 > [!div class="checklist"]
 > * 建立 Spatial Anchors 帳戶
 > * 準備 Unity 組建設定
-> * 下載並匯入 Unity ARKit 外掛程式
 > * 設定 Spatial Anchors 帳戶識別碼和帳戶金鑰
 > * 匯出 Xcode 專案
 > * 在 iOS 裝置上部署和執行
@@ -35,7 +34,7 @@ ms.locfileid: "67135240"
 
 若要完成本快速入門，請確定您具備︰
 
-- 已安裝 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a>、<a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> 和 <a href="https://cocoapods.org" target="_blank">CocoaPods</a> 的 macOS 機器。
+- 已安裝 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>、<a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> 和 <a href="https://cocoapods.org" target="_blank">CocoaPods</a> 的 macOS 機器。
 - 透過 HomeBrew 安裝的 Git。 在終端機的單一行輸入以下命令：`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`。 然後執行 `brew install git`。
 - 由開發人員啟用且<a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">與 ARKit 相容</a>的 iOS 裝置。
 
@@ -51,7 +50,7 @@ ms.locfileid: "67135240"
 
 ## <a name="configure-account-identifier-and-key"></a>設定帳戶識別碼和金鑰
 
-在 [專案]  窗格中瀏覽至 `Assets/AzureSpatialAnchorsPlugin/Examples`，然後開啟 `AzureSpatialAnchorsBasicDemo.unity` 場景檔案。
+在 [專案]  窗格中瀏覽至 `Assets/AzureSpatialAnchors.Examples/Scenes`，然後開啟 `AzureSpatialAnchorsBasicDemo.unity` 場景檔案。
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -65,10 +64,11 @@ ms.locfileid: "67135240"
 
 依照應用程式中的指示放置及回收錨點。
 
-> [!NOTE]
-> 在執行應用程式時，如果您看到的背景不是相機 (例如，您看到空白、藍色或其他紋理的背景)，則可能需要在 Unity 中重新匯入資產。 請停止應用程式。 在 Unity 的頂端功能表中，選擇 [資產] -> [全部重新匯入]  。 然後，再次執行應用程式。
+完成時，在 Xcode 中按 [停止]  即可停止應用程式。
 
-在 Xcode 中，按下 [停止]  即可停止應用程式。
+## <a name="troubleshooting"></a>疑難排解
+
+在執行應用程式時，如果您看到的背景不是相機 (例如，您看到空白、藍色或其他紋理的背景)，則可能需要在 Unity 中重新匯入資產。 請停止應用程式。 在 Unity 的頂端功能表中，選擇 [資產] -> [全部重新匯入]  。 然後，再次執行應用程式。
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

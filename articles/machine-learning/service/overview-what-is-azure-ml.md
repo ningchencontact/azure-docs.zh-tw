@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9ebacd8caf992874969106df58531538ea399ed
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c1ec9db2b026dd1853eceb1f110878d6b2beb4d4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510439"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678043"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
 
@@ -32,13 +32,13 @@ Azure Machine Learning 服務是用來定型、部署、自動化及管理機器
 Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料、定型、測試、部署、管理及追蹤機器學習服務模型。 開始訓練您的本機電腦，然後向外擴充到雲端。 此服務完全支援開放原始碼技術，例如 PyTorch、TensorFlow 和 scikit-learn，並可用於任何一種機器學習，從傳統 ML 以至深度學習、監督式和非監督式學習。 
 
 探索和準備資料、定型和測試模型，以及使用豐富工具加以部署，例如：
-+ [視覺化介面](ui-quickstart-run-experiment.md)，您可以在其中拖放模組來建置您的實驗，然後部署模型
++ [視覺化介面](ui-tutorial-automobile-price-train-score.md)，您可以在其中拖放模組來建置您的實驗，然後部署模型
 + [Jupyter Notebook](https://jupyter.org)，您會在其中使用 [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) 來撰寫自己的程式碼，例如[這些範例 Notebook](https://aka.ms/aml-notebooks)
 + [Visual Studio Code 擴充功能](how-to-vscode-tools.md) \(英文\)
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>可利用 Azure Machine Learning 服務做什麼？
 
-您可以使用 <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-quickstart-run-experiment.md)，在 Azure Machine Learning 服務工作區中自行建置及定型高精確度的機器學習和深度學習模型。
+您可以使用 <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-tutorial-automobile-price-train-score.md)，在 Azure Machine Learning 服務工作區中自行建置及定型高精確度的機器學習和深度學習模型。
 
 您可選擇開放原始碼 Python 套件中所提供的許多機器學習元件，例如 <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>、<a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>、<a href="https://pytorch.org" target="_blank">PyTorch</a> 和 <a href="https://mxnet.io" target="_blank">MXNet</a>。
 
@@ -88,7 +88,7 @@ Azure Machine Learning 服務同時提供 SDK **與**視覺化介面 (預覽)，
 |部署計算目標| 專屬 Web 服務格式 (不可自訂) | 企業安全性選項與 Azure Kubernetes 服務。 <br/>(SDK 中支援的[其他計算](how-to-deploy-and-where.md)) |
 |自動化模型定型和超參數調整 | 否 | 尚未在視覺化介面中。 <br/> (在 SDK 和 Azure 入口網站中支援。) | 
 
-試用視覺介面 (預覽)，經由[快速入門：準備資料並加以視覺化 (不需撰寫程式碼)](ui-quickstart-run-experiment.md)
+試用視覺介面 (預覽)，經由[教學課程：透過視覺化介面預測汽車價格](ui-tutorial-automobile-price-train-score.md)。
 
 > [!NOTE]
 > 在 Studio 中建立的模型無法由 Azure Machine Learning 服務進行部署或管理。 不過，可以透過 Azure Machine Learning 服務工作區管理在服務視覺化介面中建立和部署的模型。

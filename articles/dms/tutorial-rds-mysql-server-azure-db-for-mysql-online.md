@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 09b90f4b53750b94c0ecee7290d6b5405c984ff9
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.date: 07/31/2019
+ms.openlocfilehash: 5848465033ca0b4df3bc7f63e7cef06059f5c3c5
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154877"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667758"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>教學課程：使用 DMS 在線上從 RDS MySQL 遷移至適用於 MySQL 的 Azure 資料庫
 
@@ -24,6 +24,7 @@ ms.locfileid: "67154877"
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
+>
 > * 使用 mysqldump 和 mysql 公用城市遷移範例結構描述。
 > * 建立 Azure 資料庫移轉服務的執行個體。
 > * 使用 Azure 資料庫移轉服務來建立移轉專案。
@@ -56,8 +57,8 @@ ms.locfileid: "67154877"
 * 建立[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)執行個體。
 * 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNet)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。 如需建立 VNet 的詳細資訊，請參閱[虛擬網路文件](https://docs.microsoft.com/azure/virtual-network/)，特別是快速入門文章，裡面會提供逐步操作詳細資料。
 * 確定您的 VNet 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445 及 12000。 如需 Azure VNet NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
-* 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
-* 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 MySQL 伺服器 (依預設會使用 TCP 連接埠 3306)。
+* 設定 [Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (或是 Linux 防火牆)，以允許資料庫引擎的存取。 針對 MySQL 伺服器，請允許連接埠 3306 以進行連線。
+* 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 MySQL 伺服器 (預設的 TCP 連接埠是 3306)。
 * 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
 * 為適用於 MySQL 的 Azure 資料庫伺服器建立伺服器層級的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNet 的子網路範圍。
 

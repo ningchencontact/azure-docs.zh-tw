@@ -10,18 +10,20 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
-ms.date: 03/25/2019
-ms.openlocfilehash: 8ca2346de84a97bff370a7d5bacb006130cb5116
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 07/29/2019
+ms.openlocfilehash: 1c6fdc6f6d2e642db8b57745573260c819c6c307
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792481"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640920"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>快速入門：使用 .NET Core (C#) 查詢 Azure SQL 資料庫
 
 在此快速入門中，您將使用 [.NET Core](https://www.microsoft.com/net/) 和 C# 程式碼來連線至 Azure SQL 資料庫。 然後，您將使用 Transact-SQL 陳述式來查詢資料。
+
+> [!TIP]
+> 下列 Microsoft Learn 模組可協助您免費學習如何[開發和設定可查詢 Azure SQL Database 的 ASP.NET 應用程式](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -54,13 +56,13 @@ ms.locfileid: "65792481"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至 [SQL 資料庫] 或 [SQL 受控執行個體] 頁面。
+2. 瀏覽至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
 
-3. 在 [概觀] 頁面上，針對單一資料庫檢閱 [伺服器名稱] 旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機] 旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製] 圖示。
+3. 在 [概觀]  頁面上，針對單一資料庫檢閱 [伺服器名稱]  旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機]  旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製]  圖示。
 
 ## <a name="get-adonet-connection-information-optional"></a>取得 ADO.NET 連線資訊 (選擇性)
 
-1. 瀏覽至 **mySampleDatabase** 頁面，然後在 [設定] 之下選取 [連接字串]。
+1. 瀏覽至 **mySampleDatabase** 頁面，然後在 [設定]  之下選取 [連接字串]  。
 
 2. 檢閱完整的 **ADO.NET** 連接字串。
 
@@ -70,7 +72,7 @@ ms.locfileid: "65792481"
   
 ## <a name="create-a-new-net-core-project"></a>建立新的 .NET Core 專案
 
-1. 開啟命令提示字元，並建立名為 sqltest 的資料夾。 瀏覽至此資料夾並執行此命令。
+1. 開啟命令提示字元，並建立名為 sqltest  的資料夾。 瀏覽至此資料夾並執行此命令。
 
     ```cmd
     dotnet new console

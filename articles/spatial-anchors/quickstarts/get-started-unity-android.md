@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 642abfb99b40d67802b7194ad225ebcd2872a72b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 24a3424a73fb21530f3cde227aa9f05f16bd6ad0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135158"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562453"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure 空間錨點來建立 Unity Android 應用程式
 
@@ -24,7 +24,6 @@ ms.locfileid: "67135158"
 > [!div class="checklist"]
 > * 建立 Spatial Anchors 帳戶
 > * 準備 Unity 組建設定
-> * 下載並匯入適用於 Unity 的 ARCore SDK
 > * 設定 Spatial Anchors 帳戶識別碼和帳戶金鑰
 > * 匯出 Android Studio 專案
 > * 在 Android 裝置上部署和執行
@@ -35,11 +34,10 @@ ms.locfileid: "67135158"
 
 若要完成本快速入門，請確定您具備︰
 
-- 具有 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> 和 <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a> 的 Windows 或 macOS 機器。
+- 具有 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>的 Windows 或 macOS 電腦，包括 Android Build 支援和 Android SDK & NDK 工具模組和<a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>。
   - 如果在 Windows 上執行，您也需要 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
   - 如果在 macOS 上執行，請透過 HomeBrew 安裝 Git。 在終端機的單一行輸入以下命令：`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`。 然後執行 `brew install git`。
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">由開發人員啟用</a>且<a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">具備 ARCore 功能</a>的 Android 裝置。
-- 您的應用程式必須使用 **1.7** 版的 ARCore SDK for Unity。
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -53,7 +51,7 @@ ms.locfileid: "67135158"
 
 ## <a name="configure-account-identifier-and-key"></a>設定帳戶識別碼和金鑰
 
-在 [專案]  窗格中瀏覽至 `Assets/AzureSpatialAnchorsPlugin/Examples`，然後開啟 `AzureSpatialAnchorsBasicDemo.unity` 場景檔案。
+在 [專案]  窗格中瀏覽至 `Assets/AzureSpatialAnchors.Examples/Scenes`，然後開啟 `AzureSpatialAnchorsBasicDemo.unity` 場景檔案。
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
@@ -63,12 +61,13 @@ ms.locfileid: "67135158"
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-請確定 [匯出專案]  核取方塊並未勾選。 按一下 [建置並執行]  。 系統會要求您儲存 `.apk` 檔案，您可以選擇任何名稱。
+在 [執行裝置]  中選取您的裝置，然後按一下 [建立並執行]  。 系統會要求您儲存 `.apk` 檔案，您可以為其選擇任何名稱。
 
 依照應用程式中的指示放置及回收錨點。
 
-> [!NOTE]
-> 在執行應用程式時，如果您看到的背景不是相機 (例如，您看到空白、藍色或其他紋理的背景)，則可能需要在 Unity 中重新匯入資產。 請停止應用程式。 在 Unity 的頂端功能表中，選擇 [資產] -> [全部重新匯入]  。 然後，再次執行應用程式。
+## <a name="troubleshooting"></a>疑難排解
+
+在執行應用程式時，如果您看到的背景不是相機 (例如，您看到空白、藍色或其他紋理的背景)，則可能需要在 Unity 中重新匯入資產。 請停止應用程式。 在 Unity 的頂端功能表中，選擇 [資產] -> [全部重新匯入]  。 然後，再次執行應用程式。
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

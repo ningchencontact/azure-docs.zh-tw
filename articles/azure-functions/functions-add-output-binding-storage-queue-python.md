@@ -1,6 +1,6 @@
 ---
 title: 將 Azure 儲存體佇列繫結新增至您的 Python 函式
-description: 了解如何使用 Azure CLI 和 Functions Core Tools 將 Azure 儲存體佇列輸出繫結新增至您的 Python 函式。
+description: 了解如何使用 Azure CLI 和 Functions Core Tools，將 Azure 儲存體佇列輸出繫結新增至您的 Python 函式。
 services: functions
 keywords: ''
 author: ggailey777
@@ -11,20 +11,20 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443192"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639134"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>將 Azure 儲存體佇列繫結新增至您的 Python 函式
 
-Azure Functions 可讓您直接將 Azure 服務和其他資源連線至函式，而不需要自行撰寫整合程式碼。 這些*繫結*同時代表輸入和輸出，會宣告於函式定義內。 繫結中的資料會提供給函式作為參數。 觸發程序是一種特殊的輸入繫結。 函式雖然只有一個觸發程序，但可以有多個輸入和輸出繫結。 若要深入了解，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)。
+Azure Functions 可讓您直接將 Azure 服務和其他資源連線至函式，而不需要自行撰寫整合程式碼。 這些*繫結*同時代表輸入和輸出，會宣告於函式定義內。 繫結中的資料會提供給函式作為參數。 「觸發程序」  是一種特殊的輸入繫結。 雖然函式只有一個觸發程序，但可以有多個輸入和輸出繫結。 若要深入了解，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)。
 
-本文說明如何整合您在[先前的快速入門文章](functions-create-first-function-python.md)中建立的函式與 Azure 儲存體佇列。 您新增至此函式的輸出繫結，會將資料從 HTTP 要求寫入至佇列中的訊息。 
+本文說明如何整合您在[先前的快速入門文章](functions-create-first-function-python.md)中建立的函式與 Azure 儲存體佇列。 您新增至此函式的輸出繫結，會將資料從 HTTP 要求寫入至佇列中的訊息。
 
-大部分的繫結都需要函式用來存取繫結服務的預存連接字串。 為了方便作業，您可以使用您以函式應用程式建立的儲存體帳戶。 此帳戶的連線已儲存在名為 `AzureWebJobsStorage` 的應用程式設定中。  
+大部分的繫結都需要函式用來存取繫結服務的預存連接字串。 為了方便進行此連線，您可以使用您以函式應用程式建立的儲存體帳戶。 此帳戶的連線已儲存在名為 `AzureWebJobsStorage` 的應用程式設定中。  
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,7 +38,7 @@ Azure Functions 可讓您直接將 Azure 服務和其他資源連線至函式，
 func azure functionapp fetch-app-settings <APP_NAME>
 ```
 
-您可能需要登入 Azure 帳戶。
+您可能需要登入您的 Azure 帳戶。
 
 > [!IMPORTANT]  
 > local.settings.json 檔案中包含秘密，因此絕不可發行，且應從原始檔控制中排除。
@@ -49,20 +49,20 @@ func azure functionapp fetch-app-settings <APP_NAME>
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-現在，您可以將儲存體輸出繫結新增至您的專案。
+您現在可以將儲存體輸出繫結新增至您的專案。
 
 ## <a name="add-an-output-binding"></a>新增輸出繫結
 
 在函式中，每一種繫結都需要在 function.json 檔案中定義 `direction`、`type` 和唯一的 `name`。 根據繫結類型，可能需要額外的屬性。 [佇列輸出組態](functions-bindings-storage-queue.md#output---configuration)會說明 Azure 儲存體佇列繫結所需的欄位。
 
-若要建立繫結，您必須將繫結組態物件新增至 `function.json` 檔案。 請編輯 HttpTrigger 資料夾中的 function.json 檔案，以將物件新增至具有下列屬性的 `bindings` 陣列：
+若要建立繫結，您必須將繫結組態物件新增至 function.json 檔案。 請編輯 HttpTrigger 資料夾中的 function.json 檔案，以將物件新增至具有下列屬性的 `bindings` 陣列：
 
 | 屬性 | 值 | 說明 |
 | -------- | ----- | ----------- |
 | **`name`** | `msg` | 識別您的程式碼中參考之繫結參數的名稱。 |
 | **`type`** | `queue` | 此繫結是 Azure 儲存體佇列繫結。 |
 | **`direction`** | `out` | 此繫結為輸出繫結。 |
-| **`queueName`** | `outqueue` | 作為繫結寫入目標的佇列名稱。 當 *queueName* 不存在，繫結會在第一次使用時加以建立。 |
+| **`queueName`** | `outqueue` | 作為繫結寫入目標的佇列名稱。 當 `queueName` 不存在，繫結會在第一次使用時加以建立。 |
 | **`connection`** | `AzureWebJobsStorage` | 包含儲存體帳戶連接字串之應用程式設定的名稱。 `AzureWebJobsStorage` 設定會包含您以函式應用程式建立之儲存體帳戶的連接字串。 |
 
 Function.json 檔案現在應該會如下列範例所示：
@@ -99,7 +99,7 @@ Function.json 檔案現在應該會如下列範例所示：
 
 ## <a name="add-code-that-uses-the-output-binding"></a>新增會使用輸出繫結的程式碼
 
-在繫結設定後，您即可開始使用繫結的 `name` 加以存取，作為函式簽章中的方法屬性。 在下列範例中，`msg` 是 [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest) 的執行個體。
+設定 `name` 之後，即可開始使用它來存取繫結，作為函式簽章中的方法屬性。 在下列範例中，`msg` 是 [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest) 的執行個體。
 
 ```python
 import logging
@@ -128,7 +128,7 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         )
 ```
 
-藉由使用輸出繫結，您無須使用 Azure 儲存體 SDK 程式碼來進行驗證、取得佇列參考或寫入資料。 Functions 執行階段和佇列輸出繫結會為您進行這些工作。
+當您使用輸出繫結時，無須使用 Azure 儲存體 SDK 程式碼來進行驗證、取得佇列參考或寫入資料。 Functions 執行階段和佇列輸出繫結會為您進行這些工作。
 
 ## <a name="run-the-function-locally"></a>在本機執行函式
 
@@ -139,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> 由於您已在前一篇文章啟用 host.json 中的擴充功能套件組合，因此[儲存體繫結擴充功能](functions-bindings-storage-blob.md#packages---functions-2x)已在啟動期間下載並安裝，連同其他 Microsoft 繫結擴充功能。
+> 由於您已在前一個快速入門中啟用 host.json 中的擴充功能套件組合，因此[儲存體繫結擴充功能](functions-bindings-storage-blob.md#packages---functions-2x)已在啟動期間下載並安裝，連同其他 Microsoft 繫結擴充功能。
 
 從執行階段輸出複製 `HttpTrigger` 函式的 URL，並將它貼到瀏覽器的網址列。 將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。 您應該會在瀏覽器中看到與前一篇文章中相同的回應。
 
@@ -149,13 +149,13 @@ func host start
 
 ### <a name="set-the-storage-account-connection"></a>設定儲存體帳戶連線
 
-開啟 local.settings.json 檔案並複製 `AzureWebJobsStorage` 的值，這是儲存體帳戶的連接字串。 請使用下列 Bash 命令將 `AZURE_STORAGE_CONNECTION_STRING` 環境變數設為此連接字串：
+開啟 local.settings.json 檔案並複製 `AzureWebJobsStorage` 的值，這是儲存體帳戶的連接字串。 請使用下列 Bash 命令，將 `AZURE_STORAGE_CONNECTION_STRING` 環境變數設為此連接字串：
 
 ```azurecli-interactive
 export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
 ```
 
-在 `AZURE_STORAGE_CONNECTION_STRING` 環境變數中設定連接字串後，您將可直接存取您的儲存體帳戶，而不需要每次都提供驗證。
+在 `AZURE_STORAGE_CONNECTION_STRING` 環境變數中設定連接字串時，您將可直接存取您的儲存體帳戶，而不需要每次都提供驗證。
 
 ### <a name="query-the-storage-queue"></a>查詢儲存體佇列
 
@@ -167,7 +167,7 @@ az storage queue list --output tsv
 
 此命令的輸出會包含名為 `outqueue` 的佇列，這是函式執行時所建立的佇列。
 
-接著，請使用 [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 命令檢視此佇列中的訊息，如下列範例所示。
+接著，請使用 [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 命令檢視此佇列中的訊息，如下列範例所示：
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`

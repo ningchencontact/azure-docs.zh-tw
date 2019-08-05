@@ -7,26 +7,28 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6cbf8dfe51e8b553fd84e9eb81a2ea37a65c387e
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540741"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668300"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>什麼是 Azure 搜尋服務中的知識存放區？
 
 > [!Note]
-> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前 .NET SDK 入口網站並不支援此功能。
+> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
 >
 
-知識存放區是 Azure 搜尋服務的一個選用功能，可儲存以 AI 為基礎的索引管線 [(認知搜尋)](cognitive-search-concept-intro.md) 所建立的擴充文件與中繼資料。 知識存放區是由您設定為管線之一部分的 Azure 儲存體帳戶提供支援。 啟用時，搜尋服務會使用此儲存體帳戶快取每個擴充文件的表示法。 
+知識存放區是 Azure 搜尋服務的一項功能，可儲存以 AI 為基礎的索引管線 [(認知搜尋)](cognitive-search-concept-intro.md) 所建立的擴充文件與中繼資料。 擴充的文件是管線的輸出，從使用認知服務中的資源擷取、結構化及分析的內容建立而來。 在以 AI 為基礎的標準管線中，擴充的文件是短暫的，只會在編製索引期間使用，而後捨棄。 使用知識存放區時，文件會儲存以供後續的評估、探索，而且可能成為下游資料科學工作負載的輸入。 
 
-如果您過去使用過認知搜尋，您已經知道該技能集可用來透過一連串的擴充移動文件。 結果可能是 Azure 搜尋服務索引，或 (此預覽版中的新功能) 知識存放區中的投影。
+如果您過去使用過認知搜尋，您已經知道該技能集用來透過一連串的擴充移動文件。 結果可能是 Azure 搜尋服務索引，或 (此預覽版中的新功能) 知識存放區中的投影。 這兩個輸出 (搜尋索引和知識存放區) 實際上彼此不同。 它們共用相同的內容，但會以非常不同的方式存放和使用。
 
-投影是一種機制，可建構資料以供下游應用程式取用。 您可以使用針對 Azure 儲存體或連線至 Azure 儲存體的任何應用程式建置的 [[儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)]，為取用擴充的文件開闢了新的可能性。 部分範例包括資料科學管線和自訂分析。
+實際上，根據您設定管線的方式，知識存放區會在 Azure 儲存體帳戶中以 Azure 資料表儲存體或 Blob 儲存體的形式建立。 任何可連線至 Azure 儲存體的工具或程序都可以取用知識存放區的內容。
+
+投影是用於在知識存放區中建構資料的機制。 例如，透過投影，您可以選擇將輸出儲存為單一 Blob 或相關資料表集合。 透過 Azure 儲存體的內建[儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)，即可輕鬆檢視知識存放區內容。
 
 ![管線圖中的知識儲存區](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "管線圖中的知識存放區")
 

@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566876"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640121"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>教學課程：保護單一或集區資料庫
 
@@ -38,6 +38,9 @@ Azure SQL Database 可讓您以下列方式保護單一或集區資料庫中的�
 > 如 [Azure SQL 資料庫受控執行個體](sql-database-managed-instance-index.yml)和[連線架構](sql-database-managed-instance-connectivity-architecture.md)所述，使用網路安全性群組規則和私人端點來保護受控執行個體上的 Azure SQL 資料庫。
 
 若要深入了解，請參閱 [Azure SQL Database 安全性概觀](/azure/sql-database/sql-database-security-index)和[功能](sql-database-security-overview.md)文章。
+
+> [!TIP]
+> 下列 Microsoft Learn 模組可協助您免費學習如何[保護 Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/)。
 
 ## <a name="prerequisites"></a>必要條件
 

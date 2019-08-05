@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: 03d4c269f76a89c43dec253367d07f3bf71a06d8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ee50603886f76b0a54cee940e7644c401804078
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141219"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610014"
 ---
 # <a name="what-is-azure-notification-hubs"></a>什麼是 Azure 通知中樞？
 
@@ -47,7 +47,7 @@ Azure 通知中樞提供易於使用且相應放大的推播引擎，可讓您�
 
 ## <a name="how-push-notifications-work"></a>推播通知如何運作？
 
-推播通知可透過名為「平台通知系統 (PNS)」的平台特定基礎結構來傳遞。 它們可提供推播準系統功能，以所提供的控制代碼傳遞訊息至裝置，且沒有通用介面。 若要將通知傳送給 Android、iOS 和 Windows 版應用程式的所有客戶，開發人員必須個別使用 Apple 推播通知服務 (APNS)、Firebase Cloud Messaging (FCM) 和 Windows 通知服務 (WNS)。
+推播通知可透過名為「平台通知系統 (PNS)」  的平台特定基礎結構來傳遞。 它們可提供推播準系統功能，以所提供的控制代碼傳遞訊息至裝置，且沒有通用介面。 若要將通知傳送給 Android、iOS 和 Windows 版應用程式的所有客戶，開發人員必須個別使用 Apple 推播通知服務 (APNS)、Firebase Cloud Messaging (FCM) 和 Windows 通知服務 (WNS)。
 
 概括而言，以下是推播功能的運作方式︰
 
@@ -86,7 +86,7 @@ PNS 的功能強大， 但很多部分都必須由應用程式開發人員處理
   - 集中在一個位置管理裝置控制代碼。
 - **跨後端**
   - 雲端或內部部署
-  - .NET、Node.js、Java 等
+  - .NET、Node.js、Java、Python 等
 - **豐富的傳遞模式集**
   - 廣播到一個或多個平台︰只要單一 API 呼叫，您就可以立即跨平台廣播到數百萬個裝置。
   - 推送至裝置︰您可以將通知目標鎖定為個別裝置。

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: b4c3c0979f3fea491ad8b04285973517423eaeeb
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405924"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607800"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 UWP 應用程式中辨識語音
 
@@ -25,7 +25,7 @@ ms.locfileid: "68405924"
 如有需要，請選擇不同的程式設計語言和/或環境：<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您會使用認知服務[語音 SDK](speech-sdk.md)，來建立 C# 通用 Windows 平台 (UWP；Windows 1709 版或更新版本) 應用程式。 該程式會從您裝置的麥克風將語音即時轉換成文字。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
+在本文中，您會使用認知服務[語音 SDK](speech-sdk.md)，來建立 C# 通用 Windows 平台 (UWP；Windows 1709 版或更新版本) 應用程式。 該程式會從您裝置的麥克風將語音即時轉換成文字。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 或更新版本 (任何版本) 所建置的。
 
 > [!NOTE]
 > 通用 Windows 平台可讓您開發應用程式，以在任何支援 Windows 10 的裝置 (包括 PC、Xbox、Surface Hub 與其他裝置) 上執行。
@@ -34,8 +34,8 @@ ms.locfileid: "68405924"
 
 本快速入門需要：
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 或更新版本
+* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 

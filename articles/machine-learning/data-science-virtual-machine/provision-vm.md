@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: 在 Azure 上設定和建立資料科學虛擬機器以進行分析和機器學習。
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626392"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591816"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 
@@ -106,7 +106,7 @@ DSVM 可快速啟動分析專案。 您可以用各種語言處理工作，包�
 
 建立及佈建 VM 之後，您可以使用您在前面 [基本]  區段中設定的系統管理員帳戶認證從遠端桌面登入 VM。 您已準備好開始使用在 VM 上安裝及設定的工具。 許多工具都可以透過開始功能表圖格和桌面圖示存取。
 
-您也可以附加至要在 VM 上執行的 Jupyter notebook，並略過的 「 免費 」 服務層限制的 Azure Notebooks 的資料科學 VM。 如需詳細資訊，請參閱 <<c0> [ 管理和設定 Notebook 專案-計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
+您也可以將資料科學 VM 連結至 Azure Notebooks，以在 VM 上執行 Jupyter Notebook，並忽略免費服務層的限制。 如需詳細資訊，請參閱[管理和設定 Notebooks 專案 - 計算層](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 資料科學虛擬機器上所安裝的工具
 

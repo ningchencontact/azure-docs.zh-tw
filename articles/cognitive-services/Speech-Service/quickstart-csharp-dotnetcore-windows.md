@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9c445ea685518cec77089ce644a79305ff7f3e9e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 341f173e399196e32ab59f44db4302b1b1a195e6
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606593"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607736"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>快速入門：使用適用於 .NET Core 的語音 SDK 來辨識語音
 
@@ -24,7 +24,7 @@ ms.locfileid: "67606593"
 如有需要，請選擇不同的程式設計語言和/或環境：<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您會透過使用認知服務[語音 SDK](speech-sdk.md)，在 Windows 或 macOS 上的 .NET Core 建立 C# 主控台應用程式。 您將來自電腦麥克風的語音即時轉譯為文字。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
+在本文中，您會透過使用認知服務[語音 SDK](speech-sdk.md)，在 Windows 或 macOS 上的 .NET Core 建立 C# 主控台應用程式。 您將來自電腦麥克風的語音即時轉譯為文字。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 或更新版本 (任何版本) 所建置的。
 
 > [!NOTE]
 > .NET Core 是實作[.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) 規格的開放原始碼、跨平台 .NET 平台。
@@ -36,8 +36,8 @@ ms.locfileid: "67606593"
 本快速入門需要：
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 或更新版本
+* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 

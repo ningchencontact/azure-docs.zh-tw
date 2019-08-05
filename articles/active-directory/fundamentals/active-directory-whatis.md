@@ -6,16 +6,16 @@ author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c3087f0ac69126c6d509eee77abe15cc35319dfb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440540"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693910"
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 
@@ -41,16 +41,14 @@ Azure AD 的適用對象是：
 
 Office 365 或 Microsoft Azure 等 Microsoft Online 業務服務需要 Azure AD 才能登入，並可用來協助進行身分識別保護。 如果您訂閱任何 Microsoft Online 業務服務，您就會自動取得 Azure AD 並可存取所有免費的功能。
 
-若要增強您的 AD 實作，您也可以升級至 Azure Active Directory Basic、Premium P1 或 Premium P2 授權來新增付費功能。 Azure AD 付費授權會建立在您現有的免費目錄上，提供適用於行動使用者的自助服務、增強監視、安全性報告及安全存取。
+若要增強您的 Azure AD 實作，您也可以升級至 Azure Active Directory Premium P1 或 Premium P2 授權來新增付費功能。 Azure AD 付費授權會建立在您現有的免費目錄上，提供適用於行動使用者的自助服務、增強監視、安全性報告及安全存取。
 
 >[!Note]
 >這兩種授權的詳細價格請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。
 >
->目前在中國不支援 Premium P1、Premium P2 及 Azure Active Directory Basic。 如需有關 Azure AD 定價的詳細資訊，請透過 [Azure Active Directory 論壇](https://azure.microsoft.com/support/community/?product=active-directory)與我們連絡。
+>目前在中國不支援 Azure Active Directory Premium P1 和 Premium P2。 如需有關 Azure AD 定價的詳細資訊，請透過 [Azure Active Directory 論壇](https://azure.microsoft.com/support/community/?product=active-directory)與我們連絡。
 
 - **Azure Active Directory Free。** 提供跨 Azure、Office 365 和許多熱門 SaaS 應用程式的使用者和群組管理、內部部署目錄同步作業、基本報告、雲端使用者的自助式密碼變更和單一登入。
-
-- **Azure Active Directory Basic。** 除了 Free 版的功能外，Basic 版還會提供以雲端為中心的應用程式存取、以群組為基礎的存取管理、適用於雲端應用程式的自助式密碼重設，以及 Azure AD 應用程式 Proxy，讓您可以使用 Azure AD 來發佈內部部署 Web 應用程式。
 
 - **Azure Active Directory Premium P1。** 除了 Free 版和 Basic 版的功能外，P1 版還會讓混合式使用者可以同時存取內部部署和雲端的資源。 不僅如此，它還支援進階的管理 (例如，動態群組、自助群組管理、Microsoft Identity Manager (此為內部部署身分識別和存取管理套件))，以及雲端回寫功能 (可讓內部部署使用者使用自助密碼重設)。
 

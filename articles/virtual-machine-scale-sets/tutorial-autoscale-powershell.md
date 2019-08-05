@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7a592a7d0d8c9d32de83c92b258c4678dc3f8166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188263"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677600"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 自動調整虛擬機器擴展集
 
@@ -41,7 +41,7 @@ ms.locfileid: "60188263"
 
 
 ## <a name="create-a-scale-set"></a>建立擴展集
-若要更輕鬆地建立自動調整規則，請定義您擴展集的一些變數。 下列範例會在 myResourceGroup 資源群組和「美國東部」區域中定義 *myScaleSet* 擴展集的變數。 您的訂用帳戶識別碼是使用 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 所取得。 如果您有多個與帳戶建立關聯的訂用帳戶，則只會傳回第一個訂用帳戶。 請調整名稱和訂用帳戶識別碼，如下所示：
+若要更輕鬆地建立自動調整規則，請定義您擴展集的一些變數。 下列範例會在 myResourceGroup  資源群組和「美國東部」  區域中定義 *myScaleSet* 擴展集的變數。 您的訂用帳戶識別碼是使用 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 所取得。 如果您有多個與帳戶建立關聯的訂用帳戶，則只會傳回第一個訂用帳戶。 請調整名稱和訂用帳戶識別碼，如下所示：
 
 ```azurepowershell-interactive
 $mySubscriptionId = (Get-AzureRmSubscription)[0].Id
@@ -137,7 +137,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>將自動調整規則套用至擴展集
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>將自動調整設定檔套用至擴展集
 最後一個步驟是將自動調整設定檔套用至擴展集。 您的擴展集接著將可根據應用程式需求自動相應縮小或相應放大。 使用 [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) 套用自動調整設定檔，如下所示：
 
 ```azurepowershell-interactive
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-建立您第一個 VM 執行個體的遠端連線。 請為必要的 VM 執行個體指定您自己的公用 IP 位址和連接埠號碼，如先前的命令所示。 出現提示時，請輸入您在建立擴展集時所使用的認證 (在範例命令中預設為 *azureuser* 和 *P\@ssw0rd!*)。 如果您使用 Azure Cloud Shell，請從本機 PowerShell 提示字元或遠端桌面用戶端執行此步驟。 下列範例會連線至 VM 執行個體 *0*：
+建立您第一個 VM 執行個體的遠端連線。 請為必要的 VM 執行個體指定您自己的公用 IP 位址和連接埠號碼，如先前的命令所示。 出現提示時，請輸入您在建立擴展集時所使用的認證 (在範例命令中預設為 *azureuser* 和 *P\@ssw0rd!* )。 如果您使用 Azure Cloud Shell，請從本機 PowerShell 提示字元或遠端桌面用戶端執行此步驟。 下列範例會連線至 VM 執行個體 *0*：
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -196,12 +196,12 @@ mstsc /v 52.168.121.216:50001
 
 登入之後，請從工作列開啟 Internet Explorer。
 
-- 選取 [確定]，以接受 [使用建議的安全性、隱私權與相容性設定] 的提示
+- 選取 [確定]  ，以接受 [使用建議的安全性、隱私權與相容性設定]  的提示
 - 在網址列中輸入 *http://download.sysinternals.com/files/CPUSTRES.zip* 。
 - 在啟用 [Internet Explorer 增強式安全性設定] 的情況下，選擇將 *http://download.sysinternals.com* 網域**新增**至信任網站清單。
-- 在出現檔案下載的提示時，選取 [開啟]，然後選取並**執行** *CPUSTRES.EXE* 工具。
+- 在出現檔案下載的提示時，選取 [開啟]  ，然後選取並**執行** *CPUSTRES.EXE* 工具。
 
-若要產生一些 CPU 負載，請勾選**作用中**執行緒的兩個方塊。 從這兩個執行緒的 [活動] 下拉式功能表中，選取 [最大值]。 您可以開啟工作管理員，確認 VM 的 CPU 負載是 100%。
+若要產生一些 CPU 負載，請勾選**作用中**執行緒的兩個方塊。 從這兩個執行緒的 [活動]  下拉式功能表中，選取 [最大值]  。 您可以開啟工作管理員，確認 VM 的 CPU 負載是 100%。
 
 ![CPU Stress 公用程式會在 VM 執行個體上產生負載](media/tutorial-autoscale-powershell/cpu-stress-load.PNG)
 
@@ -211,7 +211,7 @@ mstsc /v 52.168.121.216:50001
 mstsc /v 52.168.121.216:50002
 ```
 
-登入第二個 VM 執行個體後，請重複前述步驟以下載並執行 *CPUSTRES.EXE*。 同樣地，啟動兩個**作用中**執行緒，並將活動設為 [最大值]。
+登入第二個 VM 執行個體後，請重複前述步驟以下載並執行 *CPUSTRES.EXE*。 同樣地，啟動兩個**作用中**執行緒，並將活動設為 [最大值]  。
 
 若要讓 **CPU Stress** 工具繼續執行，請將兩個遠端桌面連線工作階段保持開啟。
 

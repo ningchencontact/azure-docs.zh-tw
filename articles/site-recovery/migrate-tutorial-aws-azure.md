@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400058"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663505"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -96,8 +96,10 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 6. 針對 [資源群組]  ，選取 [使用現有的]  ，然後選取 [migrationRG]  。
 7. 在 [位置]  中，選取 [西歐]  。
 8. 在 [子網路]  之下，保留 [名稱]  和 [IP 範圍]  的預設值。
-9. 讓 [服務端點]  選項保持停用。
-10. 當您完成時，選取 [建立]  。
+9. 新增 DDoS 保護設定的指示。
+10. 讓 [服務端點]  選項保持停用。
+11. 新增防火牆設定的指示。
+12. 當您完成時，選取 [建立]  。
 
 ## <a name="prepare-the-infrastructure"></a>準備基礎結構
 
@@ -157,7 +159,7 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 
 您必須先建立複寫原則，才能啟用複寫。
 
-1. 選取 [複寫並產生關聯]  。
+1. 選取 [建立並產生關聯]  。
 2. 在 [名稱]  中，輸入 **myReplicationPolicy**。
 3. 保留其餘的預設設定，然後選取 [確定]  以建立原則。 新原則會自動與設定伺服器產生關聯。
 

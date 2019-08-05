@@ -1,6 +1,6 @@
 ---
 title: 快速入門：探索 Azure 時間序列深入解析預覽版示範環境 | Microsoft Docs
-description: 了解 Azure 時間序列深入解析預覽版示範環境。
+description: 了解 Azure 時間序列深入解析預覽版示範環境的快速入門。
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,13 +10,13 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-ms.openlocfilehash: 547edb194ffdf52a805f573d338f61edff80623a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/29/2019
+ms.openlocfilehash: 3d098b1806e4fdf5b45030dfebf3dfe5959b7d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164889"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677704"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>快速入門：探索 Azure 時間序列深入解析預覽版示範環境
 
@@ -26,11 +26,12 @@ ms.locfileid: "67164889"
 
 在本快速入門中，您將了解如何使用時間序列深入解析，在 Contoso 資料中尋找可操作的見解。 此外，也將進行簡短的根本原因分析，以準確地預測重大故障並執行維護工作。
 
+> [!IMPORTANT]
+> 如果您沒有 Azure 帳戶，請建立 [免費的 Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>在示範環境中來探索時間序列深入解析
 
 時間序列深入解析預覽版總管會顯示歷史資料和根本原因分析。 開始進行之前：
-
-1. 如果您沒有 Azure 帳戶，請建立 [免費的 Azure 帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 
 1. 移至  [Contoso 風力發電廠示範](https://insights.timeseries.azure.com/preview/samples)環境。  
 
@@ -73,10 +74,9 @@ ms.locfileid: "67164889"
 
 使用時間序列深入解析和感應器遙測，我們發現歷史資料中隱藏了長期且有問題的趨勢。 透過這些新的深入解析，我們可以：
 
-> [!div class="checklist"]
-> * 說明實際發生的狀況。
-> * 更正問題。
-> * 設置妥善的警示通知系統。
+* 說明實際發生的狀況。
+* 更正問題。
+* 設置妥善的警示通知系統。
 
 ## <a name="root-cause-analysis"></a>根本原因分析
 
@@ -115,6 +115,13 @@ ms.locfileid: "67164889"
     * 變更顯示畫面，使所有**發電機系統**感應器以相同的圖表比例重疊。
 
       [![變更顯示畫面以包含所有項目](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+
+## <a name="clean-up-resources"></a>清除資源
+
+您現在已完成本教學課程，請清除您所建立的資源：
+
+1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
+1. 選取 [刪除]  或個別移除每個資源，以刪除整個資源群組 (和其中包含的所有資源)。
 
 ## <a name="next-steps"></a>後續步驟
 

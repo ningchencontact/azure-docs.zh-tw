@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418123"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564873"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -111,7 +111,7 @@ WebSocket 和 HTTP/2 通訊協定都可透過長時間執行的 TCP 連線，讓
 
 應用程式閘道可讓您建立自訂的錯誤頁面，而不是顯示預設的錯誤頁面。 您可以使用自訂錯誤頁面來搭配您自己的商標和版面配置。
 
-如需詳細資訊，請參閱[重新撰寫 HTTP 標頭](rewrite-http-headers.md)。
+如需相關資訊，請參閱[自訂錯誤](custom-error.md)。
 
 ## <a name="rewrite-http-headers"></a>重新撰寫 HTTP 標頭
 

@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ff577bc0fe7db05c71aab04f0aaa5525f30b255c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 379087ca94eee6ce3d45bfd97b4771c5f08d6333
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602899"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607694"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>快速入門：使用適用於 C++ 的語音 SDK 來翻譯語音
 
 另備有[語音辨識](quickstart-cpp-windows.md)和[文字轉換語音](quickstart-text-to-speech-cpp-windows.md)的快速入門。
 
-在此快速入門中，您將會建立簡單的 C++ 應用程式以從電腦的麥克風即時擷取使用者語音，翻譯該語音，然後將翻譯的文字轉譯到命令列。 此應用程式是設計來在 64 位元的 Windows 上執行，並使用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget) \(英文\) 與 Microsoft Visual Studio 2017 所建置。
+在此快速入門中，您將會建立簡單的 C++ 應用程式以從電腦的麥克風即時擷取使用者語音，翻譯該語音，然後將翻譯的文字轉譯到命令列。 此應用程式是設計來在 64 位元的 Windows 上執行，而且是使用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget) \(英文\) 和 Microsoft Visual Studio 2017 或更新版本來建置。
 
 如需可供進行語音翻譯的完整語言清單，請參閱[語言支援](language-support.md)。
 
@@ -29,8 +29,8 @@ ms.locfileid: "67602899"
 
 本快速入門需要：
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 或更新版本
+* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 

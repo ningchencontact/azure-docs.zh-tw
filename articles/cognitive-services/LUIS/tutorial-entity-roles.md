@@ -1,5 +1,5 @@
 ---
-title: 具有角色的內容相關資料 - Language Understanding
+title: 角色的內容相關資料 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 根據內容尋找相關的資料。 例如，從一個建築物和辦公室移到另一個建築物和辦公室的實體移動原點和目的地位置會相關。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 061bd94a839d83f75566412ac546ab3208543780
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 2eac05712dc7b3deceba52681195101f9bf2b40c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467639"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560015"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教學課程：從語句擷取內容相關的資料
 

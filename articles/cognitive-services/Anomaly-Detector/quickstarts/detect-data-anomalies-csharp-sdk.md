@@ -1,21 +1,21 @@
 ---
-title: 快速入門：使用適用於 .NET 的 Anomaly Detector SDK 來偵測時間序列資料中的異常情況
+title: 快速入門：使用適用於 .NET 的 Anomaly Detector 用戶端程式庫來偵測時間序列資料中的異常情況
 titleSuffix: Azure Cognitive Services
-description: 開始使用 Anomaly Detector 服務來偵測時間序列資料中的異常情況。
+description: 使用 Anomaly Detector API 來偵測資料序列中的異常狀況 (以批次或串流資料為單位)。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: a75196e035585a7501cdd842fb5b80ceff424dcc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: c65b64608ade76a65dca42b72844d42ddc1b14fd
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721568"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639371"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>快速入門：適用於 .NET 的 Anomaly Detector 用戶端程式庫
 
@@ -23,10 +23,10 @@ ms.locfileid: "67721568"
 
 使用適用於 .NET 的 Anomaly Detector 用戶端程式庫來：
 
-* 批次地偵測異常行為
-* 偵測最新資料點的異常狀態
+* 以批次要求方式偵測整個時間序列資料集的異常狀況
+* 偵測您的時間序列中最新資料點的異常狀態
 
-[API 參考文件](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [範例](https://github.com/Azure-Samples/anomalydetector)
+[程式庫參考文件](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [範例](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,11 +39,13 @@ ms.locfileid: "67721568"
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-### <a name="create-a-new-c-app"></a>建立新的 C# 應用程式
+從試用版訂用帳戶或資源取得金鑰後，請為名為 `ANOMALY_DETECTOR_KEY` 的金鑰[建立環境變數](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
+
+### <a name="create-a-new-c-application"></a>建立新的 C# 應用程式
 
 在您慣用的編輯器或 IDE 中，建立新的 .NET Core 應用程式。 
 
-在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 dotnet `new` 命令建立名為 `anomaly-detector-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" C# 專案，內含單一原始程式檔：**Program.cs**。 
+在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 dotnet `new` 命令建立名為 `anomaly-detector-quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" C# 專案，內含單一原始程式檔：*Program.cs*。 
 
 ```console
 dotnet new console -n anomaly-detector-quickstart
@@ -64,6 +66,14 @@ Build succeeded.
  0 Error(s)
 ...
 ```
+
+從專案目錄，在慣用的編輯器或 IDE 中開啟 *program.cs* 檔案。 使用 `directives` 新增下列內容：
+
+[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
+
+在應用程式的 `main()` 方法中，為資源的 Azure 位置建立變數，並將金鑰建立為環境變數。 如果您在應用程式啟動後才建立環境變數，則執行該應用程式的編輯器、IDE 或殼層必須先關閉再重新載入後，才能存取該變數。
+
+[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
 
 ### <a name="install-the-client-library"></a>安裝用戶端程式庫
 
@@ -91,22 +101,6 @@ Anomaly Detector 回應會是 [EntireDetectResponse](https://docs.microsoft.com/
 * [從檔案載入時間序列資料集](#load-time-series-data-from-a-file)
 * [偵測整個資料集內的異常](#detect-anomalies-in-the-entire-data-set) 
 * [偵測最新資料點的異常狀態](#detect-the-anomaly-status-of-the-latest-data-point)
-
-### <a name="add-the-main-method"></a>新增 Main 方法
-
-從專案目錄：
-
-1. 在您慣用的編輯器或 IDE 中，開啟 Program.cs 檔案
-2. 新增下列 `using` 指示詞
-
-[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
-
-> [!NOTE]
-> 本快速入門假設您已針對名為 `ANOMALY_DETECTOR_KEY` 的 Anomaly Detector 金鑰[建立環境變數](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
-
-在應用程式的 `main()` 方法中，為資源的 Azure 位置建立變數，並將金鑰建立為環境變數。 如果您在應用程式啟動後才建立環境變數，則執行該應用程式的編輯器、IDE 或殼層必須先關閉再重新載入後，才能存取該變數。
-
-[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
 
 ### <a name="authenticate-the-client"></a>驗證用戶端
 
@@ -165,7 +159,7 @@ az group delete --name example-anomaly-detector-resource-group
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
->[使用 Azure Databricks 進行串流異常偵測](../tutorials/anomaly-detection-streaming-databricks.md)
+>[使用 Azure Databricks 串流異常偵測](../tutorials/anomaly-detection-streaming-databricks.md)
 
 * 什麼是 [Anomaly Detector API？](../overview.md)
 * 使用 Anomaly Detector API 時的[最佳做法](../concepts/anomaly-detection-best-practices.md)。

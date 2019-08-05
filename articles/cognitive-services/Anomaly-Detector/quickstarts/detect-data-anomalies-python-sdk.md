@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Anomaly Detector 程式庫和 Python 偵測資料異常
+title: 快速入門：使用適用於 Python 的 Anomaly Detector 用戶端程式庫偵測資料異常
 titleSuffix: Azure Cognitive Services
 description: 使用 Anomaly Detector API 來偵測資料序列中的異常狀況 (以批次或串流資料為單位)。
 services: cognitive-services
@@ -8,20 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 9176ab84dd3f493604bd655e0498f5ad476776d0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: b78d19841bdca100211378f71e45a41dd37aad28
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721521"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639335"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>快速入門：適用於 Python 的 Anomaly Detector 用戶端程式庫
 
 開始使用適用於 .NET 的 Anomaly Detector 用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。 Anomaly Detector 服務可藉由自動對時間序列資料使用最適合的模型，而讓您找出其中的異常狀況，不論是什麼產業、情境或資料量都沒問題。
-
-## <a name="key-concepts"></a>重要概念
 
 使用適用於 Python 的 Anomaly Detector 用戶端程式庫來：
 
@@ -42,6 +40,18 @@ ms.locfileid: "67721521"
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
+從試用版訂用帳戶或資源取得金鑰後，請為名為 `ANOMALY_DETECTOR_KEY` 的金鑰[建立環境變數](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
+
+### <a name="create-a-new-python-application"></a>建立新的 Python 應用程式
+
+ 在您慣用的編輯器或 IDE 中，建立新的 Python 應用程式。 然後匯入下列程式庫。
+
+[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
+
+為您的金鑰建立變數作為環境變數、時間序列資料檔案的路徑，以及您訂用帳戶的 Azure 位置。 例如： `westus2` 。 
+
+[!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
+
 ### <a name="install-the-client-library"></a>安裝用戶端程式庫
 
 安裝 Python 之後，您可以透過以下項目安裝用戶端程式庫：
@@ -57,19 +67,6 @@ Anomaly Detector 用戶端是一種 [AnomalyDetectorClient](https://docs.microso
 時間序列資料會透過 [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request(class)?view=azure-python) 物件以 [Point](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point(class)?view=azure-python) 序列的形式來傳送。 `Request` 物件包含用來說明資料的屬性 (例如，[細微性](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python))，以及供異常偵測使用的參數。 
 
 Anomaly Detector 回應是 [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) 或 [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) 物件 (端視所使用的方法而定)。 
-
-## <a name="getting-started"></a>開始使用
-
-在您慣用的編輯器或 IDE 中，建立新的 Python 應用程式。 然後在您的檔案中新增下列匯入宣告。 
-
-[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
-
-> [!NOTE]
-> 本快速入門假設您已針對名為 `ANOMALY_DETECTOR_KEY` 的 Anomaly Detector 金鑰[建立環境變數](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)。
-
-為您的金鑰建立變數作為環境變數、時間序列資料檔案的路徑，以及您訂用帳戶的 Azure 位置。 例如： `westus2` 。 
-
-[!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
 
 ## <a name="code-examples"></a>程式碼範例 
 
@@ -125,12 +122,6 @@ Anomaly Detector 回應是 [LastDetectResponse](https://docs.microsoft.com/pytho
 
 * [入口網站](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-您也可以執行下列 Cloud Shell 命令來移除資源群組及其相關聯的資源。 這可能需要幾分鐘才能完成。 
-
-```azurecli-interactive
-az group delete --name example-anomaly-detector-resource-group
-```
 
 ## <a name="next-steps"></a>後續步驟
 

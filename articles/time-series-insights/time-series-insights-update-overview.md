@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: b32ff070a1ffa9f83132ecc1d3e43bae398f509d
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 964a010ee2b919ca56c467d3f7ca91b3e78ef590
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460752"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638853"
 ---
-# <a name="azure-time-series-insights-preview"></a>Azure 時間序列深入解析預覽
+# <a name="what-is-azure-time-series-insights-preview"></a>什麼是 Azure 時間序列深入解析預覽版？
 
 Azure 時間序列深入解析預覽版為端對端的平台即服務 (PaaS) 供應項目。 它可用來收集、處理、儲存、分析及查詢高度內容相關且已進行時間序列最佳化的 IoT 級別資料。 時間序列深入解析十分適用於特定資料探索及營運分析。 時間序列深入解析是唯一可延伸且可自訂符合產業 IoT 部署廣泛需求的服務供應項目。
 

@@ -1,5 +1,5 @@
 ---
-title: 完全相符的文字項目
+title: 完全相符的文字項目 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 取得符合預先定義項目清單的資料。 清單上的每個項目可以擁有也完全相符的同義字
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a5aeeb74d26ce633beb0e9feef20a2315bc0ff1d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236417"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560392"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教學課程：從語句取得完全相符的文字項目資料
 
@@ -57,9 +57,9 @@ ms.locfileid: "65236417"
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. 選取 [Create new intent] \(建立新意圖\)。 
+2. 選取 [Create new intent] \(建立新意圖\)  。 
 
-3. 在快顯對話方塊方塊中輸入 `TransferEmployeeToDepartment`，然後選取 [完成]。 
+3. 在快顯對話方塊方塊中輸入 `TransferEmployeeToDepartment`，然後選取 [完成]  。 
 
     ![建立新意圖對話方塊的螢幕擷取畫面](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
@@ -86,7 +86,7 @@ ms.locfileid: "65236417"
 
 現在 **TransferEmployeeToDepartment** 意圖已具有範例語句，LUIS 接著必須了解「部門」是什麼。 
 
-每個項目的主要「正式」名稱都是部門名稱。 每個正式名稱同義字的範例如下： 
+每個項目的主要「正式」  名稱都是部門名稱。 每個正式名稱同義字的範例如下： 
 
 |正式名稱|同義字|
 |--|--|
@@ -98,11 +98,11 @@ ms.locfileid: "65236417"
 |內部銷售|isale<br>insale<br>1414|
 |研究與開發|R&D<br>1234|
 
-1. 在左側面板中選取 [實體]。
+1. 在左側面板中選取 [實體]  。
 
-1. 選取 [Create new entity] \(建立新實體\)。
+1. 選取 [Create new entity] \(建立新實體\)  。
 
-1. 在實體快顯對話方塊中，輸入 `Department` 作為實體名稱，以及輸入 [清單] 作為實體類型。 選取 [完成] 。  
+1. 在實體快顯對話方塊中，輸入 `Department` 作為實體名稱，以及輸入 [清單]  作為實體類型。 選取 [完成]  。  
 
     [![建立新實體快顯對話方塊的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "建立新實體快顯對話方塊的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 

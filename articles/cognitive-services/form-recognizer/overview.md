@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592606"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594553"
 ---
 # <a name="what-is-form-recognizer"></a>什麼是表單辨識器？
 
@@ -26,7 +26,7 @@ Azure 表單辨識器是一項認知服務，其使用機器學習技術來識�
 
 非監督式學習可讓模型了解欄位與項目之間的配置和關聯性，而不需要手動資料標記或密集編碼和維護。 相較之下，預先定型的機器學習模型需要標準化的資料。 這些資料較不精確，因為輸入的素材衍生自傳統格式 (例如產業特有的表單)。
 
-## <a name="pre-built-receipt-model"></a>預先建置的收據模型
+## <a name="prebuilt-receipt-model"></a>預先建置的回條模型
 
 表單辨識器也包含用來讀取銷售收據的模型。 此模型會擷取索引鍵資訊，例如交易的時間和日期、商家資訊、稅金和總計的數量等等。 此外，預先建置的收據模型已定型為用來辨識及傳回收據上所有文字。
 
@@ -34,9 +34,20 @@ Azure 表單辨識器是一項認知服務，其使用機器學習技術來識�
 
 表單辨識器是以 REST API 的形式提供。 您可以藉由叫用這些 API 來建立、定型和評分自訂模型，或是存取預先建置的模型。 您也可以在本機 Docker 容器中定型並執行自訂模型。
 
-## <a name="input-requirements-custom-model"></a>輸入需求 (自訂模型)
+## <a name="input-requirements"></a>輸入需求
+### <a name="custom-model"></a>自訂模型
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### <a name="prebuilt-receipt-model"></a>預先建置的回條模型
+
+接收模型的輸入需求會略有不同。
+
+* 格式必須是 JPEG、PNG、BMP、PDF (文字或掃描) 或 TIFF。
+* 檔案大小必須小於 20 MB。
+* 影像維度必須介於 50 x 50 像素和 10000 x 10000 像素之間。 
+* PDF 維度最多必須是 17 x 17 英寸，對應 Legal 或 A3 紙張大小 (或更小尺寸)。
+* 針對 PDF 和 TIFF，只有前 200 個頁面會進行處理 (若使用免費層的訂用帳戶，只會處理前兩個頁面)。
 
 ## <a name="request-access"></a>要求存取
 

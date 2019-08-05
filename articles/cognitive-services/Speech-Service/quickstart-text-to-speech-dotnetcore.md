@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 7b4a018e38ca625e38dc1658a95d3ce0e677f711
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: ccb6ec5b6f29c57a6136c571558d4126d0607710
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467294"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607687"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>快速入門：使用適用於 .NET Core 的語音 SDK 來合成語音
 
 另備有[語音辨識](quickstart-csharp-dotnetcore-windows.md)和[語音翻譯](quickstart-translate-speech-dotnetcore-windows.md)的快速入門。
 
-在本文中，您會透過使用認知服務[語音 SDK](speech-sdk.md)，在 Windows 上的 .NET Core 建立 C# 主控台應用程式。 您會從文字合成語音並即時傳至電腦喇叭。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
+在本文中，您會透過使用認知服務[語音 SDK](speech-sdk.md)，在 Windows 上的 .NET Core 建立 C# 主控台應用程式。 您會從文字合成語音並即時傳至電腦喇叭。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 或更新版本 (任何版本) 所建置的。
 
 > [!NOTE]
 > .NET Core 是實作[.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) 規格的開放原始碼、跨平台 .NET 平台。
@@ -33,8 +33,8 @@ ms.locfileid: "67467294"
 本快速入門需要：
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 或更新版本
+* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 

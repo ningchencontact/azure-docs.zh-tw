@@ -1,6 +1,6 @@
 ---
-title: 變更、定型應用程式 (Python)
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 變更、定型應用程式 (Python) - LUIS
+titleSuffix: Azure Cognitive Services
 description: 在此 Python 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且訓練應用程式。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 517f9f89d7733aaa066c3fb2b487be0a67994d4e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 96f4d251b0ccc76ef33c86f6661cc9b94098a967
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357105"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560533"
 ---
 # <a name="quickstart-change-model-using-python"></a>快速入門：使用 Python 變更模型
 

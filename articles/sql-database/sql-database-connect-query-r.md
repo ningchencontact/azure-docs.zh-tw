@@ -1,7 +1,7 @@
 ---
-title: 使用 R 查詢 Azure SQL Database
+title: 使用 R 搭配 Machine Learning 服務來查詢 Azure SQL Database
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: 本文將說明如何使用 R 指令碼來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式查詢。
+description: 本文說明如何使用 R 指令碼搭配 Azure SQL Database Machine Learning Services 來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式進行查詢。
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,16 +13,16 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416357"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514850"
 ---
-# <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>快速入門：使用 R 查詢 Azure SQL 資料庫 (預覽)
+# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>快速入門：使用 R 搭配機器學習服務來查詢 Azure SQL 資料庫 (預覽)
 
- 此快速入門會示範如何搭配使用 [R](https://www.r-project.org/) 及機器學習服務來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。 機器學習服務是 Azure SQL Database 的功能，用來執行資料庫內 R 指令碼。 如需更詳細的資訊，請參閱[搭配使用 R 及 Azure SQL Database 機器學習服務 (預覽)](sql-database-machine-learning-services-overview.md)。
+此快速入門會示範如何搭配使用 [R](https://www.r-project.org/) 及機器學習服務來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。 機器學習服務是 Azure SQL Database 的功能，用來執行資料庫內 R 指令碼。 如需更詳細的資訊，請參閱[搭配使用 R 及 Azure SQL Database 機器學習服務 (預覽)](sql-database-machine-learning-services-overview.md)。
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

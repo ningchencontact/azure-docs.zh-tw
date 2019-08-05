@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: 在 Azure 上設定和建立 Linux 資料科學虛擬機器以進行分析和機器學習服務。
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -13,15 +13,15 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: 50dd51cc204a6a22d14873114ba6d98e2a174251
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502314"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592007"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Linux CentOS 資料科學虛擬機器
 
@@ -154,7 +154,7 @@ Python 3.5 安裝於 */anaconda/envs/py35/bin*上。
 
 若要叫用 Python 互動式工作階段，只需在殼層中輸入 **python** 。 如果您位於圖形化介面，或已設定 X11 轉寄，則可輸入 **pycharm** 來啟動 PyCharm Python IDE。
 
-若要安裝其他的 Python 程式庫，您需要在 sudo 底下執行 ```conda``` 或 ```pip``` 命令，並提供 Python 套件管理員的完整路徑 (conda 或 pip) 以安裝到正確的 Python 環境。 例如:
+若要安裝其他的 Python 程式庫，您需要在 sudo 底下執行 ```conda``` 或 ```pip``` 命令，並提供 Python 套件管理員的完整路徑 (conda 或 pip) 以安裝到正確的 Python 環境。 例如︰
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -198,7 +198,7 @@ Apache Spark 的獨立執行個體已預先安裝在 Linux DSVM，可協助您�
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-您可以停止 Hadoop 相關服務，當您不需要它們執行```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```範例，示範如何在開發和測試 MRS （這是 DSVM 上的獨立 Spark 執行個體） 的遠端 Spark 內容會提供，而且可在`/dsvm/samples/MRS`目錄。 
+您可以在不需要它們時停止 Hadoop 相關服務，方法是執行 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` 示範如何在遠端 Spark 內容中開發和測試 MRS (這是 DSVM 上的獨立 Spark 執行個體) 的範例，以及 `/dsvm/samples/MRS` 目錄中的可用項目。 
 
 ### <a name="ides-and-editors"></a>IDE 和編輯器
 您可以選擇數個程式碼編輯器。 這包括 vi/VIM、Emacs、gEdit、PyCharm、RStudio、Eclipse 和 IntelliJ。 gEdit、Eclipse、IntelliJ、RStudio 和 PyCharm 是圖形化編輯器，您需要登入圖形化桌面才能使用它們。 這些編輯器有桌面和應用程式功能表的捷徑可以啟動它們。

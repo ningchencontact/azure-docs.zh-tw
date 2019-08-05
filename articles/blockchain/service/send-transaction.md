@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 3cfbbdc5b95d1607738b132980320d2ff7c99788
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417479"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698388"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>教學課程：使用 Azure 區塊鏈服務傳送交易
 
@@ -52,7 +52,7 @@ ms.locfileid: "66417479"
 
     | 設定 | 值 | 說明 |
     |---------|-------|-------------|
-    | Name | `alpha` | 交易節點名稱。 該名稱會用來建立交易節點端點的 DNS 位址。 例如： `alpha-mymanagedledger.blockchain.azure.com`。 |
+    | Name | `alpha` | 交易節點名稱。 該名稱會用來建立交易節點端點的 DNS 位址。 例如： `alpha-mymanagedledger.blockchain.azure.com` 。 |
     | 密碼 | 強式密碼 | 該密碼會用來存取搭配基本驗證的交易節點端點。
 
 1. 選取 [建立]  。
@@ -72,30 +72,17 @@ ms.locfileid: "66417479"
     cd truffledemo
     ```
 
-1. 啟動 Truffle 的互動式開發主控台。
+1. 使用 Truffle 主控台連線到預設交易節點。
 
     ``` bash
-    truffle develop
+    truffle console --network defaultnode
     ```
 
-    Truffle 會建立本機開發區塊鏈，並提供互動式主控台。
+    Truffle 會連線到預設交易節點並提供互動式主控台。
 
 ## <a name="create-ethereum-account"></a>建立以太坊帳戶
 
-使用 Web3 連線至預設的交易節點並建立 Ethereum 帳戶。 您可以從 Azure 入口網站取得 Web3 連接字串。
-
-1. 在 Azure 入口網站中，瀏覽至預設的交易節點，然後選取 [交易節點] > [程式碼範例] > [Web3]  。
-1. 從 **HTTPS (存取金鑰 1)** 複製 JavaScript ![Web3 程式碼範例](./media/send-transaction/web3-code.png)
-
-1. 將預設交易節點的 Web3 JavaScript 程式碼貼到 Truffle 互動式開發主控台。 該程式碼會建立連線至您 Azure 區塊鏈服務交易節點的 Web3 物件。
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
-    ```
-
-    您可以在 Web3 物件上呼叫方法，來與交易節點互動。
+使用 Web3 連線至預設的交易節點並建立 Ethereum 帳戶。 您可以在 Web3 物件上呼叫方法，來與交易節點互動。
 
 1. 在預設交易節點上建立新的帳戶。 以您自己的強式密碼取代密碼參數。
 
@@ -159,21 +146,21 @@ ms.locfileid: "66417479"
           })(),
     
           network_id: "*",
-          gas: 0,
           gasPrice: 0,
           from: myAccount
         },
         alpha: {
           provider: new Web3.providers.HttpProvider(alpha),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
         },
         beta: {
           provider: new Web3.providers.HttpProvider(beta),
           network_id: "*",
-          gas: 0,
-          gasPrice: 0
+        }
+      },
+      compilers: {
+        solc: {
+          evmVersion: "byzantium"
         }
       }
     }

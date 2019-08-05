@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c29819d817138f2512420584947763247837a9ea
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 56f9901a1468207a295f8223e990f7a926b2d76e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "67135194"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561434"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>快速入門：建立使用 Azure 空間錨點的 Unity HoloLens 應用程式
 
@@ -33,8 +33,7 @@ ms.locfileid: "67135194"
 
 若要完成本快速入門：
 
-
-- 您需要一部上面安裝了 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> 或更新版本和 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 或更新版本的 Windows 電腦。 您的 Visual Studio 安裝必須包含**通用 Windows 平台開發**工作負載。 安裝 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
+- 您需要一部上面安裝了 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1</a> 或更新版本和 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 或更新版本的 Windows 電腦。 您的 Visual Studio 安裝必須包含**通用 Windows 平台開發**工作負載和 **Windows 10 SDK (10.0.18362.0 或更新版本)** 元件。 您也必須安裝 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
 - 您需要一個已啟用[開發人員模式](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)的 HoloLens 裝置。 [Windows 10 年 10 月 2018 Update](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (也稱為 RS5) 安裝在裝置上。 若要在 HoloLens 上更新至最新版本，請開啟**設定**應用程式，移至 [更新與安全性]  ，然後選取 [檢查更新]  。
 - 在您的應用程式中，您必須啟用 **SpatialPerception** 功能。 此設定位於 [組建設定]   >  [播放器設定]   >  [發行設定]   >  [功能]  中。
 - 在您的應用程式中，您必須以 [Windows Mixed Reality SDK]  啟用 [虛擬實境支援]  。 此設定位於 [組建設定]   >  [播放器設定]   >  [XR設定]  中。
@@ -59,7 +58,7 @@ ms.locfileid: "67135194"
 
 ## <a name="configure-the-account-identifier-and-key"></a>設定帳戶識別碼和金鑰
 
-在 [專案]  窗格中，移至 `Assets/AzureSpatialAnchorsPlugin/Examples`，然後開啟 `AzureSpatialAnchorsBasicDemo.unity` 場景檔案。
+在 [專案]  窗格中，移至 `Assets/AzureSpatialAnchors.Examples/Scenes`，然後開啟 `AzureSpatialAnchorsBasicDemo.unity` 場景檔案。
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 

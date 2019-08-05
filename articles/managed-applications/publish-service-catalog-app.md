@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf6ae32a61504dc344e140a0e27c5a17b5422073
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171562"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609883"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>建立及發佈受控應用程式定義
 
@@ -85,20 +85,20 @@ ms.locfileid: "66171562"
 
 儲存 mainTemplate.json 檔案。
 
-## <a name="create-the-user-interface-definition"></a>建立使用者介面定義
+## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>使用 CreateUiDefinition.json 定義您的建立體驗
 
-Azure 入口網站會使用 **createUiDefinition.json** 檔案，為建立受控應用程式的使用者產生使用者介面。 您可以定義使用者提供每個參數輸入的方式。 您可以使用諸如下拉式清單、文字方塊、密碼方塊和其他輸入工具等選項。 若要了解如何建立受控應用程式的 UI 定義檔案，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
+身為發行者，您可以使用 **createUiDefinition.json** 來定義您的建立體驗，此檔案會產生使用者建立受控應用程式所需的介面。 您可以使用 [控制元素] (create-uidefinition-elements.md) 定義使用者提供每個參數輸入的方式，包括下拉式清單、文字方塊和密碼方塊。
 
-建立名為 **createUiDefinition.json** 的檔案。 名稱有區分大小寫。
+建立名為 **createUiDefinition.json** 的檔案 (此名稱會區分大小寫)
 
-將下列 JSON 新增至檔案。
+將下列啟動器 JSON 新增至檔案，並加以儲存。
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
         "basics": [
             {}
         ],
@@ -139,10 +139,9 @@ Azure 入口網站會使用 **createUiDefinition.json** 檔案，為建立受控
             "location": "[location()]"
         }
     }
-}
 ```
 
-儲存 createUiDefinition.json 檔案。
+如需詳細資訊，請參閱[開始使用 CreateUiDefinition](create-uidefinition-overview.md)。
 
 ## <a name="package-the-files"></a>封裝檔案
 

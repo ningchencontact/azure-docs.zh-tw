@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 02/08/2019
-ms.openlocfilehash: bbd009d127eecc4df357fc1073ba4055d13a8b2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569015"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640947"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>教學課程：使用 SSMS 在 Azure SQL Database 的單一資料庫中設計關聯式資料庫
 
@@ -30,6 +30,8 @@ Azure SQL 資料庫是 Microsoft Cloud (Azure) 中的關聯式資料庫即服務
 
 *如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 
+> [!TIP]
+> 下列 Microsoft Learn 模組可協助您免費學習如何[開發和設定可查詢 Azure SQL Database 的 ASP.NET 應用程式](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/) (包括建立簡易資料庫)。
 > [!NOTE]
 > 基於本教學課程的目的，我們是使用單一資料庫。 您也可以使用彈性集區中的集區資料庫或受控執行個體中的執行個體資料庫。 如需連線至受控執行個體，請參閱以下受控執行個體快速入門：[快速入門：設定 Azure VM 以連線到 Azure SQL Database 受控執行個體](sql-database-managed-instance-configure-vm.md)和[快速入門：設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)。
 

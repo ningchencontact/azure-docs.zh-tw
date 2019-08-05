@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 89a1fa396ff8bc5b954e91e7b08e6d731a81559a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: ee4551f6a31436ef2322fcea3a0c479b45036993
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657640"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697624"
 ---
-# <a name="what-is-text-analytics-api"></a>什麼是文字分析 API？
+# <a name="what-is-the-text-analytics-api"></a>什麼是文字分析 API？
 
 文字分析 API 是一種雲端式服務，可針對原始的文字提供進階的自然語言處理，同時包含四種主要功能：情感分析、關鍵片語擷取、語言偵測和實體辨識。
 
@@ -25,19 +25,19 @@ ms.locfileid: "67657640"
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-文字分析可能代表不同的意義，但在認知服務中，文字分析 API 可提供四種類型的分析，如下所述。
+文字分析可能代表不同的意義，但在認知服務中，文字分析 API 可提供四種類型的分析，如下所述。 您可以將這些功能與 [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 搭配使用，或是與 [.NET](quickstarts/csharp.md)、[Python](quickstarts/python-sdk.md)、[Node.js](quickstarts/nodejs-sdk.md)、[Go](quickstarts/go-sdk.md) 或 [Ruby](quickstarts/ruby-sdk.md) 搭配使用。
 
 ## <a name="sentiment-analysis"></a>情感分析
-使用[情感分析](how-tos/text-analytics-how-to-sentiment-analysis.md)可藉由分析原始文字而獲得有關於正面或負面情感的線索，來了解客戶對您的品牌或主題有何看法。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。<br /> 分析模型會使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
+使用[情感分析](how-tos/text-analytics-how-to-sentiment-analysis.md)可藉由分析原始文字而獲得有關於正面或負面情感的線索，來了解客戶對您的品牌或主題有何看法。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。<br /> 分析模型會使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。
 
 ## <a name="key-phrase-extraction"></a>關鍵片語擷取
-可自動[擷取關鍵片語](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 您可以使用這裡的 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
+可自動[擷取關鍵片語](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。
 
 ## <a name="language-detection"></a>語言偵測
-您可以[偵測輸入文字是以何種語言撰寫的](how-tos/text-analytics-how-to-language-detection.md)，並按要求針對所提交的每份文件回報單一語言代碼，包括多種不同的語言、變體、方言，和某些區域性/文化語言。 語言代碼各配有一個分數，表示分數的強度。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
+您可以[偵測輸入文字是以何種語言撰寫的](how-tos/text-analytics-how-to-language-detection.md)，並按要求針對所提交的每份文件回報單一語言代碼，包括多種不同的語言、變體、方言，和某些區域性/文化語言。 語言代碼各配有一個分數，表示分數的強度。
 
 ## <a name="named-entity-recognition"></a>具名實體辨識
-[識別文字中的實體並分類](how-tos/text-analytics-how-to-entity-linking.md)為人員、位置、組織、日期/時間、數量、百分比、貨幣等等。 已知的實體也會辨識出來，並連結至網路上的其他資訊。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API。
+[識別文字中的實體並分類](how-tos/text-analytics-how-to-entity-linking.md)為人員、位置、組織、日期/時間、數量、百分比、貨幣等等。 已知的實體也會辨識出來，並連結至網路上的其他資訊。
 
 ## <a name="use-containers"></a>使用容器
 
@@ -47,7 +47,7 @@ ms.locfileid: "67657640"
 
 工作流程很簡單：您提交資料以進行分析，並在程式碼中處理輸出。 分析器會依原狀使用，不需要額外的設定或自訂。
 
-1. [註冊](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)[存取金鑰](how-tos/text-analytics-how-to-access-key.md)。 每次要求時都必須傳入此金鑰。
+1. [建立文字分析的 Azure 資源](../cognitive-services-apis-create-account.md)。 其後，請[取得為您產生的金鑰](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)，用以驗證您的要求。
 
 2. [編寫要求](how-tos/text-analytics-how-to-call-api.md#json-schema)，其中包含 JSON 格式的原始非結構化文字，作為您的資料。
 
@@ -108,10 +108,12 @@ ms.locfileid: "67657640"
 
 ## <a name="next-steps"></a>後續步驟
 
-+ [註冊](how-tos/text-analytics-how-to-signup.md)存取金鑰，並檢閱[呼叫 API](how-tos/text-analytics-how-to-call-api.md) 的步驟。
++ [建立文字分析的 Azure 資源](../cognitive-services-apis-create-account.md)，以取得應用程式的金鑰和端點。
 
 + [快速入門](quickstarts/csharp.md)是以 C# 撰寫的 REST API 的呼叫適用的逐步解說。 請了解如何以最少的程式碼提交文字、選擇分析，以及檢視結果。 如有需要，您可以改為從 [Python 快速入門](quickstarts/python.md)來開始。
 
++ 如需新版本和功能的詳細資訊，請參閱[文字分析 API 的新功能](whats-new.md)。
+
 + 稍微深入了解這個使用 Azure Databricks 的[情感分析教學課程](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services)。
 
-+ 請至[外部和社群內容頁面](text-analytics-resource-external-community.md)來參閱我們的部落格文章清單，以及觀看更多相關影片來了解如何搭配其他工具和技術來使用文字分析 API。
++ 請至[外部和社群內容頁面](text-analytics-resource-external-community.md)參閱我們的部落格文章清單，以及觀看更多相關影片以了解如何搭配其他工具和技術來使用文字分析 API。

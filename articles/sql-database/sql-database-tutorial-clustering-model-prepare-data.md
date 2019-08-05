@@ -12,32 +12,34 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 83ef25f04012933c2665e63e4617d480eb336f7b
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66419796"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639982"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>教學課程：準備使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中執行群集所需的資料
 
-在這個三部分教學課程系列的第一部分中，您將準備 Azure SQL 資料庫中的資料，以透過 Azure SQL Database 機器學習服務 (預覽) 在 R 中執行群集。
+在這個三部分教學課程系列的第一部分中，您會使用 R 來匯入和準備來自 Azure SQL 資料庫中的資料。在本系列稍後的內容中，您則會使用此資料透過 Azure SQL Database 機器學習服務 (預覽) 在 R 中定型和部署群集模型。
 
 *群集*可以解釋為將資料歸類為群組成員有某些共通點的群組。
 您將使用 **K-Means** 演算法，對產品購買和退貨的資料集中包含的客戶執行群集。 藉由執行客戶的群集，您將可鎖定特定群組而更有效率地投入您的行銷工作。
 K-Means 群集是一種*非監督式學習*演算法，會根據相似之處尋找資料中的模式。
 
+在本系列的第一和第二部分中，您會在 RStudio 中開發一些 R 指令碼，以便準備資料並定型機器學習模型。 然後，在第三部分中，則會使用預存程序在 SQL 資料庫內執行這些 R 指令碼。
+
 在本文中，您將了解如何：
 
 > [!div class="checklist"]
 > * 將範例資料庫匯入 Azure SQL 資料庫中
-> * 依不同的維度區分客戶
-> * 使用 R 將 Azure SQL 資料庫中的資料載入資料框架中
+> * 使用 R 依不同的維度區分客戶
+> * 將 Azure SQL 資料庫中的資料載入到 R 資料框架中
 
-在[第二部分](sql-database-tutorial-clustering-model-build.md)中，您將了解如何建立和定型 K-Means 群集模型。
+在[第二部分](sql-database-tutorial-clustering-model-build.md)中，您將了解如何使用 R 建立和定型 K-Means 群集模型。
 
-在[第三部分](sql-database-tutorial-clustering-model-deploy.md)中，您將了解如何在 Azure SQL 資料庫中建立可根據新資料執行群集的預存程序。
+在[第三部分](sql-database-tutorial-clustering-model-deploy.md)中，您將了解如何使用 R 在 Azure SQL 資料庫中建立可根據新資料執行群集的預存程序。
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -207,8 +209,8 @@ head(customer_data, n = 5);
 在本教學課程系列的第一部分中，您已完成下列步驟：
 
 * 將範例資料庫匯入 Azure SQL 資料庫中
-* 依不同的維度區分客戶
-* 使用 R 將 Azure SQL 資料庫中的資料載入資料框架中
+* 使用 R 依不同的維度區分客戶
+* 將 Azure SQL 資料庫中的資料載入到 R 資料框架中
 
 若要建立會使用這項客戶資料的機器學習模型，請遵循本教學課程系列的第二部分：
 

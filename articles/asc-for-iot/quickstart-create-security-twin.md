@@ -1,6 +1,6 @@
 ---
-title: 為適用於 IoT 的 Azure 資訊安全中心建立安全性模組對應項 (預覽) | Microsoft Docs
-description: 了解如何建立適用於 IoT 的 Azure 資訊安全中心模組對應項，以便與適用於 IoT 的 ASC 搭配使用。
+title: 為適用於 IoT 的 Azure 資訊安全中心建立安全性模組對應項 | Microsoft Docs
+description: 了解如何建立適用於 IoT 的 Azure 資訊安全中心模組對應項，以便與適用於 IoT 的 Azure 資訊安全中心搭配使用。
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,17 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0e042942be63fdcd97c7cda6003e6d55376ca1a1
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 92bf79aa5ae55bad16d68a26dc13d292285a4d46
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616661"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597071"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>快速入門：建立 azureiotsecurity 模組對應項
-
-> [!IMPORTANT]
-> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 本快速入門說明如何為新的裝置建立個別的 azureiotsecurity  模組對應項，或是如何為 IoT 中樞內的所有裝置批次建立模組對應項。  
 
@@ -33,15 +30,16 @@ ms.locfileid: "67616661"
 
 對 Azure 內所建置的 IoT 解決方案來說，裝置對應項在裝置管理和程序自動化中同時扮演重要的角色。 
 
-適用於 IoT 的 Azure 資訊安全中心 (ASC) 可與您現有的 IoT 裝置管理平台完全整合，讓您能夠管理裝置的安全性狀態，以及利用現有的裝置控制功能。
-利用 IoT 中樞的對應項機制，即可實現適用於 IoT 的 ASC 整合。  
+適用於 IoT 的 Azure 資訊安全中心可與您現有的 IoT 裝置管理平台完全整合，讓您能夠管理裝置的安全性狀態，以及利用現有的裝置控制功能。
+利用 IoT 中樞的對應項機制，即可實現適用於 IoT 的 Azure 資訊安全中心整合。  
 
 若要深入了解 Azure IoT 中樞內模組對應項的一般概念，請參閱 [IoT 中樞模組對應項](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)。 
  
-適用於 IoT 的 ASC 會利用模組對應項機制，並為您的每個裝置保留名為 azureiotsecurity  的安全性模組對應項。
+適用於 IoT 的 Azure 資訊安全中心會利用模組對應項機制，並為您的每個裝置保留名為 azureiotsecurity  的安全性模組對應項。
+
 安全性模組對應項會保存與每個裝置的裝置安全性相關的所有資訊。 
  
-若要充分利用適用於 IoT 的 ASC 功能，您必須在服務中為每個裝置建立、設定和使用這些安全性模組對應項。  
+若要充分利用適用於 IoT 的 Azure 資訊安全中心功能，您必須在服務中為每個裝置建立、設定和使用這些安全性模組對應項。  
 
 ## <a name="create-azureiotsecurity-module-twin"></a>建立 azureiotsecurity 模組對應項 
 
@@ -54,7 +52,7 @@ _azureiotsecurity_ 模組對應項可透過兩種方式來建立：
 
 若要了解如何修改或變更現有模組對應項的組態，請參閱[代理程式組態](how-to-agent-configuration.md)。 
 
-若要以手動方式為裝置建立新的 azureiotsecurity  模組對應項，請使用下列指示： 
+若要手動為裝置建立新的 azureiotsecurity  模組對應項，請使用下列指示： 
 
 1. 在 IoT 中樞內，找出並選取您想要為其建立安全性模組對應項的裝置。
 1. 按一下裝置，然後按一下 [新增模組 ID]  。
@@ -74,7 +72,7 @@ _azureiotsecurity_ 模組對應項可透過兩種方式來建立：
     ![與裝置相關聯的模組](./media/quickstart/verify-security-module-twin-3.png)
 
 
-若要深入了解如何自訂適用於 IoT 的 ASC 模組對應項的屬性，請參閱[代理程式設定](how-to-agent-configuration.md)。
+若要深入了解如何自訂適用於 IoT 的 Azure 資訊安全中心模組對應項的屬性，請參閱[代理程式設定](how-to-agent-configuration.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

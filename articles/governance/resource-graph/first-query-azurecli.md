@@ -3,17 +3,16 @@ title: 使用 Azure CLI 執行第一個查詢
 description: 此文章將引導您完成為 Azure CLI 啟用 Resource Graph 延伸模組並執行第一個查詢的步驟。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 07/26/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 592b2c611888623c2753d7c4abc9fe57c28af30e
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: afe32c197b5eab24ba298395bb2c9e83f847d6c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823154"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562578"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>快速入門：使用 Azure CLI 執行您的第一個 Resource Graph 查詢
 
@@ -36,7 +35,7 @@ ms.locfileid: "65823154"
    az extension add --name resource-graph
    ```
 
-1. 驗證延伸模組已安裝，且為預期的版本 (至少為 **0.1.7**)：
+1. 驗證延伸模組已安裝，且為預期的版本 (至少為 **0.1.11**)：
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -89,9 +88,6 @@ ms.locfileid: "65823154"
 # Remove the Resource Graph extension from the Azure CLI environment
 az extension remove -n resource-graph
 ```
-
-> [!NOTE]
-> 這不會刪除先前下載的延伸模組檔案。 它只會從正在執行的 Azure CLI 環境中移除。
 
 ## <a name="next-steps"></a>後續步驟
 

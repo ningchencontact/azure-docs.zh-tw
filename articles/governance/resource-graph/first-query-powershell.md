@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 76771a7dfcc323cca6ea52366195c895ee510701
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6c58528aba29cbbc81694112815534a8fc525b8a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165588"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565384"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 執行您的第一個 Resource Graph 查詢
 
@@ -48,7 +48,7 @@ Azure Resource Graph 模組需要下列軟體：
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. 驗證已匯入模組，而且是正確的版本 (0.7.1)：
+1. 驗證已匯入模組，而且是正確的版本 (0.7.3)：
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
@@ -91,7 +91,7 @@ Azure Resource Graph 模組需要下列軟體：
 執行最終查詢數次後，假設您的環境中未變更任何內容，傳回的結果將會一致且符合預期 - 依照**名稱**屬性排序，但仍限制為前五個結果。
 
 > [!NOTE]
-> 如果查詢未從您可存取的訂用帳戶傳回結果，請注意，`Search-AzGraph` Cmdlet 是為預設內容中的訂用帳戶所預設。 若要查看屬於預設內容的訂用帳戶識別碼清單，請執行 `(Get-AzContext).Account.ExtendedProperties.Subscriptions`。如果您想要搜尋您可存取的所有訂用帳戶，您可以藉由執行 `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`，為 `Search-AzGraph` Cmdlet 設定 PSDefaultParameterValues
+> 如果查詢未從您可存取的訂用帳戶傳回結果，請注意，`Search-AzGraph` Cmdlet 是為預設內容中的訂用帳戶所預設。 若要查看屬於預設內容的訂用帳戶識別碼清單，請執行 `(Get-AzContext).Account.ExtendedProperties.Subscriptions`。如果您想要搜尋您可存取的所有訂用帳戶，您可以藉由執行 `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`，為 `Search-AzGraph` Cmdlet 設定 PSDefaultParameterValues
    
 ## <a name="clean-up-resources"></a>清除資源
 

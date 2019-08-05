@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ac0ed218aa27a36b3b8cd8ed8123e2baef6948c6
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ad90a6443cc1c94bcdb730e783b82dfdd4798676
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723281"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553149"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>快速入門：在 Windows 上執行語音裝置 SDK 範例應用程式
 

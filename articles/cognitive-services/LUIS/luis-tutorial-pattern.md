@@ -1,5 +1,5 @@
 ---
-title: 模式
+title: 模式 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 提供較少的語句範例時，使用模式來提升意圖和實體預測使用模式。 模式是透過範本語句範例的方式來提供的，其中包含用來識別實體及可忽略文字的語法。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: e559d4a3366c45bd054cbf3a235805e048de3493
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 96c58e18abce85354db0d3bdf579600506cf2d86
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276038"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563308"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>教學課程：新增通用模式範本語句格式
 
@@ -357,7 +357,7 @@ ms.locfileid: "68276038"
 
 範例語句如下：
 
-|意圖|包含選用文字和預先建置實體的語句範例|
+|Intent|包含選用文字和預先建置實體的語句範例|
 |:--|:--|
 |OrgChart-Manager|`Who was Jill Jones manager on March 3?`|
 |OrgChart-Manager|`Who is Jill Jones manager now?`|
@@ -368,7 +368,7 @@ ms.locfileid: "68276038"
 
 允許這項選擇性資訊的範本語句範例： 
 
-|意圖|包含選用文字和預先建置實體的語句範例|
+|Intent|包含選用文字和預先建置實體的語句範例|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
@@ -397,7 +397,7 @@ ms.locfileid: "68276038"
 
 1. 當您還在 [建置]  的 [模式]  中時，可以新增數個模式範本語句。 從意圖下拉式功能表中選取 [OrgChart Manager]  ，並輸入以下每個範本語句：
 
-    |意圖|包含選用文字和預先建置實體的語句範例|
+    |Intent|包含選用文字和預先建置實體的語句範例|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
@@ -428,7 +428,7 @@ ms.locfileid: "68276038"
 
 使用 group `()` 和 OR `|` 語法，可以將下列 2 個模式合併成單一模式。
 
-|意圖|包含選用文字和預先建置實體的語句範例|
+|Intent|包含選用文字和預先建置實體的語句範例|
 |--|--|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|

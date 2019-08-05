@@ -12,17 +12,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 12738b63be92420c5f3afea6c133522cbd97f849
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420226"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640004"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>教學課程：使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中建置群集模型
 
-在這個三部分教學課程系列的第二部分中，您將使用 Azure SQL Database 機器學習服務 (預覽) 在 R 中建置用來執行群集的 K-Means 模型。
+在這三部分教學課程系列的第二部分中，您將使用 R 建立 K-Means 模型來執行群集。 在本系列的下一個部分中，您將使用 Azure SQL Database 機器學習服務 (預覽) 在 SQL 資料庫中部署此模型。
 
 在本文中，您將了解如何：
 
@@ -31,9 +31,9 @@ ms.locfileid: "66420226"
 > * 執行群集
 > * 分析結果
 
-在[第一部分](sql-database-tutorial-clustering-model-prepare-data.md)中，您已了解如何在 Azure SQL 資料庫中準備以 R 執行群集所需的資料。
+在[第一部分](sql-database-tutorial-clustering-model-prepare-data.md)中，您已了解如何在 Azure SQL 資料庫中準備執行群集所需的資料。
 
-在[第三部分](sql-database-tutorial-clustering-model-deploy.md)中，您將了解如何在 Azure SQL 資料庫中建立可根據新資料執行群集的預存程序。
+在[第三部分](sql-database-tutorial-clustering-model-deploy.md)中，您將了解如何使用 R 在 Azure SQL 資料庫中建立可根據新資料執行群集的預存程序。
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

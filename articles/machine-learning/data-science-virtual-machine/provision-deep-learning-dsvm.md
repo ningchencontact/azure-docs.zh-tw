@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: 在 Azure 上設定和建立深入學習資料科學虛擬機器以進行分析和機器學習。
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.author: vijetaj
+ms.openlocfilehash: b9d0f9aead6e2cedd3ca0884273bac0106a925a0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410444"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591905"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>在 Azure 上佈建深入學習虛擬機器 
 
@@ -68,7 +68,7 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 
 ### <a name="linux-edition"></a>Linux 版本
 
-建立 VM 之後，您就可以使用 SSH 登入。 使用您在中建立的帳戶認證[**基本概念**](#basics)一節的步驟 3 針對文字殼層介面。 如需有關 Azure vm 的 SSH 連線的詳細資訊，請參閱[安裝和設定遠端桌面連線到 Azure 中的 Linux VM](/azure/virtual-machines/linux/use-remote-desktop)。 在 Windows 用戶端中，您可以下載 SSH 用戶端工具，例如[Putty](https://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。 
+建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 [**基本資料**](#basics)一節中建立的帳戶認證。 如需有關 Azure VM 的 SSH 連線詳細資訊，請參閱[在 Azure 中安裝和設定遠端桌面以連線至 Linux VM](../../virtual-machines/linux/use-remote-desktop.md)。 在 Windows 用戶端上，您可以下載 SSH 用戶端工具，例如 [Putty](https://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。 
 
 > [!NOTE]
 > 在測試中，X2Go 用戶端的效能優於 X11 轉寄。 我們建議您使用 X2Go 用戶端作為圖形化桌面介面。

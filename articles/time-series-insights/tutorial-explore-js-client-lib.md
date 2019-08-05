@@ -1,20 +1,20 @@
 ---
 title: 教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫 | Microsoft Docs
-description: 了解 Azure 時間序列深入解析 JavaScript 用戶端程式庫和相關的程式設計模型。
+description: 本教學課程可讓您了解 Azure 時間序列深入解析 JavaScript 用戶端程式庫和相關的程式設計模型。
 author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: c6cfd2069851138d738b1533eaab74d9d7aedda6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243995"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677668"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 
@@ -34,16 +34,18 @@ ms.locfileid: "66243995"
 > * [GitHub 範例存放庫](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)會提供時間序列深入解析範例應用程式的來源檔案。
 > * 請閱讀[時間序列深入解析用戶端參考文件](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)。
 
+如果您沒有帳戶，請註冊[免費 Azure 訂用帳戶](https://azure.microsoft.com/free/)。
+
+## <a name="prerequisites"></a>必要條件
+
+* 本教學課程使用您瀏覽器的**開發人員工具**功能。 新式網頁瀏覽器 ([Microsoft Edge](/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) 和 [Safari](https://developer.apple.com/safari/tools/) 等等) 通常都可透過鍵盤上的 F12 快速鍵來存取 **Web 檢查工具檢視**。 另一種可存取檢視的方法是在網頁上按一下滑鼠右鍵，然後選取 [檢查元素]  。
+
 ## <a name="video"></a>影片
 
 在此影片中，我們會介紹開放原始碼「時間序列深入解析 JavaScript SDK」：
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
-
-## <a name="prerequisites"></a>必要條件
-
-本教學課程使用您瀏覽器的**開發人員工具**功能。 新式網頁瀏覽器 ([Microsoft Edge](/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) 和 [Safari](https://developer.apple.com/safari/tools/) 等等) 通常都可透過鍵盤上的 F12 快速鍵來存取 **Web 檢查工具檢視**。 另一種可存取檢視的方法是在網頁上按一下滑鼠右鍵，然後選取 [檢查元素]  。
 
 ## <a name="time-series-insights-sample-application"></a>時間序列深入解析範例應用程式
 
@@ -100,7 +102,7 @@ ms.locfileid: "66243995"
 
 ## <a name="time-series-insights-javascript-client-library-concepts"></a>時間序列深入解析 JavaScript 用戶端程式庫概念
 
-時間序列深入解析用戶端程式庫 (*tsclient.js*) 提供兩個重要 JavaScript 功能的抽象概念：
+時間序列深入解析用戶端程式庫 (*tsiclient.js*) 提供兩個重要 JavaScript 功能的抽象概念：
 
 * **用來呼叫時間序列深入解析查詢 API 的包裝函式方法**：可讓您使用彙總運算式來查詢時間序列深入解析資料的 REST API。 這些方法會組織在程式庫的 TsiClient.Server 命名空間下。
 
@@ -307,6 +309,13 @@ ms.locfileid: "66243995"
 [!code-javascript[code-sample-brushes](~/samples-javascript/pages/tutorial/index.html?range=526-540&highlight=1,13)]
 
 [![有快顯功能表可供使用比刷來建立圓形圖和橫條圖的折線圖](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png#lightbox)
+
+## <a name="clean-up-resources"></a>清除資源
+
+您現在已完成本教學課程，請清除您所建立的資源：
+
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
+1. 選取 [刪除]  或個別移除每個資源，以刪除整個資源群組 (和其中包含的所有資源)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,21 +1,21 @@
 ---
 title: 快速入門：使用 C# SDK 呼叫您的 Bing 自訂搜尋端點 | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: 使用適用於 C# 的 Bing 自訂搜尋 SDK 來搜尋您的自訂搜尋執行個體。
+description: 您可以使用本快速入門，開始使用 C# SDK 要求 Bing 自訂搜尋執行個體所產生的搜尋結果。
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 07/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0381df439d0c0904e8741bb1f31b179566c72ec5
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7ac6d051c8333a6329a3c2ed238d78fb9da4a30
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206165"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565719"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>快速入門：使用 C# SDK 呼叫您的 Bing 自訂搜尋端點 
 

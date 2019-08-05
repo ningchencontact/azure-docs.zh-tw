@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105721"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515103"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>快速入門：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗
 
@@ -93,7 +93,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
 
     ![將「選取資料集中的資料行」模組新增至實驗畫布，並加以連線](./media/create-experiment/type-select-columns.png)
 
-1. 按一下 [選取資料集中的資料行][select-columns] 模組，然後按一下 [屬性]  窗格中的 [啟動資料行選取器]  。
+1. 按一下[選取資料集中的資料行][select-columns]模組，然後按一下 [屬性]  窗格中的 [啟動資料行選取器]  。
 
    - 在左側按一下 [套用規則] 
    - 在 [開始於]  下，按一下 [所有資料行]  。 這些規則會指示[選取資料集中的資料行][select-columns]傳遞所有資料行 (但我們將排除的資料行除外)。
@@ -111,7 +111,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
 
      ![按兩下模組以新增註解](./media/create-experiment/add-comment.png)
 
-1. 將[清除遺漏的資料][clean-missing-data] 模組拖曳到實驗畫布，然後將其連接到 [選取資料集中的資料行][select-columns] 模組。 在 [屬性]  窗格中，選取 [清除模式]  底下的 [移除整個資料列]  。 這些選項會指示[清除遺漏的資料][clean-missing-data]藉由移除含任何遺漏值的資料列來清除資料。 按兩下模組，並輸入註解「移除遺漏值資料列」。
+1. 將[清除遺漏的資料][clean-missing-data]模組拖曳到實驗畫布，然後將其連線至[選取資料集中的資料行][select-columns]模組。 在 [屬性]  窗格中，選取 [清除模式]  底下的 [移除整個資料列]  。 這些選項會指示[清除遺漏的資料][clean-missing-data]藉由移除含任何遺漏值的資料列來清除資料。 按兩下模組，並輸入註解「移除遺漏值資料列」。
 
     ![將 [清除遺漏的資料] 的清除模式設為 [移除整個資料列]](./media/create-experiment/set-remove-entire-row.png)
 
@@ -122,7 +122,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
     ![執行後，實驗應該會顯示如下](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
-> 為什麼要立即執行實驗？ 藉由執行實驗，就會從資料集傳遞我們資料的資料行定義 (透過[選取資料集中的資料行][select-columns]模組，及透過[清除遺漏的資料][clean-missing-data]模組)。 這表示，我們連接到[清除遺漏的資料][clean-missing-data]的任何模組也會有相同的資訊。
+> 為什麼要立即執行實驗？ 藉由執行實驗，就會從資料集傳遞我們資料的資料行定義 (透過[選取資料集中的資料行][select-columns]模組，及透過[清除遺漏的資料][clean-missing-data]模組)。 這表示，我們連線到[清除遺漏的資料][clean-missing-data]的任何模組也會有相同的資訊。
 
 現在我們已有清除過的資料。 若要檢視已清除的資料集，請按一下[清除遺漏的資料][clean-missing-data]模組的左側輸出連接埠，然後選取 [視覺化]  。 請注意，此時已不包含 **自負虧損** 資料行，而且也沒有遺漏值。
 
@@ -138,7 +138,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. 將另一個[選取資料集中的資料行][select-columns]模組拖曳到實驗畫布。 將[清除遺漏資料][clean-missing-data]模組的左側輸出連接埠連接到[選取資料集中的資料行][select-columns]模組的輸入。
+1. 將另一個[選取資料集中的資料行][select-columns]模組拖曳到實驗畫布。 將[清除遺漏資料][clean-missing-data]模組的左側輸出連接埠連線到[選取資料集中的資料行][select-columns]模組的輸入。
 
     ![將「選取資料集中的資料行」模組連線至「清除遺漏的資料」模組](./media/create-experiment/connect-clean-to-select.png)
 
@@ -170,7 +170,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
 
 我們將資料分割成個別的訓練和測試資料集，用來訓練和測試模型。
 
-1. 選取 [分割資料][split] 模組並拖曳到實驗畫布，然後將其連接到最後一個 [選取資料集中的資料行][select-columns] 模組。
+1. 選取 [分割資料][split] 模組並拖曳到實驗畫布，然後將其連線到最後一個[選取資料集中的資料行][select-columns]模組。
 
 1. 按一下[分割資料][split]模組以選取它。 尋找 [第一個輸出資料集中的資料列分數]  \(在畫布右邊的 [屬性]  窗格)，並將它設為 0.75。 如此，我們將使用百分之 75 的資料來訓練模型，並保留百分之 25 做為測試之用。
 
@@ -183,7 +183,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
 
 1. 若要選取學習演算法，請在畫布左側的模組調色盤中展開 [機器學習服務]  類別，然後展開 [初始化模型]  。 這會顯示數個可用來初始化機器學習演算法的模組類別。 在此實驗中，請選取 [迴歸]  類別下的[線性迴歸][linear-regression]模組，然後將其拖曳到實驗畫布。 (您也可以在調色盤搜尋方塊中輸入「線性迴歸」以尋找模組。)
 
-1. 找出[訓練模型][train-model]模組，並將其拖曳到實驗畫布。 將[線性迴歸][linear-regression]模組的輸出連接到[訓練模型][train-model]模組的左側輸入，並將[分割資料][split]模組的訓練資料輸出 (左側連接埠) 連接到[訓練模型][train-model]模組的右側輸入。
+1. 找出[訓練模型][train-model]模組，並將其拖曳到實驗畫布。 將[線性迴歸][linear-regression]模組的輸出連線至[訓練模型][train-model]模組的左側輸入，並將[分割資料][split]模組的訓練資料輸出 (左側連接埠) 連線至[訓練模型][train-model]模組的右側輸入。
 
     ![將「訓練模型」模組連線至「線性迴歸」和「分割資料」模組](./media/create-experiment/connect-train-model.png)
 
@@ -203,7 +203,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
 
 現在已完成使用百分之 75 資料模型的訓練，我們可以用它來為其他百分之 25 的資料評分，以了解模型的運作是否理想。
 
-1. 找出[評分模型][score-model]模組，並將其拖曳到實驗畫布。 將[訓練模型][train-model]模組的輸出連接到[評分模型][score-model]的左側輸入連接埠。 將[分割資料][split]模組的測試資料輸出 (右側連接埠) 連接到[評分模型][score-model]的右側輸入連接埠。
+1. 找出[評分模型][score-model]模組，並將其拖曳到實驗畫布。 將[訓練模型][train-model]模組的輸出連線至[評分模型][score-model]的左側輸入連接埠。 將[分割資料][split]模組的測試資料輸出 (右側連接埠) 連線至[評分模型][score-model]的右側輸入連接埠。
 
     ![將「評分模型」模組連線至「訓練模型」和「分割資料」模組](./media/create-experiment/connect-score-model.png)
 
@@ -211,7 +211,7 @@ Studio 附有多個範例資料集供您使用，或者，您可以從許多來�
 
     ![「評分模型」模組的輸出](./media/create-experiment/score-model-output.png)
 
-1. 最後，我們要測試結果的品質。 選取[評估模型][evaluate-model]模組，並將其拖曳至實驗畫布，然後將[評分模型][score-model]模組的輸出連接到[評估模型][evaluate-model]的左側輸入。 實驗最終應呈現如下：
+1. 最後，我們要測試結果的品質。 選取[評估模型][evaluate-model]模組，並將其拖曳至實驗畫布，然後將[評分模型][score-model]模組的輸出連線到[評估模型][evaluate-model]的左側輸入。 實驗最終應呈現如下：
 
     ![最終實驗](./media/create-experiment/complete-linear-regression-experiment.png)
 

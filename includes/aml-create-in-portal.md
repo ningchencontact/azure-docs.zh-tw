@@ -8,19 +8,17 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 07/21/2019
-ms.openlocfilehash: 51bd3dfb33b1f445db8672e1b987ee6c6242e09c
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.date: 07/31/2019
+ms.openlocfilehash: 7be5b0dbe4bbfba30ea469eec662877c1ef56c7c
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370949"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689612"
 ---
 1. 使用您所使用之 Azure 訂用帳戶的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 
 
-1. 在入口網站的左上角，選取 [建立資源]  。
-
-   ![在 Azure 入口網站中建立資源](./media/aml-create-in-portal/portal-create-a-resource-07-2019.png)
+1. 在 Azure 入口網站的左上角，選取 [建立資源]  。
 
 1. 使用搜尋列尋找 [Machine Learning 服務工作區]  。
 

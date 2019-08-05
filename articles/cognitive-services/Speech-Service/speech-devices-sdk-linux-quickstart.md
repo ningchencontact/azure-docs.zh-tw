@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: d755f3388466369ee1edc3d9ff1e353173babc10
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3ee39f4cf0c78850b0128fc5e497f2b2aee57bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723283"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559078"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>快速入門：在 Linux 上執行語音裝置 SDK 範例應用程式
 
@@ -137,7 +137,7 @@ ms.locfileid: "67723283"
 
    ![「語音裝置 SDK」範例應用程式和選項](media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. 嘗試新的 [交談話轉譯]  示範。 開始透過 [工作階段]   > [啟動]  轉譯。 根據預設，每個人都是來賓。 不過，如果您有參與者的語音簽章，可以將其放入專案資料夾 **target/classes** 的 `participants.properties` 中。 若要產生語音簽章，請查看[轉譯交談 (SDK)](how-to-use-conversation-transcription-service.md)。
+1. 嘗試新的 [交談轉譯]  示範。 透過 [工作階段]   > [啟動]  開始轉譯。 根據預設，每個人都是來賓。 不過，如果您有參與者的語音簽章，可以將其放入專案資料夾 **target/classes** 的 `participants.properties` 中。 若要產生語音簽章，請查看[轉譯交談 (SDK)](how-to-use-conversation-transcription-service.md)。
 
    ![示範交談轉譯應用程式](media/speech-devices-sdk/cts-sample-app-linux.png)
 

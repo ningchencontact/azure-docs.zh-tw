@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 10f559295ff0598dea26fb30b089f020e2985889
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840333"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679147"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>準備 VMware VM 以進行評量並移轉至 Azure
 
@@ -60,7 +60,7 @@ ms.locfileid: "67840333"
     - 第二個應用程式會存取在註冊期間建立的 Azure Key Vault，以儲存 Azure AD 的應用程式資訊和設備組態設定。
 - 您可以使用下列其中一種方法來指派 Azure Migrate 的權限，以建立這些 Azure AD 應用程式：
     - 租用戶/全域管理員可以授與權限給租用戶中的使用者，以建立及註冊 Azure AD 應用程式。
-    - 租用戶/全域管理員可以為帳戶指派應用程式開發人員角色 (具有權限)。
+    - 租用戶/全域管理員可為帳戶指派應用程式開發人員角色 (具有權限)。
 
 值得注意的是：
 
@@ -70,7 +70,7 @@ ms.locfileid: "67840333"
 
 #### <a name="grant-account-permissions"></a>授與帳戶權限
 
-租用戶/全域管理員可以授與權限，如下所示
+租用戶/全域管理員可依照下列方式授與權限
 
 1. 在 Azure AD 中，租用戶/全域管理員應該瀏覽至 [Azure Active Directory]   > [使用者]   > [使用者設定]  。
 2. 管理員應將 [應用程式註冊]  設定為 [是]  。
@@ -84,13 +84,13 @@ ms.locfileid: "67840333"
 
 #### <a name="assign-application-developer-role"></a>指派應用程式開發人員角色 
 
-租用戶/全域管理員可以為帳戶指派應用程式開發人員角色。 [深入了解](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
+租用戶/全域管理員可為帳戶指派應用程式開發人員角色。 [深入了解](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
 
 ## <a name="assign-role-assignment-permissions"></a>指派角色指派權限
 
 在 Azure Migrate 專案所在的資源群組上指派角色指派權限，如下所示：
 
-1. 在 Azure 入口網站中的資源群組中，選取 [存取控制 (IAM)]  。
+1. 在 Azure 入口網站的資源群組中，選取 [存取控制 (IAM)]  。
 2. 在 [檢查存取權]  中，尋找相關的帳戶，然後按一下以查看權限。
 
     - 若要執行伺服器評量，「參與者」  權限就已足夠。
@@ -102,11 +102,11 @@ ms.locfileid: "67840333"
 
 ## <a name="prepare-for-vmware-vm-assessment"></a>準備 VMware VM 評量
 
-若要準備 VMware VM 評量，您必須確認 Hyper-V 主機和 VM 設定，以及確認設備部署的設定。
+若要準備 VMware VM 評量，您必須確認 VMware 主機和 VM 設定，並確認設備部署的設定。
 
 ### <a name="verify-vmware-settings"></a>確認 VMware 設定
 
-1. [確認](migrate-support-matrix-vmware.md#assessment-vmware-server-requirements)用於評估 VM 的 VMware 伺服器需求。
+1. [確認](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements)用於評估 VM 的 VMware 伺服器需求。
 2. [確認](migrate-support-matrix-vmware.md#assessment-port-requirements) vCenter 伺服器上已開啟必要的連接埠。
 
 

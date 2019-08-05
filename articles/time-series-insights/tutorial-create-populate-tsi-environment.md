@@ -1,20 +1,20 @@
 ---
 title: 教學課程：建立 Azure Time Series Insights 環境 | Microsoft Docs
-description: 了解如何建立已從模擬裝置填入資料的時間序列深入解析環境。
+description: 本教學課程可讓您了解如何建立已從模擬裝置填入資料的時間序列深入解析環境。
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 06a450c47c7264bdecb663c9f71e3a9753df5e1e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 921528c50bae03b67800bf3ccab8b5cd9bb704f6
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273486"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677741"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教學課程：建立 Azure 時間序列深入解析環境
 
@@ -27,16 +27,18 @@ ms.locfileid: "67273486"
 > * 執行裝置模擬以將資料串流處理到時間序列深入解析環境中。
 > * 驗證模擬的遙測資料。
 
+> [!IMPORTANT]
+> 如果您沒有帳戶，請註冊[免費 Azure 訂用帳戶](https://azure.microsoft.com/free/)。
+
+## <a name="prerequisites"></a>必要條件
+
+* 您的 Azure 登入帳戶也必須是訂用帳戶的**擁有者**角色成員。 如需詳細資訊，請參閱[使用角色型存取控制和 Azure 入口網站管理存取權](../role-based-access-control/role-assignments-portal.md)。
+
 ## <a name="video"></a>影片
 
 ### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>了解如何使用「Azure IoT 解決方案加速器」產生資料並開始使用「時間序列深入解析」。 </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
-
-## <a name="prerequisites"></a>必要條件
-
-* 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/)。
-* 您的 Azure 登入帳戶也必須是訂用帳戶的**擁有者**角色成員。 如需詳細資訊，請參閱[使用角色型存取控制和 Azure 入口網站管理存取權](/azure/role-based-access-control/role-assignments-portal)。
 
 ## <a name="overview"></a>概觀
 

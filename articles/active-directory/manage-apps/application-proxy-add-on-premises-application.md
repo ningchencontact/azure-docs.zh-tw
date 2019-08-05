@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecff60d1a1f808c4021476d136fe014175451672
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: c890288539a8abebe688ca4571ffa6c152e992ee
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723971"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694049"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -85,8 +85,6 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
    | 443 | 應用程式 Proxy 服務的所有傳出通訊 |
 
 如果您的防火牆根據原始使用者強制執行流量，也請針對來自以網路服務形式執行的 Windows 服務的流量，開啟連接埠 80 和 443。
-
-如果您已經在使用應用程式 Proxy，則可能已安裝較舊版本的連接器。 請遵循此教學課程，以安裝最新版的連接器。 早於 1.5.132.0 的版本也需要開啟下列連接埠：5671、8080、9090-9091、9350、9352、10100–10120。
 
 ### <a name="allow-access-to-urls"></a>允許存取 URL
 
@@ -180,7 +178,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
     | 欄位 | 說明 |
     | :---- | :---------- |
-    | **後端應用程式逾時** | 只有當您的應用程式太慢而無法驗證和連線時，才將此值設定為 [長]  。 |
+    | **後端應用程式逾時** | 只有當您的應用程式太慢而無法驗證和連線時，才將此值設定為 [長]  。 在預設情況下，後端應用程式的逾時長度為 85 秒。 設定為 Long 時，後端逾時會增加到 180 秒。 |
     | **使用僅限 HTTP Cookie** | 將此值設定為 [是]  ，讓應用程式 Proxy Cookie 在 HTTP 回應標頭中包含 HTTPOnly 旗標。 如果使用遠端桌面服務，請將此值設定為 [否]  。|
     | **使用安全的 Cookie**| 將此值設定為 [是]  ，以透過安全的通道 (例如加密的 HTTPS 要求) 傳輸 Cookie。
     | **使用永續性 Cookie**| 將此值的設定保留為 [否]  。 請只對無法在程序之間共用 Cookie 的應用程式使用此設定。 如需 Cookie 設定的詳細資訊，請參閱 [Azure Active Directory 中用來存取內部部署應用程式的 Cookie 設定](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)。

@@ -4,7 +4,7 @@ description: 適用於 Windows 和 Linux 資料科學虛擬機器的重要分析
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 384cb274496670e0b0b5a33e001e78a0babed3f0
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.author: vijetaj
+ms.openlocfilehash: 5816f53115f3ec54cbd9784894a5262b68dd6e95
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427787"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565187"
 ---
-# <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器簡介
+# <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器是什麼？
 
 資料科學虛擬機器 (DSVM) 是 Microsoft Azure 雲端上的自訂 VM 映像，專為進行資料科學建置。 它已預先安裝和預先設定許多常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。 我們提供 Windows Server 和 Linux 版。 我們提供了 Server 2016 和 Server 2012 的 Windows 版 DSVM。 我們在 Ubuntu 16.04 LTS 和 CentOS 7.4 上提供 Linux 版本的 DSVM。
 
@@ -48,7 +48,7 @@ ms.locfileid: "66427787"
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>自訂 Azure Notebooks 的計算能力
 
-[Azure Notebooks](/azure/notebooks/azure-notebooks-overview) 是免費的託管服務，無需任何安裝程序，就能用來在雲端中開發、執行和共用 Jupyter Notebook。 不過，免費服務層級的限制為 4 GB 記憶體和 1GB 資料。 若要解除所有的限制，您接著可以將 Notebooks 專案附加至資料科學 VM 或執行 Jupyter 伺服器的任何其他 VM。 如果您以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks，Notebooks 會自動顯示與該帳戶相關聯之訂用帳戶中的任何資料科學 VM。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) 是免費的託管服務，無需任何安裝程序，就能用來在雲端中開發、執行和共用 Jupyter Notebook。 不過，免費服務層級的限制為 4 GB 記憶體和 1GB 資料。 若要解除所有的限制，您接著可以將 Notebooks 專案附加至資料科學 VM 或執行 Jupyter 伺服器的任何其他 VM。 如果您以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks，Notebooks 會自動顯示與該帳戶相關聯之訂用帳戶中的任何資料科學 VM。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
 
 ### <a name="short-term-experimentation-and-evaluation"></a>短期實驗和評估
 資料科學 VM 可以用來評估或學習工具，例如 Microsoft ML Server、SQL Server、Visual Studio 工具、Jupyter、深入學習/ML 工具組，與社群中需要最少設定的受歡迎新工具。 資料科學 VM 可快速設定，因此可以套用至其他短期使用案例。 這些案例包括複寫已發佈的實驗、執行示範、遵循線上課程和會議教學課程的逐步解說。
@@ -64,7 +64,7 @@ ms.locfileid: "66427787"
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | 已預先安裝熱門套件的 [Microsoft R Open](https://mran.microsoft.com/open/)   |Y                      | Y             |
 | [Microsoft ML Server (R、Python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition 包括： <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) 平行和分散式高效能架構 (R & Python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;* [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package) - Microsoft 的最新 ML 演算法 <br />  &nbsp;&nbsp;&nbsp;&nbsp;* [R 和 Python 運算化](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |Y                      | Y |
-| [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro-Plus 含共用啟用 - Excel、Word 和 PowerPoint   |Y                      |N              |
+| [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) Pro-Plus 含共用啟用 - Excel、Word 和 PowerPoint   |Y                      |N              |
 | 已預先安裝熱門套件的 [Anaconda Python](https://www.continuum.io/) 2.7、3.5    |Y                      |Y              |
 | 已預先安裝 Julia 語言熱門套件的 [JuliaPro](https://juliacomputing.com/products/juliapro.html)                         |Y                      |Y              |
 | 關聯式資料庫                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS)、<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |

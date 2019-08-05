@@ -1,6 +1,6 @@
 ---
-title: 發佈知識庫，REST (Python)
-titleSuffix: QnA Maker - Azure Cognitive Services
+title: 快速入門：發行知識庫，REST (Python) - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 這個以 Python REST 為基礎的快速入門會逐步引導您發佈知識庫，以將經過測試的最新版知識庫推送至代表已發佈知識庫的專用 Azure 搜尋服務索引。 它也會建立可在您的應用程式或聊天機器人中呼叫的端點。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 60c5e24baf9062f6d7da3bf6f477c2b64101670e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a2db22334bace43cd29584c5931a5a7d08afaf78
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787887"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559761"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>快速入門：使用 Python 在 QnA Maker 中發佈知識庫
 

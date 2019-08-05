@@ -1,5 +1,5 @@
 ---
-title: 變更、定型應用程式 (Node.js)
+title: 變更、定型應用程式 (Node.js) - LUIS
 titleSuffix: Azure Cognitive Services
 description: 在此 Node.js 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 13ce1706a2184075155b2bbc4dca5753be391ceb
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 6f0b19c1ba8d4a72ced19e74a3807c3962989e5d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357112"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560565"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>快速入門：使用 Node.js 變更模型
 

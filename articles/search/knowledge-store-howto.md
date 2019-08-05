@@ -1,5 +1,5 @@
 ---
-title: 如何開始使用知識發掘 (預覽) - Azure 搜尋服務
+title: 如何開始使用知識存放區 (預覽) - Azure 搜尋服務
 description: 了解將 Azure 搜尋服務中的 AI 索引管線所建立的擴充文件傳送至您 Azure 儲存體帳戶中知識存放區的步驟。 您可以從該處檢視、調整及取用 Azure 搜尋服務和其他應用程式中的擴充文件。
 manager: cgronlun
 author: HeidiSteen
@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: e50dfcdc5ac2fbe2435066546a340874e1b8f682
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 5794a24931b613bf1bdddd983799367bb02cf44d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551061"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641020"
 ---
-# <a name="how-to-get-started-with-knowledge-mining-in-azure-search"></a>如何開始在 Azure 搜尋服務中使用知識發掘
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>如何在 Azure 搜尋服務中開始使用知識存放區 (預覽)
 
 > [!Note]
-> 知識存放區處於預覽狀態，不適合用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
+> 知識存放區處於預覽階段，不適用於生產環境。 [REST API 版本 2019-05-06-Preview](search-api-preview.md) 提供此功能。 目前沒有 .NET SDK 支援。
 >
-[知識存放區](knowledge-store-concept-intro.md)會將在編製索引期間建立的 AI 擴充文件儲存到您的 Azure 儲存體帳戶，以便在其他應用程式中進行下游知識發掘。 您也可以使用已儲存的擴充資料，以了解 Azure 搜尋服務索引管線並縮小其範圍。 
+[知識存放區](knowledge-store-concept-intro.md)會將在編製索引期間建立的 AI 擴充文件儲存到您的 Azure 儲存體帳戶，以便在其他應用程式中進行下游資料採礦。 您也可以使用已儲存的擴充資料，以了解 Azure 搜尋服務索引管線並縮小其範圍。 
 
 知識存放區是由「技能集」  所定義，並由「索引子」  所建立。 知識存放區的實體運算式是透過能判斷儲存體中資料結構的「投影」  來指定。 在您完成此逐步解說之後，您將會建立所有這些物件，並了解它們彼此配合的方式。 
 
@@ -38,7 +38,7 @@ ms.locfileid: "67551061"
 
 + 在 S0 隨用隨付層[建立認知服務資源](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) \(機器翻譯\)，以廣泛取得在 AI 擴充資料中使用的完整技能。 認知服務和您的 Azure 搜尋服務都必須位於相同區域。
 
-+ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。 
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。 
 
 範例 JSON 文件和 Postman 集合檔案也是必要項目。 找出並載入在[準備範例資料](#prepare-sample-data)小節中所提供之增補檔案的指示。
 
@@ -227,7 +227,7 @@ Postman 是您將用來把要求和 JSON 文件傳送至 Azure 搜尋服務的�
     . . .
    ```
 
-1. 按一下 [傳送]  以執行要求。  作為回覆，您應該會收到「狀態:已建立 201」  。
+1. 按一下 [傳送]  以執行要求。  您應該取得 [狀態:  201 已建立] 訊息作為回應。
 
 <a name="create-data-source"></a>
 
@@ -259,7 +259,7 @@ Postman 是您將用來把要求和 JSON 文件傳送至 Azure 搜尋服務的�
     }
     ```
 
-1. 按一下 [傳送]  以執行要求。  作為回覆，您應該會收到「狀態:已建立 201」  。
+1. 按一下 [傳送]  以執行要求。  您應該取得 [狀態:  201 已建立] 訊息作為回應。
 
 
 

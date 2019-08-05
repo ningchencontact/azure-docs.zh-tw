@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 98c37d4a39235e5ed1a82df72886d196cbf19e49
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c001b10f14167b4c0947c2ef0ae3f27cc4f55657
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605046"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553529"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 iOS 上以 Swift 辨識語音
 
@@ -63,15 +63,18 @@ ms.locfileid: "67605046"
 
 1. 在 helloworld 專案內的 `helloworld` 目錄中放入名為 `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` 的新標頭檔，並貼入下列程式碼：[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. 在 [Objective-C 橋接標頭]  欄位中，將橋接標頭的相對路徑 `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` 新增至 helloworld 目標的 Swift 的專案設定。![標頭屬性](media/sdk/qs-swift-ios-bridging-header.png)
-1. 將自動產生的 `AppDelegate.swift` 檔案內容取代為：[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]
-1. 將自動產生的 `ViewController.swift` 檔案內容取代為：[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/ViewController.swift#code)]
+1. 將自動產生的 `AppDelegate.swift` 檔案內容取代為：  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]
+1. 將自動產生的 `ViewController.swift` 檔案內容取代為：  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/ViewController.swift#code)]
 1. 在 `ViewController.swift` 中，將字串 `YourSubscriptionKey` 取代為您的訂用帳戶金鑰。
 1. 以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>將 SDK 安裝為 CocoaPod
 
 1. 依照[安裝指示](https://guides.cocoapods.org/using/getting-started.html)中的說明安裝 CocoaPod 相依性管理員。
-1. 瀏覽至範例應用程式的目錄 (`helloworld`)。 在該目錄中放入名為 `Podfile` 的文字檔和下列內容：[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/Podfile)]
+1. 瀏覽至範例應用程式的目錄 (`helloworld`)。 在該目錄中放入名為 `Podfile` 的文字檔和下列內容：  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/Podfile)]
 1. 瀏覽至終端機的 `helloworld` 目錄，並執行命令 `pod install`。 這將會產生一個 `helloworld.xcworkspace` Xcode 工作區，其中包含範例應用程式和作為相依性的語音 SDK。 此工作區將用於下列作業。
 
 ## <a name="build-and-run-the-sample"></a>建置並執行範例

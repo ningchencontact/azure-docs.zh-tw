@@ -1,21 +1,21 @@
 ---
 title: 快速入門：使用 Python SDK 呼叫您的 Bing 自訂搜尋端點 | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: 使用適用於 Python 的 Bing 自訂搜尋 SDK 取得自訂搜尋結果。
+description: 您可以使用本快速入門，開始使用 Python SDK 要求 Bing 自訂搜尋執行個體所產生的搜尋結果。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: c4c5059bc57ea33357145f6b119456dc6c5bdb7b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a9d0d6619878299768e1f17b4da3280ea1ec1fc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571888"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564622"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>快速入門：使用 Python SDK 呼叫您的 Bing 自訂搜尋端點 
 
@@ -59,7 +59,7 @@ from msrest.authentication import CognitiveServicesCredentials
     client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
     ```
 
-3. 透過 `client.custom_instance.search()` 傳送搜尋要求。 將搜尋字詞附加到 `query` 參數，並將 `custom_config` 設為您的自訂組態識別碼，以使用您的搜尋執行個體。 您可以按一下 [生產] 索引標籤，從 [Bing 自訂搜尋入口網站](https://www.customsearch.ai/)取得您的識別碼。
+3. 透過 `client.custom_instance.search()` 傳送搜尋要求。 將搜尋字詞附加到 `query` 參數，並將 `custom_config` 設為您的自訂組態識別碼，以使用您的搜尋執行個體。 您可以按一下 [生產]  索引標籤，從 [Bing 自訂搜尋入口網站](https://www.customsearch.ai/)取得您的識別碼。
 
     ```python
     web_data = client.custom_instance.search(query="xbox", custom_config="your-configuration-id")

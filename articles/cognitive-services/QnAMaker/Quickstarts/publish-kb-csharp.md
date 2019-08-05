@@ -1,6 +1,6 @@
 ---
-title: 發佈知識庫，REST (C#)
-titleSuffix: QnA Maker- Azure Cognitive Services
+title: 快速入門：發行知識庫，REST (C#) - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 這個以 C# REST 為基礎的快速入門會逐步引導您發佈知識庫，以將經過測試的最新版知識庫推送至代表已發佈知識庫的專用 Azure 搜尋服務索引。 它也會建立可在您的應用程式或聊天機器人中呼叫的端點。
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0ce0f3673a297964932f3b97dfd1d49d7c1e55e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827579"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559795"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>快速入門：使用 C# 在 QnA Maker 中發佈知識庫
 

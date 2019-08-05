@@ -3,19 +3,17 @@ title: 教學課程 - 建立包含 URL 路徑型重新導向的應用程式閘�
 description: 在本教學課程中，您將了解如何使用 Azure CLI，建立包含 URL 路徑型重新導向流量功能的應用程式閘道。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 7/30/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e0b7995a8234ddb5927c4ef3e1ddd31fab9a00b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8453c236f83c4501587789e96545599f1e976eea
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996410"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608065"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>教學課程：使用 Azure CLI 建立包含 URL 路徑型重新導向的應用程式閘道
 
@@ -39,13 +37,13 @@ ms.locfileid: "57996410"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+如果您選擇在本機安裝和使用 CLI，本教學課程需要您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 使用 [az group create](/cli/azure/group) 建立資源群組。
 
-下列範例會在 eastus 位置建立名為 myResourceGroupAG 的資源群組。
+下列範例會在 eastus  位置建立名為 myResourceGroupAG  的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -53,7 +51,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>建立網路資源 
 
-使用 [az network vnet create](/cli/azure/network/vnet) 建立名為 myVNet 的虛擬網路，以及名為 myAGSubnet 的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增名為 myBackendSubnet 的子網路，後端伺服器需要該子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress 的公用 IP 位址。
+使用 [az network vnet create](/cli/azure/network/vnet) 建立名為 myVNet  的虛擬網路，以及名為 myAGSubnet  的子網路。 然後您可以使用 [az network vnet subnet create](/cli/azure/network/vnet/subnet) 新增名為 myBackendSubnet  的子網路，後端伺服器需要該子網路。 使用 [az network public-ip create](/cli/azure/network/public-ip) 建立名為 myAGPublicIPAddress  的公用 IP 位址。
 
 ```azurecli-interactive
 az network vnet create \
@@ -72,12 +70,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-使用 [az network application-gateway create](/cli/azure/network/application-gateway)，建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet 和 myPublicIPAddress。
+使用 [az network application-gateway create](/cli/azure/network/application-gateway)，建立名為 myAppGateway 的應用程式閘道。 當您使用 Azure CLI 建立應用程式閘道時，需要指定設定資訊，例如容量、SKU 和 HTTP 設定。 應用程式閘道會指派給您先前建立的 myAGSubnet  和 myPublicIPAddress  。
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -87,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -97,11 +97,11 @@ az network application-gateway create \
 
  可能需要幾分鐘的時間來建立應用程式閘道。 建立應用程式閘道後，您可以看到這些新功能：
 
-- appGatewayBackendPool - 應用程式閘道必須至少有一個後端位址集區。
-- appGatewayBackendHttpSettings - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
-- appGatewayHttpListener - 與 appGatewayBackendPool 相關聯的預設接聽程式。
-- appGatewayFrontendIP - 將 myAGPublicIPAddress 指派給 appGatewayHttpListener。
-- rule1 - 與 appGatewayHttpListener 相關聯的預設路由規則。
+- appGatewayBackendPool  - 應用程式閘道必須至少有一個後端位址集區。
+- appGatewayBackendHttpSettings  - 指定以連接埠 80 和 HTTP 通訊協定來進行通訊。
+- appGatewayHttpListener  - 與 appGatewayBackendPool  相關聯的預設接聽程式。
+- appGatewayFrontendIP  - 將 myAGPublicIPAddress  指派給 appGatewayHttpListener  。
+- rule1  - 與 appGatewayHttpListener  相關聯的預設路由規則。
 
 
 ### <a name="add-backend-pools-and-ports"></a>新增後端集區和連接埠
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>新增預設 URL 路徑對應
 
-URL 路徑對應可確保特定 URL 會路由傳送到特定的後端集區。 您可以使用 [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) 和 [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)，建立名為 imagePathRule 和 videoPathRule 的 URL 路徑對應
+URL 路徑對應可確保特定 URL 會路由到特定的後端集區。 您可以使用 [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) 和 [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)，建立名為 imagePathRule  和 videoPathRule  的 URL 路徑對應
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -233,7 +233,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>建立虛擬機器擴展集
 
-在此範例中，您要建立三個虛擬機器擴展集，以支援您所建立的三個後端集區。 您所建立的擴展集名為 myvmss1、myvmss2 和 myvmss3。 每個擴展集都會包含兩個您安裝 NGINX 的虛擬機器執行個體。
+在此範例中，您要建立三個虛擬機器擴展集，以支援您所建立的三個後端集區。 您所建立的擴展集名為 myvmss1  、myvmss2  和 myvmss3  。 每個擴展集都會包含兩個您安裝 NGINX 的虛擬機器執行個體。
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -295,11 +295,11 @@ az network public-ip show \
 
 ![在應用程式閘道中測試基底 URL](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-將 URL 變更為 http://&lt;ip-address&gt;:8080/images/test.html、使用您的 IP 位址取代 &lt;ip-address&gt;，就應該會看到類似下列的範例：
+將 URL 變更為 http://&lt;ip-address&gt;:8080/images/test.html、使用您的 IP 位址取代 &lt;ip-address&gt;，您應該會看到類似下列的範例：
 
 ![在應用程式閘道中測試影像 URL](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.html、使用您的 IP 位址取代 &lt;ip-address&gt;，就應該會看到類似下列的範例：
+將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.html、使用您的 IP 位址取代 &lt;ip-address&gt;，您應該會看到類似下列的範例：
 
 ![在應用程式閘道中測試影片 URL](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
@@ -310,7 +310,7 @@ az network public-ip show \
 若不再需要，可移除資源群組、應用程式閘道和所有相關資源。
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>後續步驟
 

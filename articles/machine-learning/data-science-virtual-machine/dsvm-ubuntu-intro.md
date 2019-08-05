@@ -4,8 +4,8 @@ titleSuffix: Azure
 description: 在 Azure 上設定和建立 Linux (Ubuntu) 適用的資料科學虛擬機器以進行分析和機器學習服務。
 services: machine-learning
 documentationcenter: ''
-author: gopitk
-ms.author: gokuma
+author: vijetajo
+ms.author: vijetaj
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -14,14 +14,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236483"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591926"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -77,7 +77,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 
 另提供 [CentOS](linux-dsvm-intro.md) 映像，其中包含許多與 Ubuntu 映像相同的工具。 亦提供 [Windows](provision-vm.md) 映像。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須先具有 Azure 訂用帳戶，才可以建立 Linux 適用的資料科學虛擬機器。 若要取得訂用帳戶，請參閱[取得 Azure 免費試用](https://azure.microsoft.com/free/)。
 
@@ -101,7 +101,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 
    b. **大小**：
 
-   * 選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 或選取一個 NC ND 類別以 GPU 為基礎的 VM 執行個體的 VM。 [依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)頁面會列出使用 GPU 的區域。
+   * 選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 針對 GPU 型 VM 執行個體，選取一部 NC 或 ND 類別的 VM。 [依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)頁面會列出使用 GPU 的區域。
 
    c. **設定**：
 
@@ -121,7 +121,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 1. X2Go (如果是圖形化工作階段)
 1. JupyterHub 和 JupyterLab (如果是 Jupyter 筆記本)
 
-您也可以附加至要在 VM 上執行的 Jupyter notebook，並略過的 「 免費 」 服務層限制的 Azure Notebooks 的資料科學 VM。 如需詳細資訊，請參閱 <<c0> [ 管理和設定 Notebook 專案-計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
+您也可以將資料科學 VM 連結至 Azure Notebooks，以在 VM 上執行 Jupyter Notebook，並忽略免費服務層的限制。 如需詳細資訊，請參閱[管理和設定 Notebooks 專案 - 計算層](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
 
 ### <a name="ssh"></a>SSH
 
@@ -148,9 +148,9 @@ Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若�
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 和 JupyterLab
 
-Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請瀏覽至 https:\// 您-vm-在您的膝上型電腦或桌上型電腦，ip:8000 輸入使用者名稱和您用來建立 VM，並登入的密碼。 有許多範例筆記本可供您瀏覽和嘗試。
+Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請在您的膝上型電腦或桌上型電腦瀏覽至 https:\//your-vm-ip:8000，輸入您用來建立 VM 的使用者名稱和密碼，然後登入。 有許多範例筆記本可供您瀏覽和嘗試。
 
-也提供 JupyterLab (新一代的 Jupyter 筆記本) 與 JupyterHub。 若要存取它，登入 JupyterHub，然後瀏覽至 URL https:\// 您的 vm-ip:8000/使用者/您的使用者名稱/實驗室。 您可以設定 JupyterLab 為預設的筆記本伺服器藉由加入這一行 */etc/jupyterhub/jupyterhub_config.py*:
+也提供 JupyterLab (新一代的 Jupyter 筆記本) 與 JupyterHub。 若要存取它，請登入 JupyterHub，然後瀏覽至 URL https:\//your-vm-ip:8000/user/your-username/lab。 您可以在 /etc/jupyterhub/jupyterhub_config.py  中加入下面這一行，設定 JupyterLab 為預設的筆記本伺服器：
 
 ```python
 c.Spawner.default_url = '/lab'
@@ -179,7 +179,7 @@ Caffe 是 Berkeley Vision and Learning Center 中的一種深入學習架構。 
 
 #### <a name="caffe2"></a>Caffe2
 
-Caffe2 是來自 Facebook (以 Caffe 為基礎而建置) 的深入學習架構。 您可以在 Conda 根環境中的 Python 2.7 中找到它。 若要啟用它，請從殼層執行下列命令：
+Caffe2 是來自 Facebook (以 Caffe 為基礎而建置) 的深入學習架構。 您可以在 Conda 根環境中的 Python 2.7 中找到它。 若要啟動它，請從殼層執行下列命令：
 
 ```bash
 source /anaconda/bin/activate root
@@ -209,7 +209,7 @@ DIGITS 也會安裝為 Conda 根環境中的 Python 模組。
 
 #### <a name="tensorflow"></a>TensorFlow
 
-TensorFlow 是 Google 的深入學習程式庫。 它是開放原始碼軟體程式庫使用的資料流程圖進行數值計算。 TensorFlow 位於 py35 Python 環境中，一些範例筆記本則內含在 JupyterHub 中。
+TensorFlow 是 Google 的深入學習程式庫。 它是使用資料流程圖進行數值計算的開放原始碼軟體程式庫。 TensorFlow 位於 py35 Python 環境中，一些範例筆記本則內含在 JupyterHub 中。
 
 #### <a name="theano"></a>Theano
 
@@ -286,11 +286,11 @@ Jupyter 筆記本伺服器已使用 Python 2、Python 3 及 R 核心進行預先
 
 ### <a name="apache-spark-standalone"></a>獨立 Apache Spark
 
-Apache Spark 的獨立執行個體已預先安裝在 Linux DSVM，可協助您在大型叢集上測試及部署之前，先在本機上開發 Spark 應用程式。 您可以透過 Jupyter 核心執行 PySpark 程式。 當您開啟 Jupyter 時，請按一下 [新增]  按鈕，您應該會看到可用核心的清單。 "Spark - Python" 是 PySpark 核心，可讓您使用 Python 語言建置 Spark 應用程式。 您也可以使用像是 PyCharm 或 Spyder 的 Python IDE 來建置您的 Spark 程式。 在這個獨立執行個體，Spark 堆疊會執行內呼叫的用戶端程式可以更快速且更輕鬆地針對相較於在 Spark 叢集上開發的問題進行疑難排解。
+Apache Spark 的獨立執行個體已預先安裝在 Linux DSVM，可協助您在大型叢集上測試及部署之前，先在本機上開發 Spark 應用程式。 您可以透過 Jupyter 核心執行 PySpark 程式。 當您開啟 Jupyter 時，請按一下 [新增]  按鈕，您應該會看到可用核心的清單。 "Spark - Python" 是 PySpark 核心，可讓您使用 Python 語言建置 Spark 應用程式。 您也可以使用像是 PyCharm 或 Spyder 的 Python IDE 來建置 Spark 程式。 在此獨立執行個體中，Spark 堆疊會在呼叫用戶端程式內執行，讓您更快速且更輕鬆進行疑難排解 (相較於在 Spark 叢集上開發)。
 
 範例 PySpark Notebook 在 Jupyter 上提供，您可以在 Jupyter 的主目錄 ($HOME/notebooks/SparkML/pySpark) 底下的 "SparkML" 目錄中找到。 
 
-如果您以 R 撰寫的 Spark，您可以使用 Microsoft R Server、 SparkR、 或 sparklyr。 
+如果您是針對 Spark 在 R 中進行程式設計，您可以使用 Microsoft R 伺服器、SparkR 或 sparklyr。 
 
 在 Microsoft R 伺服器中的 Spark 內容中執行之前，您必須執行一次性設定步驟，以啟用本機單一節點 Hadoop HDFS 和 Yarn 執行個體。 根據預設，Hadoop 服務已安裝但是在 DSVM 上已停用。 若要啟用它，您需要在第一次以 root 身分執行下列命令︰
 
@@ -304,13 +304,13 @@ chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
 systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 ```
 
-您可以停止 Hadoop 相關服務，當您不需要它們執行 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
+當您不需要 Hadoop 相關服務時，執行 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` 即可停止這類服務。
 
-示範如何開發和測試 MRS （這是 DSVM 上的獨立 Spark 執行個體） 的遠端 Spark 內容中的範例是提供和中可用 */dsvm/samples/MRS*目錄。
+此範例示範如何在遠端 Spark 內容中開發和測試 MRS (這是 DSVM 上的獨立 Spark 執行個體) 的範例，以及 */dsvm/samples/MRS* 目錄中的可用項目。
 
 ### <a name="ides-and-editors"></a>IDE 和編輯器
 
-您可以選擇數個程式碼編輯器，包括 vi/VIM、 Emacs、 PyCharm、 RStudio 和 IntelliJ。 IntelliJ、RStudio 和 PyCharm 是圖形化編輯器，您需要登入圖形化桌面才能使用它們。 這些編輯器有桌面和應用程式功能表的捷徑可以啟動它們。
+您可以選擇數個程式碼編輯器，包括 vi/VIM、Emacs、PyCharm、RStudio 和 IntelliJ。 IntelliJ、RStudio 和 PyCharm 是圖形化編輯器，您需要登入圖形化桌面才能使用它們。 這些編輯器有桌面和應用程式功能表的捷徑可以啟動它們。
 
 **VIM** 和 **Emacs** 是文字型編輯器。 在 Emacs 上，我們已安裝稱為 Emacs Speaks Statistics (ESS) 的附加元件封裝，它可以方便於在 Emacs 編輯器中使用 R。 如需詳細資訊，請參閱 [ESS](https://ess.r-project.org/)。
 
@@ -320,7 +320,7 @@ systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
 #### <a name="graphical-sql-client"></a>圖形化 SQL 用戶端
 
-已提供圖形化 SQL 用戶端 **SQuirrel SQL** 來連接至不同的資料庫 (例如 Microsoft SQL Server 及 MySQL)，並執行 SQL 查詢。 您可以從圖形化桌面工作階段 （例如使用 X2Go 用戶端） 執行 SQuirrel SQL 使用桌面圖示，或在 shell 中使用下列命令：
+已提供圖形化 SQL 用戶端 **SQuirrel SQL** 來連接至不同的資料庫 (例如 Microsoft SQL Server 及 MySQL)，並執行 SQL 查詢。 使用桌面圖示或在殼層中使用下列命令，即可從圖形化登入工作階段 (例如，使用 X2Go 用戶端) 執行 SQuirrel SQL：
 
 ```bash
 /usr/local/squirrel-sql-3.7/squirrel-sql.sh
@@ -359,7 +359,7 @@ R 和 Python 中提供可用於存取資料庫的程式庫。
 VM 上安裝了下列 Azure 工具：
 
 * **Azure 命令列介面**︰Azure CLI 可讓您透過殼層命令來建立和管理 Azure 資源。 若要叫用 Azure 工具，只需輸入 **azure help**。 如需詳細資訊，請參閱 [Azure CLI 文件頁面](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。
-* **Microsoft Azure 儲存體總管**：Microsoft Azure 儲存體總管是一個圖形化工具，可用來瀏覽您在 Azure 儲存體帳戶中所儲存的物件，也可以上傳和下載 Azure Blob 的資料。 您可以從桌面捷徑圖示存取儲存體總管。 從殼層命令提示字元叫用它則是輸入 **StorageExplorer**。 您必須從 X2Go 用戶端，登入，或已設定 X11 轉寄。
+* **Microsoft Azure 儲存體總管**：Microsoft Azure 儲存體總管是一個圖形化工具，可用來瀏覽您在 Azure 儲存體帳戶中所儲存的物件，也可以上傳和下載 Azure Blob 的資料。 您可以從桌面捷徑圖示存取儲存體總管。 從殼層命令提示字元叫用它則是輸入 **StorageExplorer**。 您必須從 X2Go 用戶端登入，或是已設定 X11 轉寄。
 * **Azure 程式庫**：以下是一些預先安裝的程式庫。
   
   * **Python**：Python 中已安裝的 Azure 相關程式庫為 **azure**、**azureml**、**pydocumentdb** 和 **pyodbc**。 透過前三個程式庫，您可以存取 Azure 儲存體服務、Azure Machine Learning 和 Azure Cosmos DB (Azure 上的 NoSQL 資料庫)。 第四個程式庫 pyodbc (以及 Microsoft ODBC Driver for SQL Server) 可讓您使用 ODBC 介面，從 Python 中存取 SQL Server、Azure SQL Database 和 Azure SQL 資料倉儲。 輸入 **pip list** 以查看所有列出的程式庫。 請務必在 Python 2.7 和 3.5 的環境中執行此命令。
@@ -372,7 +372,7 @@ VM 上安裝了下列 Azure 工具：
 
 Azure Machine Learning 是完全受控的雲端服務，讓您能夠建置、部署及共用預測性分析解決方案。 您可以從 Azure Machine Learning Studio 中建置實驗和模型。 其可從資料科學虛擬機器上的網頁瀏覽器中存取，請造訪 [Microsoft Azure Machine Learning](https://studio.azureml.net)。
 
-當您登入 Azure Machine Learning Studio 之後，就能存取實驗畫布，您可以在這裡建置機器學習演算法的邏輯流程。 您也可以存取裝載於 Azure Machine Learning 的 Jupyter 筆記本，並且可以順暢地在 Machine Learning Studio 中使用實驗。 讓您建置的機器學習模型能夠運作，方法是將它們包裝在 Web 服務介面中。 運用機器學習服務模型，可讓以任何語言撰寫的用戶端叫用這些模型的預測。 如需詳細資訊，請參閱 [機器學習文件](https://azure.microsoft.com/documentation/services/machine-learning/)。
+當您登入 Azure Machine Learning Studio 之後，就能存取實驗畫布，您可以在這裡建置機器學習演算法的邏輯流程。 您也可以存取裝載於 Azure Machine Learning 的 Jupyter 筆記本，並且可以順暢地在 Machine Learning Studio 中使用實驗。 讓您建置的機器學習模型能夠運作，方法是將它們包裝在 Web 服務介面中。 讓機器學習模型能夠運作，使用任何語言撰寫的用戶端就能夠從這些模型叫用預測。 如需詳細資訊，請參閱 [機器學習文件](https://azure.microsoft.com/documentation/services/machine-learning/)。
 
 您可以也在 VM 上，以 R 或 Python 建置模型，然後將它部署在 Azure Machine Learning 的生產環境中。 我們已安裝 R (**AzureML**) 和 Python (**azureml**) 的程式庫來啟用這項功能。
 
@@ -383,7 +383,7 @@ Azure Machine Learning 是完全受控的雲端服務，讓您能夠建置、部
 
 ### <a name="machine-learning-tools"></a>機器學習工具
 
-VM 隨附一些已預先編譯且預先安裝在本機上的機器學習工具和演算法。 它們包括：
+VM 隨附一些已預先編譯且預先安裝在本機上的機器學習工具和演算法。 其中包含：
 
 * **Vowpal Wabbit**：快速線上學習演算法。
 * **xgboost**：提供最佳化推進式決策樹演算法的工具。
@@ -400,7 +400,7 @@ VM 隨附一些已預先編譯且預先安裝在本機上的機器學習工具�
 
 Vowpal Wabbit 是一個機器學習系統，其會使用像是線上、雜湊，allreduce、簡化、learning2search、主動和互動式學習的技術。
 
-若要執行基本的範例上的工具，使用下列命令：
+若要在基本的範例上執行此工具，請使用下列命令：
 
 ```bash
 cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
@@ -455,7 +455,7 @@ library(rattle)
 rattle()
 ```
 
-現在，將會開啟具有一組索引標籤的圖形化介面。 以下是在 Rattle 使用範例天氣資料集和建立模型所需的快速入門步驟。 在下面的部分步驟中，會提示您自動安裝並載入一些系統上還沒有的必要 R 封裝。
+現在，將會開啟具有一組索引標籤的圖形化介面。 以下是在 Rattle 中使用範例天氣資料集和建立模型所需的快速入門步驟。 在下面的部分步驟中，會提示您自動安裝並載入一些系統上還沒有的必要 R 封裝。
 
 > [!NOTE]
 > 如果您沒有存取系統目錄 (預設) 中封裝的存取權，可能會在 R 主控台視窗上看到提示，詢問是否將封裝安裝至您的個人程式庫。 如果您看到這些提示，請回答 「是」  。

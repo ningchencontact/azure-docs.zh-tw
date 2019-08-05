@@ -6,19 +6,19 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/2019
-ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.date: 07/31/2019
+ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785660"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679131"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
 # <a name="tutorial-using-the-azure-dev-spaces-plugin-for-jenkins-with-azure-kubenetes-service"></a>教學課程：搭配使用適用於 Jenkins 的 Azure Dev Spaces 外掛程式和 Azure Kubenetes Service 
 
-Azure Dev Spaces 可讓您測試並反覆開發在 Azure Kubernetes Service (AKS) 中執行的微服務應用程式，無需複製或模擬相依性。 適用於 Jenkins 的 Azure Dev Spaces 外掛程式，可協助您在持續整合和持續傳遞 (CI/CD) 管線中使用 Dev Spaces。
+Azure Dev Spaces 可讓您測試並反覆開發在 Azure Kubernetes Service (AKS) 中執行的微服務應用程式，無需複製或模擬相依性。 適用於 Jenkins 的 Azure Dev Spaces 外掛程式可協助您在持續整合和持續傳遞 (CI/CD) 管線中使用 Dev Spaces。
 
 此教學課程也使用 Azure Container Registry (ACR)。 ACR 會儲存影像、ACR 工作組建 Docker 和 Helm 成品。 將 ACR 和 ACR 工作用於產生成品，便不再需要在您的 Jenkins 伺服器上安裝其他軟體 (例如，Docker)。 
 
@@ -30,7 +30,7 @@ Azure Dev Spaces 可讓您測試並反覆開發在 Azure Kubernetes Service (AKS
 > * 準備 Jenkins 伺服器
 > * 在 Jenkins 管線中使用 Azure Dev Spaces 外掛程式，以在將程式碼合併至專案中之前檢視它們
 
-此教學課程假設您有核心 Azure 服務、AKS、ACR、Azure Dev Spaces、Jenkins [管線](https://jenkins.io/doc/book/pipeline/) \(英文\) 與外掛程式和 GitHub 的中級程度知識。 對 kubectl 和 Helm 等支援工具的基本程度熟悉很有幫助。
+此教學課程假設您有核心 Azure 服務、AKS、ACR、Azure Dev Spaces、Jenkins [管線](https://jenkins.io/doc/book/pipeline/)與外掛程式和 GitHub 的中級程度知識。 對 kubectl 和 Helm 等支援工具的基本程度熟悉很有幫助。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -175,16 +175,16 @@ Azure Dev Spaces 可讓您測試並反覆開發在 Azure Kubernetes Service (AKS
 * 安裝 Helm 和 Kubernetes CLI
 * 新增認證
 
-### <a name="install-plugins"></a>安裝外掛程式
+### <a name="install-plug-ins"></a>安裝外掛程式
 
 1. 登入您的 Jenkins 伺服器。 選擇 [管理 Jenkins] > [管理外掛程式]  。
-2. 在 [可供使用]  索引標籤上，選取下列外掛程式：
+2. 在 [可用的]  索引標籤上，選取下列外掛程式：
     * [Azure Dev Spaces](https://plugins.jenkins.io/azure-dev-spaces) \(英文\)
     * [Azure Container Registry 工作](https://plugins.jenkins.io/azure-container-registry-tasks) \(英文\)
     * [環境載入程式](https://plugins.jenkins.io/envinject) \(英文\)
     * [GitHub 整合](https://plugins.jenkins.io/github-pullrequest) \(英文\)
 
-    如果這些外掛程式沒有出現在清單中，請檢查[已安裝]  索引標籤，查看它們是否已安裝。
+    如果這些外掛程式未出現在清單中，請查看 [已安裝]  索引標籤，確認它們是否已安裝。
 
 3. 若要安裝您選取的外掛程式，請選擇 [立即下載並於重新啟動後安裝]  。
 
@@ -415,7 +415,7 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在此文章中，您已了解如何使用適用於 Jenkins 的 Azure Dev Spaces 外掛程式和 Azure Container Registry 外掛程式，建置程式碼並部署至開發空間。
+在本文中，您已了解如何使用適用於 Jenkins 的 Azure Dev Spaces 外掛程式和 Azure Container Registry 外掛程式來建置程式碼，並部署至開發人員空間。
 
 下列資源清單提供 Azure Dev Spaces、ACR 工作和 CI/CD 搭配 Jenkins 的更多資訊。
 
