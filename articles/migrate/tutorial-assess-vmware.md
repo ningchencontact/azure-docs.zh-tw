@@ -243,7 +243,7 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 
 ### <a name="view-an-assessment"></a>檢視評估
 
-1. 在 [移轉目標]   >  [伺服器]  中，按一下 [Azure Migrate：伺服器評量] **中的 [評量] ** 。
+1. 在 [移轉目標]   >  [伺服器]  中，按一下 [Azure Migrate：伺服器評量]  中的 [評量]  。
 2. 在 [評量]  中，按一下評量來加以開啟。
 
     ![評量摘要](./media/tutorial-assess-vmware/assessment-summary.png)

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824d24b97f192583a42192b3bb90eb1818e1aa18
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b462f0c427020b1422b91fbd7ac34e3023e546b8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273038"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677874"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>教學課程：設定 Azure 時間序列深入解析預覽版環境
 
@@ -23,14 +23,21 @@ ms.locfileid: "67273038"
 
 在本教學課程中，您了解如何：
 
-* 建立 Azure 時間序列深入解析預覽版環境。
-* 將 Azure 時間序列深入解析預覽版環境連線至 Azure 事件中樞內的某個事件中樞。
-* 執行解決方案加速器範例，以將資料串流處理至「Azure 時間序列深入解析預覽版」環境。
-* 在資料上執行基本的分析。
-* 定義「時間序列模型」類型和階層，並將其與您的執行個體建立關聯。
+> [!div class="checklist"]
+> * 建立 Azure 時間序列深入解析預覽版環境。
+> * 將 Azure 時間序列深入解析預覽版環境連線至 Azure 事件中樞內的某個事件中樞。
+> * 執行解決方案加速器範例，以將資料串流處理至「Azure 時間序列深入解析預覽版」環境。
+> * 在資料上執行基本的分析。
+> * 定義「時間序列模型」類型和階層，並將其與您的執行個體建立關聯。
 
 >[!TIP]
 > [IoT 解決方案加速器](https://www.azureiotsolutions.com/Accelerators)提供預先設定的企業級解決方案，可讓您用來加快自訂 IoT 解決方案的開發速度。
+
+如果您沒有帳戶，請註冊[免費 Azure 訂用帳戶](https://azure.microsoft.com/free/)。
+
+## <a name="prerequisites"></a>必要條件
+
+* 您的 Azure 登入帳戶也必須是訂用帳戶的**擁有者**角色成員。 如需詳細資訊，請參閱[使用角色型存取控制和 Azure 入口網站管理存取權](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="create-a-device-simulation"></a>建立裝置模擬
 
@@ -321,6 +328,14 @@ ms.locfileid: "67273038"
 1. 若要查看事件詳細資料，請選取某個區域，然後對圖表按一下滑鼠右鍵：
 
    [![詳細的事件清單](media/v2-update-provision/define-eighteen.png)](media/v2-update-provision/define-eighteen.png#lightbox)
+
+
+## <a name="clean-up-resources"></a>清除資源
+
+您現在已完成本教學課程，請清除您所建立的資源：
+
+1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
+1. 選取 [刪除]  或個別移除每個資源，以刪除整個資源群組 (和其中包含的所有資源)。
 
 ## <a name="next-steps"></a>後續步驟
 

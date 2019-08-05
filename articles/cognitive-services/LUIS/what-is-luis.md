@@ -1,5 +1,6 @@
 ---
-title: 什麼是 Language Understanding (LUIS) - Azure 認知服務 | Microsoft Docs
+title: 何謂 Language Understanding Intelligent Service (LUIS)？
+titleSuffix: Azure Cognitive Services
 description: Language Understanding Intelligent Service (LUIS) 是一種 API 雲端式服務，可將自訂機器學習智慧套用至使用者的對話、自然語言文字中，以預測整體意義，並找出相關的詳細資訊。
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41c5e2f01678996406c586eb20043516beaf2184
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062162"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563183"
 ---
 # <a name="what-is-language-understanding-luis"></a>何謂 Language Understanding Intelligent Service (LUIS)？
 
@@ -57,7 +58,7 @@ LUIS 應用程式包含領域特定自然語言模型。 您可以從預先建�
 
 LUIS 模型的首要組件是使用者意向的類別，名為 **[意圖](luis-concept-intent.md)** 。 每個意圖都需要使用者 **[語句](luis-concept-utterance.md)** 的範例。 每個語句都提供各種不同需要以 **[實體](luis-concept-entity-types.md)** 擷取的資料。 
 
-|範例使用者語句|意圖|實體|
+|範例使用者語句|Intent|實體|
 |-----------|-----------|-----------|
 |「預訂飛往__西雅圖__的班機嗎？」|BookFlight|Seattle|
 |「你的店什麼時候__開門__？」|StoreHoursAndLocation|open|
