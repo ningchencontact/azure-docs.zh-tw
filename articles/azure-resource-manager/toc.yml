@@ -87,6 +87,8 @@
       items:
         - name: 建立範本
           href: how-to-create-template.md
+        - name: 子資源名稱與類型
+          href: child-resource-name-type.md
         - name: 在訂用帳戶中建立資源群組和資源
           displayName: subscription level deployment
           href: deploy-to-subscription.md

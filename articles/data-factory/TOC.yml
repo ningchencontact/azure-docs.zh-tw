@@ -536,6 +536,8 @@
           href: how-to-schedule-azure-ssis-integration-runtime.md
         - name: 將 Azure-SSIS IR 加入虛擬網路
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: 為 Azure-SSIS IR 將自我裝載 IR 設為 Proxy
+          href: self-hosted-integration-runtime-proxy-ssis.md
         - name: 啟用適用於 Azure-SSIS IR 的 Azure AD 驗證
           href: enable-aad-authentication-azure-ssis-ir.md
         - name: 佈建適用於 Azure-SSIS IR 的 Enterprise Edition

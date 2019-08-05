@@ -36,6 +36,26 @@ sections:
           - html: <a href="service/quickstart-run-local-notebook">使用本機 Notebook 伺服器執行實驗</a> (本機 SDK 安裝)
         style: unordered
         type: list
+      - text: <b>教學課程：在 Azure 入口網站中定型和部署第一個自動 MT 模型：</b>
+        type: paragraph
+      - items:
+          - html: <a href="service/tutorial-first-experiment-automated-ml">使用自動機器學習定型及部署第一個分類模型</a>
+        style: unordered
+        type: list
+      - text: <b>教學課程：使用 SDK 定型第一個 ML 模型：</b>
+        type: paragraph
+      - items:
+          - html: 第 1 部分：<a href="service/tutorial-1st-experiment-sdk-setup">設定環境和工作區</a>
+          - html: 第 2 部分：<a href="service/tutorial-1st-experiment-sdk-train">第一個模型</a>
+        style: unordered
+        type: list
+      - text: <b>教學課程：使用視覺化介面來定型和部署第一個實驗：</b>
+        type: paragraph
+      - items:
+          - html: 第 1 部分：<a href="service/ui-tutorial-automobile-price-train-score">定型迴歸模型</a>
+          - html: 第 2 部分：<a href="service/ui-tutorial-automobile-price-deploy">部署模型</a>
+        style: unordered
+        type: list
       - text: <b>教學課程：使用 SDK 的 MNIST 資料影像分類：</b>
         type: paragraph
       - items:

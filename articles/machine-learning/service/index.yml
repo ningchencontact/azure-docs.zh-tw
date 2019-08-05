@@ -43,6 +43,9 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: 開始使用：在 Azure 入口網站中<a href="tutorial-first-experiment-automated-ml">定型和部署</a>第一個自動 MT 模型。
+          - html: 開始使用：使用 Jupyter Notebook (<b>此系列共系列</b>) <a href="tutorial-1st-experiment-sdk-setup">設定開發環境</a>，然後<a href="tutorial-1st-experiment-sdk-train">定型第一個 ML 模型</a>。
+          - html: 開始使用：使用拖放式視覺化介面 (<b>此系列共系列</b>)，<a href="ui-tutorial-automobile-price-train-score">定型</a>及<a href="ui-tutorial-automobile-price-deploy">部署</a>第一個 ML 實驗。
           - html: <a href="tutorial-train-models-with-aml">訓練</a>及<a href="tutorial-deploy-models-with-aml">部署</a>影像分類模型 (<b>此系列共有二個部分</b>)。
           - html: <a href="tutorial-data-prep">準備資料</a>，並<a href="tutorial-auto-train-models">使用自動化的機器學習</a>來定型和調整迴歸模型 (<b>此系列共有二個部分</b>)。
           - html: 透過視覺化介面<a href="ui-tutorial-automobile-price-train-score">預測汽車價格</a>並<a href="ui-tutorial-automobile-price-deploy">部署</a>迴歸模型。

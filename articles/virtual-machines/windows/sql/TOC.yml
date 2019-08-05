@@ -68,6 +68,8 @@
       items:
         - name: 移轉 SQL Server 資料庫
           href: virtual-machines-windows-migrate-sql.md
+        - name: 虛擬機器到新區域
+          href: virtual-machines-windows-sql-move-different-region.md
     - name: 設定高可用性
       items:
         - name: 使用 Azure 儲存體進行備份與還原
