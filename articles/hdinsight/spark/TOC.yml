@@ -53,13 +53,7 @@
     - name: 疑難排解
       items:
         - name: OutOfMemoryError 例外狀況
-          items:
-            - name: 堆積記憶體不足
-              href: ./apache-spark-troubleshoot-outofmemory-heap.md
-            - name: Java 堆積空間
-              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
-            - name: Livy 伺服器無法啟動
-              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+          href: ./apache-spark-troubleshoot-outofmemory.md
         - name: Apache Spark 作業失敗 - NoClassDefFoundError
           href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
         - name: Apache Spark 作業失敗 - InvalidClassException

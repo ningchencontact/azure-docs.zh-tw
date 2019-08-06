@@ -287,8 +287,6 @@
       items:
         - name: 升級至 Gen2
           href: upgrade-to-latest-generation.md
-        - name: 還原資料倉儲
-          href: sql-data-warehouse-restore.md
         - name: 監視工作負載 - 入口網站
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 監視工作負載 - DMV
