@@ -164,7 +164,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
       ./certGen.sh create_verification_certificate <verification code from Azure portal>"
       ```
 
-2. 遵循在*Azure iot 中樞中設定 x.509 安全性*一節中的 <<c0>為 IoT 中樞建立 x.509 裝置一節中的指示。 在該區段中, 您會執行下列步驟: 
+2. 遵循在[Azure iot 中樞中設定 x.509 安全性](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub)一節中的 <<c0>為 *IoT 中樞建立 x.509 裝置一節中的指示*。 在該區段中, 您會執行下列步驟: 
 
    1. 新增裝置。 為 [**裝置識別碼**] 提供小寫的名稱, 然後選擇 [ **x.509 CA 簽署**的驗證類型]。 
    2. 設定父裝置。 針對下游裝置, 請選取 [**設定父裝置**], 然後選擇將提供連線至 IoT 中樞的 IoT Edge 閘道裝置。 
