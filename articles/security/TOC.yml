@@ -50,7 +50,7 @@
         - name: 為 IaaS 虛擬機器進行磁碟加密
           items:
             - name: 有關 Azure 磁碟加密
-              displayName: 'Bitlocker, bek'
+              displayName: 'BitLocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: 快速入門
               items:
@@ -70,7 +70,7 @@
                   href: azure-security-disk-encryption-windows.md
                 - name: 適用於 Linux VM 的磁碟加密
                   href: azure-security-disk-encryption-linux.md
-                - name: 使用 VMSS 擴充排序的磁碟加密
+                - name: 使用虛擬機器擴展集擴充功能排序的磁片加密
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: 磁碟加密附錄
                   href: azure-security-disk-encryption-appendix.md
@@ -332,49 +332,3 @@
     - name: 滲透測試
       displayName: penetration
       href: ./fundamentals/pen-testing.md
-    - name: Microsoft 威脅模型化工具
-      displayName: stride
-      href: ./develop/threat-modeling-tool.md
-      items:
-        - name: 開始使用
-          href: ./develop/threat-modeling-tool-getting-started.md
-        - name: 功能概觀
-          href: ./develop/threat-modeling-tool-feature-overview.md
-        - name: 威脅
-          href: ./develop/threat-modeling-tool-threats.md
-        - name: 版次
-          href: ./develop/threat-modeling-tool-releases.md
-          items:
-            - name: Threat Modeling Tool GA 版本 7.1.5091.2 - 2018 年 9 月 12 日
-              href: ./develop/threat-modeling-tool-releases-71509112.md
-            - name: Threat Modeling Tool 更新版本 7.1.51023.1 - 2018 年 11 月 1 日
-              href: ./develop/threat-modeling-tool-releases-71510231.md
-            - name: Threat Modeling Tool 更新版本 7.1.60126.1 - 2019 年 1 月 29 日
-              href: ./develop/threat-modeling-tool-releases-71601261.md
-            - name: Threat Modeling Tool 更新版本 7.1.60408.1 - 2019 年 4 月 9 日
-              href: ./develop/threat-modeling-tool-releases-71604081.md
-            - name: Threat Modeling Tool 更新版本 7.1.60702.1 - 2019 年 7 月 2 日
-              href: ./develop/threat-modeling-tool-releases-71607021.md
-        - name: 風險降低
-          href: ./develop/threat-modeling-tool-mitigations.md
-          items:
-            - name: 稽核和記錄
-              href: ./develop/threat-modeling-tool-auditing-and-logging.md
-            - name: Authentication
-              href: ./develop/threat-modeling-tool-authentication.md
-            - name: Authorization
-              href: ./develop/threat-modeling-tool-authorization.md
-            - name: 通訊安全性
-              href: ./develop/threat-modeling-tool-communication-security.md
-            - name: 設定管理
-              href: ./develop/threat-modeling-tool-configuration-management.md
-            - name: 加密
-              href: ./develop/threat-modeling-tool-cryptography.md
-            - name: 例外狀況管理
-              href: ./develop/threat-modeling-tool-exception-management.md
-            - name: 輸入驗證
-              href: ./develop/threat-modeling-tool-input-validation.md
-            - name: 敏感性資料
-              href: ./develop/threat-modeling-tool-sensitive-data.md
-            - name: 工作階段管理
-              href: ./develop/threat-modeling-tool-session-management.md

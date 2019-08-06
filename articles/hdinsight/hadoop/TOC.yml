@@ -64,6 +64,8 @@
           href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: 轉換服務主體憑證
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Apache Ambari 活動訊號問題
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: 作法
   items:
     - name: 使用 Apache Hadoop 沙箱

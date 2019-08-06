@@ -27,6 +27,8 @@
       href: ../hdinsight-version-release.md
     - name: 疑難排解
       items:
+        - name: 區域伺服器上的 PEG CPU
+          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
         - name: '''hbase hbck'' 命令逾時'
           href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: 作法
