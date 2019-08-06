@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 1c30d9e70facaf9ab47bd33e5ca1fc1d35c6c979
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405850"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698263"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 經過一段時間, 清單就會展開並更新, 以涵蓋更多服務。
@@ -48,6 +48,7 @@ ms.locfileid: "68405850"
 * [自動化](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure 雲端服務](#azure-cloud-services-limits)
+* [Azure 認知服務](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [適用於 MySQL 的 Azure 資料庫](#azure-database-for-mysql)
 * [適用於 PostgreSQL 的 Azure 資料庫](#azure-database-for-postgresql)
@@ -186,7 +187,7 @@ ms.locfileid: "68405850"
 
 如需有關儲存體帳戶限制的詳細資訊, 請參閱[Azure 儲存體擴充性和效能目標](storage/common/storage-scalability-targets.md)。
 
-#### <a name="storage-resource-provider-limits"></a>儲存體資源提供者限制 
+#### <a name="storage-resource-provider-limits"></a>儲存體資源提供者限制
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -225,6 +226,9 @@ ms.locfileid: "68405850"
 
 ### <a name="azure-cloud-services-limits"></a>Azure 雲端服務限制
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
+
+### <a name="azure-cognitive-services-limits"></a>Azure 認知服務限制
+[!INCLUDE [azure-cloud-services-limits](../includes/azure-cognitive-services-limits.md)]
 
 ### <a name="app-service-limits"></a>應用程式服務限制
 下列 App Service 限制包含 Web 應用程式、行動應用程式和 API 應用程式的限制。

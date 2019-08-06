@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 02c09e5a2ad0c3e23fe641bf445a646477f7db2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d10814858d38d61e5346a4eb0dfb3d3d24ad4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335044"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568321"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>將應用程式升級以使用最新的彈性資料庫用戶端程式庫
 
@@ -33,10 +32,10 @@ ms.locfileid: "60335044"
 
 **1.升級您的應用程式。** 在 Visual Studio 中，將最新的用戶端程式庫版本下載到您所有使用程式庫的開發專案中，並加以參照；然後重新建置及部署。
 
-* 在您的 Visual Studio 解決方案中，依序選取 [工具]   -->  [NuGet 套件管理員]   -->  [管理解決方案的 NuGet 套件]  。
-* (Visual Studio 2013) 在左邊面板中，選取 [更新]  ，然後在視窗中顯示的 [Azure SQL Database Elastic Scale 用戶端程式庫]  套件上選取 [更新]  按鈕。
-* (Visual Studio 2015) 設定篩選方塊為 [可升級]  。 選取要更新的套件，然後按一下 [更新]  按鈕。
-* (Visual Studio 2017) 在對話方塊頂端，選取 [更新]  。 選取要更新的套件，然後按一下 [更新]  按鈕。
+* 在您的 Visual Studio 解決方案中，依序選取 [工具] -->  [NuGet 套件管理員]  -->  [管理解決方案的 NuGet 套件]。
+* (Visual Studio 2013) 在左邊面板中，選取 [更新]，然後在視窗中顯示的 [Azure SQL Database Elastic Scale 用戶端程式庫]套件上選取 [更新]按鈕。
+* (Visual Studio 2015) 設定篩選方塊為 [可升級]。 選取要更新的套件，然後按一下 [更新] 按鈕。
+* (Visual Studio 2017) 在對話方塊頂端，選取 [更新]。 選取要更新的套件，然後按一下 [更新] 按鈕。
 * 建置並部署。
 
 **2.升級您的指令碼。** 如果您是使用 **PowerShell** 指令碼來管理分區，請[下載新的程式庫版本](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)並將它複製到您從中執行指令碼的目錄。

@@ -14,10 +14,10 @@ ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: c113521a1828a27ce9454ea142cb1708b7c5a1b6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68322849"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服務 API 將工作資料保存到 Azure 儲存體
@@ -178,11 +178,11 @@ string containerName = job.OutputStorageContainerName();
 
 ## <a name="code-sample"></a>程式碼範例
 
-GitHub 上的[PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] 。 此 Visual Studio 解決方案示範如何使用適用於 .NET 的 Batch 用戶端程式庫，將工作輸出保存到永久性儲存體。 若要執行範例，請遵循下列步驟：
+[PersistOutputs][github_persistoutputs]範例專案是 GitHub 上的其中一個[Azure Batch 程式碼範例][github_samples]。 此 Visual Studio 解決方案示範如何使用適用於 .NET 的 Batch 用戶端程式庫，將工作輸出保存到永久性儲存體。 若要執行範例，請遵循下列步驟：
 
 1. 在**Visual Studio 2019**中開啟專案。
 2. 將您 Batch 和儲存體的**帳戶認證**新增到 Microsoft.Azure.Batch.Samples.Common 專案中的 **AccountSettings.settings**。
-3.  (但不要執行) 該解決方案。 如果出現提示，請還原任何 NuGet 封裝。
+3. (但不要執行) 該解決方案。 如果出現提示，請還原任何 NuGet 封裝。
 4. 使用 Azure 入口網站來為 [PersistOutputsTask](batch-application-packages.md) 上傳 **應用程式封裝**。 將 `PersistOutputsTask.exe` 及其相依性組件包含在 .zip 封裝中，將應用程式識別碼和應用程式封裝版本分別設為 "PersistOutputsTask" 和 "1.0"。
 5. **啟動** (執行) **PersistOutputs** 專案。
 6. 當系統提示您選擇要用於執行範例的持續性技術時，輸入 **2** 可使用 Batch 服務 API 保存工作輸出來執行範例。

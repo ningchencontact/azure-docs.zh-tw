@@ -1,6 +1,6 @@
 ---
 title: 使用 Log Analytics 警示 REST API
-description: Log Analytics 警示 REST API 可讓您在 Log Analytics 中建立及管理警示，這是屬於 Log Analytics 的一部份。  本文提供此 API 的詳細資料和幾個執行不同作業的範例。
+description: Log Analytics 警示 REST API 可讓您在 Log Analytics 中建立及管理警示, 這是 Log Analytics 的一部分。  本文提供此 API 的詳細資料和幾個執行不同作業的範例。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,17 +11,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2018
+ms.date: 07/29/2018
 ms.author: bwren
-ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e8209a2d2034818a00ab9390a9af96d5b0287b5b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345901"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663202"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>使用 REST API 在 Log Analytics 中建立及管理警示規則
 Log Analytics 警示 REST API 可讓您在 Log Analytics 中建立及管理警示。  本文提供此 API 的詳細資料和幾個執行不同作業的範例。
+
+> [!IMPORTANT]
+> 如[先前所宣佈](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), 在*2019 年6月 1*日之後建立的 log analytics 工作區, 將能夠使用 azure ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)、 [azure Resource Mananger 範本](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)和[, 來管理警示規則PowerShell Cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)。 客戶可以輕鬆地為較舊的工作區[切換其慣用的警示規則管理方式](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api), 以利用 Azure 監視器 scheduledQueryRules 做為預設值, 並取得許多[新的優點](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api), 例如使用原生 PowerShell Cmdlet 的能力、增加回顧規則中的時間週期, 在不同的資源群組或訂用帳戶中建立規則, 還有更多其他功能。
 
 Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API 來存取。 在這份文件中，您會找到從 PowerShell 命令列使用 [ARMClient](https://github.com/projectkudu/ARMClient) (一個可簡化 Azure Resource Manager API 叫用流程的開放原始碼命令列工具) 來存取 API 的範例。 使用 ARMClient 和 PowerShell 是存取 Log Analytics 搜尋 API 的許多選項之一。 這些工具可讓您利用 RESTful Azure Resource Manager API 呼叫 Log Analytics 工作區，並在其中執行搜尋命令。 API 會以 JSON 格式向您輸出搜尋結果，讓您以程式設計方式透過許多不同的方法使用搜尋結果。
 
@@ -32,7 +35,7 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 一個已儲存的搜尋可以有一或多個排程。 排程中定義搜尋的執行頻率及識別準則的時間間隔。
 排程具有下表中的屬性。
 
-| 屬性 | 描述 |
+| 內容 | 描述 |
 |:--- |:--- |
 | Interval |執行搜尋的頻率。 以分鐘為單位。 |
 | QueryTimeSpan |準則評估的時間間隔。 必須等於或大於 Interval。 以分鐘為單位。 |
@@ -66,16 +69,16 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 ```
 
 ### <a name="creating-a-schedule"></a>建立排程
-使用 Put 方法並指定唯一的排程識別碼，以建立新的排程。  請注意，兩個排程即使其已儲存的相關聯搜尋不同，也不能有相同的識別碼。  當您在 Log Analytics 主控台中建立排程時，將會建立 GUID 做為排程識別碼。
+使用 Put 方法並指定唯一的排程識別碼，以建立新的排程。  兩個排程即使與不同的已儲存搜尋相關聯, 也不能有相同的識別碼。  當您在 Log Analytics 主控台中建立排程時，將會建立 GUID 做為排程識別碼。
 
 > [!NOTE]
 > Log Analytics API 所建立並儲存的所有搜尋、排程和動作，都必須使用小寫名稱。
 
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
+    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>編輯排程
-針對已儲存的相同搜尋，使用 Put 方法並指定現有的排程識別碼，以修改該排程；在下列範例中，排程已停用。 要求的主體必須包含排程的 etag  。
+針對已儲存的相同搜尋，使用 Put 方法並指定現有的排程識別碼，以修改該排程；在下列範例中，排程已停用。 要求的主體必須包含排程的 etag。
 
       $scheduleJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A49.8074679Z'\""','properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'false' } }"
       armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
@@ -87,21 +90,18 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
 
-## <a name="actions"></a>動作
+## <a name="actions"></a>個動作
 一個排程可以有多個動作。 一個動作可能定義一或多個處理序來執行，例如傳送郵件或啟動 Runbook，或也可能定義臨界值來判斷搜尋結果是否符合某些準則。  某些動作會同時定義這兩者，以便符合臨界值時執行處理序。
 
 所有動作具有下表中的屬性。  不同類型的警示有不同的額外屬性，如下所述。
 
-| 屬性 | 描述 |
+| 內容 | 描述 |
 |:--- |:--- |
 | `Type` |動作的類型。  目前可能的值為 Alert 和 Webhook。 |
 | `Name` |警示的顯示名稱。 |
 | `Version` |所使用的 API 版本。  目前，這應該一律設為 1。 |
 
 ### <a name="retrieving-actions"></a>擷取動作
-
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始在 Log Analytics 工作區的 Azure 公用雲端執行個體中的所有警示都將自動都延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 Log Analytics 延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可以使用 [Azure 群組 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 來擷取或新增動作。
 
 使用 Get 方法來擷取排程的所有動作。
 
@@ -123,9 +123,6 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 
 ### <a name="deleting-actions"></a>刪除動作
 
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始在 Log Analytics 工作區的 Azure 公用雲端執行個體中的所有警示都將自動都延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 Log Analytics 延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作。 將工作區及其警示延伸至 Azure 之後，您便可以使用 [Azure 群組 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 來擷取或新增動作。
-
 使用 Delete 方法並指定動作識別碼來刪除動作。
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
@@ -140,14 +137,8 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 | 隱藏 |可停止來自警示之通知的選項。 | 將警示延伸至 Azure 之前或之後，可依選擇為每個警示指定。 |
 | 動作群組 |已指定所需動作之 Azure ActionGroup 的識別碼，例如 - 電子郵件、簡訊、語音通話、Webhook、自動化 Runbook、ITSM 連接器等。| 將警示延伸至 Azure 之後，就必須指定|
 | 自訂動作|修改來自 ActionGroup 之所選動作的標準輸出| 就每個警示而言為選擇性，可在將警示延伸至 Azure 之後使用。 |
-| EmailNotification |將郵件傳送給多位收件者。 | 如果將警示延伸至 Azure，則不須指定|
-| 補救 |在 Azure 自動化中啟動 Runbook，以嘗試更正識別的問題。 |如果將警示延伸至 Azure，則不須指定|
-| Webhook 動作 | 將來自警示的資料以 JSON 形式推送至所需的服務 |如果將警示延伸至 Azure，則不須指定|
 
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始在 Log Analytics 工作區的 Azure 公用雲端執行個體中的所有警示都將自動都延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 Log Analytics 延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。
-
-#### <a name="thresholds"></a>臨界值
+### <a name="thresholds"></a>臨界值
 一個警示動作應該只有一個臨界值。  當已儲存的搜尋結果符合與該搜尋相關聯動作中的臨界值時，將會執行該動作中的任何其他處理序。  動作也可以只包含臨界值，以便與不包含臨界值的其他類型動作一起搭配使用。
 
 臨界值具有下表中的屬性。
@@ -350,166 +341,10 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-#### <a name="email-notification"></a>電子郵件通知
-「電子郵件通知」會將郵件傳送給一或多位收件者。  它們包含下表中的屬性。
-
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始在 Log Analytics 工作區的 Azure 公用雲端執行個體中的所有警示都將自動都延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 Log Analytics 延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作 (例如「電子郵件通知」)。 將工作區及其警示延伸至 Azure 之後，您便可以使用 [Azure 群組 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 來擷取或新增動作。
-   
-
-| 屬性 | 描述 |
-|:--- |:--- |
-| Recipients |郵件地址清單。 |
-| Subject |郵件的主旨。 |
-| Attachment |目前不支援附件，因此這個屬性的值一律為 “None”。 |
-
-以下是一個包含臨界值的電子郵件通知動作的回應範例。  
-
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My email action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "EmailNotification": {
-            "Recipients": [
-                "recipient1@contoso.com",
-                "recipient2@contoso.com"
-            ],
-            "Subject": "This is the subject",
-            "Attachment": "None"
-        },
-        "Version": 1
-    }
-
-使用 Put 方法並指定唯一的動作識別碼，以建立排程的新電子郵件動作。  下列範例建立一個包含臨界值的電子郵件通知，當已儲存的搜尋結果超過臨界值時，就會傳送郵件。
-
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
-
-使用 Put 方法並指定現有的動作識別碼，以修改排程的電子郵件動作。  要求的主體必須包含動作的 etag。
-
-    $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
-
-#### <a name="remediation-actions"></a>補救動作
-「補救」會在 Azure 自動化中啟動 Runbook，嘗試更正警示所識別的問題。  您必須為補救動作中使用的 Runbook 建立 webhook，然後在 WebhookUri 屬性中指定 URI。  當您使用 Azure 入口網站建立此動作時，將會自動為 Runbook 建立新的 Webhook。
-
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始在 Log Analytics 工作區的 Azure 公用雲端執行個體中的所有警示都將自動都延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 Log Analytics 延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作 (例如使用 Runbook 的「補救」)。 將工作區及其警示延伸至 Azure 之後，您便可以使用 [Azure 群組 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 來擷取或新增動作。
-
-「補救」包含下表中的屬性。
-
-| 屬性 | 描述 |
-|:--- |:--- |
-| RunbookName |Runbook 的名稱。 這必須符合自動化帳戶 (在 Log Analytics 工作區的自動化方案中設定) 中發佈的 Runbook。 |
-| WebhookUri |Webhook 的 URI。 |
-| Expiry |webhook 的到期日期和時間。  如果 webhook 沒有到期日，這可以是任何有效的未來日期。 |
-
-以下是一個包含臨界值的補救動作的回應範例。
-
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My remediation action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "Remediation": {
-            "RunbookName": "My-Runbook",
-            "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d",
-            "Expiry": "2018-02-25T18:27:20"
-            },
-        "Version": 1
-    }
-
-使用 Put 方法並指定唯一的動作識別碼，以建立排程的新補救動作。  下列範例建立一個包含臨界值的補救，當已儲存的搜尋結果超過臨界值時，就會啟動 Runbook。
-
-    $remediateJson = "{'properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
-
-使用 Put 方法並指定現有的動作識別碼，以修改排程的補救動作。  要求的主體必須包含動作的 etag。
-
-    $remediateJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
-
-#### <a name="example"></a>範例
-以下是建立新電子郵件警示的完整範例。  這會建立新的排程及一個包含臨界值和電子郵件的動作。
-
-    $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-    $resourceGroup  = "MyResourceGroup"    
-    $workspaceName    = "MyWorkspace"
-    $searchId       = "MySearch"
-    $scheduleId     = "MySchedule"
-    $thresholdId    = "MyThreshold"
-    $actionId       = "MyEmailAction"
-    
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
-    
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
-
-#### <a name="webhook-actions"></a>Webhook 動作
-Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動處理序。  這些動作類似於「補救」動作，不同之處在於它們用於可能叫用 Azure 自動化 Runbook 以外之處理序的 webhook。  它們還提供另一個選項，可指定要傳遞到遠端處理序的承載。
-
-> [!NOTE]
-> 從 2018 年 5 月 14 日開始在 Log Analytics 工作區的 Azure 公用雲端執行個體中的所有警示都將自動都延伸至 Azure。 在 2018 年 5 月 14 日之前，使用者可以主動起始將警示延伸至 Azure。 如需詳細資訊，請參閱[將警示從 Log Analytics 延伸至 Azure](../../azure-monitor/platform/alerts-extend.md)。 針對將警示延伸至 Azure 的使用者，現在便會以 Azure 動作群組來控制動作 (例如 Webhook)。 將工作區及其警示延伸至 Azure 之後，您便可以使用 [Azure 群組 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 來擷取或新增動作。
-
-
-Webhook 動作沒有臨界值，應該加入至具有警示動作和臨界值的排程。  
-
-以下是 webhook 動作及一個包含臨界值的相關聯警示動作的回應範例。
-
-    {
-        "__metadata": {},
-        "value": [
-            {
-                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/72884702-acf9-4653-bb67-f42436b342b4",
-                "etag": "W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"",
-                "properties": {
-                    "Type": "Webhook",
-                    "Name": "My Webhook Action",
-                    "WebhookUri": "https://oaaswebhookdf.cloudapp.net/webhooks?token=VfkYTIlpk%2fc%2bJBP",
-                    "CustomPayload": "{\"fielld1\":\"value1\",\"field2\":\"value2\"}",
-                    "Version": 1
-                }
-            },
-            {
-                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/90a27cf8-71b7-4df2-b04f-54ed01f1e4b6",
-                "etag": "W/\"datetime'2016-02-26T20%3A25%3A00.565204Z'\"",
-                "properties": {
-                    "Type": "Alert",
-                    "Name": "Threshold for my webhook action",
-                    "Threshold": {
-                        "Operator": "gt",
-                        "Value": 10
-                    },
-                    "Version": 1
-                }
-            }
-        ]
-    }
-
-##### <a name="create-or-edit-a-webhook-action"></a>建立或編輯 webhook 動作
-使用 Put 方法並指定唯一的動作識別碼，以建立排程的新 webhook 動作。  下列範例建立 Webhook 動作及一個包含臨界值的警示動作，當已儲存的搜尋結果超過臨界值時，就會啟動 webhook。
-
-    $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdAction
-
-    $webhookAction = "{'properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
-
-使用 Put 方法並指定現有的動作識別碼，以修改排程的 webhook 動作。  要求的主體必須包含動作的 etag。
-
-    $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
-
 
 ## <a name="next-steps"></a>後續步驟
+
 * 在 Log Analytics 中使用 [REST API 執行記錄檔搜尋](../../azure-monitor/log-query/log-query-overview.md) 。
-* 了解 [Azure 警示中的記錄警示](../../azure-monitor/platform/alerts-unified-log.md)
+* 瞭解[Azure 監視器中的記錄警示](../../azure-monitor/platform/alerts-unified-log.md)
+* 如何[在 Azure 監視器中建立、編輯或記錄管理警示規則](../../azure-monitor/platform/alerts-log.md)
 

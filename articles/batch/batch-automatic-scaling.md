@@ -15,18 +15,18 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 489a3935605432b485f7b0866668f6dbfaac686b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 431212b2b0ac7bba209130e511e3510e3008a6c4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323762"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68500029"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動調整公式來調整 Batch 集區中的計算節點
 
 Azure Batch 可以根據您定義的參數自動調整集區。 使用自動調整，Batch 會隨著工作需求增加，動態地將節點新增至集區，以及隨著工作需求減少而移除計算節點。 自動調整 Batch 應用程式所使用的計算節點數目，可讓您節省時間與金錢。 
 
-您可讓您定義的「自動調整公式」  與計算節點的集區產生關聯，以在該集區上啟用自動調整。 Batch 服務會使用自動調整公式來判斷要執行您的工作負載所需的計算節點數目。 計算節點可以是專用節點或[低優先順序節點](batch-low-pri-vms.md)。 Batch 會回應定期收集的服務計量資料。 使用此計量資料，Batch 會根據您的公式以可設定的間隔調整集區中的計算節點數目。
+您可讓您定義的「自動調整公式」與計算節點的集區產生關聯，以在該集區上啟用自動調整。 Batch 服務會使用自動調整公式來判斷要執行您的工作負載所需的計算節點數目。 計算節點可以是專用節點或[低優先順序節點](batch-low-pri-vms.md)。 Batch 會回應定期收集的服務計量資料。 使用此計量資料，Batch 會根據您的公式以可設定的間隔調整集區中的計算節點數目。
 
 您可以在建立集區時或在現有的集區上啟用自動調整。 您也可以變更已針對自動調整設定之集區上的現有公式。 Batch 可讓您在將公式指派給集區之前評估公式，以及監視自動調整回合的狀態。
 
@@ -40,7 +40,7 @@ Azure Batch 可以根據您定義的參數自動調整集區。 使用自動調�
 >
 
 ## <a name="automatic-scaling-formulas"></a>自動調整公式
-自動調整公式是您定義的字串值，其中包含一或多個陳述式。 自動調整公式會指派給集區的[autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula]屬性 (Batch .net)。 Batch 集區會使用您的公式來決定集區中可供下一個間隔處理的目標計算節點數目。 公式字串不得超過 8 KB、最多只能包含 100 個陳述式 (以分號隔開)，而且可以包含換行和註解。
+自動調整公式是您定義的字串值，其中包含一或多個陳述式。 自動調整公式會指派給集區的[autoScaleFormula][rest_autoscaleformula]元素 (batch REST) 或[CloudPool. AutoScaleFormula][net_cloudpool_autoscaleformula]屬性 (batch .net)。 Batch 集區會使用您的公式來決定集區中可供下一個間隔處理的目標計算節點數目。 公式字串不得超過 8 KB、最多只能包含 100 個陳述式 (以分號隔開)，而且可以包含換行和註解。
 
 您可以將自動調整公式視為 Batch 自動調整「語言」。 公式陳述式是自由格式的運算式，可以包括服務定義的變數 (Batch 服務所定義的變數) 和使用者定義的變數 (您所定義的變數)。 它們可以使用內建類型、運算子和函式對這些值執行各種作業。 例如，陳述式可能會採用下列格式：
 
@@ -128,7 +128,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 | $PreemptedNodeCount | 優先佔用狀態的集區中之節點數目。 |
 
 > [!TIP]
-> 上表中服務定義的唯讀變數是可提供各種方法來存取相關聯資料的物件  。 如需詳細資訊，請參閱本文稍後的[取得範例資料](#getsampledata)。
+> 上表中服務定義的唯讀變數是可提供各種方法來存取相關聯資料的物件。 如需詳細資訊，請參閱本文稍後的[取得範例資料](#getsampledata)。
 >
 >
 
@@ -166,26 +166,26 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 
 | 運算 | 支援的運算子 | 結果類型 |
 | --- | --- | --- |
-| double 運算子  double |+、-、*、/ |double |
-| double 運算子  timeinterval |* |timeinterval |
-| doubleVec 運算子  double |+、-、*、/ |doubleVec |
-| doubleVec 運算子  doubleVec |+、-、*、/ |doubleVec |
-| timeinterval 運算子  double |*、/ |timeinterval |
-| timeinterval 運算子  timeinterval |+、- |timeinterval |
-| timeinterval 運算子  timestamp |+ |timestamp |
-| timestamp 運算子  timeinterval |+ |timestamp |
-| timestamp  timestamp |- |timeinterval |
-|  double |-、! |double |
-|  timeinterval |- |timeinterval |
-| double 運算子  double |<、<=、==、>=、>、!= |double |
-| string  string |<、<=、==、>=、>、!= |double |
-| timestamp  timestamp |<、<=、==、>=、>、!= |double |
-| timeinterval 運算子  timeinterval |<、<=、==、>=、>、!= |double |
-| double 運算子  double |&&, &#124;&#124; |double |
+| double 運算子 double |+、-、*、/ |double |
+| double 運算子 timeinterval |* |timeinterval |
+| doubleVec 運算子 double |+、-、*、/ |doubleVec |
+| doubleVec 運算子 doubleVec |+、-、*、/ |doubleVec |
+| timeinterval 運算子 double |*、/ |timeinterval |
+| timeinterval 運算子 timeinterval |+、- |timeinterval |
+| timeinterval 運算子 timestamp |+ |timestamp |
+| timestamp 運算子 timeinterval |+ |timestamp |
+| timestamp timestamp |- |timeinterval |
+| double |-、! |double |
+| timeinterval |- |timeinterval |
+| double 運算子 double |<、<=、==、>=、>、!= |double |
+| string string |<、<=、==、>=、>、!= |double |
+| timestamp timestamp |<、<=、==、>=、>、!= |double |
+| timeinterval 運算子 timeinterval |<、<=、==、>=、>、!= |double |
+| double 運算子 double |&&, &#124;&#124; |double |
 
 測試具有三元運算子的雙精準數 (`double ? statement1 : statement2`) 時，非零為 **true**，而零則為 **false**。
 
-## <a name="functions"></a>函式
+## <a name="functions"></a>Functions
 這些預先定義的 **函式** 可供您用來定義自動調整公式。
 
 | 函數 | 傳回類型 | 描述 |
@@ -225,13 +225,13 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | 方法 | 描述 |
 | --- | --- |
-| GetSample() |`GetSample()` 方法會傳回資料樣本的向量。<br/><br/>一個樣本有 30 秒的度量資料。 換句話說，每隔 30 秒會取得範例。 如下所述，從收集樣本到可用於公式之間會延遲。 因此，並非一段指定時間內的所有樣本都可供公式評估。<ul><li>`doubleVec GetSample(double count)`<br/>指定要從最近收集的樣本中取得的樣本數。<br/><br/>`GetSample(1)` 會傳回最後一個可用的樣本。 不過，這不適用於 `$CPUPercent` 之類的度量，因為不可能知道「何時」  收集到樣本。 此範例可能是最新的，也可能因為系統問題，是更舊的。 在此情況下，最好使用如下所示的時間間隔。<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>指定收集樣本資料的時間範圍。 它也會選擇性地指定在要求的時間範圍內必須可用的樣本數百分比。<br/><br/>如果 CPUPercent 歷程記錄中有最後 10 分鐘的所有樣本，則 `$CPUPercent.GetSample(TimeInterval_Minute * 10)` 會傳回 20 個樣本。 不過，如果最後一分鐘的歷程記錄無法使用，則只會傳回 18 個樣本。 在此案例中：<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 會失敗，因為只有 90% 的樣本可用。<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 會成功。<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>指定收集資料的時間範圍 (含開始時間和結束時間)。<br/><br/>如上所述，從收集樣本到可用於公式之間會延遲。 當您使用 `GetSample` 方法時，請考慮此延遲。 請參閱下文中的 `GetSamplePercent`。 |
+| GetSample() |`GetSample()` 方法會傳回資料樣本的向量。<br/><br/>一個樣本有 30 秒的度量資料。 換句話說，每隔 30 秒會取得範例。 如下所述，從收集樣本到可用於公式之間會延遲。 因此，並非一段指定時間內的所有樣本都可供公式評估。<ul><li>`doubleVec GetSample(double count)`<br/>指定要從最近收集的樣本中取得的樣本數。<br/><br/>`GetSample(1)` 會傳回最後一個可用的樣本。 不過，這不適用於 `$CPUPercent` 之類的度量，因為不可能知道「何時」收集到樣本。 此範例可能是最新的，也可能因為系統問題，是更舊的。 在此情況下，最好使用如下所示的時間間隔。<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>指定收集樣本資料的時間範圍。 它也會選擇性地指定在要求的時間範圍內必須可用的樣本數百分比。<br/><br/>如果 CPUPercent 歷程記錄中有最後 10 分鐘的所有樣本，則 `$CPUPercent.GetSample(TimeInterval_Minute * 10)` 會傳回 20 個樣本。 不過，如果最後一分鐘的歷程記錄無法使用，則只會傳回 18 個樣本。 在此案例中：<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 會失敗，因為只有 90% 的樣本可用。<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 會成功。<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>指定收集資料的時間範圍 (含開始時間和結束時間)。<br/><br/>如上所述，從收集樣本到可用於公式之間會延遲。 當您使用 `GetSample` 方法時，請考慮此延遲。 請參閱下文中的 `GetSamplePercent`。 |
 | GetSamplePeriod() |傳回歷史範例資料集中取得範例的期間。 |
 | Count() |傳回度量歷程記錄中的範例總數。 |
 | HistoryBeginTime() |傳回度量的最舊可用資料範例的時間戳記。 |
 | GetSamplePercent() |傳回指定的時間間隔內可用的樣本百分比。 例如:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>因為 `GetSample` 方法在傳回樣本的百分比小於指定的 `samplePercent` 時會失敗，因此，您可以先使用 `GetSamplePercent` 方法進行檢查。 然後您可以在樣本不足時執行替代動作，而不暫停自動調整評估。 |
 
-### <a name="samples-sample-percentage-and-the-getsample-method"></a>樣本、樣本百分比和 GetSample()  方法
+### <a name="samples-sample-percentage-and-the-getsample-method"></a>樣本、樣本百分比和 GetSample() 方法
 自動調整公式的核心是要取得工作和資源度量資料，然後根據該資料調整集區大小。 因此，請務必清楚了解自動調整公式如何與計量資料 (樣本) 互動。
 
 **範例**
@@ -275,12 +275,12 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 >
 >
 
-## <a name="metrics"></a>度量
+## <a name="metrics"></a>計量
 您可以在定義公式時使用資源和工作計量。 您會根據您取得和評估的度量資料來調整集區中專用節點的目標數目。 如需每個度量的詳細資訊，請參閱上面的 [變數](#variables) 一節。
 
 <table>
   <tr>
-    <th>計量</th>
+    <th>度量</th>
     <th>描述</th>
   </tr>
   <tr>
@@ -338,7 +338,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-為了減少  低 CPU 使用率期間的專用節點數目，如果在過去 60 分鐘內平均 CPU 使用率低於 20%，公式中的下一個陳述式會將相同的 `$totalDedicatedNodes` 變數設定為 90% 的專用節點目前目標數目。 否則，使用我們在上述陳述式中填入的目前 `$totalDedicatedNodes` 值。
+為了減少低 CPU 使用率期間的專用節點數目，如果在過去 60 分鐘內平均 CPU 使用率低於 20%，公式中的下一個陳述式會將相同的 `$totalDedicatedNodes` 變數設定為 90% 的專用節點目前目標數目。 否則，使用我們在上述陳述式中填入的目前 `$totalDedicatedNodes` 值。
 
 ```
 $totalDedicatedNodes =
@@ -364,15 +364,19 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-net"></a>使用 .NET 建立已啟用自動調整的集區
+## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>使用 Batch Sdk 建立已啟用自動調整的集區
+
+您可以使用任何[Batch sdk](batch-apis-tools.md#azure-accounts-for-batch-development)、 [Batch REST API](https://docs.microsoft.com/rest/api/batchservice/) [BATCH PowerShell Cmdlet](batch-powershell-cmdlets-get-started.md)和[batch CLI](batch-cli-get-started.md)來設定集區自動調整。 在本節中, 您可以查看 .NET 和 Python 的範例。
+
+### <a name="net"></a>.NET
 
 若要在 .NET 中建立已啟用自動調整的集區，請遵循下列步驟：
 
 1. 使用 [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 建立集區。
-2. 將 [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) 屬性設定為 `true`。
-3. 使用自動調整公式來設定 [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) 屬性。
-4. (選擇性) 設定 [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) 屬性 (預設值為 15 分鐘)。
-5. 使用 [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) 或 [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 認可集區。
+1. 將 [CloudPool.AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) 屬性設定為 `true`。
+1. 使用自動調整公式來設定 [CloudPool.AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) 屬性。
+1. (選擇性) 設定 [CloudPool.AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) 屬性 (預設值為 15 分鐘)。
+1. 使用 [CloudPool.Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) 或 [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 認可集區。
 
 下列程式碼片段在 .NET 中建立已啟用自動調整的集區。 集區的自動調整公式會將星期一的專用節點目標數目設定為 5，而將一週其他各天的節點目標數目設定為 1。 [自動調整間隔](#automatic-scaling-interval) 設定為 30 分鐘。 在這篇文章中C#的其他程式碼片段中`myBatchClient` , 是適當初始化的[BatchClient][net_batchclient]類別實例。
 
@@ -392,10 +396,8 @@ await pool.CommitAsync();
 >
 >
 
-除了 Batch .NET，您可以使用任何其他 [Batch SDK](batch-apis-tools.md#azure-accounts-for-batch-development)、[Batch REST](https://docs.microsoft.com/rest/api/batchservice/)、[Batch PowerShell Cmdlet](batch-powershell-cmdlets-get-started.md) 和 [Batch CLI](batch-cli-get-started.md) 來設定自動調整。
+#### <a name="automatic-scaling-interval"></a>自動調整間隔
 
-
-### <a name="automatic-scaling-interval"></a>自動調整間隔
 依預設，Batch 服務會根據其自動調整公式每隔 15 分鐘調整集區的大小。 可使用下列的集區屬性設定此間隔：
 
 * [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .net)
@@ -405,6 +407,50 @@ await pool.CommitAsync();
 
 > [!NOTE]
 > 自動調整目前不適合作為低於一分鐘的變更回應，而是要在您執行工作負載時逐步調整您的集區大小。
+>
+>
+
+### <a name="python"></a>Python
+
+同樣地, 您可以透過下列方式, 使用 Python SDK 建立已啟用自動調整的集區:
+
+1. 建立集區並指定其設定。
+1. 將集區新增至服務用戶端。
+1. 使用您所撰寫的公式在集區上啟用自動調整。
+
+```python
+# Create a pool; specify configuration
+new_pool = batch.models.PoolAddParameter(
+    id="autoscale-enabled-pool",
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+          publisher="Canonical",
+          offer="UbuntuServer",
+          sku="18.04-LTS",
+          version="latest"
+            ),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
+    vm_size="STANDARD_D1_v2",
+    target_dedicated_nodes=0,
+    target_low_priority_nodes=0
+)
+batch_service_client.pool.add(new_pool) # Add the pool to the service client
+
+formula = """$curTime = time();
+             $workHours = $curTime.hour >= 8 && $curTime.hour < 18; 
+             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5; 
+             $isWorkingWeekdayHour = $workHours && $isWeekday; 
+             $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
+
+# Enable autoscale; specify the formula
+response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
+                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10), 
+                                            pool_enable_auto_scale_options=None, 
+                                            custom_headers=None, raw=False)
+```
+
+> [!TIP]
+> 您可以在 GitHub 上的[Batch Python 快速入門存放庫](https://github.com/Azure-Samples/batch-python-quickstart)中找到更多使用 Python SDK 的範例。
 >
 >
 
@@ -591,7 +637,7 @@ Error:
 ## <a name="example-autoscale-formulas"></a>自動調整公式範例
 讓我們看看下面幾個公式，其顯示調整集區中計算資源數量的不同方式。
 
-### <a name="example-1-time-based-adjustment"></a>範例 1：以時間為基礎的調整
+### <a name="example-1-time-based-adjustment"></a>範例 1:以時間為基礎的調整
 假設您想要根據一週的天數和一天的時間，調整集區大小。 這個範例示範如何據以增加或減少集區中的節點數目。
 
 此公式會先取得目前的時間。 如果是工作日 (1-5) 且在上班時間內 (上午 8:00 - 下午 6:00)，則將目標集區大小設為 20 個節點。 否則，它會設定為 10 個節點。
