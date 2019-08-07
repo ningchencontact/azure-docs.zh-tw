@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638549"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837915"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>在 Azure API 管理中存取及自訂新的開發人員入口網站
 
@@ -77,6 +77,10 @@ ms.locfileid: "68638549"
 正式運作的目標是提供以案例為基礎的功能, 與舊的入口網站進行同位檢查。 在那之前, 預覽版本可能未執行選取的功能。
 
 例外狀況是舊版入口網站中的*應用程式*和*問題*, 在新的入口網站中將無法使用。 如果您在舊的入口網站中使用*問題*, 並在新的專案中需要它們, 請在[專用的 GitHub 問題](https://github.com/Azure/api-management-developer-portal/issues/122)中張貼留言。
+
+### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>我發現錯誤和 (或) 我想要要求功能。
+
+太棒了！ 您可以提供意見反應、提交功能要求, 或透過[GitHub 存放庫的問題一節](https://github.com/Azure/api-management-developer-portal/issues)提出錯誤報表。 當您在那裡時, 我們也會感謝您對以`community`標籤標示之問題的意見反應。
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>我想要在環境之間移動新入口網站的內容。 我該如何做, 我需要使用自我裝載版本？
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f51c1166364a3470a1cc943e66d429c32cdc49b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639075"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839486"
 ---
 # <a name="clustering-point-data"></a>群集點資料
 
@@ -35,7 +35,7 @@ var datasource = new atlas.source.DataSource(null, {
 
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
-    clusterMaxZoom: 15 
+    clusterMaxZoom: 15
 });
 ```
 
@@ -107,6 +107,16 @@ var datasource = new atlas.source.DataSource(null, {
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="叢集區域凸殼" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 的畫筆叢集<a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>區域凸</a>殼。
+</iframe>
+
+## <a name="aggregating-data-in-clusters"></a>匯總群集中的資料
+
+通常會使用符號與叢集中的點數來表示叢集, 但有時您可能會想要根據某些計量進一步自訂叢集的樣式, 例如叢集內所有點的總收益。 使用「叢集匯總」時, 您可以使用「[匯總運算式](data-driven-style-expressions-web-sdk.md#aggregate-expression)」計算來建立及填入自訂屬性。  叢集匯總可以在的`clusterProperties` `DataSource`選項中定義。
+
+下列範例會使用匯總運算式, 根據叢集中每個資料點的實體類型屬性來計算計數。
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="叢集匯總" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 的畫筆叢集<a href='https://codepen.io/azuremaps/pen/jgYyRL/'>匯總</a>。
 </iframe>
 
 ## <a name="next-steps"></a>後續步驟

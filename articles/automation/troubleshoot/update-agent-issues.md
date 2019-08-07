@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 3555ec74b7e7c8a0f7606f24f8c6f2c4fe36b52d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: bbccb9beab374a4a514d527c22b3861f0752d5fd
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477090"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782393"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>了解更新管理中的 Windows 代理程式檢查結果
 
-您的機器在 [更新管理] 中未顯示為 [就緒]  的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
+您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
 
 下列清單是機器可具備的三種整備狀態：
 
@@ -27,18 +27,18 @@ ms.locfileid: "67477090"
 * **未設定**：找不到更新代理程式或尚未完成上線。
 
 > [!NOTE]
-> 可能稍有延遲，與 Azure 入口網站的顯示電腦的目前狀態。
+> Azure 入口網站顯示的內容與電腦目前的狀態之間可能會稍有延遲。
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
-若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度]  資料行底下的 [疑難排解]  連結，即可啟動 [對更新代理程式進行疑難排解]  頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱[離線指示](#troubleshoot-offline)。
+若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱[離線指示](#troubleshoot-offline)。
 
 ![虛擬機器的更新管理清單](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> 若要檢查代理程式的健康情況，VM 必須正在執行中。 如果 VM 未執行，將會出現 [啟動 VM]  按鈕。
+> 若要檢查代理程式的健康情況，VM 必須正在執行中。 如果 VM 未執行，將會出現 [啟動 VM] 按鈕。
 
-在 [對更新代理程式進行疑難排解]  頁面上，選取 [執行檢查]  以啟動疑難排解員。 疑難排解員會使用[執行命令](../../virtual-machines/windows/run-command.md)在機器上執行指令碼，以確認代理程式的相依性。 疑難排解員完成後，會傳回檢查結果。
+在 [對更新代理程式進行疑難排解] 頁面上，選取 [執行檢查] 以啟動疑難排解員。 疑難排解員會使用[執行命令](../../virtual-machines/windows/run-command.md)在機器上執行指令碼，以確認代理程式的相依性。 疑難排解員完成後，會傳回檢查結果。
 
 ![對更新代理程式進行疑難排解頁面](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -55,15 +55,15 @@ ms.locfileid: "67477090"
 |作業系統  |注意  |
 |---------|---------|
 |Windows Server 2008 R2 RTM、Windows Server 2008 | 僅支援更新評估。         |
-|Windows Server 2008 R2 SP1 和更新版本 |必須要有 .NET Framework 4.5.1 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> 建議使用 Windows PowerShell 5.1 以增加可靠性。  ([下載 Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 和更新版本 |必須要有 .NET Framework 4.6.1 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 需要 Windows PowerShell 5.1。  ([下載 Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-451"></a>.NET 4.5.1
+### <a name="net-461"></a>.NET 4.6.1 +
 
-.NET Framework 檢查會確認系統至少已安裝 [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653)。
+.NET Framework 檢查會確認系統是否已安裝最少的[.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) 。
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-WMF 檢查會確認系統具有所需版本的 Windows Management Framework (WMF)。 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) 是支援的最舊版本。 建議您安裝 [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) 以提升「混合式 Runbook 背景工作角色」的可靠性。
+WMF 檢查會確認系統是否具有所需的 Windows Management Framework (WMF) 版本- [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616)。
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -144,7 +144,7 @@ RuleId                      : AutomationAgentServiceConnectivityCheck1
 RuleGroupId                 : connectivity
 RuleName                    : Registration endpoint
 RuleGroupName               : connectivity
-RuleDescription             : 
+RuleDescription             :
 CheckResult                 : Failed
 CheckResultMessage          : Unable to find Workspace registration information in registry
 CheckResultMessageId        : AutomationAgentServiceConnectivityCheck1.Failed.NoRegistrationFound

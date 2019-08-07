@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 0960862da9e65cff4d957e97a7488dc7a245651a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356046"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742128"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>如何從 Python 應用程式使用 Azure 事件中樞
 Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需詳細資訊，請參閱[事件中樞簡介](event-hubs-what-is-event-hubs.md)。 
@@ -31,7 +31,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 - [從事件中樞接收事件](#receive-events-from-event-hubs)
 - 從 Azure 儲存體讀取已擷取的事件資料。 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - 依照下列其中一個快速入門來建立事件中樞：[Azure 入口網站](event-hubs-create.md)、[Azure CLI](event-hubs-quickstart-cli.md)、[Azure PowerShell](event-hubs-quickstart-powershell.md)、[Azure Resource Manager 範本](event-hubs-resource-manager-namespace-event-hub.md)。 
 - 在機器上安裝 Python 3.4 或更新版本。
 
@@ -162,7 +162,7 @@ startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
 如需有關如何從以 Python 撰寫的應用程式讀取 Azure Blob 儲存體中已擷取之「事件中樞」資料的完整教學課程，請參閱[這篇文章](event-hubs-capture-python.md)
 
 ## <a name="github-samples"></a>GitHub 範例
-您可以在 [azure-event-hubs-python Git 存放庫](https://github.com/Azure/azure-event-hubs-python/)中找到更多 Python 範例。
+您可以在 [azure-event-hubs-python Git 存放庫](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs)中找到更多 Python 範例。
 
 ## <a name="next-steps"></a>後續步驟
 閱讀＜概念＞一節中的所有文章 (從[事件中樞功能概觀](event-hubs-features.md)開始)。

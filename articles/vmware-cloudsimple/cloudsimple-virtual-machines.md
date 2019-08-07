@@ -1,40 +1,40 @@
 ---
-title: VMware 的解決方案，由 CloudSimple-Azure 虛擬機器概觀
-description: 深入了解 CloudSimple 虛擬機器和其優點。
+title: VMware Solution by CloudSimple-Azure 虛擬機器總覽
+description: 深入瞭解 CloudSimple 虛擬機器及其優點。
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 77a2901ae2d81f42780110b1576c1f32c7ff397b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f4967bbd12107bf6a04cb80537d4425c75c5f46
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209495"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812485"
 ---
-# <a name="cloudsimple-virtual-machines-overview"></a>CloudSimple 虛擬機器概觀
+# <a name="cloudsimple-virtual-machines-overview"></a>CloudSimple 虛擬機器總覽
 
-CloudSimple 可讓您從 Azure 入口網站中管理 VMware Vm。  在叢集或從您的 vSphere 叢集的資源集區是透過 Azure 管理，將它對應至您的訂用帳戶。  CloudSimple 虛擬機器從 Azure 入口網站將 VMware vm 的自我服務管理。  
+CloudSimple 可讓您從 Azure 入口網站管理 VMware Vm。  來自 vSphere 叢集的叢集或資源集區會透過 Azure 對應到您的訂用帳戶來進行管理。  CloudSimple 虛擬機器從 Azure 入口網站引進 VMware Vm 的自助式管理。  
 
-若要從 Azure 中建立 CloudSimple VM，您的私用雲端 vCenter 上必須有 VM 範本。  範本用來自訂作業系統和應用程式。  可以強化範本 VM，以符合企業安全性原則。  您可以使用範本來建立 Vm，並從 Azure 入口網站使用自助式模型加以使用。
+若要從 Azure 建立 CloudSimple VM, VM 範本必須存在於您的私用雲端 vCenter 上。  此範本是用來自訂作業系統和應用程式。  您可以強化範本 VM 以符合企業安全性原則。  您可以使用範本來建立 Vm, 並使用自助模型從 Azure 入口網站取用它們。
 
 ## <a name="benefits"></a>優點
 
-從 Azure 入口網站的 CloudSimple 虛擬機器提供的自助使用者建立及管理 VMware 虛擬機器的機制。
+從 Azure 入口網站 CloudSimple 虛擬機器提供自助機制, 讓使用者建立和管理 VMware 虛擬機器。
 
-* 您的私用雲端 vCenter 上建立 CloudSimple VM
+* 在您的私用雲端 vCenter 上建立 CloudSimple VM
 * 管理 VM 屬性
-  * 新增/移除磁碟
+  * 新增/移除磁片
   * 新增/移除 Nic
-* CloudSimple VM 的乘冪運算
-  * 開啟電源與關閉電源
+* CloudSimple VM 的電源作業
+  * 開啟電源和關閉電源
   * 重設 VM
 * 刪除 VM
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何[取用在 Azure 上的 VMware Vm](quickstart-create-vmware-virtual-machine.md)
-* 了解如何[對應您的 Azure 訂用帳戶](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)
+* 瞭解如何[使用 Azure 上的 VMware vm](quickstart-create-vmware-virtual-machine.md)
+* 瞭解如何[對應您的 Azure 訂](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)用帳戶

@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695391"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816313"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>預覽：建立 Azure 映射產生器範本 
 
@@ -65,7 +65,11 @@ Azure 映射產生器會使用 json 檔案, 將資訊傳遞至映射產生器服
 ```json
     "location": "<region>",
 ```
-    
+
+## <a name="tags"></a>Tags
+
+這些是您可以為產生的影像指定的索引鍵/值組。
+
 ## <a name="depends-on-optional"></a>取決於 (選擇性)
 
 這個選擇性區段可以用來確保相依性已完成, 然後再繼續進行。 
@@ -344,7 +348,8 @@ OS 支援:Linux 和 Windows
  
 如果嘗試下載檔案時發生錯誤, 或將它放在指定的目錄中, 則自訂步驟將會失敗, 而這會在自訂記錄檔中。
 
->> 下! 檔案自訂者僅適用于小型檔案下載, < 20MB。 對於較大的檔案下載, 請使用腳本或內嵌命令, 並使用程式碼來下載檔案, `wget`例如`curl`Linux 或、 `Invoke-WebRequest`Windows。
+> [!NOTE]
+> 檔案自訂者僅適用于小型檔案下載, < 20MB。 對於較大的檔案下載, 請使用腳本或內嵌命令, 並使用程式碼來下載檔案, `wget`例如`curl`Linux 或、 `Invoke-WebRequest`Windows。
 
 您可以使用[MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)從 Azure 儲存體下載檔案自訂檔中的檔案。
 

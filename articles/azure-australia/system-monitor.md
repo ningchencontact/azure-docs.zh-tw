@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: b68bdb6d1c349df67943889b511eac87c940b531
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7f78dbde9810c8786e2344555444efabcc989b0
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571883"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779312"
 ---
 # <a name="system-monitoring-for-security-in-azure-australia"></a>Azure 澳大利亞的安全性系統監視
 
@@ -74,7 +74,7 @@ Azure Advisor 所收集的資訊會提供系統管理員下列:
 
 無論是強制執行特定原則, 或正在進行原則的影響, 原則合規性都會持續受到監視, 而且系統管理員會提供整體和資源特定的合規性資訊。 Azure 原則的相容性資料會提供給 Azure 資訊安全中心, 並形成安全分數的一部分。
 
-## <a name="key-design-considerations"></a>主要設計考慮
+## <a name="key-design-considerations"></a>主要設計考量
 
 在執行事件記錄檔策略時, ACSC ISM 會強調下列考慮:
 
@@ -108,7 +108,7 @@ ISM 提供事件記錄檔類型的詳細清單, 其中包含在任何記錄策�
 
 針對 Windows 和 Linux 部署虛擬機器代理程式, 可增強 Azure 虛擬機器的監視功能。 這會明顯增加所搜集之記錄資訊的廣度。 此代理程式的部署可設定為透過 Azure 資訊安全中心自動進行。
 
-Microsoft 會提供有關 Azure 資源特定記錄及其[架構](https://docs.microsoft.com/azure/security/azure-log-audit)的詳細資訊。
+Microsoft 會提供有關 Azure 資源特定記錄及其[架構](https://docs.microsoft.com/azure/security/fundamentals/log-audit)的詳細資訊。
 
 ### <a name="log-retention-and-protection"></a>記錄保留和保護
 

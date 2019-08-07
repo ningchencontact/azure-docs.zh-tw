@@ -1,25 +1,25 @@
 ---
-title: 使用 Jupyter Notebook 來分析 Azure 資料總管 中的資料
-description: 本主題說明您如何在 Azure 資料總管中的資料分析使用 Jupyter Notebook 和 Kqlmagic 擴充功能。
+title: 使用 Jupyter Notebook 來分析 Azure 中的資料資料總管
+description: 本主題說明如何使用 Jupyter Notebook 和 Kqlmagic 延伸模組來分析 Azure 資料總管中的資料。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a894052e54bd1ca9f8316342f714074c92753448
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 312e39ff1b699bb3c7f2baea3c66cbf8999ee44b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806332"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814510"
 ---
-# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>使用 Jupyter Notebook 會和 Kqlmagic 延伸來分析 Azure 資料總管 中的資料
+# <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>使用 Jupyter Notebook 和 Kqlmagic 延伸模組來分析 Azure 中的資料資料總管
 
 Jupyter Notebook 是開放原始碼的 Web 應用程式，可讓您建立及共用含有即時程式碼、方程式、視覺效果和敘述文字的文件。 使用方式包含資料清理和轉換、數字模擬、統計模型、資料視覺效果和機器學習。
-[Jupyter Notebook](https://jupyter.org/) 支援 magic 函式，可藉由支援其他命令來擴展核心的功能。 KQL magic 是一種命令，可在 Jupyter Notebook 中擴展 Python 核心的功能，讓您能夠以原生方式執行 Kusto 語言查詢。 您可以輕鬆地結合 Python 和 Kusto 查詢語言，以使用與 `render` 命令整合在一起的豐富 Plot.ly 程式庫，來查詢並以視覺方式呈現資料。 支援用於執行查詢的資料來源。 這些資料來源包含 Azure 資料總管的記錄檔和遙測資料，以及 Azure 監視器記錄的快速又可高度擴充的資料探索服務和 Application Insights。 KQL magic 也可以與 Azure Notebooks、Jupyter Lab 及 Visual Studio Code Jupyter 延伸模組搭配運作。
+[Jupyter Notebook](https://jupyter.org/) 支援 magic 函式，可藉由支援其他命令來擴展核心的功能。 KQL magic 是一種命令，可在 Jupyter Notebook 中擴展 Python 核心的功能，讓您能夠以原生方式執行 Kusto 語言查詢。 您可以輕鬆地結合 Python 和 Kusto 查詢語言，以使用與 `render` 命令整合在一起的豐富 Plot.ly 程式庫，來查詢並以視覺方式呈現資料。 支援用於執行查詢的資料來源。 這些資料來源包括 Azure 資料總管, 這是適用于記錄和遙測資料的快速且可高度調整的資料探索服務, 以及 Azure 監視器記錄和 Application Insights。 KQL magic 也可以與 Azure Notebooks、Jupyter Lab 及 Visual Studio Code Jupyter 延伸模組搭配運作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 屬於 Azure Active Directory (AAD) 成員的組織電子郵件帳戶。
 - 本機電腦上已安裝 Jupyter Notebook，或使用 Azure Notebook 並複製範例 [Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
@@ -37,12 +37,12 @@ Jupyter Notebook 是開放原始碼的 Web 應用程式，可讓您建立及共�
 1. 載入 KQL magic：
 
     ```python
-    reload_ext Kqlmagic
+    %reload_ext Kqlmagic
     ```
 
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>連線至 Azure 資料總管協助叢集
 
-使用下列命令來連線至裝載於「協助」  叢集的「範例」  資料庫。 若為非 Microsoft AAD 使用者，請將租用戶名稱 `Microsoft.com` 替換為您的 AAD 租用戶。
+使用下列命令來連線至裝載於「協助」叢集的「範例」資料庫。 若為非 Microsoft AAD 使用者，請將租用戶名稱 `Microsoft.com` 替換為您的 AAD 租用戶。
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
@@ -166,13 +166,13 @@ df.head(10)
     ```
 
 > [!TIP]
-> 若要接收有關所有可用的組態使用的資訊`%config KQLmagic`。 若要疑難排解，並擷取 Kusto 錯誤，例如連線問題和不正確的查詢，使用 `%config Kqlmagic.short_errors=False`
+> 若要接收所有可用設定的相關`%config KQLmagic`資訊, 請使用。 若要疑難排解並捕捉 Kusto 錯誤 (例如連接問題和不正確的查詢), 請使用`%config Kqlmagic.short_errors=False`
 
 ## <a name="next-steps"></a>後續步驟
 
 執行 help 命令來瀏覽下列包含所有支援功能的範例 Notebook：
 - [開始使用適用於 Azure 資料總管的 KQL magic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [開始使用適用於 Application Insights 的 KQL magic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [開始使用 Azure 監視器記錄檔的 KQL magic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [開始使用適用于 Azure 監視器記錄的 KQL 魔術](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [使用 Python 將 KQL magic 查詢參數化](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [為 KQL magic 查詢圖表結果選擇調色盤](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

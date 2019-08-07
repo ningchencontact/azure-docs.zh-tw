@@ -9,15 +9,15 @@ ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: msmimart
+ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2d9035adb70ab4a5877f3e55dc4115a5ec1f7f5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: cc1e26a3c7d284a60b830f6f66cdcecef97db4d6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426560"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834609"
 ---
 # <a name="configure-linked-sign-on"></a>設定連結的登入
 
@@ -25,7 +25,7 @@ ms.locfileid: "68426560"
 
 ## <a name="before-you-begin"></a>開始之前
 
-如果應用程式尚未新增至您的 Azure AD 租使用者, 請參閱[新增資源庫應用程式](add-gallery-app.md)或[新增不](add-non-gallery-app.md)在資源庫中的應用程式。
+如果尚未將應用程式新增至您的 Azure AD 租用戶，請參閱[新增資源庫應用程式](add-gallery-app.md)或[新增非資源庫應用程式](add-non-gallery-app.md)。
 
 ### <a name="open-the-app-and-select-linked-sign-on"></a>開啟應用程式, 然後選取 [連結的登入]
 
@@ -35,7 +35,7 @@ ms.locfileid: "68426560"
 
 1. 在 [應用程式類型] 功能表中，選取 [所有應用程式]，然後選取 [套用]。
 
-1. 在 [搜尋] 方塊中輸入應用程式的名稱, 然後從結果中選取應用程式。
+1. 在搜尋方塊中輸入應用程式的名稱，然後從結果中選取應用程式。
 
 1. 在 [管理] 區段中，選取 [單一登入]。 
 
@@ -50,4 +50,4 @@ ms.locfileid: "68426560"
 ## <a name="next-steps"></a>後續步驟
 
 - [將使用者或群組指派給應用程式](methods-for-assigning-users-and-groups.md)
-- [設定自動使用者帳戶布建](configure-automatic-user-provisioning-portal.md)
+- [設定使用者帳戶自動佈建](configure-automatic-user-provisioning-portal.md)

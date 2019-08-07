@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 87362b785ecbb17c5a49a8c087b6a70715480877
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679388"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840581"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>將 Azure VM 從一個區域複寫至另一個區域的支援矩陣
 
@@ -117,7 +117,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 14.04 LTS | 9.25 | 3.13.0-24-generic to 3.13.0-169-generic、<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-generic 至 4.4.0-146-generic、<br/>4.15.0-1023-azure 至 4.15.0-1042-azure |
 14.04 LTS | 9.24 | 3.13.0-24-generic to 3.13.0-167-generic,<br/>3.16.0-25-generic 至 3.16.0-77-generic、<br/>3.19.0-18-generic 至 3.19.0-80-generic、<br/>4.2.0-18-generic 至 4.2.0-42-generic、<br/>4.4.0-21-泛型至 4.4.0-143-一般,<br/>4.15.0-1023-azure 至 4.15.0-1040-azure |
 |||
-16.04 LTS | 9.27 | 4.4.0-21-generic 至 4.4.0-154-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-54-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1050-azure|
+16.04 LTS | 9.27 | 4.4.0-21-generic 至 4.4.0-154-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-55-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1051-azure|
 16.04 LTS | 9.26 | 4.4.0-21-generic to 4.4.0-148-generic,<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-50-一般<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1045-azure|
 16.04 LTS | 9.25 | 4.4.0-21-generic 至 4.4.0-146-generic、<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-48-泛型<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1042-azure|
 16.04 LTS | 9.24 | 4.4.0-21-泛型至 4.4.0-143-一般,<br/>4.8.0-34-generic 至 4.8.0-58-generic、<br/>4.10.0-14-generic 至 4.10.0-42-generic、<br/>4.11.0-13-generic 至 4.11.0-14-generic、<br/>4.13.0-16-generic 至 4.13.0-45-generic、<br/>4.15.0-13-泛型至 4.15.0-46-generic<br/>4.11.0-1009-azure 至 4.11.0-1016-azure、<br/>4.13.0-1005-azure 至 4.13.0-1018-azure <br/>4.15.0-1012-azure 至 4.15.0-1040-azure|
@@ -136,7 +136,7 @@ Debian 8 | 9.24 | 3.16.0-4-amd64 至 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 至 4.
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1、SP2、SP3、SP4) | 9.27 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45 d-預設為 3.12.74-60.64.115-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73 d-預設為 4.4.121-92.114-default</br></br>SP3 4.4.73-5-預設為 4.4.180-94.97-default</br></br>SP3 l t 4.4.138-4.7-azure 至 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-預設為 4.12.14-95.19-default</br>SP4 4.12.14-6.3-azure 至 4.12.14-6.15-azure |
+SUSE Linux Enterprise Server 12 (SP1、SP2、SP3、SP4) | 9.27 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45 d-預設為 3.12.74-60.64.115-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73 d-預設為 4.4.121-92.117-default</br></br>SP3 4.4.73-5-預設為 4.4.180-94.97-default</br></br>SP3 l t 4.4.138-4.7-azure 至 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-預設為 4.12.14-95.24-default</br>SP4 4.12.14-6.3-azure 至 4.12.14-6.18-azure |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3、SP4) | 9.26 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45 d-預設為 3.12.74-60.64.110-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73 d-預設為 4.4.121-92.109-default</br></br>SP3 4.4.73-5-預設為 4.4.178-94.91-default</br></br>SP3 l t 4.4.138-4.7-azure 至 4.4.178-4.28-azure</br></br>SP4 4.12.14-94.41-預設為 4.12.14-95.16-default</br>SP4 4.12.14-6.3-azure 至 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3、SP4) | 9.25 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73 d-預設為 4.4.121-92.104-default</br></br>SP3 4.4.73-5-預設為 4.4.176-94.88-default</br></br>SP3 l t 4.4.138-4.7-azure 至 4.4.176-4.25-azure</br></br>SP4 4.12.14-94.41-預設為 4.12.14-95.13-default</br>SP4 4.12.14-6.3-azure 至 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3、SP4) | 9.24 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73 d-預設為 4.4.121-92.104-default</br></br>SP3 4.4.73-5-預設為 4.4.176-94.88-default</br></br>SP4 4.12.14-94.41-預設為 4.12.14-95.13-default |
@@ -197,7 +197,7 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援 VM 磁碟
 儲存空間 | 支援 |
 待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
-適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援啟用[使用 Azure AD 應用程式加密](https://aka.ms/ade-aad-app)的 VM |
+適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援 |
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
 熱新增 | 支援 | 針對使用受控磁片的 Vm, 支援為您新增至複寫 Azure VM 的資料磁片啟用複寫。
 熱移除磁片 | 不支援 | 如果您移除 VM 上的資料磁片, 您必須停用複寫, 然後再次為 VM 啟用複寫。

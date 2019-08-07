@@ -2,17 +2,17 @@
 title: 診斷遠端桌面中的圖形效能問題-Azure
 description: 本文說明如何在遠端桌面通訊協定會話中使用 RemoteFX 圖形計數器, 以診斷 Windows 虛擬桌面中圖形的效能問題。
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 8cd24861b9d7432a582d1b635b8ffcf0d8d2b9e6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.author: helohr
+ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233631"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816397"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>診斷遠端桌面的圖形效能問題
 
@@ -77,7 +77,7 @@ ms.locfileid: "68233631"
 
 使用 [畫面格品質] 計數器來診斷畫面格品質問題。 此計數器會以來源框架品質的百分比表示輸出框架的品質。 品質損失可能是因為 RemoteFX, 或可能是圖形來源的固有。 如果 RemoteFX 導致品質遺失, 問題可能是缺少網路或伺服器資源來傳送更高精確度的內容。
 
-## <a name="mitigation"></a>緩和
+## <a name="mitigation"></a>風險降低
 
 如果伺服器資源造成瓶頸, 請嘗試下列其中一種方法來改善效能:
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 36bc403c4000e58541f22c2cb44f77a28e81cb72
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478925"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779895"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>適用於 Azure 保留自動化的 API
 
@@ -84,7 +84,7 @@ PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/
 - 請確認您組織建立的虛擬機器符合保留上的 VM 大小。
 - 請確認執行個體大小彈性已開啟。 如需詳細資訊，請參閱[管理保留 - 變更保留的 VM 執行個體的最佳化設定](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)。
 - 變更要共用的保留範圍，使它更廣泛地套用。 如需詳細資訊，請參閱[管理保留 - 變更保留範圍](billing-manage-reserved-vm-instance.md#change-the-reservation-scope)。
-- 交換未使用的數量。 如需詳細資訊，請參閱[管理保留 - 取消和交換](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges)。
+- 交換未使用的數量。 如需詳細資訊, 請參閱[管理保留](billing-manage-reserved-vm-instance.md)。
 
 ## <a name="give-access-to-reservations"></a>提供保留的存取權
 

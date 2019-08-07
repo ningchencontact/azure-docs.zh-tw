@@ -5,21 +5,23 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/16/2019
+ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: da4bc51cdd8cdfad8212ee5a288f03874f673c2c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678206"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817203"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>原則:適用于您目錄中的使用者
 
 如果您想要讓目錄中的使用者可以要求此存取套件, 請遵循下列步驟。  **您目錄中的使用者**指的是內部使用者, 以及先前已受邀至該目錄的外部使用者, 其方式是使用其他存取套件來要求權利管理, 或受 Azure AD B2B 的邀請。 定義原則時, 您可以指定個別使用者或更常用的使用者群組。 例如, 您的組織可能已經有一個群組, 例如 [**所有員工**]。  如果為可要求存取權的使用者在原則中新增該群組, 則該群組的任何成員都可以要求存取權。
 
 1. 在 [**可以要求存取權的使用者**] 區段中, 選取 [**針對您目錄中的使用者**]。
+
+    請注意, [**針對您目錄中的使用者**] 設定包括 [成員使用者] 和 [已新增至您的目錄的來賓使用者]。 如果您只想要包含成員使用者, 而不是來賓使用者, 請選取 [**針對您目錄中的使用者**], 然後選取您的成員使用者群組。 如有需要, 您可以建立成員使用者的動態群組 (userType-eq "Member")。 如需詳細資訊, 請參閱[Azure Active Directory 中群組的動態成員資格規則](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md)。
 
 1. 在 [**選取使用者和群組**] 區段中, 按一下 [**新增使用者和群組**]。
 

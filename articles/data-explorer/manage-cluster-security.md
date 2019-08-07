@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: fbc5b18de093b2c91b17fa310c08a5b02b113a22
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 86350f21f5c530a00560c92cc0ae2fd58c9a2c57
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406518"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780048"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer"></a>在 Azure 中保護您的叢集資料總管
 
@@ -20,7 +20,7 @@ ms.locfileid: "68406518"
   
 ## <a name="enable-encryption-at-rest"></a>啟用待用加密
   
-在您的叢集上啟用待用[加密](/azure/security/azure-security-encryption-atrest)可為儲存的資料 (待用) 提供資料保護。 
+在您的叢集上啟用待用[加密](/azure/security/fundamentals/encryption-atrest)可為儲存的資料 (待用) 提供資料保護。 
 
 1. 在 Azure 入口網站中, 移至您的 Azure 資料總管叢集資源。 在 [**設定**] 標題下, 選取 [**安全性**]。 
 

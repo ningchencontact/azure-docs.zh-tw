@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726288"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840508"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
@@ -29,6 +29,9 @@ ms.locfileid: "68726288"
 1. 使用 SDK 取得連線資訊。
 1. 判斷模型所使用之要求資料的類型。
 1. 建立一個呼叫 Web 服務的應用程式。
+
+> [!TIP]
+> 本檔中的範例是以手動方式建立, 而不使用 OpenAPI (Swagger) 規格。 如果您已針對部署啟用 OpenAPI 規格, 您可以使用[swagger codegen](https://github.com/swagger-api/swagger-codegen)之類的工具來建立服務的用戶端程式庫。
 
 ## <a name="connection-information"></a>連線資訊
 

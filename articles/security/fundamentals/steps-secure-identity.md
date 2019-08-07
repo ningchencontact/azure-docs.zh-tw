@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 0ccd2ee8b2c9f542eabe7a297f4c99a3993a47e9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c5cdd12c3075d48ff32c40d686b32a650ec43d8e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726746"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779771"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -74,7 +74,7 @@ Microsoft 建議採用下列根據 [NIST 指導方針](https://pages.nist.gov/80
 如果您的組織使用搭配傳遞驗證或同盟的混合式身分識別解決方案，則基於下列兩個原因，您應該啟用密碼雜湊同步處理：
 
 * Azure AD 管理中的[認證外洩的使用者](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)報告會就「暗網 (Dark Web)」上已公開的使用者名稱和密碼組向您發出警告。 數量驚人的密碼是透過網路釣魚、惡意程式碼，以及在第三方網站上重複使用密碼並於之後遭到入侵而外洩的。 Microsoft 已發現許多這樣的外洩認證，並會在此報告中告訴您它們是否與您組織的認證相符，但前提是您必須[啟用密碼雜湊同步處理](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)！
-* 發生內部部署中斷 (例如遭遇勒索軟體攻擊) 時，您將能切換成使用[採用密碼雜湊同步處理的雲端驗證](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)。此備用驗證方法可讓您繼續存取已設定為使用 Azure Active Directory 進行驗證的應用程式，包括 Office 365。 在此情況下，在解決內部部署中斷之前，IT 員工將不需要被迫使用個人電子郵件帳戶來共用資料。
+* 發生內部部署中斷 (例如遭遇勒索軟體攻擊) 時，您將能切換成使用[採用密碼雜湊同步處理的雲端驗證](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)。此備用驗證方法可讓您繼續存取已設定為使用 Azure Active Directory 進行驗證的應用程式，包括 Office 365。 在此情況下，在解決內部部署中斷之前，IT 員工將不需要被迫使用個人電子郵件帳戶來共用資料。
 
 深入了解[密碼雜湊同步處理](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)的運作方式。
 
@@ -146,7 +146,7 @@ Azure Active Directory 有許多會自動攔截攻擊的功能，可讓偵測與
 
 ### <a name="monitor-azure-ad"></a>監視 Azure AD
 
-Microsoft Azure 服務和功能提供可設定的安全性稽核和記錄選項，以協助您識別安全性原則和機制間的差距，並解決這些差距以協助防止破壞。 您可以使用 [Azure 記錄與稽核](https://docs.microsoft.com/azure/security/azure-log-audit)以及使用 [Azure Active Directory 入口網站中的稽核活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)。
+Microsoft Azure 服務和功能提供可設定的安全性稽核和記錄選項，以協助您識別安全性原則和機制間的差距，並解決這些差距以協助防止破壞。 您可以使用 [Azure 記錄與稽核](https://docs.microsoft.com/azure/security/fundamentals/log-audit)以及使用 [Azure Active Directory 入口網站中的稽核活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)。
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>在混合式環境中監視 Azure AD Connect Health
 

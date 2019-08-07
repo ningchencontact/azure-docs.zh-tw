@@ -1,6 +1,6 @@
 ---
-title: 受控制的混合式 Azure AD 聯結 Azure AD 的驗證
-description: 了解如何受控制的驗證的混合式 Azure AD join 之前啟用它全部一次在整個組織
+title: 混合式 Azure AD 聯結的受控驗證-Azure AD
+description: 瞭解如何對混合式 Azure AD 聯結進行受控制的驗證, 然後在整個組織內一次啟用
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,77 +11,80 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59104bf9c7675fdac2c245fff89ab1483b96b67
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481728"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834642"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>混合式 Azure AD 聯結的受控驗證
 
-所有必要的元件時就地，將自動將 Windows 裝置註冊為 Azure AD 租用戶中的裝置。 在 Azure AD 中的這些裝置身分識別狀態稱為 「 混合式 Azure AD 聯結 」。 可以在文章中找到這篇文章所涵蓋的概念的詳細資訊[Azure Active Directory 中的裝置管理簡介](overview.md)和[規劃混合式 Azure Active Directory join 實作](hybrid-azuread-join-plan.md).
+當所有必要條件都已就緒時, Windows 裝置會自動在您的 Azure AD 租使用者中註冊為裝置。 這些裝置身分識別在 Azure AD 中的狀態稱為混合式 Azure AD 聯結。 如需本文中所涵蓋概念的詳細資訊, 請參閱[Azure Active Directory 中的裝置管理簡介](overview.md)和[規劃混合式 Azure Active Directory 聯結執行](hybrid-azuread-join-plan.md)。
 
-組織可能想要執行混合式 Azure AD join 控制的驗證，再讓它全部一次其整個組織。 這篇文章將說明如何完成混合式 Azure AD join 的受控制的驗證。
+組織可能會想要對混合式 Azure AD 聯結進行受控制的驗證, 然後一次在整個組織中啟用它。 本文將說明如何完成混合式 Azure AD 聯結的受控制驗證。
 
-## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Windows 目前裝置上的混合式 Azure AD join 的受控制的驗證
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>在 Windows 目前裝置上控制混合式 Azure AD 聯結的驗證
 
 對於執行 Windows 桌面作業系統的裝置，支援的版本為 Windows 10 年度更新版 (版本 1607) 或更新版本。 最佳做法是升級至最新版的 Windows 10。
 
-若要執行混合式 Azure AD 聯結在目前的 Windows 裝置上的受控制的驗證，您需要：
+若要對 Windows 目前裝置上的混合式 Azure AD 聯結進行受控制的驗證, 您需要:
 
-1. 如果存在的話，請清除的服務連接點 (SCP) 項目從 Active Directory (AD)
-1. 使用群組原則物件 (GPO) 已加入網域的電腦上設定 SCP 用戶端登錄設定
-1. 如果您使用 AD FS，您必須在您使用 GPO 的 AD FS 伺服器上，也設定 SCP 用戶端登錄設定  
-
-
-
-### <a name="clear-the-scp-from-ad"></a>清除 從 AD SCP
-
-若要修改的 SCP 物件在 AD 中使用 Active Directory 服務介面編輯器 (Adsi)。
-
-1. 啟動**Adsi**從桌面應用程式和系統管理工作站或網域控制站做為企業系統管理員。
-1. 連接到**組態命名內容**您的網域。
-1. 瀏覽至**CN = Configuration，DC = contoso，DC = com** > **CN = Services** > **CN = Device Registration Configuration**
-1. 以滑鼠右鍵按一下底下的分葉物件**CN = Device Registration Configuration** ，然後選取**屬性**
-   1. 選取 **關鍵字**從**屬性編輯器**視窗，然後按一下**編輯**
-   1. 選取的值**azureADId**並**azureADName** （一次一個），按一下 **移除**
-1. 關閉**Adsi 編輯器**
+1. 清除 Active Directory (AD) 中的服務連接點 (SCP) 專案 (如果存在)
+1. 使用群組原則物件 (GPO), 在已加入網域的電腦上設定 SCP 的用戶端登錄設定
+1. 如果您使用 AD FS, 您也必須使用 GPO 在 AD FS 伺服器上設定 SCP 的用戶端登錄設定  
 
 
-### <a name="configure-client-side-registry-setting-for-scp"></a>設定 SCP 用戶端登錄設定
 
-您可以使用下列範例來建立的 「 群組原則物件 (GPO) 」，部署登錄設定，您的裝置登錄中設定 SCP 項目。
+### <a name="clear-the-scp-from-ad"></a>從 AD 清除 SCP
 
-1. 開啟群組原則管理主控台，並在網域中建立新的群組原則物件。
-   1. 提供您新建立的 GPO 的名稱 (例如 ClientSideSCP)。
-1. 編輯 GPO，並找出下列路徑：**電腦設定** > **喜好設定** > **Windows 設定** > **登錄**
-1. 以滑鼠右鍵按一下登錄，然後選取**的新** > **登錄項目**
-   1. 在 **一般**索引標籤上，設定下列各項
+使用 Active Directory Services 介面編輯器 (ADSI 編輯器) 來修改 AD 中的 SCP 物件。
+
+1. 從和系統管理工作站或網域控制站, 啟動**ADSI 編輯器**桌面應用程式, 做為企業系統管理員。
+1. 連接到您網域的設定**命名內容**。
+1. 流覽至**CN = Configuration, dc = contoso, dc = com**  >  **CN = Services**  >  **CN = 裝置註冊**設定
+1. 以滑鼠右鍵按一下 [ **CN = Device Registration Configuration** ] 底下的分葉物件, 然後選取 [**屬性**]
+   1. 從 [**屬性編輯器**] 視窗中選取 [**關鍵字**], 然後按一下 [**編輯**]
+   1. 選取**azureADId**和**azureADName**的值 (一次一個), 然後按一下 [**移除**]
+1. 關閉**ADSI 編輯器**
+
+
+### <a name="configure-client-side-registry-setting-for-scp"></a>設定 SCP 的用戶端登錄設定
+
+使用下列範例建立群組原則物件 (GPO) 來部署登錄設定, 以在裝置的登錄中設定 SCP 專案。
+
+1. 開啟群組原則管理主控台, 然後在您的網域中建立新的群組原則物件。
+   1. 提供新建立的 GPO 名稱 (例如, ClientSideSCP)。
+1. 編輯 GPO, 並找出下列路徑:**電腦設定** **喜好** **設定 Windows 設定**登錄 >   >   > 
+1. 以滑鼠右鍵按一下登錄, 然後選取 [**新增** > 登錄**專案**]
+   1. 在 [**一般**] 索引標籤上, 設定下列各項
       1. 動作：**更新**
-      1. 登錄區：**HKEY_LOCAL_MACHINE**
-      1. 機碼路徑：**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
-      1. 值名稱：**TenantId**
-      1. 實值型別：**REG_SZ**
-      1. 數值資料：GUID 或**Directory 識別碼**您的 Azure AD 執行個體 (此值可在**Azure 入口網站** > **Azure Active Directory**  >  **屬性** > **Directory 識別碼**)
+      1. Hive**HKEY_LOCAL_MACHINE**
+      1. 機碼路徑:**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. 值名稱:**TenantId**
+      1. 數值型別:**REG_SZ**
+      1. 數值資料:Azure AD 實例的 GUID 或**目錄識別碼**(此值可以在**Azure 入口網站** >  **Azure Active Directory**  > **屬性** > **目錄識別碼**) 中找到
    1. 按一下 **[確定]** 。
-1. 以滑鼠右鍵按一下登錄，然後選取**的新** > **登錄項目**
-   1. 在 **一般**索引標籤上，設定下列各項
+1. 以滑鼠右鍵按一下登錄, 然後選取 [**新增** > 登錄**專案**]
+   1. 在 [**一般**] 索引標籤上, 設定下列各項
       1. 動作：**更新**
-      1. 登錄區：**HKEY_LOCAL_MACHINE**
-      1. 機碼路徑：**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
-      1. 值名稱：**TenantName**
-      1. 實值型別：**REG_SZ**
-      1. 數值資料：您已驗證**網域名稱**在 Azure AD 中 (例如`contoso.onmicrosoft.com`或您的目錄中的任何其他已驗證的網域名稱)
+      1. Hive**HKEY_LOCAL_MACHINE**
+      1. 機碼路徑:**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. 值名稱:**TenantName**
+      1. 數值型別:**REG_SZ**
+      1. 數值資料:您已驗證的**功能變數名稱**(如果您使用 AD FS 的同盟環境)。 已驗證的 * * 功能變數名稱 "" 或您的 onmicrosoft.com 功能變數名稱 (例如, `contoso.onmicrosoft.com`如果您使用受控環境)
    1. 按一下 **[確定]** 。
-1. 關閉新建立的 gpo 編輯器
-1. 新建立的 GPO 連結到想要的 OU 包含已加入網域的電腦隸屬於您控制導入母體擴展
+1. 關閉新建立之 GPO 的編輯器
+1. 將新建立的 GPO 連結到所需的 OU, 其中包含屬於您受控制之推出擴展的已加入網域電腦
 
 ### <a name="configure-ad-fs-settings"></a>設定 AD FS 設定
 
-如果您使用 AD FS，必須先設定用戶端 SCP 使用前面所提到的但將 GPO 連結到您的 AD FS 伺服器的指示。 此組態所需的 AD FS 與 Azure AD 中建立裝置身分識別的來源。
+如果您使用 AD FS, 您必須先使用上述指示來設定用戶端 SCP, 但將 GPO 連結至您的 AD FS 伺服器。 SCP 物件會定義裝置物件的授權來源。 它可以是內部部署或 Azure AD。 當此設定為 AD FS 時, 裝置物件的來源會建立為 Azure AD。
 
-## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>在 Windows 舊版裝置上的混合式 Azure AD join 的受控制的驗證
+> [!NOTE]
+> 如果您無法在 AD FS 伺服器上設定用戶端 SCP, 裝置身分識別的來源會視為內部部署, 而 AD FS 會在約定期間之後, 從內部部署目錄開始刪除裝置物件。
+
+## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>在舊版 Windows 裝置上控制混合式 Azure AD 聯結的驗證
 
 若要註冊舊版 Windows 裝置，組織必須安裝可在 Microsoft 下載中心取得的[適用於非 Windows 10 電腦的 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554)。
 
@@ -89,13 +92,13 @@ ms.locfileid: "67481728"
 
 安裝程式會在系統上建立排定的工作，此工作是在使用者內容中執行。 此工作會在使用者登入 Windows 時觸發。 此工作會在向 Azure AD 進行驗證後，透過使用者認證以無訊息方式向 Azure AD 加入裝置。
 
-若要控制的裝置註冊，您應該將的 Windows Installer 套件部署到您選取 Windows 舊版裝置的群組。
+若要控制裝置註冊, 您應該將 Windows Installer 套件部署到您所選取的舊版 Windows 裝置群組。
 
 > [!NOTE]
-> 如果未在 AD 中，設定 SCP，則您應該遵循相同的方法，請依照若要[設定用戶端登錄設定 SCP](#configure-client-side-registry-setting-for-scp)) 使用群組原則物件 (GPO) 已加入網域的電腦上。
+> 如果未在 AD 中設定 SCP, 則您應該遵循使用群組原則物件 (GPO) 加入網域的電腦上,[針對 scp 設定客戶](#configure-client-side-registry-setting-for-scp)端登錄設定所述的相同方法。
 
 
-確認一切運作正常之後，您可以與 Azure AD 自動註冊其餘 Windows 目前和舊版裝置[設定使用 Azure AD Connect 的 SCP](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join)。
+確認所有專案都如預期般運作之後, 您就可以[使用 Azure AD Connect 設定 SCP](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join), 自動向 Azure AD 註冊其餘的 Windows 目前和下層裝置。
 
 ## <a name="next-steps"></a>後續步驟
 

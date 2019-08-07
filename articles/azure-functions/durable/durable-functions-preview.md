@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7356541ed6288603a66d5caa43138284d8d4d918
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1609931cd5fcab0977ff64f680fbb1f253f3caaf
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320476"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782181"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 preview (Azure Functions)
 
@@ -26,7 +26,7 @@ Durable Functions 1.x 是 Azure Functions 的 GA (正式推出) 功能, 但也�
 > [!NOTE]
 > 這些預覽功能屬於 Durable Functions 2.0 版本的一部分, 這是目前有數個重大變更的**預覽品質版本**。 您可以在 nuget.org 上找到 Azure Functions 的長期延伸模組封裝組建, 其版本的格式為**2.0.0-BetaX**。 這些組建並非適用于生產工作負載, 而後續版本可能包含額外的重大變更。
 
-## <a name="breaking-changes"></a>重大變更
+## <a name="breaking-changes"></a>中斷性變更
 
 Durable Functions 2.0 中引進了幾項重大變更。 現有的應用程式不應與 Durable Functions 2.0 相容, 而不需要變更程式碼。 本節列出一些變更:
 
@@ -167,7 +167,7 @@ public class Counter
 
 不過, 有一些重要的差異值得注意:
 
-* 持久性實體會  優先處理*延遲*, 因此可能不適合具有嚴格延遲需求的應用程式。
+* 持久性實體會優先處理*延遲*, 因此可能不適合具有嚴格延遲需求的應用程式。
 * 實體之間傳送的訊息會可靠且依序傳遞。
 * 持久性實體可以與長期協調流程搭配使用, 而且可以做為分散式鎖定, 本文稍後會加以說明。
 * 實體中的要求/回應模式僅限於協調流程。 就實體到實體的通訊而言, 只允許單向訊息 (也稱為「信號」), 如同原始動作專案模型一樣。 此行為可防止分散式的鎖死。
@@ -242,6 +242,16 @@ public static async Task AddValueClient(
 ```
 
 在上述`proxy`範例中, 參數是動態產生的`ICounter`實例, 它會`Add`在內部將的呼叫轉譯為對等的 (不具類型`SignalEntityAsync`) 呼叫。
+
+的型別參數`SignalEntityAsync<T>`具有下列限制:
+
+* 型別參數必須是介面。
+* 只有方法可以在介面上定義。 不支援屬性。
+* 每個方法都必須定義一或多個參數。
+* 每個方法都必須`void`傳回`Task`、或`Task<T>` , `T`其中是某些 JSON 可序列化類型。
+* 介面必須剛好由介面元件內的一個型別來執行。
+
+在大部分情況下, 不符合這些需求的介面會導致執行時間例外狀況。
 
 > [!NOTE]
 > 請務必注意, 的和`ReadEntityStateAsync` `SignalEntityAsync`方法`IDurableOrchestrationClient`會將效能優先于一致性。 `ReadEntityStateAsync`可以傳回過時的值, 而且`SignalEntityAsync`可以在作業完成之前傳回。

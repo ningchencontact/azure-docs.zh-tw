@@ -3,7 +3,7 @@ title: Azure Cloud Shell 概觀 | Microsoft Docs
 description: Azure Cloud Shell 的概觀。
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: 5608b3e0f9b98db62d22245de5a864f757f48799
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f3d7edf21edf116732eceb332cb8725a0dee85dc
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199645"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742022"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
 Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
@@ -71,11 +71,9 @@ Cloud Shell 提供一種以開放原始碼 Monaco Editor 為基礎的整合式�
 * [Visual Studio Code Azure 帳戶延伸模組](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>連線 Microsoft Azure 檔案儲存體
-Cloud Shell 機器是暫存的，因此需要將新的或現有的 Azure 檔案共用掛接為 `clouddrive`，才能保存您的檔案。
+Cloud Shell 機是暫時性的, 但您的檔案會以兩種方式保存: 透過磁片映射, 並透過名為`clouddrive`的掛接檔案共用。  第一次啟動時, Cloud Shell 會提示您代表您建立資源群組、儲存體帳戶和 Azure 檔案儲存體共用。 這是一次性的步驟，而且會針對所有工作階段自動連接。 單一檔案共用可以進行對應，並同時供 Cloud Shell 中的 Bash 和 PowerShell 使用。
 
-第一次啟動時，Cloud Shell 會提示要代替您建立資源群組、儲存體帳戶及 Azure 檔案共用。 這是一次性的步驟，而且會針對所有工作階段自動連接。 單一檔案共用可以進行對應，並同時供 Cloud Shell 中的 Bash 和 PowerShell 使用。
-
-請進一步閱讀，以了解如何掛接[新的或現有的儲存體帳戶](persisting-shell-storage.md)。
+閱讀更多以瞭解如何掛接[新的或現有的儲存體帳戶](persisting-shell-storage.md), 或瞭解[Cloud Shell 中使用的持續性機制](persisting-shell-storage.md#how-cloud-shell-storage-works)。
 
 ## <a name="concepts"></a>概念
 * Cloud Shell 會在以每一工作階段、每位使用者為基礎所提供的暫存主機上執行
@@ -88,7 +86,7 @@ Cloud Shell 機器是暫存的，因此需要將新的或現有的 Azure 檔案�
 
 深入了解 [Cloud Shell 中的 Bash](features.md) 和 [Cloud Shell 中的 PowerShell](features-powershell.md) 中的功能。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 裝載 Cloud Shell 的機器是免費提供的，但前提是必須掛接「Azure 檔案」共用。 所需成本和一般儲存體相同。
 
 ## <a name="next-steps"></a>後續步驟

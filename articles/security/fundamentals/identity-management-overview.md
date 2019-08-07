@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: ee9f771483b0478ec4b7d1bf92095d9dd07f45ad
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1081fa8c9c7cc64418515aabbb755ecf056196ca
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727244"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826282"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 
@@ -164,7 +164,7 @@ Azure AD Identity Protection 是一項安全性服務，可供整合檢視會影
 
 深入了解:
 
-* [Azure AD Identity Protection](/azure/active-directory/active-directory-identityprotection.md)
+* [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview)
 * [第 9 頻道：Azure AD 和身分識別示範：身分識別保護預覽版](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>混合式身分識別管理/Azure AD connect

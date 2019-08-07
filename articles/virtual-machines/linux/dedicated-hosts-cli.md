@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 7eda675ed7694e1ad7de90f89282bd7a3cc50ea1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700414"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827284"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>預覽：使用 Azure CLI 將 Vm 部署到專用主機
  
@@ -53,7 +53,7 @@ az group create --name myDHResourceGroup --location eastus
 
 您也可以決定使用可用性區域和容錯網域。 
 
-在此範例中, 我們將使用[az vm 主機群組 create](/cli/azure/vm#az-vm-host-group-create)來建立使用可用性區域和容錯網域的主機群組。 
+在此範例中, 我們將使用[az vm 主機群組 create](/cli/azure/vm/host/group#az-vm-host-group-create)來建立使用可用性區域和容錯網域的主機群組。 
 
 ```bash
 az vm host group create \
@@ -65,7 +65,7 @@ az vm host group create \
 
 ### <a name="other-examples"></a>其他範例
 
-您也可以使用[az vm 主機群組 create](/cli/azure/vm#az-vm-host-group-create) , 在可用性區域 1 (沒有容錯網域) 中建立主機群組。
+您也可以使用[az vm 主機群組 create](/cli/azure/vm/host/group#az-vm-host-group-create) , 在可用性區域 1 (沒有容錯網域) 中建立主機群組。
 
 ```bash
 az vm host group create \
@@ -75,7 +75,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-以下使用[az vm 主機群組 create](/cli/azure/vm#az-vm-host-group-create) , 僅使用容錯網域來建立主機群組 (以用於不支援可用性區域的區域)。 
+以下使用[az vm 主機群組 create](/cli/azure/vm/host/group#az-vm-host-group-create) , 僅使用容錯網域來建立主機群組 (以用於不支援可用性區域的區域)。 
 
 ```bash
 az vm host group create \
@@ -91,7 +91,7 @@ az vm host group create \
 
 如需主機 Sku 和定價的詳細資訊, 請參閱[Azure 專用主機定價](https://aka.ms/ADHPricing)。
 
-使用[az vm host create](/cli/azure/vm#az-vm-host-create)建立主機。 如果您為主機群組設定容錯網域計數, 系統會要求您指定主機的容錯網域。  
+使用[az vm host create](/cli/azure/vm/host#az-vm-host-create)建立主機。 如果您為主機群組設定容錯網域計數, 系統會要求您指定主機的容錯網域。  
 
 ```bash
 az vm host create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="check-the-status-of-the-host"></a>檢查主機的狀態
 
-您可以使用[az vm host get-view](/cli/azure/vm#az-vm-host-get-instance-view)來檢查主機健全狀況狀態, 以及您仍然可以部署到主機的虛擬機器數目。
+您可以使用[az vm host get-view](/cli/azure/vm/host#az-vm-host-get-instance-view)來檢查主機健全狀況狀態, 以及您仍然可以部署到主機的虛擬機器數目。
 
 ```bash
 az vm host get-instance-view \
@@ -260,13 +260,13 @@ az group deployment create \
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-刪除 Vm 之後, 您可以使用[az vm host delete](/cli/azure/vm#az-vm-host-delete)刪除主機。
+刪除 Vm 之後, 您可以使用[az vm host delete](/cli/azure/vm/host#az-vm-host-delete)刪除主機。
 
 ```bash
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-刪除所有主機之後, 您可以使用[az vm 主機群組刪除](/cli/azure/vm#az-vm-host-group-delete)來刪除主機群組。  
+刪除所有主機之後, 您可以使用[az vm 主機群組刪除](/cli/azure/vm/host/group#az-vm-host-group-delete)來刪除主機群組。  
  
 ```bash
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  

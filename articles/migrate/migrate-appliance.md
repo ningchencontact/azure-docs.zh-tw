@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663472"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827332"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 設備
 
@@ -42,7 +42,7 @@ Hyper-V VM | 使用 Azure Migrate 評估工具的 hyper-v VM 評估。 | 下載�
 
 **代理程式** | **詳細資料**
 --- | ---
-探索代理程式 | 從內部部署 Vm 收集設定資料。
+探索代理程式 | 收集內部部署虛擬機器的設定資料
 評定代理程式 | 分析內部部署環境, 以收集 VM 效能資料。
 遷移介面卡 | 協調 VM 複寫, 並協調 Vm 與 Azure 之間的通訊。
 遷移閘道 | 將已複寫的 VM 資料傳送至 Azure。
@@ -200,8 +200,8 @@ NIC MAC 識別碼 (舊版 Nic) | MsvmEmulatedEthernetPortSetting 資料 | 地址
 
 - 這會自動發生, 因為預設會在設備上啟用自動更新。
 - 您可以變更此預設設定, 以手動更新代理程式。
-- 若要停用自動更新, 請在 HKLM\SOFTWAREMicrosoft\Azure. 中設定登錄機碼設備自動更新。
-
+- 若要停用自動更新, 請移至 [登錄編輯程式] > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance, 並將登錄機碼 [自動更新] 設定為 0 (DWORD)。
+ 
 ### <a name="set-agent-updates-to-manual"></a>將代理程式更新設定為手動
 
 若要進行手動更新, 請確定您會使用設備上每個過期代理程式的 [**更新**] 按鈕, 同時更新設備上的所有代理程式。 您可以隨時將更新設定切換回 [自動更新]。

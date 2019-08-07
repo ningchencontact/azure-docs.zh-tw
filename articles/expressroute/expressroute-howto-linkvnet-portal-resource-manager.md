@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1545e2e7eba23b0bedbfe297c292fc94e1659ae3
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365504"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775273"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>使用入口網站將虛擬網路連線到 ExpressRoute 線路
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ ms.locfileid: "60365504"
 1. 確認正確設定您的 ExpressRoute 電路和 Azure 私人對等互連。 請遵循[建立 ExpressRoute 線路](expressroute-howto-circuit-arm.md)和[設定路由](expressroute-howto-routing-arm.md)中的指示。 ExpressRoute 線路看起來應該像下圖：
 
    ![刪除 ExpressRoute 線路螢幕擷取畫面](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
-2. 您現在可以開始佈建將虛擬網路閘道連結至 ExpressRoute 線路的連線。 按一下 [連線]   > [新增]  開啟 [新增連線]  頁面，然後設定各值。
+2. 您現在可以開始佈建將虛擬網路閘道連結至 ExpressRoute 線路的連線。 按一下 [連線] > [新增] 開啟 [新增連線] 頁面，然後設定各值。
 
    ![新增連線螢幕擷取畫面](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
 3. 順利設定連線後，您的連線物件就會顯示連接資訊。
@@ -93,7 +93,7 @@ ms.locfileid: "60365504"
 > 每個連線都需要個別的授權。
 >
 
-1. 在 [ExpressRoute] 頁面中，按一下 [授權]  ，然後輸入授權的**名稱**並按一下 [儲存]  。
+1. 在 [ExpressRoute] 頁面中，按一下 [授權]，然後輸入授權的**名稱**並按一下 [儲存]。
 
    ![授權](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. 儲存組態之後，複製**資源識別碼**和**授權金鑰**。
@@ -102,7 +102,7 @@ ms.locfileid: "60365504"
 
 **刪除連線授權**
 
-您可以選取連線頁面上的 [刪除]  圖示來刪除連線。
+您可以選取連線頁面上的 [刪除] 圖示來刪除連線。
 
 ### <a name="circuit-user-operations"></a>循環使用者作業
 
@@ -110,21 +110,21 @@ ms.locfileid: "60365504"
 
 **兌換連線授權**
 
-1. 按一下 [+新增]  按鈕。
+1. 按一下 [+新增] 按鈕。
 
    ![Click New](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
-2. 在 Marketplace 中搜尋**連線**、選取它，然後按一下 [建立]  。
+2. 在 Marketplace 中搜尋**連線**、選取它，然後按一下 [建立]。
 
    ![搜尋連線](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
-3. 確定 [連線類型]  設定為 [ExpressRoute]。
-4. 填入詳細資料，然後在 [基本] 頁面中按一下 [確定]  。
+3. 確定 [連線類型] 設定為 [ExpressRoute]。
+4. 填入詳細資料，然後在 [基本] 頁面中按一下 [確定]。
 
    ![基本頁面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
-5. 在 [設定]  頁面中選取 [虛擬網路閘道]  ，並選取 [兌換授權]  核取方塊。
-6. 輸入**授權金鑰**和**對等線路 URI**，並提供連線名稱。 按一下 [確定 **Deploying Office Solutions**]。
+5. 在 [設定] 頁面中選取 [虛擬網路閘道]，並選取 [兌換授權] 核取方塊。
+6. 輸入**授權金鑰**和**對等線路 URI**，並提供連線名稱。 按一下 [確定]。 「**對等線路 URI** 」是 expressroute 線路的資源識別碼 (您可以在 expressroute 線路的 [內容] 設定窗格中找到)。
 
    ![設定頁面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
-7. 在 [摘要]  頁面中檢閱資訊，然後按一下 [確定]  。
+7. 在 [摘要] 頁面中檢閱資訊，然後按一下 [確定]。
 
 **釋出連線授權**
 
@@ -132,7 +132,7 @@ ms.locfileid: "60365504"
 
 ## <a name="delete-a-connection-to-unlink-a-vnet"></a>刪除連線以取消連結 VNet
 
-您可以選取連線頁面上的 [刪除]  圖示，來刪除連線並取消 VNet 與 ExpressRoute 線路的連結。
+您可以選取連線頁面上的 [刪除] 圖示，來刪除連線並取消 VNet 與 ExpressRoute 線路的連結。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。

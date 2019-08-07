@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 44bf85eafe3f5cfa801b6c845a51e3dcd5e1262a
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466879"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736710"
 ---
-# <a name="azure-backup-architecture"></a>Azure 備份架構
+# <a name="azure-backup-architecture-and-components"></a>Azure 備份架構和元件
 
 您可以使用[Azure 備份服務](backup-overview.md), 將資料備份到 Microsoft Azure 的雲端平臺上。 本文將摘要說明 Azure 備份的架構、元件和程序。 
 

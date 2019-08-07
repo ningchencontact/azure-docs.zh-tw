@@ -1,6 +1,6 @@
 ---
-title: Azure 的 Lsv2 系列虛擬機器儲存體上的效能最佳化 |Microsoft Docs
-description: 了解如何將您的解決方案 Lsv2 系列虛擬機器上的效能最佳化。
+title: 在 Azure Lsv2 系列虛擬機器上優化效能-儲存體 |Microsoft Docs
+description: 瞭解如何在 Lsv2 系列的虛擬機器上將解決方案的效能優化。
 services: virtual-machines-linux
 author: laurenhughes
 manager: gwallace
@@ -9,102 +9,106 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 26c474419a096741f544eb21cff3837afd8a60dd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a06ae79181c70f1cb8519f703cb42a3d699bebf3
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708675"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828391"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2 系列虛擬機器上的效能最佳化
+# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>將 Lsv2 系列虛擬機器上的效能優化
 
-Lsv2 系列虛擬機器支援各種不同的工作負載需要高 I/O 和在本機儲存體的輸送量，跨各種不同的應用程式和產業廣為採用。  Lsv2 系列適用於巨量資料、 SQL、 NoSQL 資料庫、 資料倉儲和大型交易的資料庫，包括 Cassandra、 MongoDB、 Cloudera 和 Redis。
+Lsv2 系列虛擬機器支援各種不同的工作負載, 其在各種應用程式和產業的本機儲存體上需要高 i/o 和輸送量。  Lsv2 系列適用于大型資料、SQL、NoSQL 資料庫、資料倉儲和大型交易式資料庫, 包括 Cassandra、MongoDB、Cloudera 和 Redis。
 
-Lsv2 系列虛擬機器 (Vm) 的設計可最大化 AMD EPYC™ 7551 處理器提供最佳效能之間的處理器、 記憶體、 NVMe 裝置和 Vm。 除了硬體將效能最大化，Lsv2 系列 Vm 被設計用於搭配較佳的效能和硬體與軟體的 Linux 作業系統的需求。
+Lsv2 系列虛擬機器 (Vm) 的設計可將 AMD EPYC™7551處理器最大化, 以提供處理器、記憶體、NVMe 裝置和 Vm 之間的最佳效能。 在 Linux 中使用合作夥伴, Azure Marketplace 提供數個組建, 其中已針對 Lsv2 系列效能進行優化, 且目前包含:
 
-調整的軟體與硬體的最佳化版本會導致[Canonical 的 Ubuntu 18.04 和 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer?tab=Overview)發行至 Azure Marketplace 中的 NVMe 裝置支援最大效能的年 12 月 2018 年初Lsv2 系列 Vm。
+- Ubuntu 18.04
+- Ubuntu 16.04
+- RHEL 8。0
+- Debian 9
+- Debian 10
 
-這篇文章提供的秘訣和建議，以確保您的工作負載和應用程式達到最大效能設計到 Vm。 當更多的 Lsv2 最佳化映像新增至 Azure Marketplace，就會持續更新此頁面上的資訊。
+本文提供秘訣和建議, 以確保您的工作負載和應用程式能夠達到最高的效能, 並將其設計到 Vm 中。 此頁面上的資訊將會持續更新, 因為已將更 Lsv2 的優化影像新增至 Azure Marketplace。
 
-## <a name="amd-eypc-chipset-architecture"></a>AMD EYPC™ 晶片組架構
+## <a name="amd-eypc-chipset-architecture"></a>AMD EYPC™晶片架構
 
-Lsv2 系列 Vm 使用 AMD EYPC™ 伺服器處理器的 Zen 微架構。 AMD 開發無限大 Fabric (IF) EYPC™ 為可擴充的互連其 NUMA 的模型，可用於晶圓上、 在套件，以及多封裝通訊。 相較於 QPI （快速路徑互連） 」 和 「 UPI （超級路徑互連） 用於 Intel 現代的單體式骰子處理器、 AMD 之多 NUMA 小型內建架構可能也會導致這兩個效能優勢和挑戰。 記憶體頻寬和延遲條件約束的實際影響，可以視執行的工作負載類型而有所不同。
+Lsv2 系列 Vm 會使用以 Zen 微架構為基礎的 AMD EYPC™伺服器處理器。 AMD 針對 EYPC™開發了無限大網狀架構 (如果) 做為其 NUMA 模型的可擴充互連, 可用於內部、套件內部和多套件通訊。 相較于 Intel 現代化整合型骰子處理器所使用的 QPI (快速路徑互連) 和 UPI (Ultra 路徑互連), AMD 的多 NUMA 小型片架構可能會帶來效能優勢和挑戰。 記憶體頻寬和延遲條件約束的實際影響可能會根據執行的工作負載類型而有所不同。
 
-## <a name="tips-to-maximize-performance"></a>為了達到最佳效能的秘訣
+## <a name="tips-to-maximize-performance"></a>最大化效能的秘訣
 
-* 如果您要上傳自訂的 Linux GuestOS，為您的工作負載，請注意，將會加速網路**OFF**預設。 如果您想要啟用加速網路，則會啟用在建立 VM 時，為了達到最佳效能。
+* 如果您要上傳工作負載的自訂 Linux GuestOS, 請注意, 加速網路預設會**關閉**。 如果您想要啟用加速網路, 請在建立 VM 時啟用它以達到最佳效能。
 
-* 提供 Lsv2 系列 Vm 的硬體會使用具有 8 個 I/O 佇列組 (QP) s 的 NVMe 裝置。 NVMe 裝置 I/O 的每個佇列都是實際組： 提交佇列和一個完成。 NVMe 驅動程式並將設定為將我來最佳化這些八個 I/O QPs 的使用量/O 的循環配置資源排程。 若要獲得最大效能，執行每個裝置，以符合八個工作。
+* 為 Lsv2 系列 Vm 提供動力的硬體, 會利用具有8個 i/o 佇列配對 (QP) 的 NVMe 裝置。 每個 NVMe 裝置 i/o 佇列實際上都是成對的: 提交佇列和完成佇列。 NVMe 驅動程式已設定為藉由將 i/o 分散到迴圈配置資源排程, 來優化這八個 i/o QPs 的使用率。 若要取得最大效能, 請在每部裝置上執行八個工作以進行比對。
 
-* 避免混用使用中的工作負載期間的 NVMe 系統管理命令 （比方說，智慧型 NVMe info 查詢等） 使用 NVMe I/O 命令。 Lsv2 NVMe 裝置是由任何 NVMe 系統管理員命令暫止時，會切換為 「 變慢模式 」 中的 HYPER-V NVMe 直接技術支援。 Lsv2 使用者可看到大幅效能 NVMe I/O 效能中卸除，如果發生這種情況。
+* 避免在使用中的工作負載期間, 混用 nvme 管理命令 (例如 NVMe 智慧型資訊查詢等) 與 NVMe 的 i/o 命令。 Lsv2 NVMe 裝置是由 Hyper-v NVMe Direct 技術支援, 每當有任何 NVMe 的管理命令暫止時, 就會切換為「慢速模式」。 如果發生這種情況, Lsv2 使用者可能會在 NVMe i/o 效能中看到顯著的效能下降。
 
-* Lsv2 使用者不應依賴資料磁碟機的 vm 來決定其應用程式的 NUMA 親和性的報告從裝置 NUMA 資訊 (所有 0)。 為了達到最佳效能的建議的方式是盡可能分配 Cpu 的工作負載。
+* Lsv2 使用者不應依賴從 VM 內部回報的裝置 NUMA 資訊 (全部 0) 來決定其應用程式的 NUMA 親和性。 建議的最佳效能方式是盡可能將工作負載分散到多個 Cpu。
 
-* 每個 I/O 佇列組 Lsv2 VM NVMe 裝置支援的最大佇列深度為 1024 （與。Amazon i3 QD 32 的限制）。 Lsv2 使用者應該要限制其 （綜合） 的效能評定工作負載至 1024年或更低，若要避免觸發佇列完整條件，可能會降低效能的佇列深度。
+* Lsv2 VM NVMe 裝置的每個 i/o 佇列對支援的佇列深度上限為 1024 (vs。Amazon i3 QD 32 限制)。 Lsv2 使用者應該將其 (綜合) 基準工作負載限制為佇列深度1024或更低, 以避免觸發佇列的完整狀況, 這可能會降低效能。
 
-## <a name="utilizing-local-nvme-storage"></a>使用本機 NVMe 儲存體
+## <a name="utilizing-local-nvme-storage"></a>利用本機 NVMe 儲存體
 
-暫時 $1.92 TB NVMe 磁碟上所有 Lsv2 Vm 上的本機儲存體。 在 VM 的成功標準重新開機，期間會保存本機 NVMe 磁碟上的資料。 如果重新部署、 解除配置，或刪除 VM，資料將不會保存在 NVMe。 如果另一個問題會導致 VM 或它正在執行變得狀況不良的硬體，將不會保存資料。 當發生這種情況時，安全地清除任何舊的主機上的資料。
+所有 Lsv2 Vm 上 1.92 TB NVMe 磁片上的本機存放裝置是暫時的。 在 VM 的成功標準重新開機期間, 本機 NVMe 磁片上的資料將會保存。 如果重新部署、解除配置或刪除 VM, 資料不會保存在 NVMe 上。 如果另一個問題造成 VM 或其執行的硬體變成狀況不良, 則資料不會保存。 發生這種情況時, 會安全地清除舊主機上的所有資料。
 
-將也有案例當 VM 需要移至不同的主機電腦，例如，在規劃的維護作業期間。 預定進行的維修作業和有些硬體失敗可以預期有[已排定事件](scheduled-events.md)。 排定的事件應該用來掌握任何預測的維護和復原作業中。
+在某些情況下, VM 必須移至不同的主機電腦, 例如在規劃的維護作業期間。 已規劃的維護作業和一些硬體故障可能會在[Scheduled Events](scheduled-events.md)中預期。 Scheduled Events 應該用來隨時更新任何預測的維護和復原作業。
 
-在計劃性的維護事件之前，含有空白的本機磁碟的新主機上重新建立 VM 的情況下，資料將需要重新同步處理 （同樣地，使用安全地清除舊的主機上的任何資料）。 這是因為 Lsv2 系列 Vm 目前不支援即時移轉本機 NVMe 磁碟上。
+如果預定的維護事件需要在具有空白本機磁片的新主機上重新建立 VM, 則必須重新同步處理資料 (同樣地, 舊主機上的所有資料都要安全地清除)。 這是因為 Lsv2 系列 Vm 目前不支援在本機 NVMe 磁片上進行即時移轉。
 
-有兩種模式，因維護計劃。
+有兩種模式可進行預定的維護。
 
-### <a name="standard-vm-customer-controlled-maintenance"></a>標準 VM 客戶控制維護
+### <a name="standard-vm-customer-controlled-maintenance"></a>標準 VM 客戶控制的維護
 
-- 在 30 天期間，VM 會移至更新的主機。
-- Lsv2 本機儲存體的資料可能遺失，因此建議在事件之前的備份資料。
+- 在30天的時間範圍內, VM 會移至更新的主機。
+- Lsv2 本機儲存體資料可能會遺失, 因此建議您在進行事件之前的備份資料。
 
 ### <a name="automatic-maintenance"></a>自動維護
 
-- 如果客戶不會執行由客戶控制的維護，或發生緊急程序，例如安全性的零時差事件時，就會發生。
-- 要保留客戶的資料，但會有小型 VM 凍結或重新開機的風險。
-- Lsv2 本機儲存體的資料可能遺失，因此建議在事件之前的備份資料。
+- 當客戶未執行客戶控制的維護, 或發生緊急程式 (例如「安全性零日」事件) 時發生。
+- 其目的是要保留客戶資料, 但 VM 凍結或重新開機的風險很小。
+- Lsv2 本機儲存體資料可能會遺失, 因此建議您在進行事件之前的備份資料。
 
-對於任何即將推出的服務事件，使用受控制的維護程序來選取要更新的最方便的時間。 在事件中之前, 您可能會備份進階儲存體中的資料。 維護事件完成之後，您可以傳回您的資料重新整理 Lsv2 Vm 本機 NVMe 儲存體。
+針對任何即將推出的服務事件, 請使用受控制的維護程式來選取最方便您進行更新的時間。 在事件之前, 您可以備份 premium 儲存體中的資料。 維護事件完成之後, 您可以將資料傳回至重新整理的 Lsv2 Vm 本機 NVMe 儲存體。
 
-維護本機 NVMe 磁碟上的資料的案例包括：
+在本機 NVMe 磁片上維護資料的案例包括:
 
-- VM 是執行且狀況良好。
-- VM 會就地重新啟動，且 （由您或 Azure）。
-- VM 已暫停 （而不需要取消配置已停止）。
-- 大部分的服務作業的計劃性維護。
+- VM 正在執行且狀況良好。
+- VM 會就地重新開機 (由您或 Azure)。
+- VM 已暫停 (未解除配置即停止)。
+- 大部分預定的維護服務作業。
 
-安全地清除來保護客戶資料的案例包括：
+安全地清除資料以保護客戶的案例包括:
 
-- 重新部署 VM 時，已停止 （取消配置），或刪除 （由您）。
-- VM 會變為狀況不良，並對服務修復因為硬體問題的另一個節點。
-- 需要 VM 重新配置到另一部主機服務的一小部分的服務作業的計劃性維護。
+- VM 會重新部署、停止 (解除配置) 或刪除 (由您執行)。
+- VM 會變得狀況不良, 而且由於硬體問題而必須對另一個節點進行服務修復。
+- 需要將 VM 重新配置給另一部主機進行服務的少數預定維護服務作業。
 
-若要了解本機儲存體中資料的備份選項的詳細資訊，請參閱[Azure IaaS 磁碟的備份和災害復原](backup-and-disaster-recovery-for-azure-iaas-disks.md)。
+若要深入瞭解在本機儲存體中備份資料的選項, 請參閱[Azure IaaS 磁片的備份和](backup-and-disaster-recovery-for-azure-iaas-disks.md)嚴重損壞修復。
 
-## <a name="frequently-asked-questions"></a>常見問題集
+## <a name="frequently-asked-questions"></a>常見問答集
 
-* **如何開始部署 Lsv2 系列 Vm？**  
-   較常就像任何其他 VM，使用[入口網站](quick-create-portal.md)， [Azure CLI](quick-create-cli.md)，或[PowerShell](quick-create-powershell.md)建立 VM。
+* **如何? 開始部署 Lsv2 系列 Vm 嗎？**  
+   與任何其他 VM 很類似, 請使用[入口網站](quick-create-portal.md)、 [Azure CLI](quick-create-cli.md)或[PowerShell](quick-create-powershell.md)來建立 VM。
 
-* **將單一 NVMe 磁碟失敗會導致失敗主機上的所有 Vm？**  
-   如果硬體節點上偵測到的磁碟失敗時，硬體會處於失敗狀態。 當發生這種情況時，在節點上的所有 Vm 會自動取消配置，並移至狀況良好的節點。 針對 Lsv2 系列 Vm，這表示失敗節點上的客戶資料安全地清除，而且必須由客戶在新的節點上重新建立。 如所述，即時移轉才會用於 Lsv2，失敗節點上的資料將會主動移動的 vm 才會傳送到另一個節點。
+* **單一 NVMe 磁片失敗會導致主機上的所有 Vm 失敗嗎？**  
+   如果在硬體節點上偵測到磁片失敗, 則硬體處於 [失敗] 狀態。 發生這種情況時, 節點上的所有 Vm 都會自動解除配置, 並移至狀況良好的節點。 對於 Lsv2 系列 Vm, 這表示客戶在失敗節點上的資料也會安全地清除, 而且必須由客戶在新節點上重新建立。 如先前所述, 在 Lsv2 上推出「即時移轉」之前, 失敗節點上的資料會在 Vm 傳輸至另一個節點時, 主動隨之移動。
 
-* **我是否需要進行任何調整 rq_affinity 效能？**  
-   Rq_affinity 設定時使用的絕對最大的輸入/輸出作業 (iops) 略做調整。 一旦一切運作正常，然後再次嘗試將 rq_affinity 設定為 0 並檢查它是否能讓一項差異。
+* **我是否需要對 rq_affinity 進行任何調整以獲得效能？**  
+   使用每秒最大的輸入/輸出作業 (IOPS) 時, rq_affinity 設定是次要調整。 一旦所有其他專案都正常運作, 請嘗試將 rq_affinity 設定為 0, 以查看是否有差異。
 
 * **我需要變更 blk_mq 設定嗎？**  
-   RHEL/CentOS 7.x 會自動使用 blk mq NVMe 裝置。 任何組態變更或設定所需。 Scsi_mod.use_blk_mq 設定僅適用於 SCSI，和 NVMe 裝置顯示在客體 Vm 為 SCSI 裝置因為 Lsv2 預覽期間使用。 目前，NVMe 裝置會顯示為 NVMe 裝置，因此 SCSI blk mq 設定無關。
+   RHEL/CentOS 7.x 會自動為 NVMe 裝置使用 blk-mq。 不需要進行任何設定變更或設定。 Scsi_mod 使用 _blk_mq 設定僅適用于 SCSI, 而且是在 Lsv2 預覽期間使用, 因為 NVMe 裝置在來賓 Vm 中會顯示為 SCSI 裝置。 目前 NVMe 裝置會顯示為 NVMe 裝置, 因此 SCSI blk-mq 設定是不相關的。
 
-* **我是否需要變更 「 fio 」？**  
-   若要取得最大值 IOPS 測量工具，例如 'fio' L64v2 和 L80v2 VM 大小的效能，設定為 0"rq_affinity 」 每個 NVMe 裝置上。  比方說，這個命令列將 L80v2 VM 中設定 「 rq_affinity"設為零的所有 10 個 NVMe 裝置：
+* **我需要變更 "fio" 嗎？**  
+   若要以 L64v2 和 L80v2 VM 大小中的效能測量工具 (例如 ' fio ') 取得最大 IOPS, 請將每個 NVMe 裝置上的 "rq_affinity" 設定為0。  例如, 此命令列會針對 L80v2 VM 中的所有10個 NVMe 裝置, 將 "rq_affinity" 設為零:
 
    ```console
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   也請注意，I/O 是直接向每個原始 NVMe 裝置沒有分割時，沒有檔案系統中，沒有 RAID 0 設定等等時取得最佳效能。開始之前測試的工作階段，請確定設定不是已知的全新/清除狀態執行`blkdiscard`上每個 NVMe 裝置。
+   另請注意, 當 i/o 直接完成到每個未經分割、沒有檔案系統、沒有 RAID 0 config 等的原始 NVMe 裝置時, 會取得最佳效能。開始測試會話之前, 請先確定已在每個 NVMe 裝置`blkdiscard`上執行, 以確保設定處於已知的全新/全新狀態。
    
 ## <a name="next-steps"></a>後續步驟
 
-* 請參閱所有的規格[以儲存體效能最佳化的 Vm](sizes-storage.md)在 Azure 上
+* 請參閱針對 Azure 上[的儲存體效能優化的所有 vm](sizes-storage.md)規格

@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: a57089eb2cd87b08ba647afed002d90d6f14891a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846648"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815639"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>在 Azure Digital Twins 中建立及管理角色指派
 
@@ -41,11 +41,11 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 | 屬性 | 名稱 | 必要項 | Type | 描述 |
 | --- | --- | --- | --- | --- |
-| roleId | 角色定義識別碼 | 是 | 字串 | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
-| objectId | 物件識別碼 | 是 | 字串 | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
-| objectIdType | 物件識別碼類型 | 是 | 字串 | 使用的物件識別項類型。 請參閱以下**支援的 ObjectIdTypes**。 |
-| path | 空間路徑 | 是 | 字串 | `Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
-| tenantId | 租用戶識別碼 | 視情況而異 | 字串 | 在大部分的情況下為Azure Active Directory 租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
+| roleId | 角色定義識別碼 | 是 | String | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
+| objectId | 物件識別碼 | 是 | String | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
+| objectIdType | 物件識別碼類型 | 是 | String | 使用的物件識別項類型。 請參閱以下**支援的 ObjectIdTypes**。 |
+| 路徑 | 空間路徑 | 是 | String | `Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
+| tenantId | 租用戶識別碼 | 視情況而異 | String | 在大部分的情況下為Azure Active Directory 租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
 
 ### <a name="supported-role-definition-identifiers"></a>支援的角色定義識別碼
 
@@ -163,12 +163,12 @@ YOUR_MANAGEMENT_API_URL/system/roles
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **參數值** | **必要** |  **型別** |  **描述** |
+| **參數值** | **必要** |  **型別** |  **說明** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | 字串 |   UserId objectIdType 的 objectId。 |
-| YOUR_PATH | True | 字串 |   用來檢查存取權的選擇路徑。 |
-| YOUR_ACCESS_TYPE |  True | 字串 |   要檢查的存取類型。 |
-| YOUR_RESOURCE_TYPE | True | 字串 |  要檢查的資源。 |
+| YOUR_USER_ID |  真 | String |   UserId objectIdType 的 objectId。 |
+| YOUR_PATH | 真 | String |   用來檢查存取權的選擇路徑。 |
+| YOUR_ACCESS_TYPE |  真 | String |   要檢查的存取類型。 |
+| YOUR_RESOURCE_TYPE | 真 | String |  要檢查的資源。 |
 
 成功的要求會傳回布林值 `true` 或 `false`，指示是否已為指定的路徑和資源，指派存取權類型給使用者。
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2019
+ms.date: 8/2/2019
 ms.author: raiye
-ms.openlocfilehash: dd0adbe7cc27389e3b1d6533b038042824daea22
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 534a77ad29338ca1cdba22a3adeb8113521a6246
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592440"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780081"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 針對在中引進的特定[系列][family-explain], 一律會繼續進行更新。
@@ -28,7 +28,6 @@ ms.locfileid: "68592440"
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
 | --- | --- | --- | --- | --- |
 |  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88、3.75、4.68  |  2019年7月9日  |
-|  Rel 19-07   |  [4506621]  |  Windows 安全性   |  2.88、3.75、4.68  |  2019年7月9日  |
 |  Rel 19-07   |  [4506966]  |  .NET 4.5.2 安全性   |  2.88  |  2019年7月9日  |
 |  Rel 19-07   |  [4506976]  |  .NET 3.5.1 安全性   |  2.88  |  2019年7月9日  |
 |  Rel 19-07   |  [4507456]  |  Windows 安全性   |  2.88  |  2019年7月9日  |

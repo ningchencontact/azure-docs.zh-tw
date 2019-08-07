@@ -1,5 +1,5 @@
 ---
-title: 監視和記錄在 Azure AD 密碼保護-Azure Active Directory
+title: 監視和登入 Azure AD 密碼保護-Azure Active Directory
 description: 了解 Azure AD 密碼保護的監視和記錄
 services: active-directory
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414795"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736828"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 密碼保護的監視和記錄
 
 部署 Azure AD 密碼保護之後，監視和報告即為必要工作。 本文將深入探討以協助您了解各種監視技術，包括每個服務要將資訊記錄於何處，以及如何報告 Azure AD 密碼保護的使用情形。
 
-事件記錄檔訊息或執行 PowerShell cmdlet 來完成監視和報告。 DC 代理程式和 proxy 服務這兩個記錄事件記錄檔訊息。 如下所述的所有 PowerShell cmdlet 都才有提供的 proxy 伺服器 （請參閱 AzureADPasswordProtection PowerShell 模組）。 DC 代理程式軟體不會安裝 PowerShell 模組。
+監視和報告是透過事件記錄檔訊息, 或藉由執行 PowerShell Cmdlet 來完成。 DC 代理程式和 proxy 服務都會記錄事件記錄檔訊息。 以下所述的所有 PowerShell Cmdlet 僅適用于 proxy 伺服器 (請參閱 AzureADPasswordProtection PowerShell 模組)。 DC 代理程式軟體不會安裝 PowerShell 模組。
 
 ## <a name="dc-agent-event-logging"></a>DC 代理程式事件記錄
 
@@ -96,7 +96,7 @@ PasswordSetErrors               : 1
 
 此 Cmdlet 的報告範圍可使用 –Forest、-Domain 或 –DomainController 參數其中之一來加以影響。 未指定參數意指 –Forest。
 
-`Get-AzureADPasswordProtectionSummaryReport` Cmdlet 的運作方式是查詢 DC 代理程式系統管理事件記錄檔，然後計算對應至每個顯示之結果類別的事件總數。 下表包含每個結果及其對應事件識別碼間的對應：
+`Get-AzureADPasswordProtectionSummaryReport` Cmdlet 的運作方式是查詢 DC 代理程式系統管理事件記錄檔，然後計算對應至每個顯示之結果類別的事件總數。 下表包含每個結果和其相對應事件識別碼之間的對應:
 
 |Get-AzureADPasswordProtectionSummaryReport 屬性 |對應的事件識別碼|
 | :---: | :---: |
@@ -271,6 +271,27 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 如果 PasswordPolicyDateUTC 值過時，這可能是一個徵兆：該機器上的 Azure AD 密碼保護 DC 代理程式運作不正常。
 
+## <a name="dc-agent-newer-version-available"></a>DC 代理程式較新的可用版本
+
+DC 代理程式服務會在偵測到較新版本的 DC 代理程式軟體可供使用時, 將30034警告事件記錄到作業記錄檔, 例如:
+
+```text
+An update for Azure AD Password Protection DC Agent is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+```
+
+上述事件不會指定較新軟體的版本。 您應該移至事件訊息中的連結以取得該資訊。
+
+> [!NOTE]
+> 雖然上述事件訊息中的 "autoupgrade" 參考, 但 DC 代理程式軟體目前不支援這項功能。
+
 ## <a name="proxy-service-event-logging"></a>Proxy 服務事件記錄
 
 Proxy 服務會發出最小集合的事件至下列事件記錄：
@@ -314,7 +335,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters
 
 導致狀態變更的 PowerShell Cmdlet (例如 Register-AzureADPasswordProtectionProxy) 通常會將結果事件記錄到作業記錄。
 
-此外，大部分的 Azure AD 密碼保護的 PowerShell cmdlet 會寫入文字記錄檔位於：
+此外, 大部分的 Azure AD 密碼保護 PowerShell Cmdlet 都會寫入至位於以下位置的文字記錄檔:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -339,6 +360,27 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 此 Cmdlet 的查詢範圍可使用 –Forest 或 –Domain 參數來變更。
 
 如果 HeartbeatUTC 值過時，這可能是一個徵兆：該機器上的 Azure AD 密碼保護 Proxy 並未執行或已解除安裝。
+
+## <a name="proxy-agent-newer-version-available"></a>Proxy 代理程式較新的可用版本
+
+Proxy 服務會在偵測到較新版本的 Proxy 軟體可供使用時, 將20002警告事件記錄到作業記錄檔, 例如:
+
+```text
+An update for Azure AD Password Protection Proxy is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+.
+```
+
+上述事件不會指定較新軟體的版本。 您應該移至事件訊息中的連結以取得該資訊。
+
+即使在已啟用 autoupgrade 的情況下設定 Proxy 代理程式, 仍會發出此事件。
 
 ## <a name="next-steps"></a>後續步驟
 

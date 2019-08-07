@@ -7,18 +7,18 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165949"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840259"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
-本文適用於下列連接器：  [Amazon S3](connector-amazon-simple-storage-service.md)、[Azure Blob](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure 檔案儲存體](connector-azure-file-storage.md)、[檔案系統](connector-file-system.md)、[FTP](connector-ftp.md)、[Google Cloud Storage](connector-google-cloud-storage.md)、[HDFS](connector-hdfs.md)、[HTTP](connector-http.md) 和 [SFTP](connector-sftp.md)。
+本文適用於下列連接器：[Amazon S3](connector-amazon-simple-storage-service.md)、[Azure Blob](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure 檔案儲存體](connector-azure-file-storage.md)、[檔案系統](connector-file-system.md)、[FTP](connector-ftp.md)、[Google Cloud Storage](connector-google-cloud-storage.md)、[HDFS](connector-hdfs.md)、[HTTP](connector-http.md) 和 [SFTP](connector-sftp.md)。
 
 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 如果您想要**剖析或產生特定格式的檔案**，Azure Data Factory 支援下列檔案格式類型：
 
@@ -27,18 +27,19 @@ ms.locfileid: "66165949"
 * [Parquet 格式](#parquet-format)
 * [ORC 格式](#orc-format)
 * [Avro 格式](#avro-format)
+* [二進位格式](#binary-format)
 
 > [!TIP]
-> 了解複製活動如何對應來源資料，以接收來自[複製活動中的結構描述對應](copy-activity-schema-and-type-mapping.md)。
+> 瞭解「複製活動」如何從[複製活動中的架構對應](copy-activity-schema-and-type-mapping.md), 將來源資料對應至接收。
 
 ## <a name="text-format"></a>文字格式
 
 >[!NOTE]
->導入新的 data Factory 分隔文字格式的資料集，請參閱 <<c0> [ 分隔文字格式](format-delimited-text.md)發行項的詳細資料。 下列組態檔為基礎的資料存放區資料集上仍可作為-適用於回溯 compabitility。 建議您在使用新的模型，從現在開始。
+>Data Factory 引進了新的分隔文字格式資料集, 請參閱具有詳細資料的[分隔文字格式](format-delimited-text.md)一文。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
 
 如果您想要從文字檔讀取或寫入至文字檔，請將資料集之 `format` 區段中的 `type` 屬性設定成 **TextFormat**。 您也可以在 `format` 區段中指定下列**選擇性**屬性。 關於如何設定，請參閱 [TextFormat 範例](#textformat-example)一節。
 
-| 屬性 | 描述 | 允許的值 | 必要項 |
+| 內容 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | columnDelimiter |用來分隔檔案中的資料行的字元。 您可以考慮使用資料中不太可能存在的罕見不可列印字元。 例如，指定 "\u0001"，這代表「標題開頭」(SOH)。 |只允許一個字元。 **預設值**是**逗號 (',')** 。 <br/><br/>若要使用 Unicode 字元，請參考 [Unicode 字元 (英文)](https://en.wikipedia.org/wiki/List_of_Unicode_characters) 以取得其對應的代碼。 |否 |
 | rowDelimiter |用來分隔檔案中的資料列的字元。 |只允許一個字元。 **預設值**是下列任一個值： **["\r\n", "\r", "\n"]** (讀取時) 與 **"\r\n"** (寫入時)。 |否 |
@@ -46,9 +47,9 @@ ms.locfileid: "66165949"
 | quoteChar |用來引用字串值的字元。 引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。 這個屬性同時適用於輸入和輸出資料集。<br/><br/>您無法同時為資料表指定 escapeChar 和 quoteChar。 |只允許一個字元。 沒有預設值。 <br/><br/>例如，如果您以逗號 (',') 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello, world>)，您可以定義 " (雙引號) 做為引用字元，並在來源中使用字串 "Hello, world"。 |否 |
 | nullValue |用來代表 null 值的一個或多個字元。 |一或多個字元。 **預設值**為 **"\N" 和 "NULL"** (讀取時) 及 **"\N"** (寫入時)。 |否 |
 | encodingName |指定編碼名稱。 |有效的編碼名稱。 請參閱 [Encoding.EncodingName 屬性](https://msdn.microsoft.com/library/system.text.encoding.aspx)。 例如：windows-1250 或 shift_jis。 **預設值**為 **UTF-8**。 |否 |
-| firstRowAsHeader |指定是否將第一個資料列視為標頭。 對於輸入資料集，Data Factory 會讀取第一個資料列做為標頭。 對於輸出資料集，Data Factory 會寫入第一個資料列做為標頭。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |True<br/><b>False (預設值)</b> |否 |
+| firstRowAsHeader |指定是否將第一個資料列視為標頭。 對於輸入資料集，Data Factory 會讀取第一個資料列做為標頭。 對於輸出資料集，Data Factory 會寫入第一個資料列做為標頭。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |真<br/><b>False (預設值)</b> |否 |
 | skipLineCount |指出從輸入檔讀取資料時，要略過的**非空白**資料列數。 如果指定 skipLineCount 和 firstRowAsHeader，則會先略過程式碼行，再從輸入檔讀取標頭資訊。 <br/><br/>相關範例案例請參閱[使用 `firstRowAsHeader` 和 `skipLineCount` 的案例](#scenarios-for-using-firstrowasheader-and-skiplinecount)。 |整數 |否 |
-| treatEmptyAsNull |指定從輸入檔讀取資料時，是否將 null 或空字串視為 null 值。 |**True (預設值)**<br/>False |否 |
+| treatEmptyAsNull |指定從輸入檔讀取資料時，是否將 null 或空字串視為 null 值。 |**True (預設值)**<br/>偽 |否 |
 
 ### <a name="textformat-example"></a>TextFormat 範例
 
@@ -100,7 +101,7 @@ ms.locfileid: "66165949"
 | nestingSeparator |用來分隔巢狀層級的字元。 預設值為 '.' (點)。 |否 |
 
 >[!NOTE]
->這種交叉套用陣列中的資料到多個資料列 (案例 1 中的範例 2]-> [ [JsonFormat 範例](#jsonformat-example))，您只能選擇將展開使用屬性的單一陣列`jsonNodeReference`。
+>如果將陣列中的資料交叉套用到多個資料列 (案例 1-> [JsonFormat 範例](#jsonformat-example)中的範例 2), 您只能選擇使用屬性`jsonNodeReference`展開單一陣列。
 
 ### <a name="json-file-patterns"></a>JSON 檔案模式
 
@@ -412,9 +413,9 @@ ms.locfileid: "66165949"
 ## <a name="parquet-format"></a>Parquet 格式
 
 >[!NOTE]
->Data Factory 引進新的 Parquet 格式資料集，請參閱 < [Parquet 格式](format-parquet.md)發行項的詳細資料。 下列組態檔為基礎的資料存放區資料集上仍可作為-適用於回溯 compabitility。 建議您在使用新的模型，從現在開始。
+>Data Factory 引進了新的 Parquet 格式資料集, 請參閱[Parquet 格式](format-parquet.md)一文中的詳細資料。 以檔案為基礎之資料存放區的下列設定仍然受到回溯 compabitility 的支援。 建議您繼續使用新模型。
 
-如果您想要剖析 Parquet 檔案，或以 Parquet 格式寫入資料，請將 `format``type` 屬性設定為 **ParquetFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
+如果您想要剖析 Parquet 檔案，或以 Parquet 格式寫入資料，請將 `format``type` 屬性設定為 **ParquetFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例:
 
 ```json
 "format":
@@ -456,22 +457,22 @@ ms.locfileid: "66165949"
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/二進位 | UInt64 | Decimal |
-| Single | Float | N/A | N/A |
+| UInt64 | Int64/二進位 | UInt64 | DECIMAL |
+| 單身 | 浮點數 | N/A | N/A |
 | Double | Double | N/A | N/A |
-| Decimal | Binary | Decimal | Decimal |
-| 字串 | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/A | N/A |
+| DECIMAL | 二進位 | DECIMAL | DECIMAL |
+| String | 二進位 | Utf8 | Utf8 |
+| DateTime | Int96 | N/A | N/A |
 | TimeSpan | Int96 | N/A | N/A |
 | DateTimeOffset | Int96 | N/A | N/A |
-| ByteArray | Binary | N/A | N/A |
-| Guid | Binary | Utf8 | Utf8 |
-| Char | Binary | Utf8 | Utf8 |
+| ByteArray | 二進位 | N/A | N/A |
+| Guid | 二進位 | Utf8 | Utf8 |
+| 字元 | 二進位 | Utf8 | Utf8 |
 | CharArray | 不支援 | N/A | N/A |
 
 ## <a name="orc-format"></a>ORC 格式
 
-如果您想要剖析 ORC 檔案，或以 ORC 格式寫入資料，請將 `format``type` 屬性設定為 **OrcFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
+如果您想要剖析 ORC 檔案，或以 ORC 格式寫入資料，請將 `format``type` 屬性設定為 **OrcFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例:
 
 ```json
 "format":
@@ -504,23 +505,23 @@ ms.locfileid: "66165949"
 | Int16 | 簡短 |
 | UInt16 | Int |
 | Int32 | Int |
-| UInt32 | long |
-| Int64 | long |
-| UInt64 | 字串 |
-| Single | Float |
+| UInt32 | 長 |
+| Int64 | 長 |
+| UInt64 | String |
+| 單身 | 浮點數 |
 | Double | Double |
-| Decimal | Decimal |
-| 字串 | 字串 |
-| Datetime | Timestamp |
-| DateTimeOffset | Timestamp |
-| TimeSpan | Timestamp |
-| ByteArray | Binary |
-| Guid | 字串 |
-| Char | Char(1) |
+| DECIMAL | DECIMAL |
+| String | String |
+| DateTime | 時間戳記 |
+| DateTimeOffset | 時間戳記 |
+| TimeSpan | 時間戳記 |
+| ByteArray | 二進位 |
+| Guid | String |
+| 字元 | Char(1) |
 
 ## <a name="avro-format"></a>AVRO 格式
 
-如果您想要剖析 Avro 檔案，或以 Avro 格式寫入資料，請將 `format``type` 屬性設定為 **AvroFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例：
+如果您想要剖析 Avro 檔案，或以 Avro 格式寫入資料，請將 `format``type` 屬性設定為 **AvroFormat**。 您不需要在 typeProperties 區段內的 Format 區段中指定任何屬性。 範例:
 
 ```json
 "format":
@@ -534,6 +535,10 @@ ms.locfileid: "66165949"
 請注意下列幾點：
 
 * 不支援[複雜資料類型](https://avro.apache.org/docs/current/spec.html#schema_complex) (記錄、列舉、陣列、對應、等位和固定)。
+
+## <a name="binary-format"></a>二進位格式
+
+如需詳細資訊, 請參閱[二進位格式](format-binary.md)一文。
 
 ## <a name="compression-support"></a>壓縮支援
 
@@ -570,7 +575,7 @@ Azure Data Factory 支援在複製期間壓縮/解壓縮資料。 當您在輸�
 }
 ```
 
-[壓縮]  區段有兩個屬性：
+[壓縮] 區段有兩個屬性：
 
 * **類型：** 壓縮轉碼器，可以是 **GZIP**、**Deflate**、**BZIP2** 或 **ZipDeflate**。
 * **層級：** 壓縮比，它可以是**最佳**或**最快**。
@@ -586,11 +591,11 @@ Azure Data Factory 支援在複製期間壓縮/解壓縮資料。 當您在輸�
 ## <a name="unsupported-file-types-and-compression-formats"></a>不支援的檔案類型和壓縮格式
 
 您可以使用 Azure Data Factory 的擴充性功能來轉換不支援的檔案。
-兩個選項包括使用 Azure Batch 的 Azure Functions 和自訂工作。
+有兩個選項, 包括使用 Azure Batch Azure Functions 和自訂工作。
 
-您可以看到使用 Azure 函式的範例[解壓縮 tar 檔案內容](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)。 如需詳細資訊，請參閱 < [Azure Functions 活動](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)。
+您可以看到使用 Azure 函式來[解壓縮 tar 檔案內容](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)的範例。 如需詳細資訊, 請參閱[Azure Functions 活動](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)。
 
-您也可以建置這項功能使用的自訂 dotnet 活動。 進一步的資訊[這裡](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+您也可以使用自訂的 dotnet 活動來建立這種功能。 您可以[在這裡](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)取得進一步的資訊
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: bbf2e524d626ac17596ded61746c26f20a6caf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 312caf2d514d630c5bc1fb7755b7ab7a6a3d443a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021832"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840902"
 ---
 #    <a name="text-merge-cognitive-skill"></a>文字合併認知技能
 
@@ -34,7 +34,7 @@ Microsoft.Skills.Text.MergeSkill
 
 | 參數名稱     | 描述 |
 |--------------------|-------------|
-| insertPreTag  | 要在每次插入之前包含的字串。 預設值為 `" "`。 若要省略空間，請將值設定為 `""`。  |
+| insertPreTag  | 要在每次插入之前包含的字串。 預設值是 `" "`。 若要省略空間，請將值設定為 `""`。  |
 | insertPostTag | 要在每次插入之後包含的字串。 預設值為 `" "`。 若要省略空間，請將值設定為 `""`。  |
 
 

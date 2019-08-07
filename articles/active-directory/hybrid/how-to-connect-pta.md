@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5733f43a2b2800d5eb5031dddaaeb7d59aadc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109408"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779115"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>使用 Azure Active Directory 傳遞驗證來進行使用者登入
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-這是 [Azure AD 密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)的替代功能，可為組織提供相同的雲端驗證好處。 不過，某些想要強制執行其內部部署 Active Directory 安全性和密碼原則的組織，可以選擇改用傳遞驗證。 如需各種 Azure AD 登入方法的比較，以及如何為組織選擇正確的登入方法，請檢閱[這份指南](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)。
+這是 [Azure AD 密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)的替代功能，可為組織提供相同的雲端驗證好處。 不過，某些想要強制執行其內部部署 Active Directory 安全性和密碼原則的組織，可以選擇改用傳遞驗證。 如需各種 Azure AD 登入方法的比較，以及如何為組織選擇正確的登入方法，請檢閱[這份指南](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)。
 
 ![Azure AD 傳遞驗證](./media/how-to-connect-pta/pta1.png)
 
@@ -39,11 +39,11 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>使用 Azure AD 傳遞驗證的主要好處
 
-- 良好的使用者體驗 
+- 良好的使用者體驗
   - 使用者使用相同的密碼來登入內部部署和雲端型的應用程式。
   - 使用者可以減少尋求 IT 技術服務人員解決密碼相關問題所耗費的對話時間。
   - 使用者可以在雲端中完成[自助式密碼管理](../authentication/active-directory-passwords-overview.md)工作。
-- 容易部署和管理 
+- 容易部署和管理
   - 不必再進行複雜的內部部署或網路設定。
   - 只需要在內部部署環境安裝輕量型代理程式。
   - 沒有任何額外的管理負荷。 代理程式會自動收到改進和錯誤的修正。
@@ -59,7 +59,7 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 
 - 可讓使用者登入到使用[新式驗證](https://aka.ms/modernauthga)的所有 Web 瀏覽器型應用程式和 Microsoft Office 用戶端應用程式。
 - 登入使用者名稱可以是內部部署的預設使用者名稱 (`userPrincipalName`)，或在 Azure AD Connect 中設定的另一個屬性 (又稱為 `Alternate ID`)。
-- 功能可以與無間[條件式存取](../active-directory-conditional-access-azure-portal.md)功能例如 Multi-factor Authentication (MFA) 來協助保護您的使用者。
+- 此功能可與[條件式存取](../active-directory-conditional-access-azure-portal.md)功能 (例如多重要素驗證 (MFA)) 緊密搭配運作, 以協助保護您的使用者。
 - 與雲端式[自助式密碼管理](../authentication/active-directory-passwords-overview.md)整合，包括可將密碼回寫至內部部署 Active Directory，以及藉由禁用常見密碼來提供密碼保護。
 - 如果 AD 樹系之間有樹系信任且名稱尾碼路由已正確設定，就支援多樹系環境。
 - 這是免費功能，您不需要任何付費的 Azure AD 版本即可使用。

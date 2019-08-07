@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cf43f8a235b112cfcf1fc6c9dba626a5a0c9b7e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719833"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828400"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>對 Hyper-V 至 Azure 的複寫和容錯移轉進行疑難排解
 
@@ -26,11 +26,11 @@ ms.locfileid: "64719833"
 1. 確認 Hyper-V 主機和 VM 符合所有的[需求和必要條件](hyper-v-azure-support-matrix.md)。
 2. 如果 Hyper-V 伺服器位於 System Center Virtual Machine Manager (VMM) 雲端中，請確認您已備妥 [VMM 伺服器](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional)。
 3. 確認已在 Hyper-V 主機上執行 Hyper-V 虛擬機器管理服務。
-4. 檢查 Hyper-V-VMMS\Admin 登入虛擬機器時出現的問題。 此記錄位於 [應用程式及服務記錄]   > [Microsoft]   > [Windows]  中。
+4. 檢查 Hyper-V-VMMS\Admin 登入虛擬機器時出現的問題。 此記錄位於 [應用程式及服務記錄] > [Microsoft] > [Windows] 中。
 5. 在客體 VM 上，確認 WMI 已啟用並可供存取。
    - [了解](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)基本 WMI 測試。
    - 對 WMI 進行[疑難排解](https://aka.ms/WMiTshooting)。
-   - [疑難排解](https://technet.microsoft.com/library/ff406382.aspx#H22)WMI 指令碼和服務的問題。
+   - [疑難排解](https://technet.microsoft.com/library/ff406382.aspx#H22)WMI 腳本和服務的問題。
 6. 在客體 VM 上，確定所執行的是最新版的 Integration Services。
     - [確認](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)您擁有最新版本。
     - 將 Integration Services [保持](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)為最新狀態。
@@ -42,8 +42,8 @@ ms.locfileid: "64719833"
 1. 確定您執行的是[最新版本](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)的 Site Recovery 服務。
 2. 確認複寫是否已暫停：
    - 在 Hyper-V 管理員主控台中查看 VM 健康狀態。
-   - 如果處於重大狀態，請以滑鼠右鍵按一下 VM > [複寫]   > [檢視複寫健康情況]  。
-   - 如果複寫已暫停，請按一下 [繼續複寫]  。
+   - 如果處於重大狀態，請以滑鼠右鍵按一下 VM > [複寫] > [檢視複寫健康情況]。
+   - 如果複寫已暫停，請按一下 [繼續複寫]。
 3. 確認必要服務都在執行中。 若非如此，請加以重新啟動。
     - 如果您要在不使用 VMM 的情況下複寫 Hyper-V，請確認 Hyper-V 主機正在執行下列服務：
         - 虛擬機器管理服務
@@ -53,8 +53,8 @@ ms.locfileid: "64719833"
     - 如果您要在環境中使用 VMM 進行複寫，請確認下列服務正在執行中：
         - 在 Hyper-V 主機上，確認虛擬機器管理服務、Microsoft Azure 復原服務代理程式和 WMI 提供者主機服務都在執行中。
         - 在 VMM 伺服器上，確定 System Center Virtual Machine Manager 服務正在執行中。
-4. 檢查 Hyper-V 伺服器與 Azure 之間的連線。 若要檢查連線能力，請在 Hyper-V 主機上開啟工作管理員。 在 [效能]  索引標籤上，按一下 [開啟資源監視器]  。 在 [網路]  索引標籤 > [網路活動的程序]  上，查看 cbengine.exe 是否正在傳送大量資料 (以 MB 為單位)。
-5. 檢查 Hyper-V 主機是否可連線至 Azure 儲存體 Blob URL。 若要檢查主機是否可以連線，請選取並檢查 **cbengine.exe**。 檢視 [TCP 連線]  ，以驗證從主機到 Azure 儲存體 Blob 的連線。
+4. 檢查 Hyper-V 伺服器與 Azure 之間的連線。 若要檢查連線能力，請在 Hyper-V 主機上開啟工作管理員。 在 [效能] 索引標籤上，按一下 [開啟資源監視器]。 在 [網路] 索引標籤 > [網路活動的程序] 上，查看 cbengine.exe 是否正在傳送大量資料 (以 MB 為單位)。
+5. 檢查 Hyper-V 主機是否可連線至 Azure 儲存體 Blob URL。 若要檢查主機是否可以連線，請選取並檢查 **cbengine.exe**。 檢視 [TCP 連線]，以驗證從主機到 Azure 儲存體 Blob 的連線。
 6. 檢查效能問題，如下所述。
     
 ### <a name="performance-issues"></a>效能問題
@@ -78,9 +78,9 @@ ms.locfileid: "64719833"
     ![複寫健康情況](media/hyper-v-azure-troubleshoot/replication-health1.png)
     
 
-2. 按一下 [檢視複寫健康情況]  以查看詳細資料：
+2. 按一下 [檢視複寫健康情況] 以查看詳細資料：
 
-    - 如果複寫已暫停，請以滑鼠右鍵按一下 VM > [複寫]   > [繼續複寫]  。
+    - 如果複寫已暫停，請以滑鼠右鍵按一下 VM > [複寫] > [繼續複寫]。
     - 如果在 Site Recovery 中設定的 Hyper-V 主機上的 VM 移轉至相同叢集中的不同 Hyper-V 主機，或移轉至獨立機器，VM 的複寫將不受影響。 請確認新的 Hyper-V 主機符合所有必要條件，且設定於 Site Recovery 中。
 
 ## <a name="app-consistent-snapshot-issues"></a>應用程式一致快照集問題
@@ -107,7 +107,7 @@ ms.locfileid: "64719833"
     ![動態磁碟](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. 確認您沒有連結至 VM 的 iSCSI 磁碟。 不支援此做法。
-5. 確認備份服務已啟用。 請在 [Hyper-V 設定]   > [Integration Services]  中確認服務已啟用。
+5. 確認備份服務已啟用。 請在 [Hyper-V 設定] > [Integration Services] 中確認服務已啟用。
 6. 確定與建立 VSS 快照集的應用程式之間沒有衝突。 如果有多個應用程式同時嘗試建立 VSS 快照集，則可能發生衝突。 例如，如果「備份」應用程式嘗試在您的複寫原則排定要由 Site Recovery 建立快照集的時間建立 VSS 快照集，就會有衝突。   
 7. 檢查 VM 是否經歷偏高的變換率：
     - 您可以在 Hyper-V 主機上使用效能計數器，測量客體 VM 的每日資料變更率。 若要測量資料變更率，請啟用以下計數器。 請在各 VM 磁碟間彙總此值 5-15 分鐘的樣本，以取得 VM 變換量。
@@ -123,13 +123,13 @@ ms.locfileid: "64719833"
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Hyper-V 主機內部的 VSS 失敗
 
 1. 檢查事件記錄檔中是否有 VSS 錯誤和建議：
-    - 在 Hyper-V 主機伺服器上，從 [事件檢視器]   > [應用程式及服務記錄]   > [Microsoft]   > [Windows]   > [Hyper V]   > [管理]  開啟 Hyper-V 管理員事件記錄。
+    - 在 Hyper-V 主機伺服器上，從 [事件檢視器] > [應用程式及服務記錄] > [Microsoft] > [Windows] > [Hyper V] > [管理] 開啟 Hyper-V 管理員事件記錄。
     - 確認是否有任何事件指出應用程式一致快照集失敗。
     - 典型的錯誤為：「Hyper-V 無法產生虛擬機器 'XYZ' 的 VSS 快照集：寫入器發生非暫時性錯誤。 如果 VSS 服務沒有回應，重新啟動服務或許可解決問題」。
 
 2. 若要產生 VM 的 VSS 快照集，請確認已在 VM 上安裝 Hyper-V Integration Services，而且已啟用備份 (VSS) Integration Service。
-    - 確定 Integration Services VSS 服務/精靈正在客體上執行，並且處於 [正常]  狀態。
-    - 您可以從提升權限的 PowerShell 工作階段，使用命令的 HYPER-V 主機上檢查這**Et-vmintegrationservice-VMName\<VMName >-Name VSS**您也可以藉由登入客體 VM 取得這項資訊。 [深入了解](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)。
+    - 確定 Integration Services VSS 服務/精靈正在客體上執行，並且處於 [正常] 狀態。
+    - 您可以使用命令**enable-vmintegrationservice-VMName\<VMName >-Name VSS** , 從 hyper-v 主機上已提升許可權的 PowerShell 會話進行檢查, 您也可以藉由登入來賓 VM 來取得這項資訊。 [深入了解](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)。
     - 確定 VM 上的備份/VSS Integration Service 正在執行，且處於良好的狀態。 若非如此，請重新啟動這些服務，並結束 Hyper-V 主機伺服器上的 Hyper-V 磁碟區陰影複製要求者服務。
 
 ### <a name="common-errors"></a>常見錯誤
@@ -143,14 +143,14 @@ ms.locfileid: "64719833"
 
 ## <a name="collect-replication-logs"></a>收集複寫記錄
 
-所有 Hyper-V 複寫事件都記錄在位於 [應用程式及服務記錄]   > [Microsoft]   > [Windows]  的 Hyper-V-VMMS\Admin 記錄中。 此外，您還可以啟用 Hyper-V 虛擬機器管理服務的分析記錄，如下所示：
+所有 Hyper-V 複寫事件都記錄在位於 [應用程式及服務記錄] > [Microsoft] > [Windows] 的 Hyper-V-VMMS\Admin 記錄中。 此外，您還可以啟用 Hyper-V 虛擬機器管理服務的分析記錄，如下所示：
 
-1. 讓 [分析] 與 [偵錯] 記錄可在 [事件檢視器] 中檢視。 若要讓記錄可供使用，請在 [事件檢視器] 中按一下 [檢視]   > [顯示分析與偵錯記錄]  。 [分析] 記錄會出現在 **Hyper-V-VMMS** 下。
-2. 在 [動作]  窗格中，按一下 [啟用記錄檔]  。 
+1. 讓 [分析] 與 [偵錯] 記錄可在 [事件檢視器] 中檢視。 若要讓記錄可供使用，請在 [事件檢視器] 中按一下 [檢視] > [顯示分析與偵錯記錄]。 [分析] 記錄會出現在 **Hyper-V-VMMS** 下。
+2. 在 [動作] 窗格中，按一下 [啟用記錄檔]。 
 
     ![啟用記錄](media/hyper-v-azure-troubleshoot/enable-log.png)
     
-3. 啟用之後，它會在 [效能監視器]  中顯示為 [資料收集器集合工具]  下的 [事件追蹤工作階段]  。 
+3. 啟用之後，它會在 [效能監視器] 中顯示為 [資料收集器集合工具] 下的 [事件追蹤工作階段]。 
 4. 若要檢視收集到的資訊，請停用記錄以停止追蹤工作階段。 儲存記錄，然後在事件檢視器中重新將其開啟，或視需要使用其他工具加以轉換。
 
 

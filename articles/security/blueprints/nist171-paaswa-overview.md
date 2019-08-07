@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 101d7b621287972571fb5d3ba9ea02ace2ef1421
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127322"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780690"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure 安全性與合規性藍圖：適用於 NIST 特刊 800-171 的 PaaS Web 應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "62127322"
 
 SQL Database 通常會透過 SQL Server Management Studio 來管理。 執行 SSMS 的本機電腦會設定為透過安全的 VPN 或 ExpressRoute 連線來存取 SQL 資料庫。
 
-Application Insights 提供即時的應用程式效能管理和透過 Azure 監視器記錄檔的分析*Microsoft 建議您設定 VPN 或 ExpressRoute 的連線以便管理和資料的匯入參考架構的子網路。*
+Application Insights 透過 Azure 監視器記錄提供即時應用程式效能管理和分析, *Microsoft 建議您設定 VPN 或 ExpressRoute 連線, 以便管理和將資料匯入參考架構子網。*
 
 ![適用於 NIST SP 800-171 的 PaaS Web 應用程式參考架構圖表](images/nist171-paaswa-architecture.png "適用於 NIST SP 800-171 的 PaaS Web 應用程式參考架構圖表")
 
@@ -58,9 +58,9 @@ Application Insights 提供即時的應用程式效能管理和透過 Azure 監�
 - App Service Environment v2
 - Azure 自動化
 - Azure DNS
-- Azure 金鑰保存庫
+- Azure Key Vault
 - Azure Load Balancer
-- Azure 監視器 （記錄檔）
+- Azure 監視器 (記錄)
 - Azure Resource Manager
 - Azure 資訊安全中心
 - Azure SQL Database
@@ -71,20 +71,20 @@ Application Insights 提供即時的應用程式效能管理和透過 Azure 監�
 ## <a name="deployment-architecture"></a>部署架構
 下一節會詳細說明部署和實作元素。
 
-**Azure Resource Manager**：[Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)可供客戶使用的解決方案，為群組中的資源。 客戶可以透過單一協調的作業來部署、更新或刪除解決方案的所有資源。 客戶可以使用範本來進行部署。 範本可以用於測試、預備和生產這類不同環境。 資源管理員會提供安全性、稽核和標記功能，以協助客戶在部署後管理資源。
+**Azure Resource Manager**：客戶可以使用[Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) , 以群組的形式處理解決方案中的資源。 客戶可以透過單一協調的作業來部署、更新或刪除解決方案的所有資源。 客戶可以使用範本來進行部署。 範本可以用於測試、預備和生產這類不同環境。 資源管理員會提供安全性、稽核和標記功能，以協助客戶在部署後管理資源。
 
-**防禦主機**：防禦主機是進入的單一使用者可用來存取已部署的資源，在此環境中點。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面流量，必須在 NSG 中定義該流量的來源。
+**防禦主機**：防禦主機是單一進入點, 可讓使用者用來存取此環境中已部署的資源。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面流量，必須在 NSG 中定義該流量的來源。
 
 此解決方案會建立 VM，作為具有下列設定之加入網域的防禦主機：
--   [反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/azure-security-antimalware)。
+-   [反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/fundamentals/antimalware)。
 -   [Azure 診斷擴充功能](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)。
 -   使用 Key Vault 的 [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)。
 -   [自動關閉原則](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) \(英文\)，可減少不使用 VM 資源時的耗用量。
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) 已啟用，因此認證和其他祕密都會在受保護的環境中執行，且該環境會與正在執行的作業系統隔離。
 
-**Web 應用程式**:[Web 應用程式](https://docs.microsoft.com/azure/app-service/)是 Azure App Service 的功能。 客戶能用來以選定的程式設計語言來建置並裝載 Web 應用程式，無需管理基礎結構。 它提供自動調整及高可用性。 支援 Windows 和 Linux，並可從 GitHub、Azure DevOps 或任何 Git 存放庫啟用自動部署。
+**Web Apps**:[Web Apps](https://docs.microsoft.com/azure/app-service/)是 Azure App Service 的功能。 客戶能用來以選定的程式設計語言來建置並裝載 Web 應用程式，無需管理基礎結構。 它提供自動調整及高可用性。 支援 Windows 和 Linux，並可從 GitHub、Azure DevOps 或任何 Git 存放庫啟用自動部署。
 
-**App Service 環境**：[App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)是 App Service 的功能。 它提供完全隔離且專用的環境，以高規格的方式安全地執行 Azure App Service 應用程式。
+**App Service 環境**：[App Service 環境](https://docs.microsoft.com/azure/app-service/environment/intro)是 App Service 的功能。 它提供完全隔離且專用的環境，以高規格的方式安全地執行 Azure App Service 應用程式。
 
 隔離 App Service 環境，只執行單一應用程式。 它會一律部署至虛擬網路。 因為此隔離功能，參考架構會有完全隔離的租用戶，並將之從 Azure 的多租用戶環境中移除。 客戶可以精確控制輸入和輸出的應用程式網路流量。 應用程式可以透過虛擬網路建立與內部部署公司資源的高速安全連線。 客戶可以根據負載計量、可用預算或定義的排程，「自動調整」App Service 環境。
 
@@ -102,7 +102,7 @@ Application Insights 提供即時的應用程式效能管理和透過 Azure 監�
 ### <a name="virtual-network"></a>虛擬網路
 此架構會定義位址空間為 10.200.0.0/16 的私人虛擬網路。
 
-**網路安全性群組**：[Nsg](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)包含存取控制清單，允許或拒絕虛擬網路內的流量。 NSG 可以用來保護子網路或個別 VM 層級的流量。 下列 NSG 已經存在:
+**網路安全性群組**：[Nsg](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)包含允許或拒絕虛擬網路內流量的存取控制清單。 NSG 可以用來保護子網路或個別 VM 層級的流量。 下列 NSG 已經存在:
 - 一個 NSG 用於應用程式閘道
 - 一個 NSG 用於 App Service 環境
 - 一個 NSG 用於 SQL Database
@@ -110,13 +110,13 @@ Application Insights 提供即時的應用程式效能管理和透過 Azure 監�
 
 每個 NSG 都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，以下設定會針對每個 NSG 啟用：
   - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶。
-  - Azure 監視器記錄檔連接到[NSG 的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)。
+  - Azure 監視器記錄會連線至[NSG 的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)。
 
 **子網路**：每個子網路都與其相對應的 NSG 關聯。
 
-**Azure DNS**：網域名稱系統 (DNS) 負責將轉譯 （或解析） 為其 IP 位址的網站或服務的名稱。 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) 是 DNS 網域的主機服務，採用 Azure 基礎結構來提供名稱解析。 只要將網域裝載於 Azure，使用者就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。 Azure DNS 也支援私人 DNS 網域。
+**Azure DNS**：網域名稱系統 (DNS) 負責將網站或服務名稱轉譯 (或解析) 為其 IP 位址。 [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) 是 DNS 網域的主機服務，採用 Azure 基礎結構來提供名稱解析。 只要將網域裝載於 Azure，使用者就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。 Azure DNS 也支援私人 DNS 網域。
 
-**Azure Load Balancer**：[負載平衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)可供客戶調整其應用程式，並為服務建立高可用性。 Load Balancer 支援輸入和輸出案例。 對於所有 TCP 和 UDP 應用程式，它可提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。
+**Azure Load Balancer**：客戶可以使用[Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)來調整其應用程式, 並為服務建立高可用性。 Load Balancer 支援輸入和輸出案例。 對於所有 TCP 和 UDP 應用程式，它可提供低延遲和高輸送量，且最多可相應增加為數百萬個流程。
 
 ### <a name="data-in-transit"></a>資料傳輸中
 Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入口網站與 Azure 儲存體進行的所有交易都會透過 HTTPS 發生。
@@ -147,7 +147,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 會偵測可能影響您組織身分識別的潛在弱點。 其會為偵測到的組織身分識別相關可疑活動設定自動回應。 連接埠還會調查可疑事件以採取適當動作來解決它們。
 
 ### <a name="security"></a>安全性
-**祕密管理**：解決方案會使用[Key Vault](https://azure.microsoft.com/services/key-vault/)管理金鑰和祕密。 Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 下列 Key Vault 功能可協助客戶保護資料：
+**祕密管理**：解決方案會使用[Key Vault](https://azure.microsoft.com/services/key-vault/)來管理金鑰和秘密。 Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 下列 Key Vault 功能可協助客戶保護資料：
 - 進階存取原則是視需要設定的。
 - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
 - Key Vault 中的所有金鑰和祕密都有到期日。
@@ -162,7 +162,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 資訊安全中心提供優先的安全性警示和事件。 資訊安全中心可讓客戶更容易探索及解決潛在的安全性問題。 針對每個偵測到的威脅會產生[威脅情報報告](https://docs.microsoft.com/azure/security-center/security-center-threat-report)。 事件回應小組可在調查威脅並進行補救時使用這份報告。
 
-**Azure 應用程式閘道**：架構會使用應用程式閘道與 web 應用程式防火牆設定並啟用 OWASP 規則集，以減少安全性弱點的風險。 其他功能包括：
+**Azure 應用程式閘道**：此架構使用已設定 web 應用程式防火牆且已啟用 OWASP 規則集的應用程式閘道, 來降低安全性弱點的風險。 其他功能包括：
 
 - [端對端 SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)。
 - 啟用 [SSL 卸載](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)。
@@ -179,9 +179,9 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 使用者可設定最多 730 天的保留期限，以符合其特定需求。
 
-**Azure 監視器記錄**：記錄檔會在合併[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)處理、 儲存和儀表板報表。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心整合了 Azure 監視器記錄檔。 客戶可以使用 Kusto 查詢存取其安全性事件資料，並結合資料與其他服務。
+**Azure 監視器記錄**：記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中, 以進行處理、儲存及儀表板報表。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心與 Azure 監視器記錄整合。 客戶可以使用 Kusto 查詢來存取其安全性事件資料, 並將其與來自其他服務的資料合併。
 
-下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)會包含此架構的一部分：
+下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)包含在此架構中:
 -   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。
 - [SQL 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)：SQL 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供客戶依照優先順序排列的具體建議清單。
 - [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈。 還會報告沒有回應的代理程式數目和提交作業資料的代理程式數目。
@@ -191,7 +191,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 
 **Azure 監視器**：[監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)可幫助使用者追蹤效能、維護安全性及找出趨勢。 組織可用來稽核、建立警示及封存資料。 還可以追蹤使用者 Azure 資源中的 API 呼叫。
 
-**Application Insights**：[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)是適用於多種平台上的 web 開發人員可延伸應用程式效能管理服務。 Application Insights 可偵測效能異常。 客戶能用來監視即時 Web 應用程式。 Application Insights 包括強大的分析工具可協助客戶診斷問題，並了解使用者如何運用應用程式。 其設計訴求是協助客戶持續改善效能和可用性。
+**Application Insights**：[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)是可延伸的應用程式效能管理服務, 適用于多個平臺上的 網頁程式開發人員。 Application Insights 可偵測效能異常。 客戶能用來監視即時 Web 應用程式。 Application Insights 包括強大的分析工具可協助客戶診斷問題，並了解使用者如何運用應用程式。 其設計訴求是協助客戶持續改善效能和可用性。
 
 ## <a name="threat-model"></a>威脅模型
 

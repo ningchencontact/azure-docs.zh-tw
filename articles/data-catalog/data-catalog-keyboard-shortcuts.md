@@ -1,19 +1,17 @@
 ---
 title: Azure 資料目錄的鍵盤快速鍵
 description: 本文章說明 Azure 資料目錄的鍵盤快速鍵。
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 499067f33bddbede6510f61e2cb5da3fb33a5e7c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60998792"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736312"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure 資料目錄的鍵盤快速鍵
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>資料目錄之資料來源註冊工具的鍵盤快速鍵
@@ -51,7 +49,7 @@ ms.locfileid: "60998792"
 | 包括 [資料設定檔] 核取方塊 (如果有提供) |ALT 鍵 + D |
 | 瀏覽至每個清單項目 |向上鍵或向下鍵 |
 | 在伺服器階層中展開樹狀檢視的節點 |向右鍵 |
-| 針對 [可用物件]  或 [要註冊的物件]  來移動已選取的項目 |空格鍵 |
+| 針對 [可用物件] 或 [要註冊的物件] 來移動已選取的項目 |空格鍵 |
 
 ### <a name="publish-progress-page"></a>發佈進度頁面
 | 運算 | 按 |
@@ -77,6 +75,6 @@ ms.locfileid: "60998792"
 | 在 [探索] 頁面中，當資產有焦點時，選取資產 |空格鍵或 ENTER |
 | 新增/移除複選的資產 |CTRL+空格鍵或 ENTER |
 | 切換 [搜尋相符項目] 功能表 |ALT 鍵 + S |
-| 切換 [開啟位置]  功能表 |ALT+O |
+| 切換 [開啟位置] 功能表 |ALT+O |
 | 如果資產是容器，請瀏覽容器 |ALT+L |
 

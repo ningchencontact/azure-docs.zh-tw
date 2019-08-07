@@ -11,16 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736576"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742399"
 ---
 # <a name="health-probes"></a>健康狀態探查
 
-為了判斷每個後端的健康情況，每個 Front Door 環境會定期向您設定的每個後端傳送一個綜合的 HTTP/HTTPS 要求。 接著，Front Door 會使用來自這些探查的回應，來判斷它應該要路由傳送實際用戶端要求的「最佳」後端。
+為了判斷每個後端的健康情況，每個 Front Door 環境會定期向您設定的每個後端傳送一個綜合的 HTTP/HTTPS 要求。 接著，Front Door 會使用來自這些探查的回應，來判斷它應該要路由傳送實際用戶端要求的「最佳」後端。 請注意, 由於 Front 門會全域具有許多邊緣環境, 因此後端的健康情況探查要求量最高可達每秒一個以上的要求, 取決於所設定的健康情況探查頻率。 
+
 
 
 ## <a name="supported-protocols"></a>支援的通訊協定

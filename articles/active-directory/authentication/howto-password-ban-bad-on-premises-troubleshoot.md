@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666228"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779634"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 密碼保護的疑難排解
 
@@ -32,7 +32,7 @@ ms.locfileid: "68666228"
 
 此問題的主要徵兆是 DC 代理程式管理事件記錄檔中的30018事件。 這個問題可能有數個可能的原因:
 
-1. DC 代理程式位於網路的隔離部分, 不允許網路連線到已註冊的 proxy。 因此, 只要其他 DC 代理程式可以與 proxy 進行通訊, 以便從 Azure 下載密碼原則, 此問題就可能會是良性的, 而隔離的 DC 接著會透過 sysvol 共用中的原則檔案複寫取得該原則。
+1. DC 代理程式位於網路的隔離部分, 不允許網路連線到已註冊的 proxy。 只要其他 DC 代理程式可以與 proxy 通訊, 才能從 Azure 下載密碼原則, 此問題可能會是良性的。 一旦下載之後, 隔離的 DC 就會透過 sysvol 共用中的原則檔案複寫來取得這些原則。
 
 1. Proxy 主機電腦封鎖對 RPC 端點對應程式端點的存取 (埠 135)
 
@@ -70,6 +70,8 @@ KDS 根金鑰服務無法啟動的最常見根本原因是 Active Directory 網�
 
 這個問題可能有幾個原因。
 
+1. 您的 DC 代理程式正在執行已過期的公開預覽軟體版本。 請參閱[公開預覽 DC 代理程式軟體已過期](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired)。
+
 1. 您的 DC 代理程式無法下載原則, 或無法解密現有的原則。 請檢查上述主題中的可能原因。
 
 1. 密碼原則強制模式仍會設為 [稽核]。 如果此設定作用中, 請將它重新設定為使用 Azure AD 密碼保護入口網站來強制執行。 請參閱[啟用密碼保護](howto-password-ban-bad-on-premises-operations.md#enable-password-protection)。
@@ -99,7 +101,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-當 Azure AD 密碼保護記錄 Active Directory DSRM 密碼的密碼驗證事件記錄檔事件時, 事件記錄檔訊息預期不會包含使用者名稱。 之所以會發生這種情況, 是因為 DSRM 帳戶是不屬於實際 Active Directory 網域的本機帳戶。  
+當 Azure AD 密碼保護記錄 Active Directory DSRM 密碼的密碼驗證事件記錄檔事件時, 事件記錄檔訊息預期不會包含使用者名稱。 之所以會發生這種行為, 是因為 DSRM 帳戶是不屬於實際 Active Directory 網域的本機帳戶。  
 
 ## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>網域控制站複本升級因弱式 DSRM 密碼而失敗
 
@@ -119,7 +121,67 @@ Install-ADDSDomainController : Verification of prerequisites for Domain Controll
 
 ## <a name="booting-into-directory-services-repair-mode"></a>開機進入目錄服務修復模式
 
-如果網域控制站開機進入目錄服務修復模式, 則 DC 代理程式服務會偵測這種狀況, 而不論目前作用中的原則設定為何, 都將導致所有密碼驗證或強制活動停用。
+如果網域控制站開機進入目錄服務修復模式, 則 DC 代理程式密碼篩選 dll 會偵測這種狀況, 而不論目前作用中的原則為何, 都會停用所有密碼驗證或強制活動。配置. DC 代理程式密碼篩選 dll 會將10023警告事件記錄到管理事件記錄檔, 例如:
+
+```text
+The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
+```
+## <a name="public-preview-dc-agent-software-has-expired"></a>公開預覽 DC 代理程式軟體已過期
+
+在 Azure AD 密碼保護公用預覽期間, DC 代理程式軟體會以硬式編碼的形式, 在下列日期停止處理密碼驗證要求:
+
+* 版本1.2.65.0 將會在 1 2019 年9月停止處理密碼驗證要求。
+* 版本1.2.25.0 和先前在 1 2019 年7月停止處理密碼驗證要求。
+
+當期限接近時, 所有有時間限制的 DC 代理程式版本將會在開機時于 DC 代理程式管理事件記錄檔中發出10021事件, 如下所示:
+
+```text
+The password filter dll has successfully loaded and initialized.
+
+The allowable trial period is nearing expiration. Once the trial period has expired, the password filter dll will no longer process passwords. Please contact Microsoft for an newer supported version of the software.
+
+Expiration date:  9/01/2019 0:00:00 AM
+
+This message will not be repeated until the next reboot.
+```
+
+期限過後, 所有有時間限制的 DC 代理程式版本都會在開機時于 DC 代理程式管理員事件記錄檔中發出10022事件, 如下所示:
+
+```text
+The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
+
+No further messages will be logged until after the next reboot.
+```
+
+因為只有在初始開機時才會檢查期限, 所以在行事曆期限過了一段時間後, 您可能不會看到這些事件。 一旦辨識期限之後, 網域控制站或較大的環境將不會有負面影響, 因為所有密碼都會自動核准。
+
+> [!IMPORTANT]
+> Microsoft 建議過期的公用預覽 DC 代理程式立即升級至最新版本。
+
+在您的環境中探索需要升級的 DC 代理程式的簡單方法, 就是`Get-AzureADPasswordProtectionDCAgent`執行 Cmdlet, 例如:
+
+```powershell
+PS C:\> Get-AzureADPasswordProtectionDCAgent
+
+ServerFQDN            : bpl1.bpl.com
+SoftwareVersion       : 1.2.125.0
+Domain                : bpl.com
+Forest                : bpl.com
+PasswordPolicyDateUTC : 8/1/2019 9:18:05 PM
+HeartbeatUTC          : 8/1/2019 10:00:00 PM
+AzureTenant           : bpltest.onmicrosoft.com
+```
+
+在本主題中, SoftwareVersion 欄位顯然是要查看的索引鍵屬性。 您也可以使用 PowerShell 篩選來篩選掉已等於或高於所需基準版本的 DC 代理程式, 例如:
+
+```powershell
+PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
+PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
+```
+
+Azure AD 的密碼保護 Proxy 軟體在任何版本中都沒有時間限制。 Microsoft 仍然建議在發行時, 將 DC 和 proxy 代理程式升級至最新版本。 `Get-AzureADPasswordProtectionProxy` Cmdlet 可用來尋找需要升級的 Proxy 代理程式, 類似于上述 DC 代理程式的範例。
+
+如需特定升級程式的詳細資訊, 請參閱[升級 DC 代理程式](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent)和[升級 Proxy 代理程式](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent)。
 
 ## <a name="emergency-remediation"></a>緊急補救
 

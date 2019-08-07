@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4f06e579e8548f4220d8f3fb4b618902f18b538e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442425"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774795"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 
@@ -34,6 +34,9 @@ ms.locfileid: "68442425"
 -   [依訂閱設定使用量配額](api-management-access-restriction-policies.md#SetUsageQuota) - 以訂閱為單位，讓您可以強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。
 -   [依金鑰設定使用量配額](#SetUsageQuotaByKey) - 以金鑰為單位，讓您可以強制採用可續訂或有存留期呼叫量與 (或) 頻寬配額。
 -   [驗證 JWT](api-management-access-restriction-policies.md#ValidateJWT) - 強制擷取自指定 HTTP 標頭或指定查詢參數的 JWT 必須存在且有效。
+
+> [!TIP]
+> 您可以針對不同的用途, 使用不同範圍中的存取限制原則。 例如, 您可以在 api 層級套用`validate-jwt`原則, 或在 api 作業層級套用原則, 並使用`claims`進行更細微的控制, 以使用 AAD 驗證來保護整個 API。
 
 ## <a name="CheckHTTPHeader"></a>檢查 HTTP 標頭
 
@@ -518,7 +521,7 @@ ms.locfileid: "68442425"
 
 ### <a name="elements"></a>元素
 
-| 項目             | 描述                                                                                                                                                                                                                                                                                                                                           | 必要項 |
+| 元素             | 描述                                                                                                                                                                                                                                                                                                                                           | 必要項 |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | 根元素。                                                                                                                                                                                                                                                                                                                                         | 是      |
 | audiences           | 包含可呈現在權杖上之可接受的受眾宣告清單。 如果存在多個受眾值，則會嘗試每個值，直到全部試完 (即表示驗證失敗) 或其中一個值成功為止。 必須指定至少一個受眾。                                                                     | 否       |

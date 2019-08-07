@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678535"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774998"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>對應資料流程選取轉換
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -35,6 +35,8 @@ ms.locfileid: "68678535"
 * 選擇 [略過重複專案], 以排除輸入或輸出中繼資料的重復資料行。
 
 ![略過重複專案](media/data-flow/select-skip-dup.png "略過重複專案")
+
+* 當您選擇略過重複專案時, 結果會顯示在 [檢查] 索引標籤中。ADF 會保留第一次出現的資料行, 您會看到該相同資料行後續出現的每個專案都已從您的流程中移除。
 
 > [!NOTE]
 > 若要清除對應規則, 請按 [**重設**] 按鈕。

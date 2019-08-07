@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell 中的 PowerShell 快速入門 | Microsoft Docs
-description: Cloud Shell 中 PowerShell 的快速入門
+title: Azure Cloud Shell 快速入門 |Microsoft Docs
+description: Azure Cloud Shell 的快速入門
 services: Azure
 documentationcenter: ''
 author: maertendmsft
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 36683d04b6f087f1d326458a07b043a0932191f1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199506"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741995"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell 中 PowerShell 的快速入門
 
@@ -147,7 +147,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 ```
 
-如需詳細資料，請參閱[掛接 Azure 檔案共用並在 Windows 中存取共用][azmount]。
+如需詳細資訊, 請參閱[掛接 Azure 檔案儲存體共用並在 Windows 中存取共用][azmount]。
 
 您也可以導覽 Azure 檔案共用下的目錄，如下所示：
 
@@ -267,7 +267,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ### <a name="using-ssh"></a>使用 SSH
 
-請依照下列指示[此處](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)來建立新的 VM 組態，使用 Azure PowerShell cmdlet。
+依照[這裡](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell)的指示, 使用 Azure PowerShell Cmdlet 來建立新的 VM 設定。
 在呼叫至 `New-AzVM` 以開始部署之前，請將 SSH 公開金鑰新增至 VM 組態。
 新建立的 VM 將會在 `~\.ssh\authorized_keys` 位置包含公開金鑰，因而對 VM 啟用免認證 SH 工作階段。
 
@@ -296,7 +296,7 @@ ssh azureuser@MyVM.Domain.Com
 
 ## <a name="install-custom-modules"></a>安裝自訂模組
 
-您可以執行 `Install-Module`，以從 [PowerShell 資源庫][gallery]安裝模組。
+您可以執行`Install-Module`以從[PowerShell 資源庫][gallery]安裝模組。
 
 ## <a name="get-help"></a>Get-Help
 
@@ -334,11 +334,11 @@ Hello World!
 您可以建立 PowerShell 設定檔 - `profile.ps1` (或 `Microsoft.PowerShell_profile.ps1`) 來自訂 PowerShell 環境。
 將它儲存到 `$profile.CurrentUserAllHosts` (或 `$profile.CurrentUserAllHosts`) 下，以便將它載入至 Cloud Shell 工作階段中的每個 PowerShell。
 
-如需了解如何建立設定檔，請參閱[關於設定檔][profile]。
+如需如何建立設定檔的相關資訊, 請參閱[關於設定檔][profile]。
 
 ## <a name="use-git"></a>使用 Git
 
-若要在 Cloud Shell 中複製 Git 存放庫，您需要建立[個人存取權杖][githubtoken]，並使用它作為使用者名稱。 有了權杖之後，請複製存放庫，如下所示：
+若要在 Cloud Shell 中複製 Git 存放庫, 您需要建立[個人存取權杖][githubtoken], 並使用它做為使用者名稱。 有了權杖之後，請複製存放庫，如下所示：
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

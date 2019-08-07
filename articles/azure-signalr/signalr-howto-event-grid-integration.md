@@ -3,16 +3,16 @@ title: 如何將 Azure SignalR Service 事件傳送至事件方格
 description: 本指南說明如何為您的 SignalR Service 啟用事件方格事件, 然後將用戶端連接的已連線/中斷連接事件傳送至範例應用程式。
 services: signalr
 author: chenyl
-ms.service: azure-signalr
+ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: chenyl
-ms.openlocfilehash: 52e4194acd6a3abfed3fabadb892b0de76025b7e
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 100c7120889f88c1bab3418822835e8d4ece9826
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296869"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839291"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>如何將事件從 Azure SignalR Service 傳送至事件方格
 
@@ -94,7 +94,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-registry-events"></a>訂閱登錄事件
 
-在事件方格中，您可以訂閱「主題」  ，以告知它您想要追蹤的事件，以及要將它們傳送至何處。 下列[az eventgrid event-訂][az-eventgrid-event-subscription-create]用帳戶 create 命令會訂閱您所建立的 Azure SignalR Service, 並將 web 應用程式的 URL 指定為它應該傳送事件的目標端點。 您在先前小節中所填入的環境變數會在此處重複使用，因此不需進行任何編輯。
+在事件方格中，您可以訂閱「主題」，以告知它您想要追蹤的事件，以及要將它們傳送至何處。 下列[az eventgrid event-訂][az-eventgrid-event-subscription-create]用帳戶 create 命令會訂閱您所建立的 Azure SignalR Service, 並將 web 應用程式的 URL 指定為它應該傳送事件的目標端點。 您在先前小節中所填入的環境變數會在此處重複使用，因此不需進行任何編輯。
 
 ```azurecli-interactive
 SIGNALR_SERVICE_ID=$(az signalr show --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --query id --output tsv)

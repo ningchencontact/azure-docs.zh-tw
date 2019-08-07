@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640799"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828273"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 評量和移轉的支援矩陣
 
@@ -42,8 +42,12 @@ ms.locfileid: "68640799"
 **地理位置** | **中繼資料儲存位置**
 --- | ---
 Azure Government | US Gov 維吉尼亞州
-亞太地區 | 東南亞或東亞
-歐洲 | 歐洲南部或西歐
+亞太地區 | 東亞或東南亞
+澳洲 | 澳大利亞東部或澳大利亞東南部
+加拿大 | 加拿大中部或加拿大東部
+歐洲 | 北歐或西歐
+印度 | 印度中部或印度南部
+日本 |  日本東部或日本西部
 英國 | 英國南部或英國西部
 美國 | 美國中部或美國西部2
 
@@ -70,7 +74,7 @@ Azure Government | US Gov 維吉尼亞州
 
 **支援** | **詳細資料**
 --- | ---
-**vCenter Server** | 您的 vCenter Server 需要足夠的資源來配置具有 32 GB 記憶體、4個 vcpu 和外部虛擬交換器的 VM。<br/><br/> 設備必須直接或透過 proxy 存取網際網路。
+**vCenter Server** | 您的 vCenter Server 需要足夠的資源來配置具有 32 GB RAM、8個 vcpu 和外部虛擬交換器的 VM。<br/><br/> 設備必須直接或透過 proxy 存取網際網路。
 **ESXi** | 設備 VM 必須部署在執行5.5 版或更新版本的 ESXi 主機上。
 **Azure Migrate 專案** | 應用裝置可以與單一專案相關聯。
 **vCenter Server** | 設備可以在 vCenter Server 上探索最多10000個 VMware Vm。<br/> 設備可以連接到一個 vCenter Server。
@@ -78,7 +82,7 @@ Azure Government | US Gov 維吉尼亞州
 
 ## <a name="assessment-url-access-requirements"></a>評估-URL 存取需求
 
-Azure Migrate 設備需要網際網路連線到網際網路。
+Azure Migrate 設備需要網際網路的連線能力。
 
 - 當您部署設備時, Azure Migrate 會對下表中摘要說明的 Url 進行連線檢查。
 - 如果您使用以 URL 為基礎的 proxy 來連線到網際網路, 請允許存取這些 Url, 確保 proxy 會解析查詢 Url 時所收到的任何 CNAME 記錄。

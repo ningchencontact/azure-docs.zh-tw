@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666349"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779639"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
 
@@ -40,19 +40,19 @@ ms.locfileid: "68666349"
 
 **問：密碼變更和密碼設定 (或重設) 之間有何差異？**
 
-密碼變更是指使用者在證明他們知道舊密碼之後, 選擇新密碼的時機。 例如, 當使用者登入 Windows 時, 就會發生這種情況, 然後提示您選擇新密碼。
+密碼變更是指使用者在證明他們知道舊密碼之後, 選擇新密碼的時機。 例如, 密碼變更會在使用者登入 Windows 時發生, 並會提示您選擇新密碼。
 
-當系統管理員以新密碼取代帳戶的密碼 (例如, 使用 [Active Directory 使用者和電腦] 管理工具) 時, 就會設定密碼 (有時也稱為密碼重設)。 這項作業需要高層級的許可權 (通常是網域系統管理員), 而執行作業的人員通常不知道舊密碼。 服務台案例通常會執行此動作, 例如, 在協助已忘記其密碼的使用者時。 當您第一次使用密碼建立全新的使用者帳戶時, 也會看到密碼設定事件。
+當系統管理員以新密碼取代帳戶的密碼 (例如, 使用 [Active Directory 使用者和電腦] 管理工具) 時, 就會設定密碼 (有時也稱為密碼重設)。 這項作業需要高層級的許可權 (通常是網域系統管理員), 而執行作業的人員通常不知道舊密碼。 服務台案例通常會執行密碼設定, 例如, 在協助已忘記其密碼的使用者時。 當您第一次使用密碼建立全新的使用者帳戶時, 也會看到密碼設定事件。
 
 無論密碼是否已變更或設定完成, 密碼驗證原則的行為都相同。 Azure AD 密碼保護 DC 代理程式服務會記錄不同的事件, 以通知您密碼變更或設定操作是否已完成。  請參閱[Azure AD 密碼保護監視和記錄](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)。
 
 **問：為什麼在嘗試使用 [Active Directory 使用者和電腦] 管理嵌入式管理單元來設定弱式密碼時, 會記錄重複的密碼拒絕事件？**
 
-[Active Directory 使用者和電腦] 管理嵌入式管理單元會先嘗試使用 Kerberos 通訊協定來設定新密碼。 失敗時, 嵌入式管理單元會第二次嘗試使用舊版 (SAM RPC) 通訊協定來設定密碼 (使用的特定通訊協定並不重要)。 如果 Azure AD 密碼保護將新密碼視為弱式, 這會導致兩組密碼重設拒絕事件被記錄下來。
+[Active Directory 使用者和電腦] 管理嵌入式管理單元會先嘗試使用 Kerberos 通訊協定來設定新密碼。 失敗時, 嵌入式管理單元會使用舊版 (SAM RPC) 通訊協定 (使用的特定通訊協定並不重要) 來進行第二次嘗試設定。 如果 Azure AD 密碼保護將新密碼視為弱式, 此嵌入式管理單元的行為會導致兩組密碼重設拒絕事件被記錄下來。
 
 **問：為什麼會以空的使用者名稱記錄 Azure AD 密碼保護密碼驗證事件？**
 
-Active Directory 支援測試密碼的能力, 以查看是否通過網域目前的密碼複雜性需求, 例如使用[NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api。 以這種方式驗證密碼時, 測試也會包含以密碼篩選器為基礎的產品 (例如 Azure AD 密碼保護) 進行驗證, 但傳遞至指定密碼篩選 dll 的使用者名稱將會是空的。 在此案例中 Azure AD 密碼保護仍然會使用目前作用中的密碼原則來驗證密碼, 並且會發出事件記錄檔訊息來捕捉結果, 不過事件記錄檔訊息會有空白的使用者名稱欄位。
+Active Directory 支援測試密碼的能力, 以查看是否通過網域目前的密碼複雜性需求, 例如使用[NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api。 以這種方式驗證密碼時, 測試也會包含以密碼篩選器為基礎的產品 (例如 Azure AD 密碼保護) 進行驗證, 但傳遞至指定密碼篩選 dll 的使用者名稱將會是空的。 在此案例中, Azure AD 密碼保護仍然會使用目前作用中的密碼原則來驗證密碼, 並且會發出事件記錄檔訊息來捕捉結果, 不過事件記錄檔訊息會有空白的使用者名稱欄位。
 
 **問：是否支援同時安裝 Azure AD 密碼保護與其他密碼篩選產品？**
 
@@ -115,6 +115,10 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 資料分割 當非 PDC 網域控制站上的使用者密碼變更時，純文字密碼永遠不會傳送到 PDC (這是常見的錯誤觀念)。 當指定 DC 接受新密碼後，此 DC 會使用該密碼來建立該密碼的各種驗證通訊協定特有雜湊，然後在目錄中保存這些雜湊。 純文字密碼不會保存。 已更新的雜湊接著會複寫到 PDC。 在某些情況下，使用者密碼可能會直接在 PDC 上變更，這也是取決於各種因素，例如網路拓樸和 Active Directory 站台的設計。 (請參閱上一個問題。)
 
 總之，在 PDC 上部署 Azure AD 密碼保護 DC 代理程式服務時，就必須達到此功能在網域間的 100% 安全性涵蓋範圍。 只在 PDC 上部署此功能並不會使網域中其他 DC 享有 Azure AD 密碼保護安全性的優勢。
+
+**問：為什麼即使代理程式安裝在內部部署 Active Directory 環境中, 自訂智慧鎖定還是無法運作？**
+
+只有在 Azure 中才支援自訂智慧鎖定。 即使已安裝代理程式, Azure 管理入口網站中的自訂智慧鎖定設定變更也不會影響內部部署的 Active Directory 環境。
 
 **問：System Center Operations Manager 管理組件可用於 Azure AD 密碼保護嗎？**
 

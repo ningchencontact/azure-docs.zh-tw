@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: f3a0fa1ecdb2db94b43a5380f9497b4b1c266e47
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bf9bb7adfa25ea16498a32b57d4927de7e81c007
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441938"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826908"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>將 Apache Spark 和 Apache Hive 與 Hive 倉儲連接器整合
 
@@ -47,11 +47,11 @@ Hive 倉儲連接器所支援的部分作業包括:
 1. 執行下列步驟來設定 Spark 叢集設定: 
     1. 移至 Azure 入口網站, 選取 [HDInsight 叢集], 然後按一下您的叢集名稱。
     1. 在右側的 [叢集**儀表板**] 底下, 選取 [ **Ambari home**]。
-    1. 在 Ambari web UI 中, 按一下 [ **SPARK2**  >    > ] [SPARK2] [**自訂] [預設值**]。
+    1. 在 Ambari web UI 中, 按一下 [ **SPARK2**  >   > ] [SPARK2] [**自訂] [預設值**]。
 
         ![Spark2 Ambari 設定](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. 將`spark.hadoop.hive.llap.daemon.service.hosts`設定為與 [ **Advanced hive-interactive-env**] 底下的屬性 [ **LLAP 應用程式名稱**] 相同的值。 例如： `@llap0`
+    1. 將`spark.hadoop.hive.llap.daemon.service.hosts`設定為與 [ **Advanced hive-interactive-env**] 底下的屬性 [ **LLAP 應用程式名稱**] 相同的值。 例如： `llap0`
 
     1. 設定`spark.sql.hive.hiveserver2.jdbc.url`為 JDBC 連接字串, 它會連接到互動式查詢叢集上的 Hiveserver2。 叢集的連接字串看起來會像下面的 URI。 `CLUSTERNAME`是您的 Spark 叢集名稱, `user`而和`password`參數會設定為叢集的正確值。
 
@@ -231,7 +231,7 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過, 您可�
     1. 按一下 [ **hive**] 底下叢集的 hive 服務。
         ![套用 ranger 原則之前的示範表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
     1. 按一下 [**遮罩**] 索引標籤, 然後 [**新增原則** ![清單]](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
-    1. 提供所需的原則名稱。 選取資料庫:**預設值**, hive 資料表:**示範**, hive 資料行:**名稱**, 使用者: **rsadmin2**, 存取類型:**選取**, 以及部分遮罩: 從**選取遮罩選項**功能表**顯示最後4個**。 按一下 [新增] 。
+    1. 提供所需的原則名稱。 選取資料庫:**預設值**, hive 資料表:**示範**, hive 資料行:**名稱**, 使用者: **rsadmin2**, 存取類型:**選取**, 以及部分遮罩: 從**選取遮罩選項**功能表**顯示最後4個**。 按一下 [新增]。
                 ![原則清單](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 再次查看資料表的內容。 套用 ranger 原則之後, 我們只會看到資料行的最後四個字元。
 

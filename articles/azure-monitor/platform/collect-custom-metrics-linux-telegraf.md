@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 306180d1a0789aff2fc88930178976c342aef9b9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60741489"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827406"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>使用 InfluxData Telegraf 代理程式收集 Linux VM 的自訂計量
 
@@ -33,37 +33,37 @@ ms.locfileid: "60741489"
 
 建立新的 Linux VM： 
 
-1. 選取左側瀏覽窗格中的 [建立資源] ****   選項。 
-1. 搜尋 [虛擬機器]  。  
-1. 選取 [Ubuntu 16.04 LTS]  ，然後選取 [建立]  。 
-1. 提供 VM 名稱，如  **MyTelegrafVM**。  
-1. 讓磁碟類型保持為 **SSD**。 然後提供**使用者名稱**，例如  **azureuser**。 
-1. 針對 [驗證類型] **** ，選取 [密碼] **** 。 然後輸入密碼，以便稍後用來透過 SSH 連線到此 VM。 
-1. 選擇 [建立新的資源群組] **** 。 然後提供名稱，例如  **myResourceGroup**。 選擇您的 [位置] **** 。 然後選取 [確定] **** 。 
+1. 從左側導覽窗格中, 選取 [**建立資源**] 選項。 
+1. 搜尋 [虛擬機器]。  
+1. 選取 [Ubuntu 16.04 LTS]，然後選取 [建立]。 
+1. 提供 VM 名稱, 例如**MyTelegrafVM**。  
+1. 讓磁碟類型保持為 **SSD**。 然後提供使用者**名稱**, 例如**azureuser**。 
+1. 針對 [**驗證類型**], 選取 [**密碼**]。 然後輸入密碼，以便稍後用來透過 SSH 連線到此 VM。 
+1. 選擇**建立新的資源群組**。 然後提供名稱, 例如**myResourceGroup**。 選擇您的**位置**。 然後選取 [確定]。 
 
     ![建立 Ubuntu VM](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
-1. 選取 VM 的大小。 例如，您可以依 [計算類型] ****   或 [磁碟類型] **** 進行篩選。 
+1. 選取 VM 的大小。 您可以依 [計算類型] 或 [磁碟類型] 進行篩選 (舉例而言)。 
 
     ![虛擬機器大小 Telegraf 代理程式概觀](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. 在  **[設定]** 頁面的  [網路] ****  >[網路安全性群組] ****  > **[選取公用輸入連接埠]**  ** 中，選取 [HTTP]**   與 [SSH (22)] **** 。 將其他選項維持為預設值，然後選取  **[確定]** 。 
+1. 在 [**網路** > **網路安全性群組** > ] 的 [**設定**] 頁面上,**選取 [公用輸入埠**], 選取 [ **HTTP**和**SSH (22)** ]。 保留其餘的預設值，然後選取 [確定]。 
 
-1. 在摘要頁面上，選取 [建立] ****   以開始進行 VM 部署。 
+1. 在 [摘要] 頁面上選取 [建立]，以開始進行 VM 部署。 
 
 1. VM 會釘選到 Azure 入口網站儀表板。 完成部署後，VM 摘要就會自動開啟。 
 
-1. 在 VM 窗格中，瀏覽至 [身分識別]  索引標籤。請確定您的 VM 將系統指派的身分識別設定為 [開啟]  。 
+1. 在 VM 窗格中，瀏覽至 [身分識別] 索引標籤。請確定您的 VM 將系統指派的身分識別設定為 [開啟]。 
  
     ![Telegraf VM 身分識別預覽](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
 ## <a name="connect-to-the-vm"></a>連接至 VM 
 
-建立與 VM 的 SSH 連線。 在 VM 的 [概觀] 頁面上，選取 [連線] ****   按鈕。 
+建立與 VM 的 SSH 連線。 在 VM 的 [概觀] 頁面上選取 [連線] 按鈕。 
 
 ![Telegraf VM 概觀頁面](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-在 [連線至虛擬機器] ****   頁面中，維持預設選項，以便使用 DNS 名稱透過連接埠 22 進行連線。 在 [使用 VM 本機帳戶登入] **** 中，會顯示連線命令。 選取按鈕以複製該命令。 下列範例說明 SSH 連線命令的內容： 
+在 [連線至虛擬機器] 頁面中，保留以 DNS 名稱透過連接埠 22 進行連線的預設選項。 在 **[使用 VM 本機帳戶登**入] 中, 會顯示連線命令。 選取按鈕以複製該命令。 下列範例說明 SSH 連線命令的內容： 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -108,7 +108,7 @@ sudo systemctl start telegraf
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。 
 
-1. 瀏覽到新的 [監視器] ****   索引標籤。 然後選取 [計量] **** 。  
+1. 流覽至新的 [**監視**] 索引標籤。然後選取 [**計量**]。  
 
      ![監視器 - 計量 (預覽)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -128,7 +128,7 @@ sudo systemctl start telegraf
 
 ## <a name="clean-up-resources"></a>清除資源 
 
-若不再需要，您可以刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器的資源群組，然後選取 [刪除] **** 。 然後確認要刪除的資源群組名稱。 
+若不再需要，您可以刪除資源群組、虛擬機器和所有相關資源。 若要這麼做, 請選取虛擬機器的資源群組, 然後選取 [**刪除**]。 然後確認要刪除的資源群組名稱。 
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解[自訂計量](metrics-custom-overview.md)。

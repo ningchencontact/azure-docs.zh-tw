@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
-ms.openlocfilehash: f9fd9f88a0aa6af9cd4160bf5879b9b8f383dca1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720433"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780909"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的企業安全性
 
@@ -161,7 +161,7 @@ Azure Machine Learning 服務會將計量和中繼資料儲存到位於 Azure Ma
 
 每個計算節點的 OS 磁片會儲存在 Azure 儲存體使用 Azure Machine Learning 服務儲存體帳戶中的 Microsoft 管理金鑰進行加密。 這是暫時性的計算, 而叢集通常會在沒有任何執行排入佇列時縮小。 基礎虛擬機器已解除布建, 且作業系統磁片已刪除。 OS 磁片不支援 Azure 磁片加密。
 每部虛擬機器也會有本機暫存磁片供 OS 作業使用。 此磁片也可以選擇性地用來暫存定型資料。 此磁片未加密。
-如需 Azure 中待用加密運作方式的詳細資訊, 請參閱[Azure 資料待用加密](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)。
+如需 Azure 中待用加密運作方式的詳細資訊, 請參閱[Azure 資料待用加密](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)。
 
 ### <a name="encryption-in-transit"></a>傳輸中加密
 

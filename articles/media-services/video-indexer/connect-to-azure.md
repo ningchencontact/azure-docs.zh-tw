@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799852"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815679"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>建立連線到 Azure 的影片索引器帳戶
 
@@ -33,7 +33,7 @@ ms.locfileid: "65799852"
 
     如果您沒有 Azure AD 網域，請使用您的 Azure 訂用帳戶建立此網域。 如需詳細資訊，請參閱[管理 Azure Active Directory 中的自訂網域名稱](../../active-directory/users-groups-roles/domains-manage.md)
 
-* Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 Azure 時，會用到此成員。
+* Azure AD 網域中具有**應用程式系統管理員**角色的使用者。 當您將影片索引器帳戶連線到 Azure 時，會用到此成員。
 
     此使用者應該是具有公司或學校帳戶 (非個人帳戶) 的 Azure AD 使用者，個人帳戶是指 outlook.com、live.com 或 hotmail.com 等。
 
@@ -43,7 +43,7 @@ ms.locfileid: "65799852"
 
 Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 Azure 時，會用到此成員。
 
-此使用者應該是Azure 訂用帳戶中具有「擁有者」  角色或同時有「參與者」  和「使用者存取系統管理員」  角色的成員。 使用者能夠以 2 個角色新增 2 次。 一次使用「參與者」角色，另一次使用「使用者存取系統管理員」角色。
+此使用者應該是Azure 訂用帳戶中具有「擁有者」角色或同時有「參與者」和「使用者存取系統管理員」角色的成員。 使用者能夠以 2 個角色新增 2 次。 一次使用「參與者」角色，另一次使用「使用者存取系統管理員」角色。
 
 ![存取控制](./media/create-account/access-control-iam.png)
 
@@ -51,17 +51,20 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 使用 Azure 入口網站註冊 EventGrid 資源提供者。
 
-在 [Azure 入口網站](https://portal.azure.com/)中，前往 [訂用帳戶]  -> [subscription] -> [ResourceProviders]  。 
+在 [Azure 入口網站](https://portal.azure.com/)中，前往 [訂用帳戶] -> [subscription] -> [ResourceProviders]。 
 
-搜尋 **Microsoft.Media** 和 **Microsoft.EventGrid**。 如果不是處於「已註冊」狀態，請按一下 [註冊]  。 這需要幾分鐘來完成註冊。
+搜尋 **Microsoft.Media** 和 **Microsoft.EventGrid**。 如果不是處於「已註冊」狀態，請按一下 [註冊]。 這需要幾分鐘來完成註冊。
 
 ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="connect-to-azure"></a>連接到 Azure
+## <a name="connect-to-azure"></a>連線至 Azure
+
+> [!NOTE]
+> 如果您的 Azure 訂用帳戶使用以憑證為基礎的多重要素驗證, 請務必在已安裝必要憑證的裝置上執行下列步驟。
 
 1. 瀏覽至[影片索引子](https://www.videoindexer.ai/)網站並登入。
 
-2. 按一下 **建立新帳戶**按鈕：
+2. 按一下 [**建立新帳戶**] 按鈕:
 
     ![連線到 Azure](./media/create-account/connect-to-azure.png)
 
@@ -70,28 +73,28 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
     ![將影片索引器連線到 Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
 4. 從支援的位置選取 Azure 區域：美國西部 2、北歐或東亞。
-5. 在 [Azure 媒體服務帳戶]  下，選擇其中一個選項：
+5. 在 [Azure 媒體服務帳戶] 下，選擇其中一個選項：
 
-    * 若要建立新的媒體服務帳戶，請選取 [建立新的資源群組]  。 提供資源群組的名稱。
+    * 若要建立新的媒體服務帳戶，請選取 [建立新的資源群組]。 提供資源群組的名稱。
 
         Azure 會在您的訂用帳戶中建立新帳戶，包括新的 Azure 儲存體帳戶。 新媒體服務帳戶的預設初始設定會有一個串流端點和 10 個 S3 保留單元。
-    * 若要使用現有的媒體服務帳戶，請選取 [使用現有資源]  。 從帳戶清單中，選取您的帳戶。
+    * 若要使用現有的媒體服務帳戶，請選取 [使用現有資源]。 從帳戶清單中，選取您的帳戶。
 
         媒體服務帳戶具有的區域必須與您的影片索引器帳戶相同。 
 
         > [!NOTE]
         > 若要達到最少的索引編製持續時間及低輸送量，強烈建議將媒體服務帳戶中的[保留單元](../previous/media-services-scale-media-processing-overview.md )類型與數目調整為 **10 個 S3 保留單元**。 請參閱[使用入口網站來變更保留單元](../previous/media-services-portal-scale-media-processing.md)。
 
-    * 若要手動設定您的連線，請按一下 [切換為手動設定]  連結。
+    * 若要手動設定您的連線，請按一下 [切換為手動設定] 連結。
 
         如需詳細資訊，請參閱後續的[手動連線到 Azure](#connect-to-azure-manually-advanced-option) (進階選項) 一節。
-6. 完成之後，請選擇 [連線]  。 完成此作業可能需要幾分鐘的時間。 
+6. 完成之後，請選擇 [連線]。 完成此作業可能需要幾分鐘的時間。 
 
     連線至 Azure 之後，新的影片索引器帳戶會出現在帳戶清單中：
 
     ![新帳戶](./media/create-account/new-account.png)
 
-7. 瀏覽至您的新帳戶
+7. 流覽至您的新帳戶
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>手動連線到 Azure (進階選項)
 
@@ -104,7 +107,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 1. 使用 [Azure 入口網站](https://portal.azure.com/)來建立 Azure 媒體服務帳戶，如[建立帳戶](../previous/media-services-portal-create-account.md)所示。
 
-    在建立媒體服務帳戶的儲存體帳戶，選取**StorageV2**的帳戶類型並**異地備援 (GRS)** 複寫欄位。
+    為您的媒體服務帳戶建立儲存體帳戶時, 請針對 [帳戶種類] 選取 [ **StorageV2** ], 並針對 [複寫欄位] 選擇 **[異地冗余 (GRS)** ]。
 
     ![新的 AMS 帳戶](./media/create-account/create-ams-account1.png)
 
@@ -114,17 +117,17 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 2. 將您建立的媒體服務帳戶中的[保留單元](../previous/media-services-scale-media-processing-overview.md )類型與數目調整為 **10 個 S3 保留單元**。 請參閱[使用入口網站來變更保留單元](../previous/media-services-portal-scale-media-processing.md)。
 3. 您必須先啟動新媒體服務帳戶的預設**串流端點**，才能在 Video Indexer Web 應用程式中播放您的影片。
 
-    在新的媒體服務帳戶中，按一下 [串流端點]  。 選取 [串流端點]，然後按 [啟動]。
+    在新的媒體服務帳戶中，按一下 [串流端點]。 選取 [串流端點]，然後按 [啟動]。
 
     ![新的 AMS 帳戶](./media/create-account/create-ams-account2.png)
 
 4. 為了讓 Video Indexer 向媒體服務 API 進行驗證，則必須建立 AD 應用程式。 下列步驟會引導您完成[利用 Azure 入口網站開始使用 Azure AD 驗證](../previous/media-services-portal-get-started-with-aad.md)中所述的 Azure AD 驗證程序：
 
-    1. 在新的媒體服務帳戶中，選取 [API 存取]  。
+    1. 在新的媒體服務帳戶中，選取 [API 存取]。
     2. 選取[服務主體驗證方法](../previous/media-services-portal-get-started-with-aad.md#service-principal-authentication)。
     3. 如[取得用戶端識別碼和用戶端祕密](../previous/media-services-portal-get-started-with-aad.md#get-the-client-id-and-client-secret)一節所述，取得用戶端識別碼和用戶端祕密。
 
-        選取 [設定]  ->[金鑰]  、新增 [描述]  、按 [儲存]  之後，就會填入金鑰值。
+        選取 [設定]->[金鑰]、新增 [描述]、按 [儲存] 之後，就會填入金鑰值。
 
         如果金鑰過期，則帳戶擁有者必須連絡 Video Indexer 支援小組以更新金鑰。
 
@@ -133,7 +136,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 ### <a name="connect-manually"></a>手動連線
 
-在 [Video Indexer](https://www.videoindexer.ai/) 頁面的 [將 Video Indexer 連線到 Azure 訂用帳戶]  對話方塊中，選取 [切換為手動設定]  連結。
+在 [Video Indexer](https://www.videoindexer.ai/) 頁面的 [將 Video Indexer 連線到 Azure 訂用帳戶] 對話方塊中，選取 [切換為手動設定] 連結。
 
 在對話方塊中，提供下列資訊︰
 
@@ -141,7 +144,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 |---|---|
 |影片索引器帳戶區域|影片索引器帳戶區域的名稱。 為了達到較佳的效能和較低的成本，強烈建議您指定 Azure 媒體服務資源和 Azure 儲存體帳戶所在區域的名稱。 |
 |Azure Active Directory (AAD) 租用戶|Azure AD 租用戶的名稱，例如 "contoso.onmicrosoft.com"。 租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。 尋找**網域**右邊的名稱。|
-|訂用帳戶識別碼|用來建立此連線的 Azure 訂用帳戶。 訂用帳戶識別碼可從 Azure 入口網站擷取。 按一下左側面板中的 [所有服務]  ，然後搜尋「訂用帳戶」。 選取 [訂用帳戶]  ，並從訂用帳戶清單中選擇需要的識別碼。|
+|訂用帳戶識別碼|用來建立此連線的 Azure 訂用帳戶。 訂用帳戶識別碼可從 Azure 入口網站擷取。 按一下左側面板中的 [所有服務]，然後搜尋「訂用帳戶」。 選取 [訂用帳戶]，並從訂用帳戶清單中選擇需要的識別碼。|
 |Azure 媒體服務資源群組名稱|您在其中建立媒體服務帳戶的資源群組名稱。|
 |媒體服務資源名稱|您在上一節中建立的 Azure 媒體服務帳戶名稱。|
 |應用程式識別碼|您在上一節中建立的 Azure AD 應用程式識別碼 (具有所指定媒體服務帳戶的權限)。|

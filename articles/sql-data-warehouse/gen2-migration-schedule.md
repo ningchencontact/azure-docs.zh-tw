@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: d4724672510d6ccbbc819691d621400cb00d8c9a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405450"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827219"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>將您的資料倉儲升級為 Gen2
 
@@ -88,7 +88,7 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 - [就地升級](upgrade-to-latest-generation.md) - 這個選項會將您現有的 Gen1 資料倉儲升級至 Gen2。 當我們重新開機您的資料倉儲時, 升級程式會包含連線的短暫下降 (大約5分鐘)。  重新啟動後，您的資料倉儲就會完全可供使用。 如果您在升級期間遇到問題, 請開啟[支援要求](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket), 並參考「Gen2 升級」做為可能的原因。
 - [從還原點升級](sql-data-warehouse-restore.md) - 在目前的 Gen1 資料倉儲上建立使用者定義的還原點，然後直接還原到 Gen2 執行個體。 現有的 Gen1 資料倉儲會保持原狀。 完成還原後，您的 Gen2 資料倉儲就會完全可供使用。  在已還原的 Gen2 執行個體上執行所有測試和驗證程序之後，才能刪除原始的 Gen1 執行個體。
 
-   - 步驟 1:從 Azure 入口網站，[建立使用者定義的還原點](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal)。
+   - 步驟 1:從 Azure 入口網站，[建立使用者定義的還原點](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)。
    - 步驟 2:從使用者定義的還原點還原時，將「效能層級」設定為您慣用的 Gen2 層。
 
 當升級程序繼續在背景中升級資料檔案時，您可能會遇到效能降低的期間。 效能降低的總時間會因您的資料檔案大小而有所不同。
@@ -155,6 +155,6 @@ Microsoft 正在協助降低執行資料倉儲的進入層級成本。  較低�
 - [資源健康情況監視器](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [在開始移轉之前檢閱](upgrade-to-latest-generation.md#before-you-begin)
 - [就地升級和從還原點升級](upgrade-to-latest-generation.md)
-- [建立使用者定義的還原點](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [了解如何還原至 Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [建立使用者定義的還原點](sql-data-warehouse-restore-points.md)
+- [了解如何還原至 Gen2](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)
 - [開始 SQL 資料倉儲支援要求](https://go.microsoft.com/fwlink/?linkid=857950)

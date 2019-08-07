@@ -1,26 +1,26 @@
 ---
-title: 快速入門：使用 Azure 資料總管 Python 程式庫查詢資料
-description: 在本快速入門中，您將了解如何使用 Python，從 Azure 資料總管查詢資料。
+title: 使用 Azure 資料總管 Python 程式庫查詢資料
+description: 在本文中, 您將瞭解如何使用 Python 從 Azure 資料總管查詢資料。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 08/05/2019
+ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360230"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827525"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>快速入門：使用 Azure 資料總管 Python 程式庫查詢資料
+# <a name="query-data-using-the-azure-data-explorer-python-library"></a>使用 Azure 資料總管 Python 程式庫查詢資料
 
-Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供一個[適用於 Python 的資料用戶端程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data) \(英文\)。 此程式庫可讓您從程式碼中查詢資料。 在本快速入門中，您要連線到「說明叢集」  上的資料表，我們已設定此叢集來協助學習。 您接著要查詢該叢集上的資料表，並傳回結果。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Azure 資料總管提供一個[適用於 Python 的資料用戶端程式庫](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data) \(英文\)。 此程式庫可讓您從程式碼中查詢資料。 在本文中, 您會連接到說明叢集上已設定的資料表, 以協助學習。 您接著要查詢該叢集上的資料表，並傳回結果。
 
-本快速入門也可用來作為 [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb) \(英文\)。
+這篇文章也以[Azure 筆記本](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb)的形式提供。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 屬於 Azure Active Directory (AAD) 成員的組織電子郵件帳戶
 
@@ -98,4 +98,4 @@ df
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)
+> [使用 Azure 資料總管 Python 程式庫內嵌資料](python-ingest-data.md)

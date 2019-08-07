@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a26302b0c0b4361fe3e7aae6aba798f433c72ade
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061150"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742188"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
-[Java 中的 Azure Application Insights][java] 疑問或問題？ 以下是一些秘訣。
+[JAVA 中 Azure 應用程式深入][java]解析的問題或問題嗎？ 以下是一些秘訣。
 
 ## <a name="build-errors"></a>建置錯誤
 **在 Eclipse 或 Intellij Idea 中，透過 Maven 或 Gradle 加入 Application Insights SDK 時，我收到建置或總和檢查碼驗證錯誤。**
@@ -35,7 +35,7 @@ ms.locfileid: "67061150"
 * 確認 xml 檔案中沒有 `<DisableTelemetry>true</DisableTelemetry>` 節點。
 * 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com。 請參閱 [完整的防火牆例外狀況清單](../../azure-monitor/app/ip-addresses.md)
 * 在 Microsoft Azure 開始面板中，查看服務狀態對應。 如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
-* 在 ApplicationInsights.xml 檔案 (位於專案的 resources 資料夾) 的根節點下加入 `<SDKLogger />` 元素，即可開啟記錄至 IDE 主控台視窗，然後檢查前面加上 AI:INFO/WARN/ERROR 的項目，確認是否有任何可疑的記錄。
+* 藉由在 ApplicationInsights 中的`<SDKLogger />`根節點底下新增專案 (在專案的 resources 資料夾中), 然後檢查前面加上 AI 的專案, 以[開啟記錄](#debug-data-from-the-sdk):INFO/WARN/ERROR 的項目，確認是否有任何可疑的記錄。 
 * 藉由查看主控台的輸出訊息「已成功找到組態檔」陳述式，確定 Java SDK 已成功載入正確的 ApplicationInsights.xml 檔案。
 * 如果找不到組態檔，請檢查輸出訊息以查看在何處搜尋組態檔，並確定 ApplicationInsights.xml 位在這些搜尋位置中的其中一個位置。 根據經驗法則，您可以將組態檔置於 Application Insights SDK JAR 附近。 例如：在 Tomcat 中，這可能表示 WEB-INF/classes 資料夾。 在開發過程中，您可以將 ApplicationInsights.xml 放在您 Web 專案的 resources 資料夾中。
 * 另外也請查看 [GitHub 問題頁面](https://github.com/Microsoft/ApplicationInsights-Java/issues) \(英文\) 以了解 SDK 的已知問題。
@@ -62,9 +62,9 @@ ms.locfileid: "67061150"
 ## <a name="no-usage-data"></a>沒有使用狀況資料
 **我看到要求和回應時間的相關資料，但沒有看到頁面檢視、瀏覽器或使用者資料的相關資料。**
 
-您已成功設定應用程式從伺服器傳送遙測。 現在，您的下一步是[設定網頁，以從網頁瀏覽器傳送遙測][usage]。
+您已成功設定應用程式從伺服器傳送遙測。 現在, 您的下一步是[設定網頁, 以從網頁瀏覽器傳送遙測][usage]。
 
-或者，如果您的用戶端是[手機或其他裝置][platforms]中的應用程式，則可以從該處傳送遙測。
+或者, 如果您的用戶端是[手機或其他裝置][platforms]中的應用程式, 您可以從該處傳送遙測。
 
 使用相同的檢測機碼來設定用戶端和伺服器遙測。 資料會出現在相同的 Application Insights 資源中，而且您可以相互關聯來自用戶端和伺服器的事件。
 
@@ -95,7 +95,7 @@ ms.locfileid: "67061150"
 **如何變更我的專案將資料傳送到哪一個 Azure 資源？**
 
 * [取得新資源的檢測金鑰。][java]
-* 如果您已使用 Azure Toolkit for Eclipse 將 Application Insights 新增到您的專案，請在 Web 專案上按一下滑鼠右鍵，依序選取 [Azure]  和 [設定 Application Insights]  ，然後變更金鑰。
+* 如果您已使用 Azure Toolkit for Eclipse 將 Application Insights 新增到您的專案，請在 Web 專案上按一下滑鼠右鍵，依序選取 [Azure] 和 [設定 Application Insights]，然後變更金鑰。
 * 如果您已將檢測金鑰設定為環境變數，請使用新的 iKey 更新環境變數的值。
 * 否則，請更新專案之 resources 資料夾的 ApplicationInsights.xml 中的機碼。
 
@@ -110,16 +110,16 @@ ms.locfileid: "67061150"
 您也可以指示記錄器輸出至檔案：
 
 ```XML
-  <SDKLogger type="FILE">
+  <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
 </SDKLogger>
 ```
 
-### <a name="spring-boot-starter"></a>Spring Boot Starter
+### <a name="spring-boot-starter"></a>春季開機 Starter
 
-若要啟用 SDK 記錄具有使用 Application Insights Spring Boot Starter 的 Spring Boot 應用程式，將下列內容加入`application.properties`檔案。:
+若要使用 Application Insights 春季開機 Starter 來啟用具有春季開機應用程式的 SDK 記錄, 請將`application.properties`下列內容新增至檔案:
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -127,16 +127,38 @@ azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
 ```
 
-### <a name="java-agent"></a>Java 代理程式
+或列印到標準錯誤:
 
-若要啟用 JVM 代理程式記錄的更新[Ai-agent.xml 檔案](java-agent.md)。
+```yaml
+azure.application-insights.logger.type=console
+azure.application-insights.logger.level=trace
+```
+
+### <a name="java-agent"></a>JAVA 代理程式
+
+若要啟用 JVM 代理程式記錄, 請更新[ai-agent.xml](java-agent.md):
 
 ```xml
-<AgentLogger type="FILE">
+<AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
 </AgentLogger>
+```
+
+### <a name="java-command-line-properties"></a>JAVA 命令列屬性
+_自版本2.4。0_
+
+若要使用命令列選項來啟用記錄, 而不變更設定檔:
+
+```
+java -Dapplicationinsights.logger.file.level=trace -Dapplicationinsights.logger.file.uniquePrefix=AI -Dapplicationinsights.logger.baseFolderPath="C:/my/log/dir" -jar MyApp.jar
+```
+
+或列印到標準錯誤:
+
+```
+java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 ```
 
 ## <a name="the-azure-start-screen"></a>Azure 開始畫面
@@ -146,7 +168,7 @@ azure.application-insights.logger.level=trace
 
 *從 Azure 開始面板 (主畫面) 中，如何找到我應用程式的相關資料？*
 
-假設您已[設定 Application Insights 的應用程式][java]，請按一下 [瀏覽]，選取 [Application Insights]，然後選取您為應用程式建立的應用程式資源。 日後若要更快速地從該處開始，您可以將應用程式釘選至開始面板。
+假設您已[設定 Application Insights 的應用程式][java], 請按一下 [流覽], 選取 [Application Insights], 然後選取您為應用程式建立的應用程式資源。 日後若要更快速地從該處開始，您可以將應用程式釘選至開始面板。
 
 ## <a name="intranet-servers"></a>內部網路伺服器
 **可以在我的內部網路上監視伺服器嗎？**
@@ -170,11 +192,11 @@ Application insights 會使用 `org.apache.http`。 這會重新配置在 Applic
 ## <a name="next-steps"></a>後續步驟
 **設定 Java 伺服器應用程式的 Application Insights。我還可以做什麼？**
 
-* [監視網頁可用性][availability]
-* [監視網頁使用狀況][usage]
-* [追蹤使用狀況並診斷裝置應用程式中的問題][platforms]
-* [撰寫程式碼以追蹤應用程式使用狀況][track]
-* [擷取診斷記錄][javalogs]
+* [監視您網頁的可用性][availability]
+* [監視網頁使用方式][usage]
+* [追蹤使用方式並診斷裝置應用程式中的問題][platforms]
+* [撰寫程式碼以追蹤應用程式的使用方式][track]
+* [捕捉診斷記錄][javalogs]
 
 ## <a name="get-help"></a>取得說明
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)

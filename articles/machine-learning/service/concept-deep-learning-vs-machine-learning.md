@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
-ms.openlocfilehash: d97c3d47a277ecd8b1de635e3d835f9ee1f42057
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 08/07/2019
+ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700349"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840533"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>深度學習與機器學習的簡介
 
@@ -43,9 +43,9 @@ ms.locfileid: "68700349"
 
 下表將更詳細地比較這兩種技術:
 
-| |機器學習服務 |深入學習|
+| |所有機器學習服務 |僅深度學習|
 |---|---|---|
-|  **資料點數目** | 可以使用使用者所提供的小型資料量 | 需要大量未標記的定型資料, 才能進行精確的結論 |
+|  **資料點數目** | 可以使用使用者所提供的小型資料量 | 需要大量的定型資料才能進行精確結論 |
 |  **硬體相依性** | 可以在低端機器上工作。 不需要大量的計算能力 | 取決於高階機器。 它原本就會執行大量的矩陣乘法運算。 這些作業可以使用 GPU 有效率地進行優化 |
 |  **特徵化流程** | 需要正確識別並由使用者建立的功能 | 它會從資料學習高階功能, 並自行建立新功能 |
 |  **學習方法** | 將工作分成小部分, 然後將接收的結果合併成一個結論 | 以端對端為基礎解決問題 |

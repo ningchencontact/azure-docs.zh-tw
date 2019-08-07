@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 4b50b4acf6ea655c40821e7c49824af11aeeb9ab
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876184"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816296"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -122,7 +122,12 @@ ms.locfileid: "67876184"
 
     是的。 若您從自己的媒體部署 SQL Server，而且已安裝 SQL IaaS 延伸模組，您可以向資源提供者註冊您自己的 SQL Server VM，以取得 SQL IaaS 延伸模組所提供的管理能力優點。 不過，您無法將自我部署 SQL VM 轉換為隨用隨付。
 
-## <a name="administration"></a>系統管理
+1. **可以在使用傳統模型部署的 SQL Server VM 上切換授權模型嗎？**
+
+   資料分割 傳統 VM 不支援變更授權模型。 您可以將 VM 遷移至 resource manager 模型 (ARM), 並向 SQL VM 資源提供者註冊。 一旦向 SQL VM 資源提供者註冊 VM 之後, 授權模型變更就會在 VM 上提供。 
+   
+
+## <a name="administration"></a>管理
 
 1. **是否可以在相同的 VM 上安裝第二個 SQL Server 執行個體？是否可以變更預設執行個體的已安裝功能？**
 
@@ -146,9 +151,9 @@ ms.locfileid: "67876184"
    
 ## <a name="updating-and-patching"></a>更新和修補
 
-1. **如何? 在 Azure VM 中變更為不同版本的 SQL Server 嗎？**
+1. **如何將 Azure VM 中的 SQL Server 變更為不同版本？**
 
-   客戶可以使用安裝媒體 (其中包含其所需的 SQL Server 版本或版本), 來變更其版本/版本的 SQL Server。 變更版本之後, 請使用 Azure 入口網站來修改 VM 的版本屬性, 以精確反映 VM 的計費。 如需詳細資訊, 請參閱[SQL SERVER VM 的變更版本](virtual-machines-windows-sql-change-edition.md)。 
+   客戶可以使用包含所需 SQL Server 版本或版次的安裝媒體來變更 SQL Server 的版本/版次。 變更版本之後，請使用 Azure 入口網站來修改 VM 的版本屬性，以精確反映 VM 的計費。 如需詳細資訊, 請參閱[SQL SERVER VM 的變更版本](virtual-machines-windows-sql-change-edition.md)。 
 
 
 1. **如何將更新和 Service Pack 套用到 SQL Server VM 上？**

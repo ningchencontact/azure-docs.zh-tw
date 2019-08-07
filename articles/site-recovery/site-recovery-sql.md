@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 7ee7d6434058da63883f8db0eae6a3f91c778338
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325122"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742330"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>設定 SQL Server 的災害復原
 
@@ -39,7 +39,7 @@ ms.locfileid: "68325122"
 在 Azure IaaS VM 或內部部署環境中 SQL Server。| [資料庫鏡像 (高效能模式)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | 強制服務所花費的時間, 使用鏡像伺服器做為暖待命伺服器。 | 複寫不是同步進行。 鏡像資料庫可能會稍微落後主體資料庫。 延遲通常很小。 但如果主體或鏡像伺服器的系統負載過重, 可能會變得很大。<br/><br/>記錄傳送可以是資料庫鏡像的補充。 這是非同步資料庫鏡像的理想替代方法。
 SQL 做為 Azure 上的平臺即服務 (PaaS)。<br/><br/>此部署類型包含彈性集區和 Azure SQL Database 伺服器。 | 主動式異地複寫 | 觸發容錯移轉後的30秒。<br/><br/>針對其中一個次要資料庫啟用容錯移轉時, 所有其他的次要複本都會自動連結至新的主要複本。 | 五秒的 RPO。<br/><br/>主動式異地複寫使用 SQL Server 的 Always On 技術。 它會使用快照集隔離, 以非同步方式將主資料庫上認可的交易複寫到次要資料庫。<br/><br/>次要資料保證永遠不會有部分交易。
 使用 Azure 上的主動式異地複寫設定的 SQL 做為 PaaS。<br/><br/>此部署類型包含 SQL Database 受控實例、彈性集區和 SQL Database 伺服器。 | 自動容錯移轉群組 | 一小時的 RTO。 | 五秒的 RPO。<br/><br/>自動容錯移轉群組在主動式異地複寫之上提供群組語義。 但使用相同的非同步複寫機制。
-在 Azure IaaS VM 或內部部署環境中 SQL Server。| 使用 Azure Site Recovery 進行複寫 | RTO 通常少於15分鐘。 若要深入瞭解, 請參閱[Site Recovery 所提供的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 | 應用程式一致性的一小時, 以及5分鐘的損毀一致性。
+在 Azure IaaS VM 或內部部署環境中 SQL Server。| 使用 Azure Site Recovery 進行複寫 | RTO 通常少於15分鐘。 若要深入瞭解, 請參閱[Site Recovery 所提供的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 | 應用程式一致性的一小時, 以及5分鐘的損毀一致性。 如果您要尋找較低的 RPO, 請使用其他 BCDR 技術。
 
 > [!NOTE]
 > 當您使用 Site Recovery 來協助保護 SQL 工作負載時, 有幾個重要的考慮:
@@ -54,7 +54,7 @@ Site Recovery 會透過復原計畫的協助, 協調整個應用程式的測試�
 
 有一些必要條件可確保您的復原計畫已根據您的需求完全自訂。 任何 SQL Server 部署通常需要 Active Directory 部署。 它也需要您應用層的連線能力。
 
-### <a name="step-1-set-up-active-directory"></a>步驟 1：設定 Active Directory
+### <a name="step-1-set-up-active-directory"></a>步驟 1:設定 Active Directory
 
 設定次要復原網站中的 Active Directory, 讓 SQL Server 正常執行。
 
@@ -65,7 +65,7 @@ Site Recovery 會透過復原計畫的協助, 協調整個應用程式的測試�
 
 本文中的指示假設在次要位置中可以使用網域控制站。 若要深入瞭解, 請參閱[使用 Site Recovery 協助保護 Active Directory](site-recovery-active-directory.md)的程式。
 
-### <a name="step-2-ensure-connectivity-with-other-tiers"></a>步驟 2：確保與其他層的連線能力
+### <a name="step-2-ensure-connectivity-with-other-tiers"></a>步驟 2:確保與其他層的連線能力
 
 在目標 Azure 區域中執行資料庫層之後, 請確定您已與應用程式和 web 層連接。 事先採取必要的步驟, 以驗證與測試容錯移轉的連線能力。
 
@@ -149,7 +149,7 @@ Site Recovery 不會在複寫至 Azure 區域時提供來賓叢集支援。 SQL 
 
 針對 SQL Server 標準叢集, 在未規劃的容錯移轉之後進行容錯回復需要 SQL Server 備份和還原。 這項作業是透過重新建立鏡像, 從鏡像實例到原始叢集進行。
 
-## <a name="frequently-asked-questions"></a>常見問題集
+## <a name="frequently-asked-questions"></a>常見問答集
 
 ### <a name="how-does-sql-server-get-licensed-when-used-with-site-recovery"></a>搭配 Site Recovery 使用時, SQL Server 如何取得授權？
 

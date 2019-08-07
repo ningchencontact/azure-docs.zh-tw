@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876528"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742266"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 應用程式供應項目發行指南
 
@@ -25,7 +25,7 @@ SaaS 應用程式可以在市集中透過三種不同的呼籲行動來發行：
 | 店面選項 | 列出清單 | 試用版/交易 |  
 | --- | --- | --- |  
 | AppSource | 是 (與我連絡) | 是 (PowerBI/Dynamics) |
-| Azure Marketplace | 否 | 是 (SaaS 應用程式) |   
+| Azure 市集 | 否 | 是 (SaaS 應用程式) |   
 
 **列出清單：** 「列出清單」發行選項包含「與我連絡」的供應項目類型，當試用版層級或交易層級的參與方式不可行時，適用此方法。 此方法的優點是可讓發行者的解決方案上市，立即開始接收可能產生交易的潛在客戶，進而提升業績。  
 **試用版/交易：** 客戶可以選擇直接購買或要求試用您的解決方案。 提供試用版體驗會提升客戶的參與度，並可讓客戶先探索您的解決方案，再進行購買。 使用試用版體驗，較可能在店面獲得推廣機會，而且從客戶參與而來的潛在客戶也應會更多、更廣泛。 試用版必須至少包括在試用期間提供免費支援。  
@@ -126,13 +126,13 @@ Microsoft 會使用 Azure AD 來驗證所有 Marketplace 使用者, 因此當已
 ## <a name="saas-subscriptions"></a>SaaS 訂用帳戶
 
 您可以使用「SaaS 應用程式」供應項目類型，讓客戶以訂用帳戶的形式購買您的 SaaS 型技術解決方案。 您的 SaaS 應用程式必須符合下列需求：
-- 定價和計費採用均一的每月費率。
+- 以一般 (每月或每年), 或依每個使用者的費率來支付服務的價格和費用。
 - 提供可隨時升級或取消服務的方法。
-Microsoft 主控商務交易。 Microsoft 代表您向客戶收費。 若要將 SaaS 應用程式以訂用帳戶的形式計費，您必須啟用您自己的訂用帳戶管理服務 API。 您的訂用帳戶管理服務 API 必須直接與 Azure Resource Manager API 進行通訊。 您的訂用帳戶管理服務 API 必須支援服務佈建、升級和取消。
+Microsoft 主控商務交易。 Microsoft 代表您向客戶收費。 若要以訂用帳戶的形式提供 SaaS 應用程式, 您必須與 SaaS 履行 Api 整合。  您的服務必須支援布建、升級和取消。
 
 | 需求 | 詳細資料 |  
 |:--- |:--- |  
-|計費和計量 | 您供應項目的定價為每月均一價。 目前不支援以用量計價及根據用量調整的功能。 |  
+|計費和計量 | 您的供應專案是根據您在發佈之前選取的定價模型 (一般費率或每位使用者) 來計價。  如果使用 [一般費率] 模型, 您可以選擇性地包含額外的維度, 用來向客戶收取未包含在非固定費率的使用量。 |  
 |取消 | 客戶可隨時取消您的供應項目。 |  
 |交易登陸頁面 | 您裝載 Azure 共同品牌的交易登陸頁面，使用者能夠在頁面上建立並管理其 SaaS 服務帳戶。 |   
 | 訂用帳戶 API | 您公開一項服務，能與 SaaS 訂用帳戶互動，以建立、更新及刪除使用者帳戶與服務方案。 必須在 24 小時內支援重大的 API 變更。 需定期發行非重大的 API 變更。 |  

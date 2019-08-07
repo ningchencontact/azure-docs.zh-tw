@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2581106466f7d84cc694cd47d4ba02e40bf60b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427850"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815752"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -39,7 +39,7 @@ ms.locfileid: "66427850"
 -   以 IT 管理員、PKI 管理員或任何使用 CA 管理帳戶之人的身分上線，針對指定的公司 (例如 Contoso) 是使用 Key Vault 憑證的先決條件。  
     下列 CA 是使用 Key Vault 的目前合作提供者：  
     -   DigiCert - Key Vault 透過 DigiCert 提供 OV SSL 憑證。  
-    -   Globaltrust-金鑰保存庫會提供關於 SSL 與 Globaltrust 的憑證。  
+    -   透過 globalsign-Key Vault 使用透過 globalsign 提供 OV SSL 憑證。  
 
 **Step 2** - CA 提供者的帳戶管理員會建立 Key Vault 用來透過 Key Vault 註冊、更新和使用 SSL 憑證的認證。
 
@@ -97,16 +97,16 @@ ms.locfileid: "66427850"
 
 -   此外，使用者可以編輯原則，而此原則是在匯入時作用，但包含匯入時未指定任何資訊的預設值。 例如 無簽發者資訊  
 
-### <a name="formats-of-import-we-support"></a>我們支援的匯入的格式
-我們支援下列類型的匯入 PEM 檔案格式。 PKCS #8 編碼，其具有下列的未加密金鑰以及單一 PEM 編碼的憑證
+### <a name="formats-of-import-we-support"></a>我們支援的匯入格式
+我們支援下列 PEM 檔案格式的匯入類型。 單一 PEM 編碼的憑證, 連同 PKCS # 8 編碼、未加密的金鑰, 其中包含下列各項
 
----BEGIN CERTIFICATE------END CERTIFICATE--
+-----開始憑證----------結束憑證-----
 
----BEGIN PRIVATE KEY------END PRIVATE KEY---美元
+-----開始私密金鑰----------結束私密金鑰-----
 
-憑證合併中，我們支援 2 個架構的 PEM 格式。 是，您可以合併為單一的 PKCS #8 編碼的憑證，或以 base64 編碼而 P7B 檔案。 ---BEGIN CERTIFICATE------END CERTIFICATE--
+在憑證合併時, 我們支援2個 PEM 格式。 您可以合併單一 PKCS # 8 編碼憑證或 base64 編碼的 P7B 檔案。 -----開始憑證----------結束憑證-----
 
-我們目前不支援以 PEM 格式 EC 索引鍵。
+我們目前不支援 PEM 格式的 EC 按鍵。
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>使用未與 Key Vault 合作的 CA 建立憑證  
  這種方法允許與 Key Vault 合作提供者以外的其他 CA 合作，這表示您的組織可以與它選擇的 CA 合作。  

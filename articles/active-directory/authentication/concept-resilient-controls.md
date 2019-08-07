@@ -1,5 +1,5 @@
 ---
-title: 建立具有恢復功能的存取控制管理策略-Azure Active Directory
+title: 建立彈性的存取控制管理原則-Azure Active Directory
 description: 本文件提供有關組織所應採用策略的指引，這些策略可提供靈活彈性，以在發生未預期的中斷情況期間降低鎖定風險
 services: active-directory
 author: martincoetzer
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594949"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779682"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 來建立具彈性的存取控制管理策略
 
@@ -37,8 +37,8 @@ ms.locfileid: "67594949"
 本文件中有四個重點：
 
 * 使用緊急存取帳戶來避免系統管理員鎖定。
-* 實作使用條件式存取 (CA) 的 MFA，而不是每個使用者的 MFA。
-* 使用多個條件式存取 (CA) 控制項，以避免使用者鎖定。
+* 使用條件式存取 (CA), 而不是每個使用者的 MFA 來執行 MFA。
+* 使用多個條件式存取 (CA) 控制項來減輕使用者鎖定的風險。
 * 為每個使用者佈建多個驗證方法或對等的方法，以降低使用者鎖定風險。
 
 ## <a name="before-a-disruption"></a>在中斷情況發生前
@@ -54,15 +54,15 @@ ms.locfileid: "67594949"
 
 ### <a name="administrator-lockout-contingency"></a>系統管理員鎖定應變措施
 
-為了將系統管理員對您租用戶的存取權解除鎖定，您應該建立緊急存取帳戶。 這些緊急存取帳戶 (也稱為「急用」  帳戶) 可允許在無法使用一般特殊權限帳戶存取程序時，進行存取來管理 Azure AD 設定。 依照[緊急存取帳戶建議]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)，應該至少建立兩個緊急存取帳戶。
+為了將系統管理員對您租用戶的存取權解除鎖定，您應該建立緊急存取帳戶。 這些緊急存取帳戶 (也稱為「急用」帳戶) 可允許在無法使用一般特殊權限帳戶存取程序時，進行存取來管理 Azure AD 設定。 依照[緊急存取帳戶建議]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)，應該至少建立兩個緊急存取帳戶。
 
 ### <a name="mitigating-user-lockout"></a>降低使用者鎖定風險
 
- 若要減輕風險的使用者鎖定，使用條件式存取原則和多個控制項，讓使用者選擇一種方式將會存取應用程式和資源。 例如，藉由讓使用者能夠選擇使用 MFA 進行登入  、從受控裝置進行登入**或**從公司網路進行登入，當其中一個存取控制措施無法供使用時，使用者便還有其他選項來繼續工作。
+ 若要降低使用者鎖定的風險, 請使用具有多個控制項的條件式存取原則, 讓使用者能夠選擇其存取應用程式和資源的方式。 例如，藉由讓使用者能夠選擇使用 MFA 進行登入、從受控裝置進行登入**或**從公司網路進行登入，當其中一個存取控制措施無法供使用時，使用者便還有其他選項來繼續工作。
 
 #### <a name="microsoft-recommendations"></a>Microsoft 建議
 
-加入現有的條件式存取原則為組織中的下列存取控制：
+在您現有的組織條件式存取原則中納入下列存取控制:
 
 1. 為倚賴不同通訊通道的每個使用者佈建多個驗證方法，例如 Microsoft Authenticator 應用程式 (網際網路型)、OATH 權杖 (於裝置上產生) 及 SMS (電話)。
 2. 在 Windows 10 裝置上部署「Windows Hello 企業版」以直接從裝置登入滿足 MFA 需求。
@@ -81,7 +81,7 @@ ms.locfileid: "67594949"
   * 使用者和群組：包含所有使用者。 排除 AppUsers、CoreAdmins 及 EmergencyAccess
   * 雲端應用程式：包含所有應用程式
   * 條件：(無)
-  * 授與控制權：區塊
+  * 授與控制權：封鎖
 * 原則 2：對要求 MFA 或受信任裝置的 AppUsers 授與存取權。
   * 使用者和群組：包含 AppUsers。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：包含所有應用程式
@@ -109,7 +109,7 @@ ms.locfileid: "67594949"
 
 #### <a name="microsoft-recommendations"></a>Microsoft 建議
 
-應變計的條件式存取原則**停用原則**，省略 Azure MFA，第三方 MFA 以風險為基礎或以裝置為基礎的控制項。 而當您的組織決定啟用應變計劃時，系統管理員則可以啟用該原則，並停用一般的控制型原則。
+應變條件存取原則是**停用的原則**, 省略了 Azure MFA、協力廠商 MFA、以風險為基礎或裝置型控制項。 而當您的組織決定啟用應變計劃時，系統管理員則可以啟用該原則，並停用一般的控制型原則。
 
 >[!IMPORTANT]
 > 當已備妥應變計劃時，停用會對使用者強制執行安全性的原則將會降低安全性狀態，即使只是暫時停用也一樣。
@@ -121,13 +121,13 @@ ms.locfileid: "67594949"
   * 設定一個將受限工作階段宣告傳送給 Exchange 和 SharePoint 的備份原則。
   * 如果您的組織使用 Microsoft Cloud App Security，請考慮切換回會牽涉 MCAS 的原則，然後 MCAS 就會允許唯讀存取而非上傳。
 * 為您的原則命名，以確定在中斷期間可以輕易找到這些原則。 請在原則名稱中包含下列元素：
-  * 原則的標籤號碼  。
+  * 原則的標籤號碼。
   * 用來指出此原則僅供緊急狀況使用的文字。 例如: **ENABLE IN EMERGENCY**
   * 適用的*中斷情況*。 例如: **在 MFA 中斷期間**
-  *  以序號顯示您必須啟動原則的順序。
-  * 適用的應用程式  。
-  * 適用的控制項  。
-  * 所需的條件  。
+  * 以序號顯示您必須啟動原則的順序。
+  * 適用的應用程式。
+  * 適用的控制項。
+  * 所需的條件。
   
 應變原則的這個命名標準將顯示如下： 
 
@@ -140,32 +140,32 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 **範例 A - 用以還原對任務關鍵性共同作業應用程式之存取權的應變 CA 原則：**
 
 * 原則 1：針對 Exchange 和 SharePoint 要求要有「已加入網域」的裝置
-  * 名稱：EM001 - ENABLE IN EMERGENCY:MFA Disruption[1/4] - Exchange SharePoint - 需要混合式 Azure AD Join
+  * 名稱:EM001 - ENABLE IN EMERGENCY:MFA Disruption[1/4] - Exchange SharePoint - 需要混合式 Azure AD Join
   * 使用者和群組：包含 ContingencyAccess。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：Any
   * 授與控制權：要求已加入網域
   * 狀態：已停用
 * 原則 2：封鎖 Windows 以外的平台
-  * 名稱：EM002 - ENABLE IN EMERGENCY:MFA Disruption[2/4] - Exchange SharePoint - 封鎖 Windows 以外的存取
+  * 名稱:EM002 - ENABLE IN EMERGENCY:MFA Disruption[2/4] - Exchange SharePoint - 封鎖 Windows 以外的存取
   * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：裝置平台包含所有平台，但 Windows 除外
-  * 授與控制權：區塊
+  * 授與控制權：封鎖
   * 狀態：已停用
 * 原則 3：封鎖 CorpNetwork 以外的網路
-  * 名稱：EM003 - ENABLE IN EMERGENCY:MFA Disruption[3/4] - Exchange SharePoint - 封鎖公司網路以外的存取
+  * 名稱:EM003 - ENABLE IN EMERGENCY:MFA Disruption[3/4] - Exchange SharePoint - 封鎖公司網路以外的存取
   * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：位置包含任何位置，但 CorpNetwork 除外
-  * 授與控制權：區塊
+  * 授與控制權：封鎖
   * 狀態：已停用
 * 原則 4：明確封鎖 EAS
-  * 名稱：EM004 - ENABLE IN EMERGENCY:MFA Disruption[4/4] - Exchange - 封鎖所有使用者的 EAS
+  * 名稱:EM004 - ENABLE IN EMERGENCY:MFA Disruption[4/4] - Exchange - 封鎖所有使用者的 EAS
   * 使用者和群組：包含所有使用者
   * 雲端應用程式：包含 Exchange Online
   * 條件：用戶端應用程式：Exchange Active Sync
-  * 授與控制權：區塊
+  * 授與控制權：封鎖
   * 狀態：已停用
 
 啟用順序：
@@ -182,18 +182,18 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 **範例 B - 應變 CA 原則：**
 
 * 原則 1：封鎖不在 SalesContingency 小組中的所有人員
-  * 名稱：EM001 - ENABLE IN EMERGENCY:Device Compliance Disruption[1/2] - Salesforce - 封鎖 SalesforceContingency 以外的所有使用者
+  * 名稱:EM001 - ENABLE IN EMERGENCY:Device Compliance Disruption[1/2] - Salesforce - 封鎖 SalesforceContingency 以外的所有使用者
   * 使用者和群組：包含所有使用者。 排除 SalesAdmins 和 SalesforceContingency
   * 雲端應用程式：Salesforce。
   * 條件：None
-  * 授與控制權：區塊
+  * 授與控制權：封鎖
   * 狀態：已停用
 * 原則 2：封鎖來自行動平台以外任何平台的銷售小組 (以縮小受攻擊面區域)
-  * 名稱：EM002 - ENABLE IN EMERGENCY:Device Compliance Disruption[2/2] - Salesforce - 封鎖 iOS 和 Android 以外的所有平台
+  * 名稱:EM002 - ENABLE IN EMERGENCY:Device Compliance Disruption[2/2] - Salesforce - 封鎖 iOS 和 Android 以外的所有平台
   * 使用者和群組：包含 SalesforceContingency。 排除 SalesAdmins
   * 雲端應用程式：Salesforce
   * 條件：裝置平台包含所有平台，但 iOS 和 Android 除外
-  * 授與控制權：區塊
+  * 授與控制權：封鎖
   * 狀態：已停用
 
 啟用順序：
@@ -210,7 +210,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 - 您的組織將混合式身分識別解決方案與傳遞驗證或同盟搭配使用。
 - 您的內部部署身分識別系統 (例如 Active Directory、AD FS 或相依元件) 無法供使用。 
  
-若要更具彈性，您的組織應該[啟用密碼雜湊同步](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)，因為它可讓您在內部部署身分識別系統無法運作時，[切換成使用密碼雜湊同步](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin)。
+若要更具彈性，您的組織應該[啟用密碼雜湊同步](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)，因為它可讓您在內部部署身分識別系統無法運作時，[切換成使用密碼雜湊同步](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin)。
 
 #### <a name="microsoft-recommendations"></a>Microsoft 建議
  不論您組織使用同盟還是傳遞驗證，都使用 Azure AD Connect 精靈來啟用密碼雜湊同步。
@@ -247,7 +247,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 ## <a name="emergency-options"></a>緊急選項
 
- 發生在發生緊急狀況與您的組織未先前未實作緩和或應變計劃，然後依照中的建議[使用者鎖定的偶發事件](#contingencies-for-user-lockout)區段如果他們已經使用條件式存取若要強制執行 MFA 原則。
+ 萬一發生緊急狀況, 而您的組織先前未實行緩和措施或應變計劃, 則請遵循[使用者鎖定的應變](#contingencies-for-user-lockout)一節中的建議, 如果他們已經使用條件式存取原則來強制執行 MFA。
 如果組織使用個別使用者 MFA 舊版原則，則您可以考慮使用下列替代方案：
 
 1. 如果您有公司網路連出 IP 位址，您可以將它們新增為受信任的 IP，以只針對公司網路啟用驗證。
@@ -259,7 +259,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 >[!NOTE]
  > 只有在使用 [Azure AD Premium 授權](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)的情況下，才能為 Azure MFA 設定[受信任的 IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings)。
 
-## <a name="learn-more"></a>深入了解
+## <a name="learn-more"></a>更多資訊
 
 * [Azure AD 驗證文件](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [在 Azure AD 中管理緊急存取系統管理帳戶](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
@@ -268,5 +268,5 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 * [如何設定混合式 Azure Active Directory 已聯結裝置](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello 企業版部署指南](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [密碼指引 - Microsoft 研究](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf) \(英文\)
-* [Azure Active Directory 條件式存取中的條件有哪些？](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [在 Azure Active Directory 條件式存取的存取控制有哪些？](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Azure Active Directory 條件式存取中的條件為何？](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [什麼是 Azure Active Directory 條件式存取中的存取控制？](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

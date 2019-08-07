@@ -1,6 +1,6 @@
 ---
-title: 保存 Azure Cloud Shell 中的 Bash 檔案 | Microsoft Docs
-description: 逐步解說 Azure Cloud Shell 中的 Bash 如何保存檔案。
+title: 在 Azure Cloud Shell 中保存檔案 |Microsoft Docs
+description: 逐步解說 Azure Cloud Shell 如何保存檔案。
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: 0aa00af543a3d21db9b8ad0ed808a8bff0b534e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60200136"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742044"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: 規劃調整您的 Azure 時間序列深入解析環境規模 | Microsoft Docs
-description: 本文說明如何遵循最佳作法，當您計劃的 Azure Time Series Insights 環境。 涵蓋的領域包括儲存體容量、 資料保留、 輸入容量、 監視和商務持續性和災害復原 (BCDR)。
+description: 本文說明如何在規劃 Azure 時間序列深入解析環境時遵循最佳作法。 涵蓋的區域包括儲存容量、資料保留、輸入容量、監視, 以及商務持續性和嚴重損壞修復 (BCDR)。
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
@@ -10,52 +10,52 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c11e3f623817894cea801173239cc386c6c3313
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 1e0fee903372668d30db0686f6a23dd913428454
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165827"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828182"
 ---
-# <a name="plan-your-azure-time-series-insights-ga-environment"></a>規劃 Azure 時間序列深入解析 GA 環境
+# <a name="plan-your-azure-time-series-insights-ga-environment"></a>規劃您的 Azure 時間序列深入解析 GA 環境
 
-本文說明如何規劃 Azure 時間序列深入解析公開上市 (GA) 環境根據預期的輸入速率和資料保留需求。
+本文說明如何根據預期的輸入速率和資料保留需求, 規劃您的 Azure 時間序列深入解析公開上市 (GA) 環境。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
-**觀看這段影片以深入了解在 Azure 時間序列深入解析，以及如何規劃它的資料保留期**:<br /><br />
+**觀看這段影片以深入瞭解 Azure 時間序列深入解析中的資料保留以及如何進行規劃**:<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
-若要開始使用 Time Series Insights，最好是如果您知道您要推送的分鐘數和您要儲存資料的時間長度的資料量。  
+若要開始使用時間序列深入解析, 最好是知道您預期每分鐘推送的資料量, 以及儲存資料所需的時間。  
 
 如需這兩個時間序列深入解析 SKU 的容量和保留之詳細資訊，請參閱[時間序列深入解析定價](https://azure.microsoft.com/pricing/details/time-series-insights/)。
 
-若要最規劃您的 Time Series Insights 環境的長期成功，請考慮下列屬性：
+若要為您的時間序列深入解析環境進行長期成功的規劃, 請考慮下列屬性:
 
 - <a href="#storage-capacity">儲存體容量</a>
 - <a href="#data-retention">資料保留期限</a>
 - <a href="#ingress-capacity">輸入容量</a>
 - <a href="#shape-your-events">塑造您的事件</a>
-- <a href="#ensure-that-you-have-reference-data">確保您已經找備妥的參考資料</a>
+- <a href="#ensure-that-you-have-reference-data">確保您已備妥參考資料</a>
 
 ## <a name="storage-capacity"></a>儲存體容量
 
-依預設，時間序列深入解析會保留資料是根據您佈建的儲存體數量 (單位&#215;的每個單位的儲存體數量) 和輸入。
+根據預設, 時間序列深入解析會依據您布建的儲存體數量 (單位&#215;為每個單位的儲存體數量) 和輸入來保留資料。
 
 ## <a name="data-retention"></a>資料保留
 
-您可以變更**資料保留時間**Time Series Insights 環境中的設定。 您可以啟用最多 400 天保留期。 
+您可以變更時間序列深入解析環境中的 [**資料保留時間**] 設定。 您最多可以啟用400天的保留期。 
 
-時間序列深入解析有兩種模式。 一種模式最佳化以確保您的環境具有最新的資料。 預設為開啟，這種模式。 
+時間序列深入解析有兩種模式。 其中一種模式會優化, 以確保您的環境具有最新的資料。 此模式預設為開啟。 
 
-另一個模式最佳化以確保符合的保留期限制。 在第二個模式中，如果符合環境的整體儲存體容量的情況下，會暫停輸入。 
+另一種模式會優化以確保符合保留限制。 在第二個模式中, 如果符合環境的整體儲存體容量, 則會暫停輸入。 
 
-您可以調整保留，並在 Azure 入口網站中環境的 [設定] 頁面上的兩個模式之間切換。
+您可以在 [Azure 入口網站] 環境的 [設定] 頁面上, 調整兩種模式的保留期和切換。
 
 您可以在時間序列深入解析環境中設定最大值為 400 天的資料保留期。
 
@@ -63,45 +63,45 @@ ms.locfileid: "67165827"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取您的時間序列深入解析環境。
 
-1. 在  **Time Series Insights 環境**窗格下方**設定**，選取**設定**。
+1. 在 [**時間序列深入解析環境**] 窗格的 [**設定**] 底下, 選取 [**設定**]。
 
-1. 在  **（以天為單位） 的資料保留時間**方塊中，輸入介於 1 到 400 的值。
+1. 在 [**資料保留時間 (以天**為單位)] 方塊中, 輸入介於1到400之間的值。
 
    [![設定保留期](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
 > [!TIP]
-> 若要深入了解如何實作適當的資料保留原則，請參閱[如何設定保留期](./time-series-insights-how-to-configure-retention.md)。
+> 若要深入瞭解如何執行適當的資料保留原則, 請參閱[如何設定保留期](./time-series-insights-how-to-configure-retention.md)。
 
 ## <a name="ingress-capacity"></a>輸入容量
 
-將焦點放在規劃您的 Time Series Insights 環境的第二個區域是輸入容量。 輸入容量是每分鐘配置的衍生。
+要專注于規劃時間序列深入解析環境的第二個區域是輸入容量。 輸入容量是每分鐘配置的衍生。
 
-節流的觀點而言，封包大小為 32 KB 的輸入資料封包會被視為 32 個事件，每個 1KB 大小而定。 允許的事件大小上限為 32 KB。 大於 32 KB 的資料封包會被截斷。
+從節流的觀點來看, 封包大小為 32 KB 的輸入資料封包會被視為32事件, 每個大小都是 1 KB。 允許的事件大小上限為 32 KB。 大於 32 KB 的資料封包會被截斷。
 
-下表摘要說明每個單位的每個 Time Series Insights SKU 輸入容量：
+下表摘要說明每個時間序列深入解析 SKU 的每個單位輸入容量:
 
-|SKU  |每個月的事件計數  |每個月的事件大小  |每分鐘的事件計數  |每分鐘的事件大小  |
+|SKU  |每月事件計數  |每月事件大小  |每分鐘的事件計數  |每分鐘的事件大小  |
 |---------|---------|---------|---------|---------|
 |S1     |   3,000 萬     |  30 GB     |  720    |  720 KB   |
 |S2     |   3 億    |   300 GB   | 7,200   | 7,200 KB  |
 
-您可以在單一環境中將 S1 或 S2 SKU 的容量增加至 10 個單位。 您無法從 S1 環境移轉至 S2。 您無法從 S2 環境移轉至 S1。
+您可以在單一環境中將 S1 或 S2 SKU 的容量增加至 10 個單位。 您無法從 S1 環境遷移到 S2。 您無法從 S2 環境遷移至 S1。
 
-針對輸入容量，請先判斷您需要以每月為基礎的總輸入。 接下來，判斷您每分鐘需求為何。 
+針對輸入容量, 請先以每個月為基礎來決定您需要的總輸入。 接下來, 判斷您每分鐘的需求為何。 
 
-節流和延遲扮演角色的每分鐘的容量。 如果您的程式會持續 24 小時內的資料輸入的高峰，時間序列深入解析可以 「 趕上 」 兩次的速率在上表所列的輸入速率。
+節流和延遲會以每分鐘的容量來播放角色。 如果您的資料輸入突然增加了24小時, 時間序列深入解析可以使用上表所列費率的兩倍輸入速率來「趕上」。
 
-例如，如果您有單一 S1 SKU，您將資料輸入速率為 720 事件每分鐘，尖峰少於一小時的速率或較少的 1,440 事件的資料速率，沒有明顯的延遲中您的環境。 不過，如果您超過每分鐘超過一小時的 1,440 事件時，您可能會遇到資料視覺化並可藉由可供您的環境中的查詢延遲。
+例如, 如果您有單一 S1 SKU, 您會以每分鐘720個事件的速率來輸入資料, 而且資料速率會尖峰超過一小時 (以1440事件或更少的速率), 在您的環境中不會有明顯的延遲。 不過, 如果您超過一小時的每分鐘1440事件, 您可能會在環境中視覺化且可供查詢的資料中遇到延遲。
 
-您可能不知道您要推送的事先多少資料。 在此情況下，您可以在其中找到資料遙測[Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics)並[Azure 事件中樞](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)在 Azure 入口網站訂用帳戶中。 遙測可協助您判斷如何佈建您的環境。 使用**計量**各自的事件來源，以檢視其遙測的 Azure 入口網站中的窗格。 如果您了解事件來源的計量，就可以更有效地規劃並佈建時間序列深入解析環境。
+您可能事先不知道預期會推送多少資料。 在此情況下, 您可以在 Azure 入口網站訂用帳戶中找到[Azure IoT 中樞](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics)和[Azure 事件中樞](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/)的資料遙測。 遙測可協助您判斷如何布建您的環境。 使用個別事件來源的 Azure 入口網站中的 [**計量**] 窗格來查看其遙測。 如果您了解事件來源的計量，就可以更有效地規劃並佈建時間序列深入解析環境。
 
 ### <a name="calculate-ingress-requirements"></a>計算輸入需求
 
-若要計算您輸入的需求：
+若要計算您的輸入需求:
 
-- 確認您的輸入容量高於您平均每分鐘費率，而且您的環境夠大，無法處理您預期的輸入相當於兩次您容量少於一小時。
+- 請確認您的輸入容量高於平均每分鐘速率, 且您的環境夠大, 可處理您預期的輸入, 相當於您容量的兩倍 (不到一小時)。
 
-- 如果輸入高峰的上一次的時間超過 1 小時，使用高峰率作為平均值。 佈建容量來處理高峰率的環境。
+- 如果過去超過1小時的輸入尖峰發生, 請使用尖峰速率作為您的平均值。 布建具有容量的環境, 以處理尖峰速率。
 
 ### <a name="mitigate-throttling-and-latency"></a>減少節流和延遲
 
@@ -109,26 +109,26 @@ ms.locfileid: "67165827"
 
 ## <a name="shape-your-events"></a>塑形您的事件
 
-請務必確定您傳送事件至 Time Series Insights 支援您要佈建的環境的大小的方式。 （相反地，您可以將對應的環境，以 Time Series Insights 讀取的事件數目和每個事件的大小。）務必也認為要進行配量和篩選所使用之屬性的相關資料的查詢時。
+請務必確定您將事件傳送至時間序列深入解析的方式, 可以支援您所布建的環境大小。 (相反地, 您可以將環境的大小對應至時間序列深入解析讀取的事件數目, 以及每個事件的大小)。當您查詢資料時, 也必須考慮您可能想要使用的屬性來進行配量及篩選。
 
 > [!TIP]
-> 檢閱 「 JSON 形式 」 中的文件[將事件傳送](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events)。
+> 請參閱傳送[事件](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events)中的 JSON 成形檔。
 
-## <a name="ensure-that-you-have-reference-data"></a>請確定您已參考資料
+## <a name="ensure-that-you-have-reference-data"></a>確定您有參考資料
 
-A*參考資料集*是項目來擴展您事件來源中的事件集合。 Time Series Insights 輸入引擎會聯結參考資料集從事件來源與對應的資料列的每個事件。 增強的事件就可供查詢。 聯結根據**主索引鍵**定義在參考資料集中的資料行。
+*參考資料集*是從事件來源擴充事件的專案集合。 時間序列深入解析輸入引擎會將事件來源中的每個事件與參考資料集中的對應資料列聯結在一起。 然後, 擴充的事件便可供查詢。 聯結是以參考資料集中定義的**主要索引鍵**資料行為基礎。
 
 > [!NOTE]
-> 參考資料不會回溯加入。 只有目前和未來的輸入資料會比對，並且聯結至參考資料集，它已設定，並上傳之後。 如果您打算將大量的歷程記錄資料傳送至時間序列深入解析和不先上傳或建立 Time Series Insights 參考資料，您可能必須取消復原您的工作 (提示： 不有趣)。  
+> 參考資料未聯結追溯。 只有在設定並上傳之後, 才會比對目前和未來的輸入資料並聯結至參考資料集。 如果您打算將大量歷程記錄資料傳送至時間序列深入解析, 而不要在時間序列深入解析中第一次上傳或建立參考資料, 您可能必須重做工作 (提示: 不有趣)。  
 
-若要深入了解如何建立、 上傳及管理 Time Series Insights 參考資料，請參閱我們[參考資料集的文件](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)。
+若要深入瞭解如何在時間序列深入解析中建立、上傳及管理參考資料, 請參閱我們的[參考資料集檔](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)。
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-- 從建立開始[在 Azure 入口網站中新的 Time Series Insights 環境](time-series-insights-get-started.md)。
+- [在 Azure 入口網站中建立新的時間序列深入解析環境以](time-series-insights-get-started.md)開始使用。
 
-- 了解如何[新增事件中樞的事件來源](time-series-insights-how-to-add-an-event-source-eventhub.md)至時間序列深入解析。
+- 瞭解如何[將事件中樞的事件來源新增](time-series-insights-how-to-add-an-event-source-eventhub.md)至時間序列深入解析。
 
-- 了解如何[設定 IoT 中樞事件來源](time-series-insights-how-to-add-an-event-source-iothub.md)。
+- 瞭解如何[設定 IoT 中樞事件來源](time-series-insights-how-to-add-an-event-source-iothub.md)。

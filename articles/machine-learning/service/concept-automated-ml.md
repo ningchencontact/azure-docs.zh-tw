@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c563278a9d23810a5e6f0adc8082c8cfc5a0510c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 064fd0e2bf503d917c809aa576bbc332b5b18a77
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358863"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742363"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -91,15 +91,22 @@ ms.locfileid: "68358863"
 
 
 ## <a name="time-series-forecasting"></a>時間序列預測
-建立預測是任何企業不可或缺的一部分, 不論是收入、庫存、銷售或客戶需求。 您可以使用自動化 ML 結合技術和方法, 並取得建議的高品質時間序列預測。 
+建立預測是任何企業不可或缺的一部分, 不論是收入、庫存、銷售或客戶需求。 您可以使用自動化 ML 結合技術和方法, 並取得建議的高品質時間序列預測。
 
-自動化的時間序列實驗會被視為多變數回歸問題。 過去的時間序列值會「切換」為回歸輸入變數的其他維度與其他預測指標。 與傳統時間序列方法不同的是, 這種方法的優點是在定型期間自然結合多個內容變數及其關聯性。 自動化 ML 會針對資料集和預測視野中的所有專案學習單一但通常會在內部分支的模型。 因此, 有更多的資料可用於估計模型參數, 而一般化的數列則會變成可行的。 
+自動化的時間序列實驗會被視為多變數回歸問題。 過去的時間序列值會「切換」為回歸輸入變數的其他維度與其他預測指標。 與傳統時間序列方法不同的是, 這種方法的優點是在定型期間自然結合多個內容變數及其關聯性。 自動化 ML 會針對資料集和預測視野中的所有專案學習單一但通常會在內部分支的模型。 因此, 有更多的資料可用於估計模型參數, 而一般化的數列則會變成可行的。
 
 深入瞭解並查看[適用于時間序列預測的自動化機器學習](how-to-auto-train-forecast.md)範例。
 
-## <a name="ensemble-models"></a>集團模型
+## <a name="ensemble"></a>集團模型
 
-您可以使用自動化機器學習來定型集團模型, 並搭配已[排序集團初始化的 Caruana 集團選取演算法](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)。 集團 learning 藉由合併許多模型來改善機器學習結果和預測效能, 而不是使用單一模型。 集團反復專案會顯示為執行的最後一個反復專案。
+自動化機器學習支援預設會啟用的集團模型。 集團 learning 藉由結合多個模型來改善機器學習結果和預測效能, 而不是使用單一模型。 集團反復專案會顯示為您執行的最後一次反覆運算。 自動化機器學習會使用投票和堆疊集團方法來結合模型:
+
+* **投票**: 根據預測類別機率 (適用于分類工作) 或預測回歸目標 (用於回歸工作) 的加權平均值進行預測。
+* **堆疊**: 堆疊結合了異類模型, 並根據個別模型的輸出來訓練中繼模型。 目前的預設中繼模型是針對分類工作和回歸/預測工作的 ElasticNet 而 LogisticRegression 的。
+
+具有已排序集團初始化的[Caruana 集團選取演算法](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)會用來決定要在集團中使用的模型。 就高層級而言, 此演算法會使用最多5個具有最佳個別分數的模型來初始化集團, 並確認這些模型是在最佳分數的 5% 臨界值內, 以避免初始集團不佳。 然後針對每個集團反復專案, 將新的模型加入至現有的集團, 並計算產生的分數。 如果新模型已改善現有的集團分數, 集團會更新以包含新的模型。
+
+請參閱[如何](how-to-configure-auto-train.md#ensemble)變更自動化機器學習服務中的預設集團設定。
 
 ## <a name="use-with-onnx-in-c-apps"></a>在應用程式中C#使用 ONNX
 

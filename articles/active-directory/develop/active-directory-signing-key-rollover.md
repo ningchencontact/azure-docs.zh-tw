@@ -11,21 +11,21 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f20a10f7c6f98b352e8a2d794fabc3b6b3b57319
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962863"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835304"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory 中的簽署金鑰變換
-本文討論 Azure Active Directory (Azure AD) 中用來簽署安全性權杖的公開金鑰須知事項。 請務必請注意，這些機碼上定期變換，在發生緊急狀況，可以立即變換。 所有使用 Azure AD 的應用程式都應該能夠以程式設計方式處理金鑰變換程序或建立定期手動變換程序。 請繼續閱讀以了解金鑰的運作方式、如何評估變換對應用程式的影響，以及必要時如何更新應用程式或建立定期手動變換程序來處理金鑰變換。
+本文討論 Azure Active Directory (Azure AD) 中用來簽署安全性權杖的公開金鑰須知事項。 請務必注意, 這些金鑰會定期變換, 且在緊急情況下可以立即變換。 所有使用 Azure AD 的應用程式都應該能夠以程式設計方式處理金鑰變換程序或建立定期手動變換程序。 請繼續閱讀以了解金鑰的運作方式、如何評估變換對應用程式的影響，以及必要時如何更新應用程式或建立定期手動變換程序來處理金鑰變換。
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Azure AD 中簽署金鑰的概觀
 Azure AD 會使用根據業界標準所建置的公開金鑰加密技術，建立 Azure AD 本身和使用 Azure AD 的應用程式之間的信任。 實際上，其運作方式如下：Azure AD 使用簽署金鑰，該金鑰是由公開和私密金鑰組所組成。 當使用者登入使用 Azure AD 來進行驗證的應用程式時，Azure AD 會建立包含使用者相關資訊的安全性權杖。 此權杖會先由 Azure AD 使用其私密金鑰進行簽署，再傳送回到應用程式。 若要確認該權杖有效且來自 Azure AD，應用程式必須使用由 Azure AD 公開且包含在租用戶的 [OpenID Connect 探索文件](https://openid.net/specs/openid-connect-discovery-1_0.html) \(英文\) 或 SAML/WS-Fed [同盟中繼資料文件](azure-ad-federation-metadata.md)中的公開金鑰來驗證權杖的簽章。
@@ -43,7 +43,7 @@ OpenID Connect 探索文件和同盟中繼資料文件中永遠有一個以上�
 * [使用 .NET OWIN OpenID Connect、WS-Fed 或 WindowsAzureActiveDirectoryBearerAuthentication 中介軟體保護資源的 Web 應用程式 / API](#owin)
 * [使用 .NET Core OpenID Connect 或 JwtBearerAuthentication 中介軟體保護資源的 Web 應用程式 / API](#owincore)
 * [使用 Node.js passport-azure-ad 模組保護資源的 Web 應用程式 / API](#passport)
-* [Web 應用程式 / Api 保護資源且使用 Visual Studio 2015 或更新版本建立](#vs2015)
+* [保護資源並使用 Visual Studio 2015 或更新版本建立的 Web 應用程式/Api](#vs2015)
 * [保護資源且使用 Visual Studio 2013 建立的 Web 應用程式](#vs2013)
 * 保護資源且使用 Visual Studio 2013 建立的 Web API
 * [保護資源且使用 Visual Studio 2012 建立的 Web 應用程式](#vs2012)
@@ -56,12 +56,12 @@ OpenID Connect 探索文件和同盟中繼資料文件中永遠有一個以上�
 * 透過應用程式 proxy 發佈的內部部署應用程式不需要擔心簽署金鑰。
 
 ### <a name="nativeclient"></a>存取資源的原生用戶端應用程式
-只存取資源 (亦即 Microsoft Graph、 KeyVault、 Outlook API 及其他 Microsoft Api） 通常只取得權杖並將它傳遞給資源擁有者。 假設它們並未保護任何資源，它們就不會檢查權杖，因此不需要確定已正確簽署。
+只存取資源 (亦即 Microsoft Graph、KeyVault、Outlook API 和其他 Microsoft Api) 通常只會取得權杖, 並將它傳遞給資源擁有者。 假設它們並未保護任何資源，它們就不會檢查權杖，因此不需要確定已正確簽署。
 
 原生用戶端應用程式 (不論是桌上型或行動) 屬於此分類，因此不受變換影響。
 
 ### <a name="webclient"></a>存取資源的 Web 應用程式 / API
-只存取資源 (亦即 Microsoft Graph、 KeyVault、 Outlook API 及其他 Microsoft Api） 通常只取得權杖並將它傳遞給資源擁有者。 假設它們並未保護任何資源，它們就不會檢查權杖，因此不需要確定已正確簽署。
+只存取資源 (亦即 Microsoft Graph、KeyVault、Outlook API 和其他 Microsoft Api) 通常只會取得權杖, 並將它傳遞給資源擁有者。 假設它們並未保護任何資源，它們就不會檢查權杖，因此不需要確定已正確簽署。
 
 使用應用程式專用流程 (用戶端認證 / 用戶端憑證) 的 Web 應用程式和 web API 屬於此類型，因此不受變換影響。
 
@@ -128,28 +128,28 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Web 應用程式 / Api 保護資源且使用 Visual Studio 2015 或更新版本建立
-如果您的應用程式是使用 web 應用程式範本在 Visual Studio 2015 或更新版本，而且您選取**工作或學校帳戶**從**變更驗證** 功能表中，它已經具有必要若要自動處理金鑰變換邏輯。 這個內嵌在 OWIN OpenID Connect 中介軟體中的邏輯會從 OpenID Connect 探索文件擷取並快取金鑰，還會定期重新整理金鑰。
+### <a name="vs2015"></a>保護資源並使用 Visual Studio 2015 或更新版本建立的 Web 應用程式/Api
+如果您的應用程式是使用 Visual Studio 2015 或更新版本中的 web 應用程式範本所建立, 而且您已從 [**變更驗證**] 功能表中選取 [**公司或學校帳戶**], 則它已經具有自動處理金鑰變換的必要邏輯。 這個內嵌在 OWIN OpenID Connect 中介軟體中的邏輯會從 OpenID Connect 探索文件擷取並快取金鑰，還會定期重新整理金鑰。
 
 如果您是以手動方式在方案中加入驗證，應用程式可能不會有所需的金鑰變換邏輯。 您必須自行撰寫，或依照 [使用任何其他程式庫或手動實作任何支援的通訊協定的 Web 應用程式 / API](#other)中的步驟進行。
 
 ### <a name="vs2013"></a>保護資源且使用 Visual Studio 2013 建立的 Web 應用程式
-如果應用程式是使用 Visual Studio 2013 中的 Web 應用程式範本所建置，而且您已從 [變更驗證]  功能表中選取 [組織帳戶]  ，則它已經具有自動處理金鑰變換的必要邏輯。 此邏輯會將組織的唯一識別碼和簽署金鑰資訊儲存在兩個與專案相關聯的資料庫資料表中。 您可以在專案的 Web.config 檔案中找到資料庫的連接字串。
+如果應用程式是使用 Visual Studio 2013 中的 Web 應用程式範本所建置，而且您已從 [變更驗證] 功能表中選取 [組織帳戶]，則它已經具有自動處理金鑰變換的必要邏輯。 此邏輯會將組織的唯一識別碼和簽署金鑰資訊儲存在兩個與專案相關聯的資料庫資料表中。 您可以在專案的 Web.config 檔案中找到資料庫的連接字串。
 
 如果您是以手動方式在方案中加入驗證，應用程式可能不會有所需的金鑰變換邏輯。 您必須自行撰寫，或依照 [使用任何其他程式庫或手動實作任何支援的通訊協定的 Web 應用程式 / API](#other)中的步驟進行。
 
 下列步驟將協助您確認應用程式中的邏輯能正常運作。
 
-1. 在 Visual Studio 2013 中開啟方案，然後按一下右側視窗上的 [伺服器 Explorer]  索引標籤。
-2. 依序展開 [資料連線]  、[DefaultConnection]  、[資料表]  。 找出 [IssuingAuthorityKeys]  資料表並以滑鼠右鍵按一下，然後按一下 [顯示資料表資料]  。
-3. [IssuingAuthorityKeys]  資料表中會有至少一個對應至金鑰指紋值的資料列。 刪除資料表中的任何資料列。
-4. 在 [租用戶]  資料表上按一下滑鼠右鍵，然後按一下 [顯示資料表資料]  。
-5. [租用戶]  資料表中會有至少一個對應至唯一目錄租用戶識別碼的資料列。 刪除資料表中的任何資料列。 如果您未刪除 [租用戶]  資料表和 [IssuingAuthorityKeys]  資料表中的資料列，您就會在執行階段收到錯誤。
+1. 在 Visual Studio 2013 中開啟方案，然後按一下右側視窗上的 [伺服器 Explorer] 索引標籤。
+2. 依序展開 [資料連線]、[DefaultConnection]、[資料表]。 找出 [IssuingAuthorityKeys] 資料表並以滑鼠右鍵按一下，然後按一下 [顯示資料表資料]。
+3. [IssuingAuthorityKeys] 資料表中會有至少一個對應至金鑰指紋值的資料列。 刪除資料表中的任何資料列。
+4. 在 [租用戶] 資料表上按一下滑鼠右鍵，然後按一下 [顯示資料表資料]。
+5. [租用戶] 資料表中會有至少一個對應至唯一目錄租用戶識別碼的資料列。 刪除資料表中的任何資料列。 如果您未刪除 [租用戶] 資料表和 [IssuingAuthorityKeys] 資料表中的資料列，您就會在執行階段收到錯誤。
 6. 建置並執行應用程式。 在登入帳戶之後，即可停止應用程式。
-7. 返回 [伺服器總管]  ，然後查看 [IssuingAuthorityKeys]  和 [租用戶]  資料表中的值。 您將會發現，它們已自動重新填入同盟中繼資料文件中的適當資訊。
+7. 返回 [伺服器總管]，然後查看 [IssuingAuthorityKeys] 和 [租用戶] 資料表中的值。 您將會發現，它們已自動重新填入同盟中繼資料文件中的適當資訊。
 
 ### <a name="vs2013"></a>保護資源且使用 Visual Studio 2013 建立的 Web API
-如果您使用 Web API 範本在 Visual Studio 2013 中建置了 Web API 應用程式，然後從 [變更驗證]  功能表中選取了 [組織帳戶]  ，則應用程式已經具有所需的邏輯。
+如果您使用 Web API 範本在 Visual Studio 2013 中建置了 Web API 應用程式，然後從 [變更驗證] 功能表中選取了 [組織帳戶]，則應用程式已經具有所需的邏輯。
 
 如果您以手動方式設定了驗證，請依照下列指示來了解如何設定 Web API 以自動更新其金鑰資訊。
 
@@ -248,7 +248,7 @@ namespace JWTValidation
 
 如果您是使用 Microsoft 所提供的任何程式碼範例或逐步解說文件建立應用程式，則專案中已含有金鑰變換邏輯。 您會發現專案中已存在下列程式碼。 如果應用程式還沒有此邏輯，請遵循下列步驟，以新增此邏輯並確認它能正常運作。
 
-1. 在 [方案總管]  中，針對適當的專案新增對 **System.IdentityModel** 組件的參考。
+1. 在 [方案總管] 中，針對適當的專案新增對 **System.IdentityModel** 組件的參考。
 2. 開啟 **Global.asax.cs** 檔案，並新增下列 using 指示詞：
    ```
    using System.Configuration;
@@ -278,7 +278,7 @@ namespace JWTValidation
 
 請遵循下列步驟來確認金鑰變換邏輯是否能運作。
 
-1. 確認您的應用程式使用上述程式碼之後，開啟**Web.config**檔案，並瀏覽至 **\<issuerNameRegistry >** 區塊，特別尋找下列幾行：
+1. 在您確認應用程式正在使用上述程式碼之後, 請開啟**web.config**檔案並流覽至 **\<issuerNameRegistry >** 區塊, 特別是尋找下列幾行:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,22 +286,22 @@ namespace JWTValidation
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. 在  **\<新增憑證指紋 ="">** 設定，將憑證指紋值的任何字元取代成另一個。 儲存 **Web.config** 檔案。
+2. 在 [  **\<新增憑證指紋 = "] >** 設定中, 以不同的字元取代任何字元來變更指紋值。 儲存 **Web.config** 檔案。
 3. 建置應用程式，然後加以執行。 如果您可以完成登入程序，則應用程式已從目錄的同盟中繼資料文件下載所需資訊，而成功地更新金鑰。 如果您在登入時發生問題，請閱讀[使用 Azure AD 為 Web 應用程式新增登入](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) \(英文\) 一文，或是下載並檢查下列程式碼範例︰[Azure Active Directory 的多租用戶雲端應用程式](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b)，以確定應用程式中的變更是否正確。
 
 ### <a name="vs2010"></a>保護資源且使用 Visual Studio 2008 或 2010 和 Windows Identity Foundation (WIF) v1.0 for .NET 3.5 建立的 Web 應用程式
 如果您在 WIF v1.0 上建置應用程式，則沒有提供相關機制來將應用程式的組態自動重新整理為使用新的金鑰。
 
-*  使用 WIF SDK 中內含的 FedUtil 工具，它可以擷取最新的中繼資料文件並更新組態。
+* 使用 WIF SDK 中內含的 FedUtil 工具，它可以擷取最新的中繼資料文件並更新組態。
 * 將應用程式更新至 .NET 4.5，其包含位於「系統」命名空間中的 WIF 的最新版本。 然後，您可以使用 [驗證簽發者名稱登錄 (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) 來執行應用程式組態的自動更新。
 * 根據本指導文件結尾的指示執行手動變換。
 
 使用 FedUtil 來更新組態的指示︰
 
 1. 確認 Visual Studio 2008 或 2010 的開發電腦上已安裝 WIF v1.0 SDK。 如果尚未安裝，您可以[從這裡下載](https://www.microsoft.com/en-us/download/details.aspx?id=4451)。
-2. 在 Visual Studio 中開啟方案，然後以滑鼠右鍵按一下適用的專案，並選取 [更新同盟中繼資料]  。 如果無法使用此選項，則表示尚未安裝 FedUtil 和/或 WIF v1.0 SDK。
-3. 在提示中選取 [更新]  ，開始更新同盟中繼資料。 如果您可以存取裝載應用程式的伺服器環境，則可以選擇性地使用 FedUtil 的 [自動中繼資料更新排程器](https://msdn.microsoft.com/library/ee517272.aspx)。
-4. 按一下 [完成]  以完成更新程序。
+2. 在 Visual Studio 中開啟方案，然後以滑鼠右鍵按一下適用的專案，並選取 [更新同盟中繼資料]。 如果無法使用此選項，則表示尚未安裝 FedUtil 和/或 WIF v1.0 SDK。
+3. 在提示中選取 [更新] ，開始更新同盟中繼資料。 如果您可以存取裝載應用程式的伺服器環境，則可以選擇性地使用 FedUtil 的 [自動中繼資料更新排程器](https://msdn.microsoft.com/library/ee517272.aspx)。
+4. 按一下 [完成] 以完成更新程序。
 
 ### <a name="other"></a>保護資源且使用任何其他程式庫或手動實作任何支援的通訊協定的 Web 應用程式 / API
 如果您使用其他程式庫，或手動實作任何支援的通訊協定，您必須檢閱文件庫或您的實作，以確保從 OpenID Connect 探索文件或同盟中繼資料文件擷取金鑰。 檢查的方法之一是在您的程式碼或程式庫的程式碼中，搜尋是否有任何呼叫 OpenID 探索文件或同盟中繼資料文件的情況。

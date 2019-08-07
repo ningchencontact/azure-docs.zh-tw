@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 688492188bb8a29e33568011c2cf75439ca5f4af
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: fbce475e1f783595fb67e62e15d5a503a4c687ed
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726657"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780587"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 本文提供 Azure 中的安全性服務簡介, 協助您保護雲端中的資料、資源和應用程式, 並滿足企業的安全性需求。
@@ -331,7 +331,7 @@ Azure 也提供幾項簡單易用的功能，可協助保護您的應用程式�
 
 - [使用混合式連接保護應用程式與私人網路中資源的連線](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
-Azure App Service 會使用 Azure 雲端服務和虛擬機器使用的相同反惡意程式碼方案。 若要深入了解此方案，請參閱 [反惡意程式碼文件](https://docs.microsoft.com/azure/security/azure-security-antimalware)。
+Azure App Service 會使用 Azure 雲端服務和虛擬機器使用的相同反惡意程式碼方案。 若要深入了解此方案，請參閱 [反惡意程式碼文件](https://docs.microsoft.com/azure/security/fundamentals/antimalware)。
 
 ## <a name="secure-your-network"></a>保護網路安全
 Microsoft Azure 包括強大網路基礎結構以支援您的應用程式和服務連線需求。 在 Azure 的資源之間、內部部署與 Azure 託管資源之間，以及到網際網路和 Azure 與來自網際網路和 Azure，可能會有網路連線。
@@ -352,7 +352,7 @@ Azure 支援內部部署網路的專用 WAN 連結連線以及採用 [ExpressRou
 
 您可利用 [Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/)以敏捷的方式部署範圍廣泛的許多運算解決方案。 利用 Microsoft Windows、Linux、Microsoft SQL Server、Oracle、IBM、SAP 與 Azure BizTalk 服務的支援，就可以在近乎所有的作業系統上，使用任何語言部署所有工作負載。
 
-運用 Azure，您可以使用來自安全性廠商 (例如 Microsoft、Symantec、Trend Micro 和 Kaspersky) 的[反惡意程式碼軟體](https://docs.microsoft.com/azure/security/azure-security-antimalware)，以保護您的虛擬機器抵禦惡意檔案、廣告軟體和其他威脅。
+運用 Azure，您可以使用來自安全性廠商 (例如 Microsoft、Symantec、Trend Micro 和 Kaspersky) 的[反惡意程式碼軟體](https://docs.microsoft.com/azure/security/fundamentals/antimalware)，以保護您的虛擬機器抵禦惡意檔案、廣告軟體和其他威脅。
 
 適用於 Azure 雲端服務和虛擬機器的 Microsoft Antimalware 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 Microsoft Antimalware 會提供可設定的警示，在已知的惡意或垃圾軟體嘗試自行安裝或在您的 Azure 系統上執行時發出警示。
 
@@ -382,7 +382,7 @@ Microsoft 開發了[雲端服務審查評鑑檢查表](https://aka.ms/cloudcheck
 
 ## <a name="azure-infrastructure-and-application-security-validation"></a>Azure 基礎結構和應用程式安全性驗證
 
-[Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。
+[Azure 操作安全性](https://docs.microsoft.com/azure/security/fundamentals/operational-security 指的是可供使用者用來保護其資料、應用程式和其他資產的服務、控制項和功能, Microsoft Azure。
 
 ![安全性驗證 (偵測)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 

@@ -1,7 +1,7 @@
 ---
 title: 為您的模型微調超參數
 titleSuffix: Azure Machine Learning service
-description: 使用 Azure Machine Learning 服務有效率地為您的深度學習/機器學習模型微調超參數。 您將了解如何定義參數搜尋空間、指定要最佳化的主要計量，並提早終止效能不佳的執行。
+description: 使用 Azure Machine Learning 服務有效率地為您的深度學習/機器學習模型微調超參數。 您將瞭解如何定義參數搜尋空間、指定要優化的主要計量, 並提早終止效能不佳的執行。
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 730f39bf0b05ef33bbbca150532f96f1e495a9ed
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302356"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815714"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務為您的模型微調超參數
 
@@ -45,7 +45,7 @@ Azure Machine Learning 可讓您以有效率的方式來自動化超參數探索
 
 ### <a name="types-of-hyperparameters"></a>超參數類型
 
-每個超參數可以為離散或連續。
+每個超參數都可以是離散或連續, 而且具有由[參數運算式](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py)所描述的值分佈。
 
 #### <a name="discrete-hyperparameters"></a>離散超參數 
 
@@ -129,7 +129,7 @@ param_sampling = GridParameterSampling( {
 
 使用貝氏取樣時，同時執行的數目會影響微調程序有效性。 一般而言，較少的並行執行數目可產生較好的取樣收斂，因為較低程度的平行處理可讓更多執行受益於先前已完成的執行。
 
-貝氏取樣僅支援搜尋空間上的 `choice` 和 `uniform` 分佈。 
+貝氏取樣只會`choice`在`uniform`搜尋空間`quniform`上支援、和分佈。
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -179,7 +179,7 @@ run_logger.log("accuracy", float(val_accuracy))
 
 ## <a name="specify-early-termination-policy"></a>指定提早終止原則
 
-使用 [早期終止原則] 自動終止效能不佳的執行。 終止作業可減少資源浪費情形，並將這些資源改用於探索其他參數設定。
+使用提早終止原則來自動終止效能不佳的執行。 終止作業可減少資源浪費情形，並將這些資源改用於探索其他參數設定。
 
 使用提早終止原則時，您可以設定下列參數，控制何時套用原則：
 
@@ -234,7 +234,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-在此範例中，自評估間隔 5 起，每隔一段時間，就會套用提早終止原則。 如果執行在間隔 5 的效能落在間隔 5 之所有執行效能的最低 20%，該執行將會在間隔 5 終止。
+在此範例中，自評估間隔 5 起，每隔一段時間，就會套用提早終止原則。 如果在間隔5的效能是在間隔5的所有執行效能的最低 20%, 則會在間隔5結束執行。
 
 ### <a name="no-termination-policy"></a>無終止原則
 
@@ -246,7 +246,7 @@ policy=None
 
 ### <a name="default-policy"></a>預設原則
 
-如果未指定任何原則，則超參數微調服務會讓所有定型執行完成執行。
+如果未指定任何原則, 超參數微調服務會讓所有訓練回合執行到完成。
 
 >[!NOTE] 
 >如果您在尋求可節省成本，但不會終止大有可為作業的保守原則，您可以使用「中位數停止原則」搭配 `evaluation_interval` 1 和 `delay_evaluation` 5。 這些是保守的設定，可在不遺失主要計量的情況下省下約 25%-35% (取決於我們的評估資料)。
@@ -275,7 +275,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-此程式碼會將超參數微調實驗設定為使用最多 20 個執行，一次執行 4 個設定。
+此程式碼會將超參數微調實驗設定為使用最多20個回合, 一次執行四個設定。
 
 ## <a name="configure-experiment"></a>設定實驗
 

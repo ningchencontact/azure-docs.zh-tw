@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668487"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772696"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -72,11 +72,11 @@ Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建�
 
   如果您要進入程式碼, VM 會包含可協助您探索及瞭解如何使用 Azure Machine Learning 服務的教學課程和範例。 範例筆記本會儲存在工作區的 Azure Blob 儲存體帳戶中, 讓它們可在 Vm 之間共用。 執行時, 他們也可以存取您工作區的資料存放區和計算資源。
 
-+ **簡單設定**:從您的 Azure Machine Learning 工作區中隨時建立一個。 只提供名稱, 並指定 Azure VM 類型。 立即試用此[快速入門:使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning](quickstart-run-cloud-notebook.md)。
++ **簡單設定**:從您的 Azure Machine Learning 工作區中隨時建立一個。 只提供名稱, 並指定 Azure VM 類型。 請在本[教學課程中立即試用:設定環境和工作](tutorial-1st-experiment-sdk-setup.md)區。
 
 + **可自訂**。 在受管理且安全的 VM 供應專案中, 您可以保留硬體功能的完整存取權, 並根據您的需求進行自訂。 例如, 您可以快速建立最新的 NVidia V100 供電 VM, 以執行 novel 類神經網路架構的逐步偵錯工具。
 
-若要停止產生筆記本 VM 費用, 請[停止筆記本 vm](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)。
+若要停止產生筆記本 VM 費用, 請[停止筆記本 vm](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm)。 
 
 ## <a id="dsvm"></a>資料科學虛擬機器
 

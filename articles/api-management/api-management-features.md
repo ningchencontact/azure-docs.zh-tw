@@ -13,18 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c06e297d3d81623b7224082cb66f8faa6879205d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448002"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774960"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API 管理層的功能式比較
 
+>[!IMPORTANT]
+> 請注意, 開發人員層適用于非生產環境的使用案例和評估。 它不提供 SLA。 
+
 每個 API 管理[定價層](https://aka.ms/apimpricing)提供一系列獨特的功能以及每單位[容量](api-management-capacity.md)。 下表簡要說明各層中提供的重要功能。 根據階層而定，某些功能可能運作方式不同，或是具備不同的能力。 說明文件的文章會提及此情況下的差異，並說明個別功能。
 
-| 功能                                                                                      | 耗用量 | 開發人員      | 基本          | 標準       | 進階        |
+| 功能                                                                                      | 使用情況 | 開發人員      | 基本          | 標準       | 進階        |
 | -------------------------------------------------------------------------------------------- | ----------------------------- | -------------- | -------------- | -------------- | -------------- |
 | Azure AD 整合<sup>1</sup>                                                             | 否                            | 是            | 否             | yes            | 是            |
 | 虛擬網路 (VNet) 支援                                                               | 否                            | 是            | 否             | 否             | 是            |
@@ -42,5 +45,5 @@ ms.locfileid: "67448002"
 | Azure 監視器記錄和計量                                                               | 否                | yes            | 是            | 是            | 是            |
 | 靜態 IP                                                               | 否                | yes            | 是            | 是            | 是            |
 
-<sup>1</sup>可讓您的 Azure AD 使用 （與 Azure AD B2C） 做為識別提供者的使用者登入開發人員入口網站。<br/>
+<sup>1</sup>可在開發人員入口網站上, 使用 Azure AD (和 Azure AD B2C) 做為使用者登入的身分識別提供者。<br/>
 <sup>2</sup> 包括相關的功能，例如使用者、群組、問題、應用程式以及電子郵件範本和通知。<br/>

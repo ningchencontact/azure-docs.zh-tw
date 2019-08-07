@@ -9,23 +9,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 08/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5167ba170181bed6dc76d4ca3df79306f432eaf2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722675"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812824"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
 使用 Azure Active Directory (Azure AD), 您可以指定有限的系統管理員, 以較低許可權的角色來管理身分識別工作。 指派系統管理員的目的, 是為了新增或變更使用者、指派系統管理角色、重設使用者密碼、管理使用者授權, 以及管理功能變數名稱等。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
 
-全域管理員可以存取所有系統管理功能。 註冊 Azure 訂用帳戶的人員預設會獲指派目錄的全域管理員角色。 只有全域管理員和特殊權限角色管理員才能委派系統管理員角色。 為了降低業務風險，建議您將此角色僅指派給您公司中的幾個人員。
+## <a name="limit-the-use-of-global-administrator"></a>限制全域管理員的使用
+
+指派給全域管理員角色的使用者可以讀取和修改您 Azure AD 組織中的每個系統管理設定。 根據預設, 註冊 Azure 訂用帳戶的人員會獲指派 Azure AD 組織的全域管理員角色。 只有全域管理員和特殊許可權角色管理員可以委派系統管理員角色。 若要降低業務的風險, 建議您將此角色指派給組織中最少的人員。
+
+## <a name="best-practices"></a>最佳做法
+
+建議的最佳作法是將此角色指派給組織中少於5名的人員。 如果您的組織中有超過五個指派給全域管理員角色的使用者, 以下是減少其使用方式的一些方法。
+
+### <a name="find-the-role-you-need"></a>尋找您所需的角色
+
+如果您在許多角色清單中找不到所需的角色, Azure AD 可以根據角色類別提供較短的清單。 查看適用于[Azure AD 角色和系統管理員](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)的新**類型**篩選, 只顯示所選類型中的角色。
+
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>當您指派全域管理員角色時, 現在角色已存在
+
+角色或角色可能已新增至 Azure AD, 以提供更細微的許可權, 讓某些使用者在全域管理員時無法使用此選項。 經過一段時間, 我們會推出其他角色, 以完成隻有全域管理員角色才可執行檔工作。 您可以看到這些反映在下列[可用的角色](#available-roles)中。
 
 ## <a name="assign-or-remove-administrator-roles"></a>指派或移除系統管理員角色
 
@@ -330,7 +344,7 @@ ms.locfileid: "68722675"
 ### <a name="application-developer"></a>應用程式開發人員
 可建立與 [使用者可註冊應用程式] 設定不相關的應用程式註冊。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | 在 Azure Active Directory 中建立應用程式。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
 | microsoft.aad.directory/appRoleAssignments/createAsOwner | 在 Azure Active Directory 中建立 appRoleAssignments。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
@@ -370,7 +384,7 @@ ms.locfileid: "68722675"
 ### <a name="b2c-user-flow-administrator"></a>B2C 使用者流程管理員
 建立和管理使用者流程的所有層面。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft. aad. b2c/userFlows/allTasks | 在 Azure Active Directory B2C 中讀取和設定使用者流程。 |
 
@@ -459,7 +473,7 @@ ms.locfileid: "68722675"
 ### <a name="cloud-device-administrator"></a>雲端裝置管理員
 在 Azure AD 中管理裝置的完整存取。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
@@ -617,7 +631,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.lockbox/allEntities/allTasks | 管理 Office 365 客戶加密箱的所有層面 |
@@ -630,7 +644,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立及管理 Azure 支援票證。 |
@@ -764,7 +778,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
 | microsoft.aad.directory/groups/unified/basic/update | 更新 Office 365 群組的基本屬性。 |
@@ -861,7 +875,7 @@ ms.locfileid: "68722675"
   >
   >  
   
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康狀態。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
@@ -870,7 +884,7 @@ ms.locfileid: "68722675"
 ### <a name="license-administrator"></a>授權管理員
 可管理使用者和群組的產品授權。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
 | microsoft.aad.directory/users/usageLocation/update | 更新 Azure Active Directory 中的 users.usageLocation 屬性。 |
@@ -886,7 +900,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立及管理 Azure 支援票證。 |
@@ -903,7 +917,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
@@ -991,7 +1005,7 @@ ms.locfileid: "68722675"
 ### <a name="password-administrator"></a>密碼管理員
 可以重設非系統管理員和密碼管理員的密碼。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/users/password/update | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1097,7 +1111,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
 | microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
@@ -1126,7 +1140,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | 讀取和設定 Microsoft Cloud App Security。 |
 | microsoft.aad.identityProtection/allEntities/read | 讀取 microsoft.aad.identityProtection 中的所有資源。 |
@@ -1181,7 +1195,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
 | microsoft.aad.directory/groups/unified/basic/update | 更新 Office 365 群組的基本屬性。 |
@@ -1235,7 +1249,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1249,7 +1263,7 @@ ms.locfileid: "68722675"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.unified 屬性。 |

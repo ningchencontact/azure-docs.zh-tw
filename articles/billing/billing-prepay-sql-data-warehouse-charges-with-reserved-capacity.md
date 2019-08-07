@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359259"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779989"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>預付保留容量的 SQL 資料倉儲費用
 
@@ -61,13 +61,9 @@ SQL 資料倉儲保留大小應該以您取用的總計算資料倉儲單位 (cD
 8. 選取 [購買]。
 9. 選取 [**查看此保留**] 以查看您的購買狀態。
 
-## <a name="cancellations-and-exchanges"></a>取消和交換
+## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換或退款保留
 
-如果您需要取消 SQL 資料倉儲保留容量, 可能會有 12% 的提前終止費用。 退款以您購買價格或目前保留價格的最低價格為準。 每年的退款限制為 $50000.00。 您收到的退款是剩餘的按比例餘額減去 12% 的提前終止費用。 若要取消, 請移至 Azure 入口網站中的保留區, 然後選取 [**退款**]。
-
-如果您需要將 SQL 資料倉儲保留容量變更為另一個區域或期限, 您可以將其交換為等於或大於價值的另一個保留。 新保留的期限開始日期不會延續自交換的保留。 當您建立新的保留時, 一或三年期就會開始。 若要交換, 請開啟 Azure 入口網站中的保留區, 然後選取 [ **exchange**]。
-
-如需有關如何交換或退款保留的詳細資訊, 請參閱[保留交換和退款](billing-azure-reservations-self-service-exchange-and-refund.md)。
+您可以取消、交換或退款保留, 但有某些限制。 如需詳細資訊, 請參閱[Azure 保留的自助交換和退款](billing-azure-reservations-self-service-exchange-and-refund.md)。
 
 保留折扣會自動套用至符合 SQL 資料倉儲保留容量範圍和區域的 SQL 資料倉儲實例數目。 您可以使用[Azure 入口網站](https://portal.azure.com/)、POWERSHELL、CLI 或 API 來更新 SQL 資料倉儲保留容量的範圍。
 

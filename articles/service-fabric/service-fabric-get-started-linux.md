@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49e80c3fc8935064aceef8ef4e2bd3257c41e5e7
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514190"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828499"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.locfileid: "67514190"
 不支援在適用於 Linux 的 Windows 子系統上安裝 Service Fabric 執行階段。 您可以使用支援的 Azure Service Fabric 命令列介面 (CLI)，管理裝載於雲端或內部部署中其他地方的 Service Fabric 實體。 如需如何安裝 CLI 的資訊，請參閱[設定 Service Fabric CLI](./service-fabric-cli.md)。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 以下為支援開發的作業系統版本。
 
@@ -106,8 +106,8 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 7. 將 Azul JDK 金鑰新增至 APT Keyring，並設定其存放庫。
 
     ```bash
-    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
-    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
 8. 根據新增的存放庫重新整理套件清單。
@@ -272,21 +272,21 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 > 
 > 在 Ubuntu 上，建議您直接從 Eclipse 網站安裝，而不要使用套件安裝程式 (`apt` 或 `apt-get`)。 這麼做可確保您會取得最新版的 Eclipse。 您可以安裝適用於 Java 開發人員或 Java EE 開發人員的 Eclipse IDE。
 
-1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明]   >  [關於 Eclipse]   >  [安裝詳細資料]  ，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：用於 Gradle 的 eclipse 外掛程式][buildship-update]。
+1. 在 Eclipse 中，確定您已安裝 Eclipse Neon 或更新版本以及 Buildship 2.2.1 版或更新版本。 請選取 [說明] >  [關於 Eclipse] >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用于 Gradle][buildship-update]的 Eclipse 外掛程式。
 
-2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]   。
+2. 若要安裝 Service Fabric 外掛程式，請選取 [說明]  >  [安裝新軟體]。
 
-3. 在 [使用]  方塊中，輸入 **https://dl.microsoft.com/eclipse** 。
+3. 在 [使用] 方塊中，輸入 **https://dl.microsoft.com/eclipse** 。
 
-4. 選取 [新增]  。
+4. 選取 [新增]。
 
     ![可用的軟體頁面][sf-eclipse-plugin]
 
-5. 選取 [ServiceFabric]  外掛程式，然後按 [下一步]  。
+5. 選取 [ServiceFabric] 外掛程式，然後按 [下一步]。
 
 6. 執行安裝步驟。 然後接受使用者授權合約。
 
-如果您已安裝 Service Fabric Eclipse 外掛程式，請確定您擁有的是最新版本。 請選取 [說明]   > [關於Eclipse]   > [安裝詳細資料]  來檢查。 然後，在已安裝的外掛程式清單中搜尋 Service Fabric。如果有可用的較新版本，請選取 [更新]  。
+如果您已安裝 Service Fabric Eclipse 外掛程式，請確定您擁有的是最新版本。 請選取 [說明] > [關於Eclipse] > [安裝詳細資料] 來檢查。 然後，在已安裝的外掛程式清單中搜尋 Service Fabric。如果有可用的較新版本，請選取 [更新]。
 
 如需詳細資訊，請參閱[適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式](service-fabric-get-started-eclipse.md)。
 

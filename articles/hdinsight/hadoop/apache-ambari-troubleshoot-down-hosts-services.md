@@ -1,0 +1,47 @@
+---
+title: Apache Ambari UI 會在 Azure HDInsight 中顯示主機和服務
+description: Apache Ambari UI 會在 Azure HDInsight 中顯示主機和服務
+ms.service: hdinsight
+ms.topic: troubleshooting
+author: hrasheed-msft
+ms.author: hrasheed
+ms.date: 08/02/2019
+ms.openlocfilehash: 1227635a193fdf1b55e2c1cc141a837a250ee08c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842513"
+---
+# <a name="scenario-apache-ambari-ui-shows-down-hosts-and-services-in-azure-hdinsight"></a>案例:Apache Ambari UI 會在 Azure HDInsight 中顯示主機和服務
+
+本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
+
+## <a name="issue"></a>問題
+
+Apache Ambari UI 可供存取, 但 UI 會顯示幾乎所有的服務都已關閉, 而所有主機則顯示遺失的心跳。
+
+## <a name="cause"></a>原因
+
+在大部分情況下, 這是在使用中前端節點上未執行 Ambari 伺服器的問題。 請檢查哪個前端節點是作用中的前端節點, 並確定您的 ambari 伺服器會在正確的節點上執行。 不要手動啟動 ambari-伺服器, 讓容錯移轉控制器服務負責啟動右側前端節點上的 ambari 伺服器。 重新開機作用中的前端節點, 以強制進行容錯移轉。
+
+網路問題也可能會造成此問題。 從每個叢集節點, 查看是否可以 ping `headnodehost`。 在少數情況下, 沒有任何叢集節點可以連接到`headnodehost`:
+
+```
+$>telnet headnodehost 8440
+... No route to host
+```
+
+## <a name="resolution"></a>解決方法
+
+通常重新開機作用中的前端節點將會降低此問題。 如果不是, 請聯絡 HDInsight 支援小組。
+
+## <a name="next-steps"></a>後續步驟
+
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
+
+* 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
+
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 藉由將 Azure 社區連接至適當的資源來改善客戶體驗: 解答、支援及專家。
+
+* 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

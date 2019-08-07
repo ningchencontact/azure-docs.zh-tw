@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f10ac45266eefac41f3ba9ac442c3be3f5106ef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: ebff47360aa78a7774be50bcce8518f6e30ca073
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388417"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841055"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>映像分析認知技能
 
@@ -38,8 +38,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | 參數名稱     | 描述 |
 |--------------------|-------------|
 | defaultLanguageCode   |  此字串表示要傳回的語言。 服務會以指定語言傳回辨識結果。 如果未指定此屬性，則預設值為「en」。 <br/><br/>支援的語言為： <br/>*en* - 英文 (預設) <br/> *zh* - 簡體中文|
-|visualFeatures |   此字串陣列表示要傳回的視覺功能類型。 有效的視覺功能類型包括：  <ul><li> *類別* - 根據認知服務[說明文件](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)中定義的分類法，來分類映像內容。</li><li> *標記* - 使用與映像內容相關之字組的詳細清單標記映像。</li><li>*描述*-描述內容與完整的英文句子的映像。</li><li>*臉部*-偵測到臉部是否存在。 如果有的話，會產生座標、性別和年齡。</li><li> *ImageType* -偵測到映像是否為美工圖案或線條繪圖。</li><li>  *色彩*-判斷輔色，主要的色彩，以及映像是否黑色 & 白色。</li><li>*成人*-偵測到影像是否色情的本質 （描述裸體或性別 act）。 也會偵測出性暗示內容。</li></ul> 視覺功能的名稱會區分大小寫。|
-| details   | 字串陣列表示要傳回的特定領域詳細資料。 有效的視覺功能類型包括： <ul><li>*名人*-如果偵測到映像中辨識名人。</li><li>*地標*-識別地標，如果偵測到映像中。</li></ul>
+|visualFeatures |   此字串陣列表示要傳回的視覺功能類型。 有效的視覺功能類型包括：  <ul><li> *類別* - 根據認知服務[說明文件](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)中定義的分類法，來分類映像內容。</li><li> *標記* - 使用與映像內容相關之字組的詳細清單標記映像。</li><li>*描述*-使用完整的英文句子來描述影像內容。</li><li>*臉部*-偵測臉部是否存在。 如果有的話，會產生座標、性別和年齡。</li><li> *imageType* -偵測影像是否為美工圖案或線條繪圖。</li><li>  *色彩*-決定輔色、主要色彩, 以及影像是否為黑色 & 白色。</li><li>*成人*-偵測影像本質上是否為色情 (描述裸體或性別 act)。 也會偵測出性暗示內容。</li></ul> 視覺功能的名稱會區分大小寫。|
+| details   | 字串陣列表示要傳回的特定領域詳細資料。 有效的視覺功能類型包括： <ul><li>*名人*-識別映射中偵測到的名人。</li><li>*地標*-識別映射中偵測到的地標。</li></ul>
  |
 
 ## <a name="skill-inputs"></a>技能輸入
@@ -85,7 +85,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             ]
         }
 ```
-### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>（適用於只有類別、 描述、 臉部和標記的欄位） 的範例索引
+### <a name="sample-index-for-only-the-categories-description-faces-and-tags-fields"></a>範例索引 (僅適用于 [類別]、[描述]、[臉部] 和 [標記] 欄位)
 ```json
 {
     "fields": [
@@ -297,7 +297,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 }
 
 ```
-### <a name="sample-output-field-mapping-for-the-above-index"></a>（如上述的索引） 的範例輸出欄位對應
+### <a name="sample-output-field-mapping-for-the-above-index"></a>範例輸出欄位對應 (適用于上述索引)
 ```json
     "outputFieldMappings": [
         {
@@ -333,7 +333,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
                     "originalWidth": 5000,
                     "originalHeight": 3000,
                     "rotationFromOriginal": 90,
-                    "contentOffset": 500
+                    "contentOffset": 500,
+                    "pageNumber": 2
                 }
             }
         }

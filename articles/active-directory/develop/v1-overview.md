@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 開發人員 (v1.0) 概觀
+title: 適用于開發人員的 Azure Active Directory (v1.0) 總覽
 description: 本文提供使用 Azure Active Directory v1.0 端點及平台登入 Microsoft 工作和學校帳戶的概觀。
 services: active-directory
 author: rwike77
@@ -9,7 +9,7 @@ ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13cc5c7ae428f74f2892e6066dfdcd7efb73efbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545226"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834678"
 ---
-# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory 開發人員 (v1.0) 概觀
+# <a name="azure-active-directory-for-developers-v10-overview"></a>適用于開發人員的 Azure Active Directory (v1.0) 總覽
 
 Azure Active Directory (Azure AD) 是一項雲端識別服務，可讓開發人員使用 Microsoft 的公司或學校帳戶建置讓使用者安全登入的應用程式。 Azure AD 支援開發人員建置單一租用戶的企業營運 (LOB) 應用程式及開發多租用戶應用程式。 除了基本登入外，Azure AD 也可讓應用程式呼叫 [Microsoft Graph](https://docs.microsoft.com/graph/overview) 這類 Microsoft API，以及 Azure AD 平台上建置的自訂 API。 此文件說明如何使用業界標準通訊協定 (如 OAuth2.0 和 OpenID Connect)，將 Azure AD 支援新增至您的應用程式。
 

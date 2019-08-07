@@ -10,68 +10,86 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 02b335de7f105d768168d5f798ec9109136d7430
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 344e04985c52945b2917d3b5f616d5fca6051ab9
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846269"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839765"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>使用 Azure Front 的 web 應用程式防火牆自訂規則
-具有 Front 開門服務的 Azure web 應用程式防火牆 (WAF) 可讓您根據所定義的條件, 控制對 web 應用程式的存取。 自訂 WAF 規則是由優先順序編號、規則類型、比對條件和動作所組成。 有兩種類型的自訂規則: 符合規則和速率限制規則。 比對規則會根據比對條件控制存取, 而速率限制規則會根據比對條件和連入要求的速率來控制存取。 您可以停用自訂規則, 以防止它被評估, 但仍保留設定。 本文討論以 HTTP 參數為基礎的相符規則。
+具有 Front 開門服務的 Azure web 應用程式防火牆 (WAF) 可讓您根據所定義的條件, 控制對 web 應用程式的存取。 自訂 WAF 規則包含優先順序號碼、規則類型、比對條件和動作。 有兩種類型的自訂規則: 符合規則和速率限制規則。 比對規則會根據一組比對條件來控制存取, 而速率限制規則會根據比對條件和連入要求的速率來控制存取。 您可以停用自訂規則, 以防止它被評估, 但仍保留設定。 
 
 ## <a name="priority-match-conditions-and-action-types"></a>優先順序、相符條件和動作類型
-您可以使用自訂的 WAf 規則來控制存取, 以定義優先順序號碼、規則類型、比對條件和動作。 
+您可以使用自訂 WAf 規則來控制存取, 以定義優先順序編號、規則類型、比對條件陣列和動作。 
 
-- **優先順序:** 是唯一的整數, 描述 WAF 規則的評估順序。 值較低的規則會在具有較高值的規則之前進行評估
+- **優先順序:** 是唯一的整數, 描述 WAF 規則的評估順序。 具有較低優先順序值的規則會在具有較高值的規則之前進行評估。 優先順序數位在所有自訂規則之間必須是唯一的。
 
 - **動作:** 定義若符合 WAF 規則, 如何路由傳送要求。 當要求符合自訂規則時, 您可以選擇下列其中一個要套用的動作。
 
-    -  WAF 會將其轉送至後端, 並在 WAF 記錄中記錄專案並結束。
-    -  封鎖要求會遭到封鎖, WAF 會將回應傳送至用戶端, 而不會將要求轉送至後端。 WAF 會在 WAF 記錄中記錄一個專案。
+    - WAF 會將其轉送至後端, 並在 WAF 記錄中記錄專案並結束。
+    - 封鎖要求會遭到封鎖, WAF 會將回應傳送至用戶端, 而不會將要求轉送至後端。 WAF 會在 WAF 記錄中記錄一個專案。
     - *記錄*檔 WAF 會在 WAF 記錄中記錄一個專案, 並繼續評估下一個規則。
-    -  WAF 會將要求重新導向至指定的 URI, 並在 WAF 記錄中記錄一個專案, 然後結束。
+    - WAF 會將要求重新導向至指定的 URI, 並在 WAF 記錄中記錄一個專案, 然後結束。
 
-- 比對**條件:** 定義符合變數、運算子和比對值。 每個規則可能包含多個符合條件。 比對條件可以根據下列*符合的變數*:
-    - RemoteAddr (用戶端 IP)
+- 比對**條件:** 定義符合變數、運算子和比對值。 每個規則可能包含多個符合條件。 比對條件可以根據地理位置、用戶端 IP 位址 (CIDR)、大小或字串相符。 字串比對可用於符合的變數清單。
+  - **Match 變數:**
     - RequestMethod
     - QueryString
     - PostArgs
     - RequestUri
     - RequestHeader
     - RequestBody
-
-- **Operator:** list 包含下列各項:
+    - Cookie
+  - **操作**
     - Any: 如果沒有符合規則, 通常會用來定義預設動作。 Any 是 match all 運算子。
-    - IPMatch: 定義 RemoteAddr 變數的 IP 限制
-    - GeoMatch: 定義 RemoteAddr 變數的地區篩選
-    - 等於
-    - Contains
+    - 相等
+    - 包含
     - LessThan: size 條件約束
     - GreaterThan: size 條件約束
     - LessThanOrEqual: size 條件約束
     - GreaterThanOrEqual: size 條件約束
     - 開始于
-     - EndsWith
+    - EndsWith
+    - Regex
+  
+  - **Regex**不支援下列作業: 
+    - 反向參考和捕獲子運算式
+    - 任意零寬度的判斷提示
+    - 副程式參考和遞迴模式
+    - 條件式模式
+    - 回溯控制項動詞
+    - \C 單一位元組指示詞
+    - \R 分行符號 match 指示詞
+    - \K 開頭的 match 重設指示詞
+    - 標注和內嵌程式碼
+    - 不可部分完成群組和所有格數量詞
 
-如果條件的結果應該是否定的, 您可以將 [*否定*條件] 設定為 [true]。
-
-*Match 值*定義可能的相符值清單。
-支援的 HTTP 要求方法值包括:
-- GET
-- POST
-- PUT
-- HEAD
-- DELETE
-- 狀
-- 解除鎖定
-- 特徵
-- OPTIONS
-- PROPFIND
-- PROPPATCH
-- MKCOL
-- 複製
-- 進入
+  - **否定 [選擇性]:** 如果條件的結果應該是否定的, 您可以將 [*否定*條件] 設定為 [true]。
+      
+  - **轉換 [選用]:** 在嘗試進行比對之前, 具有轉換名稱的字串清單。 這些可以是下列轉換:
+     - 大寫 
+     - 小寫
+     - 修剪
+     - RemoveNulls
+     - UrlDecode
+     - UrlEncode
+     
+   - **符合值:** 支援的 HTTP 要求方法值包括:
+     - GET
+     - POST
+     - PUT
+     - HEAD
+     - DELETE
+     - 狀
+     - 解除鎖定
+     - 特徵
+     - OPTIONS
+     - PROPFIND
+     - PROPPATCH
+     - MKCOL
+     - 複製
+     - 進入
 
 ## <a name="examples"></a>範例
 

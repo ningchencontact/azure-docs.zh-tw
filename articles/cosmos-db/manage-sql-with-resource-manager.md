@@ -4,14 +4,14 @@ description: 使用 Azure Resource Manager 範本來建立和設定適用于 SQL
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4cd66c9da0650c9eb9de5b51ce82b48fe781c6f4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: b4d121e0628512f7bbd6aedc0a9067b31d46d0ed
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500514"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814966"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本來管理 Azure Cosmos DB SQL (核心) API 資源
 
@@ -23,6 +23,7 @@ ms.locfileid: "68500514"
 >
 > - 目前您無法使用 Resource Manager 範本來部署使用者定義函數 (Udf)、預存程式和觸發程式。
 > - 您無法同時新增或移除 Azure Cosmos 帳戶的位置, 以及修改其他屬性。 這些必須以個別的作業來完成。
+> - 帳戶名稱必須是小寫, 且 < 31 個字元。
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

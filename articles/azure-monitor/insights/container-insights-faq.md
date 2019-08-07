@@ -8,38 +8,42 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780014"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741513"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>適用於容器的 Azure 監視器常見問題集
 
 此 Microsoft 常見問題集是適用於容器的 Azure 監視器常見問題清單。 若您有任何關於解決方案的其他問題，請前往[討論論壇](https://feedback.azure.com/forums/34192--general-feedback)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
 
-## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>為什麼沒有看到資料在我的 Log Analytics 工作區？
+## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>我可以使用容器的 Azure 監視器來監視 AKS 引擎叢集嗎？
 
-如果您看不到特定的時間每天在 Log Analytics 工作區中的任何資料時，您可能已達到預設 500 MB 的限制或控制的每日收集的資料量指定每日上限。 當一天達到上限時，資料收集會停止，而且只在下一步 繼續。 若要檢閱您的資料使用量，並更新至不同的定價層，根據您預期的使用模式，請參閱[記錄資料使用量和成本](../platform/manage-cost-storage.md)。 
+容器的 Azure 監視器支援監視部署至 Azure 上裝載的 AKS 引擎 (先前稱為 ACS 引擎) 叢集的容器工作負載。 如需進一步的詳細資料, 以及針對此案例啟用監視所需步驟的總覽, 請參閱針對[AKS 引擎的容器使用 Azure 監視器](https://github.com/microsoft/OMS-docker/tree/aks-engine)。
 
-## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>ContainerInventory 表格中所指定的容器狀態有哪些？
+## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>為什麼我在 Log Analytics 工作區中看不到資料？
+
+如果您無法在每天的特定時間看到 Log Analytics 工作區中的任何資料, 您可能已達到預設的 500 MB 限制, 或指定每日上限來控制要每日收集的資料量。 一天符合限制時, 資料收集只會在隔天停止並繼續。 若要根據您預期的使用模式來檢查您的資料使用量, 並更新至不同的定價層, 請參閱[記錄資料使用量和成本](../platform/manage-cost-storage.md)。 
+
+## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>ContainerInventory 資料表中指定的容器狀態為何？
 
 ContainerInventory 資料表包含已停止和執行中容器的相關資訊。 此資料表由代理程式內的工作流程填入，該工作流程會查詢所有 (執行中和已停用) 容器的 Docker，並將該資料轉送到 Log Analytics 工作區。
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>如何解決**遺漏訂用帳戶註冊**錯誤？
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>如何? 解決**遺失的訂閱註冊**錯誤？
 
-如果您收到錯誤**遺漏訂用帳戶註冊 Microsoft.OperationsManagement**，您可以註冊資源提供者來解決**Microsoft.OperationsManagement**中定義工作區所在的訂用帳戶。 您可以在[這裡](../../azure-resource-manager/resource-manager-register-provider-errors.md)找到作法的相關文件。
+如果您收到**Microsoft.operationsmanagement 缺少訂閱註冊**的錯誤, 您可以在定義工作區的訂用帳戶中註冊**microsoft.operationsmanagement**資源提供者來解決此問題。 您可以在[這裡](../../azure-resource-manager/resource-manager-register-provider-errors.md)找到作法的相關文件。
 
-## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>是否有支援 RBAC 啟用 AKS 叢集？
+## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>是否支援已啟用 RBAC 的 AKS 叢集？
 
-容器監視解決方案不支援 RBAC，但它使用適用於容器的 Azure 監視器支援。 解決方案詳細資料頁面不會在顯示這些叢集資料的刀鋒視窗中顯示正確的資訊。
+容器監視解決方案不支援 RBAC, 但支援容器的 Azure 監視器。 解決方案詳細資料頁面不會在顯示這些叢集資料的刀鋒視窗中顯示正確的資訊。
 
 ## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>我如何透過 Helm 在 kube 系統命名空間中啟用容器的記錄檔收集？
 
-kube 系統命名空間中容器的記錄檔收集預設為停用。 透過設定 omsagent 上的環境變數，可啟用記錄檔收集。 如需詳細資訊，請參閱 <<c0> [ 適用於容器的 Azure 監視器](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers)GitHub 頁面。 
+kube 系統命名空間中容器的記錄檔收集預設為停用。 透過設定 omsagent 上的環境變數，可啟用記錄檔收集。 如需詳細資訊, 請參閱[適用于容器的 Azure 監視器](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers)GitHub 頁面。 
 
 ## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>如何將 omsagent 更新為最新的發行版本？
 
@@ -60,7 +64,7 @@ console.log(json.stringify({
       }));
 ```
 
-這項資料看起來像下列範例在 Azure 監視器中的記錄檔中，當您查詢：
+當您查詢記錄時, 這項資料看起來會像下列範例中的 Azure 監視器:
 
 ```
 LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
@@ -69,15 +73,15 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 如需此問題的詳細探討，請檢閱下列 [github 連結](https://github.com/moby/moby/issues/22920) \(英文\)。
 
-## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>當我啟用即時記錄檔時如何解決 Azure AD 錯誤？ 
+## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>當我啟用即時記錄時, 如何? 解決 Azure AD 錯誤？ 
 
-您可能會看到下列錯誤：**回覆要求中指定的 url 不符合為應用程式設定的回覆 url: '< 應用程式識別碼\>'** 。 來解決此問題的解決方案可在發行項[如何檢視容器記錄檔使用即時 Azure 監視器容器](container-insights-live-logs.md#configure-aks-with-azure-active-directory)。 
+您可能會看到下列錯誤：**要求中指定的回復 url 不符合為應用程式設定的回復 url: ' < 應用程式識別碼\>'** 。 若要解決此問題, 您可以在[如何使用容器的 Azure 監視器來即時查看容器記錄](container-insights-live-logs.md#configure-aks-with-azure-active-directory)檔一文中找到此解決方案。 
 
-## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>為什麼無法升級叢集上架後？
+## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>為什麼我在上架之後無法升級叢集？
 
-如果您啟用 Azure 監視器適用於 AKS 叢集中的容器之後，您刪除 Log Analytics 工作區的叢集中已傳送其資料，當您嘗試將叢集升級時它將會失敗。 若要解決這個問題，您必須停用監視，然後再重新啟用它參考不同的有效工作區，您的訂用帳戶中。 當您嘗試再次執行叢集升級時，應該處理並順利完成。  
+如果您在啟用 AKS 叢集的容器 Azure 監視器之後, 刪除叢集傳送其資料的 Log Analytics 工作區, 當嘗試升級叢集時, 將會失敗。 若要解決此情況, 您必須停用監視, 然後重新啟用它參考您訂用帳戶中不同的有效工作區。 當您嘗試再次執行叢集升級時, 應該會處理並順利完成。  
 
-## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>哪些連接埠及網域我要開啟/允許清單的代理程式？
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>我需要針對代理程式開啟/列入白名單的埠和網域為何？
 - *.ods.opinsights.azure.com   443
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443

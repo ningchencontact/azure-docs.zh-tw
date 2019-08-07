@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326131"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736250"
 ---
 # <a name="configure-a-custom-domain-name"></a>設定自訂網域名稱
 
@@ -40,22 +40,24 @@ ms.locfileid: "68326131"
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>使用 Azure 入口網站來設定自訂網域名稱
 
 1. 在[Azure 入口網站](https://portal.azure.com/)中, 流覽至您的 API 管理實例。
-1. 選取 [自訂網域和 SSL]  。
+1. 選取 [**自訂網域**]。
 
     有幾個端點可供您指派自訂功能變數名稱。 目前有下列端點可用：
 
-    - **Proxy** (預設值為：`<apim-service-name>.azure-api.net`)、
+    - **閘道**(預設值為`<apim-service-name>.azure-api.net`:)、
     - **入口網站** (預設值為：`<apim-service-name>.portal.azure-api.net`)、
     - **管理** (預設值為：`<apim-service-name>.management.azure-api.net`)、
     - **SCM** (預設值為：`<apim-service-name>.scm.azure-api.net`)。
 
     > [!NOTE]
-    > 您可以更新所有端點或一部分端點。 客戶通常會更新 **Proxy** (此 URL 用來呼叫透過 API 管理公開的 API) 和**入口網站** (開發人員入口網站 URL)。 **管理**和**SCM**端點僅供「API 管理」實例擁有者在內部使用, 因此較不常指派自訂功能變數名稱。 在大多數情況下, 只能針對指定的端點設定單一自訂功能變數名稱。 不過, 進  階層支援設定**Proxy**端點的多個主機名稱。
+    > 在取用層中, 只有中的**閘道**端點可供設定。
+    > 您可以更新所有端點或一部分端點。 客戶通常會更新**閘道**(此 URL 是用來呼叫透過 api 管理公開的 api) 和**入口網站**(開發人員入口網站 URL)。
+    > **管理**和**SCM**端點僅供「API 管理」實例擁有者在內部使用, 因此較不常指派自訂功能變數名稱。 進階層支援為**閘道**端點設定多個主機名稱。
 
 1. 選取您想要更新的端點。
-1. 在右側視窗中，按一下 [自訂]  。
+1. 在右側視窗中，按一下 [自訂]。
 
-    - 在 [自訂網域名稱]  中，指定您想要使用的名稱。 例如： `api.contoso.com` 。 也支援萬用字元功能變數名稱 (例如, \*. domain.com)。
+    - 在 [自訂網域名稱] 中，指定您想要使用的名稱。 例如： `api.contoso.com` 。 也支援萬用字元功能變數名稱 (例如, \*. domain.com)。
     - 在 [**憑證**] 中, 選取 Key Vault 的憑證。 您也可以上傳有效的。PFX 檔案, 並提供**密碼**(如果使用密碼保護憑證)。
 
     > [!TIP]

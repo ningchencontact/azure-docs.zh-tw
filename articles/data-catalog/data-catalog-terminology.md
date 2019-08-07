@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: a6f2cf1dcee6a85376c8d767e57c504b6b246e5d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/01/2019
+ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60580454"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736282"
 ---
 # <a name="azure-data-catalog-terminology"></a>Azure 資料目錄術語
 
@@ -23,7 +23,7 @@ Azure 資料目錄是以雲端為基礎的中繼資料儲存機制，其中可�
 
 ## <a name="data-source"></a>資料來源
 
-資料來源是管理資料資產的系統或容器。 範例包括 SQL Server 資料庫、 Oracle 資料庫、 SQL Server Analysis Services 資料庫 （表格式或多維度） 和 SQL Server Reporting Services 伺服器。
+資料來源是管理資料資產的系統或容器。 範例包括 SQL Server 資料庫、Oracle 資料庫、SQL Server Analysis Services 資料庫 (表格式或多維度), 以及 SQL Server Reporting Services 伺服器。
 
 ## <a name="data-asset"></a>資料資產
 
@@ -65,9 +65,9 @@ Azure 資料目錄中的資料設定檔是資料表層級的快照集和及資�
 
 ## <a name="user-perspective"></a>使用者觀點
 
-在 Azure 資料目錄中，任何使用者都可以為已註冊的資料資產提供描述性中繼資料。 每個使用者會有不同的觀點，對資料和其使用。 例如，負責伺服器的系統管理員可能提供其服務等級協定 (SLA) 或備份時段的詳細資料。資料負責人可能針對資料所支援的商務程序提供文件連結。分析師可能以最適合的詞彙提供描述給其他分析師，而且對於需要探索及了解資料的使用者來說，可能非常有價值。
+在 Azure 資料目錄中，任何使用者都可以為已註冊的資料資產提供描述性中繼資料。 每位使用者都有不同的資料和使用觀點。 例如，負責伺服器的系統管理員可能提供其服務等級協定 (SLA) 或備份時段的詳細資料。資料負責人可能針對資料所支援的商務程序提供文件連結。分析師可能以最適合的詞彙提供描述給其他分析師，而且對於需要探索及了解資料的使用者來說，可能非常有價值。
 
-每一種觀點是原本就是相當重要，以及每位使用者可以使用 Azure 資料目錄提供有意義的資訊，而所有的使用者可以使用該資訊來了解資料，以及其用途。
+這其中每個觀點本身都很有價值, 而且 Azure 資料目錄每個使用者都可以提供對他們有意義的資訊, 而所有使用者都可以使用該資訊來瞭解資料及其用途。
 
 ## <a name="expert"></a>專家
 
@@ -75,12 +75,12 @@ Azure 資料目錄中的資料設定檔是資料表層級的快照集和及資�
 
 ## <a name="owner"></a>擁有者
 
-擁有者是具有額外權限來管理 Azure 資料目錄中的資料資產的使用者。 使用者可以取得已註冊的資料資產的擁有權，而擁有者可以加入其他使用者成為共同擁有者。 如需詳細資訊，請參閱[如何管理資料資產](data-catalog-how-to-manage.md)  
+擁有者是具有額外權限來管理 Azure 資料目錄中的資料資產的使用者。 使用者可以取得已註冊的資料資產的擁有權，而擁有者可以加入其他使用者成為共同擁有者。 如需詳細資訊, 請參閱[如何管理資料資產](data-catalog-how-to-manage.md)  
 
 > [!NOTE]
 > 只有標準版 Azure 資料目錄中支援擁有權和管理。
 
-## <a name="registration"></a>註冊
+## <a name="registration"></a>登錄
 
 註冊是指從資料來源擷取資料資產中繼資料並複製到 Azure 資料目錄服務的動作。 然後就可以加註和探索已註冊的資料資產。
 
