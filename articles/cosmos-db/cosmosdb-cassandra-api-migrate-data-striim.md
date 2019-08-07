@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 9e91dd4d81a8a29ae18cf70192561442f2fff5bc
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1e14e9819f4b3344d0f0155ac5c15337a45952dc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600705"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828063"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>使用 Striim 將資料移轉至 Azure Cosmos DB Cassandra API 帳戶
 
@@ -20,9 +20,9 @@ Azure marketplace 中的 Striim 映射提供從資料倉儲和資料庫到 Azure
 
 本文說明如何使用 Striim, 將資料從**Oracle 資料庫**遷移至**Azure Cosmos DB Cassnadra API 帳戶**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* 如果您沒有 [Azure 訂用帳戶](/azure/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+* 如果您沒有 [Azure 訂用帳戶](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 * 在內部部署執行的 Oracle 資料庫, 其中包含一些資料。
 
