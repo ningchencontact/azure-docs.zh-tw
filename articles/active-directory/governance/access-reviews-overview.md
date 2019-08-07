@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da9bc3906e6f39b2d943708eb6a1b930ac8cc5a5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 9b6b310e2ca2c19bf4b163704627943a881501bd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68401924"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823846"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>什麼是 Azure AD 的存取權審查？
 
@@ -45,7 +45,7 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 - **太多使用者具有特殊權限角色：** 建議您檢查有多少使用者擁有系統管理存取權、其中有多少是全域管理員, 以及是否有任何受邀來賓或合作夥伴未在指派執行系統管理工作之後移除。 您可以在[Azure AD 角色](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)(例如全域系統管理員) 或[Azure 資源角色](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)(例如[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md)體驗中的使用者存取系統管理員) 中重新認證角色指派使用者。
 - **無法自動化時：** 您可以在安全性群組或 Office 365 群組上建立動態成員資格的規則，但如果 HR 資料未放在 Azure AD 中，或如果使用者在離開群組之後依然需要存取權以便訓練其接替者呢？ 這時，您就可以在該群組上建立檢閱，以確保仍需要存取權的人員應該會具有持續存取權。
 - **當群組用於新的用途時：** 如果您有要同步處理至 Azure AD 的群組，或如果您計劃讓銷售小組群組中的每個人都能使用 Salesforce 應用程式，則要求群組擁有者先檢閱群組成員資格，再將群組用於不同風險內容中的做法會很有用。
-- **資料存取權：** 對於某些資源來說，您可能必須要求 IT 以外的人定期登出，並請他們提出需要存取權的理由，以便進行稽核。
+- **商務關鍵性資料存取:** 對於某些資源, 可能需要要求 it 外的人員定期登出, 並提供理由來說明他們為何需要存取以進行審核。
 - **為了維護原則的例外狀況清單：** 在理想的世界中, 所有使用者都會遵循存取原則來保護您組織資源的存取。 不過，有時候會有需要您視為例外狀況的商務案例。 身為 IT 系統管理員，您可以管理這項工作、免於監督原則例外狀況，並向稽核人員證明您有定期檢閱這些例外狀況。
 - **要求群組擁有者確認他們的群組中仍然需要來賓：** 員工存取權可能會透過一些內部部署 IAM 來自動化, 但不會受邀的來賓。 如果有群組賦予來賓存取商務機密內容的權限，該群組的擁有者就有責任確認其來賓仍有合理獲得存取權的商務需求。
 - **反覆定期檢閱：** 您可以設定以一定的頻率 (例如，每週、每月、每季或每年) 週期性地檢閱使用者的存取權，每次檢閱開始時，檢閱者都會收到通知。 檢閱者可以透過容易使用的介面與智慧建議的協助，來核准或拒絕存取權。
@@ -60,28 +60,6 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 | 指派給已連線的應用程式 | 指定的檢閱者</br>自我審查 | Azure AD 存取權檢閱</br>Azure AD 企業應用程式 (預覽版) | 存取面板 |
 | Azure AD 角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
 | Azure 資源角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
-
-## <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
-
-與存取評論互動的每個使用者都必須具有付費 Azure AD Premium P2 授權。 範例包括：
-
-- 建立存取權審查的系統管理員
-- 執行存取權審查的群組擁有者
-- 指派為審核者的使用者
-- 執行自我審查的使用者
-
-您也可以要求來賓使用者檢閱自己的存取權。 針對您指派給貴組織的其中一個使用者的每個付費 Azure AD Premium P2 授權, 您可以使用 Azure AD 的企業對企業 (B2B), 以外部使用者額度來邀請最多五位來賓使用者。 這些來賓使用者也可以使用 Azure AD Premium P2 功能。 如需詳細資訊, 請參閱[AZURE AD B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
-
-以下是一些範例案例, 可協助您判斷您必須擁有的授權數目。
-
-| 狀況 | 計算 | 所需的授權數目 |
-| --- | --- | --- |
-| 系統管理員會使用500使用者來建立群組 A 的存取權審查。<br/>將3個群組擁有者指派為審查員。 | 1位系統管理員 + 3 群組擁有者 | 4 |
-| 系統管理員會使用500使用者來建立群組 A 的存取權審查。<br/>讓它成為自我審查。 | 1位系統管理員 + 500 使用者身為自我審核者 | 501 |
-| 系統管理員會建立群組 A 的存取權審查, 其中有5位使用者和25位來賓使用者。<br/>讓它成為自我審查。 | 1位系統管理員 + 5 名使用者身為自我審核者<br/>(來賓使用者會以所需的1:5 比例涵蓋) | 6 |
-| 系統管理員會建立群組 A 的存取權審查, 其中有5位使用者和28位來賓使用者。<br/>讓它成為自我審查。 | 1位系統管理員 + 5 個使用者身為自我審核者 + 1 個使用者, 以所需的1:5 比例涵蓋來賓使用者 | 7 |
-
-如需如何指派授權給使用者的相關資訊，請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
 
 ## <a name="onboard-access-reviews"></a>上架存取權檢閱
 
@@ -115,6 +93,28 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 ## <a name="license-requirements"></a>授權需求
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+### <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
+
+與存取評論互動的每個使用者都必須具有付費 Azure AD Premium P2 授權。 範例包括：
+
+- 建立存取權審查的系統管理員
+- 執行存取權審查的群組擁有者
+- 指派為審核者的使用者
+- 執行自我審查的使用者
+
+您也可以要求來賓使用者檢閱自己的存取權。 針對您指派給貴組織的其中一個使用者的每個付費 Azure AD Premium P2 授權, 您可以使用 Azure AD 的企業對企業 (B2B), 以外部使用者額度來邀請最多五位來賓使用者。 這些來賓使用者也可以使用 Azure AD Premium P2 功能。 如需詳細資訊, 請參閱[AZURE AD B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
+
+以下是一些範例案例, 可協助您判斷您必須擁有的授權數目。
+
+| 狀況 | 計算 | 所需的授權數目 |
+| --- | --- | --- |
+| 系統管理員會使用500使用者來建立群組 A 的存取權審查。 將3個群組擁有者指派為審查員。 | 1每個群組擁有者的系統管理員 + 3 授權許可權作為審核者。 | 4 |
+| 系統管理員會使用500使用者來建立群組 A 的存取權審查。 讓它成為自我審查。 | 1將每位使用者的系統管理員 + 500 授權作為自我審核者。 | 501 |
+| 系統管理員會建立群組 B 的存取權審查, 其中有5位使用者和25位來賓使用者。 讓它成為自我審查。 | 1每位使用者的系統管理員 + 5 授權作為自我審核者。<br/>(來賓使用者會以所需的1:5 比例涵蓋) | 6 |
+| 系統管理員會建立群組 C 的存取權審查, 其中包含5位使用者和108來賓使用者。 讓它成為自我審查。 | 1每位使用者的系統管理員 + 5 授權 (身為自我審核者 + 16 個), 以所需的1:5 比例涵蓋所有108來賓使用者。<br/>1 + 5 = 6 個授權, 涵蓋 5\*6 = 30 個來賓使用者。 針對剩餘的 (108-5\*6) = 78 個來賓使用者, 需要 78/5 = 16 個額外的授權。 因此, 總共需要 6 + 16 = 22 個授權。 | 22 |
+
+如需如何指派授權給使用者的相關資訊，請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

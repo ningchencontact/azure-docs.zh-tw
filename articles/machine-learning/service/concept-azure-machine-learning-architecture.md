@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 82d3656e0adc03157de57b700f8f0be6bde1f2ee
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663481"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828228"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -40,13 +40,13 @@ ms.locfileid: "68663481"
 
 1. **監視**-監視訓練資料集與已部署模型之推斷資料之間的**資料漂移**。 必要時, 請回到步驟 1, 以使用新的訓練資料重新定型模型。
 
-## <a name="tools-for-azure-machine-learning"></a>適用于 Azure Machine Learning 的工具 
+## <a name="tools-for-azure-machine-learning"></a>適用于 Azure Machine Learning 的工具
 
 使用這些工具進行 Azure Machine Learning:
 
 +  使用[適用于 python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), 在任何 Python 環境中與服務互動。
 + 使用[AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)自動化您的機器學習活動。
-+ 使用[Azure Machine Learning VS Code 延伸](how-to-vscode-tools.md)模組, 在 Visual Studio Code 中撰寫程式碼 
++ 使用[Azure Machine Learning VS Code 延伸](how-to-vscode-tools.md)模組, 在 Visual Studio Code 中撰寫程式碼
 + 使用[視覺化介面 (預覽) 進行 Azure Machine Learning 服務](ui-concept-visual-interface.md), 而不需要撰寫程式碼即可執行工作流程步驟。
 
 ## <a name="glossary-of-concepts"></a>概念詞彙
@@ -87,7 +87,7 @@ ms.locfileid: "68663481"
 
 實驗是從指定之指令碼的許多回合組成的群組。 它一律屬於某個工作區。 當您提交回合時，必須提供一個實驗名稱。 回合的資訊會儲存在該實驗底下。 如果提交回合並指定不存在的實驗名稱，就會自動以新指定的名稱建立一個新的實驗。
 
-如需使用實驗的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
+如需使用實驗的範例, 請參閱[教學課程:訓練您的第](tutorial-1st-experiment-sdk-train.md)一個模型。
 
 ### <a name="models"></a>模型
 
@@ -132,9 +132,9 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 
 ### <a name="compute-targets"></a>計算目標
 
-[計算目標](concept-compute-target.md)可讓您指定用來執行定型腳本或裝載服務部署的計算資源。 此位置可能是您的本機電腦或雲端式計算資源。 計算目標可讓您輕鬆地變更計算環境, 而不需要變更您的程式碼。 
+[計算目標](concept-compute-target.md)可讓您指定用來執行定型腳本或裝載服務部署的計算資源。 此位置可能是您的本機電腦或雲端式計算資源。 計算目標可讓您輕鬆地變更計算環境, 而不需要變更您的程式碼。
 
-深入瞭解[適用于定型和部署的計算目標](concept-compute-target.md)。 
+深入瞭解[適用于定型和部署的計算目標](concept-compute-target.md)。
 
 ### <a name="training-scripts"></a>將指令碼定型
 
@@ -153,7 +153,6 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 
 當您提交指令碼以將模型定型時，就會產生回合。 回合可以有 0 或多個子回合。 例如，最上層回合可能有兩個子回合，其中每個可能都有自己的子回合。
 
-如需檢視定型模型所產生之回合的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
 
 ### <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合
 
@@ -222,7 +221,9 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 ### <a name="ml-pipelines"></a>ML 管線
 
-您可以使用機器學習管線來建立和管理結合多個機器學習階段的工作流程。 例如, 管線可能包括資料準備、模型定型、模型部署, 以及推斷/計分階段。 每個階段都可以包含多個步驟，這些步驟各自都可以在各種計算目標中自動執行。
+您可以使用機器學習管線來建立和管理結合多個機器學習階段的工作流程。 例如, 管線可能包括資料準備、模型定型、模型部署, 以及推斷/計分階段。 每個階段都可以包含多個步驟，這些步驟各自都可以在各種計算目標中自動執行。 
+
+管線步驟是可重複使用的, 如果該步驟的輸出未變更, 則可以執行, 而不需要重新執行後續步驟。 例如, 如果資料尚未變更, 您可以重新定型模型, 而不需要重新執行昂貴的資料準備步驟。 管線也可讓資料科學家在機器學習工作流程的不同區域上共同作業。
 
 如需有關機器學習管線與此服務的詳細資訊，請參閱[管線和 Azure Machine Learning](concept-ml-pipelines.md)。
 

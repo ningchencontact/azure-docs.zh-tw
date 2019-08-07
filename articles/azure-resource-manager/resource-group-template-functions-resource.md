@@ -4,14 +4,14 @@ description: 描述 Azure Resource Manager 範本中用來擷取資源相關值�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7548b75f201c896e3a5248cb9d0154a9a676a86f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698207"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839265"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -342,8 +342,8 @@ ms.locfileid: "68698207"
 
 | 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |是 |string |資源的名稱或唯一識別碼。 |
-| apiVersion |否 |string |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 |
+| resourceName 或 resourceIdentifier |是 |string |資源的名稱或唯一識別碼。 當參考目前範本中的資源時，只會提供資源名稱做為參數。 參考先前部署的資源時, 請提供資源識別碼。 |
+| apiVersion |否 |string |指定的資源的 API 版本。 如果在相同的範本內未供應資源，則請包含此參數。 一般而言，格式為 **yyyy-mm-dd**。 如需適用于您資源的有效 API 版本, 請參閱[範本參考](/azure/templates/)。 |
 | 'Full' |否 |string |值，指定是否要傳回完整資源物件。 如果您未指定 `'Full'`，則只會傳回資源的屬性物件。 完整物件包括例如資源識別碼和位置的值。 |
 
 ### <a name="return-value"></a>傳回值
@@ -352,17 +352,7 @@ ms.locfileid: "68698207"
 
 ### <a name="remarks"></a>備註
 
-參照函數會擷取過去部署資源或是目前範本部署資源的狀態。 本文會介紹這兩個案例的範例。 當參考目前範本中的資源時，只會提供資源名稱做為參數。 當參考先前已部署的資源時，會提供資源的資源識別碼和 API 版本。 您可以在[範本參考](/azure/templates/)中判定您資源的有效 API 版本。
-
-參考函式只能用在資源定義的屬性中，以及範本或部署的輸出區段中。 搭配[屬性反復](resource-group-create-multiple.md#property-iteration)專案使用時, 您可以使用的參考`input`函式, 因為運算式已指派給資源屬性。 您無法將它與`count`搭配使用, 因為必須在解析參考函數之前判斷計數。
-
-您無法在[嵌套範本](resource-group-linked-templates.md#nested-template)的輸出中使用 reference 函式, 以傳回已在嵌套範本中部署的資源。 相反地, 請使用[連結的範本](resource-group-linked-templates.md#external-template-and-external-parameters)。
-
-如果在相同的範本內佈建所參考的資源且您會依其名稱 (而非資源識別碼) 來參考該資源，則可使用 reference 函式，隱含地宣告某一個資源相依於另一個資源。 您不需要同時使用 dependsOn 屬性。 所參考的資源完成部署之前不會評估函式。
-
-如果您在有條件地部署的資源中使用**reference**函式, 即使未部署資源, 也會評估該函數。  如果**reference**函數參考不存在的資源, 您會收到錯誤。 使用**if**函式, 確保只有在部署資源時才會評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本, 請參閱[if](resource-group-template-functions-logical.md#if)函式。
-
-若要查看資源類型的屬性名稱和值，請建立一個會在 outputs 區段中傳回物件的範本。 如果您有一個該類型的現有資源，您的範本就會傳回物件，而不會部署任何新資源。 
+參照函數會擷取過去部署資源或是目前範本部署資源的狀態。 本文會介紹這兩個案例的範例。
 
 一般而言，您可以使用 **reference** 函式從物件傳回特定值，例如 Blob 端點 URI 或完整網域名稱。
 
@@ -403,7 +393,45 @@ ms.locfileid: "68698207"
     ...
 ```
 
-如需上述範本的完整範例，請參閱 [Windows 到 Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json)。 [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json) 也有類似範例。
+### <a name="valid-uses"></a>有效用法
+
+參考函式只能用在資源定義的屬性中，以及範本或部署的輸出區段中。 搭配[屬性反復](resource-group-create-multiple.md#property-iteration)專案使用時, 您可以使用的參考`input`函式, 因為運算式已指派給資源屬性。 您無法將它與`count`搭配使用, 因為必須在解析參考函數之前判斷計數。
+
+您無法在[嵌套範本](resource-group-linked-templates.md#nested-template)的輸出中使用 reference 函式, 以傳回已在嵌套範本中部署的資源。 相反地, 請使用[連結的範本](resource-group-linked-templates.md#external-template-and-external-parameters)。
+
+如果您在有條件地部署的資源中使用**reference**函式, 即使未部署資源, 也會評估該函數。  如果**reference**函數參考不存在的資源, 您會收到錯誤。 使用**if**函式, 確保只有在部署資源時才會評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本, 請參閱[if](resource-group-template-functions-logical.md#if)函式。
+
+### <a name="implicit-dependency"></a>隱含相依性
+
+如果在相同的範本內佈建所參考的資源且您會依其名稱 (而非資源識別碼) 來參考該資源，則可使用 reference 函式，隱含地宣告某一個資源相依於另一個資源。 您不需要同時使用 dependsOn 屬性。 所參考的資源完成部署之前不會評估函式。
+
+### <a name="resource-name-or-identifier"></a>資源名稱或識別碼
+
+參考部署在相同範本中的資源時, 請提供資源的名稱。
+
+```json
+"value": "[reference(parameters('storageAccountName'))]"
+```
+
+參考未部署在相同範本中的資源時, 請提供資源識別碼。
+
+```json
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+若要避免與您所參考的資源不明確, 您可以提供完整的資源名稱。
+
+```json
+"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+```
+
+當建構資源的完整參考時，要從類型和名稱合併區段的順序並非只是將兩個串連。 相反地，在命名空間之後，使用從最特定到最不特定的一連串*類型/名稱*組：
+
+**{資源提供者-namespace}/{parent-resource-type}/{parent-resource-name} [/{child-resource-type}/{child-resource-name}]**
+
+例如:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 為正確 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 為不正確
 
 ### <a name="example"></a>範例
 
@@ -539,7 +567,9 @@ ms.locfileid: "68698207"
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
   "name": "{resourceGroupName}",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "{resourceGroupLocation}",
+  "managedBy": "{identifier-of-managing-resource}",
   "tags": {
   },
   "properties": {
@@ -547,6 +577,8 @@ ms.locfileid: "68698207"
   }
 }
 ```
+
+只有包含由另一個服務管理之資源的資源群組, 才會傳回**managedBy**屬性。 針對 Managed 應用程式、Databricks 和 AKS, 屬性的值是管理資源的資源識別碼。
 
 ### <a name="remarks"></a>備註
 
@@ -592,6 +624,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 {
   "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
   "name": "examplegroup",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "southcentralus",
   "properties": {
     "provisioningState": "Succeeded"

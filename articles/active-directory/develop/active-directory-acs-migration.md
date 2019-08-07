@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3daf44ee29a2f7b29eec9215876ca6edc18a5800
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 59a2cc971fbc1df967bc2655c672ab8f419eef71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325050"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835528"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>HOW TO：從 Azure 存取控制服務移轉
 
@@ -52,7 +52,7 @@ Microsoft Azure 存取控制服務 (ACS) 是 Azure Active Directory (Azure AD) �
 - 管理服務，用以自動化入口網站功能。
 - 權杖轉換規則引擎，用以定義複雜邏輯以控制存取控制簽發之權杖的輸出格式。
 
-若要使用這些元件，您必須建立一或多個存取控制命名空間。 「命名空間」  是應用程式和服務進行通訊的專用存取控制執行個體。 命名空間會與其他所有存取控制客戶隔離。 其他存取控制客戶會使用他們自己的命名空間。 存取控制中的命名空間有專用 URL，看起來像這樣：
+若要使用這些元件，您必須建立一或多個存取控制命名空間。 「命名空間」是應用程式和服務進行通訊的專用存取控制執行個體。 命名空間會與其他所有存取控制客戶隔離。 其他存取控制客戶會使用他們自己的命名空間。 存取控制中的命名空間有專用 URL，看起來像這樣：
 
 ```HTTP
 https://<mynamespace>.accesscontrol.windows.net
@@ -106,7 +106,7 @@ https://<mynamespace>.accesscontrol.windows.net
 
     例如，如果其中一個命名空間是 contoso-test，請移至 `https://contoso-test.accesscontrol.windows.net`
 
-1. 在 [信任關係]  之下，選取 [信賴憑證者應用程式]  以查看會受 ACS 淘汰影響的應用程式清單。
+1. 在 [信任關係] 之下，選取 [信賴憑證者應用程式] 以查看會受 ACS 淘汰影響的應用程式清單。
 1. 針對您擁有的任何其他 ACS 命名空間重複步驟 1-2。
 
 ## <a name="retirement-schedule"></a>淘汰排程
@@ -188,7 +188,7 @@ Azure AD 租用戶也可以透過 AD FS，與內部部署 Active Directory 的�
 
 下表比較存取控制的 Web 應用程式相關功能，以及 Azure AD 的同等功能。 
 
-以整體而言，如果您只讓使用者用 Microsoft 工作或學校帳戶登入，Azure Active Directory 可能是最合適的移轉選擇  。
+以整體而言，如果您只讓使用者用 Microsoft 工作或學校帳戶登入，Azure Active Directory 可能是最合適的移轉選擇。
 
 | 功能 | 存取控制支援 | Azure AD 支援 |
 | ---------- | ----------- | ---------------- |
@@ -304,7 +304,7 @@ Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.
 
 存取控制針對受到存取控制簽發之權杖保護的 Web 服務，提供下列功能：
 
-- 在您的存取控制命名空間中註冊一或多個服務識別  。 使用服務識別要求權杖。
+- 在您的存取控制命名空間中註冊一或多個服務識別。 使用服務識別要求權杖。
 - 可透過使用下列類型的認證，來支援 OAuth WRAP 和 OAuth 2.0 Draft 13 通訊協定要求權杖：
     - 為服務識別建立簡單密碼
     - 使用對稱金鑰或 X509 憑證的已簽署 SWT

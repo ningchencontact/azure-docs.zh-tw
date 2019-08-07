@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640860"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828345"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 評量和移轉的支援矩陣
 
@@ -36,14 +36,18 @@ ms.locfileid: "68640860"
 **支援** | **詳細資料**
 --- | ---
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
-Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
+Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
 地理 | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您可以在特定 ographies 中建立專案, 但您可以評估或遷移其他目標位置的機器。 專案地理位置只會用來儲存探索到的資料。
 
   **地理位置** | **中繼資料儲存位置**
   --- | ---
   Azure Government | US Gov 維吉尼亞州
-  亞太地區 | 東南亞或東亞
-  歐洲 | 歐洲南部或西歐
+  亞太地區 | 東亞或東南亞
+  澳洲 | 澳大利亞東部或澳大利亞東南部
+  加拿大 | 加拿大中部或加拿大東部
+  歐洲 | 北歐或西歐
+  印度 | 印度中部或印度南部
+  日本 |  日本東部或日本西部
   英國 | 英國南部或英國西部
   美國 | 美國中部或美國西部2
 
@@ -84,7 +88,7 @@ Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。 您在 Azure �
 | **支援**                | **詳細資料**               
 | :-------------------       | :------------------- |
 | **Azure Migrate 專案**  |  應用裝置可以與單一專案相關聯。<br/> 您可以使用單一設備探索最多5000個 Hyper-v Vm。
-| **Hyper-V**    |  您會將設備部署為 Hyper-v VM。<br/> 提供的設備 VM 是 Hyper-v VM 5.0 版。<br/> VM 主機必須執行 Windows Server 2012 R2 或更新版本。<br/> 它需要足夠的空間來配置 16 GB RAM、4個虛擬處理器和1個適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址, 以及網際網路存取。
+| **Hyper-V**    |  您會將設備部署為 Hyper-v VM。<br/> 提供的設備 VM 是 Hyper-v VM 5.0 版。<br/> VM 主機必須執行 Windows Server 2012 R2 或更新版本。<br/> 它需要足夠的空間來配置 16 GB RAM、8個 vcpu 和1部適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址, 以及網際網路存取。
 
 
 ## <a name="assessment-appliance-url-access"></a>評量-設備 URL 存取

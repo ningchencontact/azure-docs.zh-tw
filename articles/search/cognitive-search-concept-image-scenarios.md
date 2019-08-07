@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e60eeb601a0a5796609b9c38b7394c2de0610cdf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423016"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841292"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何在認知搜尋案例中處理影像並從影像擷取資訊
 
@@ -72,7 +73,8 @@ ms.locfileid: "68423016"
 | originalWidth      | 影像標準化之前的原始寬度。 |
 | originalHeight      | 影像標準化之前的原始高度。 |
 | rotationFromOriginal |  逆時針旋轉為了建立標準化影像而發生的度數。 0 度到 360 度之間的值。 此步驟會從相機或掃描器產生的影像中讀取中繼資料。 通常為 90 度的倍數。 |
-| contentOffset |影像擷取來源的內容欄位中的字元位移。 此欄位僅適用於含內嵌影像的檔案。 |
+| contentOffset | 影像擷取來源的內容欄位中的字元位移。 此欄位僅適用於含內嵌影像的檔案。 |
+| pageNumber | 如果從 PDF 解壓縮或轉譯影像, 此欄位會包含從1開始解壓縮或轉譯之 PDF 中的頁碼。  如果影像不是來自 PDF, 此欄位將會是0。  |
 
  *normalized_images* 的範例值：
 ```json
@@ -84,7 +86,8 @@ ms.locfileid: "68423016"
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```

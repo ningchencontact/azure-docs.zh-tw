@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 962c28c8b081980c2715d4d78739662e86748bd1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377339"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814443"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -125,7 +125,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 ```java
 @FunctionName("keepAlive")
 public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
       ExecutionContext context
  ) {
      // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
@@ -225,7 +225,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 |**type** | n/a | 必須設定為 "timerTrigger"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
 |**name** | n/a | 代表函式程式碼中計時器物件的變數名稱。 | 
-|**schedule**|**ScheduleExpression**|[CRON 運算式](#cron-expressions)或 [TimeSpan](#timespan) 值。 `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的應用程式設定名稱，如此範例所示："%ScheduleAppSetting%"。 |
+|**schedule**|**ScheduleExpression**|[CRON 運算式](#ncrontab-expressions)或 [TimeSpan](#timespan) 值。 `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。 您可以將排程運算式放在應用程式設定中，並將此屬性設定為以 **%** 符號包裝的應用程式設定名稱，如此範例所示："%ScheduleAppSetting%"。 |
 |**runOnStartup**|**RunOnStartup**|如果為 `true`，當執行階段啟動時，會叫用函式。 例如，當函式應用程式因無活動而處於閒置狀態後再甦醒時、 當函式應用程式因函式變更而重新啟動時，以及當函式應用程式相應放大時，執行階段便會啟動。因此 **runOnStartup** 應該很少設定為 `true`，尤其是在生產環境中。 |
 |**useMonitor**|**UseMonitor**|設定為 `true` 或 `false` 以表示是否應該監視排程。 排程監視會使排程持續進行，以協助確保即使在函式應用程式執行個體重新啟動時，排程也能正確地持續運作。 如果未明確設定，則循環間隔大於 1 分鐘的排程之預設值為 `true`。 若為每分鐘觸發超過一次的排程，預設值為 `false`。
 
@@ -253,9 +253,9 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 當目前函式引動過程晚於排程時，`IsPastDue` 屬性為 `true`。 例如，函式應用程式重新啟動可能會導致遺漏引動過程。
 
-## <a name="cron-expressions"></a>CRON 運算式 
+## <a name="ncrontab-expressions"></a>NCRONTAB 運算式 
 
-Azure Functions 會使用 [NCronTab](https://github.com/atifaziz/NCrontab) \(英文\) 程式庫來解譯 CRON 運算式。 CRON 運算式包含六個欄位：
+Azure Functions 使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫來解讀 NCronTab 運算式。 NCRONTAB exppression 類似于 CRON 運算式, 不同之處在于它會在開頭包含一個額外的第六個欄位, 以供時間精確度 (以秒為單位) 使用:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -271,9 +271,9 @@ Azure Functions 會使用 [NCronTab](https://github.com/atifaziz/NCrontab) \(英
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>CRON 範例
+### <a name="ncrontab-examples"></a>NCRONTAB 範例
 
-以下是您可以在 Azure Functions 中使用於計時器觸發程序的一些 CRON 運算式範例。
+以下是您可以在 Azure Functions 中用於計時器觸發程式的一些 NCRONTAB 運算式範例。
 
 |範例|觸發時間  |
 |---------|---------|
@@ -284,25 +284,24 @@ Azure Functions 會使用 [NCronTab](https://github.com/atifaziz/NCrontab) \(英
 |`"0 30 9 * * *"`|每天上午 9:30|
 |`"0 30 9 * * 1-5"`|每個工作日上午 9:30|
 |`"0 30 9 * Jan Mon"`|一月每個星期一上午 9:30|
->[!NOTE]   
->您可以在線上找到 CRON 運算式範例，但其中大部分都會省略 `{second}` 欄位。 如果您複製其中一個運算式，請新增遺漏的 `{second}` 欄位。 通常您在該欄位中需要零，而非星號。
 
-### <a name="cron-time-zones"></a>CRON 時區
+
+### <a name="ncrontab-time-zones"></a>NCRONTAB 的時區
 
 CRON 運算式中的數字代表時間和日期，而非時間範圍。 例如，`hour` 欄位中的 5 代表上午 5:00，而非每隔 5 小時。
 
 CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON 運算式以另一個時區為基礎，請為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定。 將值設定為所需的時區名稱，如 [Microsoft 時區索引](https://technet.microsoft.com/library/cc749073)中所示。 
 
-例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程序在每天上午 10:00 (美加東部標準時間) 觸發，您可以使用說明 UTC 時區的下列 CRON 運算式︰
+例如，*美加東部標準時間*是 UTC-05:00。 若要讓計時器觸發程式在每天的上午10:00 觸發, 請使用下列 NCRONTAB 運算式來表示 UTC 時區:
 
-```json
-"schedule": "0 0 15 * * *"
+```
+"0 0 15 * * *"
 ``` 
 
-或者為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定，並將值設為**美加東部標準時間**。  然後使用下列 CRON 運算式： 
+或者為名為 `WEBSITE_TIME_ZONE` 的函式應用程式建立應用程式設定，並將值設為**美加東部標準時間**。  然後使用下列 NCRONTAB 運算式: 
 
-```json
-"schedule": "0 0 10 * * *"
+```
+"0 0 10 * * *"
 ``` 
 
 當您使用 `WEBSITE_TIME_ZONE` 時，時間會隨特定時區的時間變更 (例如日光節約時間) 而調整。 

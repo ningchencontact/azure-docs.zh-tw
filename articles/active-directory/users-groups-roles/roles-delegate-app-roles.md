@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896bd7f9af3c319ec4190131036d8aa8ee49bb79
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705426"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837888"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>在 Azure Active Directory 中委派應用程式註冊許可權
 
@@ -29,7 +29,7 @@ ms.locfileid: "68705426"
 - [限制誰可以建立應用程式](#restrict-who-can-create-applications), 以及管理他們所建立的應用程式。 根據預設, 在 Azure AD 中, 所有使用者都可以註冊應用程式註冊, 並管理他們所建立之應用程式的所有層面。 這可限制為僅允許選取的人員擁有該許可權。
 - [將一或多個擁有者指派給應用程式](#assign-application-owners)。 這是一種簡單的方式, 讓某人能夠管理特定應用程式的 Azure AD 設定的所有層面。
 - [指派內建的系統管理角色](#assign-built-in-application-admin-roles), 以授與存取權來管理所有應用程式的 Azure AD 中的設定。 這是建議的方法, 讓 IT 專家能夠管理廣泛的應用程式設定許可權, 而不需授與存取權來管理與應用程式設定無關之 Azure AD 的其他部分。
-- [建立自訂角色](#create-and-assign-a-custom-role), 以定義非常特定的許可權, 並將其指派給某個使用者的單一應用程式範圍, 以限制擁有者身分, 或在目錄範圍 (所有應用程式) 上為受限的系統管理員。
+- [建立自訂角色](#create-and-assign-a-custom-role-preview), 以定義非常特定的許可權, 並將其指派給某個使用者的單一應用程式範圍, 以限制擁有者身分, 或在目錄範圍 (所有應用程式) 上為受限的系統管理員。
 
 請務必考慮使用上述其中一種方法來授與存取權, 原因有兩個。 首先, 委派執行系統管理工作的能力, 可減少全域系統管理員的負擔。 其次, 使用有限的許可權可改善您的安全性狀態, 並降低未經授權存取的可能性。 有關於委派問題和一般指導方針的討論，請見[在 Azure Active Directory 中委派管理](roles-concept-delegation.md)。
 
@@ -86,16 +86,21 @@ Azure AD 具有一組內建的系統管理員角色, 可授與存取權來管理
 > 應用程式系統管理員和雲端應用程式系統管理員可以將認證新增至應用程式, 並使用這些認證來模擬應用程式的身分識別。 應用程式可能具有許可權, 而這是系統管理員角色許可權的權限提高。 根據應用程式的許可權, 此角色中的系統管理員可能會在模擬應用程式時建立或更新使用者或其他物件。
 > 而這些角色都不會授與管理條件式存取設定的能力。
 
-## <a name="create-and-assign-a-custom-role"></a>建立並指派自訂角色
+## <a name="create-and-assign-a-custom-role-preview"></a>建立並指派自訂角色 (預覽)
 
 建立自訂角色和指派自訂角色是不同的步驟:
 
 - [建立自訂*角色定義*](roles-create-custom.md) , 並[從預設清單新增其許可權](roles-custom-available-permissions.md)。 這些是內建角色中所使用的相同許可權。
-- [建立*角色指派*](roles-assign-graph.md)來指派自訂角色。
+- [建立*角色指派*](roles-assign-powershell.md)來指派自訂角色。
 
 這種區隔可讓您建立單一角色定義, 然後在不同的*範圍*指派多次。 您可以在整個組織範圍中指派自訂角色, 如果單一 Azure AD 物件, 則可以在範圍中指派。 物件範圍的範例是單一應用程式註冊。 使用不同的範圍, 可以將相同的角色定義指派給組織中的所有應用程式註冊 Sally, 然後只 Naveen Contoso 費用報表應用程式註冊。
 
-如需有關自訂角色之基本概念的詳細資訊, 請參閱[自訂角色總覽](roles-custom-overview.md), 以及如何[建立自訂角色](roles-create-custom.md)和如何[指派角色](roles-assign-graph.md)。
+建立和使用自訂角色來委派應用程式管理的秘訣:
+- 自訂角色只會在 Azure AD 入口網站的最新應用程式註冊 blade 中授與存取權。 它們不會在繼承應用程式註冊 blade 中授與存取權。
+- 當 [限制對 Azure AD 系統管理入口網站的存取] 使用者設定設為 [是] 時, 自訂角色不會授與 Azure AD 入口網站的存取權。
+- 使用者只有在應用程式註冊頁面上的 [所有應用程式] 索引標籤中才會顯示使用角色指派的存取權應用程式註冊。 它們不會顯示在 [擁有的應用程式] 索引標籤中。
+
+如需有關自訂角色之基本概念的詳細資訊, 請參閱[自訂角色總覽](roles-custom-overview.md), 以及如何[建立自訂角色](roles-create-custom.md)和如何[指派角色](roles-assign-powershell.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

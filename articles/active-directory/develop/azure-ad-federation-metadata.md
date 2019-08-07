@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fefaf618ff29cc2186dc555eb6f452223f4cd097
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544494"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835123"
 ---
 # <a name="federation-metadata"></a>同盟中繼資料
 Azure Active Directory (Azure AD) 會針對服務發佈同盟中繼資料文件，而該服務已設定為接受由 Azure AD 簽發的安全性權杖。 [Web 服務同盟語言 (WS-Federation) 1.2 版](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) (該說明為[適用於 OASIS 安全性聲明標記語言 (SAML) 的中繼資料 2.0 版 的延伸資訊](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)) 中說明了同盟中繼資料文件格式。
@@ -33,7 +33,7 @@ Azure AD 會發佈租用戶專屬與租用戶獨立端點。
 
 租用戶專屬端點是專為特定租用戶所設計的。 租用戶專屬同盟中繼資料包含租用戶相關資訊，其中包括租用戶專屬簽發者和端點資訊。 限制存取單一租用戶的應用程式會使用租用戶專屬端點。
 
-租用戶獨立端點會提供通用資訊給所有 Azure AD 租用戶。 本資訊適用裝載於 login.microsoftonline.com  的租用戶，並由所有租用戶共用。 建議多租用戶應用程式使用租用戶獨立端點，因為它們並不與任何特定租用戶相關聯。
+租用戶獨立端點會提供通用資訊給所有 Azure AD 租用戶。 本資訊適用裝載於 login.microsoftonline.com 的租用戶，並由所有租用戶共用。 建議多租用戶應用程式使用租用戶獨立端點，因為它們並不與任何特定租用戶相關聯。
 
 ## <a name="federation-metadata-endpoints"></a>同盟中繼資料端點
 Azure AD 會在 `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`發佈同盟中繼資料。
@@ -50,7 +50,7 @@ Azure AD 會在 `https://login.microsoftonline.com/<TenantDomainName>/Federation
 ## <a name="contents-of-federation-metadata"></a>同盟中繼資料內容
 以下小節提供使用 Azure AD 所簽發之權杖的服務所需的資訊。
 
-### <a name="entity-id"></a>實體識別碼
+### <a name="entity-id"></a>實體 ID
 `EntityDescriptor` 項目包含 `EntityID` 屬性。 `EntityID` 屬性的值代表簽發者 (也就是簽發權杖的 Security Token Service (STS))。 請務必在收到權杖時驗證簽發者。
 
 下列中繼資料說明了含有 `EntityID` 項目的範例租用戶專屬 `EntityDescriptor` 項目。
@@ -73,7 +73,7 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>權杖簽署憑證
-當服務收到的 Azure AD 租用戶所發出的權杖時，必須具有發佈同盟中繼資料文件中的簽署金鑰驗證權杖的簽章。 同盟中繼資料包含租用戶用於權杖簽署之憑證的公開部分。 憑證原始位元組會出現在 `KeyDescriptor` 項目中。 當 `use` 屬性值為 `signing` 時，權杖簽署憑證僅能適用於簽署。
+當服務收到 Azure AD 租使用者所發行的權杖時, 必須使用在同盟元資料檔案中發佈的簽署金鑰來驗證權杖的簽章。 同盟中繼資料包含租用戶用於權杖簽署之憑證的公開部分。 憑證原始位元組會出現在 `KeyDescriptor` 項目中。 當 `use` 屬性值為 `signing` 時，權杖簽署憑證僅能適用於簽署。
 
 Azure AD 所發佈之同盟中繼資料文件可以有多組簽署金鑰 (例如，Azure AD 準備更新簽署憑證時)。 當同盟中繼資料文件包含多個憑證時，正在驗證權杖的服務應會支援該文件中的所有憑證。
 

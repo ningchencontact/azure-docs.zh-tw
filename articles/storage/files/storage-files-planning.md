@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721717"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816598"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -62,7 +62,7 @@ Azure 檔案服務具有數個內建的選項，可用於確保資料安全性�
     * 不支援 SMB 3.0 與加密的用戶端可以在資料中心內透過 SMB 2.1 或 SMB 3.0 進行通訊, 而不需要加密。 不允許 SMB 用戶端透過 SMB 2.1 或 SMB 3.0 進行無加密的資料中心之間通訊。
     * 用戶端可以藉由 HTTP 或 HTTPS 透過檔案 REST 進行通訊。
 * 待用資料加密 ([Azure 儲存體服務加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json))：所有儲存體帳戶都會啟用儲存體服務加密 (SSE)。 靜止資料是使用完全受控金鑰加密。 待用加密不會增加儲存成本或降低效能。 
-* 加密傳輸資料的選擇性需求：選取時，Azure 檔案服務拒絕透過未加密的通道存取資料。 具體來說，只允許具有加密連線的 HTTPS 和 SMB 3.0。
+* 傳輸中加密資料的選擇性需求: 選取時, Azure 檔案儲存體拒絕透過未加密的通道存取資料。 具體來說，只允許具有加密連線的 HTTPS 和 SMB 3.0。
 
     > [!Important]  
     > 要求資料安全傳輸將導致舊版 SMB 用戶端通訊失敗，因為它無法與加密的 SMB 3.0 通訊。 如需詳細資訊，請參閱[掛接在 Windows 上](storage-how-to-use-files-windows.md)、[掛接在 Linux 上](storage-how-to-use-files-linux.md)、[掛接在 macOS 上](storage-how-to-use-files-mac.md)。
@@ -207,11 +207,12 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 |區域 |支援的冗余 |支援現有的儲存體帳戶 |入口網站支援 *   |
 |-------|---------|---------|---------|
-|澳大利亞東部  |LRS|否         |是|
-|法國中部  |LRS|否         |尚未提供|
-|東南亞  |LRS、ZRS|否         |僅限 LRS, ZRS-尚未|
-|西歐     |LRS、ZRS|否       |是|
-|美國西部 2       |LRS、ZRS|否         |是|
+|澳大利亞東部  |LRS     |否    |是|
+|法國中部  |LRS     |否    |尚未提供|
+|法國南部    |LRS     |否    |尚未提供|
+|東南亞  |LRS、ZRS|否    |是|
+|西歐     |LRS、ZRS|否    |是|
+|美國西部 2       |LRS、ZRS|否    |是|
 
 \* 對於沒有入口網站支援的區域, 您仍然可以使用 PowerShell 或 Azure 命令列介面 (CLI) 來建立大於5個 TiB 的共用。 Altenatively, 透過入口網站建立新的共用, 而不指定配額。 這會建立預設大小為 100 TiB 的共用, 稍後可透過 PowerShell 或 Azure CLI 進行更新。
 

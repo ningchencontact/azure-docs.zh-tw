@@ -1,7 +1,7 @@
 ---
-title: 定型和註冊 Chainer 模型
+title: 使用 Chainer 訓練深度學習類神經網路
 titleSuffix: Azure Machine Learning service
-description: 本文說明如何使用 Azure Machine Learning 服務來定型和註冊 Chainer 模型。
+description: 瞭解如何使用 Azure Machine Learning 的 Chainer 估計工具類別, 以企業規模執行您的 PyTorch 訓練腳本。  範例腳本會 classifis 手寫數位影像, 使用在 numpy 上執行的 Chainer Python 程式庫來建立深度學習神經網路。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
-ms.date: 06/15/2019
-ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.date: 08/02/2019
+ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618336"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780892"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務大規模定型和註冊 Chainer 模型
 
-本文說明如何使用 Azure Machine Learning 服務來定型和註冊 Chainer 模型。 它會使用熱門的[MNIST 資料集](http://yann.lecun.com/exdb/mnist/), 利用以[numpy](https://www.numpy.org/)上執行的[Chainer Python 程式庫](https://Chainer.org)所建立的深度類神經網路 (DNN) 來分類手寫數位。
+在本文中, 您將瞭解如何使用 Azure Machine Learning 的[Chainer 估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)類別, 以企業規模執行您的[Chainer](https://chainer.org/)訓練腳本。 本文中的範例訓練腳本會使用熱門的[MNIST 資料集](http://yann.lecun.com/exdb/mnist/), 利用以[numpy](https://www.numpy.org/)上執行的 Chainer Python 程式庫建立的深度類神經網路 (DNN) 來分類手寫數位。
 
-Chainer 是高階類神經網路 API, 能夠在其他熱門的 DNN 架構上執行, 以簡化開發工作。 使用 Azure Machine Learning 服務, 您可以使用彈性雲端計算資源, 快速地相應放大定型作業。 您也可以追蹤定型回合、版本模型、部署模型, 以及其他更多功能。
+無論您是從基礎開始訓練深度學習 Chainer 模型, 或是將現有的模型帶入雲端, 都可以使用 Azure Machine Learning, 使用彈性雲端計算資源來相應放大開放原始碼訓練作業。 您可以使用 Azure Machine Learning 來建立、部署、版本及監視生產等級模型。 
 
-無論您是從頭開始開發 Chainer 模型, 或是將現有的模型帶入雲端, Azure Machine Learning 服務都能協助您建立符合生產需求的模型。
+[深入瞭解深度學習與機器學習](concept-deep-learning-vs-machine-learning.md)服務。
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -33,8 +33,8 @@ Chainer 是高階類神經網路 API, 能夠在其他熱門的 DNN 架構上執�
 
 - Azure Machine Learning 筆記本 VM-不需要下載或安裝
 
-    - 完成以[雲端為基礎的筆記本快速入門](quickstart-run-cloud-notebook.md), 以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
-    - 在筆記本伺服器的 [samples] 資料夾中, 尋找已完成的筆記本和 chainer 的使用方式/訓練-**具有深度學習/定型-超參數-微調-部署-with-** 資料夾中的檔案。  此筆記本包含擴充的章節, 涵蓋智慧型超參數微調、模型部署和筆記本 widget。
+    - 完成[教學課程：設定環境和工作](tutorial-1st-experiment-sdk-setup.md)區, 以建立預先載入 SDK 和範例存放庫的專用筆記本伺服器。
+    - 在筆記本伺服器上的範例深入學習資料夾中, 尋找已完成的筆記本和 chainer 的**使用方式/訓練-具有深度學習/訓練-超參數-** -------------------------------  此筆記本包含擴充的章節, 涵蓋智慧型超參數微調、模型部署和筆記本 widget。
 
 - 您自己的 Jupyter Notebook 伺服器
 
@@ -94,7 +94,7 @@ import shutil
 shutil.copy('chainer_mnist.py', project_folder)
 ```
 
-### <a name="create-an-experiment"></a>建立實驗
+### <a name="create-a-deep-learning-experiment"></a>建立深度學習實驗
 
 建立實驗。 在此範例中, 建立名為 "chainer-mnist" 的實驗。
 
@@ -209,9 +209,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中, 您已在 Azure Machine Learning 服務上訓練了 Chainer 模型。 
-
-* 若要瞭解如何部署模型, 請繼續進行我們的[模型部署](how-to-deploy-and-where.md)一文。
+在本文中, 您已使用 Chainer 在 Azure Machine Learning 服務上訓練並註冊深度學習、類神經網路。 若要瞭解如何部署模型, 請繼續進行我們的[模型部署](how-to-deploy-and-where.md)一文。
 
 * [調整超參數](how-to-tune-hyperparameters.md)
 

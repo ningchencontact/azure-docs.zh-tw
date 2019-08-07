@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 300dd634cc99e5203145619b475d813705f09553
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501312"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815684"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -431,7 +431,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體, 而不
 
 **一般費率:** 以單一每月或全年價格的原價價格, 來存取您的供應專案。 這有時稱為以網站為基礎的定價。 使用此計價模式時, 您可以選擇性地定義使用 marketplace 計量服務 API 的計量付費方案, 以根據非標準單位向客戶收費。  如需計量付費計費的詳細資訊, 請參閱[使用 marketplace 計量服務的計量付費](./saas-metered-billing.md)。
 
-**以基座為基礎:** 依據存取供應專案或佔用基座的使用者人數, 使用價格來存取您的供應專案。 這個以基座為基礎的模型可讓您根據價格來設定允許的基座數目下限和上限。 如此一來, 您可以設定多個方案, 根據使用者數目來設定不同的價格點。  這些欄位為選擇性。 如果保留空白, 基座數目將會被視為沒有限制 (最小值為 1, 最多可支援系統)。 這些欄位可能會在您的方案更新中編輯。
+**每位使用者:** 依據存取供應專案或佔用基座的使用者人數, 使用價格來存取您的供應專案。 此以使用者為基礎的模型可讓您設定根據價格允許的最小和最大使用者數目。 如此一來, 您可以設定多個方案, 根據使用者數目來設定不同的價格點。  這些欄位為選擇性。 如果未選取此項, 則會將使用者數目視為沒有限制 (最小值為 1, 最多可支援系統)。 這些欄位可能會在您的方案更新中編輯。
 
 發佈之後, 就無法變更計費計價模式選項。 此外, 相同供應專案的所有方案都必須共用相同的計價模式。
 

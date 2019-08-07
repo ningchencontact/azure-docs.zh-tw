@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a316de54600d18f7ab839b8459bfe4eb0ff86e8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479801"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742314"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 
@@ -40,7 +40,7 @@ ms.locfileid: "68479801"
 
 在開始實驗之前，您應先決定所要解決的機器學習問題類型。 自動化機器學習支援分類、迴歸和預測等工作類型。
 
-在自動化和調整程序期間，自動化機器學習支援下列演算法。 身為使用者，您不需要指定演算法。 
+在自動化和調整程序期間，自動化機器學習支援下列演算法。 身為使用者，您不需要指定演算法。
 
 分類 | 迴歸 | 時間序列預測
 |-- |-- |--
@@ -104,7 +104,7 @@ automl_config = AutoMLConfig(task="classification")
 ```python
     import pandas as pd
     from sklearn import datasets
-    
+
     data_train = datasets.load_digits()
 
     pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
@@ -114,7 +114,7 @@ automl_config = AutoMLConfig(task="classification")
     ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-### <a name="define-deprep-references"></a>定義 deprep 參考
+### <a name="define-dprep-references"></a>定義 iris.dprep 參考
 
 將 X 和 y 定義為 iris.dprep 參考, 這會傳遞至自動化機器學習`AutoMLConfig`物件, 如下所示:
 
@@ -122,8 +122,8 @@ automl_config = AutoMLConfig(task="classification")
 
     X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
     y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-    
-    
+
+
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  path = project_folder,
@@ -253,9 +253,60 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="ensemble"></a>集團設定
+
+預設會啟用集團模型, 並在自動化機器學習執行中顯示為最後的執行反復專案。 目前支援的集團方法為投票和堆疊。 投票會實作為使用加權平均值的軟投票, 而堆疊執行則使用2層的實作為, 其中第一層的模型與投票集團相同, 而第二層模型則是用來尋找最佳的組合第一層的模型。 如果您使用 ONNX 模型,**或**已啟用模型可解釋性, 將會停用堆疊, 而且只會使用投票。
+
+您可以`kwargs` `AutoMLConfig`在物件中提供多個預設引數, 以改變預設堆疊集團行為。
+
+* `stack_meta_learner_type`: 中繼學習模組是在個別的異類模型的輸出上定型的模型。 預設的中繼`LogisticRegression`學習工具適用于分類工作 (或者`LogisticRegressionCV` , 如果已啟用交叉驗證) `ElasticNet`和回歸/預測工作 ( `ElasticNetCV`如果已啟用交叉驗證)。 這個參數可以是下列其中`LogisticRegression`一個字串:、 `LogisticRegressionCV`、 `LightGBMClassifier`、 `ElasticNet`、 `ElasticNetCV` `LightGBMRegressor`、或`LinearRegression`。
+* `stack_meta_learner_train_percentage`: 指定要保留以定型學習模組的定型集比例 (選擇定型和驗證類型時)。 預設值為 `0.2`。
+* `stack_meta_learner_kwargs`: 要傳遞至中繼學習模組之初始化運算式的選擇性參數。 這些參數和參數類型會從對應的模型構造函式進行鏡像, 並將它們轉送到模型的函式。
+
+下列程式碼顯示在`AutoMLConfig`物件中指定自訂集團行為的範例。
+
+```python
+ensemble_settings = {
+    "stack_meta_learner_type": "LogisticRegressionCV",
+    "stack_meta_learner_train_percentage": 0.3,
+    "stack_meta_learner_kwargs": {
+        "refit": True,
+        "fit_intercept": False,
+        "class_weight": "balanced",
+        "multi_class": "auto",
+        "n_jobs": -1
+    }
+}
+
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        **ensemble_settings
+        )
+```
+
+集團訓練預設為啟用, 但可以使用`enable_voting_ensemble`和`enable_stack_ensemble`布林值參數來停用。
+
+```python
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
+```
+
 ## <a name="run-experiment"></a>執行實驗
 
-針對自動化 ML, 您將需要建立`Experiment`物件, 這是`Workspace`中用來執行實驗的已命名物件。
+針對自動化 ML, 您會`Experiment`建立物件, 這是`Workspace`中用來執行實驗的已命名物件。
 
 ```python
 from azureml.core.experiment import Experiment

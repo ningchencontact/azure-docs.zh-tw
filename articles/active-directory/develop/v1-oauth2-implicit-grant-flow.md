@@ -10,7 +10,7 @@ ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fe0ee8021ae7e70654a161e37d072195bbc035f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545250"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834740"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>了解 Azure Active Directory (AD) 中的 OAuth2 隱含授與流程
 
@@ -62,7 +62,7 @@ OAuth2 規格聲明設計出隱含授與是為了實現使用者代理程式應�
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>我的應用程式適用隱含授與嗎？
 
-隱含授與比其他授與帶來更多風險，您需要注意的區域已有詳細記錄 (例如，[在隱含流程中誤用存取權杖來模擬資源擁有者][OAuth2-Spec-Implicit-Misuse]和 [OAuth 2.0 威脅模型和安全性考量][OAuth2-Threat-Model-And-Security-Implications])。 不過，風險概況之所以較高，主要是因為它要啟用執行作用中程式碼的應用程式，並由遠端資源提供給瀏覽器。 如果您正在規劃 SPA 架構，沒有後端元件或想要透過 JavaScript 叫用 Web API，則建議使用隱含流程來取得權杖。
+隱含授與提供的風險比其他授與更多, 而且您需要注意的區域已妥善記載 (例如,[誤用存取權杖以在隱含流程中模擬資源擁有][OAuth2-Spec-Implicit-Misuse]者, 以及[OAuth 2.0 威脅模型和安全性考慮][OAuth2-Threat-Model-And-Security-Implications])。 不過，風險概況之所以較高，主要是因為它要啟用執行作用中程式碼的應用程式，並由遠端資源提供給瀏覽器。 如果您正在規劃 SPA 架構，沒有後端元件或想要透過 JavaScript 叫用 Web API，則建議使用隱含流程來取得權杖。
 
 如果應用程式是原生用戶端，則不適用隱含流程。 原生用戶端環境中沒有Azure AD 工作階段 Cookie，將會讓應用程式沒有辦法維持長時間執行的工作階段。 這表示應用程式在取得新資源的存取權杖時會重複提示使用者。
 
@@ -70,8 +70,8 @@ OAuth2 規格聲明設計出隱含授與是為了實現使用者代理程式應�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需完整的開發人員資源清單 (包括 Azure AD 所支援的通訊協定和 OAuth2 授權授與流程的參考資訊)，請參閱 [Azure AD 開發人員指南][AAD-Developers-Guide]
-* 如需更加深入地了解應用程式整合程序，請參閱[如何將應用程式與 Azure AD 整合][ACOM-How-To-Integrate]。
+* 如需開發人員資源的完整清單, 包括 Azure AD 的通訊協定和 OAuth2 授權授與流程支援的參考資訊, 請參閱[Azure AD 開發人員指南][AAD-Developers-Guide]
+* 請參閱[如何整合應用程式與 Azure AD][ACOM-How-To-Integrate] , 以取得應用程式整合流程的其他深度。
 
 <!--Image references-->
 

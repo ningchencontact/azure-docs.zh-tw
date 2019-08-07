@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82672114722db843fcb5d0bdff28cf14cddb1aef
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543201"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811939"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 術語概觀
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  您可以[隨處裝載 Service Fabric 叢集](service-fabric-deploy-anywhere.md)：在 Azure 中、在內部部署資料中心中，或是在任何雲端提供者上。  Service Fabric 是支援 [Azure Service Fabric Mesh](/azure/service-fabric-mesh) 的協調器。 您可以使用任何架構來撰寫服務，並從多種環境中選擇要執行應用程式的位置。 本文詳細說明 Service Fabric 中所使用的術語，以利您了解文件中使用的詞彙。
@@ -27,7 +27,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 ## <a name="infrastructure-concepts"></a>基礎結構概念
 **叢集**：由虛擬或實體機器透過網路連線所組成的集合，您會在其中部署及管理您的微服務。  叢集可擴充至數千部機器。
 
-**節點**：屬於叢集之一部分的電腦或 VM 都稱為「節點」  。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 placement 屬性。 每個電腦或 VM 皆有自動啟動的 Windows 服務 `FabricHost.exe`，該服務會在開機時開始執行，然後啟動兩個執行檔：`Fabric.exe` 和 `FabricGateway.exe`。 這兩個執行檔構成節點。 在測試案例中，您可以藉由執行 `Fabric.exe` 和 `FabricGateway.exe` 的多個執行個體，在單一電腦或 VM 上裝載多個節點。
+**節點**：屬於叢集之一部分的電腦或 VM 都稱為「節點」。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 placement 屬性。 每個電腦或 VM 皆有自動啟動的 Windows 服務 `FabricHost.exe`，該服務會在開機時開始執行，然後啟動兩個執行檔：`Fabric.exe` 和 `FabricGateway.exe`。 這兩個執行檔構成節點。 在測試案例中，您可以藉由執行 `Fabric.exe` 和 `FabricGateway.exe` 的多個執行個體，在單一電腦或 VM 上裝載多個節點。
 
 ## <a name="application-and-service-concepts"></a>應用程式和服務概念
 
@@ -142,7 +142,7 @@ Service Fabric 資源是可個別部署至 Service Fabric 的任何項目，包�
 
 **容器**：Service Fabric 支援將 Docker 容器部署至 Linux，也支援將 Windows Server 容器部署至 Windows Server 2016，並支援 Hyper-V 隔離模式。 在 Service Fabric [應用程式模型](service-fabric-application-model.md)中，容器代表多個服務複本所在的應用程式主機。 Service Fabric 可以執行任何容器，其案例類似於來賓可執行檔案例，可讓您封裝容器中的現有應用程式。 此外，您也可以執行[容器內的 Service Fabric 服務](service-fabric-services-inside-containers.md)。
 
-**客體可執行檔**：您可以在 Azure Service Fabric 中將任何類型的程式碼 (例如 Node.js、Java 或 C++) 當作服務來執行。 Service Fabric 將這些類型的服務稱為來賓可執行檔，並且視為無狀態服務。 在 Service Fabric 叢集中執行來賓可執行檔的 優點包括高可用性、健康情況監控、應用程式生命週期管理、高密度及可搜尋性。
+**客體可執行檔**：您可以在 Azure 中執行任何類型的程式碼, 例如 node.js、Python、JAVA 或C++ , Service Fabric 即服務。 Service Fabric 將這些類型的服務稱為來賓可執行檔，並且視為無狀態服務。 在 Service Fabric 叢集中執行來賓可執行檔的 優點包括高可用性、健康情況監控、應用程式生命週期管理、高密度及可搜尋性。
 
 如需詳細資訊，請閱讀[為服務選擇程式設計模型](service-fabric-choose-framework.md)一文。
 
@@ -164,13 +164,13 @@ Service Fabric 是一項開放原始碼平台技術，有數個不同的服務�
 | 應用程式類型 | 描述依據 | Azure Service Fabric Mesh | Azure Service Fabric 叢集 (任何 OS)| 本機叢集 | 獨立叢集 |
 |---|---|---|---|---|---|
 | Service Fabric Mesh 應用程式 | 資源模型 (YAML & JSON) | 支援 |不支援 | Windows - 支援，Linux 和 Mac - 不支援 | Windows - 不支援 |
-|Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | 不支援| 支援|支援|Windows - 支援|
+|Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | 不受支援| 支援|支援|Windows - 支援|
 
 下表針對 Service Fabric 描述不同的應用程式模型以及對應存在的工具。
 
 | 應用程式類型 | 描述依據 | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
 |---|---|---|---|---|---|---|
-| Service Fabric Mesh 應用程式 | 資源模型 (YAML & JSON) | VS 2017 |不支援 |不支援 | 支援 - 僅限 Mesh 環境 | 不支援|
+| Service Fabric Mesh 應用程式 | 資源模型 (YAML & JSON) | VS 2017 |不支援 |不支援 | 支援 - 僅限 Mesh 環境 | 不受支援|
 |Service Fabric 原生應用程式 | 原生應用程式模型 (XML) | VS 2017 和 VS 2015| 支援|支援|支援|支援|
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

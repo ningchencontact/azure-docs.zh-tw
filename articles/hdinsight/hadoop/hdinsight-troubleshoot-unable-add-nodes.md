@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.date: 07/31/2019
-ms.openlocfilehash: ea36f8a6a8c1db031de8f6ce2b4e3a88d73907e7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6c2e2c7395fcc45fe74c50beb3624eabb1d395c9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700323"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828019"
 ---
 # <a name="scenario-unable-to-add-nodes-to-azure-hdinsight-cluster"></a>案例:無法將節點新增至 Azure HDInsight 叢集
 
@@ -27,7 +27,7 @@ ms.locfileid: "68700323"
 
 ## <a name="resolution"></a>解決方法
 
-使用 [叢集[大小](/hdinsight-scaling-best-practices.md)] 功能, 計算叢集所需的其他核心數目。 這是以新背景工作角色節點中的核心總數為基礎。 然後嘗試下列一個或多個步驟:
+使用 [叢集[大小](../hdinsight-scaling-best-practices.md)] 功能, 計算叢集所需的其他核心數目。 這是以新背景工作角色節點中的核心總數為基礎。 然後嘗試下列一個或多個步驟:
 
 * 檢查叢集位置是否有任何可用的核心。
 

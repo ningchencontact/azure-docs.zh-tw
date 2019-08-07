@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414125"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742214"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>適用於容器的 Azure 監視器概觀
 
@@ -40,9 +40,11 @@ ms.locfileid: "68414125"
 * 設定警示, 以主動通知您, 或在節點或容器上的 CPU 和記憶體使用率超過閾值時加以記錄。
 * 與[Prometheus](https://prometheus.io/docs/introduction/overview/)整合, 以查看它從節點和 Kubernetes 收集的應用程式和工作負載計量使用[查詢](container-insights-log-search.md)來建立自訂警示、儀表板, 以及詳細的執行詳細分析。
 
->[!NOTE]
->目前的 Prometheus 支援是公開預覽中的一項功能。
->
+    >[!NOTE]
+    >目前的 Prometheus 支援是公開預覽中的一項功能。
+    >
+
+* 監視[部署至 AKS 引擎的](https://github.com/microsoft/OMS-docker/tree/aks-engine)容器工作負載。
 
 查看下列提供中繼層級深入探討的影片, 以協助您瞭解如何使用容器的 Azure 監視器監視 AKS 叢集。
 

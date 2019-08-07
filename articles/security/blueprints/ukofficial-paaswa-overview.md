@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54bf4512785941ae1d09ae1436deefc032ec0037
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753838"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780664"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -52,12 +52,12 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 此解決方案會使用下列 Azure 服務。 部署架構的詳細資料位於[部署架構](#deployment-architecture)一節中。
 
 - Azure Active Directory
-- App Service 方案
+- App Service
 - Web 應用程式
 - API 應用程式
 - Azure DNS
 - Key Vault
-- Azure 監視器 （記錄檔）
+- Azure 監視器 (記錄)
 - Application Insights
 - Azure Resource Manager
 - Azure 資訊安全中心
@@ -95,7 +95,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) 是個人化的雲端顧問，可協助您依最佳做法來最佳化您的 Azure 部署。 它可分析您的資源組態和使用量遙測，然後建議可協助您改善 Azure 資源的成本效益、效能、高可用性和安全性的解決方案。
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 這預設安裝在基礎的 PaaS 虛擬機器基礎結構，而且由 Azure 網狀架構，看不到客戶管理。
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 此預設會安裝在基礎 PaaS 虛擬機器基礎結構上, 並由 Azure 網狀架構以透明方式管理給客戶。
 
 ### <a name="paas-services-in-this-blueprint"></a>此藍圖中的 PaaS 服務
 
@@ -156,7 +156,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 ### <a name="secrets-management"></a>祕密管理
 
-#### <a name="azure-key-vault"></a>Azure 金鑰保存庫
+#### <a name="azure-key-vault"></a>Azure Key Vault
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 用來保護應用程式金鑰和祕密，以確保第三方不能存取它們。 Key Vault 的用意並非作為使用者密碼的存放區。 它可讓您建立多個安全的容器，稱之為保存庫。 這些保存庫由硬體安全性模組 (HSM) 支援。 保存庫藉由集中儲存應用程式祕密，協助減少意外遺失安全性資訊的機會。 Key Vault 也會控制和記錄其中所儲存項目的存取權。 Azure Key Vault 可以處理要求及更新傳輸層安全性 (TLS) 憑證，並提供穩健憑證生命週期管理解決方案所需的功能。
 
@@ -170,11 +170,11 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)是可協助您收集和分析雲端中的資源所產生的資料的 Azure 中的服務和內部部署環境。
+[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)是 Azure 中的一項服務, 可協助您收集和分析雲端和內部部署環境中的資源所產生的資料。
 
-#### <a name="azure-monitor-logs-in-this-blueprint"></a>此藍圖中的 azure 監視器記錄檔
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure 監視器此藍圖中的記錄
 
-- SQL 評估
+- SQL 評定
 - Key Vault 診斷
 - Application Insights 連線
 - Azure 活動記錄檔

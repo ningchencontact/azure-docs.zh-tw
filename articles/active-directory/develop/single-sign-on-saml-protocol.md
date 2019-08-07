@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf512f802e0e4944e6ce949830719b87301adfc4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545288"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834800"
 ---
 # <a name="single-sign-on-saml-protocol"></a>單一登入 SAML 通訊協定
 
@@ -90,7 +90,7 @@ Azure AD 也會忽略 `AuthnRequest` 中的 `Conditions` 元素。
 Azure AD 會忽略 `AllowCreate` 屬性。
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-`RequestedAuthnContext` 元素會指定所需的驗證方法。 在傳送至 Azure AD 的 `AuthnRequest` 元素中，它是選擇性的。 Azure AD 支援`AuthnContextClassRef`這類值`urn:oasis:names:tc:SAML:2.0:ac:classes:Password`。
+`RequestedAuthnContext` 元素會指定所需的驗證方法。 在傳送至 Azure AD 的 `AuthnRequest` 元素中，它是選擇性的。 Azure AD 支援`AuthnContextClassRef` `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`之類的值。
 
 ### <a name="scoping"></a>範圍
 包含識別提供者清單的 `Scoping` 元素在傳送至 Azure AD 的 `AuthnRequest` 元素中是選擇性的。
@@ -103,7 +103,7 @@ Azure AD 會忽略 `AllowCreate` 屬性。
 ### <a name="subject"></a>Subject
 Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 
-## <a name="response"></a>Response
+## <a name="response"></a>回應
 當要求的登入成功完成時，Azure AD 會將回應張貼至雲端服務。 登入嘗試成功的回應看起來會像下列範例︰
 
 ```
@@ -149,7 +149,7 @@ Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 </samlp:Response>
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 
 `Response` 元素包含授權要求的結果。 Azure AD 會設定 `Response` 元素中的 `ID`、`Version` 和 `IssueInstant` 值。 它也會設定下列屬性︰
 
@@ -158,7 +158,7 @@ Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 
 ### <a name="issuer"></a>簽發者
 
-Azure AD 會將`Issuer`項目`https://login.microsoftonline.com/<TenantIDGUID>/`其中\<TenantIDGUID > 是 Azure AD 租用戶的租用戶識別碼。
+Azure AD 將`Issuer`元素設定為`https://login.microsoftonline.com/<TenantIDGUID>/` , \<其中 TenantIDGUID > 是 Azure AD 租使用者的租使用者識別碼。
 
 例如，具有 Issuer 元素的回應看起來會像下列範例︰
 
@@ -193,7 +193,7 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 #### <a name="issuer"></a>簽發者
 
-此值設為`https://sts.windows.net/<TenantIDGUID>/`其中\<TenantIDGUID > 是 Azure AD 租用戶的租用戶識別碼。
+這會設定為`https://sts.windows.net/<TenantIDGUID>/`, \<其中 TenantIDGUID > 是 Azure AD 租使用者的租使用者識別碼。
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

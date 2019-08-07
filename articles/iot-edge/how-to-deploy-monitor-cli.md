@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 61a3c1cdccf01b266581a13fe3c660bd57f59b2c
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 2601d05c5d2302bedb51e959747939aa3c33db44
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67796194"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839625"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大規模部署與監視 IoT Edge 模組
 
-建立**IoT Edge 的自動部署**來同時管理許多裝置的進行中的部署使用 Azure 命令列介面。 自動部署 IoT Edge 是的一部分[自動的裝置管理](/azure/iot-hub/iot-hub-automatic-device-management)IoT 中樞的功能。 部署是動態的程序，可讓您將多個模組部署到多個裝置，追蹤的狀態和健全狀況模組，並進行變更時所需。 
+使用 Azure 命令列介面建立**IoT Edge 自動部署**, 以一次管理許多裝置的持續部署。 IoT Edge 的自動部署是 IoT 中樞[自動裝置管理](/azure/iot-hub/iot-hub-automatic-device-management)功能的一部分。 部署是動態程式, 可讓您將多個模組部署至多個裝置、追蹤模組的狀態和健全狀況, 並在必要時進行變更。 
 
-如需詳細資訊，請參閱 <<c0> [ 自動了解 IoT Edge 部署適用於單一裝置或大規模](module-deployment-monitoring.md)。
+如需詳細資訊, 請參閱[瞭解單一裝置或大規模的 IoT Edge 自動部署](module-deployment-monitoring.md)。
 
-在本文中，您會設定 Azure CLI 和 IoT 擴充功能。 然後，您會學習如何將模組部署到一組 IoT Edge 裝置，以及監視使用可用的 CLI 命令的進度。
+在本文中，您會設定 Azure CLI 和 IoT 擴充功能。 接著, 您將瞭解如何使用可用的 CLI 命令, 將模組部署到一組 IoT Edge 裝置, 並監視進度。
 
 ## <a name="cli-prerequisites"></a>CLI 先決條件
 
@@ -34,9 +34,9 @@ ms.locfileid: "67796194"
 
 ## <a name="configure-a-deployment-manifest"></a>設定部署資訊清單
 
-部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 如需詳細資訊，請參閱 <<c0> [ 了解如何將模組部署，並在 IoT Edge 建立路由](module-composition.md)。
+部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 如需詳細資訊, 請參閱[瞭解如何在 IoT Edge 中部署模組及建立路由](module-composition.md)。
 
-若要使用 Azure CLI 部署模組，請在本機上將部署資訊清單儲存成 .txt 檔案。 當您執行命令，以將組態套用到您的裝置時，您可以使用下一節中的檔案路徑。 
+若要使用 Azure CLI 部署模組，請在本機上將部署資訊清單儲存成 .txt 檔案。 當您執行命令以將設定套用至您的裝置時, 請使用下一節中的檔案路徑。 
 
 下面以具有一個模組的基本部署資訊清單為例：
 
@@ -80,7 +80,7 @@ ms.locfileid: "67796194"
             }
           },
           "modules": {
-            "tempSensor": {
+            "SimulatedTemperatureSensor": {
               "version": "1.0",
               "type": "docker",
               "status": "running",
@@ -104,7 +104,7 @@ ms.locfileid: "67796194"
           }
         }
       },
-      "tempSensor": {
+      "SimulatedTemperatureSensor": {
         "properties.desired": {}
       }
     }
@@ -114,7 +114,7 @@ ms.locfileid: "67796194"
 
 ## <a name="identify-devices-using-tags"></a>使用標記識別裝置
 
-在您可建立部署之前，必須能夠指定您要影響的裝置。 Azure IoT Edge 會使用裝置對應項中的 **tags** 來識別裝置。 每個裝置可以有多個您在任何對您的方案有意義的方式中定義的標記。 例如，如果您管理智慧建築的校園，便可以將下列標記新增至裝置：
+在您可建立部署之前，必須能夠指定您要影響的裝置。 Azure IoT Edge 會使用裝置對應項中的 **tags** 來識別裝置。 每個裝置都可以有多個以任何方式定義的標記, 對您的解決方案而言是合理的。 例如，如果您管理智慧建築的校園，便可以將下列標記新增至裝置：
 
 ```json
 "tags":{
@@ -133,16 +133,16 @@ ms.locfileid: "67796194"
 
 透過建立一個包含部署資訊清單及其他參數的部署，您就可以將模組部署至您的目標裝置。 
 
-使用[az iot edge 部署建立](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create)命令來建立部署：
+使用[az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create)命令來建立部署:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
-部署會建立命令將會需要下列參數： 
+Deployment create 命令會採用下列參數: 
 
 * **--deployment-id** - 將建立在 IoT 中樞內的部署名稱。 為部署指定唯一的名稱，最長為 128 個小寫字母。 避免空格和下列無效字元：`& ^ [ ] { } \ | " < > /`。
-* **--hub-name** - 將在其中建立部署的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 變更與您目前訂用帳戶`az account set -s [subscription name]`命令。
+* **--hub-name** - 將在其中建立部署的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 使用`az account set -s [subscription name]`命令變更您目前的訂用帳戶。
 * **--content** - 部署資訊清單 JSON 的檔案名稱。 
 * **--labels** - 新增標籤，以協助追蹤您的部署。 標籤是成對的「名稱, 值」組合，可描述您的部署。 標籤會採用 JSON 格式的名稱和值。 例如： `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--target-condition** - 輸入目標條件來判斷這個部署會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如： `tags.environment='test' and properties.reported.devicemodel='4000x'` 。 
@@ -150,13 +150,13 @@ az iot edge deployment create --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="monitor-a-deployment"></a>監視部署
 
-使用[az iot edge 部署節目](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show)命令，以顯示單一部署的詳細資料：
+使用[az iot edge deployment show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show)命令來顯示單一部署的詳細資料:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
-部署會顯示命令將會需要下列參數：
+Deployment show 命令會採用下列參數:
 * **--deployment-id** - 存在於 IoT 中樞的部署名稱。
 * **--hub-name** - 部署存在於其中的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 使用 `az account set -s [subscription name]` 命令切換到所需的訂用帳戶
 
@@ -164,16 +164,16 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 
 * **targetedCount** - 系統計量，指定 IoT 中樞內符合目標條件的裝置對應項數目。
 * **appliedCount** - 系統計量，指定已在 IoT 中樞內將部署內容套用到其模組對應項的裝置數目。
-* **reportedSuccessfulCount** -裝置度量資訊會指定部署報告成功從 IoT Edge 用戶端執行階段中的 IoT Edge 裝置的數目。
-* **reportedFailedCount** -裝置度量資訊會報告從 IoT Edge 用戶端執行階段失敗的部署中指定的 IoT Edge 裝置數目。
+* **reportedSuccessfulCount** -裝置計量, 指定從 IoT Edge 用戶端執行時間報告成功的部署中 IoT Edge 裝置數目。
+* **reportedFailedCount** -裝置計量, 指定從 IoT Edge 用戶端執行時間報告失敗的部署中 IoT Edge 裝置數目。
 
-您也可以使用針對每個度量的顯示裝置識別碼或物件的清單[az iot edge 部署顯示度量](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric)命令：
+您可以使用[az iot edge 部署 show-公制](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric)命令, 顯示每個計量的裝置識別碼或物件清單:
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name] 
 ```
 
-部署顯示度量命令採用下列參數： 
+Deployment show-公制命令會採用下列參數: 
 * **--deployment-id** - 存在於 IoT 中樞的部署名稱。
 * **--metric-id** - 您想要在其中查看裝置識別碼清單的計量名稱，例如 `reportedFailedCount`
 * **--hub-name** - 部署存在於其中的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 使用 `az account set -s [subscription name]` 命令切換到所需的訂用帳戶
@@ -188,35 +188,35 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 * 如果目前執行此部署的裝置不再符合目標條件，它會解除安裝此部署，並採用下一個最高優先順序的部署。 
 * 如果目前執行此部署的裝置不再符合目標條件，且不符合任何其他部署的目標條件，則不會在裝置上發生任何變更。 裝置會以模組目前的狀態繼續執行它目前的模組，但不再將其當成此部署的一部分來管理。 一旦它符合任何其他部署的目標條件之後，就會解除安裝此部署，並採用新的部署。 
 
-使用[az iot edge 部署更新](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update)命令可更新的部署：
+使用[az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update)命令來更新部署:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
 ```
 
-部署更新命令會使用下列參數：
+部署更新命令會採用下列參數:
 * **--deployment-id** - 存在於 IoT 中樞的部署名稱。
 * **--hub-name** - 部署存在於其中的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 使用 `az account set -s [subscription name]` 命令切換到所需的訂用帳戶
 * **--set** - 更新部署中的屬性。 您可以更新下列屬性：
   * targetCondition - 例如 `targetCondition=tags.location.state='Oregon'`
   * 標籤 
-  * 優先順序
+  * priority
 
 
 ## <a name="delete-a-deployment"></a>刪除部署
 
 當您刪除部署時，所有裝置均會採用其下一個最高優先順序的部署。 如果您的裝置不符合任何其他部署的目標條件，則在刪除部署時不會移除模組。 
 
-使用[az iot edge 部署刪除](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete)命令來刪除部署：
+使用[az iot edge deployment delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete)命令來刪除部署:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
 ```
 
-部署的 [刪除] 命令會使用下列參數： 
+[部署刪除] 命令會採用下列參數: 
 * **--deployment-id** - 存在於 IoT 中樞的部署名稱。
 * **--hub-name** - 部署存在於其中的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 使用 `az account set -s [subscription name]` 命令切換到所需的訂用帳戶
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解[將模組部署到 IoT Edge 裝置](module-deployment-monitoring.md)。
+深入瞭解如何[將模組部署到 IoT Edge 裝置](module-deployment-monitoring.md)。

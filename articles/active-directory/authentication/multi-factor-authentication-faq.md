@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-factor Authentication 常見問題集-Azure Active Directory
+title: Azure 多因素驗證常見問題-Azure Active Directory
 description: 與 Azure Multi-Factor Authentication 相關的常見問題與答案。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46abe367c9047616174a1e43dffd57861e6278e8
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228177"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811824"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -59,9 +59,9 @@ ms.locfileid: "65228177"
    * 759731 
    * 673801
 
-Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的多重要素驗證即時交付。 為了使用者的利益，Microsoft 可能會在調整路由來改善 SMS 傳遞能力時，隨時新增或移除簡短程式碼。 Microsoft 不支援美國和加拿大以外的國家/地區的簡短程式碼。
+Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的多重要素驗證即時交付。 為了使用者的利益，Microsoft 可能會在調整路由來改善 SMS 傳遞能力時，隨時新增或移除簡短程式碼。 除了美國和加拿大以外的國家/地區, Microsoft 不支援簡短代碼。
 
-## <a name="billing"></a>計費
+## <a name="billing"></a>帳務
 
 大部分計費問題可以從 [Multi-Factor Authentication 價格頁面](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)或有關[如何取得 Azure Multi-Factor Authentication](concept-mfa-licensing.md)的文件中得到解答。
 
@@ -87,17 +87,15 @@ Microsoft 不保證相同號碼會提供一致的 SMS 或以語音為基礎的�
 
 在某些情況下，是的。
 
-Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsoft 線上服務，包括提供的 Azure MFA 功能子集[Azure 入口網站](https://portal.azure.com)和[Microsoft 365 系統管理中心](https://admin.microsoft.com). 若 Azure Active Directory 執行個體中的全域系統管理員沒有透過 MFA 授權、組合或以獨立使用作為基礎的提供者取得完整版 Azure MFA，則僅適用此供應項目。 如果您的管理員是使用免費版本，然後您購買完整版的 Azure MFA，就會自動將所有全域管理員提升為付費版本。
+適用于 Azure 系統管理員的多重要素驗證提供免費的 Azure MFA 功能子集, 以存取 Microsoft 線上服務, 包括[Azure 入口網站](https://portal.azure.com)和 Microsoft 365 系統[管理中心](https://admin.microsoft.com)。 若 Azure Active Directory 執行個體中的全域系統管理員沒有透過 MFA 授權、組合或以獨立使用作為基礎的提供者取得完整版 Azure MFA，則僅適用此供應項目。 如果您的管理員是使用免費版本，然後您購買完整版的 Azure MFA，就會自動將所有全域管理員提升為付費版本。
 
 適用於 Office 365 使用者的 Multi-Factor Authentication 提供免費的 Azure MFA 功能子集，讓您可存取 Office 365 服務，包括 Exchange Online 和 SharePoint Online。 若使用者擁有指派的 Office 365 授權，但相對應的 Azure Active Directory 執行個體沒有透過 MFA 授權、組合或獨立使用型提供者取得完整版 Azure MFA 時，則適用此供應項目。
 
 **問：我的組織是否能隨時在「每位使用者」與「每次驗證」耗用量計費模式之間切換？**
 
-如果貴組織購買的 MFA 是使用量計費型獨立服務，則您可以在建立 MFA 提供者時選擇計費模式。 您無法在 MFA 提供者建立之後變更計費模型。 不過，您可以刪除 MFA 提供者，然後建立一個使用不同計費模式的 MFA 提供者。
+如果貴組織購買的 MFA 是使用量計費型獨立服務，則您可以在建立 MFA 提供者時選擇計費模式。 您無法在 MFA 提供者建立之後變更計費模型。 
 
-建立 MFA 提供者時，它可以連結至 Azure Active Directory 或 「 Azure AD 租用戶。 」 如果目前的 MFA 提供者已連結至 Azure AD 租用戶，您就可以安全地刪除 MFA 提供者，並建立連結至相同的 Azure AD 租用戶的其中一個。 或者，如果您購買的 MFA、Azure AD Premium 或 Enterprise Mobility + Security (EMS) 授權已足夠讓啟用 MFA 的所有使用者使用，您可以一併刪除 MFA 提供者。
-
-如果您的 MFA 提供者未  連結至 Azure AD 租用戶，或是您將新的 MFA 提供者連結至不同 Azure AD 租用戶，則使用者設定和組態選項並不會進行轉移。 此外，現有 Azure MFA 伺服器也需要使用新 MFA 提供者產生的啟用認證重新啟動。 重新啟用 MFA 伺服器以將其連結至新的 MFA 提供者，並不會影響電話和簡訊驗證，但所有使用者的行動裝置應用程式通知將會停止運作，直到他們重新啟動行動裝置應用程式。
+如果您的 MFA 提供者未連結至 Azure AD 租用戶，或是您將新的 MFA 提供者連結至不同 Azure AD 租用戶，則使用者設定和組態選項並不會進行轉移。 此外，現有 Azure MFA 伺服器也需要使用新 MFA 提供者產生的啟用認證重新啟動。 重新啟用 MFA 伺服器以將其連結至新的 MFA 提供者，並不會影響電話和簡訊驗證，但所有使用者的行動裝置應用程式通知將會停止運作，直到他們重新啟動行動裝置應用程式。
 
 於[開始使用 Azure Multi-Factor Auth 提供者](concept-mfa-authprovider.md)中深入了解 MFA 提供者。
 
@@ -107,7 +105,7 @@ Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsof
 
 如果您的目錄有*根據使用者計費*的 Azure Multi-Factor Authentication 提供者，您可以新增 MFA 授權。 擁有授權的使用者不會根據每位使用者使用量計費。 沒有授權的使用者仍可透過 MFA 提供者啟用 MFA。 如果您購買授權，並將其指派給所有設定使用 Multi-Factor Authentication 的使用者，您就可以刪除 Azure Multi-Factor Authentication 提供者。 如果您之後會有多於授權的使用者，您隨時都可以建立其他根據使用者計費的 MFA 提供者。
 
-如果您的目錄有依驗證次數計費  的 Azure Multi-Factor Authentication 提供者，只要您的 MFA 提供者與訂用帳戶連結，就一律要為每次驗證支付費用。 您可以將 MFA 授權指派給使用者，但您仍需要為每次雙步驟驗證要求支付費用，無論發出此要求的人是否擁有指派的 MFA 授權。
+如果您的目錄有依驗證次數計費的 Azure Multi-Factor Authentication 提供者，只要您的 MFA 提供者與訂用帳戶連結，就一律要為每次驗證支付費用。 您可以將 MFA 授權指派給使用者，但您仍需要為每次雙步驟驗證要求支付費用，無論發出此要求的人是否擁有指派的 MFA 授權。
 
 **問：我的組織是否必須使用和同步處理身分識別才能使用 Azure Multi-Factor Authentication？**
 
@@ -142,15 +140,15 @@ Azure 系統管理員的 Multi-factor Authentication 提供免費存取 Microsof
 > [!NOTE]
 > 適用於 Office 2013 用戶端的新式驗證
 >
-> 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 現在新式驗證可執行適用於 Office 2013 年 3 月 2015年或更新版本更新任何客戶。 如需詳細資訊，請參閱部落格文章[更新的 Office 365 新式驗證](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
+> 只有不支援最新驗證方式的應用程式需要應用程式密碼。 Office 2013 用戶端支援最新的驗證通訊協定，但需要設定。 現在, 執行 Office 2013 的2015年3月或更新版本的任何客戶都可以使用新式驗證。 如需詳細資訊, 請參閱 blog 文章[更新的 Office 365 新式驗證](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
 
 **問：我的使用者說他們有時會沒收到簡訊，或回覆雙向簡訊時，驗證逾時。**
 
-因為有些無法控制的因素可能會影響服務可靠性，所以不保證會傳遞簡訊，以及在雙向簡訊中收到回覆。 這些因素包含目的地國家/地區、 行動電話業者及訊號強度。
+因為有些無法控制的因素可能會影響服務可靠性，所以不保證會傳遞簡訊，以及在雙向簡訊中收到回覆。 這些因素包括目的地國家/地區、行動電話貨運公司和信號強度。
 
 如果您的使用者時常無法收到簡訊，請告訴他們改用行動裝置應用程式或撥打電話的方式。 行動應用程式可以透過行動數據和 Wi-Fi 連接接收通知。 此外，即使裝置收不到訊號，行動應用程式可以產生驗證碼。 Microsoft 驗證器應用程式適用於 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[IOS](https://go.microsoft.com/fwlink/?Linkid=825073)和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
 
-如果您必須使用簡訊，則建議盡可能使用單向簡訊，而不要使用雙向簡訊。 單向簡訊更可靠且可防止使用者不會產生全域簡訊費用從另一個國家/地區傳送的簡訊回覆。
+如果您必須使用簡訊，則建議盡可能使用單向簡訊，而不要使用雙向簡訊。 單向 SMS 較可靠, 可防止使用者產生全域 SMS 費用, 而無法回復從另一個國家/地區傳送的文字訊息。
 
 **問：可變更使用者必須在系統逾時前，輸入簡訊上驗證碼的時間限制嗎？**
 
@@ -200,16 +198,16 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 - 組織建立已套用至使用者的 MFA 註冊原則並加以啟用。
 - 使用者先前已註冊過 MFA，但選擇的驗證方法已由系統管理員停用。 使用者必須因此再次進行 MFA 註冊，以選取新的預設驗證方法。
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>錯誤
 
 **問：如果使用者在使用行動應用程式通知時，看到「驗證要求不適用於已啟用的帳戶」錯誤訊息，應該怎麼辦？**
 
 請告訴他們遵循這個從行動應用程式移除其帳戶的程序，然後重新新增帳戶︰
 
 1. 移至 [您的 Azure 入口網站設定檔](https://account.activedirectory.windowsazure.com/profile/) ，並使用您的組織帳戶登入。
-2. 選取 [其他安全性驗證]  。
+2. 選取 [其他安全性驗證]。
 3. 將現有帳戶從行動應用程式移除。
-4. 按一下 [設定]  ，然後依照指示來重新設定行動應用程式。
+4. 按一下 [設定]，然後依照指示來重新設定行動應用程式。
 
 **問：如果使用者在登入非瀏覽器應用程式時看到 0x800434D4L 錯誤訊息，應該怎麼辦？**
 

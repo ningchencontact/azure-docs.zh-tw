@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3b116e25635873429dd164288c2764fd76c8f7a7
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 3dcf2188fd4fed211c96d4cc5241044d32ab6577
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688990"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737179"
 ---
-# <a name="back-up-sql-server-on-stack"></a>備份 Stack 上的 SQL Server
+# <a name="back-up-sql-server-on-azure-stack"></a>備份 Azure Stack 中的 SQL Server
 運用本文資訊來設定 Microsoft Azure 備份伺服器 (MABS)，以保護 Azure Stack 中的 SQL Server 資料庫。
 
 將 SQL Server 資料庫備份至 Azure 及從 Azure 復原的管理作業包含三個步驟：

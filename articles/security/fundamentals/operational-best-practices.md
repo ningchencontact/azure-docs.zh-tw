@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e815c038cce2e792fe7ea39f1ee43342be0b679f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726902"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828719"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 作業安全性最佳做法
 本文提供一組可在 Azure 中保護您的資料、應用程式和其他資產的操作最佳作法。
@@ -118,7 +118,7 @@ Azure 作業安全性是指使用者可在 Azure 中用來保護其資料、應�
 **詳細資料**：大部分使用 SIEM 的組織會將它當做需要分析者回應之安全性警示的中央 clearinghouse。 資訊安全中心所產生的已處理事件會發佈到 Azure 活動記錄檔, 其中一個可透過 Azure 監視器取得的記錄。 Azure 監視器提供合併的管線，將您的所有監視資料路由傳送至 SIEM 工具。 如需相關指示, 請參閱[整合資訊安全中心中的安全性解決方案](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem)。 如果您使用的是 Azure Sentinel, 請參閱[Connect Azure 資訊安全中心](../../sentinel/connect-azure-security-center.md)。
 
 **最佳做法**：將 Azure 記錄與您的 SIEM 整合。   
-**詳細資料**：使用[Azure 監視器來收集及匯出資料](/azure/azure-monitor/overview.md#integrate-and-export-data)。 這是啟用安全性事件調查的關鍵, 而線上記錄保留會受到限制。 如果您使用的是 Azure Sentinel, 請參閱[連接資料來源](../../sentinel/connect-data-sources.md)。
+**詳細資料**：使用[Azure 監視器來收集及匯出資料](/azure/azure-monitor/overview#integrate-and-export-data)。 這是啟用安全性事件調查的關鍵, 而線上記錄保留會受到限制。 如果您使用的是 Azure Sentinel, 請參閱[連接資料來源](../../sentinel/connect-data-sources.md)。
 
 **最佳做法**：藉由將端點偵測和回應 (EDR) 功能整合到您的攻擊調查中, 加速您的調查和搜尋程式, 並降低誤報。   
 **詳細資料**：透過您的資訊安全中心安全性原則[啟用 Windows DEFENDER ATP 整合](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration)。 請考慮使用 Azure Sentinel 進行威脅搜尋和事件回應。
