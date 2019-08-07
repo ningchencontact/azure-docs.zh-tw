@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666293"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779667"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -282,12 +282,29 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
 
    您可以使用標準 MSI 程式來自動安裝軟體。 例如:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > 這裡的範例 msiexec 命令會導致立即重新開機。 若要避免這種情況`/norestart` , 請使用旗標。
+   如果您想要`/norestart`讓安裝程式自動重新開機電腦, 您可以省略旗標。
 
 在網域控制站上安裝 DC 代理程式軟體並重新啟動該電腦之後, 安裝就會完成。 任何其他設定都無須進行，也無法進行。
+
+## <a name="upgrading-the-proxy-agent"></a>升級 Proxy 代理程式
+
+當有較新版本的 Azure AD 密碼保護 Proxy 軟體可供使用時, 會執行`AzureADPasswordProtectionProxySetup.exe`軟體安裝程式的最新版本來完成升級。 不需要卸載目前版本的 Proxy 軟體-安裝程式會執行就地升級。 升級 Proxy 軟體時, 不需要重新開機。 軟體升級可能會使用標準 MSI 程式自動化, 例如: `AzureADPasswordProtectionProxySetup.exe /quiet`。
+
+Proxy 代理程式支援自動升級。 自動升級會使用與 Proxy 服務並存安裝的 Microsoft Azure AD Connect Agent 更新程式服務。 自動升級預設為開啟, 而且可以使用 AzureADPasswordProtectionProxyConfiguration 指令程式來啟用或停用。 您可以使用 AzureADPasswordProtectionProxyConfiguration Cmdlet 來查詢目前的設定。 Microsoft 建議您將自動升級保持在啟用狀態。
+
+`Get-AzureADPasswordProtectionProxy` Cmdlet 可用來查詢樹系中所有目前已安裝之 Proxy 代理程式的軟體版本。
+
+## <a name="upgrading-the-dc-agent"></a>升級 DC 代理程式
+
+當有較新版本的 Azure AD 密碼保護 DC 代理程式軟體可供使用時, 會執行`AzureADPasswordProtectionDCAgentSetup.msi`軟體套件的最新版本來完成升級。 不需要卸載目前版本的 DC 代理程式軟體-安裝程式會執行就地升級。 升級 DC 代理程式軟體時, 一律需要重新開機-這是由核心 Windows 行為所造成。 
+
+軟體升級可能會使用標準 MSI 程式自動化, 例如: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`。
+
+如果您想要`/norestart`讓安裝程式自動重新開機電腦, 您可以省略旗標。
+
+`Get-AzureADPasswordProtectionDCAgent` Cmdlet 可用來查詢樹系中所有目前已安裝之 DC 代理程式的軟體版本。
 
 ## <a name="multiple-forest-deployments"></a>多個樹系部署
 
@@ -301,7 +318,7 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
 
 當樹系中的網域控制站嘗試從 Azure 下載新原則或其他資料時, 密碼保護的主要可用性考慮就是 proxy 伺服器的可用性。 在決定要呼叫哪一個 proxy 伺服器時, 每個 DC 代理程式都會使用簡單的迴圈配置資源樣式演算法。 代理程式會略過沒有回應的 proxy 伺服器。 對於大部分已完全連線的 Active Directory 部署, 其中包含目錄和 sysvol 資料夾狀態的狀況良好複寫, 兩部 proxy 伺服器就足以確保可用性。 這會導致及時下載新的原則和其他資料。 但您可以部署額外的 proxy 伺服器。
 
-DC 代理程式軟體的設計可減少與高可用性相關聯的一般問題。 DC 代理程式會維護最近下載的密碼原則的本機快取。 即使所有已註冊的 proxy 伺服器都變成無法使用, DC 代理程式仍會繼續強制執行其快取的密碼原則。 在大型部署中, 密碼原則的合理更新頻率通常是*天*, 而不是小時或更少。 因此, 暫時中斷 proxy 伺服器並不會嚴重影響 Azure AD 密碼保護。
+DC 代理程式軟體的設計可減少與高可用性相關聯的一般問題。 DC 代理程式會維護最近下載的密碼原則的本機快取。 即使所有已註冊的 proxy 伺服器都變成無法使用, DC 代理程式仍會繼續強制執行其快取的密碼原則。 在大型部署中, 密碼原則的合理更新頻率通常是天, 而不是小時或更少。 因此, 暫時中斷 proxy 伺服器並不會嚴重影響 Azure AD 密碼保護。
 
 ## <a name="next-steps"></a>後續步驟
 

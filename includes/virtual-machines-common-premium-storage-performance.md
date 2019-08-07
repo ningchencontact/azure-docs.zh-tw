@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386829"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817204"
 ---
 ## <a name="application-performance-indicators"></a>應用程式效能指標
 
@@ -269,6 +269,9 @@ Azure 進階儲存體提供八個 GA 磁片大小和三個目前處於預覽狀�
 *讀寫*  
 根據預設，作業系統磁碟會啟用「讀寫」快取。 我們最近也已在資料磁碟上增加支援「讀寫」快取。 如果您使用「讀寫」快取，您必須有適當的方法將快取中的資料寫入永續性磁碟。 例如，SQL Server 會自行負責將快取的資料寫入永續性儲存體磁碟。 對於不負責保存必要資料的應用程式，如果使用「讀寫」快取，一旦 VM 損毀，可能會導致資料遺失。
 
+*無*  
+目前只有資料磁片才支援**None** 。 作業系統磁片不支援此操作。 如果您在 OS 磁片上設定為 [**無**], 它會在內部覆寫此設定, 並將它設為**ReadOnly**。
+
 舉例來說，您可以執行下列動作，將這些指導方針運用在進階儲存體上執行的 SQL Server，
 
 1. 在裝載資料檔的進階儲存體磁碟上設定「唯讀」快取。  
@@ -279,7 +282,7 @@ Azure 進階儲存體提供八個 GA 磁片大小和三個目前處於預覽狀�
 
 ## <a name="optimize-performance-on-linux-vms"></a>最佳化 Linux VM 的效能
 
-對於所有快取設為 [唯讀]  或 [無]  的進階 SSD 或 Ultra 磁碟，當您掛接檔案系統時，您必須停用 "barriers" (阻礙)。 此案例中您不需要阻礙，因為對這些快取設定而言，寫入進階儲存體磁碟是持久的。 寫入要求成功完成時，資料就已寫入永久性的存放區。 若要停用 "barrier" (阻礙)，請使用下列其中一種方法。 請選擇適用您檔案系統的方法︰
+對於所有快取設為 [唯讀] 或 [無] 的進階 SSD 或 Ultra 磁碟，當您掛接檔案系統時，您必須停用 "barriers" (阻礙)。 此案例中您不需要阻礙，因為對這些快取設定而言，寫入進階儲存體磁碟是持久的。 寫入要求成功完成時，資料就已寫入永久性的存放區。 若要停用 "barrier" (阻礙)，請使用下列其中一種方法。 請選擇適用您檔案系統的方法︰
   
 * 若是 **reiserFS**，請使用 `barrier=none` 掛接選項停用阻礙。 (若要啟用阻礙，請使用 `barrier=flush`。)
 * 若是 **ext3/ext4**，請使用 `barrier=0` 掛接選項停用阻礙。 (若要啟用阻礙，請使用 `barrier=1`。)

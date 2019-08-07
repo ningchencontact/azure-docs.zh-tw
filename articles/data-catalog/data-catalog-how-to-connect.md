@@ -1,23 +1,21 @@
 ---
 title: 如何連線到 Azure 資料目錄中的資料來源
 description: 操作說明文章著重在說明如何連接到使用 Azure 資料目錄找到的資料來源。
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001803"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734631"
 ---
 # <a name="how-to-connect-to-data-sources"></a>如何連接到資料來源
 ## <a name="introduction"></a>簡介
-**Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，[Azure 資料目錄]  的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。 這個背景的重點就在於使用資料，也就是使用者探索資料來源並了解其用途，然後連接到資料來源將使用其資料。
+**Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，[Azure 資料目錄] 的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。 這個背景的重點就在於使用資料，也就是使用者探索資料來源並了解其用途，然後連接到資料來源將使用其資料。
 
 ## <a name="data-source-locations"></a>資料來源位置
 資料來源在註冊期間， **Azure 資料目錄** 會收到有關資料來源的中繼資料。 此中繼資料包含資料來源位置的詳細資料。 位置的詳細資料會因資料來源而異，但永遠會包含連接所需的資訊。 例如，SQL Server 資料表的位置包含伺服器名稱、資料庫名稱、結構描述名稱和資料表名稱，而 SQL Server Reporting Services 報表的位置包含伺服器名稱和報表的路徑。 其他資料來源類型的位置，則會反映結構與來源系統的功能。

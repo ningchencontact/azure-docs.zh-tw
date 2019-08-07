@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8948a620c27311f0371a557c91a971da37111cb9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688586"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827582"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題-備份 Azure Vm
 
@@ -64,14 +64,14 @@ ms.locfileid: "68688586"
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>我是否可以取消進行中的備份作業？
 是的。 您可以取消處於**正在建立快照**狀態的備份作業。 如果正在從快照集傳輸資料，則無法取消作業。
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>我啟用了 Azure 備份服務所建立之資源群組的鎖定 (也就是 `AzureBackupRG_<geo>_<number>`), 我的備份是否會繼續正常執行？
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>我啟用了 Azure 備份服務所建立之資源群組的鎖定 (也就是 `AzureBackupRG_<geo>_<number>`), 我的備份是否會繼續正常執行？
 如果您鎖定 Azure 備份服務所建立的資源群組, 則備份會開始失敗, 因為最大限制為18個還原點。
 
 使用者必須從該資源群組移除鎖定並清除還原點集合, 才能讓未來的備份成功, 請[遵循下列步驟](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)來移除還原點集合。
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure 備份是否支援標準 SSD 受控磁碟？
-Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。 SSD 受控磁片可為 Azure Vm 提供新類型的持久性儲存體。 [立即還原](backup-instant-restore-capability.md)中提供 SSD 受控磁碟的支援。
+是, Azure 備份支援[標準 SSD 受控磁片](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>我們可以備份具有已啟用寫入加速器 (WA) 之磁碟的 VM 嗎？
 您無法在已啟用 WA 的磁碟上建立快照集。 不過，Azure 備份服務可以從備份中排除已啟用 WA 的磁碟。
@@ -119,7 +119,7 @@ Azure 虛擬機器備份原則最多可支援7天的最小保留範圍9999天。
 針對受控磁碟，Azure VM 會在還原為受控磁碟時，藉由在範本中提供選項來啟用還原為可用性設定組。 此範本具有稱為**可用性設定組**的輸入參數。
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>我們該如何取得更快速的還原效能？
-為了更快速的還原效能，我們會採用[立即還原](backup-instant-restore-capability.md)功能。
+[立即還原](backup-instant-restore-capability.md)功能有助於加快備份速度, 以及從快照集進行立即還原。
 
 ## <a name="manage-vm-backups"></a>管理 VM 備份
 

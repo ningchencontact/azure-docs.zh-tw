@@ -1,18 +1,17 @@
 ---
 title: Azure 資料目錄中支援的資料來源
 description: 本文列出目前支援之資料來源的規格。
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.date: 08/01/2019
+ms.openlocfilehash: 6b5c75e928b62181f2ea2b51a11cd997a9942bca
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509278"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736444"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure 資料目錄中支援的資料來源
 
@@ -30,7 +29,7 @@ ms.locfileid: "67509278"
        <td><b>注意事項</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store 目錄 (僅 Gen 1)</td>
+      <td>Azure Data Lake 存放區目錄 (僅限 Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -38,7 +37,7 @@ ms.locfileid: "67509278"
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store 檔案 (只 Gen 1)</td>
+      <td>Azure Data Lake 存放區檔案 (僅限 Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -152,7 +151,7 @@ ms.locfileid: "67509278"
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL 資料倉儲檢視</td>
+      <td>Azure SQL 資料倉儲視圖</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -197,7 +196,7 @@ ms.locfileid: "67509278"
       <td>✓</td>
       <td>✓</td>
       <td>[瀏覽器]</td>
-      <td>僅限原生模式伺服器。 不支援 SharePoint 模式。 SQL Server 2008 和更新版本</td>
+      <td>僅限原生模式伺服器。 不支援 SharePoint 模式。 僅限 SQL Server 2008 和更新版本</td>
     </tr>
     <tr>
       <td>SQL Server 資料表</td>
@@ -237,7 +236,7 @@ ms.locfileid: "67509278"
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>僅適用於英文。 量值是不受支援。</td>
+      <td>僅適用于英文。 量值不受支援。</td>
     </tr>
     <tr>
       <td>SAP HANA 檢視</td>
@@ -446,7 +445,7 @@ ms.locfileid: "67509278"
 
 ## <a name="data-source-reference-specification"></a>資料來源參考規格
 > [!NOTE]
-> 下表中的「DSL 結構」  資料行僅列出「Azure 資料目錄」所使用「位址」屬性包的連線屬性。 也就是說，「位址」屬性包可以針對 Azure 資料目錄保存但並未使用的資料來源，包含其他連接屬性。
+> 下表中的「DSL 結構」資料行僅列出「Azure 資料目錄」所使用「位址」屬性包的連線屬性。 也就是說，「位址」屬性包可以針對 Azure 資料目錄保存但並未使用的資料來源，包含其他連接屬性。
 
 <table>
     <tr>
@@ -458,7 +457,7 @@ ms.locfileid: "67509278"
     <tr>
       <td>Azure Data Lake Store</td>
       <td>容器</td>
-      <td>資料湖</td>
+      <td>Data Lake</td>
       <td>
         
             Protocol: webhdfs

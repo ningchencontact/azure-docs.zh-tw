@@ -1,24 +1,22 @@
 ---
 title: Azure 資料目錄常見案例
 description: Azure 資料目錄常見案例的概觀，包括高價值資料來源的註冊和探索、啟用自助商業智慧，以及擷取有關資料來源和處理程序的現有知識。
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61003951"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736450"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Azure 資料目錄常見案例
 本文介紹 Azure 資料目錄幫助您的組織從其現有的資料來源獲得更多價值的常見案例。
 
-## <a name="scenario-1-registration-of-central-data-sources"></a>案例 1：註冊中央資料來源
+## <a name="scenario-1-registration-of-central-data-sources"></a>案例 1：中央資料來源的註冊
 組織通常有許多高價值的資料來源。 這些資料來源包含各種企業營運、線上交易處理 (OLTP) 系統、資料倉儲和商業智慧/分析資料庫。 系統數目和系統之間的重疊現象通常會隨著時間而增加，也會隨著企業需求發展與企業本身透過合併與收購之類的演進而增加。
 
 組織成員可能很難知道要在這些資料來源的哪裡地方尋找資料。 諸如以下這些問題都極為常見：
@@ -47,7 +45,7 @@ Azure 資料目錄可讓您的組織打破這種工作循環。 透過傳統方�
 
 值得注意的是，雖然此案例特別著重於自助 BI，但相同的模式和挑戰亦適用於大型公司 BI 專案。 藉由使用資料目錄，您的組織可以改進牽涉到探索資料來源之手動程序的任何工作。
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>案例 3：擷取部落知識
+## <a name="scenario-3-capturing-tribal-knowledge"></a>案例 3：捕捉部落知識
 如何知道您的工作需要什麼資料，以及到哪裡尋找這些資料？
 
 如果您已經工作一段時日，您可能早就知道。 您經過漸進的學習程序，隨著一段時間而了解日常工作真正需要的資料來源。

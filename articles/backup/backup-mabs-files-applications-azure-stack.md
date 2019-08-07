@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7214cf4c16cc4ee5e76d479d153395085a7e3a6e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 25e511a1596c1119d1db8c9270ce216cd5186e72
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688949"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735479"
 ---
-# <a name="back-up-files-on-azure-stack"></a>在 Azure Stack 上備份檔案
+# <a name="back-up-files-and-applications-on-azure-stack"></a>備份 Azure Stack 上的檔案和應用程式
 您可以使用 Azure 備份在 Azure Stack 上保護 (或備份) 檔案和應用程式。 若要備份檔案和應用程式，請將 Microsoft Azure 備份伺服器安裝成為在 Azure Stack 上執行的虛擬機器。 您可以保護在相同虛擬網路中任何 Azure Stack 伺服器上的檔案。 在您安裝 Azure 備份伺服器後，請新增 Azure 磁碟，以增加可保存短期備份資料的本機存放區。 Azure 備份伺服器會使用 Azure 存放區進行長期保存。
 
 > [!NOTE]

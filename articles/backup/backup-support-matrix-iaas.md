@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639595"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813819"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)來備份內部部署機器和工作負載, 以及 Azure 虛擬機器 (vm)。 本文摘要說明使用 Azure 備份備份 Azure Vm 時的支援設定和限制。
@@ -130,7 +130,6 @@ DPM/MABS 磁碟上的復原點 | 64 (適用于檔案伺服器) 和 448 (適用�
 還原至現有的 VM | 使用更換磁碟選項。
 在儲存體帳戶已啟用 Azure 儲存體服務加密 (SSE) 的情況下還原磁碟 | 不支援。<br/><br/> 請還原至未啟用 SSE 的帳戶。
 還原至混合儲存體帳戶 | 不支援。<br/><br/> 根據儲存體帳戶類型，所有已還原的磁碟都將是進階或標準磁碟，而非混合磁碟。
-使用區域冗余儲存體 (ZRS) 還原至儲存體帳戶 | 支援 (適用于在2019年1月之後備份且[可用性區域](https://azure.microsoft.com/global-infrastructure/availability-zones/)可用的 VM)
 將 VM 直接還原至可用性設定組 | 針對受控磁片, 您可以復原磁碟, 並使用範本中的 [可用性設定組] 選項。<br/><br/> 不支援非受控磁碟。 對於非受控磁碟，請還原磁碟，然後在可用性設定組中建立 VM。
 升級至受控 VM 之後, 還原未受管理的 vm 備份| 支援。<br/><br/> 您可以還原磁碟，然後建立受控 VM。
 在 VM 移轉至受控磁碟之前將 VM 還原至還原點 | 支援。<br/><br/> 您可以還原至非受控磁碟 (預設值)、將還原的磁碟轉換為受控磁碟，然後使用受控磁碟建立 VM。
@@ -151,6 +150,7 @@ VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小�
 備份遷移至 Azure 的 Vm  | 支援。<br/><br/> 若要備份 VM，必須在已移轉的機器上安裝 VM 代理程式。
 備份多部 VM 一致性 | Azure 備份不會提供跨多個 Vm 的資料和應用程式一致性。
 使用[診斷設定](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)進行備份  | 不支援. <br/><br/> 如果使用 [[建立新](backup-azure-arm-restore-vms.md#create-a-vm)的] 選項來觸發使用診斷設定來還原 Azure VM, 則還原會失敗。
+還原區域釘選的 Vm | 支援 (適用于在2019年1月之後備份且[可用性區域](https://azure.microsoft.com/global-infrastructure/availability-zones/)可供使用的 VM)。<br/><br/>我們目前支援還原至已釘選到 Vm 的相同區域。 不過, 如果區域無法使用, 還原將會失敗。
 
 
 ## <a name="vm-storage-support"></a>VM 儲存體支援
@@ -158,8 +158,8 @@ VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小�
 **元件** | **支援**
 --- | ---
 Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><br/> 支援最多 4 TB 磁碟大小。
-資料磁碟大小 | 個別磁碟最多可達 4095 GB。<br/><br/> 如果您的保存庫執行的是最新版本的 Azure 備份 (也稱為「立即還原」), 則支援最多 4 TB 的磁片大小。 [深入了解](backup-instant-restore-capability.md)。  
-儲存體類型 | 標準 HDD、標準 SSD、premium SSD。 <br/><br/> 如果您的保存庫已升級至最新版本的 Azure VM 備份 (也稱為「立即還原」), 則支援標準 SSD。 [深入了解](backup-instant-restore-capability.md)。
+資料磁碟大小 | 個別磁碟最多可達 4095 GB。<br/><br/>若要註冊 Azure 備份大型磁片支援的私人預覽, 大於4TB 大小上限為30TB 的磁片, 請回寫給我們AskAzureBackupTeam@microsoft.com。  
+儲存體類型 | 標準 HDD、標準 SSD 進階 SSD。
 受控磁碟 | 支援。
 加密磁碟 | 支援。<br/><br/> 您可以備份使用 Azure 磁碟加密啟用的 Azure Vm (不論是否有 Azure AD 應用程式)。<br/><br/> 加密的 VM 無法在檔案/資料夾層級復原。 您必須復原整個 VM。<br/><br/> 您可以對已受到 Azure 備份保護的 VM 啟用加密。
 已啟用寫入加速器的磁碟 | 不支援。<br/><br/> Azure 備份會在備份期間自動排除已啟用寫入加速器的磁片。 因為它們不會備份, 所以您將無法從 VM 的復原點還原這些磁片。
@@ -167,7 +167,6 @@ Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><
 將磁碟新增至受保護的 VM | 支援。
 在受保護的 VM 上調整磁碟大小 | 支援。
 共用存放裝置| 不建議使用叢集共用磁碟區 (CSV) 或向外延展檔案伺服器來備份 Vm。 CSV 寫入器可能會在備份期間失敗。 還原時, 包含 CSV 磁片區的磁片可能無法啟動。
-
 
 
 ## <a name="vm-network-support"></a>VM 網路支援

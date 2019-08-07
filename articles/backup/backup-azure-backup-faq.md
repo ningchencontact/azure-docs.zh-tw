@@ -1,5 +1,5 @@
 ---
-title: Azure 備份常見問題集
+title: Azure 備份功能的常見問題解答
 description: '有關以下常見問題的解答：包括復原服務保存庫、可以備份的項目、其運作方式、加密和限制等 Azure 備份功能。 '
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466681"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827627"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -24,6 +24,13 @@ ms.locfileid: "68466681"
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>針對每個保存庫註冊的伺服器/電腦具有數目限制嗎？
 每個保存庫可以註冊最多 1000 個 Azure 虛擬機器。 如果您使用的是 Microsoft Azure 備份代理程式，則每個保存庫最多可以註冊 50 個 MAB 代理程式。 而且您可以將 50 部 MAB 伺服器/DPM 伺服器註冊至保存庫。
+
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>保存庫中可以保護多少個數據源/專案？ 
+在保存庫中, 您可以跨所有工作負載 (IaaS VM、SQL、AFS 等) 保護最多2000個數據源/專案。<br>  
+例如, 如果您已在保存庫中保護 500 Vm 和 400 Azure 檔案儲存體共用, 您只能在其中保護最多1100個 SQL 資料庫。 
+
+### <a name="how-many-policies-can-i-create-per-vault"></a>我可以為每個保存庫建立多少個原則？ 
+每個保存庫最多隻能有200個原則。
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>如果我的組織有一個保存庫，如何在還原資料時，將來自不同伺服器的資料隔離？
 當您設定備份時，要一起復原的伺服器資料應該使用相同的複雜密碼。 如果您只想要復原特定的伺服器，請使用該伺服器專用的複雜密碼。 例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
@@ -142,7 +149,7 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>若每個復原點就像一個完整的復原點，則其是否會影響可計費的備份儲存體總數？
 典型的長期保留復原點產品會將備份資料儲存為完整的復原點。
 
-- 完整的復原點是「效率不佳的」  儲存體，但可以更輕鬆且更快速地進行還原。
+- 完整的復原點是「效率不佳的」 儲存體，但可以更輕鬆且更快速地進行還原。
 - 增量複本「符合儲存體效益」，但需要您還原一連串的資料，而這會影響復原時間
 
 Azure 備份的儲存體架構透過最佳化儲存資料以進行快速還原，並降低儲存體成本支出，可讓您魚與熊掌兼得。 這可確保有效率地使用您的輸入和輸出頻寬。 資料儲存體數量及復原資料所需的時間都會維持在最低。 深入了解[增量備份](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)。

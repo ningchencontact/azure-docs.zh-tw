@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 12a80f77720a6e93a6631947f13247b667c34897
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3d5b2afd642a7eb042b2e6e07ef93a505f6b9648
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254741"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774703"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -50,6 +50,7 @@ ms.locfileid: "68254741"
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
@@ -80,7 +81,7 @@ public static void Run(
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。
+下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -120,7 +121,7 @@ public static void Run(string myQueueItem,
 
 ### <a name="trigger---f-example"></a>觸發程序 - F# 範例
 
-下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式可記錄服務匯流排佇列訊息。 
+下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 此函式可記錄服務匯流排佇列訊息。 
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -181,7 +182,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。 
+下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式可讀取[訊息中繼資料](#trigger---message-metadata)和記錄服務匯流排佇列訊息。 
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -210,6 +211,57 @@ module.exports = function(context, myQueueItem) {
     context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
+```
+
+### <a name="trigger---python-example"></a>觸發程序 - Python 範例
+
+下列範例示範如何透過觸發程式來讀取「執行匯流排佇列」訊息。
+
+在函式中定義了 「匯流排系結」, 其中*類型*設定為`serviceBusTrigger`。
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "inputqueue",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+`func.ServiceBusMessage`  *_.Py\__ 中\_* 的程式碼會宣告參數, 以讓您讀取函數中的佇列訊息。
+
+```python
+import azure.functions as func
+
+import logging
+import json
+
+def main(msg: func.ServiceBusMessage):
+    logging.info('Python ServiceBus queue trigger processed message.')
+
+    result = json.dumps({
+        'message_id': msg.message_id,
+        'body': msg.get_body().decode('utf-8'),
+        'content_type': msg.content_type,
+        'expiration_time': msg.expiration_time,
+        'label': msg.label,
+        'partition_key': msg.partition_key,
+        'reply_to': msg.reply_to,
+        'reply_to_session_id': msg.reply_to_session_id,
+        'scheduled_enqueue_time': msg.scheduled_enqueue_time,
+        'session_id': msg.session_id,
+        'time_to_live': msg.time_to_live,
+        'to': msg.to,
+        'user_properties': msg.user_properties,
+    })
+
+    logging.info(result)
 ```
 
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
@@ -348,7 +400,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 }
 ```
 
-|屬性  |預設 | 描述 |
+|內容  |預設 | 描述 |
 |---------|---------|---------|
 |maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 Functions 執行階段預設會並行處理多個訊息。 若要指示執行階段一次只處理一個佇列或主題訊息，請將 `maxConcurrentCalls` 設定為 1。 |
 |prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。|
@@ -367,6 +419,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
@@ -384,7 +437,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 
 ### <a name="output---c-script-example"></a>輸出 - C# 指令碼範例
 
-下列範例示範 function.json  檔案中的服務匯流排輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
+下列範例示範 function.json 檔案中的服務匯流排輸出繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -435,7 +488,7 @@ public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> output
 
 ### <a name="output---f-example"></a>輸出 - F# 範例
 
-下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
+下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -507,7 +560,7 @@ JAVA 函數也可以寫入服務匯流排主題。 下列範例會使用`@Servic
 
 ### <a name="output---javascript-example"></a>輸出 - JavaScript 範例
 
-下列範例示範 function.json  檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
+下列範例示範 function.json 檔案中的服務匯流排觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會使用計時器觸發程序，每隔 15 秒傳送一則佇列訊息。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -555,6 +608,56 @@ module.exports = function (context, myTimer) {
     context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
+```
+
+### <a name="output---python-example"></a>輸出 - Python 範例
+
+下列範例示範如何寫出 Python 中的執行匯流排佇列。
+
+ServiceBue 系結定義定義于*function json*中, 其中*type*設為`serviceBus`。
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "msg",
+      "queueName": "outqueue"
+    }
+  ]
+}
+```
+
+在 *.py  _\__ 中, 您可以藉由將值傳遞給方法, 將訊息寫出至佇列。\_*  `set`
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
 ```
 
 ## <a name="output---attributes"></a>輸出 - 屬性
@@ -653,10 +756,10 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-|屬性  |預設 | 描述 |
+|內容  |預設 | 描述 |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|將自動更新訊息鎖定的最大持續時間。|
-|autoComplete|true|無論觸發程序是否應立即標示為完成 (自動完成) 或等待呼叫完成處理。|
+|autoComplete|真|無論觸發程序是否應立即標示為完成 (自動完成) 或等待呼叫完成處理。|
 |maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 Functions 執行階段預設會並行處理多個訊息。 若要指示執行階段一次只處理一個佇列或主題訊息，請將 `maxConcurrentCalls` 設定為 1。 |
 |prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。|
 

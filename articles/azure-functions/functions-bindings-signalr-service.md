@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 62d9319ae292c9f4ae22f8fcd83bdd8799dc6617
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b4622321dc25025eb2f7752755490eb5bc105069
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480264"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741775"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>適用於 Azure Functions 的 SignalR Service 繫結
 
@@ -30,14 +30,14 @@ ms.locfileid: "67480264"
 
 ## <a name="packages---functions-2x"></a>套件 - Functions 2.x
 
-提供 SignalR 服務繫結[Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) 1.* 版的 NuGet 套件。 套件的原始程式碼位於 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 存放庫中。
+[Microsoft.signalrservice](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet 套件 (版本 1. *) 中提供了 SignalR Service 系結。 套件的原始程式碼位於 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
 
-### <a name="java-annotations"></a>Java 註釋
+### <a name="java-annotations"></a>JAVA 注釋
 
-若要使用 Java 函式中的 SignalR 服務註解，您需要新增相依性*azure-函式-java-程式庫-signalr*到您的 pom.xml 的成品 （版本 1.0 或更新版本）。
+若要使用 JAVA 函式中的 SignalR Service 批註, 您必須將相依性新增至您的 pom 的*SignalR*成品 (1.0 版或更高版本)。
 
 ```xml
 <dependency>
@@ -50,23 +50,23 @@ ms.locfileid: "67480264"
 > [!NOTE]
 > 若要在 Java 中使用 SignalR Service 繫結，請確定您使用的是 2.4.419 版或更新版本的 Azure Functions Core Tools (主機版本 2.0.12332)。
 
-## <a name="using-signalr-service-with-azure-functions"></a>使用 Azure Functions 中的 SignalR 服務
+## <a name="using-signalr-service-with-azure-functions"></a>搭配 Azure Functions 使用 SignalR Service
 
-如需如何設定，並同時使用 SignalR 服務和 Azure Functions 的詳細資訊，請參閱[Azure Functions 開發和使用 Azure SignalR 服務的組態](../azure-signalr/signalr-concept-serverless-development-config.md)。
+如需如何設定及使用 SignalR Service 和 Azure Functions 的詳細資訊, 請參閱[Azure SignalR Service 的 Azure Functions 開發和](../azure-signalr/signalr-concept-serverless-development-config.md)設定。
 
 ## <a name="signalr-connection-info-input-binding"></a>SignalR 連線資訊輸入繫結
 
-在用戶端可以連線到 Azure SignalR Service 之前，它必須擷取服務端點 URL 和有效的存取權杖。 SignalRConnectionInfo  輸入繫結會產生 SignalR Service 端點 URL 和有效的存取權杖，可用來連線到服務。 因為權杖是限時的，且可用來驗證連線的特定使用者，所以您不應該快取權杖或者在用戶端之間共用權杖。 使用此繫結的 HTTP 觸發程序可以供用戶端用來擷取連線資訊。
+在用戶端可以連線到 Azure SignalR Service 之前，它必須擷取服務端點 URL 和有效的存取權杖。 SignalRConnectionInfo 輸入繫結會產生 SignalR Service 端點 URL 和有效的存取權杖，可用來連線到服務。 因為權杖是限時的，且可用來驗證連線的特定使用者，所以您不應該快取權杖或者在用戶端之間共用權杖。 使用此繫結的 HTTP 觸發程序可以供用戶端用來擷取連線資訊。
 
 請參閱特定語言的範例：
 
 * [2.x C#](#2x-c-input-examples)
 * [2.x JavaScript](#2x-javascript-input-examples)
-* [2.x Java](#2x-java-input-examples)
+* [2.x JAVA](#2x-java-input-examples)
 
-如需有關如何使用此繫結來建立可由 SignalR 用戶端 SDK 的 「 交涉 」 函式的詳細資訊，請參閱 < [Azure Functions 開發及設定文件](../azure-signalr/signalr-concept-serverless-development-config.md)SignalR 服務概念文件。
+如需如何使用此系結來建立可供 SignalR 用戶端 SDK 使用的「negotiate」函式的詳細資訊, 請參閱 SignalR Service 概念檔中的[Azure Functions 開發和](../azure-signalr/signalr-concept-serverless-development-config.md)設定一文。
 
-### <a name="2x-c-input-examples"></a>2.xC#輸入範例
+### <a name="2x-c-input-examples"></a>2.x C#輸入範例
 
 下列範例示範 [C# 函式](functions-dotnet-class-library.md)，該函式會使用輸入繫結來取得 SignalR 連線資訊，並且透過 HTTP 傳回。
 
@@ -82,7 +82,7 @@ public static SignalRConnectionInfo Negotiate(
 
 #### <a name="authenticated-tokens"></a>已驗證權杖
 
-如果函式是由已驗證的用戶端觸發，您可以將使用者識別碼宣告新增至產生的權杖。 您可以輕鬆加入函式應用程式使用的驗證[App Service 驗證](../app-service/overview-authentication-authorization.md)。
+如果函式是由已驗證的用戶端觸發，您可以將使用者識別碼宣告新增至產生的權杖。 您可以使用[App Service authentication](../app-service/overview-authentication-authorization.md), 輕鬆地將驗證新增至函數應用程式。
 
 App Service 驗證會設定名為 `x-ms-client-principal-id` 和 `x-ms-client-principal-name` 的 HTTP 標頭，這些標頭分別包含已驗證使用者的用戶端主體識別碼和名稱。 您可以使用[繫結運算式](./functions-bindings-expressions-patterns.md)：`{headers.x-ms-client-principal-id}` 或 `{headers.x-ms-client-principal-name}`，將繫結的 `UserId` 屬性設為任一標頭的值。 
 
@@ -99,9 +99,9 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-### <a name="2x-javascript-input-examples"></a>2.x JavaScript 輸入的範例
+### <a name="2x-javascript-input-examples"></a>2.x JavaScript 輸入範例
 
-下列範例示範 function.json  檔案中的 SignalR 連線資訊輸入繫結，以及使用繫結來傳回連線資訊的 [JavaScript 函式](functions-reference-node.md)。
+下列範例示範 function.json 檔案中的 SignalR 連線資訊輸入繫結，以及使用繫結來傳回連線資訊的 [JavaScript 函式](functions-reference-node.md)。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -127,7 +127,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>已驗證權杖
 
-如果函式是由已驗證的用戶端觸發，您可以將使用者識別碼宣告新增至產生的權杖。 您可以輕鬆加入函式應用程式使用的驗證[App Service 驗證](../app-service/overview-authentication-authorization.md)。
+如果函式是由已驗證的用戶端觸發，您可以將使用者識別碼宣告新增至產生的權杖。 您可以使用[App Service authentication](../app-service/overview-authentication-authorization.md), 輕鬆地將驗證新增至函數應用程式。
 
 App Service 驗證會設定名為 `x-ms-client-principal-id` 和 `x-ms-client-principal-name` 的 HTTP 標頭，這些標頭分別包含已驗證使用者的用戶端主體識別碼和名稱。 您可以使用[繫結運算式](./functions-bindings-expressions-patterns.md)：`{headers.x-ms-client-principal-id}` 或 `{headers.x-ms-client-principal-name}`，將繫結的 `userId` 屬性設為任一標頭的值。 
 
@@ -154,9 +154,9 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-### <a name="2x-java-input-examples"></a>2.x Java 輸入的範例
+### <a name="2x-java-input-examples"></a>2.x JAVA 輸入範例
 
-下列範例所示[Java 函式](functions-reference-java.md)，取得 SignalR 使用的輸入繫結的連接資訊並將它傳回透過 HTTP。
+下列範例示範的[JAVA](functions-reference-java.md)函式會使用輸入系結取得 SignalR 連接資訊, 並透過 HTTP 傳回它。
 
 ```java
 @FunctionName("negotiate")
@@ -174,7 +174,7 @@ public SignalRConnectionInfo negotiate(
 
 #### <a name="authenticated-tokens"></a>已驗證權杖
 
-如果函式是由已驗證的用戶端觸發，您可以將使用者識別碼宣告新增至產生的權杖。 您可以輕鬆加入函式應用程式使用的驗證[App Service 驗證](../app-service/overview-authentication-authorization.md)。
+如果函式是由已驗證的用戶端觸發，您可以將使用者識別碼宣告新增至產生的權杖。 您可以使用[App Service authentication](../app-service/overview-authentication-authorization.md), 輕鬆地將驗證新增至函數應用程式。
 
 App Service 驗證會設定名為 `x-ms-client-principal-id` 和 `x-ms-client-principal-name` 的 HTTP 標頭，這些標頭分別包含已驗證使用者的用戶端主體識別碼和名稱。 您可以使用[繫結運算式](./functions-bindings-expressions-patterns.md)：`{headers.x-ms-client-principal-id}` 或 `{headers.x-ms-client-principal-name}`，將繫結的 `UserId` 屬性設為任一標頭的值。
 
@@ -195,7 +195,7 @@ public SignalRConnectionInfo negotiate(
 
 ## <a name="signalr-output-binding"></a>SignalR 輸出繫結
 
-若使用 SignalR  輸出繫結，即可使用 Azure SignalR Service 來傳送一或多則訊息。 您可以將訊息廣播到所有已連線的用戶端，或者您可以只將訊息廣播到已對指定使用者驗證的已連線用戶端。
+若使用 SignalR 輸出繫結，即可使用 Azure SignalR Service 來傳送一或多則訊息。 您可以將訊息廣播到所有已連線的用戶端，或者您可以只將訊息廣播到已對指定使用者驗證的已連線用戶端。
 
 您也可以使用它來管理使用者所屬的群組。
 
@@ -203,9 +203,9 @@ public SignalRConnectionInfo negotiate(
 
 * [2.x C#](#2x-c-send-message-output-examples)
 * [2.x JavaScript](#2x-javascript-send-message-output-examples)
-* [2.x Java](#2x-java-send-message-output-examples)
+* [2.x JAVA](#2x-java-send-message-output-examples)
 
-### <a name="2x-c-send-message-output-examples"></a>2.xC#傳送訊息的輸出範例
+### <a name="2x-c-send-message-output-examples"></a>2.x C#傳送訊息輸出範例
 
 #### <a name="broadcast-to-all-clients"></a>廣播到所有用戶端
 
@@ -247,9 +247,9 @@ public static Task SendMessage(
 }
 ```
 
-#### <a name="send-to-a-group"></a>傳送給群組
+#### <a name="send-to-a-group"></a>傳送至群組
 
-您可以將訊息僅傳送給已藉由設定新增至群組的連線`GroupName`SignalR 訊息的屬性。
+您可以藉由設定`GroupName` SignalR 訊息的屬性, 僅將訊息傳送至已新增至群組的連接。
 
 ```cs
 [FunctionName("SendMessage")]
@@ -268,59 +268,64 @@ public static Task SendMessage(
 }
 ```
 
-### <a name="2x-c-group-management-output-examples"></a>2.xC#群組管理輸出範例
+### <a name="2x-c-group-management-output-examples"></a>2.x C#群組管理輸出範例
 
-SignalR 服務可讓使用者新增至群組。 然後，訊息可以傳送給群組。 您可以使用`SignalRGroupAction`類別搭配`SignalR`輸出繫結來管理使用者的群組成員資格。
+SignalR Service 可讓使用者新增至群組。 然後可以將訊息傳送給群組。 您可以使用`SignalRGroupAction`類別`SignalR`搭配輸出系結來管理使用者的群組成員資格。
 
 #### <a name="add-user-to-a-group"></a>將使用者新增至群組
 
-下列範例會將使用者加入至群組。
+下列範例會將使用者新增至群組。
 
 ```csharp
 [FunctionName("addToGroup")]
 public static Task AddToGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    string userId,
+    ClaimsPrincipal claimsPrincipal,
     [SignalR(HubName = "chat")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
     return signalRGroupActions.AddAsync(
         new SignalRGroupAction
         {
-            UserId = userId,
+            UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Add
         });
 }
 ```
 
-#### <a name="remove-user-from-a-group"></a>從群組移除使用者
+#### <a name="remove-user-from-a-group"></a>從群組中移除使用者
 
-下列範例會從群組移除使用者。
+下列範例會從群組中移除使用者。
 
 ```csharp
 [FunctionName("removeFromGroup")]
 public static Task RemoveFromGroup(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
-    string userId,
+    ClaimsPrincipal claimsPrincipal,
     [SignalR(HubName = "chat")]
         IAsyncCollector<SignalRGroupAction> signalRGroupActions)
 {
+    var userIdClaim = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier);
     return signalRGroupActions.AddAsync(
         new SignalRGroupAction
         {
-            UserId = userId,
+            UserId = userIdClaim.Value,
             GroupName = "myGroup",
             Action = GroupAction.Remove
         });
 }
 ```
 
+> [!NOTE]
+> 為了取得正確的`ClaimsPrincipal`系結, 您必須已在 Azure Functions 中設定驗證設定。
+
 ### <a name="2x-javascript-send-message-output-examples"></a>2.x JavaScript 傳送訊息輸出範例
 
 #### <a name="broadcast-to-all-clients"></a>廣播到所有用戶端
 
-下列範例示範 function.json  檔案中的 SignalR 輸出繫結，以及透過 Azure SignalR Service 使用繫結來傳送訊息的 [JavaScript 函式](functions-reference-node.md)。 將輸出繫結設為一或多則 SignalR 訊息的陣列。 SignalR 訊息是由 `target` 屬性 (會指定要在每個用戶端上叫用的方法名稱) 和 `arguments` 屬性 (要傳遞至用戶端方法作為引數的物件陣列) 組成。
+下列範例示範 function.json 檔案中的 SignalR 輸出繫結，以及透過 Azure SignalR Service 使用繫結來傳送訊息的 [JavaScript 函式](functions-reference-node.md)。 將輸出繫結設為一或多則 SignalR 訊息的陣列。 SignalR 訊息是由 `target` 屬性 (會指定要在每個用戶端上叫用的方法名稱) 和 `arguments` 屬性 (要傳遞至用戶端方法作為引數的物件陣列) 組成。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -351,7 +356,7 @@ module.exports = async function (context, req) {
 
 您可以藉由設定 SignalR 訊息的 `userId` 屬性，僅將訊息傳送給已對使用者驗證的連線。
 
-function.json  維持不變。 以下是 JavaScript 程式碼：
+function.json 維持不變。 以下是 JavaScript 程式碼：
 
 ```javascript
 module.exports = async function (context, req) {
@@ -364,11 +369,11 @@ module.exports = async function (context, req) {
 };
 ```
 
-#### <a name="send-to-a-group"></a>傳送給群組
+#### <a name="send-to-a-group"></a>傳送至群組
 
-您可以將訊息僅傳送給已藉由設定新增至群組的連線`groupName`SignalR 訊息的屬性。
+您可以藉由設定`groupName` SignalR 訊息的屬性, 僅將訊息傳送至已新增至群組的連接。
 
-function.json  維持不變。 以下是 JavaScript 程式碼：
+function.json 維持不變。 以下是 JavaScript 程式碼：
 
 ```javascript
 module.exports = async function (context, req) {
@@ -383,11 +388,11 @@ module.exports = async function (context, req) {
 
 ### <a name="2x-javascript-group-management-output-examples"></a>2.x JavaScript 群組管理輸出範例
 
-SignalR 服務可讓使用者新增至群組。 然後，訊息可以傳送給群組。 您可以使用`SignalR`輸出繫結來管理使用者的群組成員資格。
+SignalR Service 可讓使用者新增至群組。 然後可以將訊息傳送給群組。 您可以使用`SignalR`輸出系結來管理使用者的群組成員資格。
 
 #### <a name="add-user-to-a-group"></a>將使用者新增至群組
 
-下列範例會將使用者加入至群組。
+下列範例會將使用者新增至群組。
 
 *function.json*
 
@@ -432,9 +437,9 @@ module.exports = async function (context, req) {
 };
 ```
 
-#### <a name="remove-user-from-a-group"></a>從群組移除使用者
+#### <a name="remove-user-from-a-group"></a>從群組中移除使用者
 
-下列範例會從群組移除使用者。
+下列範例會從群組中移除使用者。
 
 *function.json*
 
@@ -479,11 +484,11 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="2x-java-send-message-output-examples"></a>2.x Java 傳送訊息輸出範例
+### <a name="2x-java-send-message-output-examples"></a>2.x JAVA 傳送訊息輸出範例
 
 #### <a name="broadcast-to-all-clients"></a>廣播到所有用戶端
 
-下列範例所示[Java 函式](functions-reference-java.md)，傳送訊息，使用輸出繫結至所有已連線的用戶端。 `target` 是要在每個用戶端上叫用的方法名稱。 `arguments` 屬性是要傳遞至用戶端方法的零或多個物件陣列。
+下列範例顯示的[JAVA](functions-reference-java.md)函式會使用輸出系結, 將訊息傳送至所有已連線的用戶端。 `target` 是要在每個用戶端上叫用的方法名稱。 `arguments` 屬性是要傳遞至用戶端方法的零或多個物件陣列。
 
 ```java
 @FunctionName("sendMessage")
@@ -522,9 +527,9 @@ public SignalRMessage sendMessage(
 }
 ```
 
-#### <a name="send-to-a-group"></a>傳送給群組
+#### <a name="send-to-a-group"></a>傳送至群組
 
-您可以將訊息僅傳送給已藉由設定新增至群組的連線`groupName`SignalR 訊息的屬性。
+您可以藉由設定`groupName` SignalR 訊息的屬性, 僅將訊息傳送至已新增至群組的連接。
 
 ```java
 @FunctionName("sendMessage")
@@ -543,13 +548,13 @@ public SignalRMessage sendMessage(
 }
 ```
 
-### <a name="2x-java-group-management-output-examples"></a>2.x Java 群組管理輸出範例
+### <a name="2x-java-group-management-output-examples"></a>2.x JAVA 群組管理輸出範例
 
-SignalR 服務可讓使用者新增至群組。 然後，訊息可以傳送給群組。 您可以使用`SignalRGroupAction`類別搭配`SignalROutput`輸出繫結來管理使用者的群組成員資格。
+SignalR Service 可讓使用者新增至群組。 然後可以將訊息傳送給群組。 您可以使用`SignalRGroupAction`類別`SignalROutput`搭配輸出系結來管理使用者的群組成員資格。
 
 #### <a name="add-user-to-a-group"></a>將使用者新增至群組
 
-下列範例會將使用者加入至群組。
+下列範例會將使用者新增至群組。
 
 ```java
 @FunctionName("addToGroup")
@@ -569,9 +574,9 @@ public SignalRGroupAction addToGroup(
 }
 ```
 
-#### <a name="remove-user-from-a-group"></a>從群組移除使用者
+#### <a name="remove-user-from-a-group"></a>從群組中移除使用者
 
-下列範例會從群組移除使用者。
+下列範例會從群組中移除使用者。
 
 ```java
 @FunctionName("removeFromGroup")
@@ -603,7 +608,7 @@ public SignalRGroupAction removeFromGroup(
 |**direction**|| 必須設為 `in`。|
 |**name**|| 函式程式碼中用於連線資訊物件的變數名稱。 |
 |**hubName**|**HubName**| 此值必須設為 SignalR 中樞 (針對該中樞產生連線資訊) 的名稱。|
-|**userId**|UserId | 選用：要在存取金鑰權杖中設定的使用者識別碼宣告值。 |
+|**userId**|UserId| 選用：要在存取金鑰權杖中設定的使用者識別碼宣告值。 |
 |**connectionStringSetting**|**ConnectionStringSetting**| 包含 SignalR Service 連接字串 (預設值為 "AzureSignalRConnectionString") 的應用程式設定名稱 |
 
 ### <a name="signalr"></a>SignalR

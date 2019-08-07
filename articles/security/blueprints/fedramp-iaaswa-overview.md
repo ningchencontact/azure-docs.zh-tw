@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0458525eaf985ac6b1ff2afde5726bbac45b4f2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586102"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68778780"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure 安全性與合規性藍圖：適用於 FedRAMP 的 IaaS Web 應用程式
 
@@ -51,7 +51,7 @@ ms.locfileid: "60586102"
     - (2) Active Directory 網域控制站 (Windows Server 2016 Datacenter)
     - (2) SQL Server 叢集節點 (Windows Server 2016 上的 SQL Server 2017)
     - (2) Web/IIS (Windows Server 2016 Datacenter)
-- 可用性設定組 (Availability Sets)
+- 可用性設定組
     - (1) Active Directory 網域控制站
     - (1) SQL 叢集節點
     - (1) Web/IIS
@@ -69,10 +69,10 @@ ms.locfileid: "60586102"
     - (7) 異地備援儲存體帳戶
 - Azure 雲端見證
 - 復原服務保存庫
-- Azure 金鑰保存庫
+- Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Azure 監視器 （記錄檔）
+- Azure 監視器 (記錄)
 
 ## <a name="deployment-architecture"></a>部署架構
 
@@ -127,7 +127,7 @@ ms.locfileid: "60586102"
 
 **修補程式管理**：根據預設，此「Azure 安全性與合規性藍圖自動化」所部署的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 這個解決方案也會部署 Azure 自動化解決方案，可透過此解決方案來建立更新部署，以在需要時將修補程式部署到 Windows 伺服器。
 
-**惡意程式碼防護**：適用於虛擬機器的 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 提供即時防護功能，能幫助識別及移除病毒、間諜軟體及其他惡意軟體，具有可設定的警示，可在已知惡意或垃圾軟體嘗試在虛擬機器上安裝或執行時發出警示。
+**惡意程式碼防護**：適用於虛擬機器的 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 提供即時防護功能，能幫助識別及移除病毒、間諜軟體及其他惡意軟體，具有可設定的警示，可在已知惡意或垃圾軟體嘗試在虛擬機器上安裝或執行時發出警示。
 
 **應用程式閘道**：透過使用已啟用 Web 應用程式防火牆 (WAF) 和 OWASP 規則集的應用程式閘道，此架構可減少安全性弱點帶來的風險。 其他功能包括：
 
@@ -147,11 +147,11 @@ ms.locfileid: "60586102"
 
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
-Azure 監視器記錄檔提供系統和使用者活動，以及系統健康情況的廣泛的記錄。 [Azure 監視器記錄](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)解決方案會收集和分析 Azure 中的資源所產生的資料並在內部部署環境。
+Azure 監視器記錄檔可提供系統、使用者活動及系統健康情況的廣泛記錄。 [Azure 監視器記錄](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)解決方案會收集並分析 Azure 和內部部署環境中的資源所產生的資料。
 
 - **活動記錄：** [活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄：** [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。
-- **記錄封存：** 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。 這些記錄檔連接到 Azure 監視器記錄檔處理、 儲存和儀表板報表。
+- **記錄封存：** 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。 這些記錄會連接到 Azure 監視器記錄, 以進行處理、儲存及儀表板報告。
 
 此外，此架構安裝了下列監視解決方案。 請注意，客戶須負責設定這些方案，以配合 FedRAMP 安全性控制項：
 -   [AD 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
@@ -189,7 +189,7 @@ Azure 監視器記錄檔提供系統和使用者活動，以及系統健康情�
 
 2. 執行預先部署的 PowerShell 指令碼：azure-blueprint/predeploy/Orchestration_InitialSetup.ps1。
 
-3. 按一下下方的按鈕，登入 Azure 入口網站，然後輸入必要的 ARM 範本參數，再按一下 [購買]  。
+3. 按一下下方的按鈕，登入 Azure 入口網站，然後輸入必要的 ARM 範本參數，再按一下 [購買]。
 
     [![部署至 Azure](https://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 

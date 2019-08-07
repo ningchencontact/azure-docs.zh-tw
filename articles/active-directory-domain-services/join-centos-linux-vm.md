@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 7b3159b6b963cf422442ee7c04253b8172e8f3e9
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234086"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773140"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>將 CentOS Linux 虛擬機器加入至受控網域
 本文說明如何將 Azure 中的 CentOS Linux 虛擬機器加入至 Azure AD Domain Services 受控網域。
@@ -88,7 +88,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
     ```
 
    > [!NOTE]
-   > **疑難排解：** 如果「領域探索」  找不到您的受控網域：  
+   > **疑難排解：** 如果「領域探索」找不到您的受控網域：  
    >    * 確定可從虛擬機器觸達網域 (請嘗試 ping)。  
    >    * 檢查虛擬機器已確實部署到有提供受控網域的相同虛擬網路上。
    >    * 查看您是否已更新虛擬網路的 DNS 伺服器設定，以指向受控網域的網域控制站。  
@@ -107,6 +107,8 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 
     > [!TIP]
     > 使用您在前面步驟中指定的相同使用者帳戶 ('kinit')。
+    >
+    > 如果您的 VM 無法加入網域, 請確定 VM 的網路安全性群組允許 TCP + UDP 埠464上的輸出 Kerberos 流量連到您 Azure AD DS 受控網域的虛擬網路子網。
 
     ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'

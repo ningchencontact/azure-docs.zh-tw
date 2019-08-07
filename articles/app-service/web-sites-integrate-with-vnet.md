@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 20ef71f98817a57f884e9c5a3cef4ceeaebe74eb
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498428"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740901"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本檔說明 Azure App Service 虛擬網路整合功能, 以及如何使用[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式進行設定。 [Azure 虛擬網路][VNETOverview](Vnet) 可讓您將許多 Azure 資源放在非網際網路可路由網路中。  
@@ -136,11 +136,10 @@ App Service 中的應用程式會裝載于背景工作角色上。 基本和較�
 * 最多可在 App Service 方案中與五個 Vnet 整合 
 * 可讓 App Service 方案中的多個應用程式使用相同的 VNet, 而不會影響 App Service 方案所能使用的總次數。  如果您有6個應用程式在相同的 App Service 方案中使用相同的 VNet, 則會計算為使用1個 VNet。 
 * 需要使用點對站 VPN 設定的虛擬網路閘道
-* 不支援搭配 Linux 應用程式使用
 * 因閘道上的 SLA 而支援 99.9% 的 SLA
 
 此功能不支援:
-
+* 搭配 Linux 應用程式使用
 * 透過 ExpressRoute 存取資源 
 * 跨服務端點存取資源 
 

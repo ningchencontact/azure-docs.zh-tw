@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466961"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741452"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure 監視器記錄查詢中使用字串
 
@@ -30,11 +30,11 @@ ms.locfileid: "68466961"
 
 此文章說明如何編輯、比較、搜尋字串，以及如何在字串上執行各種其他作業。
 
-字串中的每個字元都有索引編號 (根據其位置)。 第一個字元位於索引 0、第二個字元是 1，依此類推。 不同的字串函式都會使用索引編號，如以下各節所示。 在下列範例中，許多範例都使用 **print** 命令來示範字串，而未使用特定資料來源。
+字串中的每個字元都有索引編號 (根據其位置)。 第一個字元位於索引 0, 下一個字元是 1, 依此類推。 不同的字串函式都會使用索引編號，如以下各節所示。 在下列範例中，許多範例都使用 **print** 命令來示範字串，而未使用特定資料來源。
 
 
 ## <a name="strings-and-escaping-them"></a>字串與字串逸出
-字串值是被單引號字元或雙引號字元括住。 反斜線 (\) 是用來逸出其後的字元，例如 \t 代表 tab、\n 代表新行，而 \" 代表引號字元本身。
+字串值是被單引號字元或雙引號字元括住。 反斜線\\() 是用來將字元轉義到後面的字元, 例如 \t 代表 tab、\n 代表分行符號, 以及\"引號字元本身。
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -129,7 +129,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## <a name="extract"></a>extract
 
-從給定字串取得規則運算式的相符項目。 (選擇性) 也可以將擷取的字串轉換為指定型別。
+從給定字串取得規則運算式的相符項目。 也可以選擇性地將已解壓縮的子字串轉換成指定的類型。
 
 ### <a name="syntax"></a>語法
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567457"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779055"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 受控實例的常見問題 (FAQ)
 
@@ -79,9 +79,9 @@ ms.locfileid: "68567457"
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>如何? 調整受控實例的效能？ 
 
-一般用途受控實例會使用遠端存放, 因為資料和記錄檔的大小對效能很重要。 若要調整一般用途服務層級的效能, 請遵循此 blog 文章中的指示。
+一般用途受控實例會使用遠端存放, 因為資料和記錄檔的大小對效能很重要。 如需詳細資訊, 請參閱[一般用途的記錄檔大小影響受控執行個體效能](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e)。
 
-對於 IO 密集型工作負載, 請考慮使用 Gen 5 硬體, 而不是針對計算密集型工作負載使用 Gen 4。 如需詳細資訊, 請參閱常見問題一節關於選擇硬體世代。
+對於 IO 密集型工作負載, 請考慮使用 Gen 5 硬體, 而不是針對計算密集型工作負載使用 Gen 4。 如需詳細資訊, 請參閱[如何? 在 gen 4 和 gen 5 之間選擇](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance)。
 
 如果您的工作負載包含許多小型交易, 請考慮將連線類型從 proxy 切換到重新導向模式。
 

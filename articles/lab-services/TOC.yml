@@ -253,6 +253,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: 使用 Azure DevOps 建置和發行管線中的 DevTest 實驗室
               href: use-devtest-labs-build-release-pipelines.md
+        - name: 報告實驗室使用方式
+          href: report-usage-across-multiple-labs-subscriptions.md
         - name: 企業中的 DevTest Labs
           items:
             - name: 企業規模的 DevTest Labs

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0602de13fefbf105e69ba42651216fb479c4c86
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477117"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779369"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>規劃單一登入部署
 
@@ -95,7 +95,7 @@ Microsoft 支援在 web 應用程式上捕獲中繼資料, 以用於密碼保存
 
 選擇正確的驗證方法是設定 Azure AD 混合式身分識別解決方案的第一項重要決策。 請實作使用 Azure AD Connect 所設定的驗證方法，這也會在雲端佈建使用者。
 
-若要選擇驗證方法，需要考慮實作您選取項目的時間、現有基礎結構、複雜度及成本。 這些因素對每個組織而言不同，並可能隨時間改變。 您應該選擇最符合您特定案例的應用程式。 如需詳細資訊, 請參閱[為您的 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)。
+若要選擇驗證方法，需要考慮實作您選取項目的時間、現有基礎結構、複雜度及成本。 這些因素對每個組織而言不同，並可能隨時間改變。 您應該選擇最符合您特定案例的應用程式。 如需詳細資訊, 請參閱[為您的 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)。
 
 ## <a name="plan-your-security-and-governance"></a>規劃您的安全性與治理 
 

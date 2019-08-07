@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19ccd44888d64967baf82568c1cbb2540f3b3f68
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074350"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780332"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 安全性 
 
-如需 [Azure 安全性最佳做法](https://docs.microsoft.com/azure/security/)的相關詳細資訊，請參閱 [Azure Service Fabric 安全性最佳做法](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
+如需 [Azure 安全性最佳做法](https://docs.microsoft.com/azure/security/)的相關詳細資訊，請參閱 [Azure Service Fabric 安全性最佳做法](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
 ## <a name="key-vault"></a>Key Vault
 
@@ -188,7 +188,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-在 Service Fabric 應用程式碼中，[取得存取權杖](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http)Azure Resource Manager 進行其餘所有如下所示：
+在您的 Service Fabric 應用程式代碼中, 藉由建立 Azure Resource Manager 的[存取權杖](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http), 其方式與下列內容相同:
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -202,16 +202,16 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
 ## <a name="windows-security-baselines"></a>Windows 安全性基準
-[我們建議您實作廣泛是已知且通過完善測試，例如 Microsoft 安全性基準，而不是自行建立基準的業界標準組態](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); 一個用於佈建這些虛擬機器上的選項擴展集為使用 Azure Desired State Configuration (DSC) 延伸模組處理常式，因為它們上線，讓它們執行生產環境的軟體設定的 Vm。
+[我們建議您執行廣為知名且經過妥善測試的業界標準設定, 例如 Microsoft 安全性基準, 而不是自行建立基準](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines);在您的虛擬機器擴展集上布建這些功能的選項是使用 Azure Desired State Configuration (DSC) 延伸模組處理常式, 在 Vm 上線時進行設定, 使其執行生產環境軟體。
 
 ## <a name="azure-firewall"></a>Azure 防火牆
-[Azure 防火牆是保護您的 Azure 虛擬網路資源的受管理的雲端架構的網路安全性服務。它可以是完全可設定狀態的防火牆即內建的高可用性和延展性不受限制的雲端服務。](https://docs.microsoft.com/azure/firewall/overview); 這可讓您限制輸出的 HTTP/S 流量，包括萬用字元的完整的網域名稱 (FQDN) 指定清單。 這項功能不需要 SSL 終止。 其建議您利用[Azure 防火牆 FQDN 標記](https://docs.microsoft.com/azure/firewall/fqdn-tags)端點的 Windows 更新，並啟用 Microsoft Windows update 的網路流量可以流經防火牆。 [部署使用範本的 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)Microsoft.Network/azureFirewalls 資源範本定義中提供的範例。 通用的 Service Fabric 應用程式的防火牆規則可讓您的叢集虛擬網路的下列：
+[Azure 防火牆是受控的雲端式網路安全性服務, 可保護您的 Azure 虛擬網路資源。它是完全具狀態的防火牆即服務, 具有內建的高可用性和不受限制的雲端擴充性。](https://docs.microsoft.com/azure/firewall/overview); 這可讓您將輸出 HTTP/S 流量限制為指定的完整功能變數名稱 (FQDN) 清單, 包括萬用字元。 這項功能不需要 SSL 終止。 建議您利用適用于 Windows Update 的[Azure 防火牆 FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)標籤, 並讓 Microsoft Windows Update 端點的網路流量可以流經您的防火牆。 [使用範本部署 Azure 防火牆](https://docs.microsoft.com/azure/firewall/deploy-template)提供了適用于 Microsoft 網路/azureFirewalls 資源範本定義的範例。 Service Fabric 應用程式通用的防火牆規則, 是針對您的叢集虛擬網路允許下列各項:
 
-- *download.microsoft.com
+- \* download.microsoft.com
 - *servicefabric.azure.com
 - *.core.windows.net
 
-這些防火牆規則可補充您允許輸出網路安全性群組，會包含 ServiceFabric 和儲存體，以允許從虛擬網路的目的地。
+這些防火牆規則可讓您的允許輸出網路安全性群組 (包括 ServiceFabric 和儲存體) 成為虛擬網路中允許的目的地。
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -250,8 +250,8 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 > [!NOTE]
 > 如果您沒有使用 Windows Defender，請參閱您的反惡意程式碼文件，以了解設定規則。 Linux 不支援 Windows Defender。
 
-## <a name="platform-isolation"></a>平台隔離
-根據預設，Service Fabric 應用程式就能存取 Service Fabric 執行階段本身，其表現不同形式：[環境變數](service-fabric-environment-variables-reference.md)指向對應至應用程式在主機上的檔案路徑和Fabric 檔案，它會接受特定應用程式的要求，以及用戶端處理序間通訊端點的憑證網狀架構必須用來進行自我驗證的應用程式。 在偶發中，此服務會裝載本身未受信任的程式碼，建議您停用此存取權的 SF 執行階段-除非明確需要。 存取的執行階段會移除應用程式資訊清單的 [原則] 區段中使用下列宣告： 
+## <a name="platform-isolation"></a>平臺隔離
+根據預設, Service Fabric 應用程式會被授與 Service Fabric 執行時間本身的存取權, 這會以不同的形式來列出本身:[環境變數](service-fabric-environment-variables-reference.md)指向對應于應用程式和網狀架構檔案的主機上的檔案路徑,處理序間通訊端點, 其接受應用程式特定的要求, 以及網狀架構預期應用程式用來驗證本身的用戶端憑證。 在服務裝載本身不受信任程式碼的可能性中, 建議您停用此 SF 執行時間的存取權, 除非明確需要。 在應用程式資訊清單的 [原則] 區段中, 會使用下列宣告來移除執行時間的存取: 
 
 ```xml
 <ServiceManifestImport>

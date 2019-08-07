@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 67720256cfac68c350c800291653a4a0c1d7ee46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63768b83baafe00348a28c5c9c99e5f16619ac99
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427828"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815934"
 ---
 # <a name="certificate-creation-methods"></a>憑證建立方式
 
@@ -31,7 +31,7 @@ ms.locfileid: "66427828"
 1. 在上圖中，您的應用程式即將建立憑證，內部程序首先會在金鑰保存庫中建立金鑰。
 2. Key Vault 將憑證簽署要求 (CSR) 傳回應用程式
 3. 您的應用程式將 CSR 傳遞給您選擇的 CA。
-4. 您選擇的 CA 以 X509 憑證。
+4. 您選擇的 CA 會以 X509 憑證回應。
 5. 您的應用程式合併 CA 回覆的 X509 憑證，完成新憑證的建立。
 
 -   **利用已知簽發者提供者建立憑證：** 若要使用這個方法，您必須完成一次性的簽發者物件建立工作。 在您的金鑰保存庫中建立簽發者物件後，您就可以在 KV 憑證的原則中參考其名稱。 建立這類 KV 憑證的要求會在保存庫中建立金鑰組，並使用所參考簽發者物件中的資訊與簽發者提供者服務通訊，以取得 x509 憑證。 x509 憑證是從簽發者服務所擷取，並與金鑰組合併以完成 KV 憑證建立工作。  
@@ -82,7 +82,7 @@ KV 憑證的建立是非同步流程。 此作業會建立 KV 憑證要求，並
 |提供者|憑證類型|  
 |--------------|----------------------|  
 |DigiCert|Key Vault 透過 DigiCert 提供 OV 或 EV SSL 憑證|
-|GlobalCert|Key Vault 提供 Globaltrust 關於或 EV SSL 憑證 |
+|GlobalSign|Key Vault 透過 GlobalSign 提供 OV 或 EV SSL 憑證|
 
  憑證簽發者是 Azure Key Vault (KV) 中以 CertificateIssuer 資源表示的實體。 它用來提供 KV 憑證來源相關資訊；簽發者名稱、提供者、認證和其他系統管理詳細資訊。
 

@@ -10,22 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seojan2018
-ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: 0451778d9b3bb29d06551c881b9f674ef7a74ab3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672123"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841217"
 ---
 # <a name="custom-web-api-skill"></a>自訂 Web API 技能
 
-**自訂 Web API**技術可讓您藉由向外呼叫 Web API 端點，以提供自訂作業擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 根據輸入，您的 Web API 接收 JSON 承載時在索引子執行，並將 JSON 承載輸出做為回應，以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
+**自訂 WEB api**技能可讓您向外呼叫提供自訂作業的 Web API 端點, 以擴充認知搜尋。 與內建的技能類似，**自訂 Web API** 技能具有輸入和輸出。 視輸入而定, 您的 Web API 會在索引子執行時接收 JSON 承載, 並輸出 JSON 承載作為回應, 以及成功狀態碼。 預期回應應該具有您的自訂技能所指定的輸出。 任何其他的回應會被視為錯誤，並且不會執行任何擴充。
 
 JSON 承載的結構會在本文件中進一步描述。
 
 > [!NOTE]
 > 針對從 Web API 傳回的特定標準 HTTP 狀態碼，索引子將重試兩次。 這些 HTTP 狀態碼為： 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
@@ -38,10 +39,10 @@ Microsoft.Skills.Custom.WebApiSkill
 
 | 參數名稱     | 描述 |
 |--------------------|-------------|
-| uri | Web api 的 URI _JSON_會傳送承載。 僅允許 **https** URI 配置 |
+| URI | 要將_JSON_承載傳送至其中的 WEB API URI。 僅允許 **https** URI 配置 |
 | httpMethod | 傳送承載時使用的方法。 允許的方法為 `PUT` 和 `POST` |
 | httpHeaders | 機碼值組的集合，其中機碼代表標頭名稱，而值代表將與承載一起傳送至 Web API 的標頭值。 下列標頭禁止加入此集合：`Accept`、`Accept-Charset`、`Accept-Encoding`、`Content-Length`、`Content-Type`、`Cookie`、`Host`、`TE`、`Upgrade`、`Via` |
-| timeout | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 逾時可以設定為最大值 90 秒，最小值 1 秒。 |
+| 逾時 | (選擇性) 指定時，表示進行 API 呼叫的 http 用戶端逾時。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 例如，`PT60S` 為 60 秒。 如果沒有設定，則選擇的預設值為 30 秒。 [超時] 可以設定為最大值230秒, 最小值為1秒。 |
 | batchSize | (選擇性) 指出每個 API 呼叫將傳送多少「資料記錄」(請參閱下面的 _JSON_ 承載結構)。 如果未設定，則選擇的預設值為 1000。 我們建議您使用此參數在編製索引的輸送量和 API 負載之間達到適當的取捨 |
 
 ## <a name="skill-inputs"></a>技能輸入
@@ -139,10 +140,10 @@ Microsoft.Skills.Custom.WebApiSkill
 
 ## <a name="sample-output-json-structure"></a>範例輸出 JSON 結構
 
-「 輸出 」 會對應至您的 Web API 傳回的回應。 Web API 應該只會傳回_JSON_承載 (藉由查看驗證`Content-Type`回應標頭) 應該滿足下列條件約束：
+「輸出」對應于從您的 Web API 傳回的回應。 Web API 應該只會傳回_JSON_承載 (藉由查看`Content-Type`回應標頭來驗證), 而且應符合下列條件約束:
 
 * 應該有一個名為 `values` 的最上層實體，它應該是物件陣列。
-* 陣列中的物件數目應該與物件傳送至 Web API 的數目相同。
+* 陣列中的物件數目應該與傳送至 Web API 的物件數目相同。
 * 每個物件都應該有：
    * `recordId` 屬性
    * `data` 屬性，它是一個物件，其中的欄位是與 `output` 中的「名稱」相符的擴充，其值會被視為擴充。
@@ -205,4 +206,4 @@ Microsoft.Skills.Custom.WebApiSkill
 
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [在認知搜尋中加入自訂技能](cognitive-search-custom-skill-interface.md)
-+ [範例：建立自訂的技能，認知搜尋](cognitive-search-create-custom-skill-example.md)
++ [範例：建立認知搜尋的自訂技能](cognitive-search-create-custom-skill-example.md)

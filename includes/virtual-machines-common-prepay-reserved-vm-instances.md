@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/19/2019
-ms.openlocfilehash: 763d424d9d462c4a9531df84f3e5e26bfc1b0a14
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 08/02/2019
+ms.openlocfilehash: 5c300cb7d5416ada435811872e2cea8865e3c657
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68502269"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781280"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>預付 Azure 保留的 VM 執行個體 (RI) 的虛擬機器
 
@@ -132,13 +132,9 @@ ms.locfileid: "68502269"
 
 不過, 如果您想要進行變更, 您可以*交換*保留。
 
-## <a name="cancellations-and-exchanges"></a>取消和交換
+## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換或退款保留
 
-如果您需要取消保留，可能會有 12% 的提前解約金。 退款以您購買價格或目前保留價格的最低價格為準。 每年的退款金額上限為 50,000 美元。 您收到的退款是按比例計算的餘額扣除 12% 提前解約金的金額。 若要取消, 請移至 Azure 入口網站中的保留區, 然後選取 [**退款**]。
-
-如果您需要將保留的 VM 實例保留變更為另一個區域、VM 大小群組或期限, 您可以將它交換。 交換必須是針對等於或大於值的另一個保留。 新保留的期限開始日期不會延續自交換的保留。 當您建立新的保留時, 會從一或三年期開始。 若要交換, 請移至 Azure 入口網站中的保留區, 然後選取 [ **exchange**]。
-
-如需有關如何交換或退款保留的詳細資訊, 請參閱[保留交換和退款](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
+您可以取消、交換或退款保留, 但有某些限制。 如需詳細資訊, 請參閱[Azure 保留的自助交換和退款](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
 
 ## <a name="need-help-contact-us"></a>需要協助嗎? 與我們連絡。
 

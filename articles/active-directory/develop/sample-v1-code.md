@@ -10,7 +10,7 @@ ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5ee766a1db51e14ca5bc6ee2d447e3db374683
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bc671080a05e2c4e27fabcbab5cc40b9717dc85
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276779"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834888"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 程式碼範例 (v1.0 端點)
 
@@ -67,7 +67,7 @@ ms.locfileid: "68276779"
 
 下列範例會示範如何實作角色型存取控制 (RBAC)。 RBAC 可用來限制只能將 Web 應用程式特定功能的權限，提供給特定使用者。 系統會根據使用者屬於 **Azure AD 群組**還是具有指定應用程式**角色**來對使用者授權。
 
-平台 | 範例 |
+平台 | 樣本 |
  -------- | ------------------- |
 ![此圖顯示 ASP.NET 標誌](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | 使用 Azure AD **角色**進行授權的 .NET 4.5 MVC Web 應用程式
 
@@ -108,7 +108,7 @@ ASP.NET Web 應用程式  | ![此圖顯示 .NET 標誌](media/sample-v2-code/log
 
 在本文前面幾節，您也可以找到其他範例說明會**呼叫** ASP.NET 或 ASP.NET Core **Web API** 的用戶端應用程式。 本節不會再次提及這些範例，但是您會在上方或下方資料表的最後一個資料行中發現它們
 
-| 平台 | 範例 |
+| 平台 | 樣本 |
 |--------|-------------------|
 | ![此圖顯示 node.js 標誌](media/sample-v2-code/logo_nodejs.png)  | [node-webapi](https://github.com/Azure-Samples/active-directory-node-webapi) |
 

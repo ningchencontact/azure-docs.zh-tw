@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: be39a623dc5dac09dcfe47de67e025191b5c7de3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 43eb7e5c4cab722eb97f9e2fe819c9c79bae45d9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727490"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828776"
 ---
 # <a name="security-attributes-for-azure-services"></a>Azure 服務的安全性屬性
 
@@ -646,7 +646,7 @@ SQL Database 包括[單一資料庫](/azure/sql-database/sql-database-single-ind
 | 服務端點支援| 是 | 僅適用于[單一資料庫](/azure/sql-database/sql-database-single-index)。 |
 | Azure 虛擬網路插入支援| 是 | 僅適用于[受控實例](/azure/sql-database/sql-database-managed-instance)。 |
 | 網路隔離和防火牆支援| 是 | 資料庫層級和伺服器層級的防火牆。 網路隔離僅適用于[受控實例](/azure/sql-database/sql-database-managed-instance)。 |
-| 強制通道支援| 是 | 經由[ExpressRoute](/azure/expressroute/index.yml) VPN 的[受控實例](/azure/sql-database/sql-database-managed-instance)。 |
+| 強制通道支援| 是 | 經由[ExpressRoute](/azure/expressroute/index) VPN 的[受控實例](/azure/sql-database/sql-database-managed-instance)。 |
 
 ### <a name="detection"></a>偵測
 

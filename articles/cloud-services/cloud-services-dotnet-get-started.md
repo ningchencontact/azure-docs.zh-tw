@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: gwallace
-ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359205"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827666"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
@@ -42,7 +42,7 @@ ms.locfileid: "68359205"
 * 如何上傳檔案並將檔案儲存在 Azure Blob 服務。
 * 如何將 Azure 佇列服務用於層級之間的通訊。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 本教學課程假設您了解 [Azure 雲端服務的基本概念](cloud-services-choose-me.md)，例如「Web 角色」和「背景工作角色」術語。  同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Form](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。 範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
 
 您不需 Azure 訂用帳戶即可在本機執行應用程式，但需要訂用帳戶才能將應用程式部署至雲端。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)或是[申請免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)。
@@ -92,7 +92,7 @@ ms.locfileid: "68359205"
 10. 稍候片刻，然後重新整理索引頁面以查看縮圖。
 
      ![索引頁面](./media/cloud-services-dotnet-get-started/list.png)
-11. 按一下廣告的 [詳細資料]  以查看完整大小的影像。
+11. 按一下廣告的 [詳細資料] 以查看完整大小的影像。
 
      ![Details page](./media/cloud-services-dotnet-get-started/details.png)
 
@@ -124,7 +124,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 5. 選擇您要部署應用程式的區域。
 
     此欄位會指定將託管您的雲端服務的資料中心。 針對生產應用程式，您應該選擇距離客戶最近的區域。 針對此教學課程，請選擇離您最近的區域。
-5. 按一下 [建立] 。
+5. 按一下 [建立]。
 
     在下面的影像中，已建立 URL 為 CSvccontosoads.cloudapp.net 的雲端服務。
 
@@ -153,7 +153,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 9. 對新的伺服器按一下 [選取]。
 
     ![新的 SQL Database 伺服器](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. 按一下 [建立] 。
+10. 按一下 [建立]。
 
 ### <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源。
@@ -176,7 +176,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
     當雲端服務與儲存體帳戶位於不同的資料中心 (不同的區域) 時，延遲時間會增加，而且您將由於使用資料中心外的頻寬而付費。 資料中心內的頻寬則是免費的。
 
     Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。 本教學課程不會使用同質群組。 如需詳細資訊，請參閱 [如何在 Azure 中建立同質群組](/previous-versions/azure/reference/gg715317(v=azure.100))(英文)。
-7. 按一下 [建立] 。
+7. 按一下 [建立]。
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -216,7 +216,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 7. 在 [方案總管] 中，於雲端服務中的 [角色] 下，以滑鼠右鍵按一下 **ContosoAdsWorker**，然後按一下 [屬性]。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
-8. 按一下 [設定]  索引標籤。
+8. 按一下 [設定] 索引標籤。
 9. 將 [服務組態] 變更為 [雲端]。
 10. 針對  設定選取 [值] 欄位，`ContosoAdsDbConnectionString`然後將您從教學課程前一節複製的連接字串貼上。
 
@@ -229,7 +229,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 1. 在 [方案總管] 中，於 **ContosoAdsCloudService** 專案的 [角色] 下的 **ContosoAdsWeb** 上按一下滑鼠右鍵，然後按一下 [屬性]。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. 按一下 [設定]  索引標籤。在 [服務組態] 下拉式方塊中，選取 [雲端]。
+2. 按一下 [設定] 索引標籤。在 [服務組態] 下拉式方塊中，選取 [雲端]。
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. 選取 **StorageConnectionString** 項目，該行右端就會出現省略符號 ( **...** ) 按鈕。 按一下省略符號按鈕，開啟 [ **建立儲存體帳戶連接字串** ] 對話方塊。
@@ -299,7 +299,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
     完成部署最多可能需要大約 5 分鐘或更久的時間。
 
     ![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)
-6. 當部署狀態為完成時，按一下 [Web 應用程式 URL]  來啟動應用程式。
+6. 當部署狀態為完成時，按一下 [Web 應用程式 URL] 來啟動應用程式。
 7. 您可以透過建立、檢視和編輯一些廣告來測試應用程式，正如同您在本機執行應用程式一般。
 
 > [!NOTE]
@@ -344,11 +344,11 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 ### <a name="update-and-add-nuget-packages"></a>更新和加入 NuGet 封裝
 1. 開啟方案的 [ **管理 NuGet 封裝** ] 對話方塊。
-2. 在視窗頂端，選取 [更新] 。
+2. 在視窗頂端，選取 [更新]。
 3. 尋找 WindowsAzure.Storage 套件，如果它不在清單中，選取它並且選取要在其中更新它的 Web 和背景工作角色專案，然後按一下 [更新]。
 
     儲存體用戶端程式庫的更新頻率高於 Visual Studio 專案範本的更新頻率，因此，系統會經常要求您更新新建立專案的版本。
-4. 在視窗頂端，選取 [瀏覽] 。
+4. 在視窗頂端，選取 [瀏覽]。
 5. 尋找 *EntityFramework* NuGet 封裝，並將它安裝在這三個專案中。
 6. 尋找 *Microsoft.WindowsAzure.ConfigurationManager* NuGet 封裝，並在背景工作角色專案中安裝。
 
@@ -398,7 +398,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 ### <a name="add-code-files"></a>加入程式碼檔案
 在本節中，您會將檔案從所下載的方案複製到新方案。 下一節將示範和說明此程式碼的重要部分。
 
-若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下   - **現有項目**。 選取您需要的檔案，然後按一下 [加入] 。 如果詢問您是否要取代現有的檔案，請按一下 [是] 。
+若要加入檔案到專案或資料夾，請以滑鼠右鍵按一下專案或資料夾，然後按一下 - **現有項目**。 選取您需要的檔案，然後按一下 [加入]。 如果詢問您是否要取代現有的檔案，請按一下 [是]。
 
 1. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置新增來自所下載專案的 *Ad.cs* 和 *ContosoAdscontext.cs* 檔案。
 2. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
@@ -514,7 +514,7 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---_layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 *_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 "Ads" 功能表項目。
 
 ### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-在每次迴圈的反覆運算之後，如果沒有找到佇列訊息，程式會休息一秒。 如此可避免背景工作角色產生過度的 CPU 時間和儲存體交易成本。 Microsoft 客戶諮詢小組曾經遇過一個案例是，開發人員忘記納入這一點便部署到生產環境，之後便離開去度假。 當他回到工作崗位時，因為他疏忽所造成的代價比度假費用還高。
+在每次迴圈的反覆運算之後，如果沒有找到佇列訊息，程式會休息一秒。 如此可避免背景工作角色產生過度的 CPU 時間和儲存體交易成本。 Microsoft 客戶諮詢小組曾經遇過一個案例是，開發人員忘記納入這一點便部署到生產環境，之後便離開去度假。 當他們回來時, 其監督成本就會高於假期。
 
 有時佇列訊息的內容會造成處理錯誤。 這稱為 *有害訊息*，而如果您只是記錄錯誤並重新啟動迴圈，可能會不斷的嘗試處理該訊息。  因此，Catch 區塊包含 If 陳述式，檢查以查看應用程式已嘗試處理目前訊息的次數，而如果已超過 5 次，即會從佇列中刪除訊息。
 
@@ -744,7 +744,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
 當您在 Azure 中執行應用程式，或使用 Azure 計算模擬器在本機執行應用程式時，Azure 會提供 `RoleEnvironment` 物件。  如果您在本機執行時遇到此錯誤，請確定您已將 ContosoAdsCloudService 專案設為啟動專案。 如此可將專案設定為使用 Azure 計算模擬器執行。
 
-應用程式使用 Azure RoleEnvironment 的一個用途是，取得儲存在 *.cscfg* 檔案中的連接字串值，因此，此例外狀況的另一個原因為遺漏連接字串。 請確定您在 ContosoAdsWeb 專案中同時為雲端和本機組態建立 StorageConnectionString 設定，也在 ContosoAdsWorker 專案中為這兩個組態建立連接字串。 如果您在整個方案中執行 [全部尋找]  ，搜尋 StorageConnectionString，您應該會看見它在 6 個檔案中出現 9 次。
+應用程式使用 Azure RoleEnvironment 的一個用途是，取得儲存在 *.cscfg* 檔案中的連接字串值，因此，此例外狀況的另一個原因為遺漏連接字串。 請確定您在 ContosoAdsWeb 專案中同時為雲端和本機組態建立 StorageConnectionString 設定，也在 ContosoAdsWorker 專案中為這兩個組態建立連接字串。 如果您在整個方案中執行 [全部尋找] ，搜尋 StorageConnectionString，您應該會看見它在 6 個檔案中出現 9 次。
 
 ### <a name="cannot-override-to-port-xxx-new-port-below-minimum-allowed-value-8080-for-protocol-http"></a>無法覆寫連接埠 xxx。 低於最小值的新連接埠，對通訊協定 http 允許的值為 8080
 請嘗試變更 Web 專案使用的連接埠號碼。 以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [ **屬性**]。 按一下 [Web] 索引標籤，然後變更 [專案 URI] 設定中的連接埠號碼。

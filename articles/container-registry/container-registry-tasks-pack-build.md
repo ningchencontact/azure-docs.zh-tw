@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
-ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500902"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839905"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>使用雲端原生 Buildpack 從應用程式建立及推送映射
 
@@ -44,11 +44,13 @@ Azure CLI 命令`az acr pack build`會使用[Buildpacks](https://buildpacks.io/)
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 此範例會建立`node-app` `1.0`具有標記的映射, 並將其推送至*myregistry*容器登錄。 在這裡, 目標登錄名稱會明確地加到映射名稱前面。 如果未指定, 登錄 URL 就會自動加到映射名稱前面。
+
+`--pull`參數會指定命令提取最新的產生器映射。
 
 命令輸出會顯示建立和推送映射的進度。 
 
@@ -80,7 +82,7 @@ az acr pack build \
 
 此範例會建立`java-app`以命令的執行識別碼標記的映射, 並將其推送至*myregistry*容器登錄。
 
-`--pull`參數會指定命令提取最新的產生器映射, 這是必要的, 因為 ACR 工作不會快取 Heroku builder 映射。
+`--pull`參數會指定命令提取最新的產生器映射。
 
 命令輸出會顯示建立和推送映射的進度。 
 

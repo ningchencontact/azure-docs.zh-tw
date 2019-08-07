@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514885"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775351"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 授權存取 Azure blob 和佇列
 
@@ -22,7 +22,7 @@ Azure 儲存體支援使用 Azure Active Directory (AD) 來授權對 Blob 和佇
 
 使用 Azure AD 所傳回的 OAuth 2.0 權杖來授權使用者或應用程式, 可透過共用金鑰授權和共用存取簽章 (SAS), 提供更優異的安全性和易用性。 有了 Azure AD, 就不需要將帳戶存取金鑰與您的程式碼一起儲存, 並且可能會有潛在的安全性弱點。 雖然您可以繼續使用共用金鑰授權於應用程式，但使用 Azure AD 就不需要將帳戶存取金鑰和程式碼一起儲存。 您也可以繼續使用共用存取簽章 (SAS) 將細部存取權授與儲存體帳戶中的資源，但 Azure AD 提供類似功能，卻不必管理 SAS 權杖或擔心需要撤銷遭盜用的 SAS。 Microsoft 建議在可能的情況下, 將 Azure AD 授權與您的 Azure 儲存體應用程式搭配使用。
 
-具有 Azure AD 的授權適用于所有公用區域和國家雲端中的所有一般用途和 Blob 儲存體帳戶。 只有使用 Azure Resource Manager 部署模型所建立的儲存體帳戶才支援 Azure AD 授權。
+具有 Azure AD 的授權適用于所有公用區域和國家雲端中的所有一般用途和 Blob 儲存體帳戶。 只有使用 Azure Resource Manager 部署模型所建立的儲存體帳戶才支援 Azure AD 授權。 Azure 資料表儲存體不支援具有 Azure AD 的授權。
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Blob 和佇列的 Azure AD 總覽
 

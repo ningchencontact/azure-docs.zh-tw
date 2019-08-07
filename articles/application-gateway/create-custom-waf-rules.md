@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: dcfdec0a746406296616456f6e6b8c0eabddf4b5
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 2499842eeb2dd5a8fa845ed364a6aea7418acc8b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478589"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824419"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>建立和使用 Web 應用程式防火牆 v2 自訂規則
 
@@ -227,7 +227,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
             { 
               "matchVariable": "RemoteAddr", 
               "operator": "IPMatch", 
-              "negateCondition": true, 
+              "negateCondition": false, 
               "matchValues": [ 
                 "192.168.5.4/24" 
               ] 

@@ -28,6 +28,10 @@
           items:
             - name: 超過 GC 額外負荷限制
               href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Hive 檢視中未顯示錯誤訊息
+          href: ./interactive-query-troubleshoot-error-message-hive-view.md
+        - name: 無法存取 Apache Hive 檢視
+          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
         - name: ZooKeeperHiveClientException - HiveServer2 組態
           href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
         - name: Apache Hive LLAP 查詢效能

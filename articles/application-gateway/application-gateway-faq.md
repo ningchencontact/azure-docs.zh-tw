@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: dc3b9cceda10ae1ff648306236d5ac4868b5b426
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722165"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740877"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題
 
@@ -101,7 +101,7 @@ Azure 應用程式閘道會以服務形式提供應用程式傳遞控制器 (ADC
 
 新的應用程式閘道 v1 SKU 部署最多可能需要 20 分鐘的時間來佈建。 實例大小或計數的變更不會造成干擾, 而且閘道會在這段時間內保持作用中狀態。
 
-使用 v2 SKU 的部署最多可能需要6分鐘的時間來布建。
+使用 v2 SKU 的大部分部署大約需要6分鐘的時間來布建。 不過, 視部署類型而定, 可能會花費較長的時間。 例如, 跨多個具有多個實例的可用性區域部署可能需要超過6分鐘的時間。 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>我可以使用 Exchange Server 做為應用程式閘道的後端嗎？
 
@@ -323,10 +323,6 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>是否有可從 v1 SKU 遷移至 v2 SKU 的指導方針？
 
 是的。 如需詳細資訊, 請參閱[將 Azure 應用程式閘道和 Web 應用程式防火牆從 V1 遷移至 v2](migrate-v1-v2.md)。
-
-### <a name="does-waf-support-non-utf-8-encoding"></a>WAF 是否支援非 UTF-8 編碼？
-
-資料分割 WAF 目前僅支援 UTF-8 編碼。
 
 ## <a name="diagnostics-and-logging"></a>診斷和記錄
 

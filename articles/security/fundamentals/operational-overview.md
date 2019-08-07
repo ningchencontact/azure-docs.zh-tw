@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 7504fe890f9a7c0b282e2c2442307aeab27d6ff4
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d863edba17b3dc688624e7095ee09744ca07192d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726852"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780519"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 
-[Azure 作業安全性](/azure/security/azure-operational-security)是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制措施與功能。 它是一個架構，其中包含透過各種 Microsoft 特有功能所獲得的知識。 這些功能包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 程式，以及對網路安全性威脅環境的深層認知。
+[Azure 操作安全性](/azure/security/fundamentals/operational-security 是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制項和功能。 它是一個架構，其中包含透過各種 Microsoft 特有功能所獲得的知識。 這些功能包括 Microsoft 安全性開發週期 (SDL)、Microsoft Security Response Center 程式，以及對網路安全性威脅環境的深層認知。
 
 ## <a name="azure-management-services"></a>Azure 管理服務
 

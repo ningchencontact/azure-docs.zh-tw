@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bf5219f8e147baba0e89a8c0e1fa6cb7b371473c
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480147"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774756"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -40,7 +40,7 @@ ms.locfileid: "67480147"
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="encoding"></a>編碼
-Functions 預期有 base64  編碼的字串。 任何對於編碼類型的調整 (以便準備資料作為 base64  編碼的字串) 都必須在呼叫服務中實作。
+Functions 預期有 base64 編碼的字串。 任何對於編碼類型的調整 (以便準備資料作為 base64 編碼的字串) 都必須在呼叫服務中實作。
 
 ## <a name="trigger"></a>觸發程序
 
@@ -54,6 +54,7 @@ Functions 預期有 base64  編碼的字串。 任何對於編碼類型的調整
 * [C# 指令碼 (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
@@ -188,6 +189,54 @@ module.exports = async function (context, message) {
  }
  ```
 
+### <a name="trigger---python-example"></a>觸發程序 - Python 範例
+
+下列範例示範如何讀取透過觸發程式傳遞至函式的佇列訊息。
+
+儲存體佇列觸發程式定義于函式 *. json*中, 其中*類型*設定`queueTrigger`為。
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "AzureStorageQueuesConnectionString"
+    }
+  ]
+}
+```
+
+程式 *_代碼\__  .py會宣告參數,讓您能夠讀取函式中的佇列訊息。\_* `func.ServiceBusMessage`
+
+```python
+import logging
+import json
+
+import azure.functions as func
+
+def main(msg: func.QueueMessage):
+    logging.info('Python queue trigger function processed a queue item.')
+
+    result = json.dumps({
+        'id': msg.id,
+        'body': msg.get_body().decode('utf-8'),
+        'expiration_time': (msg.expiration_time.isoformat()
+                            if msg.expiration_time else None),
+        'insertion_time': (msg.insertion_time.isoformat()
+                           if msg.insertion_time else None),
+        'time_next_visible': (msg.time_next_visible.isoformat()
+                              if msg.time_next_visible else None),
+        'pop_receipt': msg.pop_receipt,
+        'dequeue_count': msg.dequeue_count
+    })
+
+    logging.info(result)
+```
+
 ## <a name="trigger---attributes"></a>觸發程序 - 屬性
 
 在 [C# 類別庫](functions-dotnet-class-library.md)中，使用下列屬性以設定佇列觸發程序：
@@ -275,7 +324,7 @@ module.exports = async function (context, message) {
 
 佇列觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 類別的屬性。
 
-|屬性|類型|描述|
+|內容|Type|描述|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列承載為字串，`QueueTrigger` 具有相同於 *function.json* 中由 `name` 屬性命名之變數的值。|
 |`DequeueCount`|`int`|此訊息已從佇列清除的次數。|
@@ -305,7 +354,7 @@ module.exports = async function (context, message) {
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
-[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 請參閱[host.json 設定](#hostjson-settings)一節以取得有關可用設定的詳細資訊。
+[host.json](functions-host-json.md#queues) 檔案包含控制佇列觸發程序行為的設定。 如需可用設定的詳細資訊, 請參閱[host. json 設定](#hostjson-settings)一節。
 
 ## <a name="output"></a>Output
 
@@ -319,6 +368,7 @@ module.exports = async function (context, message) {
 * [C# 指令碼 (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
@@ -467,6 +517,68 @@ module.exports = function(context) {
 
 在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值要寫入至佇列儲存體的參數使用 `@QueueOutput` 註釋。  參數類型應為 `OutputBinding<T>`，其中 T 是任何原生 Java 類型的 POJO。
 
+### <a name="output---python-example"></a>輸出 - Python 範例
+
+下列範例示範如何將單一和多個值輸出到儲存體佇列。 *函數. json*所需的設定也是相同的方式。
+
+儲存體佇列系結定義于*function. json*中, 其中*type*設為`queue`。
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureStorageQueuesConnectionString"
+    }
+  ]
+}
+```
+
+若要在佇列上設定個別訊息, 請將單一值傳遞給`set`方法。
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
+```
+
+若要在佇列上建立多個訊息, 請將參數宣告為適當的清單類型, 並將值陣列 (符合清單類型) 傳遞給`set`方法。
+
+```python
+import azure.functions as func
+import typing
+
+def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpResponse:
+
+    msg.set(['one', 'two'])
+
+    return 'OK'
+```
 
 ## <a name="output---attributes"></a>輸出 - 屬性
 
@@ -533,7 +645,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
-| 繫結 |  參考 |
+| 繫結 |  參考資料 |
 |---|---|
 | 佇列 | [佇列錯誤碼](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Bob、資料表、佇列 | [儲存體錯誤碼](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
@@ -564,9 +676,9 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 ```
 
 
-|屬性  |預設值 | 描述 |
+|內容  |預設 | 描述 |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|佇列輪詢之間的間隔上限。 最小值是 00:00:00.100 （100 毫秒），並遞增達 00:01:00 （1 分鐘）。 |
+|maxPollingInterval|00:00:01|佇列輪詢之間的間隔上限。 最小值為 00:00: 00.100 (100 毫秒), 而遞增至 00:01:00 (1 分鐘)。 |
 |visibilityTimeout|00:00:00|處理訊息失敗時，重試之間的時間間隔。 |
 |batchSize|16|Functions 執行階段會同時擷取，並以平行方式處理的佇列訊息數目。 當要處理的數目減少到 `newBatchThreshold` 時，執行階段就會取得另一個批次，並開始處理那些訊息。 因此，每個函式並行處理之訊息的上限為 `batchSize` 加上 `newBatchThreshold`。 這項限制個別套用至每個佇列觸發的函式。 <br><br>如果您需要避免平行執行在單一佇列上收到的訊息，可以將 `batchSize` 設定為 1。 不過，只要您的函式應用程式在單一虛擬機器 (VM) 上執行，這項設定就只會將並行排除。 如果函式應用程式相應放大為多個 VM，則每個 VM 可以執行每個佇列觸發之函式的一個執行個體。<br><br>最大值 `batchSize` 為 32。 |
 |maxDequeueCount|5|將訊息移至有害佇列之前，嘗試處理訊息的次數。|

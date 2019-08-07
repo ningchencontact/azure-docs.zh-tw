@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 2695ee2751a2834466c42d224101af246b829aca
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: d50acc50880229626c847d41d9abe9a9e13d9c6e
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717631"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736121"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 開發和部署 WebJob - Azure App Service
 
@@ -86,7 +86,7 @@ ms.locfileid: "68717631"
 
 ![Diagram showing WebJob project linking to web project](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 如果您是使用 Visual Studio 2015，請安裝 [Azure SDK for .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/)。
 
@@ -228,7 +228,7 @@ Webjob 會使用*設定作業*檔案來判斷 WebJob 的執行時間。 使用�
 
 ### <a name="cron-expressions"></a>CRON 運算式
 
-Webjob 會使用與 Azure Functions 中的計時器觸發程式相同的 CRON 運算式進行排程。 若要深入瞭解 CRON 支援, 請參閱[計時器觸發程式參考文章](../azure-functions/functions-bindings-timer.md#cron-expressions)。
+Webjob 會使用與 Azure Functions 中的計時器觸發程式相同的 CRON 運算式進行排程。 若要深入瞭解 CRON 支援, 請參閱[計時器觸發程式參考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。
 
 ### <a name="settingjob-reference"></a>設定。作業參考
 
@@ -238,7 +238,7 @@ Webjob 支援下列設定:
 | ----------- | --------- | --------------- |
 | `is_in_place` | 全部 | 允許作業就地執行, 而不會先將其複製到暫存資料夾。 若要深入瞭解, 請參閱[webjob 工作目錄](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)。 |
 | `is_singleton` | 連續 | 只有在相應放大時, 才在單一實例上執行 Webjob。若要深入瞭解, 請參閱[將連續作業設定為 singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)。 |
-| `schedule` | 觸發式 | 在以 CRON 為基礎的排程上執行 WebJob。 若要深入瞭解, 請參閱[計時器觸發程式參考文章](../azure-functions/functions-bindings-timer.md#cron-expressions)。 |
+| `schedule` | 觸發式 | 在以 CRON 為基礎的排程上執行 WebJob。 若要深入瞭解, 請參閱[計時器觸發程式參考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。 |
 | `stopping_wait_time`| 全部 | 允許控制關閉行為。 若要深入瞭解, 請參閱[正常關機](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)。 |
 
 ## <a name="next-steps"></a>後續步驟

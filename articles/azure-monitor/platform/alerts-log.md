@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6dc8fcc32d7f05063da15eb6ca6bf7a7d69baebb
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f4d3a4d9a5785ae350874c400384477da1a6c22e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663128"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774722"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示
 
@@ -58,7 +58,7 @@ ms.locfileid: "68663128"
 
    > [!NOTE]
    > 
-   > [警示] 清單可匯入分析查詢作為訊號類型 - [記錄 (已儲存的查詢)]，如上圖所示。 如此一來, 使用者就可以在分析中完美查詢, 然後儲存它們以供日後在警示中使用-如需使用儲存查詢的詳細資訊, 請查看在[Azure 監視器中使用記錄查詢](../log-query/log-query-overview.md), 或在[application insights 分析中的共用查詢](../log-query/log-query-overview.md)。
+   > [警示] 清單可匯入分析查詢作為訊號類型 - [記錄 (已儲存的查詢)]，如上圖所示。 如此一來, 使用者就可以在分析中完美查詢, 然後儲存它們以供日後在警示中使用-如需使用儲存查詢的詳細資訊, 請查看在[Azure 監視器中使用記錄查詢](../log-query/log-query-overview.md), 或在[application insights 分析中的共用查詢](../app/app-insights-overview.md)。
 
 1. *記錄警示*：選取後，即可在 [搜尋查詢] 欄位中指定警示的查詢；如果查詢語法不正確，欄位會以紅色顯示錯誤。 如果查詢語法正確 - 指定查詢的記錄資料會顯示為圖形以供參考，以及顯示調整時間範圍的選項 (從過去六小時到過去一週)。
 

@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639489"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735429"
 ---
-# <a name="azure-backup-support-matrix"></a>Azure 備份支援矩陣
+# <a name="support-matrix-for-azure-backup"></a>Azure 備份的支援矩陣
 
 您可以使用[Azure 備份](backup-overview.md)將資料備份到 Microsoft Azure 的雲端平臺上。 本文摘要說明 Azure 備份案例和部署的一般支援設定和限制。
 

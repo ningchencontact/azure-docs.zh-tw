@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 7128413e48fdeef9b9284bc6db11649016a06153
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ebcc8301fa3693880974e45b594be218905e8311
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722812"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775395"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>從 Azure 下載 Windows VHD
 
@@ -36,14 +36,14 @@ ms.locfileid: "67722812"
 2.  [連接至 VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 
 3.  在 VM 上，以系統管理員身分開啟 [命令提示字元] 視窗。
 4.  切換至 *%windir%\system32\sysprep* 目錄並執行 sysprep.exe。
-5.  在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]  ，並確認已選取 [一般化]  。
-6.  在 [關機選項] 中選取 [關機]  ，然後按一下 [確定]  。 
+5.  在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已選取 [一般化]。
+6.  在 [關機選項] 中選取 [關機]，然後按一下 [確定]。 
 
 若要使用 VHD 作為現有 VM 或資料磁碟新執行個體的磁碟，請完成下列步驟：
 
-1.  在 Azure 入口網站的中樞功能表中，按一下 [虛擬機器]  。
+1.  在 Azure 入口網站的中樞功能表中，按一下 [虛擬機器]。
 2.  從清單中選取 VM。
-3.  在 VM 的刀鋒視窗中，按一下 [停止]  。
+3.  在 VM 的刀鋒視窗中，按一下 [停止]。
 
     ![停止 VM](./media/download-vhd/export-stop.png)
 
@@ -51,12 +51,12 @@ ms.locfileid: "67722812"
 
 若要下載 VHD 檔案，您需要產生[共用存取簽章 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL。 產生 URL 時，會將到期時間指派給 URL。
 
-1.  在 VM 刀鋒視窗的功能表中，按一下 [磁碟]  。
-2.  選取 VM 的作業系統磁碟，然後按一下 [匯出]  。
+1.  在 VM 刀鋒視窗的功能表中，按一下 [磁碟]。
+2.  選取 VM 的作業系統磁片, 然後按一下 [**磁片匯出**]。
 3.  將 URL 的到期時間設定為 *36000*。
-4.  按一下 [產生 URL]  。
+4.  按一下 [產生 URL]。
 
-    ![產生 URL](./media/download-vhd/export-generate.png)
+    ![產生 URL](./media/download-vhd/export-generate-new.png)
 
 > [!NOTE]
 > 到期時間會從預設設定增加，以提供足夠的時間來下載 Windows Server 作業系統的大型 VHD 檔案。 根據您的連線速度而定，包含 Windows Server 作業系統的 VHD 檔案可能會花數小時的時間下載。 如果您正在下載資料磁碟的 VHD，預設的時間便已足夠。 
@@ -69,7 +69,7 @@ ms.locfileid: "67722812"
 
     ![下載 VHD](./media/download-vhd/export-download.png)
 
-2.  您可能需要在瀏覽器中按一下 [儲存]  以開始下載。 VHD 檔案的預設名稱是 *abcd*。
+2.  您可能需要在瀏覽器中按一下 [儲存] 以開始下載。 VHD 檔案的預設名稱是 *abcd*。
 
     ![在瀏覽器中按一下 [儲存]](./media/download-vhd/export-save.png)
 

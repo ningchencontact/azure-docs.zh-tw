@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 5971fe53f52725a88c484edcc9a5a672fceceb07
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 153b9d503dfece404455fbb7e8cb51c51686ec57
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571363"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824289"
 ---
 # <a name="gateway-logging-auditing-and-visibility-in-azure-australia"></a>Azure 澳大利亞的閘道記錄、審核和可見度
 
@@ -149,7 +149,7 @@ VPN 閘道是在 Azure 環境中進行廣泛通訊的可能進入點, 例如內�
 |資源|連結|
 |---|---|
 |VPN 閘道文件|[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway)|
-|澳大利亞政府特定 VPN 閘道指導方針|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
+|澳大利亞政府特定 VPN 閘道指導方針|[Azure VPN 閘道設定](vpn-gateway.md)|
 |
 
 ### <a name="azure-firewall"></a>Azure 防火牆

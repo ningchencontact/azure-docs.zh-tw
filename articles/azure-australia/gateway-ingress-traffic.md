@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 808a615885129af1be9b7fdcdb64d5a8c5a25e40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3885b9fa346047a50a49c7b2f9b96b6a8f95e51f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571649"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779357"
 ---
 # <a name="controlling-ingress-traffic-in-azure-australia"></a>控制 Azure 澳大利亞的輸入流量
 
@@ -146,7 +146,7 @@ Azure 內資源的所有通訊都會通過 Microsoft 維護的網路基礎結構
 |Resource|連結|
 |---|---|
 |Azure DDoS 保護總覽|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Azure DDoS 最佳做法|[https://docs.microsoft.com/azure/security/azure-ddos-best-practices](https://docs.microsoft.com/azure/security/azure-ddos-best-practices)|
+|Azure DDoS 最佳做法|[https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices)|
 |管理 DDoS 保護|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
 |
 

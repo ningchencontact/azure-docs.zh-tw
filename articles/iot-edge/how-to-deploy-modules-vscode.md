@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126404"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840173"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>從 Visual Studio Code 部署 Azure IoT Edge 模組
 
@@ -71,7 +71,7 @@ ms.locfileid: "62126404"
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -95,7 +95,7 @@ ms.locfileid: "62126404"
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }
@@ -106,15 +106,15 @@ ms.locfileid: "62126404"
 
 您可以使用適用於 Visual Studio Code 的 Azure IoT 擴充功能來透過 IoT 中樞執行各種操作。 為了讓這些作業發揮作用，您需要登入 Azure 帳戶，並選取現用的 IoT 中樞。
 
-1. 在 Visual Studio Code 中，開啟 [總管]  檢視。
+1. 在 Visual Studio Code 中，開啟 [總管] 檢視。
 
-1. 在總管底部，展開 [Azure IoT 中樞裝置]  區段。
+1. 在總管底部，展開 [Azure IoT 中樞裝置] 區段。
 
    ![展開 [Azure IoT 中樞裝置] 區段](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. 按一下 [Azure IoT 中樞裝置]  區段標題中的 **...** 。 若未看到省略符號，請將滑鼠暫留在標題上方。
+1. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...** 。 若未看到省略符號，請將滑鼠暫留在標題上方。
 
-1. 選擇 [選取 IoT 中樞]  。
+1. 選擇 [選取 IoT 中樞]。
 
 1. 如果您未登入 Azure 帳戶，請依照提示執行。
 
@@ -126,16 +126,16 @@ ms.locfileid: "62126404"
 
 您可以透過套用您運用模組資訊設定的部署資訊清單，將模組部署到裝置上。
 
-1. 在 Visual Studio Code 總管檢視中，展開 [Azure IoT 中樞裝置]  區段。
+1. 在 Visual Studio Code 總管檢視中，展開 [Azure IoT 中樞裝置] 區段。
 
 1. 以滑鼠右鍵按一下您想要利用部署資訊清單設定的 IoT Edge 裝置。
 
     > [!TIP]
     > 若要確認您所選擇的裝置是 IoT Edge 裝置，請選取該裝置以展開模組清單，並確認 **$edgeHub** 和 **$edgeAgent** 是否存在。 每個 IoT Edge 都裝置包含這兩個模組。
 
-1. 選取 [建立單一裝置的部署]  。
+1. 選取 [建立單一裝置的部署]。
 
-1. 導覽至您想要使用的部署資訊清單 JSON 檔案，，然後按一下 [選取 Edge 部署資訊清單]  。
+1. 導覽至您想要使用的部署資訊清單 JSON 檔案，，然後按一下 [選取 Edge 部署資訊清單]。
 
    ![選取 Edge 部署資訊清單](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 
@@ -143,9 +143,9 @@ ms.locfileid: "62126404"
 
 ## <a name="view-modules-on-your-device"></a>在裝置上檢視模組
 
-您將模組部署到您的裝置後，就可以在 [Azure IoT 中樞裝置]  區段中檢視所有項目。 選取您的 IoT Edge 裝置旁的箭號可展開。 這會顯示所有目前正在執行的模組。
+您將模組部署到您的裝置後，就可以在 [Azure IoT 中樞裝置] 區段中檢視所有項目。 選取您的 IoT Edge 裝置旁的箭號可展開。 這會顯示所有目前正在執行的模組。
 
-如果您最近有在裝置上部署新模組，請將滑鼠暫留在 [Azure IoT 中樞裝置]  區段標題上方，然後選取重新整理圖示以更新檢視。
+如果您最近有在裝置上部署新模組，請將滑鼠暫留在 [Azure IoT 中樞裝置] 區段標題上方，然後選取重新整理圖示以更新檢視。
 
 以滑鼠右鍵按一下模組名稱，以檢視並編輯模組對應項。
 

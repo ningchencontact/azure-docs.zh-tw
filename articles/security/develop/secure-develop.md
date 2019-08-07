@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cc0540f74b755e083855721ad62754c70edb88b6
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728681"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780553"
 ---
 # <a name="develop-secure-applications-on-azure"></a>在 Azure 上開發安全的應用程式
 在本文中, 我們會提供您在開發雲端應用程式時應考慮的安全性活動和控制項。 涵蓋 Microsoft[安全性開發週期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)的執行期間和驗證階段所要考慮的安全性問題和概念。 其目標是要協助您定義活動和 Azure 服務, 您可以用來開發更安全的應用程式。
@@ -99,9 +99,9 @@ Azure Marketplace 提供的[開發人員工具](https://azuremarketplace.microso
 
 如果您的應用程式允許檔案上[傳](https://www.owasp.org/index.php/Unrestricted_File_Upload), 請考慮您可以為此具風險活動採取的預防措施。 在許多攻擊中, 第一個步驟是將一些惡意程式碼放入遭受攻擊的系統中。 使用檔案上傳可協助攻擊者達成此目的。 OWASP 提供驗證檔案的解決方案, 以確保您要上傳的檔案是安全的。
 
-反惡意程式碼防護可協助識別及移除病毒、間諜軟體和其他惡意軟體。 您可安裝 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 或 Microsoft 合作夥伴的端點保護解決方案 ([Trend Micro](https://www.trendmicro.com/azure/)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 及 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))。
+反惡意程式碼防護可協助識別及移除病毒、間諜軟體和其他惡意軟體。 您可安裝 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 或 Microsoft 合作夥伴的端點保護解決方案 ([Trend Micro](https://www.trendmicro.com/azure/)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 及 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))。
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)包括即時保護、排程掃描、惡意程式碼補救、簽章更新、引擎更新、範例報告和排除事件收集等功能。 您可以將 Microsoft Antimalware 和合作夥伴解決方案與 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-partner-integration)整合，以方便部署和執行內建偵測 (警示與事件)。
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)包括即時保護、排程掃描、惡意程式碼補救、簽章更新、引擎更新、範例報告和排除事件收集等功能。 您可以將 Microsoft Antimalware 和合作夥伴解決方案與 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-partner-integration)整合，以方便部署和執行內建偵測 (警示與事件)。
 
 ### <a name="dont-cache-sensitive-content"></a>不要快取敏感性內容
 
@@ -128,7 +128,7 @@ Azure Marketplace 提供的[開發人員工具](https://azuremarketplace.microso
 
 DAST 與靜態應用程式安全性測試 (SAST) 不同。 當程式碼未執行時, SAST 工具會分析原始程式碼或編譯版本的程式碼, 以找出安全性缺陷。
 
-執行 DAST, 最好是安全性專家的協助 ([滲透測試人員](https://docs.microsoft.com/azure/security/azure-security-pen-testing)或弱點評估者)。 如果無法使用安全性專業人員, 您可以使用 Web Proxy 掃描器和一些訓練來自行執行 DAST。 請提早插入 DAST 掃描器, 以確保您不會在程式碼中引進明顯的安全性問題。 如需 web 應用程式弱點掃描器的清單, 請參閱[OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools)網站。
+執行 DAST, 最好是安全性專家的協助 ([滲透測試人員](https://docs.microsoft.com/azure/security/fundamentals/pen-testing)或弱點評估者)。 如果無法使用安全性專業人員, 您可以使用 Web Proxy 掃描器和一些訓練來自行執行 DAST。 請提早插入 DAST 掃描器, 以確保您不會在程式碼中引進明顯的安全性問題。 如需 web 應用程式弱點掃描器的清單, 請參閱[OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools)網站。
 
 ### <a name="perform-fuzz-testing"></a>執行模糊測試
 
@@ -144,7 +144,7 @@ DAST 與靜態應用程式安全性測試 (SAST) 不同。 當程式碼未執行
 
 ### <a name="perform-security-penetration-testing"></a>執行安全性滲透測試
 
-確保您的應用程式安全, 與測試任何其他功能一樣重要。 讓[滲透測試](https://docs.microsoft.com/azure/security/azure-security-pen-testing)成為組建和部署程式的標準部分。 針對已部署的應用程式排程週期性安全性測試和弱點掃描, 並監視開啟的埠、端點和攻擊。
+確保您的應用程式安全, 與測試任何其他功能一樣重要。 讓[滲透測試](https://docs.microsoft.com/azure/security/fundamentals/pen-testing)成為組建和部署程式的標準部分。 針對已部署的應用程式排程週期性安全性測試和弱點掃描, 並監視開啟的埠、端點和攻擊。
 
 ### <a name="run-security-verification-tests"></a>執行安全性驗證測試
 

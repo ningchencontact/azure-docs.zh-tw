@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: ce22efd6eccdc067b05697b8389c821c4c01a347
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638605"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779175"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -45,13 +45,18 @@ ms.locfileid: "68638605"
 > [!NOTE]
 > 如果您使用的是 .NET Core, 請參閱最新版本3.x 的[.NET SDK](sql-api-sdk-dotnet-standard.md), 其目標為 .NET Standard。 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* SDK 的系統 .Net。 Http 版本現在符合 NuGet 套件中定義的專案。
+* 如果原始的寫入要求失敗, 則允許其回復至不同的區域。
+* 新增寫入要求的會話重試原則。
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * 修正造成空白頁面之查詢的追蹤競爭條件
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* SDK 的系統 .Net。 Http 版本符合 NuGet 套件中定義的專案
 * 已增加 LINQ 查詢的十進位有效位數大小。
 * 已新增類別 CompositePath、CompositePathSortOrder、SpatialSpec、SpatialType 和 PartitionKeyDefinitionVersion
 * 已將 TimeToLivePropertyPath 新增至 DocumentCollection
@@ -250,6 +255,7 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |2019年7月02日 |--- |
 | [2.4.1](#2.4.1) |2019年6月20日 |--- |
 | [2.4.0](#2.4.0) |2019年5月5日 |--- |
 | [2.3.0](#2.3.0) |2019年4月04日 |--- |

@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688387"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735578"
 ---
-# <a name="manage-azure-vm-backups"></a>管理 Azure VM 備份
+# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>使用 Azure 備份服務管理 Azure VM 備份
 
 本文說明如何管理使用[Azure 備份服務](backup-overview.md)備份的 Azure 虛擬機器 (vm)。 本文也會摘要說明您可以在保存庫儀表板上找到的備份資訊。
 

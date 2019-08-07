@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: b9bf3b41bcd0a79027c5dd9a4f3df979fb0bd9f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: eb6b42a88e47e3fcb35700ec542c8ca642e17a6a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250157"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815800"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>將 Azure HDInsight 3.6 Hive 工作負載遷移至 HDInsight 4。0
 
@@ -99,9 +99,7 @@ alter table myacidtable compact 'major';
 
 針對您的叢集啟動腳本動作, 並以「前端節點」做為執行的節點類型。 將下列 URI 貼入標示為「Bash 腳本 URI」的文字方塊: https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-您可以使用下列 URL 啟動資料分析 Studio:\<HTTPs://clustername >. hdinsightclustername>.azurehdinsight.net. net/das/
-
-
+等待5到10分鐘, 然後使用下列 URL 啟動資料分析 Studio: HTTPs://\<clustername >. hdinsightclustername>.azurehdinsight.net. net/das/
 
 安裝 DAS 之後, 如果您沒有看到您在查詢檢視器中執行的查詢, 請執行下列步驟:
 

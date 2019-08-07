@@ -9,14 +9,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: f961f472c0b00932bf5ee6302af58f39fa8421ed
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 126e33d4bedb56eb479361f16c02e7e167e49392
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720437"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736699"
 ---
-# <a name="restore-azure-vms"></a>還原 Azure VM
+# <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>如何在 Azure 入口網站中還原 Azure VM 資料
 
 本文說明如何從儲存在 [Azure 備份](backup-overview.md)復原服務保存庫的復原點還原 Azure VM 資料。
 

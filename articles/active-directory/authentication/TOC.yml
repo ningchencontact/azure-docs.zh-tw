@@ -129,14 +129,14 @@
               href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Azure AD 智慧鎖定
       href: howto-password-smart-lockout.md
-    - name: Windows Hello 企業版
-      href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
     - name: 無密碼
       items:
-        - name: 啟用無密碼
-          href: howto-authentication-passwordless-enable.md
+        - name: 無密碼安全性金鑰
+          href: howto-authentication-passwordless-security-key.md
         - name: 手機無密碼登入
-          href: howto-authentication-phone-sign-in.md
+          href: howto-authentication-passwordless-phone.md
+        - name: Windows Hello 企業版
+          href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
     - name: 憑證式驗證
       items:
         - name: 開始使用憑證驗證

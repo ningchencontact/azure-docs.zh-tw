@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 07/19/2019
-ms.openlocfilehash: adbc2c8818a3d7eff679dadc2245fb0ff8686fc2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/02/2019
+ms.openlocfilehash: 0139b3471eb9117830180088498eb14efd6ab661
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566932"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781308"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>預付具有 Azure SQL Database 保留容量的 SQL Database 計算資源
 
@@ -63,13 +63,9 @@ ms.locfileid: "68566932"
 1. 選取 [購買]。
 1. 選取 [檢視此保留] 以查看您的購買狀態。
 
-## <a name="cancellations-and-exchanges"></a>取消和交換
+## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換或退款保留
 
-如果您需要取消保留 SQL Database 保留容量，可能會有 12% 的提前解約金。 退款以您的購買價格或目前保留的價格為準，視孰者為低。 每年的退款金額上限為 50,000 美元。 您收到的退款是按比例計算的餘額扣除 12% 提前解約金的金額。 若要取消, 請移至 Azure 入口網站中的保留區, 然後選取 [**退款**]。
-
-如果您需要將 [SQL Database 保留容量] 保留區變更為另一個區域、部署類型、效能層級或期間，您可以將它與等值或更高價值的另一個保留區交換。 新保留區的期間開始日期不會延續自交換的保留區。 1 或 3 年的期限會從您建立新的保留時起算。 若要交換, 請移至 Azure 入口網站中的保留區, 然後選取 [ **exchange**]。
-
-如需有關如何交換或退款保留的詳細資訊, 請參閱[保留交換和退款](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
+您可以取消、交換或退款保留, 但有某些限制。 如需詳細資訊, 請參閱[Azure 保留的自助交換和退款](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
 
 ## <a name="vcore-size-flexibility"></a>vCore 大小彈性
 

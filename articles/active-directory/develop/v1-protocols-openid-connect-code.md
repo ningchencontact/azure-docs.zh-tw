@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9df592272b97bded9eba64249aa7608c72f8abdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a82571260f5da679202e96f5e6f72aa2db6788a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121531"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834680"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 授權存取 Web 應用程式
 
@@ -47,7 +47,7 @@ OpenID Connect 所描述的中繼資料文件包含應用程式執行登入所�
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-中繼資料是簡單的「JavaScript 物件標記法」(JSON) 文件。 如需範例，請參閱下列程式碼片段。 [OpenID Connect 規格](https://openid.net)中有程式碼片段內容的完整說明。 請注意，提供租用戶識別碼而不是`common`在上面的 {tenant} 的位置會導致傳回的 JSON 物件中的租用戶特定 Uri。
+中繼資料是簡單的「JavaScript 物件標記法」(JSON) 文件。 如需範例，請參閱下列程式碼片段。 [OpenID Connect 規格](https://openid.net)中有程式碼片段內容的完整說明。 請注意, 提供租使用者識別碼, `common`而非上面的 {tenant}, 會導致傳回的 JSON 物件中有租使用者特定的 uri。
 
 ```
 {
@@ -65,7 +65,7 @@ https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 }
 ```
 
-您的應用程式是否使用自訂簽署金鑰[宣告對應](active-directory-claims-mapping.md)功能，您必須附加`appid`查詢參數包含的應用程式識別碼才能取得`jwks_uri`指向您的應用程式的簽署金鑰資訊。 例如：`https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e`包含`jwks_uri`的`https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`。
+如果您的應用程式具有自訂簽署金鑰做為使用[宣告對應](active-directory-claims-mapping.md)功能的結果, 您必須附加`appid`包含應用程式識別碼的查詢參數, 才能取得指向`jwks_uri`應用程式簽署金鑰資訊的。 例如: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` `jwks_uri`包含的。`https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`
 
 ## <a name="send-the-sign-in-request"></a>傳送登入要求
 
@@ -92,22 +92,22 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 參數 |  | 描述 |
 | --- | --- | --- |
-| tenant |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
-| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您應用程式的應用程式識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下  **Azure Active Directory**，按一下**應用程式註冊**，選擇 應用程式，找出應用程式頁面上的應用程式識別碼。 |
+| 租用戶 |必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
+| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您應用程式的應用程式識別碼。 您可以在 Azure 入口網站中找到這個值。 依序按一下 [ **Azure Active Directory**]、[**應用程式註冊**]、應用程式, 並在應用程式頁面上找到應用程式識別碼。 |
 | response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含其他 response_types，例如 `code` 或 `token`。 |
-| scope | 建議使用 | OpenID Connect 規格需要範圍`openid`，這會轉譯為 「 將您登入 」 權限，在同意 UI。 這和其他 OIDC 範圍的 v1.0 端點，會略過，但仍符合標準的用戶端的最佳作法。 |
+| scope | 建議使用 | OpenID connect 規格需要範圍`openid`, 這會轉譯為同意 UI 中的「登入」許可權。 在 v1.0 端點上會忽略此和其他 OIDC 範圍, 但仍然是符合標準的用戶端的最佳作法。 |
 | nonce |必要 |包含在要求中的值 (由應用程式所產生)，將會包含在所得的 `id_token` 中來做為宣告。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串或 GUID，可用以識別要求的來源。 |
-| redirect_uri | 建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 如果遺失，使用者代理程式會傳送回其中一個重新導向 Uri 註冊應用程式中，隨機。 最大長度是 255 個位元組 |
-| response_mode |選用 |指定將產生的 authorization_code 傳回到應用程式所應該使用的方法。 支援的值為 `form_post` (*HTTP 表單張貼*) 和 `fragment` (*URL 片段*)。 針對 Web 應用程式，建議使用 `response_mode=form_post`，確保會以最安全的方式將權杖傳輸至您的應用程式。 包括 id_token 在內的任何流程預設值皆為 `fragment`。|
-| state |建議使用 |會隨權杖回應傳回之要求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
-| prompt |選用 |表示需要的使用者互動類型。 目前只有 'login'、'none'、'consent' 是有效值。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，端點就會傳回錯誤。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
-| login_hint |選用 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，並已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
+| redirect_uri | 建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 如果遺漏, 使用者代理程式將會隨機傳送回其中一個為應用程式註冊的重新導向 Uri。 長度上限為255個位元組 |
+| response_mode |選擇性 |指定將產生的 authorization_code 傳回到應用程式所應該使用的方法。 支援的值為 `form_post` (*HTTP 表單張貼*) 和 `fragment` (*URL 片段*)。 針對 Web 應用程式，建議使用 `response_mode=form_post`，確保會以最安全的方式將權杖傳輸至您的應用程式。 包括 id_token 在內的任何流程預設值皆為 `fragment`。|
+| 狀態 |建議使用 |會隨權杖回應傳回之要求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
+| prompt |選擇性 |表示需要的使用者互動類型。 目前只有 'login'、'none'、'consent' 是有效值。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，端點就會傳回錯誤。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
+| login_hint |選擇性 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，並已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
 
 此時，系統會要求使用者輸入其認證並完成驗證。
 
 ### <a name="sample-response"></a>範例回應
 
-範例回應，傳送至`redirect_uri`要求中指定登入之後使用者已驗證，看起來像這樣：
+在使用者經過驗證之後, 傳送`redirect_uri`至登入要求中指定的回應範例如下所示:
 
 ```
 POST / HTTP/1.1
@@ -120,7 +120,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | 參數 | 描述 |
 | --- | --- |
 | id_token |應用程式要求的 `id_token` 。 您可以使用 `id_token` 確認使用者的身分識別，並以使用者開始工作階段。 |
-| state |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
+| 狀態 |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 
 ### <a name="error-response"></a>錯誤回應
 
@@ -153,7 +153,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | temporarily_unavailable |伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋，說明其回應因暫時性狀況而延遲。 |
 | invalid_resource |目標資源無效，因為它不存在、Azure AD 無法找到它，或是它並未正確設定。 |這表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
 
-## <a name="validate-the-idtoken"></a>驗證 id_token
+## <a name="validate-the-id_token"></a>驗證 id_token
 
 僅接收 `id_token` 不足以驗證使用者，您必須驗證簽章，並依照應用程式的需求確認 `id_token` 中的宣告。 Azure AD 端點使用 JSON Web Tokens (JWT) 和公開金鑰加密簽署權杖及驗證其是否有效。
 
@@ -162,7 +162,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 您可能也希望根據自己的案例驗證其他宣告。 一些常見的驗證包括：
 
 * 確保使用者/組織已註冊應用程式。
-* 確保使用者擁有適當的授權/權限使用`wids`或`roles`宣告。 
+* 使用`wids` 或`roles`宣告, 確保使用者具有適當的授權/許可權。 
 * 確保驗證具有特定強度，例如多重要素驗證。
 
 驗證 `id_token` 之後，即可利用該使用者開始工作階段，並使用 `id_token` 中的宣告來取得應用程式中的使用者相關資訊。 這項資訊可以用於顯示、記錄、個人化等等。如需 `id_tokens` 和宣告的詳細資訊，請閱讀 [AAD id_tokens](id-tokens.md)。
@@ -181,7 +181,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | 參數 |  | 描述 |
 | --- | --- | --- |
-| post_logout_redirect_uri |建議使用 |使用者應該重新導向至在成功登出之後的 URL。如果此參數，則會向使用者顯示一般訊息。 |
+| post_logout_redirect_uri |建議使用 |使用者在成功登出後應重新導向至的 URL。如果此參數，則會向使用者顯示一般訊息。 |
 
 ## <a name="single-sign-out"></a>單一登出
 
@@ -189,8 +189,8 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 2. 在頁面右上角按一下您的帳戶，以選擇您的 Active Directory。
-3. 在左側導覽窗格中，依序選擇 [Azure Active Directory]  、[應用程式註冊]  ，然後選取您的應用程式。
-4. 依序按一下 [設定]  和 [屬性]  ，並找到 [登出 URL]  文字方塊。 
+3. 在左側導覽窗格中，依序選擇 [Azure Active Directory]、[應用程式註冊]，然後選取您的應用程式。
+4. 依序按一下 [設定] 和 [屬性]，並找到 [登出 URL] 文字方塊。 
 
 ## <a name="token-acquisition"></a>權杖取得
 許多 Web Apps 不僅需要將使用者登入，同時需要使用 OAuth 代表使用者來存取 Web 服務。 這個案例會合併 OpenID Connect 以進行使用者驗證，同時使用 [OAuth 授權碼流程](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token)取得 `authorization_code`，藉此取得 `access_tokens`。
@@ -214,9 +214,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 藉由在要求中包含權限範圍，並且使用 `response_type=code+id_token`，`authorize` 端點可確保使用者已經同意 `scope` 查詢參數中表示的權限，並且將授權碼傳回至您的應用程式以交換存取權杖。
 
-### <a name="successful-response"></a>成功回應
+### <a name="successful-response"></a>成功的回應
 
-成功的回應，並傳送至`redirect_uri`使用`response_mode=form_post`，看起來像：
+成功的回應 ( `redirect_uri`使用`response_mode=form_post`傳送至) 看起來像這樣:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -230,7 +230,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | --- | --- |
 | id_token |應用程式要求的 `id_token` 。 您可以使用 `id_token` 確認使用者的身分識別，並以使用者開始工作階段。 |
 | code |應用程式要求的 authorization_code。 應用程式可以使用授權碼要求目標資源的存取權杖。 authorization_code 的有效期很短，通常約 10 分鐘後即到期。 |
-| state |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
+| 狀態 |如果要求中包含狀態參數，回應中就應該出現相同的值。 應用程式應該確認要求和回應中的狀態值完全相同。 |
 
 ### <a name="error-response"></a>錯誤回應
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776991"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741271"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警示管理方案
 
@@ -49,7 +49,7 @@ ms.locfileid: "60776991"
 如需有關方案管理組件如何更新的詳細資訊，請參閱 [將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
 
 ## <a name="data-collection"></a>資料收集
-### <a name="agents"></a>代理程式
+### <a name="agents"></a>Agent
 下表描述此方案支援的連接來源。
 
 | 連接的來源 | 支援 | 描述 |
@@ -64,18 +64,18 @@ ms.locfileid: "60776991"
 - 警示資料每 3 分鐘從 Operations Manager 管理群組傳送至 Log Analytics。  
 
 ## <a name="using-the-solution"></a>使用解決方案
-當您將警示管理解決方案新增至 Log Analytics 工作區時，[警示管理]  圖格會新增至儀表板。  此圖格會顯示過去 24 小時內產生的目前作用中警示數目的計數和圖形表示。  您無法變更此時間範圍。
+當您將警示管理解決方案新增至 Log Analytics 工作區時，[警示管理] 圖格會新增至儀表板。  此圖格會顯示過去 24 小時內產生的目前作用中警示數目的計數和圖形表示。  您無法變更此時間範圍。
 
 ![Alert Management tile](media/alert-management-solution/tile.png)
 
-按一下 [警示管理]  圖格以開啟 [警示管理]  儀表板。  此儀表板包含下表中的資料行。  每個資料行依計數列出前 10 個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。  您可以按一下資料行底部的 [查看全部]  ，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
+按一下 [警示管理] 圖格以開啟 [警示管理] 儀表板。  此儀表板包含下表中的資料行。  每個資料行依計數列出前 10 個警示，這幾個警示符合該資料行中指定範圍和時間範圍的準則。  您可以按一下資料行底部的 [查看全部] ，或按一下資料行標頭，以執行記錄搜尋來提供完整清單。
 
 | 欄 | 描述 |
 |:--- |:--- |
 | 重大警示 |嚴重性為「重大」的所有警示 (依警示名稱分組)。  按一下警示名稱來執行記錄搜尋，以傳回該警示的所有記錄。 |
 | 警告警示 |嚴重性為「警告」的所有警示 (依警示名稱分組)。  按一下警示名稱來執行記錄搜尋，以傳回該警示的所有記錄。 |
-| 作用中的 SCOM 警示 |來自 Operations Manager 且狀態不為 [已關閉]  的所有警示，並依產生此警示的來源分組。 |
-| 所有作用中警示 |具有任何嚴重性的所有警示 (依警示名稱分組)。 只包含 [已關閉]  以外任何狀態的 Operations Manager 警示。 |
+| 尚未解決的 SCOM 警示 |來自 Operations Manager 且狀態不為 [已關閉] 的所有警示，並依產生此警示的來源分組。 |
+| 所有作用中警示 |具有任何嚴重性的所有警示 (依警示名稱分組)。 只包含 [已關閉] 以外任何狀態的 Operations Manager 警示。 |
 
 如果您向右捲動，儀表板會列出數個常見的查詢，按一下即可執行警示資料的[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)。
 
@@ -87,28 +87,28 @@ ms.locfileid: "60776991"
 
 解決方案會從 System Center Operations Manager 匯入警示，並針對類型為**警示**且 SourceSystem 為 **OpsManager** 的每個警示建立對應的記錄。  這些記錄具有下表中的屬性：  
 
-| 屬性 | 描述 |
+| 內容 | 描述 |
 |:--- |:--- |
-| type |*警示* |
-| SourceSystem |*OpsManager* |
-| AlertContext |造成產生警示的資料項目的詳細資料 (XML 格式)。 |
-| AlertDescription |警示的詳細描述。 |
-| AlertId |警示的 GUID。 |
-| AlertName |警示的名稱。 |
-| AlertPriority |警示的優先順序層級。 |
-| AlertSeverity |警示的嚴重性層級。 |
-| AlertState |警示的最新解決狀態。 |
-| LastModifiedBy |上次修改警示的使用者名稱。 |
-| ManagementGroupName |產生警示的管理群組名稱。 |
-| RepeatCount |相同受監視物件的同一個警示自從解決後又產生的次數。 |
-| ResolvedBy |解決警示的使用者名稱。 如果尚未解決警示，則為空白。 |
-| SourceDisplayName |產生警示的監視物件的顯示名稱。 |
-| SourceFullName |產生警示的監視物件的完整名稱。 |
-| TicketId |如果 System Center Operations Manager 環境與指派警示票證的程序已整合，則此值為警示的票證識別碼。  如果未指派票證識別碼，則為空白。 |
-| TimeGenerated |建立警示的日期和時間。 |
-| TimeLastModified |上次變更警示的日期和時間。 |
-| TimeRaised |產生警示的日期和時間。 |
-| TimeResolved |解決警示的日期和時間。 如果尚未解決警示，則為空白。 |
+| `Type` |*警示* |
+| `SourceSystem` |*OpsManager* |
+| `AlertContext` |造成產生警示的資料項目的詳細資料 (XML 格式)。 |
+| `AlertDescription` |警示的詳細描述。 |
+| `AlertId` |警示的 GUID。 |
+| `AlertName` |警示的名稱。 |
+| `AlertPriority` |警示的優先順序層級。 |
+| `AlertSeverity` |警示的嚴重性層級。 |
+| `AlertState` |警示的最新解決狀態。 |
+| `LastModifiedBy` |上次修改警示的使用者名稱。 |
+| `ManagementGroupName` |產生警示的管理群組名稱。 |
+| `RepeatCount` |相同受監視物件的同一個警示自從解決後又產生的次數。 |
+| `ResolvedBy` |解決警示的使用者名稱。 如果尚未解決警示，則為空白。 |
+| `SourceDisplayName` |產生警示的監視物件的顯示名稱。 |
+| `SourceFullName` |產生警示的監視物件的完整名稱。 |
+| `TicketId` |如果 System Center Operations Manager 環境與指派警示票證的程序已整合，則此值為警示的票證識別碼。  如果未指派票證識別碼，則為空白。 |
+| `TimeGenerated` |建立警示的日期和時間。 |
+| `TimeLastModified` |上次變更警示的日期和時間。 |
+| `TimeRaised` |產生警示的日期和時間。 |
+| `TimeResolved` |解決警示的日期和時間。 如果尚未解決警示，則為空白。 |
 
 ## <a name="sample-log-searches"></a>記錄搜尋範例
 下表提供此解決方案所收集的警示記錄的記錄搜尋範例： 
@@ -117,11 +117,11 @@ ms.locfileid: "60776991"
 |:---|:---|
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) |過去 24 小時期間引發的重大警示 |
 | Alert &#124; where AlertSeverity == "warning" and TimeRaised > ago(24h) |過去 24 小時期間引發的警告警示 |
-| Alert &#124; where SourceSystem == "OpsManager" and AlertState != "Closed" and TimeRaised > ago(24h) &#124; summarize Count = count() by SourceDisplayName |來源和過去 24 小時期間引發的作用中警示 |
+| Alert &#124; where SourceSystem == "OpsManager" and AlertState != "Closed" and TimeRaised > ago(24h) &#124; summarize Count = count() by SourceDisplayName |過去 24 小時內所引發作用中警示的來源 |
 | Alert &#124; where SourceSystem == "OpsManager" and AlertSeverity == "error" and TimeRaised > ago(24h) and AlertState != "Closed" |過去 24 小時期間引發的重大且仍在作用中的警示 |
 | Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(24h) and AlertState == "Closed" |過去 24 小時期間引發但現在已關閉的警示 |
-| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |過去 1 天期間引發的警示 (依嚴重性分組) |
-| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |過去 1 天期間引發的警示 (依重複計數值排序) |
+| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; summarize Count = count() by AlertSeverity |過去 1 天內引發的警示，並依其嚴重性分組 |
+| Alert &#124; where SourceSystem == "OpsManager" and TimeRaised > ago(1d) &#124; sort by RepeatCount desc |過去 1 天內引發的警示，並依其重複次數值排序 |
 
 
 

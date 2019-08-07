@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: magattus
-ms.openlocfilehash: be6655c2c5e6b2acca82b4a1b20a3cdf84e0251b
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 297c65c1cd89163b8663819f844dc6c2a83fd1bf
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707522"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814066"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>來自 Microsoft 的 Azure CDN 的 Debug HTTP 標頭
 「偵錯工具回應標`X-Cache`頭」 () 提供詳細資料, 說明內容的服務來源 CDN 堆疊層。 此標頭專屬於 Microsoft 的 Azure CDN 所特有。

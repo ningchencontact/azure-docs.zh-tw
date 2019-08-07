@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9d19441b2f2202573086a711c202d4b36bbee5fa
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b1fa24f919888e4454096e1ef84d2ba2948b865a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846138"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774285"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 入口網站中佈建 Windows SQL Server 虛擬機器
 
@@ -39,9 +39,9 @@ ms.locfileid: "67846138"
 
 1. 使用您的帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在 Azure 入口網站中，按一下 [建立資源]  。 入口網站會開啟 [新增]  視窗。
+1. 在 Azure 入口網站中，按一下 [建立資源]。 入口網站會開啟 [新增] 視窗。
 
-1. 在 [新增]  視窗中，按一下 [計算]  ，然後按一下 [檢視全部]  。
+1. 在 [新增] 視窗中，按一下 [計算]，然後按一下 [檢視全部]。
 
 1. 在搜尋方塊中輸入 **SQL Server 2017**，然後按 ENTER。
 
@@ -51,7 +51,7 @@ ms.locfileid: "67846138"
 
 1. 檢閱可用的 SQL Server 映像。 每個映像皆識別一個 SQL Server 版本和一個作業系統。
 
-1. 選取名為 [免費的 SQL Server 授權：  Windows Server 2016 上的 SQL Server 2017 Developer] 的映像。
+1. 選取名為 [免費的 SQL Server 授權：Windows Server 2016 上的 SQL Server 2017 Developer] 的映像。
 
    > [!TIP]
    > 本逐步介紹中使用 Developer 版本，因為這是供開發測試使用的免費 SQL Server 完整功能版。 您只需支付執行 VM 的費用。 不過，您在本逐步介紹中可以自由選擇您要使用的任何映像。 如需可用映像的說明，請參閱 [SQL Server Windows 虛擬機器概觀](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)。
@@ -61,9 +61,9 @@ ms.locfileid: "67846138"
    >
    > 如需這些選項的詳細資訊，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
-1. 在 [選取部署模型]  底下，確認已選取 [Resource Manager]  。 Resource Manager 是新的虛擬機器建議採用的部署模型。 
+1. 在 [選取部署模型] 底下，確認已選取 [Resource Manager]。 Resource Manager 是新的虛擬機器建議採用的部署模型。 
 
-1. 選取 [建立]  。
+1. 選取 [建立]。
 
 
 ## <a id="configure"></a> 設定選項
@@ -80,39 +80,39 @@ ms.locfileid: "67846138"
 ## <a name="1-configure-basic-settings"></a>1.設定基本設定
 
 
-在 [基本概念]  索引標籤中提供下列資訊：
+在 [基本概念] 索引標籤中提供下列資訊：
 
 * 在 [**專案詳細資料**] 底下, 確認已選取正確的訂用帳戶。 
 *  在 [**資源群組**] 區段中, 從清單中選取現有的資源群組, 或選擇 [**建立新**的] 以建立新的資源群組。 資源群組是 Azure (虛擬機器、儲存體帳戶、虛擬網路等) 中相關資源的集合。 
 
-    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![訂閱](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
   > 如果您只是測試或了解 Azure 中的 SQL Server 部署，使用新的資源群組很有幫助。 完成測試之後，請刪除資源群組以自動刪除此 VM 以及與該資源群組相關聯的所有資源。 如需有關資源群組的詳細資訊，請參閱 [Azure Resource Manager 概觀](../../../azure-resource-manager/resource-group-overview.md)。
 
 
-* 在 [執行個體詳細資料]  下方：
+* 在 [執行個體詳細資料] 下方：
     1. 輸入唯一的**虛擬機器名稱**。  
-    1. 選擇 [區域]  的位置。 
-    1. 基於本指南的目的, 請將 [**可用性選項**] 設定為 [_不需要基礎結構冗余_]。 若要瞭解可用性選項的詳細資訊, 請參閱[availability](../../windows/availability.md)。 
+    1. 選擇 [區域] 的位置。 
+    1. 基於本指南的目的, 請將 [**可用性選項**] 設定為 [_不需要基礎結構冗余_]。 如需關於可用性選項的詳細資訊，請參閱[可用性](../../windows/availability.md)。 
     1. 在 **映像** 清單中，選取免費的 _SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer 的映像。  
-    1. 選擇為虛擬機器的**大小** [變更大小]  ，然後選取 **A2 Basic** 供應項目。 在資源使用完畢後請務必加以清除，以防止產生任何非預期的費用。 對於生產工作負載，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-windows-sql-performance.md)中建議的機器大小和組態。
+    1. 選擇為虛擬機器的**大小** [變更大小]，然後選取 **A2 Basic** 供應項目。 在資源使用完畢後請務必加以清除，以防止產生任何非預期的費用。 對於生產工作負載，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-windows-sql-performance.md)中建議的機器大小和組態。
 
     ![執行個體詳細資料](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
-> [選擇大小]  視窗上顯示的估計每月成本不包含 SQL Server 授權成本。 這估計只是 VM 單獨的成本。 若為 SQL Server 的 Express 和 Developer 版本，此為預估的總成本。 若為其他版本，請參閱 [Windows 虛擬機器價格頁面](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)，然後選取您的目標 SQL Server 版本。 另請參閱[SQL Server Azure vm 的定價指導](virtual-machines-windows-sql-server-pricing-guidance.md)方針和[虛擬機器的大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+> [選擇大小] 視窗上顯示的估計每月成本不包含 SQL Server 授權成本。 這估計只是 VM 單獨的成本。 若為 SQL Server 的 Express 和 Developer 版本，此為預估的總成本。 若為其他版本，請參閱 [Windows 虛擬機器價格頁面](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)，然後選取您的目標 SQL Server 版本。 另請參閱[SQL Server Azure vm 的定價指導](virtual-machines-windows-sql-server-pricing-guidance.md)方針和[虛擬機器的大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 * 在 [**系統管理員帳戶**] 下, 提供使用者名稱和密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
-   ![系統管理員帳戶](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
+   ![Administrator 帳戶](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-* 在 [輸入連接埠規則]  下方選擇 [允許選取的連接埠]  ，然後從下拉式清單中選取 [RDP (3389)]  。 
+* 在 [輸入連接埠規則] 下方選擇 [允許選取的連接埠]，然後從下拉式清單中選取 [RDP (3389)]。 
 
    ![輸入連接埠規則](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
 
-## <a name="2-configure-optional-features"></a>2.設定選用功能
+## <a name="2-configure-optional-features"></a>2.設定選擇性功能
 
 ### <a name="disks"></a>磁碟
 
@@ -133,7 +133,7 @@ ms.locfileid: "67846138"
 
 * 建立新的**虛擬網路**, 或為您的 SQL Server VM 使用現有的 vNet。 同時指定**子網**。 
 
-* 在 [ **NIC 安全性群組**] 底下, 選取 [基本] 安全性群組或 [advanced] 安全性群組。 選擇 [基本] 選項可讓您選取 SQL Server VM 的輸入埠 (與 [**基本**] 索引標籤上所設定的相同值)。 選取 [advanced] 選項可讓您選擇現有的網路安全性群組, 或建立一個新的群組。 
+* 在 [ **NIC 網路安全性群組**] 底下, 選取 [基本] 安全性群組或 [advanced] 安全性群組。 選擇 [基本] 選項可讓您選取 SQL Server VM 的輸入埠 (與 [**基本**] 索引標籤上所設定的相同值)。 選取 [advanced] 選項可讓您選擇現有的網路安全性群組, 或建立一個新的群組。 
 
 * 您可以對網路設定進行其他變更，或保留預設值。
 
@@ -143,7 +143,7 @@ ms.locfileid: "67846138"
 
 在 [**監視**] 索引標籤上, 設定監視和 autoshutdown。 
 
-* Azure 預設會使用為 VM 指定的相同儲存體帳戶來啟用**開機監視**。 您可以在這裡變更這些設定, 以及啟用**OS 來賓診斷**。 
+* Azure 預設會使用為 VM 指定的相同儲存體帳戶來啟用**開機診斷**。 您可以在這裡變更這些設定, 以及啟用**OS 來賓診斷**。 
 * 您也可以在此索引標籤上啟用**系統指派的受控識別**和**autoshutdown** 。 
 
 ![SQL VM 管理設定](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
@@ -168,7 +168,7 @@ ms.locfileid: "67846138"
 
 ### <a name="connectivity"></a>連線能力
 
-在 [SQL 連線]  底下，指定您要對此 VM 上的 SQL Server 執行個體進行的存取類型。 基於本逐步介紹的目的，選取 [公用 (網際網路)]  以允許從網際網路上的機器或服務連線至 SQL Server。 選取此選項時, Azure 會自動設定防火牆和網路安全性群組, 以允許所選埠上的流量。
+在 [SQL 連線]底下，指定您要對此 VM 上的 SQL Server 執行個體進行的存取類型。 基於本逐步介紹的目的，選取 [公用 (網際網路)] 以允許從網際網路上的機器或服務連線至 SQL Server。 選取此選項時, Azure 會自動設定防火牆和網路安全性群組, 以允許所選埠上的流量。
 
 > [!TIP]
 > 根據預設，SQL Server 會在已知通訊埠 **1433** 上接聽。 為了提高安全性，變更前一個對話方塊中的連接埠，以在非預設連接埠 (例如 1401) 上接聽。 如果您變更連接埠，則您必須使用該連接埠從任何用戶端工具 (例如 SSMS) 進行連線。
@@ -179,8 +179,8 @@ ms.locfileid: "67846138"
 
 如果您偏好不要啟用透過網際網路連線到 Database Engine 的功能，請選擇下列其中一個選項：
 
-*  只允許從 VM 內連接到 SQL Server。
-*  允許從相同虛擬網路中的電腦或服務連接到 SQL Server。
+* 只允許從 VM 內連接到 SQL Server。
+* 允許從相同虛擬網路中的電腦或服務連接到 SQL Server。
 
 一般情況下，選擇您的案例允許的最嚴格連線能力，即可改善安全性。 但所有透過網路安全性群組規則和 SQL/Windows 驗證的選項都是安全的。 建立 VM 後，您可以編輯網路安全性群組。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 安全性考量](virtual-machines-windows-sql-security.md)。
 
@@ -195,16 +195,16 @@ ms.locfileid: "67846138"
 > [!NOTE]
 > 如果您打算透過網際網路 ([公用] 連線選項) 存取 SQL Server，則您必須在這裡啟用 SQL 驗證。 對 SQL Server 進行公用存取需要使用「SQL 驗證」。
 
-如果您啟用 [SQL Server 驗證]，請指定 [登入名稱]  和 [密碼]  。 此登入名稱會設定為 SQL Server Authentication 登入, 以及**系統管理員 (sysadmin** ) 固定伺服器角色的成員。 如需驗證模式的詳細資訊，請參閱[選擇驗證模式](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)。
+如果您啟用 [SQL Server 驗證]，請指定 [登入名稱] 和 [密碼]。 此登入名稱會設定為 SQL Server Authentication 登入, 以及**系統管理員 (sysadmin** ) 固定伺服器角色的成員。 如需驗證模式的詳細資訊，請參閱[選擇驗證模式](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode)。
 
 如果您未啟用 SQL Server 驗證，您可以在 VM 上使用本機系統管理員帳戶連接到 SQL Server 執行個體。
 
 
-### <a name="azure-key-vault-integration"></a>Azure 金鑰保存庫整合
+### <a name="azure-key-vault-integration"></a>Azure Key Vault 整合
 
 若要將安全性密碼儲存在 Azure 中進行加密, 請選取**SQL Server 設定**, 然後向下流覽至  **azure key vault 整合**。 選取 [**啟用**] 並填入要求的資訊。 
 
-![Azure 金鑰保存庫整合](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
+![Azure Key Vault 整合](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
 
 下表列出設定「Azure 金鑰保存庫整合」時所需的參數。
 
@@ -230,11 +230,11 @@ ms.locfileid: "67846138"
 
 您可以用每秒輸入/輸出作業數 (IOPs)、輸送量 (單位為 MB/s) 及總儲存體大小來指定需求。 請使用滑動標尺來設定這些值。 您可以根據工作負載變更這些儲存體設定。 入口網站會自動根據這些需求計算要連結和設定的磁碟數目。
 
-在 [儲存體最佳化]  底下，選取下列其中一個選項：
+在 [儲存體最佳化]底下，選取下列其中一個選項：
 
-*  是預設設定，支援大多數工作負載。
-*  可將儲存體最佳化來處理傳統資料庫 OLTP 工作負載。
-*  可將儲存體最佳化來處理分析和報告工作負載。
+* 是預設設定，支援大多數工作負載。
+* 可將儲存體最佳化來處理傳統資料庫 OLTP 工作負載。
+* 可將儲存體最佳化來處理分析和報告工作負載。
 
 ![SQL VM 儲存體設定](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
 
@@ -245,7 +245,7 @@ ms.locfileid: "67846138"
 
 ### <a name="automated-patching"></a>自動修補
 
-**Automated patching** 。 自動修補可讓 Azure 自動修補 SQL Server 和作業系統。 請為維護期間指定一週當中的某一天、時間及持續時間。 Azure 會在此維護期間執行修補。 維護期間排程會使用 VM 地區設定做為時間。 如果您不想要讓 Azure 自動修補 SQL Server 和作業系統，請按一下 [停用]  。  
+**Automated patching** 。 自動修補可讓 Azure 自動修補 SQL Server 和作業系統。 請為維護期間指定一週當中的某一天、時間及持續時間。 Azure 會在此維護期間執行修補。 維護期間排程會使用 VM 地區設定做為時間。 如果您不想要讓 Azure 自動修補 SQL Server 和作業系統，請按一下 [停用]。  
 
 ![SQL VM 自動修補](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-automated-patching.png)
 
@@ -253,7 +253,7 @@ ms.locfileid: "67846138"
 
 ### <a name="automated-backup"></a>自動備份
 
-在 [自動備份]  底下，可以為所有資料庫啟用自動資料庫備份。 預設會停用自動備份。
+在 [自動備份]底下，可以為所有資料庫啟用自動資料庫備份。 預設會停用自動備份。
 
 當您啟用 SQL 自動備份時，您可以進行下列設定：
 
@@ -263,7 +263,7 @@ ms.locfileid: "67846138"
 * 備份系統資料庫
 * 設定備份排程
 
-若要加密備份，請按一下 [啟用]  。 然後指定 [密碼]  。 Azure 會建立憑證來加密備份，並使用指定的密碼來保護該憑證。 根據預設, 排程會自動設定, 但您可以選取 [**手動**] 來建立手動排程。 
+若要加密備份，請按一下 [啟用]。 然後指定 [密碼]。 Azure 會建立憑證來加密備份，並使用指定的密碼來保護該憑證。 根據預設, 排程會自動設定, 但您可以選取 [**手動**] 來建立手動排程。 
 
 ![SQL VM 自動備份](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
 
@@ -275,11 +275,11 @@ ms.locfileid: "67846138"
 您可以選擇啟用[SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/)。 此選項可讓您搭配使用進階分析與 SQL Server 2017。 選取 [ **SQL Server 設定**] 視窗上的 [**啟用**]。
 
 
-## <a name="4-review--create"></a>4.檢閱 + 建立
+## <a name="4-review--create"></a>4.檢閱及建立
 
-在 [檢閱 + 建立]  索引標籤上檢閱摘要，然後選取 [建立]  以建立為此 VM 指定的 SQL Server、資源群組及資源。
+在 [檢閱 + 建立] 索引標籤上檢閱摘要，然後選取 [建立] 以建立為此 VM 指定的 SQL Server、資源群組及資源。
 
-您可以從 Azure 入口網站監視部署。 畫面頂端的 [通知]  按鈕會顯示基本的部署狀態。
+您可以從 Azure 入口網站監視部署。 畫面頂端的 [通知] 按鈕會顯示基本的部署狀態。
 
 > [!NOTE]
 > 為了讓您了解部署時間，我已使用預設設定將 SQL VM 部署到美國東部區域。 此測試部署大約花費 12 分鐘才完成。 但是根據您的區域和選取的設定，您可能會經歷較快或較慢的部署時間。
@@ -296,7 +296,7 @@ ms.locfileid: "67846138"
 
 ## <a id="connect"></a>遠端連線到 SQL Server
 
-在本逐步介紹中，您選取了虛擬機器的 [公用]  存取權和 [SQL Server 驗證]  。 這些設定會自動設定虛擬機器，以允許透過網際網路來自任何用戶端的 SQL Server 連線 (假設它們有正確的 SQL 登入)。
+在本逐步介紹中，您選取了虛擬機器的 [公用] 存取權和 [SQL Server 驗證]。 這些設定會自動設定虛擬機器，以允許透過網際網路來自任何用戶端的 SQL Server 連線 (假設它們有正確的 SQL 登入)。
 
 > [!NOTE]
 > 如果您未在佈建期間選取 [公用]，您可以在佈建之後，透過入口網站變更 SQL 連線設定。 如需詳細資訊，請參閱[變更 SQL 連線設定](virtual-machines-windows-sql-connect.md#change)。

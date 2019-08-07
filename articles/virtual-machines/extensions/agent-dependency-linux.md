@@ -1,6 +1,6 @@
 ---
-title: 適用於 Linux 的 azure 監視相依性的虛擬機器擴充功能 |Microsoft Docs
-description: 使用虛擬機器擴充功能，以部署 Linux 虛擬機器上的 Azure 監視相依性代理程式。
+title: 適用于 Linux 的 Azure 監視器相依性虛擬機器擴充功能 |Microsoft Docs
+description: 使用虛擬機器擴充功能, 在 Linux 虛擬機器上部署 Azure 監視器 Dependency agent。
 services: virtual-machines-linux
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 5faeebe799bd8cc0ba9a148508ac5b3a6d4b803a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b78bea88149d05067cf849000fef48f7b4dc5815
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120204"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774393"
 ---
-# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>適用於 Linux 的 azure 監視相依性的虛擬機器擴充功能
+# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>適用于 Linux 的 Azure 監視器相依性虛擬機器擴充功能
 
-適用於 VM 的 Azure 監視器對應功能會從 Microsoft Dependency Agent 取得其資料。 適用於 Linux 的 Azure VM 的相依性代理程式虛擬機器擴充功能是發行，並由 Microsoft 支援。 Azure 虛擬機器上安裝相依性代理程式擴充功能。 本文件詳述支援的平台、 組態和適用於 Linux 的 Azure VM 的相依性代理程式虛擬機器擴充功能的部署選項。
+適用於 VM 的 Azure 監視器對應功能會從 Microsoft Dependency Agent 取得其資料。 適用于 Linux 的 Azure VM 相依性代理程式虛擬機器擴充功能已由 Microsoft 發佈及支援。 擴充功能會在 Azure 虛擬機器上安裝 Dependency agent。 本檔詳述適用于 Linux 的 Azure VM 相依性代理程式虛擬機器擴充功能所支援的平臺、設定和部署選項。
 
 ## <a name="prerequisites"></a>先決條件
 
 ### <a name="operating-system"></a>作業系統
 
-適用於 Linux 的 Azure VM 的相依性代理程式擴充功能可以執行支援的作業系統中所列[Supported operating systems](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) Azure 監視的 Vm 部署文件的區段。
+適用于 Linux 的 Azure VM 相依性代理程式擴充功能可以針對適用於 VM 的 Azure 監視器部署一文的[支援的作業系統](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)一節中所列的支援作業系統來執行。
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-下列 JSON 顯示 Azure Linux VM 上的 Azure VM 的相依性代理程式擴充功能的結構描述。 
+下列 JSON 顯示 Azure Linux VM 上的 Azure VM Dependency agent 擴充功能架構。 
 
 ```json
 {
@@ -83,11 +83,11 @@ ms.locfileid: "67120204"
 
 ## <a name="template-deployment"></a>範本部署
 
-您可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 若要在 Azure Resource Manager 範本部署期間執行 Azure VM 的相依性代理程式擴充功能，您可以使用 Azure Resource Manager 範本中的上一節中詳述的 JSON 結構描述。
+您可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 您可以使用 Azure Resource Manager 範本上一節中詳述的 JSON 架構, 在 Azure Resource Manager 範本部署期間執行 Azure VM Dependency agent 擴充功能。
 
-虛擬機器擴充功能 JSON 可以是巢狀置於虛擬機器資源內部。 或者，您可以將它放在根目錄或最上層的 Resource Manager JSON 範本。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。
+虛擬機器擴充功能的 JSON 可以嵌套在虛擬機器資源內。 或者, 您可以將它放在 Resource Manager JSON 範本的根層或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/child-resource-name-type.md)。
 
-下列範例假設虛擬機器資源內部巢狀相依性代理程式擴充功能。 當您使用巢狀延伸模組資源時，JSON 會放在`"resources": []`的虛擬機器的物件。
+下列範例假設 Dependency agent 延伸模組是嵌套在虛擬機器資源內部。 當您將擴充功能資源嵌套時, JSON 會放在`"resources": []`虛擬機器的物件中。
 
 
 ```json
@@ -108,7 +108,7 @@ ms.locfileid: "67120204"
 }
 ```
 
-當您將擴充 JSON 置於範本的根目錄時，資源名稱包含父系虛擬機器的參考。 類型可反映巢狀的組態。 
+當您將擴充功能 JSON 放在範本的根目錄時, 資源名稱會包含父虛擬機器的參考。 型別會反映嵌套的設定。 
 
 ```json
 {
@@ -130,7 +130,7 @@ ms.locfileid: "67120204"
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-您可以使用 Azure CLI 來部署到現有的虛擬機器的相依性代理程式 VM 擴充功能。  
+您可以使用 Azure CLI, 將相依性代理程式 VM 擴充功能部署到現有的虛擬機器。  
 
 ```azurecli
 
@@ -146,7 +146,7 @@ az vm extension set \
 
 ### <a name="troubleshoot"></a>疑難排解
 
-從 Azure 入口網站，並使用 Azure CLI，則可以擷取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態，請使用 Azure CLI 執行下列命令：
+您可以從 Azure 入口網站和使用 Azure CLI, 抓取有關擴充功能部署狀態的資料。 若要查看指定 VM 的擴充功能部署狀態, 請使用 Azure CLI 執行下列命令:
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -160,4 +160,4 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支援
 
-如果您需要在這篇文章中的任何時間點的更多協助，請連絡 Azure 專家上[MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。 如需如何使用 Azure 支援的詳細資訊，請閱讀[Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
+如果您在本文中有任何需要協助的地方, 請洽詢[MSDN azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 azure 專家。 或者, 您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。 如需如何使用 Azure 支援的相關資訊, 請參閱[Microsoft Azure 支援常見問題](https://azure.microsoft.com/support/faq/)。

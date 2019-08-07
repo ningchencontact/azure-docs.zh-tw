@@ -1,29 +1,29 @@
 ---
-title: VMware 的解決方案，由 CloudSimple-Azure 的網路連線
-description: 深入了解到 CloudSimple 區域網路連線到 Azure 的虛擬網路
+title: VMware Solution by CloudSimple-Azure 網路連線
+description: 瞭解如何將您的 Azure 虛擬網路連線到您的 CloudSimple 區域網路
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f2ab82b6c1b4b373c186019eaf96f9864861b9d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8e99da05f71cb01744111b41c301b11a0969057
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497592"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812720"
 ---
-# <a name="azure-network-connections-overview"></a>Azure 網路連線概觀
+# <a name="azure-network-connections-overview"></a>Azure 網路連線總覽
 
-當您建立 CloudSimple 服務在區域中，它：
+當您在區域中建立 CloudSimple 服務時, 它會:
 
-* 建立 Azure ExpressRoute 線路，並將它附加至該區域中的服務
-* 可讓您在 Azure 虛擬網路或內部部署網路使用 Azure ExpressRoute 從 CloudSimple 區域網路連線
-* 提供您 Azure 訂用帳戶或您的內部部署網路，從您的私用雲端環境中執行的存取服務
+* 建立 Azure ExpressRoute 線路, 並將其附加至該區域中的服務
+* 允許使用 Azure ExpressRoute 從您的 CloudSimple 區域網路連線到您的 Azure 虛擬網路或內部部署網路
+* 在您的私人雲端環境中, 提供您的 Azure 訂用帳戶或內部部署網路中執行的存取服務
 
-連接是：
+連接是:
 
 * 安全
 * 私人
@@ -32,25 +32,25 @@ ms.locfileid: "66497592"
 
 ## <a name="benefits"></a>優點
 
-Azure 網路連線可讓您：
+Azure 網路連線可讓您:
 
-* 使用 Azure 做為備份目標，您的私用雲端上的虛擬機器。
-* 部署在 Azure 訂用帳戶來加密您的私用雲端 vSAN 資料存放區中的 KMS 伺服器。
-* 使用混合式應用程式，當應用程式的公用雲端中執行的應用程式的 web 層和私用雲端中執行的資料庫層級。
+* 使用 Azure 做為私人雲端上虛擬機器的備份目標。
+* 在您的 Azure 訂用帳戶中部署 KMS 伺服器以加密您的私用雲端 vSAN 資料存放區。
+* 使用混合式應用程式, 其中應用程式的 web 層會在公用雲端中執行, 而應用程式和資料庫層則會在您的私用雲端中執行。
 
 ## <a name="azure-virtual-network-connection"></a>Azure 虛擬網路連線
 
-私人雲端可以連線到您使用 ExpressRoute 的 Azure 資源。  您可以使用這個連線存取從私用雲端執行您的 Azure 訂用帳戶中的不同資源。  此連線可讓您擴充您的 Azure 虛擬網路的私用雲端網路。
+私人雲端可以使用 ExpressRoute 連接到您的 Azure 資源。  您可以使用此連線, 從私人雲端存取在 Azure 訂用帳戶中執行的不同資源。  此連線可讓您將私人雲端網路擴充至您的 Azure 虛擬網路。
 
-![Azure ExpressRoute 連線到虛擬網路](media/cloudsimple-azure-network-connection.png)
+![虛擬網路的 Azure ExpressRoute 連線](media/cloudsimple-azure-network-connection.png)
 
-## <a name="expressroute-connection-to-on-premises-network"></a>ExpressRoute 連線到內部部署網路
+## <a name="expressroute-connection-to-on-premises-network"></a>連至內部部署網路的 ExpressRoute 連線
 
-您可以連接您現有的 Azure ExpressRoute 線路 CloudSimple 區域。 ExpressRoute 觸及全球範圍的功能用來連接兩個線路彼此。  內部部署和 CloudSimple ExpressRoute 線路之間建立連線。  此連線可讓您擴充您的內部部署網路到私用雲端網路。
+您可以將現有的 Azure ExpressRoute 線路連線到您的 CloudSimple 區域。 ExpressRoute Global 觸及功能是用來彼此連接兩個線路。  會在內部部署和 CloudSimple ExpressRoute 線路之間建立連接。  此連線可讓您將內部部署網路延伸至私人雲端網路。
 
-![在內部部署 ExpressRoute 連線遍及全球的觸角](media/cloudsimple-global-reach-connection.png)
+![內部部署 ExpressRoute 連線-全球範圍](media/cloudsimple-global-reach-connection.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得針對至 CloudSimple 連線的 Azure 虛擬網路對等互連的資訊](https://docs.azure.cloudsimple.com/virtual-network-connection)
-* [從內部部署連線到 CloudSimple 使用 ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)
+* [取得 Azure 虛擬網路到 CloudSimple 連線的對等互連資訊](https://docs.azure.cloudsimple.com/virtual-network-connection)
+* [使用 ExpressRoute 從內部部署連接到 CloudSimple](https://docs.azure.cloudsimple.com/on-premises-connection)

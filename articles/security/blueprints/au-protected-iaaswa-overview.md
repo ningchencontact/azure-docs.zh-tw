@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3c82a88ea15b52672f9bed428e2e7af40a65309c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1cceecba59b4cd1a70fc6f152020757e137f4d45
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610172"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68778987"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure 安全性與合規性藍圖 - 適用於 Australia Protected 的 IaaS Web 應用程式
 
@@ -41,7 +41,7 @@ ms.locfileid: "60610172"
 
 此解決方案會使用下列 Azure 服務。 進一步詳細資訊位於[部署架構](#deployment-architecture)一節。
 
-- 可用性設定組 (Availability Sets)
+- 可用性設定組
     - (1) SQL 叢集節點
     - (1) Web/IIS
 - Azure Active Directory
@@ -51,7 +51,7 @@ ms.locfileid: "60610172"
         - 規則集：OWASP 3.0
         - 接聽程式連接埠：443
 - Azure 雲端見證
-- Azure 金鑰保存庫
+- Azure Key Vault
 - Azure Load Balancer
 - Azure 監視器
 - Azure Resource Manager
@@ -75,7 +75,7 @@ ms.locfileid: "60610172"
 **防禦主機**：防禦主機是單一進入點，可讓使用者存取此環境中已部署的資源。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面 (RDP) 流量，必須在網路安全性群組中定義該流量的來源。
 
 此解決方案會建立虛擬機器，作為具有下列設定之加入網域的防禦主機：
--   [反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+-   [反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 -   [Azure 診斷擴充功能](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   使用 Azure Key Vault 的 [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 -   [自動關閉原則](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) \(英文\)，可減少不使用虛擬機器資源時的耗用量。
@@ -98,7 +98,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 
 針對客戶自有網路中的傳輸中受保護資料，架構會使用網際網路或 ExpressRoute 搭配已使用 IPSEC 設定的 VPN 閘道。
 
-此外，透過 Azure 管理入口網站至 Azure 的所有交易透過利用 TLS 1.2 的 HTTPS 都發生。
+此外, 透過 Azure 管理入口網站對 Azure 進行的所有交易都是利用 TLS 1.2 以 HTTPS 進行。
 
 ### <a name="data-at-rest"></a>待用資料
 架構會透過加密、資料庫稽核及其他量值來保護待用資料。
@@ -139,7 +139,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。
 
 **修補程式管理**：根據預設，部署為此參考架構一部分的 Windows 虛擬機器會設定為從 Windows Update 服務接收自動更新。 此解決方案也包括 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)服務，您可以透過此服務建立更新的部署，以在有所需要時修補虛擬機器。
 
-**惡意程式碼防護**：適用於虛擬機器的 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 提供即時防護功能，能幫助識別及移除病毒、間諜軟體及其他惡意軟體，具有可設定的警示，可在已知惡意或垃圾軟體嘗試在虛擬機器上安裝或執行時發出警示。
+**惡意程式碼防護**：適用於虛擬機器的 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 提供即時防護功能，能幫助識別及移除病毒、間諜軟體及其他惡意軟體，具有可設定的警示，可在已知惡意或垃圾軟體嘗試在虛擬機器上安裝或執行時發出警示。
 
 **Azure 資訊安全中心**：客戶可以使用 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)，在工作負載之間集中套用及管理安全性原則、限制暴露於威脅的程度，以及偵測和回應攻擊。 此外，Azure 資訊安全中心會存取 Azure 服務的現有組態，以提供設定和服務建議，協助改善安全性狀態並保護資料。
 
@@ -172,9 +172,9 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
 
-**Azure 監視器記錄**：這些記錄檔會在合併[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)處理、 儲存和儀表板報表。 所收集的資料會針對每種資料類型組織成個別的資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄檔，讓客戶能使用 Kusto 查詢來存取其安全性事件資料，並結合資料與其他服務整合。
+**Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中, 以供處理、儲存及儀表板報告之用。 所收集的資料會針對每種資料類型組織成個別的資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外, Azure 資訊安全中心與 Azure 監視器記錄整合, 可讓客戶使用 Kusto 查詢來存取其安全性事件資料, 並將其與來自其他服務的資料合併。
 
-下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)會包含此架構的一部分：
+下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)包含在此架構中:
 -   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
 - [SQL 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
 - [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。

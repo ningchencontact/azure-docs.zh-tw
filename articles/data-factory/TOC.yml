@@ -203,7 +203,7 @@
         - name: Azure SQL Database
           href: connector-azure-sql-database.md
         - name: Azure SQL Database 受控執行個體
-          href: connector-azure-sql-database-managed-insance.md
+          href: connector-azure-sql-database-managed-instance.md
         - name: Azure SQL 資料倉儲
           href: connector-azure-sql-data-warehouse.md
         - name: Azure 表格儲存體
@@ -592,6 +592,8 @@
       items:
         - name: 為何使用 Azure Data Factory
           href: data-migration-guidance-overview.md
+        - name: 從 AWS S3 將資料遷移至 Azure
+          href: data-migration-guidance-s3-azure-storage.md
 - name: 參考
   items:
     - name: .NET

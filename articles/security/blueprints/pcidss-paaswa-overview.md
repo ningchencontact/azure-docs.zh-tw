@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 231e3f8a43f2c1fc9e798acebbe24d6635d9f6d8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609953"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780995"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure 安全性與合規性藍圖：PCI DSS 的 PaaS Web 應用程式
 
@@ -43,7 +43,7 @@ ms.locfileid: "60609953"
 
 Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而執行 SSMS 的本機電腦會設定為透過安全的 VPN 或 ExpressRoute 連線來存取 Azure SQL Database。
 
-此外，Application Insights 會提供即時應用程式效能管理和透過 Azure 監視器記錄檔的分析。 **Microsoft 建議您設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構子網路。**
+此外, Application Insights 透過 Azure 監視器記錄, 提供即時的應用程式效能管理和分析。 **Microsoft 建議您設定 VPN 或 ExpressRoute 連線，以便管理和將資料匯入參考架構子網路。**
 
 ![適用於 PCI DSS 的 PaaS Web 應用程式參考架構圖表](images/pcidss-paaswa-architecture.png "適用於 PCI DSS 的 PaaS Web 應用程式參考架構圖表")
 
@@ -59,7 +59,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 - Azure Active Directory
 - Azure 自動化
 - Azure DNS
-- Azure 金鑰保存庫
+- Azure Key Vault
 - Azure Load Balancer
 - Azure 監視器
 - Azure Resource Manager
@@ -81,7 +81,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 **防禦主機**：防禦主機是單一進入點，可讓使用者存取此環境中已部署的資源。 防禦主機為已部署的資源提供安全連線，其允許的遠端流量僅限來自安全清單上的公用 IP 位址。 若要允許遠端桌面 (RDP) 流量，必須在網路安全性群組中定義該流量的來源。
 
 此解決方案會建立虛擬機器，作為具有下列設定之加入網域的防禦主機：
--   [反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+-   [反惡意程式碼軟體擴充功能](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 -   [Azure 診斷擴充功能](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   使用 Azure Key Vault 的 [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 -   [自動關閉原則](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) \(英文\)，可減少不使用虛擬機器資源時的耗用量。
@@ -118,7 +118,7 @@ App Service 環境已經過隔離，可執行只有單一客戶的應用程式�
 每個網路安全性群組都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，以下設定會針對每個網路安全性群組啟用：
 
 - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶
-- Azure 監視器記錄檔連接到[網路安全性群組&#39;s 診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Azure 監視器記錄會連線至[網路安全性群組&#39;的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **子網路**：確認每個子網路都與對應的網路安全性群組建立關聯。
 
@@ -193,9 +193,9 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 - **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
 
-**Azure 監視器記錄**：這些記錄檔會在合併[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)處理、 儲存和儀表板報表。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄檔，讓客戶能使用 Kusto 查詢來存取其安全性事件資料，並結合資料與其他服務整合。
+**Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中, 以供處理、儲存及儀表板報告之用。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外, Azure 資訊安全中心與 Azure 監視器記錄整合, 可讓客戶使用 Kusto 查詢來存取其安全性事件資料, 並將其與來自其他服務的資料合併。
 
-下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)會包含此架構的一部分：
+下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)包含在此架構中:
 -   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
 - [SQL 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
 - [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。

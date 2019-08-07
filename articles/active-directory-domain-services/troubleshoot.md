@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 2df1ac6325f692e2d433238ae0b92d8e3f8482b5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472289"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772982"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD 網域服務 - 疑難排解指南
 這篇文章提供設定或管理 Azure Active Directory (AD) 網域服務時，可能會遇到的問題之疑難排解提示。
@@ -59,9 +59,9 @@ ms.locfileid: "67472289"
 
 執行下列步驟，以檢查應用程式是否存在並將它刪除 (如果應用程式存在的話)：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)中瀏覽至 Azure AD 目錄的 [應用程式]  區段。
-2. 選取 [顯示]  下拉式清單中的 [所有應用程式]  。 選取 [應用程式狀態]  下拉式清單中的 [任何]  。 選取 [應用程式可見度]  下拉式清單中的 [任何]  。
-3. 在搜尋方塊中輸入 **Azure AD Domain Services 同步**。 如果該應用程式存在，請對它按一下，然後按一下工具列中的 [刪除]  按鈕以將它刪除。
+1. 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)中瀏覽至 Azure AD 目錄的 [應用程式] 區段。
+2. 選取 [顯示] 下拉式清單中的 [所有應用程式]。 選取 [應用程式狀態] 下拉式清單中的 [任何]。 選取 [應用程式可見度] 下拉式清單中的 [任何]。
+3. 在搜尋方塊中輸入 **Azure AD Domain Services 同步**。 如果該應用程式存在，請對它按一下，然後按一下工具列中的 [刪除] 按鈕以將它刪除。
 4. 刪除此應用程式後，請嘗試再次啟用 Azure AD 網域服務。
 
 ### <a name="invalid-configuration"></a>無效的組態
@@ -147,6 +147,9 @@ if ($sp -ne $null)
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
 * **僅雲端帳戶**：如果受影響的使用者帳戶是僅雲端的使用者帳戶，請確定使用者已在您啟用 Azure AD Domain Services 之後變更其密碼。 這個步驟會導致產生 Azure AD 網域服務所需的認證雜湊。
+* **確認使用者帳戶處於作用中狀態**:如果使用者的帳戶遭到鎖定, 他們將無法登入, 直到他們的帳戶再次生效為止。 2 分鐘內在受控網域中輸入不正確的密碼五次，即會導致使用者帳戶鎖定 30 分鐘。 30 分鐘後，使用者帳戶會自動解除鎖定。
+  * 受控網域上的密碼嘗試無效不會鎖定 Azure AD 中的使用者帳戶。 Azure AD Domain Services 受控網域內的使用者帳戶才會遭到鎖定。 使用適用于 Azure AD DS 受控網域的 Active Directory 系統管理主控台 (ADAC) 檢查使用者帳戶狀態, 而不是 Azure AD。
+  * 您也可以[設定更細緻的密碼原則, 以變更預設的鎖定閾值和持續時間](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy)。
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>受控網域有一或多個警示
 
@@ -160,5 +163,5 @@ Azure AD 會防止您意外刪除使用者物件。 當您從您的 Azure AD 租
 若要完全從受控網域移除使用者帳戶，請從您的 Azure AD 租用戶中永久刪除使用者。 請使用 `Remove-MsolUser` PowerShell Cmdlet 搭配 `-RemoveFromRecycleBin` 選項，如這篇 [MSDN 文章](/previous-versions/azure/dn194132(v=azure.100))所述。
 
 
-## <a name="contact-us"></a>與我們連絡
+## <a name="contact-us"></a>請與我們連絡
 請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](contact-us.md)。

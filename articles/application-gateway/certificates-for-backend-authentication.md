@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382051"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774782"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>建立憑證以允許後端使用 Azure 應用程式閘道
 
@@ -35,7 +35,7 @@ ms.locfileid: "68382051"
 
 從您的 SSL 憑證匯出公用金鑰 .cer 檔案 (而非私密金鑰)。 下列步驟可協助您匯出以64編碼的 x.509 (中的 .cer 檔案。CER) 格式的憑證:
 
-1. 若要取得憑證的 .cer 檔案，請開啟 [管理使用者憑證]。 尋找憑證, 通常位於 [憑證-目前的 User\Personal\Certificates] 中, 然後按一下滑鼠右鍵。 按一下 [所有工作]，然後按一下 [匯出]。 這會開啟 [憑證匯出精靈] 。 若您在 Current User\Personal\Certificates 下找不到憑證，您可能已意外開啟 [憑證 - 本機電腦]，而非 [憑證 - 目前使用者]。 若要使用 PowerShell 在目前使用者範圍開啟 [憑證管理員]，您必須在主控台視窗中輸入 *certmgr*。
+1. 若要取得憑證的 .cer 檔案，請開啟 [管理使用者憑證]。 尋找憑證, 通常位於 [憑證-目前的 User\Personal\Certificates] 中, 然後按一下滑鼠右鍵。 按一下 [所有工作]，然後按一下 [匯出]。 這會開啟 [憑證匯出精靈]。 若您在 Current User\Personal\Certificates 下找不到憑證，您可能已意外開啟 [憑證 - 本機電腦]，而非 [憑證 - 目前使用者]。 若要使用 PowerShell 在目前使用者範圍開啟 [憑證管理員]，您必須在主控台視窗中輸入 *certmgr*。
 
    ![匯出](./media/certificates-for-backend-authentication/export.png)
 
@@ -51,11 +51,11 @@ ms.locfileid: "68382051"
 
    ![Base-64 編碼](./media/certificates-for-backend-authentication/base64.png)
 
-5. 針對 [要匯出的檔案]，[瀏覽] 至您要匯出憑證的位置。 針對 [檔案名稱] ，請為憑證檔案命名。 然後按 [下一步] 。
+5. 針對 [要匯出的檔案]，[瀏覽] 至您要匯出憑證的位置。 針對 [檔案名稱]，請為憑證檔案命名。 然後按 [下一步]。
 
    ![瀏覽](./media/certificates-for-backend-authentication/browse.png)
 
-6. 按一下 [完成]  以匯出憑證。
+6. 按一下 [完成] 以匯出憑證。
 
    ![完成](./media/certificates-for-backend-authentication/finish.png)
 
@@ -73,7 +73,7 @@ ms.locfileid: "68382051"
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>匯出受信任的根憑證 (適用于 v2 SKU)
 
-需要受信任的根憑證, 才能在應用程式閘道 v2 SKU 中允許後端實例。 根憑證是以64編碼的 x.509 (。CER) 從後端伺服器憑證格式化根憑證。 在此範例中, 您將使用後端憑證的 SSL 憑證, 並匯出其公開金鑰。 然後, 您會從 base64 編碼格式的公開金鑰匯出受信任 CA 的根憑證, 以取得受信任的根憑證。 
+需要受信任的根憑證, 才能將應用程式閘道 v2 SKU 中的後端實例列入允許清單 根憑證是以64編碼的 x.509 (。CER) 從後端伺服器憑證格式化根憑證。 在此範例中, 我們將使用後端憑證的 SSL 憑證, 匯出其公開金鑰, 然後從 base64 編碼格式的公開金鑰匯出受信任 CA 的根憑證, 以取得受信任的根憑證。 中繼憑證應與伺服器憑證配套, 並安裝在後端伺服器上。
 
 下列步驟可協助您匯出憑證的 .cer 檔案:
 
@@ -105,4 +105,5 @@ ms.locfileid: "68382051"
 
 ## <a name="next-steps"></a>後續步驟
 
-現在您已擁有驗證憑證/受信任的根憑證, 其以 Base-64 編碼的 x.509 (。CER) 格式。 您可以將它新增至應用程式閘道, 以允許您的後端伺服器進行端對端 SSL 加密。 請參閱[如何設定端對端 SSL 加密](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)。
+現在您已擁有驗證憑證/受信任的根憑證, 其以 Base-64 編碼的 x.509 (。CER) 格式。 您可以將此新增至應用程式閘道, 以將後端伺服器列入允許清單, 以進行端對端 SSL 加密。 請參閱[如何設定端對端 SSL 加密](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)。
+

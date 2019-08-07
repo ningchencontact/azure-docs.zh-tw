@@ -1,5 +1,5 @@
 ---
-title: Azure 備份 - 離線備份或使用 Azure 匯入/匯出服務進行初始植入
+title: 使用 Azure 備份匯入/匯出服務進行離線備份植入
 description: 了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。 此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料。
 ms.reviewer: saurse
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: dacurwin
-ms.openlocfilehash: 2c628b94879e54616f294e4c5f349f241fbbb98b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: a59cff3b2edc4d5b94cc0a44472665c95652f868
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689466"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736678"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 透過離線植入程序，Azure 備份可以使用磁碟將離線備份資料上傳至 Azure。
@@ -43,7 +43,7 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/comm
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
   > [!NOTE]
   > 下列必要條件和工作流程僅適用於使用[最新 MARS 代理程式](https://aka.ms/azurebackup_agent)進行檔案和資料夾的離線備份。 若要使用 System Center DPM 或 Azure 備份伺服器執行工作負載離線備份，請參閱[這篇文章](backup-azure-backup-server-import-export-.md)。 

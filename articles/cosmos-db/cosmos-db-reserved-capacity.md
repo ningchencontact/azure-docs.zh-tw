@@ -4,15 +4,15 @@ description: 了解如何購買 Azure Cosmos DB 保留容量，以節省計算�
 author: bandersmsft
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b74fcc2e08f02be7adeeab4cfee5f36d5194392c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ab42c600b975adac9f13e8e75da9696e51e7e94d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508617"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779868"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中獲得最低的保留容量費用
 
@@ -24,7 +24,7 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
 
 您可以從 [Azure 入口網站](https://portal.azure.com)購買 Azure Cosmos DB 保留容量。 若要購買保留容量：
 
-* 您必須至少一個企業或隨用隨付費率的個別訂用帳戶的擁有者角色中。  
+* 您至少必須是一個企業或個別訂用帳戶的擁有者角色, 且具有隨用隨付費率。  
 * 針對企業訂用帳戶，必須在 [EA 入口網站](https://ea.azure.com)中啟用**新增保留執行個體**。 或者，如果該設定已停用，則您必須是訂用帳戶上的 EA 系統管理員。
 * 若為雲端解決方案提供者 (CSP) 方案，則只有系統管理員代表或銷售代表可以購買 Azure Cosmos DB 保留容量。
 
@@ -34,7 +34,7 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
 
 * 取得跨 Azure Cosmos DB 帳戶、資料庫以及跨所有區域集合的總佈建輸送量歷程記錄資料。 例如，您可以從 `https://account.azure.com` 下載每日使用量聲明，以評估每日平均佈建的輸送量。
 
-* 如果您是 Enterprise 合約 (EA) 客戶，則可以下載您的使用量檔案，以取得 Azure Cosmos DB 輸送量詳細資料。 請參閱使用量檔案中 [其他資訊]  區段的 [服務類型]  值。
+* 如果您是 Enterprise 合約 (EA) 客戶，則可以下載您的使用量檔案，以取得 Azure Cosmos DB 輸送量詳細資料。 請參閱使用量檔案中 [其他資訊] 區段的 [服務類型] 值。
 
 * 您可以針對預期在接下來一年或三年期間執行的 Azure Cosmos DB 帳戶，加總所有工作負載的平均輸送量。 接著，您可以針對保留使用該數量。
 
@@ -42,9 +42,9 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。  
 
-2. 選取 [所有服務]   > [保留]   > [新增]  。  
+2. 選取 [所有服務] > [保留] > [新增]。  
 
-3. 從**購買保留項目**窗格中，選擇**Azure Cosmos DB**購買新的保留項目。  
+3. 在 **購買保留** 窗格中, 選擇  **Azure Cosmos DB**購買新的保留。  
 
 4. 請填寫必填欄位，如下表中所述：
 
@@ -52,29 +52,31 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
 
    |欄位  |描述  |
    |---------|---------|
-   |`Scope`   |   控制多少訂用帳戶可以使用與保留容量相關聯的計費權益選項。 它也會控制保留容量套用至特定訂用帳戶的方式。 <br/><br/>  如果您選取 [共用]  ，保留容量折扣會套用至計費內容內任何訂用帳戶中執行的 Azure Cosmos DB 執行個體。 計費內容取是以您註冊 Azure 的方式為基礎。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶。 對於隨用隨付客戶，共用的範圍會是所有個別的訂用帳戶與帳戶管理員所建立的隨用隨付費率。  <br/><br/>  如果您選取 [單一訂用帳戶]  ，保留容量折扣會套用至所選訂用帳戶中的 Azure Cosmos DB 執行個體。 <br/><br/> 如果您選取**單一資源群組**，保留折扣套用至選取的訂用帳戶和該訂用帳戶內選取的資源群組中的 Azure Cosmos DB 執行個體。 <br/><br/> 您可以在購買保留容量之後變更保留範圍。  |
-   |訂用帳戶  |   用來支付 Azure Cosmos DB 保留容量費用的訂用帳戶。 收取預付費用時，會使用所選訂用帳戶的付款方式。 訂用帳戶類型必須是下列其中一項： <br/><br/>  Enterprise 合約 (供應項目號碼：MS-AZR-0017P 或 MS-AZR-0148 P)：針對 Enterprise 訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 <br/><br/> 個別的訂用帳戶，以隨用隨付的費率 (提供數字：MS-AZR-0003P 或 MS-AZR-0023P)：以隨用隨付費率個別訂用帳戶費用的信用卡或發票付款方式的訂用帳戶計費。    |
-   | 資源群組 | 保留的容量折扣會套用至資源群組。 |
+   |`Scope`   |   控制多少訂用帳戶可以使用與保留容量相關聯的計費權益選項。 它也會控制保留容量套用至特定訂用帳戶的方式。 <br/><br/>  如果您選取 [共用]，保留容量折扣會套用至計費內容內任何訂用帳戶中執行的 Azure Cosmos DB 執行個體。 計費內容取是以您註冊 Azure 的方式為基礎。 針對企業客戶，共用範圍是註冊，並包含註冊中的所有訂用帳戶。 對於隨用隨付客戶, 共用範圍是由帳戶管理員所建立的隨用隨付費率的所有個別訂閱。  <br/><br/>  如果您選取 [單一訂用帳戶]，保留容量折扣會套用至所選訂用帳戶中的 Azure Cosmos DB 執行個體。 <br/><br/> 如果您選取 [**單一資源群組**], 保留折扣會套用至所選訂用帳戶中的 Azure Cosmos DB 實例, 以及該訂用帳戶內選取的資源群組。 <br/><br/> 您可以在購買保留容量之後變更保留範圍。  |
+   |訂閱  |   用來支付 Azure Cosmos DB 保留容量費用的訂用帳戶。 收取預付費用時，會使用所選訂用帳戶的付款方式。 訂用帳戶必須是下列其中一種類型: <br/><br/>  Enterprise 合約 (供應項目號碼：MS-AZR-0017P 或 MS-AZR-0148 P)：針對 Enterprise 訂用帳戶，費用會從註冊的承諾用量金額餘額扣除或作為超額部分收費。 <br/><br/> 使用隨用隨付費率的個別訂用帳戶 (供應專案號碼:MS-AZR-0003P 或 MS-AZR-0023P)：針對使用隨用隨付費率的個別訂用帳戶, 費用會依訂用帳戶的信用卡或發票付款方法計費。    |
+   | 資源群組 | 套用保留容量折扣的資源群組。 |
    |詞彙  |   一年或三年。   |
-   |輸送量類型   |  佈建輸送量為要求單位。 您可以購買的保留項目佈建的輸送量，這兩種設定-單一區域寫入以及多個區域寫入。 輸送量類型有可從中選擇的兩個值：100 RU/秒每小時 100 多個主要 RU/秒每小時。|
-   | 保留的容量單位| 您想要保留的輸送量數量。 您可以藉由判斷每個區域所有 Cosmos DB 資源 (例如資料庫或容器) 所需的輸送量來計算此值。 然後將此值乘上與您 Cosmos DB 資料庫相關聯的區域數相。 例如：如果您有五個區域，其中每個區域每秒為 1 百萬個要求單位，則購買保留容量時，請選擇每秒 5 百萬個要求單位。 |
- 
+   |輸送量類型   |  輸送量會以要求單位的形式布建。 您可以為布建的輸送量購買保留, 以進行單一區域寫入和多個區域寫入。 輸送量類型有兩個值可供選擇:每小時 100 RU/秒, 每小時100多主機 RU/秒。|
+   | 保留容量單位| 您想要保留的輸送量數量。 您可以藉由判斷每個區域所有 Cosmos DB 資源 (例如資料庫或容器) 所需的輸送量來計算此值。 然後將此值乘上與您 Cosmos DB 資料庫相關聯的區域數相。 例如: 如果您有五個區域，其中每個區域每秒為 1 百萬個要求單位，則購買保留容量時，請選擇每秒 5 百萬個要求單位。 |
 
-5. 填滿表單之後，會計算價格，才能購買保留的容量。 輸出也會顯示您所選擇的選項與取得的折扣百分比。 接下來按一下**選取**
 
-6. 在 [**購買保留項目**] 窗格中，檢閱折扣和保留項目的價格。 此保留容量價格適用於其輸送量針對所有區域而佈建的 Azure Cosmos DB 資源。  
+5. 填寫表單之後, 就會計算購買保留容量所需的價格。 輸出也會顯示您所選選項所取得的折扣百分比。 接下來, 按一下 [**選取**]
 
-   ![保留的容量的摘要](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+6. 在 [**購買保留**] 窗格中, 檢查保留的折扣和價格。 此保留容量價格適用於其輸送量針對所有區域而佈建的 Azure Cosmos DB 資源。  
 
-7. 選取 **檢閱 + 購買**，然後**立即購買**。 購買成功時，您會看到下列頁面：
+   ![保留容量摘要](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+
+7. 選取 [**審查 + 購買**], 然後**立即購買**。 購買成功時，您會看到下列頁面：
 
 購買保留容量之後，會立即套用至符合保留容量條件的任何現有 Azure Cosmos DB 資源。 如果您沒有任何現有的 Azure Cosmos DB 資源，保留容量將會在您部署符合保留容量條件的新 Cosmos DB 執行個體時套用。 在這兩種情況下，保留容量的期間都會在成功購買後立即生效。
 
 當您的保留容量到期時，Azure Cosmos DB 執行個體將會繼續執行，而且會以一般隨用隨付費率計費。
 
-## <a name="cancellation-and-exchanges"></a>取消和交換
+## <a name="cancel-exchange-or-refund-reservations"></a>取消、交換或退款保留
 
-在識別的權限的保留容量的協助，請參閱[了解如何將保留折扣套用至 Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md)。 如果您要取消或交換 Azure Cosmos DB 的保留項目，請參閱[保留交換記錄和退費記錄](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
+如需識別正確保留容量的協助, 請參閱[瞭解保留折扣如何套用至 Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md)。
+
+您可以取消、交換或退款保留, 但有某些限制。 如需詳細資訊, 請參閱[Azure 保留的自助交換和退款](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -87,9 +89,9 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
    * [什麼是 Azure 保留項目？](../billing/billing-save-compute-costs-reservations.md)  
    * [管理 Azure 保留](../billing/billing-manage-reserved-vm-instance.md)  
    * [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)  
-   * [了解隨用隨付方案訂用帳戶的保留項目使用量](../billing/billing-understand-reserved-instance-usage.md)
+   * [了解隨用隨付訂用帳戶的保留使用量](../billing/billing-understand-reserved-instance-usage.md)
    * [合作夥伴中心 CSP 計劃中的 Azure 保留容量](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+## <a name="need-help-contact-us"></a>需要協助嗎? 與我們連絡。
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

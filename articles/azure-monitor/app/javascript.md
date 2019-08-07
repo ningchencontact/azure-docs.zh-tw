@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb936e7ad863fc7816ee8ed3b5dd88a8f25dbef0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387281"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813973"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 了解您的網頁或應用程式的效能和使用量。 如果將 [Application Insights](app-insights-overview.md) 新增至頁面指令碼，您會取得頁面載入的時間和 AJAX 呼叫、計數和瀏覽器例外狀況與 AJAX 失敗的詳細資料，以及使用者和工作階段計數。 這些項目可以依據頁面、用戶端作業系統和瀏覽器版本、地區位置和其他維度分割。 您可以對失敗計數或緩慢頁面載入設定警示。 而在 JavaScript 程式碼中插入追蹤呼叫，即可追蹤網頁應用程式的各種功能使用方式。
@@ -57,13 +57,11 @@ and before any other scripts. Your first data will appear
 automatically in just a few seconds.
 -->
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
-  function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
-  }({
-      instrumentationKey:"<your instrumentation key>"
-  });
-
-window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY"
+    }
+    );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -86,7 +84,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
       // Insert here
     });
 
-如需設定參數的完整清單，請參閱[GitHub 頁面](https://github.com/microsoft/applicationinsights-js#configuration)。 有些可用的參數包括：
+如需設定參數的完整清單, 請參閱[GitHub 頁面](https://github.com/microsoft/applicationinsights-js#configuration)。 一些可用的參數包括:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -122,9 +120,9 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 ![在 portal.azure.com 中，開啟您的應用程式資源然後按一下 [設定]、[瀏覽器]。](./media/javascript/03.png)
 
-仍沒有資料？ 按一下頁面頂端的 [重新整理]  。 仍然沒有嗎？ 請參閱 [疑難排解](troubleshoot-faq.md)。
+仍沒有資料？ 按一下頁面頂端的 [重新整理]。 仍然沒有嗎？ 請參閱 [疑難排解](troubleshoot-faq.md)。
 
-[瀏覽器] 刀鋒視窗是[計量瀏覽器刀鋒視窗](metrics-explorer.md)，具有預設篩選器與圖表選項。 如果您想要的話，可以編輯時間範圍、篩選器和圖表設定，並將結果儲存為我的最愛。 按一下 [還原預設值]  以返回原始刀鋒視窗設定。
+[瀏覽器] 刀鋒視窗是[計量瀏覽器刀鋒視窗](metrics-explorer.md)，具有預設篩選器與圖表選項。 如果您想要的話，可以編輯時間範圍、篩選器和圖表設定，並將結果儲存為我的最愛。 按一下 [還原預設值] 以返回原始刀鋒視窗設定。
 
 ## <a name="page-load-performance"></a>頁面載入效能
 最上層是頁面載入時間的分段圖表。 圖表高度總計表示從您的應用程式載入頁面並且在您的使用者瀏覽器中顯示頁面的平均時間。 時間是從瀏覽器傳送初始 HTTP 要求開始測量，直到已經處理所有同步載入事件，包括版面配置和執行中指令碼。 不包含例如從 AJAX 呼叫載入 Web 組件的非同步工作。
@@ -133,7 +131,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 
 ![](./media/javascript/08-client-split.png)
 
-請注意，「網路連接」  時間通常低於您所預期的時間，因為它是從瀏覽器到伺服器之所有要求的平均值。 許多個別要求的連接時間為 0，因為已經有與伺服器的作用中連線。
+請注意，「網路連接」 時間通常低於您所預期的時間，因為它是從瀏覽器到伺服器之所有要求的平均值。 許多個別要求的連接時間為 0，因為已經有與伺服器的作用中連線。
 
 ### <a name="slow-loading"></a>載入緩慢？
 頁面載入緩慢是您的使用者不滿的主要來源。 如果圖表指出頁面載入緩慢，很容易就能執行某些診斷研究。

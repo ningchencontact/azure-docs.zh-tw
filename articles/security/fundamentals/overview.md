@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 62fd2c3f46104fdf3193f105c234f1dae417b0fd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 527c9cfa64eab9fe2286098d2c10186391bdde4d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726874"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780581"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>總覽
@@ -114,7 +114,7 @@ Azure 監視器記錄在法庭和其他安全性分析中是很有用的工具, 
 開始測試您 [App Service 應用程式](https://docs.microsoft.com/azure/app-service/overview)上是否有弱點的最簡單方式之一是使用[與 Tinfoil Security 的整合 (英文)](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)，以在您的應用程式上執行單鍵弱點掃描。 您可以在容易了解的報告中檢視測試結果，並且了解如何以逐步指示修正每個弱點。
 
 ### <a name="penetration-testing"></a>滲透測試
-如果您想要執行專屬的滲透測試，或想要使用另一個掃描器套件或提供者，您必須依照 [Azure 滲透測試核准程序](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) 並取得先前核准，才能執行所需的滲透測試。
+如果您想要執行專屬的滲透測試，或想要使用另一個掃描器套件或提供者，您必須依照 [Azure 滲透測試核准程序](https://docs.microsoft.com/azure/security/fundamentals/pen-testing ) 並取得先前核准，才能執行所需的滲透測試。
 
 ### <a name="web-application-firewall"></a>Web 應用程式防火牆
 [Azure 應用程式閘道](https://azure.microsoft.com/services/application-gateway/)中的 Web 應用程式防火牆 (WAF) 可協助保護 Web 應用程式，以免於常見的 Web 型攻擊，例如 SQL 插入式攻擊、跨網站指令碼攻擊和工作階段攔截。 其已預先設定 [Open Web Application Security Project (OWASP) 認定為前 10 大常見漏洞](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)的威脅防護。
@@ -313,7 +313,7 @@ Microsoft [Azure 流量管理員](https://docs.microsoft.com/azure/traffic-manag
 本節提供關於這個領域中主要功能的其他資訊，以及這些功能的摘要資訊。
 
 ### <a name="antimalware--antivirus"></a>反惡意程式碼與防毒軟體
-運用 Azure IaaS，您可以使用來自安全性廠商 (例如 Microsoft、Symantec、Trend Micro、McAfee 和 Kaspersky) 的反惡意程式碼軟體，以保護您的虛擬機器來抵禦惡意檔案、廣告軟體和其他威脅。 適用於 Azure 雲端服務和虛擬機器的 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 是一項保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 Microsoft Antimalware 會提供可設定的警示，在已知的惡意或垃圾軟體嘗試自行安裝或在您的 Azure 系統上執行時發出警示。 您也可以使用 Azure 資訊安全中心來部署 Microsoft Antimalware。
+運用 Azure IaaS，您可以使用來自安全性廠商 (例如 Microsoft、Symantec、Trend Micro、McAfee 和 Kaspersky) 的反惡意程式碼軟體，以保護您的虛擬機器來抵禦惡意檔案、廣告軟體和其他威脅。 適用於 Azure 雲端服務和虛擬機器的 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 是一項保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 Microsoft Antimalware 會提供可設定的警示，在已知的惡意或垃圾軟體嘗試自行安裝或在您的 Azure 系統上執行時發出警示。 您也可以使用 Azure 資訊安全中心來部署 Microsoft Antimalware。
 
 ### <a name="hardware-security-module"></a>硬體安全性模型
 加密和驗證不會改善安全性，除非金鑰本身也受到保護。 您可以藉由將關鍵密碼和金鑰存放在 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)，來簡化其管理與安全性。 Key Vault 讓您能選擇將金鑰存放在通過 FIPS 140-2 Level 2 標準認證的硬體安全性模組 (HSM) 中。 備份或 [透明資料加密](https://msdn.microsoft.com/library/bb934049.aspx) 的 SQL Server 加密金鑰都能與應用程式的任何金鑰或密碼一起存放在金鑰保存庫中。 這些受保護項目的權限和存取權是透過 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)來管理。

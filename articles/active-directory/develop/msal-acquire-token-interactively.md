@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: e6148f6f9d449dc5aa55da2f041119a8b706491b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546071"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835071"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>使用 MSAL 取得和快取權杖
 [存取權杖](access-tokens.md)可讓用戶端安全地呼叫受 Azure 保護的 Web API。 使用 Microsoft 驗證程式庫 (MSAL) 取得權杖的方法很多。 有些方法需要使用者透過網頁瀏覽器進行互動。 有些方法則不需要使用者互動。 一般情況下，用來取得權杖的方法會取決於應用程式是公用用戶端應用程式 (桌面或行動應用程式) 還是機密用戶端應用程式 (Web 應用程式、Web API 或精靈應用程式，如 Windows 服務)。
@@ -34,12 +34,12 @@ MSAL 會在取得權杖之後建立其快取。  應用程式程式碼應該會�
 ## <a name="scopes-when-acquiring-tokens"></a>取得權杖時的範圍
 [範圍](v2-permissions-and-consent.md)是 Web API 所公開讓用戶端應用程式要求其存取權的權限。 用戶端應用程式在提出驗證要求以取得 Web API 的存取權杖時，會要求使用者同意這些範圍。 MSAL 可讓您取得權杖來存取開發人員 (v1.0) 和 Microsoft 身分識別平台 (v2.0) API 的 Azure AD。 v2.0 通訊協定會使用範圍而非要求中的資源。 如需詳細資訊，請參閱 [v1.0 和 v2.0 的比較](active-directory-v2-compare.md)。 根據其所接受的 Web API 權杖版本組態，v2.0 端點會對 MSAL 傳回存取權杖。
 
-某些 MSAL 取得權杖方法需要「範圍」參數。 此參數是簡單的字串清單，其宣告所需的權限和要求的資源。 知名的範圍是 [Microsoft Graph 權限](/graph/permissions-reference)。
+某些 MSAL 取得權杖方法需要「範圍」  參數。 此參數是簡單的字串清單，其宣告所需的權限和要求的資源。 知名的範圍是 [Microsoft Graph 權限](/graph/permissions-reference)。
 
 此外，也可以在 MSAL 中存取 v1.0 資源。 如需詳細資訊，請參閱 [v1.0 應用程式的範圍](msal-v1-app-scopes.md)。
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>對 Web API 要求特定範圍
-當應用程式必須對資源 API 要求具有特定權限的權杖時，您必須使用下列格式傳遞包含 API 應用程式識別碼 URI 的範圍：&lt;應用程式識別碼 URI&gt;/&lt;範圍&gt;
+當應用程式必須對資源 API 要求具有特定權限的權杖時，您必須使用下列格式傳遞包含 API 應用程式識別碼 URI 的範圍：&lt;應用程式識別碼 URI&gt;/&lt;範圍&gt; 
 
 例如，Microsoft Graph API 的範圍：`https://graph.microsoft.com/User.Read`
 

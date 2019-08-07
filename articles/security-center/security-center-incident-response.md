@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a55de2d5f47274ea112e52ddbcc0d946db56470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908140"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775323"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>使用 Azure 資訊安全中心進行事件回應
 許多組織都了解如何只在遭受攻擊之後回應安全性事件。 為了降低成本和損害，一定要在攻擊發生前備妥事件回應計劃。 您可以在不同階段的事件回應使用 Azure 資訊安全中心。
@@ -51,12 +51,12 @@ Contoso 最近將一些內部部署資源移轉至 Azure，包括一些以虛擬
 
 ![事件回應生命週期](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-Judy 負責安全性作業。 她的職責包括︰
+Judy 負責安全性作業。 其職責包括:
 
 * 隨時監視及回應安全性威脅。
 * 視需要提升至雲端工作負載擁有者或安全性分析師。
 
-Sam 是安全性分析師，他的職責包括︰
+Sam 是一種安全性分析師, 其職責包括:
 
 * 調查攻擊。
 * 修復警示。
@@ -65,31 +65,31 @@ Sam 是安全性分析師，他的職責包括︰
 如您所見，Judy 和 Sam 的責任不同，而他們必須共同合作以分享資訊安全中心的資訊。
 
 ## <a name="recommended-solution"></a>建議的解決方案
-由於 Judy 和 Sam 有不同的角色，他們將會使用資訊安全中心的不同區域來取得日常活動的相關資訊。 Judy 會在其日常監視中使用 [安全性警示]  。
+由於 Judy 和 Sam 有不同的角色，他們將會使用資訊安全中心的不同區域來取得日常活動的相關資訊。 Judy 會在其日常監視中使用**安全性警示**。
 
 ![安全性警示](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Judy 會在偵測和評估階段使用 [安全性警示]。 Judy 完成初步評估後，如果需要進一步調查，她可能會向 Sam 呈報問題。 此時 Sam 會使用資訊安全中心所提供的資訊，有時搭配其他資料來源，以移至診斷階段。
+Judy 會在偵測和評估階段使用 [安全性警示]。 在 Judy 完成初始評估之後, 如果需要額外的調查, 他們可能會將問題呈報給 Sam。 此時 Sam 會使用資訊安全中心所提供的資訊，有時搭配其他資料來源，以移至診斷階段。
 
 ## <a name="how-to-implement-this-solution"></a>如何實作此解決方案
 為了查看您如何在事件回應案例中使用 Azure 資訊安全中心，我們將遵循 Judy 在偵測和評估階段中的步驟，並查看 Sam 如何診斷問題。
 
 ### <a name="detect-and-assess-incident-response-stages"></a>偵測和評估事件回應階段
-Judy 登入了 Azure 入口網站，並在資訊安全中心主控台進行工作。 在她的日常監視活動中，她會執行下列步驟，以便開始檢閱高優先順序的安全性警示︰
+Judy 登入了 Azure 入口網站，並在資訊安全中心主控台進行工作。 在她的日常監視活動中, 他們會執行下列步驟來開始檢查高優先順序的安全性警示:
 
-1. 按一下 [安全性警示]  圖格，然後存取 [安全性警示]  刀鋒視窗。
+1. 按一下 [安全性警示] 圖格，然後存取 [安全性警示] 刀鋒視窗。
     ![安全性警示刀鋒視窗](./media/security-center-incident-response/security-center-incident-response-fig4.png)
 
    > [!NOTE]
    > 基於此案例的目的，Judy 即將對 [惡意 SQL 活動] 警示執行評估，如上圖所示。
    >
    >
-2. 按一下 [惡意 SQL 活動]  警示，並在 [惡意 SQL 活動]  刀鋒視窗中檢閱受攻擊的資源︰![事件詳細資料](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. 按一下 [惡意 SQL 活動] 警示，並在 [惡意 SQL 活動] 刀鋒視窗中檢閱受攻擊的資源︰![事件詳細資料](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     在此刀鋒視窗中，Judy 可以做一些筆記：受攻擊資源的相關資訊、此攻擊的發生次數，以及其偵測時間。
-3. 按一下 [受到攻擊的資源]  以取得有關此攻擊的詳細資訊。
+3. 按一下 [受到攻擊的資源] 以取得有關此攻擊的詳細資訊。
 
-讀取說明之後，Judy 確信這不是誤判，她就應該向 Sam 呈報此案例。
+在閱讀描述之後, Judy 相信這不是誤報, 而且應該將此案例呈報給 Sam。
 
 ### <a name="diagnose-incident-response-stage"></a>診斷事件回應階段
 Sam 會收到來自 Judy 的案例，開始檢閱資訊安全中心所建議的修復步驟。

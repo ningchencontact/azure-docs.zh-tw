@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640248"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775217"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>對應資料流程資料行模式
 
@@ -45,6 +45,16 @@ ms.locfileid: "68640248"
 對應來源中的資料行並選取轉換時, 您可以選擇 [固定對應] 或 [規則型對應]。 當您知道資料的架構, 而且預期源資料集的特定資料行永遠符合特定的靜態名稱時, 您可以使用固定對應。 但是當您使用彈性的架構時, 請使用以規則為基礎的對應。 您將能夠使用上述規則來建立模式比對。
 
 以![規則為基礎的對應]以(media/data-flow/rule2.png "規則為基礎的對應")
+
+使用運算式產生器建立您的規則。 您的運算式會傳回布林值, 使其符合資料行 (true) 或排除資料行 (false)。
+
+## <a name="pattern-matching-special-columns"></a>模式比對特殊資料行
+
+* `$$`會在設計階段以「偵測模式」和在執行時間執行時, 轉譯為每個相符項的名稱
+* `name`代表每個傳入資料行的名稱
+* `type`代表每個傳入資料行的資料類型
+* `stream`表示在您的流程中, 與每個資料流程或轉換相關聯的名稱
+* `position`這是資料流程中資料行的序數位置
 
 ## <a name="next-steps"></a>後續步驟
 * 深入瞭解資料轉換的 ADF 對應資料流程[運算式語言](http://aka.ms/dataflowexpressions)

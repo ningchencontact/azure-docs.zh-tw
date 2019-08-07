@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 881d89170c82731fca3f6977da486eac5be772f8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4c283e840208ab9f53d084ca17221ea2c835b794
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466984"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814134"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>建立 Azure 防禦主機 (預覽)
 
@@ -39,7 +39,7 @@ ms.locfileid: "68466984"
 
 1. 從[Azure 入口網站-防禦預覽](https://aka.ms/BastionHost)的 [首頁] 中, 按一下 [ **+ 建立資源**]。 請確定您使用提供的連結來存取此預覽的入口網站, 而不是一般的 Azure 入口網站。
 
-1. 在 [**新增**] 頁面的 [*搜尋 Marketplace* ] 欄位中, 輸入防禦, 然後按**Enter 鍵**以取得搜尋結果。
+1. 在 [**新增**] 頁面的 [*搜尋 Marketplace* ] 欄位中,輸入防禦, 然後按**Enter 鍵**以取得搜尋結果。
 
 1. 從結果中, 按一下 [防禦 **(預覽)** ]。 請確定發行者為*Microsoft* , 而類別目錄為*網路*。
 
@@ -54,7 +54,7 @@ ms.locfileid: "68466984"
     * **名稱**：新防禦資源的名稱
     * **區域**：將在其中建立資源的 Azure 公用區域。
     * **虛擬網路**：將在其中建立防禦資源的虛擬網路。 如果您沒有或不想使用現有的虛擬網路, 您可以在入口網站中建立新的虛擬網路。 如果您使用現有的虛擬網路, 請確定現有的虛擬網路有足夠的可用位址空間來容納防禦子網需求。
-    * **子網路**：虛擬網路中將部署新防禦主機資源的子網。 您必須使用 [名稱] 值**AzureBastionSubnet**來建立子網。 此值可讓 Azure 知道要將防禦資源部署到哪一個子網。 這與閘道子網不同。 強烈建議您至少使用一個/27 或更大的子網 (/27、/26 等等)。 建立不含任何路由表或委派的**AzureBastionSubnet** 。 當您在**AzureBastionSubnet**上使用網路安全性群組時, 請參閱使用[nsg](bastion-nsg.md)。
+    * **子網路**：虛擬網路中將部署新防禦主機資源的子網。 您必須使用 [名稱] 值**AzureBastionSubnet**來建立子網。 此值可讓 Azure 知道要將防禦資源部署到哪一個子網。 這與閘道子網不同。您必須使用至少為/27 或更大子網的子網 (/27、/26 等等)。 建立不含任何路由表或委派的**AzureBastionSubnet** 。 當您在**AzureBastionSubnet**上使用網路安全性群組時, 請參閱使用[nsg](bastion-nsg.md)。
     * **公用 IP 位址**：將存取 RDP/SSH 之防禦資源的公用 IP (透過埠 443)。 建立新的公用 IP, 或使用現有的。 公用 IP 位址必須與您建立的防禦資源位於相同的區域中。
     * **公用 IP 位址名稱**：公用 IP 位址資源的名稱。
     * **公用 IP 位址 SKU**:預設預先填入 [**標準**]。 Azure 防禦僅使用/支援標準公用 IP SKU。
@@ -72,7 +72,7 @@ ms.locfileid: "68466984"
 
     ![VM 連接](./media/bastion-create-host-portal/vmsettings.png)
 
-1. 在右側提要欄位中, 按一下 [防禦], 然後**使用**[防禦]。
+1. 在右側提要欄位中,按一下 [防禦], 然後**使用**[防禦]。
 
     ![Bastion](./media/bastion-create-host-portal/vmbastion.png)
 

@@ -1,25 +1,23 @@
 ---
 title: Azure 資料目錄開發人員概念
 description: Azure 資料目錄概念模型的重要概念簡介，以透過目錄 REST API 的形式公開。
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 81e17e1e450e45e4c163ca8231a47deeb8b9ed2c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727405"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734693"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 資料目錄開發人員概念
 Microsoft **Azure 資料目錄** 是完全受控的雲端服務，能夠進行資料來源探索，以及讓群眾外包資料來源中繼資料。 開發人員可以透過 REST API 來使用此服務。 開發人員必須了解服務中所實作的概念，才能成功地與 **Azure 資料目錄**整合。
 
 ## <a name="key-concepts"></a>重要概念
-**Azure 資料目錄**概念模型根據四個主要概念：**Catalog**，**使用者**，**資產**，以及**註解**。
+**Azure 資料目錄**概念模型是以四個主要概念為基礎:**目錄**、**使用者**、**資產**和**批註**。
 
 ![概念][1]
 
@@ -30,7 +28,7 @@ Microsoft **Azure 資料目錄** 是完全受控的雲端服務，能夠進行�
 
 目錄包含**使用者**和**資產**。
 
-### <a name="users"></a>使用者
+### <a name="users"></a>使用者人數
 使用者是有權在目錄中執行動作的安全性主體 (搜尋目錄、新增、編輯或移除項目等等)。
 
 一個使用者可能扮演多個不同的角色。 如需角色的相關資訊，請參閱＜角色和授權＞一節。
@@ -39,7 +37,7 @@ Microsoft **Azure 資料目錄** 是完全受控的雲端服務，能夠進行�
 
 Azure 資料目錄使用 Azure Active Directory 來管理身分識別和存取權。 每個目錄使用者必須是帳戶 Active Directory 的成員。
 
-### <a name="assets"></a>Assets
+### <a name="assets"></a>資產
 **目錄** 包含資料資產。 **資產** 是由目錄管理的細微度單位。
 
 資產的細微度隨資料來源而異。 對於 SQL Server 或 Oracle 資料庫，資產可以是資料表或檢視。 對於 SQL Server Analysis Services，資產可以是量值、維度或關鍵效能指標 (KPI)。 對於 SQL Server Reporting Services，資產是報表。
@@ -78,7 +76,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 ＜重要概念＞一節介紹的 **Azure 資料目錄** 物件模型所包含的項目，可以是資產或註解。 項目具有選用或必要的屬性。 某些屬性會套用至所有項目。 某些屬性會套用至所有資產。 某些屬性只套用至特定的資產類型。
 
 ### <a name="system-properties"></a>系統屬性
-<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>上次修改項目的時間。 伺服器會在插入項目時以及每次更新項目時產生此欄位。 此屬性值會在輸入發佈作業時遭到忽略。</td></tr><tr><td>id</td><td>Uri</td><td>項目的絕對 URL (唯讀)。 它是項目的唯一可定址 URI。  此屬性值會在輸入發佈作業時遭到忽略。</td></tr><tr><td>type</td><td>字串</td><td>資產的類型 (唯讀)。</td></tr><tr><td>etag</td><td>字串</td><td>對應到項目版本的字串，在執行會更新目錄中項目的作業時可用於開放式並行存取控制。 "*" 可用來比對任何值。</td></tr></table>
+<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>上次修改項目的時間。 伺服器會在插入項目時以及每次更新項目時產生此欄位。 此屬性值會在輸入發佈作業時遭到忽略。</td></tr><tr><td>ID</td><td>URI</td><td>項目的絕對 URL (唯讀)。 它是項目的唯一可定址 URI。  此屬性值會在輸入發佈作業時遭到忽略。</td></tr><tr><td>type</td><td>String</td><td>資產的類型 (唯讀)。</td></tr><tr><td>Etag</td><td>String</td><td>對應到項目版本的字串，在執行會更新目錄中項目的作業時可用於開放式並行存取控制。 "*" 可用來比對任何值。</td></tr></table>
 
 ### <a name="common-properties"></a>通用屬性
 這些屬性套用至所有根資產類型和所有註解類型。
@@ -92,21 +90,21 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <p>
 這些屬性套用至所有根資產類型。
 
-<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>name</td><td>字串</td><td>衍生自資料來源位置資訊的名稱</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>可唯一描述資料來源，為資產的其中一個識別碼 (請參閱＜雙重識別＞一節)。  dsl 的結構隨通訊協定和來源類型而異。</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>資產類型的詳細資料。</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>描述最近註冊此資產的使用者。  包含使用者的唯一識別碼 (upn) 和顯示名稱 (lastName 和 firstName)。</td></tr><tr><td>containerId</td><td>字串</td><td>資料來源的容器資產識別碼。 容器類型不支援這個屬性。</td></tr></table>
+<table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>name</td><td>String</td><td>衍生自資料來源位置資訊的名稱</td></tr><tr><td>dsl</td><td>DataSourceLocation</td><td>可唯一描述資料來源，為資產的其中一個識別碼 (請參閱＜雙重識別＞一節)。  dsl 的結構隨通訊協定和來源類型而異。</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>資產類型的詳細資料。</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>描述最近註冊此資產的使用者。  包含使用者的唯一識別碼 (upn) 和顯示名稱 (lastName 和 firstName)。</td></tr><tr><td>containerId</td><td>String</td><td>資料來源的容器資產識別碼。 容器類型不支援這個屬性。</td></tr></table>
 
 ### <a name="common-non-singleton-annotation-properties"></a>一般的非單一註解屬性
 這些屬性套用至所有非單一註解類型 (每個資產允許有多個的註解)。
 
 <table>
 <tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr>
-<tr><td>key</td><td>字串</td><td>可唯一識別目前集合中之註解的使用者指定索引鍵。 索引鍵長度不能超過 256 個字元。</td></tr>
+<tr><td>key</td><td>String</td><td>可唯一識別目前集合中之註解的使用者指定索引鍵。 索引鍵長度不能超過 256 個字元。</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>根資產類型
 根資產類型所指的類型代表可以註冊在目錄中的各種資料資產。 每個根類型都有一個檢視，可描述檢視中包含的資產和註解。 使用 REST API 發佈資產時，檢視名稱應用於對應 {view_name} url 區段。
 
-<table><tr><td><b>資產類型 (檢視名稱)</b></td><td><b>其他屬性</b></td><td><b>資料類型</b></td><td><b>允許的註解</b></td><td><b>註解</b></td></tr><tr><td>資料表 ("tables")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>結構描述<p>ColumnDescription<p>ColumnTag<p> 專家<p>預覽<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>文件<p></td><td>資料表代表任何表格式資料。  例如: SQL 資料表、 SQL 檢視、 Analysis Services 表格式資料表、 Analysis Services 多維度的維度，Oracle 資料表等等。   </td></tr><tr><td>量值 ("measures")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>專家<p>AccessInstruction<p>文件<p></td><td>此類型代表 Analysis Services 量值。</td></tr><tr><td></td><td>measure</td><td>「資料行」</td><td></td><td>描述量值的中繼資料</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>指定是否計算量值。</td></tr><tr><td></td><td>measureGroup</td><td>字串</td><td></td><td>量值的實體容器</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>專家<p>AccessInstruction<p>文件</td><td></td></tr><tr><td></td><td>measureGroup</td><td>字串</td><td></td><td>量值的實體容器</td></tr><tr><td></td><td>goalExpression</td><td>字串</td><td></td><td>會傳回 KPI 目標值的 MDX 數值運算式或計算。</td></tr><tr><td></td><td>valueExpression</td><td>字串</td><td></td><td>會傳回 KPI 實際值的 MDX 數值運算式。</td></tr><tr><td></td><td>statusExpression</td><td>字串</td><td></td><td>代表指定時間點之 KPI 狀態的 MDX 運算式。</td></tr><tr><td></td><td>trendExpression</td><td>字串</td><td></td><td>評估一段時間的 KPI 值的 MDX 運算式。 趨勢可以是特定商務情況下適用的任何時間性準則。</td>
-<tr><td>報表 ("reports")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>專家<p>AccessInstruction<p>文件<p></td><td>此類型代表 SQL Server Reporting Services 報表 </td></tr><tr><td></td><td>assetCreatedDate</td><td>字串</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>字串</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>字串</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>字串</td><td></td><td></td></tr><tr><td>容器 ("containers")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>專家<p>AccessInstruction<p>文件<p></td><td>此類型代表其他資產 (例如 SQL database、Azure Blob 容器或 Analysis Services 模型) 的容器 。</td></tr></table>
+<table><tr><td><b>資產類型 (檢視名稱)</b></td><td><b>其他屬性</b></td><td><b>資料類型</b></td><td><b>允許的註解</b></td><td><b>註解</b></td></tr><tr><td>資料表 ("tables")</td><td></td><td></td><td>描述<p>FriendlyName<p>標記<p>架構<p>ColumnDescription<p>ColumnTag<p> 專家<p>預覽<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>文件<p></td><td>資料表代表任何表格式資料。  例如: SQL 資料表、SQL View、Analysis Services 表格式資料表、Analysis Services 多維維度、Oracle 資料表等。   </td></tr><tr><td>量值 ("measures")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>專家<p>AccessInstruction<p>文件<p></td><td>此類型代表 Analysis Services 量值。</td></tr><tr><td></td><td>measure</td><td>「資料行」</td><td></td><td>描述量值的中繼資料</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td></td><td>指定是否計算量值。</td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>量值的實體容器</td></tr><td>KPI ("kpis")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>專家<p>AccessInstruction<p>文件</td><td></td></tr><tr><td></td><td>measureGroup</td><td>String</td><td></td><td>量值的實體容器</td></tr><tr><td></td><td>goalExpression</td><td>String</td><td></td><td>會傳回 KPI 目標值的 MDX 數值運算式或計算。</td></tr><tr><td></td><td>valueExpression</td><td>String</td><td></td><td>會傳回 KPI 實際值的 MDX 數值運算式。</td></tr><tr><td></td><td>statusExpression</td><td>String</td><td></td><td>代表指定時間點之 KPI 狀態的 MDX 運算式。</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td></td><td>評估一段時間的 KPI 值的 MDX 運算式。 趨勢可以是特定商務情況下適用的任何時間性準則。</td>
+<tr><td>報表 ("reports")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>專家<p>AccessInstruction<p>文件<p></td><td>此類型代表 SQL Server Reporting Services 報表 </td></tr><tr><td></td><td>assetCreatedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>String</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>String</td><td></td><td></td></tr><tr><td>容器 ("containers")</td><td></td><td></td><td>描述<p>FriendlyName<p>Tag<p>專家<p>AccessInstruction<p>文件<p></td><td>此類型代表其他資產 (例如 SQL database、Azure Blob 容器或 Analysis Services 模型) 的容器 。</td></tr></table>
 
 ### <a name="annotation-types"></a>註解類型
 註解類型代表可以指派給目錄內其他類型的中繼資料類型。
@@ -118,7 +116,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td></td><td>description</td><td>string</td><td>資產的簡短描述 (2-3 行)</td></tr>
 
 <tr><td>標籤 ("tags")</td><td></td><td></td><td>這個屬性會定義資產的標籤。 系統的每個使用者可以為資產新增多個標記。  只有建立 Tag 物件的使用者可以編輯它們。  (系統管理員和資產擁有者可以刪除 Tag 物件，但無法編輯它)。 系統會個別維護使用者的標籤。  因此每個資產上都會有 Tag 物件的陣列。</td></tr>
-<tr><td></td><td>tag</td><td>string</td><td>描述資產的標記。</td></tr>
+<tr><td></td><td>標籤</td><td>string</td><td>描述資產的標記。</td></tr>
 
 <tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>此屬性包含資產的易記名稱。 FriendlyName 是單一註解 - 資產只能新增一個 FriendlyName。  只有建立 FriendlyName 物件的使用者可以編輯它。 (系統管理員和資產擁有者可以刪除 FriendlyName 物件，但無法編輯它)。 系統會個別維護使用者的易記名稱。</td></tr>
 <tr><td></td><td>friendlyName</td><td>string</td><td>資產的易記名稱。</td></tr>
@@ -127,12 +125,12 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td></td><td>columns</td><td>Column[]</td><td>資料行物件的陣列。 它們以衍生自資料來源的資訊來描述資料行。</td></tr>
 
 <tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>此屬性包含資料行的描述。  系統的每個使用者可以為多個資料行加入自己的描述 (每個資料行最多一個)。 只有建立 ColumnDescription 物件的使用者可以編輯它們。  (系統管理員和資產擁有者可以刪除 ColumnDescription 物件，但無法編輯它)。 系統會個別維護這些使用者的資料行描述。  因此，每個資產上有一個 ColumnDescription 物件陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對資料行貢獻知識的使用者都會有一個資料行描述)。  ColumnDescription 與結構描述不緊密繫結，所以可能不會同步。ColumnDescription 描述的資料行可能已不存在於結構描述中。  由寫入者決定是否要讓描述和結構描述保持同步。資料來源也可能有資料行描述資訊，這些資料行是執行工具時建立的其他 ColumnDescription 物件。</td></tr>
-<tr><td></td><td>columnName</td><td>字串</td><td>此描述所參考的資料行名稱。</td></tr>
-<tr><td></td><td>description</td><td>字串</td><td>資料行的簡短描述 (2-3 行)。</td></tr>
+<tr><td></td><td>columnName</td><td>String</td><td>此描述所參考的資料行名稱。</td></tr>
+<tr><td></td><td>description</td><td>String</td><td>資料行的簡短描述 (2-3 行)。</td></tr>
 
 <tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>此屬性包含資料行的標籤。 系統的每個使用者可以為特定資料行新增多個標記，也可以為多個資料行新增標記。 只有建立 ColumnTag 物件的使用者可以編輯它們。 (系統管理員和資產擁有者可以刪除 ColumnTag 物件，但無法編輯它)。 系統會個別維護這些使用者的資料行標籤。  因此每個資產上都會有 ColumnTag 物件的陣列。  ColumnTag 與結構描述不緊密繫結，所以可能不會同步。ColumnTag 描述的資料行可能已不存在於結構描述中。  由寫入者決定是否要讓資料行標籤和結構描述保持同步。</td></tr>
-<tr><td></td><td>columnName</td><td>字串</td><td>此標記所參考的資料行名稱。</td></tr>
-<tr><td></td><td>tag</td><td>字串</td><td>描述資料行的標記。</td></tr>
+<tr><td></td><td>columnName</td><td>String</td><td>此標記所參考的資料行名稱。</td></tr>
+<tr><td></td><td>標籤</td><td>String</td><td>描述資料行的標記。</td></tr>
 
 <tr><td>專家 ("experts")</td><td></td><td></td><td>此屬性包含資料集內被視為專家的使用者。 列出描述時，專家意見 (描述) 會移至 UX 頂端。 每個使用者可以指定自己的專家。 只有該使用者可以編輯 Expert 物件 (系統管理員和資產擁有者可以刪除 Expert 物件，但無法編輯它)。</td></tr>
 <tr><td></td><td>expert</td><td>SecurityPrincipal</td><td></td></tr>
@@ -146,7 +144,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>ssNoversion</td><td>在此資料集的資料列數目。</td></tr>
-<tr><td></td><td>size</td><td>long</td><td>以位元組為單位的資料集大小。  </td></tr>
+<tr><td></td><td>大小</td><td>long</td><td>以位元組為單位的資料集大小。  </td></tr>
 <tr><td></td><td>schemaModifiedTime</td><td>string</td><td>上次修改結構描述的時間。</td></tr>
 <tr><td></td><td>dataModifiedTime</td><td>string</td><td>上次修改此資料集 (新增、修改或刪除資料) 的時間</td></tr>
 
@@ -154,8 +152,8 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>資料行資料設定檔的陣列。</td></tr>
 
 <tr><td>ColumnDataClassification ("columnDataClassifications")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName</td><td>字串</td><td>此分類所參考的資料行名稱。</td></tr>
-<tr><td></td><td>分類</td><td>字串</td><td>此資料行中的資料分類。</td></tr>
+<tr><td></td><td>columnName</td><td>String</td><td>此分類所參考的資料行名稱。</td></tr>
+<tr><td></td><td>分類</td><td>String</td><td>此資料行中的資料分類。</td></tr>
 
 <tr><td>文件 ("documentation")</td><td></td><td></td><td>指定的資產只能有一個相關聯的文件。</td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>內容的 mime 類型。</td></tr>
@@ -169,14 +167,14 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <table>
 <tr><td><b>一般類型</b></td><td><b>屬性</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>string</td><td>描述資料來源的類型。  例如: SQL Server、 Oracle 資料庫等。  </td></tr>
-<tr><td></td><td>objectType</td><td>string</td><td>描述資料來源中的物件類型。 例如: 資料表、 適用於 SQL Server 的檢視。</td></tr>
+<tr><td></td><td>sourceType</td><td>string</td><td>描述資料來源的類型。  例如: SQL Server、Oracle Database 等等。  </td></tr>
+<tr><td></td><td>objectType</td><td>string</td><td>描述資料來源中的物件類型。 例如: SQL Server 的資料表、View。</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>string</td><td>必要。 描述用來與資料來源進行通訊的通訊協定。 例如：適用於 SQl Server 的 "tds"、適用於 Oracle 的 "oracle" 等等。如需目前支援的通訊協定清單，請參閱<a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">資料來源參考規格 - DSL 結構</a>。</td></tr>
-<tr><td></td><td>位址</td><td>字典&lt;string，object&gt;</td><td>必要。 位址是一組專屬於通訊協定的資料，用來識別所參考的資料來源。 資料將範圍設定為特定通訊協定的位址，表示如果不知道通訊協定就沒有意義。</td></tr>
+<tr><td></td><td>通訊協定</td><td>string</td><td>必要項。 描述用來與資料來源進行通訊的通訊協定。 例如：適用於 SQl Server 的 "tds"、適用於 Oracle 的 "oracle" 等等。如需目前支援的通訊協定清單，請參閱<a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">資料來源參考規格 - DSL 結構</a>。</td></tr>
+<tr><td></td><td>位址</td><td>字典&lt;字串, 物件&gt;</td><td>必要項。 位址是一組專屬於通訊協定的資料，用來識別所參考的資料來源。 資料將範圍設定為特定通訊協定的位址，表示如果不知道通訊協定就沒有意義。</td></tr>
 <tr><td></td><td>驗證</td><td>string</td><td>選擇性。 用來與資料來源進行通訊的驗證配置。 例如：windows、oauth 等等。</td></tr>
-<tr><td></td><td>connectionProperties</td><td>字典&lt;string，object&gt;</td><td>選擇性。 如何連接資料來源的其他資訊。</td></tr>
+<tr><td></td><td>connectionProperties</td><td>字典&lt;字串, 物件&gt;</td><td>選擇性。 如何連接資料來源的其他資訊。</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>後端不會在發佈期間對 AAD 驗證所提供的屬性。</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>使用者的唯一電子郵件地址。 如果未提供 objectId 或其位於 "lastRegisteredBy" 屬性的內容中則必須指定，否則為選擇性。</td></tr>
@@ -195,8 +193,8 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>string</td><td>資料行的名稱。</td></tr>
 <tr><td></td><td>type </td><td>string</td><td>資料行的類型。</td></tr>
-<tr><td></td><td>Min </td><td>string</td><td>在此資料集內的最小值。</td></tr>
-<tr><td></td><td>max </td><td>string</td><td>在此資料集內的最大值。</td></tr>
+<tr><td></td><td>分鐘 </td><td>string</td><td>在此資料集內的最小值。</td></tr>
+<tr><td></td><td>上限 </td><td>string</td><td>在此資料集內的最大值。</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>在此資料集內的平均值。</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>此資料集的標準差。</td></tr>
 <tr><td></td><td>nullCount </td><td>ssNoversion</td><td>在此資料集內 null 值的計數。</td></tr>
@@ -243,7 +241,7 @@ Azure 資料目錄使用兩種授權機制：
 * 以權限為基礎的授權
 
 ### <a name="roles"></a>角色
-有三個角色：**系統管理員**，**擁有者**，以及**參與者**。  每個角色有其範圍和權限，於下表中摘要說明。
+有三個角色:**系統管理員**、**擁有**者和**參與者**。  每個角色有其範圍和權限，於下表中摘要說明。
 
 <table><tr><td><b>角色</b></td><td><b>範圍</b></td><td><b>權限</b></td></tr><tr><td>系統管理員</td><td>目錄 (目錄中的所有資產/註解)</td><td>Read Delete ViewRoles
 
@@ -273,14 +271,14 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>參與者</td>
 > 
 > **擁有者** 角色僅適用於根項目。
 > 
-> 根據預設，在目錄中建立項目時，其 **參與者** 會設定為目前已驗證的使用者。 如果每個人都能更新項目，則第一次發佈項目時，應該在 **roles** 屬性中，將**參與者**設定為 &lt;Everyone&gt; 特殊安全性主體 (請參閱下列範例)。 **參與者**無法變更，而且在項目存留期間都維持不變 (即使**系統管理員**或**擁有者**都沒有權限變更**參與者**)。 唯一支援的明確設定的值**參與者**是&lt;Everyone&gt;:**參與者**只能是使用者建立項目或&lt;Everyone&gt;。
+> 根據預設，在目錄中建立項目時，其 **參與者** 會設定為目前已驗證的使用者。 如果每個人都能更新項目，則第一次發佈項目時，應該在 **roles** 屬性中，將**參與者**設定為 &lt;Everyone&gt; 特殊安全性主體 (請參閱下列範例)。 **參與者**無法變更，而且在項目存留期間都維持不變 (即使**系統管理員**或**擁有者**都沒有權限變更**參與者**)。 **參與者**的明確設定唯一支援的值是&lt;Everyone:&gt;**參與者**只能是建立專案或&lt;每個人&gt;的使用者。
 > 
 > 
 
 ### <a name="examples"></a>範例
 **發佈項目時將參與者設定為 &lt;Everyone&gt;。**
 特殊安全性主體 &lt;Everyone&gt; 具有 objectId "00000000-0000-0000-0000-000000000201"。
-  **POST** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
+  **POST** HTTPs:\//api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
 > [!NOTE]
 > 某些 HTTP 用戶端實作可能會自動重新發出要求，以從伺服器回應 302，但通常會從要求中刪除 Authorization 標頭。 因為需要有 Authorization 標頭才能對 Azure 資料目錄提出要求，所以您必須確定在對 Azure 資料目錄所指定的重新導向位置重新發出要求時，仍然會提供 Authorization 標頭。 下列範例程式碼使用 .NET HttpWebRequest 物件進行示範。
@@ -302,7 +300,7 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>參與者</td>
         ]
     }
 
-  **指派擁有者，並限制現有的根項目的可見性**:**放**https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **指派擁有者並限制現有根項目的可見度**:**PUT** HTTPs:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
     {
         "roles": [
@@ -347,7 +345,7 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>參與者</td>
     }
 
 > [!NOTE]
-> 在 PUT 中，您不需要主體中指定的項目裝載：PUT 可用來更新只是角色和/或權限。
+> 在 PUT 中, 不需要在主體中指定專案裝載:PUT 只能用來更新角色和 (或) 許可權。
 > 
 > 
 

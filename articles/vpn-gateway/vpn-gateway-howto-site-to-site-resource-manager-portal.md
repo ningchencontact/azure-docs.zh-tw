@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b4be7464a4c19cd0a71d5a786b46091cdbc074b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407543"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780165"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 入口網站中建立站對站連線
 
@@ -42,7 +42,7 @@ ms.locfileid: "60407543"
 
 本文的範例使用下列值。 您可以使用這些值來建立測試環境，或參考這些值，進一步了解本文中的範例。 如需有關 VPN 閘道的一般設定詳細資訊，請參閱 [關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md)。
 
-* **VNet 名稱：** TestVNet1
+* **VNet 名稱：** VNet1
 * **位址空間：** 10.1.0.0/16
 * **訂用帳戶︰** 您要使用的訂用帳戶
 * **資源群組：** TestRG1
@@ -66,9 +66,11 @@ ms.locfileid: "60407543"
 
 ## <a name="dns"></a>2.指定 DNS 伺服器
 
-建立站對站連線時不需要 DNS。 不過，如果您想要對部署至虛擬網路的資源進行名稱解析，則應指定 DNS 伺服器。 此設定可讓您指定要用於此虛擬網路之名稱解析的 DNS 伺服器服務。 它不會建立 DNS 伺服器。 如需名稱解析的詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+建立站對站連線時不需要 DNS。
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+不過，如果您想要對部署至虛擬網路的資源進行名稱解析，則應指定 DNS 伺服器。 此設定可讓您指定要用於此虛擬網路之名稱解析的 DNS 伺服器服務。 它不會建立 DNS 伺服器。 如需名稱解析的詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+
+[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3.建立閘道子網路
 
@@ -93,7 +95,7 @@ ms.locfileid: "60407543"
 內部部署網路的站對站連線需要 VPN 裝置。 在此步驟中，設定 VPN 裝置。 在設定 VPN 裝置時，您需要下列項目：
 
 - 共用金鑰。 這個共同金鑰與您建立站對站 VPN 連線時指定的共用金鑰相同。 在我們的範例中，我們會使用基本的共用金鑰。 我們建議您產生更複雜的金鑰以供使用。
-- 虛擬網路閘道的公用 IP 位址。 您可以使用 Azure 入口網站、PowerShell 或 CLI 來檢視公用 IP 位址。 若要使用 Azure 入口網站尋找 VPN 閘道的公用 IP 位址，請瀏覽至 [虛擬網路閘道]  ，然後按一下閘道名稱。
+- 虛擬網路閘道的公用 IP 位址。 您可以使用 Azure 入口網站、PowerShell 或 CLI 來檢視公用 IP 位址。 若要使用 Azure 入口網站尋找 VPN 閘道的公用 IP 位址，請瀏覽至 [虛擬網路閘道]，然後按一下閘道名稱。
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
@@ -123,10 +125,10 @@ ms.locfileid: "60407543"
 
 您可以新增其他的連線，前提是連線之間沒有任何位址空間重疊。
 
-1. 若要新增其他連線，請瀏覽至 VPN 閘道，然後按一下 [連線]  以開啟 [連線] 頁面。
-2. 按一下 [+新增]  來新增連線。 調整連線類型以反映 VNet 對 VNet (如果連線到另一個 VNet 閘道) 或站對站。
+1. 若要新增其他連線，請瀏覽至 VPN 閘道，然後按一下 [連線] 以開啟 [連線] 頁面。
+2. 按一下 [+新增] 來新增連線。 調整連線類型以反映 VNet 對 VNet (如果連線到另一個 VNet 閘道) 或站對站。
 3. 如果您要使用站對站進行連線，且您尚未建立所需連線之站台的區域網路閘道，您可以新建立一個。
-4. 指定您需要使用的共用金鑰，然後按一下 [確定]  來建立連線。
+4. 指定您需要使用的共用金鑰，然後按一下 [確定] 來建立連線。
 
 ## <a name="next-steps"></a>後續步驟
 

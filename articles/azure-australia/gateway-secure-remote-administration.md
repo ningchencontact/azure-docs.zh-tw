@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 827dffc1c7544d9373b5f8d4426ea8c448fa25ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1e4c4712312faf2274a4a0737c4fc1f7ce39f98e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571597"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824199"
 ---
 # <a name="secure-remote-administration-of-your-gateway-in-azure-australia"></a>在 Azure 澳大利亞保護閘道的遠端系統管理
 
@@ -25,7 +25,7 @@ ms.locfileid: "68571597"
 
 本檔討論安全管理的重要性, 並建議執行安全管理環境的一種方法。 本檔說明安全管理解決方案的元素, 如下所示:
 
-|元素   |描述   |
+|項目   |描述   |
 |---|---|
 |特殊許可權存取控制   |控制特殊許可權帳戶的存取是一種基本的安全性控制, 可保護特殊許可權帳戶免于誤用。 存取控制方法將包含「最低許可權」和「需要擁有」的概念, 以及管理服務帳戶和員工移動的進程和程式。   |
 |多重要素驗證   |除了使用者名稱和複雜密碼 (例如實體權杖或智慧卡) 以外, 執行額外的驗證因素有助於保護重要資產。 如果敵人危害特殊許可權帳戶的認證, 由於所有系統管理動作都必須經過某種形式的多重要素驗證, 因此可能會大幅降低結果。|
@@ -33,7 +33,6 @@ ms.locfileid: "68571597"
 |記錄與稽核   |自動產生、收集及分析來自工作站、伺服器、網路裝置及跳躍箱的安全性和系統管理相關事件, 將可偵測危害並嘗試進行危害。 自動化可讓組織更快速地回應, 減少危害的影響。|
 |網路分割和隔離|將網路分割成邏輯區域 (例如不同的安全性網域), 並藉由限制從某個區域流向另一個區域的資料類型, 進一步隔離這些邏輯網路, 會限制橫向移動。 分割可防止敵人取得其他資源的存取權。|
 |跳躍方塊|「跳躍箱」是一種強化的遠端存取服務器, 通常會使用 Microsoft 的遠端桌面服務或安全殼層 (SSH) 軟體。 跳躍框可做為系統管理員的逐步執行點, 其中包含從專用主機執行的所有系統管理動作。|
-|
 
 本文提供的參考架構, 可讓您瞭解如何將上述元素用於 Azure 中所部署系統的安全管理。
 
@@ -77,7 +76,6 @@ ms.locfileid: "68571597"
 |條件式存取 |條件式存取原則會檢查驗證嘗試, 以確保它符合必要的需求, 例如連線來源的 IP 位址、特殊許可權帳戶的群組成員資格, 以及的管理與合規性狀態。Intune 所報告的特殊許可權工作站。 |
 |Privileged Identity Management (PIM) |透過 Azure 入口網站, 系統管理員現在可以啟用或要求啟用已透過 PIM authorisation 的特殊許可權角色。 PIM 可確保特殊許可權帳戶沒有任何的系統管理許可權, 而且所有特殊許可權存取的要求都只是執行系統管理工作所需的時間。 PIM 也會記錄所有要求和啟用, 以供審核之用。 |
 |Identity and Access Management|一旦安全地識別許可權帳戶並啟動角色之後, 系統管理員就會透過身分識別和存取管理, 提供他們已獲指派許可權的 Azure 訂用帳戶和資源的存取權。|
-|
 
 一旦特殊許可權帳戶完成取得 Azure 入口網站系統管理存取權的步驟之後, 即可設定工作負載的存取權, 並進行系統管理連接。
 
@@ -91,7 +89,6 @@ ms.locfileid: "68571597"
 |網路原則伺服器 (NPS)|NPS 會接收來自 RD 閘道的驗證要求, 並針對 Active Directory 驗證使用者名稱和密碼, 然後再將要求傳送至 Azure Active Directory 以觸發 Azure MFA 驗證要求。|
 |Azure MFA|Azure MFA 會將驗證要求傳送至特殊許可權帳戶的已註冊行動裝置。 行動裝置是由 Intune 管理, 以確保符合安全性需求。 系統管理員必須先向行動裝置進行驗證, 然後再使用 PIN 或生物特徵辨識系統向 Microsoft Authenticator 應用程式進行驗證, 才會向 Azure MFA 授權嘗試驗證。|
 |跳躍伺服器|成功驗證之後, 會使用傳輸層安全性 (TLS) 來加密 RDP 連線, 然後透過 RD 閘道並在跳躍伺服器上透過加密的 IPSec 通道傳送至 Azure VPN 閘道。 從跳躍伺服器, 系統管理員現在可以透過 RDP 或 SSH 連線至 JIT 要求中所指定的工作負載虛擬機器。|
-|
 
 ## <a name="general-guidance"></a>一般指導
 
@@ -133,7 +130,6 @@ ms.locfileid: "68571597"
 |---|---|
 |特殊許可權存取工作站架構總覽|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
 |保護特殊許可權存取的參考資料|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
-|
 
 ### <a name="mobile-device"></a>行動裝置
 
@@ -143,7 +139,6 @@ ms.locfileid: "68571597"
 |---|---|
 |Azure AD 驗證方法|[https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)|
 |如何使用 Microsoft Authenticator 應用程式|[https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app](https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app)|
-|
 
 ### <a name="microsoft-intune"></a>Microsoft Intune
 
@@ -153,7 +148,6 @@ Intune 是管理行動裝置和應用程式 Enterprise Mobility + Security 的�
 |---|---|
 |Microsoft Intune 檔|[https://docs.microsoft.com/intune/](https://docs.microsoft.com/intune/)|
 |Intune 中的裝置合規性入門|[https://docs.microsoft.com/intune/device-compliance-get-started](https://docs.microsoft.com/intune/device-compliance-get-started)|
-|
 
 ### <a name="group-policy"></a>群組原則
 
@@ -162,7 +156,6 @@ Intune 是管理行動裝置和應用程式 Enterprise Mobility + Security 的�
 |資源|連結|
 |---|---|
 |允許本機登入群組原則設定|[https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally)|
-|
 
 ### <a name="jump-server--bastion-host"></a>跳躍伺服器/防禦主機
 
@@ -171,7 +164,6 @@ Intune 是管理行動裝置和應用程式 Enterprise Mobility + Security 的�
 |資源|連結|
 |---|---|
 |執行安全的系統管理主機|[https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)|
-|
 
 ### <a name="just-in-time-jit-access"></a>即時 (JIT) 存取
 
@@ -181,7 +173,6 @@ JIT 是一項 Azure 資訊安全中心功能, 運用網路安全性群組 (Nsg) 
 |---|---|
 |管理即時 (JIT) 存取|[https://docs.microsoft.com/azure/security-center/security-center-just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|
 |將 Azure 即時 VM 存取自動化|[https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access](https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access)|
-|
 
 ## <a name="secure-communication"></a>安全通訊
 
@@ -194,7 +185,6 @@ Azure 入口網站的通訊是使用傳輸層安全性 (TLS) 進行加密, 且�
 |資源 |連結 |
 |---|---|
 |Azure 加密總覽-傳輸中的加密|[https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit](https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit)|
-|
 
 ### <a name="azure-vpn-gateway"></a>Azure VPN 閘道
 
@@ -204,8 +194,7 @@ Azure VPN 閘道提供從具特殊許可權的工作站到 Azure 的安全加密
 |---|---|
 |關於點對站連線|[https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about)|
 |Azure VPN 閘道密碼編譯詳細資料|[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto)|
-|Azure VPN 閘道設定|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
-|
+|Azure VPN 閘道設定|[Azure VPN 閘道設定](vpn-gateway.md)|
 
 ### <a name="remote-desktop-rd-gateway"></a>遠端桌面 (RD) 閘道
 
@@ -214,7 +203,6 @@ RD 閘道是控制和 authorising 系統 RDP 連線的安全機制。 其運作�
 |資源 |連結 |
 |---|---|
 |遠端桌面服務架構|[https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)|
-|
 
 ### <a name="network-security-groups-nsgs"></a>網路安全性群組 (NSG)
 
@@ -224,7 +212,6 @@ Nsg 函式做為輸入或離開子網或虛擬機器的網路流量存取控制�
 |---|---|
 |Azure 安全性群組總覽|[https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
 |HOW TO：規劃虛擬網路|[https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)|
-|
 
 ## <a name="strong-authentication"></a>增強式驗證
 
@@ -237,7 +224,6 @@ Nsg 函式做為輸入或離開子網或虛擬機器的網路流量存取控制�
 |資源 |連結 |
 |---|---|
 |Active Directory Domain Services 總覽|[https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)|
-|
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
@@ -249,7 +235,6 @@ Azure AD 是 Azure 的驗證服務。 其中包含雲端
 |---|---|
 |Azure Active Directory 文件|[https://docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory)|
 |混合式身分識別檔|[https://docs.microsoft.com/azure/active-directory/hybrid](https://docs.microsoft.com/azure/active-directory/hybrid)|
-|
 
 ### <a name="network-policy-server-nps"></a>網路原則伺服器 (NPS)
 
@@ -258,7 +243,6 @@ NPS 是一種驗證和原則伺服器, 可提供先進的驗證和 authorisation
 |資源 |連結 |
 |---|---|
 |網路原則伺服器檔|[https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)|
-|
 
 ### <a name="azure-mfa"></a>Azure MFA
 
@@ -268,7 +252,6 @@ Azure MFA 是 Azure Active Directory 中提供的驗證服務, 可讓驗證要�
 |---|---|
 |運作方式：Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)|
 |HOW TO：部署雲端式 Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)|
-|
 
 ## <a name="strong-authorisation"></a>強式 authorisation
 
@@ -282,7 +265,6 @@ Azure MFA 是 Azure Active Directory 中提供的驗證服務, 可讓驗證要�
 |---|---|
 |以 Azure 角色為基礎的存取控制|[https://docs.microsoft.com/azure/role-based-access-control](https://docs.microsoft.com/azure/role-based-access-control)|
 |瞭解角色定義|[https://docs.microsoft.com/azure/role-based-access-control/role-definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions)|
-|
 
 ### <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 
@@ -292,7 +274,6 @@ PIM 是一個 Azure Active Directory 元件, 可控制特殊許可權角色的�
 |---|---|
 |Privileged Identity Management (PIM) 檔|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)|
 |開始使用 PIM|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started)|
-|
 
 ### <a name="conditional-access"></a>條件存取
 
@@ -302,7 +283,6 @@ PIM 是一個 Azure Active Directory 元件, 可控制特殊許可權角色的�
 |---|---|
 |條件式存取文件|[https://docs.microsoft.com/azure/active-directory/conditional-access](https://docs.microsoft.com/azure/active-directory/conditional-access)|
 |HOW TO：需要受控裝置以使用條件式存取進行雲端應用程式存取|[https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|
-|
 
 ## <a name="next-steps"></a>後續步驟
 

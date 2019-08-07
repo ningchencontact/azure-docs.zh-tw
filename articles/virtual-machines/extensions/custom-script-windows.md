@@ -10,16 +10,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 8487b8477b1837fce0b1c2c6435174c48dfbded4
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 58b6531a394db8f9d29dcc0fe9b4b40d1725e70a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478431"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774589"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows 的自訂指令碼延伸模組
 
-「自訂指令碼擴充功能」會在 Azure 虛擬機器上下載並執行指令碼。 此延伸模組可用於部署後組態、 軟體安裝，或任何其他組態或管理工作項目。 您可以從 Azure 儲存體或 GitHub 下載指令碼，或是在擴充功能執行階段將指令碼提供給 Azure 入口網站。 自訂指令碼擴充功能與 Azure Resource Manager 範本整合，並可使用 Azure CLI、 PowerShell、 Azure 入口網站或 Azure 虛擬機器 REST API 來執行。
+「自訂指令碼擴充功能」會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用于部署後設定、軟體安裝, 或任何其他設定或管理工作。 您可以從 Azure 儲存體或 GitHub 下載指令碼，或是在擴充功能執行階段將指令碼提供給 Azure 入口網站。 自訂腳本擴充功能會與 Azure Resource Manager 範本整合, 並可使用 Azure CLI、PowerShell、Azure 入口網站或 Azure 虛擬機器 REST API 來執行。
 
 本文件詳細說明如何透過 Azure PowerShell 模組、Azure Resource Manager 範本使用自訂指令碼擴充功能，同時也詳細說明 Windows 系統上的疑難排解步驟。
 
@@ -30,31 +30,32 @@ ms.locfileid: "67478431"
 
 ### <a name="operating-system"></a>作業系統
 
-自訂指令碼擴充功能的 Windows 會執行於延伸模組支援擴充 OSs，如需詳細資訊，請參閱這[Azure 延伸模組支援的作業系統](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)。
+適用于 Windows 的自訂腳本擴充功能將在擴充功能支援的擴充功能 Os 上執行。如需詳細資訊, 請參閱此[Azure 擴充功能支援的作業系統](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)。
 
 ### <a name="script-location"></a>指令碼位置
 
-您可以設定要使用您的 Azure Blob 儲存體認證存取 Azure Blob 儲存體的擴充功能。 指令碼位置可以是任何地方，只要 VM 可以路由傳送至結束點，例如 GitHub 或內部的檔案伺服器。
+您可以設定此延伸模組, 以使用您的 Azure Blob 儲存體認證來存取 Azure Blob 儲存體。 只要 VM 可以路由傳送至該端點, 例如 GitHub 或內部檔案伺服器, 就可以在任何地方使用腳本位置。
 
 ### <a name="internet-connectivity"></a>網際網路連線
 
-如果您需要下載指令碼外部例如從 GitHub 或 Azure 儲存體，則其他的防火牆和網路安全性群組連接埠需要開啟。 例如，如果您的指令碼位於 Azure 儲存體中，您可以允許存取使用 Azure NSG 服務標記[儲存體](../../virtual-network/security-overview.md#service-tags)。
+如果您需要從 GitHub 或 Azure 儲存體外部下載腳本, 則必須開啟額外的防火牆和網路安全性群組埠。 例如, 如果您的腳本位於 Azure 儲存體中, 您可以使用 Azure NSG 服務標記來允許存取[儲存體](../../virtual-network/security-overview.md#service-tags)。
 
-如果您的指令碼是在本機伺服器上，則您仍可能需要額外的防火牆和網路安全性群組的連接埠必須開啟。
+如果您的腳本是在本機伺服器上, 您可能還是需要開啟額外的防火牆和網路安全性群組埠。
 
 ### <a name="tips-and-tricks"></a>秘訣與技巧
 
-* 此延伸模組的最高失敗率是因為指令碼，而沒有錯誤，執行指令碼的測試中的語法錯誤，並也將放在其他登入指令碼來輕鬆地找到失敗的地方。
-* 撰寫指令碼具有等冪性。 這可確保，如果不小心重新執行，就不會造成系統變更。
+* 此延伸模組的最高失敗率是因為腳本中的語法錯誤、測試腳本的執行不會發生錯誤, 也會在腳本中放入其他記錄, 讓您更輕鬆地找出失敗的位置。
+* 撰寫具有等冪性的腳本。 這可確保如果不小心再次執行, 則不會造成系統變更。
 * 請確定在指令碼執行時，不需要使用者輸入。
 * 指令碼可執行的時間為 90 分鐘。若超過這個時間，將會導致擴充功能佈建失敗。
 * 不要在指令碼中放置重新開機，此動作會導致正在安裝的其他擴充功能發生問題。 若發佈重新開機，擴充功能將不會在重新啟動之後繼續執行。
-* 如果您有會導致重新開機，然後安裝應用程式並執行指令碼的指令碼時，您可以排程使用 Windows 排程工作，重新開機，或使用 DSC、 Chef 或 Puppet 的擴充功能之類的工具。
+* 如果您的腳本將會造成重新開機, 則請安裝應用程式並執行腳本, 您可以使用 Windows 排程工作來排程重新開機, 或使用 DSC、Chef 或 Puppet 擴充功能之類的工具。
 * 擴充功能只會執行指令碼一次。如果您想要在每次開機時執行指令碼，則必須使用擴充功能建立 Windows 排程工作。
 * 如果您想要排程指令碼的執行時間，則應該使用擴充功能來建立 Windows 排程工作。
 * 當指令碼正在執行時，只能從 Azure 入口網站或 CLI 看到「正在轉換」擴充功能狀態。 如果您需要執行中指令碼更頻繁的狀態更新，便必須建立自己的解決方案。
 * 自訂指令碼擴充功能未原生支援 Proxy 伺服器，但是您可以在指令碼中使用支援 Proxy 伺服器的檔案傳輸工具，例如 *Curl*
 * 請留意指令碼或命令所依賴的非預設目錄位置是否具備處理此情形的邏輯。
+* 自訂腳本擴充功能將會以 LocalSystem 帳戶執行
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
@@ -98,7 +99,7 @@ ms.locfileid: "67478431"
 ```
 
 > [!NOTE]
-> 只有一個版本的延伸模組可以安裝在點上的 VM 上的時間，指定自訂指令碼兩次相同的 Resource Manager 範本，針對相同的 VM 將會失敗。
+> 在某個時間點, VM 上只能安裝一個版本的擴充功能, 在相同的 Resource Manager 範本中為相同的 VM 指定自訂腳本兩次, 將會失敗。
 
 ### <a name="property-values"></a>屬性值
 
@@ -107,8 +108,8 @@ ms.locfileid: "67478431"
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
-| typeHandlerVersion | 1.9 | int |
-| fileUris (例如) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| typeHandlerVersion | 1.9 | ssNoversion |
+| fileUris (例如) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | 陣列 |
 | timestamp (範例) | 123456789 | 32 位元整數 |
 | commandToExecute (例如) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (例如) | examplestorageacct | string |
@@ -129,13 +130,13 @@ ms.locfileid: "67478431"
 
 * `commandToExecute`
 
-使用偵錯，但它可能很有用的公用設定，建議您使用受保護的設定。
+使用公用設定可能有助於進行偵錯工具, 但建議您使用受保護的設定。
 
-公開設定會以純文字的格式，傳送到執行指令碼所在的 VM。  受保護的設定會使用只有 Azure 和 VM 知道的金鑰來加密。 這些設定會儲存至 VM，因為它們已傳送，也就是，如果設定已加密儲存加密的 VM 上。 用來解密加密值的憑證會儲存在 VM 上，並在執行階段用於解密設定 (如有必要)。
+公開設定會以純文字的格式，傳送到執行指令碼所在的 VM。  受保護的設定會使用只有 Azure 和 VM 知道的金鑰來加密。 這些設定會在傳送時儲存到 VM, 也就是說, 如果設定已加密, 則會在 VM 上以加密方式儲存。 用來解密加密值的憑證會儲存在 VM 上，並在執行階段用於解密設定 (如有必要)。
 
 ## <a name="template-deployment"></a>範本部署
 
-也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 JSON 結構描述，如上一節會詳細可以用於 Azure Resource Manager 範本，若要在部署期間執行自訂指令碼擴充功能。 下列範例會說明如何使用自訂指令碼擴充功能：
+也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 上一節中詳述的 JSON 架構可在 Azure Resource Manager 範本中用來在部署期間執行自訂腳本擴充功能。 下列範例會說明如何使用自訂指令碼擴充功能：
 
 * [教學課程：使用 Azure Resource Manager 範本部署虛擬機器擴充功能](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [在 Windows 和 Azure SQL DB 上部署兩層式應用程式](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
@@ -155,9 +156,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ## <a name="additional-examples"></a>其他範例
 
-### <a name="using-multiple-scripts"></a>使用多個指令碼
+### <a name="using-multiple-scripts"></a>使用多個腳本
 
-在此範例中，您會有三個指令碼，用來建置您的伺服器。 **CommandToExecute**呼叫第一個指令碼，則您可以在其他則稱為選項。 例如，您可以控制執行並使用正確的錯誤處理、 記錄和狀態管理對主要指令碼。 指令碼會下載到本機電腦執行。 秷濆 菾`1_Add_Tools.ps1`您可以呼叫`2_Add_Features.ps1`加上`.\2_Add_Features.ps1`指令碼，並重複此程序的其他指令碼您定義在`$settings`。
+在此範例中, 您有三個用來建立伺服器的腳本。 **CommandToExecute**會呼叫第一個腳本, 然後您就可以選擇其他的呼叫方式。 例如, 您可以擁有控制執行的主要腳本, 其中包含正確的錯誤處理、記錄和狀態管理。 腳本會下載到本機電腦, 以便執行。 例如, 在`1_Add_Tools.ps1`中, 您`2_Add_Features.ps1`可以藉`.\2_Add_Features.ps1`由將加入至腳本來呼叫, 並針對您在中`$settings`定義的其他腳本重複此程式。
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -184,7 +185,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="running-scripts-from-a-local-share"></a>從本機共用執行指令碼
 
-在此範例中，您可能想要使用本機的 SMB 伺服器指令碼位置。 如此一來，您不需要提供任何其他設定，除了**commandToExecute**。
+在此範例中, 您可能會想要使用本機 SMB 伺服器作為腳本位置。 如此一來, 您就不需要提供任何其他設定, **commandToExecute**除外。
 
 ```powershell
 $protectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -204,14 +205,14 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 如果您想要執行自訂指令碼延伸模組多次，您只有在下列情況下才能執行此動作：
 
-* 延伸模組**名稱**參數等同於先前的部署擴充功能。
-* 更新的設定，否則不會重新執行命令。 您可以將動態屬性加入命令，例如時間戳記。
+* 延伸模組**名稱**參數與先前的延伸模組部署相同。
+* 更新設定, 否則不會重新執行命令。 您可以將動態屬性加入命令，例如時間戳記。
 
-或者，您可以設定[ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag)屬性設 **，則為 true**。
+或者, 您可以將[ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag)屬性設定為**true**。
 
-### <a name="using-invoke-webrequest"></a>使用 Invoke-webrequest
+### <a name="using-invoke-webrequest"></a>使用 Invoke-WebRequest
 
-如果您使用[Invoke-webrequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest)在您的指令碼中，您必須指定參數`-UseBasicParsing`或其他您會收到下列錯誤檢查的詳細的狀態時：
+如果您在腳本中使用[WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) , 您必須指定參數`-UseBasicParsing` , 否則當您檢查詳細狀態時, 將會收到下列錯誤:
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
@@ -219,19 +220,19 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 ## <a name="classic-vms"></a>傳統 VM
 
-若要部署在傳統 Vm 上的自訂指令碼擴充功能，您可以使用 Azure 入口網站或傳統的 Azure PowerShell cmdlet。
+若要在傳統 Vm 上部署自訂腳本擴充功能, 您可以使用 Azure 入口網站或傳統 Azure PowerShell Cmdlet。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-瀏覽至您的傳統 VM 資源。 選取 **延伸模組**下方**設定**。
+流覽至您的傳統 VM 資源。 選取 [**設定**] 底下的 [**擴充**功能]。
 
-按一下  **+ 新增**，然後在資源清單中選擇 **自訂指令碼擴充功能**。
+按一下 [ **+ 新增**], 然後在資源清單中選擇 [**自訂腳本延伸**模組]。
 
-在 **安裝擴充功能**頁面上選取本機的 PowerShell 檔案，並填寫任何引數，然後按一下**確定**。
+在 [**安裝擴充**功能] 頁面上, 選取本機 PowerShell 檔案, 並填寫任何引數, 然後按一下 **[確定]** 。
 
 ### <a name="powershell"></a>PowerShell
 
-使用[組 AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) cmdlet 可以用來將自訂指令碼擴充功能新增至現有的虛擬機器。
+您可以使用 AzureVMCustomScriptExtension 指令程式, 將自訂腳本擴充[功能](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension)新增至現有的虛擬機器。
 
 ```powershell
 # define your file URI
@@ -257,13 +258,13 @@ $vm | Update-AzureVM
 Get-AzVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name myExtensionName
 ```
 
-延伸模組的輸出會記錄至目標虛擬機器上，找到下列資料夾的檔案。
+延伸模組輸出會記錄到目標虛擬機器上下列資料夾下的檔案中。
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
 ```
 
-指定的檔案會下載至目標虛擬機器上的下列資料夾中。
+指定的檔案會下載到目標虛擬機器上的下列資料夾中。
 
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
@@ -279,7 +280,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-透過下載的檔案會保留第一個 URI 區段後的路徑資訊`fileUris`屬性清單。  如下表所示，下載的檔案會對應到下載的子目錄，以反映 `fileUris` 值結構。  
+第一個 URI 區段之後的路徑資訊會保留給透過`fileUris`屬性清單下載的檔案。  如下表所示，下載的檔案會對應到下載的子目錄，以反映 `fileUris` 值結構。  
 
 #### <a name="examples-of-downloaded-files"></a>下載檔案的範例
 
@@ -288,7 +289,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 | `https://someAcct.blob.core.windows.net/aContainer/scripts/myscript.ps1` | `./scripts/myscript.ps1` |`C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\scripts\myscript.ps1`  |
 | `https://someAcct.blob.core.windows.net/aContainer/topLevel.ps1` | `./topLevel.ps1` | `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2\topLevel.ps1` |
 
-<sup>1</sup>絕對目錄路徑變更的 VM，但不是會在 CustomScript 擴充功能的單一執行的存留期。
+<sup>1</sup>絕對目錄路徑會在 VM 的存留期間變更, 而不是在 CustomScript 擴充功能的單一執行中。
 
 ### <a name="support"></a>支援
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562213"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741376"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>HOW TO：規劃 Azure AD 聯結實作
 
@@ -68,7 +68,11 @@ Azure AD Join 在受控和同盟環境中均可運作。
 同盟環境應具有支援 WS-Trust 和 WS-Fed 通訊協定的識別提供者：
 
 - **WS-Fed：** 必須使用此通訊協定，才能將裝置加入 Azure AD。
-- **WS-Trust：** 必須使用此通訊協定，才能登入已加入 Azure AD 的裝置。 
+- **WS-Trust：** 必須使用此通訊協定，才能登入已加入 Azure AD 的裝置。
+當您使用 AD FS 時, 您必須啟用下列 WS-TRUST 端點:`/adfs/services/trust/2005/usernamemixed`
+ `/adfs/services/trust/13/usernamemixed`
+ `/adfs/services/trust/2005/certificatemixed`
+ `/adfs/services/trust/13/certificatemixed`
 
 如果您的識別提供者不支援這些通訊協定，則 Azure AD Join 無法原生運作。 從 Windows 10 1809 開始，您的使用者即可經由 SAML 型識別提供者透過 [Windows 10 的 Web 登入](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)來登入已加入 Azure AD 的裝置。 目前, web 登入是一項預覽功能, 不建議用於生產環境部署。
 

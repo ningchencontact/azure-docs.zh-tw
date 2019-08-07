@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: 780b9ae6e4664af86fa655c9136193bed58526d9
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: a61ddf57d4f01fcaf4a949add29c677aa94060a9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708494"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827853"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>使用 Azure Data Factory 將資料從您的 data lake 或資料倉儲遷移至 Azure 
 
@@ -26,7 +26,7 @@ ms.locfileid: "68708494"
 - 從 AWS S3、內部內部部署的 Hadoop 檔案系統到 Azure 的海量資料工作負載遷移。 
 - EDW 從 Oracle Exadata、Netezza、Teradata、AWS Redshift 遷移至 Azure。 
 
-Azure Data Factory 可以移動用於 data lake 遷移的 PBs 資料層級, 以及數十 TB 資料來進行資料倉儲遷移。 
+Azure Data Factory 可以移動資料 lake 遷移的 PBs 資料, 以及數十 TB 資料來進行資料倉儲遷移。 
 
 ## <a name="why-azure-data-factory-can-be-used-for-data-migration"></a>為何 Azure Data Factory 可用於資料移轉 
 
@@ -59,4 +59,4 @@ Azure Data Factory 是典型的線上資料移轉工具, 可透過網路 (網際
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Azure Data Factory 從多個容器複製檔案](solution-template-copy-files-multiple-containers.md)
+- [將資料從 AWS S3 遷移至 Azure](data-migration-guidance-s3-azure-storage.md)

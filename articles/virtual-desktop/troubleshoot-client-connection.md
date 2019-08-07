@@ -1,22 +1,22 @@
 ---
-title: Windows 虛擬桌面-Azure 中的遠端桌面用戶端連線
-description: 如何解決問題，當您設定 Windows 虛擬桌面的租用戶環境中的用戶端連線。
+title: Windows 虛擬桌面中的遠端桌面用戶端連接-Azure
+description: 如何解決在 Windows 虛擬桌面租使用者環境中設定用戶端連線時的問題。
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b7a6daa791e44227fd146c9c328a939560ebb3b1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: helohr
+ms.openlocfilehash: 9cd754b1810595c3ae82a7e4edfd9a3abe145b3f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605303"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816427"
 ---
 # <a name="remote-desktop-client-connections"></a>遠端桌面用戶端連線
 
-您可以使用本文來解決 Windows 的虛擬桌面用戶端連線的問題。
+使用本文來解決 Windows 虛擬桌面用戶端連線的問題。
 
 ## <a name="provide-feedback"></a>提供意見反應
 
@@ -24,62 +24,62 @@ ms.locfileid: "67605303"
 
 ## <a name="you-cant-open-a-web-client"></a>您無法開啟 web 用戶端
 
-確認開啟另一個網站; 沒有網際網路連線能力例如， [www.Bing.com](https://www.bing.com)。
+開啟另一個網站, 確認有網際網路連線能力;例如, [www.Bing.com](https://www.bing.com)。
 
-使用**nslookup**確認 DNS 可將 FQDN 解析：
+使用**nslookup**確認 DNS 可以解析 FQDN:
 
 ```cmd
 nslookup rdweb.wvd.microsoft.com
 ```
 
-請嘗試使用另一個用戶端，例如適用於 Windows 7 或 Windows 10 中，並檢查看看是否您可以開啟 web 用戶端的遠端桌面用戶端連線。
+請嘗試與其他用戶端連線, 例如適用于 Windows 7 或 Windows 10 的遠端桌面用戶端, 並檢查您是否可以開啟網頁用戶端。
 
-### <a name="error-opening-another-site-fails"></a>Error:開啟另一個站台就會失敗
+### <a name="error-opening-another-site-fails"></a>錯誤:開啟另一個網站失敗
 
-**原因：** 網路問題及/或中斷。
+**原因：** 網路問題和/或中斷。
 
-**修正：** 請連絡網路支援。
+**補丁**請聯絡網路支援。
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Error:Nslookup 無法解析名稱
+### <a name="error-nslookup-cannot-resolve-the-name"></a>錯誤:Nslookup 無法解析名稱
 
-**原因：** 網路問題及/或中斷。
+**原因：** 網路問題和/或中斷。
 
-**修正：** 請連絡網路支援
+**補丁**聯絡網路支援
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Error:您無法連線，但其他用戶端可以連線
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>錯誤:您無法連線, 但其他用戶端可以連接
 
-**原因：** 瀏覽器不其運作方式，可預期的和已停止運作。
+**原因：** 瀏覽器未如預期般運作, 且已停止運作。
 
-**修正：** 請遵循下列指示來進行疑難排解的瀏覽器。
+**補丁**請遵循這些指示來疑難排解瀏覽器。
 
-1. 重新啟動瀏覽器。
-2. 清除瀏覽器 cookie。 請參閱[如何刪除 Internet Explorer 中的 cookie 檔案](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)。
-3. 清除瀏覽器快取。 請參閱[清除您的瀏覽器的瀏覽器快取](https://binged.it/2RKyfdU)。
-4. 在私用模式中開啟的瀏覽器。
+1. 重新開機瀏覽器。
+2. 清除瀏覽器 cookie。 請參閱[如何刪除 Internet Explorer 中的 cookie](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)檔案。
+3. 清除瀏覽器快取。 請參閱[清除瀏覽器的瀏覽器](https://binged.it/2RKyfdU)快取。
+4. 以私用模式開啟瀏覽器。
 
-## <a name="web-client-stops-responding-or-disconnects"></a>Web 用戶端會停止回應或中斷連線
+## <a name="web-client-stops-responding-or-disconnects"></a>Web 用戶端停止回應或中斷連線
 
-請嘗試使用其他瀏覽器或用戶端連線。
+嘗試使用另一個瀏覽器或用戶端進行連接。
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Error:其他瀏覽器及用戶端也故障或無法開啟
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>錯誤:其他瀏覽器和用戶端也會故障或無法開啟
 
-**原因：** 網路和/或作業的系統問題或中斷情形
+**原因：** 網路和/或作業系統問題或中斷
 
-**修正：** 請連絡客戶支援小組。
+**補丁**聯絡支援小組。
 
-## <a name="web-client-keeps-prompting-for-credentials"></a>Web 用戶端會提示輸入認證
+## <a name="web-client-keeps-prompting-for-credentials"></a>Web 用戶端會持續提示輸入認證
 
-如果 Web 用戶端會提示輸入認證時，請遵循這些指示。
+如果 Web 用戶端持續提示輸入認證, 請遵循這些指示。
 
-1. 確認 web 用戶端 URL 正確。
-2. 確認認證適用於 Windows 的虛擬桌面環境繫結至的 URL。
-3. 清除瀏覽器 cookie。 請參閱[如何刪除 Internet Explorer 中的 cookie 檔案](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)。
-4. 清除瀏覽器快取。 請參閱[清除您的瀏覽器的瀏覽器快取](https://binged.it/2RKyfdU)。
-5. 在私用模式中開啟的瀏覽器。
+1. 確認 web 用戶端 URL 是否正確。
+2. 確認認證適用于與 URL 系結的 Windows 虛擬桌面環境。
+3. 清除瀏覽器 cookie。 請參閱[如何刪除 Internet Explorer 中的 cookie](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)檔案。
+4. 清除瀏覽器快取。 請參閱[清除瀏覽器的瀏覽器](https://binged.it/2RKyfdU)快取。
+5. 以私用模式開啟瀏覽器。
 
-## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Windows 7 或 Windows 10 的遠端桌面用戶端會停止回應，或是無法開啟
+## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>適用于 Windows 7 或 Windows 10 的遠端桌面用戶端停止回應或無法開啟
 
-您可以使用下列 PowerShell cmdlet 來清除 頻外 (OOB) 用戶端登錄。
+使用下列 PowerShell Cmdlet 來清除頻外 (OOB) 用戶端登錄。
 
 ```PowerShell
 Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
@@ -91,38 +91,38 @@ Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
 Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
 ```
 
-瀏覽至 **%AppData%\RdClientRadc**並刪除所有的內容。
+流覽至 **%AppData%\RdClientRadc**並刪除所有內容。
 
-解除安裝然後重新安裝適用於 Windows 7 與 Windows 10 的遠端桌面用戶端。
+卸載並重新安裝適用于 Windows 7 和 Windows 10 的遠端桌面用戶端。
 
-## <a name="troubleshooting-end-user-connectivity"></a>使用者連接性疑難排解
+## <a name="troubleshooting-end-user-connectivity"></a>針對使用者連線能力進行疑難排解
 
-有時候使用者可以存取他們的摘要和本機資源，但仍有組態、 可用性或效能問題，使其無法存取遠端資源。 在這些情況下，使用者會收到訊息類似如下：
+有時候使用者可以存取其摘要和本機資源, 但仍有設定、可用性或效能問題, 因而無法存取遠端資源。 在這些情況下, 使用者會收到類似下列的訊息:
 
 ![遠端桌面連線錯誤訊息。](media/eb76b666808bddb611448dfb621152ce.png)
 
-![無法連線到閘道錯誤訊息。](media/a8fbb9910d4672147335550affe58481.png)
+![無法連接到閘道錯誤訊息。](media/a8fbb9910d4672147335550affe58481.png)
 
-請遵循下列疑難排解的一般指示，用戶端連線錯誤代碼。
+請遵循這些一般的疑難排解指示, 以取得用戶端連接錯誤碼。
 
-1. 確認使用者名稱，而且當已發生問題的時間。
-2. 開啟**PowerShell**並連接至 Windows 虛擬桌面租用戶回報問題。
-3. 確認連線到正確的租用戶與**Get RdsTenant。**
-4. 使用**Get RdsHostPool**並**Get RdsSessionHost** cmdlet，可讓您確認的疑難排解是在正確的主應用程式集區。
-5. 執行下列命令來取得所有失敗的活動，針對指定的時間範圍的連接類型的清單：
+1. 確認使用者名稱和問題發生的時間。
+2. 開啟**PowerShell** , 並與報告問題的 Windows 虛擬桌面租使用者建立連接。
+3. 使用 RdsTenant 確認與正確租使用者的連線 **。**
+4. 使用**RdsHostPool**和**RdsSessionHost** Cmdlet, 確認已在正確的主機集區上進行疑難排解。
+5. 執行下列命令, 以取得在指定的時間範圍內, 連線類型的所有失敗活動清單:
 
     ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-6. 使用**ActivityId**從先前的 cmdlet 輸出中，執行下列命令：
+6. 使用前述 Cmdlet 輸出中的**ActivityId** , 執行下列命令:
 
     ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-7. 此命令會產生輸出類似如下所示的輸出。 使用**ErrorCodeSymbolic**並**ErrorMessage**進行疑難排解的根本原因。
+7. 命令會產生類似如下所示輸出的輸出。 請使用**ErrorCodeSymbolic**和**ErrorMessage**來疑難排解根本原因。
 
     ```PowerShell
     ErrorSource       : <Source>
@@ -135,45 +135,45 @@ Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
     Time              : <Timestampt>
     ```
 
-### <a name="error-oaddusertogroupfailed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32errornosuchmember"></a>Error:O_ADD_USER_TO_GROUP_FAILED / 無法將使用者新增 = ≤username≥ 群組 = Remote Desktop Users。 原因：Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>錯誤:O_ADD_USER_TO_GROUP_FAILED/無法將 USER = ≤ username ≥新增至群組 = 遠端桌面使用者。 理由:Win32.ERROR_NO_SUCH_MEMBER
 
-**原因：** VM 尚未加入網域的使用者物件的位置中。
+**原因：** VM 尚未聯結至使用者物件所在的網域。
 
-**修正：** 將 VM 新增到正確的網域。 請參閱[Windows Server 虛擬機器加入受控網域](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)。
+**補丁**將 VM 新增至正確的網域。 請參閱將[Windows Server 虛擬機器加入受控網域](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)。
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Error:Nslookup 無法解析名稱
+### <a name="error-nslookup-cannot-resolve-the-name"></a>錯誤:Nslookup 無法解析名稱
 
 **原因：** 網路問題或中斷。
 
-**修正：** 請連絡網路支援
+**補丁**聯絡網路支援
 
-### <a name="error-connectionfailedclientprotocolerror"></a>Error:ConnectionFailedClientProtocolError
+### <a name="error-connectionfailedclientprotocolerror"></a>錯誤:ConnectionFailedClientProtocolError
 
-**原因：** Vm 使用者嘗試連線到未加入網域。
+**原因：** 使用者嘗試連接的 Vm 未加入網域。
 
-**修正：** 加入屬於網域控制站的主應用程式集區的所有 Vm。
+**補丁**將屬於主機集區一部分的所有 Vm 加入網域控制站。
 
-## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>使用者連線，但不是顯示任何內容 （任何摘要）
+## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>使用者連接, 但不顯示任何內容 (沒有摘要)
 
-使用者可以啟動遠端桌面用戶端，並能夠進行驗證，但是使用者不會看到 web 探索摘要中的任何圖示。
+使用者可以啟動遠端桌面用戶端, 而且能夠進行驗證, 不過使用者在 web 探索摘要中看不到任何圖示。
 
-確認使用者回報的問題已藉由使用這個命令列指派給應用程式群組：
+使用下列命令列, 確認已將報告問題的使用者指派給應用程式群組:
 
 ```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
-確認使用者登入正確的認證。
+確認使用者以正確的認證登入。
 
-如果 web 用戶端正在使用中，確認沒有任何快取的認證的問題。
+如果正在使用 web 用戶端, 請確認沒有任何快取的認證問題。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需疑難排解 Windows 的虛擬桌面和擴大追蹤的概觀，請參閱 <<c0> [ 疑難排解概觀、 意見反應和支援](troubleshoot-set-up-overview.md)。
-- 若要針對問題進行疑難排解在 Windows 虛擬桌面環境中建立的租用戶和主應用程式集區時，請參閱[租用戶，然後主應用程式集區建立](troubleshoot-set-up-issues.md)。
-- 若要設定虛擬機器 (VM) 中 Windows 虛擬桌面時疑難排解問題，請參閱[工作階段主機的虛擬機器設定](troubleshoot-vm-configuration.md)。
-- 若要使用 PowerShell 與 Windows 虛擬桌面時，請疑難排解問題，請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
-- 若要深入了解預覽服務，請參閱[Windows Desktop 預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?)。
-- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)。
+- 如需疑難排解 Windows 虛擬桌面和擴大追蹤的總覽, 請參閱[疑難排解總覽、意見反應和支援](troubleshoot-set-up-overview.md)。
+- 若要針對在 Windows 虛擬桌面環境中建立租使用者和主機集區的問題進行疑難排解, 請參閱[建立租使用者和主機集](troubleshoot-set-up-issues.md)區。
+- 若要在 Windows 虛擬桌面中設定虛擬機器 (VM) 時針對問題進行疑難排解, 請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
+- 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解, 請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
+- 若要深入瞭解預覽服務, 請參閱[Windows 桌面預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?)。
+- 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)進行疑難排解。
 - 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
 - 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。

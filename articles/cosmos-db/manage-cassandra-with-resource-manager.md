@@ -1,29 +1,32 @@
 ---
-title: 適用於 Azure Cosmos DB Cassandra API 的 azure Resource Manager 範本
+title: Azure Cosmos DB 的 Azure Resource Manager 範本 Cassandra API
 description: 使用 Azure Resource Manager 範本來建立和設定 Azure Cosmos DB Cassandra API。
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: db754adbe60acfa155400910c47de556db793eef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: beae89b3f8e21e2f56a1dbf2090b7a612ed5cab0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968905"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815106"
 ---
-# <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>管理 Azure Cosmos DB Cassandra API 使用 Azure Resource Manager 範本的資源
+# <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Azure Cosmos DB Cassandra API 資源
 
-## 建立 Azure Cosmos 帳戶、 keyspace 和資料表 <a id="create-resource"></a>
+## 建立 Azure Cosmos 帳戶、keyspace 和資料表<a id="create-resource"></a>
 
-建立使用 Azure Resource Manager 範本的 Azure Cosmos DB 資源。 此範本會建立 Cassandra API 的 Azure Cosmos 帳戶，具有共用 400 RU/秒的輸送量，keyspace 層級的兩個資料表。 複製範本和部署，如下所示，或瀏覽[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/)並從 Azure 入口網站部署。 您可以也將範本下載至本機電腦或建立新的範本並指定本機路徑`--template-file`參數。
+使用 Azure Resource Manager 範本建立 Azure Cosmos DB 資源。 此範本會為 Cassandra API 建立 Azure Cosmos 帳戶, 其中包含兩個數據表, 在 keyspace 層級共用 400 RU/秒的輸送量。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
+
+> [!NOTE]
+> 帳戶名稱必須是小寫, 且 < 31 個字元。
 
 [!code-json[create-cosmos-Cassandra](~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json)]
 
 ## <a name="deploy-with-azure-cli"></a>使用 Azure CLI 進行部署
 
-若要部署使用 Azure CLI Resource Manager 範本**複製**指令碼，然後選取**試試**開啟 Azure Cloud shell 中。 若要將指令碼，shell 中，以滑鼠右鍵按一下，然後按**貼上**:
+若要使用 Azure CLI 部署 Resource Manager 範本, 請**複製**腳本, 然後選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
 
 ```azurecli-interactive
 
@@ -45,17 +48,17 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-`az cosmosdb show`已佈建之後，命令會顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用在本機安裝的 Azure CLI 的版本，而不是使用 CloudShell，請參閱[Azure 命令列介面 (CLI)](/cli/azure/)文章。
+此`az cosmosdb show`命令會在布建完成後, 顯示新建立的 Azure Cosmos 帳戶。 如果您選擇使用本機安裝的 Azure CLI 版本, 而不是使用 CloudShell, 請參閱[Azure 命令列介面 (CLI)](/cli/azure/)一文。
 
-## 更新的 keyspace 的輸送量 （RU/秒） <a id="keyspace-ru-update"></a>
+## 更新 keyspace 上的輸送量 (RU/秒)<a id="keyspace-ru-update"></a>
 
-下列範本會更新 keyspace 的輸送量。 複製範本和部署，如下所示，或瀏覽[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-keyspace-ru-update/)並從 Azure 入口網站部署。 您可以也將範本下載至本機電腦或建立新的範本並指定本機路徑`--template-file`參數。
+下列範本會更新 keyspace 的輸送量。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-keyspace-ru-update/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
 
 [!code-json[cosmosdb-cassandra-keyspace-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json)]
 
-### <a name="deploy-keyspace-template-via-azure-cli"></a>部署 keyspace 範本透過 Azure CLI
+### <a name="deploy-keyspace-template-via-azure-cli"></a>透過 Azure CLI 部署 keyspace 範本
 
-若要部署使用 Azure CLI Resource Manager 範本，請選取**試試**開啟 Azure Cloud shell 中。 若要將指令碼，shell 中，以滑鼠右鍵按一下，然後按**貼上**:
+若要使用 Azure CLI 部署 Resource Manager 範本, 請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -68,15 +71,15 @@ az group deployment create --resource-group $resourceGroupName \
    --parameters accountName=$accountName keyspaceName=$keyspaceName throughput=$throughput
 ```
 
-## 更新資料表上的輸送量 （RU/秒） <a id="table-ru-update"></a>
+## 更新資料表上的輸送量 (RU/秒)<a id="table-ru-update"></a>
 
-下列範本會更新資料表的輸送量。 複製範本和部署，如下所示，或瀏覽[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-table-ru-update/)並從 Azure 入口網站部署。 您可以也將範本下載至本機電腦或建立新的範本並指定本機路徑`--template-file`參數。
+下列範本會更新資料表的輸送量。 複製範本並如下所示部署, 或造訪[Azure 快速入門資源庫](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-table-ru-update/), 並從 Azure 入口網站進行部署。 您也可以將範本下載到本機電腦, 或使用`--template-file`參數來建立新的範本, 並指定本機路徑。
 
 [!code-json[cosmosdb-cassandra-table-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json)]
 
-### <a name="deploy-table-template-via-azure-cli"></a>部署 透過 Azure CLI 的資料表範本
+### <a name="deploy-table-template-via-azure-cli"></a>透過 Azure CLI 部署資料表範本
 
-若要部署使用 Azure CLI Resource Manager 範本，請選取**試試**開啟 Azure Cloud shell 中。 若要將指令碼，shell 中，以滑鼠右鍵按一下，然後按**貼上**:
+若要使用 Azure CLI 部署 Resource Manager 範本, 請選取 [**試試看**] 以開啟 Azure Cloud shell。 若要貼上腳本, 請以滑鼠右鍵按一下 shell, 然後選取 [**貼**上]:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -94,7 +97,7 @@ az group deployment create --resource-group $resourceGroupName \
 
 以下是一些其他資源：
 
-- [Azure Resource Manager 文件](/azure/azure-resource-manager/)
-- [Azure Cosmos DB 資源提供者結構描述](/azure/templates/microsoft.documentdb/allversions)
+- [Azure Resource Manager 檔](/azure/azure-resource-manager/)
+- [Azure Cosmos DB 資源提供者架構](/azure/templates/microsoft.documentdb/allversions)
 - [Azure Cosmos DB 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [針對常見的 Azure Resource Manager 部署錯誤進行疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+- [針對常見 Azure Resource Manager 部署錯誤進行疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fb15063e41e83b4c9a9f2e01b6ad18c8afed7f5f
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615815"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740997"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中的應用程式適用的儲存體選項
 
@@ -34,7 +34,9 @@ ms.locfileid: "67615815"
 用來儲存和擷取資料的傳統磁碟區，會建立為受 Azure 儲存體支援的 Kubernetes 資源。 您可以手動建立這些資料磁碟區並直接將其指派給 Pod，或是由 Kubernetes 自動加以建立。 這些資料磁碟區可使用 Azure 磁碟或 Azure 檔案：
 
 - *Azure 磁碟*可用來建立 Kubernetes *DataDisk* 資源。 Azure 磁碟可以使用採用高效能 SSD 的 Azure 進階儲存體，或是採用一般 HDD 的 Azure 標準儲存體。 對於大部分的生產和開發工作負載，請使用進階儲存體。 Azure 磁碟會以 *ReadWriteOnce* 的形式掛接，因此僅適用於單一節點。 對於可同時供多個節點存取的存放磁碟區，請使用 Azure 檔案。
-- *Azure 檔案*可用來將 Azure 儲存體帳戶所支援的 SMB 3.0 共用掛接至 Pod。 Azure 檔案可讓您在多個節點和 Pod 之間共用資料。 Azure 檔案目前只能使用採用一般 HDD 的 Azure 標準儲存體。
+- *Azure 檔案*可用來將 Azure 儲存體帳戶所支援的 SMB 3.0 共用掛接至 Pod。 Azure 檔案可讓您在多個節點和 Pod 之間共用資料。 檔案可以使用由一般 Hdd 或 Azure Premium 儲存體所支援的 Azure 標準儲存體 (由高效能 Ssd 支援)。
+> [!NOTE] 
+> Azure 檔案儲存體在執行 Kubernetes 1.13 或更高版本的 AKS 叢集中支援 premium 儲存體。
 
 在 Kubernetes 中，磁碟區所代表的不只是可供儲存和擷取資訊的傳統磁碟。 Kubernetes 磁碟區也可用來將資料插入 Pod 中，供容器使用。 Kubernetes 中常見的其他磁碟區類型包括：
 
@@ -121,22 +123,22 @@ spec:
 
 ## <a name="next-steps"></a>後續步驟
 
-如需相關聯的最佳作法，請參閱[儲存體和 AKS 中的備份的最佳做法][operator-best-practices-storage]。
+如需相關的最佳作法, 請參閱[AKS 中儲存和備份的最佳作法][operator-best-practices-storage]。
 
 若要了解如何建立使用 Azure 磁碟或 Azure 檔案的動態和靜態磁碟區，請參閱下列操作說明文章：
 
-- [建立靜態的磁碟區，使用 Azure 磁碟][aks-static-disks]
-- [建立靜態的磁碟區，使用 Azure 檔案][aks-static-files]
-- [建立使用 Azure 磁碟的動態磁碟區][aks-dynamic-disks]
-- [建立動態磁碟區使用 Azure 檔案][aks-dynamic-files]
+- [使用 Azure 磁片建立靜態卷][aks-static-disks]
+- [使用 Azure 檔案儲存體建立靜態磁片區][aks-static-files]
+- [使用 Azure 磁片建立動態磁碟區][aks-dynamic-disks]
+- [使用 Azure 檔案儲存體建立動態磁碟區][aks-dynamic-files]
 
 如需關於 Kubernetes 及 AKS 核心概念的詳細資訊，請參閱下列文章：
 
-- [Kubernetes / AKS 叢集和工作負載][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS 身分識別][aks-concepts-identity]
-- [Kubernetes / AKS 安全性][aks-concepts-security]
-- [Kubernetes / AKS 虛擬網路][aks-concepts-network]
-- [Kubernetes / AKS 調整][aks-concepts-scale]
+- [Kubernetes/AKS 叢集和工作負載][aks-concepts-clusters-workloads]
+- [Kubernetes/AKS 身分識別][aks-concepts-identity]
+- [Kubernetes/AKS 安全性][aks-concepts-security]
+- [Kubernetes/AKS 虛擬網路][aks-concepts-network]
+- [Kubernetes/AKS scale][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 

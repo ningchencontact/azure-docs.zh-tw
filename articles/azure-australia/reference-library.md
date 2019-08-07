@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: grgale
-ms.openlocfilehash: 0c575076439e3405d34fe0ef3beff0242a53a8c5
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 48b4b71d80bcef1eaf3bf89c0b14c8033748684e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601821"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779340"
 ---
 # <a name="additional-documentation-and-resources-by-focus-area"></a>依焦點區域的其他檔和資源
 
@@ -22,7 +22,7 @@ ms.locfileid: "68601821"
 * [Microsoft 服務信任入口網站的澳大利亞頁面](https://aka.ms/au-irap)
 * [Microsoft 信任中心 CCSL 頁面](https://www.microsoft.com/trustcenter/compliance/ccsl)
 * [適用于受保護的 Azure 安全性與合規性藍圖](https://aka.ms/au-protected)
-* [Microsoft Azure 中的租使用者隔離](https://docs.microsoft.com/azure/security/azure-isolation)
+* [Microsoft Azure 中的租使用者隔離](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
 * [澳大利亞資訊安全性手冊](https://www.cyber.gov.au/ism)
 * [澳大利亞網路安全中心 (ACSC) 認證的雲端清單](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
 
@@ -32,7 +32,7 @@ ms.locfileid: "68601821"
 * [關於金鑰、密碼與憑證](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [設定 Azure Key Vault 防火牆和虛擬網路](https://docs.microsoft.com/azure/key-vault/key-vault-network-security)
 * [保護金鑰保存庫的存取權](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
-* [Azure 資料靜態加密](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+* [Azure 資料靜態加密](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 * [如何在 .NET 中搭配使用 Azure Key Vault 與 Azure Windows 虛擬機器](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Azure Key Vault 受控儲存體帳戶-PowerShell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [設定金鑰輪替和審核](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
@@ -68,7 +68,7 @@ ms.locfileid: "68601821"
 * [Azure RBAC 總覽](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Azure 特殊許可權識別管理總覽](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
 * [Azure 管理群組總覽](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Azure 身分識別與存取控制最佳作法](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
+* [Azure 身分識別與存取控制最佳作法](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [管理 Azure AD 群組](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [混合式身分識別](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 * [RBAC 自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)

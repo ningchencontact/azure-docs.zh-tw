@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/22/2019
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4288ff4aba216a214d10c56ba448fc03e13b81f2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
-ms.translationtype: HT
+ms.openlocfilehash: 09590fbd340ac3945f05346f99254ec0b76dcd76
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693938"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834989"
 ---
 # <a name="logging"></a>記錄
 Microsoft 驗證程式庫 (MSAL) 應用程式能產生記錄訊息，其可用來協助診斷問題及提供詳細資料。 應用程式可透過幾行程式碼來設定記錄，並針對詳細資料層級和是否要記錄個人和組織資料具有自訂控制。 建議您設定 MSAL 記錄回呼，並為使用者提供在遇到驗證問題時提交記錄的方法。

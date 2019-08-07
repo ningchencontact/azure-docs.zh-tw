@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67616248"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740925"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中使用授權的 IP 位址範圍來保護 API 伺服器的存取
 
@@ -218,13 +218,13 @@ echo "Public IP address for the Azure Firewall instance that should be added to 
 
 使用[az aks update][az-aks-update]命令, 並指定要允許的 *--api 伺服器授權 ip 範圍*。 這些 IP 位址範圍通常是內部部署網路所使用的位址範圍。 新增您自己在上一個步驟中取得的 Azure 防火牆公用 IP 位址, 例如*20.42.25.196/32*。
 
-下列範例會在名為*myResourceGroup*的資源群組中, 于名為*myAKSCluster*的叢集上啟用 API 伺服器授權的 IP 範圍。 要授權的 IP 位址範圍是*20.42.25.196/32* (Azure 防火牆公用 IP 位址), 然後是*172.0.0.10/16*和*168.10.0.10/18*:
+下列範例會在名為*myResourceGroup*的資源群組中, 于名為*myAKSCluster*的叢集上啟用 API 伺服器授權的 IP 範圍。 要授權的 IP 位址範圍是*20.42.25.196/32* (Azure 防火牆公用 IP 位址), 然後是*172.0.0.0/16*和*168.10.0.0/18*:
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>更新或停用授權的 IP 範圍

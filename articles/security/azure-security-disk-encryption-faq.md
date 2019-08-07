@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 4f2a34e63a870814c8d2a3ffe24c60083c9d7bb2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653390"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781098"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -36,26 +36,26 @@ Azure 磁碟加密 GA 支援 Azure Resource Manager 範本、Azure PowerShell �
 
 ## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>哪些 VM 大小和作業系統支援 Azure 磁碟加密？
 
-[Azure 磁碟加密先決條件](azure-security-disk-encryption-prerequisites.md)發行項清單[VM 大小](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes)並[VM 作業系統](azure-security-disk-encryption-prerequisites.md#supported-operating-systems)支援 Azure 磁碟加密。
+[Azure 磁碟加密必要條件](azure-security-disk-encryption-prerequisites.md)文章列出支援 Azure 磁碟加密的[Vm 大小](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes)和[vm 作業系統](azure-security-disk-encryption-prerequisites.md#supported-operating-systems)。
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>是否可以使用 Azure 磁碟加密來加密開機和資料磁碟區？
 
-是，您可以加密 Windows 和 Linux IaaS VM 適用的開機和資料磁碟區。 針對 Windows VM，您若未先將 OS 磁碟區加密，就無法將資料加密。 針對 Linux VM，您無須先將 OS 磁碟區加密，即可為資料磁碟區加密。 您將 Linux 適用的 OS 磁碟區加密之後，就不支援為 Linux IaaS VM 適用的 OS 磁碟區停用加密。 適用於 Linux Vm 擴展集內，可以加密資料磁碟區。
+是，您可以加密 Windows 和 Linux IaaS VM 適用的開機和資料磁碟區。 針對 Windows VM，您若未先將 OS 磁碟區加密，就無法將資料加密。 針對 Linux VM，您無須先將 OS 磁碟區加密，即可為資料磁碟區加密。 您將 Linux 適用的 OS 磁碟區加密之後，就不支援為 Linux IaaS VM 適用的 OS 磁碟區停用加密。 針對擴展集中的 Linux Vm, 只有資料磁片區可以加密。
 
-## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>取消掛接的磁碟區使用 Azure 磁碟加密可以加密？
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>我可以使用 Azure 磁碟加密加密卸載的磁片區嗎？
 
-否，Azure 磁碟加密僅加密已掛接的磁碟區。
+否, Azure 磁碟加密只會加密已掛接的磁片區。
 
-## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>如何旋轉祕密或加密金鑰？
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>如何? 輪替秘密或加密金鑰？
 
-若要輪替使用祕密，只會呼叫您原先用來啟用磁碟加密的相同命令，指定不同的金鑰保存庫。 若要輪替金鑰加密金鑰，呼叫相同的命令，您原先用來啟用磁碟加密，指定新的金鑰加密。 
+若要輪替秘密, 只要呼叫您原先用來啟用磁片加密的相同命令, 並指定不同的 Key Vault。 若要輪替金鑰加密金鑰, 請呼叫您原先用來啟用磁片加密的相同命令, 並指定新的金鑰加密。 
 
 >[!WARNING]
-> - 如果您先前使用過[與 Azure AD 應用程式的 Azure 磁碟加密](azure-security-disk-encryption-prerequisites-aad.md)藉由指定 Azure AD 認證來加密此 VM，您必須繼續使用此選項來加密您的 VM。 您無法在此加密的 VM 上使用 [Azure 磁碟加密](azure-security-disk-encryption-prerequisites.md)，因為這不是支援的案例，表示尚未對此加密的 VM 支援從 AAD 應用程式離開。
+> - 如果您先前已使用[Azure 磁碟加密搭配 Azure AD 應用程式](azure-security-disk-encryption-prerequisites-aad.md), 請指定 Azure AD 認證來加密此 vm, 則必須繼續使用此選項來加密您的 vm。 您無法在此加密的 VM 上使用 [Azure 磁碟加密](azure-security-disk-encryption-prerequisites.md)，因為這不是支援的案例，表示尚未對此加密的 VM 支援從 AAD 應用程式離開。
 
-## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>如何新增或移除金鑰加密金鑰，如果我原本未使用其中一個？
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>如果我原本未使用金鑰加密金鑰, 如何? 新增或移除它？
 
-若要加入金鑰加密金鑰，呼叫一次傳遞金鑰加密金鑰參數的 [啟用] 命令。 若要移除的金鑰加密金鑰，呼叫一次不使用金鑰加密金鑰參數的 [啟用] 命令。
+若要新增金鑰加密金鑰, 請再次呼叫 enable 命令, 並傳遞金鑰加密金鑰參數。 若要移除金鑰加密金鑰, 請在不使用金鑰加密金鑰參數的情況下, 再次呼叫 enable 命令。
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Azure 磁碟加密可讓您使用攜帶自己的金鑰 (BYOK) 嗎？
 
@@ -85,12 +85,12 @@ Azure 磁碟加密有其先決條件。 請參閱 [Azure 磁碟加密的先決�
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Azure 磁碟加密支援 Azure PowerShell 的什麼版本？
 
-使用最新版的 Azure PowerShell SDK 來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。 Azure SDK 1.1.0 版「不」  支援 Azure 磁碟加密。
+使用最新版的 Azure PowerShell SDK 來設定 Azure 磁碟加密。 下載最新版的 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。 Azure SDK 1.1.0 版「不」支援 Azure 磁碟加密。
 
 > [!NOTE]
-> Linux Azure 磁碟加密預覽擴充功能 」 Microsoft.OSTCExtension.AzureDiskEncryptionForLinux"已被取代。 Azure 磁碟加密預覽版本已發行此延伸模組。 您不應該在測試或生產環境部署中使用擴充功能的預覽版本。
+> Linux Azure 磁片加密預覽延伸模組 "OSTCExtension. AzureDiskEncryptionForLinux" 已被取代。 此延伸模組已針對 Azure 磁片加密預覽版本發行。 您不應該在測試或生產環境部署中使用延伸模組的預覽版本。
 
-> 對於部署案例類似 Azure Resource Manager (ARM)，其中您有需要部署在 Linux IaaS VM 上啟用加密的 Linux VM 的 Azure 磁碟加密擴充功能，您必須使用 Azure 磁碟加密支援的實際執行擴充功能 」Microsoft.Azure.Security.AzureDiskEncryptionForLinux"。
+> 對於如 Azure Resource Manager (ARM) 之類的部署案例, 您必須部署適用于 Linux VM 的 Azure 磁片加密延伸模組, 才能在 Linux IaaS VM 上啟用加密功能, 您必須使用 Azure 磁片加密生產支援的延伸模組」AzureDiskEncryptionForLinux 「。」
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>是否可以在我的自訂 Linux 映像上套用 Azure 磁碟加密？
 
@@ -98,7 +98,7 @@ Azure 磁碟加密有其先決條件。 請參閱 [Azure 磁碟加密的先決�
 
 ## <a name="can-i-apply-updates-to-a-linux-red-hat-vm-that-uses-the-yum-update"></a>是否可使用 Yum 更新將更新套用至 Linux Red Hat VM？
 
-是，您可以執行 yum 更新將 Red Hat Linux VM 上。  如需詳細資訊，請參閱 <<c0> [ 防火牆後方的 Linux 套件管理](azure-security-disk-encryption-tsg.md#linux-package-management-behind-a-firewall)。
+是, 您可以在 Red Hat Linux VM 上執行 yum 更新。  如需詳細資訊, 請參閱[防火牆後方的 Linux 套件管理](azure-security-disk-encryption-tsg.md#linux-package-management-behind-a-firewall)。
 
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>若為 Linux，建議使用何種 Azure 磁碟加密工作流程？
 
@@ -110,7 +110,7 @@ Azure 磁碟加密有其先決條件。 請參閱 [Azure 磁碟加密的先決�
 
 如果此工作流程不可行，靠著平台儲存體帳戶層[的儲存體服務加密](../storage/common/storage-service-encryption.md) (SSE)，可能可以替代使用 dm crypt 的完整磁碟加密。
 
-## <a name="what-is-the-disk-bek-volume-or-mntazurebekdisk"></a>什麼是磁碟 "Bek Volume" 或 "/mnt/azure_bek_disk"？
+## <a name="what-is-the-disk-bek-volume-or-mntazure_bek_disk"></a>什麼是磁碟 "Bek Volume" 或 "/mnt/azure_bek_disk"？
 
 Windows 的 "Bek volume" 或 Linux 的 "/mnt/azure_bek_disk" 均為本機資料磁碟區，會安全地儲存用於已加密 Azure IaaS VM 的加密金鑰。
 > [!NOTE]
@@ -119,17 +119,17 @@ Windows 的 "Bek volume" 或 Linux 的 "/mnt/azure_bek_disk" 均為本機資料�
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Azure 磁碟加密會使用何種加密方法？
 
-在 Windows 上，ADE 會使用 BitLocker AES256 加密方法 (在 Windows Server 2012 之前的版本上會使用 AES256WithDiffuser)。 在 Linux 上，ADE 會使用 256 位元磁碟區主要金鑰解密 aes-xts-plain64 預設值。
+在 Windows 上，ADE 會使用 BitLocker AES256 加密方法 (在 Windows Server 2012 之前的版本上會使用 AES256WithDiffuser)。 在 Linux 上, ADE 會使用 aes-xts-plain64 的解密預設值, 並搭配256位磁片區主要金鑰。
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>如果我使用 EncryptFormatAll，並指定所有的磁碟區類型，是否會因此從已加密的資料磁碟機上清除資料？
 否，不會從已使用「Azure 磁碟加密」進行加密的資料磁碟機中清除資料。 就像 EncryptFormatAll 不會重新加密 OS 磁碟機一樣，它也不會重新加密已加密的資料磁碟機。 如需詳細資訊，請參閱 [EncryptFormatAll 準則](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)。        
 
-## <a name="is-xfs-filesystem-supported"></a>是否支援 XFS 檔案系統？
-只能搭配 EncryptFormatAll 的資料磁碟加密支援 XFS 磁碟區。 這會重新格式化磁碟區，並清除任何資料之前發生。 如需詳細資訊，請參閱 [EncryptFormatAll 準則](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)。
+## <a name="is-xfs-filesystem-supported"></a>是否支援 XFS filesystem？
+只有在使用 EncryptFormatAll 時, 才支援 XFS 磁片區的資料磁片加密。 這會重新格式化磁片區, 並清除先前的任何資料。 如需詳細資訊，請參閱 [EncryptFormatAll 準則](azure-security-disk-encryption-linux.md#bkmk_EFACriteria)。
 
-## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>我可以備份與還原加密的 VM？ 
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>我可以備份和還原已加密的 VM 嗎？ 
 
-Azure 備份提供一個機制來備份與還原加密的 VM 的相同的訂用帳戶和區域內。  如需指示，請參閱[備份與還原加密的虛擬機器，使用 Azure 備份](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)。  目前不支援加密的 VM 還原至不同的區域。  
+Azure 備份提供一種機制, 可在相同的訂用帳戶和區域內備份和還原已加密的 VM。  如需指示, 請參閱[使用 Azure 備份備份和還原已加密的虛擬機器](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)。  目前不支援將加密的 VM 還原到不同的區域。  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>我可以在哪裡提出問題或意見反應？
 
@@ -140,4 +140,4 @@ Azure 備份提供一個機制來備份與還原加密的 VM 的相同的訂用�
 
 - [Azure 磁碟加密概觀](azure-security-disk-encryption-overview.md)
 - [在 Azure 資訊安全中心套用磁碟加密](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [待用 Azure 資料加密](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [待用 Azure 資料加密](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

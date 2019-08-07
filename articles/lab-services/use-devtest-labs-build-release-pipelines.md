@@ -1,6 +1,6 @@
 ---
-title: 在 Azure DevOps 組建和發行管線中使用 DevTest Labs |Microsoft Docs
-description: 瞭解如何使用 Azure DevOps 組建和發行管線中的 Azure DevTest Labs。
+title: 在 Azure Pipelines 組建和發行管線中使用 DevTest Labs |Microsoft Docs
+description: 瞭解如何使用 Azure Pipelines 組建和發行管線中的 Azure DevTest Labs。
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 606563cd7d7adcdd79bf9561876eb0640fb68b21
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620892"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774455"
 ---
-# <a name="use-devtest-labs-in-azure-devops-build-and-release-pipelines"></a>使用 Azure DevOps 建置和發行管線中的 DevTest 實驗室
-本文提供如何在 Azure DevOps 組建和發行管線中使用 DevTest Labs 的相關資訊。 
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>在 Azure Pipelines 組建和發行管線中使用 DevTest Labs
+本文提供如何在 Azure Pipelines 組建和發行管線中使用 DevTest Labs 的相關資訊。 
 
 ## <a name="overall-flow"></a>整體流程
 基本流程是使用**組建管線**來執行下列工作:
@@ -49,7 +49,7 @@ ms.locfileid: "68620892"
 組建管線會建立 DevTest Labs 環境, 並部署程式碼來進行測試。
 
 ## <a name="set-up-a-build-pipeline"></a>設定組建管線
-在 Azure DevOps 中, 使用[教學課程中的程式碼建立組建管線:在 Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)中建立 .net Core 和 SQL Database web 應用程式。 使用 [ **ASP.NET Core** ] 範本, 這會填入建立、測試及發佈程式碼所需的工作。
+在 Azure Pipelines 中, 使用[教學課程中的程式碼建立組建管線:在 Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)中建立 .net Core 和 SQL Database web 應用程式。 使用 [ **ASP.NET Core** ] 範本, 這會填入建立、測試及發佈程式碼所需的工作。
 
 ![選取 ASP.NET 範本](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -85,7 +85,7 @@ ms.locfileid: "68620892"
 
 ![App Service 部署工作](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
-## <a name="setup-release-pipeline"></a>安裝程式發行管線
+## <a name="set-up-release-pipeline"></a>設定發行管線
 您會建立具有兩個工作的發行管線:**Azure 部署:建立或更新資源群組** , 並**部署 Azure App Service**。 
 
 針對第一個工作, 指定資源群組的名稱和位置。 範本位置是連結的成品。 如果 Resource Manager 範本包含連結的範本, 則必須實作為自訂資源群組部署。 範本位於已發行的卸載成品中。 覆寫 Resource Manager 範本的範本參數。 您可以保留其餘設定的預設值。 
@@ -98,5 +98,5 @@ ms.locfileid: "68620892"
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章：
 
-- [將 Azure DevTest Labs 整合到您的 Azure DevOps 持續整合和傳遞管線](devtest-lab-integrate-ci-cd-vsts.md)
-- [將環境整合到您的 Azure DevOps CI/CD 管線](integrate-environments-devops-pipeline.md)
+- [將 Azure DevTest Labs 整合到您的 Azure Pipelines 持續整合和傳遞管線](devtest-lab-integrate-ci-cd-vsts.md)
+- [將環境整合到您的 Azure Pipelines CI/CD 管線](integrate-environments-devops-pipeline.md)

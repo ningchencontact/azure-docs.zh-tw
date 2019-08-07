@@ -1,176 +1,176 @@
 ---
-title: 常見問題集-CloudSimple VMware 方案
-description: Azure CloudSimple VMware 解決方案的常見問題集
+title: 常見問題-依 CloudSimple 的 VMware 解決方案
+description: Azure VMware Solution by CloudSimple 的常見問題
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 05/24/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e187a4a75a27e206a632388f1e20a94da032eb08
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 80380a1c33927029e000e59a5834f297340f5be3
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595351"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816237"
 ---
-# <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>關於 VMware CloudSimple 方案常見問題集
+# <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>VMware Solution by CloudSimple 的常見問題
 
-常見問題集的問與答 CloudSimple Azure VMware 解決方案可協助您了解服務以及如何使用它。 在下列分類排列的問題與解答：
+有關 Azure VMware Solution by CloudSimple 的常見問題和解答, 可協助您瞭解服務及其使用方式。 問題和答案會依照下列分類排列:
 
 * CloudSimple 服務
 * 連線能力
 * 網路功能
 * 安全性
 * 計算
-* 儲存體
-* VMware
+* 存放區
+* VMWare
 * 與 Azure 整合
  
 ## <a name="cloudsimple-service"></a>CloudSimple 服務
 
-**什麼是 Azure CloudSimple VMware 方案？**
+**什麼是 Azure VMware Solution by CloudSimple？**
 
-Azure 的 VMware 解決方案由 CloudSimple 轉換，並擴充至私用、 專用的雲端，在 Azure 上的 VMware 工作負載，以分鐘為單位。 解決方案會佈建、 管理基礎結構，並協調內部部署與 Azure 之間的工作負載。 因為您的應用程式執行完全相同內部部署與在 Azure 中，您受益的彈性和雲端，以免除複雜的重新架構您的應用程式的服務。 CloudSimple 降低與雲端耗用量模型，可提供隨選佈建、 全額而定-做-您-成長，以及容量最佳化的擁有權總成本。 功能、 權益和案例，請參閱[什麼是 Azure 的 VMware 解決方案由 CloudSimple？](cloudsimple-vmware-solutions-overview.md)。
+Azure VMware 解決方案藉由 CloudSimple 在短短幾分鐘內, 將 VMware 工作負載轉換並延伸至 Azure 上的私用雲端專用雲端。 解決方案會布建、管理基礎結構, 並協調內部部署與 Azure 之間的工作負載。 由於您的應用程式在內部部署和 Azure 中執行的方式完全相同, 因此您可以從雲端的彈性和服務獲益, 而不需要重新架構應用程式的複雜性。 CloudSimple 透過雲端耗用量模型降低您的擁有權總成本, 提供隨選布建、隨用隨付和容量優化。 如需功能、優點和案例, 請參閱[什麼是 Azure VMware Solution By CloudSimple？](cloudsimple-vmware-solutions-overview.md)。
 
 **什麼是 CloudSimple 私用雲端？**
 
-您佈建私用、 專用的雲端所組成的高效能計算、 儲存和部署 Microsoft Azure 基礎結構 （硬體及資料中心空間） 上的 Azure 位置中的網路環境。 私用雲端提供原生的 VMware 平台即服務。 在 VMware 詞彙中，每個私人雲端會包含一個 vcenter Server 的執行個體。 VCenter 伺服器管理多個 ESXi 節點包含一或多個 vSphere 叢集，並使用對應的 vSAN 儲存體中。 CloudSimple 服務可以包含在您的 Azure 訂用帳戶中的多個私人雲端。 如需私人雲端的詳細資訊，請參閱[私人雲端概觀](cloudsimple-private-cloud.md)。
+您可以布建私人的專用雲端, 其中包含部署在 Azure 位置的 Microsoft Azure 基礎結構 (硬體和資料中心空間) 上的高效能計算、儲存體和網路環境。 私用雲端提供原生 VMware 平臺即服務。 在 VMware 方面, 每個私人雲端都只包含一個 vCenter Server 實例。 此 vCenter Server 會管理一或多個 vSphere 叢集包含的多個 ESXi 節點, 以及對應的 vSAN 儲存體。 CloudSimple 服務可在您的 Azure 訂用帳戶中包含多個私人雲端。 如需私人雲端的詳細資訊, 請參閱[私用雲端總覽](cloudsimple-private-cloud.md)。
 
-**其中是 CloudSimple 服務可用？**
+**CloudSimple 服務可在何處取得？**
 
-CloudSimple 適用於美國東部和美國西部區域。
+CloudSimple 適用于美國東部和美國西部區域。
 
-**如何啟用我的訂用帳戶，如 CloudSimple？**
+**如何? 啟用 CloudSimple 的訂用帳戶嗎？**
 
-請連絡您的 Microsoft 帳戶代表在[ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com)啟用 CloudSimple 服務的訂用帳戶。 提供您要為其啟用 CloudSimple 服務電子郵件中的訂用帳戶識別碼。 
+請洽詢您的 Microsoft 帳戶[azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com)代表, 以啟用 CloudSimple 服務的訂用帳戶。 在您要啟用 CloudSimple 服務的電子郵件中, 提供您的訂用帳戶識別碼。 
 
-**如何存取 CloudSimple 入口網站？**
+**如何? 存取 CloudSimple 入口網站嗎？**
 
-您從 Azure 入口網站存取 CloudSimple 入口網站。 如需如何存取 CloudSimple 入口網站的資訊，請參閱[CloudSimple 入口網站中從 Azure 入口網站來存取 VMware 解決方案](https://docs.azure.cloudsimple.com/access-cloudsimple-portal)。
+您會從 Azure 入口網站存取 CloudSimple 入口網站。 如需如何存取 CloudSimple 入口網站的相關資訊, 請參閱[從 Azure 入口網站存取 VMware 解決方案 By CloudSimple 入口網站](https://docs.azure.cloudsimple.com/access-cloudsimple-portal)。
 
-**如何增加私人雲端容量？**
+**如何? 增加私人雲端的容量嗎？**
 
-您從 Azure 入口網站佈建節點，然後展開 CloudSimple 入口網站從您私用雲端。 藉由新增節點至現有的 vSphere 叢集或建立新的 vSphere 叢集，您可以展開您的私人雲端。 如需此程序資訊，請參閱[展開 CloudSimple 私用雲端](https://docs.azure.cloudsimple.com/expand-private-cloud)。
+您可以從 Azure 入口網站布建節點, 並從 CloudSimple 入口網站擴充您的私人雲端。 您可以藉由將節點新增至現有的 vSphere 叢集, 或藉由建立新的 vSphere 叢集, 來擴充您的私用雲端。 如需程式的相關資訊, 請參閱[擴充 CloudSimple 私用雲端](https://docs.azure.cloudsimple.com/expand-private-cloud)。
 
-**會發生什麼事我的私人雲端在維護期間？**
+**在維護期間, 我的私人雲端會發生什麼事？**
 
-CloudSimple 提供定期通知排程維護的天數。 維護完成無干擾的方式，以確保您的私用雲端的可用性。 維護可以是下列類型：
+CloudSimple 提供排定的維護前的定期通知天數。 維護是以無中斷的方式進行, 以確保私用雲端的可用性。 維護可以是下列類型:
 
-- **CloudSimple 基礎結構**:CloudSimple 基礎結構被設計為高可用性。 在維護期間，連線能力和可用性的私人雲端被確保藉由更新備援元件一次而造成的影響。 您可以存取您的私用雲端 vCenter、 所有虛擬機器、 從您的私人雲端的網際網路連線和連線到內部部署或 Azure。
-- **CloudSimple 入口網站**:在維護期間，CloudSimple 入口網站上的某些功能可能無法存取，或可能會停用。 維護通知會包含項目可以在入口網站的相關資訊。
+- **CloudSimple 基礎結構**:CloudSimple 基礎結構是設計為高可用性。 在維護期間, 您可以一次更新一個重複的元件, 而不會有任何影響, 以確保私人雲端的連線能力和可用性。 您可以存取私人雲端 vCenter、所有虛擬機器、來自私人雲端的網際網路連線, 以及內部部署或 Azure 的連接。
+- **CloudSimple 入口網站**:在維護期間, CloudSimple 入口網站上的某些功能可能無法存取, 或可能已停用。 維護通知會包含可以在入口網站上完成之作業的相關資訊。
 
 ## <a name="connectivity"></a>連線能力
 
-**我 CloudSimple 的區域網路的連線選項有哪些？**
+**我的 CloudSimple 區域網路的連線選項有哪些？**
 
-CloudSimple 提供三種不同的連接選項，來連接到 CloudSimple 區域網路。 所有的三個選項可以一起使用：
+CloudSimple 提供三種不同的連線選項來連接到您的 CloudSimple 區域網路。 這三個選項都可以搭配使用:
 
-- Azure ExpressRoute 從內部部署資料中心 CloudSimple 區域網路連線：高速低延遲安全私人連線，可用來銜接內部部署 ExpressRoute 線路對 CloudSimple ExpressRoute 線路使用觸及全球範圍。 若要設定的連線，請參閱[連接從內部部署到使用 ExpressRoute CloudSimple](https://docs.azure.cloudsimple.com/on-premises-connection)。
-- ExpressRoute 連線從 Azure 虛擬網路到 CloudSimple 區域網路：高速、 低延遲安全私人連線，可用來銜接 CloudSimple ExpressRoute 線路與虛擬網路在 Azure 上的使用虛擬網路閘道。 若要設定的連線，請參閱[CloudSimple 私用雲端環境使用連接到 Azure 虛擬網路 ExpressRoute](https://docs.azure.cloudsimple.com/azure-expressroute-connection)。
-- 站對站 VPN 連線從內部部署資料中心到 CloudSimple 區域網路：安全的虛擬私人網路從您的內部部署 VPN 裝置到 CloudSimple 私用雲端區域。 若要設定的連線，請參閱[設定您的內部部署網路與 CloudSimple 私用雲端之間的 VPN 連線](https://docs.azure.cloudsimple.com/set-up-vpn)。
+- 從您的內部部署資料中心到 CloudSimple 區域網路的 Azure ExpressRoute 連線:一種高速低延遲的安全私人連線, 可使用全球範圍, 將您的內部部署 ExpressRoute 線路與 CloudSimple 的 ExpressRoute 線路橋接。 若要設定連線, 請參閱[使用 ExpressRoute 從內部部署連接到 CloudSimple](https://docs.azure.cloudsimple.com/on-premises-connection)。
+- 從您的 Azure 虛擬網路到 CloudSimple 區域網路的 ExpressRoute 連線:一種高速、低延遲的安全私人連線, 可使用虛擬網路閘道, 將 Azure 上的虛擬網路與您的 CloudSimple ExpressRoute 電路橋接。 若要設定連線, 請參閱[使用 ExpressRoute 將您的 CloudSimple 私用雲端環境連接到 Azure 虛擬網路](https://docs.azure.cloudsimple.com/azure-expressroute-connection)。
+- 從內部部署資料中心到 CloudSimple 區域網路的站對站 VPN 連線:從您的內部部署 VPN 裝置到 CloudSimple 私用雲端區域的安全虛擬私人網路。 若要設定連線, 請參閱[在內部部署網路與 CloudSimple 私人雲端之間設定 VPN](https://docs.azure.cloudsimple.com/set-up-vpn)連線。
 
-**如何連接至私人雲端？**
+**如何? 連接到私人雲端？**
 
-CloudSimple 入口網站中，您可以檢視您的私人雲端的詳細資料。 若要連線到對應至您的私人雲端的 vCenter，請確定建立網路連線時，會使用站對站、 點對站或 ExpressRoute。 接著，啟動 CloudSimple 入口網站中的，從 Azure 入口網站。 選取 **啟動 vSphere 用戶端**的首頁上，或在私人雲端的 詳細資料 頁面上。
+您可以在 CloudSimple 入口網站中查看私人雲端的詳細資料。 若要連線到與您的私人雲端對應的 vCenter, 請確定已使用站對站、點對站或 ExpressRoute 來建立網路連線。 然後, 從 Azure 入口網站啟動 CloudSimple 入口網站。 在首頁或私人雲端詳細資料頁面上, 選取 [**啟動 VSphere 用戶端**]。
 
 **ExpressRoute 線路的優點為何？**
 
-Azure ExpressRoute 線路提供的高速、 低延遲的安全連線。 CloudSimple 提供專用的 ExpressRoute 線路，每個區域每位客戶。 使用這個循環，您可以建立從內部部署和 Azure 訂用帳戶的安全連線。
+Azure ExpressRoute 線路提供高速、低延遲的安全連線。 CloudSimple 會針對每個客戶提供每個區域專用的 ExpressRoute 線路。 使用此線路, 您可以從內部部署和 Azure 訂用帳戶建立安全連線。
 
-**若要連線進出 CloudSimple 的網路成本為何？是否有與 Azure 的 CloudSimple 任何出口流量費用？跨區域是否有任何出口流量費用？**
+**連線到 CloudSimple 或從中進行連接的網路成本為何？CloudSimple 到 Azure 是否有任何輸出費用？區域之間是否有任何出口費用？**
 
-沒有任何網路出口流量費用。 Azure 的標準費率適用於任何的輸出流量從您的虛擬網路，或從內部部署 ExpressRoute 線路。
+網路輸出不收費。 Azure 標準費率適用于來自虛擬網路或內部部署 ExpressRoute 線路的任何輸出流量。
 
 ## <a name="networking"></a>網路功能
 
-**網路功能可供我的私用雲端？**
+**我的私人雲端有哪些網路功能可供使用？**
 
-您可以佈建 Vlan 和子網路和防火牆的資料表。 您可以指派公用 IP 位址，並對應至您的私人雲端中執行的虛擬機器。 如需詳細資訊，請參閱 < [Vlan 和子網路的概觀](cloudsimple-vlans-subnets.md)，[防火牆表格概觀](cloudsimple-firewall-tables.md)，並[公用 IP 位址概觀](cloudsimple-public-ip-address.md)。
+您可以布建 Vlan 及其子網和防火牆資料表。 您可以指派公用 IP 位址, 並對應至在您的私人雲端中執行的虛擬機器。 如需詳細資訊, 請參閱[vlan 和子網總覽](cloudsimple-vlans-subnets.md)、[防火牆資料表總覽](cloudsimple-firewall-tables.md)和[公用 IP 位址總覽](cloudsimple-public-ip-address.md)。
 
-**如何設定不同的子網路設定我的應用程式在我的私人雲端中？**
+**如何? 為我的私人雲端中的應用程式設定不同的子網嗎？**
 
-您可以從您 CloudSimple 入口網站來建立您的私人雲端上的 Vlan。 建立 VLAN 之後，您可以使用 VLAN，私用雲端 vCenter 上建立分散式的連接埠群組，並建立虛擬機器連線至分散式通訊埠群組。 您可以啟用 VLAN] 或 [子網路的防火牆資料表，並定義要保護的網路流量的防火牆規則。
+您可以從 CloudSimple 入口網站在私人雲端上建立 Vlan。 建立 VLAN 之後, 您可以使用 VLAN 在私人雲端 vCenter 上建立分散式通訊埠群組, 並建立連接至分散式通訊埠群組的虛擬機器。 您可以為 VLAN 或子網啟用防火牆資料表, 並定義防火牆規則來保護網路流量。
 
-**哪些防火牆設定可供我的私人雲端？**
+**我的私人雲端有哪些防火牆設定？**
 
-您可以設定北南向調整大小和東-西流量的規則。 防火牆資料表中定義的規則。 防火牆資料表可以附加至您的私人雲端上的 Vlan。 安裝程序中，請參閱[設定防火牆的資料表和規則的私用雲端](https://docs.azure.cloudsimple.com/firewall)。
+您可以設定北南部和東部-西部流量的規則。 這些規則是在防火牆資料表中定義。 防火牆資料表可以連接到私人雲端上的 Vlan。 如需設定程式, 請參閱[設定私人雲端的防火牆資料表和規則](https://docs.azure.cloudsimple.com/firewall)。
 
-**可以指派公用 IP 位址的 Vm 在私用雲端環境中？**
+**我可以為私人雲端環境中的 Vm 指派公用 IP 位址嗎？**
 
-CloudSimple 入口網站中，您可以輕鬆地配置新的公用 IP 位址，並與您的虛擬機器或設備的私人 IP 位址建立關聯。 您也可以建立新的防火牆規則，或套用現有的防火牆規則以允許流量從特定連接埠與特定設定的入口網站中的 IP 位址。 安裝程序中，請參閱[配置的私用雲端環境的公用 IP 位址](https://docs.azure.cloudsimple.com/public-ips)。
+在 CloudSimple 入口網站中, 您可以輕鬆地配置新的公用 IP 位址, 並將它與您虛擬機器或設備的私人 IP 位址產生關聯。 您也可以建立新的防火牆規則, 或套用現有的防火牆規則, 以允許來自入口網站中特定埠和特定 IP 位址集合的流量。 如需安裝程式, 請參閱[配置私人雲端環境的公用 IP 位址](https://docs.azure.cloudsimple.com/public-ips)。
 
 ## <a name="security"></a>安全性
 
-**我在 CloudSimple 上的安全性選項有哪些？**
+**我在 CloudSimple 上有哪些安全性選項？**
 
-CloudSimple 私人雲端可提供下列安全性功能來保護您的私用雲端環境：
+CloudSimple 私用雲端提供下列安全性功能來保護您的私用雲端環境:
 
-- **待用資料加密：** 您可以加密位於 vSAN 儲存體，在您的私人雲端之待用資料。 vSAN 支援外部金鑰管理伺服器，可以部署在 Azure 虛擬網路或內部部署環境。 如需詳細資訊，請參閱 <<c0> [ 設定為 CloudSimple 私人雲端的 vSAN 加密](https://docs.azure.cloudsimple.com/vsan-encryption)。
-- **網路安全性：** 控制網路流量從和到網際網路，在內部與私用雲端是使用防火牆規則的子網路內私人雲端。
-- **安全的私人連線：** 安全、 內部部署網路與您 Azure 訂用帳戶之間的私人連線。
+- **靜態資料加密:** 您可以將位於您私人雲端中 vSAN 儲存體的待用資料加密。 vSAN 支援可在您的 Azure 虛擬網路或內部部署環境中部署的外部金鑰管理伺服器。 如需詳細資訊, 請參閱為[您的 CloudSimple 私人雲端設定 vSAN 加密](https://docs.azure.cloudsimple.com/vsan-encryption)。
+- **網路安全性:** 使用防火牆規則, 從網際網路、內部部署和私人雲端的子網內, 控制進出私人雲端的網路流量。
+- **安全、私人連接:** 內部部署網路與 Azure 訂用帳戶之間的安全、私人連接。
 
 ## <a name="compute"></a>計算
 
-**哪種主機可供使用？**
+**有何種主機可供使用？**
 
-CloudSimple 提供兩種主機類型：
+CloudSimple 提供兩種主機類型:
 
-* **CS28 節點**:CPU:2 2.2 GHz，總計的 28 個核心，48 x HT。 RAM：256 GB。 儲存體:1600 GB NVMe 快取，5760 GB 的資料 （全快閃）。 網路：2x25Gbe nic。
-* **CS36 節點**:CPU 2 x 2.3 GHz，36 的核心總數，72 HT。 RAM：512 GB。 儲存體:3200 GB NVMe 快取 11,520 GB 資料 （全快閃）。 網路：2x25Gbe nic。
+* **CS28 節點**:CPU: 2x 2.2 GHz, 總計28核心, 48 HT。 RAM：256 GB。 儲存體:1600-GB NVMe 快取, 5760-GB 資料 (全部-Flash)。 網路：2x25Gbe NIC。
+* **CS36 節點**:CPU 2x 2.3 GHz, 總36核心, 72 HT。 RAM：512 GB。 儲存體:3200-GB NVMe Cache 11520-GB 資料 (全部-Flash)。 網路：2x25Gbe NIC。
 
-**如何處理的硬體故障？**
+**如何處理硬體失敗？**
 
-所有 CloudSimple 基礎結構會持續都監視 CloudSimple 平台和其服務營運團隊。 如果偵測到硬體失敗時，新的節點會加入您的私人雲端中。 失敗的節點會移除以確保您的私人雲端的高可用性。
+CloudSimple 平臺和其服務營運小組會持續監視所有 CloudSimple 基礎結構。 如果偵測到硬體失敗, 則會將新的節點新增至您的私人雲端。 已移除失敗的節點, 以確保私用雲端的高可用性。
 
-## <a name="storage"></a>儲存體
+## <a name="storage"></a>存放區
 
-**私用雲端是否支援何種儲存體？**
+**私人雲端支援哪種類型的儲存體？**
 
-提供 CloudSimple**全快閃 VMware 的 vSAN 儲存體**與每個私人雲端。 每個 vSphere 會建立與自己 vSAN 資料存放區。 如需詳細資訊，請參閱 <<c0> [ 私人雲端之 VMware 元件-vSAN 的儲存體](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage)。
+CloudSimple 透過每個私人雲端提供**所有 flash 的 VMware vSAN 儲存體**。 每個 vSphere 都是使用自己的 vSAN 資料存放區所建立。 如需詳細資訊, 請參閱[私用雲端 VMware 元件-vSAN 儲存體](https://docs.azure.cloudsimple.com/vmware-components/#vsan-storage)。
 
-**是支援的資料加密？**
-是的。 您可以設定的 vSAN 存放裝置使用金鑰管理伺服器 (KMS)，也就是在內部部署私人雲端或在 Azure 上的 vSAN 上儲存的資料加密。
+**是否支援加密資料？**
+是的。 您可以在私人雲端上設定 vSAN 儲存體, 以使用在內部部署或 Azure 上部署的金鑰管理伺服器 (KMS) 來加密 vSAN 上儲存的資料。
 
-**如何處理失敗的磁碟？**
+**如何處理失敗的磁片？**
 
-CloudSimple 監視會持續監視私人雲端的所有硬體的元件。 如果偵測到磁碟失敗或磁碟被識別為無法根據啟發學習法，則新的節點會自動加入到私人雲端中。 故障磁碟的節點會從私人雲端移除。
+CloudSimple 監視會持續監視私人雲端的所有硬體元件。 如果偵測到磁片失敗, 或已根據啟發學習法將磁片識別為失敗, 則會自動將新的節點新增至私人雲端。 具有失敗或失敗磁片的節點會從私人雲端移除。
 
-## <a name="vmware"></a>VMware
+## <a name="vmware"></a>VMWare
 
-**如何從內部部署執行大規模的上傳和應用程式和資料移轉？**
+**如何? 在內部部署環境中執行應用程式和資料的大規模上傳和遷移功能嗎？**
 
-CloudSimple 提供原生的 VMware vSphere 解決方案。 用於大量資料移轉的任何工具可以搭配 CloudSimple 私用雲端。 可用的選項包括：
+CloudSimple 提供原生 VMware vSphere 解決方案。 用於大量資料移轉的任何工具都可以搭配 CloudSimple 私用雲端使用。 可用的選項有:
 
-- VMware HCX 大量資料移轉。
-- 冷資料使用 CloudSimple 來從內部部署的儲存體 vMotion 移轉。
+- 用於大量遷移資料的 VMware HCX。
+- 使用從內部部署到 CloudSimple 的儲存體 vMotion 來進行資料的冷遷移。
 
-**可以安裝任何 VMware 工具嗎？**
+**我可以安裝任何 VMware 工具嗎？**
 
-CloudSimple 提供原生的 VMware vSphere 解決方案。 用來管理 vSphere 環境 CloudSimple 可用於在內部部署的任何工具。 CloudSimple 安裝 VMware 工具支援自備-您擁有的授權 (BYOL) 模式。
+CloudSimple 提供原生 VMware vSphere 解決方案。 用來管理內部部署 vSphere 環境的任何工具, 都可以在 CloudSimple 上使用。 CloudSimple 支援「自備授權」 (BYOL) 模型來安裝 VMware 工具。
 
-**如何更新和升級管理？**
+**更新和升級的管理方式為何？**
 
-CloudSimple 管理，並更新您的私用雲端的所有基礎結構元件順暢無干擾的方式。 VMware] 或 [基礎結構的廠商發行任何更新或安全性修補程式已排程進行更新，因為它由 CloudSimple 限定。
+CloudSimple 以順暢無縫的方式管理和更新私人雲端的所有基礎結構元件。 VMware 或基礎結構廠商所發行的任何更新或安全性修補程式, 會在 CloudSimple 限定之後立即進行更新。
 
-CloudSimple 不會執行升級或更新應用程式安裝在私人雲端。
+CloudSimple 不會對安裝在私人雲端上的應用程式執行升級或更新。
 
 ## <a name="azure-integration"></a>與 Azure 整合
 
 **支援哪些 Azure 服務？**
 
-CloudSimple 提供 Azure 上的 Azure ExpressRoute 連線到您的訂用帳戶。 在您的訂用帳戶中執行的任何服務有網路連線到您的私人雲端，且可以連線到私人雲端。 範例：
+CloudSimple 提供 azure ExpressRoute 連線給您在 Azure 上的訂用帳戶。 在您的訂用帳戶中執行的任何服務, 都能與您的私人雲端進行網路連線, 並可連接到您的私人雲端。 範例:
 
-- **Azure Active Directory**：使用 Azure Active Directory 做為身分識別來源，CloudSimple vcenter。
-- **Azure 儲存體**：您可以使用儲存體儲存的備份、 影像和其他資料，從您的私人雲端。
-- **混合式應用程式**:您可以建立跨越公用和私人雲端的應用程式架構。 比方說，您可以建立 web 伺服器在 Azure 中該應用程式的存取和資料庫伺服器 CloudSimple 私人雲端上。
-- **Azure 監視器**並**Azure 資訊安全中心**:在 VMware 執行的工作負載可以使用監視和資訊安全中心記錄、 效能度量和安全性管理。
+- **Azure Active Directory**：使用 Azure Active Directory 作為 CloudSimple vCenter 的身分識別來源。
+- **Azure 儲存體**：使用儲存體來儲存來自私人雲端的備份、映射和其他資料。
+- **混合式應用程式**:您可以建立跨越公用和私人雲端的應用程式架構。 例如, 您可以在 Azure 中建立 web 伺服器, 以存取 CloudSimple 私人雲端上的應用程式和資料庫伺服器。
+- **Azure 監視器**和**Azure 資訊安全中心**:在 VMware 上執行的工作負載可以使用監視和資訊安全中心來進行記錄、效能計量和安全性管理。
 
-**如何將我的 VMware 租用戶對應至 Azure？**
+**如何? 將我的 VMware 租使用者對應到 Azure 嗎？**
 
-CloudSimple 提供獨特的功能，可從 Azure 入口網站中管理您在私人雲端上的 VMware Vm。 VCenter 資源集區設定您想要可以對應到您的訂用帳戶，全域系統管理員的資源限制。 
+CloudSimple 提供獨特的功能, 從 Azure 入口網站管理私人雲端上的 VMware Vm。 以您想要的資源條件約束設定的 vCenter 資源集區, 可由全域管理員對應至您的訂用帳戶。 
 
-**透過 Azure 取得哪些授權權益？**
+**我可以使用 Azure 取得哪些授權權益？**
 
-CloudSimple，您可以利用 Azure Hybrid Benefit 與節省授權，才能保留您的 Microsoft 授權投資，並且降低相較於其他雲端的擁有權總成本達 90%。 您也取得延伸的 Windows Server 2008 和 Microsoft SQL Server 2008 安全性更新。 保留像是 Veeam、 Zerto，以及其他常見的應用程式的雲端使用 BYOL 的低成本。 
+透過 CloudSimple, 您可以利用 Azure Hybrid Benefit 並節省高達 90% 的授權, 以保留您對 Microsoft 授權的投資, 並降低與其他雲端相較之下的擁有權總成本。 您也可以取得 Windows Server 2008 和 Microsoft SQL Server 2008 的擴充安全性更新。 使用 Veeam、Zerto 等常見應用程式 BYOL 至雲端, 讓您的成本更低。 

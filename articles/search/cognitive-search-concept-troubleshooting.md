@@ -5,18 +5,18 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b85fb5417b014041024dd83ca62572282c6edf81
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303460"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841264"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>對認知搜尋進行疑難排解的秘訣
 
@@ -84,7 +84,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 內容遺失可能是由於文件在索引編製期間遭到捨棄所致。 免費和基本層的文件大小限制較低。 任何超過限制的檔案在索引編製期間都會被捨棄。 您可以在 Azure 入口網站中查看遭到捨棄的文件。 請在搜尋服務儀表板中按兩下索引子圖格。 檢閱成功編製索引的文件比率。 如果不是 100%，您可以按一下該比例以取得更多詳細資料。 
 
-如果問題與檔案大小有關，您可能會看到如下的錯誤："Blob\<檔案名稱 >"的大小為\<檔案大小 > 個位元組，超過您目前的服務層的文件擷取的大小上限。 」 如需關於索引子限制的詳細資訊，請參閱[服務限制](search-limits-quotas-capacity.md)。
+如果問題與檔案大小有關，您可能會看到如下的錯誤：「Blob \<檔案名 >」的\<大小為檔案大小 > 個位元組, 超過您目前服務層級的檔解壓縮大小上限」。 如需關於索引子限制的詳細資訊，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
 無法顯示內容的另一個原因，可能與輸入/輸出對應錯誤有關。 例如，輸出目標名稱為 "People"，但索引欄位名稱為小寫的 "people"。 系統可能會為整個管線傳回 201 成功訊息，因此您認為索引編製成功，而事實上欄位卻是空白的。 
 
@@ -94,10 +94,10 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 執行時間上限會依層而有所不同：在免費層上只有幾分鐘，而在計費層則有 24 小時的索引編製時間。 如果隨需處理無法在 24 小時的期間內完成，請切換至排程，讓索引子從中斷之處繼續處理。 
 
-對於排程的索引子，索引編製將會依排程從最後一份已知的正常文件繼續進行。 藉由使用週期性的排程，索引子將可持續處理影像待辦項目達數小時或數天，直到所有未處理的影像皆處理完成為止。 如需排程語法的詳細資訊，請參閱[步驟 3：建立一個-索引子](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)，或參閱[如何排程 Azure 搜尋服務索引子](search-howto-schedule-indexers.md)。
+對於排程的索引子，索引編製將會依排程從最後一份已知的正常文件繼續進行。 藉由使用週期性的排程，索引子將可持續處理影像待辦項目達數小時或數天，直到所有未處理的影像皆處理完成為止。 如需排程語法的詳細資訊，請參閱[步驟 3：建立-索引子](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer)或查看[如何排程 Azure 搜尋服務的索引子](search-howto-schedule-indexers.md)。
 
 > [!NOTE]
-> 如果索引子設為特定的排程，但重複相同的失敗的文件不斷地每次它執行、 索引子就會開始在較不頻繁的間隔內 （最多一次至少每隔 24 小時的最大值） 直到成功執行可讓您進行 aga在中。  如果您認為您修正任何相關的問題造成要會卡在某個時點的索引子，您可以執行上的需求執行索引子，而如果已成功進行索引子將會回到其設定的排程間隔一次。
+> 如果索引子設定為特定排程, 但每次執行時重複地在同一份檔上失敗, 則索引子將會以較不頻繁的間隔 (最多每24小時至少一次) 開始執行, 直到成功進行進度 aga在.  如果您相信您已修正導致索引子停滯在某個時間點的任何問題, 您可以依需求執行索引子, 如果該作業成功, 則索引子會再次回到其設定的排程間隔。
 
 對於以入口網站為基礎的索引編製 (如快速入門所說明)，選擇 [執行一次] 索引子選項，會將處理時間限制為 1 小時 (`"maxRunTime": "PT1H"`)。 您可以延長處理時間範圍。
 
@@ -106,7 +106,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 對於[平行索引編製](search-howto-large-index.md)，請將您的資料放入多個容器中，或是相同容器內的多個虛擬資料夾中。 接著，請建立多個資料來源和索引子配對。 所有索引子將可使用相同的技能集，並寫入至相同的目標搜尋索引，而讓您的搜尋應用程式無須辨識此分割。
 如需詳細資訊，請參閱[為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 + [快速入門：在入口網站中建立認知搜尋管線](cognitive-search-quickstart-blob.md)
 + [教學課程：了解認知搜尋 REST API](cognitive-search-tutorial-blob.md)
 + [指定資料來源認證](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

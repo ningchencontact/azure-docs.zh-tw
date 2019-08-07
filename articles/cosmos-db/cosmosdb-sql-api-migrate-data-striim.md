@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b1817b54e16d77c41b5d5e80776c92eedfec7fc6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: dba29ea2d4d0ad18f021e0271c6131f9473cbe8b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600692"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827809"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>使用 Striim 將資料移轉至 Azure Cosmos DB SQL API 帳戶
  
@@ -20,9 +20,9 @@ Azure marketplace 中的 Striim 映射提供從資料倉儲和資料庫到 Azure
 
 本文說明如何使用 Striim, 將資料從**Oracle 資料庫**遷移至**Azure Cosmos DB SQL API 帳戶**。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* 如果您沒有 [Azure 訂用帳戶](/azure/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+* 如果您沒有 [Azure 訂用帳戶](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 * 在內部部署執行的 Oracle 資料庫, 其中包含一些資料。
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: aschhab
-ms.openlocfilehash: bd2a594bfd7fbac53deacc767ace3cd44484798e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058099"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816071"
 ---
 # <a name="service-bus-management-libraries"></a>服務匯流排管理程式庫
 
@@ -40,7 +40,7 @@ Azure 服務匯流排管理程式庫可以動態佈建服務匯流排命名空�
 * [使用 Azure PowerShell 建立用來存取資源的服務主體](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [使用 Azure CLI 建立用來存取資源的服務主體](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-這些教學課程會提供您 `AppId` (用戶端識別碼)、`TenantId` 和 `ClientSecret` (驗證金鑰)，全部由管理程式庫用於驗證。 針對您想要執行的資源群組，您必須具備「擁有者」  權限。
+這些教學課程會提供您 `AppId` (用戶端識別碼)、`TenantId` 和 `ClientSecret` (驗證金鑰)，全部由管理程式庫用於驗證。 針對您想要執行的資源群組，您必須具備「擁有者」權限。
 
 ## <a name="programming-pattern"></a>程式設計模式
 
@@ -50,7 +50,7 @@ Azure 服務匯流排管理程式庫可以動態佈建服務匯流排命名空�
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
-   var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
+   var result = await context.AcquireTokenAsync("https://management.azure.com/", new ClientCredential(clientId, clientSecret));
    ```
 2. 建立 `ServiceBusManagementClient` 物件：
 
@@ -76,8 +76,8 @@ Azure 服務匯流排管理程式庫可以動態佈建服務匯流排命名空�
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="complete-code-to-create-a-queue"></a>若要建立佇列的完整程式碼
-以下是建立服務匯流排佇列的完整程式碼： 
+## <a name="complete-code-to-create-a-queue"></a>完整的程式碼以建立佇列
+以下是建立服務匯流排佇列的完整程式碼: 
 
 ```csharp
 using System;
@@ -139,7 +139,7 @@ namespace SBusADApp
                 var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
                 var result = await context.AcquireTokenAsync(
-                    "https://management.core.windows.net/",
+                    "https://management.azure.com/",
                     new ClientCredential(clientId, clientSecret)
                 );
 
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> 如需完整範例，請參閱 < [GitHub 上的.NET 管理範例](https://github.com/Azure-Samples/service-bus-dotnet-management/)。 
+> 如需完整範例, 請參閱[GitHub 上的 .net 管理範例](https://github.com/Azure-Samples/service-bus-dotnet-management/)(英文)。 
 
 ## <a name="next-steps"></a>後續步驟
 [Microsoft.Azure.Management.ServiceBus API 參考](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

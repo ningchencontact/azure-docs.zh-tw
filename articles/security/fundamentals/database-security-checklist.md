@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 3f51f23f47cfbd81c71234bc2ce5a0adeeadd3f9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf11d7a9dbaa37db521da67deddbed977cc1d251
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727381"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780541"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 資料庫安全性檢查清單
 
@@ -41,7 +41,7 @@ ms.locfileid: "68727381"
 雲端運算需要許多應用程式使用者、資料庫管理員和程式設計人員所不熟悉的新安全性典範。 因此，有些組織會因為意識到安全性風險而對實作資料管理的雲端基礎結構顯得遲疑不決。 不過，透過進一步了解 Microsoft Azure 和 Microsoft Azure SQL Database 內建的安全性功能，可以大幅減輕這層疑慮。
 
 ## <a name="checklist"></a>檢查清單
-我們建議您先閱讀 [Azure 資料庫安全性最佳做法](https://docs.microsoft.com/azure/security/azure-database-security-best-practices)一文，再檢閱這份檢查清單。 在您了解最佳做法之後，您就能夠充分利用這份檢查清單。 您可以接著使用這份檢查清單，確保您已解決 Azure 資料庫安全性的重大問題。
+我們建議您先閱讀 [Azure 資料庫安全性最佳做法](https://docs.microsoft.com/azure/security/fundamentals/database-best-practices)一文，再檢閱這份檢查清單。 在您了解最佳做法之後，您就能夠充分利用這份檢查清單。 您可以接著使用這份檢查清單，確保您已解決 Azure 資料庫安全性的重大問題。
 
 
 |檢查清單類別| 描述|
