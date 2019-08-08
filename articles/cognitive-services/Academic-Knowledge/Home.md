@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: b15ed5e2b31ed817d3f6558858e2b7285f98a70f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 305d73ba4b1b955b731e34ee5da0b1dced6acddc
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551716"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704978"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 
@@ -33,7 +34,7 @@ MAG 資料都採礦於 Bing Web 索引和 Bing 之中的內部知識庫。 由�
   2. **evaluate** – 評估查詢運算式並傳回學術知識實體結果。  
   3. **calchistogram** – 計算查詢運算式所傳回的學術實體屬性值發佈長條圖，例如指定的作者依年份的引文發佈。  
   
-一起使用這些 API 方法，即可打造豐富的語意搜尋體驗。 指定使用者查詢字串後，**interpret** 方法會提供註釋版的查詢和結構化查詢運算式，同時根據基礎學術資料的語意選擇性地完成使用者查詢。 例如，如果使用者輸入字串 latent s，**interpret** 方法會提供一組有排名的解譯，並暗示使用者可能會搜尋 latent semantic analysis 研究領域、latent structure analysis 論文或其他開頭為 latent s 的實體運算式。 這項資訊可用來快速將使用者指引至所需的搜尋結果。
+一起使用這些 API 方法，即可打造豐富的語意搜尋體驗。 指定使用者查詢字串後，**interpret** 方法會提供註釋版的查詢和結構化查詢運算式，同時根據基礎學術資料的語意選擇性地完成使用者查詢。 例如，如果使用者輸入字串 latent s  ，**interpret** 方法會提供一組有排名的解譯，並暗示使用者可能會搜尋 latent semantic analysis  研究領域、latent structure analysis  論文或其他開頭為 latent s  的實體運算式。 這項資訊可用來快速將使用者指引至所需的搜尋結果。
 
 **evaluate**方法可用於從學術知識庫中擷取一組相符的論文實體，而 **calchistogram** 方法可用於計算一組論文實體的屬性值分佈，其可用來進一步篩選搜尋結果。        
 

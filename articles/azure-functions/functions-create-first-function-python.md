@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444587"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722790"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的函式
 
@@ -42,7 +42,7 @@ ms.locfileid: "67444587"
 
 ## <a name="create-and-activate-a-virtual-environment"></a>建立並啟用虛擬環境
 
-若要在本機開發及測試 Python 函式，您必須在 Python 3.6 環境中工作。 執行下列命令來建立並啟用名為 `.env` 的虛擬環境。
+若要在本機開發及測試 Python 函式，您必須在 Python 3.6 環境中工作。 執行下列命令來建立並啟用名為 `.venv` 的虛擬環境。
 
 ### <a name="bash"></a>Bash：
 

@@ -10,18 +10,19 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0bf5b71a4b0f51a586febbdaeaf8caba03c5b25a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: c657025ce588363cf76ce10868d809a9aff69222
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387928"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705619"
 ---
 # <a name="introduction-to-training"></a>訓練簡介
 
 本教學課程將說明訓練模型、根據先前的訓練建立新的分支訓練，以及編輯聊天機器人回應而加以變更的基本概念。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![訓練簡介教學課程預覽](https://aka.ms/cl_Tutorial_v3_IntroTraining_Preview)](https://aka.ms/cl_Tutorial_v3_IntroTraining)
 
@@ -32,7 +33,7 @@ ms.locfileid: "66387928"
 
 ## <a name="details"></a>詳細資料
 
-- 動作：聊天機器人對使用者輸入的回應。
+- 動作:聊天機器人對使用者輸入的回應。
 - 訓練：我們教導聊天機器人回應使用者輸入的方式。
 - 建立分支：修改已儲存訓練對話內的使用者輸入，用以建立一開始與原先相同、但後續將對話導引至不同方向的新訓練對話。
 

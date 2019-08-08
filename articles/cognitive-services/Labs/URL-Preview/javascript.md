@@ -10,23 +10,24 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 1f3c37e770c2edd76bd299771648b2de29d42dd9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: ec8a7ceef8cd938984b8eedc8397f6f67294c990
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873643"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706937"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>快速入門：在 JavaScript 中的 URL 預覽 
 
-下列單頁應用程式使用 JavaScript 建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en。 
+下列單頁應用程式使用 JavaScript 建立 SwiftKey 網站的 URL 預覽： https://swiftkey.com/en 。 
 
 ## <a name="prerequisites"></a>必要條件
 
 取得免費試用版[認知服務實驗室](https://labs.cognitive.microsoft.com/en-us/project-url-preview)的存取金鑰
 
 ## <a name="code-scenario"></a>程式碼案例
-下列 javascript 範例包含使用者輸入預覽 URL 的文字方塊輸入物件。  使用者按一下 [預覽] 按鈕時，onclick 方法會傳送到 `getPreview`，其中的程式碼會產生 **UrlPreview** 端點的 Web 要求。
+下列 javascript 範例包含使用者輸入預覽 URL 的文字方塊輸入物件。  使用者按一下 [預覽]  按鈕時，onclick 方法會傳送到 `getPreview`，其中的程式碼會產生 **UrlPreview** 端點的 Web 要求。
 
 程式碼會建立 *XMLHttpRequest*，並新增 *Ocp-Apim-Subscription-Key* 標頭和金鑰，然後傳送要求。  這會加入非同步事件處理常式來處理回應。
 
@@ -60,7 +61,7 @@ ms.locfileid: "55873643"
 2. 將 HTML 和指令碼儲存至 .html 副檔名的檔案中。
 3. 在瀏覽器中執行網頁。
 4. 使用現有的 URL，或在文字方塊中輸入其他 URL。
-5. 按一下 [預覽] 按鈕。
+5. 按一下 [預覽]  按鈕。
 
 **原始程式碼**：
 

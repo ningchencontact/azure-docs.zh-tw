@@ -10,41 +10,42 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b9431469a7925d26003ad9c34f6b401e5767f6d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64875745"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704947"
 ---
 # <a name="paper-entity"></a>論文實體
 
 <sub> *下列屬性專屬於論文實體。(Ty = '0') </sub>
 
 
-名稱    |描述                                        |類型       | 作業
+名稱    |描述                                        |Type       | 作業
 ------- | ------------------------------------------------- | --------- | ----------------------------
-Id      |實體識別碼                                          |Int64      |Equals
+Id      |實體 ID                                          |Int64      |等於
 Ti      |論文標題                                        |String     |Equals,<br/>StartsWith
-L       |文件語言程式碼分隔 」\@\@\@"          |字串     |Equals
+L       |以 "\@ \@"分隔的紙張語言代碼\@          |String     |等於
 Y       |論文年度                                         |Int32      |Equals,<br/>IsBetween
 D       |論文日期                                         |Date       |Equals,<br/>IsBetween
-CC      |引用計數                                     |Int32      |None  
-ECC     |預估引用計數                           |Int32      |None
-AA.AuN  |作者姓名                                        |字串     |Equals,<br/>StartsWith
-AA.AuId |作者識別碼                                          |Int64      |Equals
+CC      |引用計數                                     |Int32      |無  
+ECC     |預估引用計數                           |Int32      |無
+AA.AuN  |作者姓名                                        |String     |Equals,<br/>StartsWith
+AA.AuId |作者識別碼                                          |Int64      |等於
 AA.AfN  |作者服務機關名稱                            |String     |Equals,<br/>StartsWith
-AA.AfId |作者服務機關識別碼                              |Int64      |Equals
-AA.S    |論文的作者順序                         |Int32      |Equals
+AA.AfId |作者服務機關識別碼                              |Int64      |等於
+AA.S    |論文的作者順序                         |Int32      |等於
 F.FN    |研究領域名稱                                |String     |Equals,<br/>StartsWith
-F.FId   |研究領域識別碼                                  |Int64      |Equals
+F.FId   |研究領域識別碼                                  |Int64      |等於
 J.JN    |期刊名稱                                       |String     |Equals,<br/>StartsWith
-J.JId   |期刊識別碼                                         |Int64      |Equals
+J.JId   |期刊識別碼                                         |Int64      |等於
 C.CN    |會議系列名稱                             |String     |Equals,<br/>StartsWith
-C.CId   |會議系列識別碼                               |Int64      |Equals
-RId     |所參考論文的識別碼                              |Int64[]    |Equals
-W       |論文標題和摘要的文字                |String[]   |Equals
-E       |擴充中繼資料 (請參閱下表)                |String     |None  
+C.CId   |會議系列識別碼                               |Int64      |等於
+RId     |所參考論文的識別碼                              |Int64[]    |等於
+W       |論文標題和摘要的文字                |String[]   |等於
+E       |擴充中繼資料 (請參閱下表)                |String     |無  
         
 
 

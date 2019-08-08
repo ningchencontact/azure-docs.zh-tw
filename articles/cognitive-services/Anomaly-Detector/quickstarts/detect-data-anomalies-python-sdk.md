@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: b78d19841bdca100211378f71e45a41dd37aad28
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 59a4d79cc68c57faf54bde3d42370fb17a317325
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639335"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725550"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>快速入門：適用於 Python 的 Anomaly Detector 用戶端程式庫
 
@@ -77,13 +77,13 @@ Anomaly Detector 回應是 [LastDetectResponse](https://docs.microsoft.com/pytho
 * [偵測整個資料集內的異常](#detect-anomalies-in-the-entire-data-set) 
 * [偵測最新資料點的異常狀態](#detect-the-anomaly-status-of-the-latest-data-point)
 
-### <a name="authenticate-the-client"></a>驗證用戶端
+## <a name="authenticate-the-client"></a>驗證用戶端
 
 將您的 Azure 位置變數新增至端點，並使用您的金鑰驗證用戶端。
 
 [!code-python[Client authentication](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=client)]
 
-### <a name="load-time-series-data-from-a-file"></a>從檔案載入時間序列資料集
+## <a name="load-time-series-data-from-a-file"></a>從檔案載入時間序列資料集
 
 從 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv) 下載此快速入門的資料範例：
 1. 在瀏覽器中以滑鼠右鍵按一下 [原始]  。
@@ -100,13 +100,13 @@ Anomaly Detector 回應是 [LastDetectResponse](https://docs.microsoft.com/pytho
 
 [!code-python[Create the request object](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=request)]
 
-### <a name="detect-anomalies-in-the-entire-data-set"></a>偵測整個資料集內的異常 
+## <a name="detect-anomalies-in-the-entire-data-set"></a>偵測整個資料集內的異常 
 
 使用用戶端的 [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) 方法，呼叫 API 來偵測整個時間序列資料的異常情形。 儲存傳回的 [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) 物件。 逐一查看回應的 `is_anomaly` 清單，然後列印任何 `true` 值的索引。 如果有找到，這些值會對應到異常資料點的索引。
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=detectAnomaliesBatch)]
 
-### <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>偵測最新資料點的異常狀態
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>偵測最新資料點的異常狀態
 
 呼叫 Anomaly Detector API，使用用戶端的 [last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) 方法來判斷最新資料點是否異常，並儲存傳回的 [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) 物件。 回應的 `is_anomaly` 值是布林值，其指定該資料點的異常狀態。  
 

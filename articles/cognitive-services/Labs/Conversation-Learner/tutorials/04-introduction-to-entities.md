@@ -10,18 +10,19 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 3d9e2498a23ad49eb014cb0f81c819f3f63eef5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: cba12b6c09c1bdbf4e8f7841676a609c34109d93
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387813"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707344"
 ---
 # <a name="introduction-to-entities"></a>實體簡介
 
 本教學課程介紹實體、不合格的實體和必要實體及其在對話學習模組中的使用方式。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![實體簡介教學課程預覽](https://aka.ms/cl_Tutorial_v3_IntroEntities_Preview)](https://aka.ms/cl_Tutorial_v3_IntroEntities)
 

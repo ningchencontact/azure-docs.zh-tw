@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117076"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815745"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>使用 Jenkins Azure Functions 外掛程式部署至 Azure Functions
 
@@ -49,12 +49,6 @@ ms.locfileid: "58117076"
 
     ```cli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
-    ```
-    
-1. 更新為 2.x 版執行個體，並以適當的值取代預留位置。
-
-    ```cli
-    az functionapp config appsettings set --name <function_app> --resource-group <resource_group> --settings FUNCTIONS_EXTENSION_VERSION=~2
     ```
 
 ## <a name="prepare-jenkins-server"></a>準備 Jenkins 伺服器
@@ -93,7 +87,7 @@ ms.locfileid: "58117076"
 
 1. [登入 GitHub 存放庫以取得奇數或偶數範例應用程式](https://github.com/VSChina/odd-or-even-function.git) \(英文\)。
 
-1. 在 GitHub 的右上角選擇 [派生]。
+1. 在 GitHub 的右上角選擇 [派生]  。
 
 1. 依照提示選取您的 GitHub 帳戶，並完成派生。
 
@@ -113,7 +107,7 @@ ms.locfileid: "58117076"
     FUNCTION_NAME=<function_name>
     ```
     
-1. 在 [管線] -> [定義] 區段中，選取 [來自 SCM 的管線指令碼]。
+1. 在 [管線] -> [定義]  區段中，選取 [來自 SCM 的管線指令碼]  。
 
 1. 輸入您 GitHub 派生的 URL 和指令碼路徑 ("doc/resources/jenkins/JenkinsFile") 以在 [JenkinsFile 範例](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile)中使用。
 

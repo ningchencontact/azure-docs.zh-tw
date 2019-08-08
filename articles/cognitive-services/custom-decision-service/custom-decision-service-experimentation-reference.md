@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: e6e8e7d0d5b969464ba9183ccae9080f58f786a0
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829169"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707291"
 ---
 # <a name="experimentation"></a>測試
 
@@ -52,7 +53,7 @@ ms.locfileid: "60829169"
 
 如需上述引數的深入說明，請參閱 [Vowpal Wabbit command-line arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments) (Vowpal Wabbit 命令列引數)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 - Vowpal Wabbit：已安裝並在您的路徑上。
   - Windows:[使用 `.msi` 安裝程式](https://github.com/eisber/vowpal_wabbit/releases)。
   - 其他平台：[取得原始程式碼](https://github.com/JohnLangford/vowpal_wabbit/releases)。
@@ -77,7 +78,7 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
 結果的記錄會附加至 *mwt-ds/DataScience/experiments.csv* 檔案。
 
 ### <a name="parameters"></a>參數
-| 輸入 | 描述 | 預設值 |
+| 輸入 | 描述 | 預設 |
 | --- | --- | --- |
 | `-h`、 `--help` | 顯示說明訊息並結束。 | |
 | `-f FILE_PATH`、 `--file_path FILE_PATH` | 資料檔案路徑 (`.json` 或 `.json.gz` 格式 - 每行都是 `dsjson`)。 | 必要項 |  

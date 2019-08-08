@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22421d88d5d0b426b641c04cd8797c26d216c502
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47af0a43e4d081f50fedf685d46347f0f36233fd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086701"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>教學課程：Azure Active Directory 與 Wrike 整合
 
@@ -104,7 +104,7 @@ Wrike 與 Azure AD 整合提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定]  區段上，如果您想要以  **IDP**  起始模式設定應用程式，則使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
+4. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，則使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
     ![Wrike 網域及 URL 單一登入資訊](common/preintegrated.png)
 

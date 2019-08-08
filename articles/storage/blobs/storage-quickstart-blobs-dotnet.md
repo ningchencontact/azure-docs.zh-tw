@@ -1,20 +1,18 @@
 ---
 title: 快速入門：適用於 .NET 的 Azure Blob 儲存體用戶端程式庫
 description: 在此快速入門中，您將了解如何使用適用於 .NET 的 Azure Blob 儲存體用戶端程式庫在 Blob (物件) 儲存體中建立容器與 Blob。 接下來，您要了解如何將 Blob 下載到本機電腦，以及如何列出容器中的所有 Blob。
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 07/20/2019
 ms.author: mhopkins
+ms.date: 07/20/2019
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: a030aee18303d20ccf91c6939d349285c4a4bac4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.topic: quickstart
+ms.openlocfilehash: 40ee855aa01a9b24e35fb9863221e3607786d407
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565947"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722028"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>快速入門：適用於 .NET 的 Azure Blob 儲存體用戶端程式庫
 

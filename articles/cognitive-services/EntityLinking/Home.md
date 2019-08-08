@@ -10,12 +10,13 @@ ms.subservice: entity-linking-intelligence
 ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 4faeccb30e936177dfa993e912f597c44f8fac60
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: 823bdd300027959a4bfa0812174f1508529e462f
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869767"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704511"
 ---
 # <a name="what-is-the-entity-linking-intelligence-service-api"></a>什麼是實體連結智慧服務 API？
 

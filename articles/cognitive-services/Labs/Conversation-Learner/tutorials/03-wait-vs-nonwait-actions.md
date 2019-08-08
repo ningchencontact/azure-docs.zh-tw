@@ -10,18 +10,19 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 57a58b008792130c82a86ff4a5801f4bb39aabad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d9a67f0b413b624baec369a219547cf18e9dbd2
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387896"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705611"
 ---
 # <a name="wait-and-non-wait-actions"></a>等候與非等候動作
 
 本教學課程會顯示對話學習模組中的等候與非等候動作兩者的差異。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![等候與非等候教學課程預覽](https://aka.ms/cl_Tutorial_v3_WaitnonWait_Preview)](https://aka.ms/cl_Tutorial_v3_WaitnonWait)
 

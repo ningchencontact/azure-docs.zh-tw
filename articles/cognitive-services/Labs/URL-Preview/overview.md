@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ROBOTS: NOINDEX
+ms.openlocfilehash: 022fe002057f157d4d9fe6e6cad03fc79810888c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "61473162"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706916"
 ---
 # <a name="what-is-project-url-preview"></a>什麼是專案 URL 預覽？
 預覽 URL 端點使用 URL 查詢參數，並傳回 JSON 回應，其中包含目標資源的名稱、簡短描述，以及在預覽中顯示影像的連結。 回應也包含 [isFamilyFriendly](url-preview-reference.md#query-parameters) 旗標，指出 URL 是否包含成人、盜版或其他不合法的內容。 

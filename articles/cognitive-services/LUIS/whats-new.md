@@ -9,20 +9,31 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: diberry
-ms.openlocfilehash: 63a898bd807b168ae17ec90e442c6ee6c001c715
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ab30e201dc5e4e9a226e23a37e8dbd63f17dd742
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559883"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717443"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding 的新功能
 
 瞭解服務的新功能。 這些專案可能會發行筆記、影片、blog 文章和其他類型的資訊。 將此頁面加入書簽, 以掌握服務的最新狀態。  
 
 ## <a name="release-notes"></a>版本資訊 
+
+### <a name="july-23-2019"></a>2019年7月23日
+
+* 將辨識器[文字](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.2.3)更新為1.2。3
+    * 義大利文中的年齡、溫度、維度和貨幣辨識器。
+    * 改善英文版的假日辨識, 以正確計算感恩節日期。
+    * 改善法文 DateTime, 以減少非日期和非時間實體的誤報。
+    * 支援行事曆/學校/會計年度和英文 DateRange 的縮略字。
+    * 已改善中文和日文的 PhoneNumber 辨識。
+    * 已改善英文版 NumberRange 的支援。
+    * 效能改進。
 
 ### <a name="june-24-2019"></a>2019年6月24日
 

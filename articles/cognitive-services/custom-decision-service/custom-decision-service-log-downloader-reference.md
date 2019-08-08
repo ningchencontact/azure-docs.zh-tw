@@ -10,12 +10,13 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 33cc0d0dcf16ff82ac128507566427e123020236
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829985"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707234"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -41,7 +42,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 ### <a name="parameters"></a>參數
 
-| 輸入 | 描述 | 預設值 |
+| 輸入 | 描述 | 預設 |
 | --- | --- | --- |
 | `-h`、 `--help` | 顯示說明訊息並結束。 | |
 | `-a APP_ID`、 `--app_id APP_ID` | 應用程式識別碼 (也就是 Azure 儲存體 Blob 容器名稱)。 | 必要項 |
@@ -49,7 +50,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`、 `--start_date START_DATE` | 下載開始日期 (包含)，格式為 *YYYY-MM-DD*。 | `None` |
 | `-e END_DATE`、 `--end_date END_DATE` | 下載結束日期 (包含)，格式為 *YYYY-MM-DD*。 | `None` |
 | `-o OVERWRITE_MODE`、 `--overwrite_mode OVERWRITE_MODE` | 可使用的覆寫模式。 | |
-| | `0`:永不覆寫；詢問使用者目前是否使用 Blob。 | 預設值 |
+| | `0`:永不覆寫；詢問使用者目前是否使用 Blob。 | 預設 |
 | | `1`:當檔案具有不同大小或目前正在使用 Blob 時，詢問使用者如何繼續。 | |
 | | `2`:一律覆寫；下載目前使用的 Blob。 | |
 | | `3`:永不覆寫，如果是大尺寸，則附加，且不詢問；下載目前使用的 Blob。 | |
@@ -59,8 +60,8 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `--delta_mod_t DELTA_MOD_T` | 時間範圍，以秒為單位，用於偵測檔案是否正在使用中。 | `3600` 秒 (`1` 小時) |
 | `--verbose` | 列印更多詳細資料。 | `False` |
 | `-v VERSION`、 `--version VERSION` | 要使用的記錄程式下載程式版本。 | |
-| | `1`:用於未經處理的記錄 (僅適用於回溯相容性)。 | 取代 |
-| | `2`:適用於未處理過的記錄。 | 預設值 |
+| | `1`:用於未經處理的記錄 (僅適用於回溯相容性)。 | 即將淘汰 |
+| | `2`:適用於未處理過的記錄。 | 預設 |
 
 ### <a name="examples"></a>範例
 

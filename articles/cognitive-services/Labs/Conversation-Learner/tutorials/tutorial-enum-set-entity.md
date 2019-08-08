@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nolachar
-ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5443b97febd6bf3831690531bceb540181e7676c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845955"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706985"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>使用列舉實體和設定實體動作的時機
 
@@ -45,14 +46,14 @@ ms.locfileid: "67845955"
 讓我們進一步說明下列範例:
 
 Bot您喜歡 Azure 認知服務嗎？
-使用者：是 Bot:您喜歡霜淇淋嗎？
-使用者：是
+使用者:是 Bot:您喜歡霜淇淋嗎？
+使用者:是
 
 在先前的教學課程中, 我們探討了[自訂的定型](04-introduction-to-entities.md)實體, 而您的初步想法可能是建立名為 "likesCogServices" 的實體, 並將第一個「是」標記為此實體。  不過, 系統也會標示第二個「是」。 當我們嘗試將第二個 "Yes" 的標籤更正為 "likesIceCream" 時, 我們會建立兩個相同輸入「是」的衝突, 這表示有不同的東西, 而且會停滯。
 
 在這些情況下, 您需要使用列舉實體和 SET_ENTITY 動作。
 
-## <a name="when-to-use-enums-or-setentity-actions"></a>使用 Enum 或 SET_ENTITY 動作的時機
+## <a name="when-to-use-enums-or-set_entity-actions"></a>使用 Enum 或 SET_ENTITY 動作的時機
 
 請使用下列規則來瞭解何時使用列舉實體和 SET_ENTITY 動作:
 
@@ -64,18 +65,18 @@ Bot您喜歡 Azure 認知服務嗎？
 > [!NOTE]
 > 我們目前限制每個列舉實體最多有5個值。 每個值都會使用目前64限制中的其中一個位置。 請參閱[cl-值和界限](../cl-values-and-boundaries.md)
 
-範例：Bot您的訂單是否正確？
-使用者：是
+範例:Bot您的訂單是否正確？
+使用者:是
 
 當實體的可能值為開放式且未修正時, 您必須使用如[預期實體](05-expected-entity.md)之類的替代功能。
 
-範例：Bot你叫什麼名字？
-使用者：Matt Bot:您最愛的色彩為何？
-使用者：Silver
+範例:Bot你叫什麼名字？
+使用者:Matt Bot:您最愛的色彩為何？
+使用者:銀
 
 這些提示會視為開放式結束, 因為它們可以使用任意值來回答。
 
-## <a name="what"></a>何事
+## <a name="what"></a>屬性
 
 ### <a name="enum-entities"></a>列舉實體
 

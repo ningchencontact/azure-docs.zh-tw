@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7ac87000a6bbe7515106b42f57f9184396ed4168
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903382"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735680"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中建立由計時器觸發的函式
 
@@ -43,11 +43,11 @@ ms.locfileid: "54903382"
 
 ## <a name="create-a-timer-triggered-function"></a>建立由計時器觸發的函式
 
-1. 展開函式應用程式，然後按一下 [Functions] 旁的 [+] 按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內] 和 [繼續]。 否則，請移至步驟三。
+1. 展開函式應用程式，然後按一下 [Functions]  旁的 [+]  按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內]  和 [繼續]  。 否則，請移至步驟三。
 
    ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
-2. 依序選擇 [更多範本] 和 [完成並檢視範本]。
+2. 依序選擇 [更多範本]  和 [完成並檢視範本]  。
 
     ![Functions 快速入門選擇更多範本](./media/functions-create-scheduled-function/add-first-function.png)
 
@@ -58,9 +58,9 @@ ms.locfileid: "54903382"
     | 設定 | 建議的值 | 說明 |
     |---|---|---|
     | **名稱** | 預設值 | 定義計時器觸發函式的名稱。 |
-    | **排程** | 0 \*/1 \* \* \* \* | 含有六個欄位的 [CRON 運算式](functions-bindings-timer.md#cron-expressions)，它會將函式排程為每分鐘執行一次。 |
+    | **排程** | 0 \*/1 \* \* \* \* | 含有六個欄位的 [CRON 運算式](functions-bindings-timer.md#ncrontab-expressions)，它會將函式排程為每分鐘執行一次。 |
 
-4. 按一下頁面底部的 [新增] 。 系統隨即會以您所選的語言建立函式，並讓它每分鐘執行一次。
+4. 按一下頁面底部的 [新增]  。 系統隨即會以您所選的語言建立函式，並讓它每分鐘執行一次。
 
 5. 檢視寫入到記錄的追蹤資訊以確認執行情形。
 
@@ -70,9 +70,9 @@ ms.locfileid: "54903382"
 
 ## <a name="update-the-timer-schedule"></a>更新計時器排程
 
-1. 展開您的函式，然後按一下 [整合]。 您可以在這裡定義函式的輸入和輸出繫結，以及設定排程。 
+1. 展開您的函式，然後按一下 [整合]  。 您可以在這裡定義函式的輸入和輸出繫結，以及設定排程。 
 
-2. 輸入 `0 0 */1 * * *` 作為新的每小時 [排程] 值，然後按一下 [儲存]。  
+2. 輸入 `0 0 */1 * * *` 作為新的每小時 [排程]  值，然後按一下 [儲存]  。  
 
 ![函式便會在 Azure 入口網站中更新計時器排程。](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 

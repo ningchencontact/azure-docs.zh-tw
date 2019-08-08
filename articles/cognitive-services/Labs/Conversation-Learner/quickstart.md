@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: cc071d59a387c8ae4982eacbce6812526f447788
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7ab32fb421a2c0db72652d1bbf12d312bffd5d1e
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388775"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706541"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>如何使用 Node.js 建立對話學習模組模型
 
@@ -137,7 +138,7 @@ ms.locfileid: "66388775"
 
 在 VSCode 的 `cl-bot-01/src/app.ts` 中，每個示範及「空白 Bot」都有執行設定。  請開啟 VSCode 中的 `cl-bot-01` 資料夾。
 
-## <a name="advanced-configuration"></a>進階組態
+## <a name="advanced-configuration"></a>進階設定
 
 有一個範本 `.env.example` 檔案顯示您可以設定哪些環境變數來設定範例。
 

@@ -10,18 +10,19 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: nitinme
-ms.openlocfilehash: d6af927e395532e43c7cc51c39665e2e42ac6781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: c964c62c34f952a547d077e93e7bb4d0eb7b192d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389985"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703667"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>如何搭配其他聊天機器人建置技術使用對話學習模組
 
 本教學課程說明如何搭配其他聊天機器人建置技術使用對話學習模組，以及如何在這些技術之間共用記憶體 (或狀態)。 
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![混合式聊天機器人教學課程預覽](https://aka.ms/cl_Tutorial_v3_Hybrid_Applications_Preview)](https://aka.ms/cl_Tutorial_v3_Hybrid_Applications)
 
@@ -67,7 +68,7 @@ ms.locfileid: "66389985"
 
 現在，讓我們查看動作。
 
-## <a name="actions"></a>動作
+## <a name="actions"></a>個動作
 
 請注意，此模型有四個動作。
 

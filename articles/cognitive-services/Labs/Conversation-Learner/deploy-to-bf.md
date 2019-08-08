@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 5522f762f3893f1d67cd3755b1e022f0118cc004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 05fd83506aac26df33f18bec83dcadac8dee2d90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385326"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705276"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>如何部署對話學習模組聊天機器人
 
@@ -94,7 +95,7 @@ ms.locfileid: "66385326"
 
 採用與發佈其他任何聊天機器人類似的方式，發佈對話學習模組聊天機器人。 大致而言，您會將程式碼上傳至託管的網站，並設定適當的組態值，然後向各種通道註冊聊天機器人。 這段影片詳細說明如何使用 Azure Bot 服務發佈聊天機器人。
 
-一旦部署 bot，並執行您可以連接不同的通道，例如 Facebook、 Teams、 Skype 等。 使用 Azure Bot 通道註冊。 如需該程序的說明文件，請參閱： https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+一旦部署並執行 bot, 您就可以將不同的通道連接到它, 例如 Facebook、小組、Skype 等。 使用 Azure Bot 通道註冊。 如需該程序的說明文件，請參閱： https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 以下是將對話學習模組聊天機器人部署至 Azure 的逐步指示。  這些指示假設可從以雲端為基礎的來源 (例如 Azure DevOps Services、GitHub、BitBucket 或 OneDrive) 取得您的聊天機器人，並且將設定您的聊天機器人進行持續部署。
 

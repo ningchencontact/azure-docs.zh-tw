@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ROBOTS: NOINDEX
+ms.openlocfilehash: f9ff4225e7e855ed666d3554631015b8ce51df37
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310620"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706583"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>聲場專案 Unity 設計教學課程
 本教學課程描述 Unity 中聲場專案的設計工具與工作流程。
@@ -35,7 +36,7 @@ ms.locfileid: "58310620"
 聲場專案提供數個來源特定的聲場設計控制項。 這可讓您透過強調某些來源並不加以強調其他來源的方式，控制場景中的混音。
 
 ### <a name="adjust-distance-based-attenuation"></a>調整以距離為基礎的衰減
-**聲場專案** Unity 空間定位外掛程式所提供的音訊 DSP，會遵循 Unity 編輯器所內建，以每個來源距離為基礎的衰減。 距離型衰減控制項位於聲音來源之 [Inspector] \(偵測器\) 面板中 [Audio Source] \(音訊來源\) 元件的 [3D Sound Settings] \(3D 聲音設定\) 底下：
+**聲場專案** Unity 空間定位外掛程式所提供的音訊 DSP，會遵循 Unity 編輯器所內建，以每個來源距離為基礎的衰減。 距離型衰減控制項位於聲音來源之 [Inspector] \(偵測器\)  面板中 [Audio Source] \(音訊來源\)  元件的 [3D Sound Settings] \(3D 聲音設定\)  底下：
 
 ![Unity 距離衰減選項面板的螢幕擷取畫面](media/distance-attenuation.png)
 
@@ -44,7 +45,7 @@ ms.locfileid: "58310620"
 ![Unity SpeakerMode 選項面板的螢幕擷取畫面](media/speaker-mode.png)
 
 ### <a name="adjust-occlusion-and-transmission"></a>調整遮蔽和傳輸
-將 **AcousticsAdjust** 指令碼附加至來源可為該來源啟用調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\) 面板底部的 [Add Component] \(新增元件\)，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Adjust] \(聲場調整\)。 指令碼具有六個控制項：
+將 **AcousticsAdjust** 指令碼附加至來源可為該來源啟用調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\)  面板底部的 [Add Component] \(新增元件\)  ，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Adjust] \(聲場調整\)  。 指令碼具有六個控制項：
 
 ![Unity AcousticsAdjust 指令碼的螢幕擷取畫面](media/acoustics-adjust.png)
 
@@ -53,27 +54,27 @@ ms.locfileid: "58310620"
 * **傳輸 (dB)** - 設應由幾何傳輸造成的衰減 (單位為 dB)。 將滑桿設定至最低等級以停止傳輸。 聲場會在初始乾燥音訊抵達場景幾何 (傳送) 時進行空間定位。 傳輸會提供在視野方向中進行空間定位的額外乾燥抵達。 請注意，來源的距離衰減曲線也一併適用。
 
 ### <a name="adjust-reverberation"></a>調整殘響
-* **濕潤度 (dB)** - 根據與來源的距離調整殘響功率 (單位為 dB)。 正數值會讓聲音有較多殘響，負數值則會讓聲音較乾淨清楚。 按一下曲線控制項 (綠線) 即可顯示曲線編輯器。 如要調整曲線，請按一下滑鼠左鍵來新增調整點，並拖曳這些點以構成您想要的形狀。 X 軸是與來源的距離，Y 軸則是殘響調整值 (單位為 dB)。 如需如何編輯曲線的詳細資訊，請參閱此 [Unity Manual](https://docs.unity3d.com/Manual/EditingCurves.html)。 若要將曲線重設回預設值，請在 [Wetness] \(濕潤度\) 按一下滑鼠右鍵，然後選取 [Reset] \(重設\)。
+* **濕潤度 (dB)** - 根據與來源的距離調整殘響功率 (單位為 dB)。 正數值會讓聲音有較多殘響，負數值則會讓聲音較乾淨清楚。 按一下曲線控制項 (綠線) 即可顯示曲線編輯器。 如要調整曲線，請按一下滑鼠左鍵來新增調整點，並拖曳這些點以構成您想要的形狀。 X 軸是與來源的距離，Y 軸則是殘響調整值 (單位為 dB)。 如需如何編輯曲線的詳細資訊，請參閱此 [Unity Manual](https://docs.unity3d.com/Manual/EditingCurves.html)。 若要將曲線重設回預設值，請在 [Wetness] \(濕潤度\)  按一下滑鼠右鍵，然後選取  [Reset] \(重設\)。
 * **Decay Time Scale** \(衰變時間縮放\) - 調整衰變時間的倍數。 例如，如果製作結果指定的衰變時間為 750 毫秒，但此值設定為 1.5，則套用至來源的衰變時間就會是 1,125 毫秒。
 * **阻隔度** - 聲場系統的累加調整值，能預估來源上殘響的「戶外」效果。 將此值設定為 1 可讓來源一律聽起來像來自戶外，設定為 -1 則可讓來源聽起來完全像來自室內。
 
-將 **AcousticsAdjustExperimental** 指令碼附加至來源可為該來源啟用額外實驗調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\) 面板底部的 [Add Component] \(新增元件\)，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Adjust Experimental] \(實驗性聲場調整\)。 目前具有一個實驗性控制項：
+將 **AcousticsAdjustExperimental** 指令碼附加至來源可為該來源啟用額外實驗調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\)  面板底部的 [Add Component] \(新增元件\)  ，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Adjust Experimental] \(實驗性聲場調整\)  。 目前具有一個實驗性控制項：
 
 ![Unity AcousticsAdjustExperimental 指令碼的螢幕擷取畫面](media/acoustics-adjust-experimental.png)
 
 * **感知距離變形** - 將指數變形功能套用至距離，以計算乾燥濕潤比。 聲場系統會計算空間濕潤度，此數值會因距離和提供的感知距離變形而變化。變形值大於 1 會放大該效果，提高與距離相關殘響等級，讓音效聽起來較「遙遠」。 變形值小於 1 則會減少殘響變化，讓音效更有「臨場感」。
 
 ## <a name="design-acoustics-for-all-sources"></a>針對所有來源設計聲場
-若要調整所有來源的參數，請按一下 Unity [Audio Mixer] \(音訊混音器\) 中的聲道控制排，然後調整 [Project Acoustics Mixer] \(專案聲場混音器\) 效果上的參數。
+若要調整所有來源的參數，請按一下 Unity [Audio Mixer] \(音訊混音器\)  中的聲道控制排，然後調整 [Project Acoustics Mixer] \(專案聲場混音器\)  效果上的參數。
 
 ![聲場專案 Unity 混音器自訂面板的螢幕擷取畫面](media/mixer-parameters.png)
 
-* [Wetness Adjust] \(溼潤度調整\) - 根據來源與聆聽者相隔的距離，來對場景中的所有來源調整殘響功率 (單位為 dB)。 正數值會讓聲音有較多殘響，負數值則會讓聲音較乾淨清楚。
-* [RT60 Scale] \(RT60 縮放\) - 殘響時間的乘法純量。
-* [Use Panning] \(使用移動瀏覽\) - 控制要將音訊輸出為雙聲道 (0) 還是多聲道移動瀏覽 (1)。 1 以外的任何值代表雙聲道。 雙聲道輸出會與 HRTF 進行空間定位以便用於耳機，多聲道輸出則會與 VBAP 進行空間定位以便用於多聲道環繞喇叭系統。 如果使用多聲道移動瀏覽器，請務必選取符合您裝置設定 (可在 [Project Settings] \(專案設定\) > [Audio] \(音訊\) 下找到) 的喇叭模式。
+* [Wetness Adjust] \(溼潤度調整\)  - 根據來源與聆聽者相隔的距離，來對場景中的所有來源調整殘響功率 (單位為 dB)。 正數值會讓聲音有較多殘響，負數值則會讓聲音較乾淨清楚。
+* [RT60 Scale] \(RT60 縮放\)  - 殘響時間的乘法純量。
+* [Use Panning] \(使用移動瀏覽\)  - 控制要將音訊輸出為雙聲道 (0) 還是多聲道移動瀏覽 (1)。 1 以外的任何值代表雙聲道。 雙聲道輸出會與 HRTF 進行空間定位以便用於耳機，多聲道輸出則會與 VBAP 進行空間定位以便用於多聲道環繞喇叭系統。 如果使用多聲道移動瀏覽器，請務必選取符合您裝置設定 (可在 [Project Settings] \(專案設定\)   > [Audio] \(音訊\)  下找到) 的喇叭模式。
 
 ## <a name="check-proper-sound-source-placement"></a>檢查適當的聲音來源位置
-系統不會對置於被佔用體素內的聲音來源進行聲場處理。 因為體素可延伸並超過可見的場景幾何，所以就算來源看起來似乎沒有被可見幾何所遮蔽，其仍有可能已被置於體素內。 您可以透過切換 [Scene] \(場景\) 檢視右上角 [Gizmos] \(小工具\) 功能表中的體素格線核取方塊，來檢視聲場專案體素。
+系統不會對置於被佔用體素內的聲音來源進行聲場處理。 因為體素可延伸並超過可見的場景幾何，所以就算來源看起來似乎沒有被可見幾何所遮蔽，其仍有可能已被置於體素內。 您可以透過切換 [Scene]  \(場景\) 檢視右上角 [Gizmos]  \(小工具\) 功能表中的體素格線核取方塊，來檢視聲場專案體素。
 
 ![Unity Gizmos 功能表的螢幕擷取畫面](media/gizmos-menu.png)  
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ab500fe6a7f288bcfbdc9168ada8bdad5bdb6ea
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435889"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772956"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -28,7 +28,7 @@ ms.locfileid: "67435889"
 **V2 Translator API**
 
 > [!NOTE]
-> V2 已於 2018 年 4 月 30 日淘汰。 請將應用程式移轉至 V3 若要利用以獨佔方式在 V3 中使用的新功能。
+> V2 已于2018年4月30日淘汰。 請將您的應用程式遷移至 V3, 以利用在 V3 中專門提供的新功能。
 
 * 僅限統計：此語言沒有可用的類神經系統。
 * 可使用類神經：可以使用類神經系統。 使用 `category=generalnn` 參數來存取類神經系統。
@@ -38,18 +38,18 @@ ms.locfileid: "67435889"
 **V3 Translator API** V3 Translator API 預設為類神經架構，而統計系統僅適用於沒有類神經系統存在時。
 
 > [!NOTE]
-> 目前，類神經語言子集可用於自訂轉譯器，我們會逐漸加入額外的。 [檢視自訂轉譯器中目前可用的語言](#customization)。
+> 目前, 類神經語言的子集可在自訂翻譯中使用, 我們會逐漸新增其他類神經語言。 [觀看自訂翻譯中目前可用的語言](#customization)。
 
 |語言|  語言代碼|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
 |南非荷蘭文| `af`    |僅限統計|  類神經|
 |阿拉伯文|    `ar`    |可使用類神經|  類神經|
 |孟加拉文|    `bn`    |可使用類神經|  類神經|
-|波士尼亞文 (拉丁文)|   `bs`    |可使用類神經|  類神經|
+|波士尼亞文 (拉丁)|   `bs`    |可使用類神經|  類神經|
 |保加利亞文| `bg`    |可使用類神經|  類神經|
 |粵語 (繁體中文)|   `yue`   |僅限統計|  統計|
 |卡達隆尼亞文|   `ca`    |僅限統計|  統計|
-|簡體中文|    `zh-Hans`   |類神經預設值 |類神經|
+|中文 (簡體)|    `zh-Hans`   |類神經預設值 |類神經|
 |繁體中文|   `zh-Hant`   |類神經預設值 |類神經|
 |克羅埃西亞文|  `hr`    |可使用類神經|  類神經|
 |捷克文| `cs`    |可使用類神經|  類神經|
@@ -72,7 +72,7 @@ ms.locfileid: "67435889"
 |印尼文|    `id`    |僅限統計|  統計|
 |義大利文|   `it`    |可使用類神經|  類神經|
 |日文|  `ja`    |可使用類神經|  類神經|
-|史瓦希里文| `sw`    |僅限統計|  統計|
+|斯瓦希里文| `sw`    |僅限統計|  統計|
 |克林貢文|   `tlh`   |僅限統計|  統計|
 |克林貢文 (plqaD)|   `tlh-Qaak`  |僅限統計|  統計|
 |韓文 |`ko`   |可使用類神經|  類神經|
@@ -82,7 +82,7 @@ ms.locfileid: "67435889"
 |馬來文| `ms`    |僅限統計   |統計|
 |馬爾他文|   `mt`    |僅限統計|  統計|
 |挪威文| `nb`    |可使用類神經|  類神經|
-|波斯文|   `fa`    |僅限統計|  統計|
+|波斯文|   `fa`    |可使用類神經|  類神經|
 |波蘭文|    `pl`    |可使用類神經|  類神經|
 |葡萄牙文|    `pt`    |可使用類神經|  類神經|
 |奎雷塔洛歐多米文|   `otq`   |僅限統計|  統計|
@@ -115,10 +115,10 @@ ms.locfileid: "67435889"
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | 阿拉伯文 | `ar` | 阿拉伯文 `Arab` | <--> | 拉丁文 `Latn` |
 |孟加拉文  | `bn` | 孟加拉文 `Beng` | <--> | 拉丁文 `Latn` |
-| 中文 (簡體) | `zh-Hans` | 簡體中文 `Hans`| <--> | 拉丁文 `Latn` |
-| 中文 (簡體) | `zh-Hans` | 簡體中文 `Hans`| <--> | 繁體中文 `Hant`|
-| 中文 (繁體) | `zh-Hant` | 繁體中文 `Hant`| <--> | 拉丁文 `Latn` |
-| 中文 (繁體) | `zh-Hant` | 繁體中文 `Hant`| <--> | 簡體中文 `Hans` |
+| 簡體中文 | `zh-Hans` | 簡體中文 `Hans`| <--> | 拉丁文 `Latn` |
+| 簡體中文 | `zh-Hans` | 簡體中文 `Hans`| <--> | 繁體中文 `Hant`|
+| 繁體中文 | `zh-Hant` | 繁體中文 `Hant`| <--> | 拉丁文 `Latn` |
+| 繁體中文 | `zh-Hant` | 繁體中文 `Hant`| <--> | 簡體中文 `Hans` |
 | 古吉拉特文 | `gu`  | 古吉拉特文 `Gujr` | --> | 拉丁文 `Latn` |
 | Hebrew | `he` | 希伯來文 `Hebr` | <--> | 拉丁文 `Latn` |
 | Hindi | `hi` | 梵文字母 `Deva` | <--> | 拉丁文 `Latn` |
@@ -143,10 +143,10 @@ ms.locfileid: "67435889"
 | 南非荷蘭文      | `af`          |
 | 阿拉伯文       | `ar`          |
 | 孟加拉文      | `bn`          |
-| 波士尼亞文 (拉丁文)      | `bs`          |
+| 波士尼亞文 (拉丁)      | `bs`          |
 | 保加利亞文      | `bg`          |
 | 卡達隆尼亞文      | `ca`          |
-| 簡體中文      | `zh-Hans`          |
+| 中文 (簡體)      | `zh-Hans`          |
 | 克羅埃西亞文      | `hr`          |
 | 捷克文      | `cs`          |
 | 丹麥文      | `da`          |
@@ -165,7 +165,7 @@ ms.locfileid: "67435889"
 | 印尼文      | `id`          |
 | 義大利文      | `it`          |
 | 日文      | `ja`          |
-| 史瓦希里文      | `sw`          |
+| 斯瓦希里文      | `sw`          |
 | 克林貢文      | `tlh`          |
 | 韓文      | `ko`          |
 | 拉脫維亞文      | `lv`          |
@@ -191,9 +191,9 @@ ms.locfileid: "67435889"
 | 越南文      | `vi`          |
 | 威爾斯文      | `cy`          |
 
-## <a name="detect"></a>Detect
+## <a name="detect"></a>偵測
 
-Translator Text API 偵測到適用於轉譯和轉換的所有語言。
+翻譯工具文字 API 會偵測所有可用於轉譯和音譯的語言。
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>以程式設計方式存取翻譯工具文字 API 的語言清單
@@ -204,15 +204,15 @@ Translator Text API 偵測到適用於轉譯和轉換的所有語言。
 
 ## <a name="customization"></a>自訂
 
-下列語言版本可供自訂英文使用來回[自訂轉譯器](https://aka.ms/CustomTranslator)。
+下列語言可使用[自訂翻譯](https://aka.ms/CustomTranslator)自訂或英文。
 
 | 語言    | 語言代碼 |
 |:----------- |:-------------:|
 | 阿拉伯文       | `ar`          |
 | 孟加拉文      | `bn`          |
-| 波士尼亞文 (拉丁文)      | `bs`          |
+| 波士尼亞文 (拉丁)      | `bs`          |
 | 保加利亞文      | `bg`          |
-| 簡體中文      | `zh-Hans`          |
+| 中文 (簡體)      | `zh-Hans`          |
 |繁體中文|   `zh-Hant`   |
 | 克羅埃西亞文      | `hr`          |
 | 捷克文      | `cs`          |
@@ -231,7 +231,7 @@ Translator Text API 偵測到適用於轉譯和轉換的所有語言。
 | 印尼文|   `id`    |
 | 義大利文      | `it`          |
 | 日文      | `ja`          |
-|史瓦希里文| `sw`    |
+|斯瓦希里文| `sw`    |
 | 韓文      | `ko`          |
 | 拉脫維亞文      | `lv`          |
 | 立陶宛文      | `lt`          |

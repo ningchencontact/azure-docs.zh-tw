@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b26133c64877bcac07d2e8ba10dbee05d4e36d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 762e5ae1782ee037b33156e16a0503ed1e7391ff
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102267"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>教學課程：Azure Active Directory 與 FloQast 整合
 
@@ -112,7 +112,7 @@ FloQast 與 Azure AD 整合提供下列優點：
 
     在 [登入 URL]  文字方塊中，輸入 URL：`https://go.floqast.com/login/sso`
 
-6. FloQast 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML token 屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****   圖示以新增屬性。
+6. FloQast 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 SAML token 屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以新增屬性。
 
     ![image](common/edit-attribute.png)
 
@@ -223,7 +223,7 @@ FloQast 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-floqast-test-user"></a>建立 FloQast 測試使用者
 
-在本節中，您將在 FloQast 中建立名為 Britta Simon 的使用者。 請與 [FloQast 支援小組](mailto:support@floqast.com)合作，在 FloQast 平台上新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您將在 FloQast 中建立名為 Britta Simon 的使用者。 請與 [FloQast 支援小組](mailto:support@floqast.com)合作，以在 FloQast 平台上新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

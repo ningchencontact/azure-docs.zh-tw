@@ -10,21 +10,22 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: ffb159dc684b4b6663dcb966706d4745ab88a403
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 93868bb014809693e7614e74bde7db864de95c04
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61337800"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704955"
 ---
 # <a name="journal-entity"></a>期刊實體
 
 <sub> *下列屬性專屬於期刊實體。(Ty = '2') </sub>
 
-名稱    |描述                            |類型       | 作業
+名稱    |描述                            |Type       | 作業
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |實體識別碼                              |Int64      |Equals
-DJN     |期刊標準化名稱                |String     |None
-JN      |期刊顯示名稱                   |字串     |Equals
-CC      |期刊引用總數           |Int32      |None  
-ECC     |期刊引用預估總數 |Int32      |None
+Id      |實體 ID                              |Int64      |等於
+DJN     |期刊標準化名稱                |String     |無
+JN      |期刊顯示名稱                   |String     |等於
+CC      |期刊引用總數           |Int32      |無  
+ECC     |期刊引用預估總數 |Int32      |無

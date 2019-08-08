@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: f92c0faaaa3aa0cd2af16a031f3bed4c6b41fc22
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60462583"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706836"
 ---
 # <a name="project-url-preview-v7-reference"></a>專案 URL 預覽 v7 參考
 
@@ -59,10 +60,10 @@ q - 識別欲預覽之 URL 的查詢
 > 
 > 此外，某些參數目前對 URL 預覽 API 沒有意義，但可能在將來用於改善全球化。
 
-## <a name="headers"></a>headers
+## <a name="headers"></a>標頭
 以下是要求和回應可能包含的標頭。
 
-|頁首|描述|
+|標頭|描述|
 |------------|-----------------|
 |<a name="market" />BingAPIs-Market|回應標頭。<br /><br /> 要求所使用的市場。 格式為 \<languageCode\>-\<countryCode\>。 例如：en-US。|
 |<a name="traceid" />BingAPIs-TraceId|回應標頭。<br /><br /> 包含要求詳細資料記錄項目的識別碼。 發生錯誤時，會擷取這個識別碼。 如果您無法判定並解決問題，請將此識別碼與其他資訊一併提供給支援小組。|
@@ -73,44 +74,44 @@ q - 識別欲預覽之 URL 的查詢
 ## <a name="query-parameters"></a>查詢參數
 要求可能含有下列查詢參數。 請參閱必要參數的必要資料行。 您必須對查詢參數進行 URL 編碼。 查詢必須是帶有 http 或 https 配置的絕對 URL；不支援相對 URL 或其他配置，例如 ftp://
 
-|名稱|值|類型|必要項|
+|名稱|值|Type|必要項|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱市場代碼。<br /><br /> **注意：** URL 預覽 API 目前僅支援美國地理位置和英文。<br /><br />|字串|是|
+|<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱市場代碼。<br /><br /> **注意：** URL 預覽 API 目前僅支援美國地理位置和英文。<br /><br />|String|是|
 |<a name="query" />q|要預覽的 URL|String|是|
 |<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](https://json-ld.org/)。|String|否|
-|<a name="safesearch"/>safeSearch|禁止非法成人內容或盜版內容，錯誤代碼為 400，並且不會傳回 *isFamilyFriendly* 旗標。 <p>對於合法的成人內容，會出現以下行為。 狀態碼傳回 200，而且 *isFamilyFriendly* 旗標設為 false。<ul><li>safeSearch=strict：不會傳回標題、描述、URL 以及映像。</li><li>safeSearch=moderate；取得標題、URL 以及描述，但不會有描述性的影像。</li><li>safeSearch=off；取得所有回應物件/元素 – 標題、URL、描述、影像。</li></ul> |字串|不需要。 </br> 預設值為 safeSearch=strict。|
+|<a name="safesearch"/>safeSearch|禁止非法成人內容或盜版內容，錯誤代碼為 400，並且不會傳回 *isFamilyFriendly* 旗標。 <p>對於合法的成人內容，會出現以下行為。 狀態碼傳回 200，而且 *isFamilyFriendly* 旗標設為 false。<ul><li>safeSearch=strict：不會傳回標題、描述、URL 以及映像。</li><li>safeSearch=moderate；取得標題、URL 以及描述，但不會有描述性的影像。</li><li>safeSearch=off；取得所有回應物件/元素 – 標題、URL、描述、影像。</li></ul> |String|不需要。 </br> 預設值為 safeSearch=strict。|
 
 ## <a name="response-objects"></a>回應物件
 回應結構描述是 [WebPage] 或 ErrorResponse，如同在 Web 搜尋 API 中一樣。 如果要求失敗，則最上層的物件是 [ErrorResponse](#errorresponse) 物件。
 
-|Object|描述|
+|物件|描述|
 |------------|-----------------|
 |[網頁](#webpage)|包含預覽屬性的最上層 JSON 物件。|
 
 ### <a name="error"></a>Error
 定義發生的錯誤。
 
-|元素|描述|類型|
+|元素|描述|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />code|識別錯誤類別的錯誤碼。 如需可能的代碼清單，請參閱[錯誤碼](#error-codes)。|String|
-|<a name="error-message" />message|錯誤的描述。|字串|
-|<a name="error-moredetails" />moreDetails|提供其他錯誤相關資訊的描述。|字串|
+|<a name="error-message" />message|錯誤的描述。|String|
+|<a name="error-moredetails" />moreDetails|提供其他錯誤相關資訊的描述。|String|
 |<a name="error-parameter" />parameter|要求中導致錯誤的查詢參數。|String|
-|<a name="error-subcode" />subCode|識別錯誤的錯誤碼。 例如，如果 `code`是 InvalidRequest，則 `subCode` 可能是 ParameterInvalid 或 ParameterInvalidValue。 |字串|
-|<a name="error-value" />value|非有效的查詢參數值。|字串|
+|<a name="error-subcode" />subCode|識別錯誤的錯誤碼。 例如，如果 `code`是 InvalidRequest，則 `subCode` 可能是 ParameterInvalid 或 ParameterInvalidValue。 |String|
+|<a name="error-value" />value|非有效的查詢參數值。|String|
 
 ### <a name="errorresponse"></a>ErrorResponse
 要求失敗時，回應包含的最上層物件。
 
-|名稱|值|類型|
+|名稱|值|Type|
 |----------|-----------|----------|
-|_type|類型提示。|字串|
+|_type|類型提示。|String|
 |<a name="errors" />errors|說明要求失敗原因的錯誤清單。|[錯誤](#error)[]|
 
 ### <a name="webpage"></a>網頁
 定義預覽網頁的相關資訊。
 
-|名稱|值|類型|
+|名稱|值|Type|
 |----------|-----------|----------|
 |name|頁面標題，不一定是 HTML 標題|String|
 |url|實際搜耙的 URL (要求可能已遵循重新導向)|String|
@@ -119,9 +120,9 @@ q - 識別欲預覽之 URL 的查詢
 |primaryImageOfPage/contentUrl|要包含在預覽中的代表圖片 URL|String|
 
 ### <a name="identifiable"></a>Identifiable
-|名稱|值|類型|
+|名稱|值|Type|
 |-------------|-----------------|----------|
-|id|資源識別碼|String|
+|ID|資源識別碼|String|
 
 ## <a name="error-codes"></a>錯誤碼
 
@@ -170,10 +171,10 @@ q - 識別欲預覽之 URL 的查詢
 
 以下是可能的錯誤碼和子錯誤碼值。
 
-|代碼|子代碼|描述
+|程式碼|子代碼|描述
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP 狀態碼為 500。
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blocked|只要要求的任何部分無效，Bing 就會傳回 InvalidRequest。 例如缺少必要的參數或參數值無效。<br/><br/>如果錯誤是 ParameterMissing 或 ParameterInvalidValue，則 HTTP 狀態碼為 400。<br/><br/>如果您使用的是 HTTP 通訊協定，而不是 HTTPS，Bing 會傳回 HttpNotAllowed，且 HTTP 狀態碼為 410。
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>已封鎖|只要要求的任何部分無效，Bing 就會傳回 InvalidRequest。 例如缺少必要的參數或參數值無效。<br/><br/>如果錯誤是 ParameterMissing 或 ParameterInvalidValue，則 HTTP 狀態碼為 400。<br/><br/>如果您使用的是 HTTP 通訊協定，而不是 HTTPS，Bing 會傳回 HttpNotAllowed，且 HTTP 狀態碼為 410。
 |RateLimitExceeded|沒有子代碼|每當您超過每秒查詢 (QPS) 或每月查詢 (QPM) 配額時，Bing 會傳回 RateLimitExceeded。<br/><br/>如果您超過 QPS，Bing 會傳回 HTTP 狀態碼 429，如果您超過 QPM，Bing 會傳回 403。
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|當 Bing 無法驗證呼叫者時，Bing 會傳回 InvalidAuthorization。 例如，缺少 `Ocp-Apim-Subscription-Key` 標頭，或訂用帳戶金鑰無效。<br/><br/>如果您指定一個以上的驗證方法，則會出現備援。<br/><br/>如果錯誤是 InvalidAuthorization，則 HTTP 狀態碼為 401。
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|當呼叫者沒有資源存取權限時，Bing 會傳回 InsufficientAuthorization。 如果訂用帳戶金鑰已停用或已過期，則會發生此情況。 <br/><br/>如果錯誤是 InsufficientAuthorization，則 HTTP 狀態碼為 403。

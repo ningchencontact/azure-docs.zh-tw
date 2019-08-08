@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: cd6d22e7c689bce5c325863b914c5ee8abcbf40a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ba392f69c0c5803768a04b94d9f9c0ed4f032fbf
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240768"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775027"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.iOS 應用程式
 
@@ -56,25 +56,6 @@ ms.locfileid: "66240768"
 完成本教學課程是 Xamarin.iOS 應用程式的所有其他通知中樞教學課程的先決條件。
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>針對 iOS 推播通知設定您的通知中樞
-
-本節將引導您進行相關步驟以建立新的通知中樞，並使用您先前建立的 **.p12** 推播憑證，設定以 APNS 進行驗證的機制。 如果您想要使用已經建立的通知中樞，可以跳至步驟 5。
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-ios-settings-for-the-notification-hub"></a>設定通知中樞的 iOS 設定
-
-1. 在 [通知設定]  群組中選取 [Apple] \(APNS\)  。
-2. 選取 [憑證]  、按一下 [檔案]  圖示，然後選取您先前匯出的 **.p12** 檔案。
-3. 指定憑證的**密碼**。
-4. 選取 [沙箱]  模式。 只有在您想傳送推播通知給從市集購買應用程式的使用者時，才可使用 [生產]  模式。
-
-    ![在 Azure 入口網站中設定 APNS][6]
-
-    ![在 Azure 入口網站中設定 APNS 憑證][7]
-
-現在，您的通知中心已設定成使用 APNS，而且您有可用來註冊應用程式和傳送推播通知的連接字串。
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>將您的應用程式連接到通知中樞
 
@@ -124,7 +105,7 @@ ms.locfileid: "66240768"
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

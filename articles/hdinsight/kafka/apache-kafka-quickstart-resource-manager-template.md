@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 5f2a959bcea533174feedb324cecf20ca12bd39b
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 75b774a59d3a2a94f1f1132a79c26dcca7b4b6f7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137190"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780790"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Kafka 叢集
 
@@ -40,9 +40,9 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
     | 屬性 | 值 |
     | --- | --- |
-    | 訂用帳戶 | 您的 Azure 訂用帳戶。 |
-    | 資源群組 | 在其中建立叢集的資源群組。 |
-    | 位置 | 在其中建立叢集的 Azure 區域。 |
+    | Subscription | 您的 Azure 訂用帳戶。 |
+    | Resource group | 在其中建立叢集的資源群組。 |
+    | Location | 在其中建立叢集的 Azure 區域。 |
     | 叢集名稱 | Kafka 叢集的名稱。 |
     | 叢集登入使用者名稱 | 用來登入裝載於叢集上 HTTPS 型服務的帳戶名稱。 |
     | 叢集登入密碼 | 登入使用者名稱的密碼。 |
@@ -67,7 +67,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
     連線之後，您會看到類似下列文字的資訊：
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -85,7 +85,6 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     Welcome to Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>取得 Apache Zookeeper 和訊息代理程式主機資訊

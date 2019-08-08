@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 010245480d8e1f59d5c1b92a9e717f73b5ba7f4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4d42121468b8a875ecd13fb936d810728bd4b644
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389147"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703432"
 ---
 # <a name="demo-pizza-order"></a>示範：披薩訂單
 這段示範說明披薩訂購聊天機器人，可藉由下列動作來支援單一比薩訂購：
@@ -24,7 +25,7 @@ ms.locfileid: "66389147"
 - 管理配料庫存，並適當回應
 - 記住先前的訂單，以快速重新訂購相同的比薩
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![示範披薩預覽](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPizzaOrder)
 
@@ -47,7 +48,7 @@ ms.locfileid: "66389147"
 
 ![](../media/tutorial_pizza_entities.PNG)
 
-### <a name="actions"></a>動作
+### <a name="actions"></a>個動作
 
 模型包含一組會詢問使用者要選取哪些配料的動作、累加的配料和其他項目。
 

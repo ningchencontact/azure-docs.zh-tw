@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac39b741ba6e070c056a10f30d6e27882be64fa
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3fb61782ea6b51a9ba60095e19cf375922397073
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592261"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773532"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入門：使用應用程式的身分識別來取得權杖並從主控台應用程式呼叫 Microsoft Graph API
 
@@ -76,7 +76,7 @@ ms.locfileid: "68592261"
 > > [為我進行這些變更]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![已設定](media/quickstart-v2-windows-desktop/green-check.png) 您的應用程式已設定了這些屬性。
+> > ![已設定](media/quickstart-v2-netcore-daemon/green-check.png) 您的應用程式已設定了這些屬性。
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步驟 2：下載您的 Visual Studio 專案
 

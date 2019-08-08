@@ -1,5 +1,5 @@
 ---
-title: 教學課程：為多個資料來源編製索引 - Azure 搜尋服務
+title: C# 教學課程：為多個資料來源編製索引 - Azure 搜尋服務
 description: 了解如何將多個資料來源的資料匯入至單一 Azure 搜尋服務索引。
 author: RobDixon22
 manager: HeidiSteen
@@ -7,14 +7,13 @@ services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.author: v-rodixo
-ms.custom: seodec2018
-ms.openlocfilehash: 8ce3c66432f3d2d0cb973886498aa46e7820698c
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.author: heidist
+ms.openlocfilehash: 2776bcd095c570be500fa6ddb2675820b2259716
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485252"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840668"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C# 教學課程：在一個 Azure 搜尋服務索引中合併多個資料來源的資料
 
@@ -35,7 +34,7 @@ Azure 搜尋服務可以將多個資料來源的資料匯入至單一已合併�
 
 本快速入門會使用下列服務、工具和資料。 
 
-- [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此教學課程的免費服務。
+- [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
 - [建立 Azure Cosmos DB 帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)，以儲存範例旅館資料。
 

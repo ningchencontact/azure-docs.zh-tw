@@ -10,12 +10,13 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b283103920230a0d2aae98c83f75fb03679a675
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594027"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706818"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>教學課程：使用 C# 建置實體連結應用程式
 
@@ -37,25 +38,25 @@ Microsoft 實體連結是自然語言處理工具，可用來分析文字並將�
 
 ### <a name="step-2-create-a-new-project-in-visual-studio">步驟 2：在 Visual Studio 中建立新專案</a>
 
-讓我們從在 Visual Studio 中建立新專案開始吧。 首先，從 [開始] 功能表中啟動 Visual Studio 2015。 然後，選取 [已安裝項目] → [範本] → [Visual C#] → [Windows 通用] → [空白應用程式] 作為專案範本來建立新專案：
+讓我們從在 Visual Studio 中建立新專案開始吧。 首先，從 [開始] 功能表中啟動 Visual Studio 2015。 然後，選取 [已安裝項目] → [範本] → [Visual C#] → [Windows 通用] → [空白應用程式]  作為專案範本來建立新專案：
 
  ![建立通用應用程式](./Images/CreateUWP.png)
 
 ### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">步驟 3：將實體連結 NuGet 套件新增至您的專案</a>
 
 認知服務的實體連結會發行為 NuGet.org 套件，而且必須先安裝才能使用。
-若要將其新增至您的專案，請移至 [方案總管] 索引標籤並以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。
+若要將其新增至您的專案，請移至 [方案總管]  索引標籤並以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]  。
 
-首先，在 [NuGet 套件管理員] 視窗中的右上角，選取 [NuGet.org] 作為您的 [套件來源]。 在左上角選取 [瀏覽]，然後在 [搜尋] 方塊中輸入 “ProjectOxford.EntityLinking”。 選取 **Microsoft.ProjectOxford.EntityLinking** NuGet 套件，然後按一下 [安裝]。
+首先，在 [NuGet 套件管理員]  視窗中的右上角，選取 [NuGet.org] 作為您的 [套件來源]  。 在左上角選取 [瀏覽]  ，然後在 [搜尋] 方塊中輸入 “ProjectOxford.EntityLinking”。 選取 **Microsoft.ProjectOxford.EntityLinking** NuGet 套件，然後按一下 [安裝]  。
 
-接下來，搜尋 Newtonsoft.Json 並安裝。 如果出現要求您檢閱變更的提示，請按一下 [確定]。 如果出現實體連結的授權條款，請按一下 [我接受]。
+接下來，搜尋 Newtonsoft.Json 並安裝。 如果出現要求您檢閱變更的提示，請按一下 [確定]  。 如果出現實體連結的授權條款，請按一下 [我接受]  。
 
 實體連結現在已安裝為應用程式的一部分。 您可以透過檢查 **Microsoft.ProjectOxford.EntityLinking** 參考是否已顯示為 [方案總管] 中專案的一部份來加以確認。
 
  ![專案中已包含 nuget 程式庫](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">步驟 4：將輸入和輸出文字區塊新增至應用程式的 XAML</a>
-在 [方案總管] 中瀏覽至 **MainPage.xaml**，然後連按兩下此檔案，以在新視窗中開啟。 為方便起見，您可以在 [設計工具] 索引標籤中連按兩下 [XAML] 按鈕，這樣會隱藏 [視覺化設計工具]，並保留所有程式碼檢視空間。
+在 [方案總管]  中瀏覽至 **MainPage.xaml**，然後連按兩下此檔案，以在新視窗中開啟。 為方便起見，您可以在 [設計工具]  索引標籤中連按兩下 [XAML]  按鈕，這樣會隱藏 [視覺化設計工具]  ，並保留所有程式碼檢視空間。
 
  ![專案中已包含 nuget 程式庫](./Images/UWPMainPage.png)
  
@@ -76,13 +77,13 @@ Microsoft 實體連結是自然語言處理工具，可用來分析文字並將�
  
 ### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">步驟 5：開始新增實體連結智慧服務</a>
  
-現在，使用者介面已建立。 在使用實體連結服務之前，我們需要新增「按鈕點擊」處理常式。 從 [方案總管] 中開啟 [MainPage.xaml]。 在按鈕結尾加上 button_Click 處理常式。
+現在，使用者介面已建立。 在使用實體連結服務之前，我們需要新增「按鈕點擊」處理常式。 從 [方案總管]  中開啟 [MainPage.xaml]  。 在按鈕結尾加上 button_Click 處理常式。
  
  ```XAML
  <Button x:Name="button" Grid.Row="2" Content="Get Result" Click="button_Click" />
  ```
  
-「按鈕點擊」處理常式必須在程式碼中實作。 從 [方案總管] 中開啟 [MainPage.xaml.cs] 以實作按鈕點擊。 EntityLinkingServiceClient 是擷取實體連結回應的包裝函式。 EntityLinkingServiceClient 的建構函式引數是認知服務的訂用帳戶金鑰。 貼上您在**步驟 1**取得的訂用帳戶金鑰，以呼叫實體連結服務。 
+「按鈕點擊」處理常式必須在程式碼中實作。 從 [方案總管]  中開啟 [MainPage.xaml.cs]  以實作按鈕點擊。 EntityLinkingServiceClient 是擷取實體連結回應的包裝函式。 EntityLinkingServiceClient 的建構函式引數是認知服務的訂用帳戶金鑰。 貼上您在**步驟 1**取得的訂用帳戶金鑰，以呼叫實體連結服務。 
 
 以下是範例程式碼，其中已使用實體連結服務將 "wikipediaId" 新增到回應中。 
  
@@ -97,7 +98,7 @@ Microsoft 實體連結是自然語言處理工具，可用來分析文字並將�
 }
  ```
  
-現在，您可以執行您的第一個自然語言處理實體連結應用程式。 按 [F5 鍵] 以編譯並啟動應用程式。 在輸入方塊中貼上文字片段或段落。 按下 [取得結果] 按鈕，並觀察輸出區塊中已識別的實體。
+現在，您可以執行您的第一個自然語言處理實體連結應用程式。 按 [F5 鍵]  以編譯並啟動應用程式。 在輸入方塊中貼上文字片段或段落。 按下 [取得結果] 按鈕，並觀察輸出區塊中已識別的實體。
  
  ![UWP 範例結果](./Images/DemoCodeResult.png)
  

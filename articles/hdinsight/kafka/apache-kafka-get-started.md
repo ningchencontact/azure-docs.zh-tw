@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 61ae6cdf7c31c9a6e40860eb1dc4628bb2d37496
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150890"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779531"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：在 Azure HDInsight 中使用 Azure 入口網站建立 Apache Kafka 叢集
 
@@ -45,7 +45,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     | 設定 | 值 |
     | --- | --- |
     | 叢集名稱 | HDInsight 叢集的唯一名稱。 |
-    | 訂用帳戶 | 選取您的訂用帳戶。 |
+    | Subscription | 選取您的訂用帳戶。 |
     
    選取 [叢集類型]  以顯示**叢集設定**。
    
@@ -70,7 +70,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     | 叢集登入密碼 | 存取裝載於叢集上 Web 服務或 REST API 時的登入密碼。 |
     | 安全殼層 (SSH) 使用者名稱 | 透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。 |
     | 資源群組 | 在其中建立叢集的資源群組。 |
-    | 位置 | 在其中建立叢集的 Azure 區域。 |
+    | Location | 在其中建立叢集的 Azure 區域。 |
 
     每個 Azure 區域 (位置) 提供_容錯網域_。 容錯網域是 Azure 資料中心內基礎硬體的邏輯群組。 每個容錯網域會共用通用電源和網路交換器。 實作 HDInsight 叢集內節點的虛擬機器和受控磁碟會分散於這些容錯網域。 此架構會限制實體硬體故障的潛在影響。
 
@@ -122,7 +122,7 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
 
     連線之後，您會看到類似下列文字的資訊：
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -140,7 +140,6 @@ SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (
     Welcome to Apache Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>取得 Apache Zookeeper 和訊息代理程式主機資訊

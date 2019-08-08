@@ -10,17 +10,18 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 15aa3a8346087908cf77f1f68db916cc2c184448
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 51eab34f32a20a86445da0ac44d94a31d6694b40
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389883"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703401"
 ---
 # <a name="demo-password-reset"></a>示範：密碼重設
 本教學課程示範簡單的技術支援聊天機器人如何協助您以對話學習模組進行密碼重設。 聊天機器人的模型可學習非一般對話流程和多回合序列，包括領域外類別。 工作可在不使用程式碼或實體的情況下完成。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![示範密碼預覽](https://aka.ms/cl_Tutorial_v3_DemoPassword_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPassword)
 
@@ -33,7 +34,7 @@ ms.locfileid: "66389883"
 
 在 Web UI 的模型清單中，按一下 [教學課程示範密碼重設]。 
 
-### <a name="actions"></a>動作
+### <a name="actions"></a>個動作
 
 模型中包含一組可協助使用者解決常見密碼問題的動作。
 

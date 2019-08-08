@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559404"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815270"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>語音服務的語言和區域支援
 
@@ -31,12 +31,12 @@ Microsoft 語音辨識 SDK 和 REST API 都支援下列語言 (地區設定)。 
  ar-EG | 阿拉伯文 (埃及)，現代標準 | 否 | 是 | 否
  ca-ES | 卡達隆尼亞文 | 否 | 否 | 否
  da-DK | 丹麥文 (丹麥) | 否 | 否 | 否
- de-DE | 德文 (德國) | 是 | 是 | 否
- en-AU | 英文 (澳洲) | 否 | yes | 是
- en-CA | 英文 (加拿大) | 否 | yes | 是
- en-GB | 英文 (英國) | 否 | yes | 是
- en-IN | 英文 (印度) | 是 | 是 | 是
- en-NZ | 英文 (紐西蘭) | 否 | yes | 是  
+ de-DE | 德文 (德國) | 是 | 是 | 是
+ en-AU | 英文 (澳洲) | 否 | 是 | 否
+ en-CA | 英文 (加拿大) | 否 | 是 | 否
+ en-GB | 英文 (英國) | 否 | 是 | 否
+ en-IN | 英文 (印度) | 是 | 是 | 否
+ en-NZ | 英文 (紐西蘭) | 否 | 是 | 否 
  zh-TW | 英文 (美國) | 是 | 是 | 是
  es-ES | 西班牙文 (西班牙) | 是 | 是 | 否
  es-MX | 西班牙文 (墨西哥) | 否 | 是 | 否

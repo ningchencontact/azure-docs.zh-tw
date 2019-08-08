@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d628b12171cd67455ea308a2ca2b29e67855cccc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086839"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825608"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>教學課程：Azure Active Directory 與 Workteam 整合
 
@@ -101,7 +101,7 @@ Workteam 與 Azure AD 的整合可提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定]  區段上，如果您想要以  **IDP**  起始模式設定應用程式，則使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
+4. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，則使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
     ![Workteam 網域與 URL 單一登入資訊](common/preintegrated.png)
 

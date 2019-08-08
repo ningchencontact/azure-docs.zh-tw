@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 855d29d2c55b841bbbe4e9eadce8c29ad85fad90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61336512"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704860"
 ---
 # <a name="similarity-method"></a>相似度方法
 
@@ -31,13 +32,13 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 
 參數        |資料類型      |必要項 | 描述
 ----------|----------|----------|------------
-**s1**        |字串   |是  |要進行比較的字串*
-**s2**        |字串   |是  |要進行比較的字串*
+**s1**        |String   |是  |要進行比較的字串*
+**s2**        |String   |是  |要進行比較的字串*
 
 <sub> *要比較的字串具有的最大長度為 1 MB。</sub>
 <br>
 
-## <a name="response"></a>Response
+## <a name="response"></a>回應
 
 名稱 | 描述
 --------|---------
@@ -47,7 +48,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 
 ## <a name="successerror-conditions"></a>成功/錯誤條件
 
-HTTP 狀態 | `Reason` | Response
+HTTP 狀態 | `Reason` | 回應
 -----------|----------|--------
 **200**         |成功 | 浮點數
 **400**         | 錯誤的要求或要求無效 | 錯誤訊息      
@@ -56,14 +57,14 @@ HTTP 狀態 | `Reason` | Response
 
 <br>
 
-## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>範例：計算兩個部份摘要的相似度
+## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>範例:計算兩個部份摘要的相似度
 #### <a name="request"></a>要求：
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?s1=Using complementary priors, we derive a fast greedy algorithm that can learn deep directed belief networks one layer at a time, provided the top two layers form an undirected associative memory
 &s2=Deepneural nets with a large number of parameters are very powerful machine learning systems. However, overfitting is a serious problem in such networks
 ```
 在此範例中，我們會使用**相似度** API 來產生兩個部份摘要之間的相似度分數。
-#### <a name="response"></a>回應：
+#### <a name="response"></a>回應:
 ```
 0.520
 ```

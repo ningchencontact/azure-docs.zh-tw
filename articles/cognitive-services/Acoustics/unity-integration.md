@@ -1,7 +1,7 @@
 ---
-title: 樂器 Unity 整合和部署專案
+title: 聲場專案 Unity 整合與部署
 titlesuffix: Azure Cognitive Services
-description: 此 「 作法 」 說明專案樂器 Unity 外掛程式整合到您的 Unity 專案。
+description: 本 how to 說明如何將聲場專案 Unity 外掛程式整合到您的 Unity 專案。
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,25 +10,26 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 2deddfd4e6c03b53306d8fbab3340dce464158b0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1a90f6102d35dc1a3bb97c840f2955b54f35bbad
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612729"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706632"
 ---
-# <a name="project-acoustics-unity-integration"></a>Project 樂器 Unity 整合
-此 「 作法 」 說明專案樂器 Unity 外掛程式整合到您的 Unity 專案。
+# <a name="project-acoustics-unity-integration"></a>聲場專案 Unity 整合
+本 how to 說明如何將聲場專案 Unity 外掛程式整合到您的 Unity 專案。
 
 軟體需求：
 * 適用於 Windows 的 [Unity 2018.2+](https://unity3d.com) \(英文\)
-* [專案樂器 Unity 封裝](https://www.microsoft.com/download/details.aspx?id=57346)
+* [聲場專案 Unity 封裝](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plugin"></a>匯入外掛程式
 將聲場 UnityPackage 匯入到您的專案中。 
-* 在 Unity 中，移至 [Assets] \(資產\) > [Import Package] \(匯入套件\) > [Custom Package] \(自訂套件\) 
+* 在 Unity 中，移至 [Assets] \(資產\) > [Import Package] \(匯入套件\) > [Custom Package] \(自訂套件\)
 
-    ![Unity 匯入封裝的螢幕擷取畫面 功能表](media/import-package.png)  
+    ![Unity 匯入封裝功能表的螢幕擷取畫面](media/import-package.png)  
 
 * 選擇 **ProjectAcoustics.unitypackage**
 
@@ -41,29 +42,29 @@ ms.locfileid: "67612729"
 
 ![Unity 播放器設定面板 (已選取 .NET 4.5) 的螢幕擷取畫面](media/net45.png)
 
-## <a name="set-up-audio-dsp"></a>設定 音訊 DSP
-專案樂器包含音訊的執行階段會整合成 Unity 音訊引擎空間架構的 DSP。 它包含 HRTF 式和移動的空間。 開啟使用 Unity 音訊設定，以啟用專案樂器 DSP**編輯 > 專案設定 > 音訊**，然後選取**專案樂器**做為**空間外掛程式**為您的專案。 請確定**DSP 緩衝區大小**設為達到最佳效能。
+## <a name="set-up-audio-dsp"></a>設定音訊 DSP
+聲場專案包含整合到 Unity 音訊引擎空間定位器架構的音訊執行時間 DSP。 其中包含 HRTF 型和移動流覽 spatialization。 使用 [**編輯 > 專案設定] > [音訊**] 開啟 Unity 音訊設定, 然後選取 [**聲場專案**] 做為專案的**空間定位器外掛程式**, 以啟用聲場專案 DSP。 請確定**DSP 緩衝區大小**設定為 [最佳效能]。
 
-![Unity 專案設定的螢幕擷取畫面 面板](media/project-settings.png)  
+![Unity 專案設定面板的螢幕擷取畫面](media/project-settings.png)  
 
-![Unity 空間的螢幕擷取畫面設定 面板中選取的專案樂器空間與](media/choose-spatializer.png)
+![已選取聲場專案空間定位器之 Unity 空間定位器設定面板的螢幕擷取畫面](media/choose-spatializer.png)
 
-然後開啟 音訊 Mixer (**視窗中 > 音訊 Mixer**)。 請確定您至少有一個含有一個群組的「混音器」。 如果沒有，請按一下 [Mixers] \(混音器\)  右邊的 [+] 按鈕。 以滑鼠右鍵按一下 [效果] 區段中，在通道區域底部並新增**專案樂器 Mixer**效果。 請注意，一次只支援一個「Project Acoustics 混音器」。
+然後開啟音訊混音器 (**視窗 > 音訊混音**器)。 請確定您至少有一個含有一個群組的「混音器」。 如果沒有，請按一下 [Mixers] \(混音器\) 右邊的 [+] 按鈕。 以滑鼠右鍵按一下 [效果] 區段中頻道區域的底部, 然後新增**聲場專案混音**器效果。 請注意，一次只支援一個「Project Acoustics 混音器」。
 
-![螢幕擷取畫面的 Unity 音訊 Mixer 裝載專案樂器混音器](media/audio-mixer.png)
+![Unity 音訊混音器主控聲場專案混音器的螢幕擷取畫面](media/audio-mixer.png)
 
-## <a name="enable-acoustics-on-sound-sources"></a>啟用樂器音效來源
-建立音訊來源。 按一下 AudioSource 偵測器面板底部的 [Spatialize] \(空間定位\)  核取方塊。 請確定 [Spatial Blend] \(空間混合\)  已設定為完全 3D。  
+## <a name="enable-acoustics-on-sound-sources"></a>啟用音效來源的聲場
+建立音訊來源。 按一下 AudioSource 偵測器面板底部的 [Spatialize] \(空間定位\) 核取方塊。 請確定 [Spatial Blend] \(空間混合\) 已設定為完全 3D。  
 
-![Unity 音訊來源螢幕擷取畫面 面板](media/audio-source.png)
+![Unity 音訊來源面板的螢幕擷取畫面](media/audio-source.png)
 
-## <a name="enable-acoustic-design"></a>更柔和式設計
-將指令碼連接**AcousticsAdjust**若要啟用其他來源的設計參數，依序按一下場景中的音效來源**新增元件**，然後選擇**指令碼 > 樂器調整**:
+## <a name="enable-acoustic-design"></a>啟用聲場設計
+將腳本**AcousticsAdjust**附加至場景中的聲音來源, 以啟用其他來源設計參數, 方法是按一下 [**新增元件**], 然後選擇 [**腳本] >** 聲場調整:
 
 ![Unity AcousticsAdjust 指令碼的螢幕擷取畫面](media/acoustics-adjust.png)
 
 ## <a name="next-steps"></a>後續步驟
-* [加強您的 Unity 專案樂器場景](unity-baking.md)
-* [建立 Azure Batch 帳戶](create-azure-account.md)來加強您在雲端中的場景
-* 瀏覽[專案樂器 Unity 設計程序](unity-workflow.md)。
+* [使用適用于 Unity 的聲場專案製作您的場景](unity-baking.md)
+* [建立 Azure Batch 帳戶](create-azure-account.md)以在雲端中製作您的場景
+* 探索[聲場專案 Unity 設計流程](unity-workflow.md)。
 

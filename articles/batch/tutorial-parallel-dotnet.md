@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4350cc215c776317d3bde24c7561c317a31fb4c3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 53f8742df0a03327069da083e6cb46a7c03118c1
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321880"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773067"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教學課程：使用 .NET API 透過 Azure Batch 執行平行工作負載
 
@@ -175,7 +175,7 @@ CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 
 上傳檔案時需要 `Program.cs` 中的兩個方法：
 
-* `UploadResourceFilesToContainerAsync`：傳回 ResourceFile 物件的集合，並在內部呼叫 `UploadResourceFileToContainerAsync` 以上傳在 `inputFilePaths` 參數中傳入的每個檔案。
+* `UploadFilesToContainerAsync`：傳回 ResourceFile 物件的集合，並在內部呼叫 `UploadResourceFileToContainerAsync` 以上傳在 `inputFilePaths` 參數中傳入的每個檔案。
 * `UploadResourceFileToContainerAsync`：將每個檔案當作 blob 上傳至輸入容器。 上傳檔案之後，它會取得此 blob 的共用存取簽章 (SAS) 並傳回代表它的 ResourceFile 物件。
 
 ```csharp
@@ -184,7 +184,7 @@ string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
     SearchOption.TopDirectoryOnly));
 
-List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
   blobClient,
   inputContainerName,
   inputFilePaths);

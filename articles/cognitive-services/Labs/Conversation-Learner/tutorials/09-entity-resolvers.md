@@ -1,5 +1,5 @@
 ---
-title: 對話學習模組模型-Azure 認知服務中的實體解析程式 |Microsoft Docs
+title: Conversation Learner 模型中的實體解析程式-Azure 認知服務 |Microsoft Docs
 titleSuffix: Azure
 description: 了解如何使用 Conversation Learner 中的實體解析程式。
 services: cognitive-services
@@ -10,18 +10,19 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60c4abf1590cb91fd460cc6a2a5ba75a225ebd80
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475748"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704033"
 ---
 # <a name="entity-resolvers"></a>實體解析程式
 
 本教學課程將說明如何使用 Conversation Learner 中的實體解析程式
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![實體解析程式教學課程預覽](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
 
@@ -41,37 +42,37 @@ ms.locfileid: "66475748"
 
 ### <a name="create-the-model"></a>建立模型
 
-1. 選取 **新的模型**。
-2. 請輸入**實體的解析程式**for**名稱**。
-3. 選取 [建立]  。
+1. 選取 [**新增模型**]。
+2. 輸入 [**名稱**] 的 [**實體解析**程式]。
+3. 選取 [建立]。
 
 ### <a name="create-a-pair-of-entities"></a>建立一組實體
 
-1. 選取 **實體**在左窗格中，然後**新實體**。
-2. 請輸入**起飛**for**實體名稱**。
-3. 選取  **datetimeV2** for**解析程式類型**。
-4. 選取 [建立]  。 關閉選取的資訊快顯**確定**。
-5. 重複步驟 1-4，以建立名為的第二個實體**會傳回**具有**datetimeV2**解析程式類型。
+1. 選取左面板中的 [**實體**], 然後選取 [**新增實體**]。
+2. 針對 [**機構名稱**] 輸入**離職**。
+3. 針對**解析程式類型**, 選取 [ **datetimeV2** ]。
+4. 選取 [建立]。 選取 **[確定]** 以關閉資訊快顯視窗。
+5. 重複步驟 1-4, 以使用**datetimeV2**解析程式類型建立名為**return**的第二個實體。
 
 ![](../media/T09_entities.png)
 
 ### <a name="create-a-pair-of-actions"></a>建立一組動作
 
-1. 選取 **動作**在左窗格中，然後**新動作**。
-2. 請輸入**您會在 $departure 留下，並傳回 $return**如**機器人的回應...** .
-    - 重要事項-輸入您要叫用的 $[entityName] 中輸入或按一下下拉式清單則對話學習模組中的實體會認為這是文字，而不是實體時。
-    - 請注意，**所需的實體**欄位也會取得這些實體，且無法移除它們。 這可防止在兩個必要實體都存在之前執行此動作。
-3. 選取 [建立]  。
-4. 選取 **新的動作**建立第二個動作。
-5. 輸入**當您打算移動？** 如**機器人的回應...** .
-6. 請輸入**起飛**並**傳回**如**Disqualifying 實體**。 這些內容會告訴 Bot，當這些實體中任何一個包含值的時候，「不要」採取此動作。
-7. 選取 [建立]  。
+1. 在左面板中選取 [**動作**], 然後選取 [**新增動作**]。
+2. 請輸入**您離開 $departure, 並在** **Bot 的回應**$return 上返回 ...。
+    - 重要-輸入 $ [entityName] 時, 您必須按下 enter 鍵, 或按一下下拉式集中的實體, 否則 Conversation Learner 會將此視為文字, 而不是實體。
+    - 請注意, [**必要實體**] 欄位也會取得這些實體, 而且無法移除。 這可防止在兩個必要實體都存在之前執行此動作。
+3. 選取 [建立]。
+4. 選取 [**新增動作**] 以建立第二個動作。
+5. 輸入**您打算出差的時機嗎？** 適用于**Bot 的回應**...。
+6. 為**不合格的實體**輸入**出發**和**歸還**。 這些內容會告訴 Bot，當這些實體中任何一個包含值的時候，「不要」採取此動作。
+7. 選取 [建立]。
 
 ![](../media/T09_actions.png)
 
 ### <a name="training"></a>訓練
 
-1. 監看式**訓練: [狀態]** 中的左上角**已完成**。
+1. 在左上角觀看 **[訓練: [Status]]** 以**完成**。
     - 如果費時太長，您可以按一下 [重新整理] 連結。
     - 訓練狀態必須是「已完成」，我們的實體解析程式才能在訓練模型時運作。
 
@@ -85,7 +86,7 @@ ms.locfileid: "66475748"
 8. 並也把「下週日」這幾個字標示為「返回」
 9. 按一下 [評分動作] 按鈕。
     - 請注意「記憶」窗格會如何包含您的出發和返回日期。
-    - 暫留在每一項，並觀察之實體的日期物件可清楚地擷取實際的行事曆日期，而不是 「 星期日 」 或 「 明天 」 的方式。
+    - 將滑鼠停留在每一個上方, 觀察實體如何成為日期物件, 以清楚地捕捉實際的行事曆日期, 而不是「星期日」或「明天」。
 10. 選取 [您預計的出發日期為...]Bot 回應。
 11. 按一下 [儲存] 按鈕。
 

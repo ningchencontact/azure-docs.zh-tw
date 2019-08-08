@@ -10,18 +10,19 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: eeed0718a1feb170dbbaa783ec0a840c7829c02e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 656d028082d56b8f094e83363e5189b163581c53
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390006"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703953"
 ---
 # <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用工作階段回呼
 
 本教學課程介紹工作階段、如何處理工作階段，以及對話學習模組的 onSessionStart 和 onSessionEnd 回呼。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![工作階段回呼教學課程預覽](https://aka.ms/cl_Tutorial_v3_SessionCallbacks_Preview)](https://aka.ms/cl_Tutorial_v3_SessionCallbacks)
 
@@ -52,7 +53,7 @@ ms.locfileid: "66390006"
 
 每個回呼都是選擇性的。
 
-### <a name="actions"></a>動作
+### <a name="actions"></a>個動作
 
 模型中定義了四個動作。 現有的動作會顯示在 [動作] 的方格檢視中
 

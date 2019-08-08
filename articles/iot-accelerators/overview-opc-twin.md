@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603633"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815950"
 ---
 # <a name="what-is-opc-twin"></a>什麼是 OPC 對應項？
 
@@ -42,4 +42,4 @@ OPC 對應項可透過 REST API 用於以任何程式設計語言撰寫的應用
 現在您已了解 OPC 對應項及其使用方式，以下是建議執行的下一個步驟：
 
 > [!div class="nextstepaction"]
-> [什麼是 OPC 保存庫](overview-opc-twin-architecture.md)
+> [什麼是 OPC 保存庫](overview-opc-vault.md)

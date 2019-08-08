@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 4384bf658024f89664c5202ba10d793d7ad734e0
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 28449435479aef0d6a1d8aee3e53de1a78f401b3
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592920"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705339"
 ---
 # <a name="project-answer-search-v7-reference"></a>專案答案搜尋 v7 參考
 
@@ -35,7 +36,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 要求必須使用 HTTPS 通訊協定，並包含下列查詢參數：
--  `q=<URL>` 識別物件的搜尋-查詢
+-  `q=<URL>`-可識別搜尋物件的查詢
 
 如需說明如何提出要求的範例，請參閱 [C# 快速入門](c-sharp-quickstart.md)或 [Java 快速入門](java-quickstart.md)。 
 
@@ -59,12 +60,12 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 > 
 > 此外，某些參數目前對 URL 預覽 API 沒有意義，但可能在將來用於改善全球化。 
  
-## <a name="headers"></a>headers  
+## <a name="headers"></a>標頭  
 以下是要求和回應可能包含的標頭。  
   
-|標頭|說明|  
+|標頭|描述|  
 |------------|-----------------|  
-|Accept|選擇性要求標頭。<br /><br /> 預設媒體類型為 application/json。 若要指定回應必須使用 [JSON-LD](https://json-ld.org/)，請將 Accept 標頭設定為 application/ld+json。|  
+|接受|選擇性要求標頭。<br /><br /> 預設媒體類型為 application/json。 若要指定回應必須使用 [JSON-LD](https://json-ld.org/)，請將 Accept 標頭設定為 application/ld+json。|  
 |<a name="acceptlanguage" />Accept-Language|選擇性的要求標頭。<br /><br /> 要用於使用者介面字串語言的逗號分隔清單。 清單採用喜好設定的遞減順序。 如需詳細資訊 (包括預期的格式)，請參閱 [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)。<br /><br /> 此標頭和 [setLang](#setlang) 查詢參數彼此互斥 &mdash; 請勿同時指定。<br /><br /> 若您設定此標頭，則您也必須指定 cc 查詢參數。 若要決定要傳回結果的市場，Bing 會使用它從清單中找到的第一個支援的語言，然後將其與 `cc` 參數值結合。 如果清單中未包含支援的語言，Bing 會就近尋找支援要求的語言和市場，或將彙總或預設的市場用於結果。 若要判斷 Bing 所使用的市場，請參閱 BingAPIs-Market 標頭。<br /><br /> 只有在指定了多種語言時，才需要使用此標頭和 `cc` 查詢參數。 否則，請使用 [mkt](#mkt) 和 [setLang](#setlang) 查詢參數。<br /><br /> 使用者介面字串是在使用者介面中作為標籤的字串。 JSON 回應物件中有幾個使用者介面字串。 回應物件中 Bing.com 屬性的任何連結都會套用指定的語言。|  
 |<a name="market" />BingAPIs-Market|回應標頭。<br /><br /> 要求所使用的市場。 格式為 \<languageCode\>-\<countryCode\>。 例如：en-US。|  
 |<a name="traceid" />BingAPIs-TraceId|回應標頭。<br /><br /> 包含要求詳細資料記錄項目的識別碼。 發生錯誤時，會擷取這個識別碼。 如果您無法判定並解決問題，請將此識別碼與其他資訊一併提供給支援小組。|  
@@ -83,12 +84,12 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 要求可能含有下列查詢參數。 請參閱必要參數的必要資料行。 您必須對查詢參數進行 URL 編碼。  
   
   
-|名稱|值|type|必要|  
+|名稱|值|Type|必要項|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱市場代碼。<br /><br /> **注意：** URL 預覽 API 目前僅支援 en-us 市場和語言。<br /><br />|String|是|  
-|<a name="query" />q|要預覽的 URL|字串|是|  
+|<a name="query" />q|要預覽的 URL|String|是|  
 |<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />  如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](https://json-ld.org/)。|String|否|  
-|<a name="safesearch" />safeSearch|用來篩選成人內容的篩選條件。 以下是可能的篩選值 (不區分大小寫)。<br /><ul><li>關閉 &mdash; 傳回含有成人文字、影像或視訊的網頁。<br /><br/></li><li>中度 &mdash; 傳回含有成人文字、但不含成人影像或視訊的網頁。<br /><br/></li><li>嚴格 &mdash; 不傳回含有成人文字、影像或視訊的網頁。</li></ul><br /> 預設值為「中度」。<br /><br /> **注意：** 如果要求來自於 Bing 的成人內容原則必須將 `safeSearch` 設為「嚴格」的市場，Bing 將會忽略 `safeSearch` 值並使用「嚴格」。<br/><br/>**注意：** 如果您使用 `site:` 查詢運算子，則無論 `safeSearch` 查詢參數設定為何，回應都有可能包含成人內容。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才可使用 `site:`。 |字串|否|  
+|<a name="safesearch" />safeSearch|用來篩選成人內容的篩選條件。 以下是可能的篩選值 (不區分大小寫)。<br /><ul><li>關閉 &mdash; 傳回含有成人文字、影像或視訊的網頁。<br /><br/></li><li>中度 &mdash; 傳回含有成人文字、但不含成人影像或視訊的網頁。<br /><br/></li><li>嚴格 &mdash; 不傳回含有成人文字、影像或視訊的網頁。</li></ul><br /> 預設值為「中度」。<br /><br /> **注意：** 如果要求來自於 Bing 的成人內容原則必須將 `safeSearch` 設為「嚴格」的市場，Bing 將會忽略 `safeSearch` 值並使用「嚴格」。<br/><br/>**注意：** 如果您使用 `site:` 查詢運算子，則無論 `safeSearch` 查詢參數設定為何，回應都有可能包含成人內容。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才可使用 `site:`。 |String|否|  
 |<a name="setlang" />setLang|用於使用者介面字串的語言。 請使用 ISO 639-1 2 字母語言代碼指定語言。 例如，英文的語言代碼是 EN。 預設值為 EN (英文)。<br /><br /> 語言雖然是選擇性的，但您應一律加以指定。 一般而言，除非使用者想要以不同的語言顯示使用者介面字串，否則您都會將 `setLang` 設定為 `mkt` 所指定的相同語言。<br /><br /> 此參數和 [Accept-Language](#acceptlanguage) 標頭彼此互斥 &mdash; 請勿同時指定。<br /><br /> 使用者介面字串是在使用者介面中作為標籤的字串。 JSON 回應物件中有幾個使用者介面字串。 同樣地，回應物件中 Bing.com 屬性的任何連結都會套用指定的語言。|String|否| 
 
 
@@ -96,7 +97,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 回應結構描述是 [WebPage] 或 ErrorResponse，如同在 Web 搜尋 API 中一樣。 如果要求失敗，則最上層的物件是 [ErrorResponse](#errorresponse) 物件。
 
 
-|Object|描述|  
+|物件|描述|  
 |------------|-----------------|  
 |[WebPage]|包含預覽屬性的最上層 JSON 物件。|  
 |[Fact]|包含事實的最上層 JSON 物件。| 
@@ -106,22 +107,22 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="error"></a>Error  
 定義發生的錯誤。  
   
-|項目|說明|type|  
+|項目|描述|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|識別錯誤類別的錯誤碼。 如需可能的代碼清單，請參閱[錯誤碼](#error-codes)。|字串|  
+|<a name="error-code" />code|識別錯誤類別的錯誤碼。 如需可能的代碼清單，請參閱[錯誤碼](#error-codes)。|String|  
 |<a name="error-message" />message|錯誤的描述。|String|  
 |<a name="error-moredetails" />moreDetails|提供其他錯誤相關資訊的描述。|String|  
 |<a name="error-parameter" />parameter|要求中導致錯誤的查詢參數。|String|  
-|<a name="error-subcode" />subCode|識別錯誤的錯誤碼。 例如，如果 `code`是 InvalidRequest，則 `subCode` 可能是 ParameterInvalid 或 ParameterInvalidValue。 |字串|  
+|<a name="error-subcode" />subCode|識別錯誤的錯誤碼。 例如，如果 `code`是 InvalidRequest，則 `subCode` 可能是 ParameterInvalid 或 ParameterInvalidValue。 |String|  
 |<a name="error-value" />value|非有效的查詢參數值。|String|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
 要求失敗時，回應包含的最上層物件。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
-|_type|類型提示。|字串|  
+|_type|類型提示。|String|  
 |<a name="errors" />errors|說明要求失敗原因的錯誤清單。|[錯誤](#error)|  
 
   
@@ -129,20 +130,20 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="license"></a>使用權  
 定義可據以使用文字或相片的授權。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
-|name|授權的名稱。|字串|  
+|name|授權的名稱。|String|  
 |url|可讓使用者取得更多授權相關資訊的網站 URL。<br /><br /> 請使用名稱和 URL 建立超連結。|String|  
   
 
 ### <a name="licenseattribution"></a>LicenseAttribution  
 定義授權屬性的合約規則。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
-|_type|類型提示，設定為 LicenseAttribution。|字串|  
+|_type|類型提示，設定為 LicenseAttribution。|String|  
 |授權|可據以使用內容的授權。|[授權](#license)|  
-|licenseNotice|要顯示在目標欄位旁的授權。 例如，「CC-BY-SA 授權下的文字」。<br /><br /> 請使用 `license` 欄位中的授權名稱和 URL 建立超連結，連至說明授權詳細說明的網站。 然後，將 `licenseNotice` 字串中的授權名稱 (例如 CC-BY-SA) 取代為您剛才建立的超連結。|字串|  
+|licenseNotice|要顯示在目標欄位旁的授權。 例如，「CC-BY-SA 授權下的文字」。<br /><br /> 請使用 `license` 欄位中的授權名稱和 URL 建立超連結，連至說明授權詳細說明的網站。 然後，將 `licenseNotice` 字串中的授權名稱 (例如 CC-BY-SA) 取代為您剛才建立的超連結。|String|  
 |mustBeCloseToContent|一個布林值，用以決定規則的內容是否必須放置在套用規則的欄位附近。 若為 **true**，則必須將內容放置在附近。 若為 **false**，或此欄位不存在，則可由呼叫者自行決定如何放置內容。|Boolean|  
 |targetPropertyName|套用規則的欄位名稱。|String|  
   
@@ -150,31 +151,31 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="link"></a>連結  
 定義超連結的元件。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
-|_type|類型提示。|字串|  
-|text|顯示文字。|String|  
+|_type|類型提示。|String|  
+|文字|顯示文字。|String|  
 |url|一個 URL。 使用 URL 和顯示文字建立超連結。|String|  
   
 
 ### <a name="linkattribution"></a>LinkAttribution  
 定義連結屬性的合約規則。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 LinkAttribution。|String|  
 |mustBeCloseToContent|一個布林值，用以決定規則的內容是否必須放置在套用規則的欄位附近。 若為 **true**，則必須將內容放置在附近。 若為 **false**，或此欄位不存在，則可由呼叫者自行決定如何放置內容。|Boolean|  
 |targetPropertyName|套用規則的欄位名稱。<br /><br /> 若未指定目標，則屬性會套用至整個實體，且應在實體呈現後隨即顯示。 如果有多個未指定目標的文字和連結屬性規則，您應將其串連，並使用 "Data from:" 標籤加以顯示。 例如，“Data from <provider name1\> &#124; <provider name2\>"。|String|  
-|text|屬性文字。|String|  
+|文字|屬性文字。|String|  
 |url|提供者網站的 URL。 請使用 `text` 和 URL 建立超連結。|String|  
   
   
 ### <a name="mediaattribution"></a>MediaAttribution  
 定義媒體屬性的合約規則。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
-|_type|類型提示，設定為 MediaAttribution。|字串|  
+|_type|類型提示，設定為 MediaAttribution。|String|  
 |mustBeCloseToContent|一個布林值，用以決定規則的內容是否必須放置在套用規則的欄位附近。 若為 **true**，則必須將內容放置在附近。 若為 **false**，或此欄位不存在，則可由呼叫者自行決定如何放置內容。|Boolean|  
 |targetPropertyName|套用規則的欄位名稱。|String|  
 |url|您用來建立媒體內容超連結的 URL。 例如，如果目標是影像，則您可以使用 URL 讓影像可供點選。|String|  
@@ -186,7 +187,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
   
 請注意，發行者可以提供其名稱和 (或) 網站。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
 |name|發行者的名稱。|String|  
 |url|發行者網站的 URL。<br /><br /> 請注意，發行者可能不會提供網站。|String|  
@@ -196,19 +197,19 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="webpage"></a>WebPage  
 定義預覽網頁的相關資訊。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|
 |name|頁面標題，不一定是 HTML 標題|String|
-|url|實際搜耙的 URL (要求可能已遵循重新導向)|字串|  
-|description|頁面和內容的簡短描述|字串|  
+|url|實際搜耙的 URL (要求可能已遵循重新導向)|String|  
+|description|頁面和內容的簡短描述|String|  
 |isFamilyFriendly|對於 Web 索引中的項目最準確；即時擷取僅會根據 URL 進行此偵測動作，而非頁面內容|boolean|
-|primaryImageOfPage/contentUrl|要包含在預覽中的代表圖片 URL|字串| 
+|primaryImageOfPage/contentUrl|要包含在預覽中的代表圖片 URL|String| 
   
   
 ### <a name="querycontext"></a>QueryContext  
 定義 Bing 針對要求而使用的查詢內容。  
   
-|項目|說明|type|  
+|元素|描述|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|一個布林值，用以指出指定的查詢是否有成人意圖。 如果查詢有成人意圖，則此值為 **true**，若沒有則為 **false**。|Boolean|  
 |alterationOverrideQuery|要用來強制 Bing 使用原始字串的查詢字串。 例如，如果查詢字串為 *saling downwind*，覆寫查詢字串將是 *+saling downwind*。 請記得編碼會產生 *%2Bsaling+downwind* 的查詢字串。<br /><br /> 只有原始查詢字串包含拼字錯誤時，才需要加入此欄位。|String|  
@@ -218,21 +219,21 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 
 ### <a name="identifiable"></a>Identifiable
 
-|名稱|值|type|  
+|名稱|值|Type|  
 |-------------|-----------------|----------|
-|id|資源識別碼|String|
+|ID|資源識別碼|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 定義搜尋結果群組，例如主線。
 
-|名稱|值|type|  
+|名稱|值|Type|  
 |-------------|-----------------|----------|
 |items|要顯示在群組中的搜尋結果清單。|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 定義要顯示的搜尋結果項目。
 
-|名稱|值|type|  
+|名稱|值|Type|  
 |-------------|-----------------|----------|
 |resultIndex|答案中要顯示的項目以零為起始的索引。 如果該項目未包含此欄位，則會顯示答案中的所有項目。 例如，顯示「新聞」答案中的所有新聞發行項。|整數|
 |answerType|包含要顯示項目的答案。 例如「新聞」。<br /><br />請使用類型在 SearchResponse 物件中尋找答案。 類型是 SearchResponse 欄位的名稱。<br /><br /> 不過，只有在此物件包含值欄位時，才需要使用答案類型，否則請加以忽略。|String|
@@ -254,7 +255,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
   
 請注意，如果服務懷疑有阻絕服務攻擊，要求就會成功 (HTTP 狀態碼為 200 OK)；不過，回應本文將是空的。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 SearchResponse。|String|  
 |WebPage|定義預覽的 JSON 物件|string|  
@@ -263,10 +264,10 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="textattribution"></a>TextAttribution  
 定義純文字屬性的合約規則。  
   
-|名稱|值|type|  
+|名稱|值|Type|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 TextAttribution。|String|  
-|text|屬性文字。<br /><br /> 文字屬性會套用至整個實體，且應在實體呈現後隨即顯示。 如果有多個未指定目標的文字或連結屬性規則，您應將其串連，並使用 "Data from:" 標籤加以顯示。|String| 
+|文字|屬性文字。<br /><br /> 文字屬性會套用至整個實體，且應在實體呈現後隨即顯示。 如果有多個未指定目標的文字或連結屬性規則，您應將其串連，並使用 "Data from:" 標籤加以顯示。|String| 
 
 
 ## <a name="error-codes"></a>錯誤碼
@@ -316,7 +317,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 |程式碼|子代碼|描述
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP 狀態碼為 500。
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blocked|只要要求的任何部分無效，Bing 就會傳回 InvalidRequest。 例如缺少必要的參數或參數值無效。<br/><br/>如果錯誤是 ParameterMissing 或 ParameterInvalidValue，則 HTTP 狀態碼為 400。<br/><br/>如果您使用的是 HTTP 通訊協定，而不是 HTTPS，Bing 會傳回 HttpNotAllowed，且 HTTP 狀態碼為 410。
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>已封鎖|只要要求的任何部分無效，Bing 就會傳回 InvalidRequest。 例如缺少必要的參數或參數值無效。<br/><br/>如果錯誤是 ParameterMissing 或 ParameterInvalidValue，則 HTTP 狀態碼為 400。<br/><br/>如果您使用的是 HTTP 通訊協定，而不是 HTTPS，Bing 會傳回 HttpNotAllowed，且 HTTP 狀態碼為 410。
 |RateLimitExceeded|沒有子代碼|每當您超過每秒查詢 (QPS) 或每月查詢 (QPM) 配額時，Bing 會傳回 RateLimitExceeded。<br/><br/>如果您超過 QPS，Bing 會傳回 HTTP 狀態碼 429，如果您超過 QPM，Bing 會傳回 403。
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|當 Bing 無法驗證呼叫者時，Bing 會傳回 InvalidAuthorization。 例如，缺少 `Ocp-Apim-Subscription-Key` 標頭，或訂用帳戶金鑰無效。<br/><br/>如果您指定一個以上的驗證方法，則會出現備援。<br/><br/>如果錯誤是 InvalidAuthorization，則 HTTP 狀態碼為 401。
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|當呼叫者沒有資源存取權限時，Bing 會傳回 InsufficientAuthorization。 如果訂用帳戶金鑰已停用或已過期，則會發生此情況。 <br/><br/>如果錯誤是 InsufficientAuthorization，則 HTTP 狀態碼為 403。

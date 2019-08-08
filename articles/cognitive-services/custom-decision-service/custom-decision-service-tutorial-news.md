@@ -10,16 +10,17 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: d8ddafe20ff93e7ae4d51e2180bbd40447729234
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ROBOTS: NOINDEX
+ms.openlocfilehash: f7eafed9db25fba904d98ddea652671dc45aa01d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983027"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707210"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>教學課程：內容相關決策制訂的文章個人化
 
-本教學課程著重於網站首頁上精選文章的個人化。 例如，自訂決策服務會影響首頁上多個清單。 假設該頁面是僅提供政治和體育消息的新聞網站， 網站上會顯示三種等級的文章清單：政治、體育和最新消息。
+本教學課程著重於網站首頁上精選文章的個人化。 例如，自訂決策服務會影響首頁上多個  清單。 假設該頁面是僅提供政治和體育消息的新聞網站， 網站上會顯示三種等級的文章清單：政治、體育和最新消息。
 
 ## <a name="applications-and-action-sets"></a>應用程式和動作集合
 
@@ -50,13 +51,13 @@ ms.locfileid: "55983027"
 
 ## <a name="register-a-new-app"></a>註冊新的應用程式
 
-1. 使用您的 [Microsoft 帳戶](https://portal.ds.microsoft.com/)登入。 在功能區中，按一下 [我的入口網站]。
+1. 使用您的 [Microsoft 帳戶](https://portal.ds.microsoft.com/)登入。 在功能區中，按一下 [我的入口網站]  。
 
-2. 若要註冊新的應用程式，請按一下 [新應用程式] 按鈕。
+2. 若要註冊新的應用程式，請按一下 [新應用程式]  按鈕。
 
     ![自訂決策服務入口網站](./media/custom-decision-service-tutorial/portal.png)
 
-3. 在**應用程式識別碼**文字方塊中輸入應用程式的唯一名稱。 如果此名稱已由另一位客戶使用中，系統會要求您選取其他應用程式識別碼。 選取 [進階] 核取方塊，然後為您的 Azure 儲存體帳戶輸入 [[連接字串]](../../storage/common/storage-configure-connection-string.md)。 通常，您會為所有應用程式使用相同的儲存體帳戶。
+3. 在**應用程式識別碼**文字方塊中輸入應用程式的唯一名稱。 如果此名稱已由另一位客戶使用中，系統會要求您選取其他應用程式識別碼。 選取 [進階]  核取方塊，然後為您的 Azure 儲存體帳戶輸入 [[連接字串]](../../storage/common/storage-configure-connection-string.md)。 通常，您會為所有應用程式使用相同的儲存體帳戶。
 
     ![新應用程式對話方塊](./media/custom-decision-service-tutorial/new-app-dialog.png)
 
@@ -64,9 +65,9 @@ ms.locfileid: "55983027"
 
     ![應用程式清單](./media/custom-decision-service-tutorial/apps.png)
 
-    您可以按一下 [應用程式] 按鈕以返回此清單。
+    您可以按一下 [應用程式]  按鈕以返回此清單。
 
-4. 在 [新應用程式] 對話方塊中，指定動作摘要。 您也可以按一下 [摘要] 按鈕，然後按一下 [新摘要] 按鈕，以指定動作摘要。 輸入新摘要的 [名稱]，然後輸入提供該摘要的 [URL]，並輸入 [重新整理時間]。 重新整理時間可指定自訂決策服務應該重新整理摘要的頻率。
+4. 在 [新應用程式]  對話方塊中，指定動作摘要。 您也可以按一下 [摘要]  按鈕，然後按一下 [新摘要]  按鈕，以指定動作摘要。 輸入新摘要的 [名稱]  ，然後輸入提供該摘要的 [URL]  ，並輸入 [重新整理時間]  。 重新整理時間可指定自訂決策服務應該重新整理摘要的頻率。
 
     ![新摘要對話方塊](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
@@ -74,7 +75,7 @@ ms.locfileid: "55983027"
 
     ![摘要清單](./media/custom-decision-service-tutorial/feeds.png)
 
-    您可以按一下 [摘要] 按鈕以返回此清單。
+    您可以按一下 [摘要]  按鈕以返回此清單。
 
 ## <a name="use-the-apis"></a>使用 API
 

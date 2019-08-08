@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896827"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779840"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>什麼是 Azure Active Directory 的混合式身分識別？
 
@@ -36,7 +36,7 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 
 這些驗證方法也會提供[單一登入](how-to-connect-sso.md)功能。  使用者位於連線到貴公司網路的公司裝置時，單一登入功能會自動將他們登入。
 
-如需其他資訊，請參閱[針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)。 
+如需其他資訊，請參閱[針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)。 
 
 ## <a name="common-scenarios-and-recommendations"></a>常見案例和建議 
 

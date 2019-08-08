@@ -1,5 +1,5 @@
 ---
-title: 如何使用版本標記對話學習模組模型-Azure 認知服務 |Microsoft Docs
+title: 如何使用版本戳記搭配 Conversation Learner 模型-Azure 認知服務 |Microsoft Docs
 titleSuffix: Azure
 description: 了解如何搭配對話學習模組模型使用版本控制和標記。
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0279363c039e3ec3c2deac3bc7f71c32c547e9d1
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475718"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703369"
 ---
 # <a name="how-to-use-version-tagging"></a>如何使用版本標記
 
@@ -109,4 +110,4 @@ ms.locfileid: "66475718"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [列舉實體和集合的實體動作](./tutorial-enum-set-entity.md)
+> [列舉實體和設定實體動作](./tutorial-enum-set-entity.md)

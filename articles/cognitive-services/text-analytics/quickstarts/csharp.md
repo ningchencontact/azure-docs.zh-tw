@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/30/2019
 ms.author: assafi
-ms.openlocfilehash: 6bd3907392dad626c1eeb1823c929f1a35d544dd
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d12f6b400b270c6ef631d9f503980efef1ae8458
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697678"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840373"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>快速入門：使用 .NET SDK 和 C# 來呼叫文字分析服務
 <a name="HOLTop"></a>
@@ -84,10 +84,16 @@ ms.locfileid: "68697678"
 3. 更新 `Program` 類別。 新增文字分析 API 金鑰的常數成員，並新增另一個服務端點常數成員。 請記得文字分析資源要使用正確的 Azure 位置。
 
     ```csharp
-    //Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
+    // Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
     private const string ApiKey = "enter-your-textanalytics-api-key-here";
-    //You can get the resource location from Azure Portal -> your TA resource -> Overview
-    private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://<your-location>.api.cognitive.microsoft.com";
+    // You can get the resource location from Azure Portal -> your TA resource -> Overview
+    // There are two acceptable formats for the endpoint, both
+    // require that you omit the `/text/analytics/<version>` suffix:
+    // 1. A location based endpoint URL -
+    //     "https://<your-location>.api.cognitive.microsoft.com";
+    // 2. A resource name based endpoint URL -
+    //     "https://<your-resource-name>.cognitiveservices.azure.com";
+    private const string Endpoint = "enter-your-base-resource-endpoint-here";
     ```
 
 > [!Tip]

@@ -10,18 +10,19 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 1f7c7c72703d7c3134dd2acdcc466fc0182fa38a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 261536932cc82a28ad4ee3ffc3575ea41fe9ec5b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389946"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703917"
 ---
 # <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>如何將 API 呼叫新增到對話學習模組模型
 
 本教學課程示範如何將 API 呼叫新增到您的模型。 API 呼叫是您在聊天機器人中定義並寫入的函式，可供對話學習模組呼叫。
 
-## <a name="video"></a>影片
+## <a name="video"></a>視訊
 
 [![API 呼叫教學課程預覽](https://aka.ms/cl_Tutorial_v3_APICalls_Preview)](https://aka.ms/cl_Tutorial_v3_APICalls)
 
@@ -58,7 +59,7 @@ API 呼叫的程式碼會定義於此檔案中：`C:\<installedpath>\src\demos\t
 - `ClearEntities` 回呼會清除數字實體，讓使用者能夠輸入另一個數字。 
     - 說明 API 呼叫可如何操作實體。
 
-### <a name="actions"></a>動作
+### <a name="actions"></a>個動作
 我們建立了四個動作。 其中三個是「非等候動作」，第四個則是「文字」動作，會詢問使用者我們在其他教學課程中看過的類似問題。 若要了解每個動作的建立方式，執行下列作業：
 1. 在左面板中按一下 [動作]，然後按一下方格中列出的四個動作之一。
 2. 請留意快顯的表單上各個欄位的值。
