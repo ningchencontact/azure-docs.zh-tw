@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
 ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 08/08/2019
 ms.locfileid: "68370686"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure 監視器記錄中的標準屬性
@@ -51,7 +51,7 @@ exceptions
 | sort by timestamp asc 
 ```
 
-## <a name="timereceived"></a>\_TimeReceived
+## <a name="_timereceived"></a>\_TimeReceived
 TimeReceived 屬性包含 Azure 雲端中的 Azure 監視器內嵌點收到記錄的日期和時間。 **\_** 這有助於識別資料來源與雲端之間的延遲問題。 其中一個例子就是網路問題, 這會造成從代理程式傳送資料的延遲。 如需詳細資訊, 請參閱[Azure 監視器中的記錄資料內建時間](data-ingestion-time.md)。
 
 下列查詢提供來自代理程式之事件記錄的平均延遲 (以小時為單位)。 這包括從代理程式到雲端的時間, 以及記錄查詢可使用的總時間。
@@ -77,11 +77,11 @@ search *
 | summarize count() by Type
 
 ```
-## <a name="itemid"></a>\_ItemId
+## <a name="_itemid"></a>\_ItemId
 ItemId 屬性會保存記錄的唯一識別碼。 **\_**
 
 
-## <a name="resourceid"></a>\_ResourceId
+## <a name="_resourceid"></a>\_ResourceId
 **\_ResourceId** 屬性會保存與記錄相關聯的資源唯一識別碼。 這可讓您有標準屬性可用來將查詢範圍限定於來自特定資源的記錄，或跨多個資料表聯結相關的資料。
 
 就 Azure 資源而言， **_ResourceId** 的值為 [Azure 資源識別碼 URL](../../azure-resource-manager/resource-group-template-functions-resource.md)。 此屬性目前僅適用於 Azure 資源，但未來將擴充至 Azure 以外的資源，例如內部部署電腦。
@@ -127,7 +127,7 @@ union withsource = tt *
 
 請謹慎使用這些 `union withsource = tt *` 查詢，因為執行跨資料類型掃描的費用相當高昂。
 
-## <a name="isbillable"></a>\_IsBillable
+## <a name="_isbillable"></a>\_IsBillable
 **\_IsBillable** 屬性會指定擷取的資料是否可計費。 **\_IsBillable** 等於 _false_ 的資料會免費收集，且費用不會計入您的 Azure 帳戶。
 
 ### <a name="examples"></a>範例
@@ -154,7 +154,7 @@ union withsource = tt *
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="billedsize"></a>\_BilledSize
+## <a name="_billedsize"></a>\_BilledSize
 如果 **\_IsBillable** 為 true， **\_BilledSize** 屬性可指定將計入 Azure 帳戶的資料大小 (以位元組為單位)。
 
 
