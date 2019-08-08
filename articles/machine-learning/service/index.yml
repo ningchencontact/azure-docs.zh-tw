@@ -45,7 +45,7 @@ sections:
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">設定環境並定型第一個 ML 實驗。</a>
           - html: <a href="tutorial-train-models-with-aml">定型及部署映像分類模型</a>。
-          - html: <a href="tutorial-data-prep">準備資料並將 ML 自動化以預測計程車車資</b>)。</a>
+          - html: <a href="tutorial-data-prep">準備資料並使用自動化 ML 以預測計程車車資</b>。</a>
   - title: 範例
     items:
       - type: paragraph

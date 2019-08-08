@@ -56,6 +56,8 @@
       maintainContext: true
     - name: 疑難排解
       items:
+        - name: 磁碟空間不足
+          href: ./hdinsight-troubleshoot-out-disk-space.md
         - name: 軟鎖定 - CPU
           href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
         - name: InvalidNetworkConfigurationErrorCode - 叢集建立失敗
@@ -72,6 +74,8 @@
           href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Apache Ambari 活動訊號問題
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari 顯示當機的主機和服務
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: 作法
   items:
     - name: 使用 Apache Hadoop 沙箱
