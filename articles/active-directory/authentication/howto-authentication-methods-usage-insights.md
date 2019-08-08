@@ -41,9 +41,9 @@ ms.locfileid: "67561033"
 1. 瀏覽至**Azure Active Directory** > **密碼重設** > **使用量和 insights**。
 1. 從**註冊**或是**使用量**概觀，您可以選擇開啟預先篩選來篩選的報表會根據您的需求。
 
-![使用方式] & [insights 概觀](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
+![使用方式 & insights 概觀](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
 
-若要直接存取使用方式] & [深入解析，請前往[ https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade)。 此連結會帶您前往 註冊概觀。
+若要直接存取使用方式 & 深入解析，請前往[ https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade)。 此連結會帶您前往 註冊概觀。
 
 註冊的使用者，使用者啟用，且使用者能夠圖格會顯示下列的登錄資料，為您的使用者：
 

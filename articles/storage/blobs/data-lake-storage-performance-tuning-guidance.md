@@ -1,7 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 效能微調指導方針 | Microsoft Docs
 description: Azure Data Lake Storage Gen2 效能微調指導方針
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 6f831dd0cde4641eb48f3c23e010f8c5e8aa3fa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b134842303bebdf10efdf388057c8ad7b3be61be
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939367"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855581"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>調整 Azure Data Lake Storage Gen2 的效能
 
@@ -44,7 +43,7 @@ Data Lake Storage Gen2 可以調整以提供所有分析情節的必要輸送量
 
 一旦您解決上述的來源硬體和網路連線瓶頸，您已準備好設定擷取工具。 下表摘要說明數個熱門擷取工具的關鍵設定，並且提供它們的深入效能微調文章。  若要深入了解哪一個工具適用於您的案例，請參閱這篇[文章](data-lake-storage-data-scenarios.md)。
 
-| 工具               | 設定     | 其他詳細資訊                                                                 |
+| Tool               | 設定     | 其他詳細資料                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [連結](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [連結](../../data-factory/copy-activity-performance.md)                          |

@@ -1,128 +1,128 @@
 ---
-title: 分類：預測航班誤點
+title: 分類預測航班誤點
 titleSuffix: Azure Machine Learning service
-description: 這篇文章會示範如何建置機器學習模型來預測航班誤點使用拖放視覺介面和自訂的 R 程式碼。
+description: 本文說明如何使用拖放視覺介面和自訂 R 程式碼, 建立機器學習模型來預測航班延誤。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: 773e55fe4b5ca5acf27ba1765e5a16075f625187
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f2ef5fd17d6c6a91fa5f3c5d62700b68c5fbca24
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607633"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855971"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>範例 6-分類：預測航班誤點使用 R
+# <a name="sample-6---classification-predict-flight-delays-using-r"></a>範例 6-分類:使用 R 預測航班延誤
 
-這項實驗中使用過去的航班和天氣資料來預測預定的客機航班是否將延遲超過 15 分鐘。
+此實驗會使用歷程記錄和天氣資料來預測排程的乘客航班是否會延遲超過15分鐘。
 
-可以處理這個問題，分類問題中，預測兩個類別-延遲，或在時間上。 若要建置分類器，此模型使用大量的歷史的航班資料的範例。
+這個問題可以做為分類問題來進行, 預測兩個類別-延遲或準時。 若要建立分類器, 此模型會使用來自歷史航班資料的大量範例。
 
-以下是最終實驗圖形：
+以下是最後的實驗圖形:
 
 [![實驗的圖形](media/ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. 選取 **開啟**範例 6 實驗的按鈕：
+4. 選取範例6實驗的 [**開啟**] 按鈕:
 
     ![開啟實驗](media/ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>取得資料
 
-此實驗使用**航班延遲資料**資料集。 它的 TranStats 資料集合，與美國的一部分運輸部門。 資料集包含從四月起到 2013 年 10 月的航班延遲資訊。 上傳之前將資料視覺化介面，它已預先處理，如下所示：
+此實驗會使用**航班延遲資料**資料集。 這是美國 TranStats 資料集合的一部分運輸部門。 此資料集包含從4月到2013年10月的航班延誤資訊。 在將資料上傳至視覺化介面之前, 已預先處理它, 如下所示:
 
-* 篩選要納入為美國大陸 70 個最繁忙的機場。
-* 針對取消航班，改為誤點達 15 分鐘。
-* 篩選掉更改路徑的航班。
-* 選取的 14 個資料行。
+* 已篩選為包含美國大陸境內70最忙碌的機場。
+* 針對已取消的航班, 請重新標示為延遲超過15分鐘。
+* 已篩選掉轉向航班。
+* 選取了14個數據行。
 
-若要至航班資料，來補充**天氣資料集**用。 天氣資料包含 NOAA、 每小時起降天候觀測值，表示從機場天候觀測站，涵蓋相同時間週期的年 4 月 10 月的 2013年的觀察值。 再上傳至 Azure ML 的視覺化介面，它已預先處理，如下所示：
+若要補充航班資料, 請使用**氣象資料集**。 天氣資料包含 NOAA 的每小時以 land 為基礎的氣象觀察, 並代表機場氣象站的觀察, 涵蓋2013年4月10日的相同時間週期。 在上傳至 Azure ML 視覺介面之前, 它已預先處理, 如下所示:
 
-* 天候觀測站識別碼已對應到相對應的機場識別碼。
-* 已移除與 70 個最繁忙的機場沒有關聯的天候觀測站。
-* 日期資料行已分割成個別的資料行：年、 月和日。
-* 選取的 26 個資料行。
+* 氣象站識別碼會對應至相對應的機場識別碼。
+* 未與70最忙碌的機場關聯的天氣電臺已移除。
+* 日期資料行已分割為不同的資料行:年、月和日。
+* 選取的26個數據行。
 
-## <a name="pre-process-the-data"></a>前置處理資料
+## <a name="pre-process-the-data"></a>預先處理資料
 
-資料集通常會需要某些前置處理之前進行分析。
+資料集通常需要進行一些前置處理, 然後才能進行分析。
 
-![data-process](media/ui-sample-classification-predict-flight-delay/data-process.png)
+![資料-進程](media/ui-sample-classification-predict-flight-delay/data-process.png)
 
 ### <a name="flight-data"></a>航班資料
 
-資料行**載波**， **OriginAirportID**，並**DestAirportID**會儲存為整數。 不過，它們是類別的屬性，請使用**編輯中繼資料**模組，將它們轉換成類別目錄。
+[**貨運公司]** 、[ **OriginAirportID**] 和 [ **DestAirportID** ] 資料行會儲存為整數。 不過, 它們是類別屬性, 使用 [**編輯中繼資料**] 模組將它們轉換成類別。
 
-![edit-metadata](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
+![編輯-中繼資料](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-然後使用**選取資料行**排除可能的目標 leakers 的資料集資料行的資料集模組中：**DepDelay**， **DepDel15**， **ArrDelay**，**取消**，**年**。 
+然後使用 [**選取**資料集中的資料行] 模組, 從可能為目標 leakers 的資料集資料行中排除:**DepDelay**、 **DepDel15**、 **ArrDelay**、**已取消**、**年**。 
 
-若要加入的每小時天氣資料錄的飛行記錄，使用 排定的起飛時間做為其中一個聯結索引鍵。 若要執行聯結，CSRDepTime 資料行必須無條件捨去到最接近的整點，是藉由在**執行 R 指令碼**模組。 
+若要將航班記錄與每小時氣象記錄聯結, 請使用已排程的出發時間做為其中一個聯結索引鍵。 若要執行聯結, CSRDepTime 資料行必須向下舍入到最接近的小時, 這是在**執行 R 腳本**模組中完成。 
 
 ### <a name="weather-data"></a>天氣資料
 
-使用排除有遺漏值的比例很高的資料行**投射資料行**模組。 這些資料行包含字串值的所有資料行：**ValueForWindCharacter**， **WetBulbFarenheit**， **WetBulbCelsius**， **PressureTendency**， **PressureChange**，**SeaLevelPressure**，並**StationPressure**。
+使用 [**專案資料行**] 模組會排除具有大量遺漏值的資料行。 這些資料行包含所有字串值的資料行:**ValueForWindCharacter**、 **WetBulbFarenheit**、 **WetBulbCelsius**、 **PressureTendency**、 **PressureChange**、 **SeaLevelPressure**和**StationPressure**。
 
-**清除遺漏資料**模組接著會套用到其餘的資料行，以移除具有遺失資料的資料列。
+**清除遺漏的資料**模組接著會套用到其餘的資料行, 以移除遺漏資料的資料列。
 
-天氣觀測時間會無條件進位到最接近的小時。 相反的方向，以確保該模型會使用唯一的天氣飛行時間之前將會四捨五入排定的航班時間與天氣觀測時間。 
+天氣觀察時間會無條件進位到最接近的完整時數。 排定航班時間和氣象觀察時間會以相反的方向舍入, 以確保此模型只會在航班時間之前使用天氣。 
 
-天氣資料會報告當地時間，因為時區差異會佔用減去時區中的資料行排定的起飛時間與天氣觀測時間。 完成這些作業使用**執行 R 指令碼**模組。
+由於天氣資料會以當地時間回報, 因此會藉由從排程出發時間和氣象觀察時間減去時區資料行的方式來考慮時區差異。 這些作業會使用 [**執行 R 腳本**] 模組來完成。
 
-### <a name="joining-datasets"></a>加入資料集
+### <a name="joining-datasets"></a>聯結資料集
 
-航班記錄已加入的天氣資料的飛行的原點 (**OriginAirportID**) 使用**聯結資料**模組。
+航班記錄會使用**聯結資料**模組, 與航班 (**OriginAirportID**) 來源的氣象資料聯結。
 
- ![原始聯結航班和天氣](media/ui-sample-classification-predict-flight-delay/join-origin.png)
+ ![依來源加入航班和天氣](media/ui-sample-classification-predict-flight-delay/join-origin.png)
 
 
-航班資料錄加入與天氣資料使用的飛行目的地 (**DestAirportID**)。
+航班記錄會使用航班的目的地 (**DestAirportID**) 與氣象資料聯結。
 
- ![聯結航班和目的地的天氣](media/ui-sample-classification-predict-flight-delay/join-destination.png)
+ ![依目的地加入航班和天氣](media/ui-sample-classification-predict-flight-delay/join-destination.png)
 
 ### <a name="preparing-training-and-test-samples"></a>準備訓練和測試範例
 
-**分割資料**模組會將資料載入年 4 月分割年 9 月記錄對於訓練，並將年 10 月記錄測試。
+[**分割資料**] 模組會將資料分割成四月份的記錄, 以供定型, 以及10月份記錄進行測試。
 
- ![分割訓練和測試資料](media/ui-sample-classification-predict-flight-delay/split.png)
+ ![分割定型和測試資料](media/ui-sample-classification-predict-flight-delay/split.png)
 
-年、 月和時區的資料行，會移除從定型資料集使用選取的資料行的模組。
+[年]、[月] 和 [時區] 資料行會使用 [選取資料行] 模組從訓練資料集移除。
 
 ## <a name="define-features"></a>定義功能
 
-在機器學習，功能是您感興趣的某項目的個別可測量的屬性。 尋找組功能強大的功能需要測試和網域知識。 有些功能會比其他功能更適合用來預測目標。 此外，某些功能可能會有很強的關聯，與其他功能，而不會將新的資訊加入至模型。 您可以移除這些功能。
+在機器學習中, 功能是您感興趣之某個專案的個別可測量屬性。 尋找一組強大的功能需要實驗和領域知識。 有些功能會比其他功能更適合用來預測目標。 此外, 某些功能可能與其他功能具有強式相互關聯, 而且不會將新資訊加入至模型。 這些功能可以移除。
 
-若要建立模型時，您可以使用所有可用的功能，或選取功能的子集。
+若要建立模型, 您可以使用所有可用的功能, 或選取功能的子集。
 
 ## <a name="choose-and-apply-a-learning-algorithm"></a>選擇及套用學習演算法
 
-建立模型，使用**二級羅吉斯迴歸**模組和訓練的訓練資料集上。 
+使用**兩個類別的羅吉斯回歸**模組建立模型, 並在訓練資料集上定型。 
 
-結果**定型模型**模組是可以用來進行預測的新範例評分定型的分類模型。 使用測試設定為從定型的模型產生分數。 然後使用**評估模型**模組來分析和比較模型的品質。
+**訓練模型**模組的結果是定型的分類模型, 可用來對新的樣本進行評分以進行預測。 使用測試集從定型的模型產生分數。 然後使用 [**評估模型**] 模組來分析和比較模型的品質。
 
-執行實驗之後，您可以檢視的輸出**評分模型**模組，藉由按一下輸出連接埠，然後選取**視覺化**。 輸出會包含 「 評分的標籤和標籤的機率。
+執行實驗之後, 您可以按一下輸出埠並選取 [**視覺化**], 以查看 [**評分模型**] 模組的輸出。 輸出會包含評分標籤和標籤的機率。
 
-最後，若要測試結果的品質，新增**評估模型**模組在實驗畫布，然後 「 評分模型 」 模組的輸出連線的左側輸入連接埠。 執行實驗及檢視的輸出**評估模型**模組中的，按一下輸出連接埠，然後選取**視覺化**。
+最後, 若要測試結果的品質, 請將 [**評估模型**] 模組新增至實驗畫布, 然後將左側的輸入埠連接到 [評分模型] 模組的輸出。 執行實驗並查看 [**評估模型**] 模組的輸出, 方法是按一下輸出埠, 然後選取 [**視覺化**]。
 
 ## <a name="evaluate"></a>評估
-羅吉斯迴歸模型具有 AUC 0.631 對測試的設定。
+羅吉斯回歸模型在測試集上具有0.631 的 AUC。
 
  ![評估](media/ui-sample-classification-predict-flight-delay/evaluate.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽可用的視覺介面的其他範例：
+探索視覺介面可用的其他範例:
 
-- [範例 1-迴歸：預測汽車的價格](ui-sample-regression-predict-automobile-price-basic.md)
-- [範例 2-迴歸：比較針對汽車價格預測演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [範例 3-分類：預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
-- [範例 4-分類：預測信用風險 （成本機密）](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [範例 5-分類：預測客戶流失](ui-sample-classification-predict-churn.md)
+- [範例 1-回歸:預測汽車的價格](ui-sample-regression-predict-automobile-price-basic.md)
+- [範例 2-回歸:比較汽車價格預測的演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [範例 3-分類:預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
+- [範例 4-分類:預測信用風險 (區分成本)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [範例 5-分類:預測流失](ui-sample-classification-predict-churn.md)

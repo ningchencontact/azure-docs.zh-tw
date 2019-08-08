@@ -1,31 +1,31 @@
 ---
-title: 分類：預測信用風險 （成本機密）
+title: 分類預測信用風險 (區分成本)
 titleSuffix: Azure Machine Learning service
-description: 這篇文章會示範如何建置複雜的機器學習實驗使用視覺化介面。 您將了解如何實作自訂的 Python 指令碼，並比較多個模型以選擇最佳選項。
+description: 本文說明如何使用視覺化介面來建立複雜的機器學習實驗。 您將瞭解如何執行自訂 Python 腳本和比較多個模型, 以選擇最佳選項。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 942d6fa6db7ee2fc07fd11d3448ac7ec96c3bd43
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606169"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845972"
 ---
-# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>範例 4-分類：預測信用風險 （成本機密）
+# <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>範例 4-分類:預測信用風險 (區分成本)
 
-這篇文章會示範如何建置複雜的機器學習實驗使用視覺化介面。 您將了解如何實作使用 Python 指令碼的自訂邏輯和比較多個模型以選擇最佳選項。
+本文說明如何使用視覺化介面來建立複雜的機器學習實驗。 您將瞭解如何使用 Python 腳本來執行自訂邏輯, 並比較多個模型來選擇最佳選項。
 
-此範例來定型分類器預測信用風險使用信用應用程式資訊，例如信用記錄、 年齡和信用卡的數目。 不過，您可以套用來處理您自己的機器學習問題的這篇文章中的概念。
+這個範例會將分類器定型, 以使用信用額度記錄、年齡和信用卡號碼等點數應用程式資訊來預測信用風險。 不過, 您可以套用本文中的概念來處理您自己的機器學習問題。
 
-如果您剛開始使用 machine learning，您可以看看[基本分類器範例](ui-sample-classification-predict-credit-risk-basic.md)第一次。
+如果您只是開始使用機器學習, 您可以先查看[基本分類器範例](ui-sample-classification-predict-credit-risk-basic.md)。
 
-以下是完成這項實驗圖形：
+以下是此實驗的完成圖形:
 
 [![實驗的圖形](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
@@ -33,45 +33,45 @@ ms.locfileid: "67606169"
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. 選取 **開啟**範例 4 實驗的按鈕：
+4. 選取範例4實驗的 [**開啟**] 按鈕:
 
     ![開啟實驗](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## <a name="data"></a>Data
 
-我們從 UC Irvine 存放庫使用德國信用卡資料集。 此資料集包含 1,000 範例，其中含有 20 個功能和 1 個標籤。 每個範例代表個人。 20 個功能包括數值和分類特徵。 請參閱[UCI 網站](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29)取得的資料集的詳細資訊。 最後一個資料行是標籤，表示信用風險，且其只有兩個可能的值： 高信用風險 = 2，而低信用風險 = 1。
+我們會使用來自 UC Irvine 存放庫的德國信用卡資料集。 此資料集包含1000範例, 其中含有20個功能和1個標籤。 每個範例都代表一個人。 20個功能包含數值和類別功能。 如需資料集的詳細資訊, 請參閱[UCI 網站](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29)。 最後一個資料行是代表信用風險的標籤, 只有兩個可能的值: [高信用風險 = 2] 和 [低信用風險] = 1。
 
 ## <a name="experiment-summary"></a>實驗摘要
 
-在此實驗中，我們會比較兩個不同的方法，來產生模型，以解決此問題：
+在此實驗中, 我們會比較兩種不同的方法來產生模型, 以解決此問題:
 
-- 訓練與原始資料集。
-- 訓練與複寫的資料集。
+- 使用原始資料集進行定型。
+- 使用複寫的資料集進行定型。
 
-利用兩種方法中，我們會使用複寫中的測試資料集，以確保結果會配合此成本函式評估模型。 我們來測試兩個分類器，利用兩種方法：**二級支援向量機器**並**二級促進式的決策樹**。
+使用這兩種方法時, 我們會使用測試資料集搭配複寫來評估模型, 以確保結果與成本函數一致。 我們會使用兩種方法來測試兩個分類器:二元**支援向量機器**和**雙類別促進式決策樹**。
 
-誤判為高的低風險範例成本為 1，且成本誤判為低風險範例為 5。 我們會使用**執行 Python 指令碼**考量成本此分類誤判的模組。
+將低風險範例比為 [高] 的成本是 1, 而將高風險範例比為 [低] 的成本則是5。 我們會使用**執行 Python 腳本**模組來考慮此分類誤判成本。
 
-以下是實驗圖形：
+以下是實驗的圖形:
 
 [![實驗的圖形](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>資料處理
 
-我們一開始使用**中繼資料編輯器**從 UCI 網站上的資料集描述取得的模組以新增更有意義的名稱，以取代預設資料行名稱的資料行名稱。 我們提供新的資料行名稱以逗號分隔值作為**新的資料行**的 [名稱] 欄位**中繼資料編輯器**。
+首先, 我們會使用 [**中繼資料編輯器**] 模組來加入資料行名稱, 以更有意義的名稱取代預設的資料行名稱, 並從 UCI 網站上的資料集描述取得。 我們會在 [**中繼資料編輯器**] 的 [**新資料行**名稱] 欄位中, 提供新的資料行名稱做為逗號分隔值。
 
-接下來，我們會產生定型和測試集用來開發風險預測模型。 我們將原始資料集分割成相同大小的訓練和測試集上使用**分割資料**模組。 若要建立一組相同的大小，我們將設定**的第一個輸出資料集中的資料列比例**為 0.5 的選項。
+接下來, 我們會產生用來開發風險預測模型的定型和測試集。 我們使用**分割資料**模組, 將原始資料集分割成相同大小的定型和測試集。 若要建立相同大小的集合, 我們會將**第一個輸出資料集選項中的資料列小數**設定為0.5。
 
 ### <a name="generate-the-new-dataset"></a>產生新的資料集
 
-低估了風險的成本很高，因為我們會設定如下的錯誤分類成本：
+因為低估風險的成本很高, 所以我們將分類誤判的成本設定如下:
 
-- 高風險的情況下被歸類為低風險：5
-- 低風險的情況下誤分類為高風險：1
+- 針對高風險的案例, 分類錯誤為低風險:5
+- 針對低風險的案例, 分類錯誤為高風險:1
 
-若要反映此成本函式，我們會產生新的資料集。 在新的資料集，每個高風險範例都會複寫五次，但不會變更的低風險範例數目。 我們會將資料分成定型集和測試資料集，以防止相同的資料列在兩個集合的複寫之前。
+為了反映此成本函數, 我們會產生新的資料集。 在新的資料集中, 每個高風險範例都會複寫五次, 但低風險範例的數目不會變更。 我們會先將資料分割成定型和測試資料集, 再進行複寫, 以避免在這兩個集合中出現相同的資料列。
 
-若要複寫的高風險資料，我們將此 Python 程式碼**執行 Python 指令碼**模組：
+為了複寫高風險的資料, 我們會將此 Python 程式碼放入**執行 Python 腳本**模組:
 
 ```Python
 import pandas as pd
@@ -85,42 +85,42 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return result,
 ```
 
-**執行 Python 指令碼**模組會將複寫的定型和測試資料集。
+[**執行 Python 腳本**] 模組會複寫定型和測試資料集。
 
 ### <a name="feature-engineering"></a>特徵設計
 
-**二級支援向量機器**演算法需要標準化的資料。 因此我們會使用**標準化資料**模組來標準化與所有數值特徵的範圍`tanh`轉換。 A`tanh`轉換將所有數值特徵轉換成在 0 和 1 的範圍內的值同時保留值的整體分佈。
+**雙類別支援向量機器**演算法需要正規化資料。 因此, 我們使用正規化**資料**模組, 將所有數值特徵的範圍標準化, 並`tanh`進行轉換。 `tanh`轉換會將所有數值特徵轉換成0和1範圍內的值, 同時保留值的整體分佈。
 
-**二級支援向量機器**模組會處理字串的功能，將它們轉換成類別的功能，以及再為二進位值是 0 或 1 的功能。 所以我們不需要標準化這些功能。
+二元**支援向量機器**模組會處理字串功能, 將它們轉換成類別特徵, 然後再轉換為值為0或1的二進位特徵。 因此, 我們不需要將這些功能標準化。
 
 ## <a name="models"></a>模型
 
-因為我們會套用兩個分類器，因此**二級支援向量機器**(SVM) 和**二級促進式決策樹**，也使用兩個資料集，我們會產生四個模型的總計：
+因為我們會套用兩個分類器、**兩個類別的支援向量機器**(SVM) 和**兩個類別**的推進式決策樹, 而且也會使用兩個資料集, 所以我們總共會產生四個模型:
 
-- 使用原始的資料訓練 SVM。
-- 使用訓練的 SVM 會複寫資料。
-- 使用原始的資料訓練促進式的決策樹。
-- 使用訓練的促進式的決策樹複寫資料。
+- 以原始資料定型的 SVM。
+- SVM 已使用複寫的資料進行定型。
+- 以原始資料定型的推進式決策樹。
+- 以複寫的資料定型的推進式決策樹。
 
-我們可以使用標準的實驗性工作流程來建立、 定型和測試的模型：
+我們會使用標準實驗性工作流程來建立、定型和測試模型:
 
-1. 初始化學習演算法，使用**二級支援向量機器**並**二級促進式決策樹**。
-1. 使用**定型模型**將演算法套用至資料，並建立實際的模型。
-1. 使用**評分模型**來產生分數，使用測試範例。
+1. 使用**二級支援向量機器**和**二級促進式決策樹**來初始化學習演算法。
+1. 使用**訓練模型**將演算法套用至資料, 並建立實際的模型。
+1. 使用**評分模型**, 透過測試範例來產生分數。
 
-下圖顯示此實驗中，在它的原始和複寫的定型集用來定型兩個不同的 SVM 模型的一部分。 **訓練模型**連線至定型集，並**評分模型**連接至測試集。
+下圖顯示此實驗的一部分, 其中會使用原始和已複寫的定型集來定型兩個不同的 SVM 模型。 **定型模型**會連接到定型集, 而**評分模型**會連接到測試集。
 
-![實驗圖形](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![實驗圖表](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-在實驗的評估階段中，我們會計算每四個模型的精確度。 此實驗中，我們會使用**評估模型**比較範例具有相同的錯誤分類成本。
+在實驗的評估階段中, 我們會計算四個模型的精確度。 在此實驗中, 我們會使用**評估模型**來比較具有相同分類誤判成本的範例。
 
-**評估模型**模組可以計算最多可達兩個評分模型的效能度量。 讓我們使用的一個執行個體**評估模型**來評估兩個 SVM 模型與另一個執行個體**評估模型**評估兩個的促進式決策樹模型。
+[**評估模型**] 模組可以計算多達兩個評分模型的效能計量。 因此, 我們會使用一個**評估模型**的實例來評估兩個 SVM 模型, 以及另一個**評估模型**實例, 以評估兩個推進式決策樹模型。
 
-請注意，複寫的測試資料集使用做為輸入**評分模型**。 換句話說，最終的精確度分數會包括可用來取得標籤錯誤費用。
+請注意, 複寫的測試資料集會當做**評分模型**的輸入使用。 換句話說, 最終的精確度分數會包含取得標籤錯誤的成本。
 
-## <a name="combine-multiple-results"></a>結合多個結果
+## <a name="combine-multiple-results"></a>合併多個結果
 
-**評估模型**模組會產生具有單一資料列，其中包含各種度量的資料表。 若要建立一組傳回精確度結果，我們先使用**加入資料列**結合成單一資料表的結果。 我們接著使用下列中的 Python 指令碼**執行 Python 指令碼**模組以新增的模型名稱和每個資料列的訓練方法的結果資料表中：
+「**評估模型**」模組會產生一個包含各種計量的單一資料列的資料表。 若要建立一組精確度結果, 我們會先使用 [**加入資料列**] 將結果合併成單一資料表。 然後, 我們會在 [**執行 Python 腳本**] 模組中使用下列 Python 腳本, 針對結果資料表中的每個資料列加入模型名稱和定型方法:
 
 ```Python
 import pandas as pd
@@ -142,15 +142,15 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>結果
 
-若要檢視實驗的結果，您可以以滑鼠右鍵按一下視覺化輸出的最後**選取資料集中的資料行**模組。
+若要查看實驗的結果, 您可以用滑鼠右鍵按一下最後一個**選取資料集中的資料行**模組的 [視覺化] 輸出。
 
 ![將輸出視覺化](media/ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
-第一個資料行中列出的機器學習服務演算法用來產生模型。
-第二個資料行表示定型集的類型。
-第三個資料行包含成本考量精確度值。
+第一個資料行列出用來產生模型的機器學習演算法。
+第二個數據行表示定型集的類型。
+第三個數據行包含成本相關的精確度值。
 
-從這些結果中，您可以看到與已建立的模型，提供最佳精確度**二級支援向量機器**和複寫的訓練資料集上定型。
+從這些結果中, 您可以看到, 以**雙類別支援向量機器**建立的模型所提供的最佳準確度, 並已在複寫的訓練資料集上定型。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -158,10 +158,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽可用的視覺介面的其他範例：
+探索視覺介面可用的其他範例:
 
-- [範例 1-迴歸：預測汽車的價格](ui-sample-regression-predict-automobile-price-basic.md)
-- [範例 2-迴歸：比較針對汽車價格預測演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [範例 3-分類：預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
-- [範例 5-分類：預測客戶流失](ui-sample-classification-predict-churn.md)
-- [範例 6-分類：預測航班誤點](ui-sample-classification-predict-flight-delay.md)
+- [範例 1-回歸:預測汽車的價格](ui-sample-regression-predict-automobile-price-basic.md)
+- [範例 2-回歸:比較汽車價格預測的演算法](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [範例 3-分類:預測信用風險](ui-sample-classification-predict-credit-risk-basic.md)
+- [範例 5-分類:預測流失](ui-sample-classification-predict-churn.md)
+- [範例 6-分類:預測航班延誤](ui-sample-classification-predict-flight-delay.md)

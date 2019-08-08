@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 7a1685622c44666eed6dac328772f6dba1418371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3af96fd03ed8e9878c3418e66cfcf24c7f30088c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66398240"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845790"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V 至 Azure 的災害復原架構
 
@@ -65,12 +65,12 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 **複寫和復原程序**
 
 
-### <a name="enable-protection"></a>啟用保護。
+### <a name="enable-protection"></a>啟用保護
 
 1. 您在 Azure 入口網站或內部部署針對 Hyper-V VM 啟用保護之後，**啟用保護**隨即啟動。
 2. 作業會檢查符合必要條件的機器，然後叫用 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 方法，以使用您進行的設定來設定複寫。
 3. 作業會啟動初始複寫，方法是叫用 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 方法，以初始化完整的 VM 複寫，並且將 VM 的虛擬磁碟傳送至 Azure。
-4. 您可以在 [作業]  索引標籤中監視作業。    ![作業清單](media/hyper-v-azure-architecture/image1.png) ![啟用保護向下鑽研](media/hyper-v-azure-architecture/image2.png)
+4. 您可以在 [作業] 索引標籤中監視作業。    ![作業清單](media/hyper-v-azure-architecture/image1.png) ![啟用保護向下鑽研](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>初始資料複寫
@@ -84,7 +84,7 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 
 ### <a name="finalize-protection-process"></a>完成保護程序
 
-1. 當初始複寫完成之後，就會執行 [完成虛擬機器上的保護]  作業。 這會設定網路和其他複寫後設定，讓 VM 受到保護。
+1. 當初始複寫完成之後，就會執行 [完成虛擬機器上的保護] 作業。 這會設定網路和其他複寫後設定，讓 VM 受到保護。
 2. 在這個階段，您可以檢查 VM 設定以確定它已準備好進行容錯移轉。 您可以執行 VM 的災害復原演練 (測試容錯移轉)，以檢查它是否如預期般容錯移轉。 
 
 
@@ -105,7 +105,7 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
     - 它會使用固定區塊的區塊處理演算法，將來源和目標檔案分成固定區塊。
     - 系統會產生每個區塊的總和檢查碼。 這些總和檢查碼會相互比較，以決定來源中的哪些區塊必須套用至目標。
 2. 重新同步處理完成之後，應會繼續進行正常的差異複寫。
-3. 如果您不想等候預設外部重新同步處理時數，您可以手動重新同步處理 VM。 例如，如果發生中斷。 若要這樣做，請在入口網站中選取 VM > [重新同步處理]  。
+3. 如果您不想等候預設外部重新同步處理時數，您可以手動重新同步處理 VM。 例如，如果發生中斷。 若要這樣做，請在入口網站中選取 VM > [重新同步處理]。
 
     ![手動重新同步處理](./media/hyper-v-azure-architecture/image4-site.png)
 
