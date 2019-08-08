@@ -208,7 +208,7 @@ Oracle 連結服務支援下列屬性:
 | partitionNames | 需要複製的實體分割區清單。 <br>適用于資料分割選項為`PhysicalPartitionsOfTable`時。 如果您使用查詢來抓取來源資料, 請在 WHERE `?AdfTabularPartitionName`子句中掛上。 如需範例, 請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。 | 否 |
 | partitionColumnName | **以整數類型**指定來源資料行的名稱, 以供範圍分割用於平行複製。 如果未指定, 則會自動偵測資料表的主鍵, 並使用該索引鍵做為資料分割資料行。 <br>適用于資料分割選項為`DynamicRange`時。 如果您使用查詢來抓取來源資料, 請在 WHERE `?AdfRangePartitionColumnName`子句中掛上。 如需範例, 請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。 | 否 |
 | partitionUpperBound | 用來複製資料的分割區資料行的最大值。 <br>適用于資料分割選項為`DynamicRange`時。 如果您使用查詢來抓取來源資料, 請在 WHERE `?AdfRangePartitionUpbound`子句中掛上。 如需範例, 請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。 | 否 |
-| PartitionLowerBound | 用來複製資料的分割區資料行的最小值。 <br>適用于資料分割選項為`DynamicRange`時。 如果您使用查詢來抓取來源資料, 請在 WHERE `?AdfRangePartitionLowbound`子句中掛上。 如需範例, 請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。 | 否 |
+| partitionLowerBound | 用來複製資料的分割區資料行的最小值。 <br>適用于資料分割選項為`DynamicRange`時。 如果您使用查詢來抓取來源資料, 請在 WHERE `?AdfRangePartitionLowbound`子句中掛上。 如需範例, 請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。 | 否 |
 
 **範例: 使用沒有分割區的基本查詢來複製資料**
 
