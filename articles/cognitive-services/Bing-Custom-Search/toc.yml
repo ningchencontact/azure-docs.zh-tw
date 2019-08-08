@@ -56,7 +56,8 @@
     - name: 設定自訂自動建議體驗
       href: define-custom-suggestions.md
     - name: 處理命中結果醒目提示
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: 逐頁檢視網頁
       href: page-webpages.md
 - name: 參考

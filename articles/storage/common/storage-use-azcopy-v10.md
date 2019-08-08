@@ -1,19 +1,18 @@
 ---
 title: 使用 AzCopy v10 將資料複製或移動到 Azure 儲存體 |Microsoft Docs
 description: AzCopy 是命令列公用程式, 可讓您在儲存體帳戶之間複製資料。 本文可協助您下載 AzCopy、連接到您的儲存體帳戶, 然後傳輸檔案。
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7ad5be0c7774beacaa15fcca0646c78e2d328ba4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9dc53867cb780b2c40e76cc6f24f7e6cf882b407
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699854"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844874"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 

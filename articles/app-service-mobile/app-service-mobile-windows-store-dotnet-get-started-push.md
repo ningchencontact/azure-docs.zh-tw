@@ -14,22 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 3ea2b336f647d9a27baaeeb489895b8f67d2e2d9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7455ad33660a0af004a3a3ad982e929fc4b3031e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445616"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851129"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>將推播通知加入至 Windows 應用程式
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push)今天。
+> Visual Studio App Center 是投資新的整合式服務中心, 以進行行動應用程式開發。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後, 開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用, 並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務, 以保存及同步雲端中的應用程式資料。 立即查看[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push) 。
 >
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 在本教學課程中，您會將推播通知新增至 [Windows 快速入門](app-service-mobile-windows-store-dotnet-get-started.md)專案，以便在每次插入一筆記錄時傳送推播通知至裝置。
 
@@ -43,14 +43,14 @@ ms.locfileid: "67445616"
 
 您需要將應用程式提交至 Microsoft Store，然後設定您的伺服器專案，以與 [Windows 通知服務 (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) 整合來傳送推播。
 
-1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 UWP 應用程式專案，然後按一下 [市集]   >  [將應用程式與市集建立關聯...]  。
+1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 UWP 應用程式專案，然後按一下 [市集]  >  [將應用程式與市集建立關聯...]。
 
     ![將應用程式與 Microsoft Store 建立關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
-2. 在精靈中按 [下一步]  ，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱]  中輸入您應用程式的名稱，然後按一下 [保留]  。
-3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 [下一步]  ，然後按一下 [關聯]  。 這會將所需的 Microsoft Store 註冊資訊新增至應用程式資訊清單。
+2. 在精靈中按 [下一步]，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
+3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 [下一步]，然後按一下 [關聯]。 這會將所需的 Microsoft Store 註冊資訊新增至應用程式資訊清單。
 4. 瀏覽至 [應用程式註冊入口網站](https://apps.dev.microsoft.com/)，並使用您的 Microsoft 帳戶登入。 按一下您在上一個步驟中關聯的 Windows 市集應用程式。
-5. 在註冊頁面中，記下 [應用程式祕密]  和 [套件 SID]  底下的值，以在接下來用來設定您的行動應用程式後端。
+5. 在註冊頁面中，記下 [應用程式祕密] 和 [套件 SID] 底下的值，以在接下來用來設定您的行動應用程式後端。
 
     ![將應用程式與 Microsoft Store 建立關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
@@ -69,8 +69,8 @@ ms.locfileid: "67445616"
 
 ### <a name="dotnet"></a>.NET 後端專案
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 套件]  ，搜尋 Microsoft.Azure.NotificationHubs，然後按一下 [安裝]  。 這會安裝通知中樞用戶端程式庫。
-2. 展開 [Controllers]  ，開啟 [TodoItemController.cs]，然後新增下列 using 陳述式：
+1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 套件]，搜尋 Microsoft.Azure.NotificationHubs，然後按一下 [安裝]。 這會安裝通知中樞用戶端程式庫。
+2. 展開 [Controllers]，開啟 [TodoItemController.cs]，然後新增下列 using 陳述式：
 
     ```csharp
     using System.Collections.Generic;
@@ -119,7 +119,7 @@ ms.locfileid: "67445616"
 4. 發佈伺服器專案。
 
 ### <a name="nodejs"></a>Node.js 後端專案
-1. 如果您還沒這麼做，請[下載快速入門專案](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 入口網站中的線上編輯器](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
+1. 設定您的後端專案。
 2. 在 todoitem.js 檔案中，以下列程式碼取代現有的程式碼：
 
     ```javascript
@@ -178,7 +178,7 @@ ms.locfileid: "67445616"
     using Windows.Networking.PushNotifications;
     ```
 
-2. 在相同檔案中，將下列 **InitNotificationsAsync** 方法定義新增至 [應用程式]  類別：
+2. 在相同檔案中，將下列 **InitNotificationsAsync** 方法定義新增至 [應用程式] 類別：
 
     ```csharp
     private async Task InitNotificationsAsync()

@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 47a068ac6a7941c8ce71cf5c6745d2958c75fe74
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 55d040e96b92f73a632fd415220f9cf135335736
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736601"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851000"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 WebJob 執行背景工作
 
@@ -90,7 +90,7 @@ when making changes in one don't forget the other two.
    | **類型** | 連續 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
    | **調整** | 多重執行個體 | 僅適用於連續 WebJob。 決定程式或指令碼是在所有執行個體上執行，或是只在一個執行個體上執行。 在多個執行個體上執行的選項不適用於免費或共用[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 | 
 
-4. 按一下 [確定 **Deploying Office Solutions**]。
+4. 按一下 [確定]。
 
    新的 WebJob 會出現在 [WebJob] 分頁。
 
@@ -167,15 +167,15 @@ when making changes in one don't forget the other two.
    | **觸發程序** | 已排程 | 若要讓排程可靠地運作，請啟用 [永遠開啟] 功能。 [永遠開啟] 僅適用於基本、標準和進階定價層。|
    | **CRON 運算式** | 0 0/20 * * * * | [CRON 運算式](#cron-expressions)將於下一節中說明。 |
 
-4. 按一下 [確定]。
+4. 按一下 [確定 **Deploying Office Solutions**]。
 
    新的 WebJob 會出現在 [WebJob] 分頁。
 
    ![WebJob 的清單](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## <a name="cron-expressions"></a>CRON 運算式
+## <a name="ncrontab-expressions"></a>NCRONTAB 運算式
 
-您可以在入口網站中輸入 [CRON 運算式](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)，或在 WebJob *.zip* 檔案的根目錄中加入 `settings.job` 檔案，如下列範例所示：
+您可以在入口網站中輸入[NCRONRAB 運算式](../azure-functions/functions-bindings-timer.md#ncrontab-expressions), 或在`settings.job` WebJob *.zip*檔案的根目錄中包含檔案, 如下列範例所示:
 
 ```json
 {

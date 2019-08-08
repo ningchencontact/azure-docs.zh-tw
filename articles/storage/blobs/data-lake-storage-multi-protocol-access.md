@@ -1,19 +1,19 @@
 ---
 title: Azure Data Lake Storage 上的多重通訊協定存取 |Microsoft Docs
 description: 使用 Blob Api 和搭配 Azure Data Lake Storage Gen2 使用 Blob Api 的應用程式。
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: normesta
-ms.openlocfilehash: f384fb738fe719b8e622e8d61502e6acba2bbf31
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.reviewer: stewu
+ms.openlocfilehash: cc0191a9484a09ed12e0ca0cde4d51681e44ec5f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314358"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855544"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Azure Data Lake Storage 上的多重通訊協定存取
 

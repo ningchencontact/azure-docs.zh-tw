@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 423fad943190232d9e5e674b98b62f4f0dffb8ae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 2f7ad49fc56fc82955f79155838c69ff714aba2f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728756"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845870"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件
 
@@ -28,7 +28,7 @@ ms.locfileid: "68728756"
 
 ## <a name="supported-vm-sizes"></a>支援的 VM 大小
 
-在符合下列最低記憶體需求的虛擬機器上, 可以使用 Azure 磁碟加密:
+[基本的 A 系列 vm](/pricing/details/virtual-machines/series/)無法使用 Azure 磁碟加密。 Azure 磁碟加密可在符合下列最低記憶體需求的其他虛擬機器上使用:
 
 | 虛擬機器 | 最小記憶體需求 |
 |--|--|

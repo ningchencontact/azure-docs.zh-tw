@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688121"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850263"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>針對 Desired State Configuration (DSC) 問題進行疑難排解
 
@@ -24,23 +24,24 @@ ms.locfileid: "68688121"
 
 當您在 Azure 狀態設定中編譯或部署設定發生錯誤時, 以下是可協助您診斷問題的幾個步驟。
 
-1. **請確定您的設定在本機電腦上成功編譯:** Azure 狀態設定建置於 PowerShell DSC 上。 您可以在[POWERSHELL dsc](/powershell/dsc/overview/overview)檔中找到 DSC 語言和語法的檔。
+1. **請確定您的設定在本機電腦上成功編譯:** Azure 狀態設定建置於 PowerShell DSC 上。 您可以在[POWERSHELL dsc](https://docs.microsoft.com/en-us/powershell/scripting/overview)檔中找到 DSC 語言和語法的檔。
 
    藉由在本機電腦上編譯 DSC 設定, 您可以探索並解決常見錯誤, 例如:
 
    - **遺失的模組**
    - **語法錯誤**
    - **邏輯錯誤**
+
 2. **在您的節點上查看 DSC 記錄:** 如果您的設定成功編譯, 但套用至節點時失敗, 您可以在記錄檔中找到詳細資訊。 如需有關哪裡可以找到 DSC 記錄的資訊, 請參閱[Dsc 事件記錄檔的位置](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)。
 
-   Futhermore, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics)可以協助您剖析來自 DSC 記錄檔的詳細資訊。 如果您聯繫支援服務, 他們將需要這些記錄以 dianose 您的問題。
+   此外, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics)可協助您剖析來自 DSC 記錄檔的詳細資訊。 如果您聯繫支援人員, 他們將需要這些記錄來診斷您的問題。
 
    您可以使用[安裝穩定版本模組](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)底下找到的指示, 在本機電腦上安裝**xDscDiagnostics** 。
 
    若要在您的 Azure 電腦上安裝**xDscDiagnostics** , 您可以使用[az vm run-command](/cli/azure/vm/run-command)或[Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)。 您也可以[依照在具有執行命令的 WINDOWS VM 中執行 PowerShell 腳本](../../virtual-machines/windows/run-command.md)中的步驟, 使用入口網站中的 [**執行命令**] 選項。
 
    如需使用**xDscDiagnostics**的詳細資訊, 請參閱[使用 XDSCDIAGNOSTICS 來分析 DSC 記錄](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs)檔, 以及[xDscDiagnostics Cmdlet](https://github.com/PowerShell/xDscDiagnostics#cmdlets)。
-3. **請確定您的節點和自動化工作區具有必要的模組:** Desired State Configuration 取決於節點上安裝的模組。  使用 Azure 自動化狀態設定時, 請使用匯[入模組](../shared-resources/modules.md#import-modules)中列出的步驟, 將任何必要的模組匯入到您的自動化帳戶。 設定也可能相依于特定版本的模組。  如需詳細資訊, 請參閱針對[模組進行疑難排解](shared-resources.md#modules)。
+3. **請確定您的節點和自動化工作區具有必要的模組:** Desired State Configuration 取決於節點上安裝的模組。  使用 Azure 自動化狀態設定時, 請使用匯[入模組](../shared-resources/modules.md#import-modules)中列出的步驟, 將任何必要的模組匯入到您的自動化帳戶。 設定也可能相依于特定版本的模組。  如需詳細資訊, 請參閱[疑難排解模組](shared-resources.md#modules)。
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>使用 Desired State Configuration (DSC) 時的常見錯誤
 
@@ -130,7 +131,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 下列任何一個解決方案都可以修正此問題：
 
 * 請確定設定定義中**Node**關鍵字旁的運算式未評估為 $null。
-* 如果您在編譯組態時傳遞 ConfigurationData，請確定您傳遞的是組態向 [ConfigurationData](../automation-dsc-compile.md#configurationdata)要求的預期值。
+* 如果您在編譯組態時傳遞 ConfigurationData，請確定您傳遞的是組態向 [ConfigurationData](../automation-dsc-compile.md)要求的預期值。
 
 ### <a name="dsc-in-progress"></a>案例：DSC 節點報告變成停留在「進行中」狀態
 
@@ -166,7 +167,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="resolution"></a>解決方法
 
-* 請務必傳入適當的**ConfigurationData** , 以針對設定中所述的每個節點設定, 將**PSDscAllowPlainTextPassword**設為 true。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#assets)。
+* 請務必傳入適當的**ConfigurationData** , 以針對設定中所述的每個節點設定, 將**PSDscAllowPlainTextPassword**設為 true。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)。
 
 ### <a name="failure-processing-extension"></a>案例：從 dsc 延伸模組上線, 「失敗處理延伸模組」錯誤
 
@@ -199,11 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>原因
 
-客戶已發現, 如果/tmp 位置設為 noexec, 則目前的 DSC 版本將無法套用設定。
+客戶已識別出如果`/tmp`位置設定為`noexec`, 則目前的 DSC 版本將無法套用設定。
 
 #### <a name="resolution"></a>解決方法
 
-* 從/tmp 位置移除 noexec 選項。
+* 從位置移除`noexec`選項 `/tmp` 。
+
+### <a name="compilation-node-name-overlap"></a>案例：重迭的節點設定名稱可能會導致版本錯誤
+
+#### <a name="issue"></a>問題
+
+如果使用單一設定腳本來產生多個節點設定, 而某些節點設定的名稱是其他專案的子集, 則編譯服務中的問題可能會導致指派錯誤的設定。  只有在使用單一腳本來產生具有每個節點之設定資料的設定, 以及在字串開頭髮生名稱重迭時, 才會發生這種情況。
+
+例如, 如果使用單一設定腳本, 根據使用 Cmdlet 當做雜湊表傳遞的節點資料來產生設定, 則節點資料會包含名為 "server" 和 "1server" 的伺服器。
+
+#### <a name="cause"></a>原因
+
+編譯服務的已知問題。
+
+#### <a name="resolution"></a>解決方法
+
+最佳的解決方法是在本機或在 CI/CD 管線中進行編譯, 並將 MOF 檔案直接上傳至服務。  如果服務中的編譯是需求, 則下一個最佳的解決方法是分割編譯工作, 讓名稱中沒有任何重迭。
 
 ## <a name="next-steps"></a>後續步驟
 

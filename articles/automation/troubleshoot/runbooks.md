@@ -8,14 +8,30 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f732ab6ceb17dcd013c6d032ef3943f6ad9bef71
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 759422ea8c327ae67278354217dac4c60b32f7a9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782378"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850328"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
+
+本文詳細說明 runbook 的常見問題, 以及如何解決這些問題。
+
+## <a name="steps-to-troubleshoot-runbooks"></a>對 runbook 進行疑難排解的步驟
+
+當您在 Azure 自動化中執行 runbook 時發生錯誤時, 可以使用下列步驟來協助診斷問題。
+
+1. **請確定您的 runbook 腳本在您的本機電腦上執行成功:** 請參閱[PowerShell](/powershell/scripting/overview)檔或[Python](https://docs.python.org/3/)檔, 以取得語言參考和學習模組。
+
+   在本機執行您的腳本可以探索並解決常見錯誤, 例如:
+
+   - **遺失的模組**
+   - **語法錯誤**
+   - **邏輯錯誤**
+
+2. **請確定您的節點和自動化工作區具有必要的模組:** 如果您的 runbook 匯入任何模組, 請使用匯[入模組](../shared-resources/modules.md#import-modules)中所列的步驟, 確定您的自動化帳戶可使用它們。 如需詳細資訊, 請參閱針對[模組進行疑難排解](shared-resources.md#modules)。
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>使用 Azure 自動化 Runbook 時的驗證錯誤
 

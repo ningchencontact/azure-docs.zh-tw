@@ -1,18 +1,18 @@
 ---
 title: 在 Azure 儲存體中裝載靜態網站
 description: 瞭解如何直接從 Azure 儲存體 GPv2 帳戶中的容器提供靜態內容 (HTML、CSS、JavaScript 和影像檔案)。
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.subservice: blobs
+ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: e53f8dd832b7f19692b9095e913330848e5b0330
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 591a62ebb6b83ea23d3ed6cf867c07b91e1596b3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385772"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847042"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>在 Azure 儲存體中裝載靜態網站
 
@@ -193,7 +193,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
    藉由連結到不同的計量 API 來產生計量資料。 入口網站只會顯示指定時間範圍內所使用的 API 成員，以便只專注於傳回資料的成員。 為了確保您能夠選取必要的 API 成員, 第一個步驟是展開時間範圍。
 
-2. 按一下 [時間範圍] 按鈕, 並選取 [**過去24小時**] , 然後按一下 [套用]。
+2. 按一下 [時間範圍] 按鈕, 並選取 [**過去24小時**], 然後按一下 [套用]。
 
    ![Azure 儲存體靜態網站計量的時間範圍](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

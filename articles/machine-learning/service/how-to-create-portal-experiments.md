@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cgronlun
+ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a5db2c1c40c9c6f5c05205b9b2c652d2e23cf229
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720244"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848248"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>在 Azure 入口網站中建立、探索自動化機器學習服務實驗並加以部署 (預覽)
 
@@ -24,11 +24,11 @@ ms.locfileid: "68720244"
 
  如果您偏好更以程式碼為基礎的經驗, 您也可以使用[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py),[在 Python 中設定自動化機器學習實驗](how-to-configure-auto-train.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-* Azure Machine Learning 服務工作區。 請參閱[建立 Azure Machine Learning 服務工作區](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)。
+* Azure Machine Learning 服務工作區。 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
 
 ## <a name="get-started"></a>開始使用
 

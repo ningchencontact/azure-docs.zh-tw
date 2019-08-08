@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: deb6482c0419a5872ccf86f0014adbecc7be6c9d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 4a0aab2ca2f0bbcee07f09124e68c3623d16004d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694396"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848139"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 
@@ -36,9 +36,9 @@ ms.locfileid: "68694396"
 > [!IMPORTANT]
 > 建立或附加程式是一次性的工作。 一旦 AKS 叢集連線到工作區, 您就可以將它用於部署。 如果您不再需要 AKS 叢集, 您可以卸離或刪除該叢集。 一旦 detatched 或刪除之後, 您就無法再部署到叢集。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)。
+- Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
 
 - 在您的工作區中註冊的機器學習模型。 如果您沒有已註冊的模型, 請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
@@ -61,6 +61,9 @@ ms.locfileid: "68694396"
 建立或附加 AKS 叢集是工作區的一次性程式。 您可以重複使用此叢集進行多個部署。 如果您刪除叢集或包含該叢集的資源群組, 則必須在下次需要部署時建立新的叢集。 您可以將多個 AKS 叢集附加至您的工作區。
 
 如果您想要建立用於__開發__、__驗證__和__測試__的 AKS 叢集, 而不是生產環境, 您可以指定叢集__目的__來進行開發__測試__。
+
+> [!WARNING]
+> 如果您設定`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, 則建立的叢集不適合用于生產層級的流量, 而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。 針對開發/測試叢集, 我們建議至少有2個虛擬 Cpu。
 
 下列範例示範如何使用 SDK 和 CLI 來建立新的 AKS 叢集:
 
@@ -85,7 +88,7 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> 針對 [`provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)，如果您要為 agent_count 和 vm_size 挑選自訂值，則必須先確定 agent_count 乘以 vm_size 會大於或等於 12 個虛擬 CPU。 例如，如果您使用的 vm_size 為 "Standard_D3_v2" (其具有 4 個虛擬 CPU)，則您應該挑選等於或大於 3 的 agent_count。
+> 針對[`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), 如果您挑選`agent_count`和`vm_size`的自訂值, `cluster_purpose`而不`DEV_TEST` `vm_size`是, 則您需要確定`agent_count`乘以大於或等於12個虛擬 cpu。 例如, 如果您使用`vm_size` "Standard_D3_v2" 的, 其具有4個虛擬 cpu, 則您應該`agent_count`挑選3或更高的。
 >
 > Azure Machine Learning SDK 不提供調整 AKS 叢集的支援。 若要調整叢集中的節點, 請在 Azure 入口網站中使用適用于 AKS 叢集的 UI。 您只能變更節點計數, 而不是叢集的 VM 大小。
 
@@ -118,7 +121,7 @@ az ml computetarget create aks -n myaks
 >
 > 如果您未設定`cluster_purpose`參數或設定`cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, 則叢集必須至少有12個可用的虛擬 cpu。
 >
-> 如果您設定`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`了, 叢集就不需要有12個虛擬 cpu。 不過, 針對「開發/測試」設定的叢集將不適合用于生產層級的流量, 而且可能會增加推斷時間。
+> 如果您設定`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`了, 叢集就不需要有12個虛擬 cpu。 針對開發/測試, 我們建議至少要有2個虛擬 Cpu。 不過, 針對「開發/測試」設定的叢集不適合用于生產層級的流量, 而且可能會增加推斷時間。 開發/測試叢集也不保證容錯。
 
 如需使用 Azure CLI 或入口網站建立 AKS 叢集的詳細資訊, 請參閱下列文章:
 

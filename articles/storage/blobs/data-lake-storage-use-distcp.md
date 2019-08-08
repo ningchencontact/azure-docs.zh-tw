@@ -1,20 +1,19 @@
 ---
 title: 使用 DistCp 將資料複製到 Azure Data Lake Storage Gen2 | Microsoft Docs
 description: 使用 DistCp 工具將資料複製到 Data Lake Storage Gen2 或從中複製資料
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.openlocfilehash: 0e85d2b2c7e9a3022e7fea2063ffa0aa915abb53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: stewu
+ms.openlocfilehash: d33518c7dc82f8af61fef02ecabb7ac7f42e28fb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939062"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847087"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>使用 DistCp 在 Azure 儲存體 Blob 與 Azure Data Lake Storage Gen2 之間複製資料
 
@@ -22,7 +21,7 @@ ms.locfileid: "64939062"
 
 DistCp 提供各種不同的命令列參數，我們強烈建議您閱讀這篇文章，以最佳化此工具的使用。 本文會說明基本功能，同時將焦點放在如何使用此工具將資料複製到已啟用階層命名空間的帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Data Lake Storage Gen2 功能 (階層命名空間) 的現有 Azure 儲存體帳戶**。

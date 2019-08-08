@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4bc035ba061a65f6770136240d8867f82858e67e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 545860a394c7eac953c1cbacc9dd05fc3737f6c1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772735"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856179"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 
@@ -32,7 +32,7 @@ ms.locfileid: "68772735"
 
 若要使用資料存放區，必須先有[工作區](concept-workspace.md)。
 
-從[建立新工作區](setup-create-workspace.md#sdk)，或擷取現有工作區開始：
+從[建立新工作區](how-to-manage-workspace.md)，或擷取現有工作區開始：
 
 ```Python
 import azureml.core

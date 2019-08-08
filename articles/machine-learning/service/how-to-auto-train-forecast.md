@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 34902aa23339b62920f918ae19b410a99e226a0e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 793474495f3ab3ef06a17b48d15c2f91d0677365
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358806"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848172"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
 
@@ -27,17 +27,17 @@ ms.locfileid: "68358806"
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-您可以使用自動化 ML 結合技術和方法, 並取得建議的高品質時間序列預測。 自動化的時間序列實驗會被視為多變數回歸問題。 過去的時間序列值會「切換」為回歸輸入變數的其他維度與其他預測指標。 
+您可以使用自動化 ML 結合技術和方法, 並取得建議的高品質時間序列預測。 自動化的時間序列實驗會被視為多變數回歸問題。 過去的時間序列值會「切換」為回歸輸入變數的其他維度與其他預測指標。
 
 與傳統時間序列方法不同的是, 這種方法的優點是在定型期間自然結合多個內容變數及其關聯性。 在真實世界的預測應用程式中, 有多個因素會影響預測。 例如, 當預測銷售時, 歷程記錄趨勢的互動、匯率和價格全都會共同推動銷售結果。 另一個優點是回歸模型中所有最近的創新都適用于預測。
 
-您可以[設定](#config)預測未來應延伸的時間 (預測範圍), 以及延遲和更多。 自動化 ML 會針對資料集和預測視野中的所有專案學習單一但通常會在內部分支的模型。 因此, 有更多的資料可用於估計模型參數, 而一般化的數列則會變成可行的。 
+您可以[設定](#config)預測未來應延伸的時間 (預測範圍), 以及延遲和更多。 自動化 ML 會針對資料集和預測視野中的所有專案學習單一但通常會在內部分支的模型。 因此, 有更多的資料可用於估計模型參數, 而一般化的數列則會變成可行的。
 
-從定型資料中解壓縮的功能扮演重要的角色。 而且, 自動化 ML 會執行標準的前置處理步驟, 並產生額外的時間序列功能來捕捉季節性效果並最大化預測準確度。 
+從定型資料中解壓縮的功能扮演重要的角色。 而且, 自動化 ML 會執行標準的前置處理步驟, 並產生額外的時間序列功能來捕捉季節性效果並最大化預測準確度。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)。
+* Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
 * 本文假設您對設定自動化機器學習實驗的基本概念十分熟悉。 依照[教學](tutorial-auto-train-models.md)課程或[如何](how-to-configure-auto-train.md)操作來查看基本的自動化機器學習實驗設計模式。
 
 ## <a name="preparing-data"></a>準備資料
@@ -106,9 +106,13 @@ time_series_settings = {
     "grain_column_names": ["store"],
     "max_horizon": 50,
     "target_lags": 2,
-    "target_rolling_window_size": 10
+    "target_rolling_window_size": 10,
+    "preprocess": True,
 }
 ```
+
+> [!NOTE]
+> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時, 定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
 
 現在, 請建立`AutoMLConfig`標準物件, 並`forecasting`指定工作類型並提交實驗。 在模型完成之後, 請抓取最佳的執行反復專案。
 

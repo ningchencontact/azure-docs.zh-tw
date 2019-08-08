@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2d30d044a26e6a092eba267f223be9b10c3a238b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c9d2acf3e58d233bd789e335c585f61511b975d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075831"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846206"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 虛擬機器的自動備份 (Resource Manager)
 
@@ -32,7 +32,7 @@ ms.locfileid: "67075831"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用自動備份，請考慮下列必要條件︰
 
 **作業系統**：
@@ -77,7 +77,7 @@ ms.locfileid: "67075831"
 
 以 Resource Manager 部署模型建立新的「SQL Server 2014 虛擬機器」時，請使用 Azure 入口網站來設定「自動備份」。
 
-在  **SQL Server 設定**索引標籤上，向下捲動至**自動備份**，然後選取**啟用**。 您也可以指定保留期限和儲存體帳戶，以及啟用加密，備份系統資料庫，並設定備份排程。  下列的 Azure 入口網站螢幕擷取畫面顯示 [SQL 自動備份]  設定。
+在**SQL Server 設定** 索引標籤中, 向下流覽至 **自動備份**, 然後選取 **啟用** 您也可以指定保留期限和儲存體帳戶, 以及啟用加密、備份系統資料庫, 以及設定備份排程。  下列的 Azure 入口網站螢幕擷取畫面顯示 [SQL 自動備份] 設定。
 
 ![在 Azure 入口網站中設定 SQL 自動備份](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
@@ -85,11 +85,11 @@ ms.locfileid: "67075831"
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-對於現有的 SQL Server 虛擬機器中，瀏覽至[SQL 虛擬機器資源](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource)，然後選取**備份**。 
+針對現有的 SQL Server 虛擬機器, 流覽至 [ [SQL 虛擬機器] 資源](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), 然後選取 [**備份**]。 
 
 ![現有 VM 的 SQL 自動備份](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-完成後，選取**套用**下方的按鈕**備份**頁面，即可儲存您的變更。
+完成時, 請選取 [**備份**] 頁面底部的 [套用] 按鈕, 以儲存您的變更。
 
 如果這是您第一次啟用「自動備份」，Azure 就會在背景中設定 SQL Server IaaS Agent。 在此期間，Azure 入口網站可能不會顯示已設定自動備份。 請等候幾分鐘的時間來安裝及設定代理程式。 之後，Azure 入口網站將會反映新的設定。
 

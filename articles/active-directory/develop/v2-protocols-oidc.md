@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7d4164bd1a412c69c3b5adfe20cf83d699d2b4
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 69aa2da29e18f99e75e09d8f21814b71cc95ef72
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304798"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852134"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft 身分識別平臺和 OpenID Connect 通訊協定
 
@@ -32,7 +32,7 @@ OpenID Connect 在 OAuth 2.0 上建置的驗證通訊協定，可用來讓使用
 > [!NOTE]
 > Microsoft 身分識別平臺端點不支援所有 Azure Active Directory (Azure AD) 案例和功能。 若要判斷您是否應該使用 Microsoft 身分識別平臺端點, 請參閱[microsoft 身分識別平臺限制](active-directory-v2-limitations.md)。
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 將 OAuth 2.0「授權」  通訊協定延伸來當作「驗證」  通訊協定使用，以便讓您能夠使用 OAuth 來執行單一登入。 OpenID Connect 引進了「識別碼權杖」  的概念，這是一種安全性權杖，可讓用戶端確認使用者的身分識別。 識別碼權杖也會取得使用者的相關基本設定檔資訊。 由於 OpenID Connect 延伸了 OAuth 2.0，因此應用程式可以安全地取得「存取權杖」  ，而這些權杖可用來存取受[授權伺服器](active-directory-v2-protocols.md#the-basics)保護的資源。 Microsoft 身分識別平臺端點也允許向 Azure AD 註冊的協力廠商應用程式, 針對受保護的資源 (例如 Web Api) 發出存取權杖。 如需有關如何設定應用程式以發出存取權杖的詳細資訊, 請參閱[如何使用 Microsoft 身分識別平臺端點註冊應用](quickstart-register-app.md)程式。 如果您要建置裝載於伺服器上且透過瀏覽器存取的 [Web 應用程式](v2-app-types.md#web-apps)，建議您使用 OpenID Connect。
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 將 OAuth 2.0「授權」通訊協定延伸來當作「驗證」通訊協定使用，以便讓您能夠使用 OAuth 來執行單一登入。 OpenID Connect 引進了「識別碼權杖」的概念，這是一種安全性權杖，可讓用戶端確認使用者的身分識別。 識別碼權杖也會取得使用者的相關基本設定檔資訊。 由於 OpenID Connect 延伸了 OAuth 2.0，因此應用程式可以安全地取得「存取權杖」，而這些權杖可用來存取受[授權伺服器](active-directory-v2-protocols.md#the-basics)保護的資源。 Microsoft 身分識別平臺端點也允許向 Azure AD 註冊的協力廠商應用程式, 針對受保護的資源 (例如 Web Api) 發出存取權杖。 如需有關如何設定應用程式以發出存取權杖的詳細資訊, 請參閱[如何使用 Microsoft 身分識別平臺端點註冊應用](quickstart-register-app.md)程式。 如果您要建置裝載於伺服器上且透過瀏覽器存取的 [Web 應用程式](v2-app-types.md#web-apps)，建議您使用 OpenID Connect。
 
 ## <a name="protocol-diagram-sign-in"></a>通訊協定圖表：登入
 
@@ -48,7 +48,7 @@ OpenID Connect 會描述元資料檔案, 其中包含應用程式執行登入所
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> 試試看！ 按一下 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) 以查看 `common` 租用戶設定。
+> 試用! 按一下 [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) 以查看 `common` 租用戶設定。
 
 `{tenant}` 可以接受下列四個值的其中一個：
 
@@ -128,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 在使用者驗證並授與同意之後, Microsoft 身分識別平臺端點會使用`response_mode`參數中指定的方法, 在指定的重新導向 URI 傳回您應用程式的回應。
 
-### <a name="successful-response"></a>成功回應
+### <a name="successful-response"></a>成功的回應
 
 使用 `response_mode=form_post` 時的成功回應看起來像這樣：
 
@@ -241,7 +241,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 
 藉由在要求中包含許可權範圍, 以及`response_type=id_token code`藉由使用, Microsoft 身分識別平臺端點可確保使用者已同意`scope`查詢參數中指出的許可權。 它會將授權碼傳回給到您的應用程式以交換存取權杖。
 
-### <a name="successful-response"></a>成功回應
+### <a name="successful-response"></a>成功的回應
 
 使用 `response_mode=form_post` 的成功回應看起來像這樣：
 

@@ -1,44 +1,44 @@
 ---
-title: 使用將資料傳送至 Azure 儲存體從 Amazon S3 貯體 AzCopy v10 |Microsoft Docs
-description: 使用 AzCopy 和 Amazon S3 貯體傳輸資料
+title: 使用 AzCopy v10, 將資料從 Amazon S3 bucket 傳送到 Azure 儲存體 |Microsoft Docs
+description: 使用 AzCopy 和 Amazon S3 bucket 來傳輸資料
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 414573a90e5a7b7de845b65e6e88715a26024f10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3c0943ceeadd725ac0e0fb2624d37bc9fb8c3bf
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67125778"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844788"
 ---
-# <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>將資料從 Amazon S3 貯體，使用 AzCopy 複製
+# <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>使用 AzCopy 從 Amazon S3 bucket 來複製資料
 
-AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔案。 這篇文章可協助您的物件、 目錄和貯體將從 Amazon Web Services (AWS) S3 複製到 Azure blob 儲存體使用 AzCopy。
+AzCopy 是命令列公用程式, 可讓您在儲存體帳戶之間複製 blob 或檔案。 本文可協助您使用 AzCopy, 將物件、目錄和 bucket 從 Amazon Web Services (AWS) S3 複製到 Azure blob 儲存體。
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>選擇您要如何提供授權認證
 
-* 若要授權使用 Azure 儲存體，請使用 Azure Active Directory (AD) 或共用存取簽章 (SAS) 權杖。
+* 若要授權 Azure 儲存體, 請使用 Azure Active Directory (AD) 或共用存取簽章 (SAS) 權杖。
 
-* 若要授權與 AWS S3，請使用 AWS 存取金鑰和祕密存取金鑰。
+* 若要授權使用 AWS S3, 請使用 AWS 存取金鑰和秘密存取金鑰。
 
-### <a name="authorize-with-azure-storage"></a>授權與 Azure 儲存體
+### <a name="authorize-with-azure-storage"></a>使用 Azure 儲存體進行授權
 
-請參閱[開始使用 AzCopy](storage-use-azcopy-v10.md)下載 AzCopy 時，發行項，然後選擇 您將會提供儲存體服務的授權認證。
+請參閱[開始使用 AzCopy](storage-use-azcopy-v10.md)一文以下載 AzCopy, 並選擇您要如何提供授權認證給儲存體服務。
 
 > [!NOTE]
-> 這篇文章中的範例假設您已經使用驗證您的身分識別`AzCopy login`命令。 然後，AzCopy 會使用您的 Azure AD 帳戶來授權存取 Blob 儲存體中的資料。
+> 本文中的範例假設您已使用`AzCopy login`命令驗證您的身分識別。 然後, AzCopy 會使用您的 Azure AD 帳戶來授權存取 Blob 儲存體中的資料。
 >
-> 如果您想使用 SAS 權杖來授權存取 blob 資料，您可以將該權杖附加至每個 AzCopy 命令中的資源 URL。
+> 如果您想要使用 SAS 權杖來授權 blob 資料的存取權, 您可以在每個 AzCopy 命令中, 將該權杖附加至資源 URL。
 >
 > 例如： `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>` 。
 
-### <a name="authorize-with-aws-s3"></a>授權與 AWS S3
+### <a name="authorize-with-aws-s3"></a>使用 AWS S3 授權
 
-收集您的 AWS 存取金鑰和祕密存取金鑰，然後再設定這些環境變數：
+收集您的 AWS 存取金鑰和秘密存取金鑰, 然後設定這些環境變數:
 
 | 作業系統 | 命令  |
 |--------|-----------|
@@ -46,12 +46,12 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
-## <a name="copy-objects-directories-and-buckets"></a>複製物件、 目錄和貯體
+## <a name="copy-objects-directories-and-buckets"></a>複製物件、目錄和 bucket
 
-AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url)API，以便直接在 AWS S3 與存放區伺服器之間複製資料。 這些複製作業不會使用您電腦的網路頻寬。
+AzCopy 會使用[來自 URL API 的 Put 區塊](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), 因此資料會直接複製到 AWS S3 和存放伺服器之間。 這些複製作業不會使用您電腦的網路頻寬。
 
 > [!IMPORTANT]
-> 此功能目前為預覽狀態。 如果您決定要移除您的 S3 貯體中的資料，複製作業之後，請務必確認資料已正確複製到您的儲存體帳戶之前先移除資料。
+> 此功能目前為預覽狀態。 如果您決定在複製作業之後移除 S3 bucket 的資料, 請務必先確認資料已正確複製到儲存體帳戶, 然後再移除資料。
 
 ### <a name="copy-an-object"></a>複製物件
 
@@ -61,11 +61,11 @@ AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storages
 | **範例** | `azcopy cp "https://s3.amazonaws.com/mybucket/myobject" "https://mystorageaccount.blob.core.windows.net/mycontainer/myblob"` |
 
 > [!NOTE]
-> 針對 AWS S3 貯體，這篇文章中的範例會使用路徑式 Url (例如： `http://s3.amazonaws.com/<bucket-name>`)。 
+> 本文中的範例會使用 AWS S3 bucket 的路徑樣式 Url (例如: `http://s3.amazonaws.com/<bucket-name>`)。 
 >
-> 您也可以使用虛擬裝載式 Url (例如： `http://bucket.s3.amazonaws.com`)。 
+> 您也可以使用虛擬主控樣式的 Url (例如: `http://bucket.s3.amazonaws.com`)。 
 >
-> 若要深入了解虛擬裝載的貯體，請參閱 [虛擬裝載的貯體]] (https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) 。
+> 若要深入瞭解值區的虛擬裝載, 請參閱 [主機 Bucket 的虛擬裝載 https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html) ]] (。
 
 ### <a name="copy-a-directory"></a>複製目錄
 
@@ -74,66 +74,66 @@ AzCopy 會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storages
 | **語法** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<directory-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>" --recursive=true` |
 | **範例** | `azcopy cp "https://s3.amazonaws.com/mybucket/mydirectory" "https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory" --recursive=true` |
 
-### <a name="copy-a-bucket"></a>複製的貯體
+### <a name="copy-a-bucket"></a>複製值區
 
 |    |     |
 |--------|-----------|
 | **語法** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true` |
 | **範例** | `azcopy cp "https://s3.amazonaws.com/mybucket" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true` |
 
-### <a name="copy-all-buckets-in-all-regions"></a>在所有區域中複製所有的貯體
+### <a name="copy-all-buckets-in-all-regions"></a>複製所有區域中的所有值區
 
 |    |     |
 |--------|-----------|
 | **語法** | `azcopy cp "https://s3.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
 | **範例** | `azcopy cp "https://s3.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
 
-### <a name="copy-all-buckets-in-a-specific-s3-region"></a>複製所有的值區中特定的 S3 區域
+### <a name="copy-all-buckets-in-a-specific-s3-region"></a>複製特定 S3 區域中的所有 bucket
 
 |    |     |
 |--------|-----------|
 | **語法** | `azcopy cp "https://s3-<region-name>.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
 | **範例** | `azcopy cp "https://s3-rds.eu-north-1.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
 
-## <a name="handle-differences-in-object-naming-rules"></a>處理物件命名規則的差異
+## <a name="handle-differences-in-object-naming-rules"></a>處理物件命名規則中的差異
 
-AWS S3 有一組不同的命名慣例，相較於 Azure blob 容器的貯體名稱。 您可以閱讀它們[此處](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules)。 如果您選擇的值區的群組複製到 Azure 儲存體帳戶，複製作業可能會失敗，因為命名差異。
+相較于 Azure blob 容器, AWS S3 具有一組不同的值區名稱命名慣例。 您可以在[這裡](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules)閱讀相關資訊。 如果您選擇將一組 bucket 複製到 Azure 儲存體帳戶, 則複製作業可能會因為命名差異而失敗。
 
-AzCopy 處理兩個常見的問題所引起;包含句點及包含連續的連字號的值區的貯體。 AWS S3 貯體名稱可以包含句號和連續的連字號，但無法在 Azure 中的容器。 AzCopy 會以連字號與連續的連字號，以代表連續的連字號的數字的數字取代期間 (例如： 名為的貯體`my----bucket`會變成`my-4-bucket`。 
+AzCopy 會處理兩個最常發生的問題;包含句點和 bucket 的值區, 其中包含連續的連字號。 AWS S3 值區名稱可以包含句點和連續的連字號, 但 Azure 中的容器無法。 AzCopy 會以連字號和連續連字號取代句點, 其數位代表連續連字號的數目 (例如: 名為`my----bucket`的`my-4-bucket`值區會變成)。 
 
-此外，AzCopy 會複製檔案，它會檢查有命名衝突並嘗試解決這些問題。 比方說，如果有同名的貯體`bucket-name`並`bucket.name`，AzCopy 會解析具名的貯體`bucket.name`至第一個`bucket-name`然後`bucket-name-2`。
+此外, 當 AzCopy 複製檔案時, 它會檢查命名衝突並嘗試加以解決。 例如`bucket-name` , 如果有名稱為和`bucket.name`的值區, 則 AzCopy 會將名為`bucket.name` first `bucket-name`的值區解析`bucket-name-2`成, 然後再解析成。
 
-## <a name="handle-differences-in-object-metadata"></a>處理物件中繼資料中的差異
+## <a name="handle-differences-in-object-metadata"></a>處理物件中繼資料的差異
 
-AWS S3 和 Azure 可讓不同字元的名稱中的物件索引鍵。 您可以閱讀的是字元，會使用 AWS S3[此處](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys)。 在 Azure 端，blob 物件索引鍵符合的命名規則[C#識別碼](https://docs.microsoft.com/dotnet/csharp/language-reference/)。
+AWS S3 和 Azure 允許在物件索引鍵的名稱中有不同的字元集。 您可以閱讀 AWS S3 在[此](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys)使用的字元。 在 Azure 端, blob 物件金鑰會遵守[ C#識別碼](https://docs.microsoft.com/dotnet/csharp/language-reference/)的命名規則。
 
-做為一部分的 AzCopy`copy`命令時，您可以提供值給選擇性`s2s-invalid-metadata-handle`旗標，指定您希望如何處理其中的檔案中繼資料包含不相容的索引鍵名稱的檔案。 下表描述每個旗標值。
+在 AzCopy `copy`命令中, 您可以提供選擇性的`s2s-invalid-metadata-handle`旗標值, 指定您要如何處理檔案的中繼資料包含不相容的索引鍵名稱的檔案。 下表描述每個旗標值。
 
 | 旗標值 | 描述  |
 |--------|-----------|
-| **ExcludeIfInvalid** | （預設選項）中繼資料不包含在傳送的物件。 AzCopy 會記錄警告。 |
-| **FailIfInvalid** | 不會複製物件。 AzCopy 會記錄錯誤，並在傳輸在摘要中顯示的失敗計數中包含該錯誤。  |
-| **RenameIfInvalid**  | AzCopy 解析無效的中繼資料機碼，並將物件複製到 Azure 中使用解析中繼資料機碼值組。 若要深入了解重新命名物件索引鍵的 AzCopy 所需的步驟完全，請參閱[如何 AzCopy 會將重新命名物件索引鍵](#rename-logic)下一節。 如果無法重新命名的機碼 AzCopy，將不會複製的物件。 |
+| **ExcludeIfInvalid** | (預設選項)中繼資料不會包含在傳送的物件中。 AzCopy 會記錄一則警告。 |
+| **FailIfInvalid** | 不會複製物件。 AzCopy 會記錄錯誤, 並在傳輸摘要中出現的失敗計數中包含該錯誤。  |
+| **RenameIfInvalid**  | AzCopy 會解析不正確中繼資料索引鍵, 並使用已解析的中繼資料金鑰值組, 將物件複製到 Azure。 若要確切瞭解 AzCopy 重新命名物件索引鍵所需的步驟, 請參閱下面的 <<c0>如何將物件金鑰重新命名一節。 如果 AzCopy 無法重新命名索引鍵, 則不會複製物件。 |
 
 <a id="rename-logic" />
 
 ### <a name="how-azcopy-renames-object-keys"></a>AzCopy 如何重新命名物件索引鍵
 
-AzCopy 會執行下列步驟：
+AzCopy 會執行下列步驟:
 
-1. 取代無效的字元 '_'。
+1. 以 ' _ ' 取代不正確字元。
 
-2. 將字串加入`rename_`至新的有效索引鍵的開頭。
+2. 將字串`rename_`新增至新有效金鑰的開頭。
 
-   此金鑰會用來儲存原始的中繼資料**值**。
+   這個金鑰將用來儲存原始的中繼資料**值**。
 
-3. 將字串加入`rename_key_`至新的有效索引鍵的開頭。
-   此金鑰會用來儲存原始中繼資料無效**金鑰**。
-   您可以使用這個索引鍵，嘗試並修復 Azure 端的中繼資料，因為中繼資料機碼已保留為 Blob 儲存體服務中的值。
+3. 將字串`rename_key_`新增至新有效金鑰的開頭。
+   此金鑰將用來儲存原始中繼資料不正確索引**鍵**。
+   您可以使用此金鑰來嘗試和復原 Azure 端的中繼資料, 因為中繼資料索引鍵會保留為 Blob 儲存體服務上的值。
 
 ## <a name="next-steps"></a>後續步驟
 
-在這些文件中找到更多範例：
+在這些文章中尋找更多範例:
 
 - [開始使用 AzCopy](storage-use-azcopy-v10.md)
 

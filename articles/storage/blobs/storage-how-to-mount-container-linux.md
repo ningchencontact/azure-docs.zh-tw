@@ -1,24 +1,23 @@
 ---
 title: 如何在 Linux 上將 Azure Blob 儲存體掛接為檔案系統 | Microsoft Docs
 description: 在 Linux 上使用 FUSE 掛接 Azure Blob 儲存體容器
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/1/2019
 ms.author: normesta
-ms.reviewer: seguler
-ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: dineshm
+ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473458"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845015"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統
 
 ## <a name="overview"></a>總覽
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) 是 Azure Blob 儲存體的虛擬檔案系統驅動程式。 Blobfuse 可讓您透過 Linux 檔案系統存取您儲存體帳戶中現有的區塊 Blob 資料。 使用正斜線 '/' 做為分隔符號，Blobfuse 會使用虛擬目錄配置。  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) 是 Azure Blob 儲存體的虛擬檔案系統驅動程式。 Blobfuse 可讓您透過 Linux 檔案系統存取您儲存體帳戶中現有的區塊 Blob 資料。 Blobfuse 會使用以正斜線 '/' 做為分隔符號的虛擬目錄配置。  
 
 本指南示範如何使用 Blobfuse，以及如何在 Linux 上掛接 Blob 儲存體容器並存取資料。 若要深入了解 Blobfuse，請閱讀 [Blobfuse 存放庫](https://github.com/Azure/azure-storage-fuse)中的詳細資料。
 
@@ -30,7 +29,7 @@ ms.locfileid: "66473458"
 ## <a name="install-blobfuse-on-linux"></a>在 Linux 上安裝 Blobfuse
 在 [Microsoft 的 Linux 軟體存放庫](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)可取得適用於 Ubuntu 和 RHEL 散發套件的 Blobfuse 二進位檔案。 若要在這些發行版本上安裝 Blobfuse，請設定清單中的任一個存放庫。 如果您的發行版本沒有可用的二進位檔，您也可以遵循 [Azure 儲存體安裝步驟](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) \(英文\)，從原始程式碼建置二進位檔。
 
-Blobfuse 會支援安裝在 Ubuntu 14.04、 16.04 和 18.04 上。 執行此命令以確定您已部署其中一個版本：
+Blobfuse 支援在 Ubuntu 14.04、16.04 和18.04 上安裝。 執行此命令以確定您已部署其中一個版本：
 ```
 lsb_release -a
 ```
@@ -52,11 +51,11 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-同樣地，將 URL 變更為`.../ubuntu/16.04/...`或`.../ubuntu/18.04/...`參考另一個的 Ubuntu 版本。
+同樣地, 將 URL 變更`.../ubuntu/16.04/...`為`.../ubuntu/18.04/...`或, 以參考另一個 Ubuntu 版本。
 
 ### <a name="install-blobfuse"></a>安裝 Blobfuse
 
-Ubuntu/Debian 發行版：
+在 Ubuntu/Debian 發佈上:
 ```bash
 sudo apt-get install blobfuse
 ```
@@ -98,15 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-`accountName`是您的儲存體帳戶-不是完整的 URL 前置詞。
+`accountName`是您儲存體帳戶的前置詞, 而不是完整的 URL。
 
-建立此檔案使用：
+使用下列內容建立此檔案:
 
 ```
 touch ~/fuse_connection.cfg
 ```
 
-一旦您已建立並編輯這個檔案，請務必要限制存取，讓其他使用者可以讀取它。
+建立並編輯此檔案之後, 請務必限制存取, 讓其他使用者都無法讀取它。
 ```bash
 chmod 600 fuse_connection.cfg
 ```

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834642"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851785"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>混合式 Azure AD 聯結的受控驗證
 
@@ -72,7 +72,7 @@ ms.locfileid: "68834642"
       1. 機碼路徑:**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. 值名稱:**TenantName**
       1. 數值型別:**REG_SZ**
-      1. 數值資料:您已驗證的**功能變數名稱**(如果您使用 AD FS 的同盟環境)。 已驗證的 * * 功能變數名稱 "" 或您的 onmicrosoft.com 功能變數名稱 (例如, `contoso.onmicrosoft.com`如果您使用受控環境)
+      1. 數值資料:您已驗證的**功能變數名稱**(如果您使用 AD FS 的同盟環境)。 您已驗證的**功能變數名稱**或 onmicrosoft.com 功能變數名稱 (例如, 如果`contoso.onmicrosoft.com`您使用受控環境)
    1. 按一下 **[確定]** 。
 1. 關閉新建立之 GPO 的編輯器
 1. 將新建立的 GPO 連結到所需的 OU, 其中包含屬於您受控制之推出擴展的已加入網域電腦

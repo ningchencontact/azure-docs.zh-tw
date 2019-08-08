@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370482"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847827"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning 中的定型執行期間記錄計量
 
@@ -49,7 +49,7 @@ ms.locfileid: "68370482"
 ## <a name="set-up-the-workspace"></a>設定工作區
 新增記錄並提交實驗之前，您必須先設定工作區。
 
-1. 使用工作區。 若要深入瞭解如何設定工作區設定, 請遵循[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#sdk)中的步驟。
+1. 使用工作區。 若要深入瞭解如何設定工作區設定, 請參閱[工作區設定檔](how-to-configure-environment.md#workspace)。
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -58,7 +58,7 @@ ms.locfileid: "68370482"
    ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-startlogging"></a>選項 1：使用 start_logging
+## <a name="option-1-use-start_logging"></a>選項 1：使用 start_logging
 
 **start_logging** 可建立互動式執行，以便用於 Notebook 等環境中。 工作階段期間記錄的所有計量都會加入實驗的執行記錄中。
 

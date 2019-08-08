@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d5d10562a70b7d37908bc272bf555fd967831009
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5def34b4e3e7227daf96d952457869658bbce61e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076973"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855262"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 安全性考量
 
@@ -42,11 +42,11 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 ## <a name="secure-connections"></a>安全連線
 
-當您使用資源庫映像建立 SQL Server 虛擬機器時，[SQL Server 連線]  選項可讓您選擇 [本機 (在 VM 內)]  [私人 (在虛擬網路內)]  或 [公用 (網際網路)]  。
+當您使用資源庫映像建立 SQL Server 虛擬機器時，[SQL Server 連線] 選項可讓您選擇 [本機 (在 VM 內)][私人 (在虛擬網路內)] 或 [公用 (網際網路)]。
 
 ![SQL Server 連線](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-如需最佳的安全性，請為您的案例選擇最嚴格的選項。 例如，如果您執行的應用程式可存取相同 VM 上的 SQL Server，則 [本機]  是最安全的選擇。 如果您執行的 Azure 應用程式需要存取 SQL Server，則 [私人]  只可保護指定之 [Azure 虛擬網路](../../../virtual-network/virtual-networks-overview.md) 內的 SQL Server 通訊。 如果您需要 SQL Server VM的 [公用]  \(網際網路) 存取，請務必遵循本主題中的其他最佳做法，以縮寫受攻擊面。
+如需最佳的安全性，請為您的案例選擇最嚴格的選項。 例如，如果您執行的應用程式可存取相同 VM 上的 SQL Server，則 [本機] 是最安全的選擇。 如果您執行的 Azure 應用程式需要存取 SQL Server，則 [私人] 只可保護指定之 [Azure 虛擬網路](../../../virtual-network/virtual-networks-overview.md) 內的 SQL Server 通訊。 如果您需要 SQL Server VM的 [公用] \(網際網路) 存取，請務必遵循本主題中的其他最佳做法，以縮寫受攻擊面。
 
 入口網站中選取的選項會使用 VM [網路安全性群組](../../../virtual-network/security-overview.md) (NSG) 上的輸入安全性規則來允許或拒絕虛擬機器的網路流量。 您可以修改或建立新的輸入 NSG 規則，以允許 SQL Server 連接埠 (預設值 1433) 的流量。 您也可以指定允許透過此連接埠通訊的特定 IP 位址。
 
@@ -60,13 +60,13 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 ## <a name="use-a-non-default-port"></a>使用非預設連接埠
 
-根據預設，SQL Server 會在已知的通訊埠 1433 上接聽。 為了提高安全性，將 SQL Server 設定為在非預設連接埠 (例如 1401) 上接聽。 如果您在 Azure 入口網站中佈建 SQL Server 資源庫映像，您可以在 [SQL Server 設定]  刀鋒視窗中指定此連接埠。
+根據預設，SQL Server 會在已知的通訊埠 1433 上接聽。 為了提高安全性，將 SQL Server 設定為在非預設連接埠 (例如 1401) 上接聽。 如果您在 Azure 入口網站中佈建 SQL Server 資源庫映像，您可以在 [SQL Server 設定] 刀鋒視窗中指定此連接埠。
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
 若要在佈建後進行此設定，您有兩個選項：
 
-- 適用於 Resource Manager Vm，您可以選取**安全性**從[SQL 虛擬機器資源](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource)。 這可提供變更連接埠的選項。
+- 針對 Resource Manager Vm, 您可以從 [ [SQL 虛擬機器] 資源](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)選取 [**安全性**]。 這可提供變更連接埠的選項。
 
   ![在入口網站中變更 TCP 連接埠](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 

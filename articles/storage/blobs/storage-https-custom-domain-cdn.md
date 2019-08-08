@@ -1,20 +1,19 @@
 ---
 title: 使用 Azure CDN 透過 HTTPS 以自訂網域存取 Blob
 description: 了解如何整合 Azure CDN 與 Blob 儲存體，以透過 HTTPS 使用自訂網域來存取 Blob
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: da3a6dcb0d125ac4666bc375e843c57cf12fb2fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148395"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845008"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>使用 Azure CDN 透過 HTTPS 以自訂網域存取 Blob
 
@@ -33,7 +32,7 @@ Azure CDN 可在您的 Web 應用程式資料進行傳輸時，協助保護該�
     如果您還沒有在 Azure 入口網站中建立儲存體帳戶，本文將逐步引導您建立該帳戶。
 
     > [!NOTE]  
-    > 在「Azure 儲存體」中的靜態網站支援預覽期間，若要新增儲存體 Web 端點，請從 [原始來源類型]  下拉式清單中選取 [自訂原始來源]  。 在 Azure 入口網站中，您必須從 Azure CDN 設定檔中執行此操作，而不是直接在儲存體帳戶中執行。
+    > 在「Azure 儲存體」中的靜態網站支援預覽期間，若要新增儲存體 Web 端點，請從 [原始來源類型] 下拉式清單中選取 [自訂原始來源]。 在 Azure 入口網站中，您必須從 Azure CDN 設定檔中執行此操作，而不是直接在儲存體帳戶中執行。
 
 2.  [將 Azure CDN 內容對應至自訂網域](../../cdn/cdn-map-content-to-custom-domain.md)。
 

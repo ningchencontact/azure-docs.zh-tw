@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 27d5dcc99db040036ba296911aa33d8a312bb23f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837915"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851517"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>在 Azure API 管理中存取及自訂新的開發人員入口網站
 
@@ -95,10 +95,6 @@ ms.locfileid: "68837915"
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>為什麼互動式開發人員主控台無法正常執行？
 
 這可能與 CORS 相關。 互動式主控台會從瀏覽器提出用戶端 API 要求。 您可以藉由在您的 API 上新增[cors 原則](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)來解決 CORS 問題。 您可以手動指定所有參數 (例如, 原始來源 https://contoso.com) 或使用萬用字元`*` 值)。
-
-### <a name="where-can-i-file-bugs"></a>我可以在哪裡提出 bug？
-
-[在 GitHub 存放庫中](http://aka.ms/apimdevportal)。
 
 ## <a name="next-steps"></a>後續步驟
 

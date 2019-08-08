@@ -11,12 +11,12 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c5626e2ddfc24eeaeed562f3eaf73d16626eb458
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6b5157a71ce15d4dfd199b6826be22235e61df97
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278025"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848536"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入
 
@@ -32,7 +32,7 @@ Azure AD B2C 擴充標準的 OpenID Connect 通訊協定，功能更強大，而
 
 當您的 web 應用程式需要驗證使用者並執行使用者流程時, 它可以將使用者導向至`/authorize`端點。 使用者會根據使用者流程採取動作。
 
-在此要求中, 用戶端會在`scope`參數中指出它需要從使用者取得的許可權, 以及要`p`在參數中執行的使用者流程。 後續小節中提供三個範例 (含有換行符號以提高可讀性)，各使用不同的使用者流程。 為了瞭解每個要求的運作方式，請試著將要求貼到瀏覽器來執行。 您可以將`fabrikamb2c`取代為您的租使用者名稱 (如果有的話), 並建立使用者流程。
+在此要求中, 用戶端會在`scope`參數中指出它需要從使用者取得的許可權, 以及要`p`在參數中執行的使用者流程。 後續小節中提供三個範例 (含有換行符號以提高可讀性)，各使用不同的使用者流程。 為了瞭解每個要求的運作方式，請試著將要求貼到瀏覽器來執行。 您可以將`fabrikamb2c`取代為您的租使用者名稱 (如果有的話), 並建立使用者流程。 您也必須取代`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`。 將此用戶端識別碼取代為您已建立之應用程式註冊的應用程式識別碼。 也請將原則名稱`b2c_1_sign_in`變更為您在租使用者中擁有的原則名稱。 
 
 #### <a name="use-a-sign-in-user-flow"></a>使用登入使用者流程
 ```
@@ -80,7 +80,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | 否 | 應用`redirect_uri`程式的參數, 您的應用程式可以在其中傳送及接收驗證回應。 它必須完全符合您在 Azure 入口網站`redirect_uri`中註冊的其中一個參數, 不同之處在于它必須以 URL 編碼。 |
 | scope | 是 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 `offline_access`範圍對 web 應用程式而言是選擇性的。 這表示您的應用程式將需要重新整理*權杖*, 才能延伸資源的存取權。 |
 | response_mode | 否 | 用來將產生的授權碼傳回給應用程式的方法。 它可以是 `query`、`form_post` 或 `fragment`。  如需最佳安全性，建議使用 `form_post` 回應模式。 |
-| state | 否 | 包含在要求中的值, 也會在權杖回應中傳回。 它可以是您所想要內容中的字串。 隨機產生的唯一值通常用於防止跨站台要求偽造攻擊。 此狀態也用來在驗證要求發生之前, 將使用者狀態的相關資訊編碼, 例如他們所在的頁面。 |
+| 狀態 | 否 | 包含在要求中的值, 也會在權杖回應中傳回。 它可以是您所想要內容中的字串。 隨機產生的唯一值通常用於防止跨站台要求偽造攻擊。 此狀態也用來在驗證要求發生之前, 將使用者狀態的相關資訊編碼, 例如他們所在的頁面。 |
 | nonce | 是 | 包含在要求中的值 (由應用程式所產生), 以宣告形式包含在產生的識別碼權杖中。 然後, 應用程式可以驗證此值, 以減輕權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
 | p | 是 | 執行的使用者流程。 這是在您的 Azure AD B2C 租使用者中建立的使用者流程名稱。 使用者流程的名稱應該以開頭`b2c\_1\_`。 |
 | prompt | 否 | 需要的使用者互動類型。 此時唯一有效的值是 `login`，可強制使用者針對該要求輸入其認證。 |
@@ -102,7 +102,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | --------- | ----------- |
 | id_token | 應用程式所要求的識別碼權杖。 您可以使用識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 |
 | code | 如果您使用`response_type=code+id_token`, 則為應用程式要求的授權碼。 應用程式可以使用授權碼來要求目標資源的存取權杖。 授權碼通常會在大約10分鐘後到期。 |
-| state | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和`state`回應中的值是否相同。 |
+| 狀態 | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和`state`回應中的值是否相同。 |
 
 錯誤回應也可以傳送至`redirect_uri`參數, 讓應用程式可以適當地處理:
 
@@ -117,7 +117,7 @@ error=access_denied
 | --------- | ----------- |
 | error | 可以用來分類所發生錯誤類型的程式碼。 |
 | error_description | 可協助識別驗證錯誤根本原因的特定錯誤訊息。 |
-| state | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和`state`回應中的值是否相同。 |
+| 狀態 | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和`state`回應中的值是否相同。 |
 
 ## <a name="validate-the-id-token"></a>驗證識別碼權杖
 

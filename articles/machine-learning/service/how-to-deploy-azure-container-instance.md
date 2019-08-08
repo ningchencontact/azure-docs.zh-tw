@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 1bf8c22c2c7c8e8aaab35a4663652300a341c99c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04c77a82d08e2559d4ce29d49d56d6b7a5edfca5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571045"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856135"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>將模型部署到 Azure 容器實例
 
@@ -28,7 +28,7 @@ ms.locfileid: "68571045"
 
 ## <a name="prerequisites"></a>先決條件
 
-- Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)。
+- Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
 
 - 在您的工作區中註冊的機器學習模型。 如果您沒有已註冊的模型, 請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 

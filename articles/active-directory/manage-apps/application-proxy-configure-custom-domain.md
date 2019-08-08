@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d721e750ddb77ba293643ad978cecf4bd2dbac0
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618820"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851715"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -36,7 +36,7 @@ ms.locfileid: "68618820"
 
 ## <a name="configure-a-custom-domain"></a>設定自訂網域
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 設定自訂網域之前，請確定您已備妥下列需求： 
 - [新增至 Azure Active Directory 的已驗證網域](../fundamentals/add-custom-domain.md)。
@@ -87,7 +87,7 @@ ms.locfileid: "68618820"
 
 ## <a name="next-steps"></a>後續步驟
 * [啟用單一登入](application-proxy-configure-single-sign-on-with-kcd.md)以登入您使用 Azure AD 驗證發佈的應用程式。
-* [啟用](application-proxy-integrate-with-sharepoint-server.md)已發佈應用程式的條件式存取。
+* [啟用](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/technical-reference#cloud-apps-assignments)已發佈應用程式的條件式存取。
 * [將自訂網域名稱新增至 Azure AD](../fundamentals/add-custom-domain.md)
 
 

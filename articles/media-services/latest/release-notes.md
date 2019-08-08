@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f4a859f1e63866a50167031569dca05de3e9af27
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311798"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856299"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -33,6 +33,14 @@ ms.locfileid: "68311798"
 > 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-sdk)、CLI 或其中一個支援的 SDK。
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
+
+## <a name="august-2019"></a>2019年8月
+
+### <a name="south-africa-regional-pair-is-open-for-media-services"></a>南非地區配對已開放媒體服務 
+
+媒體服務現在可以在南非北部和南非西部區域中使用。
+
+如需詳細資訊, 請參閱[媒體服務 v3 所在的雲端和區域](azure-clouds-regions.md)。
 
 ## <a name="july-2019"></a>2019年7月
 

@@ -230,7 +230,7 @@ Spark 原本就不支援寫入 Hive 的受控 ACID 資料表。 不過, 您可�
     1. 移至位於`https://CLUSTERNAME.azurehdinsight.net/ranger/`的 Ranger 管理 UI。
     1. 按一下 [ **hive**] 底下叢集的 hive 服務。
         ![套用 ranger 原則之前的示範表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. 按一下 [**遮罩**] 索引標籤, 然後 [**新增原則** ![清單]](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+    1. 按一下 [**遮罩**] 索引標籤, 然後 **新增原則** ![清單](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
     1. 提供所需的原則名稱。 選取資料庫:**預設值**, hive 資料表:**示範**, hive 資料行:**名稱**, 使用者: **rsadmin2**, 存取類型:**選取**, 以及部分遮罩: 從**選取遮罩選項**功能表**顯示最後4個**。 按一下 [新增]。
                 ![原則清單](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 再次查看資料表的內容。 套用 ranger 原則之後, 我們只會看到資料行的最後四個字元。

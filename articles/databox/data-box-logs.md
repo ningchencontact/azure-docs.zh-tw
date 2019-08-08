@@ -1,87 +1,87 @@
 ---
-title: 追蹤及記錄 Azure 資料箱，Azure 資料方塊大量事件 |Microsoft Docs
-description: 說明如何追蹤和記錄您的 Azure 資料方塊繁重而 Azure 資料箱訂單的各種階段的事件。
+title: 追蹤和記錄 Azure 資料箱, Azure Data Box Heavy 事件 |Microsoft Docs
+description: 描述如何在 Azure 資料箱和 Azure Data Box Heavy 順序的不同階段追蹤和記錄事件。
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446773"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848579"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>追蹤與您 Azure 資料箱 」 和 「 Azure 資料方塊大量的事件記錄
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>追蹤和 Azure 資料箱和 Azure Data Box Heavy 的事件記錄
 
-資料箱 」 或 「 大量資料方塊的順序會經歷下列步驟： 訂購時，設定好之後，資料複製、 傳回、 上傳至 Azure 和驗證，和資料清除。 對應至每個步驟的順序，您可以採取多個動作，以控制的存取權的順序、 稽核的事件、 追蹤訂單，並解譯所產生的各種記錄檔。
+資料箱或 Data Box Heavy 順序會進行下列步驟: 訂單、設定、資料複製、傳回、上傳至 Azure 並確認和資料抹除。 對應至順序中的每個步驟, 您可以採取多個動作來控制訂單的存取、audit 事件、追蹤訂單, 以及解讀所產生的各種記錄。
 
-下表顯示的資料箱 」 或 「 大量資料方塊的 「 順序 」 步驟和工具可用來追蹤和稽核順序在每個步驟的摘要。
+下表顯示資料箱或 Data Box Heavy 順序步驟的摘要, 以及在每個步驟期間可用於追蹤和審核訂單的工具。
 
-| 資料方塊順序的階段       | 追蹤和稽核工具                                                                        |
+| 資料箱訂單階段       | 追蹤和審核的工具                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| 建立訂單               | [設定存取控制，透過 RBAC 的順序](#set-up-access-control-on-the-order)                                                    |
-| 處理順序            | [追蹤順序](#track-the-order)透過 <ul><li> Azure 入口網站 </li><li> 出貨承運業者網站 </li><li>電子郵件通知</ul> |
-| 設定裝置              | 裝置認證登入存取[活動記錄](#query-activity-logs-during-setup)                                              |
-| 資料複製到裝置        | [檢視*error.xml*檔案](#view-error-log-during-data-copy)進行的資料複製                                                             |
-| 準備寄送            | [檢查 BOM 的檔案](#inspect-bom-during-prepare-to-ship)或在裝置上的資訊清單檔案                                      |
-| 資料上傳至 Azure       | [檢閱*copylogs* ](#review-copy-log-during-upload-to-azure)錯誤期間的資料上傳，Azure 資料中心                         |
-| 從裝置的資料清除   | [檢視的監督鏈記錄鏈結](#get-chain-of-custody-logs-after-data-erasure)包括稽核記錄檔和訂購歷程記錄                |
+| 建立訂單               | [透過 RBAC 設定訂單上的存取控制](#set-up-access-control-on-the-order)                                                    |
+| 已處理的訂單            | [追蹤訂單](#track-the-order) <ul><li> Azure 入口網站 </li><li> 貨運公司網站 </li><li>電子郵件通知</ul> |
+| 設定裝置              | 登入[活動記錄](#query-activity-logs-during-setup)的裝置認證存取                                              |
+| 將資料複製到裝置        | [查看*錯誤 .xml 檔案中*](#view-error-log-during-data-copy)的資料複製                                                             |
+| 準備寄送            | [檢查 BOM](#inspect-bom-during-prepare-to-ship)檔案或裝置上的資訊清單檔案                                      |
+| 資料上傳至 Azure       | 在 Azure datacenter 上的資料上傳期間, 請[參閱複製記錄](#review-copy-log-during-upload-to-azure)檔中的錯誤                         |
+| 從裝置抹除資料   | [查看監管鏈](#get-chain-of-custody-logs-after-data-erasure), 包括審核記錄和訂單歷程記錄                |
 
-本文會說明詳細資料，不同的機制或工具可用來追蹤和稽核資料箱 」 或 「 大量資料方塊的順序。 這篇文章中的資訊適用於，方塊中的資料和大量資料方塊中。 在後續章節中，任何參考資料 方塊也適用於大量資料方塊中。
+本文詳細說明可用來追蹤和 audit 資料箱或 Data Box Heavy 順序的各種機制或工具。 本文中的資訊適用于、資料箱和 Data Box Heavy。 在後續章節中, 資料箱的任何參考也適用于 Data Box Heavy。
 
-## <a name="set-up-access-control-on-the-order"></a>設定存取控制的順序
+## <a name="set-up-access-control-on-the-order"></a>設定順序的存取控制
 
-您可以控制誰可以存取您的訂單，當第一次建立訂單。 設定角色型存取控制 (RBAC) 角色在不同範圍來控制存取資料箱訂單。 RBAC 角色會決定存取 – 讀寫、 唯讀、 讀寫子集的作業類型。
+您可以在第一次建立訂單時, 控制誰可以存取您的訂單。 在各種範圍設定以角色為基礎的存取控制 (RBAC) 角色, 以控制資料箱順序的存取權。 RBAC 角色會決定對作業子集的存取類型 (讀寫、唯讀、讀寫)。
 
-可以針對 Azure 資料箱服務定義兩個角色如下：
+可以為 Azure 資料箱服務定義的兩個角色如下:
 
-- **資料中讀取器**-具有唯讀存取 order(s) 範圍所定義。 他們只能檢視訂單的詳細資料。 它們無法存取儲存體帳戶相關的其他詳細資料，或編輯訂單詳細資料，例如地址，依此類推。
-- **資料方塊參與者**-只能建立順序，將資料傳送至指定的儲存體帳戶*如果他們已經有儲存體帳戶的寫入權限*。 如果不是使用儲存體帳戶的存取權，即使無法建立資料箱訂單將資料複製到帳戶。 此角色沒有定義任何儲存體帳戶與儲存體帳戶的權限也授與的存取。  
+- **資料箱讀取器**-具有範圍所定義之訂單的唯讀存取權。 他們只能查看訂單的詳細資料。 他們無法存取與儲存體帳戶相關的任何其他詳細資料, 或編輯訂單詳細資料 (例如位址等等)。
+- **資料箱參與者**-只有在*已有儲存體帳戶的寫入存取權時*, 才能建立訂單來將資料傳送至指定的儲存體帳戶。 如果他們沒有儲存體帳戶的存取權, 他們甚至無法建立資料箱順序, 將資料複製到帳戶。 此角色不會定義任何儲存體帳戶的相關許可權, 也不會授與對儲存體帳戶的存取權。  
 
-若要限制存取順序，您可以：
+若要限制訂單的存取權, 您可以:
 
-- 在訂單 」 層級角色指派。 使用者僅擁有這些權限所定義的角色與該特定資料箱訂單只和沒有其他項目互動。
-- 將資源群組層級角色指派，使用者可以存取的資源群組內的所有資料箱訂單。
+- 指派訂單層級的角色。 使用者只有角色所定義的許可權, 才會與特定的資料箱順序互動, 而不是其他任何內容。
+- 在資源群組層級指派角色, 使用者可以存取資源群組內的所有資料箱訂單。
 
-如需有關建議的 RBAC 使用的詳細資訊，請參閱[RBAC 的最佳作法](../role-based-access-control/overview.md#best-practice-for-using-rbac)。
+如需有關建議 RBAC 用途的詳細資訊, 請參閱[rbac 的最佳做法](../role-based-access-control/overview.md#best-practice-for-using-rbac)。
 
 ## <a name="track-the-order"></a>追蹤訂單狀態
 
-您可以追蹤您的訂單，透過 Azure 入口網站和出貨承運業者網站。 下列機制已就緒，隨時追蹤資料箱訂單：
+您可以透過 Azure 入口網站以及透過貨運公司網站來追蹤您的訂單。 以下是隨時追蹤資料箱順序的機制:
 
-- 若要在 Azure 資料中心或您的內部部署裝置時，請追蹤順序，請移至您**資料箱訂單 > 概觀**在 Azure 入口網站中。
+- 若要追蹤裝置在 Azure 資料中心或內部部署中的順序, 請移至您的**資料箱訂單 >** 在 Azure 入口網站中的總覽。
 
-    ![檢視訂單狀態和追蹤否](media/data-box-logs/overview-view-status-1.png)
+    ![查看訂單狀態和追蹤](media/data-box-logs/overview-view-status-1.png)
 
-- 若要追蹤的順序，而裝置會在傳輸過程中，移至區域的貨運公司網站，例如，在我們的 UPS 網站。 提供您的訂單與相關聯的追蹤號碼。
-- 資料箱也會傳送電子郵件通知，每當訂單狀態變更會根據建立順序時提供的電子郵件。 如需所有資料箱訂單狀態的清單，請參閱 <<c0> [ 檢視訂單狀態](data-box-portal-admin.md#view-order-status)。 若要變更與訂單相關聯的通知設定，請參閱[編輯通知詳細資料](data-box-portal-admin.md#edit-notification-details)。
+- 若要在裝置進行傳輸時追蹤訂單, 請前往地區貨運網站, 例如「美國的 UPS 網站」。 提供與您的訂單相關聯的追蹤號碼。
+- 資料箱也會根據訂單建立時所提供的電子郵件, 在訂單狀態變更時傳送電子郵件通知。 如需所有資料箱訂單狀態的清單, 請參閱[View order status](data-box-portal-admin.md#view-order-status)。 若要變更與訂單相關聯的通知設定, 請參閱[編輯通知詳細資料](data-box-portal-admin.md#edit-notification-details)。
 
-## <a name="query-activity-logs-during-setup"></a>在安裝期間的查詢活動記錄
+## <a name="query-activity-logs-during-setup"></a>在安裝期間查詢活動記錄
 
-- 資料箱抵達您的內部部署鎖定的狀態。 您訂單，您可以使用 Azure 入口網站中可用的裝置認證。  
+- 您的資料箱會以鎖定狀態抵達內部部署。 您可以使用 Azure 入口網站中提供的裝置認證來取得您的訂單。  
 
-    資料箱已設定下，您可能需要知道所有使用者存取裝置認證。 若要找出誰存取了**裝置認證**刀鋒視窗中，您可以查詢活動記錄檔。  牽涉到存取的任何動作**裝置詳細資料 > 認證**刀鋒視窗中已登入活動記錄為`ListCredentials`動作。
+    設定資料箱時, 您可能需要知道誰已存取裝置認證。 若要找出存取 [**裝置認證**] 分頁的人員, 您可以查詢活動記錄。  涉及存取**裝置詳細資料 > 認證** 分頁的任何動作都會以動作的形式`ListCredentials`登入 活動記錄 中。
 
     ![查詢活動記錄](media/data-box-logs/query-activity-log-1.png)
 
-- 每個登入 Data Box 是記錄的實際時間。 不過，這項資訊僅供以[稽核記錄檔](#audit-logs)順序順利完成之後。
+- 每次登入資料箱都會即時記錄。 不過, 只有在成功完成訂單之後, 才會在[Audit 記錄](#audit-logs)中提供這項資訊。
 
-## <a name="view-error-log-during-data-copy"></a>檢視資料複製期間的錯誤記錄檔
+## <a name="view-error-log-during-data-copy"></a>資料複製期間查看錯誤記錄檔
 
-在將資料複製到資料箱 」 或 「 大量資料方塊的說明，如果有任何問題所複製的資料，就會產生檔案時發生錯誤。
+在資料複製到資料箱或 Data Box Heavy 期間, 如果複製的資料有任何問題, 就會產生錯誤檔案。
 
-### <a name="errorxml-file"></a>Error.xml 檔案
+### <a name="errorxml-file"></a>錯誤 .xml 檔案
 
-請確定複製作業已完成，未發生錯誤。 如果複製程序期間發生錯誤，下載的記錄檔 **連線並複製** 頁面。
+請確定複製作業已完成, 但沒有任何錯誤。 如果複製過程中發生錯誤, 請從 [連線 **並複製** ] 頁面下載記錄檔。
 
-- 如果您複製的檔案，不是 512 個位元組對齊，以在資料中的受控的磁碟資料夾時，不到暫存的儲存體帳戶的分頁 blob 的形式上傳檔案。 您將在記錄中看到錯誤。 移除檔案，並複製 512 位元組規格的檔案。
-- 如果您複製的 VHDX 或動態 VHD 或差異 VHD （不支援這些檔案），您會看到錯誤記錄檔中。
+- 如果您將不是512位元組的檔案複製到資料箱上的受控磁片資料夾, 檔案就不會以分頁 blob 的形式上傳到您的暫存儲存體帳戶。 您將在記錄中看到錯誤。 移除檔案，並複製 512 位元組規格的檔案。
+- 如果您複製了 VHDX 或動態 VHD 或差異 VHD (不支援這些檔案), 您會在記錄檔中看到錯誤。
 
-以下是範例*error.xml*時複製至受控磁碟的不同錯誤。
+以下是在複製到受控磁片時, 發生不同錯誤的*xml*範例。
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +90,7 @@ ms.locfileid: "67446773"
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-以下是範例*error.xml*複製到分頁 blob 時的不同錯誤。
+以下是在複製到分頁 blob 時, 發生不同錯誤的*xml*範例。
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +101,7 @@ ms.locfileid: "67446773"
 ```
 
 
-以下是範例*error.xml*複製到區塊 blob 時的不同錯誤。
+以下是在複製到區塊 blob 時, 發生不同錯誤的*xml*範例。
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +129,7 @@ ms.locfileid: "67446773"
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-以下是範例*error.xml*複製到 Azure 檔案時的不同錯誤。
+以下是在複製到 Azure 檔案儲存體時, 發生不同錯誤的*xml*範例。
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -147,31 +147,31 @@ ms.locfileid: "67446773"
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-在每個上述所有情況下，請解決錯誤，再繼續進行下一個步驟。 如需有關透過 SMB 或 NFS 的通訊協定的資料複製到資料箱期間收到的錯誤的詳細資訊，請移至[疑難排解 Data Box 和大量資料方塊問題](data-box-troubleshoot.md)。 如需有關在資料複製到資料箱，透過 REST 期間所收到的錯誤，請移至[疑難排解資料 Blob 儲存體問題](data-box-troubleshoot-rest.md)。
+在上述每個案例中, 請先解決錯誤, 再繼續進行下一個步驟。 如需有關透過 SMB 或 NFS 通訊協定在資料資料箱複製期間收到的錯誤的詳細資訊, 請移至[疑難排解資料箱和 Data Box Heavy 問題](data-box-troubleshoot.md)。 如需透過 REST 在資料資料箱複製期間收到之錯誤的相關資訊, 請移至針對[資料箱 Blob 儲存體問題進行疑難排解](data-box-troubleshoot-rest.md)。
 
-## <a name="inspect-bom-during-prepare-to-ship"></a>檢查 BOM 期間準備寄送
+## <a name="inspect-bom-during-prepare-to-ship"></a>在準備寄送期間檢查 BOM
 
-在準備寄送一份已知為帳單的用料表 (BOM) 檔案，或建立資訊清單檔案。
+在準備寄送期間, 會建立一份稱為「物料清單」 (BOM) 或資訊清單檔案的檔案清單。
 
-- 使用此檔案來進行驗證的實際名稱，並已複製到 [資料] 中的檔案數目。
+- 使用此檔案來驗證實際名稱和複製到資料箱的檔案數目。
 - 使用此檔案來驗證檔案的實際大小。
-- 確認*crc64*對應到非零的字串。 <!--A null value for crc64 indicates that there was a reparse point error)-->
+- 確認*crc64*對應至非零的字串。 <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-如需有關期間收到的錯誤準備寄送，請前往[疑難排解 Data Box 和大量資料方塊問題](data-box-troubleshoot.md)。
+如需準備寄送期間所收到之錯誤的詳細資訊, 請移至[疑難排解資料箱和 Data Box Heavy 問題](data-box-troubleshoot.md)。
 
 ### <a name="bom-or-manifest-file"></a>BOM 或資訊清單檔案
 
-BOM 或資訊清單檔案包含的所有檔案複製到資料箱裝置的清單。 BOM 檔案的檔案名稱和對應的大小，以及總和檢查碼。 區塊 blob、 分頁 blob，Azure 上的檔案，複製透過 REST Api，以及為受控磁碟複製資料 方塊中會建立個別的 BOM 檔。 在出貨準備期間，您可以從本機 web UI 的裝置下載 BOM 的檔案。
+BOM 或資訊清單檔案包含複製到資料箱裝置之所有檔案的清單。 BOM 檔案具有檔案名和對應的大小, 以及總和檢查碼。 針對區塊 blob、分頁 blob、Azure 檔案儲存體、透過 REST Api 複製, 以及複製到資料箱上的受控磁片, 會建立個別的 BOM 檔案。 您可以在準備寄送期間, 從裝置的本機 web UI 下載 BOM 檔案。
 
-這些檔案也位於資料箱裝置，並上傳至 Azure 資料中心的相關聯的儲存體帳戶。
+這些檔案也會位於資料箱裝置上, 並上傳至 Azure 資料中心內的相關聯儲存體帳戶。
 
-### <a name="bom-file-format"></a>BOM 的檔案格式
+### <a name="bom-file-format"></a>BOM 檔案格式
 
-BOM 或資訊清單的檔案具有下列一般格式：
+BOM 或資訊清單檔案具有下列一般格式:
 
 `<file size = "file-size-in-bytes" crc64="cyclic-redundancy-check-string">\folder-path-on-data-box\name-of-file-copied.md</file>`
 
-以下是當資料已複製到 Data Box 上的區塊 blob 共用時，產生的資訊清單的範例。
+以下是將資料複製到資料箱上的區塊 blob 共用時所產生的資訊清單範例。
 
 ```
 <file size="10923" crc64="0x51c78833c90e4e3f">\databox\media\data-box-deploy-copy-data\connect-shares-file-explorer1.png</file>
@@ -191,27 +191,29 @@ BOM 或資訊清單的檔案具有下列一般格式：
 <file size="3220" crc64="0x7257a263c434839a">\databox\data-box-system-requirements.md</file>
 ```
 
-BOM 或資訊清單檔案也會複製到 Azure 儲存體帳戶中。 您可以使用 BOM 或資訊清單檔案，以確認上傳至 Azure 的檔案比對已複製到 [資料] 中的資料。
+BOM 或資訊清單檔案也會複製到 Azure 儲存體帳戶。 您可以使用 BOM 或資訊清單檔案, 確認上傳至 Azure 的檔案符合已複製到資料箱的資料。
 
-## <a name="review-copy-log-during-upload-to-azure"></a>檢閱複製記錄檔期間上傳至 Azure
+## <a name="review-copy-log-during-upload-to-azure"></a>在上傳至 Azure 期間審查複製記錄
 
-在資料上傳至 Azure 期間*copylog*建立。
+在資料上傳至 Azure 期間, 會建立複製記錄檔。
 
 ### <a name="copylog"></a>Copylog
 
-每個訂單處理，資料箱服務會建立*copylog*相關聯的儲存體帳戶中。 *Copylog*已上傳檔案的總數和複製資料 方塊中，您的 Azure 儲存體帳戶，發生錯誤的資料期間的檔案數目。
+針對每個已處理的訂單, 資料箱服務會在相關聯的儲存體帳戶中建立複本記錄。 複製記錄檔包含已上傳的檔案總數, 以及從資料箱資料複製到您的 Azure 儲存體帳戶期間所錯誤的檔案數目。
 
-循環冗餘檢查 (CRC) 計算期間完成的作業上傳至 Azure。 從複製的資料，並比較資料上傳之後 CRCs。 CRC 不相符，表示對應的檔案無法上傳。
+在上傳至 Azure 期間, 會執行迴圈冗余檢查 (CRC) 計算。 資料複製和資料上傳之後的 CRCs 會進行比較。 CRC 不相符表示對應的檔案無法上傳。
 
-根據預設，記錄會寫入名為容器 `copylog`。 記錄會儲存具有下列命名慣例：
+根據預設, 記錄會寫入名 `copylog`為的容器。 記錄檔會以下列命名慣例儲存:
 
-`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml` 。
+`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-Copylog 路徑也會顯示在**概觀**入口網站刀鋒視窗。
+複製記錄檔路徑也會顯示在入口網站的 [**總覽**] 分頁上。
 
-![在 [概觀] 刀鋒視窗完成 copylog 路徑](media/data-box-logs/copy-log-path-1.png)
+![完成時複製記錄檔的路徑](media/data-box-logs/copy-log-path-1.png)
 
-Data Box 上傳已順利完成，如下列範例會說明 copylog 檔案的一般格式：
+### <a name="upload-completed-successfully"></a>已成功完成上傳 
+
+下列範例會針對成功完成的資料箱上傳, 描述複製記錄檔的一般格式:
 
 ```
 <?xml version="1.0"?>
@@ -222,11 +224,13 @@ Data Box 上傳已順利完成，如下列範例會說明 copylog 檔案的一�
 </CopyLog>
 ```
 
-上的傳至 Azure，也可能會完成但發生錯誤。
+### <a name="upload-completed-with-errors"></a>上傳已完成, 但發生錯誤 
 
-![在 [概觀] 刀鋒視窗完成但發生錯誤時的 copylog 路徑](media/data-box-logs/copy-log-path-2.png)
+上傳至 Azure 可能也會完成, 但發生錯誤。
 
-以下是範例 copylog 上載完成但發生錯誤：
+![完成但發生錯誤時, 要在總覽分頁中複製記錄檔的路徑](media/data-box-logs/copy-log-path-2.png)
+
+以下是上傳完成但發生錯誤的複製記錄範例:
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -245,9 +249,13 @@ Data Box 上傳已順利完成，如下列範例會說明 copylog 檔案的一�
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-以下是範例`copylog`已在資料上傳至 Azure 期間重新命名的容器，不符合 Azure 命名慣例。
+### <a name="upload-completed-with-warnings"></a>上傳已完成, 但出現警告
 
-適用於容器的新唯一名稱的格式`DataBox-GUID`和容器的資料會放入新的重新命名容器。 `copylog`指定舊的和新的容器名稱的容器。
+如果您的資料有不符合 Azure 命名慣例的容器/blob/檔案名, 而且已修改名稱以將資料上傳至 Azure, 則上傳至 Azure 即告完成, 但出現警告。
+
+以下是複製記錄的範例, 其中不符合 Azure 命名慣例的容器會在資料上傳至 Azure 期間重新命名。
+
+容器的新唯一名稱採用的格式`DataBox-GUID` , 而且容器的資料會放入新重新命名的容器中。 複製記錄檔會為容器指定舊的和新的容器名稱。
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -258,9 +266,9 @@ Data Box 上傳已順利完成，如下列範例會說明 copylog 檔案的一�
 </ErroredEntity>
 ```
 
-以下是範例`copylog`其中的 blob 或 Azure 的命名慣例，不符合的檔案已重新命名資料上傳至 Azure 期間。 新的 blob 或檔案名稱會轉換成的容器的相對路徑的 SHA256 摘要並上傳至目的型別為基礎的路徑。 目的地可以是區塊 blob、 分頁 blob 或 Azure 檔案。
+以下是複製記錄檔的範例, 其中不符合 Azure 命名慣例的 blob 或檔案在資料上傳至 Azure 期間已重新命名。 新的 blob 或檔案名會轉換成容器的相對路徑 SHA256 摘要, 並上傳至以目的地類型為基礎的路徑。 目的地可以是區塊 blob、分頁 blob 或 Azure 檔案儲存體。
 
-`copylog`指定 Azure 中的舊和新的 blob 或檔案名稱和路徑。
+會`copylog`指定舊的和新的 blob 或檔案名, 以及 Azure 中的路徑。
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
@@ -281,15 +289,15 @@ Data Box 上傳已順利完成，如下列範例會說明 copylog 檔案的一�
 </ErroredEntity>
 ```
 
-## <a name="get-chain-of-custody-logs-after-data-erasure"></a>資料清除後取得監督鏈記錄的鏈結
+## <a name="get-chain-of-custody-logs-after-data-erasure"></a>在資料抹除之後取得監管記錄鏈
 
-從根據 NIST SP 800-88 修訂 1 指導方針的資料箱磁碟會清除資料之後，保管記錄鏈結可使用。 這些記錄包含稽核記錄檔和訂單歷程記錄。 BOM 或資訊清單檔案也會複製使用稽核記錄中。
+根據 NIST SP 800-88 修訂1指導方針, 從資料箱磁片中清除資料之後, 就可以使用監管記錄鏈。 這些記錄包含 audit 記錄和訂單歷程記錄。 BOM 或資訊清單檔案也會連同 audit 記錄一起複製。
 
 ### <a name="audit-logs"></a>稽核記錄
 
-稽核記錄檔包含在電源上的資訊和外部 Azure 資料中心時，共用上的資料箱 」 或 「 大量資料方塊的存取。 這些記錄檔位於： `storage-account/azuredatabox-chainofcustodylogs`
+Audit 記錄包含如何在資料箱上開啟和存取共用, 或在 Azure 資料中心以外 Data Box Heavy 的資訊。 這些記錄檔位於:`storage-account/azuredatabox-chainofcustodylogs`
 
-從資料中的稽核記錄檔的範例如下：
+以下是來自資料箱的 audit 記錄範例:
 
 ```
 9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
@@ -342,17 +350,17 @@ The authentication information fields provide detailed information about this sp
 ```
 
 
-## <a name="download-order-history"></a>下載訂單記錄
+## <a name="download-order-history"></a>下載訂購記錄
 
-使用 Azure 入口網站中訂單歷程記錄。 如果順序完成，且裝置清除 （資料清除的磁碟） 已完成，然後移至您的裝置順序，並瀏覽至**訂單詳細資料**。 **在下載訂單歷程記錄** 會提供選項。 如需詳細資訊，請參閱 <<c0> [ 下載訂單記錄](data-box-portal-admin.md#download-order-history)。
+Azure 入口網站提供訂單歷程記錄。 如果訂單已完成, 且裝置清除 (從磁片抹除資料) 已完成, 請移至您的裝置訂單, 然後流覽至 [**訂單詳細**資料]。 **下載訂單歷程記錄** 選項可供使用。 如需詳細資訊, 請參閱[下載訂單歷程記錄](data-box-portal-admin.md#download-order-history)。
 
-如果您捲動訂單歷程記錄時，您會看到：
+如果您流覽訂單歷程記錄, 您會看到:
 
-- 追蹤您的裝置資訊的貨運公司。
-- 事件*SecureErase*活動。 這些事件會對應到磁碟上的資料清除。
-- 記錄資料 方塊中的連結。 路徑*稽核記錄檔*， *copylogs*，並*BOM*檔案會出現。
+- 裝置的貨運公司追蹤資訊。
+- 具有*SecureErase*活動的事件。 這些事件會對應到磁片上的資料抹除。
+- 資料箱記錄檔連結。 會顯示*audit 記錄*、*複製記錄*檔和*BOM*檔案的路徑。
 
-以下是訂單歷程記錄，從 Azure 入口網站的範例：
+以下是 Azure 入口網站的訂單歷程記錄範例:
 
 ```
 -------------------------------
@@ -403,4 +411,4 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[ 方塊中的資料和大量資料方塊上的問題的疑難排解](data-box-troubleshoot.md)。
+- 瞭解如何[針對資料箱和 Data Box Heavy 上的問題進行疑難排解](data-box-troubleshoot.md)。

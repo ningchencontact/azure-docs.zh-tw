@@ -1,19 +1,19 @@
 ---
 title: 使用 AzCopy v10 在 Azure Blob 儲存體之間傳輸資料 |Microsoft Docs
 description: 本文包含 AzCopy 範例命令的集合, 可協助您建立容器、複製檔案, 以及在本機檔案系統和容器之間同步處理目錄。
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2ab561c387467086a40aa6676af347a107c2c452
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.reviewer: dineshm
+ms.openlocfilehash: d488189596fac4ae8fada3899d0b9c1bbe7900c6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641110"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855302"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>使用 AzCopy 和 Blob 儲存體傳輸資料
 

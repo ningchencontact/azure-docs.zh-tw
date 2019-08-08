@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: adca67152c33f4c6a3ec272b63c4c8157a777f36
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742314"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856181"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 
@@ -215,6 +215,9 @@ automl_config = AutoMLConfig(task="classification")
 在每個自動化機器學習實驗中, 您的資料都會[自動調整並正規化](concept-automated-ml.md#preprocess), 以協助演算法執行得很好。  不過, 您也可以啟用其他前置處理/特徵化, 例如遺漏值插補、編碼和轉換。 [深入瞭解包含的特徵化](how-to-create-portal-experiments.md#preprocess)。
 
 若要啟用此特徵化, `"preprocess": True`請[ `AutoMLConfig`為類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)指定。
+
+> [!NOTE]
+> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時, 定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
 
 ### <a name="time-series-forecasting"></a>時間序列預測
 針對時間序列預測工作類型, 您有額外的參數可供定義。

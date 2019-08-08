@@ -47,7 +47,8 @@
 - name: 使用說明指南
   items:
     - name: 處理命中結果醒目提示
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: 頁面最新消息
       href: paging-news.md
     - name: 調整大小和裁剪縮圖

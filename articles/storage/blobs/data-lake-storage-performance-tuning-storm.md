@@ -1,7 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 Storm 效能微調指導方針 | Microsoft Docs
 description: Azure Data Lake Storage Gen2 Storm 效能微調指導方針
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: aa3c942448be6444044981eacc2bbc3214b9c1b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939397"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855430"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight 和 Azure Data Lake Storage Gen2 上的 Storm 效能微調方針
 
 了解在微調 Azure Storm 拓撲的效能時應考量的因素。 例如，務必要了解由 Spout 和 Bolt 所完成之工作 (不論是 I/O 密集或記憶體密集工作) 的特性。 本文探討各種效能微調指導方針，包括疑難排解方面的常見問題。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **Azure Data Lake Storage Gen2 帳戶**。 如需如何建立帳戶的指示，請參閱[快速入門：建立用於分析的儲存體帳戶](data-lake-storage-quickstart-create-account.md)。
@@ -111,7 +110,7 @@ ms.locfileid: "64939397"
 
 若要檢查您是否遭到節流，請在用戶端啟用偵錯記錄：
 
-1. 在 [Ambari]   > [Storm]   > [設定]   > [Advanced storm-worker-log4j]  中，將 **&lt;root level="info"&gt;** 變更為 **&lt;root level=”debug”&gt;** 。 重新啟動所有節點/服務，以便讓設定生效。
+1. 在 [Ambari] > [Storm] > [設定] > [Advanced storm-worker-log4j] 中，將 **&lt;root level="info"&gt;** 變更為 **&lt;root level=”debug”&gt;** 。 重新啟動所有節點/服務，以便讓設定生效。
 2. 監視背景工作節點上的 Storm 拓撲記錄 (在 /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 下)，注意是否有 Data Lake Storage Gen2 節流例外狀況。
 
 ## <a name="next-steps"></a>後續步驟

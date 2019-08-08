@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88e3c0514861da0bd11acffd26cced54717e4418
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6f41263bfb930d3aab41fd8ace86cd6afb0ace26
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478495"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850577"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
@@ -26,7 +26,7 @@ ms.locfileid: "67478495"
 
 [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md) 描述啟動 Runbook 的不同方法。 混合式 Runbook 背景工作加入了 **RunOn** 選項，您可以在其中指定混合式 Runbook 背景工作群組的名稱。 若已指定群組，則會擷取 Runbook，且由該群組中的其中一個背景工作角色執行。 如果未指定此選項，則會在 Azure 自動化中正常執行。
 
-在 Azure 入口網站中啟動 Runbook 時，您會看到 [執行於]  選項，您可以在此選取 [Azure]  或 [Hybrid Worker]  。 如果選取 [Hybrid 背景工作角色]  ，則您可以從下拉式清單中選取群組。
+在 Azure 入口網站中啟動 Runbook 時，您會看到 [執行於] 選項，您可以在此選取 [Azure] 或 [Hybrid Worker]。 如果選取 [Hybrid 背景工作角色]，則您可以從下拉式清單中選取群組。
 
 使用 **RunOn** 參數。 您可以使用 Windows PowerShell 以下列命令在 Hybrid Runbook Worker 群組上啟動名為 Test-Runbook 的 Runbook。
 
@@ -71,10 +71,10 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 1. 建立具有本機資源存取權的 [認證資產](automation-credentials.md) 。
 2. 在 Azure 入口網站中，開啟自動化帳戶。
-3. 選取 [Hybrid Worker 群組]  圖格，然後選取群組。
-4. 選取 [所有設定]  ，然後選取 [Hybrid 背景工作角色群組設定]  。
-5. 將 [執行身分]  從 [預設]  變更為 [自訂]  。
-6. 選取認證，然後按一下 [儲存]  。
+3. 選取 [Hybrid Worker 群組] 圖格，然後選取群組。
+4. 選取 [所有設定]，然後選取 [Hybrid 背景工作角色群組設定]。
+5. 將 [執行身分] 從 [預設] 變更為 [自訂]。
+6. 選取認證，然後按一下 [儲存]。
 
 ### <a name="managed-identities-for-azure-resources"></a>適用於 Azure 資源的受控識別
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG 將引導您完成建立金鑰組的步驟。 您將需針對要產生的金鑰提供名稱、電子郵件地址、到期時間、複雜密碼，以及在該機器上等候足夠的熵。
 
-由於 GPG 目錄是使用 sudo 所產生的，因此，您需要將其擁有者變更為 `nxautomation`。 
+由於 GPG 目錄是使用 sudo 所產生的，因此，您需要將其擁有者變更為 `nxautomation`。
 
 執行下列命令以變更擁有者。
 
@@ -312,3 +312,4 @@ gpg –-clear-sign <runbook name>
 * 若要深入了解可用來啟動 Runbook 的不同方法，請參閱[在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)。
 * 若要了解使用文字式編輯器在 Azure 自動化中處理 PowerShell Runbook 的不同方式，請參閱[在 Azure 自動化中編輯 Runbook](automation-edit-textual-runbook.md)
 * 如果您的 Runbook 未順利完成，請檢閱 [Runbook 執行失敗](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)中的疑難排解指南。
+* 如需 PowerShell 的詳細資訊 (包括語言參考和學習模組), 請參閱[powershell](https://docs.microsoft.com/en-us/powershell/scripting/overview)檔。

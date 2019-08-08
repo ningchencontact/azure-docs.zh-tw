@@ -1,20 +1,19 @@
 ---
 title: Azure 儲存體計量移轉 | Microsoft Docs
 description: 了解如何將舊計量移轉至由 Azure 監視器管理的新計量。
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 58ac15c1aba715c9a5b67e723401b531e76608b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 537369c9466b1083723642ec9e93fcdf25056c5e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153604"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855331"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure 儲存體計量移轉
 
@@ -98,7 +97,7 @@ Azure 儲存體會收集舊計量值、加以彙總並儲存在相同儲存體�
 | **SASThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 且維度 **Authentication** 等於 **SAS** 的交易 |
 | **ServerOtherError** | 維度 **ResponseType** 等於 **ServerOtherError** 的交易 |
 | **ServerTimeoutError** | 維度 **ResponseType** 等於 **ServerTimeoutError** 的交易 |
-| 「成功」  | 維度 **ResponseType** 等於 **Success** 的交易 |
+| 「成功」 | 維度 **ResponseType** 等於 **Success** 的交易 |
 | **ThrottlingError** | 維度 **ResponseType** 等於 **ClientThrottlingError** 或 **ServerBusyError** 的**交易**|
 | **TotalBillableRequests** | **交易** |
 | **TotalEgress** | **輸出** |

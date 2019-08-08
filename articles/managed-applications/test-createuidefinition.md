@@ -4,54 +4,55 @@ description: 說明如何測試透過入口網站建立 Azure 受控應用程式
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/26/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257640"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845916"
 ---
-# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Azure 受控應用程式中測試您的入口網站介面
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>測試 Azure 受控應用程式的入口網站介面
 
-在後[建立 createUiDefinition.json 檔案](create-uidefinition-overview.md)受控的應用程式，您需要測試的使用者體驗。 若要簡化測試，使用沙箱環境，以載入您在入口網站中的檔案。 您不需要實際部署受控應用程式。 沙箱會提供您的使用者介面，在目前、 全螢幕的入口網站體驗。 或者，您可以使用 PowerShell 指令碼，測試介面，但它會使用舊版的入口網站檢視。 本文中會展示這兩種方法。 沙箱是建議用來預覽的介面。
+建立受控應用程式[的 createUiDefinition json](create-uidefinition-overview.md)檔案之後, 您需要測試使用者體驗。 若要簡化測試, 請使用在入口網站中載入檔案的沙箱環境。 您不需要實際部署受控應用程式。 沙箱會在目前的全螢幕入口網站體驗中呈現您的使用者介面。 或者, 您可以使用腳本來測試介面。 本文中會展示這兩種方法。 沙箱是預覽介面的建議方式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* **createUiDefinition.json** 檔案。 如果您沒有此檔案，請將複製[範例檔案](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)。
+* **createUiDefinition.json** 檔案。 如果您沒有此檔案, 請複製[範例](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)檔案。
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="use-sandbox"></a>使用沙箱
 
-1. 開啟[建立 UI 定義沙箱](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade)。
+1. 開啟 [[建立 UI 定義沙箱](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade)]。
 
    ![顯示沙箱](./media/test-createuidefinition/show-sandbox.png)
 
-1. 取代 createUiDefinition.json 檔案的內容中的空白定義。 選取 **預覽**。
+1. 以您的 createUiDefinition 的內容取代空白定義。 選取 [**預覽**]。
 
-   ![選取 [預覽]](./media/test-createuidefinition/select-preview.png)
+   ![選取預覽](./media/test-createuidefinition/select-preview.png)
 
-1. 您所建立的表單隨即顯示。 您可以逐步執行使用者體驗，並填入值。
+1. 您所建立的表單隨即顯示。 您可以逐步執行使用者體驗, 並填入值。
 
    ![顯示表單](./media/test-createuidefinition/show-ui-form.png)
 
 ### <a name="troubleshooting"></a>疑難排解
 
-如果您的表單不會顯示在選取後**預覽**，您可能有語法錯誤。 尋找紅色指示器，右側的捲軸，並瀏覽至它。
+如果您的表單在選取**預覽**之後不會顯示, 您可能會發生語法錯誤。 在右側的捲軸上尋找紅色指示器, 然後流覽至該指標。
 
 ![顯示語法錯誤](./media/test-createuidefinition/show-syntax-error.png)
 
-如果未顯示您的表單，而您會看到雲端使用終止下拉式功能表的圖示，您的表單具有發生錯誤，例如遺漏的屬性。 在您的瀏覽器中開啟 Web Developer Tools。 [主控台]  會顯示關於介面的重要訊息。
+如果您的表單未顯示, 而您看到有卸載的雲端圖示, 您的表單就會發生錯誤, 例如遺漏的屬性。 在您的瀏覽器中開啟 Web 開發人員工具。 [主控台] 會顯示關於介面的重要訊息。
 
 ![顯示錯誤](./media/test-createuidefinition/show-error.png)
 
-## <a name="use-test-script"></a>使用測試指令碼
+## <a name="use-test-script"></a>使用測試腳本
 
 若要在入口網站中測試您的介面，請將下列其中一個指令碼複製到本機電腦：
 
-* [PowerShell 側載指令碼](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
+* [PowerShell 側邊載入腳本-Az 模組](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-AzCreateUIDefinition.ps1)
+* [PowerShell 側邊載入腳本-Azure 模組](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Azure CLI 側載指令碼](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
 若要在入口網站中查看您的介面檔案，請執行您已下載的指令碼。 此指令碼會在您的 Azure 訂用帳戶中建立儲存體帳戶，並將 createUiDefinition.json 檔案上傳至儲存體帳戶。 第一次執行指令碼時或儲存體帳戶已刪除後，將會建立儲存體帳戶。 如果 Azure 訂用帳戶中已有儲存體帳戶，則指令碼會重複使用該帳戶。 指令碼會開啟入口網站，並從儲存體帳戶載入您的檔案。
@@ -61,7 +62,7 @@ ms.locfileid: "66257640"
 對於 PowerShell，請使用：
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1 `
+.\SideLoad-AzCreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
   -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
@@ -79,7 +80,7 @@ ms.locfileid: "66257640"
 對於 PowerShell，請使用：
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1
+.\SideLoad-AzCreateUIDefinition.ps1
 ```
 
 對於 Azure CLI，請使用：
@@ -90,15 +91,13 @@ ms.locfileid: "66257640"
 
 指令碼會在瀏覽器中開啟新的索引標籤。 它會顯示入口網站，其中包含您用來建立受控應用程式的介面。
 
-![檢視入口網站](./media/test-createuidefinition/view-portal.png)
-
 提供欄位的值。 作業完成後，您會看到傳至範本的值。
 
 ![顯示值](./media/test-createuidefinition/show-json.png)
 
 您可以使用這些值作為參數檔案來測試部署範本。
 
-如果入口網站停止回應在 [摘要] 畫面中，在 [輸出] 區段中可能有 bug。 例如，您可能參考了不存在的控制項。 如果在輸出中的參數是空的參數可能會參考不存在的屬性。 例如，控制項的參考有效，但屬性參考無效。
+如果入口網站在 [摘要] 畫面上停止回應, 輸出區段中可能會有錯誤。 例如，您可能參考了不存在的控制項。 如果輸出中的參數是空的, 則參數可能會參考不存在的屬性。 例如，控制項的參考有效，但屬性參考無效。
 
 ## <a name="test-your-solution-files"></a>測試您的解決方案檔案
 

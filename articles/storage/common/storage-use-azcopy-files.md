@@ -1,29 +1,28 @@
 ---
-title: 將資料從 Azure 檔案傳輸使用 AzCopy v10 |Microsoft Docs
-description: 傳輸使用 AzCopy 和檔案儲存體的資料。
-services: storage
+title: 使用 AzCopy v10, 將資料傳入或傳出 Azure 檔案儲存體Microsoft Docs
+description: 使用 AzCopy 和檔案儲存體來傳輸資料。
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 69d7136396c3d989e63b8956d3e703cc7f9666c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eeac35cb96f5001e9ad318d8fe03927d0cd9394e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66687943"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844798"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>使用 AzCopy 和檔案儲存體傳輸資料 
 
-AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔案。 這篇文章包含使用 Azure 檔案的範例命令。
+AzCopy 是命令列公用程式, 可讓您在儲存體帳戶之間複製 blob 或檔案。 本文包含可搭配 Azure 檔案儲存體使用的範例命令。
 
-在開始之前，請參閱[開始使用 AzCopy](storage-use-azcopy-v10.md)文章，以下載 AzCopy 和熟悉的工具。
+開始之前, 請參閱開始[使用 AzCopy](storage-use-azcopy-v10.md)一文, 下載 AzCopy 並熟悉此工具。
 
 ## <a name="create-file-shares"></a>建立檔案共用
 
-您可以使用 AzCopy`make`命令來建立檔案共用。 在本節中的範例會建立名為的檔案共用`myfileshare`。
+您可以使用 AzCopy `make`命令來建立檔案共用。 本節中的範例會建立名為`myfileshare`的檔案共用。
 
 |    |     |
 |--------|-----------|
@@ -32,17 +31,17 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 ## <a name="upload-files"></a>上傳檔案
 
-您可以使用 AzCopy`copy`命令來上傳檔案和目錄從本機電腦。
+您可以使用 AzCopy `copy`命令, 從本機電腦上傳檔案和目錄。
 
 本區段包含下列範例：
 
 > [!div class="checklist"]
 > * 上傳檔案
 > * 上傳目錄
-> * 將檔案上傳使用萬用字元
+> * 使用萬用字元來上傳檔案
 
 > [!NOTE]
-> AzCopy 不會自動計算，並儲存檔案的 md5 雜湊程式碼。 如果您想要這樣做，AzCopy，然後附加`--put-md5`旗標，以每個複製命令。 這樣一來，當下載檔案時，AzCopy 會計算 MD5 雜湊的下載資料，並驗證 MD5 雜湊儲存在檔案的`Content-md5`屬性會比對導出的雜湊。
+> AzCopy 不會自動計算並儲存檔案的 md5 雜湊碼。 如果您想要讓 AzCopy 執行此動作, 請`--put-md5`將旗標附加至每個複製命令。 如此一來, 當下載檔案時, AzCopy 會計算已下載資料的 md5 雜湊, 並驗證儲存在檔案`Content-md5`屬性中的 md5 雜湊是否符合計算的雜湊。
 
 ### <a name="upload-a-file"></a>上傳檔案
 
@@ -53,24 +52,24 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 
 ### <a name="upload-a-directory"></a>上傳目錄
 
-此範例會將目錄 （以及所有在該目錄中的檔案） 複製到檔案共用。 結果是相同名稱的檔案共用中的目錄。
+這個範例會將目錄 (以及該目錄中的所有檔案) 複製到檔案共用。 結果是檔案共用中具有相同名稱的目錄。
 
 |    |     |
 |--------|-----------|
 | **語法** | `azcopy copy "<local-directory-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
 | **範例** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-若要複製到檔案共用內的目錄，只要命令字串中指定該目錄的名稱。
+若要複製到檔案共用中的目錄, 只要在命令字串中指定該目錄的名稱即可。
 
 |    |     |
 |--------|-----------|
 | **範例** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-如果您指定的目錄不存在名稱中的檔案共用時，AzCopy 會建立新目錄，該名稱。
+如果您指定的目錄名稱不存在於檔案共用中, AzCopy 會依該名稱建立新的目錄。
 
 ### <a name="upload-the-contents-of-a-directory"></a>上傳目錄的內容
 
-您可以上傳目錄的內容，而不使用萬用字元符號 （*） 複製本身的上層目錄。
+您可以上傳目錄的內容, 而不需使用萬用字元符號 (*) 來複製包含目錄本身。
 
 |    |     |
 |--------|-----------|
@@ -78,11 +77,11 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 | **範例** | `azcopy copy "C:\myDirectory\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
-> 附加`--recursive`旗標，以將所有的子目錄中的檔案上傳。
+> `--recursive`附加旗標, 以上傳所有子目錄中的檔案。
 
 ## <a name="download-files"></a>下載檔案
 
-您可以使用 AzCopy`copy`到本機電腦的命令，以下載檔案、 目錄和檔案共用。
+您可以使用 AzCopy `copy`命令, 將檔案、目錄和檔案共用下載到本機電腦。
 
 本區段包含下列範例：
 
@@ -92,7 +91,7 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 > * 使用萬用字元來下載檔案
 
 > [!NOTE]
-> 如果`Content-md5`檔案的屬性值包含雜湊，AzCopy 會計算下載的資料 MD5 雜湊值，並驗證 MD5 雜湊儲存在檔案的`Content-md5`屬性會比對導出的雜湊。 如果這些值不相符，下載會失敗，除非您覆寫這個行為附加`--check-md5=NoCheck`或`--check-md5=LogOnly`複製命令。
+> 如果檔案`Content-md5`的屬性值包含雜湊, 則 AzCopy 會計算已下載資料的 md5 雜湊, 並驗證儲存在檔案`Content-md5`屬性中的 md5 雜湊是否符合計算的雜湊。 如果這些值不相符, 除非您將或`--check-md5=NoCheck` `--check-md5=LogOnly`附加至 copy 命令來覆寫此行為, 否則下載將會失敗。
 
 ### <a name="download-a-file"></a>下載檔案
 
@@ -108,11 +107,11 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 | **語法** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>" "<local-directory-path>" --recursive` |
 | **範例** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
 
-此範例會產生名為`C:\myDirectory\myFileShareDirectory`，其中包含所有下載的檔案。
+這個範例會產生名為`C:\myDirectory\myFileShareDirectory`的目錄, 其中包含所有下載的檔案。
 
 ### <a name="download-the-contents-of-a-directory"></a>下載目錄的內容
 
-您可以下載目錄的內容，而不使用萬用字元符號 （*） 複製本身的上層目錄。
+您可以下載目錄的內容, 而不需使用萬用字元符號 (*) 複製包含的目錄本身。
 
 |    |     |
 |--------|-----------|
@@ -120,11 +119,11 @@ AzCopy 是命令列公用程式可供您儲存體帳戶來回複製 blob 或檔�
 | **範例** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"` |
 
 > [!NOTE]
-> 附加`--recursive`旗標，以下載所有子目錄中的檔案。
+> 附加旗`--recursive`標以下載所有子目錄中的檔案。
 
 ## <a name="next-steps"></a>後續步驟
 
-在這些文件中找到更多範例：
+在這些文章中尋找更多範例:
 
 - [開始使用 AzCopy](storage-use-azcopy-v10.md)
 

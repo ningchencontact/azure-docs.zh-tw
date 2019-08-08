@@ -3,16 +3,16 @@ title: Azure 檔案服務的常見問題集 (FAQ) | Microsoft Docs
 description: 尋找關於 Azure 檔案服務之常見問題集的解答。
 author: roygara
 ms.service: storage
-ms.date: 01/02/2019
+ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e14fcbd81a562b8d6451bb89a479c6675569403a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704473"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854544"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -151,7 +151,7 @@ ms.locfileid: "68704473"
     在 Azure 檔案同步代理程式版本 3 之前，Azure 檔案同步會禁止移動位於伺服器端點以外外、但與伺服器端點位於相同磁碟區上的分層檔案。 非分層檔案的複製作業和移動，以及從分層磁碟區到其他磁碟區的移動，均不受影響。 之所以會有此行為，是因為系統隱含地假設在相同磁碟區上執行這些移動作業的檔案總管和其他 Windows API (幾近於) 是 即時的重新命名作業。 這表示，當 Azure 檔案同步回復雲端中的資料時，移動作業將會使檔案總管或其他的移動方法 (例如命令列或 PowerShell) 呈現為無回應的狀態。 從 [Azure 檔案同步代理程式 3.0.12.0 版](storage-files-release-notes.md#supported-versions)開始，Azure 檔案同步將可讓您移動伺服器端點以外的分層檔案。 我們讓分層的檔案以分層的形式存在於伺服器端點以外，然後在背景中回復檔案，以避免產生負面影響。 這表示，相同磁碟區上的移動會即時執行，而我們會在移動完成後，再執行所有將檔案回復至磁碟的工作。 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-  **我在伺服器上的 Azure 檔案同步有問題 (同步、雲端分層等)。我是否應移除並重新建立伺服器端點？**  
+  **我的伺服器上的 Azure 檔案同步發生問題 (同步、雲端階層處理等)。我是否應移除並重新建立伺服器端點？**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
@@ -168,35 +168,27 @@ ms.locfileid: "68704473"
     
 ## <a name="security-authentication-and-access-control"></a>安全性、驗證和存取控制
 * <a id="ad-support"></a>
-**Azure 檔案服務是否支援以 Active Directory 為基礎的驗證和存取控制？**  
+**Azure 檔案儲存體是否支援以身分識別為基礎的驗證和存取控制？**  
     
-    是，Azure 檔案支援身分識別型驗證與使用 Azure Active Directory (Azure AD) (預覽) 的存取控制。 針對 Azure 檔案透過 SMB 進行 Azure AD 驗證會利用 Azure Active Directory Domain Services 來讓已加入網域的 VM 使用 Azure AD 認證來存取共用、目錄與檔案。 如需詳細資訊，請參閱[針對 Azure 檔案透過 SMB 進行 Azure AD 驗證的概觀 (預覽)](storage-files-active-directory-overview.md)。 
+    是, Azure 檔案儲存體支援以身分識別為基礎的驗證和存取控制, 利用 Azure AD 網域服務 (Azure AD DS)。 Azure AD 透過 SMB 進行的 DS 驗證 Azure 檔案儲存體可讓已加入網域的 Azure AD DS Windows Vm 使用 Azure AD 認證來存取共用、目錄和檔案。 如需詳細資訊, 請參閱[SMB 存取的 Azure 檔案儲存體 Azure Active Directory 網域服務 (AZURE AD DS) 驗證支援的總覽](storage-files-active-directory-overview.md)。 
 
     Azure 檔案服務提供兩種管理存取控制的額外方式：
 
     - 您可以使用共用存取簽章 (SAS)，來產生具有特定權限且在指定時間間隔內有效的權杖。 例如，您可以產生具有指定檔案唯讀存取權且會在 10 分鐘到期的權杖。 擁有權杖的任何人，在該權杖的 10 分鐘有效時間內，具有該檔案的唯讀存取權。 目前只能透過 REST API 或在用戶端程式庫中支援共用存取簽章金鑰。 您必須使用儲存體帳戶金鑰，透過 SMB 掛接 Azure 檔案共用。
 
     - Azure 檔案同步會保留並複製所有判別 ACL 或 DACL (不論是以 Active Directory 為基礎或本機) 到它要同步的所有伺服器端點。 由於 Windows Server 已經能夠利用 Active Directory 進行驗證，因此，在提供 Active Directory 型驗證的完整支援和 ACL 支援之前，Azure 檔案同步是一個有效的權宜選項。
-
-* <a id="ad-support-regions"></a>
-**針對 Azure 檔案透過 SMB 進行 Azure AD 驗證的預覽版在所有 Azure 區域是否都能使用？**
-
-    預覽版適用於所有公用區域。
-
-* <a id="ad-support-on-premises"></a>
-**針對 Azure 檔案透過 SMB 進行 Azure AD 驗證是否支援使用來自內部部署機器的 Azure AD 進行？**
-
-    否，在預覽版中，Azure 檔案不支援使用來自內部部署的 Azure AD 進行驗證。
+    
+    您可以參閱[授權存取 Azure 儲存體](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)以取得 Azure 儲存體服務支援之所有通訊協定的完整標記法。 
 
 * <a id="ad-support-devices"></a>
-**針對 Azure 檔案透過 SMB 進行 Azure AD 驗證 (預覽) 是否支援使用來自已加入 Azure AD 或已向其註冊之 Azure AD 認證的 SMB 存取？**
+**Azure 檔案儲存體 Azure AD DS 驗證是否支援使用已加入或已向 Azure AD 註冊之裝置的 Azure AD 認證來進行 SMB 存取？**
 
     否，不支援此案例。
 
 * <a id="ad-support-rest-apis"></a>
 **是否有 REST API 支援取得/設定/複製目錄/檔案 NTFS ACL？**
 
-    預覽版不支援 REST API 來取得、設定或複製目錄或檔案的 NTFS ACL。
+    目前, 我們不支援 REST Api 來取得、設定或複製目錄或檔案的 NTFS Acl。
 
 * <a id="ad-vm-subscription"></a>
 **我是否可以從不同訂用帳戶下的 VM 使用 Azure AD 認證來存取 Azure 檔案？**
@@ -204,17 +196,17 @@ ms.locfileid: "68704473"
     若檔案共用部署所在的訂用帳戶與和部署到 VM 所加入之網域之 Azure AD Domain Services 相同的 Azure AD 租用戶關聯，則您可以使用相同的 Azure AD 認證來存取 Azure 檔案。 不僅訂用帳戶有限制，關聯的 Azure AD 租用戶也有。    
     
 * <a id="ad-support-subscription"></a>
-**我用來啟用針對 Azure 檔案透過 SMB 進行 Azure AD 驗證的 Azure AD 租用戶是否能與檔案共用所關聯的主要租用戶不同？**
+**我可以使用與檔案共用相關聯的主要租使用者不同的 Azure AD 租使用者來啟用 Azure 檔案儲存體 Azure AD DS 驗證嗎？**
 
-    否，Azure 檔案只支援使用位於與檔案共用之訂用帳戶相同的訂用帳戶的 Azure AD 租用戶來進行 Azure AD 整合。 只有一個訂用帳戶能與 Azure AD 租用戶關聯。
+    否, Azure 檔案儲存體只支援與檔案共用位於相同訂用帳戶中的 Azure AD 租使用者 Azure AD DS 整合。 只有一個訂用帳戶能與 Azure AD 租用戶關聯。
 
 * <a id="ad-linux-vms"></a>
-**針對 Azure 檔案透過 SMB 進行 Azure AD 驗證 (預覽) 是否支援 Linux VM？**
+**Azure 檔案儲存體 Azure AD DS 驗證是否支援 Linux Vm？**
 
-    否，預覽版不支援來自 Linux VM 的驗證。
+    否, 不支援來自 Linux Vm 的驗證。
 
 * <a id="ad-aad-smb-afs"></a>
-**我是否可以利用由 Azure 檔案同步所管理之共用上的透過 SMB 的 Azure AD 驗證？**
+**我可以在 Azure 檔案同步所管理的檔案共用上, 利用 Azure 檔案儲存體 Azure AD DS 驗證嗎？**
 
     否，Azure 檔案不支援在由 Azure 所管理的檔案共用上保留 NTFS ACL。來自內部部署檔案伺服器的檔案 ACL 會由 Azure 檔案同步保存。任何針對 Azure 檔案以原生方式設定的 NTFS ACL 都會由 Azure 檔案同步服務覆寫。 此外，Azure 檔案不支援使用 Azure AD 認證來進行驗證，以存取由 Azure 檔案共用服務所管理的檔案共用。
 
@@ -289,7 +281,7 @@ ms.locfileid: "68704473"
     使用快照集的費用包括標準交易成本和標準儲存體的費用。 快照集具有累加性質。 基底快照集便是共用本身。 所有後續的快照集都是累加的，而且只會儲存與上一個快照集相異之處。 這表示如果您的工作負載變換程度不高，帳單中列示的差異變更也不會太多。 如果需要標準 Azure 檔案的定價資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/storage/files/)。 現在判斷共用快照集耗用大小的方式，是比較計費的容量與已使用的容量。 目前正在設法開發改善報告功能的工具。
 
 * <a id="ntfs-acls-snaphsots"></a>
-**目錄與檔案上的 NTFS ACL 在共用快照中是否會保留下來？**
+**目錄與檔案上的 NTFS ACL 在共用快照中是否會保留下來？**  
     目錄與檔案上的 NTFS ACL 在共用快照中會保留下來。
 
 ### <a name="create-share-snapshots"></a>建立共用快照集

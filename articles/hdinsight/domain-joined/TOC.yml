@@ -17,43 +17,43 @@
     - name: 使用 Azure AD DS 設定 ESP 叢集
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: 將 Azure AD 使用者同步處理至 HDInsight 叢集
-      href: ../hdinsight-sync-aad-users-to-cluster.md
+      href: ../hdinsight-sync-aad-users-to-cluster.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: 設定 Apache Hive 原則
       href: apache-domain-joined-run-hive.md
     - name: 使用 VSCode 來連結到 ESP 叢集
       href: ../hdinsight-for-vscode.md
     - name: 使用 IntelliJ 來連結到 ESP 叢集
-      href: ../spark/apache-spark-intellij-tool-plugin.md
+      href: ../spark/apache-spark-intellij-tool-plugin.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: 使用 Eclipse 來連結到 ESP 叢集
-      href: ../spark/apache-spark-eclipse-tool-plugin.md
+      href: ../spark/apache-spark-eclipse-tool-plugin.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: 在 ESP 叢集中使用 Apache Oozie
       href: hdinsight-use-oozie-domain-joined-clusters.md
     - name: 保護資料
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: 網路存取
       items:
         - name: HDInsight 虛擬網路架構
-          href: ../hdinsight-virtual-network-architecture.md
+          href: ../hdinsight-virtual-network-architecture.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: 規劃適用於 HDInsight 的 VNET
-          href: ../hdinsight-plan-virtual-network-deployment.md
+          href: ../hdinsight-plan-virtual-network-deployment.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: 建立適用於 HDInsight 的 VNET
-          href: ../hdinsight-create-virtual-network.md
+          href: ../hdinsight-create-virtual-network.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: NSG 和 UDR 必要的 IP 位址
-          href: ../hdinsight-management-ip-addresses.md
+          href: ../hdinsight-management-ip-addresses.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: 將 HDInsight 與內部部署網路連線
-          href: ../connect-on-premises-network.md
+          href: ../connect-on-premises-network.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: 在 Azure VNet 中建立 Apache HBase 叢集
-          href: ../hbase/apache-hbase-provision-vnet.md
+          href: ../hbase/apache-hbase-provision-vnet.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: Azure VNet 中的 Apache HBase 叢集複寫
-          href: ../hbase/apache-hbase-replication.md
+          href: ../hbase/apache-hbase-replication.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: 使用 Azure 監視器記錄監視
       items:
         - name: 使用 Azure 監視器記錄
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: 使用 Azure 監視器記錄查詢
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: 監視叢集效能
-          href: ../hdinsight-key-scenarios-to-monitor.md
+          href: ../hdinsight-key-scenarios-to-monitor.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
 - name: 作法
   items:
     - name: 建立 ESP 叢集並與內部部署同步
@@ -71,7 +71,7 @@
     - name: Java SDK
       href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview'
     - name: Go SDK
-      href: ../hdinsight-go-sdk-overview.md
+      href: ../hdinsight-go-sdk-overview.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: .NET (Apache HBase)
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
     - name: REST
@@ -86,9 +86,9 @@
     - name: 版本資訊
       items:
         - name: 目前的版本資訊
-          href: ../hdinsight-release-notes.md
+          href: ../hdinsight-release-notes.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
         - name: 封存的版本資訊
-          href: ../hdinsight-release-notes-archive.md
+          href: ../hdinsight-release-notes-archive.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 在論壇上取得協助
@@ -100,4 +100,4 @@
     - name: 定價計算機
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: HDInsight 適用的 Windows 工具
-      href: ../hdinsight-hadoop-windows-tools.md
+      href: ../hdinsight-hadoop-windows-tools.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json

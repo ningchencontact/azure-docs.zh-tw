@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 65777a87cd042a4d8b3b14255dbf99241cd42e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: f8777a3d0eb9b97fff6f492f181a432d98d9341c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638745"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849295"
 ---
 # <a name="add-html-markers-to-the-map"></a>在地圖中新增 HTML 標記
 
@@ -47,6 +47,9 @@ HTML 標記的預設 `htmlContent` 是內含預留位置 `{color}` 和 `{text}` 
 
 <iframe height='500' scrolling='no' title='HTML 標記與自訂 SVG 範本' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>HTML 標記與自訂 SVG 範本</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
+
+> [!TIP]
+> Azure 地圖服務 web SDK 提供數個 SVG 影像範本, 可用於 HTML 標籤。 如需詳細資訊, 請參閱[如何使用影像範本](how-to-use-image-templates-web-sdk.md)檔。
 
 ## <a name="add-a-css-styled-html-marker"></a>新增 CSS 樣式的 HTML 標記
 
@@ -89,6 +92,9 @@ HTML 標記的好處之一是您可以使用 CSS 來實現許多完美的自訂�
 > [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
 如需更多可新增至地圖的程式碼範例，請參閱下列文章：
+
+> [!div class="nextstepaction"]
+> [如何使用影像範本](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [新增符號圖層](./map-add-pin.md)

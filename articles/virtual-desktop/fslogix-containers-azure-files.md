@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: c01e138c8afcdd59fcb0c87f189d98bec10e16d7
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828133"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846541"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 設定檔容器和 Azure 檔案
 
@@ -75,13 +75,13 @@ Microsoft 已于2018年11月19日[取得 FSLogix](https://blogs.microsoft.com/bl
 
 自收購以來, Microsoft 已開始使用 FSLogix 設定檔容器取代現有的使用者設定檔解決方案, 例如 UPD。
 
-## <a name="azure-files-integration-with-azure-active-directory"></a>Azure 檔案儲存體與 Azure Active Directory 整合
+## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure 檔案儲存體與 Azure Active Directory 網域服務整合
 
-FSLogix 設定檔容器的效能和功能會利用雲端。 2018年9月24日 Microsoft Azure 檔案宣佈公開預覽, [Azure 檔案儲存體支援 Azure Active Directory 驗證](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/)。 藉由解決成本與系統管理額外負荷, Azure Active Directory authentication 的 Azure 檔案儲存體是新 Windows 虛擬桌面服務中使用者設定檔的 premium 解決方案。
+FSLogix 設定檔容器的效能和功能會利用雲端。 2019年8月7日, Microsoft Azure 檔案已宣佈[使用 Azure Active Directory 網域服務 (AD DS) Azure 檔案儲存體驗證](/articles/storage/files/storage-files-active-directory-overview.md)的正式運作。 藉由解決成本和系統管理負擔, Azure AD DS 驗證的 Azure 檔案儲存體是 Windows 虛擬桌面服務中使用者設定檔的 premium 解決方案。
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Windows 虛擬桌面的最佳做法
 
-Windows 虛擬桌面提供客戶所使用 Vm 的大小、類型和計數的完整控制權。 如需詳細資訊, 請參閱[什麼是 Windows 虛擬桌面預覽？](https://docs.microsoft.com/azure/virtual-desktop/overview)。
+Windows 虛擬桌面提供客戶所使用 Vm 的大小、類型和計數的完整控制權。 如需詳細資訊, 請參閱[什麼是 Windows 虛擬桌面預覽？](overview.md)。
 
 若要確保您的 Windows 虛擬桌面環境遵循最佳做法:
 
@@ -94,11 +94,11 @@ Windows 虛擬桌面提供客戶所使用 Vm 的大小、類型和計數的完�
 
 ## <a name="next-steps"></a>後續步驟
 
-使用下列指示來設定 Windows 虛擬桌面環境。
+使用下列指南來設定 Windows 虛擬桌面環境。
 
-- 若要開始建立您的桌面虛擬化解決方案, 請參閱[在 Windows 虛擬桌面中建立租](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)使用者。
-- 若要在 Windows 虛擬桌面租使用者內建立主機集區, 請參閱[使用 Azure Marketplace 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)區。
-- 若要在雲端中設定完全受控的檔案共用, 請參閱[設定 Azure 檔案儲存體共用](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)。
-- 若要設定 FSLogix 設定檔容器, 請參閱[設定主機集區的使用者設定檔共用](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile)。
-- 若要將使用者指派給主機集區, 請參閱[管理 Windows 虛擬桌面的應用程式群組](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups)。
-- 若要從網頁瀏覽器存取您的 Windows 虛擬桌面資源, 請參閱[連接到 Windows 虛擬桌面](https://docs.microsoft.com/azure/virtual-desktop/connect-web)。
+- 若要開始建立您的桌面虛擬化解決方案, 請參閱[在 Windows 虛擬桌面中建立租](tenant-setup-azure-active-directory.md)使用者。
+- 若要在 Windows 虛擬桌面租使用者內建立主機集區, 請參閱[使用 Azure Marketplace 建立主機集](create-host-pools-azure-marketplace.md)區。
+- 若要在雲端中設定完全受控的檔案共用, 請參閱[設定 Azure 檔案儲存體共用](/articles/storage/files/storage-files-active-directory-enable.md)。
+- 若要設定 FSLogix 設定檔容器, 請參閱[設定主機集區的使用者設定檔共用](create-host-pools-user-profile.md)。
+- 若要將使用者指派給主機集區, 請參閱[管理 Windows 虛擬桌面的應用程式群組](manage-app-groups.md)。
+- 若要從網頁瀏覽器存取您的 Windows 虛擬桌面資源, 請參閱[連接到 Windows 虛擬桌面](connect-web.md)。

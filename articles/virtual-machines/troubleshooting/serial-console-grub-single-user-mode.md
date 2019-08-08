@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 8a3be6420a91093e060850459ff22fc5823b8cf2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 656bc8329d6273695e4da24a7e7d13c9df6a1080
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710590"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846602"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>使用序列主控台來存取 GRUB 與單一使用者模式
 GRUB 是 GRand Unified Bootloader 的縮寫，這可能是您在啟動 VM 時首先會見到的項目。 由於它會在作業系統啟動之前顯示，因此無法透過 SSH 存取它。 從 GRUB，您可以修改開機設定，以開機到單一使用者模式。
@@ -132,6 +132,7 @@ Ubuntu 映像不需要 root 密碼。 如果系統開機進入單一使用者模
 1. 將 `GRUB_TIMEOUT` 值變更為非零值
 1. 在您慣用的文字編輯器中開啟 `/etc/default/grub`
 1. 將 `GRUB_HIDDEN_TIMEOUT=1` 行變成註解
+1. 確定有一行顯示`GRUB_TIMEOUT_STYLE=menu`
 1. 執行 `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu 中的單一使用者模式
@@ -184,7 +185,7 @@ SLES 中的 GRUB 存取要求必須透過 YaST 設定開機載入程式。 若�
 若 SLES 無法正常開機，將會自動讓您進入緊急殼層。 若要手動進入緊急殼層，請依下列指示執行：
 
 1. 從 GRUB，按 'e' 以編輯您的開機項目 (SLES 項目)
-1. 尋找包含核心一行-就會開始使用 `linux`
+1. 尋找核心行-它的開頭是`linux`
 1. 將 `systemd.unit=emergency.target` 附加到行尾
 1. 按 Ctrl + X 以使用者些設定重新開機並進入緊急殼層
    > 請注意，您會進入緊急殼層，而且檔案系統是_唯讀_的。 若要對任何檔案進行任何變更，您將必須使用讀取/寫入權限重新掛載檔案系統。 若要這樣做，請輸入 `mount -o remount,rw /` 到殼層
@@ -193,7 +194,7 @@ SLES 中的 GRUB 存取要求必須透過 YaST 設定開機載入程式。 若�
 與 Red Hat Enterprise Linux 非常像，Oracle Linux 中的單一使用者模式也要求必須啟用 GRUB 與 root 使用者。
 
 ### <a name="grub-access-in-oracle-linux"></a>Oracle Linux 中的 GRUB 存取
-Oracle Linux 預設會啟用 GRUB。 若要進入 GRUB，請使用 `sudo reboot` 將您的 VM 重新開機並按 'Esc'。 您將會看到 GRUB 畫面。
+Oracle Linux 預設會啟用 GRUB。 若要進入 GRUB，請使用 `sudo reboot` 將您的 VM 重新開機並按 'Esc'。 您將會看到 GRUB 畫面。 如果您看不到 GRUB, 請確定`GRUB_TERMINAL`行的值包含「序列主控台」, 如下所示:。 `GRUB_TERMINAL="serial console"`
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Oracle Linux 中的單一使用者模式
 依照上述適用於 RHEL 的指示來在 Oracle Linux 中啟用單一使用者模式。

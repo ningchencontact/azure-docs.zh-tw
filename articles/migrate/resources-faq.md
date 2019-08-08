@@ -4,14 +4,14 @@ description: 解說 Azure Migrate 的相關常見問題
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372479"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856265"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -71,7 +71,8 @@ Azure Migrate 設備所收集的資料會儲存在您建立遷移專案時指定
 
 ### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>是否可以將相同的設備連線到多部 vCenter server？
 
-是, 單一 Azure Migrate 設備可用來探索多部 vCenter Server, 但不能同時使用。 您需要逐一執行探索。
+資料分割 設備與 vCenter Server 之間會有一對一的對應。 如果您必須探索多部 vCenter 伺服器上的 Vm, 您必須部署多個應用裝置。 
+
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>我已變更機器大小。 我可以重新執行評量嗎？
 

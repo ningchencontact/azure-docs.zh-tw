@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66482350"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843155"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -105,7 +105,7 @@ ms.locfileid: "66482350"
 
 資料分割
 
-**如果我建立 128 GB 的磁碟，然後再將大小增加至 130 gb (GiB)，我會收取的下一步 的磁碟大小 (256 GiB)？**
+**如果我建立 128 GB 的磁片, 然後將大小增加到 130 gib (GiB), 則會向我收取下一個磁片大小的費用 (256 GiB) 嗎？**
 
 是的。
 
@@ -141,9 +141,9 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS 磁碟必須使用 MBR 分割區樣式。
 
-**磁碟類型支援快照集？**
+**哪些磁片類型支援快照集？**
 
-進階 SSD、 標準的 SSD 和 HDD 標準支援快照集。 對於這些的三種磁碟類型，快照集支援 （包括磁碟最多 32 TiB 的大小） 的所有磁碟大小。 強力的 Ssd 不支援快照集。
+進階 SSD、標準 SSD 和標準 HDD 支援快照集。 針對這三種磁片類型, 所有磁片大小 (包括大小上限為 32 TiB 的磁片) 都支援快照集。 Ultra Ssd 不支援快照集。
 
 ## <a name="standard-ssd-disks"></a>標準 SSD 磁碟
 
@@ -157,12 +157,12 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 是，Azure 備份現在可供使用。
 
 **如何建立標準 SSD 磁碟？**
-您可以建立標準的 SSD 磁碟使用 Azure Resource Manager 範本、 SDK、 PowerShell 或 CLI。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
+您可以使用 Azure Resource Manager 範本、SDK、PowerShell 或 CLI 來建立標準 SSD 磁片。 以下是在 Resource Manager 範本中建立標準 SSD 磁碟所需的參數：
 
-* Microsoft.Compute 的 apiVersion  必須設定為 `2018-04-01` (或更新版本)
-* 將 managedDisk.storageAccountType  指定為 `StandardSSD_LRS`
+* Microsoft.Compute 的 apiVersion 必須設定為 `2018-04-01` (或更新版本)
+* 將 managedDisk.storageAccountType 指定為 `StandardSSD_LRS`
 
-下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk  區段：
+下列範例示範使用標準 SSD 磁碟的虛擬機器 properties.storageProfile.osDisk 區段：
 
 ```json
 "osDisk": {
@@ -183,7 +183,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 -AccountType StandardSSD_LRS
 
 **使用標準 SSD 磁碟而不使用 HDD 有何優點？**
-標準的 SSD 磁碟提供更佳的延遲、 一致性、 可用性和可靠性相較於 HDD 磁碟。 因此，應用程式工作負載在「標準 SSD」上執行起來更加順暢。 請注意，針對大多數 IO 密集型生產環境工作負載，建議的解決方案是「進階 SSD」磁碟。
+相較于 HDD 磁片, 標準 SSD 磁片提供更佳的延遲、一致性、可用性和可靠性。 因此，應用程式工作負載在「標準 SSD」上執行起來更加順暢。 請注意，針對大多數 IO 密集型生產環境工作負載，建議的解決方案是「進階 SSD」磁碟。
 
 **可以使用標準 SSD 作為非受控磁碟嗎？**
 否，標準 SSD 磁碟僅適用於受控磁碟。
@@ -191,11 +191,11 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 **標準 SSD 是否支援「單一執行個體虛擬機器 SLA」？**
 否，標準 SSD 沒有單一執行個體虛擬機器 SLA。 請針對單一執行個體虛擬機器 SLA 使用進階 SSD 磁碟。
 
-## <a name="migrate-to-managed-disks"></a>移轉到受控磁碟
+## <a name="migrate-to-managed-disks"></a>遷移到受控磁碟
 
 **移轉對於受控磁碟的效能是否有任何影響？**
 
-移轉涉及從一個儲存體位置將磁碟移動到另一個儲存體位置。 這協調透過背景資料複本，這可能需要數小時才能完成，通常不會超過 24 小時內的磁碟中的資料量而定。 在這段期間，應用程式可能出現比平常高的讀取延遲，因為某些讀取會重新導向至原始位置，因此可能需要較長的時間才能完成。 在這段期間，對於寫入延遲沒有任何影響。  
+移轉涉及從一個儲存體位置將磁碟移動到另一個儲存體位置。 這會透過資料的背景複本來協調, 這可能需要幾個小時才能完成, 通常不到24小時, 視磁片中的資料量而定。 在這段期間，應用程式可能出現比平常高的讀取延遲，因為某些讀取會重新導向至原始位置，因此可能需要較長的時間才能完成。 在這段期間，對於寫入延遲沒有任何影響。  
 
 **在移轉至受控磁碟前/後，預先存在的 Azure 備份服務設定需要哪些變更？**
 
@@ -209,7 +209,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 不需要任何變更。
 
-**自動化的移轉現有的虛擬機器擴展設從非受控磁碟支援的受控磁碟？**
+**是否將現有虛擬機器擴展集從非受控磁片自動遷移至受控磁碟支援？**
 
 資料分割 您可以使用舊擴展集中的映像搭配非受控磁碟，建立包含受控磁碟的新擴展集。
 
@@ -223,7 +223,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 **在透過 Azure 受 Azure Site Recovery 保護的 Azure 虛擬機器上移轉至 Azure 複寫是否有任何影響？**
 
-是的。 目前，Azure 網站復原 Azure 至 Azure 保護的 Vm 與受控磁碟可成為 GA 服務。
+資料分割 針對具有受控磁碟的 Vm, Azure Site Recovery Azure 到 Azure 的保護。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 
@@ -304,7 +304,7 @@ DS 系列的快取和本機 SSD 合併限制是每個核心 4,000 IOPS，以及�
 
 **作業系統和資料磁碟支援的最大受控磁碟大小是多少？**
 
-Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TiB。 Azure 針對作業系統磁碟支援的大小上限為 2 TiB。 Azure 支援最多 32 TiB 中全域 Azure，Azure sovereign cloud 中的 4 TiB 的受控的資料磁碟。
+Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TiB。 Azure 針對作業系統磁碟支援的大小上限為 2 TiB。 Azure 最多支援 32 TiB, 適用于全域 Azure 中的受控資料磁片, Azure 主權雲端中的4個 TiB。
 
 **作業系統和資料磁碟支援的最大非受控磁碟大小是多少？**
 
@@ -337,29 +337,29 @@ Azure 支援的分頁 Blob 大小上限是 8 TiB (8,191 GiB)。 連結至 VM 作
 
 您可以為小型磁碟建立快照集，然後建立一個磁碟，根據佈建大小自動將定價層切換為 P4 或 P6。
 
-**可以您現有的受控磁碟大小從調整大小少於 4 個用於 (TiB) 最多 32 TiB 的新導入新的磁碟大小嗎？**
+**您是否可以將現有的受控磁碟大小從少於 4 tib (TiB) 調整為新引進的最高 32 TiB 磁片大小？**
 
 是的。
 
-**Azure 備份和 Azure Site Recovery 服務所支援的最大磁碟大小為何？**
+**Azure 備份和 Azure Site Recovery 服務支援的最大磁片大小為何？**
 
-Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB。 支援較大的磁碟，最多 32 TiB 尚無法使用。
+Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB。 目前尚未提供最大 32 TiB 的磁片支援。
 
-**什麼是建議的 VM 大小的較大的磁碟大小 (> 4 TiB) 標準的 SSD 和標準 HDD 磁碟，以達到最佳化的磁碟 IOPS 和頻寬嗎？**
+**適用于標準 SSD 和標準 HDD 磁片的最大磁片大小 (> 4 TiB) 建議的 VM 大小為何, 以達到優化的磁片 IOPS 和頻寬？**
 
-若要達到標準的 SSD 和 HDD 標準大型磁碟大小的磁碟輸送量 (> 4 TiB) 超過 500 個 IOPS 和 60 mib，我們建議您部署從下列 VM 大小的其中一個新 VM，以最佳化您的效能：B 系列、 DSv2 系列、 Dsv3 系列、 ESv3 系列、 Fs 系列 Fsv2 系列、 M 系列、 GS 系列，NCv2 系列，NCv3 系列或 Ls 系列 Vm。 將大型磁碟附加至現有的 Vm 或不使用上述的建議的大小的 Vm 可能會遇到較低的效能。
+若要達到標準 SSD 的磁片輸送量, 並標準 HDD 超過 500 IOPS 和 60 MiB/s 的大型磁片大小 (> 4 TiB), 建議您從下列其中一種 VM 大小部署新的 VM, 以優化您的效能:B 系列、DSv2 系列、Dsv3 系列、ESv3 系列、Fs 系列、Fsv2 系列、M 系列、GS 系列、NCv2 系列、NCv3 系列或 Ls 系列 Vm。 將大型磁片連結至現有的 Vm 或未使用上述建議大小的 Vm, 可能會遇到較低的效能。
 
-**如何升級我的磁碟 (> 4 TiB) 的已部署較大的磁碟大小預覽期間，以在正式運作時，取得更高的 IOPS & 頻寬？**
+**我要如何升級在較大的磁片大小預覽期間部署的磁片 (> 4 TiB), 以便在 GA 中取得更高的 IOPS & 頻寬？**
 
-您可以停止和啟動磁碟連接至 VM，或中斷連結並重新連結您的磁碟。 已在公開上市的標準 Ssd 和進階 Ssd 增加較大的磁碟大小的效能目標
+您可以停止並啟動磁片所連接的 VM, 或是卸離並重新連接磁片。 Premium Ssd 和 standard Ssd 在 GA 中的效能目標較大。
 
-**有哪些區域？ 8 TiB、 16 TiB 和中支援的 32 TiB 的受控的磁碟大小**
+**有哪些區域支援 8 TiB、16 TiB 和 32 TiB 的受控磁片大小？**
 
-在全域 Azure、 Microsoft Azure Government 和 Azure 中國 21vianet 經營的所有區域都支援 8 TiB、 16 TiB，以及 32 TiB 磁碟 Sku。
+全球 Azure、Microsoft Azure Government 和 Azure 中國世紀境內的所有區域都支援 8 TiB、16 TiB 和 32 TiB 磁片 Sku。
 
-**我們支援所有的磁碟大小上啟用 主機快取？**
+**是否支援在所有磁片大小上啟用主機快取？**
 
-ReadOnly 主機快取和讀/寫上支援磁碟大小少於 4 TiB。 針對超過 4 TiB 的磁碟大小，我們只支援設定為「無」的快取選項。 建議您利用快取較小型磁碟大小的方式，以便您透過快取到 VM 的資料增進效能。
+在小於 4 TiB 的磁片大小上, 我們支援唯讀和讀取/寫入的主機快取。 針對超過 4 TiB 的磁碟大小，我們只支援設定為「無」的快取選項。 建議您利用快取較小型磁碟大小的方式，以便您透過快取到 VM 的資料增進效能。
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
 
