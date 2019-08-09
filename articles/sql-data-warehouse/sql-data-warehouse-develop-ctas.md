@@ -26,9 +26,9 @@ ms.locfileid: "68479689"
 
 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) 語句是最重要的其中一個可用的 t-sql 功能。 CTAS 是一種平行作業, 會根據 SELECT 語句的輸出來建立新的資料表。 CTAS 是使用單一命令來建立資料並將其插入資料表的最簡單且最快速的方式。
 
-## <a name="selectinto-vs-ctas"></a>選取 .。。到 vs。CTAS
+## <a name="selectinto-vs-ctas"></a>選取...到 vs。CTAS
 
-CTAS 是更容易自訂的[SELECT .。。INTO](/sql/t-sql/queries/select-into-clause-transact-sql)語句。
+CTAS 是更容易自訂的[SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql)語句。
 
 以下是簡單 SELECT ... 的範例登錄
 
@@ -38,7 +38,7 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-選取 .。。INTO 不允許您變更散發方法或索引類型做為作業的一部分。 您可以`[dbo].[FactInternetSales_new]`使用預設的 ROUND_ROBIN 散發類型, 以及叢集資料行存放區索引的預設資料表結構來建立。
+選取 ...INTO 不允許您變更散發方法或索引類型做為作業的一部分。 您可以`[dbo].[FactInternetSales_new]`使用預設的 ROUND_ROBIN 散發類型, 以及叢集資料行存放區索引的預設資料表結構來建立。
 
 另一方面, 使用 CTAS, 您可以同時指定資料表資料的分佈, 以及資料表結構類型。 若要將上一個範例轉換為 CTAS:
 
