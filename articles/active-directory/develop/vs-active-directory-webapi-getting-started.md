@@ -1,13 +1,10 @@
 ---
 title: 開始在 Visual Studio WebApi 專案中使用 Azure AD
 description: 使用 Visual Studio 已連接服務連接 Azure AD 或建立 Azure AD 後，如何在 WebApi 專案中開始使用 Azure Active Directory
-services: active-directory
-ms.service: active-directory
-ms.subservice: develop
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
@@ -15,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 662e0a3e85684287c636b8d0b512b072c978dd3f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 225940052e1f40f8050059532e4657df2b5410a3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320740"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851907"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>開始使用 Azure Active Directory (WebApi 專案)
 
@@ -28,7 +25,7 @@ ms.locfileid: "68320740"
 > - [開始使用](vs-active-directory-webapi-getting-started.md)
 > - [發生什麼情形](vs-active-directory-webapi-what-happened.md)
 
-本文提供您在透過 Visual Studio 的 [專案] > [連線服務]  命令將 Active Directory 新增至 ASP.NET WebAPI 專案之後所需的其他指引。 如果您尚未將服務新增至專案，您可以隨時執行此動作。
+本文提供您在透過 Visual Studio 的 [專案] > [連線服務] 命令將 Active Directory 新增至 ASP.NET WebAPI 專案之後所需的其他指引。 如果您尚未將服務新增至專案，您可以隨時執行此動作。
 
 請參閱[我的 WebApI 專案發生什麼情形？](vs-active-directory-webapi-what-happened.md)，了解您的專案在新增連線服務時所做的變更。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
-ms.openlocfilehash: 360ffb3d2c682d6bd2344cb3ae95447ff3df278d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d197bbf464038918dd083d14a1befa740c8ce0e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076822"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846084"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的儲存體組態
 
@@ -55,7 +55,7 @@ ms.locfileid: "67076822"
 * 建立存放集區與虛擬機器上新磁碟機的關聯。
 * 根據您指定的工作負載類型 (資料倉儲、交易式處理或一般)，最佳化這個新的磁碟機。
 
-如需 Azure 如何進行儲存體設定的詳細資訊，請參閱 [儲存體設定章節](#storage-configuration)。 如需完整的逐步解說如何在 Azure 入口網站中建立 SQL Server VM，請參閱 <<c0> [ 佈建的教學課程](virtual-machines-windows-portal-sql-server-provision.md)。
+如需 Azure 如何進行儲存體設定的詳細資訊，請參閱 [儲存體設定章節](#storage-configuration)。 如需如何在 Azure 入口網站中建立 SQL Server VM 的完整逐步解說, 請參閱布建[教學](virtual-machines-windows-portal-sql-server-provision.md)課程。
 
 ### <a name="resource-manage-templates"></a>Resource Manager 範本
 
@@ -69,14 +69,14 @@ ms.locfileid: "67076822"
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-對於現有的 SQL Server VM，您可以在 Azure 入口網站中修改某些儲存體設定。 開啟您[SQL 虛擬機器資源](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource)，然後選取**概觀**。 SQL Server 概觀頁面會顯示目前的儲存體使用量，您的 VM。 下圖顯示您的 VM 上存在的所有磁碟機。 對於每個磁碟機，儲存空間會顯示於四個區段中︰
+對於現有的 SQL Server VM，您可以在 Azure 入口網站中修改某些儲存體設定。 開啟您的[SQL 虛擬機器資源](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), 然後選取 **[總覽**]。 [SQL Server 總覽] 頁面會顯示您的 VM 目前的儲存體使用量。 下圖顯示您的 VM 上存在的所有磁碟機。 對於每個磁碟機，儲存空間會顯示於四個區段中︰
 
 * SQL 資料
 * SQL 記錄檔
 * 其他 (非 SQL 儲存體)
 * 可用
 
-若要修改儲存體設定，請選取**設定**下方**設定**。 
+若要修改存放裝置設定,請選取 [**設定**] 底下的 [設定]。 
 
 ![設定現有 SQL Server VM 的儲存體](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
@@ -103,13 +103,13 @@ Azure 會根據您的規格建立新的磁碟機。 在此案例中，Azure 會�
 
 ### <a name="extend-the-drive"></a>擴充磁碟機
 
-擴充儲存體的另一個選項是擴充現有的磁碟機。 此選項會增加您的磁碟機的可用儲存體，但不會提升效能。 使用存放集區，您無法在建立存放集區後改變資料行數目。 資料行數目會決定可以等量分散於資料磁碟的平行寫入數目。 因此，任何加入的資料磁碟均無法提升效能。 它們只能為寫入的資料提供更多的儲存空間。 這項限制也表示，在擴充磁碟機時，資料行數目會決定您可以新增的資料磁碟數目下限。 因此，如果您建立的存放集區包含四個資料磁碟，則資料行數目也是四個。 每次您擴充儲存體時，您必須新增至少四個資料磁碟。
+擴充儲存體的另一個選項是擴充現有的磁碟機。 此選項會增加您的磁碟機的可用儲存體，但不會提升效能。 使用存放集區，您無法在建立存放集區後改變資料行數目。 資料行數目會決定可以等量分散於資料磁碟的平行寫入數目。 因此，任何加入的資料磁碟均無法提升效能。 它們只能為寫入的資料提供更多的儲存空間。 這項限制也表示，在擴充磁碟機時，資料行數目會決定您可以新增的資料磁碟數目下限。 因此，如果您建立的存放集區包含四個資料磁碟，則資料行數目也是四個。 每次擴充存放裝置時, 您都必須新增至少四個數據磁片。
 
 ![延伸 SQL VM 的磁碟機](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>儲存體組態
 
-本節提供參考，佈建 SQL VM 或 Azure 入口網站中的組態期間會自動執行 Azure 儲存體組態變更。
+本節提供 Azure 在 Azure 入口網站中的 SQL VM 布建或設定期間自動執行之儲存體設定變更的參考。
 
 * 如果您為 VM 選取了小於兩個 TB 的儲存體，則 Azure 不會建立存放集區。
 * 如果您為 VM 選取了至少兩個 TB 的儲存體，則 Azure 會設定存放集區。 本主題的下一節提供存放集區設定的詳細資料。
@@ -125,7 +125,7 @@ Azure 會使用下列設定在 SQL Server VM 上建立存放集區。
 | --- | --- |
 | 等量大小 |256 KB (資料倉儲)；64 KB (交易式) |
 | 磁碟大小 |每個磁碟 1 TB |
-| 快取 |讀取 |
+| 快取 |閱讀 |
 | 配置大小 |64 KB NTFS 配置單位大小 |
 | 立即檔案初始化 |Enabled |
 | 在記憶體中鎖定頁面 |Enabled |

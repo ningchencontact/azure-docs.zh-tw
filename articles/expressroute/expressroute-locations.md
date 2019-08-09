@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2019
+ms.date: 08/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 721f4038090021c526a8878f15c07874074effd5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371de877d266af19eebdbd886ada6fed842cb15c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725953"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848449"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -93,7 +93,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 | **CDC** | 支援 | 支援 | 坎培拉、坎培拉 2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |支援 |支援 |阿姆斯特丹2、芝加哥、香港、內華達州、紐約、巴黎、San Antonio、矽谷、東京、多倫多、華盛頓特區 |
 | **Chief Telecom** |支援 |支援 |香港特別行政區, 臺北 |
-| **China Telecom Global** |支援 |不受支援 |香港特別行政區 |
+| **China Telecom Global** |支援 |支援 |香港特別行政區 |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |支援 |支援 |芝加哥、達拉斯、蒙特婁、多倫多、華盛頓特區 |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |支援 |支援 |阿姆斯特丹、都柏林、倫敦、紐波特、大阪、巴黎、新加坡2、東京 |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |支援 |支援 |芝加哥、矽谷、華盛頓特區 |

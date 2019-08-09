@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54146927bf344eed63e24a3df073aa13f7fa0676
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 98a339f3fe9d5318b71ef60ac916bc4dcc6112fb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319921"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853742"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
@@ -49,15 +49,15 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 使用者的狀態會反映系統管理員是否已在 Azure MFA 中註冊他們，以及他們是否已完成註冊程序。
 
-所有使用者一開始都是「已停用」  狀態。 當您在 Azure MFA 中註冊使用者時，他們的狀態會變更為「已啟用」  。 當已啟用的使用者登入並完成註冊程序之後，他們的狀態就會變更為「已強制」  。  
+所有使用者一開始都是「已停用」狀態。 當您在 Azure MFA 中註冊使用者時，他們的狀態會變更為「已啟用」。 當已啟用的使用者登入並完成註冊程序之後，他們的狀態就會變更為「已強制」。  
 
 ### <a name="view-the-status-for-a-user"></a>檢視使用者的狀態
 
 使用下列步驟來存取您可在其中檢視並管理使用者狀態的頁面：
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
-2. 移至 [Azure Active Directory]   > [使用者和群組]   > [所有使用者]  。
-3. 選取 [多重要素驗證]  。
+2. 移至 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
+3. 選取 [多重要素驗證]。
    ![選取 Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. 隨即開啟新的頁面，以顯示使用者狀態。
    ![Multi-Factor Authentication 使用者狀態 - 螢幕擷取畫面](./media/howto-mfa-userstates/userstate1.png)
@@ -68,11 +68,11 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 2. 尋找您想要啟用 Azure MFA 的使用者。 建議您在頂端變更檢視方式。
    ![從 [使用者] 索引標籤選取要變更狀態的使用者](./media/howto-mfa-userstates/enable1.png)
 3. 勾選其名稱旁的方塊。
-4. 在右邊的**快速步驟**下，選擇 [啟用]  或 [停用]  。
+4. 在右邊的**快速步驟**下，選擇 [啟用] 或 [停用]。
    ![按一下 [快速步驟] 功能表上的 [啟用], 以啟用選取的使用者](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
-   > 「已啟用」  的使用者會在註冊 Azure MFA 時自動切換為「已強制」  。 請勿手動將使用者狀態變更為「已強制」  。
+   > 「已啟用」的使用者會在註冊 Azure MFA 時自動切換為「已強制」。 請勿手動將使用者狀態變更為「已強制」。
 
 5. 在開啟的快顯視窗中確認您的選取項目。
 
@@ -86,7 +86,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 * 已強制
 * 已停用  
 
-請勿直接將使用者移至「已強制」  狀態。 若這樣做，非瀏覽器型的應用程式會停止運作，因為使用者未通過 Azure MFA 註冊且未取得[應用程式密碼](howto-mfa-mfasettings.md#app-passwords)。
+請勿直接將使用者移至「已強制」狀態。 若這樣做，非瀏覽器型的應用程式會停止運作，因為使用者未通過 Azure MFA 註冊且未取得[應用程式密碼](howto-mfa-mfasettings.md#app-passwords)。
 
 請先安裝模組，使用：
 
@@ -142,11 +142,7 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 # Disable MFA for all users, keeping their MFA methods intact
 Get-MsolUser -All | Disable-MFA -KeepMethods
 
-# Enforce MFA for all users
-Get-MsolUser -All | Set-MfaState -State Enforced
-
-# Wrapper to disable MFA with the option to keep the MFA
-# methods (to avoid having to proof-up again later)
+# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
 function Disable-Mfa {
 
     [CmdletBinding()]

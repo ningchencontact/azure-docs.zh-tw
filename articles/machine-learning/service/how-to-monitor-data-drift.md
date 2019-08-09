@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370381"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847885"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移 (預覽) (AKS)
 
@@ -46,12 +46,14 @@ ms.locfileid: "68370381"
 
 - Azure 訂用帳戶。 如果您沒有, 請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 依照[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#sdk)中的指示執行下列工作：
+- 已安裝適用于 Python 的 Azure Machine Learning SDK。 請使用[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)中的指示來執行下列動作:
 
     - 建立 Miniconda 環境
     - 安裝適用於 Python 的 Azure Machine Learning SDK
-    - 建立工作區
-    - 撰寫工作區設定檔案 (aml_config/config. json)。
+
+- [Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
+
+- 工作區[設定檔](how-to-configure-environment.md#workspace)。
 
 - 使用下列命令安裝資料漂移 SDK:
 
@@ -195,6 +197,6 @@ old_training_dataset.diff(new_training_dataset)
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需使用資料漂移的完整範例, 請參閱[AZURE ML 資料漂移筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb)。 此 Jupyter Notebook 示範如何使用[Azure 開放資料集](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)來定型模型, 以預測氣象、將其部署至 AKS, 以及監視資料漂移。 
+* 如需使用資料漂移的完整範例, 請參閱[AZURE ML 資料漂移筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb)。 此 Jupyter Notebook 示範如何使用[Azure 開放資料集](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)來定型模型, 以預測氣象、將其部署至 AKS, 以及監視資料漂移。 
 
 * 當資料漂移移至正式運作時, 我們會大幅感謝您的問題、意見或建議。 使用下方的 [產品意見反應] 按鈕! 

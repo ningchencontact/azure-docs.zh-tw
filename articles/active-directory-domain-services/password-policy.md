@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: ecf38543b2c4e5187aa5c6593c3bccf6668b8a8a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472755"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853767"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>受控網域上的密碼和帳戶鎖定原則
 此文章說明受控網域上的預設密碼原則。 它也涵蓋如何設定這些原則。
@@ -60,7 +60,7 @@ ms.locfileid: "67472755"
 在受控網域上，預設會設定下列帳戶鎖定原則：
 * 帳戶鎖定期間：30
 * 允許的失敗登入嘗試次數：5
-* 經過下列時間後重設失敗的登入嘗試計數：30 分钟
+* 經過下列時間後重設失敗的登入嘗試計數：30 分鐘
 
 實際上，如果在 2 分鐘內使用 5 個無效的密碼，使用者帳戶就會被鎖定 30 分鐘。 30 分鐘後，帳戶會自動解除鎖定。
 
@@ -80,14 +80,14 @@ ms.locfileid: "67472755"
 * 設定受控網域的預設密碼存留期設定。
 
 在受控網域上建立自訂的 FGPP：
-1. 登入您用來管理受控網域的 Windows VM。 如果您沒有帳戶，請遵循指示[管理 Azure AD Domain Services 網域](manage-domain.md)。
+1. 登入您用來管理受控網域的 Windows VM (至少必須為 Windows Server 2012 R2)。 如果您沒有帳戶, 請遵循指示來[管理 Azure AD Domain Services 網域](manage-domain.md)。
 2. 啟動 VM 上的 **Active Directory 管理中心**。
 3. 按一下網域名稱 (例如 'contoso100.com')。
-4. 按兩下 [系統]  以開啟 [系統] 容器。
-5. 按兩下 [密碼設定容器]  。
+4. 按兩下 [系統] 以開啟 [系統] 容器。
+5. 按兩下 [密碼設定容器]。
 6. 您會看到受控網域的預設內建 FGPP，名為 **AADDSSTFPSO**。 您無法修改這個內建的 FGPP。 不過，您可以建立新的自訂 FGPP 來覆寫預設 FGPP。
-7. 在右側的 [工作]  面板上，按一下 [新增]  ，然後按一下 [密碼設定]  。
-8. 在 [建立密碼設定]  對話方塊中，指定自訂密碼設定以套用成自訂 FGPP 的一部分。 請務必適當地設定優先順序以覆寫預設的 FGPP。
+7. 在右側的 [工作] 面板上，按一下 [新增]，然後按一下 [密碼設定]。
+8. 在 [建立密碼設定] 對話方塊中，指定自訂密碼設定以套用成自訂 FGPP 的一部分。 請務必適當地設定優先順序以覆寫預設的 FGPP。
 
    ![建立自訂 FGPP](./media/how-to/custom-fgpp.png)
 
@@ -96,19 +96,19 @@ ms.locfileid: "67472755"
    >
    >
 
-9. 在 [直接套用至]  中，按一下 [新增]  按鈕。 在 [選取使用者或群組]  對話方塊中，按一下 [位置]  按鈕。
+9. 在 [直接套用至] 中，按一下 [新增] 按鈕。 在 [選取使用者或群組] 對話方塊中，按一下 [位置] 按鈕。
 
-   ![選取使用者和群組](./media/how-to/fgpp-applies-to.png)
+   ![選取使用者與群組](./media/how-to/fgpp-applies-to.png)
 
-10. 在 [位置]  對話方塊中，展開網域名稱，然後按一下 [AADDC 使用者]  。 您現在可以從內建的使用者 OU 中選取要套用 FGPP 的群組。
+10. 在 [位置] 對話方塊中，展開網域名稱，然後按一下 [AADDC 使用者]。 您現在可以從內建的使用者 OU 中選取要套用 FGPP 的群組。
 
     ![選取群組所屬的 OU](./media/how-to/fgpp-container.png)
 
-11. 輸入群組的名稱，然後按一下 [檢查名稱]  按鈕以驗證群組是否存在。
+11. 輸入群組的名稱，然後按一下 [檢查名稱] 按鈕以驗證群組是否存在。
 
     ![選取要套用 FGPP 的群組](./media/how-to/fgpp-apply-group.png)
 
-12. 群組的名稱會顯示在 [直接套用至]  區段中。 按一下 [確定]  按鈕以儲存這些變更。
+12. 群組的名稱會顯示在 [直接套用至] 區段中。 按一下 [確定] 按鈕以儲存這些變更。
 
     ![套用 FGPP](./media/how-to/fgpp-applied.png)
 

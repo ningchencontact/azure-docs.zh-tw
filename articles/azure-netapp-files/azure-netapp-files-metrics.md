@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839245"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848796"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files 的計量
 
@@ -29,27 +29,40 @@ Azure NetApp Files 提供有關已配置的儲存體、實際儲存體使用量�
 
 <!-- 
 - *Volume pool allocated size*  
-    This is the size (GiB) of the provisioned capacity pool.  
+    The size (GiB) of the provisioned capacity pool  
 --> 
 - *已使用的磁碟區集區配置*  
-    這是指定容量集區中的磁碟區配額總計 (GiB) (即容量集區中磁碟區的的佈建大小總計)。 這是您在建立磁碟區時選取的大小。  
+    指定容量集區中的磁片區配額 (GiB) 總數 (也就是容量集區中磁片區的布建大小總計)  
+    這是您在建立磁碟區時選取的大小。  
 - *磁碟區集區邏輯大小總計*  
-    這是容量集區中磁碟區之間所使用的邏輯空間 (GiB) 總計。  
+    在容量集區中的磁片區上使用的邏輯空間 (GiB) 總數  
 <!-- 
 - *Volume pool total snapshot size*  
-    This is the total of incremental logical space used by the snapshots.  
+    The total of incremental logical space used by the snapshots  
 -->
 
 ## <a name="volumes"></a>磁碟區的使用計量
 
 <!-- 
 - *Volume allocated size*   
-    This is the volume size (quota) provisioned in GiB.  
+    The volume size (quota) provisioned in GiB  
 --> 
 - *磁碟區邏輯大小*   
-    這是磁碟區中使用的邏輯空間 (GiB) 總計。 此大小包含作用中的檔案系統和快照集所使用的邏輯空間。  
+    磁片區中使用的總邏輯空間 (GiB)  
+    此大小包含作用中的檔案系統和快照集所使用的邏輯空間。  
 - *磁碟區快照集大小*   
-    這是磁碟區中快照集所使用的累加邏輯空間。  
+   磁片區中的快照集所使用的增量邏輯空間  
+
+## <a name="performance-metrics-for-volumes"></a>磁片區的效能計量
+
+- *AverageReadLatency*   
+    從磁片區讀取的平均時間 (以毫秒為單位)
+- *AverageWriteLatency*   
+    從磁片區寫入的平均時間 (以毫秒為單位)
+- *ReadIops*   
+    每秒磁片區的讀取次數
+- *WriteIops*   
+    每秒磁片區寫入的次數
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
-title: 傳送和使用 Java-Azure 事件中樞接收事件 |Microsoft Docs
-description: 本文章提供建立會將事件傳送至 Azure 事件中樞的 Java 應用程式的逐步解說。
+title: 使用 JAVA 傳送和接收事件-Azure 事件中樞 |Microsoft Docs
+description: 本文提供逐步解說, 說明如何建立 JAVA 應用程式, 以將事件傳送至 Azure 事件中樞。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,18 +10,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 0487cac6a0cf7d37befdf0d7cfab33ad6a62cf7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00107d99f69fcec086f9692a5ba31a9d9970d089
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822876"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848521"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>傳送事件，或從使用 Java 的 Azure 事件中樞接收事件
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>使用 JAVA 將事件傳送至 Azure 事件中樞或接收事件
 
 Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
 
-本教學課程會示範如何建立 Java 應用程式傳送事件至或接收來自事件中樞的事件。 
+本教學課程說明如何建立 JAVA 應用程式, 以將事件傳送至事件中樞或從中接收事件。 
 
 > [!NOTE]
 > 您可以從 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString` 和 `EventHubName` 字串，然後執行。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
@@ -32,10 +32,10 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 - 使用中的 Azure 帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 - Java 開發環境。 本教學課程使用 [Eclipse](https://www.eclipse.org/)。
-- **建立事件中樞命名空間和事件中樞**。 第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。 然後，依照文件中的指示取得事件中樞的存取金鑰的值：[取得連接字串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 您可以在您於本教學課程稍後撰寫的程式碼中，使用此存取金鑰。 預設的金鑰名稱是：**RootManageSharedAccessKey**。
+- **建立事件中樞命名空間和事件中樞**。 第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。 然後, 依照下列文章中的指示, 取得事件中樞的存取金鑰值:[取得連接字串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 您可以在您於本教學課程稍後撰寫的程式碼中，使用此存取金鑰。 預設的金鑰名稱是：**RootManageSharedAccessKey**。
 
 ## <a name="send-events"></a>傳送事件 
-本節將說明如何建立要傳送事件的事件中樞的 Java 應用程式。 
+本節說明如何建立 JAVA 應用程式, 以將事件傳送至事件中樞。 
 
 ### <a name="add-reference-to-azure-event-hubs-library"></a>加入 Azure 事件中樞程式庫的參考
 
@@ -94,7 +94,7 @@ public class SimpleSend {
                 .setSasKey("2+WMsyyy1XmUtEnRsfOmTTyGasfJgsVjGAOIN20J1Y8=");
 ```
 
-### <a name="write-code-to-send-events"></a>撰寫程式碼來傳送事件
+### <a name="write-code-to-send-events"></a>撰寫程式碼以傳送事件
 
 將字串轉換為 UTF-8 位元組編碼，藉以建立單一事件。 然後從連接字串建立新的事件中樞用戶端執行個體，並傳送訊息：   
 
@@ -176,14 +176,14 @@ eventHubClient.closeSync();
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-若要使用 EventProcessorHost，您必須具有 [Azure 儲存體帳戶] [Azure 儲存體帳戶]:
+若要使用 EventProcessorHost, 您必須擁有 [Azure 儲存體帳戶] [Azure 儲存體帳戶]:
 
-1. 登入[Azure 入口網站](https://portal.azure.com)，然後按一下 **+ 建立資源**左手邊的畫面。
-2. 按一下 [儲存體]  ，然後按一下 [儲存體帳戶]  。 在 [建立儲存體帳戶]  視窗中，輸入儲存體帳戶名稱。 完成其餘欄位，選取您想要的區域，然後按一下 [建立]  。
+1. 登入[Azure 入口網站](https://portal.azure.com), 然後選取畫面左側的 [**建立資源**]。
+2. 選取 [**儲存體**], 然後選取 [**儲存體帳戶**]。 在 [建立儲存體帳戶] 視窗中，輸入儲存體帳戶名稱。 完成其餘欄位, 選取您想要的區域, 然後選取 [**建立**]。
    
     ![建立儲存體帳戶](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. 按一下新建立的儲存體帳戶，然後按一下 [存取金鑰]  ：
+3. 選取新建立的儲存體帳戶, 然後選取 [**存取金鑰**]:
    
     ![取得存取金鑰](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -206,7 +206,7 @@ eventHubClient.closeSync();
 </dependency>
 ```
 
-針對不同類型的組建環境，您可以明確地取得最新發佈的 JAR 檔案從 [Maven 中央儲存機制] [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 ]。  
+針對不同類型的組建環境, 您可以明確地從 [Maven Central Repository] [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 ] 取得最新發行的 JAR 檔案。  
 
 1. 針對下列範例，在您最喜愛的 Java 開發環境中，先為主控台/殼層應用程式建立新的 Maven 專案。 類別稱為 `ErrorNotificationHandler`。     
    
@@ -414,7 +414,7 @@ eventHubClient.sendSync(sendEvent, partitionKey);
 
 請使用您自訂的檢查點管理程式實作 (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-在您的實作中，您可以覆寫預設檢查點機制，並實作根據您自己的資料存放區 （例如 SQL Server，CosmosDB 和適用於 Redis Azure 快取） 自行檢查點。 我們建議用來支援檢查點管理程式實作的存放區，可供正在處理取用者群組事件的所有 EPH 執行個體存取。
+在您的執行中, 您可以覆寫預設的檢查點機制, 並根據您自己的資料存放區 (例如 SQL Server、CosmosDB 和 Azure Cache for Redis) 來執行我們自己的檢查點。 我們建議用來支援檢查點管理程式實作的存放區，可供正在處理取用者群組事件的所有 EPH 執行個體存取。
 
 您可以使用環境中可用的任何資料存放區。
 

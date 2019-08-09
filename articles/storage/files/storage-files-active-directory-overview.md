@@ -1,22 +1,22 @@
 ---
-title: 針對 Azure 檔案透過 SMB 進行 Azure Active Directory 驗證 (預覽) 的概觀 - Azure 儲存體
-description: Azure 檔案支援透過 Azure Active Directory (Azure AD) Domain Services 在 SMB (伺服器訊息區) 上進行以身分識別為基礎的驗證 (預覽)。 然後，您加入網域的 Windows 虛擬機器 (VM) 可以使用 Azure AD 認證存取 Azure 檔案共用。
+title: 針對 Azure 檔案儲存體的 SMB 進行 Azure Active Directory 驗證的總覽-Azure 儲存體
+description: Azure 檔案儲存體透過 Azure Active Directory (Azure AD) 網域服務, 在 SMB (伺服器訊息區) 上支援以身分識別為基礎的驗證。 然後，您加入網域的 Windows 虛擬機器 (VM) 可以使用 Azure AD 認證存取 Azure 檔案共用。
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/18/2019
+ms.topic: article
+ms.date: 07/30/2019
 ms.author: rogarana
-ms.openlocfilehash: b1bc7385751fbd1829b4aee2713621448f8aa505
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 604cf2bbe0cf8ab036c76ee9223d1ee34fd4bd3d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699726"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854560"
 ---
-# <a name="overview-of-azure-files-azure-active-directory-domain-service-aad-ds-authentication-support-for-smb-access-preview"></a>瞭解 SMB 存取的 Azure 檔案儲存體 Azure Active Directory 網域服務 (AAD DS) 驗證支援 (預覽)
+# <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>瞭解 SMB 存取的 Azure 檔案儲存體 Azure Active Directory 網域服務 (Azure AD DS) 驗證支援
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-若要瞭解如何啟用 Azure 檔案儲存體的 AAD DS 驗證, 請參閱[針對 Azure 檔案儲存體 (預覽) 啟用透過 SMB 的 Azure Active Directory 網域服務驗證](storage-files-active-directory-enable.md)。
+若要瞭解如何啟用 Azure 檔案儲存體的 Azure AD DS 驗證, 請參閱[針對 Azure 檔案儲存體啟用透過 SMB 的 Azure Active Directory 網域服務驗證](storage-files-active-directory-enable.md)。
 
 ## <a name="glossary"></a>字彙 
 請務必瞭解一些與 SMB 上的 Azure AD 網域服務驗證有關 Azure 檔案儲存體的重要詞彙:
@@ -41,7 +41,7 @@ ms.locfileid: "68699726"
 Azure 檔案儲存體的 Azure AD 網域服務驗證提供了使用共用金鑰驗證的幾個優點:
 
 -   **使用 Azure AD 和 Azure AD 網域服務, 將傳統身分識別型檔案共用存取體驗延伸到雲端**  
-    如果您打算將應用程式「隨即轉移」到雲端, 以 Azure 檔案儲存體取代傳統的檔案伺服器, 則您可能會想要讓應用程式使用 Azure AD 認證進行驗證, 以存取檔案資料。 Azure 檔案儲存體支援使用 Azure AD 認證, 從已加入 AAD DS 網域的 Windows Vm 存取 SMB 的 Azure 檔案儲存體。 您也可以選擇將所有的內部部署 Active Directory 物件同步到 Azure AD，以保留使用者名稱、密碼及其他群組指派。
+    如果您打算將應用程式「隨即轉移」到雲端, 以 Azure 檔案儲存體取代傳統的檔案伺服器, 則您可能會想要讓應用程式使用 Azure AD 認證進行驗證, 以存取檔案資料。 Azure 檔案儲存體支援使用 Azure AD 認證, 從已加入網域的 Azure AD DS Windows Vm 存取 SMB Azure 檔案儲存體。 您也可以選擇將所有的內部部署 Active Directory 物件同步到 Azure AD，以保留使用者名稱、密碼及其他群組指派。
 
 -   **在 Azure 檔案共用上強制執行細微存取控制**  
     您可以在共用、目錄或檔案層級, 將許可權授與特定的身分識別。 例如，假設您有多個小組使用同一個 Azure 檔案共用來共同作業某個專案。 您可以授權所有小組存取非敏感目錄，同時將包含敏感財務資料之目錄的存取權僅授與財務小組。 
@@ -61,18 +61,15 @@ Azure 檔案使用 Azure AD Domain Services 來支援從加入網域的 VM 搭�
 
 啟用此功能之前, 請確認已針對與您的儲存體帳戶相關聯的主要 Azure AD 租使用者部署 Azure AD Domain Services。 如果您尚未設定 Azure AD Domain Services，請遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/create-instance.md) 中的逐步指示操作。
 
-Azure AD Domain Services 部署通常需要 10 到 15 分鐘。 在部署 Azure AD Domain Services 之後，您可以為 Azure 檔案啟用透過 SMB 進行 Azure AD 驗證的功能。 如需詳細資訊, 請參閱[針對 Azure 檔案儲存體啟用透過 SMB Azure Active Directory 網域服務驗證 (預覽)](storage-files-active-directory-enable.md)。 
+Azure AD Domain Services 部署通常需要 10 到 15 分鐘。 在部署 Azure AD Domain Services 之後，您可以為 Azure 檔案啟用透過 SMB 進行 Azure AD 驗證的功能。 如需詳細資訊, 請參閱[針對 Azure 檔案儲存體啟用透過 SMB 的 Azure Active Directory 網域服務驗證](storage-files-active-directory-enable.md)。 
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>設定 Azure 檔案共用層級權限
 一旦啟用 Azure AD 網域服務驗證之後, 您就可以設定 Azure AD 身分識別的自訂 RBAC 角色, 並將存取權限指派給儲存體帳戶中的任何檔案共用。
 
-當已加入網域的 VM 上執行的應用程式嘗試掛接 Azure 檔案共用或存取目錄或檔案時，系統會驗證應用程式的 Azure AD 認證以確認正確的共用層級權限和 NTFS 權限。 如需設定共用層級許可權的詳細資訊, 請參閱[啟用透過 SMB 的 Azure Active Directory 網域服務驗證 (預覽)](storage-files-active-directory-enable.md)。
+當已加入網域的 VM 上執行的應用程式嘗試掛接 Azure 檔案共用或存取目錄或檔案時，系統會驗證應用程式的 Azure AD 認證以確認正確的共用層級權限和 NTFS 權限。 如需設定共用層級許可權的詳細資訊, 請參閱[啟用透過 SMB 的 Azure Active Directory 網域服務驗證](storage-files-active-directory-enable.md)。
 
 ### <a name="configure-directory--or-file-level-permissions-for-azure-files"></a>設定 Azure 檔案的目錄層級或檔案層級的權限 
-Azure 檔案在目錄和檔案層級 (包括根目錄) 強制執行標準 NTFS 檔案權限。 目錄或檔案層級權限僅支援透過 SMB 進行設定。 使用 Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 或 [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) 命令從 VM 掛接目標檔案共用和設定權限。 
-
-> [!NOTE]
-> 預覽版不支援透過 Windows 檔案總管設定 NTFS 權限。
+Azure 檔案在目錄和檔案層級 (包括根目錄) 強制執行標準 NTFS 檔案權限。 目錄或檔案層級權限僅支援透過 SMB 進行設定。 從您的 VM 掛接目標檔案共用, 並使用 Windows File Explorer、Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)或[Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl)命令來設定許可權。 
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>為超級使用者權限使用儲存體帳戶金鑰 
 擁有儲存體帳戶金鑰的使用者可以使用超級使用者權限存取 Azure 檔案。 超級使用者權限大於使用 RBAC 在共用層級設定的限制以及 Azure AD 強制執行的限制。 若要掛接 Azure 檔案共用，需要超級使用者權限。 
@@ -90,5 +87,5 @@ Azure 檔案在目錄和檔案層級 (包括根目錄) 強制執行標準 NTFS �
 如需 Azure 檔案以及使用「透過 SMB 進行 Azure AD 驗證」的詳細資訊，請參閱下列資源：
 
 - [Azure 檔案服務簡介](storage-files-introduction.md)
-- [為 Azure 檔案啟用「透過 SMB 進行 Azure Active Directory 驗證」 (預覽)](storage-files-active-directory-enable.md)
+- [針對 Azure 檔案儲存體啟用透過 SMB 的 Azure Active Directory 驗證](storage-files-active-directory-enable.md)
 - [常見問題集](storage-files-faq.md)

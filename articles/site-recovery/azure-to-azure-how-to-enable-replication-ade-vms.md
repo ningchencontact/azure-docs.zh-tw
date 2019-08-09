@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840645"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847576"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>將已啟用 Azure 磁碟加密的虛擬機器複寫至另一個 Azure 區域
 
 本文說明如何將已啟用 Azure 磁碟加密的 Vm 從一個 Azure 區域複寫到另一個。
 
 >[!NOTE]
->Azure Site Recovery 目前僅支援執行 Windows OS 的 Azure Vm。
+>Azure Site Recovery 目前僅支援執行 Windows OS 的已啟用 Azure 磁碟加密 Vm。
 
 ## <a id="required-user-permissions"></a>必要的使用者權限
 Site Recovery 要求使用者必須擁有在目的地區域中建立金鑰保存庫的許可權, 並將金鑰從來源區域金鑰保存庫複製到目的地區域金鑰保存庫。

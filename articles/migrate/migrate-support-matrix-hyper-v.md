@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 105cbf173a9abe1adf0999f63740d47b3da51a29
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828345"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856295"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 評量和移轉的支援矩陣
 
@@ -27,9 +27,9 @@ ms.locfileid: "68828345"
 **部署** | **說明***
 --- | ---
 **評估內部部署 Hyper-v Vm** | [設定](tutorial-prepare-hyper-v.md)您的第一個評估。<br/><br/> [執行](scale-hyper-v-assessment.md)大規模的評量。
-**將 Hyper-V VM 遷移至 Azure** | [嘗試](tutorial-migrate-hyper-v.md)遷移至 Azure。
+**將 Hyper-V VM 遷移至 Azure** | [嘗試](tutorial-migrate-hyper-v.md)遷移至 Azure。 
 
-
+Azure Migrate 伺服器遷移不支援遷移以 System Center Virtual Machine Manager (VMM) 管理的 Hyper-v 伺服器。 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 專案
 

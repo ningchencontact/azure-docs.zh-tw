@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: jureid
-ms.openlocfilehash: 701b35d99cb98009ec0116c23eaeab94ff967f51
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d6ae863aed629f5f5b1497d5a6e0f8108f4703c8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678939"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848704"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>以程式設計方式建立 Azure 企業版訂用帳戶 (預覽)
 
@@ -69,7 +69,7 @@ Azure 會以您可以存取的所有註冊帳戶清單來回應：
 }
 ```
 
-使用 `principalName` 屬性來識別要為訂用帳戶付費的帳戶。 `name`複製該帳戶的。 例如, 如果您想要在SignUpEngineering@contoso.com註冊帳戶底下建立訂閱, 您會複製。 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` 這是註冊帳戶的物件識別碼。 將此值貼入某處, 讓您可以在下一個步驟中`enrollmentAccountObjectId`使用它做為。
+使用 `principalName` 屬性來識別要為訂用帳戶付費的帳戶。 `name`複製該帳戶的。 例如, 如果您想要在SignUpEngineering@contoso.com註冊帳戶底下建立訂閱, 您會複製。 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` 此識別碼是註冊帳戶的物件識別碼。 將此值貼入某處, 讓您可以在下一個步驟中`enrollmentAccountObjectId`使用它做為。
 
 ## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -117,7 +117,7 @@ Azure 會以您可以存取的註冊帳戶清單來回應:
 ]
 ```
 
-使用 `principalName` 屬性來識別要為訂用帳戶付費的帳戶。 `name`複製該帳戶的。 例如, 如果您想要在SignUpEngineering@contoso.com註冊帳戶底下建立訂閱, 您會複製。 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` 這是註冊帳戶的物件識別碼。 將此值貼入某處, 讓您可以在下一個步驟中`enrollmentAccountObjectId`使用它做為。
+使用 `principalName` 屬性來識別要為訂用帳戶付費的帳戶。 `name`複製該帳戶的。 例如, 如果您想要在SignUpEngineering@contoso.com註冊帳戶底下建立訂閱, 您會複製。 ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx``` 此識別碼是註冊帳戶的物件識別碼。 將此值貼入某處, 讓您可以在下一個步驟中`enrollmentAccountObjectId`使用它做為。
 
 ---
 
@@ -201,7 +201,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Azure 企業版訂用帳戶建立 API 的限制
 
 - 使用此 API 只能建立「Azure 企業版」訂用帳戶。
-- 每個註冊帳戶的訂閱限制為200。 之後, 只能透過帳戶中心建立訂閱。 如果您想要透過 API 建立更多訂閱, 請建立另一個註冊帳戶。
+- 每個註冊帳戶的訂閱限制為200。 之後, 就只能透過帳戶中心來建立帳戶的更多訂閱。 如果您想要透過 API 建立更多訂閱, 請建立另一個註冊帳戶。
 - 不是帳戶擁有者, 但已透過 RBAC 新增至註冊帳戶的使用者, 無法使用帳戶中心來建立訂閱。
 - 您無法選取要作為訂用帳戶建立位置的租用戶。 訂用帳戶一律會建立在「帳戶擁有者」的主租用戶中。 若要將訂用帳戶移至不同的租用戶，請參閱[變更訂用帳戶租用戶](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 

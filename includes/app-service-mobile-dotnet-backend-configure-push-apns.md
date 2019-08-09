@@ -4,16 +4,16 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 346f63109e673692d425ede6bdbcb6f633af80bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174665"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857341"
 ---
 **.NET 後端 (C#)** ：
   
-1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]  ，搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下 [安裝]  。 這會安裝通知中樞程式庫，以便從後端傳送通知。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 封裝]，搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下 [安裝]。 這會安裝通知中樞程式庫，以便從後端傳送通知。
 2. 在後端的 Visual Studio 專案中，開啟 **Controllers**  >  **TodoItemController.cs**。 在檔案頂端新增下列 `using` 陳述式：
 
     ```csharp
@@ -67,7 +67,7 @@ ms.locfileid: "67174665"
 
 **Node.js 後端**：
 
-1. 如果您還沒這麼做，請[下載快速入門專案](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 入口網站中的線上編輯器](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。    
+1. 設定您的後端專案。    
 
 2. 使用下列程式碼取代  todoitem.js 資料表指令碼：
 

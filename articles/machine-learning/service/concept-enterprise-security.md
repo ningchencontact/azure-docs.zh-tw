@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
-ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/07/2019
+ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780909"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856228"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的企業安全性
 
@@ -176,12 +176,24 @@ Azure Machine Learning 服務使用與工作區相關聯的 Key Vault 實例, �
 * Azure 容器存放庫實例的密碼
 * 資料存放區的連接字串。
 
-HDI HDInsight 和 VM 等計算目標的 SSH 密碼和金鑰會儲存在與 Microsoft 訂用帳戶相關聯的個別 Key Vault 中。 Azure Machine Learning 服務會儲存使用者所提供的任何密碼或金鑰, 而不會產生、授權及儲存自己的 SSH 金鑰, 以便連線至 VM/HDInsight 以執行實驗。
+HDI HDInsight 和 VM 等計算目標的 SSH 密碼和金鑰會儲存在與 Microsoft 訂用帳戶相關聯的個別 Key Vault 中。 Azure Machine Learning 服務不會儲存使用者所提供的任何密碼或金鑰, 而是會產生、授權及儲存自己的 SSH 金鑰, 以便連線至 VM/HDInsight 來執行實驗。
 每個工作區都有相關聯的系統指派受控識別 (具有與工作區相同的名稱), 可存取 Key Vault 中的所有金鑰、秘密和憑證。
 
 ## <a name="monitoring"></a>監視
 
-使用者可以查看工作區下的活動記錄, 以查看工作區上執行的各種作業, 並取得如作業名稱、所起始的事件、時間戳記等等的基本資訊。
+### <a name="metrics"></a>計量
+
+Azure 監視器計量可以用來查看和監視 Azure Machine Learning 服務工作區的計量。 從 [ [Azure 入口網站](https://portal.azure.com)] 中選取您的工作區, 然後使用 [__計量__] 連結。
+
+![顯示工作區範例計量的螢幕擷取畫面](./media/enterprise-readiness/workspace-metrics.png)
+
+計量包括有關執行、部署和註冊的資訊。
+
+如需詳細資訊, 請參閱[Azure 監視器中的計量](/azure/azure-monitor/platform/data-platform-metrics)。
+
+### <a name="activity-log"></a>活動記錄
+
+您可以查看工作區下的活動記錄, 以查看工作區上執行的各種作業, 並取得如作業名稱、所起始的事件、時間戳記等等的基本資訊。
 
 下列螢幕擷取畫面顯示工作區的活動記錄:
 

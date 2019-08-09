@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694349"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847973"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>使用 GPU 部署深度學習模型以進行推斷
 
@@ -31,9 +31,9 @@ ms.locfileid: "68694349"
 
 ## <a name="prerequisites"></a>先決條件
 
-* Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)。
+* Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
 
-* 已安裝 Azure Machine Learning SDK 的 Python 開發環境。 如需詳細資訊, 請參閱建立工作區文章的[PYTHON SDK](setup-create-workspace.md#sdk)一節。
+* 已安裝 Azure Machine Learning SDK 的 Python 開發環境。 如需詳細資訊, 請參閱[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。  
 
 * 使用 GPU 的已註冊模型。
 
@@ -48,7 +48,7 @@ ms.locfileid: "68694349"
 若要連接到現有的工作區, 請使用下列程式碼:
 
 > [!IMPORTANT]
-> 此程式碼片段需要將工作區設定儲存在目前目錄或其父系。 如需建立工作區並將設定儲存至檔案的詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)。
+> 此程式碼片段需要將工作區設定儲存在目前目錄或其父系。 如需建立工作區的詳細資訊, 請參閱[建立和管理 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。   如需將設定儲存至檔案的詳細資訊, 請參閱[建立工作區設定檔](how-to-configure-environment.md#workspace)。
 
 ```python
 from azureml.core import Workspace

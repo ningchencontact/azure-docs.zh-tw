@@ -5,16 +5,16 @@ description: 啟動 TensorBoard 以視覺化實驗執行歷程記錄, 並找出�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: f65882cb851f8e35bb1d6c319d52fcfadb36ae91
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2e4527ba167076935505b668a7879e5f1446b25e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772704"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856062"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>使用 TensorBoard 和 Azure Machine Learning 將實驗執行和計量視覺化
 
@@ -42,9 +42,9 @@ ms.locfileid: "68772704"
         * tensorboard. ipynb
 
     * 您自己的 Juptyer 筆記本伺服器
-      * 使用[建立工作區文章](setup-create-workspace.md)
           * 使用`tensorboard`額外的[安裝 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
-          * 建立工作區和其設定檔案 (config. json)
+          * [建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。  
+          * [建立工作區設定檔](how-to-configure-environment.md#workspace)。
   
 <a name="direct"></a>
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>選項 1：在 TensorBoard 中直接查看執行歷程記錄

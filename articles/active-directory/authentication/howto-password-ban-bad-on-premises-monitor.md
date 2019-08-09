@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a763f15b57bf7f23eeb52c81dd48de7f02adc5e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736828"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853562"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 密碼保護的監視和記錄
 
@@ -269,7 +269,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 如果 HeartbeatUTC 值過時，這可能是一個徵兆：該網域控制站上的 Azure AD 密碼保護 DC 代理程式並未執行或已解除安裝，或者該機器已降級且不再是網域控制站。
 
-如果 PasswordPolicyDateUTC 值過時，這可能是一個徵兆：該機器上的 Azure AD 密碼保護 DC 代理程式運作不正常。
+如果 PasswordPolicyDateUTC 值過時, 這可能是該電腦上的 Azure AD 密碼保護 DC 代理程式未正常運作的徵兆。
 
 ## <a name="dc-agent-newer-version-available"></a>DC 代理程式較新的可用版本
 

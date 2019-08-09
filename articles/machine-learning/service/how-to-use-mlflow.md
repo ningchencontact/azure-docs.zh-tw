@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 55722c35dddcbf8a20f4f51958170938225e87e5
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 2b59797e60585876764e8c9e1276e4fd36571b18
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668396"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856010"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>使用 MLflow 和 Azure Machine Learning 服務追蹤計量和部署模型 (預覽)
 
@@ -52,7 +52,9 @@ ms.locfileid: "68668396"
 ## <a name="prerequisites"></a>先決條件
 
 * [安裝 MLflow。](https://mlflow.org/docs/latest/quickstart.html)
-* [在您的本機電腦上安裝 Azure Machine Learning PYTHON SDK, 並建立 Azure Machine Learning 工作區](setup-create-workspace.md#sdk)。 SDK 會提供 MLflow 的連線能力, 以存取您的工作區。
+* 在您的本機電腦上[安裝 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) sdk 會提供 MLflow 的連線能力, 以存取您的工作區。
+* [建立 Azure Machine Learning 工作區](how-to-manage-workspace.md)。
+
 
 ## <a name="track-experiment-runs"></a>追蹤實驗執行
 
@@ -154,7 +156,7 @@ run = exp.submit(src)
 
 一旦您的叢集設定完成, 請匯入您的實驗筆記本, 開啟它, 並將您的叢集附加到其中。
 
-下列程式碼應該位於您的實驗筆記本中。 這會取得您的 Azure 訂用帳戶的詳細資料來具現化您的工作區。 這假設您有現有的資源群組和 Azure Machine Learning 工作區, 否則您可以[建立它們](setup-create-workspace.md#portal)。 
+下列程式碼應該位於您的實驗筆記本中。 這會取得您的 Azure 訂用帳戶的詳細資料來具現化您的工作區。 這假設您有現有的資源群組和 Azure Machine Learning 工作區, 否則您可以[建立它們](how-to-manage-workspace.md)。 
 
 ```python
 import mlflow

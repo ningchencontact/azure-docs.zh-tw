@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: eca421697081310b1bf245172b3ff125e11c8728
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: b3fb5d665380bc15b61d3b4b7913a992915f9afb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234178"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853848"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure Active Directory Domain Services 受控網域上部署 Azure AD 應用程式
 Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部部署應用程式，協助您支援遠端背景工作角色。 使用 Azure AD 網域服務，您現在可以提升執行內部部署的舊版應用程式並隨即轉移至 Azure 基礎結構服務。 然後，您可以使用 Azure AD 應用程式 Proxy 發佈這些應用程式，為您組織中的使用者提供安全遠端存取。
@@ -44,16 +44,13 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，以系統管理員身分登入。
 
-2. 按一下 [Azure Active Directory]  以啟動目錄概觀。 按一下 [企業應用程式]  。
+2. 按一下 [Azure Active Directory] 以啟動目錄概觀。 按一下 [企業應用程式]。
 
-    ![選取 Azure AD 目錄](./media/app-proxy/app-proxy-enable-start.png)
-3. 按一下 [應用程式 Proxy]  。 如果您沒有 Azure AD Basic 或 Azure AD Premium 訂用帳戶，您會看到一個選項可啟用試用版。 將 [啟用應用程式 Proxy？]  切換為 [啟用]  ，然後按一下 [儲存]  。
+3. 按一下 [應用程式 Proxy]。
 
-    ![啟用應用程式 Proxy](./media/app-proxy/app-proxy-enable-proxy-blade.png)
-4. 若要下載連接器，請按一下 [連接器]  按鈕。
+4. 若要下載連接器，請按一下 [連接器] 按鈕。
 
-    ![下載連接器](./media/app-proxy/app-proxy-enabled-download-connector.png)
-5. 在下載頁面上，接受授權條款和隱私權合約，並按一下 [下載]  按鈕。
+5. 在下載頁面上，接受授權條款和隱私權合約，並按一下 [下載] 按鈕。
 
     ![確認下載](./media/app-proxy/app-proxy-enabled-confirm-download.png)
 
@@ -75,7 +72,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
     ![接受安裝的條款](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. 在安裝期間，系統將提示您使用 Azure AD 目錄的應用程式 Proxy 註冊連接器。
-   * 提供您的 **Azure AD 全域管理員認證**。 您的全域管理員租用戶可能與您的 Microsoft Azure 認證不同。
+   * 提供您的**Azure AD 應用程式系統管理員認證**。 您的應用程式系統管理員租使用者可能與您的 Microsoft Azure 認證不同。
    * 用於註冊連接器的系統管理員帳戶必須屬於與您啟用應用程式 Proxy 服務的位置相同的目錄。 例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或該網域上的其他有效別名。
    * 如果 [IE 增強式安全性設定] 在您要安裝連接器的伺服器上開啟，可能會封鎖註冊畫面。 若要允許存取，請依照錯誤訊息中的指示。 請確定已停用 [Internet Explorer 增強式安全性]。
    * 如果連接器註冊不成功，請參閱 [針對應用程式 Proxy 進行疑難排解](../active-directory/manage-apps/application-proxy-troubleshoot.md)。

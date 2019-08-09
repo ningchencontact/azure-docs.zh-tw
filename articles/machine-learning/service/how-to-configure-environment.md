@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772696"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848191"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -40,7 +40,7 @@ ms.locfileid: "68772696"
 
 ## <a name="prerequisites"></a>先決條件
 
-Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)。 您只需要工作區, 就能開始使用自己的[雲端式筆記本伺服器](#notebookvm)、 [DSVM](#dsvm)、 [Azure Databricks](#aml-databricks)或[Azure Notebooks](#aznotebooks)。
+Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。 您只需要工作區, 就能開始使用自己的[雲端式筆記本伺服器](#notebookvm)、 [DSVM](#dsvm)、 [Azure Databricks](#aml-databricks)或[Azure Notebooks](#aznotebooks)。
 
 若要為您的[本機電腦](#local)安裝 SDK 環境, [Jupyter Notebook server](#jupyter)或[Visual Studio Code](#vscode)您也需要:
 
@@ -377,7 +377,7 @@ SDK for Databricks搭配自動化機器![學習服務 sdk, 並在 Databricks 上
 
 您可以透過三種方式建立組態檔：
 
-* **遵循[建立 Azure Machine Learning 服務工作區](setup-create-workspace.md#sdk)中的步驟**:*config.json* 檔案是在 Azure Notebook 程式庫中建立的。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
+* **使用[write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** : 寫入*config.xml*檔案。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
 
 * **下載檔案**:在 [Azure 入口網站](https://ms.portal.azure.com)中，從您工作區的 [概觀] 區段選取 [下載 config.json]。
 

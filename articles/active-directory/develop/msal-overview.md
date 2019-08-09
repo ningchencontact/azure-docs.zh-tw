@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/25/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be24ad78ae8f8977284deac0f3d978b35c621bcd
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 897eff7eb77ce9f2a2795bfe534cc03076e59649
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834952"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853237"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Microsoft 驗證程式庫 (MSAL) 概觀
 Microsoft 驗證程式庫 (MSAL) 可讓開發人員從 Microsoft 身分識別平台端點取得[權杖](developer-glossary.md#security-token)，以存取受保護的 Web API。 這些 Web API 可以是 Microsoft Graph、其他 Microsoft API、第三方 Web API 或您自己的 Web API。 MSAL 適用於 .NET、JavaScript、Android 和 iOS，可支援多種不同的應用程式架構和平台。

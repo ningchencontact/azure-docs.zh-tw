@@ -12,17 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: d4682ed375453cee4e5aa107d69c288e66cd11a7
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 03a9f61d8840149419eac2b4cf5f8d9f50ed6546
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867412"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848782"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>使用 Azure NetApp Files 的方案架構
 本文提供最佳做法的參考, 可協助您瞭解使用 Azure NetApp Files 的解決方案架構。  
+
+## <a name="solutions-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service 的解決方案 (AKS)
+
+[Azure NetApp Files 與 AKS 整合](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
 
 ## <a name="solutions-for-oracle-database"></a>Oracle database 的解決方案
 

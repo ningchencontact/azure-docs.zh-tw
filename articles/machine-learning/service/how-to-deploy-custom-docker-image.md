@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: f51c6bdc6cb2e381d5d5b855bf2f87b07d7fc180
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638435"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856127"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>使用自訂 Docker 映射部署模型
 
@@ -38,10 +38,10 @@ Azure Machine Learning 服務提供預設 Docker 映射, 因此您不必擔心�
 * 建立自訂映射:提供系統管理員和 DevOps 的資訊, 以建立自訂映射, 並使用 Azure CLI 和 Machine Learning CLI 設定 Azure Container Registry 的驗證。
 * 使用自訂映射:從 Python SDK 或 ML CLI 部署定型的模型時, 提供資料科學家的資訊, 以及使用自訂映射的 DevOps/MLOps。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure Machine Learning 服務 workgroup。 如需詳細資訊, 請參閱[建立工作區](setup-create-workspace.md)文章。
-* Azure Machine Learning SDK。 如需詳細資訊, 請參閱[建立工作區](setup-create-workspace.md#sdk)文章的 Python SDK 一節。
+* Azure Machine Learning 服務 workgroup。 如需詳細資訊, 請參閱[建立工作區](how-to-manage-workspace.md)文章。
+* [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 * [Azure Machine Learning 的 CLI 擴充](reference-azure-machine-learning-cli.md)功能。
 * 可在網際網路上存取的[Azure Container Registry](/azure/container-registry)或其他 Docker Registry。

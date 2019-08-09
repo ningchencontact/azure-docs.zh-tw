@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7883c32e60a09c6fdfc4146c30472cfcdb57b689
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: cedfead26bd2a82792729853a2b8d038278b75f6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835177"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853306"
 ---
 # <a name="what-is-authentication"></a>什麼是驗證？
 
@@ -50,10 +50,10 @@ Microsoft 身分識別平台可透過以服務的形式提供身分識別來簡�
 * 想要將驗證外包給 Microsoft 身分識別平台的應用程式，必須先在 Azure Active Directory (Azure AD) 中註冊。 Azure AD 會在目錄中註冊並唯一識別該應用程式。
 * 開發人員可以使用開放原始碼 Microsoft 身分識別平台驗證程式庫，為您處理通訊協定的細節，以輕鬆完成驗證。 如需詳細資訊，請參閱 Microsoft 身分識別平台的 [v2.0 驗證程式庫](reference-v2-libraries.md)和 [v1.0 驗證程式庫](active-directory-authentication-libraries.md)。
 * 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定驗證成功。 您可以找到以各種不同語言和架構提供的快速入門、教學課程和程式碼範例，它們會說明應用程式必須執行哪些作業。
-  * 若要快速建置應用程式並新增諸如取得權杖、重新整理權杖、將使用者登入、顯示部分使用者資訊等功能，請參閱文件的＜快速入門＞  一節。
-  * 若要取得適用於最常見驗證開發人員工作 (例如，取得存取權杖並使用它們呼叫 Microsoft Graph API 與其他 API、使用 OpenID Connect 搭配傳統網頁瀏覽器型應用程式實作「使用 Microsoft 登入」，以及其他工作) 的深入且以案例為基礎的程序，請參閱文件的＜教學課程＞  一節。
+  * 若要快速建置應用程式並新增諸如取得權杖、重新整理權杖、將使用者登入、顯示部分使用者資訊等功能，請參閱文件的＜快速入門＞一節。
+  * 若要取得適用於最常見驗證開發人員工作 (例如，取得存取權杖並使用它們呼叫 Microsoft Graph API 與其他 API、使用 OpenID Connect 搭配傳統網頁瀏覽器型應用程式實作「使用 Microsoft 登入」，以及其他工作) 的深入且以案例為基礎的程序，請參閱文件的＜教學課程＞一節。
   * 若要下載程式碼範例，請前往 [GitHub](https://github.com/Azure-Samples?q=active-directory) \(英文\)。
-* 驗證程序的要求和回應流程是由您所使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect、WS-同盟或 SAML 2.0。 如需通訊協定的詳細資訊，請參閱文件＜概念＞底下的＜通訊協定＞  一節。
+* 驗證程序的要求和回應流程是由您所使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect、WS-同盟或 SAML 2.0。 如需通訊協定的詳細資訊，請參閱文件＜概念＞底下的＜通訊協定＞一節。
 
 在上述範例案例中，您可以依據這兩個角色區別應用程式：
 
@@ -106,7 +106,7 @@ Microsoft 身分識別平台所簽發的安全性權杖 (存取權杖和識別�
 
 下表簡述由 Microsoft 身分識別平台發出的每一種宣告。 如需更詳細的資訊，請參閱由 Microsoft 身分識別平台發出的[存取權杖](access-tokens.md)和[識別碼權杖](id-tokens.md)。
 
-| 宣告 | 說明 |
+| 宣告 | 描述 |
 | --- | --- |
 | 應用程式識別碼 | 識別使用權杖的應用程式。 |
 | 觀眾 | 識別權杖針對的收件者資源。 |
@@ -119,15 +119,15 @@ Microsoft 身分識別平台所簽發的安全性權杖 (存取權杖和識別�
 | 發出時間 | 記錄核發權杖的時間，通常用於權杖有效期限。 |
 | 簽發者 | 識別發出權杖的 STS，以及 Azure AD 租用戶。 |
 | 姓氏 | 提供 Azure AD 中設定的使用者姓氏。 |
-| Name | 提供人類看得懂的值，用以識別權杖的主體。 |
+| 名稱 | 提供人類看得懂的值，用以識別權杖的主體。 |
 | 物件識別碼 | 包含主體在 Azure AD 中不可變的唯一識別碼。 |
 | 角色 | 包含已授與使用者的 Azure AD 應用程式角色的易記名稱。 |
-| 影響範圍 | 指出授與用戶端應用程式的權限。 |
-| 主體 | 指出權杖判斷提示相關資訊的主體。 |
+| `Scope` | 指出授與用戶端應用程式的權限。 |
+| Subject | 指出權杖判斷提示相關資訊的主體。 |
 | 租用戶識別碼 | 包含發出權杖的目錄租用戶的不變唯一識別碼。 |
 | 權杖存留期 | 定義權杖有效的時間間隔。 |
 | 使用者主體名稱 | 包含主體的使用者主體名稱。 |
-| 版本 | 包含權杖的版本號碼。 |
+| Version | 包含權杖的版本號碼。 |
 
 ## <a name="next-steps"></a>後續步驟
 

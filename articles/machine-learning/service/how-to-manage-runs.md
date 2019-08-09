@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/12/2019
-ms.openlocfilehash: a33ed7e5584e216fac07c5ad6b38d3754b9bca0f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868851"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847947"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中啟動、監視和取消定型執行
 
@@ -29,13 +29,13 @@ ms.locfileid: "67868851"
 * 建立子執行。
 * 標記和尋找執行。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 您將需要下列專案:
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-* [Azure Machine Learning 服務工作區](setup-create-workspace.md)。
+* [Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
 
 * 適用于 Python 的 Azure Machine Learning SDK (1.0.21 版或更新版本)。 若要安裝或更新為最新版本的 SDK, 請參閱[安裝或更新 sdk](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
 

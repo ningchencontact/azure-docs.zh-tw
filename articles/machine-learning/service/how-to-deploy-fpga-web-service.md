@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: cec1a74938690a4f781ea7850fdd6d649550b3eb
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 5e780c1a1d18954d0b3e9413e26f478e4ea3a8b1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494920"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856096"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務在 FPGA 上將模型部署為 Web 服務
 
@@ -63,7 +63,7 @@ Fpga 可在下列 Azure 區域中使用:
 
     如果您沒有配額, 請在上[https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)提交要求。
 
-- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 如需詳細資訊, 請參閱[建立工作區](setup-create-workspace.md)。
+- 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 如需詳細資訊, 請參閱[建立工作區](how-to-manage-workspace.md)。
  
 - 適用于硬體加速模型的 Python SDK:
 

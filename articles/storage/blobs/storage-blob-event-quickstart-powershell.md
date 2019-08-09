@@ -1,7 +1,6 @@
 ---
 title: 將 Azure Blob 儲存體事件傳送至 Web 端點 - Powershell | Microsoft Docs
 description: 使用 Azure Event Grid 以訂閱 Blob 儲存體事件。
-services: storage,event-grid
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -9,13 +8,12 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.custom: seodec18
-ms.openlocfilehash: cf1b0ba5d70ed0934418a147c09791725b5465bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143375"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847165"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>快速入門：使用 Powershell 將儲存體事件路由至 Web 端點
 
@@ -53,7 +51,7 @@ Event Grid 為 Azure 資源，必須放入 Azure 資源群組中。 資源群組
 
 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 命令來建立資源群組。
 
-下列範例會在 westus2  位置建立名為 gridResourceGroup  的資源群組。  
+下列範例會在 westus2 位置建立名為 gridResourceGroup 的資源群組。  
 
 ```powershell
 $resourceGroup = "gridResourceGroup"

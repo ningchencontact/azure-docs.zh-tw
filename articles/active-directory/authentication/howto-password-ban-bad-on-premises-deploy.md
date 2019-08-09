@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 4a745648f1b7abac7267d51cac9e1fe642ae13d8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779667"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853693"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -290,7 +290,9 @@ Azure AD 密碼保護有兩個必要的安裝程式。 您可以從[Microsoft �
 
 ## <a name="upgrading-the-proxy-agent"></a>升級 Proxy 代理程式
 
-當有較新版本的 Azure AD 密碼保護 Proxy 軟體可供使用時, 會執行`AzureADPasswordProtectionProxySetup.exe`軟體安裝程式的最新版本來完成升級。 不需要卸載目前版本的 Proxy 軟體-安裝程式會執行就地升級。 升級 Proxy 軟體時, 不需要重新開機。 軟體升級可能會使用標準 MSI 程式自動化, 例如: `AzureADPasswordProtectionProxySetup.exe /quiet`。
+當有較新版本的 Azure AD 密碼保護 Proxy 軟體可供使用時, 會執行`AzureADPasswordProtectionProxySetup.exe`軟體安裝程式的最新版本來完成升級。 您可以從[Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=57071)取得軟體的最新版本。
+
+不需要卸載目前版本的 Proxy 軟體-安裝程式會執行就地升級。 升級 Proxy 軟體時, 不需要重新開機。 軟體升級可能會使用標準 MSI 程式自動化, 例如: `AzureADPasswordProtectionProxySetup.exe /quiet`。
 
 Proxy 代理程式支援自動升級。 自動升級會使用與 Proxy 服務並存安裝的 Microsoft Azure AD Connect Agent 更新程式服務。 自動升級預設為開啟, 而且可以使用 AzureADPasswordProtectionProxyConfiguration 指令程式來啟用或停用。 您可以使用 AzureADPasswordProtectionProxyConfiguration Cmdlet 來查詢目前的設定。 Microsoft 建議您將自動升級保持在啟用狀態。
 
@@ -298,7 +300,9 @@ Proxy 代理程式支援自動升級。 自動升級會使用與 Proxy 服務並
 
 ## <a name="upgrading-the-dc-agent"></a>升級 DC 代理程式
 
-當有較新版本的 Azure AD 密碼保護 DC 代理程式軟體可供使用時, 會執行`AzureADPasswordProtectionDCAgentSetup.msi`軟體套件的最新版本來完成升級。 不需要卸載目前版本的 DC 代理程式軟體-安裝程式會執行就地升級。 升級 DC 代理程式軟體時, 一律需要重新開機-這是由核心 Windows 行為所造成。 
+當有較新版本的 Azure AD 密碼保護 DC 代理程式軟體可供使用時, 會執行`AzureADPasswordProtectionDCAgentSetup.msi`軟體套件的最新版本來完成升級。 您可以從[Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=57071)取得軟體的最新版本。
+
+不需要卸載目前版本的 DC 代理程式軟體-安裝程式會執行就地升級。 升級 DC 代理程式軟體時, 一律需要重新開機-這是由核心 Windows 行為所造成。 
 
 軟體升級可能會使用標準 MSI 程式自動化, 例如: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`。
 

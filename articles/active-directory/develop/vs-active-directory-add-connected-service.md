@@ -1,12 +1,10 @@
 ---
 title: 在 Visual Studio 中使用已連接服務加入 Azure Active Directory
 description: 使用 Visual Studio 的 [加入已連接服務] 對話方塊加入 Azure Active Directory
-services: active-directory
-ms.subservice: develop
 author: ghogen
 manager: douge
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
@@ -15,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd83b78537f526f5131a6eea585427ecefef0d1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c5988dc676abfc86e06c56ffb5c68d6f581c231e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320777"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852088"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用已連接服務加入 Azure Active Directory
 
@@ -30,7 +28,7 @@ ms.locfileid: "68320777"
 
 目前，Active Directory 連線服務不支援 ASP.NET Core 應用程式。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - Azure 帳戶：如果您沒有 Azure 帳戶，您可以[申請免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)，或是[啟用您的 Visual Studio 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)。
 - **Visual Studio 2015** 或更新版本。 [立即下載 Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
@@ -39,25 +37,25 @@ ms.locfileid: "68320777"
 
 1. 在 Visual Studio 中，建立或開啟 ASP.NET MVC 專案或 ASP.NET Web API 專案。 您可以使用 MVC、Web API、單頁應用程式、Azure API 應用程式、Azure 行動應用程式及 Azure 行動服務範本。
 
-1. 選取 [專案 > 新增已連線的服務...]  功能表命令，或按兩下在方案總管中專案底下找到的 [已連線的服務]  節點。
+1. 選取 [專案 > 新增已連線的服務...] 功能表命令，或按兩下在方案總管中專案底下找到的 [已連線的服務] 節點。
 
-1. 在 [已連接服務]  頁面上，選取 [使用 Azure Active Directory 進行驗證]  。
+1. 在 [已連接服務] 頁面上，選取 [使用 Azure Active Directory 進行驗證]。
 
     ![[已連接服務] 頁面](./media/vs-azure-active-directory/connected-services-add-active-directory.png)
 
-1. 在 [簡介]  頁面上，選取 [下一步]  。 如果您在此頁面上看到錯誤，請參閱[使用 Azure Active Directory 連線服務來診斷錯誤](vs-active-directory-error.md)。
+1. 在 [簡介] 頁面上，選取 [下一步]。 如果您在此頁面上看到錯誤，請參閱[使用 Azure Active Directory 連線服務來診斷錯誤](vs-active-directory-error.md)。
 
     ![[簡介] 頁面](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. 在 [單一登入]  頁面上，從 [網域]  下拉式清單中選取網域。 清單包含 Visual Studio [帳戶設定] 對話方塊 (**檔案 > 帳戶設定...** ) 中所列之帳戶可存取的所有網域。或者，如果您找不到所要尋找的網域 (例如 `mydomain.onmicrosoft.com`)，則可以輸入網域名稱。 您可以選擇可建立 Azure Active Directory 應用程式的選項，或是使用來自現有 Azure Active Directory 應用程式的設定。 完成時，選取 [下一步]  。
+1. 在 [單一登入] 頁面上，從 [網域] 下拉式清單中選取網域。 清單包含 Visual Studio [帳戶設定] 對話方塊 (**檔案 > 帳戶設定...** ) 中所列之帳戶可存取的所有網域。或者，如果您找不到所要尋找的網域 (例如 `mydomain.onmicrosoft.com`)，則可以輸入網域名稱。 您可以選擇可建立 Azure Active Directory 應用程式的選項，或是使用來自現有 Azure Active Directory 應用程式的設定。 完成時，選取 [下一步]。
 
     ![[單一登入] 頁面](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 
-1. 在 [目錄存取]  頁面上，選取想要的 [讀取目錄資料]  選項。 開發人員通常會包含此選項。
+1. 在 [目錄存取] 頁面上，選取想要的 [讀取目錄資料] 選項。 開發人員通常會包含此選項。
 
     ![[目錄存取] 頁面](./media/vs-azure-active-directory/configure-azure-ad-wizard-3.png)
 
-1. 選取 [完成]  開始修改專案，以啟用 Azure AD 驗證。 Visual Studio 會顯示這段期間的進度：
+1. 選取 [完成] 開始修改專案，以啟用 Azure AD 驗證。 Visual Studio 會顯示這段期間的進度：
 
     ![Active Directory 連線服務進度](./media/vs-azure-active-directory/active-directory-connected-service-output.png)
 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: ryanwi
-ms.custom: aaddev, annaba
+ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ddb4db501808a2866e3697064e6527b8bf62bb
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1f6aa209b6e99be406634e01be47c6dd9572d62a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835440"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853441"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory 中可設定的權杖存留期 (預覽)
 
@@ -204,7 +204,7 @@ Azure AD 會使用兩種 SSO 工作階段權杖︰持續性和非持續性。 �
 * 針對呼叫 Web API 的原生應用程式建立原則
 * 管理進階原則
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 在下列範例中，您建立、更新連結，並刪除應用程式、服務主體和您整體組織的原則。 如果您是 Azure AD 的新手，我們建議您先深入了解[如何取得 Azure AD 租用戶](quickstart-create-new-tenant.md)，然後再利用這些範例繼續進行。  
 
 若要開始使用，請執行下列步驟：

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828228"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848231"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -236,5 +236,5 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 若要開始使用 Azure Machine Learning 服務，請參閱：
 
 * [什麼是 Azure Machine Learning 服務？](overview-what-is-azure-ml.md)
-* [建立 Azure Machine Learning 服務工作區](setup-create-workspace.md)
+* [建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)
 * [教學課程 (第 1 部分)：將模型定型](tutorial-train-models-with-aml.md)

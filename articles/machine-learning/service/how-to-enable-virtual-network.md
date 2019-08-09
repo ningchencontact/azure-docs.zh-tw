@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 7c4c4ff611b35cac9aa8be1a9697a0d11bc4dc8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9bd56984f088ab16fc5d80c588afce2cdc31240b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815956"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848105"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>在 Azure 虛擬網路內安全地執行實驗和推斷
 
@@ -25,9 +25,9 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 
 本文提供有關「高級」**安全性設定**的詳細資訊, 並不是基本或實驗性使用案例的必要專案。 本文中的各節提供不同案例的設定資訊, 但不需要依序或完整完成。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-如果您還沒有 Azure Machine Learning 服務[工作區](setup-create-workspace.md), 請建立一個。 本檔假設您已熟悉 Azure 虛擬網路以及一般的 IP 網路功能。 本檔也假設您已建立要與計算資源搭配使用的虛擬網路和子網。 如果您不熟悉 Azure 虛擬網路, 請閱讀下列文章以瞭解服務:
+如果您還沒有 Azure Machine Learning 服務[工作區](how-to-manage-workspace.md), 請建立一個。 本檔假設您已熟悉 Azure 虛擬網路以及一般的 IP 網路功能。 本檔也假設您已建立要與計算資源搭配使用的虛擬網路和子網。 如果您不熟悉 Azure 虛擬網路, 請閱讀下列文章以瞭解服務:
 
 * [IP 定址](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 * [安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview)
@@ -36,7 +36,7 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 
 ## <a name="storage-account-for-your-workspace"></a>您工作區的儲存體帳戶
 
-若要在虛擬網路中使用工作區的預設 Azure 儲存體帳戶, 請使用下列步驟:
+若要在虛擬網路中使用工作區的 Azure 儲存體帳戶, 請使用下列步驟:
 
 1. 建立實驗計算, 例如 Machine Learning Compute 虛擬網路背後, 或將實驗計算附加至工作區, 例如 HDInsight 叢集或虛擬機器。 如需詳細資訊, 請參閱本檔中的[使用 Machine Learning Compute](#use-machine-learning-compute)和[使用虛擬機器或 HDInsight](#use-a-virtual-machine-or-hdinsight-cluster)叢集章節
 2. 移至附加至工作區的儲存體。 ![顯示附加至 Azure Machine Learning 服務工作區 Azure 儲存體的 Azure 入口網站影像](./media/how-to-enable-virtual-network/workspace-storage.png)
@@ -55,7 +55,9 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 > [!IMPORTANT]
 > __只有在進行實驗時__, 您 Azure Machine Learning 服務的__預設儲存體帳戶__才可以放在虛擬網路中。
 >
-> 針對__實驗的非預設儲存體帳戶__, 或如果您使用儲存體帳戶進行__推斷__, 您必須具有__儲存體帳戶的不受限制存取權__。
+> __非預設儲存體帳戶__也可以放在虛擬網路中, 但__僅適用于實驗__。
+>
+> 用於__推斷__的預設或非預設儲存體帳戶, 必須對__儲存體帳戶具有不受限制的存取權__。
 >
 > 如果您不確定是否修改了這些設定，請參閱[設定 Azure 儲存體防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security)中的__預設網路存取規則__。 使用步驟, 允許在推斷或模型評分期間從所有網路存取。
 

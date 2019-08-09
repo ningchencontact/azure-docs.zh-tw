@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: da8e82652b5406cb4e5fe6438f721e3394a4cd96
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699773"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854598"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務
 
@@ -55,10 +55,11 @@ API | 使用時機 | 注意
 您可以在任何類型的 .NET 應用程式中使用 Azure 儲存體用戶端程式庫, 包括 Azure 雲端服務或 web 應用程式, 以及桌面和行動應用程式。 在本指南中，為求簡化，我們會使用主控台應用程式。
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 來安裝必要的封裝
-您必須在您的專案中參考下列兩個套件，才能完成本教學課程︰
+您需要在專案中參考的套件, 才能完成本教學課程:
 
 * [適用于 .net 的 Microsoft Azure 儲存體通用程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/):此套件可讓您以程式設計方式存取儲存體帳戶中的一般資源。
 * [適用于 .net 的 Microsoft Azure 儲存體 Blob 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/):此套件可讓您以程式設計方式存取儲存體帳戶中的 Blob 資源。
+* [適用于 .net 的 Microsoft Azure 儲存體](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)檔案程式庫:此套件可讓您以程式設計方式存取儲存體帳戶中的檔案資源。
 * [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)：此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
 
 您可以使用 NuGet 來取得這兩個封裝。 請遵循下列步驟：

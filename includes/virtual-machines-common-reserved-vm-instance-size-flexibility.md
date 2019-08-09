@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 05820cc5f7b7d61d83f73ea5b62b05f8712e0997
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 790fb39c3d8964c053ffe1d7ee04418fcbc0913c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173945"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857333"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>利用保留 VM 執行個體獲得虛擬機器大小彈性
 
@@ -38,7 +38,7 @@ ms.locfileid: "67173945"
 
 ## <a name="b-series"></a>B 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_B1s | 1 |
 |Standard_B2s|4|
@@ -47,7 +47,7 @@ ms.locfileid: "67173945"
 
 ## <a name="b-series-high-memory"></a>B 系列高記憶體
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_B1ms |1|
 |Standard_B2ms|4|
@@ -58,29 +58,29 @@ ms.locfileid: "67173945"
 
 ## <a name="d-series"></a>D 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
-| 標準_D1|1|
-|標準_D2|2|
+| Standard_D1|1|
+|Standard_D2|2|
 |Standard_D3|4|
-|標準_D4|8|
+|Standard_D4|8|
 
 如需詳細資訊，請參閱[前幾代的虛擬機器大小](../articles/virtual-machines/windows/sizes-previous-gen.md)。
 
 ## <a name="d-series-high-memory"></a>D 系列高記憶體
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
-| 標準_D11|1|
-|標準_D12|2|
-|標準_D13|4|
-|標準_D14|8|
+| Standard_D11|1|
+|Standard_D12|2|
+|Standard_D13|4|
+|Standard_D14|8|
 
 如需詳細資訊，請參閱[前幾代的虛擬機器大小](../articles/virtual-machines/windows/sizes-previous-gen.md)。
 
 ## <a name="ds-series"></a>Ds 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_DS1|1|
 |Standard_DS2|2|
@@ -91,7 +91,7 @@ ms.locfileid: "67173945"
 
 ## <a name="ds-series-high-memory"></a>Ds 系列高記憶體
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_DS11|1|
 |Standard_DS12|2|
@@ -102,7 +102,7 @@ ms.locfileid: "67173945"
 
 ## <a name="dsv2-series"></a>DSv2 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_DS1_v2|1|
 |Standard_DS2_v2|2|
@@ -114,7 +114,7 @@ ms.locfileid: "67173945"
 
 ## <a name="dsv2-series-high-memory"></a>DSv2 系列高記憶體
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_DS11_v2|1|
 |Standard_DS11-1_v2|1|
@@ -131,9 +131,17 @@ ms.locfileid: "67173945"
 
 如需詳細資訊，請參閱[前幾代的虛擬機器大小](../articles/virtual-machines/windows/sizes-previous-gen.md)。
 
+## <a name="dsv2-high-memory-isolated-series"></a>DSv2 高記憶體隔離系列
+
+| Size | 比例|
+|---|---|
+|Standard_DS15i_v2|1|
+
+如需詳細資訊，請參閱[前幾代的虛擬機器大小](../articles/virtual-machines/windows/sizes-previous-gen.md)。
+
 ## <a name="dsv3-series"></a>DSv3 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_D2s_v3|1|
 |Standard_D4s_v3|2|
@@ -146,7 +154,7 @@ ms.locfileid: "67173945"
 
 ## <a name="dv2-series"></a>Dv2 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_D1_v2|1|
 |Standard_D2_v2|2|
@@ -158,7 +166,7 @@ ms.locfileid: "67173945"
 
 ## <a name="dv2-series-high-memory"></a>Dv2 系列高記憶體
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_D11_v2|1|
 |Standard_D12_v2|2|
@@ -168,9 +176,18 @@ ms.locfileid: "67173945"
 
 如需詳細資訊，請參閱[前幾代的虛擬機器大小](../articles/virtual-machines/windows/sizes-previous-gen.md)。
 
+## <a name="dv2--high-memory-isolated-series"></a>Dv2 高記憶體隔離系列
+
+| Size | 比例|
+|---|---|
+|Standard_D15i_v2|1|
+
+如需詳細資訊，請參閱[前幾代的虛擬機器大小](../articles/virtual-machines/windows/sizes-previous-gen.md)。
+
+
 ## <a name="dv3-series"></a>Dv3 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_D2_v3|1|
 |Standard_D4_v3|2|
@@ -183,7 +200,7 @@ ms.locfileid: "67173945"
 
 ## <a name="esv3-series"></a>ESv3 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_E2s_v3|1|
 |Standard_E4s_v3|2|
@@ -204,11 +221,17 @@ ms.locfileid: "67173945"
 
 如需詳細資訊，請參閱[記憶體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)。
 
+## <a name="esv3-series-isolated-series"></a>ESv3 系列獨立模式-系列
+
+| Size | 比例|
+|---|---|
+|Standard_E64is_v3|1|
+
 ## <a name="ev3-series"></a>Ev3 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
-| Standard_E2_v3|1|
+|Standard_E2_v3|1|
 |Standard_E4_v3|2|
 |Standard_E8_v3|4|
 |Standard_E16_v3|8|
@@ -218,9 +241,17 @@ ms.locfileid: "67173945"
 
 如需詳細資訊，請參閱[記憶體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)。
 
+## <a name="ev3-series-isolated-series"></a>Ev3 系列獨立模式-系列
+
+| Size | 比例|
+|---|---|
+|Standard_E64i_v3|1|
+
+如需詳細資訊，請參閱[記憶體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)。
+
 ## <a name="f-series"></a>F 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_F1|1|
 |Standard_F2|2|
@@ -232,7 +263,7 @@ Standard_F16|16|
 
 ## <a name="fs-series"></a>FS 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_F1s|1|
 |Standard_F2s|2|
@@ -244,7 +275,7 @@ Standard_F16|16|
 
 ## <a name="fsv2-series"></a>Fsv2 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_F2s_v2|1|
 |Standard_F4s_v2|2|
@@ -258,7 +289,7 @@ Standard_F16|16|
 
 ## <a name="h-series"></a>H 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_H8|1|
 |Standard_H16|2|
@@ -267,27 +298,80 @@ Standard_F16|16|
 
 ## <a name="h-series-high-memory"></a>H 系列高記憶體
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_H8m|1|
 |Standard_H16m|2|
 
 如需詳細資訊，請參閱[高效能運算 VM 大小](../articles/virtual-machines/windows/sizes-hpc.md)。
 
-## <a name="ls-series"></a>Ls 系列
 
-| 大小 | 比例|
+## <a name="hcs-series"></a>HCS 系列
+
+| Size | 比例|
 |---|---|
-| Standard_L4s|1|
-|Standard_L8s|2|
-|Standard_L16s|4|
-|Standard_L32s|8|
+|Standard_HC44rs|1|
+
+如需詳細資訊，請參閱[高效能運算 VM 大小](../articles/virtual-machines/windows/sizes-hpc.md)。
+
+## <a name="hbs-series"></a>HBS 系列
+
+| Size | 比例|
+|---|---|
+|Standard_HB60rs|1|
+
+如需詳細資訊，請參閱[高效能運算 VM 大小](../articles/virtual-machines/windows/sizes-hpc.md)。
+
+## <a name="hbs-series"></a>HBS 系列
+
+| Size | 比例|
+|---|---|
+|Standard_HB60rs|1|
+
+如需詳細資訊，請參閱[高效能運算 VM 大小](../articles/virtual-machines/windows/sizes-hpc.md)。
+
+## <a name="h-series-low-latency-series"></a>H 系列低延遲系列
+
+| Size | 比例|
+|---|---|
+|Standard_H16r|1|
 
 如需詳細資訊，請參閱[儲存體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-storage.md)。
 
+## <a name="h-series-high-memory-low-latency-series"></a>H 系列高記憶體低延遲-系列
+
+| Size | 比例|
+|---|---|
+|Standard_H16mr|1|
+
+如需詳細資訊，請參閱[儲存體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-storage.md)。
+
+## <a name="h-series"></a>H 系列
+
+| Size | 比例|
+|---|---|
+|Standard_H8|1|
+|Standard_H16|2|
+
+如需詳細資訊，請參閱[儲存體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-storage.md)。
+
+## <a name="lsv2-series-series"></a>LSv2 系列系列
+
+| Size | 比例|
+|---|---|
+|Standard_L8s_v2|1|
+|Standard_L16s_v2|2|
+|Standard_L32s_v2|4|
+|Standard_L48s_v2|6|
+|Standard_L64s_v2|8|
+|Standard_L80s_v2|10|
+|Standard_L96s_v2|12|
+
+如需詳細資訊，請參閱[儲存體最佳化的虛擬機器大小](../articles/virtual-machines/windows//sizes-storage.md#lsv2-series)。
+
 ## <a name="m-series"></a>M 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_M64s|1|
 |Standard_M128s|2|
@@ -296,7 +380,7 @@ Standard_F16|16|
 
 ## <a name="m-series-fractional"></a>M 系列小數
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_M16s|1|
 |Standard_M32s|2|
@@ -305,7 +389,7 @@ Standard_F16|16|
 
 ## <a name="m-series-fractional-high-memory"></a>M 系列小數高記憶體
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 |Standard_M8ms|1|
 |Standard_M8-2ms|1|
@@ -321,18 +405,18 @@ Standard_F16|16|
 
 ## <a name="m-series-fractional-large"></a>M 系列小數大型
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
-| Standard_M32ls|1|
+|Standard_M32ls|1|
 |Standard_M64ls|2|
 
 如需詳細資訊，請參閱[記憶體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-memory.md#m-series)。
 
 ## <a name="m-series-high-memory"></a>M 系列高記憶體
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
-| Standard_M64ms|1|
+|Standard_M64ms|1|
 |Standard_M64-16ms|1|
 |Standard_M64-32ms|1|
 |Standard_M128ms|2|
@@ -341,11 +425,37 @@ Standard_F16|16|
 
 如需詳細資訊，請參閱[記憶體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-memory.md#m-series)。
 
+## <a name="ms-series-fractional-tiny"></a>MS 系列部分式微小型
+
+| Size | 比例|
+|---|---|
+|Standard_M32ls|1|
+
+如需詳細資訊，請參閱[記憶體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-memory.md#m-series)。
+
+## <a name="msv2-series-high-memory-series"></a>MSv2 系列高記憶體系列
+
+| Size | 比例|
+|---|---|
+|Standard_M208ms_v2|1|
+|Standard_M416ms_v2|2|
+
+如需詳細資訊，請參閱[記憶體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-memory.md#m-series)。
+
+## <a name="msv2-series"></a>MSv2 系列
+
+| Size | 比例|
+|---|---|
+|Standard_M208s_v2|1|
+|Standard_M416s_v2|2|
+
+如需詳細資訊，請參閱[記憶體最佳化的虛擬機器大小](../articles/virtual-machines/windows/sizes-memory.md#m-series)。
+
 ## <a name="nc-series"></a>NC 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
-| Standard_NC6|1|
+|Standard_NC6|1|
 |Standard_NC12|2|
 |Standard_NC24|4|
 
@@ -353,7 +463,7 @@ Standard_F16|16|
 
 ## <a name="ncv2-series"></a>NCv2 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_NC6s_v2|1|
 |Standard_NC12s_v2|2|
@@ -363,7 +473,7 @@ Standard_F16|16|
 
 ## <a name="ncv3-series"></a>NCv3 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_NC6s_v3|1|
 |Standard_NC12s_v3|2|
@@ -373,7 +483,7 @@ Standard_F16|16|
 
 ## <a name="nd-series"></a>ND 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_ND6s|1|
 |Standard_ND12s|2|
@@ -383,12 +493,51 @@ Standard_F16|16|
 
 ## <a name="nv-series"></a>NV 系列
 
-| 大小 | 比例|
+| Size | 比例|
 |---|---|
 | Standard_NV6|1|
 |Standard_NV12|2|
 |Standard_NV24|4|
 
-如需詳細資訊，請參閱 [GPU 最佳化的虛擬機器大小](../articles/virtual-machines/windows//sizes-gpu.md#nv-series)。
+## <a name="nvsv3-series"></a>NVSv3 系列
+
+| Size | 比例|
+|---|---|
+|Standard_NV12s_v3|1|
+|Standard_NV24s_v3|2|
+|Standard_NV48s_v3|4|
+
+## <a name="nds-series-low-latency-series"></a>NDS 系列低延遲系列
+
+| Size | 比例|
+|---|---|
+|Standard_ND24rs|1|
+
+## <a name="ncsv3-series-low-latency-series"></a>NCSv3 系列低延遲系列
+
+| Size | 比例|
+|---|---|
+|Standard_NC24rs_v3|1|
+
+如需詳細資訊，請參閱 [GPU 最佳化的虛擬機器大小](../articles/virtual-machines/windows//sizes-gpu.md#ncv3-series)。
+
+## <a name="ncsv2-series-low-latency-series"></a>NCSv2 系列低延遲系列
+
+| Size | 比例|
+|---|---|
+|Standard_NC24rs_v2|1|
+
+如需詳細資訊，請參閱 [GPU 最佳化的虛擬機器大小](../articles/virtual-machines/windows//sizes-gpu.md#ncv2-series)。
+
+## <a name="nc-series-low-latency-series"></a>NC 系列低延遲系列
+
+| Size | 比例|
+|---|---|
+|Standard_NC24r|1|
+
+如需詳細資訊，請參閱 [GPU 最佳化的虛擬機器大小](../articles/virtual-machines/windows//sizes-gpu.md#ncv2-series)。
+
+
+
 
 

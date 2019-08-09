@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 0721542811709e9b938fea3f31bc2a0a28ecdc74
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: b23d54cb74bea7eaaea5f55bd491bed40381ee2b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358767"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848174"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>重新產生儲存體帳戶存取金鑰
 
@@ -23,9 +23,9 @@ ms.locfileid: "68358767"
 
 基於安全考慮, 您可能需要變更 Azure 儲存體帳戶的存取金鑰。 當您重新產生存取金鑰時, 必須將 Azure Machine Learning 更新為使用新的金鑰。 Azure Machine Learning 可能會同時針對模型儲存體和資料存放區使用儲存體帳戶。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-* Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立工作區](setup-create-workspace.md)文章。
+* Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立工作區](how-to-manage-workspace.md)文章。
 
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
 

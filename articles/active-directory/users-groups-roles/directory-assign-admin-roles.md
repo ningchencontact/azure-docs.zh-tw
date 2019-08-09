@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a4d692110a304cbfbbfda69bb2b10e3a065b2450
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812824"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851532"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -200,9 +200,7 @@ ms.locfileid: "68812824"
   > [!NOTE]
   > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「Power BI 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com)中則是「Power BI 管理員」。
 
-* 特殊 **[許可權驗證管理員](#privileged-authentication-administrator)** :具有此角色的使用者可以為所有使用者設定或重設非密碼認證, 包括全域管理員, 而且可以更新所有使用者的密碼。 特殊許可權驗證系統管理員可以強制使用者針對現有的非密碼認證 (例如 MFA、FIDO) 重新註冊, 並撤銷「在裝置上記住 MFA」, 在下次登入所有使用者時提示 MFA。 特殊許可權驗證系統管理員可以:
-  * 強制使用者重新註冊現有的非密碼認證 (例如 MFA、FIDO)
-  * 撤銷「記住裝置上的 MFA」, 在下次登入時提示 MFA
+* 特殊 **[許可權驗證管理員](#privileged-authentication-administrator)** :具有此角色的使用者可以為所有使用者設定或重設非密碼認證, 包括全域管理員, 而且可以更新所有使用者的密碼。 特殊許可權驗證系統管理員可以強制使用者針對現有的非密碼認證 (例如 MFA、FIDO) 重新註冊, 並撤銷「在裝置上記住 MFA」, 在下次登入所有使用者時提示 MFA。
 
 * **[特殊權限角色管理員](#privileged-role-administrator)** ：具備此角色的使用者可以管理 Azure Active Directory 中，以及 Azure AD Privileged Identity Management 內的角色指派。 此外, 此角色可讓您管理 Privileged Identity Management 和管理單位的所有層面。
 
@@ -344,7 +342,7 @@ ms.locfileid: "68812824"
 ### <a name="application-developer"></a>應用程式開發人員
 可建立與 [使用者可註冊應用程式] 設定不相關的應用程式註冊。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | 在 Azure Active Directory 中建立應用程式。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
 | microsoft.aad.directory/appRoleAssignments/createAsOwner | 在 Azure Active Directory 中建立 appRoleAssignments。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
@@ -384,7 +382,7 @@ ms.locfileid: "68812824"
 ### <a name="b2c-user-flow-administrator"></a>B2C 使用者流程管理員
 建立和管理使用者流程的所有層面。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft. aad. b2c/userFlows/allTasks | 在 Azure Active Directory B2C 中讀取和設定使用者流程。 |
 
@@ -398,7 +396,7 @@ ms.locfileid: "68812824"
 ### <a name="b2c-ief-keyset-administrator"></a>B2C IEF 索引鍵集管理員
 在 Identity Experience Framework 中管理同盟和加密的秘密。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.b2c/trustFramework/keySets/allTasks | 在 Azure Active Directory B2C 中讀取和設定金鑰集。 |
 
@@ -417,7 +415,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | 更新 Azure Active Directory 中組織的基本屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
@@ -614,7 +612,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -644,7 +642,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立及管理 Azure 支援票證。 |
@@ -664,7 +662,7 @@ ms.locfileid: "68812824"
 ### <a name="directory-readers"></a>目錄讀取者
 可讀取基本目錄資訊。 用來授與應用程式的存取權，不適用於使用者。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/administrativeUnits/basic/read | 讀取 Azure Active Directory 中 administrativeUnits 的基本屬性。 |
 | microsoft.aad.directory/administrativeUnits/members/read | 讀取 Azure Active Directory 中的 administrativeUnits.members 屬性。 |
@@ -751,7 +749,7 @@ ms.locfileid: "68812824"
 ### <a name="directory-writers"></a>目錄寫入人員
 可讀取和寫入基本目錄資訊。 用來授與應用程式的存取權，不適用於使用者。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/groups/create | 在 Azure Active Directory 中建立 groups。 |
 | microsoft.aad.directory/groups/createAsOwner | 在 Azure Active Directory 中建立群組。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
@@ -819,7 +817,7 @@ ms.locfileid: "68812824"
 ### <a name="helpdesk-administrator"></a>技術服務管理員
 能夠為非系統管理員與技術服務人員系統管理員重設密碼。
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
@@ -875,7 +873,7 @@ ms.locfileid: "68812824"
   >
   >  
   
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康狀態。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
@@ -900,7 +898,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立及管理 Azure 支援票證。 |
@@ -1005,7 +1003,7 @@ ms.locfileid: "68812824"
 ### <a name="password-administrator"></a>密碼管理員
 可以重設非系統管理員和密碼管理員的密碼。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/users/password/update | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1018,7 +1016,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
@@ -1030,7 +1028,7 @@ ms.locfileid: "68812824"
 ### <a name="privileged-authentication-administrator"></a>特殊許可權驗證管理員
 可檢視、設定及重設所有使用者 (管理員或非管理員) 的驗證方法資訊。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
 | microsoft.aad.directory/users/strongAuthentication/update | 更新 MFA 認證資訊等增強式驗證屬性。 |
@@ -1048,7 +1046,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | 建立及刪除所有資源，以及讀取和更新 microsoft.aad.privilegedIdentityManagement 中的標準屬性。 |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | 讀取和設定 Azure Active Directory 中的 Serviceprincipals.approleassignedto 屬性。 |
@@ -1140,7 +1138,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | 讀取和設定 Microsoft Cloud App Security。 |
 | microsoft.aad.identityProtection/allEntities/read | 讀取 microsoft.aad.identityProtection 中的所有資源。 |
@@ -1159,7 +1157,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
@@ -1195,7 +1193,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
 | microsoft.aad.directory/groups/unified/basic/update | 更新 Office 365 群組的基本屬性。 |
@@ -1235,7 +1233,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **描述** |
+| **動作** | **說明** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康狀態。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1263,7 +1261,7 @@ ms.locfileid: "68812824"
   >
   >
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
 | microsoft.aad.directory/groups/unified/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
@@ -1282,7 +1280,7 @@ ms.locfileid: "68812824"
 ### <a name="user-administrator"></a>使用者管理員
 能夠管理使用者與群組的所有層面，包含為受限制的管理員重設密碼。
 
-| **動作** | **說明** |
+| **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.directory/appRoleAssignments/create | 在 Azure Active Directory 中建立 appRoleAssignments。 |
 | microsoft.aad.directory/appRoleAssignments/delete | 刪除 Azure Active Directory 中的 appRoleAssignments。 |
