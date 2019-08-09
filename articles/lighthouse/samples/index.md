@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.topic: sample
 ms.date: 07/11/2019
 ms.author: jenhayes
-ms.openlocfilehash: c0266bd3c88dccc8b0413e617bb4a5fcadbf3720
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: b363fcdb752522db07642e625837e03429244f47
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67971356"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884299"
 ---
 # <a name="azure-lighthouse-samples"></a>Azure Lighthouse 範例
 
@@ -27,7 +27,7 @@ ms.locfileid: "67971356"
 | [deploy-azure-mgmt-services](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-mgmt-services) | 建立 Azure 管理服務、將其連結在一起並部署其他解決方案。 |
 | [deploy-azure-security-center](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/deploy-azure-security-center) | 在目標 Azure 訂用帳戶中啟用和設定 Azure 資訊安全中心。 |
 | [marketplace-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management) | 在 Azure 委派的資源管理中，根據發佈至市集的受控服務供應項目讓客戶的訂用帳戶上線。 |
-| [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management) | 讓一或多個客戶的資源群組在 Azure 委派的資源管理中上線。 |
+| [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) | 讓一或多個客戶的資源群組在 Azure 委派的資源管理中上線。 |
 
 ## <a name="next-steps"></a>後續步驟
 

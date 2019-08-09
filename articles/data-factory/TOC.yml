@@ -166,6 +166,8 @@
       items:
         - name: 以視覺化方式撰寫的資料處理站
           href: author-visually.md
+        - name: 原始檔控制
+          href: source-control.md
         - name: 持續整合和傳遞
           href: continuous-integration-deployment.md
         - name: 反覆式開發法與偵錯

@@ -11,7 +11,7 @@ ms.author: abnarain
 ms.reviewer: craigg
 ms.openlocfilehash: c76242c176ba4f4c9ffc0d6934f6b645743d77f4
 ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 07/16/2019
 ms.locfileid: "68234572"
@@ -26,12 +26,12 @@ ms.locfileid: "68234572"
 | -------------- | ----------------------------------------------------- | --------------------------------------------------------------| :----------------------------------------------------------- |
 | 3200           | 錯誤403。                                                    | Databricks 存取權杖已過期。                         | 根據預設, Databricks 存取權杖的有效時間為90天。  建立新的權杖, 並更新連結的服務。 |
 | 3201           | 遺漏必要欄位: settings. notebook_task. notebook_path | 錯誤的撰寫:未正確指定筆記本路徑。 | 在 Databricks 活動中指定筆記本路徑。 |
-| 3201           | 叢集 .。。不存在。                                 | 撰寫錯誤:Databricks 叢集不存在或已被刪除。 | 確認 Databricks 叢集存在。 |
-| 3201           | Python 檔案 URI 無效 ...。請造訪 Databricks 使用者指南以取得支援的 URI 配置。 | 錯誤的撰寫。                                                | 針對工作區定址配置或`dbfs:/folder/subfolder/foo.py`儲存在 Databricks 檔案系統中的檔案, 指定絕對路徑。 |
+| 3201           | 叢集   ... 不存在。                                 | 撰寫錯誤:Databricks 叢集不存在或已被刪除。 | 確認 Databricks 叢集存在。 |
+| 3201           | Python 檔案 URI 無效 ...請造訪 Databricks 使用者指南以取得支援的 URI 配置。 | 錯誤的撰寫。                                                | 針對工作區定址配置或`dbfs:/folder/subfolder/foo.py`儲存在 Databricks 檔案系統中的檔案, 指定絕對路徑。 |
 | 3201           | {0}LinkedService 應具有 domain 和 accessToken 做為必要屬性。 | 錯誤的撰寫。                                                | 確認已[連結的服務定義](compute-linked-services.md#azure-databricks-linked-service)。 |
 | 3201           | {0}LinkedService 應該指定現有的叢集識別碼或新的叢集資訊來建立。 | 錯誤的撰寫。                                                | 確認已[連結的服務定義](compute-linked-services.md#azure-databricks-linked-service)。 |
 | 3201           | 不支援節點類型 Standard_D16S_v3。 支援的節點類型: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2,Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s,Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2. | 錯誤的撰寫。                                                | 請參閱錯誤訊息。                                          |
-| 3201           | 不正確 notebook_path: .。。目前僅支援絕對路徑。 路徑必須以 '/' 開頭。 | 錯誤的撰寫。                                                | 請參閱錯誤訊息。                                          |
+| 3201           | 不正確 notebook_path: ...目前僅支援絕對路徑。 路徑必須以 '/' 開頭。 | 錯誤的撰寫。                                                | 請參閱錯誤訊息。                                          |
 | 3202           | 過去3600秒內已建立1000個工作, 超過速率限制: 1000每3600秒的作業建立。 | 一小時內執行太多 Databricks。                         | 檢查使用此 Databricks 工作區的所有管線, 以取得其作業建立速率。  如果管線啟動太多 Databricks 在匯總中執行, 請將一些管線遷移至新的工作區。 |
 | 3202           | 無法剖析要求物件:必須為 JSON 對應欄位 base_parameters 設定「金鑰」和「值」, 但取得 ' key: "..." ' 只. | 撰寫錯誤:未提供參數的值。         | 檢查管線 JSON, 並確保 baseParameters 筆記本中的所有參數都指定非空白值。 |
 | 3202           | 使用者: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}`未獲授權, 無法存取叢集。 | 產生存取權杖的使用者不允許存取連結服務中指定的 Databricks 叢集。 | 請確定使用者具有工作區中的必要許可權。   |
@@ -76,9 +76,9 @@ ms.locfileid: "68234572"
 | 2502         | 無法存取使用者儲存體帳戶;請檢查儲存體帳戶設定。 | 儲存體帳戶名稱或存取金鑰不正確。       | 驗證連結服務中的儲存體帳戶名稱和存取金鑰。 |
 | 2504         | 作業傳回不正確狀態碼 ' BadRequest '。     | 自訂活動的 folderPath 中有太多檔案。 ResourceFiles 的總大小不能超過32768個字元。 | 移除不必要的檔案。 或將其壓縮, 並新增解壓縮命令以將其解壓縮。 例如, 使用`powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;  $folder\yourProgram.exe` |
 | 2505         | 除非使用帳戶金鑰認證, 否則無法建立共用存取簽章。 | 自訂活動僅支援使用存取金鑰的儲存體帳戶。 | 請參閱錯誤描述。                                            |
-| 2507         | 資料夾路徑不存在或是空的: ...。            | 位於指定路徑的儲存體帳戶中沒有任何檔案。       | 資料夾路徑必須包含您想要執行的可執行檔。 |
+| 2507         | 資料夾路徑不存在或是空的: ...            | 位於指定路徑的儲存體帳戶中沒有任何檔案。       | 資料夾路徑必須包含您想要執行的可執行檔。 |
 | 2508         | 資源資料夾中有重複的檔案。               | 相同名稱的多個檔案位於 folderPath 的不同子資料夾中。 | 自訂活動會在 folderPath 下壓平合併資料夾結構。  如果您需要保留資料夾結構, 請壓縮檔案, 並使用解壓縮命令在 Azure Batch 中將檔案解壓縮。 例如, 使用`powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;   $folder\yourProgram.exe` |
-| 2509         | Batch url .。。無效;它必須是 Uri 格式。         | 批次 Url 必須類似于`https://mybatchaccount.eastus.batch.azure.com` | 請參閱錯誤描述。                                            |
+| 2509         | Batch url ... 無效;它必須是 Uri 格式。         | 批次 Url 必須類似于`https://mybatchaccount.eastus.batch.azure.com` | 請參閱錯誤描述。                                            |
 | 2510         | 傳送要求時發生錯誤。               | 批次 URL 無效。                                         | 確認批次 URL。                                            |
 
 ## <a name="hdinsight"></a>HDInsight
@@ -91,7 +91,7 @@ ms.locfileid: "68234572"
 | 2300         | Hadoop 作業提交失敗。 作業: ...、Cluster: .../。 Error:工作已取消。 | 提交的作業超時。                         | 此問題可能是一般 HDInsight 連線能力或網路連線能力。 請先確認可以從任何瀏覽器取得 HDInsight Ambari UI。 確認您的認證仍然有效。 如果您使用的是自我裝載整合執行時間 (IR), 請務必從已安裝自我裝載 IR 的 VM 或電腦執行此動作。 然後再次嘗試從 Data Factory 提交工作。 如果仍然失敗, 請洽詢 Data Factory 小組以取得支援。 |
 | 2300         | 未經授權 Ambari 的使用者名稱或密碼不正確  <br/><br/>未經授權 使用者系統管理員在 Ambari 中遭到鎖定。   <br/><br/>403-禁止:存取遭到拒絕。 | HDInsight 的認證不正確或已過期。 | 更正認證並重新部署已連結的服務。 首先, 請在任何瀏覽器上開啟叢集 URI 並嘗試登入, 以確定認證可在 HDInsight 上工作。 如果認證無法使用, 您可以從 Azure 入口網站重設它們。 |
 | 2300、2310 | 502 - 網頁伺服器作為閘道或 Proxy 伺服器時收到無效的回應。       <br/>閘道錯誤。 | 這是來自 HDInsight 的錯誤。                               | 此錯誤來自 HDInsight 叢集。 如需詳細資訊, 請參閱[AMBARI UI 502 錯誤](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)、[連接到 spark Thrift 伺服器的502錯誤](https://hdinsight.github.io/spark/spark-thriftserver-errors.html)、 [502 連線到 spark Thrift 伺服器的錯誤](https://hdinsight.github.io/spark/spark-thriftserver-errors.html)和[疑難排解應用程式閘道中的閘道錯誤](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502)。 |
-| 2300         | Hadoop 作業提交失敗。 作業: ..., 叢集: .。。錯誤: {\"error\":\"無法服務提交作業要求, 因為 templeton 服務忙碌中, 有太多提交作業要求。 請稍候片刻, 再重試此操作。 請參閱 config templeton. parallellism。提交以設定並行要求。  <br/><br/>Hadoop 作業提交失敗。 任務161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`。   錯誤: {\"error\":\"IOException: yarn。例外狀況。 YarnException:無法將 application_1561147195099_3730 提交至 YARN: org. AccessControlException:佇列根目錄。 joblauncher 已經有500應用程式, 無法接受提交應用程式: application_1561147195099_3730 \ | 同時將太多作業提交給 HDInsight。 | 請考慮限制提交至 HDInsight 的並行作業數目。 如果作業是由相同的活動所提交, 請參閱 Data Factory 活動並行。 變更觸發程式, 讓並行管線執行會隨著時間分散。 如錯誤所建議, 請`templeton.parallellism.job.submit`參閱 HDInsight 檔以進行調整。 |
+| 2300         | Hadoop 作業提交失敗。 作業: ..., 叢集: ...錯誤: {\"error\":\"無法服務提交作業要求, 因為 templeton 服務忙碌中, 有太多提交作業要求。 請稍候片刻, 再重試此操作。 請參閱 config templeton. parallellism。提交以設定並行要求。  <br/><br/>Hadoop 作業提交失敗。 任務161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`。   錯誤: {\"error\":\"IOException: yarn。例外狀況。 YarnException:無法將 application_1561147195099_3730 提交至 YARN: org. AccessControlException:佇列根目錄。 joblauncher 已經有500應用程式, 無法接受提交應用程式: application_1561147195099_3730 \ | 同時將太多作業提交給 HDInsight。 | 請考慮限制提交至 HDInsight 的並行作業數目。 如果作業是由相同的活動所提交, 請參閱 Data Factory 活動並行。 變更觸發程式, 讓並行管線執行會隨著時間分散。 如錯誤所建議, 請`templeton.parallellism.job.submit`參閱 HDInsight 檔以進行調整。 |
 | 2303、2347 | Hadoop 工作失敗, 結束代碼為 ' 5 '。 如需wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr詳細資訊, 請參閱 ' '。  <br/><br/>Hive 執行失敗, 錯誤碼為 ' UserErrorHiveOdbcCommandExecutionFailure '。   如需wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out詳細資訊, 請參閱 ' '。 | 作業已提交至 HDInsight, 但在 HDInsight 上失敗。 | 已成功將作業提交至 HDInsight。 在叢集上失敗。 在 HDInsight Ambari UI 中開啟作業和記錄, 或從儲存體開啟檔案, 如錯誤訊息所建議。 檔案會顯示錯誤詳細資料。 |
 | 2328         | 處理要求時發生內部伺服器錯誤。 請重試要求或聯絡支援。 | 此錯誤會隨選在 HDInsight 中發生。                              | 當 HDInsight 布建失敗時, 此錯誤來自 HDInsight 服務。 請洽詢 HDInsight 小組, 並提供隨選叢集名稱。 |
 | 2310         | java.lang.NullPointerException                               | 當作業提交至 Spark 叢集時, 就會發生此錯誤。      | 此例外狀況來自 HDInsight。 它會隱藏實際的問題。 請洽詢 HDInsight 小組以取得支援。 提供叢集名稱和活動運行時間範圍。 |
@@ -125,7 +125,7 @@ ms.locfileid: "68234572"
 
 1. 如果您的應用程式使用 SSL 憑證, 請將 Fiddler 憑證新增至您的裝置。 前往 [**工具** > ] [**Fiddler 選項** > ] [**HTTPS**  > **動作** > ] [**將根憑證匯出到桌面**]。
 
-1. 前往 [檔案] [Capture   > ] [**流量**] 來關閉捕捉。 或按**F12**。
+1. 前往 [檔案] [Capture  > ] [**流量**] 來關閉捕捉。 或按**F12**。
 
 1. 清除瀏覽器的快取, 以便移除所有快取的專案, 而且必須重新下載。
 
@@ -137,11 +137,11 @@ ms.locfileid: "68234572"
 
    c. 如有需要, 請新增標頭和要求主體。
 
-   d. 選取 [執行]  。
+   d. 選取 [執行]。
 
 9. 再次開啟流量捕捉, 並在您的頁面上完成有問題的交易。
 
-10. 移至   > [檔案] [**儲存** > **所有會話**]。
+10. 移至  > [檔案] [**儲存** > **所有會話**]。
 
 如需詳細資訊, 請參閱[開始使用 Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)。
 
