@@ -2,33 +2,33 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/24/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 70ffc91477d4a77619ba7df3b2ab121fea5f8bac
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a2815961f6afb0032aa6011cce5d59ab37f81303
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509823"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843159"
 ---
-| Category | 資料存放區 | 支援作為[複製活動](../articles/data-factory/copy-activity-overview.md)來源 | 支援作為[複製活動](../articles/data-factory/copy-activity-overview.md)接收 | 受 [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) 支援 | 受[自我裝載 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 支援 | 支援[資料流程](../articles/data-factory/concepts-data-flow-overview.md)
+| Category | 資料存放區 | 支援做為[複製活動](../articles/data-factory/copy-activity-overview.md)來源 | 支援做為[複製活動](../articles/data-factory/copy-activity-overview.md)接收 | 受 [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) 支援 | 受[自我裝載 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 支援 | 受[資料流程](../articles/data-factory/concepts-data-flow-overview.md)支援
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>支援的格式：分隔的文字、 Parquet</small> |
+| **Azure** |[Azure Blob 儲存體](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>支援的格式:分隔的文字, Parquet</small> |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[適用於 MongoDB 的 Azure Cosmos DB API](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure 資料總管](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ ||
-| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |✓ <br> <small>支援的格式：分隔的文字、 Parquet</small> |
-| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |✓ <br> <small>支援的格式：分隔的文字、 Parquet</small> |
+| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |✓ <br> <small>支援的格式:分隔的文字, Parquet</small> |
+| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |✓ <br> <small>支援的格式:分隔的文字, Parquet</small> |
 | &nbsp; |[適用於 MariaDB 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  ||
 | &nbsp; |[適用於 MySQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[適用於 PostgreSQL 的 Azure 資料庫](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure 檔案儲存體](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |✓  |
-| &nbsp; |[Azure SQL Database 受控執行個體](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  ||
+| &nbsp; |[Azure SQL Database 受控執行個體](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL 資料倉儲](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |✓  |
 | &nbsp; |[Azure 搜尋服務索引](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  ||
 | &nbsp; |[Azure 資料表儲存體](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  ||
-| **資料庫** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  ||
+| **[資料庫備份]** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  ||
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Drill (預覽)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  ||
@@ -36,9 +36,9 @@ ms.locfileid: "67509823"
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Apache Impala (預覽)](../articles/data-factory/connector-impala.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) |✓ | | |✓  ||
+| &nbsp; |[Informix](../articles/data-factory/connector-informix.md) |✓ | | |✓  ||
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |✓ | | |✓  ||
+| &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |✓ | | |✓  ||
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  ||
@@ -85,7 +85,7 @@ ms.locfileid: "67509823"
 | &nbsp; |[Paypal (預覽)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  ||
 | &nbsp; |[QuickBooks (預覽)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  ||
-| &nbsp; |[Salesforce 服務雲端](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  ||
+| &nbsp; |[Salesforce 服務雲端](../articles/data-factory/connector-salesforce-service-cloud.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Salesforce Marketing Cloud (預覽)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |✓ | |✓ |✓  ||
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ ||
@@ -97,4 +97,4 @@ ms.locfileid: "67509823"
 | &nbsp; |[Zoho (預覽)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  ||
 
 > [!NOTE]
-> 任何標示為「預覽」  的連接器都表示您可以試用並提供意見反應給我們。  如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。
+> 任何標示為「預覽」的連接器都表示您可以試用並提供意見反應給我們。  如果您需要依賴解決方案中的預覽連接器，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。

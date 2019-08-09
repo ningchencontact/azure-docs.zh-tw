@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure IoT SDK 針對 Android Things 平台進行開發 | Microsoft Docs
 description: 開發人員指南 - 了解如何使用 Azure IoT 中樞 SDK 在 Android Things 上進行開發。
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: yizhon
-ms.openlocfilehash: 8e36cee9857c00fcb618a8491595432fb0fd60fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: 82f6da54aec7aee94c19fd75a06d2850ca0db8b6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571280"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883120"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>使用 Azure IoT SDK 針對 Android Things 平台進行開發
 
@@ -20,7 +20,7 @@ ms.locfileid: "64571280"
 
 本教學課程說明使用 Azure IoT Java SDK 在 Android Things 上建置裝置端應用程式的步驟。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 支援 Android Things 的硬體，且可執行 Android Things OS。  您可以依循 [Android Things 文件](https://developer.android.com/things/get-started/kits#flash-at)，以了解如何刷新 Android Things OS。  請確定您的 Android Things 裝置已連接必要週邊設備 (例如鍵盤、顯示器和滑鼠) 並已連線到網際網路。  本教學課程使用 Raspberry Pi 3。
 
@@ -49,7 +49,7 @@ ms.locfileid: "64571280"
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. 若要取得 Azure Cloud Shell 中執行下列命令*裝置連接字串*您剛剛註冊的裝置。 取代`YourIoTHubName`如下名稱與您選擇 IoT 中樞。
+2. 在 Azure Cloud Shell 中執行下列命令, 以取得您剛註冊之裝置的*裝置連接字串*。 以`YourIoTHubName`您為 IoT 中樞選擇的名稱取代下列程式。
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -65,7 +65,7 @@ ms.locfileid: "64571280"
 
 1. 建置 Android Things 應用程式的第一步是連接您的 Android Things 裝置。 將您的 Android Things 裝置連接到顯示器，然後將它連線到網際網路。 Android Things 提供如何連線到 WiFi 的[文件](https://developer.android.com/things/get-started/kits)。 在您連線到網際網路之後，請記下 [網路] 底下列出的 IP 位址。
 
-2. 使用 [adb](https://developer.android.com/studio/command-line/adb) 工具，利用上述記下的 IP 位址來連線到您的 Android Things 裝置。 從終端機使用此命令，再次檢查連線。 您應該會看到您列為 「 連線 」 的裝置。
+2. 使用 [adb](https://developer.android.com/studio/command-line/adb) 工具，利用上述記下的 IP 位址來連線到您的 Android Things 裝置。 從終端機使用此命令，再次檢查連線。 您應該會看到您的裝置列為「已連線」。
 
    ```
    adb devices
