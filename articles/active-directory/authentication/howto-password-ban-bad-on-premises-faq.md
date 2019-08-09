@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779639"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879267"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
 
@@ -33,6 +33,8 @@ ms.locfileid: "68779639"
 **問：非公用雲端是否支援內部部署 Azure AD 密碼保護？**
 
 否 - 僅公用雲端支援內部部署 Azure AD 密碼保護。 尚未宣告非公用雲端可支援的日期。
+
+Azure AD 入口網站可讓您修改內部部署特定的「Windows Server 的密碼保護 Active Directory」設定, 即使是在非公用雲端中也一樣。這類變更將會保存, 但不會生效。 當使用非公用雲端認證時, 不支援註冊內部部署 proxy 代理程式或樹系, 而且任何這類註冊嘗試都會失敗。
 
 **問：如何讓內部部署使用者的子集受益於 Azure AD 密碼保護？**
 
@@ -64,7 +66,7 @@ Active Directory 支援測試密碼的能力, 以查看是否通過網域目前�
 
 **問：如何修改 Active Directory 層級上的原則內容？**
 
-不支援。 您只可以使用 Azure AD 管理入口網站來管理原則。 另請參閱上一個問題。
+不支援。 只能使用 Azure AD 入口網站來管理原則。 另請參閱上一個問題。
 
 **問：為什麼 sysvol 複寫需要 DFSR？**
 
@@ -118,15 +120,15 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 **問：為什麼即使代理程式安裝在內部部署 Active Directory 環境中, 自訂智慧鎖定還是無法運作？**
 
-只有在 Azure 中才支援自訂智慧鎖定。 即使已安裝代理程式, Azure 管理入口網站中的自訂智慧鎖定設定變更也不會影響內部部署的 Active Directory 環境。
+只有 Azure AD 支援自訂智慧鎖定。 即使已安裝代理程式, Azure AD 入口網站中的自訂智慧鎖定設定變更也不會影響內部部署的 Active Directory 環境。
 
 **問：System Center Operations Manager 管理組件可用於 Azure AD 密碼保護嗎？**
 
 資料分割
 
-**問：為什麼即使我已將原則設定為處於 Audit 模式, Azure 仍會拒絕弱式密碼？**
+**問：即使我已將原則設定為處於 Audit 模式, 為什麼 Azure AD 仍會拒絕弱式密碼？**
 
-只有內部部署 Active Directory 環境支援 Audit 模式。 在評估密碼時, Azure 會隱含地保持「強制」模式。
+只有內部部署 Active Directory 環境支援 Audit 模式。 Azure AD 在評估密碼時, 會隱含地一律處於「強制」模式。
 
 ## <a name="additional-content"></a>其他內容
 

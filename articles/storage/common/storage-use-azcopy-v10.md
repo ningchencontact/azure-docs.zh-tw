@@ -4,15 +4,15 @@ description: AzCopy 是命令列公用程式, 可讓您在儲存體帳戶之間�
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 9dc53867cb780b2c40e76cc6f24f7e6cf882b407
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c30225e9b5412fe1515e8503d1134dcad44871f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844874"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879989"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -259,7 +259,9 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 
 ## <a name="use-azcopy-in-a-script"></a>在腳本中使用 AzCopy
 
-經過一段時間後, AzCopy[下載連結](#download-and-install-azcopy)會指向新版本的 AzCopy。 如果您的腳本下載 AzCopy, 當較新版本的 AzCopy 修改腳本所相依的功能時, 腳本可能會停止運作。 
+### <a name="obtain-a-static-download-link"></a>取得靜態下載連結
+
+經過一段時間後, AzCopy[下載連結](#download-and-install-azcopy)會指向新版本的 AzCopy。 如果您的腳本下載 AzCopy, 當較新版本的 AzCopy 修改腳本所相依的功能時, 腳本可能會停止運作。
 
 若要避免這些問題, 請取得 AzCopy 目前版本的靜態 (未變更) 連結。 如此一來, 您的腳本就會在每次執行時下載相同的 AzCopy 版本。
 
@@ -280,9 +282,13 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 | **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
+### <a name="escape-special-characters-in-sas-tokens"></a>在 SAS 權杖中換用特殊字元
+
+在副檔名為`.cmd`的批次檔中, 您必須將出現在 SAS `%`權杖中的字元加以轉義。 若要這麼做, 您可以在`%` SAS 權杖字串的`%`現有字元旁新增加法字元。
+
 ## <a name="use-azcopy-in-storage-explorer"></a>在儲存體總管中使用 AzCopy
 
-如果您想要利用 AzCopy 的效能優勢, 但想要使用儲存體總管而不是命令列來與您的檔案互動, 請在儲存體總管中啟用 AzCopy。 
+如果您想要利用 AzCopy 的效能優勢, 但想要使用儲存體總管而不是命令列來與您的檔案互動, 請在儲存體總管中啟用 AzCopy。
 
 在儲存體總管中, 選擇 [**預覽**->] [**使用 AzCopy] 以改善 Blob 上傳和下載**。
 

@@ -10,20 +10,20 @@ ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f2bb4a6d10f9e45a27b8b5e082b3cbec475b531
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 2b9bd4b3516ee03ce78fcf255eba011f86f9c29c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677807"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883943"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用管理 Azure 時間序列深入解析環境的 GA 參考資料C#
 
 本文說明您可以編譯的範例 C# 專案來管理 Azure 時間序列深入解析環境的參考資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 編譯及執行範例程式碼之前，您必須先完成下列步驟：
 

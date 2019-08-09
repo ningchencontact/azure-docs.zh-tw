@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5e707fb004af7bbce915baf4b059514fcae8e52b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725935"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881824"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -321,6 +321,14 @@ New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.w
 
 釋放更新套件的最簡單方式是重複本文中所述的程式, 並提供更新的版本號碼。
 這會確保所有屬性都已正確更新。
+
+## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>將 Windows 群組原則內容轉換成 Azure 原則來賓設定
+
+「來賓設定」在「Windows 機器」執行時, 是 PowerShell Desired State Configuration 語法的實施。
+DSC 社區已發佈工具, 可將匯出的群組原則範本轉換成 DSC 格式。
+將此工具與上述的來賓設定 Cmdlet 搭配使用, 您就可以轉換 Windows 群組原則內容, 並將其封裝/發佈以供 Azure 原則進行審核。
+如需使用此工具的詳細資訊, 請[參閱快速入門:將群組原則轉換成](/powershell/dsc/quickstarts/gpo-quickstart)DSC。
+內容轉換後, 上述步驟會建立 pakcage, 並將其發佈為 Azure 原則將與任何 DSC 內容相同。
 
 ## <a name="optional-signing-guest-configuration-packages"></a>選擇性：簽署來賓設定套件
 

@@ -14,31 +14,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 3b901f7aba40f3548a259d36b83fedca0ff2a5c2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 18dbc60c1a29fbc26f4bbc73faa58aeafc66c32f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781299"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880104"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>設定 Azure 與 Oracle 雲端基礎結構之間的直接互連  
 
 為了建立[整合式多雲端體驗](oracle-oci-overview.md)(預覽), Microsoft 和 Oracle 透過[ExpressRoute](../../../expressroute/expressroute-introduction.md)和[FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm)提供 Azure 與 oracle 雲端基礎結構 (OCI) 之間的直接互連。 透過 ExpressRoute 與 FastConnect 互連, 客戶可以在這兩個雲端之間體驗低延遲、高輸送量、私人直接連線能力。
 
 > [!IMPORTANT]
-> Microsoft Azure 和 OCI 之間的連線是在預覽階段。 若要在 Azure 與 OCI 之間啟用低延遲連線, 必須先將 Azure 訂用帳戶列入允許清單, 才能進行這項功能。
+> Microsoft Azure 和 OCI 之間的連線是在預覽階段。 若要在 Azure 與 OCI 之間啟用低延遲連線, 必須先將 Azure 訂用帳戶列入允許清單, 才能進行這項功能。 您必須將電子郵件傳送至, 並將您oracleconnect@microsoft.com的訂用帳戶識別碼傳送至, 以註冊預覽版。 當訂用帳戶註冊完成之後，您會收到電子郵件。 在收到確認電子郵件後才能使用此功能。 您也可以聯繫 Microsoft 代表, 以供此預覽版啟用。 此預覽版是在沒有服務等級協定的情況下提供, 不應用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊, 請參閱 Microsoft Azure 預覽的[補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
 下圖顯示互連的高階總覽:
 
 ![跨雲端網路連線](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 若要建立 Azure 與 OCI 之間的連線, 您必須擁有有效的 Azure 訂用帳戶和作用中的 OCI 租用。
 
 * 只有在 Azure ExpressRoute 對等互連位置與 OCI FastConnect 位於相同的對等互連位置時, 才可以進行連線。 請參閱[預覽限制](oracle-oci-overview.md#preview-limitations)。
 
-* 您的 Azure 訂用帳戶必須列入允許清單中, 才能進行此預覽功能。 請聯絡您的 Microsoft 代表, 在您的訂用帳戶上啟用這項功能。
+* 您的 Azure 訂用帳戶必須列入允許清單中, 才能進行此預覽功能。
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>設定 ExpressRoute 與 FastConnect 之間的直接連線
 

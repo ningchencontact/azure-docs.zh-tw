@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ed9eb990fff3a0901f3fa26526b30e8cb8a2fe66
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 328748b9dd81834b9c69f81bc0bda60c9ad12cb0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779410"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879962"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何建立虛擬機器或 VHD 的映像
 
@@ -40,9 +40,9 @@ ms.locfileid: "68779410"
 
 * 安裝最新的 [Azure CLI](/cli/azure/install-az-cli2)，並使用 [az login](/cli/azure/reference-index#az-login) 來登入 Azure 帳戶。
 
-## <a name="quick-commands"></a>快速命令
+## <a name="prefer-a-tutorial-instead"></a>偏好使用教學課程嗎？
 
-如需本文的簡化版本，以進行測試、評估或深入了解 Azure 中的 VM，請參閱[使用 CLI 建立 Azure VM 的自訂映像](tutorial-custom-images.md)。
+如需本文的簡化版本，以進行測試、評估或深入了解 Azure 中的 VM，請參閱[使用 CLI 建立 Azure VM 的自訂映像](tutorial-custom-images.md)。  否則, 請繼續閱讀這裡以取得完整的圖片。
 
 
 ## <a name="step-1-deprovision-the-vm"></a>步驟 1:取消佈建 VM
@@ -58,7 +58,7 @@ ms.locfileid: "68779410"
    > 只在您要擷取作為映像的 VM 上執行這個命令。 此命令不能保證映像檔中的所有機密資訊都會清除完畢或適合轉散發。 `+user` 參數也會移除最後一個佈建的使用者帳戶。 若要在 VM 中保留使用者帳戶認證，僅使用 `-deprovision`。
  
 3. 輸入 **y** 繼續。 您可以新增 `-force` 參數，便不用進行此確認步驟。
-4. 在命令完成之後，請輸入**exit** 關閉 SSH 用戶端。
+4. 在命令完成之後，請輸入**exit** 關閉 SSH 用戶端。  此時 VM 仍會在執行中。
 
 ## <a name="step-2-create-vm-image"></a>步驟 2:建立 VM 映像
 使用 Azure CLI 將 VM 標記為一般化，並擷取映像。 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 *myResourceGroup*、*myVnet* 和 *myVM*。
@@ -71,7 +71,7 @@ ms.locfileid: "68779410"
       --name myVM
     ```
     
-    等到 VM 完全解除配置, 再繼續進行。 這可能需要幾分鐘才能完成。
+    等到 VM 完全解除配置, 再繼續進行。 這可能需要幾分鐘才能完成。  VM 會在解除配置期間關閉。
 
 2. 使用 [az vm generalize](/cli/azure/vm)，將 VM 標記為一般化。 下列範例會將名為 myResourceGroup 的資源群組中名為 myVM 的 VM 標記為一般化。
    
@@ -80,6 +80,8 @@ ms.locfileid: "68779410"
       --resource-group myResourceGroup \
       --name myVM
     ```
+
+    已一般化的 VM 無法再重新開機。
 
 3. 使用 [az image create](/cli/azure/image#az-image-create) 建立 VM 資源的映像。 下列範例會使用名為 myVM 的 VM 資源，在 myResourceGroup 資源群組中建立名為 myImage 的映像。
    
@@ -93,6 +95,8 @@ ms.locfileid: "68779410"
    > 此映像與來源 VM 建立於相同的資源群組中。 您可以從此映像，在您訂用帳戶的任何資源群組中建立 VM。 從管理觀點來看，您可能想為您的 VM 資源和映像建立特定的資源群組。
    >
    > 如果您想要將映像儲存於區域復原的儲存體中，則需要在支援[可用性區域](../../availability-zones/az-overview.md)且包含 `--zone-resilient true` 參數的區域中建立它。
+   
+此命令會傳回描述 VM 映射的 JSON。 儲存此輸出以供日後參考。
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>步驟 3：從擷取的映像建立 VM
 使用您以 [az vm create](/cli/azure/vm) 建立的映像來建立 VM。 下列範例會從名為 myImage 的映像建立名為 myVMDeployed 的 VM。

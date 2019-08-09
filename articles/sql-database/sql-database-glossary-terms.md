@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: d940cfa91890d26a48b682a6eb09410b3b7de045
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5fccf1ffc76c824c81f8b8b826f90bf8314ff1e3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568077"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883351"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 術語詞彙
 
@@ -49,6 +49,6 @@ ms.locfileid: "68568077"
 ||儲存體數量|提供給單一資料庫、彈性集區，或受控執行個體的儲存體數量|
 ||計算世代|在服務層級內產生處理器|
 |資料庫伺服器 IP 防火牆規則|IP 防火牆規則|[IP 防火牆規則](sql-database-firewall-configure.md)|
-||伺服器層級 IP 防火牆規則|[伺服器層級 IP 防火牆規則](sql-database-firewall-configure.md#overview)|
-|| 資料庫層級 IP 防火牆規則|[資料庫層級 IP 防火牆規則](sql-database-firewall-configure.md#overview)|
+||伺服器層級 IP 防火牆規則|[伺服器層級 IP 防火牆規則](sql-database-firewall-configure.md)|
+|| 資料庫層級 IP 防火牆規則|[資料庫層級 IP 防火牆規則](sql-database-firewall-configure.md)|
 ||虛擬網路端點和規則|[虛擬網路端點和規則](sql-database-vnet-service-endpoint-rule-overview.md)|

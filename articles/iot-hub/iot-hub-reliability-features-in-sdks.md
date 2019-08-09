@@ -2,17 +2,17 @@
 title: 如何使用 Azure IoT 中樞裝置 SDK 來管理連線能力和可靠傳訊
 description: 了解如何在使用 Azure IoT 中樞裝置 SDK 時改進裝置的連線能力和傳訊
 services: iot-hub
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 838d0cd4f40666bc3fced22a607b9f94f27b08d3
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e881dffbd1f286047ffcff226eb3dede7a138a0c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67535492"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884350"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>使用 Azure IoT 中樞裝置 SDK 來管理連線能力和可靠傳訊
 
@@ -28,7 +28,7 @@ ms.locfileid: "67535492"
 
 * [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 
-* [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+* [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/retrypolicy.md)
 
 * [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 
@@ -36,7 +36,7 @@ ms.locfileid: "67535492"
 
 ## <a name="designing-for-resiliency"></a>針對復原而設計
 
-IoT 裝置常須仰賴非連續或不穩定的網路連線 (例如 GSM 或衛星網路)。 當裝置與雲端服務互動時，即可能因服務的間歇性中斷和基礎結構層級的暫時性錯誤，而發生錯誤。 在裝置執行的應用程式必須管理連接、 重新連接，以及傳送和接收訊息的重試邏輯的機制。 此外，重試策略需求主要取決於裝置的 IoT 案例、內容和功能。
+IoT 裝置常須仰賴非連續或不穩定的網路連線 (例如 GSM 或衛星網路)。 當裝置與雲端服務互動時，即可能因服務的間歇性中斷和基礎結構層級的暫時性錯誤，而發生錯誤。 在裝置上執行的應用程式必須管理連線、重新連線的機制, 以及傳送和接收訊息的重試邏輯。 此外，重試策略需求主要取決於裝置的 IoT 案例、內容和功能。
 
 Azure IoT 中樞裝置 SDK 的目標是要簡化雲端到裝置以及裝置到雲端的連線和通訊。 這些 SDK 可提供連線至 Azure IoT 中樞的可靠方式，以及傳送和接收訊息的全方位選項集。 開發人員也可以修改現有的實作，以針對特定案例自訂更適合的重試策略。
 
@@ -44,7 +44,7 @@ Azure IoT 中樞裝置 SDK 的目標是要簡化雲端到裝置以及裝置到�
 
 ## <a name="connection-and-retry"></a>連線和重試
 
-管理連接時，本節會提供重新連接和重試模式可用的概觀。 文中將詳細說明在您的裝置應用程式中使用不同重試原則的實作指引，並列出裝置 SDK 中的相關 API。
+本節概述管理連接時可用的重新連線和重試模式。 文中將詳細說明在您的裝置應用程式中使用不同重試原則的實作指引，並列出裝置 SDK 中的相關 API。
 
 ### <a name="error-patterns"></a>錯誤模式
 

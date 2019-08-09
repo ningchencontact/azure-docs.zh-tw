@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 906ab4da941c6a0e1bc98f2f724141c719d04b89
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741376"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879428"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>HOW TO：規劃 Azure AD 聯結實作
 
@@ -75,6 +75,10 @@ Azure AD Join 在受控和同盟環境中均可運作。
  `/adfs/services/trust/13/certificatemixed`
 
 如果您的識別提供者不支援這些通訊協定，則 Azure AD Join 無法原生運作。 從 Windows 10 1809 開始，您的使用者即可經由 SAML 型識別提供者透過 [Windows 10 的 Web 登入](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)來登入已加入 Azure AD 的裝置。 目前, web 登入是一項預覽功能, 不建議用於生產環境部署。
+
+>[!NOTE]
+> 目前, Azure AD join 不適用於以[外部驗證提供者設定的 AD FS 2019 做為主要驗證方法](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)。 Azure AD join 預設為密碼驗證做為主要方法, 這會導致在此案例中發生驗證失敗
+
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>智慧卡和憑證型驗證
 

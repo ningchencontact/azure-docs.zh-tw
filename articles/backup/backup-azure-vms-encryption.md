@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a33b7263cd7a3b2f5e39ce9d24df11a7d6283c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5c6e3ef74ea2d77ba03526e05145fe6faa61c050
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688609"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882048"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>備份和還原已加密的 Azure VM
 
@@ -140,7 +140,7 @@ Azure VM 需要唯讀存取權, 才能備份金鑰和密碼, 以及相關聯的 
 
     ![Azure 備份選取項目](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. 按一下 [確定]。 **備份管理服務**會新增至**存取原則**。
+6. 按一下 [確定 **Deploying Office Solutions**]。 **備份管理服務**會新增至**存取原則**。
 
     ![存取原則](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
@@ -153,11 +153,12 @@ Azure VM 需要唯讀存取權, 才能備份金鑰和密碼, 以及相關聯的 
 1. [還原 VM 磁片](backup-azure-arm-restore-vms.md#restore-disks)。
 2. 然後執行下列其中一項動作:
     - 使用還原作業期間所產生的範本來自訂 VM 設定, 並觸發 VM 部署。 [深入了解](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)。
-    - 使用 Powershell 從還原的磁片建立新的 VM。 [深入了解](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。
+    - 使用 PowerShell 從還原的磁片建立新的 VM。 [深入了解](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。
+    - 若為 Linux Vm, 請重設 ADE 延伸模組, 以便開啟並掛接資料磁片。 
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您遇到任何問題, 請參閱
+如果您遇到任何問題, 請參閱下列文章:
 
 - 備份和還原已加密的 Azure Vm 時[常見的錯誤](backup-azure-vms-troubleshoot.md)。
 - [AZURE VM 代理程式/備份擴充](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)功能的問題。

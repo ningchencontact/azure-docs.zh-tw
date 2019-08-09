@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ebb1723a9a2b2d069a1766d4f78151f2b684c5b9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464671"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884305"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>移轉至叢集組態中以角色為基礎的細微存取
 
@@ -155,14 +155,14 @@ Azure Data Lake 的版本2.3.9000.1 或更新版本[, 以及 Visual Studio 的�
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>將 HDInsight 叢集操作員角色指派新增至使用者
 
-具有「[參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor)」或「[擁有](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)者」角色的使用者可以將[hdinsight 叢集操作員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色指派給您想要擁有敏感性 HDInsight 叢集設定值之讀取/寫入存取權的使用者 (例如叢集閘道認證)和儲存體帳戶金鑰)。
+具有「[擁有](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)者」角色的使用者可以將[hdinsight 叢集操作員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色指派給您想要擁有敏感性 HDInsight 叢集設定值之讀取/寫入存取權的使用者 (例如叢集閘道認證和儲存體帳戶金鑰)。
 
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 
 新增此角色指派最簡單的方式, 就是使用`az role assignment create` Azure CLI 中的命令。
 
 > [!NOTE]
-> 此命令必須由具有「參與者」或「擁有者」角色的使用者執行, 因為只有他們可以授與這些許可權。 `--assignee`是您要指派 HDInsight 叢集操作員角色之使用者的電子郵件地址。
+> 此命令必須由具有「擁有者」角色的使用者執行, 因為只有他們可以授與這些許可權。 `--assignee`是您要指派 HDInsight 叢集操作員角色之使用者的服務主體或電子郵件地址的名稱。 如果您收到許可權不足的錯誤, 請參閱下列常見問題。
 
 #### <a name="grant-role-at-the-resource-cluster-level"></a>授與資源 (叢集) 層級的角色
 
@@ -185,3 +185,23 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
 
 您也可以使用 Azure 入口網站, 將 HDInsight 叢集操作員角色指派新增至使用者。 請參閱[使用 RBAC 來管理對 Azure 資源的存取和 Azure 入口網站新增角色指派](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)中的檔。
+
+## <a name="faq"></a>常見問題集
+
+### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>我在更新 API 要求和/或工具之後, 為什麼會看到 403 (禁止) 的回應？
+
+叢集設定現在是以更細微的`Microsoft.HDInsight/clusters/configurations/*`角色型存取控制為基礎, 而且需要許可權才能存取。 若要取得此許可權, 請將「HDInsight 叢集操作員」、「參與者」或「擁有者」角色指派給嘗試存取設定的使用者或服務主體。
+
+### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>當執行 Azure CLI 命令將 HDInsight 叢集操作員角色指派給另一個使用者或服務主體時, 為什麼會看到「許可權不足, 無法完成作業」？
+
+除了擁有擁有者角色以外, 執行命令的使用者或服務主體必須具有足夠的 AAD 許可權, 才能查詢受託人的物件識別碼。 此訊息表示 AAD 許可權不足。 嘗試將`-–assignee` `–assignee-object-id`引數取代為, 並提供受託人的物件識別碼做為參數, 而不是名稱 (如果是受控識別, 則為主體識別碼)。 如需詳細資訊, 請參閱[az role 指派建立檔](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)的選擇性參數一節。
+
+如果仍然無法解決問題, 請洽詢您的 AAD 系統管理員以取得正確的許可權。
+
+### <a name="what-will-happen-if-i-take-no-action"></a>如果我沒有採取任何動作, 會發生什麼事？
+
+和將不會再傳回任何資訊, 而且`GET /configurations/{configurationName}`呼叫將不會再傳回敏感性參數, 例如儲存體帳戶金鑰或叢集密碼。 `POST /configurations/gateway` `GET /configurations` 對應的 SDK 方法和 PowerShell Cmdlet 也是如此。
+
+如果您使用上述其中一個工具的舊版 Visual Studio、VSCode、IntelliJ 或 Eclipse, 則在您更新之前, 將無法再運作。
+
+如需詳細資訊, 請參閱本檔中適用于您案例的對應章節。

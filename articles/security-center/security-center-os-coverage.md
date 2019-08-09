@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295594"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883592"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -78,7 +78,7 @@ ms.locfileid: "68295594"
 > [!div class="mx-tableFixed"]
 > 
 
-|伺服器|Windows|||Linux|||價格|
+|伺服器|Windows|||Linux|||定價|
 |----|----|----|----|----|----|----|----|
 |**環境**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**虛擬機器**|**虛擬機器擴展集**||**虛擬機器**|**虛擬機器擴展集**|
@@ -95,7 +95,7 @@ ms.locfileid: "68295594"
 |第三方部署|✔|X|X|✔|X|X|免費|
 |NSG 評量|✔|✔|X|✔|✔|X|免費|
 |無檔案型威脅偵測|✔|✔|✔|X|X|X|標準|
-|網路地圖|✔|✔|X|✔|✔|X|標準|
+|網路對應|✔|✔|X|✔|✔|X|標準|
 |自適性網路控制措施|✔|✔|X|✔|✔|X|標準|
 |法規合規性儀表板 & 報告|✔|✔|✔|✔|✔|✔|標準|
 |Docker 託管 IaaS 容器上的建議和威脅偵測|X|X|X|✔|✔|✔|標準|
@@ -108,15 +108,17 @@ ms.locfileid: "68295594"
 
 如需每一項保護何時產生建議的相關資訊, 請參閱[Endpoint Protection 評估和建議](security-center-endpoint-protection.md)。
 
-| 端點保護| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
+| Endpoint Protection| 平台 | 資訊安全中心安裝 | 資訊安全中心探索 |
 |------|------|-----|-----|
 | Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| 是 |
 | System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | 是 |
 | Trend Micro – 所有版本 | Windows Server 系列  | 否 | 是 |
 | Symantec v12.1.1100+| Windows Server 系列  | 否 | 是 |
 | McAfee v10+ | Windows Server 系列  | 否 | 是 |
-| Kaspersky| Windows Server 系列  | 否 | 否  |
-| Sophos| Windows Server 系列  | 否 | 否  |
+| McAfee v10+ | Linux 伺服器系列  | 否 | 是的 **\*** |
+| Sophos V9 +| Linux 伺服器系列  | 否 | 是的 **\***  |
+
+ **\*** 涵蓋範圍狀態和支援的資料目前僅適用于與受保護的訂用帳戶相關聯的 Log Analytics 工作區, 而且不會反映在 Azure 資訊安全中心入口網站中。
 
 > [!NOTE]
 > - 在 Windows Server 2008 R2 虛擬機器上偵測 System Center Endpoint Protection (SCEP) 需要安裝 SCEP (PowerShell 3.0 或更高版本)。
@@ -136,16 +138,16 @@ ms.locfileid: "68295594"
 |子網路|✔| NA|
 |NIC|✔| NA|
 |NSG|✔| NA|
-|Subscription|✔ **| ✔|
-|Batch|✔| NA|
+|訂閱|✔ **| ✔|
+|批次|✔| NA|
 |Service Fabric|✔| NA|
 |自動化帳戶|✔| NA|
 |負載平衡器|✔| NA|
-|Search|✔| NA|
+|搜尋|✔| NA|
 |服務匯流排|✔| NA|
 |串流分析|✔| NA|
 |事件中樞|✔| NA|
-|邏輯應用程式|✔| NA|
+|Logic Apps|✔| NA|
 |儲存體帳戶|✔| NA|
 |Redis|✔| NA|
 |Data Lake 分析|✔| NA|

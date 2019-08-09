@@ -1,24 +1,23 @@
 ---
 title: Azure 作法 - 如何在 Azure 中使用不同證明機制搭配裝置佈建服務用戶端 SDK
 description: Azure 作法 - 如何在 Azure 中使用不同證明機制搭配裝置佈建服務用戶端 SDK
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dd93298c96842e4e5417a0b2ba023bb71a4e7ba
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248125"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884428"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>如何使用不同證明機制搭配適用於 C 的裝置佈建服務用戶端 SDK
 
-本文說明如何使用不同的[證明機制](concepts-security.md#attestation-mechanism)搭配適用於 C 的裝置佈建服務用戶端 SDK。您可以使用實體裝置或模擬器。 佈建服務支援兩種證明機制的驗證：X.509 和可信賴平台模組 (TPM)。
+本文說明如何使用不同的[證明機制](concepts-security.md#attestation-mechanism)搭配適用於 C 的裝置佈建服務用戶端 SDK。您可以使用實體裝置或模擬器。 布建服務支援兩種證明機制類型的驗證:X.509 和信賴平臺模組 (TPM)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -28,9 +27,9 @@ ms.locfileid: "61248125"
 
 身為裝置製造商，您必須先選擇以其中一個支援類型為基礎的證明機制。 [適用於 C 的裝置佈建服務用戶端 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) 目前提供下列證明機制的支援： 
 
-- [信賴平台模組 (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module):TPM 是適用於大部分 Windows 裝置平台以及一些 Linux/Ubuntu 架構裝置的公認標準。 身為裝置製造商，如果您的裝置是執行上述任一作業系統，而且您想要使用公認的標準，則可以選擇這個證明機制。 若使用 TPM 晶片，裝置就只能個別地向裝置佈建服務進行註冊。 若要進行開發，您可以在 Windows 或 Linux 開發機器上使用 TPM 模擬器。
+- [信賴平臺模組 (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module):TPM 是適用於大部分 Windows 裝置平台以及一些 Linux/Ubuntu 架構裝置的公認標準。 身為裝置製造商，如果您的裝置是執行上述任一作業系統，而且您想要使用公認的標準，則可以選擇這個證明機制。 若使用 TPM 晶片，裝置就只能個別地向裝置佈建服務進行註冊。 若要進行開發，您可以在 Windows 或 Linux 開發機器上使用 TPM 模擬器。
 
-- [X.509](https://cryptography.io/en/latest/x509/)：X.509 憑證可以儲存在稱為較新型的晶片[硬體安全性模組 (HSM)](concepts-security.md#hardware-security-module)。 Microsoft 也正著手設計 RIoT 或 DICE 晶片，以便實作 X.509 憑證。 若使用 X.509 晶片，您將可以在入口網站中進行大量裝置註冊。 這種晶片也支援某些非 Windows 的作業系統，例如 embedOS。 針對開發用途，裝置佈建服務用戶端 SDK 可支援 X.509 裝置模擬器。 
+- [X.509](https://cryptography.io/en/latest/x509/)：X.509 憑證可以儲存在較新的晶片中, 稱為[硬體安全模組 (HSM)](concepts-security.md#hardware-security-module)。 Microsoft 也正著手設計 RIoT 或 DICE 晶片，以便實作 X.509 憑證。 若使用 X.509 晶片，您將可以在入口網站中進行大量裝置註冊。 這種晶片也支援某些非 Windows 的作業系統，例如 embedOS。 針對開發用途，裝置佈建服務用戶端 SDK 可支援 X.509 裝置模擬器。 
 
 如需詳細資訊，請參閱 IoT 中樞裝置佈建服務的[安全性概念](concepts-security.md)和[自動佈建概念](/azure/iot-dps/concepts-auto-provisioning)。
 
@@ -148,9 +147,9 @@ cmake -Ddps_auth_type=tpm_simulator ..
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源]  按鈕，然後開啟您的裝置佈建服務。
-   - X **。** 509 個別註冊：佈建服務摘要刀鋒視窗上，選取**管理註冊**。 選取 [個別註冊]  索引標籤，然後按一下頂端的 [新增]  按鈕。 選取 **X**.**509** 作為身分識別證明機制  ，如刀鋒視窗所要求上傳分葉憑證。 完成後，按一下 [儲存]  按鈕。 
-   - X **。** 509 群組註冊：佈建服務摘要刀鋒視窗上，選取**管理註冊**。 選取 [群組註冊]  索引標籤，然後按一下頂端的 [新增]  按鈕。 選取 **X**.**509** 作為身分識別證明機制  ，輸入群組名稱和憑證名稱，如刀鋒視窗所要求上傳 CA/中繼憑證。 完成後，按一下 [儲存]  按鈕。 
+2. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。
+   - X **。** 509個別註冊:在 [布建服務摘要] 分頁上, 選取 [**管理註冊**]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 選取 **X**.**509** 作為身分識別證明機制，如刀鋒視窗所要求上傳分葉憑證。 完成後，按一下 [儲存] 按鈕。 
+   - X **。** 509群組註冊:在 [布建服務摘要] 分頁上, 選取 [**管理註冊**]。 選取 [群組註冊] 索引標籤，然後按一下頂端的 [新增] 按鈕。 選取 **X**.**509** 作為身分識別證明機制，輸入群組名稱和憑證名稱，如刀鋒視窗所要求上傳 CA/中繼憑證。 完成後，按一下 [儲存] 按鈕。 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>針對使用自訂證明機制的裝置啟用驗證 (選擇性)
 
@@ -166,7 +165,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
     - 若為自訂 TPM：實作 [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api) 之下定義的函式。  
     - 若為自訂 X.509：實作 [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api) 之下定義的函式。 
 
-一旦您的程式庫自行建置成功，您必須藉由與您的程式庫進行連結，將它與裝置佈建服務用戶端 SDK 整合。 ：
+一旦您的程式庫自行建置成功，您必須藉由與您的程式庫進行連結，將它與裝置佈建服務用戶端 SDK 整合。 :
 
 1. 在下列 `cmake` 命令中提供自訂的 GitHub 存放庫和程式庫：
     ```cmd/sh

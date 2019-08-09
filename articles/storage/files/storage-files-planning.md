@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816598"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884388"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -26,7 +26,7 @@ ms.locfileid: "68816598"
 
 * **儲存體帳戶**：所有對 Azure 儲存體的存取都是透過儲存體帳戶進行。 如需關於儲存體帳戶容量的詳細資訊，請參閱[延展性和效能目標](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
-* **共用**：檔案儲存體共用是 Azure 中的 SMB 檔案共用。 所有的目錄和檔案必須在上層共用中建立。 帳戶可包含無限數目的共用，而共用可儲存無限數目的檔案，最多可達檔案共用的 5 TiB 總容量。
+* **共用**：檔案儲存體共用是 Azure 中的 SMB 檔案共用。 所有的目錄和檔案必須在上層共用中建立。 帳戶可以包含不限數目的共用, 而共用可以儲存無限數量的檔案, 最多可達檔案共用的總容量。 針對標準檔案共用, 總容量為最多 5 TiB (GA) 或 100 TiB (預覽), 對於 premium 檔案共用, 總容量為最高 100 TiB。
 
 * **目錄**：選擇性的目錄階層。
 

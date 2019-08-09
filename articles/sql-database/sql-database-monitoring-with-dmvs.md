@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567178"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881564"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>使用動態管理檢視監視 Azure SQL Database 的效能
 
@@ -28,7 +28,7 @@ SQL Database 部分支援動態管理檢視的三個類別目錄：
 - 執行相關的動態管理檢視。
 - 交易相關的動態管理檢視。
 
-如需動態管理檢視的詳細資訊，請參閱《SQL Server 線上叢書》中的 [動態管理檢視和函數 (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) 。
+如需動態管理檢視的詳細資訊，請參閱《SQL Server 線上叢書》中的 [動態管理檢視和函數 (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) 。 
 
 ## <a name="permissions"></a>Permissions
 
@@ -237,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>識別 `tempdb` 效能問題
 
-識別 IO 效能問題時，與 `tempdb` 問題相關聯的常見等候類型為 `PAGELATCH_*` (而非 `PAGEIOLATCH_*`)。 不過，`PAGELATCH_*` 等候不一定表示您有 `tempdb` 爭用。  這個等候也表示您有使用者物件資料頁面爭用，因為針對相同的資料頁面進行並行要求。 若要進一步確認 `tempdb` 爭用，使用 [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 確認 wait_resource 值開頭為 `2:x:y`，其中 `tempdb` 是資料庫識別碼、`x` 是檔案識別碼，而 `y` 是頁面識別碼。  
+識別 IO 效能問題時，與 `tempdb` 問題相關聯的常見等候類型為 `PAGELATCH_*` (而非 `PAGEIOLATCH_*`)。 不過，`PAGELATCH_*` 等候不一定表示您有 `tempdb` 爭用。  這個等候也表示您有使用者物件資料頁面爭用，因為針對相同的資料頁面進行並行要求。 若要進一步`tempdb`確認競爭, 請使用[_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql)來確認`2:x:y` wait_resource 值的開頭是, 其中2是`tempdb`資料庫識別碼, `x`是檔案識別碼, 而`y`是頁面識別碼。  
 
 對於 tempdb 爭用，常見的方法是減少或重新撰寫依賴 `tempdb` 的應用程式程式碼。  常見的 `tempdb` 使用區域包括：
 
@@ -334,7 +334,7 @@ ORDER BY start_time ASC;
 
 如果您的常見等候類型為 `RESOURCE_SEMAHPORE`，而且沒有高 CPU 使用量問題，則可能有記憶體授與等候問題。
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>判斷 `RESOURCE_SEMAHPORE` 等候是否為常見等候
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>判斷 `RESOURCE_SEMAHPORE` 等候是否為常見等候
 
 使用下列查詢判斷 `RESOURCE_SEMAHPORE` 等候是否為常見等候
 
@@ -512,7 +512,7 @@ WHERE c.session_id = @@SPID;
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 您可以在每一個 SQL Database 中使用 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)檢視。 **sys.dm_db_resource_stats** 檢視可顯示相對於服務層級的最新資源使用量資料。 每隔 15 秒鐘就會記錄一次 CPU、資料 IO、記錄檔寫入和記憶體的平均百分比，並且會維持 1 小時。
 
@@ -533,7 +533,7 @@ FROM sys.dm_db_resource_stats;
 
 如需其他查詢的資訊，請參閱 [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) 中的範例。
 
-### <a name="sysresourcestats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
 **master** 資料庫中的 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 檢視有其他資訊可協助您監視 SQL Database 在其特定服務層級和計算大小的效能。 這項資料每隔 5 分鐘就會收集一次，並且會維持大約 14 天。 這個檢視適合用於進行 SQL Database 如何使用資源的長期歷史分析。
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 08/07/2019
 ms.author: chkuhtz
-ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b109e87a8fcbef0bfca356c83716509ebc6cecd4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60594145"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884219"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer 的多個前端
 
@@ -30,7 +30,7 @@ Azure Load Balancer 可讓您平衡在多個連接埠、多個 IP 位址或兩�
 
 下表是一些範例前端設定：
 
-| 前端 | IP 位址 | protocol | port |
+| 前端 | IP 位址 | 通訊協定 | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -54,7 +54,7 @@ Azure Load Balancer 允許您在同一負載平衡器設定上混用兩種規則
 
 在此案例中，前端的設定如下︰
 
-| 前端 | IP 位址 | protocol | port |
+| 前端 | IP 位址 | 通訊協定 | port |
 | --- | --- | --- | --- |
 | ![綠色前端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![紫色前端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -70,7 +70,7 @@ DIP 是輸入流量的目的地。 在後端集區中，每個 VM 會公開 DIP 
 
 現在 Azure Load Balancer 的完整對應如下︰
 
-| 規則 | 前端 IP 位址 | protocol | port | 目的地 | port |
+| 規則 | 前端 IP 位址 | 通訊協定 | port | 目的地 | port |
 | --- | --- | --- | --- | --- | --- |
 | ![綠色規則](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP IP 位址 |80 |
 | ![紫色規則](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP IP 位址 |81 |
@@ -104,7 +104,7 @@ Azure Load Balancer 提供在多個前端重複使用前端連接埠的彈性，
 
 讓我們假設前一個案例的相同前端組態︰
 
-| 前端 | IP 位址 | protocol | port |
+| 前端 | IP 位址 | 通訊協定 | port |
 | --- | --- | --- | --- |
 | ![綠色前端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![紫色前端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -113,12 +113,12 @@ Azure Load Balancer 提供在多個前端重複使用前端連接埠的彈性，
 
 | 規則 | 前端 | 對應至後端集區 |
 | --- | --- | --- |
-| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 前端1:80 |![後端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 前端1:80 (在 VM1 和 VM2 中) |
-| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 前端2:80 |![後端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 前端2:80 (在 VM1 和 VM2 中) |
+| 1 |![rules](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 前端1:80 |![後端](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 前端1:80 (在 VM1 和 VM2 中) |
+| 2 |![rules](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 前端2:80 |![後端](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 前端2:80 (在 VM1 和 VM2 中) |
 
 下表顯示負載平衡器的完整對應︰
 
-| 規則 | 前端 IP 位址 | protocol | port | 目的地 | port |
+| 規則 | 前端 IP 位址 | 通訊協定 | port | 目的地 | port |
 | --- | --- | --- | --- | --- | --- |
 | ![綠色規則](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |與前端相同 (65.52.0.1) |與前端相同 (80) |
 | ![紫色規則](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |與前端相同 (65.52.0.2) |與前端相同 (80) |
@@ -132,7 +132,7 @@ Azure Load Balancer 提供在多個前端重複使用前端連接埠的彈性，
 ## <a name="limitations"></a>限制
 
 * 只有 IaaS VM 支援多個前端組態。
-* 若使用浮點 IP 規則，您的應用程式必須使用主要 IP 設定輸出流量。 如果您的應用程式繫結至客體 OS 中回送介面上設定的前端 IP 位址，就無法使用 Azure SNAT 來重寫輸出流量，流程就會失敗。
+* 使用浮動 IP 規則, 您的應用程式必須針對輸出 SNAT 流量使用主要 IP 設定。 如果您的應用程式系結至在虛擬作業系統的回送介面上設定的前端 IP 位址, 則無法使用 Azure 的輸出 SNAT 來重寫輸出流程, 而且流程會失敗。  查看[輸出案例](load-balancer-outbound-connections.md)。
 * 公用 IP 位址需要費用。 如需詳細資訊，請參閱 [IP 位址定價](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 訂用帳戶有其限制。 如需詳細資訊，請參閱 [服務限制](../azure-subscription-service-limits.md#networking-limits) 的說明。
 

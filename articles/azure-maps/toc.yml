@@ -105,6 +105,8 @@
               href: clustering-point-data-web-sdk.md
             - name: 使用資料驅動樣式運算式
               href: data-driven-style-expressions-web-sdk.md
+            - name: 如何使用映像範本
+              href: how-to-use-image-templates-web-sdk.md
             - name: 將影像重疊
               href: map-add-image-layer.md
             - name: 新增圖格圖層

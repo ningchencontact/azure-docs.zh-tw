@@ -6,21 +6,24 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: f00ad898ea45700b75607f89bc2c8e71288357c2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847576"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884119"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>將已啟用 Azure 磁碟加密的虛擬機器複寫至另一個 Azure 區域
 
 本文說明如何將已啟用 Azure 磁碟加密的 Vm 從一個 Azure 區域複寫到另一個。
 
 >[!NOTE]
->Azure Site Recovery 目前僅支援執行 Windows OS 的已啟用 Azure 磁碟加密 Vm。
+>Azure Site Recovery 目前僅支援執行 Windows OS 的已啟用 Azure 磁碟加密 Vm。 只有在使用受控磁片時, 才支援不含 Azure AD 應用程式的已啟用 Azure 磁碟加密的 Vm。 不支援具有非受控磁片的 Vm。
+
+>[!NOTE]
+>如果您從 ADE V1 (含 Azure AD 應用程式) 切換到 ADE V2 (不含 Azure AD 應用程式), 您必須停用複寫, 並在啟用 ADE V2 之後啟用複寫。
 
 ## <a id="required-user-permissions"></a>必要的使用者權限
 Site Recovery 要求使用者必須擁有在目的地區域中建立金鑰保存庫的許可權, 並將金鑰從來源區域金鑰保存庫複製到目的地區域金鑰保存庫。

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499885"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879251"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -31,7 +31,7 @@ ms.locfileid: "68499885"
 
 使用 AD FS 2016 和 AF FS 2019 的同盟部署, 可以使用[AD FS 外部網路鎖定和外部網路智慧鎖定](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)來啟用類似的優點。
 
-任何 Azure AD 客戶只要採用兼具適當安全性和可用性的預設設定，智慧鎖定就一律會啟用。 要使用組織的特定值自訂智慧鎖定設定，您的使用者必須具有 Azure AD Basic 或更高的授權。
+任何 Azure AD 客戶只要採用兼具適當安全性和可用性的預設設定，智慧鎖定就一律會啟用。 您的使用者必須付費 Azure AD 授權, 才能自訂智慧鎖定設定, 其中包含您組織的特定值。
 
 使用智慧鎖定並不保證實際使用者永遠不會遭到鎖定。當智慧鎖定將使用者帳戶鎖定時，我們會盡力不讓實際使用者遭到鎖定。 鎖定服務會嘗試確保不良執行者無法獲得實際使用者帳戶的存取權。  
 
@@ -63,7 +63,7 @@ ms.locfileid: "68499885"
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>管理 Azure AD 智慧鎖定值
 
-根據您的組織需求，智慧鎖定值可能需要進行自訂。 要使用組織的特定值自訂智慧鎖定設定，您的使用者必須具有 Azure AD Basic 或更高的授權。
+根據您的組織需求，智慧鎖定值可能需要進行自訂。 您的使用者必須付費 Azure AD 授權, 才能自訂智慧鎖定設定, 其中包含您組織的特定值。
 
 若要檢查或修改組織的智慧鎖定值，請使用下列步驟：
 

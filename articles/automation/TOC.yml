@@ -234,7 +234,7 @@
         - name: 開始使用
           href: automation-dsc-getting-started.md
           displayName: DSC
-        - name: 建立 DSC 組態
+        - name: 管理 Linux 組態
           href: automation-quickstart-dsc-configuration.md
           displayName: 'DSC, state configuration, config, node configuration, node'
     - name: 登入

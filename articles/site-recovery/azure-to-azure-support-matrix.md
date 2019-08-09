@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840581"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884113"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>將 Azure VM 從一個區域複寫至另一個區域的支援矩陣
 
@@ -197,7 +197,7 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援 VM 磁碟
 儲存空間 | 支援 |
 待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
-適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援 |
+適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援具有受控磁片的 Vm。 不支援使用非受控磁片的 Vm |
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
 熱新增 | 支援 | 針對使用受控磁片的 Vm, 支援為您新增至複寫 Azure VM 的資料磁片啟用複寫。
 熱移除磁片 | 不支援 | 如果您移除 VM 上的資料磁片, 您必須停用複寫, 然後再次為 VM 啟用複寫。

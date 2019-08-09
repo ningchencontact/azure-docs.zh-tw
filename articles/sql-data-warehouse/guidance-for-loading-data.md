@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/31/2019
+ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: bb170b53946a014d4aa69ce628c2e4bef7459b93
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: a1433139695eb59fa3fd721852fae3181b8f892b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595593"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882483"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>將資料載入 Azure SQL 資料倉儲的最佳做法
 
@@ -38,7 +38,7 @@ PolyBase 無法載入具有超過 1 百萬個位元組之資料的資料列。 �
 
 如需最快的載入速度，一次只執行一項載入作業。 如果不可行，請同時執行數量最少的載入。 如果您預期會有大量載入作業，請考慮在載入前將資料倉儲相應增加。
 
-若要以適當的計算資源執行載入，請建立為了執行載入而指定的載入使用者。 將每個載入使用者指派給特定的資源類別。 若執行載入，做為其中一個載入的使用者，登入，然後執行負載。 載入會利用使用者的資源類別來執行。  相較於嘗試變更使用者的資源類別，以符合目前的資源類別需求，這個方法比較簡單。
+若要以適當的計算資源執行載入，請建立為了執行載入而指定的載入使用者。 將每個載入使用者指派給特定的資源類別。 若要執行負載, 請以其中一個載入使用者身分登入, 然後執行負載。 載入會利用使用者的資源類別來執行。  相較於嘗試變更使用者的資源類別，以符合目前的資源類別需求，這個方法比較簡單。
 
 ### <a name="example-of-creating-a-loading-user"></a>建立載入使用者的範例
 
@@ -58,7 +58,7 @@ PolyBase 無法載入具有超過 1 百萬個位元組之資料的資料列。 �
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-若要使用 staticRC20 資源類別的資源執行載入，以 loaderrc20 身分登入並執行負載。
+若要使用 staticRC20 資源類別的資源來執行負載, 請以 LoaderRC20 的身分登入並執行負載。
 
 在靜態資源類別，而不是動態資源類別之下執行載入。 不論您的[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)為何，使用靜態資源類別可保證相同的資源。 如果您使用動態資源類別，資源就會根據您的服務層級而有所不同。 對於動態類別，較低服務層級表示您可能需要對您的載入使用者使用較大的資源類別。
 
@@ -69,8 +69,8 @@ PolyBase 無法載入具有超過 1 百萬個位元組之資料的資料列。 �
 例如，請考慮將資料庫結構描述 schema_A 用於 dept A 以及 schema_B 用於 dept B，讓資料庫使用者 user_A 和 user_B 個別成為 dept A 及 B 中載入的 PolyBase 之使用者。 這兩個使用者皆已獲得 CONTROL 資料庫權限。 結構描述 A 和 B 的建立者現在是使用 DENY 鎖定其結構描述：
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
 user_A 和 user_B 現在已從其他部門的結構描述加以鎖定。
@@ -88,9 +88,12 @@ user_A 和 user_B 現在已從其他部門的結構描述加以鎖定。
 - 若要確保載入使用者有足夠的記憶體可達到最大的壓縮率，請使用是中型或大型資源類別成員的載入使用者。 
 - 載入足夠的資料列，完全填滿新的資料列群組。 在大量載入期間，每 1,048,576 個資料列會以完整資料列群組形式直接壓縮到資料行存放區中。 若載入的資料列少於 102,400 個，則會將資料列傳送至差異存放區，其中的資料列會保存在 b 型樹狀結構索引中。 如果您載入太少資料列，這些資料列可能全都會移至差異存放區，並不會立即壓縮成資料行存放區格式。
 
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>使用 SQLBulkCopy API 或 BCP 時增加批次大小
+如先前所述, 使用 PolyBase 載入會提供 SQL 資料倉儲的最高輸送量。 如果您無法使用 PolyBase 來載入, 且必須使用 SQLBulkCopy API (或 BCP), 您應該考慮增加批次大小以獲得更好的輸送量。 
+
 ## <a name="handling-loading-failures"></a>處理載入失敗
 
-使用外部資料表的載入可能會失敗，並顯示「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」  錯誤訊息。 此訊息表示您的外部資料包含「錯誤」記錄。 如果資料類型和資料行數不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。 
+使用外部資料表的載入可能會失敗，並顯示「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤訊息。 此訊息表示您的外部資料包含「錯誤」記錄。 如果資料類型和資料行數不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。 
 
 若要修正「錯誤」記錄，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。 萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE 中的拒絕選項，選擇拒絕這些查詢記錄。
 
@@ -102,9 +105,9 @@ user_A 和 user_B 現在已從其他部門的結構描述加以鎖定。
 
 ## <a name="creating-statistics-after-the-load"></a>建立載入後的統計資料
 
-為了改善查詢效能，在首次載入資料或資料發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。  這可以手動完成，或者您可以啟用[自動建立統計資料](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)。
+為了改善查詢效能，在首次載入資料或資料發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。  這可以手動完成, 也可以啟用[自動建立統計資料](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)。
 
-如需統計資料的詳細說明，請參閱 [統計資料](sql-data-warehouse-tables-statistics.md)。 下列範例示範如何以手動方式在 Customer_Speed 資料表的五個資料行上建立統計資料。
+如需統計資料的詳細說明，請參閱 [統計資料](sql-data-warehouse-tables-statistics.md)。 下列範例顯示如何在 Customer_Speed 資料表的五個數據行上手動建立統計資料。
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -122,13 +125,13 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 對於金鑰已變更的每個儲存體帳戶，發出 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql)。
 
-範例：
+範例:
 
 建立原始金鑰
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-``` 
+```
 
 將金鑰從 key 1 輪替為 key 2
 
@@ -143,6 +146,3 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 - 若要深入了解 PolyBase 及如何設計擷取、載入和轉換 (ELT) 程序，請參閱[設計 SQL 資料倉儲的 ELT](design-elt-data-loading.md)。
 - 如需載入教學課程，請參閱[使用 PolyBase 將資料從 Azure Blob 儲存體載入 SQL 資料倉儲中](load-data-from-azure-blob-storage-using-polybase.md)。
 - 若要監視資料載入，請參閱[使用 DMV 監視工作負載](sql-data-warehouse-manage-monitor.md)。
-
-
-

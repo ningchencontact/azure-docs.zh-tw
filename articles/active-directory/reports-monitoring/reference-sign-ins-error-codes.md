@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
+ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6972c91a18f9deb240871d8c64a14647474d9d78
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4cbaa8f22335da083506a76ad1a791576b109a00
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377267"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879776"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -53,7 +53,7 @@ ms.locfileid: "68377267"
 ## <a name="error-codes"></a>錯誤碼
 
 
-|錯誤|描述|
+|Error|描述|
 |---|---|
 |16000|這是內部實作詳細資料，而不是錯誤狀況。 您可以放心地忽略此參考。|
 |20001|同盟識別提供者有問題。 請連絡 IDP 以解決此問題。|
@@ -127,6 +127,7 @@ ms.locfileid: "68377267"
 |50177|未針對傳遞使用者支援外部挑戰。|
 |50178|未針對傳遞使用者支援工作階段控制。|
 |50180|需要 Windows 整合式驗證。 為租用戶啟用無縫 SSO。|
+|50201|當使用者提供其他資訊時, 將會在登入期間向使用者顯示此訊息提示中斷。|
 |51001|所顯示的網域提示沒有內部部署安全性識別碼 - 內部部署 UPN。|
 |51004|目錄中不存在使用者帳戶。|
 |51006|需要 Windows 整合式驗證。 使用者使用透過宣告遺失的會話權杖登入。 請要求使用者重新登入。|
@@ -181,6 +182,9 @@ ms.locfileid: "68377267"
 |500121| 驗證在強式驗證要求期間失敗。|
 |500133| Assert 陳述式不在其有效時間範圍內。 先確認存取權杖未過期，再將它用於使用者 Assert 陳述式，或要求新權杖。|
 |530021|應用程式不符合條件式存取已核准的應用程式需求。|
+|530032|受到安全性原則封鎖。| 
+|700016|在目錄 ' {tenantName} ' 中找不到識別碼為 ' {appIdentifier} ' 的應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 您可能已將驗證要求傳送給錯誤的租使用者。|
+|900432|跨雲端要求中不支援機密用戶端。|
 |7000218|要求主體必須包含下列參數: ' client_assertion ' 或 ' client_secret '。|
 
 

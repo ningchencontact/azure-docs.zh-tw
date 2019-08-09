@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 96571b55158733f8189ddf87402fb634330ca80d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3b76dc546b46718378d9b22ad80e17849eaf532d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570463"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884069"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL Database 受控執行個體資料庫中設定複寫
 
@@ -59,7 +59,7 @@ ms.locfileid: "68570463"
 Azure SQL Database 的受控執行個體中不支援下列功能：
 
 - [可更新的訂閱](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication)。
-- 如果已設定異動複寫, 則不應使用「[主動式異地](sql-database-active-geo-replication.md)複寫」和「[自動容錯移轉群組](sql-database-auto-failover-group.md)」。
+- 具有異動複寫的[主動式異地](sql-database-active-geo-replication.md)複寫。 使用[自動容錯移轉群組](sql-database-auto-failover-group.md), 而不是作用中異地複寫, 但請注意, 必須從主要受控實例[手動刪除](sql-database-managed-instance-transact-sql-information.md#replication)發行集, 並在容錯移轉之後于次要受控實例上重新建立。  
  
 ## <a name="1---create-a-resource-group"></a>1-建立資源群組
 

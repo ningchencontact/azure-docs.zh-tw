@@ -8,43 +8,46 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 52936b14264bd4fe1846ae365e1de447d594b612
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639053"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881973"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>選擇 Azure 地圖服務中的地圖樣式
 
-「Azure 地圖服務」有四種不同的地圖樣式可選擇。 如需地圖樣式的詳細資訊，請參閱 [Azure 地圖服務中支援的地圖樣式](./supported-map-styles.md)。 本文說明如何使用與樣式相關的功能在地圖負載上設定樣式、設定新樣式，以及使用樣式選擇器控制項。
+在 Azure 地圖服務中, 有許多[支援的地圖樣式](./supported-map-styles.md)可在 Web SDK 中取得。 本文說明如何使用與樣式相關的功能在地圖負載上設定樣式、設定新樣式，以及使用樣式選擇器控制項。
 
 ## <a name="set-style-on-map-load"></a>設定載入地圖時的樣式
+
+在下列程式碼中, `style`對應的選項會在初始化時`grayscale_dark`設定為。
+
+<br/>
 
 <iframe height='500' scrolling='no' title='設定地圖負載上的樣式' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆<a href='https://codepen.io/azuremaps/pen/WKOQRq/'>在地圖負載上設定樣式</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-上述程式碼區塊會設定訂用帳戶金鑰及建立「地圖」物件，並將樣式設定為 grayscale_dark。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
-
 ## <a name="update-the-style"></a>更新樣式
+
+在下列程式碼中, 載入對應實例之後, 地圖樣式會從`road`更新為`satellite`使用對應的[setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)函式。
+
+<br/>
 
 <iframe height='500' scrolling='no' title='更新樣式' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆<a href='https://codepen.io/azuremaps/pen/yqXYzY/'>更新樣式</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-上述程式碼區塊會設定訂用帳戶金鑰並建立「地圖」物件，但不會預先設定樣式。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
-
-第二個程式碼區塊會使用地圖的 [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法將地圖樣式設為 satellite。
-
 ## <a name="add-the-style-picker"></a>新增樣式選擇器
+
+下列程式碼會將[StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)新增至地圖, 讓使用者可以輕鬆地在不同的地圖樣式之間切換。 
+
+<br/>
 
 <iframe height='500' scrolling='no' title='新增樣式選擇器' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆<a href='https://codepen.io/azuremaps/pen/OwgyvG/'>新增樣式選擇器</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-上述程式碼的第一個程式碼區塊會設定訂用帳戶金鑰及建立「地圖」物件，並將地圖樣式預先設定為 grayscale_dark。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
-
-第二個程式碼區塊會使用地圖集 [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) 建構函式，來建構樣式選取器。
-
-樣式選取器可啟用地圖的樣式選擇功能。 第三個程式碼區塊會使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 方法，將樣式選擇器新增至地圖。 樣式選擇器位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
+> [!TIP]
+> 根據預設, 樣式選擇器控制項會列出使用 Azure 地圖服務的 S0 定價層時可用的所有樣式。 如果您想要減少此清單中的樣式數目, 請將您想要顯示在清單中的樣式陣列, 傳遞至樣式`mapStyle`選擇器的選項。 如果您使用 S1, 而且想要顯示所有可用的樣式, 請將`mapStyles`樣式選擇器的選項設定`"all"`為。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -53,12 +56,10 @@ ms.locfileid: "68639053"
 > [!div class="nextstepaction"]
 > [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-將控制項新增至您的地圖：
+將控制項新增至您的對應:
 
 > [!div class="nextstepaction"]
-> [新增地圖控制項](./map-add-controls.md)
-
-新增地圖釘：
+> [新增地圖控制項](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [新增圖釘](./map-add-pin.md)
+> [新增圖釘](map-add-pin.md)

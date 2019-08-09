@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 30f4558339bbfddd2296cd1cb918c6ef8999b67e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853767"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879185"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>受控網域上的密碼和帳戶鎖定原則
 此文章說明受控網域上的預設密碼原則。 它也涵蓋如何設定這些原則。
@@ -38,7 +38,8 @@ ms.locfileid: "68853767"
     * 帳戶鎖定期間
     * 允許的失敗登入嘗試次數
     * 經過下列時間後重設失敗的登入嘗試計數
-
+    
+FGPP 只會影響直接在 Azure AD DS 中建立的使用者。 從 Azure AD 同步處理到 Azure AD DS 受控網域的雲端使用者和網域使用者不會受到密碼複雜性設定的影響。 FGPP 是透過 Azure AD DS 受控網域中的群組關聯來散發, 而您所做的任何變更都會在下次使用者登入時套用。 變更原則並不會解除鎖定已鎖定的使用者帳戶。
 
 ## <a name="default-fine-grained-password-policy-settings-on-a-managed-domain"></a>受控網域上的預設更細緻密碼原則設定
 以下螢幕擷取畫面說明 Azure AD Domain Services 受控網域上設定的預設更細緻密碼原則。

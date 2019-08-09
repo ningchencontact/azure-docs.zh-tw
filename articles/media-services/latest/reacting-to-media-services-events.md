@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64bf8f5c8de5f56ee1140e91d0472a33b35570cf
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996113"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878775"
 ---
 # <a name="handling-event-grid-events"></a>處理事件方格事件
 
@@ -24,7 +24,7 @@ ms.locfileid: "60996113"
 
 媒體服務事件的可用性會繫結至事件格線[可用性](../../event-grid/overview.md)，並且將在其他區域中變成可用狀態，就像事件格線所做的一樣。  
 
-## <a name="media-services-events-and-schemas"></a>媒體服務事件和結構描述
+## <a name="media-services-events-and-schemas"></a>媒體服務事件和架構
 
 Event Grid 使用[事件訂閱](../../event-grid/concepts.md#event-subscriptions)將事件訊息路由至訂閱者。 媒體事件包含了回應資料變更時所需的一切資訊。 因為 eventType 屬性開頭為 “Microsoft.Media”，所以您可以藉此識別出媒體服務事件。
 
@@ -41,4 +41,5 @@ Event Grid 使用[事件訂閱](../../event-grid/concepts.md#event-subscriptions
 
 ## <a name="next-steps"></a>後續步驟
 
-[取得工作狀態事件](job-state-events-cli-how-to.md)
+* [監視事件-入口網站](monitor-events-portal-how-to.md)
+* [監視事件-CLI](job-state-events-cli-how-to.md)

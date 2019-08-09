@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1401e378daa0c0a9258858840653899e76c9421c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640827"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881782"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>網路安全性群組流量記錄簡介
 
@@ -57,7 +57,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
             * **flows** - 流量的集合
                 * **mac** - 流量收集所在 VM 之 NIC 的 MAC 位址
                 * **flowTuples** - 包含多個流量 tuple 屬性的逗號分隔格式字串
-                    * **時間戳記** - 這個值是流量發生時的時間戳記，格式為 UNIX EPOCH
+                    * **時間戳記**-此值是以 UNIX epoch 格式出現流程時的時間戳記
                     * **來源 IP** - 來源 IP
                     * **目的地 IP** - 目的地 IP
                     * **來源連接埠** - 來源連接埠

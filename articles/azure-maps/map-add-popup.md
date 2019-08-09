@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d44ef3d0db8e93d4babd7441238c7fa105dbd5
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: caf661faf00d1d32664b7958a14a8719a37ab36e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638998"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882104"
 ---
 # <a name="add-a-popup-to-the-map"></a>在地圖上新增快顯
 
@@ -24,26 +24,40 @@ ms.locfileid: "68638998"
 
 <a id="addAPopup"></a>
 
+下列程式碼會使用符號圖層, 將`name`具有`description`和屬性的點特徵新增至地圖。 隨即會建立[快顯視窗類別](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)的實例, 但不會顯示。 滑鼠事件會加入至符號圖層, 以在滑鼠停留在符號標記上時, 觸發開啟和關閉快顯視窗。 當標記符號暫留時, 快顯的`position`屬性會更新為標記的位置, `content`而選項會使用`name`一些 HTML 來更新, 以包裝要`description`暫留的 point 功能的和屬性。 然後會使用其`open`函式, 在地圖上顯示快顯。
+
+<br/>
+
 <iframe height='500' scrolling='no' title='使用 Azure 地圖服務新增快顯' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>使用 Azure 地圖服務新增快顯</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-在上述程式碼中，程式碼的第一個區塊會建構地圖物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。 它也會建立要在快顯中顯示的 HTML 內容。
-
-第二個程式碼區塊會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件。 點是 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 類別的[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest)。 接著會建立具有名稱和描述屬性的點物件，並新增至資料來源。
-
-[符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。  在第三個程式碼區塊中會建立符號層。 資料來源會新增至符號層，然後新增至地圖。
-
-程式碼的第四個區塊會透過 `new atlas.Popup()` 建立[快顯物件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)。 position 和 pixelOffset 等快顯屬性都屬於 [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)。 PopupOptions 可定義在快顯建構函式中或透過快顯類別的 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) 函式來定義。 接著會建立符號層的 `mouseover` 事件接聽程式。
-
-最後一個程式碼區塊會建立由 `mouseover` 事件接聽程式所觸發的函式。 它會設定快顯的內容和屬性，並將快顯物件新增至地圖。
-
 ## <a name="reusing-a-popup-with-multiple-points"></a>重複使用具有多個點的快顯
 
-當您有很多點，但只想要一次顯示一個快顯時，最好的方法是建立一個快顯，並重複使用它，而不是為每個點特徵建立快顯。 如果您這麼做，應用程式所建立的 DOM 元素數目就會大幅減少從而提升效能。 此範例會建立 3 個點特徵。 如果您對任何一個特徵按一下，便會顯示快顯，內有該點特徵的內容。
+當您有大量的點, 而且只想要一次顯示一個快顯視窗時, 最好的方法是建立一個快顯並重複使用它, 而不是針對每個點功能建立快捷方式。 藉由重複使用快顯, 應用程式所建立的 DOM 元素數目會大幅減少, 而能夠提供更好的效能。 下列範例會建立3個點特徵。 如果您對任何一個特徵按一下，便會顯示快顯，內有該點特徵的內容。
 
 <br/>
 
 <iframe height='500' scrolling='no' title='重複使用具有多個釘選的快顯' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看 Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>重複使用具有多個釘選的快顯</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
+</iframe>
+
+## <a name="customizing-a-popup"></a>自訂快顯視窗
+
+根據預設, 快顯視窗會有白色背景、底部的指標箭號, 以及右上角的 [關閉] 按鈕。 下列範例會使用快顯視窗的`fillColor`選項, 將背景色彩變更為黑色。 將此`shoCloseButton`選項設定為 false, 即可移除 [關閉] 按鈕。 快顯的 HTML 內容會使用快顯視窗邊緣的10圖元填補, 而文字則會設為白色, 使其在黑色背景上顯示良好。  
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="自訂快顯視窗" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+請參閱<a href='https://codepen.io'>CodePen</a>上 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 的畫筆<a href='https://codepen.io/azuremaps/pen/ymKgdg/'>自訂快顯視窗</a>。
+</iframe>
+
+## <a name="popup-events"></a>快顯視窗事件
+
+您可以開啟、關閉和拖曳快顯視窗。 Popup 類別提供事件, 協助開發人員對這些動作做出反應。 下列範例會反白顯示當您開啟、關閉或拖曳快顯視窗時, 所引發的事件。 
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="快顯視窗事件" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>), 以查看畫筆<a href='https://codepen.io/azuremaps/pen/BXrpvB/'>快顯視窗事件</a>。
 </iframe>
 
 ## <a name="next-steps"></a>後續步驟

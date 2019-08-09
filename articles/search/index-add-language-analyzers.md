@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d229d33f549755479d7e1c7cf012d0391bccbb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790908"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881515"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>將語言分析器新增至 Azure 搜尋服務索引
 
-「語言分析器」  是特定類型的[文字分析器](search-analyzers.md)，能使用目標語言的語言規則來執行語彙分析。 每個可搜尋的欄位都會有 **analyzer** 屬性。 如果您的索引包含已翻譯的字串 (例如適用於英文和中文文字的個別欄位)，您可以在每個欄位上指定語言分析器，以存取由那些分析器所提供的豐富語言功能。  
+「語言分析器」是特定類型的[文字分析器](search-analyzers.md)，能使用目標語言的語言規則來執行語彙分析。 每個可搜尋的欄位都會有 **analyzer** 屬性。 如果您的索引包含已翻譯的字串 (例如適用於英文和中文文字的個別欄位)，您可以在每個欄位上指定語言分析器，以存取由那些分析器所提供的豐富語言功能。  
 
 Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專屬的 Microsoft 自然語言處理技術所支援的 50 種分析器 (此技術同樣用於 Office 和 Bing 中)。
 
@@ -118,7 +118,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 |烏都文|ur.microsoft||  
 |越南文|vi.microsoft||  
 
- 所有名稱加上 **Lucene** 註解的分析器都是由 [Apache Lucene 的語言分析器](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ) \(英文\) 所提供。
+ 所有名稱加上 **Lucene** 註解的分析器都是由 [Apache Lucene 的語言分析器](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ) \(英文\) 所提供。
 
 ## <a name="see-also"></a>另請參閱  
  [建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)  

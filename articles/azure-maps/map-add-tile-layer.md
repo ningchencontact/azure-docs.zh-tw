@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e288e03b9e2c02ba963595f192dea7225c6d5762
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638996"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882093"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>將圖格圖層新增至地圖
 
 本文會示範如何在地圖上覆疊圖格圖層。 圖格圖層可讓您在 Azure 地圖服務的地圖底圖上覆蓋影像。 您可以在[縮放層級和圖格格線](zoom-levels-and-tile-grid.md)文件中找到有關 Azure 地圖服務圖格顯示系統的詳細資訊。
 
-圖格圖層會從伺服器載入圖格。 這些影像可以像伺服器上其他影像一樣，使用圖格圖層了解的命名慣例來預先轉譯及儲存，或是作為可動態產生影像的動態服務。 Azure 地圖服務的 [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) 類別支援三種不同的圖層服務命名慣例； 
+磚圖層會從伺服器載入磚。 這些影像可以像伺服器上其他影像一樣，使用圖格圖層了解的命名慣例來預先轉譯及儲存，或是作為可動態產生影像的動態服務。 Azure 地圖服務[TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)類別支援三種不同的磚服務命名慣例: 
 
 * X、Y、縮放標記法 - 以縮放層級為基礎，在圖格格線中的圖格上，x 是資料行位置，而 y 是資料列位置。
 * Quadkey 標記法 - 將 x、y、縮放資訊結合成單一字串值，以作為圖格的唯一識別碼。
@@ -40,7 +40,7 @@ ms.locfileid: "68638996"
 
 ## <a name="add-a-tile-layer"></a>新增圖格圖層
 
- 此範例示範如何建立圖格圖層，而此圖格圖層會指向一組使用 x、y、縮放圖格系統的圖格。 此圖格圖層的來源是天氣雷達覆疊圖，資料來源：[愛荷華州立大學的愛荷華州環境氣象網 (Iowa Environmental Mesonet of Iowa State University)](https://mesonet.agron.iastate.edu/ogc/)。
+ 此範例示範如何建立圖格圖層，而此圖格圖層會指向一組使用 x、y、縮放圖格系統的圖格。 此圖格圖層的來源是天氣雷達覆疊圖，資料來源：[愛荷華州立大學的愛荷華州環境氣象網 (Iowa Environmental Mesonet of Iowa State University)](https://mesonet.agron.iastate.edu/ogc/)。 
 
 <br/>
 
@@ -53,7 +53,7 @@ ms.locfileid: "68638996"
 
 ## <a name="customize-a-tile-layer"></a>自訂圖格圖層
 
-圖格圖層只會有許多樣式選項。 以下是可讓您試用這些選項的工具。
+圖格圖層類別有許多樣式選項。 以下是可讓您試用這些選項的工具。
 
 <br/>
 

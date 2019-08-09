@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: fe8d46c897ef68563f2e0e5a1da106174ae504c5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 763b3961bfd621f05ab5cd021526b0d6d109c020
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424080"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881714"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files 的資源限制
 
@@ -42,6 +42,7 @@ ms.locfileid: "68424080"
 |  單一磁片區的大小下限    |    100 GiB    |    否    |
 |  單一磁片區的指派配額上限 *   |   92 TiB   |    否   |
 |  單一磁片區的大小上限 *     |    100 TiB    |    否       |
+|  每個磁片區的檔案數目上限 (inode)     |    50000000    |    否    |    
 
 \* 您可以手動建立磁片區, 或調整其大小以最常 92 TiB。 不過, 在超額的案例中, 磁片區可以成長到 100 TiB。 如需容量超額的詳細資料, 請參閱[Azure NetApp Files 的成本模型](azure-netapp-files-cost-model.md)。 
 

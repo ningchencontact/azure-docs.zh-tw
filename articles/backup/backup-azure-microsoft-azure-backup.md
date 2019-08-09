@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: f5367e1ca3e950126766e788323cb1d4749e9b0c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: d815b471b0a1d7842118c7ac0b5e1665b8fb3c1e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688409"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879946"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "68688409"
 >
 >
 
-Azure VM 中部署的 MABS 可以在 Azure 中備份 VM，但是應在相同的網域中才能啟用備份作業。 備份 Azure VM 的程式與備份內部部署 Vm 的程式相同, 但在 Azure 中部署 MABS 有一些限制。 如需限制詳細資訊，請參閱 [DPM 作為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+部署在 Azure VM 中的 MABS 可以在 Azure 中備份 Vm, 但它們必須位於相同的網域中, 才能啟用備份作業。 備份 Azure VM 的程式與備份內部部署 Vm 的程式相同, 但在 Azure 中部署 MABS 有一些限制。 如需有關限制的詳細資訊, 請參閱[DPM 做為 Azure 虛擬機器](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
@@ -42,7 +42,7 @@ Azure 備份伺服器承襲了 Data Protection Manager (DPM) 的大部分工作�
 要啟動並執行 Azure 備份伺服器，第一個步驟是設定 Windows Server。 伺服器可以位於 Azure 或內部部署中。
 
 ### <a name="using-a-server-in-azure"></a>使用 Azure 中的伺服器
-選擇用來執行 Azure 備份伺服器的伺服器時，建議您從 Windows Server 2012 R2 Datacenter、Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的資源庫映像開始。 即使您之前從未使用過 Azure， [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文會提供教學課程讓您在 Azure 中開始使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求應該是︰具有四個核心和 8 GB RAM 的 Standard_A4_v2。
+選擇要執行 Azure 備份伺服器的伺服器時, 建議您從 Windows Server 2012 R2 Datacenter、Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的圖庫映射開始。 即使您之前從未使用過 Azure， [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文會提供教學課程讓您在 Azure 中開始使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求應該是︰具有四個核心和 8 GB RAM 的 Standard_A4_v2。
 
 使用 Azure 備份伺服器保護工作負載有許多細節需要注意。 [將 DPM 安裝為 Azure 虛擬機器](https://technet.microsoft.com/library/jj852163.aspx)一文可協助說明這些細節。 在部署機器之前，請先確實閱讀此文章。
 
@@ -78,12 +78,14 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
 若要編輯儲存體複寫設定︰
 
-1. 選取保存庫以開啟保存庫儀表板和 [設定] 功能表。 如果 [設定] 功能表未開啟，請按一下保存庫儀表板中的 [所有設定]。
-2. 在 [設定] 功能表上按一下 [備份基礎結構] > [備份組態]，開啟 [備份組態] 刀鋒視窗。 在 [備份組態] 功能表上，選擇保存庫的儲存體複寫選項。
+1. 從 [復原服務保存庫] 刀鋒視窗，按一下 [新增保存庫]。 在 [**設定**] 區段下, 按一下 [**屬性**]。
+2. 在 [**屬性**] 的 [**備份**設定] 底下, 按一下 [**更新**]。
 
-    ![備份保存庫的清單](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. 選取 [儲存體] 複寫類型, 然後按一下 [儲存]。
 
-    選擇好保存庫的儲存體選項後，就可以開始建立 VM 與保存庫的關聯。 若要開始關聯，請探索及註冊 Azure 虛擬機器。
+     ![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## <a name="software-package"></a>軟體封裝
 ### <a name="downloading-the-software-package"></a>下載軟體封裝
@@ -116,7 +118,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
     ![內部部署和做為目標的工作負載](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    從 [你想要備份哪些項目？] 下拉式功能表中，選取您要使用 Azure 備份伺服器保護的工作負載，然後按一下 [確定]。
+    從 [**您要備份什麼？** ] 下拉式功能表中, 選取您要使用 Azure 備份伺服器保護的工作負載, 然後按一下 **[確定]** 。
 
     [開始使用備份功能] 精靈會切換 [準備基礎結構] 選項以將工作負載備份至 Azure。
 
@@ -135,7 +137,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
     ![下載中心 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    因為所有檔案的下載大小合計 > 3G，在 10Mbps 下載連結上可能需要 60 分鐘才能完成下載。
+    由於所有檔案的下載大小都是 > 3G, 因此在 10 Mbps 下載連結上, 下載可能需要最多60分鐘的時間才能完成。
 
 ### <a name="extracting-the-software-package"></a>將軟體封裝解壓縮
 下載所有檔案之後，按一下 [MicrosoftAzureBackupInstaller.exe]。 這會啟動 [Microsoft Azure 備份安裝精靈] ，並將安裝程式檔案解壓縮至您所指定的位置。 繼續執行精靈，然後按一下 [解壓縮] 按鈕，以開始解壓縮程序。
@@ -160,7 +162,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 
     ![Azure 備份伺服器 - SQL 檢查](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    如果發生失敗且建議您重新啟動電腦，請依指示進行，然後按一下 [再檢查一次]。 如果有任何 SQL 設定問題，請依照 SQL 指導方針重新設定 SQL，並使用現有的 SQL 執行個體再試一次安裝/升級 MABS。
+    如果發生失敗且建議您重新啟動電腦，請依指示進行，然後按一下 [再檢查一次]。 如果有任何 SQL 設定問題, 請根據 SQL 方針重新設定 SQL, 然後使用現有的 SQL 實例重試安裝/升級 MABS。
 
    > [!NOTE]
    > Azure 備份伺服器不會使用遠端 SQL Server 執行個體。 Azure 備份伺服器所使用的執行個體必須是本機的。 如果您將現有的 SQL Server 用於 MABS，則 MABS 安裝程式只支援使用 SQL Server 的「具名執行個體」。
@@ -201,7 +203,7 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
 7. 檢閱「設定值摘要」，按一下 [安裝]。
 
     ![Microsoft Azure 備份必要條件 2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
-8. 安裝分階段執行。 在第一個階段中，會將 Microsoft Azure 復原服務代理程式安裝在伺服器上。 精靈也會檢查網際網路連線。 如果可連線至網際網路，您可以繼續安裝，否則必須提供 Proxy 詳細資料來連線到網際網路。
+8. 安裝分階段執行。 在第一個階段中, Microsoft Azure 復原服務代理程式會安裝在伺服器上。 精靈也會檢查網際網路連線。 如果可連線至網際網路，您可以繼續安裝，否則必須提供 Proxy 詳細資料來連線到網際網路。
 
     下一個步驟是設定 Microsoft Azure 復原服務代理程式。 在設定的過程中，您將必須提供保存庫認證，以向復原服務保存庫註冊機器。 您也須提供複雜密碼來加密/解密 Azure 與您的內部部署之間所傳送的資料。 您可以自動產生複雜密碼，或提供您自己的複雜密碼，最少 16 個字元。 繼續執行精靈，直到代理程式完成設定。
 
@@ -251,7 +253,7 @@ MABS 會使用 System Center Data Protection Manager 保護代理程式。 [這�
   > - 您必須擁有 MABS 資料庫 (DPMDB) 的備份。 您必須還原資料庫。
 
 1. 在顯示窗格中，選取您要更新保護代理程式的用戶端電腦。
-2. 關閉原始 Azure 備份伺服器，或讓它離線。
+2. 關閉原始的 Azure 備份伺服器, 或將其從網路中取出。
 3. 在 Active Directory 中重設電腦帳戶。
 4. 在新機器上安裝 Server 2016 並將它命名為與原始 Azure 備份伺服器相同的電腦名稱。
 5. 加入網域
@@ -295,7 +297,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 在 Azure 的連線已還原至 Azure 備份伺服器機器之後，可執行的作業將取決於 Azure 訂用帳戶狀態。 上表詳細列出機器「已連接」之後所允許之作業的相關資訊。
 
 ### <a name="handling-subscription-states"></a>處理訂用帳戶狀態
-您可以將 Azure 訂用帳戶從「已過期」或「已取消佈建」狀態變更為「作用中」狀態。 不過，當狀態不是「作用中」時，此動作會對產品的行為造成某些影響：
+您可以將 Azure 訂用帳戶從「已過期」或「已取消佈建」狀態變更為「作用中」狀態。 不過, 當狀態不是作用中時, 這會對產品行為造成一些影響:
 
 * 「已取消佈建」 的訂用帳戶在取消佈建的這段期間會失去功能。 切換為「作用中」時，就會恢復產品的備份/還原功能。 此外，只要以夠大的保留期間來保存，也可以擷取本機磁碟上的備份資料。 不過，一旦訂用帳戶進入「已取消佈建」 狀態，Azure 中的備份資料便會遺失而無法復原。
 * 「已過期」的訂用帳戶只有在恢復「作用中」狀態之前會失去功能。 任何針對訂用帳戶處於「已過期」 期間所排定的備份，都不會執行。

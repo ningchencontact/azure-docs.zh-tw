@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d204e9bcf601bf968f06b5d9df3f36414bd5a5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780918"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884197"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>如何複製或重製 Azure Data Factory 中的資料處理站
 
@@ -36,11 +36,11 @@ ms.locfileid: "60780918"
 
 1. 前提是您必須從 Azure 入口網站建立您的目標資料處理站。
 
-1. 如果您將 SelfHosted IntegrationRuntime 在您的來源處理站時，您需要先它建立具有相同名稱的目標處理站中。 如果您想要共用 SelfHosted IRs 之間不同的處理站，您可以使用已發佈的模式[此處](author-visually.md#best-practices-for-git-integration)。
+1. 如果您的來源 factory 中有 SelfHosted IntegrationRuntime, 您必須在目標處理站中使用相同的名稱來 precreate 它。 如果您想要在不同的工廠之間共用 SelfHosted 的 IRs, 可以使用[這裡](source-control.md#best-practices-for-git-integration)發佈的模式。
 
 1. 若您處於 GIT 模式，每次您從入口網站發行時，處理站的 Resource Manager 範本都會儲存到 GIT 中 (存放庫的 adf_publish 分支)。
 
-1. 針對其他案例，您可以按一下入口網站中的 [匯出 Resource Manager 範本]  按鈕，以下載 Resource Manager 範本。
+1. 針對其他案例，您可以按一下入口網站中的 [匯出 Resource Manager 範本] 按鈕，以下載 Resource Manager 範本。
 
 1. 下載 Resource Manager 範本之後，您可以透過標準 Resource Manager 範本部署方法來部署它。
 

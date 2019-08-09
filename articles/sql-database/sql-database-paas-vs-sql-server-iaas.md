@@ -12,14 +12,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/11/2019
-ms.openlocfilehash: e4b61920868c4a33fb3db552fd63cef5e44c864b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fc0204e774e66e9304887f47377a102df1b828cb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855651"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884337"
 ---
-# <a name="choose-the-right-sql-server-option-in-azure"></a>在 Azure 中選擇適當的 SQL Server 選項
+# <a name="choose-the-right-deployment-option-in-azure-sql"></a>在 Azure SQL 中選擇正確的部署選項
 
 在 Azure 中，您可以讓 SQL Server 工作負載在託管基礎結構 (IaaS) 中執行或以託管服務 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 形式執行。 在 PaaS 中，您有多個部署選項，而且每個部署選項中都有多個服務層級。 在 PaaS 或 IaaS 之間做決定時，您必須詢問的關鍵問題是，您是否要管理資料庫、套用修補程式、進行備份，還是要將這些作業委派給 Azure？
 根據答案，您會有下列選項：
@@ -29,7 +29,7 @@ ms.locfileid: "68855651"
   - 以[單一資料庫](sql-database-single-database.md)形式，內含透過 SQL Database 伺服器管理的自有資源集。 單一資料庫類似 SQL Server 中的[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。 此選項適用於新的雲端應用程式的現代應用程式開發。
   - [彈性集區](sql-database-elastic-pool.md)，這是透過 SQL Database 伺服器管理的共用資源集出現在其中的資料庫集合。 單一資料庫可以移入和移出彈性集區。 此選項適用於使用多租用戶 SaaS 應用程式的新雲端應用程式部署新型應用程式。
   - [受控執行個體](sql-database-managed-instance.md)，這是有一組共用資源的系統和使用者資料庫集合。 受控執行個體類似於 [Microsoft SQL Server 資料庫引擎] 的執行個體，可提供資料庫和其他執行個體範圍之功能的共用資源。 受控執行個體支援從內部部署進行資料庫移轉，幾乎無需進行任何資料庫變更。 此選項還會提供 Azure SQL Database 的所有 PaaS 優勢，但會新增先前只在 SQL VM 中提供的功能。 這包括原生虛擬網路 (VNet) 以及與內部部署 SQL Server 接近 100% 的相容性。
-- [Azure 虛擬機器中的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 屬於*基礎結構即服務 (IaaS)* 產業類別，可讓您在 Azure 雲端的完全受控虛擬機器中執行 SQL Server。 [SQL Server 虛擬機器](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)也會在 Microsoft 所擁有、主控及維護的標準化硬體上執行。 在 VM 上使用 SQL Server 時，您可以隨收隨付以取得已經包含在 SQL Server 映像中的 SQL Server 授權或者輕鬆使用現有的授權。 您也可以視需要停止或繼續 VM。SQL Server 會安裝並託管於雲端或 Azure 上執行的 Windows Server 或 Linux 虛擬機器 (VM)，也稱為基礎結構即服務 (IaaS)。 Azure 虛擬機器上的 SQL Server 是移轉內部部署 SQL Server 資料庫和應用程式的理想選項，無需進行任何資料庫變更。 所有近期的 SQL Server 版本均可安裝在 IaaS 虛擬機器中。 SQL Server VM 與 SQL Database 的最明顯差異就是允許完全控制資料庫引擎。 您可以選擇開始進行維護/修補的時間，將復原模式變更為簡單或大量記錄以便更快速載入少量記錄，視需要暫停或啟動引擎，而且可以完全自訂 SQL Server 資料庫引擎。 此額外控制項伴隨著管理虛擬機器的附加責任。
+- [Azure 虛擬機器中的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 屬於*基礎結構即服務 (IaaS)* 產業類別，可讓您在 Azure 雲端的完全受控虛擬機器中執行 SQL Server。 [SQL Server 虛擬機器](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)也會在 Microsoft 所擁有、主控及維護的標準化硬體上執行。 在 VM 上使用 SQL Server 時，您可以隨收隨付以取得已經包含在 SQL Server 映像中的 SQL Server 授權或者輕鬆使用現有的授權。 您也可以視需要停止或繼續 VM。SQL Server 會安裝並託管於雲端或 Azure 上執行的 Windows Server 或 Linux 虛擬機器 (VM)，也稱為基礎結構即服務 (IaaS)。 Azure 虛擬機器上的 SQL Server 是移轉內部部署 SQL Server 資料庫和應用程式的理想選項，無需進行任何資料庫變更。 所有近期的 SQL Server 版本均可安裝在 IaaS 虛擬機器中。 SQL Server VM 與 SQL Database 的最明顯差異就是允許完全控制資料庫引擎。 您可以選擇啟動維護/修補的時機, 將復原模式變更為簡單或大量記錄, 並在需要時暫停或啟動服務, 而且您可以完全自訂 SQL Server 的資料庫引擎。 隨著此額外的控制, 管理虛擬機器還有額外的責任。
 
 下表列出這些選項之間的主要差異：
 

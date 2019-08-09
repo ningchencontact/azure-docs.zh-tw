@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a71c7ffe9040c3002b1f5378ce298a047554b15
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 079a0721e77174215c7256eecbe9bc522256f0b8
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640201"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881469"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -58,7 +58,7 @@ ms.locfileid: "68640201"
 
 Oracle 連結服務支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設定為 **Oracle**。 | 是 |
 | connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>將此欄位`SecureString`標記為, 以安全地將它儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中, 並從`password`連接字串中提取設定。 請參閱下列範例, 並[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md), 並提供更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 是 |
@@ -246,7 +246,7 @@ Oracle 連結服務支援下列屬性:
 
 若要將資料複製到 Oracle, 請將複製活動中的接收`OracleSink`類型設定為。 複製活動的 [接收] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的類型屬性必須設定為`OracleSink`。 | 是 |
 | writeBatchSize | 當緩衝區大小達到`writeBatchSize`時, 將資料插入 SQL 資料表中。<br/>允許的值為整數 (資料列數目)。 |否 (預設值為 10000) |

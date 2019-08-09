@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 833d0d0b17f7cc22b2ab37b4e225c1a8cce9c592
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9dcc5fa201c08ca4b1e65b8aae88118731eba427
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385556"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881076"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -133,6 +133,10 @@ SNAT 連接埠會預先配置，如[了解 SNAT 和 PAT](#snat) 一節所述。 
 
 UDP SNAT 連接埠是由與 TCP SNAT 連接埠不同的演算法管理。  Load Balancer 會對 UDP 使用稱為 "Port-Restricted cone NAT" 的演算法。  每個流程都會取用一個 SNAT 連接埠 (不管目的地 IP 位址、連接埠為何)。
 
+#### <a name="snat-port-reuse"></a>SNAT 埠重複使用
+
+一旦釋放埠之後, 埠就可以視需要重複使用。  您可以將 SNAT 埠視為從最低到最高的順序, 適用于指定的案例, 而第一個可用的 SNAT 埠則用於新的連接。 
+ 
 #### <a name="exhaustion"></a>耗盡
 
 當 SNAT 連接埠資源耗盡時，輸出流程會失敗，直到現有的流程釋出 SNAT 連接埠為止。 當流程關閉並使用 [4 分鐘閒置逾時](#idletimeout)來從閒置流程回收 SNAT 連接埠時，Load Balancer 會回收 SNAT 連接埠。

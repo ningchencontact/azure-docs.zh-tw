@@ -1,6 +1,6 @@
 ---
-title: 效能基準測試，適用於 Azure NetApp 檔案 |Microsoft Docs
-description: 描述 Azure NetApp 檔案在磁碟區層級的效能基準測試結果。
+title: 適用于 Azure NetApp Files 的效能基準測試結果 |Microsoft Docs
+description: 描述適用于磁片區層級之 Azure NetApp Files 的效能基準測試結果。
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,84 +12,84 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 14081daf1f45a84bc8ad19bf0239db1281d9e624
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1d6b43110046f26d8c8070b19587366588eee7b6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449511"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881744"
 ---
-# <a name="performance-benchmarks-for-azure-netapp-files"></a>適用於 Azure NetApp Files 的效能基準測試
+# <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>適用于 Azure NetApp Files 的效能基準測試結果
 
-本文說明 Azure NetApp 檔案在磁碟區層級的效能基準測試結果。 
+本文說明 Azure NetApp Files 在磁片區層級的效能基準測試結果。 
 
 ## <a name="sample-application-used-for-the-tests"></a>用於測試的範例應用程式
 
-使用 Azure NetApp 檔案的範例應用程式執行效能測試。 應用程式具有下列特性： 
+效能測試是以使用 Azure NetApp Files 的範例應用程式來執行。 應用程式具有下列特性: 
 
-* 以 Linux 為基礎的應用程式專為雲端建置
-* 可以以線性方式調整已新增的虛擬機器 (Vm) 來視需要增加計算能力
-* 需要快速的 data lake 的協助工具
-* 有時候是隨機和循序有時的 I/O 模式 
-    * 隨機模式需要大量 I/O 的低延遲。 
-    * 循序模式需要大量的頻寬。 
+* 針對雲端打造的 Linux 應用程式
+* 可以透過新增的虛擬機器 (Vm) 線性調整, 以視需要增加計算能力
+* 需要 data lake 的快速存取範圍
+* 的 i/o 模式有時是隨機的, 有時也是連續的 
+    * 隨機模式需要低延遲的大量 i/o。 
+    * 順序模式需要大量的頻寬。 
 
 ## <a name="about-the-workload-generator"></a>關於工作負載產生器
 
-結果是來自於 Vdbench 摘要檔中。 [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html)是命令列公用程式會產生驗證儲存體效能的磁碟 I/O 工作負載。 使用的用戶端-伺服器組態是可擴充的。  它包含單一混合主版/用戶端和 14 的專用用戶端 Vm。
+結果來自 Vdbench 摘要檔案。 [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html)是命令列公用程式, 它會產生磁片 i/o 工作負載來驗證存放裝置效能。 使用的用戶端-伺服器設定是可調整的。  它包含單一混合式主要/用戶端和14個專用用戶端 Vm。
 
-## <a name="about-the-tests"></a>了解測試
+## <a name="about-the-tests"></a>關於測試
 
-這些測試被設計來識別可能的範例應用程式的限制和回應時間的曲線數目達到的限制。  
+測試的設計目的是要識別範例應用程式可能會有的限制, 以及曲線到限制為止的回應時間。  
 
-執行下列測試： 
+已執行下列測試: 
 
-* 100 %8 KiB 隨機讀取
-* 100 %8 KiB 隨機寫入
-* 100 %64 KiB 循序讀取
-* 100 %64 KiB 循序寫入
-* 50 %64 KiB 循序讀取，50 %64 KiB 循序寫入
-* 50 %8 KiB 隨機讀取，50 %8 KiB 隨機寫入
+* 100% 8-KiB 隨機讀取
+* 100% 8-KiB 隨機寫入
+* 100% 64-KiB 順序讀取
+* 100% 64-KiB 順序寫入
+* 50% 64-KiB 順序讀取, 50% 64-KiB 連續寫入
+* 50% 8-KiB 隨機讀取, 50% 8-KiB 隨機寫入
 
 ## <a name="bandwidth"></a>頻寬
 
-Azure 的 NetApp 檔案提供多個[服務層級](azure-netapp-files-service-levels.md)。 每個服務層級提供不同的每個 TiB 的佈建的容量 （磁碟區配額） 的頻寬量。 磁碟區的頻寬限制會根據服務層級，以及磁碟區的配額組合來佈建。 頻寬限制是輸送量的只有一個因素決定將可實現的實際數量。  
+Azure NetApp Files 提供多個[服務層級](azure-netapp-files-service-levels.md)。 每個服務等級都會提供不同的頻寬量, 每個 TiB 的布建容量 (磁片區配額)。 磁片區的頻寬限制是根據服務等級和磁片區配額的組合來布建。 頻寬限制只是判斷即將實現的實際輸送量量的一個因素。  
 
-4,500 MiB 目前已完成的工作負載測試中的單一磁碟區的最高輸送量。  使用 Premium 服務層級，70.31 TiB 的磁碟區配額會佈建足夠的頻寬可以實現下列計算此輸送量： 
+目前, 4500 MiB 是工作負載針對測試中的單一磁片區所達到的最高輸送量。  使用 Premium 服務層級時, 70.31 TiB 的磁片區配額會布建足夠的頻寬, 以根據下列計算來實現此輸送量: 
 
 ![頻寬公式](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 
-![配額和服務層級](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
+![配額和服務等級](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
 
-## <a name="throughput-intensive-workloads"></a>輸送量密集的工作負載
+## <a name="throughput-intensive-workloads"></a>需要大量輸送量的工作負載
 
-輸送量測試使用 Vdbench 和 12xD32s V3 儲存體 Vm 的組合。 在測試中的範例磁碟區來達成下列的輸送量數字：
+輸送量測試使用 Vdbench 和 12xD32s V3 儲存體 Vm 的組合。 測試中的範例磁片區已達到下列輸送量數位:
 
 ![輸送量測試](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
 
-## <a name="io-intensive-workloads"></a>我 i/o 密集型工作負載
+## <a name="io-intensive-workloads"></a>需要大量 i/o 的工作負載
 
-I/O 測試使用 Vdbench 和 12xD32s V3 儲存體 Vm 的組合。 範例中的磁碟區測試達到以下的 I/O 數字：
+I/o 測試使用 Vdbench 和 12xD32s V3 儲存體 Vm 的組合。 測試中的範例磁片區已達到下列 i/o 數位:
 
-![I/O 測試](../media/azure-netapp-files/azure-netapp-files-io-test.png)
+![I/o 測試](../media/azure-netapp-files/azure-netapp-files-io-test.png)
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>延遲
 
-測試 Vm 和 Azure NetApp 檔案磁碟區之間的距離會對 I/O 效能的影響。  下表比較與兩組不同的 Vm 的延遲回應曲線的 IOPS。  一組 Vm 即將 Azure NetApp 檔案和其他集已進一步離開。  增加的延遲時間，進一步組 Vm 所需的 IOPS 達到平行處理原則的指定層級會影響。  不論如何，讀取磁碟區可以超過 300,000 IOPS，如下所示： 
+測試 Vm 與 Azure NetApp Files 磁片區之間的距離會影響 i/o 效能。  下圖比較兩組不同 Vm 的 IOPS 和延遲回應曲線。  其中一組 Vm 位於 Azure NetApp Files 附近, 而另一組則會進一步離開。  進一步的 Vm 集增加的延遲, 會影響在指定的平行處理原則層級所達到的 IOPS 數量。  無論如何, 讀取磁片區可能會超過 300000 IOPS, 如下所示: 
 
 ![延遲研究](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
 ## <a name="summary"></a>總結
 
-延遲的工作負載 （資料庫） 可以有一位數毫秒回應時間。 交易效能可能會超過 300 個 IOPS 的單一磁碟區。
+延遲敏感的工作負載 (資料庫) 可以有一毫秒的回應時間。 交易效能可能會超過單一磁片區的 300k.wvx IOPS。
 
-（適用於串流處理和映像） 的輸送量敏感應用程式可擁有 4.5GiB / 秒的輸送量。
+輸送量敏感的應用程式 (適用于串流和映射處理) 可以有 4.5 GiB/s 輸送量。
 
 ## <a name="example-scripts"></a>範例指令碼
 
-下列指令碼範例是僅用於示範目的。  也就是不是要用於生產環境中使用。  
+下列範例腳本僅供示範用途之用。  它們不會用於生產用途。  
 
     #
     #This script makes the following assumptions about the environment

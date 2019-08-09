@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839561"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881382"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -446,11 +446,25 @@ func deploy
 
 ## <a name="monitoring-functions"></a>監視函式
 
-若要監視函式的執行, 建議的方法是與 Azure 應用程式 Insights 整合。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您使用 Azure CLI 建立函式應用程式時，則不會在 Azure 中完成您的函式應用程式整合。
+若要監視函式的執行, 建議的方法是與 Azure 應用程式 Insights 整合。 您也可以將執行記錄串流至本機電腦。 若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
+
+### <a name="enable-application-insights-integration"></a>啟用 Application Insights 整合
+
+當您在 Azure 入口網站中建立函數應用程式時, 預設會為您完成 Application Insights 整合。 不過，當您使用 Azure CLI 建立函式應用程式時，則不會在 Azure 中完成您的函式應用程式整合。
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
+### <a name="enable-streaming-logs"></a>啟用串流記錄
+
+您可以在本機電腦上的命令列會話中, 查看您的函式所產生的記錄檔串流。 
+
+#### <a name="native-streaming-logs"></a>原生串流記錄
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
+
+這種類型的串流處理記錄檔需要您為函式應用程式[啟用 Application Insights 整合](#enable-application-insights-integration)。   
+
+
 ## <a name="next-steps"></a>後續步驟
 
 Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://github.com/azure/azure-functions-cli)。  

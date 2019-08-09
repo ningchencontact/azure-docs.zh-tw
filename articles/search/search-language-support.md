@@ -6,15 +6,14 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5383ad44f665ce809772143e23817932c3e2b7e6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854404"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883895"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>如何在 Azure 搜尋服務中建立多種語言的索引
 
@@ -27,15 +26,15 @@ Azure 搜尋服務提供來自 Lucene 和 Microsoft 的大量語言分析器選�
 建立欄位時, 會指定語言分析器。 將分析器新增至現有的欄位定義時, 需要覆寫 (和重載) 索引, 或建立與原始相同的新欄位, 但流量分析器指派。 您接著可以在方便時刪除未使用的欄位。
 
 1. 登入[Azure 入口網站](https://portal.azure.com)並尋找您的搜尋服務。
-1. 在服務儀表板頂端的命令列中按一下 [新增索引]  即可開始新的索引，或開啟現有索引以在您加入至現有索引的新欄位上設定分析器。
+1. 在服務儀表板頂端的命令列中按一下 [新增索引] 即可開始新的索引，或開啟現有索引以在您加入至現有索引的新欄位上設定分析器。
 1. 藉由提供名稱來啟動欄位定義。
 1. 選擇 [Edm] 資料類型。 只有字串欄位可以進行全文檢索搜尋。
-1. 設定可  搜尋的屬性, 以啟用 Analyzer 屬性。 欄位必須是以文字為基礎, 才能使用語言分析器。
+1. 設定可搜尋的屬性, 以啟用 Analyzer 屬性。 欄位必須是以文字為基礎, 才能使用語言分析器。
 1. 選擇其中一個可用的分析器。 
 
 ![在欄位定義期間指派語言分析器](media/search-language-support/select-analyzer.png "在欄位定義期間指派語言分析器")
 
-根據預設, 所有可搜尋的欄位都會使用與語言無關的[標準 Lucene 分析器](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html)。 若要查看支援分析器的完整清單, 請參閱[將語言分析器新增至 Azure 搜尋服務索引](index-add-language-analyzers.md)。
+根據預設, 所有可搜尋的欄位都會使用與語言無關的[標準 Lucene 分析器](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html)。 若要查看支援分析器的完整清單, 請參閱[將語言分析器新增至 Azure 搜尋服務索引](index-add-language-analyzers.md)。
 
 在入口網站中, 分析器的目的是要以原本的方式使用。 如果您需要進行自訂或篩選準則和 token 化工具的特定設定, 您應該在程式碼中[建立自訂分析器](index-add-custom-analyzers.md)。 入口網站不支援選取或設定自訂分析器。
 

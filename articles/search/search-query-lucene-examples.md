@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: affe9084c488984747c4bafca5b8e9536cd6dba8
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 53a1f09fcc9897f4def565a9119ad97ca365cae3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485412"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882741"
 ---
-# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>使用 「 完整 」 的 Lucene 搜尋語法 （Azure 搜尋服務中的進階查詢） 的查詢範例
+# <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>使用 "full" Lucene 搜尋語法的查詢範例 (Azure 搜尋服務中的先進查詢)
 
 在建構 Azure 搜尋服務的查詢時，您可以將預設的[簡單查詢剖析器](query-simple-syntax.md)取代為更廣泛的 [Lucene 查詢剖析器](query-lucene-syntax.md)，以編寫特製化的進階查詢定義。 
 
-Lucene 剖析器支援複雜的查詢建構，例如欄位範圍查詢、 模糊和前置詞萬用字元搜尋、 鄰近搜尋、 詞彙提升，和規則運算式搜尋。 額外的處理需求需要更多能源，因此，您應該預期執行時間會略久。 在本文中，您可以逐步執行範例，以示範使用完整語法時可用的查詢作業。
+Lucene 剖析器支援複雜的查詢結構, 例如欄位範圍的查詢、模糊和前置詞萬用字元搜尋、鄰近搜尋、詞彙提升和正則運算式搜尋。 額外的處理需求需要更多能源，因此，您應該預期執行時間會略久。 在本文中，您可以逐步執行範例，以示範使用完整語法時可用的查詢作業。
 
 > [!Note]
 > 許多透過完整 Lucene 查詢語法來啟用的特製化查詢建構都不是[文字分析](search-lucene-query-architecture.md#stage-2-lexical-analysis)，因此如果您預期的是詞幹分析或詞形歸併還原，可能會感到意外。 只能對完整詞彙執行語彙分析 (詞彙查詢或片語查詢)。 不完整詞彙的查詢類型 (前置詞查詢、萬用字元查詢、Regex 查詢、模糊查詢) 會直接新增至查詢樹狀結構，並略過分析階段。 只能對不完整的查詢詞彙執行小寫轉換。 
@@ -59,15 +59,15 @@ URL 組合具有下列元素：
 
 ## <a name="send-your-first-query"></a>傳送第一個查詢
 
-在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]  。 結果會以詳細 JSON 文件的形式傳回。 會傳回整個文件，可讓您查看所有欄位和所有的值。
+在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 系統會傳回整份檔, 讓您查看所有欄位和所有值。
 
-將此 URL 貼入 REST 用戶端上，做為驗證步驟，以及檢視文件結構。
+將此 URL 貼入 REST 用戶端做為驗證步驟, 並查看檔結構。
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-查詢字串 **`search=*`** 是未指定的搜尋，等同於 Null 或空的搜尋。 它是最簡單的搜尋，您可以執行。
+查詢字串 **`search=*`** 是未指定的搜尋，等同於 Null 或空的搜尋。 這是您可以執行的最簡單搜尋。
 
 (選擇性) 您可以將 **`$count=true`** 新增至 URL，以傳回符合搜尋準則的文件計數。 在空的搜尋字串上，這會是索引中的所有文件 (在 NYC 作業的案例中大約有 2800 份)。
 
@@ -81,11 +81,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 本文中的所有範例會指定 **queryType=full** 搜尋參數，表示 Lucene 查詢剖析器處理的完整語法。 
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>範例 1：查詢範圍的欄位清單
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>範例 1:範圍限定于欄位清單的查詢
 
-第一個範例不是 Lucene 特有的但我們會導致與它導入第一個基本查詢概念： 欄位範圍。 此範例會設定整個查詢，並在短短的特定欄位的回應。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
+第一個範例不是 Lucene 特有的, 但我們會引導它引進第一個基本查詢概念: 欄位範圍。 這個範例會將整個查詢和回應的範圍限定為幾個特定的欄位。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
 
-為求簡潔，查詢僅以 *business_title* 欄位為目標，且指定僅傳回公司職稱。 **SearchFields**參數會限制只 business_title 欄位中，執行查詢並**選取**指定要在回應中包含哪些欄位。
+為求簡潔，查詢僅以 *business_title* 欄位為目標，且指定僅傳回公司職稱。 **SearchFields**參數會將查詢執行限制為只有 business_title 欄位, 而**select**會指定要包含在回應中的欄位。
 
 ### <a name="partial-query-string"></a>部分查詢字串
 
@@ -93,18 +93,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 &search=*&searchFields=business_title&$select=business_title
 ```
 
-以下是使用逗號分隔的清單中的多個欄位相同的查詢。
+以下是在逗號分隔清單中有多個欄位的相同查詢。
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
-在逗號後面的空格是選擇性的。
+逗號後面的空格是選擇性的。
 
 > [!Tip]
-> 使用 REST API，從您的應用程式程式碼時，別忘了以 URL 編碼的參數，例如`$select`和`searchFields`。
+> 當您從應用程式程式碼使用 REST API 時, 別忘了 URL 編碼的`$select`參數`searchFields`, 例如和。
 
-### <a name="full-url"></a>完整的 URL
+### <a name="full-url"></a>完整 URL
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&search=*&searchFields=business_title&$select=business_title
@@ -114,11 +114,11 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Postman 範例回應](media/search-query-lucene-examples/postman-sample-results.png)
 
-您可能已注意到在回應中的搜尋分數。 沒有排名時，分數一律為 1，這是因為搜尋不是全文檢索搜尋，或是未套用任何準則。 若是未套用任何準則的 Null 搜尋，資料列會以任意順序傳回。 當您包含實際的搜尋準則時，您會看到的搜尋分數發展成有意義的值。
+您可能已注意到在回應中的搜尋分數。 沒有排名時，分數一律為 1，這是因為搜尋不是全文檢索搜尋，或是未套用任何準則。 若是未套用任何準則的 Null 搜尋，資料列會以任意順序傳回。 當您包含實際的搜尋條件時, 您會看到搜尋分數進化成有意義的值。
 
-## <a name="example-2-fielded-search"></a>範例 2：加入欄位的搜尋
+## <a name="example-2-fielded-search"></a>範例 2：回復搜尋
 
-完整的 Lucene 語法支援的特定欄位的範圍設定個別的搜尋運算式。 此範例會搜尋中，而不是包含 junior 詞彙資深職稱。
+Full Lucene 語法支援將個別搜尋運算式的範圍設定為特定欄位。 這個範例會搜尋具有「資深」一詞的「商務標題」, 而不是「初級」。
 
 ### <a name="partial-query-string"></a>部分查詢字串
 
@@ -126,13 +126,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 $select=business_title&search=business_title:(senior NOT junior)
 ```
 
-以下是使用多個欄位相同的查詢。
+以下是具有多個欄位的相同查詢。
 
 ```http
 $select=business_title, posting_type&search=business_title:(senior NOT junior) AND posting_type:external
 ```
 
-### <a name="full-url"></a>完整的 URL
+### <a name="full-url"></a>完整 URL
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
@@ -140,18 +140,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Postman 範例回應](media/search-query-lucene-examples/intrafieldfilter.png)
 
-您可以定義加入欄位的搜尋作業與**fieldName:searchExpression**語法，其中的搜尋運算式可以是單一文字或片語或括弧括住，並選擇性地使用布林運算子更複雜的運算式。 以下為部分範例：
+您可以使用**fieldName: searchExpression**語法來定義回復搜尋作業, 其中搜尋運算式可以是單一單字或片語, 或是以括弧括住的更複雜運算式 (選擇性地使用布林運算子)。 以下為部分範例：
 
 - `business_title:(senior NOT junior)`
 - `state:("New York" OR "New Jersey")`
 - `business_title:(senior NOT junior) AND posting_type:external`
 
-請務必將放在引號中的多個字串，如果您想要評估為單一實體，以在此情況下搜尋兩個不同的位置中的兩個字串`state`欄位。 此外，請確定運算子是大寫，如同您看到的 NOT 和 AND。
+如果您想要將兩個字串都評估為單一實體, 請務必將多個字串放在引號中, 例如在此案例中, 搜尋`state`欄位中的兩個不同位置。 此外，請確定運算子是大寫，如同您看到的 NOT 和 AND。
 
-中指定的欄位**fieldName:searchExpression**必須是可搜尋的欄位。 如需欄位定義中索引屬性使用方式的詳細資訊，請參閱 [建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 。
+**FieldName: searchExpression**中指定的欄位必須是可搜尋的欄位。 如需欄位定義中索引屬性使用方式的詳細資訊，請參閱 [建立索引 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 。
 
 > [!NOTE]
-> 在上述範例中，我們不需要使用`searchFields`參數因為查詢的每個組件有明確指定的欄位名稱。 不過，您仍然可以使用`searchFields`參數，如果您想要執行的查詢，其中一些組件的範圍設定為特定的欄位，而其餘無法套用至數個欄位。 例如，查詢`search=business_title:(senior NOT junior) AND external&searchFields=posting_type`會比對`senior NOT junior`只`business_title`欄位中，而它將會比對"external"與`posting_type`欄位。 中提供的欄位名稱**fieldName:searchExpression**一定會優先於`searchFields`參數，也就是為什麼在此範例中，我們不需要包含`business_title`在`searchFields`參數。
+> 在上述範例中, 我們不需要使用`searchFields`參數, 因為查詢的每個部分都有明確指定的功能變數名稱。 不過, 如果您想要執行`searchFields`查詢, 其中某些部分的範圍設定為特定欄位, 則您仍然可以使用參數, 其餘的可能會套用至數個欄位。 `search=business_title:(senior NOT junior) AND external&searchFields=posting_type`例如, 查詢`posting_type`只會符合`senior NOT junior`欄位, 而它會比對 "external" 與欄位。 `business_title` **FieldName: searchExpression**中提供的功能變數名稱一律優先于`searchFields`參數, 因此在此範例中, 我們不需要在`searchFields`參數中包含`business_title` 。
 
 ## <a name="example-3-fuzzy-search"></a>範例 3：模糊搜尋
 
@@ -163,14 +163,14 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 searchFields=business_title&$select=business_title&search=business_title:asosiate~
 ```
 
-片語不直接支援，但您可以指定模糊相符的片語的元件組件。
+不直接支援片語, 但是您可以在片語的元件部分上指定模糊相符。
 
 ```http
 searchFields=business_title&$select=business_title&search=business_title:asosiate~ AND comm~ 
 ```
 
 
-### <a name="full-url"></a>完整的 URL
+### <a name="full-url"></a>完整 URL
 
 此查詢會搜尋含有 "associate" 一詞 (刻意拼錯) 的工作︰
 
@@ -193,7 +193,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
 
-### <a name="full-url"></a>完整的 URL
+### <a name="full-url"></a>完整 URL
 
 在此查詢中，會搜尋含有 "senior analyst" 一詞，且將其分隔的字數不超過一個字的工作︰
 
@@ -211,7 +211,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="example-5-term-boosting"></a>範例 5：詞彙提升
 提升一詞指的是如果文件包含提升詞彙，則將其評等提高，高於不包含該詞彙的文件。 若要提升詞彙，請使用插入號 "^"，並在搜尋詞彙的結尾加上提升係數 (數字)。 
 
-### <a name="full-urls"></a>完整的 Url
+### <a name="full-urls"></a>完整 Url
 
 在此 "before" 查詢中，搜尋含有 *computer analyst* 的工作時，我們會發現沒有同時包含 *computer* 和 *analyst* 兩個單字的結果，但是 *computer* 工作顯示於結果頂端。
 
@@ -231,14 +231,14 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 詞彙提升與評分設定檔的不同之處在於，評分設定檔會提升特定欄位，而不是特定字詞。 下列範例可協助說明差異。
 
-請考慮使用評分設定檔，可提高特定欄位中的相符項目，例如 musicstoreindex 範例中的 **genre** 。 詞彙提升可用來進一步提升某些搜尋詞彙，使其高於其他詞彙。 比方說，"rock^2 electronic" 可提升包含搜尋詞彙的文件﹐使其在 [genre]  欄位中高於索引中的其他可搜尋欄位。 此外，包含搜尋詞彙 "rock" 的文件排名會比另一個搜尋詞彙 "electronic" 還高，此為詞彙提升值 (2) 的結果。
+請考慮使用評分設定檔，可提高特定欄位中的相符項目，例如 musicstoreindex 範例中的 **genre** 。 詞彙提升可用來進一步提升某些搜尋詞彙，使其高於其他詞彙。 比方說，"rock^2 electronic" 可提升包含搜尋詞彙的文件﹐使其在 [genre] 欄位中高於索引中的其他可搜尋欄位。 此外，包含搜尋詞彙 "rock" 的文件排名會比另一個搜尋詞彙 "electronic" 還高，此為詞彙提升值 (2) 的結果。
 
 在設定係數層級時，提升係數越高，該字詞相對於其他搜尋字詞的關聯性也越高。 根據預設，提升係數為 1。 雖然提升係數必須是正數，但是它可能會小於 1 (例如，0.2)。
 
 
 ## <a name="example-6-regex"></a>範例 6︰Regex
 
-規則運算式搜尋會根據正斜線 "/" 之間的內容尋找相符項目，如 [RegExp 類別](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)中所記錄。
+規則運算式搜尋會根據正斜線 "/" 之間的內容尋找相符項目，如 [RegExp 類別](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html)中所記錄。
 
 ### <a name="partial-query-string"></a>部分查詢字串
 
@@ -246,9 +246,9 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-### <a name="full-url"></a>完整的 URL
+### <a name="full-url"></a>完整 URL
 
-在此查詢中，搜尋詞彙資深或 Junior: `search=business_title:/(Sen|Jun)ior/`。
+在此查詢中, 搜尋具有「資深」或「初級」一`search=business_title:/(Sen|Jun)ior/`詞的作業:。
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
@@ -269,7 +269,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
 
-### <a name="full-url"></a>完整的 URL
+### <a name="full-url"></a>完整 URL
 
 在此查詢中，搜尋包含前置詞 'prog' 的工作，其中包括內含 programming 與 programmer 的職稱。 您無法使用 * 或 ? 符號做為搜尋的第一個字元。
 

@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 10b661f0c4b7dc45284b907e83df3c0372f97cab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 17410db91f55a053e5ec208492649157bb0b5034
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561536"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881099"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>如何設定 App Service 應用程式以使用 Microsoft 帳戶登入
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -28,44 +28,46 @@ ms.locfileid: "68561536"
 本主題說明如何設定 Azure App Service，以使用 Microsoft 帳戶作為驗證提供者。 
 
 ## <a name="register-microsoft-account"> </a>使用 Microsoft 帳戶註冊應用程式
-1. 登入 [Azure 入口網站]，然後瀏覽到您的應用程式。 複製 **URL**，以供稍後使用 Microsoft 帳戶來設定應用程式。
-2. 流覽至[**應用程式註冊**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), 並在要求時使用您的 Microsoft 帳戶登入。
-3. 按一下 [新增應用程式]，然後輸入應用程式名稱，再按一下 [建立]。
-4. 請記下 [應用程式識別碼]，因為稍後您將會用到此資訊。 
-5. 在 [平台] 下，按一下 [新增平台] ，然後選取 [網站]。
-6. 在 [重新導向 URI] 下，提供應用程式的端點，然後按一下 [儲存]。 
-   
+1. 登入[Azure 入口網站], 然後流覽至您的應用程式。 
+
+<!-- Copy your **URL**, which you will use later to configure your app with Microsoft Account. -->
+1. 流覽至[**應用程式註冊**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), 並在要求時使用您的 Microsoft 帳戶登入。
+
+1. 按一下 [**新增註冊**], 然後輸入應用程式名稱。
+
+1. 在 [重新**導向 uri**] 中, 選取 [ `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application` **Web**], 然後輸入。 將 *\<應用程式功能變數名稱 >* 取代為應用程式的功能變數名稱。  例如： `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback` 。 
+
    > [!NOTE]
-   > 重新導向 URI 是您的應用程式 URL 加上路徑 /.auth/login/microsoftaccount/callback。 例如， `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`。   
-   > 請確實使用 HTTPS 配置。
+   > 在 URL 中使用 HTTPS 配置。
+
+1. 選取 [**註冊**]。 
+
+1. 複製**應用程式 (用戶端) 識別碼**。 您稍後將會用到此資訊。 
    
-7. 在 [應用程式密碼] 下，按一下 [產生新密碼]。 請記下出現的值。 一旦您離開此頁面，就不會再次顯示。
+7. 從新應用程式註冊的左側導覽中, 選取 **憑證 & 秘密** >  **新用戶端密碼**。 提供 [描述], 選取 [有效期間], 然後選取 [**新增**]。
+
+1. 複製 [**憑證 & 密碼**] 頁面中顯示的值。 一旦您離開此頁面，就不會再次顯示。
 
     > [!IMPORTANT]
     > 密碼是重要的安全性認證。 請勿與任何人共用密碼，或在用戶端應用程式內散佈密碼。
-    
-8. 按一下 [儲存]
 
 ## <a name="secrets"> </a>將 Microsoft 帳戶資訊新增至 App Service 應用程式
-1. 回到 [Azure 入口網站]，瀏覽至您的應用程式，按一下 [設定] > [驗證/授權]。
-2. 如果 [驗證/授權] 功能未啟用，請切換至 [開啟]。
-3. 按一下 [Microsoft 帳戶]。 貼上先前取得的 [應用程式識別碼] 與 [應用程式密碼] 值，然後選擇性啟用應用程式需要的任何範圍。 然後按一下 [確定]。
-   
-    ![][1]
-   
+1. 在 [Azure 入口網站]中，瀏覽到您的應用程式。 從左側導覽中, 按一下 [**驗證/授權**]。
+
+2. 如果 [驗證/授權] 功能未啟用, 請選取 [**開啟**]。
+
+3. 在 [**驗證提供者**] 底下, 選取 [ **Microsoft 帳戶**]。 貼上您稍早取得的應用程式 (用戶端) 識別碼和用戶端密碼, 並選擇性地啟用您的應用程式所需的任何範圍。 然後按一下 [確定]。
+
     App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。 您必須在應用程式程式碼中授權使用者。
-4. (選擇性) 若要限制只有透過 Microsoft 帳戶授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Microsoft 帳戶]。 這會要求所有的要求都經過驗證，且所有未經驗證的要求會重新導向至 Microsoft 帳戶以進行驗證。
+
+4. 選擇性若要限制 Microsoft 帳戶使用者的存取權, 請將 [**要求未經驗證時所採取的動作**] 設定為 [**使用 Microsoft 帳戶登入**]。 這會要求所有的要求都經過驗證，且所有未經驗證的要求會重新導向至 Microsoft 帳戶以進行驗證。
+
 5. 按一下 [儲存]。
 
 現在，您已可在應用程式中使用 Microsoft 帳戶進行驗證。
 
 ## <a name="related-content"> </a>相關內容
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
-<!-- Images. -->
-
-[0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/app-service-microsoftaccount-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication/mobile-app-microsoftaccount-settings.png
 
 <!-- URLs. -->
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
 ms.date: 08/01/2019
-ms.openlocfilehash: f37110138ae62272e56b155b7e8a9aac2f80cdf8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 84bd14f8ae18527b4f6e9d8509a12555baec8771
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734590"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879545"
 ---
 # <a name="troubleshooting-azure-data-catalog"></a>疑難排解 Azure 資料目錄
 
@@ -21,7 +21,7 @@ ms.locfileid: "68734590"
 
 使用 Azure 資料目錄時, 下列功能會受到限制:
 
-- 不支援具有**來賓角色**類型的帳戶。 您無法將來賓帳戶新增為 Azure 資料目錄的使用者, 而且來賓使用者無法在 www.azuredatacatalog.com 使用入口網站。
+- 不支援具有**來賓角色**類型的帳戶。 您不能將來賓帳戶新增為 Azure 資料目錄的使用者, 而且來賓使用者無法使用入口[https://www.azuredatacatalog.com](https://www.azuredatacatalog.com)網站, 網址為。
 
 - 不支援使用 Azure Resource Manager 範本或 Azure PowerShell 命令來建立 Azure 資料目錄資源。
 

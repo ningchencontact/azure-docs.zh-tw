@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 382f43156ab450600ff0d2e5e2db763cd6bd94df
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fe71f4e89fb7e1b6ff3e4f59894a933fbb011692
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875058"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881405"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
 Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封裝](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 提供 API，用於傳送遙測至 Application Insights。 [其他套件](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遙測*模組*和*初始設定式*，用於自動從您的應用程式和其內容追蹤遙測。 藉由調整設定檔案, 您可以啟用或停用遙測模組和初始化運算式, 並為其中一部分設定參數。
 
-組態檔的名稱為 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，端視您的應用程式類型而定。 當您[安裝大部分版本的 SDK][start]時, 它會自動新增至您的專案。 它也會藉由[在 IIS 伺服器上狀態監視器][redfield]來新增至 web 應用程式。 如果使用 azure[網站的延伸](azure-web-apps.md)模組或[azure VM 和虛擬機器擴展集的延伸](azure-vm-vmss-apps.md)模組, 則會忽略設定檔。
+組態檔的名稱為 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，端視您的應用程式類型而定。 當您[安裝大部分版本的 SDK][start]時, 它會自動新增至您的專案。SDK 會在專案`ApplicationInsights.config`根資料夾中建立檔案, 並在編譯時將檔案複製到 bin 資料夾。 它也會藉由[在 IIS 伺服器上狀態監視器][redfield]來新增至 web 應用程式。 如果使用 azure[網站的延伸](azure-web-apps.md)模組或[azure VM 和虛擬機器擴展集的延伸](azure-vm-vmss-apps.md)模組, 則會忽略設定檔。
 
 沒有對等的檔案可以控制[網頁中的 SDK][client]。
 
@@ -45,7 +45,7 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。 [核心封�
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet 封裝。
 
-您可以使用代理程式型 (無程式碼) attach, 自動收集相依性, 而不需要修改程式碼。 若要在 Azure web apps 中使用此功能, 請啟用[Application Insights 延伸](azure-web-apps.md)模組。 若要在 Azure VM 或 Azure 虛擬機器擴展集中使用它, 請啟用[VM 和虛擬機器擴展集的應用程式監視延伸](azure-vm-vmss-apps.md)模組。
+您可以使用代理程式型 (無程式碼) attach, 自動收集相依性, 而不需要修改程式碼。 若要在 Azure web apps 中使用它, 請啟用[Application Insights 延伸](azure-web-apps.md)模組。 若要在 Azure VM 或 Azure 虛擬機器擴展集中使用它, 請啟用[VM 和虛擬機器擴展集的應用程式監視延伸](azure-vm-vmss-apps.md)模組。
 
 ### <a name="performance-collector"></a>效能收集器
 [收集系統效能計數器](../../azure-monitor/app/performance-counters.md)，例如 IIS 安裝的 CPU、記憶體和網路負載。 您可以指定要收集哪些計數器，包括您自己所設定的效能計數器。

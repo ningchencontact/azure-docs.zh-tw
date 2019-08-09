@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4148d8a3b44336677ba028807aadbae424b7223
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ba99001159277d9d221910cafa4f5165ae2bd812
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382516"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880763"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>使用 Microsoft Authenticator 應用程式保來備份和復原帳戶認證
 
@@ -93,6 +93,8 @@ Microsoft Authenticator 應用程式會將您的帳戶認證和相關應用程�
     ![Microsoft Authenticator 應用程式，可讓您掃描您的 QR 代碼](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
+    >如果這是您第一次設定 Microsoft Authenticator 應用程式, 您可能會收到提示, 詢問是否允許應用程式存取您的相機 (iOS), 或允許應用程式取得圖片並錄製影片 (Android)。 您必須選取 [**允許**], 讓驗證器應用程式可以存取您的相機, 以在下一個步驟中取得 QR 代碼的圖片。 如果您不允許相機, 您仍然可以設定驗證器應用程式, 但您必須手動新增程式碼資訊。 如需如何手動新增程式碼的相關資訊, 請參閱[手動將帳戶新增至應用程式](user-help-auth-app-add-account-manual.md)。
+    >
     >如需如何取得 QR 代碼的詳細資訊，請參閱[開始使用 Microsoft Authenticator 應用程式](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install)或[將安全性資訊設定為使用驗證器應用程式](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app) (取決於系統管理員是否已開啟安全性資訊)。
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>針對備份和復原問題進行疑難排解

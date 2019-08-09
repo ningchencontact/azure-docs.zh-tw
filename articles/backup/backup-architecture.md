@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3165183d4a5e0dcfecee62b128ee8cfa9d94209b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9e67e063ed37c706ba172703f0a5483d8d4f68ca
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736710"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881860"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 備份架構和元件
 
@@ -120,7 +120,7 @@ Azure 備份提供不同的備份代理程式, 視要備份的機器類型而定
     - 只會複製自上次備份之後變更的資料區塊。
     - 資料不會加密。 Azure 備份可以使用 Azure 磁碟加密來備份已加密的 Azure Vm。
     - 快照集資料可能不會立即複製到保存庫。 在尖峰時間, 備份可能需要一些時間。 針對每日備份原則, VM 的總備份時間會小於24小時。
-1. 將資料傳送至保存庫之後, 就會移除快照集, 並建立復原點。
+1. 將資料傳送至保存庫之後, 就會建立復原點。 根據預設, 快照集會在刪除前兩天保留。 這項功能可讓您從這些快照集進行還原作業, 進而減少還原時間。 它可減少從保存庫轉換和複製資料所需的時間。 請參閱[Azure 備份立即還原功能](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability)。
 
 Azure Vm 需要網際網路存取才能進行控制命令。 如果您要備份 VM 內的工作負載 (例如, SQL Server 資料庫備份), 後端資料也需要網際網路存取。 
 

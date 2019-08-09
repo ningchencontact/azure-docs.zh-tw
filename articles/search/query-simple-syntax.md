@@ -4,7 +4,7 @@ description: Azure 搜尋服務中的全文檢索搜尋查詢所使用的簡單�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,15 +19,15 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41a9c87731dcb6a2cb31e9120a0170b892c58b6f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024192"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884100"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure 搜尋服務中的簡單查詢語法
-Azure 搜尋服務會實作兩種以 Lucene 為基礎的查詢語言：[簡單查詢剖析器](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html)和 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)。 在 Azure 搜尋服務中，簡單查詢語法會排除 fuzzy/slop 選項。  
+Azure 搜尋服務會實作兩種以 Lucene 為基礎的查詢語言：[簡單查詢剖析器](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html)和 [Lucene 查詢剖析器](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)。 在 Azure 搜尋服務中，簡單查詢語法會排除 fuzzy/slop 選項。  
 
 > [!NOTE]  
 >  Azure 搜尋服務提供替代的 [Lucene 查詢語法](query-lucene-syntax.md)，以進行更複雜的查詢。 若要深入了解每個語法的查詢剖析架構和優點，請參閱[全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md)。
@@ -44,9 +44,9 @@ Azure 搜尋服務會實作兩種以 Lucene 為基礎的查詢語言：[簡單�
 
 一般而言，在內容搜尋應用程式的使用者互動模式中較有可能出現這類行為，因為使用者常會在查詢中加入運算子，而不是像電子商務網站具有較多內建導覽結構。 如需詳細資訊，請參閱 [NOT 運算子](#not-operator)。 
 
-## <a name="boolean-operators-and-or-not"></a>布林運算子 (AND、 OR、 NOT) 
+## <a name="boolean-operators-and-or-not"></a>布林運算子 (AND、OR、NOT) 
 
-您可以在查詢字串來建立一組豐富的準則，針對找到相符的文件中內嵌運算子。 
+您可以在查詢字串中內嵌運算子, 以建立一組豐富的準則, 以尋找相符的檔。 
 
 ### <a name="and-operator-"></a>AND 運算子 `+`
 
@@ -65,17 +65,17 @@ NOT 運算子是負號。 例如，`wifi –luxury` 會搜尋含有 `wifi` 一�
 > [!NOTE]  
 >  在沒有 `+` 或 `|` 運算子的情況下，`searchMode` 選項會控制使用 NOT 運算子的字詞與查詢中的其他字詞之間應使用 AND 還是 OR 來處理。 先前提過，`searchMode` 可設為 `any` (預設值) 或 `all`。 如果使用 `any`，則會包含較多結果而提高查詢的召回率，且依預設 `-` 會解譯為 "OR NOT"。 例如，`wifi -luxury` 會比對出包含 `wifi` 一詞的文件，或不含 `luxury` 一詞的文件。 如果使用 `all`，則會包含較少結果而提高查詢的精確度，且依預設 - 會解譯為 "AND NOT"。 例如，`wifi -luxury` 會比對出包含 `wifi` 一詞且不含 "luxury" 一詞的文件。 就 `-` 運算子而言，這算是較直覺化的行為。 因此，如果您想要最佳化搜尋的精確度而不是召回率，*且*您的使用者在搜尋中經常使用 `-` 運算子，您即應考慮使用 `searchMode=all` 而非 `searchMode=any`。
 
-## <a name="suffix-operator"></a>後置運算子
+## <a name="suffix-operator"></a>尾碼運算子
 
-為後置運算子是星號`*`。 例如，`lux*` 會搜尋內有字詞以 `lux` 開頭 (忽略大小寫) 的文件。  
+尾碼運算子是星號`*`。 例如，`lux*` 會搜尋內有字詞以 `lux` 開頭 (忽略大小寫) 的文件。  
 
 ## <a name="phrase-search-operator"></a>片語搜尋運算子
 
-片語運算子以引號包圍片語`" "`。 例如，`Roach Motel` (不含引號) 會搜尋在任一處包含 `Roach` 和/或 `Motel` (順序不拘) 的文件，而 `"Roach Motel"` (含引號) 則只會比對出依序包含這整個片語的文件 (文字分析仍適用)。
+片語運算子會將片語括在引號`" "`中。 例如，`Roach Motel` (不含引號) 會搜尋在任一處包含 `Roach` 和/或 `Motel` (順序不拘) 的文件，而 `"Roach Motel"` (含引號) 則只會比對出依序包含這整個片語的文件 (文字分析仍適用)。
 
 ## <a name="precedence-operator"></a>優先順序運算子
 
-優先順序運算子是字串放在括號`( )`。 例如， `motel+(wifi | luxury)` motel 一詞，其中包含的文件會搜尋`wifi`或`luxury`（或兩者）。  
+優先順序運算子會將字串括在括弧`( )`中。 例如, `motel+(wifi | luxury)`會搜尋包含 motel 詞彙`wifi`和或`luxury` (或兩者) 的檔。  
 
 ## <a name="escaping-search-operators"></a>逸出搜尋運算子  
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 912bda010ddcf9b02506df14f06fb0650271a53b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 20d5131c773e2a9f7b6830725ccd934786d6dd67
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382992"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880942"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>將安全性資訊 (預覽) 設定為使用驗證器應用程式
 
@@ -64,6 +64,9 @@ ms.locfileid: "68382992"
     ![設定驗證器應用程式的頁面](media/security-info/securityinfo-myprofile-setupauthapp.png)
 
 6. 開啟 Microsoft Authenticator 應用程式、選取要允許通知 (若出現提示)、從右上角的 [自訂和控制] 圖示中選取 [新增帳戶]，然後選取 [公司或學校帳戶]。
+
+    >[!Note]
+    >如果這是您第一次設定 Microsoft Authenticator 應用程式, 您可能會收到提示, 詢問是否允許應用程式存取您的相機 (iOS), 或允許應用程式取得圖片並錄製影片 (Android)。 您必須選取 [**允許**], 讓驗證器應用程式可以存取您的相機, 以在下一個步驟中取得 QR 代碼的圖片。 如果您不允許相機, 您仍然可以設定驗證器應用程式, 但您必須手動新增程式碼資訊。 如需如何手動新增程式碼的相關資訊, 請參閱[手動將帳戶新增至應用程式](user-help-auth-app-add-account-manual.md)。
 
 7. 返回電腦上的 [設定帳戶] 頁面，然後選取 [下一步]。
 

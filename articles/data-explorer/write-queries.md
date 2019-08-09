@@ -7,18 +7,18 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d3eaaf7e588766d62f5e5885d75e61c590970e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773973"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881187"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>撰寫 Azure 資料總管查詢
 
 在本文中，您將學到如何在 Azure 資料總管中使用查詢語言，以運用最常見的運算子執行基本查詢。 您也會了解一些該語言更進階的功能。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 有兩種方式可執行本文中的查詢：
 
@@ -61,15 +61,15 @@ StormEvents
 
 本節所述的運算子是建置組塊，可用來了解 Azure 資料總管中的查詢。 您所撰寫的查詢大部分將包含以下數種運算子。
 
-若要在說明叢集上執行查詢：請選取每個查詢上方的 [按一下以執行查詢]  。
+若要在說明叢集上執行查詢：請選取每個查詢上方的 [按一下以執行查詢]。
 
 若要在您自己的叢集上執行查詢：
 
 1. 將每個查詢複製到以網路為基礎的查詢應用程式，然後選取該查詢，或將游標放在查詢中。
 
-1. 選取應用程式頂端的 [執行]  。
+1. 選取應用程式頂端的 [執行]。
 
-### <a name="count"></a>count
+### <a name="count"></a>計數
 
 [**count**](https://docs.microsoft.com/azure/kusto/query/countoperator)：傳回資料表中的資料列計數。
 
@@ -110,7 +110,7 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-### <a name="where"></a>其中
+### <a name="where"></a>where
 
 [**where**](https://docs.microsoft.com/azure/kusto/query/whereoperator)：篩選資料表以建立滿足述詞的資料列子集。
 
@@ -146,7 +146,7 @@ StormEvents
 
 ### <a name="top"></a>top
 
-[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator)：傳回按指定資料行排序的前 ** N 筆記錄。
+[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator)：傳回按指定資料行排序的前 N 個記錄。
 
 下列查詢會以少一個運算子的方式，傳回與上方相同的結果。
 
@@ -317,7 +317,7 @@ MyData
 
 此查詢使用 **let** 陳述式，這會將名稱 (在此狀況中為 `MyData`) 繫結至運算式。 對於剩餘的範圍，在此會顯示 **let** 陳述式 (全域範圍或在函式主體範圍中)，名稱可用於參照其繫結的值。
 
-### <a name="parsejson"></a>parse_json()
+### <a name="parse_json"></a>parse_json()
 
 [**parse_json()** ](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction)：將字串解譯為 JSON 值，並以動態形式傳回值。 當您需要從 JSON 複合物件擷取多個元素時，使用 **extractjson()** 函式會更合適。
 
@@ -567,9 +567,9 @@ StormEvents
 | summarize Sources = dcountif(Source, DamageProperty < 5000) by State
 ```
 
-### <a name="dcounthll"></a>dcount_hll()
+### <a name="dcount_hll"></a>dcount_hll()
 
-[**dcount_hll()** ](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction)：從 HyperLogLog 結果計算 **dcount**  (由 [hll  ](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 或 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)產生)。
+[**dcount_hll()** ](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction)：計算 HyperLogLog 結果中的**dcount** (由[**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction)或[**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)產生)。
 
 下列查詢會使用 HLL 演算法產生計數。
 
@@ -582,7 +582,7 @@ StormEvents
 | project dcount_hll(hllMerged)
 ```
 
-### <a name="argmax"></a>arg_max()
+### <a name="arg_max"></a>arg_max()
 
 [**arg_max()** ](https://docs.microsoft.com/azure/kusto/query/arg-max-aggfunction)：尋找群組中將運算式最大化的資料列，並傳回另一個運算式的值 (或使用 * 傳回整個資料列)。
 
@@ -599,7 +599,7 @@ StormEvents
 
 ### <a name="makeset"></a>makeset()
 
-[**makeset()** ](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction)：傳回一組相異值的動態 (JSON) 陣列，這些是運算式在群組中取得的值。
+[**makeset()** ](https://docs.microsoft.com/azure/kusto/query/makeset-aggfunction)：傳回運算式在群組中所採用的一組相異值的動態 (JSON) 陣列。
 
 下列查詢會傳回何時依每個狀態回報流量的所有時間，並從一組相異值建立陣列。
 
@@ -614,9 +614,9 @@ StormEvents
 
 ### <a name="mv-expand"></a>mv-expand
 
-[**mv-依序展開**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator):從動態輸入的資料行展開多值的集合，讓集合中的每個值取得不同的資料列。 所展開資料列中的其他所有資料行則會重複。 並且與 makelist 相反。
+[**mv-展開**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator):從動態類型的資料行展開多值集合, 讓集合中的每個值都能取得個別的資料列。 所展開資料列中的其他所有資料行則會重複。 並且與 makelist 相反。
 
-下列查詢會產生範例資料，藉由建立一組，並再利用它來示範**mv-展開**功能。
+下列查詢會藉由建立集合, 然後使用它來示範**mv 展開**功能, 來產生範例資料。
 
 **\[** [**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA) **\]**
 
@@ -631,7 +631,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction)：針對由運算式定義的母體擴展，傳回該母體擴展之 [**最近序數百分位數**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) 的估計值。 其精確度取決於百分位數區域中的母體密度。 僅用於 [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator) 內部彙總的內容。
+[**percentiles()** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction)：傳回運算式所定義之人口的指定[**最接近排名百分**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction)位數的估計值。 其精確度取決於百分位數區域中的母體密度。 僅用於 [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator) 內部彙總的內容。
 
 下列查詢會計算 storm 持續時間的百分位數。
 
@@ -684,7 +684,7 @@ LightningStorms
 
 ### <a name="join"></a>Join
 
-[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator)：透過比對每個資料表中所指定資料行的值，來合併兩個資料表的資料列，以形成新的資料表。 Kusto 支援全系列的聯結類型：**fullouter**、 **inner**、 **innerunique**、 **leftanti**、 **leftantisemi**、**leftouter**、 **leftsemi**、 **rightanti**、 **rightantisemi**、 **rightouter**、 **rightsemi**。
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator)：透過比對每個資料表中所指定資料行的值，來合併兩個資料表的資料列，以形成新的資料表。 Kusto 支援全系列的聯結類型：**fullouter** **inner**、**innerunique** **leftanti** **leftantisemi** **leftouter**、**leftsemi**、**rightanti**、**rightantisemi** **rightouter** **rightsemi**。
 
 下列範例使用內部聯結來聯結兩個資料表。
 
@@ -727,7 +727,7 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-資料列集也是為序列化時的結果：**排序**，**頂端**，或**範圍**運算子，可以選擇性地跟著**專案**，**專案離開**，**擴充**，**其中**，**剖析**， **mv-展開**，或**採取**運算子。
+如果資料列集的結果為: **sort**、 **top**或**range**運算子, 則也會將它視為序列化, 選擇性地緊接著**專案**、**專案離開**、**擴充**、 **where**、 **parse**、 **mv-expand**或**take**運算子。
 
 **\[** [**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA) **\]**
 
@@ -754,7 +754,7 @@ cluster("MyCluster").database("Wiki").PageViews
 
 本節包含的元素與查詢可示範在 Kusto 中執行使用者行為分析是多麼的容易。
 
-### <a name="activitycountsmetrics-plugin"></a>activity_counts_metrics plugin
+### <a name="activity_counts_metrics-plugin"></a>activity_counts_metrics plugin
 
 [**activity_counts_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/activity-counts-metrics-plugin)：計算有用的活動計量 (總計數值、相異計算值、新值的相異計數，以及彙總的相異計數)。 系統會計算每個時間範圍的計量，然後比較計量，再將計量與所有先前的時間範圍彙總在一起。
 
@@ -788,7 +788,7 @@ T
 window)
 ```
 
-### <a name="activityengagement-plugin"></a>activity_engagement plugin
+### <a name="activity_engagement-plugin"></a>activity_engagement plugin
 
 [**activity_engagement plugin**](https://docs.microsoft.com/azure/kusto/query/activity-engagement-plugin)：依據 ID 資料列來計算活動參與率隨滑動時間軸時段的變化。 **activity_engagement plugin** 可用於計算 DAU、WAU 及 MAU (每日、每週與每月作用中使用者)。
 
@@ -814,7 +814,7 @@ range _day from _start to _end step 1d
 > [!TIP]
 > 計算時 DAU/MAU，請變更結束資料和行進中時間範圍 (OuterActivityWindow)。
 
-### <a name="activitymetrics-plugin"></a>activity_metrics plugin
+### <a name="activity_metrics-plugin"></a>activity_metrics plugin
 
 [**activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)：根據目前期間與上個期間的比較，計算有用的活動計量 (相異計數值、新值的相異計數、保留率及流失率)。
 
@@ -839,9 +839,9 @@ range _day from _start to _end step 1d
 | render timechart
 ```
 
-### <a name="newactivitymetrics-plugin"></a>new_activity_metrics plugin
+### <a name="new_activity_metrics-plugin"></a>new_activity_metrics plugin
 
-[**new_activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin)：針對新使用者的世代，計算有用的活動計量 (相異計數值、新值的相異計數、保留率及流失率)。 此外掛程式的概念類似 [**activity_metrics 外掛程式**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)，但側重於新使用者。
+[**new_activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin)：針對新使用者的世代，計算有用的活動計量 (相異計數值、新值的相異計數、保留率及流失率)。 此外掛程式的概念類似 [**activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)，但側重於新使用者。
 
 下列查詢會針對新使用者世代 (本週已抵達的使用者) 逐週計算保留率與流失率。
 
@@ -861,7 +861,7 @@ range Day from _start to _end step 1d
 | project from_Day, to_Day, retention_rate, churn_rate
 ```
 
-### <a name="sessioncount-plugin"></a>session_count plugin
+### <a name="session_count-plugin"></a>session_count plugin
 
 [**session_count plugin**](https://docs.microsoft.com/azure/kusto/query/session-count-plugin)：根據 ID 資料行，計算隨時間軸變化的工作階段計數。
 
@@ -881,7 +881,7 @@ _data
 | render linechart
 ```
 
-### <a name="funnelsequence-plugin"></a>funnel_sequence plugin
+### <a name="funnel_sequence-plugin"></a>funnel_sequence plugin
 
 [**funnel_sequence plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-plugin)：計算已採用一系列狀態的使用者相異計數；顯示在序列之前的上個狀態與下個狀態的分布情形。
 
@@ -897,11 +897,11 @@ StormEvents
 | evaluate funnel_sequence(EpisodeId, StartTime, datetime(2007-01-01), datetime(2008-01-01), 1d,365d, EventType, dynamic(['Tornado']))
 ```
 
-### <a name="funnelsequencecompletion-plugin"></a>funnel_sequence_completion plugin
+### <a name="funnel_sequence_completion-plugin"></a>funnel_sequence_completion plugin
 
 [**funnel_sequence_completion plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin)：計算在不同時段內已完成序列步驟的漏斗圖。
 
-下列查詢會檢查序列的完成漏斗圖：在一小時、四小時及一天 (`[1h, 4h, 1d]`) 的「整體」時間中的 `Hail -> Tornado -> Thunderstorm -> Wind` 。
+下列查詢會檢查序列的完成漏斗圖：在一小時、四小時及一天 (`[1h, 4h, 1d]`)「整體」時間中的 `Hail -> Tornado -> Thunderstorm -> Wind`。
 
 **\[** [**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA) **\]**
 
@@ -915,9 +915,9 @@ StormEvents
 | evaluate funnel_sequence_completion(EpisodeId, StartTime, _start, _end, _windowSize, EventType, _sequence, _periods)
 ```
 
-## <a name="functions"></a>函式
+## <a name="functions"></a>Functions
 
-本節說明[**函式**](https://docs.microsoft.com/azure/kusto/query/functions)：儲存在伺服器上可重複使用的查詢。 函式可由查詢或其他函式叫用 (不支援遞迴函式)。
+本節說明[**函式**](https://docs.microsoft.com/azure/kusto/query/functions)：儲存在伺服器上可重複使用的查詢。 函式可由查詢或其他函式叫用 (不支援遞迴函式)。
 
 > [!NOTE]
 > 您無法在說明叢集上建立函式，因為該叢集是唯讀的。 針對此組件使用您自己的測試叢集。

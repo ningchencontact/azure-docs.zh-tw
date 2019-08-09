@@ -1,6 +1,6 @@
 ---
-title: 預覽-使用 Azure Kubernetes Service (AKS) 中的標準 SKU 負載平衡器
-description: 了解如何使用與標準 SKU 負載平衡器公開您的服務與 Azure Kubernetes Service (AKS)。
+title: 預覽-在 Azure Kubernetes Service 中使用標準 SKU 負載平衡器 (AKS)
+description: 瞭解如何使用具有標準 SKU 的負載平衡器, 以 Azure Kubernetes Service (AKS) 公開您的服務。
 services: container-service
 author: zr-msft
 ms.service: container-service
@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
 ms.openlocfilehash: a9cf3db3a15fab5a2f067a146950e02923a20379
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 08/09/2019
 ms.locfileid: "67476816"
 ---
-# <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>預覽-使用 Azure Kubernetes Service (AKS) 中的標準 SKU 負載平衡器
+# <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service 中使用標準 SKU 負載平衡器 (AKS)
 
-若要提供存取您的應用程式在 Azure Kubernetes Service (AKS) 中，您可以建立並使用 Azure Load Balancer。 在 AKS 上執行的負載平衡器可用來當做內部或外部負載平衡器。 內部負載平衡讓 Kubernetes 服務僅供在與 AKS 叢集相同的虛擬網路中執行的應用程式存取。 外部負載平衡器會接收輸入的一或多個公用 Ip，並讓 Kubernetes 服務可存取的外部使用的公用 Ip。
+若要在 Azure Kubernetes Service (AKS) 中提供應用程式的存取權, 您可以建立和使用 Azure Load Balancer。 在 AKS 上執行的負載平衡器可做為內部或外部負載平衡器使用。 內部負載平衡器可讓 Kubernetes 服務僅供在與 AKS 叢集相同的虛擬網路中執行的應用程式存取。 外部負載平衡器會接收一或多個公用 Ip 進行輸入, 並使用公用 Ip 讓 Kubernetes 服務可從外部進行存取。
 
-Azure Load Balancer 有兩種 SKU -「基本」  和「標準」  。 根據預設，*基本*SKU 可在服務資訊清單用來在 AKS 上建立負載平衡器。 使用*標準*SKU 負載平衡器提供額外特性和功能，例如較大的後端集區大小和可用性區域。 您必須了解之間的差異*標準*並*基本*選擇要使用之前的負載平衡器。 一旦您建立 AKS 叢集時，就無法變更該叢集的負載平衡器 SKU。 如需詳細資訊*基本*並*標準*Sku，請參閱[Azure 負載平衡器 SKU 的比較][azure-lb-comparison]。
+Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 根據預設, 當服務資訊清單用來在 AKS 上建立負載平衡器時, 會使用*基本*SKU。 使用*標準*SKU 負載平衡器提供額外的特性和功能, 例如較大的後端集區大小和可用性區域。 請務必先瞭解*標準*和*基本*負載平衡器之間的差異, 再選擇要使用哪一個。 建立 AKS 叢集之後, 您就無法變更該叢集的負載平衡器 SKU。 如需*基本*和*標準*sku 的詳細資訊, 請參閱[Azure 負載平衡器 sku 比較][azure-lb-comparison]。
 
-這篇文章會示範如何建立及使用具有 Azure Load Balancer*標準*SKU 與 Azure Kubernetes Service (AKS)。
+本文說明如何建立和使用具有 Azure Kubernetes Service (AKS) 之*標準*SKU 的 Azure Load Balancer。
 
-本文假設基本了解 Kubernetes 和 Azure 負載平衡器的概念。 如需詳細資訊，請參閱 < [Kubernetes 核心概念的 Azure Kubernetes Service (AKS)][kubernetes-concepts] and [What is Azure Load Balancer?][azure-lb]。
+本文假設您對 Kubernetes 和 Azure Load Balancer 概念有基本瞭解。 如需詳細資訊, 請參閱[Kubernetes 的核心概念 Azure Kubernetes Service (AKS)][kubernetes-concepts]和[Azure Load Balancer 的內容？][azure-lb]。
 
 此功能目前為預覽狀態。
 
@@ -30,23 +30,23 @@ Azure Load Balancer 有兩種 SKU -「基本」  和「標準」  。 根據預�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇要安裝在本機使用 CLI，本文會要求您執行 Azure CLI 2.0.59 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+如果您選擇在本機安裝和使用 CLI, 本文會要求您執行 Azure CLI 版2.0.59 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="before-you-begin"></a>開始之前
 
-AKS 叢集服務主體需要管理網路資源，如果您使用現有的子網路或資源群組的權限。 一般情況下，指派*網路參與者*給服務主體的委派資源的角色。 如需有關權限的詳細資訊，請參閱[存取其他 Azure 資源的委派 AKS][aks-sp]。
+如果您使用現有的子網或資源群組, 則 AKS 叢集服務主體需要管理網路資源的許可權。 一般來說, 請將「*網路參與者*」角色指派給委派資源上的服務主體。 如需許可權的詳細資訊, 請參閱[將 AKS 存取權委派給其他 Azure 資源][aks-sp]。
 
-您必須建立的 AKS 叢集，設定負載平衡器 SKU*標準*而非預設*基本*。 在稍後步驟中，負責建立 AKS 叢集，但您必須先啟用一些的預覽功能。
+您必須建立 AKS 叢集, 將負載平衡器的 SKU 設定為 [*標準*], 而不是預設的 [*基本*]。 稍後的步驟會涵蓋建立 AKS 叢集, 但您必須先啟用一些預覽功能。
 
 > [!IMPORTANT]
-> AKS 預覽功能包括自助、 選擇加入。 它們可供收集從我們的社群的意見及 bug。 在預覽中，這些功能不適用於實際執行環境。 在公開預覽功能底下 '盡力' 支援。 AKS 技術支援小組的協助時可使用營業時間太平洋 」 (PST) 僅限 timezone。 如需詳細資訊，請參閱下列支援文章：
+> AKS 預覽功能是自助服務, 可加入宣告。 其提供用來從我們的社區收集意見反應和 bug。 在預覽中, 這些功能不適用於生產環境使用。 公開預覽中的功能落在「最佳」支援之下。 AKS 技術支援小組的協助僅適用于上班時間太平洋時區 (PST)。 如需其他資訊, 請參閱下列支援文章:
 >
 > * [AKS 支援原則][aks-support-policies]
 > * [Azure 支援常見問題集][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要使用 Azure load balancer 標準 SKU，您需要*aks 預覽*CLI 擴充功能版本 0.4.1 或更高版本。 安裝*aks 預覽*Azure CLI 擴充功能使用[az 延伸模組加入][az-extension-add]command, then check for any available updates using the [az extension update][az-extension-update]命令：
+若要使用 Azure 負載平衡器標準 SKU, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -58,12 +58,12 @@ az extension update --name aks-preview
 
 ### <a name="register-aksazurestandardloadbalancer-preview-feature"></a>註冊 AKSAzureStandardLoadBalancer 預覽功能
 
-若要建立的 AKS 叢集，可以使用的負載平衡器*標準*SKU，您必須啟用*AKSAzureStandardLoadBalancer*功能在您的訂用帳戶上的旗標。 *AKSAzureStandardLoadBalancer*功能也會使用*VMSSPreview*時使用的虛擬機器擴展集建立叢集。 設定叢集時，這項功能會提供最新一組服務增強功能。 雖然並非必要，但建議您啟用*VMSSPreview*功能旗標。
+若要建立可搭配*標準*SKU 使用負載平衡器的 AKS 叢集, 您必須在您的訂用帳戶上啟用*AKSAzureStandardLoadBalancer*功能旗標。 使用虛擬機器擴展集建立叢集時, *AKSAzureStandardLoadBalancer*功能也會使用*VMSSPreview* 。 這項功能會在設定叢集時提供最新的服務增強功能。 雖然並非必要, 但建議您也啟用*VMSSPreview*功能旗標。
 
 > [!CAUTION]
-> 當您註冊訂用帳戶上的功能時，您目前無法取消註冊該功能。 啟用某些預覽功能之後，可能會使用預設值，然後在 訂用帳戶中建立的所有 AKS 叢集。 請勿啟用生產訂用帳戶上的預覽功能。 若要測試預覽功能，並收集意見反應中使用不同的訂用帳戶。
+> 當您在訂用帳戶上註冊功能時, 目前無法取消註冊該功能。 啟用一些預覽功能之後, 預設值可能會用於在訂用帳戶中建立的所有 AKS 叢集。 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的訂用帳戶來測試預覽功能並收集意見反應。
 
-註冊*VMSSPreview*並*AKSAzureStandardLoadBalancer*功能旗標使用[az 功能註冊][az-feature-register]命令，在下列範例所示：
+使用[az feature register][az-feature-register]命令來註冊*VMSSPreview*和*AKSAzureStandardLoadBalancer*功能旗標, 如下列範例所示:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "VMSSPreview"
@@ -71,16 +71,16 @@ az feature register --namespace "Microsoft.ContainerService" --name "AKSAzureSta
 ```
 
 > [!NOTE]
-> 任何您已成功註冊之後，您建立的 AKS 叢集*VMSSPreview*或是*AKSAzureStandardLoadBalancer*功能旗標會使用此預覽叢集體驗。 若要繼續建立一般、 完全支援的叢集，請勿啟用生產訂用帳戶上的預覽功能。 使用個別的測試或開發 Azure 訂用帳戶進行測試預覽功能。
+> 您在成功註冊*VMSSPreview*或*AKSAzureStandardLoadBalancer*功能旗標之後所建立的任何 AKS 叢集都會使用此預覽叢集體驗。 若要繼續建立一般、完全支援的叢集, 請勿在生產訂用帳戶上啟用預覽功能。 使用個別的測試或開發 Azure 訂用帳戶來測試預覽功能。
 
-狀態需要幾分鐘的時間才會顯示「已註冊」  。 您可以檢查註冊狀態 using [az 功能清單][az-feature-list]命令：
+狀態需要幾分鐘的時間才會顯示「已註冊」。 您可以使用[az feature list][az-feature-list]命令來檢查註冊狀態:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
 ```
 
-準備好時，重新整理的註冊*Microsoft.ContainerService*使用的資源提供者[az provider register][az-provider-register]命令：
+準備好時, 請使用[az provider register][az-provider-register]命令重新整理*microsoft.containerservice*資源提供者的註冊:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -88,20 +88,20 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="limitations"></a>限制
 
-當您建立和管理支援的負載平衡器的 AKS 叢集時，適用下列限制*標準*SKU:
+當您建立和管理支援具有*標準*SKU 之負載平衡器的 AKS 叢集時, 適用下列限制:
 
-* 使用時*標準*負載平衡器的 SKU，您必須允許公用位址，並避免建立禁令 IP 建立任何 Azure 原則。 會自動建立 AKS 叢集*標準*SKU 公用 IP 相同資源群組中的建立的 AKS 叢集，通常名為*MC_* 開頭。 AKS 會指派公用 IP*標準*SKU 負載平衡器。 需要允許輸出流量從 AKS 叢集的公用 IP。 此公用 IP，也需要維護節點之間的連線控制平面與代理程式以及並維持與舊版的 AKS 相容性。
-* 使用時*標準*SKU 負載平衡器，您必須使用 Kubernetes 版本 1.13.5 或更新版本。
+* 使用負載平衡器的*標準*SKU 時, 您必須允許公用位址, 並避免建立 ban IP 建立的任何 Azure 原則。 AKS 叢集會在針對 AKS 叢集所建立的相同資源群組中自動建立*標準*SKU 公用 IP, 這通常會在一開始就使用*MC_* 來命名。 AKS 會將公用 IP 指派給*標準*SKU 負載平衡器。 需要公用 IP, 才能允許來自 AKS 叢集的輸出流量。 此公用 IP 也需要維護控制平面和代理程式節點之間的連線, 以及維護與舊版 AKS 的相容性。
+* 使用負載平衡器的*標準*SKU 時, 您必須使用 Kubernetes version 1.13.5 或更高版本。
 
-雖然這項功能處於預覽狀態，其他的限制如下：
+雖然這項功能處於預覽狀態, 但仍適用下列其他限制:
 
-* 使用時*標準*AKS 中的負載平衡器的 SKU，您無法設定您自己出口流量的公用 IP 位址的負載平衡器。 您必須使用 AKS 將指派給負載平衡器的 IP 位址。
+* 針對 AKS 中的負載平衡器使用*標準*SKU 時, 您無法針對負載平衡器的輸出設定自己的公用 IP 位址。 您必須使用 IP 位址 AKS 指派給您的負載平衡器。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯群組。 建立資源群組時，系統會要求您指定位置。 此位置是儲存資源群組中繼資料的位置，如果您未在資源建立期間指定另一個區域，此位置也會是您在 Azure 中執行資源的位置。 使用 [az group create][az-group-create] 命令來建立資源群組。
 
-下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
+下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -124,10 +124,10 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-aks-cluster"></a>建立 AKS 叢集
-若要執行的 AKS 叢集，支援的負載平衡器*標準*若要設定的 SKU，您的叢集需要*負載-平衡器 sku*參數來*標準*。 這個參數會建立具有負載平衡器*標準*SKU 時建立叢集。 當您執行*負載平衡器*服務在您的叢集的組態*標準*SK 負載平衡器會以服務的組態更新。 使用[az aks 建立][az-aks-create]命令來建立名為 AKS 叢集中*myAKSCluster*。
+若要執行支援具有*標準*SKU 之負載平衡器的 AKS 叢集, 您的叢集必須將*負載平衡器-SKU*參數設定為 [*標準*]。 此參數會在您的叢集建立時, 使用*標準*SKU 建立負載平衡器。 當您在叢集上執行*LoadBalancer*服務時, 系統會使用服務的設定來更新*標準*SK 負載平衡器的設定。 使用[az aks create][az-aks-create]命令來建立名為*myAKSCluster*的 aks 叢集。
 
 > [!NOTE]
-> *負載-平衡器 sku*屬性僅適用於您的叢集建立時。 建立 AKS 叢集之後，您無法變更負載平衡器 SKU。 此外，您只能使用一種類型的單一叢集中的負載平衡器 SKU。
+> 只有在建立叢集時, 才可以使用*負載平衡器-sku*屬性。 建立 AKS 叢集之後, 您就無法變更負載平衡器 SKU。 此外, 您只能在單一叢集中使用一種類型的負載平衡器 SKU。
 
 ```azurecli-interactive
 az aks create \
@@ -144,7 +144,7 @@ az aks create \
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 
-若要管理 Kubernetes 叢集，您使用[kubectl][kubectl]，Kubernetes 命令列用戶端。 如果您使用 Azure Cloud Shell，則 `kubectl` 已安裝。 若要安裝`kubectl`在本機，使用[az aks 安裝 cli][az-aks-install-cli]命令：
+若要管理 Kubernetes 叢集，請使用 Kubernetes 命令列用戶端：[kubectl][kubectl]。 如果您使用 Azure Cloud Shell，則 `kubectl` 已安裝。 若要在本機安裝 `kubectl`，請使用 [az aks install-cli][az-aks-install-cli] 命令：
 
 ```azurecli
 az aks install-cli
@@ -169,9 +169,9 @@ NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.14.0
 ```
 
-## <a name="verify-your-cluster-uses-the-standard-sku"></a>請確認您的叢集使用*標準*SKU
+## <a name="verify-your-cluster-uses-the-standard-sku"></a>確認您的叢集使用*標準*SKU
 
-使用[az aks 顯示][az-aks-show]來顯示您的叢集設定。
+使用[az aks show][az-aks-show]顯示叢集的設定。
 
 ```console
 $ az aks show --resource-group myResourceGroup --name myAKSCluster
@@ -187,13 +187,13 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster
     ...
 ```
 
-請確認*loadBalancerSku*屬性會顯示為*標準*。
+確認 [ *loadBalancerSku* ] 屬性顯示為 [*標準*]。
 
 ## <a name="use-the-load-balancer"></a>使用負載平衡器
 
-若要在叢集上使用負載平衡器，建立與服務類型的 服務資訊清單*負載平衡器*。 若要顯示使用負載平衡器，請使用您叢集上執行範例應用程式建立另一個資訊清單。 此範例應用程式會公開透過負載平衡器，而且可以透過瀏覽器來檢視。
+若要在您的叢集上使用負載平衡器, 請使用服務類型*LoadBalancer*建立服務資訊清單。 若要顯示負載平衡器運作, 請建立另一個資訊清單, 其中包含要在叢集上執行的範例應用程式。 這個範例應用程式會透過負載平衡器公開, 並可透過瀏覽器來查看。
 
-建立名為資訊清單`sample.yaml`如下列範例所示：
+建立名`sample.yaml`為的資訊清單, 如下列範例所示:
 
 ```yaml
 apiVersion: apps/v1
@@ -269,7 +269,7 @@ spec:
           value: "azure-vote-back"
 ```
 
-上述的資訊清單會設定兩個部署： *azure 投票前*並*azure azure-vote-back*。 若要設定*azure 投票前*部署至可公開使用的負載平衡器中，建立名為資訊清單`standard-lb.yaml`如下列範例所示：
+上述資訊清單會設定兩個部署: *azure-投票-front*和*azure 投票*。 若要使用負載平衡器來設定要公開的*azure 投票-front*部署, 請建立名`standard-lb.yaml`為的資訊清單, 如下列範例所示:
 
 ```yaml
 apiVersion: v1
@@ -284,16 +284,16 @@ spec:
     app: azure-vote-front
 ```
 
-服務*azure 投票前*會使用*負載平衡器*連線到您的 AKS 叢集上設定負載平衡器的型別*azure 投票前*部署。
+服務*azure 投票*會使用*LoadBalancer*類型, 在您的 AKS 叢集上設定負載平衡器, 以連線到*azure 投票-front*部署。
 
-部署範例應用程式和負載平衡器使用[kubectl 套用][kubectl-apply]並指定您的 YAML 資訊清單名稱：
+使用[kubectl apply][kubectl-apply]部署範例應用程式和負載平衡器, 並指定 YAML 資訊清單的名稱:
 
 ```console
 kubectl apply -f sample.yaml
 kubectl apply -f standard-lb.yaml
 ```
 
-*標準*SKU 負載平衡器現在已設定為公開 （expose） 的範例應用程式。 檢視服務詳細資料*azure 投票前*使用[kubectl get][kubectl-get]若要查看負載平衡器的公用 IP。 負載平衡器的公用 IP 位址 所示*EXTERNAL-IP*資料行。 可能需要幾分鐘的時間從變更的 IP 位址 *\<暫止\>* 實際外部 IP 位址，如下列範例所示：
+*標準*SKU 負載平衡器現在已設定為公開範例應用程式。 使用[kubectl get][kubectl-get]查看*azure 投票*的服務詳細資料, 以查看負載平衡器的公用 IP。 負載平衡器的公用 IP 位址會顯示在 [*外部 IP* ] 資料行中。 IP 位址可能需要一或兩分鐘的時間, 才會從 *\<暫\>止狀態*變更為實際的外部 IP 位址, 如下列範例所示:
 
 ```
 $ kubectl get service azure-vote-front
@@ -302,16 +302,16 @@ NAME                TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)       
 azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP   16s
 ```
 
-瀏覽至瀏覽器中的公用 IP，並確認您看到的範例應用程式。 在上述範例中，公用 IP 是`52.179.23.131`。
+在瀏覽器中流覽至公用 IP, 並確認您看到範例應用程式。 在上述範例中, 公用 IP 是`52.179.23.131`。
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 > [!NOTE]
-> 您可以也設定為內部負載平衡器，並不會公開公用 IP。 若要設定負載平衡器，為內部，加入`service.beta.kubernetes.io/azure-load-balancer-internal: "true"`成為註釋來*LoadBalancer*服務。 您所見資訊清單也越多的內部負載平衡器的詳細範例 yaml[此處][internal-lb-yaml]。
+> 您也可以將負載平衡器設定為內部, 而不公開公用 IP。 若要將負載平衡器設定為內部`service.beta.kubernetes.io/azure-load-balancer-internal: "true"` , 請新增作為「 *LoadBalancer* 」服務的注釋。 您可以在[這裡][internal-lb-yaml]查看範例 yaml 資訊清單, 以及有關內部負載平衡器的詳細資料。
 
-## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>清除標準 SKU 負載平衡器組態
+## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>清除標準 SKU 負載平衡器設定
 
-若要移除範例應用程式和負載平衡器組態，請使用[kubectl 刪除][kubectl-delete]:
+若要移除範例應用程式和負載平衡器設定, 請使用[kubectl delete][kubectl-delete]:
 
 ```console
 kubectl delete -f sample.yaml
@@ -320,7 +320,7 @@ kubectl delete -f standard-lb.yaml
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 Kubernetes 服務[Kubernetes 服務文件][kubernetes-services]。
+若要深入瞭解 Kubernetes services, 請[參閱 Kubernetes services 檔][kubernetes-services]。
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839305"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881432"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理 Azure 監視器中的記錄資料和工作區
 
@@ -32,7 +32,17 @@ Azure 監視器會將[記錄](data-platform-logs.md)資料儲存在 log Analytic
 
 * 如何使用 Azure RBAC, 將存取權授與需要存取工作區中特定資料表內之記錄資料的使用者。
 
-## <a name="define-access-control-mode-in-azure-portal"></a>在 Azure 入口網站中定義存取控制模式
+## <a name="define-access-control-mode"></a>定義存取控制模式
+
+您可以從 Azure 入口網站或透過 Azure PowerShell, 查看工作區上設定的存取控制模式。  您可以使用下列其中一種支援的方法來變更此設定:
+
+* Azure 入口網站
+
+* Azure PowerShell
+
+* Azure Resource Manager 範本
+
+### <a name="configure-from-the-azure-portal"></a>從 Azure 入口網站設定
 
 您可以在**Log Analytics 工作區**功能表中, 于工作區的 [**總覽**] 頁面上, 查看目前的工作區存取控制模式。 
 
@@ -45,7 +55,7 @@ Azure 監視器會將[記錄](data-platform-logs.md)資料儲存在 log Analytic
 
 ![變更工作區存取模式](media/manage-access/change-access-control-mode.png)
 
-## <a name="define-access-control-mode-using-powershell"></a>使用 PowerShell 定義存取控制模式
+### <a name="configure-using-powershell"></a>使用 PowerShell 進行設定
 
 使用下列命令來檢查訂用帳戶中所有工作區的存取控制模式:
 
@@ -89,7 +99,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## <a name="define-access-mode-using-resource-manager-template"></a>使用 Resource Manager 範本定義存取模式
+### <a name="configure-using-a-resource-manager-template"></a>使用 Resource Manager 範本進行設定
 
 若要在 Azure Resource Manager 範本中設定存取模式, 請將工作區上的**enableLogAccessUsingOnlyResourcePermissions**功能旗標設為下列其中一個值。
 

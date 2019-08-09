@@ -5,26 +5,27 @@ author: arduppal
 manager: mchad
 ms.author: arduppal
 ms.reviewer: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640647"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881225"
 ---
-# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>在 IoT Edge (預覽) 使用 Azure Blob 儲存體，以便在邊緣儲存資料
+# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>在具有 Azure Blob 儲存體的 IoT Edge 上儲存邊緣的資料
 
 IoT Edge 上的 Azure Blob 儲存體提供邊緣的[區塊 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 儲存體解決方案。 IoT Edge 裝置上的 blob 儲存體模組的運作方式類似 Azure 區塊 blob 服務, 但區塊 blob 會儲存在您的 IoT Edge 裝置本機上。 您可以使用平常使用的相同 Azure 儲存體 SDK 方法或區塊 Blob API 呼叫存取您的 Blob。 本文說明在 IoT Edge 裝置上執行 Blob 服務 IoT Edge 容器 Azure Blob 儲存體相關概念。
 
-此模組適用于資料必須儲存在本機, 直到可以處理或傳輸到雲端為止的情況。 此資料可能是影片、影像、財務資料、醫院資料或任何其他非結構化資料。
-
-> [!NOTE]
-> IoT Edge 上的 Azure Blob 儲存體屬於[公開預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+此模組在案例中很有用:
+* 資料必須儲存在本機, 直到可以處理或傳輸到雲端為止。 此資料可能是影片、影像、財務資料、醫院資料或任何其他非結構化資料。
+* 當裝置位於連線能力有限的位置時。
+* 當您想要有效率地在本機處理資料, 以取得資料的低延遲存取時, 您可以儘快回應緊急情況。
+* 當您想要降低頻寬成本, 並避免將數 tb 的資料傳輸到雲端時。 您可以在本機處理資料, 並只將已處理的資料傳送至雲端。
 
 觀賞快速簡介影片
 > [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
@@ -54,22 +55,17 @@ IoT Edge 上的 Azure Blob 儲存體提供邊緣的[區塊 Blob](https://docs.mi
 - 如果 deleteAfterMinutes 值過期, 請選擇在其上傳時保留 blob 的功能。
 
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 Azure IoT Edge 裝置：
 
 - 您可以遵循[Linux](quickstart-linux.md)或[Windows 裝置](quickstart.md)快速入門中的步驟, 使用您的開發電腦或虛擬機器作為 IoT Edge 裝置。
 
-- IoT Edge 模組上的 Azure Blob 儲存體支援下列裝置設定：
-
-  | 作業系統 | AMD64 | ARM32v7 | ARM64 |
-  | ---------------- | ----- | ----- | ---- |
-  | Raspbian-stretch | 否 | 是 | 否 |  
-  | Ubuntu Server 16.04 | 是 | 否 | 是 |
-  | Ubuntu Server 18.04 | 是 | 否 | 是 |
-  | Windows 10 IoT 企業版, 組建17763 | 是 | 否 | 否 |
-  | Windows Server 2019, 組建17763 | 是 | 否 | 否 |
-  
+- 如需支援的作業系統和架構清單, 請參閱[Azure IoT Edge 支援的系統](support.md#operating-systems)。 IoT Edge 模組上的 Azure Blob 儲存體支援下列架構:
+    - Windows AMD64
+    - Linux AMD64
+    - Linux ARM32
+    - Linux ARM64 (預覽)
 
 雲端資源：
 
@@ -103,8 +99,11 @@ Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)�
 | retainWhileUploading | true、false | 根據預設, 它會設定`true`為, 而且如果 deleteAfterMinutes 過期, 它會在將 blob 上傳至雲端儲存體時保留。 您可以將它設定`false`為, 它會在 deleteAfterMinutes 到期時立即刪除資料。 注意:若要讓此屬性工作 uploadOn, 應設定為 true| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
 
 ## <a name="using-smb-share-as-your-local-storage"></a>使用 SMB 共用作為本機儲存體
-當您在 Windows 主機上部署此模組的 windows 容器時, 您可以提供 SMB 共用作為本機儲存體路徑。
-您可以執行`New-SmbGlobalMapping` PowerShell 命令, 在執行 Windows 的 IoT 裝置上本機對應 SMB 共用。 請確定 IoT 裝置可以讀取/寫入遠端 SMB 共用。
+當您在 Windows 主機上部署此模組的 Windows 容器時, 您可以提供 SMB 共用作為本機儲存體路徑。
+
+請確定 SMB 共用和 IoT 裝置位於互相信任的網域中。
+
+您可以執行`New-SmbGlobalMapping` PowerShell 命令, 在執行 Windows 的 IoT 裝置上本機對應 SMB 共用。
 
 以下是設定步驟:
 ```PowerShell
@@ -112,12 +111,44 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 範例: <br>
-`$creds = Get-Credentials` <br>
+`$creds = Get-Credential` <br>
 `New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
 此命令將使用認證來向遠端 SMB 伺服器進行驗證。 然後, 將遠端共用路徑對應至 G: 磁碟機號 (可以是任何其他可用的磁碟機號)。 IoT 裝置現在已將資料磁片區對應到 G: 磁片磁碟機上的路徑。 
 
-針對您的部署, 的`<storage directory bind>`值可以是**G:/ContainerData: C:/BlobRoot**。
+請確定 IoT 裝置中的使用者可以讀取/寫入遠端 SMB 共用。
+
+針對您的部署, 的`<storage mount>`值可以是**G:/ContainerData: C:/BlobRoot**。 
+
+## <a name="granting-directory-access-to-container-user-on-linux"></a>將目錄存取權授與 Linux 上的容器使用者
+如果您已在 Linux 容器的建立選項中使用[磁片區掛接](https://docs.docker.com/storage/volumes/)來儲存, 則不需要執行任何額外的步驟, 但如果您使用了[bind 掛接](https://docs.docker.com/storage/bind-mounts/), 則需要這些步驟, 才能正確執行服務。
+
+遵循最低許可權原則, 將使用者的存取權限限制為執行工作所需的最低許可權, 此課程模組包含使用者 (名稱: absie, 識別碼:11000) 和使用者群組 (名稱: absie, 識別碼:11000)。 如果容器是以**root** (預設使用者為**root**) 啟動, 我們的服務就會以低許可權**absie**使用者的身分啟動。 
+
+這種行為會讓主機路徑的許可權設定系結至服務正常運作的關鍵, 否則服務將會因為拒絕存取錯誤而損毀。 目錄系結中使用的路徑必須可供容器使用者存取 (範例: absie 11000)。 您可以在主機上執行下列命令, 以授與容器使用者對目錄的存取權:
+
+```terminal
+sudo chown -R 11000:11000 <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
+
+範例:<br>
+`sudo chown -R 11000:11000 /srv/containerdata` <br>
+`sudo chmod -R 700 /srv/containerdata `
+
+
+如果您需要以非**absie**的使用者身分執行服務, 您可以在部署資訊清單中的 "user" 屬性下, 于 createOptions 中指定您的自訂使用者識別碼。 在這種情況下, 您必須使用預設或根`0`群組識別碼。
+
+```json
+“createOptions”: { 
+  “User”: “<custom user ID>:0” 
+} 
+```
+現在, 授與容器使用者對目錄的存取權
+```terminal
+sudo chown -R <user ID>:<group ID> <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
 
 ## <a name="configure-log-files"></a>設定記錄檔
 
@@ -142,9 +173,9 @@ Azure Blob 儲存體檔包含幾種語言的快速入門範例程式碼。 您�
 下列快速入門範例會使用 IoT Edge 也支援的語言, 因此您可以將它們部署為與 blob 儲存體模組相同的 IoT Edge 模組:
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>使用 Azure 儲存體總管連接到您的本機儲存體
 
@@ -239,3 +270,5 @@ IoT Edge 上的 Blob 儲存體模組會使用 Azure 儲存體 Sdk, 且與適用�
 ## <a name="next-steps"></a>後續步驟
 
 瞭解如何[在 IoT Edge 上部署 Azure Blob 儲存體](how-to-deploy-blob.md)
+
+在[IoT Edge blog 的 Azure Blob 儲存體](https://aka.ms/abs-iot-blogpost)中隨時掌握最新的更新和公告
