@@ -133,7 +133,7 @@ Dsregcmd.exe/status 公用程式必須以網域使用者帳戶的身分執行。
 - **WorkplaceJoined:** 如果已在目前的 ntuser.dat 內容中, 將 Azure AD 已註冊的帳戶新增至裝置, 請設定為 [是]。
 - **WamDefaultSet:** 如果已針對登入的使用者建立 WAM 預設 WebAccount, 則設定為 [是]。 如果在管理內容中執行 dsreg/status, 此欄位可能會顯示錯誤。 
 - **WamDefaultAuthority:** 設定為 Azure AD 的 [組織]。
-- Azure AD 的**WamDefaultId:** - https://login.microsoft.com Always ""。
+- Azure AD 的**WamDefaultId:** - “https://login.microsoft.com”Always ""。
 - **WamDefaultGUID:** -預設 WAM WEBACCOUNT 的 WAM 提供者 (Azure AD/MICROSOFT 帳戶) GUID。 
 
 ### <a name="sample-user-state-output"></a>範例使用者狀態輸出
