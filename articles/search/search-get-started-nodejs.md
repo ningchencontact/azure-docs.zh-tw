@@ -1,112 +1,628 @@
 ---
-title: Node.js 快速入門：建立、 載入及查詢使用 Azure 搜尋服務 REST Api-Azure 搜尋服務索引
-description: 說明如何建立索引、 載入資料，並使用 Node.js 和 Azure 搜尋服務 REST Api 執行查詢。
-author: jj09
-manager: jlembicz
+title: Node.js 快速入門：使用 Azure 搜尋服務 REST API 建立、載入及查詢索引 - Azure 搜尋服務
+description: 適用於 Azure 搜尋服務的 Node.js 範例，示範如何建立、載入資料，以及從 JavaScript 查詢資料。
+author: lobrien
+manager: cgronlun
+tags: azure-portal
 services: search
 ms.service: search
-ms.topic: conceptual
-ms.date: 04/26/2017
-ms.author: jjed
-ms.custom: seodec2018
-ms.openlocfilehash: 44b7f1f49d6764418dcc0e72cb667e17a2b920c6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.devlang: nodejs
+ms.topic: quickstart
+ms.date: 07/30/2019
+ms.author: laobri
+ms.openlocfilehash: f1420bd4ebf4ef586a8f306d4a2037fc3247c9c0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450029"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882630"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>快速入門：在 Node.js 中建立的 Azure 搜尋服務索引
+# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>快速入門：在 Node.js 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
+> * [JavaScript](search-get-started-nodejs.md)
+> * [C#](search-get-started-dotnet.md)
 > * [入口網站](search-get-started-portal.md)
-> * [.NET](search-howto-dotnet-sdk.md)
-> 
-> 
+> * [PowerShell](search-create-index-rest-api.md)
+> * [Python](search-get-started-python.md)
+> * [Postman](search-get-started-postman.md)
 
-瞭解如何建置使用 Azure 搜尋服務提供搜尋體驗的自訂 Node.js 搜尋應用程式。 本教學課程利用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/dn798935.aspx) 來建構在此練習中所使用的物件和作業。
+建立 Node.js 應用程式，以建立、載入和查詢 Azure 搜尋服務索引。 本文示範如何逐步建立應用程式。 或者，您可以[下載原始程式碼和資料](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/)，並從命令列執行應用程式。
 
-我們使用 [Node.js](https://Nodejs.org)NPM、[Sublime Text 3](https://www.sublimetext.com/3) 及 Windows 8.1 上的 Windows PowerShell 來開發和測試此代碼。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-若要執行此範例，必須要有 Azure 搜尋服務，您可以在 [Azure 入口網站](https://portal.azure.com)註冊此服務。 如需逐步指示，請參閱 [在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md) 。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="about-the-data"></a>關於資料
-此範例應用程式使用的 [美國地理服務中心 (USGS)](https://geonames.usgs.gov/domestic/download_data.htm)資料已依據羅德島州進行篩選，藉此減少資料集的大小。 我們將使用此資料建置可傳回地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 的搜尋應用程式。
+本快速入門會使用下列服務、工具和資料。
 
-在此應用程式中， **DataIndexer**程式建置及載入索引使用[Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx)建構，從 Azure SQL Database 擷取篩選過的 USGS 資料集。 程式碼中提供線上資料來源的認證和連接資訊。 不需要進一步設定。
++ [Node.js](https://nodejs.org).
++ [NPM](https://www.npmjs.com) 應由 Node.js 安裝。
++ 本文或[存放庫](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/)會提供範例索引結構和比對文件。
++ [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
-> [!NOTE]
-> 我們在此資料集套用了一個篩選，以維持不超過免費版定價層的 10,000 個文件的數量上限。 如果使用標準版定價層，就不會套用此限制。 如需各個定價層的容量詳細資料，請參閱 [搜尋服務限制](search-limits-quotas-capacity.md)。
-> 
-> 
+建議使用：
 
-<a id="sub-2"></a>
+* [Visual Studio Code](https://code.visualstudio.com)。
+* 適用於 VSCode 的 [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 和 [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)。
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>尋找 Azure 搜尋服務的服務名稱和 API 金鑰
-建立服務之後，請返回入口網站取得 URL 或 `api-key`。 如果想要連接至搜尋服務，您必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
+<a name="get-service-info"></a>
+## <a name="get-keys-and-urls"></a>取得金鑰和 URL
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在導向列中，按一下 [搜尋服務]  列出為您的訂用帳戶佈建的所有 Azure 搜尋服務。
-3. 選取您要使用的服務。
-4. 您應在服務儀表板上看到基本資訊磚，例如用於存取系統管理金鑰的鑰匙圖示。
-5. 複製服務 URL、系統管理金鑰和查詢金鑰。 稍後您需要將這三個項目加到 config.js 檔案中。
+在每個對服務發出呼叫的要求上，都需要 URL 端點和存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-## <a name="download-the-sample-files"></a>下載範例檔案
-使用以下其中一種方法下載範例。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀]  頁面中取得您的搜尋服務名稱。 您可藉由檢閱端點 URL 來確認您的服務名稱。 如果您的端點 URL 為 `https://mydemo.search.windows.net`，您的服務名稱會是 `mydemo`。
 
-1. 移至 [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo)。
-2. 按一下 [下載 ZIP]  ，儲存 .zip 檔案，然後解壓縮其中所含的所有檔案。
+2. 在 [設定]   >  [金鑰]  中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
-所有後續的檔案修改及執行陳述式都會用到此資料夾中的檔案。
+    一併取得查詢金鑰。 最佳做法是發出具有唯讀存取權的查詢要求。
 
-## <a name="update-the-configjs-with-your-search-service-url-and-api-key"></a>更新 config.js， 方法為使用您的搜尋服務 URL 及 API 金鑰
-使用先前複製的 URL 和 API 金鑰，在組態檔案中指定 URL、系統管理金鑰和查詢金鑰。
+![取得服務名稱及管理和查詢金鑰](media/search-get-started-nodejs/service-name-and-keys.png)
 
-系統管理金鑰可將服務作業的完整控制權限授與給您，包括建立或刪除索引，以及載入文件。 相較之下，查詢金鑰僅用於唯讀作業，通常由連接到 Azure 搜尋服務的用戶端應用程式所用。
+在傳送至您服務的每個要求的標頭中都需要有 api-key。 有效的金鑰能為每個要求在傳送要求之應用程式與處理要求的服務間建立信任。
 
-在此範例中，我們包含查詢金鑰，協助您在客戶端應用程式中確實熟悉使用查詢金鑰的最佳做法。
+## <a name="set-up-your-environment"></a>設定環境
 
-下面的螢幕擷取畫面顯示在文字編輯器中開啟 **config.js** 的畫面，並與相關項目區分，讓您得知哪些位置可以使用對搜尋服務有效的值更新檔案。
+首先，開啟 Powershell 主控台或您已安裝 Node.js 的其他環境。
 
-![][5]
+1. 建立開發目錄，並將其命名為 `quickstart`：
 
-## <a name="host-a-runtime-environment-for-the-sample"></a>為範例託管執行階段環境
-此範例需要 HTTP 伺服器，讓您安裝全球使用的 NPM。
+    ```powershell
+    mkdir quickstart
+    cd quickstart
+    ```
 
-使用 PowerShell 視窗以執行以下命令。
+2. 藉由執行 `npm init`，使用 NPM 初始化空的專案。 接受預設值，但 [授權] 除外，您應將其設定為 [MIT]。 
 
-1. 瀏覽至內含 **package.json** 檔案的資料夾。
-2. 輸入 `npm install`。
-3. 輸入 `npm install -g http-server`。
+1. 新增將相依於程式碼並可協助開發的套件：
 
-## <a name="build-the-index-and-run-the-application"></a>建置索引並執行應用程式
-1. 輸入 `npm run indexDocuments`。
-2. 輸入 `npm run build`。
-3. 輸入 `npm run start_server`。
-4. 將您的瀏覽器導向至 `http://localhost:8080/index.html`
+    ```powershell
+    npm install nconf node-fetch
+    npm install --save-dev eslint eslint-config-prettier eslint-config-airbnb-base eslint-plugin-import prettier
+    ```
 
-## <a name="search-on-usgs-data"></a>搜尋 USGS 資料
-USGS 資料集包含與羅德島州相關的記錄。 如果您在空白的搜尋方塊中按一下 [搜尋]  ，預設會出現前 50 個項目。
+4. 檢查您的 **package. json** 檔案是否如下所示，確認您已設定好專案及其相依性：
 
-輸入搜尋詞彙，讓搜尋引擎運作一下。 試著輸入區域名稱。 "Roger Williams" 是羅德島州的第一任州長。 許多公園、建築物和學校都是以他的姓名命名。
+    ```json
+    {
+      "name": "quickstart",
+      "version": "1.0.0",
+      "description": "Azure Search Quickstart",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "keywords": [
+        "Azure",
+        "Azure_Search"
+      ],
+      "author": "Your Name",
+      "license": "MIT",
+      "dependencies": {
+        "nconf": "^0.10.0",
+        "node-fetch": "^2.6.0"
+      },
+      "devDependencies": {
+        "eslint": "^6.1.0",
+        "eslint-config-airbnb-base": "^13.2.0",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "prettier": "^1.18.2"
+      }
+    }
+    ```
 
-![][9]
+<a name="configure"></a>
 
-此外，您也可以試著使用這些字詞：
+## <a name="1---define-and-create-index"></a>1 - 定義和建立索引 
 
-* Pawtucket
-* Pembroke
-* goose +cape
+建立 **azure_search_config.json**檔案，以保存您的搜尋服務資料：
+
+    ```json
+    {
+        "serviceName" : "[SERVICE_NAME]",
+        "adminKey" : "[ADMIN_KEY]",
+        "queryKey" : "[QUERY_KEY]",
+        "indexName" : "hotels-quickstart"
+    }
+    ```
+
+使用您的搜尋服務名稱來取代 `[SERVICE_NAME]` 值。 使用您稍早記錄的金鑰值來取代 `[ADMIN_KEY]` 和 `[QUERY_KEY]`。 
+
+在 Azure 搜尋服務中，文件是同時屬於索引輸入與查詢輸出的資料結構。 文件輸入可能是資料庫中的資料列、Blob 儲存體中的 Blob，或磁碟上的 JSON 文件。 您可以下載 [hotels. json](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels.json)，或使用下列內容建立自己的 **hotels.json** 檔案：
+
+    ```json
+    {
+        "value": [
+            {
+                "HotelId": "1",
+                "HotelName": "Secret Point Motel",
+                "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+                "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+                "Category": "Boutique",
+                "Tags": ["pool", "air conditioning", "concierge"],
+                "ParkingIncluded": false,
+                "LastRenovationDate": "1970-01-18T00:00:00Z",
+                "Rating": 3.6,
+                "Address": {
+                    "StreetAddress": "677 5th Ave",
+                    "City": "New York",
+                    "StateProvince": "NY",
+                    "PostalCode": "10022"
+                }
+            },
+            {
+                "HotelId": "2",
+                "HotelName": "Twin Dome Motel",
+                "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+                "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+                "Category": "Boutique",
+                "Tags": ["pool", "free wifi", "concierge"],
+                "ParkingIncluded": "false",
+                "LastRenovationDate": "1979-02-18T00:00:00Z",
+                "Rating": 3.6,
+                "Address": {
+                    "StreetAddress": "140 University Town Center Dr",
+                    "City": "Sarasota",
+                    "StateProvince": "FL",
+                    "PostalCode": "34243"
+                }
+            },
+            {
+                "HotelId": "3",
+                "HotelName": "Triple Landscape Hotel",
+                "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+                "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+                "Category": "Resort and Spa",
+                "Tags": ["air conditioning", "bar", "continental breakfast"],
+                "ParkingIncluded": "true",
+                "LastRenovationDate": "2015-09-20T00:00:00Z",
+                "Rating": 4.8,
+                "Address": {
+                    "StreetAddress": "3393 Peachtree Rd",
+                    "City": "Atlanta",
+                    "StateProvince": "GA",
+                    "PostalCode": "30326"
+                }
+            },
+            {
+                "HotelId": "4",
+                "HotelName": "Sublime Cliff Hotel",
+                "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+                "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+                "Category": "Boutique",
+                "Tags": ["concierge", "view", "24-hour front desk service"],
+                "ParkingIncluded": true,
+                "LastRenovationDate": "1960-02-06T00:00:00Z",
+                "Rating": 4.6,
+                "Address": {
+                    "StreetAddress": "7400 San Pedro Ave",
+                    "City": "San Antonio",
+                    "StateProvince": "TX",
+                    "PostalCode": "78216"
+                }
+            }
+        ]
+    }
+    
+    ```
+
+建立 **hotels_quickstart_index.json** 檔案。  此檔案會定義 Azure 搜尋服務如何使用您在 **hotels.json** 中建立的文件。 每個欄位都會由 `name` 識別，並具有指定的 `type`。 每個欄位也有一系列的索引屬性，可指定 Azure 搜尋服務是否可在欄位上進行搜尋、篩選、排序和 Facet 處理。 大部分的欄位都是簡單的資料類型，但有些 (像是 `AddressType`) 則為複雜類型，其可讓您在索引中建立豐富的資料結構。  您可以深入了解[支援的資料類型](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)和[索引屬性](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)。 
+
+將下列內容新增至 **hotels_quickstart_index.json**，或[下載檔案](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels_quickstart_index.json)。 
+
+    ```json
+    {
+        "name": "hotels-quickstart",
+        "fields": [
+            {
+                "name": "HotelId",
+                "type": "Edm.String",
+                "key": true,
+                "filterable": true
+            },
+            {
+                "name": "HotelName",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": false,
+                "sortable": true,
+                "facetable": false
+            },
+            {
+                "name": "Description",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": false,
+                "sortable": false,
+                "facetable": false,
+                "analyzer": "en.lucene"
+            },
+            {
+                "name": "Description_fr",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": false,
+                "sortable": false,
+                "facetable": false,
+                "analyzer": "fr.lucene"
+            },
+            {
+                "name": "Category",
+                "type": "Edm.String",
+                "searchable": true,
+                "filterable": true,
+                "sortable": true,
+                "facetable": true
+            },
+            {
+                "name": "Tags",
+                "type": "Collection(Edm.String)",
+                "searchable": true,
+                "filterable": true,
+                "sortable": false,
+                "facetable": true
+            },
+            {
+                "name": "ParkingIncluded",
+                "type": "Edm.Boolean",
+                "filterable": true,
+                "sortable": true,
+                "facetable": true
+            },
+            {
+                "name": "LastRenovationDate",
+                "type": "Edm.DateTimeOffset",
+                "filterable": true,
+                "sortable": true,
+                "facetable": true
+            },
+            {
+                "name": "Rating",
+                "type": "Edm.Double",
+                "filterable": true,
+                "sortable": true,
+                "facetable": true
+            },
+            {
+                "name": "Address",
+                "type": "Edm.ComplexType",
+                "fields": [
+                    {
+                        "name": "StreetAddress",
+                        "type": "Edm.String",
+                        "filterable": false,
+                        "sortable": false,
+                        "facetable": false,
+                        "searchable": true
+                    },
+                    {
+                        "name": "City",
+                        "type": "Edm.String",
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "facetable": true
+                    },
+                    {
+                        "name": "StateProvince",
+                        "type": "Edm.String",
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "facetable": true
+                    },
+                    {
+                        "name": "PostalCode",
+                        "type": "Edm.String",
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "facetable": true
+                    },
+                    {
+                        "name": "Country",
+                        "type": "Edm.String",
+                        "searchable": true,
+                        "filterable": true,
+                        "sortable": true,
+                        "facetable": true
+                    }
+                ]
+            }
+        ],
+        "suggesters": [
+            {
+                "name": "sg",
+                "searchMode": "analyzingInfixMatching",
+                "sourceFields": [
+                    "HotelName"
+                ]
+            }
+        ]
+    }
+    ```
+    
+## <a name="2---a-class-for-azure-search"></a>2 - Azure 搜尋服務的類別 
+
+建議將特定案例的細節與廣泛適用的程式碼區隔開。 在 **AzureSearchClient.js**檔案中定義的 `AzureSearchClient` 類別會知道如何建構要求 URL、使用 Fetch API 提出要求，以及對回應的狀態碼做出反應。
+
+匯入 **node-fetch** 套件並建立簡單的類別，以便開始使用 **AzureSearchClient.js**。 將各種組態值傳遞至其建構函式，以隔離 `AzureSearchClient` 類別的可變更部分：
+
+    ```javascript
+    const fetch = require('node-fetch');
+    
+    class AzureSearchClient {
+      constructor(searchServiceName, adminKey, queryKey, indexName) {
+          this.searchServiceName = searchServiceName;
+          this.adminKey = adminKey;
+          // The query key is used for read-only requests and so can be distributed with less risk of abuse.
+          this.queryKey = queryKey;
+          this.indexName = indexName;
+          this.apiVersion = '2019-05-06';
+      }
+    
+      // All methods go inside class body here!
+    }
+    
+    module.exports = AzureSearchClient;
+    ```
+
+類別的第一項責任是瞭解如何建構可供傳送各種要求的 URL。 執行個體方法會使用傳遞至類別建構函式的組態資料，請使用此種方法建立這些 URL。 請注意，它們所建構的 URL 為 API 版本特有，且必須具有指定該版本 (在此應用程式中為 `2019-05-06`) 的引數。 
+
+在類別主體中新增下列方法：
+
+    ```javascript
+      getIndexUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}?api-version=${this.apiVersion}`; }
+      
+      getPostDataUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs/index?api-version=${this.apiVersion}`;  }
+    
+      getSearchUrl(searchTerm) { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs?api-version=${this.apiVersion}&search=${searchTerm}&searchMode=all`; }
+    ```
+
+下一個責任是使用 Fetch API 進行非同步要求。 非同步靜態方法 `request` 會採用 URL、指定 HTTP 方法的字串 ("GET"、"PUT"、"POST"、"DELETE")、要在要求中使用的金鑰，以及選用 JSON 物件。 `queryKey` 變數會將 `headers` (不論是管理金鑰或唯讀查詢金鑰) 對應至 "api-key" HTTP 要求標頭。 要求選項一律包含要使用的 `method` 和 `headers`。 如果 `bodyJson` 不為 `null`，HTTP 要求的主體會設定為 `bodyJson` 的字串表示法。 `request` 會傳回 Fetch API 的承諾以執行 HTTP 要求。
+
+    ```javascript
+      static async request(url, method, apiKey, bodyJson = null) {
+        // Uncomment the following for request details:
+        /*
+        console.log(`\n${method} ${url}`);
+        console.log(`\n${apiKey}`);
+        if (bodyJson !== null) {
+            console.log(`\ncontent: ${JSON.stringify(bodyJson, null, 4)}`);
+        }
+        */
+      
+        const headers = {
+            'content-type' : 'application/json',
+            'api-key' : apiKey
+        };
+        const init = bodyJson === null ?
+            { 
+                method, 
+                headers
+            }
+            : 
+            {
+                method, 
+                headers,
+                body : JSON.stringify(bodyJson)
+            };
+        return fetch(url, init);
+      }
+    ```
+
+基於示範目的，如果 HTTP 要求不成功，我們就會擲回例外狀況。 在實際的應用程式中，您可能會在搜尋服務要求的 `response` 中，進行 HTTP 狀態碼的記錄和診斷。 
+    
+    ```javascript
+      static throwOnHttpError(response) {
+        const statusCode = response.status;
+        if (statusCode >= 300){
+            console.log(`Request failed: ${JSON.stringify(response, null, 4)}`);
+            throw new Error(`Failure in request. HTTP Status was ${statusCode}`);
+        }
+      }
+    ```
+
+最後，新增適用於 Azure 搜尋服務索引的方法。 這些方法全都有相同的結構：
+
+* 取得將對其提出要求的端點。
+* 使用適當的端點、HTTP 指令動詞、API 金鑰和主體來產生要求。 `queryAsync()` 會使用查詢金鑰，否則使用管理金鑰。
+* `await` 要求的回應。  
+* 對回應的狀態碼採取行動。
+* 傳回一些適當值的承諾 (布林值、`this` 或查詢結果)。 
+
+    ```javascript
+      async indexExistsAsync() { 
+          console.log("\n Checking if index exists...");
+          const endpoint = this.getIndexUrl();
+          const response = await AzureSearchClient.request(endpoint, "GET", this.queryKey);
+          // Success has a few likely status codes: 200 or 204 (No Content), but accept all in 200 range...
+          const exists = response.status >= 200 && response.status < 300;
+          return exists;
+      }
+      
+      async deleteIndexAsync() {
+          console.log("\n Deleting existing index...");
+          const endpoint = this.getIndexUrl();
+          const response = await AzureSearchClient.request(endpoint, "DELETE", this.adminKey);
+          AzureSearchClient.throwOnHttpError(response);
+          return this;
+      }
+      
+      async createIndexAsync(definition) {
+          console.log("\n Creating index...");
+          const endpoint = this.getIndexUrl();
+          const response = await AzureSearchClient.request(endpoint, "PUT", this.adminKey, definition);
+          AzureSearchClient.throwOnHttpError(response);
+          return this;
+      }
+      
+      async postDataAsync(hotelsData) {
+          console.log("\n Adding hotel data...");
+          const endpoint = this.getPostDataUrl();
+          const response = await AzureSearchClient.request(endpoint,"POST", this.adminKey, hotelsData);
+          AzureSearchClient.throwOnHttpError(response);
+          return this;
+      }
+      
+      async queryAsync(searchTerm) {
+          console.log("\n Querying...")
+          const endpoint = this.getSearchUrl(searchTerm);
+          const response = await AzureSearchClient.request(endpoint, "GET", this.queryKey);
+          AzureSearchClient.throwOnHttpError(response);
+          return response;
+      }
+    ```
+
+確認您的方法在類別內，而且您要匯出類別。 **AzureSearchClient** 的最外層範圍應該是：
+
+    ```javascript
+    const fetch = require('node-fetch');
+    
+    class AzureSearchClient {
+        // ... code here ...
+    }
+    
+    module.exports = AzureSearchClient;
+    ```
+
+## <a name="3---create-a-program"></a>3 - 建立程式
+
+物件導向的類別很適合用於可能可重複使用的 **AzureSearchClient.js** 模組，但並非主要程式所必要，我們會將該主要程式放入 **index.js** 檔案中。 
+
+建立 **index.js** 並由帶入以下內容著手：
+
+* **nconf** 套件，讓您有彈性地使用 JSON、環境變數或命令列引數來指定組態。
+* 來自 **hotels.json** 檔案的資料。
+* 來自 **hotels_quickstart_index.json**檔案的資料。
+* `AzureSearchClient` 模組。
+
+    ```javascript
+    const nconf = require('nconf');
+    
+    const hotelData = require('./hotels.json');
+    const indexDefinition = require('./hotels_quickstart_index.json');
+    const AzureSearchClient = require('./AzureSearchClient.js');
+    ```
+
+現在新增一些基本查詢： 
+
+    ```javascript
+    const queries = [
+      "*&$count=true",
+      "historic&$filter=Rating gt 4&"
+    ];
+    ```
+
+第一個查詢會傳回所有資料 (`*`)，以及傳回的記錄數目計數。 第二個查詢傳回的文件僅限在 **hotels_quickstart_index.json** 中定義為「可搜尋」的任何欄位中包含 "historic" 一字，以及其 `Rating` 欄位值大於 4 的文件。 深入了解[如何在 Azure 搜尋服務中撰寫查詢](https://docs.microsoft.com/azure/search/search-query-overview)。 
+
+[**nconf** package](https://github.com/indexzero/nconf) 套件可讓您指定各種格式的組態資料，例如環境變數或命令列。 我們將以基本方式使用 **nconf**，以讀取 **azure_search_config.json** 檔案並以字典形式傳回該檔案的內容。 我們可以使用 **nconf**'s `get(key)`函式進行快速檢查，檢視並未略過[設定 Azure 搜尋服務服務資訊](#configure)步驟。 最後，我們會傳回以下組態：
+
+    ```javascript
+    function getAzureConfiguration() {
+      const config = nconf.file({ file: 'azure_search_config.json' });
+      if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+        throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
+      }
+      return config;
+    }
+    ```
+
+`Promise` 函式會建立 `sleep`，它會在指定的時間量之後解析。 使用此函式可讓應用程式暫停，同時等候非同步索引作業完成並變成可用。 新增此種延遲只有在示範、測試與範例應用程式中才有必要。
+
+    ```javascript
+    function sleep(ms)
+    {
+      return(
+          new Promise(function(resolve, reject)
+          {
+              setTimeout(function() { resolve(); }, ms);
+          })
+      );
+    }
+    ```
+
+`doQueries()` 函式會接受 `AzureSearchClient` 物件，並將 `AzureSearchClient.queryAsync` 方法套用至 `queries` 陣列中的每個值。 它會使用 `Promise.all()` 函式來傳回單一 `Promise`，它只會在所有查詢都已解析時才會解析。 呼叫 `JSON.stringify(body, null, 4)` 將查詢結果格式化為更容易讀取。
+
+    ```javascript
+    async function doQueriesAsync(client) {
+      return Promise.all(
+          queries.map( async query => {
+              const result = await client.queryAsync(query);
+              const body = await result.json();
+              const str = JSON.stringify( body, null, 4);
+              console.log(`Query: ${query} \n ${str}`);
+          })
+      );
+    }
+    ```
+
+最後，指定並呼叫主要非同步 `run` 函式。 此函式會依序呼叫其他函式，視需要等待以解決 `Promise`。
+
+* 使用您先前撰寫的 `getAzureConfiguration()` 來擷取組態
+* 建立新 `AzureSearchClient` 的執行個體，並從您的組態傳入值
+* 檢查索引是否存在，如果有的話，將它刪除
+* 使用從 **hotels_quickstart_index.json** 載入的 `indexDefinition` 來建立索引
+* 新增您從 **hotels.json** 所載入旅館的相關文件
+* 使用您撰寫的 `doQueriesAsync()` 查詢 Azure 搜尋服務索引
+
+    ```javascript
+    const run = async () => {
+      try {
+        const cfg = getAzureConfiguration();
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
+        
+        const exists = await client.indexExistsAsync();
+        await exists ? client.deleteIndexAsync() : Promise.resolve();
+        // Deleting index can take a few seconds
+        await sleep(2000);
+        const indexDefinition = require('./hotels_quickstart_index.json');
+        await client.createIndexAsync(indexDefinition);
+        // Index availability can take a few seconds
+        await sleep(2000);
+        await client.postDataAsync(hotelData);
+        // Data availability can take a few seconds
+        await sleep(5000);
+        await doQueries(client);
+      } catch (x) {
+        console.log(x);
+      }
+    }
+    
+    run();
+    ```
+
+別忘了最後呼叫 `run()`！ 當您在下一個步驟中執行 `node index.js` 時，它就是您程式的進入點。
+
+### <a name="prepare-and-run-the-sample"></a>準備並執行範例
+
+在終端機視窗中，執行下列命令。
+
+1. 瀏覽至內含 **package.json** 檔案和其餘程式碼的資料夾。
+1. 使用 `npm install` 安裝該範例的套件。  此命令會下載程式碼所相依的套件。
+1. 使用 `node index.js` 執行您的程式。
+
+您應會看到一系列的訊息，描述程式所採取的動作，並以部分查詢的結果結尾。 如果您想要查看要求的更多詳細資料，您可以將 **AzureSearchClient.js**的 [20-26](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/AzureSearchClient.js#LL20-LL26) 行取消註解。 
+
+### <a name="about-the-sample"></a>關於範例
+
+此範例會使用少量的旅館資料，其足以示範建立和查詢 Azure 搜尋服務索引的基本概念。
+
+**AzureSearchClient** 類別會封裝搜尋服務的組態、URL 和基本 HTTP 要求。 **index.js** 檔案會載入 Azure 搜尋服務的組態資料、將上傳以供編製索引的旅館資料，以及在其 `run` 函式中排序和執行各種作業。
+
+`run` 函式的整體行為是要刪除 Azure 搜尋服務索引 (如果有的話)、建立索引、新增一些資料，以及執行一些查詢。  
+
+## <a name="clean-up"></a>清除 
+
+使用您自己的訂用帳戶時，在專案結束後確認您是否還需要您建立的資源，是很好的做法。 讓資源繼續執行可能會產生費用。 您可以個別刪除資源，或刪除資源群組以刪除整組資源。
+
+您可以使用左導覽窗格中的 [所有資源]  或 [資源群組]  連結，在入口網站中尋找和管理資源。
+如果您使用免費服務，請記住您會有三個索引、索引子和資料來源的限制。 您可以在入口網站中刪除個別項目，以避免超出限制。 
 
 ## <a name="next-steps"></a>後續步驟
-這是第一個以 Node.js 和 USGS 資料集為基礎的 Azure 搜尋服務教學課程。 我們會漸漸擴充本教學課程，以示範其他您可能會想用在自訂方案中的搜尋功能。
 
-如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為試用建議工具 (預先輸入或自動完成查詢)、篩選及多面向導覽的跳板。 您也可以新增計數和批次處理文件，讓使用者可以逐頁查看結果，藉此改進搜尋結果頁面。
+在此 Node.js 快速入門中，您已執行一系列的工作來建立索引、使用文件來載入索引，以及執行查詢。 我們會以最簡單的方式，執行特定步驟，例如讀取組態及定義查詢。 在實際的應用程式中，您會想要將這些考量放在可提供彈性和封裝的個別模組中。 
+ 
+如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為試用建議工具 (預先輸入或自動完成查詢)、篩選及多面向導覽的跳板。 如果您不熟悉 Azure 搜尋服務，建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。 請瀏覽我們的 [文件頁面](https://azure.microsoft.com/documentation/services/search/) 以尋找更多資源。 
 
-不熟悉 Azure 搜尋服務嗎？ 建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。 請瀏覽我們的 [文件頁面](https://azure.microsoft.com/documentation/services/search/) 以尋找更多資源。 
-
-<!--Image references-->
-[1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG
-[2]: ./media/search-get-started-Nodejs/create-search-portal-2.PNG
-[3]: ./media/search-get-started-Nodejs/create-search-portal-3.PNG
-[5]: ./media/search-get-started-Nodejs/AzSearch-Nodejs-configjs.png
-[9]: ./media/search-get-started-Nodejs/rogerwilliamsschool.png
+> [!div class="nextstepaction"]
+> [使用 Javascript 從網頁呼叫 Azure 搜尋服務](https://github.com/liamca/azure-search-javascript-samples)
