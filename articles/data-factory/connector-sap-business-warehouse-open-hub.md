@@ -211,14 +211,14 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 
 | SAP ABAP 類型 | Data Factory 過渡期資料類型 |
 |:--- |:--- |
-| C (字串) | 字串 |
-| I (整數) | Int32 |
-| F (浮點數) | Double |
-| D (日期) | 字串 |
-| T (時間) | 字串 |
-| P (BCD 封裝、貨幣、小數、數量) | Decimal |
-| N (Numc) | 字串 |
-| X (二進位和原始) | 字串 |
+| C (String) | String |
+| I (integer) | Int32 |
+| F (Float) | Double |
+| D (Date) | String |
+| T (Time) | String |
+| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
+| N (Numc) | String |
+| X (Binary and Raw) | String |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
