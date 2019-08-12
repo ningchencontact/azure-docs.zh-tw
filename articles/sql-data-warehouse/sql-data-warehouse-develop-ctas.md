@@ -26,7 +26,7 @@ ms.locfileid: "68479689"
 
 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) 語句是最重要的其中一個可用的 t-sql 功能。 CTAS 是一種平行作業, 會根據 SELECT 語句的輸出來建立新的資料表。 CTAS 是使用單一命令來建立資料並將其插入資料表的最簡單且最快速的方式。
 
-## <a name="selectinto-vs-ctas"></a>選取...到 vs。CTAS
+## <a name="selectinto-vs-ctas"></a>選取...到 vs.CTAS
 
 CTAS 是更容易自訂的[SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql)語句。
 

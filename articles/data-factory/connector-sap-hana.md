@@ -227,9 +227,9 @@ ms.locfileid: "68725992"
 | BOOL               | Byte                           |
 | CLOB               | String                         |
 | DATE               | DateTime                       |
-| DECIMAL            | Decimal                        |
-| DOUBLE             | Double                         |
-| FLOAT              | Double                         |
+| Decimal            | Decimal                        |
+| DOUBLE             | DOUBLE                         |
+| FLOAT              | DOUBLE                         |
 | INTEGER            | Int32                          |
 | NCLOB              | String                         |
 | NVARCHAR           | String                         |

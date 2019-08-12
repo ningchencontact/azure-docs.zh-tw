@@ -19,7 +19,7 @@ ms.locfileid: "67621599"
 
 在即時串流案例中，針對時間範圍中內含的資料執行作業是常見的模式。 串流分析具備對時間範圍函式的原生支援，可讓開發人員輕鬆地撰寫複雜的串流處理工作。
 
-有四種時間範圍可以選擇：[輪轉][  ](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)、[跳動][  ](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics)、[滑動][  ](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics) 和 [工作階段][  ](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) 視窗。  您要在串流分析工作的查詢語法子句 [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 中使用時間範圍函式。 您可以透過使用多個視窗也彙總事件[**接著**函式](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)。
+有四種時間範圍可以選擇：[**輪轉**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics)， [**跳動**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics)， [**滑動**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics)，與 [**工作階段**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics) windows。  您要在串流分析工作的查詢語法子句 [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) 中使用時間範圍函式。 您可以透過使用多個視窗也彙總事件[**接著**函式](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics)。
 
 所有[時間範圍](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics)作業都會在時間範圍**結束**時輸出結果。 時間範圍的輸出會是以使用的彙總函式為基礎的單一事件。 此輸出事件會有時間範圍結束的時間戳記，所有時間範圍函式都是以固定長度定義。 
 

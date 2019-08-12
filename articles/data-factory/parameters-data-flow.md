@@ -36,13 +36,13 @@ ms.locfileid: "68253092"
 
 可以在任何資料流程運算式中使用參數。 參數是以 $ 開頭, 而且是不可變的。 您會在 [參數] 索引標籤底下的 [運算式產生器] 中找到可用參數的清單。
 
-資料流程![參數運算式]資料流程(media/data-flow/parameter-expression.png "參數運算式")
+資料流程![參數運算式](media/data-flow/parameter-expression.png "資料流程 參數運算式")
 
 ## <a name="use-parameters-in-your-data-flow"></a>在資料流程中使用參數
 
 * 您可以在轉換運算式內使用參數值。 您會在 [運算式產生器] 中的 [參數] 索引標籤下找到參數清單。 ![使用資料流程參數](media/data-flow/params9.png "使用資料流程參數")
 
-* 參數也會用來設定來源和接收轉換設定的動態值。 當您按一下可設定的欄位內部時, 您會看到 [新增動態內容] 連結出現。 按一下會帶您前往運算式產生器, 您可以在其中使用參數來使用動態值。 資料流程![動態內容]資料流程(media/data-flow/params6.png "動態內容")
+* 參數也會用來設定來源和接收轉換設定的動態值。 當您按一下可設定的欄位內部時, 您會看到 [新增動態內容] 連結出現。 按一下會帶您前往運算式產生器, 您可以在其中使用參數來使用動態值。 資料流程![動態內容](media/data-flow/params6.png "資料流程 動態內容")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>從管線設定對應的資料流程參數
 
@@ -61,7 +61,7 @@ ms.locfileid: "68253092"
 
 每個對應資料流程可以有管線和資料流程運算式參數的任意組合。 
 
-資料流程![參數範例]資料流程(media/data-flow/parameter-example.png "參數範例")
+資料流程![參數範例](media/data-flow/parameter-example.png "資料流程 參數範例")
 
 
 

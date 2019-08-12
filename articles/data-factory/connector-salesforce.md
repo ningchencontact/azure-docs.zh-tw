@@ -306,7 +306,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 * **SOQL 範例**：`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 範例**`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformedquerytruncated"></a>MALFORMED_QUERY 錯誤: 已截斷
+### <a name="error-of-malformed_querytruncated"></a>MALFORMED_QUERY 錯誤: 已截斷
 
 如果您遇到錯誤「MALFORMED_QUERY:已被截斷」, 通常是因為您在資料中有 JunctionIdList 類型資料行, 而 Salesforce 有大量資料列支援這類資料的限制。 若要減輕此問題, 請嘗試排除 JunctionIdList 資料行, 或限制要複製的資料列數目 (您可以分割成多個複製活動執行)。
 

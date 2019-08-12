@@ -182,7 +182,7 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 
 ## <a name="optional-deploy-example-application"></a>選用：部署範例應用程式
 
-所有項目正常運作，但沒有計量來源。 移至 Prometheus URL (https://prom-prometheus-project.apps 。*隨機識別碼*。*區域*.azmosa.io/)。 您可以使用下列命令來找到它：
+所有項目正常運作，但沒有計量來源。 移至 Prometheus URL (https://prom-prometheus-project.apps.*隨機識別碼*.*區域*.azmosa.io/)。 您可以使用下列命令來找到它：
 
 ```
 oc get route prom -n prometheus-project
