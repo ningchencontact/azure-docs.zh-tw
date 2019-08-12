@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: cdfe22b67585221e2d7e17f47c6a09ba929d68ef
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cd3288e308308729cf9b97e3c699d489857840a8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599009"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780381"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>教學課程：在 Azure Sentinel 預覽版中設定自動化威脅回應
 
@@ -90,7 +90,7 @@ ms.locfileid: "68599009"
 
 視需要執行劇本：
 
-1. 在 [案例]  頁面中，選取一個案例，然後按一下 [檢視完整的詳細資料]  。
+1. 在 [事件]  頁面中，選取一個事件，然後按一下 [檢視完整的詳細資料]  。
 
 2. 在 [警示]  索引標籤中，按一下您想要執行劇本的警示、一路捲動到右邊並按一下 [檢視劇本]  ，然後從訂用帳戶的可用劇本清單中選取要**執行**的劇本。 
 
