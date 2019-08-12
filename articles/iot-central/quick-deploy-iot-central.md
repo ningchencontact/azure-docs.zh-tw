@@ -3,22 +3,22 @@ title: 建立 Azure IoT Central 應用程式 | Microsoft Docs
 description: 建立新的 Azure IoT Central 應用程式。 使用應用程式範本建立試用版或隨用隨付的應用程式。
 author: viv-liu
 ms.author: viviali
-ms.date: 06/07/2019
+ms.date: 08/02/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: 07b062bd39177f283bd38ed6b687b590c5c4fb46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+manager: corywink
+ms.openlocfilehash: 4ce0606558cad981b183282bee026bdcef6b0cdd
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066026"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815782"
 ---
 # <a name="create-an-azure-iot-central-application"></a>建立 Azure IoT Central 應用程式
 
-「建置者」  可使用 Azure IoT Central UI 來定義 Microsoft Azure IoT Central 應用程式。 本快速入門說明如何建立包含範例_裝置範本_和模擬_裝置_的 Azure IoT Central 應用程式。
+「建置者」  可使用 Azure IoT Central UI 來定義 Microsoft Azure IoT Central 應用程式。 本快速入門說明如何建立包含範例 _和模擬 _的 Azure IoT Central 應用程式。
 
 ## <a name="create-an-application"></a>建立應用程式
 
@@ -39,8 +39,6 @@ ms.locfileid: "67066026"
 
       在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解定價。
 
-1. 選擇易記的應用程式名稱，例如 **Contoso IoT**。 Azure IoT Central 會為您產生唯一的 URL 前置詞。 您可以將其變更為更好記的 URL 前置詞。
-
 1. 選擇應用程式範本。 應用程式範本可包含預先定義的項目 (例如裝置範本和儀表板)，協助您開始使用。
 
     | 應用程式範本 | 說明 |
@@ -49,7 +47,9 @@ ms.locfileid: "67066026"
     | Devkits 範例       | 使用您可使用的裝置範本來建立應用程式，以連線 MXChip 或 Raspberry Pi 裝置。 如果您是以其中任一裝置進行試驗的裝置開發人員，請使用此範本。 |
     | 自訂應用程式   | 為您建立空的應用程式，以填入您自己的裝置範本和裝置。 |
 
-1. 選取 [建立]  。
+1. 輸入易記的應用程式名稱，例如 **Contoso IoT**。 Azure IoT Central 會為您產生唯一的 URL 前置詞。 您可以將其變更為更好記的 URL 前置詞。
+
+1. 按一下頁面底部的 [新增]  。
 
 ## <a name="next-steps"></a>後續步驟
 
