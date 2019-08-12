@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656627"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824690"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 ASP.NET Core 和 SQL Database 應用程式
 
@@ -132,7 +132,7 @@ az sql server create --name <server-name> --resource-group myResourceGroup --loc
 使用 [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) 命令建立 [Azure SQL Database 伺服器層級防火牆規則](../../sql-database/sql-database-firewall-configure.md)。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 ### <a name="create-a-database"></a>建立資料庫
@@ -169,7 +169,7 @@ Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-u
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>設定環境變數
+### <a name="configure-connection-string"></a>設定連接字串
 
 若要設定 Azure 應用程式的連接字串，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 在下列命令中，將 *\<app-name>* 以及 *\<connection-string>* 參數取代為您稍早建立的連接字串。
 
@@ -177,13 +177,21 @@ Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-u
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
 ```
 
-接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
+在 ASP.NET Core 中，您可以使用標準模式的這個具名連接字串 (`MyDbConnection`)，例如 appsettings.json  中指定的任何連接字串。 在此情況下，`MyDbConnection` 也會定義在 appsettings.json  中。 在 App Service 中執行時，App Service 中所定義的連接字串會優先於 appsettings.json  中所定義的連接字串。 程式碼會在本機開發期間使用 appsettings.json  ，而且相同的程式碼會在部署時使用 App Service 值。
+
+若要了解如何在程式碼中參考連接字串，請參閱[在生產環境中連線到 SQL Database](#connect-to-sql-database-in-production)。
+
+### <a name="configure-environment-variable"></a>設定環境變數
+
+接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為 _。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
 
 下列範例會在 Azure 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 *\<app-name>* 預留位置。
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+若要了解如何在程式碼中參考環境變數，請參閱[在生產環境中連線到 SQL Database](#connect-to-sql-database-in-production)。
 
 ### <a name="connect-to-sql-database-in-production"></a>在生產環境中連線到 SQL Database
 
@@ -270,7 +278,7 @@ http://<app-name>.azurewebsites.net
 
 ### <a name="update-your-data-model"></a>更新資料模型
 
-在程式碼編輯器中開啟 _Models\Todo.cs_。 將下列屬性加入至 `ToDo` 類別：
+在程式碼編輯器中開啟 _Models\Todo.cs_ 。 將下列屬性加入至 `ToDo` 類別：
 
 ```csharp
 public bool Done { get; set; }
@@ -294,7 +302,7 @@ dotnet ef database update
 
 在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在本教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
 
-開啟 _Controllers\TodosController.cs_。
+開啟 _Controllers\TodosController.cs_ 。
 
 尋找 `Create()` 方法，並將 `Done` 加入至 `Bind` 屬性 (Attribute) 中的屬性 (Property) 清單。 完成時，您的 `Create()` 方法簽章應該如以下程式碼所示：
 
@@ -302,7 +310,7 @@ dotnet ef database update
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-開啟 _Views\Todos\Create.cshtml_。
+開啟 _Views\Todos\Create.cshtml_ 。
 
 在 Razor 程式碼中，您應該會看到 `Description` 的 `<div class="form-group">` 元素，然後是另一個 `CreatedDate` 的 `<div class="form-group">` 元素。 在這兩個元素的正後方，新增另一個 `Done` 的 `<div class="form-group">` 元素：
 
@@ -316,7 +324,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 </div>
 ```
 
-開啟 _Views\Todos\Index.cshtml_。
+開啟 _Views\Todos\Index.cshtml_ 。
 
 搜尋空白的 `<th></th>` 元素。 在此元素的正上方，新增下列 Razor 程式碼：
 

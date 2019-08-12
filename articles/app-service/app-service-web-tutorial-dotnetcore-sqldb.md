@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad211eef673731a856c4db99fe0b4712217b23e5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 800454c3a8037d4562ae80d1093519733472c89c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808492"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824656"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 ASP.NET Core 和 SQL Database 應用程式
 
@@ -131,7 +131,7 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 使用 [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) 命令建立 [Azure SQL Database 伺服器層級防火牆規則](../sql-database/sql-database-firewall-configure.md)。 當起始 IP 和結束 IP 都設為 0.0.0.0 時，防火牆只會為其他 Azure 資源開啟。 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP] 
@@ -172,7 +172,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>設定環境變數
+### <a name="configure-connection-string"></a>設定連接字串
 
 若要設定 Azure 應用程式的連接字串，請在 Cloud Shell 中使用 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 在下列命令中，將 \<app name>  以及 \<connection_string>  參數取代為您稍早建立的連接字串。
 
@@ -180,13 +180,21 @@ Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_u
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
+在 ASP.NET Core 中，您可以使用標準模式的這個具名連接字串 (`MyDbConnection`)，例如 appsettings.json  中指定的任何連接字串。 在此情況下，`MyDbConnection` 也會定義在 appsettings.json  中。 在 App Service 中執行時，App Service 中所定義的連接字串會優先於 appsettings.json  中所定義的連接字串。 程式碼會在本機開發期間使用 appsettings.json  ，而且相同的程式碼會在部署時使用 App Service 值。
+
+若要了解如何在程式碼中參考連接字串，請參閱[在生產環境中連線到 SQL Database](#connect-to-sql-database-in-production)。
+
+### <a name="configure-environment-variable"></a>設定環境變數
+
+接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為 _。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLite，針對 Azure 環境使用 SQL Database。
 
 下列範例會在 Azure 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 \<app_name>  預留位置。
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+若要了解如何在程式碼中參考環境變數，請參閱[在生產環境中連線到 SQL Database](#connect-to-sql-database-in-production)。
 
 ### <a name="connect-to-sql-database-in-production"></a>在生產環境中連線到 SQL Database
 
@@ -277,7 +285,7 @@ http://<app_name>.azurewebsites.net
 
 ### <a name="update-your-data-model"></a>更新資料模型
 
-在程式碼編輯器中開啟 _Models\Todo.cs_。 將下列屬性加入至 `ToDo` 類別：
+在程式碼編輯器中開啟 _Models\Todo.cs_ 。 將下列屬性加入至 `ToDo` 類別：
 
 ```csharp
 public bool Done { get; set; }
@@ -301,7 +309,7 @@ dotnet ef database update
 
 在您的程式碼中進行一些變更以使用 `Done` 屬性。 為了簡單起見，在本教學課程中，您僅需變更 `Index` 和 `Create` 檢視，以查看作用中的屬性。
 
-開啟 _Controllers\TodosController.cs_。
+開啟 _Controllers\TodosController.cs_ 。
 
 尋找 `Create([Bind("ID,Description,CreatedDate")] Todo todo)` 方法，並將 `Done` 加入至 `Bind` 屬性 (Attribute) 中的屬性 (Property) 清單。 完成時，您的 `Create()` 方法簽章應該如以下程式碼所示：
 
@@ -309,7 +317,7 @@ dotnet ef database update
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-開啟 _Views\Todos\Create.cshtml_。
+開啟 _Views\Todos\Create.cshtml_ 。
 
 在 Razor 程式碼中，您應該會看到 `Description` 的 `<div class="form-group">` 元素，然後是另一個 `CreatedDate` 的 `<div class="form-group">` 元素。 在這兩個元素的正後方，新增另一個 `Done` 的 `<div class="form-group">` 元素：
 
@@ -323,7 +331,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 </div>
 ```
 
-開啟 _Views\Todos\Index.cshtml_。
+開啟 _Views\Todos\Index.cshtml_ 。
 
 搜尋空白的 `<th></th>` 元素。 在此元素的正上方，新增下列 Razor 程式碼：
 
@@ -361,7 +369,7 @@ git commit -m "added done field"
 git push azure master
 ```
 
-完成 `git push` 之後，瀏覽至 App Service 應用程式，然後嘗試執行新功能。
+`git push` 完成之後，瀏覽至 App Service 應用程式並嘗試新增待辦事項，然後核取 [完成]  。
 
 ![Code First 移轉之後的 Azure 應用程式](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
@@ -374,9 +382,9 @@ git push azure master
 範例專案已遵循 [Azure 中的 ASP.NET Core 記錄](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider)指引，其中有兩項組態變更：
 
 - 在 *DotNetCoreSqlDb.csproj* 中包含 `Microsoft.Extensions.Logging.AzureAppServices` 的參考。
-- 在 Startup.cs  中呼叫 `loggerFactory.AddAzureWebAppDiagnostics()`。
+- 在 Program.cs  中呼叫 `loggerFactory.AddAzureWebAppDiagnostics()`。
 
-若要將 App Service 中的 ASP.NET Core [記錄層級](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)從預設層級 `Warning` 設定為 `Information`，請在 Cloud Shell 中使用 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 命令。
+若要將 App Service 中的 ASP.NET Core [記錄層級](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)從預設層級 `Error` 設定為 `Information`，請在 Cloud Shell 中使用 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 命令。
 
 ```azurecli-interactive
 az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
@@ -394,7 +402,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 開始記錄資料流之後，重新整理瀏覽器中的 Azure 應用程式，以取得部分 Web 流量。 您現在會看到使用管線傳送到終端機的主控台記錄。 如果您沒有立即看到主控台記錄，請在 30 秒後再查看。
 
-若要隨時停止記錄資料流，輸入 `Ctrl`+`C`。
+若要隨時停止記錄資料流，請輸入 `Ctrl`+`C`。
 
 如需自訂 ASP.NET Core 記錄的詳細資訊，請參閱[登入 ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)。
 
