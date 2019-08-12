@@ -21,11 +21,11 @@
       href: azure-netapp-files-metrics.md
     - name: 效能
       items:
-        - name: 適用於 Azure NetApp Files 的效能基準測試
-          href: azure-netapp-files-performance-benchmarks.md
         - name: 適用於 Azure NetApp Files 的效能考量
           href: azure-netapp-files-performance-considerations.md
-        - name: 適用於使用 Azure NetApp Files 的磁碟區效能和計量基準測試
+        - name: 適用於Azure NetApp Files 的效能基準測試結果
+          href: azure-netapp-files-performance-benchmarks.md
+        - name: 適用於Azure NetApp Files 的效能基準測試建議
           href: azure-netapp-files-performance-metrics-volumes.md
     - name: 適用於 Azure NetApp Files 的成本模型
       href: azure-netapp-files-cost-model.md

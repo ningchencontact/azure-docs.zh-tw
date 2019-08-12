@@ -62,6 +62,8 @@
           items:
             - name: 佈建節點
               href: create-nodes.md
+            - name: 刪除節點
+              href: delete-nodes.md
         - name: 管理私人雲端資源
           items:
             - name: 建立私人雲端
@@ -76,6 +78,8 @@
               href: azure-subscription-mapping.md
             - name: 提升權限
               href: escalate-private-cloud-privileges.md
+            - name: 刪除私人雲端
+              href: delete-private-cloud.md
         - name: 監視 CloudSimple 活動
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: 設定私人雲端網路

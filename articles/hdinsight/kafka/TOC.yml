@@ -159,6 +159,8 @@
     - name: 疑難排解
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
       items:
+        - name: 容錯網域不足
+          href: ./kafka-troubleshoot-insufficient-domains.md
         - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
         - name: Apache Hadoop HDFS 疑難排解

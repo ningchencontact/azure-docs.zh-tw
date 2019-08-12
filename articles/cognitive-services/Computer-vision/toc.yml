@@ -107,29 +107,29 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: 概念
   items:
-    - name: 標記影像
+    - name: 內容標記
       href: concept-tagging-images.md
-    - name: 偵測物件
+    - name: 物件偵測
       href: concept-object-detection.md
-    - name: 偵測品牌
+    - name: 品牌偵測
       href: concept-brand-detection.md
-    - name: 將影像分類
+    - name: 映像分類
       href: concept-categorizing-images.md
-    - name: 描述映像
+    - name: 映像說明
       href: concept-describing-images.md
-    - name: 偵測臉部
+    - name: 臉部偵測
       href: concept-detecting-faces.md
-    - name: 偵測影像類型
+    - name: 映像類型偵測
       href: concept-detecting-image-types.md
-    - name: 偵測特定網域內容
+    - name: 特定領域內容
       href: concept-detecting-domain-content.md
-    - name: 偵測色彩配置
+    - name: 色彩配置偵測
       href: concept-detecting-color-schemes.md
-    - name: 產生縮圖
+    - name: 智慧型裁切縮圖
       href: concept-generating-thumbnails.md
-    - name: 辨識印刷和手寫文字
+    - name: 印刷和手寫文字辨識
       href: concept-recognizing-text.md
-    - name: 偵測成人和猥褻內容
+    - name: 成人和猥褻內容偵測
       href: concept-detecting-adult-content.md
 - name: 使用說明指南
   items:

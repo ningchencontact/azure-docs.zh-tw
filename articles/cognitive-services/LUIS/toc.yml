@@ -25,6 +25,10 @@
           href: sdk-csharp-quickstart-authoring-app.md
         - name: 查詢預測端點
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
+    - name: 使用 Python SDK
+      items:
+        - name: 建立和管理應用程式
+          href: sdk-python-quickstart-authoring-app.md
     - name: 使用 REST API
       items:
         - name: 取得意圖

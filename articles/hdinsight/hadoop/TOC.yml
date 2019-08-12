@@ -41,30 +41,6 @@
       href: ../hdinsight-hadoop-compare-storage-options.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
     - name: 了解受控身分識別
       href: ../hdinsight-managed-identities.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-    - name: 疑難排解
-      items:
-        - name: 叢集建立失敗
-          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
-        - name: 磁碟空間不足
-          href: ./hdinsight-troubleshoot-out-disk-space.md
-        - name: 軟鎖定 - CPU
-          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
-        - name: InvalidNetworkConfigurationErrorCode - 叢集建立失敗
-          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
-        - name: InvalidNetworkSecurityGroupSecurityRules - 叢集建立失敗
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
-        - name: 無法登入 HDInsight 叢集
-          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
-        - name: 無法將節點新增至 HDInsight 叢集
-          href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: 轉換服務主體憑證
-          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
-        - name: 安全模式中本機 HDFS 停滯
-          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
-        - name: Apache Ambari 活動訊號問題
-          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
-        - name: Apache Ambari 顯示當機的主機和服務
-          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: 作法
   items:
     - name: 使用 Apache Hadoop 沙箱
@@ -310,6 +286,30 @@
     - name: 疑難排解
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
       items:
+        - name: 叢集建立失敗
+          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
+        - name: 磁碟空間不足
+          href: ./hdinsight-troubleshoot-out-disk-space.md
+        - name: 軟鎖定 - CPU
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: InvalidNetworkConfigurationErrorCode - 叢集建立失敗
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - 叢集建立失敗
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: 無法登入 HDInsight 叢集
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
+        - name: 無法將節點新增至 HDInsight 叢集
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: 轉換服務主體憑證
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: 安全模式中本機 HDFS 停滯
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
+        - name: Apache Ambari 活動訊號問題
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari UI 502 錯誤
+          href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
+        - name: Apache Ambari 顯示當機的主機和服務
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
         - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
         - name: Apache Hadoop HDFS 疑難排解

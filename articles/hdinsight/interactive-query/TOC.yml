@@ -19,20 +19,6 @@
       href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: 容量規劃
       href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-    - name: 疑難排解
-      items:
-        - name: 超過 GC 額外負荷限制
-          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
-        - name: Apache Ambari Tez View 載入速度緩慢
-          href: ./interactive-query-troubleshoot-tez-view-slow.md
-        - name: Apache Hive 檢視中未顯示錯誤訊息
-          href: ./interactive-query-troubleshoot-error-message-hive-view.md
-        - name: 無法存取 Apache Hive 檢視
-          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
-        - name: ZooKeeperHiveClientException - HiveServer2 組態
-          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
-        - name: Apache Hive LLAP 查詢效能
-          href: ./interactive-query-troubleshoot-query-performance.md
 - name: 作法
   items:
     - name: 將 Hive 工作負載移轉至 HDInsight 4.0
@@ -204,10 +190,31 @@
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: 疑難排解
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-      maintainContext: true
       items:
+        - name: Apache Hive 檢視逾時
+          href: ./interactive-query-troubleshoot-view-time-out.md
+        - name: 建立資料表時發生權限錯誤
+          href: ./interactive-query-troubleshoot-permission-error-create-table.md
+        - name: 超過 GC 額外負荷限制
+          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Ambari Tez View 載入速度緩慢
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
+        - name: Apache Hive 檢視中未顯示錯誤訊息
+          href: ./interactive-query-troubleshoot-error-message-hive-view.md
+        - name: 無法存取 Apache Hive 檢視
+          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+        - name: ZooKeeperHiveClientException - HiveServer2 組態
+          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+        - name: Apache Hive LLAP 查詢效能
+          href: ./interactive-query-troubleshoot-query-performance.md
         - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
-          href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+        - name: Apache Hadoop HDFS 疑難排解
+          href: ../hdinsight-troubleshoot-hdfs.md
+        - name: Apache HIVE 疑難排解
+          href: ../hdinsight-troubleshoot-hive.md
+        - name: Apache Hadoop YARN 疑難排解
+          href: ../hdinsight-troubleshoot-yarn.md
         - name: Apache Hadoop HDFS 疑難排解
           href: ../hdinsight-troubleshoot-hdfs.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
         - name: Apache HIVE 疑難排解

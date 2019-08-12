@@ -25,14 +25,6 @@
       href: ../hdinsight-component-versioning.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
-    - name: 疑難排解
-      items:
-        - name: Apache HBase REST 未回應
-          href: ./hbase-troubleshoot-rest-not-spending.md
-        - name: 區域伺服器上的 PEG CPU
-          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
-        - name: '''hbase hbck'' 命令逾時'
-          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: 作法
   items:
     - name: 使用叢集儲存體
@@ -167,8 +159,25 @@
         - name: HDInsight 叢集的作業系統修補
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: 疑難排解
-      href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
       items:
+        - name: 資源疑難排解
+          href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: Apache Phoenix 檢視中沒有資料
+          href: ./hbase-troubleshoot-phoenix-no-data.md
+        - name: BindException - 位址使用中
+          href: ./hbase-troubleshoot-bindexception-address-use.md
+        - name: Apache HBase 無法啟動
+          href: ./hbase-troubleshoot-start-fails.md
+        - name: 區域伺服器問題
+          href: ./hbase-troubleshoot-unassigned-regions.md
+        - name: Apache Phoenix 連線問題
+          href: ./hbase-troubleshoot-phoenix-connectivity.md
+        - name: Apache HBase REST 未回應
+          href: ./hbase-troubleshoot-rest-not-spending.md
+        - name: 區域伺服器上的 PEG CPU
+          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+        - name: '''hbase hbck'' 命令逾時'
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
         - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
         - name: Apache Hadoop HDFS 疑難排解

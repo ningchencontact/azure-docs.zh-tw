@@ -7,12 +7,12 @@ ms.service: blueprints
 ms.topic: sample
 ms.date: 06/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: c5541eab6707bab12fb75f4d0eaf8bae1f025ebb
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: e1bafdaa2883afb44aa3c609c0ccba0ce9d0a4ab
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816053"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934171"
 ---
 # <a name="azure-blueprints-samples"></a>Azure 藍圖範例
 
@@ -22,6 +22,7 @@ ms.locfileid: "68816053"
 
 |  |  |
 |---------|---------|
+|[IRS 1075](./irs-1075/index.md)| 提供成立條件以符合 IRS 1075。|
 | [ISO 27001](./iso27001/index.md) | 提供成立條件以符合 ISO 27001。 |
 | [ISO 27001 共用服務](./iso27001-shared/index.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 ISO 27001 證明。 |
 | [ISO 27001 App Service 環境/SQL Database 工作負載](./iso27001-ase-sql-workload/index.md) | 提供 [ISO 27001 共用服務](./iso27001-shared/index.md)藍圖範例的其他基礎結構。 |
