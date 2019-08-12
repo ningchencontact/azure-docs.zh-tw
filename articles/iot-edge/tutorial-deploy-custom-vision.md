@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850126"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840147"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -369,9 +369,9 @@ Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案�
 
 1. 開啟解決方案資料夾中的 **deployment.template.json** 檔案。 
 
-2. 尋找 **modules** 區段，此區段應該會包含三個模組：您所建立的兩個模組 (classifier 和 cameraCapture)，以及預設會包含的第三個模組 tempSensor。 
+2. 尋找 **modules** 區段，此區段應該會包含三個模組：您所建立的兩個模組 (classifier 和 cameraCapture)，以及預設會包含的第三個模組 SimulatedTemperatureSensor。 
 
-3. 刪除 **tempSensor** 模組及其所有參數。 包含此模組是為了提供資料範例供測試案例使用，但此部署則不會用到。 
+3. 刪除 **SimulatedTemperatureSensor** 模組及其所有參數。 包含此模組是為了提供資料範例供測試案例使用，但此部署則不會用到。 
 
 4. 如果您未將影像分類模組命名為 **classifier**，則請立即檢查名稱，並確認其名稱中全為小寫字母。 cameraCapture 模組會呼叫 classifier 模組，後者所使用的要求程式庫會將所有要求的格式設為小寫，而且 IoT Edge 會區分大小寫。 
 

@@ -7,15 +7,15 @@ ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: a06504438340f62d5b338165cb8b159459ae35dc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: e63ad75effb03cf9dd5eb5c66b142cce629ea290
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467081"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736240"
 ---
-# <a name="back-up-azure-file-shares"></a>備份 Azure 檔案共用
-本文說明如何使用 Azure 入口網站來備份和還原 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
+# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>在 Azure 入口網站中備份 Azure 檔案共用
+本教學課程說明如何使用 Azure 入口網站來備份 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
 
 在本指南中，您將了解如何：
 > [!div class="checklist"]

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c730c240ed5ff68a1d48ef17d15de1aaa73ab1e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 15cf770a372c9a1386dd0293abeac01fd3cacf63
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619911"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779752"
 ---
 # <a name="what-is-azure-sentinel-preview"></a>什麼是 Azure Sentinel 預覽版？
 
@@ -63,7 +63,7 @@ Azure Sentinel 以完方位的現有 Azure 服務為基礎，原生併入經過�
 
 ## <a name="analytics"></a>分析
 
-為了協助您減少雜訊並盡可能減少您必須檢閱和調查的警示數目，Azure Sentinel 使用[分析讓警示相互關聯成為案例](tutorial-detect-threats.md)。 **案例**是一組相關警示，可一起建立可操作的可能威脅，以便您進行調查並予以解決。 依照現狀使用內建的相互關聯規則，或使用其作為建立自有規則的起點。 Azure Sentinel 也會提供機器學習規則來對應您的網路行為，然後跨越資源尋找異常狀況。 這些分析會將不同實體的相關低精確度警示結合成為潛在高精確度安全性事件，藉此將點點滴滴串聯起來。
+為了協助您減少雜訊並盡可能減少您必須檢閱和調查的警示數目，Azure Sentinel 使用[分析讓警示相互關聯成為事件](tutorial-detect-threats.md)。 **事件**是一組相關警示，可一起建立可操作的可能威脅，以便您進行調查並予以解決。 依照現狀使用內建的相互關聯規則，或使用其作為建立自有規則的起點。 Azure Sentinel 也會提供機器學習規則來對應您的網路行為，然後跨越資源尋找異常狀況。 這些分析會將不同實體的相關低精確度警示結合成為潛在高精確度安全性事件，藉此將點點滴滴串聯起來。
 
 ![案例](./media/overview/cases.png)
 

@@ -1,6 +1,6 @@
 ---
-title: PowerShell 範例 - 稽核 - 威脅偵測 - Azure SQL Database |Microsoft 文件
-description: 在 Azure SQL Database 中設定稽核與威脅偵測的 Azure PowerShell 指令碼範例
+title: 稽核和進階威脅防護的 PowerShell 範例 - Azure SQL 資料庫 | Microsoft Docs
+description: 在 Azure SQL Database 中用來設定稽核與進階威脅偵測的 Azure PowerShell 指令碼範例
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,18 +9,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab
-ms.date: 03/12/2019
-ms.openlocfilehash: c0293cd8f06a1988d89e9a88d9b03f71f1181765
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.reviewer: carlrab, vanto
+ms.date: 08/05/2019
+ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570035"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816698"
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>使用 PowerShell 設定 SQL Database 稽核與威脅偵測
+# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>使用 PowerShell 設定 SQL Database 稽核與進階威脅防護
 
-此 PowerShell 指令碼範例會設定 SQL Database 稽核與威脅偵測。
+此 PowerShell 指令碼範例可設定 SQL Database 稽核與進階威脅防護。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -51,7 +51,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | 建立單一資料庫或彈性集區。 |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | 建立儲存體帳戶。 |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | 設定資料庫的稽核原則。 |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 設定資料庫的威脅偵測原則。 |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 設定資料庫的進階威脅防護原則。 |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 |||
 

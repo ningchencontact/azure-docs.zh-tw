@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 05/02/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1ec9db2b026dd1853eceb1f110878d6b2beb4d4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678043"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828101"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
 
@@ -29,7 +29,7 @@ Azure Machine Learning 服務是用來定型、部署、自動化及管理機器
 
 ## <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
 
-Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料、定型、測試、部署、管理及追蹤機器學習服務模型。 開始訓練您的本機電腦，然後向外擴充到雲端。 此服務完全支援開放原始碼技術，例如 PyTorch、TensorFlow 和 scikit-learn，並可用於任何一種機器學習，從傳統 ML 以至深度學習、監督式和非監督式學習。 
+Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料、定型、測試、部署、管理及追蹤機器學習服務模型。 開始訓練您的本機電腦，然後向外擴充到雲端。 此服務完全支援開放原始碼技術，例如 PyTorch、TensorFlow 和 scikit-learn，並可用於任何一種機器學習，從傳統 ML 以至深度學習、監督式和非監督式學習。
 
 探索和準備資料、定型和測試模型，以及使用豐富工具加以部署，例如：
 + [視覺化介面](ui-tutorial-automobile-price-train-score.md)，您可以在其中拖放模組來建置您的實驗，然後部署模型
@@ -55,20 +55,25 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料
 對於無程式碼定型，請嘗試：
 
 + 適用於拖放實驗和部署的視覺化介面
-    
+
     ![Azure Machine Learning 服務的視覺化介面](media/overview-what-is-azure-ml/visual-interface.png)
 
 + 自動化 ML 實驗的 Azure 入口網站選項
 
 ### <a name="operationalization-mlops"></a>運算化 (MLOps)
 
-當您有正確的模型時，您可以在 Web 服務中、在 IoT 裝置上或從 Power BI 輕鬆使用它。 如需詳細資訊，請參閱有關[如何部署和部署位置](how-to-deploy-and-where.md)的文章。 
+當您有正確的模型時，您可以在 Web 服務中、在 IoT 裝置上或從 Power BI 輕鬆使用它。 如需詳細資訊，請參閱有關[如何部署和部署位置](how-to-deploy-and-where.md)的文章。
 
-接著，您可以使用[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 或 [Azure 入口網站](https://portal.azure.com/)管理所部署的模型。 
+接著，您可以使用[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 或 [Azure 入口網站](https://portal.azure.com/)管理所部署的模型。
 
 這些模型可被取用並[即時](how-to-consume-web-service.md)或[非同步](how-to-run-batch-predictions.md)地傳回大量資料的相關預測。
 
-另外，透過進階[機器學習管線](concept-ml-pipelines.md)，您可以在資料準備、模型定型與評估及部署的每個步驟上共同作業。
+另外，透過進階[機器學習管線](concept-ml-pipelines.md)，您可以在資料準備、模型定型與評估及部署的每個步驟上共同作業。 管線可讓您執行下列作業：
+
+* 自動化雲端中的端對端機器學習程序
+* 重複使用元件，並且只在需要時重新執行步驟
+* 在每個步驟中使用不同的計算資源
+* 執行批次評分工作
 
 若要開始使用 Azure Machine Learning 服務，請參閱以下的[後續步驟](#next-steps)。
 
@@ -86,7 +91,7 @@ Azure Machine Learning 服務同時提供 SDK **與**視覺化介面 (預覽)，
 |介面適用的模組| 多種 | 初始的受歡迎模組集合|
 |定型計算目標| 專屬計算目標，僅限 CPU 支援| 支援 Azure Machine Learning 計算 (GPU 或 CPU)。<br/>(SDK 中支援的其他計算)|
 |部署計算目標| 專屬 Web 服務格式 (不可自訂) | 企業安全性選項與 Azure Kubernetes 服務。 <br/>(SDK 中支援的[其他計算](how-to-deploy-and-where.md)) |
-|自動化模型定型和超參數調整 | 否 | 尚未在視覺化介面中。 <br/> (在 SDK 和 Azure 入口網站中支援。) | 
+|自動化模型定型和超參數調整 | 否 | 尚未在視覺化介面中。 <br/> (在 SDK 和 Azure 入口網站中支援。) |
 
 試用視覺介面 (預覽)，經由[教學課程：透過視覺化介面預測汽車價格](ui-tutorial-automobile-price-train-score.md)。
 
@@ -103,8 +108,8 @@ Azure Machine Learning 服務同時提供 SDK **與**視覺化介面 (預覽)，
 
 - [建立 Machine Learning 服務工作區](setup-create-workspace.md)以開始作業。
 
-- 請遵循完整的教學課程： 
-  + [使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md) 
+- 請遵循完整的教學課程：
+  + [使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)
   + [準備資料並使用自動化機器學習來自動定型迴歸模型](tutorial-data-prep.md)
 
 - 了解用來建置、最佳化及管理機器學習案例的[機器學習管線](/azure/machine-learning/service/concept-ml-pipelines)。

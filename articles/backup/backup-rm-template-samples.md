@@ -1,6 +1,6 @@
 ---
 title: 適用於 Azure 備份的 Azure Resource Manager 範本
-description: Azure 備份 PowerShell 範例
+description: 要與復原服務保存庫和 Azure 備份功能搭配使用的 Azure Resource Manager 範本
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 0675d511fefba000ee6db4b45202bd1c72522cfe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eac7f0050dd819a8ab8d8d453307c7d1ab190fb7
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639615"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737108"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>適用於 Azure 備份的 Azure Resource Manager 範本
 

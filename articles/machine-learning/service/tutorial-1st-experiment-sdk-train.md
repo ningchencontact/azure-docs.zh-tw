@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 8b89f5572ae94986590fe76096daeb0ad088fe59
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668575"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828524"
 ---
 # <a name="tutorial-train-your-first-model"></a>教學課程：定型您的第一個模型
 
@@ -111,7 +111,7 @@ for alpha in alphas:
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>工作區</th><th>報表頁面</th><th>文件頁面</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td><a href="" target="_blank" rel="noopener">Azure 入口網站的連結</a></td><td><a href="" target="_blank" rel="noopener">文件的連結</a></td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>工作區</th><th>報表頁面</th><th>文件頁面</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Azure 入口網站的連結</td><td>文件的連結</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>在入口網站中查看定型結果
 
@@ -181,7 +181,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 1. 在您的工作區中，選取 [Notebook VM]  。
 
-   ![停止 VM 伺服器](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![停止 VM 伺服器](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. 從清單中選取 VM。
 

@@ -13,18 +13,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5e42c36e6a321775e6017a2318857e20b7dcaf0d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d702b2f76531bad53e3fd98645d2b6bbf0582c54
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876471"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774732"
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
 Application Insights 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署、混合式或任何公用雲端的 .NET、Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
 
 ## <a name="how-does-application-insights-work"></a>Application Insights 的運作方式
-您會在應用程式中安裝小型檢測套件，並且在 Microsoft Azure 入口網站中設定 Application Insights 資源。 此檢測套件會監視您的應用程式，並將遙測資料傳送至入口網站。 (應用程式可以在任何地方執行 - 不一定要裝載於 Azure 中。)
+您會在應用程式中安裝小型檢測套件，並且在 Microsoft Azure 入口網站中設定 Application Insights 資源。 此檢測套件會監視您的應用程式，並將遙測資料傳送至 Azure 監視器。 (應用程式可以在任何地方執行 - 不一定要裝載於 Azure 中。)
 
 您不僅可以檢測 Web 服務應用程式，也可以檢測任何背景元件以及網頁本身中的 JavaScript。 
 
@@ -32,8 +32,7 @@ Application Insights 是多個平台上的 Web 開發人員所適用的可延伸
 
 此外，您可以從主機環境 (例如效能計數器、Azure 診斷或 Docker 記錄) 提取遙測資料。 您也可以設定會定期將綜合要求傳送至 Web 服務的 Web 測試。
 
-上述所有遙測串流都會整合於 Azure 入口網站中，您可在其中將強大的分析和搜尋工具套用於未經處理的資料。
-
+上述所有遙測串流都會整合到 Azure 監視器中。 在 Azure 入口網站中，您可以將強大的分析和搜尋工具套用於未經處理的資料。
 
 ### <a name="whats-the-overhead"></a>負荷為何？
 對您的應用程式效能的影響很小。 追蹤呼叫不具阻擋性，而且會在個別的執行緒中分批傳送。

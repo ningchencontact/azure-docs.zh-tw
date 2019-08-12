@@ -7,14 +7,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7682670131b0ef50a1480285bc379b634169e49e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804901"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840614"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>發佈 Azure 受控應用程式定義
 
@@ -41,7 +41,7 @@ az group create --name appDefinitionGroup --location westcentralus
 若要取得您身分識別的物件識別碼，請在下列命令中提供您的使用者主體名稱：
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 接下來，您需要的角色定義識別碼，是您想要授與使用者存取權的 RBAC 內建角色。 下列命令會顯示如何取得「擁有者」角色的角色定義識別碼：
@@ -71,7 +71,7 @@ az managedapp definition create \
 * **resource-group**：資源群組的名稱，其中會建立受控應用程式定義。
 * **lock-level**：放在受控資源群組的鎖定類型。 它可以避免客戶在此資源群組上執行非預期的作業。 目前唯一支援的鎖定等級是 ReadOnly。 指定 ReadOnly 時，客戶只能讀取受控資源群組中存在的資源。 獲取受控資源群組存取權的發行者身分識別免除鎖定。
 * **authorizations**：描述用來授與權限給受控資源群組的主體識別碼及角色定義識別碼。 它是以 `<principalId>:<roleDefinitionId>` 格式來指定。 如果需要多個值，請在表單中指定它們：`<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`。 值之間以空格分隔。
-* **package-file-uri**：該位置有包含必要檔案的.zip 套件。 套件必須有 **mainTemplate.json** 和 **createUiDefinition.json** 檔案。 **mainTemplate.json** 會對建立為受控應用程式一部分的 Azure 資源進行定義。 此範本與一般 Resource Manager 範本不同。 **createUiDefinition.json**會透過 入口網站為建立受控應用程式的使用者產生使用者介面。
+* **package-file-uri**：該位置有包含必要檔案的 .zip 套件。 套件必須有 **mainTemplate.json** 和 **createUiDefinition.json** 檔案。 **mainTemplate.json** 會對建立為受控應用程式一部分的 Azure 資源進行定義。 此範本與一般 Resource Manager 範本不同。 **createUiDefinition.json**會透過 入口網站為建立受控應用程式的使用者產生使用者介面。
 
 ## <a name="next-steps"></a>後續步驟
 

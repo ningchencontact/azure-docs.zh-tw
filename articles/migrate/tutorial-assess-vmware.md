@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 5f70037b1e6ce284b55ff5ff0ae38eb50c320122
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868666"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828293"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>使用 Azure Migrate 評估 VMware VM：伺服器評量
 
@@ -104,12 +104,12 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 2. 執行下列命令以產生 OVA 的雜湊：
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 針對版本 1.19.06.27，產生的雜湊應符合這些值。 
+3. 針對版本 2.19.07.30，產生的雜湊應符合這些值。 
 
   **演算法** | **雜湊值**
   --- | ---
-  MD5 | 605d208ac5f4173383f616913441144e
-  SHA256 | 447d16bd55f20f945164a1189381ef6e98475b573d6d1c694f3e5c172cfc30d4
+  MD5 | 27230f3b012187860281b912ee661709
+  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
 
 
 ### <a name="create-the-appliance-vm"></a>建立設備 VM

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3e56792673c33ac641ce23213f2b3662b889ec2a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677668"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725652"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 
@@ -40,14 +40,14 @@ ms.locfileid: "68677668"
 
 * 本教學課程使用您瀏覽器的**開發人員工具**功能。 新式網頁瀏覽器 ([Microsoft Edge](/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools) 和 [Safari](https://developer.apple.com/safari/tools/) 等等) 通常都可透過鍵盤上的 F12 快速鍵來存取 **Web 檢查工具檢視**。 另一種可存取檢視的方法是在網頁上按一下滑鼠右鍵，然後選取 [檢查元素]  。
 
-## <a name="video"></a>影片
+## <a name="review-video"></a>檢閱影片
 
 在此影片中，我們會介紹開放原始碼「時間序列深入解析 JavaScript SDK」：
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="time-series-insights-sample-application"></a>時間序列深入解析範例應用程式
+## <a name="sample-application"></a>範例應用程式
 
 本教學課程通篇使用免費的託管時間序列深入解析應用程式範例，來瀏覽應用程式背後的原始程式碼以及瀏覽時間序列深入解析 JavaScript 用戶端程式庫。 您可藉由使用此應用程式範例，來了解如何以 JavaScript 與時間序列深入解析互動，以及如何透過圖表和圖形來將資料視覺化。
 
@@ -100,7 +100,7 @@ ms.locfileid: "68677668"
 
    [![主體指令碼](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## <a name="time-series-insights-javascript-client-library-concepts"></a>時間序列深入解析 JavaScript 用戶端程式庫概念
+## <a name="javascript-client-library"></a>JavaScript 用戶端程式庫
 
 時間序列深入解析用戶端程式庫 (*tsiclient.js*) 提供兩個重要 JavaScript 功能的抽象概念：
 
@@ -231,7 +231,7 @@ ms.locfileid: "68677668"
 
 [![來自相同資料的多個圖表類型](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
-## <a name="advanced-features"></a>進階功能
+## <a name="learn-about-advanced-features"></a>了解進階功能
 
 時間序列深入解析用戶端程式庫有數個額外功能，可讓您用來實作具創意性的資料視覺效果。
 
@@ -314,7 +314,7 @@ ms.locfileid: "68677668"
 
 您現在已完成本教學課程，請清除您所建立的資源：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
+1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
 1. 選取 [刪除]  或個別移除每個資源，以刪除整個資源群組 (和其中包含的所有資源)。
 
 ## <a name="next-steps"></a>後續步驟

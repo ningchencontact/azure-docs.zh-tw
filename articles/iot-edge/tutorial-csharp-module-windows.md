@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d7ccce1f21b1caa2268317b7239617a80ddce10b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5a1e487b52cb6f146ccc7fd3208ecc90de9aa080
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485923"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840168"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C# IoT Edge 模組
 
@@ -268,7 +268,7 @@ Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組�
 
 8. 儲存 Program.cs 檔案。
 
-9. 開啟 IoT Edge 解決方案中的 **deployment.template.json** 檔案。 此檔案會告訴 IoT Edge 代理程式要部署哪些模組 (在此情況下為 **tempSensor** 和 **CSharpModule**)，並告知 IoT Edge 中樞如何在其間路由傳送訊息。
+9. 開啟 IoT Edge 解決方案中的 **deployment.template.json** 檔案。 此檔案會告訴 IoT Edge 代理程式要部署哪些模組 (在此情況下為 **SimulatedTemperatureSensor** 和 **CSharpModule**)，並告知 IoT Edge 中樞如何在其間路由傳送訊息。
 
 10. 在部署資訊清單中新增 **CSharpModule** 模組對應項。 在 **modulesContent** 區段底部，於 **$edgeHub** 模組對應項後面插入下列 JSON 內容： 
 

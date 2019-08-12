@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中管理衝突
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360371"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815083"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理衝突解決原則
 
@@ -19,7 +19,7 @@ ms.locfileid: "68360371"
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>建立最後寫入為準衝突解決原則
 
-這些範例示範如何設定最後寫入為準衝突解決原則的容器。 最後寫入為準的預設路徑是時間戳記欄位或 `_ts` 屬性。 此路徑也可設定為數值類型的使用者定義路徑。 發生衝突時，會以最大值為準。 如果未設定路徑或路徑無效，便會預設為 `_ts`。 已使用此原則解決的衝突將不會出現在衝突摘要中。 此原則可供所有 API 使用。
+這些範例示範如何設定最後寫入為準衝突解決原則的容器。 最後寫入為準的預設路徑是時間戳記欄位或 `_ts` 屬性。 針對 SQL API，此路徑也可設定為有數值類型的使用者定義路徑。 發生衝突時，會以最大值為準。 如果未設定路徑或路徑無效，便會預設為 `_ts`。 已使用此原則解決的衝突將不會出現在衝突摘要中。 此原則可供所有 API 使用。
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -114,7 +114,6 @@ udp_collection = self.try_create_document_collection(
 
 > [!IMPORTANT]
 > 和任何預存程序一樣，自訂衝突解決程序可以存取任何具有相同分割索引鍵的資料，並可執行任何插入、更新或刪除作業來解決衝突。
-
 
 這個預存程序範例會藉由從 `/myCustomId` 路徑選取最低值來解決衝突。
 
@@ -273,7 +272,6 @@ udp_collection = self.try_create_document_collection(
 
 建立容器之後，您必須建立 `resolver` 預存程序。
 
-
 ## <a name="create-a-custom-conflict-resolution-policy"></a>建立自訂衝突解決原則
 
 這些範例示範如何設定自訂衝突解決原則的容器。 以下衝突會顯示在衝突摘要中。
@@ -428,10 +426,10 @@ while conflict:
 
 深入了解下列 Azure Cosmos DB 概念：
 
-* [全域散發 - 運作原理](global-dist-under-the-hood.md)
-* [如何在應用程式中設定多重主機](how-to-multi-master.md)
-* [設定多路連接的用戶端](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [從您的 Azure Cosmos 帳戶新增或移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [如何在應用程式中設定多重主機](how-to-multi-master.md)。
-* [資料分割和散佈](partition-data.md)
-* [Azure Cosmos DB 中的編製索引](indexing-policies.md)
+- [全域散發 - 運作原理](global-dist-under-the-hood.md)
+- [如何在應用程式中設定多重主機](how-to-multi-master.md)
+- [設定多路連接的用戶端](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [從您的 Azure Cosmos 帳戶新增或移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [如何在應用程式中設定多重主機](how-to-multi-master.md)。
+- [資料分割和散佈](partition-data.md)
+- [Azure Cosmos DB 中的編製索引](indexing-policies.md)

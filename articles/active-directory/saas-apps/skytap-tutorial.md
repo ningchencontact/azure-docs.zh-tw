@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4ce8cbbfec58d9c7980954691fd6c71266d23
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7eae1c9a42547c73cc42868bac1f1f484b6354fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588027"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>教學課程：Azure Active Directory 與 Skytap 整合
 
@@ -191,7 +191,7 @@ ms.locfileid: "67588027"
 
 ### <a name="create-skytap-test-user"></a>建立 Skytap 測試使用者
 
-在本節中，您要在 Skytap 中建立名為 Britta Simon 的使用者。 請與 [Skytap 支援小組](mailto:support@skytap.com)合作，在 Skytap 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Skytap 中建立名為 Britta Simon 的使用者。 Skytap 帳戶內的任何系統管理員或使用者管理員都可以建立使用者。 要如何執行這項操作的詳細資訊位於 Skytap 的說明檔中，請參閱： https://help.skytap.com/users-create.html
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

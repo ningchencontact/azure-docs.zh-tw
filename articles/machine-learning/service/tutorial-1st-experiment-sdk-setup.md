@@ -1,7 +1,7 @@
 ---
 title: 教學課程：設定環境和工作區。
 titleSuffix: Azure Machine Learning service
-description: 在本教學課程中，您會遵循端對端步驟來開始使用在 Jupyter 筆記本中執行的 Azure Machine Learning Python SDK。
+description: 在本教學課程系列中，您會遵循端對端步驟來開始使用在 Jupyter 筆記本中執行的 Azure Machine Learning Python SDK。  第一部分中已建立雲端筆記本伺服器環境及工作區來管理您的實驗和機器學習模型。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: e17d9286453aeb5c7eac688555177c2c42faad21
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668595"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828654"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>教學課程：設定環境和工作區
 
@@ -25,7 +25,7 @@ ms.locfileid: "68668595"
 
 > [!div class="checklist"]
 > * 建立要在下一個教學課程中使用的機器學習工作區。
-> * 建立雲端 Notebook 伺服器環境。
+> * 建立筆記本 VM，這是已預先安裝並預先設定 Azure Machine Learning Python SDK 的雲端式 Jupyter 筆記本伺服器。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -49,14 +49,12 @@ ms.locfileid: "68668595"
 
 1. 選取 [+新增]  以建立 Notebook VM。
 
-     ![選取新的 VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![選取新的 VM](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
 1. 為您的 VM 提供名稱。 然後選取 [建立]  。
 
     > [!NOTE]
     > Notebook 虛擬機器名稱長度必須介於 2 到 16 個字元之間。 有效字元包含字母、數字及 - 字元。  名稱在 Azure 訂用帳戶中必須是唯一的。
-
-    ![建立新的 VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. 請等候狀態變更為 [執行中]  。
 
@@ -66,7 +64,7 @@ ms.locfileid: "68668595"
 
 1. 在您 VM 的 [URI]  資料行中選取 [Jupyter]  。
 
-    ![啟動 Jupyter Notebook 伺服器](./media/quickstart-run-cloud-notebook/start-server.png)
+    ![啟動 Jupyter Notebook 伺服器](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
     此連結會啟動 Notebook 伺服器，並且在新的瀏覽器索引標籤中開啟 Jupyter Notebook 網頁。此連結只適用於建立 VM 的人員。 工作區的每個使用者都必須建立自己的 VM。
 
@@ -87,7 +85,7 @@ ms.locfileid: "68668595"
 
 1. 在您的工作區中，選取 [Notebook VM]  。
 
-   ![停止 VM 伺服器](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![停止 VM 伺服器](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. 從清單中選取 VM。
 

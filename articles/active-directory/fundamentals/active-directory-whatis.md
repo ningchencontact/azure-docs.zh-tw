@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3087f0ac69126c6d509eee77abe15cc35319dfb
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693910"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774167"
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 
@@ -33,7 +33,7 @@ Azure AD 的適用對象是：
 
 - **IT 系統管理員。** 身為 IT 系統管理員，您可以使用 Azure AD，根據業務需求來控制應用程式和應用程式資源的存取權。 例如，您可以使用 Azure AD，來要求在存取組織的重要資源時必須進行多重要素驗證。 此外，您也可以使用 Azure AD，自動地在現有 Windows Server AD 和雲端應用程式 (包括 Office 365) 之間佈建使用者。 最後，Azure AD 可提供功能強大的工具，以便自動地協助保護使用者的身分識別和認證，以及符合存取治理需求。 若要開始作業，請註冊[免費的 30 天 Azure Active Directory Premium 試用版](https://azure.microsoft.com/trial/get-started-active-directory/)。
 
-- **應用程式開發人員。** 身為應用程式開發人員，Azure AD 可讓您以標準的方法，將單一登入 (SSO) 新增至應用程式，讓它與使用者預先存在的認證搭配運作。 Azure AD 也會提供 API，來協助您建置會使用現有組織資料的個人化應用程式體驗。 若要開始作業，請註冊[免費的 30 天 Azure Active Directory Premium 試用版](https://azure.microsoft.com/trial/get-started-active-directory/)。 如需詳細資訊，您也可以參閱[適用於開發人員的 Azure Active Directory](../develop/index.yml)。
+- **應用程式開發人員。** 身為應用程式開發人員，您可以使用 Azure AD 作為標準方法，將單一登入 (SSO) 新增至應用程式，讓它與使用者預先存在的認證搭配運作。 Azure AD 也會提供 API，來協助您建置會使用現有組織資料的個人化應用程式體驗。 若要開始作業，請註冊[免費的 30 天 Azure Active Directory Premium 試用版](https://azure.microsoft.com/trial/get-started-active-directory/)。 如需詳細資訊，您也可以參閱[適用於開發人員的 Azure Active Directory](../develop/index.yml)。
 
 - **Microsoft 365、Office 365、Azure 或 Dynamics CRM Online 訂閱者。** 身為訂閱者，您早已在使用 Azure AD。 每個 Microsoft 365、Office365、Azure 和 Dynamics CRM Online 租用戶都會自動成為 Azure AD 租用戶。 您立即就可以開始管理整合式雲端應用程式的存取權。
 

@@ -1,20 +1,21 @@
 ---
-title: Python 教學課程：在索引管線中呼叫認知服務 - Azure 搜尋服務
+title: Python 教學課程：在 AI 擴充管線中呼叫認知服務 - Azure 搜尋服務
 description: 逐步說明在使用 Jupyter Python 筆記本的 Azure 搜尋服務中的資料擷取、自然語言和影像 AI 處理的範例。 擷取的資料會編製索引，而且可透過查詢輕鬆存取。
 manager: cgronlun
 author: LisaLeib
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: b7f1baa473ca28db696835a7b0895f1603c74770
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: af355ec353e12c30723597927883cb23dfa31e71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359401"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840932"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API
 

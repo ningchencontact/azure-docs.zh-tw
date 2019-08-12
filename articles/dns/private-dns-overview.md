@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444831"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774612"
 ---
 # <a name="what-is-azure-private-dns"></a>什麼是 Azure Private DNS？
 
@@ -71,10 +71,11 @@ Azure DNS 提供以下功能：
 
 Azure DNS 有下列限制：
 
-* 特定虛擬網路只能連結到單一私人區域，如已啟用 VM DNS 記錄的自動註冊。 不過您可以將多個虛擬網路連結至單一 DNS 區域。
+* 如果已啟用 VM DNS 記錄的自動註冊，則特定虛擬網路只能連結到一個私人區域。 不過您可以將多個虛擬網路連結至單一 DNS 區域。
 * 反向 DNS 只適用於已連結虛擬網路中的私人 IP 空間
-* 已連結虛擬網路的私人 IP 反向 DNS 會傳回 "internal.cloudapp.net" 作為虛擬機器的預設尾碼。 若虛擬網路連結至已啟用自動註冊的私人區域，私人 IP 的反向 DNS 會傳回 2 個 FQDN，一個具有預設尾碼 *internal.cloudapp.net*，另一個則有私人區域的尾碼。
-* 目前無法原生支援條件式轉送。 啟用 Azure 和內部部署網路之間的解析。 請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* 已連結虛擬網路的私人 IP 反向 DNS 會傳回 "internal.cloudapp.net" 作為虛擬機器的預設尾碼。 若虛擬網路連結至已啟用自動註冊的私人區域，私人 IP 的反向 DNS 會傳回 2 個 FQDN，一個具有預設尾碼 internal.cloudapp.net  ，另一個則有私人區域的尾碼。
+* 目前無法原生支援條件式轉送。 若要啟用 Azure 和內部部署網路之間的解析，請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+
  
 ## <a name="pricing"></a>價格
 

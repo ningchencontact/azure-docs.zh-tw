@@ -4,16 +4,16 @@ description: 了解 Azure Cosmos DB 資料表 API 和 Azure 儲存體資料表�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/15/2017
+ms.date: 08/05/2019
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: c7c9caad6c454b90a6d50932450922a03bbc1944
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 71bc5d73a7b5bc83dc1ac835c80ac1b14d5113e9
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604171"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814708"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>使用 Azure Cosmos DB 資料表 API 和 Azure 表格儲存體進行開發
 
@@ -41,9 +41,9 @@ Azure Cosmos DB 資料表 API 和 Azure 表格儲存體共用同一個資料表�
 Azure 表格儲存體有下列 SDK 可用於開發：
 
 - [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). 此程式庫可讓您使用表格儲存體服務。
-- [Python SDK](table-sdk-python.md)。 適用於 Python 的 Azure Cosmos DB 資料表 SDK 也支援儲存體表格服務。
+- [Python SDK](https://github.com/Azure/azure-cosmos-table-python)。 適用於 Python 的 Azure Cosmos DB 資料表 SDK 可支援表格儲存體服務 (因為 Azure 表格儲存體和 Cosmos DB 的資料表 API 共用相同的功能，為了找出 SDK 開發工作的因素，建議您使用此 SDK)。
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)。 此 Azure 儲存體 SDK 會在 Java 中提供用戶端程式庫，以取用 Azure 表格儲存體。
-- [Node.js SDK](table-sdk-nodejs.md)。 這個 SDK 提供 Node.js 套件和瀏覽器相容 JavaScript 用戶端程式庫，以取用儲存體資料表服務。
+- [Node.js SDK](https://github.com/Azure/azure-storage-node)。 這個 SDK 提供 Node.js 套件和瀏覽器相容 JavaScript 用戶端程式庫，以取用儲存體資料表服務。
 - [AzureRmStorageTable PowerShell 模組](https://www.powershellgallery.com/packages/AzureRmStorageTable). 這個 PowerShell 模組有 Cmdlet 可處理儲存體資料表。
 - [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/)。 此程式庫可讓您針對 Azure 儲存體建置應用程式。
 - [適用於 Ruby 的 Azure 儲存體資料表用戶端程式庫](https://github.com/azure/azure-storage-ruby/tree/master/table)。 這個專案提供 Ruby 套件，可讓您輕鬆地存取 Azure 儲存體資料表服務。

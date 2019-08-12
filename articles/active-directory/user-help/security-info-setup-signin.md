@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382789"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824861"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>經由登入頁面的提示設定您的安全性資訊 (預覽)
 
@@ -75,7 +75,7 @@ ms.locfileid: "68382789"
 
 8. 在 Microsoft Authenticator 應用程式中核准通知，然後選取 [下一步]  。
 
-    ![成功通知，指出正在連線應用程式和您的帳戶](media/security-info/securityinfo-prompt-auth-app-success.png)上也提供本文中使用的原始碼。
+    ![成功通知，指出正在連線應用程式和您的帳戶](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     您的安全性資訊會更新為使用 Microsoft Authenticator 應用程式作為預設方法，在使用雙步驟驗證或密碼重設時驗證您的身分識別。
 
@@ -98,6 +98,40 @@ ms.locfileid: "68382789"
 12. 檢閱 [成功]  頁面，確認您已為安全性資訊成功設定 Microsoft Authenticator 應用程式和電話 (簡訊或通話) 方法，然後選取 [完成]  。
 
     ![精靈順利完成頁面](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >如果您的組織要求您使用應用程式密碼，您可能會在此精靈中看到用於設定該密碼的額外區段。 如果您看到名為 [應用程式密碼]  的第三個區段，您必須先加以填寫，才能夠完成精靈。 如需有關如何新增應用程式密碼的步驟，請參閱本文的[管理應用程式密碼](#manage-your-app-passwords)一節。
+
+### <a name="manage-your-app-passwords"></a>管理您的應用程式密碼
+
+某些應用程式 (例如 Outlook 2010) 不支援雙步驟驗證。 缺乏支援的意思就是，如果您在組織中使用雙步驟驗證，應用程式會無法運作。 若要解決此問題，您可以建立自動產生的密碼來與每個非瀏覽器應用程式搭配使用，此密碼與您的一般密碼不同。
+
+>[!Note]
+>如果您在精靈中看不到此選項，表示您的系統管理員尚未設定此選項。 如果未設定，但您知道您需要使用應用程式密碼，則可以遵循[從安全性資訊設定應用程式密碼 (預覽) 頁面](security-info-app-passwords.md)中的步驟。
+
+使用應用程式密碼時，請務必記住：
+
+- 應用程式密碼會自動產生，而且每個應用程式只能輸入一次。
+
+- 每位使用者的密碼以 40 組為限。 如果您在到達該限制之後嘗試建立一個密碼，系統就會提示您先刪除現有的密碼，然後才能建立新密碼。
+
+- 為每個裝置 (而非每個應用程式) 使用一個應用程式密碼。 例如，針對膝上型電腦上的所有應用程式建立單一密碼，然後針對桌上型電腦上的所有應用程式建立另一個單一密碼。
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>在登入精靈中新增應用程式密碼
+
+1. 完成精靈的前述區段之後，請選取 [下一步]  並完成 [應用程式密碼]  區段。
+
+2. 輸入需要密碼的應用程式名稱 (例如 `Outlook 2010`)，然後選取 [下一步]  。
+
+    ![在精靈中新增應用程式密碼名稱](media/security-info/app-password-app-password.png)
+
+3. 從 [應用程式密碼]  畫面複製密碼，並將其貼入應用程式的 [密碼]  區域 (此範例使用 Outlook 2010)。
+
+    ![包含所要複製密碼的應用程式密碼頁面](media/security-info/app-password-copy-password.png)
+
+4. 在您複製密碼並將其貼入應用程式之後，請返回此精靈來確定所有登入方法資訊都正確無誤，然後選取 [完成]  。
+
+    ![包含完成通知的應用程式密碼頁面](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>後續步驟
 

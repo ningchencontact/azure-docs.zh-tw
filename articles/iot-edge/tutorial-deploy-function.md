@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 592aac7e66e1f0720a203c24ac9f000951cfe6f6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433035"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839538"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教學課程：將 Azure 函式部署為 IoT Edge 模組
 
@@ -217,7 +217,7 @@ ms.locfileid: "67433035"
 
 3. 瀏覽至 **CSharpFunction** 所在的解決方案資料夾。 開啟 config 資料夾、選取 **deployment.json** 檔案，然後選擇 [選取 Edge 部署資訊清單]  。
 
-4. 重新整理 [Azure IoT 中樞裝置]  區段。 您應該會看到新的 **CSharpFunction** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 新模組可能需要一些時間才會出現。 IoT Edge 裝置必須從 IoT 中樞擷取其新的部署資訊、啟動新容器，然後向 IoT 中樞回報狀態。 
+4. 重新整理 [Azure IoT 中樞裝置]  區段。 您應該會看到新的 **CSharpFunction** 正在與 **SimulatedTemperatureSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 新模組可能需要一些時間才會出現。 IoT Edge 裝置必須從 IoT 中樞擷取其新的部署資訊、啟動新容器，然後向 IoT 中樞回報狀態。 
 
    ![在 VS Code 中檢視已部署的模組](./media/tutorial-deploy-function/view-modules.png)
 

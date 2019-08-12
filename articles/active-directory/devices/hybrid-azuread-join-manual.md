@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c9de4a9b72e446a7d2b6687af380ee910b58980
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052143"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741296"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定已加入混合式 Azure Active Directory 的裝置
 
@@ -83,7 +83,7 @@ Azure AD Connect：
 | 設定服務連接點 | ![勾選][1] | ![勾選][1] | ![勾選][1] |
 | 設定宣告的發行 |     | ![勾選][1] | ![勾選][1] |
 | 啟用非 Windows 10 裝置 |       |        | ![勾選][1] |
-| 確認加入的裝置 | ![勾選][1] | ![勾選][1] | [勾選][1] |
+| 確認加入的裝置 | ![勾選][1] | ![勾選][1] | [檢查][1] |
 
 ## <a name="configure-a-service-connection-point"></a>設定服務連接點
 
@@ -174,10 +174,19 @@ Azure AD Connect：
 
 現行 Windows 裝置會使用整合式 Windows 驗證向內部部署同盟服務所裝載的作用中 WS-Trust 端點 (1.3 或 2005 版) 進行驗證。
 
+當您使用 AD FS 時，您必須啟用下列 WS-Trust 端點
+- `/adfs/services/trust/2005/windowstransport`
+- `/adfs/services/trust/13/windowstransport`
+- `/adfs/services/trust/2005/usernamemixed`
+- `/adfs/services/trust/13/usernamemixed`
+- `/adfs/services/trust/2005/certificatemixed`
+- `/adfs/services/trust/13/certificatemixed`
+
+> [!WARNING]
+> **adfs/services/trust/2005/windowstransport** 或 **adfs/services/trust/13/windowstransport** 都只能啟用為內部網路對應端點，且不得透過 Web 應用程式 Proxy 公開為內部網路對應端點。 若要深入了解如何停用 WS-Trust Windows 端點，請參閱[在 Proxy上停用 WS-Trust Windows 端點](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)。 您可以在 AD FS 管理主控台的 [服務]   > [端點]  下方查看已啟用的端點。
+
 > [!NOTE]
-> 使用 AD FS 時，必須啟用 **adfs/services/trust/13/windowstransport** 或 **adfs/services/trust/2005/windowstransport**。 如果您使用 Web 驗證 Proxy，也需確定已透過 Proxy 發佈此端點。 您可以在 AD FS 管理主控台的 [服務]   > [端點]  下方查看已啟用的端點。
->
-> 如果您未以 AD FS 作為內部部署同盟服務，請依照廠商的指示確定他們支援 WS-Trust 1.3 或 2005 端點，且這些端點可透過中繼資料交換檔 (MEX) 發佈。
+>如果您未以 AD FS 作為內部部署同盟服務，請依照廠商的指示確定他們支援 WS-Trust 1.3 或 2005 端點，且這些端點可透過中繼資料交換檔 (MEX) 發佈。
 
 下列宣告必須存在於 Azure DRS 所收到的權杖中，裝置註冊才能完成。 Azure DRS 會在 Azure AD 中建立含有其中部分資訊的裝置物件。 然後，Azure AD Connect 會使用這項資訊，讓新建立的裝置物件與內部部署的電腦帳戶產生關聯。
 

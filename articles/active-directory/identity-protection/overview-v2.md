@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d82f665cc837e5dbd2d7efbf16c7ae94e1b2b7
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333907"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717294"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>什麼是 Azure Active Directory Identity Protection (已改版)？
 
 Identity Protection 體驗已經過改版，可以更完善地保護組織的身分識別。 已改版的體驗可提供：
 
-- 重新設計的管理員體驗主要著重於與您最為相關的風險 - 使用者風險和登入風險
+- 重新設計的管理員體驗主要著重於與使用者風險和登入風險最為相關的風險
 - 功能強大的調查體驗可支援篩選、排序和智慧型下載
 - 經過改善的使用者風險計算，可協助您將工作重心放在最有可能遭到入侵的使用者上
 - 新的 API 支援可讓您以程式設計方式存取風險資料

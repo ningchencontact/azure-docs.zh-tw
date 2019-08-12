@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Postman 和 REST API 建立、載入及查詢索引 - Azure 搜尋服務
+title: REST 快速入門：使用 Postman 建立、載入及查詢索引 - Azure 搜尋服務
 description: 了解如何使用 Postman 和範例資料與定義呼叫 Azure 搜尋服務 REST API。
 author: HeidiSteen
 manager: cgronlun
@@ -9,13 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 5a61f5476551d785f2db0ef52dff45554302fd07
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849797"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840798"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>快速入門：使用 REST API 在 Postman 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -85,7 +84,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 3. 在要求本文中提供索引定義 (下面提供可供複製的程式碼)。
 
-4. 按一下 [傳送]  。
+4. 按一下 [ **傳送**]。
 
 ![要求本文中的索引 JSON 文件](media/search-get-started-postman/postman-request.png "要求本文中的索引 JSON 文件")
 
@@ -139,13 +138,13 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 3. 在要求本文中提供 JSON 文件 (下面提供可供複製的程式碼)。
 
-4. 按一下 [傳送]  。
+4. 按一下 [ **傳送**]。
 
 ![要求本文中的 JSON 文件](media/search-get-started-postman/postman-docs.png "要求本文中的 JSON 文件")
 
 ### <a name="json-documents-to-load-into-the-index"></a>要載入索引的 JSON 文件
 
-[要求本文] 包含 4 個要新增到飯店索引的文件。
+[Request Body (要求本文)] 包含 4 個要新增到飯店索引的文件。
 
 ```json
 {
@@ -244,7 +243,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 我們已延長 URL 來加入使用搜尋運算子指定的查詢運算式。
 
-在 Postman 中執行此操作：
+若要在 Postman 中執行這項操作：
 
 1. 將動詞變更為 **GET**。
 

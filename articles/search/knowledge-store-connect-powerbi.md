@@ -4,16 +4,17 @@ description: 在 Azure 入口網站中使用匯入資料精靈建立知識存放
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668222"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840834"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>建立 Azure 搜尋服務的知識存放區，並使用 Power BI 進行連線
 
@@ -156,7 +157,7 @@ ms.locfileid: "68668222"
 
 1. 按一下 [Power Query] 命令列最左邊的 [關閉並套用]  。
 
-1. 確認 Power BI 可辨識知識存放區在您資料中建立的關聯性。 按一下左側導覽窗格中的 [關聯性] 圖格。 三個資料表都應該有關聯。
+1. 確認 Power BI 可辨識知識存放區在您資料中建立的關聯性。 按一下左側導覽窗格中的 [關聯性] 圖格。 三個資料表都應該有關聯。 編輯關聯性，並確定 [交叉篩選方向] 已設定為 [雙向]，這可確保所有視覺效果都會在套用篩選時重新整理。
 
    ![驗證關聯性](media/knowledge-store-howto-powerbi/powerbi-relationships.png "驗證關聯性")
 

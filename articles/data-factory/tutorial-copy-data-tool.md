@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a4d5941091c3cf6516380c4d6384951d886e0e7f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a99f319c25613f811b48923c734b77b135b677bc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640334"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827975"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本："]
@@ -29,7 +29,6 @@ ms.locfileid: "68640334"
 > 如果您不熟悉 Azure Data Factory，請參閱 [Azure Data Factory 簡介](introduction.md)。
 
 在本教學課程中，您會執行下列步驟：
-
 > [!div class="checklist"]
 > * 建立資料處理站。
 > * 使用複製資料工具建立管線。
@@ -54,7 +53,7 @@ ms.locfileid: "68640334"
     Jane|Doe
     ```
 
-1. 建立名為 **adfv2tutorial** 的容器，並將 inputEmp.txt 檔案上傳至該容器。 您可以使用各種工具來執行這些工作，例如 [Azure 儲存體總管](https://storageexplorer.com/)。
+1. 建立名為 **adfv2tutorial** 的容器，並將 inputEmp.txt 檔案上傳至該容器。 您可以使用 Azure 入口網站或各種工具來執行這些工作，例如 [Azure 儲存體總管](https://storageexplorer.com/)。
 
 #### <a name="create-a-sink-sql-table"></a>建立接收 SQL 資料表
 
@@ -76,16 +75,14 @@ ms.locfileid: "68640334"
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表中，選取 [+ 新增]   > [資料 + 分析]   > [資料處理站]  ：
+1. 在左側功能表中，選取 [建立資源]   > [分析]   > [資料處理站]  ：
     
-    ![新資料處理站的建立](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+    ![新資料處理站的建立](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. 在 [新增資料處理站]  頁面的 [名稱]  下，輸入 **ADFTutorialDataFactory**。
-    
-    ![新增 Data Factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
 
     資料處理站的名稱必須是「全域唯一」  的名稱。 您可能會收到下列錯誤訊息：
     
-    ![新增資料處理站錯誤訊息](./media/tutorial-copy-data-tool/name-not-available-error.png)
+    ![新增資料處理站錯誤訊息](./media/doc-common-process/name-not-available-error.png)
 
     如果您收到有關名稱值的錯誤訊息，請輸入不同的資料處理站名稱。 例如，使用**您的名稱**  **ADFTutorialDataFactory**。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
 1. 選取要在其中建立新資料處理站的 Azure **訂用帳戶**。
@@ -99,37 +96,27 @@ ms.locfileid: "68640334"
 
 1. 在 [版本]  下，選取 [V2]  作為版本。
 1. 在 [位置]  下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (例如 Azure 儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他地區和區域。
-1. 選取 [釘選到儀表板]  。
 1. 選取 [建立]  。
-1. 儀表板上的 [部署資料處理站]  圖格會顯示程序狀態。
 
-    ![部署資料處理站圖格](media/tutorial-copy-data-tool/deploying-data-factory.png)
 1. 建立完成後，隨即會顯示 **Data Factory** 首頁。
     
-    ![Data Factory 首頁](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![Data Factory 首頁](./media/doc-common-process/data-factory-home-page.png)
 1. 選取 [編寫與監視]  圖格，可在另一個索引標籤中啟動 Azure Data Factory 使用者介面 (UI)。
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>使用複製資料工具建立管線
 
 1. 在 [現在就開始吧]  頁面上選取 [複製資料]  圖格，以啟動複製資料工具。
 
-    ![複製資料工具圖格](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+    ![複製資料工具圖格](./media/doc-common-process/get-started-page.png)
 1. 在 [屬性]  頁面的 [工作名稱]  下，輸入 **CopyFromBlobToSqlPipeline**。 然後，選取 [下一步]  。 Data Factory 使用者介面會使用指定的工作名稱建立管線。
 
-    ![屬性頁面](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
 1. 在 [來源資料存放區]  頁面上，完成下列步驟：
 
     a. 按一下 [+ 建立新連線]  以新增連線
 
-    ![新增來源連結服務](./media/tutorial-copy-data-tool/new-source-linked-service.png)
-
-    b. 從資源庫選取 [Azure Blob 儲存體]  ，然後選取 [下一步]  。
-
-    ![選取 Blob 來源](./media/tutorial-copy-data-tool/select-blob-source.png)
+    b. 從資源庫選取 [Azure Blob 儲存體]  ，然後選取 [繼續]  。
 
     c. 在 [新增連結服務]  頁面上，從 [儲存體帳戶名稱]  清單中選取您的儲存體帳戶，然後選取 [完成]  。
-
-    ![設定 Azure 儲存體](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
     d. 選取新建立的連結服務作為來源，然後按 [下一步]  。
 
@@ -138,8 +125,6 @@ ms.locfileid: "68640334"
 1. 在 [選擇輸入檔案或資料夾]  頁面上，完成下列步驟︰
     
     a. 按一下 [瀏覽]  以瀏覽至 **adfv2tutorial/input** 資料夾，選取 **inputEmp.txt** 檔案，然後按一下 [選擇]  。
-
-    ![選擇輸入檔案或資料夾](./media/tutorial-copy-data-tool/specify-source-path.png)
 
     b. 按 [下一步]  移至下一個步驟。
 
@@ -150,11 +135,7 @@ ms.locfileid: "68640334"
 
     a. 按一下 [+ 建立新連線]  以新增連線
 
-    ![新增接收連結服務](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
-
-    b. 從資源庫選取 [Azure SQL Database]  ，然後選取 [下一步]  。
-
-    ![選取 Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
+    b. 從資源庫選取 [Azure SQL Database]  ，然後選取 [繼續]  。
 
     c. 在 [新增連結服務]  頁面上，從下拉式清單中選取您的伺服器名稱和資料庫名稱，並指定使用者名稱和密碼，然後選取 [完成]  。
 
@@ -166,29 +147,21 @@ ms.locfileid: "68640334"
 
 1. 在 [資料表對應]  頁面上，選取 **[dbo].[emp]** 資料表，然後選取 [下一步]  。
 
-    ![資料表對應](./media/tutorial-copy-data-tool/table-mapping.png)
 1. 在 [結構描述對應]  頁面上，請注意系統會將輸入檔案中的第一個和第二個資料行對應至 **emp** 資料表的 **FirstName** 和 **LastName** 資料行。 選取 [下一步]  。
 
     ![結構描述對應頁面](./media/tutorial-copy-data-tool/schema-mapping.png)
 1. 在 [設定]  頁面上，選取 [下一步]  。
 1. 在 [摘要]  頁面上檢閱設定，然後選取 [下一步]  。
-
-    ![摘要頁面](./media/tutorial-copy-data-tool/summary-page.png)
 1. 在**部署頁面**上選取 [監視]  來監視管線 (工作)。
-
-    ![部署頁面](./media/tutorial-copy-data-tool/deployment-page.png)
 1. 請注意，系統會自動選取左側的 [監視]  索引標籤。 [動作]  資料行中會有連結可供檢視活動執行詳細資料，以及重新執行管線。 選取 [重新整理]  即可重新整理清單。
 
-    ![監視管線回合](./media/tutorial-copy-data-tool/pipeline-monitoring.png)
-1. 若要檢視與此管線執行相關聯的活動執行，請選取 [動作]  資料行中的 [檢視活動執行]  連結。 如需關於複製作業的詳細資料，請選取 [動作]  資料行中的 [詳細資料]  連結 (眼鏡圖示)。 若要回到 [管線執行]  檢視，請選取頂端的 [管線]  連結。 若要重新整理檢視，請選取 [重新整理]  。
+1. 若要檢視與此管線執行相關聯的活動執行，請選取 [動作]  資料行中的 [檢視活動執行]  連結。 如需關於複製作業的詳細資料，請選取 [動作]  資料行中的 [詳細資料]  連結 (眼鏡圖示)。 若要回到 [管線執行] 檢視，請選取頂端的 [管線執行]  連結。 若要重新整理檢視，請選取 [重新整理]  。
 
     ![監視活動回合](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-    ![複製活動詳細資料](./media/tutorial-copy-data-tool/copy-execution-details.png)
 
 1. 確認資料有插入 SQL 資料庫中的 **emp** 資料表。
 
-    ![確認 SQL 輸出](./media/tutorial-copy-data-tool/verify-sql-output.png)
 
 1. 選取左側的 [作者]  索引標籤以切換至編輯器模式。 您可以使用編輯器更新透過此工具建立的連結服務、資料集和管線。 如需在 Data Factory 使用者介面中編輯這些實體的詳細資訊，請參閱[本教學課程的 Azure 入口網站版本](tutorial-copy-data-portal.md)。
 
@@ -202,5 +175,5 @@ ms.locfileid: "68640334"
 
 若要了解如何將資料從內部部署複製到雲端，請進入下列教學課程：
 
-> [!div class="nextstepaction"]
+>[!div class="nextstepaction"]
 >[將資料從內部部署複製到雲端](tutorial-hybrid-copy-data-tool.md)

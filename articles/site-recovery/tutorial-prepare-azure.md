@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 87216317a965e85d83aede468163f43b1716c45a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417802"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827247"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署電腦的災害復原
 
@@ -55,7 +55,7 @@ ms.locfileid: "66417802"
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
 1. 在 Azure 入口網站中按一下 [+建立資源]  ，然後在 Marketplace 中搜尋 [復原]  。
-2. 按一下 [備份和 Site Recovery (OMS)]  ，然後在 [備份和 Site Recovery] 頁面中按一下 [建立]  。 
+2. 按一下 [備份和 Site Recovery]  ，然後在 [備份和 Site Recovery] 頁面中按一下 [建立]  。 
 1. 在 [復原服務保存庫]   > [名稱]  中，輸入用來識別保存庫的易記名稱。 在這一組教學課程中，我們會使用 **ContosoVMVault**。
 2. 在 [資源群組]  中選取現有的資源群組，或建立新的資源群組。 在本教學課程中，我們將使用 **contosoRG**。
 3. 在 [位置]  中，選取要設置保存庫的區域。 我們使用**西歐**。

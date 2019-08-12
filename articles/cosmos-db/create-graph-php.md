@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 15d312ff4dfdb789cb0d9ee85941ea8760ddb08f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480611"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736638"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>快速入門：使用 PHP 和 Azure 入口網站在 Azure Cosmos DB 中建立圖形資料庫
 
@@ -113,7 +113,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -123,9 +123,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     ]);
     ```
 
-3. 如果您的圖形資料庫帳戶是在 2017 年 12 月 20 日當天或以後建立的，請將主機名稱中的 `graphs.azure.com` 變更為 `gremlin.cosmosdb.azure.com`。
-
-4. 以您的資料庫和圖形名稱，變更連線物件中的 `username` 參數。 如果您使用建議的 `sample-database` 和 `sample-graph` 值，它看起來應該類似下列程式碼：
+3. 以您的資料庫和圖形名稱，變更連線物件中的 `username` 參數。 如果您使用建議的 `sample-database` 和 `sample-graph` 值，它看起來應該類似下列程式碼：
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -133,7 +131,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -143,7 +141,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     ]);
     ```
 
-5. 在 Azure 入口網站中，使用複製按鈕複製 [主要金鑰]，然後將其貼上至密碼參數中的 `your_primary_key`。
+4. 在 Azure 入口網站中，使用複製按鈕複製 [主要金鑰]，然後將其貼上至密碼參數中的 `your_primary_key`。
 
     連線物件初始化現在看起來應該類似下列程式碼：
 
@@ -159,7 +157,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     ]);
     ```
 
-6. 儲存 `connect.php` 檔案。
+5. 儲存 `connect.php` 檔案。
 
 ## <a name="run-the-console-app"></a>執行主控台應用程式
 
@@ -206,13 +204,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 4. 輸入*人員*的標籤。
 
-5. 按一下 [新增屬性]  ，以新增以下各項屬性。 請注意，您可以在圖形中為每個人建立獨特的屬性。 只需要識別碼索引鍵。
+5. 按一下 [新增屬性]  ，以新增以下各項屬性。 請注意，您可以在圖形中為每個人建立獨特的屬性。 只需要**識別碼**索引鍵。
 
-    索引鍵|value|注意
+    Key | 值 | 注意
     ----|----|----
-    id|ashley|頂點的唯一識別碼。 如果您未指定識別碼，系統會為您產生一個。
-    gender|female| 
-    tech | java | 
+    **id** | ashley | 頂點的唯一識別碼。 如果您未指定識別碼，系統會為您產生一個。
+    **gender** | female | 
+    **tech** | java | 
 
     > [!NOTE]
     > 在本快速入門中，您會建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
@@ -224,12 +222,12 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 8. 輸入*人員*的標籤。
 
 9. 按一下 [新增屬性]  ，以新增以下各項屬性：
-
-    索引鍵|value|注意
+    
+    Key | 值 | 注意
     ----|----|----
-    id|rakesh|頂點的唯一識別碼。 如果您未指定識別碼，系統會為您產生一個。
-    gender|male| 
-    school|MIT| 
+    **id** | rakesh | 頂點的唯一識別碼。 如果您未指定識別碼，系統會為您產生一個。
+    **gender** | male | 
+    **school** | MIT | 
 
 10. 按一下 [確定]  。 
 

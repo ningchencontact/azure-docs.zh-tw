@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 738b4f47054081f0fb1b1a530bdf21cbf07a7726
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 05c81b5cde9e9c64d2d69bea1d14a18394f31e2a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204705"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774606"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>教學課程：設定適用於同盟網域的混合式 Azure Active Directory Join
 
@@ -28,10 +28,21 @@ ms.locfileid: "67204705"
 
 將您的裝置導入 Azure AD 中，您將可透過跨雲端和內部部署資源的單一登入 (SSO)，將使用者的生產力最大化。 同時您可以利用[條件式存取](../active-directory-conditional-access-azure-portal.md)來保護對雲端和內部部署資源的存取。
 
-在此教學課程中，您會了解如何為使用 Active Directory 同盟服務 (AD FS) 的同盟環境中已加入 Active Directory 網域的電腦裝置設定混合式 Azure AD Join。
+同盟環境應具有支援下列需求的識別提供者。 如果您的同盟環境使用 Active Directory 同盟服務 (AD FS)，則已支援下列需求。
 
-> [!NOTE]
-> 如果同盟環境使用 AD FS 以外的識別提供者，則您必須確定您的識別提供者支援 WS-Trust 通訊協定。 需具備 WS-Trust，才能向 Azure AD 驗證 Windows 目前的混合式 Azure AD 加入裝置。 如果您有需要混合式 Azure AD Join 的舊版 Windows 裝置，您的識別提供者必須支援 WIAORMULTIAUTHN 宣告。 
+- **WIAORMULTIAUTHN 宣告：** 必須有此宣告才能對舊版 Windows 裝置進行混合式 Azure AD Join。
+- **WS-Trust 通訊協定：** 必須有此通訊協定才能向 Azure AD 驗證 Windows 目前的混合式 Azure AD 加入裝置。
+  當您使用 AD FS 時，您必須啟用下列 WS-Trust 端點：`/adfs/services/trust/2005/windowstransport`
+   `/adfs/services/trust/13/windowstransport`
+   `/adfs/services/trust/2005/usernamemixed`
+   `/adfs/services/trust/13/usernamemixed`
+   `/adfs/services/trust/2005/certificatemixed`
+   `/adfs/services/trust/13/certificatemixed` 
+
+> [!WARNING] 
+> **adfs/services/trust/2005/windowstransport** 或 **adfs/services/trust/13/windowstransport** 都只能啟用為內部網路對應端點，且不得透過 Web 應用程式 Proxy 公開為內部網路對應端點。 若要深入了解如何停用 WS-Trust Windows 端點，請參閱[在 Proxy上停用 WS-Trust Windows 端點](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)。 您可以在 AD FS 管理主控台的 [服務]   > [端點]  下方查看已啟用的端點。
+
+在本教學課程中，您會了解如何為使用 AD FS 的同盟環境中已加入 Active Directory 網域的電腦裝置設定混合式 Azure AD Join。
 
 您會了解如何：
 
@@ -49,7 +60,7 @@ ms.locfileid: "67204705"
 - [如何規劃混合式 Azure AD Join 實作](hybrid-azuread-join-plan.md)
 - [如何進行混合式 Azure AD 聯結的受控驗證](hybrid-azuread-join-control.md)
 
-若要設定此教學課程中的案例，您需要：
+若要設定本教學課程中的案例，您需要：
 
 - 使用 AD FS 的 Windows Server 2012 R2
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0 或更新版本

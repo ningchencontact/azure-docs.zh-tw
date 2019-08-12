@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b77b44856e9623235051470bc087885765ee12c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 872c6f0af9695628f2821c8859d0b582534efd45
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080440"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840067"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教學課程：使用 SQL Server 資料庫在邊緣儲存資料
 
@@ -219,7 +219,7 @@ ms.locfileid: "67080440"
 
 6. 在您的解決方案資料夾中，開啟 **deployment.template.json** 檔案。 
 
-7. 尋找 [模組]  區段。 您應該會看到三個模組。 tempSensor  模組預設會包含在新的解決方案內，並提供測試資料供您與其他模組搭配使用。 sqlFunction  模組就是您一開始所建立，並使用新程式碼加以更新的模組。 最後，sql  模組則是從 Azure Marketplace 匯入的。 
+7. 尋找 [模組]  區段。 您應該會看到三個模組。 SimulatedTemperatureSensor  模組預設會包含在新的解決方案內，並提供測試資料供您與其他模組搭配使用。 sqlFunction  模組就是您一開始所建立，並使用新程式碼加以更新的模組。 最後，sql  模組則是從 Azure Marketplace 匯入的。 
 
    >[!Tip]
    >SQL Server 模組在推出時已在部署資訊清單的環境變數中設定有預設密碼。 每當您在生產環境中建立了 SQL Server 容器時，就應該[變更預設的系統管理員密碼](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker)。
@@ -244,7 +244,7 @@ ms.locfileid: "67080440"
 
 當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於名為 **config** 的新資料夾中，產生 deployment.json 檔案。然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會組建程式碼、將模組容器化，然後將程式碼推送至您在初始化解決方案時所指定的容器登錄。 
 
-您可以確認 sqlFunction 模組是否已成功推送至容器登錄。 在 Azure 入口網站中，瀏覽到您的容器登錄。 選取 [存放庫]  並搜尋 **sqlFunction**。 另外兩個模組 (tempSensor 和 sql) 將不會推送至容器登錄，因為您已在 Microsoft 登錄中將這兩個模組指向其各自的存放庫。
+您可以確認 sqlFunction 模組是否已成功推送至容器登錄。 在 Azure 入口網站中，瀏覽到您的容器登錄。 選取 [存放庫]  並搜尋 **sqlFunction**。 另外兩個模組 (SimulatedTemperatureSensor 和 sql) 將不會推送至容器登錄，因為您已在 Microsoft 登錄中將這兩個模組指向其各自的存放庫。
 
 ## <a name="deploy-the-solution-to-a-device"></a>將解決方案部署至裝置
 
@@ -268,7 +268,7 @@ ms.locfileid: "67080440"
 
 ## <a name="create-the-sql-database"></a>建立 SQL 資料庫
 
-當您將部署資訊清單套用至裝置時，您會有三個執行中的模組。 tempSensor 模組會產生模擬的環境資料。 sqlFunction 模組會取用資料，並針對資料庫加以格式化。 本節會引導您設定 SQL 資料庫，以便儲存溫度資料。 
+當您將部署資訊清單套用至裝置時，您會有三個執行中的模組。 SimulatedTemperatureSensor 模組會產生模擬的環境資料。 sqlFunction 模組會取用資料，並針對資料庫加以格式化。 本節會引導您設定 SQL 資料庫，以便儲存溫度資料。 
 
 在您的 IoT Edge 裝置上執行下列命令。 這些命令會連線到在您裝置上執行的 **sql** 模組，並建立資料庫和資料表，以保存正傳送給它的溫度資料。 
 

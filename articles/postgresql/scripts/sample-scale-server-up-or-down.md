@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 指令碼 - 調整適用於 PostgreSQL 的 Azure 資料庫
+title: Azure CLI 指令碼 - 調整和監視適用於 PostgreSQL 的 Azure 資料庫
 description: Azure CLI 指令碼範例 - 在查詢計量之後，將「適用於 PostgreSQL 的 Azure 資料庫」伺服器調整為不同的效能等級。
 author: rachel-msft
 ms.author: raagyema
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 04/05/2018
-ms.openlocfilehash: 65958eb1e2d7cc4492e0437b24db77f00ebc7eba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/01/2019
+ms.openlocfilehash: 6e1b6e5b09a3b9f3da5760fc50c531ee524dc8d4
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66154517"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728766"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>使用 Azure CLI 監視和調整單一 PostgreSQL 伺服器
-此範例 CLI 指令碼會在查詢計量之後，將單一「適用於 PostgreSQL 的 Azure 資料庫」伺服器調整為不同的效能等級。 
+此範例 CLI 指令碼會在查詢計量之後，對單一「適用於 PostgreSQL 的 Azure 資料庫」伺服器調整計算和儲存。 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -36,11 +36,12 @@ ms.locfileid: "66154517"
 | **命令** | **注意事項** |
 |---|---|
 | [az group create](/cli/azure/group) | 建立用來存放所有資源的資源群組。 |
-| [az postgres server create](/cli/azure/postgres/server) | 建立主控資料庫的 PostgreSQL 伺服器。 |
+| [az postgres server create](/cli/azure/postgres/server#az-postgres-server-create) | 建立主控資料庫的 PostgreSQL 伺服器。 |
+| [az postgres server update](/cli/azure/postgres/server#az-postgres-server-update) | 更新 PostgreSQL 伺服器的屬性。 |
 | [az monitor metrics list](/cli/azure/monitor/metrics) | 列出資源的度量值。 |
 | [az group delete](/cli/azure/group) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
-- 閱讀更多有關 Azure CLI 的資訊：[Azure CLI 文件](/cli/azure)
+- 深入了解[適用於 PostgreSQL 的 Azure 資料庫的計算和儲存](../concepts-pricing-tiers.md)
 - 嘗試額外的指令碼：[Azure Database for PostgreSQL 的 Azuer CLI 範例](../sample-scripts-azure-cli.md)
-- 閱讀更多有關調整規模的資訊：[服務層](../concepts-service-tiers.md)及[計算單位和儲存單位](../concepts-compute-unit-and-storage.md)
+- 深入了解 [Azure CLI](/cli/azure)

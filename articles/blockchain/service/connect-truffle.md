@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 07/31/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 9154bc749f7db337de67f501d5e5049dfd466156
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6768c1e26435ace60b26adb46c9955d080029828
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698477"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705165"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-an-azure-blockchain-service-network"></a>快速入門：使用 Truffle 連線至 Azure 區塊鏈服務網路
 
@@ -28,8 +28,6 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
 * [建立 Azure 區塊鏈成員](create-member.md)
 * 安裝 [Truffle](https://github.com/trufflesuite/truffle)。 Truffle 需要安裝數個工具，包括 [Node.js](https://nodejs.org) 和 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 * 安裝 [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)。 Web3 需要 Python。
-* 安裝 [Visual Studio Code](https://code.visualstudio.com/download)。
-* 安裝 [Visual Studio Code Solidity 擴充功能](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)。
 
 ## <a name="create-truffle-project"></a>建立 Truffle 專案
 
@@ -62,15 +60,16 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
 
 ### <a name="transaction-node-endpoint-addresses"></a>交易節點端點位址
 
-1. 在 Azure 入口網站中，瀏覽至每個交易節點，然後選取 [交易節點] > [連接字串]  。
-1. 針對每個交易節點，從 **HTTPS (存取金鑰 1)** 複製並儲存端點 URL。 稍後在本教學課程中，智慧型合約組態檔會需要用到端點位址。
+1. 在 Azure 入口網站中，瀏覽至預設交易節點，然後選取 [交易節點] > [連接字串]  。
+1. 從 **HTTPS (存取金鑰 1)** 複製並儲存端點 URL。 稍後在本教學課程中，智慧型合約組態檔會需要用到端點位址。
 
-    ![交易端點位址](./media/send-transaction/endpoint.png)
+    ![交易端點位址](./media/connect-truffle/endpoint.png)
 
 ### <a name="edit-configuration-file"></a>編輯組態檔
 
-1. 啟動 Visual Studio Code，並使用 [檔案] > [開啟資料夾]  功能表來開啟 Truffle 專案目錄資料夾。
-1. 開啟 Truffle 組態檔 `truffle-config.js`。
+接下來，您必須使用交易節點端點來更新 Truffle 設定檔。
+
+1. 在 **truffledemo** 專案資料夾中，於編輯器開啟 Truffle 設定檔 `truffle-config.js`。
 1. 使用下列組態資訊取代檔案的內容。 新增包含端點位址的變數。 將角括號取代為您在上一節中收集的值。
 
     ``` javascript
@@ -93,7 +92,7 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
 
 使用 *Web3* 連線至交易節點。
 
-1. 使用 Truffle 主控台連線到預設交易節點。
+1. 使用 Truffle 主控台連線到預設交易節點。 在命令提示字元或殼層中，執行下列命令：
 
     ``` bash
     truffle console --network defaultnode
@@ -115,7 +114,7 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
     truffle(defaultnode)> web3.eth.getBlockNumber();
     18567
     ```
-1. 結束 Truffle 開發主控台。
+1. 結束 Truffle 主控台。
 
     ```bash
     .exit
@@ -125,7 +124,7 @@ Truffle 是可用來連線至 Azure 區塊鏈服務節點的區塊鏈開發環�
 
 在本快速入門中，您已建立連線至 Azure 區塊鏈服務預設交易節點的 Truffle 專案。
 
-請嘗試進行下一個教學課程，以使用 Truffle 將交易傳送至您的聯盟區塊鏈網路。
+請嘗試進行下一個教學課程，使用適用於 Ethereum 和 Truffle 的 Azure 區塊鏈服務開發套件來透過交易在聯盟區塊鏈網路上執行智慧型合約函式。
 
 > [!div class="nextstepaction"]
-> [傳送交易](send-transaction.md)
+> [在 Azure 區塊鏈服務上使用智慧型合約](send-transaction.md)

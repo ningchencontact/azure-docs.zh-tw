@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677733"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720872"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式
 
@@ -38,7 +38,7 @@ ms.locfileid: "68677733"
 
 * 適用於 Visual Studio 的 IIS Express、Web Deploy 和 Azure 雲端服務核心工具元件。 請藉由修改 Visual Studio 安裝來新增元件。
 
-## <a name="application-design"></a>應用程式設計
+## <a name="understand-application-design"></a>了解應用程式設計
 
 時間序列深入解析 SPA 範例是本教學課程所用設計和程式碼的基礎。 此程式碼會使用時間序列深入解析 JavaScript 用戶端程式庫。 時間序列深入解析用戶端程式庫會提供兩種主要 API 類別的概念：
 
@@ -48,11 +48,11 @@ ms.locfileid: "68677733"
 
 本教學課程也會使用來自範例應用程式時間序列深入解析環境的資料。 如需時間序列深入解析範例應用程式的結構及其如何使用時間序列深入解析用戶端程式庫的詳細資訊，請參閱[探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫](tutorial-explore-js-client-lib.md)教學課程。
 
-## <a name="register-the-application-with-azure-ad"></a>向 Azure AD 註冊應用程式
+## <a name="register-with-azure-ad"></a>向 Azure AD 註冊
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## <a name="build-and-publish-the-web-application"></a>建置和發佈 Web 應用程式
+## <a name="build-and-publish"></a>建置和發佈
 
 1. 建立用來儲存應用程式專案檔的資料夾。 然後，移至下列每個 URL。 以滑鼠右鍵按一下頁面右上角的 [原始]  連結，然後選取 [另存新檔]  將檔案儲存到專案目錄。
 
@@ -101,7 +101,7 @@ ms.locfileid: "68677733"
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. 若要將應用程式設定為使用 Azure AD 應用程式註冊識別碼，請將 `clientID` 值變更為使用您在[註冊應用程式以使用 Azure AD](#register-the-application-with-azure-ad) 時的**步驟 3** 中所複製的 [應用程式識別碼]  。 如果您已在 Azure AD 中建立**登出 URL**，請將該值設定為 `postLogoutRedirectUri` 值。
+   1. 若要將應用程式設定為使用 Azure AD 應用程式註冊識別碼，請將 `clientID` 值變更為使用您在[註冊應用程式以使用 Azure AD](#register-with-azure-ad) 時的**步驟 3** 中所複製的 [應用程式識別碼]  。 如果您已在 Azure AD 中建立**登出 URL**，請將該值設定為 `postLogoutRedirectUri` 值。
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -141,9 +141,9 @@ ms.locfileid: "68677733"
 
 錯誤碼/情況 | 說明
 ---------------------| -----------
-*AADSTS50011：未註冊應用程式的回覆位址。* | Azure AD 註冊遺漏「回覆 URL」  屬性。 請移至 [設定]   > [回覆 URL]  來檢視 Azure AD 應用程式註冊。 確認**重新導向 URI** 是否存在，這是您在[註冊應用程式以使用 Azure AD](#register-the-application-with-azure-ad) 時可於**步驟 2** 選擇要指定的值。
-*AADSTS50011：在要求中指定的回覆 URL 不符合為應用程式設定的回覆 URL：'\<Application ID GUID>'* 。 | 在[建置和發佈 Web 應用程式](#build-and-publish-the-web-application)的**步驟 6** 中指定的 `postLogoutRedirectUri`，必須符合在 Azure AD 應用程式註冊中的 [設定]   > [回覆 URL]  下指定的值。 請務必也要按照[建置和發佈 Web 應用程式](#build-and-publish-the-web-application)中的**步驟 5**，將 [目的地 URL]  的值變更為使用 https  。
-Web 應用程式會載入，但使用無樣式的文字登入頁面和白色背景。 | 請確認[建置和發佈 Web 應用程式](#build-and-publish-the-web-application)中的**步驟 4** 所討論的路徑正確無誤。 如果 Web 應用程式找不到 .css 檔案，頁面將無法正確套用樣式。
+*AADSTS50011：未註冊應用程式的回覆位址。* | Azure AD 註冊遺漏「回覆 URL」  屬性。 請移至 [設定]   > [回覆 URL]  來檢視 Azure AD 應用程式註冊。 確認**重新導向 URI** 是否存在，這是您在[註冊應用程式以使用 Azure AD](#register-with-azure-ad) 時可於**步驟 2** 或**步驟 4** 選擇要指定的值。
+*AADSTS50011：在要求中指定的回覆 URL 不符合為應用程式設定的回覆 URL：'\<Application ID GUID>'* 。 | 在[建置和發佈 Web 應用程式](#build-and-publish)的**步驟 6.b** 中指定的 `postLogoutRedirectUri`，必須符合在 Azure AD 應用程式註冊中的 [設定]   > [回覆 URL]  下指定的值。 |
+Web 應用程式會載入，但使用無樣式的文字登入頁面和白色背景。 | 請確認[建置和發佈 Web 應用程式](#build-and-publish)中的**步驟 6** 所討論的路徑正確無誤。 如果 Web 應用程式找不到 .css 檔案，頁面將無法正確套用樣式。
 
 ## <a name="clean-up-resources"></a>清除資源
 

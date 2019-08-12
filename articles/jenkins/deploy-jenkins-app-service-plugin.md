@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949549"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840440"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
@@ -35,7 +35,7 @@ ms.locfileid: "65949549"
 * [Azure 認證](https://plugins.jenkins.io/azure-credentials) 1.2 版
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) 0.1 版
 
-您可以使用 Jenkins 外掛程式來部署 Web Apps 所支援、以任何語言 (例如 C#、PHP、Java 及 Node.js) 撰寫的 Web 應用程式。 在本教學課程中，我們會使用[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)。 若要將儲存機制分支到您自己的 GitHub 帳戶，請選取 GitHub 介面右上角的 [Fork] \(分支\) 按鈕。  
+您可以使用 Jenkins 外掛程式來部署 Web Apps 所支援、以任何語言 (例如 C#、PHP、Python、Java 及 Node.js) 撰寫的 Web 應用程式。 在本教學課程中，我們會使用[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)。 若要將儲存機制分支到您自己的 GitHub 帳戶，請選取 GitHub 介面右上角的 [Fork] \(分支\)  按鈕。  
 
 > [!NOTE]
 > 必須要有 Java JDK 和 Maven，才能建置 Java 專案。 如果您使用代理程式來進行持續整合，請將這些元件安裝在 Jenkins Master 上。 如果您要部署 Java SE 應用程式，組建伺服器上還需要有 ZIP。
@@ -56,8 +56,8 @@ sudo apt-get install -y maven
 
 
 1. 若要建立 Azure 服務主體，請使用 [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 或 [Azure 入口網站](/azure/azure-resource-manager/resource-group-create-service-principal-portal)。
-2. 在 Jenkins 儀表板上，選取 [Credentials] \(認證\) > [System] \(系統\)。 然後，選取 [Global credentials(unrestricted)] \(全域認證 (不受限)\)。
-3. 若要新增 Microsoft Azure 服務主體，請選取 [新增認證]。 為 [訂用帳戶 ID]、[用戶端識別碼]、[用戶端密碼] 及 [OAuth 2.0 權杖端點] 欄位輸入值。 將 [識別碼] 欄位設定為 **mySp**。 我們會在本文的後續步驟中用到此識別碼。
+2. 在 Jenkins 儀表板上，選取 [Credentials] \(認證\)   > [System] \(系統\)  。 然後，選取 [Global credentials(unrestricted)] \(全域認證 (不受限)\)  。
+3. 若要新增 Microsoft Azure 服務主體，請選取 [新增認證]  。 為 [訂用帳戶 ID]  、[用戶端識別碼]  、[用戶端密碼]  及 [OAuth 2.0 權杖端點]  欄位輸入值。 將 [識別碼]  欄位設定為 **mySp**。 我們會在本文的後續步驟中用到此識別碼。
 
 
 ## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>設定 Jenkins 以透過上傳檔案來部署應用程式
@@ -90,18 +90,18 @@ sudo apt-get install -y maven
 ### <a name="set-up-the-jenkins-job"></a>設定 Jenkins 作業
 
 1. 在 Jenkins 儀表板上建立新的**自由樣式**專案。
-2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如：http:\//github.com/&lt;your_ID>/javawebappsample。
+2. 將 [Source Code Management] \(原始程式碼管理\)  欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\)  值。 例如：http:\//github.com/&lt;your_ID>/javawebappsample。
 3. 使用 Maven 藉由新增**執行 shell** 命令來新增一個建置專案的步驟。 在此範例中，我們需要一個額外的命令來將目標資料夾中的 \*.war 檔案重新命名為 **ROOT.war**：   
     ```bash
     mvn clean package
     mv target/*.war target/ROOT.war
     ```
 
-4. 選取 [發行 Azure Web 應用程式] 來新增建置後動作。
+4. 選取 [發行 Azure Web 應用程式]  來新增建置後動作。
 5. 輸入 **mySp** 作為 Azure 服務主體。 此主體在先前的步驟中已儲存為 [Azure 認證](#service-principal)。
-6. 在 [應用程式組態] 區段中，選擇您訂用帳戶中的資源群組和 Web 應用程式。 Jenkins 外掛程式會自動偵測 Web 應用程式是採用 Windows 架構還是 Linux 架構。 若為 Windows Web 應用程式，就會顯示 [發行檔案] 選項。
-7. 填入您要部署的檔案。 例如，如果您使用 Java，請指定 WAR 套件。 使用選擇性的 [來源目錄] 和 [目標目錄] 參數來指定用於上傳檔案的來源和目標資料夾。 Azure 上的 Java Web 應用程式會在 Tomcat 伺服器中執行。 因此，就 Java 而言，您需將 WAR 套件上傳到 [webapps] 資料夾。 在此範例中，請將 [來源目錄] 值設定為 **target**，將 [目標目錄] 值設定為 **webapps**。
-8. 如果您想要部署到生產環境以外的位置，您也可以設定 [位置] 名稱。
+6. 在 [應用程式組態]  區段中，選擇您訂用帳戶中的資源群組和 Web 應用程式。 Jenkins 外掛程式會自動偵測 Web 應用程式是採用 Windows 架構還是 Linux 架構。 若為 Windows Web 應用程式，就會顯示 [發行檔案]  選項。
+7. 填入您要部署的檔案。 例如，如果您使用 Java，請指定 WAR 套件。 使用選擇性的 [來源目錄]  和 [目標目錄]  參數來指定用於上傳檔案的來源和目標資料夾。 Azure 上的 Java Web 應用程式會在 Tomcat 伺服器中執行。 因此，就 Java 而言，您需將 WAR 套件上傳到 [webapps] 資料夾。 在此範例中，請將 [來源目錄]  值設定為 **target**，將 [目標目錄]  值設定為 **webapps**。
+8. 如果您想要部署到生產環境以外的位置，您也可以設定 [位置]  名稱。
 9. 儲存專案並建置該專案。 建置完成時，您的 Web 應用程式就會部署到 Azure。
 
 ### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>透過使用 Jenkins 管線上傳檔案來部署 Web 應用程式
@@ -121,13 +121,13 @@ Azure App Service Jenkins 外掛程式是符合管線需求的外掛程式。 �
 
 ### <a name="create-a-jenkins-pipeline"></a>建立 Jenkins 管線
 
-1. 在網頁瀏覽器中開啟 Jenkins。 選取 [新增項目]。
-2. 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)。 選取 [確定] 。
-3. 選取 [Pipeline] \(管線\) 索引標籤。
-4. 針對 [Definition] \(定義\) 值，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)。
-5. 針對 [SCM] 值，選取 [Git]。 輸入您分支儲存機制的 GitHub URL。 例如： https://&lt;your_forked_repo>.git。
-6. 將 [Script Path] \(指令碼路徑\) 值更新成 **Jenkinsfile_ftp_plugin**。
-7. 按一下 [Save] \(儲存\) 並執行作業。
+1. 在網頁瀏覽器中開啟 Jenkins。 選取 [新增項目]  。
+2. 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)  。 選取 [確定]  。
+3. 選取 [Pipeline] \(管線\)  索引標籤。
+4. 針對 [Definition] \(定義\)  值，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)  。
+5. 針對 [SCM]  值，選取 [Git]  。 輸入您分支儲存機制的 GitHub URL。 例如： https://&lt;your_forked_repo>.git。
+6. 將 [Script Path] \(指令碼路徑\)  值更新成 **Jenkinsfile_ftp_plugin**。
+7. 按一下 [Save] \(儲存\)  並執行作業。
 
 ## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>設定 Jenkins 以部署適用於容器的 Web App
 
@@ -143,29 +143,29 @@ Linux 上的 Web Apps 也支援 Git 和檔案上傳等傳統部署方法，但�
 ### <a name="set-up-the-jenkins-job-for-docker"></a>設定 Docker 的 Jenkins 作業
 
 1. 在 Jenkins 儀表板上建立新的**自由樣式**專案。
-2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如：http:\//github.com/&lt;your_ID>/javawebappsample。
+2. 將 [Source Code Management] \(原始程式碼管理\)  欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\)  值。 例如：http:\//github.com/&lt;your_ID>/javawebappsample。
 3. 使用 Maven 藉由新增**執行 shell** 命令來新增一個建置專案的步驟。 在命令中包含下列一行：
     ```bash
     mvn clean package
     ```
 
-4. 選取 [發行 Azure Web 應用程式] 來新增建置後動作。
+4. 選取 [發行 Azure Web 應用程式]  來新增建置後動作。
 5. 輸入 **mySp** 作為 Azure 服務主體。 此主體在先前的步驟中已儲存為 [Azure 認證](#service-principal)。
-6. 在 [應用程式組態] 區段中，選擇您訂用帳戶中的資源群組和 Linux Web 應用程式。
-7. 選擇 [透過 Docker 發行]。
+6. 在 [應用程式組態]  區段中，選擇您訂用帳戶中的資源群組和 Linux Web 應用程式。
+7. 選擇 [透過 Docker 發行]  。
 8. 填寫 **Dockerfile** 路徑值。 您可以保留預設值 /Dockerfile。
-針對 [Docker 登錄 URL] 值，如果您使用 Azure Container Registry，請使用 https://&lt;yourRegistry>.azurecr.io 格式來輸入 URL。 如果您使用 DockerHub，請將值保留空白。
-9. 針對 [登錄認證] 值，新增容器登錄的認證。 您可以在 Azure CLI 中執行下列命令，以取得使用者識別碼和密碼。 第一個命令會啟用系統管理員帳戶：
+針對 [Docker 登錄 URL]  值，如果您使用 Azure Container Registry，請使用 https://&lt;yourRegistry>.azurecr.io 格式來輸入 URL。 如果您使用 DockerHub，請將值保留空白。
+9. 針對 [登錄認證]  值，新增容器登錄的認證。 您可以在 Azure CLI 中執行下列命令，以取得使用者識別碼和密碼。 第一個命令會啟用系統管理員帳戶：
     ```azurecli-interactive
     az acr update -n <yourRegistry> --admin-enabled true
     az acr credential show -n <yourRegistry>
     ```
 
-10. [進階] 索引標籤中的 Docker 映像名稱和標記值是選擇性的值。 預設會從您在 Azure 入口網站的 [Docker 容器] 設定中 中設定的映像名稱，取得映像名稱的值。 標記會從 $BUILD_NUMBER 產生。
+10. [進階]  索引標籤中的 Docker 映像名稱和標記值是選擇性的值。 預設會從您在 Azure 入口網站的 [Docker 容器]  設定中 中設定的映像名稱，取得映像名稱的值。 標記會從 $BUILD_NUMBER 產生。
     > [!NOTE]
-    > 請務必在 Azure 入口網站中指定映像名稱，或是在 [進階] 索引標籤中提供 [Docker 映像] 值。針對此範例，請將 [Docker 映像] 值設定為 &lt;your_Registry>.azurecr.io/calculator，並將 [Docker 映像標記] 值保留空白。
+    > 請務必在 Azure 入口網站中指定映像名稱，或是在 [進階]  索引標籤中提供 [Docker 映像]  值。針對此範例，請將 [Docker 映像]  值設定為 &lt;your_Registry>.azurecr.io/calculator，並將 [Docker 映像標記]  值保留空白。
 
-11. 如果您使用內建的 Docker 映像設定，部署將會失敗。 請在 Azure 入口網站的 [Docker 容器] 設定中，將 Docker 組態變更為使用自訂映像。 針對內建映像，請使用檔案上傳方法來進行部署。
+11. 如果您使用內建的 Docker 映像設定，部署將會失敗。 請在 Azure 入口網站的 [Docker 容器]  設定中，將 Docker 組態變更為使用自訂映像。 針對內建映像，請使用檔案上傳方法來進行部署。
 12. 與檔案上傳方法類似，您也可以選擇**生產環境**以外的不同**位置**。
 13. 儲存並建置專案。 系統會將您的容器映像推送到登錄中，並且部署 Web 應用程式。
 
@@ -189,13 +189,13 @@ Linux 上的 Web Apps 也支援 Git 和檔案上傳等傳統部署方法，但�
 
 ### <a name="create-a-jenkins-pipeline"></a>建立 Jenkins 管線    
 
-1. 在網頁瀏覽器中開啟 Jenkins。 選取 [新增項目]。
-2. 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)。 選取 [確定] 。
-3. 選取 [Pipeline] \(管線\) 索引標籤。
-4. 針對 [Definition] \(定義\) 值，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)。
-5. 針對 [SCM] 值，選取 [Git]。 輸入您分支儲存機制的 GitHub URL。 例如： https://&lt;your_forked_repo>.git。
-7. 將 [Script Path] \(指令碼路徑\) 值更新成 **Jenkinsfile_container_plugin**。
-8. 按一下 [Save] \(儲存\) 並執行作業。
+1. 在網頁瀏覽器中開啟 Jenkins。 選取 [新增項目]  。
+2. 為作業提供一個名稱，然後選取 [Pipeline] \(管線\)  。 選取 [確定]  。
+3. 選取 [Pipeline] \(管線\)  索引標籤。
+4. 針對 [Definition] \(定義\)  值，選取 [Pipeline script from SCM] \(來自 SCM 的管線指令碼\)  。
+5. 針對 [SCM]  值，選取 [Git]  。 輸入您分支儲存機制的 GitHub URL。 例如： https://&lt;your_forked_repo>.git。
+7. 將 [Script Path] \(指令碼路徑\)  值更新成 **Jenkinsfile_container_plugin**。
+8. 按一下 [Save] \(儲存\)  並執行作業。
 
 ## <a name="verify-your-web-app"></a>確認您的 Web 應用程式
 

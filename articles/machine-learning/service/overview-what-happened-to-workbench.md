@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2bc036fcde7ac541dbf7d8511f82080e52135777
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360122"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772626"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -120,8 +120,8 @@ run = exp.submit(source_directory=script_folder,
 
 了解 [Azure Machine Learning 服務的最新架構](concept-azure-machine-learning-architecture.md)。 
 
-如需此服務的概觀，請參閱[什麼是 Azure Machine Learning 服務？](overview-what-is-azure-ml.md)
+如需此服務的概觀，請參閱[什麼是 Azure Machine Learning 服務？](overview-what-is-azure-ml.md)。
 
-如需說明如何使用最新版 Azure Machine Learning 服務來執行指令碼及探索指令碼執行歷程記錄的快速入門，請嘗試[開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
+使用有兩個部分的教學課程來建立您的第一個實驗，以[設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)並[訓練您的第一個模型](tutorial-1st-experiment-sdk-train.md)
 
 如需此工作流程的更深入體驗，請遵循[完整教學課程](tutorial-train-models-with-aml.md)，其中包含使用 Azure Machine Learning 服務訓練和部署模型的詳細步驟。 

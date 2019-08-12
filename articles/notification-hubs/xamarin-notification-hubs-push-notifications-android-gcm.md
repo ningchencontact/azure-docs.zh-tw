@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 08/01/2019
 ms.author: jowargo
-ms.openlocfilehash: 09e5f5526c2d6953c574a7d7dd2425159ad88307
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 39fa004b62bf7e2e2a50500f32fa7edcb0c4b6ba
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240730"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742413"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.Android 應用程式
 
@@ -52,10 +52,10 @@ ms.locfileid: "66240730"
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-### <a name="configure-gcm-settings-for-the-notification-hub"></a>設定通知中樞的 GCM 設定
+### <a name="configure-gcmfcm-settings-for-the-notification-hub"></a>設定通知中樞的 GCM/FCM 設定
 
-1. 在 [通知設定]  區段中選取 [Google] \(GCM\)  。
-2. 輸入您從 Google Firebase 主控台記下的**舊有伺服器金鑰**。
+1. 選取左側功能表上的 [設定]  區段中的 [Google (GCM/FCM)]  。
+2. 輸入您從 Google Firebase 主控台記下的**伺服器金鑰**。
 3. 在工具列上選取 [儲存]  。
 
     ![](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
@@ -65,6 +65,9 @@ ms.locfileid: "66240730"
 ## <a name="create-a-xamarinandroid-app-and-connect-it-to-notification-hub"></a>建立 Xamarin.Android 應用程式，並將其連線至通知中樞
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>建立 Visual Studio 專案並新增 NuGet 套件
+
+> [!NOTE]
+> 本教學課程所述的步驟適用於 Visual Studio 2017。 
 
 1. 在 Visual Studio 中，開啟 [檔案]  功能表，選取 [新增]  ，然後選取 [專案]  。 在 [新增專案]  視窗中，執行下列步驟：
     1. 依序展開 [已安裝]  和 [Visual C#]  ，然後按一下 [Android]  。
@@ -80,12 +83,18 @@ ms.locfileid: "66240730"
 3. 在 [方案總管]  視窗中展開 [屬性]  ，然後按一下 **AndroidManifest.xml**。 更新套件名稱，使其符合您在 Google Firebase 主控台中將 Firebase 雲端通訊新增至專案時輸入的套件名稱。
 
     ![GCM 中的套件名稱](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
-4. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件...]  。
-5. 選取 [瀏覽]  索引標籤。搜尋 **Xamarin.GooglePlayServices.Base**。 在結果清單中選取 **Xamarin.GooglePlayServices.Base**。 然後，選取 [安裝]  。
+4. 將專案的目標 Android 版本設定為 **Android 9.0 (pie)** ，方法是遵循下列步驟： 
+    1. 以滑鼠右鍵按一下專案，然後選取 [屬性]  。 
+    1. 針對 [使用下列 Android 版本來編譯: (目標 Framework)]  欄位，選取 [Android 9.0 (Pie)]  。 
+    1. 在訊息方塊上選取 [是]  ，繼續變更目標 Framework。
+1. 遵循下列步驟將必要的 NuGet 套件新增至專案：
+    1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件...]  。
+    1. 切換至 [已安裝]  索引標籤，選取 [Xamarin.Android.Support.Design]  ，然後選取右窗格中的 [更新]  將套件更新為最新版本。
+    1. 切換至 [瀏覽]  索引標籤。搜尋 **Xamarin.GooglePlayServices.Base**。 在結果清單中選取 **Xamarin.GooglePlayServices.Base**。 然後，選取 [安裝]  。
 
-    ![Google Play 服務 NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
-6. 在 [NuGet 套件管理員]  視窗中，搜尋 **Xamarin.Firebase.Messaging**。 在結果清單中選取 **Xamarin.Firebase.Messaging**。 然後，選取 [安裝]  。
-7. 現在，請搜尋 **Xamarin.Azure.NotificationHubs.Android**。 在結果清單中選取 **Xamarin.Azure.NotificationHubs.Android**。 然後，選取 [安裝]  。
+        ![Google Play 服務 NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
+    6. 在 [NuGet 套件管理員]  視窗中，搜尋 **Xamarin.Firebase.Messaging**。 在結果清單中選取 **Xamarin.Firebase.Messaging**。 然後，選取 [安裝]  。
+    7. 現在，請搜尋 **Xamarin.Azure.NotificationHubs.Android**。 在結果清單中選取 **Xamarin.Azure.NotificationHubs.Android**。 然後，選取 [安裝]  。
 
 ### <a name="add-the-google-services-json-file"></a>新增 Google Services JSON 檔案
 
@@ -218,57 +227,14 @@ ms.locfileid: "66240730"
     CreateNotificationChannel();
     ```
 
-11. 建立新類別 `MyFirebaseIIDService`，如同您所建立的 `Constants` 類別。
-12. 將下列 using 陳述式新增至 `MyFirebaseIIDService.cs`：
-
-    ```csharp
-    using Android.Util;
-    using WindowsAzure.Messaging;
-    using Firebase.Iid;
-    ```
-
-13. 在 `MyFirebaseIIDService.cs` 中，新增下列 `class` 宣告，並且讓您的類別繼承自 `FirebaseInstanceIdService`：
-
-    ```csharp
-    [Service]
-    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
-    public class MyFirebaseIIDService : FirebaseInstanceIdService
-    ```
-
-14. 在 `MyFirebaseIIDService.cs` 中新增下列程式碼：
-
-    ```csharp
-    const string TAG = "MyFirebaseIIDService";
-    NotificationHub hub;
-
-    public override void OnTokenRefresh()
-    {
-        var refreshedToken = FirebaseInstanceId.Instance.Token;
-        Log.Debug(TAG, "FCM token: " + refreshedToken);
-        SendRegistrationToServer(refreshedToken);
-    }
-
-    void SendRegistrationToServer(string token)
-    {
-        // Register with Notification Hubs
-        hub = new NotificationHub(Constants.NotificationHubName,
-                                    Constants.ListenConnectionString, this);
-
-        var tags = new List<string>() { };
-        var regID = hub.Register(token, tags.ToArray()).RegistrationId;
-
-        Log.Debug(TAG, $"Successful registration of ID {regID}");
-    }
-    ```
-
-15. 為專案建立另一個新類別，將其命名為 `MyFirebaseMessagingService`。
+15. 將名為 `MyFirebaseMessagingService` 的類別新增至專案。 
 16. 將下列 using 陳述式新增至 `MyFirebaseMessagingService.cs`。
 
     ```csharp
     using Android.Util;
     using Firebase.Messaging;
-    using Android.Support.V4.App;
-    using Build = Android.OS.Build;
+    using Android.Support.V4.App;    
+    using WindowsAzure.Messaging;
     ```
 
 17. 於 class 宣告之上新增下列內容，並讓您的類別繼承自 `FirebaseMessagingService`：
@@ -276,57 +242,77 @@ ms.locfileid: "66240730"
     ```csharp
     [Service]
     [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+    [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. 將下列程式碼新增至 `MyFirebaseMessagingService.cs`：
+18. 將下列程式碼新增至 `MyFirebaseMessagingService.cs` 以處理所接收的訊息。 
 
     ```csharp
-    const string TAG = "MyFirebaseMsgService";
-    public override void OnMessageReceived(RemoteMessage message)
-    {
-        Log.Debug(TAG, "From: " + message.From);
-        if(message.GetNotification()!= null)
+        const string TAG = "MyFirebaseMsgService";
+        NotificationHub hub;
+    
+        public override void OnMessageReceived(RemoteMessage message)
         {
-            //These is how most messages will be received
-            Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
-            SendNotification(message.GetNotification().Body);
+            Log.Debug(TAG, "From: " + message.From);
+            if (message.GetNotification() != null)
+            {
+                //These is how most messages will be received
+                Log.Debug(TAG, "Notification Message Body: " + message.GetNotification().Body);
+                SendNotification(message.GetNotification().Body);
+            }
+            else
+            {
+                //Only used for debugging payloads sent from the Azure portal
+                SendNotification(message.Data.Values.First());
+    
+            }
         }
-        else
+    
+        void SendNotification(string messageBody)
         {
-            //Only used for debugging payloads sent from the Azure portal
-            SendNotification(message.Data.Values.First());
-
+            var intent = new Intent(this, typeof(MainActivity));
+            intent.AddFlags(ActivityFlags.ClearTop);
+            var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
+    
+            var notificationBuilder = new NotificationCompat.Builder(this, MainActivity.CHANNEL_ID);
+    
+            notificationBuilder.SetContentTitle("FCM Message")
+                        .SetSmallIcon(Resource.Drawable.ic_launcher)
+                        .SetContentText(messageBody)
+                        .SetAutoCancel(true)
+                        .SetShowWhen(false)
+                        .SetContentIntent(pendingIntent);
+    
+            var notificationManager = NotificationManager.FromContext(this);
+    
+            notificationManager.Notify(0, notificationBuilder.Build());
         }
-    }
-
-    void SendNotification(string messageBody)
-    {
-        var intent = new Intent(this, typeof(MainActivity));
-        intent.AddFlags(ActivityFlags.ClearTop);
-        var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-
-        var notificationBuilder = new NotificationCompat.Builder(this)
-                    .SetContentTitle("FCM Message")
-                    .SetSmallIcon(Resource.Drawable.ic_launcher)
-                    .SetContentText(messageBody)
-                    .SetAutoCancel(true)
-                    .SetShowWhen(false)
-                    .SetContentIntent(pendingIntent);
-
-        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
-        {
-            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
-        }
-
-        var notificationManager = NotificationManager.FromContext(this);
-
-        notificationManager.Notify(0, notificationBuilder.Build());
-    }
     ```
 
-19. **建置**您的專案。
-20. 在裝置或載入的模擬器上**執行**您的應用程式
+19. 將下列方法新增至 MyFirebaseMessagingService 類別以接收 FCM 註冊權杖，並將其傳送至通知中樞執行個體 (中樞)。 
+
+    ```csharp
+        public override void OnNewToken(string token)
+        {
+            Log.Debug(TAG, "FCM token: " + token);
+            SendRegistrationToServer(token);
+        }
+
+        void SendRegistrationToServer(string token)
+        {
+            // Register with Notification Hubs
+            hub = new NotificationHub(Constants.NotificationHubName,
+                                        Constants.ListenConnectionString, this);
+
+            var tags = new List<string>() { };
+            var regID = hub.Register(token, tags.ToArray()).RegistrationId;
+
+            Log.Debug(TAG, $"Successful registration of ID {regID}");
+        }
+    ```
+1. **建置**您的專案。
+1. 在裝置或載入的模擬器上**執行**您的應用程式
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>從 Azure 入口網站傳送測試通知
 

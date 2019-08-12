@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e3577a1a0da7809298697c55c84662bc15b0f1e7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a4fbfeb96d2316ce6af100cb16fcbf0d13f230f2
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639643"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737125"
 ---
-# <a name="what-is-azure-backup"></a>何謂 Azure 備份？
+# <a name="what-is-the-azure-backup-service"></a>什麼是 Azure 備份服務？
 
 Azure 備份服務會將資料備份至 Microsoft Azure 雲端。 您可以備份內部部署機器和工作負載，以及 Azure 虛擬機器 (VM)。
 

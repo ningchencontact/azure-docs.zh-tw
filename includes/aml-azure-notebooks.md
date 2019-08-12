@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: ba2c8b01861c0ecbc9adeebfcb184cff1b81e816
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b53d3d6ad5471cfe4ce105a3aace3bc55390a610
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174597"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843154"
 ---
-* 完成[快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning](../articles/machine-learning/service/quickstart-run-cloud-notebook.md)，建立工作區並啟動 Notebook 網頁。 
+* 完成[教學課程：設定環境和工作區](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md)，以建立工作區並啟動筆記本網頁。 
 

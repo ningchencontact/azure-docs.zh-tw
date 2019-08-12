@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 55bcce3c5a4b0dd00d9217d6cb3cc2cfbe6d5828
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: da7e41ae77226c2a18b92329507855ac30891058
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753814"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816101"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概觀
 Azure Service Fabric 是一個分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務與容器。 Service Fabric 也解決了開發及管理雲端原生應用程式時所面臨的重大挑戰。 開發人員與管理員能夠避免複雜的基礎結構問題，專注於實作關鍵且嚴格要求之可調整、可信賴且可管理的工作負載。 Service Fabric 代表新一代的平台，可用於建置及管理這些在容器中執行的企業級、第一層雲端級別應用程式。
@@ -67,7 +67,7 @@ Service Fabric 可支援雲端應用程式 (包括容器) 的完整應用程式�
 
 Service Fabric 應用程式生命週期管理讓應用程式管理員和 IT 操作員能夠使用簡單、低接觸的工作流程來佈建、部署、修補與監視應用程式。 這些內建的工作流程能大幅降低 IT 操作員的負擔，讓應用程式持續可用。
 
-大多數應用程式都是由無狀態和具狀態微服務、容器及其他一起部署之可執行檔的組合所構成。 Service Fabric 在應用程式擁有強式型別，因此能夠部署多個應用程式執行個體。 每個執行個體都能獨立管理與升級。 重要的是，Service Fabric 可以部署容器或任何可執行檔，並讓它們都變得可靠。 例如，Service Fabric 可以部署 .NET、ASP.NET Core、node.js、Windows 容器、Linux 容器、Java 虛擬機器、指令碼、Angular 或實際上任何構成您應用程式的項目。
+大多數應用程式都是由無狀態和具狀態微服務、容器及其他一起部署之可執行檔的組合所構成。 Service Fabric 在應用程式擁有強式型別，因此能夠部署多個應用程式執行個體。 每個執行個體都能獨立管理與升級。 重要的是，Service Fabric 可以部署容器或任何可執行檔，並讓它們都變得可靠。 例如，Service Fabric 可以部署 .NET、ASP.NET Core、Python、Node.js、Windows 容器、Linux 容器、Java 虛擬機器、指令碼、Angular 或實際上任何構成您應用程式的項目。
 
 Service Fabric 已與 CI/CD 工具 (例如 [Azure Pipelines](https://www.visualstudio.com/team-services/)、[Jenkins](https://jenkins.io/index.html) 及 [Octopus Deploy](https://octopus.com/)) 整合，並且可與任何其他常用的 CI/CD 工具搭配使用。
 

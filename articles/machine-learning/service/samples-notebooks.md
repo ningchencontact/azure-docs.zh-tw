@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7fdf9c52df502bc94519ab6c65be2e9fb546ce48
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e5088cfa417c76933be6785188f2b173b7b461d0
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699127"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772583"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>使用 Jupyter Notebook 探索 Azure Machine Learning 服務
 
@@ -35,7 +35,7 @@ ms.locfileid: "68699127"
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>在 Azure Machine Learning Notebook VM 上取得範例
 
-要開始使用範例，最簡單的方式是完成[雲端式 Notebook 快速入門](quickstart-run-cloud-notebook.md)。 完成後，您將會有已預先載入 SDK 與範例存放庫的專用 Notebook 伺服器。 您不需要下載或安裝。
+要開始使用範例，最簡單的方式是完成[教學課程：設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)。 完成後，您將會有已預先載入 SDK 與範例存放庫的專用 Notebook 伺服器。 您不需要下載或安裝。
 
 <a name="byo"></a>
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 75bfdce02313ab7e799f6535f247407c239653b8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c6434b4f5808c349d5e0ab04dafc5233f6ec63ac
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619813"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780473"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>快速入門：開始使用 Azure Sentinel 預覽版
 
@@ -34,7 +34,7 @@ ms.locfileid: "67619813"
 
 ## <a name="get-visualization"></a>取得視覺效果
 
-若要將您的環境狀況視覺化並取得其分析，首先，請先查看概觀儀表板，以了解貴組織的安全性現況。 您可以按一下這些圖格的每個元素，向下切入至其建立來源的未經處理資料。 為了協助您減少雜訊並盡可能減少您必須檢閱和調查的警示數目，Azure Sentinel 使用融合技巧讓警示相互關聯成為案例。 **案例**是一組相關警示，可一起建立可操作的事件，以便您進行調查並予以解決。
+若要將您的環境狀況視覺化並取得其分析，首先，請先查看概觀儀表板，以了解貴組織的安全性現況。 您可以按一下這些圖格的每個元素，向下切入至其建立來源的未經處理資料。 為了協助您減少雜訊並盡可能減少您必須檢閱和調查的警示數目，Azure Sentinel 使用融合技巧讓警示相互關聯成為事件。 **事件**是一組相關警示，可一起建立可操作的事件，以便您進行調查並予以解決。
 
 - 在 Azure 入口網站中，選取 Azure Sentinel，然後選取您想要監視的工作區。
 
@@ -53,7 +53,7 @@ ms.locfileid: "67619813"
    ![Azure Sentinel 地圖](./media/qs-get-visibility/map.png)
 
 
-- **近期案例**：檢視近期案例，其嚴重性和案例相關警示數目。 如果您看到特定警示類型突然出現尖峰，這可能表示目前有作用中的攻擊正在進行。 比方說，如果突然出現 20 個來自 Azure ATP 的雜湊傳遞事件，則可能是有人目前正試圖攻擊您。
+- **最近的事件**：可檢視近期事件、其嚴重性和事件相關警示的數目。 如果您看到特定警示類型突然出現尖峰，這可能表示目前有作用中的攻擊正在進行。 比方說，如果突然出現 20 個來自 Azure ATP 的雜湊傳遞事件，則可能是有人目前正試圖攻擊您。
 
 - **資料來源異常**：Microsoft 的資料分析師建立了一些模型，這些模型會不斷地在您資料來源的資料中搜尋異常情況。 如果沒有任何異常狀況，則不會顯示任何內容。 如果偵測到異常，您應該深入探討這些異常以查看發生什麼情況。 例如，按一下 Azure 活動中的尖峰。 您可以按一下 [圖表]  來查看何時發生尖峰，然後篩選在那段期間發生的活動，以了解造成尖峰的原因。
 

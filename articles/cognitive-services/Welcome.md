@@ -7,19 +7,19 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
-ms.topic: article
+ms.topic: overview
 ms.date: 04/19/2019
 ms.author: nitinme
-ms.openlocfilehash: dd93cd938539ae322e6344e0ce24cee6e34db27b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
-ms.translationtype: MT
+ms.openlocfilehash: 5337f2d3df395650c65ae4a12cbdf4f8ba90ca3d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594745"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840403"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure 認知服務是什麼？
 
-Azure 認知服務是用來協助開發人員建置智慧型應用程式，且無須使用直接 AI 或資料科學技術或知識的 API、SDK 和服務。 Azure 認知服務可讓開發人員輕鬆地將認知功能新增到其應用程式中。 Azure 認知服務的目標是協助開發人員建立可以看、聽、說、理解甚至推論的應用程式。 Azure 認知服務中的服務目錄可以分類為五個主要要素-願景、語音、語言、Web 搜尋及決策。
+Azure 認知服務是用來協助開發人員建置智慧型應用程式，且無須使用直接 AI 或資料科學技術或知識的 API、SDK 和服務。 Azure 認知服務可讓開發人員輕鬆地將認知功能新增到其應用程式中。 Azure 認知服務的目標是協助開發人員建立可以看、聽、說、理解甚至推論的應用程式。 Azure 認知服務中的服務目錄可以分成五個主要支柱：視覺、語音、語言、Web 搜尋和決策。
 
 ## <a name="vision-apis"></a>視覺 API
 
@@ -28,8 +28,8 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "電腦視覺")|電腦視覺服務可供您存取進階演算法，以處理影像及傳回資訊。|
 |[自訂視覺服務](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "自訂視覺服務")|自訂視覺服務可讓您建置自訂影像分類器。|
 |[人臉識別 API](https://docs.microsoft.com/azure/cognitive-services/face/ "人臉識別 API")|人臉識別 API 提供進階的臉部識別演算法，以偵測和辨識臉部特徵。|
-|[表單辨識器](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "表單辨識器")預覽|表單辨識器會從表單檔識別並解壓縮索引鍵/值組和資料表資料;然後輸出結構化資料, 包括原始檔案中的關聯性。|
-|[筆跡辨識器](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "筆跡辨識器")預覽|筆跡辨識器可讓您辨識和分析數位筆跡筆劃資料、圖形和手寫內容, 以及輸出具有所有辨識實體的檔結構。|
+|[表單辨識器](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "表單辨識器") (預覽)|表單辨識器會從表單文件中識別並擷取索引鍵/值組和資料表資料；然後輸出結構化資料，包括原始檔案中的關聯性。|
+|[筆跡辨識器](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "") (預覽)|筆跡辨識器可讓您辨識並分析數位筆跡的筆觸資料、圖形和手寫內容，以及輸出包含所有已辨識實體的文件結構。|
 |[影片索引器](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "影片索引器")|影片索引器可讓您從影片中擷取深入解析。|
 
 ## <a name="speech-apis"></a>語音識別 API
@@ -38,8 +38,8 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |:-----------|:------------------|
 |[語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "語音服務")|語音服務會將語音啟用功能加入應用程式。|
 |[說話者辨識 API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "說話者辨識 API") (預覽)|說話者辨識 API 提供說話者辨識和驗證的演算法。|
-|[Bing 語音](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing 語音")登出|Bing 語音 API 可讓您輕鬆在應用程式中建立語音開啟功能。|
-|[翻譯工具語音](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "翻譯工具語音")登出|翻譯工具語音是機器翻譯服務。|
+|[Bing 語音](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing 語音") (即將淘汰)|Bing 語音 API 可讓您輕鬆在應用程式中建立語音開啟功能。|
+|[翻譯工具語音](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "翻譯工具語音") (即將淘汰)|翻譯工具語音是機器翻譯服務。|
 
 ## <a name="language-apis"></a>語言 API
 
@@ -63,16 +63,16 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |[Bing 實體搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Bing 實體搜尋")|Bing 實體搜尋會傳回 Bing 判斷與使用者查詢相關的實體相關資訊。|
 |[Bing 影像搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing 影像搜尋")|Bing 影像搜尋會傳回與使用者查詢相關的影像。|
 |[Bing 圖像式搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing 圖像式搜尋")|Bing 圖像式搜尋會傳回深入解析的影像，例如視覺效果類似的影像、影像中找到的產品購物來源，以及相關搜尋。|
-|[Bing 當地企業搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing 當地企業搜尋")| Bing 當地企業搜尋 API 可讓您的應用程式根據搜尋查詢來尋找當地商家的連絡人和位置資訊。|
+|[Bing 當地企業搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing當地企業搜尋")| Bing 當地企業搜尋 API 可讓您的應用程式依搜尋查詢項目，尋找當地商家的連絡方式及位置資訊。|
 |[Bing 拼字檢查](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing 拼字檢查")|Bing 拼字檢查可讓您執行內容的文法與拼字檢查。|
 
-## <a name="decision-apis"></a>決策 Api
+## <a name="decision-apis"></a>決策 API
 
 |服務名稱|服務描述|
 |:-----------|:------------------|
-|[異常]偵測器(https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "異常")偵測器預覽|異常偵測器可讓您監視和偵測時間序列資料中的異常狀況。|
+|[異常偵測器](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "異常偵測器") (預覽)|異常偵測器可讓您監視和偵測時間序列資料中的異常狀況。|
 |[內容仲裁](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "內容仲裁")|內容仲裁可監視潛在的冒犯、惡意或具風險之內容。|
-|[個人化工具](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "個人化工具")預覽|個人化工具可讓您選擇要向使用者顯示的最佳體驗, 並從其即時行為中學習。|
+|[個人化工具](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "個人化工具") (預覽)|個人化工具可讓您選擇最佳體驗來對使用者展現，進而從其即時行為中學習。|
 
 ## <a name="use-free-trials"></a>使用免費試用版
 
@@ -84,7 +84,7 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 
 ## <a name="upgrade-to-unlock-limits"></a>升級以解除鎖定限制
 
-所有 Api 都有使用和輸送量限制的免費試用方案。  在 Azure 入口網站中部署服務時, 您可以使用付費供應專案來增加這些限制, 並選取適當的定價層選項。 [深入瞭解供應專案和定價](https://azure.microsoft.com/pricing/details/cognitive-services/ "供應專案和定價")。 您必須設定含有信用卡和電話號碼的 Azure 訂閱者帳戶。 如果您有特殊需求，或者只想與銷售人員交談，請按一下[定價] 頁面頂端的 [與我們連絡] 按鈕。
+所有 API 都有免費試用方案，其中有使用量和輸送量的限制。  若要增加這些限制數量，當您在 Azure 入口網站中部署服務時，您可以使用付費供應項目並選取適當的定價層選項。 [深入了解供應項目及定價](https://azure.microsoft.com/pricing/details/cognitive-services/ "供應項目及定價")。 您必須設定含有信用卡和電話號碼的 Azure 訂閱者帳戶。 如果您有特殊需求，或者只想與銷售人員交談，請按一下[定價] 頁面頂端的 [與我們連絡] 按鈕。
 
 ## <a name="regional-availability"></a>區域可用性
 
@@ -100,13 +100,13 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 
  認知服務在 Azure 雲端或內部部署中提供部署容器。 深入了解[認知服務容器](cognitive-services-container-support.md)。
 
-## <a name="certifications-and-compliance"></a>認證與合規性
+## <a name="certifications-and-compliance"></a>認證和合規性
 
-認知服務已獲得認證, 例如 CSA STAR 認證、FedRAMP 一般和 HIPAA BAA。
+認知服務已獲得認證，例如 CSA STAR 認證、FedRAMP Moderate 和 HIPAA BAA。
 
-您可以[下載](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)適用于自己的審核和安全性審查的認證。
+您可以[下載](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)適用於自身稽核及安全性審查的認證。
 
-若要瞭解隱私權和資料管理, 請前往[信任中心](https://servicetrust.microsoft.com/)。
+若要了解隱私權和資料管理，請前往[信任中心](https://servicetrust.microsoft.com/)。
 
 ## <a name="support"></a>支援
 

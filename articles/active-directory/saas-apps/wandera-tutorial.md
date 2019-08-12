@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e556ce95107e820dc04d34c05bea3a2840aab7e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: d4f5004571c849d90b7d811906684e66c10ee487
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798537"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825300"
 ---
 # <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>教學課程：整合 Wandera 與 Azure Active Directory
 
@@ -37,7 +37,7 @@ ms.locfileid: "67798537"
 
 若要開始，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的免費試用。
+* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以取得[免費帳戶](https://azure.microsoft.com/free/)。
 * 已啟用 Wandera 單一登入 (SSO) 的訂用帳戶。
 
 ## <a name="scenario-description"></a>案例描述
@@ -66,9 +66,9 @@ ms.locfileid: "67798537"
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Wandera SSO](#configure-wandera-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Wandera 測試使用者](#create-wandera-test-user)** - 使 Wandera 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
+5. **[建立 Wandera 測試使用者](#create-wandera-test-user)** - 使 Wandera 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
@@ -88,7 +88,7 @@ ms.locfileid: "67798537"
     > [!NOTE]
     > 這不是真正的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Wandera 用戶端支援小組](https://www.wandera.com/about-wandera/contact/#supportsection)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [中繼資料 XML]  ，然後選取 [下載]  來下載憑證，並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [同盟中繼資料 XML]  ，然後選取 [下載]  以下載憑證，並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
@@ -106,7 +106,27 @@ ms.locfileid: "67798537"
 
 ### <a name="configure-wandera-sso"></a>設定 Wandera SSO
 
-若要在 **Wandera** 端設定單一登入，您必須將從 Azure 入口網站下載的 [中繼資料 XML]  和複製的適當 URL 傳送給 [Wandera 支援小組](https://www.wandera.com/about-wandera/contact/#supportsection)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要自動執行 Wandera 內的設定，您必須按一下 [安裝擴充功能]  來安裝「我的應用程式安全登入瀏覽器擴充功能」  。
+
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將延伸模組新增至瀏覽器之後，按一下 [安裝 Wandera]  便會將您導向到 Wandera 應用程式。 請從該處提供用以登入 Wandera 的管理員認證。 瀏覽器擴充功能會自動為您設定應用程式，並自動執行步驟 3 到 4。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您想要手動設定 Wandera，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Wandera 公司網站，然後執行下列步驟：
+
+4. 在頁面右上角按一下 [設定]   > [管理]   > [單一登入]  ，然後核取 [啟用 SAML 2.0]  選項以執行下列步驟。
+
+    ![Wandera 設定](./media/wandera-tutorial/config01.png)
+
+    a. 按一下 [或是手動輸入必要欄位]  。
+
+    b. 在 [IdP EntityId]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
+
+    c. 在記事本中開啟同盟中繼資料 XML，將其內容複製並貼入 [IdP Public X.509 憑證]  文字方塊。
+
+    d. 按一下 [檔案]  。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -140,7 +160,7 @@ ms.locfileid: "67798537"
 
 ### <a name="create-wandera-test-user"></a>建立 Wandera 測試使用者
 
-在本節中，您要在 Wandera 中建立名為 Britta Simon 的使用者。 請與  [Wandera 支援小組](https://www.wandera.com/about-wandera/contact/#supportsection)合作，在 Wandera 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Wandera 中建立名為 B.Simon 的使用者。 請與  [Wandera 支援小組](https://www.wandera.com/about-wandera/contact/#supportsection)合作，在 Wandera 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-sso"></a>測試 SSO
 

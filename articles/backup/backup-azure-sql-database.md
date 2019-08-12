@@ -1,5 +1,5 @@
 ---
-title: 將 SQL Server 資料庫備份至 Azure | Microsoft Docs
+title: 將 SQL Server 資料庫備份到 Azure
 description: 本教學課程說明如何將 SQL Server 備份至 Azure。 本文也將說明 SQL Server 復原。
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: cddb540eb0d6892426c4857b152ab6caa746f6da
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639813"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827656"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>關於 Azure VM 中的 SQL Server 備份
 
@@ -25,7 +25,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 * 在您指定想要保護的 SQL Server VM 並查詢此 VM 中的資料庫之後，Azure 備份服務會在此 VM 上安裝名為 `AzureBackupWindowsWorkload`  的工作負載備份擴充功能。
 * 此延伸模組是由一個協調器和一個 SQL 外掛程式所組成。 協調器負責觸發各種作業 (例如設定備份、備份和還原) 的工作流程，而外掛程式則負責實際的資料流程。
 * 為了能夠在此 VM 上探索資料庫，「Azure 備份」會建立 `NT SERVICE\AzureWLBackupPluginSvc` 帳戶。 此帳戶會用於備份和還原，且必須具備 SQL 系統管理員 (sysadmin) 權限。 「Azure 備份」會利用 `NT AUTHORITY\SYSTEM` 帳戶來進行資料庫探索/查詢，因此這個帳戶必須是 SQL 上的公開登入帳戶。 如果您未從 Azure Marketplace 建立 SQL Server VM，您可能會收到  **UserErrorSQLNoSysadminMembership** 錯誤。 若發生此狀況，請 [依照這些指示進行操作](backup-azure-sql-database.md)。
-* 在您於選取的資料庫上觸發設定保護之後，備份服務便會為協調器設定備份排程及其他原則詳細資料，延伸模組會將這些都快取在 VM 本機 
+* 在您於選取的資料庫上觸發設定保護之後，備份服務便會為協調器設定備份排程及其他原則詳細資料，延伸模組會將這些都快取在 VM 本機。
 * 在排定的時間，協調器會與外掛程式進行通訊，然後使用 VDI 開始從 SQL Server 串流處理備份資料。  
 * 外掛程式會將資料直接傳送給復原服務保存庫，因此不需要暫存位置。 「Azure 備份」服務會將資料加密並儲存在儲存體帳戶中。
 * 當資料傳輸完成時，協調器會向備份服務確認認可。
@@ -45,7 +45,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 **支援** | **詳細資料**
 --- | ---
 **支援的部署** | 支援 SQL Marketplace Azure VM 和非 Marketplace (手動安裝 SQL Server) VM。
-**支援的地區** | 澳大利亞東南部 (ASE)、澳大利亞東部 (AE) <br> 巴西南部 (BRS)<br> 加拿大中部 (CNC)、加拿大東部 (CE)<br> 東南亞 (SEA)、東亞 (EA) <br> 美國東部 (EUS)、美國東部 2 (EUS2)、美國中西部 (WCUS)、美國西部 (WUS)、美國西部 2 (WUS2)、美國中北部 (NCUS)、美國中部 (CUS)、美國中南部 (SCUS) <br> 印度中部 (INC)、印度南部 (INS) <br> 日本東部 (JPE)、日本西部 (JPW) <br> 南韓中部 (KRC)、南韓南部 (KRS) <br> 北歐 (NE)、西歐 <br> 英國南部 (UKS)、英國西部 (UKW)
+**支援的地區** | 澳大利亞東南部 (ASE)、澳大利亞東部 (AE) <br> 巴西南部 (BRS)<br> 加拿大中部 (CNC)、加拿大東部 (CE)<br> 東南亞 (SEA)、東亞 (EA) <br> 美國東部 (EUS)、美國東部 2 (EUS2)、美國中西部 (WCUS)、美國西部 (WUS)、美國西部 2 (WUS2)、美國中北部 (NCUS)、美國中部 (CUS)、美國中南部 (SCUS) <br> 印度中部 (INC)、印度南部 (INS) <br> 日本東部 (JPE)、日本西部 (JPW) <br> 南韓中部 (KRC)、南韓南部 (KRS) <br> 北歐 (NE)、西歐 <br> 英國南部 (UKS)、英國西部 (UKW) <br> US Gov 亞利桑那州、US Gov 維吉尼亞州、US Gov 德克薩斯州、US DoD 中部、US DoD 東部
 **受支援的作業系統** | Windows Server 2016、Windows Server 2012 R2、Windows Server 2012<br/><br/> 目前不支援 Linux。
 **支援的 SQL Server 版本** | SQL Server 2017 (詳情請參閱[這裡](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017))、SQL Server 2016 和 SP (詳情請參閱[這裡](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack))、SQL Server 2014、SQL Server 2012。<br/><br/> Enterprise、Standard、Web、Developer、Express。
 **支援的 .NET 版本** | 安裝在 VM 上的 .NET Framework 4.5.2 和更新版本

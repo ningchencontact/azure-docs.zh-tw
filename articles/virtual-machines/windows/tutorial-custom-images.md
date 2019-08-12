@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe19ea2d8946d645704139bbf2faa80f21e84039
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4c55d3d92faf854952b609287bb16a30ed1e30ec
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708065"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717476"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像
 
@@ -33,6 +33,8 @@ ms.locfileid: "67708065"
 > * 從自訂映像建立 VM
 > * 列出訂用帳戶中的所有映像
 > * 删除映像
+
+在公開預覽中，我們有 [Azure VM映像產生器](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview)服務。 只要在範本中描述您的自訂，其就會處理本文中的映像建立步驟。 [嘗試 Azure 映像產生器 (預覽)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder)。
 
 ## <a name="before-you-begin"></a>開始之前
 

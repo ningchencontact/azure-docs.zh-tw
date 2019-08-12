@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: b462f0c427020b1422b91fbd7ac34e3023e546b8
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 998471d99a785eeff39ef7c99e60e1d9b49e0d7a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677874"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725822"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>教學課程：設定 Azure 時間序列深入解析預覽版環境
 
@@ -62,7 +62,7 @@ ms.locfileid: "68677874"
 
     [![建立裝置模擬解決方案](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox) 頁面
 
-## <a name="create-a-time-series-insights-preview-payg-environment"></a>建立時間序列深入解析預覽版 PAYG 環境
+## <a name="create-a-preview-payg-environment"></a>建立預覽 PAYG 環境
 
 本節說明如何使用 [Azure 入口網站](https://portal.azure.com/)建立 Azure 時間序列深入解析預覽環境，並且將其連接至 IoT 解決方案加速器建立的 IoT 中樞。
 
@@ -130,7 +130,9 @@ ms.locfileid: "68677874"
 
    如果未列出您的認證，您就必須對自己授與環境的存取權限。 若要深入了解如何設定權限，請參閱[授與資料存取權](./time-series-insights-data-access.md)。
 
-## <a name="stream-data-into-your-environment"></a>將資料串流到您的環境
+## <a name="stream-data"></a>串流資料
+
+您已部署好時間序列深入解析環境，接下來請將資料串流至其中以進行分析。
 
 1. 瀏覽回到 [Azure IoT 解決方案加速器頁面](https://www.azureiotsolutions.com/Accelerators)。 在解決方案加速器儀表板中，尋找您的解決方案。 然後選取 [啟動]  ：
 
@@ -158,7 +160,7 @@ ms.locfileid: "68677874"
 
     [![Azure IoT 模擬儀表板](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## <a name="analyze-data-in-your-environment"></a>在您的環境中分析資料
+## <a name="analyze-data"></a>分析資料
 
 在本節中，您會使用 [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)，對時間序列資料執行基本分析。
 
@@ -334,7 +336,7 @@ ms.locfileid: "68677874"
 
 您現在已完成本教學課程，請清除您所建立的資源：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
+1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]  ，找出 Azure 時間序列深入解析資源群組。
 1. 選取 [刪除]  或個別移除每個資源，以刪除整個資源群組 (和其中包含的所有資源)。
 
 ## <a name="next-steps"></a>後續步驟

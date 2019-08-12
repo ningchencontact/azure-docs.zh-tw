@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064337"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827912"
 ---
 # <a name="what-is-azure-security-center"></a>什麼是 Azure 資訊安全中心？
 
@@ -126,9 +126,9 @@ Azure 資訊安全中心的價值核心在於其建議。 建議是專為工作�
 
 資訊安全中心所含的功能可協助您在 Azure SQL 中自動將資料分類。 您也可以取得所有 Azure SQL 和儲存體服務的潛在弱點評量，以及如何緩解的建議。
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>保護 IoT 和混合式雲端工作負載 (預覽)
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>保護 IoT 和混合式雲端工作負載
 
-Azure Security Center for IoT (物聯網) 透過在邊緣、內部、在 Azure 及其他雲端中執行的工作負載，提供統一的可見性和控制、調適型威脅防護，以及智慧型威脅偵測和回應，以簡化混合式工作負載保護。 如需詳細資訊，請參閱 [Azure Security Center for IoT (預覽)](https://docs.microsoft.com/azure/asc-for-iot/)。
+Azure Security Center for IoT (物聯網) 透過在邊緣、內部、在 Azure 及其他雲端中執行的工作負載，提供統一的可見性和控制、調適型威脅防護，以及智慧型威脅偵測和回應，以簡化混合式工作負載保護。 如需詳細資訊，請參閱[適用於 IoT 的 Azure 資訊安全中心](https://docs.microsoft.com/azure/asc-for-iot/)。
 
 ## <a name="get-secure-faster"></a>更快保障安全
 

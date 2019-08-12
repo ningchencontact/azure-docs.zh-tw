@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603652"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840116"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>教學課程：建立和部署自訂 IoT Edge 模組
 
@@ -92,11 +92,11 @@ IoT Edge 中樞可促進模組對模組的通訊。 使用 IoT Edge 中樞作為
        }
        ```
 
-     * **模組：** 這個區段包含一組與此解決方案一起使用的使用者定義模組。 您將會注意到這個區段目前包含兩個模組：tempSensor 和 turbofanRulClassifier。 tempSensor 已由 Visual Studio Code 範本進行安裝，但我們不需要針對此解決方案使用它。 您可以從 [模組] 區段中刪除 tempSensor 模組定義。 請注意，turbofanRulClassifier 模組定義會指向您容器登錄中的映像。 當我們在解決方案中新增更多模組時，它們將顯示於此區段中。
+     * **模組：** 這個區段包含一組與此解決方案一起使用的使用者定義模組。 您將會注意到這個區段目前包含兩個模組：SimulatedTemperatureSensor 和 turbofanRulClassifier。 SimulatedTemperatureSensor 已由 Visual Studio Code 範本進行安裝，但我們不需要針對此解決方案使用它。 您可以從 [模組] 區段中刪除 SimulatedTemperatureSensor 模組定義。 請注意，turbofanRulClassifier 模組定義會指向您容器登錄中的映像。 當我們在解決方案中新增更多模組時，它們將顯示於此區段中。
 
        ```json
        "modules": {
-         "tempSensor": {
+         "SimulatedTemperatureSensor": {
            "version": "1.0",
            "type": "docker",
            "status": "running",
@@ -119,7 +119,7 @@ IoT Edge 中樞可促進模組對模組的通訊。 使用 IoT Edge 中樞作為
        }
        ```
 
-     * **路由：** 我們將在此教學課程中大量使用路由。 路由會定義模組彼此通訊的方式。 這兩個由範本所定義的路由不會與我們需要的路由相符。 第一個路由會將來自分類器任何輸出的所有資料都傳送到 IoT 中樞 ($upstream)。 另一個路由則適用於 tempSensor (我們剛剛已刪除)。 刪除這兩個預設路由。
+     * **路由：** 我們將在此教學課程中大量使用路由。 路由會定義模組彼此通訊的方式。 這兩個由範本所定義的路由不會與我們需要的路由相符。 第一個路由會將來自分類器任何輸出的所有資料都傳送到 IoT 中樞 ($upstream)。 另一個路由則適用於 SimulatedTemperatureSensor (我們剛剛已刪除)。 刪除這兩個預設路由。
 
        ```json
        "$edgeHub": {
@@ -127,7 +127,7 @@ IoT Edge 中樞可促進模組對模組的通訊。 使用 IoT Edge 中樞作為
            "schemaVersion": "1.0",
            "routes": {
              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
+             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
            },
            "storeAndForwardConfiguration": {
              "timeToLiveSecs": 7200

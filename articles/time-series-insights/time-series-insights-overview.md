@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: overview
-ms.date: 04/26/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce18b0060fe0bd0f9d5a8308fe1358e300c04441
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c0c65f364e9e72d87d6618944ab296354e03a1fc
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165633"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736186"
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 
@@ -33,7 +33,7 @@ ms.locfileid: "67165633"
 
 如果您要建置應用程式，以供內部取用或供外部客戶使用，則可以使用時間序列深入解析來作為後端。 您可以將其用於編製索引、儲存和彙總時間序列資料。 若要打造頂級的自訂視覺效果和使用者體驗，請使用[用戶端 SDK](tutorial-explore-js-client-lib.md)。 時間序列深入解析也配有數個用來啟用這些自訂案例的[查詢 API](how-to-shape-query-json.md)。
 
-時間序列資料代表資產或處理程序如何隨著時間改變。 時間序列資料會根據時間戳記編製索引，而且時間是最具意義的軸，這類資料會隨著時間軸進行組織。 時間序列資料通常會依照順序送達，因此通常會將其視為插入資料庫，而不是更新資料庫。
+時間序列資料代表資產或處理程序如何隨著時間改變。 時間序列資料會根據時間戳記編製索引，而且時間是最具意義的軸，這類資料會隨著時間軸進行組織。 時間序列資料通常會依照順序送達，因此會將其視為插入資料庫，而不是更新資料庫。
 
 想要大量儲存、編製索引、查詢、分析和視覺化時間序列資料並不容易。
 Azure 時間序列深入解析會擷取每個新事件並將其各自儲存為資料列，而且會有效率地不時測量變更。 因此，您可以回顧過去來建立深入解析以預測未來的變化。
