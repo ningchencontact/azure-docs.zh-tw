@@ -117,7 +117,7 @@ ms.locfileid: "60309108"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 SAP BW 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 SAP BW 來源所支援的屬性清單。
 
 ### <a name="sap-bw-as-source"></a>SAP BW 作為來源
 

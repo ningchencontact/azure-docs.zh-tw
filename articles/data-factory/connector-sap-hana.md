@@ -61,7 +61,7 @@ ms.locfileid: "68725992"
 | type | 類型屬性必須設定為：**SapHana** | 是 |
 | connectionString | 指定使用**基本驗證**或**Windows 驗證**連接到 SAP Hana 所需的資訊。 請參考下列範例。<br>在 [連接字串] 中, 伺服器/埠是強制的 (預設通訊埠是 30015), 而使用者名稱和密碼則是在使用基本驗證時的必要項。 如需其他 advanced 設定, 請參閱[SAP HANA ODBC 連接屬性](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>您也可以將密碼放在 Azure Key Vault 中, 並從連接字串中提取密碼設定。 如需詳細資訊, 請參閱[將認證儲存在 Azure Key Vault](store-credentials-in-key-vault.md)一文。 | 是 |
 | userName | 使用 Windows 驗證時, 請指定使用者名稱。 範例： `user@domain.com` | 否 |
-| 密碼 | 指定使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
+| password | 指定使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
 **範例: 使用基本驗證**
@@ -176,7 +176,7 @@ ms.locfileid: "68725992"
 | 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**SapHanaSource** | 是 |
-| 查詢 | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | 是 |
+| query | 指定 SQL 查詢從 SAP HANA 執行個體讀取資料。 | 是 |
 | packetSize | 指定將資料分割成多個區塊的網路封包大小 (以 Kb 為單位)。 如果您要複製大量資料, 增加封包大小可能會在大部分情況下從 SAP Hana 增加讀取速度。 調整封包大小時, 建議執行效能測試。 | 資料分割<br>預設值為 2048 (2MB)。 |
 
 **範例:**
@@ -224,24 +224,24 @@ ms.locfileid: "68725992"
 | BINARY             | Byte[]                         |
 | BINTEXT            | String                         |
 | BLOB               | Byte[]                         |
-| 型               | Byte                           |
+| BOOL               | Byte                           |
 | CLOB               | String                         |
 | DATE               | DateTime                       |
-| DECIMAL            | DECIMAL                        |
-| Double             | Double                         |
+| DECIMAL            | Decimal                        |
+| DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
 | NCLOB              | String                         |
 | NVARCHAR           | String                         |
-| REAL               | 單身                         |
+| REAL               | Single                         |
 | SECONDDATE         | DateTime                       |
 | SHORTTEXT          | String                         |
-| SMALLDECIMAL       | DECIMAL                        |
+| SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
 | TEXT               | String                         |
-| 時間               | TimeSpan                       |
+| TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | String                         |
 | TIMESTAMP          | DateTime                       |
