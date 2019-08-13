@@ -52,7 +52,7 @@ ms.locfileid: "68839778"
 | 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Sftp**。 |是 |
-| 主機 | SFTP 伺服器的名稱或 IP 位址。 |是 |
+| host | SFTP 伺服器的名稱或 IP 位址。 |是 |
 | port | SFTP 伺服器所接聽的連接埠。<br/>允許的值為：整數，預設值為 **22**。 |否 |
 | skipHostKeyValidation | 指定是否略過主機金鑰驗證。<br/>允許的值為：**true**、**false** (預設值)。  | 否 |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 "skipHostKeyValidation" 設定為 false，則為必要。  |
@@ -66,7 +66,7 @@ ms.locfileid: "68839778"
 | 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | userName | 可存取 SFTP 伺服器的使用者。 |是 |
-| 密碼 | 使用者 (userName) 的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| password | 使用者 (userName) 的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 
 **範例:**
 
