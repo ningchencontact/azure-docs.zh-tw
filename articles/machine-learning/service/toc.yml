@@ -258,7 +258,7 @@
     - name: 建立可重複使用的工作流程
       displayName: pipelines
       items:
-        - name: ML 管線：批次、計算、重新使用、共用
+        - name: ML 管線
           href: how-to-create-your-first-pipeline.md
         - name: 適用於 CI/CD 的 Azure Pipelines
           displayName: 'continuous, integration, delivery'

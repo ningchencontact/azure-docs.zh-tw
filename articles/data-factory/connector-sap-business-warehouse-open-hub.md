@@ -71,7 +71,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 
 - 設定 3.13 版或更新版本的「自我裝載 Integration Runtime。 如需詳細資料，請參閱[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 一文。
 
-- 從 SAP 的網站下載 **64 位元[ SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html)** ，並將其安裝在自我裝載的 IR 機器上。 安裝時，請在選擇性的設定步驟視窗中確定您已選取 [將組件安裝到 GAC]  選項，如下圖所示。 
+- 從 SAP 的網站下載 **64 位元[ SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html)** ，並將其安裝在自我裝載的 IR 機器上。 安裝時，請在選擇性的設定步驟視窗中確定您已選取 [將組件安裝到 GAC] 選項，如下圖所示。 
 
     ![安裝 SAP .NET 連接器](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
@@ -80,7 +80,7 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
     - RFC 和 SAP BW 的授權。 
     - 「執行」授權物件 "S_SDSAUTH" 活動的權限。
 
-- 勾選 [技術金鑰] 選項，將 SAP Open Hub Destination 類型建立為 [資料庫資料表]  。  此外也建議您將 [從資料表中刪除資料] 保留為未勾選，但這並非必要動作。 利用 DTP (直接執行或整合到現有的程序鏈結中) 將資料從您所選擇的來源物件 (例如 Cube) 移至 Open Hub Destination 資料表。
+- 勾選 [技術金鑰] 選項，將 SAP Open Hub Destination 類型建立為 [資料庫資料表]。  此外也建議您將 [從資料表中刪除資料] 保留為未勾選，但這並非必要動作。 利用 DTP (直接執行或整合到現有的程序鏈結中) 將資料從您所選擇的來源物件 (例如 Cube) 移至 Open Hub Destination 資料表。
 
 ## <a name="getting-started"></a>使用者入門
 
@@ -214,11 +214,11 @@ ADF SAP BW 開啟中樞連接器提供兩個選擇性屬性：`excludeLastReques
 | C (String) | String |
 | I (integer) | Int32 |
 | F (Float) | Double |
-| D (Date) | String |
-| T (Time) | String |
-| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
+| D (日期) | String |
+| T (時間) | String |
+| P (BCD 封裝、貨幣、小數、數量) | Decimal |
 | N (Numc) | String |
-| X (Binary and Raw) | String |
+| X (二進位和原始) | String |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

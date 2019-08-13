@@ -63,8 +63,6 @@
       href: samples-resource-manager-templates.md
 - name: 概念
   items:
-    - name: App Service 的運作方式
-      href: app-service-how-works-readme.md
     - name: App Service 方案
       href: overview-hosting-plans.md
     - name: 作業系統功能
