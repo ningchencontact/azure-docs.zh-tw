@@ -58,6 +58,8 @@
           href: create-cloudsimple-service.md
         - name: 存取 CloudSimple 入口網站
           href: access-cloudsimple-portal.md
+        - name: 內部部署防火牆組態
+          href: on-premises-firewall-configuration.md
         - name: 管理節點
           items:
             - name: 佈建節點

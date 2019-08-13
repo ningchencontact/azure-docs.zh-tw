@@ -197,6 +197,8 @@
       items:
         - name: 應用程式模型
           href: service-fabric-application-model.md
+        - name: 建立應用程式模型範本
+          href: service-fabric-concept-resource-model.md
         - name: 應用程式及服務資訊清單
           href: service-fabric-application-and-service-manifests.md
         - name: 應用程式和服務資訊清單範例
@@ -350,6 +352,10 @@
           href: service-fabric-diagnostics-partners.md
     - name: 與 API 管理整合
       href: service-fabric-api-management-overview.md
+    - name: 應用程式資源模型
+      href: service-fabric-concept-resource-model.md
+    - name: 受控識別
+      href: concepts-managed-identity.md
 - name: 使用說明指南
   items:
     - name: 設定開發環境
@@ -741,6 +747,26 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: 針對本機叢集進行疑難排解
           href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: 使用 Service Fabric 應用程式的受控識別
+      items:
+        - name: 叢集設定
+          items:
+            - name: 使用受控識別來設定現有的叢集
+              href: configure-existing-cluster-enable-managed-identity-token-service.md
+            - name: 使用受控識別來設定新的 Azure Service Fabric 叢集
+              href: configure-new-azure-service-fabric-enable-managed-identity.md
+        - name: 應用程式設定
+          items:
+            - name: 如何使用受控識別部署應用程式
+              items:
+                - name: 如何使用系統指派的受控識別部署應用程式
+                  href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
+                - name: 如何使用使用者指派的受控識別部署應用程式
+                  href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
+        - name: 將 MITS 與 Service Fabric 應用程式程式碼搭配使用
+          href: how-to-managed-identity-service-fabric-app-code.md
+        - name: 將存取權授與其他 Azure 資源
+          href: how-to-grant-access-other-resources.md
 - name: 參考
   items:
     - name: Azure PowerShell

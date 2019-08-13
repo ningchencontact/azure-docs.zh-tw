@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/02/2019
+  ms.date: 08/12/2019
   ms.author: heidist
 abstract:
-  description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>認知搜尋</b></a>現已公開推出，並具備支援用於生產案例的 AI 擴充資料。<p/><a href="/azure/search/knowledge-store-concept-intro"><b>知識存放區 (預覽)</b></a> 可擴充認知搜尋。 將 AI 擴充資料儲存至可以在 Azure 搜尋服務以外的其他應用程式中檢視、調整及取用擴充資料的儲存體。 立即<a href="/azure/search/knowledge-store-howto"><b>開始使用</b></a>。
+  description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>認知搜尋</b></a>是 Azure 搜尋服務的一項功能，可附加 AI 程式來編制索引、偵測影像檔案中的文字和特性，以及在大型非結構化文字區塊中尋找模式。<p/><a href="/azure/search/knowledge-store-concept-intro"><b>知識存放區 (預覽)</b></a> 可擴充認知搜尋。 將 AI 擴充儲存至儲存體，讓您可以在用戶端應用程式或下游程序中檢視、調整及取用。 立即<a href="/azure/search/knowledge-store-howto"><b>開始使用</b></a>。
   aside:
     image:
       alt: null

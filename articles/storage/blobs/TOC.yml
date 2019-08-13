@@ -137,6 +137,8 @@
           items:
             - name: 存取層級
               href: storage-blob-storage-tiers.md
+            - name: 從封存儲存體解除凍結資料
+              href: storage-blob-rehydration.md
             - name: 管理 Azure Blob 儲存體生命週期
               href: storage-lifecycle-management-concepts.md
         - name: 效能及延展性
