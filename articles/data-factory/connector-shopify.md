@@ -45,7 +45,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Shopify** | 是 |
-| 主機 | Shopify 伺服器的端點。 (也就是 mystore.myshopify.com)  | 是 |
+| host | Shopify 伺服器的端點。 (也就是 mystore.myshopify.com)  | 是 |
 | accessToken | 可以用來存取 Shopify 資料的 API 存取權杖。 如果權杖是離線模式，則不會過期。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
