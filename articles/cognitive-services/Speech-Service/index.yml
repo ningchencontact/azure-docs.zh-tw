@@ -45,7 +45,7 @@ sections:
     items:
       - type: paragraph
         text: |
-          您可以使用語音 SDK (<a href="releasenotes.md">版本資訊</a>)，將下列 (或更多) 功能新增到您的應用程式&colon; 
+          您可以使用語音 SDK (<a href="releasenotes.md">版本資訊</a>)，將下列 (或更多) 功能新增到您的應用程式&colon;
           <div class="row"><div class="column"><ul>
           <li><b><a href="speech-to-text.md">語音轉換文字</a></b> (語音-辨識/SR)</li>
           <li><b><a href="speech-devices-sdk-create-kws.md">自訂喚醒文字</a></b> (關鍵字-尋找程式/KWS)</li>
@@ -253,10 +253,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="speech-to-text-sample.md">語音轉換文字 (SR)</a><br/>
-          - html: <a href="intent.md">意圖辨識</a><br/>
-          - html: <a href="translation.md">翻譯</a>
-          - html: <a href="quickstart-text-to-speech-dotnet-windows.md">文字轉換語音</a><br/>
+          - html: '<a href="how-to-recognize-intents-from-speech-csharp.md">以 LUIS 辨識語音意圖 (C#)</a><br/>'
+          - html: '<a href="tutorial-voice-enable-your-bot-speech-sdk.md">使用語音 SDK 和 C# 透過聲音啟用 Bot</a><br/>'
+          - html: <a href="../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json">建置 Flask 應用程式以翻譯文字及合成語音和 REST</a><br/>
   - title: 範例
     items:
       - type: paragraph

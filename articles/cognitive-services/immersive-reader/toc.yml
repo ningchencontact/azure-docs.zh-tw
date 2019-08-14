@@ -14,9 +14,11 @@
 - name: 教學課程
   items:
     - name: 啟動沈浸式閱讀程式 (Node.js)
-      href: tutorial.md
+      href: tutorial-nodejs.md
+    - name: 啟動沈浸式閱讀程式 (Python)
+      href: tutorial-python.md
     - name: 沉浸式閱讀程式 (Swift) 的圖片
-      href: ios-picture-immersive-reader-tutorial.md
+      href: tutorial-ios-picture-immersive-reader.md
 - name: 作法
   items:
     - name: Azure Active Directory 驗證

@@ -162,6 +162,8 @@
       items:
         - name: 資源疑難排解
           href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: hbase hbck 傳回不一致的情況
+          href: ./hbase-troubleshoot-hbase-hbck-inconsistencies.md
         - name: 連接重設後發生儲存例外狀況
           href: ./hbase-troubleshoot-storage-exception-reset.md
         - name: Apache Phoenix 檢視中沒有資料

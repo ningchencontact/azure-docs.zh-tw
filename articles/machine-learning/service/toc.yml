@@ -98,9 +98,6 @@
     - name: 模型可解釋性
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: FPGA 與 CPU GPU ASIC
-      displayName: 'field, programmable, arrays'
-      href: concept-accelerate-with-fpgas.md
     - name: ONNX
       href: concept-onnx.md
     - name: 安全性

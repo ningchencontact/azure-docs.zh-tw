@@ -91,23 +91,27 @@
               href: choose-map-style.md
             - name: 將控制項新增至地圖
               href: map-add-controls.md
+            - name: 建立資料來源
+              href: create-data-source-web-sdk.md
             - name: 新增符號圖層
               href: map-add-pin.md
-            - name: 新增快顯
-              href: map-add-popup.md
             - name: 新增泡泡圖層
               href: map-add-bubble-layer.md
-            - name: 新增圖形
+            - name: 新增線條圖層
+              href: map-add-line-layer.md
+            - name: 新增多邊形圖層
               href: map-add-shape.md
             - name: 新增熱度圖層
               href: map-add-heat-map-layer.md
+            - name: 新增快顯
+              href: map-add-popup.md
             - name: 叢集點資料
               href: clustering-point-data-web-sdk.md
             - name: 使用資料驅動樣式運算式
               href: data-driven-style-expressions-web-sdk.md
             - name: 如何使用映像範本
               href: how-to-use-image-templates-web-sdk.md
-            - name: 將影像重疊
+            - name: 新增映像圖層
               href: map-add-image-layer.md
             - name: 新增圖格圖層
               href: map-add-tile-layer.md
@@ -139,6 +143,8 @@
           href: how-to-add-symbol-to-android-map.md
         - name: 新增圖形
           href: how-to-add-shapes-to-android-map.md
+        - name: 顯示功能資訊
+          href: display-feature-information-android.md
         - name: 新增圖格圖層
           href: how-to-add-tile-layer-android-map.md
 - name: 參考
