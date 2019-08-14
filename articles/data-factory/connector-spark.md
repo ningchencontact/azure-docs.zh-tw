@@ -47,7 +47,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | serverType | Spark 伺服器的類型。 <br/>允許的值包括：**SharkServer**、**SharkServer2**、**SparkThriftServer** | 否 |
 | thriftTransportProtocol | Thrift 層中使用的傳輸通訊協定。 <br/>允許的值包括：**Binary**、**SASL**、**HTTP** | 否 |
 | authenticationType | 用來存取 Spark 伺服器的驗證方法。 <br/>允許的值包括：**Anonymous**、**Username**、**UsernameAndPassword**、**WindowsAzureHDInsightService** | 是 |
-| userName | 您用來存取 Spark 伺服器的使用者名稱。  | 否 |
+| username | 您用來存取 Spark 伺服器的使用者名稱。  | 否 |
 | password | 對應到使用者的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | httpPath | 對應至 Spark 伺服器的部分 URL。  | 否 |
 | enableSsl | 指定是否使用 SSL 來加密與伺服器的連線。 預設值為 False。  | 否 |
@@ -87,7 +87,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**SparkObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
