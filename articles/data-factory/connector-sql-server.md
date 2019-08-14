@@ -61,7 +61,7 @@ ms.locfileid: "68827866"
 | type | 類型屬性必須設定為 **SqlServer**。 | 是 |
 | connectionString |指定使用 SQL 驗證或 Windows 驗證連接到 SQL Server 資料庫所需的**connectionString**資訊。 請參考下列範例。<br/>將此欄位標記為**SecureString** , 將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中。 如果是 SQL 驗證, 請從連接`password`字串中提取設定。 如需詳細資訊, 請參閱資料表後面的 JSON 範例, 並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 |是 |
 | userName |如果您使用 Windows 驗證, 請指定使用者名稱。 範例為 **domainname\\username**。 |否 |
-| 密碼 |針對您為使用者名稱指定的使用者帳戶指定密碼。 將此欄位標記為**SecureString** , 將它安全地儲存在 Azure Data Factory 中。 或者, 您可以[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 |否 |
+| password |針對您為使用者名稱指定的使用者帳戶指定密碼。 將此欄位標記為**SecureString** , 將它安全地儲存在 Azure Data Factory 中。 或者, 您可以[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 |否 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果您的資料存放區可公開存取, 您可以使用自我裝載整合執行時間或 Azure 整合執行時間。 如果未指定, 則會使用預設的 Azure integration runtime。 |否 |
 
 >[!TIP]
