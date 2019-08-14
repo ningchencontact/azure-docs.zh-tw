@@ -45,7 +45,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設為：**Square** | 是 |
-| 主機 | Square 執行個體的 URL。 (亦即 mystore.mysquare.com)  | 是 |
+| host | Square 執行個體的 URL。 (亦即 mystore.mysquare.com)  | 是 |
 | clientId | 與您 Square 應用程式相關聯的用戶端識別碼。  | 是 |
 | clientSecret | 與您 Square 應用程式相關聯的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | redirectUri | Square 應用程式儀表板中指派的重新導向 URL。 (亦即 HTTP:\//localhost: 2500)  | 是 |
