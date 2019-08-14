@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779838"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928021"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -54,7 +54,7 @@ Microsoft Azure 可讓您在共用的實體基礎結構上執行應用程式和�
 每個 Azure AD 目錄都不同，並與其他 Azure AD 目錄分開。 就像公司辦公大樓是您組織特有的安全資產，Azure AD 目錄也是設計成僅供您組織使用的安全資產。 Azure AD 架構會隔離客戶資料與身分識別資訊，避免兩者混淆。 這表示某個 Azure AD 目錄的使用者和系統管理員無法意外或惡意存取另一個目錄中的資料。
 
 ### <a name="azure-tenancy"></a>Azure 租用
-Azure 租用 (Azure 訂用帳戶) 是指「客戶/計費」關聯性，以及 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 中唯一的[租用戶](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)。 Microsoft Azure 中的租用戶層級隔離是使用 Azure Active Directory 及其所提供的[角色型控制](https://docs.microsoft.com/azure/role-based-access-control/overview)來達成。 每個 Azure 訂用帳戶都會與一個 Azure Active Directory (AD) 目錄相關聯。
+Azure 租用 (Azure 訂用帳戶) 是指「客戶/計費」關聯性，以及 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 中唯一的[租用戶](../../active-directory/develop/quickstart-create-new-tenant.md)。 Microsoft Azure 中的租用戶層級隔離是使用 Azure Active Directory 及其所提供的[角色型控制](../../role-based-access-control/overview.md)來達成。 每個 Azure 訂用帳戶都會與一個 Azure Active Directory (AD) 目錄相關聯。
 
 該目錄中的使用者、群組和應用程式可以管理 Azure 訂用帳戶中的資源。 您可以使用 Azure 入口網站、Azure 命令列工具或 Azure 管理 API 來指派這些存取權限。 Azure AD 租用戶邏輯上是使用安全性界限來隔離，如此一來就沒有任何客戶可以存取或危害共同的租用戶 (不論是惡意或意外)。 Azure AD 是在已隔離網路區段上隔離之「裸機」伺服器上執行的，其中主機層級的封包篩選和 Windows 防火牆會封鎖來路不明的連接和流量。
 
@@ -71,7 +71,7 @@ Azure 租用 (Azure 訂用帳戶) 是指「客戶/計費」關聯性，以及 [A
 
 - Azure AD 使用者無法存取實體資產或位置，因此，不可能略過以下所述的邏輯 RBAC 原則檢查。
 
-針對診斷與維護需求，必須使用採用 Just-In-Time 權限提高系統的作業模型。 Azure AD Privileged Identity Management (PIM) 導入了合格管理員的概念。[合格管理員](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)應該是偶爾需要特殊存取權限而非每一天都需要此權限的使用者。 在使用者需要存取權之前，角色會處於非作用中狀態，然後使用者須完成啟用程序，才能在一段預定的時間內成為作用中的系統管理員。
+針對診斷與維護需求，必須使用採用 Just-In-Time 權限提高系統的作業模型。 Azure AD Privileged Identity Management (PIM) 導入了合格管理員的概念。[合格管理員](../../active-directory/privileged-identity-management/pim-configure.md)應該是偶爾需要特殊存取權限而非每一天都需要此權限的使用者。 在使用者需要存取權之前，角色會處於非作用中狀態，然後使用者須完成啟用程序，才能在一段預定的時間內成為作用中的系統管理員。
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -82,7 +82,7 @@ Azure Active Directory 會透過租用戶單獨擁有且管理之容器內的原
 即使將來自多個 Azure Active Directory 租用戶的中繼資料儲存於同一個實體磁碟，在目錄服務所定義之容器以外的容器間還是不會有任何關聯性，而目錄服務是由租用戶管理員所決定。
 
 ### <a name="azure-role-based-access-control-rbac"></a>Azure 角色型存取控制 (RBAC)
-[Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) 可藉由提供適用於 Azure 的細部存取管理，來協助您在 Azure 訂用帳戶之間共用各種可用的元件。 Azure RBAC 可讓您隔離組織內的責任，並根據使用者需要哪些權限執行其工作來授與他們存取權。 您不需為每個人授與 Azure 訂用帳戶或資源中無限制的權限，而是只允許執行特定的動作。
+[Azure 角色型存取控制 (RBAC)](../../role-based-access-control/overview.md) 可藉由提供適用於 Azure 的細部存取管理，來協助您在 Azure 訂用帳戶之間共用各種可用的元件。 Azure RBAC 可讓您隔離組織內的責任，並根據使用者需要哪些權限執行其工作來授與他們存取權。 您不需為每個人授與 Azure 訂用帳戶或資源中無限制的權限，而是只允許執行特定的動作。
 
 Azure RBAC 有適用於所有資源類型的三個基本角色：
 
@@ -96,16 +96,16 @@ Azure RBAC 有適用於所有資源類型的三個基本角色：
 
 Azure 中其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，「虛擬機器參與者」角色可讓使用者建立和管理虛擬機器。 但不會授予他們存取虛擬機器所連接之 Azure 虛擬網路或子網路的存取權。
 
-[RBAC 內建角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)會列出 Azure 中可用的角色。 它會指定每個內建角色授與使用者的作業和範圍。 如果您想要定義自己的角色，獲得更進一步控制，請參閱如何建立 [Azure RBAC 中的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。
+[RBAC 內建角色](../../role-based-access-control/built-in-roles.md)會列出 Azure 中可用的角色。 它會指定每個內建角色授與使用者的作業和範圍。 如果您想要定義自己的角色，獲得更進一步控制，請參閱如何建立 [Azure RBAC 中的自訂角色](../../role-based-access-control/custom-roles.md)。
 
 Azure Active Directory 的一些其他功能包括：
 - Azure AD 會啟用 SaaS 應用程式的 SSO，而無論應用程式裝載於何處。 有些應用程式會與 Azure AD 同盟，有些則使用密碼 SSO。 同盟應用程式也能支援使用者佈建和[密碼儲存庫存 (英文)](https://www.techopedia.com/definition/31415/password-vault)。
 
-- 對 [Azure 儲存體](https://azure.microsoft.com/services/storage/)的資料存取可透過驗證來控制。 每個儲存體帳戶都有主要金鑰 ([儲存體帳戶金鑰](https://docs.microsoft.com/azure/storage/storage-create-storage-account)，或稱 SAK) 和次要金鑰 (共用存取簽章，或稱 SAS)。
+- 對 [Azure 儲存體](https://azure.microsoft.com/services/storage/)的資料存取可透過驗證來控制。 每個儲存體帳戶都有主要金鑰 ([儲存體帳戶金鑰](../../storage/common/storage-create-storage-account.md)，或稱 SAK) 和次要金鑰 (共用存取簽章，或稱 SAS)。
 
-- Azure AD 可透過與內部部署目錄的同盟、同步和複寫提供「身分識別即服務」(使用 [Active Directory Federation Services](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs))。
+- Azure AD 可透過與內部部署目錄的同盟、同步和複寫提供「身分識別即服務」(使用 [Active Directory Federation Services](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md))。
 
-- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) 是一種多因素驗證服務，需要使用者同時使用行動裝置應用程式、通話或簡訊來驗證登入。 它可與 Azure Active Directory 搭配使用，來協助保護內部部署資源和 Azure Multi-Factor Authentication Server 的安全，它還可以使用 SDK 來與自訂應用程式和目錄搭配使用。
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) 是一種多因素驗證服務，需要使用者同時使用行動裝置應用程式、通話或簡訊來驗證登入。 它可與 Azure Active Directory 搭配使用，來協助保護內部部署資源和 Azure Multi-Factor Authentication Server 的安全，它還可以使用 SDK 來與自訂應用程式和目錄搭配使用。
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) 可讓您將 Azure 虛擬機器加入 Active Directory 網域，而不需部署網域控制站。 您可以登入使用公司的 Active Directory 認證登入這些虛擬機器，並使用群組原則管理加入網域的虛擬機器，以對您所有的 Azure 虛擬機器強制執行安全性基準。
 
@@ -140,7 +140,7 @@ Azure 計算服務所提供的虛擬機器大小不受特定硬體類型限制�
 * Standard_D15_v2
 * Standard_F72s_v2
 
-您可以在[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)深入了解每個可用的隔離大小。
+您可以在[這裡](../../virtual-machines/windows/sizes-memory.md)深入了解每個可用的隔離大小。
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>根 VM 與客體 VM 之間的 Hyper-V 和根 OS 隔離
 Azure 的計算平台會以機器虛擬化為基礎，這表示所有客戶程式碼都會在 Hyper-V 虛擬機器中執行。 在每個 Azure 節點 (或網路端點) 上，都有一個 Hypervisor 會直接在硬體上執行，並將節點分成不同數量的客體虛擬機器 (VM)。
@@ -215,12 +215,12 @@ Microsoft Azure 的基本設計是將以 VM 為基礎的計算與儲存體分隔
 
 ![使用儲存體存取控制進行隔離](./media/isolation-choices/azure-isolation-fig9.png)
 
-**Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
+**Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
 
 SAS 意謂著我們可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限進行存取。 我們可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
 
 ### <a name="ip-level-storage-isolation"></a>IP 層級儲存體隔離
-您可以建立防火牆，並且為受信任的用戶端定義 IP 位址範圍。 使用 IP 位址範圍時，只有具有定義範圍內 IP 位址的用戶端可以連接到 [Azure 儲存體](https://docs.microsoft.com/azure/storage/storage-security-guide)。
+您可以建立防火牆，並且為受信任的用戶端定義 IP 位址範圍。 使用 IP 位址範圍時，只有具有定義範圍內 IP 位址的用戶端可以連接到 [Azure 儲存體](../../storage/common/storage-security-guide.md)。
 
 IP 儲存體資料可透過網路機制受到保護，以避免未經授權之使用者的存取，該機制可用來將流量的專用通道配置到 IP 儲存體。
 
@@ -233,23 +233,23 @@ Azure 提供下列加密類型來保護資料：
 #### <a name="encryption-in-transit"></a>傳輸中加密
 傳輸中加密是透過網路傳輸資料時用來保護資料的機制。 透過 Azure 儲存體，您可以使用下列各項來保護資料：
 
--   [傳輸層級加密](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
+-   [傳輸層級加密](../../storage/common/storage-security-guide.md)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
 
 -   [連線加密](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)，例如 Azure 檔案共用的 SMB 3.0 加密。
 
--   [用戶端加密](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
+-   [用戶端加密](../../storage/common/storage-security-guide.md)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
 
 #### <a name="encryption-at-rest"></a>待用加密
-對許多組織來說， [待用資料加密](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) 是達到資料隱私性、法規遵循及資料主權的必要步驟。 有三個 Azure 功能可提供「待用」資料的加密。
+對許多組織來說， [待用資料加密](isolation-choices.md) 是達到資料隱私性、法規遵循及資料主權的必要步驟。 有三個 Azure 功能可提供「待用」資料的加密。
 
--   [儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
+-   [儲存體服務加密](../../storage/common/storage-security-guide.md) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
 
--   [用戶端加密](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) 也會提供待用加密的功能。
+-   [用戶端加密](../../storage/common/storage-security-guide.md) 也會提供待用加密的功能。
 
--   [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
+-   [Azure 磁碟加密](../azure-security-disk-encryption-overview.md) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
 
 #### <a name="azure-disk-encryption"></a>Azure 磁碟加密
-適用於虛擬機器 (VM) 的 [Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)會使用您在 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 中所控制的金鑰與原則來將 VM 磁碟 (包括開機和資料磁碟) 加密，以協助您達成組織安全性與合規性需求。
+適用於虛擬機器 (VM) 的 [Azure 磁碟加密](../azure-security-disk-encryption-overview.md)會使用您在 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 中所控制的金鑰與原則來將 VM 磁碟 (包括開機和資料磁碟) 加密，以協助您達成組織安全性與合規性需求。
 
 Windows 的磁碟加密解決方案是建基於 [Microsoft BitLocker 磁碟機加密](https://technet.microsoft.com/library/cc732774.aspx)，而 Linux 解決方案是建基於 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)。
 
@@ -293,7 +293,7 @@ SQL Database 是 Microsoft Cloud 中以領先市場的 Microsoft SQL Server 引�
 
 ### <a name="sql-azure-application-model"></a>SQL Azure 應用程式模型
 
-[Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) 資料庫是以 SQL Server 技術為基礎來建置的雲端型關聯式資料庫服務。 它會在雲端中提供由 Microsoft 裝載的高可用性、可調整、多租用戶的資料庫服務。
+[Microsoft SQL Azure](../../sql-database/sql-database-single-database-get-started.md) 資料庫是以 SQL Server 技術為基礎來建置的雲端型關聯式資料庫服務。 它會在雲端中提供由 Microsoft 裝載的高可用性、可調整、多租用戶的資料庫服務。
 
 從應用程式的觀點來看，SQL Azure 提供下列階層︰每個層級都有層級的一對多內含項目，如下所示。
 
@@ -344,9 +344,9 @@ Azure 部署具有多層網路隔離。 下圖顯示 Azure 提供給客戶的各
 
 ![網路隔離](./media/isolation-choices/azure-isolation-fig13.png)
 
-**流量隔離**：[虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)是 Azure 平台上的流量隔離界限。 一個虛擬網路中的虛擬機器 (VM) 無法與不同虛擬網路中的 VM 直接通訊，即使兩個虛擬網路是由同一位客戶所建立也一樣。 隔離是很重要的屬性，可確保客戶 VM 和通訊仍然隱蔽於虛擬網路內。
+**流量隔離**：[虛擬網路](../../virtual-network/virtual-networks-overview.md)是 Azure 平台上的流量隔離界限。 一個虛擬網路中的虛擬機器 (VM) 無法與不同虛擬網路中的 VM 直接通訊，即使兩個虛擬網路是由同一位客戶所建立也一樣。 隔離是很重要的屬性，可確保客戶 VM 和通訊仍然隱蔽於虛擬網路內。
 
-[子網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)使用以 IP 範圍為基礎的虛擬網路，來提供額外的隔離層級。 虛擬網路中的 IP 位址，您可以將虛擬網路分成多個子網路以便進行組織和獲得安全性。 部署至 VNet 內 (相同或不同) 子網路的 VM 和 PaaS 角色執行個體不需要進行額外設定就可以彼此通訊。 您也可以設定[網路安全性群組 (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)，根據 NSG 之存取控制清單 (ACL) 中設定的規則，來允許或拒絕移至 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。
+[子網路](../../virtual-network/virtual-networks-overview.md)使用以 IP 範圍為基礎的虛擬網路，來提供額外的隔離層級。 虛擬網路中的 IP 位址，您可以將虛擬網路分成多個子網路以便進行組織和獲得安全性。 部署至 VNet 內 (相同或不同) 子網路的 VM 和 PaaS 角色執行個體不需要進行額外設定就可以彼此通訊。 您也可以設定[網路安全性群組 (NSG)](../../virtual-network/virtual-networks-overview.md)，根據 NSG 之存取控制清單 (ACL) 中設定的規則，來允許或拒絕移至 VM 執行個體的網路流量。 NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。 當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。
 
 ## <a name="next-steps"></a>後續步驟
 

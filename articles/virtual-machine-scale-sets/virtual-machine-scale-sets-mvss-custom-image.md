@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: manayar
-ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ed75a72360253996471034b001e12e8190cf733
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869103"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935271"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>新增自訂映像至 Azure 擴展集範本
 
-這篇文章說明如何修改[基本的擴展集範本](virtual-machine-scale-sets-mvss-start.md)從自訂映像部署。
+本文說明如何修改[基本擴展集範本](virtual-machine-scale-sets-mvss-start.md), 以從自訂映射進行部署。
 
 ## <a name="change-the-template-definition"></a>變更範本定義
-在 [前一篇文章](virtual-machine-scale-sets-mvss-start.md)我們建立基本的擴展集範本。 我們現在會使用較早的範本，並修改它來建立範本來部署擴展集從自訂映像。  
+在[前一篇文章](virtual-machine-scale-sets-mvss-start.md)中, 我們已建立基本的擴展集範本。 我們現在會使用先前的範本並加以修改, 以建立可從自訂映射部署擴展集的範本。  
 
 ### <a name="creating-a-managed-disk-image"></a>建立受控磁碟映像
 
@@ -97,15 +97,11 @@ ms.locfileid: "64869103"
 
 在擴展集 `storageProfile` 的 `imageReference` 中，不是指定發行者、供應項目、sku 及平台映像版本，而是指定 `Microsoft.Compute/images` 資源的 `id`：
 
-```diff
+```json
          "virtualMachineProfile": {
            "storageProfile": {
              "imageReference": {
--              "publisher": "Canonical",
--              "offer": "UbuntuServer",
--              "sku": "16.04-LTS",
--              "version": "latest"
-+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
+              "id": "[resourceId('Microsoft.Compute/images', 'myCustomImage')]"
              }
            },
            "osProfile": {

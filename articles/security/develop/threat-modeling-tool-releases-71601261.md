@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
-ms.openlocfilehash: 3f857fd50fcaf926486b6ea480f87bcc4c690f45
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d9c91752a599debcd8fda6c8396141e6a92e0f06
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727948"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928091"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool 更新版本 7.1.60126.1 - 1/29/2019
 
@@ -66,7 +66,7 @@ Windows 10 Enterprise LTSB (版本 1507 版) 的使用者若已安裝最新的�
 
 ## <a name="documentation-and-feedback"></a>文件和意見反應
 
-- Threat Modeling Tool 的文件位於 [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)，其中包含[關於使用工具](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started)的資訊。
+- Threat Modeling Tool 的文件位於 [docs.microsoft.com](threat-modeling-tool.md)，其中包含[關於使用工具](threat-modeling-tool-getting-started.md)的資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

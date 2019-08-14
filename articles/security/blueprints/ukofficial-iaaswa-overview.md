@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609480"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946536"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 安全性與合規性藍圖 - 適用於 UK OFFICIAL 的三層式 IaaS Web 應用程式
 
@@ -25,7 +25,7 @@ ms.locfileid: "60609480"
 
  NCSC 建議客戶使用他們的雲端安全性原則來評估服務的安全性屬性，並協助了解客戶與供應商之間的責任分工。 我們已針對每個原則提供相關資訊，以協助您了解責任的劃分方式。
 
- Microsoft 技術白皮書[使用 Microsoft Azure 對於英國雲端的 14 個安全性控制措施](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) \(英文\) 支援此架構和對應的 Azure Resource Manager 範本。 本白皮書記載 Azure 服務符合 UK NCSC 14 雲端安全性準則，因此可讓組織快速追蹤能夠符合其全球及英國使用雲端式服務在 Microsoft Azure 上的合規性義務雲端。
+ Microsoft 技術白皮書[使用 Microsoft Azure 對於英國雲端的 14 個安全性控制措施](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) \(英文\) 支援此架構和對應的 Azure Resource Manager 範本。 本白皮書目錄配合 Azure 服務如何與英國 NCSC 14 雲端安全性準則一致, 藉此讓組織能夠以全球和英國的 Microsoft Azure, 快速追蹤其滿足其合規性義務的能力形成.
 
  此範本會針對工作負載部署基礎結構。 必須安裝並設定應用程式程式碼及支援的商務層和資料層的軟體。 詳細的部署指示可於[這裡](https://aka.ms/ukwebappblueprintrepo) \(英文\) 取得。
 
@@ -98,7 +98,7 @@ ms.locfileid: "60609480"
   - (2) 個已連線到作業 VNet 的 NIC：每部 VM 1 個
   - 未加入網域
 
-可用性設定組 (Availability Sets)
+可用性設定組
 - (1) 個 Active Directory 網域控制站 VM 集合：2 部 VM
 - (1) 個網路層 VM 集合：2 部 VM
 - (1) 個商務層 VM 集合：2 部 VM
@@ -109,7 +109,7 @@ ms.locfileid: "60609480"
 - (1) 個商務層負載平衡器
 - (1) 個 資料層負載平衡器
 
-儲存體
+存放區
 - 一共 (14) 個儲存體帳戶
   - Active Directory 網域控制站可用性設定組
     - (2) 個主要本地備援儲存體 (LRS) 帳戶：每部 VM 1 個  
@@ -141,7 +141,7 @@ ms.locfileid: "60609480"
 
 **閘道**：[VPN 閘道](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)會提供內部部署網路與生產環境 VNet 中路由器之間的連線。
 
-**網際網路閘道和公用 IP 位址**：網際網路閘道會透過網際網路向使用者公開應用程式服務。 存取這些服務的流量會透過[應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)來進行保護，應用程式閘道能提供第 7 層路由和負載平衡功能，並搭配 Web 應用程式防火牆 (WAF) 保護。
+**網際網路閘道和公用 IP 位址**：網際網路閘道會透過網際網路向使用者公開應用程式服務。 存取這些服務的流量會透過[應用程式閘道](../../application-gateway/overview.md)來進行保護，應用程式閘道能提供第 7 層路由和負載平衡功能，並搭配 Web 應用程式防火牆 (WAF) 保護。
 
 **管理 VNet**：此 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 所包含的資源能針對在生產環境 VNet 中執行的工作負載，實作管理與監視功能。
 
@@ -152,11 +152,11 @@ ms.locfileid: "60609480"
 **網路對等互連的 VNET**：生產環境 VNet 和管理 VNet 會使用 [VNet 對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)來連線。
 系統仍然會將這些 VNet 作為不同的資源來管理，但針對這些虛擬機器的所有連線用途則會顯示為單一資源。 這些網路會使用私人 IP 位址與彼此進行直接通訊。 VNet 對等互連的 VNet 皆需位於同一個 Azure 區域。
 
-**網路安全性群組**：[NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 包含能允許或拒絕 VNet 內流量的存取控制清單。 NSG 可以用來保護子網路或個別 VM 層級的流量。
+**網路安全性群組**：[NSG](../../virtual-network/virtual-network-vnet-plan-design-arm.md) 包含能允許或拒絕 VNet 內流量的存取控制清單。 NSG 可以用來保護子網路或個別 VM 層級的流量。
 
 **Active Directory Domain Services (AD DS)** ：此架構會提供專用的 [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) 部署。
 
-**記錄與稽核**：[Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)會擷取在您訂用帳戶中的資源上所採取的作業，例如起始作業的人員、作業發生的時間、作業的狀態，以及可能有助於您研究作業的其他屬性值。 Azure 活動記錄為可擷取訂用帳戶上所有動作的 Azure 平台服務。 必要時可將記錄封存或匯出。
+**記錄與稽核**：[Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)會擷取在您訂用帳戶中的資源上所採取的作業，例如起始作業的人員、作業發生的時間、作業的狀態，以及可能有助於您研究作業的其他屬性值。 Azure 活動記錄為可擷取訂用帳戶上所有動作的 Azure 平台服務。 必要時可將記錄封存或匯出。
 
 **網路監視和警示**：[Azure 網路監看員](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)是一個可針對 VNet 內的網路流量提供網路封包擷取、流程記錄、拓撲工具及診斷的平台服務。
 
@@ -168,25 +168,25 @@ ms.locfileid: "60609480"
 
 ### <a name="logging-and-audit"></a>記錄與稽核
 
-**監視**：[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)是一個可提供單一來源以監視所有 Azure 資源的活動記錄、計量和診斷記錄的平台服務。 可針對 Azure 監視器加以設定，以針對來自 Azure 中資源的計量和記錄進行視覺化、查詢、路由傳送、封存及反應。 建議使用資源型存取控制來保護稽核線索，以協助確保使用者不具修改記錄的能力。
+**監視**：[Azure 監視器](../../azure-monitor/overview.md)是一個可提供單一來源以監視所有 Azure 資源的活動記錄、計量和診斷記錄的平台服務。 可針對 Azure 監視器加以設定，以針對來自 Azure 中資源的計量和記錄進行視覺化、查詢、路由傳送、封存及反應。 建議使用資源型存取控制來保護稽核線索，以協助確保使用者不具修改記錄的能力。
 
-**活動記錄**：設定 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)，以針對在訂用帳戶中資源上所執行的作業提供深入解析。
+**活動記錄**：設定 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)，以針對在訂用帳戶中資源上所執行的作業提供深入解析。
 
-**診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是資源發出的所有記錄。 這些記錄可能包含 Windows 事件系統記錄、Blob、資料表和佇列記錄。
+**診斷記錄**：[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)是資源發出的所有記錄。 這些記錄可能包含 Windows 事件系統記錄、Blob、資料表和佇列記錄。
 
 **防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄可供已啟用 WAF 的應用程式閘道資源使用。
 
-**記錄封存**：記錄檔資料儲存體可以設定要寫入到集中式的 Azure 儲存體帳戶進行封存及定義的保留期限。 使用 Azure 監視器記錄檔就可以處理記錄檔或協力廠商 SIEM 系統。
+**記錄封存**：記錄資料儲存體可以設定為寫入集中式 Azure 儲存體帳戶進行封存和定義的保留期間。 您可以使用 Azure 監視器記錄或由協力廠商 SIEM 系統來處理記錄。
 
 ### <a name="identity"></a>身分識別
 
 **Active Directory Domain Services**：此架構能在 Azure 中提供 Active Directory Domain Services 部署。 如需在 Azure 中實作 Active Directory 的特定建議，請參閱下列文章：
 
-[將 Active Directory Domain Services (AD DS) 擴充至 Azure](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain)。
+[將 Active Directory Domain Services (AD DS) 擴充至 Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain)。
 
 [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
-**Active Directory 整合**：作為專用 AD DS 架構的替代方案，客戶可能會想要使用 [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) 整合或 [Azure 中已加入內部部署樹系的 Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity)。
+**Active Directory 整合**：作為專用 AD DS 架構的替代方案，客戶可能會想要使用 [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) 整合或 [Azure 中已加入內部部署樹系的 Active Directory](/azure/architecture/reference-architectures/identity.md)。
 
 ### <a name="security"></a>安全性
 
@@ -194,21 +194,21 @@ ms.locfileid: "60609480"
 
 客戶可能也會考慮使用[增強式安全性系統管理模型](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) \(機器翻譯\)，來在連線到管理 VNet 和 Jumpbox 時保護環境的安全。 若要增強安全性，建議客戶使用[具特殊權限的存取工作站](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) \(機器翻譯\) 和 RDGateway 設定。 使用網路虛擬裝置及公開/私人 DMZ，將能提供進一步的安全性增強功能。
 
-**保護網路**：建議針對每個子網路使用[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) 來提供第二層保護，以避免輸入的流量略過設定不正確或已停用的閘道。 範例：[用於部署 NSG 的 Resource Manager 範本](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups) \(英文\)。
+**保護網路**：建議針對每個子網路使用[網路安全性群組](../../virtual-network/virtual-network-vnet-plan-design-arm.md) (NSG) 來提供第二層保護，以避免輸入的流量略過設定不正確或已停用的閘道。 範例：[用於部署 NSG 的 Resource Manager 範本](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups) \(英文\)。
 
-**保護公用端點**：網際網路閘道會透過網際網路向使用者公開應用程式服務。 存取這些服務的流量會透過[應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)來進行保護，應用程式閘道能提供 Web 應用程式防火牆和 HTTPS 通訊協定管理。
+**保護公用端點**：網際網路閘道會透過網際網路向使用者公開應用程式服務。 存取這些服務的流量會透過[應用程式閘道](../../application-gateway/overview.md)來進行保護，應用程式閘道能提供 Web 應用程式防火牆和 HTTPS 通訊協定管理。
 
 **IP 範圍**：架構中的 IP 範圍是建議的範圍。 建議客戶考量自己的環境並使用適當的範圍。
 
-**混合式連線**：雲端式工作負載會使用 Azure VPN 閘道，透過 IPSEC VPN 連線到內部部署資料中心。 客戶應該確保他們是使用適當的 VPN 閘道來連線到 Azure。 範例：[VPN 閘道 Resource Manager 範本](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection) \(英文\)。 執行具有巨量資料需求的大規模、任務關鍵性工作負載的客戶，可能會想要考慮使用 [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) \(英文\) 的混合式網路架構，以取得針對 Microsoft 雲端服務的私人網路連線能力。
+**混合式連線**：雲端式工作負載會使用 Azure VPN 閘道，透過 IPSEC VPN 連線到內部部署資料中心。 客戶應該確保他們是使用適當的 VPN 閘道來連線到 Azure。 範例：[VPN 閘道 Resource Manager 範本](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection) \(英文\)。 執行具有巨量資料需求的大規模、任務關鍵性工作負載的客戶，可能會想要考慮使用 [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) \(英文\) 的混合式網路架構，以取得針對 Microsoft 雲端服務的私人網路連線能力。
 
-**分開考量**：此參考架構會將用於管理作業和商務作業的 VNet 分隔開來。 透過遵循 [Microsoft 雲端服務和網路安全性](https://docs.microsoft.com/azure/best-practices-network-security)最佳作法在網路區段之間使用 NSG，將 VNet 和子網路分隔開來將能允許流量管理 (包括流量輸入和輸出限制)。
+**分開考量**：此參考架構會將用於管理作業和商務作業的 VNet 分隔開來。 透過遵循 [Microsoft 雲端服務和網路安全性](/azure/architecture/vdc/networking-virtual-datacenter.md)最佳作法在網路區段之間使用 NSG，將 VNet 和子網路分隔開來將能允許流量管理 (包括流量輸入和輸出限制)。
 
-**資源管理**：Azure 資源 (例如 VM、VNet 及負載平衡器) 是透過將它們組成 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 來管理。 接著可將資源型存取控制角色指派給每個資源群組，以限制只有經授權的使用者可以存取。
+**資源管理**：Azure 資源 (例如 VM、VNet 及負載平衡器) 是透過將它們組成 [Azure 資源群組](../../azure-resource-manager/resource-group-overview.md) 來管理。 接著可將資源型存取控制角色指派給每個資源群組，以限制只有經授權的使用者可以存取。
 
-**存取控制限制**：使用[角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) 來透過[自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)管理應用程式中的資源。RBAC 可以用來限制 DevOps 可於每個層級上執行的作業。 授與權限時，請使用[最小權限的原則](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)。 記錄所有的系統管理作業並定期執行稽核，以確保所有設定變更都是經過規劃的。
+**存取控制限制**：使用[角色型存取控制](../../role-based-access-control/role-assignments-portal.md) (RBAC) 來透過[自訂角色](../../role-based-access-control/custom-roles.md)管理應用程式中的資源。RBAC 可以用來限制 DevOps 可於每個層級上執行的作業。 授與權限時，請使用[最小權限的原則](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)。 記錄所有的系統管理作業並定期執行稽核，以確保所有設定變更都是經過規劃的。
 
-**網際網路存取**：此參考架構會運用[Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)作為網際網路面向閘道和負載平衡器。 作為 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)的替代項目，有些客戶可能也會考慮使用協力廠商網路虛擬裝置來取得額外的網路安全性層。
+**網際網路存取**：此參考架構會使用[Azure 應用程式閘道](../../application-gateway/overview.md)做為網際網路對向閘道和負載平衡器。 作為 [Azure 應用程式閘道](../../application-gateway/overview.md)的替代項目，有些客戶可能也會考慮使用協力廠商網路虛擬裝置來取得額外的網路安全性層。
 
 **Azure 資訊安全中心**：[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)可供集中檢視訂用帳戶中資源的安全性狀態，並提供有助於預防資源遭到入侵的相關建議。 它也可以用來啟用更細微的原則。 例如，可將原則套用到特定的資源群組，來使企業能夠調整針對風險的作法。 建議客戶在其 Azure 訂用帳戶中啟用 Azure 資訊安全中心。
 
@@ -226,7 +226,7 @@ Crown Commercial Service (一所致力於改善政府相關商業和採購活動
 
 ## <a name="deploy-the-solution"></a>部署解決方案
 
-部署使用者可以用兩種方法來部署此藍圖自動化。 第一種方法會使用 PowerShell 指令碼，而第二個方法會利用 Azure 入口網站來部署參考架構。 詳細的部署指示可於[這裡](https://aka.ms/ukofficial-iaaswa-repo) \(英文\) 取得。
+部署使用者可以用兩種方法來部署此藍圖自動化。 第一種方法會使用 PowerShell 腳本, 而第二種方法會利用 Azure 入口網站來部署參考架構。 詳細的部署指示可於[這裡](https://aka.ms/ukofficial-iaaswa-repo) \(英文\) 取得。
 
 ## <a name="disclaimer"></a>免責聲明
 

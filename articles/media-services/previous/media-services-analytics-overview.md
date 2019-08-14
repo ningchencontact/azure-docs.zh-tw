@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milanga; johndeu
+ms.openlocfilehash: d8470ad759d983f25f8f68b93d58f89f23eeb578
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991795"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015402"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析 
 
@@ -64,7 +65,7 @@ Azure 內容仲裁可讓您針對影片使用機器輔助仲裁。 例如，您�
 
 ### <a name="mp-names"></a>MP 名稱
 * Azure 媒體索引器 2 預覽
-* Azure Media Indexer
+* Azure 媒體索引器
 * Azure 媒體臉部偵測器
 * Azure 媒體動作偵測器
 * Azure 媒體視訊縮圖
@@ -103,7 +104,7 @@ Azure 內容仲裁可讓您針對影片使用機器輔助仲裁。 例如，您�
     x-ms-version: 2.12
     Host: media.windows.net
 
-回應：
+回應:
 
     . . .
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c96710d6dcca9f5ef99b3a02a0bc875d433f814d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463327"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015299"
 ---
 # <a name="playing-your-content-with-existing-players"></a>使用現有播放器來播放您的內容
 Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、HTTP 即時資料流和 MPEG-Dash。 本主題會指引您可用來測試串流的現有播放程式。
@@ -31,12 +31,13 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
 
 適用一些考量事項：
 
-* **媒體服務內容播放程式** 會從預設串流端點播放。 如果您想要從非預設串流端點播放，請使用其他播放程式。 例如， [Azure 媒體播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)。
+* **媒體服務內容播放程式** 會從預設串流端點播放。 如果您想要從非預設串流端點播放，請使用其他播放程式。 例如， [Azure 媒體播放器](https://aka.ms/azuremediaplayer)。
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure 媒體播放器
-使用 [Azure 媒體播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html) 播放以下任一格式的內容 (清除或受保護)：
+
+使用 [Azure 媒體播放器](https://aka.ms/azuremediaplayer) 播放以下任一格式的內容 (清除或受保護)：
 
 * Smooth Streaming
 * MPEG DASH
@@ -44,15 +45,17 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
 * Progressive MP4
 
 ### <a name="flash-player"></a>Flash Player
+
 #### <a name="aes-encrypted-with-token"></a>AES 加密與權杖
+
 [https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
-### <a name="silverlight-players"></a>Silverlight 播放程式
-
 #### <a name="playready-with-token"></a>PlayReady 與權杖
+
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### <a name="dash-players"></a>DASH 播放程式
+
 [https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
 [https://dashif.org](https://dashif.org)

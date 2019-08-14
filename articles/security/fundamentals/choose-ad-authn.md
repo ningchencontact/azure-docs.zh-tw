@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: e1910348b53cf147530037283442f453edf2694f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727553"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928037"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
 
@@ -49,14 +49,14 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 ### <a name="cloud-authentication"></a>雲端驗證
 當您選擇此驗證方法時，Azure AD 會處理使用者的登入程序。 搭配無縫單一登入 (SSO)，使用者不必重新輸入認證，就能登入雲端應用程式。 若使用雲端驗證，有兩個選項可供您選擇： 
 
-**Azure AD 密碼雜湊同步處理**。 這是在 Azure AD 中啟用內部部署目錄物件驗證的最簡單方式。 使用者可以使用他們在內部部署中所使用的相同使用者名稱和密碼，而不需部署任何其他基礎結構。 無論您選擇哪一種驗證方法, Azure AD 的一些高階功能 (例如身分識別保護和[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)) 都需要密碼雜湊同步處理。
+**Azure AD 密碼雜湊同步處理**。 這是在 Azure AD 中啟用內部部署目錄物件驗證的最簡單方式。 使用者可以使用他們在內部部署中所使用的相同使用者名稱和密碼，而不需部署任何其他基礎結構。 無論您選擇哪一種驗證方法, Azure AD 的一些高階功能 (例如身分識別保護和[Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)) 都需要密碼雜湊同步處理。
 
 > [!NOTE] 
-> 密碼永遠都不會以純文字儲存，或在 Azure AD 中使用可回復的演算法進行加密。 如需密碼雜湊同步處理實際程序的詳細資訊，請參閱[使用 Azure AD Connect 同步來實作密碼雜湊同步處理](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization)。 
+> 密碼永遠都不會以純文字儲存，或在 Azure AD 中使用可回復的演算法進行加密。 如需密碼雜湊同步處理實際程序的詳細資訊，請參閱[使用 Azure AD Connect 同步來實作密碼雜湊同步處理](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。 
 
 **Azure AD 傳遞驗證**。 藉由使用在一或多部內部部署伺服器上執行的軟體代理程式，為 Azure AD 驗證服務提供簡單密碼驗證。 伺服器會直接透過您的內部部署 Active Directory 來驗證使用者，這樣可以確保密碼驗證不會在雲端中發生。 
 
-具有立即強制執行內部部署使用者帳戶狀態、密碼原則及登入時數等安全性需求的公司，會使用這個驗證方法。 如需實際傳遞驗證程序的詳細資訊，請參閱[使用 Azure AD 傳遞驗證來進行使用者登入](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta)。
+具有立即強制執行內部部署使用者帳戶狀態、密碼原則及登入時數等安全性需求的公司，會使用這個驗證方法。 如需實際傳遞驗證程序的詳細資訊，請參閱[使用 Azure AD 傳遞驗證來進行使用者登入](../../active-directory/hybrid/how-to-connect-pta.md)。
 
 ### <a name="federated-authentication"></a>同盟驗證
 當您選擇此驗證方法時，Azure AD 會將驗證程序交給另一個信任的驗證系統 (例如內部部署 Active Directory 同盟服務 (AD FS)) 來驗證使用者的密碼。
@@ -92,9 +92,9 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 * **使用者體驗**。 若要改善使用者的登入體驗，請部署具有密碼雜湊同步處理的無縫 SSO。 當使用者登入時，無縫 SSO 會排除不必要的提示。
 
-* **進階案例**。 如果組織選擇此選項，就能透過 Azure AD Premium P2，搭配 Azure AD Identity Protection 報表來使用身分識別的見解。 例如認證外洩的報表。 [當您使用密碼雜湊同步處理時,](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)Windows Hello 企業版具有特定的需求。 [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync)需要密碼雜湊同步處理, 才能在受控網域中使用其公司認證來布建使用者。
+* **進階案例**。 如果組織選擇此選項，就能透過 Azure AD Premium P2，搭配 Azure AD Identity Protection 報表來使用身分識別的見解。 例如認證外洩的報表。 [當您使用密碼雜湊同步處理時,](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification)Windows Hello 企業版具有特定的需求。 [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)需要密碼雜湊同步處理, 才能在受控網域中使用其公司認證來布建使用者。
 
-    需要多重要素驗證與密碼雜湊同步處理的組織, 必須使用 Azure AD 多重要素驗證或[條件式存取自訂控制項](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview)。 這些組織無法使用依賴同盟的協力廠商或內部部署多重要素驗證方法。
+    需要多重要素驗證與密碼雜湊同步處理的組織, 必須使用 Azure AD 多重要素驗證或[條件式存取自訂控制項](../../active-directory/conditional-access/controls.md#custom-controls-preview)。 這些組織無法使用依賴同盟的協力廠商或內部部署多重要素驗證方法。
 
 > [!NOTE]
 > Azure AD 條件式存取需要[Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/)授權。
@@ -106,19 +106,19 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 > [!NOTE]
 > 目前系統不會使用 Azure AD Connect，將密碼過期和帳戶鎖定狀態同步到 Azure AD。 當您變更使用者的密碼, 並設定 [*使用者必須在下次登入時變更密碼]* 旗標時, 密碼雜湊不會同步到具有 Azure AD Connect 的 Azure AD, 直到使用者變更其密碼為止。
 
-如需部署步驟，請參閱[實作密碼雜湊同步處理](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization)。
+如需部署步驟，請參閱[實作密碼雜湊同步處理](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)。
 
 ### <a name="cloud-authentication-pass-through-authentication"></a>雲端驗證：傳遞驗證  
 
 * **投入量**。 針對傳遞驗證，您需要在現有伺服器上安裝一或多個 (我們建議 3 個) 輕量型代理程式。 這些代理程式必須能夠存取內部部署 Active Directory Domain Services，包括內部部署 AD 網域控制站。 它們需要對外存取網際網路，並存取您的網域控制站。 基於這個理由，不支援在周邊網路部署代理程式。 
 
-    傳遞驗證需要對於網域控制站的未受限制網路存取權。 所有網路流量均會加密並受限於驗證要求。 如需此程序的詳細資訊，請參閱關於傳遞驗證的[安全性深入探討](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-security-deep-dive)。
+    傳遞驗證需要對於網域控制站的未受限制網路存取權。 所有網路流量均會加密並受限於驗證要求。 如需此程序的詳細資訊，請參閱關於傳遞驗證的[安全性深入探討](../../active-directory/hybrid/how-to-connect-pta-security-deep-dive.md)。
 
 * **使用者體驗**。 若要改善使用者的登入體驗，請部署具有傳遞驗證的無縫 SSO。 在使用者登入之後，無縫 SSO 會排除不必要的提示。
 
-* **進階案例**。 傳遞驗證會在登入時強制執行內部部署帳戶原則。 例如，當內部部署使用者帳戶狀態為停用、遭到鎖定、[密碼過期](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication)或是在允許使用者登入的時間之外登入時，系統會拒絕您的存取。 
+* **進階案例**。 傳遞驗證會在登入時強制執行內部部署帳戶原則。 例如，當內部部署使用者帳戶狀態為停用、遭到鎖定、[密碼過期](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication)或是在允許使用者登入的時間之外登入時，系統會拒絕您的存取。 
 
-    需要多重要素驗證與傳遞驗證的組織, 必須使用 Azure 多重要素驗證 (MFA) 或[條件式存取自訂控制項](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview)。 這些組織無法使用依賴同盟的協力廠商或內部部署多重要素驗證方法。 無論您是否選擇了傳遞驗證，都需要部署密碼雜湊同步處理，才能使用進階功能。 例如 Identity Protection 的認證外洩報表。
+    需要多重要素驗證與傳遞驗證的組織, 必須使用 Azure 多重要素驗證 (MFA) 或[條件式存取自訂控制項](../../active-directory/conditional-access/controls.md#custom-controls-preview)。 這些組織無法使用依賴同盟的協力廠商或內部部署多重要素驗證方法。 無論您是否選擇了傳遞驗證，都需要部署密碼雜湊同步處理，才能使用進階功能。 例如 Identity Protection 的認證外洩報表。
 
 * **商務持續性**。 我們建議您部署兩個額外的傳遞驗證代理程式。 它們是 Azure AD Connect 伺服器上第一個代理程式以外的額外項目。 這種額外部署可確保驗證要求的高可用性。 當您部署三個代理程式時，其中一個代理程式仍可在另一個代理程式關閉以進行維護時失敗。 
 
@@ -126,9 +126,9 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 * **考量**。 當代理程式因為發生重大的內部部署失敗而無法驗證使用者的認證時，您可以使用密碼雜湊同步處理作為傳遞驗證的備用驗證方法。 容錯移轉至密碼雜湊同步處理的動作不會自動發生，您必須使用 Azure AD Connect 手動切換登入方法。 
 
-    關於傳遞驗證 (包括替代識別碼支援) 的其他考量，請參閱[常見問題集](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)。
+    關於傳遞驗證 (包括替代識別碼支援) 的其他考量，請參閱[常見問題集](../../active-directory/hybrid/how-to-connect-pta-faq.md)。
 
-如需部署步驟，請參閱[實作傳遞驗證](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta)。
+如需部署步驟，請參閱[實作傳遞驗證](../../active-directory/hybrid/how-to-connect-pta.md)。
 
 ### <a name="federated-authentication"></a>同盟驗證
 
@@ -140,7 +140,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
   * 需要智慧卡或憑證的驗證。
   * 需要同盟身分識別提供者的內部部署 MFA server 或協力廠商多重要素提供者。
-  * 使用第三方驗證解決方案進行驗證。 請參閱 [Azure AD 同盟相容性清單](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility)。
+  * 使用第三方驗證解決方案進行驗證。 請參閱 [Azure AD 同盟相容性清單](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)。
   * 需要 sAMAccountName (例如網域\使用者名稱)，而不是使用者主體名稱 (UPN) (例如 user@domain.com) 的登入。
 
 * **商務持續性**。 同盟系統通常需要經過負載平衡的伺服器陣列，稱為伺服器陣列。 這個伺服器陣列是在內部網路以及周邊網路拓撲中設定，以確保驗證要求的高可用性。
@@ -154,7 +154,7 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 如需部署步驟，請參閱[部署同盟服務](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers)。
 
 > [!NOTE] 
-> 當您部署 Azure AD 混合式身分識別解決方案時，您必須實作其中一個支援的 Azure AD Connect 拓撲。 若要深入了解支援與不支援的設定，請參閱 [Azure AD Connect 的拓撲](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies)。
+> 當您部署 Azure AD 混合式身分識別解決方案時，您必須實作其中一個支援的 Azure AD Connect 拓撲。 若要深入了解支援與不支援的設定，請參閱 [Azure AD Connect 的拓撲](../../active-directory/hybrid/plan-connect-topologies.md)。
 
 ## <a name="architecture-diagrams"></a>架構圖
 
@@ -178,18 +178,18 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 |:-----|:-----|:-----|:-----|
 |驗證的發生位置？|在雲端|在雲端中，安全密碼驗證與內部部署驗證代理程式交換之後|內部部署|
 |高於佈建系統的內部部署伺服器需求是什麼：Azure AD Connect？|None|每個額外的驗證代理程式需要 1 部伺服器|2 部以上的 AD FS 伺服器<br><br>周邊/DMZ 網路中需要 2 部以上的 WAP 伺服器|
-|內部部署網際網路和網路功能除了佈建系統以外，還有哪些需求？|None|來自執行驗證代理程式之伺服器的[輸出網際網路存取](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start)|對周邊 WAP 伺服器的[輸入網際網路存取](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>來自周邊 WAP 伺服器對 AD FS 伺服器的輸入網際網路存取<br><br>網路負載平衡|
+|內部部署網際網路和網路功能除了佈建系統以外，還有哪些需求？|None|來自執行驗證代理程式之伺服器的[輸出網際網路存取](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)|對周邊 WAP 伺服器的[輸入網際網路存取](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>來自周邊 WAP 伺服器對 AD FS 伺服器的輸入網際網路存取<br><br>網路負載平衡|
 |是否有 SSL 憑證需求？|否|否|是|
-|是否有健康情況監視解決方案？|不需要|[Azure Active Directory 系統管理中心](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)提供的代理程式狀態|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
-|使用者是否可以從公司網路中已加入網域的裝置中取得雲端資源的單一登入？|是，使用[無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|是，使用[無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|是|
-|支援何種登入類型？|UserPrincipalName + 密碼<br><br>使用[無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) 的 Windows 整合式驗證<br><br>[替代登入識別碼](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + 密碼<br><br>使用[無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) 的 Windows 整合式驗證<br><br>[替代登入識別碼](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + 密碼<br><br>sAMAccountName + 密碼<br><br>Windows 整合式驗證<br><br>[憑證和智慧卡驗證](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[替代登入識別碼](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|是否有健康情況監視解決方案？|不需要|[Azure Active Directory 系統管理中心](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)提供的代理程式狀態|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|使用者是否可以從公司網路中已加入網域的裝置中取得雲端資源的單一登入？|是，使用[無縫 SSO](../../active-directory/hybrid/how-to-connect-sso.md)|是，使用[無縫 SSO](../../active-directory/hybrid/how-to-connect-sso.md)|是|
+|支援何種登入類型？|UserPrincipalName + 密碼<br><br>使用[無縫 SSO](../../active-directory/hybrid/how-to-connect-sso.md) 的 Windows 整合式驗證<br><br>[替代登入識別碼](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + 密碼<br><br>使用[無縫 SSO](../../active-directory/hybrid/how-to-connect-sso.md) 的 Windows 整合式驗證<br><br>[替代登入識別碼](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + 密碼<br><br>sAMAccountName + 密碼<br><br>Windows 整合式驗證<br><br>[憑證和智慧卡驗證](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[替代登入識別碼](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |是否支援 Windows Hello 企業版？|[金鑰信任模型](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[金鑰信任模型](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*需要 Windows Server 2016 網域功能層級*|[金鑰信任模型](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[憑證信任模型](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
-|多重要素驗證選項有哪些？|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[具有條件式存取的自訂控制項 *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[具有條件式存取的自訂控制項 *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA Server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[第三方 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[具有條件式存取的自訂控制項 *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
+|多重要素驗證選項有哪些？|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[具有條件式存取的自訂控制項 *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[具有條件式存取的自訂控制項 *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA Server](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[第三方 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[具有條件式存取的自訂控制項 *](../../active-directory/conditional-access/controls.md)|
 |支援哪些使用者帳戶狀態？|停用的帳戶<br>(最多 30 分鐘的延遲)|停用的帳戶<br><br>帳戶已鎖定<br><br>帳戶已過期<br><br>密碼已過期<br><br>登入時數|停用的帳戶<br><br>帳戶已鎖定<br><br>帳戶已過期<br><br>密碼已過期<br><br>登入時數|
-|條件式存取選項有哪些？|[使用 Azure AD Premium Azure AD 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[使用 Azure AD Premium Azure AD 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[使用 Azure AD Premium Azure AD 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS 宣告規則](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|是否支援封鎖舊版通訊協定？|[是](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[是](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[是](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
-|您是否可以自訂登入頁面上的標誌、影像和說明？|[是，使用 Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[是，使用 Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[是](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
-|支援哪些進階案例？|[智慧型密碼鎖定](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[認證外洩報表，使用 Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[智慧型密碼鎖定](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|多網站低延遲驗證系統<br><br>[AD FS 外部網路鎖定](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[與第三方身分識別系統整合](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
+|條件式存取選項有哪些？|[使用 Azure AD Premium Azure AD 條件式存取](../../active-directory/conditional-access/overview.md)|[使用 Azure AD Premium Azure AD 條件式存取](../../active-directory/conditional-access/overview.md)|[使用 Azure AD Premium Azure AD 條件式存取](../../active-directory/conditional-access/overview.md)<br><br>[AD FS 宣告規則](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
+|是否支援封鎖舊版通訊協定？|[是](../../active-directory/conditional-access/conditions.md)|[是](../../active-directory/conditional-access/conditions.md)|[是](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|您是否可以自訂登入頁面上的標誌、影像和說明？|[是，使用 Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[是，使用 Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[是](../../active-directory/hybrid/how-to-connect-fed-management.md)|
+|支援哪些進階案例？|[智慧型密碼鎖定](../../active-directory/authentication/concept-sspr-howitworks.md)<br><br>[認證外洩報表，使用 Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[智慧型密碼鎖定](../../active-directory/authentication/howto-password-smart-lockout.md)|多網站低延遲驗證系統<br><br>[AD FS 外部網路鎖定](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[與第三方身分識別系統整合](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 
 > [!NOTE] 
 > Azure AD 條件式存取中的自訂控制項目前不支援裝置註冊。
@@ -223,6 +223,6 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 在現今的世界中，威脅時時刻刻、無所不在。 實作正確的驗證方法將可協助降低安全性風險，並保護您的身分識別。
 
-[開始使用](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) Azure AD，並為組織部署正確的驗證解決方案。
+[開始使用](../../active-directory/fundamentals/get-started-azure-ad.md) Azure AD，並為組織部署正確的驗證解決方案。
 
-如果您正考慮從同盟移轉到雲端驗證，請深入了解[變更登入方法](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method)。 為了協助您規劃並實作移轉，您可以使用[這些專案部署計劃](https://aka.ms/deploymentplans)。
+如果您正考慮從同盟移轉到雲端驗證，請深入了解[變更登入方法](../../active-directory/hybrid/plan-connect-user-signin.md)。 為了協助您規劃並實作移轉，您可以使用[這些專案部署計劃](https://aka.ms/deploymentplans)。

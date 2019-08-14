@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 4b1a551ea2dd62d428fee6a7be475472235a3994
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569617"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935061"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>建立和使用主動式異地複寫
 
@@ -76,7 +76,7 @@ ms.locfileid: "68569617"
 > [!NOTE]
 > 如果主要資料庫上有結構描述更新，次要資料庫上的記錄重播會延遲， 因為後者需要次要資料庫上的結構描述鎖定。
 > [!IMPORTANT]
-> 您可以使用 [異地複寫], 在與主要複本相同的區域中建立次要資料庫。 您可以使用此次要資料庫來對相同區域中的唯讀工作負載進行負載平衡。 不過, 相同區域中的次要資料庫不會提供額外的容錯復原, 因此不適合用于嚴重損壞修復的容錯移轉目標。 它也不保證 avaialability 區域的隔離。 使用業務關鍵或高階服務層與[區域冗余](sql-database-high-availability.md#zone-redundant-configuration)設定, 以達成 avaialability 區域隔離。   
+> 您可以使用 [異地複寫], 在與主要複本相同的區域中建立次要資料庫。 您可以使用此次要資料庫來對相同區域中的唯讀工作負載進行負載平衡。 不過, 相同區域中的次要資料庫不會提供額外的容錯復原, 因此不適合用于嚴重損壞修復的容錯移轉目標。 它也不保證可用性區域的隔離。 使用業務關鍵或高階服務層級搭配[區域冗余](sql-database-high-availability.md#zone-redundant-configuration)設定, 以達到可用性區域隔離。   
 >
 
 - **計劃性容錯移轉**
