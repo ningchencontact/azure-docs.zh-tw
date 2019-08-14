@@ -19,10 +19,6 @@
 - name: 概念
   expanded: false
   items:
-    - name: 採用條件式存取
-      href: howto-conditional-access-adoption-kit.md
-    - name: 基準保護原則
-      href: concept-baseline-protection.md
     - name: 條件
       href: conditions.md
     - name: 位置條件
@@ -33,6 +29,8 @@
       href: service-dependencies.md
     - name: 假設工具
       href: what-if-tool.md
+    - name: 基準保護原則
+      href: concept-baseline-protection.md
 - name: 使用說明指南
   expanded: true
   items:
@@ -40,16 +38,6 @@
       href: plan-conditional-access.md
     - name: 最佳作法
       href: best-practices.md
-    - name: 基準原則
-      items:
-        - name: 管理員需要進行 MFA
-          href: howto-baseline-protect-administrators.md
-        - name: 使用者保護
-          href: howto-baseline-protect-end-users.md
-        - name: 封鎖舊式驗證
-          href: howto-baseline-protect-legacy-auth.md
-        - name: 需要 MFA 以管理服務
-          href: howto-baseline-protect-azure.md
     - name: 封鎖舊式驗證
       href: block-legacy-authentication.md
     - name: MFA 註冊的條件式存取
@@ -68,6 +56,18 @@
       href: howto-conditional-access-session-lifetime.md
     - name: 遷移傳統原則
       href: policy-migration.md
+    - name: 基準原則
+      items:
+        - name: 管理員需要進行 MFA
+          href: howto-baseline-protect-administrators.md
+        - name: 使用者保護
+          href: howto-baseline-protect-end-users.md
+        - name: 封鎖舊式驗證
+          href: howto-baseline-protect-legacy-auth.md
+        - name: 需要 MFA 以管理服務
+          href: howto-baseline-protect-azure.md
+    - name: 採用條件式存取
+      href: howto-conditional-access-adoption-kit.md
     - name: 疑難排解
       items:
         - name: 使用 What If 工具進行疑難排解
