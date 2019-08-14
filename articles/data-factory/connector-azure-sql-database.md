@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 905d208dccf54ac34e3f832d4d0c5b98a6121757
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 2b4d636737dbd75829c9555e340f79c3c867910d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827520"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967569"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本:"]
@@ -262,18 +262,18 @@ ms.locfileid: "68827520"
 
 ### <a name="azure-sql-database-as-the-source"></a>Azure SQL Database 作為來源
 
-若要從 Azure SQL Database 複製資料, 請將複製活動來源中的**type**屬性設定為**SqlSource**。 複製活動的 **source** 區段支援下列屬性：
+若要從 Azure SQL Database 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
 | 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的**類型**屬性必須設定為**SqlSource**。 | 是 |
+| type | 複製活動來源的**類型**屬性必須設定為**AzureSqlSource**。 "SqlSource" 類型仍然支援回溯相容性。 | 是 |
 | sqlReaderQuery | 此屬性使用自訂 SQL 查詢來讀取資料。 例如 `select * from MyTable`。 | 否 |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 | 否 |
 | storedProcedureParameters | 預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程式參數的名稱和大小寫。 | 否 |
 
 **注意事項：**
 
-- 如果為**SqlSource**指定了**sqlReaderQuery** , 複製活動就會針對 Azure SQL Database 來源執行此查詢, 以取得資料。 如果預存程序接受參數，您也可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** 來指定預存程序。
+- 如果為**AzureSqlSource**指定了**sqlReaderQuery** , 複製活動就會針對 Azure SQL Database 來源執行此查詢, 以取得資料。 如果預存程序接受參數，您也可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** 來指定預存程序。
 - 如果您未指定**sqlReaderQuery**或**sqlReaderStoredProcedureName**, 則會使用資料集 JSON 的 "structure" 區段中所定義的資料行來建立查詢。 查詢`select column1, column2 from mytable`會針對 Azure SQL Database 執行。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
 
 #### <a name="sql-query-example"></a>SQL 查詢範例
@@ -297,7 +297,7 @@ ms.locfileid: "68827520"
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AzureSqlSource",
                 "sqlReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -329,7 +329,7 @@ ms.locfileid: "68827520"
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AzureSqlSource",
                 "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
                 "storedProcedureParameters": {
                     "stringData": { "value": "str3" },
@@ -368,11 +368,11 @@ GO
 > [!TIP]
 > 深入瞭解支援的寫入行為、設定和最佳做法, 從將[資料載入 Azure SQL Database 的最佳作法](#best-practice-for-loading-data-into-azure-sql-database)。
 
-若要將資料複製到 Azure SQL Database, 請將複製活動接收中的**type**屬性設定為**SqlSink**。 複製活動的 **sink** 區段支援下列屬性：
+若要將資料複製到 Azure SQL Database, 複製活動的 [**接收**] 區段中支援下列屬性:
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動接收器的**type**屬性必須設定為**SqlSink**。 | 是 |
+| type | 複製活動接收器的**type**屬性必須設定為**AzureSqlSink**。 "SqlSink" 類型仍然支援回溯相容性。 | 是 |
 | writeBatchSize | 要插入 SQL 資料表中*每個批次*的資料列數目。<br/> 允許的值為**整數** (資料列數目)。 根據預設, Azure Data Factory 會依據資料列大小, 以動態方式決定適當的批次大小。 | 否 |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/> 允許的值為**時間範圍**。 例如, "00:30:00" (30 分鐘)。 | 否 |
 | preCopyScript | 指定要在將資料寫入 Azure SQL Database 之前, 要執行之複製活動的 SQL 查詢。 每一複製回合只會叫用此查詢一次。 使用此屬性來清除預先載入的資料。 | 否 |
@@ -405,7 +405,7 @@ GO
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
+                "type": "AzureSqlSink",
                 "writeBatchSize": 100000
             }
         }
@@ -439,7 +439,7 @@ GO
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
+                "type": "AzureSqlSink",
                 "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
                 "storedProcedureTableTypeParameterName": "MyTable",
                 "sqlWriterTableType": "MyTableType",
@@ -553,7 +553,7 @@ END
 
     ```json
     "sink": {
-        "type": "SqlSink",
+        "type": "AzureSqlSink",
         "SqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
         "SqlWriterTableType": "MarketingType",
@@ -583,21 +583,21 @@ END
 | Datetime |Datetime |
 | datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
-| DECIMAL |DECIMAL |
+| Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| 浮點數 |Double |
+| 浮點數 |DOUBLE |
 | image |Byte[] |
 | ssNoversion |Int32 |
-| money |DECIMAL |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |DECIMAL |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |單身 |
+| real |Single |
 | rowversion |Byte[] |
 | smalldatetime |Datetime |
 | smallint |Int16 |
-| smallmoney |DECIMAL |
+| smallmoney |Decimal |
 | sql_variant |物件 |
 | 文字 |String, Char[] |
 | time |TimeSpan |

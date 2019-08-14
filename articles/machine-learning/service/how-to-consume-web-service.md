@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 873f45a6cce85669581037c4c398a52b1ebd6d68
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840508"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966847"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
@@ -80,6 +80,7 @@ Azure Machine Learning 提供兩種方式來控制對 web 服務的存取。
 |---|---|---|
 |Key|預設為停用| 預設為啟用|
 |權杖| 無法使用| 預設為停用 |
+
 #### <a name="authentication-with-keys"></a>使用金鑰進行驗證
 
 當您為部署啟用驗證時，您會自動建立驗證金鑰。
@@ -98,7 +99,6 @@ print(primary)
 
 > [!IMPORTANT]
 > 如果您需要重新產生金鑰，請使用 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)。
-
 
 #### <a name="authentication-with-tokens"></a>使用權杖進行驗證
 
@@ -155,50 +155,17 @@ REST API 預期是具有下列結構之 JSON 文件的要求主體：
             ]
         ]
 }
-``` 
+```
 
 Web 服務可以在單一要求中接受多個資料集。 它會傳回一個 JSON 文件，其中包含回應的陣列。
 
 ### <a name="binary-data"></a>二進位資料
 
-如果您的模型接受二進位資料 (例如映像)，則您必須修改用於部署的 `score.py` 檔案來接受未經處理的 HTTP 要求。 以下是`score.py`可接受二進位資料的範例:
+如需如何在服務中啟用二進位資料支援的詳細資訊, 請參閱[二進位資料](how-to-deploy-and-where.md#binary)。
 
-```python
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### <a name="cross-origin-resource-sharing-cors"></a>跨原始來源資源分享 (CORS)
 
-
-def init():
-    print("This is init()")
-
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
-
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> `azureml.contrib` 命名空間會因為我們致力於改善本服務而經常變更。 因此，此命名空間中的任何項目均應被視為預覽，而且 Microsoft 不會完全支援。
->
-> 如果您需要在本機開發環境中測試此項，您可以使用下列命令，在 `contrib` 命名空間中安裝元件：
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+如需在服務中啟用 CORS 支援的詳細資訊, 請參閱[跨原始來源資源分享](how-to-deploy-and-where.md#cors)。
 
 ## <a name="call-the-service-c"></a>呼叫服務 (C#)
 
@@ -528,3 +495,7 @@ Power BI 支援 Azure Machine Learning web 服務的耗用量, 以使用預測�
 若要產生支援在 Power BI 中取用的 web 服務, 架構必須支援 Power BI 所需的格式。 [瞭解如何建立支援 Power BI 的架構](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi)。
 
 Web 服務一旦部署之後, 就可從 Power BI 資料流程中取用。 [瞭解如何從 Power BI 使用 Azure Machine Learning web 服務](https://docs.microsoft.com/power-bi/service-machine-learning-integration)。
+
+## <a name="next-steps"></a>後續步驟
+
+若要查看 Python 和深度學習模型的即時評分參考架構, 請移至[Azure 架構中心](/azure/architecture/reference-architectures/ai/realtime-scoring-python)。

@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630834"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965274"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>打開包裝、掛接機架和佈線 StorSimple 8600 裝置
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>總覽
 您的 Microsoft Azure StorSimple 8600 是雙重機箱裝置，包含主要及 EBOD 機箱。 本教學課程說明如何在您設定 StorSimple 軟體之前，打開包裝、利用機架掛接和配接 StorSimple 8600 裝置硬體纜線。
 
@@ -104,7 +107,7 @@ ms.locfileid: "60630834"
 提供一組掛接滑軌以用於 19 英吋機櫃。 滑軌已經過測試可以處理最大機箱重量。 這些滑軌也可以進行多個機箱的安裝，而不會損失機櫃內的空間。 先安裝 EBOD 機箱。
 
 #### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>在滑軌上安裝 EBOD 機箱
-1. 只有在內部滑軌未安裝在您的裝置上時才執行此步驟。 通常，內部滑軌會在工廠安裝。 如果滑軌沒有安裝的話，則在機箱底座側邊安裝左邊和右邊滑軌。 它們是在每一邊使用六個公制螺絲來連接。 為了協助辨識方向，滑軌標示為 [LH – Front]  \(左邊 – 前) 和 [RH – Front]  \(右邊 – 前)，接至機箱後端的尾端有錐型結尾。
+1. 只有在內部滑軌未安裝在您的裝置上時才執行此步驟。 通常，內部滑軌會在工廠安裝。 如果滑軌沒有安裝的話，則在機箱底座側邊安裝左邊和右邊滑軌。 它們是在每一邊使用六個公制螺絲來連接。 為了協助辨識方向，滑軌標示為 [LH – Front] \(左邊 – 前) 和 [RH – Front] \(右邊 – 前)，接至機箱後端的尾端有錐型結尾。
    
     ![將滑軌連接至機箱底座](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
@@ -114,7 +117,7 @@ ms.locfileid: "60630834"
    | --- | --- |
    |  1 |M 3x4 圓頭螺釘 |
    |  2 |底座滑軌 |
-2. 將左邊滑軌和右邊滑軌組件連接至機櫃垂直面。 托架會標示 [LH]  \(左邊)，[RH]  \(右邊) 和 [This side up]  \(此面向上)，引導您正確的方向。
+2. 將左邊滑軌和右邊滑軌組件連接至機櫃垂直面。 托架會標示 [LH] \(左邊)，[RH] \(右邊) 和 [This side up] \(此面向上)，引導您正確的方向。
 3. 找出滑軌組件前後方的滑軌插梢。 延伸滑軌以適合機架柱，並且將插梢插入前後端機架柱垂直面的孔洞。 請確定滑軌組件是水平的。
 4. 使用兩個提供的公制螺絲將滑軌組件鎖固至機架垂直面。 在前端和後端各使用一個螺絲。
 5. 對其他滑軌組件重複這些步驟。
@@ -168,7 +171,7 @@ ms.locfileid: "60630834"
 ## <a name="cable-your-storsimple-8600-device"></a>佈線您的 StorSimple 8600 裝置
 下列程序說明如何針對 StorSimple 8600 裝置的電源、網路和序列連線進行佈線。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 開始您的裝置佈線之前，您需要：
 
 * 完全打開您的主要機箱與 EBOD 機箱的包裝
@@ -216,7 +219,7 @@ ms.locfileid: "60630834"
 | ThisAddIn | 描述 |
 | --- | --- |
 | A |具有網際網路存取的 LAN |
-| B |控制器 0 |
+| B |控制站 0 |
 | C |PCM 0 |
 | D |控制器 1 |
 | E |PCM 1 |
@@ -260,7 +263,7 @@ ms.locfileid: "60630834"
 6. 藉由在主控台上按下 Enter 鍵，驗證連線是否正在運作。 序列主控台功能表應該會出現。
 
 > [!NOTE]
-> **熄燈管理：** 當裝置已安裝在遠端資料中心或具有有限的存取權的電腦室時，請確定這兩個控制器的序列連接一律會連接至序列主控台開關或類似的設備。 如此可以在網路中斷或非預期失敗時允許頻外遠端控制和支援作業。
+> **燈外管理:** 當裝置安裝在遠端資料中心或在具有限制存取的電腦室時, 請確定兩個控制器的序列連線一律連接至序列主控台交換器或類似的設備。 如此可以在網路中斷或非預期失敗時允許頻外遠端控制和支援作業。
 > 
 > 
 

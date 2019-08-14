@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
-ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566134"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967908"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 和資料倉儲的透明資料加密
 
@@ -37,7 +37,7 @@ ms.locfileid: "68566134"
 Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰。
 
 > [!IMPORTANT]
-> 依預設會使用服務管理的透明資料加密為所有新建立的 SQL 資料庫加密。 Azure SQL 受控執行個體資料庫、在 2017 年 5 月之前建立的現有 SQL 資料庫，和透過還原、異地複寫與資料庫複本建立的 SQL 資料庫，預設不會加密。
+> 根據預設, 所有新建立的 SQL 資料庫和受控執行個體資料庫都會使用服務管理的透明資料加密進行加密。 在2017年5月之前建立的現有 SQL 資料庫, 以及透過還原、異地複寫和資料庫複本建立的 SQL 資料庫, 預設都不會加密。 根據預設, 在2019年2月之前建立的現有受控執行個體資料庫不會加密。 透過 restore 建立的受控執行個體資料庫會從來源繼承加密狀態。
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>由客戶管理的透明資料加密：攜帶您自己的金鑰
 

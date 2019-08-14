@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 376620459a0ab2f0f170b0743c0ab51a51bca9c4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698941"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967860"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的定價層-單一伺服器
 
@@ -107,6 +107,9 @@ ms.locfileid: "68698941"
 ## <a name="scale-resources"></a>調整資源
 
 建立伺服器之後，您可以單獨變更虛擬核心、硬體世代、定價層 (基本層的來回除外)、儲存體數量及備份保留期限。 但您無法在建立伺服器之後，變更備份儲存體類型。 虛擬核心數目可相應增加或減少。 備份保留期可在 7 到 35 天的範圍內相應增加或減少。 儲存體大小只能增加。 您可以透過入口網站或 Azure CLI 來調整資源。 如需使用 Azure CLI 進行調整的範例，請參閱[使用 Azure CLI 來監視和調整適用於 PostgreSQL 的 Azure 資料庫伺服器](scripts/sample-scale-server-up-or-down.md)。
+
+> [!NOTE] 
+> 儲存體大小只能增加。 增加之後, 您就無法再回到較小的儲存體大小。
 
 當您變更虛擬核心數目、硬體世代或定價層時，系統會以新的計算配置建立一個原始伺服器複本。 當新伺服器已啟動並執行之後，連線就會切換到新的伺服器。 在系統切換到新伺服器的期間，您無法建立任何新的連線，且所有未認可的交易皆會復原。 此期間長短可能有所不同，但大部分情況下是少於一分鐘。
 

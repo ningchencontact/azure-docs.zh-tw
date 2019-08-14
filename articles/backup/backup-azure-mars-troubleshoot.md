@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: 12cc584b27134c5c109f1a95eb4ccf8a7b2f0c64
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 2ff5d760579c31c4bd11252e09da1cbb94576229
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689226"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954667"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>針對 Microsoft Azure 復原服務 (MARS) 代理程式進行疑難排解
 
@@ -181,7 +181,7 @@ Azure 備份可能未成功掛接復原磁碟區，即使數分鐘後仍未成�
 - [請確定沒有其他進程 (例如防毒軟體) 限制對快取資料夾的存取](#another-process-or-antivirus-software-blocking-access-to-cache-folder)
 
 ### <a name="increase-shadow-copy-storage"></a>增加陰影複製儲存空間
-如果保護資料來源所需的陰影複製儲存空間不足, 備份作業可能會失敗。 若要解決此問題, 請使用 vssadmin 增加受保護磁片區上的陰影複製儲存空間, 如下所示:
+如果保護資料來源所需的陰影複製儲存空間不足, 備份作業可能會失敗。 若要解決此問題, 請使用 vssadmin 來增加受保護磁片區上的陰影複製儲存空間, 如下所示:
 - 從提高許可權的命令提示字元中, 檢查目前的陰影儲存空間:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
 - 使用下列命令來增加陰影儲存空間:<br/>

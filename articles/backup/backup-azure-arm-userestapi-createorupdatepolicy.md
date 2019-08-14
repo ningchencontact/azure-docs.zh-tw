@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: d81d8aa299333890de61cf0c8ee75be76ca31bf2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688750"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954973"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>使用 REST API 建立 Azure 復原服務備份原則
 
@@ -36,7 +36,7 @@ ms.locfileid: "68688750"
 - 您可以定義「每日」、「每週」、「每月」、「每年」備份點的保留期。
 - 「每週」是指於當週的特定一天備份，「每月」代表於當月的特定一天備份，而「每年」是指於當年的特定一天備份。
 - 「每月」、「每年」備份點的保留期也稱為 "LongTermRetention"。
-- 建立保存庫時，也會建立稱為 "DefaultPolicy" 的 Azure VM 備份原則，並可用來備份 Azure VM。
+- 建立保存庫時, 也會建立名為 "DefaultPolicy" 的 Azure VM 備份原則, 並可用於備份 Azure Vm。
 
 若要建立或更新 Azure 備份原則，請使用下列 PUT 作業
 

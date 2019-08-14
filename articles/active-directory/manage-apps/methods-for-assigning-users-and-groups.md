@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8163b2261601b701913e07d703f5db0ac6fa7c0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688082"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967288"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>將使用者和群組指派至 Azure Active Directory 中的應用程式
 本文說明如何將使用者和群組指派至 Azure Active Directory (Azure AD) 中的應用程式。 首先，務必將使用者指派至應用程式，這樣管理員才能授予他們執行以下操作的存取權限：
@@ -82,7 +82,7 @@ ms.locfileid: "68688082"
 
 15. 按一下 [指派] 按鈕，將應用程式指派給選取的使用者。
 
-稍待片刻，您已選取的使用者就能夠使用解決方案描述一節所述的方法，啟動這些應用程式。
+一小段時間之後, 您選取的使用者就能夠使用解決方案描述一節中所述的方法來啟動這些應用程式。
 
 ## <a name="assign-groups"></a>指派群組
 
@@ -120,7 +120,7 @@ ms.locfileid: "68688082"
 
 15. 按一下 [指派] 按鈕，將應用程式指派給選取的群組。
 
-稍待片刻，您已選取之群組內的使用者就能夠使用解決方案描述一節所述的方法，啟動這些應用程式。 如果這些都是動態群組，對於這些指派的群組內的使用者，這些指派可能會出現一些額外的處理延遲。
+一小段時間之後, 您所選取之群組中的使用者就能夠使用解決方案描述一節中所述的方法來啟動這些應用程式。 如果這些都是動態群組，對於這些指派的群組內的使用者，這些指派可能會出現一些額外的處理延遲。
 
 ## <a name="enable-self-service-application-access"></a>啟用自助應用程式存取
 

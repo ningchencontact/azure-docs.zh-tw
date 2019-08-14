@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 9966164ec1b6a37538a24d2ef8cb80007e6f6d29
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 659c4cb3a6f0d50176875b76eeb2784c711eafd1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698236"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967133"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>使用自訂根 CA 產生 Azure 應用程式閘道自我簽署憑證
 
@@ -150,7 +150,7 @@ CSR 是在要求憑證時提供給 CA 的公開金鑰。 CA 會發出此特定�
 
 ### <a name="nginx"></a>NGINX
 
-下列設定是使用 SSL 設定的[NGINX 伺服器區塊](http://nginx.org/docs/http/configuring_https_servers.html)範例:
+下列設定是使用 SSL 設定的[NGINX 伺服器區塊](https://nginx.org/docs/http/configuring_https_servers.html)範例:
 
 ![使用 SSL 的 NGINX](media/self-signed-certificates/nginx-ssl.png)
 

@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31c432b884ce92c508dd7f893c12ba13acff28e8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117020"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963521"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 安全性和資料保護
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>總覽
 
@@ -236,7 +238,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **問：** 我遺失服務資料加密金鑰。 該怎麼辦？
 
-**答：** 連絡 Microsoft 支援服務。 他們可以登入您裝置上的支援工作階段，協助您擷取金鑰 (假設至少一部裝置在線)。 您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。 如需相關指示，請移至：
+**答：** 請連絡 Microsoft 支援。 他們可以登入您裝置上的支援工作階段，協助您擷取金鑰 (假設至少一部裝置在線)。 您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。 如需相關指示，請移至：
 
 * [變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
@@ -256,7 +258,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 * [變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [為 StorSimple 裝置設定 CHAP](storsimple-8000-configure-chap.md)
 
-**問：** 我想要提供 StorSimple Snapshot Manager 密碼給連接至 StorSimple 裝置的主機，但無法取得密碼。 我該怎麼辦？
+**問：** 我想要提供 StorSimple Snapshot Manager 密碼給連接至 StorSimple 裝置的主機，但無法取得密碼。 我能做什麼?
 
 **答：** 如果忘記密碼，您應該建立新密碼。 然後，請務必通知所有現有的使用者密碼已變更，並要求他們更新其用戶端以使用新密碼。 如需相關指示，請移至：
 

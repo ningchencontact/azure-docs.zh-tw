@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: d2e3b4b199065510d244d384ff69d5231bef5919
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11a489f1280bad1628ff1de6156dfdcd8e3ea85c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609057"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946568"
 ---
-# <a name="azure-security-and-compliance-blueprint-data-analytics-for-uk-nhs"></a>Azure 安全性與合規性藍圖：英國 NHS 的資料分析
+# <a name="azure-security-and-compliance-blueprint-data-analytics-for-uk-nhs"></a>Azure 安全性與合規性藍圖：適用于英國 NHS 的資料分析
 
 ## <a name="overview"></a>總覽
 
@@ -48,9 +48,9 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 - Azure 自動化
 - Azure 資料目錄
 - Azure 磁碟加密
-- Azure Event Grid
+- Azure 事件格線
 - Azure Functions
-- Azure 金鑰保存庫
+- Azure Key Vault
 - Azure 監視器
 - Azure 資訊安全中心
 - Azure SQL Database
@@ -67,13 +67,13 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 
 **Azure Functions**：[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 是無伺服器計算服務，可讓使用者依需求執行程式碼，無需明確佈建或管理基礎結構。 使用 Azure Functions 執行指令碼或一段程式碼來回應各種事件。
 
-**Azure Analysis Service**:[Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)提供企業資料模型化和使用 Azure 資料平台服務的整合。 Azure Analysis Service 可透過將多個來源的資料結合至單一資料模型中，來加快瀏覽大量資料的速度。
+**Azure 分析服務**:[Azure Analysis Service](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)可提供企業資料模型化, 並與 Azure 資料平臺服務整合。 Azure Analysis Service 可透過將多個來源的資料結合至單一資料模型中，來加快瀏覽大量資料的速度。
 
 ### <a name="virtual-network"></a>虛擬網路
 
 此架構會定義位址空間為 10.200.0.0/16 的私人虛擬網路。
 
-**網路安全性群組**：[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)包含能允許或拒絕虛擬網路內之流量的存取控制清單。 網路安全性群組可用來保護子網路或個別虛擬機器層級的流量。 存在下列網路安全性群組：
+**網路安全性群組**：[網路安全性群組](../../virtual-network/virtual-network-vnet-plan-design-arm.md)包含能允許或拒絕虛擬網路內之流量的存取控制清單。 網路安全性群組可用來保護子網路或個別虛擬機器層級的流量。 存在下列網路安全性群組：
 
   - 適用於 Active Directory 的 1 個網路安全性群組
   - 適用於工作負載的 1 個網路安全性群組
@@ -81,7 +81,7 @@ Azure SQL Database 通常會透過 SQL Server Management Studio 來管理，而�
 每個網路安全性群組都會開放特定連接埠及通訊協定，讓解決方案可安全且正確地運作。 此外，下列組態會針對每個網路安全性群組啟用：
 
 - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶
-- Azure 監視器記錄檔連接到[網路安全性群組&#39;s 診斷記錄](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Azure 監視器記錄會連線至[網路安全性群組&#39;的診斷記錄](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **子網路**：確認每個子網路都與對應的網路安全性群組建立關聯。
 
@@ -93,17 +93,17 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 
 架構會透過加密、資料庫稽核及其他量值來保護待用資料。
 
-**Azure 儲存體**：為符合加密的待用資料需求，所有 [Azure 儲存體](https://azure.microsoft.com/services/storage/)都會使用[儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)。 這有助於保護與防衛資料，以支援組織的安全性承諾及 NHS Digital 所定義的合規性需求。
+**Azure 儲存體**：為符合加密的待用資料需求，所有 [Azure 儲存體](https://azure.microsoft.com/services/storage/)都會使用[儲存體服務加密](../../storage/common/storage-service-encryption.md)。 這有助於保護與防衛資料，以支援組織的安全性承諾及 NHS Digital 所定義的合規性需求。
 
-**Azure 磁碟加密**：[Azure 磁碟加密](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
+**Azure 磁碟加密**：[Azure 磁碟加密](../azure-security-disk-encryption-overview.md)利用 Windows 的 BitLocker 功能來提供資料磁碟的磁碟區加密。 此解決方案與 Azure Key Vault 整合，以協助控制和管理磁碟加密金鑰。
 
 **Azure SQL Database**：Azure SQL Database 執行個體會使用下列資料庫安全性量值：
 
 - [Active Directory 驗證與授權](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)可讓您在一個中央位置，管理資料庫使用者及其他 Microsoft 服務的身分識別。
-- [SQL 資料庫稽核](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started)會追蹤資料庫事件並將事件寫入 Azure 儲存體帳戶中的稽核記錄。
+- [SQL 資料庫稽核](../../sql-database/sql-database-auditing.md)會追蹤資料庫事件並將事件寫入 Azure 儲存體帳戶中的稽核記錄。
 - Azure SQL Database 設定成使用[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)，會執行資料庫、相關備份及交易記錄檔的即時加密和解密，以保護待用資訊。 透明資料加密能保證已儲存的資料不會遭到未經授權的存取。
 - [防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)可在授與適當權限之前，防止所有對資料庫伺服器的存取。 此防火牆會根據每一個要求的來源 IP 位址來授與資料庫存取權。
-- [SQL 威脅偵測](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started)可針對可疑的資料庫活動、潛在弱點、SQL 插入式攻擊，以及異常的資料庫存取模式，提供安全性警示，藉以在發生潛在威脅時啟用偵測及回應。
+- [SQL 威脅偵測](../../sql-database/sql-database-threat-detection.md)可針對可疑的資料庫活動、潛在弱點、SQL 插入式攻擊，以及異常的資料庫存取模式，提供安全性警示，藉以在發生潛在威脅時啟用偵測及回應。
 - [加密資料行](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)可確保敏感性資料在資料庫系統內一律不會以純文字顯示。 啟用資料加密之後，只有具備金鑰存取權的用戶端應用程式或應用程式伺服器才可以存取純文字資料。
 - [SQL Database 動態資料遮罩](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)可藉由遮避資料，使不具權限的使用者或應用程式無法看見敏感性資料。 動態資料遮罩可以自動探索潛在的敏感性資料，並建議套用適當的遮罩。 這有助於找出並減少資料的存取，使其不會透過未經授權的存取而離開資料庫。 客戶須負責調整動態資料遮罩設定，以符合其資料庫結構描述。
 
@@ -112,10 +112,10 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 下列技術可在 Azure 環境中提供管理資料存取的功能：
 
 - [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 是 Microsoft 的多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 Azure SQL Database 的使用者。
-- 應用程式的驗證是使用 Azure Active Directory 執行。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)。 此外，資料庫資料行加密會使用 Azure Active Directory 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱如何[保護 Azure SQL Database 中的敏感性資料](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。
-- [Azure 角色型存取控制](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)可讓系統管理員定義微調存取權限，只對使用者授與其執行工作所需的存取權數量。 系統管理員可以只允許存取資料的特定動作，而不是授與所有使用者不受限制的 Azure 資源使用權限。 只有訂用帳戶管理員可擁有訂用帳戶的存取權。
-- [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) 可讓客戶將可存取特定資訊的使用者人數降至最低。 系統管理員可以使用 Azure Active Directory Privileged Identity Management 來探索、限制和監視特殊權限的識別和其對資源的存取。 如有需要，這項功能也可用來強制執行隨選 Just-In-Time 系統管理存取權。
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 會偵測影響組織身分識別的潛在弱點，並針對偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
+- 應用程式的驗證是使用 Azure Active Directory 執行。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)。 此外，資料庫資料行加密會使用 Azure Active Directory 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱如何[保護 Azure SQL Database 中的敏感性資料](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。
+- [Azure 角色型存取控制](../../role-based-access-control/role-assignments-portal.md)可讓系統管理員定義微調存取權限，只對使用者授與其執行工作所需的存取權數量。 系統管理員可以只允許存取資料的特定動作，而不是授與所有使用者不受限制的 Azure 資源使用權限。 只有訂用帳戶管理員可擁有訂用帳戶的存取權。
+- [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) 可讓客戶將可存取特定資訊的使用者人數降至最低。 系統管理員可以使用 Azure Active Directory Privileged Identity Management 來探索、限制和監視特殊權限的識別和其對資源的存取。 如有需要，這項功能也可用來強制執行隨選 Just-In-Time 系統管理存取權。
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) 會偵測影響組織身分識別的潛在弱點，並針對偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
 
 ### <a name="security"></a>安全性
 
@@ -138,18 +138,18 @@ Azure 資訊安全中心提供依優先順序排列的安全性警示和事件�
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
 Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
-- **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
-- **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
+- **活動記錄**：[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
+- **診斷記錄**：[診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure 儲存體記錄、Key Vault 稽核記錄，以及應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 保留期是由使用者自訂，視組織特定的保留期需求，最長可達 730 天。
 
-**Azure 監視器記錄**：這些記錄檔會在合併[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)處理、 儲存和儀表板報表。 所收集的資料會針對每種資料類型組織成個別的資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外，Azure 資訊安全中心與 Azure 監視器記錄檔，讓客戶能使用 Kusto 查詢來存取其安全性事件資料，並結合資料與其他服務整合。
+**Azure 監視器記錄**：這些記錄會合並在[Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/)中, 以供處理、儲存及儀表板報告之用。 所收集的資料會針對每種資料類型組織成個別的資料表，以便一起分析所有的資料 (不論其原始來源為何)。 此外, Azure 資訊安全中心與 Azure 監視器記錄整合, 可讓客戶使用 Kusto 查詢來存取其安全性事件資料, 並將其與來自其他服務的資料合併。
 
-下列 Azure[監視解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)會包含此架構的一部分：
--   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
-- [SQL 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
-- [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。
--   [活動記錄分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)：活動記錄分析解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
+下列 Azure[監視解決方案](../../monitoring/monitoring-solutions.md)包含在此架構中:
+-   [Active Directory 評定](../../azure-monitor/insights/ad-assessment.md)：Active Directory 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器基礎結構，提供優先的建議清單。
+- [SQL 評定](../../azure-monitor/insights/sql-assessment.md)：SQL 健康情況檢查解決方案會定期評估伺服器環境的風險和健康情況，並專門針對部署的伺服器架構，提供優先的建議清單給客戶。
+- [代理程式健全狀況](../../monitoring/monitoring-solution-agenthealth.md)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈，以及沒有回應的代理程式數目和正在提交作業資料的代理程式數目。
+-   [活動記錄分析](../../azure-monitor/platform/collect-activity-logs.md)：活動記錄分析解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
 
-**Azure 自動化**：[Azure 自動化](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)會儲存、執行和管理 Runbook。 在此解決方案中，Runbook 會協助從 Azure SQL Database 中收集記錄。 自動化[變更追蹤](https://docs.microsoft.com/azure/automation/automation-change-tracking)解決方案可讓客戶輕鬆地識別環境中的變更。
+**Azure 自動化**：[Azure 自動化](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)會儲存、執行和管理 Runbook。 在此解決方案中，Runbook 會協助從 Azure SQL Database 中收集記錄。 自動化[變更追蹤](../../automation/change-tracking.md)解決方案可讓客戶輕鬆地識別環境中的變更。
 
 **Azure 監視器**：[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)由讓組織稽核、建立警示及封存資料，包括追蹤使用者 Azure 資源中的 API 呼叫，協助使用者追蹤效能、維護安全性和識別趨勢。
 
@@ -183,7 +183,7 @@ Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 可以將資料載入 Azure SQL Database 中，而不需要個別的擷取、轉換、載入或匯入工具。 PolyBase 允許透過 T-SQL 查詢來存取資料。 Microsoft 的商業智慧和分析堆疊，以及與 SQL Server 相容的協力廠商工具，都可以搭配 PolyBase 使用。
 
 ### <a name="azure-active-directory-setup"></a>Azure Active Directory 設定
-您必須使用 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 來管理部署，以及為與環境互動的人員佈建存取權。 您只要[點按四下](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express)，就可整合現有的 Windows Server Active Directory 與 Azure Active Directory。 客戶也可以讓部署的 Active Directory 基礎結構成為 Azure Active Directory 樹系的子網域，將部署的 Active Directory 基礎結構 (網域控制站) 繫結至現有 Azure Active Directory。
+您必須使用 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 來管理部署，以及為與環境互動的人員佈建存取權。 您只要[點按四下](../../active-directory/hybrid/how-to-connect-install-express.md)，就可整合現有的 Windows Server Active Directory 與 Azure Active Directory。 客戶也可以讓部署的 Active Directory 基礎結構成為 Azure Active Directory 樹系的子網域，將部署的 Active Directory 基礎結構 (網域控制站) 繫結至現有 Azure Active Directory。
 
 ## <a name="disclaimer"></a>免責聲明
 

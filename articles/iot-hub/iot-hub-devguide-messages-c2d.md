@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880988"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964138"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>從 IoT 中樞傳送雲端到裝置訊息
 
@@ -82,13 +82,9 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在已加入*�
 
 如果**Ack**值已*滿*, 而且您沒有收到意見反應訊息, 這表示意見反應訊息已過期。 服務無法得知原始訊息發生了什麼事。 實際上，服務應該確保它可以在回饋到期之前對其進行處理。 最長到期時間是兩天, 這會在發生失敗時, 讓服務再次執行。
 
-> [!NOTE]
-> 刪除裝置時, 也會一併刪除所有擱置中的意見反應。
->
-
 如[端點](iot-hub-devguide-endpoints.md)中所述, IoT 中樞會透過服務面向端點 */messages/servicebound/feedback 利用*來傳遞意見反應, 做為訊息。 接收意見反應的語意與雲端到裝置訊息的接收語意相同。 可能的話，訊息意見反應會放入單一訊息中，其格式如下：
 
-| 屬性     | 描述 |
+| 內容     | 描述 |
 | ------------ | ----------- |
 | EnqueuedTime | 時間戳記, 指出中樞收到意見反應訊息的時間 |
 | UserId       | `{iot hub name}` |
@@ -125,6 +121,12 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在已加入*�
   ...
 ]
 ```
+
+**已刪除裝置的暫止意見反應**
+
+刪除裝置時, 也會一併刪除所有擱置中的意見反應。 裝置意見反應會以批次方式傳送。 如果裝置在縮小視窗中刪除 (通常小於1秒), 則在裝置確認收到訊息時, 以及當下一個意見反應批次準備好時, 將不會產生意見反應。
+
+您可以在刪除您的裝置之前, 先等候一段時間讓暫止的意見反應抵達, 以解決此行為。 刪除裝置之後, 應假設相關的訊息意見反應遺失。
 
 ## <a name="cloud-to-device-configuration-options"></a>雲端到裝置組態選項
 

@@ -7,12 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809930"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967799"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>使用 Azure 角色型存取控制 (RBAC) 控制建立及管理支援要求的存取權
 
@@ -20,7 +20,7 @@ ms.locfileid: "60809930"
 Azure 入口網站 ([portal.azure.com](https://portal.azure.com)) 中建立支援要求的功能是使用 Azure 的 RBAC 模型來定義可以建立及管理支援要求的人員。
 在訂用帳戶、資源群組和應用程式等特定範圍，將適當的 RBAC 角色指派給使用者、群組和應用程式，即可授與存取權。
 
-讓我們來看一個範例：為具有訂用帳戶範圍的讀取權限的資源群組擁有者，您可以管理下的資源群組，例如網站、 虛擬機器和子網路的所有資源。
+讓我們來看一個範例:身為具有訂用帳戶範圍讀取權限的資源群組擁有者, 您可以管理資源群組下的所有資源, 例如網站、虛擬機器和子網。
 不過，當您嘗試建立虛擬機器資源的支援要求時，會遇到錯誤如下
 
 ![訂用帳戶錯誤](./media/create-manage-support-requests-using-access-control/subscription-error.png)
@@ -29,7 +29,7 @@ Azure 入口網站 ([portal.azure.com](https://portal.azure.com)) 中建立支�
 
 以下文章說明您可以如何使用 Azure 的自訂角色型存取控制 (RBAC)，在 Azure 入口網站中建立及管理支援要求。
 
-## <a name="getting-started"></a>開始使用
+## <a name="getting-started"></a>使用者入門
 
 如果訂用帳戶擁有者指派您訂用帳戶的自訂 RBAC 角色，您就能使用上述的範例為資源建立支援要求。
 使用 Azure PowerShell、Azure 命令列介面 (CLI) 和 REST API，可以建立[自訂 RBAC 角色](https://azure.microsoft.com/documentation/articles/role-based-access-control-custom-roles/)。
@@ -65,7 +65,7 @@ Azure 入口網站 ([portal.azure.com](https://portal.azure.com)) 中建立支�
 Joe 是此訂用帳戶內某資源群組的擁有者，和你是對等關係，並且擁有訂用帳戶的讀取權限。
 您希望提供 Joe 存取權，讓他能建立及管理此訂用帳戶的支援票證。
 
-1. 首先移置訂用帳戶，您會在 [設定] 下看到使用者清單。 按一下使用者 Joe (他有訂用帳戶的讀取者權限)，然後指派自訂角色給他。
+1. 第一個步驟是移至訂用帳戶。 在 [**設定**] 底下, 您會看到使用者清單。 選取使用者 Joe, 其擁有訂用帳戶的「讀者」存取權。 讓我們將新的自訂角色指派給 Joe。
 
     ![新增角色](./media/create-manage-support-requests-using-access-control/add-role.png)
 
@@ -85,7 +85,7 @@ Joe 是此訂用帳戶內某資源群組的擁有者，和你是對等關係，�
 
     ![新增的使用者](./media/create-manage-support-requests-using-access-control/user-added.png)
 
-    當 Joe 登入入口網站時，他會看到已新增的訂用帳戶。
+    當 Joe 登入入口網站時, Joe 會看到加入 Joe 的訂用帳戶。
 
 7. Joe 只要按一下 [說明及支援] 刀鋒視窗中的 [新增支援要求]，就能建立「Visual Studio Ultimate 含 MSDN」的支援要求
 
@@ -96,15 +96,15 @@ Joe 是此訂用帳戶內某資源群組的擁有者，和你是對等關係，�
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>在 Azure 入口網站中移除支援要求存取權
 
 如同可以授與使用者建立及管理支援要求的存取權，您也可以移除使用者的存取權。
-若要移除建立及管理支援要求的能力，請移至該訂用帳戶，按一下 [設定] 然後按一下使用者 (此範例中為 Joe)。
-按一下角色名稱 [Support Request Contributor]，再按一下 [移除]
+
+若要移除建立及管理支援要求的能力，請移至該訂用帳戶，按一下 [設定] 然後按一下使用者 (此範例中為 Joe)。 按一下角色名稱 [Support Request Contributor]，再按一下 [移除]
 
 ![移除支援要求存取權](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-當 Joe 登入入口網站並嘗試建立支援要求時，他會遇到錯誤如下
+當 Joe 登入入口網站並嘗試建立支援要求時, Joe 會遇到下列錯誤:
 
 ![訂用帳戶錯誤-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
-當 Joe 按一下 [所有支援要求] 時，他不會看到任何支援要求
+Joe 選取 [所有支援要求] 時, joe 無法看到任何支援要求
 
 ![案例詳細資料檢視-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)

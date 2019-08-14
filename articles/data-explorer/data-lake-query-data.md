@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494872"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950145"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>使用 Azure 資料總管查詢 Azure Data Lake 中的資料 (預覽)
 
@@ -45,8 +45,11 @@ Azure 資料總管與 Azure Blob 儲存體和 Azure Data Lake Storage Gen2 整�
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    此查詢會建立每日分割區*container1/yyyy/MM/dd/all_exported_blobs*。 需要更細微的資料分割, 以提高效能。 例如, 針對具有每日分割區的外部資料表進行查詢 (例如上述的資料分割), 其效能會比使用每月分割資料表的查詢更好。
+    
+    > [!NOTE]
+    > * 需要更細微的資料分割, 以提高效能。 例如, 針對具有每日分割區的外部資料表進行查詢, 其效能會比具有每月分割資料表的查詢更好。
+    > * 當您定義具有資料分割的外部資料表時, 儲存結構應該是相同的。
+例如, 如果資料表是以 yyyy/MM/dd 格式 (預設值) 中的 DateTime 資料分割來定義, 則 URI 儲存檔案路徑應該是*container1/yyyy/MM/dd/all_exported_blobs*。 
 
 1. 外部資料表會顯示在 Web UI 的左窗格中
 
@@ -56,7 +59,7 @@ Azure 資料總管與 Azure Blob 儲存體和 Azure Data Lake Storage Gen2 整�
 
 您可以使用 json 格式建立外部資料表。 如需詳細資訊, 請參閱[外部資料表命令](/azure/kusto/management/externaltables)
 
-1. 使用命令來建立名為 ExternalTableJson 的資料表:  `.create external table`
+1. 使用命令來建立名為 ExternalTableJson 的資料表: `.create external table`
 
     ```kusto
     .create external table ExternalTableJson (rownumber:int, rowguid:guid) 

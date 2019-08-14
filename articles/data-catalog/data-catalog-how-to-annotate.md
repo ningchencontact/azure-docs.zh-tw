@@ -6,15 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 708c62971a20a7071accf7591a4e2914f7dbd9f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736364"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950251"
 ---
-# <a name="how-to-annotate-data-sources"></a>如何註解資料來源
+# <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>如何標註 Azure 資料目錄中的資料來源
+
 ## <a name="introduction"></a>簡介
+
 **Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，資料目錄的重點在於協助人們探索、了解和使用資料來源，並可協助組織從現有的資料獲得更多價值。 當資料來源向資料目錄註冊之後，該服務會複製其中繼資料並建立索引，但不僅止於此。 資料目錄可讓使用者提供自己的描述性中繼資料 (如描述和標記)，以補充擷取自資料來源的中繼資料，並且讓更多人能夠理解資料來源。
 
 ## <a name="annotation-and-crowdsourcing"></a>註解與群眾外包

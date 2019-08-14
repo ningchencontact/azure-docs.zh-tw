@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: cd67f1065f47b758f2a7e0e5be3c60169c30273e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ceb36d818c84642461372f0df70c8088908550c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116575"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965834"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -37,17 +37,17 @@ ms.locfileid: "67116575"
 
 1. 按照[此快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)的步驟來建立類型為「原生」的 Azure AD 應用程式。 或者，您可以重複使用現有的原生應用程式註冊。
 
-1. 在 [必要權限]  底下，選取 [新增]  ，然後在 [加入 API 存取權]  底下輸入 **Azure Digital Twins**。 如果搜尋沒有找到 API，請改為搜尋 **Azure 智慧空間**。 然後，依序選取 [授與權限] > [委派的權限]  和 [完成]  。
+1. 在 [必要權限] 底下，選取 [新增]，然後在 [加入 API 存取權] 底下輸入 **Azure Digital Twins**。 如果搜尋沒有找到 API，請改為搜尋 **Azure 智慧空間**。 然後，依序選取 [授與權限] > [委派的權限] 和 [完成]。
 
-    [![Azure Active Directory 應用程式註冊中新增 api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [![Azure Active Directory 應用程式註冊新增 api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. 選取 **資訊清單**開啟您的應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
+1. 選取 [**資訊清單**] 以開啟應用程式的應用程式資訊清單。 將 *oauth2AllowImplicitFlow* 設定為 `true`。
 
     [![Azure Active Directory 隱含流程](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
 1. 將**回覆 URL** 設定為`https://www.getpostman.com/oauth2/callback`。
 
-    [![Azure Active Directory 回覆 URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![Azure Active Directory 回復 URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. 複製並保存 Azure Active Directory 應用程式的**應用程式識別碼**。 用於後續的步驟中。
 
@@ -66,7 +66,7 @@ ms.locfileid: "67116575"
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | 您的租用戶或組織的名稱 | `microsoft` |
 
-1. 選取 [授權]  索引標籤、選取 [OAuth 2.0]  ，然後選取 [取得新的存取權杖]  。
+1. 選取 [授權] 索引標籤、選取 [OAuth 2.0]，然後選取 [取得新的存取權杖]。
 
     | 欄位  | 值 |
     |---------|---------|
@@ -82,13 +82,13 @@ ms.locfileid: "67116575"
 
     [![Postman 用戶端範例](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
-1. 選取 [要求權杖]  。
+1. 選取 [要求權杖]。
 
     >[!TIP]
     >如果您收到錯誤訊息「無法完成 OAuth 2」，請嘗試下列方法：
     > * 關閉 Postman 後重新開啟，然後再試一次。
   
-1. 向下捲動，然後選取 [使用權杖]  。
+1. 向下捲動，然後選取 [使用權杖]。
 
 <div id="multi"></div>
 
@@ -96,13 +96,13 @@ ms.locfileid: "67116575"
 
 完成先前的步驟之後，設定 Postman 以提出已驗證的 HTTP 多部分 POST 要求：
 
-1. 在 [標頭]  索引標籤下，新增 HTTP 要求標頭索引鍵 **Content-Type** 且其值為 `multipart/mixed`。
+1. 在 [標頭] 索引標籤下，新增 HTTP 要求標頭索引鍵 **Content-Type** 且其值為 `multipart/mixed`。
 
-   [![Multipart/mixed 的內容類型](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![內容類型多部分/混合](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. 將非文字資料序列化到檔案。 JSON 資料會儲存為 JSON 檔案。
-1. 在 [主體]  索引標籤底下新增每個檔案，做法是指派**索引鍵**名稱，然後選取 `file` 或 `text`。
-1. 接著，透過 [選擇檔案]  按鈕選取每個檔案。
+1. 在 [主體] 索引標籤底下新增每個檔案，做法是指派**索引鍵**名稱，然後選取 `file` 或 `text`。
+1. 接著，透過 [選擇檔案] 按鈕選取每個檔案。
 
    [![Postman 用戶端範例](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
@@ -111,7 +111,7 @@ ms.locfileid: "67116575"
    > * 您不需要為每個部分指定這些標頭。
    > * 您必須針對整個要求選取 `multipart/mixed` 或其他適當的 **Content-type**。
 
-1. 最後，選取**傳送**提交多部分 HTTP POST 要求。
+1. 最後, 選取 [**傳送**] 以提交多部分 HTTP POST 要求。
 
 ## <a name="next-steps"></a>後續步驟
 

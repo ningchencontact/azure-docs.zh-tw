@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 5a3800cfdf36bdc2e042eec860310a508204ba11
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876442"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965125"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 系列：混合式雲端存放解決方案
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>總覽
 歡迎使用 Microsoft Azure StorSimple，StorSimple 是一個整合式儲存體解決方案，可管理內部部署裝置與 Microsoft Azure 雲端儲存體之間的儲存體工作。 StorSimple 是一個有效率、符合成本效益且易於管理的存放區域網路 (SAN) 解決方案，可減少許多與企業儲存體和資料保護相關聯的問題和支出。 它使用專屬的 StorSimple 8000 系列裝置、與雲端服務整合以及提供一組管理工具，提供所有企業儲存體 (包括雲端儲存體) 的整體檢視。 (發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。 如果您使用 StorSimple 5000/7000 系列裝置，請至 [StorSimple 說明](http://onlinehelp.storsimple.com/))。
 
@@ -208,16 +211,16 @@ Microsoft Azure StorSimple 會使用重複資料刪除和資料壓縮，來進�
 | 狀況 | 工作負載 | 支援 | 限制 | Version |
 | --- | --- | --- | --- | --- |
 | 共同作業 |檔案共用 |是 | |所有版本 |
-| 共同作業 |分散式檔案共用 |是 | |所有版本 |
-| 共同作業 |SharePoint |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
+| 協同合作 |分散式檔案共用 |是 | |所有版本 |
+| 協同合作 |SharePoint |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
 | 封存 |簡易檔案封存 |是 | |所有版本 |
 | 虛擬化 |虛擬機器 |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
 | 資料庫 |SQL |是* |只有使用固定在本機的磁碟區時才支援 |Update 2 和更新版本 |
 | 視訊監視 |視訊監視 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 2 和更新版本 |
-| Backup |主要目標備份 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 3 和更新版本 |
-| Backup |次要目標備份 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 3 和更新版本 |
+| 備份 |主要目標備份 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 3 和更新版本 |
+| 備份 |次要目標備份 |是* |當 StorSimple 僅供此工作負載專用時才支援 |Update 3 和更新版本 |
 
-是&#42; - 應套用解決方案指導方針和限制。 
+是&#42; - 應套用解決方案指導方針和限制。
 
 StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorSimple，這些工作負載將導致產生不支援的組態。
 
@@ -234,13 +237,13 @@ StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorS
 
 | 狀況 | 工作負載 | 支援 | 限制 | Version |
 | --- | --- | --- | --- | --- |
-| 一般 |ExpressRoute |是 | |所有版本 |
+| 一般 |快速路由 |是 | |所有版本 |
 | 一般 |DataCore FC |是* |使用 DataCore SANsymphony 時支援 |所有版本 |
 | 一般 |DFSR |是* |只有使用固定在本機的磁碟區時才支援 |所有版本 |
 | 一般 |編製索引 |是* |階層式磁碟區，僅支援中繼資料索引 (無資料)。<br>針對固定在本機的磁碟區，支援完整索引。 |所有版本 |
 | 一般 |防毒 |是* |針對階層式磁碟區，只支援在開啟和關閉時進行掃描。<br> 針對固定在本機的磁碟區，支援完整掃描。 |所有版本 |
 
-是&#42; - 應套用解決方案指導方針和限制。 
+是&#42; - 應套用解決方案指導方針和限制。
 
 以下是與 StorSimple 搭配使用來建立解決方案的其他軟體清單。
 
@@ -249,7 +252,7 @@ StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorS
 | 備份目標 |Veeam |Veeam v 9 及更新版本 |[使用 StorSimple 做為 Veeam 的備份目標](storsimple-configure-backup-target-veeam.md)|
 | 備份目標 |Veritas Backup Exec |Backup Exec 16 及更新版本 |[使用 StorSimple 做為 Backup Exec 的備份目標](storsimple-configure-backup-target-using-backup-exec.md)|
 | 備份目標 |Veritas NetBackup |NetBackup 7.7.x 及更新版本  |[使用 StorSimple 做為 NetBackup 的備份目標](storsimple-configure-backuptarget-netbackup.md)|
-| 通用檔案共用 <br></br> 共同作業 |Talon  |[StorSimple 搭配 Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
+| 通用檔案共用 <br></br> 協同合作 |Talon  |[StorSimple 搭配 Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>StorSimple 詞彙
 在部署 Microsoft Azure StorSimple 解決方案，我們建議您檢閱下列詞彙和定義。
@@ -297,7 +300,7 @@ StorSimple 8000 系列裝置不支援下列工作負載。 如果部署於 StorS
 | 服務註冊金鑰 |可協助向 StorSimple 裝置管理員服務註冊 StorSimple 裝置的金鑰，以使該裝置能夠出現在 Azure 入口網站中，讓您能夠採取進一步的管理動作。 |
 | Small Computer System Interface (SCSI) |一組實際連接電腦並在它們之間傳送資料的標準。 |
 | 固態硬碟 (SSD) |沒有包含任何移動組件的磁碟；例如，快閃磁碟機。 |
-| storage account |一組針對給定的雲端服務提供者連結至您的儲存體帳戶的存取認證。 |
+| 儲存體帳戶 |一組針對給定的雲端服務提供者連結至您的儲存體帳戶的存取認證。 |
 | StorSimple Adapter for SharePoint |一種 Microsoft Azure StorSimple 元件，其可將 StorSimple 儲存體和資料保護明確延伸至 SharePoint 伺服器陣列。 |
 | StorSimple 裝置管理員服務 |Azure 入口網站的延伸模組，可讓您管理您的 Azure StorSimple 內部部署和虛擬裝置。 |
 | StorSimple Snapshot Manager |一種 Microsoft Management Console (MMC) 嵌入式管理單元，用於管理 Microsoft Azure StorSimple 中的備份和還原作業。 |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: d7fb9fadcfac0b57fb98dc54f40ff0d2f07c6827
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: eb4f0e26d1795abc3392e9736e71093fab79aae2
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728401"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967938"
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全性框架：驗證 | 緩和措施 
 
@@ -435,7 +435,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
-| **步驟** | <p>Azure AD 驗證程式庫 (ADAL) 可讓用戶端應用程式開發人員輕鬆地向雲端或內部部署 Active Directory (AD) 驗證使用者，然後取得存取權杖來保護 API 呼叫。</p><p>ADAL 有許多功能可使開發人員的驗證更容易，例如非同步支援、儲存存取權杖和更新權杖的可設定權杖快取、當存取權杖到期並且更新權杖可供使用時自動更新權杖等等。</p><p>藉由處理大部分的複雜度，ADAL 可以幫助開發人員專注於他們的應用程式中的商務邏輯，並輕鬆地保護資源而不需成為安全性方面的專家。 不同的程式庫適用於 .NET、JavaScript (用戶端和 Node.js)、iOS、Android 和 Java。</p>|
+| **步驟** | <p>Azure AD 驗證程式庫 (ADAL) 可讓用戶端應用程式開發人員輕鬆地向雲端或內部部署 Active Directory (AD) 驗證使用者，然後取得存取權杖來保護 API 呼叫。</p><p>ADAL 有許多功能可使開發人員的驗證更容易，例如非同步支援、儲存存取權杖和更新權杖的可設定權杖快取、當存取權杖到期並且更新權杖可供使用時自動更新權杖等等。</p><p>藉由處理大部分的複雜度，ADAL 可以幫助開發人員專注於他們的應用程式中的商務邏輯，並輕鬆地保護資源而不需成為安全性方面的專家。 個別的程式庫適用于 .NET、JavaScript (用戶端和 node.js)、Python、iOS、Android 和 JAVA。</p>|
 
 ## <a id="authn-devices-field"></a>驗證連線到現場閘道的裝置
 

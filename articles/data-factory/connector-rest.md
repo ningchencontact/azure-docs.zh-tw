@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c7c8faad70022ba985a4041fd578becbaf70078
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60546619"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966872"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 REST 端點複製資料
 
@@ -43,6 +43,10 @@ ms.locfileid: "60546619"
 > [!TIP]
 > 若要在 Data Factory 中設定 REST 連接器之前，測試擷取資料的要求，請先了解 API 規格中的標頭和本文需求。 您可以使用 Postman 或網頁瀏覽器之類的工具進行驗證。
 
+## <a name="prerequisites"></a>先決條件
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>開始使用
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -53,19 +57,19 @@ ms.locfileid: "60546619"
 
 以下是針對 REST 連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | **型別**屬性必須設為**RestService**。 | 是 |
+| type | **Type**屬性必須設定為**RestService**。 | 是 |
 | url | REST 服務的基底 URL。 | 是 |
 | enableServerCertificateValidation | 連線到端點時，是否要驗證伺服器端的 SSL 憑證。 | 否<br /> (預設值為 **true**) |
 | authenticationType | 用來連線到 REST 服務的驗證類型。 允許的值為 **Anonymous**、**Basic**、**AadServicePrincipal** 和 **ManagedServiceIdentity**。 請分別參閱下列有關更多屬性和範例的對應區段。 | 是 |
-| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載整合執行階段 (如果您的資料存放區位於私人網路中)。 如果未指定，此屬性會使用預設的 Azure Integration Runtime。 |否 |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，此屬性會使用預設的 Azure Integration Runtime。 |否 |
 
 ### <a name="use-basic-authentication"></a>使用基本驗證
 
-將 **authenticationType** 屬性設定為 [Basic]  。 除了上一節所述的一般屬性以外，請指定下列屬性：
+將 **authenticationType** 屬性設定為 [Basic]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | userName | 用來存取 REST 端點的使用者名稱。 | 是 |
 | password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
@@ -96,13 +100,13 @@ ms.locfileid: "60546619"
 
 ### <a name="use-aad-service-principal-authentication"></a>使用 AAD 服務主體驗證
 
-將 **authenticationType** 屬性設定為 [AadServicePrincipal]  。 除了上一節所述的一般屬性以外，請指定下列屬性：
+將 **authenticationType** 屬性設定為 [AadServicePrincipal]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | servicePrincipalId | 指定 Azure Active Directory 應用程式的用戶端識別碼。 | 是 |
 | servicePrincipalKey | 指定 Azure Active Directory 應用程式的金鑰。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
-| tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
+| 租用戶 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
 | aadResourceId | 指定您要求授權的 AAD 資源，例如 `https://management.core.windows.net`。| 是 |
 
 **範例**
@@ -133,9 +137,9 @@ ms.locfileid: "60546619"
 
 ### <a name="managed-identity"></a>使用 Azure 資源的受控識別驗證
 
-將 **authenticationType** 屬性設定為 [ManagedServiceIdentity]  。 除了上一節所述的一般屬性以外，請指定下列屬性：
+將 **authenticationType** 屬性設定為 [ManagedServiceIdentity]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | aadResourceId | 指定您要求授權的 AAD 資源，例如 `https://management.core.windows.net`。| 是 |
 
@@ -167,9 +171,9 @@ ms.locfileid: "60546619"
 
 若要從 REST 複製資料，以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 **type** 屬性必須設定為 [RestResource]  。 | 是 |
+| type | 資料集的 **type** 屬性必須設定為 [RestResource]。 | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 否 |
 | requestMethod | HTTP 方法。 允許的值為 **Get** (預設值) 和 **Post**。 | 否 |
 | additionalHeaders | 其他 HTTP 要求標頭。 | 否 |
@@ -230,11 +234,11 @@ ms.locfileid: "60546619"
 
 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 **type** 屬性必須設定為 [RestSource]  。 | 是 |
+| type | 複製活動來源的 **type** 屬性必須設定為 [RestSource]。 | 是 |
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 否 |
-| requestInterval | 傳送下一個頁面要求之前的等候時間。 預設值為 [00:00:01]  |  否 |
+| requestInterval | 傳送下一個頁面要求之前的等候時間。 預設值為 [00:00:01] |  否 |
 
 **範例**
 
@@ -274,8 +278,8 @@ ms.locfileid: "60546619"
 
 此泛型 REST 連接器支援下列分頁模式： 
 
-* 下一個要求的絕對或相對 URL = 目前的回應主體中的屬性值
-* 下一個要求的絕對或相對 URL = 目前的回應標頭中的標頭值
+* 下一個要求的絕對或相對 URL = 目前回應主體中的屬性值
+* 下一個要求的絕對或相對 URL = 目前回應標頭中的標頭值
 * 下一個要求的查詢參數 = 目前回應本文中的屬性值
 * 下一個要求的查詢參數 = 目前回應標頭中的標頭值
 * 下一個要求的標頭 = 目前回應本文中的屬性值
@@ -287,7 +291,7 @@ ms.locfileid: "60546619"
 
 | Key | 描述 |
 |:--- |:--- |
-| AbsoluteUrl | 指示 URL 發出下一個要求。 它可以是**絕對 URL 或相對 URL**。 |
+| AbsoluteUrl | 指示 URL 發出下一個要求。 它可以是**絕對 url 或相對 url**。 |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | 使用者定義的 "request_query_parameter" 會參考下一個 HTTP 要求 URL 中的一個查詢參數名稱。 |
 | Headers.*request_header* OR Headers['request_header'] | 使用者定義的 "request_header" 會參考下一個 HTTP 要求中的一個標頭名稱。 |
 
@@ -355,7 +359,7 @@ Facebook 圖形 API 會傳回採用下列結構的回應，在該案例中，下
 
 ## <a name="export-json-response-as-is"></a>匯出 JSON 回應的原狀
 
-您可以使用此 REST 連接器將 REST API 的 JSON 回應原狀匯出到各種檔案型存放區。 若要完成這種無結構描述的複製，請略過資料集中的「結構」(也稱為「結構描述」  ) 區段，以及複製活動中的結構描述。
+您可以使用此 REST 連接器將 REST API 的 JSON 回應原狀匯出到各種檔案型存放區。 若要完成這種無結構描述的複製，請略過資料集中的「結構」(也稱為「結構描述」) 區段，以及複製活動中的結構描述。
 
 ## <a name="schema-mapping"></a>結構描述對應
 

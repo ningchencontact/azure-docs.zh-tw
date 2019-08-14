@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 1488dbdcc042b29880560e7255de96b8d0409779
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 825379c04c22b3f13e651455c490a58ad47169d8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498497"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967149"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -243,9 +243,6 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 
 本節說明如何將 Linux 上的 Azure App Service 上部署的 JAVA 應用程式與 NewRelic 和 AppDynamics 應用程式效能監視 (APM) 平臺連接在一起。
 
-[設定新的 new relic](#configure-new-relic) 
- [configure AppDynamics](#configure-appdynamics)
-
 ### <a name="configure-new-relic"></a>設定 NewRelic
 
 1. 在 [NewRelic.com](https://newrelic.com/signup) 建立 NewRelic 帳戶
@@ -258,7 +255,6 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
     - 如果您的應用程式使用 **Java SE**，請使用 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 值建立名為 `JAVA_OPTS` 的環境變數。
     - 如果您使用 **Tomcat**，請使用 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 值建立名為 `CATALINA_OPTS` 的環境變數。
     - 如果您使用的是**WildFly**, 請參閱[這裡](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java)的新 new relic 檔, 以取得安裝 JAVA 代理程式和 JBoss 設定的指引。
-    - 如果您已經有 `JAVA_OPTS` 或 `CATALINA_OPTS` 的環境變數，請將 `javaagent` 選項附加至目前值的結尾。
 
 ### <a name="configure-appdynamics"></a>設定 AppDynamics
 
@@ -270,6 +266,8 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
     - 如果您使用 **Java SE**，請使用 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 值建立名為 `JAVA_OPTS` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
     - 如果您使用 **Tomcat**，請使用 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 值建立名為 `CATALINA_OPTS` 的環境變數，其中 `<app-name>` 是您的 App Service 名稱。
     - 如果您使用的是**WildFly**, 請參閱[這裡](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings)的 AppDynamics 檔, 以取得安裝 JAVA 代理程式和 JBoss 設定的指引。
+
+>  如果您已經有 `JAVA_OPTS` 或 `CATALINA_OPTS` 的環境變數，請將 `-javaagent:/...` 選項附加至目前值的結尾。
 
 ## <a name="configure-jar-applications"></a>設定 JAR 應用程式
 
@@ -313,7 +311,7 @@ App Service Linux 會將傳入要求路由傳送至埠 80, 讓您的應用程式
 </appSettings>
 ```
 
-或者, 在 Azure 入口網站的 [   > 設定**應用程式設定**] 頁面中設定環境變數。
+或者, 在 Azure 入口網站的 [  > 設定**應用程式設定**] 頁面中設定環境變數。
 
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 18b5b941716fd2c6664c37f9e7c1ab2a37d07a88
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720653"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967394"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP 資料表複製資料
 
@@ -65,7 +65,7 @@ ms.locfileid: "68720653"
 
 以下是針對 SAP BW 開放式中樞連結服務支援的屬性:
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `type` | 屬性必須設定為`SapTable`。 `type` | 是 |
 | `server` | SAP 實例所在的伺服器名稱。<br/>用來連接到 SAP 應用程式伺服器。 | 否 |
@@ -201,7 +201,7 @@ ms.locfileid: "68720653"
 
 如需定義活動的區段和屬性完整清單, 請參閱[管線](concepts-pipelines-activities.md)。 下一節提供 SAP 資料表來源所支援的屬性清單。
 
-### <a name="sap-table-as-a-source"></a>作為來源的 SAP 資料表
+### <a name="sap-table-as-source"></a>作為來源的 SAP 資料表
 
 若要從 SAP 資料表複製資料, 支援下列屬性:
 
@@ -223,7 +223,7 @@ ms.locfileid: "68720653"
 <br/>
 >`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound`做為範例, 每個資料分割中的資料列數目會使用下列公式來計算: (和之間的總數據列數)/。 `partitionOption` `partitionOnInt`<br/>
 <br/>
->若要以平行方式執行資料分割以加速複製, 我們強烈`maxPartitionsNumber`建議您建立`parallelCopies`屬性值的倍數。 如需詳細資訊, 請參閱[平行複製](copy-activity-performance.md#parallel-copy)。
+>若要平行載入資料分割以加速複製, 平行程度是由複製活動上的[`parallelCopies`](copy-activity-performance.md#parallel-copy)設定所控制。 例如, 如果您將設定`parallelCopies`為四, Data Factory 會同時根據您指定的資料分割選項和設定, 產生並執行四個查詢, 而且每個查詢都會從您的 SAP 資料表中抓取部分資料。 我們強烈建議您`maxPartitionsNumber`建立`parallelCopies`屬性值的倍數。
 
 在`rfcTableOptions`中, 您可以使用下列常用的 SAP 查詢運算子來篩選資料列:
 
@@ -269,7 +269,8 @@ ms.locfileid: "68720653"
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]

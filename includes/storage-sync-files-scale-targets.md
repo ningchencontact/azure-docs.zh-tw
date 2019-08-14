@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 46bf9851ccf8877885d9f98a023aa95ebdc533bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e7aa2b4389fe60eed80b15aff04d6f7fcbc7b013
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857335"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968834"
 ---
 | Resource | 目標 | 固定限制 |
 |----------|--------------|------------|
@@ -23,7 +23,7 @@ ms.locfileid: "68857335"
 | 每個同步群組的雲端端點 | 1 個雲端端點 | 是 |
 | 每個同步群組的伺服器端點 | 50 個伺服器端點 | 否 |
 | 每部伺服器的伺服器端點 | 30 個伺服器端點 | 是 |
-| 每個同步群組的檔案系統物件 (目錄和檔案) | 2500 萬個物件 | 否 |
+| 每個同步群組的檔案系統物件 (目錄和檔案) | 50000000物件 | 否 |
 | 目錄中的檔案系統物件 (目錄和檔案) 數目上限 | 5000000物件 | 是 |
 | 物件 (目錄和檔案) 安全性描述元大小上限 | 64 KiB | 是 |
 | 檔案大小 | 100 GiB | 否 |

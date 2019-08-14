@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248871"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963454"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取最佳做法
 
@@ -35,7 +35,7 @@ ms.locfileid: "68248871"
 
 若要讓您的原則運作，您必須設定：
 
-| 何事           | 方式                                  | 理由 |
+| 屬性           | 方式                                  | 理由 |
 | :--            | :--                                  | :-- |
 | **雲端應用程式** |選取一或多個應用程式。  | 條件式存取原則的目標是要讓您控制授權使用者可以存取雲端應用程式的方式。|
 | **使用者和群組** | 選取至少一個已獲授權存取您所選雲端應用程式的使用者或群組。 | 不會觸發未指派使用者和群組的條件式存取原則。 |
@@ -50,7 +50,8 @@ ms.locfileid: "68248871"
 所有的原則都會在兩個階段強制執行：
 
 - 在**第一個**階段中，系統會評估所有原則，並收集不符合的所有存取控制。 
-- 在**第二個**階段中，系統會提示您滿足您還沒有符合的需求。 如果其中任何一個原則封鎖了存取權, 系統就會封鎖您, 而不會提示您滿足其他原則控制。 如果原則封鎖了您, 系統會提示您以下列順序滿足其他原則控制:
+
+- 在**第二個**階段中，系統會提示您滿足您還沒有符合的需求。 如果其中任何一個原則封鎖了存取權, 系統就會封鎖您, 而不會提示您滿足其他原則控制。 如果沒有任何原則封鎖您, 系統會提示您以下列順序滿足其他原則控制:
 
    ![順序](./media/best-practices/06.png)
     
