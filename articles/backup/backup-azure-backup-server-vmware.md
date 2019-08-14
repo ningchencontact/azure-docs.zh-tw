@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 88adf54ab26055f97534abb4d56d098079116248
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639947"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954928"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份 VMware VM
 
@@ -38,10 +38,10 @@ ms.locfileid: "68639947"
 
 ### <a name="before-you-start"></a>開始之前
 
-- 如果您不想使用 HTTPS, 可以[停用所有 VMware 伺服器的 HTTPs 憑證驗證](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)。
+- 如果您不想使用 HTTPS, 則可以[停用所有 VMware 伺服器的 HTTPs 憑證驗證](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)。
 - 通常您會使用 vSphere Web 用戶端，從 Azure 備份伺服器電腦上的瀏覽器連線到 vCenter/ESXi 伺服器。 您在第一次這麼做時，連線並不安全，且會顯示下列內容。
 - 請務必了解 Azure 備份伺服器處理備份的方式。
-    - 作為第一個步驟，Azure 備份伺服器會將資料備份到本機磁碟儲存體上。 Azure 備份伺服器使用儲存體集區，這是一組磁碟，而 Azure 備份伺服器可在磁碟上的磁碟區儲存受保護資料的磁碟復原點。 儲存體集區可直接連結儲存體 (DAS)、光纖通道 SAN，或 iSCSI 存放裝置或 SAN。 請務必確定您有足夠的儲存體以供 VMware VM 資料的本機備份使用。
+    - 作為第一個步驟，Azure 備份伺服器會將資料備份到本機磁碟儲存體上。 Azure 備份伺服器使用儲存體集區，這是一組磁碟，而 Azure 備份伺服器可在磁碟上的磁碟區儲存受保護資料的磁碟復原點。 儲存體集區可直接連結儲存體 (DAS)、光纖通道 SAN，或 iSCSI 存放裝置或 SAN。 請務必確定您有足夠的儲存空間來進行 VMware VM 資料的本機備份。
     - 接著，Azure 備份伺服器會從本機磁碟儲存體備份至 Azure。
     - [取得說明](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need)以了解您需要多少儲存空間。 該資訊適用於 DPM，但也可用於 Azure 備份伺服器。
 
@@ -289,7 +289,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 1. 在 [選取群組成員] 中 > 選取您要備份的 VM (或 VM 資料夾)。 然後按 [下一步]。
 
     - 當您選取資料夾時，也會選取該資料夾內的 VM 或資料夾以進行備份。 您可以將不想備份的資料夾或 VM 取消選取。
-1. 如果 VM 或資料夾已經過備份，您就無法加以選取。 這確保不會為 VM 建立重複的復原點。 .
+1. 如果 VM 或資料夾已經過備份，您就無法加以選取。 這可確保不會為 VM 建立重複的復原點。
 
      ![選擇群組成員](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
@@ -301,7 +301,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 1. 在 [指定短期目標] 中，指定備份至磁碟之資料要保留的時間長度。
    - 在 [保留範圍] 中，指定磁碟復原點應保留的天數。
    - 在 [同步處理頻率] 中，指定擷取磁碟復原點的頻率。
-       - 如果您不想設定備份間隔，您可以核取 [恰好在復原點之前]，如此一來就會在每個排定的復原點之前執行備份。
+       - 如果您不想要設定備份間隔, 您可以在**復原點之前**進行檢查, 讓備份在每個復原點排定之前就執行。
        - 短期備份是完整備份且不會累加。
        - 當發生短期備份時，按一下 [修改] 以變更時間/日期。
 

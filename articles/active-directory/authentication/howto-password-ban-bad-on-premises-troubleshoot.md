@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779634"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952810"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 密碼保護的疑難排解
 
@@ -41,6 +41,8 @@ ms.locfileid: "68779634"
 1. Proxy 主機電腦封鎖了對 Proxy 服務接聽的 RPC 端點 (動態或靜態) 的存取
 
    Azure AD 密碼保護 Proxy 安裝程式會自動建立 Windows 防火牆輸入規則, 以允許存取由 Azure AD 的密碼保護 Proxy 服務所接聽的任何輸入埠。 如果稍後刪除或停用此規則, DC 代理程式將無法與 Proxy 服務進行通訊。 如果已停用內建 Windows 防火牆代替另一個防火牆產品, 您必須將該防火牆設定為允許存取由 Azure AD 密碼保護 Proxy 服務所接聽的任何輸入埠。 如果 Proxy 服務已設定為在特定靜態 RPC 埠 (使用`Set-AzureADPasswordProtectionProxyConfiguration` Cmdlet) 接聽, 則此設定可能會更具體。
+
+1. Proxy 主機電腦未設定為允許網域控制站登入電腦。 此行為是透過 [從網路存取這台電腦] 使用者權限指派來控制。 樹系中所有網域的所有網域控制站都必須被授與此許可權。 這項設定通常會被限制為較大網路強化工作的一部分。
 
 ## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Proxy 服務無法與 Azure 通訊
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 8707a9cb90afe1bf72f3aef6377f8ada409a1c64
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82b6e701a5f76aa4c2cea78417ca9bcbeeb10308
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837754"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927683"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服務資訊清單中指定資源
 ## <a name="overview"></a>總覽
@@ -27,6 +27,10 @@ ms.locfileid: "60837754"
 
 ## <a name="endpoints"></a>端點
 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 例如，請看本段落之後提供的資訊清單片段中所指定的端點 *ServiceEndpoint1* 。 此外，服務也可以在資源中要求特定連接埠。 不同的連接埠號碼可以指派給在不同叢集節點上執行的服務複本，而在同一節點上執行的服務複本可以共用連接埠。 然後服務複本就可以在需要時使用這些連接埠進行複寫和接聽用戶端要求。
+
+> [!WARNING] 
+> 依照設計, 靜態埠不應該與 ClusterManifest 中指定的應用程式埠範圍重迭。 如果您指定靜態通訊埠, 請在應用程式埠範圍外指派它, 否則會導致埠衝突。 在 release 6.5 CU2 中, 我們會在偵測到這類衝突時發出**健全狀況警告**, 但讓部署繼續與隨附的6.5 行為同步。 不過, 我們可能會防止應用程式部署到下一個主要版本。
+>
 
 ```xml
 <Resources>
@@ -38,7 +42,7 @@ ms.locfileid: "60837754"
 </Resources>
 ```
 
-如果單一服務套件中有多個程式碼套件，則也需要在 [端點]  區段中參考程式碼套件。  例如，如果 **ServiceEndpoint2a** 和 **ServiceEndpoint2b** 是來自參考不同程式碼套件之相同服務套件的端點，則對應至每個端點的程式碼套件釐清如下：
+如果單一服務套件中有多個程式碼套件，則也需要在 [端點] 區段中參考程式碼套件。  例如，如果 **ServiceEndpoint2a** 和 **ServiceEndpoint2b** 是來自參考不同程式碼套件之相同服務套件的端點，則對應至每個端點的程式碼套件釐清如下：
 
 ```xml
 <Resources>
@@ -101,7 +105,7 @@ Service Fabric 會自動將 HTTP 端點處理為 ACL。
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>範例：指定服務的 HTTPS 端點
-HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器通訊。 若要在 Service Fabric 服務上啟用 HTTPS，請在服務資訊清單的 [資源] -> [端點] -> [端點]  區段指定通訊協定，如先前針對 *ServiceEndpoint3* 端點所示。
+HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器通訊。 若要在 Service Fabric 服務上啟用 HTTPS，請在服務資訊清單的 [資源] -> [端點] -> [端點] 區段指定通訊協定，如先前針對 *ServiceEndpoint3* 端點所示。
 
 > [!NOTE]
 > 服務的通訊協定不能在應用程式升級期間變更。 如果它在升級期間變更，將會發生中斷變更。

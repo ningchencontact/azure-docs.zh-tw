@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f64beb80d1a11930fee74e669675b39087cade0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03c9f0908d8b5290dc4585a330a7ea78a6577ab9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562230"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942955"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>使用 Azure 入口網站管理裝置身分識別
 
@@ -116,7 +116,7 @@ Azure AD 入口網站可讓您集中管理您的裝置身分識別。 您可以�
 
 ### <a name="manage-an-intune-device"></a>管理 Intune 裝置
 
-如果您是 Intune 管理員，您可以管理標示為 **Microsoft Intune** 的裝置。
+如果您是 Intune 管理員，您可以管理標示為 **Microsoft Intune** 的裝置。 如果裝置未向註冊 Microsoft Intune 則 [管理] 選項會呈現灰色。
 
 ![管理 Intune 裝置](./media/device-management-azure-portal/31.png)
 

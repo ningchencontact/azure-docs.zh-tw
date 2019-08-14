@@ -4,14 +4,14 @@ description: Azure 檔案儲存體透過 Azure Active Directory (Azure AD) 網�
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: 604cf2bbe0cf8ab036c76ee9223d1ee34fd4bd3d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: addb97d71da1ceac8717ae77204c87a8197dac86
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854560"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935177"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>瞭解 SMB 存取的 Azure 檔案儲存體 Azure Active Directory 網域服務 (Azure AD DS) 驗證支援
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]

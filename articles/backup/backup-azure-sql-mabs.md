@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: dacurwin
-ms.openlocfilehash: 5e91d63f4479d0677c57342cb1b726e33a45bb86
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 72de5857786f284bfc4afda1db093d5343bd7a43
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689076"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954466"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>使用 Azure 備份伺服器將 SQL Server 備份至 Azure
 本文將引導您逐步完成使用 Microsoft Azure 備份伺服器 (MABS) 來備份 SQL Server 資料庫的設定步驟。
@@ -44,7 +44,7 @@ ms.locfileid: "68689076"
     ![資料保護方式 - 短期磁碟和線上 Azure](./media/backup-azure-backup-sql/pg-name.png)
 7. 在 [指定短期目標] 畫面中，包含建立磁碟備份點所需的輸入。
 
-    我們在此看到 [保留範圍] 設定為 [5 天]，[同步處理頻率] 設定為每隔 [15 分鐘]，這就是執行備份的頻率。 [快速完整備份] 設定為 [下午 8:00]。
+    在這裡, 我們看到 [**保留範圍**] 設定為 [ *5 天*], **[同步處理頻率**] 設定為每隔*15 分鐘*一次, 這就是執行備份的頻率。 [快速完整備份] 設定為 [下午 8:00]。
 
     ![短期目標](./media/backup-azure-backup-sql/pg-shortterm.png)
 
@@ -129,7 +129,7 @@ ms.locfileid: "68689076"
 ## <a name="recover-a-sql-server-database-from-azure"></a>從 Azure 復原 SQL Server 資料庫
 以下是從 Azure 復原受保護的實體 (SQL Server 資料庫) 所需的步驟。
 
-1. 開啟 [DPM 伺服器管理主控台]。 巡覽至 [復原] 工作區，您可以在此處查看 DPM 所備份的伺服器。 瀏覽所需的資料庫 (在此例中為 ReportServer$MSDPM2012)。 選取以 [線上] 結尾的 [復原自] 時間。
+1. 開啟 [DPM 伺服器管理主控台]。 巡覽至 [復原] 工作區，您可以在此處查看 DPM 所備份的伺服器。 瀏覽所需的資料庫 (在此例中為 ReportServer$MSDPM2012)。 選取以 **線上**結束的時間進行復原。
 
     ![選取復原點](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. 以滑鼠右鍵按一下資料庫名稱，然後按一下 [復原]。

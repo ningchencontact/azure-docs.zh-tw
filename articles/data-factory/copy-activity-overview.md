@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ae8b2bb7cce545ab9c0aa0c9d4d682089cc482ab
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827472"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966396"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -33,7 +33,7 @@ ms.locfileid: "68827472"
 
 複製活動會在[整合執行階段](concepts-integration-runtime.md)上執行。 針對不同的資料複製案例, 可以運用不同的 Integration Runtime 種類:
 
-* 在可公開存取的資料存放區之間複製資料時，可透過 **Azure 整合執行階段**執行複製活動，Azure 整合執行階段的優點是安全、可靠、可擴充和[全球通用](concepts-integration-runtime.md#integration-runtime-location)。
+* 在可從任何 Ip 透過網際網路公開存取的資料存放區之間複製資料時, 複製活動可以受到**Azure Integration Runtime**的保護, 這是安全、可靠、可調整且[可全域使用](concepts-integration-runtime.md#integration-runtime-location)的。
 * 在內部部署或具有存取控制的網路 (例如，Azure 虛擬網路) 資料存放區之間複製資料時，您需要設定**自我裝載整合執行階段**以執行資料複製。
 
 Integration Runtime 必須與每個來源及接收端資料存放區相關聯。 瞭解複製活動如何[決定使用何種 IR](concepts-integration-runtime.md#determining-which-ir-to-use)。
@@ -193,7 +193,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 | usedDataIntegrationUnits | 複製期間的有效資料整合單位。 | Int32 值 |
 | usedParallelCopies | 複製期間有效的 parallelCopies。 | Int32 值 |
 | redirectRowPath | 您在 redirectIncompatibleRowSettings 下設定之 Blob 儲存體中略過之不相容資料列的記錄路徑。 請參閱下列範例。 | 文字 (字串) |
-| executionDetails | 複製活動經歷的階段，以及對應步驟、持續時間、使用的組態等詳細資料。不建議剖析此區段，因為它可能會變更。<br/><br/>ADF 也會報告`detailedDurations`下列各步驟所花費的詳細持續時間 (以秒為單位):<br/>- **佇列持續時間**(`queuingDuration`):複製活動在整合執行時間上實際開始的時間。 如果您使用自我裝載 IR 且此值很大, 建議您檢查 IR 容量和使用量, 並根據您的工作負載相應增加/相應放大。 <br/>- **複製前腳本持續時間**(`preCopyScriptDuration`):在接收資料存放區中執行預先複製腳本所花費的時間。 適用于設定預先複製腳本時。 <br/>- **第一個位元組時間**(`timeToFirstByte`):整合執行時間從來源資料存放區接收第一個位元組的時間。 適用于非檔案型來源。 如果這個值很大, 建議檢查並優化查詢或伺服器。<br/>- **傳輸期間**(`transferDuration`):取得第一個位元組之後, 整合執行時間將所有資料從來源傳輸到接收的時間。 | Array |
+| executionDetails | 複製活動經歷的階段，以及對應步驟、持續時間、使用的組態等詳細資料。不建議剖析此區段，因為它可能會變更。<br/><br/>ADF 也會報告下`detailedDurations`個別步驟所花費的詳細持續時間 (以秒為單位)。 這些步驟的持續時間是獨佔的, 只有適用于指定複製活動執行的時間才會顯示:<br/>- **佇列持續時間**(`queuingDuration`):已耗用的時間, 直到「複製」活動實際開始于整合執行時間為止。 如果您使用自我裝載 IR 且此值很大, 建議您檢查 IR 容量和使用量, 並根據您的工作負載相應增加/相應放大。 <br/>- **複製前腳本持續時間**(`preCopyScriptDuration`):從 IR 和複製活動開始, 在接收資料存放區中執行預先複製腳本的複製活動之間經過的時間。 適用于設定預先複製腳本時。 <br/>- **第一個位元組時間**(`timeToFirstByte`):上一個步驟結束與從來源資料存放區接收第一個位元組的 IR 之間經過的時間。 適用于非檔案型來源。 如果這個值很大, 建議檢查並優化查詢或伺服器。<br/>- **傳輸期間**(`transferDuration`):上一個步驟結束與 IR 將所有資料從來源傳輸到接收之間經過的時間。 | Array |
 | perfRecommendation | 複製效能微調秘訣。 如需詳細資訊, 請參閱[效能和微調](#performance-and-tuning)一節。 | Array |
 
 ```json

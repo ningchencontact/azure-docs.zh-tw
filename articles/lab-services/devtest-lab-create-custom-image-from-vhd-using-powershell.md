@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c1cdb64e4c8c99eeca4cc66c0d0ad2b755144917
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b43dc668af74f532838dad3baf1d6e11d51ac69d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201917"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964086"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>使用 PowerShell 從 VHD 檔案建立自訂映像
 
@@ -35,32 +35,25 @@ ms.locfileid: "60201917"
 
 下列步驟將逐步引導您使用 PowerShell 從 VHD 檔案建立自訂映像：
 
-1. 在 PowerShell 提示字元中，登入您的 Azure 帳戶，使用下列呼叫來**Connect AzAccount** cmdlet。
+1. 在 PowerShell 提示字元中, 使用**disconnect-azaccount** Cmdlet 的下列呼叫來登入您的 Azure 帳戶。
 
     ```powershell
     Connect-AzAccount
     ```
 
-1.  選取所需的 Azure 訂用帳戶，藉由呼叫**選取 AzSubscription** cmdlet。 以有效的 Azure 訂用帳戶 ID 取代 **$subscriptionId** 變數的下列預留位置。
+1.  藉由呼叫**get-azsubscription** Cmdlet 來選取所需的 Azure 訂用帳戶。 以有效的 Azure 訂用帳戶 ID 取代 **$subscriptionId** 變數的下列預留位置。
 
     ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  取得實驗室物件呼叫**Get AzResource** cmdlet。 以您環境的適當值取代 **$labRg** 和 **$labName** 變數的下列預留位置。
+1.  藉由呼叫**get-azresource** Cmdlet 來取得實驗室物件。 以您環境的適當值取代 **$labRg** 和 **$labName** 變數的下列預留位置。
 
     ```powershell
     $labRg = '<Specify your lab resource group name here>'
     $labName = '<Specify your lab name here>'
     $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    ```
-
-1.  從實驗室物件取得實驗室儲存體帳戶和實驗室儲存體帳戶金鑰值。
-
-    ```powershell
-    $labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
-    $labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
     ```
 
 1.  以您所上傳 VHD 檔案的 URI 取代 **$vhdUri** 變數的下列預留位置。 您可以從 Azure 入口網站中儲存體帳戶的 Blob 刀鋒視窗取得 VHD 檔案的 URI。
@@ -69,7 +62,7 @@ ms.locfileid: "60201917"
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.  建立自訂映像使用**新增 AzResourceGroupDeployment** cmdlet。 將 **$customImageName** 和 **$customImageDescription** 變數的下列預留位置取代為對您環境有意義的名稱。
+1.  使用**new-azresourcegroupdeployment** Cmdlet 建立自訂映射。 將 **$customImageName** 和 **$customImageDescription** 變數的下列預留位置取代為對您環境有意義的名稱。
 
     ```powershell
     $customImageName = '<Specify the custom image name>'
@@ -96,10 +89,6 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 $labRg = '<Specify your lab resource group name here>'
 $labName = '<Specify your lab name here>'
 $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-
-# Get the lab storage account and lab storage account key values.
-$labStorageAccount = Get-AzResource -ResourceId $lab.Properties.defaultStorageAccount
-$labStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $labStorageAccount.ResourceGroupName -Name $labStorageAccount.ResourceName)[0].Value
 
 # Set the URI of the VHD file.
 $vhdUri = '<Specify the VHD URI here>'

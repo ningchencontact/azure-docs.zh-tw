@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663696"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954941"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>備份復原服務保存庫中的 Azure VM
 
@@ -164,8 +164,8 @@ ms.locfileid: "68663696"
 
 ## <a name="verify-backup-job-status"></a>確認備份作業狀態
 
-每個 VM 備份的備份作業詳細資料包含2個階段,**快照**集階段, 後面接著 [將**資料傳送至保存庫**] 階段。<br/>
-快照集階段可保證與磁片一併儲存的復原點可用性, 以進行**立即還原**, 而且最多可以有5天的時間, 視使用者所設定的快照集保留而定。 將資料傳輸至保存庫會在保存庫中建立復原點以長期保留。 只有在快照集階段完成之後, 才會開始將資料傳輸到保存庫。
+每個 VM 備份的備份作業詳細資料包含兩個階段:**快照**集階段, 後面接著 [將**資料傳送至保存庫**] 階段。<br/>
+快照集階段會保證與磁片一併儲存的復原點可用性, 以進行**立即還原**, 而且最多可有五天的時間, 視使用者所設定的快照集保留而定。 將資料傳輸至保存庫會在保存庫中建立復原點以進行長期保留。 只有在快照集階段完成之後, 才會開始將資料傳輸到保存庫。
 
   ![備份作業狀態](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 

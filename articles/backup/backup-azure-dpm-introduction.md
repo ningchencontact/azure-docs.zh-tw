@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c762054ed0df3a3781dda7057ff8793dbf82565
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 71070a778e54e51cdb528041f746489bb64e979c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689311"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954719"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>準備使用 System Center DPM 將工作負載備份到 Azure
 
@@ -91,13 +91,13 @@ Azure 備份代理程式 | 如果 DPM 執行於 System Center 2012 SP1 上，請
 
 ### <a name="best-practices-for-vault-credentials"></a>保存庫認證的最佳做法
 
-若要取得認證，您可以從 Azure 入口網站透過安全通道下載保存庫認證檔：
+若要取得認證, 請從 Azure 入口網站的安全通道下載保存庫認證檔:
 
 - 保存庫認證僅在註冊工作流程期間使用。
 - 確保保存庫認證檔安全無虞且不會遭到破解，是您自己的負責。
     - 若失去認證的控制權，則可使用保存庫認證來向保存庫註冊其他機器。
     - 不過，系統會使用屬於客戶的複雜密碼來加密備份資料，因此，現有的備份資料不會外洩。
-- 確定檔案儲存在可從 DPM 伺服器存取的位置。 如果它儲存在檔案共用/SMB，請檢查存取權限。
+- 請確定該檔案儲存在可從 DPM 服務器存取的位置。 如果它儲存在檔案共用/SMB，請檢查存取權限。
 - 保存庫認證將於 48 小時後過期。 您可以視需要下載新的保存庫認證，次數不限。 不過，在註冊工作流程進行期間，您只能使用最新的保存庫認證檔案。
 - Azure 備份服務不會知道憑證的私密金鑰，且私密金鑰無法在入口網站或服務中取得。
 
@@ -183,7 +183,7 @@ Azure 備份所備份的每部電腦都必須安裝備份代理程式，也就�
 
 ### <a name="access-error"></a>存取錯誤
 
-請確定保存庫認證檔位於可透過設定應用程式存取的位置。 如果您遇到存取權相關的錯誤，請將保存庫認證檔複製至此電腦中的暫存位置並重試作業。
+請確定保存庫認證檔可在安裝應用程式可存取的位置中使用。 如果您遇到存取權相關的錯誤，請將保存庫認證檔複製至此電腦中的暫存位置並重試作業。
 
 ### <a name="invalid-credentials-error"></a>認證無效錯誤
 

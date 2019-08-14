@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 08/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7f253b71271787f7f2ef722134862ca72e0159df
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 22fa0ba52c346b8331fd6895cf87f3e15ee68ac6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855759"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950082"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -99,7 +99,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 | **杜拜** | Etisalat 阿拉伯聯合大公國 | 阿拉伯聯合大公國北部 | Etisalat 阿拉伯聯合大公國 |
 | **Dubai2** | du datamena | 阿拉伯聯合大公國北部 | du datamena, Orixcom |
 | **都柏林** | Equinix | 北歐 | Colt、eir、Equinix、Interxion、Megaport |
-| **法蘭克福** | Interxion | n/a | CIX、Interxion |
+| **法蘭克福** | Interxion | n/a | CIX、Interxion、橙色 |
 | **香港特別行政區** | Equinix | 東亞 | Aryaka networks Networks, 英屬電信, CenturyLink Cloud Connect, 首席電信, 中國電信全球, Equinix, Megaport, NTT 通訊, 橙色, PCCW GLOBAL LIMITED 全球有限, Tata 通訊, Telia 電訊商, Verizon |
 | **約翰尼斯堡** | Teraco | 南非北部 | 英屬電信, 網際網路解決方案-雲端連線, 液體電信, Teraco |
 | **吉隆坡** | TIME dotCom | n/a | TIME dotCom |
@@ -110,7 +110,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 | **馬賽** |Interxion | 法國南部 | CIX、Interxion、Jaguar 網路 |
 | **墨爾本** | NEXTDC | 澳大利亞東南部 | AARNet、Devoli、Equinix、Megaport、NEXTDC、Optus、Telstra Corporation、TPG 電信 |
 | **邁阿密** | Equinix | n/a | C3ntro+、Equinix、Megaport、Neutrona Networks |
-| **蒙特婁** | Cologix | n/a | Bell Canada、Cologix、Telus、Zayo |
+| **蒙特婁** | Cologix | n/a | 鐘加拿大、Cologix、Megaport、Telus、Zayo |
 | **孟買** | Tata Communications | 印度西部 | Global CloudXchange (GCX)、依賴 Jio、Sify、Tata 通訊、Verizon |
 | **孟買2** | Airtel | 印度西部 | Airtel、Sify、Vodafone Idea |
 | **紐約** | Equinix | n/a | CenturyLink Cloud Connect、Coresite、Equinix、InterCloud、Megaport、Packet、Zayo |

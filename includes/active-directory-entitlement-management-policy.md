@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 154d71c9cbc109834a5854b46c3e6584dcefa7eb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817203"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968837"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>原則:適用于您目錄中的使用者
 
@@ -35,7 +35,7 @@ ms.locfileid: "68817203"
 
 ### <a name="policy-for-users-not-in-your-directory"></a>原則:針對不在您目錄中的使用者
 
-如果您想要讓您的原則不在您目錄中可要求此存取套件的使用者, 請遵循下列步驟。 **不在您目錄中的使用者**指的是另一個 Azure AD 目錄中的使用者, 而且可能尚未被邀請到您的目錄中。  目錄必須設定為可在**組織關聯**性的共同作業限制設定中使用。
+如果您想要讓您的原則不在您目錄中可要求此存取套件的使用者, 請遵循下列步驟。 **不在您目錄中的使用者**指的是另一個 Azure AD 目錄中的使用者, 而且可能尚未被邀請到您的目錄中。 目前, 您只能從具有 Azure AD 的組織新增使用者。 目錄必須設定為可在**組織關聯**性的共同作業限制設定中使用。
 
 > [!NOTE]
 > 系統會針對尚未在您的目錄中核准或自動核准要求的使用者, 建立來賓外部使用者帳戶。 系統會邀請來賓, 但不會收到邀請電子郵件。 相反地, 他們會在其存取套件指派傳遞時收到電子郵件。 根據預設, 當該來賓使用者不再具有任何存取套件指派時, 由於其上次指派已過期或已取消, 所以該來賓使用者帳戶將會遭到封鎖而無法登入, 且後續將會刪除。 如果您想要讓來賓使用者無限期地保留在您的目錄中, 即使他們沒有任何存取套件指派, 您也可以變更您的權利管理設定。

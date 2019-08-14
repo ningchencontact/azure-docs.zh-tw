@@ -1,6 +1,6 @@
 ---
-title: Azure SQL 彈性資料庫作業 | Microsoft Docs
-description: 設定彈性資料庫作業，以跨一或多個 Azure SQL 資料庫執行 Transact-SQL (T-SQL) 指令碼
+title: Azure SQL 彈性資料庫作業 (預覽) |Microsoft Docs
+description: 設定彈性資料庫作業 (預覽), 以在一或多個 Azure SQL 資料庫中執行 Transact-sql (T-sql) 腳本
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 7c5905716c0aada4a5070b9968c330eafaffb741
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561328"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935083"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>建立、設定及管理彈性作業
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639873"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954769"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -175,7 +175,7 @@ ms.locfileid: "68639873"
 
 保存庫儀表板中的 [備份作業] 圖格會顯示過去 24 小時內 [進行中] 或 [失敗] 的作業數目。 此圖格可讓您一窺 [備份作業] 功能表。
 
-![從設定備份項目](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![從設定備份專案](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 若要查看有關作業的其他詳細資料，請按一下 [進行中] 或 [失敗] 以開啟針對該狀態篩選的 [備份作業] 功能表。
 
@@ -185,11 +185,11 @@ ms.locfileid: "68639873"
 
 若要開啟 [備份作業] 功能表，請在保存庫的主功能表中，按一下 [備份作業]。
 
-![從設定備份項目](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![從設定備份專案](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 備份作業清單隨即開啟。
 
-![從設定備份項目](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![從設定備份專案](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 [備份作業] 功能表會顯示過去 24 小時內所有備份類型的所有作業狀態。 使用 [篩選] 來變更篩選條件。 下列各節將說明篩選條件。
 
@@ -197,11 +197,11 @@ ms.locfileid: "68639873"
 
 1. 在保存庫的 [備份作業] 功能表中，按一下 [篩選]。
 
-   ![從設定備份項目](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![從設定備份專案](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     [篩選] 功能表隨即開啟。
 
-   ![從設定備份項目](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![從設定備份專案](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. 選擇篩選設定，然後按一下 [完成]。 經過篩選的清單會根據新的設定重新整理。
 

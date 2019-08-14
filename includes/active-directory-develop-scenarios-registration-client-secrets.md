@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: cd37880be6d518105e880b93a0bd748f7c729d88
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f98808aa0f8a2c32e2117447824114747091a82
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286305"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912313"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>註冊秘密或憑證
 
@@ -29,7 +29,7 @@ ms.locfileid: "68286305"
 
 用戶端認證的管理會出現在應用程式的 [**憑證 & 秘密**] 頁面中:
 
-![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
+![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
 - 應用程式密碼 (也稱為用戶端密碼) 是在註冊機密用戶端應用程式時, 由 Azure AD 所產生。 當您選取 [**新增用戶端密碼**] 時, 就會發生此產生。 此時, 您必須先複製剪貼簿中的秘密字串, 以便在您的應用程式中使用, 然後再選取 [**儲存**]。 這個字串將不會再顯示。
 - 憑證會使用 [**上傳憑證**] 按鈕, 在應用程式註冊中上傳。 Azure AD 僅支援在應用程式上直接註冊的憑證, 且不會遵循憑證鏈。

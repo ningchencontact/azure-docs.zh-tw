@@ -6,14 +6,14 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 4223d310bc747a518abaeadbbb467aa44871578f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882503"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950229"
 ---
-# <a name="data-profile-data-sources"></a>對資料來源進行資料分析
+# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>如何在 Azure 資料目錄中分析資料源的資料
 
 ## <a name="introduction"></a>簡介
 

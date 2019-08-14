@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 126e33d4bedb56eb479361f16c02e7e167e49392
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 41e01531535fe41fa894f8de3181a56885ab3bcf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736699"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955061"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>如何在 Azure 入口網站中還原 Azure VM 資料
 
@@ -29,8 +29,8 @@ Azure 備份提供數種方法來還原 VM。
 **還原選項** | **詳細資料**
 --- | ---
 **建立新的 VM** | 從還原點快速建立及啟動基本 VM 並加以執行。<br/><br/> 您可以指定 VM 的名稱, 並選取將在其中放置資源群組和虛擬網路 (VNet), 並為還原的 VM 指定儲存體帳戶。
-**還原磁碟** | 還原 VM 磁碟，之後可以用其來建立新 VM。<br/><br/> Azure 備份提供一個範本，協助您自訂和建立 VM。 <br/><br> 還原作業會產生範本，您可以下載並使用該範本來指定自訂 VM 設定，並建立 VM。<br/><br/> 磁片會複製到您指定的儲存體帳戶。<br/><br/> 或者，您可以將磁碟連結至現有 VM，或使用 PowerShell 建立新的 VM。<br/><br/> 此選項十分適用於自訂 VM、新增備份時沒有的組態設定，或新增必須使用範本或 PowerShell 來配置的設定。
-**取代現有的** | 您可以還原磁碟，然後使用該磁碟來取代現有 VM 上的磁碟。<br/><br/> 目前的 VM 必須存在。 如果已刪除，則無法使用這個選項。<br/><br/> Azure 備份會在更換磁片之前取得現有 VM 的快照, 並將其儲存在您指定的暫存位置。 已連線至 VM 的現有磁片會取代為選取的還原點。<br/><br/> 快照集會複製到保存庫, 並根據保留原則加以保留。 <br/><br/> 針對未加密的受控 VM 支援取代現有的項目。 不支援非受控磁碟、[一般化的 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 或[使用自訂映像建立的](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) \(英文\) VM。<br/><br/> 如果還原點中的磁碟數目多於或少於目前的 VM，則還原點中的磁碟數目只會反映該 VM 組態。<br/><br/>
+**還原磁碟** | 還原 VM 磁片, 然後可以用來建立新的 VM。<br/><br/> Azure 備份提供一個範本，協助您自訂和建立 VM。 <br/><br> 還原作業會產生範本，您可以下載並使用該範本來指定自訂 VM 設定，並建立 VM。<br/><br/> 磁片會複製到您指定的儲存體帳戶。<br/><br/> 或者，您可以將磁碟連結至現有 VM，或使用 PowerShell 建立新的 VM。<br/><br/> 此選項十分適用於自訂 VM、新增備份時沒有的組態設定，或新增必須使用範本或 PowerShell 來配置的設定。
+**取代現有的** | 您可以還原磁碟，然後使用該磁碟來取代現有 VM 上的磁碟。<br/><br/> 目前的 VM 必須存在。 如果已刪除, 則無法使用此選項。<br/><br/> Azure 備份會在更換磁片之前取得現有 VM 的快照, 並將其儲存在您指定的暫存位置。 已連線至 VM 的現有磁片會取代為選取的還原點。<br/><br/> 快照集會複製到保存庫, 並根據保留原則加以保留。 <br/><br/> 針對未加密的受控 VM 支援取代現有的項目。 不支援非受控磁碟、[一般化的 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 或[使用自訂映像建立的](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) \(英文\) VM。<br/><br/> 如果還原點中的磁碟數目多於或少於目前的 VM，則還原點中的磁碟數目只會反映該 VM 組態。<br/><br/>
 
 
 > [!NOTE]
@@ -46,7 +46,7 @@ Azure 備份提供數種方法來還原 VM。
 - **復原磁碟**:當您復原磁碟時, 磁片會複製到您指定的儲存體帳戶。 還原作業會產生範本, 供您下載並用來指定自訂 VM 設定。 此範本會放在指定的儲存體帳戶中。
 - **取代磁片**:當您更換現有 VM 上的磁片時, Azure 備份會先取得現有 VM 的快照集, 然後再更換磁片。 快照集會儲存在您指定的預備位置 (儲存體帳戶) 中。 此儲存體帳戶是用來在還原過程中暫時儲存快照集, 我們建議您建立新的帳戶來執行此作業, 之後就可以輕鬆地移除。
 - **儲存體帳戶位置**:儲存體帳戶必須位於與保存庫相同的區域中。 只會顯示這些帳戶。 如果位置中沒有儲存體帳戶, 您必須建立一個。
-- **儲存體類型**:不支援 Blob 儲存體。
+- **儲存體類型**：不支援 Blob 儲存體。
 - **儲存體冗余**:不支援區域備援儲存體 (ZRS)。 帳戶名稱後面會以括弧括住帳戶的複寫和重複資訊。 
 - **Premium 儲存體**:
     - 還原非 premium Vm 時, 不支援 premium 儲存體帳戶。
@@ -86,7 +86,7 @@ Azure 備份提供數種方法來還原 VM。
 其中一個[還原選項](#restore-options)可讓您從還原點快速建立具有基本設定的 VM。
 
 1. 在 [還原設定] > [新建] > [還原類型] 中，選取 [建立虛擬機器]。
-2. 在 [虛擬機器名稱] 中，指定訂用帳戶中不存在的 VM。
+2. 在 [**虛擬機器名稱**] 中, 指定訂用帳戶中不存在的 VM。
 3. 在 [資源群組] 中，選取新 VM 的現有資源群組，或使用全域的唯一名稱來建立新的資源群組。 如果您指派已經存在的名稱，Azure 就會為群組指派與 VM 相同的名稱。
 4. 在 [虛擬網路] 中，選取將放置 VM 的 VNet。 與訂用帳戶相關聯的所有 VNet 均會顯示。 選取子網路。 預設會選取第一個子網路。
 5. 在 [**儲存位置**] 中, 指定 VM 的儲存體帳戶。 [深入了解](#storage-accounts)。
@@ -174,7 +174,7 @@ Azure 備份提供數種方法來還原 VM。
 
     ![保存庫中的 VM 清單](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
-2. 若要監視還原進度，請按一下狀態為 [進行中] 的任何還原作業。 這會顯示包含還原進度相關資訊的進度列：
+2. 若要監視還原進度，請按一下狀態為 [進行中] 的任何還原作業。 這會顯示進度列, 其中顯示還原進度的相關資訊:
 
     - **預估的還原時間**：一開始會提供完成還原作業所花費的時間。 作業進行時，所花費的時間會減少，並在還原作業完成時到達零。
     - **還原的百分比**。 顯示已完成的還原作業百分比。

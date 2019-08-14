@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 27610280bafa6d8e9e33f84af2d3e9f6c2c9ea5c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226831"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967825"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -91,7 +91,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>如果您使用 Eclipse 建立動態 Web 專案...
-使用[適用于 JAVA 的 APPLICATION INSIGHTS SDK 外掛程式][eclipse]。 注意：雖然使用此外掛程式可讓您較快啟動並執行 Application Insights (假設您未使用 Maven/Gradle)，但它並不是相依性管理系統。 因此，更新此外掛程式並不會自動更新專案中的 Application Insights 程式庫。
+使用適用于 JAVA 的 Application Insights SDK 外掛程式。 注意：雖然使用此外掛程式可讓您較快啟動並執行 Application Insights (假設您未使用 Maven/Gradle)，但它並不是相依性管理系統。 因此，更新此外掛程式並不會自動更新專案中的 Application Insights 程式庫。
 
 * *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`version:'2.0.n'`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
 * *若要更新為新的 SDK* 請重新整理專案的相依項目。
@@ -100,11 +100,11 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 下載[最新版本](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)並將所需的檔案複製到您的專案中，並取代任何先前的版本。
 
 ### <a name="questions"></a>問題...
-* `-core` 與 `-web` 元件之間有何關係？ 
+* `-core` 與 `-web` 元件之間有何關係？
   * `applicationinsights-core` 會提供裸機 API。 您一定需要此元件。
   * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。 如果您不想自動收集此原則，您可以忽略這個。 例如，如果您想要自己撰寫。
   
-* 如果將 SDK 升級為最新版本？ 
+* 如果將 SDK 升級為最新版本？
   * 如果您使用 Gradle 或 Maven...
     * 更新您的組建檔案，以指定最新版本或使用 Gradle/Maven 的萬用字元語法自動包含最新版本。 然後，重新整理專案的相依項目。 在上述範例中可以看到 [Gradle](#gradle-setup) 或 [Maven](#maven-setup) 的萬用字元語法。
   * 如果您手動管理相依項目...
@@ -456,7 +456,7 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
 [深入瞭解如何設定可用性 web 測試。][availability]
 
-## <a name="questions-problems"></a>有疑問嗎？ 有問題嗎？
+## <a name="questions-problems"></a>有任何疑問嗎? 有問題嗎？
 [疑難排解 Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>後續步驟
@@ -473,7 +473,6 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

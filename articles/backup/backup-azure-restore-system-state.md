@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 70cd7a1e77e6154b6406c82344b82f230eeb7b3c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689137"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954635"
 ---
 # <a name="restore-system-state-to-windows-server"></a>將系統狀態還原到 Windows Server
 
@@ -171,7 +171,7 @@ ms.locfileid: "68689137"
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>針對失敗的系統狀態還原進行疑難排解
 
-如果先前用來套用系統狀態的程序未順利完成，請使用 Windows 修復環境 (Win RE) 來復原您的 Windows Server。 下列步驟說明如何使用 Win RE 來進行復原。 請在 Windows Server 不會於系統狀態還原後正常開機時，才使用此選項。 下列程序會清除非系統資料，請小心使用。
+如果先前用來套用系統狀態的程序未順利完成，請使用 Windows 修復環境 (Win RE) 來復原您的 Windows Server。 下列步驟說明如何使用 Win RE 來進行復原。 只有當 Windows Server 在系統狀態還原之後無法正常開機時, 才使用此選項。 下列程序會清除非系統資料，請小心使用。
 
 1. 將您的 Windows Server 開機到 Windows 修復環境 (Win RE)。
 

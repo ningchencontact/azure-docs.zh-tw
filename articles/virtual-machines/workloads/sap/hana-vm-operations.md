@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1591f4f1e96bbb2bffb80a2c652963faa5dca5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b55e979c3056f89eb76a1d2c86f9a770d2d3e05
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077648"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935398"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>SAP HANA 在 Azure 上的基礎結構設定和作業
 此文件提供設定 Azure 基礎結構和已部署在 Azure 原生虛擬機器 (VM) 上之 SAP Hana 系統的作業指導方針。 此文件也包含 M128s VM SKU 的 SAP HANA 相應放大設定資訊。 這份文件並非用以取代標準 SAP 文件，包含下列內容：
@@ -68,12 +68,12 @@ ms.locfileid: "67077648"
 您也可以透過 [SAP Cloud Platform](https://cal.sap.com/)，將完整安裝的 SAP Hana 平台部署到 Azure VM 服務上。 [在 Azure 上部署 SAP S/4HANA 或 BW/4HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) 中會敘述安裝程序，或者使用[這裡](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)發行的自動化安裝。
 
 >[!IMPORTANT]
-> 若要使用 M208xx_v2 Vm，您需要小心從 Azure VM 映像庫中選取您的 SUSE Linux 映像。 若要讀取的詳細資料，閱讀[記憶體最佳化的虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)。 Red Hat 尚無法使用 HANA Mv2 系列 Vm 上。 目前規劃是在 Q4/CY2019 Mv2 VM 系列上執行 HANA 的 Red Hat 版本提供支援 
+> 若要使用 M208xx_v2 Vm, 您必須小心從 Azure VM 映射庫中選取您的 SUSE Linux 映射。 若要閱讀詳細資料, 請參閱[記憶體優化的虛擬機器大小](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)一文。 目前尚不支援在 Mv2 系列 Vm 上使用 HANA 的 Red Hat。 目前的規劃是針對在第4季/CY2019 的 Mv2 VM 系列上執行 HANA 的 Red Hat 版本提供支援。 
 > 
 
 
-### <a name="storage-configuration-for-sap-hana"></a>SAP HANA 儲存體設定
-如存放裝置設定和要在 Azure 中，SAP HANA 搭配使用的儲存體類型，請參閱文件[SAP HANA Azure 虛擬機器存放裝置設定](./hana-vm-operations-storage.md)
+### <a name="storage-configuration-for-sap-hana"></a>SAP Hana 的儲存體設定
+如需在 Azure 中與 SAP Hana 搭配使用的儲存體設定和儲存類型, 請參閱[azure 虛擬機器儲存體設定 SAP Hana](./hana-vm-operations-storage.md)檔
 
 
 ### <a name="set-up-azure-virtual-networks"></a>設定 Azure 虛擬網路
@@ -153,27 +153,27 @@ Microsoft 有一個已通過認證的 M 系列 VM SKU，可用於 SAP HANA 相�
 
 SAP HANA 相應放大的 VM 節點基本設定看起來像這樣：
 
-- 針對 **/hana/shared**，您能以 SUSE Linux 12 SP3 為基礎建置高可用性 NFS 叢集。 此叢集主機**hana/共用**NFS 共用您的向外延展組態和 SAP NetWeaver 或 BW/4HANA 中央服務。 建置這類設定的文件可在[適用於 SUSE Linux Enterprise Server 之 Azure VM 上 NFS 的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)一文中找到
+- 針對 **/hana/shared**，您能以 SUSE Linux 12 SP3 為基礎建置高可用性 NFS 叢集。 此叢集會裝載您的向外延展設定和 SAP NetWeaver 或 BW/4HANA 中央服務的 **/Hana/shared** NFS 共用。 建置這類設定的文件可在[適用於 SUSE Linux Enterprise Server 之 Azure VM 上 NFS 的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)一文中找到
 - 所有其他磁碟區都**不會**在不同節點間共用，也**不是**以 NFS 為基礎。 使用非共用 **/hana/data** 與 **hana/log** 以相應放大 HANA 安裝的安裝設定與步驟，都會在本文中進一步提供。
 
 >[!NOTE]
->如圖中所示的高可用性 NFS 叢集，目前僅支援搭配 SUSE Linux 使用。 請務必注意，稍後將 Red Hat 為基礎的高可用性 NFS 解決方案。
+>如圖中所示的高可用性 NFS 叢集，目前僅支援搭配 SUSE Linux 使用。 以 Red Hat 為基礎的高可用性 NFS 解決方案將于稍後提供建議。
 
 調整節點磁碟區大小的方式和相應放大相同， **/hana/shared** 除外。 針對 M128s VM SKU，建議的大小與類型如下：
 
-| VM SKU | RAM | 最大 VM I/O<br /> Throughput | /hana/data | /hana/log | /root volume | /usr/sap | hana/backup |
+| VM SKU | RAM | 最大 VM I/O<br /> 輸送量 | /hana/data | /hana/log | /root volume | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | M128s | 2000 GiB | 2000 MB/秒 |3 x P30 | 2 x P20 | 1 x P6 | 1 x P6 | 2 x P40 |
 
 
-請檢查不同的建議磁碟區的儲存體輸送量是否符合您想要執行的工作負載。 如果工作負載需要更多 **/hana/data** 和 **/hana/log** 磁碟區，您需要增加 Azure 進階儲存體 VHD 的數目。 調整大小的更多的 vhd，比列出增加 IOPS 的磁碟區和 Azure 虛擬機器類型的限制內的 I/O 輸送量。 一併對組成 **hana/log** 磁碟區的磁碟套用 Azure 寫入加速器。
+檢查不同建議磁片區的儲存體輸送量是否符合您想要執行的工作負載。 如果工作負載需要更多 **/hana/data** 和 **/hana/log** 磁碟區，您需要增加 Azure 進階儲存體 VHD 的數目。 使用超過列出的 Vhd 來調整磁片區大小, 會增加 Azure 虛擬機器類型限制內的 IOPS 和 i/o 輸送量。 一併對組成 **hana/log** 磁碟區的磁碟套用 Azure 寫入加速器。
  
 在 [SAP HANA TDI 儲存體需求](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) \(英文\) 文件中，列舉的公式定義用於相應放大的 **/hana/shared** 磁碟區大小，就是每 4 個背景工作角色節點，要有單一背景工作角色節點的記憶體大小。
 
 假設 SAP HANA 相應放大的已認證 M128s Azure VM 有大約 2 TB 記憶體，SAP 建議摘述如下：
 
 - 一個主要節點與最多四個背景工作角色節點， **/hana/shared** 磁碟區所需的大小為 2 TB。 
-- 一個主要節點與五到八個背景工作角色節點， **/hana/shared** 磁碟區的大小應為 4 TB。 
+- 一個主要節點和五到八個背景工作角色節點, **/hana/shared**的大小應為 4 TB。 
 - 一個主要節點與 9 到 12 個背景工作角色節點， **/hana/shared** 需有 6 TB 大小。 
 - 一個主要節點並使用 12 到 15 個之間的背景工作角色節點，您必須提供大小為 8 TB 的 **/hana/shared** 磁碟區。
 
@@ -216,7 +216,7 @@ SAP HANA 相應放大的 VM 節點基本設定看起來像這樣：
 ### <a name="installing-sap-hana-scale-out-n-azure"></a>在 Azure 中安裝 SAP HANA 相應放大
 安裝相應放大 SAP 設定，您需要執行的概略步驟如下：
 
-- 部署新的或採用新的 Azure VNet 基礎結構
+- 部署新的或適應現有的 Azure VNet 基礎結構
 - 使用 Azure 受控進階儲存體磁碟區，部署新的 VM
 - 部署新的或採用現有的高可用性 NFS 叢集
 - 採用網路路由以確保像是 VM 之間的節點間通訊不會透過 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 路由傳送。 同樣的作法也適用於 VM 與高可用性 NFS 叢集間的流量。
@@ -228,16 +228,16 @@ SAP HANA 相應放大的 VM 節點基本設定看起來像這樣：
 當您部署 Azure VM 基礎結構且所有其他的準備工作都已完成時，您需要以下列步驟安裝 SAP HANA 相應放大設定：
 
 - 根據 SAP 的文件，安裝 SAP HANA 主要節點
-- **安裝之後，您需要變更 global.ini 檔案並將 'basepath_shared = no' 參數新增至 global.ini**。 此參數可讓在向外延展不含 '共用' 中執行的 SAP HANA **/hana/data**並**hana/log**節點之間的磁碟區。 詳細資料記載於 [SAP 附註編號 2080991](https://launchpad.support.sap.com/#/notes/2080991) \(英文\)。
+- **安裝之後，您需要變更 global.ini 檔案並將 'basepath_shared = no' 參數新增至 global.ini**。 此參數可讓 SAP Hana 在相應放大中執行, 而不需要在節點之間進行 ' shared ' **/hana/data**和 **/hana/log**磁片區。 詳細資料記載於 [SAP 附註編號 2080991](https://launchpad.support.sap.com/#/notes/2080991) \(英文\)。
 - 變更 global.ini 參數之後，請重新啟動 SAP HANA 執行個體
 - 新增其他背景工作角色節點。 另請參閱 <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>。 在安裝期間或安裝後，使用本機 hdblcm 之類，指定用於進行 SAP HANA 內部節點間通訊的內部網路。 如需詳細文件，請參閱 [SAP 附註編號 2183363](https://launchpad.support.sap.com/#/notes/2183363) \(英文\)。 
 
-遵循此設定常式，您安裝的相應放大設定將會使用非共用磁碟來執行 **/hana/data** 與 **hana/log**。 然而**hana/共用**磁碟區要放置在高可用性 NFS 共用。
+遵循此設定常式，您安裝的相應放大設定將會使用非共用磁碟來執行 **/hana/data** 與 **hana/log**。 而 **/hana/shared**磁片區會放在高可用性 NFS 共用上。
 
 
 ## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>適用於 Azure 虛擬機器的 SAP HANA Dynamic Tiering 2.0
 
-除了 Azure M 系列 VM 上的 SAP HANA 認證，Microsoft Azure 也支援 SAP HANA Dynamic Tiering 2.0 (請參閱更底下的 SAP HANA Dynamic Tiering 文件連結)。 安裝或操作此產品時雖沒有任何差異，(例如，透過 Azure 虛擬機器中的 SAP HANA Cockpit)，但是在 Azure 上正式支援有一些必要的重要事項。 以下說明這些關鍵點。 整篇文章中，縮寫"DT 2.0"將會使用而不是動態的階層處理 2.0 的完整名稱。
+除了 Azure M 系列 VM 上的 SAP HANA 認證，Microsoft Azure 也支援 SAP HANA Dynamic Tiering 2.0 (請參閱更底下的 SAP HANA Dynamic Tiering 文件連結)。 安裝或操作此產品時雖沒有任何差異，(例如，透過 Azure 虛擬機器中的 SAP HANA Cockpit)，但是在 Azure 上正式支援有一些必要的重要事項。 以下說明這些關鍵點。 在本文中, 將會使用縮寫 "DT 2.0", 而不是完整名稱動態分層2.0。
 
 SAP BW 或 S4HANA 不支援 SAP HANA Dynamic Tiering 2.0。 主要使用案例現在為原生 HANA 應用程式。
 
@@ -253,7 +253,7 @@ SAP BW 或 S4HANA 不支援 SAP HANA Dynamic Tiering 2.0。 主要使用案例�
 - 必須將多個 Azure 磁碟連結至 DT 2.0 VM
 - 必須利用等量分割於多個 Azure 磁碟來建立軟體 raid/等量磁碟區 (透過 lvm 或 mdadm)
 
-在下列各節說明將更多詳細資料。
+下列各節將說明更多詳細資料。
 
 ![SAP HANA DT 2.0 架構概觀](media/hana-vm-operations/hana-dt-20.PNG)
 
@@ -291,7 +291,7 @@ SAP HANA 認證 M 系列 VM 與所支援 DT 2.0 VM (M64-32ms 和 E32sv3) 的所�
 
 ### <a name="vm-storage-for-sap-hana-dt-20"></a>適用於 SAP HANA DT 2.0 的 VM 儲存體
 
-根據 DT 2.0 最佳做法指引，每個實體核心的最小磁碟 IO 輸送量應該是 50 MB/秒。 查看兩個 Azure VM 類型的規格，這是針對支援最大的磁碟 IO 輸送量限制，如 VM 喜歡的 DT 2.0:
+根據 DT 2.0 最佳做法指引，每個實體核心的最小磁碟 IO 輸送量應該是 50 MB/秒。 查看適用于下列兩種 Azure VM 類型的規格, 其支援為 DT 2.0, VM 的最大磁片 IO 輸送量限制如下所示:
 
 - E32sv3    ： 768 MB/sec (未快取) 表示每個實體核心的速率為 48 MB/秒
 - M64-32ms  ：1000 MB/sec (未快取) 表示每個實體核心的速率為 62.5 MB/秒

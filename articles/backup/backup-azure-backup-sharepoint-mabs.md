@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a19b97e36bc28e5e629391f799b69370cf0fa38
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: e31c875f31f118716feea0c73bc2ca70a4ecd9a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737267"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954833"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>使用 MABS 將 SharePoint 伺服器陣列備份至 Azure
 您可以使用 Microsoft Azure 備份伺服器 (MABS)，將 SharePoint 伺服器陣列備份到 Microsoft Azure，其方法與備份其他資料來源極為類似。 Azure 備份提供靈活的備份排程來建立每日、每週、每月或每年備份點，並可讓您針對各種備份點執行保留原則選項。 它也可以讓您儲存本機磁碟複本來快速達成復原時間目標 (RTO)，以及將複本儲存到 Azure 來進行經濟實惠的長期保留。
@@ -43,7 +43,7 @@ Azure 備份伺服器會以 LocalSystem 帳戶執行。 若要備份 SQL Server 
 如果 SharePoint 伺服器陣列具有使用 SQL Server 別名設定的 SQL Server 資料庫，請在 MABS 將保護的前端 Web 伺服器上安裝 SQL Server 用戶端元件。
 
 ### <a name="sharepoint-server"></a>SharePoint Server
-雖然效能取決於許多因素，例如 SharePoint 伺服器陣列的大小，但一般做法是一部 MABS 可以保護一個 25 TB 的 SharePoint 伺服器陣列。
+雖然效能取決於許多因素, 例如 SharePoint 伺服器陣列的大小, 但一般指引一 MABS 可以保護 25 TB 的 SharePoint 伺服器陣列。
 
 ### <a name="whats-not-supported"></a>不支援的內容
 * 保護 SharePoint 伺服器陣列的 MABS 不會保護搜尋索引或應用程式服務資料庫。 您必須個別設定這些資料庫的保護。

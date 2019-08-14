@@ -10,28 +10,31 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4d70fe3f3f19723cd37080ae09dce97bfd8f3d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080c1933f88d9e824969a42212de2eacd0f62e14
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511684"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927275"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>將 Azure Active Directory B2C 的重新導向 URL 設定為 b2clogin.com
 
 當您為 Azure Active Directory (Azure AD) B2C 應用程式中的註冊和登入設定識別提供者時，必須指定重新導向 URL。 過去是使用 login.microsoftonline.com，現在您應該使用 b2clogin.com。
+
+> [!NOTE]
+> 您可以使用 b2clogin.com 中的 JavaScript 用戶端程式代碼 (目前處於預覽狀態)。 如果您使用 login.microsoftonline.com, 您的 JavaScript 程式碼將會從您的自訂頁面中移除。 額外的安全性限制也適用于 login.microsoftonline.com, 例如從您的自訂頁面移除 HTML 表單元素。 
 
 使用 b2clogin.com 可提供額外的優點，例如：
 
 - Microsoft 服務在 Cookie 標頭中所耗用的空間會縮小。
 - 您的 URL 不再包含對 Microsoft 的參考。 例如： `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp` 。
 
->[!NOTE]
-> 您可以使用租用戶名稱和租用戶的 GUID，如下所示：
-> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (這仍然是指`onmicrosoft.com`)
-> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` （在此情況下沒有任何參考到 Microsoft 完全）
+> [!NOTE]
+> 您可以使用租使用者名稱和租使用者 GUID, 如下所示:
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`(它仍然是指`onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid`(在這種情況下, 完全沒有 Microsoft 的參考)
 >
-> 不過，您無法使用_自訂網域_您的 Azure Active Directory B2C 租用戶，例如`https://your-tenant-name.b2clogin.com/your-custom-domain-name`會_不_運作。
+> 不過, 您無法將_自訂網域_用於 Azure Active Directory B2C 租使用者, 例如`https://your-tenant-name.b2clogin.com/your-custom-domain-name` _無法_使用。
 
 請考慮這些設定在使用 b2clogin.com 時可能需要變更：
 

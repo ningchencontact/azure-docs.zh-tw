@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bb437511ed89de626489516ce5b06664ace6fba
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741848"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952975"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -84,6 +84,7 @@ ms.locfileid: "68741848"
 
 > [!NOTE]
 > 您可以使用更新管理來管理 Azure 虛擬機器擴展集。 更新管理適用于實例本身, 而不是基底映射。 您將需要以累加方式排程更新, 因為不會一次更新所有 VM 實例。
+> 您可以遵循[Onbaord 非 Azure 機器](automation-tutorial-installed-software.md#onboard-a-non-azure-machine)底下的步驟來新增 VMSS 節點。
 
 ### <a name="unsupported-client-types"></a>不支援的用戶端類型
 
@@ -93,6 +94,7 @@ ms.locfileid: "68741848"
 |---------|---------|
 |Windows 用戶端     | 不支援用戶端作業系統 (例如 Windows 7 和 Windows 10)。        |
 |Windows Server 2016 Nano Server     | 不支援。       |
+|Azure Kubernetes Service 節點 | 不支援。 使用在[Azure Kubernetes Service 中將安全性和核心更新套用至 Linux 節點中](../aks/node-updates-kured.md)詳述的修補程式 (AKS)|
 
 ### <a name="client-requirements"></a>用戶端需求
 
@@ -359,6 +361,10 @@ $ServiceManager.AddService2($ServiceId,7,"")
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
+
+對於 Windows 機器, 您也必須允許流量傳送至 Windows Update 所需的任何端點。  您可以在[與 HTTP/Proxy 相關的問題](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)中, 找到所需端點的更新清單。 如果您有本機[Windows Update 伺服器](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), 您也必須允許流向[WSUS 金鑰](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)中所指定伺服器的流量。
+
+對於 Red Hat Linux 電腦, 請參閱[RHUI 內容傳遞伺服器的 ip](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers)以取得必要的端點。 如需其他 Linux 發行版本, 請參閱提供者檔。
 
 如需混合式 Runbook 背景工作角色所需連接埠的詳細資訊，請參閱[混合式背景工作角色連接埠](automation-hybrid-runbook-worker.md#hybrid-worker-role)。
 

@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91ac8b596373963aeba00c1932dfde5d76f27bd0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856034"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966839"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務大規模定型和註冊 Chainer 模型
 
@@ -27,7 +27,7 @@ ms.locfileid: "68856034"
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 在下列任一環境中執行此程式碼:
 
@@ -214,3 +214,5 @@ for f in run.get_file_names():
 * [調整超參數](how-to-tune-hyperparameters.md)
 
 * [追蹤定型期間的執行計量](how-to-track-experiments.md)
+
+* [針對 Azure 中的分散式深度學習訓練, 觀看我們的參考架構](/azure/architecture/reference-architectures/ai/training-deep-learning)

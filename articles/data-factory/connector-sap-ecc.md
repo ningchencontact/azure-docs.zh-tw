@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: c92c1b87de1b728fd79c1ef02b32135463c7124f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6fd7c4ffafa54acb7ff67bd2e595f0b3c02a0e5a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720675"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967405"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
@@ -42,13 +42,17 @@ ms.locfileid: "68720675"
 >[!TIP]
 >若要透過 SAP 資料表或 view 從 SAP ECC 複製資料, 請使用[sap 資料表](connector-sap-table.md)連接器, 這會更快速且更具擴充性。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 一般而言，SAP ECC 會透過 OData 服務經由 SAP 閘道公開實體。 若要使用此 SAP ECC 連接器，您必須：
 
 - **設定 SAP 閘道**。 針對 SAP NetWeaver 版本超過7.4 的伺服器, 已安裝 SAP 閘道。 在舊版中, 您必須先安裝內嵌的 SAP 閘道或 SAP 閘道中樞系統, 才能透過 OData 服務公開 SAP ECC 資料。 若要設定 SAP 閘道, 請參閱[安裝指南](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm)。
 
 - **啟用和設定 SAP OData 服務**。 您可以透過 TCODE SICF 來啟動 OData 服務 (以秒為單位)。 您也可以設定需要公開的物件。 如需詳細資訊, 請參閱[逐步指導](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/)方針。
+
+## <a name="prerequisites"></a>先決條件
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>開始使用
 
@@ -66,7 +70,7 @@ ms.locfileid: "68720675"
 | `url` | SAP ECC OData 服務的 URL。 | 是 |
 | `username` | 用來連接到 SAP ECC 的使用者名稱。 | 否 |
 | `password` | 用來連接到 SAP ECC 的純文字密碼。 | 否 |
-| `connectVia` | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用自我裝載整合執行時間或 Azure 整合執行時間 (如果您的資料存放區可公開存取)。 如果您未指定執行時間, `connectVia`會使用預設的 Azure integration runtime。 | 否 |
+| `connectVia` | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果您未指定執行時間, 則會使用預設的 Azure integration runtime。 | 否 |
 
 ### <a name="example"></a>範例
 
@@ -99,7 +103,7 @@ ms.locfileid: "68720675"
 
 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 實體的路徑。 | 是 |
 
@@ -132,7 +136,7 @@ ms.locfileid: "68720675"
 
 複製活動的`source`區段支援下列屬性:
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `type` | 複製`type` `SapEccSource`活動區段的屬性必須設定為。`source` | 是 |
 | `query` | 用來篩選資料的 OData 查詢選項。 例如:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |

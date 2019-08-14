@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 6e425eba3159f8840e1a7960f6a6c3171b1ba163
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850414"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975920"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的 SMB 磁碟區
 
@@ -40,7 +40,7 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 * 適當的埠必須在適用的 Windows Active Directory (AD) 伺服器上開啟。  
     必要的埠如下所示: 
 
-    |     服務           |     Port     |     Protocol     |
+    |     服務           |     連接埠     |     Protocol     |
     |-----------------------|--------------|------------------|
     |    AD Web 服務    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -56,8 +56,8 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
     |    NetBIOS 名稱       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    安全的 LDAP        |    636       |    TCP           |
-    |    安全的 LDAP        |    3269      |    TCP           |
+    |    安全 LDAP        |    636       |    TCP           |
+    |    安全 LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
 ## <a name="create-an-active-directory-connection"></a>建立 Active Directory 連線
@@ -99,7 +99,7 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 
     ![流覽至磁片區](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
-2. 按一下 [+ 新增磁碟區]  以建立磁碟區。  
+2. 按一下 [+ 新增磁碟區] 以建立磁碟區。  
     [建立磁片區] 視窗隨即出現。
 
 3. 在 [建立磁片區] 視窗中, 按一下 [**建立**], 並提供下欄欄位的資訊:   
@@ -114,7 +114,7 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
     * **配額**  
         指定配置給磁碟區的邏輯儲存體大小。  
 
-        [可用配額]  欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。  
+        [可用配額] 欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。  
 
     * **虛擬網路**  
         指定您要從中存取磁碟區的 Azure 虛擬網路 (Vnet)。  
@@ -125,9 +125,9 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
         指定要用於磁碟區的子網路。  
         您指定的子網路必須委派給 Azure NetApp Files。 
         
-        如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]  。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes]  以委派 Azure NetApp Files 的子網路。 在每個 Vnet 中, 只有一個子網可委派給 Azure NetApp Files。   
+        如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes] 以委派 Azure NetApp Files 的子網路。 在每個 Vnet 中, 只有一個子網可委派給 Azure NetApp Files。   
  
-        ![建立磁片區](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![建立磁碟區](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![建立子網路](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
@@ -148,4 +148,6 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
 
 * [針對 Windows 或 Linux 虛擬機器掛接或卸載磁片區](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Azure NetApp Files 的資源限制](azure-netapp-files-resource-limits.md)
+* [SMB 常見問題](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
 * [了解 Azure 服務的虛擬網路整合](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [使用 Azure CLI 安裝新的 Active Directory 樹系](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

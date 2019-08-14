@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 079a0721e77174215c7256eecbe9bc522256f0b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881469"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966454"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -33,11 +33,13 @@ ms.locfileid: "68881469"
 具體而言, 這個 Oracle 連接器支援:
 
 - 下列 Oracle 資料庫版本:
-  - Oracle 12c R1 (12.1)
-  - Oracle 11g R1、R2 (11.1、11.2)
-  - Oracle 10g R1、R2 (10.1、10.2)
-  - Oracle 9i R1、R2 (9.0.1、9.2)
-  - Oracle 8i R3 (8.1.7)
+    - Oracle 18c R1 (18.1) 和更高版本
+    - Oracle 12c R1 (12.1) 和更高版本
+    - Oracle 11g R1 (11.1) 和更高版本
+    - Oracle 10g R1 (10.1) 和更高版本
+    - Oracle 9i R2 (9.2) 和更高版本
+    - Oracle 8i R3 (8.1.7) 和更高版本
+    - Oracle Database Cloud Exadata 服務
 - 使用「基本」或「OID」驗證來複製資料。
 - 從 Oracle 來源平行複製。 如需詳細資訊, 請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。
 
@@ -46,7 +48,9 @@ ms.locfileid: "68881469"
 
 ## <a name="prerequisites"></a>先決條件
 
-若要將資料從或複製到無法公開存取的 Oracle 資料庫, 您必須設定自我裝載[整合運行](create-self-hosted-integration-runtime.md)時間。 整合執行階段提供內建的 Oracle 驅動程式。 因此，當您從 Oracle 複製資料或將資料複製到該處時，不需要手動安裝驅動程式。
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+
+整合執行階段提供內建的 Oracle 驅動程式。 因此，當您從 Oracle 複製資料或將資料複製到該處時，不需要手動安裝驅動程式。
 
 ## <a name="get-started"></a>開始使用
 
@@ -58,11 +62,11 @@ ms.locfileid: "68881469"
 
 Oracle 連結服務支援下列屬性:
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設定為 **Oracle**。 | 是 |
 | connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>將此欄位`SecureString`標記為, 以安全地將它儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中, 並從`password`連接字串中提取設定。 請參閱下列範例, 並[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md), 並提供更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 是 |
-| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用自我裝載整合執行時間或 Azure 整合執行時間 (如果您的資料存放區可公開存取)。 如果未指定, 此屬性會使用預設的 Azure integration runtime。 |否 |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，則會使用預設的 Azure Integration Runtime。 |否 |
 
 >[!TIP]
 >如果您收到錯誤, 請「TNSNAMES.ORA-01025:UPI 參數超出範圍」, 而您的 Oracle 版本為 8i, 請`WireProtocolMode=1`將新增至您的連接字串。 然後再試一次。
@@ -191,15 +195,14 @@ Oracle 連結服務支援下列屬性:
 
 本節提供 Oracle 來源和接收所支援的屬性清單。 如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)。 
 
-### <a name="oracle-as-a-source-type"></a>Oracle 作為來源類型
+### <a name="oracle-as-source"></a>Oracle 作為來源
 
-> [!TIP]
->
-> 若要使用資料分割有效率地從 Oracle 載入資料, 請參閱[從 oracle 進行平行複製](#parallel-copy-from-oracle)。
+>[!TIP]
+>若要使用資料分割有效率地從 Oracle 載入資料, 請參閱[從 oracle 進行平行複製](#parallel-copy-from-oracle)。
 
 若要從 Oracle 複製資料, 請將複製活動中的來源類型`OracleSource`設定為。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為`OracleSource`。 | 是 |
 | oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。<br>當您啟用資料分割載入時, 您必須在查詢中攔截任何對應的內建資料分割參數。 如需範例, 請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。 | 否 |
@@ -242,7 +245,7 @@ Oracle 連結服務支援下列屬性:
 ]
 ```
 
-### <a name="oracle-as-a-sink-type"></a>Oracle 作為接收類型
+### <a name="oracle-as-sink"></a>Oracle 作為接收器
 
 若要將資料複製到 Oracle, 請將複製活動中的接收`OracleSink`類型設定為。 複製活動的 [接收] 區段支援下列屬性。
 

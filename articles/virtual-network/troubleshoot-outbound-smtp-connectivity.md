@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 13ed2dc2b304368e468c433b5abf5d056c33e406
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: e21788dbf30b6fa3b37f84dd07d54b89bc91f17f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466471"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935378"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>針對 Azure 中的外送 SMTP 連線能力問題進行疑難排解
 
@@ -33,12 +33,12 @@ ms.locfileid: "67466471"
 ## <a name="enterprise-agreement"></a>Enterprise 合約
 針對 Azure Enterprise 合約使用者，在不使用經驗證轉送的情況下傳送電子郵件的技術能力沒有任何變更。 新的和現有 Enterprise 合約使用者可以嘗試從 Azure VM 直接將外寄電子郵件傳遞到外部電子郵件提供者，而不會受到 Azure 平台的任何限制。 雖然不保證電子郵件提供者會接受從任何指定使用者傳入的電子郵件，但 Azure 平台不會針對位於 Enterprise 合約訂用帳戶中的 VM 進行封鎖。 您必須直接使用電子郵件提供者來修正涉及特定提供者的任何訊息傳遞或垃圾郵件篩選問題。
 
-## <a name="pay-as-you-go"></a>Pay-As-You-Go
+## <a name="pay-as-you-go"></a>預付型方案
 若您在 2017 年 11 月 15 日之前註冊隨用隨付或 Microsoft 合作夥伴網路訂閱供應項目，嘗試外寄電子郵件傳遞的技術能力不會有任何變更。 您可以繼續嘗試從這些訂用帳戶中的 Azure VM 將外寄電子郵件直接傳遞到外部電子郵件提供者，而不會受到 Azure 平台的任何限制。 同樣地，不保證電子郵件提供者會接受從任何指定使用者的內送電子郵件，並且使用者將需要直接使用電子郵件提供者來修正涉及特定提供者的任何訊息傳遞或垃圾郵件篩選問題。
 
-針對在 2017 年 11 月 15 日之後建立的隨用隨付或 Microsoft 合作夥伴網路訂用帳戶，將會受到技術性限制，而無法從這些訂用帳戶內的 VM 直接傳送電子郵件。 如果您想要將電子郵件從 Azure VM 直接傳送給外部電子郵件提供者 (不使用經驗證的 SMTP 轉送) 的功能，可以提出移除限制的要求。 要求將在 Microsoft 的斟酌下審查與核准，而且只會在另外完成反詐騙檢查之後授權。 若要提出要求，請開啟支援案例使用下列的問題類型：**訂用帳戶管理**問題類型：**若要啟用連接埠 25 電子郵件流程要求**。 請務必新增詳細資料，說明為何您的部署需要直接將電子郵件傳送到電子郵件提供者，而不是使用經驗證的轉送。
+針對在 2017 年 11 月 15 日之後建立的隨用隨付或 Microsoft 合作夥伴網路訂用帳戶，將會受到技術性限制，而無法從這些訂用帳戶內的 VM 直接傳送電子郵件。 如果您想要將電子郵件從 Azure VM 直接傳送給外部電子郵件提供者 (不使用經驗證的 SMTP 轉送) 的功能，可以提出移除限制的要求。 要求將在 Microsoft 的斟酌下審查與核准，而且只會在另外完成反詐騙檢查之後授權。 若要提出要求, 請使用下列問題類型來開啟支援案例:**技術**虛擬網路連線能力 > **無法傳送電子郵件 (SMTP/埠 25)。**  >   >  請務必新增詳細資料，說明為何您的部署需要直接將電子郵件傳送到電子郵件提供者，而不是使用經驗證的轉送。
 
-免套用的隨用隨付或 Microsoft 合作夥伴網路訂用帳戶，且 Vm 已被 '已停止' & '已啟動 」 從 Azure 入口網站之後，該訂用帳戶內的所有 Vm 將會從現在開始都豁免。 免除設定只適用於要求的訂用帳戶。
+在預付型方案或 Microsoft 合作夥伴網路訂用帳戶豁免, 而且已從 Azure 入口網站「已啟動」 & 「已啟動」 Vm 之後, 該訂用帳戶內的所有 Vm 都將被免除。 豁免僅適用于要求的訂用帳戶。
 
 > [!NOTE]
 > Microsoft 保留在判斷發生違反服務條款的情況時撤銷此豁免的權利。
@@ -46,12 +46,12 @@ ms.locfileid: "67466471"
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN、Azure Pass、Azure in Open、Education、BizSpark 及免費試用
 若您在 2017 年 11 月 15 日之後建立 MSDN、Azure Pass、Azure in Open、Education、BizSpark、Azure 贊助、Azure 學生、免費試用或任何 Visual Studio 訂用帳戶，由於技術性限制，您將無法從這些訂用帳戶內的 VM 直接將電子郵件傳送給電子郵件提供者。 這些限制的目的為避免不當使用。 任何針對移除此限制所提出的要求都不會獲得認可。
 
-如果您使用這些訂用帳戶類型，我們鼓勵您稍早在本文中所述，使用 SMTP 轉送服務，或變更您的訂用帳戶類型。
+如果您使用這些訂用帳戶類型, 建議您使用 SMTP 轉送服務, 如本文稍早所述, 或變更您的訂用帳戶類型。
 
 ## <a name="cloud-service-provider-csp"></a>雲端服務提供者 (CSP)
 
-如果您使用透過 CSP 的 Azure 資源，您可以要求解除封鎖豁免要求與 Microsoft 代表您建立如果不使用安全的 SMTP 轉送的 CSP。
+如果您是透過 CSP 使用 Azure 資源, 如果無法使用安全的 SMTP 轉送, 您可以要求 CSP 為您的 Microsoft 建立解除封鎖豁免要求。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-support"></a>需要協助嗎? 連絡支援人員
 
-如果您仍然需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)若要使用下列的問題類型快速解決您問題：**訂用帳戶管理**問題類型：**若要啟用連接埠 25 電子郵件流程要求**。
+如果您仍然需要協助,[請洽詢支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)人員, 以使用下列問題類型快速解決您的問題:**訂**用帳戶管理問題類型:**要求啟用埠25的電子郵件流程**。

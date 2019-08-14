@@ -6,14 +6,15 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 5c0bc97e5a5b362ea78f82ea99bb967a9607093a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882497"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950193"
 ---
-# <a name="document-data-sources"></a>記載資料來源
+# <a name="how-to-document-data-sources-in-azure-data-catalog"></a>如何記載 Azure 資料目錄中的資料來源
+
 ## <a name="introduction"></a>簡介
 **Microsoft Azure 資料目錄** 是完全受控的雲端服務，可作為企業資料來源的註冊系統和探索系統。 換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。
 

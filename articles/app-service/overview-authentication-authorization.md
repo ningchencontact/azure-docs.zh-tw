@@ -4,7 +4,7 @@ description: Azure App Service 的驗證/授權功能的概念性參考和概觀
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12ad82b0dda628c3a8cef7712322500c7a33517c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515179"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953805"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
@@ -119,29 +119,23 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 
 ## <a name="authorization-behavior"></a>授權行為
 
-在 [Azure 入口網站](https://portal.azure.com)中，您可以使用一些行為來設定 App Service 授權。
+在[Azure 入口網站](https://portal.azure.com)中, 您可以在未驗證傳入要求時, 使用一些行為來設定 App Service 授權。
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 下列標題會說明可用選項。
 
-### <a name="allow-all-requests-default"></a>允許所有要求 (預設值)
+### <a name="allow-anonymous-requests-no-action"></a>允許匿名要求 (無動作)
 
-驗證和授權未受 App Service 管理 (關閉)。 
+此選項會將未驗證流量的授權延遲到您的應用程式程式碼。 對於已驗證的要求，App Service 也會在 HTTP 標頭中一起傳送驗證資訊。 
 
-如果您不需要驗證和授權，或如果您要撰寫自己的驗證和授權程式碼，請選擇此選項。
+此選項會提供更大的彈性來處理匿名要求。 例如，它可讓您向使用者[顯示多個登入提供者](app-service-authentication-how-to.md#use-multiple-sign-in-providers)。 不過，您必須撰寫程式碼。 
 
 ### <a name="allow-only-authenticated-requests"></a>僅允許已驗證的要求
 
 選項為 [使用 \<提供者> 登入]。 App Service 會將所有匿名要求重新導向至您所選提供者的 `/.auth/login/<provider>`。 如果匿名要求來自原生行動應用程式，則傳回的回應是 `HTTP 401 Unauthorized`。
 
 使用此選項時，您不需要在應用程式中撰寫任何驗證程式碼。 您可以藉由檢查使用者的宣告來處理更精細的授權 (例如特定角色授權，請參閱[存取使用者宣告](app-service-authentication-how-to.md#access-user-claims))。
-
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>允許所有要求，但要驗證已驗證的要求
-
-選項為 [允許匿名要求]。 此選項會開啟 App Service 中的驗證和授權，但是會延遲對應用程式程式碼的授權決策。 對於已驗證的要求，App Service 也會在 HTTP 標頭中一起傳送驗證資訊。 
-
-此選項會提供更大的彈性來處理匿名要求。 例如，它可讓您向使用者[顯示多個登入提供者](app-service-authentication-how-to.md#use-multiple-sign-in-providers)。 不過，您必須撰寫程式碼。 
 
 ## <a name="more-resources"></a>其他資源
 

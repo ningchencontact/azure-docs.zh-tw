@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618407"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941942"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 儲存體中儲存業務關鍵資料
 
@@ -175,7 +175,7 @@ Az. Storage 模組支援不可變的儲存體。  若要啟用此功能，請依
 
 **此功能只適用於區塊 Blob，或者也適用於分頁和附加 Blob？**
 
-固定儲存體可以與任何 Blob 類型一起使用，但我們建議您大部分將其用於區塊 Blob。 不同於區塊 Blob，分頁 Blob 和附加 Blob 必須在 WORM 容器外部建立，然後再複製到其中。 將這些 blob 複製到 WORM 容器後, 就不會再進一步*附加*至附加 blob 或分頁 blob 的變更。
+不可變的儲存體可以搭配任何 blob 類型使用, 因為它是在容器層級設定, 但我們建議您針對主要儲存區塊 blob 的容器使用 WORM。 不同于區塊 blob, 任何新的分頁 blob 和附加 blob 都必須在 WORM 容器外部建立, 然後再複製到中。 將這些 blob 複製到 WORM 容器後, 就不會再進一步*附加*至附加 blob 或分頁 blob 的變更。 因此, 強烈建議您在儲存任何使用中虛擬機器之 Vhd (分頁 blob) 的容器上設定 WORM 原則, 因為它會鎖定 VM 磁片。
 
 **我是否需要建立新的儲存體帳戶才能使用這項功能？**
 

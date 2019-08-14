@@ -12,22 +12,22 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 62115dd519336c728b679e4e698182a50660a464
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460207"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949878"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
 本指南包含使用 JavaScript 撰寫 Azure Functions 的複雜性相關資訊。
 
-JavaScript 函式是匯出的 `function`，會在觸發時執行 ([觸發程序是在 function.json 中設定](functions-triggers-bindings.md))。 傳遞至每個函式的第一個引數是`context`物件，用於接收和傳送繫結資料，記錄，以及與執行階段通訊。
+JavaScript 函式是匯出的 `function`，會在觸發時執行 ([觸發程序是在 function.json 中設定](functions-triggers-bindings.md))。 傳遞至每個函式的第一個`context`引數是物件, 用來接收和傳送系結資料、記錄, 以及與執行時間通訊。
 
-本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 完成 Functions 快速入門，來建立您的第一個函式，使用[Visual Studio Code](functions-create-first-function-vs-code.md)或是[入口網站中](functions-create-first-azure-function.md)。
+本文假設您已經讀過 [Azure Functions 開發人員參考](functions-reference.md)。 完成函數快速入門, 以使用[Visual Studio Code](functions-create-first-function-vs-code.md)或[在入口網站中](functions-create-first-azure-function.md)建立您的第一個函式。
 
-這篇文章也支援[TypeScript 應用程式開發](#typescript)。
+本文也支援[TypeScript 應用程式開發](#typescript)。
 
 ## <a name="folder-structure"></a>資料夾結構
 
@@ -60,7 +60,7 @@ JavaScript 函式必須透過 [`module.exports`](https://nodejs.org/api/modules.
 
 根據預設，Functions 執行階段會在 `index.js` 中尋找您的函式，其中 `index.js` 與對應的 `function.json` 會共用相同的父目錄。 在預設情況中，您匯出的函式應該是僅來自其檔案的匯出，或是名為 `run` 或 `index` 的匯出。 若要設定檔案位置，並匯出函式的名稱，請參閱以下的[設定您的函式進入點](functions-reference-node.md#configure-function-entry-point)。
 
-您匯出的函式在執行時，會傳入多個引數。 它所採用的第一個引數一律為 `context` 物件。 如果您的函式是同步 （不會傳回一項承諾），您必須傳遞`context`物件，與呼叫`context.done`才能正確使用。
+您匯出的函式在執行時，會傳入多個引數。 它所採用的第一個引數一律為 `context` 物件。 如果您的函式是同步的 (不會傳回承諾), 您`context`必須傳遞物件, `context.done`因為需要呼叫才可正確使用。
 
 ```javascript
 // You should include context, other arguments are optional
@@ -110,7 +110,7 @@ module.exports = async function (context, req) {
 
 ### <a name="inputs"></a>輸入
 在 Azure Functions 中輸入會分成兩個類別：一個是觸發程序輸入，另一個是額外的輸入。 函式可透過三種方式讀取觸發程序和其他輸入繫結 (`direction === "in"` 的繫結)：
- - ** _[建議]_ 作為參數傳至您的函式。** 這些繫結會按照在 *function.json* 中定義的順序傳遞至函式。 `name`中所定義的屬性*function.json*不需要符合您的參數名稱，雖然它。
+ - **_[建議]_ 作為參數傳至您的函式。** 這些繫結會按照在 *function.json* 中定義的順序傳遞至函式。 在`name`函式中定義的屬性不需要符合您的參數名稱, 但它應該是。
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -139,9 +139,9 @@ module.exports = async function (context, req) {
 ### <a name="outputs"></a>outputs
 函式可透過數種方式寫入輸出 (`direction === "out"` 的繫結)。 在所有情況下，在 *function.json* 中為繫結定義的 `name` 屬性都會對應至在您的函式中寫入的物件成員名稱。 
 
-您可以指派給輸出繫結的資料 （不結合這些方法） 以下列方式之一：
+您可以用下列其中一種方式將資料指派給輸出系結 (請勿結合這些方法):
 
-- ** _[建議用於多個輸出]_ 傳回物件。** 如果您使用 async/承諾傳回函式，您可以傳回具有指定的輸出資料的物件。 在下列範例中，輸出繫結在 *function.json* 中會命名為 "httpResponse" 和 "queueOutput"。
+- **_[建議用於多個輸出]_ 傳回物件。** 如果您使用的是非同步/承諾傳回函式, 您可以傳回具有指派之輸出資料的物件。 在下列範例中，輸出繫結在 *function.json* 中會命名為 "httpResponse" 和 "queueOutput"。
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ module.exports = async function (context, req) {
   ```
 
   如果您使用同步函式，則可以使用 [`context.done`](#contextdone-method) 傳回此物件 (請參閱範例)。
-- ** _[建議用於單一輸出]_ 直接傳回值並使用 $return 繫結名稱。** 這僅適用於非同步/Promise 傳回函式。 請參閱[匯出非同步函式](#exporting-an-async-function)中的範例。 
+- **_[建議用於單一輸出]_ 直接傳回值並使用 $return 繫結名稱。** 這僅適用於非同步/Promise 傳回函式。 請參閱[匯出非同步函式](#exporting-an-async-function)中的範例。 
 - **將值指派給 `context.bindings`** 您可以直接將值指派給 context.bindings。
 
   ```javascript
@@ -204,7 +204,7 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-傳回具名物件，這個物件用來讀取或將資料繫結指派。 輸入和資料繫結的觸發程序可以存取所讀取的屬性上`context.bindings`。 可指派輸出繫結資料，請將資料加入至 `context.bindings`
+傳回用來讀取或指派系結資料的已命名物件。 您可以藉由讀取的屬性`context.bindings`來存取輸入和觸發程式系結資料。 輸出系結資料可以藉由將資料加入至來指派`context.bindings`
 
 例如，function.json 中的下列繫結定義可讓您使用 `context.bindings.myOutput` 從 `context.bindings.myInput` 存取佇列的內容並且將輸出指派到佇列。
 
@@ -292,9 +292,9 @@ context.log.warn("Something has happened.");
 
 ## <a name="writing-trace-output-to-the-console"></a>將追蹤輸出寫入主控台中 
 
-在 Functions 中，您可以使用 `context.log` 方法，將追蹤輸出寫入主控台中。 在 Functions v2.x 中，會在函式應用程式層級擷取使用 `console.log` 的追蹤輸出。 這表示，從輸出`console.log`未繫結至特定函式引動過程，並不會顯示在特定函式的記錄檔。 不過，這些輸出會傳播至 Application Insights。 在 Functions v1.x 中，您不能使用 `console.log` 來寫入主控台中。
+在 Functions 中，您可以使用 `context.log` 方法，將追蹤輸出寫入主控台中。 在 Functions v2.x 中，會在函式應用程式層級擷取使用 `console.log` 的追蹤輸出。 這表示來自`console.log`的輸出不會系結至特定的函式調用, 也不會顯示在特定函式的記錄中。 不過，這些輸出會傳播至 Application Insights。 在 Functions v1.x 中，您不能使用 `console.log` 來寫入主控台中。
 
-當您呼叫 `context.log()` 時，會在預設追蹤層級 (也就是「資訊」  追蹤層級) 將您的訊息寫入主控台中。 下列程式碼會依資訊追蹤層級寫入主控台中︰
+當您呼叫 `context.log()` 時，會在預設追蹤層級 (也就是「資訊」追蹤層級) 將您的訊息寫入主控台中。 下列程式碼會依資訊追蹤層級寫入主控台中︰
 
 ```javascript
 context.log({hello: 'world'});  
@@ -350,7 +350,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 `context.req` (要求) 物件具有下列屬性：
 
-| 屬性      | 描述                                                    |
+| 內容      | 描述                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 包含要求本文的物件。               |
 | _headers_     | 包含要求標頭的物件。                   |
@@ -365,7 +365,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 
 `context.res` (回應) 物件具有下列屬性：
 
-| 屬性  | 描述                                               |
+| 內容  | 描述                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 包含回應本文的物件。         |
 | _headers_ | 包含回應標頭的物件。             |
@@ -397,9 +397,9 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ ** _[僅回應]_ 藉由呼叫 `context.res.send(body?: any)`。** HTTP 回應是以做為回應主體的輸入 `body` 所建立。 隱含地呼叫 `context.done()`。
++ **_[僅回應]_ 藉由呼叫 `context.res.send(body?: any)`。** HTTP 回應是以做為回應主體的輸入 `body` 所建立。 隱含地呼叫 `context.done()`。
 
-+ ** _[僅回應]_ 藉由呼叫 `context.done()`。** 一種特殊類型的 HTTP 繫結會將回應傳回傳遞至`context.done()`方法。 下列 HTTP 輸出繫結定義 `$return` 輸出參數︰
++ **_[僅回應]_ 藉由呼叫 `context.done()`。** 一種特殊類型的 HTTP 系結會傳回傳遞至`context.done()`方法的回應。 下列 HTTP 輸出繫結定義 `$return` 輸出參數︰
 
     ```json
     {
@@ -421,7 +421,7 @@ HTTP 和 Webhook 觸發程序以及 HTTP 輸出繫結會使用要求和回應物
 | Functions 版本 | Node.js 版本 | 
 |---|---|
 | 1.x | 6.11.2 (由執行階段鎖定) |
-| 2.x  | _作用中的 LTS_並_維護 LTS_ （8.11.1 和建議的 10.14.1） 的 Node.js 版本。 使用 WEBSITE_NODE_DEFAULT_VERSION [應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)來設定版本。|
+| 2.x  | _ACTIVE LTS_ AND_維護 LTS_ node.js 版本 (建議使用建議使用8.11.1 和 10.14.1)。 使用 WEBSITE_NODE_DEFAULT_VERSION [應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings)來設定版本。|
 
 您可以藉由檢查以上的應用程式設定，或藉由從任何函式列印 `process.version`，來查看執行階段目前正在使用的版本。
 
@@ -455,7 +455,7 @@ module.exports = function(context) {
 ### <a name="using-kudu"></a>使用 Kudu
 1. 移至 `https://<function_app_name>.scm.azurewebsites.net`。
 
-2. 按一下 [偵錯主控台]   > [CMD]  。
+2. 按一下 [偵錯主控台] > [CMD]。
 
 3. 移至 `D:\home\site\wwwroot`，然後將 package.json 檔案拖曳至頁面上半部的 **wwwroot** 資料夾。  
     您也可以使用其他方法將檔案上傳至函數應用程式。 如需詳細資訊，請參閱[如何更新函式應用程式檔案](functions-reference.md#fileupdate)。 
@@ -465,7 +465,7 @@ module.exports = function(context) {
 
 ## <a name="environment-variables"></a>環境變數
 
-在 Functions 中，[應用程式設定](functions-app-settings.md) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用這些設定`process.env`，如下所示的第二個和第三個呼叫`context.log()`我們記錄的位置`AzureWebJobsStorage`和`WEBSITE_SITE_NAME`環境變數：
+在 Functions 中，[應用程式設定](functions-app-settings.md) (例如服務連接字串) 在執行期間會公開為環境變數。 您`process.env`可以使用來存取這些設定, 如下所示, 在第二個和`context.log()`第三個呼叫`AzureWebJobsStorage`中`WEBSITE_SITE_NAME` , 我們會在其中記錄和環境變數:
 
 ```javascript
 module.exports = async function (context, myTimer) {
@@ -547,57 +547,81 @@ const myObj = new MyObj();
 module.exports = myObj;
 ```
 
-在此範例中，請務必請注意，雖然匯出物件時，不保證保留的執行之間的狀態。
+在此範例中, 請務必注意, 雖然正在匯出物件, 但不保證會在執行之間保留狀態。
 
-## <a name="local-debugging"></a>本機偵錯
+## <a name="local-debugging"></a>本機調試
 
-開始使用時`--inspect`參數，Node.js 程序會接聽指定的連接埠上的偵錯用戶端。 在 Azure Functions 2.x 中，您可以指定要傳遞到 Node.js 處理序執行您的程式碼新增環境變數或應用程式設定引數`languageWorkers:node:arguments = <args>`。 
+以`--inspect`參數啟動時, node.js 進程會在指定的埠上接聽偵錯工具用戶端。 在 Azure Functions 2.x 中, 您可以指定引數來傳入 node.js 進程, 藉由新增環境變數或應用程式設定`languageWorkers:node:arguments = <args>`來執行程式碼。 
 
-若要在本機偵錯，請新增`"languageWorkers:node:arguments": "--inspect=5858"`底下`Values`中您[local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file)檔案，並將偵錯工具附加至連接埠 5858。
+若要在本機進行`"languageWorkers:node:arguments": "--inspect=5858"`調試`Values` , 請在您的[本機. settings. json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file)檔案中新增, 並將偵錯工具附加至埠5858。
 
-當使用 VS Code 偵錯`--inspect`參數會自動加入使用`port`專案的 launch.json 檔案中的值。
+使用 VS Code 進行偵錯工具時`--inspect` , 會使用專案的啟動`port` json 檔案中的值, 自動新增參數。
 
-版本 1.x 中，設定`languageWorkers:node:arguments`將無法運作。 可以使用選取的偵錯連接埠[ `--nodeDebugPort` ](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start)參數在 Azure Functions Core Tools。
+在1.x 版中, 設定`languageWorkers:node:arguments`將無法使用。 您可以在 Azure Functions Core Tools 上, 使用[`--nodeDebugPort`](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start)參數來選取 debug 埠。
 
 ## <a name="typescript"></a>TypeScript
 
-當您對目標版本 2.x 的 Functions 執行階段中，同時[適用於 Visual Studio Code 的 Azure Functions](functions-create-first-function-vs-code.md)和[Azure Functions Core Tools](functions-run-local.md)可讓您建立函式應用程式使用的範本支援TypeScript 函式應用程式專案。 範本會產生`package.json`和`tsconfig.json`專案檔案，能讓您更輕鬆地轉換，執行及發行從 TypeScript 程式碼使用這些工具的 JavaScript 函式。
+當您以2.x 版的函式執行時間為目標時, Visual Studio Code 和[Azure Functions Core Tools](functions-run-local.md)的[Azure Functions](functions-create-first-function-vs-code.md)都可讓您使用支援 TypeScript 函數應用程式專案的範本來建立函數應用程式。 範本會產生`package.json`和`tsconfig.json`專案檔, 讓您可以使用這些工具, 輕鬆地從 TypeScript 程式碼轉換、執行及發佈 JavaScript 函式。
 
-產生`.funcignore`檔案用來指出專案發行至 Azure 時，會排除哪些檔案。  
+產生`.funcignore`的檔案是用來指出當專案發行至 Azure 時要排除的檔案。  
 
-TypeScript 檔案 (.ts) 中會轉換成 JavaScript 檔案 (.js)`dist`輸出目錄。 使用 TypeScript 範本[`scriptFile`參數](#using-scriptfile)中`function.json`來表示對應中的.js 檔案的位置`dist`資料夾。 使用範本所設定的輸出位置`outDir`中的參數`tsconfig.json`檔案。 如果您變更此設定或資料夾的名稱，則執行階段不能夠找到執行的程式碼。
+TypeScript 檔案 (. ts) 會轉換至輸出目錄中的`dist` JavaScript 檔案 (.js)。 TypeScript 範本使用中`function.json`的[ `scriptFile`參數](#using-scriptfile)來表示`dist`資料夾中對應 .js 檔案的位置。 輸出位置是由範本使用`outDir`檔案`tsconfig.json`中的參數來設定。 如果您變更此設定或資料夾的名稱, 執行時間就無法找到要執行的程式碼。
 
 > [!NOTE]
-> 實驗性 TypeScript 支援存在於版本 1.x 的 Functions 執行階段。 實驗性版本 transpiles TypeScript 檔案時叫用函式的 JavaScript 檔案中。 版本 2.x 中，這項實驗性支援已被取代，由主應用程式初始化之前，會轉譯工具導向方法並在部署程序。
+> TypeScript 的實驗性支援已存在版本1.x 的函式執行時間。 當叫用函式時, 實驗版本會將 TypeScript 檔案 transpiles 至 JavaScript 檔案。 在2.x 版中, 這個實驗性支援已由工具驅動的方法所取代, 此方法會在主控制項初始化之前, 以及在部署過程中進行轉譯。
 
-您在本機開發及部署從 TypeScript 專案的方式取決於您的開發工具。
+您在本機開發和部署 TypeScript 專案的方式, 取決於您的開發工具。
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-[適用於 Visual Studio Code 的 Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)延伸模組可讓您開發使用 TypeScript 函式。 Core Tools 是 Azure Functions 擴充功能的需求。
+Visual Studio Code 擴充功能的[Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)可讓您使用 TypeScript 開發函式。 核心工具是 Azure Functions 延伸模組的需求。
 
-若要建立 Visual Studio Code 中的 TypeScript 函式應用程式，請選擇`TypeScript`作為您的語言，當您建立函式應用程式。
+若要在 Visual Studio Code 中建立 TypeScript 函數應用程式`TypeScript` , 請在建立函數應用程式時選擇您的語言。
 
-當您按下**F5**執行應用程式在本機的轉譯完成初始化主應用程式 (func.exe) 之前。 
+當您按**F5**在本機執行應用程式時, 轉譯會在主機 (func) 初始化之前完成。 
 
-當您將函式應用程式部署到 Azure 使用**部署至函式應用程式...** TypeScript 原始程式檔從 Azure 函式延伸模組 按鈕，第一次產生的 JavaScript 檔案的生產環境就緒組建。
+當您使用 [**部署至函式應用程式 ...** ] 按鈕將函式應用程式部署到 Azure 時, Azure Functions 延伸模組會先從 TypeScript 來源檔案產生已準備好用於生產環境的 JavaScript 檔案組建。
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-若要建立使用 Core Tools 的 TypeScript 函式應用程式專案，您必須指定 TypeScript 語言選項，當您建立函式應用程式。 您可以透過下列方式之一來這麼做：
+在使用核心工具時, TypeScript 專案與 JavaScript 專案的差異有好幾種。
 
-- 執行`func init`命令，並選取`node`作為您的語言堆疊，然後選取`typescript`。
+#### <a name="create-project"></a>建立專案
+
+若要使用 Core Tools 建立 TypeScript 函數應用程式專案, 您必須在建立函數應用程式時指定 TypeScript 語言選項。 您可以透過下列其中一種方式來執行這項操作:
+
+- 執行命令, 選取`node`作為語言堆疊, 然後選取`typescript`。 `func init`
 
 - 執行 `func init --worker-runtime typescript` 命令。
 
-若要執行函式應用程式程式碼使用在本機的核心工具，使用`npm start`命令，而不是`func host start`。 `npm start`命令等同於下列命令：
+#### <a name="run-local"></a>執行本機
+
+若要使用核心工具在本機執行函式應用程式程式碼, 請使用`func host start`下列命令, 而不是: 
+
+```command
+npm install
+npm start
+```
+
+`npm start`命令相當於下列命令:
 
 - `npm run build`
 - `func extensions install`
 - `tsc`
 - `func start`
 
-在您使用之前[ `func azure functionapp publish` ]命令來部署至 Azure，您必須先執行`npm run build:production`命令。 此命令會從您可以使用部署 TypeScript 原始程式檔中建立 JavaScript 檔案的生產環境就緒組建[ `func azure functionapp publish` ]。
+#### <a name="publish-to-azure"></a>發行至 Azure
+
+使用[`func azure functionapp publish`]命令部署至 Azure 之前, 您可以從 TypeScript 來源檔案建立已準備好用於生產環境的 JavaScript 檔案組建。 
+
+下列命令會使用 Core Tools 來準備及發佈您的 TypeScript 專案: 
+
+```command
+npm run build:production 
+func azure functionapp publish <APP_NAME>
+```
+
+在此命令中, `<APP_NAME>`將取代為您的函數應用程式名稱。
 
 ## <a name="considerations-for-javascript-functions"></a>JavaScript 函式的考量
 
@@ -605,23 +629,23 @@ TypeScript 檔案 (.ts) 中會轉換成 JavaScript 檔案 (.js)`dist`輸出目�
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>選擇單一 vCPU App Service 方案
 
-當您建立使用 App Service 方案的函數應用程式時，建議您選取單一 vCPU 方案，而非具有多個 vCPU 的方案。 目前 Functions 在單一 vCPU VM 上執行 JavaScript 函式會較有效率，而使用較大的 VM 並不會產生預期的效能改進。 如有必要，您可以手動相應放大，藉由新增更多單一 vCPU VM 執行個體，或您可以啟用自動調整規模。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)。
+當您建立使用 App Service 方案的函數應用程式時，建議您選取單一 vCPU 方案，而非具有多個 vCPU 的方案。 目前 Functions 在單一 vCPU VM 上執行 JavaScript 函式會較有效率，而使用較大的 VM 並不會產生預期的效能改進。 必要時, 您可以藉由新增更多單一 vCPU VM 實例來手動相應放大, 或者您可以啟用自動調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)。
 
 ### <a name="cold-start"></a>冷啟動
 
 在無伺服器裝載模型中開發 Azure Functions 時，可進行冷啟動。 *冷啟動*是指函數應用程式在閒置一段時間之後進行的第一次啟動，這需要較長的時間啟動。 尤其是對於大型相依性樹狀結構的 JavaScript 函式，冷啟動可能會有很大的影響。 若要加速執行冷啟動程序，請[盡可能以套件檔案的形式執行函式](run-functions-from-deployment-package.md)。 根據預設，許多部署方法都使用從套件執行的模式，但如果在進行許多冷啟動時未以此方式執行，此變更將可達到大幅改善的效果。
 
-### <a name="connection-limits"></a>連線限制
+### <a name="connection-limits"></a>連接限制
 
-當您使用 Azure Functions 應用程式中的特定服務的用戶端時，不要建立新的用戶端，每個函式引動過程。 相反地，在全域範圍中建立單一的靜態用戶端。 如需詳細資訊，請參閱 <<c0> [ 管理在 Azure Functions 中的連接](manage-connections.md)。
+當您在 Azure Functions 應用程式中使用服務特定的用戶端時, 請勿使用每個函式呼叫來建立新的用戶端。 相反地, 請在全域範圍中建立單一靜態用戶端。 如需詳細資訊, 請參閱[管理 Azure Functions 中的連接](manage-connections.md)。
 
-### <a name="use-async-and-await"></a>使用`async`和 `await`
+### <a name="use-async-and-await"></a>使用`async`和`await`
 
-在以 JavaScript 撰寫 Azure Functions，您應該撰寫程式碼使用`async`和`await`關鍵字。 撰寫程式碼使用`async`並`await`而不是回呼或`.then`和`.catch`搭配 Promises 有助於避免兩個常見的問題：
- - 擲回未攔截到例外狀況，[損毀 Node.js 處理序](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)，這可能會影響其他函式的執行。
- - 未預期的行為，例如遺漏的記錄檔從 context.log，因未正確地等候的非同步呼叫。
+以 JavaScript 撰寫 Azure Functions 時, 您應該使用`async`和`await`關鍵字來撰寫程式碼。 使用`async`和`await` , 而不是回呼或與`.catch`承諾來撰寫程式碼, 有助於避免兩個常見的`.then`問題:
+ - 擲回無法攔截[的](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)例外狀況, 而導致 node.js 進程損毀, 可能會影響其他函數的執行。
+ - 非預期的行為, 例如來自 coNtext .log 的遺漏記錄, 因為未正確等待的非同步呼叫所造成。
 
-在下列範例中，非同步方法中`fs.readFile`錯誤第一個回呼函式做為其第二個參數叫用。 此程式碼會導致這兩個先前所述的問題。 不明確攔截到例外狀況的正確範圍內當機的整個程序 （問題 #1）。 呼叫`context.done()`超出範圍的回呼函式表示的函式引動過程可能結束之前會讀取檔案 （問題 #2）。 在此範例中，呼叫`context.done()`太早結果中遺漏記錄開頭的項目`Data from file:`。
+在下列範例中, 會叫用`fs.readFile`具有錯誤第一個回呼函式的非同步方法作為第二個參數。 這段程式碼會導致上述這兩個問題。 在正確的範圍中未明確攔截到的例外狀況會損毀整個進程 (問題 #1)。 在`context.done()`回呼函式範圍之外呼叫, 表示函式呼叫可能會在讀取檔案之前結束 (問題 #2)。 在此範例中, `context.done()`如果呼叫過早, 會導致遺漏記錄`Data from file:`專案, 從開始。
 
 ```javascript
 // NOT RECOMMENDED PATTERN
@@ -642,9 +666,9 @@ module.exports = function (context) {
 }
 ```
 
-使用`async`和`await`關鍵字可協助避免這些錯誤。 您應該使用 Node.js 的公用程式函式[ `util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original)使錯誤第一個樣式的回呼函式變成 awaitable 函式。
+`async`使用和`await`關鍵字有助於避免這兩個錯誤。 您應該使用 node.js 公用程式[`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original)函式, 將錯誤優先的回呼樣式函數轉換成可等候函數。
 
-在下列範例中，函式執行期間擲回任何未處理例外狀況只能容錯引發了例外狀況的個別引動過程。 `await`關鍵字表示，下列步驟`readFileAsync`之後僅執行`readFile`完成。 具有`async`並`await`，您也不需要呼叫`context.done()`回呼。
+在下列範例中, 函式執行期間擲回的任何未處理例外狀況, 只會使引發例外狀況的個別調用失敗。 關鍵字表示只有在完成之後`readFileAsync` `readFile`才執行下列步驟。 `await` 使用`async` `context.done()`和`await`時, 您也不需要呼叫回呼。
 
 ```javascript
 // Recommended pattern
@@ -672,4 +696,4 @@ module.exports = async function (context) {
 + [Azure Functions 開發人員參考](functions-reference.md)
 + [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
-[' func azure functionapp publish']: functions-run-local.md#project-file-deployment
+[' func azure functionapp publish ']: functions-run-local.md#project-file-deployment

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827627"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954820"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
 本文提供「Azure 備份」服務的常見問題解答。
@@ -36,7 +36,7 @@ ms.locfileid: "68827627"
 當您設定備份時，要一起復原的伺服器資料應該使用相同的複雜密碼。 如果您只想要復原特定的伺服器，請使用該伺服器專用的複雜密碼。 例如，人力資源伺服器可能使用一組加密複雜密碼，而會計伺服器使用另一組，並且儲存體伺服器使用第三組。
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>我是否可以在訂用帳戶之間移動保存庫？
-是的。 若要移動復原服務保存庫，請參閱此[文章](backup-azure-move-recovery-services-vault.md)
+是的。 若要移動復原服務保存庫, 請參閱這[篇文章](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>我是否可以將備份資料移至另一個保存庫？
 資料分割 儲存在保存庫中的備份資料無法移至不同的保存庫。
@@ -45,7 +45,7 @@ ms.locfileid: "68827627"
 資料分割 復原服務保存庫只能在儲存任何備份之前，變更儲存體選項。
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>我是否可以針對備份到「復原服務保存庫」的 VM 執行「項目層級還原」(ILR)？
-- 由 Azure VM 備份所備份的 Azure VM 支援 Azure VM。 如需詳細資訊，請參閱[文章](backup-azure-restore-files-from-vm.md)
+- 由 Azure VM 備份所備份的 Azure VM 支援 Azure VM。 如需詳細資訊, 請參閱[文章](backup-azure-restore-files-from-vm.md)
 - Azure 備份伺服器或 System Center DPM 所備份之內部部署 Vm 的線上復原點不支援 ILR。
 
 
@@ -54,7 +54,7 @@ ms.locfileid: "68827627"
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>哪裡可以找到有關適用於 Azure VM 備份之 Azure 備份代理程式的常見問題？
 
 - 針對在 Azure VM 上執行的代理程式，請參閱這個[常見問題集](backup-azure-vm-backup-faq.md)。
-- 針對用來備份 Azure 檔案資料夾的代理程式，請參閱這個[常見問題集](backup-azure-file-folder-backup-faq.md)。
+- 如需用來備份 Azure 檔案資料夾的代理程式, 請參閱此[常見問題](backup-azure-file-folder-backup-faq.md)。
 
 
 ## <a name="general-backup"></a>一般備份
@@ -125,7 +125,7 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 
 - Azure 備份會使用檢查點機制，在備份期間偶爾將檢查點加入至備份資料。
 - 因為備份資料中有檢查點，所以下一個備份程序才可驗證檔案的完整性。
-- 下一個備份工作將會增量到先前備份的資料。 增量備份只會傳輸新資料或變更的資料，相當於具有較佳的頻寬使用率。
+- 下一個備份工作將會增量到先前備份的資料。 增量備份只會傳輸新的或已變更的資料, 這等同于較佳的頻寬使用率。
 
 如果您取消 Azure VM 的備份工作，則會忽略任何傳輸的資料。 下一個備份工作會傳輸自最後一個成功備份工作之後的增量資料。
 
@@ -138,7 +138,7 @@ BMR/系統狀態 |所要備份之機器的 BMR 或系統狀態的每個個別複
 是，您可以自訂原則。 例如，您可以設定每週和每天保留需求，但無法設定每年和每月保留需求。
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>我是否可以針對備份排程和保留原則使用不同的時間？
-資料分割 保留原則僅能套用在復原點上。 例如，下圖顯示在上午 12:00 和下午 6:00 進行之備份的保留原則。
+資料分割 保留原則僅能套用在復原點上。 例如, 此影像會顯示在上午12和下午6點執行之備份的保留原則。
 
 ![排程備份和保留](./media/backup-azure-backup-faq/Schedule.png)
 

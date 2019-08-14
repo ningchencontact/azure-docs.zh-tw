@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/09/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c61544ce10c5a7d16b3ffc0009039e27f5feecb1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 61c09435606612377781fb382d2d31144e96b07b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670807"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965961"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>在 Azure Digital Twins 中將 Blob 新增到物件
 
@@ -36,7 +36,7 @@ Azure Digital Twins 支援將 Blob 連結到裝置、空間和使用者。 Blob 
 
 四個主要 JSON 結構描述是：
 
-[![JSON 結構描述](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
+[![JSON 架構](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
 
 JSON blob 中繼資料符合下列模型：
 
@@ -51,16 +51,16 @@ JSON blob 中繼資料符合下列模型：
   }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
-| **parentId** | 字串 | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
-| **name** |字串 | blob 的人類易記名稱 |
-| **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
+| **parentId** | String | 與 blob 相關聯的父實體 (空間、裝置或使用者) |
+| **name** |String | blob 的人類易記名稱 |
+| **type** | String | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
 | **typeId** | 整數 | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
-| **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtype** | String | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
 | **subtypeId** | 整數 | blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
-| **description** | 字串 | 自訂的 blob 描述 |
-| **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
+| **description** | String | 自訂的 blob 描述 |
+| **sharing** | String | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
 
 一律提供 blob 中繼資料作為 **Content-Type** 為 `application/json` 的第一個區塊，或作為 `.json` 檔案。 檔案資料是在第二個區塊中提供的，可以是任何支援的 MIME 類型。
 
@@ -108,20 +108,20 @@ Swagger 文件會完整詳細說明這些模型結構描述。
 }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
-| **id** | 字串 | Blob 的專屬識別碼 |
-| **name** |字串 | Blob 的人類易記名稱 |
-| **parentId** | 字串 | 與 Blob 相關聯的父實體 (空間、裝置或使用者) |
-| **type** | 字串 | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
+| **id** | String | Blob 的專屬識別碼 |
+| **name** |String | Blob 的人類易記名稱 |
+| **parentId** | String | 與 Blob 相關聯的父實體 (空間、裝置或使用者) |
+| **type** | String | Blob 的類型 - 不能使用 *type* 與 *typeId*  |
 | **typeId** | 整數 | Blob 類型識別碼 - 不能使用 *type* 與 *typeId* |
-| **subtype** | 字串 | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
+| **subtype** | String | Blob 子類型 - 不能使用 *subtype* 與 *subtypeId* |
 | **subtypeId** | 整數 | Blob 的子類型識別碼 - 不能使用 *subtype* 與 *subtypeId* |
-| **sharing** | 字串 | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
-| **description** | 字串 | 自訂的 Blob 描述 |
+| **sharing** | String | 是否可以共用 blob - enum [`None`, `Tree`, `Global`] |
+| **description** | String | 自訂的 Blob 描述 |
 | **contentInfos** | Array | 指定非結構化的中繼資料資訊，包括版本 |
-| **fullName** | 字串 | Blob 的完整名稱 |
-| **spacePaths** | 字串 | 空間路徑 |
+| **fullName** | String | Blob 的完整名稱 |
+| **spacePaths** | String | 空間路徑 |
 
 一律提供 Blob 中繼資料作為 **Content-Type** 為 `application/json` 的第一個區塊，或作為 `.json` 檔案。 檔案資料是在第二個區塊中提供的，可以是任何支援的 MIME 類型。
 
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 最後，[cURL](https://curl.haxx.se/) 使用者可以相同的方式提出多部分表單要求：
 
-[![裝置的 blob](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[![裝置 blob](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
 curl
@@ -191,7 +191,7 @@ curl
  -H "Authorization: Bearer YOUR_TOKEN"
  -H "Accept: application/json"
  -H "Content-Type: multipart/form-data"
- -F "meta={\"ParentId\": \"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\": \"A well chosen description\", \"Sharing\": \"None\"};type=application/json"
+ -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json"
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
@@ -211,7 +211,7 @@ curl
 
 您可以將 blob 連結到裝置。 下圖顯示管理 API 的 Swagger 參考文件。 其中指定裝置相關 API 端點以供 Blob 取用，以及任何要傳入的必要路徑參數。
 
-[![裝置的 blob](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
+[![裝置 blob](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
 例如，若要更新或建立 Blob 並將 Blob 連結到裝置，請發出已驗證的 HTTP PATCH 要求至：
 
@@ -225,7 +225,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 
 成功的要求傳回 JSON 物件，如[先前所述](#blobModel)。
 
-### <a name="spaces"></a>空格
+### <a name="spaces"></a>空間
 
 您也可以江 Blob 連結道空間。 下圖列出負責處理 Blob 的所有空間 API 端點。 也會列出要傳入這些端點的任何路徑參數。
 
@@ -245,11 +245,11 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 
 相同端點的 PATCH 要求會更新中繼資料描述，並建立 Blob 的版本。 HTTP 要求是透過 PATCH 方法搭配任何必要的中繼與多部分表單資料來發出。
 
-### <a name="users"></a>使用者
+### <a name="users"></a>使用者人數
 
 您可以將 Blob 連結到使用者模型 (例如，與個人檔案的圖片建立關聯)。 下圖顯示相關使用者 API 端點和任何必要的路徑參數，例如 `id`：
 
-[![使用者的 blob](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[![使用者 blob](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
 例如，若要擷取連結至使用者的 Blob，請發出已驗證的 HTTP GET 要求，並搭配任何必要的表單資料：
 

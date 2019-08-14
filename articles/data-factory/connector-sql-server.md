@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 5dcbb2c25511277eaf46d6c9f4afc007a180f8a6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
-ms.translationtype: HT
+ms.openlocfilehash: f5ddd9928194c477d8f8b6f4c9569a8fe58f39d3
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827866"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967370"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SQL Server 複製資料
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本:"]
@@ -42,9 +42,9 @@ ms.locfileid: "68827866"
 >[!NOTE]
 >此連接器目前不支援 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) 。 若要解決此情況, 您可以使用[一般 odbc 連接器](connector-odbc.md)和 SQL Server ODBC 驅動程式。 請遵循[此指導](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017)方針與 ODBC 驅動程式下載及連接字串設定。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
-若要使用從無法公開存取的 SQL Server 資料庫複製資料, 您必須設定自我裝載整合執行時間。 如需詳細資訊，請參閱[自我裝載整合執行階段](create-self-hosted-integration-runtime.md)。 整合執行時間提供內建的 SQL Server 資料庫驅動程式。 當您將資料從或複製到 SQL Server 資料庫時, 您不需要手動安裝任何驅動程式。
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>開始使用
 
@@ -62,7 +62,7 @@ ms.locfileid: "68827866"
 | connectionString |指定使用 SQL 驗證或 Windows 驗證連接到 SQL Server 資料庫所需的**connectionString**資訊。 請參考下列範例。<br/>將此欄位標記為**SecureString** , 將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中。 如果是 SQL 驗證, 請從連接`password`字串中提取設定。 如需詳細資訊, 請參閱資料表後面的 JSON 範例, 並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 |是 |
 | userName |如果您使用 Windows 驗證, 請指定使用者名稱。 範例為 **domainname\\username**。 |否 |
 | password |針對您為使用者名稱指定的使用者帳戶指定密碼。 將此欄位標記為**SecureString** , 將它安全地儲存在 Azure Data Factory 中。 或者, 您可以[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 |否 |
-| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 如果您的資料存放區可公開存取, 您可以使用自我裝載整合執行時間或 Azure 整合執行時間。 如果未指定, 則會使用預設的 Azure integration runtime。 |否 |
+| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定, 則會使用預設的 Azure integration runtime。 |否 |
 
 >[!TIP]
 >如果您遇到錯誤碼為 "UserErrorFailedToConnectToSqlServer" 的錯誤, 並出現類似「資料庫的會話限制為 XXX 且已達到」的訊息, 請將新增`Pooling=false`至您的連接字串, 然後再試一次。
@@ -182,7 +182,7 @@ ms.locfileid: "68827866"
 
 若要從 SQL Server 複製資料，請將複製活動中的來源類型設定為 **SqlSource**。 複製活動的 [來源] 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type屬性必須設定為 **SqlSource**。 | 是 |
 | sqlReaderQuery |使用自訂 SQL 查詢來讀取資料。 例如 `select * from MyTable`。 |否 |
@@ -288,7 +288,7 @@ GO
 
 若要將資料複製到 SQL Server，請將複製活動中的接收器類型設定為 **SqlSink**。 複製活動的 [接收] 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為 **SqlSink**。 | 是 |
 | writeBatchSize |要插入 SQL 資料表中*每個批次*的資料列數目。<br/>允許的值為整數的資料列數目。 根據預設, Azure Data Factory 會依據資料列大小, 以動態方式決定適當的批次大小。 |否 |
@@ -497,21 +497,21 @@ END
 | Datetime |Datetime |
 | datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
-| DECIMAL |DECIMAL |
+| Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| 浮點數 |Double |
+| 浮點數 |DOUBLE |
 | image |Byte[] |
 | ssNoversion |Int32 |
-| money |DECIMAL |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |DECIMAL |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |單身 |
+| real |Single |
 | rowversion |Byte[] |
 | smalldatetime |Datetime |
 | smallint |Int16 |
-| smallmoney |DECIMAL |
+| smallmoney |Decimal |
 | sql_variant |物件 |
 | 文字 |String, Char[] |
 | time |TimeSpan |

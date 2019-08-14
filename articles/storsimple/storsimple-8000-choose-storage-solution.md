@@ -7,14 +7,16 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d727ed62f5a869f6eb67400281d2660607756abf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60637496"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965351"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>比較 StorSimple、Azure 檔案同步及 Data Box Edge 資料傳輸選項 
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
  
 本文能提供內部部署資料轉送至 Azure 之選項的概觀，並會比較：Data Box Edge 與Azure 檔案同步，以及 StorSimple 8000 系列之間的差異。
 
@@ -24,16 +26,16 @@ ms.locfileid: "60637496"
 
 ## <a name="comparison-summary"></a>比較摘要
 
-|                           |StorSimple 8000   |Azure 檔案同步   |資料箱邊緣           |
+|                           |StorSimple 8000   |Azure 檔案同步   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
 |總覽         |分層式的混合式儲存體及封存|一般檔案伺服器儲存體，具備雲端階層和多站台同步。  |儲存體解決方案以預先處理資料，並將它透過網路傳送至 Azure。        |
 |案例        |檔案伺服器、封存、備份目標 |檔案伺服器、封存 (多站台)   |資料傳輸、資料預先處理 (包括 ML 推斷)、IoT、封存    |
-|Edge 計算     |尚未提供 |尚未提供 |支援使用 Azure IoT Edge 執行容器    |
+|Edge 計算     |無 |無 |支援使用 Azure IoT Edge 執行容器    |
 |板型規格      |實體裝置   |安裝在 Windows Server 上的代理程式 |實體裝置   |
 |硬體         |由 Microsoft 作為服務的一部分提供的實體裝置 | 由客戶提供 |由 Microsoft 作為服務的一部分提供的實體裝置  |
 |資料格式      |自訂格式   |檔案         |Blob 或檔案    |
 |通訊協定支援 |iSCSI          |SMB、NFS    | SMB 或 NFS      |
-|價格          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 檔案同步](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|定價          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 檔案同步](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>後續步驟
 

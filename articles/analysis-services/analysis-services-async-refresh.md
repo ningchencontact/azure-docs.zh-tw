@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506979"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932304"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 進行非同步重新整理
 
 使用任何支援 REST 呼叫的程式設計語言，您可以對 Azure Analysis Services 表格式模型執行非同步的資料重新整理作業。 這包括相應放大查詢的唯讀複本同步處理。 
 
-資料重新整理作業可能需要一些時間，取決於數個因素，包括資料磁碟區、使用資料分割的最佳化層級等等。這些作業傳統上是以現有的方法叫用，例如使用 [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (表格式物件模型)、[PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) Cmdlet 或 [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (表格式模型指令碼語言)。 不過，這些方法可能需要通常不太可靠的長時間執行 HTTP 連線。
+資料重新整理作業可能需要一些時間，取決於數個因素，包括資料磁碟區、使用資料分割的最佳化層級等等。這些作業傳統上是以現有的方法叫用，例如使用 [TOM](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (表格式物件模型)、[PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) Cmdlet 或 [TMSL](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (表格式模型指令碼語言)。 不過，這些方法可能需要通常不太可靠的長時間執行 HTTP 連線。
 
 Azure Analysis Services 的 REST API 可讓資料重新整理作業以非同步方式進行。 使用 REST API，便不需要來自用戶端應用程式的長時間執行 HTTP 連線。 針對可靠性還有其他內建的功能，例如自動重試次數、批次認可。
 
@@ -98,11 +98,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 不一定要指定參數。 會套用預設值。
 
-| 名稱             | type  | 描述  |預設  |
+| 名稱             | Type  | 描述  |預設  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
+| `Type`           | Enum  | 要執行的處理類型。 Type 對應於 TMSL 的 [refresh 命令](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl)類型：full、clearValues、calculate、dataOnly、automatic 和 defragment。 不支援 Add 類型。      |   automatic      |
 | `CommitMode`     | Enum  | 決定物件要批次認可或只在完成時認可。 CommitMode 包括：default、transactional、partialBatch。  |  transactional       |
-| `MaxParallelism` | Int   | 這個值決定了可以平行執行處理命令的執行緒數目上限。 此值與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)中設定，或使用其他方法設定。       | 10        |
+| `MaxParallelism` | Int   | 這個值決定了可以平行執行處理命令的執行緒數目上限。 此值與 MaxParallelism 屬性對應，後者可以在 TMSL 的 [sequence 命令](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl)中設定，或使用其他方法設定。       | 10        |
 | `RetryCount`     | Int   | 表示作業失敗之前重試的次數。      |     0    |
 | `Objects`        | Array | 要處理的物件陣列。 每個物件包含：「資料表」(處理整份資料表時)，或「資料表」和「分割區」(處理資料分割時)。 如未指定物件，會重新整理整個模型。 |   處理整個模型      |
 

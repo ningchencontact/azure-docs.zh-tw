@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ee0f4ccfcd75504be6bb636e7ee54a845a10280
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711453"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966926"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -49,7 +49,7 @@ ms.locfileid: "60711453"
 
 以下是針對 ODBC 已連結服務支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**Odbc** | 是 |
 | connectionString | 不包含認證部分的連接字串。 您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在 Integration Runtime 電腦上以 `"DSN=<name of the DSN on IR machine>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。<br>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。| 是 |
@@ -118,7 +118,7 @@ ms.locfileid: "60711453"
 
 若要從 ODBC 相容的資料存放區複製資料或將資料複製到該處，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | ODBC 資料存放區中資料表的名稱。 | 就來源而言為非必要 (如果已指定活動來源中的「查詢」)；<br/>就接收器而言為必要 |
@@ -143,13 +143,13 @@ ms.locfileid: "60711453"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 ODBC 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 ODBC 來源所支援的屬性清單。
 
 ### <a name="odbc-as-source"></a>ODBC 作為來源
 
 若要從 ODBC 相容的資料存放區複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
@@ -190,10 +190,10 @@ ms.locfileid: "60711453"
 
 若要將資料複製到 ODBC 相容的資料存放區，請將複製活動中的接收器類型設定為 **OdbcSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的類型屬性必須設定為：**OdbcSink** | 是 |
-| writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
+| writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例:“00:30:00” (30 分鐘)。 |否 |
 | writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |No (預設值為 0 - 自動偵測) |
 | preCopyScript |指定一個供「複製活動」在每次執行時將資料寫入到資料存放區前執行的 SQL 查詢。 您可以使用此屬性來清除預先載入的資料。 |否 |
 
@@ -231,80 +231,6 @@ ms.locfileid: "60711453"
     }
 ]
 ```
-
-## <a name="ibm-informix-source"></a>IBM Informix 來源
-
-您可以使用一般的 ODBC 連接器從 IBM Informix 資料庫複製資料。
-
-請在電腦上設定一個能夠存取您資料存放區的「自我裝載 Integration Runtime」。 此 Integration Runtime 會使用適用於 Informix 的 ODBC 驅動程式來連線到資料存放區。 因此，如果尚未在該相同電腦上安裝該驅動程式，請安裝該驅動程式。 例如，您可以使用 IBM INFORMIX ODBC 驅動程式 (64 位元)。 如需詳細資料，請參閱[必要條件](#prerequisites)一節。
-
-在 Data Factory 解決方案中使用 Informix 來源之前，請先依照[針對連線問題進行疑難排解](#troubleshoot-connectivity-issues)一節中的指示，確認 Integration Runtime 是否能夠連線到資料存放區。
-
-建立 ODBC 已連結服務，以將 IBM Informix 資料存放區連結至 Azure data factory，如下列範例所示：
-
-```json
-{
-    "name": "InformixLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<Informix connection string or DSN>"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-如需在複製作業中使用 ODBC 資料存放區作為來源/接收資料存放區的詳細概觀，請從頭閱讀本文。
-
-## <a name="microsoft-access-source"></a>Microsoft Access 來源
-
-您可以使用一般的 ODBC 連接器從 Microsoft Access 資料庫複製資料。
-
-請在電腦上設定一個能夠存取您資料存放區的「自我裝載 Integration Runtime」。 此 Integration Runtime 會使用 Microsoft Access 的 ODBC 驅動程式來連線到資料存放區。 因此，如果尚未在該相同電腦上安裝該驅動程式，請安裝該驅動程式。 如需詳細資料，請參閱[必要條件](#prerequisites)一節。
-
-在 Data Factory 解決方案中使用 Microsoft Access 來源之前，請先依照[針對連線問題進行疑難排解](#troubleshoot-connectivity-issues)一節中的指示，確認 Integration Runtime 是否能夠連線到資料存放區。
-
-建立 ODBC 已連結的服務來將 Microsoft Access 資料存放區連線至 Azure Data Factory，如以下範例所示︰
-
-```json
-{
-    "name": "MicrosoftAccessLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-如需在複製作業中使用 ODBC 資料存放區作為來源/接收資料存放區的詳細概觀，請從頭閱讀本文。
 
 ## <a name="sap-hana-sink"></a>SAP HANA 接收器
 
@@ -349,13 +275,13 @@ ms.locfileid: "60711453"
 
 ## <a name="troubleshoot-connectivity-issues"></a>疑難排解連線問題
 
-若要針對連線問題進行疑難排解，請使用 [整合執行階段組態管理員]  的 [診斷]  索引標籤。
+若要針對連線問題進行疑難排解，請使用 [整合執行階段組態管理員] 的 [診斷] 索引標籤。
 
-1. 啟動 [整合執行階段組態管理員]  。
-2. 切換至 [診斷]  索引標籤。
-3. 在 [測試連線] 區段底下，選取資料存放區的 [類型]  (已連結的服務)。
-4. 指定用來連線到資料存放區的 [連接字串]  ，選擇 [驗證]  ，然後輸入 [使用者名稱]  、[密碼]  和/或 [認證]  。
-5. 按一下 [測試連線]  以測試資料存放區連線。
+1. 啟動 [整合執行階段組態管理員]。
+2. 切換至 [診斷] 索引標籤。
+3. 在 [測試連線] 區段底下，選取資料存放區的 [類型] (已連結的服務)。
+4. 指定用來連線到資料存放區的 [連接字串]，選擇 [驗證]，然後輸入 [使用者名稱]、[密碼] 和/或 [認證]。
+5. 按一下 [測試連線] 以測試資料存放區連線。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

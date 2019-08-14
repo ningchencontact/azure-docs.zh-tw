@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4df024f9ff37121df4d9be51ae1fa540028ddd3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727424"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934737"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳做法
 本文說明資料安全性與加密的最佳作法。
@@ -97,7 +97,7 @@ Azure 儲存體和 Azure SQL Database 預設會加密待用資料，且許多服
 
 保護傳輸中的資料應該是您的資料保護策略中不可或缺的部分。 因為資料會從許多位置來回移動，一般會建議您一律使用 SSL/TLS 通訊協定來交換不同位置的資料。 在某些情況下，您可能希望使用 VPN，隔離您的內部部署與雲端基礎結構之間的整個通訊通道。
 
-對於在內部部署基礎結構與 Azure 之間移動的資料，請考慮適當的防護措施，例如 HTTPS 或 VPN。 當在 Azure 虛擬網路和內部部署位置之間傳送加密流量時，請使用 [Azure VPN 閘道](https://docs.microsoft.com/azure/vpn-gateway/)。
+對於在內部部署基礎結構與 Azure 之間移動的資料，請考慮適當的防護措施，例如 HTTPS 或 VPN。 當在 Azure 虛擬網路和內部部署位置之間傳送加密流量時，請使用 [Azure VPN 閘道](../../vpn-gateway/index.yml)。
 
 以下是特定於使用 Azure VPN 閘道、SSL/TLS，以及 HTTPS 的最佳做法。
 

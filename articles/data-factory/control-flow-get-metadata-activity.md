@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827488"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966334"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory 中的取得中繼資料活動
 
@@ -138,8 +138,8 @@ GetMetadata 活動以資料集作為必要的輸入，並輸出可用的中繼�
 -------- | ----------- | --------
 欄位清單 | 列出所需的中繼資料資訊類型。 如需所支援中繼資料hapi 詳細資訊，請參閱[中繼資料選項](#metadata-options)一節。 | 是 
 資料集 | GetMetadata 活動要擷取其中繼資料活動的參考資料集。 如需所支援連接器的資訊，請參閱[支援的功能](#supported-capabilities)一節。如需資料集語法的詳細資訊，請參閱連接器主題。 | 是
-formatSettings | 使用格式類型資料集 (Parquet、DelimitedText) 時適用。 | 否
-storeSettings | 使用格式類型資料集 (Parquet、DelimitedText) 時適用。 | 否
+formatSettings | 適用于使用格式類型資料集時。 | 否
+storeSettings | 適用于使用格式類型資料集時。 | 否
 
 ## <a name="sample-output"></a>範例輸出
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727250"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934697"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 本文會討論一系列的 Azure 身分識別管理和存取控制安全性最佳做法。 這些最佳作法衍生自我們的 [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) 經驗和客戶的經驗。
@@ -84,8 +84,8 @@ ms.locfileid: "68727250"
 **詳細資料**：使用正確的功能來支援驗證:
 
   - 員工的 Azure AD
-  - 適用于來賓使用者和外部合作夥伴的[AZURE AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/)
-  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) , 控制客戶在使用您的應用程式時, 如何註冊、登入及管理其設定檔
+  - 適用于來賓使用者和外部合作夥伴的[AZURE AD B2B](../../active-directory/b2b/index.yml)
+  - [Azure AD B2C](../../active-directory-b2c/index.yml) , 控制客戶在使用您的應用程式時, 如何註冊、登入及管理其設定檔
 
 未整合內部部署身分識別與雲端身分識別的組織，可能會有更多管理帳戶的額外負荷。 此額外負荷提高錯誤和安全性缺口的可能性。
 

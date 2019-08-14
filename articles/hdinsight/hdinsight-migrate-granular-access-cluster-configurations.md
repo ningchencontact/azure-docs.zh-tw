@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 08/09/2019
+ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884305"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945068"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>移轉至叢集組態中以角色為基礎的細微存取
 
@@ -20,8 +20,9 @@ ms.locfileid: "68884305"
 
 ## <a name="what-is-changing"></a>變更內容為何？
 
-先前, 具有「擁有者」、「參與者」或「讀者」 [RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)的叢集使用者, 可以透過 HDInsight API 取得秘密, 因為他們可供`*/read`具備該許可權的任何人使用。
-接下來, 存取這些密碼將需要`Microsoft.HDInsight/clusters/configurations/*`許可權, 這表示他們無法再由具有「讀取者」角色的使用者存取。 密碼會定義為值, 可用來取得比使用者角色應允許更高的存取權。 其中包括叢集閘道 HTTP 認證、儲存體帳戶金鑰和資料庫認證之類的值。
+先前, 具有「擁有者」、「參與者」或「讀者」 [RBAC 角色](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)的叢集使用者, 可以透過 HDInsight API 取得秘密, 因為他們可供`*/read`具備該許可權的任何人使用。 密碼會定義為值, 可用來取得比使用者角色應允許更高的存取權。 其中包括叢集閘道 HTTP 認證、儲存體帳戶金鑰和資料庫認證之類的值。
+
+接下來, 存取這些密碼將需要`Microsoft.HDInsight/clusters/configurations/action`許可權, 這表示他們無法再由具有「讀取者」角色的使用者存取。 具有此許可權的角色是「參與者」、「擁有者」和「新的 HDInsight 叢集操作員」角色 (如下所示)。
 
 我們也引進了新的[HDInsight 叢集操作員](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator)角色, 將能夠在不被授與參與者或擁有者的系統管理許可權的情況下, 取得密碼。 總結：
 
@@ -128,7 +129,7 @@ Azure Data Lake 的版本2.3.9000.1 或更新版本[, 以及 Visual Studio 的�
 
 ### <a name="sdk-for-java"></a>適用于 JAVA 的 SDK
 
-更新為適用于 JAVA 的 HDInsight SDK [1.0.0 版](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/)或更新版本。 如果您使用受這些變更影響的方法, 可能需要最少的程式碼修改:
+更新為適用于 JAVA 的 HDInsight SDK [1.0.0 版](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar)或更新版本。 如果您使用受這些變更影響的方法, 可能需要最少的程式碼修改:
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get)將不會再傳回如儲存體金鑰 (核心網站) 或 HTTP 認證 (閘道) 之類的**敏感參數**。
     - 若要取出所有設定 (包括機密參數) [`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) , 請使用 [繼續]。  請注意, 具有「讀取者」角色的使用者將無法使用這個方法。 這可讓您更精確地控制哪些使用者可以存取叢集的機密資訊。 

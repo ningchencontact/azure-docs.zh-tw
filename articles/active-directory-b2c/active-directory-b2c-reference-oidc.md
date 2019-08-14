@@ -11,12 +11,12 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b5157a71ce15d4dfd199b6826be22235e61df97
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0e60bedcf1324b443d9b9cd34e8dc695fdb0b372
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848536"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931760"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入
 
@@ -76,14 +76,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
-| response_type | 是 | 必須包含 OpenID Connect 的識別碼權杖。 如果您的 web 應用程式也需要權杖來呼叫 Web API, 您可以`code+id_token`使用。 |
-| redirect_uri | 否 | 應用`redirect_uri`程式的參數, 您的應用程式可以在其中傳送及接收驗證回應。 它必須完全符合您在 Azure 入口網站`redirect_uri`中註冊的其中一個參數, 不同之處在于它必須以 URL 編碼。 |
-| scope | 是 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 `offline_access`範圍對 web 應用程式而言是選擇性的。 這表示您的應用程式將需要重新整理*權杖*, 才能延伸資源的存取權。 |
-| response_mode | 否 | 用來將產生的授權碼傳回給應用程式的方法。 它可以是 `query`、`form_post` 或 `fragment`。  如需最佳安全性，建議使用 `form_post` 回應模式。 |
-| 狀態 | 否 | 包含在要求中的值, 也會在權杖回應中傳回。 它可以是您所想要內容中的字串。 隨機產生的唯一值通常用於防止跨站台要求偽造攻擊。 此狀態也用來在驗證要求發生之前, 將使用者狀態的相關資訊編碼, 例如他們所在的頁面。 |
 | nonce | 是 | 包含在要求中的值 (由應用程式所產生), 以宣告形式包含在產生的識別碼權杖中。 然後, 應用程式可以驗證此值, 以減輕權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
 | p | 是 | 執行的使用者流程。 這是在您的 Azure AD B2C 租使用者中建立的使用者流程名稱。 使用者流程的名稱應該以開頭`b2c\_1\_`。 |
+| response_type | 是 | 必須包含 OpenID Connect 的識別碼權杖。 如果您的 web 應用程式也需要權杖來呼叫 Web API, 您可以`code+id_token`使用。 |
+| scope | 是 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 `offline_access`範圍對 web 應用程式而言是選擇性的。 這表示您的應用程式將需要重新整理*權杖*, 才能延伸資源的存取權。 |
 | prompt | 否 | 需要的使用者互動類型。 此時唯一有效的值是 `login`，可強制使用者針對該要求輸入其認證。 |
+| redirect_uri | 否 | 應用`redirect_uri`程式的參數, 您的應用程式可以在其中傳送及接收驗證回應。 它必須完全符合您在 Azure 入口網站`redirect_uri`中註冊的其中一個參數, 不同之處在于它必須以 URL 編碼。 |
+| response_mode | 否 | 用來將產生的授權碼傳回給應用程式的方法。 它可以是 `query`、`form_post` 或 `fragment`。  如需最佳安全性，建議使用 `form_post` 回應模式。 |
+| 狀態 | 否 | 包含在要求中的值, 也會在權杖回應中傳回。 它可以是您所想要內容中的字串。 隨機產生的唯一值通常用於防止跨站台要求偽造攻擊。 此狀態也用來在驗證要求發生之前, 將使用者狀態的相關資訊編碼, 例如他們所在的頁面。 |
 
 此時, 系統會要求使用者完成工作流程。 使用者可能必須輸入使用者名稱和密碼、以社交身分識別登入, 或註冊目錄。 視使用者流程的定義方式而定, 可能會有其他任何數目的步驟。
 
@@ -169,13 +169,13 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| p | 是 | 用來取得授權碼的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串, 而不是 POST 主體。 |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
-| grant_type | 是 | 授與的類型，針對授權碼流程來說，必須是 `authorization_code` 。 |
-| scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用 id_tokens 參數形式的權限，以登入使用者及取得使用者相關資料。 它可以用來取得應用程式本身後端 Web API 的權杖, 這是由與用戶端相同的應用程式識別碼所表示。 `offline_access`範圍表示您的應用程式需要重新整理權杖, 才能延伸資源的存取權。 |
-| code | 是 | 您在使用者流程開頭取得的授權碼。 |
-| redirect_uri | 是 | 應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
 | client_secret | 是 | 在[Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。 這個應用程式密碼是重要的安全性構件， 您應該要用安全的方法把它儲存在您的伺服器上。 定期變更此用戶端密碼。 |
+| code | 是 | 您在使用者流程開頭取得的授權碼。 |
+| grant_type | 是 | 授與的類型，針對授權碼流程來說，必須是 `authorization_code` 。 |
+| p | 是 | 用來取得授權碼的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串, 而不是 POST 主體。 |
+| redirect_uri | 是 | 應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
+| scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用 id_tokens 參數形式的權限，以登入使用者及取得使用者相關資料。 它可以用來取得應用程式本身後端 Web API 的權杖, 這是由與用戶端相同的應用程式識別碼所表示。 `offline_access`範圍表示您的應用程式需要重新整理權杖, 才能延伸資源的存取權。 |
 
 成功的權杖回應看起來如下：
 
@@ -236,13 +236,13 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| p | 是 | 用來取得原始重新整理權杖的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串, 而不是 POST 主體。 |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
-| grant_type | 是 | 授與的類型, 必須是授權碼流程中這個部分的重新整理權杖。 |
-| scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 它可用來將權杖傳送到您應用程式本身的後端 Web API, 這是由與用戶端相同的應用程式識別碼來表示。 `offline_access`範圍表示您的應用程式需要重新整理權杖, 才能延伸資源的存取權。 |
-| redirect_uri | 否 | 應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
-| refresh_token | 是 | 在流程的第二個部分中取得的原始重新整理權杖。 必須同時在授權和權杖要求中使用範圍,才能接收重新整理權杖。`offline_access` |
 | client_secret | 是 | 在[Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。 這個應用程式密碼是重要的安全性構件， 您應該要用安全的方法把它儲存在您的伺服器上。 定期變更此用戶端密碼。 |
+| grant_type | 是 | 授與的類型, 必須是授權碼流程中這個部分的重新整理權杖。 |
+| refresh_token | 是 | 在流程的第二個部分中取得的原始重新整理權杖。 必須同時在授權和權杖要求中使用範圍,才能接收重新整理權杖。`offline_access` |
+| p | 是 | 用來取得原始重新整理權杖的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串, 而不是 POST 主體。 |
+| redirect_uri | 否 | 應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
+| scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 它可用來將權杖傳送到您應用程式本身的後端 Web API, 這是由與用戶端相同的應用程式識別碼來表示。 `offline_access`範圍表示您的應用程式需要重新整理權杖, 才能延伸資源的存取權。 |
 
 成功的權杖回應看起來如下：
 

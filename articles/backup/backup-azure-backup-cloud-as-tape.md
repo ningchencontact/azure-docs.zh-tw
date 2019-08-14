@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure 備份來取代您的磁帶基礎結構
-description: 了解 Azure 備份如何提供可讓您在 Azure 中備份和還原資料的磁帶式語意
+description: 瞭解 Azure 備份如何提供類似磁帶的語義, 讓您在 Azure 中備份和還原資料
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146030"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954886"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>將您的長期儲存空間從磁帶移至 Azure 雲端
 使用 Azure 備份和 System Center Data Protection Manager 的客戶可以進行下列操作：
@@ -42,10 +42,10 @@ ms.locfileid: "65146030"
 ## <a name="example--putting-both-together"></a>範例 – 將兩者綜合比較
 ![範例畫面](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **每日保留原則**:每日所進行的備份會儲存 7 天。
-2. **每週的保留原則**:每日午夜和星期六下午 6 取得的備份會保留四週
-3. **每月保留期原則**:每個月的最後一個星期六下午 6 點和午夜所進行的備份會保留 12 個月
-4. **每年保留原則**:每年三月最後一個星期六午夜所進行的備份會保留 10 年
+1. **每日保留原則**:每日所進行的備份會儲存7天。
+2. **每週保留原則**:每天午夜和下午6點所進行的備份會保留四周
+3. **每月保留原則**:在每個月的最後一個星期六午夜和下午6點所進行的備份會保留12個月
+4. **每年保留原則**:每年三月最後一個星期六午夜所進行的備份會保留10年
 
 上圖中計算「保留點」總數 (客戶可從該保留點還原資料) 的方式如下：
 
@@ -57,11 +57,11 @@ ms.locfileid: "65146030"
 因此復原點的總數是 56。
 
 > [!NOTE]
-> 您可以使用 Azure 備份來建立每個受保護的執行個體的最多 9999 個復原點。 受保護的執行個體係指會備份至 Azure 的電腦、伺服器 (實體或虛擬) 或工作負載。
+> 使用 Azure 備份您可以針對每個受保護的實例, 最多建立9999個復原點。 受保護的執行個體係指會備份至 Azure 的電腦、伺服器 (實體或虛擬) 或工作負載。
 >
 
-## <a name="advanced-configuration"></a>進階組態
-按一下上方畫面中的 [修改]  ，客戶在指定保留排程時擁有更進一步的彈性。
+## <a name="advanced-configuration"></a>進階設定
+按一下上方畫面中的 [修改] ，客戶在指定保留排程時擁有更進一步的彈性。
 
 ![修改](./media/backup-azure-backup-cloud-as-tape/modify.png)
 

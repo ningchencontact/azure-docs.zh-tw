@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 6cf46f96e84e8a00a478c3ad3edece10a36ce0bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 470caa37067b8429fd16e508c43383e4d3db3d41
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616996"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954068"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 檔案將您的應用程式部署至 Azure App Service
 
@@ -40,7 +40,7 @@ WAR 檔案部署會將您的 [WAR](https://wikipedia.org/wiki/WAR_(file_format))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要完成本文中的步驟：
 
@@ -54,7 +54,7 @@ WAR 檔案部署會將您的 [WAR](https://wikipedia.org/wiki/WAR_(file_format))
 
 在本機終端機視窗中，瀏覽至應用程式專案的根目錄。 
 
-此目錄應該包含您的 web 應用程式的項目檔案，例如 index.html  、index.php  和 app.js  。 也可以包含套件管理檔案，像是 project.json  、composer.json  、package.json  、bower.json  和 requirements.txt  。
+此目錄應該包含您的 web 應用程式的項目檔案，例如 index.html、index.php 和 app.js。 也可以包含套件管理檔案，像是 project.json、composer.json、package.json、bower.json 和 requirements.txt。
 
 在專案中建立所有項目的 ZIP 封存。 下列命令會使用您終端機中的預設工具：
 
@@ -82,7 +82,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 此命令會將檔案和目錄從 ZIP 檔案部署到預設的 App Service 應用程式資料夾 (`\home\site\wwwroot`)，並重新啟動應用程式。
 
-根據預設，部署引擎會假設的 ZIP 檔案已準備好執行-並不會執行任何組建自動化。 若要啟用相同的建置中的自動化[Git 部署](deploy-local-git.md)，將`SCM_DO_BUILD_DURING_DEPLOYMENT`應用程式設定中執行下列命令[Cloud Shell](https://shell.azure.com):
+根據預設, 部署引擎會假設 ZIP 檔案已準備好以既有的方式執行, 而且不會執行任何組建自動化。 若要啟用與[Git 部署](deploy-local-git.md)相同的組建自動化, 請在`SCM_DO_BUILD_DURING_DEPLOYMENT` [Cloud Shell](https://shell.azure.com)中執行下列命令, 以設定應用程式設定:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -96,29 +96,24 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="deploy-war-file"></a>部署 WAR 檔案
 
-若要將 WAR 檔案部署到 App Service 中，傳送 POST 要求至`https://<app_name>.scm.azurewebsites.net/api/wardeploy`。 POST 要求必須在訊息本文中包含 .war 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。
+若要將 WAR 檔案部署到 App Service, 請將 POST 要求`https://<app_name>.scm.azurewebsites.net/api/wardeploy`傳送至。 POST 要求必須在訊息本文中包含 .war 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。
 
 針對 HTTP 基本驗證，您需要 App Service 部署的認證。 若要了解如何設定部署認證，請參閱[設定及重設使用者層級的認證](deploy-configure-credentials.md#userscope)。
 
 ### <a name="with-curl"></a>使用 cURL
 
-下列範例會使用 cURL 工具來部署 .war 檔案。 取代預留位置 `<username>`、`<war_file_path>` 和 `<app_name>`。 當 cURL 顯示提示時，請輸入密碼。
+下列範例會使用 cURL 工具來部署 .war 檔案。 取代預留位置 `<username>`、`<war-file-path>` 和 `<app-name>`。 當 cURL 顯示提示時，請輸入密碼。
 
 ```bash
-curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
 ```
 
 ### <a name="with-powershell"></a>透過 PowerShell
 
-下列範例使用 [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) 來傳送包含 .war 檔案的要求。 取代預留位置 `<deployment_user>`、`<deployment_password>`、`<zip_file_path>` 和 `<app_name>`。
+下列範例會使用[new-azwebapp](/powershell/module/az.websites/publish-azwebapp)上傳 war 檔案。 取代預留位置 `<group-name>`、`<app-name>` 和 `<war-file-path>`。
 
 ```powershell
-$username = "<deployment_user>"
-$password = "<deployment_password>"
-$filePath = "<war_file_path>"
-$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
-$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "application/octet-stream"
+Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>
 ```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688733"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954986"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>透過 REST API 使用 Azure 備份來備份 Azure VM
 
-本文將說明如何透過 REST API，使用 Azure 備份來管理 Azure VM 的備份。 第一次為先前未受保護的 Azure VM 設定保護、針對受保護的 Azure VM 觸發隨選備份，以及透過 REST API 修改已備份 VM 的備份屬性，如此處所述。
+本文將說明如何透過 REST API，使用 Azure 備份來管理 Azure VM 的備份。 第一次為先前未受保護的 Azure VM 設定保護、針對受保護的 Azure VM 觸發隨選備份, 以及透過 REST API 修改已備份 VM 的備份屬性, 如這裡所述。
 
 請參閱[建立保存庫](backup-azure-arm-userestapi-createorupdatevault.md)和[建立原則](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API 教學課程來建立新的保存庫和原則。
 
@@ -98,7 +98,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>選取相關的 Azure VM
 
- 您可以藉由在訂用帳戶下方[列出所有可保護的項目](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) \(英文\) 來確認「快取」已完成，並在回應中找出所需的 VM。 [這項作業的回應](#example-responses-1)也會為您提供復原服務如何識別 VM 的相關資訊。  一旦您熟悉此模式之後，就可略過此步驟，並直接前往[啟用保護](#enabling-protection-for-the-azure-vm)。
+ 您可以藉由在訂用帳戶下方[列出所有可保護的項目](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) \(英文\) 來確認「快取」已完成，並在回應中找出所需的 VM。 [這項作業的回應](#example-responses-1)也會提供復原服務如何識別 VM 的資訊。  一旦您熟悉此模式之後，就可略過此步驟，並直接前往[啟用保護](#enabling-protection-for-the-azure-vm)。
 
 這項作業為 *GET* 作業。
 
@@ -393,7 +393,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="changing-the-policy-of-protection"></a>變更保護原則
 
-若要變更用來保護 VM 的原則，您可以使用與[啟用保護](#enabling-protection-for-the-azure-vm)相同的格式。 只在[要求本文](#example-request-body)中提供新的原則識別碼並提交要求。 如需:若要將 testVM 的原則從 ' DefaultPolicy ' 變更為 ' ProdPolicy ', 請在要求主體中提供 ' ProdPolicy ' 識別碼。
+若要變更用來保護 VM 的原則，您可以使用與[啟用保護](#enabling-protection-for-the-azure-vm)相同的格式。 只在[要求本文](#example-request-body)中提供新的原則識別碼並提交要求。 例如: 若要將 testVM 的原則從 ' DefaultPolicy ' 變更為 ' ProdPolicy ', 請在要求主體中提供 ' ProdPolicy ' 識別碼。
 
 ```http
 {

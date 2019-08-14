@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147940"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967863"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 匯入/匯出系統需求
 
@@ -41,7 +41,7 @@ ms.locfileid: "67147940"
 
 Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 
-- 標準一般用途 v2 儲存體帳戶 （建議用於大部分的情況下）
+- 標準一般用途 v2 儲存體帳戶 (建議用於大部分的案例)
 - Blob 儲存體帳戶
 - 一般用途 v1 儲存體帳戶 (傳統或 Azure Resource Manager 部署)、 
 
@@ -57,9 +57,9 @@ Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 以下是使用 Azure 匯入/匯出服務時支援的儲存類型清單。
 
 
-|工作 (Job)  |儲存體服務 |支援  |不支援  |
+|工作  |儲存體服務 |支援  |不支援  |
 |---------|---------|---------|---------|
-|Import     |  Azure Blob 儲存體 <br><br> Azure 檔案儲存體       | 支援區塊 Blob 與分頁 Blob <br><br> 支援檔案服務          |
+|匯入     |  Azure Blob 儲存體 <br><br> Azure 檔案儲存體       | 支援區塊 Blob 與分頁 Blob <br><br> 支援檔案服務          |
 |匯出     |   Azure Blob 儲存體       | 支援區塊 Blob、分頁 Blob 及附加 Blob         | 不支援 Azure 檔案服務
 
 
@@ -72,11 +72,15 @@ Azure 匯入/匯出服務支援下列儲存體帳戶類型：
 以下是支援與匯入/匯出服務搭配使用的儲存類型清單。
 
 
-|磁碟類型  |大小  |支援 |不支援  |
-|---------|---------|---------|---------|
-|SSD    |   2.5 吋      |SATA III          |  USB       |
-|HDD     |  2.5 吋<br>3.5 吋       |SATA II、SATA III         |具有內建 USB 介面卡的外接式 HDD <br> 外接式 HDD 機殼內的磁碟         |
+|磁碟類型  |Size  |支援 |
+|---------|---------|---------|
+|SSD    |   2.5 吋      |SATA III          | 
+|HDD     |  2.5 吋<br>3.5 吋       |SATA II、SATA III         |
 
+不支援下列磁片類型:
+- USBs.
+- 具有內建 USB 介面卡的外部 HDD。
+- 外部 HDD 的大小寫中的磁片。
 
 單一匯入/匯出作業可以有：
 - 最多 10 個 HDD/SSD。

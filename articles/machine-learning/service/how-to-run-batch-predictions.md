@@ -1,5 +1,5 @@
 ---
-title: 對大型資料執行批次預測
+title: 使用管線對大型資料執行批次預測
 titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Machine Learning 服務，以非同步方式對大量資料進行批次預測。
 services: machine-learning
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358721"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963009"
 ---
-# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務對大型資料集執行批次預測
+# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>在具有 Azure Machine Learning 管線的大型資料集上執行批次預測
 
-在本文中, 您將瞭解如何使用 Azure Machine Learning 服務以非同步方式對大量資料進行預測。
+在本文中, 您將瞭解如何使用 Azure Machine Learning 服務的 ML 管線, 以非同步方式對大量資料進行預測。
 
 批次預測 (或批次評分) 會針對非同步的應用程式，利用獨特的輸送量來提供符合成本效益的推斷。 批次預測管線可以調整規模，以針對數個 TB 的生產資料執行推斷。 批次預測會對適用於大型資料集合的高輸送量且射後不理的預測進行最佳化。
 
@@ -358,7 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>後續步驟
 
-若要查看這個端對端運作，請嘗試使用 [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines) 中的批次評分 Notebook。
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+若要查看此端對端工作, 請嘗試[GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)中的批次評分筆記本, 或移至[Azure 架構中心](/azure/architecture/reference-architectures/ai/batch-scoring-python)以查看範例解決方案架構。

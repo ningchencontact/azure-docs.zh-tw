@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d7a039f25339d91d77d5b6924674ea36a16c15b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880821"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942937"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>新增您的非 Microsoft 帳戶
 
@@ -33,6 +33,9 @@ ms.locfileid: "68880821"
 1. 登入您的帳戶，然後使用您的裝置或電腦開啟雙因素驗證。
 
 2. 將帳戶新增至 Microsoft Authenticator 應用程式。 系統可能會要求您掃描 QR 代碼作為此程序的一部分。
+
+    >[!Note]
+    >如果這是您第一次設定 Microsoft Authenticator 應用程式, 您可能會收到提示, 詢問是否允許應用程式存取您的相機 (iOS), 或允許應用程式取得圖片並錄製影片 (Android)。 您必須選取 [**允許**], 讓驗證器應用程式可以存取您的相機, 以在下一個步驟中取得 QR 代碼的圖片。 如果您不允許相機, 您仍然可以設定驗證器應用程式, 但您必須手動新增程式碼資訊。 如需如何手動新增程式碼的相關資訊, 請參閱[手動將帳戶新增至應用程式](user-help-auth-app-add-account-manual.md)。
 
 我們在此提供的是 Facebook、Google、GitHub 及 Amazon 帳戶的相關程序，但此程序也適用於任何其他應用程式，例如 Instagram、Netflix 或 Adobe。
 
@@ -168,9 +171,6 @@ ms.locfileid: "68880821"
     頁面會變更以顯示 QR 代碼。 請勿關閉此頁面。
 
 5. 開啟 Microsoft Authenticator 應用程式，從右上角的 [自訂和控制] 圖示中選取 [新增帳戶]，然後選取 [其他帳戶 (Google、Facebook 等等)]。
-
-    >[!Note]
-    >如果這是您第一次設定 Microsoft Authenticator 應用程式, 您可能會收到提示, 詢問是否允許應用程式存取您的相機 (iOS), 或允許應用程式取得圖片並錄製影片 (Android)。 您必須選取 [**允許**], 讓驗證器應用程式可以存取您的相機, 以在下一個步驟中取得 QR 代碼的圖片。 如果您不允許相機, 您仍然可以設定驗證器應用程式, 但您必須手動新增程式碼資訊。 如需如何手動新增程式碼的相關資訊, 請參閱[手動將帳戶新增至應用程式](user-help-auth-app-add-account-manual.md)。
 
 6. 使用裝置相機掃描電腦的 [選擇接收代碼的方式] 頁面中顯示的 QR 代碼。
 

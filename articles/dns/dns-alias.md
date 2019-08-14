@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 08/09/2019
 ms.author: victorh
-ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9a3cdb846921c2d73dd2cca5d679663c1ba9e192
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314460"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946890"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 別名記錄概觀
 
@@ -29,7 +29,7 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 ## <a name="capabilities"></a>功能
 
-- **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。 當公用 IP 位址變更或刪除時, DNS 記錄集就會自動變更。 系統會避免使用指向不正確 IP 位址的懸空 DNS 記錄。
+- **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集, 並將其設為指向公用 IP 資源 (標準或基本) 的別名記錄集。 當公用 IP 位址變更或刪除時, DNS 記錄集就會自動變更。 系統會避免使用指向不正確 IP 位址的懸空 DNS 記錄。
 
    每個資源目前的限制為20個別名記錄集。
 

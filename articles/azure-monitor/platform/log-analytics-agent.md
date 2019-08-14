@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 653355af7dcb0b30c3deb444fcfe4b4ff76e7e77
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 6c8f9c98d645f60ea9281d1ca2aa15731c9c1e80
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424111"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954999"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>使用 Log Analytics 代理程式收集記錄資料
 
@@ -34,13 +34,21 @@ Azure Log Analytics 代理程式先前稱為 Microsoft Monitoring Agent (MMA) �
 
 適用于 Linux 和 Windows 的代理程式會透過 TCP 埠443輸出到 Azure 監視器服務, 而且如果機器連線到防火牆或 proxy 伺服器以透過網際網路通訊, 請參閱以下的需求以瞭解網路設定必填。 如果您的 IT 安全性原則不允許網路上的電腦連線到網際網路, 您可以設定[Log Analytics 閘道](gateway.md), 然後將代理程式設定為透過閘道連接以 Azure 監視器記錄。 然後, 代理程式就可以接收設定資訊, 並根據您在工作區中啟用的資料收集規則和監視解決方案來傳送收集到的資料。 
 
-如果您要監視具有 System Center Operations Manager 2012 R2 或更新版本的電腦, 它可以是具有 Azure 監視器服務的多重主目錄, 以便收集資料並轉送至服務, 而且仍然受到[Operations Manager](../../azure-monitor/platform/om-agents.md)的監視。 在 Linux 電腦上, 代理程式不會包含健全狀況服務元件, 因為 Windows 代理程式會執行此作業, 而管理伺服器會代表其收集和處理資訊。 由於 Linux 電腦的監視與 Operations Manager 不同, 因此不會直接接收設定或收集資料, 而是透過管理群組 (如 Windows 代理程式管理的系統) 進行轉送。 因此, Operations Manager 回報的 Linux 電腦不支援此案例, 而且您必須將 Linux 電腦設定為以兩個步驟向[Operations Manager 管理群組](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)和 Log Analytics 工作區報告。
+使用 Log Analytics 代理程式收集資料時, 您必須瞭解下列各項, 才能規劃代理程式部署:
 
-Windows 代理程式可以回報到最多四個 Log Analytics 工作區，而 Linux 代理程式只支援回報到單一工作區。  
+* 若要從 Windows 代理程式收集資料, 您可以[設定每個代理程式向一或多個工作區報告](agent-windows.md), 即使它向 System Center Operations Manager 管理群組報告也一樣。 Windows 代理程式最多可以報告四個工作區。
+* Linux 代理程式不支援多路連接, 而且只能向單一工作區報告。
+
+如果您使用 System Center Operations Manager 2012 R2 或更新版本:
+
+* 每個 Operations Manager 管理群組只能[連接到一個工作區](om-agents.md)。
+* 向管理群組報告的 Linux 電腦必須設定為直接向 Log Analytics 工作區報告。 如果您的 Linux 電腦已直接回報至工作區, 而您想要使用 Operations Manager 來監視它們, 請遵循下列步驟向[Operations Manager 管理群組報告](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)。
+* 您可以在 Windows 電腦上安裝 Log Analytics Windows 代理程式, 並將它報告至與工作區整合的 Operations Manager, 以及不同的工作區。
 
 適用于 Linux 和 Windows 的代理程式不僅可用於連線到 Azure 監視器, 也支援 Azure 自動化裝載混合式 Runbook 背景工作角色和其他服務, 例如[變更追蹤](../../automation/change-tracking.md)、[更新管理](../../automation/automation-update-management.md)和[Azure 資訊安全中心](../../security-center/security-center-intro.md). 如需有關「混合式 Runbook」背景工作角色的詳細資訊，請參閱 [Azure 自動化混合式 Runbook 背景工作](../../automation/automation-hybrid-runbook-worker.md)。  
 
 ## <a name="supported-windows-operating-systems"></a>支援的 Windows 作業系統
+
 Windows 代理程式正式支援下列 Windows 作業系統版本：
 
 * Windows Server 2019
@@ -121,11 +129,11 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定, 透過 proxy 伺�
 > [!NOTE]
 > 若您的 Proxy 伺服器不要求您進行驗證，Linux 代理程式仍會要求提供虛擬使用者/密碼。 這可以是任何使用者名稱或密碼。
 
-|屬性| 描述 |
+|內容| 描述 |
 |--------|-------------|
 |Protocol | https |
 |使用者 | 用於驗證 Proxy 的選擇性使用者名稱 |
-|密碼 | 用於驗證 Proxy 的選擇性密碼 |
+|password | 用於驗證 Proxy 的選擇性密碼 |
 |proxyhost | Proxy 伺服器/Log Analytics 閘道的位址或 FQDN |
 |port | Proxy 伺服器/Log Analytics 閘道的選擇性連接埠號碼 |
 

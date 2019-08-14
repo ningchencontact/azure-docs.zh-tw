@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360715"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945343"
 ---
 # <a name="how-to-update-a-cloud-service"></a>如何更新雲端服務
 
@@ -21,7 +21,7 @@ ms.locfileid: "68360715"
 ## <a name="update-an-azure-service"></a>更新 Azure 服務
 Azure 會將您的角色執行個體組織成名為升級網域 (UD) 的邏輯群組。 升級網域 (UD) 是角色執行個體的邏輯集合，會以群組方式進行更新。  Azure 會一次更新一個 UD 的一個雲端服務，讓其他 UD 中的執行個體能夠繼續處理流量。
 
-預設的升級網域數目為 5。 您可以在服務的定義檔 (.csdef) 中包含 upgradeDomainCount 屬性，以指定不同數目的升級網域。 如需有關 upgradeDomainCount 屬性的詳細資訊，請參閱 [WebRole 結構描述](/previous-versions/azure/reference/gg557553(v=azure.100))或 [WorkerRole 結構描述](/previous-versions/azure/reference/gg557552(v=azure.100))。
+預設的升級網域數目為 5。 您可以在服務的定義檔 (.csdef) 中包含 upgradeDomainCount 屬性，以指定不同數目的升級網域。 如需 upgradeDomainCount 屬性的詳細資訊, 請參閱[Azure 雲端服務定義架構 (檔案)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file)。
 
 當您在服務中執行一或多個角色的就地更新時，Azure 會根據所屬的升級網域來更新角色執行個體集合。 Azure 會更新指定的升級網域中的所有執行個體 (予以停止、更新、重新上線)，然後移到下一個網域。 Azure 只會停止在目前升級網域中執行的執行個體，以確保更新儘可能對執行中的服務造成最小的影響。 如需詳細資訊，請參閱本文後面的 [如何繼續進行更新](#howanupgradeproceeds) 。
 
@@ -149,7 +149,7 @@ Azure 讓您在 Azure 網狀架構控制器接受初始更新要求後，於服�
 <a name="multiplemutatingoperations"></a>
 
 ## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>在進行中的部署上起始多項變更作業
-在某些情況下，您可能想要在進行中的部署上起始多項同時變更作業。 例如，您可能執行服務更新，而當該更新推展於您的服務時，您想要進行一些變更，例如復原更新、套用不同的更新，或甚至刪除部署。 如果服務升級包含會使已升級的角色執行個體反覆損毀的不良程式碼，則可能必須這麼做。 在此情況下，Azure 網狀架構控制器將無法繼續套用該升級，因為已升級網域中的執行個體數目不足屬於正常狀況。 此狀態稱為「停滯部署」 。 復原更新或在失敗的更新之上套用全新的更新，即可脫離停滯部署狀態。
+在某些情況下，您可能想要在進行中的部署上起始多項同時變更作業。 例如，您可能執行服務更新，而當該更新推展於您的服務時，您想要進行一些變更，例如復原更新、套用不同的更新，或甚至刪除部署。 如果服務升級包含會使已升級的角色執行個體反覆損毀的不良程式碼，則可能必須這麼做。 在此情況下，Azure 網狀架構控制器將無法繼續套用該升級，因為已升級網域中的執行個體數目不足屬於正常狀況。 此狀態稱為「停滯部署」。 復原更新或在失敗的更新之上套用全新的更新，即可脫離停滯部署狀態。
 
 一旦 Azure 網狀架構控制器收到更新或升級服務的初始要求，您就可以開始進行後續的變更作業。 也就是說，您不必等候初始作業完成，即可開始進行另一個變更作業。
 
