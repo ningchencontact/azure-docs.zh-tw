@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: c4d01c3c72669f7fbfd5b2d8df0678cc0675ccde
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7f890ddf7aff63189a720f3d604b00610af7a933
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639570"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949854"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>使用 Microsoft Azure 備份 Server 或 System Center DPM 進行備份的支援矩陣
 
@@ -55,7 +55,7 @@ DPM 和 MABS 皆提供備份多種不同應用程式和伺服器與用戶端作�
 **案例** | **代理程式** | **Location**
 --- | --- | ---
 **備份內部部署機器/工作負載** | DPM/MABS 保護代理程式會在您想要備份的機器上執行。<br/><br/> DPM/MABS 伺服器上的 MARS 代理程式。<br/> 啟用這項功能所需的 Microsoft Azure 復原服務代理程式或 Azure 備份代理程式的最低版本是 2.0.8719.0。  | DPM/MABS 必須在內部部署環境中執行。
-**Azure VM/工作負載的備份** | 受保護機器上的 DPM/MABS 保護代理程式。<br/><br/> DPM/MABS 伺服器上的 MARS 代理程式。 | DPM/MABS 必須在 Azure VM 上執行。
+
 
 ## <a name="supported-deployments"></a>支援的部署
 
@@ -166,9 +166,9 @@ DPM 伺服器/MABS 需要存取下列 URL：
 **Windows Server 2012 R2 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | MABS v3、v2 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VMprotection**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
 **Windows Server 2012 SP1 (Datacenter 和 Standard)**<br/><br/> 64/32 位元 | MABS v3、v2 <br/><br/> 必須安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
 **Windows 2008 R2 SP1 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 支援 MABS v3、v2。<br/><br/> 必須安裝 [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855)。 | 內部部署/Azure VM。 |   **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
-**Windows 2008 R2 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 針對 MABS v2/v3，OS 必須執行 SP1。 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
-**Windows Server 2008 SP2**<br/><br/> 64/32 位元 | MABS v2、v3 | 當 MABS 部署為 VMware VM 時, 支援 MABS v2、v3。<br/><br/> 不支援在 Azure VM 上執行的 MABS。 | 磁碟區/共用/資料夾/檔案；系統狀態/裸機。 |
-**Windows Storage Server 2008** | MABS v2、v3 | MABS 做為內部部署實體伺服器/Hyper-v VM。 <br/><br/> 不支援在 Azure VM 上執行的 MABS。 | 磁碟區/共用/資料夾/檔案；系統狀態/裸機。
+**Windows 2008 R2 (Standard 和 Enterprise)**<br/><br/> 64/32 位元 | 若為 MABS v3、v2, OS 必須執行 SP1。 | 內部部署/Azure VM。 | **內部部署保護**：磁碟區/共用/資料夾/檔案；系統狀態/裸機。<br/><br/> **Azure VM 保護**：磁碟區/共用/資料夾/檔案。<br/><br/> 支援已刪除重複資料的磁碟區。 |
+**Windows Server 2008 SP2**<br/><br/> 64/32 位元 | MABS v3、v2 | 當 MABS 部署為 VMware VM 時, 支援 MABS v2、v3。<br/><br/> 不支援在 Azure VM 上執行的 MABS。 | 磁碟區/共用/資料夾/檔案；系統狀態/裸機。 |
+**Windows Storage Server 2008** | MABS v3、v2 | MABS 做為內部部署實體伺服器/Hyper-v VM。 <br/><br/> 不支援在 Azure VM 上執行的 MABS。 | 磁碟區/共用/資料夾/檔案；系統狀態/裸機。
 **SQL Server 2017** | MABS v3 | 內部部署/Azure VM。| 備份 SQL Server 資料庫。<br/><br/> 不支援 SQL Server 叢集備份。<br/><br/>不支援儲存在 CSV 上的資料庫。 |
 **SQL Server 2016/2016 SP1** | MABS v3、v2 | 內部部署/Azure VM。| 備份 SQL Server 資料庫。<br/><br/> 不支援 SQL Server 叢集備份。<br/><br/>不支援儲存在 CSV 上的資料庫。 |
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3、v2 | 內部部署/Azure VM。| 備份 SQL Server 資料庫。<br/><br/> 不支援 SQL Server 叢集備份。<br/><br/>不支援儲存在 CSV 上的資料庫。 |

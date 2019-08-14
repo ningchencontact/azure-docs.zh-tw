@@ -4,14 +4,14 @@ description: 瞭解如何透過伺服器訊息區 (SMB) 啟用以身分識別為
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 060c47cc25d04bccc253bcebf6479d660621f6d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2b5ebc9f35dd207e8e530b7d74acc5517125fbf4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855313"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935007"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>針對 Azure 檔案儲存體啟用透過 SMB 的 Azure Active Directory Domain Services 驗證
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -142,7 +142,16 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 > [!IMPORTANT]
 > 完整管理控制檔案共用 (包括將角色指派給身分識別的能力) 需要使用儲存體帳戶金鑰。 Azure AD 認證不支援管理控制。
 
-您可以使用 Azure PowerShell 或 Azure CLI, 將內建角色指派給使用者的 Azure AD 身分識別, 以授與共享層級許可權。
+您可以使用 Azure 入口網站、PowerShell 或 Azure CLI, 將內建角色指派給使用者的 Azure AD 身分識別, 以授與共享層級許可權。
+
+#### <a name="azure-portal"></a>Azure 入口網站
+若要使用[Azure 入口網站](https://portal.azure.com)將 RBAC 角色指派給 Azure AD 身分識別, 請依照下列步驟執行:
+
+1. 在 Azure 入口網站中, 移至您的檔案共用, 或[在 Azure 檔案儲存體中建立檔案共用](storage-how-to-create-file-share.md)。
+2. 選取 [存取控制 (IAM)]。
+3. 選取 [**新增角色指派**]
+4. 在 [**新增角色指派**] 分頁中, 從 [**角色**] 清單中選取適當的內建角色 (儲存體檔案資料 smb 共用讀取器、儲存體檔案資料 smb 共用參與者)。 保留預設設定的 [**指派存取**權] 選項:**Azure AD 使用者、群組或服務主體**。 依名稱或電子郵件地址選取目標 Azure AD 身分識別。
+5. 選取 [**儲存**] 以完成角色指派作業。
 
 #### <a name="powershell"></a>PowerShell
 

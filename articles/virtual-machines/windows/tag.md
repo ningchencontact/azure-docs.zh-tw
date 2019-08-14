@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 ms.openlocfilehash: 26ee777f7db05ca1850e2a01c1716810624906c0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67709843"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中標記 Windows 虛擬機器
@@ -47,7 +47,7 @@ ms.locfileid: "67709843"
 
 如果要透過 PowerShell 新增標記，您可以使用 `Set-AzResource` 命令。 請注意，透過 PowerShell 標記更新時，標記會整體進行更新。 所以，如果您將一個標記新增至已有標記的資源，您必須包含想要置於資源上的所有標記。 以下是如何透過 PowerShell Cmdlet 將其他標記新增至資源的範例。
 
-第一個 Cmdlet 會使用 `Get-AzResource` 和 `Tags` 屬性，將置於 MyTestVM  上的所有標記設為 $tags  變數。
+第一個 Cmdlet 會使用 `Get-AzResource` 和 `Tags` 屬性，將置於 MyTestVM 上的所有標記設為 $tags 變數。
 
         PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -64,15 +64,15 @@ ms.locfileid: "67709843"
     Environment   Production
 ```
 
-第三個命令會將一個額外標記新增至 $tags  變數。 請注意，可使用 **+=** 將新的索引鍵/值組附加至 $tags  清單。
+第三個命令會將一個額外標記新增至 $tags 變數。 請注意，可使用 **+=** 將新的索引鍵/值組附加至 $tags 清單。
 
         PS C:\> $tags += @{Location="MyLocation"}
 
-第四個命令會將 $tags  變數中定義的所有標記設定為指定的資源。 本例中是 MyTestVM。
+第四個命令會將 $tags 變數中定義的所有標記設定為指定的資源。 本例中是 MyTestVM。
 
         PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
-第五個命令顯示資源上的所有標記。 如您所見，Location  現已定義為具有 MyLocation  值的標記。
+第五個命令顯示資源上的所有標記。 如您所見，Location 現已定義為具有 MyLocation 值的標記。
 
 ```
     PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
@@ -91,8 +91,8 @@ ms.locfileid: "67709843"
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解如何標記您的 Azure 資源，請參閱[Azure Resource Manager 概觀][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources]。
-* 若要查看標記如何協助您管理 Azure 資源的使用，請參閱[了解 Azure 帳單][Understanding your Azure Bill] and [Gain insights into your Microsoft Azure resource consumption][Gain insights into your Microsoft Azure resource consumption]。
+* 如需深入了解如何標記您的 Azure 資源，請參閱 [Azure Resource Manager 概觀][Azure Resource Manager Overview]與[使用標記來組織您的 Azure 資源][Using Tags to organize your Azure Resources]。
+* 如需查看標記如何協助您管理使用 Azure 資源，請參閱[了解 Azure 帳單][Understanding your Azure Bill]與[深入了解 Microsoft Azure 資源耗用量][Gain insights into your Microsoft Azure resource consumption]。
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/

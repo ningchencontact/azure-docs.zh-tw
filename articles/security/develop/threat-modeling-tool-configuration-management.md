@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: dbe3526444bc35815dd4323a3a5290696619e3f9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 986bed758229d639bb40d0803f7be4a89a0f6e49
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728339"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934816"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架︰組態管理 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -563,7 +563,7 @@ public void ConfigureServices(IServiceCollection services)
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | 閘道選擇 - Azure IoT 中樞 |
-| **參考**              | [IoT 中樞裝置管理概觀](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/)、[如何更新裝置韌體](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
+| **參考**              | [IoT 中樞裝置管理概觀](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/)、[如何更新裝置韌體](../../iot-hub/tutorial-firmware-update.md) |
 | **步驟** | LWM2M 是來自 Open Mobile Alliance 且適用於 IoT 裝置管理的通訊協定。 Azure IoT 裝置管理可讓您使用裝置工作來與實體裝置進行互動。 確保雲端閘道會實作相關程序，以使用 Azure IoT 中樞裝置管理讓裝置和其他組態資料常保最新狀態。 |
 
 ## <a id="controls-policies"></a>確保裝置已根據組織的原則設定端點安全性控制項

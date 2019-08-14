@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 91c0ad260c16ac09fd764246d31f99d481f8f147
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886828"
+ms.locfileid: "68933661"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory 中的原始檔控制
 
@@ -135,7 +135,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 [設定] 窗格會顯示下列 GitHub 存放庫設定:
 
-| **設定** | **說明**  | **值**  |
+| **設定** | **描述**  | **值**  |
 |:--- |:--- |:--- |
 | **存放庫類型** | Azure Repos 程式碼存放庫的類型。 | GitHub |
 | **使用 GitHub Enterprise** | 選取 GitHub Enterprise 的核取方塊 | 未選取 (預設值) |
@@ -243,7 +243,7 @@ GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](h
 
 如果發行分支與 master 分支不同步, 而且即使最近發佈也包含過期的資源, 請嘗試執行下列步驟:
 
-1. 移除目前的 Git 存放庫/
+1. 移除目前的 Git 存放庫
 1. 以相同的設定重新設定 Git, 但請確定已選取 [**將現有的 Data Factory 資源匯入到存放庫**], 然後選擇 [**新增分支**]
 1. 從您的共同作業分支刪除所有資源
 1. 建立提取要求以將變更合併到共同作業分支 

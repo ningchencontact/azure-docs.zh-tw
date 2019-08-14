@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67612308"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>透過 Azure PowerShell Cmdlet 監視和管理串流分析工作
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>用於串流分析的 Azure PowerShell Cmdlet
 下表列出可用來監視和管理 Azure 串流分析工作的 Azure PowerShell Cmdlet。 請注意，Azure PowerShell 有不同的版本。 
-**下列範例中所列出的第一個命令是針對 Azure PowerShell 0.9.8，第二個命令是針對 Azure PowerShell 1.0。** Azure PowerShell 1.0 命令永遠都會在"Az"命令。
+**下列範例中所列出的第一個命令是針對 Azure PowerShell 0.9.8，第二個命令是針對 Azure PowerShell 1.0。** 在命令中, Azure PowerShell 1.0 命令一律會有 "Az"。
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 列出 Azure 訂用帳戶或指定的資源群組中定義的所有「串流分析」工作，或取得與資源群組內特定工作相關的工作資訊。
@@ -228,7 +228,7 @@ Get-AzStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-C
 
 如果您指定 –Force 參數，並指定現有的輸入名稱，則不經過確認就會取代輸入。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[建立輸入 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference]。
+如需 JSON 檔案結構和內容的詳細資訊, 請參閱[串流分析 Management REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸入 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-input]一節。
 
 **範例 1**
 
@@ -287,7 +287,7 @@ New-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US
 
 如果您指定 –Force 參數，並指定現有的工作名稱，則不經過確認就會取代工作定義。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[建立 Stream Analytics 作業][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference]。
+如需 JSON 檔案結構和內容的詳細資訊, 請參閱[串流分析 Management REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立串流分析作業][msdn-rest-api-create-stream-analytics-job]一節。
 
 **範例 1**
 
@@ -330,7 +330,7 @@ New-AzStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US �
 
 如果您指定 –Force 參數，並指定現有的輸出名稱，則不經過確認就會取代輸出。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[建立輸出 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference]。
+如需 JSON 檔案結構和內容的詳細資訊, 請參閱[串流分析 Management REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立輸出 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-output]一節。
 
 **範例 1**
 
@@ -373,7 +373,7 @@ New-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-U
 
 如果您指定 –Force 參數，並指定現有的轉換名稱，則不經過確認就會取代轉換。
 
-如需 JSON 檔案結構與內容的詳細資訊，請參閱[建立轉換 (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference]。
+如需 JSON 檔案結構和內容的詳細資訊, 請參閱[串流分析 Management REST API 參考程式庫][stream.analytics.rest.api.reference]的[建立轉換 (Azure 串流分析)][msdn-rest-api-create-stream-analytics-transformation]一節。
 
 **範例 1**
 
@@ -524,7 +524,7 @@ Test-AzStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-U
 
 此 PowerShell 命令會測試 StreamingJob 中 EntryStream 輸入的連接狀態。  
 
-### <a name="test-azurestreamanalyticsoutput--test-azstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzStreamAnalyticsOutput
+### <a name="test-azurestreamanalyticsoutput--test-azstreamanalyticsoutput"></a>測試-AzureStreamAnalyticsOutput |測試-AzStreamAnalyticsOutput
 測試 Stream Analytics 連線到指定輸出的能力。
 
 **範例 1**

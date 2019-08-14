@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 754eb063f82344e72bece8fb0ac5708dbc8ab791
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249140"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935349"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -127,13 +127,13 @@ HADR 只是一種複寫功能。 它沒有任何失敗偵測, 也沒有自動接
 
 在執行部署之前, 請先完成規劃程式。 規劃會建立在 Azure 中使用 HADR 部署 Db2 設定的基礎。 下表列出需要屬於規劃 IMB-M43 Db2 LUW (SAP 環境的資料庫部分) 的重要元素:
 
-| 主題 | 簡短說明 |
+| 主題 | 簡短描述 |
 | --- | --- |
 | 定義 Azure 資源群組 | 您部署 VM、VNet、Azure Load Balancer 和其他資源的資源群組。 可以是現有或新的。 |
 | 虛擬網路/子網定義 | 要在其中部署 IBM Db2 和 Azure Load Balancer 的 Vm。 可以是現有或新建立的。 |
 | 裝載 IBM Db2 LUW 的虛擬機器 | VM 大小、儲存體、網路、IP 位址。 |
 | IBM Db2 資料庫的虛擬主機名稱和虛擬 IP| 用來連接 SAP 應用程式伺服器的虛擬 IP 或主機名稱。 **virt-hostname**、 **db-virt-ip**。 |
-| Azure 隔離 | Azure 防護或 SBD 隔離 (強烈建議)。 避免發生分割大腦狀況的方法。 |
+| Azure 隔離 | Azure 防護或 SBD 隔離 (強烈建議)。 避免分裂腦情況的方法。 |
 | SBD VM | SBD 虛擬機器大小、儲存體、網路。 |
 | Azure Load Balancer | 使用基本或標準 (建議), 適用于 Db2 資料庫的探查埠 (我們的建議 62500)**探查-埠**。 |
 | 名稱解析| 名稱解析在環境中的運作方式。 強烈建議使用 DNS 服務。 可以使用本機主機檔案。 |
@@ -144,7 +144,7 @@ HADR 只是一種複寫功能。 它沒有任何失敗偵測, 也沒有自動接
 
 IBM Db2 LUW 的資源代理套裝程式含在適用于 SAP 應用程式的 SUSE Linux Enterprise Server 中。 針對本檔中所述的設定, 您必須使用適用于 SAP 應用程式的 SUSE Linux Server。 Azure Marketplace 包含 SUSE Enterprise Server for SAP Applications 12 的映射, 您可以用來部署新的 Azure 虛擬機器。 當您選擇 Azure VM Marketplace 中的 VM 映射時, 請留意 SUSE 透過 Azure Marketplace 提供的各種支援或服務模型。 
 
-### <a name="hosts-dns-updates"></a>主機DNS 更新
+### <a name="hosts-dns-updates"></a>主控件:DNS 更新
 建立所有主機名稱的清單, 包括虛擬主機名稱, 並更新您的 DNS 伺服器, 以啟用適當的 IP 位址來解析主機名稱。 如果 DNS 伺服器不存在, 或您無法更新及建立 DNS 專案, 您必須使用參與此案例之個別 Vm 的本機主機檔案。 如果您使用的是主機檔案專案, 請確定專案會套用至 SAP 系統內容中的所有 Vm。 不過, 我們建議您最好使用您的 DNS, 這在理想情況下會延伸到 Azure
 
 
@@ -404,10 +404,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 # <a name="full-list-of-resources"></a>完整的資源清單:
 
 #  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>stonith-sbd (stonith: external/sbd):已啟動 azibmdb02
-#  <a name="resource-group-gipdb2ptrptr"></a>資源群組: g_ip_db2ptr_PTR
-#      <a name="rscipdb2ptrptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (ocf:: 心跳: IPaddr2):     已啟動 azibmdb02
-#      <a name="rscncdb2ptrptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (ocf:: 心跳: 任何專案):    已啟動 azibmdb02
-#  <a name="masterslave-set-msldb2db2ptrptr-rscdb2db2ptrptr"></a>主要/從屬集: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#  <a name="resource-group-g_ip_db2ptr_ptr"></a>資源群組: g_ip_db2ptr_PTR
+#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (ocf:: 心跳: IPaddr2):     已啟動 azibmdb02
+#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (ocf:: 心跳: 任何專案):    已啟動 azibmdb02
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>主要/從屬集: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>主機: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>從屬節點: [azibmdb01]
 </pre>
@@ -501,7 +501,7 @@ j2ee/dbhost = db-virt-hostname
 1. 在右邊的畫面中, 選擇 [jdbc/pool/\<SAPSID] 這個關鍵字 >/url。
 1. 將 JDBC URL 中的主機名稱變更為虛擬主機名稱。
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
-1. 選取 [新增] 。
+1. 選取 [新增]。
 1. 若要儲存您的變更, 請選取左上方的 [磁片] 圖示。
 1. 關閉設定工具。
 1. 重新開機 JAVA 實例。

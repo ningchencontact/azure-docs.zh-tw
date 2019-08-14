@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60949136"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
@@ -39,7 +39,7 @@ Service Fabric 元件會使用此健康狀態模型來報告其目前狀態。 �
 
 健康狀態實體會鏡像處理 Service Fabric 實體 (例如，**健康狀態應用程式實體**符合部署於叢集中的應用程式執行個體，而**健康狀態節點實體**符合 Service Fabric 叢集節點)。健康狀態階層會擷取系統實體的互動，並作為進階健康狀態評估的基礎。 您可以在 [Service Fabric 技術概觀](service-fabric-technical-overview.md)中了解重要的 Service Fabric 概念。 如需應用程式的詳細資訊，請參閱 [Service Fabric 應用程式模型](service-fabric-application-model.md)。
 
-健康狀態實體和階層可讓您有效率地報告、偵錯和監視叢集和應用程式。 健康狀態模型可針對叢集中許多移動的項目提供精確且「細微」  的健康狀態呈現方式。
+健康狀態實體和階層可讓您有效率地報告、偵錯和監視叢集和應用程式。 健康狀態模型可針對叢集中許多移動的項目提供精確且「細微」 的健康狀態呈現方式。
 
 ![健康狀態實體][1]。
 階層中的健康狀態實體將依照父系-子系關聯性組合管理。
@@ -186,7 +186,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 * 若具有「Error」狀態的子系符合狀況不良子系的最大允許百分比，則已彙總的父系健康狀態為「Warning」。
 
 ## <a name="health-reporting"></a>健康狀態報告
-系統元件、System Fabric 應用程式和內部/外部看門狗可以報告 Service Fabric 實體。 報告程式會依照其所監視的條件，來決定「本機」  受監視實體的健康狀態。 回報者不需查看任何全域狀態或彙總資料。 最好是使用簡單的報告程式，因為太複雜的有機體需要查看許多項目，才能推斷所要傳送的資訊。
+系統元件、System Fabric 應用程式和內部/外部看門狗可以報告 Service Fabric 實體。 報告程式會依照其所監視的條件，來決定「本機」 受監視實體的健康狀態。 回報者不需查看任何全域狀態或彙總資料。 最好是使用簡單的報告程式，因為太複雜的有機體需要查看許多項目，才能推斷所要傳送的資訊。
 
 若要將健康狀態資料傳送至健康狀態資料存放區，報告程式需要識別受影響的實體，並建立健康狀態報告。 若要傳送報告，請使用 [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API、`Partition` 或 `CodePackageActivationContext` 物件上公開的報告健康情況 API、PowerShell cmdlet 或 REST。
 
@@ -229,7 +229,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 * 僅在前 X 分鐘內發生變更的情況時發出警示。 如果報告在指定的時間之前即處於「Error」狀態，則可忽略 (因為其先前已發出訊號)。
 * 若屬性交叉出現警告和錯誤，請判斷狀況不良 (亦即不是 OK) 已持續多久。 例如，若屬性狀況良好的狀態不超過 5 分鐘時發出警示，可以轉譯為 (HealthState != Ok 且 Now - LastOkTransitionTime > 5 分鐘)。
 
-## <a name="example-report-and-evaluate-application-health"></a>範例：報告和評估應用程式健康狀態
+## <a name="example-report-and-evaluate-application-health"></a>範例:報告和評估應用程式健康狀態
 下列範例會從來源 **MyWatchdog**，透過應用程式 **fabric:/WordCount** 上的 PowerShell 來傳送健康狀態報告。 健康狀態報告會在 Error 健康狀態中包含健康狀態屬性「可用性」的相關資訊，並包含「Infinite」的 TimeToLive。 然後它會查詢應用程式健康狀態，並在健康狀態事件清單中傳回已彙總的健康狀態錯誤和已報告的健康狀態事件。
 
 ```powershell
@@ -299,7 +299,7 @@ HealthEvents                    :
 
 ## <a name="health-model-usage"></a>健康狀態模型使用方式
 健康狀態模型可讓雲端服務和基礎 Service Fabric 平台進行調整，因為監視及健康狀態決定會分散至叢集內的不同監視器。
-其他系統在叢集層級具有單一的集中式服務，可剖析服務所發出的所有「可能」  的實用資訊。 這個方法會防礙其延展性。 同時也不允許其收集特定資訊來協助識別問題和潛在問題，並盡可能接近根本原因。
+其他系統在叢集層級具有單一的集中式服務，可剖析服務所發出的所有「可能」 的實用資訊。 這個方法會防礙其延展性。 同時也不允許其收集特定資訊來協助識別問題和潛在問題，並盡可能接近根本原因。
 
 健康狀態模型常用來監視和診斷，以便評估叢集和應用程式健康狀態，以及監視升級。 其他服務會使用健康狀態資料來執行自動修復、建置叢集健康狀態歷程記錄，以及發出特定情況的警示。
 

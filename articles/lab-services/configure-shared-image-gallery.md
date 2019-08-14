@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 80610168e0d293b65626da71ee349f25e456576b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774558"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941810"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中設定共用映像庫
 DevTest Labs 現在支援[共用映射庫](../virtual-machines/windows/shared-image-galleries.md)功能。 其能讓實驗室使用者在建立實驗室資源期間，可以存取共用位置中的映像。 也可協助您圍繞著自訂的受控 VM 映像，來建置結構和組織。 共用映射庫功能支援:
@@ -36,7 +36,7 @@ DevTest Labs 現在支援[共用映射庫](../virtual-machines/windows/shared-im
 ## <a name="considerations"></a>考量
 - 您一次只能將一個共用映射資源庫附加至實驗室。 如果您想要附加另一個圖庫, 您必須卸離現有的資源庫並附加另一個。 
 - DevTest Labs 目前不支援透過實驗室將映射上傳至圖庫。 
-- 使用共用映射資源庫映射建立虛擬機器時, DevTest Labs 一律會使用此映射的最新發佈版本。
+- 使用共用映射資源庫映射建立虛擬機器時, DevTest Labs 一律會使用此映射的最新發佈版本。 不過, 如果映射具有多個版本, 使用者可以在建立虛擬機器期間前往 [Advanced settings] 索引標籤, 選擇從舊版建立電腦。  
 - 雖然 DevTest Labs 會自動嘗試確保共用映射資源庫將映射複寫到實驗室所在的區域, 但不一定都是可行的做法。 若要避免使用者在從這些映射建立 Vm 時遇到問題, 請確定映射已複寫至實驗室的區域。」
 
 ## <a name="use-azure-portal"></a>使用 Azure 入口網站

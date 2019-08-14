@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60704508"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure 資訊安全中心和 Azure SQL Database 服務
@@ -36,17 +36,17 @@ ms.locfileid: "60704508"
 
 除了協助您保護 SQL Database 資源，資訊安全中心也提供 Azure 虛擬機器、雲端服務、應用程式服務、虛擬網路等的安全性監視和管理功能。 [在此](security-center-intro.md)深入了解資訊安全中心。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 若要開始使用資訊安全中心，您必須有 Microsoft Azure 訂用帳戶。 您的訂用帳戶已經啟用資訊安全中心的免費層。 如需資訊安全中心的免費和標準層的詳細資訊，請參閱[安全性中心價格](https://azure.microsoft.com/pricing/details/security-center/)。
 
 資訊安全中心支援角色型存取。 若要深入了解 Azure 中的角色型存取控制 (RBAC)，請參閱 [Azure Active Directory 角色型存取控制](../role-based-access-control/role-assignments-portal.md)。 資訊安全中心常見問題集提供[在資訊安全中心處理權限的方式](security-center-faq.md#permissions)。
 
 ## <a name="access-security-center"></a>存取資訊安全中心
-您可以從 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)存取資訊安全中心。 [登入入口網站](https://portal.azure.com/)，然後選取 [資訊安全中心]  選項。
+您可以從 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)存取資訊安全中心。 [登入入口網站](https://portal.azure.com/)，然後選取 [資訊安全中心] 選項。
 
 ![資訊安全中心選項][1]
 
-[資訊安全中心]  刀鋒視窗隨即開啟。
+[資訊安全中心] 刀鋒視窗隨即開啟。
 ![資訊安全中心刀鋒視窗][2]
 
 ## <a name="set-security-policy"></a>設定安全性原則
@@ -54,10 +54,10 @@ ms.locfileid: "60704508"
 
 您可以設定原則，以顯示 SQL 稽核和 SQL 透明資料加密 (TDE) 的建議。
 
-* 當您開啟 [SQL 稽核和威脅偵測]  時，資訊安全中心會建議針對法規遵循、進階偵測及調查用途，啟用 Azure 資料庫的存取稽核。
-* 當您開啟 [SQL 透明資料加密]  時，資訊安全中心會建議為您的 Azure SQL Database、關聯的備份及交易記錄檔啟用待用期加密。
+* 當您開啟 [SQL 稽核和威脅偵測] 時，資訊安全中心會建議針對法規遵循、進階偵測及調查用途，啟用 Azure 資料庫的存取稽核。
+* 當您開啟 [SQL 透明資料加密] 時，資訊安全中心會建議為您的 Azure SQL Database、關聯的備份及交易記錄檔啟用待用期加密。
 
-若要設定安全性原則，請選取 [資訊安全中心] 刀鋒視窗上的 [原則]  圖格。 在 [安全性原則]  刀鋒視窗上，選取您想要啟用安全性原則的訂用帳戶。 選取 [預防原則]  並 [開啟]  您想要在此訂用帳戶使用的安全性建議。
+若要設定安全性原則，請選取 [資訊安全中心] 刀鋒視窗上的 [原則] 圖格。 在 [安全性原則] 刀鋒視窗上，選取您想要啟用安全性原則的訂用帳戶。 選取 [預防原則] 並 [開啟] 您想要在此訂用帳戶使用的安全性建議。
 ![安全性原則][3]
 
 若要深入了解，請參閱[設定安全性原則](tutorial-security-policy.md)。
@@ -73,7 +73,7 @@ ms.locfileid: "60704508"
 | [在 SQL Database 上啟用稽核與威脅偵測](security-center-enable-auditing-on-sql-databases.md) |針對 SQL Database 資料庫開啟稽核和威脅偵測的建議。 (僅限 SQL Database 服務。 不包含在虛擬機器上執行的 Microsoft SQL Server。) |
 | [啟用透明資料加密](security-center-enable-transparent-data-encryption.md) |建議您針對 SQL Database 啟用加密功能。 (僅限 SQL Database 服務。) |
 
-若要查看 Azure 資源的相關建議，請選取 [資訊安全中心] 刀鋒視窗上的 [建議]  圖格。 在 [建議]  刀鋒視窗上，選取某項建議以查看詳細資料。 在此範例中，我們選取 [在 SQL Server 上啟用稽核與威脅偵測]  。
+若要查看 Azure 資源的相關建議，請選取 [資訊安全中心] 刀鋒視窗上的 [建議] 圖格。 在 [建議] 刀鋒視窗上，選取某項建議以查看詳細資料。 在此範例中，我們選取 [在 SQL Server 上啟用稽核與威脅偵測]。
 
 ![建議][4]
 
@@ -84,8 +84,8 @@ ms.locfileid: "60704508"
 
 若要深入了解相關建議，請參閱[管理安全性建議](security-center-recommendations.md)。
 
-## <a name="monitor-security-health"></a>監視安全性健康狀態
-在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健康狀態]  圖格中，檢視資源的安全性狀態。 當您按一下 [資源安全性健康狀態]  圖格中的 [資料]  時，將會開啟 [資料資源]  刀鋒視窗，內含一些問題 (例如未啟用稽核和透明資料加密) 的 SQL 建議。 它也具有資料庫的一般健全狀況狀態建議。
+## <a name="monitor-security-health"></a>監視安全性健康情況
+在您為訂用帳戶的資源啟用 [安全性原則](tutorial-security-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健康狀態] 圖格中，檢視資源的安全性狀態。 當您按一下 [資源安全性健康狀態] 圖格中的 [資料] 時，將會開啟 [資料資源] 刀鋒視窗，內含一些問題 (例如未啟用稽核和透明資料加密) 的 SQL 建議。 它也具有資料庫的一般健全狀況狀態建議。
 ![資源安全性健康狀態][6]
 
 若要深入了解，請參閱[安全性健康狀態監視](security-center-monitoring.md)。
@@ -93,7 +93,7 @@ ms.locfileid: "60704508"
 ## <a name="manage-and-respond-to-security-alerts"></a>管理和回應安全性警示
 資訊安全中心會自動收集、分析及整合來自 [Azure SQL 威脅偵測](../sql-database/sql-database-threat-detection.md)和其他 Azure 資源的記錄檔資料，以偵測真正的威脅並降低誤判。 「資訊安全中心」會顯示優先安全性警示清單，以及需要您快速調查問題的資訊，和如何修復攻擊行為的建議。
 
-若要設定警示，請選取 [資訊安全中心] 刀鋒視窗上的 [安全性警示]  圖格。 在 [安全性警示]  刀鋒視窗上，選取一個警示以深入了解觸發警示的事件；如果發現項目，您需要進行一些步驟來阻止攻擊。 在此範例中，我們選取 [潛在的 SQL 插入式攻擊]  。
+若要設定警示，請選取 [資訊安全中心] 刀鋒視窗上的 [安全性警示] 圖格。 在 [安全性警示] 刀鋒視窗上，選取一個警示以深入了解觸發警示的事件；如果發現項目，您需要進行一些步驟來阻止攻擊。 在此範例中，我們選取 [潛在的 SQL 插入式攻擊]。
 ![安全性警示][7]
 
 如下所示，資訊安全中心會提供額外的詳細資料以便深入了解什麼會觸發警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。

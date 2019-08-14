@@ -5,18 +5,21 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e9b654fc49a953f8fdbc9125c6f12486e0ab7b13
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68478335"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949496"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 
 在 Azure Kubernetes Service (AKS) 中, 相同設定的節點會群組在一起成為*節點*集區。 這些節點集區包含執行應用程式的基礎 Vm。 當您建立 AKS 叢集時, 會定義初始節點數目及其大小 (SKU), 以建立*預設節點集*區。 若要支援具有不同計算或儲存體需求的應用程式, 您可以建立額外的節點集區。 例如, 您可以使用這些額外的節點集區, 為計算密集型應用程式提供 Gpu, 或存取高效能 SSD 儲存體。
+
+> [!NOTE]
+> 這項功能可讓您更進一步控制如何建立和管理多個節點集區。 因此, 建立/更新/刪除需要個別的命令。 先前的叢集作業`az aks create`會`az aks update`透過或使用 managedCluster API, 而且是變更您的控制平面和單一節點集區的唯一選項。 這項功能會透過 agentPool API 公開代理程式組件區的個別作業集, 並要求`az aks nodepool`使用命令集來執行個別節點集區上的作業。
 
 本文說明如何在 AKS 叢集中建立和管理多個節點集區。 此功能目前為預覽狀態。
 
@@ -113,14 +116,15 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="add-a-node-pool"></a>新增節點集區
 
-在上一個步驟中建立的叢集具有單一節點集區。 讓我們使用[az aks node pool add][az-aks-nodepool-add]命令來新增第二個節點集區。 下列範例會建立名為*mynodepool*的節點集區, 其會執行*3*個節點:
+在上一個步驟中建立的叢集具有單一節點集區。 讓我們使用[az aks nodepool add][az-aks-nodepool-add]命令來新增第二個節點集區。 下列範例會建立名為*mynodepool*的節點集區, 其會執行*3*個節點:
 
 ```azurecli-interactive
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --node-count 3
+    --node-count 3 \
+    --kubernetes-version 1.12.6
 ```
 
 若要查看節點集區的狀態, 請使用[az aks node pool list][az-aks-nodepool-list]命令, 並指定您的資源群組和叢集名稱:
@@ -174,7 +178,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 將節點升級為指定的版本需要幾分鐘的時間。
 
-最佳做法是將 AKS 叢集中的所有節點集區升級至相同的 Kubernetes 版本。 升級個別節點集區的功能可讓您執行輪流升級, 並在節點集區之間排程 pod, 以維護應用程式的執行時間。
+最佳做法是將 AKS 叢集中的所有節點集區升級至相同的 Kubernetes 版本。 升級個別節點集區的功能可讓您執行輪流升級, 並在節點集區之間排程 pod, 以維護上述條件約束內的應用程式執行時間。
 
 > [!NOTE]
 > Kubernetes 使用標準的[語義版本](https://semver.org/)控制版本設定配置。 版本號碼會以*x-y*表示, 其中*x*是主要版本, *y*是次要版本, 而*z*是修補程式版本。 例如, 在版本*1.12.6*中, 1 是主要版本, 12 是次要版本, 而6是修補程式版本。 在叢集建立期間, 會設定控制平面和初始節點集區的 Kubernetes 版本。 當所有其他節點集區新增至叢集時, 會設定其 Kubernetes 版本。 節點集區以及節點集區與控制平面之間的 Kubernetes 版本可能不同, 但適用下列限制:
@@ -185,7 +189,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 > 
 > 若要升級控制平面的 Kubernetes 版本, 請使用`az aks upgrade`。 如果您的叢集只有一個節點集區, `az aks upgrade`此命令也會升級節點集區的 Kubernetes 版本。
 
-## <a name="scale-a-node-pool"></a>調整節點集區
+## <a name="scale-a-node-pool-manually"></a>手動調整節點集區
 
 當您的應用程式工作負載需求變更時, 您可能需要調整節點集區中的節點數目。 節點數目可以向上或向下調整。
 
@@ -214,6 +218,10 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 ```
 
 調整作業需要幾分鐘的時間才能完成。
+
+## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>藉由啟用叢集自動調整程式, 自動調整特定節點集區
+
+AKS 在預覽中提供不同的功能, 可使用稱為叢集[自動調整程式](cluster-autoscaler.md)的元件自動調整節點集區。 此元件是一個 AKS 的附加元件, 可針對每個節點集區使用唯一的最小和最大調整計數, 為每個節點集區啟用。 瞭解如何[使用每個節點集區的叢集自動調整程式](cluster-autoscaler.md#enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools)。
 
 ## <a name="delete-a-node-pool"></a>刪除節點集區
 
@@ -437,6 +445,29 @@ az group deployment create \
 ```
 
 視您在 Resource Manager 範本中定義的節點集區設定和作業而定, 可能需要幾分鐘的時間來更新 AKS 叢集。
+
+## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>為節點集區中的每個節點指派一個公用 IP
+
+AKS 節點不需要自己的公用 IP 位址進行通訊。 不過, 某些情況下, 節點集區中的節點可能需要有自己的公用 IP 位址。 其中一個範例是遊戲, 其中主控台需要直接連線到雲端虛擬機器, 以將躍點降至最低。 這可以藉由註冊個別的預覽功能 [節點公用 IP (預覽)] 來達成。
+
+```azurecli-interactive
+az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
+```
+
+成功註冊之後, 請遵循[上述](##manage-node-pools-using-a-resource-manager-template)相同指示部署 Azure Resource Manager 範本, 並在 agentPoolProfiles 上新增下列布林值屬性 "enableNodePublicIP"。 將此設`true`為, 預設會將它設定為`false` (如果未指定)。 這是僅限建立時間的屬性, 而且需要最低 API 版本2019-06-01。 這可同時套用至 Linux 和 Windows 節點集區。
+
+```
+"agentPoolProfiles":[  
+    {  
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+      "enableNodePublicIP":true
+    }
+```
 
 ## <a name="clean-up-resources"></a>清除資源
 

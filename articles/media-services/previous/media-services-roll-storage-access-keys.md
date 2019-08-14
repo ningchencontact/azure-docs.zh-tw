@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: juliako
+ms.reviewer: milanga;cenkdin
+ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407287"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015810"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>更換儲存體存取金鑰之後更新媒體服務 
 
@@ -44,7 +45,7 @@ ms.locfileid: "60407287"
 ## <a name="steps-to-rotate-storage-keys"></a>更換儲存體金鑰的步驟 
  
  1. 透過 PowerShell Cmdlet 或 [Azure](https://portal.azure.com/) 入口網站來變更儲存體帳戶主要金鑰。
- 2. 呼叫同步 AzMediaServiceStorageKeys cmdlet 搭配適當的參數，以強制媒體帳戶接收儲存體帳戶金鑰
+ 2. 呼叫 AzMediaServiceStorageKeys Cmdlet 搭配適當的參數來強制媒體帳戶收取儲存體帳戶金鑰
  
     以下範例示範如何將金鑰同步到儲存體帳戶。
   
@@ -52,7 +53,7 @@ ms.locfileid: "60407287"
   
  3. 請等候約一小時。 確認資料流案例運作無誤。
  4. 透過 PowerShell Cmdlet 或 Azure 入口網站變更儲存體帳戶次要金鑰。
- 5. 呼叫同步 AzMediaServiceStorageKeys powershell 搭配適當的參數，以強制媒體帳戶挑選新的儲存體帳戶金鑰。 
+ 5. 呼叫 Sync-AzMediaServiceStorageKeys powershell 搭配適當的參數, 以強制媒體帳戶挑選新的儲存體帳戶金鑰。 
  6. 請等候約一小時。 確認資料流案例運作無誤。
  
 ### <a name="a-powershell-cmdlet-example"></a>PowerShell Cmdlet 範例 

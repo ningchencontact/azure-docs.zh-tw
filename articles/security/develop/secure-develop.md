@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c1c7dd0bd017852144139a841ff609dabf0f1a27
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780553"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928063"
 ---
 # <a name="develop-secure-applications-on-azure"></a>在 Azure 上開發安全的應用程式
 在本文中, 我們會提供您在開發雲端應用程式時應考慮的安全性活動和控制項。 涵蓋 Microsoft[安全性開發週期 (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)的執行期間和驗證階段所要考慮的安全性問題和概念。 其目標是要協助您定義活動和 Azure 服務, 您可以用來開發更安全的應用程式。
@@ -89,7 +89,7 @@ Azure Marketplace 提供的[開發人員工具](https://azuremarketplace.microso
 
 若要防範暴力密碼破解和字典式猜測, 您必須執行強式密碼原則, 以確保使用者建立複雜的密碼 (例如, 長度最少12個字元, 而且需要英數位元和特殊字元)。
 
-您可以使用身分識別架構來建立和強制執行密碼原則。 Azure AD B2C 提供[內建原則](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow)、[自助式密碼重設](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)等等, 協助您進行密碼管理。
+您可以使用身分識別架構來建立和強制執行密碼原則。 Azure AD B2C 提供[內建原則](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow)、[自助式密碼重設](../../active-directory-b2c/active-directory-b2c-reference-sspr.md)等等, 協助您進行密碼管理。
 
 若要防禦預設帳戶的攻擊, 請確認所有金鑰和密碼都是可取代的, 而且會在您安裝資源後加以產生或取代。
 
@@ -99,9 +99,9 @@ Azure Marketplace 提供的[開發人員工具](https://azuremarketplace.microso
 
 如果您的應用程式允許檔案上[傳](https://www.owasp.org/index.php/Unrestricted_File_Upload), 請考慮您可以為此具風險活動採取的預防措施。 在許多攻擊中, 第一個步驟是將一些惡意程式碼放入遭受攻擊的系統中。 使用檔案上傳可協助攻擊者達成此目的。 OWASP 提供驗證檔案的解決方案, 以確保您要上傳的檔案是安全的。
 
-反惡意程式碼防護可協助識別及移除病毒、間諜軟體和其他惡意軟體。 您可安裝 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) 或 Microsoft 合作夥伴的端點保護解決方案 ([Trend Micro](https://www.trendmicro.com/azure/)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 及 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))。
+反惡意程式碼防護可協助識別及移除病毒、間諜軟體和其他惡意軟體。 您可安裝 [Microsoft Antimalware](../fundamentals/antimalware.md) 或 Microsoft 合作夥伴的端點保護解決方案 ([Trend Micro](https://www.trendmicro.com/azure/)、[Symantec](https://www.symantec.com/products)、[McAfee](https://www.mcafee.com/us/products.aspx)、[Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) 及 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))。
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)包括即時保護、排程掃描、惡意程式碼補救、簽章更新、引擎更新、範例報告和排除事件收集等功能。 您可以將 Microsoft Antimalware 和合作夥伴解決方案與 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-partner-integration)整合，以方便部署和執行內建偵測 (警示與事件)。
+[Microsoft Antimalware](../fundamentals/antimalware.md)包括即時保護、排程掃描、惡意程式碼補救、簽章更新、引擎更新、範例報告和排除事件收集等功能。 您可以將 Microsoft Antimalware 和合作夥伴解決方案與 [Azure 資訊安全中心](../../security-center/security-center-partner-integration.md)整合，以方便部署和執行內建偵測 (警示與事件)。
 
 ### <a name="dont-cache-sensitive-content"></a>不要快取敏感性內容
 
@@ -117,7 +117,7 @@ Azure Marketplace 提供的[開發人員工具](https://azuremarketplace.microso
 由[Tinfoil security](https://www.tinfoilsecurity.com/)提供技術支援的弱點掃描適用于 Azure App Service Web Apps。 [Tinfoil 透過 App Service 進行的安全性掃描](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)可提供開發人員和系統管理員快速、整合且經濟實惠的方式, 讓您在惡意執行者可以利用這些弱點之前, 先探索並解決漏洞。
 
 > [!NOTE]
-> 您也可以將[Tinfoil security 與 Azure AD 整合](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial)。 Tinfoil Security 與 Azure AD 整合可提供下列優點:
+> 您也可以將[Tinfoil security 與 Azure AD 整合](../../active-directory/saas-apps/tinfoil-security-tutorial.md)。 Tinfoil Security 與 Azure AD 整合可提供下列優點:
 >  - 在 Azure AD 中, 您可以控制可存取 Tinfoil Security 的人員。
 >  - 您的使用者可以使用其 Azure AD 帳戶自動登入 Tinfoil Security (單一登入)。
 >  - 您可以在單一集中位置、Azure 入口網站中管理您的帳戶。
@@ -128,7 +128,7 @@ Azure Marketplace 提供的[開發人員工具](https://azuremarketplace.microso
 
 DAST 與靜態應用程式安全性測試 (SAST) 不同。 當程式碼未執行時, SAST 工具會分析原始程式碼或編譯版本的程式碼, 以找出安全性缺陷。
 
-執行 DAST, 最好是安全性專家的協助 ([滲透測試人員](https://docs.microsoft.com/azure/security/fundamentals/pen-testing)或弱點評估者)。 如果無法使用安全性專業人員, 您可以使用 Web Proxy 掃描器和一些訓練來自行執行 DAST。 請提早插入 DAST 掃描器, 以確保您不會在程式碼中引進明顯的安全性問題。 如需 web 應用程式弱點掃描器的清單, 請參閱[OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools)網站。
+執行 DAST, 最好是安全性專家的協助 ([滲透測試人員](../fundamentals/pen-testing.md)或弱點評估者)。 如果無法使用安全性專業人員, 您可以使用 Web Proxy 掃描器和一些訓練來自行執行 DAST。 請提早插入 DAST 掃描器, 以確保您不會在程式碼中引進明顯的安全性問題。 如需 web 應用程式弱點掃描器的清單, 請參閱[OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools)網站。
 
 ### <a name="perform-fuzz-testing"></a>執行模糊測試
 
@@ -144,7 +144,7 @@ DAST 與靜態應用程式安全性測試 (SAST) 不同。 當程式碼未執行
 
 ### <a name="perform-security-penetration-testing"></a>執行安全性滲透測試
 
-確保您的應用程式安全, 與測試任何其他功能一樣重要。 讓[滲透測試](https://docs.microsoft.com/azure/security/fundamentals/pen-testing)成為組建和部署程式的標準部分。 針對已部署的應用程式排程週期性安全性測試和弱點掃描, 並監視開啟的埠、端點和攻擊。
+確保您的應用程式安全, 與測試任何其他功能一樣重要。 讓[滲透測試](../fundamentals/pen-testing.md)成為組建和部署程式的標準部分。 針對已部署的應用程式排程週期性安全性測試和弱點掃描, 並監視開啟的埠、端點和攻擊。
 
 ### <a name="run-security-verification-tests"></a>執行安全性驗證測試
 

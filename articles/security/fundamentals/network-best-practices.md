@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: a821ce5d9e545db2dee2adbe942eab5edcfdb01f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 09caffcfdad4b132858b6ec52b36fe037f488b3a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726944"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934716"
 ---
 # <a name="azure-best-practices-for-network-security"></a>適用于網路安全性的 Azure 最佳作法
 本文討論 Azure 最佳作法的集合, 以加強您的網路安全性。 這些最佳作法衍生自我們的 Azure 網路經驗和客戶的經驗。
@@ -35,7 +35,7 @@ ms.locfileid: "68726944"
 這些最佳作法是根據共識的意見, 以及 Azure 平臺功能和功能集, 因為在撰寫本文時已存在。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
 
 ## <a name="use-strong-network-controls"></a>使用強式網路控制
-您可以透過將 [Azure 虛擬機器 (VM)](https://azure.microsoft.com/services/virtual-machines/) 和設備置於 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/)上，來將它們連線到其他網路裝置。 也就是說，您可以將虛擬網路介面卡連線到虛擬網路，讓有網路功能的裝置之間可進行 TCP/IP 型通訊。 連線到 Azure 虛擬網路的虛擬機器能夠連線到在相同虛擬網路、其他虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
+您可以透過將 [Azure 虛擬機器 (VM)](https://azure.microsoft.com/services/virtual-machines/) 和設備置於 [Azure 虛擬網路](../../virtual-network/index.yml)上，來將它們連線到其他網路裝置。 也就是說，您可以將虛擬網路介面卡連線到虛擬網路，讓有網路功能的裝置之間可進行 TCP/IP 型通訊。 連線到 Azure 虛擬網路的虛擬機器能夠連線到在相同虛擬網路、其他虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
 
 當您規劃網路和網路的安全性時, 我們建議您集中:
 
@@ -114,7 +114,7 @@ Azure 網路安全性設備可提供比網路層級控制更佳的安全性。 �
 若要尋找可用的 Azure 虛擬網路安全性設備，請移至 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 並搜尋 "security" 和 "network security"。
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>部署安全性區域的周邊網路
-[周邊網路](https://docs.microsoft.com/azure/best-practices-network-security) (也稱為 DMZ) 是實體或邏輯網路區段，可在您的資產與網際網路之間提供額外一層安全性。 在周邊網路邊緣上的特製化網路存取控制裝置，只允許所要的流量進入您的虛擬網路。
+[周邊網路](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (也稱為 DMZ) 是實體或邏輯網路區段，可在您的資產與網際網路之間提供額外一層安全性。 在周邊網路邊緣上的特製化網路存取控制裝置，只允許所要的流量進入您的虛擬網路。
 
 周邊網路非常實用，因為您可以將網路存取控制管理、監視、記錄和報告的重點放在位於 Azure 虛擬網路邊緣的裝置。 周邊網路是您通常會啟用分散式阻斷服務 (DDoS) 預防、入侵偵測/入侵預防系統 (IDS/IPS)、防火牆規則和原則、web 篩選、網路反惡意程式碼等的地方。 網路安全性裝置位於網際網路與您的 Azure 虛擬網路之間，具有兩個網路均適用的介面。
 

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af540267e4afc1b248b66b1c6f4989b832c38b58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237571"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947208"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>選擇時間序列識別碼的最佳做法
 
@@ -42,7 +42,7 @@ ms.locfileid: "66237571"
 
 下列案例描述選取超過一個索引鍵屬性作為時間序列識別碼：  
 
-### <a name="scenario-one"></a>其中一個案例
+### <a name="scenario-one"></a>案例一
 
 * 您有舊的資產群，每項資產都具備一個唯一索引鍵。
 * 例如，某個資產群透過屬性 *deviceId* 識別，而另一個資產群的唯一屬性為 *objectId*。 兩個資產群都沒有包含對方的唯一屬性。 在此範例中，您會選取兩個索引鍵作為唯一索引鍵，分別是 deviceId 和 objectId。

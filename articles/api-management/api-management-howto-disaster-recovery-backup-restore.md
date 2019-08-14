@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: bde4572ec72286be7d845f4e83bf9c0fe3bff6f1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498582"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932403"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 
@@ -68,7 +68,7 @@ ms.locfileid: "68498582"
 4. 輸入應用程式的名稱。
 5. 針對應用程式類型，選取 [原生]。
 6. 輸入 [重新導向 URI] 的預留位置 URL，例如 `http://resources`，因為它是必要的欄位，但稍後不會使用這個值。 按一下核取方塊以儲存應用程式。
-7. 按一下 [建立] 。
+7. 按一下 [建立]。
 
 ### <a name="add-an-application"></a>加入應用程式
 
@@ -176,6 +176,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   備份在進行時，**請避免變更服務管理** (例如 SKU 升級或降級)、避免變更網域名稱等等。
 -   備份還原的**保證僅限建立後的 30 天內**。
 -   備份**不包含**用來建立分析報告的**使用量資料**。 請使用 [Azure API 管理 REST API][azure api management rest api] 來定期擷取分析報告，以利妥善保存。
+-   此外, 下列專案不是備份資料的一部分: 自訂網域 SSL 憑證, 以及客戶所上傳的任何中繼或根憑證、開發人員入口網站內容和虛擬網路整合設定。
 -   執行服務備份的頻率會影響您的復原點目標。 為了盡可能縮小，建議您實作定期備份，並在針對 API 管理服務進行變更後執行隨選備份。
 -   在備份作業進行時針對服務組態 (例如 API、原則及開發人員入口網站外觀) 所做的**變更** **可能會從備份中排除，因此可能會遺失**。
 -   **允許**從控制平面存取 Azure 儲存體帳戶。 客戶應該在其儲存體帳戶上開啟下列一組輸入 Ip 來進行備份。 

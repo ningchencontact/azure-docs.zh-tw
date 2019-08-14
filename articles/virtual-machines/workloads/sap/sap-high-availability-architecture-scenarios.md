@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f6c329a2b50c946e873391db431c1cd5ff30ab4f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67709076"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver 的高可用性架構和案例
@@ -232,9 +232,9 @@ ms.locfileid: "67709076"
 
 ## <a name="terminology-definitions"></a>詞彙定義
 
-**高可用性**：指一組技術，該組技術可透過相同  資料中心內受備援、容錯或容錯移轉保護的元件，提供 IT 服務的商務持續性，藉此將 IT 中斷的情況降到最低。 在我們的案例中，資料中心位於一個 Azure 區域內。
+**高可用性**：指一組技術，該組技術可透過相同資料中心內受備援、容錯或容錯移轉保護的元件，提供 IT 服務的商務持續性，藉此將 IT 中斷的情況降到最低。 在我們的案例中，資料中心位於一個 Azure 區域內。
 
-**災害復原**：也是指最小化 IT 服務中斷及其復原，但是橫跨彼此相距甚遠的各個  資料中心。 在我們的案例中，資料中心可能位於相同地理政治區域或由身為客戶的您所建立之位置的各個 Azure 區域。
+**災害復原**：也是指最小化 IT 服務中斷及其復原，但是橫跨彼此相距甚遠的各個資料中心。 在我們的案例中，資料中心可能位於相同地理政治區域或由身為客戶的您所建立之位置的各個 Azure 區域。
 
 
 ## <a name="overview-of-high-availability"></a>高可用性概觀
@@ -244,7 +244,7 @@ Azure 中的 SAP 高可用性可以分成三種類型：
 
     例如，高可用性可以包含計算 (VM)、網路、儲存體，以及它在增加 SAP 應用程式可用性方面的優點。
 
-* **使用 Azure 基礎結構 VM 重新啟動達到 SAP 應用程式的更高可用性**：  
+* **使用 Azure 基礎結構 VM 重新啟動達到 SAP 應用程式的更高可用性**： 
 
     如果您決定不要在 Linux 上使用 Windows Server 容錯移轉叢集 (WSFC) 或 Pacemaker 等功能，則會利用 Azure VM 重新啟動。 它會針對規劃與未規劃的 Azure 實體伺服器基礎結構停機時間，以及整體基礎 Azure 平台，來保護 SAP 系統。
 
@@ -254,15 +254,15 @@ Azure 中的 SAP 高可用性可以分成三種類型：
     * 備援 SAP 應用程式伺服器。
     * 唯一的元件。 範例可能是單一失敗點 (SPOF) 元件，例如 SAP ASCS/SCS 執行個體或資料庫管理系統 (DBMS)。
 
-Azure 中的 SAP 高可用性與內部部署實體或虛擬環境中的 SAP 高可用性有所不同。 下列文件[SAP NetWeaver 高可用性和 VMware 與 Microsoft Windows 上 HYPER-V 的虛擬環境的業務續航力][sap-ha-bc-virtual-env-hyperv-vmware-white-paper]說明標準 SAP 高可用性組態中虛擬化在 Windows 上的環境。
+Azure 中的 SAP 高可用性與內部部署實體或虛擬環境中的 SAP 高可用性有所不同。 下列檔[SAP 在 Microsoft windows 上使用 VMware 和 hyper-v 的虛擬環境中 NetWeaver 高可用性和商務持續性][sap-ha-bc-virtual-env-hyperv-vmware-white-paper]說明 Windows 上虛擬化環境中的標準 SAP 高可用性設定。
 
-不同於 Windows，Linux 沒有整合 sapinst 的 SAP 高可用性設定。 適用於 Linux SAP 高可用性內部部署的相關資訊，請參閱[高可用性夥伴資訊][sap-ha-partner-information]。
+不同於 Windows，Linux 沒有整合 sapinst 的 SAP 高可用性設定。 如需適用于 Linux 之 SAP 高可用性的詳細資訊, 請參閱[高可用性夥伴資訊][sap-ha-partner-information]。
 
 ## <a name="azure-infrastructure-high-availability"></a>Azure 基礎結構高可用性
 
 ### <a name="sla-for-single-instance-virtual-machines"></a>單一執行個體虛擬機器的 SLA
 
-目前 99.9% 的單一 VM SLA 都具有進階儲存體。 若要了解單一 VM 可用性可能會您可以建立不同可用產品[Azure 服務等級協定][azure-sla]。
+目前 99.9% 的單一 VM SLA 都具有進階儲存體。 若要瞭解單一 VM 的可用性, 您可以建立各種可用[Azure 服務等級協定][azure-sla]的產品。
 
 計算基礎是每個月 30 天 (或 43,200 分鐘)。 例如，0.05% 停機時間會對應至 21.6 分鐘。 像往常一樣，不同服務的可用性會以下列方式計算︰
 
@@ -273,15 +273,15 @@ Azure 中的 SAP 高可用性與內部部署實體或虛擬環境中的 SAP 高�
 (99.95/100) * (99.9/100) * (99.9/100) = 0.9975 或整體可用性 99.75%。
 
 ### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>同一可用性設定組中虛擬機器的多個執行個體
-對於將兩 (含) 個以上之執行個體部署到同一可用性設定組  的所有虛擬機器，我們保證虛擬機器可與至少一個執行個體正常連線的時間，至少須達 99.95%。
+對於將兩 (含) 個以上之執行個體部署到同一可用性設定組的所有虛擬機器，我們保證虛擬機器可與至少一個執行個體正常連線的時間，至少須達 99.95%。
 
-當兩 (含) 個以上 VM 是同一可用性設定組的一部分時，基礎 Azure 平台會為可用性設定組中的每部虛擬機器指派一個更新網域  和一個容錯網域  。
+當兩 (含) 個以上 VM 是同一可用性設定組的一部分時，基礎 Azure 平台會為可用性設定組中的每部虛擬機器指派一個更新網域和一個容錯網域。
 
 * **更新網域**保證多個 VM 不會在 Azure 基礎結構進行計劃性維護期間同時重新開機。 一次只有一個 VM 重新開機。
 
 * **容錯網域**保證會將 VM 部署在硬體元件上，而這些硬體元件不會共用一般電源和網路交換器。 當伺服器、網路交換器或電源發生未規劃停機時，只有一個 VM 會受到影響。
 
-如需詳細資訊，請參閱 <<c0> [ 管理 Azure 中 Windows 虛擬機器的可用性][azure-virtual-machines-manage-availability]。
+如需詳細資訊, 請參閱[在 Azure 中管理 Windows 虛擬機器的可用性][azure-virtual-machines-manage-availability]。
 
 可用性設定組用於達到下列項目的高可用性：
 
@@ -309,7 +309,7 @@ Azure 正在不同的 [Azure 區域](https://azure.microsoft.com/global-infrastr
 
 * **未規劃的維護**事件會在虛擬機器中的硬體或實體基礎結構產生某些方面的錯誤時發生。 這可能包含本機網路錯誤、本機磁碟錯誤，或其他機架層級的錯誤。 Azure 平台會在偵測到此類錯誤時，自動從裝載虛擬機器且狀況不良的實體伺服器，將虛擬機器移轉至狀況良好的實體伺服器。 這類事件非常稀少，但可能會導致虛擬機器重新啟動。
 
-如需詳細資訊，請參閱 <<c0> [ 管理 Azure 中 Windows 虛擬機器的可用性][azure-virtual-machines-manage-availability]。
+如需詳細資訊, 請參閱[在 Azure 中管理 Windows 虛擬機器的可用性][azure-virtual-machines-manage-availability]。
 
 ### <a name="azure-storage-redundancy"></a>Azure 儲存體備援
 儲存體帳戶中的資料一律會進行複寫以確保持久性及高可用性，即使在面對暫時性的硬體故障時，仍可滿足 Azure 儲存體 SLA。
@@ -321,17 +321,17 @@ Azure 正在不同的 [Azure 區域](https://azure.microsoft.com/global-infrastr
 ### <a name="azure-managed-disks"></a>Azure 受控磁碟
 在 Azure Resource Manager 中，建議使用的資源類型是受控磁碟，可非儲存在 Azure 儲存體帳戶中的虛擬硬碟 (VHD)。 受控磁碟會自動對齊其所連結虛擬機器的 Azure 可用性設定組。 它們會增加虛擬機器和在其上執行之服務的可用性。
 
-如需詳細資訊，請參閱 < [Azure 受控磁碟概觀][azure-storage-managed-disks-overview]。
+如需詳細資訊, 請參閱[Azure 受控磁碟總覽][azure-storage-managed-disks-overview]。
 
 由於受控磁碟可以簡化虛擬機器的部署和管理，因此建議您使用受控磁碟。
 
 
 
-## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>使用 Azure 基礎結構高可用性達到 SAP 應用程式的更高可用性 
+## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>使用 Azure 基礎結構高可用性達到 SAP 應用程式的更高可用性
 
 如果您決定不在 Linux 上使用如 WSFC 或 Pacemaker 等功能 (目前僅支援 SUSE Linux Enterprise Server [SLES] 12 和更新版本)，則會使用 Azure VM 重新啟動。 它會針對規劃與未規劃的 Azure 實體伺服器基礎結構停機時間，以及整體基礎 Azure 平台，來保護 SAP 系統。
 
-如需有關這種方法的詳細資訊，請參閱[使用 Azure 基礎結構 VM 重新啟動達到 SAP 系統的更高的可用性][sap-higher-availability]。
+如需此方法的詳細資訊, 請參閱[利用 Azure 基礎結構 VM 重新開機來達到 SAP 系統的更高可用性][sap-higher-availability]。
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Azure IaaS 上 SAP 應用程式的高可用性
 
@@ -359,7 +359,7 @@ _**圖 1：** 高可用性的 SAP 應用程式伺服器_
 * 所有虛擬機器都是相同更新網域的一部分。  
     更新網域可確保虛擬機器不會在規劃的維護停機期間同時更新。
 
-    基本功能，是根據不同的更新 」 和 「 Azure 縮放單位內的容錯網域，已介紹[更新網域][planning-guide-3.2.2]一節。
+    「[更新網域][planning-guide-3.2.2]」一節中已引進基本功能 (以 Azure 縮放單位內不同的「更新」和「容錯網域」為基礎)。
 
 * 所有虛擬機器都是相同容錯網域的一部分。  
     容錯網域可確保部署虛擬機器，以便不會有任何單一失敗點影響所有虛擬機器的可用性。
@@ -371,9 +371,9 @@ Azure 縮放單位內的 Azure 可用性設定組可使用的更新和容錯網�
 ![圖 2：Azure 可用性設定組中 SAP 應用程式伺服器的高可用性][planning-guide-figure-3000]
  _**圖 2：** Azure 可用性設定組中 SAP 應用程式伺服器的高可用性_
 
-如需詳細資訊，請參閱 <<c0> [ 管理 Azure 中 Windows 虛擬機器的可用性][azure-virtual-machines-manage-availability]。
+如需詳細資訊, 請參閱[在 Azure 中管理 Windows 虛擬機器的可用性][azure-virtual-machines-manage-availability]。
 
-如需詳細資訊，請參閱 < [Azure 可用性設定組][planning-guide-3.2.3]區段的 Azure 虛擬機器規劃和實作 SAP NetWeaver 文件。
+如需詳細資訊, 請參閱適用于 SAP NetWeaver 的 Azure 虛擬機器規劃與部署檔的[azure 可用性設定組][planning-guide-3.2.3]一節。
 
 **僅限非受控磁碟：** 由於 Azure 儲存體帳戶是潛在的單一失敗點，因此您務必擁有至少兩個 Azure 儲存體帳戶，且至少要將兩個虛擬機器分散到其中。 在理想的設定中，執行 SAP 對話方塊執行個體的每一個虛擬機器磁碟會部署在不同的儲存體帳戶中。
 
@@ -388,15 +388,15 @@ Azure 縮放單位內的 Azure 可用性設定組可使用的更新和容錯網�
 
 您可以使用 WSFC 解決方案來保護 SAP ASCS/SCS 執行個體。 解決方案有兩種變化：
 
-* **使用叢集化的共用磁碟進行 SAP ASCS/SCS 執行個體叢集處理**：如需有關此架構的詳細資訊，請參閱 < [Windows 容錯移轉叢集上叢集 SAP ASCS/SCS 執行個體，使用叢集共用的磁碟][sap-high-availability-guide-wsfc-shared-disk]。   
+* **使用叢集化的共用磁碟進行 SAP ASCS/SCS 執行個體叢集處理**：如需此架構的詳細資訊, 請參閱[使用叢集共用磁片在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 實例][sap-high-availability-guide-wsfc-shared-disk]叢集。   
 
-* **使用檔案共用進行 SAP ASCS/SCS 執行個體叢集處理**：如需有關此架構的詳細資訊，請參閱 < [Windows 容錯移轉叢集上叢集 SAP ASCS/SCS 執行個體，藉由使用檔案共用][sap-high-availability-guide-wsfc-file-share]。
+* **使用檔案共用進行 SAP ASCS/SCS 執行個體叢集處理**：如需此架構的詳細資訊, 請參閱[使用檔案共用在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 實例][sap-high-availability-guide-wsfc-file-share]叢集。
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Linux 上 SAP ASCS/SCS 執行個體的高可用性架構
 
 > ![Linux][Logo_Linux] Linux
 > 
-> 如需有關使用 SLES 叢集架構叢集 SAP ASCS/SCS 執行個體的詳細資訊，請參閱[適用於 SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性的 SAP 應用程式][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf]。
+> 如需使用 SLES 叢集架構來叢集化 SAP ASCS/SCS 實例的詳細資訊, 請參閱[適用于 sap 應用程式的 SUSE Linux Enterprise Server 上 Azure vm 上的 Sap NetWeaver 高可用性][sap-suse-ascs-ha]。 針對 SLES 上的替代 HA 架構, 這不需要高可用性的 NFS, 請參閱[SUSE Linux Enterprise Server 上適用于 sap 應用程式之 Azure NetApp Files 的 Sap NetWeaver 高可用性指南][sap-suse-ascs-ha-anf]。
 
 如需如何使用 Red Hat 叢集架構來進行 SAP ASCS/SCS 執行個體叢集處理的詳細資訊，請參閱 [Red Hat Enterprise Linux 上 SAP NetWeaver 的 Azure 虛擬機器高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 
@@ -409,9 +409,9 @@ Azure 縮放單位內的 Azure 可用性設定組可使用的更新和容錯網�
 > 
 > 如需多重 SID 高可用性架構的詳細資訊，請參閱：
 
-* [SAP ASCS/SCS 執行個體多重 SID 高可用性 Windows Server 容錯移轉叢集和檔案共用][sap-ascs-ha-multi-sid-wsfc-file-share]
+* [適用于 Windows Server 容錯移轉叢集和檔案共用的 SAP ASCS/SCS 實例多重 SID 高可用性][sap-ascs-ha-multi-sid-wsfc-file-share]
 
-* [SAP ASCS/SCS 執行個體多重 SID 高可用性的 Windows Server 容錯移轉叢集和共用的磁碟][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+* [適用于 Windows Server 容錯移轉叢集和共用磁片的 SAP ASCS/SCS 實例多重 SID 高可用性][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
 ### <a name="high-availability-dbms-instance"></a>高可用性 DBMS 執行個體
 
@@ -423,8 +423,8 @@ _**圖 3：** 高可用性的 SAP DBMS，使用 SQL Server AlwaysOn 的範例_
 
 如需有關使用 Azure Resource Manager 部署模型在 Azure 中將 SQL Server DBMS 組成叢集的詳細資訊，請參閱下列文章：
 
-* [使用 Resource Manager 來手動設定 AlwaysOn 可用性群組在 Azure 虛擬機器][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [使用 Resource Manager 以手動方式在 Azure 虛擬機器中設定 AlwaysOn 可用性群組][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 
 * [在 Azure 中設定 AlwaysOn 可用性群組的 Azure 內部負載平衡器][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
-如需有關叢集在 Azure 中的 SAP HANA DBMS，使用 Azure Resource Manager 部署模型的詳細資訊，請參閱[Azure 虛擬機器 (Vm) 上的 SAP HANA 高可用性][sap-hana-ha]。
+如需有關使用 Azure Resource Manager 部署模型在 Azure 中將 SAP Hana DBMS 叢集的詳細資訊, 請參閱[azure 虛擬機器 (vm) 上 SAP Hana 的高可用性][sap-hana-ha]。

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 481e6c5f2271651627577af3d03f9dd4da725146
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881382"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949917"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -93,7 +93,7 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 
 下列步驟使用 [APT](https://wiki.debian.org/Apt) 在 Ubuntu/Debian Linux 散發套件上安裝 Core Tools。 若為其他 Linux 散發套件，請參閱 [Core Tools 讀我檔案](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)。
 
-1. 將 Microsoft 產品金鑰註冊為可信任：
+1. 安裝 Microsoft 封裝存放庫 GPG 金鑰, 以驗證封裝完整性:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -135,15 +135,19 @@ func init MyFunctionProj
 ```
 
 當您提供專案名稱時，系統會建立具有該名稱的新資料夾，並將其初始化。 否則，會將目前的資料夾初始化。  
-在 2.x 版中，當您執行命令時，您必須為您的專案選擇執行階段。 如果您打算開發 JavaScript 函式，請選擇**節點**：
+在 2.x 版中，當您執行命令時，您必須為您的專案選擇執行階段。 
 
 ```output
 Select a worker runtime:
 dotnet
 node
+python (preview)
+powershell (preview)
 ```
 
-使用向上/向下鍵來選擇語言，然後按 Enter。 JavaScript 專案的輸出看起來會像下列範例：
+使用向上/向下鍵來選擇語言，然後按 Enter。 如果您打算開發 JavaScript 或 TypeScript 函式, 請選擇 [ **node**], 然後選取語言。 TypeScript 有[一些額外的需求](functions-reference-node.md#typescript)。 
+
+JavaScript 專案的輸出看起來會像下列範例：
 
 ```output
 Select a worker runtime: node
@@ -269,15 +273,40 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>在本機執行函式
 
-若要執行 Functions 專案，請執行 Functions 主機。 主機可允許專案中所有函式的觸發程序：
+若要執行 Functions 專案，請執行 Functions 主機。 主機會對專案中的所有函式啟用觸發程式。 
 
-```bash
+### <a name="version-2x"></a>2\.x 版
+
+在2.x 版的執行時間中, 視您的專案語言而定, start 命令會有所不同。
+
+#### <a name="c"></a>C\#
+
+```command
+func start --build
+```
+
+#### <a name="javascript"></a>JavaScript
+
+```command
+func start
+```
+
+#### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+### <a name="version-1x"></a>1\.x 版
+
+1\.x 版的函式執行時間需要`host`命令, 如下列範例所示:
+
+```command
 func host start
 ```
 
-1\.x 版才需要 `host` 命令。
-
-`func host start` 支援下列選項：
+`func start` 支援下列選項：
 
 | 選項     | 描述                            |
 | ------------ | -------------------------------------- |
@@ -293,8 +322,6 @@ func host start
 | **`--script-root --prefix`** | 用來為要執行或部署的函式應用程式指定根目錄的路徑。 此選項可用於在子資料夾中產生專案檔的編譯專案。 例如，當您建置 C# 類別庫專案時，將會以類似於 `MyProject/bin/Debug/netstandard2.0` 的路徑在 *root* 子資料夾中產生 host.json、local.settings.json 和 function.json 等檔案。 在此情況下，請將前置詞設為 `--script-root MyProject/bin/Debug/netstandard2.0`。 這是函式應用程式在 Azure 中執行時的根目錄。 |
 | **`--timeout -t`** | Functions 主機要啟動的逾時 (以秒為單位)。 預設值：20 秒。|
 | **`--useHttps`** | 繫結至 `https://localhost:{port}` 而不是 `http://localhost:{port}` 。 根據預設，此選項會在您的電腦上建立受信任的憑證。|
-
-針對 C# 類別庫專案 (.csproj)，您必須包含 `--build` 選項才能產生程式庫 .dll。
 
 Functions 主機啟動時，它會輸出 HTTP 觸發函式的 URL：
 

@@ -6,18 +6,18 @@ author: JasonWHowell
 ms.author: jasonh
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: cdf90029d02680de4ce55e33b3ed0fe810d70b4c
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 7d0e27802745dda62f87e412053650907e9b812c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775252"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950162"
 ---
 # <a name="azure-data-catalog-developer-samples"></a>Azure 資料目錄開發人員範例
 
 使用資料目錄 REST API 開始開發 Azure 資料目錄應用程式。 資料目錄 REST API 是REST 架構 API，能夠以程式設計方式存取資料目錄資源，藉此註冊、加上註解，及以程式設計方式搜尋資料資產。
 
-以下是 GitHub 的範例：
+## <a name="samples-available-on-githubcom"></a>GitHub.com 上可用的範例
 
 * [開始使用 Azure 資料目錄](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/)
   

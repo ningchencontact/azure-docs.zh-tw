@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: kavithaj
 ms.reviewer: rortloff
 ms.openlocfilehash: e756049110f7d4a81950abf6ebbe73edb3e3ca0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65143169"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>開始使用 SQL 資料倉儲中的透明資料加密 (TDE)
@@ -26,27 +26,27 @@ ms.locfileid: "65143169"
 > 
 > 
 
-## <a name="required-permissions"></a>必要的權限
+## <a name="required-permissions"></a>必要權限
 您必須是系統管理員或 dbmanager 角色的成員，才能啟用透明資料加密 (TDE)。
 
 ## <a name="enabling-encryption"></a>啟用加密
 若要啟用 SQL 資料倉儲的 TDE，請遵循下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)
-2. 在資料庫刀鋒視窗中，按一下 [設定]  按鈕
-3. 選取 [透明資料加密]  選項 ![][1]
-4. 選取 [開啟]  設定 ![][2]
-5. 選取 [儲存]  
+2. 在資料庫刀鋒視窗中，按一下 [設定] 按鈕
+3. 選取 [透明資料加密] 選項 ![][1]
+4. 選取 [開啟] 設定 ![][2]
+5. 選取 [儲存]
    ![][3]  
 
 ## <a name="disabling-encryption"></a>停用加密
 若要停用 SQL 資料倉儲的 TDE，請遵循下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)
-2. 在資料庫刀鋒視窗中，按一下 [設定]  按鈕
-3. 選取 [透明資料加密]  選項 ![][1]
-4. 選取 [關閉]  設定 ![][4]
-5. 選取 [儲存]  
+2. 在資料庫刀鋒視窗中，按一下 [設定] 按鈕
+3. 選取 [透明資料加密] 選項 ![][1]
+4. 選取 [關閉] 設定 ![][4]
+5. 選取 [儲存]
    ![][5]  
 
 ## <a name="encryption-dmvs"></a>加密 DMV

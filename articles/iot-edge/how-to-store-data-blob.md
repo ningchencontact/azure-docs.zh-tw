@@ -1,34 +1,34 @@
 ---
 title: 將區塊 Blob 儲存在裝置上 - Azure IoT Edge | Microsoft Docs
 description: 瞭解分層和存留時間功能, 請參閱支援的 blob 儲存體作業, 並聯機至您的 blob 儲存體帳戶。
-author: arduppal
+author: kgremban
 manager: mchad
-ms.author: arduppal
-ms.reviewer: arduppal
+ms.author: kgremban
+ms.reviewer: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 861b5c3ee6d5661339788e7a27ba70557d0ea267
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881225"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947026"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>在具有 Azure Blob 儲存體的 IoT Edge 上儲存邊緣的資料
 
 IoT Edge 上的 Azure Blob 儲存體提供邊緣的[區塊 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 儲存體解決方案。 IoT Edge 裝置上的 blob 儲存體模組的運作方式類似 Azure 區塊 blob 服務, 但區塊 blob 會儲存在您的 IoT Edge 裝置本機上。 您可以使用平常使用的相同 Azure 儲存體 SDK 方法或區塊 Blob API 呼叫存取您的 Blob。 本文說明在 IoT Edge 裝置上執行 Blob 服務 IoT Edge 容器 Azure Blob 儲存體相關概念。
 
 此模組在案例中很有用:
-* 資料必須儲存在本機, 直到可以處理或傳輸到雲端為止。 此資料可能是影片、影像、財務資料、醫院資料或任何其他非結構化資料。
+* 資料必須儲存在本機, 直到可以處理或傳輸到雲端為止。 此資料可以是影片、影像、財務資料、醫院資料, 或任何其他非結構化資料。
 * 當裝置位於連線能力有限的位置時。
 * 當您想要有效率地在本機處理資料, 以取得資料的低延遲存取時, 您可以儘快回應緊急情況。
 * 當您想要降低頻寬成本, 並避免將數 tb 的資料傳輸到雲端時。 您可以在本機處理資料, 並只將已處理的資料傳送至雲端。
 
 觀賞快速簡介影片
-> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
+> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
 此課程模組隨附**deviceToCloudUpload**和**deviceAutoDelete**功能。
 

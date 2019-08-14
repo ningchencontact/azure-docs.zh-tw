@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbf682df2df7a8cdc9fedb36aa4244fc5c0e9488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244007"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935201"
 ---
 # <a name="data-querying"></a>資料查詢
 
@@ -35,7 +35,7 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 
 支援下列核心 API。
 
-[![時間序列查詢概觀](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![時間序列查詢總覽](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>環境 API
 
@@ -75,8 +75,8 @@ Azure 時間序列深入解析預覽版允許透過公用介面 API，針對事�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[儲存體與輸入](./time-series-insights-update-storage-ingress.md)預覽版 Azure 時間序列深入解析。
+- 深入瞭解 Azure 時間序列深入解析 Preview 中的[儲存體和](./time-series-insights-update-storage-ingress.md)輸入。
 
-- 讀取時間序列深入解析預覽[資料模型化](./time-series-insights-update-tsm.md)文章。
+- 閱讀時間序列深入解析預覽[資料模型](./time-series-insights-update-tsm.md)化文章。
 
-- 探索[最佳做法，選擇 時間序列識別碼時](./time-series-insights-update-how-to-id.md)。
+- [在選擇時間序列識別碼時, 探索最佳作法](./time-series-insights-update-how-to-id.md)。

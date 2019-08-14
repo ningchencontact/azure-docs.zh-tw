@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d6a0fec6e2efbd943a9b240df0db2c270a1b7e45
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668349"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955577"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>在合作夥伴中心建立商業 Marketplace 帳戶
 
@@ -71,7 +71,7 @@ ms.locfileid: "68668349"
 
 如果您的帳戶已從[Cloud Partner 入口網站 (CPP)](https://cloudpartner.azure.com)遷移, 您就不需要建立新的合作夥伴中心帳戶, 但會透過電子郵件接收新合作夥伴中心帳戶的自訂連結, 然後在顯示的橫幅通知中登入您現有的 CPP 帳戶。
 
-一旦您藉由造訪此自訂的連結來啟用新的合作夥伴中心帳戶, 您可以造訪合作夥伴中心的[商業 Marketplace 儀表板](https://partner.microsoft.com/dashboard/commercial-marketplace/), 返回您的帳戶。
+一旦您藉由造訪此自訂的連結來啟用新的合作夥伴中心帳戶, 您可以造訪合作夥伴中心的[商業 Marketplace 儀表板](https://partner.microsoft.com/dashboard/commercial-marketplace/overview), 返回您的帳戶。
 
 發行合約和公司設定檔資訊將會遷移至新的合作夥伴中心帳戶, 以及任何先前設定的帳戶付款設定檔資訊、使用者帳戶和許可權, 以及與您的 CPP 帳戶相關聯的有效供應專案。 
 

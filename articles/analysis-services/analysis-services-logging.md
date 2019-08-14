@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357e7975b1c4fe44d86b7e29e96a9abb6ab63c35
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142596"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932260"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
@@ -25,11 +25,11 @@ ms.locfileid: "66142596"
 
 ## <a name="whats-logged"></a>記錄的內容？
 
-您可以選取 [引擎]  、[服務]  ，和 [計量]  類別。
+您可以選取 [引擎]、[服務]，和 [計量] 類別。
 
 ### <a name="engine"></a>引擎
 
-選取 [引擎]  記錄所有 [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)。 您無法選取個別事件。 
+選取 [引擎] 記錄所有 [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)。 您無法選取個別事件。 
 
 |XEvent 類別 |事件名稱  |
 |---------|---------|
@@ -43,11 +43,11 @@ ms.locfileid: "66142596"
 |查詢     |   查詢結束      |
 |命令     |  命令開始       |
 |命令     |  命令結束       |
-|錯誤與警告     |   錯誤      |
-|探索     |   探索結束      |
+|錯誤與警告     |   Error      |
+|發現     |   探索結束      |
 |通知     |    通知     |
 |工作階段     |  工作階段初始化       |
-|鎖定    |  鎖死       |
+|鎖定    |  死結       |
 |查詢處理     |   VertiPaq SE 查詢開始      |
 |查詢處理     |   VertiPaq SE 查詢結束      |
 |查詢處理     |   VertiPaq SE 查詢快取比對      |
@@ -73,11 +73,11 @@ ms.locfileid: "66142596"
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-1. 在 [Azure 入口網站](https://portal.azure.com) > 伺服器中，在左側瀏覽區中按一下 [診斷記錄]  ，然後按一下 [開啟診斷]  。
+1. 在 [Azure 入口網站](https://portal.azure.com) > 伺服器中，在左側瀏覽區中按一下 [診斷記錄]，然後按一下 [開啟診斷]。
 
     ![在 Azure 入口網站中開啟 Azure Cosmos DB 的診斷記錄](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. 在 [診斷設定]  中，指定下列選項： 
+2. 在 [診斷設定] 中，指定下列選項： 
 
     * **名稱**。 輸入要建立之記錄的名稱。
 
@@ -89,7 +89,7 @@ ms.locfileid: "66142596"
     * **服務**。 選取此選項可記錄服務層級事件。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
     * **計量**。 選取此選項可儲存[計量](analysis-services-monitor.md#server-metrics)中的詳細資料。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
-3. 按一下 [儲存]  。
+3. 按一下 [儲存]。
 
     如果您收到錯誤，指出「無法更新 \<工作區名稱> 的診斷。 訂用帳戶 \<訂用帳戶識別碼> 未註冊為使用 microsoft.insights」， 請遵循[針對 Azure 診斷進行疑難排解](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)的指示註冊帳戶，然後重試此程序。
 
@@ -155,11 +155,11 @@ ms.locfileid: "66142596"
 
 計量和伺服器事件會與您 Log Analytics 工作區中的 xEvents 整合，以進行並列分析。 您也可以將 Log Analytics 工作區設定為接收來自其他 Azure 服務的事件，以提供整個架構之診斷記錄資料的整體檢視。
 
-若要檢視診斷資料，請開啟 Log Analytics 工作區左側功能表中的 [記錄]  。
+若要檢視診斷資料，請開啟 Log Analytics 工作區左側功能表中的 [記錄]。
 
 ![Azure 入口網站中的記錄搜尋選項](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-在查詢產生器中，展開 [LogManagement]   > [AzureDiagnostics]  。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass\_s]  或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
+在查詢產生器中，展開 [LogManagement] > [AzureDiagnostics]。 AzureDiagnostics 包括「引擎」和「服務」事件。 留意到查詢是即時建立的。 EventClass\_s 的欄位包含 xEvent 名稱，如果您曾經使用 xEvents 進行內部部署記錄，這些名稱就可能看起來似曾相似。 按一下 [EventClass\_s] 或其中一個事件名稱，Log Analytics 工作區將會繼續建構查詢。 請務必儲存您的查詢，以供日後重複使用。
 
 ### <a name="example-query"></a>範例查詢
 此範例會計算並傳回模型資料庫和伺服器之每個查詢結束/重新整理結束活動的 CPU：
@@ -188,9 +188,9 @@ window
 
 ## <a name="turn-on-logging-by-using-powershell"></a>使用 PowerShell 開啟記錄
 
-在本快速教學課程中，您可以在與 Analysis Service 伺服器相同的訂用帳戶和資源群組中，建立儲存體帳戶。 然後，您會使用組 AzDiagnosticSetting 開啟診斷記錄，將輸出傳送到新的儲存體帳戶。
+在本快速教學課程中，您可以在與 Analysis Service 伺服器相同的訂用帳戶和資源群組中，建立儲存體帳戶。 接著, 您可以使用 Set-azdiagnosticsetting 來開啟診斷記錄, 並將輸出傳送至新的儲存體帳戶。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 若要完成本教學課程，您必須具備下列資源：
 
 * 現有的 Azure Analysis Services 伺服器。 如需建立伺服器資源的指示，請參閱 [在 Azure 入口網站中建立伺服器](analysis-services-create-server.md)，或[使用 PowerShell 建立 Azure Analysis Services 伺服器](analysis-services-create-powershell.md)。
@@ -244,7 +244,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>啟用記錄
 
-若要啟用記錄，請使用組 AzDiagnosticSetting cmdlet 搭配變數的新的儲存體帳戶、 伺服器帳戶，和類別目錄。 執行下列命令，將 **-Enabled** 旗標設為 **$true**：
+若要啟用記錄, 請使用 Set-azdiagnosticsetting 指令程式搭配新儲存體帳戶、伺服器帳戶和類別的變數。 執行下列命令，將 **-Enabled** 旗標設為 **$true**：
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -303,4 +303,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 深入了解 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。
 
-請參閱[組 AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell 說明 中。
+請參閱 PowerShell 說明中[的 set-azdiagnosticsetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) 。

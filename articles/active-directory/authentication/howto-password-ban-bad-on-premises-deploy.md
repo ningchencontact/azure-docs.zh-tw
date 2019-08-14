@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a745648f1b7abac7267d51cac9e1fe642ae13d8
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853693"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953003"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -60,6 +60,7 @@ ms.locfileid: "68853693"
     |`https://login.microsoftonline.com`|驗證要求|
     |`https://enterpriseregistration.windows.net`|Azure AD 密碼保護功能|
 
+* 裝載 proxy 服務以進行密碼保護的所有電腦都必須設定為授與網域控制站登入 proxy 服務的能力。 這是透過「從網路存取這台電腦」許可權指派來控制。
 * 裝載 proxy 服務以進行密碼保護的所有機器, 都必須設定為允許輸出 TLS 1.2 HTTP 流量。
 * 全域系統管理員帳戶, 用來向 Azure AD 註冊密碼保護和樹系的 proxy 服務。
 * 在樹系根域中具有 Active Directory 網域系統管理員許可權的帳戶, 可向 Azure AD 註冊 Windows Server Active Directory 樹系。

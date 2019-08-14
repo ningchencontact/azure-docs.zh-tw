@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840533"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934283"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>深度學習與機器學習的簡介
 
@@ -78,7 +78,7 @@ ms.locfileid: "68840533"
 
 ## <a name="what-are-artificial-neural-networks"></a>什麼是人工神經網路？
 
-人工類神經網路是一種深度學習模型, 在人類大腦程式資訊中以生物類神經網路的方式來啟發。 目前正在使用多種類型的人工類神經網路。 以下將討論最熱門的人工類神經網路 typologies。
+人工神經網路是由連接的節點層所組成。 深度學習模型會使用具有大量層級的類神經網路。 以下將討論最熱門的人工類神經網路 typologies。
 
 ### <a name="feedforward-neural-network"></a>Feedforward 類神經網路
 

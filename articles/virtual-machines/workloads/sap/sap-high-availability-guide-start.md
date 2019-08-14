@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6f6dc7745a47c61cf28a0e860a68af677dae8010
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67869120"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
@@ -217,7 +217,7 @@ ms.locfileid: "67869120"
 
 **摘要：** 在此處所列的文章中, 我們將討論部署 Azure 基礎結構以準備 SAP 安裝時可採取的步驟。 為了簡化 Azure 基礎結構部署，使用 SAP Azure Resource Manager 範本來自動化整個程序。
 
-**已**2019年3月
+**已**2019 年 3 月
 
 * ![Windows][Logo_Windows] [使用 sap ASCS/SCS 實例的 windows 容錯移轉叢集和**共用磁片**, 為 sap 高可用性準備 Azure 基礎結構][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -235,7 +235,7 @@ ms.locfileid: "67869120"
 
 **摘要：** 此處所列的文章提供逐步範例, 說明如何在 Azure 中的 Windows Server 容錯移轉叢集叢集和 Linux 叢集架構中安裝和設定高可用性 SAP 系統。
 
-**已**2019年3月
+**已**2019 年 3 月
 
 * ![Windows][Logo_Windows] [使用 sap ASCS/SCS 實例的 windows 容錯移轉叢集和**共用磁片**, 安裝 sap NetWeaver 高可用性][sap-high-availability-installation-wsfc-shared-disk]
 

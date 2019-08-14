@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1fc5e83c2c46a7da2a4b56879a2d596405fd8bee
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8038b7bd60ac771c798a1a8645022b0bf9e142a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718310"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934854"
 ---
 # <a name="frequently-asked-questions"></a>常見問答集
 有疑問嗎？ 如需詳細資訊, 請參閱下列常見問題。
@@ -137,12 +137,12 @@ ms.locfileid: "68718310"
 
 #### <a name="what-are-recommended-secrets-management-guidelines"></a>什麼是建議的秘密管理指導方針？ 
 雖然及時偵測硬式編碼的秘密並降低風險會很有説明, 但如果有可能導致秘密無法全部簽入, 則更是更好的方法。 就這一點而言, Microsoft 已發行 CredScan 程式碼分析器, 做為 Visual Studio 的[Microsoft DevLabs 延伸](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio)模組的一部分。 在早期預覽期間, 它會為開發人員提供在其程式碼中偵測潛在秘密的內嵌體驗, 讓他們有機會即時修正這些問題。 如需詳細資訊, 請參閱[此](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/)blog, 以瞭解如何在雲端中安全地管理秘密。 以下是一些額外的資源, 可協助您以安全的方式從應用程式中管理秘密及存取機密資訊: 
- - [Azure 金鑰保存庫](https://docs.microsoft.com/azure/key-vault/)
- - [Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
+ - [Azure 金鑰保存庫](../../key-vault/index.yml)
+ - [Azure Active Directory](../../sql-database/sql-database-aad-authentication.md)
  - [Azure AD 受控服務識別](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [適用於 Azure 資源的受控服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
- - [Azure 受控服務識別](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
- - [AppAuthentication 程式庫](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication)
+ - [適用於 Azure 資源的受控服務識別 (MSI)](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Azure 受控服務識別](../../app-service/overview-managed-identity.md)
+ - [AppAuthentication 程式庫](../../key-vault/service-to-service-authentication.md)
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>我可以撰寫自己的自訂 searchers 嗎？
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77fe6f1ce416df049928697d2c166e2aba0abfe2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710602"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935226"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 命令 - CMD 和 PowerShell
 
@@ -118,7 +118,7 @@ Azure VM 在客體作業系統中應一律設定為使用 DHCP 來取得 IP 位�
 ### <a name="disable-windows-firewall"></a>停用 Windows 防火牆
 `netsh advfirewall set allprofiles state off`
 
-您可以在進行疑難排解時使用此命令，以暫時排除 Windows 防火牆。 它會啟用在下一步 重新啟動，或當您使用下列命令加以啟用。 請勿以停止 Windows 防火牆服務 (MPSSVC) 或基礎篩選引擎 (BFE) 服務的方式來排除 Windows 防火牆。 停止 MPSSVC 或 BFE 將會導致所有連線遭到封鎖。
+您可以在進行疑難排解時使用此命令，以暫時排除 Windows 防火牆。 下次重新開機時, 或當您使用下列命令啟用它時, 它就會啟用。 請勿以停止 Windows 防火牆服務 (MPSSVC) 或基礎篩選引擎 (BFE) 服務的方式來排除 Windows 防火牆。 停止 MPSSVC 或 BFE 將會導致所有連線遭到封鎖。
 ### <a name="enable-windows-firewall"></a>啟用 Windows 防火牆
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>管理使用者和群組
@@ -241,7 +241,7 @@ Azure VM 在客體作業系統中應一律設定為使用 DHCP 來取得 IP 位�
 ### <a name="detect-safe-mode-boot"></a>偵測安全模式開機
 `bcdedit /enum | find /i "safeboot"` 
 
-# <a name="windows-commands---powershell"></a>Windows 命令 - PowerShell
+## <a name="windows-commands---powershell"></a>Windows 命令 - PowerShell
 
 若要在 SAC 中執行 PowerShell，在出現 CMD 命令提示字元時，請輸入：
 

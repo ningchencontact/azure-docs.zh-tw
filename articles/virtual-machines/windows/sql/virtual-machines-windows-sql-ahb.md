@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2b961b855c7a0bb08c31b4e7ea8deb7f82ebb77c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fb13cd65142214ccf852c591ae081e7e633e1a4d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846184"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935319"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>變更 Azure 中 SQL Server 虛擬機器的授權模型
 本文說明如何使用新的 SQL VM 資源提供者**microsoft.sqlvirtualmachine**, 在 Azure 中變更 SQL Server 虛擬機器 (VM) 的授權模型。
@@ -52,7 +52,7 @@ Azure Hybrid Benefit 允許在 Azure 虛擬機器上使用具有軟體保證 (�
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>變更已向資源提供者註冊之 Vm 的授權 
 
-# <a name="azure-portaltabazure-portal"></a>[Azure 入口網站](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -66,7 +66,7 @@ Azure Hybrid Benefit 允許在 Azure 虛擬機器上使用具有軟體保證 (�
 ![在入口網站中 Azure Hybrid Benefit](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# <a name="azure-clitabbash"></a>[Azure CLI](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 您可以使用 Azure CLI 來變更您的授權模型。  
 
@@ -88,7 +88,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 您可以使用 PowerShell 來變更您的授權模型。
 
 下列程式碼片段會將您的隨用隨付授權模型切換為自備授權 (或使用 Azure Hybrid Benefit):

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: e3d38e9b5e1b9b9f827476acf7e2e2ecab632424
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a6d1fd73d99cf15137e937dbfe2336d49a63d90
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688805"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955050"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>從 Azure 備份伺服器復原資料
 您可以使用 Azure 備份伺服器，將您已備份到復原服務保存庫的資料復原。 要這麼做的程序就是整合到 Azure 備份伺服器管理主控台，且類似於其他 Azure 備份元件的復原工作流程。
@@ -45,7 +45,7 @@ ms.locfileid: "68688805"
     檔案和資料夾清單會出現在底部窗格中，方便您瀏覽並復原到任何位置。
 
     ![外部 DPM 伺服器復原點](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. 在適當的項目上按一下滑鼠右鍵，然後按一下 [復原]。
+5. 以滑鼠右鍵按一下適當的專案, 然後按一下 [**復原**]。
 
     ![外部 DPM 復原](./media/backup-azure-alternate-dpm-server/recover.png)
 6. 檢閱「復原選取項目」。 請確認要復原之備份複本的資料和時間，以及建立備份複本的來源。 如果選取項目不正確，請按一下 [取消] ，往回瀏覽至 [復原] 索引標籤，以選取適當的復原點。 如果選取項目正確，請按 [下一步]。
@@ -57,7 +57,7 @@ ms.locfileid: "68688805"
 8. 選擇與 [建立複本]、[略過] 或 [覆寫] 相關的選項。
 
    * **建立複本** - 會在名稱有衝突時，建立一份檔案的複本。
-   * **跳過** - 如果名稱有衝突，就不會復原離開原始檔的檔案。
+   * **略過**-如果發生名稱衝突, 則不會復原檔案, 這會留下原始檔案。
    * **覆寫** - 如果名稱有衝突，就會覆寫檔案的現有副本。
 
      請選擇適當的選項來「還原安全性」。 您可以在建立復原點時，針對將資料復原至其中的目的地電腦，套用其安全性設定，或是套用適用於產品的安全性設定。

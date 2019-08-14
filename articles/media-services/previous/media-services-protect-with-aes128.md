@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 2b96d968cb1ad2ec903dbf9788e1fbae22bd2b7d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557169"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69014977"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 動態加密和金鑰傳遞服務
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "60557169"
 >  
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
 
 您可以利用 128 位元加密金鑰，使用媒體服務提供 HTTP Live Streaming (HLS) 和透過 AES 加密的 Smooth Streaming。 媒體服務也提供加密金鑰傳遞服務，將加密金鑰傳遞至授權的使用者。 如果您需要媒體服務來加密資產，就需要建立加密金鑰與資產的關聯，同時設定金鑰的授權原則。 播放器要求串流時，媒體服務便會透過 AES 加密，使用指定的金鑰動態加密您的內容。 為了將串流解密，播放程式將向金鑰傳遞服務要求金鑰。 為了決定使用者是否有權取得金鑰，服務會評估為金鑰指定的授權原則。
 
@@ -135,7 +135,7 @@ ms.locfileid: "60557169"
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-您可以使用 [Azure 媒體服務播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)來測試您的串流。
+您可以使用 [Azure 媒體服務播放器](https://aka.ms/azuremediaplayer)來測試您的串流。
 
 ## <a id="client_request"></a>您的用戶端如何從金鑰傳遞服務要求金鑰？
 在上一個步驟中，您可以建構指向資訊清單檔案的 URL。 您的用戶端必須從串流資訊清單檔案擷取所需的資訊，才能向金鑰傳遞服務提出要求。
@@ -159,7 +159,7 @@ ms.locfileid: "60557169"
 
 在 HLS 的案例中，根資訊清單會分成區段檔案。 
 
-例如，根資訊清單是： http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl)。 它包含區段檔案名稱的清單。
+例如, 根資訊清單是: HTTP:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest (format = m3u8-m3u8-aapl-v3)。 它包含區段檔案名稱的清單。
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ ms.locfileid: "60557169"
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-如果您開啟其中一個區段檔案在文字編輯器 (例如，http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl)，它包含 #EXT-X-索引鍵，這表示檔案已加密。
+如果您在文字編輯器中開啟其中一個區段檔案 (例如, HTTP:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/Manifest (video, format = m3u8-m3u8-aapl-v3),它包含 #EXT-X 鍵, 這表示檔案已加密。
 
     #EXTM3U
     #EXT-X-VERSION:4

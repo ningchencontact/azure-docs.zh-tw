@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: dd703420f6a02dba589d8e5ace20cbd1e384adfb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 72b15d77baedae318d4503f2d481b08202730459
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727447"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927995"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 資料庫安全性最佳做法
 本文說明資料庫安全性的最佳作法。
@@ -28,7 +28,7 @@ ms.locfileid: "68727447"
 最佳作法是根據共識的意見，並使用目前的 Azure 平台功能及功能集。 意見和技術會隨著時間而改變, 而本文會定期更新以反映這些變更。
 
 ## <a name="secure-databases"></a>保護資料庫
-安全性是管理資料庫的最重要考量，而且向來是 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 的優先考量。 您的資料庫可嚴加保護，有助於符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft 信任中心網站](https://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。 您也可以法規要求作為基礎，選擇將資料庫放在特定的 Azure 資料中心。
+安全性是管理資料庫的最重要考量，而且向來是 [Azure SQL Database](../../sql-database/index.yml) 的優先考量。 您的資料庫可嚴加保護，有助於符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft 信任中心網站](https://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。 您也可以法規要求作為基礎，選擇將資料庫放在特定的 Azure 資料中心。
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>使用防火牆規則來限制資料庫存取
 Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提供關聯式資料庫服務。 為了提供存取安全性，SQL Database 使用下列方式來控制存取：

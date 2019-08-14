@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119571"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933364"
 ---
 # <a name="dead-letter-and-retry-policies"></a>無效信件與重試原則
 
@@ -25,7 +25,9 @@ ms.locfileid: "66119571"
 若要設定無效信件位置，您必須要有儲存體帳戶用以保存無法傳遞至端點的事件。 範例會取得現有儲存體帳戶的資源識別碼。 它們會建立事件訂閱，使用該儲存體帳戶中的容器作為無效信件端點。
 
 > [!NOTE]
-> 儲存體中建立儲存體帳戶和 blob 容器之前先執行本文中的命令。
+> - 在執行本文中的命令之前, 請先在儲存體中建立儲存體帳戶和 blob 容器。
+> - 事件方格服務會在此容器中建立 blob。 Blob 的名稱會有事件方格訂用帳戶的名稱, 並以大寫顯示所有字母。 例如, 如果訂用帳戶的名稱是「我的 Blob 訂閱」, 則無效信件 blob 的名稱會有「我的 BLOB 訂閱」 (myblobcontainer/MY-BLOB-訂用帳戶/2019/8/8/5/111111111-1111-1111-111111111111)。 此行為是為了防止在 Azure 服務之間進行處理時的差異。
+
 
 ### <a name="azure-cli"></a>Azure CLI
 

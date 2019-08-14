@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964387"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932480"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>教學課程：設定 Slack 來自動佈建使用者
 
@@ -58,37 +58,37 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>若要在 Azure AD 中設定自動使用者帳戶佈建至 Slack︰
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory > 企業應用程式 > 所有應用程式]  區段。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至 [Azure Active Directory > 企業應用程式 > 所有應用程式] 區段。
 
-2. 如果您已經設定單一登入的 Slack，使用 [搜尋] 欄位搜尋您的 Slack 執行個體。 否則，請選取 [新增]  ，並在應用程式庫中搜尋 [Slack]  。 從搜尋結果中選取 Slack，並將它新增至您的應用程式清單。
+2. 如果您已經設定單一登入的 Slack，使用 [搜尋] 欄位搜尋您的 Slack 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [Slack]。 從搜尋結果中選取 Slack，並將它新增至您的應用程式清單。
 
-3. 選取您的 Slack 執行個體，然後選取 [佈建]  索引標籤。
+3. 選取您的 Slack 執行個體，然後選取 [佈建] 索引標籤。
 
-4. 將 [佈建模式]  設定為 [自動]  。
+4. 將 [佈建模式] 設定為 [自動]。
 
    ![Slack 佈建](./media/slack-provisioning-tutorial/Slack1.PNG)
 
-5. 在 [系統管理員認證]  區段下，按一下 [授權]  。 這會在新的瀏覽器視窗中開啟 Slack 授權對話方塊。
+5. 在 [系統管理員認證] 區段下，按一下 [授權]。 這會在新的瀏覽器視窗中開啟 Slack 授權對話方塊。
 
-6. 在新視窗中，使用您的小組系統管理帳戶登入 Slack。 在產生的授權對話方塊中，選取您想要啟用佈建的 Slack 小組，然後選取 [授權]  。 一旦完成後，回到 Azure 入口網站以完成佈建組態。
+6. 在新視窗中，使用您的小組系統管理帳戶登入 Slack。 在產生的授權對話方塊中，選取您想要啟用佈建的 Slack 小組，然後選取 [授權]。 一旦完成後，回到 Azure 入口網站以完成佈建組態。
 
     ![授權對話方塊](./media/slack-provisioning-tutorial/Slack3.PNG)
 
-7. 在 Azure 入口網站中，按一下 [測試連接]  以確保 Azure AD 可以連接到您的 Slack 應用程式。 如果連接失敗，請確定您的 Slack 帳戶具有小組系統管理員權限，並再試一次「授權」步驟。
+7. 在 Azure 入口網站中，按一下 [測試連接]以確保 Azure AD 可以連接到您的 Slack 應用程式。 如果連接失敗，請確定您的 Slack 帳戶具有小組系統管理員權限，並再試一次「授權」步驟。
 
-8. 在 [通知電子郵件]  欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
+8. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
 
-9. 按一下 [儲存]  。
+9. 按一下 [儲存]。
 
-10. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Slack]  。
+10. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 使用者至 Slack]。
 
-11. 在 [屬性對應]  區段中，檢閱將從 Azure AD 同步至 Slack 的使用者屬性。 請注意，選取為 [比對]  屬性的屬性會用來比對 Slack 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
+11. 在 [屬性對應] 區段中，檢閱將從 Azure AD 同步至 Slack 的使用者屬性。 請注意，選取為 [比對] 屬性的屬性會用來比對 Slack 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
 
-12. 若要啟用 Slack 的 Azure AD 佈建服務，在 [設定]  區段中，將 [佈建狀態]  變更為 [開啟] 
+12. 若要啟用 Slack 的 Azure AD 佈建服務，在 [設定]區段中，將 [佈建狀態] 變更為 [開啟]
 
-13. 按一下 [儲存]  。
+13. 按一下 [儲存]。
 
-這會啟動在 [使用者和群組] 區段中指派給 Slack 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，這大約每 10 分鐘便會發生一次。 您可以使用 [同步處理詳細資料]  區段來監視進度，並遵循連結來佈建活動報告，其會描述您 Slack 應用程式上的佈建服務所執行之所有動作。
+這會啟動在 [使用者和群組] 區段中指派給 Slack 的任何使用者和/或群組之初始同步處理。 請注意，初始同步處理會比後續的同步處理花費較多時間執行，只要服務正在執行，這大約每 10 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並遵循連結來佈建活動報告，其會描述您 Slack 應用程式上的佈建服務所執行之所有動作。
 
 ## <a name="optional-configuring-group-object-provisioning-to-slack"></a>[選用] 設定群組物件佈建至 Slack
 
@@ -96,15 +96,15 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="to-enable-provisioning-of-group-objects"></a>若要啟用群組物件的佈建︰
 
-1. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 群組至 Slack]  。
+1. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 群組至 Slack]。
 
 2. 在 [屬性對應] 刀鋒視窗中，將 [已啟用] 設定為 [是]。
 
-3. 在 [屬性對應]  區段中，檢閱將從 Azure AD 同步至 Slack 的群組屬性。 請注意，選取為 [比對]  屬性的屬性會用來比對 Slack 中的群組以進行更新作業。 
+3. 在 [屬性對應] 區段中，檢閱將從 Azure AD 同步至 Slack 的群組屬性。 請注意，選取為 [比對] 屬性的屬性會用來比對 Slack 中的群組以進行更新作業。 
 
-4. 按一下 [儲存]  。
+4. 按一下 [儲存]。
 
-這會造成在 [使用者和群組]  區段中指派至 Slack 的任何群組物件完全從 Azure AD 同步至 Slack。 您可以使用 [同步處理詳細資料]  區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 Slack 應用程式上佈建服務所執行的所有動作。
+這會造成在 [使用者和群組] 區段中指派至 Slack 的任何群組物件完全從 Azure AD 同步至 Slack。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 Slack 應用程式上佈建服務所執行的所有動作。
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
@@ -120,7 +120,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
   
   * 只有在 Slack 的工作場所/組織中設定了下列這兩個設定時才會更新：**已啟用設定檔同步處理**及**使用者無法變更其顯示名稱**。
   
-  * Slack 的 **userName** 屬性必須少於 21 個字元且具備唯一值。
+* Slack 的 **userName** 屬性必須少於 21 個字元且具備唯一值。
+
+* 時差只允許與屬性使用者**名稱**和**電子郵件**相符。  
 
 ## <a name="additional-resources"></a>其他資源
 

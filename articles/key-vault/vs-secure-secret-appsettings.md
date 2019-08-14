@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506431"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934378"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
 
@@ -37,11 +37,11 @@ ms.locfileid: "65506431"
 ### <a name="save-secret-settings-in-azure-key-vault"></a>將秘密設定儲存在 Azure Key Vault 中
 如果您要開發專案，而且必須安全地共用原始程式碼，請使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)。
 
-1. 在您的 Azure 訂用帳戶中建立金鑰保存庫。 填寫 UI 上的所有必要欄位，然後按一下刀鋒視窗底部的 [建立] 
+1. 在您的 Azure 訂用帳戶中建立金鑰保存庫。 填寫 UI 上的所有必要欄位，然後按一下刀鋒視窗底部的 [建立]
 
     ![建立 Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. 為您和您的小組成員授與金鑰保存庫的存取權。 如果您的小組成員眾多，您可以建立 [Azure Active Directory 群組](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal)，然後新增該安全性群組對金鑰保存庫的存取權。 在 [秘密權限]  下拉式清單中，核取 [秘密管理作業]  下的 [取得]  和 [清單]  。
+2. 為您和您的小組成員授與金鑰保存庫的存取權。 如果您的小組成員眾多，您可以建立 [Azure Active Directory 群組](../active-directory/active-directory-groups-create-azure-portal.md)，然後新增該安全性群組對金鑰保存庫的存取權。 在 [秘密權限] 下拉式清單中，核取 [秘密管理作業] 下的 [取得] 和 [清單]。
 
     ![新增金鑰保存庫存取原則](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "65506431"
     ![新增金鑰保存庫密碼](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > 在 Visual Studio 2017 V15.6 之前我們用來建議適用於 Visual Studio 安裝的 Azure 服務驗證延伸模組。 它已被取代，但現在，因為它整合在 Visual studio。 因此如果您是在較舊版本的 visual Studio 2017，我們建議您至少更新至 VS 2017 15.6年或註冊，讓您可以使用這項功能的原生和存取金鑰保存庫，從使用 Visual Studio 登入身分識別本身。
+    > 在 Visual Studio 2017 V 15.6 版之前, 我們建議您安裝適用于 Visual Studio 的 Azure 服務驗證延伸模組。 但它現在已被取代, 因為 funcionality 會在 Visual Studio 內整合。 因此, 如果您使用舊版的 visual Studio 2017, 建議您至少更新為 VS 2017 15.6 或更新版本, 讓您能夠以原生方式使用這項功能, 並從使用 Visual Studio 登入身分識別本身存取金鑰保存庫。
     >
  
 4. 將下列 NuGet 封裝新增至您的專案：

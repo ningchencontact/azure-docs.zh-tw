@@ -16,16 +16,16 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60832530"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>監視 Azure App Service 中的應用程式
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 會在 [Azure 入口網站](https://portal.azure.com)中為 Web 應用程式、行動後端和 API 應用程式提供內建的監視功能。
 
-在 Azure 入口網站中，您可以檢閱應用程式的「配額」  和「計量」  、檢閱 App Service 方案，並自動根據計量來設定「警示」*警示*和「規模調整」  。
+在 Azure 入口網站中，您可以檢閱應用程式的「配額」和「計量」、檢閱 App Service 方案，並自動根據計量來設定「警示」*警示*和「規模調整」。
 
 ## <a name="understand-quotas"></a>了解配額
 
@@ -33,13 +33,13 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-如果應用程式裝載於「免費」  或「共用」  方案中，則應用程式可用資源的限制是由配額所定義。
+如果應用程式裝載於「免費」或「共用」方案中，則應用程式可用資源的限制是由配額所定義。
 
-如果應用程式裝載於「基本」  、「標準」  或「進階」  方案中，則其可用資源的限制是由 App Service 方案的大小  (小、中、大) 和執行個體計數  (1、2、3，以此類推) 所設定。
+如果應用程式裝載於「基本」、「標準」或「進階」方案中，則其可用資源的限制是由 App Service 方案的大小 (小、中、大) 和執行個體計數 (1、2、3，以此類推) 所設定。
 
 免費或共用應用程式的配額如下︰
 
-| Quota | 描述 |
+| 配額 | 描述 |
 | --- | --- |
 | **CPU (短期)** | 此應用程式在 5 分鐘間隔內允許的 CPU 數量。 此配額會每 5 分鐘重設一次。 |
 | **CPU (天)** | 此應用程式在 1 天內允許的 CPU 總量。 此配額會每隔 24 小時在午夜 (UTC) 重設一次。 |
@@ -47,13 +47,13 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 | **頻寬** | 此應用程式在 1 天內允許的連出頻寬總量。 此配額會每隔 24 小時在午夜 (UTC) 重設一次。 |
 | **Filesystem** | 允許的儲存體總量。 |
 
-對於裝載於基本  、標準  和進階  方案上的應用程式，唯一適用的配額是「檔案系統」。
+對於裝載於基本、標準和進階方案上的應用程式，唯一適用的配額是「檔案系統」。
 
 如需有關不同 App Service SKU 可用特定配額、限制和功能的詳細資訊，請參閱 [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md#app-service-limits)。
 
 ### <a name="quota-enforcement"></a>強制配額
 
-如果應用程式超過 CPU (短期)  、CPU (天)  或頻寬  配額，則應用程式會停止，直到重設配額為止。 在此期間，所有連入要求都會導致 HTTP 403 錯誤。
+如果應用程式超過 CPU (短期)、CPU (天) 或頻寬配額，則應用程式會停止，直到重設配額為止。 在此期間，所有連入要求都會導致 HTTP 403 錯誤。
 
 ![403 錯誤訊息][http403]
 
@@ -69,7 +69,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 若為應用程式，可用的計量如下︰
 
-| 計量 | 描述 |
+| 度量 | 描述 |
 | --- | --- |
 | **平均回應時間** | 應用程式處理要求所花費的平均時間 (以毫秒為單位)。 |
 | **平均記憶體工作集** | 應用程式使用的平均記憶體數量 (以 MiB 為單位)。 |
@@ -108,10 +108,10 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 若為 App Service 方案，可用的計量如下︰
 
 > [!NOTE]
-> App Service 方案計量只適用於基本  、標準  和進階  層中的方案。
+> App Service 方案計量只適用於基本、標準和進階層中的方案。
 > 
 
-| 計量 | 描述 |
+| 度量 | 描述 |
 | --- | --- |
 | **CPU 百分比** | 方案的所有執行個體使用的平均 CPU。 |
 | **記憶體百分比** | 方案的所有執行個體使用的平均記憶體。 |
@@ -141,7 +141,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 ![Azure 入口網站中的配額圖表][quotas]
 
-若要尋找配額，請選取 [設定]   > [配額]  。 在圖表上，您可以檢閱： 
+若要尋找配額，請選取 [設定] > [配額]。 在圖表上，您可以檢閱： 
 1. 配額名稱。
 1. 重設間隔。
 1. 目前限制。
@@ -149,9 +149,9 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 
 ![Azure 入口網站中的計量圖表][metrics]您可以直接從**資源**頁面存取計量。 自訂圖表： 
 1. 選取圖表。
-1. 選取 [編輯圖表]  。
-1. 編輯 [時間範圍]  。
-1. 編輯 [圖表類型]  。
+1. 選取 [編輯圖表]。
+1. 編輯 [時間範圍]。
+1. 編輯 [圖表類型]。
 1. 編輯您想要顯示的計量。  
 
 若要進一步了解計量，請參閱[監視服務計量](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。

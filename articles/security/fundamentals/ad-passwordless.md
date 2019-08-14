@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 30c2eb2964f11b729b0ffaf58c532d5189cdc2cd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727763"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934822"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>沒有密碼的世界 Azure Active Directory
 
 那就是與密碼中斷關係的時候了。 過去的密碼是很好的, 但在現今的數位工作場所, 他們已成為駭客的相當容易攻擊的向量。 駭客喜歡密碼, 而且當您認為 Azure Active Directory (Azure AD) 中最常遭到拒絕的密碼包括年份、月份、季或當地運動團隊等詞彙時, 並不容易看出。 此外,[研究已顯示](https://aka.ms/passwordguidance)傳統的密碼管理建議, 例如長度需求、複雜度需求和變更頻率, 會因各種與人類性質相關的原因而敵對。
 
-通常用來危害使用者帳戶的三種攻擊類型包括密碼噴灑、網路釣魚和缺口重新執行。 Azure AD 功能 (例如[智慧鎖定](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)、[禁用密碼](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)和[密碼保護](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)) 可以協助防止這類攻擊。 同樣地, 執行[多重要素驗證](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)(MFA) 或雙步驟驗證, 會藉由要求第二種形式的驗證來提供額外的安全性。 但是在長期執行時, 無密碼解決方案是確保最安全驗證方法的最佳解決方案。
+通常用來危害使用者帳戶的三種攻擊類型包括密碼噴灑、網路釣魚和缺口重新執行。 Azure AD 功能 (例如[智慧鎖定](../../active-directory/authentication/howto-password-smart-lockout.md)、[禁用密碼](../../active-directory/authentication/concept-password-ban-bad-on-premises.md)和[密碼保護](../../active-directory/authentication/concept-password-ban-bad-on-premises.md)) 可以協助防止這類攻擊。 同樣地, 執行[多重要素驗證](../../active-directory/authentication/concept-mfa-howitworks.md)(MFA) 或雙步驟驗證, 會藉由要求第二種形式的驗證來提供額外的安全性。 但是在長期執行時, 無密碼解決方案是確保最安全驗證方法的最佳解決方案。
 
 本文是您旅程的開端, 可協助您瞭解及執行 Microsoft 的無密碼解決方案, 並協助您在下列一個或多個選項之間做選擇:
 
@@ -109,7 +109,7 @@ Windows Hello 企業版提供便利的登入體驗, 可驗證使用者以 Azure 
 
 [MICROSOFT PIN 重設服務](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset)是 Azure AD 中的一項功能, 可讓使用者視需要重設其 PIN。 系統管理員可以使用群組原則、Microsoft Intune 或相容的 MDM, 將 Windows 10 裝置設定為安全地使用 Microsoft PIN 重設服務, 讓使用者可以透過設定或在鎖定畫面上重設忘記的 PIN, 而不需要重新註冊。
 
-有時候使用者必須切換回使用密碼。 [自助式密碼重設](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment)(SSPR) 是另一項 Azure AD 功能, 可讓使用者重設其密碼, 而不需要洽詢 IT 人員。 使用者必須註冊或註冊自助式密碼重設, 才能使用服務。 在註冊期間, 使用者會選擇其組織所啟用的一或多個驗證方法。 SSPR 可讓使用者無論在何處或當天的時間, 都能快速地解除封鎖並繼續工作。 藉由允許使用者解除封鎖自己, 您的組織可以減少非生產力的時間, 以及最常見的密碼相關問題的高支援成本。
+有時候使用者必須切換回使用密碼。 [自助式密碼重設](../../active-directory/authentication/howto-sspr-deployment.md)(SSPR) 是另一項 Azure AD 功能, 可讓使用者重設其密碼, 而不需要洽詢 IT 人員。 使用者必須註冊或註冊自助式密碼重設, 才能使用服務。 在註冊期間, 使用者會選擇其組織所啟用的一或多個驗證方法。 SSPR 可讓使用者無論在何處或當天的時間, 都能快速地解除封鎖並繼續工作。 藉由允許使用者解除封鎖自己, 您的組織可以減少非生產力的時間, 以及最常見的密碼相關問題的高支援成本。
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>使用 Microsoft Authenticator 無密碼登入
 
@@ -125,9 +125,9 @@ Microsoft Authenticator 應用程式可讓使用者驗證其身分識別, 並向
 
 * 終端使用者已啟用 Azure 多重要素驗證
 
-* 使用者可以使用 Microsoft Intune 或協力廠商行動裝置管理 (MDM) 解決方案來註冊其裝置的能力
+* 建議使用者使用 Microsoft Intune 或協力廠商行動裝置管理 (MDM) 解決方案來註冊其裝置, 以簡化應用程式的部署
 
-假設符合這些需求, 系統管理員就可以使用[Windows PowerShell](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) , 在租使用者中啟用無密碼電話登入。 在租使用者中啟用手機登入之後, 終端使用者可以在應用程式的 [**帳戶**] 畫面上選取其公司或學校帳戶, 然後選取 [**啟用手機登入**], 以選擇使用其電話登入。
+假設符合這些需求, 系統管理員就可以使用[Windows PowerShell](../../active-directory/authentication/howto-authentication-passwordless-phone.md) , 在租使用者中啟用無密碼電話登入。 在租使用者中啟用手機登入之後, 終端使用者可以在應用程式的 [**帳戶**] 畫面上選取其公司或學校帳戶, 然後選取 [**啟用手機登入**], 以選擇使用其電話登入。
 
 假設系統管理員已啟用無密碼登入, 則終端使用者必須符合下列需求:
 
@@ -137,9 +137,9 @@ Microsoft Authenticator 應用程式可讓使用者驗證其身分識別, 並向
 
 * 已將推播通知新增至應用程式的工作或學校帳戶
 
-若要避免您的帳戶遭到鎖定, 或必須在新裝置上重新建立帳戶, 建議您使用 Microsoft Authenticator 將[帳號憑證備份](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-backup-recovery)到雲端。 備份之後，您也可以使用此應用程式在新裝置上復原您的資訊，這有可能避免遭到鎖定或者必須重新建立帳戶。
+若要避免您的帳戶遭到鎖定, 或必須在新裝置上重新建立帳戶, 建議您使用 Microsoft Authenticator 將[帳號憑證備份](../../active-directory/user-help/user-help-auth-app-backup-recovery.md)到雲端。 備份之後，您也可以使用此應用程式在新裝置上復原您的資訊，這有可能避免遭到鎖定或者必須重新建立帳戶。
 
-由於大部分使用者習慣僅使用密碼來進行驗證, 因此您的組織必須教授與此程式相關的使用者。 對於使用 Microsoft Authenticator 應用程式登入相關的任何[問題](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#known-issues), 認知可以降低使用者打電話給技術支援中心的可能性。
+由於大部分使用者習慣僅使用密碼來進行驗證, 因此您的組織必須教授與此程式相關的使用者。 對於使用 Microsoft Authenticator 應用程式登入相關的任何[問題](../../active-directory/authentication/howto-authentication-passwordless-phone.md), 認知可以降低使用者打電話給技術支援中心的可能性。
 
 > [!NOTE]
 > 此解決方案的潛在失敗點是當漫遊使用者位於沒有網際網路連線的位置時。 FIDO2 安全性金鑰和 Windows Hello 企業版不受相同的限制。
@@ -150,9 +150,9 @@ Microsoft Authenticator 應用程式可讓使用者驗證其身分識別, 並向
 
 在 Microsoft Authenticator 應用程式可以用來作為登入 Azure AD 帳戶的無密碼解決方案之前, 必須由系統管理員和使用者執行步驟。
 
-首先, 系統管理員必須使用 Windows PowerShell, 在租使用者中[啟用應用程式作為認證](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users)。 系統管理員也需要啟用 Azure 多重要素驗證 (Azure MFA) 的使用者, 並將 Microsoft Authenticator 應用程式設定為其中一種[驗證方法](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#verification-methods)。
+首先, 系統管理員必須使用 Windows PowerShell, 在租使用者中[啟用應用程式作為認證](../../active-directory/authentication/howto-authentication-passwordless-phone.md)。 系統管理員也需要啟用 Azure 多重要素驗證 (Azure MFA) 的使用者, 並將 Microsoft Authenticator 應用程式設定為其中一種[驗證方法](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods)。
 
-終端使用者必須[下載並安裝](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install)Microsoft Authenticator 應用程式, 並[將其帳戶設定](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app)為使用 Microsoft Authenticator 應用程式作為其中一個驗證方法。
+終端使用者必須[下載並安裝](../../active-directory/user-help/user-help-auth-app-download-install.md)Microsoft Authenticator 應用程式, 並[將其帳戶設定](../../active-directory/user-help/security-info-setup-auth-app.md)為使用 Microsoft Authenticator 應用程式作為其中一個驗證方法。
 
 > [!VIDEO https://www.youtube.com/embed/uWbkLuI4g30]
 
@@ -184,7 +184,7 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 
 #### <a name="user-manages-their-passwordless-sign-in-with-microsoft-authenticator-credentials"></a>使用者使用 Microsoft Authenticator 認證來管理其無密碼登入
 
-透過[合併註冊](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), 使用者可以註冊並取得 Azure 多重要素驗證和自助式密碼重設的優點。 使用者可以藉由流覽至 [[我的設定檔] 頁面](https://aka.ms/mysecurityinfo)來註冊和管理這些設定。 除了啟用 SSPR, 合併註冊也支援多種驗證方法和動作。
+透過[合併註冊](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md), 使用者可以註冊並取得 Azure 多重要素驗證和自助式密碼重設的優點。 使用者可以藉由流覽至 [[我的設定檔] 頁面](https://aka.ms/mysecurityinfo)來註冊和管理這些設定。 除了啟用 SSPR, 合併註冊也支援多種驗證方法和動作。
 
 ## <a name="fido2-security-keys"></a>FIDO2 安全性金鑰
 
@@ -228,7 +228,7 @@ FIDO2 安全性金鑰可以用來登入 Azure AD, 方法是在 Windows 10 鎖定
 
 雖然系統管理員可以手動布建[金鑰](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable), 並將其散發給使用者, 但在 Windows 10 鎖定畫面上布建和啟用 FIDO2 認證提供者將透過[Intune](https://docs.microsoft.com/intune/windows-enrollment-methods)提供支援。 系統管理員也必須使用[Azure 入口網站](https://portal.azure.com/)來啟用硬體權杖裝置, 作為無密碼的驗證方法。
 
-部署 FIDO2 安全性金鑰也需要使用者使用[合併註冊](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)來註冊其金鑰。 透過合併註冊, 使用者只需註冊一次, 即可獲得 Azure 多重要素驗證和單一登入密碼重設 (SSPR) 的優點。
+部署 FIDO2 安全性金鑰也需要使用者使用[合併註冊](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)來註冊其金鑰。 透過合併註冊, 使用者只需註冊一次, 即可獲得 Azure 多重要素驗證和單一登入密碼重設 (SSPR) 的優點。
 
 除了選取硬體權杖做為預設的多重要素驗證方法, 建議您也選取其他驗證選項。
 
@@ -342,5 +342,5 @@ FIDO2 安全性金鑰可提供安全驗證, 與外型規格無關。 安全性�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 概述[什麼是無密碼？](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
+* 概述[什麼是無密碼？](../../active-directory/authentication/concept-authentication-passwordless.md)
 * [如何在 Azure AD 中啟用無密碼](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)

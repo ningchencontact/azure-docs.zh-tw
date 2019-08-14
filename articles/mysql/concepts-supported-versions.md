@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 7/25/2019
-ms.openlocfilehash: 3d4bab4558ebfd0f6031ef00a0b67bb0d5b61120
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.date: 08/09/2019
+ms.openlocfilehash: 28d635dc5042799790d032ef4b46bf28118cb326
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501452"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947162"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>支援的適用於 MySQL 的 Azure 資料庫伺服器版本
 
@@ -38,8 +38,8 @@ Bug 修正版本：5.7.24
 
 ## <a name="mysql-version-80"></a>MySQL 版本8。0
 
-> [!NOTE]
-> MySQL 8.0 目前為預覽狀態。 如果您在 Azure 入口網站中看不到 MySQL 8.0, 部署可能未在您的區域中完成。 
+> [!IMPORTANT]
+> MySQL 8.0 目前為預覽狀態。
 
 Bug 修正版本：8.0.15
 

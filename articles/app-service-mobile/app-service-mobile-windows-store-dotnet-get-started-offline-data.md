@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: 4970a80b911a1efbc308d48ac4b8a50f774b4d04
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67551922"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>啟用 Windows 應用程式離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-offline-data)今天。
+> Visual Studio App Center 是投資新的整合式服務中心, 以進行行動應用程式開發。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後, 開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用, 並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務, 以保存及同步雲端中的應用程式資料。 立即查看[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-offline-data) 。
 >
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本教學課程說明如何使用 Azure 行動應用程式後端在通用 Windows 平台 (UWP) 應用程式中新增離線支援。 離線同步處理可讓使用者與行動應用程式進行互動 (檢視、新增或修改資料)，即使沒有網路連接也可以。 變更會儲存在本機資料庫中。 裝置恢復上線後，這些變更就會與遠端後端進行同步處理。
 
 在本教學課程中，您將會更新[建立 Windows 應用程式]教學課程中的 UWP 應用程式專案，以支援 Azure Mobile Apps 的離線功能。 如果您不要使用下載的快速入門伺服器專案，必須將資料存取擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure Mobile Apps 的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
@@ -40,16 +40,16 @@ ms.locfileid: "67551922"
 
 * 執行於 Windows 8.1 或更新版本的 Visual Studio 2013。
 * 完成 [建立 Windows 應用程式][建立 Windows 應用程式]。
-* [Azure 行動服務 SQLite Store][sqlite store nuget]
+* [Azure 行動服務 SQLite 存放區][sqlite store nuget]
 * [適用於通用 Windows 平台開發的 SQLite](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>更新用戶端應用程式以支援離線功能
-Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與本機資料庫互動。 若要使用這些功能在您的應用程式中，初始化[SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable]介面。 SQLite 可做為裝置上的本機存放區。
+Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與本機資料庫互動。 若要在您的應用程式中使用這些功能, 您可以初始化[SyncCoNtext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable]介面。 SQLite 可做為裝置上的本機存放區。
 
 1. 安裝 [適用於通用 Windows 平台的 SQLite 執行階段](https://sqlite.org/2016/sqlite-uwp-3120200.vsix)。
 2. 在 Visual Studio 中，針對您在[建立 Windows 應用程式]教學課程中完成的專案，開啟 NuGet 封裝管理員。
     搜尋並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
-3. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]  > [新增參考...]  > [通用 Windows]  >[擴充功能]  ，然後啟用 [適用於通用 Windows 平台的 SQLite]  和 [適用於通用 Windows 平台應用程式的 Visual C++ 2015 執行階段]  。
+3. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考] > [新增參考...]> [通用 Windows] >[擴充功能]，然後啟用 [適用於通用 Windows 平台的 SQLite] 和 [適用於通用 Windows 平台應用程式的 Visual C++ 2015 執行階段]。
 
     ![新增 SQLite UWP 參考][1]
 4. 開啟 MainPage.xaml.cs 檔案，並取消註解 `#define OFFLINE_SYNC_ENABLED` 定義。
@@ -66,7 +66,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 2. 按 **F5** 以建置並執行應用程式。 請注意，應用程式啟動後同步處理無法重新整理。
 3. 輸入新項目，並注意每次您按一下 **[儲存]** 時，推送都會失敗並具有 [CancelledByNetworkError] 狀態。 不過，新的 todo 項目在可推送至行動應用程式後端之前，都會存留在本機存放區中。  在生產應用程式中，如果您隱藏這些例外狀況，用戶端應用程式的行為會如同它仍連線到行動應用程式後端。
 4. 關閉應用程式並重新加以開啟，以驗證您所建立的新項目持續存留於本機存放區中。
-5. (選擇性) 在 Visual Studio 中，開啟 [伺服器總管]  。 瀏覽至 [Azure]  ->[SQL Database 中您的資料庫]  。 在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]  。 現在您可以瀏覽至您的 SQL Database 資料表和其內容。 確認後端資料庫中的資料沒有變更。
+5. (選擇性) 在 Visual Studio 中，開啟 [伺服器總管]。 瀏覽至 [Azure]->[SQL Database 中您的資料庫]。 在資料庫上按一下滑鼠右鍵，並選取 [在 SQL Server 物件總管中開啟]。 現在您可以瀏覽至您的 SQL Database 資料表和其內容。 確認後端資料庫中的資料沒有變更。
 6. (選擇性) 使用 REST 工具 (例如 Fiddler 或 Postman) 來查詢您的行動後端 (使用表單 `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`中的 GET 查詢)。
 
 ## <a name="update-online-app"></a>更新應用程式以重新連線您的行動應用程式後端
@@ -82,11 +82,11 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
    `UpdateCheckedTodoItem` 會呼叫 `SyncAsync`，以便與行動應用程式後端同步處理每個已完成的項目。 `SyncAsync` 會同時呼叫推送與提取。 不過，**每當您對用戶端已變更的資料表執行提取時，一定會執行自動推送**。 此行為可確保本機存放區中的所有資料表和關聯性都保持一致。 此行為可能會導致非預期的推送。  如需此行為的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
 
 ## <a name="api-summary"></a>API 摘要
-為了支援行動服務的離線功能，我們使用[IMobileServiceSyncTable]介面，並初始化[MobileServiceClient.SyncContext][synccontext]與本機 SQLite 資料庫。 離線時，Mobile Apps 的一般 CRUD 作業運作方式，就如同應用程式仍處於連線狀態，而作業會對本機存放區執行。 下列方法可用來同步處理本機存放區與伺服器︰
+為了支援行動服務的離線功能, 我們使用了[IMobileServiceSyncTable]介面, 並使用本機 SQLite 資料庫來初始化[MobileServiceClient。][synccontext] 離線時，Mobile Apps 的一般 CRUD 作業運作方式，就如同應用程式仍處於連線狀態，而作業會對本機存放區執行。 下列方法可用來同步處理本機存放區與伺服器︰
 
 * **[PushAsync]** 因為這個方法是 [IMobileServicesSyncContext] 的成員，因此所有資料表的變更都會推送至後端。 只有具有本機變更的記錄會傳送到伺服器。
-* **[PullAsync]** 從 [IMobileServiceSyncTable] 開始提取。 當資料表中有追蹤的變更時，便會執行隱含推送，以確定本機存放區中的所有資料表和關聯性都維持一致。 pushOtherTables  參數會控制是否在隱含推送中推送內容中的其他資料表。 *查詢*參數會採用[IMobileServiceTableQuery\<T >][IMobileServiceTableQuery]或 OData 查詢字串來篩選傳回的資料。 queryId  參數可用來定義增量同步處理。如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。
-* **[PurgeAsync]** 您的應用程式應定期呼叫這個方法，以清除本機存放區中的過時資料。 當您需要清除任何尚未同步處理的變更時，請使用 force  參數。
+* **[PullAsync]** 從 [IMobileServiceSyncTable] 開始提取。 當資料表中有追蹤的變更時，便會執行隱含推送，以確定本機存放區中的所有資料表和關聯性都維持一致。 pushOtherTables 參數會控制是否在隱含推送中推送內容中的其他資料表。 *查詢*參數會接受[\<IMobileServiceTableQuery T >][IMobileServiceTableQuery]或 OData 查詢字串來篩選傳回的資料。 queryId 參數可用來定義增量同步處理。如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。
+* **[PurgeAsync]** 您的應用程式應定期呼叫這個方法，以清除本機存放區中的過時資料。 當您需要清除任何尚未同步處理的變更時，請使用 force 參數。
 
 如需這些概念的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。
 
@@ -94,7 +94,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 下列主題提供其他關於 Mobile Apps 離線同步處理功能的背景資訊︰
 
 * [Azure Mobile Apps 中的離線資料同步處理]
-* [Azure Mobile Apps.NET SDK 做法][8]
+* [Azure Mobile Apps .NET SDK 做法][8]
 
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app

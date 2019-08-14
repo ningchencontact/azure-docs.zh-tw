@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 293af600f4bd58efe8383d019ca3d17f724f242c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689347"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933309"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 此文章說明使用「復原服務」保存庫針對「Azure 備份」設定報告時，所需依循的步驟。 本文也說明如何使用 Power BI 來存取報告。 完成這些步驟之後，您可以直接移至 Power BI 來檢閱、自訂及建立報告。
@@ -37,7 +37,7 @@ ms.locfileid: "68689347"
 - 註冊資源提供者 **Microsoft.insights** (如果尚未註冊的話)。 請使用儲存體帳戶和「復原服務」保存庫的訂用帳戶，以便讓報告資料能夠流向儲存體帳戶。 若要執行此步驟，請前往 Azure 入口網站，選取 [訂用帳戶] > [資源提供者]，然後查看是否有此提供者以註冊它。
 
 ## <a name="configure-storage-account-for-reports"></a>針對報告設定儲存體帳戶
-請依照下列步驟，使用 Azure 入口網站為「復原服務」保存庫設定儲存體帳戶。 此設定只需進行一次。 設定儲存體帳戶之後，您可以直接前往 Power BI 來檢視內容套件及使用報告。
+請依照下列步驟，使用 Azure 入口網站為「復原服務」保存庫設定儲存體帳戶。 此設定只需進行一次。 設定儲存體帳戶之後, 您可以直接移至 Power BI 來查看範本應用程式, 並使用報表。
 
 1. 如果您已開啟「復原服務」保存庫，請移至下一個步驟。 如果您並未開啟「復原服務」保存庫，請在 Azure 入口網站中，選取 [所有服務]。
 
@@ -80,11 +80,11 @@ ms.locfileid: "68689347"
 如果要自訂和共用報表，請 建立工作區並執行下列步驟
 
 1. [登入](https://powerbi.microsoft.com/landing/signin/) Power BI。
-2. 選取 [取得資料]。 在 [用更多方式建立自己的內容] 中，選取 [服務內容套件]。 依照[說明如何存取內容套件的 Power BI 文件](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/)中的步驟進行操作。
+2. 流覽至 [**應用程式] > 從 Microsoft Appsource 取得更多應用程式**。 依照[說明如何存取內容套件的 Power BI 文件](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/)中的步驟進行操作。
 
 3. 在 [搜尋] 列中，輸入 **Azure 備份**，然後選取 [立即取得]。
 
-      ![取得內容套件](./media/backup-azure-configure-reports/content-pack-get.png)
+      ![取得範本應用程式](./media/backup-azure-configure-reports/template-app-get.png)
 4. 輸入在先前步驟 5 中所設定儲存體帳戶的名稱，然後選取 [下一步]。
 
     ![請輸入儲存體帳戶名稱](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
@@ -96,11 +96,11 @@ ms.locfileid: "68689347"
 
     ![匯入內容套件](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
 
-    匯入完成之後，您會看到「成功」通知。 如果儲存體帳戶中的資料量很大，可能需要稍長的時間來匯入內容套件。
+    匯入完成之後，您會看到「成功」通知。 如果儲存體帳戶中的資料量很大, 則匯入範本應用程式可能需要較長的時間。
 
     ![成功匯入內容套件](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
 
-7. 成功匯入資料之後，就可以在 [瀏覽] 窗格的 [應用程式] 中看到 [Azure 備份] 內容套件。 在 [儀表板]、[報告] 和 [資料集] 下，清單現在會顯示 Azure 備份。
+7. 成功匯入資料之後, 您可以在流覽窗格的 [**應用程式**] 中看到**Azure 備份**範本應用程式。 在 [儀表板]、[報告] 和 [資料集] 下，清單現在會顯示 Azure 備份。
 
 8. 在 [儀表板] 底下，選取 [Azure 備份]，這會顯示一組已釘選的重要報告。
 
@@ -117,10 +117,10 @@ ms.locfileid: "68689347"
 | 錯誤詳細資料 | 解決方法 |
 | --- | --- |
 | 在您為「備份報告」設定儲存體帳戶之後，[儲存體帳戶] 仍然顯示 [未設定]。 | 如果您已成功設定儲存體帳戶，則儘管發生此問題，報告資料仍然會流入。 若要解決此問題，請前往 Azure 入口網站，然後選取 [所有服務] > [診斷設定] > [復原服務保存庫] > [編輯設定]。 請刪除先前所做的設定，然後在同一個刀鋒視窗上建立新的設定。 這次，請在 [名稱] 方塊中選取 [服務]。 此時便會顯示所設定的儲存體帳戶。 |
-|在您於 Power BI 中匯入「Azure 備份」內容套件之後，出現「404 - 找不到容器」錯誤訊息。 | 如先前所述，在於「復原服務」保存庫中設定報告之後，您必須等候 24 小時，才能在 Power BI 中正確查看報告。 如果您在 24 小時之前嘗試存取報告，便會出現此錯誤訊息，因為還沒有完整的資料可供顯示有效的報告。 |
+|在 Power BI 中匯入 Azure 備份範本應用程式之後, 就會出現「404-找不到容器」錯誤訊息。 | 如先前所述，在於「復原服務」保存庫中設定報告之後，您必須等候 24 小時，才能在 Power BI 中正確查看報告。 如果您在 24 小時之前嘗試存取報告，便會出現此錯誤訊息，因為還沒有完整的資料可供顯示有效的報告。 |
 
 ## <a name="next-steps"></a>後續步驟
-在您設定好儲存體帳戶並匯入「Azure 備份」內容套件之後，接下來的步驟就是自訂報告，並使用報告資料模型來建立報告。 如需詳細資訊，請參閱下列文章。
+在您設定儲存體帳戶並匯入 Azure 備份範本應用程式之後, 接下來的步驟是自訂報表, 並使用報告資料模型來建立報表。 如需詳細資訊，請參閱下列文章。
 
 * [使用 Azure 備份報告資料模型](backup-azure-reports-data-model.md)
 * [在 Power BI 中篩選報告](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

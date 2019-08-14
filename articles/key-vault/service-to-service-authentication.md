@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: d34c94ccca47d29afc4f3d83bec58db737be270c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840409"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934329"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -270,21 +270,21 @@ Azureservicetokenprovider 會會在其預設安裝位置尋找 Azure CLI。 如�
 
 #### <a name="unauthorized-access-access-denied-forbidden-etc-error"></a>未經授權的存取、拒絕存取、禁止等錯誤
  
-使用的主體無法存取其嘗試存取的資源。 根據您是在本機開發電腦上執行範例, 或是在 Azure 中部署至您的 App Service, 授與您的使用者帳戶或 App Service 的 MSI 「參與者」存取所需的資源。 有些資源 (例如金鑰保存庫) 也有自己的[存取](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies)原則, 您可以使用它們來授與存取權給主體 (使用者、應用程式、群組等)。
+使用的主體無法存取其嘗試存取的資源。 根據您是在本機開發電腦上執行範例, 或是在 Azure 中部署至您的 App Service, 授與您的使用者帳戶或 App Service 的 MSI 「參與者」存取所需的資源。 有些資源 (例如金鑰保存庫) 也有自己的[存取](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies)原則, 您可以使用它們來授與存取權給主體 (使用者、應用程式、群組等)。
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>部署到 Azure App Service 時常見的問題
 
 #### <a name="managed-identity-is-not-setup-on-the-app-service"></a>未在 App Service 上設定受控識別
  
-使用[Kudu debug console](https://azure.microsoft.com/en-us/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/)檢查環境變數 MSI_ENDPOINT 和 MSI_SECRET 存在。 如果這些環境變數不存在, App Service 上就不會啟用受控識別。 
+使用[Kudu debug console](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/)檢查環境變數 MSI_ENDPOINT 和 MSI_SECRET 存在。 如果這些環境變數不存在, App Service 上就不會啟用受控識別。 
  
 ### <a name="common-issues-when-deployed-locally-with-iis"></a>使用 IIS 在本機部署時的常見問題
 
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>在 IIS 中偵測應用程式時, 無法取得權杖
 
 根據預設, AppAuth 會在 IIS 中的不同使用者內容中執行, 因此不具有使用您的開發人員身分識別來抓取存取權杖的存取權。 您可以使用下列兩個步驟, 將 IIS 設定為與您的使用者內容一起執行:
-- 設定應用程式集區, 讓 web 應用程式以您目前的使用者帳戶身分執行。 請在[這裡](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)參閱詳細資訊
-- 將 "setProfileEnvironment" 設定為 "True"。 請參閱[這裡](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)的詳細資訊。 
+- 設定應用程式集區, 讓 web 應用程式以您目前的使用者帳戶身分執行。 請在[這裡](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)參閱詳細資訊
+- 將 "setProfileEnvironment" 設定為 "True"。 請參閱[這裡](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration)的詳細資訊。 
 
     - 前往%windir%\System32\inetsrv\config\applicationHost.config
     - 搜尋 "setProfileEnvironment"。 如果設定為 "False", 請將它變更為 "True"。 如果不存在, 請將它新增為 processModel 元素的屬性 (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment), 並將它設定為 "True"。

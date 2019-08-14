@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: bafc8780368f58a7076ae472636d852d698d276c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60613236"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941356"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 雲端服務定義 WebRole 結構描述
 Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (例如，ASP.NET、PHP、Windows Communication Foundation 及 FastCGI) 所自訂的角色。
@@ -295,7 +295,7 @@ Azure Web 角色是專為 IIS 7 所支援之 Web 應用程式的程式設計 (�
 |name|string|必要項。 此憑證的名稱，當與 HTTPS `InputEndpoint` 元素相關聯時，會用來參考它。|  
 |storeLocation|string|必要項。 可在本機電腦上找到此憑證的憑證存放區位置。 可能的值為 `CurrentUser` 與 `LocalMachine`。|  
 |storeName|string|必要項。 可在本機電腦上找到此憑證的憑證存放區名稱。 可能的值包括內建存放區名稱 `My`、`Root`、`CA`、`Trust`、`Disallowed`、`TrustedPeople`、`TrustedPublisher`、`AuthRoot`、`AddressBook` 或任何自訂存放區名稱。 如果指定自訂存放區名稱，則會自動建立該存放區。|  
-|permissionLevel|string|選擇性。 指定提供給角色處理序的存取權限。 如果您希望只有提升權限的處理序能夠存取私密金鑰，則請指定 `elevated` 權限。 `limitedOrElevated` 權限可讓所有角色處理序存取私密金鑰。 可能的值為 `limitedOrElevated` 或 `elevated`。 預設值是 `limitedOrElevated`。|  
+|permissionLevel|string|選擇性。 指定提供給角色處理序的存取權限。 如果您希望只有提升權限的處理序能夠存取私密金鑰，則請指定 `elevated` 權限。 `limitedOrElevated` 權限可讓所有角色處理序存取私密金鑰。 可能的值為 `limitedOrElevated` 或 `elevated`。 預設值為 `limitedOrElevated`。|  
 
 ##  <a name="Imports"></a> Imports  
 `Imports` 元素會說明在客體作業系統中新增元件之 Web 角色的匯入模組集合。 此元素是 `Import` 元素的父代。 這是選用元素，一個角色只能有一個匯入區塊。 

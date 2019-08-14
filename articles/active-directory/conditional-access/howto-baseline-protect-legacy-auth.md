@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608083"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931944"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>基準原則:封鎖舊版驗證 (預覽)
 
@@ -37,7 +37,7 @@ ms.locfileid: "68608083"
 
 1. 流覽至**Azure 入口網站** >  **Azure Active Directory**  > 登**入**。
 1. 新增 [用戶端應用程式] 欄 (如果未顯示, 請按一下 [資料**行** > ] [**用戶端應用程式**])
-1. 依**用戶端應用程式** > 的**其他用戶端**篩選, 然後按一下 [套用]。
+1. **新增篩選** > **用戶端應用程式**> 選取**其他用戶端**的所有選項,然後按一下 [套用]。
 
 篩選只會顯示舊版驗證通訊協定所進行的登入嘗試。 按一下每個個別的登入嘗試, 將會顯示其他詳細資料。 [**基本資訊**] 索引標籤下的 [**用戶端應用程式**] 欄位會指出所使用的舊版驗證通訊協定。
 

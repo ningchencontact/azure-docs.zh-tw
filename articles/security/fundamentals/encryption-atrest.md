@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: barclayn
-ms.openlocfilehash: bc305938801a4edcf32e36ce57f76079f33c5bf8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c91c8de35dcf3f1bc8fd5f41bd2356336c3fe450
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727390"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927959"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -161,7 +161,7 @@ Azure Key Vault 中使用客戶管理之金鑰的伺服器端加密模型，需�
 若要取得用於將靜態資料加密或解密的金鑰，Resource Manager 服務執行個體所要執行的服務識別必須擁有「解除包裝金鑰」(可取得解密金鑰) 和「包裝金鑰」(建立新的金鑰時，可將金鑰插入保存庫金鑰)。
 
 >[!NOTE]
->如需關於 Key Vault 授權的詳細資訊，請參閱 [Azure Key Vault 文件](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)中的「保護您的金鑰保存庫」頁面。
+>如需關於 Key Vault 授權的詳細資訊，請參閱 [Azure Key Vault 文件](../../key-vault/key-vault-secure-your-key-vault.md)中的「保護您的金鑰保存庫」頁面。
 
 **優點**
 
@@ -237,14 +237,14 @@ Azure Key Vault 中使用客戶管理之金鑰的伺服器端加密模型，需�
 
 ### <a name="azure-disk-encryption"></a>Azure 磁碟加密
 
-任何使用 Azure 基礎結構即服務 (IaaS) 功能的客戶都可透過 Azure 磁碟加密讓其 IaaS VM 和磁碟達到靜態加密。 如需有關 Azure 磁碟加密的詳細資訊，請參閱 [Azure 磁碟加密文件](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)。
+任何使用 Azure 基礎結構即服務 (IaaS) 功能的客戶都可透過 Azure 磁碟加密讓其 IaaS VM 和磁碟達到靜態加密。 如需有關 Azure 磁碟加密的詳細資訊，請參閱 [Azure 磁碟加密文件](../azure-security-disk-encryption-overview.md)。
 
 #### <a name="azure-storage"></a>Azure 儲存體
 
 所有 Azure 儲存體服務 (Blob 儲存體、佇列儲存體、資料表儲存體和 Azure 檔案儲存體) 都支援待用的伺服器端加密;有些服務會額外支援客戶管理的金鑰和用戶端加密。 
 
-- 伺服器端：所有 Azure 儲存體服務預設會使用服務管理的金鑰啟用伺服器端加密，這對應用程式是透明的。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-service-encryption)。 Azure Blob 儲存體和 Azure 檔案也支援 Azure Key Vault 中的 RSA 2048 位元客戶管理金鑰。 如需詳細資訊，請參閱[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)。
-- 用戶端：Azure Blob、資料表和佇列支援用戶端加密。 當您使用用戶端加密時，客戶會將資料加密，並上傳資料做為加密的 blob。 金鑰管理是由客戶完成。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault](https://docs.microsoft.com/azure/storage/storage-client-side-encryption)。
+- 伺服器端：所有 Azure 儲存體服務預設會使用服務管理的金鑰啟用伺服器端加密，這對應用程式是透明的。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](../../storage/common/storage-service-encryption.md)。 Azure Blob 儲存體和 Azure 檔案也支援 Azure Key Vault 中的 RSA 2048 位元客戶管理金鑰。 如需詳細資訊，請參閱[使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密](../../storage/common/storage-encryption-keys-portal.md)。
+- 用戶端：Azure Blob、資料表和佇列支援用戶端加密。 當您使用用戶端加密時，客戶會將資料加密，並上傳資料做為加密的 blob。 金鑰管理是由客戶完成。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault](../../storage/common/storage-client-side-encryption.md)。
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 

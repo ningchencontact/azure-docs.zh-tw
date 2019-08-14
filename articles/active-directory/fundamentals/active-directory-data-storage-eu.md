@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722137"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942852"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory 中歐洲客戶的身分識別資料儲存體
 識別資料是根據貴組織在訂閱 Microsoft 線上服務 (例如 Office 365 和 Azure) 時所提供的位址, 在地理位置中 Azure AD 儲存。 如需您的身分識別資料儲存位置的資訊, 您可以使用 Microsoft 信任中心的[資料所在位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)一節。
@@ -43,6 +43,15 @@ Azure AD B2B 會在美國資料中心內使用兌換連結和重新導向 URL �
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory 網域服務 (Azure AD DS)
 
 Azure AD DS 會將使用者資料儲存在與客戶選取的 Azure 虛擬網路相同的位置。 因此，如果網路不在歐洲境內，則資料會複寫並儲存在歐洲以外。
+
+## <a name="federation-in-microsoft-exchange-server-2013"></a>Microsoft Exchange Server 2013 中的同盟
+    
+- 應用程式識別碼 (AppID)-Azure Active Directory 驗證系統產生的唯一數位, 用以識別 Exchange 組織。
+- 應用程式的已核准同盟網域清單
+- 應用程式的權杖簽署公用金鑰 
+
+如需有關 Microsoft Exchange server 同盟的詳細資訊, 請[參閱同盟:Exchange 2013](https://docs.microsoft.com/exchange/federation-exchange-2013-help)說明文章。
+
 
 ## <a name="other-considerations"></a>其他考量
 

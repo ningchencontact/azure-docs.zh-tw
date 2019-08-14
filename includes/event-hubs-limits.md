@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 928b0bcfb32d1a319c811d00fc84a37f85702895
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c163e3cce862640d43f8696dca4eeef29f2ae12a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857336"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912317"
 ---
 下表列出 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)的特定配額與限制。 如需事件中樞價格的相關資訊，請參閱[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
@@ -36,6 +36,8 @@ ms.locfileid: "68857336"
 | 每一個事件中樞取用者群組數目 |實體 | - |1 |20 |
 | 每個命名空間的 AMQP 連線數目 |命名空間 |後續的其他連接要求會遭到拒絕, 而且呼叫程式碼會收到例外狀況。 |100 |5,000|
 | 事件資料的最大保留期間 |實體 | - |1 天 |1-7 天 |
+|已啟用 Apache Kafka 的命名空間|命名空間 |使用 Kafka 通訊協定事件中樞命名空間串流應用程式 |否 | 是 |
+|擷取 |實體 | 啟用時, 相同資料流程上的微批次 |否 |是 |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>事件中樞專用-配額和限制

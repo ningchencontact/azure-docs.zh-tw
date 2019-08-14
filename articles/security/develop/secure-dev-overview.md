@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4df8ff8abfeb7a6ba96ec3344407e95e0a9a3b3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728726"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934857"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Azure 上的安全開發最佳作法
 這一系列的文章提供當您開發雲端應用程式時所要考慮的安全性活動和控制項。 涵蓋在生命週期的每個階段所要考慮的 Microsoft 安全性開發週期 (SDL) (SDL) 和安全性問題和概念的階段。 其目標是要協助您定義活動和 Azure 服務, 以便在生命週期的每個階段中用來設計、開發和部署更安全的應用程式。
@@ -69,7 +69,7 @@ SDL 階段包括:
 
 [向左推, 例如老闆](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca)–一系列的線上文章, 其中概述開發人員應該完成以建立更安全的程式碼的不同類型的應用程式安全性活動。
 
-[Microsoft 身分識別平臺](https://docs.microsoft.com/azure/active-directory/develop/)– microsoft 身分識別平臺是 Azure AD 身分識別服務和開發人員平臺的演進。 它是一個功能完整的平臺, 由驗證服務、開放原始碼程式庫、應用程式註冊與設定、完整開發人員檔、程式碼範例和其他開發人員內容所組成。 Microsoft 身分識別平臺支援業界標準通訊協定, 例如 OAuth 2.0 和 OpenID Connect。
+[Microsoft 身分識別平臺](../../active-directory/develop/index.yml)– microsoft 身分識別平臺是 Azure AD 身分識別服務和開發人員平臺的演進。 它是一個功能完整的平臺, 由驗證服務、開放原始碼程式庫、應用程式註冊與設定、完整開發人員檔、程式碼範例和其他開發人員內容所組成。 Microsoft 身分識別平臺支援業界標準通訊協定, 例如 OAuth 2.0 和 OpenID Connect。
 
 [Azure 解決方案的安全性最佳作法](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/)–當您使用 Azure 來設計、部署和管理雲端解決方案時, 所要使用的安全性最佳作法集合。 本檔旨在做為 IT 專業人員的資源。 其中可包括建置和部署安全 Azure 解決方案的設計人員、架構設計師、開發人員和測試人員。
 

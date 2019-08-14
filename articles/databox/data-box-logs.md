@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848579"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934207"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>追蹤和 Azure 資料箱和 Azure Data Box Heavy 的事件記錄
 
@@ -197,7 +197,7 @@ BOM 或資訊清單檔案也會複製到 Azure 儲存體帳戶。 您可以使�
 
 在資料上傳至 Azure 期間, 會建立複製記錄檔。
 
-### <a name="copylog"></a>Copylog
+### <a name="copy-log"></a>複製記錄檔
 
 針對每個已處理的訂單, 資料箱服務會在相關聯的儲存體帳戶中建立複本記錄。 複製記錄檔包含已上傳的檔案總數, 以及從資料箱資料複製到您的 Azure 儲存體帳戶期間所錯誤的檔案數目。
 
@@ -252,6 +252,8 @@ BOM 或資訊清單檔案也會複製到 Azure 儲存體帳戶。 您可以使�
 ### <a name="upload-completed-with-warnings"></a>上傳已完成, 但出現警告
 
 如果您的資料有不符合 Azure 命名慣例的容器/blob/檔案名, 而且已修改名稱以將資料上傳至 Azure, 則上傳至 Azure 即告完成, 但出現警告。
+
+![完成但出現警告時, 複製記錄檔的路徑](media/data-box-logs/copy-log-path-3.png)
 
 以下是複製記錄的範例, 其中不符合 Azure 命名慣例的容器會在資料上傳至 Azure 期間重新命名。
 

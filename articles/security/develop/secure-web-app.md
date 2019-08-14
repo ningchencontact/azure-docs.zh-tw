@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 640900458eccc36afe58cb148ffd7b94b43be879
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728807"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934922"
 ---
 # <a name="develop-a-secure-web-app"></a>開發安全的 web 應用程式
 
@@ -52,16 +52,16 @@ ms.locfileid: "68728807"
 
 架構是由下列元件所組成:
 
-- [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/)。 提供應用程式架構的閘道和防火牆。
-- [Linux 上的 Azure Web Apps](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)。 提供容器執行時間, 以在 Linux 環境中執行 Python 應用程式。
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)。 會儲存並加密我們的應用程式密碼, 並管理其周圍的存取原則建立。
+- [Azure 應用程式閘道](../../application-gateway/index.yml)。 提供應用程式架構的閘道和防火牆。
+- [Linux 上的 Azure Web Apps](../../app-service/containers/app-service-linux-intro.md)。 提供容器執行時間, 以在 Linux 環境中執行 Python 應用程式。
+- [Azure Key Vault](../../key-vault/index.yml)。 會儲存並加密我們的應用程式密碼, 並管理其周圍的存取原則建立。
 - [適用於 PostgreSQL 的 Azure 資料庫](https://azure.microsoft.com/services/postgresql/)。 安全地儲存應用程式的資料。
-- [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/)和[Azure 應用程式深入](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)解析。 提供應用程式作業的監視和警示。
+- [Azure 資訊安全中心](../../security-center/index.yml)和[Azure 應用程式深入](../../azure-monitor/app/app-insights-overview.md)解析。 提供應用程式作業的監視和警示。
 
 ## <a name="threat-model"></a>威脅模型
 威脅模型化是識別企業和應用程式潛在安全性威脅的程式, 然後確保適當的風險降低計畫已就緒。
 
-這個範例使用[Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)來執行安全範例應用程式的威脅模型化。 藉由將元件和資料流程的圖表化, 您可以及早識別開發程式中的問題和威脅。 這可節省時間和金錢。
+這個範例使用[Microsoft Threat Modeling Tool](threat-modeling-tool.md)來執行安全範例應用程式的威脅模型化。 藉由將元件和資料流程的圖表化, 您可以及早識別開發程式中的問題和威脅。 這可節省時間和金錢。
 
 這是範例應用程式的威脅模型:
 
@@ -349,19 +349,19 @@ $$ LANGUAGE PLPGSQL;
 ```
 
 
-如需有關如何設定于 postgresql 的 SSL 和憑證授權單位單位 (CA) 驗證的詳細資訊, 請參閱[在適用於 PostgreSQL 的 Azure 資料庫中設定 ssl 連線能力](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security)。
+如需有關如何設定于 postgresql 的 SSL 和憑證授權單位單位 (CA) 驗證的詳細資訊, 請參閱[在適用於 PostgreSQL 的 Azure 資料庫中設定 ssl 連線能力](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security)。
 
 容器中包含根憑證。 取得憑證所採取的步驟如下:
 
 1. 從[憑證授權單位](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)單位下載憑證檔案。
-2. [在您的電腦上下載並安裝 OpenSSL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security)。
+2. [在您的電腦上下載並安裝 OpenSSL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security)。
 3. 將憑證檔案解碼:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-若要深入瞭解如何設定于 postgresql 的 SSL 安全性, 請參閱[設定 Ssl 連接安全性](https://docs.microsoft.com/en-gb/azure/postgresql/concepts-ssl-connection-security)。
+若要深入瞭解如何設定于 postgresql 的 SSL 安全性, 請參閱[設定 Ssl 連接安全性](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security)。
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>在 Linux 上部署 Azure Web Apps
 您可以在 Azure App Service 上輕鬆地建立 Linux 服務, 因為 Azure 提供一組預先建立的容器和映射, 適用于 Python、Ruby、 C#和 JAVA 等廣泛使用的語言。 Azure 也支援自訂容器, 可讓幾乎所有程式設計語言都能在 Azure App Service 平臺上執行。

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: dd678fb784fa7587912f113a7c00bebca76efce8
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7bf9c338315f5013be815625b06d633567a801a0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857338"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912315"
 ---
 每個應用程式的計量和事件數目有一些限制, 也就是每個檢測金鑰。 限制取決於您選擇的[定價方案](https://azure.microsoft.com/pricing/details/application-insights/)。
 
@@ -23,7 +23,8 @@ ms.locfileid: "68857338"
 | 正在節流 | 每秒32000個事件 | 此限制會測量超過一分鐘。
 | 資料保留 | 90 天 | 此資源適用於[搜尋](../articles/azure-monitor/app/diagnostic-search.md)、[分析](../articles/azure-monitor/app/analytics.md)和[計量瀏覽器](../articles/azure-monitor/app/metrics-explorer.md)。
 | [可用性多步驟測試](../articles/azure-monitor/app/availability-multistep.md)詳述的結果保留期 | 90 天 | 此資源會提供每個步驟的詳細結果。
-| 事件大小上限 | 64,000 |
+| 遙測專案大小上限 | 64 kB |
+| 每個批次的遙測專案上限 | 64 K |
 | 屬性和度量名稱長度 | 150 | 請參閱[類型結構描述](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)。
 | 屬性值字串長度 | 8,192  | 請參閱[類型結構描述](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)。
 | 追蹤和例外狀況訊息長度 | 32,768  | 請參閱[類型結構描述](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond)。

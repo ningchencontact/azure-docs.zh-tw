@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
-ms.openlocfilehash: dd511375c6b007222185f25610aecbd9931a742b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640037"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935020"
 ---
 在此步驟中，您將建立資源群組和 Azure SQL Database 單一資料庫。
 
@@ -19,7 +19,7 @@ ms.locfileid: "68640037"
 >
 > 如需資訊，請參閱[建立資料庫層級防火牆規則](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)，或者，若要判斷對於電腦的伺服器層級防火牆規則所用的 IP 位址，請參閱[建立伺服器層級防火牆](../sql-database-server-level-firewall-rule.md)。  
 
-# <a name="azure-portaltabazure-portal"></a>[Azure 入口網站](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 
 使用 Azure 入口網站建立您的資源群組和單一資料庫。
 
@@ -75,7 +75,7 @@ ms.locfileid: "68640037"
 
 9. 在 [SQL Database]  表單中，選取 [建立]  以部署和佈建資源群組、伺服器和資料庫。
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -141,7 +141,7 @@ ms.locfileid: "68640037"
    $database
    ```
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 使用 AZ CLI 建立您的資源群組和單一資料庫。
 

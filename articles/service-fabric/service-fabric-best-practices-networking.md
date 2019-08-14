@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "66237330"
 ---
 # <a name="networking"></a>網路功能
@@ -72,7 +72,7 @@ Service Fabric 叢集可以佈建在[使用加速網路的 Linux](https://docs.m
 
 * 使用反向 Proxy (例如 [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) 或 [Service Fabric 反向 Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)) 公開常用的應用程式連接埠，例如 80 或 443。
 
-* 無法提取從 Azure 雲端儲存體中，基底圖層的空中 gapped 機器上託管的 Windows 容器使用覆寫外部的圖層的行為，如[-允許 nondistributable 成品](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines)中 Docker 精靈旗標。
+* 針對在無法從 Azure 雲端儲存體提取基本層的空中電腦上裝載的 Windows 容器, 請使用 Docker daemon 中的[--nondistributable-構件](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines)旗標來覆寫外部層行為。
 
 ## <a name="next-steps"></a>後續步驟
 

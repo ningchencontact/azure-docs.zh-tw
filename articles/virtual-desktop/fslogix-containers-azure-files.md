@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846541"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947210"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 設定檔容器和 Azure 檔案
 
@@ -77,7 +77,7 @@ Microsoft 已于2018年11月19日[取得 FSLogix](https://blogs.microsoft.com/bl
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure 檔案儲存體與 Azure Active Directory 網域服務整合
 
-FSLogix 設定檔容器的效能和功能會利用雲端。 2019年8月7日, Microsoft Azure 檔案已宣佈[使用 Azure Active Directory 網域服務 (AD DS) Azure 檔案儲存體驗證](/articles/storage/files/storage-files-active-directory-overview.md)的正式運作。 藉由解決成本和系統管理負擔, Azure AD DS 驗證的 Azure 檔案儲存體是 Windows 虛擬桌面服務中使用者設定檔的 premium 解決方案。
+FSLogix 設定檔容器的效能和功能會利用雲端。 2019年8月7日, Microsoft Azure 檔案已宣佈[使用 Azure Active Directory 網域服務 (AD DS) Azure 檔案儲存體驗證](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview)的正式運作。 藉由解決成本和系統管理負擔, Azure AD DS 驗證的 Azure 檔案儲存體是 Windows 虛擬桌面服務中使用者設定檔的 premium 解決方案。
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Windows 虛擬桌面的最佳做法
 

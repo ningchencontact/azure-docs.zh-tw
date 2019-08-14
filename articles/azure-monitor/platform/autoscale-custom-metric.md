@@ -9,10 +9,10 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60334294"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>開始在 Azure 中依自訂計量自動調整規模
@@ -21,9 +21,9 @@ ms.locfileid: "60334294"
 Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[雲端服務](https://azure.microsoft.com/services/cloud-services/)、[App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 與 [API 管理服務](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。
 
 ## <a name="lets-get-started"></a>開始使用
-本文假設您的 Web 應用程式已設定 Application Insights。 如果您還沒有，則可[設定 ASP.NET 網站的 Application Insights][1]
+本文假設您的 Web 應用程式已設定 Application Insights。 如果您還沒有帳戶, 您可以[設定 ASP.NET 網站的 Application Insights][1]
 
-- 開啟 [Azure 入口網站][2]
+- 開啟[Azure 入口網站][2]
 - 按一下左側導覽窗格中的 [Azure 監視器] 圖示。
   ![啟動 Azure 監視器][3]
 - 按一下 [自動調整規模] 設定，以檢視適用於自動調整規模的所有資源及其目前的自動調整規模狀態![探索 Azure 監視器中的自動調整規模][4]

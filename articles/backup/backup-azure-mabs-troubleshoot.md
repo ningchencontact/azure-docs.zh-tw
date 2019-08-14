@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689262"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954674"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
@@ -55,13 +55,13 @@ ms.locfileid: "68689262"
 
 | 運算 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 還原 | **錯誤碼**：CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error:100110 <br/> <br/>**錯誤訊息**：提供的保存庫認證與登錄此伺服器的保存庫不同 | **原因**︰當您嘗試使用外部 DPM 復原選項，從原始伺服器將檔案還原到備用伺服器時，如果正在復原的伺服器和備份資料的原始伺服器與相同的復原服務保存庫無關，則會發生此問題。<br/> <br/>因應措施若要解決此問題, 請確定原始和替代的伺服器都已註冊到相同的保存庫。|
+| 還原 | **錯誤碼**：CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error:100110 <br/> <br/>**錯誤訊息**：提供的保存庫認證與登錄此伺服器的保存庫不同 | **原因**︰當您嘗試使用外部 DPM 復原選項, 從源伺服器將檔案還原至替代伺服器時, 以及如果要復原的伺服器和備份資料的源伺服器沒有與相同的相關聯時, 就會發生這個問題。復原服務保存庫。<br/> <br/>因應措施若要解決此問題, 請確定原始和替代的伺服器都已註冊到相同的保存庫。|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>VMware VM 的線上復原點建立作業失敗
 
 | 運算 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 備份 | VMware VM 的線上復原點建立作業失敗。 DPM 在嘗試取得變更追蹤資訊時，VMware 發生錯誤。 ErrorCode - FileFaultFault (ID 33621 ) |  <ol><li> 針對受影響的 VM，在 VMWare 上重設 CTK。</li> <li>確認 VMWare 上沒有獨立磁碟。</li> <li>停止對受影響 VM 的保護，然後使用 [重新整理] 按鈕來重新保護。 </li><li>針對受影響的 VM 執行 CC。</li></ol>|
+| 備份 | VMware VM 的線上復原點建立作業失敗。 DPM 在嘗試取得變更追蹤資訊時，VMware 發生錯誤。 ErrorCode-FileFaultFault (識別碼 33621) |  <ol><li> 針對受影響的 VM，在 VMWare 上重設 CTK。</li> <li>確認 VMWare 上沒有獨立磁碟。</li> <li>停止保護受影響的 Vm, 並使用 [重新整理] 按鈕重新保護。 </li><li>針對受影響的 VM 執行 CC。</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>代理程式作業因為伺服器上的 DPM 代理程式協調員服務發生通訊錯誤而失敗
@@ -102,7 +102,7 @@ ms.locfileid: "68689262"
 | 備份 | 執行工作時發生意外錯誤。 裝置未就緒。 | **如果產品所示的建議動作沒有用，請執行下列步驟：** <br> <ul><li>針對保護群組中的項目，將「陰影複製儲存」空間設定為無限，然後執行一致性檢查。<br></li> (或) <li>嘗試刪除現有保護群組，並建立多個新群組。 每個新保護群組中都應該有一個個別項目。</li></ul> |
 | 備份 | 如果您只要備份系統狀態，請確認受保護的電腦上有足夠的可用空間可儲存系統狀態備份。 | <ol><li>確認受保護電腦上已安裝 Windows Server Backup。</li><li>確認受保護電腦上有足夠的空間可儲存系統狀態。 進行這項確認的最簡單方式就是移至受保護的電腦、開啟 Windows Server Backup、一路點選選項，然後選取 [BMR]。 接著，UI 會告訴您需要多少空間。 開啟 [WSB] > [本機備份] > [備份排程] > [選取備份設定] > [完整伺服器] (會顯示大小)。 使用此大小進行驗證。</li></ol>
 | 備份 | BMR 的備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試。 |
-| 備份 | 重新保護新「Microsoft Azure 備份伺服器」上 VMWare VM 的選項未顯示為可供新增。 | VMWare 屬性指向已停用的舊「Microsoft Azure 備份伺服器」執行個體。 若要解決此問題︰<br><ol><li>在 VCenter (SC-VMM 的對等項目) 中，移至 [摘要] 索引標籤，然後移至 [自訂屬性]。</li>  <li>從 [DPMServer] 值中刪除舊的「Microsoft Azure 備份伺服器」名稱。</li>  <li>返回新的「Microsoft Azure 備份伺服器」，然後修改 PG。  選取 [重新整理] 按鈕之後，就會顯示 VM 並含有可供新增到保護的核取方塊。</li></ol> |
+| 備份 | 在新的 Microsoft Azure 備份伺服器上重新保護 VMware VM 的選項, 並不會顯示為可供新增。 | VMWare 屬性指向已停用的舊「Microsoft Azure 備份伺服器」執行個體。 若要解決此問題︰<br><ol><li>在 VCenter (SC-VMM 的對等項目) 中，移至 [摘要] 索引標籤，然後移至 [自訂屬性]。</li>  <li>從 [DPMServer] 值中刪除舊的「Microsoft Azure 備份伺服器」名稱。</li>  <li>返回新的「Microsoft Azure 備份伺服器」，然後修改 PG。  選取 [重新整理] 按鈕之後，就會顯示 VM 並含有可供新增到保護的核取方塊。</li></ol> |
 | 備份 | 存取檔案/共用資料夾時發生錯誤 | 嘗試修改防毒設定，如 TechNet 文章[在 DPM 伺服器上執行防毒軟體](https://technet.microsoft.com/library/hh757911.aspx)所建議。|
 
 
@@ -148,4 +148,4 @@ ms.locfileid: "68689262"
 
 錯誤訊息 | 建議的動作 |
 -- | --
-備份失敗, 因為無法複製磁片備份複本。| 請確定所有先前的磁片備份複本檔案 (.vhdx) 皆已卸載, 而且在線上備份期間沒有磁片對磁片備份正在進行中
+備份失敗，因為無法複製磁碟備份複本。| 請確定所有先前的磁片備份複本檔案 (.vhdx) 皆已卸載, 而且在線上備份期間沒有磁片對磁片備份正在進行中

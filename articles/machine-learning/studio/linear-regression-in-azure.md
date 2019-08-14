@@ -1,5 +1,5 @@
 ---
-title: 從 Excel 的移轉分析
+title: 從 Excel 遷移分析
 titleSuffix: Azure Machine Learning Studio
 description: 在 Excel 和 Azure Machine Learning Studio 中的線性迴歸模型的比較
 services: machine-learning
@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67786678"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>將分析從 Excel 遷移至 Azure Machine Learning Studio
@@ -44,9 +44,9 @@ ms.locfileid: "67786678"
 我們遵循下列步驟在 Studio 中建立我們的實驗： 
 
 1. 將資料集以 csv 檔案 (非常小的檔案) 的形式上傳到 Studio
-2. 建立新的實驗，並使用[選取資料集中的資料行][select-columns]模組來選取 Excel 中所使用的相同資料特徵 
-3. 使用[資料分割][split]模組 (與*相對運算式*模式) 將資料分割成相同的訓練資料集，如同產生在 Excel 中 
-4. 實驗[線性迴歸][linear-regression]模組 （只有預設選項）、 記載，並比較結果與我們 Excel 迴歸模型
+2. 建立新的實驗, 並使用 [[選取資料集中][select-columns]的資料行] 模組來選取 Excel 中使用的相同資料功能 
+3. 使用[分割資料][split]模組 (使用*相對運算式*模式), 將資料分割成與 Excel 中已完成的相同訓練資料集 
+4. 具有[線性回歸][linear-regression]模組的實驗 (僅限預設選項)、已記載, 並會將結果與我們的 Excel 回歸模型進行比較
 
 ### <a name="review-initial-results"></a>檢閱初步結果
 最初，Excel 模型效能明顯勝過 Studio 模型： 
@@ -61,7 +61,7 @@ ms.locfileid: "67786678"
 
 當我們向 Machine Learning 小組的開發人員和資料科學家執行我們的程序和結果時，他們快速提供一些實用的秘訣。 
 
-* 當您使用[線性迴歸][linear-regression]在 Studio 中的模組，會提供兩種方法：
+* 當您在 Studio 中使用[線性回歸][linear-regression]模組時, 會提供兩種方法:
   * 線上梯度下降：可能比較適合較大規模的問題
   * 普通最小平方：這是大多數人聽到線性迴歸時會想到的方法。 對於小型資料集，一般最小平方是較佳的選擇。
 * 考慮調整 L2 正規化加權參數，以改善效能。 它預設設定為 0.001，但對我們的小型資料集，請將它設定為 0.005 以改善效能。 
@@ -75,7 +75,7 @@ ms.locfileid: "67786678"
 | 學習模組 |Excel -> 資料分析 -> 迴歸 |線性迴歸。 |線性迴歸 |
 | 學習模組選項 |N/A |預設值 |普通最小平方<br />L2 = 0.005 |
 | 資料集 |26 個資料列，3 個功能，1 個標籤。 全部數值。 |相同 |相同 |
-| 分割：定型 |Excel 會在前 18 個資料列上訓練，在最後 8 個資料列上測試。 |相同 |相同 |
+| 分割：火車 |Excel 會在前 18 個資料列上訓練，在最後 8 個資料列上測試。 |相同 |相同 |
 | 分割：測試 |Excel 迴歸公式會套用至最後 8 個資料列 |相同 |相同 |
 | **效能** | | | |
 | 調整 R 平方 |0.96 |N/A | |
@@ -100,18 +100,18 @@ ms.locfileid: "67786678"
 ### <a name="integration-with-excel"></a>與 Excel 整合
 我們的解決方案要使我們的 Machine Learning 迴歸模型作業化，方法是透過從訓練的模型建立 Web 服務。 在幾分鐘內，Web 服務即已建立，我們可以直接從 Excel 呼叫它，以傳回預測的收入值。 
 
-*Web 服務儀表板* 一節包含可下載的 Excel 活頁簿。 活頁簿已使用 Web 服務 API 預先格式化並內嵌結構描述資訊。 按一下 [下載 Excel 活頁簿]  開啟活頁簿，您可以將它儲存到本機電腦。 
+*Web 服務儀表板* 一節包含可下載的 Excel 活頁簿。 活頁簿已使用 Web 服務 API 預先格式化並內嵌結構描述資訊。 按一下 [下載 Excel 活頁簿] 開啟活頁簿，您可以將它儲存到本機電腦。 
 
 ![從 Web 服務儀表板下載 Excel 活頁簿](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 在活頁簿開啟時，請將預先定義的參數複製到藍色的 Parameter 區段，如下所示。 一旦輸入參數，Excel 即會對外呼叫 Machine Learning Web 服務，而會在綠色的預測值區段中顯示預測的計分標籤。 活頁簿將會針對在 Parameters 下輸入參數下的所有資料列項目，繼續根據您的訓練模型建立預測。 如需有關如何使用這項功能的詳細資訊，請參閱 [從 Excel 使用 Azure Machine Learning Web 服務](consuming-from-excel.md)。 
 
-![範本 Excel 活頁簿連接到已部署的 web 服務](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
+![連接至已部署 web 服務的範本 Excel 活頁簿](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>最佳化及進一步實驗
-現在我們已具備 Excel 模型的基準，我們可以進行最佳化 Machine Learning 線性迴歸模型。 我們使用模組[篩選為基礎的特徵選取][filter-based-feature-selection]來改善我們選取初始資料的項目，有助於我們 4.6%的效能提升達到平均絕對誤差。 為未來的專案中，我們將使用此功能，無法我們節省數週中逐一查看資料屬性，以找出正確的功能，可用於模型化。 
+現在我們已具備 Excel 模型的基準，我們可以進行最佳化 Machine Learning 線性迴歸模型。 我們使用模組以[篩選器為基礎的特徵選取][filter-based-feature-selection]來改善我們選取的初始資料元素, 並協助我們達到 4.6% 平均絕對錯誤的效能改進。 在未來的專案中, 我們將使用這項功能, 可在反復查看資料屬性時節省數周的時間, 以找出適合用來建立模型的功能集。 
 
-接下來我們計劃要納入其他演算法，例如[Bayesian][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression]在我們的實驗，來比較效能。 
+接下來, 我們打算在實驗中包含其他演算法, 例如[貝氏][bayesian-linear-regression]或促進式[決策樹][boosted-decision-tree-regression], 以比較效能。 
 
 如果您想要實驗迴歸，「能量效益迴歸」範例資料集即是可用來嘗試的良好的資料集，其中包含多個數值屬性。 資料集是在 Studio 中的範例資料集的一部分提供。 您可以使用各種不同的學習模組，來預測加熱負載或冷卻負載。 下列圖表是針對目標變數冷卻負載預測的能源效率資料集所學習不同的迴歸的效能比較： 
 
@@ -123,9 +123,9 @@ ms.locfileid: "67786678"
 | 線性迴歸 (一般最小平方) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>重要心得
-我們從並行執行 Excel 迴歸與 Studio 實驗中學到很多。 在 Excel 中建立基準模型，並比較使用機器學習服務模型[線性迴歸][linear-regression]幫助我們了解 Studio 中，同時也發現有機會改善資料選取項目和模型效能。 
+我們從並行執行 Excel 迴歸與 Studio 實驗中學到很多。 在 Excel 中建立基準模型並與使用 Machine Learning[線性回歸][linear-regression]的模型進行比較, 可協助我們學習 Studio, 併發現改善資料選取和模型效能的機會。 
 
-我們也發現，最好使用[篩選為基礎的特徵選取][filter-based-feature-selection]來加速未來的預測專案。 將特徵選取項目套用到您的資料，即可在 Studio 中建立改良的模型，以獲得更好的整體效能。 
+我們也發現, 建議使用以篩選為[基礎的特徵選取][filter-based-feature-selection]來加速未來的預測專案。 將特徵選取項目套用到您的資料，即可在 Studio 中建立改良的模型，以獲得更好的整體效能。 
 
 能夠從 Studio 傳送預測性的分析預測至 Excel 可大幅增加成功將結果提供給廣泛的商業使用者對象的能力。 
 
