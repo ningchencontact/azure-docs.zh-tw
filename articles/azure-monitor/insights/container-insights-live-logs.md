@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 968ee4c8bb5d7e09ef3c345c46f6c7b839e0e25a
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990041"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035349"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>如何即時查看記錄和事件 (預覽)
 適用于容器的 Azure 監視器包含功能 (目前處於預覽狀態), 可提供您 Azure Kubernetes Service (AKS) 容器記錄 (stdout/stderr) 和事件的即時視圖, 而不需要執行 kubectl 命令。 當您選取其中一個選項時, 新的窗格會出現在 [**節點**]、[**控制器**] 和 [**容器**] 視圖的 [效能] 資料表下方。 它會顯示容器引擎所產生的即時記錄和事件, 以進一步協助針對問題進行即時疑難排解。
@@ -72,7 +72,7 @@ ms.locfileid: "67990041"
 
 AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如果您是第一次設定它, 請參閱[整合 Azure Active Directory 與 Azure Kubernetes Service](../../aks/azure-ad-integration.md)。 在建立[用戶端應用程式](../../aks/azure-ad-integration.md#create-the-client-application)的步驟中, 指定下列各項:
 
-- 重新**導向 URI (選用)** :這是**Web**應用程式類型, 而 [基底 URL] `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`值應該是。
+-  **重新導向 URI**：需要建立兩個**Web**應用程式類型。 第一個 [基底 url] `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`值應該是, 而第二個`https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`[基底 url] 值應該是。
 - 註冊應用程式之後, 從 [**總覽**] 頁面的左側窗格中選取 [**驗證**]。 在 [**驗證**] 頁面的 [**高級設定**] 底下, 隱含地授與**存取權杖**和**識別碼權杖**, 然後儲存您的變更。
 
 >[!NOTE]
@@ -89,13 +89,13 @@ AKS 可設定為使用 Azure Active Directory (AD) 進行使用者驗證。 如�
 
 記錄和事件訊息會根據在視圖中選取的資源類型而受到限制。
 
-| 檢視 | 資源類型 | 記錄或事件 | 呈現的資料 |
+| 檢視表 | 資源類型 | 記錄或事件 | 呈現的資料 |
 |------|---------------|--------------|----------------|
 | 節點 | 節點 | Event - 事件 | 當選取節點時, 事件不會經過篩選, 而且會顯示整個叢集的 Kubernetes 事件。 窗格標題會顯示叢集的名稱。 |
 | 節點 | Pod | Event - 事件 | 選取 pod 時, 事件會篩選到其命名空間。 窗格標題會顯示 pod 的命名空間。 | 
-| Controllers | Pod | Event - 事件 | 選取 pod 時, 事件會篩選到其命名空間。 窗格標題會顯示 pod 的命名空間。 |
-| Controllers | Controller | Event - 事件 | 選取控制器時, 事件會篩選到其命名空間。 窗格標題會顯示控制器的命名空間。 |
-| 節點/控制器/容器 | 容器 | 記錄 | 窗格標題會顯示容器所群組的 pod 名稱。 |
+| 控制器 | Pod | Event - 事件 | 選取 pod 時, 事件會篩選到其命名空間。 窗格標題會顯示 pod 的命名空間。 |
+| 控制器 | 控制器 | Event - 事件 | 選取控制器時, 事件會篩選到其命名空間。 窗格標題會顯示控制器的命名空間。 |
+| 節點/控制器/容器 | 容器 | 記錄檔 | 窗格標題會顯示容器所群組的 pod 名稱。 |
 
 如果使用 AAD 搭配 SSO 設定 AKS 叢集，系統會在您第一次使用時，於該瀏覽器工作階段期間提示您進行驗證。 選取您的帳戶，然後向 Azure 完成驗證。  
 

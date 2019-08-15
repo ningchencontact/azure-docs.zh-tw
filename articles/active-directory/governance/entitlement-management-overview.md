@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678147"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032548"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>什麼是 Azure AD 權利管理？ (預覽)
 
@@ -33,6 +33,10 @@ ms.locfileid: "68678147"
 組織中的員工需要存取各種群組、應用程式和網站, 才能執行其工作。 管理這項存取是一項挑戰。 在大部分情況下, 專案的使用者所需的所有資源並沒有組織的清單。 專案經理對於所需的資源、涉及的人員, 以及專案的持續時間有很大的瞭解。 不過, 專案經理通常沒有核准或授與存取權給其他人的許可權。 當您嘗試使用外部個人或公司時, 此案例會變得更複雜。
 
 Azure Active Directory (Azure AD) 權利管理可協助您管理內部使用者和組織外部使用者的群組、應用程式和 SharePoint Online 網站的存取權。
+
+這段影片提供權利管理和其商業價值的總覽:
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
 ## <a name="why-use-entitlement-management"></a>為何要使用權利管理？
 

@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: f7c9bcc51757100cb1fc957dee12213bc8bf2eec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 54cf0a60c86e82880573dd18dcb80ece8e1e51f2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556595"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035017"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 查詢和管理任何服務的資料分割。
@@ -30,17 +29,17 @@ ms.locfileid: "60556595"
 | --- | --- |
 | data-loss | 此 API 會引發所指定分割區的資料遺失。 |
 | data-loss-status | 針對使用 StartDataLoss API 啟動的分割區資料遺失作業，取得作業的進度。 |
-| health | 取得指定 Service Fabric 分割區的健康情況。 |
-| info | 取得 Service Fabric 分割區的相關資訊。 |
-| list | 取得 Service Fabric 服務的分割區清單。 |
-| load | 取得所指定 Service Fabric 分割區的負載資訊。 |
+| 健康狀態 | 取得指定 Service Fabric 分割區的健康情況。 |
+| 資訊 | 取得 Service Fabric 分割區的相關資訊。 |
+| 清單 | 取得 Service Fabric 服務的分割區清單。 |
+| 載入 | 取得所指定 Service Fabric 分割區的負載資訊。 |
 | load-reset | 重設 Service Fabric 分割區目前的負載。 |
 | quorum-loss | 導致指定具狀態服務分割區的仲裁遺失。 |
 | quorum-loss-status | 針對在分割區上使用 StartQuorumLoss API 啟動的仲裁遺失作業，取得作業的進度。 |
 | recover | 表示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失的特定分割區。 |
 | recover-all | 指示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失狀態的所有服務 (包括系統服務)。 |
 | report-health | 傳送 Service Fabric 分割區的健康情況報告。 |
-| restart | 此 API 會重新啟動所指定分割區的部分或全部複本或執行個體。 |
+| 重新啟動 | 此 API 會重新啟動所指定分割區的部分或全部複本或執行個體。 |
 | restart-status | 針對使用 StartPartitionRestart 啟動的 PartitionRestart 作業，取得作業的進度。 |
 | svc-name | 取得分割區的 Service Fabric 服務名稱。 |
 
@@ -313,7 +312,7 @@ ms.locfileid: "60556595"
 |引數|描述|
 | --- | --- |
 | --health-property [必要] | 健康情況資訊的屬性。 <br><br> 實體可以有不同屬性的健康情況報告。 屬性是一個字串而不是固定的列舉，以便讓報告程式在分類觸發報告的狀態條件時較有彈性。 例如，SourceId 為 "LocalWatchdog" 的報告程式可以監視節點上可用磁碟的狀態，因此可以針對該節點回報 "AvailableDisk" 屬性。 該相同報告程式還可以監視節點連線能力，因此可以針對該相同節點回報 "Connectivity" 屬性。 在健康狀態資料存放區中，會將這些報告視為所指定節點的個別健康情況事件。 與 SourceId 搭配使用時，此屬性可唯一識別健康情況資訊。 |
-| --health-state    [必要] | 可能的值包括\:：'Invalid'、'Ok'、'Warning'、'Error'、'Unknown'。 |
+| --health-state    [必要] | 可能的值包括：'Invalid'、'Ok'、'Warning'、'Error'、'Unknown'。 |
 | --partition-id [必要] | 分割區的識別。 |
 | --source-id       [必要] | 針對產生健康情況資訊的用戶端/看門狗/系統元件，用來識別的來源名稱。 |
 | --description | 健康情況資訊的描述。 <br><br> 這代表任意格式的文字，可用來新增人類可讀的報告相關資訊。 描述的字串長度上限為 4096 個字元。 如果提供的字串超出此長度，將會自動截斷。 截斷時，描述的最後字元會包含 "[已截斷]" 標記，而總字串大小會是 4096 個字元。 此標記的存在可向使用者指出已發生截斷情況。 請注意，截斷時，描述的字元數會少於來自原始字串的 4096 個字元。 |

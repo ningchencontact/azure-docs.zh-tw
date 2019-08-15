@@ -1,6 +1,6 @@
 ---
-title: 設定客戶管理的金鑰，從 Azure 入口網站的 Azure 儲存體加密
-description: 了解如何使用 Azure 入口網站設定 Azure 儲存體加密的客戶管理金鑰。 客戶管理的金鑰可讓您建立、 輪替、 停用和撤銷的存取控制。
+title: 針對來自 Azure 入口網站的 Azure 儲存體加密設定客戶管理的金鑰
+description: 瞭解如何使用 Azure 入口網站來設定 Azure 儲存體加密的客戶管理金鑰。 客戶管理的金鑰可讓您建立、輪替、停用及撤銷存取控制。
 services: storage
 author: tamram
 ms.service: storage
@@ -9,67 +9,68 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: baabc5a8e1d063cb51a3edea3a7218591e85aa1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154162"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030954"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>設定客戶管理的金鑰，從 Azure 入口網站的 Azure 儲存體加密
+# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>針對來自 Azure 入口網站的 Azure 儲存體加密設定客戶管理的金鑰
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-本文說明如何使用客戶管理的金鑰，使用設定金鑰保存庫[Azure 入口網站](https://portal.azure.com/)。 若要了解如何建立金鑰保存庫使用 Azure 入口網站，請參閱[快速入門：設定並從使用 Azure 入口網站的 Azure 金鑰保存庫擷取祕密](../../key-vault/quick-create-portal.md)。 
+本文說明如何使用[Azure 入口網站](https://portal.azure.com/), 以客戶管理的金鑰來設定金鑰保存庫。 若要瞭解如何使用 Azure 入口網站建立金鑰保存庫, 請參閱[快速入門:使用 Azure 入口網站](../../key-vault/quick-create-portal.md)從 Azure Key Vault 設定和取出秘密。 
 
 
 > [!IMPORTANT]
-> 使用客戶管理的金鑰使用 Azure 儲存體加密需要金鑰保存庫有兩個必要的屬性設定，**虛刪除**並**不要清除**。 當您在 Azure 入口網站中建立新的金鑰保存庫，則預設會啟用這些屬性。 不過，如果您要啟用現有的金鑰保存庫上的這些屬性時，您必須使用 PowerShell 或 Azure CLI。
+> 使用客戶管理的金鑰搭配 Azure 儲存體加密時, 金鑰保存庫必須設定兩個必要屬性, 即虛**刪除**和「不要**清除**」。 當您在 Azure 入口網站中建立新的金鑰保存庫時, 預設會啟用這些屬性。 不過, 如果您需要在現有的金鑰保存庫上啟用這些屬性, 則必須使用 PowerShell 或 Azure CLI。
+> 僅支援 RSA 金鑰和金鑰大小2048。
 
 ## <a name="enable-customer-managed-keys"></a>啟用客戶管理的金鑰
 
-若要啟用客戶管理的金鑰，在 Azure 入口網站中，請遵循下列步驟：
+若要在 Azure 入口網站中啟用客戶管理的金鑰, 請遵循下列步驟:
 
 1. 瀏覽至儲存體帳戶。
-1. 在儲存體帳戶的 [設定]  刀鋒視窗上，按一下 [加密]  。 選取 [使用您自己的金鑰]  選項，如下圖所示。
+1. 在儲存體帳戶的 [設定] 刀鋒視窗上，按一下 [加密]。 選取 [使用您自己的金鑰] 選項，如下圖所示。
 
-    ![入口網站的螢幕擷取畫面顯示 [加密] 選項](./media/storage-encryption-keys-portal/ssecmk1.png)
+    ![顯示加密選項的入口網站螢幕擷取畫面](./media/storage-encryption-keys-portal/ssecmk1.png)
 
-## <a name="specify-a-key"></a>指定索引鍵
+## <a name="specify-a-key"></a>指定金鑰
 
-啟用客戶管理的金鑰之後，您必須有機會指定儲存體帳戶相關聯的索引鍵。
+啟用客戶管理的金鑰後, 您將有機會指定與儲存體帳戶相關聯的金鑰。
 
 ### <a name="specify-a-key-as-a-uri"></a>以 URI 形式指定金鑰
 
-若要指定索引鍵為 URI，請遵循下列步驟：
+若要指定金鑰做為 URI, 請遵循下列步驟:
 
-1. 若要在 Azure 入口網站中尋找金鑰 URI，請瀏覽至金鑰保存庫，然後選取**金鑰**設定。 選取所需的金鑰，然後按一下要檢視其設定的索引鍵。 複製的值**金鑰識別碼**欄位，以提供 URI。
+1. 若要找出 Azure 入口網站中的金鑰 URI, 請流覽至您的金鑰保存庫, 然後選取 [**金鑰**] 設定。 選取所需的金鑰, 然後按一下金鑰以查看其設定。 複製提供 URI 的 [**金鑰識別碼**] 欄位的值。
 
-    ![螢幕擷取畫面顯示金鑰保存庫金鑰 URI](media/storage-encryption-keys-portal/key-uri-portal.png)
+    ![顯示金鑰保存庫金鑰 URI 的螢幕擷取畫面](media/storage-encryption-keys-portal/key-uri-portal.png)
 
-1. 在 **加密**設定為您的儲存體帳戶，選擇**輸入金鑰 URI**選項。
-1. 在 [金鑰 URI]  欄位中，指定 URI。
+1. 在儲存體帳戶的 [**加密**設定] 中, 選擇 [**輸入金鑰 URI** ] 選項。
+1. 在 [金鑰 URI] 欄位中，指定 URI。
 
-   ![螢幕擷取畫面顯示如何輸入金鑰 URI](./media/storage-encryption-keys-portal/ssecmk2.png)
+   ![顯示如何輸入金鑰 URI 的螢幕擷取畫面](./media/storage-encryption-keys-portal/ssecmk2.png)
 
 ### <a name="specify-a-key-from-a-key-vault"></a>從金鑰保存庫指定金鑰
 
-若要指定金鑰保存庫的金鑰，請先確定您有金鑰保存庫，包含索引鍵。 若要指定從 key vault 的金鑰，請遵循下列步驟：
+若要從金鑰保存庫指定金鑰, 請先確定您有包含金鑰的金鑰保存庫。 若要從金鑰保存庫指定金鑰, 請遵循下列步驟:
 
-1. 選擇 [從 Key Vault 選取]  選項。
+1. 選擇 [從 Key Vault 選取] 選項。
 2. 選擇包含您想要使用之金鑰的金鑰保存庫。
 3. 從金鑰保存庫選擇金鑰。
 
-   ![顯示客戶管理金鑰的選項螢幕擷取畫面](./media/storage-encryption-keys-portal/ssecmk3.png)
+   ![顯示客戶管理的金鑰選項的螢幕擷取畫面](./media/storage-encryption-keys-portal/ssecmk3.png)
 
-## <a name="update-the-key-version"></a>更新金鑰的版本
+## <a name="update-the-key-version"></a>更新金鑰版本
 
-當您建立新版本的金鑰時，您將需要更新儲存體帳戶，以使用新的版本。 請遵循下列步驟：
+當您建立新版本的金鑰時, 您必須更新儲存體帳戶, 才能使用新版本。 請遵循下列步驟：
 
-1. 瀏覽至您的儲存體帳戶，並顯示**加密**設定。
-1. 指定新的金鑰版本的 URI。 或者，您可以選取金鑰保存庫以及金鑰一次更新的版本。
+1. 流覽至您的儲存體帳戶, 並顯示**加密**設定。
+1. 指定新金鑰版本的 URI。 或者, 您可以再次選取金鑰保存庫和金鑰, 以更新版本。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [待用資料的 azure 儲存體加密](storage-service-encryption.md)
+- [待用資料的 Azure 儲存體加密](storage-service-encryption.md)
 - [什麼是 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)？

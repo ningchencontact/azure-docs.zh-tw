@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 590be42d5ba96133739d511b5a0a6b3e5a5634ff
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60851531"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033621"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>如何設定 App Service 應用程式以使用 Twitter 登入
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -31,11 +31,11 @@ ms.locfileid: "60851531"
 
 ## <a name="register"> </a>向 Twitter 註冊您的應用程式
 1. 登入 [Azure 入口網站]，並瀏覽到您的應用程式。 複製您的 **URL**。 您將使用此 URL 設定您的 Twitter 應用程式。
-2. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [建立新的應用程式]  。
-3. 針對您新的應用程式輸入 [名稱]  和 [說明]  。 貼上您應用程式的 **URL** 作為 [網站]  值。 然後，針對 [回呼 URL]  ，貼上您之前複製的 [回呼 URL]  。 這是您已附加路徑 /.auth/login/twitter/callback  的行動應用程式閘道器。 例如： `https://contoso.azurewebsites.net/.auth/login/twitter/callback`。 請確實使用 HTTPS 配置。
+2. 瀏覽至 [Twitter Developers] 網站，使用您的 Twitter 帳戶認證登入，然後按一下 [建立新的應用程式]。
+3. 針對您新的應用程式輸入 [名稱]和 [說明]。 貼上您應用程式的 **URL** 作為 [網站]值。 然後，針對 [回呼 URL]，貼上您之前複製的 [回呼 URL]。 這是您已附加路徑 /.auth/login/twitter/callback 的行動應用程式閘道器。 例如： `https://contoso.azurewebsites.net/.auth/login/twitter/callback`。 請確實使用 HTTPS 配置。
 4. 在頁面底部，閱讀並接受條款。 然後按一下 [ **建立 Twitter 應用程式**]。 這會註冊應用程式並顯示應用程式詳細資料。
-5. 按一下 [設定]  索引標籤，勾選 [允許此應用程式用來以 Twitter 登入]  ，然後按一下 [更新設定]  。
-6. 選取 [ **金鑰和存取權杖** ] 索引標籤。記下 [消費者金鑰 (API 金鑰)]  和 [消費者密鑰 (API 密鑰)]  的值。
+5. 按一下 [設定] 索引標籤，勾選 [允許此應用程式用來以 Twitter 登入]，然後按一下 [更新設定]。
+6. 選取 [ **金鑰和存取權杖** ] 索引標籤。記下 [消費者金鑰 (API 金鑰)] 和 [消費者密鑰 (API 密鑰)] 的值。
    
    > [!NOTE]
    > 消費者密碼是重要的安全性認證。 請勿將此密碼告訴任何人或隨應用程式一起散發。
@@ -43,15 +43,19 @@ ms.locfileid: "60851531"
    > 
 
 ## <a name="secrets"> </a>將 Twitter 資訊新增至應用程式
-1. 回到 [Azure 入口網站]，並瀏覽到您的應用程式。 依序按一下 [設定]  及 [驗證/授權]  。
-2. 如果 [驗證/授權] 功能未啟用，請切換到 [開]  。
-3. 按一下 [Twitter]  。 貼入您先前取得的應用程式識別碼和應用程式密鑰值。 然後按一下 [確定]  。
+1. 回到 [Azure 入口網站]，並瀏覽到您的應用程式。 依序按一下 [設定] 及 [驗證/授權]。
+2. 如果 [驗證/授權] 功能未啟用，請切換到 [開]。
+3. 按一下 [Twitter]。 貼入您先前取得的應用程式識別碼和應用程式密鑰值。 然後按一下 [確定]。
    
    ![][1]
    
    App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。 您必須在應用程式程式碼中授權使用者。
-4. (選擇性) 若要限制只有透過 Twitter 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作]  設為 [Twitter]  。 這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Twitter 以進行驗證。
-5. 按一下 [儲存]  。
+4. (選擇性) 若要限制只有透過 Twitter 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Twitter]。 這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Twitter 以進行驗證。
+
+> [!CAUTION]
+> 以這種方式限制存取適用于應用程式的所有呼叫, 這對於想要公開使用首頁的應用程式 (如許多單頁應用程式), 可能不是理想的做法。 對於這類應用程式, 可能會慣用 [**允許匿名要求 (無動作)** ], 而應用程式會以手動方式啟動登入本身, 如[這裡](overview-authentication-authorization.md#authentication-flow)所述。
+
+5. 按一下 [儲存]。
 
 現在，您已可在應用程式中使用 Twitter 進行驗證。
 

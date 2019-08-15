@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 4a0aab2ca2f0bbcee07f09124e68c3623d16004d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6949f46345a5520ec3e09508b6d81994f9a7deb5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848139"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036207"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 
@@ -212,12 +212,56 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 如需詳細資訊, 請參閱[az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference。 
 
-## <a name="using-vs-code"></a>使用 VS Code
+### <a name="using-vs-code"></a>使用 VS Code
 
 如需使用 VS Code 的詳細資訊, 請參閱透過[VS Code 延伸模組部署至 AKS](how-to-vscode-tools.md#deploy-and-manage-models)。
 
 > [!IMPORTANT] 
 > 透過 VS Code 部署時, 必須事先建立 AKS 叢集或將其附加至您的工作區。
+
+## <a name="web-service-authentication"></a>Web 服務驗證
+
+部署到 Azure Kubernetes Service 時, 預設會啟用__金鑰型__驗證。 您也可以啟用__權杖__驗證。 權杖驗證需要用戶端使用 Azure Active Directory 帳戶來要求驗證權杖, 以用來對已部署的服務提出要求。
+
+若要__停__用驗證, `auth_enabled=False`請在建立部署設定時設定參數。 下列範例會使用 SDK 來停用驗證:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
+```
+
+如需從用戶端應用程式進行驗證的詳細資訊, 請參閱[使用部署為 web 服務的 Azure Machine Learning 模型](how-to-consume-web-service.md)。
+
+### <a name="authentication-with-keys"></a>使用金鑰進行驗證
+
+如果已啟用金鑰驗證, 您可以使用`get_keys`方法來取出主要和次要驗證金鑰:
+
+```python
+primary, secondary = service.get_keys()
+print(primary)
+```
+
+> [!IMPORTANT]
+> 如果您需要重新產生金鑰, 請使用[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+
+### <a name="authentication-with-tokens"></a>使用權杖進行驗證
+
+若要啟用權杖驗證, 請`token_auth_enabled=True`在建立或更新部署時設定參數。 下列範例會使用 SDK 來啟用權杖驗證:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
+```
+
+如果已啟用權杖驗證, 您可以使用`get_token`方法來取出 JWT 權杖和該權杖的到期時間:
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> 您將需要在權杖的`refresh_by`時間之後要求新的權杖。
+>
+> Microsoft 強烈建議您在與 Azure Kubernetes Service 叢集相同的區域中建立您的 Azure Machine Learning 工作區。 若要使用權杖進行驗證, web 服務會呼叫您的 Azure Machine Learning 工作區建立所在的區域。 如果您的工作區區域無法使用, 則即使您的叢集與工作區位於不同的區域, 您也無法提取 web 服務的權杖。 這實際上會導致 Azure AD 驗證無法使用, 直到您的工作區區域再次可用為止。 此外, 您的叢集區域和工作區區域之間的距離愈大, 提取權杖所需的時間就越長。
 
 ## <a name="update-the-web-service"></a>更新 Web 服務
 

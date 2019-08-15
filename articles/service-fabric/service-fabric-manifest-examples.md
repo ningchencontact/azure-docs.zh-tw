@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 85a3066095cfc30da19b06d26f41bdc156f85832
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10419240f730a6b68f1161f158f7f903a98a9933
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718218"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035607"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 應用程式和服務資訊清單範例
 本節包含應用程式和服務資訊清單的範例。 這些範例並非用來說明重要案例，而是要說明可用的不同設定及其使用方式。 

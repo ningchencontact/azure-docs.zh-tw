@@ -11,12 +11,12 @@ ms.date: 05/30/2019
 ms.author: martinle
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19
-ms.openlocfilehash: d20a600951a0fe586e981adf12127072df1b744c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 282fab70e3b6d1fcf81814b2dd599259e2396fb3
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428004"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036052"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>資料倉儲單位 (DWU) 和計算資料倉儲單位 (cDWU)
 
@@ -24,15 +24,15 @@ ms.locfileid: "66428004"
 
 ## <a name="what-are-data-warehouse-units"></a>什麼是資料倉儲單位
 
-Azure SQL 資料倉儲，將 CPU、 記憶體和 IO 組合到稱為 「 資料倉儲單位 (Dwu) 的計算縮放比例。 DWU 能以抽象而標準化的量值來呈現計算資源與效能。 您的服務層級的變更會改變是提供給系統，進而調整的效能與成本，您的系統的 Dwu 數目。
+Azure SQL 資料倉儲的 CPU、記憶體和 IO 會組合成計算規模的單位, 稱為資料倉儲單位 (Dwu)。 DWU 能以抽象而標準化的量值來呈現計算資源與效能。 變更您的服務層級會改變系統可用的 Dwu 數目, 進而調整系統的效能和成本。
 
-針對較高的效能，您可以增加資料倉儲單位數目。 較低的效能，降低資料倉儲單位。 儲存體和計算成本會分別計費，因此，變更資料倉儲單位不會影響儲存體成本。
+為了達到較高的效能, 您可以增加資料倉儲單位的數目。 針對較低的效能, 減少資料倉儲單位。 儲存體和計算成本會分別計費，因此，變更資料倉儲單位不會影響儲存體成本。
 
 資料倉儲單位的效能是以這些資料倉儲工作負載計量為根據：
 
-- 標準資料倉儲查詢可以掃描大量資料列，並接著執行複雜的彙總速度。 這個作業是 I/O 和 CPU 密集型作業。
-- 如何快速資料倉儲可以內嵌資料從 Azure 儲存體 Blob 或 Azure Data Lake。 這個作業是網路和 CPU 密集型作業。
-- 如何快速[ `CREATE TABLE AS SELECT` ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 命令可以將資料表複製。 這個作業牽涉到從儲存體讀取資料、跨應用裝置的節點散發資料，以及重新寫入至儲存體。 這個作業是 CPU、IO 和網路密集型作業。
+- 標準資料倉儲查詢可以多快掃描大量資料列, 然後執行複雜的匯總。 這個作業是 I/O 和 CPU 密集型作業。
+- 資料倉儲可從 Azure 儲存體 Blob 或 Azure Data Lake 內嵌資料的速度。 這個作業是網路和 CPU 密集型作業。
+- [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-sql 命令可以複製資料表的速度。 這個作業牽涉到從儲存體讀取資料、跨應用裝置的節點散發資料，以及重新寫入至儲存體。 這個作業是 CPU、IO 和網路密集型作業。
 
 增加 DWU：
 
@@ -46,7 +46,7 @@ Azure SQL 資料倉儲，將 CPU、 記憶體和 IO 組合到稱為 「 資料�
   > [!NOTE]
   > Azure SQL 資料倉儲 Gen2 最近新增了其他調整規模功能，以支援最低 100 計算資料倉儲單位的計算層。 目前在 Gen1 上需要較低計算層的現有資料倉儲，現在可以升級到目前可用的區域中的 Gen2，不需要額外成本。  如果尚不支援您的區域，您仍然可以升級到支援的地區。 如需詳細資訊，請參閱[升級至 Gen2](upgrade-to-latest-generation.md)。
 
-在 T-SQL 的 SERVICE_OBJECTIVE 設定會決定服務層級和資料倉儲的效能層級。
+在 T-sql 中, SERVICE_OBJECTIVE 設定會決定您資料倉儲的服務等級和效能層級。
 
 ```sql
 --Gen1
@@ -58,8 +58,8 @@ WITH
 
 --Gen2
 CREATE DATABASE myComputeSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000c'
+(Edition = 'Datawarehouse'
+ ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
@@ -73,13 +73,13 @@ WITH
 
 DWU 和 cDWU 均支援將計算相應增加或減少，並且在您不需使用資料倉儲時暫停計算。 這些作業全都依需求指定。 Gen2 會使用計算節點上的本機磁碟型快取來改善效能。 當您調整或暫停系統時，快取就會失效，因此，需要一段快取準備時間，才能達到最佳效能。  
 
-當您增加資料倉儲單位時，正是以線性方式增加運算資源。 Gen2 提供最佳查詢效能和最大的規模。 Gen2 系統也會讓大部分使用快取。
+當您增加資料倉儲單位時，正是以線性方式增加運算資源。 Gen2 提供最佳的查詢效能和最高規模。 Gen2 系統也會充分利用快取。
 
 ### <a name="capacity-limits"></a>容量限制
 
 每部 SQL 伺服器 (例如 myserver.database.windows.net) 都有[資料庫交易單位 (DTU)](../sql-database/sql-database-what-is-a-dtu.md) 配額，允許有特定數目的資料倉儲單位。 如需詳細資訊，請參閱[工作負載管理容量限制](sql-data-warehouse-service-capacity-limits.md#workload-management)。
 
-## <a name="how-many-data-warehouse-units-do-i-need"></a>我需要多少資料倉儲單位
+## <a name="how-many-data-warehouse-units-do-i-need"></a>我需要多少個數據倉儲單位
 
 理想的資料倉儲單位數大部分取決於您的工作負載，以及您已載入系統的資料量。
 
@@ -87,7 +87,7 @@ DWU 和 cDWU 均支援將計算相應增加或減少，並且在您不需使用�
 
 1. 首先選取較小的 DWU。
 2. 當您的測試資料載入系統時監視應用程式效能，觀察比較所選 DWU 數目與您觀察到的效能。
-3. 針對定期的尖峰活動期間，識別任何其他需求。 顯示重要的工作負載尖峰與低谷活動中的可能需要經常進行調整。
+3. 針對定期的尖峰活動期間，識別任何其他需求。 在活動中顯示明顯尖峰和低谷的工作負載可能需要經常調整。
 
 SQL 資料倉儲是一個相應放大系統，可以佈建大量的計算以及查詢相當大量的資料。 若要查看真正用以調整的功能 (尤其是在較大的 DWU 上)，建議您在進行調整以確定有足夠資料可提供給 CPU 時調整資料集。 針對調整測試，我們建議至少使用 1 TB。
 
@@ -124,17 +124,17 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 變更 DWU 或 cDWU：
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com)、開啟您的資料庫，然後按一下 [調整]  。
+1. 開啟 [Azure 入口網站](https://portal.azure.com)、開啟您的資料庫，然後按一下 [調整]。
 
-2. 在 [調整]  下方，將滑桿向左或右移動來變更 DWU 設定。
+2. 在 [調整] 下方，將滑桿向左或右移動來變更 DWU 設定。
 
-3. 按一下 [儲存]  。 確認訊息隨即出現。 按一下 [是]  以確認或 [否]  以取消。
+3. 按一下 [儲存]。 確認訊息隨即出現。 按一下 [是] 以確認或 [否] 以取消。
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要變更 Dwu 或 Cdwu，請使用[組 AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet。 下列範例會將裝載在 MyServer 伺服器上的資料庫 MySQLDW 的服務等級目標設定為 DW1000。
+若要變更 Dwu 或 Cdwu, 請使用[Set-azsqldatabase 搭配](/powershell/module/az.sql/set-azsqldatabase)PowerShell Cmdlet。 下列範例會將裝載在 MyServer 伺服器上的資料庫 MySQLDW 的服務等級目標設定為 DW1000。
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -159,7 +159,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>REST API
 
-若要變更 DWU，請使用[建立或更新資料庫](/rest/api/sql/databases/createorupdate) REST API。 下列範例會設定為 DW1000 資料庫 MySQLDW 裝載在 MyServer 伺服器的服務等級目標。 此伺服器位於 ResourceGroup1 這個 Azure 資源群組。
+若要變更 DWU，請使用[建立或更新資料庫](/rest/api/sql/databases/createorupdate) REST API。 下列範例會將資料庫 MySQLDW 的服務層級目標設定為 DW1000, 該資料庫會裝載在伺服器 MyServer 上。 此伺服器位於 ResourceGroup1 這個 Azure 資源群組。
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -203,14 +203,14 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-此 DMV 會傳回作業和作業，因為它是 IN_PROGRESS 或完成狀態等您 SQL 資料倉儲上各種管理作業的相關資訊。
+此 DMV 會傳回 SQL 資料倉儲的各種管理作業相關資訊, 例如作業和作業狀態, 也就是 [IN_PROGRESS] 或 [已完成]。
 
 ## <a name="the-scaling-workflow"></a>調整工作流程
 
-當您啟動調整規模作業時，系統會先刪除所有開啟的工作階段，回復任何開啟的交易，以確保一致的狀態。 針對調整規模作業，只有在這個交易回復完成後調整才會發生。  
+當您開始調整作業時, 系統會先刪除所有開啟的會話, 並回復任何開啟的交易, 以確保狀態一致。 針對調整規模作業，只有在這個交易回復完成後調整才會發生。  
 
-- 相應增加作業中，系統會卸離所有計算節點，會佈建額外的計算節點，並再重新附加至儲存層。
-- 針對相應減少作業，系統會中斷連結的所有計算節點，並再重新附加只有所需的節點到儲存層。
+- 針對相應增加作業, 系統會卸離所有計算節點、布建額外的計算節點, 然後會重新連結至儲存層。
+- 針對相應減少作業, 系統會卸離所有計算節點, 然後只將所需的節點會重新連結至儲存層。
 
 ## <a name="next-steps"></a>後續步驟
 

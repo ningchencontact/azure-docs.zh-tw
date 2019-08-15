@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e6b484dabd77a142961db2d97242896790fa3d8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3f506b46ef563f47fc7c67b759d3fcd08b7509d
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836947"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035181"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 建立 Service Fabric Mesh 資源。
@@ -28,7 +27,7 @@ ms.locfileid: "60836947"
 
 |命令|描述|
 | --- | --- |
-| create | 建立 Service Fabric Mesh 資源的部署。 |
+| 建立 | 建立 Service Fabric Mesh 資源的部署。 |
 
 ## <a name="sfctl-mesh-deployment-create"></a>sfctl mesh deployment create
 建立 Service Fabric Mesh 資源的部署。

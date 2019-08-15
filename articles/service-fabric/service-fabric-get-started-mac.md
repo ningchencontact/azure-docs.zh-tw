@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 84d1f52b5fb8f18d3578bad28930f74534b1409f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ce8d944e7334b071a4a48f38f8c4fafaeff4c47
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60947583"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035277"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -31,7 +30,7 @@ ms.locfileid: "60947583"
 
 您可以建置 Azure Service Fabric 應用程式，以使用 Mac OS X 在 Linux 叢集上執行。本文件涵蓋如何設定您的 Mac 進行開發。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行本機 Service Fabric 叢集，我們提供預先設定的 Docker 容器映像。 開始之前，您需要：
 
 * 至少 4 GB 的 RAM。
@@ -53,7 +52,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    您可以直接在 Docker 安裝路徑的 daemon.json 檔案中更新這些設定。 您可以直接修改 Docker 中的精靈組態設定。 選取 [Docker 圖示]  ，然後選取 [喜好設定]   > [精靈]   > [進階]  。
+    您可以直接在 Docker 安裝路徑的 daemon.json 檔案中更新這些設定。 您可以直接修改 Docker 中的精靈組態設定。 選取 [Docker 圖示]，然後選取 [喜好設定] > [精靈] > [進階]。
     
     >[!NOTE]
     >
@@ -61,7 +60,7 @@ Azure Service Fabric 不會在 Mac OS X 上以原生方式執行。若要執行�
     >
 
     >[!TIP]
-    >測試大型應用程式時，建議提高配置給 Docker 的資源。 選取 [Docker 圖示]  ，然後選取 [進階]  來調整核心數目和記憶體，即可完成此作業。
+    >測試大型應用程式時，建議提高配置給 Docker 的資源。 選取 [Docker 圖示]，然後選取 [進階] 來調整核心數目和記憶體，即可完成此作業。
 
 2. 在新目錄中建立一個名為 `Dockerfile` 的檔案，以建置 Service Fabric 映像：
 
@@ -174,8 +173,9 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
     brew install gradle
     ```
 
-    >[!TIP]
-    > 請務必確認您已安裝正確的 JDK 版本。 
+    > [!IMPORTANT]
+    > 目前的`brew cask install java`版本可能會安裝較新版本的 JDK。
+    > 請務必安裝 JDK 8。
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>在 Mac 上從終端機部署應用程式
 

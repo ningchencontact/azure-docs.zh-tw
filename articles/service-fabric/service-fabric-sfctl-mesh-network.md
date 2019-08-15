@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: feec5c4796c025c1707b4eb93bfe34b8d384ef3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e92fbc3856bba69db11aba6ad5d85e814bf30a81
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694516"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035055"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 可取得和刪除 mesh 網路資源。
@@ -28,8 +27,8 @@ ms.locfileid: "60694516"
 
 |命令|描述|
 | --- | --- |
-| delete | 可刪除網路資源。 |
-| list | 可列出所有網路資源。 |
+| 刪除 | 可刪除網路資源。 |
+| 清單 | 可列出所有網路資源。 |
 | 顯示 | 可取得指定名稱的網路資源。 |
 
 ## <a name="sfctl-mesh-network-delete"></a>sfctl mesh network delete

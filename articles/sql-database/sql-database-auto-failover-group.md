@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/18/2019
-ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640098"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035061"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -133,9 +133,13 @@ ms.locfileid: "68640098"
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>將容錯移轉群組與單一資料庫和彈性集區一起使用的最佳做法
 
-自動容錯移轉群組必須在主要 SQL Database 伺服器上設定，並將其連接至不同 Azure 區域中的次要 SQL Database 伺服器。  群組可以包含這些伺服器中的所有或部分資料庫。 下圖說明使用多個資料庫和自動容錯移轉群組之異地備援雲端應用程式的一般設定。
+自動容錯移轉群組必須在主要 SQL Database 伺服器上設定，並將其連接至不同 Azure 區域中的次要 SQL Database 伺服器。 群組可以包含這些伺服器中的所有或部分資料庫。 下圖說明使用多個資料庫和自動容錯移轉群組之異地備援雲端應用程式的一般設定。
 
 ![自動容錯移轉](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> 如需將單一資料庫新增至容錯移轉群組的詳細逐步教學課程, 請參閱[將單一資料庫新增到容錯移轉群組](sql-database-single-database-failover-group-tutorial.md)。 
+
 
 在商務持續性前提下設計服務時，請遵循這些一般指導方針：
 
@@ -167,12 +171,17 @@ ms.locfileid: "68640098"
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>使用容錯移轉群組搭配受控實例的最佳做法
 
-自動容錯移轉群組必須在主要執行個體上設定，並將其連接至不同 Azure 區域中的次要執行個體。  執行個體中的所有資料庫都將複寫至次要執行個體。 下圖說明使用受控執行個體和自動容錯移轉群組之異地備援雲端應用程式的一般設定。
+> [!IMPORTANT]
+> 受控執行個體的自動容錯移轉群組處於公開預覽狀態。
+
+自動容錯移轉群組必須在主要執行個體上設定，並將其連接至不同 Azure 區域中的次要執行個體。  執行個體中的所有資料庫都將複寫至次要執行個體。 
+
+下圖說明使用受控執行個體和自動容錯移轉群組之異地備援雲端應用程式的一般設定。
 
 ![自動容錯移轉](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> 受控執行個體的自動容錯移轉群組處於公開預覽狀態。
+> [!NOTE]
+> 如需新增受控實例以使用容錯移轉群組的詳細逐步教學課程, 請參閱[將受控實例新增至容錯移轉群組](sql-database-managed-instance-failover-group-tutorial.md)。 
 
 如果您的應用程式使用受控實例作為資料層, 請在設計商務持續性時遵循下列一般指導方針:
 
@@ -367,6 +376,10 @@ ms.locfileid: "68640098"
 
 ## <a name="next-steps"></a>後續步驟
 
+- 如需詳細教學課程, 請參閱
+    - [將單一資料庫新增至容錯移轉群組](sql-database-single-database-failover-group-tutorial.md)
+    - [將彈性集區新增至容錯移轉群組](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [將受控實例新增至容錯移轉群組](sql-database-managed-instance-failover-group-tutorial.md)
 - 如需範例指令碼，請參閱：
   - [在 Azure SQL Database 中, 使用 PowerShell 為單一資料庫設定主動式異地複寫](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [在 Azure SQL Database 中, 使用 PowerShell 為集區資料庫設定主動式異地複寫](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

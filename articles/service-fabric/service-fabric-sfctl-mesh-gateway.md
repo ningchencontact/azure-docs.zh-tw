@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27cfe380e5988f17ca79c430cde7defc7f7bc440
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8acb23b274e6062ae3c50ab80220ab93297037e
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839074"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036430"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
 取得和刪除 mesh 閘道資源。
@@ -28,8 +27,8 @@ ms.locfileid: "60839074"
 
 |命令|描述|
 | --- | --- |
-| delete | 可刪除閘道資源。 |
-| list | 可列出所有閘道資源。 |
+| 刪除 | 可刪除閘道資源。 |
+| 清單 | 可列出所有閘道資源。 |
 | 顯示 | 可取得指定名稱的閘道資源。 |
 
 ## <a name="sfctl-mesh-gateway-delete"></a>sfctl mesh gateway delete

@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6819bb32eecf8477e2c0727b50641858db21c784
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038443"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035922"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 取得複本服務詳細資料和應用程式資源中指定服務的清單複本。
@@ -28,7 +27,7 @@ ms.locfileid: "61038443"
 
 |命令|描述|
 | --- | --- |
-| list | 列出服務的所有複本。 |
+| 清單 | 列出服務的所有複本。 |
 | 顯示 | 取得應用程式服務的指定複本。 |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>sfctl mesh service-replica list

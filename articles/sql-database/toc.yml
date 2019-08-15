@@ -107,6 +107,8 @@
       items:
         - name: 使用 DMS 進行線上遷移
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: 新增至容錯移轉群組
+          href: sql-database-managed-instance-failover-group-tutorial.md
         - name: 設定異動複寫
           href: replication-with-sql-database-managed-instance.md
     - name: SQL Database 中的安全性

@@ -9,12 +9,12 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f75b472a49dfb360ccda21e73286880fcd506153
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: b8d627fd905741c76dd34eb4270f49d46b93abb1
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990763"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036093"
 ---
 # <a name="create-an-account-sas-with-net"></a>使用 .NET 建立帳戶 SAS
 
@@ -94,7 +94,7 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 - [使用共用存取簽章 (SAS) 授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)
 - [建立帳戶 SAS](/rest/api/storageservices/create-account-sas)

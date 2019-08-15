@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d9728db919f15eda49602f2619f1c27fbb42b57
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837482"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036551"
 ---
 # <a name="sfctl-application"></a>sfctl application
 建立、刪除與管理應用程式和應用程式類型。
@@ -28,15 +27,15 @@ ms.locfileid: "60837482"
 
 |命令|描述|
 | --- | --- |
-| create | 使用指定的描述來建立 Service Fabric 應用程式。 |
-| delete | 刪除現有 Service Fabric 應用程式。 |
+| 建立 | 使用指定的描述來建立 Service Fabric 應用程式。 |
+| 刪除 | 刪除現有 Service Fabric 應用程式。 |
 | deployed | 取得 Service Fabric 節點上所部署應用程式的相關資訊。 |
 | deployed-health | 取得 Service Fabric 節點上所部署應用程式健康情況的相關資訊。 |
 | deployed-list | 取得 Service Fabric 節點上所部署的應用程式清單。 |
-| health | 取得 Service Fabric 應用程式的健康情況。 |
-| info | 取得 Service Fabric 應用程式的相關資訊。 |
-| list | 取得在 Service Fabric 叢集中建立且符合所指定篩選條件的應用程式清單。 |
-| load | 取得 Service Fabric 應用程式的載入資訊。 |
+| 健康狀態 | 取得 Service Fabric 應用程式的健康情況。 |
+| 資訊 | 取得 Service Fabric 應用程式的相關資訊。 |
+| 清單 | 取得在 Service Fabric 叢集中建立且符合所指定篩選條件的應用程式清單。 |
+| 載入 | 取得 Service Fabric 應用程式的載入資訊。 |
 | manifest | 取得可描述應用程式類型的資訊清單。 |
 | provision | 使用外部存放區中的 .sfpkg 套件或使用映像存放區中的應用程式套件，向叢集佈建或註冊 Service Fabric 應用程式類型。 |
 | report-health | 傳送 Service Fabric 應用程式的健康情況報告。 |

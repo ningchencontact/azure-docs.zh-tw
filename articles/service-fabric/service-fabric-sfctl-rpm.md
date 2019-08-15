@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 04080d75042bfa8a07533336936165e0abef051b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f40451087aba5af5b02625ad3ac1ca6231d976c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556350"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035883"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 查詢命令，並將其傳送至修復管理員服務。
@@ -29,8 +28,8 @@ ms.locfileid: "60556350"
 |命令|描述|
 | --- | --- |
 | approve-force | 強制核准指定的修復工作。 |
-| delete | 刪除已完成的修復工作。 |
-| list | 取得符合所指定篩選條件的修復工作清單。 |
+| 刪除 | 刪除已完成的修復工作。 |
+| 清單 | 取得符合所指定篩選條件的修復工作清單。 |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm approve-force
 強制核准指定的修復工作。

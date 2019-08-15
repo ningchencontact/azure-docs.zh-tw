@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d33b4751b421f5af1536af9a88d15e060ab59bdb
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489068"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032439"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 權利管理 (預覽) 中查看報告和記錄
 
@@ -29,6 +29,12 @@ ms.locfileid: "68489068"
 > Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+使用者指派報告和 Azure Active Directory audit 記錄檔會提供您目錄中使用者的其他詳細資料。 身為系統管理員, 您可以查看使用者有權存取的資源, 並查看要求記錄以進行審核, 或判斷使用者要求的狀態。 本文說明如何使用「使用者指派」報告和 Azure AD 的「審核記錄」。
+
+觀看下列影片, 以瞭解如何使用權利管理來管理 Azure Active Directory 中的使用者存取:
+
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## <a name="view-resources-a-user-has-access-to"></a>查看使用者可存取的資源
 
@@ -72,7 +78,7 @@ Azure AD 會在要求進行時寫入其他的審核記錄, 包括:
 
 將存取權指派給使用者時, Azure AD 會寫入具有**活動** `Fulfill access package assignment`之`EntitlementManagement`類別目錄的 audit 記錄。  收到存取權的使用者是以**ActorUserPrincipalName**欄位識別。
 
-如果未指派存取權, 則 Azure AD 會在核准者拒絕要求`EntitlementManagement`時, 以活動`Deny access package assignment request`寫入類別目錄的審核記錄, 或者`Access package assignment request timed out (no approver action taken)`, 如果要求在核准者核准之前就超時。
+如果未指派存取權, 則 Azure AD 會在核准者拒絕要求`EntitlementManagement`時,以活動`Deny access package assignment request`寫入類別目錄的審核記錄, 或者`Access package assignment request timed out (no approver action taken)`, 如果要求在核准者核准之前就超時。
 
 當使用者的存取套件指派過期時, 使用者會取消, 或由系統管理員移除, 然後 Azure AD 寫入具有`EntitlementManagement` **活動**之`Remove access package assignment`類別目錄的 audit 記錄。
 

@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5412b83d8dfe92c6a24e717fb371c8963b808566
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 86b5e4b6bcf65c2174fa3d3743551813ce2f8b1b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990789"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034734"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>使用 PowerShell 建立容器或 blob 的使用者委派 SAS (預覽)
 
@@ -32,11 +32,6 @@ ms.locfileid: "68990789"
 
     - 使用 [設定] 底下的 [應用程式與功能]，從 Windows 移除任何先前安裝的 Azure PowerShell。
     - 從`%Program Files%\WindowsPowerShell\Modules`移除所有**Azure**模組。
-    - 因為 PowerShell 預設會載入最新的 Az. Storage 模組, 所以當您啟動主控台時, 您可能需要明確載入 1.3.1-preview 模組。 若要明確載入預覽模組, 請執行[import-module](/powershell/module/microsoft.powershell.core/import-module)命令:
-
-        ```powershell
-        Import-Module Az.Storage -RequiredVersion 1.3.1
-        ```
 
 1. 確定您已安裝最新版的 PowerShellGet。 開啟 Windows PowerShell 視窗，然後執行下列命令來安裝最新版本：
 
@@ -55,10 +50,21 @@ ms.locfileid: "68990789"
 1. 安裝支援使用者委派 SAS 的 Azure 儲存體預覽模組:
 
     ```powershell
-    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.3.1-preview –AllowPrerelease –AllowClobber –Force
+    Install-Module Az.Storage `
+        –Repository PSGallery `
+        -RequiredVersion 1.3.1-preview `
+        –AllowPrerelease `
+        –AllowClobber `
+        –Force
     ```
 
 1. 關閉並重新開啟 PowerShell 視窗。
+
+因為 PowerShell 預設會載入最新的 Az. Storage 模組, 所以當您啟動主控台時, 您可能需要明確載入 1.3.1-preview 模組。 若要明確載入預覽模組, 請執行[import-module](/powershell/module/microsoft.powershell.core/import-module)命令:
+
+```powershell
+Import-Module Az.Storage -RequiredVersion 1.3.1
+```
 
 如需有關安裝 Azure PowerShell 的詳細資訊, 請參閱[使用 PowerShellGet 安裝 Azure PowerShell](/powershell/azure/install-az-ps)。
 
@@ -142,8 +148,7 @@ New-AzStorageBlobSASToken -Context $ctx `
 傳回的使用者委派 SAS URI 將類似于:
 
 ```
-https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=4f6QzTteEZmrEMXWn7iEeI27vHrX13zVmL6rk2MbiyA%3D&skoid=e5981635-dcf0-4279-ab7b-ca1cbdf4a5c7&sktid=72f988bf-86f1-41af-91ab
--2d7cd011db47&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
+https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
 ```
 
 > [!NOTE]
@@ -160,7 +165,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 
 - [建立使用者委派 SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
 - [取得使用者委派金鑰作業](/rest/api/storageservices/get-user-delegation-key)

@@ -1,21 +1,21 @@
 ---
-title: 從自訂映像佈建 Azure Batch 集區 | Microsoft Docs
-description: 您可以從自訂映像建立 Batch 集區，以佈建含有您應用程式所需軟體和資料的計算節點。 自訂映像是設定計算節點以執行 Batch 工作負載的有效方式。
+title: 使用共用映射資源庫來建立集區 Azure Batch |Microsoft Docs
+description: 使用共用映射資源庫建立 Batch 集區, 以將自訂映射布建到包含應用程式所需軟體和資料的計算節點。 自訂映像是設定計算節點以執行 Batch 工作負載的有效方式。
 services: batch
 author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/14/2019
 ms.author: lahugh
-ms.openlocfilehash: d8bda817231ec0a5a733d5e586e49639c62ea177
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882833"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036702"
 ---
-# <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自訂映像來建立虛擬機器的集區
+# <a name="use-the-shared-image-gallery-to-create-a-pool"></a>使用共用映射資源庫來建立集區
 
 當您使用虛擬機器設定建立 Azure Batch 集區時，需指定 VM 映像，以提供集區中每個計算節點的作業系統。 您可以使用支援的 Azure Marketplace 映射來建立虛擬機器的集區, 或使用[共用映射資源庫](../virtual-machines/windows/shared-image-galleries.md)建立自訂映射。
 

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 118a36587667c815489ddad03426b5cfcfee7382
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323168"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036682"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -70,6 +70,7 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 | 每個應用程式的應用程式封裝 | 40 |
 | 每個集區的應用程式套件 | 10 |
 | 工作存留期上限 | 180 天<sup>1</sup> |
+| 每個計算節點的[裝載](virtual-file-mount.md) | 10 |
 
 <sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 180 天。 已完成的工作會保存七天;無法存取未在最長存留期內完成之工作的資料。
 
@@ -77,8 +78,8 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 
 在[Azure 入口網站][portal]中, 查看您的 Batch 帳戶配額。
 
-1. 在入口網站中選取 [Batch 帳戶]  ，然後選取您感興趣的 Batch 帳戶。
-1. 在 Batch 帳戶的功能表上選取 [配額]  。
+1. 在入口網站中選取 [Batch 帳戶] ，然後選取您感興趣的 Batch 帳戶。
+1. 在 Batch 帳戶的功能表上選取 [配額]。
 1. 檢視目前套用至 Batch 帳戶的配額
 
     ![Batch 帳戶配額][account_quotas]
@@ -89,9 +90,9 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 
 ### <a name="increase-cores-quota-in-batch"></a>在 Batch 中增加核心配額 
 
-1. 選取入口網站儀表板上的 [說明 + 支援]  圖格或入口網站右上角的問號 ( **？** )。
-1. 選取 [新增支援要求]   > [基本]  。
-1. 在 [基本]  中：
+1. 選取入口網站儀表板上的 [說明 + 支援] 圖格或入口網站右上角的問號 ( **？** )。
+1. 選取 [新增支援要求] > [基本]。
+1. 在 [基本] 中：
    
     a. **問題類型** > **服務與訂用帳戶限制 (配額)**
    
@@ -99,9 +100,9 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
    
     c. **配額類型** > **批次**
       
-    選取 [下一步]  。
+    選取 [下一步]。
     
-1. 在 [詳細資料]  中：
+1. 在 [詳細資料] 中：
       
     a. 在 [**提供詳細資料**] 中, 指定 [位置]、[配額類型] 和 [Batch 帳戶]。
     
@@ -119,11 +120,11 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 
     b. 根據您的[業務影響][support_sev]來選取**嚴重性**。
 
-    選取 [下一步]  。
+    選取 [下一步]。
 
-1. 在 [合約資訊]  中：
+1. 在 [合約資訊] 中：
    
-    a. 選取 [偏好的連絡方式]  。
+    a. 選取 [偏好的連絡方式]。
    
     b. 確認並輸入必要的連絡人詳細資料。
    
@@ -139,7 +140,7 @@ Batch 服務所設定的其他限制。 不同于[資源配額](#resource-quotas
 * 一個[公用 IP 位址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * 一個[負載平衡器](../load-balancer/load-balancer-overview.md)
 
-這些資源會配置於包含在建立 Batch 集區時所提供之虛擬網路的訂用帳戶中。 這些資源會被訂用帳戶的[資源配額](../azure-subscription-service-limits.md)所限制。 如果您計畫在虛擬網路中進行大型的集區部署，請檢查這些資源的訂用帳戶配額。 若有需要，請在 Azure 入口網站中選取 [説明 + 支援]  來要求提升配額。
+這些資源會配置於包含在建立 Batch 集區時所提供之虛擬網路的訂用帳戶中。 這些資源會被訂用帳戶的[資源配額](../azure-subscription-service-limits.md)所限制。 如果您計畫在虛擬網路中進行大型的集區部署，請檢查這些資源的訂用帳戶配額。 若有需要，請在 Azure 入口網站中選取 [説明 + 支援] 來要求提升配額。
 
 
 ## <a name="related-topics"></a>相關主題

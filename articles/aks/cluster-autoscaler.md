@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: ef3e9a9c68ca524b7f7f86c92130a10952a9f065
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: dc5e862109a766f708338ebddb91a75ffc550306
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949610"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031927"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整叢集, 以符合 Azure Kubernetes Service 上的應用程式需求 (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "68949610"
 本文示範如何啟用和管理 AKS 叢集中的叢集自動調整程式。 叢集自動調整程式只能在 AKS 叢集的預覽中進行測試。
 
 > [!IMPORTANT]
-> AKS 預覽功能是自助服務, 可加入宣告。 其提供用來從我們的社區收集意見反應和 bug。 在預覽中, 這些功能不適用於生產環境使用。 公開預覽中的功能落在「最佳」支援之下。 AKS 技術支援小組的協助僅適用于上班時間太平洋時區 (PST)。 如需其他資訊, 請參閱下列支援文章:
+> AKS 預覽功能是自助加入宣告。 預覽會以「原樣」和「可用」的方式提供, 並從服務等級協定中排除, 並享有有限擔保。 AKS 預覽的部分是由客戶支援, 以最大的方式來涵蓋。 因此, 這些功能並不適用于生產環境使用。 如需其他資訊, 請參閱下列支援文章:
 >
 > * [AKS 支援原則][aks-support-policies]
 > * [Azure 支援常見問題集][aks-faq]

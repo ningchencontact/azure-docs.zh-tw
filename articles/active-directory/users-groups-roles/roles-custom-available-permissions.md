@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ff6755f1391ff19e65df669fb51967a904f4f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707561"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033328"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Azure Active Directory 中的應用程式註冊子類型和許可權
 
@@ -46,12 +46,12 @@ ms.locfileid: "68707561"
 
 ### <a name="create-and-delete"></a>建立和刪除
 
-有兩種許可權可以授與建立應用程式註冊的能力:
+有兩種許可權可以授與建立應用程式註冊的能力, 每個都有不同的行為:
 
-- **microsoft 目錄/應用程式/createAsOwner**
-- **microsoft 目錄/應用程式/建立**
+- **microsoft 目錄/應用程式/createAsOwner**:指派此許可權會導致建立者新增為所建立應用程式註冊的第一個擁有者, 而所建立的應用程式註冊將計入建立者的250建立物件配額中。
+- **microsoft 目錄/applicationPolicies/create**:指派此許可權會導致建立者不會被新增為所建立應用程式註冊的第一個擁有者, 而建立的應用程式註冊將不會算在建立者的250建立物件配額中。 請謹慎使用此許可權, 因為在達到目錄層級配額之前, 不會讓受託人建立應用程式註冊。 如果同時指派這兩個許可權, 則會優先使用此許可權。
 
-如果同時指派這兩個許可權, 將會優先使用 create 許可權。 雖然 createAsOwner 許可權不會自動新增 creator 做為第一個擁有者, 但在使用圖形 Api 或 PowerShell Cmdlet 時, 可以在建立應用程式註冊期間指定擁有者。
+如果同時指派這兩個許可權, 將會優先使用/create 許可權。 雖然/createAsOwner 許可權不會自動新增 creator 做為第一個擁有者, 但在使用圖形 Api 或 PowerShell Cmdlet 時, 可以在建立應用程式註冊期間指定擁有者。
 
 建立許可權授與**新註冊**命令的存取權。
 

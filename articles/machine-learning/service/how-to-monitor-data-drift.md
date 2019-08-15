@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847885"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036178"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移 (預覽) (AKS)
 
@@ -42,7 +42,7 @@ ms.locfileid: "68847885"
 
 使用 Azure Machine Learning 服務, 資料漂移會透過資料集或部署進行監視。 若要監視資料漂移, 基準資料集-通常會指定模型的訓練資料集。 第二個資料集 (通常是從部署收集的模型輸入資料) 會針對基準資料集進行測試。 這兩個資料集都會進行[分析](how-to-explore-prepare-data.md#explore-with-summary-statistics), 並輸入至資料漂移監視服務。 機器學習模型已定型, 可偵測這兩個資料集之間的差異。 模型的效能會轉換成漂移係數, 測量兩個資料集之間的漂移程度。 使用[模型 interpretability](machine-learning-interpretability-explainability.md)時, 會計算構成漂移係數的功能。 從資料集設定檔中, 會追蹤每項功能的統計資訊。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有, 請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -162,9 +162,9 @@ datadrift.disable_schedule()
 
 ![Azure 入口網站資料漂移設定](media/how-to-monitor-data-drift/drift_config.png)
 
-## <a name="view-results-in-azure-ml-workspace-ui"></a>在 Azure ML 工作區 UI 中查看結果
+## <a name="view-results-in-azure-portal"></a>Azure 入口網站中查看結果
 
-若要在 Azure ML 工作區 UI 中查看結果, 請流覽至 [模型] 頁面。 在模型的 [詳細資料] 索引標籤上, 會顯示資料漂移設定。 現在可以使用 [資料漂移 (預覽)] 索引標籤, 以視覺化方式呈現資料漂移計量。 
+若要在[Azure 入口網站](https://portal.azure.com)的工作區中查看結果, 請流覽至 [模型] 頁面。 在模型的 [詳細資料] 索引標籤上, 會顯示資料漂移設定。 現在可以使用 [資料漂移 (預覽)] 索引標籤, 以視覺化方式呈現資料漂移計量。 
 
 ![Azure 入口網站資料漂移](media/how-to-monitor-data-drift/drift_ui.png)
 

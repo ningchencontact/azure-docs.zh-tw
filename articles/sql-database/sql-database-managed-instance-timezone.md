@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 08/12/2019
-ms.openlocfilehash: 515e971214244cdd14955cc269a5f005cb93734f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 08/14/2019
+ms.openlocfilehash: a02709ffde144e7bd5e4d05fcd0e07c5d84a15fb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967929"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035826"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Azure SQL Database 受控執行個體中的時區
 
@@ -83,7 +83,10 @@ TimezoneId 屬性的支援值清單位於本文的結尾。
 
 ### <a name="point-in-time-restore"></a>還原時間點
 
-當您執行時間點還原時, 還原至的時間會被視為 UTC 時間。 如此一來, 就可以避免因日光節約時間和其潛在變更所造成的任何歧義。
+<del>當您執行時間點還原時, 還原至的時間會被視為 UTC 時間。 如此一來, 就可以避免因日光節約時間和其潛在變更所造成的任何歧義。<del>
+
+ >[!WARNING]
+  > 目前的行為不在上述語句的行中, 而還原至的時間會根據來源受控實例 (從中取得自動資料庫備份) 的時區來轉譯。 我們正努力修正此行為, 以將給定的時間點解讀為 UTC 時間。
 
 ### <a name="auto-failover-groups"></a>自動容錯移轉群組
 

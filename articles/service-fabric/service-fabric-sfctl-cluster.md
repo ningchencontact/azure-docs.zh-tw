@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 305b1e11841dd2da4aa6c0bdeb3df2c76addad87
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837305"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036516"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 選取、管理和操作 Service Fabric 叢集。
@@ -30,7 +29,7 @@ ms.locfileid: "60837305"
 | --- | --- |
 | code-versions | 取得在 Service Fabric 叢集中佈建的網狀架構程式碼版本清單。 |
 | config-versions | 取得在 Service Fabric 叢集中佈建的網狀架構組態版本清單。 |
-| health | 取得 Service Fabric 叢集的健康情況。 |
+| 健康狀態 | 取得 Service Fabric 叢集的健康情況。 |
 | manifest | 取得 Service Fabric 叢集資訊清單。 |
 | operation-cancel | 取消使用者引起的錯誤作業。 |
 | operation-list | 取得依提供的輸入所篩選之使用者引起的錯誤作業清單。 |
@@ -140,7 +139,7 @@ ms.locfileid: "60837305"
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 取消使用者引起的錯誤作業。
 
-下列 Api 開始使用 CancelOperation 可能會被取消的錯誤作業\:StartDataLoss、 StartQuorumLoss、 startpartitionrestart 啟動、 startnodetransition 啟動。 如果 force 為 false，將會以正常方式停止並清除指定的使用者引發作業。  如果 force 為 true，則會中止命令，而可能遺留某些內部狀態。  將 force 指定為 true 應該謹慎使用。 必須已經在相同的測試命令上先搭配將 force 設定為 false 來呼叫此 API，或除非測試命令的 OperationState 已經是 OperationState.RollingBack，才允許搭配將 force 設定為 true 來呼叫此 API。 
+下列 api 會啟動可使用 CancelOperation\: StartDataLoss、StartQuorumLoss、startpartitionrestart 啟動、StartNodeTransition 取消的錯誤作業。 如果 force 為 false，將會以正常方式停止並清除指定的使用者引發作業。  如果 force 為 true，則會中止命令，而可能遺留某些內部狀態。  將 force 指定為 true 應該謹慎使用。 必須已經在相同的測試命令上先搭配將 force 設定為 false 來呼叫此 API，或除非測試命令的 OperationState 已經是 OperationState.RollingBack，才允許搭配將 force 設定為 true 來呼叫此 API。 
 
 說明\: OperationState.RollingBack 表示系統將會/正在清除執行命令所造成的內部系統狀態。  如果測試命令是用來引發資料遺失，則它將不會還原資料。  例如，如果您呼叫 StartDataLoss，然後呼叫此 API，系統將只會清除從執行命令產生的內部狀態。 如果命令已進展到足以造成資料遺失的地步，則它將不會還原目標分割區的資料。 
 

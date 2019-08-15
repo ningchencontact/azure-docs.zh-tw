@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 740aec6ccb9b20cbcb8f55b2518c2b2539ef82ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e2413a152048e08d6218783891c20b66ac2e618
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836904"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034995"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
 取得和刪除磁碟區資源。
@@ -28,8 +27,8 @@ ms.locfileid: "60836904"
 
 |命令|描述|
 | --- | --- |
-| delete | 可刪除磁碟區資源。 |
-| list | 可列出所有磁碟區資源。 |
+| 刪除 | 可刪除磁碟區資源。 |
+| 清單 | 可列出所有磁碟區資源。 |
 | 顯示 | 可取得指定名稱的磁碟區資源。 |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl mesh volume delete

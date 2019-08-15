@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2019
+ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: bd0ed971b84baae3b85badfcc669bbad657d1551
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ae397c077ac87618b646883f9125c9da2df81bfd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018944"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036582"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -80,7 +80,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 
 
 ### <a name="production-azure"></a>生產 Azure
-| **Location** | **對等互連位置擁有者** | **本機 Azure 區域** | **服務提供者** |
+| **位置** | **對等互連位置擁有者** | **本機 Azure 區域** | **服務提供者** |
 | --- | --- | --- | --- |
 | **阿姆斯特丹** | Equinix | 西歐 | Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、 IX Reach、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Telia Carrier、Verizon、Zayo |
 | **阿姆斯特丹2** | Interxion | 西歐 | CenturyLink Cloud Connect、CIX、Interxion、Vodafone |
@@ -101,7 +101,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 | **都柏林** | Equinix | 北歐 | Colt、eir、Equinix、Interxion、Megaport |
 | **法蘭克福** | Interxion | n/a | CIX、Interxion、橙色 |
 | **香港特別行政區** | Equinix | 東亞 | Aryaka networks Networks, 英屬電信, CenturyLink Cloud Connect, 首席電信, 中國電信全球, Equinix, Megaport, NTT 通訊, 橙色, PCCW GLOBAL LIMITED 全球有限, Tata 通訊, Telia 電訊商, Verizon |
-| **約翰尼斯堡** | Teraco | 南非北部 | 英屬電信, 網際網路解決方案-雲端連線, 液體電信, Teraco |
+| **約翰尼斯堡** | Teraco | 南非北部 | 英屬電信, 網際網路解決方案-雲端連線, 液體電信, 橙色, Teraco |
 | **吉隆坡** | TIME dotCom | n/a | TIME dotCom |
 | **拉斯維加斯** | 參數 | n/a | CenturyLink Cloud Connect、Megaport |
 | **倫敦** | Equinix | 英國南部 | AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Telehouse - KDDI、Telenor、Telia Carrier、Verizon、Vodafone、Zayo |
@@ -141,7 +141,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 ### <a name="national-cloud-environments"></a>國家雲端環境
 
 ### <a name="us-government-cloud"></a>美國政府雲端
-| **Location** | **服務提供者** |
+| **位置** | **服務提供者** |
 | --- | --- |
 | **芝加哥** |AT&T NetBond、Equinix、Level 3 Communications、Verizon |
 | **達拉斯** |Equinix、Megaport、Verizon |
@@ -153,7 +153,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 | **華盛頓** |在 & T NetBond、CenturyLink Cloud Connect、Equinix、Level 3 通訊、Megaport、Verizon |
 
 ### <a name="china"></a>中國
-| **Location** | **服務提供者** |
+| **位置** | **服務提供者** |
 | --- | --- |
 | **北京** |China Telecom |
 | **北京 2** | 中國電信, GDS |
@@ -186,7 +186,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
   * 依照 [建立 ExpressRoute 循環](expressroute-howto-circuit-classic.md) 中的步驟來設定連線。
 
 ## <a name="c1partners"></a>透過額外服務提供者連線
-| **Location** | **Exchange** | **連線提供者** |
+| **位置** | **Exchange** | **連線提供者** |
 | --- | --- | --- |
 | **阿姆斯特丹** | Equinix, Interxion, Level 3 通訊, Telecity | BICS、CloudXpress、Eurofiber、Fastweb s.p.a、Kalaam、不在世界間的橋樑、MainOne 電信巴林 B. C、Nianet、Proximus、Post、Erhverv、TDC Italia、電信 Telekom 火花、Deutschland GmbH Telia、 |
 | **亞特蘭大** | Equinix| Crown Castle

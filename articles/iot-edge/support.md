@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: fdecc34b49b853c34624cabf4688e0387c303a16
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 81d19552b56de540f235960c498c64e7b276320c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985806"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030969"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支援的系統
 
@@ -70,7 +70,7 @@ Azure IoT Edge 會在大部分可執行容器的作業系統上執行;不過, �
 | Windows 10 IoT 核心版, 組建17763 | ![Windows IoT 核心版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
-以上所列的 Windows 作業系統是在 Windows 上執行 Windows 容器的裝置需求。 此設定是唯一支援的生產環境設定。 適用于 Windows 的 Azure IoT Edge 安裝套件允許在 Windows 上使用 Linux 容器;不過, 此設定僅供開發和測試之用。 生產環境不支援在 Windows 上使用 Linux 容器的設定。 任何版本的 Windows 10 組建 14393 或更新版本和 Windows Server 2016 或更新版本，都可以用於此開發案例。
+以上所列的 Windows 作業系統是在 Windows 上執行 Windows 容器的裝置需求, 這是唯一支援的生產環境設定。 適用于 Windows 的 Azure IoT Edge 安裝套件允許在 Windows 上使用 Linux 容器;不過, 此設定僅供開發和測試之用。 如需詳細資訊, 請參閱[在 Windows 上使用 IoT Edge 執行 Linux 容器](how-to-install-iot-edge-windows-with-linux.md)。
 
 ### <a name="tier-2"></a>第 2 層
 

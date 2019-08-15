@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: acc5862a8794da4fde991025eacfcccf6e16916a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e58e6a401cc166c176dc465d58ba9e8a8ed83b0
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607691"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035972"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
 取得和刪除 mesh 秘密資源。
@@ -28,8 +27,8 @@ ms.locfileid: "60607691"
 
 |命令|描述|
 | --- | --- |
-| delete | 刪除秘密資源。 |
-| list | 列出所有秘密資源。 |
+| 刪除 | 刪除秘密資源。 |
+| 清單 | 列出所有秘密資源。 |
 | 顯示 | 取得指定名稱的秘密資源。 |
 
 ## <a name="sfctl-mesh-secret-delete"></a>sfctl mesh secret delete

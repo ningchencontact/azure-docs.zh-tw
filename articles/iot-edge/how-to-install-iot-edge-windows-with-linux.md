@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d3586c571c2d70034f10cb3e1efd9242d6a1023
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986968"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034197"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>使用 Windows 上的 IoT Edge 執行 Linux 容器
 
@@ -24,15 +24,13 @@ ms.locfileid: "68986968"
 
 本文列出在 Windows x64 (AMD/Intel) 系統上使用 Linux 容器安裝 Azure IoT Edge 執行時間的步驟。 若要深入瞭解 IoT Edge 執行時間安裝程式, 包括所有安裝參數的詳細資料, 請參閱[在 Windows 上安裝 Azure IoT Edge 執行時間](how-to-install-iot-edge-windows.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 使用此區段可以檢閱 Windows 裝置是否可支援 IoT Edge，以及在安裝之前為容器引擎做好準備。 
 
 ### <a name="supported-windows-versions"></a>支援的 Windows 版本
 
-Linux 容器的 Azure IoT Edge 可以在下列版本的 Windows 上執行: 
-* Windows 10 年度更新版 (組建 14393) 或較新版本
-* Windows Server 2016 或更新版本
+Linux 容器的 Azure IoT Edge 可在任何符合[Docker Desktop 需求](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)的 Windows 版本上執行
 
 如需最新版本 IoT Edge 中包含哪些內容的詳細資訊，請參閱 [Azure IoT Edge 版次](https://github.com/Azure/azure-iotedge/releases)。
 

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 7/24/2019
+ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad0927c551f331a3a6f719797dae7598961d78c1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721662"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036248"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,7 +25,7 @@ Azure 檔案同步代理程式支援下列版本：
 
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
-| 2019年7月更新彙總套件- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019年7月24日 | 支援-[試驗](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| 2019年7月更新彙總套件- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019 年 7 月 24 日 | 支援 |
 | 2019年7月更新彙總套件- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019年7月12日 | 支援 |
 | V7 版本- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019年6月19日 | 支援 |
 | 2019年6月更新彙總套件- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019年6月27日 | 支援 |
@@ -39,9 +39,9 @@ Azure 檔案同步代理程式支援下列版本：
 | 2018 年 12 月更新彙總套件 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018 年 12 月 10 日 | 支援 |
 | 2018 年 12 月更新彙總套件 | 4.1.0.0 | 2018 年 12 月 4 日 | 支援 |
 | V4 版本 | 4.0.1.0 | 2018 年 11 月 13 日 | 支援 |
-| 2018 年 9 月更新彙總套件 | 3.3.0.0 | 2018 年 9 月 24 日 | 支援的代理程式版本將於 2019 年 7 月 19 日到期 |
-| 2018 年 8 月更新彙總套件 | 3.2.0.0 | 2018 年 8 月 15 日 | 支援的代理程式版本將於 2019 年 7 月 19 日到期 |
-| 正式運作 | 3.1.0.0 | 2018 年 7 月 19 日 | 支援的代理程式版本將於 2019 年 7 月 19 日到期 |
+| 2018 年 9 月更新彙總套件 | 3.3.0.0 | 2018 年 9 月 24 日 | 支援的代理程式版本將于2019年8月19日到期 |
+| 2018 年 8 月更新彙總套件 | 3.2.0.0 | 2018 年 8 月 15 日 | 支援的代理程式版本將于2019年8月19日到期 |
+| 正式運作 | 3.1.0.0 | 2018 年 7 月 19 日 | 支援的代理程式版本將于2019年8月19日到期 |
 | 過期的代理程式 | 1.1.0.0 - 3.0.13.0 | N/A | 不支援 - 代理程式版本已於 2018 年 10 月1 日過期 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則

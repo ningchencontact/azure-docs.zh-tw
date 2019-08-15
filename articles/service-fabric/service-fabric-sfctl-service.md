@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e215ab6d3ee56f2cccdd5887c240d9046327f110
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556367"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035221"
 ---
 # <a name="sfctl-service"></a>sfctl service
 建立、刪除與管理服務、服務類型和服務套件。
@@ -30,15 +29,15 @@ ms.locfileid: "60556367"
 | --- | --- |
 | app-name | 取得服務的 Service Fabric 應用程式名稱。 |
 | code-package-list | 取得 Service Fabric 節點上所部署的程式碼套件清單。 |
-| create | 建立指定的 Service Fabric 服務。 |
-| delete | 刪除現有 Service Fabric 服務。 |
+| 建立 | 建立指定的 Service Fabric 服務。 |
+| 刪除 | 刪除現有 Service Fabric 服務。 |
 | deployed-type | 針對 Service Fabric 叢集節點上所部署的應用程式，取得其指定服務類型的相關資訊。 |
 | deployed-type-list | 從 Service Fabric 叢集節點上所部署的應用程式，取得包含服務類型相關資訊的清單。 |
-| 說明 | 取得現有 Service Fabric 服務的描述。 |
+| description | 取得現有 Service Fabric 服務的描述。 |
 | get-container-logs | 取得在 Service Fabric 節點上部署之容器的容器記錄。 |
-| health | 取得所指定 Service Fabric 服務的健康情況。 |
-| info | 取得屬於 Service Fabric 應用程式的特定服務相關資訊。 |
-| list | 取得屬於應用程式識別碼所指定應用程式之所有服務的相關資訊。 |
+| 健康狀態 | 取得所指定 Service Fabric 服務的健康情況。 |
+| 資訊 | 取得屬於 Service Fabric 應用程式的特定服務相關資訊。 |
+| 清單 | 取得屬於應用程式識別碼所指定應用程式之所有服務的相關資訊。 |
 | manifest | 取得可描述服務類型的資訊清單。 |
 | package-deploy | 將與所指定服務資訊清單相關聯的套件下載至所指定節點上的映像快取。 |
 | package-health | 針對 Service Fabric 節點和應用程式所部署的特定應用程式，取得服務套件健康情況的相關資訊。 |
@@ -48,7 +47,7 @@ ms.locfileid: "60556367"
 | report-health | 傳送 Service Fabric 服務的健康情況報告。 |
 | resolve | 解析 Service Fabric 資料分割。 |
 | type-list | 針對 Service Fabric 叢集中已佈建應用程式類型所支援的服務類型，取得包含服務類型相關資訊的清單。 |
-| update | 使用指定的更新描述來更新指定的服務。 |
+| 更新 | 使用指定的更新描述來更新指定的服務。 |
 
 ## <a name="sfctl-service-app-name"></a>sfctl service app-name
 取得服務的 Service Fabric 應用程式名稱。

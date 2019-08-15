@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610196"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035328"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -67,9 +67,11 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 它是專屬�
 是的。 如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)。 子網路位址空間不能互相重疊。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>在這些子網路內使用 IP 位址是否有任何限制？
-是的。 Azure 會在每個子網路中保留 5 個 IP 位址。 這些是 node.js, 也就是子網的最後一個位址: x. x. x. 3。    
-- 接著會保留子網的對應, 以符合通訊協定的規範。
-- 在 Azure 服務的每個子網中, 會保留 x. x. x x. 3。
+是的。 Azure 會在每個子網路中保留 5 個 IP 位址。 這些是 node.js, 也就是子網的最後一個位址: x. x. x. 3。 在 Azure 服務的每個子網中, 會保留 x. x. x x. 3。   
+- x.x. x. x. 0:網路位址
+- x.x. x. 1:由 Azure 為預設閘道保留
+- x. x. 2、x. x. 3:由 Azure 保留以將 Azure DNS 的 Ip 對應至 VNet 空間
+- x.x. x:網路廣播位址
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 和子網路的大小限制為何？
 支援的最小子網路是 /29，最大則是 /8 (使用 CIDR 子網路定義)。

@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5b451378fcc14106cb8731a89bcf6ccf415d0a92
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333703"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035470"
 ---
 # <a name="traffic-manager-traffic-view"></a>流量管理員流量檢視
 
@@ -44,6 +44,8 @@ ms.locfileid: "68333703"
 ## <a name="visual-overview"></a>視覺效果概觀
 
 當您瀏覽至流量管理員頁面中的 [流量檢視] 區段時，您會看到覆蓋流量檢視深入分析的地理區域地圖。 地圖會提供流量管理員設定檔的使用者群體和端點相關資訊。
+
+![流量管理員流量視圖地理視圖][1]
 
 ### <a name="user-base-information"></a>使用者群體資訊
 
@@ -94,3 +96,5 @@ ms.locfileid: "68333703"
 - 深入了解流量管理員支援的 [流量路由方法](traffic-manager-routing-methods.md)
 - 了解如何 [建立流量管理員設定檔](traffic-manager-create-profile.md)
 
+<!--Image references-->
+[1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

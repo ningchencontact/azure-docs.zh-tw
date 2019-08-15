@@ -1,5 +1,5 @@
 ---
-title: 使用 JAVA 傳送和接收事件-Azure 事件中樞 |Microsoft Docs
+title: 使用 JAVA 將資料傳送到和送出 Azure 事件中樞
 description: 本文提供逐步解說, 說明如何建立 JAVA 應用程式, 以將事件傳送至 Azure 事件中樞。
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,15 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 00107d99f69fcec086f9692a5ba31a9d9970d089
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c85d69b823956a5cf5e7f9d6dfa3c39b918cd465
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848521"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034815"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>使用 JAVA 將事件傳送至 Azure 事件中樞或接收事件
 
@@ -26,7 +26,7 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 > [!NOTE]
 > 您可以從 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) 下載此快速入門來作為範例，並以您事件中樞的值取代 `EventHubConnectionString` 和 `EventHubName` 字串，然後執行。 或者，您可以遵循本教學課程中的步驟，來建立自己的解決方案。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，您需要下列必要條件：
 

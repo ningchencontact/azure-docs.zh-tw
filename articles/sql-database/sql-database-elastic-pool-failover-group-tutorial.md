@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 0507b3cb64b4b12bac92cc6bc90120ab4ec56dee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5dd241fed757669cf8bccd96a1de948e8d73a021
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568752"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033264"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>教學課程：將 Azure SQL Database 彈性集區新增至容錯移轉群組
 
@@ -28,7 +28,7 @@ ms.locfileid: "68568752"
 > - 在兩個邏輯 SQL server 之間建立彈性集區的[容錯移轉群組](sql-database-auto-failover-group.md)。
 > - 測試容錯移轉。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您具有下列項目︰ 
 
@@ -76,11 +76,11 @@ ms.locfileid: "68568752"
 1. 選取 [ **SQL** server], 然後選擇您在第1節中建立的伺服器。
 1. 在 [**設定**] 窗格下選取 [**容錯移轉群組**], 然後選取 [**新增群組**] 以建立新的容錯移轉群組。 
 
-    ![加入新的容錯移轉群組](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![加入新的容錯移轉群組](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. 在 [**容錯移轉群組**] 頁面上, 輸入或選取下列值, 然後選取 [**建立**]:
     - **容錯移轉組名**:輸入唯一的容錯移轉組名, 例如`failovergrouptutorial`。 
-    - **次要伺服器**:選取 [*設定必要設定*] 選項, 然後選擇 [**建立新的伺服器**]。 或者, 您也可以選擇已經存在的伺服器做為次要伺服器。 輸入下列值之後, 請選取 [**選取**]。 
+    - **次要伺服器**:選取 [*設定必要設定*] 選項, 然後選擇 [**建立新的伺服器**]。 或者, 您也可以選擇已經存在的伺服器做為次要伺服器。 輸入新次要伺服器的下列值後, 請選取 [**選取**]。 
         - **伺服器名稱**：輸入次要伺服器的唯一名稱, 例如`mysqlsecondary`。 
         - **伺服器管理員登入**：型`azureuser`
         - **密碼**：輸入複雜密碼以符合密碼需求。
@@ -91,9 +91,9 @@ ms.locfileid: "68568752"
     
        ![建立容錯移轉群組的次要伺服器](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. 選取次要伺服器之後, **[群組**] 選項內的資料庫就會變成 [解除鎖定]。 選取此項以**選取要新增的資料庫**, 然後選取您在第2節中建立的彈性集區。 應該會出現警告, 提示您在次要伺服器上建立彈性集區。 選取警告, 然後選取 **[確定]** 以在次要伺服器上建立彈性集區。 
+1. 選取**群組中**的 [資料庫], 然後選取您在第2節中建立的彈性集區。 應該會出現警告, 提示您在次要伺服器上建立彈性集區。 選取警告, 然後選取 **[確定]** 以在次要伺服器上建立彈性集區。 
         
-    ![將 SQL DB 新增到容錯移轉群組](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![將彈性集區新增至容錯移轉群組](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. 選取 [**選取**] 將您的彈性集區設定套用到容錯移轉群組, 然後選取 [**建立**] 以建立容錯移轉群組。 將彈性集區新增至容錯移轉群組, 將會自動啟動異地複寫程式。 
 

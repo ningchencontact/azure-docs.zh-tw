@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: fb812412c7dd07800c1e2231c9472a122ab7d7d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e560b08290146b4a497539ecc180f8ae4431246
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837278"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035159"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
 取得和刪除應用程式資源。
@@ -28,8 +27,8 @@ ms.locfileid: "60837278"
 
 |命令|描述|
 | --- | --- |
-| delete | 可刪除應用程式資源。 |
-| list | 可列出所有應用程式資源。 |
+| 刪除 | 可刪除應用程式資源。 |
+| 清單 | 可列出所有應用程式資源。 |
 | 顯示 | 可取得指定名稱的應用程式資源。 |
 
 ## <a name="sfctl-mesh-app-delete"></a>sfctl mesh app delete

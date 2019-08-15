@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: a4726444e2103228cd26be3d3a6d516b31e315ee
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: bf86af16ce330be7119ecbeb24cedbcd31282735
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304320"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034040"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中支援的 Kubernetes 版本
 
@@ -127,13 +127,13 @@ AKS 保留新增或移除已識別為有一或多個重大生產影響 bug 或�
 
 ### <a name="azure-portal-and-cli-default-versions"></a>Azure 入口網站和 CLI 預設版本
 
-當您在入口網站或 Azure CLI 中部署 AKS 叢集時, 叢集一律會設定為 N-1 次要版本和最新的修補程式。 例如, 如果 AKS 支援*1.13. x*, *1.12*  + .    + 1.12. b, *1.11*. a*1.11. b*, *1.10*  +  *b*, 新叢集的預設版本為*1.12. b*.
+當您在入口網站或 Azure CLI 中部署 AKS 叢集時, 叢集一律會設定為 N-1 次要版本和最新的修補程式。 例如, 如果 AKS 支援*1.13. x*, *1.12*  + .  + 1.12. b, *1.11*. a*1.11. b*, *1.10*  +  *b*, 新叢集的預設版本為*1.12. b*.
 
 AKS 預設為 N-1 (次要. latestPatch, 例如 1.12. b), 為客戶提供已知、穩定且已修補的版本。
 
 ## <a name="list-currently-supported-versions"></a>列出目前支援的版本
 
-若要找出您的訂用帳戶和區域目前可用的版本, 請使用[az aks get 版本][az-aks-get-versions]命令。 下列範例會列出 EastUS  區域的可用 Kubernetes 版本：
+若要找出您的訂用帳戶和區域目前可用的版本, 請使用[az aks get 版本][az-aks-get-versions]命令。 下列範例會列出 EastUS 區域的可用 Kubernetes 版本：
 
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
@@ -144,13 +144,14 @@ az aks get-versions --location eastus --output table
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.13.5               None available
-1.12.7               1.13.5
-1.12.6               1.12.7, 1.13.5
-1.11.9               1.12.6, 1.12.7
-1.11.8               1.11.9, 1.12.6, 1.12.7
-1.10.13              1.11.8, 1.11.9
-1.10.12              1.10.13, 1.11.8, 1.11.9
+1.14.5               None available
+1.13.9               1.14.5
+1.12.8               1.13.9
+1.12.7               1.12.8, 1.13.9
+1.11.10              1.12.7, 1.12.8
+1.11.9               1.11.10, 1.12.7, 1.12.8
+1.10.13              1.11.9, 1.11.10
+1.10.12              1.10.13, 1.11.9, 1.11.10
 ```
 
 ## <a name="faq"></a>常見問題集

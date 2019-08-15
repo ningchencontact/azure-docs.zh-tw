@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: b584ec301f0f4841c8df8fbbafb410abf645c373
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27178b2f26086bf693dc9cda342c66f7d47a34d7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837346"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035104"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 啟動、停止及報告 chaos 測試服務。
@@ -32,9 +31,9 @@ ms.locfileid: "60837346"
 
 |命令|描述|
 | --- | --- |
-| 活動 | 根據接續權杖或時間範圍取得 Chaos 事件的下一個區段。 |
+| 事件 | 根據接續權杖或時間範圍取得 Chaos 事件的下一個區段。 |
 | get | 取得 Chaos 的狀態。 |
-| start | 在叢集中啟動 Chaos。 |
+| 開始 | 在叢集中啟動 Chaos。 |
 | stop | 如果 Chaos 正在叢集中執行，便將它停止，並讓 Chaos 排程處於已停止狀態。 |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos events

@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382ffab090613a2b14ce710a45be10b4c36e5222
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b4fdbbd4d71a9c97259678413cd9e59ee8aeae6b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561742"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032669"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>使用 Azure Active Directory 重設使用者的密碼
 
@@ -43,7 +43,8 @@ ms.locfileid: "68561742"
 
 3. 在 [重設密碼] 頁面中，選取 [重設密碼]。
 
-    系統會為使用者自動產生暫時密碼。
+    > [!Note]
+    > 使用 Azure Active Directory 時, 會自動產生使用者的暫時密碼。 使用內部部署 Active Directory 時, 您會建立使用者的密碼。
 
 4. 複製密碼並將它提供給使用者。 使用者必須在下次登入過程中變更密碼。
 
