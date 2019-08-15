@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 7f9809fde088a03d4b20b5c739253f446c7a84b6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 87244169aa8e50ddd503086121dd84f5d50c5df4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563612"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932781"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中建立新的 LUIS 應用程式
 有好幾種方法可建立 LUIS 應用程式。 您可以在 [LUIS](https://www.luis.ai) 入口網站中建立 LUIS 應用程式，或透過 LUIS 撰寫 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)。
@@ -42,7 +42,7 @@ ms.locfileid: "68563612"
 
 ## <a name="create-new-app-in-luis"></a>在 LUIS 中建立新的應用程式
 
-1. 在 [我的應用程式]  頁面上，選取 [建立新的應用程式]  。
+1. 在 [我的應用程式] 頁面上，選取 [建立新的應用程式]。
 
     ![LUIS 應用程式清單](./media/luis-create-new-app/apps-list.png)
 
@@ -51,14 +51,14 @@ ms.locfileid: "68563612"
 
     ![建立新的應用程式對話方塊](./media/luis-create-new-app/create-app.png)
 
-3. 選擇您的應用程式文化特性 (對於 TravelAgent 應用程式，選擇 [英文])，然後選取 [完成]  。 
+3. 選擇您的應用程式文化特性 (對於 TravelAgent 應用程式，選擇 [英文])，然後選取 [完成]。 
 
     > [!NOTE]
     > 建立應用程式之後便無法變更文化特性 (Culture)。 
 
 ## <a name="import-an-app-from-file"></a>從檔案匯入應用程式
 
-1. 在 [我的應用程式]  頁面上，選取 [匯入新的應用程式]  。
+1. 在 [我的應用程式] 頁面上，選取 [匯入新的應用程式]。
 1. 在快顯視窗中, 選取有效的應用程式 JSON 檔案, 然後選取 [**完成**]。
 
 ### <a name="import-errors"></a>匯入錯誤
@@ -83,9 +83,9 @@ ms.locfileid: "68563612"
 
 ## <a name="delete-app"></a>刪除應用程式
 
-1. 在 [我的應用程式]  頁面上，選取應用程式資料列結尾的三個點 (...)。
-1. 從功能表中選取 [刪除]  。
-1. 在確認視窗中選取 [確定]  。
+1. 在 [我的應用程式] 頁面上，選取應用程式資料列結尾的三個點 (...)。
+1. 從功能表中選取 [刪除]。
+1. 在確認視窗中選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 

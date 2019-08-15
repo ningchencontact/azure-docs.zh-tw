@@ -7,13 +7,13 @@ services: time-series-insights
 ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
-ms.date: 07/02/2019
-ms.openlocfilehash: a463e3cf475909c34054717460dc10dbba4ad8f0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 08/08/2019
+ms.openlocfilehash: ed5cd9424630a90b989b8a4d76959961f82a53ec
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543893"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935231"
 ---
 > [!IMPORTANT]
 > * 2019 年 5 月，新的 [Azure Active Directory]   > [應用程式註冊]  刀鋒視窗會取代舊版的 [Azure Active Directory]   > [應用程式註冊 (舊版)]  刀鋒視窗。
@@ -51,6 +51,15 @@ ms.locfileid: "67543893"
    [![建立新的用戶端密碼](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
    按一下 [檔案]  。
+
+1. 選取 [憑證 & 密碼]  ，接著 [新的用戶端密碼]  來建立應用程式密碼，以供用戶端用來證明其身分識別。
+
+   [![建立新的用戶端密碼](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
+
+   接著將會顯示您的用戶端密碼。 將金鑰複製到您慣用的文字編輯器。
+
+   > [!NOTE]
+   > 您可以改用匯入憑證的功能。 為了增強安全性，建議使用憑證。 若要使用憑證，請選取 [上傳憑證]  。
 
 1. 讓 Azure Active Directory 應用程式與 Azure 時間序列深入解析建立關聯。 選取 [API 權限]   > [新增權限]   > [組織使用的 API]  。 
 

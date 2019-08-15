@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9938c79c2ba1b2f80c8f147fafe6ce79e247df43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8c9f8b3733a4b2491c4199f041ba6b24efbb0224
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564460"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881906"
 ---
 # <a name="create-human-reviews-net"></a>建立人工審核 (.NET)
 
@@ -24,7 +24,7 @@ ms.locfileid: "68564460"
 - 為人工審核者建立一組審核項目
 - 為人工審核者取得現有審核項目的狀態
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 
@@ -38,7 +38,7 @@ ms.locfileid: "68564460"
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)]  專案新增到您的解決方案。
+1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
 
    在範例程式碼中，將專案命名為 **CreateReviews**。
 
@@ -186,9 +186,9 @@ public static class Clients
 更新這些值，以包含您訂用帳戶和小組專屬的資訊。
 
 > [!NOTE]
-> 您可以在建立 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)訂用帳戶時使用的名稱中設定 TeamName 常數。 您可以從 [設定]\  (齒輪) 功能表的 [認證]  區段中擷取 TeamName。
+> 您可以在建立 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)訂用帳戶時使用的名稱中設定 TeamName 常數。 您可以從 [設定]\(齒輪) 功能表的 [認證] 區段中擷取 TeamName。
 >
-> 小組名稱會是 [API]  區段中 [Id]  欄位的值。
+> 小組名稱會是 [API] 區段中 [Id] 欄位的值。
 
 ```csharp
 /// <summary>
@@ -429,7 +429,7 @@ Creating reviews for the following images:
 
 登入 Content Moderator 審核工具後，您會看到 **sc** 標籤設為 **true** 的擱置影像審核項目。 也會看到預設的 **a** 和 **r** 標記，以及任何您已在審核工具內定義的自訂標記。
 
-使用 [下一步]  按鈕以提交影像。
+使用 [下一步] 按鈕以提交影像。
 
 ![給人工審核者的影像檢閱](images/moderation-reviews-quickstart-dotnet.PNG)
 

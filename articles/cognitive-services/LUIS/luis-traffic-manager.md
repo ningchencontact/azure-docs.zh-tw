@@ -1,25 +1,25 @@
 ---
 title: 增加端點配額-LUIS
 titleSuffix: Azure Cognitive Services
-description: Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈]  頁面的 [資源和金鑰]  區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。
+description: Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 10ddbed710d3055e66bd3cb0b06cfa7949a9a1c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 72a7b383d224936e3d22ee9e7acb5db28fe63c4e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563373"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945136"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理員管理幾個金鑰之間的端點配額
-Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈]  頁面的 [資源和金鑰]  區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
+Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
 
 用戶端應用程式必須管理這些金鑰之間的流量。 LUIS 不會執行此工作。 
 
@@ -50,13 +50,13 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
 2. 在[LUIS][LUIS]網站的 [**管理**] 區段中, 于 [**金鑰和端點**] 頁面上, 將金鑰指派給應用程式, 然後選取右上方功能表中的 [**發佈**] 按鈕來重新發佈應用程式。 
 
-    [端點]  欄中的範例 URL 使用 GET 要求搭配端點金鑰作為查詢參數。 複製兩個新的金鑰端點 URL。 本文稍後的流量管理員設定會用到這些 URL。
+    [端點] 欄中的範例 URL 使用 GET 要求搭配端點金鑰作為查詢參數。 複製兩個新的金鑰端點 URL。 本文稍後的流量管理員設定會用到這些 URL。
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>使用流量管理員管理金鑰之間的 LUIS 端點要求
 流量管理員會為您的端點建立新的 DNS 存取點。 這個存取點不會做為閘道或 Proxy，只會在 DNS 層級。 此範例不會變更任何 DNS 記錄。 它會使用 DNS 程式庫與流量管理員通訊，為該特定要求取得正確的端點。 _每個_給 LUIS 的要求一開始都需要一個流量管理員要求，以判斷要使用哪一個 LUIS 端點。 
 
 ### <a name="polling-uses-luis-endpoint"></a>輪詢使用 LUIS 端點
-流量管理員會定期輪詢端點，確定端點仍然可用。 輪詢的流量管理員 URL 必須可使用 GET 要求存取，並傳回 200。 [發佈]  頁面上的端點 URL 就是如此。 因為每個端點金鑰都有不同的路由和查詢字串參數，所以每個端點金鑰都需要不同的輪詢路徑。 每當流量管理員輪詢時，就會花費配額要求。 LUIS 端點的查詢字串參數 **q** 是傳送至 LUIS 的語句。 此參數不會傳送語句，而是用來在 LUIS 端點記錄中加入流量管理員的輪詢，做為設定流量管理員時的一種偵錯技巧。
+流量管理員會定期輪詢端點，確定端點仍然可用。 輪詢的流量管理員 URL 必須可使用 GET 要求存取，並傳回 200。 [發佈] 頁面上的端點 URL 就是如此。 因為每個端點金鑰都有不同的路由和查詢字串參數，所以每個端點金鑰都需要不同的輪詢路徑。 每當流量管理員輪詢時，就會花費配額要求。 LUIS 端點的查詢字串參數 **q** 是傳送至 LUIS 的語句。 此參數不會傳送語句，而是用來在 LUIS 端點記錄中加入流量管理員的輪詢，做為設定流量管理員時的一種偵錯技巧。
 
 因為每個 LUIS 端點都需要自己的路徑，所以需要自己的流量管理員設定檔。 若要管理這些設定檔，請建立一個[_巢狀_流量管理員](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-nested-profiles)架構。 一個父系設定檔指向子系設定檔，並管理它們之間的流量。
 
@@ -325,7 +325,7 @@ $<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGro
 ![Azure 資源群組 luis-traffic-manager 的螢幕擷取畫面](./media/traffic-manager/traffic-manager-profiles.png)
 
 ### <a name="verify-the-profile-status-is-online"></a>確認設定檔狀態為 Online
-流量管理員會輪詢每個端點的路徑，確定端點已在線上。 如果在線上，子系設定檔的狀態會是 `Online`。 這會顯示在每個設定檔的 [概觀]  頁面上。 
+流量管理員會輪詢每個端點的路徑，確定端點已在線上。 如果在線上，子系設定檔的狀態會是 `Online`。 這會顯示在每個設定檔的 [概觀] 頁面上。 
 
 ![Azure 流量管理員設定檔的 [概觀] 顯示 Online 監視狀態的螢幕擷取畫面](./media/traffic-manager/profile-status-online.png)
 

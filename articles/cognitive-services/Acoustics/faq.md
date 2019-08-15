@@ -3,20 +3,20 @@ title: 聲場專案常見問題
 titlesuffix: Azure Cognitive Services
 description: 本頁面提供 Project Acoustics 相關常見問題的解答，其中包括下載指示和製作流程。
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a965fc020c5c534616459ad661b71ac67dbc2425
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0484fc9fc2af5514ba0f5b61277146a51757057
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704801"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855037"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>聲場專案常見問題
 

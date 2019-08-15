@@ -7,15 +7,15 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 8564095cc84a3f124ca41efd2e19787cd16902ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564119"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883971"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>搭配預測 API 使用您的模型
 
@@ -26,7 +26,7 @@ ms.locfileid: "68564119"
 
 ## <a name="publish-your-trained-iteration"></a>發行定型的反復專案
 
-從[自訂視覺網頁](https://customvision.ai) \(英文\) 選取您的專案，然後選取 [效能]  索引標籤。
+從[自訂視覺網頁](https://customvision.ai) \(英文\) 選取您的專案，然後選取 [效能] 索引標籤。
 
 若要將影像提交至預測 API, 您必須先發佈反復專案以進行預測, 這可以藉由選取 [__發行__] 並指定已發行之反復專案的名稱來完成。 這會讓您的模型可供自訂視覺 Azure 資源的預測 API 存取。
 

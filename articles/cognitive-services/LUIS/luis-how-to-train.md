@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 6d85aee498f178fa708d3997c65509e2f7241157
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: b3841c9d60cf275e423024fc66c15582f95c0a10
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637894"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932763"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>訓練您 LUIS 應用程式的作用中版本 
 
@@ -33,9 +33,9 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 若要在 [LUIS 入口網站](https://www.luis.ai)中開始反覆程序，您必須至少先將 LUIS 應用程式定型一次。 請在訓練之前，確定每個意圖都至少有一個語調。
 
-1. 在 [我的應用程式]  頁面上選取應用程式名稱，來存取應用程式。 
+1. 在 [我的應用程式] 頁面上選取應用程式名稱，來存取應用程式。 
 
-2. 在應用程式中，選取上方面板中的 [訓練]  。 
+2. 在應用程式中，選取上方面板中的 [訓練]。 
 
 3. 訓練完成時，綠色通知列會顯示在瀏覽器頂端。
 
@@ -58,7 +58,7 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 ## <a name="training-with-the-rest-apis"></a>使用 REST API 進行定型
 
-在 LUIS 入口網站中，定型是只要按 [Train] \(定型\)  按鈕的單一步驟。 使用 REST API 進行定型是一個兩步驟程序。 首先是使用 HTTP POST 來[要求定型](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45)。 接著是使用 HTTP Get 來要求[定型狀態](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46)。 
+在 LUIS 入口網站中，定型是只要按 [Train] \(定型\) 按鈕的單一步驟。 使用 REST API 進行定型是一個兩步驟程序。 首先是使用 HTTP POST 來[要求定型](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45)。 接著是使用 HTTP Get 來要求[定型狀態](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46)。 
 
 若要知道定型何時完成，您必須輪詢該狀態，直到所有模型都定型成功為止。 
 

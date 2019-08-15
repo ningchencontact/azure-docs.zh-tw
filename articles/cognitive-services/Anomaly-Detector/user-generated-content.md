@@ -7,19 +7,24 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7fc1ed9928bd988faca4537202ac57fee74b0b00
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 32728b5c1ede303cc4000ef8c10e4456e784df9b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721416"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882454"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Anomaly Detector API 中由使用者產生的主要內容
 
 使用本文探索其他客戶對 Anomaly Detector API 的看法和使用情形。 下列資源由 Anomaly Detector 的使用者社群所建立。 其中包括技術部落格、開放原始碼專案，以及其他由 Microsoft 和第三方使用者產生的貢獻。 以下有部分連結裝載於 Microsoft 外部的網站上，Microsoft 對其內容概不負責。 參考這些資源時請多加留意。
+
+## <a name="demos"></a>示範
+
+* [動畫的互動式示範](https://aka.ms/adDemo)
+* [Azure 筆記本示範](https://aka.ms/adNotebook)
 
 ## <a name="technical-blogs"></a>技術部落格
 

@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384768"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882680"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web 搜尋 API 支援的語言和區域
 
@@ -25,12 +25,12 @@ Bing Web 搜尋 API 支援三十多個國家/地區，許多國家/地區具有�
 
 或者，您也可以使用 `mkt` 查詢參數和**市場**資料表的代碼來指定市場。 指定市場同時會指定國家/地區和慣用的語言。 您可以使用 `setLang` 查詢參數明確設定語言。
 
-## <a name="countriesregions"></a>國家/區域
+## <a name="countriesregions"></a>國家/地區
 
-|國家/區域|代碼|
+|國家/地區|程式碼|
 |-------|----|
 |阿根廷|AR|
-|澳大利亞|AU|
+|澳洲|AU|
 |奧地利|AT|
 |比利時|BE|
 |巴西|BR|
@@ -68,10 +68,10 @@ Bing Web 搜尋 API 支援三十多個國家/地區，許多國家/地區具有�
 
 ## <a name="markets"></a>市場
 
-|國家/區域|語言|市場代碼|
+|國家/地區|語言|市場代碼|
 |-------|--------|-----------|
 |阿根廷|西班牙文|es-AR|
-|澳大利亞|英文|en-AU|
+|澳洲|英文|en-AU|
 |奧地利|德文|de-AT|
 |比利時|荷蘭文|nl-BE|
 |比利時|法文|fr-BE|
@@ -108,7 +108,7 @@ Bing Web 搜尋 API 支援三十多個國家/地區，許多國家/地區具有�
 |台灣|繁體中文|zh-TW|
 |土耳其|土耳其文|tr-TR|
 |英國|英文|en-GB|
-|美國|英文|en-US|
+|美國|英文|zh-TW|
 |美國|西班牙文|es-US|
 
 ## <a name="next-steps"></a>後續步驟

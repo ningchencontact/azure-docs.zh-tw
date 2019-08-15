@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7bbdfb995ab6c819b0782a30e2ade4df4e5e0551
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f3f93824eb021e0fb75e1a6b81935292379d50e5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564239"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883080"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
@@ -48,7 +48,7 @@ ms.locfileid: "68564239"
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)]  專案新增到您的解決方案。
+1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
 
 1. 將專案命名為 **VideoTranscriptReviews**。
 
@@ -376,7 +376,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>瀏覽至您的影片文字記錄審核項目
 
-移至 Content Moderator 審核工具中的 [審核]  >[影片]  >[文字記錄]  畫面上的影片文字記錄審核項目。
+移至 Content Moderator 審核工具中的 [審核]>[影片]>[文字記錄] 畫面上的影片文字記錄審核項目。
 
 您會看到下列功能：
 - 您新增的兩行文字記錄

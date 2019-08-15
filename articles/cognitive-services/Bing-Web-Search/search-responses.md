@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542820"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854734"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web 搜尋 API 回應結構和回應類型  
 
@@ -38,7 +38,7 @@ ms.locfileid: "67542820"
 }, ...
 ```
 
-一般而言，Bing Web 搜尋會傳回回答的子集。 例如，如果查詢字詞是 sailing dinghies  ，則回應可能會包含 `webPages`、`images` 和 `rankingResponse`。 除非您已使用 [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 來篩選網頁，否則回應永遠會包含 `webpages` 和 `rankingResponse` 回答。
+一般而言，Bing Web 搜尋會傳回回答的子集。 例如，如果查詢字詞是 sailing dinghies，則回應可能會包含 `webPages`、`images` 和 `rankingResponse`。 除非您已使用 [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 來篩選網頁，否則回應永遠會包含 `webpages` 和 `rankingResponse` 回答。
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -123,7 +123,7 @@ The following shows an example of how you might display the webpage in a search 
 
 使用 `displayText` 查詢字串和 `webSearchUrl` URL 建立超連結，將使用者帶到 Bing 針對相關查詢的搜尋結果頁面。 您也可以在您自己的 Web 搜尋 API 查詢中使用 `text` 查詢字串，並且顯示結果。
 
-如需如何在 `displayText` 中處理醒目提示標記的詳細資訊，請參閱[搜尋結果醒目提示](./hit-highlighting.md)。
+如需如何在 `displayText` 中處理醒目提示標記的詳細資訊，請參閱[搜尋結果醒目提示](../bing-web-search/hit-highlighting.md)。
 
 以下顯示在 Bing.com 中相關查詢使用方式的範例。
 
@@ -222,9 +222,9 @@ The following shows an example of how you might display articles in a search res
 
 如果使用者輸入數學運算式或單位轉換查詢，回應可能會包含[計算](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) (英文) 回答。 `computation` 回答包含標準化運算式及其結果。
 
-單位轉換查詢是將一個單位轉換為另一個單位。 例如，「10 公尺是多少英吋？」  或「1/4 杯是多少茶匙？」 
+單位轉換查詢是將一個單位轉換為另一個單位。 例如，「10 公尺是多少英吋？」或「1/4 杯是多少茶匙？」
 
-以下顯示針對「10 公尺是多少英吋？」  的 `computation` 回答
+以下顯示針對「10 公尺是多少英吋？」的 `computation` 回答
 
 ```json
 "computation": {
@@ -292,15 +292,15 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 |符號|描述|
 |------------|-----------------|
-|+|加法|
+|+|新增|
 |-|減法|
 |/|除法|
 |*|乘法|
 |^|乘冪|
 |!|階乘|
-|上也提供本文中使用的原始碼。|Decimal|
+|.|Decimal|
 |()|優先順序群組|
-|[]|函式|
+|[]|函數|
 
 數學運算式可能包含下列常數：
 
@@ -328,11 +328,11 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 ## <a name="timezone-answer"></a>時區回答
 
-如果使用者輸入時間或日期查詢，回應可能會包含[時區](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) (英文) 回答。 此回答支援隱含或明確查詢。 隱含查詢，例如「現在幾點？」  ，會根據使用者的位置傳回當地時間。 明確查詢，例如「西雅圖現在幾點？」  ，會傳回美國華盛頓州西雅圖的當地時間。
+如果使用者輸入時間或日期查詢，回應可能會包含[時區](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) (英文) 回答。 此回答支援隱含或明確查詢。 隱含查詢，例如「現在幾點？」，會根據使用者的位置傳回當地時間。 明確查詢，例如「西雅圖現在幾點？」，會傳回美國華盛頓州西雅圖的當地時間。
 
 `timeZone` 回答可提供位置的名稱、指定位置目前的 UTC 日期和時間，以及 UTC 時差。 如果位置的界限在多個時區內，則回答會包含目前的 UTC 日期和時間以及界限內的所有時區。 例如，因為佛羅里達州位於兩個時區內，回應會包含兩個時區的當地日期和時間。  
 
-如果查詢要求的州或國家/地區的時間，Bing 判斷主要城市位置的地理界限內，並傳回它在`primaryCityTime`欄位。 如果界限包含多個時區，其餘時區會在 `otherCityTimes` 欄位中傳回。
+如果查詢要求的是州或國家/地區的時間, Bing 會判斷位置地理界限內的主要城市, 並在`primaryCityTime`欄位中傳回。 如果界限包含多個時區，其餘時區會在 `otherCityTimes` 欄位中傳回。
 
 以下顯示查詢傳回 `timeZone` 回答的範例。
 
@@ -419,7 +419,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>SpellSuggestion 回答
 
-如果 Bing 判斷使用者可能想要搜尋不同的項目，則回應會包含 [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) (英文) 物件。 例如，如果使用者搜尋 carlos pen  ，Bing 可能會判斷使用者其實是想要搜尋 Carlos Pena (根據過去其他人對於 carlos pen  的搜尋)。 以下顯示範例拼字回應。
+如果 Bing 判斷使用者可能想要搜尋不同的項目，則回應會包含 [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) (英文) 物件。 例如，如果使用者搜尋 carlos pen，Bing 可能會判斷使用者其實是想要搜尋 Carlos Pena (根據過去其他人對於 carlos pen 的搜尋)。 以下顯示範例拼字回應。
 
 ```json
 "spellSuggestions": {
@@ -477,6 +477,6 @@ Query: What time is it in the U.S.
 
 * 檢閱[要求節流](throttling-requests.md)文件。  
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
 
 * [Bing Web 搜尋 API 參考](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

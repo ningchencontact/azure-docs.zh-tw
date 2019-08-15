@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552689"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855107"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>語音合成標記語言 (SSML)
 
@@ -413,8 +413,8 @@ SSML 檔中包含的任何音訊都必須符合下列需求:
 |-----------|-------------|---------------------|
 | src | 指定背景音訊檔案的位置/URL。 | 如果您在 SSML 檔中使用背景音訊, 則為必要項。 |
 | 磁碟區 | 指定背景音訊檔案的磁片區。 **接受**的值`0` : `100`包含 (含)。 預設值為 `1`。 | 選擇性 |
-| fadein | 指定背景音訊淡入的持續時間。 **接受**的值`0` : `10000`包含 (含)。  | 選擇性 |
-| fadeout | 指定背景音訊淡出的持續時間。**接受**的值`0` : `10000`包含 (含)。  | 選擇性 |
+| fadein | 指定背景音訊淡入的持續時間 (以毫秒為單位)。 預設值為`0`, 這相當於「不淡入」。 **接受**的值`0` : `10000`包含 (含)。  | 選擇性 |
+| fadeout | 指定背景音訊的持續時間 (以毫秒為單位)。 預設值為`0`, 這相當於 [不淡出]。**接受**的值`0` : `10000`包含 (含)。  | 選擇性 |
 
 **範例**
 

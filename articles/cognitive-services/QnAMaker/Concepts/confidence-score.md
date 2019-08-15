@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: afc50a5adb591550f6e988a572d1ac9a8c4439cb
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165129"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955191"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -46,22 +46,22 @@ ms.locfileid: "67165129"
 |0|沒有相符項目，所以不會傳回答案。|「服務的成本是多少」|
 
 ## <a name="choose-a-score-threshold"></a>選擇分數閾值
-上表顯示大部分 KB 預期的分數。 不過，因為每個 KB 不同，而且有不同類型的文字，對應方式，和目標-我們建議您測試並選擇臨界值最適合您。 預設的閾值設定為 0，以便傳回所有可能的答案。 應可適用於大部分的 Kb 以及建議的臨界值是**50**。
+上表顯示大部分 KB 預期的分數。 不過, 由於每個 KB 都不同, 而且有不同類型的單字、意圖和目標, 我們建議您測試並選擇最適合您的閾值。 根據預設, 臨界值會設定為 0, 因此會傳回所有可能的答案。 建議的臨界值適用于大部分的 Kb, 是**50**。
 
 選擇您自己的閾值時，請記住在精確度和涵蓋範圍之間取得平衡，並根據您的需求調整閾值。
 
 - 如果您的案例中**精確度**比較重要，則提升您的閾值。 如此一來，在每次傳回答案時，就會是更高信賴度的情況，且更可能接近使用者所需的答案。 在這種情況下，您最後可能會留下更多未回答的問題。 *例如：* 如果您將閾值設為 **70**，您可能會遺漏一些模稜兩可的問題，例如「什麼是儲存和訓練？」。
 
-- 如果**涵蓋範圍** (或重新叫用) 更重要，且您想要盡可能回答更多問題 (即使答案與使用者的問題只有部分相關)，則您可以降低閾值。 這表示會有更多答案無法回答使用者實際查詢，但能提供一些其他可能相關之答案的情況。 *例如：* 若要讓閾值**30**，您可能會提供解答，查詢之類的 」，我要編輯我的知識庫？ 」
+- 如果**涵蓋範圍** (或重新叫用) 更重要，且您想要盡可能回答更多問題 (即使答案與使用者的問題只有部分相關)，則您可以降低閾值。 這表示會有更多答案無法回答使用者實際查詢，但能提供一些其他可能相關之答案的情況。 *例如:* 如果您將閾值設為**30**, 則可以提供查詢的答案, 例如「我可以在哪裡編輯 KB？」
 
 > [!NOTE]
 > 較新的 QnA Maker 版本包括改善評分邏輯，並可能影響您的閾值。 每當您更新服務時，請務必視需要測試和調整閾值。 您可以[在此](https://www.qnamaker.ai/UserSettings)檢查您的 QnA 服務版本，並[在此](../How-To/troubleshooting-runtime.md)了解如何取得最新的更新。
 
-## <a name="set-threshold"></a>設定的閾值 
+## <a name="set-threshold"></a>設定閾值 
 
-做為屬性的設定臨界值分數[GenerateAnswer API JSON 主體](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)。 這表示您將它設定 GenerateAnswer 每次呼叫。 
+將臨界值分數設定為[GENERATEANSWER API JSON 主體](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)的屬性。 這表示您會針對每個 GenerateAnswer 呼叫進行設定。 
 
-來自 bot framework 設定分數的選項物件的一部分[ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c)或是[Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)。
+從 bot framework 中, 使用[C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c)或[node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)將分數設定為 options 物件的一部分。
 
 ## <a name="improve-confidence-scores"></a>改善信賴分數
 若要改善使用者查詢特定回應的信賴分數，您可以將使用者查詢加入至知識庫做為該回應的替代問題。 您也可以使用不區分大小寫的[文字變異形式](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) \(英文\)，來將同義字新增至 KB 中的關鍵字。
@@ -78,7 +78,7 @@ ms.locfileid: "67165129"
 
 
 ## <a name="no-match-found"></a>未找到相符項目
-順位排定程式找不到適當的相符項目時，會傳回 0.0 的信賴分數或「無」，而且預設回應是「在資料庫中找不到適當的相符項目」。 您可以覆寫這[預設回應](#change-default-answer)bot 或應用程式程式碼呼叫的端點。 或者，您也可以在 Azure 中設定覆寫回應，這會變更特定 QnA Maker 服務中部署的所有知識庫預設值。
+順位排定程式找不到適當的相符項目時，會傳回 0.0 的信賴分數或「無」，而且預設回應是「在資料庫中找不到適當的相符項目」。 您可以在呼叫端點的 bot 或應用程式代碼中覆寫此[預設回應](#change-default-answer)。 或者，您也可以在 Azure 中設定覆寫回應，這會變更特定 QnA Maker 服務中部署的所有知識庫預設值。
 
 ## <a name="change-default-answer"></a>變更預設答案
 
@@ -88,7 +88,7 @@ ms.locfileid: "67165129"
 
     ![在 Azure 入口網站中，存取 QnA Maker 的 App Service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. 按一下 [應用程式設定]  ，並編輯 [DefaultAnswer]  欄位成為所需的預設回應。 按一下 [檔案]  。
+3. 按一下 [應用程式設定]，並編輯 [DefaultAnswer] 欄位成為所需的預設回應。 按一下 [儲存]。
 
     ![選取 [應用程式設定]，然後編輯 QnA Maker 的 DefaultAnswer](../media/qnamaker-concepts-confidencescore/change-response.png)
 

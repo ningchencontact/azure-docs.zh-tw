@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: diberry
-ms.openlocfilehash: 1203748b43ea5911d4717f451bca2cbe82753386
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 26792246267ced6d9fff50fe4fea11cc8d280d6a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447407"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966678"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>QnA Maker 知識庫內容的語言支援
 QnA Maker 支援多種語言的知識庫內容。 不過，個別的 QnA Maker 服務均應保留給單一語言使用。 針對特定 QnA Maker 服務而建立的第一個知識庫，會設定該服務的語言。 請參閱[這裡](../Overview/languages-supported.md)以取得支援的語言清單。
@@ -24,7 +24,7 @@ QnA Maker 支援多種語言的知識庫內容。 不過，個別的 QnA Maker �
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [資源群組]  ，並瀏覽至部署 QnA Maker 服務的資源群組，然後選取 [Azure 搜尋服務]  資源。
+2. 選取 [資源群組]，並瀏覽至部署 QnA Maker 服務的資源群組，然後選取 [Azure 搜尋服務] 資源。
 
     ![選取 [Azure 搜尋服務] 資源](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
@@ -32,11 +32,11 @@ QnA Maker 支援多種語言的知識庫內容。 不過，個別的 QnA Maker �
 
     ![選取測試 KB](../media/qnamaker-how-to-language-kb/select-testkb.png)
 
-4. 選取顯示 testkb 詳細資料的 [欄位]  區段。
+4. 選取顯示 testkb 詳細資料的 [欄位] 區段。
 
     ![選取欄位](../media/qnamaker-how-to-language-kb/selectfields.png)
 
-5. 勾選 [分析器]  的方塊以檢視語言詳細資料。
+5. 勾選 [分析器] 的方塊以檢視語言詳細資料。
 
     ![選取分析器](../media/qnamaker-how-to-language-kb/select-analyzer.png)
 

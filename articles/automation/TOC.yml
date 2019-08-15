@@ -20,10 +20,14 @@
       displayName: RBAC
     - name: 將您的自動化帳戶移至另一個訂用帳戶
       href: how-to/move-account.md
+    - name: 自動化服務的自動上線
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: 程序自動化
   items:
     - name: 混合式 Runbook 背景工作概觀
       href: automation-hybrid-runbook-worker.md
+    - name: Runbook 資源庫
+      href: automation-runbook-gallery.md
     - name: 概念
       items:
         - name: Runbook 類型
@@ -297,8 +301,6 @@
   items:
     - name: 使用 SendGrid 籨 Runbook 傳送電子郵件
       href: automation-send-email.md
-    - name: Runbook 資源庫
-      href: automation-runbook-gallery.md
     - name: 使用計量警示監視 Runbook
       href: automation-alert-metric.md
     - name: 從 Azure 警示中啟動 Runbook

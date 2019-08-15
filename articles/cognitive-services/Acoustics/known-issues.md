@@ -3,20 +3,20 @@ title: Project Acoustics 外掛程式的已知問題
 titlesuffix: Azure Cognitive Services
 description: 使用 Project Acoustics 的「設計人員預覽」時，您可能會遇到下列已知問題。
 services: cognitive-services
-author: kylestorck
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylsto
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: df5a4ce62af0405ffab8f711fb40b3d92083a3a4
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 37084480423de90f50beced187eda202b39f8bf1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706653"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933054"
 ---
 # <a name="project-acoustics-known-issues"></a>聲場專案的已知問題
 使用 Project Acoustics 的「設計人員預覽」時，您可能會遇到下列已知問題。
@@ -24,10 +24,6 @@ ms.locfileid: "68706653"
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>將場景重新命名時遺失聲場參數
 
 如果您重新命名場景, 所有屬於該場景的聲場參數都不會自動傳送至新場景。 不過, 它們仍會存在於舊的資產檔案中。 請在 [Editor] 目錄內您場景檔案的旁邊尋找 **SceneName_AcousticParameters.asset** 檔案。 請將您的檔案重新命名以反映新的場景名稱。
-
-## <a name="unity-crashes-when-closing-project"></a>關閉專案時 Unity 當機
-
-在最新版 Unity (2018.2+) 上，有一個 Unity 在您關閉專案時會當機的已知錯誤 (Bug)。 [這個 Unity 問題](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project)已追蹤此錯誤。
 
 ## <a name="deploying-to-android-from-some-unity-versions"></a>從某些 Unity 版本部署至 Android
 

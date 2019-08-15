@@ -7,21 +7,21 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 71b7be74ca7b6ac072dfd7c9fa6b8efa72361dfa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cb93cf1b7a5338058c6f2d93b4bb27f60286882e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561194"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881197"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>定義和使用仲裁工作流程 (REST)
 
 工作流程是以雲端為基礎的自訂篩選器, 您可以用來更有效率地處理內容。 工作流程可以連接到各種服務, 以不同的方式篩選內容, 然後採取適當的動作。 本指南說明如何使用工作流程 REST Api (透過 API 主控台) 來建立和使用工作流程。 一旦您瞭解 Api 的結構之後, 就可以輕鬆地將這些呼叫移植到任何與 REST 相容的平臺。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 
@@ -80,7 +80,7 @@ ms.locfileid: "68561194"
 
 ### <a name="submit-your-request"></a>提交您的要求
   
-選取 [傳送]  。 如果作業成功，[Response status] \(回應狀態\)  就會是 `200 OK`，而 [Response content] \(回應內容\)  方塊則會顯示 `true`。
+選取 [傳送]。 如果作業成功，[Response status] \(回應狀態\) 就會是 `200 OK`，而 [Response content] \(回應內容\) 方塊則會顯示 `true`。
 
 ### <a name="examine-the-new-workflow"></a>檢查新的工作流程
 
@@ -102,7 +102,7 @@ ms.locfileid: "68561194"
 
 ![取得查詢參數和標頭](images/workflow-get-default.PNG)
 
-選取 [傳送]  。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會以 JSON 格式顯示工作流程, 如下所示:
+選取 [傳送]。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會以 JSON 格式顯示工作流程, 如下所示:
 
 ```json
 {

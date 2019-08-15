@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 04f0944173df59989745ee9167984b493f202b14
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638227"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932942"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>將實體新增至範例語句 
 
@@ -47,7 +47,7 @@ Are there any SQL server jobs?
     > * 對於單一字組，只需要選取它。 
     > * 針對一組兩個或多個單字, 選取第一個單字, 然後選取最後一個單字。
 
-1. 在 [What type of entity do you want to create?]  \(您要建立哪種類型的實體?\) 快顯方塊中驗證實體名稱，並選取 [Simple]  \(簡單\) 實體類型，然後選取 [Done]  \(完成\)。
+1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中驗證實體名稱，並選取 [Simple] \(簡單\) 實體類型，然後選取 [Done] \(完成\)。
 
     [片語清單](luis-concept-feature.md)常被用來提升簡單實體的訊號。
 
@@ -59,11 +59,11 @@ Are there any SQL server jobs?
 
 1. 在 [**意圖**] 頁面上的範例語句中, 選取您想要在新清單中的單字或片語。 當 [實體] 下拉式清單出現時, 在頂端的文字方塊中輸入新清單實體的名稱, 然後選取 [**建立新實體**]。   
 
-1. 在 [What type of entity do you want to create?]  \(您要建立哪種類型的實體?\) 快顯方塊中為實體命名，並選取 [List]  \(清單\) 作為類型。 新增此清單項目的同義字，然後選取 [Done]  \(完成\)。 
+1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中為實體命名，並選取 [List] \(清單\) 作為類型。 新增此清單項目的同義字，然後選取 [Done] \(完成\)。 
 
     ![輸入清單實體同義字的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
-    您可以透過標示其他語句，或從左導覽的 [Entities]  \(實體\) 中編輯實體，來新增更多清單項目或項目同義字。 [編輯](luis-how-to-add-entities.md#add-list-entities)實體可讓您選擇輸入具有對應同義字的其他項目，或匯入清單。 
+    您可以透過標示其他語句，或從左導覽的 [Entities] \(實體\) 中編輯實體，來新增更多清單項目或項目同義字。 [編輯](luis-how-to-add-entities.md#add-list-entities)實體可讓您選擇輸入具有對應同義字的其他項目，或匯入清單。 
 
 ## <a name="add-a-composite-entity"></a>新增複合實體
 
@@ -81,7 +81,7 @@ Are there any SQL server jobs?
 
     當您正確地包裝實體時，整個片語下方會有綠色線條。
 
-1. 在 [What type of entity do you want to create?]  \(您要建立哪種類型的實體?\) 快顯方塊中驗證複合實體的詳細資料，然後選取 [Done]  \(完成\)。
+1. 在 [What type of entity do you want to create?] \(您要建立哪種類型的實體?\) 快顯方塊中驗證複合實體的詳細資料，然後選取 [Done] \(完成\)。
 
     ![實體詳細資料快顯方塊的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
 
@@ -105,7 +105,7 @@ Are there any SQL server jobs?
 
 選取語句中以紅色底線標示的字組。 
 
-如果有預測差異，實體方塊會顯示具有紅色驚嘆號的 [實體狀態]  。 若要查看實體狀態和有關標示實體和預測實體之間的差異資訊，請選取 [實體狀態]  ，然後選取右邊的項目。
+如果有預測差異，實體方塊會顯示具有紅色驚嘆號的 [實體狀態]。 若要查看實體狀態和有關標示實體和預測實體之間的差異資訊，請選取 [實體狀態]，然後選取右邊的項目。
 
 ![實體狀態選取專案的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
@@ -133,7 +133,7 @@ Are there any SQL server jobs?
 
 您可以從 [意圖] 頁面上的語句中移除機器學習的實體標籤。 若實體不是機器學習實體，則無法從語句中予以移除。 若您需要從語句中移除非機器學習實體，則需要刪除整個應用程式中的實體。 
 
-若要從語句中移除機器學習實體標籤，請選取語句中的實體。 然後選取所出現實體下拉式方塊中的 [移除標籤]  。
+若要從語句中移除機器學習實體標籤，請選取語句中的實體。 然後選取所出現實體下拉式方塊中的 [移除標籤]。
 
 ### <a name="add-a-prebuilt-entity-label"></a>新增預先建立的實體標籤
 

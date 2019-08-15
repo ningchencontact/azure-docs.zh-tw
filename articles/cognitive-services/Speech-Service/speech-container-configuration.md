@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321360"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932115"
 ---
 # <a name="configure-speech-service-containers"></a>設定語音服務容器
 
@@ -23,7 +23,7 @@ ms.locfileid: "68321360"
 
 **語音**容器執行時間環境是使用`docker run`命令引數來設定。 此容器有數個必要的設定，和一些選擇性的設定。 命令有相關[範例](#example-docker-run-commands)可供參考。 容器專屬設定包括計費設定。 
 
-# <a name="configuration-settings"></a>組態設定
+## <a name="configuration-settings"></a>組態設定
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -44,7 +44,7 @@ ms.locfileid: "68321360"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-設定會指定 Azure 上用來計量容器帳單資訊的語音資源端點 URI。  `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_語音_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
+設定會指定 Azure 上用來計量容器帳單資訊的語音資源端點 URI。 `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_語音_資源的有效端點 URI。 容器會每隔 10 到 15 分鐘回報使用量。
 
 此設定可在下列位置找到：
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 15d23016df9b0c85b9d252b4c4a9ea48d3608f75
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 419e11862b2c584686922cfc8d1db72ee4751a03
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595062"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934024"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>翻譯工具文字 API 3.0：字典範例
 
@@ -38,15 +38,15 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   <th>描述</th>
   <tr>
     <td>api-version</td>
-    <td>必要參數  。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
+    <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
   </tr>
   <tr>
     <td>寄件者</td>
-    <td>必要參數  。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
+    <td>必要參數。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>必要參數  。<br/>指定輸出文字的語言。 目標語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
+    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
   </tr>
 </table>
 
@@ -61,11 +61,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>必要的要求標頭  。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
+    <td>必要的要求標頭。<br/>指定承載的內容類型。 可能的值為：`application/json`。</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>必要的要求標頭  。<br/>要求本文的長度。</td>
+    <td>必要的要求標頭。<br/>要求本文的長度。</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -104,11 +104,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   
   * `examples`:(來源字詞、目標字詞) 配對的範例清單。 清單的每個項目是具有下列屬性的物件：
 
-    * `sourcePrefix`:要在 `sourceTerm` 的值之前  串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
+    * `sourcePrefix`:要在 `sourceTerm` 的值之前串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
 
     * `sourceTerm`:與查閱的實際字詞等同的字串。 此字串可透過 `sourcePrefix` 和 `sourceSuffix` 來新增，以形成完整範例。 其值會分隔以便標示於使用者介面中，例如藉由粗體來標示。
 
-    * `sourceSuffix`:要在 `sourceTerm` 的值之後  串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
+    * `sourceSuffix`:要在 `sourceTerm` 的值之後串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
 
     * `targetPrefix`:一個類似於 `sourcePrefix` 但用於目標的字串。
 
@@ -123,15 +123,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 此範例說明如何查閱為英文字詞 `fly` 及其西班牙文翻譯 `volar` 所做配對的範例。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
 
----
-
-回應本文 (為了清楚緣故已縮減) 如下：
+回應本文 (為了清楚起見已縮減) 如下：
 
 ```
 [

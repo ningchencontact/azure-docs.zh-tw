@@ -1,5 +1,5 @@
 ---
-title: 知識庫-QnA Maker 的共同作業
+title: 在知識庫上共同作業-QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker 可讓多位使用者對知識庫進行共同作業。 這項功能是連同 Azure 角色型存取控制一起提供。
 services: cognitive-services
@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: diberry
-ms.openlocfilehash: 757b791f632e6d7ecb15a0a40384061f0658a6ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9c5398ff7cb31698db3d4a798b6a082f9e74b99b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447523"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955143"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>對知識庫進行共同作業
 
@@ -23,15 +23,15 @@ QnA Maker 可讓多位使用者對知識庫進行共同作業。 這項功能是
 
 執行下列步驟，與他人共用 QnA Maker 服務：
 
-1. 登入 Azure 入口網站中，並移至您的 QnA Maker 資源。
+1. 登入 Azure 入口網站, 並移至您的 QnA Maker 資源。
 
     ![QnA Maker 資源清單](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
-2. 移至 [存取控制 (IAM)]  索引標籤。
+2. 移至 [存取控制 (IAM)] 索引標籤。
 
     ![QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
 
-3. 選取 [新增]  。
+3. 選取 [新增]。
 
     ![QnA Maker IAM 新增](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 

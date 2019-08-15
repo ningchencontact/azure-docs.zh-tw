@@ -3,20 +3,20 @@ title: 聲場專案 Azure Batch 帳戶設定
 titlesuffix: Azure Cognitive Services
 description: 本 how to 說明如何設定 Azure Batch 帳戶, 以搭配聲場專案 Unity 和 Unreal engine 整合使用。
 services: cognitive-services
-author: ashtat
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f11dfda62ebb53aba6254f2db4eace7c524141d4
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 8f0f726d9d23f20698d3510ad674331ad74fb703
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704887"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855085"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>聲場專案 Azure Batch 帳戶設定
 本 how to 說明如何設定 Azure Batch 帳戶, 以搭配聲場專案 Unity 和 Unreal engine 整合使用。

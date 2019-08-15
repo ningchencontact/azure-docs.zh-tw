@@ -3,20 +3,20 @@ title: 聲場專案 Unity 整合與部署
 titlesuffix: Azure Cognitive Services
 description: 本 how to 說明如何將聲場專案 Unity 外掛程式整合到您的 Unity 專案。
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1a90f6102d35dc1a3bb97c840f2955b54f35bbad
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 54bc98e0ddba0292c6a5dbb07f2bbdfce6a1cb45
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706632"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933151"
 ---
 # <a name="project-acoustics-unity-integration"></a>聲場專案 Unity 整合
 本 how to 說明如何將聲場專案 Unity 外掛程式整合到您的 Unity 專案。
@@ -32,6 +32,10 @@ ms.locfileid: "68706632"
     ![Unity 匯入封裝功能表的螢幕擷取畫面](media/import-package.png)  
 
 * 選擇 **ProjectAcoustics.unitypackage**
+
+* 按一下 [匯**入**] 按鈕, 將 Unity 套件整合到您的專案中  
+
+    ![[Unity 匯入封裝] 對話方塊的螢幕擷取畫面](media/import-dialog.png)  
 
 如果您要將外掛程式匯入到現有的專案中，您的專案可能在專案根目錄中已經有 **mcs.rsp** 檔案，該檔案會指定 C# 編譯器的選項。 您將需要把該檔案的內容與 Project Acoustics 外掛程式隨附的 mcs.rsp 檔案合併。
 

@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6ffc8931f23835f096c99480b286422fc6e20119
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447624"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955163"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker 中的知識庫生命週期
 QnA Maker 在反覆的週期中學習模型變更、語句範例、發佈資料以及從端點查詢收集資料時，會有最佳學習成效。 
@@ -28,14 +28,14 @@ QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提�
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>測試和更新知識庫
 
-知識庫在填入內容 (透過編輯或自動擷取) 後即可供測試。 互動式可以測試在 QnA Maker 入口網站中透過**測試**面板輸入使用者的常用查詢，並確認具有足夠的信心分數與正確的回應傳回的回應。 
+知識庫在填入內容 (透過編輯或自動擷取) 後即可供測試。 互動式測試可以透過**測試**面板在 QnA Maker 入口網站中完成, 方法是輸入一般使用者查詢, 並確認傳回的回應具有正確的回應和足夠的信賴分數。 
 
-* **若要修正低的信心分數**： 新增替代的問題。 
-* **當查詢不正確地傳回[預設回應](confidence-score.md#change-default-answer)** ： 加入新問題的解答。 
+* **若要修正低信賴分數**: 新增替代問題。 
+* **當查詢不正確地傳回[預設回應](confidence-score.md#change-default-answer)時**: 請將新答案新增至正確的問題。 
 
 「測試-更新」的這個密封迴圈會持續執行，直到您得到滿意的結果為止。 了解如何[測試知識庫](../How-To/test-knowledge-base.md)。
 
-適用於大型的 Kb 以及使用自動化的測試[generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)並`isTest`body 屬性哪些查詢`test`知識庫，而不是已發行的知識庫。 
+針對大型 kb, 請使用[generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api)的自動化測試, 以及`isTest`查詢`test`知識庫的 body 屬性, 而不是已發行的知識庫。 
 
 ```json
 {
@@ -51,7 +51,7 @@ QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提�
 
 如此，對測試版知識庫所做的任何變更，都不會對可能正在生產應用程式中執行的已發行版本造成影響。
 
-這些知識庫全都可以個別進行測試。 使用 Api，您可以測試的版本為目標知識庫`isTest`主體 generateAnswer 呼叫中的屬性。
+這些知識庫全都可以個別進行測試。 您可以使用 api, 以 generateAnswer 呼叫中的 [ `isTest`主體] 屬性作為目標的測試版本。
 
 了解如何[發佈知識庫](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)。
 
@@ -67,7 +67,7 @@ QnA Maker 知識庫 (KB) 端點會根據知識庫的內容對使用者查詢提�
 > [!div class="nextstepaction"]
 > [信賴分數](./confidence-score.md)
 
-## <a name="see-also"></a>請參閱 
+## <a name="see-also"></a>另請參閱 
 
 [知識庫](./knowledge-base.md)
 [QnA Maker 概觀](../Overview/overview.md)

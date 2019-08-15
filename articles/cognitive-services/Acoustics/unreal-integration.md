@@ -3,26 +3,26 @@ title: 聲場專案 Unreal 和 Wwise 整合
 titlesuffix: Azure Cognitive Services
 description: 本 how to 說明如何將聲場專案 Unreal 和 Wwise 外掛程式整合到您的專案中。
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5511dd6b9a7d77c0988a94fef747a30d25bb4fc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 47f39e8dcd96ea3bdba564df348e9b89a6b036ba
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706629"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933170"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>聲場專案 Unreal 和 Wwise 整合
 本 how to 提供聲場專案外掛程式套件的詳細整合步驟至您現有的 Unreal 和 Wwise 遊戲專案。 
 
 軟體需求：
-* [Unreal 引擎](https://www.unrealengine.com/)4.20 或4.21
+* [Unreal Engine](https://www.unrealengine.com/) 4.20 +
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1。\*
 * [適用于 Unreal 的 Wwise 外掛程式](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * 如果您要使用 Wwise SDK 的直接整合, 而不是使用 Wwise Unreal 外掛程式, 請參閱聲場專案 Unreal 外掛程式並調整 Wwise API 呼叫。
@@ -52,7 +52,7 @@ ms.locfileid: "68706629"
 
 * 選擇包含在您所下載之套件中的 `AcousticsWwisePlugin\ProjectAcoustics` 目錄。 它包含 Wwise 混音器外掛程式配套。
 
-* Wwise 將會安裝外掛程式。 聲場專案現在應該會顯示在 Wwise 的已安裝外掛程式清單中。
+* Wwise 將會安裝外掛程式。 聲場專案現在應該會顯示在 Wwise 的已安裝外掛程式清單中。  
 ![聲場專案安裝後 Wwise 已安裝之外掛程式清單的螢幕擷取畫面](media/unreal-integration-post-mixer-plugin-install.png)
 
 ## <a name="2-redeploy-wwise-into-your-game"></a>2.(Re) 將 Wwise 部署到您的遊戲
@@ -81,9 +81,13 @@ ms.locfileid: "68706629"
 
     ![反白顯示提供的腳本以修補 Wwise 的 Windows Explorer 視窗螢幕擷取畫面](media/patch-wwise-script.png)
 
-* 如果您沒有安裝 DirectX SDK，便需要將 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`中包含 DXSDK_DIR 的程式碼行註解化
+* 如果您尚未安裝 DirectX SDK，則根據您使用的 Wwise 版本，您可能需要將 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` 中包含 `DXSDK_DIR` 的那一行註解化：
 
     ![顯示已註解排除 DXSDK 的程式碼編輯器螢幕擷取畫面](media/directx-sdk-comment.png)
+
+* 如果您使用 Visual Studio 2019 進行編譯, 若要解決 Wwise 的連結錯誤, 請`VSVersion` `vc150`在中`AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`手動編輯的預設值:
+
+    ![程式碼編輯器的螢幕擷取畫面, 其中顯示 VSVersion 已變更為 microsoft.vc150](media/vsversion-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5.已啟用組建遊戲和檢查 Python
 
@@ -117,7 +121,7 @@ ms.locfileid: "68706629"
 
 * 然後移至 [混音器外掛程式] 索引標籤, 並將聲場專案混音器外掛程式新增至匯流排
 
-    ![Wwise 匯流排的 Screenshow, 顯示如何新增聲場專案混音器外掛程式](media/add-mixer-plugin.png)
+    ![Wwise 匯流排的螢幕擷取畫面, 顯示如何新增聲場專案混音器外掛程式](media/add-mixer-plugin.png)
 
 ### <a name="actor-mixer-hierarchy-setup"></a>動作專案-混音器階層設定
 * 基於效能考慮, 聲場專案會同時將音訊 DSP 套用至所有來源。 這需要外掛程式以混音器外掛程式的身分運作。 Wwise 需要在輸出匯流排上有混音器外掛程式, 但輸出匯流排通常會攜帶幹輸出信號。 聲場專案需要在上`Project Acoustics Bus`攜帶濕信號時, 透過 aux 匯流排路由處理信號。 下列處理常式支援對此信號流程進行漸進式遷移。
@@ -159,7 +163,7 @@ ms.locfileid: "68706629"
 
 * 現在將內建聲場資料資產指派給聲場空間動作專案上的聲場資料插槽。 您的場景現在已經聲場了!
 
-    ![Unreal editor s howing 聲場資產指派的螢幕擷取畫面](media/acoustics-asset-assign.png)
+    ![顯示聲場資產指派的 Unreal 編輯器螢幕擷取畫面](media/acoustics-asset-assign.png)
 
 * 現在新增空白的執行者, 並執行下列動作:
 
@@ -167,7 +171,7 @@ ms.locfileid: "68706629"
 
 1. 將聲場音訊元件新增至動作專案。 此元件會使用聲場專案的功能來擴充 Wwise 音訊元件。
 2. 預設會核取 [播放開始] 方塊, 這會在層級啟動時觸發相關聯的 Wwise 事件。
-3. 使用 [顯示聲場參數] 核取方塊, 列印與來源有關的螢幕上的調試資訊。
+3. 使用 [顯示聲場參數] 核取方塊, 列印與來源有關的螢幕上的調試資訊。  
     ![已啟用 debug 值的音效來源上 Unreal 編輯器聲場面板的螢幕擷取畫面](media/debug-values.png)
 4. 根據平常的 Wwise 工作流程指派 Wwise 事件
 5. 請確定已關閉 [使用空間音訊]。 此時, 如果您使用特定音訊元件的聲場專案, 就無法同時使用 Wwise 的空間音訊引擎來進行聲場。

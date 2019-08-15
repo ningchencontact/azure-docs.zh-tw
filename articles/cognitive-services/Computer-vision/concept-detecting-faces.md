@@ -1,7 +1,7 @@
 ---
-title: 偵測臉部 - 電腦視覺
+title: 臉部偵測-電腦視覺
 titleSuffix: Azure Cognitive Services
-description: 了解電腦視覺 API 的臉部偵測功能的相關概念。
+description: 瞭解電腦視覺 API 的臉部偵測功能相關概念。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 699192aba87bb009d7dbddddcc9579883bb71db9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368102"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945238"
 ---
 # <a name="face-detection-with-computer-vision"></a>使用電腦視覺的物件偵測
 

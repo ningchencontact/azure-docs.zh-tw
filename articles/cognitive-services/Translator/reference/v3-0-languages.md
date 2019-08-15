@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: c5298c038f056942ddc754482cbf4ec8cd77b48b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3dd875fbf9a8da464abe1b6312cec84c030dc624
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595016"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934007"
 ---
 # <a name="translator-text-api-30-languages"></a>翻譯工具文字 API 3.0：語言
 
@@ -41,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>scope</td>
-    <td>選擇性參數  。<br/>以逗號分隔的名稱列表，用於定義要傳回的語言群組。 允許的群組名稱為：`translation`、`transliteration` 和 `dictionary`。 如果未提供任何範圍，則會傳回所有群組，相當於傳遞 `scope=translation,transliteration,dictionary`。 若想要決定哪一組支援語言適合您的案例使用，請參閱[回應物件](#response-body)的說明。</td>
+    <td>選擇性參數。<br/>以逗號分隔的名稱列表，用於定義要傳回的語言群組。 允許的群組名稱為：`translation`、`transliteration` 和 `dictionary`。 如果未提供任何範圍，則會傳回所有群組，相當於傳遞 `scope=translation,transliteration,dictionary`。 若想要決定哪一組支援語言適合您的案例使用，請參閱[回應物件](#response-body)的說明。</td>
   </tr>
 </table> 
 
@@ -281,10 +281,6 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 以下範例顯示如何擷取支援文字轉換的語言。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
 ```
-
----

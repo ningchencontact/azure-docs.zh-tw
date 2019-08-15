@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: c6f3d9c1605dc97b315550d8b7e3fdf08144c1bc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: af636deaafc05238c287d095e644588ed8c5f26d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561228"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880056"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>定義和使用審核作業 (REST)
 
@@ -51,7 +51,7 @@ REST 呼叫的主體包含一個欄位**ContentValue**。 如果您要仲裁文�
 
 ### <a name="submit-your-request"></a>提交您的要求
 
-選取 [傳送]  。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會顯示工作的識別碼。 複製此識別碼以在下列步驟中使用。
+選取 [傳送]。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會顯示工作的識別碼。 複製此識別碼以在下列步驟中使用。
 
 ![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ REST 呼叫的主體包含一個欄位**ContentValue**。 如果您要仲裁文�
 
 ![作業-取得區域選取範圍](images/test-drive-region.png)
 
-輸入 REST 呼叫參數, 如上一節所示。 在此步驟中, **JobId**是您在建立作業時所收到的唯一識別碼字串。 選取 [傳送]  。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會以 JSON 格式顯示工作, 如下所示:
+輸入 REST 呼叫參數, 如上一節所示。 在此步驟中, **JobId**是您在建立作業時所收到的唯一識別碼字串。 選取 [傳送]。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會以 JSON 格式顯示工作, 如下所示:
 
 ```json
 {  

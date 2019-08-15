@@ -44,9 +44,9 @@ sections:
         style: unordered
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">設定環境並定型第一個 ML 實驗。</a>
-          - html: <a href="tutorial-train-models-with-aml">定型及部署映像分類模型</a>。
-          - html: <a href="tutorial-data-prep">準備資料並使用自動化 ML 以預測計程車車資</b>。</a>
-          - html: <a href="how-to-run-batch-predictions">使用 ML 管線針對大型資料執行批次預測</b>。</a>
+          - html: <a href="tutorial-train-models-with-aml">定型及部署映像分類模型。</a>
+          - html: <a href="tutorial-data-prep">準備資料並使用自動化 ML 以預測計程車車資。</b></a>
+          - html: <a href="how-to-run-batch-predictions">使用 ML 管線針對大型資料執行批次預測。</b></a>
   - title: 範例
     items:
       - type: paragraph
@@ -56,10 +56,10 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://aka.ms/aml-sdk">主要 Python SDK</a>：核心功能、自動化的機器學習服務、管線和更多功能'
-          - html: '<a href="https://aka.ms/aml-monitoring-sdk">監視</a> Python SDK：在部署的 web 服務上收集資料'
-          - html: 適用於虛擬介面的<a href="../algorithm-module-reference/module-reference.md">演算法和模組參考</a>
-          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>：機器學習命令列介面擴充功能'
+          - html: '<a href="https://aka.ms/aml-sdk">主要 Python SDK</a> 文件：了解核心功能、自動化的 ML、管線和更多功能。'
+          - html: '<a href="https://aka.ms/aml-monitoring-sdk">監視</a> Python SDK 文件：了解如何在部署的 Web 服務上收集資料'
+          - html: 適用於虛擬介面模組的<a href="../algorithm-module-reference/module-reference.md">演算法和模組參考</a>文件。
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>：了解 ML 命令列介面擴充功能。'
   - title: 其他 Azure Machine Learning 技術
     items:
       - type: list

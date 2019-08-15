@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: eb9d9b366dd9c4dbb02e9c79a908ba3b1bf1e3f0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4b14d9f39ef5bb0806cfe0720dbaa2fe95b32421
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637885"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932624"
 ---
 # <a name="add-prebuilt-intents-for-common-intents"></a>新增常見意圖的預先建置意圖 
 
@@ -24,21 +24,21 @@ LUIS 包含一組來自預先建置定義域的預先建置意圖，可用來快
 
 ## <a name="add-a-prebuilt-intent"></a>新增預先建置的意圖
 
-1. 在 [My Apps] \(我的應用程式\)  頁面上，選取您的應用程式。 這會讓您的應用程式開啟至應用程式的 [Build] \(組建\)  區段。 
+1. 在 [My Apps] \(我的應用程式\) 頁面上，選取您的應用程式。 這會讓您的應用程式開啟至應用程式的 [Build] \(組建\) 區段。 
 
-1. 在 [Intents] \(意圖\)  頁面上，從意圖清單上方的工具列中選取 [Add prebuilt intent] \(新增預先建置的意圖\)  。 
+1. 在 [Intents] \(意圖\) 頁面上，從意圖清單上方的工具列中選取 [Add prebuilt intent] \(新增預先建置的意圖\)。 
 
-1. 從快顯對話方塊中選取 [Utilities.Cancel]  意圖。 
+1. 從快顯對話方塊中選取 [Utilities.Cancel] 意圖。 
 
     ![新增預先建置的意圖](./media/luis-prebuilt-intents/prebuilt-intents-ddl.png)
 
-1. 選取 [Done] \(完成\)  按鈕。
+1. 選取 [Done] \(完成\) 按鈕。
 
 ## <a name="train-and-test"></a>定型和測試
 
-1. 新增意圖之後，選取右上方工具列中的 [Train] \(定型\)  來進行應用程式定型。 
+1. 新增意圖之後，選取右上方工具列中的 [Train] \(定型\) 來進行應用程式定型。 
 
-1. 選取右側工具列中的 [Test] \(測試\)  來測試新的意圖。 
+1. 選取右側工具列中的 [Test] \(測試\) 來測試新的意圖。 
 
 1. 在文字方塊中，輸入表達取消的語句：
 

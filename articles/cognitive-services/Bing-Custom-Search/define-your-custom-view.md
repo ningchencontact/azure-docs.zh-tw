@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e4ed781544d3cd11e8494e40589676adf57a9c75
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405128"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854089"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>設定 Bing 自訂搜尋體驗
 
@@ -159,5 +159,5 @@ ms.locfileid: "68405128"
 
 - [呼叫您的自訂搜尋](./search-your-custom-view.md)
 - [設定託管的 UI 體驗](./hosted-ui.md)
-- [使用裝飾標記醒目提示文字](./hit-highlighting.md)
+- [使用裝飾標記醒目提示文字](../bing-web-search/hit-highlighting.md)
 - [頁面網頁](./page-webpages.md)

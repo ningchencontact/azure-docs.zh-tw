@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 36d87ee9db68c47ee96519cb6b04ff24478427d6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9030d85ff5bc83bb54f4a67a9f319a1670a6c2ad
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423397"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881854"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing 當地商家搜尋 API v7 參考
 
@@ -91,10 +91,10 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |[位置](#place)|定義有關當地商家 (例如餐廳或旅館) 的相關資訊。|  
 
   
-### <a name="error"></a>錯誤  
+### <a name="error"></a>Error  
 定義發生的錯誤。  
   
-|項目|描述|Type|  
+|元素|描述|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|識別錯誤類別的錯誤碼。 如需可能的代碼清單，請參閱[錯誤碼](#error-codes)。|String|  
 |<a name="error-message" />message|錯誤的描述。|String|  

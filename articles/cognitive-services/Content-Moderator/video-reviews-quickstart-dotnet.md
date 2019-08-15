@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 74b0ad4b5d8a16c8d46fcf6de67c46dab29ba51d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6ec258bc52513772716fa8fe1078653575c923f3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564301"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882015"
 ---
 # <a name="create-video-reviews-using-net"></a>使用 .NET 來建立影片審核項目
 
@@ -27,7 +27,7 @@ ms.locfileid: "68564301"
 - 取得審核項目的狀態和詳細資料
 - 發佈審核項目
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 - 本文假設您已[仲裁影片 (請參閱快速入門)](video-moderation-api.md)，而且具有回應資料。 您需要使用它來為人工仲裁者建立以畫面為基礎的審核項目。
@@ -61,7 +61,7 @@ ms.locfileid: "68564301"
 
 ## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)]  專案新增到您的解決方案。
+1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
 
 1. 將專案命名為 **VideoReviews**。
 
@@ -550,7 +550,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>查看您的影片審核項目
 
-最後，您會在 Content Moderator 審核工具帳戶中的 [審核]  >[影片]  畫面上看到影片審核項目。
+最後，您會在 Content Moderator 審核工具帳戶中的 [審核]>[影片] 畫面上看到影片審核項目。
 
 ![給人工仲裁者的影片審核項目](images/ams-video-review.PNG)
 

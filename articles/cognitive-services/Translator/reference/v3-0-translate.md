@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 2b08ddb4241a9af7aee31bb51d75dd82ff8255d2
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 67d323d5a3574100760c78427db6983f6aff5ac8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839626"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934004"
 ---
-# <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：Translate
+# <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：轉譯
 
 翻譯文字。
 
@@ -41,7 +41,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 <code>3.0</code>。</td>
   </tr>
   <tr>
-    <td>from</td>
+    <td>寄件者</td>
     <td>選擇性參數。<br/>指定輸入文字的語言。 使用 <code>translation</code> 範圍查閱<a href="./v3-0-languages.md">支援語言</a>，以尋找可用於翻譯的來源語言。 若未指定 <code>from</code> 參數，則會套用自動語言偵測來判斷來源語言。 <br/><br/>使用<a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">動態字典</a>功能<code>from</code>時, 您必須使用參數, 而不是自動偵測。</td>
   </tr>
   <tr>
@@ -94,7 +94,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 要求標頭包括：
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">標頭</th>
   <th>描述</th>
   <tr>
     <td>驗證標頭</td>
@@ -114,7 +114,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
 </table> 
 
-## <a name="request-body"></a>Request body
+## <a name="request-body"></a>要求本文
 
 要求的本文是 JSON 陣列。 每個陣列項目都是字串屬性名為 `Text` 的 JSON 物件，其代表要翻譯的字串。
 
@@ -172,7 +172,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 ## <a name="response-headers"></a>回應標頭
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">標頭</th>
   <th>描述</th>
     <tr>
     <td>X-RequestId</td>
@@ -201,7 +201,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>401</td>
-    <td>無法驗證要求。 請確認認證已指定且有效。</td>
+    <td>無法驗證此要求。 請確認認證已指定且有效。</td>
   </tr>
   <tr>
     <td>403</td>
@@ -217,7 +217,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>500</td>
-    <td>發生意外錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 <code>X-RequestId</code> 的要求識別碼，以及來自要求標頭 <code>X-ClientTraceId</code> 的用戶端識別碼。</td>
+    <td>發生未預期的錯誤。 若錯誤仍然存在，請回報：失敗的日期和時間、來自回應標頭 <code>X-RequestId</code> 的要求識別碼，以及來自要求標頭 <code>X-ClientTraceId</code> 的用戶端識別碼。</td>
   </tr>
   <tr>
     <td>503</td>
@@ -233,13 +233,9 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 此範例示範如何將單一句子從英文翻譯成簡體中文。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-
----
 
 回應本文如下：
 
@@ -259,13 +255,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 此範例示範如何將單一句子從英文翻譯成簡體中文。 要求未指定輸入語言。 改為使用來源語言的自動偵測。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-
----
 
 回應本文如下：
 
@@ -285,13 +277,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 讓我們新增轉換以擴充前一個範例。 下列要求會要求以拉丁文指令碼撰寫的中文翻譯。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-
----
 
 回應本文如下：
 
@@ -316,13 +304,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 一次翻譯多個字串就像是在要求本文中指定字串陣列一樣。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
-
----
 
 回應本文如下：
 
@@ -345,13 +329,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 本範例示範如何使用一個要求將相同輸入翻譯為數種語言。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
-
----
 
 回應本文如下：
 
@@ -403,14 +383,9 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 例如:
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-
----
-
 這會傳回：
 
 ```
@@ -425,13 +400,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 相較於：
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
-
----
 
 這個最後一個要求會傳回：
 
@@ -456,13 +427,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 以下是要說明的範例要求。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
-
----
 
 回應如下：
 
@@ -480,13 +447,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 若要收到對齊方式資訊，請在查詢字串上指定 `includeAlignment=true`。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
-
----
 
 回應如下：
 
@@ -518,13 +481,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 若要收到來源文字和翻譯文字中句子長度的相關資訊，請在查詢字串上指定 `includeSentenceLength=true`。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
-
----
 
 回應如下：
 
@@ -571,9 +530,3 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 ```
 
 此功能的運作方式與 `textType=text` 或 `textType=html` 相同。 應該謹慎使用此功能。 自訂翻譯的適當且最適合方式是使用 Custom Translator。 Custom Translator 會完全利用內容和統計機率。 若您有或可以建立內容中顯示您工作或片語的訓練資料，則會取得較好的效果。 [深入了解 Custom Translator](../customization.md)。
- 
-
-
-
-
-

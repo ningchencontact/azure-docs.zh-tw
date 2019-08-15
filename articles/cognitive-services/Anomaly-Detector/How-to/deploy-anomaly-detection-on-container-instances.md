@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: defbd1275e24217c235caaef15dc8f7a55ad8613
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: cdcf701c6356303c84d3f79ee4230271f64ace78
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296581"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854240"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>將異常偵測器容器部署至 Azure 容器實例
 
@@ -35,4 +35,8 @@ ms.locfileid: "68296581"
 
 [!INCLUDE [API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-[!INCLUDE [Containers Next Steps](../../containers/includes/containers-next-steps.md)]
+## <a name="next-steps"></a>後續步驟
+
+* 請參閱[安裝和執行容器](../anomaly-detector-container-configuration.md)以提取容器映射並執行容器
+* 檢閱[設定容器](../anomaly-detector-container-configuration.md)以了解組態設定
+* [深入瞭解異常偵測器 API 服務](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

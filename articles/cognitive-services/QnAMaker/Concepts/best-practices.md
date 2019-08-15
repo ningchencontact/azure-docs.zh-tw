@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: bbd6c55337eb30c883ecbd542abbdfc0f842e3f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: da587aa51b1a8aee609a5bfd04ce0d7f24ca0e5f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563114"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955262"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的最佳做法
 
@@ -114,7 +114,7 @@ GenerateAnswer API 會使用這兩個問題和答案來搜尋使用者查詢的�
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>使用中繼資料標記來篩選問題和答案
 
-[中繼資料](../How-To/edit-knowledge-base.md)可讓用戶端應用程式知道它不會採取所有答案, 而是根據元資料標記來縮小使用者查詢結果的範圍。 即使查詢相同，知識庫解答也可能根據中繼資料標記而不同。 例如，如果餐廳分店的地點不同 (亦即，中繼資料為「地點：西雅圖」   和「地點：雷德蒙」  的不同)，「停車場在哪裡」就可能有不同的回答。
+[中繼資料](../How-To/edit-knowledge-base.md)可讓用戶端應用程式知道它不會採取所有答案, 而是根據元資料標記來縮小使用者查詢結果的範圍。 即使查詢相同，知識庫解答也可能根據中繼資料標記而不同。 例如，如果餐廳分店的地點不同 (亦即，中繼資料為「地點：西雅圖」和「地點：雷德蒙」的不同)，「停車場在哪裡」就可能有不同的回答。
 
 ### <a name="use-synonyms"></a>使用同義字
 雖然英文語言有一些同義字的支援, 但透過更改[API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace)使用不區分大小寫的文字變異, 將同義字新增至採用不同形式的關鍵字。 同義字會加入至 QnA Maker 服務層級, 並由服務中的所有知識庫共用。

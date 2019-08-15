@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f77a95af1edcd37043ea1e067560577140a81a04
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552553"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967598"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>關於自訂語音優先虛擬助理預覽
 
@@ -36,14 +36,25 @@ ms.locfileid: "68552553"
 |[文字轉換語音](text-to-speech.md) | 來自 bot 的文字回應會使用 Azure 語音服務中的[文字轉換語音](text-to-speech.md)進行合成。 然後, 您的用戶端應用程式會將此合成作為音訊串流。 Microsoft 提供建立您自己的自訂高品質神經 TTS 語音的功能, 為您的品牌提供語音, 以深入瞭解如何[與我們聯繫](mailto:mstts@microsoft.com)。
 |[Direct Line 語音](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Direct Line Speech 是 Bot Framework 內的通道, 可讓您的用戶端應用程式、相容的 Bot 和 Azure 語音服務的功能之間順暢且順暢地連線。 如需有關將 bot 設定為使用 Direct Line 語音通道的詳細資訊, 請參閱[Bot Framework 檔中的頁面](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)。
 
+## <a name="get-started-with-virtual-assistants"></a>開始使用虛擬助理
+
+我們提供的快速入門是為了讓您在10分鐘內執行程式碼而設計的。 下表包含依語言組織的語音優先虛擬助理快速入門清單。
+
+| 快速入門 | 平台 | API 參考 |
+|------------|----------|---------------|
+| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| Java | Windows、macOS、Linux | [Browse](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
+
 ## <a name="sample-code"></a>範例程式碼
 
 建立語音優先虛擬助理的範例程式碼可在 GitHub 上取得。 這些範例涵蓋了用戶端應用程式, 可讓您以數種熱門的程式設計語言連接到您的 bot。
 
 * [語音優先虛擬助理範例 (SDK)](https://aka.ms/csspeech/samples)
-* [快速入門: 語音優先虛擬助理 (C#)](quickstart-virtual-assistant-csharp-uwp.md)
-* [快速入門: 語音優先虛擬助理 (JAVA)](quickstart-virtual-assistant-java-jre.md)
-* [Direct Line 語音用戶端C#(、WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
+* [教學課程：語音: 使用語音 SDK 啟用您的 bot,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="tutorial"></a>教學課程
+本教學課程說明如何[使用語音 SDK 和 Direct Line 語音通道來為您的 bot 提供語音](tutorial-voice-enable-your-bot-speech-sdk.md)。
 
 ## <a name="customization"></a>自訂
 

@@ -7,21 +7,21 @@ author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5b73436153427019a7d0d2c641f50592a385f19c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 065d3cd80f93753eb91571d4ada4fe7151258ec0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564555"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882666"
 ---
 # <a name="create-human-reviews"></a>建立人力審查
 
 在本指南中, 您將瞭解如何在審核工具網站上設定[評論](../review-api.md#reviews)。 審查儲存和顯示內容, 供人力仲裁者評估。 仲裁者可以改變套用的標記, 並視需要套用自己的自訂標記。 當使用者完成審查時, 會將結果傳送至指定的回呼端點, 並將內容從網站中移除。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 
@@ -34,7 +34,7 @@ ms.locfileid: "68564555"
 
     影像會與自動審核程式所指派的任何標籤一起顯示。 其他審核者看不到您透過審核工具提交的影像。
 
-1. 或者, 移動**評論以顯示**滑杆 (1) 來調整螢幕上顯示的影像數目。 按一下已加上卷  標或未**標記**的按鈕 (2), 以據以排序影像。 按一下標記面板 (3) 以開啟或關閉它。
+1. 或者, 移動**評論以顯示**滑杆 (1) 來調整螢幕上顯示的影像數目。 按一下已加上卷標或未**標記**的按鈕 (2), 以據以排序影像。 按一下標記面板 (3) 以開啟或關閉它。
 
     ![顯示含已標記影像供審核之審核工具的 Chrome 瀏覽器](images/review-images-2.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "68564555"
 
     ![仲裁詳細資料列在不同窗格的影像](images/review-images-4.png)
 
-1. 在您視需要審查並更新標記指派後，請按 [下一步]  以提交您的審查。 在您提交之後，您大約有五秒的時間可按 [上一步]  按鈕，以返回上一個畫面並再次審查影像。 在這之後，影像不再存在於 [提交] 佇列中，而且無法再使用 [上一步]  按鈕。
+1. 在您視需要審查並更新標記指派後，請按 [下一步] 以提交您的審查。 在您提交之後，您大約有五秒的時間可按 [上一步] 按鈕，以返回上一個畫面並再次審查影像。 在這之後，影像不再存在於 [提交] 佇列中，而且無法再使用 [上一步] 按鈕。
 
 ## <a name="text-reviews"></a>文字檢閱
 

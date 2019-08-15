@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: c7e23c78b5d03b834d593bd2b53958c3379c51f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f8b84722c881cee1fe196e5a614b58cf3c19031
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560519"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932865"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>使用您的訂用帳戶金鑰搭配 LUIS 應用程式
 
@@ -72,7 +72,7 @@ ms.locfileid: "68560519"
 若未指定端點金鑰，或未指派給應用程式，任何對端點 URL 的要求都會傳回錯誤：`401 This application cannot be accessed with the current subscription`。 
 
 ### <a name="include-all-predicted-intent-scores"></a>Include all predicted intent scores \(包括所有預測意圖分數\)
-[Include all predicted intent scores] \(包括所有預測意圖分數\)  核取方塊允許端點查詢回應包括每個意圖的預測分數。 
+[Include all predicted intent scores] \(包括所有預測意圖分數\) 核取方塊允許端點查詢回應包括每個意圖的預測分數。 
 
 此設定可讓您的聊天機器人或 LUIS 通話應用程式根據所傳回意圖的分數進行程式設計決策。 一般而言，前兩個意圖最為有趣。 若最高分數為 None 意圖，則您的聊天機器人可以選擇詢問待處理問題，明確選擇 None 意圖與其他高計分意圖。 
 
@@ -100,7 +100,7 @@ ms.locfileid: "68560519"
 ```
 
 ### <a name="enable-bing-spell-checker"></a>啟用 Bing 拼字檢查工具 
-在 [端點 URL 設定]  中，[Bing 拼字檢查工具]  切換開關會允許 LUIS 在預測之前更正錯字。 建立 **[Bing 拼字檢查金鑰](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** 。 
+在 [端點 URL 設定] 中，[Bing 拼字檢查工具] 切換開關會允許 LUIS 在預測之前更正錯字。 建立 **[Bing 拼字檢查金鑰](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** 。 
 
 新增 **spellCheck=true** 查詢字串參數和 **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** 。 將 `{YOUR_BING_KEY_HERE}` 取代為 Bing 拼字檢查金鑰。
 
@@ -157,13 +157,13 @@ ms.locfileid: "68560519"
 
 1.  在 [Azure](https://portal.azure.com) 中，尋找您的 LUIS 訂用帳戶。 選取 LUIS 訂用帳戶。
     ![尋找 LUIS 訂用帳戶](./media/luis-usage-tiers/find.png)
-1.  選取 [定價層]  以查看可用的定價層。 
+1.  選取 [定價層] 以查看可用的定價層。 
     ![檢視定價層](./media/luis-usage-tiers/subscription.png)
-1.  選取定價層，然後選取 [選取]  以儲存變更。 
+1.  選取定價層，然後選取 [選取] 以儲存變更。 
     ![變更 LUIS 付款層](./media/luis-usage-tiers/plans.png)
 1.  定價變更完成時，快顯視窗會確認新的定價層。 
     ![驗證 LUIS 付款層](./media/luis-usage-tiers/updated.png)
-1. 請記得在 [發佈]  頁面上[指派此端點金鑰](#assign-endpoint-key)，然後將它使用於所有端點查詢。 
+1. 請記得在 [發佈] 頁面上[指派此端點金鑰](#assign-endpoint-key)，然後將它使用於所有端點查詢。 
 
 ## <a name="fix-http-status-code-403-and-429"></a>修正 HTTP 狀態碼403和429
 
@@ -191,7 +191,7 @@ ms.locfileid: "68560519"
 * 當您取得此狀態碼時, 您可以使用您自行執行的[重試原則](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines)來閘道用戶端應用程式要求。 
 
 ## <a name="viewing-summary-usage"></a>檢視摘要使用量
-您可以在 Azure 中檢視 LUIS 使用量資訊。 [概觀]  頁面會顯示近期摘要資訊，包括呼叫和錯誤。 如果您提出 LUIS 端點要求，然後立即觀看 [概觀] 頁面  ，允許使用量最多在五分鐘內出現。
+您可以在 Azure 中檢視 LUIS 使用量資訊。 [概觀] 頁面會顯示近期摘要資訊，包括呼叫和錯誤。 如果您提出 LUIS 端點要求，然後立即觀看 [概觀] 頁面，允許使用量最多在五分鐘內出現。
 
 ![檢視摘要使用量](./media/luis-usage-tiers/overview.png)
 

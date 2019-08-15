@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9be1db9be1d4dd57994e101c07ed430425a5912
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b0b82f37b76a6bca6d84a05bc48b7ae9986fb76b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447429"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967691"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>如何管理 QnA Maker 中的金鑰
 
@@ -34,7 +34,7 @@ QnA Maker 服務會處理兩種類型的金鑰，即**訂用帳戶金鑰**和**�
 
     ![QnA Maker 資源清單](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. 移至 [金鑰]  。
+2. 移至 [金鑰]。
 
     ![訂用帳戶金鑰](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
@@ -42,7 +42,7 @@ QnA Maker 服務會處理兩種類型的金鑰，即**訂用帳戶金鑰**和**�
 
 您可以從 [QnA Maker 入口網站](https://qnamaker.ai)來管理端點金鑰。
 
-1. 登入 [QnA Maker 入口網站](https://qnamaker.ai)，移至您的設定檔，然後按一下 [服務設定]  。
+1. 登入 [QnA Maker 入口網站](https://qnamaker.ai)，移至您的設定檔，然後按一下 [服務設定]。
 
     ![端點金鑰](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

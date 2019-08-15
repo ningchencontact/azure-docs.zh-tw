@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: bf507fcb52d0c6a57453bd5f038530640e62ba9c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f8f22c70870b149f916eb767c5eb310e063d7413
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563334"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945099"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>使用 Bing 拼字檢查更正拼錯的字組
 
@@ -33,7 +33,7 @@ ms.locfileid: "68563334"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
-2. 在左上角選取 [建立資源]  。
+2. 在左上角選取 [建立資源]。
 
 3. 在搜尋方塊中，輸入 `Bing Spell Check API V7`。
 
@@ -41,17 +41,17 @@ ms.locfileid: "68563334"
 
 4. 選取此服務。 
 
-5. 資訊面板會顯示在右邊，包含法律聲明等資訊。 選取 [建立]  開始訂用帳戶建立程序。 
+5. 資訊面板會顯示在右邊，包含法律聲明等資訊。 選取 [建立] 開始訂用帳戶建立程序。 
 
 6. 在下一個面板中，輸入您的服務設定。 等候服務建立程序完成。
 
     ![輸入服務設定](./media/luis-tutorial-bing-spellcheck/subscription-settings.png)
 
-7. 選取左側導覽列上 [我的最愛]  標題底下的 [所有資源]  。
+7. 選取左側導覽列上 [我的最愛] 標題底下的 [所有資源]。
 
-8. 選取新服務。 其類型為 [認知服務]  且位置為 [全域]  。 
+8. 選取新服務。 其類型為 [認知服務] 且位置為 [全域]。 
 
-9. 在主面板中，選取 [金鑰]  以查看新的金鑰。
+9. 在主面板中，選取 [金鑰] 以查看新的金鑰。
 
     ![擷取金鑰](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 1a19ab6e02249bad689f1a05c5761150b7a817df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c4e83ed15c2b15ccb3339ff775b08c8d2dab4c32
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560287"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932526"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
-**datetimeV2** 預先建置的實體會擷取日期和時間值。 這些值會以標準化格式解析，以供用戶端程式取用。 當語句中有不完整的日期或時間時，LUIS 會在端點回應中包括「過去與未來值」  。 因為此實體已經定型，所以您不需要將包含 datetimeV2 的範例語句加入應用程式意圖。 
+**datetimeV2** 預先建置的實體會擷取日期和時間值。 這些值會以標準化格式解析，以供用戶端程式取用。 當語句中有不完整的日期或時間時，LUIS 會在端點回應中包括「過去與未來值」。 因為此實體已經定型，所以您不需要將包含 datetimeV2 的範例語句加入應用程式意圖。 
 
 ## <a name="types-of-datetimev2"></a>datetimeV2 類型
 DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub 存放庫管理
@@ -295,10 +295,10 @@ API V2 的變更:
 
 若要在 LUIS 應用程式中以 `datetimeV2` 取代 `datetime`，請完成下列步驟：
 
-1. 開啟 LUIS 網頁介面的 [實體]  窗格。 
+1. 開啟 LUIS 網頁介面的 [實體] 窗格。 
 2. 刪除 **datetime** 預先建置的實體。
-3. 按一下 [新增預先建置的實體] 
-4. 選取 [datetimeV2]  ，然後按一下 [儲存]  。
+3. 按一下 [新增預先建置的實體]
+4. 選取 [datetimeV2]，然後按一下 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
 

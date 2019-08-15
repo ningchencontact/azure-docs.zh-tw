@@ -461,6 +461,8 @@
               href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
             - name: SaaS 履行 API - 常見問題集
               href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: 試用您的供應項目
+          href: ./partner-center-portal/test-drive.md
     - name: 發佈狀態
       href: ./partner-center-portal/publishing-status.md
     - name: 更新現有供應項目

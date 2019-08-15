@@ -10,18 +10,18 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 617a8fc823b7c40d047e5825dc31b095da132f29
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a2f743b2b7e63df8b81a1024b20e3e27a3f247a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321440"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933001"
 ---
 # <a name="configure-anomaly-detector-containers"></a>設定異常偵測器容器
 
 **異常**偵測器容器執行時間環境是使用`docker run`命令引數來設定。 此容器有數個必要的設定，和一些選擇性的設定。 命令有相關[範例](#example-docker-run-commands)可供參考。 容器專屬設定包括計費設定。 
 
-# <a name="configuration-settings"></a>組態設定
+## <a name="configuration-settings"></a>組態設定
 
 此容器具有下列組態設定：
 
@@ -53,7 +53,7 @@ ms.locfileid: "68321440"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-設定會指定 Azure 上用來計量容器帳單資訊的異常偵測器資源端點 URI。  `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_異常_偵測器資源的有效端點 URI。
+設定會指定 Azure 上用來計量容器帳單資訊的異常偵測器資源端點 URI。 `Billing` 您必須指定此設定的值, 且該值必須是 Azure 上_異常_偵測器資源的有效端點 URI。
 
 此設定可在下列位置找到：
 
@@ -134,3 +134,8 @@ ms.locfileid: "68321440"
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
+
+## <a name="next-steps"></a>後續步驟
+
+* [將異常偵測器容器部署至 Azure 容器實例](how-to/deploy-anomaly-detection-on-container-instances.md)
+* [深入瞭解異常偵測器 API 服務](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

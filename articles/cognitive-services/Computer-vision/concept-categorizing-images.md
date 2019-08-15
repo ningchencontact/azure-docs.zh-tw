@@ -1,5 +1,5 @@
 ---
-title: 影像分類：電腦視覺
+title: 影像分類-電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 了解電腦視覺 API 的影像分類功能相關概念。
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2b9b8da550d80b027da919ba0834e43e2c83d4b4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60203278"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945317"
 ---
-# <a name="categorize-images-by-subject-matter"></a>依主題分類的映像
+# <a name="categorize-images-by-subject-matter"></a>依主題分類影像
 
 除了標記和描述以外，電腦視覺也會傳回在影像中偵測到的分類型類別。 與標記不同，類別會在父/子階層結構中組織，並且更少 (86 個，而不是數以千計的標記)。 所有類別名稱皆採用英文。 類別可以單獨完成，也可以與較新的標記模型一起完成。
 
 ## <a name="the-86-category-concept"></a>86 類別概念
 
-電腦視覺可以分類影像廣泛地或明確地說下, 圖中使用的 86 類別清單。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
+電腦視覺可以使用下圖中的86類別清單, 大致或具體地分類影像。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
 
 ![類別分類法中所有類別的分組清單](./Images/analyze_categories-v2.png)
 

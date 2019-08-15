@@ -7,25 +7,25 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 581ab488337cfecae3f5dd97610c7f92c75af8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ec45f182e24f44c2222d64f18e2aa0aeea845727
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564346"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882334"
 ---
 # <a name="create-human-reviews-rest"></a>建立人力審查 (REST)
 
 [審查](./review-api.md#reviews)儲存和顯示內容, 供人力仲裁者評估。 當使用者完成審查時, 會將結果傳送至指定的回呼端點。 在本指南中, 您將瞭解如何透過 API 主控台使用審查 REST Api 來設定評論。 一旦您瞭解 Api 的結構之後, 就可以輕鬆地將這些呼叫移植到任何與 REST 相容的平臺。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 在內容仲裁[審查工具](https://contentmoderator.cognitive.microsoft.com/)網站上登入或建立帳戶。
 
-## <a name="create-a-review"></a>建立評論
+## <a name="create-a-review"></a>建立審核
 
 若要建立審查, 請移至 [ **[審查-建立](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API 參考] 頁面, 然後選取金鑰區域的按鈕 (您可以在 [[審核] 工具](https://contentmoderator.cognitive.microsoft.com/)的 [**認證**] 頁面上的 [端點 URL] 中找到此資訊)。 這會啟動 API 主控台, 您可以在其中輕鬆地建立和執行 REST API 呼叫。
 
@@ -129,7 +129,7 @@ ms.locfileid: "68564346"
 
 ### <a name="submit-your-request"></a>提交您的要求
   
-選取 [傳送]  。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會顯示審核的識別碼。 複製此識別碼以在下列步驟中使用。
+選取 [傳送]。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會顯示審核的識別碼。 複製此識別碼以在下列步驟中使用。
 
 ![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-review-2.PNG)
 
@@ -139,7 +139,7 @@ ms.locfileid: "68564346"
 
 ![足球的審查工具影像](images/test-drive-review-5.PNG)
 
-## <a name="get-review-details"></a>取得評論詳細資料
+## <a name="get-review-details"></a>取得審核詳細資料
 
 若要取得有關現有評論的詳細資料, 請移至 [[審查-取得](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2)API 參考] 頁面, 然後選取您的區域 (您的金鑰管理所在的區域) 的按鈕。
 
@@ -149,7 +149,7 @@ ms.locfileid: "68564346"
 
 ![審查 - 建立主控台的取得結果](images/test-drive-review-3.PNG)
   
-選取 [傳送]  。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會以 JSON 格式顯示審核詳細資料, 如下所示:
+選取 [傳送]。 如果作業成功,**回應狀態**會是, `200 OK`而 [**回應內容**] 方塊會以 JSON 格式顯示審核詳細資料, 如下所示:
 
 ```json
 {  

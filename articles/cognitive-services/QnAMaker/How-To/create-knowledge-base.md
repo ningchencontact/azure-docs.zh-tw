@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: dfd0663c09b78539a1d6b78aa7820385b9ddbdca
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b2cacc8cc6d7c22a93f46007e8150a4e55dc7650
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563090"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967721"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>快速入門：使用 QnA Maker API 服務入口網站建立知識庫
 
@@ -33,9 +33,9 @@ QnA Maker API 服務入口網站可讓您在建立知識庫時, 輕鬆地加入�
 
 ## <a name="create-a-new-knowledge-base"></a>建立新的知識庫
 
-1. 使用您的 Azure 認證登入 [QnA Maker 入口網站](https://qnamaker.ai)，然後選取 [建立新的知識庫]  。
+1. 使用您的 Azure 認證登入 [QnA Maker 入口網站](https://qnamaker.ai)，然後選取 [建立新的知識庫]。
 
-1. 如果您尚未建立 QnA Maker 服務，請選取 [建立 QnA 服務]  。 
+1. 如果您尚未建立 QnA Maker 服務，請選取 [建立 QnA 服務]。 
 
 1. 在 QnA Maker 入口網站中從**步驟 2** 的清單中，選取您的 Azure 租用戶、Azure 訂用帳戶名稱，以及與 QnA Maker 服務相關聯的 Azure 資源名稱。 選取將裝載知識庫的 Azure QnA Maker 服務。
 
@@ -54,7 +54,7 @@ QnA Maker API 服務入口網站可讓您在建立知識庫時, 輕鬆地加入�
 
     ![將閒聊新增至知識庫](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
-1. 選取 [建立您的 KB]  。
+1. 選取 [建立您的 KB]。
 
     ![建立知識庫](../media/qnamaker-how-to-create-kb/create-kb.png)
 
@@ -62,7 +62,7 @@ QnA Maker API 服務入口網站可讓您在建立知識庫時, 輕鬆地加入�
 
     ![擷取](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-1. 成功建立知識庫後，系統會將您重新導向至 [知識庫]  頁面。
+1. 成功建立知識庫後，系統會將您重新導向至 [知識庫] 頁面。
 
 ## <a name="clean-up-resources"></a>清除資源
 

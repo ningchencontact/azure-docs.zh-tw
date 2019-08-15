@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e70e7b79be7dd4ea55c56898eaf8007d25732366
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f222d9d4cf6c56dea0832938dcb132cf711491bc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60513963"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934068"
 ---
 # <a name="troubleshooting-bing-speech"></a>針對 Bing 語音進行疑難排解
 
@@ -53,7 +53,7 @@ ms.locfileid: "60513963"
 > [!NOTE]
 > 以您自己的訂用帳戶金鑰取代 `YOUR_SUBSCRIPTION_KEY`。
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -89,7 +89,7 @@ curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Co
 > [!NOTE]
 > 請以您預錄的音訊檔路徑取代 `YOUR_AUDIO_FILE`，以上一個步驟中傳回的授權權杖取代 `YOUR_ACCESS_TOKEN`。
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 

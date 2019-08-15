@@ -1,5 +1,5 @@
 ---
-title: 將內容標記套用到影像 - 電腦視覺
+title: 內容標記-電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 了解電腦視覺 API 的影像標記功能相關概念。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759668"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945113"
 ---
 # <a name="applying-content-tags-to-images"></a>將內容標記套用到影像
 
@@ -28,7 +28,7 @@ ms.locfileid: "60759668"
 
 下列 JSON 回應說明了在範例影像中偵測到標記視覺功能時，電腦視覺傳回的內容。
 
-![藍色房屋和前院](./Images/house_yard.png)上也提供本文中使用的原始碼。
+![藍色房屋和前院](./Images/house_yard.png).
 
 ```json
 {

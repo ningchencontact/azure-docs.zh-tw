@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: bd0910fedc9fd27af198f6a2b94b34daf57c050f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf8b2551390fa36736f678c756093a55d6ceb0c2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563683"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932883"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一組範例語句的批次測試
 
@@ -26,15 +26,15 @@ ms.locfileid: "68563683"
 
 ## <a name="import-a-dataset-file-for-batch-testing"></a>針對批次測試匯入資料集檔案
 
-1. 選取頂端列中的 [測試]  ，然後選取 [批次測試面板]  。
+1. 選取頂端列中的 [測試]，然後選取 [批次測試面板]。
 
     ![批次測試連結](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. 選取 [匯入資料集]  。 [匯入新資料集]  對話方塊隨即出現。 選取 [選擇檔案]  ，並找出具備正確 [JSON 格式](luis-concept-batch-test.md#batch-file-format)且包含*不超過 1,000 個*要測試語句的 JSON 檔案。
+2. 選取 [匯入資料集]。 [匯入新資料集] 對話方塊隨即出現。 選取 [選擇檔案]，並找出具備正確 [JSON 格式](luis-concept-batch-test.md#batch-file-format)且包含*不超過 1,000 個*要測試語句的 JSON 檔案。
 
     若有匯入錯誤，系統會在瀏覽器頂端的紅色通知列中回報。 當匯入發生錯誤時，將不會建立任何資料集。 如需詳細資訊，請參閱[常見錯誤](luis-concept-batch-test.md#common-errors-importing-a-batch)。
 
-3. 在 [ 資料集名稱]  欄位中，為資料集檔案輸入一個名稱。 資料集檔案包含**語句的陣列**，其中包括標記的意圖  和實體  。 針對語法，請檢閱[範例批次檔](luis-concept-batch-test.md#batch-file-format)。 
+3. 在 [ 資料集名稱] 欄位中，為資料集檔案輸入一個名稱。 資料集檔案包含**語句的陣列**，其中包括標記的意圖和實體。 針對語法，請檢閱[範例批次檔](luis-concept-batch-test.md#batch-file-format)。 
 
 4. 選取 [完成]。 系統會新增資料集檔案。
 
@@ -62,7 +62,7 @@ ms.locfileid: "68563683"
 
 ## <a name="view-batch-test-results"></a>檢視批次測試結果 
 
-若要檢閱批次測試結果，請選取 [查看結果]  。
+若要檢閱批次測試結果，請選取 [查看結果]。
 
 ![批次測試結果](./media/luis-how-to-batch-test/run-test-results.png)
 

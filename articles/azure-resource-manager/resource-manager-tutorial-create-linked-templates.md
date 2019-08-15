@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241391"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036003"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
@@ -227,7 +227,7 @@ echo "Linked template URI with SAS token: $templateURI"
 4. 請記下 Shell 窗格結尾的兩個值 (資源群組名稱和連結的範本 URI)。 在本教學課程後續的內容中，您會需要這些值。
 5. 選取 [結束焦點模式]  以關閉 Shell 窗格。
 
-實際上，您會在部署主要範本時產生 SAS 權杖，並提供 SAS 權杖較小的到期時間範圍，讓它更安全。 如需詳細資訊，請參閱[在部署期間提供 SAS 權杖](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
+實際上，您會在部署主要範本時產生 SAS 權杖，並提供 SAS 權杖較小的到期時間範圍，讓它更安全。 如需詳細資訊，請參閱[在部署期間提供 SAS 權杖](./secure-template-with-sas-token.md#provide-sas-token-during-deployment)。
 
 ## <a name="call-the-linked-template"></a>呼叫連結的範本
 
@@ -327,7 +327,7 @@ echo "Linked template URI with SAS token: $templateURI"
 若要改善專案，請對完成的專案進行下列其他變更：
 
 1. 修改主要範本 (azuredeploy.json)，使其透過參數取得連結的範本 URI 值。
-2. 您不會在上傳連結的範本時產生 SAS 權杖，而是在部署主要範本產生該權杖。 如需詳細資訊，請參閱[在部署期間提供 SAS 權杖](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
+2. 您不會在上傳連結的範本時產生 SAS 權杖，而是在部署主要範本產生該權杖。 如需詳細資訊，請參閱[在部署期間提供 SAS 權杖](./secure-template-with-sas-token.md#provide-sas-token-during-deployment)。
 
 ## <a name="next-steps"></a>後續步驟
 

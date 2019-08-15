@@ -8,15 +8,15 @@ manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5c729065076f5dc9f25189632f42ed565a72df8a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 961bb7d5f64fa6d6cafa4730a5849abb4b82478f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563110"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967693"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>取得知識庫的分析
 
@@ -26,7 +26,7 @@ ms.locfileid: "68563110"
 
     ![選取您的 Application Insights 資源](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. 選取 [分析]  。 您可以查詢 QnA Maker 遙測的新視窗隨即開啟。
+2. 選取 [分析]。 您可以查詢 QnA Maker 遙測的新視窗隨即開啟。
 
     ![選取 [分析]](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "68563110"
     | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId 
     ```
 
-    選取 [執行]  執行查詢。
+    選取 [執行] 執行查詢。
 
     ![執行查詢](../media/qnamaker-how-to-analytics-kb/run-query.png)
 

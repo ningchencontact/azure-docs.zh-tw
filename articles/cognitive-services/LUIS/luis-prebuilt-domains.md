@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7028c3bee549603dc29bfcdeb386bcabc52ff03c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e5d5de6a6f348fa3708b1e39fe2bdd3aa8693dee
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637875"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932662"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>新增常見使用方式情節的預先建置定義域 
 
@@ -24,25 +24,25 @@ LUIS 包含一組來自預先建置定義域的預先建置意圖，可用來快
 
 ## <a name="add-a-prebuilt-domain"></a>新增預建網域
 
-1. 在 [My Apps] \(我的應用程式\)  頁面上，選取您的應用程式。 這會讓您的應用程式開啟至應用程式的 [Build] \(組建\)  區段。 
+1. 在 [My Apps] \(我的應用程式\) 頁面上，選取您的應用程式。 這會讓您的應用程式開啟至應用程式的 [Build] \(組建\) 區段。 
 
-1. 在 [Intents] \(意圖\)  頁面上，從左下方的工具列中選取 [Add prebuilt domains] \(新增預先建置的定義域\)  。 
+1. 在 [Intents] \(意圖\) 頁面上，從左下方的工具列中選取 [Add prebuilt domains] \(新增預先建置的定義域\)。 
 
-1. 選取 [Calendar] \(行事曆\)  意圖，然後選取 [Add domain] \(新增定義域\)  。
+1. 選取 [Calendar] \(行事曆\) 意圖，然後選取 [Add domain] \(新增定義域\)。
 
     ![新增 [Calendar] \(行事曆\) 預先建置定義域](./media/luis-prebuilt-domains/add-prebuilt-domain.png)
 
-1. 在左側導覽中選取 [Intents] \(意圖\)  以檢視 [Calendar] \(行事曆\) 意圖。 每個來自此定義域的意圖前面都會加上 `Calendar.`。 此定義域的兩個實體 `Calendar.Location` 和 `Calendar.Subject` 會與語句一起新增至應用程式。 
+1. 在左側導覽中選取 [Intents] \(意圖\) 以檢視 [Calendar] \(行事曆\) 意圖。 每個來自此定義域的意圖前面都會加上 `Calendar.`。 此定義域的兩個實體 `Calendar.Location` 和 `Calendar.Subject` 會與語句一起新增至應用程式。 
 
 ## <a name="train-and-publish"></a>定型和發佈
 
-1. 新增定義域之後，選取右上方工具列中的 [Train] \(定型\)  來進行應用程式定型。 
+1. 新增定義域之後，選取右上方工具列中的 [Train] \(定型\) 來進行應用程式定型。 
 
-1. 在頂端工具列中，選取 [Publish] \(發佈\)  。 請發佈至 [Production] \(生產環境\)  。 
+1. 在頂端工具列中，選取 [Publish] \(發佈\)。 請發佈至 [Production] \(生產環境\)。 
 
-1. 出現綠色成功通知時，選取 [Refer to the list of endpoints] \(參考端點清單\)  連結來查看端點。
+1. 出現綠色成功通知時，選取 [Refer to the list of endpoints] \(參考端點清單\) 連結來查看端點。
 
-1. 選取端點。 隨即會有新瀏覽器索引標籤開啟至該端點。 請將瀏覽器索引標籤保持開啟，然後繼續進行＜測試＞  一節。
+1. 選取端點。 隨即會有新瀏覽器索引標籤開啟至該端點。 請將瀏覽器索引標籤保持開啟，然後繼續進行＜測試＞一節。
 
 ## <a name="test"></a>測試
 
