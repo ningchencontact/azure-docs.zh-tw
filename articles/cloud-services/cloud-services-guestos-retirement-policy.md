@@ -8,18 +8,17 @@ manager: timlt
 editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61215834"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945441"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 客體作業系統可支援性和淘汰原則
 本頁面中的資訊涉及雲端服務背景工作和 Web 角色 (PaaS) 適用的 Azure 客體作業系統 ([客體 OS](cloud-services-guestos-update-matrix.md))。 這些資訊不適用於虛擬機器 (IaaS)。
@@ -53,11 +52,11 @@ Microsoft 將繼續推出併入最新 MSRC 更新的新客體作業系統版本�
 
 Microsoft 會在每個月發行客體作業系統。 由於定期發行頻繁之故，每個版本都有固定的週期。
 
-到了週期的第 60 天，版本即會遭到「停用」  。 「停用」表示會從入口網站移除該版本。 您也無法再從 CSCFG 組態檔設定該版本。 現有部署仍可繼續執行。 但新部署和現有部署的程式碼與設定更新將遭到禁止。
+到了週期的第 60 天，版本即會遭到「停用」。 「停用」表示會從入口網站移除該版本。 您也無法再從 CSCFG 組態檔設定該版本。 現有部署仍可繼續執行。 但新部署和現有部署的程式碼與設定更新將遭到禁止。
 
-一段時間之後成為 「 停用 」，客體 OS 版本 「 過期 」，而所有仍執行該過期的版本安裝會公開至安全性與漏洞問題。 一般而言，到期日會執行批次，因此從停用到期的期間可能會不同。
+在變成「停用」之後, 「虛擬作業系統」版本會「過期」, 而且任何仍在執行該過期版本的安裝都會暴露在安全性和弱點問題中。 一般來說, 到期會以批次方式完成, 因此從停用到到期的期間可能會有所不同。
 
-設定其服務，以手動更新客體 OS 的客戶應該確定其服務正在執行支援的客體作業系統上。 如果服務設定為自動更新客體 OS，基礎平台可確保合規性，並會升級至最新的客體 OS。
+設定其服務以手動更新來賓 OS 的客戶, 應確保其服務在支援的客體作業系統上執行。 如果服務設定為自動更新虛擬作業系統, 基礎平臺會確保合規性, 並會升級為最新的虛擬作業系統。
 
 Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不便。 所有的更新資訊都會發佈於「 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)」。
 
@@ -65,7 +64,7 @@ Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不�
 * **系列淘汰** <br>Microsoft 會透過部落格文章和入口網站通知公告。 對於仍在使用遭淘汰之客體作業系統系列的客戶，Microsoft 會透過直接通訊 (電子郵件、入口網站訊息、撥打電話) 通知其指派的服務管理員。 所有變更都會張貼至「[Azure 客體 OS 版本與 SDK 相容性矩陣](cloud-services-guestos-update-matrix.md)」。
 * **版本淘汰** <br>它們所發生的所有變更和日期都會張貼至 [Azure 客體 OS 版次與 SDK 相容性矩陣](cloud-services-guestos-update-matrix.md)，包括發行、已停用和到期日。 如果遭停用的客體作業系統版本或系列之上仍有運作中的部署，服務管理員將會收到電子郵件。 這些電子郵件的發送時間不盡相同。 雖然發送電子郵件的時間不屬於官方 SLA，不過 Microsoft 通常會在停用之前至少一個月發出。
 
-## <a name="frequently-asked-questions"></a>常見問題集
+## <a name="frequently-asked-questions"></a>常見問答集
 **如何降低移轉的影響？**
 
 建議您使用最新的客體 OS 系列來設計雲端服務。

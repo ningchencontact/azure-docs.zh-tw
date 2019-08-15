@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cbc5bee0f4cc59f59af6e3f57219279cd8fcb030
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483376"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988572"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>使用 LDAP (LDAPS) 繫結到 Azure AD Domain Services 受控網域
 
@@ -31,16 +31,16 @@ ms.locfileid: "67483376"
 ## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>工作 5：使用 LDP.exe 透過 LDAP 繫結到受控網域
 您可以使用「遠端伺服器管理工具」套件隨附的 LDP.exe 工具，來透過 LDAP 繫結和搜尋。
 
-首先，開啟 LDP 並連線到受控網域。 按一下功能表中的 [連線]  ，然後按一下 [連線...]  。 指定受控網域的 DNS 網域名稱。 指定連線用的連接埠。 若是 LDAP 連線，請使用連接埠 389。 針對 LDAPS 連線，請使用連接埠 636。 按一下 [確定]  按鈕以連線至受控網域。
+首先，開啟 LDP 並連線到受控網域。 按一下功能表中的 [連線]，然後按一下 [連線...]。 指定受控網域的 DNS 網域名稱。 指定連線用的連接埠。 若是 LDAP 連線，請使用連接埠 389。 針對 LDAPS 連線，請使用連接埠 636。 按一下 [確定] 按鈕以連線至受控網域。
 
-接著繫結至受控網域。 按一下功能表中的 [連線]  ，然後按一下 [繫結...]  。 提供屬於「AAD DC 系統管理員」群組之使用者帳戶的認證。
+接著繫結至受控網域。 按一下功能表中的 [連線]，然後按一下 [繫結...]。 提供屬於「AAD DC 系統管理員」群組之使用者帳戶的認證。
 
 > [!IMPORTANT]
-> 使用者 （和服務帳戶），如果您已在您的 Azure AD Domain Services 執行個體上停用 NTLM 密碼雜湊同步處理無法執行 LDAP 簡單繫結。  如需有關如何停用 NTLM 密碼雜湊同步處理的詳細資訊，請參閱[保護您的 Azure AD DOmain Services 受控的網域](secure-your-domain.md)。
+> 如果您已在 Azure AD Domain Services 實例上停用 NTLM 密碼雜湊同步處理, 使用者 (和服務帳戶) 就無法執行 LDAP 簡單系結。  如需停用 NTLM 密碼雜湊同步處理的詳細資訊, 請參閱[保護您的 Azure AD Domain Services 受控網域](secure-your-domain.md)。
 >
 >
 
-選取功能表中的 [檢視]  ，然後選取 [樹狀]  。 「基準 DN」欄位保持空白，然後按一下 [確定]。 瀏覽至要搜尋的容器，以滑鼠右鍵按一下該容器，然後選取 [搜尋]。
+選取功能表中的 [檢視]，然後選取 [樹狀]。 「基準 DN」欄位保持空白，然後按一下 [確定]。 瀏覽至要搜尋的容器，以滑鼠右鍵按一下該容器，然後選取 [搜尋]。
 
 > [!TIP]
 > - 從 Azure AD 同步的使用者和群組會儲存在 **AADDC 使用者**組織單位中。 這個組織單位的搜尋路徑看起來像是 ```OU=AADDC Users,DC=CONTOSO100,DC=COM```。
@@ -72,7 +72,7 @@ ms.locfileid: "67483376"
 * [Azure AD Domain Services - 入門指南](create-instance.md)
 * [管理 Azure AD Domain Services 網域](manage-domain.md)
 * [LDAP 查詢基本概念](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
-* [管理 Azure AD Domain services 的群組原則](manage-group-policy.md)
+* [管理 Azure AD Domain Services 的群組原則](manage-group-policy.md)
 * [網路安全性群組](../virtual-network/security-overview.md)
 * [建立網路安全性群組](../virtual-network/tutorial-filter-network-traffic.md)
 

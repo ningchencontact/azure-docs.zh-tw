@@ -2,7 +2,7 @@
 title: Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告 | Microsoft Docs
 description: 了解 Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/17/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 463f5c2d03cd96089342aa9b22ef85ebc05aa909
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 950d0dc2f4a1a88e0c317b3398c7492cc6c52e2a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438047"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989829"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Azure 入口網站中標幟為有風險的使用者報告
 
 Azure Active Directory (Azure AD) 會偵測與使用者帳戶相關的可疑動作。 針對每個偵測到的動作，將會建立一筆稱為[風險事件](concept-risk-events.md)的記錄。
 
-您可以從 [Azure 入口網站](https://portal.azure.com)中，藉由選取 [Azure Active Directory]  刀鋒視窗，然後瀏覽至 [安全性]  區段，來存取安全性報告。 
+您可以從 [Azure 入口網站](https://portal.azure.com)中，藉由選取 [Azure Active Directory] 刀鋒視窗，然後瀏覽至 [安全性] 區段，來存取安全性報告。 
 
 偵測到的風險事件用來計算︰
 
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) 會偵測與使用者帳戶相關的可疑動�
 
 所有 Azure Active Directory 版本都會為您提供標幟為有風險的使用者報告。 不過，報告細微性層級因版本而異： 
 
-- 在 [Azure Active Directory Free 和 Basic 版本]  中，您會取得標幟為有風險的使用者清單。 
+- 在 [Azure Active Directory Free 和 Basic 版本] 中，您會取得標幟為有風險的使用者清單。 
 
 - 此外，**Azure Active Directory Premium 1** 版本也可讓您檢查每份報告中所偵測到的某些基礎風險事件。 
 
@@ -93,7 +93,7 @@ Azure AD 進階版本中標幟為有風險的使用者報告可提供：
 
 ![有風險的登入](./media/concept-user-at-risk/324.png)
 
-若要調查風險事件，請從清單中選取一項，以開啟此風險事件的 [詳細資料]  刀鋒視窗。 在 [詳細資料]  刀鋒視窗上，您可以選擇手動關閉風險事件或重新啟動已手動關閉的風險事件。 
+若要調查風險事件，請從清單中選取一項，以開啟此風險事件的 [詳細資料] 刀鋒視窗。 在 [詳細資料] 刀鋒視窗上，您可以選擇手動關閉風險事件或重新啟動已手動關閉的風險事件。 
 
 ![有風險的登入](./media/concept-user-at-risk/325.png)
 

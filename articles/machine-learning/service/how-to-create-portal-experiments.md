@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: a5db2c1c40c9c6f5c05205b9b2c652d2e23cf229
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848248"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990577"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>在 Azure 入口網站中建立、探索自動化機器學習服務實驗並加以部署 (預覽)
 
@@ -24,7 +24,7 @@ ms.locfileid: "68848248"
 
  如果您偏好更以程式碼為基礎的經驗, 您也可以使用[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py),[在 Python 中設定自動化機器學習實驗](how-to-configure-auto-train.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -66,6 +66,10 @@ ms.locfileid: "68848248"
 1. 選取儲存體容器。
 
 1. 選取儲存體容器中的資料檔案, 或從您的本機電腦將檔案上傳至容器。 公開預覽僅支援本機檔案上傳和 Azure Blob 儲存體帳戶。
+    >[!Important]
+    > 定型資料的需求:
+    >* 資料必須是表格式格式。
+    >* 您想要預測的值 (目標資料行) 必須存在於資料中。
 
     [![選取資料檔案](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 

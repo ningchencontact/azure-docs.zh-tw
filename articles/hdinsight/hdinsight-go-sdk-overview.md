@@ -1,23 +1,23 @@
 ---
-title: Azure HDInsight SDK for Go
-description: 適用於 Go 的 Azure HDInsight sdk 參考
+title: 適用于 Go 的 Azure HDInsight SDK
+description: 適用于 Go Azure HDInsight SDK 的參考
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 299e99d291e593ec01d2951c62541a7666565528
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466211"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977057"
 ---
-# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go （預覽）
+# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go (預覽)
 
 ## <a name="overview"></a>總覽
-HDInsight SDK for Go 提供類別和函式可讓您管理您的 HDInsight 叢集。 它包含用來建立、刪除、更新、列出、調整大小、執行指令碼動作、監視、取得 HDInsight 叢集屬性的作業，和其他多種作業。
+HDInsight SDK for Go 提供可讓您管理 HDInsight 叢集的類別和功能。 它包含用來建立、刪除、更新、列出、調整大小、執行指令碼動作、監視、取得 HDInsight 叢集屬性的作業，和其他多種作業。
 
 > [!NOTE]  
 >此 SDK 的 GoDoc 參考資料也可以在[這裡取得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)。
@@ -36,7 +36,7 @@ HDInsight SDK for Go 提供類別和函式可讓您管理您的 HDInsight 叢集
 SDK 必須先使用您的 Azure 訂用帳戶進行驗證。  請依照下列範例建立服務主體，並使用它來驗證。 此動作完成後，您會有 `ClustersClient` 的執行個體，其中包含許多可用來執行管理作業的函式 (概述於下列各節中)。
 
 > [!NOTE]  
-> 除了下列範例以外，還有其他方式可進行驗證，可能更符合您的需求。 此處概述所有函式：[Azure SDK for Go 中的驗證函式](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> 除了下列範例以外，還有其他方式可進行驗證，可能更符合您的需求。 此處概述所有函式：[Azure SDK for Go 中的驗證函式](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>使用服務主體的驗證範例
 
@@ -70,7 +70,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> 如果您沒有已註冊 HDInsight 資源提供者的另一個函式 (例如藉由建立在 Azure 入口網站 HDInsight 叢集)，您需要這樣做，一旦之前您可以進行驗證。 此動作也可以從 [Azure Cloud Shell](https://shell.azure.com/bash) 完成，只要執行下列命令即可：
+> 如果您尚未以另一個函式註冊 HDInsight 資源提供者 (例如透過 Azure 入口網站建立 HDInsight 叢集), 您必須執行這項操作一次, 才可進行驗證。 此動作也可以從 [Azure Cloud Shell](https://shell.azure.com/bash) 完成，只要執行下列命令即可：
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

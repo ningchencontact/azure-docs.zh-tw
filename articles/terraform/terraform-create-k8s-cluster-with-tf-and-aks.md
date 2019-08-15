@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 257a2d78a54e292faecda836811f0a58fabd584d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009087"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854508"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 [Azure Kubernetes Service (AKS)](/azure/aks/) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
@@ -110,9 +110,14 @@ ms.locfileid: "58009087"
         name     = "${var.resource_group_name}"
         location = "${var.location}"
     }
+    
+    resource "random_id" "log_analytics_workspace_name_suffix" {
+        byte_length = 8
+    }
 
     resource "azurerm_log_analytics_workspace" "test" {
-        name                = "${var.log_analytics_workspace_name}"
+        # The WorkSpace name has to be unique across the whole of azure, not just the current subscription/tenant.
+        name                = "${var.log_analytics_workspace_name}-${random_id.log_analytics_workspace_name_suffix.dec}"
         location            = "${var.log_analytics_workspace_location}"
         resource_group_name = "${azurerm_resource_group.k8s.name}"
         sku                 = "${var.log_analytics_workspace_sku}"
@@ -165,7 +170,7 @@ ms.locfileid: "58009087"
             }
         }
 
-        tags {
+        tags = {
             Environment = "Development"
         }
     }
@@ -302,13 +307,13 @@ ms.locfileid: "58009087"
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>設定 Azure 儲存體以儲存 Terraform 狀態
 Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式在單一人員環境中運作良好。 不過，在更常見的多人環境中，您必須追蹤使用 [Azure 儲存體](/azure/storage/)的伺服器的狀態。 在本節中，您可擷取必要的儲存體帳戶資訊 (帳戶名稱和帳戶金鑰)，以及建立儲存體容器，而系統會將 Terraform 狀態資訊儲存在該容器中。
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務]。
+1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務]  。
 
-1. 選取 [儲存體帳戶]。
+1. 選取 [儲存體帳戶]  。
 
-1. 在 [儲存體帳戶] 索引標籤中，選取要讓 Terraform 儲存狀態的帳戶名稱。 例如，您可以使用第一次開啟 Cloud Shell 時建立的儲存體帳戶。  Cloud Shell 建立的儲存體帳戶名稱通常會以 `cs` 開頭，其後加上由數字和字母組成的隨機字串。 **請記下您選取的儲存體帳戶名稱，稍後需要用到。**
+1. 在 [儲存體帳戶]  索引標籤中，選取要讓 Terraform 儲存狀態的帳戶名稱。 例如，您可以使用第一次開啟 Cloud Shell 時建立的儲存體帳戶。  Cloud Shell 建立的儲存體帳戶名稱通常會以 `cs` 開頭，其後加上由數字和字母組成的隨機字串。 **請記下您選取的儲存體帳戶名稱，稍後需要用到。**
 
-1. 在 [儲存體帳戶] 索引標籤中，選取 [存取金鑰]。
+1. 在 [儲存體帳戶] 索引標籤中，選取 [存取金鑰]  。
 
     ![[儲存體帳戶] 功能表](./media/terraform-create-k8s-cluster-with-tf-and-aks/storage-account.png)
 
@@ -362,7 +367,7 @@ Terraform 可透過 `terraform.tfstate` 檔案在本機追蹤狀態。 此模式
 
     ![「terraform 套用」結果範例](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務] 以查看針對新 Kuberneteses 叢集建立的資源。
+1. 在 Azure 入口網站中，選取左側功能表中的 [所有服務]  以查看針對新 Kuberneteses 叢集建立的資源。
 
     ![Cloud Shell 提示](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 
@@ -404,7 +409,7 @@ Kubernetes 工具可用來驗證新建立的叢集。
     kubectl get nodes
     ```
 
-    您可查看背景工作角色節點的詳細資料，這些節點應該都處於 [就緒] 狀態，如下圖所示：
+    您可查看背景工作角色節點的詳細資料，這些節點應該都處於 [就緒]  狀態，如下圖所示：
 
     ![kubectl 工具可讓您驗證 Kubernetes 叢集的健康情況](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 

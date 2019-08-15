@@ -1,58 +1,58 @@
 ---
-title: 自訂 RDP 屬性與 PowerShell-Azure
-description: 如何使用 PowerShell cmdlet 自訂 RDP 屬性的 Windows 虛擬桌面。
+title: 使用 PowerShell 自訂 RDP 屬性-Azure
+description: 如何使用 PowerShell Cmdlet 自訂 Windows 虛擬桌面的 RDP 屬性。
 services: virtual-desktop
-author: v-hevem
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: v-hevem
-ms.openlocfilehash: ce14f990272fa1e70d07c0f4a1f18025b536eccc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: 624edaea9a0fb56e34eb83f033dfdab64985bd5c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618871"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950717"
 ---
-# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>自訂主應用程式集區的遠端桌面通訊協定屬性
+# <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>自訂主機集區的遠端桌面通訊協定屬性
 
-自訂主應用程式集區的遠端桌面通訊協定 (RDP) 的屬性，例如多重監視器的使用經驗和音訊重新導向，可讓您提供您的使用者根據其需求的最佳體驗。 您可以自訂 RDP 屬性中使用 Windows 的虛擬桌上型電腦 **-CustomRdpProperty**中的參數**組 RdsHostPool** cmdlet。
+自訂主機集區的遠端桌面通訊協定 (RDP) 內容, 例如多監視器體驗和音訊重新導向, 可讓您根據自己的需求為使用者提供最佳的體驗。 您可以使用**RdsHostPool** Cmdlet 中的 **-CustomRdpProperty**參數, 在 WINDOWS 虛擬桌面中自訂 RDP 屬性。
 
-請參閱[遠端桌面 RDP 檔案設定](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files)支援的屬性及其預設值的完整清單。
+如需支援的屬性及其預設值的完整清單, 請參閱[遠端桌面 RDP 檔案設定](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files)。
 
 首先，[下載並匯入 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)，以在您的 PowerShell 工作階段中使用 (如果您還沒這麼做的話)。
 
-## <a name="add-or-edit-a-single-custom-rdp-property"></a>新增或編輯單一的自訂 RDP 屬性
+## <a name="add-or-edit-a-single-custom-rdp-property"></a>新增或編輯單一自訂 RDP 屬性
 
-若要新增或編輯單一的自訂 RDP 屬性，請執行下列 PowerShell cmdlet:
+若要新增或編輯單一自訂 RDP 屬性, 請執行下列 PowerShell Cmdlet:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
-![使用名稱和 FriendlyName 反白顯示的 PowerShell cmdlet 取得 RDSRemoteApp 螢幕擷取畫面。](media/singlecustomrdpproperty.png)
+![已反白顯示 [名稱] 和 [FriendlyName] 的 PowerShell Cmdlet RDSRemoteApp 螢幕擷取畫面。](media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>新增或編輯多個自訂 RDP 屬性
 
-若要新增或編輯多個自訂 RDP 屬性，執行下列 PowerShell cmdlet 以分號分隔的字串形式提供自訂 RDP 屬性：
+若要新增或編輯多個自訂 RDP 屬性, 請將自訂 RDP 屬性提供為以分號分隔的字串, 以執行下列 PowerShell Cmdlet:
 
 ```powershell
 $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
-![使用名稱和 FriendlyName 反白顯示的 PowerShell cmdlet 取得 RDSRemoteApp 螢幕擷取畫面。](media/multiplecustomrdpproperty.png)
+![已反白顯示 [名稱] 和 [FriendlyName] 的 PowerShell Cmdlet RDSRemoteApp 螢幕擷取畫面。](media/multiplecustomrdpproperty.png)
 
-## <a name="reset-all-custom-rdp-properties"></a>重設所有的自訂 RDP 屬性
+## <a name="reset-all-custom-rdp-properties"></a>重設所有自訂 RDP 屬性
 
-您可以重設個別的自訂 RDP 屬性設為預設值中的指示[新增或編輯單一的自訂 RDP 屬性](#add-or-edit-a-single-custom-rdp-property)，或您可以執行下列命令來重設所有的自訂 RDP 屬性，主應用程式集區PowerShell cmdlet:
+您可以遵循[新增或編輯單一自訂 rdp](#add-or-edit-a-single-custom-rdp-property)內容中的指示, 將個別的自訂 rdp 屬性重設為預設值, 或者, 您可以執行下列 PowerShell Cmdlet 來重設主機集區的所有自訂 rdp 屬性:
 
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
-![使用名稱和 FriendlyName 反白顯示的 PowerShell cmdlet 取得 RDSRemoteApp 螢幕擷取畫面。](media/resetcustomrdpproperty.png)
+![已反白顯示 [名稱] 和 [FriendlyName] 的 PowerShell Cmdlet RDSRemoteApp 螢幕擷取畫面。](media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已自訂 RDP 屬性，指定主應用程式集區，您可以登入 Windows 虛擬桌面用戶端來測試這些使用者工作階段的一部分。 若要這樣做，請繼續 連接到 Windows 虛擬桌面操作說明：
+既然您已自訂指定主機集區的 RDP 內容, 您可以登入 Windows 虛擬桌面用戶端, 在使用者會話中測試這些屬性。 若要這麼做, 請繼續進行連線至 Windows 虛擬桌面的作法:
 
-- [從 Windows 10 和 Windows 7 連線](connect-windows-7-and-10.md)
+- [從 Windows 10 和 Windows 7 連接](connect-windows-7-and-10.md)
 - [從網頁瀏覽器連線](connect-web.md)

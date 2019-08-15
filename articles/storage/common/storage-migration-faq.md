@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ba09496ed8c110e3bf0e431da20f09c82d5ea0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114913"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985594"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
@@ -280,9 +280,9 @@ Azure 檔案共用不允許使用進階儲存體。
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS 權杖**：使用 SAS 權杖以存取來自端點的資料。 如需詳細資訊，請參閱[使用共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。
+    - **SAS 權杖**：使用 SAS 權杖以存取來自端點的資料。 如需詳細資訊，請參閱[使用共用存取簽章](storage-sas-overview.md)。
 
-**如何將 HTTPS 自訂網域與我的儲存體帳戶搭配使用？比方說，如何讓"https:\//mystorageaccountname.blob.core.windows.net/images/image.gif"會顯示為"https:\//www.contoso.com/images/image.gif 」？**
+**如何將 HTTPS 自訂網域與我的儲存體帳戶搭配使用？例如, 我要如何讓 "HTTPs:\//mystorageaccountname.blob.core.windows.net/images/image.gif" 顯示為 "HTTPs:\//www.contoso.com/images/image.gif"？**
 
 具有自訂網域的儲存體帳戶目前不支援 SSL。
 但可以使用非 HTTPS 的自訂網域。 如需詳細資訊，請參閱[針對 Blob 儲存體端點設定自訂網域名稱](../blobs/storage-custom-domain-name.md)。
@@ -291,12 +291,12 @@ Azure 檔案共用不允許使用進階儲存體。
 
 無法使用 FTP 直接存取儲存體帳戶。 不過可以安裝一個 Azure 虛擬機器，然後將 FTP 伺服器安裝在虛擬機器上。 您可以讓 FTP 伺服器將檔案儲存在 Azure 檔案共用中，或是儲存在虛擬機器可用的資料磁碟裡。
 
-如果您只是要下載資料，而不想使用儲存體總管或類似的應用程式，則可以使用 SAS 權杖。 如需詳細資訊，請參閱[使用共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。
+如果您只是要下載資料，而不想使用儲存體總管或類似的應用程式，則可以使用 SAS 權杖。 如需詳細資訊，請參閱[使用共用存取簽章](storage-sas-overview.md)。
 
 **如何在儲存體帳戶之間移轉 Blob？**
 
  您可以使用 [Blob 移轉指令碼](../scripts/storage-common-transfer-between-storage-accounts.md)來達成。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
+## <a name="need-help-contact-support"></a>需要協助嗎? 請連絡支援人員。
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

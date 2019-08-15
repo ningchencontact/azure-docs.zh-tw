@@ -10,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856127"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990506"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>使用自訂 Docker 映射部署模型
+# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>使用自訂 Docker 映射部署模型
 
 瞭解如何在使用 Azure Machine Learning 服務部署定型模型時, 使用自訂的 Docker 映射。
 
@@ -28,7 +28,7 @@ Azure Machine Learning 服務提供預設 Docker 映射, 因此您不必擔心�
 一般而言, 當您想要在部署期間控制元件版本或節省時間時, 您會建立自訂映射。 例如, 您可能會想要在特定版本的 Python、Conda 或其他元件上進行標準化。 您可能也會想要安裝模型所需的軟體, 安裝程式會花很長的時間。 在建立基底映射時安裝軟體, 表示您不需要針對每個部署進行安裝。
 
 > [!IMPORTANT]
-> 部署模型時, 您無法覆寫核心元件 (例如網頁伺服器或 IoT Edge 元件)。 這些元件會提供已知的工作環境, 並由 Microsoft 進行測試和支援。
+> 當您部署模型時, 無法覆寫核心元件 (例如網頁伺服器或 IoT Edge 元件)。 這些元件會提供已知的工作環境, 並由 Microsoft 進行測試和支援。
 
 > [!WARNING]
 > Microsoft 可能無法協助疑難排解自訂映射所造成的問題。 如果您遇到問題, 系統可能會要求您使用預設影像或 Microsoft 提供的其中一個映射, 以查看問題是否為您的映射所特有。
@@ -38,7 +38,7 @@ Azure Machine Learning 服務提供預設 Docker 映射, 因此您不必擔心�
 * 建立自訂映射:提供系統管理員和 DevOps 的資訊, 以建立自訂映射, 並使用 Azure CLI 和 Machine Learning CLI 設定 Azure Container Registry 的驗證。
 * 使用自訂映射:從 Python SDK 或 ML CLI 部署定型的模型時, 提供資料科學家的資訊, 以及使用自訂映射的 DevOps/MLOps。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure Machine Learning 服務 workgroup。 如需詳細資訊, 請參閱[建立工作區](how-to-manage-workspace.md)文章。
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。 
@@ -98,6 +98,8 @@ Azure Machine Learning 服務提供預設 Docker 映射, 因此您不必擔心�
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     所傳回的資訊類似下列文字︰
 

@@ -2,7 +2,7 @@
 title: 如何使用 Azure Active Directory Power BI 內容套件 | Microsoft Docs
 description: 了解如何使用 Azure Active Directory Power BI 內容套件
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d56802e96028b6b01b6be749405c56df2648161
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437591"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988242"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>如何使用 Azure Active Directory Power BI 內容套件
 
@@ -53,7 +53,7 @@ Azure AD Power BI 內容套件中包含下列報告。 這些報告包含**過�
  
 您也可以選取特定日期或位置，以篩選結果。
 
-**每個應用程式的唯一使用者**：此報告可讓您檢視使用指定應用程式的所有唯一使用者。 報告中只會包含已「成功」  登入應用程式的使用者。
+**每個應用程式的唯一使用者**：此報告可讓您檢視使用指定應用程式的所有唯一使用者。 報告中只會包含已「成功」登入應用程式的使用者。
 
 **裝置登入**：此報告可協助您了解組織中所使用的各種裝置設定檔，並根據使用情形決定裝置原則。 報告中所提供的資料，會圍繞在 OS 類型和用來登入應用程式的瀏覽器，以及使用者的詳細資訊，包含：
 
@@ -66,7 +66,7 @@ Azure AD Power BI 內容套件中包含下列報告。 這些報告包含**過�
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>自訂 Azure AD 的活動內容套件
 
-**變更視覺效果**：您可以按一下 [編輯報表]  並選取您想要的視覺效果，來變更報表的視覺效果。
+**變更視覺效果**：您可以按一下 [編輯報表] 並選取您想要的視覺效果，來變更報表的視覺效果。
  
 ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/09.png) 
  
@@ -86,7 +86,7 @@ Azure AD Power BI 內容套件中包含下列報告。 這些報告包含**過�
 
 ## <a name="schedule-a-daily-refresh-of-your-power-bi-report"></a>排定每日重新整理 Power BI 報表
 
-若要排定每日重新整理 Power BI 報表，請移至 [資料集]   > [設定]   > [排定重新整理]  ，並執行下列設定。
+若要排定每日重新整理 Power BI 報表，請移至 [資料集] > [設定] > [排定重新整理]，並執行下列設定。
  
 ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/15.png) 
 
@@ -96,7 +96,7 @@ Azure AD Power BI 內容套件中包含下列報告。 這些報告包含**過�
 
 - 下載新的內容套件，並使用本文中的指示進行設定。
 
-- 設定為成後，請移至 [資料來源]   > [設定]   > [資料來源認證]  ，然後重新輸入您的認證。
+- 設定為成後，請移至 [資料來源] > [設定] > [資料來源認證]，然後重新輸入您的認證。
 
     ![Azure Active Directory Power BI 內容套件](./media/howto-power-bi-content-pack/16.png) 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 8aaaa6465b501cee83f4c2d8cb60729282651967
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e44acfc66a8faf76068af9c31233e89c45ee02f7
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384862"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953156"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
@@ -33,8 +33,8 @@ ms.locfileid: "68384862"
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | 2014 5 月<sup>1</sup> |
 | **Enterprise 合約 (EA)** | Enterprise 開發/測試                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014 5 月<sup>1</sup> |
 | **Enterprise 合約 (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014 5 月<sup>1</sup> |
-| **Microsoft 客戶合約** | [Microsoft Azure 計畫](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | Mar 2019<sup>3</sup> |
-| **Microsoft 客戶合約** | [開發/測試的 Microsoft Azure 計畫](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | Mar 2019<sup>3</sup> |
+| **Microsoft 客戶合約** | [Microsoft Azure 計畫](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | 2019年3月<sup>3</sup>日 |
+| **Microsoft 客戶合約** | [開發/測試的 Microsoft Azure 計畫](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | 2019年3月<sup>3</sup>日 |
 | **Microsoft Developer Network (MSDN)** | [MSDN 平臺](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018年10月<sup></sup> 2 日 |
 | **隨用隨付** | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018年10月<sup></sup> 2 日 |
 | **隨用隨付** | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018年10月<sup></sup> 2 日 |
@@ -53,7 +53,7 @@ _<sup>**1**</sup>若是2014之前的資料, 請造訪[Azure 企業版入口網�
 
 _<sup>**2**</sup>針對2018年10月2日前的資料, 請造訪[Azure 帳戶中心](https://account.azure.com/subscriptions)。_
 
-_<sup>**3**</sup> Microsoft 客戶合約于三月2019開始, 且在此時間點之前沒有任何歷程記錄資料。_
+_<sup>**3**</sup> Microsoft 客戶合約于2019年3月開始, 且在此時間點之前沒有任何歷程記錄資料。_
 
 _<sup>**4**</sup>點數型和預付型訂用帳戶的歷程記錄資料可能不符合您的發票。請參閱以下的歷程[記錄資料可能不符合發票](#historical-data-might-not-match-invoice)。_
 

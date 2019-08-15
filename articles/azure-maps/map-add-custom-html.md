@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 地圖服務中新增 HTML 標記 | Microsoft Docs
-description: 如何在 Javascript 地圖中新增 HTML 標記
+description: 如何將 HTML 標籤新增至 Azure 地圖服務 Web SDK。
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f8777a3d0eb9b97fff6f492f181a432d98d9341c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ff18b8646a3845d029e9826c0895b9d3eb16bdde
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849295"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976209"
 ---
 # <a name="add-html-markers-to-the-map"></a>在地圖中新增 HTML 標記
 
@@ -28,16 +28,36 @@ ms.locfileid: "68849295"
 
 ## <a name="add-an-html-marker"></a>新增 HTML 標記
 
-HtmlMarker 類別有預設樣式。 若要自訂標記，請設定標記的色彩和文字選項。 HtmlMarker 類別的預設樣式是 SVG 範本，具有色彩和文字預留位置。 若要快速自訂，請在 HtmlMarker 選項中設定色彩和文字屬性。 
+[HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)類別具有預設樣式。 若要自訂標記，請設定標記的色彩和文字選項。 HTML 標籤類別的預設樣式是具有`{color}`和`{text}`預留位置的 SVG 範本。 設定 HTML 標籤選項中快速自訂的 color 和 text 屬性。 
+
+下列程式碼會建立 HTML 標籤, 並將 color 屬性設為 "DodgerBlue", 並將 text 屬性設定為 "10"。 快顯視窗會附加至標記, 並`click`使用事件來切換快顯視窗的可見度。
+
+```javascript
+//Create a HTML marker and add it to the map.
+var marker = new atlas.HtmlMarker({
+    color: 'DodgerBlue',
+    text: '10',
+    position: [0, 0],
+    popup: new atlas.Popup({
+        content: '<div style="padding:10px">Hello World</div>',
+        pixelOffset: [0, -30]
+    })
+});
+
+map.markers.add(marker);
+
+//Add a click event to toggle the popup.
+map.events.add('click',marker, () => {
+    marker.togglePopup();
+});
+```
+
+以下是上述功能的完整執行程式碼範例。
 
 <br/>
 
 <iframe height='500' scrolling='no' title='在地圖中新增 HTML 標記' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆 <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>在地圖中新增 HTML 標記</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
-
-在上述程式碼中，程式碼的第一個區塊會建構對應物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
-
-第二個程式碼區塊會使用 [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) 類別的 [markers](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) 屬性，將 [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) 新增至地圖。 HtmlMarker 會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內新增至地圖，以確保其會在地圖完全載入後顯示。
 
 ## <a name="create-svg-templated-html-marker"></a>建立 SVG 樣板化 HTML 標記
 
@@ -62,7 +82,7 @@ HTML 標記的好處之一是您可以使用 CSS 來實現許多完美的自訂�
 
 ## <a name="draggable-html-markers"></a>可拖曳的 HTML 標記
 
-此範例說明如何建立可拖曳的 HTML 標記。 HTML 標記支援 `drag`、`dragstart` 和 `dragend` 事件。
+此範例說明如何建立可拖曳的 HTML 標記。 HTML 標籤支援`drag`、 `dragstart`和`dragend`事件。
 
 <br/>
 

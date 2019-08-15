@@ -1,9 +1,9 @@
 ---
-title: Stream Azure 監視器記錄檔的 Azure Active Directory 記錄檔 |Microsoft Docs
-description: 了解如何整合 Azure 監視器記錄檔中的 Azure Active Directory 記錄檔
+title: 將 Azure Active Directory 記錄串流至 Azure 監視器記錄 |Microsoft Docs
+description: 瞭解如何將 Azure Active Directory 記錄與 Azure 監視器記錄整合
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bffe16d604ac6b86b489092f50fbdc0b856867b3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437301"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989777"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>整合 Azure 監視器記錄檔中的 Azure AD 記錄檔
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>將 Azure AD 記錄與 Azure 監視器記錄整合
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -51,30 +51,30 @@ Ignite 工作階段中的下列影片，會示範在特定使用者案例中針�
 > 目前不支援與 B2C 相關的稽核和登入活動記錄。
 >
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>先決條件 
 
 若要使用此功能，您必須要有：
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以[註冊免費試用](https://azure.microsoft.com/free/)。
 * Azure AD 租用戶。
-* 使用者，身分是該 Azure AD 租用戶的「全域管理員」  或「安全性管理員」  。
+* 使用者，身分是該 Azure AD 租用戶的「全域管理員」或「安全性管理員」。
 * Azure 訂用帳戶中的 Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)。
 
-## <a name="send-logs-to-azure-monitor"></a>將記錄傳送給 Azure 監視器
+## <a name="send-logs-to-azure-monitor"></a>將記錄傳送至 Azure 監視器
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
-2. 選取 [Azure Active Directory]   > [診斷設定]   -> [新增診斷設定]  。 您也可以在 [稽核記錄]  或 [登入]  頁面中選取 [匯出設定]  ，以移至診斷設定組態頁面。  
+2. 選取 [Azure Active Directory] > [診斷設定] -> [新增診斷設定]。 您也可以在 [稽核記錄] 或 [登入] 頁面中選取 [匯出設定]，以移至診斷設定組態頁面。  
     
-3. 在 [診斷設定]  功能表中選取 [傳送至 Log Analytics 工作區]  核取方塊，然後選取 [設定]  。
+3. 在 [診斷設定] 功能表中選取 [傳送至 Log Analytics 工作區] 核取方塊，然後選取 [設定]。
 
 4. 選取記錄要傳送到的 Log Analytics 工作區，或在畫面上提供的對話方塊中建立新的工作區。  
 
 5. 執行下列其中一個動作或兩個動作都執行：
-    * 若要將稽核記錄傳送到 Log Analytics 工作區，請選取 [AuditLogs]  核取方塊。 
-    * 若要將登入記錄傳送到 Log Analytics 工作區，請選取 [SignInLogs]  核取方塊。
+    * 若要將稽核記錄傳送到 Log Analytics 工作區，請選取 [AuditLogs] 核取方塊。 
+    * 若要將登入記錄傳送到 Log Analytics 工作區，請選取 [SignInLogs] 核取方塊。
 
-6. 選取 [儲存]  以儲存設定。
+6. 選取 [儲存] 以儲存設定。
 
     ![診斷設定](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 將熱度圖層新增至 Azure 地圖服務 | Microsoft Docs
-description: 如何將熱度圖層新增至 Javascript 地圖
+description: 如何將熱度圖層新增至 Azure 地圖服務 Web SDK。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 85f184603cdcadce6bf750db5765f32a0735453d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e83b3c5f7f7cb6fa729a628f01f4103d44c19df8
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639030"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976191"
 ---
 # <a name="add-a-heat-map-layer"></a>新增熱度圖層
 
 熱度圖 (也稱為點密度圖) 是一種資料視覺效果，用來以色彩範圍表示資料密度。 這些圖通常用來顯示地圖上的資料「作用點」，而且十分適合用來轉譯大型的點資料集。  例如, 在地圖視圖中將數十個點轉譯為符號, 涵蓋大部分的對應區域, 並會導致許多符號彼此重迭, 因此難以取得資料的深入解析。 不過，若將此相同資料集視覺化為熱度圖，就可更輕易地看到點資料最密集的地方，以及其他區域的相對密度。 有許多案例都使用了熱度圖。 以下提供一些範例：
 
-* 溫度資料常常會轉譯為熱度圖，因為其可為兩個資料點之間的溫度提供近似值。
-* 將噪音感應器的資料轉譯為熱度圖，不僅可顯示感應器所在的噪音程度，也可以針對隨著距離消散的噪音提供見解。 任何一個站台上的噪音等級可能都不高，不過，如果多個感應器的噪音涵蓋區域重疊時，就有可能造成此重疊區域有到較高的噪音等級，並且顯示在熱度圖中。
-* 將包含速度的 GPS 追蹤視覺化為加權高度地圖, 其中每個資料點的強度都以速度為基礎, 這是查看車輛正在何處加速的絕佳方式。
+- 溫度資料常常會轉譯為熱度圖，因為其可為兩個資料點之間的溫度提供近似值。
+- 將噪音感應器的資料轉譯為熱度圖，不僅可顯示感應器所在的噪音程度，也可以針對隨著距離消散的噪音提供見解。 任何一個站台上的噪音等級可能都不高，不過，如果多個感應器的噪音涵蓋區域重疊時，就有可能造成此重疊區域有到較高的噪音等級，並且顯示在熱度圖中。
+- 將包含速度的 GPS 追蹤視覺化為加權高度地圖, 其中每個資料點的強度都以速度為基礎, 這是查看車輛正在何處加速的絕佳方式。
 
 > [!TIP]
 > 根據預設，熱度圖圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層, 使其只轉譯點幾何特徵, 請`filter`將圖層的屬性`['==', ['geometry-type'], 'Point']`設`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`為, 如果您也想要包含 MultiPoint 功能, 請將它設定為。
@@ -31,12 +31,29 @@ ms.locfileid: "68639030"
 
 若要將點資料來源轉譯為熱度圖，請將您的資料來源傳送至 `HeatMapLayer` 類別的執行個體，然後將其新增至地圖，如下所示。
 
+在下列程式碼中, 每個熱度點在所有縮放層級都有10圖元的半徑。 將熱度圖層新增至地圖時, 此範例會將其插入至標籤圖層下方, 以建立更好的使用者體驗, 因為標籤會清楚地顯示在熱度圖上方。 此範例中的資料來源自于[USGS 地震風險計畫](https://earthquake.usgs.gov/), 並代表過去30天內發生的重大地震。
+
+```javascript
+//Create a data source and add it to the map.
+var datasource = new atlas.source.DataSource();
+map.sources.add(datasource);
+
+//Load a data set of points, in this case earthquake data from the USGS.
+datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
+
+//Create a heatmap and add it to the map.
+map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
+  radius: 10,
+  opacity: 0.8
+}), 'labels');
+```
+
+以下是上述功能的完整執行程式碼範例。
+
 <br/>
 
 <iframe height='500' scrolling='no' title='簡易熱度圖層' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>請參閱 <a href='https://codepen.io'>CodePen</a> 上由 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 建立的 Pen：<a href='https://codepen.io/azuremaps/pen/gQqdQB/'>簡易熱度圖層</a>。
 </iframe>
-
-在此範例中，每個熱度點在所有縮放層級上都有半徑為 10 的像素。 將熱度圖層新增至地圖時, 此範例會將其插入至標籤圖層下方, 以建立更好的使用者體驗, 因為標籤會清楚地顯示在熱度圖上方。 此範例中的資料來源自于[USGS 地震風險計畫](https://earthquake.usgs.gov/), 並代表過去30天內發生的重大地震。
 
 ## <a name="customizing-the-heat-map-layer"></a>自訂熱度圖層
 
@@ -49,10 +66,10 @@ ms.locfileid: "68639030"
 |--------------------------------|--------------------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25、「綠色」、<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50、' 黃色 '、<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75、' red '<br/>\] | 
 
-* `opacity`:指定熱度圖層的透明度。
-* `intensity`:將乘數套用到每個資料點的權數, 以增加熱度圖的整體濃度, 並協助您更輕鬆地將資料點權數的細微差異變得更容易視覺化。
-* `weight`:根據預設，所有資料點的權數為 1，因此所有資料點的權重都一樣。 加權選項會作為乘數使用，並可設定為數字或運算式。 如果數字設為權重，假設為 2，則等於是將每個資料點放在地圖上兩次，因此密度會變成兩倍。 將加權選項設定為數字所呈現的熱度圖，與使用強度選項呈現的熱度圖相似。 不過, 如果使用運算式, 每個資料點的權數可以根據每個資料點的屬性。 以地震資料作為例子，每個資料點都代表一次地震。 每個地震資料點的一個重要計量便是震度值。 地震隨時都在發生，但大部分地震的震度低，甚至感覺不到。 使用運算式中的 [大小] 值, 將權數指派給每個資料點, 可讓熱度圖中更明顯地呈現更高的地震。
-* 除了基底圖層選項 (最小/最大縮放、可見度和篩選) 之外，另外還有用於更新資料來源的 `source` 選項，以及用於資料來源是向量圖格來源的 `source-layer` 選項。
+- `opacity`:指定熱度圖層的透明度。
+- `intensity`:將乘數套用到每個資料點的權數, 以增加熱度圖的整體濃度, 並協助您更輕鬆地將資料點權數的細微差異變得更容易視覺化。
+- `weight`:根據預設，所有資料點的權數為 1，因此所有資料點的權重都一樣。 加權選項會作為乘數使用，並可設定為數字或運算式。 如果數字設為權重，假設為 2，則等於是將每個資料點放在地圖上兩次，因此密度會變成兩倍。 將加權選項設定為數字所呈現的熱度圖，與使用強度選項呈現的熱度圖相似。 不過, 如果使用運算式, 每個資料點的權數可以根據每個資料點的屬性。 以地震資料作為例子，每個資料點都代表一次地震。 每個地震資料點的一個重要計量便是震度值。 地震隨時都在發生，但大部分地震的震度低，甚至感覺不到。 使用運算式中的 [大小] 值, 將權數指派給每個資料點, 可讓熱度圖中更明顯地呈現更高的地震。
+- 除了基底圖層選項 (最小/最大縮放、可見度和篩選) 之外，另外還有用於更新資料來源的 `source` 選項，以及用於資料來源是向量圖格來源的 `source-layer` 選項。
 
 以下是用來測試不同熱度圖層選項的工具。
 
@@ -63,11 +80,11 @@ ms.locfileid: "68639030"
 
 ## <a name="consistent-zoomable-heat-map"></a>一致的可縮放熱度圖
 
-根據預設, 熱度圖圖層中轉譯之資料點的半徑對於所有縮放層級都有固定圖元半徑。 因為地圖會將資料匯總放大, 而且熱度圖層看起來會不同。 `zoom`運算式可以用來調整每個縮放層級的半徑, 讓每個資料點都涵蓋對應的相同實體區域。 這會讓熱度圖層看起來更為靜態且一致。 地圖的每個縮放層級都會以垂直和水準方式, 與上一個縮放層級相同的圖元數倍。 調整半徑, 讓每個縮放層級加倍, 會建立在所有縮放比例上看起來一致的熱度圖。 這可以透過使用具有基底`zoom` 2 `exponential interpolation`運算式的來完成, 如下列範例所示。 縮放地圖以查看熱度圖如何隨著縮放層級調整。
+根據預設, 熱度圖圖層中轉譯之資料點的半徑對於所有縮放層級都有固定圖元半徑。 當地圖已縮放時, 資料匯總在一起, 且熱度圖層看起來會不同。 `zoom`運算式可以用來調整每個縮放層級的半徑, 讓每個資料點都涵蓋對應的相同實體區域。 這會讓熱度圖層看起來更為靜態且一致。 地圖的每個縮放層級都會以垂直和水準方式, 與上一個縮放層級相同的圖元數倍。 調整半徑, 讓每個縮放層級加倍, 會建立在所有縮放比例上看起來一致的熱度圖。 這可以透過使用具有基底`zoom` 2 `exponential interpolation`運算式的來完成, 如下列範例所示。 縮放地圖以查看熱度圖如何隨著縮放層級調整。
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="一致的可縮放熱度圖" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=light&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="一致的可縮放熱度圖" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 請參閱<a href='https://codepen.io'>CodePen</a>上的 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 的「手寫筆<a href='https://codepen.io/azuremaps/pen/OGyMZr/'>一致可縮放熱度圖</a>」。
 </iframe>
 
@@ -93,7 +110,7 @@ ms.locfileid: "68639030"
 如需更多可新增至地圖的程式碼範例，請參閱下列文章：
 
 > [!div class="nextstepaction"]
-> [新增符號圖層](./map-add-pin.md)
+> [建立資料來源](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [使用資料驅動樣式運算式](data-driven-style-expressions-web-sdk.md)

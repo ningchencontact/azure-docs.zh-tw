@@ -3,7 +3,7 @@ title: Azure Active Directory 風險事件 | Microsoft Docs
 description: 本文詳述何謂風險事件。
 services: active-directory
 keywords: azure active directory identity protection, 安全性, 風險, 風險層級, 弱點, 安全性原則
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5711d900653ae7786899ce1c53f22cf181f5b8bf
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107687"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988281"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
@@ -52,9 +52,9 @@ Azure Active Directory 目前會偵測六種風險事件類型：
 您針對偵測到風險事件所獲得的深入解析會與您的 Azure AD 訂用帳戶息息相關。 
 
 * 使用 **Azure AD Premium P2 版本**時，您會獲得有關所有基礎偵測的最詳細資訊。 
-* 具有**Azure AD Premium P1 版本時**進階偵測 （例如不熟悉的登入內容） 未涵蓋在您的授權，而且會出現在 名稱**登入偵測到其他風險**. 此外，要隱藏的風險層級和風險詳細資料欄位。
+* 使用**Azure AD Premium P1 版本**時, 您的授權不會涵蓋「先進的偵測」 (例如不熟悉的登入屬性), 而且會出現在 [登入已偵測**到其他風險**] 的 [名稱] 底下。 此外, [風險層級] 和 [風險詳細資料] 欄位是隱藏的。
 
-偵測風險事件已經代表保護您的身分識別的重要層面，您也可以手動加以解決，或藉由設定條件式存取原則，實作自動化的回應。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
+雖然風險事件的偵測已代表保護您身分識別的重要層面, 但您也可以選擇手動解決這些問題, 或藉由設定條件式存取原則來實行自動化回應。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
 
 ## <a name="risk-event-types"></a>風險事件類型
 
@@ -65,7 +65,7 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 - 改善現有風險事件的偵測精確度 
 - 未來將會新增的新風險事件類型
 
-### <a name="leaked-credentials"></a>認證外洩
+### <a name="leaked-credentials"></a>洩漏的認證
 
 當網路罪犯入侵合法使用者的有效密碼時，他們通常會共用這些認證。 他們的做法通常是在深層網路上公開張貼或貼上站台，或是在黑市上交易或銷售認證。 Microsoft 的認證外洩服務取得使用者名稱 / 密碼組的方式，是監視公用及深層網路，以及使用：
 
@@ -74,13 +74,13 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 - Microsoft 安全性小組
 - 其他受信任的來源 
 
-當服務取得使用者名稱 / 密碼組時，它們會針對 AAD 使用者目前的有效認證進行檢查。 找到相符項目時，表示使用者的密碼已遭入侵，並已建立認證外洩風險事件  。
+當服務取得使用者名稱 / 密碼組時，它們會針對 AAD 使用者目前的有效認證進行檢查。 找到相符項目時，表示使用者的密碼已遭入侵，並已建立認證外洩風險事件。
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>從匿名 IP 位址登入
 
 此風險事件類型會識別從被視為匿名 Proxy IP 位址的 IP 位址成功登入的使用者。 這些 Proxy 通常由想要隱藏其裝置 IP 位址的人員使用，而且可能用於惡意意圖。
 
-### <a name="impossible-travel-to-atypical-locations"></a>不可能到達非典型位置的移動
+### <a name="impossible-travel-to-atypical-locations"></a>不可能進入非慣用位置
 
 此風險事件類型會識別來自距離遙遠的位置的兩次登入，而根據使用者過去的行為，其中至少有一個位置可能不尋常。 在許多其他因素中，此機器學習演算法會考量兩次登入之間的時間，以及使用者從第一個位置移到第二個位置所需的時間，這表示有不同的使用者正在使用相同的認證。
 
@@ -96,7 +96,7 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 
 此風險事件類型會識別從感染惡意程式碼的裝置登入，已知這類登入會主動與 Bot 伺服器通訊。 讓使用者裝置的 IP 位址與聯繫 Bot 伺服器的 IP 位址相互關聯，即可判定此類型。 
 
-### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從具有可疑活動的 IP 位址登入
+### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從有可疑活動的 IP 位址登入
 此風險事件類型會識別在短期內透過多個使用者帳戶多次嘗試登入失敗的 IP 位址。 這符合攻擊者所使用的 IP 位址流量模式，而且強烈指出帳戶已經或即將遭到入侵。 這種機器學習演算法會忽略明顯的「誤判」，例如，組織中的其他使用者定期使用的 IP 位址。  系統有為期 14 天的初始學習期間，它會在這段期間了解新使用者和新租用戶的登入行為。
 
 ## <a name="detection-type"></a>偵測類型
@@ -139,7 +139,7 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 
 ![風險層級](./media/concept-risk-events/01.png)
 
-### <a name="leaked-credentials"></a>認證外洩
+### <a name="leaked-credentials"></a>洩漏的認證
 
 認證外洩風險事件會被歸類為**高**，因為它們清楚指出攻擊者可使用使用者名稱和密碼。
 
@@ -148,7 +148,7 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 此風險事件類型的風險層級為**中**，因為匿名 IP 位址並未強烈指出帳戶遭到入侵。 我們建議您立即連絡使用者，確認他們是否使用匿名 IP 位址。
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>不可能到達非典型位置的移動
+### <a name="impossible-travel-to-atypical-locations"></a>不可能進入非慣用位置
 
 不可能的移動通常會明顯指出駭客已能夠成功登入。 不過，當使用者使用新裝置或使用組織中其他使用者通常不會使用的 VPN 進行移動時，可能會發生誤判。 另一個誤判來源是誤將伺服器 IP 當作用戶端 IP 傳遞的應用程式，其可能會導致從裝載應用程式後端的資料中心進行登入 (這些通常是 Microsoft 資料中心，其可能導致從 Microsoft 擁有的 IP 位址進行登入)。 由於這些誤判，以致此風險事件的風險層級為**中**。
 
@@ -167,7 +167,7 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 
 如需如何處理惡意程式碼感染的詳細資訊，請參閱 [惡意程式碼防護中心](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/)。
 
-### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從具有可疑活動的 IP 位址登入
+### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從有可疑活動的 IP 位址登入
 
 我們建議您連絡使用者，確認他們是否實際從標示為可疑的 IP 位址進行登入。 此事件類型的風險層級為「**中**」，因為相同 IP 位址背後可能有數個裝置，而只有某些裝置可能負責進行可疑的活動。 
 

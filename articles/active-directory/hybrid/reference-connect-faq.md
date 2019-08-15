@@ -15,30 +15,30 @@ ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137791"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014185"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
 ## <a name="general-installation"></a>一般安裝
 
-**問：如何強化我的 Azure AD Connect 伺服器，來減少安全性攻擊？**
+**問：如何強化我的 Azure AD Connect 伺服器, 以減少安全性攻擊面？**
 
-Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻擊面，您的 IT 環境的這個重要元件。  遵循下列建議將會降低您的組織的安全性風險。
+Microsoft 建議強化您的 Azure AD Connect 伺服器, 以降低 IT 環境重要元件的安全性攻擊面。  遵循下列建議會降低貴組織的安全性風險。
 
-* 部署在加入網域的伺服器上的 Azure AD Connect 和網域系統管理員或其他具有受到嚴格控制的安全性群組來限制系統管理存取權
+* 在加入網域的伺服器上部署 Azure AD Connect, 並將系統管理存取許可權制為網域系統管理員或其他嚴格控制的安全性群組
 
 若要深入了解，請參閱： 
 
 * [保護系統管理員群組](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [保護內建的 administrator 帳戶](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [保護內建的系統管理員帳戶](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [改進安全性和 sustainment 藉由降低受攻擊面](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [藉由減少攻擊面來改善安全性和 sustainment](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
 * [減少 Active Directory 攻擊面](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
@@ -78,46 +78,46 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 
 為了簡單起見，我們建議安裝 Azure AD Connect 的使用者就是 SQL 中的系統管理員。 不過，在最新的組建中，您現在已可使用委派的 SQL 系統管理員，如[使用 SQL 委派管理員權限安裝 Azure AD Connect](how-to-connect-install-sql-delegation.md)中所述。
 
-**問：有哪些欄位中的最佳做法為何？**  
+**問：欄位中有哪些最佳作法？**  
 
-以下是提供一些最佳做法工程、 支援的參考文件和我們的顧問已經開發多年。  項目符號清單可快速參考 所示。  雖然這份清單會嘗試在完整，但可能會有其他可能不導致它在清單尚未的最佳作法。
+以下是一份參考檔, 提供工程、支援和我們的顧問在多年以來所開發的一些最佳作法。  這會出現在可快速參考的專案符號清單中。  雖然這份清單嘗試是完整的, 但可能還有其他可能尚未在清單上進行的最佳作法。
 
-- 如果使用完整的 SQL，則它應該保留本機與遠端
-    - 躍點較少
-    - 更容易進行疑難排解
-    - 較不複雜
-    - 必須指定 SQL 的資源，並允許 Azure AD Connect 和 OS 的額外負荷
-- 略過 Proxy 時，如果可以的話，如果您無法略過 proxy，則您需要確定的逾時值是 5 分鐘以上。
-- 如果 proxy 是必要的則您必須將 proxy 加入至 machine.config 檔案
-- 請注意本機的 SQL 作業和維護，以及它們會如何影響 Azure AD Connect-特別重新編製索引
-- 確保可外部解析 DNS
-- 請確認[伺服器規格](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect)建議每個您使用實體或虛擬伺服器
-- 如果您使用所需的資源為專用的虛擬伺服器，請確認
-- 請確定您有磁碟和磁碟組態符合適用於 SQL Server 的最佳作法
-- 安裝和設定 Azure AD Connect Health 進行監視
-- 使用內建於 Azure AD Connect 的刪除閾值。
-- 仔細檢閱版本更新的所有變更和新的屬性，可加入準備
-- 備份所有項目
+- 如果使用完整的 SQL, 則應該保留在本機與遠端
+    - 較少躍點
+    - 更容易疑難排解
+    - 較不復雜
+    - 需要指定 SQL 的資源, 並允許 Azure AD Connect 和 OS 的額外負荷
+- 如果可能的話, 略過 Proxy, 如果您無法略過 proxy, 則必須確定超時值大於5分鐘。
+- 如果需要 proxy, 則必須將 proxy 新增至 machine.config 檔案
+- 請留意本機 SQL 作業和維護, 以及它們會如何影響 Azure AD Connect-特別是重新編制索引
+- 確定 DNS 可以從外部解析
+- 無論您使用的是實體或虛擬伺服器, 都請確定[伺服器規格](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect)是根據建議的
+- 請確定您使用的是虛擬伺服器, 而需要的資源是專用的
+- 確定您有磁片和磁片設定符合 SQL Server 的最佳做法
+- 安裝和設定監視的 Azure AD Connect Health
+- 使用 Azure AD Connect 內建的刪除臨界值。
+- 仔細回顧發行更新以準備進行所有變更, 以及可能新增的新屬性
+- 備份所有專案
     - 備份金鑰
-    - 備份的同步處理規則
+    - 備份同步處理規則
     - 備份伺服器設定
-    - 備份 SQL 資料庫
-- 請確定沒有任何第 3 個合作對象備份代理程式沒有 SQL VSS 寫入器 （在第 3 個合作對象的快照集的虛擬伺服器的一般） 的 SQL 備份
-- 限制的自訂同步處理規則所使用，因為它們會增加複雜度
-- 將 Azure AD 連接的伺服器，如層 0 個伺服器
-- 是 leery 修改沒有很好的影響，以及正確的商務驅動程式的了解雲端同步處理規則
-- 請確定正確的 URL 和防火牆連接埠已開啟以支援 Azure AD Connect 與 Azure AD Connect Health
-- 利用雲端已篩選的屬性，以進行疑難排解，並避免虛設的物件
-- 預備伺服器以確保您使用 Azure AD Connect 組態文件產生器的伺服器之間的一致性
-- 預備伺服器應位於不同的資料中心 （實體位置
-- 預備伺服器不是用來提供高可用性解決方案，但是您可以有多個預備伺服器
-- 簡介 「 延遲 」 的預備伺服器可以減輕一些可能的停機時間，如果發生錯誤
-- 測試並先驗證預備伺服器上的所有升級
-- 一律驗證匯出之前先切換至預備 serverLeverage 完整匯入和完整的同步處理，以減少營運影響預備伺服器
-- 讓 Azure AD Connect 伺服器之間的版本一致性盡量 
+    - 備份 SQL Database
+- 請確定沒有任何協力廠商備份代理程式在沒有 SQL VSS 寫入器的情況下備份 SQL (在具有協力廠商快照集的虛擬伺服器中很常見)
+- 限制在增加複雜度時所使用的自訂同步處理規則數量
+- 將 Azure AD Connect 伺服器視為第0層伺服器
+- Leery 修改雲端同步處理規則, 而不會對影響和正確的商業驅動程式有很大的瞭解
+- 請確定已開啟正確的 URL 和防火牆埠, 以支援 Azure AD Connect 和 Azure AD Connect Health
+- 利用雲端篩選屬性來疑難排解和防止虛設物件
+- 使用預備伺服器時, 請確定您使用 Azure AD Connect 設定 文件管理器, 以確保伺服器之間的一致性
+- 預備伺服器應位於不同的資料中心 (實體位置)
+- 預備伺服器不一定是高可用性解決方案, 但您可以有多部預備伺服器
+- 引進「延遲」暫存伺服器可能會在發生錯誤時降低部分可能的停機時間
+- 先測試並驗證預備伺服器上的所有升級
+- 一律先驗證匯出, 再切換到預備伺服器以進行完整匯入和完整同步處理, 以減少業務影響
+- 盡可能保持 Azure AD Connect 伺服器之間的版本一致性 
 
-**問：我要允許在工作群組機器上建立的 Azure AD 連接器帳戶的 Azure AD Connect？**
-資料分割  為了讓 Azure AD Connect 來自動建立 Azure AD Connector 帳戶，電腦必須已加入網域。  
+**問：我可以允許 Azure AD Connect 在工作組機器上建立 Azure AD 連接器帳戶嗎？**
+資料分割  為了讓 Azure AD Connect 自動建立 Azure AD 連接器帳戶, 電腦必須已加入網域。  
 
 ## <a name="network"></a>網路
 **問：我的防火牆、網路裝置或其他軟硬體會限制連線在網路上保持開啟的時間。當我使用 Azure AD Connect 時，用戶端逾時閥值的時間應該多長？**  
@@ -136,7 +136,7 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 否，Azure AD Connect 不支援純 IPv6 環境。
 
 **問︰我有多樹系環境，並在兩個樹系之間的網路使用 NAT (網路位址轉譯)。是否支援在這兩個個樹系之間使用 Azure AD Connect？**</br>
- 否，不支援透過 NAT 使用 Azure AD Connect。 
+否，不支援透過 NAT 使用 Azure AD Connect。 
 
 ## <a name="federation"></a>同盟
 **問：如果我收到一封電子郵件，要求我更新我的 Office 365 憑證，該怎麼辦？**  
@@ -149,8 +149,14 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 **問：是否支援在安裝 Azure AD Connect 之後重新命名伺服器？**  
 資料分割 變更伺服器名稱會使同步引擎無法連線到 SQL 資料庫執行個體，並且無法啟動此服務。
 
-**問：下一代密碼編譯 (NGC) 同步處理規則支援在啟用 FIPS 的電腦上？**  
-資料分割  不支援。
+**問：具備 FIPS 功能的電腦是否支援下一代密碼編譯 (NGC) 同步處理規則？**  
+資料分割  不支援它們。
+
+**問：如果我停用同步的裝置 (例如:HAADJ) 在 Azure 入口網站中, 為什麼會重新啟用？**<br>
+同步的裝置可能會在內部部署中撰寫或主控。 如果內部部署已啟用同步處理的裝置, 則即使系統管理員先前已停用, 也可能會在 Azure 入口網站中重新啟用。 若要停用已同步的裝置, 請使用內部部署 Active Directory 來停用電腦帳戶。
+
+**問：如果我在 Office 365 或 Azure AD 入口網站中, 針對同步處理的使用者封鎖使用者登入, 為什麼它會在再次登入時解除封鎖？**<br>
+同步處理的使用者可能會在內部部署中撰寫或主控。 如果帳戶已在內部部署中啟用, 它可以解除封鎖系統管理員所放置的登入區塊。
 
 ## <a name="identity-data"></a>身分識別資料
 **問：Azure AD 中的 userPrincipalName (UPN) 屬性為什麼與內部部署的 UPN 不符？**  
@@ -175,10 +181,10 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 資料分割 此選項不會擷取所有組態設定，因此不應使用。 應改用精靈在第二部伺服器上建立基底組態，並使用同步處理規則編輯器產生 PowerShell 指令碼，以在伺服器之間移動任何自訂規則。 如需詳細資訊，請參閱[變換移轉](how-to-upgrade-previous-version.md#swing-migration)。
 
 **問：是否可以針對 Azure 登入頁面進行密碼快取，以及是否可以因為此快取包含具有 *autocomplete = "false"* 屬性的密碼輸入元素而防止進行此快取？**  
-目前不支援修改**密碼**欄位的 HTML 屬性，包括自動完成標記。 我們目前正在開發適用於自訂 JavaScript 的功能，可讓您將任何屬性新增至 [密碼]  欄位。
+目前不支援修改**密碼**欄位的 HTML 屬性，包括自動完成標記。 我們目前正在開發適用於自訂 JavaScript 的功能，可讓您將任何屬性新增至 [密碼] 欄位。
 
 **問：Azure 登入頁面會顯示先前登入成功的使用者名稱。可以關閉此行為嗎？**  
-目前不支援修改**密碼**輸入欄位的 HTML 屬性，包括自動完成標記。 我們目前正在開發適用於自訂 JavaScript 的功能，可讓您將任何屬性新增至 [密碼]  欄位。
+目前不支援修改**密碼**輸入欄位的 HTML 屬性，包括自動完成標記。 我們目前正在開發適用於自訂 JavaScript 的功能，可讓您將任何屬性新增至 [密碼] 欄位。
 
 **問：是否有方法可防止並行的工作階段？**  
 資料分割
@@ -212,7 +218,7 @@ Microsoft 建議強化您的 Azure AD Connect 伺服器，可減少安全性攻�
 您不需要知道原先用來升級 Azure AD Connect 的使用者名稱和密碼。 使用具有全域管理員角色的任何 Azure AD 帳戶即可。
 
 **問：如何找出我目前使用的 Azure AD Connect 是哪一個版本？**  
-若要確認您伺服器上所安裝的 Azure AD Connect 是哪個版本，請移至 [控制台] 並選取 [程式]   > [程式和功能]  ，來查看所安裝的 Microsoft Azure AD Connect 版本，如下所示：
+若要確認您伺服器上所安裝的 Azure AD Connect 是哪個版本，請移至 [控制台] 並選取 [程式] > [程式和功能]，來查看所安裝的 Microsoft Azure AD Connect 版本，如下所示：
 
 ![控制台中的 Azure AD Connect 版本](./media/reference-connect-faq/faq1.png)
 

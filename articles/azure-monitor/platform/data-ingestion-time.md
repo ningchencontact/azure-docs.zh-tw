@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370654"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990163"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure 監視器中的記錄資料擷取時間
 Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 而在收集記錄資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
@@ -90,7 +90,7 @@ Azure 監視器的首要任務是確保不會遺失客戶資料，因此系統�
 ### <a name="ingestion-latency-delays"></a>擷取延遲
 您可以藉由比較[ingestion_time ()](/azure/kusto/query/ingestiontimefunction)函數與_TimeGenerated_屬性的結果, 來測量特定記錄的延遲。 這項資料可以搭配各種彙總，用來了解延遲的運作方式。 檢查擷取時間的一些百分位數，取得大量資料的深入解析。 
 
-例如，下列查詢會顯示當天有最高擷取時間的電腦： 
+例如, 下列查詢會顯示在過去8小時內, 哪些電腦的內嵌時間最高: 
 
 ``` Kusto
 Heartbeat
@@ -101,7 +101,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
-如果您想要向下切入到特定電腦經過一段時間的擷取時間，請使用也會將圖形中的資料視覺化的下列查詢： 
+如果您想要在一段時間內向下切入特定電腦的內嵌時間, 請使用下列查詢, 這也會將圖表中過去一天的資料視覺化: 
 
 ``` Kusto
 Heartbeat 

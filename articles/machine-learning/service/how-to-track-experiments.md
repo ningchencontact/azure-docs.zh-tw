@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847827"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946377"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning 中的定型執行期間記錄計量
+# <a name="log-metrics-during-training-runs"></a>定型執行期間的記錄計量
 
 追蹤您的實驗並監視計量, 以加強模型建立程式。 在本文中, 您將瞭解如何將記錄新增至您的定型腳本、提交實驗執行、監視執行, 以及在 Azure Machine Learning 服務中查看執行結果。
+
+> [!NOTE]
+> Azure Machine Learning 服務也可能會在定型期間記錄來自其他來源的資訊, 例如 AutoML 或執行定型作業的 Docker 容器。 這些記錄檔並未記載。 如果您遇到問題並聯系 Microsoft 支援服務, 他們可能會在進行疑難排解時使用這些記錄。
 
 ## <a name="list-of-training-metrics"></a>訓練計量的清單 
 
@@ -221,7 +224,7 @@ ms.locfileid: "68847827"
 
 ## <a name="manage-a-run"></a>管理執行
 
-[[開始]、[監視] 和 [取消訓練執行](how-to-manage-runs.md)] 文章會特別說明如何管理您的實驗的特定 Azure Machine Learning 工作流程。
+[[開始]、[監視] 和 [取消訓練](how-to-manage-runs.md)回合] 文章強調說明如何管理您的實驗的特定 Azure Machine Learning 工作流程。
 
 ## <a name="view-run-details"></a>檢視執行詳細資料
 

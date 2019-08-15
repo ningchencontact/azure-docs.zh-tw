@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: fa0a88ce3f74c20ab36931a6a78f8265bdb9d8be
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876246"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977160"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -99,7 +99,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 > [!Note]
 > 此字串的格式至關重要。 若未包括 **pid-** 前置詞，就無法查詢資料。 不同的 SDK 會以不同的方式追蹤。 若要實作此方法，請檢閱支援和適用於慣用 Azure SDK 的方法。
 
-#### <a name="example-the-python-sdk"></a>範例：Python SDK
+#### <a name="example-the-python-sdk"></a>範例:Python SDK
 
 針對 Python，請使用 **config** 屬性。 您只能將屬性新增到 UserAgent。 以下為範例：
 
@@ -123,7 +123,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-如需詳細資訊, 請參閱[Azure SDK for Go](https://docs.microsoft.com/go/azure/)。
+如需詳細資訊, 請參閱[Azure SDK for Go](https://docs.microsoft.com/azure/go/)。
 
 ## <a name="use-terraform"></a>使用 Terraform
 
@@ -178,21 +178,21 @@ Guid 必須註冊, 才能啟用客戶使用狀況屬性。
 
 1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)。
 
-1. 在右上角，選取您的帳戶圖示，然後選取 [發行者設定檔]  。
+1. 在右上角，選取您的帳戶圖示，然後選取 [發行者設定檔]。
 
    ![選取發行者設定檔](media/marketplace-publishers-guide/guid-image-for-lu.png)
 
-1. 在 [設定檔]  頁面上，選取 [新增追蹤 GUID]  。
+1. 在 [設定檔] 頁面上，選取 [新增追蹤 GUID]。
 
    ![選取 [新增追蹤 GUID]](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
 
-1. 在 [追蹤 GUID]  方塊中，輸入您的追蹤 GUID。 只輸入 GUID，不要輸入 **pid-** 前置詞。 在 [自訂描述]  方塊中，輸入您的供應項目名稱或描述。
+1. 在 [追蹤 GUID] 方塊中，輸入您的追蹤 GUID。 只輸入 GUID，不要輸入 **pid-** 前置詞。 在 [自訂描述] 方塊中，輸入您的供應項目名稱或描述。
 
    ![[設定檔] 頁面](media/marketplace-publishers-guide/guid-dev-center-login.png)
 
    ![輸入 GUID 與供應項目描述](media/marketplace-publishers-guide/guid-dev-center-example.png)
 
-1. 若要註冊多個 GUID，請再次選取 [新增追蹤 GUID]  。 頁面上會出現額外的方塊。
+1. 若要註冊多個 GUID，請再次選取 [新增追蹤 GUID]。 頁面上會出現額外的方塊。
 
    ![再次選取 [新增追蹤 GUID]](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
 
@@ -277,27 +277,27 @@ foreach ($deployment in $deployments){
 
 1. 移至[支援連結](https://go.microsoft.com/fwlink/?linkid=844975)。
 
-1. 在 [問題類型]  下，選取 [Marketplace 上線]  。
+1. 在 [問題類型] 下，選取 [Marketplace 上線]。
 
-1. 針對您的問題選擇 [類別]  ：
+1. 針對您的問題選擇 [類別]：
 
-   - 針對使用狀況關聯問題，請選取 [其他]  。
-   - 針對 Azure Marketplace CPP 存取問題，請選取 [存取問題]  。
+   - 針對使用狀況關聯問題，請選取 [其他]。
+   - 針對 Azure Marketplace CPP 存取問題，請選取 [存取問題]。
 
      ![選擇問題類別](media/marketplace-publishers-guide/lu-article-incident.png)
 
-1. 選取 [提出要求]  。
+1. 選取 [提出要求]。
 
 1. 在下一頁，輸入必要值。 選取 **繼續**。
 
 1. 在下一頁，輸入必要值。
 
    > [!Important]
-   > 在 [事件標題]  方塊中，輸入 **ISV 使用狀況追蹤**。 請詳細描述您的問題。
+   > 在 [事件標題] 方塊中，輸入 **ISV 使用狀況追蹤**。 請詳細描述您的問題。
 
    ![輸入事件標題的 ISV 使用狀況追蹤](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
 
-1. 完成表單，然後選取 [提交]  。
+1. 完成表單，然後選取 [提交]。
 
 您也可以從 Microsoft 合作夥伴技術顧問取得技術售性、部署和應用程式開發案例的技術指導方針, 以瞭解並納入客戶使用狀況屬性。
 

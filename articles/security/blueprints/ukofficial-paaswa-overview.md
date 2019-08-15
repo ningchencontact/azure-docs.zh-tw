@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 54bf4512785941ae1d09ae1436deefc032ec0037
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c0163b5280de942491f2174aa371fa7cc83d5984
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780664"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946527"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -27,7 +27,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 此藍圖會經由英國國家網路安 全中心 (National Cyber Security Centre，NCSC) 審閱並符合 NCSC 的 14 個雲端安全性準則。
 
-此較購使用[平台即服務](https://azure.microsoft.com/overview/what-is-paas/)元件來提供一個環境，讓客戶無須購買軟體授權、管理基礎應用程式基礎結構，以及中介軟體或開發工具及其他資源，避免其所帶來的花費及複雜性。 客戶會管理他們所開發的應用程式和服務，並將焦點放在實現商業價值，而 Microsoft Azure 會管理其他 Azure 資源 (例如虛擬機器、儲存體和網路功能)，並將更多的基礎結構管理[責任分工](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility)加諸於 Azure 平台。 [Azure App Service](https://azure.microsoft.com/services/app-service/) 會提供自動調整、高度可用性，支援 Windows 和 Linux，並可從 GitHub、Azure DevOps 或任何 Git 存放庫作為預設服務來啟用自動化部署。 開發人員可以透過 App Service，專注於實現商業價值，而沒有管理基礎結構的額外負荷。 他們可以建置全新的 Java、PHP、Node.js、Python、HTML 或 C# Web 應用程式，或將現有的雲端或內部部署 Web 應用程式遷移至 Azure App Service (雖然需要徹底的實質審查和測試來確認效能)。
+此較購使用[平台即服務](https://azure.microsoft.com/overview/what-is-paas/)元件來提供一個環境，讓客戶無須購買軟體授權、管理基礎應用程式基礎結構，以及中介軟體或開發工具及其他資源，避免其所帶來的花費及複雜性。 客戶會管理他們所開發的應用程式和服務，並將焦點放在實現商業價值，而 Microsoft Azure 會管理其他 Azure 資源 (例如虛擬機器、儲存體和網路功能)，並將更多的基礎結構管理[責任分工](../fundamentals/paas-deployments.md)加諸於 Azure 平台。 [Azure App Service](https://azure.microsoft.com/services/app-service/) 會提供自動調整、高度可用性，支援 Windows 和 Linux，並可從 GitHub、Azure DevOps 或任何 Git 存放庫作為預設服務來啟用自動化部署。 開發人員可以透過 App Service，專注於實現商業價值，而沒有管理基礎結構的額外負荷。 他們可以建置全新的 Java、PHP、Node.js、Python、HTML 或 C# Web 應用程式，或將現有的雲端或內部部署 Web 應用程式遷移至 Azure App Service (雖然需要徹底的實質審查和測試來確認效能)。
 
 此藍圖著重於為公用以及後台系統使用者佈建安全的基礎[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) Web 式介面。 此藍圖設計案例會考慮使用 Azure 裝載 Web 架構服務，以便公開使用者安全地提交、檢視及管理敏感性資料；而且後台系統或政府操作員也可以安全地處理公用使用者所提交的敏感性資料。 此案例的使用案例包括：
 
@@ -72,18 +72,18 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 #### <a name="identity-and-authentication"></a>身分識別和驗證
 
-此藍圖可確保透過目錄和身分識別管理服務來保護資源的存取權。 此架構會充分利用[身分識別作為安全界限](https://docs.microsoft.com/azure/security/security-paas-deployments)。 
+此藍圖可確保透過目錄和身分識別管理服務來保護資源的存取權。 此架構會充分利用[身分識別作為安全界限](../fundamentals/paas-deployments.md)。 
 
 下列技術可在 Azure 環境中提供身分識別管理功能：
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft 的多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 SQL Database 的使用者。
-- 使用 Azure AD 可執行操作者面向 Web 應用程式的驗證和 Azure 資源管理的存取。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)。
+- 使用 Azure AD 可執行操作者面向 Web 應用程式的驗證和 Azure 資源管理的存取。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)。
 - 資料庫資料行加密會使用 Azure AD 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱 [Always Encrypted：保護 SQL Database 中的機密資料](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。
 - 公民面向 Web 應用程式會設定為公開存取。 若要允許透過 Active Directory 或社交網路身分識別提供者來建立及驗證帳戶，[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 可以視需要進行整合。
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 會偵測潛在弱點和有風險的帳戶，並提供相關建議，以增強貴組織身分識別的安全性狀態，並為偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
+- [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) 會偵測潛在弱點和有風險的帳戶，並提供相關建議，以增強貴組織身分識別的安全性狀態，並為偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
 - [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 可以對 Azure 進行精確且專注的存取權管理。 可存取訂用帳戶的身分會限制為訂用帳戶系統管理員，而可存取 Azure Key Vault 的身分則是限制為需要金鑰管理權限的使用者。
-- 透過運用 [Azure Active Directory 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，客戶可以根據特定條件 (例如位置、裝置、狀態和登入風險)，對其環境中的應用程式或使用者存取強制使用其他安全性控制項。
-- 結合應用程式設計最佳做法的 [Azure DDoS 保護](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model)，可提供 DDoS 攻擊的防禦，包含永遠可用的流量監視，以及即時移轉一般網路層級的攻擊。 使用 PaaS 架構時，平台層級 DDoS 保護對客戶而言是透明的並已併入平台中，但請務必請注意，客戶需負起應用程式安全性設計責任。
+- 透過運用 [Azure Active Directory 條件式存取](../../active-directory/active-directory-conditional-access-azure-portal.md)，客戶可以根據特定條件 (例如位置、裝置、狀態和登入風險)，對其環境中的應用程式或使用者存取強制使用其他安全性控制項。
+- 結合應用程式設計最佳做法的 [Azure DDoS 保護](../fundamentals/paas-deployments.md#security-advantages-of-a-paas-cloud-service-model)，可提供 DDoS 攻擊的防禦，包含永遠可用的流量監視，以及即時移轉一般網路層級的攻擊。 使用 PaaS 架構時，平台層級 DDoS 保護對客戶而言是透明的並已併入平台中，但請務必請注意，客戶需負起應用程式安全性設計責任。
 
 #### <a name="data-in-transit"></a>資料傳輸中
 
@@ -112,14 +112,14 @@ App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCen
 - [標準](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service 方案層次
 - 多個 App Service [部署位置](https://docs.microsoft.com/azure/app-service/deploy-staging-slots)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
 - 以 [Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/overview-managed-identity)連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
-- 與 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) 整合以監視效能
-- [診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
-- 度量[警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
+- 與 [Azure Application Insights](../../azure-monitor/app/azure-web-apps.md) 整合以監視效能
+- [診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md) 
+- 度量[警示](../../azure-monitor/app/alerts.md) 
 - [Azure API 應用程式](https://azure.microsoft.com/services/app-service/api/) 
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 除了實現[可動態調整的效能](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)外，更能提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
+SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 除了實現[可動態調整的效能](../../sql-database/sql-database-purchase-models.md)外，更能提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
 
 此藍圖中的 Azure SQL Database
 
@@ -130,7 +130,7 @@ Azure SQL Database 執行個體會使用下列資料庫安全性量值：
 - 您可以使用 [Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)，在單一中央位置集中管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理資料庫使用者並簡化權限管理。
 - 使用 Azure Active Directory 進行資料庫管理
 - [稽核記錄](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)至儲存體帳戶
-- 失敗 DB 連線的計量[警示](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)
+- 失敗 DB 連線的計量[警示](../../azure-monitor/app/alerts.md)
 - [SQL 威脅偵測](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
 - [Always Encrypted 資料行](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 
@@ -147,7 +147,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="data-at-rest"></a>待用資料
 
-透過[儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)，所有寫入至 Azure 儲存體的資料都會透過 256 位元 AES 加密 (可用的最強大區塊編碼器之一) 進行加密。 您可以搭配 SSE 使用 Microsoft 管理的加密金鑰，或使用[自己的加密金鑰](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys)。
+透過[儲存體服務加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)，所有寫入至 Azure 儲存體的資料都會透過 256 位元 AES 加密 (可用的最強大區塊編碼器之一) 進行加密。 您可以搭配 SSE 使用 Microsoft 管理的加密金鑰，或使用[自己的加密金鑰](../../storage/common/storage-encryption-keys-portal.md)。
 
 可透過使用[虛擬網路規則](https://docs.microsoft.com/azure/storage/common/storage-network-security)的[虛擬網路服務端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)來保護儲存體帳戶。
 
@@ -181,7 +181,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 用來監視即時 Web 應用程式，它會自動偵測效能異常、 析效能、診斷問題，以及了解使用者與應用程式的互動方式。 Application Insights 可以部署在各種平台上，包括裝載在內部部署環境或雲端的 Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) 是多個平台上的 Web 開發人員所適用的可延伸應用程式效能管理 (APM) 服務。 用來監視即時 Web 應用程式，它會自動偵測效能異常、 析效能、診斷問題，以及了解使用者與應用程式的互動方式。 Application Insights 可以部署在各種平台上，包括裝載在內部部署環境或雲端的 Node.js 和 Java EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。
 
 #### <a name="application-insights-in-this-blueprint"></a>此藍圖中的 Application Insights
 
@@ -195,7 +195,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 #### <a name="azure-monitor"></a>Azure 監視器
 
-[Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor)會透過允許集合計量、活動記錄及診斷記錄，來啟用 Azure 服務的核心監視功能。 Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。
+[Azure 監視器](../../azure-monitor/overview.md)會透過允許集合計量、活動記錄及診斷記錄，來啟用 Azure 服務的核心監視功能。 Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。
 
 ## <a name="threat-model"></a>威脅模型
 

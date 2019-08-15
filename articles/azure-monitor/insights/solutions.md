@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: b66d9cf15aaeaca975b60f24601b8ad7f555f458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6932f9f302bf1816842d78a662f01ebaafed8686
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110152"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989186"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure 監視器中的監視解決方案
 監視解決方案會運用 Azure 中的服務，提供特定應用程式或服務的額外作業見解。 本文提供 Azure 中監視解決方案的簡短概觀，以及使用和安裝它們的詳細資料。
@@ -33,23 +33,23 @@ ms.locfileid: "62110152"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>使用監視解決方案
-在 Azure 監視器中開啟 [概觀]  頁面，以顯示工作區中每個已安裝解決方案的圖格。 
+在 Azure 監視器中開啟 [概觀] 頁面，以顯示工作區中每個已安裝解決方案的圖格。 
 
 1. 登入 Azure 管理入口網站。
-1. 開啟 [所有服務]  並找出**監視器**。
-1. 在 [Insights]  功能表下方，選取 [其他]  。
+1. 開啟 [所有服務] 並找出**監視器**。
+1. 在 [Insights] 功能表下方，選取 [其他]。
 1. 使用畫面頂端的下拉式清單方塊，來變更針對圖格所使用的工作區或時間範圍。
 1. 按一下解決方案的圖格以開啟其檢視，其中包含所收集資料的更詳細分析。
 
 ![總覽](media/solutions/overview.png)
 
-監視解決方案可以包含多種的 Azure 資源，而您可以檢視解決方案隨附的任何資源，就像任何其他資源一樣。 例如，解決方案中包含的任何記錄查詢都會列在 [查詢總管](../log-query/get-started-portal.md#load-queries) 中的 [解決方案查詢]  下方。您在使用[記錄查詢](../log-query/log-query-overview.md) 執行臨機操作分析時，使用那些查詢。
+監視解決方案可以包含多種的 Azure 資源，而您可以檢視解決方案隨附的任何資源，就像任何其他資源一樣。 例如，解決方案中包含的任何記錄查詢都會列在 [查詢總管](../log-query/get-started-portal.md#load-queries) 中的 [解決方案查詢] 下方。您在使用[記錄查詢](../log-query/log-query-overview.md) 執行臨機操作分析時，使用那些查詢。
 
 ## <a name="list-installed-monitoring-solutions"></a>列出已安裝的監視解決方案 
 使用下列程序，列出您的訂用帳戶中已安裝的監視解決方案。
 
 1. 登入 Azure 管理入口網站。
-1. 開啟 [所有服務]  並找出**解決方案**。
+1. 開啟 [所有服務] 並找出**解決方案**。
 4. 隨即列出您所有工作區中安裝的解決方案。 解決方案的名稱後面接著其安裝所在的工作區名稱。
 1. 使用畫面頂端的下拉式方塊，依據訂用帳戶或資源群組進行篩選。
 
@@ -65,11 +65,11 @@ ms.locfileid: "62110152"
 ## <a name="install-a-monitoring-solution"></a>安裝監視解決方案
 您可以從 [Azure Marketplace](https://azuremarketplace.microsoft.com) 取得來自 Microsoft 和夥伴的管理解決方案。 您可以使用下列程序來搜尋可用的解決方案並安裝它們。 當您安裝解決方案時，您必須選取將在其中安裝解決方案且將收集其資料的 [Log Analytics 工作區](../platform/manage-access.md)。
 
-1. 從[訂用帳戶的解決方案清單](#list-installed-monitoring-solutions)，按一下 [新增]  。 
-1. 在 [管理解決方案]  的右邊，按一下 [更多資訊]  。 
+1. 從[訂用帳戶的解決方案清單](#list-installed-monitoring-solutions)，按一下 [新增]。
+1. 流覽或搜尋解決方案。 您也可以從[這個搜尋連結](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions)流覽解決方案。
 1. 找出您想要的監視解決方案，然後完整閱讀它的描述。
-1. 按一下 [建立]  以啟動安裝程序。
-1. 當安裝程序開始時，系統會提示您提供因每個解決方案而異的必要組態。
+1. 按一下 [建立] 以啟動安裝程序。
+1. 當安裝程式開始時, 系統會提示您指定 Log Analytics 工作區, 並提供解決方案的任何必要設定。
 
 ![安裝解決方案](media/solutions/install-solution.png)
 
@@ -80,9 +80,9 @@ ms.locfileid: "62110152"
 2. 移至 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。 
 3. 搜尋您感興趣的解決方案。
 4. 選取結果中的解決方案，以檢視其詳細資料。
-5. 按一下 [部署至 Azure]  按鈕。
+5. 按一下 [部署至 Azure] 按鈕。
 6. 除了解決方案中任何參數的值以外，系統還會提示您提供資源群組和位置等資訊。
-7. 按一下 [購買]  以安裝解決方案。
+7. 按一下 [購買] 以安裝解決方案。
 
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作區和自動化帳戶
@@ -102,11 +102,11 @@ ms.locfileid: "62110152"
 您可以使用下列程序，驗證 Log Analytics 工作區與自動化帳戶之間的連結。
 
 1. 在 Azure 入口網站中選取自動化帳戶。
-1. 捲動到功能表的 [相關資源]  區段。
-1. 如果已啟用 [工作區]  設定，則會將此帳戶連結到 Log Analytics 工作區。 您可以按一下 [工作區]  來檢視工作區的詳細資料。
+1. 捲動到功能表的 [相關資源] 區段。
+1. 如果已啟用 [工作區] 設定，則會將此帳戶連結到 Log Analytics 工作區。 您可以按一下 [工作區] 來檢視工作區的詳細資料。
 
 ## <a name="remove-a-monitoring-solution"></a>移除監視解決方案
-若要移除已安裝的解決方案，請在[已安裝的解決方案清單](#list-installed-monitoring-solutions)中找到它。 按一下解決方案名稱，以開啟其摘要頁面，然後按一下 [刪除]  。
+若要移除已安裝的解決方案，請在[已安裝的解決方案清單](#list-installed-monitoring-solutions)中找到它。 按一下解決方案名稱，以開啟其摘要頁面，然後按一下 [刪除]。
 
 
 ## <a name="next-steps"></a>後續步驟

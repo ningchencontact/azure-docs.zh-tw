@@ -4,17 +4,17 @@ description: 了解哪些作業系統可以執行 Azure IoT Edge 精靈和執行
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 07/22/2019
+ms.date: 08/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9b9acac829fd128a66e3ceea603bb804adf2a88b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fdecc34b49b853c34624cabf4688e0387c303a16
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598596"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985806"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支援的系統
 
@@ -67,7 +67,7 @@ Azure IoT Edge 會在大部分可執行容器的作業系統上執行;不過, �
 | Windows 10 IoT 企業版, 組建17763 | ![Windows 10 IoT 企業版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server 2019, 組建17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | Windows Server IoT 2019, 組建17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| Windows 10 IoT 核心版, 組建17763 | 公開預覽 |  |  |
+| Windows 10 IoT 核心版, 組建17763 | ![Windows IoT 核心版 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
 以上所列的 Windows 作業系統是在 Windows 上執行 Windows 容器的裝置需求。 此設定是唯一支援的生產環境設定。 適用于 Windows 的 Azure IoT Edge 安裝套件允許在 Windows 上使用 Linux 容器;不過, 此設定僅供開發和測試之用。 生產環境不支援在 Windows 上使用 Linux 容器的設定。 任何版本的 Windows 10 組建 14393 或更新版本和 Windows Server 2016 或更新版本，都可以用於此開發案例。

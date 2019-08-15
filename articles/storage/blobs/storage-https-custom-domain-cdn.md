@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f3386d04cd3316b38a094524d0d5d4f3c5ab36bb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845008"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986848"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>使用 Azure CDN 透過 HTTPS 以自訂網域存取 Blob
 
@@ -40,7 +40,7 @@ Azure CDN 可在您的 Web 應用程式資料進行傳輸時，協助保護該�
 
 ## <a name="shared-access-signatures"></a>共用存取簽章
 
-Blob 儲存體端點預設不允許匿名讀取權限。 如果您的 Blob 儲存體端點已設定為不允許匿名讀取權限，請在對您自訂網域提出的每個要求中提供[共用存取簽章](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)權杖。 如需詳細資訊，請參閱 [管理對容器與 Blob 的匿名讀取權限](storage-manage-access-to-resources.md)。
+Blob 儲存體端點預設不允許匿名讀取權限。 如果您的 Blob 儲存體端點已設定為不允許匿名讀取權限，請在對您自訂網域提出的每個要求中提供[共用存取簽章](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)權杖。 如需詳細資訊，請參閱 [管理對容器與 Blob 的匿名讀取權限](storage-manage-access-to-resources.md)。
 
 Azure CDN 並不遵守加諸於共用存取簽章權杖的任何限制。 例如，所有共用存取簽章權杖都會過期。 您仍然可以使用過期的共用存取簽章來存取內容，直到該內容從 Azure CDN 邊緣節點上被清除為止。 您可以設定快取回應標頭，以控制可在 Azure CDN 上快取資料多久時間。 若要了解如何進行，請參閱[在 Azure CDN 中管理 Azure Blob 儲存體的到期](../../cdn/cdn-manage-expiration-of-blob-content.md)。
 

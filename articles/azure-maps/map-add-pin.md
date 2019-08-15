@@ -1,6 +1,6 @@
 ---
 title: 將符號圖層新增至 Azure 地圖服務 | Microsoft Docs
-description: 如何將符號新增至 Javascript 地圖
+description: 如何將符號新增至 Azure 地圖服務 Web SDK。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,32 +9,52 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3bce4922a33648f5d7c0d211dba126f35603239b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10f6a7ef92bfd6558ed93e7fb40df9e48e1b92f5
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849291"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976166"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>將符號圖層新增至地圖
 
-本文會說明如何將資料來源中的點資料轉譯為地圖上的符號圖層。 符號圖層會使用 WebGL 來轉譯, 並支援比 HTML 標籤更大的點集, 但不支援傳統 CSS 和 HTML 專案來進行樣式設定。  
+符號可以連接到資料來源, 並用來在指定的點呈現圖示和/或文字。 符號圖層會使用 WebGL 來轉譯, 而且可以用來呈現地圖上的大型集合。 這一層可以在地圖上轉譯更多的點資料, 而且具有良好的效能, 而不是使用 HTML 標籤來達到的目標。 不過, 符號圖層不支援傳統的 CSS 和 HTML 專案來進行樣式設定。  
 
 > [!TIP]
 > 根據預設，符號圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層, 使其只轉譯點幾何特徵, `filter`請將圖層的`['==', ['geometry-type'], 'Point']`屬性`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`設為, 或者, 如果您也想要包含 MultiPoint 功能, 則設定為。
 
 ## <a name="add-a-symbol-layer"></a>新增符號圖層
 
+若要將符號圖層新增至地圖並轉譯資料, 必須先建立資料來源並加入對應。 接著, 您可以在資料來源中建立並傳遞符號層, 以從取得資料。 最後, 您必須將資料加入資料來源中, 以便呈現內容。 下列程式碼顯示的程式碼, 應該在載入之後, 使用符號圖層來轉譯地圖上的單一點之後, 才會加入至地圖中。 
+
+```javascript
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+
+//Create a symbol layer to render icons and/or text at points on the map.
+var layer = new atlas.layer.SymbolLayer(dataSource);
+
+//Add the layer to the map.
+map.layers.add(layer);
+
+//Create a point and add it to the data source.
+dataSource.add(new atlas.data.Point([0, 0]));
+```
+
+有四種不同類型的點資料可以新增至地圖:
+
+- GeoJSON 點幾何-這個物件只包含某個點的座標, 其他則沒有。 `atlas.data.Point` Helper 類別可以用來輕鬆地建立這些物件。
+- GeoJSON MultiPoint geometry-此物件包含多個點的座標, 但不會有任何其他。 `atlas.data.MultiPoint` Helper 類別可以用來輕鬆地建立這些物件。
+- GeoJSON 功能-此物件是由任何 GeoJSON 幾何和一組屬性所組成, 其中包含與幾何相關聯的中繼資料。 `atlas.data.Feature` Helper 類別可以用來輕鬆地建立這些物件。
+- `atlas.Shape`類別與 GeoJSON 功能相似之處在于, 它是由 GeoJSON geometry 和一組屬性所組成, 其中包含與幾何相關聯的中繼資料。 如果 GeoJSON 物件已加入至資料來源, 則可以輕鬆地在圖層中轉譯, 不過, 如果更新該 GeoJSON 物件的座標屬性, 則資料來源和對應不會變更, 因為 JSON 物件中沒有任何機制可觸發更新。 Shape 類別提供用來更新其包含之資料的功能, 而且在進行變更時, 會自動通知和更新資料來源和對應。 
+
+下列程式碼範例會建立 GeoJSON 點幾何, 並將它傳遞`atlas.Shape`至類別, 以便輕鬆地進行更新。 地圖的中心最初是用來呈現符號。 [Click] 事件會加入至地圖中, 因此當它引發時, 會使用滑鼠按下的座標來搭配 shapes `setCoordinates`函式, 以更新地圖上符號的位置。
+
+<br/>
+
 <iframe height='500' scrolling='no' title='切換釘選位置' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>請參閱 <a href='https://codepen.io'>CodePen</a> 上由 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 建立的 Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>切換釘選位置</a>。
 </iframe>
-
-上述第一個程式碼區塊會建構地圖物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
-
-在第二個程式碼區塊中，則會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件。 包含[點](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)幾何的 GeoJSON[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature)是由[Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest)類別所包裝, 讓它更容易更新, 然後建立並加入至資料來源。
-
-第三個程式碼區塊會建立[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)，並使用 shape 類別的 [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 方法，透過滑鼠點選來更新點的座標。
-
-[符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。  系統會建立資料來源、click 事件接聽程式和符號層, 並將其新增至[事件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)接聽程式`ready`函式內的對應, 以確保在地圖載入並可供存取之後, 才會顯示該點。
 
 > [!TIP]
 > 根據預設, 對於效能, 符號層會藉由隱藏重迭的符號來優化符號的轉譯。 當您放大隱藏符號時, 就會顯示出來。 若要停用此功能並隨時轉譯所有符號, 請將`allowOverlap` `iconOptions`選項的屬性設定為`true`。
@@ -60,6 +80,9 @@ ms.locfileid: "68849291"
 <iframe height='700' scrolling='no' title='符號圖層選項' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看 Pen <a href='https://codepen.io/azuremaps/pen/PxVXje/'>符號圖層選項</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
+> [!TIP]
+> 當您只想要使用符號圖層轉譯文字時, 您可以將圖示選項的`image`屬性設為, 以`'none'`隱藏圖示。
+
 ## <a name="next-steps"></a>後續步驟
 
 深入了解本文使用的類別和方法：
@@ -74,9 +97,12 @@ ms.locfileid: "68849291"
 > [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [TexTOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
+> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
 請參閱下列文章，以取得更多可新增至地圖的程式碼範例：
+
+> [!div class="nextstepaction"]
+> [建立資料來源](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [新增快顯](map-add-popup.md)
@@ -88,7 +114,10 @@ ms.locfileid: "68849291"
 > [如何使用影像範本](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [新增圖形](map-add-shape.md)
+> [新增線條圖層](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [新增多邊形圖層](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [新增泡泡圖層](map-add-bubble-layer.md)

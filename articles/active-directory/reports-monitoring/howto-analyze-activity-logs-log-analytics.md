@@ -1,9 +1,9 @@
 ---
-title: 分析使用 Azure 監視器記錄檔的 Azure Active Directory 活動記錄 |Microsoft Docs
-description: 了解如何分析使用 Azure 監視器記錄檔的 Azure Active Directory 活動記錄
+title: 使用 Azure 監視器記錄來分析 Azure Active Directory 活動記錄 |Microsoft Docs
+description: 瞭解如何使用 Azure 監視器記錄來分析 Azure Active Directory 活動記錄
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4145ea2162cdd56deb8bbdcfa81d5a90a2ed9382
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 77eb03089d956d0fb32ef0463b3d1cdb49ff0dbb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611562"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989819"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>分析 Azure AD 活動記錄與 Azure 監視器記錄檔
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>使用 Azure 監視器記錄來分析 Azure AD 活動記錄
 
 在您[整合 Azure AD 活動記錄與 Azure 監視器記錄](howto-integrate-activity-logs-with-log-analytics.md)之後，可以使用 Azure 監視器記錄的強大功能來深入了解環境。 您也可以安裝[適用於 Azure AD 活動記錄的 Log Analytics 檢視](howto-install-use-log-analytics-views.md)，以存取您環境中稽核和登入事件的預建報表。
 
@@ -43,7 +43,7 @@ ms.locfileid: "67611562"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
-2. 選取 [Azure Active Directory]  ，然後從 [監視]  區段選取 [記錄]  ，以開啟 Log Analytics 工作區。 開啟的工作區會包含預設查詢。
+2. 選取 [Azure Active Directory]，然後從 [監視] 區段選取 [記錄]，以開啟 Log Analytics 工作區。 開啟的工作區會包含預設查詢。
 
     ![預設查詢](./media/howto-analyze-activity-logs-log-analytics/defaultquery.png)
 
@@ -52,14 +52,14 @@ ms.locfileid: "67611562"
 
 記錄會推送至工作區中的 **AuditLogs** 和 **SigninLogs** 資料表。 若要檢視這些資料表的結構描述：
 
-1. 從上一節中的預設查詢檢視，選取 [結構描述]  並展開工作區。 
+1. 從上一節中的預設查詢檢視，選取 [結構描述] 並展開工作區。 
 
-2. 展開 [記錄管理]  區段，然後再展開 [AuditLogs]  或 [SignInLogs]  以檢視記錄結構描述。
+2. 展開 [記錄管理] 區段，然後再展開 [AuditLogs] 或 [SignInLogs] 以檢視記錄結構描述。
     ![稽核記錄](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![登入記錄](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>查詢 Azure AD 活動記錄
 
-現在，您的工作區中已經有記錄，可以對其執行查詢。 例如，若要取得過去一週使用率最高的前幾名應用程式，請以下列內容取代預設查詢，然後選取 [執行] 
+現在，您的工作區中已經有記錄，可以對其執行查詢。 例如，若要取得過去一週使用率最高的前幾名應用程式，請以下列內容取代預設查詢，然後選取 [執行]
 
 ```
 SigninLogs 
@@ -80,7 +80,7 @@ AuditLogs
 
 您也可以在您的查詢上設定警示。 例如，若要在上週使用超過 10 個應用程式時設定警示：
 
-1. 從工作區中，選取 [設定警示]  來開啟 [建立規則]  頁面。
+1. 從工作區中，選取 [設定警示] 來開啟 [建立規則] 頁面。
 
     ![設定警示](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
@@ -92,7 +92,7 @@ AuditLogs
 
 4. 選取訊號發生時會收到警示的**動作群組**。 您可以選擇透過電子郵件或文字訊息來通知團隊，或者使用 Webhook、Azure Functions 或 Logic Apps 來自動化動作。 深入了解[在 Azure 入口網站中建立及管理警示群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)。
 
-5. 一旦設定警示之後，請選取 [建立警示]  來加以啟用。 
+5. 一旦設定警示之後，請選取 [建立警示] 來加以啟用。 
 
 ## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>安裝和使用預建的 Azure AD 活動記錄檢視
 

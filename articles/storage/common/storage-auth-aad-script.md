@@ -9,12 +9,12 @@ ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 80ab896e1393d6c68b22a61d1b96acd507aa6994
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: d6a85d0f9480418bd840786e17ee258dbdb90c48
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249898"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985220"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>執行 Azure CLI 或具有 Azure AD 認證的 PowerShell 命令, 以存取 blob 或佇列資料
 
@@ -86,11 +86,13 @@ Azure CLI 支援 blob `--auth-mode`和佇列資料作業的參數:
 
 下列範例示範如何使用您的 Azure AD 認證, 從 Azure PowerShell 在新的儲存體帳戶中建立容器。 請記得使用您自己的值來取代角括弧中的預留位置值:
 
-1. 使用`Connect-AzAccount`命令登入您的 Azure 訂用帳戶, 並遵循畫面上的指示來輸入您的 Azure AD 認證: 
+1. 使用[disconnect-azaccount](/powershell/module/az.accounts/connect-azaccount)命令登入您的 Azure 帳戶:
 
     ```powershell
     Connect-AzAccount
     ```
+
+    如需使用 PowerShell 登入 Azure 的詳細資訊, 請參閱[使用 Azure PowerShell 登入](/powershell/azure/authenticate-azureps)。
 
 1. 藉由呼叫[remove-azresourcegroup](/powershell/module/az.resources/new-azresourcegroup)來建立 Azure 資源群組。 
 

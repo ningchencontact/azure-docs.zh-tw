@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: bb23ee1e51be178f93e05b728f7b8c2e9bb18e0d
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: ad5e78638f920401a83dd431c33a68b6d80144d7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414487"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988638"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>在以 Debian 為基礎的 Linux 系統上安裝 Azure IoT Edge 執行時間
 
@@ -262,6 +262,8 @@ journalctl -u iotedge --no-pager --no-full
 ```bash
 sudo iotedge list
 ```
+
+在您的裝置上安裝 IoT Edge 之後, 您應該會看到執行的唯一模組是**edgeAgent**。 建立第一個部署之後, 另一個系統模組 **$edgeHub**也會在裝置上啟動。 如需詳細資訊, 請參閱[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)。
 
 ## <a name="tips-and-troubleshooting"></a>秘訣與疑難排解
 

@@ -8,26 +8,13 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 438f450efe207999947795878a9815fca64f45ca
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68702943"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976632"
 ---
-「Azure 專用主機」是一種服務, 可提供實體伺服器來裝載一或多個 Azure 訂用帳戶專用的虛擬機器。 專用主機是在資料中心內使用的相同實體伺服器, 以資源的形式提供。 您可以在區域、可用性區域和容錯網域中布建專用主機。 然後, 您可以將 Vm 直接放入已布建的主機中, 不論何種設定最符合您的需求。
-
-> [!IMPORTANT]
-> Azure 專用主機目前為公開預覽版。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
->
-> **已知的預覽限制**
-> - 專用主機目前不支援虛擬機器擴展集。
-> - 預覽初始版本支援下列 VM 系列:DSv3 和 ESv3。 
-> - 在預覽期間, 您將無法調整部署至專用主機的虛擬機器大小。
-> - 對維護功能的控制處於有限預覽狀態。 一開始請先採取這[份提名問卷](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u)來試用。  
-> 在預覽期間, 我們將不會提供保留容量的選項。 
-
 ## <a name="benefits"></a>優點 
 
 保留整個主機可提供下列優點:
