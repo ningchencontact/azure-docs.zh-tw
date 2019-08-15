@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c9de4a9b72e446a7d2b6687af380ee910b58980
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: a56fcc45d4efb21c4904380d731d9e95584c39fd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741296"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879420"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定已加入混合式 Azure Active Directory 的裝置
 
@@ -71,6 +71,8 @@ Azure AD Connect：
 對於 1703 版或更早版本的 Windows 10 裝置，如果組織需要透過輸出 Proxy 存取網際網路，您就必須實作 Web Proxy 自動探索 (WPAD)，以在 Azure AD 中註冊 Windows 10 電腦。
 
 自 Windows 10 1803 起，即使同盟網域中的裝置嘗試透過 AD FS 進行混合式 Azure AD Join 失敗，且 Azure AD Connect 已設定為要將電腦/裝置物件同步至 Azure AD，裝置仍會嘗試使用已同步的電腦/裝置來完成混合式 Azure AD Join。
+
+若要確認裝置是否能夠在系統帳戶下存取上述 Microsoft 資源，您可以使用[測試裝置註冊連線能力](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0)指令碼。
 
 ## <a name="verify-configuration-steps"></a>驗證設定步驟
 

@@ -3,7 +3,7 @@ title: 教學課程：使用 Azure AD 報告 API 配合憑證來取得資料 | M
 description: 本教學課程說明如何使用 Azure AD 報告 API 配合憑證認證來取得目錄中的資料，而不需使用者介入。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e006111cce7f53ff87f1c6d60b2a5147da02e1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fdab5bc4be366f778213127a307fb4fcf7cf38a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60284906"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989473"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>教學課程：使用 Azure Active Directory 報告 API 搭配憑證來取得資料
 
@@ -61,13 +61,13 @@ ms.locfileid: "60284906"
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>使用 Azure Active Directory 報告 API 搭配憑證來取得資料
 
-1. 導覽至 [Azure 入口網站](https://portal.azure.com)，選取 [Azure Active Directory]  ，接著選取 [應用程式註冊]  ，然後從清單中選擇您的應用程式。 
+1. 導覽至 [Azure 入口網站](https://portal.azure.com)，選取 [Azure Active Directory]，接著選取 [應用程式註冊]，然後從清單中選擇您的應用程式。 
 
-2. 選取 [設定]   > [金鑰]  ，然後選取 [上載公開金鑰]  。
+2. 選取 [設定] > [金鑰]，然後選取 [上載公開金鑰]。
 
-3. 從上一個步驟中選取憑證檔案，然後選取 [儲存]  。 
+3. 從上一個步驟中選取憑證檔案，然後選取 [儲存]。 
 
-4. 請記下應用程式識別碼，以及您剛剛向應用程式註冊的憑證指紋。 若要尋找指紋，請從入口網站的應用程式頁面中前往 [設定]  ，然後按一下 [金鑰]  。 指紋將會在 [公開金鑰]  清單下方。
+4. 請記下應用程式識別碼，以及您剛剛向應用程式註冊的憑證指紋。 若要尋找指紋，請從入口網站的應用程式頁面中前往 [設定]，然後按一下 [金鑰]。 指紋將會在 [公開金鑰] 清單下方。
 
 5. 在內嵌資訊清單編輯器中開啟應用程式資訊清單，然後使用下列結構描述將 *keyCredentials* 屬性取代為新的憑證資訊。 
 

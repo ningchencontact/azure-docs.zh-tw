@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: adca67152c33f4c6a3ec272b63c4c8157a777f36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856181"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013653"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 
@@ -72,6 +72,11 @@ automl_config = AutoMLConfig(task="classification")
 自動化機器學習支援位於本機桌面或雲端中 (例如 Azure Blob 儲存體) 所包含的資料。 資料可讀取到支援 scikit-learn 的資料格式中。 您可以將資料讀取到：
 * Numpy 陣列 X (特徵) 和 y (目標變數，或者也稱為標籤)
 * Pandas 資料框架
+
+>[!Important]
+> 定型資料的需求:
+>* 資料必須是表格式格式。
+>* 您想要預測的值 (目標資料行) 必須存在於資料中。
 
 範例:
 

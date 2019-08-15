@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: cad2568702909274030d3c7c6469a7e4cbf670c4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779463"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989267"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
@@ -101,7 +101,7 @@ ms.locfileid: "68779463"
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>根據您的身分識別基礎結構來選取您的案例
 
-混合式 Azure AD join 同時適用于、受控和同盟環境。  
+視 UPN 是否可路由傳送或無法路由傳送, 混合式 Azure AD 聯結適用于、受控和同盟環境。 如需支援的案例, 請參閱資料表的底部頁面。  
 
 ### <a name="managed-environment"></a>受控環境
 
@@ -111,10 +111,10 @@ ms.locfileid: "68779463"
 
 ### <a name="federated-environment"></a>同盟環境
 
-同盟環境應具有支援下列需求的識別提供者。 如果您的同盟環境使用 Active Directory 同盟服務 (AD FS), 則已支援下列需求。
+同盟環境應具有支援下列需求的識別提供者。 如果您的同盟環境使用 Active Directory 同盟服務 (AD FS)，則已支援下列需求。
 
-- **WIAORMULTIAUTHN 宣告:** 需要此宣告, 才能執行適用于舊版 Windows 裝置的混合式 Azure AD 聯結。
-- **WS-TRUST 通訊協定:** 必須使用此通訊協定, 才能向 Azure AD 驗證已加入 Windows 的混合式 Azure AD 裝置。 當您使用 AD FS 時, 您必須啟用下列 WS-TRUST 端點:`/adfs/services/trust/2005/windowstransport`  
+- **WIAORMULTIAUTHN 宣告：** 必須有此宣告才能對舊版 Windows 裝置進行混合式 Azure AD Join。
+- **WS-Trust 通訊協定：** 必須有此通訊協定才能向 Azure AD 驗證 Windows 目前的混合式 Azure AD 加入裝置。 當您使用 AD FS 時，您必須啟用下列 WS-Trust 端點：`/adfs/services/trust/2005/windowstransport`  
 `/adfs/services/trust/13/windowstransport`  
   `/adfs/services/trust/2005/usernamemixed` 
   `/adfs/services/trust/13/usernamemixed`
@@ -122,7 +122,7 @@ ms.locfileid: "68779463"
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **Adfs/services/trust/2005/windowstransport**或**adfs/services/trust/13/windowstransport**都應該啟用為僅限內部網路面向的端點, 而且不得透過 Web 應用程式 Proxy 公開為外部網站面向端點。 若要深入瞭解如何停用 WS-TRUST WIndows 端點, 請參閱[停用 proxy 上的 Ws-trust windows 端點](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)。 您可以在 AD FS 管理主控台的 [服務] > [端點] 下方查看已啟用的端點。
+> **adfs/services/trust/2005/windowstransport** 或 **adfs/services/trust/13/windowstransport** 都只能啟用為內部網路對應端點，且不得透過 Web 應用程式 Proxy 公開為內部網路對應端點。 若要深入了解如何停用 WS-Trust Windows 端點，請參閱[在 Proxy上停用 WS-Trust Windows 端點](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)。 您可以在 AD FS 管理主控台的 [服務] > [端點] 下方查看已啟用的端點。
 
 > [!NOTE]
 > Azure AD 不支援受控網域中的智慧卡或憑證。

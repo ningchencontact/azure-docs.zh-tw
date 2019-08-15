@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61245097"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016641"
 ---
 # <a name="azure-media-services-community"></a>Azure 媒體服務社群  
 
@@ -56,16 +56,8 @@ Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新的不同�
 
 ## <a name="contact-the-team"></a>連絡小組
 
-主要支援電子郵件的 azure 媒體服務： **amshelp\@microsoft.com**。
+Azure 媒體服務的主要支援電子郵件： **amshelp@microsoft.com** 。
 
-下表列出功能子小組的電子郵件：
+## <a name="next-steps"></a>後續步驟
 
-| 功能 | Email |
-| --- | --- |
-| Azure 媒體分析 |amsanalytics@microsoft.com |
-| Azure 媒體播放器 |ampinfo@microsoft.com |
-| Azure 媒體瀏覽器 |amse@microsoft.com |
-| 工作流程設計工具 |mepd@microsoft.com |
-| 檔案串流和封裝 |amsstreaming@microsoft.com |
-| 即時串流和封裝 |amslived@microsoft.com |
-
+[概觀](media-services-overview.md)

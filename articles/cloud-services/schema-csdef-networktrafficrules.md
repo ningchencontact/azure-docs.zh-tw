@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 8925943b0a5d151d55adedcfe3f01b5a14c63c1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: e99b9f0f601841fe6ff32eba0a43bfafd652e941
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60613891"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945941"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Azure 雲端服務定義 NetworkTrafficRules 結構描述
 `NetworkTrafficRules` 節點是服務定義檔中的選擇性元素，它指定角色如何彼此通訊。 它會限制哪些角色可以存取特定角色的內部端點。 `NetworkTrafficRules` 不是獨立元素；它會與服務定義檔中的兩個或多個角色結合。
@@ -76,10 +76,10 @@ AllowAllTraffic 元素
 ##  <a name="RoleEndpoint"></a> RoleEndpoint 元素
 `RoleEndpoint` 元素描述允許與其通訊之角色上的端點。 如果角色上有多個端點，您可以指定多個 `RoleEndpoint` 元素。
 
-| 屬性      | 類型     | 描述 |
+| 屬性      | Type     | 描述 |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | 必要。 要允許流量的端點名稱。|
-| `roleName`     | `string` | 必要。 要允許與其通訊的 Web 角色名稱。|
+| `endpointName` | `string` | 必要項。 要允許流量的端點名稱。|
+| `roleName`     | `string` | 必要項。 要允許與其通訊的 Web 角色名稱。|
 
 ## <a name="allowalltraffic-element"></a>AllowAllTraffic 元素
 `AllowAllTraffic` 元素是一個規則，允許所有角色與 `Destinations` 節點中定義的端點通訊。
@@ -87,16 +87,16 @@ AllowAllTraffic 元素
 ##  <a name="WhenSource"></a> WhenSource 元素
 `WhenSource` 元素描述可以與 `Destinations` 節點中定義的端點通訊之角色集合。
 
-| 屬性 | 類型     | 描述 |
+| 屬性 | Type     | 描述 |
 | --------- | -------- | ----------- |
-| `matches` | `string` | 必要。 指定允許通訊時要套用的規則。 唯一支援的值為 `AnyRule`。|
+| `matches` | `string` | 必要項。 指定允許通訊時要套用的規則。 唯一支援的值為 `AnyRule`。|
   
 ##  <a name="FromRole"></a> FromRole 元素
 `FromRole` 元素指定可以與 `Destinations` 節點中定義的端點通訊之角色。 如果有多個角色可以與端點通訊，您可以指定多個 `FromRole` 元素。
 
-| 屬性  | 類型     | 描述 |
+| 屬性  | Type     | 描述 |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | 必要。 要允許其進行通訊的角色名稱。|
+| `roleName` | `string` | 必要項。 要允許其進行通訊的角色名稱。|
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 [雲端服務 (傳統) 定義結構描述](schema-csdef-file.md)

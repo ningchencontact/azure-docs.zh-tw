@@ -6,15 +6,15 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/12/2019
 ms.author: stegaw
 ms.custom: seodec18
-ms.openlocfilehash: 577467a6322b7f6d3cd7f199d80963f2f1a98ed6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 61c3f033fbe3febe7b0d048b247cc1fe8d597698
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849335"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014180"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中的使用者定義函式偵錯
 
@@ -45,7 +45,7 @@ Azure Digital Twins 支援強固的記錄、監視與分析功能。 解決方�
 
 若要使感應器遙測訊息與其各自的記錄相符，您可以針對所傳送的事件資料指定相互關聯識別碼。 若要這樣做，將 `x-ms-client-request-id` 屬性設為 GUID。
 
-傳送遙測之後, 請開啟 log analytics 以使用設定相互關聯識別碼來查詢記錄:
+傳送遙測之後, 請使用 [設定相互關聯識別碼] 開啟 Azure 監視器 log analytics 來查詢記錄:
 
 ```Kusto
 AzureDiagnostics
@@ -100,7 +100,7 @@ GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSO
 | *YOUR_MATCHER_IDENTIFIER* | 您想要評估之比對器的識別碼 |
 | *YOUR_SENSOR_IDENTIFIER* | 您想要評估之感應器的識別碼 |
 
-回應：
+回應:
 
 ```JavaScript
 {
@@ -123,7 +123,7 @@ GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=Use
 | --- | --- |
 | *YOUR_SENSOR_IDENTIFIER* | 要傳送遙測的感應器識別碼 |
 
-回應：
+回應:
 
 ```JavaScript
 [
@@ -180,7 +180,7 @@ sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(customNotification
 
 避免此問題最簡單的方式是針對中繼資料物件使用 `Notify` 方法。
 
-範例：
+範例:
 
 ```JavaScript
 function process(telemetry, executionContext) {

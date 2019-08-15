@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884388"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015948"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -155,7 +155,7 @@ Azure 備份適用于 premium 檔案共用, Azure Kubernetes Service 支援1.13 
 
 ## <a name="file-share-redundancy"></a>檔案共用備援
 
-Azure 檔案儲存體標準共用支援三個數據冗余選項: [本機冗余儲存體 (LRS)]、[區域冗余儲存體 (ZRS)] 和 [異地冗余儲存體 (GRS)]。
+Azure 檔案儲存體標準共用支援三個數據冗余選項: 本機冗余儲存體 (LRS)、區域冗余儲存體 (ZRS)、異地多餘儲存體 (GRS) 和異地區域冗余儲存體 (切換) (預覽)。
 
 Azure 檔案儲存體 premium 共用僅支援本機多餘的儲存體 (LRS)。
 
@@ -186,6 +186,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 當您決定要使用的複寫選項時，請記住下列幾點：
 
+* 異地區域冗余儲存體 (切換) (預覽) 會以同步方式將資料複寫到三個 Azure 可用性區域, 並以非同步方式將資料複寫到次要區域, 藉此提供高可用性和最大耐久性。 您也可以啟用次要區域的讀取權限。 切換的設計目的是要在指定的一年內提供至少 99.99999999999999% (16 個 9) 的物件持久性。 如需切換的詳細資訊, 請參閱[高可用性和最大持久性 (預覽) 的異地區域冗余儲存體](../common/storage-redundancy-gzrs.md)。
 * 區域冗余儲存體 (ZRS) 提供同步複寫的高可用性, 而且在某些情況下可能是比 GRS 更好的選擇。 如需有關 ZRS 的詳細資訊，請參閱 [ZRS](../common/storage-redundancy-zrs.md)。
 * 非同步複寫會涉及從將資料寫入主要區域，到將資料複寫至次要區域這段時間的延遲。 當發生區域性災害時，如果無法從主要區域復原尚未複寫到次要區域的變更，則這些變更可能會遺失。
 * 使用 GRS 時，複本不提供讀取或寫入存取，除非 Microsoft 起始對次要區域的容錯移轉。 在容錯移轉的情況下，當容錯移轉完成時，您會有該資料的讀取和寫入存取權。 如需詳細資訊，請參閱[災害復原指導方針](../common/storage-disaster-recovery-guidance.md)。
@@ -198,7 +199,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 - 在預覽期間, Azure 預覽[條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)適用于大型檔案共用, 包括搭配 Azure 檔案同步部署使用時。
 - 要求您建立新的一般用途儲存體帳戶 (無法展開現有的儲存體帳戶)。
-- 將訂用帳戶接受至較大的檔案共用預覽之後, 所建立的任何新儲存體帳戶, 都無法進行 LRS/ZRS to GRS account 轉換。
+- 將訂用帳戶接受至較大的檔案共用預覽之後, 所建立的任何新儲存體帳戶, 都無法進行 LRS/ZRS to GRS/切換 account 轉換。
 
 
 ### <a name="regional-availability"></a>區域可用性
@@ -214,7 +215,7 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 |西歐     |LRS、ZRS|否    |是|
 |美國西部 2       |LRS、ZRS|否    |是|
 
-\* 對於沒有入口網站支援的區域, 您仍然可以使用 PowerShell 或 Azure 命令列介面 (CLI) 來建立大於5個 TiB 的共用。 Altenatively, 透過入口網站建立新的共用, 而不指定配額。 這會建立預設大小為 100 TiB 的共用, 稍後可透過 PowerShell 或 Azure CLI 進行更新。
+\* 對於沒有入口網站支援的區域, 您仍然可以使用 PowerShell 或 Azure 命令列介面 (CLI) 來建立大於5個 TiB 的共用。 或者, 透過入口網站建立新的共用, 而不指定配額。 這會建立預設大小為 100 TiB 的共用, 稍後可透過 PowerShell 或 Azure CLI 進行更新。
 
 為協助我們設定新區域和功能的優先順序, 請填寫這[份問卷](https://aka.ms/azurefilesatscalesurvey)。
 

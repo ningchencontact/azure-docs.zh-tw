@@ -1,5 +1,5 @@
 ---
-title: 公式預測價格和比較演算法
+title: '視覺化介面範例 #3: 回歸至價格並比較演算法'
 titleSuffix: Azure Machine Learning service
 description: 本文說明如何使用視覺化介面來建立複雜的機器學習實驗, 而不需要撰寫任何一行程式碼。 瞭解如何定型和比較多個回歸模型, 以根據技術功能來預測汽車的價格
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 28af7b814a8d214c3529ecb12ffe25ede78b1cb6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d05a601196ec4a5349a0acb4763098d9716c17f5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855926"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990011"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>範例 2-回歸:預測價格和比較演算法
 

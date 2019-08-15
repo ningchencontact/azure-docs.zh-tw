@@ -1,20 +1,19 @@
 ---
 title: 教學課程：將靜態網站裝載於 Blob 儲存體上 - Azure 儲存體
 description: 了解如何設定用於靜態網站代管的儲存體帳戶，以及將靜態網站部署至「Azure 儲存體」。
-services: storage
 author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: seodec18
-ms.openlocfilehash: e3f2dd74d00b36016549cd33d76b866de241d977
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.reviewer: dineshm
+ms.openlocfilehash: 4cc38b952e773002e0b5f6b2311187f8d3d46400
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148490"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855395"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -37,7 +36,7 @@ ms.locfileid: "65148490"
 安裝 Visual Studio Code 之後，請安裝「Azure 儲存體」預覽版延伸模組。 此延伸模組會將「Azure 儲存體」管理功能與 Visual Studio Code 整合。 您將會使用此延伸模組將靜態網站部署至「Azure 儲存體」。 安裝延伸模組：
 
 1. 啟動 Visual Studio Code。
-2. 在工具列上，按一下 [延伸模組]。 搜尋「Azure 儲存體」，然後從清單中選取 [Azure 儲存體] 延伸模組。 接著，按一下 [下載] 按鈕以安裝延伸模組。
+2. 在工具列上，按一下 [延伸模組]  。 搜尋「Azure 儲存體」  ，然後從清單中選取 [Azure 儲存體]  延伸模組。 接著，按一下 [下載]  按鈕以安裝延伸模組。
 
     ![在 VS Code 中安裝 Azure 儲存體延伸模組](media/storage-blob-static-website-host/install-extension-vs-code.png)
 
@@ -51,11 +50,11 @@ ms.locfileid: "65148490"
 
 1. 在網頁瀏覽器中開啟 [Azure 入口網站](https://portal.azure.com/)。 
 1. 找出您的儲存體帳戶，然後顯示帳戶概觀。
-1. 選取 [靜態網站] 以顯示靜態網站的設定頁面。
-1. 選取 [已啟用] 以啟用儲存體帳戶的靜態網站代管功能。
-1. 在 [索引文件名稱] 欄位中，指定預設的索引頁面 *index.html*。 當使用者瀏覽至您靜態網站的根目錄時，就會顯示此預設索引頁面。  
-1. 在 [文件路徑發生錯誤] 欄位中，指定預設的錯誤頁面 *404.html*。 當使用者嘗試瀏覽至您靜態網站中所沒有的網頁時，就會顯示此預設錯誤頁面。
-1. 按一下 [檔案] 。 Azure 入口網站現在即會顯示您的靜態網站端點。 
+1. 選取 [靜態網站]  以顯示靜態網站的設定頁面。
+1. 選取 [已啟用]  以啟用儲存體帳戶的靜態網站代管功能。
+1. 在 [索引文件名稱]  欄位中，指定預設的索引頁面 *index.html*。 當使用者瀏覽至您靜態網站的根目錄時，就會顯示此預設索引頁面。  
+1. 在 [文件路徑發生錯誤]  欄位中，指定預設的錯誤頁面 *404.html*。 當使用者嘗試瀏覽至您靜態網站中所沒有的網頁時，就會顯示此預設錯誤頁面。
+1. 按一下 [檔案]  。 Azure 入口網站現在即會顯示您的靜態網站端點。 
 
     ![啟用儲存體帳戶的靜態網站代管功能](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -64,11 +63,11 @@ ms.locfileid: "65148490"
 接下來，使用 Visual Studio Code 來建立 Hello World 網頁，然後將其部署至裝載在您「Azure 儲存體」帳戶中的靜態網站。
 
 1. 在您的本機檔案系統上建立一個名為 *mywebsite* 的空資料夾。 
-1. 啟動 Visual Studio Code，然後從 [總管] 面板開啟您剛才建立的資料夾。
+1. 啟動 Visual Studio Code，然後從 [總管]  面板開啟您剛才建立的資料夾。
 
     ![在 Visual Studio Code 中開啟資料夾](media/storage-blob-static-website-host/open-folder-vs-code.png)
 
-1. 在 [mywebsite] 資料夾中建立預設索引檔案，然後將其命名為 *index.html*。
+1. 在 [mywebsite]  資料夾中建立預設索引檔案，然後將其命名為 *index.html*。
 
     ![在 Visual Studio Code 中建立預設索引檔案](media/storage-blob-static-website-host/create-index-file-vs-code.png)
 
@@ -85,7 +84,7 @@ ms.locfileid: "65148490"
     <h1>404</h1>
     ```
 
-1. 在 [總管] 面板中的 [mywebsite] 資料夾底下按一下滑鼠右鍵，然後選取 [部署至靜態網站] 以部署您的網站。 系統將提示您登入 Azure 以擷取訂用帳戶清單。
+1. 在 [總管]  面板中的 [mywebsite]  資料夾底下按一下滑鼠右鍵，然後選取 [部署至靜態網站]  以部署您的網站。 系統將提示您登入 Azure 以擷取訂用帳戶清單。
 
 1. 選取包含已啟用靜態網站代管功能之儲存體帳戶的訂用帳戶。 接著，在出現提示時，選取該儲存體帳戶。
 

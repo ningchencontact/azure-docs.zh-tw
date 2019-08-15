@@ -2,19 +2,18 @@
 title: 離線操作裝置 - Azure IoT Edge | Microsoft Docs
 description: 了解 IoT Edge 裝置及模組針對延長時間期間無網際網路連線執行的方式，以及 IoT Edge 讓一般 IoT 裝置也能離線執行的方式。
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 06/04/2019
+ms.date: 08/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4a46128d3b0e77ff7921e1f4875c318a95309769
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6d82b353f8b485b4441853b7ff8e70e7d69f4d6a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598615"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986977"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>瞭解 IoT Edge 裝置、模組及子裝置的擴充離線功能
 
@@ -137,43 +136,71 @@ az iot hub device-identity add-children \
 }
 ```
 
-### <a name="additional-offline-storage"></a>其他離線儲存體
+### <a name="host-storage-for-system-modules"></a>系統模組的主機存放裝置
 
-根據預設，訊息會儲存在 IoT Edge 中樞的容器檔案系統。 若該儲存體數量不足以應付您的離線需求，您可以在 IoT Edge 裝置上專用本機存放區。 為 IoT Edge 中樞建立環境變數，指向容器中的儲存體資料夾。 然後，使用建立選項，將該儲存體資料夾與主機電腦上的資料夾繫結。 
+根據預設, 訊息和模組狀態資訊會儲存在 IoT Edge 中樞的本機容器檔案系統中。 為了改善可靠性, 特別是在離線操作時, 您也可以將存放裝置專用於主機 IoT Edge 裝置上。
 
-您可以在 Azure 入口網站內的 [設定進階 Edge 執行階段設定] 區段設定環境變數及建立 IoT Edge 中樞模組的選項。 或者，您也可以在部署資訊清單中直接設定。 
+若要在主機系統上設定存放裝置, 請為 IoT Edge 中樞建立環境變數, 並 IoT Edge 代理程式指向容器中的儲存體資料夾。 然後，使用建立選項，將該儲存體資料夾與主機電腦上的資料夾繫結。 
+
+您可以在 Azure 入口網站內的 [設定進階 Edge 執行階段設定] 區段設定環境變數及建立 IoT Edge 中樞模組的選項。 
+
+1. 針對 IoT Edge hub 和 IoT Edge 代理程式, 新增名為**storageFolder**的環境變數, 以指向模組中的目錄。
+1. 針對 IoT Edge hub 和 IoT Edge 代理程式, 新增系結以將主機電腦上的本機目錄連接到模組中的目錄。 例如: 
+
+   ![新增本機儲存體的建立選項和環境變數](./media/offline-capabilities/offline-storage.png)
+
+或者, 您可以直接在部署資訊清單中設定本機儲存體。 例如: 
 
 ```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": {
-            "HostConfig": {
-                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
-                "PortBindings": {
-                    "8883/tcp": [{"HostPort":"8883"}],
-                    "443/tcp": [{"HostPort":"443"}],
-                    "5671/tcp": [{"HostPort":"5671"}]
+"systemModules": {
+    "edgeAgent": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
                 }
+            }
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
             }
         }
     },
-    "env": {
-        "storageFolder": {
-            "value": "<ModuleStoragePath>"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
+    "edgeHub": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
+            }
+        },
+        "status": "running",
+        "restartPolicy": "always"
+    }
 }
 ```
 
-使用您的主機和模組儲存體路徑取代 `<HostStoragePath>` 和 `<ModuleStoragePath>`；主機和模組儲存體路徑都必須是絕對路徑。 在建立選項中，將主機和模組儲存體路徑繫結在一起。 接著，建立指向模組儲存體路徑的環境變數。  
+將`<HostStoragePath>`和`<ModuleStoragePath>`取代為您的主機和模組儲存體路徑, 這兩個值都必須是絕對路徑。 
 
 例如，`"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 表示您主機系統上的 **/etc/iotedge/storage** 目錄會對應至容器上的 **/iotedge/storage/** 目錄。 或是再以 Windows 系統舉一個例子，`"Binds":["C:\\temp:C:\\contemp"]` 表示您主機系統上的 **C:\\temp** 目錄會對應至容器上的 **C:\\contemp** 目錄。 
 
-您也可以從 [Docker 文件](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)中找到更多有關建立選項的詳細資料。
+在 Linux 裝置上, 請確定 IoT Edge 中樞的使用者設定檔 (UID 1000) 具有主機系統目錄的讀取、寫入和執行許可權。 這些許可權是必要的, 因此 IoT Edge 中樞可以將訊息儲存在目錄中, 並于稍後加以取出。 (IoT Edge 代理程式以 root 身分運作, 因此不需要額外的許可權)。有數種方式可以管理 Linux 系統上的目錄許可權, 包括`chown`使用變更目錄擁有者, 然後`chmod`變更許可權。 例如:
+
+```bash
+sudo chown 1000 <HostStoragePath>
+sudo chmod 700 <HostStoragePath>
+```
+
+您可以從[docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)檔中找到更多有關建立選項的詳細資料。
 
 ## <a name="next-steps"></a>後續步驟
 

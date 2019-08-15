@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 554a77b65b1baab980d765c69a5bffaeacb483d9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855409"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016380"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>將您的巨量資料分析解決方案從 Azure Data Lake Storage Gen1 升級為 Azure Data Lake Storage Gen2
 
@@ -82,7 +82,7 @@ ms.locfileid: "68855409"
 | |平行分析工作負載的效能最佳化。 高輸送量和 IOPS。 | 平行分析工作負載的效能最佳化。 高輸送量和 IOPS。 | *現已推出* |
 | 虛擬網路 (VNet) 支援  | [使用虛擬網路整合](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [使用 Azure 儲存體的服務端點](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *現已推出* |
 | 大小限制 | 帳戶大小、檔案大小或檔案數目沒有限制 | 帳戶大小或檔案數目沒有限制。 檔案大小限制為 5TB。 | *現已推出*|
-| 異地備援| 本地備援 (LRS) | 本機備援 (LRS)、區域備援 (ZRS)、全域備援 (GRS)、讀取存取全域備援 (RA-GRS)。如需詳細資訊，請參閱[這裡](https://docs.microsoft.com/azure/storage/common/storage-redundancy)| *現已推出* |
+| 異地備援| 本地備援 (LRS) | 本機多餘 (LRS) 區域冗余 (ZRS) 異地冗余 (GRS) 讀取權限異地冗余 (RA-GRS) 如需詳細資訊, 請參閱[這裡](https://docs.microsoft.com/azure/storage/common/storage-redundancy)| *現已推出* |
 | 區域可用性 | 請參閱 [這裡](https://azure.microsoft.com/regions/) | 所有 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *現已推出*                                                                                                                           |
 | 價格                                       | 請參閱 [價格](https://azure.microsoft.com/pricing/details/data-lake-store/)                                                                            | 請參閱 [價格](https://azure.microsoft.com/pricing/details/storage/data-lake/)                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                           |
 | 可用性 SLA                            | [請參閱 SLA](https://azure.microsoft.com/support/legal/sla/data-lake-store/v1_0/)                                                                   | [請參閱 SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_3/)                                                                                                                                                                                                                                                                                                                                                | *現已推出*                                                                                                                           |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bacb677b8354c0b0e219ce7483a1446a96c28288
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855522"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950689"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -100,7 +100,7 @@ Blob 儲存體 Api 已停用, 以防止可能發生的功能操作問題, 因為
 | **Blobfuse** |尚不支援|
 | **自訂網域** |尚不支援|
 | **檔案系統 Explorer** | 有限支援 |
-| **診斷記錄** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取](data-lake-storage-multi-protocol-access.md)時, 才支援診斷記錄。 <br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>請務必指定`Blob`作為`-ServiceType`參數的值, 如下列範例所示。 
+| **診斷記錄** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取](data-lake-storage-multi-protocol-access.md)時, 才支援診斷記錄。 <br><br>目前不支援在 Azure 入口網站中啟用記錄。 以下範例說明如何使用 PowerShell 來啟用記錄。 <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>請務必指定`Blob`作為`-ServiceType`參數的值, 如下列範例所示。 
 | **不可變的儲存體** |尚不支援 <br><br>不可變的儲存體可讓您將資料儲存在[WORM (一次寫入, 多次讀取)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)狀態。|
 | **物件層級層** |只有當您在[Data Lake Storage preview 上註冊多重通訊協定存取權](data-lake-storage-multi-protocol-access.md)時, 才支援非經常性和封存層。 <br><br> 尚不支援其他所有存取層。|
 | **Powershell 和 CLI 支援** | 有限的功能 <br><br>支援建立帳戶之類的管理作業。 資料平面作業 (例如上傳和下載檔案) 在[Data Lake Storage 的多重通訊協定存取](data-lake-storage-multi-protocol-access.md)過程中是公開預覽。 尚不支援使用目錄及設定存取控制清單 (Acl)。 |

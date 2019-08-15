@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.author: anilmur
+ms.reviewer: juliako
+ms.openlocfilehash: a828d03093c73d5c65a92ccf899fbaa1ef622bd6
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217158"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016498"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
 
@@ -69,9 +70,9 @@ ms.locfileid: "61217158"
 
 | 頻道狀態 | 入口網站 UI 指標 | 會計費嗎？ |
 | --- | --- | --- |
-| 啟動中 |啟動中 |無 (暫時性狀態) |
-| 執行中 |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |是 |
-| 停止中 |停止中 |無 (暫時性狀態) |
+| 正在啟動 |正在啟動 |無 (暫時性狀態) |
+| Running |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |是 |
+| 正在停止 |正在停止 |無 (暫時性狀態) |
 | 已停止 |已停止 |否 |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>自動關閉未使用的通道
@@ -88,7 +89,7 @@ ms.locfileid: "61217158"
 下列是建立常見即時串流應用程式所含的一般步驟。
 
 > [!NOTE]
-> 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。 即時編碼的計費會受到影響，且您應記住將即時編碼通道保持在「執行中」狀態，會產生依小時計算的費用。  建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。 
+> 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amshelp@microsoft.com。 即時編碼的計費會受到影響，且您應記住將即時編碼通道保持在「執行中」狀態，會產生依小時計算的費用。  建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。 
 
 1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出**單一**位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 
 
@@ -108,7 +109,7 @@ ms.locfileid: "61217158"
 6. 發行與程式相關聯的資產。   
 
     >[!NOTE]
-    >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 您想要串流內容的串流端點必須處於 [執行中]  狀態。 
+    >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 您想要串流內容的串流端點必須處於 [執行中] 狀態。 
 
 7. 當您準備好開始串流和封存時，請啟動程式。
 8. 即時編碼器會收到啟動公告的信號 (選擇性)。 公告會插入輸出串流中。
@@ -210,13 +211,13 @@ ms.locfileid: "61217158"
 ### <a id="preset"></a>系統預設
 指定由此通道內之即時編碼器所使用的預設內容。 目前，唯一允許的值是 **Default720p** (預設值)。
 
-請注意如果您需要自訂的預設設定，您應該連絡 amslived@microsoft.com。
+請注意, 如果您需要自訂預設值, amshelp@microsoft.com請洽詢。
 
 **Default720p** 會將視訊編碼成下列 6 層。
 
 #### <a name="output-video-stream"></a>輸出視訊串流
 
-| 位元速率 | 寬度 | 高度 | MaxFPS | 設定檔 | 輸出串流名稱 |
+| 位元速率 | 寬度 | 高度 | MaxFPS | 個人資料 | 輸出串流名稱 |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |高 |Video_1280x720_3500kbps |
 | 2200 |960 |540 |30 |高 |Video_960x540_2200kbps |
@@ -239,7 +240,7 @@ ms.locfileid: "61217158"
 
 以下是發送信號給廣告時，您可以設定的屬性。 
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>持續時間
 廣告插播的持續時間，以秒為單位。 必須為非零的正整數值才能開始廣告插播。 當廣告插播正在進行中，持續時間設為零，且 CueId 符合正在進行的廣告插播，則會取消插播。
 
 ### <a name="cueid"></a>CueId
@@ -255,7 +256,7 @@ ms.locfileid: "61217158"
 
 即時編碼器可設定為切換至 slate 映像，並在某些情況下隱藏連入的視訊信號 – 例如在廣告插播期間。 如果未設定此 slate，就不會在廣告插播期間遮罩處理輸入視訊。
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>持續時間
 slate 的持續時間，以秒為單位。 必須為非零的正整數值才能開始 slate。 如果沒有進行中的 slate，就會指定玲為持續時間，進行中的 slate 就會終止。
 
 ### <a name="insert-slate-on-ad-marker"></a>插入 ad 標記上的 slate
@@ -312,9 +313,9 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 
 | 頻道狀態 | 入口網站 UI 指標 | 是否計費？ |
 | --- | --- | --- |
-| 啟動中 |啟動中 |無 (暫時性狀態) |
-| 執行中 |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個正在執行的程式) |是 |
-| 停止中 |停止中 |無 (暫時性狀態) |
+| 啟動中 |正在啟動 |無 (暫時性狀態) |
+| Running |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個正在執行的程式) |是 |
+| 正在停止 |正在停止 |無 (暫時性狀態) |
 | 已停止 |已停止 |否 |
 
 > [!NOTE]
@@ -330,8 +331,8 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 * 根據預設，您只能加入最多 5 個通道到媒體服務帳戶。 這是所有新帳戶的彈性配額。 如需詳細資訊，請參閱 [配額和限制](media-services-quotas-and-limitations.md)。
 * 通道或其相關聯程式正在執行時，您無法變更輸入通訊協定。 如果您需要不同的通訊協定，則應該為每個輸入通訊協定建立個別的通道。
 * 只有當您的通道處於 **執行中** 狀態時，才會向您計費。 若需詳細資訊，請參閱 [這個](media-services-manage-live-encoder-enabled-channels.md#states) 章節。
-* 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。
-* 確定您想要串流內容的串流端點已處於 [執行中]  狀態。
+* 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amshelp@microsoft.com。
+* 確定您想要串流內容的串流端點已處於 [執行中] 狀態。
 * 編碼預設採用「畫面播放速率上限」30fps 的概念。 因此，如果輸入是 60fps/59.94i，輸入畫面會降低/去交錯為 30/29.97 fps。 如果輸入是 50fps/50i，輸入畫面會降低/去交錯為 25 fps。 如果輸入是 25 fps，輸出會保持為 25 fps。
 * 切記在完成時停止您的通道。 如果您忘記，計費會繼續。
 
@@ -359,7 +360,7 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 
 [媒體服務概念](media-services-concepts.md)
 
-[Azure 媒體服務的分散 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
+[Azure 媒體服務的分散 MP4 即時內嵌規格](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 

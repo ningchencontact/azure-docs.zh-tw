@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 561c4458f942dc524f7de8df5b4385a1eaa1f6a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80eb3d60eb4c40e726d53d5fb876a6a118d119cb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106276"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944935"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>教學課程：Azure Active Directory 與 BetterWorks 整合
 
@@ -119,7 +119,7 @@ ms.locfileid: "67106276"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請連絡 [BetterWorks 用戶端支援小組](mailto:support@betterworks.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-6. BetterWorks 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態中。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
+6. BetterWorks 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態中。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 
@@ -217,7 +217,7 @@ ms.locfileid: "67106276"
 
 ### <a name="create-betterworks-test-user"></a>建立 BetterWorks 測試使用者
 
-在本節中，您會在 BetterWorks 中建立名為 Britta Simon 的使用者。 請與  [BetterWorks 支援小組](mailto:support@betterworks.com)合作，在 BetterWorks 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 BetterWorks 中建立名為 Britta Simon 的使用者。 請與 [BetterWorks 支援小組](mailto:support@betterworks.com)合作，在 BetterWorks 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

@@ -3,7 +3,7 @@ title: 利用 Azure Resource Manager 部署及升級應用程式和服務 | Micr
 description: 了解如何使用 Azure Resource Manager 範本將應用程式和服務部署到 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: dekapur
-ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 3810afa7ad00aa731751aa1f0bfe38d503de5850
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258670"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953212"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>將應用程式和服務視為 Azure Resource Manager 進行管理
 
@@ -28,33 +28,33 @@ ms.locfileid: "66258670"
 這是部署叢集所需之任何設定、治理或叢集管理應用程式的建議方法。 包括[修補程式協調流程應用程式](service-fabric-patch-orchestration-application.md)、監視程式，或是任何需要在叢集中執行其他應用程式或服務才能部署的應用程式。 
 
 當可行時，將應用程式視為 Resource Manager 資源來管理有助於改善：
-* 稽核記錄︰Resource Manager 會稽核每一項作業，並保留詳細*活動記錄檔*，可協助您追蹤這些應用程式與您的叢集所做的變更。
-* 角色型存取控制 (RBAC):管理叢集，以及在叢集上部署的應用程式的存取權可以透過相同的 Resource Manager 範本來完成。
+* 審核記錄:Resource Manager 會針對每個作業進行審核, 並保留詳細的*活動記錄*, 協助您追蹤對這些應用程式和叢集所做的任何變更。
+* 角色型存取控制 (RBAC):管理叢集的存取權, 以及部署在叢集上的應用程式, 都可以透過相同的 Resource Manager 範本來完成。
 * Azure Resource Manager (透過 Azure 入口網站) 能一次滿足您管理叢集和重要應用程式部署的需求。
 
 下列程式碼片段展示可透過範本管理的各種資源：
 
 ```json
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
     "location": "[variables('clusterLocation')]",
 },
 {
-    "apiVersion": "2017-07-01-preview",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
@@ -142,7 +142,7 @@ ms.locfileid: "66258670"
     },
     "resources": [
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
         "location": "[variables('clusterLocation')]",
@@ -152,7 +152,7 @@ ms.locfileid: "66258670"
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applicationTypes/versions",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'), '/', parameters('applicationTypeVersion'))]",
         "location": "[variables('clusterLocation')]",
@@ -165,7 +165,7 @@ ms.locfileid: "66258670"
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
         "location": "[variables('clusterLocation')]",
@@ -200,7 +200,7 @@ ms.locfileid: "66258670"
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications/services",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
         "location": "[variables('clusterLocation')]",
@@ -221,7 +221,7 @@ ms.locfileid: "66258670"
         }
       },
       {
-        "apiVersion": "2017-07-01-preview",
+        "apiVersion": "2019-03-01",
         "type": "Microsoft.ServiceFabric/clusters/applications/services",
         "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName2'))]",
         "location": "[variables('clusterLocation')]",
@@ -255,19 +255,19 @@ ms.locfileid: "66258670"
    ```
 
    > [!NOTE] 
-   > *apiVersion* 必須設定為 `"2017-07-01-preview"`。 這個範本也能與叢集分開部署，只要叢集已部署完成即可。
+   > *apiVersion* 必須設定為 `"2019-03-01"`。 這個範本也能與叢集分開部署，只要叢集已部署完成即可。
 
 5. 部署！ 
 
 ## <a name="remove-service-fabric-resource-provider-application-resource"></a>移除 Service Fabric 資源提供者應用程式資源
-以下將會觸發解除佈建叢集，從應用程式套件，這會清除使用的磁碟空間：
+以下會觸發從叢集取消布建應用程式套件, 而這會清除所使用的磁碟空間:
 ```powershell
-Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2019-03-01" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
 ```
-只要從您的 ARM 範本移除 Microsoft.ServiceFabric/clusters/application 將無法解除佈建應用程式
+只要從 ARM 範本移除 ServiceFabric/叢集/應用程式, 就不會解除布建應用程式
 
 >[!NOTE]
-> 移除完成後應該不不再會看到在 SFX 或 ARM 中的封裝版本。 您無法刪除應用程式類型版本資源; 正在執行的應用程式ARM/SFRP 會造成這。 如果您嘗試解除佈建執行中的封裝，SF 執行階段會使它。
+> 移除完成後, 您就不應該再看到 SFX 或 ARM 中的套件版本。 您無法刪除應用程式執行時所使用的應用程式類型版本資源;ARM/SFRP 會防止這種情況。 如果您嘗試解除布建執行中的封裝, SF 執行時間會阻止它。
 
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>透過 Resource Manager 管理現有應用程式
@@ -275,7 +275,7 @@ Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/provide
 如果您的叢集已啟動，而且您已經將幾個要視為 Resource Manager 資源管理的應用程式部署在叢集之上，與其移除應用程式再重新部署，不如透過使用相同 API 的 PUT 呼叫讓應用程式獲得 Resource Manager 資源的認可。 
 
 > [!NOTE]
-> 若要將叢集升級至忽略狀況不良的應用程式可讓客戶可以指定"maxpercentunhealthyapplications 加以評估：100 」 一節 「 upgradeDescription/healthPolicy";所有設定的詳細的說明位於[服務網狀架構 REST API 叢集升級的原則文件](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)。
+> 若要讓叢集升級略過狀況不良的應用程式, 客戶可以指定 "maxPercentUnhealthyApplications:100 "中的" upgradeDescription/healthPolicy "區段;如需所有設定的詳細說明, 請[參閱 Service fabric REST API 叢集升級原則檔](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)。
 
 ## <a name="next-steps"></a>後續步驟
 

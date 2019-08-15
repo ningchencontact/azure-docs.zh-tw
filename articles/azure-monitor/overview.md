@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 836a17051aee4e6a9ac3089f60da30673783e408
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a80f99bc37d3a92a794a78f1f47ce32fbaae75a3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875972"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989177"
 ---
 # <a name="azure-monitor-overview"></a>Azure 監視器概觀
 
@@ -38,13 +38,13 @@ Azure 監視器所收集的所有資料均符合下列兩個基本類型之一�
 
 對於許多 Azure 資源，您會在 Azure 入口網站的 [概觀] 頁面當中看到 Azure 監視器所收集的資料。 比方說，查看一下任何虛擬機器，您會看到數個顯示效能計量的圖表。 按一下任何圖表，以在 Azure 入口網站的[計量瀏覽器](platform/metrics-charts.md)中開啟資料，可讓您將一段時間的多個計量值繪製成圖表。  您可以互動方式檢視圖表，或將其釘選到儀表板，利用其他視覺效果進行檢視。
 
-![度量](media/overview/metrics.png)
+![計量](media/overview/metrics.png)
 
 可以使用[查詢](log-query/log-query-overview.md)分析 Azure 監視器收集的記錄資料，以快速擷取、彙總和分析收集的資料。  您可以使用 Azure 入口網站中的[Log Analytics](log-query/portals.md)來建立及測試查詢, 然後使用這些工具直接分析資料, 或儲存查詢以搭配[視覺效果](visualizations.md)或[警示規則](platform/alerts-overview.md)使用。
 
 Azure 監視器使用 Azure 資料總管使用的 [Kusto 查詢語言](/azure/kusto/query/)版本，適合用於簡單的記錄查詢，但也包含進階的功能，例如彙總、聯結和智慧分析。 您可以使用[多個課程](log-query/get-started-queries.md)，快速了解查詢語言。  我們會為已經熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的使用者提供特別指引。
 
-![記錄](media/overview/logs.png)
+![記錄檔](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure 監視器會收集哪些資料？
 Azure 監視器可以從各種來源收集資料。 您可以考慮為各層中的應用程式監視資料，範圍從您的應用程式、它所倚賴的任何作業系統和服務，以至平台本身。 Azure 監視器會從下列各層收集資料：
@@ -66,7 +66,7 @@ Azure 監視器可以使用[資料收集器 API](platform/data-collector-api.md)
 
 
 
-## <a name="insights"></a>深入解析
+## <a name="insights"></a>見解
 如果監視資料可以提高您對於運算環境作業的可見性，監視資料才有用處。 Azure 監視器包含數個功能和工具，可對您的應用程式及其相依的其他資源提供寶貴的深入解析。 [監視解決方案](insights/solutions.md)和功能 (例如 [Application Insights](app/app-insights-overview.md) 和[適用於容器的 Azure 監視器](insights/container-insights-overview.md)) 可針對您應用程式和特定 Azure 服務的不同層面提供深入解析。 
 
 ### <a name="application-insights"></a>Application Insights
@@ -101,10 +101,10 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 
 ![警示](media/overview/alerts.png)
 
-### <a name="autoscale"></a>Autoscale
+### <a name="autoscale"></a>自動調整
 自動調整可讓您執行適當數量的資源來處理應用程式的負載。 它可讓您建立一些規則，這些規則會使用 Azure 監視器所收集的計量來決定何時自動新增資源來處理增加的負載，並可藉由移除閒置資源來節省成本。 您可指定執行個體的數目上限和下限，以及何時要增加或減少資源的邏輯。
 
-![Autoscale](media/overview/autoscale.png)
+![自動調整](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>將監視資料視覺化
 [視覺效果](visualizations.md) (例如圖表和資料表) 是摘要監視資料以及向不同對象呈現資料的有效工具。 Azure 監視器有自己的功能可將監視資料視覺化，並運用其他 Azure 服務向不同的對象發佈資料。
@@ -117,7 +117,7 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 ### <a name="views"></a>檢視
 [[檢視]](../log-analytics/log-analytics-view-designer.md) 會以視覺化方式在 Azure 監視器中呈現記錄資料。  每個檢視都包含單一圖格，該圖格可向下切入至視覺效果的組合，例如長條圖和折線圖 (摘要重要資料的清單除外)。  監視解決方案包含可摘要特定應用程式資料的檢視，而且您可以建立自己的檢視，以呈現來自任何記錄查詢的資料。 如何 Azure 監視器中的其他元素，可以將檢視新增至 Azure 儀表板。
 
-![檢視](media/overview/view.png)
+![檢視表](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) 是一項商務分析服務，可提供橫跨各種資料來源的互動式視覺效果，而且是將資料提供給貴組織內外的其他人使用的有效方法。 您可以將 Power BI 設定為[從 Azure 監視器自動匯入記錄資料](../log-analytics/log-analytics-powerbi.md)，以便利用這些額外的視覺效果。
@@ -146,3 +146,4 @@ Azure 監視器中的警示規則會使用[動作群組](platform/action-groups.
 * Azure 監視器所收集資料的[計量和記錄](platform/data-platform.md)。
 * [資料來源](platform/data-sources.md)，以了解應用程式的不同元件如何傳送遙測。
 * [記錄查詢](log-query/log-query-overview.md)，以分析所收集的資料。
+* 監視雲端應用程式和服務的[最佳作法](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。

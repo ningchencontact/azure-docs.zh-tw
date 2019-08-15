@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f9d68af12f6b2e98c77d0bd1b65a82c69588f203
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147624"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015649"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure 儲存體中的災害復原和儲存體帳戶容錯移轉 (預覽)
 
@@ -37,8 +37,11 @@ Azure 儲存體針對異地備援儲存體帳戶支援帳戶容錯移轉 (預覽
 
 其他的 Azure 儲存體備援選項包括區域備援儲存體 (ZRS) (其會將您的資料複寫到單一區域 (Region) 中的可用性區域 (Zone) 上)，以及本地備援儲存體 (LRS) (其會將您的資料複寫到單一區域 (Region) 中的單一資料中心內)。 如果您的儲存體帳戶已針對 ZRS 或 LRS 進行設定，您可以轉換該帳戶以使用 GRS 或 RA-GRS。 針對異地備援儲存體設定帳戶將會產生額外成本。 如需詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。
 
+> [!NOTE]
+> 異地區域冗余儲存體 (切換) 和讀取權限異地區域-多餘儲存體 (RA-切換) 目前為預覽狀態, 但在客戶管理的帳戶容錯移轉所在的區域中尚未提供。 基於這個理由, 客戶目前無法使用切換和 RA 切換帳戶來管理帳戶容錯移轉事件。 在預覽期間, Microsoft 將會管理影響切換/RA-切換帳戶的任何容錯移轉事件。
+
 > [!WARNING]
-> 異地備援儲存體具有資料遺失的風險。 資料會以非同步的方式複寫到次要區域，因此資料在寫入主要區域和次要區域的時間上會有延遲。 在發生中斷的情況下，針對主要端點且尚未被複寫到次要端點的寫入作業將會遺失。 
+> 異地備援儲存體具有資料遺失的風險。 資料會以非同步的方式複寫到次要區域，因此資料在寫入主要區域和次要區域的時間上會有延遲。 在發生中斷的情況下，針對主要端點且尚未被複寫到次要端點的寫入作業將會遺失。
 
 ## <a name="design-for-high-availability"></a>高可用性設計
 
@@ -96,7 +99,7 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 
 當您強制進行容錯移轉時，隨著次要區域變成新的主要區域，且儲存體帳戶被設定為本地備援，舊主要區域中的所有資料都會遺失。 發生容錯移轉時，已複寫到次要區域的所有資料都會保持不變。 不過，任何已寫入主要區域但尚未被複寫到次要區域的資料都會永久遺失。 
 
-[上次同步時間]  屬性能指出來自主要區域的資料保證已寫入次要區域的最近時間。 在 [上次同步時間] 之前所寫入的所有資料都會存在於次要區域上，但在 [上次同步時間] 之後所寫入的資料則有可能尚未寫入次要區域，並可能會遺失。 在發生中斷時，請使用此屬性來估計起始帳戶容錯移轉可能會導致的資料遺失程度。 
+[上次同步時間] 屬性能指出來自主要區域的資料保證已寫入次要區域的最近時間。 在 [上次同步時間] 之前所寫入的所有資料都會存在於次要區域上，但在 [上次同步時間] 之後所寫入的資料則有可能尚未寫入次要區域，並可能會遺失。 在發生中斷時，請使用此屬性來估計起始帳戶容錯移轉可能會導致的資料遺失程度。 
 
 作為最佳做法，請將應用程式設計成可以使用 [上次同步時間] 來評估預期的資料遺失。 例如，如果您記錄所有寫入作業，則您可以比較最後一次的寫入作業與 [上次同步時間]，來判斷哪些寫入尚未被同步到次要區域。
 
@@ -106,7 +109,7 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 
 在儲存體帳戶被重新設定為異地備援之後，您可以從新的主要區域針對新的次要區域起始另一個容錯移轉。 在此情況下，容錯移轉前的原始主要區域將會再次變成主要區域，並被設定為本地備援。 這會使所有位於容錯移轉前主要區域 (原始的次要區域) 中的所有資料都遺失。 在您容錯回復之前，如果儲存體帳戶中大部分的資料都還沒被複寫到新的次要區域，您可能會遭遇重大的資料遺失。 
 
-若要避免重大資料遺失，請在容錯回復之前檢查 [上次同步時間]  屬性。 比較 [上次同步時間] 與上次資料寫入到新主要區域的時間，以評估預期的資料遺失。 
+若要避免重大資料遺失，請在容錯回復之前檢查 [上次同步時間] 屬性。 比較 [上次同步時間] 與上次資料寫入到新主要區域的時間，以評估預期的資料遺失。 
 
 ## <a name="initiate-an-account-failover"></a>初始化帳戶容錯移轉
 
@@ -114,7 +117,7 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 
 ## <a name="about-the-preview"></a>關於預覽
 
-帳戶容錯移轉處於預覽狀態，可供搭配 Azure Resource Manager 部署使用 GRS 或 RA-GRS 的所有客戶使用。 支援一般用途 v1、一般用途 v2 及 Blob 儲存體帳戶類型。 帳戶容錯移轉目前已在以下區域推出：
+帳戶容錯移轉適用于使用 GRS 或 RA-GRS 搭配 Azure Resource Manager 部署的所有客戶。 支援一般用途 v1、一般用途 v2 及 Blob 儲存體帳戶類型。 帳戶容錯移轉目前已在以下區域推出：
 
 - 美國西部 2
 - 美國中西部
@@ -153,7 +156,7 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 1. 在開始前，請記下所有非受控磁碟的名稱、其邏輯單元編號 (LUN)，以及其所附加至的 VM。 這麼做將會使於容錯移轉後重新附加磁碟的工作變得較為輕鬆。 
 2. 關閉 VM。
 3. 刪除 VM，但保留非受控磁碟的 VHD 檔案。 請記下您刪除 VM 的時間。
-4. 等候 [上次同步時間]  更新，並且是比您刪除 VM 更晚的時間。 此步驟很重要，因為在發生容錯移轉時，如果次要端點尚未搭配 VHD 檔案完全更新，則 VM 在新的主要區域中可能無法正確執行。
+4. 等候 [上次同步時間] 更新，並且是比您刪除 VM 更晚的時間。 此步驟很重要，因為在發生容錯移轉時，如果次要端點尚未搭配 VHD 檔案完全更新，則 VM 在新的主要區域中可能無法正確執行。
 5. 起始帳戶容錯移轉。
 6. 等候帳戶容錯移轉完成，且次要區域已成為新的主要區域。
 7. 在新的主要區域中建立 VM，並重新附加 VHD。
@@ -168,7 +171,7 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 - 無法容錯移轉使用 Azure Data Lake Storage Gen2 階層命名空間的儲存體帳戶。
 - 無法容錯移轉包含封存 Blob 的儲存體帳戶。 請在您不打算進行容錯移轉的個別儲存體帳戶中維護封存 Blob。
 - 無法容錯移轉包含進階區塊 Blob 的儲存體帳戶。 支援進階區塊 Blob 的儲存體帳戶目前不支援異地備援。
-- 完成容錯移轉之後的下列功能將會停止運作，如果最初啟用：[事件訂用帳戶](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)，[生命週期原則](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)，[儲存體分析記錄](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)。
+- 在容錯移轉完成之後, 如果原先啟用下列功能, 將會停止運作:[事件訂閱](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)、[生命週期原則](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)、[儲存體分析記錄](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)。
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>將複製資料作為容錯移轉的替代項目
 

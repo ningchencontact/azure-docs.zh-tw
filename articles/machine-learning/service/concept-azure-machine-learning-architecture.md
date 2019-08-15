@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848231"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990091"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -49,12 +49,16 @@ ms.locfileid: "68848231"
 + 使用[Azure Machine Learning VS Code 延伸](how-to-vscode-tools.md)模組, 在 Visual Studio Code 中撰寫程式碼
 + 使用[視覺化介面 (預覽) 進行 Azure Machine Learning 服務](ui-concept-visual-interface.md), 而不需要撰寫程式碼即可執行工作流程步驟。
 
-## <a name="glossary-of-concepts"></a>概念詞彙
+> [!NOTE]
+> 雖然本文定義了 Azure Machine Learning 服務使用的詞彙與概念，但並沒有定義 Azure 平台的詞彙與概念。 如需有關 Azure 平台技術的詳細資訊，請參閱 [Microsoft Azure 詞彙](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)。
+
+## <a name="glossary"></a>字彙
 
 + <a href="#workspaces">區域</a>
 + <a href="#experiments">實驗</a>
 + <a href="#models">機型</a>
 + <a href="#run-configurations">執行設定</a>
++ [估算器](#estimators)
 + <a href="#datasets-and-datastores">資料集 & 資料存放區</a>
 + <a href="#compute-targets">計算目標</a>
 + <a href="#training-scripts">訓練腳本</a>
@@ -69,19 +73,9 @@ ms.locfileid: "68848231"
 + <a href="#ml-pipelines">ML 管線</a>
 + <a href="#logging">Logging</a>
 
-> [!NOTE]
-> 雖然本文定義了 Azure Machine Learning 服務使用的詞彙與概念，但並沒有定義 Azure 平台的詞彙與概念。 如需有關 Azure 平台技術的詳細資訊，請參閱 [Microsoft Azure 詞彙](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)。
-
-
 ### <a name="workspaces"></a>工作區
 
-[工作區](concept-workspace.md)是 Azure Machine Learning 服務的最上層資源。 它可以在您使用 Azure Machine Learning 服務時，提供集中式位置以處理您建立的所有成品。
-
-下圖說明工作區的分類：
-
-[![工作區分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-如需工作區的詳細資訊, 請參閱[什麼是 Azure Machine Learning 的工作區？](concept-workspace.md)。
+[工作區](concept-workspace.md)是 Azure Machine Learning 服務的最上層資源。 它可以在您使用 Azure Machine Learning 服務時，提供集中式位置以處理您建立的所有成品。 您可以與其他人共用工作區。 如需工作區的詳細說明, 請參閱[什麼是 Azure Machine Learning 的工作區？](concept-workspace.md)。
 
 ### <a name="experiments"></a>實驗
 
@@ -97,7 +91,7 @@ ms.locfileid: "68848231"
 
 Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以使用任何熱門的機器學習架構, 例如 Scikit-learn-learning、XGBoost、PyTorch、TensorFlow 和 Chainer。
 
-如需定型模型的範例, 請參閱[教學課程:使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
+如需使用 scikit-learn-學習和估計工具訓練模型的範例, 請參閱[教學課程:使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
 
 **模型**登錄會持續追蹤 Azure Machine Learning 服務工作區中的所有模型。
 
@@ -119,6 +113,19 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 回合組態可保存在檔案 (位於包含您定型指令碼的目錄內) 中，或者可以建構為記憶體內部物件並用來提交回合。
 
 如需回合組態的範例，請參閱[選取及使用計算目標將模型定型](how-to-set-up-training-targets.md)。
+
+### <a name="estimators"></a>估算器
+
+為了利用熱門架構來加速模型定型, 估計工具類別可讓您輕鬆地建立執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本, 以使用您選擇的任何學習架構 (例如 scikit-learn)。
+
+對於 PyTorch、TensorFlow 和 Chainer 工作, Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器, 以簡化使用這些架構的作業。
+
+如需詳細資訊，請參閱下列文章：
+
+* [使用估算器將 ML 模型定型](how-to-train-ml-models.md)。
+* [使用 Azure Machine Learning, 大規模地訓練 Pytorch 深度學習模型](how-to-train-pytorch.md)。
+* [使用 Azure Machine Learning 服務, 大規模地定型和註冊 TensorFlow 模型](how-to-train-tensorflow.md)。
+* [使用 Azure Machine Learning 服務, 大規模地定型和註冊 Chainer 模型](how-to-train-chainer.md)。
 
 ### <a name="datasets-and-datastores"></a>資料集和資料存放區
 
@@ -152,7 +159,6 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 * 包含您指令碼之目錄的快照 (執行之前)
 
 當您提交指令碼以將模型定型時，就會產生回合。 回合可以有 0 或多個子回合。 例如，最上層回合可能有兩個子回合，其中每個可能都有自己的子回合。
-
 
 ### <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合
 

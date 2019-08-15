@@ -1,19 +1,19 @@
 ---
-title: 準備來源機器以便安裝行動服務透過推入安裝進行災害復原的 VMware Vm 和實體伺服器至 Azure |Microsoft Docs
-description: 了解如何準備您的伺服器，以安裝行動代理程式，透過推入安裝的 VMware 虛擬機器的災害復原和實體伺服器至 Azure 中使用 Azure Site Recovery 服務。
+title: 準備來源機器以透過推送安裝來安裝行動服務, 以進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復 |Microsoft Docs
+description: 瞭解如何準備您的伺服器, 透過推送安裝來安裝行動代理程式, 以使用 Azure Site Recovery 服務進行 VMware Vm 和實體伺服器至 Azure 的嚴重損壞修復。
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318164"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016357"
 ---
-# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>準備要推入安裝行動代理程式的來源機器
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>準備行動代理程式的推入安裝的來源機器
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 為 VMware VM 和實體伺服器設定災害復原時，會在每個內部部署 VMware VM 和實體伺服器上安裝 [Site Recovery 行動服務](vmware-physical-mobility-service-overview.md)。  行動服務會擷取機器上的資料寫入，然後將它們轉送給 Site Recovery 處理伺服器。
 
@@ -27,13 +27,13 @@ ms.locfileid: "60318164"
     - 在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 登錄機碼底下，新增 DWORD：**LocalAccountTokenFilterPolicy**。 將值設定為 **1**。
     -  做法是在命令提示字元執行下列命令︰  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. 在您想要保護之機器的 [Windows 防火牆] 中，選取 [允許應用程式或功能通過防火牆]  。 啟用 [檔案及印表機共用]  和 [Windows Management Instrumentation (WMI)]  。 針對隸屬於網域的電腦，您可以利用群組原則物件 (GPO) 進行防火牆設定。
+3. 在您想要保護之機器的 [Windows 防火牆] 中，選取 [允許應用程式或功能通過防火牆]。 啟用 [檔案及印表機共用] 和 [Windows Management Instrumentation (WMI)]。 針對隸屬於網域的電腦，您可以利用群組原則物件 (GPO) 進行防火牆設定。
 
    ![防火牆設定](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. 新增您在 CSPSConfigtool 中建立的帳戶。 若要這樣做，請登入您的設定伺服器。
 5. 開啟 **cspsconfigtool.exe**。 它會是桌面上可用的捷徑，位於 %ProgramData%\home\svsystems\bin 資料夾中。
-6. 在 [管理帳戶]  索引標籤上，選取 [新增帳戶]  。
+6. 在 [管理帳戶] 索引標籤上，選取 [新增帳戶]。
 7. 加入您所建立的帳戶。
 8. 輸入您為電腦啟用複寫時使用的認證。
 
@@ -56,16 +56,16 @@ ms.locfileid: "60318164"
 8. 重新啟動 **sshd** 服務。
 9. 新增您在 CSPSConfigtool 中建立的帳戶。 若要這樣做，請登入您的設定伺服器。
 10. 開啟 **cspsconfigtool.exe**。 它會是桌面上可用的捷徑，位於 %ProgramData%\home\svsystems\bin 資料夾中。
-11. 在 [管理帳戶]  索引標籤上，選取 [新增帳戶]  。
+11. 在 [管理帳戶] 索引標籤上，選取 [新增帳戶]。
 12. 加入您所建立的帳戶。
 13. 輸入您為電腦啟用複寫時使用的認證。
 
 ## <a name="anti-virus-on-replicated-machines"></a>在複寫的機器上防毒
 
-如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent  )。 這可確保複寫運作正常。
+如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent)。 這可確保複寫運作正常。
 
 ## <a name="next-steps"></a>後續步驟
 
-安裝「行動服務」之後，在 Azure 入口網站中，選取 [+ 複寫]  以開始保護這些 VM。 深入了解如何為 [VMware VM](vmware-azure-enable-replication.md) 和[實體伺服器](physical-azure-disaster-recovery.md#enable-replication)啟用複寫。
+安裝「行動服務」之後，在 Azure 入口網站中，選取 [+ 複寫] 以開始保護這些 VM。 深入瞭解啟用[VMware vm](vmware-azure-enable-replication.md)和[實體伺服器](physical-azure-disaster-recovery.md#enable-replication)的複寫。
 
 

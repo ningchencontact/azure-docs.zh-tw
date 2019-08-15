@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599877"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014433"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -411,6 +411,11 @@ ms.locfileid: "68599877"
 |WriteBufferMemoryPoolMaximumInKB | 整數，預設值為 0 |動態|允許寫入緩衝區記憶體集區成長達到的 KB 數目。 使用 0 表示無限制。 |
 |WriteBufferMemoryPoolMinimumInKB |整數，預設值為 8388608 |動態|一開始要為寫入緩衝區記憶體集區配置的 KB 數目。 使用 0 表示無限制。預設值應與下面的 SharedLogSizeInMB 一致。 |
 
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
+| --- | --- | --- | --- |
+|IsEnabled|布林值，預設值為 FALSE|Static|旗標控制叢集中受控識別權杖服務的目前狀態和狀態; 這是使用 Service Fabric 應用程式的受控識別功能的必要條件。|
+
 ## <a name="management"></a>管理
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -610,7 +615,7 @@ ms.locfileid: "68599877"
 |RunAsAccountType|字串，預設值為 "" |動態|指出 RunAs 帳戶類型。 任何 RunAs 區段皆需要此參數。有效值為 "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"。|
 |RunAsPassword|字串，預設值為 "" |動態|指出 RunAs 帳戶密碼。 "DomainUser" 帳戶類型才需要此參數。 |
 
-## <a name="runasdca"></a>RunAs_DCA
+## <a name="runas_dca"></a>RunAs_DCA
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -618,7 +623,7 @@ ms.locfileid: "68599877"
 |RunAsAccountType|字串，預設值為 "" |動態|指出 RunAs 帳戶類型。 任何 RunAs 區段皆需要此參數。有效值為 "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"。 |
 |RunAsPassword|字串，預設值為 "" |動態|指出 RunAs 帳戶密碼。 "DomainUser" 帳戶類型才需要此參數。 |
 
-## <a name="runasfabric"></a>RunAs_Fabric
+## <a name="runas_fabric"></a>RunAs_Fabric
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -626,7 +631,7 @@ ms.locfileid: "68599877"
 |RunAsAccountType|字串，預設值為 "" |動態|指出 RunAs 帳戶類型。 任何 RunAs 區段皆需要此參數。有效值為 "LocalUser/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem"。 |
 |RunAsPassword|字串，預設值為 "" |動態|指出 RunAs 帳戶密碼。 "DomainUser" 帳戶類型才需要此參數。 |
 
-## <a name="runashttpgateway"></a>RunAs_HttpGateway
+## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |

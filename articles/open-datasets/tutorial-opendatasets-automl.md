@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359441"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845826"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>教學課程：使用自動化機器學習和開放資料集來建置迴歸模型
 
@@ -37,7 +37,7 @@ ms.locfileid: "68359441"
 
 ### <a name="create-a-workspace"></a>建立工作區
 
-如果您還沒有工作區，請遵循[指示](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal)以透過 Azure 入口網站建立工作區。 建立之後，記下工作區名稱、資源群組名稱和訂用帳戶識別碼。
+如果您還沒有工作區，請遵循[指示](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace)以透過 Azure 入口網站建立工作區。 建立之後，記下工作區名稱、資源群組名稱和訂用帳戶識別碼。
 
 ### <a name="create-a-python-environment"></a>建立 Python 環境
 
