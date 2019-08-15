@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: b6f1198334d8bd4ba58b4fbba02942fc8c54c578
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 35cb408473da8c6397c5034ae20ac0a50b0953ea
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442852"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>教學課程：Azure Active Directory 與 EBSCO 整合
 
@@ -124,7 +124,7 @@ ms.locfileid: "67442852"
 
     o   **Profile** = 客戶可以自訂連結，將使用者導向至特定的設定檔 (視他們向 EBSCO 購買的產品而定)。 他們可以輸入特定的設定檔識別碼。 主要識別碼是 eds (EBSCO 探索服務) 和 ehost (EBSOCOhost 資料庫)。 相同項目的指示提供於[這裡](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile)。
 
-6. EBSCO 應用程式會預期特定格式的 SAML 判斷提示，這會需要您將自訂屬性對應加入至您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
+6. EBSCO 應用程式會預期特定格式的 SAML 判斷提示，這會需要您將自訂屬性對應加入至您的 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 

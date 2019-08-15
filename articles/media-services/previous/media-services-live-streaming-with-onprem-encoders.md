@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
-ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.author: juliako
+ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463781"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "69015473"
 ---
-# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>使用從內部部署編碼器接收多位元速率即時串流的通道
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>使用通道, 從內部部署編碼器接收多位元率即時串流
 
 > [!NOTE]
 > 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
 
 ## <a name="overview"></a>總覽
-在 Azure 媒體服務中，通道  代表處理即時串流內容的管線。 通道會以兩種方式之一收到即時輸入串流：
+在 Azure 媒體服務中，通道代表處理即時串流內容的管線。 通道會以兩種方式之一收到即時輸入串流：
 
 * 內部部署即時編碼器會將多位元速率 RTMP 或 Smooth Streaming (分散式 MP4) 串流傳送到未啟用執行媒體服務即時編碼的通道。 內嵌的串流會通過通道，而不需任何進一步處理。 此方法稱為 *傳遞*。 即時編碼器也會將單一位元速率串流傳送至無法用於即時編碼的通道，但是不建議您使用此方法。 媒體服務會將串流傳遞給要求的客戶。
 
@@ -45,7 +45,7 @@ ms.locfileid: "61463781"
 > [!NOTE]
 > 本文討論未啟用而無法執行即時編碼的通道屬性。 如需使用已啟用執行即時編碼通道的相關資訊，請參閱 [使用 Azure 媒體服務建立多位元速率串流的即時串流](media-services-manage-live-encoder-enabled-channels.md)。
 >
->如的相關資訊，建議的內部部署編碼器，請參閱[建議在內部部署編碼器執行](media-services-recommended-encoders.md)。
+>如需有關建議的內部部署編碼器的詳細資訊, 請參閱[建議的內部部署編碼器](media-services-recommended-encoders.md)。
 
 下圖顯示一個即時串流工作流程，這個流程利用內部部署即時編碼器以多位元速率 RTMP 或 Fragmented MP4 (Smooth Streaming) 串流做為輸出。
 
@@ -73,7 +73,7 @@ ms.locfileid: "61463781"
 6. 發行與程式相關聯的資產。   
 
     >[!NOTE]
-    >建立 Azure 媒體服務帳戶時，**預設**串流端點會新增至 [已停止]  狀態的帳戶。 您想要串流內容的串流端點必須處於 [執行中]  狀態。
+    >建立 Azure 媒體服務帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 您想要串流內容的串流端點必須處於 [執行中] 狀態。
 
 7. 當您準備好開始串流和封存時，請啟動程式。
 
@@ -225,13 +225,13 @@ ms.locfileid: "61463781"
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="feedback"></a>意見反應
+## <a name="feedback"></a>意見
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>相關主題
 [建議的內部部署編碼器](media-services-recommended-encoders.md)
 
-[Azure 媒體服務的分散 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
+[Azure 媒體服務的分散 MP4 即時內嵌規格](../media-services-fmp4-live-ingest-overview.md)
 
 [Azure 媒體服務概觀和常見案例](media-services-overview.md)
 

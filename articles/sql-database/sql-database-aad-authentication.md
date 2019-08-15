@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: eb49649e9c92416fc674c032b9dc6a613a34dd77
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569668"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019686"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
 
@@ -98,7 +98,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="manage-instances"></a>管理執行個體
+### <a name="managed-instances"></a>受控執行個體
 
 - Azure AD 伺服器主體 (登入) 和使用者都以[受控執行個體](sql-database-managed-instance.md)預覽功能的形式受到支援。
 - 設定對應至 Azure AD 群組的 Azure AD 伺服器主體 (登入)，因為[受控執行個體](sql-database-managed-instance.md)不支援資料庫擁有者。

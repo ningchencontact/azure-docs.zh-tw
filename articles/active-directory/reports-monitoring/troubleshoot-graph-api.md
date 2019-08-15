@@ -3,7 +3,7 @@ title: 針對 Azure Active Directory 報告 API 中的錯誤進行疑難排解 |
 description: 為您提供呼叫 Azure Active Directory 報告 API 時所發生錯誤的解決方式。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b517204fb650020bdebf8172186f30fff58f722
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6f1f34dcece9acb20d0db091152b24b26cb9fa2
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60284989"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989523"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>針對 Azure Active Directory 報告 API 中的錯誤進行疑難排解
 
@@ -32,32 +32,32 @@ ms.locfileid: "60284989"
 
 我們目前不支援 Microsoft Graph v2 端點 - 請務必使用 Microsoft Graph v1 端點來存取活動記錄。
 
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Error:無法從 AD Graph 取得使用者角色
+### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>錯誤:無法從 AD Graph 取得使用者角色
 
 當嘗試使用 Graph 總管存取登入時，您可能會遇到這個錯誤訊息。 請確定您同時使用 Graph 總管 UI 中的兩個登入按鈕來登入帳戶，如下圖所示。 
 
 ![Graph 總管](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Error:無法從 AD Graph 進行進階授權檢查 
+### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>錯誤:無法從 AD Graph 進行進階授權檢查 
 
-如果您在嘗試使用 Graph 總管存取登入時，遇到這個錯誤訊息，請在您帳戶左側導覽列底下選擇 [修改權限]  ，然後選取 [Tasks.ReadWrite]  和 [Directory.Read.All]  。 
+如果您在嘗試使用 Graph 總管存取登入時，遇到這個錯誤訊息，請在您帳戶左側導覽列底下選擇 [修改權限]，然後選取 [Tasks.ReadWrite] 和 [Directory.Read.All]。 
 
 ![修改權限 UI](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Error:沒有任何 B2C 租用戶，或租用戶沒有進階授權
+### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>錯誤:沒有任何 B2C 租用戶，或租用戶沒有進階授權
 
 存取登入報表需要 Azure Active Directory 進階 1 (P1) 授權。 如果您在存取登入時看到這個錯誤訊息，請確定您的租用戶已獲得 Azure AD P1 授權。
 
-### <a name="error-user-is-not-in-the-allowed-roles"></a>Error:使用者不是允許的角色 
+### <a name="error-user-is-not-in-the-allowed-roles"></a>錯誤:使用者不是允許的角色 
 
 如果您在嘗試使用 API 存取稽核記錄或登入時，看到這個錯誤訊息，請確定您的帳戶屬於 Azure Active Directory 租用戶中的**安全性讀者**或**報告讀者**角色。 
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>Error:應用程式遺漏 AAD「讀取目錄資料」權限 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>錯誤:應用程式遺漏 AAD「讀取目錄資料」權限 
 
 請遵循[存取 Azure Active Directory 報告 API 的必要條件](howto-configure-prerequisites-for-reporting-api.md)中的步驟，以確保應用程式是以正確的權限集執行。 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Error:應用程式遺漏 MS Graph API「讀取所有稽核記錄資料」權限
+### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>錯誤:應用程式遺漏 MS Graph API「讀取所有稽核記錄資料」權限
 
 請遵循[存取 Azure Active Directory 報告 API 的必要條件](howto-configure-prerequisites-for-reporting-api.md)中的步驟，以確保應用程式是以正確的權限集執行。 
 

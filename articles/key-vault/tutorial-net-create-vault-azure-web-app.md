@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 805893d6b5756c76ebc523187e0ed75c9fe24ed9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c27c787eeac9bbf68b512b55b9ceab11074a81d8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874749"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934360"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>教學課程：在 .NET 中透過 Azure Web 應用程式使用 Azure Key Vault
 
@@ -249,4 +249,4 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 ## <a name="next-steps"></a>後續步驟
 
 >[!div class="nextstepaction"]
->[Azure Key Vault 開發人員指南](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault 開發人員指南](key-vault-developers-guide.md)

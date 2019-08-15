@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 70cd7a1e77e6154b6406c82344b82f230eeb7b3c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 83c4d8a90bf9ae348026c14beaec4975636b29b5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954635"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018795"
 ---
 # <a name="restore-system-state-to-windows-server"></a>將系統狀態還原到 Windows Server
 
@@ -124,9 +124,9 @@ ms.locfileid: "68954635"
 
 1. 使用下列命令以「目錄服務修復模式」重新啟動您的伺服器。 在提高權限的命令提示字元上：
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. 在重新啟動後，開啟 Windows Server Backup 嵌入式管理單元。 如果您不知道快照安裝的位置，請在電腦或伺服器上搜尋 **Windows Server Backup**。
@@ -189,14 +189,14 @@ ms.locfileid: "68954635"
 
 5. 當您以系統管理員模式開啟命令提示字元時，請執行下列命令來取得系統狀態備份版本。
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![取得系統狀態備份版本](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. 執行下列命令以取得備份中可用的所有磁碟區。
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -204,7 +204,7 @@ ms.locfileid: "68954635"
 
 7. 下列命令會復原所有屬於系統狀態備份的磁碟區。 請注意，此步驟只會復原屬於系統狀態的重要磁碟區。 非系統資料全都會遭到清除。
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![取得系統狀態備份版本](./media/backup-azure-restore-system-state/winre-6.png)

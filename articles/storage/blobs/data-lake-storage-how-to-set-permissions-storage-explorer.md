@@ -1,20 +1,19 @@
 ---
 title: 使用 Azure 儲存體總管設定 Data Lake Storage Gen2 的權限
 description: 您可以透過這個方式，了解如何在您支援 Azure Data Lake Storage Gen2 的儲存體帳戶內部，使用 Azure 儲存體總管設定檔案和目錄的使用權限。
-services: storage
 author: normesta
-ms.custom: mvc
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
-ms.openlocfilehash: 5f0211765c96cad668abaad7d42da87ec88298c3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.reviewer: stewu
+ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939317"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847417"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>搭配 Azure Data Lake Storage Gen2 使用 Azure 儲存體總管設定檔案和目錄等級使用權限
 
@@ -33,17 +32,17 @@ Azure Data Lake Storage Gen2 中儲存的檔案支援微調權限和存取控制
 
 ## <a name="managing-access"></a>管理存取
 
-您可以在檔案系統根目錄設定權限。 若要這樣做，您必須使用有權執行此動作的個別帳戶 (而非使用連接字串) 登入 Azure 儲存體總管。 以滑鼠右鍵按一下檔案系統，然後選取 [管理權限]，顯示 [管理權限] 對話方塊。
+您可以在檔案系統根目錄設定權限。 若要這樣做，您必須使用有權執行此動作的個別帳戶 (而非使用連接字串) 登入 Azure 儲存體總管。 以滑鼠右鍵按一下檔案系統，然後選取 [管理權限]  ，顯示 [管理權限]  對話方塊。
 
 ![Microsoft Azure 儲存體總管 - 管理目錄存取](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
-[管理權限] 對話方塊可讓您管理擁有者和擁有者群組的權限。 它也可以讓您將新的使用者和群組新增到存取控制清單，方便之後管理他們的權限。
+[管理權限]  對話方塊可讓您管理擁有者和擁有者群組的權限。 它也可以讓您將新的使用者和群組新增到存取控制清單，方便之後管理他們的權限。
 
-若要將新的使用者或群組加到存取控制清單，請選取 [新增使用者或群組] 欄位。
+若要將新的使用者或群組加到存取控制清單，請選取 [新增使用者或群組]  欄位。
 
-輸入和您想要新增至清單的相對應 Azure Active Directory (AAD) 項目，然後選取 [新增]。
+輸入和您想要新增至清單的相對應 Azure Active Directory (AAD) 項目，然後選取 [新增]  。
 
-使用者或群組現在將會出現在 [使用者和群組:] 欄位中，讓您可以開始管理他們的權限。
+使用者或群組現在將會出現在 [使用者和群組:]  欄位中，讓您可以開始管理他們的權限。
 
 > [!NOTE]
 > 最佳做法和建議是在 AAD 中建立安全性群組，並維護群組的權限，而不是維護個別使用者的權限。 如需這項建議和其他最佳做法的詳細資料，請參閱 [Data Lake Storage Gen2 的最佳做法](data-lake-storage-best-practices.md)。
@@ -54,7 +53,7 @@ Azure Data Lake Storage Gen2 中儲存的檔案支援微調權限和存取控制
 
 * **預設**：與目錄相關聯 ACL 的範本，用以判斷在該目錄下所建立任何子項目的存取 ACL。 檔案沒有預設 ACL。
 
-然後在這兩種類別內，您可以指派檔案或目錄的三種使用權限：[讀取]、[寫入]，以及 [執行]。
+然後在這兩種類別內，您可以指派檔案或目錄的三種使用權限：[讀取]  、[寫入]  ，以及 [執行]  。
 
 >[!NOTE]
 > 在這裡選取的項目並不會在目錄內部目前現有的任何項目上設定使用權限。 如果檔案已經存在，必須移至每個項目手動設定使用權限。

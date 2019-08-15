@@ -6,20 +6,20 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
-ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071466"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013930"
 ---
 # <a name="egress-and-endpoints"></a>輸出和端點
 
-Azure Digital Twins 的「端點」  代表使用者 Azure 訂用帳戶內的訊息或事件代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
+Azure Digital Twins 的「端點」代表使用者 Azure 訂用帳戶內的訊息或事件代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
 
-事件會根據預先定義的路由喜好設定來路由至端點。 使用者會指定每個端點可收到的「事件類型」  。
+事件會根據預先定義的路由喜好設定來路由至端點。 使用者會指定每個端點可收到的「事件類型」。
 
 若要深入了解事件、路由與事件類型，請參閱 [Azure Digital Twins 中的路由事件和訊息](./concepts-events-routing.md)。
 
@@ -47,11 +47,11 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 }
 ```
 
-| 屬性 | type | 描述 |
+| 屬性 | Type | 描述 |
 | --- | --- | --- |
-| id | string | 事件的唯一識別碼。 |
+| ID | string | 事件的唯一識別碼。 |
 | subject | string | 發行者定義事件主體的路徑。 |
-| data | object | 資源提供者特有的事件資料。 |
+| 資料 | object | 資源提供者特有的事件資料。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
@@ -77,7 +77,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** 適用於圖表變更。 subject  屬性會指定受影響的物件類型。 下列類型的物件可能會觸發此事件：
+**TopologyOperation** 適用於圖表變更。 subject 屬性會指定受影響的物件類型。 下列類型的物件可能會觸發此事件：
 
 - 裝置
 - DeviceBlobMetadata
@@ -90,7 +90,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 - 感應器
 - SensorBlobMetadata
 - SensorExtendedProperty
-- 空白字元
+- 空格鍵
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
@@ -246,7 +246,7 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 >[!IMPORTANT]
 > 請特別注意 **eventTypes** 屬性。 此屬性會定義端點處理的事件類型，並以此決定其路由方式。
 
-已驗證的 HTTP POST 要求會根據下列內容進行處理
+已驗證的 HTTP POST 要求:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints

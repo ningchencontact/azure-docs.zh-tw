@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6ecb481245484332221e45b8f27c776291ea532d
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1065abecb1f0ef57eb13b1ec3f194f07ae01eaee
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736399"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976800"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>設定控管標記的商務詞彙
 
@@ -36,11 +36,11 @@ Azure 資料目錄啟用了資料來源探索功能，讓您能夠輕鬆地探�
 
 您可透過資料目錄入口網站之瀏覽功能表中的 [詞彙] 選項存取商務詞彙。  
 
-![存取商務詞彙](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
+![資料目錄-存取商務詞彙](./media/data-catalog-how-to-business-glossary/01-portal-menu.png)
 
 資料目錄管理員和詞彙管理員角色的成員可以建立、編輯及刪除商務詞彙中的詞彙。 所有的資料目錄使用者都可以檢視字詞定義，而且可以利用詞彙標記資產。
 
-![新增字彙](./media/data-catalog-how-to-business-glossary/02-new-term.png)
+![資料目錄-新增詞彙詞彙](./media/data-catalog-how-to-business-glossary/02-new-term.png)
 
 ## <a name="creating-glossary-terms"></a>建立詞彙
 

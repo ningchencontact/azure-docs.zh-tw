@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 45089c77ff2fed7ea5903333514f4d4edbad7cb3
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867901"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "69015553"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>使用媒體服務之即時串流的概觀
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>總覽
 
@@ -44,12 +44,12 @@ ms.locfileid: "64867901"
 
 **Microsoft Azure 媒體服務** (AMS) 提供擷取、編碼、預覽、儲存和傳遞即時串流內容的能力。
 
-使用媒體服務，您可以善用[動態封裝](media-services-dynamic-packaging-overview.md)，可讓您將廣播即時資料流中 MPEG DASH、 HLS、 Smooth Streaming 格式從比重摘要傳送至服務。 您的檢視者可以搭配支援 HLS、DASH 或 Smooth Streaming 的播放器播放即時串流。 您可以使用 Azure Media Player 在您的 web 或行動應用程式，提供您在任何這些通訊協定中的資料流。
+使用媒體服務, 您可以利用[動態封裝](media-services-dynamic-packaging-overview.md), 讓您以 MPEG 破折號、HLS 和 Smooth Streaming 格式, 從傳送到服務的發佈摘要廣播即時串流。 您的檢視者可以搭配支援 HLS、DASH 或 Smooth Streaming 的播放器播放即時串流。 您可以使用 web 或行動應用程式中的 Azure 媒體播放機, 以這些通訊協定中的任何一種來傳遞您的串流。
 
 > [!NOTE]
 > 從 2018 年 5 月 12 日開始，即時通道將不再支援 RTP/MPEG-2 傳輸串流內嵌通訊協定。 請從 RTP/MPEG-2 移轉到 RTMP 或分散式 MP4 (Smooth Streaming) 內嵌通訊協定。
 
-## <a name="streaming-endpoints-channels-programs"></a>串流端點、 通道、 程式
+## <a name="streaming-endpoints-channels-programs"></a>串流端點, 通道, 程式
 
 在 Azure 媒體服務中，**通道**、**程式**及 **StreamingEndpoints** 會處理所有的即時串流功能，包括內嵌、格式化、DVR、安全性、延展性和備援能力。
 
@@ -150,9 +150,9 @@ ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最
 
 | 頻道狀態 | 入口網站 UI 指標 | 會計費嗎？ |
 | --- | --- | --- |
-| 啟動中 |啟動中 |無 (暫時性狀態) |
-| 執行中 |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |是 |
-| 停止中 |停止中 |無 (暫時性狀態) |
+| 正在啟動 |正在啟動 |無 (暫時性狀態) |
+| Running |就緒 (沒有執行中的程式)<br/>或<br/>串流 (至少一個執行中的程式) |是 |
+| 正在停止 |正在停止 |無 (暫時性狀態) |
 | 已停止 |已停止 |否 |
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
@@ -162,7 +162,7 @@ ArchiveWindowLength 也指定用戶端可從目前即時位置往回搜尋的最
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>相關主題
-[Azure 媒體服務的分散 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
+[Azure 媒體服務的分散 MP4 即時內嵌規格](../media-services-fmp4-live-ingest-overview.md)
 
 [使用啟用的通道來以 Azure 媒體服務執行即時編碼](media-services-manage-live-encoder-enabled-channels.md)
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ac27f3b1ea777e7a88a44a16edf8867f97381297
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 260d2774eecb42d0234c33e40b4f10680a4fbfbd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508988"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932221"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -136,7 +136,7 @@ Azure Analysis Services 與 SQL Server Analysis Services Enterprise Edition 中�
 
 記憶體內部模式和 DirectQuery 模式皆支援表格式模型。 記憶體內部模式 (預設值) 的表格式模型支援多個資料來源。 因為模型資料經過高度壓縮，且會快取到記憶體內部，此模式可在資料量很大時提供最快的查詢回應速度。 針對複雜的資料集和查詢，它也可提供最大的彈性。 分割能實現累加式載入、增加平行處理能力，並降低記憶體耗用量。 其他進階的資料模型功能 (例如，導出的資料表和所有的 DAX 函式) 都可獲得支援。 記憶體內部模型必須經過重新整理 (處理)，才能從資料來源更新快取資料。 搭配 Azure 服務主體支援，使用 PowerShell、TOM、TMSL 和 REST 的自動重新整理作業可提供彈性，確保模型資料永遠是最新的。 
 
-DirectQuery 模式* 會利用後端關聯式資料庫來提供儲存和查詢執行功能。 單一的 SQL Server、SQL Server 資料倉儲、Azure SQL Database、Azure SQL 資料倉儲、Oracle 和 Teradata 資料來源可支援超大型資料集。 後端資料集可超過可用的伺服器資源記憶體。 不需要複雜的資料模型重新整理案例。 此模式也有一些限制，例如，資料來源類型有限、DAX 公式限制，且不支援某些進階的資料模型化功能。 請先參閱[直接查詢模式](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)，再來判斷最適合您的模式。
+DirectQuery 模式* 會利用後端關聯式資料庫來提供儲存和查詢執行功能。 單一的 SQL Server、SQL Server 資料倉儲、Azure SQL Database、Azure SQL 資料倉儲、Oracle 和 Teradata 資料來源可支援超大型資料集。 後端資料集可超過可用的伺服器資源記憶體。 不需要複雜的資料模型重新整理案例。 此模式也有一些限制，例如，資料來源類型有限、DAX 公式限制，且不支援某些進階的資料模型化功能。 請先參閱[直接查詢模式](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular)，再來判斷最適合您的模式。
 
 \* 功能是否可用取決於服務層。
 
@@ -171,7 +171,7 @@ Azure Analysis Services 使用 Azure Blob 儲存體來保留 Analysis Services �
 
 ### <a name="roles"></a>角色
 
-Analysis Services 會使用[角色型授權](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)，來授與伺服器和模型資料庫作業、物件與資料的存取權。 存取伺服器或資料庫的使用者都能使用其在所指派角色內的 Azure AD 使用者帳戶執行這項操作。 伺服器管理員角色位於伺服器資源層級。 根據預設，建立伺服器時所使用的帳戶會自動包含在伺服器管理員角色內。 使用入口網站、SSMS 或 PowerShell，即可新增其他使用者和群組帳戶。
+Analysis Services 會使用[角色型授權](https://docs.microsoft.com/analysis-services/tabular-models/roles-ssas-tabular)，來授與伺服器和模型資料庫作業、物件與資料的存取權。 存取伺服器或資料庫的使用者都能使用其在所指派角色內的 Azure AD 使用者帳戶執行這項操作。 伺服器管理員角色位於伺服器資源層級。 根據預設，建立伺服器時所使用的帳戶會自動包含在伺服器管理員角色內。 使用入口網站、SSMS 或 PowerShell，即可新增其他使用者和群組帳戶。
   
 查詢資料的非系統管理終端使用者會透過資料庫角色獲得存取權。 資料庫角色會建立為資料庫中的個別物件，而且只適用於該角色建立所在的資料庫。 資料庫角色是由 (資料庫) 系統管理員、讀取以及「讀取和處理」權限所定義的。 使用 SSMS 或 PowerShell 即可新增使用者和群組帳戶。
 
@@ -181,7 +181,7 @@ Analysis Services 會使用[角色型授權](https://docs.microsoft.com/sql/anal
 
 ### <a name="object-level-security"></a>物件層級安全性 
 
-1400 相容性層級的表格式模型可支援物件層級安全性，其中包括資料表層級安全性和資料行層級安全性。 物件層級安全性可使用 TMSL 或 TOM 在 Model.bim 檔案的 JSON 型中繼資料內進行設定。 若要深入了解，請參閱[物件層級安全性](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security)。
+1400 相容性層級的表格式模型可支援物件層級安全性，其中包括資料表層級安全性和資料行層級安全性。 物件層級安全性可使用 TMSL 或 TOM 在 Model.bim 檔案的 JSON 型中繼資料內進行設定。 若要深入了解，請參閱[物件層級安全性](https://docs.microsoft.com/analysis-services/tabular-models/object-level-security)。
 
 ### <a name="automation-through-service-principals"></a>透過服務主體進行自動化
 
@@ -212,7 +212,7 @@ Azure Analysis Services 受 [Microsoft Online Services 條款](https://www.micro
 
 ### <a name="object-model-and-scripting"></a>物件模型和編寫指令碼
 
-表格式模型可供快速進行開發，並可高度自訂。 表格式模型包含可說明模型物件的[表格式物件模型](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM)。 TOM 會經由 [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) 命名空間透過[表格式模型指令碼語言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)和 AMO 資料定義語言以 JSON 公開。 
+表格式模型可供快速進行開發，並可高度自訂。 表格式模型包含可說明模型物件的[表格式物件模型](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM)。 TOM 會經由 [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) 命名空間透過[表格式模型指令碼語言 (TMSL)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)和 AMO 資料定義語言以 JSON 公開。 
 
 ## <a name="supports-the-latest-client-tools"></a>支援最新的用戶端工具
 
@@ -224,13 +224,13 @@ Azure Analysis Services 受 [Microsoft Online Services 條款](https://www.micro
 
 Azure Analysis Services 會與 Azure 計量整合，以提供大量的資源特有計量，協助您監視伺服器的效能和健康情況。 若要深入了解，請參閱[監視伺服器計量](analysis-services-monitor.md)。 使用 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)來記錄計量。 監視記錄並將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Azure 監視器記錄](https://azure.microsoft.com/services/log-analytics/) (這是一項 [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) 服務)。 若要深入了解，請參閱[設定診斷記錄](analysis-services-logging.md)。
 
-Azure Analysis Services 也支援使用[動態管理檢視 (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 根據 SQL 語法，DMV 介面結構描述資料列會傳回有關伺服器執行個體的中繼資料和監視資訊。
+Azure Analysis Services 也支援使用[動態管理檢視 (DMV)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 根據 SQL 語法，DMV 介面結構描述資料列會傳回有關伺服器執行個體的中繼資料和監視資訊。
 
 ## <a name="documentation"></a>文件
 
 這裡會有 Azure Analysis Services 專屬文件。 請使用瀏覽器畫面左側的目錄來尋找文章。 
 
-由於 Azure Analysis Services 表格式模型與 SQL Server Analysis Services 中的表格式模型極為類似，因此 [SQL Server Analysis Services 文件](https://docs.microsoft.com/sql/analysis-services/analysis-services)中有收納了共用概念、程序、開發人員和參考文章的廣泛文件庫。 SQL Server Analysis Services 文件中的文章，會透過標題下方的「適用於」橫幅顯示其是否也適用於 Azure Analysis Services。
+由於 Azure Analysis Services 表格式模型與 SQL Server Analysis Services 中的表格式模型極為類似，因此 [SQL Server Analysis Services 文件](https://docs.microsoft.com/analysis-services/analysis-services-overview)中有收納了共用概念、程序、開發人員和參考文章的廣泛文件庫。 SQL Server Analysis Services 文件中的文章，會透過標題下方的「適用於」橫幅顯示其是否也適用於 Azure Analysis Services。
 
 ![共用文件](./media/analysis-services-overview/aas-overview-applies-to.png)
 

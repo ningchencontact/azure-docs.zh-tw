@@ -3,7 +3,7 @@ title: Azure Active Directory 報告是什麼？ | Microsoft Docs
 description: 提供 Azure Active Directory 報告的一般概觀。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ccf8014938e813676e9338e9bfc4eaa18f63f9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436943"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989711"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory 報告是什麼？
 
@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) 報告可提供環境中活動的全面性檢�
 
 所有 Azure AD 版本都可提供標幟為有風險的使用者和有風險的登入報告。 不過，報告細微性層級因版本而異： 
 
-- 在 [Azure Active Directory Free 和 Basic 版本] 中，您會取得標幟為有風險的使用者和有風險的登入清單。 
+- 在 [Azure Active Directory Free 和 Basic 版本]  中，您會取得標幟為有風險的使用者和有風險的登入清單。 
 
 - **Azure Active Directory Premium 1** 版本也可讓您檢查每份報告部分已偵測到的基礎風險事件，藉此擴充此模型。 
 

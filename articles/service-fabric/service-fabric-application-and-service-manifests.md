@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052675"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977118"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 應用程式和服務資訊清單
 本文說明如何使用 ApplicationManifest.xml 和 ServiceManifest.xml 檔案來定義 Service Fabric 應用程式和服務及設定其版本。  如需更詳細的範例，請參閱[應用程式和服務資訊清單範例](service-fabric-manifest-examples.md)。  這些資訊清單檔的 XML 結構描述記載於 [ServiceFabricServiceModel.xsd 結構描述文件](service-fabric-service-model-schema.md)中。
@@ -96,8 +96,12 @@ ms.locfileid: "67052675"
 </Settings>
 ```
 
-Fabric Service**端點**是 Service Fabric 資源的範例。 Service Fabric 資源可以是宣告/變更而不需變更已編譯的程式碼。 透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中指定的 Service Fabric 資源。 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
+Service Fabric 服務**端點**是 Service Fabric 資源的範例。 Service Fabric 的資源可以宣告/變更, 而不需要變更已編譯的程式碼。 透過應用程式資訊清單中的 **SecurityGroup**，即可控制存取服務資訊清單中指定的 Service Fabric 資源。 在服務資訊清單中定義端點資源時，若沒有明確指定連接埠，Service Fabric 會從保留的應用程式連接埠範圍指派連接埠。 深入了解[指定或覆寫端點資源](service-fabric-service-manifest-resources.md)。
 
+ 
+> [!WARNING]
+> 依照設計, 靜態埠不應該與 ClusterManifest 中指定的應用程式埠範圍重迭。 如果您指定靜態通訊埠, 請在應用程式埠範圍外指派它, 否則會導致埠衝突。 在 release 6.5 CU2 中, 我們會在偵測到這類衝突時發出**健全狀況警告**, 但讓部署繼續與隨附的6.5 行為同步。 不過, 我們可能會防止應用程式部署到下一個主要版本。
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -147,6 +151,7 @@ For more information about other features supported by service manifests, refer 
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
@@ -163,10 +168,12 @@ For more information about other features supported by service manifests, refer 
 
 **Certificates** (未設定於前一個範例中) 會宣告用來[設定 HTTPS 端點](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)或[在應用程式資訊清單中加密密碼](service-fabric-application-secret-management.md)。
 
-**原則**（未在上述範例中的設定） 描述的記錄集合、[預設執行身分](service-fabric-application-runas-security.md)，[健全狀況](service-fabric-health-introduction.md#health-policies)，和[安全性存取](service-fabric-application-runas-security.md)在設定的原則應用程式層級，包括其他服務可以存取 Service Fabric 執行階段。
+**放置條件約束**是定義服務應在何處執行的語句。 這些語句會附加至您為一個或多個節點屬性選取的個別服務。 如需詳細資訊, 請參閱[放置條件約束和節點屬性語法](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+
+**原則**(在上述範例中未設定) 描述要在應用層級設定的記錄集合、[預設執行](service-fabric-application-runas-security.md)身分、[健康](service-fabric-health-introduction.md#health-policies)情況和[安全性存取](service-fabric-application-runas-security.md)原則, 包括服務是否可存取 Service Fabric 執行時間。
 
 > [!NOTE] 
-> 根據預設，Service Fabric 應用程式存取 Service Fabric 執行階段，以接受特定應用程式的要求，並指向包含網狀架構和應用程式特定的檔案在主機上的檔案路徑的環境變數的端點的形式. 請考慮將應用程式裝載未受信任的程式碼 （也就是程式碼的 provenance 不明，或應用程式擁有者並不會把可安全地執行） 時，停用此存取權。 如需詳細資訊，請參閱[Service Fabric 中的安全性最佳作法](service-fabric-best-practices-security.md#platform-isolation)。 
+> 根據預設, Service Fabric 應用程式可以存取 Service Fabric 執行時間, 其格式為接受應用程式特定要求的端點, 以及指向包含網狀架構和應用程式特定檔案之主機上檔案路徑的環境變數. 當應用程式裝載不受信任的程式碼 (也就是來源不明或應用程式擁有者知道不安全執行的程式碼) 時, 請考慮停用此存取。 如需詳細資訊, 請參閱[Service Fabric 中的安全性最佳做法](service-fabric-best-practices-security.md#platform-isolation)。 
 >
 
 **Principals** (未設定於前一個範例中) 說明[執行服務和保護服務資源](service-fabric-application-runas-security.md)所需的安全性主體 (使用者或群組)。  主體會在 **Policies** 區段中參考。

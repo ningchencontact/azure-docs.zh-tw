@@ -310,6 +310,8 @@
           href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
         - name: Apache Ambari 顯示當機的主機和服務
           href: ./apache-ambari-troubleshoot-down-hosts-services.md
+        - name: 無法存取 Data Lake 檔案
+          href: ./hdinsight-troubleshoot-data-lake-files.md
         - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
         - name: Apache Hadoop HDFS 疑難排解

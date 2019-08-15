@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5108424c4e39c1c47710c0e25e4e22c4474e68ad
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448895"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941684"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 ML 服務
 
@@ -90,7 +90,7 @@ HDInsight 叢集之 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體
 
 ### <a name="score-in-azure-machine-learning-aml"></a>Azure Machine Learning 中的評分 (AML)
 
-若要使用 Azure Machine Learning 來評分，請使用 Azure Machine Learning R 套件開放原始碼 (稱為 [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)) 來將您的模型發佈為 Azure Web 服務。 為了方便起見，此套件已預先安裝在邊緣節點。 接下來，使用 Azure Machine Learning 中的功能建立 Web 服務的使用者介面，然後呼叫評分所需的 Web 服務。
+若要使用 Azure Machine Learning 來評分，請使用 Azure Machine Learning R 套件開放原始碼 (稱為 [AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/)) 來將您的模型發佈為 Azure Web 服務。 為了方便起見，此套件已預先安裝在邊緣節點。 接下來，使用 Azure Machine Learning 中的功能建立 Web 服務的使用者介面，然後呼叫評分所需的 Web 服務。
 
 如果您選擇這個選項，就必須將所有 ScaleR 模型物件轉換成對等的開放原始碼模型物件，才可搭配 Web 服務使用。 針對此轉換，您可以使用 ScaleR 強制型轉函數 (例如，適用於集成模型的 `as.randomForest()`) 來完成。
 

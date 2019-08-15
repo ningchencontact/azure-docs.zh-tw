@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fceeed47ee77207e00ebfc619226ecbb5956bc3d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 015318b1695f76121662b82e94b37de1ddb63b1b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478521"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952942"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -34,7 +34,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 
 若要安裝及設定 Windows 混合式 Runbook 背景工作角色，您可以使用兩種方法。 建議的方法是使用自動化 Runbook，將設定 Windows 電腦的程序完全自動化。 第二種方法採取逐步程序來手動安裝和設定角色。 若為 Linux 機器，您可以執行 Python 指令碼，在機器上安裝代理程式。
 
-|作業系統  |部署類型  |
+|OS  |部署類型  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[手動](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
@@ -52,7 +52,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 您可以移除群組中的一或多個混合式 Runbook 背景工作角色，或移除該群組，視您的需求而定。 若要從內部部署電腦中移除混合式 Runbook 背景工作角色，請使用下列步驟：
 
 1. 在 Azure 入口網站中，前往您的自動化帳戶。
-2. 在 [帳戶設定]  下，選取 [金鑰]  並記下 [URL]  和 [主要存取金鑰]  的值。 下一個步驟需要此資訊。
+2. 在 [帳戶設定] 下，選取 [金鑰] 並記下 [URL] 和 [主要存取金鑰] 的值。 下一個步驟需要此資訊。
 
 ### <a name="windows"></a>Windows
 
@@ -84,25 +84,25 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 若要移除群組，您必須先使用先前所示的程序，從群組的每一部成員電腦中移除混合式 Runbook 背景工作角色。 然後，使用下列步驟移除群組：
 
 1. 在 Azure 入口網站中，開啟自動化帳戶。
-2. 在 [程序自動化]  底下選取 [混合式背景工作角色群組]  。 選取您要刪除的群組。 該群組的屬性頁面隨即出現。
+2. 在 [程序自動化] 底下選取 [混合式背景工作角色群組]。 選取您要刪除的群組。 該群組的屬性頁面隨即出現。
 
    ![屬性頁面](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-3. 在所選群組的屬性頁面上，選取 [刪除]  。 這會顯示訊息要求您確認此動作。 如果您確定要繼續，請選取 [是]  。
+3. 在所選群組的屬性頁面上，選取 [刪除]。 這會顯示訊息要求您確認此動作。 如果您確定要繼續，請選取 [是]。
 
    ![確認訊息](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 
-   此程序可能需要數秒鐘的時間完成。 您可以在功能表的 [通知]  底下追蹤其進度。
+   此程序可能需要數秒鐘的時間完成。 您可以在功能表的 [通知] 底下追蹤其進度。
 
 ## <a name="network-planning"></a>設定您的網路
 
 ### <a name="hybrid-worker-role"></a>混合式背景工作角色
 
-連線並註冊使用 Azure 自動化 Hybrid Runbook Worker，它必須能夠存取的連接埠號碼和 Url 這一節中所述。 這項存取是上方[連接埠和 Url 所需的 Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md)連接到 Azure 監視器記錄檔。
+若要讓混合式 Runbook 背景工作角色連接到 Azure 自動化並向其註冊, 它必須能夠存取本節所述的埠號碼和 Url。 此存取會在 Microsoft Monitoring Agent 連接到 Azure 監視器記錄檔[所需的埠和 url](../azure-monitor/platform/agent-windows.md)上。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-如果您使用 proxy 伺服器，代理程式與 Azure 自動化服務之間的通訊，確保可以存取適當的資源。 Hybrid Runbook Worker 與自動化服務要求的逾時為 30 秒。 嘗試 3 之後，則要求會失敗。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。 如果您使用 Log Analytics 閘道作為 Proxy，請確保已針對混合式背景工作角色進行設定。 如需有關如何執行這項操作的指示，請參閱[為自動化混合式背景工作角色設定 Log Analytics 閘道](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)。
+如果您使用 proxy 伺服器在代理程式和 Azure 自動化服務之間進行通訊, 請確保可以存取適當的資源。 混合式 Runbook 背景工作角色和自動化服務要求的完成時間為30秒。 3次嘗試之後, 要求將會失敗。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。 如果您使用 Log Analytics 閘道作為 Proxy，請確保已針對混合式背景工作角色進行設定。 如需有關如何執行這項操作的指示，請參閱[為自動化混合式背景工作角色設定 Log Analytics 閘道](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)。
 
 若要讓混合式 Runbook 背景工作角色與自動化進行通訊，需要下列連接埠和 URL：
 
@@ -111,7 +111,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 * US Gov 維吉尼亞州的全域 URL： *.azure automation.us
 * 代理程式服務： https://\<workspaceId\>.agentsvc.azure-automation.net
 
-建議使用定義例外狀況時所列出的位址。 針對 IP 位址，您可以下載 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 此檔案會每週更新，並具有目前已部署的範圍及任何即將進行的 IP 範圍變更。
+建議使用定義例外狀況時所列出的位址。 針對 IP 位址，您可以下載 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/en-us/download/details.aspx?id=56519)。 此檔案會每週更新，並具有目前已部署的範圍及任何即將進行的 IP 範圍變更。
 
 如果您有針對特定區域定義的自動化帳戶，您可以將通訊限制為該區域資料中心。 下表提供每個區域的 DNS 記錄：
 
@@ -127,10 +127,10 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 | 東南亞 |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | 印度中部 |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | 日本東部 |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
-| 澳洲東部 |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
+| 澳大利亞東部 |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
 | 澳大利亞東南部 |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | 英國南部 | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| 美國政府維吉尼亞州 | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov 維吉尼亞州 | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 如需區域 IP 位址 (而非名稱) 的清單，請從「Microsoft 下載中心」下載 [Azure 資料中心 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653) XML 檔案。
 

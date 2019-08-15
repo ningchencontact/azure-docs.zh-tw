@@ -25,6 +25,8 @@
       items:
         - name: 設定地理柵欄
           href: tutorial-geofence.md
+        - name: 空間分析
+          href: tutorial-iot-hub-maps.md
 - name: 概念
   items:
     - name: 向 Azure 地圖服務驗證

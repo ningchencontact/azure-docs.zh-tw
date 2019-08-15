@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a3db70925d59f9d0e2793b04824b2e8606719dd4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828524"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934243"
 ---
 # <a name="tutorial-train-your-first-model"></a>教學課程：定型您的第一個模型
 
@@ -23,6 +23,7 @@ ms.locfileid: "68828524"
 
 在本教學課程中，您會了解下列工作：
 
+> [!div class="checklist"]
 > * 連結您的工作區並建立實驗
 > * 載入資料並定型 Scikit-learn 模型
 > * 在入口網站中查看定型結果

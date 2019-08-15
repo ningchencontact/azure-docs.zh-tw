@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 6d05b6ac49b372caff1bdc2f03358598fcc1afba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737081"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951972"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 
@@ -72,8 +72,8 @@ MARS 伺服器需要存取這些 URL：
 
 在內部部署機器和 Azure Vm 上執行的某些作業系統上, 您可以使用 MARS 代理程式直接備份至 Azure。 作業系統必須是64位, 且應執行最新的服務套件和更新。 下表摘要說明這些作業系統:
 
-**作業系統** | **檔案/資料夾** | **系統狀態**
---- | --- | ---
+**作業系統** | **檔案/資料夾** | **系統狀態** 
+--- | --- | --- 
 Windows 10 (企業版、專業版、家用版) | 是 | 否
 Windows 8.1 (企業版、專業版)| 是 |否
 Windows 8 (企業版、專業版) | 是 | 否

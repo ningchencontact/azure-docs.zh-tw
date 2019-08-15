@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479135"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019538"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>管理 Azure 中的 AWS 成本和使用量
 
@@ -77,20 +77,20 @@ AWS 成本可用於下列範圍中的成本分析:
 
 | 維度 | Amazon 當前標頭 | 範圍 | 註解 |
 | --- | --- | --- | --- |
-| 可用性區域 | lineitem/AvailabilityZone | 所有 |   |
-| Location | 產品/地區 | 所有 |   |
-| 計量 |   | 所有 |   |
-| 計量類別 | lineItem/ProductCode | 所有 |   |
-| 計量子類別 | lineitem/UsageType | 所有 |   |
-| 運算 | lineItem/Operation | 所有 |   |
-| Resource | lineItem/ResourceId | 所有 |   |
-| 資源類型 | product/instanceType | 所有 | 如果 product/instanceType 為 null, 則會使用 lineItem/UsageType。 |
-| ResourceGuid | N/A | 所有 | Azure 計量 GUID。 |
-| 服務名稱 | product/ProductName | 所有 | 如果 product/ProductName 是 null, 則會使用 lineItem/ProductCode。 |
+| 可用性區域 | lineitem/AvailabilityZone | 全部 |   |
+| Location | 產品/地區 | 全部 |   |
+| 計量 |   | 全部 |   |
+| 計量類別 | lineItem/ProductCode | 全部 |   |
+| 計量子類別 | lineitem/UsageType | 全部 |   |
+| 運算 | lineItem/Operation | 全部 |   |
+| Resource | lineItem/ResourceId | 全部 |   |
+| 資源類型 | product/instanceType | 全部 | 如果 product/instanceType 為 null, 則會使用 lineItem/UsageType。 |
+| ResourceGuid | N/A | 全部 | Azure 計量 GUID。 |
+| 服務名稱 | product/ProductName | 全部 | 如果 product/ProductName 是 null, 則會使用 lineItem/ProductCode。 |
 | 服務層級 |   |   |   |
 | 訂用帳戶識別碼 | lineItem/UsageAccountId | 合併的帳戶和管理群組 |   |
 | 訂用帳戶名稱 | N/A | 合併的帳戶和管理群組 | 帳戶名稱是使用 AWS 組織 API 所收集。 |
-| 標記 | resourceTags/\* | 所有 | _使用者:_ 前置詞會從使用者定義的標記中移除, 以允許跨雲端標籤。 _Aws:_ prefix 會保留不變。 |
+| 標記 | resourceTags/\* | 全部 | _使用者:_ 前置詞會從使用者定義的標記中移除, 以允許跨雲端標籤。 _Aws:_ prefix 會保留不變。 |
 | 帳務帳戶識別碼 | bill/PayerAccountId | 管理群組 |   |
 | 帳單帳戶名稱 | N/A | 管理群組 | 帳戶名稱是使用 AWS 組織 API 所收集。 |
 | 提供者 | N/A | 管理群組 | 可能是 AWS 或 Azure。 |

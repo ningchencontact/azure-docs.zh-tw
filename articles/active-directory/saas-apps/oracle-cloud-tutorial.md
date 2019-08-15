@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 579a553f151cf34215af3188cfddada6da42e691
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596432"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943638"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>教學課程：整合 Oracle Cloud Infrastructure Console 與 Azure Active Directory
 
@@ -101,11 +101,11 @@ ms.locfileid: "68596432"
 
    ![憑證下載連結](common/metadataxml.png)
 
-1. Oracle Cloud Infrastructure Console 應用程式預期應有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
+1. Oracle Cloud Infrastructure Console 應用程式預期應有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
 
    ![image](common/edit-attribute.png)
 
-1. 除了以上屬性外，Oracle Cloud Infrastructure Console 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [群組宣告 (預覽)] ****   對話方塊的 [使用者屬性與宣告] ****   區段中，執行下列步驟：
+1. 除了以上屬性外，Oracle Cloud Infrastructure Console 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [群組宣告 (預覽)]  對話方塊的 [使用者屬性與宣告]  區段中，執行下列步驟：
 
    1. 按一下**名稱識別碼值**旁邊的 [畫筆]  。
 

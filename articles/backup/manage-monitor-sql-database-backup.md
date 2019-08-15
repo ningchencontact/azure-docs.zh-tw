@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1d50f239a0ef4de02c9f0c87a28b0f5092d9c529
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827571"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019043"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>管理和監視備份的 SQL Server 資料庫
 
@@ -92,9 +92,9 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 
 > [!NOTE]
 >
-如需刪除資料選項的詳細資訊, 請參閱下列常見問題:
-* [如果我從 autoprotected 實例中刪除資料庫, 備份會發生什麼事？](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
-* [如果我停止 autoprotected 資料庫的備份作業, 會有何行為？](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>如需有關 [刪除資料] 選項的詳細資訊, 請參閱下列常見問題:
+>* [如果我從 autoprotected 實例中刪除資料庫, 備份會發生什麼事？](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>* [如果我停止 autoprotected 資料庫的備份作業, 會有何行為？](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
 
@@ -145,7 +145,7 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發的工�
 
 有時候, VM 上的工作負載延伸可能會因為其中一個原因而受到影響。 在這種情況下, VM 上觸發的所有作業將會開始失敗。 接著, 您可能需要在 VM 上重新註冊此延伸模組。 **重新註冊**作業會重新安裝 VM 上的工作負載備份延伸模組, 以便繼續進行操作。  <br>
 
-建議您小心使用此選項;在具有狀況良好擴充功能的 VM 上觸發時, 此作業會導致擴充功能重新開機。 這可能會導致所有進行中的工作失敗。 請先檢查是否有一或多個[徵兆](backup-sql-server-azure-troubleshoot.md#re-registration-failures), 再觸發重新註冊操作。
+請謹慎使用此選項;在具有狀況良好擴充功能的 VM 上觸發時, 此作業會導致擴充功能重新開機。 這可能會導致所有進行中的工作失敗。 請先檢查是否有一或多個[徵兆](backup-sql-server-azure-troubleshoot.md#re-registration-failures), 再觸發重新註冊操作。
 
 ## <a name="next-steps"></a>後續步驟
 

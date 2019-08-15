@@ -1,30 +1,30 @@
 ---
 title: 針對生產環境準備裝置和部署 - Azure IoT Edge | Microsoft Docs
-description: 了解如何將 Azure IoT Edge 解決方案從開發層面轉移到生產環境，包括使用適當憑證設定您的裝置，以及針對日後的程式碼更新來研擬部署計畫。
+description: 瞭解如何將您的 Azure IoT Edge 解決方案從開發到生產環境, 包括以適當的憑證設定您的裝置, 以及針對未來的程式碼更新進行部署計畫。
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/28/2018
+ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45c802fb42088be1eecd7c711c6693d325252c91
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956975"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985789"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
 當您準備將 IoT Edge 解決方案從開發層面轉移到生產環境時，請確保其設定可以提供持續性效能。
 
-本文提供的資訊並非完全相同。 為了協助您設定優先權，每個區段都會以清單開始，並將工作分成兩個部分：生產前需完成的**重要**事項，或是您需要知道的**實用**事項。
+本文所提供的資訊並不完全相同。 為了協助您設定優先權，每個區段都會以清單開始，並將工作分成兩個部分：生產前需完成的**重要**事項，或是您需要知道的**實用**事項。
 
 ## <a name="device-configuration"></a>裝置設定
 
-IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或伺服器上執行的虛擬機器。 您可以實際或透過虛擬連線存取裝置，或者裝置可能長時間受到隔離。 無論是哪種方式，您都需要確保其設定能夠妥善執行。 
+IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或伺服器上執行的虛擬機器。 您可以實際或透過虛擬連線存取裝置，或者裝置可能長時間受到隔離。 無論如何, 您都想要確定它已設定為適當運作。 
 
 * **重要**
     * 安裝生產憑證
@@ -52,15 +52,15 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 * IoT Edge 精靈
 * CA 憑證
 
-如需 IoT Edge 精靈的更新步驟，請參閱[更新 IoT Edge 執行階段](how-to-update-iot-edge.md)。 目前更新 IoT Edge 精靈的方法需要實際存取或透過 SSH 存取 IoT Edge 裝置。 如果您有多項裝置需要更新，請考慮將更新步驟新增至指令碼，或是使用 Ansible 等自動化工具執行大規模更新。
+如需詳細資訊, 請參閱[更新 IoT Edge 運行](how-to-update-iot-edge.md)時間。 目前更新 IoT Edge 精靈的方法需要實際存取或透過 SSH 存取 IoT Edge 裝置。 如果您有許多要更新的裝置, 請考慮將更新步驟新增至腳本, 或使用自動化工具, 例如 Ansible。
 
 ### <a name="use-moby-as-the-container-engine"></a>使用 Moby 作為容器引擎
 
-在裝置上安裝容器引擎是任何 IoT Edge 裝置的必要條件。 生產環境僅支援 Moby 引擎。 Docker 等其他容器引擎可搭配 IoT Edge 使用，也可以使用這些引擎進行開發。 搭配 Azure IoT Edge 使用時可重新分配 Moby 引擎，而且 Microsoft 可提供此引擎的相關服務。 不支援在 IoT Edge 裝置上使用其他容器引擎。
+容器引擎是任何 IoT Edge 裝置的必要條件。 生產環境僅支援 Moby 引擎。 Docker 等其他容器引擎可搭配 IoT Edge 使用，也可以使用這些引擎進行開發。 搭配 Azure IoT Edge 使用時可重新分配 Moby 引擎，而且 Microsoft 可提供此引擎的相關服務。
 
 ### <a name="choose-upstream-protocol"></a>選擇上游通訊協定
 
-可針對 Edge 代理程式和 Edge 中樞設定 IoT 中樞上游通訊用的通訊協定 (和使用的連接埠)。 預設的通訊協定是 AMQP，但您可以根據網路設定變更。 
+您可以針對 IoT Edge 代理程式和 IoT Edge 中樞, 同時設定通訊協定 (因此使用的埠) 進行 IoT 中樞的上游通訊。 預設的通訊協定是 AMQP，但您可以根據網路設定變更。 
 
 這兩個執行階段模組都有 **UpstreamProtocol** 環境變數。 有效的變數值為： 
 
@@ -69,7 +69,7 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 * MQTTWS
 * AMQPWS
 
-為裝置本身中 config.yaml 檔案的 Edge 代理程式設定 UpstreamProtocol 變數。 舉例來說，如果您的 IoT Edge 裝置位於封鎖 AMQP 連接埠的 Proxy 伺服器後方，可能需要設定 Edge 代理程式透過 WebSocket (AMQPWS) 使用 AMQP，以建立 IoT 中樞的初始連線。 
+在裝置本身的 yaml 檔案中設定 IoT Edge 代理程式的 UpstreamProtocol 變數。 例如, 如果您的 IoT Edge 裝置位於封鎖 AMQP 埠的 proxy 伺服器後方, 您可能需要將 IoT Edge 代理程式設定為使用 AMQP over WebSocket (AMQPWS), 以建立 IoT 中樞的初始連接。 
 
 一旦您的 IoT Edge 裝置連線，請務必在未來的部署中繼續設定這兩個執行階段模組的 UpstreamProtocol 變數。 [設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中提供此程序的範例。
 
@@ -77,32 +77,39 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 
 * **實用**
     * 與上游的通訊協定一致
-    * 減少 Edge 中樞使用的記憶體空間
+    * 設定系統模組的主機存放裝置
+    * 減少 IoT Edge 中樞所使用的記憶體空間
     * 請勿使用模組映像的偵錯版本
 
 ### <a name="be-consistent-with-upstream-protocol"></a>與上游的通訊協定一致
 
-如果您要設定 IoT Edge 裝置上的 Edge 代理程式使用預設 AMQP 以外的其他通訊協定，就應該在所有後續部署中宣告相同的通訊協定。 舉例來說，如果您的 IoT Edge 裝置位於封鎖 AMQP 連接埠的 Proxy 伺服器後方，可能是設定該裝置透過 WebSocket (AMQPWS) 使用 AMQP 連線。 將模組部署到裝置時，如果未針對 Edge 代理程式和 Edge 中樞設定相同的 APQPWS 通訊協定，預設的 AMQP 會覆寫此設定並防止您重新連線。 
+如果您將 IoT Edge 裝置上的 IoT Edge 代理程式設定為使用與預設 AMQP 不同的通訊協定, 您應該在所有未來的部署中宣告相同的通訊協定。 舉例來說，如果您的 IoT Edge 裝置位於封鎖 AMQP 連接埠的 Proxy 伺服器後方，可能是設定該裝置透過 WebSocket (AMQPWS) 使用 AMQP 連線。 當您將模組部署至裝置時, 請為 IoT Edge 代理程式和 IoT Edge 中樞設定相同的 APQPWS 通訊協定, 否則預設 AMQP 會覆寫設定, 並防止您再次連線。 
 
-您只需要針對 Edge 代理程式和 Edge 中樞模組設定 UpstreamProtocol 環境變數。 任何其他模組會採用執行階段模組中設定的任何通訊協定。 
+您只需要為 IoT Edge 代理程式和 IoT Edge 中樞模組設定 UpstreamProtocol 環境變數。 任何其他模組會採用執行階段模組中設定的任何通訊協定。 
 
 [設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊](how-to-configure-proxy-support.md)中提供此程序的範例。
 
-### <a name="reduce-memory-space-used-by-edge-hub"></a>減少 Edge 中樞使用的記憶體空間
+### <a name="set-up-host-storage-for-system-modules"></a>設定系統模組的主機存放裝置
 
-如果您正在部署可用記憶體有限的限制裝置，可以將 Edge 中樞設為採用更簡化的容量執行，並減少使用的磁碟空間。 不過這些設定會限制 Edge 中樞的效能，所以您可以找出解決方案適用的最佳平衡。 
+IoT Edge 的中樞和代理程式模組會使用本機儲存體來維護狀態, 並啟用模組、裝置和雲端之間的訊息傳遞。 為獲得更好的可靠性和效能, 請將系統模組設定為使用主機檔案系統上的存放裝置。
+
+如需詳細資訊, 請參閱[系統模組的主機存放裝置](offline-capabilities.md#host-storage-for-system-modules)。
+
+### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>減少 IoT Edge 中樞所使用的記憶體空間
+
+如果您要部署具有可用記憶體有限的受限裝置, 您可以將 IoT Edge hub 設定為以更簡化的容量執行, 並使用較少的磁碟空間。 不過, 這些設定會限制 IoT Edge 中樞的效能, 因此請尋找適用于您解決方案的正確平衡。 
 
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>請勿在受限裝置上進行效能最佳化
 
-根據預設，Edge 中樞已針對效能最佳化，而且會嘗試配置大量的記憶體。 這項設定會在 Raspberry Pi 等小型裝置上造成穩定性問題。 如果您正在部署資源有限的裝置，可以在 Edge 中樞上將 **OptimizeForPerformance** 環境變數設為 **false**。 
+根據預設, IoT Edge 中樞已針對效能優化, 因此它會嘗試配置大量的記憶體區塊。 這項設定會在 Raspberry Pi 等小型裝置上造成穩定性問題。 如果您要部署具有受限制資源的裝置, 您可能會想要在 IoT Edge 中樞上將**OptimizeForPerformance**環境變數設定為**false** 。 
 
 如需詳細資訊，請參閱[資源受限裝置的穩定性問題](troubleshoot.md#stability-issues-on-resource-constrained-devices)。
 
 #### <a name="disable-unused-protocols"></a>停用未使用的通訊協定
 
-最佳化 Edge 中樞效能並減少記憶體使用量的另一種方法是，針對解決方案中未使用的任何通訊協定關閉通訊協定標頭 (protocol head)。 
+另一種優化 IoT Edge 中樞效能並降低其記憶體使用量的方法, 就是關閉您的解決方案中未使用之任何通訊協定的通訊協定標頭。 
 
-通訊協定標頭的設定方式是針對您部署資訊清單中的 Edge 中樞模組，設定布林環境變數設定。 這三個變數分別是：
+通訊協定標頭是藉由在部署資訊清單中設定 IoT Edge 中樞模組的布林環境變數來設定。 這三個變數分別是：
 
 * **amqpSettings__enabled**
 * **mqttSettings__enabled**
@@ -112,7 +119,7 @@ IoT Edge 裝置可以是任何項目，包括 Raspberry Pi、膝上型電腦或�
 
 #### <a name="reduce-storage-time-for-messages"></a>減少訊息的儲存時間
 
-如果訊息因故無法傳遞到 IoT 中樞，Edge 中樞模組會暫時儲存訊息。 在未傳遞訊息過期之前，您可以設定 Edge 中樞保留訊息的時間。 如果您的裝置記憶體有問題，可以減少 Edge 中樞模組對應項中的 **timeToLiveSecs** 值。 
+IoT Edge 中樞模組會暫時儲存訊息 (如果因為任何原因而無法傳遞到 IoT 中樞)。 您可以設定 IoT Edge 中樞在未傳遞的訊息過期之前, 保留的時間長度。 如果您的裝置上有記憶體疑慮, 您可以降低 IoT Edge 中樞模組對應項中的**timeToLiveSecs**值。 
 
 timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。 
 
@@ -134,7 +141,7 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 ### <a name="use-tags-to-manage-versions"></a>使用標籤來管理版本
 
-標籤是您可用來區別版本的 docker 容器的 docker 概念。 標籤是類似 **1.0** 的尾碼，位於容器存放庫的末端。 例如 **mcr.microsoft.com/azureiotedge-agent:1.0**。 標籤可以變動，而且可以隨時更改並指向另一個容器，因此當您更新模組映像時，您的團隊應同意要遵循的慣例。 
+標記是一個 docker 概念, 可用來區分 docker 容器的版本。 標籤是類似 **1.0** 的尾碼，位於容器存放庫的末端。 例如 **mcr.microsoft.com/azureiotedge-agent:1.0**。 標籤可以變動，而且可以隨時更改並指向另一個容器，因此當您更新模組映像時，您的團隊應同意要遵循的慣例。 
 
 標籤也可協助您強制更新 IoT Edge 裝置。 當您將更新版模組推送至容器登錄時，請以遞增方式處理標記。 接著，將新部署和遞增的標籤一併推送到您的裝置。 容器引擎會將遞增的標籤辨識為新版本，並將最新的模組版本向下提取至您的裝置。 
 
@@ -144,16 +151,16 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 * **實用**
     * 檢閱輸出/輸入設定
-    * 允許清單連線
+    * 允許來自 IoT Edge 裝置的連線
     * 設定 Proxy 通訊
 
 ### <a name="review-outboundinbound-configuration"></a>檢閱輸出/輸入設定
 
 Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 在大部分的 IoT Edge 情節下，必要的連線只有三個。 容器引擎必須和容納模組映像的容器登錄連線。 IoT Edge 執行階段需要和 IoT 中樞連線才能擷取裝置組態資訊，以及傳送訊息和遙測。 如果您使用自動佈建，IoT Edge 精靈必須連線至裝置佈建服務。 如需詳細資訊，請參閱[防火牆和連接埠組態規則](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment)。
 
-### <a name="whitelist-connections"></a>允許清單連線
+### <a name="allow-connections-from-iot-edge-devices"></a>允許來自 IoT Edge 裝置的連線
 
-如果您的網路設定要求您明確地將 IoT Edge 裝置連線加入允許清單，請檢閱下列的 IoT Edge 元件清單：
+如果您的網路設定要求您明確地允許從 IoT Edge 裝置進行的連線, 請參閱下列 IoT Edge 元件清單:
 
 * **IoT Edge 代理程式**可能會透過 WebSockets 持續以 AMQP/MQTT 連線方式連線到 IoT 中樞。 
 * **IoT Edge 中樞**可能會透過 WebSockets 持續以 AMQP 連線或多種 MQTT 連線方式連線到 IoT 中樞。 
@@ -169,10 +176,10 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft 容器登錄 |
    | global.azure-devices-provisioning.net  | 443 | DPS 存取 (選用) |
-   | \*.azurecr.io | 443 | 個人和第三方容器登錄 |
+   | \*.azurecr.io | 443 | 個人和協力廠商容器登錄 |
    | \*.blob.core.windows.net | 443 | 映像差異的下載 | 
    | \*.azure-devices.net | 5671、8883、443 | IoT 中樞存取 |
-   | \*.docker.io  | 443 | Docker 中樞的存取 （選擇性） |
+   | \*.docker.io  | 443 | Docker Hub 存取 (選擇性) |
 
 ### <a name="configure-communication-through-a-proxy"></a>設定 Proxy 通訊
 
@@ -186,7 +193,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 ### <a name="set-up-logs-and-diagnostics"></a>設定記錄與診斷
 
-在 Linux 上的 IoT Edge 服務精靈做為日誌記錄驅動程式的預設值。 您可以使用命令列工具 `journalctl` 查詢精靈記錄。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-IoTEdgeLog` 查詢精靈記錄。 IoT Edge 模組使用 JSON 驅動程式進行記錄，這是預設值。  
+在 Linux 上, IoT Edge daemon 會使用日誌做為預設記錄驅動程式。 您可以使用命令列工具 `journalctl` 查詢精靈記錄。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-IoTEdgeLog` 查詢精靈記錄。 IoT Edge 模組會使用 JSON 驅動程式來進行記錄, 這是預設值。  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
@@ -194,13 +201,13 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 正在測試 IoT Edge 部署時，通常可以存取您的裝置來擷取記錄並進行疑難排解。 在部署情節中，可能不提供該選項。 請考慮要如何收集生產環境中的裝置相關資訊。 其中一個選項是使用能夠收集其他模組資訊，並將資訊傳送至雲端的記錄模組。 其中一個記錄模組範例是 [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics)，您也可以設計自己的專用模組。 
 
-### <a name="place-limits-on-log-size"></a>記錄檔大小會限制
+### <a name="place-limits-on-log-size"></a>記錄大小的限制
 
-根據預設，白鯨容器引擎不會設定容器記錄大小限制。 經過一段時間，這可能會導致裝置填滿記錄檔，而用盡磁碟空間。 請考慮下列選項，以避免這個問題：
+根據預設, Moby 容器引擎不會設定容器記錄大小限制。 經過一段時間, 這可能會導致裝置填滿記錄檔並耗盡磁碟空間。 請考慮下列選項來避免這種情況:
 
-**選項：設定適用於容器的所有模組的全域限制**
+**件設定適用于所有容器模組的全域限制**
 
-您可以限制容器引擎記錄檔選項中的所有容器記錄檔的大小。 下列範例會將記錄驅動程式設定為`json-file`（建議選項） 上的檔案數量和大小的限制：
+您可以限制容器引擎記錄檔選項中所有容器日誌的大小。 下列範例會將記錄驅動程式設定`json-file`為 (建議), 並限制檔案大小和數目:
 
     {
         "log-driver": "json-file",
@@ -210,18 +217,18 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
         }
     }
 
-新增 （或附加） 這項資訊至檔案，名為`daemon.json`，並將它用於您的裝置平台的正確位置。
+將此資訊新增 (或附加) 至名`daemon.json`為的檔案, 並將它放在您裝置平臺的正確位置。
 
 | 平台 | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
 
-Container 引擎必須重新啟動，變更才會生效。
+容器引擎必須重新開機, 變更才會生效。
 
-**選項：調整每個容器模組的記錄檔設定**
+**件調整每個容器模組的記錄檔設定**
 
-您可以在執行**createOptions**的每個模組。 例如:
+您可以在每個模組的**createOptions**中執行此動作。 例如:
 
     "createOptions": {
         "HostConfig": {
@@ -236,11 +243,11 @@ Container 引擎必須重新啟動，變更才會生效。
     }
 
 
-**在 Linux 系統上的其他選項**
+**Linux 系統上的其他選項**
 
-* 設定容器引擎，以將記錄傳送至`systemd`[日誌](https://docs.docker.com/config/containers/logging/journald/)藉由設定`journald`作為預設記錄驅動程式。 
+* 將設定為預設記錄驅動程式, `systemd`將容器引擎`journald`設定為將記錄傳送到[日誌](https://docs.docker.com/config/containers/logging/journald/)。 
 
-* 定期移除舊的記錄檔從您的裝置，藉由安裝 logrotate 工具。 使用下列檔案規格： 
+* 藉由安裝 logrotate 工具, 定期從您的裝置移除舊的記錄檔。 使用下列檔案規格： 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

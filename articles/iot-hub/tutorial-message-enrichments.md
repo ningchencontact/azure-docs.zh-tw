@@ -1,6 +1,6 @@
 ---
-title: 教學課程-使用 Azure IoT 中樞訊息類
-description: 示範如何使用適用於 Azure IoT 中樞訊息的訊息類教學課程
+title: 教學課程-使用 Azure IoT 中樞 message 擴充
+description: 示範如何針對 Azure IoT 中樞訊息使用 message 擴充的教學課程
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,29 +8,29 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: e4906bf9f2aead69c315ddb7b2e3b10489378d87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c115bf0ad21e905e998692fbbc175f5aa52b86d
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66259070"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014260"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>教學課程：使用 Azure IoT 中樞訊息類 （預覽）
+# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>教學課程：使用 Azure IoT 中樞 message 擴充 (預覽)
 
-*訊息類*是 IoT 中樞的能力*戳記*訊息之前訊息傳送至指定端點的其他資訊。 若要使用訊息類的其中一個原因是包含可用來簡化下游處理的資料。 比方說，豐富的裝置對應項標記的裝置遙測訊息可以減少客戶進行 API 呼叫這項資訊的裝置對應項上的負載。 如需詳細資訊，請參閱 <<c0> [ 概觀訊息類](iot-hub-message-enrichments-overview.md)。
+*Message 擴充*是 IoT 中樞在訊息傳送至指定的端點之前, 以其他資訊來*戳記*訊息的能力。 使用 message 擴充的其中一個原因是要包含可用於簡化下游處理的資料。 例如, 使用裝置對應項標記來擴充裝置遙測訊息, 可以降低客戶的負載, 讓裝置對應項 API 呼叫此資訊。 如需詳細資訊, 請參閱[message 擴充的總覽](iot-hub-message-enrichments-overview.md)。
 
-在本教學課程中，您可以使用 Azure CLI 設定資源，包括指向兩個不同的儲存體容器-的兩個端點**豐富**並**原始**。 接著，您使用[Azure 入口網站](https://portal.azure.com)若要設定來只會套用至訊息傳送至端點的訊息類**豐富**儲存體容器。 您將訊息傳送至 IoT 中樞，它會路由傳送至這兩個儲存體容器。 只有訊息傳送至的端點**豐富**會擴充儲存體容器。
+在本教學課程中, 您會使用 Azure CLI 來設定資源, 包括兩個指向兩個不同儲存體容器的端點- -擴充和**原始**。 然後, 您可以使用[Azure 入口網站](https://portal.azure.com), 將 message 擴充設定為只套用至使用擴充的儲存體容器傳送至端點的訊息。 您會將訊息傳送至 IoT 中樞, 並將其路由至兩個儲存體容器。 只有傳送至擴充儲存容器端點的訊息才會擴充。
 
-以下是完成本教學課程，您將執行的工作：
+若要完成本教學課程, 您將執行下列工作:
 
-**使用 IoT 中樞訊息類**
+**使用 IoT 中樞 message 擴充**
 > [!div class="checklist"]
-> * 使用 Azure CLI 建立資源--IoT 中樞、 儲存體帳戶有兩個端點和路由組態。
-> * 您可以使用 Azure 入口網站來設定訊息類。
-> * 執行應用程式，模擬 IoT 裝置將訊息傳送至中樞。
-> * 檢視結果，並確認訊息類如預期般運作。
+> * 使用 Azure CLI 建立資源--IoT 中樞、具有兩個端點的儲存體帳戶, 以及路由設定。
+> * 使用 Azure 入口網站來設定 message 擴充。
+> * 執行模擬 IoT 裝置的應用程式, 將訊息傳送至中樞。
+> * 查看結果, 並確認訊息擴充如預期般運作。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * 您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -38,49 +38,49 @@ ms.locfileid: "66259070"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="retrieve-the-sample-code"></a>擷取的範例程式碼
+## <a name="retrieve-the-sample-code"></a>取出範例程式碼
 
-下載[IoT 裝置模擬](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)並將它解壓縮。 此存放庫有數個應用程式，包括您將會的用來將訊息傳送至 IoT 中樞。
+下載[IoT 裝置模擬](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)並將其解壓縮。 此存放庫中有數個應用程式, 包括您將用來將訊息傳送至 IoT 中樞的其中一個。
 
-本下載也包含用於建立用來測試訊息類的資源指令碼。 指令碼位於 /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli。 現在，您可以查看 指令碼，並使用它。 您也可以直接從本文複製指令碼。
+此下載也包含用來建立用來測試訊息擴充之資源的腳本。 腳本位於/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli。 現在, 您可以查看腳本並加以使用。 您也可以直接從文章複製腳本。
 
-當您準備好開始測試時，您將使用裝置模擬應用程式，從這個下載，若要將訊息傳送至 IoT 中樞。
+當您準備好開始測試時, 您將使用此下載中的裝置模擬應用程式, 將訊息傳送至 IoT 中樞。
 
 ## <a name="set-up-and-configure-resources"></a>安裝和設定資源
 
-除了建立所需的資源，Azure CLI 指令碼也會設定兩個路由，是個別的儲存體容器的端點。 如需有關如何設定路由的詳細資訊，請參閱 <<c0> [ 路由的教學課程](tutorial-routing.md)。 資源會設定好之後，您會使用[Azure 入口網站](https://portal.azure.com)設定訊息類每個端點，並繼續進行測試的步驟。
+除了建立必要的資源之外, Azure CLI 腳本也會將兩個路由設定為個別儲存體容器的端點。 如需設定路由的詳細資訊, 請參閱[路由教學](tutorial-routing.md)課程。 設定資源之後, 您可以使用[Azure 入口網站](https://portal.azure.com)來為每個端點設定 message 擴充, 然後繼續進行測試步驟。
 
 > [!NOTE]
-> 所有訊息會路由都傳送至這兩個端點，但只將移至設定的訊息類端點的訊息會進行擴充。
+> 所有訊息都會路由傳送至這兩個端點, 但只有使用已設定之 message 擴充的訊息才會擴充。
 >
 
-您可以使用下列指令碼，或下載存放庫的 /resources 資料夾中開啟指令碼。 以下是指令碼會執行的步驟：
+您可以使用下列腳本, 或在下載的存放庫的/resources 資料夾中開啟腳本。 以下是腳本將執行的步驟:
 
 * 建立 IoT 中樞。
 * 建立儲存體帳戶。
-* 建立兩個容器位於儲存體帳戶-一個用於豐富的訊息，一個不豐富的訊息。
-* 設定兩個不同的儲存體帳戶的路由。
+* 在儲存體帳戶中建立兩個容器: 一個用於擴充的訊息, 另一個用於未擴充的訊息。
+* 設定兩個不同儲存體帳戶的路由。
     * 建立每個儲存體帳戶容器的端點。
     * 建立每個儲存體帳戶容器端點的路由。
 
-有數個資源名稱必須是全域唯一的，例如 IoT 中樞名稱和儲存體帳戶名稱。 若要讓執行指令碼更容易，那些資源的名稱會加上隨機英數字元值呼叫*randomValue*。 randomValue 會在指令碼頂端產生一次，並於需要時加到整個指令碼的資源名稱後面。 如果您不想使用隨機值，則可將其設定為空字串，或設定為特定值。
+有數個資源名稱必須是全域唯一的，例如 IoT 中樞名稱和儲存體帳戶名稱。 為了讓腳本更容易執行, 這些資源名稱會附加一個隨機的英數位元值, 稱為*randomValue*。 randomValue 會在指令碼頂端產生一次，並於需要時加到整個指令碼的資源名稱後面。 如果您不想使用隨機值，則可將其設定為空字串，或設定為特定值。
 
-如果您尚未這麼做，開啟[bash Cloud Shell 視窗。](https://shell.azure.com)。 開啟解壓縮的存放庫中的指令碼，請使用 Ctrl-A 可選取全部，則 Ctrl + C 可複製它。 或者，您可以複製下列的 CLI 指令碼，或直接在 cloud shell 中開啟它。 在 [Azure cloud shell] 視窗中貼上指令碼，在命令列上按一下滑鼠右鍵，然後選取**貼上**。 指令碼會執行一個陳述式，一次。 指令碼停止執行之後，請選取**Enter**以確定它執行的最後一個命令。 下列程式碼區塊顯示使用，以及說明它正在進行的註解的指令碼。
+如果您尚未這麼做, 請開啟 Bash 的[Cloud Shell 視窗](https://shell.azure.com)。 在解壓縮的存放庫中開啟腳本, 使用 Ctrl-A 來選取它, 然後按 Ctrl-C 加以複製。 或者, 您可以複製下列 CLI 腳本, 或直接在 cloud shell 中開啟它。 以滑鼠右鍵按一下命令列, 然後選取 [**貼**上], 將腳本貼到 Azure cloud shell 視窗中。 腳本會一次執行一個語句。 在腳本停止執行之後, 請選取**Enter**以確定它會執行最後一個命令。 下列程式碼區塊會顯示所使用的腳本, 並加上批註來說明它所執行的作業。
 
-以下是指令碼所建立的資源。 **豐富**表示資源的類訊息。 **原始**表示資源不豐富的訊息。
+以下是腳本所建立的資源。 擴充表示資源適用于具有擴充的訊息。 **原始**表示資源適用于未擴充的訊息。
 
 | 名稱 | 值 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
-| 容器名稱 | 原始  |
-| 容器名稱 | 擴充  |
-| IoT 裝置名稱 | Contoso-Test-Device |
+| 容器名稱 | 來源語言  |
+| 容器名稱 | 豐富  |
+| IoT 裝置名稱 | Contoso-測試-裝置 |
 | IoT 中樞名稱 | ContosoTestHubMsgEn |
 | 儲存體帳戶名稱 | contosostorage |
-| 端點名稱 1 | ContosoStorageEndpointOriginal |
-| 端點名稱 2 | ContosoStorageEndpointEnriched|
-| 路由名稱 1 | ContosoStorageRouteOriginal |
-| 路由名稱 2 | ContosoStorageRouteEnriched |
+| 端點名稱1 | ContosoStorageEndpointOriginal |
+| 端點名稱2 | ContosoStorageEndpointEnriched|
+| 路由名稱1 | ContosoStorageRouteOriginal |
+| 路由名稱2 | ContosoStorageRouteEnriched |
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account.
@@ -236,50 +236,50 @@ az iot hub route create \
   --condition $condition
 ```
 
-此時，資源都已啟動就緒和路由的設定。 您可以在入口網站中檢視訊息的路由組態和設定的訊息移至訊息類**豐富**儲存體容器。
+此時, 所有資源都已設定完成, 並已設定路由。 您可以在入口網站中查看訊息路由設定, 並針對傳送至擴充儲存體容器的訊息設定訊息擴充。
 
-### <a name="view-routing-and-configure-the-message-enrichments"></a>檢視路由及設定訊息類
+### <a name="view-routing-and-configure-the-message-enrichments"></a>查看路由和設定訊息擴充
 
-1. 移至您的 IoT 中樞，方法是選取**資源群組**，然後選取 設定本教學課程中的資源群組 (**ContosoResources_MsgEn**)。 在清單中找到 IoT 中樞，並加以選取。 選取 *訊息路由** 為 Iot 中樞。
+1. 選取 [**資源群組**], 然後選取在此教學課程中設定的資源群組 (**ContosoResources_MsgEn**), 以移至您的 IoT 中樞。 在清單中尋找 IoT 中樞並加以選取。 為 Iot 中樞選取 [*訊息路由*]。
 
    ![選取訊息路由](./media/tutorial-message-enrichments/select-iot-hub.png)
 
-   訊息路由的窗格就會有三個索引標籤-**路由**，**自訂端點**，並**擴充訊息**。 您可以瀏覽看到組態指令碼所設定的前兩個索引標籤。 您可以使用第三個索引標籤來新增訊息類。 讓我們來擴充訊息會進入呼叫的儲存體容器的端點**豐富**。 填寫名稱和值，然後選取 端點**ContosoStorageEndpointEnriched**從下拉式清單中。 以下是設定 IoT 中樞名稱新增至 「 訊息豐富 」 範例：
+   [訊息路由] 窗格有三個索引標籤:**路由**、**自訂端點**和擴充**訊息**。 您可以流覽前兩個索引標籤, 以查看腳本所設定的設定。 使用第三個索引標籤來新增訊息擴充。 讓我們針對稱為「擴充」的儲存體容器, 擴充前往端點的訊息。 填寫 [名稱] 和 [值], 然後從下拉式清單中選取端點**ContosoStorageEndpointEnriched** 。 以下是設定擴充的範例, 其會將 IoT 中樞名稱新增至訊息:
 
    ![新增第一個擴充](./media/tutorial-message-enrichments/add-message-enrichments.png)
 
-2. 將 ContosoStorageEndpointEnriched 端點清單中的這些值。
+2. 將這些值新增至 ContosoStorageEndpointEnriched 端點的清單。
 
-   | 名稱 | 值 | 端點 （下拉式清單中） |
+   | 名稱 | 值 | 端點 (下拉式清單) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | 裝置位置 | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   |Id | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
-   > 如果您的裝置並沒有對應項，您在這裡放入的值都將會為訊息類中值的字串加上戳記。 若要查看裝置對應項資訊，請移至您在入口網站的中樞，然後選取**IoT 裝置**，選取您的裝置，然後選取**裝置對應項**頁面的頂端。
+   > 如果您的裝置沒有對應項, 您在這裡放入的值將會被標記為 [訊息] 擴充中值的字串。 若要查看裝置對應項資訊, 請在入口網站中移至您的中樞, 然後選取 [ **IoT 裝置**], 選取您的裝置, 然後選取頁面頂端的 [**裝置**對應項]。
    >
-   > 您可以編輯新增的標記 （例如位置），並將它設定為特定值，如果您想要的對應項資訊。 如需詳細資訊，請參閱[了解和使用 Azure IoT 中樞的裝置對應項](iot-hub-devguide-device-twins.md)
+   > 您可以編輯對應項資訊來新增標記 (例如 location), 並視需要將它設定為特定值。 如需詳細資訊，請參閱[了解和使用 Azure IoT 中樞的裝置對應項](iot-hub-devguide-device-twins.md)
 
-3. 當您完成時，您的窗格看起來應該類似此映像：
+3. 當您完成時, 您的窗格看起來應該如下圖所示:
 
-   ![具有新增的所有類資料表](./media/tutorial-message-enrichments/all-message-enrichments.png)
+   ![已新增所有擴充的資料表](./media/tutorial-message-enrichments/all-message-enrichments.png)
 
-4. 選取 **套用**以儲存變更。
+4. 選取 [套用] 以儲存變更。
 
 ## <a name="send-messages-to-the-iot-hub"></a>將訊息傳送至 IoT 中樞
 
-既然訊息類端點，請執行將訊息傳送至 IoT 中樞模擬裝置應用程式設定。 中樞已設定規則，以達成下列目的：
+既然已針對端點設定了 message 擴充, 請執行模擬裝置應用程式, 將訊息傳送至 IoT 中樞。 中樞已設定完成下列規則:
 
-* 將訊息路由傳送至儲存體端點 ContosoStorageEndpointOriginal 不進行擴充，並會儲存在儲存體容器`original`。
+* 路由至儲存體端點 ContosoStorageEndpointOriginal 的訊息將不會擴充, 且會儲存在儲存體容器`original`中。
 
-* 會擴充並儲存在儲存體容器中將訊息路由傳送至儲存體端點 ContosoStorageEndpointEnriched `enriched`。
+* 路由傳送至儲存體端點 ContosoStorageEndpointEnriched 的訊息將會擴充並儲存在儲存體容器`enriched`中。
 
-模擬裝置應用程式是在解壓縮下載中的應用程式。 應用程式會將訊息傳送的每個在不同的訊息路由方法[路由的教學課程](tutorial-routing.md); 這包括 Azure 儲存體。
+模擬裝置應用程式是解壓縮下載中的其中一個應用程式。 應用程式會在[路由教學](tutorial-routing.md)課程中, 針對每個不同的訊息路由方法傳送訊息。這包括 Azure 儲存體。
 
-對解決方案檔案 (IoT_SimulatedDevice.sln) 按兩下以在 Visual Studio 中開啟程式碼，然後開啟 Program.cs。 替代`{your hub name}`IoT 中樞名稱。 IoT 中樞主機名稱的格式 **{您的中樞名稱}.azure-devices.net**。 本教學課程為中樞主機名稱**ContosoTestHubMsgEn.azure-devices.net**。 接下來，以取代`{device key}`的裝置金鑰儲存稍早時執行指令碼來建立的資源。
+對解決方案檔案 (IoT_SimulatedDevice.sln) 按兩下以在 Visual Studio 中開啟程式碼，然後開啟 Program.cs。 以`{your hub name}` IoT 中樞名稱取代。 IoT 中樞主機名稱的格式為 **{您的中樞名稱}. azure-devices.net**。 在本教學課程中, 中樞主機名稱是**ContosoTestHubMsgEn.azure-devices.net**。 接下來, `{device key}`使用您稍早在執行腳本來建立資源時所儲存的裝置金鑰來取代。
 
-如果您沒有裝置的金鑰，您可以從入口網站來進行擷取。 登入之後，請移至**資源群組**選取資源群組中，然後選取您的 IoT 中樞。 查看底下**IoT 裝置**測試裝置，然後選取您的裝置。 選取複製圖示旁**主索引鍵**將它複製到剪貼簿。
+如果您沒有裝置金鑰, 您可以從入口網站取得它。 登入之後, 移至 [**資源群組**], 選取您的資源群組, 然後選取您的 IoT 中樞。 查看測試裝置的 [ **IoT 裝置**], 然後選取您的裝置。 選取 [**主要金鑰**] 旁邊的複製圖示, 將它複製到剪貼簿。
 
    ```csharp
         static string myDeviceId = "contoso-test-device";
@@ -293,29 +293,29 @@ az iot hub route create \
 
 執行主控台應用程式。 請等待數分鐘。 正在傳送的訊息會顯示在應用程式的主控台畫面上。
 
-應用程式每一秒就會將最新裝置到雲端的訊息傳送至 IoT 中樞。 訊息包含 JSON 序列化的物件與裝置識別碼、溫度、溼度和訊息層級 (預設位置為 `normal`)。 它會將隨機指派的層級`critical`或`storage`，進而導致將訊息路由傳送至儲存體帳戶或預設端點。 若要傳送的訊息**豐富**會擴充儲存體帳戶中的容器。
+應用程式每一秒就會將最新裝置到雲端的訊息傳送至 IoT 中樞。 訊息包含 JSON 序列化的物件與裝置識別碼、溫度、溼度和訊息層級 (預設位置為 `normal`)。 它會隨機指派`critical`或`storage`的層級, 導致訊息路由傳送至儲存體帳戶或預設端點。 傳送至儲存體帳戶中擴充容器的訊息將會擴充。
 
-已傳送數個儲存體訊息之後，檢視資料。
+傳送數個儲存體訊息之後, 請查看資料。
 
-1. 選取 **資源群組**，然後尋找您的資源群組 (ContosoResourcesMsgEn) 並加以選取。
+1. 選取 [**資源群組**], 然後尋找您的資源群組 (ContosoResourcesMsgEn) 並加以選取。
 
-2. 選取您的儲存體帳戶 (contosostorage)。 然後選取**儲存體總管 （預覽）** 從左側的 [選取] 窗格。
+2. 選取您的儲存體帳戶 (contosostorage)。 然後從左側的 [選取範圍] 窗格中選取 [**儲存體總管 (預覽)** ]。
 
-   ![選取儲存體總管](./media/tutorial-message-enrichments/select-storage-explorer.png)
+   ![選取儲存體 explorer](./media/tutorial-message-enrichments/select-storage-explorer.png)
 
-   選取  **BLOB 容器**可查看兩個可用的容器。
+   選取 [ **BLOB 容器**], 以查看可使用的兩個容器。
 
-   ![請參閱儲存體帳戶中的容器](./media/tutorial-message-enrichments/show-blob-containers.png)
+   ![查看儲存體帳戶中的容器](./media/tutorial-message-enrichments/show-blob-containers.png)
 
-在容器中的訊息呼叫**豐富**已包含在訊息中的訊息類。 在容器中的訊息呼叫**原始**會有與沒有類未經處理的訊息。 向下切入至其中一個容器，直到元兇和開啟最新的訊息檔案，然後執行其他容器，以確認沒有任何類加入至該容器中的訊息相同的動作。
+名為「擴充」的容器中的訊息會在訊息中包含訊息擴充。 容器中的訊息 (稱為「**原始**」) 將會有未經擴充的原始訊息。 向下切入到其中一個容器, 直到您前往底部並開啟最新的訊息檔案, 然後對另一個容器執行相同動作, 以確認該容器中的訊息未新增任何擴充。
 
-當您查看已加強的訊息時，您應該會看到 「 我 IoT 中樞 」 的中樞名稱，以及位置和客戶識別碼，就像這樣：
+當您查看已擴充的訊息時, 您應該會看到 [我的 IoT 中樞] 具有中樞名稱, 以及 [位置] 和 [客戶識別碼], 如下所示:
 
 ```json
-{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","device location":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
+{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-而這裡是 unenriched 的訊息。 「 「 我 IoT 中樞 」，「 裝置位置 」 和"customerID"不會出現在這裡，因為這個端點有沒有類。
+以下是 unenriched 訊息。 「我的 IoT 中樞」、「devicelocation」和「customerID」不會顯示在這裡, 因為此端點沒有擴充。
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
@@ -323,7 +323,7 @@ az iot hub route create \
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您想要移除所有您已建立本教學課程中的資源，刪除資源群組。 此動作會同時刪除群組內含的所有資源。 在本例中，此動作會移除 IoT 中樞、儲存體帳戶和資源群組本身。
+如果您想要移除您在本教學課程中建立的所有資源, 請刪除資源群組。 此動作會同時刪除群組內含的所有資源。 在本例中，此動作會移除 IoT 中樞、儲存體帳戶和資源群組本身。
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>使用 Azure CLI 來清除資源
 
@@ -335,19 +335,19 @@ az group delete --name $resourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您可以設定及測試 IoT 中樞的訊息，請使用下列步驟來新增訊息類：
+在本教學課程中, 您已使用下列步驟來設定和測試將 message 擴充新增至 IoT 中樞訊息:
 
-**使用 IoT 中樞訊息類**
+**使用 IoT 中樞 message 擴充**
 > [!div class="checklist"]
-> * 使用 Azure CLI 建立資源--IoT 中樞、 儲存體帳戶，具有兩個 enendpoints 和路由組態。
-> * 您可以使用 Azure 入口網站來設定訊息類。
-> * 執行應用程式，模擬的 IoT 裝置傳送訊息至中樞。
-> * 檢視結果，並確認訊息類如預期般運作。
+> * 使用 Azure CLI 建立資源--IoT 中樞、具有兩個 enendpoints 的儲存體帳戶, 以及路由設定。
+> * 使用 Azure 入口網站來設定 message 擴充。
+> * 執行可模擬 IoT 裝置傳送訊息至中樞的應用程式。
+> * 查看結果, 並確認訊息擴充如預期般運作。
 
-如需訊息類的詳細資訊，請參閱[概觀訊息類](iot-hub-message-enrichments-overview.md)。
+如需有關 message 擴充的詳細資訊, 請參閱[message 擴充的總覽](iot-hub-message-enrichments-overview.md)。
 
-如需訊息路由的詳細資訊，請參閱下列文章：
+如需訊息路由的詳細資訊, 請參閱下列文章:
 
-* [使用 IoT 中樞訊息路由來傳送裝置到雲端訊息至不同的端點](iot-hub-devguide-messages-d2c.md)
+* [使用 IoT 中樞訊息路由將裝置到雲端訊息傳送至不同的端點](iot-hub-devguide-messages-d2c.md)
 
-* [教學課程：路由的 IoT 中樞](tutorial-routing.md)
+* [教學課程：IoT 中樞路由](tutorial-routing.md)

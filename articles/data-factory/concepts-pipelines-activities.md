@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65788663"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976751"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管道及活動
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -59,6 +59,8 @@ Azure Data Factory 支援下列可個別或與其他活動鏈結而新增至管�
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [自訂程式碼](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
+[Databricks Jar 活動](transform-data-databricks-jar.md) | Azure Databricks
+[Databricks Python 活動](transform-data-databricks-python.md) | Azure Databricks
 
 如需詳細資訊，請參閱[資料轉換活動](transform-data.md)一文。
 
@@ -94,15 +96,15 @@ Azure Data Factory 支援下列可個別或與其他活動鏈結而新增至管�
 }
 ```
 
-Tag | 描述 | type | 必要項
+標記 | 描述 | Type | 必要項
 --- | ----------- | ---- | --------
 name | 管線的名稱。 指定代表管線所執行之動作的名稱。 <br/><ul><li>字元數目上限︰140</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\”</li></ul> | String | 是
 description | 指定說明管線用途的文字。 | String | 否
 activities | [**activities**] 區段內可以有一或多個已定義的活動。 如需活動 JSON 元素的詳細資料，請參閱[Activity JSON](#activity-json) 一節。 | Array | 是
-parameters | **parameters** 區段可以在管道內定義一或多個參數，讓管道變得更有彈性而可重複使用。 | List | 否
+參數 | **parameters** 區段可以在管道內定義一或多個參數，讓管道變得更有彈性而可重複使用。 | List | 否
 
 ## <a name="activity-json"></a>活動 JSON
-[ **活動** ] 區段內可以有一或多個已定義的活動。 活動可分為兩種主要類型：執行和控制活動。
+[**activities**] 區段內可以有一或多個已定義的活動。 活動可分為兩種主要類型：執行和控制活動。
 
 ### <a name="execution-activities"></a>執行活動
 執行活動包括[資料移動活動](#data-movement-activities)和[資料轉換活動](#data-transformation-activities)。 這些活動具有下列最上層結構：
@@ -127,7 +129,7 @@ parameters | **parameters** 區段可以在管道內定義一或多個參數，�
 
 下表說明活動 JSON 定義內的屬性：
 
-Tag | 描述 | 必要項
+標記 | 描述 | 必要項
 --- | ----------- | ---------
 name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li></ul>
 description | 說明活動用途的文字 | 是
@@ -170,9 +172,9 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
 
 JSON 名稱 | 描述 | 允許的值 | 必要項
 --------- | ----------- | -------------- | --------
-timeout | 指定活動執行的逾時。 | Timespan | 資料分割 預設逾時為 7 天。
-retry | 重試次數上限 | 整數 | 資料分割 預設值為 0
-retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數 | 資料分割 預設值為 30 秒
+逾時 | 指定活動執行的逾時。 | 時間範圍 | 資料分割 預設逾時為 7 天。
+重試 | 重試次數上限 | 整數 | 資料分割 預設值為 0
+retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數 | 資料分割 預設值為30秒
 secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不會記錄到監視。 | Boolean | 資料分割 預設值為 false。
 
 ### <a name="control-activity"></a>控制活動
@@ -192,7 +194,7 @@ secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不�
 }
 ```
 
-Tag | 描述 | 必要項
+標記 | 描述 | 必要項
 --- | ----------- | --------
 name | 活動的名稱。 指定代表活動所執行之動作的名稱。<br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li><ul>
 description | 說明活動用途的文字 | 是
@@ -212,7 +214,7 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
 - 活動 B 對於活動 A 具有相依性條件**已完成**：活動 B 會在活動 A 的最終狀態為已完成時執行
 - 活動 B 對於活動 A 具有相依性條件**略過**：活動 B 會在活動 A 的最終狀態為略過時執行。 「略過」發生於活動 X -> 活動 Y -> 活動 Z 的情節中，每個活動只有在前一個活動成功時才會執行。 如果活動 X 失敗，則活動 Y 的狀態為「略過」，因為永遠不會執行。 同樣地，活動 Z 的狀態也是「略過」。
 
-#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>範例：活動 2 相依於活動 1 成功
+#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>範例:活動 2 相依於活動 1 成功
 
 ```json
 {

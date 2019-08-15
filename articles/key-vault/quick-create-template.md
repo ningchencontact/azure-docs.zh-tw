@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: b27caa3d91d67ad63bfbf5e7c549d690980cdd7b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016469"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934445"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>快速入門：使用 Resource Manager 範本從 Azure Key Vault 設定及擷取祕密
 
@@ -102,6 +102,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Key Vault 首頁](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault 文件](https://docs.microsoft.com/azure/key-vault/)
+* [Azure Key Vault 文件](index.yml)
 * [Azure SDK For Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
 * [Azure REST API 參考](https://docs.microsoft.com/rest/api/keyvault/)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0f7eb1f5662ce0b901af2fd82a75556cacbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b95c6defcef7fdc112487988fc9bdd1ea3bb59c2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095593"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>教學課程：Azure Active Directory 與 Opal 整合
 
@@ -112,7 +112,7 @@ ms.locfileid: "67095593"
     > [!NOTE]
     > [回覆 URL] 不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Opal 用戶端支援小組](mailto:support@workwithopal.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. Opal 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
+5. Opal 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 
@@ -212,7 +212,7 @@ ms.locfileid: "67095593"
 
 ### <a name="create-opal-test-user"></a>建立 Opal 測試使用者
 
-在本節中，您會在 Opal 中建立名為 Britta Simon 的使用者。 請與 [Opal 支援小組](mailto:support@workwithopal.com)合作，在 Opal 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Opal 中建立名為 Britta Simon 的使用者。 請與 [Opal 支援小組](mailto:support@workwithopal.com)合作，以在 Opal 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 82d231eff4690dc060c01d41356933693d08c443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0a513ad8fe772839813615d065616f2c911a031
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67093265"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>教學課程：Azure Active Directory 與 Recognize 整合
 
@@ -101,7 +101,7 @@ ms.locfileid: "67093265"
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 如果您有 服務提供者中繼資料檔案 **** ，請在 [基本 SAML 組態] **** 區段上執行下列步驟：
+4. 如果您有**服務提供者中繼資料檔案**，請在 [基本 SAML 設定]  區段上執行下列步驟：
 
     >[!NOTE]
     >您會從本教學課程的**設定 Recognize 單一登入**一節中取得**服務提供者中繼資料檔案**。

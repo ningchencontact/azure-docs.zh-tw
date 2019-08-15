@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2cd7c8e24571f66fa73ceaa9a70ce33d6105e9c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258824"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017747"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排存取控制
 
@@ -51,13 +51,13 @@ SAS 會根據授權規則保護對服務匯流排的存取。 這些規則會設
 
 命名空間或實體原則最多可包含 12 個共用存取授權規則，而提供三組規則的空間，每組規則分別涵蓋基本權限以及「傳送」與「接聽」的組合。 此限制強調 SAS 原則存放區不應為使用者或服務帳戶存放區。 如果您的應用程式需要根據使用者或服務身分識別授與服務匯流排的存取權，則應實作會在驗證和存取檢查後發行 SAS 權杖的安全性權杖服務。
 
-授權規則會被指派「主要金鑰」  和「次要金鑰」  。 這些是密碼編譯增強式金鑰。 請勿遺失或洩漏金鑰 - 它們永遠都可在 [Azure 入口網站][Azure portal]取得。 您可以使用其中一個產生的金鑰，以及您可以隨時重新產生它們。 如果您重新產生或變更原則中的金鑰，所有先前根據該金鑰發行的權杖都將立即無效。 不過，根據這類權杖建立的作用中連線會繼續運作，直到權杖到期。
+授權規則會被指派「主要金鑰」和「次要金鑰」。 這些是密碼編譯增強式金鑰。 不會遺失或洩漏它們-它們一律會在[Azure 入口網站][Azure portal]中提供。 您可以使用其中一個產生的金鑰，以及您可以隨時重新產生它們。 如果您重新產生或變更原則中的金鑰，所有先前根據該金鑰發行的權杖都將立即無效。 不過，根據這類權杖建立的作用中連線會繼續運作，直到權杖到期。
 
-當您建立服務匯流排命名空間時，系統會自動為命名空間建立名為 **RootManageSharedAccessKey** 的原則規則。 此原則具有整個命名空間的「管理」權限。 建議您將此規則視為系統管理**根**帳戶，且不要將其用於您的應用程式。 您可以在入口網站中，透過 Powershell 或 Azure CLI 在命名空間的 [設定]  索引標籤中建立額外的原則規則。
+當您建立服務匯流排命名空間時，系統會自動為命名空間建立名為 **RootManageSharedAccessKey** 的原則規則。 此原則具有整個命名空間的「管理」權限。 建議您將此規則視為系統管理**根**帳戶，且不要將其用於您的應用程式。 您可以在入口網站中，透過 Powershell 或 Azure CLI 在命名空間的 [設定] 索引標籤中建立額外的原則規則。
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>共用存取簽章驗證的設定
 
-您可以在服務匯流排命名空間、佇列或主題上設定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 規則。 目前不支援在服務匯流排訂用帳戶上設定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ，但是您可以使用在命名空間或主題上設定的規則來保護訂用帳戶的存取安全。 如需可說明此程序的實用範例，請參閱 [搭配使用共用存取簽章 (SAS) 驗證與服務匯流排訂用帳戶](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 範例。
+您可以在服務匯流排命名空間、佇列或主題上設定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 規則。 目前不支援在服務匯流排訂用帳戶上設定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ，但是您可以使用在命名空間或主題上設定的規則來保護訂用帳戶的存取安全。 如需說明此程式的實用範例, 請參閱[管理 Azure 服務匯流排佇列](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule)範例。
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -88,7 +88,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 資源 URI 是宣告其存取權之服務匯流排資源的完整 URI。 例如，`http://<namespace>.servicebus.windows.net/<entityPath>` 或 `sb://<namespace>.servicebus.windows.net/<entityPath>`；也就是 `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`。 
 
-**URI 必須是[百分比編碼](https://msdn.microsoft.com/library/4fkewx0t.aspx)。**
+**URI 必須以[百分比編碼](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8)。**
 
 用於簽署的共用存取授權規則必須設定於此 URI 或其中一個階層式上層所指定的實體。 例如，先前範例中的 `http://contoso.servicebus.windows.net/contosoTopics/T1` 或 `http://contoso.servicebus.windows.net`。
 
@@ -104,8 +104,8 @@ SAS 權杖適用於所有以 `signature-string` 中所使用的 `<resourceURI>` 
 
 下方說明的案例包括授權規則的設定、SAS 權杖的產生以及用戶端授權。
 
-如需服務匯流排應用程式的完整工作範例，以便了解相關設定及使用 SAS 授權，請參閱 [共用存取簽章驗證與服務匯流排](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)。 以下提供相關的範例，說明如何使用在命名空間或主題上設定的 SAS 授權規則來保護服務匯流排訂用帳戶︰[使用共用存取簽章 (SAS) 驗證與服務匯流排訂用帳戶](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)。
-
+如需說明設定並使用 SAS 授權之服務匯流排應用程式的完整工作範例, 請參閱 GitHub 存放庫中的下列範例:[管理 Azure 服務匯流排的佇列](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule)。
+ 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>存取實體上的共用存取授權規則
 
 藉由服務匯流排 .NET Framework 程式庫，您可以透過對應的 [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 或 [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) 中的 [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) 集合，存取服務匯流排佇列或主題上設定的 [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 物件。
@@ -185,7 +185,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 開始將資料傳送到服務匯流排之前，發行者必須在 AMQP 訊息內部將 SAS 權杖傳送至正確定義且名為 **$cbs** 的 AMQP 節點 (您可以將它視為一個由服務所使用的「特別」佇列，用來取得並驗證所有的 SAS 權杖)。 發行者必須在 AMQP 訊息中指定 **ReplyTo** 欄位；這是服務將以權杖驗證結果 (發行者與服務之間的簡單要求/回覆模式) 回覆發行者的節點所在。 此回覆節點是「動態」建立，如 AMQP 1.0 規格中所述的「動態建立遠端節點」。 檢查 SAS 權杖有效之後，發行者可以繼續並開始將資料傳送至服務。
 
-下列步驟示範如何使用 AMQP 通訊協定使用 SAS 權杖傳送[AMQP.NET Lite](https://github.com/Azure/amqpnetlite)程式庫。 這是很有用，如果您無法使用官方 （例如在 WinRT、.NET Compact Framework、.NET Micro Framework 和 Mono） 的服務匯流排 SDK 開發 c\#。 當然，此程式庫對於了解宣告型安全性如何在 AMQP 層級運作非常有用，如同您了解其如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。 如果您不需要深入了解 AMQP，您可以使用.NET Framework 應用程式，將會替您的官方服務匯流排 SDK。
+下列步驟示範如何使用[AMQP.NET Lite](https://github.com/Azure/amqpnetlite)程式庫, 傳送具有 AMQP 通訊協定的 SAS 權杖。 如果您無法使用官方服務匯流排 SDK (例如在 WinRT、.NET Compact Framework、.NET 微架構和 Mono 上) 以 C\#進行開發, 這會很有用。 當然，此程式庫對於了解宣告型安全性如何在 AMQP 層級運作非常有用，如同您了解其如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。 如果您不需要 AMQP 的這類深入知識, 可以將官方服務匯流排 SDK 與 .NET Framework 應用程式搭配使用, 這會為您提供。
 
 ### <a name="c35"></a>C&#35;
 
@@ -238,7 +238,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-上述 `PutCbsToken()` 方法會接收代表服務之 TCP 連線的 *connection* ([AMQP .NET Lite 程式庫](https://github.com/Azure/amqpnetlite)所提供的 AMQP 連接類別執行個體) 以及要做為 SAS 權杖傳送的 sasToken  參數。
+上述 `PutCbsToken()` 方法會接收代表服務之 TCP 連線的 *connection* ([AMQP .NET Lite 程式庫](https://github.com/Azure/amqpnetlite)所提供的 AMQP 連接類別執行個體) 以及要做為 SAS 權杖傳送的 sasToken 參數。
 
 > [!NOTE]
 > 請務必以**設為 ANONYMOUS 的 SASL 驗證機制** (而非當您不需要傳送 SAS 權杖時所使用且包含使用者名稱與密碼的預設 PLAIN) 建立連線。
@@ -261,7 +261,7 @@ AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。 SAS 權�
 | 在命名空間上設定授權規則 |管理 |任何命名空間位址 |
 | **服務登錄** | | |
 | 列舉私人原則 |管理 |任何命名空間位址 |
-| 開始在命名空間上接聽 |接聽 |任何命名空間位址 |
+| 開始在命名空間上接聽 |待命 |任何命名空間位址 |
 | 將訊息傳送至命名空間上的接聽程式 |傳送 |任何命名空間位址 |
 | **佇列** | | |
 | 建立佇列 |管理 |任何命名空間位址 |
@@ -270,13 +270,13 @@ AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。 SAS 權�
 | 取得佇列描述 |管理 |任何有效的佇列位址 |
 | 設定佇列的授權規則 |管理 |任何有效的佇列位址 |
 | 傳送到佇列中 |傳送 |任何有效的佇列位址 |
-| 從佇列接收訊息 |接聽 |任何有效的佇列位址 |
-| 在 peek-lock 模式中接收訊息後放棄或完成訊息 |接聽 |任何有效的佇列位址 |
-| 延遲訊息以便稍後擷取 |接聽 |任何有效的佇列位址 |
-| 讓訊息寄不出去 |接聽 |任何有效的佇列位址 |
-| 取得與訊息佇列工作階段相關聯的狀態 |接聽 |任何有效的佇列位址 |
-| 設定與訊息佇列工作階段相關聯的狀態 |接聽 |任何有效的佇列位址 |
-| 排程訊息以供日後傳遞，例如，[ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |接聽 | 任何有效的佇列位址
+| 從佇列接收訊息 |待命 |任何有效的佇列位址 |
+| 在 peek-lock 模式中接收訊息後放棄或完成訊息 |待命 |任何有效的佇列位址 |
+| 延遲訊息以便稍後擷取 |待命 |任何有效的佇列位址 |
+| 讓訊息寄不出去 |待命 |任何有效的佇列位址 |
+| 取得與訊息佇列工作階段相關聯的狀態 |待命 |任何有效的佇列位址 |
+| 設定與訊息佇列工作階段相關聯的狀態 |待命 |任何有效的佇列位址 |
+| 排程訊息以供日後傳遞，例如，[ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |待命 | 任何有效的佇列位址
 | **主題** | | |
 | 建立主題 |管理 |任何命名空間位址 |
 | 刪除主題 |管理 |任何有效的主題位址 |
@@ -289,11 +289,11 @@ AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。 SAS 權�
 | 刪除訂用帳戶 |管理 |../myTopic/Subscriptions/mySubscription |
 | 列舉訂用帳戶 |管理 |../myTopic/Subscriptions |
 | 取得訂用帳戶描述 |管理 |../myTopic/Subscriptions/mySubscription |
-| 在 peek-lock 模式中接收訊息後放棄或完成訊息 |接聽 |../myTopic/Subscriptions/mySubscription |
-| 延遲訊息以便稍後擷取 |接聽 |../myTopic/Subscriptions/mySubscription |
-| 讓訊息寄不出去 |接聽 |../myTopic/Subscriptions/mySubscription |
-| 取得與主題工作階段相關聯的狀態 |接聽 |../myTopic/Subscriptions/mySubscription |
-| 設定與主題工作階段相關聯的狀態 |接聽 |../myTopic/Subscriptions/mySubscription |
+| 在 peek-lock 模式中接收訊息後放棄或完成訊息 |待命 |../myTopic/Subscriptions/mySubscription |
+| 延遲訊息以便稍後擷取 |待命 |../myTopic/Subscriptions/mySubscription |
+| 讓訊息寄不出去 |待命 |../myTopic/Subscriptions/mySubscription |
+| 取得與主題工作階段相關聯的狀態 |待命 |../myTopic/Subscriptions/mySubscription |
+| 設定與主題工作階段相關聯的狀態 |待命 |../myTopic/Subscriptions/mySubscription |
 | **規則** | | |
 | 建立規則 |管理 |../myTopic/Subscriptions/mySubscription |
 | 刪除規則 |管理 |../myTopic/Subscriptions/mySubscription |

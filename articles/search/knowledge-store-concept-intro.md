@@ -1,7 +1,7 @@
 ---
 title: 知識存放區簡介 (預覽) - Azure 搜尋服務
 description: 將擴充的文件傳送到 Azure 搜尋服務，您可以從該處檢視、調整及取用 Azure 搜尋服務和其他應用程式中的擴充文件。
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 107478f7e2d3c6726d3b8fb9c503ef13271c6571
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 8605a2c954eec2a57925557f8823a3614ebdc266
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840828"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013385"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>什麼是 Azure 搜尋服務中的知識存放區？
 

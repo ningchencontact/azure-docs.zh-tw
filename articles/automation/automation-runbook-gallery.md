@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ef739a7053fffdd45c6d5e144ae736429597a4f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5daa1cf04e04507174fa480c785bd15b656541a1
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850486"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019097"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 
@@ -99,6 +99,15 @@ PowerShell 模組包含您可以在 Runbook 中使用的 Cmdlet，您可以安�
 ## <a name="requesting-a-runbook-or-module"></a>要求 Runbook 或模組
 
 您可以將要求傳送至 [使用者心聲](https://feedback.azure.com/forums/246290-azure-automation/)。  如果您需要協助撰寫 Runbook 或有關於 PowerShell 的問題，請將問題張貼至我們的[論壇](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc) \(英文\)。
+
+## <a name="common-solutions-available-in-the-runbook-gallery"></a>Runbook 資源庫中可用的一般解決方案
+
+下列清單包含一些 runbook, 可提供常見案例的解決方案。 如需 Azure 自動化小組所建立之 runbook 的完整清單, 請參閱[AzureAutomationTeam profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam)。
+
+* [Update-modulesinautomationtolatestversion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) -匯入自動化帳戶中所有模組 PowerShell 資源庫上的最新版本。
+* [AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) -此腳本會將 Azure 診斷和 Log Analytics 設定為接收包含作業狀態和作業串流 Azure 自動化記錄。
+* [複製-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) -此 runbook 會從 Windows Azure 虛擬機器複製遠端檔案。
+* [複製-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) -此 runbook 會將本機檔案複製到 Azure 虛擬機器。
 
 ## <a name="next-steps"></a>後續步驟
 

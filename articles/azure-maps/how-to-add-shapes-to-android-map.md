@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 53bc9f14b91bafd69d3c67745f6b981f4faea991
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c8e3f16b939d05a4c055fba3a9f1ab5e47e54070
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881671"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976586"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>使用 Azure 地圖服務 Android SDK 將圖形新增至地圖
 
@@ -355,7 +355,13 @@ ms.locfileid: "68881671"
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱下列文章, 以深入瞭解設定地圖樣式的方式
+若要將更多資料新增至您的對應:
+
+> [!div class="nextstepaction"]
+> [新增符號圖層](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [新增圖格圖層](how-to-add-tile-layer-android-map.md)
+
+> [!div class="nextstepaction"]
+> [顯示功能資訊](display-feature-information-android.md)

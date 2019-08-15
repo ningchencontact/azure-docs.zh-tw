@@ -12,16 +12,20 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 1e55d1878b1a5616d467f2fa27b1b20132d5e77c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 51f67667caa9e0e564709de40c145b107c619b59
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516995"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015999"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS Integration Runtime 的 Azure Active Directory 驗證
 
-本文說明如何使用適用于您 Azure Data Factory (ADF) 的受控識別來啟用 Azure Active Directory (Azure AD) 驗證, 並使用它來取代 SQL 驗證, 以建立將提供的 Azure SSIS Integration Runtime (IR)Azure SQL Database server/受控執行個體中的 SSIS 目錄資料庫 (SSISDB) 代表您。
+本文說明如何使用適用于您 Azure Data Factory (ADF) 的受控識別來啟用 Azure Active Directory (Azure AD) 驗證, 並使用它來取代傳統驗證方法 (例如 SQL 驗證) 來執行下列動作:
+
+- 建立 Azure SSIS Integration Runtime (IR), 以代表您在 Azure SQL Database server/受控執行個體中提供 SSIS 目錄資料庫 (SSISDB)。
+
+- 在 Azure SSIS IR 上執行 SSIS 套件時, 連接到各種 Azure 資源。
 
 如需 ADF 受控識別的詳細資訊, 請參閱[managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
 
@@ -214,4 +218,14 @@ Azure SQL Database 伺服器支援由 Azure AD 使用者建立資料庫。 首�
     Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                  -DataFactoryName $DataFactoryName `
                                                  -Name $AzureSSISName
-   ```
+    ```
+
+## <a name="run-ssis-packages-with-managed-identity-authentication"></a>使用受控識別驗證執行 SSIS 套件
+
+當您在 Azure SSIS IR 上執行 SSIS 套件時, 您可以使用受控識別驗證來連接到各種 Azure 資源。 目前我們已支援下列連線管理員中的受控識別驗證。
+
+- [OLE DB 連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)
+
+- [ADO.NET 連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/ado-net-connection-manager#managed-identities-for-azure-resources-authentication)
+
+- [Azure 儲存體連線管理員](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication)

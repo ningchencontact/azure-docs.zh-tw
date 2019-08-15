@@ -2,18 +2,17 @@
 title: 了解 Azure IoT 中樞配額和節流 | Microsoft Docs
 description: 開發人員指南 - 說明適用於 IoT 中樞的配額和預期的節流行為。
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 1c19696b10584bc55989b9270978486d7f5aa157
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 08/08/2019
+ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326731"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950533"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
@@ -82,7 +81,7 @@ ms.locfileid: "68326731"
 
 ### <a name="device-connections-throttle"></a>裝置連接節流
 
-「裝置連線」  節流會控制新裝置可與 IoT 中樞建立連線的速率。 「裝置連線」  節流不會控制同時連線裝置的數目上限。 「裝置連線」  速率節流受制於為 IoT 中樞佈建的單位數。
+「裝置連線」節流會控制新裝置可與 IoT 中樞建立連線的速率。 「裝置連線」節流不會控制同時連線裝置的數目上限。 「裝置連線」速率節流受制於為 IoT 中樞佈建的單位數。
 
 例如，若您購買單一 S1 單位，則得到每秒 100 個連線的節流。 因此, 若要連接100000裝置, 至少需要1000秒 (約16分鐘)。 不過，若您已將裝置登錄在您的身分識別登錄中，則可以有任意數量的同時連線裝置。
 
@@ -96,7 +95,8 @@ IoT 中樞會強制執行其他操作限制：
 | 檔案上傳 | 每個裝置10個並行檔案上傳。 |
 | 作業<sup>1</sup> | 並行作業的最大值為 1 (免費和 S1)、5 (適用于 S2) 和 10 (適用于 S3)。 不過, 所有層的並行[裝置匯入/匯出作業](iot-hub-bulk-identity-mgmt.md)數上限為1。 <br/>作業歷程記錄會保留最多30天。 |
 | 額外端點 | 付費 SKU 中樞包含 10 個額外端點。 免費 SKU 中樞包含 1 個額外端點。 |
-| 訊息路由規則 | 付費 SKU 中樞包含 100 個路由規則。 免費 SKU 中樞包含 5 個路由規則。 |
+| 訊息路由查詢 | 付費 SKU 中樞可能會有100的路由查詢。 免費的 SKU 中樞可能有五個路由查詢。 |
+| 訊息擴充 | 付費 SKU 中樞最多可以有10個訊息擴充。 免費的 SKU 中樞最多可以有2個訊息擴充。|
 | 裝置到雲端傳訊 | 訊息大小上限為 256 KB |
 | 雲端到裝置的傳訊<sup>1</sup> | 訊息大小上限為 64 KB。 每個裝置的傳遞擱置訊息上限為50。 |
 | 直接方法<sup>1</sup> | 直接方法承載的大小上限為 128 KB。 |
@@ -110,7 +110,7 @@ IoT 中樞會強制執行其他操作限制：
 
 在任何指定的時間, 您都可以藉由[增加 IoT 中樞內布建的單位數](iot-hub-upgrade.md)來增加配額或節流限制。
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>延遲
 
 IoT 中樞會努力地為所有作業提供低延遲的服務。 不過, 由於網路狀況和其他無法預測的因素, 它無法保證特定的延遲。 設計您的解決方案時，您應該：
 

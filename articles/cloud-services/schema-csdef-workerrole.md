@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: ac1cce61a9b9b22c079066147d6a318f778999db
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "62095399"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945867"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure 雲端服務定義 WorkerRole 結構描述
 Azure 背景工作角色是適用於一般開發的角色，並可為 Web 角色執行背景處理。
@@ -153,7 +153,7 @@ Azure 背景工作角色是適用於一般開發的角色，並可為 Web 角色
 | --------- | ---- | ----------- |
 |name|string|必要項。 背景工作角色的名稱。 角色的名稱必須是唯一的。|
 |enableNativeCodeExecution|boolean|選擇性。 預設值是 `true`；預設會啟用機器碼執行和完全信任。 將此屬性設為 `false` 會停用背景工作角色的機器碼執行，並改用 Azure 部分信任。|
-|vmsize|string|選擇性。 設定此值可變更對這個角色所配置的虛擬機器大小。 預設值是 `Small`。 如需可能的虛擬機器大小和其屬性清單，請參閱[雲端服務的虛擬機器大小](cloud-services-sizes-specs.md)。|
+|vmsize|string|選擇性。 設定此值可變更對這個角色所配置的虛擬機器大小。 預設值為 `Small`。 如需可能的虛擬機器大小和其屬性清單，請參閱[雲端服務的虛擬機器大小](cloud-services-sizes-specs.md)。|
 
 ##  <a name="ConfigurationSettings"></a> ConfigurationSettings
 `ConfigurationSettings` 元素會說明背景工作角色之組態設定的集合。 此元素是 `Setting` 元素的父代。
@@ -281,7 +281,7 @@ Azure 背景工作角色是適用於一般開發的角色，並可為 Web 角色
 |name|string|必要項。 此憑證的名稱，當與 HTTPS `InputEndpoint` 元素相關聯時，會用來參考它。|
 |storeLocation|string|必要項。 可在本機電腦上找到此憑證的憑證存放區位置。 可能的值為 `CurrentUser` 與 `LocalMachine`。|
 |storeName|string|必要項。 可在本機電腦上找到此憑證的憑證存放區名稱。 可能的值包括內建存放區名稱 `My`、`Root`、`CA`、`Trust`、`Disallowed`、`TrustedPeople`、`TrustedPublisher`、`AuthRoot`、`AddressBook` 或任何自訂存放區名稱。 如果指定自訂存放區名稱，則會自動建立該存放區。|
-|permissionLevel|string|選擇性。 指定提供給角色處理序的存取權限。 如果您希望只有提升權限的處理序能夠存取私密金鑰，則請指定 `elevated` 權限。 `limitedOrElevated` 權限可讓所有角色處理序存取私密金鑰。 可能的值為 `limitedOrElevated` 或 `elevated`。 預設值是 `limitedOrElevated`。|
+|permissionLevel|string|選擇性。 指定提供給角色處理序的存取權限。 如果您希望只有提升權限的處理序能夠存取私密金鑰，則請指定 `elevated` 權限。 `limitedOrElevated` 權限可讓所有角色處理序存取私密金鑰。 可能的值為 `limitedOrElevated` 或 `elevated`。 預設值為 `limitedOrElevated`。|
 
 ##  <a name="Imports"></a> Imports
 `Imports` 元素會說明在客體作業系統中新增元件之背景工作角色的匯入模組集合。 此元素是 `Import` 元素的父代。 這是選用元素，一個角色只能有一個執行階段區塊。

@@ -11,16 +11,16 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 064d55b96c8817f4b7ccc5f0925eeecfaf310424
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550529"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935048"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 建立彈性作業代理程式
 
-[彈性作業](sql-database-job-automation-overview.md#elastic-database-jobs)可讓您以平行方式跨多個資料庫執行一或多個 Transact-SQL (T-SQL) 指令碼。
+[彈性作業](sql-database-job-automation-overview.md#elastic-database-jobs-preview)可讓您以平行方式跨多個資料庫執行一或多個 Transact-SQL (T-SQL) 指令碼。
 
 在本教學課程中，您將了解跨多個資料庫執行查詢所需的步驟：
 

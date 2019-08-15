@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 2ed58846b9e7816092f0fc0787204921071d75e9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 4cf959c5218160a8fe341e6ffdfdf459c1a19247
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498561"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019178"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升級 Azure Kubernetes Service (AKS) 叢集
 
@@ -36,26 +36,26 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> 當您升級 AKS 叢集時，無法略過 Kubernetes 次要版本。 例如, 允許在*1.11. x*  ->  *1.12.* x 或*1.12.*  -> x 2.x 之間進行升級, 但*1.11.*  -> x*1.13. x*不是。
+> 當您升級 AKS 叢集時，無法略過 Kubernetes 次要版本。 例如, 允許在*1.12.*  -> x*1.13. x*或*1.13. x*  ->  *1.14*之間進行升級, 但*1.12. x*  ->  *1.14*不是。
 >
-> 若要升級, 請從*1.11.*  -> x*1.13. x*, 先從*1.11. x*  ->  *1.12.* x 升級, 然後從*1.12.*  -> x*1.13. x*升級。
+> 若要升級, 請從*1.12. x*  ->   ->  *1.14*, 先從*1.12.* x*1.13*. x 升級, 然後從*1.13. x*  ->  *1.14*升級。
 
-下列範例輸出顯示可以將叢集升級為*1.12.7*或*1.12.8*版本:
+下列範例輸出顯示可以將叢集升級為版本*1.13.9*:
 
 ```console
-Name     ResourceGroup    MasterVersion  NodePoolVersion  Upgrades
--------  ---------------  -------------  ---------------  --------------
-default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  --------------
+default  myResourceGroup  1.12.8           1.12.8             1.13.9
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>升級 AKS 叢集
 
 如需 AKS 叢集的可用版本清單, 請使用[az AKS upgrade][az-aks-upgrade]命令進行升級。 在升級過程中, AKS 會將新節點新增至執行指定之 Kubernetes 版本的叢集, 然後小心[cordon 並][kubernetes-drain]清空其中一個舊節點, 以最小化執行應用程式的中斷。 當新節點確認為執行中的應用程式 pod 時, 就會刪除舊的節點。 此程式會重複執行, 直到叢集中的所有節點都已升級為止。
 
-下列範例會將叢集升級至版本*1.12.8*:
+下列範例會將叢集升級至版本*1.13.9*:
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.12.8
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.9
 ```
 
 叢集升級需要幾分鐘的時間，具體取決於您擁有多少節點。
@@ -66,12 +66,12 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-下列範例輸出顯示叢集現在會執行*1.12.8*:
+下列範例輸出顯示叢集現在會執行*1.13.9*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.12.8               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.13.9               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>後續步驟

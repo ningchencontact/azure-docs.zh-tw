@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377206"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976985"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>裝置到雲端 IoT 中樞訊息的訊息擴充 (預覽)
 
@@ -29,9 +29,9 @@ Message 擴充有三個主要元素:
 
 * 應套用擴充的一或多個[端點](iot-hub-devguide-endpoints.md)。
 
-索引鍵可以是任何字串。
+索引**鍵**為字串。 金鑰只能包含英數位元或下列特殊字元: 連字號 (`-`)、底線 (`_`) 和句號 (`.`)。
 
-此值可以是下列任何一個範例:
+此**值**可以是下列任何一個範例:
 
 * 任何靜態字串。 不允許動態值, 例如條件、邏輯、作業和函數。 例如, 如果您開發數個客戶所使用的 SaaS 應用程式, 您可以將識別碼指派給每個客戶, 並讓該識別碼可用於應用程式中。 當應用程式執行時, IoT 中樞會使用客戶的識別碼來戳記裝置遙測訊息, 讓每個客戶能夠以不同方式處理訊息。
 

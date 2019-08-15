@@ -1,7 +1,7 @@
 ---
 title: 認知搜尋和 AI 擴充的簡介 - Azure 搜尋服務
 description: 可使用認知技能和 AI 演算法在 Azure 搜尋服務索引中建立可搜尋內容的內容擷取、自然語言處理 (NLP) 和影像處理。
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d1cb0b687b97ce83d47aa0635f8999ced8594226
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 524ab33fc1d6a88620077a28ec70f09d55b06106
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841320"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015788"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>什麼是 Azure 搜尋服務的「認知搜尋」？
 

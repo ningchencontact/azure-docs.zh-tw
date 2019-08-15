@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: a8196370a93a6ce8eed83002397c2f09efbc777f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 276699b9316a0c4fd428038f2c967bdf934f449c
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358575"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016034"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 履行 Api, 第2版 
 
@@ -282,7 +282,7 @@ Response Body:
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
             "endDate": "2019-06-29",
-            "termUnit": "P1M"
+            "termUnit": "P1M" //where P1M: Monthly, P1Y: Yearly 
         },
 }
 ```
@@ -789,6 +789,8 @@ Response body:
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>在 SaaS 服務上執行 webhook
 
 發行者必須在此 SaaS 服務中執行 webhook, 以主動通知使用者其服務中的變更。 在對 webhook 通知採取動作之前, SaaS 服務應呼叫作業 API 來進行驗證和授權。
+
+為了確保通訊安全, Microsoft 會在授權標頭中包含 Azure Active Directory JWT 權杖, 做為呼叫的一部分。 建議使用 SaaS 提供者來驗證 JWT 權杖, 如 Microsoft 身分[識別平臺存取權杖](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)一文中所述, 以確保只接受有效的呼叫。
 
 ```json
 {

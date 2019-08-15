@@ -1,9 +1,9 @@
 ---
-title: 解譯 Azure 監視器中的 Azure Active Directory 稽核記錄檔結構描述 |Microsoft Docs
-description: 描述使用 Azure 監視器中的 Azure AD 稽核記錄檔結構描述
+title: 解讀 Azure 監視器中的 Azure Active Directory audit 記錄架構 |Microsoft Docs
+description: 描述用於 Azure 監視器的 Azure AD audit 記錄架構
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437068"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987947"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>解譯 Azure 監視器中的 Azure AD 稽核記錄結構描述 (預覽)
 
@@ -162,7 +162,7 @@ ms.locfileid: "60437068"
 | correlationId | 用戶端傳遞的選擇性 GUID。 它能協助將用戶端作業和伺服器端作業相互關聯，當您在追蹤跨服務的記錄時它會很有用。 |
 | 身分識別 | 當您發出要求時，來自出示之權杖的身分識別。 身分識別可以是使用者帳戶、系統帳戶或服務主體。 |
 | level | 訊息類型。 稽核記錄的層級一律是 *Informational*。 |
-| location | 資料中心的位置。 |
+| 位置 | 資料中心的位置。 |
 | properties | 列出與稽核記錄相關的受支援屬性。 如需詳細資訊，請參閱下一個表格。 | 
 
 <br>

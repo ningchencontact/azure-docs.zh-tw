@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/12/2019
+ms.openlocfilehash: a01f6cbb20d084864d3a7f64aa8c90d2bc3405f2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638371"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977078"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>讀取適用於 MariaDB 的 Azure 資料庫中的複本
 
@@ -34,7 +34,33 @@ ms.locfileid: "68638371"
 
 「讀取複本」功能會使用非同步複寫。 此功能不適用於同步複寫案例。 主要伺服器和複本之間將會有顯著的延遲。 複本上的資料最終仍會與主要伺服器上的資料保持一致。 請針對可接受此延遲的工作負載使用此功能。
 
-讀取複本可以增強您的嚴重損壞修復計畫。 如果發生區域性嚴重損壞, 而您的主伺服器無法使用, 您可以將工作負載導向另一個區域中的複本。 若要這麼做, 請先讓複本接受使用停止複寫功能的寫入。 然後, 您可以藉由更新連接字串來重新導向應用程式。 若要深入瞭解, 請到[stop replication](#stop-replication)一節。
+
+## <a name="cross-region-replication"></a>跨區域複寫
+您可以從主伺服器在不同的區域中建立讀取複本。 跨區域複寫適用于嚴重損壞修復計畫之類的案例, 或將資料帶入更接近您的使用者。
+
+> [!IMPORTANT]
+> 跨區域複寫目前為公開預覽狀態。
+
+您可以在任何[適用於 MariaDB 的 Azure 資料庫區域](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb)中擁有主伺服器。  主伺服器的配對區域或通用複本區域中可以有複本。
+
+### <a name="universal-replica-regions"></a>通用複本區域
+無論您的主伺服器位於何處, 您都可以在下列任何區域中建立讀取複本。 這些是通用複本區域:
+
+澳大利亞東部、澳大利亞東南部、美國中部、東亞、美國東部、美國東部2、日本東部、日本西部、韓國中部、南韓南部、美國中北部、北歐、美國中南部、東南亞、英國南部、英國西部、西歐、美國西部、美國西部2。
+
+
+### <a name="paired-regions"></a>配對的區域
+除了通用複本區域之外, 您還可以在主伺服器的 Azure 配對區域中建立讀取複本。 如果您不知道您的區域配對, 可以從[Azure 配對區域一文](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)深入瞭解。
+
+如果您使用跨區域複本進行嚴重損壞修復計畫, 建議您在配對的區域中建立複本, 而不是在其他其中一個區域。 配對的區域會避免同時更新, 並排定實體隔離和資料存放區的優先順序。  
+
+不過, 有一些限制需要考慮: 
+
+* 區域可用性：適用於 MariaDB 的 Azure 資料庫適用于美國西部2、法國中部、阿拉伯聯合大公國北部和德國中部。 不過, 它們的配對區域無法使用。
+    
+* 單向配對:某些 Azure 區域只會以單一方向配對。 這些區域包括印度西部、巴西南部和 US Gov 維吉尼亞州。 
+   這表示印度西部的主伺服器可以在印度南部中建立複本。 不過, 印度南部中的主伺服器無法在印度西部建立複本。 這是因為印度西部的次要地區印度南部, 但印度南部的次要地區並非印度西部。
+
 
 ## <a name="create-a-replica"></a>建立複本
 

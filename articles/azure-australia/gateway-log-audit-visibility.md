@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 153b9d503dfece404455fbb7e8cb51c51686ec57
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: b7a9f28d06b5e921b5f1b8defa151641bb039940
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824289"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990208"
 ---
 # <a name="gateway-logging-auditing-and-visibility-in-azure-australia"></a>Azure 澳大利亞的閘道記錄、審核和可見度
 
@@ -113,7 +113,7 @@ Microsoft 在 Azure 中有內建工具, 可協助您執行記錄、審核和可�
 |---|---|
 |澳大利亞法規和原則合規性檔|[https://aka.ms/au-irap](https://aka.ms/au-irap)|
 |Azure 產品-澳大利亞地區和非地區|[https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional, 澳大利亞中部, 澳大利亞中部-2, 澳大利亞-東部, 澳大利亞-東南部](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast)|
-|Microsoft Azure 安全性與稽核記錄管理白皮書|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
+|Microsoft Azure 安全性與稽核記錄管理白皮書|[https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf)|
 |Microsoft Monitoring Agent 設定|[https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent)|
 |
 

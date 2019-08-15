@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 55af6d17f18efd11fe2d6f89b9b87ca9f407ec25
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 26ba811eba1a25dacddd04814f8e0d2805360920
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688664"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018787"
 ---
 # <a name="troubleshoot-system-state-backup"></a>針對系統狀態備份進行疑難排解
 
@@ -25,7 +25,7 @@ ms.locfileid: "68688664"
 
 - [確定 Microsoft Azure 復原服務 (MARS) 代理程式為最新狀態](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [確保 MARS 代理程式和 Azure 之間具有網路連線能力](https://aka.ms/AB-A4dp50)
-- 確保 Microsoft Azure 復原服務正在執行中 (在服務主控台中)。 視需要重新開機並重試作業
+- 確保 Microsoft Azure 復原服務正在執行中 (在服務主控台中)。 如有必要, 請重新開機, 然後重試操作
 - [確保草稿資料夾位置具有 5-10% 的磁碟區空間可供使用](https://aka.ms/AB-AA4dwtt)
 - [檢查是否有其他程序或防毒軟體在干擾 Azure 備份](https://aka.ms/AB-AA4dwtk)
 - [已排程的備份失敗，但可以手動備份](https://aka.ms/ScheduledBackupFailManualWorks)
@@ -36,7 +36,7 @@ ms.locfileid: "68688664"
 - 如果您嘗試在保存庫中**重新登錄伺服器**，則： <br>
   - 請確保已將伺服器上的代理程式解除安裝，並已從入口網站中刪除 <br>
   - 使用與一開始登錄伺服器時所用的相同複雜密碼 <br>
-- 在離線備份的情況下, 請確定在開始離線備份作業之前, 已在來源和複製電腦上安裝 Azure PowerShell 版本3.7。0
+- 在離線備份的情況下, 請確定 Azure PowerShell 版本3.7.0 已安裝在來源和複製電腦上, 然後再開始離線備份操作
 - [當備份代理程式在 Azure 虛擬機器上執行時的考慮](https://aka.ms/AB-AA4dwtr)
 
 ### <a name="limitation"></a>限制
@@ -45,14 +45,14 @@ ms.locfileid: "68688664"
 
 ## <a name="pre-requisite"></a>必要條件
 
-在使用 Azure 備份進行系統狀態備份的疑難排解之前, 請確定您執行下列先決條件檢查。  
+在使用 Azure 備份進行系統狀態備份的疑難排解之前, 請先執行下列先決條件檢查。  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>確認已安裝 Windows Server Backup
 
-確定伺服器中已安裝並啟用 Windows Server Backup。 若要檢查安裝狀態, 請執行下列 PowerShell 命令:
+確定伺服器中已安裝並啟用 Windows Server Backup。 若要檢查安裝狀態, 請執行此 PowerShell 命令:
 
- ```
- PS C:\> Get-WindowsFeature Windows-Server-Backup
+ ```powershell
+Get-WindowsFeature Windows-Server-Backup
  ```
 如果輸出顯示 [**安裝狀態**] 為 [**可用**], 則表示 Windows server backup 功能可供安裝, 但不會安裝在伺服器上。 不過, 如果未安裝 Windows Server Backup, 請使用下列其中一種方法來進行安裝。
 
@@ -60,8 +60,8 @@ ms.locfileid: "68688664"
 
 若要使用 PowerShell 安裝 Windows Server Backup, 請執行下列命令:
 
-  ```
-  PS C:\> Install-WindowsFeature -Name Windows-Server-Backup
+  ```powershell
+  Install-WindowsFeature -Name Windows-Server-Backup
   ```
 
 **方法 2：使用伺服器管理員安裝 Windows Server Backup**
@@ -114,7 +114,7 @@ Microsoft 軟體陰影複製提供者 (SWPRV) | 手動
     > [!WARNING]
     > Get-wbjob:' Get-wbjob ' 一詞無法辨識為 Cmdlet、函式、指令檔或可運作程式的名稱。 請檢查名稱拼字，如果名稱含有路徑，請確認路徑正確，然後再試一次。
 
-    -   如果因此錯誤而失敗, 則請在伺服器電腦上重新安裝 Windows Server Backup 功能, 如步驟1必要條件中所述。
+    -   如果因此錯誤而失敗, 請在伺服器電腦上重新安裝 Windows Server Backup 功能, 如步驟1必要條件中所述。
 
   * 從提高許可權的命令提示字元執行下列命令, 以確定 WSB 備份正常運作:
 
@@ -126,7 +126,7 @@ Microsoft 軟體陰影複製提供者 (SWPRV) | 手動
     - 從提高許可權的 PowerShell 執行`Get-WBJob`命令, 以定期檢查作業的狀態        
     - 備份作業完成後, 請執行`Get-WBJob -Previous 1`命令來檢查作業的最終狀態
 
-如果作業失敗, 它會指出 WSB 問題, 這會導致 MARS 代理程式系統狀態備份失敗。
+如果作業失敗, 則表示可能會導致 MARS 代理程式系統狀態備份失敗的 WSB 問題。
 
 ## <a name="common-errors"></a>常見錯誤
 
@@ -141,7 +141,7 @@ Microsoft 軟體陰影複製提供者 (SWPRV) | 手動
 
 | 徵兆 | 解決方法
 | -- | --
-| -MARS 代理程式失敗, 並出現錯誤訊息:因為磁片區中包含系統檔案的磁碟空間不足, 所以備份失敗。 <br/><br/> -Volsnap 系統事件記錄檔中出現下列錯誤/警告記錄檔:「磁片區 C 上的磁碟空間不足: 若要為 C: 增加陰影複製的陰影複製儲存區」, 這是因為此失敗, 所有 volume C 的陰影複本都有刪除的風險。」 | -釋放事件記錄檔中反白顯示磁片區的空間, 讓陰影複製有足夠的空間可在備份進行時成長 <br/><br/> -設定陰影複製空間時, 我們可以限制用於陰影複製的空間量。如需詳細資訊, 請參閱這[篇文章](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| -MARS 代理程式失敗, 並出現錯誤訊息:因為磁片區中包含系統檔案的磁碟空間不足, 所以備份失敗。 <br/><br/> -Volsnap 系統事件記錄檔中出現下列錯誤/警告記錄檔:「磁片區 C 上的磁碟空間不足: 若要為 C: 增加陰影複製的陰影複製儲存區」, 這是因為此失敗, 所有 volume C 的陰影複本都有刪除的風險。」 | -釋放事件記錄檔中反白顯示磁片區的空間, 讓陰影複製有足夠的空間可在備份進行時成長 <br/><br/> -設定陰影複製空間時, 我們可以限制用於陰影複製的空間量。 如需詳細資訊, 請參閱這[篇文章](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
 
 
 ### <a name="efi-partition-locked"></a>EFI 磁碟分割已鎖定

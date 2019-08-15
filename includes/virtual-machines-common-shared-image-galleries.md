@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: e43b8c951d8c7d5d60904fe49d8639efaba5c89f
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775851"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012060"
 ---
 共用映射資源庫是一種服務, 可協助您在受控映射周圍建立結構和組織。 共用映射資源庫提供:
 
@@ -73,7 +73,7 @@ ms.locfileid: "68775851"
 
 ## <a name="regional-support"></a>區域支援
 
-下表列出來源區域。 所有公用區域都可以是目的地區域, 但若要複寫至澳大利亞中部並澳大利亞中部2您必須將訂用帳戶列入允許清單。 若欲要求加入允許清單，請移至： https://azure.microsoft.com/en-au/global-infrastructure/australia/contact/
+下表列出來源區域。 所有公用區域都可以是目的地區域, 但若要複寫至澳大利亞中部並澳大利亞中部2您必須將訂用帳戶列入允許清單。 若欲要求加入允許清單，請移至： https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
 | 來源區域 |
@@ -179,7 +179,7 @@ ms.locfileid: "68775851"
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/go/azure/)
+- [Go](https://docs.microsoft.com/azure/go/)
 
 ## <a name="templates"></a>範本
 

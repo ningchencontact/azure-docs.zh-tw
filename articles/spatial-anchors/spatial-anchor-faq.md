@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653259"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927502"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors 的相關常見問題集
 
@@ -121,10 +121,6 @@ Azure Spatial Anchors 會遵循 [Azure 服務合約條款](https://go.microsoft.
 **問：它是否適用於 Unreal？**
 
 **答：** 未來會考慮加入 Unreal 的支援。
-
-**問：它是否適用於 Xamarin？**
-
-**答：** 未來會考慮加入 Xamarin 的支援。
 
 **問：Azure Spatial Anchors 使用哪些連接埠和通訊協定？**
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 5e8c29e033d895e24047754e686420fb4db86142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236653"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934449"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>快速入門：使用 Node Web 應用程式從 Azure Key Vault 設定及擷取祕密 
 
@@ -24,7 +24,7 @@ ms.locfileid: "65236653"
 * 將秘密儲存在金鑰保存庫中。
 * 從金鑰保存庫擷取祕密。
 * 建立 Azure Web 應用程式。
-* 啟用 Web 應用程式的[受控識別](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)。
+* 啟用 Web 應用程式的[受控識別](../active-directory/managed-service-identity/overview.md)。
 * 授與 Web 應用程式從金鑰保存庫讀取資料所需的權限。
 
 繼續之前，請先確定您已熟悉 [Key Vault 的基本概念](key-vault-whatis.md#basic-concepts)。
@@ -166,7 +166,7 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-此命令等同於前往入口網站，並在 Web 應用程式屬性中將 [身分識別/系統指派] 設定切換為 [開啟]。
+此命令等同於前往入口網站，並在 Web 應用程式屬性中將 [身分識別/系統指派]  設定切換為 [開啟]  。
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>將權限指派給您的應用程式，以便從 Key Vault 讀取秘密
 

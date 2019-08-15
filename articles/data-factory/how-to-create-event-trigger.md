@@ -11,12 +11,12 @@ ms.date: 10/18/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: bf4dc55d0ec17daf4c611563dd7aee3a06aa192b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 32edacb7dd66274757359c4eb0e8c169995026ce
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384732"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019533"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>建立會執行管線來回應事件的觸發程序
 
@@ -49,10 +49,7 @@ ms.locfileid: "68384732"
 5. 從 [Azure 訂用帳戶] 下拉式清單中選取您的儲存體帳戶, 或使用其儲存體帳戶資源識別碼手動進行。 選擇您想要發生事件的容器。 容器選取是選擇性的, 但請注意, 選取所有容器可能會導致大量的事件。
 
    > [!NOTE]
-   > 事件觸發程式目前僅支援第2版的儲存體帳戶 (一般用途)。
-
-   > [!NOTE]
-   > 由於 Azure 事件方格的限制, Azure Data Factory 只支援每個儲存體帳戶最多500個事件觸發程式。
+   > 事件觸發程式目前僅支援 Azure Data Lake Storage Gen2 和一般用途的第2版儲存體帳戶。 由於 Azure 事件方格的限制, Azure Data Factory 只支援每個儲存體帳戶最多500個事件觸發程式。
 
 6. **Blob 路徑的開頭為**, **blob 路徑結尾為**屬性, 可讓您指定要接收事件的容器、資料夾和 blob 名稱。 您的事件觸發程式至少需要定義其中一個屬性。 您可以針對 **Blob path begins with** 和 **Blob path ends with** 屬性使用各種不同的模式，如本文稍後的範例所示。
 
@@ -67,7 +64,7 @@ ms.locfileid: "68384732"
 
     ![事件觸發程式資料預覽](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-9. 若要將管線附加到此觸發程式, 請移至管線畫布, 然後按一下 [**加入觸發**程式] 並選取 [**新增/編輯**]。 當側邊流覽出現時, 按一下 [**選擇觸發程式 ...** ] 下拉式清單, 然後選取您所建立的觸發程式。 按一下 **下一步資料**預覽, 確認設定正確, 然後按 驗證資料預覽  是正確的。
+9. 若要將管線附加到此觸發程式, 請移至管線畫布, 然後按一下 [**加入觸發**程式] 並選取 [**新增/編輯**]。 當側邊流覽出現時, 按一下 [**選擇觸發程式 ...** ] 下拉式清單, 然後選取您所建立的觸發程式。 按一下 **下一步資料**預覽, 確認設定正確, 然後按 驗證資料預覽是正確的。
 
 10. 如果您的管線具有參數, 您可以在觸發程式的 [執行] 參數端導覽上指定它們。 事件觸發程式會將 blob 的資料夾路徑和檔案名, 捕獲到屬性`@triggerBody().folderPath`和`@triggerBody().fileName`中。 若要在管線中使用這些屬性的值，您必須將屬性對應到管線參數。 在將屬性對應到參數之後，您可在整個管線中透過 `@pipeline().parameters.parameterName` 運算式存取觸發程序所擷取的值。 完成後, 請按一下 **[完成]** 。
 

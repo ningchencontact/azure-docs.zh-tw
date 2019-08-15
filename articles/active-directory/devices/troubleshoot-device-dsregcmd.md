@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189e4f280e8aba28c4d1af449aa8a3428e303911
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298408"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987175"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>使用 dsregcmd.exe 命令針對裝置進行疑難排解
 
@@ -28,7 +28,7 @@ Dsregcmd.exe/status 公用程式必須以網域使用者帳戶的身分執行。
 
 | AzureAdJoined | EnterpriseJoined | Enterpriseregistration.windows.net domainjoined | 裝置狀態 |
 | ---   | ---   | ---   | ---   |
-| 是 | 否 | 否 | Azure AD 聯結 |
+| 是 | 否 | 否 | Azure AD 加入 |
 | 否 | 否 | 是 | 已加入網域 |
 | 是 | 否 | 是 | 已加入混合式 AD |
 | 否 | 是 | 是 | 已聯結內部部署 DRS |
@@ -198,7 +198,7 @@ Azure AD 註冊的裝置可以忽略此區段。
 
 本節會執行各種測試, 以協助診斷聯結失敗。 本節也包含前一個 (？) 的詳細資料。 此資訊包括錯誤階段、錯誤碼、伺服器要求識別碼、伺服器回應 HTTP 狀態、伺服器回應錯誤訊息。
 
-- **使用者內容:** -診斷執行所在的內容。 可能的值：系統、未提高許可權的使用者、提高許可權的使用者。 
+- **使用者內容:** -診斷執行所在的內容。 可能的值:系統、未提高許可權的使用者、提高許可權的使用者。 
 
    > [!NOTE]
    > 因為實際聯結是在系統內容中執行, 所以在系統內容中執行診斷最接近實際的聯結案例。 若要在系統內容中執行診斷, 必須從提高許可權的命令提示字元執行 dsregcmd.exe/status 命令。
@@ -295,6 +295,9 @@ Azure AD 註冊的裝置可以忽略此區段。
 ## <a name="ngc-prerequisite-check"></a>NGC 先決條件檢查
 
 本節會執行必要條件檢查, 以進行 NGC 金鑰的布建。 
+
+> [!NOTE]
+> 如果使用者已成功設定了 NGC 認證, 您可能不會在 dsregcmd.exe/status 中看到 [NGC 必要條件檢查詳細資料]。
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>範例 NGC 先決條件檢查輸出
 

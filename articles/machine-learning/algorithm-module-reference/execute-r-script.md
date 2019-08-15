@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 710d64b445953ae3124830931c8cbb9315d32b83
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875720"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016482"
 ---
 # <a name="execute-r-script"></a>執行 R 指令碼
 
@@ -76,8 +76,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1.  將**執行 R 腳本**模組新增至您的實驗。
 
-    > [!NOTE]
-    > 傳遞至「**執行 R 腳本**」模組的所有資料都會轉換成`data.frame` R 格式。
+  
 
 1. 連接腳本所需的任何輸入。 輸入是選擇性的, 而且可以包含資料和其他 R 程式碼。
 
@@ -90,10 +89,33 @@ azureml_main <- function(dataframe1, dataframe2){
 1. 在 [ **R 腳本**] 文字方塊中, 輸入或貼上有效的 R 腳本。
 
     為了協助您開始使用, [ **R 腳本**] 文字方塊會預先填入範例程式碼, 可供您編輯或取代。
+    
+```R
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
 
-    * 腳本必須包含名為`azureml_main`的函式, 這是此模組的進入點。
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
 
-    * 進入點函數最多可包含兩個輸入引數`Param<dataframe1>` : 和`Param<dataframe2>`
+  # If a zip file is connected to the third input port, it is
+  # unzipped under "./Script Bundle". This directory is added
+  # to sys.path.
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+ * 腳本必須包含名為`azureml_main`的函式, 這是此模組的進入點。
+
+ * 進入點函數最多可包含兩個輸入引數`Param<dataframe1>` : 和`Param<dataframe2>`
+ 
+   > [!NOTE]
+    > 傳遞至**執行 R 腳本**模組的資料會`dataframe1`當做和`dataframe2`來參考, 這與 Azure Machine Learning Studio (Studio 參考為`dataset1`, `dataset2`) 不同。 請檢查並確定已在您的腳本中正確 referneced 輸入資料。  
  
     > [!NOTE]
     >  現有的 R 程式碼可能需要較小的變更, 才能在視覺化介面實驗中執行。 例如, 您以 CSV 格式提供的輸入資料應該先明確轉換成資料集, 您才能在程式碼中使用它。 在 R 語言中使用的資料和資料行類型, 在視覺化介面中使用的資料和資料行類型也會有一些不同的方式。
@@ -243,13 +265,13 @@ azureml_main <- function(dataframe1, dataframe2){
 | bindr        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | bitops       | 1.0-6      | 
-| boot         | 1.3-22     | 
+| 開機         | 1.3-22     | 
 | 掃帚        | 0.5.2      | 
 | callr        | 3.2.0      | 
 | 插入號        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
-| class        | 7.3-15     | 
+| 類別        | 7.3-15     | 
 | cli          | 1.1.0      | 
 | clipr        | 0.6.0      | 
 | 叢集      | 2.0.7-1    | 
@@ -280,7 +302,7 @@ azureml_main <- function(dataframe1, dataframe2){
 | gplots       | 3.0.1.1    | 
 | 圖形     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| 格         | 3.5.1      | 
+| 格線         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | haven        | 2.1.0      | 
