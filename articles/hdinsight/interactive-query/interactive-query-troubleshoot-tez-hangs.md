@@ -1,0 +1,42 @@
+---
+title: Apache Tez 應用程式在 Azure HDInsight 中停止回應
+description: Apache Tez 應用程式在 Azure HDInsight 中停止回應
+ms.service: hdinsight
+ms.topic: troubleshooting
+author: hrasheed-msft
+ms.author: hrasheed
+ms.date: 08/09/2019
+ms.openlocfilehash: fa56667c039133700c100b3e01a56ad784d16a6c
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977426"
+---
+# <a name="scenario-apache-tez-application-hangs-in-azure-hdinsight"></a>案例:Apache Tez 應用程式在 Azure HDInsight 中停止回應
+
+本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
+
+## <a name="issue"></a>問題
+
+提交 Apache Hive 作業之後, 來自 Tez view 的作業狀態為「執行中」, 但不會顯示任何進度
+
+## <a name="cause"></a>原因
+
+提交的作業過多;長 Yarn 佇列。
+
+## <a name="resolution"></a>解決方法
+
+相應增加叢集, 或只是等到 Yarn 的佇列清空為止。
+
+根據預設`yarn.scheduler.capacity.maximum-applications` , 會控制正在執行或擱置中的應用程式數目上限, 並預設`10000`為。
+
+## <a name="next-steps"></a>後續步驟
+
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
+
+* 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
+
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+
+* 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

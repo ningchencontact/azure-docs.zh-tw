@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure Active Directory 進行驗證, 以從您的用戶端應用程式存取 blob 和佇列資料
+title: 使用來自用戶端應用程式的 Azure Active Directory, 授權存取 blob 和佇列-Azure 儲存體
 description: 使用 Azure Active Directory 從用戶端應用程式內進行驗證、取得 OAuth 2.0 權杖, 以及授權 Azure Blob 儲存體和佇列儲存體的要求。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ffae7467e9f94c68cf004b74c9791f2d9cda3171
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5138fb6338f4ade322414619f8785d77550a91d1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249998"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986794"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>使用來自應用程式的 Azure Active Directory 進行驗證, 以存取 blob 和佇列
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>使用來自用戶端應用程式的 Azure Active Directory, 授權存取 blob 和佇列
 
 使用 Azure Active Directory (Azure AD) 搭配 Azure Blob 儲存體或佇列儲存體的主要優點, 就是您的認證不再需要儲存在您的程式碼中。 相反地, 您可以從 Microsoft 身分識別平臺 (先前稱為 Azure AD) 要求 OAuth 2.0 存取權杖。 Azure AD 會驗證執行應用程式的安全性主體 (使用者、群組或服務主體)。 如果驗證成功, Azure AD 會將存取權杖傳回給應用程式, 然後應用程式就可以使用存取權杖來授權對 Azure Blob 儲存體或佇列儲存體的要求。
 

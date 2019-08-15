@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734631"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976777"
 ---
 # <a name="how-to-connect-to-data-sources"></a>如何連接到資料來源
 ## <a name="introduction"></a>簡介
@@ -28,7 +28,7 @@ ms.locfileid: "68734631"
 
 使用清單檢視時，此功能表位於入口網站視窗頂端的搜尋列中。
 
- ![從搜尋列以報告管理員開啟 SQL Server Reporting Services 報表](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![在報表管理員中開啟 SQL Server Reporting Services 報表](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>支援的用戶端應用程式
 在 Azure 資料目錄入口網站中 對資料來源使用 [開啟於...] 功能表時，用戶端電腦上必須已安裝正確的用戶端應用程式。

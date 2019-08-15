@@ -1,6 +1,6 @@
 ---
 title: 將圖格圖層新增至 Azure 地圖服務 | Microsoft Docs
-description: 如何將圖格圖層新增至 Javascript 地圖
+description: 如何將圖格圖層新增至 Azure 地圖服務 Web SDK。
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882093"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976444"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>將圖格圖層新增至地圖
 
@@ -40,16 +40,24 @@ ms.locfileid: "68882093"
 
 ## <a name="add-a-tile-layer"></a>新增圖格圖層
 
- 此範例示範如何建立圖格圖層，而此圖格圖層會指向一組使用 x、y、縮放圖格系統的圖格。 此圖格圖層的來源是天氣雷達覆疊圖，資料來源：[愛荷華州立大學的愛荷華州環境氣象網 (Iowa Environmental Mesonet of Iowa State University)](https://mesonet.agron.iastate.edu/ogc/)。 
+ 此範例示範如何建立圖格圖層，而此圖格圖層會指向一組使用 x、y、縮放圖格系統的圖格。 此圖格圖層的來源是天氣雷達覆疊圖，資料來源：[愛荷華州立大學的愛荷華州環境氣象網 (Iowa Environmental Mesonet of Iowa State University)](https://mesonet.agron.iastate.edu/ogc/)。 當觀看雷達圖資料時, 理想的使用者可以在流覽地圖時清楚地看到城市的標籤, 這可以藉由將圖格圖層`labels`插入圖層來完成。
+
+```javascript
+//Create a tile layer and add it to the map below the label layer.
+//Weather radar tiles from Iowa Environmental Mesonet of Iowa State University.
+map.layers.add(new atlas.layer.TileLayer({
+    tileUrl: 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png',
+    opacity: 0.8,
+    tileSize: 256
+}), 'labels');
+```
+
+以下是上述功能的完整執行程式碼範例。
 
 <br/>
 
 <iframe height='500' scrolling='no' title='底圖圖層使用 X、Y 和 Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>請參閱 <a href='https://codepen.io'>CodePen</a> 上由 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 建立的 Pen：<a href='https://codepen.io/azuremaps/pen/BGEQjG/'>使用 X、Y 和 Z 的圖格圖層</a>。
 </iframe>
-
-在上述程式碼中，程式碼的第一個區塊會建構地圖物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
-
-在第二個程式碼區塊中，[TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) 會藉由傳遞圖格服務的已格式化 URL、圖格大小和不透明度 (讓圖格變成半透明) 來建立。 此外，將圖格圖層新增至地圖時，圖格會新增在 `labels` 圖層下方，這是為了讓標籤仍可清楚地顯示。
 
 ## <a name="customize-a-tile-layer"></a>自訂圖格圖層
 

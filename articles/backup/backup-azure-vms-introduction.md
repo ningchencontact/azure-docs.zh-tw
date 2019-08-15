@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737153"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951856"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 備份總覽
 
@@ -138,6 +138,50 @@ OS 磁碟 | 4095 GB | 17 GB
 資料磁碟 2 | 4095 GB | 0 GB
 
 在此案例中，VM 的實際容量為 17 GB + 30 GB + 0 GB = 47 GB。 這個受保護的實例大小 (47 GB) 會成為每月帳單的基礎。 當 VM 中的資料量增加時, 用於計費變更的受保護實例大小會符合。
+
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>有限的公開預覽:備份磁片大小上限為 30 TB 的 VM
+
+Azure 備份現在支援更大、更強大的[Azure 受控磁碟](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/)的有限公開預覽, 大小上限為 30 TB。 此預覽提供受管理虛擬機器的生產層級支援。
+
+您可以在預覽中順暢地註冊, 而不會影響進行中的備份。 在預覽中註冊訂用帳戶之後, 所有具有最多 30 TB 磁片大小的虛擬機器都應該成功備份。 若要註冊預覽:
+ 
+從提高權限的 PowerShell 終端機執行下列 Cmdlet︰
+
+1. 登入您的 Azure 帳戶。
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. 選取您想要註冊以進行升級的訂用帳戶:
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. 在預覽計畫中註冊此訂用帳戶: 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    等候30分鐘, 讓訂用帳戶在預覽中註冊。 
+
+ 4. 若要檢查狀態, 請執行下列 Cmdlet:
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. 當訂用帳戶顯示為已註冊時, 請執行下列命令:
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> 此預覽中不支援磁片大於 4 TB 的已加密 Vm。
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688988"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952051"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -29,12 +29,10 @@ ms.locfileid: "68688988"
 **錯誤碼**：UserErrorGuestAgentStatusUnavailable <br>
 **錯誤訊息**：VM 代理程式無法與 Azure 備份通訊<br>
 
-在註冊及排程備份服務的 VM 之後，備份就會藉由與 VM 代理程式通訊以取得時間點快照集，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 若未觸發快照集，備份可能會失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：<br>
-**原因 1：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**原因 3：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
-**原因 4︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 5：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
+Azure VM 代理程式可能已停止、過期、處於不一致的狀態, 或未安裝, 並導致 Azure 備份服務觸發快照集。  
+    
+- 如果 VM 代理程式已停止或處於不一致的狀態, 請**重新開機代理程式**, 然後重試備份作業 (嘗試臨機操作備份)。 如需重新開機代理程式的步驟, 請參閱[Windows vm](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)或[Linux vm](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。 
+- 如果 VM 代理程式未安裝或已過時, 請安裝/更新 VM 代理程式, 然後重試備份操作。 如需安裝/更新代理程式的步驟, 請參閱[Windows vm](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)或[Linux vm](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 無法與 VM 代理程式通訊來取得快照集狀態
 
@@ -44,7 +42,8 @@ ms.locfileid: "68688988"
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
 **原因 1：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**原因 3：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
+**原因 3：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
+**原因 4︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)** 
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 已達到還原點集合上限
 
@@ -107,7 +106,7 @@ ms.locfileid: "68688988"
 **錯誤碼**：UserErrorUnsupportedDiskSize <br>
 **錯誤訊息**：目前 Azure 備份不支援大於4095GB 的磁片大小 <br>
 
-當備份磁片大小大於4095GB 的 VM 時, 您的備份操作可能會失敗。 若要註冊 Azure 備份大型磁片支援的私人預覽, 大於4TB 大小上限為30TB 的磁片, 請回寫給我們AskAzureBackupTeam@microsoft.com。
+當備份磁片大小大於 4095 GB 的 VM 時, 您的備份操作可能會失敗。 若要註冊有限的公開預覽, Azure 備份大於 4 TB 且大小高達 30 TB 之磁片的大型磁片支援, 請參閱[AZURE VM 備份的總覽](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)。
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 無法起始備份，因為另一個備份作業正在進行中
 

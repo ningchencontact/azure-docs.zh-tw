@@ -3,7 +3,7 @@ title: Azure Active Directory (Azure AD) 稽核活動參考 | Microsoft Docs
 description: 取得在 Azure Active Directory (Azure AD) 中可以記錄於稽核記錄中的稽核活動概觀。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60285478"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989627"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
 
@@ -40,7 +40,7 @@ Azure AD 中的報告架構包含下列元件：
 
 本文列出可以在稽核記錄中記錄的稽核活動。
 
-## <a name="access-reviews"></a>存取權檢閱
+## <a name="access-reviews"></a>存取檢閱
 
 |稽核類別|activities|
 |---|---|
@@ -91,7 +91,7 @@ Azure AD 中的報告架構包含下列元件：
 
 |稽核類別|activities|
 |---|---|
-|應用程式管理|新增應用程式|
+|應用程式管理|加入應用程式|
 |應用程式管理|將擁有者新增至應用程式|
 |應用程式管理|將擁有者新增至服務主體|
 |應用程式管理|將原則新增至服務主體|
@@ -291,14 +291,14 @@ Azure AD 中的報告架構包含下列元件：
 |Resource|更新網站|
 |Resource|驗證網域|
 |Resource|驗證電子郵件驗證的網域|
-|Resource|登入|
+|Resource|上架|
 |Resource|更新警示設定|
 |Resource|更新每週摘要設定|
 |Resource|停用目錄的密碼回寫|
 |Resource|啟用目錄的密碼回寫|
 |Resource|將應用程式角色指派新增至群組|
-|Resource|新增群組|
-|Resource|將成員加入群組|
+|Resource|加入群組|
+|Resource|將成員新增到群組|
 |Resource|將擁有者新增至群組|
 |Resource|建立群組設定|
 |Resource|刪除群組|
@@ -325,7 +325,7 @@ Azure AD 中的報告架構包含下列元件：
 |Resource|建立生命週期管理原則|
 |Resource|刪除擱置中的要求以加入群組|
 |Resource|拒絕擱置中的要求以加入群組|
-|Resource|更新群組|
+|Resource|續約群組|
 |Resource|要求加入群組|
 |Resource|設定動態群組屬性|
 |Resource|更新生命週期管理原則|
@@ -356,7 +356,7 @@ Azure AD 中的報告架構包含下列元件：
 |應用程式管理|已處理 Batch 邀請|
 |應用程式管理|已上傳 Batch 邀請|
 |應用程式管理|將擁有者新增至原則|
-|應用程式管理|Add policy|
+|應用程式管理|新增原則|
 |應用程式管理|刪除原則|
 |應用程式管理|移除原則認證|
 |應用程式管理|更新原則|
@@ -464,7 +464,7 @@ Azure AD 中的報告架構包含下列元件：
 |使用者管理|從範本新增角色|
 |使用者管理|將範圍成員新增至角色|
 |使用者管理|移除角色的合格成員|
-|使用者管理|移除角色的成員|
+|使用者管理|從角色移除成員|
 |使用者管理|移除角色定義中的角色指派|
 |使用者管理|移除角色的範圍成員|
 |使用者管理|更新角色|

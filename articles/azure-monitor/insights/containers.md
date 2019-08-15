@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 98b7e99e5e9d25c6708b92b02e609ad38a971054
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 5f48b1b1c8568c4f60d012797634b844a276b1bb
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381571"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951970"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure 監視器中的容器監視解決方案
 
@@ -202,11 +202,11 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 2. 執行下列命令來建立 Azure 監視器的專案, 並設定使用者帳戶。
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'
+    oc adm new-project omslogging --node-selector='zone=default'
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. 若要部署精靈集，請執行下列命令：
@@ -241,11 +241,11 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 2. 執行下列命令來建立 Azure 監視器的專案, 並設定使用者帳戶。 祕密產生指令碼會要求您的 Log Analytics 工作區識別碼 `<WSID>` 和主要金鑰 `<KEY>`，並且在完成時，建立 ocp-secret.yaml 檔案。  
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'  
+    oc adm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. 執行下列命令以開啟密碼檔案：

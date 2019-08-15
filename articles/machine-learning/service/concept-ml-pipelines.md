@@ -1,5 +1,5 @@
 ---
-title: 管線：最佳化機器學習服務工作流程
+title: 什麼是 ML 管線
 titleSuffix: Azure Machine Learning service
 description: 在本文中，您將深入了解機器學習管線 (使用適用於 Python 的 Azure Machine Learning 來建置)，以及了解使用管線的優點。 資料科學家使用 Machine learning (ML) 管線來建置、管理他們的機器學習工作流程，以及將其最佳化。
 services: machine-learning
@@ -11,18 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9965dbbca939f566048312af921061a188ee50d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 22d1da4c194b392993b37b16ab20673120c3362e
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884221"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951804"
 ---
-# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>在 Azure Machine Learning 服務中建立可重複使用的 ML 管線
+# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Azure Machine Learning 服務中的 ML 管線為何？
 
-在本文中，了解機器學習管線 (您可以使用適用於 Python 的 Azure Machine Learning SDK 來建置)，以及使用管線的優點。
-
-## <a name="what-are-machine-learning-pipelines"></a>什麼是機器學習管線？
+瞭解您可以使用 Azure Machine Learning 服務建立和管理的機器學習管線。 
 
 資料科學家、資料工程師和 IT 專業人員可以使用機器學習 (ML) 管線，共同處理所需的步驟：
 + 資料準備，例如正規化和轉換
@@ -30,7 +28,7 @@ ms.locfileid: "68884221"
 + 模型評估
 + 部署
 
-下圖顯示範例管線處理常式:
+了解如何[建立第一個管線](how-to-create-your-first-pipeline.md)。
 
 ![Azure Machine Learning 服務中的機器學習管線](./media/concept-ml-pipelines/pipeline-flow.png)
 
@@ -47,9 +45,7 @@ Azure 雲端提供數個其他管線, 各有不同的用途。 下表列出不�
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>為何使用 Azure Machine Learning 來建置管線？
 
-您可以使用[適用於 Python 的 Azure Machine Learning SDK](#the-python-sdk-for-pipelines) 來建立 ML 管線，以及送出和追蹤個別管線執行。
-
-透過管線，您可以從簡易性、速度、可攜性和重複使用率方面來最佳化工作流程。 使用 Azure Machine Learning 建立管線時, 您可以專注于您的專業知識、機器學習服務, 而不是基礎結構和自動化。
+機器學習管線會以速度、可攜性和重複使用來優化您的工作流程, 讓您可以專注于您的專業知識、機器學習服務, 而不是基礎結構和自動化。
 
 管線是由多個**步驟**所構成, 這些步驟在管線中是相異的計算單位。 每個步驟都可以獨立執行, 並使用隔離的計算資源。 這可讓多個資料科學家在同一時間同時處理相同的管線, 而不會有過度負擔的計算資源, 同時也可讓您輕鬆地針對每個步驟使用不同的計算類型/大小。
 
@@ -73,20 +69,20 @@ Azure 雲端提供數個其他管線, 各有不同的用途。 下表列出不�
 
 ## <a name="the-python-sdk-for-pipelines"></a>適用於管線的 Python SDK
 
-使用 Python 來建立您的 ML 管線。 沒有資料相依性存在時，Azure Machine Learning SDK 會提供命令式架構來排序和平行化您管線中的步驟。 您可以在 Jupyter 筆記本或另一個慣用的 IDE 中與它互動。
+[使用 PYTHON SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)在您慣用的 IDE 或 Jupyter 筆記本中建立 ML 管線。 沒有資料相依性存在時，Azure Machine Learning SDK 會提供命令式架構來排序和平行化您管線中的步驟。 
 
-您可以使用宣告式資料相依性來最佳化您的工作。 SDK 包含一般工作適用的預先建置模組架構，這類工作包括資料轉送及模型發佈。 您可以藉由實作可在管線間重複使用的自訂步驟，來延伸架構以建立您自己的慣例模型。 您也可以直接從 SDK 管理計算目標和儲存體資源。
+您可以使用宣告式資料相依性來最佳化您的工作。 SDK 包含一般工作適用的預先建置模組架構，這類工作包括資料轉送及模型發佈。 您可以藉由跨管線執行可重複使用的自訂步驟, 來擴充架構以建立您自己的慣例模型。 您也可以直接從 SDK 管理計算目標和儲存體資源。
 
-您可以將管線儲存成範本，並將它們部署到 REST 端點，以便您排程批次評分或重新定型作業。
+將您的管線儲存為範本, 並將其部署至 REST 端點, 以進行批次評分或重新定型作業。
 
-若要查看如何建置您自己的管線，請參閱[管線的 Python SDK 參考文件](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)和下一節中的 Notebook。
-
-## <a name="example-notebooks"></a>Notebook 範例
-
-下列 Notebook 示範使用 Azure Machine Learning 的管線：[how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)。
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+管線有兩個 Python 套件, Azure Machine Learning: [azureml-管線-核心](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)和[azureml 管線-步驟](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/?view=azure-ml-py)。
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何[建立第一個管線](how-to-create-your-first-pipeline.md)。
++ 了解如何[建立第一個管線](how-to-create-your-first-pipeline.md)。
+
++ 瞭解如何對[大型資料執行批次預測](how-to-run-batch-predictions.md)。
+
++ 閱讀[管線的 SDK 參考](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)檔
+
++ 試試看[Azure Machine Learning 管線](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)的範例 Jupyter 筆記本展示。 瞭解如何[執行筆記本以探索此服務](samples-notebooks.md)。

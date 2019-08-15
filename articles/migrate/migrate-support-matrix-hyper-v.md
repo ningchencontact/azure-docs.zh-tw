@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 105cbf173a9abe1adf0999f63740d47b3da51a29
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856295"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952131"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 評量和移轉的支援矩陣
 
@@ -61,8 +61,8 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 | **支援**                | **詳細資料**               
 | :-------------------       | :------------------- |
 | **主機部署**       | Hyper-v 主機可以是獨立或部署在叢集中。 |
-| **Permissions**           | 您需要 Hyper-v 主機的系統管理員許可權。 |
-| **主機作業系統** | Windows Server 2016 或 Windows Server 2012 R2。<br/> 您無法評估位於執行 Windows Server 2019 的 Hyper-v 主機上的 Vm。 |
+| **Permissions**           | 您需要 Hyper-v 主機的系統管理員許可權。 <br/> 或者, 如果您不想要指派系統管理員許可權, 請建立本機或網域使用者帳戶, 並將使用者新增至這些群組-遠端系統管理使用者、Hyper-v 系統管理員和效能監視器使用者。 |
+| **主機作業系統** | Windows Server 2019、Windows Server 2016 或 Windows Server 2012 R2。<br/> 您無法評估位於執行 Windows Server 2012 的 Hyper-v 主機上的 Vm。 |
 | **PowerShell 遠端處理**   | 必須在每部主機上啟用。 |
 | **Hyper-v 複本**       | 如果您使用 Hyper-v 複本 (或您有多個 vm 具有相同的 VM 識別碼), 並使用 Azure Migrate 探索原始和複寫的 Vm, 則 Azure Migrate 所產生的評量可能不正確。 |
 
@@ -72,13 +72,8 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 | **支援**                  | **詳細資料**               
 | :----------------------------- | :------------------- |
 | **作業系統** | Azure 支援的所有[Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)和[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)作業系統。 |
-| **Permissions**           | 您需要您想要評估的每部 Hyper-v VM 上的系統管理員許可權。 |
 | **Integration Services**       | [Hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services)必須在您評估的 vm 上執行, 才能捕捉作業系統資訊。 |
-| **UEFI 開機**                  | 不支援使用 UEFI 開機的 Vm 進行遷移。 |
-| **加密的磁片/磁片區**    | 不支援使用加密磁片/磁片區的 Vm 進行遷移。 |
-| **RDM/傳遞磁片**      | 如果 Vm 有 RDM 或 passthrough 磁片, 這些磁片將不會複寫到 Azure。 |
-| **NFS**                        | 裝載為 Vm 上之磁片區的 NFS 磁片區不會複寫。 |
-| **目標磁片**                | Azure Migrate 評估僅建議使用受控磁片遷移至 Azure Vm。 |
+
 
 
 ## <a name="assessment-appliance-requirements"></a>評量-設備需求
@@ -103,8 +98,8 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 **URL** | **詳細資料**  
 --- | ---
 *.portal.azure.com | 導覽至 Azure 入口網站
-*.windows.net | 登入您的 Azure 訂用帳戶：
-*.microsoftonline.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | 登入您的 Azure 訂用帳戶：
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 management.azure.com | 建立設備對服務通訊的 Azure Active Directory 應用程式。
 dc.services.visualstudio.com | 記錄和監視
 *.vault.azure.net | 在應用裝置與服務之間進行通訊時, 管理 Azure Key Vault 中的秘密。
@@ -119,7 +114,7 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 
 **裝置** | **連接**
 --- | ---
-**台** | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式:``` https://<appliance-ip-or-name>:44368 ```<br/> 埠443上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
+**台** | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式:``` https://<appliance-ip-or-name>:44368 ```<br/> 埠443、5671和5672上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
 **Hyper-v 主機/叢集** | WinRM 埠 5985 (HTTP) 和 5986 (HTTPS) 上的輸入連線, 可使用通用訊息模型 (CIM) 會話提取 Hyper-v Vm 的設定和效能中繼資料。
 
 ## <a name="migration-hyper-v-host-requirements"></a>遷移-Hyper-v 主機需求

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828273"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952123"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 評量和移轉的支援矩陣
 
@@ -90,8 +90,8 @@ Azure Migrate 設備需要網際網路的連線能力。
 **URL** | **詳細資料**  
 --- | --- |
 *.portal.azure.com  | 流覽至 Azure 入口網站中的 Azure Migrate。
-*.windows.net | 登入您的 Azure 訂用帳戶。
-*.microsoftonline.com | 建立設備 Active Directory 應用程式, 以與 Azure Migrate 服務進行通訊。
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | 登入您的 Azure 訂用帳戶。
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 建立設備 Active Directory 應用程式, 以與 Azure Migrate 服務進行通訊。
 management.azure.com | 建立設備 Active Directory 應用程式, 以與 Azure Migrate 服務進行通訊。
 dc.services.visualstudio.com | 上傳用於內部監視的應用程式記錄。
 *.vault.azure.net | 管理 Azure Key Vault 中的秘密。
@@ -104,7 +104,7 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **裝置** | **連接**
 --- | ---
-設備 | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/><br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式:```https://<appliance-ip-or-name>:44368``` <br/><br/>埠443上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
+設備 | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/><br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式:```https://<appliance-ip-or-name>:44368``` <br/><br/>埠443、5671和5672上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
 vCenter Server | TCP 通訊埠443上的輸入連線, 以允許設備收集設定和效能中繼資料以進行評量。 <br/><br/> 根據預設, 設備會連線到埠443上的 vCenter。 如果 vCenter server 在不同的埠上接聽, 您可以在設定探索時修改埠。
 
 
@@ -175,8 +175,8 @@ Azure Migrate 設備需要網際網路連線到網際網路。
 **URL** | **詳細資料**  
 --- | ---
 *.portal.azure.com | 流覽至 Azure 入口網站中的 Azure Migrate。
-*.windows.net | 登入您的 Azure 訂用帳戶。
-*.microsoftonline.com | 建立設備 Active Directory 應用程式, 以與 Azure Migrate 服務進行通訊。
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | 登入您的 Azure 訂用帳戶。
+*.microsoftonline.com <br/> *.microsoftonline-p.com | 建立設備 Active Directory 應用程式, 以與 Azure Migrate 服務進行通訊。
 management.azure.com | 建立設備 Active Directory 應用程式, 以與 Azure Migrate 服務進行通訊。
 dc.services.visualstudio.com | 上傳用於內部監視的應用程式記錄。
 *.vault.azure.net | 管理 Azure Key Vault 中的秘密。

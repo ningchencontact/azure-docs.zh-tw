@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8219e795bb9ab4fc0d479b71e6a93fe6300037d0
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514906"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986751"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>使用 Azure CLI 以 RBAC 授與 Azure blob 和佇列資料的存取權
 
@@ -61,16 +61,16 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 若要指派容器範圍內的角色, 請指定包含`--scope`參數容器範圍的字串。 容器的範圍格式如下:
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>
 ```
 
-下列範例會將**儲存體 Blob 資料參與者**角色指派給使用者, 其範圍設定為*範例*容器。 請務必以您自己的值取代範例值和括弧中的預留位置值: 
+下列範例會將**儲存體 Blob 資料參與者**角色指派給使用者, 其範圍設定為容器的層級。 請務必以您自己的值取代範例值和括弧中的預留位置值:
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>"
 ```
 
 ### <a name="queue-scope"></a>佇列範圍
@@ -78,16 +78,16 @@ az role assignment create \
 若要指派範圍限於佇列的角色, 請指定包含`--scope`參數佇列範圍的字串。 佇列的範圍格式如下:
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>
 ```
 
-下列範例會將**儲存體佇列資料參與者**角色指派給使用者, 其範圍設定為*範例-佇列*的佇列。 請務必以您自己的值取代範例值和括弧中的預留位置值: 
+下列範例會將**儲存體佇列資料參與者**角色指派給使用者, 其範圍設定為佇列的層級。 請務必以您自己的值取代範例值和括弧中的預留位置值:
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Queue Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>"
 ```
 
 ### <a name="storage-account-scope"></a>儲存體帳戶範圍
@@ -98,24 +98,24 @@ az role assignment create \
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-下列範例顯示如何將儲存體**Blob 資料讀取**者角色指派給儲存體帳戶層級的使用者。 請務必將範例值取代為您自己的值: 
+下列範例顯示如何將儲存體**Blob 資料讀取**者角色指派給儲存體帳戶層級的使用者。 請務必使用您自己的值來取代範例值: \
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Reader" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
 ### <a name="resource-group-scope"></a>資源群組範圍
 
-若要指派資源群組範圍內的角色, 請為`--resource-group`參數指定資源組名或識別碼。 下列範例會將**儲存體佇列資料讀取**者角色指派給資源群組層級的使用者。 請務必以您自己的值取代括弧中的範例值和預留位置值: 
+若要指派資源群組範圍內的角色, 請為`--resource-group`參數指定資源組名或識別碼。 下列範例會將**儲存體佇列資料讀取**者角色指派給資源群組層級的使用者。 請務必以您自己的值取代括弧中的範例值和預留位置值:
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Queue Data Reader" \
     --assignee <email> \
-    --resource-group sample-resource-group
+    --resource-group <resource-group>
 ```
 
 ### <a name="subscription-scope"></a>訂用帳戶範圍
@@ -132,7 +132,7 @@ az role assignment create \
 az role assignment create \
     --role "Storage Blob Data Reader" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>"
+    --scope "/subscriptions/<subscription>"
 ```
 
 ## <a name="next-steps"></a>後續步驟

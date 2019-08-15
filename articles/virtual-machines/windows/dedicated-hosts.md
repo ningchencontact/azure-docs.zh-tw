@@ -12,14 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: d822bebb2e8323c075990a9225d08eb695c519cc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 011bfeb337f3c04b2d9041abedac50affe1f86b0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725913"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977252"
 ---
 # <a name="preview-azure-dedicated-hosts"></a>預覽：Azure 專用主機
+
+「Azure 專用主機」是一種服務, 可提供實體伺服器來裝載一或多個 Azure 訂用帳戶專用的虛擬機器。 專用主機是在資料中心內使用的相同實體伺服器, 以資源的形式提供。 您可以在區域、可用性區域和容錯網域中布建專用主機。 然後, 您可以將 Vm 直接放入已布建的主機中, 不論何種設定最符合您的需求。
+
+[!INCLUDE [virtual-machines-common-dedicated-hosts-preview](../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 

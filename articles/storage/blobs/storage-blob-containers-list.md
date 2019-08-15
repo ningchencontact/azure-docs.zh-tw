@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6812ad879427a814206ef1400fcff5f3c4af0e75
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: e0197d59cdadd5e9462daf879d915ac2520bc149
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235024"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985651"
 ---
 # <a name="list-blob-containers-with-net"></a>使用 .NET 列出 blob 容器
 
@@ -44,7 +44,7 @@ ms.locfileid: "68235024"
 
 若要傳回具有結果的容器中繼資料, 請指定[ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails)列舉的**中繼資料**值。 Azure 儲存體包含每個傳回的容器的中繼資料, 因此您也不需要呼叫其中一個**FetchAttributes**方法來取得容器中繼資料。
 
-## <a name="example-list-containers"></a>範例：列出容器
+## <a name="example-list-containers"></a>範例:列出容器
 
 下列範例會以非同步方式列出儲存體帳戶中以指定前置詞開頭的容器。 此範例會一次以5個結果的增量來列出容器, 並使用接續 token 來取得結果的下一個區段。 此範例也會傳回具有結果的容器中繼資料。
 
@@ -95,7 +95,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## <a name="see-also"></a>另請參閱
 

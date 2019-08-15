@@ -2,7 +2,7 @@
 title: Azure Active Directory 入口網站中有風險的登入報告 | Microsoft Docs
 description: 了解 Azure Active Directory 入口網站中有風險的登入報告
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e125f8e1e7909c5866a03c0571f49ec42d690a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 629e7bf8ee7100b5927483ecfd4efa1d9223c151
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60287397"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989929"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中有風險的登入報告
 
 Azure Active Directory (Azure AD) 會偵測使用者帳戶相關的可疑動作。 針對每個偵測到的動作，將會建立一筆稱為**風險事件**的記錄。 如需詳細資訊，請參閱 [Azure AD 風險事件](concept-risk-events.md)。 
 
-您可以從 [Azure 入口網站](https://portal.azure.com)中，藉由選取 [Azure Active Directory]  刀鋒視窗，然後瀏覽至 [安全性]  區段，來存取安全性報告。 
+您可以從 [Azure 入口網站](https://portal.azure.com)中，藉由選取 [Azure Active Directory] 刀鋒視窗，然後瀏覽至 [安全性] 區段，來存取安全性報告。 
 
 有兩個會根據風險事件來進行計算的不同安全性報告：
 
@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) 會偵測使用者帳戶相關的可疑動作�
 
 所有 Azure AD 版本都會為您提供有風險的登入報告。 不過，報告細微性層級因版本而異： 
 
-- 在 [Azure Active Directory Free 和 Basic 版本]  中，您會取得有風險的登入清單。 
+- 在 [Azure Active Directory Free 和 Basic 版本] 中，您會取得有風險的登入清單。 
 
 - 此外，**Azure Active Directory Premium 1** 版本也可讓您檢查每份報告中所偵測到的某些基礎風險事件。 
 
@@ -124,7 +124,7 @@ Azure AD 進階版本中有風險的登入報告可為您提供：
 ![有風險的登入](./media/concept-risky-sign-ins/324.png)
 
 若要調查風險事件，請從清單中選取一項。  
-這會開啟這個風險事件的 [詳細資料]  刀鋒視窗。 在 [詳細資料]  刀鋒視窗上，您可以選擇手動關閉風險事件或重新啟動已手動關閉的風險事件。 
+這會開啟這個風險事件的 [詳細資料] 刀鋒視窗。 在 [詳細資料] 刀鋒視窗上，您可以選擇手動關閉風險事件或重新啟動已手動關閉的風險事件。 
 
 ![有風險的登入](./media/concept-risky-sign-ins/325.png)
 

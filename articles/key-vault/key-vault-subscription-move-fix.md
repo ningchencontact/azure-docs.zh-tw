@@ -3,18 +3,18 @@ title: 在訂用帳戶移動之後，變更金鑰保存庫租用戶識別碼 - A
 description: 了解如何在訂用帳戶移到不同租用戶之後，切換金鑰保存庫的租用戶識別碼
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: f32146697be234a8a288ff991b1f7adf6e76dc7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 2159b5b515e22458edf3ba0eb5b6f23f3f37ce95
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724487"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990114"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>在訂用帳戶移動之後變更金鑰保存庫租用戶識別碼
 
@@ -31,12 +31,14 @@ ms.locfileid: "64724487"
 例如，如果您在已從租用戶 A 移到租用戶 B 的訂用帳戶中有金鑰保存庫 'myvault'，以下就是您變更此金鑰保存庫的租用戶識別碼及移除舊存取原則的方式。
 
 <pre>
-Select-AzSubscription -SubscriptionId YourSubscriptionID
-$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId
-$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId
-$vault.Properties.AccessPolicies = @()
-Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties
+Select-AzSubscription -SubscriptionId YourSubscriptionID                   # Select your Azure Subscription
+$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your Keyvault's Resource ID 
+$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your Keyvault
+$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your Keyvault resides in
+$vault.Properties.AccessPolicies = @()                                     # Accesspolicies can be updated with real
+                                                                           # applications/users/rights so that it does not need to be                                                                              # done after this whole activity. Here we are not setting 
+                                                                           # any access policies. 
+Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties  # Modifies the kevault's properties.
 </pre>
 
 由於此保存庫在移動前位於租用戶 A 中，所以 **$vault.Properties.TenantId** 的原始值是租用戶 A，而 **(Get-AzContext).Tenant.TenantId** 則是租用戶 B。

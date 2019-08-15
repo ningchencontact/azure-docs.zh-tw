@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 1ca29fafae1269b21f4e39a9d2594f84af035d25
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9b1543ca37c636f4a82ff9ada3dfe212fa9b8d0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856685"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976660"
 ---
-# <a name="how-to-use-image-templates"></a>如何使用影像範本
+# <a name="how-to-use-image-templates"></a>如何使用映像範本
 
 在 Azure 地圖服務 web SDK 中, 您可以使用 HTML 標籤和各種層級的影像:
 
@@ -203,7 +203,10 @@ SVG 影像範本支援下列預留位置值:
 > [新增符號圖層](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [新增圖形](map-add-shape.md)
+> [新增線條圖層](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [新增多邊形圖層](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [新增 HTML 標記](map-add-bubble-layer.md)

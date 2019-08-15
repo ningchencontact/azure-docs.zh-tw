@@ -9,24 +9,24 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789949"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986558"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
 「Azure 儲存體」提供一組完整的安全性功能，這些功能一起可讓開發人員建置安全的應用程式：
 
-- 使用自動加密所有資料 （包括中繼資料） 寫入 Azure 儲存體[儲存體服務加密 (SSE)](storage-service-encryption.md)。 如需詳細資訊，請參閱[宣佈 Azure Blob、檔案、資料表及佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) \(英文\)。
+- 寫入 Azure 儲存體的所有資料 (包括中繼資料) 都會使用[儲存體服務加密 (SSE)](storage-service-encryption.md)自動加密。 如需詳細資訊，請參閱[宣佈 Azure Blob、檔案、資料表及佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) \(英文\)。
 - Azure Active Directory (Azure AD) 和角色型存取控制 (RBAC) 可支援 Azure 儲存體，以便進行資源管理作業和資料作業，如下所示：   
     - 您可以將儲存體帳戶範圍內的 RBAC 角色指派給安全性主體，以及使用 Azure AD 來授權資源管理作業，例如金鑰管理。
-    - Azure AD 的整合支援 blob 和佇列資料作業。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或 Azure 資源的受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。   
+    - Blob 和佇列資料作業支援 Azure AD 整合。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或 Azure 資源的受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。   
 - 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，在應用程式和 Azure 之間進行傳輸時保護資料的安全。  
-- 您可以使用 [Azure 磁碟加密](../../security/azure-security-disk-encryption.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。 
-- Azure 儲存體中資料物件的委派存取權可以使用 [共用存取簽章](../storage-dotnet-shared-access-signature-part-1.md)來授與。
+- 您可以使用 [Azure 磁碟加密](../../security/azure-security-disk-encryption.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。
+- 您可以使用共用存取簽章來授與 Azure 儲存體中資料物件的委派存取權。 如需詳細資訊, 請參閱[使用共用存取簽章 (SAS) 授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。
 
 本文簡要說明這些安全性功能當中，可與「Azure 儲存體」搭配使用的每個安全性功能。 所提供的文章連結將提供每個功能的詳細資料，讓您能夠輕鬆地進一步調查每個主題。
 
@@ -156,7 +156,7 @@ ms.locfileid: "65789949"
 
 有三個選項可供您授權 Azure 儲存體資料物件的存取權，包括：
 
-- 您可以使用 Azure AD 來授權存取容器和佇列。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。 
+- 使用 Azure AD 來授權容器和佇列的存取權。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。 
 - 使用儲存體帳戶金鑰來透過共用金鑰授權存取權。 透過共用金鑰授權時，需要在應用程式中儲存儲存體帳戶金鑰，因此 Microsoft 建議盡可能改為使用 Azure AD。
 - 使用共用存取簽章，來授與一段特定時間對特定資料物件的受控權限。
 
@@ -239,11 +239,6 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
   * [建構服務 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [建構帳戶 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* 這是使用.NET 用戶端程式庫來建立共用存取簽章和預存存取原則的教學課程。
-  * [使用共用的存取簽章 (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-
-    本文包含 SAS 模型的說明、共用存取簽章的範例，以及使用 SAS 最佳做法的建議。 同時也會討論撤銷授與的權限。
-
 * 驗證
 
   * [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)
@@ -302,7 +297,7 @@ SSE 會自動將所有效能層 (標準和進階)、所有部署模型 (Azure Re
   本文說明用戶端加密，並提供使用儲存體用戶端程式庫，從四個儲存體服務加密和解密資源的範例。 它也會討論 Azure 金鑰保存庫。
 
 ### <a name="using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines"></a>使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟
-Azure 磁碟加密可讓您加密作業系統磁碟和 IaaS 虛擬機器所使用的資料磁碟。 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。
+Azure 磁碟加密可讓您加密 IaaS 虛擬機器所使用的 OS 磁片和資料磁片。 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。
 
 在 Microsoft Azure 中啟用時，解決方案會對 IaaS VM 支援下列案例：
 
@@ -432,7 +427,7 @@ SSE 是由 Azure 儲存體所管理。 SSE 並不針對傳輸中資料提供安�
 
   本文是 Microsoft Message Analyzer 的參考，並包含教學課程、快速入門及功能摘要的連結。
 
-## <a name="cross-origin-resource-sharing-cors"></a>跨原始來源資源分享 (CORS)
+## <a name="cross-origin-resource-sharing-cors"></a>跨原始資源共用 (CORS)
 ### <a name="cross-domain-access-of-resources"></a>跨網域存取資源
 在某一個網域中執行的 Web 瀏覽器對來自不同網域的資源提出 HTTP 要求時，這稱為跨原始來源的 HTTP 要求。 例如，來自 contoso.com 的 HTML 網頁會對裝載於 fabrikam.blob.core.windows.net 上的 jpeg 提出要求。 基於安全性理由，瀏覽器會限制從指令碼 (例如 JavaScript) 內初始化的跨原始來源 HTTP 要求。 這表示當 contoso.com 的網頁上有一些 JavaScript 程式碼要求 fabrikam.blob.core.windows.net 上的該 jpeg 時，瀏覽器將不允許該要求。
 

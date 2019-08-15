@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 地圖服務建立地圖 | Microsoft Docs
-description: 如何建立 Javascript 地圖
+description: 如何使用 Azure 地圖服務 Web SDK 建立對應。
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9f1188fcf2aa24791ca5181f5c94a1b0f6b15dc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 932c244ff41e757413a05cde019ee7ee1a82232d
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882071"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976128"
 ---
 # <a name="create-a-map"></a>建立地圖
 
@@ -22,7 +22,7 @@ ms.locfileid: "68882071"
 
 ## <a name="loading-a-map"></a>載入對應
 
-若要載入對應, 請建立[map 類別](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)的新實例。 當初始化對應時, 會將 DIV 元素識別碼轉譯為轉譯對應, 並傳入載入對應時要使用的一組選項。 如果`atlas`命名空間未指定預設驗證資訊, 載入對應時, 必須在對應選項中指定這項資訊。 對應會以非同步方式載入數個資源, 以提高效能。 因此, 在建立 map 實例之後, 請將`ready`或`load`事件附加至對應, 然後在該事件處理常式中加入與對應互動的任何其他程式碼。 當`ready`對應的載入資源足以與程式互動時, 就會引發事件。 在`load`初始對應視圖完全載入完成後, 就會引發事件。 
+若要載入對應, 請建立[map 類別](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)的新實例。 在初始化對應時, 會傳入用來轉譯對應的 DIV 專案識別碼, 以及要在載入對應時使用的一組選項。 如果`atlas`命名空間未指定預設驗證資訊, 載入對應時, 必須在對應選項中指定這項資訊。 對應會以非同步方式載入數個資源, 以提高效能。 因此, 在建立 map 實例之後, 請將`ready`或`load`事件附加至對應, 然後在該事件處理常式中加入與對應互動的任何其他程式碼。 當`ready`對應的載入資源足以與程式互動時, 就會引發事件。 在`load`初始對應視圖完全載入完成後, 就會引發事件。 
 
 <br/>
 
@@ -104,3 +104,6 @@ ms.locfileid: "68882071"
 
 > [!div class="nextstepaction"]
 > [將控制項新增至對應](map-add-controls.md)
+
+> [!div class="nextstepaction"]
+> [程式碼範例](https://docs.microsoft.com/samples/browse/?products=azure-maps)

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 21b7c4e17d976a0a4099a926823f51eab1dba98d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879065"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976836"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 資料目錄開發人員概念
 Microsoft **Azure 資料目錄** 是完全受控的雲端服務，能夠進行資料來源探索，以及讓群眾外包資料來源中繼資料。 開發人員可以透過 REST API 來使用此服務。 開發人員必須了解服務中所實作的概念，才能成功地與 **Azure 資料目錄**整合。
@@ -19,7 +19,7 @@ Microsoft **Azure 資料目錄** 是完全受控的雲端服務，能夠進行�
 ## <a name="key-concepts"></a>重要概念
 **Azure 資料目錄**概念模型是以四個主要概念為基礎:**目錄**、**使用者**、**資產**和**批註**。
 
-![資料目錄概念](./media/data-catalog-developer-concepts/concept2.png)
+![Azure 資料目錄概念模型圖例](./media/data-catalog-developer-concepts/concept2.png)
 
 *圖 1 - Azure 資料目錄簡易概念模型*
 
@@ -194,7 +194,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td></td><td>columnName </td><td>string</td><td>資料行的名稱。</td></tr>
 <tr><td></td><td>type </td><td>string</td><td>資料行的類型。</td></tr>
 <tr><td></td><td>分鐘 </td><td>string</td><td>在此資料集內的最小值。</td></tr>
-<tr><td></td><td>最大值 </td><td>string</td><td>在此資料集內的最大值。</td></tr>
+<tr><td></td><td>上限 </td><td>string</td><td>在此資料集內的最大值。</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>在此資料集內的平均值。</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>此資料集的標準差。</td></tr>
 <tr><td></td><td>nullCount </td><td>ssNoversion</td><td>在此資料集內 null 值的計數。</td></tr>

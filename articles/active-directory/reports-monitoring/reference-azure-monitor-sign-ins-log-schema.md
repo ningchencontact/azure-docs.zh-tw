@@ -3,7 +3,7 @@ title: Azure Active Directory Azure 監視器中的登入記錄架構 |Microsoft
 description: 描述用於 Azure 監視器的 Azure AD 登入記錄架構
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e7ae7e90642a6adfd35e71765e2753334660c56
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 7a82cc4da3b9f4f0c654c95b9889a8bf73fd8ec5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261870"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989615"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>解讀 Azure 監視器中的 Azure AD 登入記錄架構
 
@@ -163,9 +163,9 @@ ms.locfileid: "68261870"
 | CallerIpAddress | 發出要求之用戶端的 IP 位址。 | 
 | CorrelationId | 用戶端傳遞的選擇性 GUID。 此值能協助將用戶端作業和伺服器端作業相互關聯，當您在追蹤跨服務的記錄時它會很有用。 |
 | 身分識別 | 當您發出要求時，來自出示之權杖的身分識別。 它可以是使用者帳戶、系統帳戶或服務主體。 |
-| Level | 提供訊息的類型。 針對稽核，它一律是 *Informational*。 |
+| 層級 | 提供訊息的類型。 針對稽核，它一律是 *Informational*。 |
 | Location | 提供登入活動的位置。 |
-| 屬性 | 列出與登入相關的所有屬性。如需詳細資訊，請參閱 [Microsoft 圖形 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) \(英文\)。 此結構描述使用與登入資源相同的屬性名稱，以提高可讀性。
+| Properties | 列出與登入相關的所有屬性。如需詳細資訊，請參閱 [Microsoft 圖形 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) \(英文\)。 此結構描述使用與登入資源相同的屬性名稱，以提高可讀性。
 
 ## <a name="next-steps"></a>後續步驟
 

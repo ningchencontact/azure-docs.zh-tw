@@ -6,17 +6,17 @@ author: ajlam
 ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: 2852cab05fab8e15b7e60a22f54cc866d2f0f178
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/13/2019
+ms.openlocfilehash: 1299f82c28181d1c24f68a0d36ba13c6b40d21ee
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61226202"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013395"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>什麼是 Azure Database for MySQL？
 
-適用於 MySQL 的 azure 資料庫是在 Microsoft 雲端為基礎的關聯式資料庫服務[MySQL Community Edition](https://www.mysql.com/products/community/) （可用 GPLv2 license） 資料庫引擎、 5.6 和 5.7 版。 Azure Database for MySQL 提供：
+適用於 MySQL 的 Azure 資料庫是 Microsoft cloud 中的關係資料庫服務, 以[MySQL 社區版本](https://www.mysql.com/products/community/)(可在 GPLv2 授權中取得) 的資料庫引擎版本5.6、5.7 和8.0 為基礎。 Azure Database for MySQL 提供：
 
 - 內建高可用性但沒有任何額外成本。
 - 可預測的效能，使用隨用隨付計價方式。

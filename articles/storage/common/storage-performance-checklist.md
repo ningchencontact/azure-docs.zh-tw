@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ee216bd4d6994179e347465c30039f2f8e293c85
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 48a5484e2b2b663d0046fc628c02e656c5bd7a25
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232993"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985159"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 儲存體效能和擴充性檢查清單
 
@@ -30,7 +30,7 @@ ms.locfileid: "68232993"
 * 資料表
 * 佇列  
 
-| 完成 | 領域 | Category | 問題 |
+| 完成 | 區域 | Category | 問題 |
 | --- | --- | --- | --- |
 | &nbsp; | 所有服務 |延展性目標 |[您的應用程式是否旨在避免達到延展性目標？](#subheading1) |
 | &nbsp; | 所有服務 |延展性目標 |[您的命名慣例設計能因應更好的負載平衡嗎？](#subheading47) |
@@ -46,7 +46,7 @@ ms.locfileid: "68232993"
 | &nbsp; | 所有服務 |.NET 組態 |[您使用的是已改善記憶體回收的 .NET 4.5 或更新版本嗎？](#subheading11) |
 | &nbsp; | 所有服務 |平行處理原則 |[您是否已確保平行處理原則已適當地受到限制，因此您的用戶端功能或延展性目標不會超載？](#subheading12) |
 | &nbsp; | 所有服務 |工具 |[您是否使用 Microsoft 所提供的最新用戶端程式庫和工具版本？](#subheading13) |
-| &nbsp; | 所有服務 |重試 |[您是否針對節流錯誤和逾時使用指數輪詢重試原則？](#subheading14) |
+| &nbsp; | 所有服務 |重試次數 |[您是否針對節流錯誤和逾時使用指數輪詢重試原則？](#subheading14) |
 | &nbsp; | 所有服務 |重試 |[您的應用程式是否避免重試不能再嘗試的錯誤？](#subheading15) |
 | &nbsp; | Blob |延展性目標 |[您是嘔有大量的用戶端並行存取單一物件？](#subheading46) |
 | &nbsp; | Blob |延展性目標 |[您的應用程式是否不超過單一 Blob 的頻寬或操作延展性目標？](#subheading16) |
@@ -172,7 +172,7 @@ Azure 儲存體使用範圍型的資料分割配置，調整和負載平衡系�
 
 #### <a name="useful-resources"></a>有用的資源
 
-如需關於 SAS 的詳細資訊，請參閱[共用存取簽章，第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1.md)。  
+如需 SAS 的詳細資訊, 請參閱[使用共用存取簽章 (SAS) 授與 Azure 儲存體資源的有限存取權](storage-sas-overview.md)。  
 
 如需 CORS 的詳細資訊，請參閱 [Azure 儲存體服務的跨原始資源共用 (CORS) 支援](https://msdn.microsoft.com/library/azure/dn535601.aspx)。  
 
@@ -234,7 +234,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 一律使用 Microsoft 所提供的最新版用戶端程式庫和工具。 本文撰寫期間，有適用於 .NET、Windows Phone、Windows Runtime、Java 和 C++ 的用戶端程式庫，以及其他語言的預覽程式庫。 此外，Microsoft 也推出 PowerShell Cmdlet 和 Azure CLI 命令，可與 Azure 儲存體搭配使用。 Microsoft 主動開發根據效能考量的這些工具，透過最新的服務版本將他們保持在最新的狀態，並確保這些工具會在內部處理許多已經實證的效能做法。  
 
-### <a name="retries"></a>重試
+### <a name="retries"></a>重試次數
 
 #### <a name="subheading14"></a>節流和伺服器忙碌錯誤
 
@@ -313,7 +313,7 @@ Blob 服務支援 head 要求, 其中可能包含有關 Blob 的中繼資料。 
 
 ### <a name="subheading23"></a>選擇 Blob 的正確類型
 
-Azure 儲存體支援兩種 Blob：分頁  Blob 和區塊  Blob。 在指定使用的案例中，您的 Blob 類型選擇將會影響解決方案的效能和延展性。 區塊 Blob 適用於您想要有效地上傳大量資料時：例如，用戶端應用程式可能需要將相片或視訊上傳至 Blob 儲存體。 分頁 Blob 則適用於應用程式需要執行隨機寫入資料時：例如，將 Azure VHD 儲存為分頁 Blob。  
+Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用的案例中，您的 Blob 類型選擇將會影響解決方案的效能和延展性。 區塊 Blob 適用於您想要有效地上傳大量資料時：例如，用戶端應用程式可能需要將相片或視訊上傳至 Blob 儲存體。 分頁 Blob 則適用於應用程式需要執行隨機寫入資料時：例如，將 Azure VHD 儲存為分頁 Blob。  
 
 如需詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 和分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。  
 
@@ -347,7 +347,7 @@ Azure 儲存體支援兩種 Blob：分頁  Blob 和區塊  Blob。 在指定使�
 
 在不同的 TCP/IP 網路中已廣泛採用 Nagle 的演算法，來作為提高網路效能的方法。 不過，它並非是所有情況下的最佳作法 (例如高互動式環境)。 在 Azure 儲存體中，Nagle 的演算法對於資料表和佇列服務要求的效能有負面的影響，可以的話您應將它停用。
 
-### <a name="schema"></a>結構描述
+### <a name="schema"></a>架構
 
 如何呈現與查詢您的資料是影響資料表服務效能的單一最大因素。 雖然每個應用程式都有所不同，本節將概述與下列項目相關的部分一般已經實證做法：  
 

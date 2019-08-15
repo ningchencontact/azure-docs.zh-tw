@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813819"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952022"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)來備份內部部署機器和工作負載, 以及 Azure 虛擬機器 (vm)。 本文摘要說明使用 Azure 備份備份 Azure Vm 時的支援設定和限制。
@@ -157,8 +157,8 @@ VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小�
 
 **元件** | **支援**
 --- | ---
-Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><br/> 支援最多 4 TB 磁碟大小。
-資料磁碟大小 | 個別磁碟最多可達 4095 GB。<br/><br/>若要註冊 Azure 備份大型磁片支援的私人預覽, 大於4TB 大小上限為30TB 的磁片, 請回寫給我們AskAzureBackupTeam@microsoft.com。  
+Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><br/> 支援最多 4 TB 磁碟大小。<br/><br/>若要註冊有限的公開預覽, Azure 備份大於 4 TB 且大小高達 30 TB 之磁片的大型磁片支援, 請參閱[AZURE VM 備份的總覽](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)。
+資料磁碟大小 | 個別磁碟最多可達 4095 GB。<br/><br/>若要註冊有限的公開預覽, Azure 備份大於4TB 大小上限為30TB 之磁片的大型磁片支援, 請參閱這[篇文章](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)。
 儲存體類型 | 標準 HDD、標準 SSD 進階 SSD。
 受控磁碟 | 支援。
 加密磁碟 | 支援。<br/><br/> 您可以備份使用 Azure 磁碟加密啟用的 Azure Vm (不論是否有 Azure AD 應用程式)。<br/><br/> 加密的 VM 無法在檔案/資料夾層級復原。 您必須復原整個 VM。<br/><br/> 您可以對已受到 Azure 備份保護的 VM 啟用加密。

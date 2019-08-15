@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 53626c1d8fe0b9301883280a9f0925eb38ad1d99
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4aadac343e023e68432741c1f1231bc0ec9fe0ea
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480460"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990193"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -85,7 +85,7 @@ public static async Task<IActionResult> Run(
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例示範 function.json  檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
+下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
 以下是 *function.json* 檔案：
 
@@ -161,7 +161,7 @@ public class Person {
 
 ### <a name="trigger---f-example"></a>觸發程序 - F# 範例
 
-下列範例示範 function.json  檔案中的觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
+下列範例示範 function.json 檔案中的觸發程序繫結，以及使用此繫結的 [F# 函式](functions-reference-fsharp.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
 以下是 *function.json* 檔案：
 
@@ -227,7 +227,7 @@ let Run(req: HttpRequestMessage) =
 
 ### <a name="trigger---javascript-example"></a>觸發程序 - JavaScript 範例
 
-下列範例示範的是使用繫結之 function.json  檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
+下列範例示範的是使用繫結之 function.json 檔案，以及 [JavaScript 函式](functions-reference-node.md)中的觸發程序繫結。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
 
 以下是 *function.json* 檔案：
 
@@ -724,7 +724,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 ### <a name="obtaining-keys"></a>取得金鑰
 
-金鑰會當作您函數應用程式的一部分儲存於 Azure 中，並在加密後靜置。 若要檢視您的金鑰，請建立新的金鑰或將金鑰輪替為新的值，瀏覽至您在 [Azure 入口網站](https://portal.azure.com)中的其中一個 HTTP 觸發函式，然後選取 [管理]  。
+金鑰會當作您函數應用程式的一部分儲存於 Azure 中，並在加密後靜置。 若要檢視您的金鑰，請建立新的金鑰或將金鑰輪替為新的值，瀏覽至您在 [Azure 入口網站](https://portal.azure.com)中的其中一個 HTTP 觸發函式，然後選取 [管理]。
 
 ![在入口網站中管理函式金鑰。](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
@@ -766,7 +766,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 #### <a name="github-webhooks"></a>GitHub Webhook
 
-若要回應 GitHub Webhook，請先建立含有 HTTP 觸發程序的函式，然後將 **webHookType** 屬性設定為 `github`。 接著將其 URL 和 API 金鑰複製到您 GitHub 存放庫的 [新增 Webhook]  頁面。 
+若要回應 GitHub Webhook，請先建立含有 HTTP 觸發程序的函式，然後將 **webHookType** 屬性設定為 `github`。 接著將其 URL 和 API 金鑰複製到您 GitHub 存放庫的 [新增 Webhook] 頁面。 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
@@ -785,7 +785,7 @@ Webhook 授權是由 Webhook 接收器元件 (HTTP 觸發程序的一部分) 處
 
 HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度的限制為 4 KB (4,096 個位元組)。 這些限制由執行階段 [Web.config 檔案](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素所指定。
 
-如果使用 HTTP 觸發程序的函式未在約 2.5 分鐘內完成，閘道將會逾時並傳回 HTTP 502 錯誤。 函式會繼續執行，但無法傳回 HTTP 回應。 對於長時間執行的函式，建議您遵循非同步模式，並傳回可以偵測要求狀態的位置。 如需函式可以執行多久的相關資訊，請參閱[級別和裝載 - 使用情況方案](functions-scale.md#consumption-plan)。
+如果使用 HTTP 觸發程序的函式未在約 2.5 分鐘內完成，閘道將會逾時並傳回 HTTP 502 錯誤。 函式會繼續執行，但無法傳回 HTTP 回應。 對於長時間執行的函式，建議您遵循非同步模式，並傳回可以偵測要求狀態的位置。 如需函式可以執行多久的相關資訊，請參閱[級別和裝載 - 使用情況方案](functions-scale.md#timeout)。
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
@@ -799,9 +799,9 @@ HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
-下表說明您在 function.json  檔案中設定的繫結設定屬性。 就 C# 類別程式庫而言，沒有任何屬性 (Attribute) 的屬性 (Property) 與這些 *function.json* 屬性 (Property) 對應。
+下表說明您在 function.json 檔案中設定的繫結設定屬性。 就 C# 類別程式庫而言，沒有任何屬性 (Attribute) 的屬性 (Property) 與這些 *function.json* 屬性 (Property) 對應。
 
-|屬性  |描述  |
+|內容  |描述  |
 |---------|---------|
 | **type** |必須設為 `http`。 |
 | **direction** | 必須設為 `out`。 |

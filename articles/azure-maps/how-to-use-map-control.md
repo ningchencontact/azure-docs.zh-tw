@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5fdbd8092abcc51fc03e8b00106b7e25ec4be905
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a152f32ef7d68686539b7d6edee57db8a5da9553
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839402"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976234"
 ---
 # <a name="use-the-azure-maps-map-control"></a>使用 Azure 地圖服務地圖控制項
 
@@ -102,7 +102,7 @@ ms.locfileid: "68839402"
     </script>
     ```
 
-    如需詳細資訊, 請參閱[使用 Azure 地圖服務進行驗證](azure-maps-authentication.md)以取得詳細資料。
+    如需詳細資訊, 請參閱[使用 Azure 地圖服務的驗證](azure-maps-authentication.md)檔。
 
 6. 除此之外，將下列中繼標籤元素新增到頁面的標頭可能會對您很有幫助：
 
@@ -214,3 +214,11 @@ map = new atlas.Map('myMap', {
 
 > [!div class="nextstepaction"]
 > [選擇地圖樣式](choose-map-style.md)
+
+若要將更多資料新增至您的對應:
+
+> [!div class="nextstepaction"]
+> [建立地圖](map-create.md)
+
+> [!div class="nextstepaction"]
+> [程式碼範例](https://docs.microsoft.com/samples/browse/?products=azure-maps)

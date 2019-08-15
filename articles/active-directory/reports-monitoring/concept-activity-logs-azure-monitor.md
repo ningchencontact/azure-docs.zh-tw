@@ -1,9 +1,9 @@
 ---
-title: Azure 監視器中的 azure Active Directory 活動記錄檔 |Microsoft Docs
-description: 簡介 Azure Active Directory 活動記錄在 Azure 監視器
+title: Azure Active Directory Azure 監視器中的活動記錄 |Microsoft Docs
+description: Azure 監視器中的 Azure Active Directory 活動記錄簡介
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/22/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38035031c32c512a55293ba125fdcc4535b9833
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e8fb570d328c7391c269d4a2aa91c69003b1cfc8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204371"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989894"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure 監視器中的 azure AD 活動記錄
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD Azure 監視器中的活動記錄
 
-您可以將 Azure Active Directory (Azure AD) 的活動記錄路由至幾個端點來長時間詞彙保留和資料深入解析。 這項功能可讓您：
+您可以將 Azure Active Directory (Azure AD) 活動記錄路由至數個端點, 以進行長期保留和資料深入解析。 這項功能可讓您:
 
 * 將 Azure AD 活動記錄封存到 Azure 儲存體帳戶，以長時間保存資料。
 * 將 Azure AD 活動記錄串流至 Azure 事件中樞，以便使用 Splunk 和 QRadar 等常用的安全性資訊與事件管理 (SIEM) 工具進行分析。
@@ -48,14 +48,14 @@ ms.locfileid: "67204371"
 > 目前不支援與 B2C 相關的稽核和登入活動記錄。
 >
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 若要使用此功能，您必須要有：
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，您可以[註冊免費試用](https://azure.microsoft.com/free/)。
 * Azure AD Free、Basic、Premium 1 或 Premium 2 [授權](https://azure.microsoft.com/pricing/details/active-directory/)，用以存取 Azure 入口網站中的 Azure AD 稽核記錄。 
 * Azure AD 租用戶。
-* 使用者，身分是該 Azure AD 租用戶的「全域管理員」  或「安全性管理員」  。
+* 使用者，身分是該 Azure AD 租用戶的「全域管理員」或「安全性管理員」。
 * Azure AD Premium 1 或 Premium 2 [授權](https://azure.microsoft.com/pricing/details/active-directory/)，用以存取 Azure 入口網站中的 Azure AD 登入記錄。 
 
 根據您要路由稽核記錄資料的位置，您必須要有下列任何一項：
@@ -76,7 +76,7 @@ ms.locfileid: "67204371"
 下表包含以租用戶大小為準的估計成本，儲存體帳戶是位於美國西部的一般用途 v2 帳戶，保留期間至少一年。 若要針對您預期應用程式將使用的資料量建立更精確的估計值，請使用 [Azure 儲存體定價計算機](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 
-| 記錄分類 | 使用者人數 | 每日事件數 | 每月資料量 (估計值) | 每月成本 (估計值) | 每年成本 (估計值) |
+| 記錄分類 | 使用者數目 | 每日事件數 | 每月資料量 (估計值) | 每月成本 (估計值) | 每年成本 (估計值) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | 稽核 | 100,000 | 150&nbsp;萬 | 90 GB | $1.93 | $23.12 |
 | 稽核 | 1,000 | 15,000 | 900 MB | $0.02 | $0.24 |
@@ -100,7 +100,7 @@ ms.locfileid: "67204371"
 
 下表包含美國西部基本事件中樞的每月估計成本 (視事件資料量而定)。 若要針對您預期應用程式將使用的資料量計算精確的估計值，請使用[事件中樞定價計算機](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
-| 記錄分類 | 使用者人數 | 每秒事件數 | 每 5 分鐘間隔的事件數 | 每一間隔的數量 | 每一間隔的訊息數 | 每月訊息數 | 每月成本 (估計值) |
+| 記錄分類 | 使用者數目 | 每秒事件數 | 每 5 分鐘間隔的事件數 | 每一間隔的數量 | 每一間隔的訊息數 | 每月訊息數 | 每月成本 (估計值) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | 稽核 | 100,000 | 18 | 5,400 | 10.8 MB | 43 | 371,520 | $10.83 |
 | 稽核 | 1,000 | 0.1 | 52 | 104 KB | 1 | 8,640 | $10.80 |
@@ -110,9 +110,9 @@ ms.locfileid: "67204371"
 
 
 
-| 記錄分類       | 使用者人數 | 每日事件數 | 每個月 （30 天） 的事件 | 成本的每月美金 (est)。 |
+| 記錄分類       | 使用者數目 | 每日事件數 | 每月事件數 (30 天) | 每月成本 (美元) (est) |
 | :--                | ---             | ---            | ---                        | --:                          |
-| 稽核和登入 | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
+| 審核和登入 | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
 | 稽核              | 100,000         | 1,500,000      | 45,000,000                 |  $246.66                     |
 | 登入           | 100,000         | 15,000,000     | 450,000,000                |  $847.28                     |
 
@@ -127,47 +127,47 @@ ms.locfileid: "67204371"
 
 若要檢閱管理 Azure 監視器記錄工作區的相關成本，請參閱[藉由控制 Azure 監視器記錄中的資料量與保留期來管理成本](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage)。
 
-## <a name="frequently-asked-questions"></a>常見問題集
+## <a name="frequently-asked-questions"></a>常見問答集
 
 這一節會回答 Azure 監視器中 Azure AD 記錄的常見問題集，以及討論已知的問題。
 
-**问：其中包含哪些記錄？**
+**問：其中包含哪些記錄？**
 
 **答**：登入活動記錄和稽核記錄都可透過這項功能路由傳送，但目前不包含 B2C 相關稽核事件。 若要找出目前支援哪些類型的記錄和哪些以功能為基礎的記錄，請參閱[稽核記錄結構描述](reference-azure-monitor-audit-log-schema.md)和[登入記錄結構描述](reference-azure-monitor-sign-ins-log-schema.md)。 
 
 ---
 
-**问：在執行動作後，多久會在事件中樞內顯示對應的記錄？**
+**問：在執行動作後，多久會在事件中樞內顯示對應的記錄？**
 
 **答**：在執行動作後，記錄應該會在二到五分鐘內顯示於事件中樞。 如需事件中樞的詳細資訊，請參閱[什麼是 Azure 事件中樞？](../../event-hubs/event-hubs-about.md)。
 
 ---
 
-**问：在執行動作後，多久會在儲存體帳戶中顯示對應的記錄？**
+**問：在執行動作後，多久會在儲存體帳戶中顯示對應的記錄？**
 
 **答**：就 Azure 儲存體帳戶而言，延遲介於執行動作後的 5 到 15 分鐘之間。
 
 ---
 
-**问：如果系統管理員變更診斷設定的保留期限，發生什麼事？**
+**問：如果系統管理員變更診斷設定的保留期間, 會發生什麼事？**
 
 **答**：新的保留原則將套用於變更後所收集的記錄。 原則變更前所收集的記錄不受影響。
 
 ---
 
-**问：儲存資料需要多少成本？**
+**問：儲存資料需要多少成本？**
 
 **答**：儲存體成本取決於您的記錄大小，以及您所選擇的保留期間。 如需租用戶的估計成本清單 (取決於所產生的記錄數量)，請參閱[活動記錄的儲存體大小](#storage-size-for-activity-logs)一節。
 
 ---
 
-**问：將資料串流至事件中樞需要多少成本？**
+**問：將資料串流至事件中樞需要多少成本？**
 
 **答**：串流成本取決於您每分鐘收到的訊息數目。 本文討論如何計算成本並列出成本估計值 (以訊息數目為基礎)。 
 
 ---
 
-**问：如何整合 Azure AD 活動記錄與我的 SIEM 系統？**
+**問：如何整合 Azure AD 活動記錄與我的 SIEM 系統？**
 
 **答**：您可以使用兩種方式執行此動作：
 
@@ -177,27 +177,27 @@ ms.locfileid: "67204371"
 
 ---
 
-**问：目前支援哪些 SIEM 工具？** 
+**問：目前支援哪些 SIEM 工具？** 
 
 **答**：目前支援 Azure 監視器的有 [Splunk](tutorial-integrate-activity-logs-with-splunk.md)、QRadar 及 [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory)。 如需連接器運作方式的詳細資訊，請參閱[將 Azure 監視資料串流至事件中樞以供外部工具取用](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
 
 ---
 
-**问：如何整合 Azure AD 活動記錄與我的 Splunk 執行個體？**
+**問：如何整合 Azure AD 活動記錄與我的 Splunk 執行個體？**
 
 **答**：首先，[將 Azure AD 活動記錄路由至事件中樞](quickstart-azure-monitor-stream-logs-to-event-hub.md)，然後依照步驟[整合活動記錄與 Splunk](tutorial-integrate-activity-logs-with-splunk.md)。
 
 ---
 
-**问：如何整合 Azure AD 活動記錄與 Sumo Logic？** 
+**問：如何整合 Azure AD 活動記錄與 Sumo Logic？** 
 
 **答**：首先，[將 Azure AD 活動記錄路由至事件中樞](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)，然後依照步驟[在 SumoLogic 中安裝 Azure AD 應用程式及檢視儀表板](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)。
 
 ---
 
-**问：是否可在不使用外部 SIEM 工具的情況下從事件中樞存取資料？** 
+**問：是否可在不使用外部 SIEM 工具的情況下從事件中樞存取資料？** 
 
-**答**：是。 若要從自訂應用程式存取記錄，您可以使用[事件中樞 API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)。 
+**答**：是的。 若要從自訂應用程式存取記錄，您可以使用[事件中樞 API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)。 
 
 ---
 

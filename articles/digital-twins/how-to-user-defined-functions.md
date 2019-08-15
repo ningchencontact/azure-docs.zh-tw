@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: b5e230f45fd5889e216f2993f58adf6940ef7679
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072899"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013978"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>如何在 Azure Digital Twins 中建立使用者定義函式
 
@@ -140,7 +140,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-**telemetry** 參數會公開 **SensorId** 和 **Message** 屬性 (對應到感應器所傳送的訊息)。 ExecutionContext  參數會公開下列屬性：
+**telemetry** 參數會公開 **SensorId** 和 **Message** 屬性 (對應到感應器所傳送的訊息)。 ExecutionContext 參數會公開下列屬性：
 
 ```csharp
 var executionContext = new UdfExecutionContext

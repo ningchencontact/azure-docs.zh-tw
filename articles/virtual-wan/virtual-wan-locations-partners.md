@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: a871a527a4f8440ea3e388b1a91c19355eab3676
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d9f0bb7d3817b943b71715eb080dd0b060efa025
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879306"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990324"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>虛擬 WAN 夥伴與虛擬中樞位置
 
@@ -40,7 +40,7 @@ Azure 虛擬 WAN 是一種網路服務，透過 Azure 提供最佳且自動化�
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-下列合作夥伴會在我們的未來藍圖中預定:Fortinet, 銀峰, Velocloud, 反之亦然, Nuage Nokia。
+下列合作夥伴會在我們的未來藍圖中預定:Arista、F5 Networks、Fortinet、銀峰、Velocloud、反之亦然, Nuage Nokia。
 
 ## <a name="locations"></a>位置
 

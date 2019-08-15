@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a89443062f7d5cc697e83cc4039d0f3a47ad3077
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a455f0e1959ad496a04f531cc0c3ece240c757ad
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561846"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987155"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>什麼是 Azure Active Directory 中以群組為基礎的授權?
 
@@ -32,7 +32,7 @@ Microsoft 付費的雲端服務 (例如 Office 365、Enterprise Mobility + Secur
 ## <a name="licensing-requirements"></a>授權需求
 您必須具有下列其中一個授權才能使用群組型授權：
 
-- Azure AD Basic 和更新版本的付費或試用版訂用帳戶
+- Azure AD Premium P1 和更新版本的付費或試用訂用帳戶
 
 - Office 365 企業版 E3 或 Office 365 A3 或 Office 365 GCC G3 和更新版本的付費或試用版
 
