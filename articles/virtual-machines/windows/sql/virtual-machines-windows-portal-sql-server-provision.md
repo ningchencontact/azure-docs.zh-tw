@@ -122,7 +122,7 @@ ms.locfileid: "68774285"
 * 在 [ **Advanced**] 底下, 選取 [使用**受控磁碟**] 底下的 **[是]** 。
 
    > [!NOTE]
-   > Microsoft 建議使用 SQL Server 適用的受控磁碟。 受控磁碟會在背景中處理儲存體。 此外，當具有受控磁碟的虛擬機器在相同的可用性設定組時，Azure 會分散儲存資源以提供適當的備援。 如需詳細資訊，請參閱 [Azure 受控磁碟概觀][../managed-disks-overview.md)。 如需可用性設定組中受控磁片的詳細資訊, 請參閱 [在可用性設定組中使用 Vm 的受控磁片] (.。/manage-availability.md。
+   > Microsoft 建議使用 SQL Server 適用的受控磁碟。 受控磁碟會在背景中處理儲存體。 此外，當具有受控磁碟的虛擬機器在相同的可用性設定組時，Azure 會分散儲存資源以提供適當的備援。 如需詳細資訊，請參閱 [Azure 受控磁碟概觀][../managed-disks-overview.md)。 如需可用性設定組中受控磁片的詳細資訊, 請參閱 [在可用性設定組中使用 Vm 的受控磁片] (../manage-availability.md。
 
 ![SQL VM 磁片設定](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   

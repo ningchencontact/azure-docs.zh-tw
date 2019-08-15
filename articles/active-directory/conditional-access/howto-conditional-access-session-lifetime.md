@@ -45,8 +45,8 @@ ms.locfileid: "68499843"
 
 持續性瀏覽器會話可讓使用者在關閉並重新開啟其瀏覽器視窗之後, 保持登入狀態。
 
-瀏覽器會話持續性的 Azure AD 預設值, 可讓個人裝置上的使用者選擇是否要藉由顯示「保持登入」來保存會話。 驗證成功後出現提示。 如果在 AD FS 中使用 AD FS 單一登入設定[ ](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-)文章中的指引來設定瀏覽器持續性, 我們將會遵循該原則並保存 Azure AD 會話。 您也可以設定您的租使用者中的使用者是否會看到「保持登入？」 使用[自訂您的 Azure AD 登入頁面](../fundamentals/customize-branding.md)一文中的指導方針, 在 Azure 入口網站的 [公司商標] 窗格中變更適當的設定來提示。
+瀏覽器會話持續性的 Azure AD 預設值, 可讓個人裝置上的使用者選擇是否要藉由顯示「保持登入」來保存會話。 驗證成功後出現提示。 如果在 AD FS 中使用 AD FS 單一登入設定 [文章中的指引來設定瀏覽器持續性](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+) , 我們將會遵循該原則並保存 Azure AD 會話。 您也可以設定您的租使用者中的使用者是否會看到「保持登入？」 使用[自訂您的 Azure AD 登入頁面](../fundamentals/customize-branding.md)一文中的指導方針, 在 Azure 入口網站的 [公司商標] 窗格中變更適當的設定來提示。
 
 ## <a name="configuring-authentication-session-controls"></a>設定驗證會話控制項
 
