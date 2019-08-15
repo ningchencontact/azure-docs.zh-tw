@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 05d6de31dbc3ff5bbf9365098ceae4c840bf116b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f6c74582760d77ae4318739c74f77d0bcd0501fe
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882799"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950367"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的查詢效能深入解析
 
 **適用範圍：** 適用於 MySQL 的 Azure 資料庫5。7
 
-> [!NOTE]
+> [!IMPORTANT]
 > 查詢效能深入解析處於預覽狀態。
 
 查詢效能深入解析可協助您快速找出執行時間最長的查詢、一段時間後的變化情形，以及受到哪些等候的影響。
@@ -38,7 +38,7 @@ ms.locfileid: "68882799"
 
 需要**擁有者**或**參與者**權限，才能檢視查詢效能深入解析中的查詢文字。 **讀者**可以檢視圖表與資料表，但無法檢視查詢文字。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 資料必須存在於[查詢存放區](concepts-query-store.md)中，查詢效能深入解析才能運作。
 

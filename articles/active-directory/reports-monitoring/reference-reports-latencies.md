@@ -3,7 +3,7 @@ title: Azure Active Directory 報告延遲 | Microsoft Docs
 description: 深入了解在您的 Azure 入口網站中針對顯示報告事件所花費的時間長度
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f57f09f146e542768c83fa034f0b4e65bc6b2ae
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594029"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987921"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 報告延遲
 
@@ -62,7 +62,7 @@ ms.locfileid: "65594029"
 | 報表 | 最小值 | Average | 最大值 |
 | :-- | --- | --- | --- |
 | 有風險的使用者          | 5 分鐘   | 15 分鐘  | 2 小時  |
-| 有風險的登入         | 5 分鐘   | 15 分鐘  | 2 小時  |
+| 具風險的登入         | 5 分鐘   | 15 分鐘  | 2 小時  |
 
 ## <a name="risk-events"></a>風險事件
 
@@ -73,11 +73,11 @@ Azure AD 會使用調適性機器學習服務演算法和啟發學習法，來�
 | 報表 | 最小值 | Average | 最大值 |
 | :-- | --- | --- | --- |
 | 從匿名 IP 位址登入 |5 分鐘 |15 分鐘 |2 小時 |
-| 從不熟悉的位置登入 |5 分鐘 |15 分鐘 |2 小時 |
+| 從不熟悉的位置登入的次數 |5 分鐘 |15 分鐘 |2 小時 |
 | 認證外洩的使用者 |2 小時 |4 小時 |8 小時 |
-| 不可能到達非典型位置的移動 |5 分鐘 |1 小時 |8 小時  |
+| 不可能進入非慣用位置 |5 分鐘 |1 小時 |8 小時  |
 | 從受感染的裝置登入 |2 小時 |4 小時 |8 小時  |
-| 從具有可疑活動的 IP 位址登入 |2 小時 |4 小時 |8 小時  |
+| 從有可疑活動的 IP 位址登入 |2 小時 |4 小時 |8 小時  |
 
 
 ## <a name="next-steps"></a>後續步驟

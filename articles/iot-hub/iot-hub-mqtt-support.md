@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 9b1f0042f501cefc99343d53bbf2ad39f0ae1f4c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9a6b3a538304f2d09941650e3087130c21422dc0
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640461"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946354"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -77,7 +77,7 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > 如果您使用 X.509 憑證驗證，則不需要 SAS 權杖密碼。 如需詳細資訊, 請參閱[在您的 Azure IoT 中樞中設定 x.509 安全性](iot-hub-security-x509-get-started.md)
+  > 如果您使用 X.509 憑證驗證，則不需要 SAS 權杖密碼。 如需詳細資訊, 請參閱[在 Azure IoT 中樞中設定 x.509 安全性](iot-hub-security-x509-get-started.md), 並遵循[下面](#tlsssl-configuration)的程式碼指示。
 
   如需如何產生 SAS 權杖的詳細資訊, 請參閱[使用 IoT 中樞安全性權杖](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)的裝置一節。
 
@@ -159,7 +159,7 @@ pip install paho-mqtt
 from paho.mqtt import client as mqtt
 import ssl
 
-path_to_root_cert = "<local path to digicert.cer>"
+path_to_root_cert = "<local path to digicert.cer file>"
 device_id = "<device id from device registry>"
 sas_token = "<generated SAS token>"
 iot_hub_name = "<iot hub name>"
@@ -199,6 +199,26 @@ client.loop_forever()
 以下是必要條件的安裝指示。
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
+若要使用裝置憑證進行驗證, 請使用下列變更來更新上述程式碼片段 (請參閱如何針對以憑證為基礎的驗證進行準備的[X.509 CA 憑證](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate)):
+
+```python
+# Create the client as before
+# ...
+
+# Set the username but not the password on your client
+client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
+                       device_id + "/?api-version=2018-06-30", password=None)
+
+# Set the certificate and key paths on your client
+cert_file = "<local path to your certificate file>"
+key_file = "<local path to your device key file>"
+client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+
+# Connect as before
+client.connect(iot_hub_name+".azure-devices.net", port=8883)
+```
 
 ## <a name="sending-device-to-cloud-messages"></a>傳送裝置到雲端訊息
 

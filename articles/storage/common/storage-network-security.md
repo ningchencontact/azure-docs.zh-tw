@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3a49681c5c5fa081157e1264f3e9f757c3ee0e6c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: dfe27878f018dfbf5f4bdcb52d711c8727c436e0
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516972"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950696"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -357,6 +357,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 | Azure 事件中樞         | Microsoft.EventHub         | 使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。                                                                                                                                                                                                                           |
 | Azure 檔案同步          | Microsoft.StorageSync      | 可讓您將內部內部部署檔案伺服器轉換為 Azure 檔案共用的快取。 允許多網站同步處理、快速的嚴重損壞修復, 以及雲端端備份。 [深入了解](../files/storage-sync-files-planning.md)                                                                                                       |
 | Azure HDInsight          | Microsoft.HDInsight        | 為新的 HDInsight 叢集布建預設檔案系統的初始內容。 [深入了解](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)。                                                                                                                                    |
+| Azure Machine Learning 服務 | Microsoft.MachineLearningServices | 已授權的 Azure Machine Learning 工作區會將實驗輸出、模型和記錄寫入 Blob 儲存體。 [深入了解](/azure/machine-learning/service/how-to-enable-virtual-network#storage-account-for-your-workspace)。                                                               
 | Azure 監視器            | Microsoft.Insights         | 允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。                                                                                                                                                                        |
 | Azure 網路         | Microsoft.Network          | 儲存及分析網路流量記錄。 [深入了解](/azure/network-watcher/network-watcher-packet-capture-overview)。                                                                                                                                                                                                        |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | 藉由啟用 Azure IaaS 虛擬機器的複寫來設定災害復原。 如果您使用已啟用防火牆的快取儲存體帳戶、來源儲存體帳戶或目標儲存體帳戶，則這會是必要項目。  [深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。 |

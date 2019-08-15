@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 地圖服務顯示搜尋結果 | Microsoft Docs
-description: 如何使用 Azure 地圖服務執行搜尋要求，然後在 Javascript 地圖上顯示結果
+description: 如何使用 Azure 地圖服務執行搜尋要求, 然後在 Azure 地圖服務 Web SDK 上顯示結果。
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638650"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975971"
 ---
 # <a name="show-search-results-on-the-map"></a>在地圖上顯示搜尋結果
 

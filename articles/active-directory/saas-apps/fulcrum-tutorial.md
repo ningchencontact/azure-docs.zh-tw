@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 57c95ddba28904ad24822b5ac0b01a77b4076db2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34c21716516318b74461bbcc39ad2ed1dd096669
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101989"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fulcrum"></a>教學課程：Azure Active Directory 與 Fulcrum 整合
 
@@ -117,7 +117,7 @@ ms.locfileid: "67101989"
     > [!NOTE]
     > [回覆 URL] 不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Fulcrum 用戶端支援小組](mailto:support@fulcrumapp.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-6. Fulcrum 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
+6. Fulcrum 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 

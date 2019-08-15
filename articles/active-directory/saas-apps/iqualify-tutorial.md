@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f7ca163b93a68525e80018051baa626bc378c200
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1db4784eb63df14b7e7971d0273512ba657df96
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099762"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>教學課程：Azure Active Directory 與 iQualify LMS 整合
 
@@ -131,7 +131,7 @@ ms.locfileid: "67099762"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請連絡 [iQualify LMS 用戶端支援小組](https://www.iqualify.com/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-6. iQualify LMS 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示，以開啟 [使用者屬性] ****  對話方塊。
+6. iQualify LMS 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 **編輯** 圖示以開啟 [使用者屬性] 對話方塊。 
 
     ![image](common/edit-attribute.png)
 
@@ -276,7 +276,7 @@ ms.locfileid: "67099762"
 
 按一下 [使用 Azure AD 登入]  按鈕，您應該會自動登入 iQualify LMS 應用程式。
 
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

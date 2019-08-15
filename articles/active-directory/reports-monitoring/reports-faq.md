@@ -3,7 +3,7 @@ title: Azure Active Directory 報告常見問題集 | Microsoft Docs
 description: 關於 Azure Active Directory 報告的常見問題集。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09270d89ecaff02716d9916527d21ba2c5d30716
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107543"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987911"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>關於 Azure Active Directory 報告的常見問題集
 
@@ -29,13 +29,13 @@ ms.locfileid: "67107543"
 
 ## <a name="getting-started"></a>使用者入門 
 
-**問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`提取 Azure AD 稽核及整合式應用程式使用情況 Api 以程式設計的方式報告到我們的報告系統的端點。我該切換至什麼項目？**
+**問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`端點 api, 以程式設計方式將 Azure AD audit 和整合的應用程式使用方式報告提取到我們的報告系統中。我該切換至什麼項目？**
 
 **答：** 請查閱 [API 參考](https://developer.microsoft.com/graph/)，查看您可以如何使用 API 來存取[活動報告](concept-reporting-api.md)。 此端點有兩個報告 (**稽核**和**登入**)，提供您在舊有 API 端點中取得的所有資料。 這個新端點也有 Azure AD Premium 授權的登入報告，您可以用它來取得應用程式使用方式、裝置使用方式，以及使用者登入資訊。
 
 ---
 
-**問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`端點 Api 以程式設計方式提取至我們的報告系統的 Azure AD 安全性報告 （特定類型的偵測，例如認證外洩或從匿名 IP 位址登入）。我該切換至什麼項目？**
+**問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`端點 api, 以程式設計方式將 Azure AD 的安全性報告 (如洩漏的認證或從匿名 IP 位址登入等特定類型的偵測) 提取到我們的報告系統中。我該切換至什麼項目？**
 
 **答：** 您可以使用  [Identity Protection 風險事件 API](../identity-protection/graph-get-started.md)  來透過 Microsoft Graph 存取安全性偵測。 這個新的格式包含進階篩選和欄位選取等功能，讓您可以更靈活地查詢資料，並且將風險事件標準化為一種類型，以便更輕易地整合至 SIEM 和其他資料收集工具。 由於資料的格式不同，您無法以新查詢替換舊查詢。 不過，[新 API 會使用 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)，這是 O365 或 Azure AD 這類 API 的 Microsoft 標準格式。 因此該要求工作可以擴充您目前的 MS Graph 投資，或協助您開始轉換至新的標準平台。
 
@@ -73,7 +73,7 @@ ms.locfileid: "67107543"
 
 **答：** 下表列出活動記錄的資料保留期間。 如需詳細資訊，請參閱 [Azure AD 報告的資料保留原則](reference-reports-data-retention.md)。
 
-| 報表                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| 報表                 | Azure AD 免費版 | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | 稽核記錄             | 7 天        | 30 天             | 30 天             |
 | 登入               | N/A           | 30 天             | 30 天             |
@@ -89,7 +89,7 @@ ms.locfileid: "67107543"
 
 **問：我是否可以透過 Azure 入口網站取得 Office 365 活動記錄資訊？**
 
-**答：** 即使 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源，如果您想要完整檢視 Office 365 活動記錄檔中，您應該移至[Microsoft 365 系統管理中心](https://admin.microsoft.com)取得 Office 365 活動記錄資訊。
+**答：** 雖然 Office 365 活動和 Azure AD 活動記錄共用許多目錄資源, 但如果您想要完整看到 Office 365 活動記錄, 您應該移至[Microsoft 365 系統管理中心](https://admin.microsoft.com), 取得 Office 365 活動記錄資訊。
 
 ---
 
@@ -101,11 +101,11 @@ ms.locfileid: "67107543"
 
 **問：我可以從 Azure 入口網站下載多少記錄？**
 
-**答：** 您可以從 Azure 入口網站最多下載 5000 筆記錄。 這些記錄會依「時間上最近」  方式來排序，而根據預設，您會取得最近的 5000 筆記錄。
+**答：** 您可以從 Azure 入口網站最多下載 5000 筆記錄。 這些記錄會依「時間上最近」方式來排序，而根據預設，您會取得最近的 5000 筆記錄。
 
 ---
 
-## <a name="risky-sign-ins"></a>有風險的登入
+## <a name="risky-sign-ins"></a>具風險的登入
 
 **問：Identity Protection 有風險事件，但是我在登入報告中看不到對應的登入。這是預期行為嗎？**
 
@@ -135,7 +135,7 @@ ms.locfileid: "67107543"
 
 **問：這項功能有什麼新增功能？**
 
-**答：** 客戶現在可以針對條件式存取原則，透過所有的登入報告進行疑難排解。 客戶可以檢閱 條件式存取狀態 和 探索到的登入並將結果的每個原則套用原則的詳細資料。
+**答：** 客戶現在可以透過所有登入報告來針對條件式存取原則進行疑難排解。 客戶可以檢查條件式存取狀態, 並深入瞭解適用于登入的原則詳細資料, 以及每個原則的結果。
 
 **問：如何開始使用？**
 
@@ -143,19 +143,19 @@ ms.locfileid: "67107543"
 
 * 巡覽至 [Azure 入口網站](https://portal.azure.com)中的登入報告。
 * 按一下您想要進行疑難排解的登入。
-* 瀏覽至**條件式存取** 索引標籤。您可以在此處檢視所有原則，這些原則會影響每個原則的登入和結果。 
+* 流覽至 [**條件式存取**] 索引標籤。您可以在此處檢視所有原則，這些原則會影響每個原則的登入和結果。 
     
-**問：條件式存取狀態的所有可能的值有哪些？**
+**問：條件式存取狀態的所有可能值為何？**
 
-**答：** 條件式存取狀態可以是下列值：
+**答：** 條件式存取狀態可以有下列值:
 
 * **不適用**：這表示沒有任何 CA 原則包含範圍中的使用者和應用程式。 
 * **成功**：這表示有一個 CA 原則包含範圍中的使用者和應用程式，且成功地符合 CA 原則。 
 * **失敗**：這表示有一個 CA 原則包含範圍中的使用者和應用程式，且不符合 CA 原則。 
     
-**問：所有可能值的條件式存取原則的結果有哪些？**
+**問：條件式存取原則結果的所有可能值為何？**
 
-**答：** 條件式存取原則可以有下列結果：
+**答：** 條件式存取原則可能會產生下列結果:
 
 * **成功**：已成功地符合原則。
 * **失敗**：不符合原則。
@@ -166,6 +166,6 @@ ms.locfileid: "67107543"
 
 **答：** 所有登入報告中的原則名稱是以登入時的 CA 原則名稱為基礎。 如果您稍後 (也就是登入之後) 更新原則名稱，這可能會與 CA 中的原則名稱不一致。
 
-**問：我登入已遭封鎖因為條件式存取原則，但登入活動報表會顯示的登入成功。為什麼？**
+**問：我的登入因條件式存取原則而遭到封鎖, 但登入活動報告顯示登入成功。為什麼？**
 
-**答：** 目前登入報表可能不會顯示針對 Exchange ActiveSync 案例精確的結果，套用條件式存取時。 可以有案例當登入的結果在報告中會顯示成功登入，但在登入時實際失敗因為條件式存取原則。 
+**答：** 當套用條件式存取時, 目前登入報告可能不會顯示 Exchange ActiveSync 案例的準確結果。 在某些情況下, 報告中的登入結果會顯示成功的登入, 但登入因為條件式存取原則而實際失敗。 

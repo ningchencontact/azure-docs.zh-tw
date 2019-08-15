@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c4ea3c93daac1ebb88bae2b8cb01485d955be2bb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf28fb69d35256d65fdfd2c092ad48d0ad1281f9
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726201"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985991"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料表儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -112,7 +112,7 @@ ms.locfileid: "68726201"
 共用存取簽章可提供您儲存體帳戶中資源的委派存取。 您可以使用它來將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定時間內使用一組指定的權限進行存取。 您不需要共用您的帳戶存取金鑰。 共用存取簽章是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用共用存取簽章存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入共用存取簽章即可。 如需有關共用存取簽章的詳細資訊，請參閱[共用存取簽章：了解共用存取簽章模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 > [!NOTE]
-> Data Factory 現已支援**服務共用存取簽章**和**帳戶共用存取簽章**。 如需這兩種類型及其建構方式的詳細資訊，請參閱[共用存取簽章的類型](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。 
+> Data Factory 現已支援**服務共用存取簽章**和**帳戶共用存取簽章**。 如需共用存取簽章的詳細資訊, 請參閱[使用共用存取簽章 (SAS) 授與 Azure 儲存體資源的有限存取權](../storage/common/storage-sas-overview.md)。 
 
 > [!TIP]
 > 若要為儲存體帳戶產生服務共用存取簽章，您可以執行下列 PowerShell 命令。 取代預留位置，並授與所需的權限。
@@ -192,7 +192,7 @@ ms.locfileid: "68726201"
 
 若要將資料複製到「Azure 資料表」以及從該處複製資料，請將資料集的類型屬性設定為 **AzureTable**。 以下是支援的屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的 type 屬性必須設定為 **AzureTable**。 |是 |
 | tableName |資料表儲存體資料庫執行個體中連結服務所參照的資料表名稱。 |是 |
@@ -228,13 +228,13 @@ ms.locfileid: "68726201"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供「Azure 資料表」來源和接收所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供「Azure 資料表」來源和接收所支援的屬性清單。
 
 ### <a name="azure-table-as-a-source-type"></a>Azure 資料表作為來源類型
 
 若要從「Azure 資料表」複製資料，請將複製活動中的來源類型設定為 **AzureTableSource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 屬性 | 描述 | 必要項 |
+| 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **AzureTableSource**。 |是 |
 | azureTableSourceQuery |使用自訂的資料表儲存體查詢來讀取資料。 請參閱下一節中的範例。 |否 |

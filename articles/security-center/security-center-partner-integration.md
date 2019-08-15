@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 2c43a3c046243c4802fb433f3b755cee158002b6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662943"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950566"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
 這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
@@ -56,7 +56,7 @@ ms.locfileid: "68662943"
 
    ![資訊安全中心概觀](./media/security-center-partner-integration/overview.png)
 
-在 [安全性解決方案] 之下，您可以檢視整合式 Azure 安全性解決方案的健康情況相關資訊，並且執行基本管理工作。 您也可以連線其他類型的安全性資料來源，例如常見事件格式 (CEF) 的 Azure Active Directory Identity Protection 警示和防火牆記錄。
+在 [安全性解決方案] 之下，您可以檢視整合式 Azure 安全性解決方案的健康情況相關資訊，並且執行基本管理工作。
 
 ### <a name="connected-solutions"></a>已連接的解決方案
 
@@ -97,8 +97,6 @@ ms.locfileid: "68662943"
 選取解決方案下方的 [連線] 來與資訊安全中心整合，並可收到安全性警示通知。
 
 ![搜索到的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-資訊安全中心也會探索訂用帳戶中能夠轉寄通用事件格式 (CEF) 記錄的已部署解決方案。 了解如何[將安全性解決方案連線](quick-security-solutions.md) 到資訊安全中心，而該解決方案會使用 CEF 記錄。
 
 ### <a name="add-data-sources"></a>新增資料來源
 

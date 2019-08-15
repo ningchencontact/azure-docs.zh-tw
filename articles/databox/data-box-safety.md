@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953022"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985936"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>安全地安裝和操作您的 Azure 資料箱
 ![警告圖示](./media/data-box-safety/warning_icon.png)
@@ -40,8 +40,8 @@ ms.locfileid: "65953022"
 
 ![警告圖示](./media/data-box-safety/warning_icon.png) ![觸電圖示](./media/data-box-safety/electrical_shock_hazard_icon.png)![沒有使用者可自行維修的零件圖示](./media/data-box-safety/no_user_serviceable_parts_icon.png) **注意** 
 
-* 檢查「已接收」  的裝置是否受損。 如果裝置機箱已損毀，請連絡 Microsoft 支援服務以取得替換品。 請勿嘗試操作裝置。 
-* 裝置配有防篡改螺絲。 如果您懷疑裝置功能異常，請連絡 Microsoft 支援服務以取得替換品。 請勿嘗試維修裝置。 
+* 檢查「已接收」的裝置是否受損。 如果裝置主機殼已損毀,[請聯絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)以取得更換。 請勿嘗試操作裝置。 
+* 裝置配有防篡改螺絲。 如果您懷疑裝置的運作不正常,[請聯絡 Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)以取得替代方案。 請勿嘗試維修裝置。 
 * 裝置不含使用者可自行維修的零件。 內含具危險性的電壓、電流和能階。 請勿開啟。 請將裝置寄回給 Microsoft 進行維修。
 
 ![警告圖示](./media/data-box-safety/warning_icon.png) ![超重圖示](./media/data-box-safety/heavy_weight_hazard_icon.png) **警告！** 
@@ -77,14 +77,14 @@ ms.locfileid: "65953022"
 * 在您移動單元，或者認為單元受到任何損毀時，請一律拔除電源。
 * 提供適當的電源及電力多載保護，以符合下列電源規格：
 
-    - 電壓：240 V AC V 100
-    - 目前的：6，最多
-    - 頻率：50 Hz 躍升至 60 赫茲
+    - 電平100 v AC 至 240 V AC
+    - 目前6 A、最大值
+    - 頻率：50 hz 到 60 Hz
 
 ![警告圖示](./media/data-box-safety/warning_icon.png) **注意：**
 
 * 本裝置包含幣式電池。 請勿嘗試維修裝置。 本裝置的電池並非使用者可自行維修的零件。 
-* **只有服務人員**:如果電池取代的類型不正確的擴張的風險。 請依照指示處置使用過的電池。
+* **僅適用于服務人員**:如果電池被不正確的類型所取代, 則會產生激增的風險。 請依照指示處置使用過的電池。
 
 ![注意事項圖示](./media/data-box-safety/notice_icon.png) **注意事項：**
 
@@ -101,10 +101,10 @@ ms.locfileid: "65953022"
 - 評定為資訊技術設備 (ITE)，依設計應在一般資料室環境中運作。 本產品在其他環境中的適用性可能需要進一步的評估。
 - 依設計可與 NRTL Listed (UL、CSA、ETL 等) 和 IEC/EN 60950-1 或 IEC/EN 62368-1 相容 (標示為 CE) 資訊技術設備搭配使用。
 - 設計為在下列環境中運作。 
-    - 作業的溫度：50 度到 95 ° F （10 ° 到 35 ° C）
+    - 操作溫度:50°到95° F (10 °至35° C)
     - 儲存體溫度：-4° 至 122° F (-20° 至 50° C)
-    - 相對溼度：15%到 85%(noncondensing) 
-    - 作業的高度：測試最多 6500 英呎 （0 公尺至 2000 公尺）
+    - 相對濕度:15% 到 85% (無冷凝) 
+    - 操作高度:測試最多6500英尺 (0 計量至2000計量)
 
 如需電力供應額定功率，請參閱隨附於裝置的裝置額定功率標籤。 
 
@@ -116,9 +116,9 @@ ms.locfileid: "65953022"
 
 ![注意事項圖示](./media/data-box-safety/notice_icon.png) **注意事項：** 
 
-本設備已經測試證明符合 FCC 規章第 15 條有關 A 級數位裝置的限制規定。 這些限制旨在提供合理的保護，以防止在商業環境中操作設備時的有害干擾。 本設備會產生、使用及可能散發射頻能量；如果未遵照說明手冊安裝和使用，可能對無線電通訊造成有害干擾。 這項設備住宅區域中的作業很可能會造成有害的干擾使用者的情況下會需要更正的干擾，在他們自己的費用。
+本設備已經測試證明符合 FCC 規章第 15 條有關 A 級數位裝置的限制規定。 這些限制旨在提供合理的保護，以防止在商業環境中操作設備時的有害干擾。 本設備會產生、使用及可能散發射頻能量；如果未遵照說明手冊安裝和使用，可能對無線電通訊造成有害干擾。 此設備在居住區中的操作可能會造成有害干擾, 在這種情況下, 使用者必須以自己的費用來更正干擾。
 
-本裝置符合 FCC 規章第 15 條的規定和加拿大工業部豁免授權 RSS 標準。 作業受限於下列兩項條件：（1） 此裝置可能不會造成有害的干擾，而且 （2） 此裝置必須接受的干擾收到，包括可能會導致不想要在裝置運作的干擾。
+本裝置符合 FCC 規章第 15 條的規定和加拿大工業部豁免授權 RSS 標準。 作業受限於下列兩個條件:(1) 此裝置可能不會造成有害干擾, 而且 (2) 此裝置必須接受所收到的任何干擾, 包括可能導致裝置不想要運作的干擾。
 
 ![加拿大](./media/data-box-safety/canada.png)
 
@@ -132,7 +132,7 @@ Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA。
 
 **歐盟：**
 
-您可於此處取得 EU 符合性聲明。
+[要求歐盟符合性聲明的複本](mailto:CSI_Compliance@microsoft.com)。
 
 ![警告圖示](./media/data-box-safety/warning_icon.png) **警告：** 
 
@@ -142,7 +142,7 @@ Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA。
 
 ![電池處置圖示](./media/data-box-safety/battery_disposal_icon.png)
 
-產品本身或其電池或包裝上若有此符號，表示該產品及其所包含的任何電池均不得連同住居垃圾一起處置。 您需自行負責將其交由適當的收集點進行電池、電氣和電子設備的回收。 這種個別的收集和回收將有助於保護天然資源，以及防止因不當的處置而導致電池、電氣和電子設備可能包含的危險物質外洩，進而對人體健康和環境造成潛在的負面後果。 如需應將電池、電氣和電子廢棄物送交何處處理的詳細資訊，請洽詢您當地的縣 (市)/自治區辦公室、住居垃圾處置服務人員，或是您購買本產品的商店。 請連絡*erecycle\@microsoft.com* WEEE 上的其他資訊。
+產品本身或其電池或包裝上若有此符號，表示該產品及其所包含的任何電池均不得連同住居垃圾一起處置。 您需自行負責將其交由適當的收集點進行電池、電氣和電子設備的回收。 這種個別的收集和回收將有助於保護天然資源，以及防止因不當的處置而導致電池、電氣和電子設備可能包含的危險物質外洩，進而對人體健康和環境造成潛在的負面後果。 如需應將電池、電氣和電子廢棄物送交何處處理的詳細資訊，請洽詢您當地的縣 (市)/自治區辦公室、住居垃圾處置服務人員，或是您購買本產品的商店。 如需 WEEE 的詳細資訊, 請聯絡*erecycle\@microsoft.com* 。
 
 本產品包含一或多個幣式電池。
 
