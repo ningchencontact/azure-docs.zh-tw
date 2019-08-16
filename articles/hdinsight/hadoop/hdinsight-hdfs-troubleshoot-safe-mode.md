@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: 2baef0d8c23a8da13c3640d85159dc17b3acc80f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 08/14/2019
+ms.openlocfilehash: e0fbb93e11c170f80620ac9b1e895650752ad638
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817156"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511368"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>案例:本機 HDFS 在 Azure HDInsight 叢集上卡在安全模式
 
@@ -19,9 +19,9 @@ ms.locfileid: "68817156"
 
 ## <a name="issue"></a>問題
 
-本機 HDFS 在 Azure HDInsight 叢集上停留在安全模式中。 您會收到類似下面的錯誤訊息:
+本機 Apache Hadoop 分散式檔案系統 (HDFS) 在 HDInsight 叢集上卡在安全模式中。 您會收到類似下面的錯誤訊息:
 
-```
+```output
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
@@ -33,9 +33,9 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ## <a name="cause"></a>原因
 
-HDInsight 叢集已調降為低於或接近 HDFS 複寫因數的極少數節點。
+HDInsight 叢集已相應減少到下方的極少數節點, 或節點數目接近 HDFS 複寫因數。
 
-## <a name="resolution"></a>解決方法
+## <a name="resolution"></a>解析度
 
 1. 使用下列命令, 報告 HDInsight 叢集上的 HDFS 狀態:
 
@@ -61,6 +61,6 @@ HDInsight 叢集已調降為低於或接近 HDFS 複寫因數的極少數節點�
 
 * 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
 
-* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 藉由將 Azure 社區連接至適當的資源來改善客戶體驗: 解答、支援及專家。
+* [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
 
 * 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

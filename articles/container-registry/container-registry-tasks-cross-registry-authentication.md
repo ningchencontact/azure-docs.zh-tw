@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 8fac70e7e5125ae86b2b5ce13041bbf1fd067bbe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642068"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509100"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>使用 Azure 管理的身分識別在 ACR 工作中進行跨登錄驗證 
 
@@ -76,7 +76,7 @@ Build 步驟會使用`Dockerfile-app` [Azure 範例/acr-helloworld-node](https:/
 
 ### <a name="create-task"></a>建立工作
 
-藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*helloworldtask* 。 工作內容是本機系統, 而命令會參考工作目錄`helloworldtask.yaml`中的檔案。 `--assign-identity`參數會傳遞使用者指派之身分識別的資源識別碼。 
+藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*helloworldtask* 。 此工作會在沒有原始程式碼內容的情況下執行, 而命令會`helloworldtask.yaml`參考工作目錄中的檔案。 `--assign-identity`參數會傳遞使用者指派之身分識別的資源識別碼。 
 
 ```azurecli
 az acr task create \
@@ -95,7 +95,7 @@ az acr task create \
 
 ### <a name="create-task"></a>建立工作
 
-藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*helloworldtask* 。 工作內容是本機系統, 而命令會參考工作目錄`helloworldtask.yaml`中的檔案。 沒有`--assign-identity`值的參數會在工作上啟用系統指派的身分識別。 
+藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*helloworldtask* 。 此工作會在沒有原始程式碼內容的情況下執行, 而命令會`helloworldtask.yaml`參考工作目錄中的檔案。 沒有`--assign-identity`值的參數會在工作上啟用系統指派的身分識別。 
 
 ```azurecli
 az acr task create \

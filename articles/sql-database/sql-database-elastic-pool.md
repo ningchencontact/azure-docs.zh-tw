@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 02/28/2019
-ms.openlocfilehash: 31fb6eaefe557c1f135b4558b873454d4a3a01d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/06/2019
+ms.openlocfilehash: 305a35d1d40d94d1ce8e463b4af51eb84278bc3f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568628"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510269"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL 資料庫
 
@@ -210,9 +210,9 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
   Umbraco 搭配使用彈性集區與 Azure SQL Database, 為雲端中數以千計的租使用者快速布建和調整服務。
 
-- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-  Daxko/CSI 使用彈性集區與 Azure SQL Database 來加速其開發週期, 並增強其客戶服務和效能。
+   Daxko/CSI 使用彈性集區與 Azure SQL Database 來加速其開發週期, 並增強其客戶服務和效能。   
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 208224e10c3acfb17bc5fd89d2d66152943811dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 48cde2f96083779bdeb13ba5f39b68c18b395045
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566763"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515372"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>業務關鍵層 - Azure SQL Database
 
@@ -48,7 +48,7 @@ SQL 資料庫引擎程序和基礎 mdf/ldf 檔案都放在具有本機連接 SSD
 
 ## <a name="next-steps"></a>後續步驟
 
-- 尋找[受控執行個體](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中業務關鍵層的資源特性 (核心數目、IO、記憶體)、 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier)中的單一資料庫或[dtu 模型](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), 或[VCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes)和[dtu 模型](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)中的彈性集區。
+- 尋找[受控執行個體](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中業務關鍵層的資源特性 (核心數目、IO、記憶體)、 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute)中的單一資料庫或[dtu 模型](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), 或[VCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes)和[dtu 模型](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)中的彈性集區。
 - 了解[一般目的](sql-database-service-tier-general-purpose.md)和[超大規模資料庫](sql-database-service-tier-hyperscale.md)層。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 如需其他高可用性和災害復原的選項，請參閱[商務持續性](sql-database-business-continuity.md)。

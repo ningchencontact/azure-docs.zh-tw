@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640300"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515659"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>資料流程的接收轉換
 
@@ -79,13 +79,16 @@ ms.locfileid: "68640300"
 
 選擇資料庫設定:
 
+![顯示 SQL 接收選項的 [設定]]索引標籤(media/data-flow/alter-row2.png "SQL 選項")
+
 * **更新方法**:預設為允許插入。 如果您想要停止從來源插入新的資料列, 請清除 [**允許插入**]。 若要更新、upsert 或刪除資料列, 請先加入 alter-row 轉換來標記這些動作的資料列。 
 * **重新建立資料表**:在資料流程完成之前, 請先卸載或建立目標資料表。
 * **截斷資料表**:在資料流程完成之前, 請先從目標資料表中移除所有資料列。
 * **批次大小**：輸入一個數字，以將寫入填入多個區塊。 針對大型資料載入, 請使用此選項。 
 * **啟用預備**環境:當您將 Azure 資料倉儲當做接收資料集載入時, 請使用 PolyBase。
+* **前置和後置 SQL 腳本**:輸入將在 (前置處理前) 和之後 (後置處理) 資料寫入至您的接收資料庫之前執行的多行 SQL 腳本
 
-![顯示 SQL 接收選項的 [設定]]索引標籤(media/data-flow/alter-row2.png "SQL 選項")
+![前置和後置 SQL 處理腳本](media/data-flow/prepost1.png "SQL 處理腳本")
 
 > [!NOTE]
 > 在 [資料流程] 中, 您可以指示 Data Factory 在目標資料庫中建立新的資料表定義。 若要建立資料表定義, 請在接收轉換中設定具有新資料表名稱的資料集。 在 SQL 資料集的資料表名稱底下, 選取 [**編輯**], 然後輸入新的資料表名稱。 然後, 在 [接收] 轉換中, 開啟 [**允許架構漂移**]。 將 [匯**入架構**] 設定為 [**無**]。

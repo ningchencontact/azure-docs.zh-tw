@@ -1,7 +1,7 @@
 ---
-title: Azure Standard Load Balancer 診斷
+title: 具有計量、警示和資源健康狀態的 Azure Standard Load Balancer 診斷
 titlesuffix: Azure Load Balancer
-description: 使用可用的計量和健康情況資訊診斷 Azure 標準 Load Balancer。
+description: 使用可用的計量、警示和資源健康狀態資訊來診斷您的 Azure Standard Load Balancer。
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,21 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2019
+ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: e0329f5f975b67460796bf7dd9429752549a3483
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b241f753c0de6e14282c679c5aec3c32be68e348
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274487"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516247"
 ---
-# <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>標準 Load Balancer 的計量和健康情況診斷
+# <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>使用計量、警示和資源健康狀態 Standard Load Balancer 診斷
 
-Azure Standard Load Balancer 公開 Azure Standard Load Balancer 會為資源提供下列診斷功能：
-* **多維度計量**：透過 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)提供新的多維度診斷功能，以供公用和內部負載平衡器設定使用。 您可以監視、管理您的負載平衡器資源，以及進行其疑難排解。
+Azure Standard Load Balancer 會公開下列診斷功能:
 
-* **資源健康狀態**：Azure 入口網站中的 [Load Balancer] 頁面和 [資源健康狀態] 頁面 (在 [監視器] 底下) 會顯示用於 Standard Load Balancer 之公用負載平衡器設定的 [資源健康狀態] 區段。
+* **多維度計量和警示**:透過適用于標準負載平衡器設定的[Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview), 提供新的多維度診斷功能。 您可以監視、管理和疑難排解您的標準負載平衡器資源。
+
+* **資源健康狀態**：Azure 入口網站中的 Load Balancer 頁面和 資源健康狀態 頁面 (在 監視器 底下) 會公開 Standard Load Balancer 的資源健康狀態區段。 
 
 本文會簡要介紹這些功能，以及如何將這些功能使用於標準 Load Balancer。
 
@@ -35,7 +36,7 @@ Azure Load Balancer 透過 Azure 入口網站中的新 Azure 計量提供新的�
 
 各種標準 Load Balancer 組態提供下列計量：
 
-| 計量 | 資源類型 | 描述 | 建議的彙總 |
+| 度量 | 資源類型 | 描述 | 建議的彙總 |
 | --- | --- | --- | --- |
 | 資料路徑可用性 (VIP 可用性)| 公用和內部負載平衡器 | 標準 Load Balancer 會在資料路徑上持續運用，從區域內到 Load Balancer 前端，再一路到支援 VM 的 SDN 堆疊。 只要狀況良好的執行個體持續存在，測量就會依循與您應用程式的負載平衡流量相同的路徑。 此外，也會驗證您客戶所使用的資料路徑。 此測量對您的應用程式來說是看不見的，也不會干擾到其他作業。| Average |
 | 健康情況探查狀態 (DIP 可用性) | 公用和內部負載平衡器 | 標準 Load Balancer 使用分散式健康情況探查服務，可根據您的組態設定監視應用程式端點的健康情況。 這個計量會提供負載平衡器集區中每個執行個體端點的彙總檢視，或各端點篩選過的檢視。 您可以看到 Load Balancer 藉由健康情況探查設定如何檢視應用程式的健康情況。 |  Average |
@@ -75,7 +76,7 @@ Azure 入口網站會透過 [計量] 頁面公開負載平衡器計量, 在特�
 若要取得 Standard Load Balancer 資源的資料路徑可用性:
 1. 確定已選取正確的負載平衡器資源。 
 2. 在 [**度量**] 下拉式清單中, 選取 [**資料路徑可用性**]。 
-3. 在 [彙總]  下拉式清單中，選取 [平均]  。 
+3. 在 [彙總] 下拉式清單中，選取 [平均]。 
 4. 此外, 在前端 IP 位址或前端埠上新增篩選, 做為具有必要前端 IP 位址或前端埠的維度, 然後依選取的維度將它們分組。
 
 ![VIP 探查](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
@@ -115,12 +116,12 @@ VIP 可用性會因為下列原因而失敗：
 失敗連線數量大於零，表示 SNAT 連接埠耗盡。 您必須進一步調查，以判斷造成失敗的原因。 SNAT 連接埠耗盡的外在表現就是無法建立[輸出流程](https://aka.ms/lboutbound)。 請參閱輸出連線的文章，以了解案例和運作機制，以及了解如何減輕及設計以避免 SNAT 連接埠耗盡。 
 
 若要取得 SNAT 連線統計資料：
-1. 選取 [SNAT 連線]  計量類型，並選取 [總和]  作為彙總。 
-2. 針對成功和失敗的 SNAT 連線計數 (以不同線條表示) 依 [連線狀態]  進行分組。 
+1. 選取 [SNAT 連線] 計量類型，並選取 [總和] 作為彙總。 
+2. 針對成功和失敗的 SNAT 連線計數 (以不同線條表示) 依 [連線狀態] 進行分組。 
 
 ![SNAT 連線](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-圖：  Load Balancer SNAT 連線計數
+圖：Load Balancer SNAT 連線計數
 
 
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>如何查看服務的輸入/輸出連線嘗試？
@@ -131,7 +132,7 @@ VIP 可用性會因為下列原因而失敗：
 
 ![SYN 連線](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
-圖：  Load Balancer SYN 計數
+圖：Load Balancer SYN 計數
 
 
 #### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>如何查看我的網路頻寬耗用？ 
@@ -141,14 +142,14 @@ VIP 可用性會因為下列原因而失敗：
 在大部分的情況下，請使用**總計**彙總。
 
 若要取得位元組或封包計數統計資料：
-1. 選取 [位元組計數]  和/或 [封包計數]  計量類型，並選取 [平均]  作為彙總。 
+1. 選取 [位元組計數] 和/或 [封包計數] 計量類型，並選取 [平均] 作為彙總。 
 2. 執行下列其中一個動作：
    * 對特定前端 IP、前端連接埠或後端 IP 或後端連接埠套用篩選器。
    * 取得負載平衡器資源的整體統計資料 (不使用任何篩選)。
 
 ![位元組計數](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-圖：  Load Balancer 位元組計數
+圖：Load Balancer 位元組計數
 
 #### <a name = "vipavailabilityandhealthprobes"></a>我要如何診斷我的負載平衡器部署？
 
@@ -170,41 +171,34 @@ VIP 可用性會因為下列原因而失敗：
 
 ## <a name = "ResourceHealth"></a>資源健康情況狀態
 
-標準 Load Balancer 資源的健康情況狀態會透過 [監視器] > [服務健康狀態]  底下現有的 [資源健康狀態]  公開。
-
->[!NOTE]
->目前只有標準 Load Balancer 的公用組態能夠使用 Load Balancer 的資源健康狀態。 內部負載平衡器資源或 Load Balancer 資源的基本 SKU 不會公開資源健康狀態。
+標準 Load Balancer 資源的健康情況狀態會透過 [監視器] > [服務健康狀態] 底下現有的 [資源健康狀態] 公開。
 
 若要檢視公用標準 Load Balancer 資源的健康情況：
-1. 選取 視器   > 服務健康狀態  。
+1. 選取 視器 > 服務健康狀態。
 
    ![監視器頁面](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   圖：  「Azure 監視器」上的 [服務健康狀態] 連結
+   圖：「Azure 監視器」上的 [服務健康狀態] 連結
 
-2. 選取 [資源健康狀態]  ，然後確定已選取 [訂用帳戶識別碼]  以及 [資源類型 = 負載平衡器]  。
+2. 選取 [資源健康狀態]，然後確定已選取 [訂用帳戶識別碼] 以及 [資源類型 = 負載平衡器]。
 
    ![資源健康情況狀態](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   圖：  選取要檢視健康情況的資源
+   圖：選取要檢視健康情況的資源
 
 3. 在清單中，選取 Load Balancer 資源，以檢視其過去的健康情況狀態。
 
     ![Load Balancer 健康情況狀態](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   圖：  Load Balancer 資源健康狀態檢視
+   圖：Load Balancer 資源健康狀態檢視
  
 下表列出各種資源健康狀態及其說明： 
 
 | 資源健康情況狀態 | 描述 |
 | --- | --- |
-| 可用 | 您的公用標準 Load Balancer 資源狀況良好並可使用。 |
-| 無法使用 | 您的公用標準 Load Balancer 資源狀況不良。 請藉由選取 [Azure 監視器]   > [計量]  來診斷健康狀態。<br>([無法使用]  狀態也可能表示資源並未與公用標準 Load Balancer 連線。) |
-| 不明 | 公用標準 Load Balancer 資源的資源健康狀態尚未更新。<br>([未知]  也可能表示資源並未與公用標準 Load Balancer 連線。)  |
-
-## <a name="limitations"></a>限制 
-
-- 內部 Load Balancer 前端無法使用資料路徑可用性 (VIP 可用性)。
+| 可用 | 您的標準負載平衡器資源狀況良好且可供使用。 |
+| 無法使用 | 您的標準負載平衡器資源狀況不良。 請藉由選取 [Azure 監視器] > [計量] 來診斷健康狀態。<br>(*無法使用*的狀態也可能表示資源未與您的標準負載平衡器連線)。 |
+| 未知 | 您的標準負載平衡器資源的資源健康狀態尚未更新。<br>([*不明*] 狀態也可能表示資源未與您的標準負載平衡器連線)。  |
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -212,5 +206,3 @@ VIP 可用性會因為下列原因而失敗：
 - 深入了解 [Load Balancer 輸出連線能力](https://aka.ms/lboutbound)。
 - 了解 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)。
 - 了解 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/) 和[如何透過 REST API 擷取計量](/rest/api/monitor/metrics/list)。
-
-

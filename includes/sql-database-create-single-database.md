@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
 ms.openlocfilehash: eff121cfaf4473607110de4553a9bb8021990caf
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "68444678"
 ---
-在此步驟中, 您將建立資源群組和 Azure SQL Database 單一資料庫。 
+在此步驟中，您將建立資源群組和 Azure SQL Database 單一資料庫。 
 
 > [!IMPORTANT]
-> 請務必設定防火牆規則, 以使用您正在執行本文中步驟之電腦的公用 IP 位址。 資料庫層級防火牆規則將會自動複寫到次要伺服器。
+> 務必設定防火牆規則，使用您在本文中執行步驟的電腦所用的公用 IP 位址。 資料庫層級防火牆規則將會自動複寫到次要伺服器。
 >
 > 如需資訊，請參閱[建立資料庫層級防火牆規則](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)，或者，若要判斷對於電腦的伺服器層級防火牆規則所用的 IP 位址，請參閱[建立伺服器層級防火牆](../articles/sql-database/sql-database-server-level-firewall-rule.md)。  
 
@@ -61,7 +61,7 @@ ms.locfileid: "68444678"
 
    - 檢閱 [虛擬核心數上限]、[虛擬核心數下限]、[自動暫停延遲] 和 [資料大小上限] 的設定。 視需要變更這些設定。
    - 接受預覽條款，然後按一下 [確定]。
-   - 選取 [套用] 。
+   - 選取 [套用]。
 
 5. 選取 [其他設定] 索引標籤。 
 6. 在 [資料來源] 區段的 [使用現有資料] 下方，選取 `Sample`。 

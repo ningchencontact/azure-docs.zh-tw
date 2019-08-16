@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975920"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515427"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的 SMB 磁碟區
 
@@ -59,6 +59,18 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
     |    安全 LDAP        |    636       |    TCP           |
     |    安全 LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
+
+* 目標 Active Directory Domain Services 的網站拓朴必須遵守最佳作法, 特別是部署 Azure NetApp Files 的 Azure VNet。  
+
+    部署 Azure NetApp Files 所在虛擬網路的位址空間, 必須新增至新的或現有的 Active Directory 網站 (Azure NetApp Files 可連線的網域控制站)。 
+
+* 必須能夠從 Azure NetApp Files 的[委派子網](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)連線到指定的 DNS 伺服器。  
+
+    如需支援的網路拓撲, 請參閱[Azure NetApp Files 網路規劃的指導方針](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies)。
+
+    網路安全性群組 (Nsg) 和防火牆必須已適當設定規則, 以允許 Active Directory 和 DNS 流量要求。
+
+    請參閱設計關於 AD 網站和服務[的網站拓撲](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)。 
 
 ## <a name="create-an-active-directory-connection"></a>建立 Active Directory 連線
 
@@ -117,15 +129,15 @@ Azure NetApp Files 支援 NFS 和 SMBv3 磁片區。 磁碟區的容量耗用量
         [可用配額] 欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。  
 
     * **虛擬網路**  
-        指定您要從中存取磁碟區的 Azure 虛擬網路 (Vnet)。  
+        指定您要從中存取磁片區的 Azure 虛擬網路 (VNet)。  
 
-        您指定的 Vnet 必須有委派給 Azure NetApp Files 的子網路。 Azure NetApp Files 服務只能從相同的 Vnet 存取，或透過 Vnet 對等互連與磁碟區位於相同區域的 Vnet 存取。 您也可以透過 Express Route 從內部部署網路存取磁片區。   
+        您指定的 VNet 必須具有委派給 Azure NetApp Files 的子網。 Azure NetApp Files 服務只能從相同的 VNet 或透過 VNet 對等互連與磁片區位於相同區域的 VNet 存取。 您也可以透過 Express Route 從內部部署網路存取磁片區。   
 
     * **子網路**  
         指定要用於磁碟區的子網路。  
         您指定的子網路必須委派給 Azure NetApp Files。 
         
-        如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes] 以委派 Azure NetApp Files 的子網路。 在每個 Vnet 中, 只有一個子網可委派給 Azure NetApp Files。   
+        如果您尚未委派子網路，您可以按一下 [建立磁碟區] 頁面上的 [新建]。 在 [建立子網路] 頁面上指定子網路資訊，然後選取 [Microsoft.NetApp/volumes] 以委派 Azure NetApp Files 的子網路。 在每個 VNet 中, 只有一個子網可委派給 Azure NetApp Files。   
  
         ![建立磁碟區](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

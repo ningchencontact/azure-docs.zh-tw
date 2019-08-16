@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843155"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516051"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -143,7 +143,48 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 **哪些磁片類型支援快照集？**
 
-進階 SSD、標準 SSD 和標準 HDD 支援快照集。 針對這三種磁片類型, 所有磁片大小 (包括大小上限為 32 TiB 的磁片) 都支援快照集。 Ultra Ssd 不支援快照集。
+進階 SSD、標準 SSD 和標準 HDD 支援快照集。 針對這三種磁片類型, 所有磁片大小 (包括大小上限為 32 TiB 的磁片) 都支援快照集。 Ultra 磁片不支援快照集。
+
+## <a name="ultra-disks"></a>Ultra 磁片
+
+**哪些區域目前支援 ultra 磁片？**
+- 美國東部 2
+- 東南亞
+- 北歐
+
+**哪些 VM 系列目前支援 ultra 磁片？**
+- ESv3
+- DSv3
+
+**我該如何將 ultra 磁片輸送量設定為？**
+如果您不確定要如何設定磁片輸送量, 建議您先從假設 IO 大小 16 KiB 開始, 並在監視應用程式時從該處調整效能。 公式為:輸送量 (MBps) = IOPS 數 * 16/1000。
+
+**我將磁片設定為 40000 IOPS, 但我只看到 12800 IOPS, 為什麼看不到磁片的效能？**
+除了磁片節流, 還有在 VM 層級強加的 IO 節流。 請確定您使用的 VM 大小可支援磁片上所設定的層級。 如需 VM 所加諸之 IO 限制的詳細資訊, 請參閱[Azure 中的 Windows 虛擬機器大小](../articles/virtual-machines/windows/sizes.md)。
+
+**我可以搭配使用快取層級與 ultra 磁片嗎？**
+否, ultra 磁片不支援其他磁片類型支援的不同快取方法。 將磁碟快取設定為 [無]。
+
+**我可以將 ultra 磁片連結至現有的 VM 嗎？**
+可能的話, 您的 VM 必須位於支援 Ultra 磁片的區域和可用性區域配對中。 如需詳細資訊, 請參閱[開始使用 ultra 磁片](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md)。
+
+**我可以使用 ultra 磁片做為 VM 的 OS 磁片嗎？**
+否, ultra 磁片僅支援做為資料磁片, 且僅支援4K 原生磁片。
+
+**我可以將現有的磁片轉換成 ultra 磁片嗎？**
+否, 但是您可以將日期從現有的磁片遷移到 ultra 磁片。 若要將現有的磁片遷移至 ultra 磁片, 請將這兩個磁片連接到相同的 VM, 並將磁片的資料從一個磁碟複製到另一個, 或利用協力廠商解決方案進行資料移轉。
+
+**我可以建立 ultra 磁片的快照集嗎？**
+否, 快照集尚無法使用。
+
+**Azure 備份適用于 ultra 磁片嗎？**
+否, 尚未提供 Azure 備份支援。
+
+**我可以將 ultra 磁片連結至在可用性設定組中執行的 VM 嗎？**
+否, 尚不支援這種情況。
+
+**我可以針對使用 ultra 磁片的 Vm 啟用 Azure Site Recovery (ASR) 嗎？**
+否, 尚未針對 ultra 磁片支援 ASR。
 
 ## <a name="standard-ssd-disks"></a>標準 SSD 磁碟
 

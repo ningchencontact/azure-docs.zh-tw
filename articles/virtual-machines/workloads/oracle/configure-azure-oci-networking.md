@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 18dbc60c1a29fbc26f4bbc73faa58aeafc66c32f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2cab129556dcd0407793512f41f91311804abd0f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880104"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510211"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>設定 Azure 與 Oracle 雲端基礎結構之間的直接互連  
 
 為了建立[整合式多雲端體驗](oracle-oci-overview.md)(預覽), Microsoft 和 Oracle 透過[ExpressRoute](../../../expressroute/expressroute-introduction.md)和[FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm)提供 Azure 與 oracle 雲端基礎結構 (OCI) 之間的直接互連。 透過 ExpressRoute 與 FastConnect 互連, 客戶可以在這兩個雲端之間體驗低延遲、高輸送量、私人直接連線能力。
 
 > [!IMPORTANT]
-> Microsoft Azure 和 OCI 之間的連線是在預覽階段。 若要在 Azure 與 OCI 之間啟用低延遲連線, 必須先將 Azure 訂用帳戶列入允許清單, 才能進行這項功能。 您必須將電子郵件傳送至, 並將您oracleconnect@microsoft.com的訂用帳戶識別碼傳送至, 以註冊預覽版。 當訂用帳戶註冊完成之後，您會收到電子郵件。 在收到確認電子郵件後才能使用此功能。 您也可以聯繫 Microsoft 代表, 以供此預覽版啟用。 此預覽版是在沒有服務等級協定的情況下提供, 不應用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊, 請參閱 Microsoft Azure 預覽的[補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
+> Microsoft Azure 和 OCI 之間的連線是在預覽階段。 若要在 Azure 與 OCI 之間啟用低延遲連線, 您的 Azure 訂用帳戶必須先針對這項功能列出。 您必須完成這[份簡短問卷](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu), 才能在預覽版中註冊。 當訂用帳戶註冊完成之後，您會收到電子郵件。 在收到確認電子郵件後才能使用此功能。 您也可以聯繫 Microsoft 代表, 以供此預覽版啟用。 預覽功能的存取權受限於 Microsoft 自行決定的可用性和限制。 填寫問卷並不保證能夠存取。 此預覽版是在沒有服務等級協定的情況下提供, 不應用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊, 請參閱 Microsoft Azure 預覽的[補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
 下圖顯示互連的高階總覽:
 

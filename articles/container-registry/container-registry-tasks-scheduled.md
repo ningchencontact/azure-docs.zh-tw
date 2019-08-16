@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967588"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509060"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>依定義的排程執行 ACR 工作
 
@@ -48,9 +48,9 @@ ms.locfileid: "68967588"
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 執行[az acr task show][az-acr-task-show]命令, 以查看計時器觸發程式是否已設定。 根據預設, 基底映射更新觸發程式也會啟用。
@@ -176,11 +176,11 @@ ACR 工作使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫來解�
 
 |Type  |範例  |觸發時間  |
 |---------|---------|---------|
-|特定值 |<nobr>"5 * * * *"</nobr>|每小時在過去的5分鐘內|
-|所有值 (`*`)|<nobr>"* 5 * * *"</nobr>|一小時的每分鐘開始 5:00 UTC (每天60次)|
-|範圍 (`-` 運算子)|<nobr>"0 1-3 * * *"</nobr>|每天3次, 1:00、2:00 和 3:00 UTC|
-|一組值 (`,` 運算子)|<nobr>"20, 30, 40 * * * *"</nobr>|每小時3次, 時間為20分鐘, 30 分鐘, 40 分鐘過去小時|
-|間隔值 (`/` 運算子)|<nobr>"*/10 * * * *"</nobr>|過去一小時內每小時6次, 時間為10分鐘, 20 分鐘, 依此類推
+|特定值 |<nobr>`"5 * * * *"`</nobr>|每小時在過去的5分鐘內|
+|所有值 (`*`)|<nobr>`"* 5 * * *"`</nobr>|一小時的每分鐘開始 5:00 UTC (每天60次)|
+|範圍 (`-` 運算子)|<nobr>`"0 1-3 * * *"`</nobr>|每天3次, 1:00、2:00 和 3:00 UTC|
+|一組值 (`,` 運算子)|<nobr>`"20,30,40 * * * *"`</nobr>|每小時3次, 時間為20分鐘, 30 分鐘, 40 分鐘過去小時|
+|間隔值 (`/` 運算子)|<nobr>`"*/10 * * * *"`</nobr>|過去一小時內每小時6次, 時間為10分鐘, 20 分鐘, 依此類推
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -198,6 +198,8 @@ ACR 工作使用[NCronTab](https://github.com/atifaziz/NCrontab)程式庫來解�
 
 
 ## <a name="next-steps"></a>後續步驟
+
+如需使用排定的工作來清除登錄中存放庫的範例, 請參閱[從 Azure container Registry 自動清除映射](container-registry-auto-purge.md)。
 
 如需原始碼認可或基底映射更新所觸發之工作的範例, 請參閱[ACR 工作教學課程系列](container-registry-tutorial-quick-task.md)。
 

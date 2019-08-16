@@ -8,16 +8,16 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1b5a9eb9f91469e6e25c5d90bfeb4aa0213009bc
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: c6c070012db0857759c63603072b8321896398b4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017292"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516144"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>建立具有異地區域冗余儲存體 (切換) (預覽) 的高可用性 Azure 儲存體應用程式
 
-異地區域冗余儲存體 (切換) (預覽) 結婚[區域冗余儲存體 (ZRS)](storage-redundancy-zrs.md)的高可用性, 並防止[異地多餘儲存體 (GRS)](storage-redundancy-grs.md)所提供的區域性中斷。 切換儲存體帳戶中的資料會複寫到主要區域中的三個[Azure 可用性區域](../../availability-zones/az-overview.md), 也會複寫到次要地理區域, 以保護不受區域性災難的影響。
+異地區域冗余儲存體 (切換) (預覽) 結婚[區域冗余儲存體 (ZRS)](storage-redundancy-zrs.md)的高可用性, 並防止[異地多餘儲存體 (GRS)](storage-redundancy-grs.md)所提供的區域性中斷。 切換儲存體帳戶中的資料會複寫到主要區域中的三個[Azure 可用性區域](../../availability-zones/az-overview.md), 也會複寫到次要地理區域, 以保護不受區域性災難的影響。 每個 Azure 區域都會與相同地理位置內的另一個區域配對，以共同形成區域配對。 如需詳細資訊和例外狀況, 請參閱[檔](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
 透過切換儲存體帳戶, 您可以在可用性區域無法使用或無法復原時, 繼續讀取和寫入資料。 此外, 如果發生全區域中斷或嚴重損壞而無法復原主要區域的情況, 您的資料也會是持久的。 切換的設計目的是要在指定的一年內提供至少 99.99999999999999% (16 個 9) 的物件持久性。 切換也提供與 LRS、ZRS、GRS 或 RA-GRS 相同的擴充 [性目標](storage-scalability-targets.md)。 如果您的應用程式需要能夠在主要區域發生嚴重損壞時讀取資料, 您可以選擇性地使用讀取權限異地區域冗余儲存體 (RA-切換) 來啟用次要區域中資料的讀取權限。
 
@@ -30,7 +30,6 @@ Microsoft 建議針對需要一致性、持久性、高可用性、絕佳效能�
 切換和 RA-切換目前在下欄區域提供預覽:
 
 - 美國東部
-- 西歐
 
 Microsoft 會繼續在其他 Azure 區域中啟用切換和 RA 切換。 請定期查看 [Azure 服務更新](https://azure.microsoft.com/updates/) 頁面, 以取得支援區域的相關資訊。
 

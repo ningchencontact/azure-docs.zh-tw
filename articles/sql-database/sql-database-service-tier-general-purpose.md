@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 711552501825e5d34d3547ede8dc998065083c96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2573adcb199ab32467493729842b6c47e3add64b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566737"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515309"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>一般用途服務層級 - Azure SQL Database
 
@@ -48,7 +48,7 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 尋找[受控執行個體](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中一般用途/標準層的資源特性 (核心數目、IO、記憶體)、 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)中的單一資料庫或[dtu 模型](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes), 或[VCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)和[dtu 模型](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)中的彈性集區。
+- 尋找[受控執行個體](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)中一般用途/標準層的資源特性 (核心數目、IO、記憶體)、 [vCore 模型](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute)中的單一資料庫或[dtu 模型](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes), 或[VCore 模型](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)和[dtu 模型](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)中的彈性集區。
 - 了解[業務關鍵](sql-database-service-tier-business-critical.md)和[超大規模資料庫](sql-database-service-tier-hyperscale.md)層。
 - 了解 [Service Fabric](../service-fabric/service-fabric-overview.md)。
 - 如需其他高可用性和災害復原的選項，請參閱[商務持續性](sql-database-business-continuity.md)。

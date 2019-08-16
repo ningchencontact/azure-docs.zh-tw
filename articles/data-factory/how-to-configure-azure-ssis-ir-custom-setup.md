@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4962070d69af98d0c7b10dc6f931612766529dce
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711564"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515715"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>自訂 Azure-SSIS 整合執行階段的安裝
 
@@ -40,7 +40,9 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
 -   Azure-SSIS IR 上目前不支援系統管理共用。
 
-## <a name="prerequisites"></a>先決條件
+-   Azure SSIS IR 不支援 IBM iSeries Access ODBC 驅動程式。 在自訂安裝期間, 您可能會看到安裝錯誤。 請洽詢 IBM 支援以取得協助。
+
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,7 +56,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
 -   [Azure 儲存體帳戶](https://azure.microsoft.com/services/storage/)。 進行自訂安裝時，您可以將自訂安裝指令碼及其相關聯的檔案上傳並儲存在 Blob 容器中。 自訂安裝程序也會將其執行記錄上傳至相同的 Blob 容器。
 
-## <a name="instructions"></a>範例的指示
+## <a name="instructions"></a>指示
 
 1. 下載並安裝 [Azure PowerShell](/powershell/azure/install-az-ps)。
 
@@ -66,27 +68,27 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
 1. 下載、安裝並啟動 [Azure 儲存體總管](https://storageexplorer.com/)。
 
-   1. 在 [(本機與已連結)]  下方，以滑鼠右鍵選取 [儲存體帳戶]  ，然後選取 [連線到 Azure 儲存體]  。
+   1. 在 [(本機與已連結)] 下方，以滑鼠右鍵選取 [儲存體帳戶]，然後選取 [連線到 Azure 儲存體]。
 
       ![連線到 Azure 儲存體](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
-   1. 選取 [使用儲存體帳戶名稱和金鑰]  ，然後選取 [下一步]  。
+   1. 選取 [使用儲存體帳戶名稱和金鑰]，然後選取 [下一步]。
 
       ![使用儲存體帳戶名稱和金鑰](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image2.png)
 
-   1. 輸入您的 Azure 儲存體帳戶名稱和金鑰，選取 [下一步]  ，然後選取 [連線]  。
+   1. 輸入您的 Azure 儲存體帳戶名稱和金鑰，選取 [下一步]，然後選取 [連線]。
 
       ![提供儲存體帳戶名稱和金鑰](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
 
-   1. 在已連線的 Azure 儲存體帳戶下，以滑鼠右鍵按一下 [Blob 容器]  ，選取 [建立 Blob 容器]  ，然後為新容器命名。
+   1. 在已連線的 Azure 儲存體帳戶下，以滑鼠右鍵按一下 [Blob 容器]，選取 [建立 Blob 容器]，然後為新容器命名。
 
       ![建立 Blob 容器](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. 選取新容器，並上傳您的自訂安裝指令碼及其相關聯的檔案。 請務必將 `main.cmd` 上傳至容器的最上層，而非任何資料夾中。 此外，也請確定您的容器只包含必要的自訂安裝檔，如此一來，稍後將它們下載到您的 Azure-SSIS IR 時，才不會花費很長的時間。 自訂安裝的最大期限目前設定為 45 分鐘的時間之前逾時，而這包括從您的容器下載所有檔案和 Azure SSIS IR 上安裝它們的時間 如果需要較長的時間，請提出支援票證。
+   1. 選取新容器，並上傳您的自訂安裝指令碼及其相關聯的檔案。 請務必將 `main.cmd` 上傳至容器的最上層，而非任何資料夾中。 此外，也請確定您的容器只包含必要的自訂安裝檔，如此一來，稍後將它們下載到您的 Azure-SSIS IR 時，才不會花費很長的時間。 自訂安裝程式的最長期間目前設定為45分鐘的時間, 這包括從您的容器下載所有檔案, 並將它們安裝在 Azure SSIS IR 的時間。 如果需要較長的時間, 請提出支援票證。
 
       ![將檔案上傳至 Blob 容器](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
-   1. 以滑鼠右鍵按一下容器，然後選取 [取得共用存取簽章]  。
+   1. 以滑鼠右鍵按一下容器，然後選取 [取得共用存取簽章]。
 
       ![取得容器的共用存取簽章](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
@@ -101,7 +103,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
       ![複製並儲存共用存取簽章](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-   1. 當您使用 Data Factory UI 佈建或重新設定 Azure-SSIS IR 時，請在 [進階設定]  面板上於適當的欄位中輸入 SAS URI：
+   1. 當您使用 Data Factory UI 佈建或重新設定 Azure-SSIS IR 時，請在 [進階設定] 面板上於適當的欄位中輸入 SAS URI：
 
       ![輸入共用存取簽章](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
@@ -122,11 +124,11 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
 1. 若要查看其他自訂安裝範例，請透過 Azure 儲存體總管連線至公用預覽容器。
 
-   a.  在 [(本機與已連結)]  下方，以滑鼠右鍵按一下 [儲存體帳戶]  ，然後依序選取 [連線到 Azure 儲存體]  、[使用連接字串或共用存取簽章 URI]  和 [下一步]  。
+   a.  在 [(本機與已連結)] 下方，以滑鼠右鍵按一下 [儲存體帳戶]，然後依序選取 [連線到 Azure 儲存體]、[使用連接字串或共用存取簽章 URI] 和 [下一步]。
 
       ![使用共用存取簽章連線至 Azure 儲存體](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 
-   b.  選取 [使用 SAS URI]  ，並為公用預覽容器輸入下列 SAS URI。 選取 [下一步]  ，然後選取 [連線]  。
+   b.  選取 [使用 SAS URI]，並為公用預覽容器輸入下列 SAS URI。 選取 [下一步]，然後選取 [連線]。
 
       `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c`
 

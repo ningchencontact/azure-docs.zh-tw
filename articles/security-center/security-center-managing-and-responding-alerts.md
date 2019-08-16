@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
-ms.author: rkarlin
-ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 39849514d772f128434daad590de22f941245af7
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235753"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516103"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>管理及回應 Azure 資訊安全中心的安全性警示
 本文件可協助您使用 Azure 資訊安全中心來管理及回應安全性警示。
@@ -39,13 +39,13 @@ ms.locfileid: "65235753"
 >
 
 ## <a name="managing-security-alerts"></a>管理安全性警示
-您可以查看 [安全性警示]  圖格來檢視目前的警示。 遵循下列步驟來查看有關每個警示的更多詳細資訊：
+您可以查看 [安全性警示] 圖格來檢視目前的警示。 遵循下列步驟來查看有關每個警示的更多詳細資訊：
 
-1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示]  圖格。
+1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示] 圖格。
 
     ![資訊安全中心的 [安全性警示] 圖格](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
-2. 按一下圖格，即可開啟 [安全性警示]  來查看有關警示的更多詳細資料。
+2. 按一下圖格，即可開啟 [安全性警示] 來查看有關警示的更多詳細資料。
 
    ![資訊安全中心內的安全性警示](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "65235753"
 * **狀態**：該警示目前的狀態。 狀態分為兩種：
   * **使用中**：已偵測到安全性警示。
   * **已解除**：使用者已經解除該安全性警示。 這個狀態通常用於已經過調查且事件影響已減輕時，或是在調查後發現該事件並非真正攻擊時。
-* **嚴重性**：嚴重性層級，分為高、中或低。
+* **嚴重性**：嚴重性層級, 可以是 [高]、[中] 或 [低]。
 
 > [!NOTE]
 > 資訊安全中心產生的安全性警示也會出現在 Azure 活動記錄之下。 如需有關如何存取 Azure 活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
@@ -69,19 +69,19 @@ ms.locfileid: "65235753"
 
 -   **高**：您的資源很可能遭到破壞。 您應立即加以了解。 資訊安全中心在不良意圖和用來發出警示的調查結果方面都具有高信賴度。 例如，偵測有已知惡意工具 (例如 Mimikatz，這是常用來竊取認證的工具) 正在執行的警示。 
 -   **中**：這可能是表示資源遭到破壞的可疑活動。
-資訊安全中心在分析或調查結果方面具有中信賴度，在不良意圖方面的信賴度則為中至高。 這些通常會是以機器學習或異常偵測為基礎的偵測。 例如，從異常位置登入的嘗試。
+資訊安全中心在分析或調查結果方面具有中信賴度，在不良意圖方面的信賴度則為中至高。 這些通常是機器學習或以異常為基礎的偵測。 例如, 從異常位置進行的登入嘗試。
 -   **低**：這有可能是良性確判或已遭封鎖的攻擊。 
     - 資訊安全中心沒有足夠的信賴度可確定意圖是否屬惡意以及活動是否無害。 例如，清除記錄有可能是攻擊者為了嘗試隱藏其追蹤記錄而執行的動作，但在許多情況下，這也是管理員所執行的例行性作業。
     - 資訊安全中心在封鎖攻擊時通常不會通知您，除非是我們建議您查看的特殊案例。 
--   **參考**:當您向下切入至安全性事件時，或使用 REST API 與特定警示識別碼時，才會看到資訊警示。 事件通常由多個警示組成，其中有些警示單獨來看可能僅具參考價值，但若與其他警示交互參照，則可能有進一步詳查的價值。  
+-   **資訊**:當您向下切入至安全性事件時，或使用 REST API 與特定警示識別碼時，才會看到資訊警示。 事件通常由多個警示組成，其中有些警示單獨來看可能僅具參考價值，但若與其他警示交互參照，則可能有進一步詳查的價值。  
 
 > [!NOTE]
-> 如果您使用**2015年-06-01-preview** API 版本，則可在哪些警示嚴重性類型會套用至哪一個案例中，從上述的差異。  
+> 如果您使用**2015-06-01-preview** API 版本, 則會有不同的警示嚴重性類型適用于上述案例。  
 
 ### <a name="filtering-alerts"></a>篩選警示
 您可以根據日期、狀態及嚴重性來篩選警示。 如果您需要縮小顯示的安全性警示檢視範圍，篩選警示會相當有用。 例如，您可能想確認在過去 24 小時發生的安全性警示，因為您正在調查系統中可能的入侵行動。
 
-1. 按一下 [安全性警示]  上的 [篩選]  。 即會開啟 [篩選]  供您選取想要查看的日期、狀態和嚴重性值。
+1. 按一下 [安全性警示] 上的 [篩選]。 即會開啟 [篩選] 供您選取想要查看的日期、狀態和嚴重性值。
 
     ![篩選資訊安全中心的警示](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
@@ -94,9 +94,9 @@ ms.locfileid: "65235753"
 
 ![對於如何處理 Azure 資訊安全中心的安全性警示的建議](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-在 [說明]  欄位中，您會找到關於這個事件的更多詳細資料。 這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。  在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄都包含 IP 位址。
+在 [**描述**] 欄位中, 您可以找到有關此事件的更多詳細資料。 這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。  在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄都包含 IP 位址。
 
-資訊安全中心會根據安全性警示，建議您不同的補救方法。 在某些情況下，您可能必須使用其他的 Azure 功能來實作建議的補救方法。 例如，這個攻擊的補救方法是使用[網路 ACL](../virtual-network/virtual-networks-acl.md) 或[網路安全性群組](../virtual-network/security-overview.md#security-rules)規則，將產生此攻擊的 IP 位址列入封鎖清單。 如需不同警示類型的詳細資訊，請閱讀 [Azure 資訊安全中心不同類型的安全性警示](security-center-alerts-type.md)。
+資訊安全中心會根據安全性警示，建議您不同的補救方法。 在某些情況下，您可能必須使用其他的 Azure 功能來實作建議的補救方法。 例如, 此攻擊的補救方式是不允許使用[網路 ACL](../virtual-network/virtual-networks-acl.md)或[網路安全性群組](../virtual-network/security-overview.md#security-rules)規則來產生此攻擊的 IP 位址。 如需不同警示類型的詳細資訊, 請參閱[安全性警示類型](security-center-alerts-overview.md#security-alert-types)。
 
 > [!NOTE]
 > 資訊安全中心已向有限預覽發行一組新的偵測，可運用通用稽核架構的 auditd 記錄來偵測 Linux 電腦上的惡意行為。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_linuxdetections@microsoft.com)，以加入預覽。

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847399"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515346"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>關於 Azure SQL 超大規模資料庫的常見問題
 
@@ -54,7 +54,7 @@ ms.locfileid: "68847399"
 | | 受管理的執行個體  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **IO 輸送量** | 單一資料庫** | 每個虛擬核心 500 IOPS，且 IOPS 上限為 7000 | 超大規模資料庫是多層式架構, 在多個層級進行快取。 有效的 IOPs 將視工作負載而定。 | 5000 IOPS，IOPS 上限為 200,000|
 | | 受管理的執行個體 | 視檔案大小而定 | N/A | 受控執行個體：視檔案大小而定|
-|**可用性**|全部|1 個複本、無讀取規模、無本機快取 | 多個複本、最多 15 個讀取規模、部分本機快取 | 3 個複本、1 個讀取規模、區域備援 HA、完整本機快取 |
+|**Availability**|全部|1 個複本、無讀取規模、無本機快取 | 多個複本、最多 15 個讀取規模、部分本機快取 | 3 個複本、1 個讀取規模、區域備援 HA、完整本機快取 |
 |**備份**|全部|RA-GRS、7-35 天 (預設為 7 天)| GRS、7天、固定時間點恢復 (PITR) | RA-GRS、7-35 天 (預設為 7 天) |
 
 \* 超大規模資料庫服務層級不支援彈性集區
@@ -131,7 +131,7 @@ SQL Database 超大規模資料庫架構不僅支援大型資料庫，同時也�
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>我是否可為記憶體密集工作負載佈建額外增加 RAM 的計算
 
-資料分割 若要有更多的 RAM，您需要升級至更高的計算大小。 如需詳細資訊，請參閱[超大規模資料庫儲存體和計算大小](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier)。
+資料分割 若要有更多的 RAM，您需要升級至更高的計算大小。 如需詳細資訊，請參閱[超大規模資料庫儲存體和計算大小](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)。
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>我是否可以佈建不同大小的多個計算節點
 

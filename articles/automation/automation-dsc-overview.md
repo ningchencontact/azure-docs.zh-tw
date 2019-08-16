@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3f6d15e67122afcbea3cc294c803a302e961bdbd
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: c192a994ac5398d41e28a35267b922ba98b721cc
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372545"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69513610"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概觀
 
@@ -41,7 +41,7 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 
 使用 Azure Automation State Configuration 所管理的節點會將詳細報告狀態資料傳送至內建提取伺服器。 您可以設定 Azure Automation State Configuration，將此資料傳送至 Log Analytics 工作區。 若要瞭解如何將狀態設定狀態資料傳送至 Log Analytics 工作區, 請參閱將[Azure 自動化狀態設定報告資料轉送至 Azure 監視器記錄](automation-dsc-diagnostics.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 使用 Azure 自動化狀態設定 (DSC) 時, 請考慮下列需求。
 
@@ -57,6 +57,8 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 - Windows 10
 - Windows 8.1
 - Windows 7
+
+[Microsoft Hyper-v Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016)獨立產品 sku 不包含預期狀態組態的執行, 因此無法由 PowerShell DSC 或 Azure 自動化狀態設定管理。
 
 針對執行 Linux 的節點, 支援下列散發版本/版本:
 

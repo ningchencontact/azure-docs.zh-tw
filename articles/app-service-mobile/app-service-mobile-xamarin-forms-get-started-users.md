@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67446312"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>將驗證新增至 Xamarin Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center 投入新的和整合式服務行動應用程式開發的核心。 開發人員可以使用**建置**，**測試**並**散發**services 設定持續整合和傳遞管線。 應用程式部署之後，開發人員可以監視的狀態和其應用程式使用的使用方式**Analytics**並**診斷**服務，並使用使用者參與**推播**服務。 開發人員也可以利用**Auth**來驗證使用者並**資料**保存和同步處理雲端中的應用程式資料的服務。 請參閱[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users)今天。
+> Visual Studio App Center 是投資新的整合式服務中心, 以進行行動應用程式開發。 開發人員可以使用**組建**、**測試**和**散發**服務來設定持續整合和傳遞管線。 部署應用程式之後, 開發人員可以使用**分析**和**診斷**服務來監視其應用程式的狀態和使用, 並與使用**推**播服務的使用者互動。 開發人員也可以利用**驗證**來驗證其使用者和**資料**服務, 以保存及同步雲端中的應用程式資料。 立即查看[App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) 。
 >
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 本主題說明如何從用戶端應用程式驗證 App Service 行動應用程式的使用者。 在本教學課程中，您將使用 App Service 支援的識別提供者，將驗證新增至 Xamarin.Forms 快速入門專案。 由行動應用程式成功驗證並授權之後，就會顯示使用者識別碼值，而您也將可以存取受限制的資料庫資料。
 
 ## <a name="prerequisites"></a>必要條件
-基於本教學課程中的最佳結果，我們建議您先完成[建立 Xamarin Forms 應用程式][1]教學課程。 完成本教學課程之後，您將會有一個多平台 TodoList 應用程式的 Xamarin.Forms 專案。
+如需本教學課程的最佳結果, 建議您先完成[建立 Xamarin Forms 應用程式][1]教學課程。 完成本教學課程之後，您將會有一個多平台 TodoList 應用程式的 Xamarin.Forms 專案。
 
 如果您不要使用下載的快速入門伺服器專案，必須將驗證擴充套件新增至您的專案。 如需伺服器擴充套件的詳細資訊，請參閱 [使用 Azure 行動應用程式的 .NET 後端伺服器 SDK][2]。
 
@@ -41,26 +41,25 @@ ms.locfileid: "67446312"
 
 ## <a name="redirecturl"></a>將您的應用程式新增至允許的外部重新導向 URL
 
-安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname  。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
+安全的驗證會要求您為應用程式定義新的 URL 配置。 這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。 我們會在這整個教學課程中使用 URL 配置 appname。 不過，您可以使用任何您選擇的 URL 結構描述。 它對於您的行動應用程式而言應該是唯一的。 在伺服器端啟用重新導向：
 
 1. 在 [Azure 入口網站][8]中，選取您的 App Service。
 
-2. 按一下 [驗證/授權]  功能表選項。
+2. 按一下 [驗證/授權] 功能表選項。
 
-3. 在 [允許的外部重新導向 URL]  中，輸入 `url_scheme_of_your_app://easyauth.callback`。  此字串中的 **url_scheme_of_your_app** 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
+3. 在 [允許的外部重新導向 URL] 中，輸入 `url_scheme_of_your_app://easyauth.callback`。  此字串中的 **url_scheme_of_your_app** 是您行動應用程式的 URL 配置。  它必須遵循通訊協定的標準 URL 規格 (只使用字母和數字，並以字母為開頭)。  請記下您選擇的字串，因為您將需要在數個位置中使用該 URL 配置來調整您的行動應用程式程式碼。
 
-4. 按一下 [確定]  。
+4. 按一下 [確定]。
 
-5. 按一下 [檔案]  。
+5. 按一下 [儲存]。
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>限制只有通過驗證的使用者具有權限
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>將驗證加入可攜式類別庫中
-Mobile Apps 會使用[LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
-uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]。 若要在實際執行應用程式中提供更好的使用者體驗，您應該考慮改用[用戶端管理的驗證][6]。
+Mobile Apps 使用[MobileServiceClient][4]上的[LoginAsync][3]擴充方法來登入具有 App Service authentication 的使用者。 這個範例使用伺服器管理的驗證流程，在應用程式中顯示提供者的登入介面。 如需詳細資訊，請參閱 [伺服器管理的驗證][5]。 若要在生產應用程式中提供更好的使用者體驗, 您應該考慮改為使用[用戶端管理的驗證][6]。
 
-為了驗證 Xamarin Forms 專案，請在應用程式的可攜式類別庫中定義 **IAuthenticate** 介面。 然後，將 [登入]  按鈕新增至可攜式類別庫中定義的使用者介面，讓您按一下來開始驗證。 驗證成功後，將會從行動應用程式後端載入資料。
+為了驗證 Xamarin Forms 專案，請在應用程式的可攜式類別庫中定義 **IAuthenticate** 介面。 然後，將 [登入] 按鈕新增至可攜式類別庫中定義的使用者介面，讓您按一下來開始驗證。 驗證成功後，將會從行動應用程式後端載入資料。
 
 為應用程式支援的每個平台實作 **IAuthenticate** 介面。
 
@@ -81,7 +80,7 @@ uses a server-managed authentication flow that displays the provider's sign-in i
         {
             Authenticator = authenticator;
         }
-4. 從可攜式類別庫專案中開啟 TodoList.xaml，在 buttonsPanel  配置項目中，將下列 *Button* 項目新增至現有按鈕後面︰
+4. 從可攜式類別庫專案中開啟 TodoList.xaml，在 buttonsPanel 配置項目中，將下列 *Button* 項目新增至現有按鈕後面︰
 
           <Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30"
             Clicked="loginButton_Clicked"/>
@@ -126,7 +125,7 @@ uses a server-managed authentication flow that displays the provider's sign-in i
 ## <a name="add-authentication-to-the-android-app"></a>將驗證加入 Android 應用程式中
 本節說明如何在 Android 應用程式專案中實作 **IAuthenticate** 介面。 如果您不要支援 Android 裝置，請略過這一節。
 
-1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **droid** 專案，然後按一下 [設定為啟始專案]  。
+1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **droid** 專案，然後按一下 [設定為啟始專案]。
 2. 按下 F5 在偵錯工具中啟動專案，然後確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 產生 401 代碼是因為只有獲授權的使用者才能存取後端。
 3. 開啟 Android 專案中的 MainActivity.cs，然後加入下列 `using` 陳述式：
 
@@ -202,7 +201,7 @@ uses a server-managed authentication flow that displays the provider's sign-in i
 ## <a name="add-authentication-to-the-ios-app"></a>將驗證加入 iOS 應用程式中
 本節說明如何在 iOS 應用程式專案中實作 **IAuthenticate** 介面。 如果您不要支援 iOS 裝置，請略過這一節。
 
-1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **iOS** 專案，然後按一下 [設定為啟始專案]  。
+1. 在 Visual Studio 或 Xamarin Studio 中，以滑鼠右鍵按一下 **iOS** 專案，然後按一下 [設定為啟始專案]。
 2. 按下 F5 在偵錯工具中啟動專案，然後確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 產生 401 回應是因為只有獲授權的使用者才能存取後端。
 3. 開啟 iOS 專案中的 AppDelegate.cs，然後加入下列 `using` 陳述式：
 
@@ -270,7 +269,7 @@ uses a server-managed authentication flow that displays the provider's sign-in i
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>將驗證新增至 Windows 10 (包括 Phone) 應用程式專案
 本節說明如何在 Windows 10 應用程式專案中實作 **IAuthenticate** 介面。 相同的步驟適用於通用 Windows 平台 (UWP) 專案，但使用 **UWP** 專案 (內含已標註的變更)。 如果您不要支援 Windows 裝置，請略過這一節。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 **UWP** 專案，然後按一下 [設定為啟始專案]  。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 **UWP** 專案，然後按一下 [設定為啟始專案]。
 2. 按下 F5 在偵錯工具中啟動專案，然後確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。 發生 401 回應是因為只有獲授權的使用者才能存取後端。
 3. 開啟 Windows 應用程式專案的 MainPage.xaml.cs，然後加入下列 `using` 陳述式：
 

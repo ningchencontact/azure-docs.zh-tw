@@ -7,85 +7,87 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: b0cf6eab86b0b932e44b6824305c23df01f35808
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2eb23a65196ac4f6456f50dbbbfd9e4b484ad171
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383811"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515736"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>為您的 Azure 資料總管叢集選取正確的 VM SKU 
 
-Azure 資料總管有多個 VM Sku, 可供您在建立新叢集或針對變更的工作負載優化叢集時從中選擇。 已謹慎選擇 Vm, 以允許任何工作負載的最佳成本。 
+當您建立新叢集或針對變更的工作負載優化叢集時, Azure 資料總管會提供多個虛擬機器 (VM) Sku 供您選擇。 已謹慎選擇 Vm, 為您的工作負載提供最理想的成本。 
 
-資料管理叢集的大小和 VM SKU 完全由 Azure 資料總管服務管理。 其取決於引擎的 VM 大小和內嵌工作負載等因素。 
+資料管理叢集的大小和 VM SKU 完全由 Azure 資料總管服務管理。 它們是由引擎的 VM 大小和內嵌工作負載等因素所決定。 
 
-藉由相應[增加](manage-cluster-vertical-scaling.md)叢集, 可以隨時變更引擎叢集的 VM SKU。 因此, 最好是從符合初始案例的最低 SKU 大小開始。 請記住, 在使用新的 VM SKU 重新建立叢集時, 相應增加叢集會導致最多30分鐘的停機時間。
+您可以隨時相應[增加](manage-cluster-vertical-scaling.md)叢集來變更引擎叢集的 VM SKU。 最好是從符合初始案例的最小 SKU 大小開始。 請記住, 在使用新的 VM SKU 重新建立叢集時, 相應增加叢集會導致最多30分鐘的停機時間。
 
 > [!TIP]
-> 計算[RI (保留實例)](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances)適用于 Azure 資料總管叢集。  
+> 計算[保留實例 (RI)](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances)適用于 Azure 資料總管叢集。  
 
-本文說明不同的 VM SKU 選項, 並提供可協助您做出最佳選擇的技術詳細資料。
+本文說明各種 VM SKU 選項, 並提供可協助您做出最佳選擇的技術詳細資料。
 
-## <a name="select-the-cluster-type"></a>選取叢集類型
+## <a name="select-a-cluster-type"></a>選取叢集類型
 
 Azure 資料總管提供兩種類型的叢集:
 
 * **生產**:生產叢集包含兩個適用于引擎和資料管理叢集的節點, 並可在 Azure 資料總管[SLA](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/)下運作。
 
-* **開發/測試 (無 SLA)** :開發/測試叢集具有引擎叢集的單一 D11_v2 節點, 以及適用于資料管理叢集的單一 D1 節點。 此叢集類型是最低的成本設定, 因為實例計數較低, 而且沒有任何引擎標記費用。 此叢集設定沒有任何 SLA, 因為它缺乏冗余。
+* **開發/測試 (無 SLA)** :開發/測試叢集具有適用于引擎叢集的單一 D11 v2 節點, 以及適用于資料管理叢集的單一 D1 節點。 此叢集類型是最低的成本設定, 因為它的實例計數較低, 而且沒有任何引擎標記費用。 此叢集設定沒有任何 SLA, 因為它缺乏冗余。
 
 ## <a name="sku-types"></a>SKU 類型
 
-建立 Azure 資料總管叢集時, 請為規劃的工作負載選取*最佳*的 VM SKU。 Azure 資料總管有兩個 SKU 系列可供選擇:
+當您建立 Azure 資料總管叢集時, 請為規劃的工作負載選取*最佳*的 VM SKU。 您可以從下列兩個 Azure 資料總管 SKU 系列中進行選擇:
 
-* **D_V2**:D SKU 的計算優化, 並提供兩種方式。
+* **D v2**:D SKU 已進行計算優化, 並有兩種類別:
     * VM 本身
-    * 與 premium 儲存體磁片配套的 VM
+    * 隨附于 premium 儲存體磁片的 VM
 
-* **LS**:L SKU 是儲存體優化的。 其 SSD 大小遠高於類似定價的**D** SKU。
+* **LS**:L SKU 是儲存體優化的。 其 SSD 大小遠高於類似定價的 D SKU。
 
-下表提供可用 SKU 類型之間的主要差異:
+下表說明可用 SKU 類型之間的主要差異:
  
-|**屬性** | **D SKU** | **L SKU**
+| 屬性 | D SKU | L SKU |
 |---|---|---
-|**小型 Sku**|大小最小為 11, 有兩個核心|最小大小為具有四個核心的 ' L4 '
-|**可用性**|適用于所有區域 (DS + PS 版本的可用性較有限)|適用于幾個區域
-|**每個核心的每 GB 快取成本**|具有 D SKU 的高, DS + PS 版本較低|使用隨用隨*付*選項的最低價
-|**RI (保留實例) 定價**|高折扣 (超過 55%, 適用于三年的承諾用量)|折扣較低 (3 年承諾用量為 20%)  
+|**小型 Sku**|大小最小值為 D11, 有兩個核心|最小大小為具有四個核心的 L4 |
+|**Availability**|適用于所有區域 (DS + PS 版本的可用性較有限)|適用于幾個區域 |
+|**每個&nbsp;核心的每 GB 快取成本**|具有 D SKU 的高, DS + PS 版本較低|最低使用隨用隨付選項 |
+|**保留實例 (RI) 定價**|高折扣 (三年&nbsp;承諾用量超過 55%)|折扣較低 (&nbsp;三年承諾的 20%) |  
 
 ## <a name="select-your-cluster-vm"></a>選取您的叢集 VM 
 
 若要選取叢集 VM, 請[設定垂直調整](manage-cluster-vertical-scaling.md#configure-vertical-scaling)。 
 
-不同的 VM SKU 選項可讓您針對所需的案例, 針對必要的效能和快取記憶體需求, 將成本優化。 如果案例需要高查詢量的最佳效能, 理想的 SKU 應該是計算優化。 另一方面, 如果此案例需要以相對較低的查詢負載來查詢大量資料, 則儲存體優化的 SKU 會降低成本, 同時仍提供絕佳的效能。
+有各種 VM SKU 選項可供選擇, 您可以將您案例的效能和熱快取需求的成本優化。 
+* 如果您需要高查詢量的最佳效能, 理想的 SKU 應該是計算優化。 
+* 如果您需要以相對較低的查詢負載來查詢大量資料, 儲存體優化的 SKU 有助於降低成本, 並仍然提供絕佳的效能。
 
-針對小型 Sku, 每個叢集的實例數目會受到限制, 因此最好使用具有較大 RAM 的較大 Vm。 針對 RAM 資源 (例如使用`joins`的查詢) 的某些查詢類型, 需要 ram 大小。 因此, 在考慮調整選項時, 建議您新增更多實例, 以相應放大為較大的 SKU。
+由於小型 Sku 的每個叢集實例數目有限, 因此最好使用具有更大 RAM 的較大 Vm。 某些查詢類型需要更多的 RAM, 以便對 RAM 資源進行更多的需求, 例如使用`joins`的查詢。 因此, 當您考慮調整選項時, 建議您相應增加為較大的 SKU, 而不是藉由新增更多實例來相應放大。
 
 ## <a name="vm-options"></a>VM 選項
 
-下表提供 Azure 資料總管叢集 Vm 的技術規格:
+下表說明 Azure 資料總管叢集 Vm 的技術規格:
 
-|**名稱**| **分類** | **SSD 大小** | **核心** | **RAM** | **Premium 儲存體磁片 (1 TB)**| **每個叢集的最小實例計數** | **每個叢集的實例計數上限**
+|**名稱**| **分類** | **SSD 大小** | **核心** | **RAM** | **Premium 儲存體磁片 (1&nbsp;TB)**| **每個叢集的最小實例計數** | **每個叢集的實例計數上限**
 |---|---|---|---|---|---|---|---
-|D11_v2| 計算優化 | 75 GB    | 2 | 14 GB | 0 | 1 | 8 (除了開發/測試 SKU, 其為 1)
-|D12_v2| 計算優化 | 150 GB   | 4 | 28 GB | 0 | 2 | 16
-|D13_v2| 計算優化 | 307 GB   | 8 | 56 GB | 0 | 2 | 1,000
-|D14_v2| 計算優化 | 614 GB   | 16| 112 GB | 0 | 2 | 1,000
-|DS13_v2 + 1TB PS| 儲存體優化 | 1 TB | 8 | 56 GB | 1 | 2 | 1,000
-|DS13_v2 + 2TB PS| 儲存體優化 | 2 TB | 8 | 56 GB | 2 | 2 | 1,000
-|DS14_v2 + 3TB PS| 儲存體優化 | 3 TB | 16 | 112 GB | 2 | 2 | 1,000
-|DS14_v2 + 4TB PS| 儲存體優化 | 4 TB | 16 | 112 GB | 4 | 2 | 1,000
-|L4s_v1| 儲存體優化 | 650 GB | 4 | 32 GB | 0 | 2 | 16
-|L8s_v1| 儲存體優化 | 1.3 TB | 8 | 64 GB | 0 | 2 | 1,000
-|L16s_1| 儲存體優化 | 2.6 TB | 16| 128 GB | 0 | 2 | 1,000
+|D11 v2| 計算優化 | 75&nbsp;GB    | 2 | 14&nbsp;GB | 0 | 1 | 8 (開發/測試 SKU 除外, 這是 1)
+|D12 v2| 計算優化 | 150&nbsp;GB   | 4 | 28&nbsp;GB | 0 | 2 | 16
+|D13 v2| 計算優化 | 307&nbsp;GB   | 8 | 56&nbsp;GB | 0 | 2 | 1,000
+|D14 v2| 計算優化 | 614&nbsp;GB   | 16| 112&nbsp;GB | 0 | 2 | 1,000
+|DS13 v2 + 1&nbsp;TB&nbsp;PS| 儲存體優化 | 1&nbsp;TB | 8 | 56&nbsp;GB | 1 | 2 | 1,000
+|DS13 v2 + 2&nbsp;TB&nbsp;PS| 儲存體優化 | 2&nbsp;TB | 8 | 56&nbsp;GB | 2 | 2 | 1,000
+|DS14 v2 + 3&nbsp;TB&nbsp;PS| 儲存體優化 | 3&nbsp;TB | 16 | 112&nbsp;GB | 2 | 2 | 1,000
+|DS14 v2 + 4&nbsp;TB&nbsp;PS| 儲存體優化 | 4&nbsp;TB | 16 | 112&nbsp;GB | 4 | 2 | 1,000
+|L4 v1| 儲存體優化 | 650&nbsp;GB | 4 | 32&nbsp;GB | 0 | 2 | 16
+|L8s v1| 儲存體優化 | 1.3&nbsp;TB | 8 | 64&nbsp;GB | 0 | 2 | 1,000
+|L16s_1| 儲存體優化 | 2.6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1,000
 
-* 使用 Azure 資料總管[LISTSKUS API](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet), 來查看每個區域的已更新 VM SKU 清單。 
-* 深入瞭解不同的[計算 sku](/azure/virtual-machines/windows/sizes-compute)。 
+* 您可以使用 Azure 資料總管[LISTSKUS API](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet), 來查看每個區域的已更新 VM SKU 清單。 
+* 深入瞭解[各種計算 sku](/azure/virtual-machines/windows/sizes-compute)。 
 
 ## <a name="next-steps"></a>後續步驟
 
-* 藉由變更 VM SKU 以因應不同的需求, 可以隨時相應[增加或減少](manage-cluster-vertical-scaling.md)引擎叢集。 
+* 您可以根據不同的需求變更 VM SKU, 隨時相應[增加或相應減少](manage-cluster-vertical-scaling.md)引擎叢集。 
 
-* 您可以相應縮小[和](manage-cluster-horizontal-scaling.md)放大引擎叢集的大小, 以改變需求的容量。
+* 視變更的需求而定, 您可以相應[放大或](manage-cluster-horizontal-scaling.md)相應放大引擎叢集的大小來改變容量。
 

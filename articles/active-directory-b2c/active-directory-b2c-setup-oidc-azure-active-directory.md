@@ -7,20 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716773"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509731"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中設定特定 Azure Active Directory 組織的登入
-
->[!NOTE]
-> 這項功能處於公開預覽狀態。 請勿在生產環境中使用這項功能。
 
 若要在 Azure AD B2C 中使用 Azure Active Directory (Azure AD) 做為[識別提供者](active-directory-b2c-reference-oauth-code.md)，您需要建立代表該識別提供者的應用程式。 本文說明如何讓特定 Azure AD 組織中的使用者能夠使用 Azure AD B2C 中的使用者流程登入。
 
@@ -54,7 +51,7 @@ ms.locfileid: "68716773"
 2. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 3. 選取 [識別提供者]，然後選取 [新增]。
 4. 輸入 [名稱]。 例如，輸入 `Contoso Azure AD`。
-5. 選取 [**識別提供者類型**], 選取 [ **OpenID connect (預覽)** ], 然後按一下 **[確定]** 。
+5. 選取 [**識別提供者類型**], 選取 [ **OpenID connect]** , 然後按一下 **[確定]** 。
 6. 選取 [**設定此識別提供者**]
 7. 針對 [中繼資料 URL] 輸入以下 URL，並將 `your-AD-tenant-domain` 取代為您的 Azure AD 租用戶網域名稱。 例如：`https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`：
 
@@ -64,7 +61,7 @@ ms.locfileid: "68716773"
 
 8. 針對 [**用戶端識別碼**], 輸入您先前記錄的 [應用程式識別碼] 和 [**用戶端密碼**], 輸入您先前記錄的用戶端密碼。
 9. 您也可以選擇輸入 **Domain_hint** 的值。 例如： `ContosoAD` 。 這是在要求中使用 *domain_hint* 參考此識別提供者時，要使用的值。
-10. 按一下 [確定 **Deploying Office Solutions**]。
+10. 按一下 [確定]。
 11. 選取 [對應此識別提供者的宣告]，然後設定下列宣告：
 
     - 針對 [使用者識別碼]，輸入 `oid`。

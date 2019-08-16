@@ -200,6 +200,8 @@
       href: /azure/templates/microsoft.hdinsight/allversions
 - name: 資源
   items:
+    - name: 常見問題集
+      href: kafka-faq.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 在論壇上取得協助

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 6aa729e4f32769ec50632bea582c8b69c7c0ce91
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bcaf2918c92ec7b8223d394290a1d7c624fc451c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642133"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509228"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>使用 Azure 管理的身分識別在 ACR 工作中進行外部驗證 
 
@@ -107,7 +107,7 @@ steps:
 
 ### <a name="create-task"></a>建立工作
 
-藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*dockerhubtask* 。 工作內容是本機系統, 而命令會參考工作目錄`dockerhubtask.yaml`中的檔案。 `--assign-identity`參數會傳遞使用者指派之身分識別的資源識別碼。 
+藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*dockerhubtask* 。 此工作會在沒有原始程式碼內容的情況下執行, 而命令會`dockerhubtask.yaml`參考工作目錄中的檔案。 `--assign-identity`參數會傳遞使用者指派之身分識別的資源識別碼。 
 
 ```azurecli
 az acr task create \
@@ -126,7 +126,7 @@ az acr task create \
 
 ### <a name="create-task"></a>建立工作
 
-藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*dockerhubtask* 。 工作內容是本機系統, 而命令會參考工作目錄`dockerhubtask.yaml`中的檔案。  沒有`--assign-identity`值的參數會在工作上啟用系統指派的身分識別。  
+藉由執行下列[az acr task create][az-acr-task-create]命令來建立工作*dockerhubtask* 。 此工作會在沒有原始程式碼內容的情況下執行, 而命令會`dockerhubtask.yaml`參考工作目錄中的檔案。 沒有`--assign-identity`值的參數會在工作上啟用系統指派的身分識別。  
 
 ```azurecli
 az acr task create \

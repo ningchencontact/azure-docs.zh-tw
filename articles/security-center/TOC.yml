@@ -181,10 +181,6 @@
           href: security-center-search.md
         - name: 規劃與作業
           href: security-center-planning-and-operations-guide.md
-        - name: 了解安全性警示
-          href: security-center-alerts-type.md
-        - name: Azure 資源和使用者的 UEBA
-          href: security-center-ueba-mcas.md
         - name: 自訂安全性設定
           href: security-center-customize-os-security-config.md
 - name: 參考

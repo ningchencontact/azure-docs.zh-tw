@@ -5,46 +5,46 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/22/2019
+ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7385888c54d46e706621f781a64d12d3ae7aa5fb
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133645"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512675"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>在 Azure 中可使用哪些磁碟類型？
 
-Azure 受控的磁碟目前提供四種磁碟類型，其中三個已正式運作 (GA)，另一個目前處於預覽狀態。 這四個磁碟類型各有自己適用的目標客戶案例。
+Azure 受控磁片目前提供四種磁片類型, 每種類型都是針對特定的客戶案例。
 
 ## <a name="disk-comparison"></a>磁碟比較
 
-下表會比較適用於受控磁碟的 Ultra 固態硬碟 (SSD) (預覽)、進階 SSD、標準 SSD 和標準硬碟 (HDD)，以協助您決定要使用何者。
+下表提供適用于受控磁片的 ultra 磁片、premium 固態硬碟 (SSD)、標準 SSD 和標準硬碟 (HDD) 的比較, 協助您決定要使用的內容。
 
-|   | Ultra SSD (預覽)   | 進階 SSD   | 標準 SSD   | 標準 HDD   |
+|   | Ultra 磁片   | 進階 SSD   | 標準 SSD   | 標準 HDD   |
 |---------|---------|---------|---------|---------|
 |磁碟類型   |SSD   |SSD   |SSD   |HDD   |
 |狀況   |IO 密集的工作負載 (例如 SAP HANA)、最上層資料庫 (例如 SQL、Oracle)，以及其他高交易量的工作負載。   |生產環境和重視效能的工作負載   |網頁伺服器，輕量使用的企業應用程式和開發/測試   |備份、不重要、存取不頻繁   |
-|磁碟大小   |65,536 GiB (預覽)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
-|最大輸送量   |2,000 MiB/秒 (預覽)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|最大 IOPS   |160,000 (預覽)   |20,000   |6,000   |2,000   |
+|磁碟大小   |65536 gib (GiB)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|最大輸送量   |2000 MiB/秒    |900 MiB/秒   |750 MiB/秒   |500 MiB/秒   |
+|IOPS 上限   |160,000    |20,000   |6,000   |2,000   |
 
-## <a name="ultra-ssd-preview"></a>Ultra SSD (預覽)
+## <a name="ultra-disk"></a>Ultra 磁片
 
-Azure 的強力 SSD （預覽） 提供高輸送量、 高 IOPS，以及一致的低延遲磁碟儲存體為 Azure IaaS Vm。 Ultra SSD 的其他一些優點包括能夠以動態方式變更磁碟的效能和您的工作負載，而不需要重新啟動虛擬機器。 強力的 Ssd 適用於資料密集的工作負載，例如 SAP HANA、 最上層資料庫和交易為主的工作負載。 Ultra SSD 只可用來作為資料磁碟。 建議您使用進階 SSD 作為作業系統磁碟。
+Azure ultra 磁片可為 Azure IaaS Vm 提供高輸送量、高 IOPS 以及一致的低延遲磁片儲存體。 Ultra 磁片的其他優點包括能夠以動態方式變更磁片的效能, 以及您的工作負載, 而不需要重新開機您的虛擬機器。 Ultra 磁片適用于資料密集的工作負載, 例如 SAP Hana、最上層資料庫, 以及高交易量的工作負載。 Ultra 磁片只能用來做為資料磁片。 建議您使用進階 SSD 作為作業系統磁碟。
 
 ### <a name="performance"></a>效能
 
-當您佈建 Ultra 磁碟時，您可個別設定磁碟的容量和效能。 Ultra SSD 有 4 GiB 到 64 TiB 的幾種固定大小可供選擇，且具有彈性效能組態模型，可讓您個別設定 IOPS 和輸送量。
+當您佈建 Ultra 磁碟時，您可個別設定磁碟的容量和效能。 Ultra 磁片有數個固定大小, 範圍從 4 GiB 到 64 TiB, 並提供彈性的效能設定模型, 可讓您獨立設定 IOPS 和輸送量。
 
-Ultra SSD 的主要功能包括：
+Ultra 磁片的一些主要功能如下:
 
-- 磁碟容量：Ultra SSD 容量的範圍介於 4 GiB 到 64 TiB。
-- 磁碟 IOPS：Ultra SSD 支援 300 IOPS/GiB 的 IOPS 限制，最多可達每個磁碟 160 K 的 IOPS。 若要達到您所佈建的 IOPS，請確定選取的磁碟 IOPS 小於 VM IOPS。 最小的磁碟 IOPS 為 100 IOPS。
-- 磁碟輸送量：使用 Ultra SSD 時，對於每個佈建的 IOPS，單一磁碟的輸送量上限為 256 KiB/秒，最多可達每個磁碟 2000 MBps (其中，MBps = 10 ^6 位元組/秒)。 最小的磁碟輸送量為 1 MiB。
-- 強力的 Ssd 支援調整磁碟效能屬性 （IOPS 和輸送量） 在執行階段不卸離磁碟與虛擬機器。 向磁碟發出磁碟效能調整作業後，最多可能需要一個小時，變更才會實際生效。
+- 磁碟容量：Ultra 磁片容量的範圍是從 4 GiB 到 64 TiB。
+- 磁碟 IOPS：Ultra 磁片支援 300 IOPS/GiB 的 IOPS 限制, 最多可達每個磁片 160 K IOPS。 若要達到您所布建的 IOPS, 請確定選取的磁片 IOPS 小於 VM IOPS 限制。 每個磁片的 IOPS 下限為 2 IOPS/GiB, 整體基準最小值為 100 IOPS。 例如, 如果您有4個 GiB 的 ultra 磁片, 您最少會有 100 IOPS, 而不是8個 IOPS。
+- 磁碟輸送量：使用 ultra 磁片時, 單一磁片的輸送量限制為每個已布建 IOPS 的 256 KiB/秒, 最多可達每個磁片 2000 MBps (其中 MBps = 10 ^ 6 位元組/秒)。 每個磁片的最小輸送量為每個已布建 IOPS 的 4KiB/秒, 整體基準最小值為 1 MBps。
+- Ultra 磁片支援在執行時間調整磁片效能屬性 (IOPS 和輸送量), 而不需從虛擬機器卸離磁片。 向磁碟發出磁碟效能調整作業後，最多可能需要一個小時，變更才會實際生效。
 
 ### <a name="disk-size"></a>磁碟大小
 
@@ -60,21 +60,14 @@ Ultra SSD 的主要功能包括：
 |512     |80,000         |2,000         |
 |1,024-65,536 (此範圍中的大小會以 1 TiB 為單位遞增)     |160,000         |2,000         |
 
-### <a name="transactions"></a>交易
+### <a name="ga-scope-and-limitations"></a>GA 範圍和限制
 
-強力的 Ssd，每個 I/O 作業小於或等於 256 KiB 的輸送量會被視為單一 I/O 作業。 大於 256 KiB 的輸送量的 I/O 作業會被視為多個 I/o 大小 256 KiB。
+目前, ultra 磁片有額外的限制, 如下所示:
 
-### <a name="preview-scope-and-limitations"></a>預覽版的範圍和限制
-
-在預覽期間，Ultra SSD：
-
-- 可在美國東部 2 的單一可用性區域中受到支援  
+- 在美國東部2、東南亞和北歐 (每個區域的兩個可用性區域) 中受到支援  
 - 只能用於可用性區域 (區域以外的可用性設定組和單一 VM 部署將無法連結 Ultra磁碟)
 - 僅在 ES/DS v3 VM 上受到支援
 - 只能作為資料磁碟，且僅支援 4k 實體磁區大小  
 - 只能建立為空磁碟  
-- 目前只能部署使用 Azure Resource Manager 範本、 CLI、 PowerShell 和 Python SDK。
-- 無法部署使用 Azure 入口網站 （還）。
-- 尚不支援磁碟快照集、VM 映像、可用性設定組、虛擬機器擴展集和 Azure 磁碟加密。
-- 尚不支援與 Azure 備份或 Azure Site Recovery 整合。
-- 如同 [大部分的預覽](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)，這項功能在正式運作 (GA) 之前不應該用於生產工作負載。
+- 尚不支援磁片快照、VM 映射、可用性設定組、虛擬機器擴展集和 Azure 磁片加密
+- 尚不支援與 Azure 備份或 Azure Site Recovery 的整合

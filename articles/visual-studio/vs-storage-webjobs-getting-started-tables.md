@@ -3,7 +3,7 @@ title: 開始使用 Azure 儲存體和 Visual Studio 已連接服務 (WebJob 專
 description: 在使用 Visual Studio 已連接服務連接到儲存體帳戶之後，如何於 Visual Studio Azure WebJobs 專案中開始使用 Azure 資料表儲存體
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 8875f680c8bb83c2375d6fe767f376cbb35d5a0a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260753"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510677"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>開始使用 Azure 儲存體 (Azure WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -66,15 +66,15 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。 此服�
 如果您想要直接使用 Azure 儲存體 API，可將 **CloudStorageAccount** 參數新增至方法簽章。
 
 ## <a name="real-time-monitoring"></a>即時監視
-因為資料外送流量函式經常處理大量資料，所以 WebJobs SDK 儀表板提供即時監視資料。 [引動過程記錄]  區段可告訴您是否仍有執行中的函式。
+因為資料外送流量函式經常處理大量資料，所以 WebJobs SDK 儀表板提供即時監視資料。 [引動過程記錄] 區段可告訴您是否仍有執行中的函式。
 
 ![輸入函式執行中](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
 
-[引動過程詳細資料]  頁面會報告執行中函式的進度 (寫入的實體數目)，並讓您有機會將它中止。
+[引動過程詳細資料] 頁面會報告執行中函式的進度 (寫入的實體數目)，並讓您有機會將它中止。
 
 ![輸入函式執行中](./media/vs-storage-webjobs-getting-started-tables/ingressprogress.png)
 
-當函式完成時，[引動過程詳細資料]  頁面會報告寫入的資料列數目。
+當函式完成時，[引動過程詳細資料] 頁面會報告寫入的資料列數目。
 
 ![輸入函式已完成](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 

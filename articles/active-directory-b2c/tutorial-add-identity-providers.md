@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5710ccfe5d6450714e029827a795b484b1bcd2b4
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: eee881e6d4e446e07867261545a90dfacaa93712
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716653"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512208"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中將識別提供者新增至您的應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "68716653"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [建立使用者流程](tutorial-create-user-flows.md)，讓使用者註冊並登入您的應用程式。
 
@@ -98,7 +98,7 @@ ms.locfileid: "68716653"
 1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 1. 選取 [識別提供者]，然後選取 [新增]。
 1. 輸入 [名稱]。 例如，輸入 *Contoso Azure AD*。
-1. 選取 [**識別提供者類型**], 選取 [ **OpenID connect (預覽)** ], 然後按一下 **[確定]** 。
+1. 選取 [**識別提供者類型**], 選取 [ **OpenID connect]** , 然後按一下 **[確定]** 。
 1. 按一下 [設定此識別提供者]。
 1. 在 [**中繼資料 url**] 中, 輸入下列`your-AD-tenant-domain` url, 並將取代為您 Azure AD 租使用者的功能變數名稱。
 

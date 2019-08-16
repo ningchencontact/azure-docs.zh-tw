@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335804"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511011"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
@@ -322,9 +322,9 @@ MultiValue 路由方法的另一種用法是，如果端點同時「雙重裝載
 
 通常，流量管理員用於將流量導向不同區域中部署的應用程式。 不過，也可用於應用程式在相同區域中有多個部署時。 流量管理員 Azure 端點不允許將相同 Azure 區域中的多個 Web 應用程式端點新增至相同的流量管理員設定檔。
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>如何將流量管理員設定檔的 Azure 端點移至不同的資源群組？
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>如何? 將我流量管理員設定檔的 Azure 端點移至不同的資源群組或訂用帳戶嗎？
 
-與流量管理員設定檔相關聯的 Azure 端點，是使用其資源識別碼來追蹤的。 當作端點使用的 Azure 資源 (例如，公用 IP、傳統雲端服務、WebApp，或以巢狀方式使用的另一個流量管理員設定檔) 移至不同的資源群組時，其資源識別碼也會隨之變更。 在此情況下，目前您必須先刪除端點，然後再將端點加回設定檔中，以更新流量管理員設定檔。
+與流量管理員設定檔相關聯的 Azure 端點，是使用其資源識別碼來追蹤的。 當當做端點使用的 Azure 資源 (例如, 公用 IP、傳統雲端服務、WebApp, 或以嵌套方式使用的另一個流量管理員設定檔) 移至不同的資源群組或訂用帳戶時, 其資源識別碼會變更。 在此情況下，目前您必須先刪除端點，然後再將端點加回設定檔中，以更新流量管理員設定檔。
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>流量管理員端點監視
 

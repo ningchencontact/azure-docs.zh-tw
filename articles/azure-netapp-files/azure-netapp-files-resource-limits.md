@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 763b3961bfd621f05ab5cd021526b0d6d109c020
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4ce40fdf36f7d66e60e15955318e43f1f24f275f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881714"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515840"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files 的資源限制
 
@@ -36,15 +36,12 @@ ms.locfileid: "68881714"
 |  每個容量集區的磁片區數目     |    500   |    是     |
 |  每個磁片區的快照集數目       |    255     |    否        |
 |  每個 Azure 虛擬網路委派給 Azure NetApp Files (Microsoft NetApp/磁片區) 的子網數目    |   1   |    否    |
-|  VNet 中使用的 Ip 數目上限 (包括對等互連 Vnet) 與 Azure NetApp Files    |    1000   |    否   |
+|  可存取 Azure NetApp Files 的 VNet (包括對等互連 Vnet) 中的並行 Ip 數目   |    1000   |    否   |
 |  單一容量集區的大小下限   |  4 TiB     |    否  |
 |  單一容量集區的大小上限    |  500 TiB   |   否   |
 |  單一磁片區的大小下限    |    100 GiB    |    否    |
-|  單一磁片區的指派配額上限 *   |   92 TiB   |    否   |
-|  單一磁片區的大小上限 *     |    100 TiB    |    否       |
+|  單一磁片區的大小上限     |    100 TiB    |    否       |
 |  每個磁片區的檔案數目上限 (inode)     |    50000000    |    否    |    
-
-\* 您可以手動建立磁片區, 或調整其大小以最常 92 TiB。 不過, 在超額的案例中, 磁片區可以成長到 100 TiB。 如需容量超額的詳細資料, 請參閱[Azure NetApp Files 的成本模型](azure-netapp-files-cost-model.md)。 
 
 ## <a name="request-limit-increase"></a>增加要求限制 
 
