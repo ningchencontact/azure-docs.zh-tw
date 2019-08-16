@@ -79,10 +79,12 @@
           href: batch-pool-vm-sizes.md
         - name: 設定計算節點的存取
           href: pool-endpoint-configuration.md
-        - name: 以自訂映像建立集區
+        - name: 使用共用映像庫建立集區
           href: batch-custom-images.md
         - name: 在虛擬網路中建立集區
           href: batch-virtual-network.md
+        - name: 掛載虛擬檔案系統
+          href: virtual-file-mount.md
         - name: 裝載 Azure 檔案共用
           href: pool-file-shares.md
         - name: 使用 RDMA 或 GPU 執行個體

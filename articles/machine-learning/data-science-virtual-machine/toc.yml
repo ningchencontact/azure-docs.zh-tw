@@ -2,6 +2,7 @@
   href: index.yml
   items: null
 - name: 概觀
+  expanded: true
   items:
     - name: 什麼是資料科學 VM？
       href: overview.md
@@ -12,15 +13,15 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立 Windows 資料科學 VM
+    - name: 建立 Windows DSVM
       href: provision-vm.md
-    - name: 建立 Ubuntu 資料科學 VM
+    - name: 建立 Ubuntu DSVM
       href: dsvm-ubuntu-intro.md
-    - name: 建立 CentOS 資料科學 VM
+    - name: 建立 CentOS DSVM
       href: linux-dsvm-intro.md
     - name: 建立深度學習 VM
       href: provision-deep-learning-dsvm.md
-    - name: 建立地區人工智慧資料科學虛擬機器 (Geo AI Data Science VM)
+    - name: 建立 Geo AI DSVM
       href: provision-geo-ai-dsvm.md
 - name: 概念
   items:
@@ -28,45 +29,43 @@
       href: dsvm-tools-overview.md
     - name: 深度學習和 AI 架構
       href: dsvm-deep-learning-ai-frameworks.md
-    - name: ML 和資料科學工具
-      href: dsvm-ml-data-science-tools.md
-    - name: Languages
+    - name: 程式設計語言
       href: dsvm-languages.md
     - name: 開發工具
       href: dsvm-tools-development.md
+    - name: ML 和資料科學工具
+      href: dsvm-ml-data-science-tools.md
+    - name: 資料平台
+      href: dsvm-data-platforms.md
     - name: 資料擷取工具
       href: dsvm-tools-ingestion.md
     - name: 資料探索和虛擬化工具
       href: dsvm-tools-explore-and-visualize.md
-    - name: 資料平台
-      href: dsvm-data-platforms.md
-    - name: 範例和逐步解說
-      href: dsvm-samples-and-walkthroughs.md
+    - name: 企業安全性和指導方針
+      href: dsvm-enterprise-overview.md
+- name: 範例
+  href: dsvm-samples-and-walkthroughs.md
 - name: 使用說明指南
   items:
-    - name: 使用 Windows 資料科學 VM
+    - name: 使用 Windows DSVM
       href: vm-do-ten-things.md
-    - name: 使用 Linux 資料科學 VM
+    - name: 使用 Linux DSVM
       href: linux-dsvm-walkthrough.md
     - name: 使用深度學習 VM
       href: use-deep-learning-dsvm.md
-    - name: 使用地區人工智慧資料科學虛擬機器 (Geo AI Data Science VM)
+    - name: 使用 Geo AI DSVM
       href: use-geo-ai-dsvm.md
-    - name: 企業版指導方針
-      items:
-        - name: 概觀
-          href: dsvm-enterprise-overview.md
-        - name: 調整大小
-          href: dsvm-pools.md
-        - name: Active Directory 整合
-          href: dsvm-common-identity.md
-        - name: 保護資源存取認證
-          href: dsvm-secure-access-keys.md
+    - name: 建立自動調整 DSVM 集區
+      href: dsvm-pools.md
+    - name: 與 Active Directory 整合
+      href: dsvm-common-identity.md
+    - name: 保護資源存取認證
+      href: dsvm-secure-access-keys.md
 - name: 資源
   items:
-    - name: R 開發人員指南
-      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
     - name: MSDN 論壇
       href: 'https://social.microsoft.com/Forums/home?forum=dsvm'
     - name: 堆疊溢位
       href: 'https://stackoverflow.com/search?q=dsvm'
+    - name: R 開發人員指南
+      href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context

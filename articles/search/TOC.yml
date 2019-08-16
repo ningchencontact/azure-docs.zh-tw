@@ -13,7 +13,7 @@
       items:
         - name: 建立和使用索引
           href: search-get-started-portal.md
-        - name: 透過 AI 擴充 (認知搜尋)
+        - name: 透過認知搜尋擴充 (AI)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       href: search-get-started-dotnet.md
@@ -59,6 +59,8 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp'
     - name: Java 範例
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java'
+    - name: JavaScript 範例
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript'
     - name: Python 範例
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python'
     - name: REST 範例

@@ -3,7 +3,7 @@ documentType: LandingData
 title: 虛擬機器文件
 metadata:
   document_id: na
-  title: Azure Linux 虛擬機器文件 - 教學課程和 API 參考 | Microsoft Docs
+  title: Azure 虛擬機器文件 - 教學課程和 API 參考 | Microsoft Docs
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
   author: georgewallace

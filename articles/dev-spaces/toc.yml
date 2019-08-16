@@ -85,5 +85,7 @@
           href: how-to/dev-spaces-business-continuity.md
         - name: 與 Windows 容器互動
           href: how-to/run-dev-spaces-windows-containers.md
+        - name: 針對自訂輸入和 HTTPS 使用 traefik
+          href: how-to/ingress-https-traefik.md
     - name: 疑難排解
       href: troubleshooting.md

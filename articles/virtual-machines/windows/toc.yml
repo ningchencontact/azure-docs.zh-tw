@@ -388,7 +388,7 @@
           items:
             - name: 啟用寫入加速器
               href: how-to-enable-write-accelerator.md
-            - name: 啟用 Ultra SSD
+            - name: 使用 Ultra 磁碟
               href: disks-enable-ultra-ssd.md
             - name: 基準測試磁碟
               href: disks-benchmarks.md

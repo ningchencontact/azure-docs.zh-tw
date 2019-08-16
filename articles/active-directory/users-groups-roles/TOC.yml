@@ -10,7 +10,7 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 將授權指派給使用者
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: 在資源範圍內指派角色
+    - name: 授與無限制應用程式註冊的權限
       href: roles-quickstart-app-registration-limits.md
     - name: 設定群組到期日
       href: groups-quickstart-expiration.md
