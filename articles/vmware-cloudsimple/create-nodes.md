@@ -3,17 +3,17 @@ title: CloudSimple 的 VMware 解決方案布建節點-Azure
 description: 瞭解如何使用 CloudSimple 部署將節點新增至 VMWare
 author: dikamath
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2d5b2847109149701cb6453753e52fb671ba69d0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883232"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533345"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>CloudSimple 的 VMware 解決方案布建節點-Azure
 
@@ -22,7 +22,6 @@ ms.locfileid: "68883232"
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
-
 
 ## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>將節點新增至您的 CloudSimple 私人雲端
 

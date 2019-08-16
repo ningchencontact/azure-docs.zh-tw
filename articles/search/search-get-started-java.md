@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 7deb9d2cf16aa82de7ce4ea163652c2936819063
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489780"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533234"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>快速入門：在 JAVA 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ ms.locfileid: "68489780"
 所有 REST API 呼叫 Azure 搜尋服務都需要您提供服務 URL 和`api-key`。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在導向列中，按一下 [搜尋服務]  列出為您的訂用帳戶佈建的所有 Azure 搜尋服務。
+2. 在跳躍列中, 選取 [**搜尋服務**], 列出為您的訂用帳戶布建的所有 Azure 搜尋服務服務。
 3. 選取您要使用的服務。
 4. 您會在服務儀表板上看到基本資訊磚，以及存取系統管理金鑰的鑰匙圖示。
    
@@ -69,20 +69,20 @@ ms.locfileid: "68489780"
 
 ## <a name="download-the-sample-files"></a>下載範例檔案
 1. 移至 GitHub 上的 [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo)。
-2. 按一下 [下載 ZIP] ，將 .zip 檔案儲存至磁碟，然後解壓縮其中所含的所有檔案。 可以考慮將檔案解壓縮到 Java 工作區，以便之後可以輕鬆找到專案。
+2. 選取 [**下載 ZIP**], 將 .zip 檔案儲存至磁片, 然後解壓縮其包含的所有檔案。 可以考慮將檔案解壓縮到 Java 工作區，以便之後可以輕鬆找到專案。
 3. 範例檔案為唯讀。 請以滑鼠右鍵按一下資料夾內容，然後清除唯讀屬性。
 
 所有後續的檔案修改及執行陳述式都會用到此資料夾中的檔案。  
 
 ## <a name="import-project"></a>匯入專案
-1. 在 Eclipse 中，選擇 [檔案] > [匯入] > [一般] > [將現有專案匯入工作區]。
+1. 在 Eclipse 中,  > 選取 [檔案] **[將一般** > 現有專案匯**入** > **工作區**]。
    
     ![顯示如何匯入現有專案的螢幕擷取畫面][4]
-2. 在 [Select root directory (選取根目錄)] 中，瀏覽至含有範例檔案的資料夾。 請選取含有 .project 資料夾的資料夾。 此專案應會在 [Projects (專案)]  清單中顯示為選取的項目。
+2. 在 [Select root directory (選取根目錄)]中，瀏覽至含有範例檔案的資料夾。 請選取含有 .project 資料夾的資料夾。 此專案應會在 [Projects (專案)] 清單中顯示為選取的項目。
    
     ![螢幕擷取畫面, 顯示 [匯入專案] 視窗中的專案清單][12]
-3. 按一下 [完成] 。
-4. 使用 **專案總管** 檢視及編輯檔案。 如果還沒開啟，請按一下 [視窗] > [顯示檢視] > [專案總管]，或使用捷徑來開啟檔案。
+3. 選取 [完成]。
+4. 使用 **專案總管** 檢視及編輯檔案。 如果尚未開啟, 請選取 [**視窗]**  > [**顯示視圖** > ] [**專案瀏覽器**], 或使用快捷方式來開啟它。
 
 ## <a name="configure-the-service-url-and-api-key"></a>設定服務 URL 和`api-key`
 1. 在 [ **Project Explorer**] 中, 按兩下 [ **config** ] 以編輯包含伺服器名稱和`api-key`的設定。
@@ -96,19 +96,19 @@ ms.locfileid: "68489780"
 2. 選取 [Dynamic Web Module (動態網路模組)]、[Java] 及 [JavaScript]。
    
     ![螢幕擷取畫面, 顯示如何為您的專案選取專案 Facet][6]
-3. 按一下 **[套用]** 。
+3. 選取 [套用]。
 4. 選取 [視窗] > [喜好設定] > [伺服器] > [執行階段環境] > [新增..]。
 5. 展開 [Apache] 並選取您先前安裝的 Apache Tomcat 伺服器版本。 我們的系統安裝了第 8 版。
    
     ![螢幕擷取畫面: 顯示在 [執行時間環境] 視窗中, 您可以選取您的 Apache Tomcat 版本][7]
 6. 在下一頁指定 Tomcat 的安裝目錄。 在 Windows 電腦中，這通常為 C:\Program Files\Apache Software Foundation\Tomcat *版本*。
-7. 按一下 [完成] 。
+7. 選取 [完成]。
 8. 選取 [視窗] > [喜好設定] > [Java] > [已安裝的 JRE] > [新增]。
 9. 在 [Add JRE (新增 JRE)] 中，選取 [Standard VM (標準 VM)]。
-10. 按一下 [下一步] 。
-11. 在 [JRE Definition (JRE 定義)] 的 [JRE home (JRE 主資料夾)] 中按一下 [Directory (目錄)] 。
+10. 選取 [下一步]。
+11. 在 JRE 定義的 [JRE home] 中, 選取 [**目錄**]。
 12. 瀏覽至 [程式檔案] > [Java]，然後選取您先前安裝的 JDK。 請務必選取 JDK 做為 JRE。
-13. 在 [Installed JREs (安裝的 JRE)] 中選擇 **JDK**。 您的設定應該類似以下的螢幕擷取畫面。
+13. 在 [已安裝的 Jre] 中, 選取**JDK**。 您的設定應該類似以下的螢幕擷取畫面。
     
     ![顯示如何選取 JDK 做為已安裝 JRE 的螢幕擷取畫面][9]
 14. 您可以選擇性地選取 [視窗] > [網頁瀏覽器] > [Internet Explorer] 以在外部瀏覽器視窗開啟應用程式。 使用外部瀏覽器可給您更好的 Web 應用程式體驗。
@@ -118,10 +118,10 @@ ms.locfileid: "68489780"
 您已經完成設定工作。 接著要建置並執行專案。
 
 ## <a name="build-the-project"></a>建置專案
-1. 在 [專案總管] 中，以滑鼠右鍵按一下專案名稱，然後選擇 [執行身分] > [Maven 組建...] 以設定專案。
+1. 在 project Explorer 中, 以滑鼠右鍵按一下專案名稱, 然後選取 [**執行** > 身分**Maven 組建**] 來設定專案。
    
-    ![顯示如何在 [專案管理器] 視窗中選擇 [Maven 組建] 的螢幕擷取畫面][10]
-2. 在 [Edit Configuration (編輯組態)] 的 [Goals (目標)] 中輸入 "clean install"，然後按一下 [Run (執行)] 。
+    ![顯示如何在 [專案管理器] 視窗中選取 [Maven 組建] 的螢幕擷取畫面][10]
+2. 在 [編輯設定] 的 [目標] 中, 輸入「全新安裝」, 然後選取 [**執行**]。
 
 狀態訊息會輸出至主控台視窗。 您應該會看見 BUILD SUCCESS 訊息，指出專案已建置完成，未發生任何錯誤。
 
@@ -130,20 +130,20 @@ ms.locfileid: "68489780"
 
 如果您尚未在 Eclipse 中指定伺服器執行階段環境，請務必先行指定。
 
-1. 在 Project Explorer 中，展開 [WebContent] 。
-2. 以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [在伺服器上執行]。 選取 Apache Tomcat 伺服器，然後按一下 [Run (執行)] 。
+1. 在 Project Explorer 中，展開 [WebContent]。
+2. 以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [在伺服器上執行]。 選取 Apache Tomcat 伺服器, 然後選取 [**執行**]。
 
 > [!TIP]
-> 如果您使用非預設工作區來儲存專案，則需要修改 [執行組態]，使其指向專案位置，以避免伺服器啟動錯誤。 在 [專案總管] 中，以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [執行組態]。 選取 Apache Tomcat 伺服器。 按一下 [Arguments (引數)] 。 按一下 [Workspace (工作區)] 或 [File System (檔案系統)]，以設定包含專案的資料夾。
+> 如果您使用非預設工作區來儲存專案，則需要修改 [執行組態]，使其指向專案位置，以避免伺服器啟動錯誤。 在 [專案總管] 中，以滑鼠右鍵依序按一下 [Search.jsp] > [執行身分] > [執行組態]。 選取 Apache Tomcat 伺服器。 選取 [**引數**]。 選取 [**工作區**] 或 [**檔案系統**], 以設定包含專案的資料夾。
 > 
 > 
 
 執行應用程式時，您應該會看見瀏覽器視窗，並在其中提供可輸入字詞的搜尋方塊。
 
-等待約一分鐘後再按一下 [Search (搜尋)]  ，讓服務有時間建立並載入索引。 如果遇到 HTTP 404 錯誤，只要多等一下，即可再重試一次。
+請等候約一分鐘, 再選取 [**搜尋**], 以提供服務建立和載入索引的時間。 如果遇到 HTTP 404 錯誤，只要多等一下，即可再重試一次。
 
 ## <a name="search-on-usgs-data"></a>搜尋 USGS 資料
-USGS 資料集包含與羅德島州相關的記錄。 如果您在空白的搜尋方塊中按一下 [搜尋]  ，預設會出現前 50 個項目。
+USGS 資料集包含與羅德島州相關的記錄。 如果您在空白的搜尋方塊上選取 [**搜尋**], 則會取得前50個專案, 也就是預設值。
 
 輸入搜尋詞彙，讓搜尋引擎運作一下。 試著輸入區域名稱。 "Roger Williams" 是羅德島州的第一任州長。 許多公園、建築物和學校都是以他的姓名命名。
 

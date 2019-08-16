@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 7de3dd016700d10ef5fac97fada5cd23c2f4e1cb
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016482"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558309"
 ---
 # <a name="execute-r-script"></a>執行 R 指令碼
 
@@ -65,6 +65,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+ > [!NOTE]
+    > 請先檢查套件是否已存在, 再加以安裝, 以避免重複安裝。 如同`  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")`上述範例程式碼所示。 重複安裝可能會導致 web 服務要求超時。     
 
 ## <a name="how-to-configure-execute-r-script"></a>如何設定執行 R 腳本
 

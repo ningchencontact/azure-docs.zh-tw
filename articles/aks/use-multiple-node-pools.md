@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: e6ba6aeaeadb2359c4b30efa35471ca62dcc6b41
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 514098368c38c6d61bc192f5ba0f0450dc05776c
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033970"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533482"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 
@@ -35,7 +35,7 @@ ms.locfileid: "69033970"
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要使用多個 nodepools, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新::
+若要使用多個節點集區, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -167,6 +167,9 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 
 ## <a name="upgrade-a-node-pool"></a>升級節點集區
 
+> [!NOTE]
+> 叢集或節點集區上的升級和調整作業是互斥的。 您不能同時升級和調整叢集或節點集區。 相反地, 每個作業類型必須在目標資源上完成, 然後才在該相同資源上進行下一個要求。 請在我們的[疑難排解指南](https://aka.ms/aks-pending-upgrade)中閱讀更多相關資訊。
+
 當您在第一個步驟中建立 AKS 叢集時, `--kubernetes-version`已指定*1.13.9*的。 這會設定控制平面和初始節點集區的 Kubernetes 版本。 有不同的命令可用於升級控制平面和節點集區的 Kubernetes 版本。 命令是用來升級控制平面, `az aks nodepool upgrade`而則是用來升級個別的節點集區。 `az aks upgrade`
 
 讓我們將*mynodepool*升級至 Kubernetes *1.13.9*。 使用[az aks node pool upgrade][az-aks-nodepool-upgrade]命令升級節點集區, 如下列範例所示:
@@ -283,7 +286,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
 
 ## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>藉由啟用叢集自動調整程式, 自動調整特定節點集區
 
-AKS 在預覽中提供不同的功能, 可使用稱為叢集[自動調整程式](cluster-autoscaler.md)的元件自動調整節點集區。 此元件是一個 AKS 的附加元件, 可針對每個節點集區使用唯一的最小和最大調整計數, 為每個節點集區啟用。 瞭解如何[使用每個節點集區的叢集自動調整程式](cluster-autoscaler.md#enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools)。
+AKS 在預覽中提供不同的功能, 可使用稱為叢集[自動調整程式](cluster-autoscaler.md)的功能來自動調整節點集區。 這項功能是 AKS 的附加元件, 可針對每個節點集區使用唯一的最小和最大調整計數, 為每個節點集區啟用。 瞭解如何[使用每個節點集區的叢集自動調整程式](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)。
 
 ## <a name="delete-a-node-pool"></a>刪除節點集區
 
@@ -553,6 +556,9 @@ az group deployment create \
 視您在 Resource Manager 範本中定義的節點集區設定和作業而定, 可能需要幾分鐘的時間來更新 AKS 叢集。
 
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>為節點集區中的每個節點指派一個公用 IP
+
+> [!NOTE]
+> 在預覽期間, 由於可能的負載平衡器規則與 VM 布建相衝突, 因此*在 AKS (預覽) 中*使用此功能與 Standard Load Balancer SKU 有一項限制。 在預覽期間, 如果您需要為每個節點指派一個公用 IP, 請使用*基本 LOAD BALANCER SKU* 。
 
 AKS 節點不需要自己的公用 IP 位址進行通訊。 不過, 某些情況下, 節點集區中的節點可能需要有自己的公用 IP 位址。 其中一個範例是遊戲, 其中主控台需要直接連線到雲端虛擬機器, 以將躍點降至最低。 這可以藉由註冊個別的預覽功能 [節點公用 IP (預覽)] 來達成。
 

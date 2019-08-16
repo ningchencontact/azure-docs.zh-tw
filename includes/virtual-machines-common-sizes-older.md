@@ -5,19 +5,19 @@ services: virtual-machines-windows, virtual-machines-linux
 author: laurenhughes
 ms.service: multiple
 ms.topic: include
-ms.date: 04/11/2019
+ms.date: 08/15/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 5c35cbfbd2e9d0a1655d05c1116d293fb78c9eb7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4746a945f1a89c34308a3bd968f6341e0e25ac5
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133683"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541439"
 ---
-本節提供在較舊層代的虛擬機器大小上的資訊。 這些大小仍然受到支援，但不是會收到額外的容量。 有較新或替代已正式運作的大小。 請參閱[大小的 Windows Azure 中的虛擬機器](../articles/virtual-machines/windows/sizes.md)或是[在 Azure 中 Linux 虛擬機器的大小](../articles/virtual-machines/linux/sizes.md)選擇 VM 大小會最符合您的需求。  
+本節提供舊版虛擬機器大小的相關資訊。 這些大小仍然受支援, 但不會收到額外的容量。 有較新或替代的大小已正式推出。 請參閱[azure 中的 Windows 虛擬機器大小](../articles/virtual-machines/windows/sizes.md)或[azure 中 Linux 虛擬機器](../articles/virtual-machines/linux/sizes.md)的大小, 以選擇最適合您需求的 VM 大小。  
 
-如需有關調整 Linux VM 大小的詳細資訊，請參閱 <<c0> [ 調整大小，使用 Azure CLI 將 Linux 虛擬機器](../articles/virtual-machines/linux/change-vm-size.md)。 如果您使用 Windows Vm，並想要使用 PowerShell，請參閱[調整 Windows VM 大小](../articles/virtual-machines/windows/resize-vm.md)。  
+如需調整 Linux VM 大小的詳細資訊, 請參閱[使用 Azure CLI 調整 linux 虛擬機器的大小](../articles/virtual-machines/linux/change-vm-size.md)。 如果您使用的是 Windows Vm, 且偏好使用 PowerShell, 請參閱[調整 WINDOWS VM 的大小](../articles/virtual-machines/windows/resize-vm.md)。  
 
 <br>
 
@@ -25,9 +25,9 @@ ms.locfileid: "67133683"
 
 **較新的大小建議**:[Av2 系列](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取：不支援
+進階儲存體快取:不受支援
 
 基本層大小主要適用於開發工作負載，以及其他不需要負載平衡、自動調整或記憶體高用量虛擬機器的應用程式。
 
@@ -41,15 +41,25 @@ ms.locfileid: "67133683"
 
 <br>
 
+### <a name="standard-a0---a4-using-cli-and-powershell"></a>使用 CLI 和 PowerShell 的標準 A0 - A4
+
+在傳統部署模型中，部分 VM 大小名稱會與 CLI 和 PowerShell 中的稍有不同：
+
+* Standard_A0 是「特小型」
+* Standard_A1 是「小型」
+* Standard_A2 是「中型」
+* Standard_A3 是「大型」
+* Standard_A4 是「特大型」
+
 ### <a name="a-series"></a>A 系列  
 
 **較新的大小建議**:[Av2 系列](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
 ACU：50-100
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取：不支援
+進階儲存體快取:不受支援
 
 | Size | vCPU | 記憶體：GiB | 暫存儲存體 (HDD)：GiB | 最大資料磁碟 | 最大資料磁碟輸送量：IOPS | 最大 NIC/預期的網路頻寬 (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -72,9 +82,9 @@ ACU：50-100
 
 ACU：225
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取：不支援
+進階儲存體快取:不受支援
 
 A8-A11 和 H 系列大小也稱為 *計算密集型執行個體*。 執行這些大小的硬體是針對計算密集型和網路密集型應用程式 (包括高效能運算 (HPC) 叢集應用程式)、模型化及模擬而設計及最佳化的。 A8-A11 系列使用 Intel Xeon E5-2670 @ 2.6 GHZ，而 H 系列使用 Intel Xeon E5-2667 v3 @ 3.2 GHz。  
 
@@ -95,18 +105,18 @@ A8-A11 和 H 系列大小也稱為 *計算密集型執行個體*。 執行這些
 
 ACU：160-250 <sup>1</sup>
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取：不支援
+進階儲存體快取:不受支援
 
 | Size         | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟/輸送量：IOPS | 最大 NIC/預期的網路頻寬 (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| 標準_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 500                 |
-| 標準_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
+| Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 500                 |
+| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
 | Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
 | 標準_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
 
-<sup>1</sup> VM 系列可在其中一個下列的 CPU 上執行：2.2 GHz Intel Xeon® E5 2660 v2，2.4 GHz Intel Xeon® E5 2673 v3 (Haswell) 或 XEON® 的 2.3 GHz Intel E5 2673 v4 (Broadwell)  
+<sup>1</sup> VM 系列可以在下列其中一個 CPU 上執行:2.2 GHz Intel (r)® E5-2660 v2、2.4 GHz Intel® E5-2673 v3 (Haswell) 或 2.3 GHz Intel (r)® E5-2673 v4 (Broadwell)  
 
 <br>
 
@@ -116,18 +126,18 @@ ACU：160-250 <sup>1</sup>
 
 ACU：160-250 <sup>1</sup>
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取：不支援
+進階儲存體快取:不受支援
 
 | Size         | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟/輸送量：IOPS | 最大 NIC/預期的網路頻寬 (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| 標準_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
-| 標準_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
-| 標準_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
-| 標準_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
+| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
+| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
+| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
+| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 
-<sup>1</sup> VM 系列可在其中一個下列的 CPU 上執行：2.2 GHz Intel Xeon® E5 2660 v2，2.4 GHz Intel Xeon® E5 2673 v3 (Haswell) 或 XEON® 的 2.3 GHz Intel E5 2673 v4 (Broadwell)  
+<sup>1</sup> VM 系列可以在下列其中一個 CPU 上執行:2.2 GHz Intel (r)® E5-2660 v2、2.4 GHz Intel® E5-2673 v3 (Haswell) 或 2.3 GHz Intel (r)® E5-2673 v4 (Broadwell)  
 
 <br>
 
@@ -139,7 +149,7 @@ ACU：160-250 <sup>1</sup>
 
 進階儲存體：支援
 
-進階儲存體快取：支援
+進階儲存體快取:支援
 
 | Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量IOPS / MBps (快取大小，以 GiB 為單位) | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -148,7 +158,7 @@ ACU：160-250 <sup>1</sup>
 | Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
 
-<sup>1</sup> VM 系列可在其中一個下列的 CPU 上執行：2.2 GHz Intel Xeon® E5 2660 v2，2.4 GHz Intel Xeon® E5 2673 v3 (Haswell) 或 XEON® 的 2.3 GHz Intel E5 2673 v4 (Broadwell)  
+<sup>1</sup> VM 系列可以在下列其中一個 CPU 上執行:2.2 GHz Intel (r)® E5-2660 v2、2.4 GHz Intel® E5-2673 v3 (Haswell) 或 2.3 GHz Intel (r)® E5-2673 v4 (Broadwell)  
 
 <br>
 
@@ -156,11 +166,11 @@ ACU：160-250 <sup>1</sup>
 
 **較新的大小建議**:[DSv3 系列](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 
-ACU：160-250 <sup>1,2</sup>
+ACU：160-250 <sup>1、2</sup>
 
 進階儲存體：支援
 
-進階儲存體快取：支援
+進階儲存體快取:支援
 
 | Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量IOPS / MBps (快取大小，以 GiB 為單位) | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -170,9 +180,32 @@ ACU：160-250 <sup>1,2</sup>
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
 
 <sup>1</sup> DS 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md) \(英文\)。   
-<sup>2</sup> VM 系列可在其中一個下列的 CPU 上執行：2.2 GHz Intel Xeon® E5 2660 v2，2.4 GHz Intel Xeon® E5 2673 v3 (Haswell) 或 XEON® 的 2.3 GHz Intel E5 2673 v4 (Broadwell)  
+<sup>2</sup> VM 系列可以在下列其中一個 CPU 上執行:2.2 GHz Intel (r)® E5-2660 v2、2.4 GHz Intel® E5-2673 v3 (Haswell) 或 2.3 GHz Intel (r)® E5-2673 v4 (Broadwell)  
 
 <br>
+
+### <a name="ls-series"></a>Ls 系列
+
+Ls 系列使用[Intel® Xeon® 處理器 E5 v3 系列](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)，提供最多 32 個 vCPU。 Ls 系列會取得與 G/GS 系列相同的 CPU 效能，而且每個 vCPU 會有 8 GiB 的記憶體。
+
+Ls 系列不支援建立本機快取，來增加可由耐久資料磁碟達成的 IOPS。 本機磁片的高輸送量和 IOPS 讓 Ls 系列 Vm 適用于 NoSQL 存放區 (例如 Apache Cassandra 和 MongoDB), 其會將資料複寫到多個 Vm, 以在單一 VM 失敗時達到持續性。
+
+ACU：180-240
+
+進階儲存體：支援
+
+進階儲存體快取:不受支援
+ 
+| Size          | vCPU | 記憶體 (GiB) | 暫存儲存體 (GiB) | 最大資料磁碟 | 最大暫存儲存體輸送量 (IOPS / MBps) | 最大未快取磁碟輸送量 (IOPS / MBps) | 最大 NIC/預期的網路頻寬 (Mbps) | 
+|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s   | 4  | 32  | 678   | 16 | 20000 / 200 | 5000 / 125  | 2 / 4000  | 
+| Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000 / 250 | 4 / 8000  | 
+| Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8 / 16000 | 
+| Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5630 | 64   | 160000/1600   | 40000/1000     | 8 / 20000 | 
+
+Ls 系列 VM 的最大磁碟輸送量，可能會受到任何連結磁碟的數量、大小和串接所限制。 如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md)。
+
+<sup>1</sup> 執行個體會隔離至單一客戶專用的硬體。
 
 ### <a name="gs-series"></a>GS 系列 
 
@@ -180,7 +213,7 @@ ACU：180 - 240 <sup>1</sup>
 
 進階儲存體：支援
 
-進階儲存體快取：支援
+進階儲存體快取:支援
 
 | Size | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大資料磁碟 | 最大快取和暫存儲存體輸送量IOPS / MBps (快取大小，以 GiB 為單位) | 最大取消快取的磁碟輸送量：IOPS / MBps | 最大 NIC/預期的網路頻寬 (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -202,9 +235,9 @@ ACU：180 - 240 <sup>1</sup>
 
 ACU：180 - 240
 
-進階儲存體：不支援
+進階儲存體：不受支援
 
-進階儲存體快取：不支援
+進階儲存體快取:不受支援
 
 | Size         | vCPU | 記憶體：GiB | 暫存儲存體 (SSD) GiB | 最大暫存儲存體輸送量：IOPS / 讀取 MBps / 寫入 MBps | 最大資料磁碟/輸送量：IOPS | 最大 NIC/預期的網路頻寬 (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

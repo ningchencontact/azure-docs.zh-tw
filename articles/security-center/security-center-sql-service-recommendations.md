@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 9e48114d0d4159d40006710f9c8194dea0d775f8
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c2adf9bff4c3d91305e71a7688740fa0268ad7b9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295639"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69531475"
 ---
 # <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>保護 Azure 資訊安全中心中的 Azure 資料和儲存體服務
 本主題說明如何針對資料和儲存體資源, 查看和執行安全性建議。 Azure 資訊安全中心在分析 Azure 資源的安全性狀態時找到這些建議。
@@ -40,7 +40,7 @@ ms.locfileid: "68295639"
 * 按一下每個索引標籤, 並依資源類型查看建議。
 
     > [!NOTE]
-    > 如需儲存體加密的詳細資訊，請閱讀[在 Azure 資訊安全中心啟用 Azure 儲存體帳戶的加密](security-center-enable-encryption-for-storage-account.md)。
+    > 如需儲存體加密的詳細資訊, 請參閱待用[資料的加密 Azure 儲存體](../storage/common/storage-service-encryption.md)。
 
 
 ## <a name="remediate-a-recommendation-on-a-data-resource"></a>補救資料資源的建議
@@ -63,13 +63,13 @@ ms.locfileid: "68295639"
 
 |資源類型|安全分數|建議|描述|
 |----|----|----|----|
-|儲存體帳戶|20|應啟用安全傳輸至儲存體帳戶|安全傳輸這個選項會強制您的儲存體帳戶僅接受來自安全連線 (HTTPS) 的要求。 HTTPS 可確保伺服器與服務之間的驗證, 並保護傳輸中的資料免于網路層的攻擊, 例如中間人攻擊、竊聽及會話劫持。|
-|Redis|20|只應啟用您 Redis 快取的安全連線|只允許透過 SSL 對 Azure Cache for Redis 進行連線。 使用安全連線可確保伺服器與服務之間的驗證，避免傳輸中的資料遭受網路層的攻擊，例如中間人攻擊、竊聽及工作階段劫持。|
-|SQL|15|應該啟用 SQL 資料庫上的透明資料加密|啟用透明資料加密，以保護待用資料及符合合規要求。|
+|儲存體帳戶|20|應啟用儲存體帳戶的安全傳輸|安全傳輸這個選項會強制您的儲存體帳戶僅接受來自安全連線 (HTTPS) 的要求。 HTTPS 可確保伺服器與服務之間的驗證, 並保護傳輸中的資料免于網路層的攻擊, 例如中間人攻擊、竊聽及會話劫持。|
+|Redis|20|應該只允許對 Redis Cache 的安全連線|只允許透過 SSL 對 Azure Cache for Redis 進行連線。 使用安全連線可確保伺服器與服務之間的驗證，避免傳輸中的資料遭受網路層的攻擊，例如中間人攻擊、竊聽及工作階段劫持。|
+|SQL|15|應在 SQL 資料庫上啟用透明資料加密|啟用透明資料加密，以保護待用資料及符合合規要求。|
 |SQL|15|應啟用 SQL server 審核|啟用 Azure SQL Server 的稽核。 (僅限 Azure SQL 服務。 不包含在虛擬機器上執行的 SQ。)|
 |Data Lake 分析|5|應該啟用 Data Lake Analytics 中的診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
 |Data Lake Store|5|應啟用 Azure Data Lake 存放區中的診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
-|SQL|30|應補救 SQL 資料庫上的弱點|SQL 弱點評定會掃描您的資料庫是否有安全性弱點, 並公開任何與最佳作法的偏差, 例如錯誤的錯誤、過多的許可權, 以及未受保護的敏感性資料。 解決找到的弱點可以大幅改進資料庫的安全性等級。|
+|SQL|30|應修復 SQL 資料庫的弱點|SQL 弱點評定會掃描您的資料庫是否有安全性弱點, 並公開任何與最佳作法的偏差, 例如錯誤的錯誤、過多的許可權, 以及未受保護的敏感性資料。 解決找到的弱點可以大幅改進資料庫的安全性等級。|
 |SQL|20|為 SQL Server 佈建 Azure AD 系統管理員|為 SQL Server 佈建 Azure AD 系統管理員，以啟用 Azure AD 驗證。 Azure AD 驗證可針對資料庫使用者及其他 Microsoft 服務，簡化權限管理及集中管理身分識別。|
 |儲存體帳戶|15|應限制具有防火牆和虛擬網路設定的儲存體帳戶存取權|稽核儲存體帳戶防火牆設定中不受限制的網路存取。 請改為設定網路規則，只允許來自認可之網路的應用程式存取儲存體帳戶。 若要允許來自特定網際網路或內部部署用戶端的連線, 您可以授與存取權給來自特定 Azure 虛擬網路或公用網際網路 IP 位址範圍的流量。|
 |儲存體帳戶|1|儲存體帳戶應遷移至新的 Azure Resource Manager 資源|針對您的儲存體帳戶使用新的 Azure Resource Manager v2 來提供安全性增強功能, 例如: 更強的存取控制 (RBAC)、更佳的審核、以 Resource Manager 為基礎的部署與治理、受控身分識別的存取權、對的金鑰保存庫的存取權秘密和以 Azure AD 為基礎的驗證, 並支援標籤和資源群組, 讓安全性管理更加輕鬆。|

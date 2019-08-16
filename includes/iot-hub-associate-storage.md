@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 8693c48905155ed757bb727e42f4180f36c015f1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f88f6aa6daec342b24d165c4c4cc0a89a0805f7a
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174082"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558493"
 ---
 ## <a name="associate-an-azure-storage-account-to-iot-hub"></a>讓 Azure 儲存體帳戶與 IoT 中樞產生關聯
 
@@ -21,4 +21,4 @@ ms.locfileid: "67174082"
 
 請遵循[使用 Azure 入口網站設定檔案上傳](../articles/iot-hub/iot-hub-configure-file-upload.md)中的指示。 請確定 blob 容器與 IoT 中樞相關聯，並已啟用檔案通知。
 
-![在入口網站中啟用檔案通知](./media/iot-hub-associate-storage/enable-file-notifications.png)
+![在入口網站中啟用檔案通知](./media/iot-hub-associate-storage/file-notifications-vs2019.png)

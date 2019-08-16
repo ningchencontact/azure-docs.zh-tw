@@ -7,16 +7,18 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881824"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543504"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
 「來賓設定」會使用[Desired State Configuration](/powershell/dsc) (DSC) 資源模組來建立 Azure 虛擬機器的審核設定。 DSC 設定會定義虛擬機器應該位於的條件。 如果設定的評估失敗, 則會觸發原則效果**audit** , 並將虛擬機器視為**不相容**。
+
+[Azure 原則來賓](/azure/governance/policy/concepts/guest-configuration)設定只能用來審查虛擬機器內的設定。 虛擬機器中的設定補救功能尚無法使用。
 
 使用下列動作來建立您自己的設定, 以驗證 Azure 虛擬機器的狀態。
 

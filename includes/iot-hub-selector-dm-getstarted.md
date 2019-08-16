@@ -4,12 +4,12 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 60c0c700dde5afda2ca93a92b334cbc4f0134043
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667964"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558854"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
@@ -24,7 +24,9 @@ ms.locfileid: "68667964"
 使用直接方法從雲端中的後端應用程式起始裝置管理動作 (例如重新啟動、恢復出廠預設值，以及韌體更新)。 該裝置將負責：
 
 * 處理從 IoT 中樞傳送的方法要求。
+
 * 在裝置上初始化相對應的裝置特定動作。
+
 * 透過針對 IoT 中樞的*報告屬性*提供狀態更新。
 
 您可以在雲端中使用後端 App 來執行裝置對應項查詢，以報告裝置管理動作的進度。

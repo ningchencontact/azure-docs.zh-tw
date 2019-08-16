@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: f93b74c57d45ddfc7b47beff7852d183a93df00e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 81e1104d71706194ba1c54e42722b4508df09091
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856159"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534874"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>建立及管理 Azure Machine Learning services 工作區
 
@@ -27,6 +27,17 @@ ms.locfileid: "68856159"
 若要建立工作區，您將需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+
+### <a name="download-a-configuration-file"></a>下載設定檔
+
+1. 如果您將建立[筆記本 VM](tutorial-1st-experiment-sdk-setup.md#azure), 請略過此步驟。
+
+1. 如果您打算在參考此工作區的本機環境上使用程式碼， 請從工作區的 [概觀] 區段中，選取 [下載 config.xml]。  
+
+   ![下載 config.json](./media/how-to-manage-workspace/configure.png)
+   
+   使用 Python 指令碼或 Jupyter Notebook 將文件置於目錄結構中。 可以位於相同的目錄，名為 *aml_config* 的子目錄，或位於父目錄。 當您建立筆記本 VM 時, 會為您將此檔案新增至 VM 上的正確目錄。
+
 
 ## <a name="view"></a>查看工作區
 

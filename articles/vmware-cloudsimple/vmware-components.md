@@ -3,17 +3,17 @@ title: Azure VMware Solution by CloudSimple-私用雲端 VMware 元件
 description: 說明如何在私人雲端上安裝 VMware 元件
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bc9c07ae74da1a4269a505627a7626e478ef99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812190"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543718"
 ---
 # <a name="private-cloud-vmware-components"></a>私用雲端 VMware 元件
 
@@ -47,7 +47,7 @@ vCenter server 應用裝置 (VCSA) 提供 CloudSimple 的 VMware 解決方案的
 
 ### <a name="vcenter-single-sign-on"></a>vCenter 單一登入
 
-VCSA 上的內嵌平臺服務控制器與**VCenter 單一登入網域**相關聯。  功能變數名稱為**cloudsimple。**  系統會為 **CloudOwner@cloudsimple.com** 您建立預設使用者, 以供您存取 vCenter。  您可以新增適用于 vCenter 的內部部署/Azure active directory 身分[識別來源](https://docs.azure.cloudsimple.com/set-vcenter-identity/)。
+VCSA 上的內嵌平臺服務控制器與**VCenter 單一登入網域**相關聯。  功能變數名稱為**cloudsimple。**  系統會為 **CloudOwner@cloudsimple.com** 您建立預設使用者, 以供您存取 vCenter。  您可以新增適用于 vCenter 的內部部署/Azure active directory 身分[識別來源](set-vcenter-identity.md)。
 
 ## <a name="vsan-storage"></a>vSAN 儲存體
 

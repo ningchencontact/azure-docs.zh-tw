@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663727"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543057"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>將 Operations Manager 連接到 Azure 監視器
 
@@ -65,12 +65,12 @@ ms.locfileid: "68663727"
 >[!NOTE]
 >最近對 Azure Api 所做的變更, 將會讓客戶無法在第一次的管理群組與 Azure 監視器之間成功設定整合。 已將其管理群組與該服務整合的客戶則不會受影響，除非您需要重新設定您的現有連線。  
 >我們已針對下列版本的 Operations Manager 發行新的管理組件：
->  
->* 針對 System Center Operations Manager 1801，請從[這裡](https://www.microsoft.com/download/details.aspx?id=57173)下載管理組件  
->* 針對 System Center 2016 - Operations Manager，請從[這裡](https://www.microsoft.com/download/details.aspx?id=57172)下載管理組件  
->* 針對 System Center Operations Manager 2012 R2，請從[這裡](https://www.microsoft.com/download/details.aspx?id=57171)下載管理組件  
->
->此管理組件更新並不適用於 System Center Operations Manager 1807，因為它是源自 1801 版的更新發行，而非產品的完整組建。   
+> - 針對 System Center Operations Manager 2019, Operations Manager 組建會提供管理元件。
+>- Operations Manager 1801 管理元件也適用于 Operations Manager 1807。
+>- 如 System Center Operations Manager 1801, 請從[這裡](https://www.microsoft.com/download/details.aspx?id=57173)下載管理元件。
+>- 若為 System Center 2016-Operations Manager, 請從[這裡](https://www.microsoft.com/download/details.aspx?id=57172)下載管理元件。  
+>- 如 System Center Operations Manager 2012 R2, 請從[這裡](https://www.microsoft.com/download/details.aspx?id=57171)下載管理元件。  
+
 
 ### <a name="network"></a>網路
 

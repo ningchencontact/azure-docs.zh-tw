@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2c115bf0ad21e905e998692fbbc175f5aa52b86d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014260"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535002"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>教學課程：使用 Azure IoT 中樞 message 擴充 (預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "69014260"
 > * 執行模擬 IoT 裝置的應用程式, 將訊息傳送至中樞。
 > * 查看結果, 並確認訊息擴充如預期般運作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -69,7 +69,7 @@ ms.locfileid: "69014260"
 
 以下是腳本所建立的資源。 擴充表示資源適用于具有擴充的訊息。 **原始**表示資源適用于未擴充的訊息。
 
-| 名稱 | 值 |
+| Name | 值 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 容器名稱 | 來源語言  |
@@ -84,7 +84,7 @@ ms.locfileid: "69014260"
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -250,7 +250,7 @@ az iot hub route create \
 
 2. 將這些值新增至 ContosoStorageEndpointEnriched 端點的清單。
 
-   | 名稱 | 值 | 端點 (下拉式清單) |
+   | Name | 值 | 端點 (下拉式清單) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -269,7 +269,7 @@ az iot hub route create \
 
 ## <a name="send-messages-to-the-iot-hub"></a>將訊息傳送至 IoT 中樞
 
-既然已針對端點設定了 message 擴充, 請執行模擬裝置應用程式, 將訊息傳送至 IoT 中樞。 中樞已設定完成下列規則:
+既然已針對端點設定了 message 擴充, 請執行模擬裝置應用程式, 將訊息傳送至 IoT 中樞。 中樞已設定完成下列設定:
 
 * 路由至儲存體端點 ContosoStorageEndpointOriginal 的訊息將不會擴充, 且會儲存在儲存體容器`original`中。
 

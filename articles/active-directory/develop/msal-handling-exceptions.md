@@ -3,7 +3,7 @@ title: 錯誤和例外狀況 (MSAL) | Azure
 description: 了解如何處理 MSAL 應用程式中的錯誤和例外狀況、條件式存取和宣告挑戰。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c294e3bd8ac04454c2d715c665e0da4f9a4f4535
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c37a52ee939e6144b98e6a1369f94beabc5fc1d9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835034"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532859"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>使用 MSAL 處理例外狀況和錯誤
 Microsoft 驗證程式庫 (MSAL) 中的例外狀況僅供應用程式開發人員進行疑難排解之用，而不會向使用者顯示。 例外狀況訊息不會當地語系化。
@@ -38,7 +38,7 @@ Microsoft 驗證程式庫 (MSAL) 中的例外狀況僅供應用程式開發人�
 ### <a name="common-exceptions"></a>常見例外狀況
 以下是可能會擲回的常見例外狀況和一些可能的補救措施。
 
-| 例外狀況 | 錯誤碼 | 緩和|
+| 例外狀況 | 錯誤碼 | 風險降低|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員未同意使用識別碼為 '{appId}'、名稱為 '{appName}' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core (因此就沒有任何 Web UI)，請呼叫 `AcquireTokeninteractive` (一次即可)。 如果您使用 .NET core 或不想要執行 `AcquireTokenInteractive`，則使用者可以瀏覽至下列 URL 表示同意： https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read 。 若要呼叫 `AcquireTokenInteractive`：`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079：使用者必須使用多重要素驗證。| 沒有風險降低措施 - 如果您的租用戶已設定 MFA，且 AAD 決定加以強制執行，您就必須退回到 `AcquireTokenInteractive` 或 `AcquireTokenByDeviceCode` 之類的互動式流程。|

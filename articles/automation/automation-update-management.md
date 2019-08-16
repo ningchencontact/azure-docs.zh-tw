@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 393c66f57cd4a7621ad660774a95502c0f5ad8c4
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952975"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534716"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -236,9 +236,9 @@ Heartbeat
 
 若要建立新的更新部署，請選取 [排程更新部署]。 [**新增更新部署**] 頁面隨即開啟。 為下表描述的屬性輸入相關的值，然後按一下 [建立]：
 
-| 內容 | Description |
+| 屬性 | Description |
 | --- | --- |
-| 名稱 |用以識別更新部署的唯一名稱。 |
+| Name |用以識別更新部署的唯一名稱。 |
 |作業系統| Linux 或 Windows|
 | 要更新的群組 |對於 Azure 機器，根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建置要包含在您部署中的動態 Azure VM 群組。 </br></br>對於非 Azure 機器，選取現有的已儲存搜尋，以選取要包含在部署中的非 Azure 機器群組。 </br></br>若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)|
 | 要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Azure 監視器記錄中建立電腦群組的不同方法，請參閱 [Azure 監視器記錄中的電腦群組](../azure-monitor/platform/computer-groups.md) |
@@ -250,6 +250,15 @@ Heartbeat
 | 重新開機控制| 決定應該如何處理重新開機。 可用選項包括：</br>在必要時重新開機 (預設值)</br>一律重新開機</br>永不重新開機</br>僅重新開機 - 將不會安裝更新|
 
 您也可以透過程式設計方式建立「更新部署」。 若要了解如何使用 REST API 來建立「更新部署」，請參閱[軟體更新設定 - 建立](/rest/api/automation/softwareupdateconfigurations/create)。 此外，也有可用來建立每週「更新部署」的範例 Runbook。 若要深入了解此 Runbook，請參閱[為資源群組中的一或多個 VM 建立每週更新部署](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) \(英文\)。
+
+### <a name="maintenance-windows"></a>維護視窗
+
+維護期間控制允許安裝更新的時間長度。 指定維護時段時, 請考慮下列詳細資料。
+
+* 維護時段控制嘗試安裝的更新數目。
+* 如果已接近維護期間的結尾, 更新管理不會停止安裝新的更新。
+* 如果超出維護期間, 更新管理不會終止進行中的更新。
+* 如果 Windows 上的維護視窗已超過, 通常是因為 Service Pack 更新需要很長的時間才能安裝。
 
 ### <a name="multi-tenant"></a>跨租用戶更新部署
 

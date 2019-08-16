@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 77bf284734428e9257b46d85296796e4051ace26
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 44bf3171f9da73dac17b29e86c80fc8f0d011498
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494830"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557927"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -72,7 +72,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ## <a name="mode"></a>模式
 
-**模式**是根據原則是以 Azure Resource Manager 屬性或資源提供者屬性為目標來設定。
+根據原則是以 Azure Resource Manager 屬性或資源提供者屬性為目標, 設定**模式**。
 
 ### <a name="resource-manager-modes"></a>Resource Manager 模式
 
@@ -354,7 +354,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 #### <a name="avoiding-template-failures"></a>避免範本失敗
 
-在**值**中  使用樣板函式, 可允許許多複雜的嵌套函數。 如果_範本_函式的結果是錯誤, 原則評估會失敗。 失敗的評估是隱含的**拒絕**。 在某些情況下失敗的**值**範例:
+在**值**中使用樣板函式, 可允許許多複雜的嵌套函數。 如果_範本_函式的結果是錯誤, 原則評估會失敗。 失敗的評估是隱含的**拒絕**。 在某些情況下失敗的**值**範例:
 
 ```json
 {

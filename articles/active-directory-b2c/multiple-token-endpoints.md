@@ -1,6 +1,6 @@
 ---
-title: 支援以 OWIN 為基礎的 web 應用程式中的多個權杖簽發者-Azure Active Directory B2C
-description: 瞭解如何啟用 .NET web 應用程式, 以支援多個網域所發行的權杖。
+title: 將以 OWIN 為基礎的 web Api 遷移至 b2clogin.com-Azure Active Directory B2C
+description: 瞭解如何啟用 .NET Web API, 以便在您將應用程式遷移至 b2clogin.com 時支援多個權杖簽發者所發出的權杖。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,23 +10,25 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 31ab19b8b3adbef1f0ea573af13b98750d278db8
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716736"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533756"
 ---
-# <a name="support-multiple-token-issuers-in-an-owin-based-web-application"></a>支援以 OWIN 為基礎的 web 應用程式中的多個權杖簽發者
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>將以 OWIN 為基礎的 Web API 遷移至 b2clogin.com
 
-本文說明在 web 應用程式中啟用多個權杖簽發者的技術, 以及執行[Open Web Interface for .net (OWIN)](http://owin.org/)的 api。 當您要將 Azure Active Directory (Azure AD) B2C 應用程式從*login.microsoftonline.com*遷移至*b2clogin.com*時, 支援多個權杖端點會很有用。
+本文說明在執行[Open Web Interface for .net (OWIN)](http://owin.org/)的 web api 中啟用多個權杖簽發者支援的技術。 當您要將 Azure Active Directory B2C (Azure AD B2C) Api 及其應用程式從*login.microsoftonline.com*遷移至*b2clogin.com*時, 支援多個權杖端點會很有用。
 
-下列各節提供一個範例, 說明如何在 web 應用程式中啟用多個簽發者, 以及使用[MICROSOFT OWIN][katana]中介軟體元件 (Katana) 的對應 Web API。 雖然程式碼範例是 Microsoft OWIN 中介軟體特有的, 但一般技術應該適用于其他 OWIN 程式庫。
+藉由在您的 API 中新增支援以接受 b2clogin.com 和 login.microsoftonline.com 所簽發的權杖, 您可以在移除 API 的 login.microsoftonline.com 發行權杖支援之前, 以分段方式遷移 web 應用程式。
+
+下列各節提供一個範例, 說明如何在使用[MICROSOFT OWIN][katana]中介軟體元件 (Katana) 的 Web API 中啟用多個簽發者。 雖然程式碼範例是 Microsoft OWIN 中介軟體特有的, 但一般技術應該適用于其他 OWIN 程式庫。
 
 > [!NOTE]
-> 本文適用于目前已部署應用程式的 Azure AD B2C 客戶, 其`login.microsoftonline.com`參考並想要遷移至建議`b2clogin.com`的端點。 如果您要設定新的應用程式, 請依指示使用[b2clogin.com](b2clogin.md) 。
+> 本文適用 Azure AD B2C 于目前已部署 api 的客戶, 以及參考`login.microsoftonline.com`且想要遷移至建議`b2clogin.com`端點的應用程式。 如果您要設定新的應用程式, 請依指示使用[b2clogin.com](b2clogin.md) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 繼續進行本文中的步驟之前, 您必須先準備好下列 Azure AD B2C 資源:
 
@@ -34,7 +36,7 @@ ms.locfileid: "68716736"
 
 ## <a name="get-token-issuer-endpoints"></a>取得權杖簽發者端點
 
-您必須先取得要在應用程式中支援之每個簽發者的權杖簽發者端點 Uri。 若要取得 Azure AD B2C 租使用者所支援的*b2clogin.com*和*login.microsoftonline.com*端點, 請在 Azure 入口網站中使用下列程式。
+您必須先針對要在 API 中支援的每個簽發者取得權杖簽發者端點 Uri。 若要取得 Azure AD B2C 租使用者所支援的*b2clogin.com*和*login.microsoftonline.com*端點, 請在 Azure 入口網站中使用下列程式。
 
 首先, 選取其中一個現有的使用者流程:
 

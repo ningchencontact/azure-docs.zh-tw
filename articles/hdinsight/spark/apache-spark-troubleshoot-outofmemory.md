@@ -5,19 +5,19 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: a8351f13f015ca53e72bbff41152e46690fdc7bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 08/15/2019
+ms.openlocfilehash: f6ff654b8e51dfaf2697df69c7f220d41346c2bc
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855721"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543476"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 的 OutOfMemoryError 例外狀況
 
 本文說明在 Azure HDInsight 叢集中使用 Apache Spark 元件時, 疑難排解步驟和問題的可能解決方法。
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>案例:Apache Spark 的 OutOfMemoryError 例外狀況
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>案例：Apache Spark 的 OutOfMemoryError 例外狀況
 
 ### <a name="issue"></a>問題
 
@@ -53,13 +53,13 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>原因
 
-此例外狀況最有可能的原因是沒有足夠的堆積記憶體。 您的 Spark 應用程式在執行為執行程式或驅動程式時, 需要有足夠的 JAVA 虛擬機器 (JVM) 堆積記憶體。
+此例外狀況最可能發生的原因，就是未配置足夠的堆積記憶體給 Java 虛擬機器 (JVM)。 這些 Jvm 會以執行程式或驅動程式的形式啟動, 做為 Apache Spark 應用程式的一部分。
 
-### <a name="resolution"></a>解決方法
+### <a name="resolution"></a>解析度
 
 1. 決定 Spark 應用程式將處理的資料大小上限。 根據輸入資料大小的最大值、轉換輸入資料所產生的中繼資料, 以及進一步轉換中繼資料所產生的輸出資料, 來預估大小。 如果初始估計值不足, 請稍微增加大小, 然後反復執行直到記憶體錯誤減少為止。
 
-1. 請確定要使用的 HDInsight 叢集具有足夠的記憶體資源及核心，才能採用 Spark 應用程式。 您可以檢視叢集之 YARN UI 的叢集計量一節，查看已使用記憶體和記憶體總計，以及已使用的 VCore 和VCore 總計的值。
+1. 請確定要使用的 HDInsight 叢集具有足夠的記憶體資源及核心，才能採用 Spark 應用程式。 這可以藉由在叢集的 YARN UI 的 [叢集計量] 區段中, 查看**使用的記憶體**值與已使用的**記憶體總計**和**虛擬核心**與**VCore 總計**的值。
 
     ![yarn 核心記憶體視圖](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
@@ -89,7 +89,7 @@ java.lang.OutOfMemoryError
 
 ---
 
-## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>案例:嘗試開啟 Apache Spark 歷程記錄伺服器時發生 JAVA 堆積空間錯誤
+## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>案例：嘗試開啟 Apache Spark 歷程記錄伺服器時發生 JAVA 堆積空間錯誤
 
 ### <a name="issue"></a>問題
 
@@ -113,7 +113,7 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 **2.1 G**  wasb:///hdp/spark2-events/application_1503957839788_0264_1
 ```
 
-### <a name="resolution"></a>解決方法
+### <a name="resolution"></a>解析度
 
 您可以藉由編輯 spark 設定中的`SPARK_DAEMON_MEMORY`屬性並重新啟動所有服務, 來增加 spark 歷程記錄伺服器記憶體。
 
@@ -129,7 +129,7 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>案例:Apache Spark 叢集上的 Livy 伺服器無法啟動
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>案例：Apache Spark 叢集上的 Livy 伺服器無法啟動
 
 ### <a name="issue"></a>問題
 
@@ -199,7 +199,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 透過 Livy 提交大量的作業時, 在 Livy 伺服器的高可用性中, 會將這些會話狀態儲存在 ZK (在 HDInsight 叢集上), 並在 Livy 服務重新開機時復原那些會話。 在非預期終止後重新開機時, Livy 會為每個會話建立一個執行緒, 而這會累積特定數目的待復原會話, 而造成建立太多執行緒。
 
-### <a name="resolution"></a>解決方法
+### <a name="resolution"></a>解析度
 
 使用下面詳述的步驟來刪除所有專案。
 

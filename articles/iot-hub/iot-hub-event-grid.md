@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: a357e403aba64a5d05e359bf1186b01f73146758
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0f8942d92958ee8add9645239cc5664a4a96bb33
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934107"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533364"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>使用事件方格來觸發動作以回應 IoT 中樞事件
 
@@ -203,3 +203,5 @@ devices/{deviceId}
 * [深入了解 Event Grid](../event-grid/overview.md)
 
 * [比較路由傳送 IoT 中樞事件與訊息之間的差異](iot-hub-event-grid-routing-comparison.md)
+
+* [瞭解如何使用 IoT 遙測事件來執行使用 Azure 地圖服務 (和 IoT 中樞訊息路由) 的 IoT 空間分析](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)

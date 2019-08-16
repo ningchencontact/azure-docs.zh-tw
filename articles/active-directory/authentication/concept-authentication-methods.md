@@ -1,6 +1,6 @@
 ---
 title: 驗證方法-Azure Active Directory
-description: SSPR MFA 的 Azure AD 中可用的驗證方法
+description: MFA 和 SSPR 的 Azure AD 中可用的驗證方法
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 22c25c0a2b2f48baa3b57a8ad39ed4514c884826
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164835"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533130"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
-身為管理員，請針對 Azure Multi-factor Authentication 與自助式密碼重設 (SSPR) 建議您要求使用者註冊多個驗證方法選擇驗證方法。 無法使用使用者驗證方法時，他們可以選擇使用另一個方法進行驗證。
+身為系統管理員, 選擇 Azure 多因素驗證和自助式密碼重設 (SSPR) 的驗證方法, 建議您要求使用者註冊多個驗證方法。 當使用者無法使用驗證方法時, 可以選擇使用其他方法進行驗證。
 
-系統管理員可以定義在原則中可用於 SSPR 和 MFA 使用者的驗證方法。 某些驗證方法可能不適用於所有功能。 如需有關設定您的原則請參閱文章[如何成功推出自助式密碼重設](howto-sspr-deployment.md)和[規劃雲端架構的 Azure Multi-factor Authentication](howto-mfa-getstarted.md)
+系統管理員可以定義在原則中可用於 SSPR 和 MFA 使用者的驗證方法。 某些驗證方法可能不適用於所有功能。 如需設定原則的詳細資訊, 請參閱[如何成功推出自助式密碼重設](howto-sspr-deployment.md)和[規劃以雲端為基礎的 Azure 多因素驗證](howto-mfa-getstarted.md)文章
 
 Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方法數目下限，以免使用者無法存取其中一個。
 
@@ -33,7 +33,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 | 電子郵件地址 | 僅 SSPR |
 | Microsoft Authenticator 應用程式 | MFA 和 SSPR 的公開預覽版 |
 | OATH 硬體權杖 | MFA 和 SSPR 的公開預覽版 |
-| sms | MFA 和 SSPR |
+| SMS | MFA 和 SSPR |
 | 語音通話 | MFA 和 SSPR |
 | 應用程式密碼 | 只有在某些情況下的 MFA |
 
@@ -60,15 +60,15 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 
 ### <a name="predefined-questions"></a>預先定義的問題
 
-* 您在哪個城市遇見第一個配偶/伴侶？
+* 您在哪個城市遇見第一個配偶/伴侶?
 * 您的父母在哪個城市相遇？
 * 您最親近的手足住在哪個城市？
 * 您的父親在哪個城市出生？
 * 您的第一份工作是在哪個城市？
 * 您的母親在哪個城市出生？
-* 您在哪個城市渡過 2000 年的新年？
-* 您最喜愛的高中老師姓什麼？
-* 您已申請但未就讀的大專名稱為何？
+* 2000 年的新年，您在哪個城市?
+* 您高中最喜愛的老師姓什麼?
+* 您曾經申請但沒有入學的大學校名是?
 * 您舉辦第一次婚宴的地點名稱為何？
 * 您父親的中間名是什麼？
 * 您最愛的食物是什麼？
@@ -94,7 +94,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 * 您的第一份工作是什麼？
 * 您兒時電話號碼的末四碼是什麼？
 * 在您年輕時，您長大想做什麼？
-* 您遇過最有名的人物是誰？
+* 您遇過最知名的人物是誰?
 
 所有預先定義的安全性問題會依據使用者的瀏覽器地區設定，翻譯並當地語系化成完整的 O365 語言集。
 
@@ -136,15 +136,15 @@ Microsoft Authenticator 應用程式可協助防止未經授權即存取帳戶�
 > [!WARNING]
 > 對於自助式密碼重設，當重設只需要一個方法時，驗證程式碼是使用者可**確保最高層級安全性**的唯一可用選項。
 >
-> 需要兩種方法時，使用者除了任何其他已啟用的方法之外，將能夠使用  通知**或**驗證碼。
+> 需要兩種方法時，使用者除了任何其他已啟用的方法之外，將能夠使用通知**或**驗證碼。
 >
 
 如果您允許使用透過行動裝置應用程式的通知和來自行動裝置應用程式的驗證碼，使用通知註冊 Microsoft Authenticator 應用程式的使用者，就能使用通知和驗證碼來確認其身分識別。
 
 > [!NOTE]
-> 如果您的組織有人員在運作，或用於中國，進而**行動應用程式的通知**方法**Android 裝置**不適用於該國家/地區。 替代方法應該可供這些使用者。
+> 如果您的組織有員工從事或前往中國, 則在**Android 裝置**上透過行動裝置**應用程式**方法的通知無法在該國家/地區運作。 其他方法應可供這些使用者使用。
 
-### <a name="verification-code-from-mobile-app"></a>行動應用程式傳回的驗證碼
+### <a name="verification-code-from-mobile-app"></a>行動應用程式的驗證碼
 
 Microsoft Authenticator 應用程式或其他第三方應用程式可以作為軟體權杖來產生 OATH 驗證碼。 在輸入您的使用者名稱和密碼後，必須在登入畫面出現提示時輸入應用程式提供的驗證碼。 驗證碼提供第二種形式的驗證。
 
@@ -152,13 +152,13 @@ Microsoft Authenticator 應用程式或其他第三方應用程式可以作為�
 > 對於自助式密碼重設，當重設只需要一個方法時，驗證程式碼是使用者可**確保最高層級安全性**的唯一可用選項。
 >
 
-使用者可能會有最多五個 OATH 硬體權杖或驗證器應用程式，例如設定要在任何時候使用的 Microsoft Authenticator 應用程式的組合。
+使用者可能會有最多五個 OATH 硬體權杖或驗證器應用程式的組合, 例如設定為在任何時間使用的 Microsoft Authenticator 應用程式。
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH 硬體權杖 (公開預覽)
 
-OATH 是一項開放標準，可指定單次密碼 (OTP) 程式碼的產生方式。 Azure AD 將會支援使用每 30 秒或 60 秒變換一次的 OATH-TOTP SHA-1 權杖。 客戶可以從他們選擇的廠商購買這些權杖。 祕密金鑰，僅限於 128 個字元，可能會不相容的所有權杖。
+OATH 是一項開放標準，可指定單次密碼 (OTP) 程式碼的產生方式。 Azure AD 將會支援使用每 30 秒或 60 秒變換一次的 OATH-TOTP SHA-1 權杖。 客戶可以從他們選擇的廠商購買這些權杖。 秘密金鑰限制為128個字元, 但可能與所有權杖不相容。 秘密金鑰必須以 Base32 編碼。
 
-![將 OATH 權杖上傳至 MFA Server OATH 權杖 刀鋒視窗](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![將 OATH 權杖上傳到 MFA Server OATH 權杖分頁](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 OATH 硬體權杖已支援作為公開預覽的一部分。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
@@ -172,15 +172,15 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 > [!NOTE]
 > 請確定您在 CSV 檔案中包含標頭資料列，如上所示。
 
-一旦將格式正確設為 CSV 檔案後，系統管理員接著可以登入 Azure 入口網站，然後瀏覽至 [Azure Active Directory]  、[MFA 伺服器]  、[OATH 權杖]  ，並上傳所產生的 CSV 檔案。
+一旦將格式正確設為 CSV 檔案後，系統管理員接著可以登入 Azure 入口網站，然後瀏覽至 [Azure Active Directory]、[MFA 伺服器]、[OATH 權杖]，並上傳所產生的 CSV 檔案。
 
-視 CSV 檔案的大小而定，可能需要數分鐘的時間來處理。 按一下 [重新整理]  按鈕來取得目前的狀態。 如果檔案中有任何錯誤，您可以選擇下載 CSV 檔案，當中會列出需要您解決的任何錯誤。
+視 CSV 檔案的大小而定，可能需要數分鐘的時間來處理。 按一下 [重新整理] 按鈕來取得目前的狀態。 如果檔案中有任何錯誤，您可以選擇下載 CSV 檔案，當中會列出需要您解決的任何錯誤。
 
-一旦已解決任何錯誤後，系統管理員可以接著按一下 [啟動]  來啟動每個金鑰，以便啟動權杖及輸入權杖上顯示的 OTP。
+一旦已解決任何錯誤後，系統管理員可以接著按一下 [啟動] 來啟動每個金鑰，以便啟動權杖及輸入權杖上顯示的 OTP。
 
-使用者可能會有最多五個 OATH 硬體權杖或驗證器應用程式，例如設定要在任何時候使用的 Microsoft Authenticator 應用程式的組合。
+使用者可能會有最多五個 OATH 硬體權杖或驗證器應用程式的組合, 例如設定為在任何時間使用的 Microsoft Authenticator 應用程式。
 
-## <a name="phone-options"></a>電話選項
+## <a name="phone-options"></a>手機選項
 
 ### <a name="mobile-phone"></a>行動電話
 
@@ -188,7 +188,7 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 如果使用者不想在目錄中顯示其行動電話號碼，但仍想要用於密碼重設，管理員便不應將該號碼填入目錄。 使用者應該透過[密碼重設註冊入口網站](https://aka.ms/ssprsetup)，填妥其**驗證電話**屬性。 管理員可以在使用者的設定檔中看到此資訊，但該資訊不會發佈在其他地方。
 
-為了正確運作，電話號碼的格式必須是：+國碼 電話號碼  ，例如 +1 4255551234。
+為了正確運作，電話號碼的格式必須是：+國碼 電話號碼，例如 +1 4255551234。
 
 > [!NOTE]
 > 國碼 (地區碼) 和電話號碼之間需要空格。
@@ -199,23 +199,23 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 包含驗證碼的簡訊會傳送到行動電話號碼。 輸入登入介面中提供的驗證碼以繼續。
 
-#### <a name="phone-call"></a>撥打電話
+#### <a name="phone-call"></a>通話
 
 撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證
 
 > [!IMPORTANT]
-> 從於 2019 年 3 月開始撥打電話選項將無法使用免費/試用 Azure AD 租用戶中的 MFA 和 SSPR 的使用者。 這項變更不會影響簡訊。 通話會繼續在使用者可使用付費 Azure AD 租用戶。 這項變更只會影響免費/試用 Azure AD 租用戶。
+> 自2019年3月起, Azure AD 租使用者的免費/試用版中, 將無法使用通話選項進行 MFA 和 SSPR。 這項變更不會影響 SMS 訊息。 付費 Azure AD 租使用者中的使用者將可繼續使用通話。 這種變更只會影響 Azure AD 租使用者的免費/試用版。
 
-### <a name="office-phone"></a>辦公室電話
+### <a name="office-phone"></a>公司電話
 
 撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證。
 
-為了正確運作，電話號碼的格式必須是：+國碼 電話號碼  ，例如 +1 4255551234。
+為了正確運作，電話號碼的格式必須是：+國碼 電話號碼，例如 +1 4255551234。
 
 辦公室電話屬性是由您的系統管理員管理。
 
 > [!IMPORTANT]
-> 從於 2019 年 3 月開始撥打電話選項將無法使用免費/試用 Azure AD 租用戶中的 MFA 和 SSPR 的使用者。 這項變更不會影響簡訊。 通話會繼續在使用者可使用付費 Azure AD 租用戶。 這項變更只會影響免費/試用 Azure AD 租用戶。
+> 自2019年3月起, Azure AD 租使用者的免費/試用版中, 將無法使用通話選項進行 MFA 和 SSPR。 這項變更不會影響 SMS 訊息。 付費 Azure AD 租使用者中的使用者將可繼續使用通話。 這種變更只會影響 Azure AD 租使用者的免費/試用版。
 
 > [!NOTE]
 > 國碼 (地區碼) 和電話號碼之間需要空格。
@@ -224,22 +224,22 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 ### <a name="troubleshooting-phone-options"></a>疑難排解電話選項
 
-使用電話號碼的驗證方法的相關常見的問題：
+使用電話號碼之驗證方法的相關常見問題:
 
-* 單一裝置上的已封鎖的呼叫者識別碼
-   * 裝置進行疑難排解
-* 錯誤的電話號碼不正確的國家/地區代碼、 與公司電話號碼的住家電話號碼
-   * 使用者物件進行疑難排解，並設定驗證方法。 請確定正確的電話號碼註冊。
+* 單一裝置上封鎖的呼叫者識別碼
+   * 裝置疑難排解
+* 電話號碼錯誤、國家/地區代碼不正確、住家電話號碼與公司電話號碼
+   * 針對使用者物件和已設定的驗證方法進行疑難排解。 請確定已註冊正確的電話號碼。
 * 輸入的 PIN 錯誤
-   * 確認使用者已使用正確的 pin 碼，在 Azure MFA Server 中註冊。
-* 呼叫轉接到語音信箱
-   * 確保使用者具有開啟的電話，而且服務已可在其區域，或使用替代方法。
+   * 確認使用者已使用在 Azure MFA Server 中註冊的正確 PIN。
+* 呼叫轉送到語音信箱
+   * 請確定使用者已開啟電話, 且該服務已在其區域中提供, 或使用其他方法。
 * 使用者遭到封鎖
-   * 已解除封鎖使用者在 Azure 入口網站中的系統管理員。
-* 在裝置上未訂閱 SMS
-   * 讓使用者變更方法，或在裝置上啟動 SMS。
-* 錯誤的電信提供者 （無電話輸入會偵測到遺漏的 DTMF 撥號音的問題，在多個裝置，封鎖的呼叫者識別碼，或跨多個裝置封鎖 SMS）
-   * Microsoft 會使用多個電信提供者來路由電話及簡訊進行驗證。 如果您看到任何上述的問題有使用者嘗試使用在 5 分鐘內至少 5 次的方法，並連絡 Microsoft 支援服務時，有可用的該使用者的資訊。
+   * 讓系統管理員在 Azure 入口網站中解除封鎖使用者。
+* 未在裝置上訂閱 SMS
+   * 讓使用者變更方法, 或在裝置上啟用 SMS。
+* 錯誤的電信提供者 (未偵測到電話輸入、遺失 DTMF 音調問題、多個裝置上封鎖的呼叫者識別碼, 或跨多個裝置封鎖的 SMS)
+   * Microsoft 會使用多個電信提供者來路由通話和 SMS 訊息以進行驗證。 如果您看到上述任何問題, 則使用者在5分鐘內至少會嘗試使用此方法5次, 並在聯繫 Microsoft 支援服務時提供該使用者的資訊。
 
 ## <a name="app-passwords"></a>應用程式密碼
 
@@ -253,7 +253,7 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 * 應用程式密碼不會遵守內部部署用戶端存取控制設定。
 * 應用程式密碼不適用內部部署驗證記錄/稽核功能。
 * 某些進階架構設計在使用雙步驟驗證時，可能需要搭配使用組織使用者名稱和密碼及應用程式密碼，需視驗證的位置而定。 對於根據內部部署基礎結構進行驗證的用戶端，您可以使用組織使用者名稱和密碼。 對於根據 Azure AD 進行驗證的用戶端，您需要使用應用程式密碼。
-* 根據預設，使用者無法建立應用程式密碼。 如果您需要允許使用者建立應用程式密碼，請選取服務設定下的 [允許使用者建立應用程式密碼以登入非瀏覽器應用程式]  選項。
+* 根據預設，使用者無法建立應用程式密碼。 如果您需要允許使用者建立應用程式密碼，請選取服務設定下的 [允許使用者建立應用程式密碼以登入非瀏覽器應用程式] 選項。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -261,6 +261,6 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 [啟用貴組織的 Azure 多重要素驗證](howto-mfa-getstarted.md)
 
-[在您的租用戶中的啟用結合註冊](howto-registration-mfa-sspr-combined.md)
+[啟用租使用者中的合併註冊](howto-registration-mfa-sspr-combined.md)
 
 [使用者驗證方法設定文件](https://aka.ms/securityinfoguide)

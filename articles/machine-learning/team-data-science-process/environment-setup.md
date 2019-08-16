@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2c66da6717018237aebaf5fdaf803a8ac98f82be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 028f289092a0183072ab0ba0be29f9d1f79781bc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344677"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534314"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>設定用於 Team Data Science Process 中的資料科學環境
 Team Data Science Process 使用各種資料科學環境來儲存、處理和分析資料。 他們包含 Azure Blob 儲存體、數種類型的 Azure 虛擬機器、HDInsight (Hadoop) 叢集，以及 Azure Machine Learning 工作區。 要使用哪一個環境，取決於要進行模型化的資料類型和數量，以及該資料在雲端中的目標目的地。 
@@ -37,4 +37,3 @@ Team Data Science Process 使用各種資料科學環境來儲存、處理和分
 - [Windows DSVM](../data-science-virtual-machine/provision-vm.md)
 - [Ubuntu DSVM](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
 - [CentOS DSVM](../data-science-virtual-machine/linux-dsvm-intro.md)
-- [深入學習 VM](../data-science-virtual-machine/provision-deep-learning-dsvm.md)

@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839991"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558880"
 ---
 # <a name="what-are-azure-reservations"></a>什麼是 Azure 保留項目？
 
@@ -36,7 +36,7 @@ Azure Reservations 可協助您透過預先支付一年或三年的虛擬機器�
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>誰有資格購買保留？
 
-若要購買方案, 您必須擁有企業中的訂用帳戶擁有者角色 (MS-AZR-0017P-Ms-azr-0017p 或 MS-MS-AZR-0017P-Ms-azr-0148p) 或隨用隨付訂用帳戶 (MS-MS-AZR-0017P-Ms-azr-003p 或 MS-MS-AZR-0017P-Ms-azr-0023p)。 雲端解決方案提供者可以使用 Azure 入口網站或 [合作夥伴中心](/partner-center/azure-reservations) 來購買 Azure 保留。
+若要購買方案, 您必須擁有企業中的訂用帳戶擁有者角色 (MS-AZR-0017P-Ms-azr-0017p 或 MS-MS-AZR-0017P-Ms-azr-0148p) 或隨用隨付訂用帳戶 (MS-MS-AZR-0017P-Ms-azr-0003p 或 MS-MS-AZR-0017P-Ms-azr-0023p)。 雲端解決方案提供者可以使用 Azure 入口網站或 [合作夥伴中心](/partner-center/azure-reservations) 來購買 Azure 保留。
 
 Enterprise 合約 (EA) 客戶可以停用 EA 入口網站中的 [**新增保留實例**] 選項, 以限制對 EA 管理員的購買。 EA 系統管理員必須是至少一個 EA 訂用帳戶的訂用帳戶擁有者, 才能購買保留。 當企業想要讓集中的小組購買不同成本中心的保留時, 此選項非常有用。 購買之後, 集中式小組可以將成本中心擁有者新增至保留區。 然後, 擁有者可以將保留範圍限定在其訂用帳戶。 中央小組不需要擁有購買保留的訂用帳戶擁有者存取權。
 

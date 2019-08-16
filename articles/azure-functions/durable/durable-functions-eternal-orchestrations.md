@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 99eabf3bc91887ff19b3a0bc9cf6647d32fa6750
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 352fd16d98e6f376e230d2112a9b94b66ccc1b5a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787553"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542724"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的永久性協調流程
 
-「永久協調流程」  是指永不結束的協調流程函式。 想要在彙總工具和任何需要無限迴圈的情節下使用 [Durable Functions](durable-functions-overview.md) 時，永久性協調流程就很有用。
+「永久協調流程」是指永不結束的協調流程函式。 想要在彙總工具和任何需要無限迴圈的情節下使用 [Durable Functions](durable-functions-overview.md) 時，永久性協調流程就很有用。
 
 ## <a name="orchestration-history"></a>協調流程記錄
 
-如[檢查點檢查和重新執行](durable-functions-checkpointing-and-replay.md)中所述，「永久性工作架構」會持續追蹤每個函式協調流程的記錄。 只要協調器函式繼續排程新的工作，此記錄就會持續成長。 如果協調器函式進入無限迴圈，並持續排程工作，此記錄可能會變得非常大，而造成明顯的效能問題。 「永久協調流程」  概念是設計讓需要無限迴圈的應用程式減少發生這類問題。
+如[檢查點檢查和重新執行](durable-functions-checkpointing-and-replay.md)中所述，「永久性工作架構」會持續追蹤每個函式協調流程的記錄。 只要協調器函式繼續排程新的工作，此記錄就會持續成長。 如果協調器函式進入無限迴圈，並持續排程工作，此記錄可能會變得非常大，而造成明顯的效能問題。 「永久協調流程」概念是設計讓需要無限迴圈的應用程式減少發生這類問題。
 
 ## <a name="resetting-and-restarting"></a>重設和重新啟動
 
@@ -32,7 +32,7 @@ ms.locfileid: "65787553"
 呼叫 `ContinueAsNew` 時，執行個體在結束之前會將訊息加入其本身的佇列。 此訊息會以新的輸入值來重新啟動執行個體。 相同的執行個體識別碼會保留下來，但協調器函式的記錄實際上會截斷。
 
 > [!NOTE]
-> 「永久性工作架構」會維護相同的執行個體識別碼，但在內部會為 `ContinueAsNew` 所重設的協調器函式建立新的「執行識別碼」  。 此執行識別碼通常不對外公開，但可能很助於了解偵錯協調流程執行。
+> 「永久性工作架構」會維護相同的執行個體識別碼，但在內部會為 `ContinueAsNew` 所重設的協調器函式建立新的「執行識別碼」。 此執行識別碼通常不對外公開，但可能很助於了解偵錯協調流程執行。
 
 ## <a name="periodic-work-example"></a>定期工作範例
 
@@ -45,7 +45,7 @@ ms.locfileid: "65787553"
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    await context.CallActivityAsync("DoCleanup");
+    await context.CallActivityAsync("DoCleanup", null);
 
     // sleep for one hour between cleanups
     DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
@@ -76,7 +76,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="exit-from-an-eternal-orchestration"></a>從永久協調流程離開
 
-如果協調器函式最終一定要完成，則您完全「不」  需要呼叫 `ContinueAsNew`，讓函式自然結束即可。
+如果協調器函式最終一定要完成，則您完全「不」需要呼叫 `ContinueAsNew`，讓函式自然結束即可。
 
 如果協調器函式在無限迴圈中，且必須停止，請使用 [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) 方法來停止它。 如需詳細資訊，請參閱[執行個體管理](durable-functions-instance-management.md)。
 

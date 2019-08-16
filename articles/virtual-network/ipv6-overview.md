@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5093b74484cd04a0c0c7afed8e2ebc725af033f5
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 33078439e8f055d746fad9949a9b0d7651e120f7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249823"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543817"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>什麼是適用于 Azure 虛擬網路的 IPv6？ (預覽)
 
@@ -48,10 +48,12 @@ Azure 虛擬網路 IPv6 優點:
 
 - Azure 客戶可以定義自己的 IPv6 虛擬網路位址空間, 以符合其應用程式、客戶或緊密整合到其內部部署 IP 空間的需求。
 - 雙重堆疊 (IPv4 和 IPv6) 具有雙重堆疊子網的虛擬網路, 可讓應用程式與虛擬網路或網際網路中的 IPv4 和 IPv6 資源連接。
-- 使用網路安全性群組的 IPv6 規則來保護您的資源
+    > [!IMPORTANT]
+    > IPv6 的子網的大小必須完全為/64。  如果您決定啟用子網到內部部署網路的路由, 這可確保相容性, 因為某些路由器只能接受/64 IPv6 路由。  
+- 使用網路安全性群組的 IPv6 規則來保護您的資源。
 - 使用使用者定義的路由來自訂虛擬網路中的 IPv6 流量路由, 特別是在利用網路虛擬裝置來擴充您的應用程式時。
 - 讓網際網路用戶端使用其選擇的通訊協定, 順暢地存取雙重堆疊應用程式, 並 Azure DNS IPv6 (AAAA) 記錄的支援。 
-- 標準 IPv6 公用 Load Balancer 支援來建立具有彈性、可擴充的應用程式, 包括:
+- 標準 IPv6 公開負載平衡器支援建立有彈性、可調整的應用程式，並包括：
     - 選擇性的 IPv6 健全狀況探查, 用來判斷哪個後端集區實例是健全狀況, 因此可以接收新的流程。 .  
     - 選擇性輸出規則, 可提供對輸出連線能力的完整宣告式控制, 以調整並微調此功能以滿足您的特定需求。
     - 選擇性多個前端設定, 可讓單一負載平衡器使用多個 IPv6 公用 IP 位址-相同的前端通訊協定和埠可以跨前端位址重複使用。
@@ -71,7 +73,7 @@ Azure 虛擬網路的 IPv6 預覽版本具有下列限制:
   - IPv6 負載平衡規則可能**不**會使用*浮動 IP*功能。 只有 IPv4 才支援在後端實例上重複使用埠。
 - Azure 公用 IP 位址首碼功能不支援保留網際網路對向 IPv6 位址的區塊。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 IPv6 Azure 資源和頻寬的收費方式與 IPv4 的費率相同。 IPv6 沒有額外或不同的費用。 您可以在 [[公用 IP 位址](https://azure.microsoft.com/pricing/details/ip-addresses/)]、[[網路頻寬](https://azure.microsoft.com/pricing/details/bandwidth/)] 或 [ [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/)] 中找到定價的詳細資料。
 

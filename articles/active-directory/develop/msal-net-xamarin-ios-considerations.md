@@ -3,7 +3,7 @@ title: Xamarin iOS 考慮 (適用于 .NET 的 Microsoft 驗證程式庫) |Azure
 description: 瞭解使用 Xamarin iOS 搭配適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 時的特定考慮。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7bb4aab4c217e20245a1f6ee9b2910a4558acad
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 906f2fc8cdac31922e6e93526f65577fe76c4b9c
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278218"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532394"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin iOS 特定考慮
 在 Xamarin iOS 上, 當您使用 MSAL.NET 時, 必須考慮幾個事項
@@ -116,7 +116,7 @@ PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 
 如需更多詳細資料, 請在下列範例 readme.md 檔案的[IOS 特定考慮](https://github.com/azure-samples/active-directory-xamarin-native-v2#ios-specific-considerations)段落中提供:
 
-範例 | 平台 | 描述
+樣本 | 平台 | 描述
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 簡單的 Xamarin Forms 應用程式展示如何使用 MSAL 透過 Azure AD v2.0 端點來驗證 MSA 和 Azure AD, 並使用產生的權杖來存取 Microsoft Graph。
 

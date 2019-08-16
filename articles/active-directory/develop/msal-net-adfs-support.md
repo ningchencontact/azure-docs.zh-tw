@@ -3,7 +3,7 @@ title: 適用于 .NET 的 Microsoft 驗證程式庫中的 AD FS 支援 |Azure
 description: 瞭解適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 中的 Active Directory 同盟服務 (AD FS) 支援。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,23 +13,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: jmprieur
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13e1f80f3a0a10466ead60d828d28aa9916fe26b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: beb1bcc4599a891b8748b63c5e7c5c09f5acdac7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302699"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532680"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET 中的 Active Directory 同盟服務支援
 Windows Server 中的 Active Directory 同盟服務 (AD FS) 可讓您將 OpenID Connect 和 OAuth 2.0 型驗證和授權新增至您正在開發的應用程式。 然後, 這些應用程式就可以直接針對 AD FS 驗證使用者。 如需詳細資訊, 請參閱[開發人員 AD FS 案例](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)。
 
 適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 支援兩種針對 AD FS 進行驗證的案例:
 
-- MSAL.NET 會與 Azure Active Directory 交談, 其本身  會與 AD FS 同盟。
+- MSAL.NET 會與 Azure Active Directory 交談, 其本身會與 AD FS 同盟。
 - MSAL.NET 會**直接**與 ADFS 授權單位交談。 只有 AD FS 2019 和更新版本才支援這種情況。 其中一個重點是[Azure Stack](https://azure.microsoft.com/overview/azure-stack/)支援的案例
 
 

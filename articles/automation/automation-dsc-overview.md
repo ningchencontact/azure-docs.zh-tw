@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c192a994ac5398d41e28a35267b922ba98b721cc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69513610"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533461"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概觀
 
@@ -126,15 +126,6 @@ DSC 代理程式的 Proxy 支援可在 Windows 1809 版和更新版本中取得�
 >每週會公佈已更新的檔案。 檔案會反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍至少有一週的時間不會在資料中心中使用。
 >
 > 最好是每週下載新的 XML 檔案。 接著，更新您的網站以便正確地識別在 Azure 中執行的服務。 Azure ExpressRoute 使用者應該注意到，在每個月的第一週，此檔案會用來更新 Azure 空間的邊界閘道協定 (BGP) 公告。
-
-## <a name="introduction-video"></a>簡介影片
-
-寧可觀賞也不要閱讀？ 看看下列 2015 年 5 月 Azure Automation State Configuration 推出當時的影片。
-
-> [!NOTE]
-> 雖然這段影片中所討論的概念和週期都是正確的，但是自從錄製這段影片之後，Azure Automation State Configuration 已有長足進步。 它現在已正式發行，在 Azure 入口網站中具有更豐富的 UI，並支援額外的功能。
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>後續步驟
 

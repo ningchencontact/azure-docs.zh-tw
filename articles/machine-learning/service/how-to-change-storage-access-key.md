@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/08/2019
-ms.openlocfilehash: 7c6b85bd1f5935fb3722f82efcdfc921fc9cb2ec
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/16/2019
+ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990545"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558220"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>重新產生儲存體帳戶存取金鑰
 
@@ -23,7 +23,7 @@ ms.locfileid: "68990545"
 
 基於安全考慮, 您可能需要變更 Azure 儲存體帳戶的存取金鑰。 當您重新產生存取金鑰時, 必須將 Azure Machine Learning 更新為使用新的金鑰。 Azure Machine Learning 可能會同時針對模型儲存體和資料存放區使用儲存體帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立工作區](how-to-manage-workspace.md)文章。
 
@@ -50,12 +50,15 @@ ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
 print("Default datstore: " + default_ds.name + ", storage account name: " +
-      default_ds.account_name + ", container name: " + ds.container_name)
+      default_ds.account_name + ", container name: " + default_ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
-    if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " +
+    if ds.datastore_type == "AzureBlob":
+        print("Blob store - datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
+    if ds.datastore_type == "AzureFile":
+        print("File share - datastore name: " + name + ", storage account name: " +
               ds.account_name + ", container name: " + ds.container_name)
 ```
 
@@ -64,6 +67,8 @@ for name, ds in datastores.items():
 * 資料存放區名稱:儲存體帳戶註冊所在的資料存放區名稱。
 * 儲存體帳戶名稱︰Azure 儲存體帳戶的名稱。
 * 箱此註冊所使用之儲存體帳戶中的容器。
+
+它也會指出資料存放區是否適用于 Azure Blob 或 Azure 檔案共用, 因為有不同的方法可重新註冊每種類型的資料存放區。
 
 如果您計畫在重新產生存取金鑰的儲存體帳戶中存在專案, 請儲存資料存放區名稱、儲存體帳戶名稱和容器名稱。
 
@@ -97,12 +102,21 @@ for name, ds in datastores.items():
 1. 若要重新註冊使用儲存體帳戶的資料存放區, 請使用 [[需要更新的內容](#whattoupdate)] 區段中的值, 以及步驟1中包含下列程式碼的金鑰:
 
     ```python
-    ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                              datastore_name='your datastore name', 
+    # Re-register the blob container
+    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                              datastore_name='your datastore name',
                                               container_name='your container name',
-                                              account_name='your storage account name', 
+                                              account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
+    # Re-register file shares
+    ds_file = Datastore.register_azure_file_share(workspace=ws,
+                                          datastore_name='your datastore name',
+                                          file_share_name='your container name',
+                                          account_name='your storage account name',
+                                          account_key='new storage account key',
+                                          overwrite=True)
+    
     ```
 
     由於`overwrite=True`指定了, 此程式碼會覆寫現有的註冊, 並將其更新為使用新的金鑰。

@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741513"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559072"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>適用於容器的 Azure 監視器常見問題集
 
@@ -33,7 +33,7 @@ ms.locfileid: "68741513"
 
 ContainerInventory 資料表包含已停止和執行中容器的相關資訊。 此資料表由代理程式內的工作流程填入，該工作流程會查詢所有 (執行中和已停用) 容器的 Docker，並將該資料轉送到 Log Analytics 工作區。
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>如何? 解決**遺失的訂閱註冊**錯誤？
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>如何? 解決*遺失的訂閱註冊*錯誤？
 
 如果您收到**Microsoft.operationsmanagement 缺少訂閱註冊**的錯誤, 您可以在定義工作區的訂用帳戶中註冊**microsoft.operationsmanagement**資源提供者來解決此問題。 您可以在[這裡](../../azure-resource-manager/resource-manager-register-provider-errors.md)找到作法的相關文件。
 
@@ -71,7 +71,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ```
 
-如需此問題的詳細探討，請檢閱下列 [github 連結](https://github.com/moby/moby/issues/22920) \(英文\)。
+如需此問題的詳細資訊, 請參閱下列[GitHub 連結](https://github.com/moby/moby/issues/22920)。
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>當我啟用即時記錄時, 如何? 解決 Azure AD 錯誤？ 
 
@@ -86,6 +86,9 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443
 - dc.services.visualstudio.com 443
+- *. microsoftonline.com 443
+- *. monitoring.azure.com 443
+- login.microsoftonline.com 443
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,20 +2,20 @@
 title: 連線到 Azure SQL 資料倉儲 - VSTS | Microsoft Docs
 description: 使用 Visual Studio 查詢 SQL 資料倉儲。
 services: sql-data-warehouse
-author: XiaoyuMSFT
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.date: 08/15/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c0867252023378347e55d673260f28a7bf2ccc4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: aea2b3229dd793bc31adc0038763e09340a5f85a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479452"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534788"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>使用 Visual Studio 和 SSDT 連接到 SQL 資料倉儲
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.locfileid: "68479452"
 > 
 > 
 
-使用 Visual Studio 在短短幾分鐘內查詢 Azure SQL 資料倉儲。 這個方法會在 Visual Studio 中使用 SQL Server Data Tools (SSDT) 延伸模組。 
+使用 Visual Studio 在短短幾分鐘內查詢 Azure SQL 資料倉儲。 這個方法會使用 Visual Studio 2019 中的 SQL Server Data Tools (SSDT) 延伸模組。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用本教學課程，您需要：
 
 * 現有的 SQL 資料倉儲。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
@@ -37,11 +37,11 @@ ms.locfileid: "68479452"
 * 完整的 SQL 伺服器名稱。 若要找到此名稱，請參閱 [連接到 SQL 資料倉儲][Connect to SQL Data Warehouse]。
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1.連接到您的 SQL 資料倉儲
-1. 開啟 Visual Studio 2013 或 2015。
+1. 開啟 Visual Studio 2019。
 2. 開啟 [SQL Server 物件總管]。 若要這麼做，請選取 [檢視] > [SQL Server 物件總管]。
    
     ![SQL Server 物件總管][1]
-3. 按一下 [加入 SQL Server]  圖示。
+3. 按一下 [加入 SQL Server] 圖示。
    
     ![加入 SQL Server][2]
 4. 填寫 [連線到伺服器] 視窗中的欄位。
@@ -60,7 +60,7 @@ ms.locfileid: "68479452"
 現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。
-2. 選取 [新增查詢] 。 新的查詢視窗隨即開啟。
+2. 選取 [新增查詢]。 新的查詢視窗隨即開啟。
    
     ![新增查詢][5]
 3. 將此 TSQL 查詢複製到查詢視窗中：

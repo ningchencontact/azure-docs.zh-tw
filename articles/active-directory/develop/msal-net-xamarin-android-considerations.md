@@ -3,7 +3,7 @@ title: Xamarin Android 考慮 (適用于 .NET 的 Microsoft 驗證程式庫) |Az
 description: 瞭解搭配適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 使用 Xamarin Android 時的特定考慮。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff55853c859008690548b161451a24941a597d3a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 465902cf6ef6db1d867f7cc986da8c9e06e4fbbf
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277890"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532464"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET 的 Xamarin Android 特定考慮
 本文討論使用 Xamarin Android 搭配適用于 .NET 的 Microsoft 驗證程式庫 (MSAL.NET) 時的特定考慮。
@@ -113,7 +113,7 @@ var authResult = AcquireTokenInteractive(scopes)
 - 或者, 如果您是從命令列建立, 請嘗試從命令中移除/m (如果您使用它的話)。
 
 
-### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Error:名稱 ' AuthenticationContinuationHelper ' 不存在於目前的內容中
+### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>錯誤:名稱 ' AuthenticationContinuationHelper ' 不存在於目前的內容中
 
 這可能是因為 Visual Studio 未正確更新 Android .csproj * 檔案。 有時候,  **\<HintPath >** filepath 不正確地包含 netstandard13, 而不是**monoandroid90**。
 
@@ -128,6 +128,6 @@ var authResult = AcquireTokenInteractive(scopes)
 
 如需更多詳細資料和範例, 請在下列範例的 readme.md 檔案的[Android 特定考慮](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations)段落中提供:
 
-| 範例 | 平台 | 描述 |
+| 樣本 | 平台 | 描述 |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 簡單的 Xamarin Forms 應用程式展示如何使用 MSAL 來驗證 MSA 和透過新增 v2.0 端點的 Azure AD, 並使用產生的權杖來存取 Microsoft Graph。 <br>![拓撲](media/msal-net-xamarin-android-considerations/topology.png) |

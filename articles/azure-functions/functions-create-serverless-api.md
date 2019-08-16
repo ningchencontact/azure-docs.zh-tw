@@ -1,31 +1,30 @@
 ---
-title: 使用 Azure Functions 建立無伺服器 API | Microsoft Docs
-description: 如何使用 Azure Functions 建立無伺服器 API
-services: functions
+title: 在 Azure Functions 中自訂 HTTP 端點
+description: 瞭解如何在 Azure Functions 中自訂 HTTP 觸發程式端點
 author: mattchenderson
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 00aa55fe9f92358fd3a0e6f3065e5e2e69e405e1
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698217"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534626"
 ---
-# <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 建立無伺服器 API
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>在 Azure Functions 中自訂 HTTP 端點
 
-在本教學課程中，您將了解 Azure Functions 如何讓您建置可靈活調整的 API。 Azure Functions 隨附一組內建的 HTTP 觸發程序和繫結，可讓您以各種語言輕鬆撰寫端點，包括 Node.JS、C# 等。 在本教學課程中，您將自訂 HTTP 觸發程序來處理 API 設計中的特定動作。 您也會準備整合 API 與 Azure Functions Proxy，並設定模擬 API，以擴充您的 API。 這一切都在 Functions 無伺服器計算環境之上完成，因此，您不必擔心調整資源 - 只需要專注於您的 API 邏輯。
+在本文中, 您將瞭解 Azure Functions 如何讓您建立可高度擴充的 Api。 Azure Functions 隨附一組內建的 HTTP 觸發程序和繫結，可讓您以各種語言輕鬆撰寫端點，包括 Node.JS、C# 等。 在本文中, 您將自訂 HTTP 觸發程式來處理 API 設計中的特定動作。 您也會準備整合 API 與 Azure Functions Proxy，並設定模擬 API，以擴充您的 API。 這一切都在 Functions 無伺服器計算環境之上完成，因此，您不必擔心調整資源 - 只需要專注於您的 API 邏輯。
 
 ## <a name="prerequisites"></a>必要條件 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-產生的函式將用於本教學課程的其餘部分。
+產生的函數將用於本文的其餘部分。
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -41,17 +40,17 @@ ms.locfileid: "55698217"
 
 1. 使用表格中指定的 HTTP 觸發程序設定。
 
-    | 欄位 | 範例值 | 說明 |
+    | 欄位 | 範例值 | 描述 |
     |---|---|---|
     | 允許的 HTTP 方法 | 選取的方法 | 決定哪些 HTTP 方法可用來叫用此函式 |
     | 選取的 HTTP 方法 | GET | 只允許使用選取的 HTTP 方法來叫用此函式 |
     | 路由範本 | /hello | 決定使用什麼路由來叫用此函式 |
-    | 授權層級 | 匿名 | 選用：讓您的函式不需要 API 金鑰即可存取 |
+    | 授權層級 | 匿名 | 選擇性：讓您的函式不需要 API 金鑰即可存取 |
 
     > [!NOTE] 
     > 請注意，您並未在路由範本中包含 `/api` 基底路徑前置詞，因為這是由全域設定來處理。
 
-1. 按一下 [檔案] 。
+1. 按一下 [儲存]。
 
 您可以在 [Azure Functions HTTP 繫結](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)中深入了解 HTTP 函式的自訂。
 
@@ -92,7 +91,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
     > [!NOTE] 
     > 建議使用應用程式設定作為主機設定，以避免 Proxy 依賴硬式編碼的環境。 使用應用程式設定表示您可以在不同環境之間移動 Proxy 設定，將會套用環境特定的應用程式設定。
 
-1. 按一下 [檔案] 。
+1. 按一下 [儲存]。
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>在前端建立 Proxy
 
@@ -101,7 +100,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
     ![建立 Proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. 使用表格中指定的 Proxy 設定。 
 
-    | 欄位 | 範例值 | 說明 |
+    | 欄位 | 範例值 | 描述 |
     |---|---|---|
     | 名稱 | HelloProxy | 僅用於管理的易記名稱 |
     | 路由範本 | /api/remotehello | 決定使用什麼路由來叫用此 Proxy |
@@ -109,7 +108,7 @@ Proxy 可以指向任何 HTTP 資源，例如︰
     
 1. 請注意，Proxy 不提供 `/api` 基底路徑前置詞，這必須加入路由範本中。
 1. `%HELLO_HOST%` 語法會參考您稍早建立的應用程式設定。 解析後的 URL 會指向您的原始函式。
-1. 按一下頁面底部的 [新增] 。
+1. 按一下 [建立]。
 1. 您可以複製 Proxy URL，然後在瀏覽器或您最愛的 HTTP 用戶端測試，以試驗新的 Proxy。
     1. 針對匿名函式使用：
         1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
@@ -178,11 +177,11 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 
 這會新增 Proxy "GetUserByName"，但不含 backendUri 屬性。 它會使用回應覆寫修改 Proxy 的預設回應，而不是呼叫另一個資源。 要求和回應覆寫也可以搭配後端 URL 一起使用。 當代理至舊版系統時 (您可能需要修改標頭、查詢參數等)，這特別有用。若要深入了解要求和回應覆寫，請參閱[在 Proxy 中修改要求和回應](https://docs.microsoft.com/azure/azure-functions/functions-proxies)。
 
-使用瀏覽器或您最愛的 REST 用戶端呼叫 `<YourProxyApp>.azurewebsites.net/api/users/{username}` 端點，以測試您的模擬 API。 請務必以代表使用者名稱的字串值取代 _{username}_。
+使用瀏覽器或您最愛的 REST 用戶端呼叫 `<YourProxyApp>.azurewebsites.net/api/users/{username}` 端點，以測試您的模擬 API。 請務必以代表使用者名稱的字串值取代 _{username}_ 。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您學到如何在 Azure Functions 上建置和自訂 API。 您也學到如何將多個 API (包括模擬) 組合成統一的 API 介面。 不論多麼複雜的 API 都可以使用這些技術來建置，而且都在 Azure Functions 提供的無伺服器計算模型上執行。
+在本文中, 您已瞭解如何在 Azure Functions 上建立和自訂 API。 您也學到如何將多個 API (包括模擬) 組合成統一的 API 介面。 不論多麼複雜的 API 都可以使用這些技術來建置，而且都在 Azure Functions 提供的無伺服器計算模型上執行。
 
 進一步開發您的 API 時，下列參考可能很有幫助︰
 

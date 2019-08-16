@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 8f180308133ffba12cc3bffb19130aa7a129da9f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952913"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543677"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 儲存體: 經常性、非經常性和封存存取層
 
@@ -80,6 +80,7 @@ Premium 效能區塊 blob 儲存體非常適合需要快速且一致回應時間
 ### <a name="blob-rehydration"></a>Blob 解除凍結
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+若要深入瞭解, 請參閱[從封存層解除凍結 blob 資料](storage-blob-rehydration.md)。  
 
 ## <a name="account-level-tiering"></a>帳戶層級的階層處理
 
@@ -127,8 +128,8 @@ Blob 儲存體生命週期管理提供豐富、以規則為基礎的原則, 可�
 
 |                                           | **Premium 效能**   | **經常性存取層** | **非經常性存取層**       | **封存層**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **可用性**                          | 99.9%                     | 99.9%        | 99%                 | 離線           |
-| **可用性** <br> **(RA-GRS 讀取)**  | N/A                       | 99.99%       | 99.9%               | 離線           |
+| **Availability**                          | 99.9%                     | 99.9%        | 99%                 | 離線           |
+| **Availability** <br> **(RA-GRS 讀取)**  | N/A                       | 99.99%       | 99.9%               | 離線           |
 | **使用費用**                         | 儲存成本較高, 存取和交易成本較低 | 儲存成本較高，存取和交易成本較低 | 儲存成本較低，存取和交易成本較高 | 儲存成本最低，存取和交易成本最高 |
 | **最小物件大小**                   | N/A                       | N/A          | N/A                 | N/A               |
 | **最小儲存持續時間**              | N/A                       | N/A          | 30天<sup>1</sup> | 180 天
@@ -164,11 +165,13 @@ Blob 儲存體生命週期管理提供豐富、以規則為基礎的原則, 可�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 若要流覽至儲存體帳戶中的 blob, 請選取 [**所有資源**], 選取您的儲存體帳戶, 選取您的容器, 然後選取您的 blob。
+1. 若要瀏覽至儲存體帳戶，請選取 [所有資源]，選取您的儲存體帳戶，選取您的容器，然後選取您的 Blob。
 
-1. 在 [ **Blob 屬性**] 分頁中, 選取 [**存取層**] 下拉式功能表以選取 [經常性存取] 、[非經常性存取] 或 [封存] 存取層。
+1. 在 [ **Blob 屬性**] 分頁中, 選取 [**變更層**] 按鈕以開啟 [層] 分頁。
 
-1. 按一下刀鋒視窗頂端的 [儲存] 。
+1. 選取 [經常性存取]、[非經常性存取] 或 [封存] 存取層。 如果您的 blob 目前在封存中, 而您想要解除凍結至線上層, 您也可以選取 [**標準**] 或 [**高**] 的解除凍結優先權。
+
+1. 按一下刀鋒視窗底部的 [確定]。
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
@@ -245,6 +248,8 @@ Azure 入口網站、PowerShell 和 CLI 工具，以及 .NET、Java、Python 和
 [依照區域檢查經常性存取、非經常性存取和封存的可用性](https://azure.microsoft.com/regions/#services)
 
 [管理 Azure Blob 儲存體生命週期](storage-lifecycle-management-concepts.md)
+
+[瞭解如何從封存層解除凍結 blob 資料](storage-blob-rehydration.md)
 
 [啟用 Azure 儲存體計量以評估您目前的儲存體帳戶使用量](../common/storage-enable-and-view-metrics.md)
 

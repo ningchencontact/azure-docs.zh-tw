@@ -3,7 +3,7 @@ title: MSAL 應用程式中的記錄 | Azure
 description: 了解 Microsoft 驗證程式庫 (MSAL) 應用程式中的記錄。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/22/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 475b692a29edf5cdd05552e7b5c3dc5fde210275
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 2f52ca8062ed1ed196a67d25385b712451afe8ae
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512519"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532737"
 ---
 # <a name="logging"></a>記錄
 Microsoft 驗證程式庫 (MSAL) 應用程式能產生記錄訊息，其可用來協助診斷問題及提供詳細資料。 應用程式可透過幾行程式碼來設定記錄，並針對詳細資料層級和是否要記錄個人和組織資料具有自訂控制。 建議您設定 MSAL 記錄回呼，並為使用者提供在遇到驗證問題時提交記錄的方法。

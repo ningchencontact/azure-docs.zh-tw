@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/13/2019
 ms.author: dalek
-ms.openlocfilehash: abf23eda2474ecbcfcaf0dadb26327225213a9a6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989220"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534602"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -92,7 +92,7 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 以下是您可進行以減少資料量的一些事項︰
 
 * 使用 [取樣](../../azure-monitor/app/sampling.md)。 此技術可在不扭曲計量的情況下降低資料速率。 您不會失去在 [搜尋] 中的相關項目之間瀏覽的能力。 在伺服器應用程式中，取樣會自動運作。
-* [限制可回報的 Ajax 呼叫次數](../../azure-monitor/app/javascript.md#detailed-configuration) (在每個頁面檢視中) 或關閉 Ajax 報告功能。
+* [限制可回報的 Ajax 呼叫次數](../../azure-monitor/app/javascript.md#configuration) (在每個頁面檢視中) 或關閉 Ajax 報告功能。
 * [編輯 ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)以關閉您不需要的集合模組。 例如，您可能會決定效能計數器或相依性資料是不必要的。
 * 將遙測資料分攤到各個檢測金鑰。 
 * 預先彙總度量。 如果您在應用程式中呼叫 TrackMetric，便可以使用接受一批測量之平均及標準差計算的多載來減少流量。 或者，您也可以使用[預先彙總套件](https://www.myget.org/gallery/applicationinsights-sdk-labs)。

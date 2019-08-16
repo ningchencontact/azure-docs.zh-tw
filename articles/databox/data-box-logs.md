@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934207"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535167"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>追蹤和 Azure 資料箱和 Azure Data Box Heavy 的事件記錄
 
@@ -64,7 +64,7 @@ ms.locfileid: "68934207"
 
 - 您的資料箱會以鎖定狀態抵達內部部署。 您可以使用 Azure 入口網站中提供的裝置認證來取得您的訂單。  
 
-    設定資料箱時, 您可能需要知道誰已存取裝置認證。 若要找出存取 [**裝置認證**] 分頁的人員, 您可以查詢活動記錄。  涉及存取**裝置詳細資料 > 認證** 分頁的任何動作都會以動作的形式`ListCredentials`登入 活動記錄 中。
+    設定資料箱時, 您可能需要知道誰已存取裝置認證。 若要找出存取 [**裝置認證**] 分頁的人員, 您可以查詢活動記錄。  涉及存取**裝置詳細資料 > 認證** 分頁的任何動作都會以動作的形式`ListCredentials`登入 活動記錄 中。
 
     ![查詢活動記錄](media/data-box-logs/query-activity-log-1.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "68934207"
 
 ### <a name="errorxml-file"></a>錯誤 .xml 檔案
 
-請確定複製作業已完成, 但沒有任何錯誤。 如果複製過程中發生錯誤, 請從 [連線 **並複製** ] 頁面下載記錄檔。
+請確定複製作業已完成, 但沒有任何錯誤。 如果複製流程中發生錯誤，請從 [連線並複製] 頁面中下載記錄。
 
 - 如果您將不是512位元組的檔案複製到資料箱上的受控磁片資料夾, 檔案就不會以分頁 blob 的形式上傳到您的暫存儲存體帳戶。 您將在記錄中看到錯誤。 移除檔案，並複製 512 位元組規格的檔案。
 - 如果您複製了 VHDX 或動態 VHD 或差異 VHD (不支援這些檔案), 您會在記錄檔中看到錯誤。
@@ -203,7 +203,7 @@ BOM 或資訊清單檔案也會複製到 Azure 儲存體帳戶。 您可以使�
 
 在上傳至 Azure 期間, 會執行迴圈冗余檢查 (CRC) 計算。 資料複製和資料上傳之後的 CRCs 會進行比較。 CRC 不相符表示對應的檔案無法上傳。
 
-根據預設, 記錄會寫入名 `copylog`為的容器。 記錄檔會以下列命名慣例儲存:
+根據預設，記錄會寫入名為 `copylog` 的容器。 記錄檔會以下列命名慣例儲存:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -354,7 +354,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>下載訂購記錄
 
-Azure 入口網站提供訂單歷程記錄。 如果訂單已完成, 且裝置清除 (從磁片抹除資料) 已完成, 請移至您的裝置訂單, 然後流覽至 [**訂單詳細**資料]。 **下載訂單歷程記錄** 選項可供使用。 如需詳細資訊, 請參閱[下載訂單歷程記錄](data-box-portal-admin.md#download-order-history)。
+Azure 入口網站提供訂單歷程記錄。 如果訂單已完成, 且裝置清除 (從磁片抹除資料) 已完成, 請移至您的裝置訂單, 然後流覽至 [**訂單詳細**資料]。 [下載訂單記錄] 選項可供使用。 如需詳細資訊, 請參閱[下載訂單歷程記錄](data-box-portal-admin.md#download-order-history)。
 
 如果您流覽訂單歷程記錄, 您會看到:
 

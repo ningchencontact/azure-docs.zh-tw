@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 資訊安全中心套用系統更新 | Microsoft Docs
-description: 本文件說明如何實作 Azure 資訊安全中心建議的「套用系統更新」  和「在系統更新之後重新開機」  。
+description: 本文件說明如何實作 Azure 資訊安全中心建議的「套用系統更新」和「在系統更新之後重新開機」。
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -13,27 +13,27 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 7f9c5b702c0da8de4476508114be911a9d74f78a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62095435"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69531459"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>在 Azure 資訊安全中心套用系統更新
 Azure 資訊安全中心每日監視 Windows 和 Linux 虛擬機器 (VM) 和電腦是否有遺漏的作業系統更新。 資訊安全中心會根據 Windows 電腦上設定的服務，從 Windows Update 或 Windows Server Update Services (WSUS) 擷取可用的安全性和重大更新清單。 資訊安全中心也會檢查 Linux 系統中的最新更新。 如果您的 VM 或電腦遺漏系統更新，資訊安全中心會建議您套用系統更新。
 
 ## <a name="implement-the-recommendation"></a>實作建議
-套用系統更新會以建議的形式在資訊安全中心中呈現。 如果您的 VM 或電腦遺漏系統更新，這項建議會出現在 [建議]  和 [計算]  下方。  選取建議即會開啟 [套用系統更新]  儀表板。
+套用系統更新會以建議的形式在資訊安全中心中呈現。 如果您的 VM 或電腦遺漏系統更新，這項建議會出現在 [建議] 和 [計算] 下方。  選取建議即會開啟 [套用系統更新] 儀表板。
 
-在此範例中，我們使用 [計算]  。
+在此範例中，我們使用 [計算]。
 
-1. 在 [資訊安全中心] 主功能表下選取 [計算]  。
+1. 在 [資訊安全中心] 主功能表下選取 [計算]。
 
    ![選取 [計算]][1]
 
-2. 在 [計算]  下方，選取 [遺漏系統更新]  。 [套用系統更新]  儀表板隨即開啟。
+2. 在 [計算] 下方，選取 [遺漏系統更新]。 [套用系統更新] 儀表板隨即開啟。
 
    ![[套用系統更新] 儀表板][2]
 
@@ -63,23 +63,13 @@ Azure 資訊安全中心每日監視 Windows 和 Linux 虛擬機器 (VM) 和電�
 
    ![遺漏的安全性更新][3]
 
-4. 選取頂端功能區中的 [搜尋]  圖示。  Azure 監視器記錄檔搜尋查詢隨即開啟篩選至遺漏更新的電腦。
+4. 選取頂端功能區中的 [搜尋] 圖示。  隨即開啟 Azure 監視器記錄搜尋查詢, 並篩選出缺少更新的電腦。
 
    ![Azure 監視器記錄檔搜尋][4]
 
 5. 從清單中選取電腦以了解更多資訊。 會出現僅針對該電腦篩選出的其他搜尋結果。
 
     ![Azure 監視器記錄檔搜尋][5]
-
-## <a name="reboot-after-system-updates"></a>在系統更新之後重新開機
-1. 返回 [建議]  刀鋒視窗。 在您套用系統更新之後會產生新的項目，稱為「在系統更新之後重新開機」  。 此項目可讓您知道您需要重新啟動 VM 以完成套用系統更新的程序。
-
-   ![在系統更新之後重新開機][6]
-2. 選取 [在系統更新之後重新開機]  。 這會開啟 [重新啟動正在等待以完成系統更新]  刀鋒視窗，其中顯示 VM，您必須加以重新啟動才能完成套用系統清單更新的程序。
-
-   ![重新啟動擱置中][7]
-
-從 Azure 重新啟動 VM 以完成程序。
 
 ## <a name="next-steps"></a>後續步驟
 如要深入了解資訊安全中心，請參閱下列主題：
@@ -98,5 +88,3 @@ Azure 資訊安全中心每日監視 Windows 和 Linux 虛擬機器 (VM) 和電�
 [3]: ./media/security-center-apply-system-updates/detail-on-missing-update.png
 [4]: ./media/security-center-apply-system-updates/log-search.png
 [5]: ./media/security-center-apply-system-updates/search-details.png
-[6]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
-[7]: ./media/security-center-apply-system-updates/restart-pending.png

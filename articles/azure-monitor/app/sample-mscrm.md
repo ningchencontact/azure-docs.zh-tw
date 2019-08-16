@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 6119f1116d255f7cd2a2bfc20e86eeca9e5dfe82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 470f723782ca29409549e0df8e900edf86cd446e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60523493"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534290"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
 本文說明如何使用 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 從 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 取得遙測資料。 我們會逐步解說將 Application Insights 指令碼加入至您的應用程式、擷取資料和資料視覺化的完整程序。
@@ -38,7 +38,7 @@ ms.locfileid: "60523493"
     ![按一下 [+]、[開發人員服務]、[Application Insights]。](./media/sample-mscrm/01.png)
 
     選擇 ASP.NET 做為應用程式類型。
-3. 依照指示來[取得適用於您應用程式的 JavaScript SDK 指令碼](../../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page)、複製 JavaScript 程式碼片段，並請務必以您 Application Insights 資源的正確值取代「檢測金鑰」。
+3. 依照指示來[取得適用於您應用程式的 JavaScript SDK 指令碼](../../azure-monitor/app/javascript.md)、複製 JavaScript 程式碼片段，並請務必以您 Application Insights 資源的正確值取代「檢測金鑰」。
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>在 Microsoft Dynamics CRM 中建立 JavaScript Web 資源
 1. 開啟您的 CRM Online 執行個體並使用系統管理員權限登入。
@@ -132,7 +132,7 @@ ms.locfileid: "60523493"
 ## <a name="sample-microsoft-dynamics-crm-solution"></a>Microsoft Dynamics CRM 解決方案範例
 [以下是在 Microsoft Dynamics CRM 中實作的解決方案範例](https://dynamicsandappinsights.codeplex.com/)。
 
-## <a name="learn-more"></a>深入了解
+## <a name="learn-more"></a>更多資訊
 * [什麼是 Application Insights？](../../azure-monitor/app/app-insights-overview.md)
 * [適用於網頁的 Application Insights](../../azure-monitor/app/javascript.md)
 * [更多範例和逐步解說](../../azure-monitor/app/app-insights-overview.md)

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 032a907e45e007cb51357300e4bbf3c7afb40dde
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67625984"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542876"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中安裝和使用 Istio
 
@@ -41,6 +41,8 @@ ms.locfileid: "67625984"
 本文中詳述的步驟假設您已`1.11` `kubectl`建立 AKS 叢集 (已啟用 RBAC 的 Kubernetes 和更新版本), 並已建立與叢集的連線。 如果您需要這些專案的協助, 請參閱[AKS 快速入門][aks-quickstart]。
 
 您將需要[Helm][helm] , 才能遵循這些指示並安裝 Istio。 建議您在叢集中正確安裝`2.12.2`和設定版本或更新版本。 如果您需要安裝 Helm 的協助, 請參閱[AKS Helm 安裝指引][helm-install]。 所有 Istio pod 也必須排程在 Linux 節點上執行。
+
+請確定您已閱讀[Istio 效能和擴充性](https://istio.io/docs/concepts/performance-and-scalability/)檔, 以瞭解在 AKS 叢集中執行 Istio 的其他資源需求。 核心和記憶體需求會根據您的特定工作負載而有所不同。 選擇適當數目的節點和 VM 大小, 以滿足您的設定。
 
 本文將 Istio 安裝指引分成數個獨立的步驟。 最終結果在結構上與官方 Istio 安裝[指導][istio-install-helm]方針相同。
 

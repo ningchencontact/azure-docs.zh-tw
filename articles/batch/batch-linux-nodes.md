@@ -16,10 +16,10 @@ ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b4b381ff1f68935084e3dd30865cf539d4abbd16
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 08/16/2019
 ms.locfileid: "68323519"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 集區中佈建 Linux 計算節點
@@ -45,7 +45,7 @@ Batch 服務使用[虛擬機器擴展集](../virtual-machine-scale-sets/virtual-
 
 | **映像參考屬性** | **範例** |
 | --- | --- |
-| 發行者 |標準的 |
+| 發行者 |Canonical |
 | 供應項目 |UbuntuServer |
 | SKU |14.04.4-LTS |
 | Version |最新 |
@@ -219,8 +219,8 @@ ImageReference imageReference = new ImageReference(
 | ------------- | --------- | ------------- | ----------- | --------------------- |
 | 批次 | rendering-centos73 | 轉譯 | 最新 | batch.node.centos 7 |
 | 批次 | rendering-windows2016 | 轉譯 | 最新 | batch.node.windows amd64 |
-| 標準的 | UbuntuServer | 16.04-LTS | 最新 | batch.node.ubuntu 16.04 |
-| 標準的 | UbuntuServer | 14.04.5-LTS | 最新 | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 16.04-LTS | 最新 | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | 最新 | batch.node.ubuntu 14.04 |
 | Credativ | Debian | 9 | 最新 | batch.node.debian 9 |
 | Credativ | Debian | 8 | 最新 | batch.node.debian 8 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | 最新 | batch.node.centos 7 |

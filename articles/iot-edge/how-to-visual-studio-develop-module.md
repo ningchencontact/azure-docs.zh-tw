@@ -9,12 +9,12 @@ ms.date: 07/22/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7296760a177b949d2f921e11b28105ca6eb67fee
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 892076954535d880f9081a269215cb7e2a0a8dce
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036281"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541853"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 來開發和偵測模組, 以進行 Azure IoT Edge
 
@@ -99,19 +99,19 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
 
    ![建立新專案](./media/how-to-visual-studio-develop-csharp-module/create-new.png)
 
-1. 在 [**新增 IoT Edge 應用程式和模組**] 視窗中, 選取 [  **C#模組**] 或 [ **C 模組**], 然後指定您的模組名稱和模組映射存放庫。 Visual Studio 會自動以 **localhost:5000/<您的模組名稱\>** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像  **_\<登錄\>名稱_. azurecr.io**。 僅取代字串的**localhost: 5000**部分, 讓最終結果看起來像 **\<登錄*名稱*\>。 azurecr.io/ _\<您的模組名稱\>_** 。 預設的模組名稱是 **IoTEdgeModule1**
+1. 在 [**新增 IoT Edge 應用程式和模組**] 視窗中, 選取 [  **C#模組**] 或 [ **C 模組**], 然後指定您的模組名稱和模組映射存放庫。 Visual Studio 會自動以 **localhost:5000/<您的模組名稱\>** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像  **_\<登錄\>名稱_. azurecr.io**。 僅取代字串的**localhost: 5000**部分, 讓最終結果看起來像 **\<登錄*名稱*\>。 azurecr.io/ _\<您的模組名稱\>_** 。 預設的模組名稱是**IotEdgeModule1**
 
    ![新增應用程式和模組](./media/how-to-visual-studio-develop-csharp-module/add-application-and-module.png)
 
 1. 選取 **[確定]** , 以使用C#或 C 的模組來建立 Azure IoT Edge 解決方案。
 
-現在您已有**AzureIoTEdgeApp1**或**AzureIoTEdgeApp1**專案, 以及您的方案中的**IoTEdgeModule1**專案。 每個**AzureIoTEdgeApp1**專案都`deployment.template.json`有一個檔案, 該檔案會定義您想要為 IoT Edge 方案建立及部署的模組, 也會定義模組之間的路由。 預設解決方案具有**SimulatedTemperatureSensor**模組和**IoTEdgeModule1**模組。 **SimulatedTemperatureSensor**模組會將模擬的資料產生到**IoTEdgeModule1**模組, 而**IoTEdgeModule1**模組中的預設程式碼會直接將收到的訊息傳送至 Azure IoT 中樞。
+現在您已有**AzureIoTEdgeApp1**或**AzureIoTEdgeApp1**專案, 以及您的方案中的**IotEdgeModule1**專案。 每個**AzureIoTEdgeApp1**專案都`deployment.template.json`有一個檔案, 該檔案會定義您想要為 IoT Edge 方案建立及部署的模組, 也會定義模組之間的路由。 預設解決方案具有**tempSensor**模組和**IotEdgeModule1**模組。 **TempSensor**模組會將模擬的資料產生到**IotEdgeModule1**模組, 而**IotEdgeModule1**模組中的預設程式碼會直接將收到的訊息傳送至 Azure IoT 中樞。
 
-**IoTEdgeModule1**專案是 .net Core 2.1 主控台應用程式 (如果它是C#模組)。 它包含執行 Windows 容器或 Linux 容器之 IoT Edge 裝置所需的 Dockerfiles。 `module.json`檔案會描述模組的中繼資料。 實際的模組程式碼 (採用 Azure IoT 裝置 SDK 作為相依性) 可在`Program.cs`或`main.c`檔案中找到。
+**IotEdgeModule1**專案是 .net Core 2.1 主控台應用程式 (如果它是C#模組)。 它包含執行 Windows 容器或 Linux 容器之 IoT Edge 裝置所需的 Dockerfiles。 `module.json`檔案會描述模組的中繼資料。 實際的模組程式碼 (採用 Azure IoT 裝置 SDK 作為相依性) 可在`Program.cs`或`main.c`檔案中找到。
 
 ## <a name="develop-your-module"></a>開發您的模組
 
-解決方案隨附的預設模組程式碼位於**IoTEdgeModule1**  >  **Program.cs** (適用于C#) 或**main. c** (c)。 系統會設定模組`deployment.template.json`和檔案, 讓您可以建立解決方案、將其推送至容器登錄, 然後將它部署至裝置, 以開始測試, 而不需要觸及任何程式碼。 建立模組是為了接受來源的輸入 (在此案例中為模擬資料的**SimulatedTemperatureSensor**模組), 並使用管線將它傳送至 Azure IoT 中樞。
+解決方案隨附的預設模組程式碼位於**IotEdgeModule1**  >  **Program.cs** (適用于C#) 或**main. c** (c)。 系統會設定模組`deployment.template.json`和檔案, 讓您可以建立解決方案、將其推送至容器登錄, 然後將它部署至裝置, 以開始測試, 而不需要觸及任何程式碼。 模組會建置為採用來源的輸入 (在此案例中，是會模擬資料的 **tempSensor** 模組)，並且將其傳送到 Azure IoT 中樞。
 
 當您準備好使用自己的程式碼自訂模組範本時, 請使用[Azure IoT 中樞 sdk](../iot-hub/iot-hub-devguide-sdks.md)來建立模組, 以滿足 IoT 解決方案的主要需求, 例如安全性、裝置管理和可靠性。
 
@@ -134,7 +134,7 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
 
 一般而言，您為想要先針對每個模組進行測試和偵錯，然後在使用多個模組的整個解決方案中執行。
 
-1. 以滑鼠右鍵按一下 **IoTEdgeModule1**，然後選取快顯功能表中的 [設定為啟始專案]。
+1. 以滑鼠右鍵按一下 [ **IotEdgeModule1** ], 然後從內容功能表中選取 [**設定為啟始專案**]。
 
    ![設定啟始專案](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
 
@@ -165,16 +165,16 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
 
 您完成開發單一模組之後，您會想要執行使用多個模組的整個解決方案以及針對其進行偵錯。
 
-1. 以滑鼠右鍵按一下**AzureIoTEdgeApp1** , 然後選取  > [**新增 IoT Edge 模組**], 將第二個模組新增至解決方案。 第二個模組的預設名稱是 **IoTEdgeModule2**，而且仍然是個別的管道模組。
+1. 以滑鼠右鍵按一下**AzureIoTEdgeApp1** , 然後選取  > [**新增 IoT Edge 模組**], 將第二個模組新增至解決方案。 第二個模組的預設名稱是**IotEdgeModule2** , 而且會作為另一個管道模組。
 
-1. 開啟檔案 `deployment.template.json`，您將在 [模組] 區段中看到已加入 **IoTEdgeModule2**。 以下列程式碼取代 **routes** 區段。 如果您已自訂模組名稱，請確定更新名稱以使其相符。
+1. 開啟檔案 , 您會看到 IotEdgeModule2 已新增至 [模組] 區段。 `deployment.template.json` 以下列程式碼取代 **routes** 區段。 如果您已自訂模組名稱，請確定更新名稱以使其相符。
 
     ```json
         "routes": {
-          "IoTEdgeModule1ToIoTHub": "FROM /messages/modules/IoTEdgeModule1/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule1": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule1/inputs/input1\")",
-          "IoTEdgeModule2ToIoTHub": "FROM /messages/modules/IoTEdgeModule2/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule2": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule2/inputs/input1\")"
+          "IotEdgeModule1ToIoTHub": "FROM /messages/modules/IotEdgeModule1/outputs/* INTO $upstream",
+          "sensorToIotEdgeModule1": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IotEdgeModule1/inputs/input1\")",
+          "IotEdgeModule2ToIoTHub": "FROM /messages/modules/IotEdgeModule2/outputs/* INTO $upstream",
+          "sensorToIotEdgeModule2": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IotEdgeModule2/inputs/input1\")"
         },
     ```
 
@@ -232,7 +232,7 @@ Visual Studio 中的 Azure IoT Edge 專案範本可建立可以在 Azure IoT 中
    > [!NOTE]
    > 您不得選取 `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
-1. 按一下 [重新整理] 按鈕, 以查看與**SimulatedTemperatureSensor**模組一起執行的新模組, 並 **$edgeAgent**和 **$edgeHub**。
+1. 按一下 [重新整理] 按鈕, 以查看與**tempSensor**模組一起執行的新模組, 並 **$edgeAgent**和 **$edgeHub**。
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 

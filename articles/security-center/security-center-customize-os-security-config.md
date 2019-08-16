@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.date: 08/15/2019
+ms.author: v-mohabe
+ms.openlocfilehash: df4f51f97798048b28c0193dbc61e07fc55c9adc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662482"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535068"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>在 Azure 資訊安全中心中自訂 OS 安全性設定 (已淘汰)
 
@@ -317,4 +317,4 @@ Azure 資訊安全中心藉由套用一組[具有超過 150 個建議規則的�
 
 - [資訊安全中心一般設定識別碼與基準規則](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。
 - 資訊安全中心會使用一般設定列舉 (CCE) 將唯一識別碼指派給設定規則。 如需詳細資訊，請參閱 [CCE](https://nvd.nist.gov/config/cce/index)。
-- 如果要解決 OS 設定不符合建議的安全性設定規則時的弱點，請參閱[修復安全性設定](security-center-remediate-os-vulnerabilities.md)。
+- 如果要解決 OS 設定不符合建議的安全性設定規則時的弱點，請參閱[修復安全性設定](security-center-virtual-machine-protection.md)。

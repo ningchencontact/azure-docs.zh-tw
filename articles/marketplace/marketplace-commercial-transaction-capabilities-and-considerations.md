@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: c58a36988e3aee9b122446e3ee3c4878a582b8ad
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871022"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535049"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>商業 marketplace 交易功能和考慮
 
@@ -84,7 +84,7 @@ Microsoft 可讓客戶訂購、授權及使用發行者軟體, 叢集 Microsoft 
 
 針對交易發行的案例，發行者可以讓授權在 30 天或 90 天內可免費取得。 此折扣功能不包含因使用合作夥伴解決方案而產生的 Azure 基礎結構使用量成本。
 
-### <a name="private-offers"></a>私人供應項目
+### <a name="private-offers"></a>私人產品/服務
 
 除了使用供應專案類型和計費模式來銷售供應專案, 發行者還可以交易私人供應專案, 並透過談判、交易特定定價或自訂設定完成。 所有 3 個交易發行選項都支援私人供應項目。
 
@@ -144,7 +144,7 @@ Microsoft 可讓客戶訂購、授權及使用發行者軟體, 叢集 Microsoft 
 |Microsoft 向您支付授權成本的 80% <br> \*Microsoft 為您提供任何合格 SaaS 應用程式的 90% 授權成本   |   每月 $80.00 <br> \*每月 $90.00    |
 |Microsoft 保留授權成本的 20% <br> \*Microsoft 會為任何合格的 SaaS 應用程式保留 10% 的授權成本。  |  每月 $20.00 <br> \*$10.00     |
 
-* **減少 Marketplace 服務費用:** 對於您在我們的商業 Marketplace 上發佈的特定 SaaS 產品, Microsoft 會將其 Marketplace 服務費用從 20% (如 Microsoft 發行者合約中所述) 降到 10%。  為了讓您的產品符合資格, 至少必須將您的其中一項產品指定為「IP 共同銷售準備就緒」或「IP 共同銷售優先」。 若要獲得此月份的縮減 Marketplace 服務費用, 至少必須在該日曆月份結束前的五 (5) 個工作天內符合資格。 降低 Marketplace 服務費用不適用於 Vm、受管理的應用程式或透過我們的商業 Marketplace 提供的任何其他產品。  這項優惠的 Marketplace 服務費用將提供給合格的供應專案, 而 Microsoft 在2019年5月1日到2020日之間所收集的授權費用。  該時間過後, Marketplace 服務費用將會回到其正常金額。
+* **減少 Marketplace 服務費用:** 對於您在我們的商業 Marketplace 上發佈的特定 SaaS 產品, Microsoft 會將其 Marketplace 服務費用從 20% (如 Microsoft 發行者合約中所述) 降到 10%。  為了讓您的產品符合資格, 至少必須將您的其中一項產品指定為「IP 共同銷售準備就緒」或「IP 共同銷售優先」。 若要獲得此月份的縮減 Marketplace 服務費用, 必須至少符合上一個日曆月份結束前五 (5) 個工作天的資格。 降低 Marketplace 服務費用不適用於 Vm、受管理的應用程式或透過我們的商業 Marketplace 提供的任何其他產品。  這項優惠的 Marketplace 服務費用將提供給合格的供應專案, 而 Microsoft 在2019年5月1日到2020日之間所收集的授權費用。  該時間過後, Marketplace 服務費用將會回到其正常金額。
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>客戶發票開立、付款和收帳
 

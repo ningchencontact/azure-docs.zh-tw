@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381958"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533531"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑難排解
 
@@ -86,10 +86,12 @@ ms.locfileid: "68381958"
 
 *此疑難排解協助的導向來源 https://aka.ms/aks-pending-upgrade*
 
-當執行中的升級作業或嘗試升級, 但後續失敗時, 叢集作業會受到限制。 若要診斷問題, `az aks show -g myResourceGroup -n myAKSCluster -o table`請執行以取出叢集上的詳細狀態。 根據結果:
+在具有單一節點集區或具有[多個節點](use-multiple-node-pools.md)集區之叢集的叢集上進行升級和調整作業是互斥的。 您不能同時升級和調整叢集或節點集區。 相反地, 每個作業類型必須在目標資源上完成, 然後才在該相同資源上進行下一個要求。 如此一來, 當作用中的升級或調整作業進行中或已嘗試, 且後續失敗時, 作業就會受到限制。 
+
+若要協助診斷問題, `az aks show -g myResourceGroup -n myAKSCluster -o table`請執行以取出叢集上的詳細狀態。 根據結果:
 
 * 如果叢集正在主動升級, 請等候作業終止。 如果成功, 請再次嘗試先前失敗的操作。
-* 如果叢集升級失敗, 請遵循上面所述的步驟
+* 如果叢集升級失敗, 請遵循上一節中所述的步驟。
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>我是否可以將叢集移至不同的訂用帳戶, 或將我的訂用帳戶新增至新的租使用者？
 

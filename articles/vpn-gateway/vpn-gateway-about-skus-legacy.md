@@ -2,25 +2,18 @@
 title: 舊版 Azure 虛擬網路 VPN 閘道 SKU | Microsoft Docs
 description: 如何使用舊的虛擬網路閘道 SKU；基本、標準和高效能。
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 00f1677e2691f9be5bb4584b07ca00340a52b1e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c745258929d495c1e568a156690f569de9f0e36
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056446"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533916"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虛擬網路閘道 SKU (舊版 SKU)
 
@@ -30,7 +23,7 @@ ms.locfileid: "67056446"
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
-您可以檢視中的舊版閘道定價**虛擬網路閘道**區段中，呾儂奻[ExpressRoute 定價頁面](https://azure.microsoft.com/pricing/details/expressroute)。
+您可以在[ExpressRoute 定價頁面](https://azure.microsoft.com/pricing/details/expressroute)上的 [**虛擬網路閘道**] 區段中, 查看舊版閘道定價。
 
 ## <a name="agg"></a>依 SKU 列出的估計彙總輸送量
 
@@ -42,15 +35,9 @@ ms.locfileid: "67056446"
 
 ## <a name="resize"></a>調整閘道大小
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 您可以將相同 SKU 系列內的閘道大小調整為閘道 SKU。 例如，如果您有標準 SKU，則可以調整為高效能 SKU。 但是，您無法調整舊 SKU 與新 SKU 系列之間的 VPN 閘道大小。 例如，您不能從標準 SKU 變成 VpnGw2 SKU；也不能從標準 SKU 變成 VpnGw1。
 
-若要調整傳統部署模型的閘道大小，請使用下列命令：
-
-```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
-```
+### <a name="resource-manager"></a>Resource Manager
 
 若要使用 PowerShell 調整資源管理員部署模型的閘道大小，請使用下列命令：
 
@@ -58,7 +45,16 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+
 您也可以在 Azure 入口網站中調整閘道。
+
+### <a name="classicresize"></a>傳統
+
+若要調整傳統部署模型的閘道大小, 您必須使用服務管理 PowerShell Cmdlet。 使用下列命令：
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## <a name="change"></a>變更為新的閘道 SKU
 

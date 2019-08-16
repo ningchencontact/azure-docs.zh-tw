@@ -1,5 +1,5 @@
 ---
-title: 設定更新管理部署在 Azure 中的前置和後置指令碼
+title: 在 Azure 中的更新管理部署上設定前置和後置腳本
 description: 本文將說明如何設定及管理更新部署的前置和後置指令碼
 services: automation
 ms.service: automation
@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94ec7c54e8e49685ad0289102f092516bcb0acfc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f13851dd43c80a63ec628e04b98271894c15afc0
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478246"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542870"
 ---
-# <a name="manage-pre-and-post-scripts"></a>管理前置和後置指令碼
+# <a name="manage-pre-and-post-scripts"></a>管理前置和後置腳本
 
-透過前置和後置指令碼，您可以在更新部署的之前 (前置工作) 和之後 (後置工作)，於自動化帳戶中執行 PowerShell Runbook。 前置和後置指令碼會在 Azure 環境中執行，而不是在本機執行。 前置指令碼會執行更新部署的開頭。 後置指令碼會在部署結束時及在已設定的任何重新啟動之後執行。
+透過前置和後置指令碼，您可以在更新部署的之前 (前置工作) 和之後 (後置工作)，於自動化帳戶中執行 PowerShell Runbook。 前置和後置指令碼會在 Azure 環境中執行，而不是在本機執行。 前置腳本會在更新部署開始時執行。 後置指令碼會在部署結束時及在已設定的任何重新啟動之後執行。
 
 ## <a name="runbook-requirements"></a>Runbook 需求
 
@@ -26,21 +26,21 @@ ms.locfileid: "67478246"
 
 ## <a name="using-a-prepost-script"></a>使用前置/後置指令碼
 
-若要在「更新部署」中使用更新前和或更新後指令碼，請從建立「更新部署」開始著手。 選取 **前置指令碼 + 後置指令碼**。 此動作會開啟 [選取更新前 + 更新後指令碼]  頁面。  
+若要在「更新部署」中使用更新前和或更新後指令碼，請從建立「更新部署」開始著手。 選取 [**前置腳本 + Post 腳本**]。 此動作會開啟 [選取更新前 + 更新後指令碼] 頁面。  
 
 ![選取指令碼](./media/pre-post-scripts/select-scripts.png)
 
-選取您想要使用的指令碼，在此範例中，您已使用 **UpdateManagement-TurnOnVms** Runbook。 當您選取 runbook**設定指令碼**頁面隨即開啟，選擇**前置指令碼**。 完成時按一下 [確定]  。
+選取您想要使用的指令碼，在此範例中，您已使用 **UpdateManagement-TurnOnVms** Runbook。 當您選取 runbook 時, [**設定腳本**] 頁面隨即開啟, 請選擇 [**前置腳本**]。 完成時按一下 [確定]。
 
-對 **UpdateManagement-TurnOffVms** 指令碼重複此程序。 但是當您選擇 [指令碼類型]  時，請選擇 [後置指令碼]  。
+對 **UpdateManagement-TurnOffVms** 指令碼重複此程序。 但是當您選擇 [指令碼類型] 時，請選擇 [後置指令碼]。
 
-[選取的項目]  區段現在會顯示您選取的兩個指令碼，一個是前置指令碼，另一個是後置指令碼。
+[選取的項目] 區段現在會顯示您選取的兩個指令碼，一個是前置指令碼，另一個是後置指令碼。
 
 ![選取的項目](./media/pre-post-scripts/selected-items.png)
 
 完成更新部署的設定。
 
-更新部署完成後，您可以移至 [更新部署]  來檢視結果。 您可以看到系統已提供更新前指令碼和更新後指令碼的狀態。
+更新部署完成後，您可以移至 [更新部署] 來檢視結果。 您可以看到系統已提供更新前指令碼和更新後指令碼的狀態。
 
 ![更新結果](./media/pre-post-scripts/update-results.png)
 
@@ -64,24 +64,8 @@ ms.locfileid: "67478246"
 
 如果您需要另一種物件類型，您可以在 Runbook 中使用您自己的邏輯將其轉換成另一種類型。
 
-除了標準的 Runbook 參數外，系統還會提供一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串，而如果您在前置或後置指令碼中定義參數，它會自動傳遞中的更新部署。 此參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的一部分資訊。下表顯示變數中所提供的屬性：
+除了標準的 Runbook 參數外，系統還會提供一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串, 如果您在前置或後置腳本中定義參數, 則更新部署會自動將其傳入。 此參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的一部分資訊。下表顯示變數中所提供的屬性：
 
-## <a name="stopping-a-deployment"></a>正在停止部署
-
-如果您想要停止前指令碼為基礎的部署，您必須[擲回](automation-runbook-execution.md#throw)例外狀況。 如果您不會擲回例外狀況，部署和後置指令碼仍會執行。 [範例 runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0)資源庫中的顯示方式可以這麼做。 以下是從該 runbook 的程式碼片段。
-
-```powershell
-#In this case, we want to terminate the patch job if any run fails.
-#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
-foreach($summary in $finalStatus)
-{
-    if ($summary.Type -eq "Error")
-    {
-        #We must throw in order to fail the patch deployment.  
-        throw $summary.Summary
-    }
-}
-```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 屬性
 
@@ -132,11 +116,30 @@ foreach($summary in $finalStatus)
 您可以在以下位置找到所有屬性的完整範例：[軟體更新設定 - 依名稱取得](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 > [!NOTE]
-> `SoftwareUpdateConfigurationRunContext`物件可以包含重複的項目，機器。 這會造成多次執行相同的電腦上的前置和後置指令碼。 若要解決這個問題，使用`Sort-Object -Unique`指令碼中，選取只唯一 VM 名稱。
+> `SoftwareUpdateConfigurationRunContext`物件可以包含電腦的重複專案。 這可能會導致前置和後置腳本在同一部電腦上執行多次。 若要解決此行為, `Sort-Object -Unique`請使用在您的腳本中只選取唯一的 VM 名稱。
+
+
+## <a name="stopping-a-deployment"></a>停止部署
+
+如果您想要根據預先腳本停止部署, 則必須[擲](automation-runbook-execution.md#throw)回例外狀況。 如果您未擲回例外狀況, 部署和後置腳本仍然會執行。 資源庫中的[範例 runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0)會顯示如何執行這項操作。 以下是來自該 runbook 的程式碼片段。
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
+
 
 ## <a name="samples"></a>範例
 
-您可以在[指令碼中心資源庫](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell)中找到前置和後置指令碼範例，或透過 Azure 入口網站來匯入這些範例。 若要透過入口網站匯入這些範例，請在您自動化帳戶的 [程序自動化]  下方，選取 [Runbook 資源庫]  。 使用 [更新管理]  作為篩選條件。
+您可以在[指令碼中心資源庫](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell)中找到前置和後置指令碼範例，或透過 Azure 入口網站來匯入這些範例。 若要透過入口網站匯入這些範例，請在您自動化帳戶的 [程序自動化] 下方，選取 [Runbook 資源庫]。 使用 [更新管理] 作為篩選條件。
 
 ![資源庫清單](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -149,7 +152,7 @@ foreach($summary in $finalStatus)
 * 更新管理 - 以執行命令來執行指令碼
 
 > [!IMPORTANT]
-> 匯入 Runbook 之後，您必須先將其**發佈**，方能使用。 若要這麼做，請在自動化帳戶中尋找 Runbook，選取 [編輯]  ，然後按一下 [發佈]  。
+> 匯入 Runbook 之後，您必須先將其**發佈**，方能使用。 若要這麼做，請在自動化帳戶中尋找 Runbook，選取 [編輯]，然後按一下 [發佈]。
 
 這些範例都會以下列範例中定義的基底範本為基礎。 此範本可用來建立您自己的 Runbook，以便搭配前置和後置指令碼使用。 其中包含向 Azure 進行驗證及處理 `SoftwareUpdateConfigurationRunContext` 參數的必要邏輯。
 
@@ -204,18 +207,18 @@ $variable = Get-AutomationVariable -Name $runId
 #>      
 ```
 
-## <a name="interacting-with-machines"></a>與電腦互動
+## <a name="interacting-with-machines"></a>與機器互動
 
-做為 runbook 在自動化帳戶，並不直接在您的部署中的機器上執行前置和後置的工作。 前置和後置工作也會在 Azure 的內容中執行，而且沒有非 Azure 機器的存取權。 下列各節顯示如何互動，機器直接它們是 Azure VM 或非 Azure 電腦：
+前置和後置工作會在您的自動化帳戶中以 runbook 的形式執行, 而不是直接在部署的電腦上執行。 前置和後置工作也會在 Azure 內容中執行, 且不會有非 Azure 機器的存取權。 下列各節說明如何直接與機器互動, 不論它們是 Azure VM 或非 Azure 機器:
 
-### <a name="interacting-with-azure-machines"></a>使用 Azure 機器互動
+### <a name="interacting-with-azure-machines"></a>與 Azure 機器互動
 
-前置和後置工作做為 runbook 執行和原生不在您的部署中的 Azure Vm 上執行。 若要互動的 Azure Vm，您必須具備下列項目：
+前置和後置工作會以 runbook 的形式執行, 而且不會在部署中的 Azure Vm 上以原生方式執行。 若要與您的 Azure Vm 互動, 您必須具有下列專案:
 
 * 執行身分帳戶
-* 您想要執行 runbook
+* 您想要執行的 runbook
 
-若要與 Azure 機器互動時，您應該使用[Invoke-azurermvmruncommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet 與您的 Azure Vm 進行互動。 如需如何執行這項操作的範例，請參閱 runbook 範例[更新管理-具有執行的命令執行指令碼](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)。
+若要與 Azure 機器互動, 您應該使用[invoke-azurermvmruncommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) Cmdlet 來與您的 azure vm 互動。 如需如何執行這項操作的範例, 請參閱[使用執行命令更新管理-執行腳本](https://gallery.technet.microsoft.com/Update-Management-Run-40f470dc)的 runbook 範例。
 
 ### <a name="interacting-with-non-azure-machines"></a>與非 Azure 機器互動
 
@@ -226,11 +229,11 @@ $variable = Get-AutomationVariable -Name $runId
 * 您想要在本機上執行的 Runbook
 * 父代 Runbook
 
-若要與非 Azure 機器互動，父代 Runbook 需在 Azure 環境中執行。 此 Runbook 會使用 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) Cmdlet 來呼叫子 Runbook。 您必須指定 `-RunOn` 參數，並提供混合式 Runbook 背景工作角色的名稱，好讓指令碼在其中執行。 如需如何執行這項操作的範例，請參閱 runbook 範例[更新管理-在本機執行指令碼](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)。
+若要與非 Azure 機器互動，父代 Runbook 需在 Azure 環境中執行。 此 Runbook 會使用 [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) Cmdlet 來呼叫子 Runbook。 您必須指定 `-RunOn` 參數，並提供混合式 Runbook 背景工作角色的名稱，好讓指令碼在其中執行。 如需如何執行這項操作的範例, 請參閱 runbook 範例[更新管理-在本機執行腳本](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44)。
 
-## <a name="abort-patch-deployment"></a>中止修補部署
+## <a name="abort-patch-deployment"></a>中止修補程式部署
 
-如果您的前指令碼會傳回錯誤，您可能想要中止您的部署。 若要這樣做，您必須[擲回](/powershell/module/microsoft.powershell.core/about/about_throw)會構成失敗的任何邏輯的指令碼中的錯誤。
+如果您的前置腳本傳回錯誤, 您可能會想要中止您的部署。 若要這樣做, 您必須在腳本中[擲](/powershell/module/microsoft.powershell.core/about/about_throw)回錯誤, 以取得任何會造成失敗的邏輯。
 
 ```powershell
 if (<My custom error logic>)
@@ -242,7 +245,7 @@ if (<My custom error logic>)
 
 ## <a name="known-issues"></a>已知問題
 
-* 您無法將傳遞布林值、 物件或陣列參數時使用前置和後置指令碼。 Runbook 將會失敗。 如需支援的類型的完整清單，請參閱 <<c0> [ 參數](#passing-parameters)。
+* 使用前置和後置腳本時, 您無法將布林值、物件或陣列傳遞給參數。 Runbook 將會失敗。 如需支援類型的完整清單, 請參閱[參數](#passing-parameters)。
 
 ## <a name="next-steps"></a>後續步驟
 

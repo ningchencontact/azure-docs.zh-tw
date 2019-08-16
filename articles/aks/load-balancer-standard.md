@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 68968c1f846a1052600a8ed108f4d40fd9d8f2cb
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032246"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534723"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service 中使用標準 SKU 負載平衡器 (AKS)
 
@@ -92,11 +92,11 @@ az provider register --namespace Microsoft.ContainerService
 
 * 使用負載平衡器的*標準*SKU 時, 您必須允許公用位址, 並避免建立 ban IP 建立的任何 Azure 原則。 AKS 叢集會在針對 AKS 叢集所建立的相同資源群組中自動建立*標準*SKU 公用 IP, 這通常會在一開始就使用*MC_* 來命名。 AKS 會將公用 IP 指派給*標準*SKU 負載平衡器。 需要公用 IP, 才能允許來自 AKS 叢集的輸出流量。 此公用 IP 也需要維護控制平面和代理程式節點之間的連線, 以及維護與舊版 AKS 的相容性。
 * 使用負載平衡器的*標準*SKU 時, 您必須使用 Kubernetes version 1.13.5 或更高版本。
-* 如果使用[節點公用 IP 功能](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool)搭配標準負載平衡器, 您可以為節點設定 SLB 輸出規則或公用 ip。 您必須選取其中一個, 因為一個 VM 無法同時連接到 SLB 輸出規則和公用 IP。
 
 雖然這項功能處於預覽狀態, 但仍適用下列其他限制:
 
 * 針對 AKS 中的負載平衡器使用*標準*SKU 時, 您無法針對負載平衡器的輸出設定自己的公用 IP 位址。 您必須使用 IP 位址 AKS 指派給您的負載平衡器。
+* 這不能與[節點公用 IP 功能](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool)搭配使用。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 

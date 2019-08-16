@@ -4,18 +4,18 @@ description: 使用適用於 Azure CLI 的 IoT 擴充功能將模組部署至 Io
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 08/16/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: fe947dbb7effde7bfa4f0b9824c6af645c85691c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: aa5c4747238b2f2427be3e57c3e84e03c81fd609
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840187"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541753"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>使用 Azure CLI 部署 Azure IoT Edge 模組
 
@@ -25,7 +25,7 @@ ms.locfileid: "68840187"
 
 本文說明如何建立 JSON 部署資訊清單，然後使用該檔案將部署發送到 IoT Edge 裝置。 如需根據裝置共用標籤，建立目標為多個裝置的部署資訊，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor-cli.md) (英文)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-using-cli.md)。
 * 已安裝 IoT Edge 執行階段的 [IoT Edge 裝置](how-to-register-device-cli.md)。

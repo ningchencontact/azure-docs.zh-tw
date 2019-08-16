@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4af30a24c5913abec1c2c2287e1b0f145470f42c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 4ecf3ec6ba9c71f3d7624b541ba0618645ab14f4
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828370"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535080"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -122,6 +122,7 @@ Azure 上的 SAP 工作負載區段中的檔變更會列在本文結尾。
 
 ## <a name="change-log"></a>變更記錄檔
 
+- 08/15/2019:[SAP Hana Azure 虛擬機器儲存體](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)設定的變更, 以反映 ultra (舊稱 ultra SSD) 的正式運作
 - 08/01/2019:在[Azure 中的 SUSE Linux Enterprise Server 上設定 Pacemaker](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) , 以整合特別針對 SLES 15 進行的變更 
 - 07/23/2019:在[Azure 中使用檔案共用在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 實例叢集的](sap-high-availability-guide-wsfc-file-share.md)變更, 以反映 Azure Site Recovery 服務的儲存空間直接存取支援
 - 07/14/2019:[針對 SAP 應用程式, 釋放 Azure 鄰近放置群組以取得最佳的網路延遲](sap-proximity-placement-scenarios.md)

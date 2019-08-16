@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: ae809dd4841d6df8caabebfaded263b52f386834
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2359befc05bff867a8f8b17943ed67d906ff4971
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845040"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534336"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>針對 Azure 儲存體帳戶設定自訂網域名稱
 
@@ -27,7 +27,7 @@ ms.locfileid: "68845040"
 > 儲存體帳戶目前支援每個帳戶只能有一個自訂網域名稱。 您無法將自訂網域名稱同時對應至 Web 和 Blob 服務端點。
 > 
 > [!NOTE]
-> 對應僅適用于子域 (例如 www\.contoso.com)。 如果您想要在根域 (例如 contoso.com) 上使用 web 端點, 則必須搭配[使用 AZURE CDN 與自訂網域](storage-https-custom-domain-cdn.md)
+> 對應僅適用于子域 (例如 www\.contoso.com)。 如果您想要在根域 (例如 contoso.com) 上使用 web 端點, 則必須[將自訂網域新增至您的 AZURE CDN 端點](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain)。
 
 下表展示的幾個範例 URL，適用於位在名為 *mystorageaccount* 之儲存體帳戶中的 Blob 資料。 針對儲存體帳戶註冊的自訂子域是*www\.contoso.com*:
 

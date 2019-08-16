@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: d4b7a214af23d69f1217d84e9401de230cd358b0
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877359"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535044"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights 以記錄為基礎的計量
 
@@ -64,7 +64,7 @@ availabilityResults
 
 |測量單位|支援的匯總|支援的維度|
 |---|---|---|---|---|---|
-|毫秒|平均值、最小值、最大值|執行位置、測試名稱、測試結果
+|毫秒數|平均值、最小值、最大值|執行位置、測試名稱、測試結果
 
 ```Kusto
 availabilityResults
@@ -93,13 +93,13 @@ availabilityResults
 瀏覽器計量會由 Application Insights JavaScript SDK 從實際的使用者瀏覽器收集。 它們可讓您深入瞭解您的 web 應用程式使用者體驗。 瀏覽器計量通常不會取樣, 這表示它們會提供比伺服器端計量更高的使用號碼精確度, 這可能會因取樣而扭曲。
 
 > [!NOTE]
-> 若要收集瀏覽器計量, 您必須使用[Application Insights JAVASCRIPT SDK 程式碼片段](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages)來檢測您的應用程式。
+> 若要收集瀏覽器計量, 您的應用程式必須使用[Application Insights JAVASCRIPT SDK](../../azure-monitor/app/javascript.md)進行檢測。
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>瀏覽器頁面載入時間 (browserTimings/totalDuration)
 
 |測量單位|支援的匯總|預先匯總的維度|
 |---|---|---|
-|毫秒|平均值、最小值、最大值|None|
+|毫秒數|平均值、最小值、最大值|None|
 
 ```Kusto
 browserTimings
@@ -115,7 +115,7 @@ browserTimings
 
 |測量單位|支援的匯總|預先匯總的維度|
 |---|---|---|
-|毫秒|平均值、最小值、最大值|None|
+|毫秒數|平均值、最小值、最大值|None|
 
 ```Kusto
 browserTimings
@@ -131,7 +131,7 @@ browserTimings
 
 |測量單位|支援的匯總|預先匯總的維度|
 |---|---|---|
-|毫秒|平均值、最小值、最大值|None|
+|毫秒數|平均值、最小值、最大值|None|
 
 ```Kusto
 browserTimings
@@ -147,7 +147,7 @@ browserTimings
 
 |測量單位|支援的匯總|預先匯總的維度|
 |---|---|---|
-|毫秒|平均值、最小值、最大值|None|
+|毫秒數|平均值、最小值、最大值|None|
 
 ```Kusto
 browserTimings
@@ -163,7 +163,7 @@ browserTimings
 
 |測量單位|支援的匯總|預先匯總的維度|
 |---|---|---|
-|毫秒|平均值、最小值、最大值|None|
+|毫秒數|平均值、最小值、最大值|None|
 
 ```Kusto
 browserTimings

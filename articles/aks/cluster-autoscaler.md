@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: dc5e862109a766f708338ebddb91a75ffc550306
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 6ed50380b47040793e9826b64297bacf6ab12c71
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031927"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533586"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>預覽-自動調整叢集, 以符合 Azure Kubernetes Service 上的應用程式需求 (AKS)
 
@@ -90,7 +90,7 @@ az provider register --namespace Microsoft.ContainerService
 
 叢集自動調整程式會使用啟動參數來處理調整事件和資源閾值之間的時間間隔。 這些參數由 Azure 平台定義，而且目前未公開供您調整。 如需叢集自動調整程式所使用之參數的詳細資訊, 請參閱[什麼是叢集自動調整程式參數？][autoscaler-parameters]。
 
-兩個自動調整程式可以搭配運作，而且通常會同時部署在一個叢集中。 當兩者組合時，水平 Pod 自動調整程式著重於執行符合應用程式需求的 Pod 數目。 叢集自動調整程式著重於執行支援排程 Pod 所需的節點數目。
+叢集和水準 pod autoscalers 可以搭配使用, 而且通常會同時部署在叢集中。 當兩者組合時，水平 Pod 自動調整程式著重於執行符合應用程式需求的 Pod 數目。 叢集自動調整程式著重於執行支援排程 Pod 所需的節點數目。
 
 > [!NOTE]
 > 當您使用叢集自動調整程式時，會停用手動調整。 可讓叢集自動調整程式判斷所需的節點數目。 如果您想要手動調整叢集，[請停用叢集自動調整程式](#disable-the-cluster-autoscaler)。
@@ -124,9 +124,14 @@ az aks create \
 
 建立叢集和設定叢集自動調整程式設定需要幾分鐘的時間。
 
-### <a name="update-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-a-single-node-pool"></a>在具有單一節點集區的叢集中, 更新現有節點集區上的叢集自動調整程式
+## <a name="change-the-cluster-autoscaler-settings"></a>變更叢集自動調整程式設定
 
-您可以在符合需求的叢集上更新先前的叢集自動調整程式設定, 如先前[開始](#before-you-begin)一節中所述。 使用[az aks update][az-aks-update]命令, 在叢集上啟用*單一*節點集區的叢集自動調整程式。
+> [!IMPORTANT]
+> 如果您的訂用帳戶上已啟用*多個代理程式*集區功能, 請跳至[使用多個代理程式組件區自動調整一節](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled)。 啟用多個代理程式組件區的叢集需要`az aks nodepool`使用命令集來變更節點集區特定屬性`az aks`, 而不是。 下列指示假設您未啟用多個節點集區。 若要檢查您是否已啟用它, `az feature  list -o table`請執行並`Microsoft.ContainerService/multiagentpoolpreview`尋找。
+
+在上一個步驟中, 若要建立 AKS 叢集或更新現有的節點集區, 叢集自動調整程式的最小節點計數設定為*1*, 而節點計數上限設定為*3*。 隨著應用程式需求的變化，您可能需要調整叢集自動調整程式節點計數。
+
+若要變更節點計數, 請使用[az aks update][az-aks-update]命令。
 
 ```azurecli-interactive
 az aks update \
@@ -137,41 +142,7 @@ az aks update \
   --max-count 5
 ```
 
-之後, 您可以使用`az aks update --enable-cluster-autoscaler`或`az aks update --disable-cluster-autoscaler`命令來啟用或停用叢集自動調整程式。
-
-### <a name="enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools"></a>在具有多個節點集區的叢集中現有節點集區上啟用叢集自動調整程式
-
-叢集自動調整程式也可以搭配已啟用的[多節點集區預覽功能](use-multiple-node-pools.md)使用。 您可以在包含多個節點集區的 AKS 叢集中的個別節點集區上啟用叢集自動調整程式, 並符合[您開始之前](#before-you-begin)先前的前面一節中所述的需求。 使用[az aks nodepool update][az-aks-nodepool-update]命令來啟用個別節點集區上的叢集自動調整程式。
-
-```azurecli-interactive
-az aks nodepool update \
-  --resource-group myResourceGroup \
-  --cluster-name myAKSCluster \
-  --name mynodepool \
-  --enable-cluster-autoscaler \
-  --min-count 1 \
-  --max-count 3
-```
-
-之後, 您可以使用`az aks nodepool update --enable-cluster-autoscaler`或`az aks nodepool update --disable-cluster-autoscaler`命令來啟用或停用叢集自動調整程式。
-
-## <a name="change-the-cluster-autoscaler-settings"></a>變更叢集自動調整程式設定
-
-在上一個步驟中, 若要建立 AKS 叢集或更新現有的節點集區, 叢集自動調整程式的最小節點計數設定為*1*, 而節點計數上限設定為*3*。 隨著應用程式需求的變化，您可能需要調整叢集自動調整程式節點計數。
-
-若要變更節點計數, 請使用[az aks nodepool update][az-aks-nodepool-update]命令。
-
-```azurecli-interactive
-az aks nodepool update \
-  --resource-group myResourceGroup \
-  --cluster-name myAKSCluster \
-  --name mynodepool \
-  --update-cluster-autoscaler \
-  --min-count 1 \
-  --max-count 5
-```
-
-上述範例會將*myAKSCluster*中*mynodepool*節點集區上的叢集自動調整程式更新為最少*1*個和最多*5*個節點。
+上述範例會將*myAKSCluster*中單一節點集區上的叢集自動調整程式更新為最少*1*個和最多*5*個節點。
 
 > [!NOTE]
 > 在預覽期間, 您無法設定目前節點集區所設定的最小節點計數。 例如，如果您目前的最小計數已設為 *1*，則無法將最小計數更新為 *3*。
@@ -180,17 +151,46 @@ az aks nodepool update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>停用叢集自動調整程式
 
-如果您不想再使用叢集自動調整程式, 您可以使用[az aks nodepool update][az-aks-nodepool-update]命令來停用它, 並指定 *--disable-cluster-自動調整程式*參數。 當叢集自動調整程式停用時，不會移除節點。
+如果您不想再使用叢集自動調整程式, 您可以使用[az aks update][az-aks-update]命令來停用它, 並指定 *--disable-cluster-自動調整程式*參數。 當叢集自動調整程式停用時，不會移除節點。
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --disable-cluster-autoscaler
+```
+
+您可以使用[az aks scale][az-aks-scale]命令, 在停用叢集自動調整程式之後, 手動調整叢集。 如果您使用水準 pod 自動調整程式, 該功能會繼續在叢集自動調整程式停用的情況下執行, 但如果所有節點資源都在使用中, pod 可能會無法排程。
+
+## <a name="re-enable-a-disabled-cluster-autoscaler"></a>重新啟用已停用的叢集自動調整程式
+
+如果您想要在現有叢集上重新啟用叢集自動調整程式, 您可以使用[az aks update][az-aks-update]命令來重新啟用它, 並指定 *--enable-cluster-自動調整程式*參數。
+
+## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>使用已啟用多個節點集區的叢集自動調整程式
+
+叢集自動調整程式可以與 [多節點集區[預覽] 功能](use-multiple-node-pools.md)一起使用。 遵循該檔, 以瞭解如何啟用多個節點集區, 並將其他節點集區新增至現有的叢集。 同時使用這兩個功能時, 您會在叢集中的每個個別節點集區上啟用叢集自動調整程式, 並且可以將唯一的自動調整規則傳遞給每個。
+
+下列命令假設您已遵循本檔稍早的[初始指示](#create-an-aks-cluster-and-enable-the-cluster-autoscaler), 而您想要將現有節點集區的最大計數從*3*更新為*5*。 使用[az aks nodepool update][az-aks-nodepool-update]命令來更新現有節點集區的設定。
 
 ```azurecli-interactive
 az aks nodepool update \
   --resource-group myResourceGroup \
-  --cluster-name myAKSCluster \
+  --cluster-name multipoolcluster \
+  --name mynodepool \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 5
+```
+
+您可以使用[az aks nodepool update][az-aks-nodepool-update]來停用叢集自動調整程式, 並`--disable-cluster-autoscaler`傳遞參數。
+
+```azurecli-interactive
+az aks nodepool update \
+  --resource-group myResourceGroup \
+  --cluster-name multipoolcluster \
   --name mynodepool \
   --disable-cluster-autoscaler
 ```
-
-您可以使用[az aks scale][az-aks-scale]命令, 以手動方式調整您的叢集。 如果您使用水平 Pod 自動調整程式，該功能會在停用叢集自動調整程式的情況下繼續執行，但如果所有節點資源皆在使用中，Pod 最後可能會無法排程。
 
 ## <a name="next-steps"></a>後續步驟
 

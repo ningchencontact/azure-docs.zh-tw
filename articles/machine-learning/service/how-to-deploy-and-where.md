@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5c0c3ade3fd089a4819b8836b07e249fc32c06e0
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990565"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543603"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -31,7 +31,7 @@ ms.locfileid: "68990565"
 
 如需部署工作流程中相關概念的詳細資訊，請參閱[使用 Azure Machine Learning 服務來管理、部署及監視模型](concept-model-management-and-deployment.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
 
@@ -149,12 +149,25 @@ ws = Workspace.from_config(path=".file-path/ws_config.json")
 
 ## <a name="prepare-to-deploy"></a>準備部署
 
-若要部署為 web 服務, 您必須建立推斷設定 (`InferenceConfig`) 和部署設定。 推斷 (或模型計分) 是已部署的模型用於預測的階段, 最常見的是生產資料。 在推斷設定中, 您可以指定服務模型所需的腳本和相依性。 在 [部署設定] 中, 您可以指定如何在計算目標上提供模型的詳細資料。
+部署模型需要進行幾項工作:
 
-> [!IMPORTANT]
-> Azure Machine Learning SDK 不會提供 web 服務或 IoT Edge 部署的方式來存取資料存放區或資料集。 如果您需要部署的模型來存取儲存在部署外部的資料, 例如在 Azure 儲存體帳戶中, 您必須使用相關的 SDK 開發自訂程式碼解決方案。 例如,[適用于 Python 的 AZURE 儲存體 SDK](https://github.com/Azure/azure-storage-python)。
->
-> 另一個適用于您案例的替代方法是[批次預測](how-to-run-batch-predictions.md), 這可在計分時提供對資料存放區的存取。
+* __輸入腳本__。 此腳本會接受要求、使用模型對要求評分, 並傳回結果。
+
+    > [!IMPORTANT]
+    > 專案腳本專屬於您的模型;它必須瞭解傳入要求資料的格式、您的模型所預期的資料格式, 以及傳回給用戶端的資料格式。
+    >
+    > 如果要求資料的格式無法供您的模型使用, 腳本就可以將它轉換成可接受的格式。 它也可以在將回應傳回給用戶端之前, 先將它轉換。
+
+    > [!IMPORTANT]
+    > Azure Machine Learning SDK 不會提供 web 服務或 IoT Edge 部署的方式來存取資料存放區或資料集。 如果您需要部署的模型來存取儲存在部署外部的資料, 例如在 Azure 儲存體帳戶中, 您必須使用相關的 SDK 開發自訂程式碼解決方案。 例如,[適用于 Python 的 AZURE 儲存體 SDK](https://github.com/Azure/azure-storage-python)。
+    >
+    > 另一個適用于您案例的替代方法是[批次預測](how-to-run-batch-predictions.md), 這可在計分時提供對資料存放區的存取。
+
+* 執行專案腳本或模型所需的相依性, 例如 helper 腳本或 Python/Conda 套件
+
+* 裝載已部署模型之計算目標的__部署__設定。 此設定會描述執行模型所需的記憶體和 CPU 需求等事項。
+
+這些實體會封裝成__推斷__設定和__部署__設定。 推斷設定會參考專案腳本和其他相依性。 使用 SDK 時, 會以程式設計方式定義這些設定, 並在使用 CLI 執行部署時, 以 JSON 檔案的形式定義。
 
 ### <a id="script"></a> 1.定義您的輸入腳本 & 相依性
 
@@ -399,9 +412,13 @@ def run(request):
 
 ### <a name="2-define-your-inferenceconfig"></a>2.定義您的 InferenceConfig
 
-推斷設定會描述如何設定模型來進行預測。 下列範例示範如何建立推斷設定。 此設定會指定執行時間、專案腳本, 以及 (選擇性) conda 環境檔案:
+推斷設定會描述如何設定模型來進行預測。 此設定不屬於您的輸入腳本;它會參考您的輸入腳本, 並用來尋找部署所需的所有資源。 它稍後會在實際部署模型時使用。
+
+下列範例示範如何建立推斷設定。 此設定會指定執行時間、專案腳本, 以及 (選擇性) conda 環境檔案:
 
 ```python
+from azureml.core.model import InferenceConfig
+
 inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
@@ -431,7 +448,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 ### <a name="3-define-your-deployment-configuration"></a>3.定義您的部署設定
 
-部署之前, 您必須先定義部署設定。 __部署設定適用于將裝載 web 服務的計算目標__。 例如, 在本機部署時, 您必須指定服務接受要求的埠。
+部署之前, 您必須先定義部署設定。 __部署設定適用于將裝載 web 服務的計算目標__。 例如, 在本機部署時, 您必須指定服務接受要求的埠。 部署設定不屬於您的輸入腳本。 它是用來定義將裝載模型和專案腳本之計算目標的特性。
 
 您可能也需要建立計算資源。 例如, 如果您還沒有與工作區相關聯的 Azure Kubernetes Service。
 
@@ -442,6 +459,12 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 | 本機 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure 容器執行個體 | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+
+您可以從下列來源`azureml.core.webservice`匯入本機、ACI 和 AKS web 服務的每個類別:
+
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
 
 > [!TIP]
 > 在將您的模型部署為服務之前, 您可能會想要進行分析, 以判斷最佳的 CPU 和記憶體需求。 您可以使用 SDK 或 CLI 來分析您的模型。 如需詳細資訊, 請參閱[設定檔 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)和[az ml 模型設定檔](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)參考。
@@ -459,6 +482,8 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 #### <a name="using-the-sdk"></a>使用 SDK
 
 ```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)

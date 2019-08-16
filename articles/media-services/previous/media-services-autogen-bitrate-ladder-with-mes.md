@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒體編碼器標準自動產生位元速率階梯 | Microsoft Docs
+title: 使用媒體編碼器標準自動產生位元速率階梯-Azure |Microsoft Docs
 description: 本主題說明如何使用媒體編碼器標準 (MES) 根據輸入解析度和位元速率自動產生位元速率階梯。 永遠不會超過輸入解析度和位元速率。 例如，如果輸入是 720p 3Mbps，則輸出會維持在最多 720p，且速率啟動低於 3Mbps。
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: bbaf4d490fcebb4cd741a9b83ffc5d7e85699755
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61224339"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543544"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure 媒體編碼器標準自動產生位元速率階梯  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用媒體編碼器標準自動產生位元速率階梯  
 
 ## <a name="overview"></a>總覽
 
@@ -174,7 +174,7 @@ namespace AdaptiveStreamingMESPresest
 ### <a name="example-1"></a>範例 1
 高度 "1080" 和畫面播放速率 "29.970" 的來源會產生 6 個視訊層︰
 
-|層次|高度|寬度|位元速率 (kbps)|
+|圖層|高度|寬度|位元速率 (kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -197,7 +197,7 @@ namespace AdaptiveStreamingMESPresest
 ### <a name="example-3"></a>範例 3
 高度 "360" 和畫面播放速率 "29.970" 的來源會產生 3 個視訊層︰
 
-|層次|高度|寬度|位元速率 (kbps)|
+|圖層|高度|寬度|位元速率 (kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

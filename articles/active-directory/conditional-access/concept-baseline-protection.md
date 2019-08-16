@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608177"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533063"
 ---
 # <a name="what-are-baseline-policies"></a>什麼是基準原則？
 
@@ -41,7 +41,7 @@ ms.locfileid: "68608177"
 
 由於系統管理員帳戶擁有的能力和存取權, 因此您應該特別小心對待它們。 若要改善特殊許可權帳戶的保護, 其中一個常見的方法是在用來登入時需要更強大的帳戶驗證形式。 在 Azure Active Directory 中, 您可以要求系統管理員註冊並使用 Azure 多重要素驗證, 以取得更強的帳戶驗證。
 
-[[要求系統管理員使用 mfa (預覽)](howto-baseline-protect-administrators.md)  ] 是一項基準原則, 其需要下列目錄角色的多重要素驗證 (MFA), 視為最具許可權的 Azure AD 角色:
+[[要求系統管理員使用 mfa (預覽)](howto-baseline-protect-administrators.md) ] 是一項基準原則, 其需要下列目錄角色的多重要素驗證 (MFA), 視為最具許可權的 Azure AD 角色:
 
 * 全域管理員
 * SharePoint 管理員
@@ -52,7 +52,7 @@ ms.locfileid: "68608177"
 * 計費管理員
 * 使用者系統管理員
 
-如果您的組織在腳本或程式碼中使用這些帳戶, 請考慮將它們取代為 [受控](../managed-identities-azure-resources/overview.md)識別。
+如果您的組織在腳本或程式碼中使用這些帳戶, 請考慮將它們取代為[受控](../managed-identities-azure-resources/overview.md)識別。
 
 ### <a name="end-user-protection-preview"></a>終端使用者保護 (預覽)
 
@@ -87,7 +87,7 @@ ms.locfileid: "68608177"
 
 若要啟用基準原則:
 
-1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入 **Azure 入口網站** 。
+1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入**Azure 入口網站**。
 1. 流覽至**Azure Active Directory**  > **條件式存取**。
 1. 在原則清單中, 選取您想要啟用的基準原則。
 1. 將 [**啟用原則**] 設定為 [**開啟**]。

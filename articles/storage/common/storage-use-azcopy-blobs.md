@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 62859dde7cd4f2335b696eedb2cdfbd1daad9456
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daf31c382f2b6d6e164092d587eb65afa25323f1
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934941"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534769"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>使用 AzCopy 和 Blob 儲存體傳輸資料
 
@@ -148,10 +148,14 @@ AzCopy 是命令列公用程式, 可讓您在儲存體帳戶之間複製資料�
 
 您可以使用 AzCopy 將 blob 複製到其他儲存體帳戶。 複製作業是同步的, 因此當命令傳回時, 表示已複製所有檔案。
 
-> [!NOTE]
-> 目前, 只有沒有階層式命名空間的帳戶才支援此案例。 
+AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [api](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), 因此資料會直接複製到存放伺服器之間。 這些複製作業不會使用您電腦的網路頻寬。 您可以藉由設定`AZCOPY_CONCURRENCY_VALUE`環境變數的值來增加這些作業的輸送量。 若要深入瞭解, 請參閱將[輸送量優化](storage-use-azcopy-configure.md#optimize-throughput)。
 
-AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [api](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), 因此資料會直接複製到存放伺服器之間。 這些複製作業不會使用您電腦的網路頻寬。
+> [!NOTE]
+> 此案例在目前版本中具有下列限制。
+>
+> - 僅支援沒有階層式命名空間的帳戶。
+> - 您必須將 SAS 權杖附加至每個來源 URL。 如果您使用 Azure Active Directory (AD) 提供授權認證, 則只能從目的地 URL 省略 SAS 權杖。
+>-  Premium 區塊 blob 儲存體帳戶不支援存取層。 將設定`s2s-preserve-access-tier`為 (例如: `--s2s-preserve-access-tier=false`), 以`false`從複製作業中省略 blob 的存取層。
 
 本區段包含下列範例：
 
@@ -160,9 +164,6 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 > * 將目錄複寫到另一個儲存體帳戶
 > * 將容器複製到另一個儲存體帳戶
 > * 將所有容器、目錄和檔案複製到另一個儲存體帳戶
-
-> [!NOTE]
-> 在目前的版本中, 您必須將 SAS 權杖附加至每個來源 URL。 如果您使用 Azure Active Directory (AD) 提供授權認證, 則只能從目的地 URL 省略 SAS 權杖。 
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>將 blob 複製到另一個儲存體帳戶
 
@@ -185,7 +186,7 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 | **語法** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
 | **範例** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
 
-### <a name="copy-all-containers-directories-and-files-to-another-storage-account"></a>將所有容器、目錄和檔案複製到另一個儲存體帳戶
+### <a name="copy-all-containers-directories-and-blobs-to-another-storage-account"></a>將所有容器、目錄和 blob 複製到另一個儲存體帳戶
 
 |    |     |
 |--------|-----------|

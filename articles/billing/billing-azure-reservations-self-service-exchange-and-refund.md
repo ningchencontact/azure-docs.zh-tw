@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814109"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543013"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>適用于 Azure 保留的自助交換和退款
 
@@ -60,11 +60,6 @@ Azure 保留可提供彈性, 以協助滿足您不斷演進的需求。 您可�
 
 Azure 具有用於取消、交換和退款的下列原則。
 
-**取消原則**
-
-- 如果您取消保留, 可能會有 12% 的提前終止費用。
-- 您在取消時收到的退款是餘額減去 12% 提前終止費用的餘額。 若要取消, 請移至 Azure 入口網站中的保留區, 然後選取 [**退款**]。
-
 **Exchange 原則**
 
 - 您可以傳回多個現有的保留, 以購買相同類型的新保留。 您無法交換另一個類型的保留。 例如, 您無法傳回 VM 保留以購買 SQL 保留區。
@@ -77,10 +72,12 @@ Azure 具有用於取消、交換和退款的下列原則。
 - 交換沒有任何損失或年度限制。
 
 **退款原則**
+- 如果您取消保留, 可能會有 12% 的提前終止費用。
+- 您在取消時收到的退款是餘額減去 12% 提前終止費用的餘額。 若要取消, 請移至 Azure 入口網站中的保留區, 然後選取 [**退款**]。
 - 您的總退款金額在12個月的輪流時段內不得超過 $50000 美元。
 - 退款是根據您購買價格或保留的目前價格的最低價格來計算。
 - 只有保留擁有者可以處理退款。 [瞭解如何新增或變更可以管理保留的使用者](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)。
-- Microsoft 保留對任何退貨收取 12% 負面傷害的權利, 但目前不會對損失收費。
+- Microsoft 保留對任何退貨收取 12% 負面影響的權利。 目前不會對損失收費, 但會在未來收取費用。
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Premium 儲存體的 Exchange 非 premium 儲存體
 

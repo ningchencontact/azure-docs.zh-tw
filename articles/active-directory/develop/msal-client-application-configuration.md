@@ -3,7 +3,7 @@ title: 用戶端應用程式設定 (Microsoft 驗證程式庫) |Azure
 description: 瞭解 Microsoft 驗證程式庫 (MSAL) 中公用用戶端和機密用戶端應用程式的設定選項。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 767f7362a6c46d864ba17f23f6506bf6cdb71414
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 6fedca8dfb60d976723508bb89cab7d5b6dda1b9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304739"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532909"
 ---
 # <a name="application-configuration-options"></a>應用程式設定選項
 
@@ -35,7 +35,7 @@ ms.locfileid: "68304739"
     - [用戶端密碼](#client-secret)(適用于機密用戶端應用程式)。
 - [記錄選項](#logging), 包括記錄層級、個人資料的控制, 以及使用程式庫的元件名稱。
 
-## <a name="authority"></a>授權單位
+## <a name="authority"></a>授權
 授權單位是一個 URL, 表示 MSAL 可以向其要求權杖的目錄。 常見的授權:
 
 - HTTPs\://login.microsoftonline.com/\<租\>使用者/, &lt;其中&gt;租使用者是 Azure Active Directory (Azure AD) 租使用者的租使用者識別碼, 或與此 Azure AD 租使用者相關聯的網域。 僅用於登入特定組織的使用者。

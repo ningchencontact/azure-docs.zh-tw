@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608145"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532936"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>基準原則:終端使用者保護 (預覽)
 
@@ -64,11 +64,11 @@ ms.locfileid: "68608145"
 
 若要啟用此原則並保護您的使用者:
 
-1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入 **Azure 入口網站** 。
+1. 以全域管理員、安全性系統管理員或條件式存取系統管理員的身分登入**Azure 入口網站**。
 1. 流覽至**Azure Active Directory**  > **條件式存取**。
 1. 在原則清單中, 選取 **[基準原則]:終端使用者保護 (預覽)** 。
 1. 將 [**啟用原則**] 設定為**立即使用原則**。
-1. 按一下 [ **儲存**]。
+1. 按一下 [儲存]。
 
 ## <a name="next-steps"></a>後續步驟
 
