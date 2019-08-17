@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 825379c04c22b3f13e651455c490a58ad47169d8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b71cf55944c1049fa2c3ddca79f02a8b75b9b2ec
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967149"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563009"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -139,7 +139,7 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 調整應用程式堆積設定時，請檢閱 App Service 方案詳細資料，並考慮多個應用程式和部署位置需求以尋找最佳的記憶體配置。
 
-如果您要部署 JAR 應用程式, 它應該命名為*app.config* , 讓內建映射能夠正確地識別您的應用程式。 (Maven 外掛程式會自動進行此重新命名)。如果您不想要將 JAR 重新命名為*app.config*, 可以使用命令上傳 shell 腳本來執行 JAR。 然後在入口網站的 [設定] 區段的 [[啟動](app-service-linux-faq.md#built-in-images)檔案] 文字方塊中, 貼上此腳本的完整路徑。
+如果您要部署 JAR 應用程式, 它應該命名為*app.config* , 讓內建映射能夠正確地識別您的應用程式。 (Maven 外掛程式會自動進行此重新命名)。如果您不想要將 JAR 重新命名為*app.config*, 可以使用命令上傳 shell 腳本來執行 JAR。 然後在入口網站的 [設定] 區段的 [[啟動](app-service-linux-faq.md#built-in-images)檔案] 文字方塊中, 貼上此腳本的完整路徑。 啟動腳本不會從其放置所在的目錄執行。 因此, 請一律使用絕對路徑來參考啟動腳本中的檔案 (例如: `java -jar /home/myapp/myapp.jar`)。
 
 ### <a name="turn-on-web-sockets"></a>開啟 Web 通訊端
 

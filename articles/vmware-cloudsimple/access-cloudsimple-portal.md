@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5bb1a4dd9d652481dfe1a2727ee0e5fe7601e96a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812767"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563233"
 ---
-# <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>從 Azure 入口網站的 CloudSimple 入口網站存取 VMware 解決方案
+# <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>從 [Azure 入口網站] 的 [CloudSimple] 入口網站存取 VMware 解決方案
 
 支援單一登入以存取 CloudSimple 入口網站。 登入 Azure 入口網站之後, 您就可以存取 CloudSimple 入口網站, 而不需要再次登入。 您第一次存取 CloudSimple 入口網站時, 系統會提示您授權[CloudSimple 服務授權](#consent-to-cloudsimple-service-authorization-application)應用程式。  授權是一次性的動作。
 
 ## <a name="before-you-begin"></a>開始之前
 
-具有內建**擁有**者和**參與者**角色的使用者可以存取 CloudSimple 入口網站。  您必須在部署 CloudSimple 服務的資源群組上設定角色。  角色也可以在 CloudSimple 服務物件上進行設定。  如需檢查角色的詳細資訊, 請參閱[View role 指派](https://docs.microsoft.com/azure/role-based-access-control/check-access)一文。
+具有內建**擁有**者和**參與者**角色的使用者可以存取 CloudSimple 入口網站。  您必須在部署 CloudSimple 服務的資源群組上設定角色。  角色也可以在 CloudSimple 服務物件上進行設定。  如需檢查角色的詳細資訊, 請參閱[View role 指派](https://docs.microsoft.com/azure/role-based-access-control/check-access)一文。 只有具備內建**擁有**者和**參與者**角色的使用者可以存取 CloudSimple 入口網站。  必須在訂用帳戶上設定角色。  如需檢查角色的詳細資訊, 請參閱[View role 指派](https://docs.microsoft.com/azure/role-based-access-control/check-access)一文。
 
-如果您使用自訂角色, 此角色應該會有下列任何一項作業```Actions```。  如需自訂角色的詳細資訊, 請參閱[適用于 Azure 資源的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。  如果有任何作業屬於的一部分```NotActions```, 使用者就無法存取 CloudSimple 入口網站。 
+如果您使用自訂角色, 此角色應該會有下列任何一項作業```Actions```。  如需自訂角色的詳細資訊, 請參閱[適用于 Azure 資源的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。  如果有任何作業屬於的一部分```NotActions```, 使用者就無法存取 CloudSimple 入口網站。
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -48,7 +48,7 @@ Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
 
     ![啟動 CloudSimple 入口網站](media/launch-cloudsimple-portal.png)
 
-> [!TIP]
+> [!NOTE]
 > 如果您直接從 Azure 入口網站選取私人雲端作業 (例如建立或擴充私人雲端), CloudSimple 入口網站會開啟至指定的頁面。
 
 在 CloudSimple 入口網站中, 選取側邊功能表上的 [**首頁**], 以顯示私人雲端的摘要資訊。 會顯示私人雲端的資源和容量, 以及需要注意的警示和工作。 針對一般工作, 按一下頁面頂端的 [已命名的圖示]。
@@ -57,7 +57,7 @@ Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
 
 ## <a name="consent-to-cloudsimple-service-authorization-application"></a>同意 CloudSimple 服務授權應用程式
 
-第一次從 Azure 入口網站啟動 CloudSimple 入口網站時, 需要您同意 CloudSimple 服務授權應用程式。  選取 [**接受**] 以授與所要求的許可權, 並存取 CloudSimple 入口網站。 
+第一次從 Azure 入口網站啟動 CloudSimple 入口網站時, 需要您同意 CloudSimple 服務授權應用程式。  選取 [**接受**] 以授與所要求的許可權, 並存取 CloudSimple 入口網站。
 
 ![同意 CloudSimple 服務授權-系統管理員](media/cloudsimple-azure-consent.png)
 

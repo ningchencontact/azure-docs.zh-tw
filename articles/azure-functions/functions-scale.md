@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 348cd0eccc66adb29a7564bbbeca99fffec28957
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443944"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562855"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -51,7 +51,7 @@ App Service 方案可讓您利用您所管理的專用基礎結構。 您的函�
 | | 取用方案 | 進階方案 | 專用方案 |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | 預覽 | GA |
-| Linux | 預覽 | 預覽 | GA |
+| Linux | GA | 預覽 | GA |
 
 ## <a name="consumption-plan"></a>取用方案
 

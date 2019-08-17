@@ -1,6 +1,6 @@
 ---
-title: Azure 區塊鏈服務支援交易記錄資料庫版本、 修補和升級
-description: Azure 區塊鏈服務，包括修補和系統管理的系統和使用者管理的升級相關的原則中的支援的總帳版本的概觀。
+title: Azure 區塊鏈 Service 支援的總帳版本、修補及升級
+description: 概述 Azure 區塊鏈 Service 中支援的總帳版本, 包括有關系統修補和系統管理和使用者管理之升級的原則。
 services: azure-blockchain
 keywords: 區塊鏈
 author: PatAltimore
@@ -10,33 +10,33 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 53f65ec91a1e0f1e5a6322f0125bf83cd3e400b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cded49f14ae90f84b18c0a37059677c6c1fed99
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399094"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562783"
 ---
-# <a name="supported-azure-blockchain-service-ledger-versions"></a>支援的 Azure 區塊鏈 Service 交易記錄資料庫版本
+# <a name="supported-azure-blockchain-service-ledger-versions"></a>支援的 Azure 區塊鏈 Service 總帳版本
 
-Azure 區塊鏈服務可讓您使用以太坊基礎[仲裁](https://www.goquorum.com/developers)分類帳專為已知的參與者，識別為協會在 Azure 區塊鏈 Service 中的群組內的私用交易的處理。
+Azure 區塊鏈 Service 會使用以乙太坊為基礎的[仲裁](https://www.goquorum.com/developers)總帳, 其設計目的是要處理一組已知參與者 (在 Azure 區塊鏈 Service 中識別為聯盟) 內的私人交易。
 
-目前，Azure 區塊鏈服務支援[仲裁 2.2.1 版](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.1)並[Tessera 交易管理員](https://github.com/jpmorganchase/tessera)。
+目前, Azure 區塊鏈 Service 支援[仲裁版本 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3)和[Tessera 交易管理員](https://github.com/jpmorganchase/tessera)。
 
 ## <a name="managing-updates-and-upgrades"></a>管理更新和升級
 
-仲裁中的版本控制透過主要、 次要和修補程式版本。 比方說，如果仲裁版本 2.0.1，發行型別會分類，如下所示：
+仲裁中的版本控制是透過主要、次要和修補程式版本來完成。 例如, 如果仲裁版本是 2.0.1, 則版本類型會分類如下:
 
-|主要 | Minor  | 修補程式  |
+|主要 | 次要  | 修補程式  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
-Azure 區塊鏈服務會自動將更新仲裁的修補程式的版本執行的現有成員所提供的仲裁的 30 天內。
+Azure 區塊鏈 Service 會在從仲裁提供的30天內, 自動將仲裁的修補版本更新為現有執行中的成員。
 
-## <a name="availability-of-new-ledger-versions"></a>新的交易記錄資料庫版本的可用性
+## <a name="availability-of-new-ledger-versions"></a>新總帳版本的可用性
 
-Azure 區塊鏈服務的仲裁製造商所提供的 60 天內提供的最新主要和次要版本仲裁分類帳。 最多四個次要的版本可供 consortia 佈建的新成員和協會時從中選擇。 目前不支援升級從主要或次要版本。
+Azure 區塊鏈 Service 提供仲裁廠商所提供60天內的仲裁總帳最新主要和次要版本。 在布建新的成員和聯盟時, 最多會提供四個次要版本供聯盟選擇。 目前不支援從升級至主要或次要版本。
 
 ## <a name="next-steps"></a>後續步驟
 
-[Azure 區塊鏈服務中的限制](limits.md)
+[Azure 區塊鏈 Service 中的限制](limits.md)

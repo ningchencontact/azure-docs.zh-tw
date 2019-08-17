@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 5bc93d60f4b7edb21deeaac3497aa41839f88b73
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 8b5cf0026c3bfdf6812ba985061401b3585a07bf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224658"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563273"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -39,10 +39,10 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 Regions                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11
-[Azure China](https://www.azure.cn/)                                                     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30、2019-06-01、2019-06-04
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
+[Azure China](https://www.azure.cn/)                                                     | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01、2019-02-01、2019-03-11、2019-04-30
 
 當有服務更新和/或有新支援的版本可取得時，此表格便會更新。
 
@@ -105,8 +105,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 API | 預設資料格式 | 其他格式
 --------|---------------------|--------------
 /instance | json | 文字
-/scheduledevents | json | None
-/attested | json | None
+/scheduledevents | json | 無
+/attested | JSON | 無
 
 若要存取非預設的回應格式，請指定要求的格式作為要求中的查詢字串參數。 例如:
 
@@ -122,7 +122,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 執行個體中繼資料服務端點只能從非可路由 IP 位址上的執行中虛擬機器執行個體內存取。 此外，服務會拒絕任何具有 `X-Forwarded-For` 標頭的要求。
 要求也必須包含 `Metadata: true` 標頭，以確認直接預期實際要求，而不是非預期重新導向的一部分。
 
-### <a name="error"></a>錯誤
+### <a name="error"></a>Error
 
 如果找不到資料元素或要求的格式錯誤，則執行個體中繼資料服務會傳回標準 HTTP 錯誤。 例如：
 
@@ -346,7 +346,7 @@ Data | 描述 | 引進的版本
 -----|-------------|-----------------------
 attested | 請參閱[證明資料](#attested-data) | 2018-10-01
 身分識別 | 適用於 Azure 資源的受控識別。 請參閱[取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | 請參閱[實例 API](#instance-api) | 2017-04-02
+執行個體 | 請參閱[實例 API](#instance-api) | 2017-04-02
 scheduledevents | 請參閱[排定的事件](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>實例 API
@@ -359,7 +359,7 @@ Data | 描述 | 引進的版本
 -----|-------------|-----------------------
 azEnvironment | VM 執行所在的 Azure 環境 | 2018-10-01
 customData | 請參閱[自訂資料](#custom-data) | 2019-02-01
-location | VM 執行所在的 Azure 區域 | 2017-04-02
+位置 | VM 執行所在的 Azure 區域 | 2017-04-02
 name | VM 的名稱 | 2017-04-02
 供應項目 | 提供 VM 映射的資訊, 而且只會針對從 Azure 映射庫部署的映射呈現 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
@@ -367,15 +367,16 @@ placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-
 計劃 | 如果 VM 的 Azure Marketplace 映射, 則包含其名稱、產品和發行者的[計畫](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
 platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
-provider | VM 的提供者 | 2018-10-01
+提供者 | VM 的提供者 | 2018-10-01
 publicKeys | 指派給 VM 和路徑[的公用金鑰集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 publisher | VM 映像的發佈者 | 2017-04-02
 resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 resourceId | 資源的[完整](https://docs.microsoft.com/rest/api/resources/resources/getbyid)識別碼 | 2019-03-11
-sku | VM 映像的特定 SKU | 2017-04-02
+SKU | VM 映像的特定 SKU | 2017-04-02
 subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
 tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
-version | VM 映像的版本 | 2017-04-02
+tagsList | 格式化為 JSON 陣列以方便程式設計剖析的標記  | 2019-06-04
+版本 | VM 映像的版本 | 2017-04-02
 vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 虛擬機器擴展集的[虛擬機器擴展集名稱](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [VM 大小](sizes.md) | 2017-04-02
@@ -425,7 +426,7 @@ Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若
 }
 ```
 
-> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它內含可用於簽署的憑證和 VM 詳細資料，例如 vmId、nonce、文件的建立和到期時間戳記，以及關於該映像的方案資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
+> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證, 以及 VM 詳細資料, 例如 vmId、nonce、subscriptionId、檔建立和到期的時間戳記, 以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>在 Windows 虛擬機器中擷取證明中繼資料
 
@@ -457,7 +458,7 @@ Nonce 是所提供的選用 10 位數字串。 Nonce 可用來追蹤要求，若
 }
 ```
 
-> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它內含可用於簽署的憑證和 VM 詳細資料，例如 vmId、nonce、文件的建立和到期時間戳記，以及關於該映像的方案資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
+> 簽章 Blob 是以 [pkcs7](https://aka.ms/pkcs7) 簽署的文件版本。 它包含用於簽署的憑證, 以及 VM 詳細資料, 例如 vmId、nonce、subscriptionId、檔建立和到期的時間戳記, 以及有關影像的計畫資訊。 Azure Marketplace 映像才會填入方案資訊。 憑證可以從回應中擷取出來，並可用來驗證回應有效且來自 Azure。
 
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
@@ -567,8 +568,32 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-> [!NOTE]
-> 標記是以分號分隔。 如果寫入剖析器以程式設計方式解壓縮標記, 則標記名稱和值不應包含分號, 使剖析器可以正常運作。
+`tags`欄位是具有以分號分隔之標記的字串。 如果標記本身使用分號, 這可能會是個問題。 如果寫入剖析器以程式設計方式將標記解壓縮, 您應該依賴`tagsList`欄位, 這是不含分隔符號的 JSON 陣列, 因此更容易剖析。
+
+**要求**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+```
+
+**回應**
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "Environment",
+    "value": "Test"
+  },
+  {
+    "name": "Role",
+    "value": "WebRole"
+  }
+]
+```
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>驗證 VM 是在 Azure 中執行
 
@@ -611,7 +636,8 @@ Verification successful
     "createdOn":"11/28/18 00:16:17 -0000",
     "expiresOn":"11/28/18 06:16:17 -0000"
   },
-"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34"
+"vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
 }
 ```
 
@@ -622,10 +648,11 @@ nonce | 使用者隨要求提供的選擇性字串。 如果要求中未提供 n
 timestamp/createdOn | 第一個簽署文件的建立時間戳記
 timestamp/expiresOn | 簽署文件的到期時間戳記
 vmId |  VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
+subscriptionId | 虛擬機器的 Azure 訂用帳戶, 引進于`2019-04-30`
 
 #### <a name="verifying-the-signature"></a>驗證簽章
 
-收到上述簽章後，您可驗證簽章是來自 Microsoft 的。 此外，您也可以驗證中繼憑證和信任鏈結。
+收到上述簽章後，您可驗證簽章是來自 Microsoft 的。 此外，您也可以驗證中繼憑證和信任鏈結。 最後, 您可以確認訂用帳戶識別碼是否正確。
 
 > [!NOTE]
 > 公用雲端和主權雲端的憑證將會不同。
@@ -733,8 +760,8 @@ My custom data.
 
 語言 | 範例
 ---------|----------------
-Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+拼音     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
+移至  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

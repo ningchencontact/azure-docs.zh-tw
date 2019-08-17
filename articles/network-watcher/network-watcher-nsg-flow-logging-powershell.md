@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: eb48ffcc0ef0f6113e3880fc34f70ffd165ddd99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c34ed9c5f1b5e422ba9e4e0b12fbaf833c8a4a7c
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730309"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563476"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>使用 PowerShell 設定網路安全性群組流量記錄
 
@@ -90,6 +90,8 @@ Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
+> [!IMPORTANT]
+> 目前, 無法根據保留原則設定, 從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)問題。 如果您有現有的非零保留原則, 建議您定期刪除超過其保留期限的儲存體 blob, 以避免產生任何費用。 如需有關如何刪除 NSG 流量記錄儲存體 blog 的詳細資訊, 請參閱[刪除 NSG 流量記錄儲存體 blob](network-watcher-delete-nsg-flow-log-blobs.md)。
 
 如需記錄結構的相關資訊，請造訪[網路安全性群組流量記錄概觀](network-watcher-nsg-flow-logging-overview.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: ae397c077ac87618b646883f9125c9da2df81bfd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: cce14a2f6e7f8aeca6c7f716d66520cef9484dde
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036582"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562629"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -188,7 +188,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 ## <a name="c1partners"></a>透過額外服務提供者連線
 | **位置** | **Exchange** | **連線提供者** |
 | --- | --- | --- |
-| **阿姆斯特丹** | Equinix, Interxion, Level 3 通訊, Telecity | BICS、CloudXpress、Eurofiber、Fastweb s.p.a、Kalaam、不在世界間的橋樑、MainOne 電信巴林 B. C、Nianet、Proximus、Post、Erhverv、TDC Italia、電信 Telekom 火花、Deutschland GmbH Telia、 |
+| **阿姆斯特丹** | Equinix, Interxion, Level 3 通訊, Telecity | BICS、CloudXpress、Eurofiber、Fastweb s.p.a、Kalaam、不帶群島、MainOne 電信巴林 B、Nianet、Proximus、後電信盧森堡、Erhverv、TDC Italia、電信 Telekom 火花、Deutschland GmbH Telia、 |
 | **亞特蘭大** | Equinix| Crown Castle
 | **開普敦** | Teraco | MTN |
 | **芝加哥** | Equinix| Crown Castle, Windstream 的頻譜企業 |

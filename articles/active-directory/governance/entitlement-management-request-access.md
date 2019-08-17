@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b5be74b0734a27b02030e2c6995b43ef0c02162
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678119"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562159"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 權利管理 (預覽) 中的存取權套件要求存取權
 
@@ -29,6 +29,10 @@ ms.locfileid: "68678119"
 > Azure Active Directory (Azure AD) 權利管理目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+透過 Azure AD 的權利管理, 存取套件可讓您一次性設定資源和原則, 以自動管理存取套件生命週期的存取權。 
+
+存取套件管理員可以設定原則, 要求使用者必須核准才能存取封裝。 需要存取權套件的使用者可以提交要求以取得存取權。 本文說明如何提交存取要求。
 
 ## <a name="sign-in-to-the-my-access-portal"></a>登入我的存取權入口網站
 

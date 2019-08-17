@@ -13,24 +13,22 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: ec42693fe42f35d728a4a5018776867f07403f81
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 0cdd7f291b43f442b8471a19f515e4a2d12b4e74
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226864"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562867"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
 本文是使用 Python 開發 Azure Functions 的簡介。 本文假設您已閱讀過下列 [Azure Functions 開發人員指南](functions-reference.md)。
 
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
-
 ## <a name="programming-model"></a>程式設計模型
 
 Python 指令碼中的 Azure 函式應該是無狀態方法，處理輸入及產生輸出。 根據預設, 執行時間會預期方法會實作為`main()` `__init__.py`在檔案中呼叫的全域方法。
 
-您可以藉由在*函數. json*檔案`scriptFile`中`entryPoint`指定和屬性來變更預設設定。 例如, 下列函  式會指示執行時間在_main.py_檔案中使用`customentry()`方法, 做為您的 Azure 函式的進入點。
+您可以藉由在*函數. json*檔案`scriptFile`中`entryPoint`指定和屬性來變更預設設定。 例如, 下列函式會指示執行時間在_main.py_檔案中使用`customentry()`方法, 做為您的 Azure 函式的進入點。
 
 ```json
 {
@@ -257,7 +255,7 @@ def main():
     some_blocking_socket_io()
 ```
 
-## <a name="context"></a>Context
+## <a name="context"></a>內容
 
 若要在執行期間取得函數的調用內容, 請在[`context`](/python/api/azure-functions/azure.functions.context?view=azure-python)其簽章中包含引數。 
 

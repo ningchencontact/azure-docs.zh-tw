@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 30c99ae4150e0bd4645488b5bf75b8bbac0ee66f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934329"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562453"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -132,7 +132,7 @@ az account list
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>使用受控識別或使用者指派的身分識別來執行應用程式 
 
-當您在 Azure App Service 或啟用受控識別的 Azure VM 上執行程式碼時，程式庫會自動使用受控識別。 
+當您在 Azure App Service 或啟用受控識別的 Azure VM 上執行程式碼時，程式庫會自動使用受控識別。 不需要變更程式碼, 但受控識別必須具有金鑰保存庫的*取得*許可權。 您可以透過金鑰保存庫的*存取原則*, 授與受控識別*取得*許可權。
 
 或者, 您可以使用使用者指派的身分識別來進行驗證。 如需使用者指派身分識別的詳細資訊, 請參閱[關於 Azure 資源的受控](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)識別。 若要使用使用者指派的身分識別進行驗證, 您需要在連接字串中指定使用者指派之身分識別的用戶端識別碼。 連接字串是在下面的[連接字串支援](#connection-string-support)一節中指定。
 

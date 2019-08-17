@@ -8,27 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8e99da05f71cb01744111b41c301b11a0969057
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: eca3e316d866814f6727dd8ef2c3fa490a551383
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812720"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563157"
 ---
 # <a name="azure-network-connections-overview"></a>Azure 網路連線總覽
 
 當您在區域中建立 CloudSimple 服務時, 它會:
 
-* 建立 Azure ExpressRoute 線路, 並將其附加至該區域中的服務
-* 允許使用 Azure ExpressRoute 從您的 CloudSimple 區域網路連線到您的 Azure 虛擬網路或內部部署網路
-* 在您的私人雲端環境中, 提供您的 Azure 訂用帳戶或內部部署網路中執行的存取服務
+* 建立 Azure ExpressRoute 線路, 並將其附加至該區域中的服務。
+* 使用 Azure ExpressRoute 將您的 CloudSimple 區域網路連接到您的 Azure 虛擬網路或內部部署網路。
+* 提供從您的私用雲端環境存取 Azure 訂用帳戶或內部部署網路中執行的服務。
 
-連接是:
-
-* 安全
-* 私人
-* 高頻寬
-* 低延遲
+ExpressRoute 連線是具有低延遲的高頻寬。
 
 ## <a name="benefits"></a>優點
 
@@ -40,9 +35,9 @@ Azure 網路連線可讓您:
 
 ## <a name="azure-virtual-network-connection"></a>Azure 虛擬網路連線
 
-私人雲端可以使用 ExpressRoute 連接到您的 Azure 資源。  您可以使用此連線, 從私人雲端存取在 Azure 訂用帳戶中執行的不同資源。  此連線可讓您將私人雲端網路擴充至您的 Azure 虛擬網路。
+私人雲端可以使用 ExpressRoute 連接到您的 Azure 資源。  ExpressRoute 連線可讓您從私人雲端存取在 Azure 訂用帳戶中執行的資源。  此連線可讓您將私人雲端網路擴充至您的 Azure 虛擬網路。
 
-![虛擬網路的 Azure ExpressRoute 連線](media/cloudsimple-azure-network-connection.png)
+[![虛擬網路的 Azure ExpressRoute 連線](media/cloudsimple-azure-network-connection.png)
 
 ## <a name="expressroute-connection-to-on-premises-network"></a>連至內部部署網路的 ExpressRoute 連線
 
@@ -52,5 +47,5 @@ Azure 網路連線可讓您:
 
 ## <a name="next-steps"></a>後續步驟
 
-* [取得 Azure 虛擬網路到 CloudSimple 連線的對等互連資訊](https://docs.azure.cloudsimple.com/virtual-network-connection)
-* [使用 ExpressRoute 從內部部署連接到 CloudSimple](https://docs.azure.cloudsimple.com/on-premises-connection)
+* [使用 ExpressRoute 將 Azure 虛擬網路連線到 CloudSimple](virtual-network-connection.md)
+* [使用 ExpressRoute 從內部部署連接到 CloudSimple](on-premises-connection.md)

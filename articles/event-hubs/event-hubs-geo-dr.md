@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704385"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562707"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure 事件中樞 - 異地災害復原 
 
@@ -37,7 +37,7 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 
 ## <a name="basic-concepts-and-terms"></a>基本概念與術語
 
-災害復原功能會實作中繼資料災害復原，並依賴主要和次要災害復原命名空間。 請注意，地理災害復原功能僅適用於[標準 SKU](https://azure.microsoft.com/pricing/details/event-hubs/)。 您不需要進行任何連接字串變更，因為連接是透過別名建立的。
+災害復原功能會實作中繼資料災害復原，並依賴主要和次要災害復原命名空間。 請注意, 「地理災難復原」功能僅適用于「[標準」和「專用」 sku](https://azure.microsoft.com/pricing/details/event-hubs/) 。 您不需要進行任何連接字串變更，因為連接是透過別名建立的。
 
 本文中使用下列術語：
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7f964fd78845e663c1ebcde7e79bfb7295c72f31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e7c09c1a06a94a2ed64f3624ee38dc42606d7bc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730563"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563482"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 設定網路安全性群組流量記錄
 
@@ -53,7 +53,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 您指定的儲存體帳戶不能為其設定網路規則，以限制只能對 Microsoft 服務或特定虛擬網路進行網路存取。 儲存體帳戶和您要啟用流程記錄的 NSG 可以位於相同或不同的 Azure 訂用帳戶。 如果您使用不同訂用帳戶，兩者都必須與相同的 Azure Active Directory 租用戶相關聯。 為每個訂用帳戶所使用的帳戶必須具有[必要的權限](required-rbac-permissions.md)。 
 
-如果儲存體帳戶位於不同的資源群組或訂用帳戶，而不是在網路安全性群組中，則指定儲存體帳戶的完整識別碼，而不是指定其名稱。 例如，如果儲存體帳戶位於名為 RG-Storage  的資源群組，則並非指定先前命令中的 storageAccountName  ，而是要指定 /subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName  。
+如果儲存體帳戶位於不同的資源群組或訂用帳戶，而不是在網路安全性群組中，則指定儲存體帳戶的完整識別碼，而不是指定其名稱。 例如，如果儲存體帳戶位於名為 RG-Storage 的資源群組，則並非指定先前命令中的 storageAccountName，而是要指定 /subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName。
 
 ## <a name="disable-network-security-group-flow-logs"></a>停用網路安全性群組流量記錄
 
@@ -73,7 +73,8 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-如需記錄結構的相關資訊，請造訪[網路安全性群組流量記錄概觀](network-watcher-nsg-flow-logging-overview.md)
+> [!IMPORTANT]
+> 目前, 無法根據保留原則設定, 從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)問題。 如果您有現有的非零保留原則, 建議您定期刪除超過其保留期限的儲存體 blob, 以避免產生任何費用。 如需有關如何刪除 NSG 流量記錄儲存體 blog 的詳細資訊, 請參閱[刪除 NSG 流量記錄儲存體 blob](network-watcher-delete-nsg-flow-log-blobs.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c25c0a2b2f48baa3b57a8ad39ed4514c884826
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533130"
+ms.locfileid: "69561313"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
@@ -31,7 +31,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 | 密碼 | MFA 和 SSPR |
 | 安全性問題 | 僅 SSPR |
 | 電子郵件地址 | 僅 SSPR |
-| Microsoft Authenticator 應用程式 | MFA 和 SSPR 的公開預覽版 |
+| Microsoft Authenticator 應用程式 | MFA 和 SSPR |
 | OATH 硬體權杖 | MFA 和 SSPR 的公開預覽版 |
 | SMS | MFA 和 SSPR |
 | 語音通話 | MFA 和 SSPR |
@@ -41,7 +41,7 @@ Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方�
 
 |     |
 | --- |
-| 適用於 MFA 及 SSPR 的 OATH 硬體權杖，以及以行動應用程式通知或行動應用程式程式碼作為 Azure AD 自助式密碼重設的方法，是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| 適用于 MFA 和 SSPR 的 OATH 硬體權杖是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>密碼

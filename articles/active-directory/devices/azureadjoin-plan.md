@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906ab4da941c6a0e1bc98f2f724141c719d04b89
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c739e827589a9fd6adeb10255f869acef29a4f16
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879428"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562216"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>HOW TO：規劃 Azure AD 聯結實作
 
@@ -69,7 +69,8 @@ Azure AD Join 在受控和同盟環境中均可運作。
 
 - **WS-Fed：** 必須使用此通訊協定，才能將裝置加入 Azure AD。
 - **WS-Trust：** 必須使用此通訊協定，才能登入已加入 Azure AD 的裝置。
-當您使用 AD FS 時, 您必須啟用下列 WS-TRUST 端點:`/adfs/services/trust/2005/usernamemixed`
+
+當您使用 AD FS 時，您必須啟用下列 WS-Trust 端點：`/adfs/services/trust/2005/usernamemixed`
  `/adfs/services/trust/13/usernamemixed`
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`

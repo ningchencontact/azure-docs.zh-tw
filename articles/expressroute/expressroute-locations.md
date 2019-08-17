@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 09d15702d61d9ef6204ce8e48f6a1d9d108995a3
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8be83391af6af5badfa56b52ad7ec7d15b589f74
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036272"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562661"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -255,7 +255,7 @@ ExpressRoute 位置 (有時稱為「對等位置」或「符合我的位置」) 
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** | Teraco | 開普敦、約翰尼斯堡 |
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | 倫敦 |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | 阿姆斯特丹、法蘭克福 |
-| **[Post](https://www.teralinksolutions.com/cloud-connectivity/cloudbridge-to-azure-expressroute/)**|Equinix | 阿姆斯特丹 |
+| **[電信後盧森堡](https://www.teralinksolutions.com/cloud-connectivity/cloudbridge-to-azure-expressroute/)**|Equinix | 阿姆斯特丹 |
 | **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | 阿姆斯特丹、都柏林、倫敦、巴黎 |
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | 法蘭克福 |  
 | **Rogers** | Cologix、Equinix | 蒙特婁、多倫多 |

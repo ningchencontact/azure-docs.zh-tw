@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 708c34347966eee7817ca04e0552dcba233765cb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: df377b19d78a63b3cfc57347fff00345a9c63ead
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934505"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562529"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault 受控儲存體帳戶 - PowerShell
 
@@ -43,6 +43,18 @@ Key Vault 受控儲存體帳戶功能會代表您執行數個管理功能：
 
 下列範例會示範如何允許 Key Vault 管理您的儲存體帳戶金鑰。
 
+## <a name="connect-to-your-azure-account"></a>連線至您的 Azure 帳戶
+
+使用[disconnect-azaccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) Cmdlet 來驗證您的 PowerShell 會話。 
+```azurepowershell-interactive
+Connect-AzAccount
+```
+如果您有多個 Azure 訂用帳戶, 您可以使用[get-azsubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) Cmdlet 加以列出, 並指定您想要搭配[set-azcoNtext 指令程式](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0)使用的訂用帳戶。 
+
+```azurepowershell-interactive
+Set-AzContext -SubscriptionId <subscriptionId>
+```
+
 ## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>授與 Key Vault 儲存體帳戶的存取權
 
 > [!IMPORTANT]
@@ -62,8 +74,8 @@ $storageAccountKey = "key1"
 $keyVaultName = "kvContoso"
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
-# Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
-$azureProfile = Connect-AzAccount
+# Get your User Id for later commands
+$userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
@@ -98,7 +110,7 @@ CanDelegate        : False
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
 ```
 
 請注意，適用於儲存體帳戶的使用權限並不會在該儲存體於 Azure 入口網站中的 [存取原則] 頁面上提供。

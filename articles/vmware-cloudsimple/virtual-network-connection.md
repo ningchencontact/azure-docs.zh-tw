@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ba2d2fd9c943fe55e82956d022f6ba9840a550f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536595"
+ms.locfileid: "69563068"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>使用 ExpressRoute 將 Azure 虛擬網路連線到 CloudSimple
 
@@ -24,7 +24,7 @@ ms.locfileid: "69536595"
 您的私用雲端與 Azure 虛擬網路之間的 ExpressRoute 連線需要授權金鑰。 若要取得金鑰, 請向<a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">支援</a>提出票證。  在要求中使用下列資訊:
 
 * 問題類型：**技術**
-* 訂閱:選取 CloudSimple 服務部署所在的訂用帳戶 * *
+* 訂閱:**選取 CloudSimple 服務部署所在的訂用帳戶**
 * 服務：**VMware 解決方案 (依 CloudSimple)**
 * 問題類型:**服務要求**
 * 問題子類型:**Azure VNET 連線的授權金鑰**

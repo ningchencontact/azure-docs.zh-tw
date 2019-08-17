@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812676"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563206"
 ---
 # <a name="account-management-overview"></a>帳戶管理總覽
 
-當您建立 CloudSimple 服務時, 它會在 CloudSimple 上建立帳戶。  此帳戶會與服務所在的 Azure 訂用帳戶相關聯。  訂用帳戶中具有「**擁有**者」和「**參與者**」角色的所有使用者都可以存取 CloudSimple 入口網站。  您可以在 [[帳戶] 頁面](https://docs.azure.cloudsimple.com/account/)上找到與 CloudSimple 服務相關聯的 Azure 訂用帳戶識別碼和租使用者識別碼。
+當您建立 CloudSimple 服務時, 它會在 CloudSimple 上建立帳戶。  此帳戶會與服務所在的 Azure 訂用帳戶相關聯。  訂用帳戶中具有「**擁有**者」和「**參與者**」角色的所有使用者都可以存取 CloudSimple 入口網站。  您可以在 [[帳戶] 頁面](account.md)上找到與 CloudSimple 服務相關聯的 Azure 訂用帳戶識別碼和租使用者識別碼。
 
 ## <a name="additional-alert-emails"></a>其他警示電子郵件
 
@@ -36,5 +36,5 @@ ms.locfileid: "68812676"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [查看帳戶摘要](https://docs.azure.cloudsimple.com/account/)
-* [View 使用者清單](https://docs.azure.cloudsimple.com/users/)
+* [查看帳戶摘要](account.md)
+* [View 使用者清單](users.md)

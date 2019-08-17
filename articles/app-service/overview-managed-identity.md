@@ -9,20 +9,17 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a2b8a4e496094c6275710328e70a09376ce0e5fc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297144"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563020"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
-
-> [!NOTE] 
-> 在 Linux 和用於容器的 Web App 上，App Service 的受控識別目前處於預覽狀態。
 
 > [!Important] 
 > 如果您跨越訂用帳戶/租用戶移轉應用程式，App Service 和 Azure Functions 的受控身分識別將無法正常運作。 應用程式將必須取得新的身分識別，這可透過停用並重新啟用功能來實現。 請參閱下方的[移除身分識別](#remove)。 下游資源也必須更新存取原則，才能使用新的身分識別。
@@ -30,8 +27,8 @@ ms.locfileid: "68297144"
 此主題示範如何為 App Service 和 Azure Functions 應用程式建立受控應用程式身分識別，以及如何使用它來存取其他資源。 Azure Active Directory 的受控身分識別，可讓應用程式輕鬆存取其他受到 AAD 保護的資源 (例如 Azure Key Vault)。 身分識別由 Azure 平台負責管理，因此您不需要佈建或輪替任何密碼。 如需有關 ADD 中受控身分識別的詳細資訊，請參閱 [Azure 資源的受控身分識別](../active-directory/managed-identities-azure-resources/overview.md)。
 
 您的應用程式可以授與兩種類型的身分識別： 
-- **系統指派的身分識別**會繫結至您的應用程式，如果您的應用程式已刪除，則會被刪除。 應用程式只能有一個系統指派的身分識別。 系統指派的身分識別支援通常適用於 Windows 應用程式。 
-- **使用者指派的身分識別**是一個獨立的 Azure 資源，可以指派給您的應用程式。 應用程式可以有多個使用者指派的身分識別。 針對所有應用程式類型，使用者指派的身分識別處於預覽狀態。
+- **系統指派的身分識別**會繫結至您的應用程式，如果您的應用程式已刪除，則會被刪除。 應用程式只能有一個系統指派的身分識別。
+- **使用者指派的身分識別**是一個獨立的 Azure 資源，可以指派給您的應用程式。 應用程式可以有多個使用者指派的身分識別。
 
 ## <a name="adding-a-system-assigned-identity"></a>新增系統指派的身分識別
 
@@ -43,11 +40,11 @@ ms.locfileid: "68297144"
 
 1. 像平常一樣在入口網站中建立應用程式。 在入口網站中瀏覽至該應用程式。
 
-2. 如果您使用函式應用程式，請瀏覽至 [平台功能]  。 若使用類型的應用程式，請在左側導覽列中向下捲動到 [設定]  。
+2. 如果您使用函式應用程式，請瀏覽至 [平台功能]。 若使用類型的應用程式，請在左側導覽列中向下捲動到 [設定]。
 
-3. 選取 [受控身分識別]  。
+3. 選取 [受控身分識別]。
 
-4. 在 [系統指派]  索引標籤內，將 [狀態]  切換為 [開啟]  。 按一下 [儲存]  。
+4. 在 [系統指派] 索引標籤內，將 [狀態] 切換為 [開啟]。 按一下 [儲存]。
 
 ![App Service 中的受控身分識別](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -158,17 +155,11 @@ ms.locfileid: "68297144"
 其中，`<TENANTID>` 和 `<PRINCIPALID>` 會取代為 GUID。 tenantId 屬性能辨識身分識別所隸屬的 AAD 租用戶。 principalId 是應用程式新身分識別的唯一識別碼。 在 AAD 內，服務主體的名稱與您提供給 App Service 或 Azure Functions 執行個體的名稱相同。
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>新增使用者指派的身分識別 (預覽)
-
-> [!NOTE] 
-> 使用者指派的身分識別目前處於預覽狀態。 目前尚不支援主權雲端。
+## <a name="adding-a-user-assigned-identity"></a>新增使用者指派的身分識別
 
 利用使用者指派的身分識別建立應用程式會需要您建立身分識別，然後將其資源識別碼新增到您的應用程式設定中。
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
-
-> [!NOTE] 
-> 正在部署此入口網站體驗，但可能尚未在所有區域提供。
 
 首先，您必須建立使用者指派的身分識別資源。
 
@@ -176,13 +167,13 @@ ms.locfileid: "68297144"
 
 2. 像平常一樣在入口網站中建立應用程式。 在入口網站中瀏覽至該應用程式。
 
-3. 如果您使用函式應用程式，請瀏覽至 [平台功能]  。 若使用類型的應用程式，請在左側導覽列中向下捲動到 [設定]  。
+3. 如果您使用函式應用程式，請瀏覽至 [平台功能]。 若使用類型的應用程式，請在左側導覽列中向下捲動到 [設定]。
 
-4. 選取 [受控身分識別]  。
+4. 選取 [受控身分識別]。
 
-5. 在 [使用者指派 (預覽)]  索引標籤中，按一下 [新增]  。
+5. 在 [**使用者指派**] 索引標籤中, 按一下 [**新增**]。
 
-6. 搜尋您之前建立的身分識別，並加以選取。 按一下 [新增]  。
+6. 搜尋您之前建立的身分識別，並加以選取。 按一下 [新增]。
 
 ![App Service 中的受控身分識別](media/app-service-managed-service-identity/msi-blade-user.png)
 
@@ -314,7 +305,7 @@ Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName
 
 **MSI_ENDPOINT** 是應用程式要求權杖的來源本機 URL。 若要取得資源的權杖，請向該端點提出包含以下參數的 HTTP GET 要求：
 
-> |參數名稱|在|描述|
+> |參數名稱|入|描述|
 > |-----|-----|-----|
 > |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
 > |api-version|查詢|要使用的權杖 API 版本。 目前唯一支援的版本為 "2017-09-01"。|
@@ -388,6 +379,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>在 Python 中:
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>以 PowerShell 提出：

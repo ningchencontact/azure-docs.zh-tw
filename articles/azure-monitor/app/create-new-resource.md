@@ -10,46 +10,46 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 08/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9da52e5a9dfa3b55431d66ed3162172226f71a40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae9c885b342664baf90f9c2b5702a092c9d838df
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073264"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562849"
 ---
 # <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 
-Azure Application Insights 會在 Microsoft Azure「資源」  中顯示您應用程式的相關資料。 因此，建立新的資源是屬於[設定 Application Insights 以監視新應用程式][start]的一環。 您已建立新的資源之後，您可以取得其檢測金鑰，並使用它來設定 Application Insights SDK。 檢測金鑰會連結至資源的遙測資料。
+Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用程式的相關資料。 因此, 建立新的資源是[設定 Application Insights 以監視新應用程式][start]的一部分。 建立新資源之後, 您可以取得其檢測金鑰, 並使用它來設定 Application Insights SDK。 檢測金鑰會將您的遙測連結至資源。
 
-## <a name="sign-in-to-microsoft-azure"></a>登入 Microsoft Azure
+## <a name="sign-in-to-microsoft-azure"></a>登入以 Microsoft Azure
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 
-登入[Azure 入口網站](https://portal.azure.com)，然後建立 Application Insights 資源：
+登入[Azure 入口網站](https://portal.azure.com), 並建立 Application Insights 資源:
 
-![按一下左上角中的 '+' 號。 選取後面跟著 Application Insights 的開發人員工具](./media/create-new-resource/new-app-insights.png)
+![按一下左上角的 [+] 符號。 依序選取 開發人員工具 和 Application Insights](./media/create-new-resource/new-app-insights.png)
 
    | 設定        |  值           | 描述  |
    | ------------- |:-------------|:-----|
-   | **名稱**      | 通用唯一值 | 識別您要監視的應用程式的名稱。 |
-   | **資源群組**     | myResourceGroup      | 新的或現有的資源群組來裝載 App Insights 資料的名稱。 |
-   | **Location** | East US | 選擇您附近的位置，或接近託管您的應用程式。 |
+   | **名稱**      | 通用唯一值 | 識別您要監視之應用程式的名稱。 |
+   | **資源群組**     | myResourceGroup      | 要裝載 App Insights 資料的新或現有資源群組的名稱。 |
+   | **位置** | East US | 選擇您附近或接近應用程式裝載位置的位置。 |
 
-必要的欄位中，輸入適當的值，然後選取**檢閱 + 建立**。
+在必要欄位中輸入適當的值, 然後選取 [**審查 + 建立**]。
 
-![必要的欄位中輸入值，然後選取 [檢閱 + 建立]。](./media/create-new-resource/review-create.png)
+![在 [必要欄位] 中輸入值, 然後選取 [審查 + 建立]。](./media/create-new-resource/review-create.png)
 
-建立您的應用程式後，便會開啟一個新的窗格。 此窗格是在其中您看到效能和使用量資料的受監視應用程式。 
+當您的應用程式已建立時, 新的窗格隨即開啟。 此窗格可讓您查看受監視應用程式的效能和使用量資料。 
 
 ## <a name="copy-the-instrumentation-key"></a>複製檢測金鑰
 
-檢測金鑰會識別您想要關聯您的遙測資料的資源。 您必須複製到將檢測金鑰新增至您的應用程式程式碼。
+檢測金鑰會識別您想要與遙測資料建立關聯的資源。 您將需要 [複製], 才能將檢測金鑰新增至應用程式的程式碼。
 
-![按一下，然後複製檢測金鑰](./media/create-new-resource/instrumentation-key.png)
+![按一下並複製檢測金鑰](./media/create-new-resource/instrumentation-key.png)
 
 ## <a name="install-the-sdk-in-your-app"></a>在應用程式中安裝 SDK
 
@@ -57,10 +57,105 @@ Azure Application Insights 會在 Microsoft Azure「資源」  中顯示您應�
 
 使用檢測金鑰來設定[您在應用程式中安裝的 SDK][start]。
 
-SDK 包含傳送遙測資料，而不必撰寫任何額外的程式碼的標準模組。 若要更詳細追蹤使用者動作或診斷問題，請[使用 API][api] 來傳送您自己的遙測。
+SDK 包含可傳送遙測資料的標準模組, 而您不需要撰寫任何額外的程式碼。 若要追蹤使用者動作或更詳細地診斷問題, 請[使用 API][api]來傳送您自己的遙測。
 
 ## <a name="creating-a-resource-automatically"></a>自動建立資源
-您可以撰寫 [PowerShell 指令碼](../../azure-monitor/app/powershell.md) 來自動建立資源。
+
+### <a name="powershell"></a>PowerShell
+
+建立新 Application Insights 資源
+
+```powershell
+New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [-Kind <String>]
+ [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+#### <a name="example"></a>範例
+
+```powershell
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
+```
+#### <a name="results"></a>結果
+
+```powershell
+Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
+ResourceGroupName  : testgroup
+Name               : test1027
+Kind               : web
+Location           : eastus
+Type               : microsoft.insights/components
+AppId              : 8323fb13-32aa-46af-b467-8355cf4f8f98
+ApplicationType    : web
+Tags               : {}
+CreationDate       : 10/27/2017 4:56:40 PM
+FlowType           :
+HockeyAppId        :
+HockeyAppToken     :
+InstrumentationKey : 00000000-aaaa-bbbb-cccc-dddddddddddd
+ProvisioningState  : Succeeded
+RequestSource      : AzurePowerShell
+SamplingPercentage :
+TenantId           : {subid}
+```
+
+如需此 Cmdlet 的完整 PowerShell 檔, 並瞭解如何取得檢測金鑰, 請參閱[Azure PowerShell 檔](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0)。
+
+### <a name="azure-cli-preview"></a>Azure CLI (預覽)
+
+若要存取預覽 Application Insights 您必須先執行的 Azure CLI 命令:
+
+```azurecli
+ az extension add -n application-insights
+```
+
+如果您未執行`az extension add`命令, 您會看到一則錯誤訊息, 指出:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+
+現在您可以執行下列程式來建立您的 Application Insights 資源:
+
+```azurecli
+az monitor app-insights component create --app
+                                         --location
+                                         --resource-group
+                                         [--application-type]
+                                         [--kind]
+                                         [--tags]
+```
+
+#### <a name="example"></a>範例
+
+```azurecli
+az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+```
+
+#### <a name="results"></a>結果
+
+```azurecli
+az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+{
+  "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
+  "applicationId": "demoApp",
+  "applicationType": "web",
+  "creationDate": "2019-08-16T18:15:59.740014+00:00",
+  "etag": "\"0300edb9-0000-0100-0000-5d56f2e00000\"",
+  "flowType": "Bluefield",
+  "hockeyAppId": null,
+  "hockeyAppToken": null,
+  "id": "/subscriptions/{subid}/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
+  "instrumentationKey": "00000000-aaaa-bbbb-cccc-dddddddddddd",
+  "kind": "web",
+  "location": "eastus",
+  "name": "demoApp",
+  "provisioningState": "Succeeded",
+  "requestSource": "rest",
+  "resourceGroup": "demoApp",
+  "samplingPercentage": null,
+  "tags": {},
+  "tenantId": {tenantID},
+  "type": "microsoft.insights/components"
+}
+```
+
+如需此命令的完整 Azure CLI 檔, 並瞭解如何取得檢測金鑰, 請參閱[Azure CLI 檔](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)。
 
 ## <a name="next-steps"></a>後續步驟
 * [診斷搜尋](../../azure-monitor/app/diagnostic-search.md)
