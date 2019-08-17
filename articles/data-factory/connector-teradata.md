@@ -321,8 +321,8 @@ Data Factory Teradata 連接器會提供內建的資料分割, 以平行方式�
 | Period (含時區的時間戳記) |不支援。 在來源查詢中套用明確轉換。 |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| 時區的時間 |TimeSpan |
-| 時間戳記 |DateTime |
+| Time With Time Zone |TimeSpan |
+| Timestamp |DateTime |
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |
 | VarChar |String |
