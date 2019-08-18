@@ -101,11 +101,9 @@
         - name: 管理 CloudSimple 入口網站帳戶
           items:
             - name: 檢視帳戶摘要
-              href: 'https://docs.azure.cloudsimple.com/account/'
+              href: account.md
             - name: 檢視使用者清單
-              href: 'https://docs.azure.cloudsimple.com/users/'
-            - name: 檢視使用量記錄
-              href: 'https://docs.azure.cloudsimple.com/usage/'
+              href: users.md
             - name: 設定對私人雲端的虛擬網路連線
               href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
             - name: 編輯使用者設定檔
@@ -129,7 +127,7 @@
             - name: 內部部署與私人雲端之間的 VPN 連線
               href: set-up-vpn.md
             - name: 透過 ExpressRoute 的內部部署網路連線
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: 透過 ExpressRoute 的 Azure 虛擬網路連線
               href: azure-expressroute-connection.md
         - name: VMware 平台

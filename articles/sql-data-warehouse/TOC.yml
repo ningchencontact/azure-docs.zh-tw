@@ -22,20 +22,6 @@
       href: release-notes-10-0-10106-0.md
     - name: Gen2 區域升級排程
       href: gen2-migration-schedule.md
-    - name: 封存的版本資訊
-      items:
-        - name: 2018 年 9 月
-          href: release-notes-september-2018.md
-        - name: 2018 年 8 月
-          href: release-notes-august-2018.md
-        - name: 2018 年 7 月
-          href: release-notes-july-2018.md
-        - name: 2018 年 6 月
-          href: release-notes-june-2018.md
-        - name: 2018 年 5 月
-          href: release-notes-may-2018.md
-        - name: 2018 年 4 月
-          href: release-notes-april-2018.md
 - name: 快速入門
   expanded: true
   items:
