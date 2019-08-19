@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 07/05/2019
-ms.openlocfilehash: 3b9a9f4ac1cf0722ab7d3838f0b0c4c12b47dc74
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: HT
+ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566803"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515293"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器 (預覽)
 
@@ -281,7 +281,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>資源限制
 
-如需資源限制，請參閱[無伺服器計算層級](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
+如需資源限制, 請參閱[無伺服器計算層](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。
 
 ## <a name="billing"></a>帳務
 
@@ -324,4 +324,4 @@ Get-AzSqlDatabase `
 ## <a name="next-steps"></a>後續步驟
 
 - 若要開始使用，請參閱[快速入門：使用 Azure 入口網站在 Azure SQL Database 中建立單一資料庫](sql-database-single-database-get-started.md)。
-- 如需資源限制，請參閱[無伺服器計算層級資源限制](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)。
+- 如需資源限制，請參閱[無伺服器計算層級資源限制](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)。

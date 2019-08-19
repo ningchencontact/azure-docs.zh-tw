@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: HT
+ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383441"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563313"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 
@@ -270,6 +270,9 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 Azure Fun
 | 最大批次計數  |屬性, 可讓您指定每個批次中傳送至 Azure Functions 的最大事件數目。 預設值是 100。 |
 
 當 Azure 串流分析從 Azure 函式收到 413 (「HTTP 要求實體太大」) 例外狀況時, 它會減少傳送到 Azure Functions 的批次大小。 在 Azure 函式程式碼中，使用這個例外狀況可確保 Azure 串流分析不會傳送過大的批次。 此外, 請確定函式中所使用的批次計數和大小上限值, 與串流分析入口網站中輸入的值一致。
+
+> [!NOTE]
+> 在測試連接期間, 串流分析會將空的批次傳送至 Azure Functions, 以測試兩者之間的連接是否有效。 請確定您的函式應用程式會處理空的批次要求, 以確保測試連接通過。
 
 此外, 在某個時間範圍內沒有任何事件登陸的情況下, 不會產生任何輸出。 因此, 不會呼叫**computeResult**函數。 此行為與內建的視窗型彙總函式一致。
 
