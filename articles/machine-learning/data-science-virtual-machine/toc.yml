@@ -6,8 +6,6 @@
   items:
     - name: 什麼是資料科學 VM？
       href: overview.md
-    - name: 什麼是深度學習 VM？
-      href: deep-learning-dsvm-overview.md
     - name: 什麼是地區人工智慧資料科學虛擬機器 (Geo AI Data Science VM)？
       href: geo-ai-dsvm-overview.md
 - name: 快速入門
@@ -23,8 +21,6 @@
       href: provision-geo-ai-dsvm.md
 - name: 概念
   items:
-    - name: 探索 DSVM
-      href: dsvm-tools-overview.md
     - name: 深度學習和 AI 架構
       href: dsvm-deep-learning-ai-frameworks.md
     - name: 程式設計語言
@@ -49,8 +45,6 @@
       href: vm-do-ten-things.md
     - name: 使用 Linux DSVM
       href: linux-dsvm-walkthrough.md
-    - name: 使用深度學習 VM
-      href: use-deep-learning-dsvm.md
     - name: 使用 Geo AI DSVM
       href: use-geo-ai-dsvm.md
     - name: 建立自動調整 DSVM 集區
