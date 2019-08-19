@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 2bfca370e8e89d98f700c8c5adfd29129e810d9b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 460199c1958e3bb22148624b9f013eadbb707bd2
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173744"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69564344"
 ---
 1. 選取 Azure 入口網站左上角的 [建立資源]  按鈕，然後選取 [計算]   > [函式應用程式]  。
 
@@ -28,7 +28,7 @@ ms.locfileid: "67173744"
     | **應用程式名稱** | 全域唯一的名稱 | 用以識別新函式應用程式的名稱。 有效字元是 `a-z`、`0-9` 和 `-`。  | 
     | **訂用帳戶** | 您的訂用帳戶 | 將在其下建立這個新函式應用程式的訂用帳戶。 | 
     | **[資源群組](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 要在其中建立函式應用程式的新資源群組名稱。 |
-    | **作業系統** | Windows | Linux 上的無伺服器裝載目前處於預覽階段。 如需詳細資訊，請參閱[此文章](https://aka.ms/funclinux)，了解各項應考量的內容。|
+    | **作業系統** | Windows | 可用的語言選項取決於函式應用程式的作業系統。 例如，Python 需要 Linux。 |
     | **[主控方案](../articles/azure-functions/functions-scale.md)** | 取用方案 | 會定義如何將資源配置給函式應用程式的主控方案。 在預設**取用方案**中，您的函式會根據需要來動態新增資源。 在此[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)裝載中，您只需要針對函式有執行的時間來付費。 在 App Service 方案中執行時，您必須管理[函式應用程式的調整](../articles/azure-functions/functions-scale.md)。  |
     | **位置** | 西歐 | 選擇與您接近的[區域](https://azure.microsoft.com/regions/)，或選擇與函式將會存取之其他服務接近的區域。 |
     | **執行階段堆疊** | 慣用語言 | 選擇支援您慣用函式程式設計語言的執行階段。 針對 C# 和 F # 函式選擇 **.NET**。 |

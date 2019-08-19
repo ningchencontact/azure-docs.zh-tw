@@ -5,67 +5,67 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29188013b75dbefbaf80f3c59360f203ae5b5a82
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192332"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736739"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
-使用向外延展，用戶端查詢可以分散到多個*查詢複本*中*查詢集區*，縮短高查詢工作負載期間的回應時間。 您也可以將處理作業從查詢集區中區隔出來，確保用戶端查詢不會受到處理作業的不良影響。 可以利用 Azure 入口網站或 Analysis Services REST API 設定擴充。
+使用向外延展時, 用戶端查詢可以分散于*查詢集*區中的多個*查詢複本*, 以減少高查詢工作負載期間的回應時間。 您也可以將處理作業從查詢集區中區隔出來，確保用戶端查詢不會受到處理作業的不良影響。 可以利用 Azure 入口網站或 Analysis Services REST API 設定擴充。
 
 標準定價層中的伺服器可以使用擴充。 每個查詢複本會以您伺服器的相同費率計費。 所有查詢複本都會建立在與伺服器相同的區域內。 您可以設定的查詢複本數目受限於您伺服器所在的區域。 若要深入了解，請參閱[依區域的可用性](analysis-services-overview.md#availability-by-region)。 擴充不會增加您伺服器的可用記憶體量。 若要增加記憶體則需升級方案。 
 
-## <a name="why-scale-out"></a>為什麼向外延展？
+## <a name="why-scale-out"></a>為何要相應放大？
 
 在一般伺服器部署中，一部伺服器會作為處理伺服器和查詢伺服器使用。 如果伺服器上對應模型的用戶端查詢數量超過伺服器方案的查詢處理器 (QPU)，或是模型的處理作業與高度的查詢工作負載同時發生，則效能可能會降低。 
 
-使用向外延展，您可以建立最多七個額外查詢複本資源的查詢集區 (八個總計，包括您*主要*伺服器)。 您可以調整以符合關鍵時刻的 QPU 需求查詢集區中的複本數目，您可以在任何時間分隔將處理伺服器與查詢集區。 
+使用向外延展時, 您可以建立包含多達7個額外查詢複本資源的查詢集區 (總共八個, 包括您的*主*伺服器)。 您可以調整查詢集區中的複本數目, 以符合關鍵時間的 QPU 需求, 而且您可以隨時將處理伺服器與查詢集區分開。 
 
-無論您在查詢集區中擁有多少個查詢複本，處理工作負載都不會分散在各查詢複本之間。 主要伺服器做為處理伺服器。 查詢複本服務只能針對主要伺服器與查詢集區中的每個複本之間同步處理的模型資料庫的查詢。 
+無論您在查詢集區中擁有多少個查詢複本，處理工作負載都不會分散在各查詢複本之間。 主伺服器可作為處理伺服器。 查詢複本只會針對在主伺服器與查詢集區中的每個複本之間同步處理的模型資料庫提供查詢。 
 
-當相應放大，可能需要五分鐘的時間以累加方式新增至查詢集區的新查詢複本。 當所有新的查詢複本都已啟動並執行，新的用戶端連線進行負載平衡所有查詢集區中的資源。 現有的用戶端連線仍會連接到目前的資源，而不會變更。 在相應縮小時，若有用戶端連線至要從查詢集區中移除的查詢集區資源，其現有的連線一律會終止。 用戶端可以重新連線到其餘的查詢集區資源。
+相應放大時, 最多可能需要五分鐘的時間, 新的查詢複本才會累加加入至查詢集區。 當所有新的查詢複本都已啟動並執行時, 新的用戶端連接會在查詢集區中的資源間進行負載平衡。 現有的用戶端連線仍會連接到目前的資源，而不會變更。 在相應縮小時，若有用戶端連線至要從查詢集區中移除的查詢集區資源，其現有的連線一律會終止。 用戶端可以重新連接到其餘的查詢集區資源。
 
 ## <a name="how-it-works"></a>運作方式
 
-設定向外延展第一次，主要伺服器上的模型資料庫時*自動*與新的查詢集區中的新複本進行同步處理。 自動同步處理只出現一次。 自動同步處理期間，會複製到第二個位置，也會在 blob 儲存體中的待用加密的主要伺服器的資料檔案 （blob 儲存體中靜止加密）。 查詢集區中的複本就*會提供*第二組的檔案中的資料。 
+第一次設定相應放大時, 主伺服器上的模型資料庫會*自動*與新的查詢集區中的新複本同步處理。 自動同步處理只會執行一次。 在自動同步處理期間, 主伺服器的資料檔案 (blob 儲存體中的待用加密) 會複製到第二個位置, 也會在 blob 儲存體中待用加密。 然後會使用第二組檔案中的資料來*序列化*查詢集區中的複本。 
 
-只有當您向外延展伺服器第一次執行時自動同步處理，而您也可以執行手動同步處理。 同步處理，可確保在查詢集區中的複本上的資料，使其符合主要伺服器。 在處理 （重新整理） 模型，在主要伺服器上的時，必須執行同步處理*之後*完成處理作業。 這項同步處理會將更新的資料從 blob 儲存體中的主要伺服器的檔案複製到第二組的檔案。 查詢集區中的複本會接著會提供 blob 儲存體中檔案的第二組的更新資料。 
+只有當您第一次向外延展伺服器時, 才會執行自動同步處理, 您也可以執行手動同步處理。 同步處理可確保查詢集區中複本上的資料與主伺服器相符。 在主伺服器上處理 (重新整理) 模型時, 必須在處理作業完成*後*執行同步處理。 這項同步處理會將更新的資料從 blob 儲存體中的主伺服器檔案複製到第二組檔案。 接著, 會使用 blob 儲存體中第二組檔案的更新資料來序列化查詢集區中的複本。 
 
-執行後續的向外延展作業時，比方說，從 2 到 5，查詢集區中的複本數目增加新的複本會會提供第二組的 blob 儲存體中的檔案中的資料。 沒有任何同步處理。 如果您要再執行同步處理之後會相應放大，在查詢集區中的新複本會提供兩次： 備援的序列化。 執行後續的向外延展作業時，務必要牢記在心：
+例如, 在執行後續的向外延展作業時, 將查詢集區中的複本數目從二增加到五個, 新的複本會以 blob 儲存體中第二組檔案的資料進行序列化。 沒有同步處理。 如果您接著在相應放大後執行同步處理, 則查詢集區中的新複本會序列化兩次-一項多餘的序列化。 執行後續的向外延展作業時, 請務必記住:
 
-* 執行同步處理*向外延展作業之前*以避免加入複本的備援序列化。 不允許並行的同步處理和在相同時間執行的相應放大作業。
+* *在相應放大作業之前*執行同步處理, 以避免新增複本的重複序列化。 不允許同時執行的並行同步處理和相應放大作業。
 
-* 自動化這兩個處理時*和*相應放大作業，請務必先處理資料的主要伺服器，然後執行同步處理，然後執行向外延展作業。 此順序可確保在 QPU 及記憶體資源的影響降到最低。
+* 將處理*和*相應放大作業自動化時, 請務必先在主伺服器上處理資料, 然後執行同步處理, 然後執行相應放大操作。 此順序會確保對 QPU 和記憶體資源的影響最小。
 
-* 即使在查詢集區中都沒有複本時，才允許同步處理。 如果您從零到一或多個複本，以新的資料從主要伺服器上的處理作業相應放大，第一次執行與查詢集區中的任何複本的同步處理，然後向外延展。同步處理之前向外擴充，可避免備援序列化的新加入的複本。
+* 即使查詢集區中沒有任何複本, 也允許同步處理。 如果您要從零向外延展到一個或多個複本, 並在主伺服器上處理作業的新資料, 請先執行同步處理, 而不要在查詢集區中使用任何複本, 然後再向外延展。在相應放大之前進行同步處理, 可避免新加入複本的重複序列化。
 
-* 從主要伺服器中刪除的模型資料庫，它不會不會自動取得從刪除查詢集區中的複本。 您必須使用來執行同步處理作業[同步 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 命令移除該資料庫的檔案/秒從複本共用的 blob 儲存體位置，然後刪除模型在查詢集區中的複本上的資料庫。 若要判斷模型的資料庫是否存在查詢集區中的複本，但不是能在主要伺服器，請確定**分開處理伺服器查詢集區**設定為 **是**。 然後使用 SSMS 連接到主要伺服器使用`:rw`資料庫是否存在的辨識符號。 然後藉由連接而不需要連接的查詢集區中的複本`:rw`限定詞是否也已有相同的資料庫。 如果資料庫存在，查詢集區中的複本，但不是在主要伺服器上，執行同步處理作業。   
+* 從主伺服器刪除模型資料庫時, 不會自動從查詢集區中的複本刪除它。 您必須執行同步處理作業, 方法是使用[AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 命令, 從複本的共用 blob 儲存位置移除該資料庫的檔案, 然後刪除複本上的 model 資料庫。在查詢集區中。 若要判斷模型資料庫是否存在於查詢集區中的複本上, 但不在主伺服器上, 請確定 [**從查詢集區中個別的處理伺服器**] 設定為 **[是]** 。 然後使用此`:rw`辨識符號, 透過 SSMS 連接到主伺服器, 以查看資料庫是否存在。 然後連接到查詢集區中的複本, 方法是`:rw`不使用限定詞連接, 以查看相同的資料庫是否也存在。 如果資料庫存在於查詢集區中的複本上, 而不是在主伺服器上, 請執行同步作業。   
 
-* 重新命名時的主要伺服器上的資料庫，但沒有額外的步驟，必須確保資料庫正確同步處理至任何複本。 在重新命名之後，請使用執行同步處理[同步 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)命令，並指定`-Database`使用舊的資料庫名稱的參數。 這項同步處理將移除任何複本的資料庫與舊名稱的檔案。 然後執行 另一個同步處理指定`-Database`與新的資料庫名稱的參數。 第二個同步處理會將新命名的資料庫複製到第二組的檔案，並會產生任何複本。 無法使用入口網站中的同步處理模型命令執行這些同步處理。
+* 重新命名主伺服器上的資料庫時, 需要額外的步驟, 以確保資料庫已正確地同步處理至任何複本。 重新命名之後, 請使用[AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)命令來指定具有舊資料庫名稱的`-Database`參數, 以執行同步處理。 這個同步處理會從任何複本移除具有舊名稱的資料庫和檔案。 然後執行另一個同步處理`-Database` , 並指定具有新資料庫名稱的參數。 第二次同步處理會將新命名的資料庫複製到第二組檔案, 並會產生任何複本。 無法使用入口網站中的 [同步處理模型] 命令來執行這些同步作業。
 
 ### <a name="separate-processing-from-query-pool"></a>與查詢集區分開處理
 
-若要讓處理和查詢作業達到最佳效能，您可以選擇將處理伺服器和查詢集區區隔開來。 分隔，新的用戶端連線會指派給只查詢集區中的查詢複本。 如果處理作業短時間即可完成，您可以選擇只在執行處理和同步處理作業的期間內區隔處理伺服器與查詢集區，且隨後就將它重新納入查詢集區中。 區隔處理伺服器與查詢集區，或將它送回查詢集區時，可能需要五分鐘的時間才能完成作業。
+若要讓處理和查詢作業達到最佳效能，您可以選擇將處理伺服器和查詢集區區隔開來。 分隔時, 新的用戶端連接只會指派給查詢集區中的查詢複本。 如果處理作業短時間即可完成，您可以選擇只在執行處理和同步處理作業的期間內區隔處理伺服器與查詢集區，且隨後就將它重新納入查詢集區中。 將處理伺服器與查詢集區分開, 或將其新增回查詢集區時, 最多可能需要五分鐘的時間才能完成作業。
 
 ## <a name="monitor-qpu-usage"></a>監視 QPU 使用量
 
 若要判斷您的伺服器是否需要擴充，請使用計量在 Azure 入口網站中監視您的伺服器。 如果您的 QPU 經常超出最大值，表示對應模型的查詢數目超出方案的 QPU 限制。 查詢執行緒集區佇列中的查詢數目超過可用 QPU 時，查詢集區作業佇列長度計量也會增加。 
 
-要監看另一個很好的計量是由 ServerResourceType 平均 QPU。 此計量會比較的查詢集區的主要伺服器的平均 QPU。 
+另一個要監看的良好度量是 ServerResourceType 的平均 QPU。 此度量會比較主伺服器與查詢集區的平均 QPU。 
 
-![查詢相應放大的計量](media/analysis-services-scale-out/aas-scale-out-monitor.png)
+![查詢相應放大計量](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### <a name="to-configure-qpu-by-serverresourcetype"></a>若要設定透過 ServerResourceType QPU
-1. 在 計量折線圖中，按一下 **新增計量**。 
-2. 在**資源**，選取您的伺服器，然後在**度量命名空間**，選取**Analysis Services 的標準計量**，然後在**計量**，選取  **QPU**，然後在**彙總**，選取**Avg**。 
-3. 按一下 **適用於分割**。 
-4. 在 **值**，選取**ServerResourceType**。  
+### <a name="to-configure-qpu-by-serverresourcetype"></a>若要設定 QPU by ServerResourceType
+1. 在 [計量] 折線圖中, 按一下 [**新增度量**]。 
+2. 在**資源** 中選取您的伺服器, 然後在 計量**命名空間** 中選取  **Analysis Services 標準計量**, 然後在 **度量** 中選取  **QPU**, 然後在 **匯總** 中選取  **Avg** 
+3. 按一下 [套用**分割**]。 
+4. 在 [**值**] 中, 選取 [ **ServerResourceType**]。  
 
 若要深入了解，請參閱[監視伺服器計量](analysis-services-monitor.md)。
 
@@ -73,23 +73,23 @@ ms.locfileid: "65192332"
 
 ### <a name="in-azure-portal"></a>Azure 入口網站
 
-1. 在入口網站中，按一下 [擴充]  。使用滑桿選取查詢複本伺服器的數目。 所選擇的複本數目不包括現有的伺服器。
+1. 在入口網站中，按一下 [擴充]。使用滑桿選取查詢複本伺服器的數目。 所選擇的複本數目不包括現有的伺服器。  
 
-2. 在 [Separate the processing server from the querying pool]\(區隔處理伺服器與查詢集區\)  中，選取 [是] 以將處理伺服器從查詢伺服器排除。 用戶端[連線](#connections)使用的預設連接字串 (不含`:rw`) 會被重新導向查詢集區中的複本。 
+2. 在 [Separate the processing server from the querying pool]\(區隔處理伺服器與查詢集區\) 中，選取 [是] 以將處理伺服器從查詢伺服器排除。 使用預設連接字串 (不含`:rw`) 的用戶端[連接](#connections)會重新導向至查詢集區中的複本。 
 
    ![擴充滑桿](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
-3. 按一下 [儲存]  以佈建您的新查詢複本伺服器。 
+3. 按一下 [儲存] 以佈建您的新查詢複本伺服器。 
 
-當設定向外延展伺服器第一次，主要伺服器上的模型會自動同步處理的查詢集區中的複本。 一次，當您第一次設定向外延展至一或多個複本，才會發生自動同步處理。 在相同伺服器上的複本數目的後續變更*不會觸發另一個自動同步處理*。 即使您設為零的複本，然後再向外延展至任意數目的複本伺服器，不會再次發生自動同步處理。 
+第一次為伺服器設定相應放大時, 主伺服器上的模型會自動與查詢集區中的複本同步處理。 只有當您第一次設定一個或多個複本的相應放大時, 自動同步處理才會發生一次。 對相同伺服器上的複本數目所做的後續變更,*將不會觸發另一個自動同步*處理。 即使您將伺服器設定為零個複本, 然後再次向外延展到任何數目的複本, 自動同步處理也不會再次發生。 
 
-## <a name="synchronize"></a>同步處理 
+## <a name="synchronize"></a>同步化 
 
-必須執行同步處理作業，以手動方式或使用 REST API。
+同步處理作業必須以手動方式或使用 REST API 來執行。
 
 ### <a name="in-azure-portal"></a>Azure 入口網站
 
-在 [概觀]  > [模型] > [同步處理模型]  中。
+在 [概觀] > [模型] > [同步處理模型] 中。
 
 ![擴充滑桿](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
@@ -105,16 +105,16 @@ ms.locfileid: "65192332"
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
-會傳回狀態碼：
+傳回狀態碼:
 
 
 |程式碼  |描述  |
 |---------|---------|
 |-1     |  無效       |
-|0     | 複寫        |
+|0     | 正在複寫        |
 |1     |  解除凍結       |
 |2     |   已完成       |
-|3     |   Failed      |
+|3     |   已失敗      |
 |4     |    正在完成     |
 |||
 
@@ -123,15 +123,15 @@ ms.locfileid: "65192332"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-使用 PowerShell 之前,[安裝或更新的最新的 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 
+使用 PowerShell 之前, 請[安裝或更新最新的 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 
 
-若要執行同步處理，請使用[同步 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)。
+若要執行同步處理, 請使用[同步處理-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)。
 
-若要設定查詢複本的數目，請使用[組 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
+若要設定查詢複本的數目, 請使用[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
 
-若要個別處理伺服器與查詢集區，使用[組 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定選擇性`-DefaultConnectionMode`參數來使用`Readonly`。
+若要將處理伺服器與查詢集區分開, 請使用[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定要使用`-DefaultConnectionMode` `Readonly`的選擇性參數。
 
-若要進一步了解，請參閱[Az.AnalysisServices 模組搭配使用服務主體](analysis-services-service-principal.md#azmodule)。
+若要深入瞭解, 請參閱[使用服務主體搭配 Az microsoft.analysisservices 模組](analysis-services-service-principal.md#azmodule)。
 
 ## <a name="connections"></a>連接
 
@@ -139,15 +139,19 @@ ms.locfileid: "65192332"
 
 若為使用者用戶端連線 (如 Power BI Desktop、Excel 以及自訂應用程式)，請使用**伺服器名稱**。 
 
-若為 SSMS、SSDT，以及 PowerShell、Azure 函數應用程式和 AMO 中的連接字串，請使用**管理伺服器名稱**。 管理伺服器名稱包含特殊 `:rw` (讀寫) 限定詞。 所有的處理作業皆發生在 （主要） 的管理伺服器上。
+若為 SSMS、SSDT，以及 PowerShell、Azure 函數應用程式和 AMO 中的連接字串，請使用**管理伺服器名稱**。 管理伺服器名稱包含特殊 `:rw` (讀寫) 限定詞。 所有處理作業都是在 (主要) 管理伺服器上進行。
 
 ![伺服器名稱](media/analysis-services-scale-out/aas-scale-out-name.png)
 
+## <a name="scale-up-scale-down-vs-scale-out"></a>向上擴充、相應減少與向外延展
+
+您可以在具有多個複本的伺服器上變更定價層。 相同的定價層會套用至所有複本。 調整規模作業會先將所有複本一次關閉, 然後在新的定價層上顯示所有複本。
+
 ## <a name="troubleshoot"></a>疑難排解
 
-**問題：** 使用者收到錯誤 [在連線模式 'ReadOnly' 中，找不到伺服器 '\<伺服器名稱>' 執行個體。] 
+**問題：** 使用者收到錯誤 [在連線模式 'ReadOnly' 中，找不到伺服器 '\<伺服器名稱>' 執行個體。]
 
-**解決方案：** 選取時**區隔處理伺服器與查詢集區**選項，用戶端連線使用的預設連接字串 (不含`:rw`) 會重新導向至查詢集區的複本。 如果查詢集區中的複本因為尚未完成同步處理而未上線，則重新導向的用戶端連線可能會失敗。 若要避免連線失敗，則在執行同步處理時，查詢集區中必須有至少兩部伺服器。 每部伺服器會個別同步，而其他伺服器則維持線上狀態。 如果您選擇在處理期間查詢集區中不要有處理中的伺服器，可以選擇從集區中移除該伺服器以供處理，然後在處理完成之後，但在同步處理之前，將它加回集區。 使用記憶體和 QPU 計量來監視同步處理狀態。
+**解決方案：** **從 [查詢集區] 選項選取不同的處理伺服器**時, 使用預設連接字串 (不含`:rw`) 的用戶端連接會重新導向至查詢集區複本。 如果查詢集區中的複本因為尚未完成同步處理而未上線，則重新導向的用戶端連線可能會失敗。 若要避免連線失敗，則在執行同步處理時，查詢集區中必須有至少兩部伺服器。 每部伺服器會個別同步，而其他伺服器則維持線上狀態。 如果您選擇在處理期間查詢集區中不要有處理中的伺服器，可以選擇從集區中移除該伺服器以供處理，然後在處理完成之後，但在同步處理之前，將它加回集區。 使用記憶體和 QPU 計量來監視同步處理狀態。
 
 
 

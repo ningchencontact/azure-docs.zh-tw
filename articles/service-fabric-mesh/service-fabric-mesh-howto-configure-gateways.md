@@ -8,19 +8,18 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583636"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034221"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>設定閘道資源以路由要求
 
@@ -228,8 +227,8 @@ HTTP 路由規則中包含下列屬性：
 ```
 
 此閘道已設定為適用於 Linux 應用程式 "meshAppLinux"，其包含至少兩種服務 "helloWorldService" 和 "counterService"，而服務會接聽連接埠 80。 根據傳入要求的 URL 結構，閘道會將要求路由至這些服務中的其中一個。 
-* 「\<IPAddress >: 80/helloWorld/\<要求\>"會造成要求被導向到在 helloWorldService"helloWorldListener 」。 
-* 「\<IPAddress >: 80/計數器/\<要求\>"會造成要求被導向到在 counterService"counterListener 」。 
+* "\<IPAddress >:80/helloWorld/\<request\>" 會導致要求被導向 helloWorldService 中的 "helloWorldListener"。 
+* "\<IPAddress >:80/counter/\<request\>" 會導致要求被導向至 counterService 中的 "counterListener"。 
 
 ## <a name="next-steps"></a>後續步驟
 * 部署[輸入範例](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress)以查看作用中的閘道

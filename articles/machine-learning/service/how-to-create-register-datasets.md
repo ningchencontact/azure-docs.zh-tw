@@ -1,7 +1,7 @@
 ---
-title: 建立資料集來存取與 azureml 資料集的資料
+title: 建立資料集以使用 azureml-dataset 來存取資料
 titleSuffix: Azure Machine Learning service
-description: 了解如何建立從各種來源的資料集，並向您的工作區中的資料集
+description: 瞭解如何從各種來源建立資料集, 並向您的工作區註冊資料集
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,64 +11,62 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: a879fa17244977277dab3e2e66c5888a44759764
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c5b423fca3e0ec116fceefb6867189f4f8413b96
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444036"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856094"
 ---
-# <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>建立及存取 Azure Machine Learning 中的資料集 （預覽）
+# <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>在 Azure Machine Learning 中建立和存取資料集 (預覽)
 
-在本文中，您將了解如何建立 Azure Machine Learning 資料集 （預覽），以及如何存取本機和遠端的實驗中的資料。
+在本文中, 您將瞭解如何建立 Azure Machine Learning 資料集 (預覽), 以及如何從本機或遠端實驗存取資料。
 
-使用受管理的資料集，您可以： 
-* **輕鬆存取資料，在模型定型期間**而不需要重新連接到基礎存放區
+有了 Azure Machine Learning 資料集, 您可以: 
 
-* **確保資料一致性和重現性**在實驗中使用相同的指標： notebook、 自動化的 ml、 管線、 視覺介面
+* 在資料集所參考的**儲存體中保留一份資料複本**
 
-* **共用資料與共同作業**與其他使用者
+* 透過探索資料分析來**分析資料** 
 
-* **瀏覽資料**（& s) 管理的資料快照集和版本的生命週期
+* **在模型定型期間輕鬆存取資料**, 而不需要擔心連接字串或資料路徑
 
-* **比較資料**訓練，以生產環境
+* **共用資料 &** 與其他使用者共同作業
 
+## <a name="prerequisites"></a>先決條件
 
-## <a name="prerequisites"></a>必要條件
-
-若要建立及使用資料集，您需要：
+若要建立及使用資料集, 您需要:
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-* [Azure 機器學習服務工作區](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
+* [Azure Machine Learning 服務工作區](how-to-manage-workspace.md)
 
-* [機器學習服務適用於 Azure SDK 安裝的 Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)，其中包含資料集的 azureml 封裝。
+* [已安裝適用于 Python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), 其中包括 azureml 資料集封裝。
 
 > [!Note]
-> 某些資料集類別 （預覽） 有相依性[azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)封裝 (GA)。 針對 Linux 使用者，只能在下列散發套件上支援這些類別：Red Hat Enterprise Linux、 Ubuntu、 Fedora 及 CentOS。
+> 某些資料集類別 (預覽) 在[dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)套件 (GA) 上具有相依性。 針對 Linux 使用者, 只有下列散發版本才支援這些類別:Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
 
 ## <a name="data-formats"></a>資料格式
 
-您可以從下列資料來建立 Azure Machine Learning 資料集：
-+ [delimited](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none-)
+您可以從下列格式建立 Azure Machine Learning 資料集:
++ [分隔](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none--partition-format-none-)
++ [json](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false--partition-format-none-)
++ [Excel](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true--partition-format-none-)
++ [Parquet](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false--partition-format-none-)
++ [pandas 資料框架](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-pandas-dataframe-dataframe--path-none--in-memory-false-)
++ [SQL query](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
 + [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
-+ [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
-+ [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
-+ [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
-+ [Azure SQL Database](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
-+ [Azure Data Lake 一般。1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
 
 ## <a name="create-datasets"></a>建立資料集 
 
-您可以與您的資料集使用中的資料集的 azureml 封裝互動[Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)特別[`Dataset`類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py)。
+藉由建立資料集, 您可以建立資料來源位置的參考, 以及其中繼資料的複本。 資料會保留在現有的位置, 因此不會產生額外的儲存成本。
 
-### <a name="create-from-local-files"></a>建立從本機檔案
+### <a name="create-from-local-files"></a>從本機檔案建立
 
-從本機電腦載入檔案，藉由指定的檔案或資料夾的路徑，與[ `auto_read_files()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-)方法從`Dataset`類別。  這個方法不需要您指定的檔案類型，或剖析引數，執行下列步驟：
+藉由使用[`auto_read_files()`](/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false--partition-format-none-) `Dataset`類別的方法指定檔案或資料夾路徑, 從本機電腦載入檔案。  這個方法會執行下列步驟, 而不需要您指定檔案類型或剖析引數:
 
-* 推斷，設定分隔符號。
-* 略過空記錄在檔案頂端。
-* 推斷，設定標頭資料列。
+* 推斷和設定分隔符號。
+* 略過檔案頂端的空白記錄。
+* 推斷和設定標頭資料列。
 * 推斷和轉換資料行資料類型。
 
 ```Python
@@ -77,16 +75,16 @@ from azureml.core.dataset import Dataset
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
 
-或者，使用檔案特有的函式來明確地控制 剖析您的檔案。 
+或者, 使用檔案特有的函式來明確控制檔案的剖析。 
 
 
 ### <a name="create-from-azure-datastores"></a>從 Azure 資料存放區建立
 
-若要從 Azure 資料存放區中建立資料集：
+若要從[Azure 資料](how-to-access-data.md)存放區建立資料集:
 
-* 請確認您擁有`contributor`或`owner`存取已註冊的 Azure 資料存放區。
+* 確認您擁有`contributor`或`owner`已註冊 Azure 資料存放區的存取權。
 
-* 匯入[ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)並[ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition)並`Dataset`來自 SDK 封裝。
+* 藉由參考資料存放區中的路徑來建立資料集 
 
 ```Python
 from azureml.core.workspace import Workspace
@@ -97,20 +95,16 @@ datastore_name = 'your datastore name'
 
 # get existing workspace
 workspace = Workspace.from_config()
-```
 
- `get()`方法會擷取工作區中的現有資料存放區。
-
-```
+# retrieve an existing datastore in the workspace by name
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-使用`from_delimited_files()`讀取分隔的檔案，並建立取消註冊的資料集的方法。
+使用方法，從 [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) 讀取分隔的檔案，並建立未註冊的資料集。`from_delimited_files()`
 
 ```Python
 # create an in-memory Dataset on your local machine
-datapath = dstore.path('data/src/crime.csv')
-dataset = Dataset.from_delimited_files(datapath)
+dataset = Dataset.from_delimited_files(dstore.path('data/src/crime.csv'))
 
 # returns the first 5 rows of the Dataset as a pandas Dataframe.
 dataset.head(5)
@@ -118,9 +112,9 @@ dataset.head(5)
 
 ## <a name="register-datasets"></a>註冊資料集
 
-若要完成建立程序，請向工作區中註冊您的資料集：
+若要完成建立程式, 請使用工作區註冊您的資料集:
 
-使用[ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-)註冊到您的工作區的資料集，以便將它們與其他人共用，並跨各種實驗重複使用的方法。
+[`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-)使用方法將資料集註冊到您的工作區, 讓它們可以與其他人共用, 並在各種不同的實驗中重複使用。
 
 ```Python
 dataset = dataset.register(workspace = workspace,
@@ -131,23 +125,26 @@ dataset = dataset.register(workspace = workspace,
 ```
 
 >[!NOTE]
-> 如果`exist_ok = False`（預設值），而您嘗試註冊的資料集具有相同名稱與另一個，就會發生錯誤。 若要設定`True`覆寫現有的。
+> 如果`exist_ok = False`為 (預設值), 而且您嘗試使用與另一個相同的名稱來註冊資料集, 就會發生錯誤。 將設定`True`為以覆寫現有的。
 
-## <a name="access-data-in-datasets"></a>在 資料集的存取資料
+## <a name="access-data-in-datasets"></a>存取資料集中的資料
 
-已註冊的資料集可供存取和需求的可取用在本機、 遠端和會計算叢集，例如 Azure Machine Learning 計算。 在實驗中重複使用您已註冊的資料集和計算環境，請使用下列程式碼來依名稱取得您的工作區和已註冊的資料集。
+已註冊的資料集會在計算叢集 (例如 Azure Machine Learning 計算) 上, 從本機和遠端存取。 若要跨實驗存取已註冊的資料集, 請使用下列程式碼, 依名稱取得您的工作區和已註冊的資料集。
 
 ```Python
 workspace = Workspace.from_config()
 
 # See list of datasets registered in workspace.
-Dataset.list(workspace)
+print(Dataset.list(workspace))
 
 # Get dataset by name
-dataset = workspace.datasets['dataset_crime']
+dataset = Dataset.get(workspace, 'dataset_crime')
+
+# Load data into pandas DataFrame
+dataset.to_pandas_dataframe()
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-* [探索及準備資料集](how-to-explore-prepare-data.md)。
-* 如需使用資料集的範例，請參閱 <<c0> [ 範例 notebook](https://aka.ms/dataset-tutorial)。
+* [探索和準備資料集](how-to-explore-prepare-data.md)。
+* 如需使用資料集的範例, 請參閱[範例筆記本](https://aka.ms/dataset-tutorial)。

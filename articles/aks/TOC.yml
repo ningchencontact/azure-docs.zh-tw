@@ -116,6 +116,8 @@
         - name: 刪除 AKS 叢集
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
+        - name: 建立具有 AKS 叢集的 ACR (預覽)
+          href: cluster-container-registry-integration.md
         - name: 建立虛擬節點
           items:
             - name: 使用 Azure CLI

@@ -62,9 +62,6 @@
           href: active-directory-b2c-reference-tokens.md
         - name: 要求存取權杖
           href: active-directory-b2c-access-tokens.md
-        - name: 支援多個權杖簽發者
-          href: multiple-token-endpoints.md
-          displayName: 'migrate, b2clogin, owin, jwt'
     - name: 使用者流程和原則
       items:
         - name: 使用者流程
@@ -307,7 +304,12 @@
             - name: RelyingParty
               href: relyingparty.md
     - name: 使用 b2clogin.com
-      href: b2clogin.md
+      items:
+        - name: b2clogin.com 概觀
+          href: b2clogin.md
+        - name: 將 Web API 遷移至 b2clogin.com
+          href: multiple-token-endpoints.md
+          displayName: 'migrate, b2clogin, owin, jwt'
     - name: 自動化
       items:
         - name: 匯出使用量報告

@@ -276,6 +276,22 @@
         - name: 針對狀態設定 (DSC) 進行疑難排解
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
+    - name: 參考
+      items:
+        - name: 社群解決方案
+          items:
+            - name: 大規模組態資料
+              href: automation-dsc-config-data-at-scale.md
+              displayName: 'DSC, Configuration Data, ConfigData'
+            - name: 從伺服器建立組態
+              href: automation-dsc-config-from-server.md
+              displayName: 'DSC, ReverseDSC'
+            - name: 以 STIG 為基礎的設定
+              href: automation-dsc-configuration-based-on-stig.md
+              displayName: 'DSC, Configuration'
+            - name: 將設定轉換成複合資源
+              href: automation-dsc-create-composite.md
+              displayName: 'DSC, composite'
 - name: 管理共用的資源
   items:
     - name: 憑證

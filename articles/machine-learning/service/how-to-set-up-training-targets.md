@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074935"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990455"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
 
 使用 Azure Machine Learning 服務，您可以在各種資源或環境中定型您的模型，統稱為[__計算目標__](concept-azure-machine-learning-architecture.md#compute-targets)。 計算目標可以是本機電腦或雲端資源，例如 Azure Machine Learning Compute、Azure HDInsight 或遠端虛擬機器。  您也可以建立用於部署模型的計算目標，如[模型的部署位置和方法](how-to-deploy-and-where.md)中所述。
 
-您可以建立和管理使用 Azure 機器學習服務 SDK，Azure 入口網站、 Azure CLI 或 Azure Machine Learning VS Code 延伸模組的計算目標。 如果您有透過其他服務 (例如 HDInsight 叢集) 建立的計算目標，可以將它們附加至 Azure Machine Learning 服務工作區來使用這些計算目標。
+您可以使用 Azure Machine Learning SDK、Azure 入口網站、Azure CLI 或 Azure Machine Learning VS Code 延伸模組來建立和管理計算目標。 如果您有透過其他服務 (例如 HDInsight 叢集) 建立的計算目標，可以將它們附加至 Azure Machine Learning 服務工作區來使用這些計算目標。
  
 在本文中，您將了解如何使用各種計算目標來訓練模型。  所有計算目標的步驟皆遵循相同的工作流程：
 1. 如果您沒有計算目標，請__建立__一個。
@@ -47,7 +47,7 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 
 定型時，通常在本機電腦上啟動，然後在不同的計算目標上執行該定型指令碼。 使用 Azure Machine Learning 服務時，您無須變更指令碼，即可在各種計算目標上執行指令碼。 
 
-您需要做的是使用**回合組態**，為每個計算目標定義環境。  然後，當您想要在不同的計算目標上執行定型實驗時，為該計算指定回合組態。 
+您需要做的是使用**回合組態**，為每個計算目標定義環境。  然後，當您想要在不同的計算目標上執行定型實驗時，為該計算指定回合組態。
 
 深入了解本文末尾的[提交實驗](#submit)。
 
@@ -74,7 +74,26 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 下列程式碼顯示為使用者管理的環境設定定型回合的範例：
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
+
+## <a name="whats-an-estimator"></a>什麼是估計工具？
+
+為了使用熱門的架構來加速模型定型, Azure Machine Learning Python SDK 提供估計工具類別的替代較高層級抽象概念。 此類別可讓您輕鬆地建立執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本, 以使用您選擇的任何學習架構 (例如 scikit-learn)。
+
+對於 PyTorch、TensorFlow 和 Chainer 工作, Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器, 以簡化使用這些架構的作業。
+
+如需詳細資訊, 請參閱[使用估算器將 ML 模型定型](how-to-train-ml-models.md)。
+
+## <a name="whats-an-ml-pipeline"></a>什麼是 ML 管線？
+
+透過 ML 管線, 您可以使用簡單、速度、可攜性和重複使用來優化您的工作流程。 使用 Azure Machine Learning 建立管線時, 您可以專注于您的專業知識、機器學習服務, 而不是基礎結構和自動化。
+
+ML 管線是由多個**步驟**所構成, 這些步驟是管線中的相異計算單位。 每個步驟都可以獨立執行, 並使用隔離的計算資源。 這可讓多個資料科學家在同一時間同時處理相同的管線, 而不會有過度負擔的計算資源, 同時也可讓您輕鬆地針對每個步驟使用不同的計算類型/大小。
+
+> [!TIP]
+> 在定型模型時, ML 管線可以使用執行設定或估算器。
+
+雖然 ML 管線可以訓練模型, 但它們也可以在定型之後, 在定型和部署模型之前準備資料。 管線的主要使用案例之一是批次評分。 如需詳細資訊, [請參閱管線:優化機器學習工作](concept-ml-pipelines.md)流程。
+
 ## <a name="set-up-in-python"></a>在 Python 中設定
 
 使用各節來設定這些計算目標：
@@ -111,7 +130,7 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 執行完成之後，就會自動刪除計算。 
 
 > [!NOTE]
-> 若要指定要使用的節點數目上限，您會通常設定`node_count`的節點數目。 目前沒有 (04/04/2019) 的錯誤會讓這無法運作。 因應措施，使用`amlcompute._cluster_max_node_count`執行組態的屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
+> 若要指定要使用的節點數目上限, 您通常會將`node_count`設定為節點的數目。 目前有 (04/04/2019) 個 bug, 導致無法運作。 若要解決此問題, `amlcompute._cluster_max_node_count`請使用回合設定的屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
 
 > [!IMPORTANT]
 > Azure Machine Learning Compute 的執行式建立目前為「預覽」狀態。 如果您使用自動化超參數調整或自動化機器學習，請勿使用回合式建立。 若要使用超參數微調或自動化機器學習，請改為建立[持續性計算](#persistent)目標。
@@ -237,33 +256,37 @@ Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apach
 
 ### <a id="azbatch"></a>Azure Batch 
 
-Azure 批次用來在雲端有效地執行大規模平行和高效能運算 (HPC) 應用程式。 AzureBatchStep 可以使用 Azure 機器學習服務管線中，將作業提交至機器的 Azure Batch 集區。
+Azure Batch 可用來在雲端有效率地執行大規模的平行和高效能運算 (HPC) 應用程式。 」已 azurebatchstep 可用於 Azure Machine Learning 管線中, 以將作業提交至 Azure Batch 的電腦集區。
 
-若要附加做為計算目標的 Azure Batch，您必須使用 Azure 機器學習服務 SDK，並提供下列資訊：
+若要將 Azure Batch 附加為計算目標, 您必須使用 Azure Machine Learning SDK, 並提供下列資訊:
 
--   **Azure Batch 計算名稱**:好記的名稱，用於在工作區中計算
+-   **Azure Batch 計算名稱**:要用於工作區中計算的易記名稱
 -   **Azure Batch 帳戶名稱**:Azure Batch 帳戶的名稱
 -   **資源群組**：包含 Azure Batch 帳戶的資源群組。
 
-下列程式碼示範如何附加做為計算目標的 Azure Batch:
+下列程式碼示範如何將 Azure Batch 連結為計算目標:
 
 ```python
 from azureml.core.compute import ComputeTarget, BatchCompute
 from azureml.exceptions import ComputeTargetException
 
-batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+# Name to associate with new compute in workspace
+batch_compute_name = 'mybatchcompute'
 
 # Batch account details needed to attach as compute to workspace
-batch_account_name = "<batch_account_name>" # Name of the Batch account
-batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+batch_account_name = "<batch_account_name>"  # Name of the Batch account
+# Name of the resource group which contains this account
+batch_resource_group = "<batch_resource_group>"
 
 try:
     # check if the compute is already attached
     batch_compute = BatchCompute(ws, batch_compute_name)
 except ComputeTargetException:
     print('Attaching Batch compute...')
-    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
-    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    provisioning_config = BatchCompute.attach_configuration(
+        resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(
+        ws, batch_compute_name, provisioning_config)
     batch_compute.wait_for_completion()
     print("Provisioning state:{}".format(batch_compute.provisioning_state))
     print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
@@ -271,7 +294,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-in-azure-portal"></a>在 Azure 入口網站設定
+## <a name="set-up-in-azure-portal"></a>在 Azure 入口網站中設定
 
 您可以在 Azure 入口網站中，存取與您工作區相關聯的計算目標。  您可以使用入口網站以執行下列操作：
 
@@ -292,7 +315,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 若要查看您工作區的計算目標，請使用下列步驟：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後開啟您的工作區。 
-1. 在 [應用程式]  底下，選取 [計算]  。
+1. 在 [應用程式] 底下，選取 [計算]。
 
     ![[檢視計算] 索引標籤](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
@@ -306,7 +329,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 1. 輸入計算目標的名稱。 
 
-1. 選取 [Machine Learning Compute]  作為要用於 [定型]  的計算類型。 
+1. 選取 [Machine Learning Compute] 作為要用於 [定型] 的計算類型。 
 
     >[!NOTE]
     >Azure Machine Learning Compute 是您可以在 Azure 入口網站中建立的唯一受控計算資源。  建立之後，即可連結所有其他計算資源。
@@ -315,7 +338,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
     ![填妥表單](./media/how-to-set-up-training-targets/add-compute-form.png) 
 
-1. 選取 [建立]  。
+1. 選取 [建立]。
 
 
 1. 從清單選取計算目標以檢視建立作業的狀態：
@@ -354,10 +377,10 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
     > * [在 Linux 或 macOS 上建立及使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [在 Windows 上建立及使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-1. 選取 [附加]  。 
+1. 選取 [附加]。 
 1. 從清單選取計算目標以檢視附加作業的狀態。
 
-## <a name="set-up-with-cli"></a>使用 CLI 設定
+## <a name="set-up-with-cli"></a>使用 CLI 進行設定
 
 您可以為 Azure Machine Learning 服務使用 [CLI 擴充功能](reference-azure-machine-learning-cli.md)存取與您工作區相關聯的計算目標。  您可以使用 CLI 執行下列操作：
 
@@ -369,7 +392,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 ## <a name="set-up-with-vs-code"></a>設定 VS Code
 
-您可以存取、 建立及管理您的工作區的使用相關聯的計算目標[VS Code 延伸模組](how-to-vscode-tools.md#create-and-manage-compute-targets)Azure Machine Learning 服務。
+您可以使用 Azure Machine Learning 服務的[VS Code 延伸](how-to-vscode-tools.md#create-and-manage-compute-targets)模組, 來存取、建立和管理與工作區相關聯的計算目標。
 
 ## <a id="submit"></a>提交定型回合
 
@@ -380,9 +403,9 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 等待回合完成。
 
 > [!IMPORTANT]
-> 當您提交的訓練執行時，包含您的訓練指令碼的目錄中的快照集建立，並傳送到計算目標。 它也會儲存為工作區中實驗的一部分。 如果您變更的檔案，並送出執行一次，將上傳變更的檔案。
+> 當您提交定型回合時, 會建立包含定型腳本之目錄的快照集, 並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行, 則只會上傳變更的檔案。
 >
-> 若要防止檔案包含快照中，建立[.gitignore](https://git-scm.com/docs/gitignore)或`.amlignore`檔案的目錄中，並將檔案新增至它。 `.amlignore`檔案使用相同的語法，並做為模式[.gitignore](https://git-scm.com/docs/gitignore)檔案。 如果這兩個檔案存在，`.amlignore`檔有優先順序。
+> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果這兩個檔案都`.amlignore`存在, 則會優先使用該檔案。
 > 
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
@@ -412,11 +435,11 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 * 使用 `Estimator` 物件提交實驗，如[使用估算程式將 ML 模型定型](how-to-train-ml-models.md)中所示。
 * [使用 CLI 擴充功能](reference-azure-machine-learning-cli.md#experiments)提交實驗。
-* 將透過實驗提交[VS Code 延伸模組](how-to-vscode-tools.md#train-and-tune-models)。
+* 透過[VS Code 延伸](how-to-vscode-tools.md#train-and-tune-models)模組提交實驗。
 
-## <a name="github-tracking-and-integration"></a>GitHub 追蹤和整合
+## <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合
 
-當您啟動定型，執行 [source] 目錄所在的本機 Git 儲存機制時，儲存機制的資訊會儲存執行歷程記錄中。 例如，存放庫的最新的認可識別碼會記錄做為歷程記錄的一部分。
+當您啟動定型回合, 其中來原始目錄是本機 Git 存放庫時, 儲存機制的相關資訊會儲存在執行歷程記錄中。 例如, 存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
 
 ## <a name="notebook-examples"></a>筆記本範例
 
@@ -429,7 +452,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 ## <a name="next-steps"></a>後續步驟
 
 * [教學課程：定型模型](tutorial-train-models-with-aml.md)會使用受控計算目標來定型模型。
-* 了解如何[有效率地微調超參數](how-to-tune-hyperparameters.md)來建置更好的模型。
+* 瞭解如何[有效率地微調超參數](how-to-tune-hyperparameters.md), 以建立更好的模型。
 * 擁有定型的模型之後，請了解[部署模型的方式和位置](how-to-deploy-and-where.md)。
 * 檢視 [RunConfiguration 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 參考。
 * [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)

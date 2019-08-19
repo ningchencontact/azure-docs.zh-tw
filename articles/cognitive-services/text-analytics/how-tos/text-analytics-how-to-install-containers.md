@@ -11,16 +11,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: f1df962208fe466c3833faa82b6f9dff5c5e7046
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: ddbe586c03d9f722d844d06968aa25e4b4a5aac0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697882"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815305"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安裝並執行文字分析容器
 
-文字分析容器提供原始文字的先進自然語言處理, 並包含三個主要功能: 情感分析、關鍵字組解壓縮和語言偵測。 容器目前不支援實體連結。
+容器可讓您在自己的環境中執行文字分析 Api, 而且非常適合您的特定安全性和資料控管需求。 文字分析容器提供原始文字的先進自然語言處理, 並包含三個主要功能: 情感分析、關鍵字組解壓縮和語言偵測。 容器目前不支援實體連結。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -61,13 +61,13 @@ ms.locfileid: "68697882"
 
 ## <a name="get-the-container-image-with-docker-pull"></a>使用 `docker pull` 取得容器映像
 
-文字分析的容器映像可從 Microsoft Container Registry 取得。 
+文字分析的容器映像可從 Microsoft Container Registry 取得。
 
 | 容器 | 存放庫 |
 |-----------|------------|
 |關鍵片語擷取 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |語言偵測 | `mcr.microsoft.com/azure-cognitive-services/language` |
-|情感分析 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+|情感分析| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/)使用命令從 Microsoft container Registry 下載容器映射。
 
@@ -99,17 +99,20 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
 ## <a name="how-to-use-the-container"></a>如何使用容器
 
 容器位於[主機電腦](#the-host-computer)上時，請透過下列程序來使用容器。
 
-1. 使用所需的計費設定[執行容器](#run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](../text-analytics-resource-container-config.md#example-docker-run-commands)可供參考。 
-1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。 
+1. 使用所需的計費設定[執行容器](#run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](../text-analytics-resource-container-config.md#example-docker-run-commands)可供參考。
+1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。
 
 ## <a name="run-the-container-with-docker-run"></a>透過 `docker run` 執行容器
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 如需如何取得`{Endpoint_URI}`和`{API_Key}`值的詳細資訊, 請參閱[收集必要的參數](#gathering-required-parameters)。
+
+命令的[範例](../text-analytics-resource-container-config.md#example-docker-run-commands)可供使用。`docker run`
+
+### <a name="run-container-example-of-docker-run-command"></a>Docker run 命令的執行容器範例
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -124,9 +127,8 @@ ApiKey={API_KEY}
 * 從容器映像執行關鍵片語容器
 * 配置一個 CPU 核心和 4 GB 的記憶體
 * 公開 TCP 連接埠 5000，並為容器配置虛擬 TTY
-* 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。 
+* 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。
 
-`docker run` 命令有相關[範例](../text-analytics-resource-container-config.md#example-docker-run-commands)可供參考。 
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
@@ -135,7 +137,7 @@ ApiKey={API_KEY}
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 
-容器會提供以 REST 為基礎的查詢預測端點 API。 
+容器會提供以 REST 為基礎的查詢預測端點 API。
 
 針對容器 API 請使用主機 `https://localhost:5000`。
 
@@ -149,7 +151,7 @@ ApiKey={API_KEY}
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果您在啟用輸出[掛接](../text-analytics-resource-container-config.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。 
+如果您在啟用輸出[掛接](../text-analytics-resource-container-config.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。
 
 ## <a name="billing"></a>帳務
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 795e805e4629a4f4674c296e555ece6230cf66f1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bf63a9fb552b2a41ce7b9945faeda362592d8efb
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883122"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558755"
 ---
 本節將說明如何使用 [Azure 入口網站](https://portal.azure.com)建立 IoT 中樞。
 
@@ -48,7 +48,7 @@ ms.locfileid: "68883122"
     - **IoT 中樞單位**：每天每單位允許的訊息數目取決於您的中樞定價層。 例如，如果您想要中樞支援 700,000 封訊息的輸入，您可以選擇 2 個 S1 層單位。
     如需有關其他層級選項的詳細資料，請參閱[選擇適合的 IoT 中樞層](../articles/iot-hub/iot-hub-scaling.md)。
 
-    - **進階** > **裝置到雲端的分割區**：此屬性會將裝置到雲端的訊息數與同時閱讀訊息的讀者數產生關聯。 大部分的中樞只需要四個分割區。
+    - **進階設定** > **裝置到雲端的分割區**：此屬性會將裝置到雲端的訊息數與同時閱讀訊息的讀者數產生關聯。 大部分的中樞只需要四個分割區。
 
 1. 在本教學課程中，接受預設選項，然後選取 [檢閱及建立]  來檢閱您的選擇。 您會看到類似這個畫面的內容。
 

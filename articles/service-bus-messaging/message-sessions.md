@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569801"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951876"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>訊息工作階段：先進先出 (FIFO) 
 
@@ -27,13 +27,13 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 > [!NOTE]
 > 基本層的服務匯流排並不支援工作階段。 標準層和高階層則支援工作階段。 如需詳細資訊，請參閱[服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/)。
 
-所有傳送者均可在將訊息提交至佇列或主題時建立工作階段，方法是將 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 屬性設定為某個應用程式定義的識別碼，此識別碼對該工作階段而言是唯一的。 在 AMQP 1.0 通訊協定層級，這個值會對應至「群組識別碼」  屬性。
+所有傳送者均可在將訊息提交至佇列或主題時建立工作階段，方法是將 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 屬性設定為某個應用程式定義的識別碼，此識別碼對該工作階段而言是唯一的。 在 AMQP 1.0 通訊協定層級，這個值會對應至「群組識別碼」屬性。
 
 在工作階段感知的佇列或訂用帳戶中，工作階段會在至少有一個訊息具備工作階段的 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) 時變成存在。 一旦工作階段存在之後，就不會有針對工作階段到期或消失時定義的時間或 API。 理論上，今日可接收工作階段的訊息，一年內的下一個訊息，而且如果 **SessionId** 相符，則從服務匯流排的觀點來看，工作階段是一樣。
 
 不過，一般而言，應用程式會對一組相關訊息開頭與結尾位置具有清楚的概念。 服務匯流排不會設定任何特定的規則。
 
-如何描述傳輸檔案的序列範例是將第一個訊息的 **Label** 屬性設為 **start**、針對中繼訊息設為 **content**，然後針對最後一個訊息設為 **end**。 內容訊息的相對位置可從 **start** 訊息的 SequenceNumber  計算成為目前訊息的 SequenceNumber  差異。
+如何描述傳輸檔案的序列範例是將第一個訊息的 **Label** 屬性設為 **start**、針對中繼訊息設為 **content**，然後針對最後一個訊息設為 **end**。 內容訊息的相對位置可從 **start** 訊息的 SequenceNumber 計算成為目前訊息的 SequenceNumber 差異。
 
 服務匯流排中的工作階段功能會啟用特定的接收作業，在 C# 和 Java API 中的形式為 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession)。 您可以透過 Azure Resource Manager 來設定佇列或訂用帳戶上的 [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 屬性，或者在入口網站中設定旗標，藉以啟用此功能。 在您嘗試使用相關的 API 作業之前，必須先執行此動作。
 
@@ -41,7 +41,7 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 
 ![][2]
 
-適用於工作階段的 API 會存在於佇列和訂用帳戶用戶端上。 有一個命令式模型可讓您控制接收工作階段與訊息的時間，還有一個以處理常式為基礎的模型，類似於 OnMessage  ，會隱藏管理接收迴圈的複雜度。
+適用於工作階段的 API 會存在於佇列和訂用帳戶用戶端上。 有一個命令式模型可讓您控制接收工作階段與訊息的時間，還有一個以處理常式為基礎的模型，類似於 OnMessage，會隱藏管理接收迴圈的複雜度。
 
 ## <a name="session-features"></a>工作階段功能
 
@@ -59,7 +59,7 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 
 上圖顯示三個並行工作階段接收者。 帶有 `SessionId` = 4 的工作階段沒有任何作用中的所有權用戶端，這表示沒有訊息從此特定工作階段傳遞。 工作階段的行為在許多方面類似子佇列。
 
-工作階段接收者所保留的工作階段鎖定是對於「查看鎖定」  安置模式所使用之訊息鎖定的保護傘。 接收者不能同時有兩個「在途中」的訊息，而是必須依序處理訊息。 只有在已完成先前的訊息或使其成為失效信件時才能取得新訊息。 放棄訊息會導致下一個接收作業再次提供相同的訊息。
+工作階段接收者所保留的工作階段鎖定是對於「查看鎖定」安置模式所使用之訊息鎖定的保護傘。 接收者不能同時有兩個「在途中」的訊息，而是必須依序處理訊息。 只有在已完成先前的訊息或使其成為失效信件時才能取得新訊息。 放棄訊息會導致下一個接收作業再次提供相同的訊息。
 
 ## <a name="message-session-state"></a>訊息工作階段狀態
 
@@ -77,9 +77,19 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 
 保留於佇列或訂用帳戶中的工作階段狀態會計入該實體的儲存體配額。 使用工作階段完成應用程式時，接著會建議應用程式清除其保留狀態以避免產生外部管理成本。
 
+## <a name="impact-of-delivery-count"></a>傳遞計數的影響
+
+會話內容中每個訊息的傳遞計數定義, 與會話未提供中的定義稍有不同。 以下是摘要說明傳遞計數何時遞增的資料表。
+
+| 狀況 | 訊息的傳遞計數會遞增 |
+|----------|---------------------------------------------|
+| 已接受會話, 但會話鎖定過期 (因為超時) | 是 |
+| 已接受會話, 會話中的訊息不會完成 (即使已鎖定), 而且會話已關閉 | 否 |
+| 已接受會話, 訊息已完成, 然後會話已明確關閉 | N/A (這是標準流程。 這裡的訊息會從會話中移除) |
+
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱 < [Microsoft.Azure.ServiceBus 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions)或是[Microsoft.ServiceBus.Messaging 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions)如需使用.NET Framework 用戶端來處理工作階段感知訊息的範例。 
+- 如需使用 .NET Framework 用戶端處理會話感知訊息的範例, 請參閱[Microsoft Azure 服務匯流排範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions)或[Microsoft.ServiceBus.Messaging 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions)。 
 
 若要深入了解服務匯流排傳訊，請參閱下列主題：
 

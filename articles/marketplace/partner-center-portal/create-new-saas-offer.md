@@ -1,18 +1,18 @@
 ---
 title: 在商業 Marketplace 中建立新的 SaaS 供應專案
 description: 如何使用 Microsoft 合作夥伴中心的商業 Marketplace 入口網站, 建立新的軟體即服務 (SaaS) 供應專案, 以便在 Azure Marketplace、AppSource 或透過雲端解決方案提供者 (CSP) 方案中進行列出或銷售。
-author: mattwojo
+author: qianw211
 manager: evansma
-ms.author: mattwoj
+ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 6bf22bce28972e1f3a43efea3b33446ab2a81761
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.date: 08/14/2019
+ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019574"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033526"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -22,7 +22,7 @@ ms.locfileid: "69019574"
 
 選取 [+**新增供應**專案]。 按鈕, 然後選取 [**軟體即服務**] 功能表項目。 
 
-如果您選取其中一個供應專案類型, 系統會將您重新導向至較舊的[Cloud Partner 入口網站](https://cloudpartner.azure.com/)。  目前只有在合作夥伴中心的商用 Marketplace 入口網站提供 SaaS 供應專案。 
+如果您選取其他供應專案類型, 您可能會被重新導向至較舊的[Cloud Partner 入口網站](https://cloudpartner.azure.com/)。 目前只有在合作夥伴中心的商用 Marketplace 入口網站提供 SaaS 和 Dynamics 365 供應專案。
 
 ![在合作夥伴中心建立供應專案視窗](./media/new-offer-click.png)
 
@@ -173,7 +173,7 @@ ms.locfileid: "69019574"
 
 繼續進行下一節之前, 請記得先**儲存**!
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>屬性
 [**屬性**] 索引標籤會要求您定義用來將您的供應專案分組在 marketplace 上的類別和產業、支援您供應專案的法律合約, 以及您的應用程式版本。 
 
 完成這些欄位之後, 請選取 [**儲存**]。 

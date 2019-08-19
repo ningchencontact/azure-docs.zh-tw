@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 551f140c22677bea363ad5d8f43bf9670f783a1d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228356"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725611"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -35,14 +35,14 @@ ms.locfileid: "68228356"
 
 有兩個選項可以在 Azure 中設定 Pacemaker 叢集。 您可以使用隔離代理程式，這個代理程式會透過 Azure API 來重新啟動失敗的節點，或者您可以使用 SBD 裝置。
 
-SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器並且提供 SBD 裝置。 不過，這些 iSCSI 目標伺服器可以與其他 Pacemaker 叢集共用。 使用 SBD 裝置的優點是容錯移轉的時間更快，而如果您是在內部部署環境中使用 SBD 裝置，您操作 Pacemaker 叢集的方式不需要任何改變。 您可以對一個 Pacemaker 叢集使用最多三個 SBD 裝置，以容許在 iSCSI 目標伺服器的 OS 修補期間 (舉例來說)，有一個 SBD 裝置無法使用。 如果您想要使用一個以上的 SBD 裝置每 Pacemaker，請務必部署多部 iSCSI 目標伺服器，並從每部 iSCSI 目標伺服器連線一個 SBD。 我們建議使用一個或三個 SBD 裝置。 如果您只設定兩個 SBD 裝置，而且其中一個無法使用，Pacemaker 將無法自動隔離叢集節點。 如果您希望能夠在一部 iSCSI 目標伺服器關閉時隔離，您必須使用三個 SBD 裝置，因此會有三部 iSCSI 目標伺服器。
+SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器並且提供 SBD 裝置。 不過，這些 iSCSI 目標伺服器可以與其他 Pacemaker 叢集共用。 使用 SBD 裝置的優點是更快速的容錯移轉時間, 如果您在內部部署使用 SBD 裝置, 則不需要變更您操作 pacemaker 叢集的方式。 您可以對一個 Pacemaker 叢集使用最多三個 SBD 裝置，以容許在 iSCSI 目標伺服器的 OS 修補期間 (舉例來說)，有一個 SBD 裝置無法使用。 如果您想要使用一個以上的 SBD 裝置每 Pacemaker，請務必部署多部 iSCSI 目標伺服器，並從每部 iSCSI 目標伺服器連線一個 SBD。 我們建議使用一個或三個 SBD 裝置。 如果您只設定兩個 SBD 裝置，而且其中一個無法使用，Pacemaker 將無法自動隔離叢集節點。 如果您希望能夠在一部 iSCSI 目標伺服器關閉時隔離，您必須使用三個 SBD 裝置，因此會有三部 iSCSI 目標伺服器。
 
-如果您不想要投資一部額外的虛擬機器，您也可以使用 Azure Fence 代理程式。 缺點是如果資源停止容錯或叢集節點無法再彼此進行通訊，則容錯移轉需要 10 到 15 分鐘。
+如果您不想要投資一部額外的虛擬機器, 您也可以使用 Azure 隔離代理程式。 缺點是如果資源停止容錯或叢集節點無法再彼此進行通訊，則容錯移轉需要 10 到 15 分鐘。
 
 ![SLES 上的 Pacemaker 概觀](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> 規劃和部署 Linux Pacemaker 叢集節點與 SBD 裝置時，對於完整叢集設定的整體可靠性而言，最重要的是相關 VM 與裝載 SBD 裝置的 VM 之間，其路由傳送不會通過 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 等任何其他裝置。 否則，與 NVA 相關的問題與維護事件，會對整體叢集設定的穩定性與可靠性造成負面影響。 為了避免這類障礙，在規劃和部署 Linux Pacemaker 叢集節點與 SBD 裝置時，請不要定義 NVA 路由規則，也不要定義透過 NVA 與類似裝置在叢集節點與 SBD 裝置之間路由傳送流量的[使用者定義的路由規則](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)。 
+> 規劃和部署 Linux Pacemaker 叢集節點與 SBD 裝置時，對於完整叢集設定的整體可靠性而言，最重要的是相關 VM 與裝載 SBD 裝置的 VM 之間，其路由傳送不會通過 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 等任何其他裝置。 否則，與 NVA 相關的問題與維護事件，會對整體叢集設定的穩定性與可靠性造成負面影響。 為了避免這類障礙, 請不要定義 Nva 或[使用者定義的路由規則](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)的路由規則, 這些規則會在規劃和部署 Linux Pacemaker 叢集節點時, 透過 nva 和類似的裝置來路由傳送叢集節點與 SBD 裝置之間的流量, 以及SBD 裝置。 
 >
 
 ## <a name="sbd-fencing"></a>SBD 隔離
@@ -53,7 +53,7 @@ SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器
 
 您必須先建立 iSCSI 目標虛擬機器。 iSCSI 目標伺服器可以與多個 Pacemaker 叢集共用。
 
-1. 部署新的 SLES 12 SP1 或更新版本的虛擬機器，並透過 SSH 連線到這些機器。 這些機器不需要是大型機器。 諸如 Standard_E2s_v3 或 Standard_D2s_v3 的虛擬機器大小就已足夠。 請務必使用 OS 磁碟的進階儲存體。
+1. 部署新的 SLES 12 SP1 或更新版本的虛擬機器，並透過 SSH 連線到這些機器。 電腦不需要太大。 諸如 Standard_E2s_v3 或 Standard_D2s_v3 的虛擬機器大小就已足夠。 請務必使用 OS 磁碟的進階儲存體。
 
 在所有 **iSCSI 目標虛擬機器**上執行下列命令。
 
@@ -398,6 +398,28 @@ o- / ...........................................................................
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
+   >[!IMPORTANT]
+   > 如果使用 Suse Linux Enterprise Server for SAP 15, 請注意您必須啟用其他模組並安裝其他元件, 這是使用 Azure 隔離代理程式的必要條件。 若要深入瞭解 SUSE 模組和擴充功能, 請參閱[說明的模組和擴充](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html)功能。 遵循鈴的指示來安裝 Azure Python SDK。 
+
+   下列有關如何安裝 Azure Python SDK 的指示僅適用于 SAP **15**的 Suse Enterprise Server。  
+
+    - 如果您使用「自備訂用帳戶」, 請遵循這些指示  
+
+    <pre><code>
+    #Activate module PackageHub/15/x86_64
+    sudo SUSEConnect -p PackageHub/15/x86_64
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
+     - 如果您使用隨用隨付訂用帳戶, 請遵循這些指示  
+
+    <pre><code>#Activate module PackageHub/15/x86_64
+    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
 1. **[A]** 設定主機名稱解析
 
    您可以使用 DNS 伺服器，或修改所有節點上的 /etc/hosts。 這個範例示範如何使用 /etc/hosts 檔案。
@@ -443,12 +465,12 @@ o- / ...........................................................................
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]** 設定 corosync 以使用其他傳輸，並新增節點清單。 否則叢集無法運作。
+1. **[A]** 設定 corosync 以使用其他傳輸，並新增節點清單。 否則叢集無法正常執行。
 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資訊, 請參閱or [Windows][virtual-machines-windows-maintenance][適用于 Linux 的文章][virtual-machines-linux-maintenance]。 此外，請務必移除參數 mcastaddr。
+   將下列粗體內容新增至檔案 (如果檔案中沒有這些值或不同)。 請務必將權杖變更為 30000，以允許記憶體保留維護。 如需詳細資訊, 請參閱[適用于 Linux][virtual-machines-linux-maintenance] 或 [Windows][virtual-machines-windows-maintenance] 的這篇文章。 此外，請務必移除參數 mcastaddr。
 
    <pre><code>[...]
      <b>token:          30000
@@ -497,7 +519,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 1. 移至 <https://portal.azure.com>。
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
-   移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」  。
+   移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增註冊]
 1. 輸入名稱, 選取 [僅此組織目錄中的帳戶] 
@@ -506,11 +528,11 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取 [憑證和密碼], 然後按一下 [新增用戶端密碼]
 1. 輸入新金鑰的描述, 選取 [永不過期], 然後按一下 [新增]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」  )
+1. 選取 [總覽]。 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的「登入識別碼」)
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** 為柵欄代理程式建立自訂角色
 
-服務主體預設沒有存取您 Azure 資源的權限。 您需要為服務主體提供權限來啟動和停止 (解除配置) 叢集的所有虛擬機器。 如果您尚未建立自訂角色，您可以使用 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 或 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 來建立
+根據預設, 服務主體不具有存取 Azure 資源的許可權。 您需要為服務主體提供權限來啟動和停止 (解除配置) 叢集的所有虛擬機器。 如果您尚未建立自訂角色，您可以使用 [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) 或 [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) 來建立
 
 針對輸入檔使用下列內容。 您必須調整訂用帳戶的內容，也就是使用您訂用帳戶的識別碼取代 c276fc76-9cd4-44c9-99a7-4fd71546436e 和 e91d47c4-76f3-4271-a796-21b4ecfe3624。 如果您只有一個訂用帳戶，請在 AssignableScopes 中移除第二個項目。
 
@@ -536,7 +558,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** 將自訂角色指派給服務主體
 
-將在上一章中建立的自訂角色「Linux 柵欄代理程式角色」指派給服務主體。 不要再使用「擁有者」角色！
+將在上一章中建立的自訂角色「Linux 柵欄代理程式角色」指派給服務主體。 不再使用擁有者角色!
 
 1. 移至 [https://portal.azure.com](https://portal.azure.com)
 1. 開啟 [所有資源] 刀鋒視窗

@@ -650,6 +650,8 @@
           href: troubleshoot-changefeed-functions.md
         - name: 變更摘要處理器開始時間
           href: how-to-configure-change-feed-start-time.md
+        - name: 使用變更摘要估算器
+          href: how-to-use-change-feed-estimator.md
     - name: 內建分析搭配 Apache Spark
       items:
         - name: Azure Databricks Spark 連接器

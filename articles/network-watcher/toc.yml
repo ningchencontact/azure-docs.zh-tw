@@ -101,6 +101,8 @@
               href: network-watcher-nsg-flow-logging-cli.md
             - name: REST
               href: network-watcher-nsg-flow-logging-rest.md
+        - name: 刪除 NSG 流量記錄儲存體 Blob
+          href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: 分析 NSG 流量記錄
           items:
             - name: 讀取 NSG 流量記錄

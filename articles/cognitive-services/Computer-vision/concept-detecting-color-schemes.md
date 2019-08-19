@@ -1,5 +1,5 @@
 ---
-title: 偵測色彩配置：電腦視覺
+title: 色彩配置偵測-電腦視覺
 titleSuffix: Azure Cognitive Services
 description: 使用電腦視覺 API 偵測影像中色彩配置的相關概念。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368554"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945282"
 ---
 # <a name="detect-color-schemes-in-images"></a>偵測影像中的色彩配置
 
@@ -30,7 +30,7 @@ ms.locfileid: "60368554"
 
 下列範例說明偵測範例影像的色彩配置時，電腦視覺所傳回的 JSON 回應。 在此情況下，本範例影像不是黑白影像，但主要前景和背景色彩為黑色，而且整體影像的主要色彩為黑色和白色。
 
-![在日落，與個人的黑色輪廓戶外 Mountain](./Images/mountain_vista.png)
+![在日落的戶外山地, 有一個人的剪影](./Images/mountain_vista.png)
 
 ```json
 {
@@ -75,8 +75,8 @@ ms.locfileid: "60368554"
 
 | Image | 黑白？ |
 |-------|----------------|
-|![曼哈頓建築物的黑白照片](./Images/bw_buildings.png) | true |
-|![藍色房屋和前院](./Images/house_yard.png) | false |
+|![曼哈頓建築物的黑白照片](./Images/bw_buildings.png) | 真 |
+|![藍色房屋和前院](./Images/house_yard.png) | 偽 |
 
 ## <a name="next-steps"></a>後續步驟
 

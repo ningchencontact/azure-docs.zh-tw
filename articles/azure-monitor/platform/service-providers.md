@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器服務提供者 |Microsoft Docs
-description: Azure 監視器可協助管理服務提供者 (Msp)、 大型企業、 獨立軟體廠商 (Isv) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。
+title: 服務提供者的 Azure 監視器 |Microsoft Docs
+description: Azure 監視器可以協助受控服務提供者 (Msp)、大型企業、獨立軟體廠商 (Isv) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -11,25 +11,25 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/06/2019
 ms.author: meirm
-ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 971757a4778dd50be486bead0c50fd6b3a25002e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452648"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839267"
 ---
-# <a name="azure-monitor-for-service-providers"></a>Azure 監視器服務提供者
-受管理的服務提供者 (Msp)、 大型企業、 獨立軟體廠商 (Isv) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器，可協助 Azure 監視器中的 log Analytics 工作區。 
+# <a name="azure-monitor-for-service-providers"></a>服務提供者的 Azure 監視器
+Azure 監視器中的 Log Analytics 工作區可協助受管理的服務提供者 (Msp)、大型企業、獨立軟體廠商 (Isv) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。 
 
-大型企業與服務提供者有許多相似之處，特別是當有集中式的 IT 團隊負責管理許多不同業務單位的 IT 時。 為了簡單起見，本文件會使用「服務提供者」  這個詞彙，但是相同的功能也適用於企業或其他客戶。
+大型企業與服務提供者有許多相似之處，特別是當有集中式的 IT 團隊負責管理許多不同業務單位的 IT 時。 為了簡單起見，本文件會使用「服務提供者」這個詞彙，但是相同的功能也適用於企業或其他客戶。
 
-合作夥伴與服務提供者是一部分的[雲端解決方案提供者 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview)程式，Azure 監視器中的 Log Analytics 是 Azure 中所提供的服務的其中一個[Azure CSP 訂用帳戶](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。 
+針對屬於[雲端解決方案提供者 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview)方案一部分的合作夥伴和服務提供者, Azure 監視器中的 Log Analytics 是[azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)訂用帳戶中可用的其中一個 azure 服務。 
 
 ## <a name="architectures-for-service-providers"></a>服務提供者的架構
 
-Log Analytics 工作區可讓系統管理員控制記錄的流程與隔離，以及建立因應其特定商務需求的記錄架構。 [本文](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)說明工作區管理的一般考量。 服務提供者會有其他考量。
+Log Analytics 工作區提供了一種方法, 可讓系統管理員控制[記錄](data-platform-logs.md)資料的流程和隔離, 並建立可滿足其特定商務需求的架構。 [本文](design-logs-deployment.md)說明工作區的設計、部署和遷移考慮，而[管理存取](manage-access.md)一文會討論如何套用和記錄管理資料的許可權。 服務提供者會有其他考量。
 
 服務提供者對於 Log Analytics 工作區有三個可能的架構：
 
@@ -55,31 +55,40 @@ Log Analytics 工作區可讓系統管理員控制記錄的流程與隔離，以
 
 此架構的優點包括：
 * 容易管理大量客戶，並將其整合至各種後端系統。
+
 * 服務提供者對於記錄和各種成品 (例如函式和儲存的查詢) 都具備完整的擁有權。
+
 * 服務提供者可以跨其所有客戶執行分析。
 
 此架構的缺點包括：
 * 此架構僅適用於代理程式型 VM 資料，不涵蓋 PaaS、SaaS 與 Azure 網狀架構資料來源。
-* 當客戶的資料合併到單一工作區時，區隔彼此的資料可能會很困難。 唯一的好方法是使用電腦的完整網域名稱 (FQDN) 或透過 Azure 訂用帳戶識別碼。 
-* 來自所有客戶的所有資料都會儲存在相同的區域中，帳單只有一份，而且有相同的保留和組態設定。
-* Azure 網狀架構和 PaaS 服務 (例如 Azure 診斷和 Azure 稽核記錄) 會要求工作區位於與資源相同的租用戶中，因此無法將記錄傳送至集中式工作區。
-* 來自所有客戶的所有 VM 代理程式都會使用相同的工作區識別碼和金鑰，向集中式工作區進行驗證。 在不中斷其他客戶的情況下，沒有任何方法可以封鎖來自特定客戶的記錄。
 
+* 當客戶的資料合併到單一工作區時，區隔彼此的資料可能會很困難。 唯一的好方法是使用電腦的完整網域名稱 (FQDN) 或透過 Azure 訂用帳戶識別碼。 
+
+* 來自所有客戶的所有資料都會儲存在相同的區域中，帳單只有一份，而且有相同的保留和組態設定。
+
+* Azure 網狀架構和 PaaS 服務 (例如 Azure 診斷和 Azure 稽核記錄) 會要求工作區位於與資源相同的租用戶中，因此無法將記錄傳送至集中式工作區。
+
+* 來自所有客戶的所有 VM 代理程式都會使用相同的工作區識別碼和金鑰，向集中式工作區進行驗證。 在不中斷其他客戶的情況下，沒有任何方法可以封鎖來自特定客戶的記錄。
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3.混合式：記錄會儲存在客戶租用戶的工作區，而且其中部分記錄會提取到集中位置。
 
 第三個架構是兩個選項的混合。 這個架構是以第一個分散式架構為基礎，其中記錄儲存在每個客戶的本機，但使用特定機制來建立記錄的集中存放區。 一部分的記錄會提取到用於報告和分析的集中位置。 這個部分可能是少量的資料類型或活動摘要 (例如每日統計資料)。
 
-有兩個選項，來實作記錄在集中位置：
+有兩個選項可在中央位置中執行記錄:
 
 1. 集中式工作區：服務提供者可以在其租用戶中建立工作區，並使用搭配[資料收集 API](../../azure-monitor/platform/data-collector-api.md) 和[查詢 API](https://dev.loganalytics.io/) 的指令碼，將不同工作區的資料帶到這個集中位置。 指令碼以外的另一個選項是使用 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)。
 
-2. Power BI 當作集中位置：Power BI 可以作為中央位置時的各種不同的工作區將資料匯出至使用 Log Analytics 工作區之間的整合及[Power BI](../../azure-monitor/platform/powerbi.md)。 
-
+2. Power BI 當作集中位置：當各種工作區使用 Log Analytics 工作區與[Power BI](../../azure-monitor/platform/powerbi.md)之間的整合, 將資料匯出至該位置時, Power BI 可以做為中央位置。 
 
 ## <a name="next-steps"></a>後續步驟
+
 * 使用 [Resource Manager 範本](template-workspace-configuration.md)建立和設定工作區
+
 * 使用 [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)自動建立工作區 
+
 * 使用[警示](../../azure-monitor/platform/alerts-overview.md)與現有的系統整合
+
 * 使用 [Power BI](../../azure-monitor/platform/powerbi.md) 來產生摘要報告
+
 * 檢閱[設定 Log Analytics 與 Power BI 來監視多個 CSP 客戶](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)的程序

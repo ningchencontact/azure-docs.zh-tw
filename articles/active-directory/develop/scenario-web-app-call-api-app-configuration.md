@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15c12aebccf34957db8442034ebbcd6ac7c107e1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 391546b4d3ac9ad3674897b39284fdd16e9025a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276721"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562271"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>呼叫 web Api 的 web 應用程式-程式碼設定
 
@@ -29,6 +29,12 @@ ms.locfileid: "68276721"
 - 您會讓 ASP.NET 或 ASP.NET core 要求授權碼。 藉由執行此 ASP.NET/ASP.NET 核心, 可讓使用者登入和同意,
 - 您將會訂閱 Web 應用程式接收授權碼。
 - 收到驗證碼時, 您將使用 MSAL 程式庫來兌換程式碼, 以及在權杖快取中產生的存取權杖和重新整理權杖存放區。 從該處, 快取可用於應用程式的其他部分, 以無訊息方式取得其他標記。
+
+> [!NOTE]
+> 本文中的程式碼片段會從 GitHub 上的下列範例中解壓縮, 其功能完全正常:
+>
+> - [ASP.NET Core Web 應用程式累加式教學課程](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+> - [ASP.NET Web 應用程式範例](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
 
 ## <a name="libraries-supporting-web-app-scenarios"></a>支援 Web 應用程式案例的程式庫
 
@@ -42,7 +48,12 @@ ms.locfileid: "68276721"
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core 設定
 
-在 ASP.NET Core 中, 專案會發生`Startup.cs`在檔案中。 您會想要訂閱`OnAuthorizationCodeReceived` open ID connect 事件, 而在此事件中, 請呼叫 MSAL。NET 的方法`AcquireTokenFromAuthorizationCode` , 其具有在權杖快取中儲存的效果、要求的範圍的存取權杖, 以及將在接近到期時用來重新整理存取權杖的重新整理權杖, 或代表相同的使用者取得權杖, 但適用于不同的資源。
+在 ASP.NET Core 中, 專案會發生`Startup.cs`在檔案中。 您會想要訂閱`OnAuthorizationCodeReceived` open ID connect 事件, 而在此事件中, 請呼叫 MSAL。NET 的方法`AcquireTokenFromAuthorizationCode` , 其具有在權杖快取中儲存的效果、要求`scopes`的存取權杖, 以及在接近到期時用來重新整理存取權杖的重新整理權杖, 或是代表相同使用者取得權杖的結果, 但適用于不同的資源。
+
+```CSharp
+string[] scopes = new string[]{ "user.read" };
+string[] scopesRequestedByMsalNet = new string[]{ "openid", "profile", "offline_access" };
+```
 
 下列程式碼中的批註將協助您瞭解 MSAL.NET 和 ASP.NET Core 的一些棘手層面。 [ASP.NET Core Web 應用程式累加教學](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)課程中提供完整的詳細資料, 第2章
 
@@ -56,7 +67,7 @@ ms.locfileid: "68276721"
    // their Microsoft personal accounts
    // (it's required by MSAL.NET and automatically provided by Azure AD when users
    // sign in with work or school accounts, but not with their Microsoft personal accounts)
-   options.Scope.Add(OidcConstants.ScopeOfflineAccess);
+   options.Scope.Add("offline_access");
    options.Scope.Add("user.read"); // for instance
 
    // Handling the auth redemption by MSAL.NET so that a token is available in the token cache
@@ -88,7 +99,12 @@ ms.locfileid: "68276721"
    };
 ```
 
-在 ASP.NET Core 中, 建立機密用戶端應用程式會使用 HttpCoNtext 中的資訊。 此 HttpCoNtext 知道 Web 應用程式的 URL, 以及已登入的使用者 (在中`ClaimsPrincipal`)。 它也會使用具有 "AzureAD" 區段且系結至`_applicationOptions`資料結構的 ASP.NET Core 設定。 最後, 應用程式必須維護權杖快取。
+在 ASP.NET Core 中, 建立機密用戶端應用程式會使用 HttpCoNtext 中的資訊。 這`HttpContext`知道 Web 應用程式的 URL, 以及登入的使用者 ( `ClaimsPrincipal`在中)。 
+
+它也會使用 ASP.NET Core 設定, 其具有 "AzureAD" 區段, 且兩者系結至:
+
+- [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet) `_applicationOptions`類型的資料結構
+- ASP.NET Core `azureAdOptions` 中`Authentication.AzureAD.UI`所定義之類型[AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs)的實例。 最後, 應用程式必須維護權杖快取。
 
 ```CSharp
 /// <summary>
@@ -116,19 +132,22 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  // Initialize token cache providers. In the case of Web applications, there must be one
  // token cache per user (here the key of the token cache is in the claimsPrincipal which
  // contains the identity of the signed-in user)
- if (this.UserTokenCacheProvider != null)
+ if (UserTokenCacheProvider != null)
  {
-  this.UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
+  UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
  }
- if (this.AppTokenCacheProvider != null)
+ if (AppTokenCacheProvider != null)
  {
-  this.AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
+  AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
  }
  return app;
 }
 ```
 
-`AcquireTokenByAuthorizationCode`確實贖回 ASP.NET 所要求的授權碼, 並取得新增至 MSAL.NET 使用者權杖快取的權杖。 然後在 ASP.NET Core 控制器中使用它們。
+如需權杖快取提供者的詳細資訊, 請參閱[ASP.NET Core Web 應用程式教學課程 |權杖](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/455d32f09f4f6647b066ebee583f1a708376b12f/2-WebApp-graph-user/2-2-TokenCache)快取
+
+> [!NOTE]
+> `AcquireTokenByAuthorizationCode`確實贖回 ASP.NET 所要求的授權碼, 並取得新增至 MSAL.NET 使用者權杖快取的權杖。 然後在 ASP.NET Core 控制器中使用它們。
 
 ## <a name="aspnet-configuration"></a>ASP.NET 設定
 

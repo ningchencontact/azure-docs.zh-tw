@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 8275bceca1a18f49eb7eeece66a3866d77c47635
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f4bab6ab837b746c6a569cc6de95a95023bf83f4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67796166"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986997"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虛擬機器上執行 Azure IoT Edge
 
@@ -28,8 +28,8 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 ## <a name="deploy-from-the-azure-marketplace"></a>從 Azure Marketplace 進行部署
 1.  瀏覽至 [Ubuntu 上的 Azure IoT Edge](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace 供應項目，或在 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 上搜尋 “Azure IoT Edge on Ubuntu”
-2.  選取 [立即取得]  ，然後在下一個對話方塊中選取 [繼續]  。
-3.  一旦進入 Azure 入口網站，選取 [建立]  並且遵循精靈以部署 VM。 
+2.  選取 [立即取得]，然後在下一個對話方塊中選取 [繼續]。
+3.  一旦進入 Azure 入口網站，選取 [建立] 並且遵循精靈以部署 VM。 
     *   如果這是您第一次試用 VM，最簡單的方式是使用密碼，並且在公用輸入連接埠功能表中啟用 SSH。 
     *   如果您有資源密集工作負載，您應該藉由新增更多的 CPU 和/或記憶體來升級虛擬機器大小。
 4.  一旦部署虛擬機器，將它設定為連線到您的 IoT 中樞：
@@ -37,7 +37,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
     1.  從 Azure 入口網站選取您新建立的虛擬機器資源，然後開啟**執行命令**選項
     1.  選取 **RunShellScript** 選項
     1.  透過具有您的裝置連接字串的命令視窗執行下列指令碼：`/etc/iotedge/configedge.sh “{device_connection_string}”`
-    1.  選取 [執行] 
+    1.  選取 [執行]
     1.  請稍候片刻，畫面應該會提供成功訊息，指出連接字串已成功設定。
 
 
@@ -59,9 +59,9 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
       az account list --output table
       ```
     
-   1. 複製您想要使用的訂用帳戶的 [SubscriptionID] 欄位。
+   1. 複製您想要使用之訂用帳戶的 [SubscriptionID] 欄位。
 
-   1. 設定您剛才複製的識別碼與您工作訂用帳戶：
+   1. 使用您剛才複製的識別碼來設定您的工作訂用帳戶:
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -73,7 +73,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
    az group create --name IoTEdgeResources --location westus2
    ```
 
-1. 接受使用規定，虛擬機器。 如果您想要先檢閱這些條款，請依照下列中的步驟[從 Azure Marketplace 部署](#deploy-from-the-azure-marketplace)。
+1. 接受虛擬機器的使用規定。 如果您想要先檢查這些條款, 請遵循[從 Azure Marketplace 部署](#deploy-from-the-azure-marketplace)中的步驟進行。
 
    ```azurecli-interactive
    az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
@@ -98,6 +98,8 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 
 現在您已佈建 IoT Edge 裝置並安裝執行階段，接下來您可以[部署 IoT Edge 模組](how-to-deploy-modules-portal.md)。
 
-如果您有正確安裝 IoT Edge 執行階段問題，請參閱[疑難排解](troubleshoot.md)頁面。
+如果您有 IoT Edge 執行時間正確安裝的問題, 請參閱[疑難排解](troubleshoot.md)頁面。
 
 若要將現有安裝更新為最新版的 IoT Edge，請參閱[更新 IoT Edge 安全性精靈和執行階段](how-to-update-iot-edge.md)。
+
+如果您想要開啟埠以透過 SSH 或其他輸入連線來存取 VM, 請參閱 Azure 虛擬機器檔, 以瞭解[如何對 LINUX VM 開啟埠和端點](../virtual-machines/linux/nsg-quickstart.md)

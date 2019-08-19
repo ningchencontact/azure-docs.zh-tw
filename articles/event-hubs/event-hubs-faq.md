@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797006"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479155"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -24,14 +24,14 @@ ms.locfileid: "67797006"
 ### <a name="what-is-an-event-hubs-namespace"></a>什麼是事件中樞命名空間？
 命名空間是適用於事件中樞/Kafka 主題的範圍容器。 它可為您提供唯一的 [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) \(英文\)。 命名空間會用來作為應用程式容器，可裝載多個事件中樞/Kafka 主題。 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>何時建立新的命名空間，與使用現有的命名空間？
-容量配置 ([輸送量單位 (Tu)](#throughput-units)) 命名空間層級收費。 也與區域相關聯的命名空間。
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>何時建立新的命名空間與使用現有的命名空間？
+容量配置 ([輸送量單位 (tu)](#throughput-units)) 是以命名空間層級計費。 命名空間也會與某個區域相關聯。
 
-若要建立新的命名空間，而不是使用現有的各個下列案例： 
+在下列其中一個案例中, 您可能會想要建立新的命名空間, 而不是使用現有的: 
 
-- 您需要新的區域相關聯的事件中樞。
-- 您需要不同的訂用帳戶相關聯的事件中樞。
-- 您需要使用不同的容量配置的事件中樞 （也就是容量必須針對加入的事件中樞命名空間會超過 40 的 TU 臨界值，而且您不想要尋求專用的叢集）  
+- 您需要與新區域相關聯的事件中樞。
+- 您需要與不同訂用帳戶相關聯的事件中樞。
+- 您需要具有不同容量配置的事件中樞 (也就是, 包含已新增事件中樞的命名空間所需的容量會超過 40 TU 閾值, 而您不想要使用專用叢集)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>事件中樞基本層和標準層之間的差異為何？
 
@@ -60,46 +60,46 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>如何監視事件中樞？
 事件中樞會發出詳盡的計量，以便將您的資源狀態提供給 [Azure 監視器](../azure-monitor/overview.md)。 它們也可以讓您存取事件中樞服務的整體健康情況 (不僅是在命名空間層級，還包括在實體層級)。 了解針對 [Azure 事件中樞](event-hubs-metrics-azure-monitor.md)所提供的監視功能。
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火牆上開啟哪些連接埠？ 
-您可以使用下列通訊協定與 Azure 服務匯流排，來傳送和接收訊息：
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火牆上開啟哪些埠？ 
+您可以搭配使用下列通訊協定與 Azure 服務匯流排來傳送和接收訊息:
 
 - 進階訊息佇列通訊協定 (AMQP)
 - HTTP
 - Apache Kafka
 
-請參閱下列表格以取得您需要開啟通訊使用這些通訊協定，透過 Azure 事件中樞的輸出連接埠。 
+請參閱下表, 以瞭解您需要開啟的輸出埠, 以使用這些通訊協定與 Azure 事件中樞進行通訊。 
 
 | Protocol | 連接埠 | 詳細資料 | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 和 5672 | 請參閱[AMQP 通訊協定指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
-| HTTP、 HTTPS | 80、443 |  |
-| Kafka | 9093 | 請參閱[從 Kafka 的應用程式的使用事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
+| AMQP | 5671和5672 | 請參閱[AMQP 通訊協定指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP、HTTPS | 80、443 |  |
+| Kafka | 9093 | 請參閱[使用來自 Kafka 應用程式的事件中樞](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>哪些 IP 位址需要列入白名單嗎？
-若要尋找您的連線正確的 IP 位址到允許清單，請遵循下列步驟：
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>我需要列入允許清單的 IP 位址為何？
+若要針對您的連線尋找適當的 IP 位址給白名單, 請遵循下列步驟:
 
-1. 從命令提示字元中執行下列命令： 
+1. 從命令提示字元執行下列命令: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 記下中傳回的 IP 位址`Non-authoritative answer`。 它會變更的唯一點的時間是如果您還原至不同的叢集中的命名空間。
+2. 記下中`Non-authoritative answer`傳回的 IP 位址。 只有當您將命名空間還原到不同的叢集時, 才會發生變更的唯一時間點。
 
-如果您的命名空間中使用區域備援，您需要執行一些額外步驟： 
+如果您使用命名空間的區域複本, 則需要執行一些額外的步驟: 
 
-1. 首先，您會在命名空間上執行 nslookup。
+1. 首先, 您會在命名空間上執行 nslookup。
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. 記下中的名稱**非授權的回答**區段中，也就是下列格式之一： 
+2. 記下 [**非權威式回應**] 區段中的名稱, 這是下列其中一種格式: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. 每個尾碼 s1、 s2 與 s3 取得三個可用性區域中執行的所有三個執行個體的 IP 位址與執行 nslookup 
+3. 針對每個尾碼為 s1、s2 和 s3 的程式執行 nslookup, 以取得三個可用性區域中執行之三個實例的 IP 位址。 
 
 ## <a name="apache-kafka-integration"></a>Apache Kafka 整合
 
@@ -111,7 +111,7 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 
-範例：
+範例:
 
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
 
@@ -182,17 +182,18 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>如何建立事件中樞專用叢集？
 您可以藉由提交[加大配額支援要求](https://portal.azure.com/#create/Microsoft.Support)或連絡[事件中樞小組](mailto:askeventhubs@microsoft.com)，來建立事件中樞專用叢集。 通常需要大約兩週的時間，才能部署該叢集並將控制權移交給您以供使用。 在透過 Azure 入口網站或 Azure Resource Manager 範本讓完整的自助功能可供使用之前，此程序是暫時性，大約需要兩個小時來部署叢集。
 
-## <a name="best-practices"></a>最佳作法
+## <a name="best-practices"></a>最佳做法
 
 ### <a name="how-many-partitions-do-i-need"></a>我需要多少個分割區？
+資料分割數目是在建立時指定，值必須介於 2 到 32 之間。 資料分割計數不可變更，您在設定資料分割計數時，應該考慮長期的規模。 資料分割是一種資料組織機制，與取用端應用程式所需的下游平行處理原則有關。 事件中樞內的資料分割數目，與您預期有的並行讀取器數目直接相關。 如需資料分割的詳細資訊，請參閱[資料分割](event-hubs-features.md#partitions)。
 
-事件中樞上的分割區計數在設定之後便無法修改。 因此，請務必在開始之前先想清楚您需要多少個分割區。 
+在建立時, 您可能會想要將它設定為最高的可能值, 也就是32。 請記住, 有一個以上的分割區會導致事件傳送至多個磁碟分割, 而不會保留訂單, 除非您將傳送者設定為只在32保留剩餘的31個磁碟分割。 在先前的案例中, 您必須在所有32分割區上讀取事件。 在後者的情況下, 除了您必須在事件處理器主機上進行的額外設定外, 沒有明顯的額外成本。
 
 事件中樞的設計目的是讓每個取用者群組均可擁有單一分割區讀取器。 在大多數使用案例中，四個分割區的預設設定就已足夠。 如果您想要調整事件處理，可能就要考慮加入額外的分割區。 分割區上並沒有任何特定的輸送量限制，但是，您命名空間中的彙總輸送量會受限於輸送量單位。 當您提高命名空間中的輸送量單位數目時，可能需要額外的分割區，讓並行讀取器能夠達成它們自己的最大輸送量。
 
 不過，如果在您的模型中應用程式對特定分割區具有同質性，則提高分割區數目可能不會為您帶來任何好處。 如需詳細資訊，請參閱[可用性和一致性](event-hubs-availability-and-consistency.md)。
 
-## <a name="pricing"></a>價格
+## <a name="pricing"></a>定價
 
 ### <a name="where-can-i-find-more-pricing-information"></a>哪裡可以找到更多定價資訊？
 

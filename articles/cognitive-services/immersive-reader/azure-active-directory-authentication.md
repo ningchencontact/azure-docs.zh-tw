@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory (Azure AD) 驗證
 titleSuffix: Azure Cognitive Services
-description: 沉浸式讀取器 SDK 的參考
+description: 本文將說明如何使用自訂子域建立新的沉浸式讀取器資源, 然後在您的 Azure 租使用者中設定 Azure AD。
 services: cognitive-services
 author: rwaller
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688801"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990151"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>搭配使用 Azure Active Directory (Azure AD) 驗證與沉浸式讀取器服務
 
@@ -134,5 +134,7 @@ ms.locfileid: "68688801"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 檢視[教學課程](./tutorial.md)以查看您還可以使用沈浸式閱讀程式 SDK 來執行哪些作業
+* 觀看[node.js 教學](./tutorial-nodejs.md)課程, 以瞭解您可以使用 Node.js 透過沉浸式讀取器 SDK 執行的其他工作
+* 觀看[python 教學](./tutorial-python.md)課程, 以瞭解您可以使用 Python 透過沉浸式讀取器 SDK 執行的其他工作
+* 觀看[swift 教學](./tutorial-ios-picture-immersive-reader.md)課程, 以瞭解如何使用 Swift 的沉浸式讀取器 SDK 來執行其他工作
 * 探索[沈浸式閱讀程式 SDK](https://github.com/microsoft/immersive-reader-sdk) 和[沈浸式閱讀程式 SDK 參考](./reference.md)

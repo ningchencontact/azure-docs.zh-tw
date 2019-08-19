@@ -1,6 +1,6 @@
 ---
-title: 與 Microsoft 身分識別平台整合 |Azure
-description: 當手寫筆與 Microsoft 身分識別平台 (v2.0) 整合時，深入了解最佳做法與常見疏漏。
+title: 與 Microsoft 身分識別平臺整合 |Azure
+description: 瞭解與 Microsoft 身分識別平臺 (v2.0) 整合時的最佳作法和常見 oversights。
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,95 +15,95 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
-ms.custom: aaddev
-ms.openlocfilehash: 0acef783b4877b5b1787f142aec6cc3588293f83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: aaddev, identityplatformtop40
+ms.openlocfilehash: 33128cbece3b217778182b3831b02e2f3f654f3b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111464"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853205"
 ---
-# <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft 身分識別平台整合檢查清單
+# <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft 身分識別平臺整合檢查清單
 
-Microsoft 身分識別平台整合檢查清單的目的是引導您以高品質且安全的整合。 它會反白顯示的最佳作法，並與 Microsoft 身分識別平台整合時的常見疏漏需要檢閱的定期執行，藉此確定您維持品質和安全性與身分識別平台的應用程式整合上的清單。 檢查清單不想要檢閱整個應用程式。 檢查清單的內容會有所變更，當我們在平台的改進。
+Microsoft 身分識別平臺整合檢查清單的目的是要引導您進行高品質且安全的整合。 它會強調與 Microsoft 身分識別平臺整合時的最佳作法和常見 oversights, 因此請定期檢查清單, 以確保您可以維持應用程式與身分識別平臺整合的品質和安全性。 檢查清單並不是要用來檢查您的整個應用程式。 當我們對平臺進行改善時, 檢查清單的內容可能會有所變更。
 
-如果您剛開始使用，請參閱[文件](index.yml)若要了解驗證基本概念、 Microsoft 身分識別平台，在應用程式案例和更多功能。
+如果您剛開始使用, 請參閱[檔](index.yml)以瞭解驗證基本概念、Microsoft 身分識別平臺中的應用程式案例等等。
 
 ## <a name="testing-your-integration"></a>測試您的整合
 
-使用下列檢查清單，以確保您的應用程式會與有效地整合[Microsoft 身分識別平台](https://docs.microsoft.com/azure/active-directory/develop/)。
+使用下列檢查清單, 確保您的應用程式與[Microsoft 身分識別平臺](https://docs.microsoft.com/azure/active-directory/develop/)有效整合。
 
-### <a name="basics"></a>基本概念
-
-|   |   |
-|---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 閱讀並了解[Microsoft 平台原則](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)。 請確定您的應用程式遵守條款所述，專門用來保護使用者與平台。 |
-
-### <a name="ownership"></a>擁有權
+### <a name="basics"></a>基本知識
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 請確定您用來註冊和管理應用程式的帳戶相關聯的資訊是最新狀態。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 閱讀並瞭解[Microsoft 平臺原則](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409)。 請確定您的應用程式遵守其設計用來保護使用者和平臺的詞彙。 |
 
-### <a name="branding"></a>商標
-
-|   |   |
-|---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 遵守[商標指導方針的應用程式](howto-add-branding-in-azure-ad-apps.md)。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 您的應用程式，請提供有意義的名稱和標誌。 這項資訊會出現在您的應用程式的同意提示。 請確定您的名稱和標誌是代表您的公司/產品，因此使用者可以做出明智的決策。 請確定您在不違反任何的商標。 |
-
-### <a name="privacy"></a>隱私權
+### <a name="ownership"></a>性質
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 提供您的應用程式的服務及隱私權聲明的條款的連結。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 請確定與您用來註冊及管理應用程式的帳戶相關聯的資訊是最新的。 |
+
+### <a name="branding"></a>品牌
+
+|   |   |
+|---|---|
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 遵守[應用程式的商標指導方針](howto-add-branding-in-azure-ad-apps.md)。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 為您的應用程式提供有意義的名稱和標誌。 此資訊會出現在您應用程式的同意提示中。 請確定您的姓名和標誌代表您的公司/產品, 讓使用者能夠做出明智的決策。 請確定您不會違反任何商標。 |
+
+### <a name="privacy"></a>隱私權聲明
+
+|   |   |
+|---|---|
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 提供您應用程式服務條款和隱私權聲明的連結。 |
 
 ### <a name="security"></a>安全性
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 維護所有重新導向 Uri 的擁有權，並保持它們的 DNS 記錄。 請勿在您的 Uri 中使用萬用字元 （*）。 針對 web 應用程式，請確定所有 Uri 都是安全且加密 （例如，使用 https 配置）。 公用用戶端，請使用平台特定重新導向 Uri，如果適用的話 （主要是針對 iOS 和 Android）。 否則，請使用重新導向 Uri，具有高容量的隨機性，若要避免發生衝突時回呼您的應用程式。 如果從獨立的 web 代理程式正在使用您的應用程式，您可以使用 https://login.microsoftonline.com/nativeclient 。 檢閱並修剪所有未使用或不需要重新導向 Uri 以規則為基礎。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您的應用程式註冊在目錄中，最小化，並手動監視應用程式註冊擁有者的清單。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 未啟用支援[OAuth2 隱含授與流程](v2-oauth2-implicit-grant-flow.md)除非有明確的需求。 深入了解有效的案例[此處](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 不用[資源擁有者密碼認證流程 (ROPC)](v2-oauth-ropc.md)，直接處理使用者的密碼。 此流程需要較高程度的信任和使用者的風險，而且應該只用於其他、 更安全的流程無法使用時。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 保護和管理您的應用程式的認證。 使用[憑證認證](active-directory-certificate-credentials.md)，而非密碼認證 （用戶端祕密）。 如果您必須使用密碼認證，不需要設定它以手動方式。 不要將認證儲存在程式碼或組態中，並永遠不會允許他們處理讓人判讀。 可能的話，請使用[管理 Azure 資源的身分識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)或[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)來儲存和定期輪替使用您的認證。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 請確定您的應用程式要求的最低權限。 只會要求您的應用程式絕對需要權限和時，才需要。 了解不同[類型的權限](v1-permissions-and-consent.md#types-of-permissions)。 只使用應用程式權限，如有必要，可能的話，請使用委派的權限。 如需 Microsoft Graph 權限的完整清單，請參閱此[權限參考](https://docs.microsoft.com/graph/permissions-reference)。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您要保護使用 Microsoft 身分識別平台 API，仔細考量它應該公開的權限。 請考慮適當的規模，您的解決方案是什麼，以及哪些權限需要系統管理員同意。 進行任何授權決策之前，先檢查連入權杖中的預期權限。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 維護所有重新導向 Uri 的擁有權, 並將它們的 DNS 記錄保持在最新狀態。 請勿在您的 Uri 中使用萬用字元 (*)。 針對 web 應用程式, 請確定所有 Uri 都是安全且加密的 (例如, 使用 HTTPs 架構)。 若為公用用戶端, 請使用平臺特定的重新導向 Uri (主要適用于 iOS 和 Android)。 否則, 請使用具有大量隨機性的重新導向 Uri, 以避免在回呼至您的應用程式時發生衝突。 如果您的應用程式是從隔離的 web 代理程式中使用, https://login.microsoftonline.com/nativeclient 您可以使用。 定期檢查並修剪所有未使用或不必要的重新導向 Uri。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您的應用程式已在目錄中註冊, 請將應用程式註冊擁有者的清單最小化並手動監視。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 除非明確需要, 否則請勿啟用[OAuth2 隱含授與流程](v2-oauth2-implicit-grant-flow.md)的支援。 瞭解[這裡](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)的有效案例。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 請勿使用[資源擁有者密碼認證流程 (ROPC)](v2-oauth-ropc.md), 這會直接處理使用者的密碼。 此流程需要高程度的信任和使用者暴露, 而且只有在無法使用其他、更安全的流程時才使用。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 保護及管理您的應用程式認證。 使用[憑證認證](active-directory-certificate-credentials.md)，而不是密碼認證 (用戶端密碼)。 如果您必須使用密碼認證, 請勿手動設定。 請勿將認證儲存在程式碼或設定中, 而且不允許人類處理。 可能的話, 請使用[適用于 Azure 資源的受控](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)識別或[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)來儲存並定期輪替您的認證。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 請確定您的應用程式要求最低許可權許可權。 只會詢問您的應用程式絕對需要的許可權, 而且只有在需要時才會要求。 瞭解不同[類型的許可權](v1-permissions-and-consent.md#types-of-permissions)。 只在必要時才使用應用程式許可權;可能的話, 請使用委派的許可權。 如需 Microsoft Graph 許可權的完整清單, 請參閱此[許可權參考](https://docs.microsoft.com/graph/permissions-reference)。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您要使用 Microsoft 身分識別平臺來保護 API, 請仔細考慮應公開的許可權。 請考慮您的解決方案有哪些正確的資料細微性, 以及哪些許可權需要系統管理員同意。 在進行任何授權決策之前, 請先檢查連入權杖中是否有預期的許可權。 |
 
 ### <a name="implementation"></a>實作
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 使用新式驗證的解決方案 (OAuth 2.0 [OpenID Connect](v2-protocols-oidc.md)) 來安全地登入使用者。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 不實作您自己的通訊協定 – 使用[Microsoft 支援的驗證程式庫](reference-v2-libraries.md)(MSAL，伺服器中介軟體)。 請確定您使用您已與整合的驗證程式庫的最新版本。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您的應用程式需要的資料會透過[Microsoft Graph](https://developer.microsoft.com/graph)，要求 Microsoft Graph 端點，而不是個別的 API 使用此資料的權限。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 使用新式驗證解決方案 (OAuth 2.0、 [OpenID connect](v2-protocols-oidc.md)) 來安全地登入使用者。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 不要自己執行通訊協定–使用[Microsoft 支援的驗證程式庫](reference-v2-libraries.md)(MSAL、伺服器中介軟體)。 請確定您使用的是您已整合的最新驗證程式庫版本。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果您的應用程式所需的資料可透過[Microsoft Graph](https://developer.microsoft.com/graph)取得, 請使用 Microsoft Graph 端點 (而不是個別 API) 來要求此資料的許可權。 |
 
 ### <a name="end-user-experience"></a>使用者體驗
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | [了解同意體驗](application-consent-experience.md)並設定您的應用程式的同意提示的項目，讓使用者和系統管理員有足夠的資訊來判斷他們是否信任您的應用程式。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 最小化的使用者必須輸入登入認證時使用您的應用程式嘗試無訊息的次數之前互動流量的驗證 （無訊息的權杖取得）。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 請勿使用"prompt = 同意 「 針對每次登入。 只使用提示字元 = consent，如果您判斷您需要要求 （例如，如果您已經變更您的應用程式的必要權限） 的其他權限的同意。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 情況適用時，擴充您的應用程式與使用者資料。 使用[Microsoft Graph API](https://developer.microsoft.com/graph)是簡單的方法，若要這樣做。 [Graph 總管](https://developer.microsoft.com/graph/graph-explorer)可以幫助您入門的工具。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 註冊的完整應用程式需要讓系統管理員可以授與同意輕鬆地以其租用戶的權限集。 使用[增量同意](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)在執行階段，協助使用者了解為什麼您的應用程式正在要求權限，可能是關於或要求在第一次啟動時的使用者混淆。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 實作[清除單一登出體驗](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut)。 隱私權和安全性需求，而且也很好的使用者經驗。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | [瞭解同意體驗](application-consent-experience.md), 並設定應用程式的同意提示, 讓使用者和系統管理員有足夠的資訊來判斷他們是否信任您的應用程式。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 在互動式流程之前嘗試無訊息驗證 (無訊息權杖取得), 將使用者在使用您的應用程式時需要輸入登入認證的次數降到最低。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 針對每個登入, 請勿使用「提示 = 同意」。 如果您判斷需要同意其他許可權 (例如, 如果您已變更應用程式的必要許可權), 請只使用 prompt = 同意。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 適用時, 請使用使用者資料來擴充您的應用程式。 使用[MICROSOFT GRAPH API](https://developer.microsoft.com/graph)是執行此動作的簡單方式。 可協助您開始使用的[Graph explorer](https://developer.microsoft.com/graph/graph-explorer)工具。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 註冊應用程式所需的完整許可權集, 讓系統管理員可以輕鬆地將同意授與其租使用者。 在執行時間使用累加[式同意](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent), 以協助使用者瞭解當第一次啟動時要求應用程式時, 可能會顧慮或混淆使用者的許可權。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 實行[全新的單一登出體驗](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut)。 這是隱私權和安全性需求, 可提供良好的使用者體驗。 |
 
 ### <a name="testing"></a>測試
 
 |   |   |
 |---|---|
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 測試[條件式存取原則](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut)，可能會影響您的使用者能夠使用您的應用程式。 |
-| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 測試您的應用程式與所有可能的帳戶，您打算支援 （例如工作或學校帳戶、 個人 Microsoft 帳戶、 子女帳戶和主權帳戶）。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 測試[條件式存取原則](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut), 這可能會影響您的使用者使用您的應用程式的能力。 |
+| ![核取方塊](./media/active-directory-integration-checklist/checkbox-two.svg) | 使用您打算支援的所有可能帳戶 (例如工作或學校帳戶、個人 Microsoft 帳戶、子帳戶和主權帳戶) 來測試您的應用程式。 |
 
 ## <a name="additional-resources"></a>其他資源
 
 探索有關 v2.0 的深入資訊：
 
-* [Microsoft 身分識別平台 （v2.0 概觀）](v2-overview.md)
-* [Microsoft 身分識別平台的通訊協定參考](active-directory-v2-protocols.md)
+* [Microsoft 身分識別平臺 (v2.0 總覽)](v2-overview.md)
+* [Microsoft 身分識別平臺通訊協定參考](active-directory-v2-protocols.md)
 * [存取權杖參考](access-tokens.md)
 * [識別碼權杖參考](id-tokens.md)
 * [驗證程式庫參考](reference-v2-libraries.md)
-* [權限及同意在 Microsoft 身分識別平台](v2-permissions-and-consent.md)
+* [Microsoft 身分識別平臺中的許可權和同意](v2-permissions-and-consent.md)
 * [Microsoft Graph API](https://developer.microsoft.com/graph)

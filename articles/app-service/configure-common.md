@@ -1,11 +1,11 @@
 ---
-title: 在入口網站-Azure App Service 中設定應用程式
-description: 了解如何在 Azure 入口網站中設定 App Service 應用程式的一般設定。
-keywords: azure 應用程式服務、 web 應用程式、 應用程式設定、 環境變數
+title: 在入口網站中設定應用程式-Azure App Service
+description: 瞭解如何在 Azure 入口網站中設定 App Service 應用程式的一般設定。
+keywords: azure app service, web 應用程式, 應用程式設定, 環境變數
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
@@ -13,29 +13,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bcc970375120f76e4ec8a90f487d251296f92dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957906"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990277"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 入口網站中設定 App Service 應用程式
 
-本主題說明如何設定 web 應用程式、 行動後端或 API 應用程式使用的一般設定[Azure 入口網站]。
+本主題說明如何使用[Azure 入口網站]來設定 web 應用程式、行動後端或 API 應用程式的一般設定。
 
 ## <a name="configure-app-settings"></a>進行應用程式設定
 
-在 App Service 中，您可以使用環境變數等的應用程式設定。 在  [Azure 入口網站]，瀏覽至您的應用程式管理頁面。 在 應用程式的左側功能表中，按一下**組態** > **應用程式設定**。
+在 App Service 中, 應用程式設定是以環境變數形式傳遞給應用程式程式碼的變數。 針對 Linux 應用程式和自訂容器, App Service 會使用`--env`旗標將應用程式設定傳遞至容器, 以設定容器中的環境變數。
+
+在  [Azure 入口網站]中, 流覽至您應用程式的 [管理] 頁面。 在應用程式的左側功能表中,  > 按一下 [設定] [**應用程式設定**]。
 
 ![應用程式設定](./media/configure-common/open-ui.png)
 
-適用於 ASP.NET 和 ASP.NET Core 開發人員在 App Service 中的設定應用程式設定就像是在中設定它們`<appSettings>`中*Web.config*，但是在 App Service 中的值來覆寫中的*Web.config*。您可以保留開發設定 （例如本機 MySQL 密碼）。 *Web.config*，但生產環境祕密 （例如 Azure MySQL 資料庫密碼） 在 App Service 中的安全。 當您在本機偵錯，並使用生產環境祕密部署至 Azure 時，相同的程式碼會使用您的開發設定。
+針對 ASP.NET 和 ASP.NET Core 開發人員, 在 App Service 中設定應用程式設定, 就`<appSettings>`像是在 web.config 或*appsettings*中設定, 但 App Service 中的值會覆寫*web.config*或*appsettings. json*。 您可以在 web.config 或*appsettings*中保留開發設定 (例如, 本機 MySQL 密碼), 但 App Service 中的生產秘密 (例如 Azure MySQL 資料庫密碼) 則是安全的。 當您在本機進行調試時, 相同的程式碼會使用您的開發設定, 並在部署至 Azure 時使用您的生產密碼。
 
-同樣地，其他語言堆疊中，會在執行階段取得應用程式設定為環境變數。 如需語言堆疊的特定步驟，請參閱：
+同樣地, 其他語言堆疊也會在執行時間取得應用程式設定作為環境變數。 如需語言堆疊的特定步驟, 請參閱:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
@@ -48,29 +50,29 @@ ms.locfileid: "65957906"
 應用程式設定在儲存時一律加密 (待用加密)。
 
 > [!NOTE]
-> 應用程式設定也可以從已解決[Key Vault](/azure/key-vault/)使用[Key Vault 參考](app-service-key-vault-references.md)。
+> 您也可以使用[Key Vault 參考](app-service-key-vault-references.md), 從[Key Vault](/azure/key-vault/)解析應用程式設定。
 
 ### <a name="show-hidden-values"></a>顯示隱藏的值
 
-根據預設，應用程式設定的值會隱藏在入口網站中的安全性。 若要查看隱藏的應用程式設定值，請按一下**值**該設定的欄位。 若要查看所有的應用程式設定的值，請按一下**顯示值** 按鈕。
+根據預設, 應用程式設定的值會在入口網站中隱藏, 以提供安全性。 若要查看應用程式設定的隱藏值, 請按一下該設定的 [**值**] 欄位。 若要查看所有應用程式設定的值, 請按一下 [**顯示值**] 按鈕。
 
 ### <a name="add-or-edit"></a>新增或編輯
 
-若要新增新的應用程式設定，請按一下**新的應用程式設定**。 在對話方塊中，您可以[堅持目前的位置設定](deploy-staging-slots.md#which-settings-are-swapped)。
+若要新增應用程式設定, 請按一下 [**新增應用程式設定**]。 在對話方塊中, 您可以將[設定停留在目前的](deploy-staging-slots.md#which-settings-are-swapped)位置。
 
-若要編輯的設定，請按一下**編輯**右邊的按鈕。
+若要編輯設定, 請按一下右側的 [**編輯**] 按鈕。
 
-完成後，按一下**更新**。 別忘了按一下**儲存**回到**組態**頁面。
+完成後, 按一下 [**更新**]。 別忘了按一下 [設定] 頁面中的 [**存**回]。
 
 > [!NOTE]
-> 在預設 Linux 容器或自訂的 Linux 容器，例如在應用程式設定名稱的任何巢狀的 JSON 索引鍵結構`ApplicationInsights:InstrumentationKey`必須為 App Service 中設定`ApplicationInsights__InstrumentationKey`金鑰名稱。 換句話說，任何`:`應取代為`__`（雙底線）。
+> 在預設的 linux 容器或自訂的 linux 容器中, 應用程式設定名稱中的任何嵌套 JSON `ApplicationInsights:InstrumentationKey`金鑰結構 (例如) 都必須`ApplicationInsights__InstrumentationKey`在 App Service 中設定, 以做為索引鍵名稱。 換句話說, any `:`應該`__`取代成 (雙底線)。
 >
 
 ### <a name="edit-in-bulk"></a>大量編輯
 
-若要新增或編輯大量的應用程式設定，按一下**進階編輯** 按鈕。 完成後，按一下**更新**。 別忘了按一下**儲存**回到**組態**頁面。
+若要大量新增或編輯應用程式設定, 請按一下 [ **Advanced edit** ] \ (編輯 \) 按鈕。 完成後, 按一下 [**更新**]。 別忘了按一下 [設定] 頁面中的 [**存**回]。
 
-應用程式設定必須將下列 JSON 格式設定：
+應用程式設定具有下列 JSON 格式:
 
 ```json
 [
@@ -90,22 +92,22 @@ ms.locfileid: "65957906"
 
 ## <a name="configure-connection-strings"></a>設定連接字串
 
-在  [Azure 入口網站]，瀏覽至應用程式的管理頁面。 在 應用程式的左側功能表中，按一下**組態** > **應用程式設定**。
+在  [Azure 入口網站]中, 流覽至應用程式的 [管理] 頁面。 在應用程式的左側功能表中,  > 按一下 [設定] [**應用程式設定**]。
 
 ![應用程式設定](./media/configure-common/open-ui.png)
 
-適用於 ASP.NET 和 ASP.NET Core 開發人員，App Service 中的設定連接字串，就像是在中設定它們`<connectionStrings>`中*Web.config*，但您在 App Service 中設定的值覆寫中的*Web.config*.您可以保留開發設定 （例如資料庫檔案） *Web.config*和生產環境祕密 （例如 SQL Database 認證） 在 App Service 中的安全。 當您在本機偵錯，並使用生產環境祕密部署至 Azure 時，相同的程式碼會使用您的開發設定。
+針對 ASP.NET 和 ASP.NET Core 開發人員, 在 App Service 中設定連接字串, 就像`<connectionStrings>`是在 web.config 中設定, 但是您在 App Service 中設定的值會覆寫*web.config*中的值。您可以在 App Service 中安全地保留*web.config*中的開發設定 (例如資料庫檔案) 和生產秘密 (例如 SQL Database 認證)。 當您在本機進行調試時, 相同的程式碼會使用您的開發設定, 並在部署至 Azure 時使用您的生產密碼。
 
-針對其他語言堆疊，最好是使用[應用程式設定](#configure-app-settings)相反的因為連接字串需要特殊的格式，在變數中的索引鍵順序來存取值。 以下是一個例外狀況，不過： 特定的 Azure 資料庫備份類型和應用程式如果應用程式中設定其連接字串。 如需詳細資訊，請參閱 <<c0> [ 備份的項目](manage-backup.md#what-gets-backed-up)。 如果您不需要這個自動的備份，然後使用應用程式設定。
+針對其他語言堆疊, 最好改用[應用程式設定](#configure-app-settings), 因為連接字串需要變數索引鍵中的特殊格式, 才能存取值。 以下是一個例外狀況, 不過, 如果您在應用程式中設定其連接字串, 某些 Azure 資料庫類型會與應用程式一起備份。 如需詳細資訊, 請參閱[備份的內容](manage-backup.md#what-gets-backed-up)。 如果您不需要此自動備份, 請使用應用程式設定。
 
-在執行階段，連接字串可做為環境變數，加上下列連線類型：
+在執行時間, 連接字串會以環境變數的形式提供, 並在前面加上下列連線類型:
 
 * SQL Server： `SQLCONNSTR_`
 * MySQL： `MYSQLCONNSTR_`
 * SQL Database： `SQLAZURECONNSTR_`
 * 自訂：`CUSTOMCONNSTR_`
 
-例如，名為 MySql 連接字串*connectionstring1*可以存取的環境變數為`MYSQLCONNSTR_connectionString1`。 如需語言堆疊的特定步驟，請參閱：
+例如, 名為*connectionstring1*的 MySql 連接字串可以做為環境變數`MYSQLCONNSTR_connectionString1`來存取。 如需語言堆疊的特定步驟, 請參閱:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
@@ -118,25 +120,25 @@ ms.locfileid: "65957906"
 連接字串在儲存時一律加密 (待用加密)。
 
 > [!NOTE]
-> 連接字串也可以從已解決[Key Vault](/azure/key-vault/)使用[Key Vault 參考](app-service-key-vault-references.md)。
+> 您也可以使用[Key Vault 參考](app-service-key-vault-references.md), 從[Key Vault](/azure/key-vault/)解析連接字串。
 
 ### <a name="show-hidden-values"></a>顯示隱藏的值
 
-根據預設，連接字串的值會隱藏在入口網站中的安全性。 若要檢視隱藏的連接字串的值，只要按一下**值**該字串的欄位。 若要查看所有的連接字串的值，請按一下**顯示值** 按鈕。
+根據預設, 連接字串的值會在入口網站中隱藏, 以提供安全性。 若要查看連接字串的隱藏值, 只要按一下該字串的**值**欄位即可。 若要查看所有連接字串的值, 請按一下 [**顯示值**] 按鈕。
 
 ### <a name="add-or-edit"></a>新增或編輯
 
-若要新增新的連接字串，請按一下**新的連接字串**。 在對話方塊中，您可以[堅持目前位置的連接字串](deploy-staging-slots.md#which-settings-are-swapped)。
+若要加入新的連接字串, 請按一下 [**新增連接字串**]。 在對話方塊中, 您可以將[連接字串停留在目前的](deploy-staging-slots.md#which-settings-are-swapped)位置。
 
-若要編輯的設定，請按一下**編輯**右邊的按鈕。
+若要編輯設定, 請按一下右側的 [**編輯**] 按鈕。
 
-完成後，按一下**更新**。 別忘了按一下**儲存**回到**組態**頁面。
+完成後, 按一下 [**更新**]。 別忘了按一下 [設定] 頁面中的 [**存**回]。
 
 ### <a name="edit-in-bulk"></a>大量編輯
 
-若要新增或編輯大量的連接字串，請按一下**進階編輯** 按鈕。 完成後，按一下**更新**。 別忘了按一下**儲存**回到**組態**頁面。
+若要大量新增或編輯連接字串, 請按一下 [**高級編輯**] 按鈕。 完成後, 按一下 [**更新**]。 別忘了按一下 [設定] 頁面中的 [**存**回]。
 
-連接字串具有下列的 JSON 格式：
+連接字串具有下列 JSON 格式:
 
 ```json
 [
@@ -161,79 +163,79 @@ ms.locfileid: "65957906"
 
 ## <a name="configure-general-settings"></a>設定一般設定
 
-在  [Azure 入口網站]，瀏覽至應用程式的管理頁面。 在 應用程式的左側功能表中，按一下**組態** > **應用程式設定**。
+在  [Azure 入口網站]中, 流覽至應用程式的 [管理] 頁面。 在應用程式的左側功能表中,  > 按一下 [設定] [**應用程式設定**]。
 
 ![一般設定](./media/configure-common/open-general.png)
 
-在這裡，您可以設定應用程式的一些常見設定。 某些設定需要您[相應增加以較高的定價層](web-sites-scale.md)。
+在這裡, 您可以設定應用程式的一些一般設定。 某些設定需要您相應[增加至更高的定價層](web-sites-scale.md)。
 
-- **堆疊設定**:要執行的應用程式，包括語言及 SDK 版本的軟體堆疊。 如需 Linux 應用程式和自訂的容器應用程式，您也可以設定的選擇性啟動命令或檔案。
-- **平台設定**:可讓您設定裝載的平台，包括：
-    - **位元**:32 位元或 64 位元。
-    - **WebSocket 通訊協定**:針對[ASP.NET SignalR]或是[socket.io](https://socket.io/)，例如。
-    - **Always On**:讓應用程式即使在沒有流量時，才載入。 您需要啟用它，讓連續 WebJobs，或使用 CRON 運算式觸發的 webjobs。
-    - **受控的管線版本**:IIS[管線模式]。 將它設定為**傳統**如果您有舊版的應用程式需要較舊版本的 IIS。
+- **堆疊設定**:用來執行應用程式的軟體堆疊, 包括語言和 SDK 版本。 針對 Linux 應用程式和自訂容器應用程式, 您也可以設定選擇性的啟動命令或檔案。
+- **平臺設定**:可讓您設定裝載平臺的設定, 包括:
+    - 位:32位或64位。
+    - **WebSocket 通訊協定**:例如, 針對[ASP.NET SignalR]或[socket.io](https://socket.io/)。
+    - **Always On**:即使沒有流量, 仍要載入應用程式。 針對使用 CRON 運算式觸發的連續 Webjob 或 Webjob, 這是必要的。
+    - **受控管線版本**:IIS[管線模式]。 如果您有需要舊版 IIS 的繼承應用程式, 請將它設定為 [**傳統**]。
     - **HTTP 版本**:設定為 **2.0** 來啟用 [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) 通訊協定支援。
     > [!NOTE]
-    > 大部分的新式瀏覽器僅支援透過 TLS 的 HTTP/2 通訊協定，非加密的流量則會繼續使用 HTTP/1.1。 若要確保該用戶端瀏覽器連線到您的應用程式，使用 HTTP/2，或是[購買 App Service 憑證](web-sites-purchase-ssl-web-site.md)應用程式的自訂網域或[協力廠商憑證繫結](app-service-web-tutorial-custom-ssl.md)。
-    - **ARR 同質性**:在多重執行個體部署中，請確定用戶端會路由至相同的執行個體的工作階段存留期。 您可以將此選項設定為**關閉**無狀態應用程式。
-- **偵錯**:啟用遠端偵錯[ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)， [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)，或[Node.js](containers/configure-language-nodejs.md#debug-remotely)應用程式。 48 小時後自動關閉此選項。
-- **內送的用戶端憑證**： 要求中的用戶端憑證[相互驗證](app-service-web-configure-tls-mutual-auth.md)。
+    > 大部分的新式瀏覽器僅支援透過 TLS 的 HTTP/2 通訊協定，非加密的流量則會繼續使用 HTTP/1.1。 若要確保用戶端瀏覽器使用 HTTP/2 連接到您的應用程式, 請購買應用程式自訂網域的[App Service 憑證](web-sites-purchase-ssl-web-site.md), 或系結[協力廠商憑證](app-service-web-tutorial-custom-ssl.md)。
+    - **ARR 親和性**:在多重實例部署中, 請確定在會話的生命週期中, 用戶端會路由傳送至相同的實例。 針對無狀態應用程式, 您可以將此選項設定為 [**關閉**]。
+- **調試**:啟用[ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)、 [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)或 [node.js](containers/configure-language-nodejs.md#debug-remotely) 應用程式的遠端偵錯程式。 此選項會在48小時後自動關閉。
+- 連**入的用戶端憑證**: 需要[相互驗證](app-service-web-configure-tls-mutual-auth.md)的用戶端憑證。
 
-## <a name="configure-default-documents"></a>設定預設文件
+## <a name="configure-default-documents"></a>設定預設檔
 
-此設定為只針對 Windows 應用程式。
+此設定僅適用于 Windows 應用程式。
 
-在  [Azure 入口網站]，瀏覽至應用程式的管理頁面。 在 應用程式的左側功能表中，按一下**組態** > **預設文件**。
+在  [Azure 入口網站]中, 流覽至應用程式的 [管理] 頁面。 在應用程式的左側功能表中,  > 按一下 [設定] [**預設檔**]。
 
 ![一般設定](./media/configure-common/open-documents.png)
 
-預設文件會顯示在網站的根 URL 的網頁。 系統會使用清單中第一個相符的檔案。 若要新增新的預設文件，請按一下**新的文件**。 別忘了按一下**儲存**。
+預設檔是在網站的根 URL 顯示的網頁。 系統會使用清單中第一個相符的檔案。 若要加入新的預設檔, 請按一下 [**新增檔**]。 別忘了按一下 [**儲存**]。
 
-如果應用程式會使用路由基礎 URL，而非處理靜態內容的模組，則不需要預設文件。
+如果應用程式使用根據 URL 路由傳送的模組, 而不是提供靜態內容, 則不需要預設檔。
 
 ## <a name="configure-path-mappings"></a>設定路徑對應
 
-在  [Azure 入口網站]，瀏覽至應用程式的管理頁面。 在 應用程式的左側功能表中，按一下**組態** > **路徑對應**。
+在  [Azure 入口網站]中, 流覽至應用程式的 [管理] 頁面。 在應用程式的左側功能表中,  > 按一下 [設定**路徑**對應]。
 
 ![一般設定](./media/configure-common/open-path.png)
 
-**路徑對應**頁面會顯示不同的項目根據 OS 類型。
+[**路徑**對應] 頁面會根據 OS 類型來顯示不同的專案。
 
 ### <a name="windows-apps-uncontainerized"></a>Windows 應用程式 (uncontainerized)
 
-針對 Windows 應用程式，您可以自訂的 IIS 處理常式對應和虛擬應用程式和目錄。
+針對 Windows 應用程式, 您可以自訂 IIS 處理常式對應和虛擬應用程式和目錄。
 
-處理常式對應可讓您加入自訂指令碼處理器以處理特定副檔名的要求。 若要新增的自訂處理常式，請按一下**新的處理常式**。 設定處理常式如下所示：
+處理常式對應可讓您新增自訂腳本處理器, 以處理特定副檔名的要求。 若要加入自訂處理常式, 請按一下 [**新增處理常式**]。 設定處理常式, 如下所示:
 
-- **副檔名**。 您想要處理這類副檔名 *\*.php*或是*handler.fcgi*。
-- **指令碼處理器**。 您的指令碼處理器的絕對路徑。 指令碼處理器會處理符合該副檔名的檔案要求。 使用路徑 `D:\home\site\wwwroot` 以指出應用程式的根目錄。
-- **引數**。 指令碼處理器選用命令列引數。
+- **副檔名**。 您想要處理的副檔名, 例如 *\*php*或*處理常式. handler.fcgi*。
+- **腳本處理器**。 您的腳本處理器的絕對路徑。 符合副檔名之檔案的要求會由腳本處理器處理。 使用路徑 `D:\home\site\wwwroot` 以指出應用程式的根目錄。
+- **引數**。 腳本處理器的選擇性命令列引數。
 
-每個應用程式具有預設的根路徑 (`/`) 對應至`D:\home\site\wwwroot`，其中預設會部署您的程式碼。 如果您的應用程式的根目錄位於不同的資料夾，或如果您的儲存機制有多個應用程式，您可以編輯或新增虛擬應用程式和這裡的目錄。 按一下 **新的虛擬應用程式或目錄**。
+每個應用程式都有對應至`/` `D:\home\site\wwwroot`的預設根路徑 (), 預設會部署程式碼。 如果您的應用程式根目錄位於不同的資料夾中, 或如果您的存放庫有一個以上的應用程式, 您可以在這裡編輯或新增虛擬應用程式和目錄。 按一下 [**新增虛擬應用程式或目錄**]。
 
-若要設定虛擬應用程式和目錄，請指定每個虛擬目錄和其對應的實體路徑，相對於網站根目錄 (`D:\home`)。 或者，您可以選取 [ **應用程式** ] 核取方塊，勾選虛擬目錄做為應用程式。
+若要設定虛擬應用程式和目錄, 請指定每個虛擬目錄及其相對於網站根目錄的對應`D:\home`實體路徑 ()。 或者，您可以選取 [ **應用程式** ] 核取方塊，勾選虛擬目錄做為應用程式。
 
 ### <a name="containerized-apps"></a>容器化應用程式
 
-您可以[新增您的容器化應用程式的自訂儲存體](containers/how-to-serve-content-from-azure-storage.md)。 容器化應用程式包括所有的 Linux 應用程式以及 App Service 上執行 Windows 和 Linux 的自訂容器。 按一下 **新 Azure 儲存體掛接**並設定您自訂的儲存體，如下所示：
+您可以[為容器化應用程式新增自訂儲存體](containers/how-to-serve-content-from-azure-storage.md)。 容器化應用程式包含所有 Linux 應用程式, 以及在 App Service 上執行的 Windows 和 Linux 自訂容器。 按一下 [**新增] Azure 儲存體掛接**並設定您的自訂存放裝置, 如下所示:
 
 - **名稱**：顯示名稱。
-- **組態選項**:**基本**或是**進階**。
-- **儲存體帳戶**：容器具有您想要儲存體帳戶。
-- **儲存體類型**：**Azure Blob**或是**Azure 檔案**。
+- 設定**選項**:**基本**或**先進**。
+- **儲存體帳戶**：具有您想要之容器的儲存體帳戶。
+- **儲存體類型**：**Azure blob**或**Azure 檔案儲存體**。
   > [!NOTE]
-  > Windows 容器應用程式只會支援 Azure 檔案服務。
-- **儲存體容器**︰基本組態時，您想要的容器。
-- **共用名稱**:進階組態，如檔案共用名稱。
-- **存取金鑰**:進行進階設定時，存取金鑰。
-- **掛接路徑**:若要掛接的自訂儲存體容器中的絕對路徑。
+  > Windows 容器應用程式僅支援 Azure 檔案儲存體。
+- **儲存體容器**︰針對 [基本設定], 這是您想要的容器。
+- **共用名稱**:針對 [advanced configuration], 檔案共用名稱。
+- **存取金鑰**:適用于 advanced 設定的存取金鑰。
+- **掛接路徑**:容器中用來裝載自訂儲存體的絕對路徑。
 
-如需詳細資訊，請參閱 <<c0> [ 從 Linux 上的 App Service 中的 Azure 儲存體提供內容](containers/how-to-serve-content-from-azure-storage.md)。
+如需詳細資訊, 請參閱[Linux 上的 App Service 中的 Azure 儲存體提供內容](containers/how-to-serve-content-from-azure-storage.md)。
 
 ## <a name="configure-language-stack-settings"></a>設定語言堆疊設定
 
-針對 Linux 應用程式，請參閱：
+針對 Linux 應用程式, 請參閱:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
 - [Node.js](containers/configure-language-nodejs.md)
@@ -244,17 +246,17 @@ ms.locfileid: "65957906"
 
 ## <a name="configure-custom-containers"></a>設定自訂容器
 
-請參閱[適用於 Azure App Service 中設定自訂的 Linux 容器](containers/configure-custom-container.md)
+請參閱[設定適用于 Azure App Service 的自訂 Linux 容器](containers/configure-custom-container.md)
 
 ## <a name="next-steps"></a>後續步驟
 
 - [在 Azure App Service 中設定自訂網域名稱]
 - [設定 Azure App Service 中的預備環境]
 - [針對 Azure App Service 中的 App 啟用 HTTPS]
-- [啟用診斷記錄檔](troubleshoot-diagnostic-logs.md)
+- [啟用診斷記錄](troubleshoot-diagnostic-logs.md)
 - [在 Azure App Service 中調整應用程式規模]
 - [在 Azure App Service 中監視基本概念]
-- [變更與 applicationHost.xdt applicationHost.config 設定](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
+- [使用 Applicationhost.config 變更 Applicationhost.config 設定。 xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 

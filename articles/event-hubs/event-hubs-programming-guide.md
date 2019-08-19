@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2af076153725dc91caaf07b710acf21ebc143fb0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273669"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679099"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure 事件中樞的程式設計指南
 本文會討論一些使用 Azure 事件中樞來撰寫程式碼的常見案例。 它假設使用者對事件中樞已有初步了解。 如需事件中樞的概念概觀，請參閱 [事件中樞概觀](event-hubs-what-is-event-hubs.md)。
@@ -23,7 +23,7 @@ ms.locfileid: "67273669"
 
 您可以使用 HTTP POST 或透過 AMQP 1.0 連線，將事件傳送到事件中樞。 使用選擇取決於應用的特定案例。 AMQP 1.0 連線是以服務匯流排中的代理連線形式計量，其較適合經常出現大量訊息且需要低延遲的案例，因為它們可提供持續的傳訊通道。
 
-在使用 .NET 受控 API 時，用於將資料發佈到事件中樞的主要建構是 [EventHubClient][] 和 [EventData][] 類別。 [EventHubClient][] 提供將事件傳送到事件中樞時所透過的 AMQP 通訊通道。 [EventData][] 類別代表事件，可用來將訊息發佈到事件中樞。 這個類別包含主體、一些中繼資料，以及有關事件的標頭資訊。 當 [EventData][] 物件通過事件中樞時，系統會為它新增其他屬性。
+在使用 .NET 受控 API 時，用於將資料發佈到事件中樞的主要建構是 [EventHubClient][] 和 [EventData][] 類別。 [EventHubClient][] 提供將事件傳送到事件中樞時所透過的 AMQP 通訊通道。 [EventData][] 類別代表事件，可用來將訊息發佈到事件中樞。 此類別包含關於事件的主體、一些中繼資料 (屬性) 和標頭資訊 (SystemProperties)。 當 [EventData][] 物件通過事件中樞時，系統會為它新增其他屬性。
 
 ## <a name="get-started"></a>開始使用
 [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet 套件中會提供支援事件中樞的 .NET 類別。 您可以使用 Visual Studio 方案總管，或 Visual Studio 中的[套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)進行安裝。 若要這樣做，請在 [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) 視窗中發出下列命令：
@@ -69,10 +69,10 @@ for (var i = 0; i < numMessagesToSend; i++)
 }
 ```
 
-## <a name="partition-key"></a>資料分割索引鍵
+## <a name="partition-key"></a>分割區索引鍵
 
 > [!NOTE]
-> 如果您不熟悉資料分割，請參閱[這篇文章](event-hubs-features.md#partitions)。 
+> 如果您不熟悉分割區, 請參閱[這篇文章](event-hubs-features.md#partitions)。 
 
 傳送事件資料時，您可以指定雜湊值，以產生分割區指派。 您可使用 [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) 屬性來指定分割區。 不過，使用分割區的決策暗示可用性與一致性之間的選擇。 
 
@@ -113,7 +113,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 若要啟動事件處理，請將 [EventProcessorHost][] 具現化，其中需為事件中樞提供適當的參數。 例如:
 
 > [!NOTE]
-> EventProcessorHost 和其相關的類別中提供**Microsoft.Azure.EventHubs.Processor**封裝。 將套件新增至您的 Visual Studio 專案中，依照中的指示[這篇文章](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package)或藉由發出下列命令在[Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)視窗：`Install-Package Microsoft.Azure.EventHubs.Processor`。
+> EventProcessorHost 及其相關類別會在**EventHubs**中提供。 依照[本文](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package)中的指示, 或在 [[套件管理員主控台](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)] 視窗中發出下列命令, 將套件新增至您的 Visual Studio`Install-Package Microsoft.Azure.EventHubs.Processor`專案。
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

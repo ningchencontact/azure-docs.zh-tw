@@ -53,11 +53,9 @@
   items:
     - name: 搭配使用 Functions 與 Logic Apps
       href: functions-twitter-email.md
-    - name: 建立無伺服器 API
-      href: functions-create-serverless-api.md
     - name: 使用 VS Code 部署 Python functions
       href: tutorial-vs-code-serverless-python.md
-    - name: 建立 OpenAPI 定義
+    - name: 無伺服器 API 的 OpenAPI 定義
       href: functions-openapi-definition.md
     - name: 連線至虛擬網路
       href: functions-create-vnet.md
@@ -236,12 +234,10 @@
           href: functions-api-definition-getting-started.md
         - name: 匯出至 PowerApps 和 Microsoft Flow
           href: app-service-export-api-to-powerapps-and-flow.md
-        - name: 從 PowerApps 呼叫函式
-          href: functions-powerapps-scenario.md
-        - name: 從 Microsoft Flow 呼叫函式
-          href: functions-flow-scenario.md
         - name: 建立受控識別
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: 自訂 HTTP 函式端點
+          href: functions-create-serverless-api.md
     - name: 疑難排解
       items:
         - name: 針對儲存體進行疑難排解
