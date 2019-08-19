@@ -218,10 +218,10 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 | I (integer) | Int32 |
 | F (Float) | DOUBLE |
 | D (日期) | String |
-| T (時間) | String |
-| P (BCD 封裝、貨幣、小數、數量) | Decimal |
+| T (Time) | String |
+| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
 | N (Numc) | String |
-| X (二進位和原始) | String |
+| X (Binary and Raw) | String |
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。
