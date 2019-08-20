@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Service Fabric 上建立 Spring Boot 應用程式 | Microsoft Docs
+title: 快速入門：在 Azure Service Fabric 上建立 Spring Boot 應用程式
 description: 在本教學課程中，您會使用 Spring Boot 範例應用程式來部署適用於 Azure Service Fabric 的 Spring Boot 應用程式。
 services: service-fabric
 documentationcenter: java
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: mvc, devcenter, seo-java-august2019
+ms.openlocfilehash: 403eec7bf4d45b5b210009588c783cc244d24387
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327153"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977094"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>快速入門：將 Java Spring Boot 應用程式部署到 Service Fabric
 
@@ -149,7 +149,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     
     ![本機叢集狀況良好](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-1. 瀏覽到 `gs-spring-boot/SpringServiceFabric` 資料夾。
+1. 開啟 `gs-spring-boot/SpringServiceFabric` 資料夾。
 1. 執行下列命令，以連接到本機叢集。
 
     ```bash
@@ -176,13 +176,13 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
 若要調整 Web 前端服務，請執行下列動作：
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://localhost:19080`。
-1. 按一下樹狀檢視中 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點旁邊的省略符號 (三個點)，然後選擇 [調整服務]  。
+1. 選取樹狀檢視中 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點旁邊的省略符號 ( **...** )，然後選取 [調整服務]  。
 
     ![Service Fabric Explorer 的 [調整服務]](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     您現在可以選擇調整服務的執行個體數目。
 
-1. 將數字變更為 **3**，然後按一下 [縮放服務]  。
+1. 將數字變更為 **3**，然後選取 [縮放服務]  。
 
     使用命令列調整服務的替代方式如下所示。
 
@@ -194,7 +194,7 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-1. 按一下樹狀檢視中的 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點，然後展開資料分割節點 (以 GUID 表示)。
+1. 選取樹狀檢視中的 **fabric:/SpringServiceFabric/SpringGettingStarted** 節點，然後展開資料分割節點 (以 GUID 表示)。
 
     ![Service Fabric Explorer 調整服務完成](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -207,7 +207,7 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
 若要示範服務容錯移轉，可以使用 Service Fabric Explorer 來模擬節點重新啟動。 請確定您的服務只有一個執行個體正在執行。
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://localhost:19080`。
-1. 按一下執行您服務執行個體之節點旁邊的省略符號 (三個點)，然後重新啟動節點。
+1. 選取執行您服務執行個體之節點旁邊的省略符號 ( **...** )，然後重新啟動節點。
 
     ![Service Fabric Explorer 重新啟動節點](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
 1. 您服務的執行個體會移至其他節點，而且您的應用程式不會有任何停機時間。

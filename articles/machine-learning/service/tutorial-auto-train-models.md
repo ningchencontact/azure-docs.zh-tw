@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 04/11/2019
+ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371029"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990485"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -54,7 +54,7 @@ ms.locfileid: "68371029"
 
 請從以下各節取得前述所有必要項目。
 
-* 使用[您工作區中的雲端 Notebook 伺服器](#azure) 
+* 使用[您工作區中的雲端 Notebook 伺服器](#azure)
 * 使用[您自己的 Notebook 伺服器](#server)
 
 ### <a name="azure"></a>使用您工作區中的雲端 Notebook 伺服器
@@ -688,6 +688,9 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    **automl_settings)
 ```
 
+> [!NOTE]
+> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
+
 ### <a name="train-the-automatic-regression-model"></a>定型自動迴歸模型
 
 開始在本機執行實驗。 將已定義的 `automated_ml_config` 物件傳遞給實驗。 將輸出設定為 `True` 以在實驗期間檢視進度：
@@ -764,7 +767,7 @@ RunDetails(local_run).show()
 ```
 local_run.get_portal_url()
 ```
-  
+
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>選項 2：在 Python 中取得並檢查所有執行的反覆項目
 

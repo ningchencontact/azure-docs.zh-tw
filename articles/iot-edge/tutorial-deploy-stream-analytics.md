@@ -1,19 +1,18 @@
 ---
-title: 教學課程：將 Azure 串流分析作業部署到裝置 - Azure IoT Edge | Microsoft Docs
+title: 邊緣上的串流分析 - Azure IoT Edge | Microsoft Docs
 description: 在本教學課程中，您會將 Azure 串流分析作為模組部署至 IoT Edge 裝置
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 08/07/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cea0d091620d53892f3334306a341b196765879d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0128574ff0ef9db1c5a4326e3ebce25fbba0c2e7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575892"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845172"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>教學課程：將 Azure 串流分析部署為 IoT Edge 模組
 
@@ -21,7 +20,7 @@ ms.locfileid: "64575892"
 
 Azure IoT Edge 和 Azure 串流分析可相互整合，讓您能夠直接在 Azure 入口網站中建立 Azure 串流分析作業，然後將其部署為 IoT Edge 模組，而無需額外的程式碼。  
 
-Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結構化的查詢語法。 如需 IoT Edge 上串流分析的詳細資訊，請參閱 [Azure 串流分析文件](../stream-analytics/stream-analytics-edge.md)。
+Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結構化的查詢語法。 如需詳細資訊，請參閱 [Azure 串流分析文件](../stream-analytics/stream-analytics-edge.md)。
 
 本教學課程中的串流分析模組會計算 30 秒滾動時段的平均溫度。 當平均溫度達到 70 度時，模組就會傳送警示，提醒裝置採取因應動作。 在此案例中，該動作為重設模擬溫度感應器。 在生產環境中，您可能會使用此功能用來關閉機器，或在溫度達到危險程度時採取預防措施。 
 
@@ -53,24 +52,30 @@ Azure IoT Edge 裝置：
 
 ## <a name="create-an-azure-stream-analytics-job"></a>建立 Azure 串流分析作業
 
-在本節中，您可以透過建立 Azure 串流分析作業，從 IoT 中樞取用資料、查詢從您裝置送出的遙測資料，然後將結果轉送至 Azure Blob 儲存體容器。 
+在這一節中，您會建立可執行下列步驟的 Azure 串流分析作業：
+* 從您的 IoT Edge 裝置接收資料。
+* 查詢設定範圍外之值的遙測資料。
+* 根據查詢結果對 IoT Edge 裝置採取動作。 
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
 當您建立要在 IoT Edge 裝置上執行的 Azure 串流分析作業時，該作業必須以可從裝置呼叫的方式儲存。 您可以使用現有的 Azure 儲存體帳戶，或於此時建立新帳戶。 
 
-1. 在 Azure 入口網站中，移至 [建立資源]   > [儲存體]   > [儲存體帳戶 - Blob、檔案、資料表、佇列]  。 
+1. 在 Azure 入口網站中，移至 [建立資源]   > [儲存體]   > [儲存體帳戶]  。 
 
 1. 提供下列值以建立您的儲存體帳戶：
 
    | 欄位 | 值 |
    | ----- | ----- |
+   | Subscription | 選擇與您的 IoT 中樞相同的訂用帳戶。 |
+   | Resource group | 建議您對於在 IoT Edge 快速入門和教學課程中建立的所有測試資源，使用相同的資源群組。 例如 **IoTEdgeResources**。 |
    | Name | 提供儲存體帳戶的唯一名稱。 | 
-   | 位置 | 選擇接近您的位置。 |
-   | 訂用帳戶 | 選擇與您的 IoT 中樞相同的訂用帳戶。 |
-   | 資源群組 | 建議您對於在 IoT Edge 快速入門和教學課程中建立的所有測試資源，使用相同的資源群組。 例如 **IoTEdgeResources**。 |
+   | Location | 選擇接近您的位置。 |
 
-1. 將其他欄位保留為預設值，然後選取 [建立]  。 
+
+1. 將其他欄位保留為預設值，然後選取 [檢閱 + 建立]  。
+
+1. 檢閱您的設定，然後選取 [建立]  。
 
 ### <a name="create-a-new-job"></a>建立新的作業
 
@@ -81,8 +86,8 @@ Azure IoT Edge 裝置：
    | 欄位 | 值 |
    | ----- | ----- |
    | 作業名稱 | 為您的作業提供名稱。 例如 **IoTEdgeJob** | 
-   | 訂用帳戶 | 選擇與您的 IoT 中樞相同的訂用帳戶。 |
-   | 資源群組 | 建議您對於在 IoT Edge 快速入門和教學課程中建立的所有測試資源，使用相同的資源群組。 例如 **IoTEdgeResources**。 |
+   | Subscription | 選擇與您的 IoT 中樞相同的訂用帳戶。 |
+   | Resource group | 建議您對於在 IoT Edge 快速入門和教學課程中建立的所有測試資源，使用相同的資源群組。 例如 **IoTEdgeResources**。 |
    | 位置 | 選擇接近您的位置。 | 
    | 裝載環境 | 選取 [邊緣]  。 |
  
@@ -98,7 +103,7 @@ Azure IoT Edge 裝置：
 
 1. 在 [作業拓撲]  下方選取 [輸入]  ，然後選取 [新增串流輸入]  。
 
-   ![Azure 串流分析新增輸入](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Azure 串流分析 - 新增輸入](./media/tutorial-deploy-stream-analytics/asa-input.png)
 
 1. 從下拉式清單中選擇 [Edge 中樞]  。
 
@@ -108,7 +113,7 @@ Azure IoT Edge 裝置：
 
 1. 在 [作業拓撲]  下方開啟 [輸出]  ，然後選取 [新增]  。
 
-   ![Azure 串流分析新增輸出](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure 串流分析 - 新增輸出](./media/tutorial-deploy-stream-analytics/asa-output.png)
 
 1. 從下拉式清單中選擇 [Edge 中樞]  。
 
@@ -137,11 +142,11 @@ Azure IoT Edge 裝置：
 
 若要準備將您的串流分析作業部署到 IoT Edge 裝置上，您必須將該作業與儲存體帳戶中的容器產生關聯。 當您部署作業時，作業定義即會匯出至儲存體容器。 
 
-1. 在 [設定]  底下，選取 [儲存體帳戶設定]  。
+1. 在 [設定]  底下選取 [儲存體帳戶設定]  ，然後選取 [新增儲存體帳戶]  。 
 
-1. 選取 [新增儲存體帳戶]  。 
+   ![Azure 串流分析 - 新增儲存體帳戶](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 
-1. 從下拉式功能表中選取您的 [儲存體帳戶]  。
+1. 從下拉式功能表中，選取您在本教學課程開頭所建立的**儲存體帳戶**。
 
 1. 針對 [容器]  欄位選取 [新建]  ，並提供儲存體容器的名稱。 
 
@@ -153,16 +158,18 @@ Azure IoT Edge 裝置：
 
 在本節中，您會使用 Azure 入口網站中的 [設定模組]  精靈建立*部署資訊清單*。 部署資訊清單是一個 JSON 檔案，用以說明將部署到裝置的所有模組、用來儲存模組映像的容器登錄、管理模組的方式，以及模組彼此通訊的方式。 IoT Edge 裝置會從 IoT 中樞擷取其部署資訊清單，然後使用其中的資訊來部署和設定它所有已指派的模組。 
 
-在本教學課程中，您會部署兩個模組。 第一個是 **tempSensor**，這是模擬溫度和溼度感應器的模組。 第二個是您的串流分析作業。 感應器模組會提供您的作業查詢所將分析的資料流。 
+在本教學課程中，您會部署兩個模組。 第一個是 **SimulatedTemperatureSensor**，這是模擬溫度和溼度感應器的模組。 第二個是您的串流分析作業。 感應器模組會提供您的作業查詢所將分析的資料流。 
 
-1. 在 Azure 入口網站中，從您的 IoT 中樞內移至 [IoT Edge]  ，然後開啟 IoT Edge 裝置的詳細資料頁面。
+1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞。
+
+1. 移至 [IoT Edge]  ，然後開啟 IoT Edge 裝置的詳細資料頁面。
 
 1. 選取 [設定模組]  。  
 
-1. 如果您先前在此裝置上部署過 tempSensor 模組，它可能會自動填入。 若非如此，請以下列步驟新增模組：
+1. 如果您先前在此裝置上部署過 SimulatedTemperatureSensor 模組，它可能會自動填入。 若非如此，請以下列步驟新增模組：
 
    1. 按一下 [新增]  ，然後選取 [IoT Edge 模組]  。
-   1. 針對名稱，輸入 **tempSensor**。
+   1. 針對名稱，輸入 **SimulatedTemperatureSensor**。
    1. 針對映像 URI，輸入 **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**。 
    1. 其他設定保留不變，然後選取 [儲存]  。
 
@@ -172,13 +179,17 @@ Azure IoT Edge 裝置：
    1. 選取訂用帳戶與您建立的 Azure 串流分析 Edge 作業。 
    1. 選取 [ **儲存**]。
 
-1. 當串流分析作業發佈至您所建立的儲存體容器後，請按一下模組名稱，以檢視串流分析模組的結構化方式。 
+   儲存變更之後，您串流分析作業的詳細資料就會發佈到您所建立的儲存體容器。 
 
-   映像 URI 會指向標準 Azure 串流分析映像。 這是部署到 IoT Edge 裝置的每個作業所使用的相同映像。 
+1. 當串流分析模組新增至模組清單時，請選取 [設定]  以查看其結構。 
 
-   模組對應項可使用名為 **ASAJobInfo** 的所需屬性進行設定。 該屬性的值會指向儲存體容器中的作業定義。 此屬性表示串流分析映像如何以您特定的作業資訊進行設定。 
+   映像 URI 會指向標準 Azure 串流分析映像。 這個映像會用於部署至 IoT Edge 裝置的每個串流分析模組。 
 
-1. 關閉模組頁面。
+   模組對應項可使用名為 **ASAJobInfo** 的所需屬性進行設定。 該屬性的值會指向儲存體容器中的作業定義。 此屬性表示串流分析映像如何以您特定的作業詳細資料進行設定。 
+
+   根據預設，串流分析模組的名稱會與其所依據的作業相同。 您可以視需要變更此頁面上的模組名稱，但這不是必要的。 
+
+1. 關閉模組設定頁面。
 
 1. 記下您的串流分析模組名稱 (因為您在下一個步驟將會用到此名稱)，然後選取 [下一步]  繼續作業。
 
@@ -187,29 +198,29 @@ Azure IoT Edge 裝置：
     ```json
     {
         "routes": {
-            "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream",
+            "telemetryToCloud": "FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream",
             "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream",
-            "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")",
-            "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")"
+            "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/SimulatedTemperatureSensor/inputs/control\")",
+            "telemetryToAsa": "FROM /messages/modules/SimulatedTemperatureSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")"
         }
     }
     ```
 
-   您在此處宣告的路由，會定義通過 IoT Edge 裝置的資料流程。 來自 tempSensor 的遙測資料會傳送至 IoT 中樞，以及先前在串流分析作業中設定的**溫度**輸入。 **警示**輸出訊息會傳送至 IoT 中樞和 tempSensor 模組，以觸發重設命令。 
+   您在此處宣告的路由，會定義通過 IoT Edge 裝置的資料流程。 來自 SimulatedTemperatureSensor 的遙測資料會傳送至 IoT 中樞，以及先前在串流分析作業中設定的**溫度**輸入。 **警示**輸出訊息會傳送至 IoT 中樞和 SimulatedTemperatureSensor 模組，以觸發重設命令。 
 
 1. 選取 [下一步]  。
 
-1. 在 [檢閱部署]  步驟中，選取 [提交]  。
+1. 在 [檢閱部署]  步驟中，您可以看到您在精靈中提供的資訊如何轉換成 JSON 部署資訊清單。 檢閱資訊清單後，請選取 [提交]  。
 
 1. 返回裝置的詳細資料頁面，然後選取 [重新整理]  。  
 
-    您應該會看到新的串流分析模組正在與 IoT Edge 代理程式模組和 IoT Edge 中樞一起執行。
+    您應該會看到新的串流分析模組正在與 IoT Edge 代理程式和 IoT Edge 中樞模組一起執行。 可能需要幾分鐘的時間，資訊才會到達您的 IoT Edge 裝置，然後才會啟動新的模組。 如果您沒有立即看到模組執行，請繼續重新整理頁面。
 
-    ![依裝置報告的 tempSensor 和 ASA 模組](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![依裝置報告的 SimulatedTemperatureSensor 和 ASA 模組](./media/tutorial-deploy-stream-analytics/module-output2.png)
 
 ## <a name="view-data"></a>檢視資料
 
-現在您可以移至您的 IoT Edge 裝置，確認 Azure 串流分析模組和 tempSensor 模組之間的互動。
+現在您可以移至您的 IoT Edge 裝置，確認 Azure 串流分析模組和 SimulatedTemperatureSensor 模組之間的互動。
 
 1. 檢查是否所有模組皆在 Docker 中執行：
 
@@ -225,7 +236,13 @@ Azure IoT Edge 裝置：
    iotedge logs -f {moduleName}  
    ```
 
-您應該能夠看到機器的溫度逐漸上升，直到在 30 秒內到達 70 度。 接著串流分析模組會觸發程序重設，且機器溫度降回為 21 度。 
+1. 藉由檢視感應器記錄，檢視影響 SimulatedTemperatureSensor 的重設命令：
+
+   ```cmd/sh
+   iotedge logs SimulatedTemperatureSensor
+   ```
+
+   您可以看到機器的溫度逐漸上升，直到在 30 秒內到達 70 度。 接著串流分析模組會觸發程序重設，且機器溫度降回為 21 度。 
 
    ![將命令輸出重設到模組記錄中](./media/tutorial-deploy-stream-analytics/docker_log.png)
 

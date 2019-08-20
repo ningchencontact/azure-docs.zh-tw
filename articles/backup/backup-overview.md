@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: a4fbfeb96d2316ce6af100cb16fcbf0d13f230f2
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737125"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950018"
 ---
 # <a name="what-is-the-azure-backup-service"></a>什麼是 Azure 備份服務？
 
@@ -66,7 +66,7 @@ Azure 備份可備份內部部署機器和 Azure VM。
 **機器** | **備份案例**
 --- | ---
 **內部部署備份** |  1) 在內部部署 Windows 機器上執行 Azure 備份 Microsoft Azure 復原服務 (MARS) 代理程式，以備份個別檔案和系統狀態。 <br/><br/>2) 將內部部署機器備份至備份伺服器 (System Center Data Protection Manager (DPM) 或 Microsoft Azure 備份伺服器 (MABS))，然後設定備份伺服器，以備份至 Azure 中的 Azure 備份復原服務保存庫。
-**Azure VM** | 1) 啟用個別 Azure VM 的備份。 當您啟用備份時，Azure 備份會將擴充功能安裝至執行於 VM 上的 Azure VM 代理程式。 代理程式會備份整個 VM。<br/><br/> 2) 在 Azure VM 上執行 MARS 代理程式。 如果您要備份 VM 上的個別檔案和資料夾，這將有其效益。<br/><br/> 3) 將 Azure VM 備份至在 Azure 中執行的 DPM 伺服器或 MABS。 然後，使用 Azure 備份將 DPM 伺服器/MABS 備份至保存庫。
+**Azure VM** | 1) 啟用個別 Azure VM 的備份。 當您啟用備份時，Azure 備份會將擴充功能安裝至執行於 VM 上的 Azure VM 代理程式。 代理程式會備份整個 VM。<br/><br/> 2) 在 Azure VM 上執行 MARS 代理程式。 如果您要備份 VM 上的個別檔案和資料夾，這將有其效益。<br/><br/> 
 
 
 ## <a name="why-use-a-backup-server"></a>為何要使用備份伺服器？
@@ -116,7 +116,7 @@ Azure 備份每個*受保護的執行個體*上限為 9999 個復原點 (也稱�
 - 受保護的執行個體可以是電腦、(實體或虛擬) 伺服器，或設定為將資料備份至 Azure 的工作負載。 儲存資料的備份複本之後，執行個體就會受到保護。
 - 資料的備份複本就是保護。 如果來源資料已遺失或損毀，備份可以還原來源資料。
 
-下表顯示每個元件的最大備份頻率。備份原則設定決定您多快會用完復原點。 比方說，如果您每天建立復原點，則在用完之前可以保留復原點 27 年。如果您採取每月建立復原點，則在用完之前可以保留復原點 833 年。備份服務不會對復原點設定到期時間限制。
+下表顯示每個元件的最大備份頻率。 備份原則設定決定您多快會用完復原點。 比方說，如果您每天建立復原點，則在用完之前可以保留復原點 27 年。如果您採取每月建立復原點，則在用完之前可以保留復原點 833 年。備份服務不會對復原點設定到期時間限制。
 
 |  | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |

@@ -1,18 +1,19 @@
 ---
 title: Azure Key Vault - 如何以 PowerShell 使用虛刪除
 description: 以 PowerShell 程式碼片段進行虛刪除的使用案例範例
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 03/19/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461360"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985761"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何使用 Key Vault 虛刪除與 PowerShell
 
@@ -21,7 +22,7 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 - 可復原的 Key Vault 刪除支援
 - 支援可復原的金鑰保存庫物件刪除；金鑰、密碼和憑證
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -38,9 +39,9 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 
 Key Vault 作業透過角色型存取控制 (RBAC) 權限來分別管理，如下所示：
 
-| 運算 | 描述 | 使用者權限 |
+| 作業 | 說明 | 使用者權限 |
 |:--|:--|:--|
-|List|列出已刪除的金鑰保存庫。|Microsoft.KeyVault/deletedVaults/read|
+|列出|列出已刪除的金鑰保存庫。|Microsoft.KeyVault/deletedVaults/read|
 |復原|還原已刪除的金鑰保存庫。|Microsoft.KeyVault/vaults/write|
 |清除|永久移除已刪除的金鑰保存庫和其所有內容。|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -49,6 +50,9 @@ Key Vault 作業透過角色型存取控制 (RBAC) 權限來分別管理，如�
 ## <a name="enabling-soft-delete"></a>啟用虛刪除
 
 您可啟用「虛刪除」來允許復原已刪除的金鑰保存庫，或金鑰保存庫中儲存的物件。
+
+> [!IMPORTANT]
+> 在金鑰保存庫上的啟用「虛刪除」是無法復原的動作。 將虛刪除屬性設定為 "true" 後，就無法加以變更或移除。  
 
 ### <a name="existing-key-vault"></a>現有的金鑰保存庫
 
@@ -101,7 +105,7 @@ Remove-AzKeyVault -VaultName 'ContosoVault'
 Get-AzKeyVault -InRemovedState 
 ```
 
-- *識別碼*可用來識別資源時復原或清除。 
+- 「識別碼」  可以用來在復原或清除時識別資源。 
 - 「資源識別碼」  是此保存庫的原始資源識別碼。 因為此金鑰保存庫目前處於已刪除狀態，所以沒有具有該資源識別碼的資源存在。 
 - 如果不採取任何動作，「排定清除日期」  就是永久刪除保存庫的時間。 用來計算「排定清除日期」  的預設保留期間為 90 天。
 
@@ -139,7 +143,7 @@ Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
 
 就像金鑰保存庫，已刪除的金鑰、祕密或憑證仍會維持已刪除狀態長達 90 天，除非加以復原或清除。 
 
-#### <a name="keys"></a>按鍵
+#### <a name="keys"></a>金鑰
 
 若要復原虛刪除的金鑰：
 
@@ -202,7 +206,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@conto
 > [!IMPORTANT]
 > 清除金鑰保存庫或其內含的物件之一，就會永久刪除它，這表示無法復原！
 
-清除函式用來永久刪除 key vault 物件或整個金鑰保存庫，是先前虛刪除。 如上一節所示範，儲存在已啟用虛刪除功能的金鑰保存庫中的物件可能經歷多個狀態：
+清除函式用來永久刪除金鑰保存庫物件或整個金鑰保存庫，也就是先前虛刪除的項目。 如上一節所示範，儲存在已啟用虛刪除功能的金鑰保存庫中的物件可能經歷多個狀態：
 - **作用中**：刪除之前。
 - **虛刪除**：刪除之後，能夠列出並復原回到作用中狀態。
 - **永久刪除**：清除之後，無法復原。
@@ -232,17 +236,17 @@ Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 
 ## <a name="enabling-purge-protection"></a>啟用清除保護
 
-清除保護開啟時，保存庫或中的物件已刪除狀態無法清除，直到已超過 90 天的保留期限。 這類保存庫或物件仍可復原。 這項功能提供更加確定保存庫或物件不能永久刪除，直到保留期限已通過。
+開啟清除保護時，必須等到 90 天的保留期間過後，才能清除處於已刪除狀態的保存庫或物件。 這類保存庫或物件仍可復原。 此功能可加強確保在保留期間已過之前，一律無法永久刪除保存庫或物件。
 
-只有也啟用虛刪除時，您可以啟用清除保護。 
+只有在已啟用虛刪除功能的情況下，才可以啟用清除保護。 
 
-若要開啟這兩個虛刪除，並清除保護，當建立保存庫時，請使用[新增 AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+若要在建立保存庫時開啟虛刪除和清除保護，請使用 [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0)Cmdlet：
 
 ```powershell
 New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
 ```
 
-清除保護新增到現有的保存庫 （且已啟用虛刪除），請使用[Get AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0)， [Get AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0)，並[組 AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlet:
+若要將清除保護新增至現有的保存庫 (已啟用虛刪除)，請使用 [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0)、[Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0) 和 [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) Cmdlet：
 
 ```
 ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
@@ -253,4 +257,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## <a name="other-resources"></a>其他資源
 
 - 如需 Key Vault 的虛刪除功能概觀，請參閱 [Azure Key Vault 虛刪除概觀](key-vault-ovw-soft-delete.md)。
-- Azure 金鑰保存庫使用的一般概觀，請參閱 <<c0> [ 什麼是 Azure 金鑰保存庫？](key-vault-overview.md)。ate = 成功}
+- 如需 Azure Key Vault 使用方式的一般概觀，請參閱[什麼是 Azure Key Vault？](key-vault-overview.md).ate=Succeeded}

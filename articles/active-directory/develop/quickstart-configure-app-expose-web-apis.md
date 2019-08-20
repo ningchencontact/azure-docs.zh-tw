@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482681"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989279"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>快速入門：設定應用程式以公開 Web API
 
@@ -116,8 +116,9 @@ ms.locfileid: "67482681"
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>確認已向其他應用程式公開 Web API
 
 1. 返回 Azure AD 租用戶，選取 [應用程式註冊]  ，然後尋找並選取您想要設定的用戶端應用程式。
-1. 重複進行設定用戶端應用程式以存取 Web API 中所述的步驟。
-1. 當您進行到 [選取 API]  步驟時，選取您的資源。 您應該會看到可供用戶端權限要求使用的新範圍。
+1. 重複進行[設定用戶端應用程式以存取 Web API](quickstart-configure-app-access-web-apis.md) 中所述的步驟。
+1. 當您進行到 [選取 API][](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+) 步驟時，選取您的資源。 您應該會看到可供用戶端權限要求使用的新範圍。
 
 ## <a name="more-on-the-application-manifest"></a>應用程式資訊清單的詳細資料
 

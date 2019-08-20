@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e18c5dfe3649f74a9f84c605785ca99748298bea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc78b08c25ada2bf1ed67f4c27246bc873823516
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086143"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>教學課程：Azure Active Directory 與 ZIVVER 整合
 
@@ -32,7 +32,7 @@ ZIVVER 與 Azure AD 整合提供下列優點：
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -107,7 +107,7 @@ ZIVVER 與 Azure AD 整合提供下列優點：
 
     在 [識別碼]  文字方塊中，鍵入 URL：`https://app.zivver.com/SAML/Zivver`
 
-5. ZIVVER 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 ZIVVER 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] ****  圖示以編輯屬性對應，並變更屬性對應。
+5. ZIVVER 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 ZIVVER 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯]  圖示以編輯屬性對應，並變更屬性對應。
 
     ![image](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ ZIVVER 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-zivver-test-user"></a>建立 ZIVVER 測試使用者
 
-在本節中，您要在 ZIVVER 中建立名為 Britta Simon 的使用者。 請與  [ZIVVER 支援小組](https://support.zivver.com/)合作，在 ZIVVER 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 ZIVVER 中建立名為 Britta Simon 的使用者。 請與 [ZIVVER 支援小組](https://support.zivver.com/) 合作，在 ZIVVER 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

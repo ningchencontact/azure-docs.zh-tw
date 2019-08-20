@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 03105232cb92a65f8c38d6d755910739a3fc4720
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 7c331a4a7395069dc4dc3ab1dcfc89415be0898c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305058"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854461"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>什麼是 Windows 虛擬桌面預覽版？ 
 
@@ -29,9 +29,11 @@ Windows 虛擬桌面預覽版是可在雲端執行的桌面和應用程式虛擬
 
 ## <a name="introductory-video"></a>簡介影片
 
-在下列影片中，Scott Manchester 會示範 Windows 虛擬桌面的一些功能：
+了解 Windows 虛擬桌面、其獨特性，以及這部影片中的新增內容：
 
-<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+
+如需更多有關於 Windows 虛擬桌面的影片，請參閱[我們的播放清單](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev)。
 
 ## <a name="key-capabilities"></a>主要功能
 

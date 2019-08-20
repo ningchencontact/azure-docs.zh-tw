@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 3c2e9ad080c3b3f54040db9a57897847f4c5a52a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 28ba47c1c0ec053af8632475ad52ab50672eab64
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828041"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855158"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入門：使用 Azure Cosmos DB SQL API 帳戶透過 Xamarin 建置待辦事項應用程式
 
@@ -30,7 +30,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 > [!NOTE]
 > 在 GitHub 上 ([這裡](https://github.com/xamarinhq/app-geocontacts)) 可找到整個標準範例 Xamarin 應用程式的範例程式碼，該範例程式碼會展示多個 Azure 供應項目 (包括 CosmosDB)。 此應用程式會示範如何檢視分散各地的連絡人，並且讓這些連絡人更新其位置。
 
-此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB SQL API 帳戶、文件資料庫和集合。 接著，您會建置並部署以 [SQL .NET API](sql-api-sdk-dotnet.md) 和採用 [Xamarin.Forms](https://docs.microsoft.com/xamarin/) 與 [MVVM 架構模式](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)的 [Xamarin](https://docs.microsoft.com/xamarin/) 為基礎的待辦事項清單 Web 應用程式。
+此快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB SQL API 帳戶、文件資料庫和容器。 接著，您會建置並部署以 [SQL .NET API](sql-api-sdk-dotnet.md) 和採用 [Xamarin.Forms](https://docs.microsoft.com/xamarin/) 與 [MVVM 架構模式](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm)的 [Xamarin](https://docs.microsoft.com/xamarin/) 為基礎的待辦事項清單 Web 應用程式。
 
 ![在 iOS 上執行的 Xamarin 待辦事項應用程式](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
@@ -118,7 +118,7 @@ ToDoItems 解決方案中的程式碼包含：
 現在，我們將快速回顧應用程式與 Azure Cosmos DB 的通訊方式。
 
 * [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) NuGet 套件必須新增至所有專案。
-* azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models 資料夾中的 `ToDoItem` 類別是上方建立的**項目**集合中各個文件的模型。 請注意，屬性的命名會區分大小寫。
+* azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models 資料夾中的 `ToDoItem` 類別是上方建立的**項目**容器中各個文件的模型。 請注意，屬性的命名會區分大小寫。
 * azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services 資料夾中的 `CosmosDBService` 類別會封裝對 Azure Cosmos DB 的通訊。
 * `CosmosDBService` 類別內有一個 `DocumentClient` 類型變數。 `DocumentClient` 會用來設定和執行對 Azure Cosmos DB 帳戶的要求，且會進行具現化：
 
@@ -126,30 +126,30 @@ ToDoItems 解決方案中的程式碼包含：
     docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
     ```
 
-* 查詢文件的集合時會使用 `DocumentClient.CreateDocumentQuery<T>` 方法，如此處的 `CosmosDBService.GetToDoItems` 函式所示：
+* 查詢文件的容器時會使用 `DocumentClient.CreateDocumentQuery<T>` 方法，如此處的 `CosmosDBService.GetToDoItems` 函式所示：
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=GetToDoItems)] 
 
-    `CreateDocumentQuery<T>` 使用的 URI 會指向在上一節中建立的集合。 您也可以指定 LINQ 運算子，例如 `Where` 子句。 在此案例中，只會傳回未完成的待辦事項項目。
+    `CreateDocumentQuery<T>` 使用的 URI 會指向在上一節中建立的容器。 您也可以指定 LINQ 運算子，例如 `Where` 子句。 在此案例中，只會傳回未完成的待辦事項項目。
 
     `CreateDocumentQuery<T>` 函式會同步執行，並傳回 `IQueryable<T>`。 不過，`AsDocumentQuery` 方法會將 `IQueryable<T>` 轉換為可以非同步執行的 `IDocumentQuery<T>` 物件。 因此，不會封鎖行動裝置應用程式的 UI 執行緒。
 
     `IDocumentQuery<T>.ExecuteNextAsync<T>` 函式會從 Azure Cosmos DB 擷取結果頁面，而 `HasMoreResults` 會加以檢查，確認是否還有其他結果待傳回。
 
 > [!TIP]
-> 有數個對 Azure Cosmos DB 集合和文件運作的函式會以 URI 作為參數，用以指定集合或文件的位址。 此 URI 會使用 `URIFactory` 類別來建構。 資料庫、集合和文件的 URI 都可使用此類別來建立。
+> 有數個對 Azure Cosmos DB 集合和文件運作的函式會以 URI 作為參數，用以指定容器或文件的位址。 此 URI 會使用 `URIFactory` 類別來建構。 資料庫、容器和文件的 URI 都可使用此類別來建立。
 
 * `ComsmosDBService.InsertToDoItem` 函式會示範如何插入新的文件：
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=InsertToDoItem)] 
 
-    指定 URI 的文件集合，以及要插入的項目。
+    指定項目 URI 及要插入的項目。
 
 * `CosmosDBService.UpdateToDoItem` 函式會示範如何將現有文件取代為新文件：
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=UpdateToDoItem)] 
 
-    在此必須要有新的 URI 用來唯一識別要取代的文件，因此會使用 `UriFactory.CreateDocumentUri`，並傳入資料庫和集合名稱以及文件的識別碼，來取得此 URI。
+    在此必須要有新的 URI 用來唯一識別要取代的文件，因此會使用 `UriFactory.CreateDocumentUri`，並傳入資料庫和容器名稱以及文件的識別碼，來取得此 URI。
 
     `DocumentClient.ReplaceDocumentAsync` 會將此 URI 所識別的文件取代為指定為參數的文件。
 

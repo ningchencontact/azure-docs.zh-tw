@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0649fea0b598ffaaaf2611c9d1324174105ee5d4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706801"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931529"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -40,11 +40,26 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 ![瀏覽至 Azure 搜尋服務資源](./media/search-create-service-portal/find-search3.png "瀏覽至 Azure 搜尋服務的路徑")
 
-## <a name="name-the-service-and-url-endpoint"></a>為服務和 URL 端點命名
+## <a name="select-a-subscription"></a>選取一個訂用帳戶
 
-服務名稱是 URL 端點的一部分，API 呼叫是根據此端點所發出：`https://your-service-name.search.windows.net`。 在 [URL]  欄位中輸入您的服務名稱。
+如果您有一個以上的訂用帳戶，請選擇一個同樣具有資料或檔案儲存體服務的訂用帳戶。 Azure 搜尋服務可以透過[索引子  ](search-indexer-overview.md)自動偵測 Azure 資料表和 Blob 儲存體、SQL Database 和 Azure Cosmos DB 以進行索引編製，但只會針對相同訂用帳戶下的服務。
 
-例如，如果您所需的端點是 `https://my-app-name-01.search.windows.net`，則應輸入 `my-app-name-01`。
+## <a name="set-a-resource-group"></a>設定資源群組
+
+資源群組是必要的，可用於管理所有資源，包括成本管理。 資源群組可以包含一個服務，或多個一起使用的服務。 例如，如果您使用 Azure 搜尋服務來編製 Azure Cosmos DB 資料庫的索引，您就可以將這兩個服務納入相同的資源群組，以便管理。 
+
+如果您不想將資源結合成單一群組，或現有的資源群組中有許多資源用於不相關的解決方案中，請為您的 Azure 搜尋服務資源建立專屬的新資源群組。 
+
+當您使用此服務時，您可以追蹤目前和預估的成本 (如螢幕擷取畫面所示)，或向下捲動以查看個別資源的費用。
+
+![在資源群組層級上管理成本](./media/search-create-service-portal/resource-group-cost-management.png "在資源群組層級上管理成本")
+
+> [!TIP]
+> 刪除資源群組也會刪除其中的服務。 針對使用多個服務的原型專案，將它們全部放入同一個資源群組，在專案結束之後就能更容易清除。
+
+## <a name="name-the-service"></a>為服務命名
+
+在 [執行個體詳細資料] 的 [URL]  欄位中提供服務名稱。 該名稱是 URL 端點的一部分，API 呼叫是根據此端點所發出：`https://your-service-name.search.windows.net`。 例如，如果您所需的端點是 `https://myservice.search.windows.net`，則應輸入 `myservice`。
 
 服務名稱需求：
 
@@ -54,41 +69,31 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 * 前 2 個字元或最後一個字元不可使用連字號 ("-")
 * 不能連續使用破折號 ("--")
 
-## <a name="select-a-subscription"></a>選取一個訂用帳戶
-
-如果您有一個以上的訂用帳戶，請選擇一個同樣具有資料或檔案儲存體服務的訂用帳戶。 Azure 搜尋服務可以透過[索引子  ](search-indexer-overview.md)自動偵測 Azure 資料表和 Blob 儲存體、SQL Database 和 Azure Cosmos DB 以進行索引編製，但只會針對相同訂用帳戶中的服務。
-
-## <a name="select-a-resource-group"></a>選取資源群組
-
-資源群組是一起使用之 Azure 服務和資源的集合。 例如，如果您使用 Azure 搜尋服務來編製 SQL 資料庫的索引，則這兩個服務應該屬於同一個資源群組。
-
-如果您不想將資源結合成單一群組，或現有的資源群組中有許多資源用於不相關的解決方案中，請為您的 Azure 搜尋服務資源建立專屬的新資源群組。
-
 > [!TIP]
-> 刪除資源群組也會刪除其中的服務。 針對使用多個服務的原型專案，將它們全部放入同一個資源群組，在專案結束之後就能更容易清除。
+> 如果您認為您將使用多個服務，建議您在服務名稱中包含區域 (或位置) 以作為為命名慣例。 相同區域內的服務可以免費交換資料，因此，如果 Azure 搜尋服務位於美國西部，而您在美國西部也有其他服務，則類似 `mysearchservice-westus` 的名稱可讓您在決定如何結合或連結資源時，為您省去前往 [內容] 頁面的步驟。
 
-## <a name="select-a-location"></a>選取位置
+## <a name="choose-a-location"></a>選擇位置
 
 做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 支援的區域清單可在[定價頁面](https://azure.microsoft.com/pricing/details/search/)中找到。 
 
-如果您要依其他 Azure 服務 (Azure 儲存體、Azure Cosmos DB、Azure SQL Database) 提供的資料編製索引，建議您在相同區域中建立 Azure 搜尋服務，以避免產生頻寬費用。 這些服務位於相同區域時，輸出資料無須收費。
+您可以為多個服務選擇相同的位置，以盡量減少或避免產生頻寬費用。 例如，如果您要依其他 Azure 服務 (Azure 儲存體、Azure Cosmos DB、Azure SQL Database) 提供的資料編製索引，請在相同區域中建立 Azure 搜尋服務，以避免產生頻寬費用 (當服務位於相同區域時，輸出資料不會產生費用)。
 
-如果您使用認知服務 AI 擴充資料，請在與認知服務資源所在之相同的區域中建立服務。 *將 Azure 搜尋服務與認知服務共置於相同區域中是 AI 擴充的一項需求*。
+此外，如果您使用認知服務 AI 擴充資料，請在認知服務資源所在的區域中建立服務。 *將 Azure 搜尋服務與認知服務共置於相同區域中是 AI 擴充的一項需求*。
 
 > [!Note]
 > 新的服務目前無法在印度中部使用。 對於已在印度中部提供的服務，您可以無限制地相應增加，且您的服務在該區域中受到完整的支援。 此區域的限制是暫時的且僅限於新的服務。 當限制不再適用時，我們將移除此注意事項。
 
-## <a name="select-a-pricing-tier-sku"></a>選取定價層 (SKU)
+## <a name="choose-a-pricing-tier-sku"></a>選擇定價層 (SKU)
 
 [Azure 搜尋服務目前提供多個定價層](https://azure.microsoft.com/pricing/details/search/)︰免費、基本或標準。 每一層都有自己的[容量和限制](search-limits-quotas-capacity.md)。 請參閱[選擇定價層或 SKU](search-sku-tier.md) 以取得指導方針。
 
-一般對於生產工作負載通常會選擇標準服務，但大部分的客戶一開始都會使用免費服務。
+一般對於生產工作負載通常會選擇基本和標準服務，但大部分的客戶一開始都會使用免費服務。 層級之間的主要差異在於資料分割大小和速度，以及您可以建立的物件數目限制。
 
-服務建立之後便無法變更定價層。 如果您稍後需要高或較低的定價層，必須重新建立服務。
+請記住，服務建立之後便無法變更定價層。 如果您稍後需要高或較低的定價層，必須重新建立服務。
 
 ## <a name="create-your-service"></a>建立您的服務
 
-輸入所需的輸入以建立服務。 
+在您提供必要的輸入之後，請繼續並建立服務。 
 
 ![檢閱並建立服務](./media/search-create-service-portal/new-service3.png "檢閱並建立服務")
 
@@ -98,7 +103,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 ## <a name="get-a-key-and-url-endpoint"></a>取得金鑰和 URL 端點
 
-除非您使用入口網站，否則在存取新服務時，您需要提供 URL 端點和授權 API 金鑰。
+除非您使用入口網站，否則以程式設計方式存取新服務時，您需要提供 URL 端點和授權 API 金鑰。
 
 1. 在服務概觀頁面中，找出並複製頁面右側的 URL 端點。
 
@@ -141,7 +146,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 * 針對全球部署的應用程式，您在多個區域可能都需要 Azure 搜尋服務執行個體，以降低應用程式國際流量的延遲。
 
 > [!NOTE]
-> 在 Azure 搜尋服務中，您無法區隔索引和查詢工作負載，因此您永遠不會針對區隔的工作負載建立多重服務。 一律是在建立索引的服務上查詢該索引 (您無法在某個服務中建立索引，並將它複製到另一個服務)。
+> 在 Azure 搜尋服務中，您無法區隔索引和查詢作業，因此您永遠不會針對區隔的工作負載建立多重服務。 一律是在建立索引的服務上查詢該索引 (您無法在某個服務中建立索引，並將它複製到另一個服務)。
 
 不需要第二個服務即可獲得高可用性。 當您在同一個服務中使用 2 個或更多的複本，查詢就會達到高可用性。 複本更新是循序的，這表示當服務更新推出時，至少會有一個複本是可運作的。如需執行時間的詳細資訊，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f21c7896f0ed2afba3a302b4686289cf331ba510
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 6c1a8b916feb2ad67623434f2b63468be72bf1aa
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536836"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879630"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>教學課程：整合 Costpoint 與 Azure Active Directory
 
@@ -42,7 +42,7 @@ ms.locfileid: "67536836"
 
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中設定和測試 Azure AD SSO。 Costpoint 支援由 **SP 和 IDP** 起始的 SSO。
+在本教學課程中，您將在測試環境中設定和測試 Azure AD SSO。 Costpoint 支援由 **SP 和 IDP** 起始的 SSO。
 
 ## <a name="adding-costpoint-from-the-gallery"></a>從資源庫新增 Costpoint
 
@@ -78,34 +78,49 @@ ms.locfileid: "67536836"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 設定]  區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
+1. 如果您有**服務提供者中繼資料檔案**，請在 [基本 SAML 設定]  區段上執行下列步驟：
 
-    a. 在 [識別碼]  文字方塊中，使用下列模式來輸入 URL：`https://<CostpointURI>`
+    > [!NOTE]
+    > 您將會從 [產生 Costpoint 中繼資料]  區段取得服務提供者中繼資料檔案，本教學課程稍後會加以說明。
+ 
+    1. 按一下 [上傳中繼資料檔案]  。
+    
+    1. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]  。
+    
+    1. 在成功上傳中繼資料檔案之後，會自動在 [Costpoint] 區段文字方塊中填入 [識別碼]  和 [回覆 URL]  值
 
-    b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://<CostpointURI>/LoginServlet.cps`
+        > [!Note]
+        > 如果 [識別碼]  和 [回覆 URL]  值未自動填入，請根據您的需求手動填入這些值。 確認 [識別碼 (實體識別碼)]  和 [回覆 URL (判斷提示取用者服務 URL)]  皆已正確設定，且 [ACS URL]  是以 **/LoginServlet.cps** 結尾的有效 Costpoint URL。
 
-    c. 按一下 [設定額外的 URL]  。
+    1. 按一下 [設定額外的 URL]  。
 
-    d. 在 [轉送狀態]  文字方塊中，輸入使用下列模式的值：`<SYSTEM VALUE>`
+    1. 在 [轉送狀態]  文字方塊中，輸入使用下列模式的值：`system=[your system], (for example, **system=DELTEKCP**)`
+
+1. 如果您想要以 **SP** 起始模式設定應用程式，請執行下列步驟：
+    
+    在 [登入 URL]  文字方塊中，輸入 URL：`https://costpointteea.deltek.com/cpweb/cploginform.htm`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「識別碼」、「回覆 URL」及「轉送狀態」來更新這些值。 請連絡 [Costpoint 用戶端支援小組](https://www.deltek.com/about/contact-us)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 如果您想要以 **SP** 起始模式設定應用程式，請執行下列步驟：
-
-    在 [登入 URL]  文字方塊中，輸入 URL：`https://costpointteea.deltek.com/cpweb/cploginform.htm`
-
-1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]  ，並將資料儲存在您的 [筆記本] 上。
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [複製] 圖示以複製**應用程式同盟中繼資料 URL**，並儲存在記事本中。
 
    ![憑證下載連結](common/copy-metadataurl.png)
 
-1. 在 [設定 Costpoint]  區段上，根據您的需求複製適當的 URL。
+### <a name="generate-costpoint-metadata"></a>產生 Costpoint 中繼資料
 
-   ![複製組態 URL](common/copy-configuration-urls.png)
+**DeltekCostpoint711Security.pdf** 指南提供了 Costpoint SAML SSO 組態的說明。 從該處參考 [SAML 單一登入設定] -> [設定 Costpoint 與 Azure AD 之間的 SAML 單一登入]  區段。 依照指示產生 **Costpoint SP 同盟中繼資料 XML** 檔案。 在 Azure 入口網站的 [基本 SAML 組態]  中使用此檔案。
+
+![Costpoint 組態公用程式](./media/costpoint-tutorial/config02.png)
+
+> [!NOTE]
+> 您將取得 [Costpoint 用戶端支援小組](https://www.deltek.com/about/contact-us)提供的 **DeltekCostpoint711Security.pdf** 指南。 如果您沒有此檔案，請洽詢該小組以取得此檔案。
 
 ### <a name="configure-costpoint"></a>設定 Costpoint
 
-若要在 **Costpoint** 端設定單一登入，您必須將 [應用程式同盟中繼資料 URL]  傳送給 [Costpoint 支援小組](https://www.deltek.com/about/contact-us)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+返回 **Costpoint 組態公用程式**，並將 [應用程式同盟中繼資料 URL]  貼到 [IdP 同盟中繼資料 XML]  文字方塊中，然後依照 **DeltekCostpoint711Security.pdf** 指南中的指示完成 Costpoint SAML 設定。 
+
+![Costpoint 組態公用程式](./media/costpoint-tutorial/config01.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -121,25 +136,29 @@ ms.locfileid: "67536836"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Costpoint 的存取權授與 B.Simon，讓其能夠使用 Azure 單一登入。
+在本節中，您會將 Costpoint 的存取權授與 B.Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
+1. 在 Azure 入口網站中，選取 [企業應用程式]   > [所有應用程式]  。
 1. 在應用程式清單中，選取 [Costpoint]  。
-1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
+1. 在應用程式概觀頁面的 [管理]  區段中，選取 [使用者和群組]  。
 
    ![[使用者和群組] 連結](common/users-groups-blade.png)
 
-1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中選取 [使用者和群組]  。
+1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中，選取 [使用者和群組]  。
 
     ![[新增使用者] 連結](common/add-assign-user.png)
 
-1. 在 [使用者和群組]  對話方塊的 [使用者] 清單中選取 [B.Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
+1. 在 [使用者和群組]  對話方塊中，從使用者清單中選取 **Britta Simon**，然後按一下畫面底部的 [選取]  按鈕。
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
 ### <a name="create-costpoint-test-user"></a>建立 Costpoint 測試使用者
 
-在本節中，您要在 Costpoint 中建立名為 B.Simon 的使用者。 請與  [Costpoint 客戶支援小組](https://www.deltek.com/about/contact-us)合作，在 Costpoint 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您將在 Costpoint 中建立一個使用者。 假設**使用者識別碼**為 **B.SIMON**，名稱為 **B.Simon**。 請與 [Costpoint 用戶端支援小組](https://www.deltek.com/about/contact-us)合作，在 Costpoint 平台中新增使用者。 您必須先建立和啟用使用者，然後才能使用單一登入。
+ 
+建立之後，使用者的 [驗證方法]  選取項目必須是 [Active Directory]  、必須選取 [SAML 單一登入]  核取方塊，且 Azure Active Directory 中的使用者名稱必須是 [Active Directory 或憑證識別碼]  (如下所示)。
+
+![Costpoint 使用者](./media/costpoint-tutorial/user01.png)
 
 ### <a name="test-sso"></a>測試 SSO
 

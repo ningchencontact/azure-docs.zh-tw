@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 80e0984deff83726fd96a462a1ae8a4375db9d2e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 70cb4a008391ad55562bc55fb45d877988e68643
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721598"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854780"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>什麼是異常偵測器 API？
 
@@ -38,15 +38,22 @@ Anomaly Detector API 可讓您透過機器學習，監視和偵測時間序列�
 
 ## <a name="demo"></a>示範
 
-若要使用 Anomaly Detector API 快速開始，請嘗試[線上示範](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)，其可在您的瀏覽器中執行。 此示範會在 Web 裝載的 Jupyter Notebook 中執行，並示範如何傳送 API 要求，然後將結果視覺化。
+請查看此[互動式示範](https://aka.ms/adDemo)，以了解異常偵測器的運作方式。
+若要執行示範，您必須建立異常偵測器資源，並取得 API 金鑰和端點。
 
-若要執行示範，請完成下列步驟：
+## <a name="notebook"></a>筆記本
 
-1. 取得有效的 Anomaly Detector API 訂用帳戶金鑰和 API 端點。 下一節有註冊指示。 
-2. 登入，然後按一下右上角的 [複製]。
-3. 按一下 [在免費 Compute 上執行] 
-4. 針對此範例選取其中一個 Notebook。
-5. 將有效的 Anomaly Detector API 訂用帳戶金鑰新增至 `subscription_key` 變數。 將 `endpoint` 變數變更為您的端點。 例如：`https://westus2.api.cognitive.microsoft.com`
+若要了解如何呼叫異常偵測器 API，請嘗試參考[此 Azure Notebook](https://aka.ms/adNotebook)。 此 Web 裝載的 Jupyter Notebook 會說明如何傳送 API 要求並將結果視覺化。
+
+若要執行 Notebook，請完成下列步驟：
+
+1. 取得有效的 Anomaly Detector API 訂用帳戶金鑰和 API 端點。 下一節有註冊指示。
+1. 登入，然後按一下右上角的 [複製]。
+1. 在完成複製作業之前，請先取消核取對話方塊中的 [公用] 選項，否則您的 Notebook (包括任何訂用帳戶金鑰) 將會是公用的。
+1. 按一下 [在免費 Compute 上執行] 
+1. 選取其中一個 Notebook。
+1. 將有效的 Anomaly Detector API 訂用帳戶金鑰新增至 `subscription_key` 變數。 
+1. 將 `endpoint` 變數變更為您的端點。 例如：`https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. 在頂端功能表列上，依序按一下 [儲存格]  和 [全部執行]  。
 
 ## <a name="workflow"></a>工作流程
@@ -62,6 +69,13 @@ Anomaly Detector API 是一種 RESTful Web 服務，因此可輕易地從任何�
 1. 取用時間序列資料，並將它轉換成有效的 JSON 格式。 在準備您的資料時使用[最佳做法](concepts/anomaly-detection-best-practices.md)，以取得最佳的結果。
 1. 將要求連同您的資料傳送給 Anomaly Detector API。
 1. 剖析傳回的 JSON 訊息以處理 API 回應。
+
+## <a name="algorithms"></a>演算法
+
+* 請參閱技術部落格[介紹 Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)，以取得關於演算法的幕後資訊。
+* 請參閱 [Microsoft 的時間序列異常偵測服務](https://arxiv.org/abs/1906.03821)這份文件 (KDD 2019 已接受)，以了解由 Microsoft 開發的 cutting-edge SR-CNN 演算法。
+
+> [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
 ## <a name="next-steps"></a>後續步驟
 

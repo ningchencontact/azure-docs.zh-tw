@@ -8,18 +8,27 @@ ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fbb537c9584c948af37694b3bfc77a7c345e084d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9fefba9c79e9c58956243de8db67ca4cf316251c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639158"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949935"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>將函式應用程式專案部署至 Azure
 
-在 Azure 中建立函式應用程式之後，您可以使用 [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) Core 工具命令來將專案程式碼部署至 Azure。 在下一個命令中，使用上一個步驟的應用程式名稱取代 `<APP_NAME>`。
+在 Azure 中建立函式應用程式之後，您可以使用 [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) Core 工具命令來將專案程式碼部署至 Azure。 在這些範例中，請將 `<APP_NAME>` 取代為上一個步驟中您的應用程式名稱。
 
-```bash
+### <a name="c--javascript"></a>C\# / JavaScript
+
+```command
+func azure functionapp publish <APP_NAME>
+```
+
+### <a name="typescript"></a>TypeScript
+
+```command
+npm run build:production 
 func azure functionapp publish <APP_NAME>
 ```
 

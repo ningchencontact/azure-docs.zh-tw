@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: fb55840a3423f32d2d6d6d2531628ae4361a0cc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8760606c981f494b38d4eb8ac1b2cd50ceb8582c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088216"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>教學課程：Azure Active Directory 與 Uberflip 整合
 
@@ -37,7 +37,7 @@ Uberflip 與 Azure AD 整合提供下列優點：
 
 若要設定 Azure AD 與 Uberflip 整合，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+* Azure AD 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 * 已啟用單一登入的 Uberflip 訂用帳戶。
 
 ## <a name="scenario-description"></a>案例描述

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827656"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954543"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>關於 Azure VM 中的 SQL Server 備份
 
@@ -58,7 +58,7 @@ Azure 備份最近宣布支援 [EOS SQL Server](https://docs.microsoft.com/azure
 2. .NET Framework 4.5.2 和更新版本需要安裝在 VM 上
 3. 不支援 FCI 和鏡像資料庫的備份
 
-針對這項功能使用者不需付費，直到它正式推出為止。 所有其他[功能考量與限制](#feature-consideration-and-limitations)也適用於這些版本。 在您針對 SQL Server 2008 和 2008 R2 設定保護 (其中包含設定[登錄機碼](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration)) 之前，請參閱[必要條件](backup-sql-server-database-azure-vms.md#prerequisites) (此功能正式推出時，則不需要此步驟)。
+在這項功能正式推出之前，使用者無須付費。 所有其他[功能考量與限制](#feature-consideration-and-limitations)也適用於這些版本。 在您針對 SQL Server 2008 和 2008 R2 設定保護 (其中包含設定[登錄機碼](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration)) 之前，請參閱[必要條件](backup-sql-server-database-azure-vms.md#prerequisites) (此功能正式推出時，則不需要此步驟)。
 
 
 ## <a name="feature-consideration-and-limitations"></a>功能考量和限制
@@ -74,8 +74,8 @@ Azure 備份最近宣布支援 [EOS SQL Server](https://docs.microsoft.com/azure
 - 無法保護含有大量檔案的資料庫。 支援的檔案數目上限為 **1000** 個。  
 - 您最多可在保存庫中備份 **2000** 個 SQL Server 資料庫。 如果您有更多資料庫，則可以建立多個保存庫。
 - 您最多可以一次設定 **50** 個資料庫的備份；此限制有助於將備份負載最佳化。
-- 我們可支援的資料庫大小上限為 **2TB**；如果大小超出此上限，則可能發生效能問題。
-- 若要瞭解每一伺服器可保護多少個資料庫，我們需要考慮頻寬、VM 大小、備份頻率、資料庫大小等因素。請[下載](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)資源規劃工具；此工具會根據 VM 資源和備份原則，提供您在每個伺服器上可擁有的約略資料庫數目。
+- 我們可支援的資料庫大小上限為 **2 TB**；如果大小超出此上限，則可能發生效能問題。
+- 若要瞭解每一伺服器可保護多少個資料庫，我們需要考慮頻寬、VM 大小、備份頻率、資料庫大小等因素。請[下載](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)資源規劃工具；此工具會根據 VM 資源和備份原則，提供您在每個伺服器上可擁有的約略資料庫數目。
 - 如果是可用性群組，則會根據幾個因素，從不同節點進行備份。 可用性群組的備份行為摘述於下方。
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Alaways On 可用性群組的備份行為
@@ -83,7 +83,7 @@ Azure 備份最近宣布支援 [EOS SQL Server](https://docs.microsoft.com/azure
 建議僅在 AG 的一個節點上設定備份。 備份應該一律設定於與主要節點相同的區域中。 換句話說，您設定備份的區域中一定要出現主要節點。 如果 AG 的所有節點都位於備份設定所在的相同區域中，則沒有任何疑慮。
 
 **若為跨區域 AG**
-- 不論備份喜好設定為何，都不會從不在備份設定所在相同區域中的節點進行備份。 這是因為不支援跨區域備份。 如果您只有 2 個節點，而第二個節點位於其他區域，在此情況下，將從主要節點繼續進行備份 (除非您的備份喜好設定為「僅限次要」)。
+- 不論備份喜好設定為何，都不會從不在備份設定所在相同區域中的節點進行備份。 這是因為不支援跨區域備份。 如果您只有兩個節點，而第二個節點位於其他區域，在此情況下，將從主要節點繼續進行備份 (除非您的備份喜好設定為「僅限次要」)。
 - 如果備份設定所在區域以外的區域發生容錯移轉，則備份會在已容錯移轉區域中的節點發生失敗。
 
 視備份喜好設定和備份類型 (完整/差異/記錄/只複製完整) 而定，會從特定節點 (主要/次要) 進行備份。

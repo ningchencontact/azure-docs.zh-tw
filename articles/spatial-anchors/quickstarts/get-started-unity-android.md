@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 24a3424a73fb21530f3cde227aa9f05f16bd6ad0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ba50b8317e85d09aeaf32c1acc62342ee2683bc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562453"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847720"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure 空間錨點來建立 Unity Android 應用程式
 
@@ -34,10 +34,11 @@ ms.locfileid: "68562453"
 
 若要完成本快速入門，請確定您具備︰
 
-- 具有 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>的 Windows 或 macOS 電腦，包括 Android Build 支援和 Android SDK & NDK 工具模組和<a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>。
+- 具有 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a> 的 Windows 或 macOS 機器，包括 Android Build 支援和 Android SDK & NDK 工具模組。
   - 如果在 Windows 上執行，您也需要 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
   - 如果在 macOS 上執行，請透過 HomeBrew 安裝 Git。 在終端機的單一行輸入以下命令：`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`。 然後執行 `brew install git`。
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">由開發人員啟用</a>且<a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">具備 ARCore 功能</a>的 Android 裝置。
+  - 您的電腦可能需要其他設備磁碟機，才能與您的 Android 裝置通訊。 如需詳細資訊和指示，請參閱[這裡](https://developer.android.com/studio/run/device.html)。
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

@@ -11,12 +11,12 @@ ms.author: sihhu
 ms.reviewer: trbye
 ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6692f64dc7e7fa2799f9095af39171a2ddc0e76d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 241c84212132ee90e71291758e094cb4a115f2e2
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360912"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018086"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>教學課程：準備建立迴歸模型所需的資料
 
@@ -56,7 +56,7 @@ ms.locfileid: "68360912"
 
 使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。  完成所有步驟後，請執行 **tutorials/regression-part1-data-prep.ipynb** 筆記本。
 
-1. 完成 [Azure Machine Learning Python 快速入門](setup-create-workspace.md#sdk)中的安裝步驟，以建立 Miniconda 環境並安裝 SDK。  如果您希望的話，也可以放心地略過**建立工作區**一節，但您在本教學課程系列的[第 2 部分](tutorial-auto-train-models.md)會需要該項目。
+1. 完成 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 中的安裝步驟。
 1. 當您安裝 SDK 時，系統便會自動安裝 `azureml-dataprep` 套件。
 1. 複製 [GitHub 存放庫](https://aka.ms/aml-notebooks)。
 
@@ -100,10 +100,11 @@ import azureml.dataprep as dprep
 
 ```python
 from IPython.display import display
-dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
-green_path = "/".join([dataset_root, "green-small/*"])
-yellow_path = "/".join([dataset_root, "yellow-small/*"])
+green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"
+yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"
+
+# (optional) Download and view a subset of the data: https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 green_df_raw = dprep.read_csv(
     path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
@@ -113,9 +114,6 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
-
-> [!Note]
-> 此相同範例中的 URL 不是完整 URL。 相反地，這是指 Blob 中的示範資料夾。 部分資料的完整 URL 為 https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 `Dataflow` 物件類似於資料框架，代表對資料所做的一系列惰性評估、不可變的作業。 藉由叫用不同的轉換和可用的篩選方法，可以新增作業。 將作業新增至 `Dataflow` 的結果一律是新的 `Dataflow` 物件。
 
@@ -156,7 +154,7 @@ green_df = (green_df_raw
                 "Trip_distance": "distance"
             })
             .keep_columns(columns=useful_columns))
-green_df.head(5)
+display(green_df.head(5))
 ```
 
 <div>
@@ -290,7 +288,7 @@ yellow_df = (yellow_df_raw
                  "trip_distance": "distance"
              })
              .keep_columns(columns=useful_columns))
-yellow_df.head(5)
+display(yellow_df.head(5))
 ```
 
 對綠色計程車資料呼叫 `append_rows()` 函式，以附加黃色計程車資料。 此時會建立新的合併資料框架。

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b91ab53ba7b5ce30c1dfa4a2bd90390875b8615
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bcf3964fb289be9b7410938f9e2eac843e795d4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102699"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>教學課程：Azure Active Directory 與 Figma 整合
 
@@ -122,7 +122,7 @@ Figma 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 您將從 Figma 的[設定 Azure Active Directory SAML SSO 程序](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso) \(英文\) 一文步驟 11 取得 `TENANT ID`。
 
-6. Figma 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 **[使用者屬性]**  對話方塊。
+6. Figma 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性]  對話方塊。
 
     ![image](common/edit-attribute.png)
 

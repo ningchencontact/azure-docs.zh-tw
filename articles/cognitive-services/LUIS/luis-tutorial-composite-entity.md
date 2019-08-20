@@ -1,5 +1,5 @@
 ---
-title: 複合實體教學課程-LUIS
+title: 複合實體教學課程 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 610a7ee677771777c9bd88e5747ff766f284ae3e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
-ms.translationtype: MT
+ms.openlocfilehash: 698635b3f216c556e1e36a033703b8786a028e38
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637911"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946122"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>教學課程：擷取將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
@@ -29,15 +29,15 @@ ms.locfileid: "68637911"
 * 使用各種實體類型。
 * 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
 
-**在本教學課程中，您將了解如何：**
+**在本教學課程中，您了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * 匯入範例應用程式
 > * 建立意圖
 > * 新增複合實體 
-> * 火車
-> * 發行
+> * 定型
+> * 發佈
 > * 從端點取得意圖和實體
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
@@ -85,15 +85,15 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 1. 從意圖清單中選取 [TransferEmployeeToDepartment]  。
 
-1. 在語句`place John Jackson in engineering`中, 選取 [personName] 實體`John Jackson`, 然後在下列語句的快顯功能表清單中選取 [**包裝在複合實體**中]。 
+1. 在語句 `place John Jackson in engineering` 中，選取 personName 實體 `John Jackson`，然後在下列語句的快顯功能表清單中選取 [包裝於複合實體中]  。 
 
-    ![在下拉对话框中选择“包装复合实体”的屏幕截图](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
+    ![在下拉式對話方塊中選取包裝複合實體的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. 接著，立即選取語句中的最後一個實體 `engineering`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `TransferEmployeeInfo`，然後選取 Enter。 
 
     ![在下拉式對話方塊中輸入複合名稱的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. 在 [您想要建立何種類型的實體?]  中，所有所需的欄位都會位於清單中：`personName` 和 `Department`。 選取 [完成]。 請注意，預先建置的實體 personName 會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
+1. 在 [您想要建立何種類型的實體?]  中，所有所需的欄位都會位於清單中：`personName` 和 `Department`。 選取 [完成]  。 請注意，預先建置的實體 personName 會新增至複合實體。 如果您讓預先建置的實體出現在複合實體的開頭與結尾語彙基元之間，則複合實體必須包含這些預先建置的實體。 如果未包含預先建置的實體，則無法正確預測複合實體，但可正確預測每個個別的元素。
 
     ![在下拉式對話方塊中輸入複合名稱的螢幕擷取畫面](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 

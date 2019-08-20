@@ -5,24 +5,23 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
+ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8b0e17248dff3c53b96fd240a7566f09b22fae
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 937fca5698378a8c877b4a981557f87d06170e9a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482688"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879350"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>快速入門：設定用戶端應用程式以存取 Web API
 
@@ -39,6 +38,8 @@ ms.locfileid: "67482688"
 在本快速入門中，我們會說明如何設定應用程式，以便：
 
 * [將重新導向 URL 新增至應用程式](#add-redirect-uris-to-your-application)
+* [設定應用程式的進階設定](#configure-advanced-settings-for-your-application)
+* [修改支援的帳戶類型](#modify-supported-account-types)
 * [將認證新增至 Web 應用程式](#add-credentials-to-your-web-application)
 * [新增用來存取 Web API 的權限](#add-permissions-to-access-web-apis)
 
@@ -58,35 +59,90 @@ ms.locfileid: "67482688"
 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
 1. 在左側導覽窗格中，選取 [Azure Active Directory]  服務，然後選取 [應用程式註冊]  。
 1. 尋找並選取您要設定的應用程式。 在選取應用程式後，您會看到應用程式的 [概觀]  或主要註冊頁面。
-1. 遵循下列步驟來設定應用程式以存取 Web API： 
+1. 遵循下列步驟來設定應用程式以存取 Web API：
     * [將重新導向 URL 新增至應用程式](#add-redirect-uris-to-your-application)
+    * [設定應用程式的進階設定](#configure-advanced-settings-for-your-application)
+    * [修改支援的帳戶類型](#modify-supported-account-types)
     * [將認證新增至 Web 應用程式](#add-credentials-to-your-web-application)
     * [新增用來存取 Web API 的權限](#add-permissions-to-access-web-apis)
 
 ## <a name="add-redirect-uris-to-your-application"></a>將重新導向 URL 新增至應用程式
 
-[![新增 Web 和公用用戶端應用程式的自訂重新導向 URI](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png#lightbox)
-
 若要將重新導向 URL 新增至應用程式：
 
 1. 從應用程式的 [概觀]  頁面，選取 [驗證]  區段。
-
 1. 若要新增 Web 和公用用戶端應用程式的自訂重新導向 URI，請遵循下列步驟：
-
    1. 找到 [重新導向 URI]  區段。
    1. 選取您要建置的應用程式類型：**Web** 還是**公用用戶端 (行動和傳統型)** 。
    1. 輸入應用程式的重新導向 URI。
       * 若為 Web 應用程式，請提供應用程式的基底 URL。 例如，`http://localhost:31544` 可能是本機電腦上所執行 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。
-      * 若為公用應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 https://MyFirstApp 。
+      * 若為公用應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 `https://MyFirstApp`。
 
 1. 若要選擇建議的公用用戶端 (行動、傳統型) 重新導向 URI，請遵循下列步驟：
-
     1. 找出建議的 [公用用戶端 (行動、傳統型) 的重新導向 URI]  區段。
     1. 使用核取方塊選取應用程式適用的重新導向 URI。
 
-## <a name="add-credentials-to-your-web-application"></a>將認證新增至 Web 應用程式
+> [!NOTE]
+> 試用新的**驗證**設定體驗，您可以在其中根據您要設為目標的平台或裝置來設定應用程式的設定。
+>
+> 若要查看此檢視，請從預設的 [驗證]  網頁檢視中選取 [試用新的體驗]  。
+>
+> ![按一下 [試用新的體驗] 以查看平台設定檢視](./media/quickstart-update-azure-ad-app-preview/authentication-try-new-experience-cropped.png)
+>
+> 這會帶您前往[新的 [平臺設定]  頁面](#configure-platform-settings-for-your-application)。
 
-[![新增憑證和用戶端密碼](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png#lightbox)
+### <a name="configure-advanced-settings-for-your-application"></a>設定應用程式的進階設定
+
+根據您所註冊的應用程式，您可能需要設定一些額外的設定，例如：
+
+* **登出 URL**
+* 針對單一頁面應用程式，您可以啟用**隱含授與**，並選取您想要授權端點發出的權杖。
+* 針對在**預設用戶端類型**區段中使用整合式 Windows 驗證、裝置程式碼流程或使用者名稱/密碼取得權杖的桌面應用程式，請將 [將應用程式視為公用用戶端]  設定為 [是]  。
+* 針對使用 Live SDK 與 Microsoft 帳戶服務整合的繼承應用程式，請設定 **Live SDK 支援**。 新的應用程式不需要此設定。
+* **預設用戶端類型**
+
+### <a name="modify-supported-account-types"></a>修改支援的帳戶類型
+
+**支援的帳戶類型**會指定誰可以使用應用程式或存取 API。
+
+當您一開始註冊應用程式時，一旦[設定了支援的帳戶類型](quickstart-register-app.md)，只有在下列情況下，才可以使用應用程式資訊清單編輯器來變更此設定：
+
+* 您可以將帳戶類型從 **AzureADMyOrg** 或 **AzureADMultipleOrgs** 變更為 **AzureADandPersonalMicrosoftAccount**，反之亦然。
+* 您可以將帳戶類型從 **AzureADMyOrg** 變更為 **AzureADMultipleOrgs**，反之亦然。
+
+若要變更現有應用程式註冊所支援的帳戶類型：
+
+* 請參閱[設定應用程式資訊清單](reference-app-manifest.md)並更新 `signInAudience` 金鑰。
+
+## <a name="configure-platform-settings-for-your-application"></a>設定應用程式的平台設定
+
+[![根據平台或裝置設定應用程式的設定](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
+
+若要根據平台或裝置來設定應用程式設定，您的目標是：
+
+1. 在 [平台設定]  頁面中，選取 [新增平台]  ，然後從可用的選項中選擇。
+
+   ![顯示 [設定平台] 頁面](./media/quickstart-update-azure-ad-app-preview/authentication-platform-configurations-configure-platforms.png)
+
+1. 根據您選取的平台輸入設定資訊。
+
+   | 平台                | 選擇              | 組態設定            |
+   |-------------------------|----------------------|-----------------------------------|
+   | **Web 應用程式**    | **Web**              | 輸入應用程式的**重新導向 URI**。 |
+   | **行動裝置應用程式** | **iOS**              | 輸入應用程式的 [套件組合識別碼]  ，您可以在 XCode 中的 Info.plist 或 [組建設定] 中找到它。 新增套件組合識別碼會自動建立應用程式的重新導向 URI。 |
+   |                         | **Android**          | * 提供應用程式的**套件名稱**，您可以在 androidmanifest.xml 檔案中找到。<br/>* 產生並輸入**簽章雜湊**。 新增簽章雜湊會自動建立應用程式的重新導向 URI。  |
+   | **桌面 + 裝置**   | **桌面 + 裝置** | * 選擇性。 如果您要建立桌面和裝置的應用程式，請選取其中一個**建議的重新導向 URI**。<br/>* 選擇性。 輸入**自訂重新導向 URI**，作為回應驗證要求時，Azure AD 將會重新導向使用者的位置。 例如，針對您想要進行互動的 .NET Core 應用程式，請使用 `https://localhost`。 |
+
+   > [!IMPORTANT]
+   > 對於未使用最新 MSAL 程式庫或未使用訊息代理程式的行動裝置應用程式，您必須在 [桌面 + 裝置]  中設定這些應用程式的重新導向 URI。
+
+1. 視您選擇的平台而定，可能會有您可以設定的其他設定。 針對 **Web** 應用程式，您可以：
+    * 新增更多重新導向 URI
+    * 設定[隱含授與]  以選取您想要由授權端點發出的權杖：
+        * 針對單一頁面應用程式，請選取 [存取權杖]  和 [識別碼權杖] 
+        * 針對 Web 應用程式，選取 [識別碼權杖] 
+
+## <a name="add-credentials-to-your-web-application"></a>將認證新增至 Web 應用程式
 
 若要將認證新增至 Web 應用程式：
 
@@ -109,8 +165,6 @@ ms.locfileid: "67482688"
 > 儲存組態變更後，最右側的資料行就會包含用戶端密碼值。 **請務必複製此值**，以供在用戶端應用程式的程式碼中使用，因為您一旦離開此頁面就無法再存取此金鑰。
 
 ## <a name="add-permissions-to-access-web-apis"></a>新增用來存取 Web API 的權限
-
-[![顯示您可以在其中新增 API 權限的畫面](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 若要新增權限以從用戶端存取資源 API：
 

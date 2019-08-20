@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29d20c434a7306b016fe9a549415242f5977a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e00cc46385f5d60b28607bfc08b9ca9540f152c6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101117"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>教學課程：Azure Active Directory 與 HeyBuddy 整合
 
@@ -32,7 +32,7 @@ ms.locfileid: "67101117"
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -113,7 +113,7 @@ ms.locfileid: "67101117"
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」(實體識別碼) 來更新這些值。 系統會為每個組織自動產生登入 URL 中的 `Entity ID`。 請連絡 [HeyBuddy 用戶端支援小組](mailto:support@heybuddy.com)以取得這些值。
 
-5. HeyBuddy 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
+5. HeyBuddy 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
 
     ![image](common/edit-attribute.png)
 
@@ -209,7 +209,7 @@ ms.locfileid: "67101117"
 本節會在 HeyBuddy 中建立名為 Britta Simon 的使用者。 HeyBuddy 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 HeyBuddy 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 > [!Note]
-> 如果您需要手動建立使用者，請連絡  [HeyBuddy 支援小組](mailto:support@heybuddy.com)。
+> 如果您需要手動建立使用者，請連絡 [HeyBuddy 支援小組](mailto:support@heybuddy.com)。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

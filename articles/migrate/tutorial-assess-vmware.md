@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828293"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952091"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>使用 Azure Migrate 評估 VMware VM：伺服器評量
 
@@ -33,9 +33,9 @@ ms.locfileid: "68828293"
 
 
 > [!NOTE]
-> 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程會在情況允許時都使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱操作說明文章。
+> 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程在情況允許時都會使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱操作說明文章。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -180,8 +180,39 @@ Azure Migrate：伺服器評量會執行輕量型 VMware VM 設備。
 
 ### <a name="scoping-discovery"></a>界定探索的範圍
 
-藉由限制用於探索的 vCenter 帳戶存取權，即可界定探索範圍。 您可以將範圍設定為 vCenter Server 資料中心、叢集、叢集的資料夾、主機、主機的資料夾或個別 VM。 
+藉由限制用於探索的 vCenter 帳戶存取權，即可界定探索範圍。 您可以將範圍設定為 vCenter Server 資料中心、叢集、叢集的資料夾、主機、主機的資料夾或個別 VM。
 
+若要設定範圍，您必須執行下列步驟：
+1.  建立 vCenter 使用者帳戶。
+2.  定義具有必要權限的新角色。 (<em>這是無代理程式伺服器移轉的必要條件</em>)
+3.  將權限權指派給 vCenter 物件的使用者帳戶。
+
+**建立 vCenter 使用者帳戶**
+1.  以 vCenter Server 系統管理員身分登入 vSphere Web 用戶端。
+2.  按一下 [管理]   > [SSO 使用者和群組]   > [使用者 ]  索引標籤。
+3.  按一下 [新增使用者]  圖示。
+4.  填入必要的資訊以建立新的使用者，然後按一下 [確定]  。
+
+**定義具有必要權限的新角色** (<em>這是無代理程式伺服器移轉的必要條件</em>)
+1.  以 vCenter Server 系統管理員身分登入 vSphere Web 用戶端。
+2.  瀏覽至 [管理]   > [角色管理員]  。
+3.  從下拉式功能表中選取您的 vCenter Server。
+4.  按一下 [建立角色]  動作。
+5.  輸入新角色的名稱。 (例如 <em>Azure_Migrate</em>)。
+6.  將這些[權限](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)指派給新定義的角色。
+7.  按一下 [確定]  。
+
+**指派 vCenter 物件的權限**
+
+有 2 種方法可將 vCenter 中清查物件的權限指派給已獲派角色的 vCenter 使用者帳戶。
+- 進行伺服器評估時，必須將**唯讀**角色套用至要探索的 VM 裝載所在之所有父物件的 vCenter 使用者帳戶。 到資料中心為止的階層中，所有父物件 (主機、主機的資料夾、叢集、叢集的資料夾) 都會包含在內。 這些權限會傳播到階層中的子物件。 
+
+    同樣地，進行伺服器移轉時，已指派這些[權限](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)的使用者定義角色 (可命名為 <em>Azure _Migrate</em>) 必須套用至要移轉的 VM 裝載所在之所有父物件的 vCenter 使用者帳戶。
+
+![指派權限](./media/tutorial-assess-vmware/assign-perms.png)
+
+- 替代方法是在資料中心層級指派使用者帳戶和角色，並將其傳播到子物件。 然後，針對您不想要探索/移轉的每個物件 (例如 VM)，為帳戶提供**無存取**角色。 此組態相當繁瑣。 它會意外公開存取控制，因為會對每個新的子物件自動授與從父物件繼承的存取權。 因此建議採用第一種方法。
+ 
 > [!NOTE]
 > 目前，如果 vCenter 帳戶具有在 vCenter VM 資料夾層級上授與的存取權，則伺服器評量無法探索 VM。 如果您想要依據 VM 資料夾來界定探索範圍，只要確保 vCenter 帳戶在 VM 層級上已獲派唯讀存取權即可。  以下是您可以執行此動作的指示：
 >

@@ -7,26 +7,26 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 24ef94b702d11977df4e1ca2dab181f5c14a00df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: df2aef9a6401d0a3a1807fb7e869f03f9b7bcd36
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564567"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881242"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>搭配 REST API 和 JavaScript 使用電腦視覺功能
 
-本指南說明 Azure 認知服務電腦視覺 REST API 的功能。
+本指南說明「Azure 認知服務電腦視覺 REST API」的功能。
 
 探索使用「電腦視覺 REST API」在影像中執行光學字元辨識 (OCR)、建立智慧型裁剪縮圖以及偵測、分類、標記和描述視覺特徵 (包括臉部) 的 JavaScript 應用程式。 此範例可讓您提交影像 URL 以供分析或處理。 您可以使用此開放原始碼範例作為範本來建置自己的 JavaScript 應用程式，以使用「電腦視覺 REST API」。
 
-已經撰寫 JavaScript 表單應用程式，但還沒有任何「電腦視覺」功能。 在本指南中, 您會新增電腦視覺 REST API 的特定程式碼, 以完成應用程式的功能。
+已經撰寫 JavaScript 表單應用程式，但還沒有任何「電腦視覺」功能。 在本指南中，您會新增「電腦視覺 REST API」特定的程式碼以完成應用程式的功能。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="platform-requirements"></a>平台需求
 
@@ -34,7 +34,7 @@ ms.locfileid: "68564567"
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>訂閱電腦視覺 API 並取得訂用帳戶金鑰
 
-建立範例之前，您必須先訂閱「電腦視覺 API」，這是「Azure 認知服務」的組件。 如需訂用帳戶和金鑰管理詳細資料，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 主要和次要金鑰都是有效的, 可在本指南中使用。
+建立範例之前，您必須先訂閱「電腦視覺 API」，這是「Azure 認知服務」的組件。 如需訂用帳戶和金鑰管理詳細資料，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 在本指南中，主要金鑰和次要金鑰都是有可用的有效金鑰。
 
 ## <a name="acquire-incomplete-tutorial-project"></a>取得不完整的教學課程專案
 
@@ -42,19 +42,19 @@ ms.locfileid: "68564567"
 
 複製[認知服務 JavaScript 電腦視覺教學課程](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)，或下載 .zip 檔案，然後將它解壓縮至空白目錄。
 
-如果您想要使用已完成的專案, 並新增所有教學課程程式碼, 您可以使用 [**已完成**] 資料夾中的檔案。
+如果您偏好使用已新增所有教學課程程式碼的已完成專案，則可以使用 [Completed]  資料夾中的檔案。
 
-## <a name="add-tutorial-code-to-the-project"></a>將教學課程程式碼加入至專案
+## <a name="add-tutorial-code-to-the-project"></a>將教學課程的程式碼新增至專案中
 
-JavaScript 應用程式設定後會有六個 .html 檔案，每項功能各有一個檔案。 每個檔案都會示範不同的電腦視覺功能 (分析、OCR 等)。 六個區段沒有相互相關性, 因此您可以將教學課程程式碼新增到一個檔案、全部六個檔案, 或只是幾個檔案。 並且可以將教學課程程式碼以任何順序新增到檔案中。
+JavaScript 應用程式設定後會有六個 .html 檔案，每項功能各有一個檔案。 每個檔案皆示範一種不同的「電腦視覺」功能 (分析、OCR 等)。 六個區段互不相依，因此您可以將教學課程程式碼新增到一個檔案，也可以新增到所有六個檔案或只新增到一些檔案中。 並且可以將教學課程程式碼以任何順序新增到檔案中。
 
 ### <a name="analyze-an-image"></a>分析影像
 
-電腦視覺的分析功能會掃描影像中是否有數千個可辨識的物件、事物、景象和動作。 在分析完成之後，「分析」就會傳回一個 JSON 物件，其中會以描述性標籤、色彩分析、標題等來描述影像。
+「電腦視覺」的「分析」功能可掃描影像中數千個可辨識的物體、生物、景象及動作。 在分析完成之後，「分析」就會傳回一個 JSON 物件，其中會以描述性標籤、色彩分析、標題等來描述影像。
 
-若要完成應用程式的 [分析] 功能, 請執行下列步驟:
+若要完成應用程式的「分析」功能，請執行下列步驟：
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>新增 [分析] 按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>新增分析按鈕的事件處理常式程式碼
 
 在文字編輯器中開啟 **analyze.html** 檔案，然後找出靠近檔案底部的 **analyzeButtonClick** 函式。
 
@@ -158,9 +158,9 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 
 「電腦視覺」的「地標」功能可分析影像中的自然和人工地標，例如山地或知名的建築物。 在分析完成之後，「地標」就會傳回一個 JSON 物件，其中會識別在影像中找到的地標。
 
-若要完成應用程式的地標功能, 請執行下列步驟:
+若要完成應用程式的「地標」功能，請執行下列步驟：
 
-#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>新增 [地標] 按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>新增地標按鈕的事件處理常式程式碼
 
 在文字編輯器中開啟 **landmark.html** 檔案，然後找出靠近檔案底部的 **landmarkButtonClick** 函式。
 
@@ -263,9 +263,9 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 
 「電腦視覺」的「名人」功能可分析影像中的知名人物。 在分析完成之後，「名人」就會傳回一個 JSON 物件，其中會識別在影像中找到的名人。
 
-若要完成應用程式的名人功能, 請執行下列步驟:
+若要完成應用程式的「名人」功能，請執行下列步驟：
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>新增 [名人] 按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>新增名人按鈕的事件處理常式程式碼
 
 在文字編輯器中開啟 **celebrities.html** 檔案，然後找出靠近檔案底部的 **celebritiesButtonClick** 函式。
 
@@ -364,7 +364,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 
 「電腦視覺」的「縮圖」功能可從影像產生縮圖。 藉由使用「智慧型裁剪」  功能，「縮圖」功能將可識別影像中的關注區並將縮圖集中在此區域上，以產生更賞心悅目的縮圖影像。
 
-若要完成應用程式的縮圖功能, 請執行下列步驟:
+若要完成應用程式的「縮圖」功能，請執行下列步驟：
 
 #### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>新增縮圖按鈕的事件處理常式程式碼
 
@@ -475,7 +475,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### <a name="run-the-thumbnail-function"></a>執行縮圖函數
+#### <a name="run-the-thumbnail-function"></a>執行縮圖函式
 
 儲存 **thumbnail.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 輸入要分析之影像的 URL，然後按一下 [產生縮圖]  按鈕來分析影像並查看結果。
 
@@ -483,7 +483,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 
 「電腦視覺」的「光學字元辨識」(OCR) 功能可分析列印文字的影像。 在分析完成之後，OCR 就會傳回一個 JSON 物件，其中包含影像中的文字和文字位置。
 
-若要完成應用程式的 OCR 功能, 請執行下列步驟:
+若要完成應用程式的 OCR 功能，請執行下列步驟：
 
 ### <a name="add-the-event-handler-code-for-the-ocr-button"></a>新增 OCR 按鈕的事件處理常式程式碼
 
@@ -576,7 +576,7 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 
 「電腦視覺」的「手寫辨識」功能可分析手寫文字的影像。 在分析完成之後，「手寫辨識」就會傳回一個 JSON 物件，其中包含影像中的文字和文字位置。
 
-若要完成應用程式的「手寫辨識」功能, 請執行下列步驟:
+若要完成應用程式的「手寫辨識」功能，請執行下列步驟：
 
 #### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>新增手寫按鈕的事件處理常式程式碼
 
@@ -727,12 +727,12 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-handwriting-function"></a>執行手寫功能
+#### <a name="run-the-handwriting-function"></a>執行手寫函式
 
 儲存 **handwriting.html** 檔案，然後在網頁瀏覽器中將其開啟。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 輸入要讀取之文字影像的 URL，然後按一下 [讀取影像]  按鈕來分析影像並查看結果。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本指南中, 您使用了電腦視覺 REST API 與 JavaScript 來測試許多可用的影像分析功能。 接下來, 請參閱參考檔, 以深入瞭解相關的 Api。
+在本指南中，您使用了電腦視覺 REST API 與 JavaScript 來測試許多可用的影像分析功能。 接下來，請參閱參考文件，以深入了解相關的 API。
 
 - [電腦視覺 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

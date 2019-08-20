@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5bf49538823ea50bca197a78ec54d4ddcae1ff
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708441"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879691"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>教學課程：整合 Carbonite Endpoint Backup 與 Azure Active Directory
 
@@ -125,27 +125,35 @@ ms.locfileid: "68708441"
 
 ### <a name="configure-carbonite-endpoint-backup-sso"></a>設定 Carbonite Endpoint Backup SSO
 
-1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Carbonite Endpoint Backup 公司網站。
+1. 若要自動執行 Carbonite Endpoint Backup 內的設定，您必須按一下 [安裝擴充功能]  ，以安裝「我的應用程式安全登入瀏覽器擴充功能」  。
 
-1. 按一下左窗格上的 [公司]  。
+    ![我的應用程式擴充功能](common/install-myappssecure-extension.png)
+
+2. 將擴充功能新增至瀏覽器之後，按一下 [設定 Carbonite Endpoint Backup]  便會將您導向至 Carbonite Endpoint Backup 應用程式。 請從該處提供用以登入 Carbonite Endpoint Backup 的管理員認證。 瀏覽器延伸模組將會自動為您設定應用程式，並自動執行步驟 3 到 7。
+
+    ![設定組態](common/setup-sso.png)
+
+3. 如果您想要手動設定 Carbonite Endpoint Backup，請開啟新的網頁瀏覽器視窗，並以系統管理員身分登入 Carbonite Endpoint Backup 公司網站，然後執行下列步驟：
+
+4. 按一下左窗格上的 [公司]  。
 
     ![Carbonite Endpoint Backup 設定 ](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
-1. 按一下 [單一登入]  。
+5. 按一下 [單一登入]  。
 
     ![Carbonite Endpoint Backup 設定 ](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-1. 按一下 [啟用]  ，然後按一下 [編輯設定]  以進行設定。
+6. 按一下 [啟用]  ，然後按一下 [編輯設定]  以進行設定。
 
     ![Carbonite Endpoint Backup 設定 ](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
-1. 在 [單一登入設定]  頁面執行下列步驟：
+7. 在 [單一登入設定]  頁面執行下列步驟：
 
     ![Carbonite Endpoint Backup 設定 ](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
-    1. 在 [識別提供者名稱]  文字方塊中，輸入識別提供者的名稱，例如 **Microsoft Azure AD**。
+    1. 在 [識別提供者名稱]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
 
-    1. 在 [識別提供者 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
+    1. 在 [識別提供者 URL]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
 
     1. 按一下 [選擇檔案]  以上傳從 Azure 入口網站下載的**憑證 (Base64)** 檔案。
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5409ed799454a6bb64077ee884065fc518556142
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 03918976935f9071ba2a7951e29195118943a8ef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227817"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845828"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -50,7 +50,7 @@ Azure Migrate 服務有兩個版本：
 
 ### <a name="selecting-an-isv-tool"></a>選取 ISV 工具
 
-在將 ISV 工具新增至 Azure Migrate 專案之後，請根據 ISV 原則來取得授權，或是註冊免費試用來開始使用該工具。 每個工具中都會有連線至 Azure Migrate 的選項。 遵循工具指示與文件來搭配 Azure Migrate 連線至該工具。
+在將 ISV 工具新增至 Azure Migrate 專案之後，請根據 ISV 原則來取得授權，或是註冊免費試用來開始使用該工具。 每個工具中都會有連線至 Azure Migrate 的選項。 遵循工具指示與文件來搭配 Azure Migrate 連線至該工具。 ISV 工具會根據 ISV 授權模型進行授權。
 
 ## <a name="azure-migrate-server-assessment"></a>Azure Migrate 伺服器評量
 
@@ -66,7 +66,7 @@ Azure Migrate 伺服器評量能探索並評量內部部署 VMware VM 和 Hyper-
 - 該設備會探索內部部署電腦，連線至伺服器評量，然後將中繼資料和與效能相關的資料持續傳送至 Azure Migrate。
 - 探索為無代理程式。 不需要在被探索的 VM 上安裝任何項目。
 - 探索到電腦之後，您通常會將想要一起移轉的 VM 分組在一起。
-- 您可以建立群組的評估。 您接著可以分析該評量，以找出您的移轉策略。
+- 您可建立群組的評估。 您接著可以分析該評量，以找出您的移轉策略。
 
 ## <a name="azure-migrate-server-migration"></a>Azure Migrate 伺服器移轉
 
@@ -88,7 +88,7 @@ Azure Migrate 與 Azure 資料庫移轉服務 (DMS) 整合，來將內部部署�
 - **在線上評量 Web 應用程式**：使用 Azure App Service 移轉小幫手來評量內部部署網站，以移轉至 Azure App Service。
 - **移轉 Web 應用程式**：使用 Azure App Service 移轉小幫手來將 .NET 與 PHP Web 應用程式移轉至 Azure。
 
-[深入了解](https://appmigration.microsoft.com/)。
+[深入了解。](https://appmigration.microsoft.com/)
 
 ## <a name="offline-data-migration"></a>離線資料移轉
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入門：搭配 Java 的 Cassandra API - Azure Cosmos DB
+title: 使用 Cassandra API 和 JAVA 建立應用程式 - Azure Cosmos DB
 description: 本快速入門示範如何使用 Azure Cosmos DB Cassandra API，以使用 Azure 入口網站和 JAVA 建立設定檔應用程式
 ms.service: cosmos-db
 author: SnehaGunda
@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-august2019
+ms.openlocfilehash: e8ca40ec86bc3af92fd23bb7acce3d6c39b082fb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325470"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933933"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>快速入門：使用 Java SDK 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -203,7 +204,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     終端機視窗會顯示 keyspace 和資料表已建立的通知。 它會接著選取並傳回資料表中的所有使用者並顯示輸出，然後依識別碼選取資料列並顯示值。  
 
-    按 CTRL + C 來停止執行程式，並關閉主控台視窗。
+    選取 **CTRL + C** 來停止執行程式，並關閉主控台視窗。
 
 4. 在 Azure 入口網站中，開啟 [資料總管]  以查詢、修改及使用這個新資料。 
 

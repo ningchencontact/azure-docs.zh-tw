@@ -1,6 +1,5 @@
 ---
-title: 什麼是
-titleSuffix: Azure Machine Learning service
+title: 什麼是 Azure Machine Learning 服務
 description: Azure Machine Learning 服務的概觀 - 一整合的端對端資料科學解決方案，可供專業資料科學家進行雲端規模的開發、實驗及部署先進的分析應用程式。
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 1dea5e174c66685f889595ab15b3edf57dd02493
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828101"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018234"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
 
@@ -50,15 +49,15 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料
 
 您也可以使用 SDK，[自動進行模型定型和微調](tutorial-auto-train-models.md)。
 
-### <a name="code-free--low-code-experience"></a>無程式碼 / 低程式碼體驗
+### <a name="ui-based-low-code-experience"></a>以 UI 為基礎的低程式碼開發體驗
 
 對於無程式碼定型，請嘗試：
 
-+ 適用於拖放實驗和部署的視覺化介面
++ 在便於使用的介面中建立[自動化 ML 實驗](tutorial-first-experiment-automated-ml.md)。
++ [視覺化介面中的拖放實驗](ui-tutorial-automobile-price-train-score.md)。
+  ![Azure Machine Learning 服務的視覺化介面](media/overview-what-is-azure-ml/visual-interface.png)
 
-    ![Azure Machine Learning 服務的視覺化介面](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ 自動化 ML 實驗的 Azure 入口網站選項
 
 ### <a name="operationalization-mlops"></a>運算化 (MLOps)
 
@@ -100,13 +99,13 @@ Azure Machine Learning 服務同時提供 SDK **與**視覺化介面 (預覽)，
 
 ## <a name="free-trial"></a>免費試用
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 即可取得用於 Azure 服務的點數。 信用額度用完之後，您可以保留帳戶並使用[免費的 Azure 服務](https://azure.microsoft.com/free/)。 除非您明確變更您的設定且同意付費，否則我們絕對不會從您的信用卡收取任何費用。 或是[啟用 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，此服務每月提供您可以用於 Azure 付費服務的額度。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立 Machine Learning 服務工作區](setup-create-workspace.md)以開始作業。
+- [建立 Machine Learning 服務工作區](how-to-manage-workspace.md)以開始作業。
 
 - 請遵循完整的教學課程：
   + [使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)

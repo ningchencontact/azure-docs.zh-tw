@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 279f6970c34acbfea645366f7e965c830873fdbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efd64830c0d9afa83838adef96cf1c103b4485e8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089181"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>教學課程：Azure Active Directory 與 TAS 整合
 
@@ -32,7 +32,7 @@ ms.locfileid: "67089181"
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -150,7 +150,7 @@ ms.locfileid: "67089181"
 
     c. 在 [Enter URL] \(輸入 URL\)  文字方塊中，貼上您從 Azure 入口網站複製的 [Login URL] \(登入 URL\)  值。
 
-    d. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 **** [Enter Certification] \(輸入憑證\) 方塊中。
+    d. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [輸入憑證]  方塊中。
 
     e. 在 [Enter New IP] \(輸入新 IP\)  文字方塊中，輸入 IP 位址。
 
@@ -216,7 +216,7 @@ ms.locfileid: "67089181"
 
 ### <a name="create-tas-test-user"></a>建立 TAS 測試使用者
 
-在本節中，您會在 TAS 中建立名為 Britta Simon 的使用者。 請與 [TAS 支援小組](mailto:support@combtas.com)合作，在 TAS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 TAS 中建立名為 Britta Simon 的使用者。 請與 [TAS 支援小組](mailto:support@combtas.com)合作，在 TAS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

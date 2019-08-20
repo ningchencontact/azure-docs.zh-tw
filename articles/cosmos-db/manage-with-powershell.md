@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 79302fc0f9addc70461d21c03b02416d15a6fa6c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814935"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965099"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>使用 PowerShell 來管理 Azure Cosmos DB SQL API 資源
 
@@ -116,16 +116,15 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 * 新增或移除區域
 * 變更預設的一致性原則
-* 變更容錯移轉原則
 * 變更 IP 範圍篩選條件
 * 變更虛擬網路組態
 * 啟用多重主機
 
 > [!NOTE]
-> 此命令可讓您新增及移除區域，但不允許您修改容錯移轉優先順序。 若要修改容錯移轉優先順序，請參閱[修改 Azure Cosmos 帳戶的容錯移轉優先順序](#modify-failover-priority)。
+> 此命令可讓您新增及移除區域，但不允許您修改容錯移轉優先順序或變更具有 `failoverPriority=0` 的區域。 若要修改容錯移轉優先順序，請參閱[修改 Azure Cosmos 帳戶的容錯移轉優先順序](#modify-failover-priority)。
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account and set Consistency level to Session
+# Get an Azure Cosmos Account (assume it has two regions currently West US 2 and East US 2) and add a third region
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "myaccountname"
@@ -133,9 +132,13 @@ $accountName = "myaccountname"
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
 
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+$locations = @(
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 },
+    @{ "locationName"="South Central US"; "failoverPriority"=2 }
+)
 
-$account.Properties.consistencyPolicy = $consistencyPolicy
+$account.Properties.locations = $locations
 $CosmosDBProperties = $account.Properties
 
 Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
@@ -235,9 +238,9 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> 修改容錯移轉優先順序
 
-對於多重區域的資料庫帳戶，您可以變更當主要寫入複本發生區域性容錯移轉時，Cosmos 帳戶會用來升級次要讀取複本的順序。 修改了 `failoverPriority=0` 的區域時，這個命令也可用來起始災害復原演練以測試災害復原規劃。
+對於多重區域的資料庫帳戶，您可以變更當主要寫入複本發生區域性容錯移轉時，Cosmos 帳戶會用來升級次要讀取複本的順序。 修改 `failoverPriority=0` 也可用來起始災害復原演練，以測試災害復原規劃。
 
-在下列範例中，讓帳戶假設目前的容錯移轉優先順序為 westus=0 和 eastus=1，並翻轉區域。
+在下列範例中，假設帳戶目前的容錯移轉優先順序為 `West US 2 = 0` 和 `East US 2 = 1`，並翻轉區域。
 
 > [!CAUTION]
 > 變更 `failoverPriority=0` 的 `locationName` 會讓 Azure Cosmos 帳戶觸發手動容錯移轉。 變更其他優先順序則不會觸發容錯移轉。
@@ -248,10 +251,14 @@ Select-Object $keys
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 
-$failoverPolicies = @(
-    @{ "locationName"="East US"; "failoverPriority"=0 },
-    @{ "locationName"="West US"; "failoverPriority"=1 }
+$failoverRegions = @(
+    @{ "locationName"="East US 2"; "failoverPriority"=0 },
+    @{ "locationName"="West US 2"; "failoverPriority"=1 }
 )
+
+$failoverPolicies = @{
+    "failoverPolicies"= $failoverRegions
+}
 
 Invoke-AzResourceAction -Action failoverPriorityChange `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `

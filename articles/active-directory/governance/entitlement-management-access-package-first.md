@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 76ba284ec1a30322a24c762a1829b399f2583c6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489158"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032916"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>教學課程：在 Azure AD 權利管理 (預覽) 中建立您的第一個存取套件
 
@@ -44,7 +44,9 @@ ms.locfileid: "68489158"
 > * 示範內部使用者如何要求存取套件
 > * 核准存取要求
 
-如果您沒有 Azure AD Premium P2 或 Enterprise Mobility + Security E5 授權，請建立免費的 [Enterprise Mobility + Security E5 試用版](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)。
+如需部署 Azure Active Directory 權利管理的程序 (包括建立您的第一個存取套件) 的逐步示範，請觀看下列影片：
+
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -52,6 +54,8 @@ ms.locfileid: "68489158"
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 授權
+
+如果您沒有 Azure AD Premium P2 或 Enterprise Mobility + Security E5 授權，請建立免費的 [Enterprise Mobility + Security E5 試用版](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)。
 
 ## <a name="step-1-set-up-users-and-group"></a>步驟 1：設定使用者和群組
 
@@ -128,7 +132,7 @@ ms.locfileid: "68489158"
 
     ![新增存取套件 - [原則] 索引標籤](./media/entitlement-management-access-package-first/policy.png)
 
-1. 按 下一步  以開啟 檢閱 + 建立  索引標籤。
+1. 按 [下一步]  以開啟 [檢閱 + 建立]  索引標籤。
 
     ![新增存取套件 - [檢閱 + 建立] 索引標籤](./media/entitlement-management-access-package-first/review-create.png)
 

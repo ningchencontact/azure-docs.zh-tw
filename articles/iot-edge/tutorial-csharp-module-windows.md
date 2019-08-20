@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5a1e487b52cb6f146ccc7fd3208ecc90de9aa080
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: eb2a6933b711804f957056353d7d609dbdbbe5d5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840168"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036459"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 C# IoT Edge 模組
 
@@ -51,7 +51,7 @@ ms.locfileid: "68840168"
 * [執行 Azure IoT Edge 的 Windows 裝置](quickstart.md)。
 * 容器登錄，像是 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)。
 * 已設定 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 擴充功能的 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。
-* 已設定要執行 Windows 容器的 [Docker CE](https://docs.docker.com/install/)。
+* 已設定要執行 Windows 容器的 [Docker Desktop](https://docs.docker.com/docker-for-windows/install/)。
 
 > [!TIP]
 > 如果您使用 Visual Studio 2017 (15.7 或更高版本)，請從 Visual Studio 市集下載並安裝適用於 VS 2017 的 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
@@ -289,7 +289,7 @@ Azure IoT Edge Tools 會針對 Visual Studio 中所有支援的 IoT Edge 模組�
 
 在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 **CSharpModule**，以篩選掉報告的機器溫度低於可接受閾值的訊息。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。 
 
-1. 在您的開發機器上使用下列命令登入 Docker。 使用您的 Azure 容器登錄中的使用者名稱、密碼和登入伺服器。 您可以在 Azure 入口網站中，從登錄的 [存取金鑰]  區段擷取這些資料。
+1. 在您的開發機器上使用下列命令登入 Docker。 使用您的 Azure 容器登錄中的使用者名稱、密碼和登入伺服器。 您可以在 Azure 入口網站中，從登錄的 [存取金鑰]  區段擷取這些值。
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>

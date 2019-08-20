@@ -1,39 +1,38 @@
 ---
-title: Linux 上搭配 PostgreSQL 的Python (Django) - Azure App Service | Microsoft Docs
-description: 了解如何在 Azure 中連線至 PostgreSQL 資料庫，以執行資料驅動的 Python 應用程式。 本教學課程中將使用 Django。
+title: Linux 上搭配 PostgreSQL 的 Python (Django) Web 應用程式 - Azure App Service | Microsoft Docs
+description: 了解如何在 Azure 中連線至 PostgreSQL 資料庫，以執行資料驅動的 Python (Django) Web 應用程式。
 services: app-service\web
 documentationcenter: python
 author: cephalin
-manager: jeconnoc
+manager: gwallace
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.reviewer: beverst
 ms.custom: seodec18
-ms.openlocfilehash: 3fbc9429da393f4df14ade57d6bd20219b5fcfa2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1cb9cd72908dc88ef2890764bc8d3fad88a82707
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617530"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951913"
 ---
-# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>在 Azure App Service 中建置 Python 和 PostgreSQL 應用程式
+# <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>在 Azure App Service 中建置 Python (Django) Web 應用程式 和 PostgreSQL
 
-[Linux 上的 App Service](app-service-linux-intro.md) 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何使用 PostgreSQL 作為資料庫後端，來建立資料驅動的 Python 應用程式。 完成之後，您就會有在 Linux 上的 App Service 中執行的 Django 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程說明如何以 PostgreSQL 作為資料庫後端，建立資料驅動 Python (Django) Web 應用程式。 完成之後，您就會有在 Linux 上 Azure App Service 中執行的 Django Web 應用程式。
 
-![Linux 上的 App Service 中的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Linux 上 App Service 中的 Python Django Web 應用程式](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中建立 PostgreSQL 資料庫
-> * 將 Python 應用程式連線至 PostgreSQL
-> * 將應用程式部署至 Azure
+> * 將 Python Web 應用程式連線至 PostgreSQL
+> * 將 Python Web 應用程式部署至 Azure
 > * 檢視診斷記錄
-> * 在 Azure 入口網站中管理應用程式
+> * 在 Azure 入口網站中管理 Python Web 應用程式
 
 > [!NOTE]
 > 在建立適用於 PostgreSQL 的 Azure 資料庫之前，請先確認[可在您的區域中產生的計算](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores)。
@@ -93,7 +92,7 @@ git clone https://github.com/Azure-Samples/djangoapp.git
 cd djangoapp
 ```
 
-此範例存放庫包含 [Django](https://www.djangoproject.com/) 應用程式。 這個應用程式就是您藉由遵循 [Django 文件中的入門教學課程](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)所獲得的同一個資料驅動應用程式。 本教學課程不會教您 Django，而是會說明如何對 App Service 部署和執行 Django 應用程式 (或另一個資料驅動的 Python 應用程式)。
+此範例存放庫包含 [Django](https://www.djangoproject.com/) 應用程式。 這個應用程式就是您藉由遵循 [Django 文件中的入門教學課程](https://docs.djangoproject.com/en/2.1/intro/tutorial01/)所獲得的同一個資料驅動應用程式。 本教學課程不會教您 Django，而是會說明如何對 Azure App Service 部署和執行 Django Web 應用程式 (或另一個資料驅動的 Python 應用程式)。
 
 ### <a name="configure-environment"></a>設定環境
 
@@ -129,7 +128,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-當應用程式完全載入時，您會看到類似下列的訊息：
+當 Django Web 應用程式完全載入時，您會看到類似下列的訊息：
 
 ```bash
 Performing system checks...
@@ -216,7 +215,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ## <a name="connect-python-app-to-production-database"></a>將 Python 應用程式連線至生產資料庫
 
-在此步驟中，您會將 Django 範例應用程式連線至您所建立的「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
+在此步驟中，您會將 Django Web 應用程式連線至您所建立的「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
 
 ### <a name="create-empty-database-and-user-access"></a>建立空的資料庫和使用者存取
 
@@ -284,11 +283,10 @@ python manage.py runserver
 
 ### <a name="configure-repository"></a>設定存放庫
 
-Django 會驗證連入要求中的 `HTTP_HOST` 標題。 若要讓 Django 應用程式在 App Service 中運作，您必須將應用程式的完整網域名稱新增至允許的主機。 開啟 azuresite/settings.py  並尋找 `ALLOWED_HOSTS` 設定。 將該行變更為：
+Django 會驗證連入要求中的 `HTTP_HOST` 標題。 若要讓 Django Web 應用程式在 App Service 中運作，您必須將應用程式的完整網域名稱新增至允許的主機。 開啟 azuresite/settings.py  並尋找 `ALLOWED_HOSTS` 設定。 將該行變更為：
 
 ```python
-ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net',
-                 '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
 接下來，Django 不支援[在生產環境中提供靜態檔案](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/)，因此您必須手動啟用此功能。 在本教學課程中，您會使用 [WhiteNoise](https://whitenoise.evans.io/en/stable/)。 WhiteNoise 套件已包含在 requirements.txt  中。 您只需要設定 Django 以便使用它。 
@@ -386,13 +384,13 @@ http://<app-name>.azurewebsites.net
 
 您應該會看到您稍早建立的投票問題。 
 
-App Service 會藉由尋找每個子目錄中的 wsgi.py  (預設會由 `manage.py startproject` 建立)，來偵測存放庫中的 Django 專案。 它找到檔案時，就會載入 Django 應用程式。 如需 App Service 如何載入 Python 應用程式的詳細資訊，請參閱[設定內建 Python 映像](how-to-configure-python.md)。
+App Service 會藉由尋找每個子目錄中的 wsgi.py  (預設會由 `manage.py startproject` 建立)，來偵測存放庫中的 Django 專案。 它找到檔案時，就會載入 Django Web 應用程式。 如需 App Service 如何載入 Python 應用程式的詳細資訊，請參閱[設定內建 Python 映像](how-to-configure-python.md)。
 
 瀏覽至 `<app-name>.azurewebsites.net`，然後使用您建立的同一個管理使用者來登入。 如有需要，也可嘗試再建立一些投票問題。
 
 ![在本機執行的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
-**恭喜！** 您正在適用於 Linux 的 App Service 中執行 Python 應用程式。
+**恭喜！** 您正在適用於 Linux 的 Azure App Service 中執行 Python (Django) Web 應用程式。
 
 ## <a name="stream-diagnostic-logs"></a>資料流診斷記錄
 
@@ -418,10 +416,10 @@ App Service 會藉由尋找每個子目錄中的 wsgi.py  (預設會由 `manage.
 
 > [!div class="checklist"]
 > * 在 Azure 中建立 PostgreSQL 資料庫
-> * 將 Python 應用程式連線至 PostgreSQL
-> * 將應用程式部署至 Azure
+> * 將 Python Web 應用程式連線至 PostgreSQL
+> * 將 Python Web 應用程式部署至 Azure
 > * 檢視診斷記錄
-> * 在 Azure 入口網站中管理應用程式
+> * 在 Azure 入口網站中管理 Python Web 應用程式
 
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至應用程式。
 

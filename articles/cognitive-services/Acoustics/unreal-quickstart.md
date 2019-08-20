@@ -3,27 +3,27 @@ title: 搭配 Unreal 的聲場專案快速入門
 titlesuffix: Azure Cognitive Services
 description: 使用範例內容對 Unreal 和 Wwise 中的聲場專案設計控制項進行實驗，並部署至 Windows 桌面。
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06023b2758d09fe8ebe7c1301ef1a03d9c54aa41
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704778"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933037"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>聲場專案 Unreal/Wwise 快速入門
 在本快速入門中，您將會使用針對 Unreal Engine 和 Wwise 所提供的範例內容，對聲場專案設計控制項進行實驗。
 
-軟體需求：
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
+使用範例內容的軟體需求：
+* [Unreal Engine](https://www.unrealengine.com/) 4.22
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## <a name="download-the-sample-package"></a>下載範例套件
 下載[聲場專案 Unreal + Wwise 範例套件](https://www.microsoft.com/download/details.aspx?id=58090) \(英文\)。 範例套件包含 Unreal Engine 專案、適用於該 Unreal 專案的 Wwise 專案，以及聲場專案 Wwise 外掛程式。
@@ -55,12 +55,16 @@ ms.locfileid: "68704778"
 
     ![顯示已註解排除 DXSDK 的程式碼編輯器螢幕擷取畫面](media/directx-sdk-comment.png)
 
+* 如果您使用 Visual Studio 2019 進行編譯，若要解決 Wwise 的連結錯誤，請手動將 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` 中預設的 `VSVersion` 值編輯為 `vc150`：
+
+    ![程式碼編輯器顯示 VSVersion 已變更為 vc150 的螢幕擷取畫面](media/vsversion-comment.png)
+
 ### <a name="open-the-unreal-project"></a>開啟 Unreal 專案。 
 系統會要求您重新建置模組，請按一下 [Yes] \(是\)。
 
 >如果開啟專案因建置失敗而失敗，請檢查是否已將聲場專案 Wwise 外掛程式安裝至和用於聲場專案範例專案相同的 Wwise 版本。
 
->如果未使用 [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6，則必須先重新產生音效庫，才能在專案範例中播放音訊。
+>如果使用早於 2019.1 的 [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 版本，您將無法使用聲場專案範例專案產生音效庫。  必須將 Wwise 2019.1 版整合到範例專案中，才能適當使用。
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>對聲場專案設計控制項進行實驗
 按一下 Unreal 編輯器中的 [Play] \(進行遊戲\) 按鈕來聆聽場景聲音。 在電腦上使用 W、A、S、D 與滑鼠來四處移動。 若要查看鍵盤快速鍵以取得更多控制項，請按下 **F1**。 以下是可嘗試的一些設計活動：

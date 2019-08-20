@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614186"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019195"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教學課程：調整 Azure Kubernetes Service (AKS) 中的應用程式
 
@@ -70,18 +70,19 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>自動調整 Pod
 
-Kubernetes 支援[水平 Pod 自動調整][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] 可用來將資源使用率提供給 Kubernetes，並且會自動部署在 AKS 叢集 1.10 版和更新版本中。 若要查看您的 AKS 叢集版本，請使用 [az aks show][az-aks-show] 命令，如下列範例所示：
+Kubernetes 支援[水平 Pod 自動調整][kubernetes-hpa]，可根據 CPU 使用率或其他選取的計量來調整部署中的 Pod 數目。 [計量伺服器][metrics-server]可用來將資源使用率提供給 Kubernetes，並且會自動部署在 AKS 叢集 1.10 版和更新版本中。 若要查看您的 AKS 叢集版本，請使用 [az aks show][az-aks-show] 命令，如下列範例所示：
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-如果您的 AKS 叢集低於 *1.10* 版，請安裝計量伺服器，否則請略過此步驟。 若要安裝，請複製 `metrics-server` GitHub 存放庫並安裝範例資源定義。 若要檢視這些 YAML 定義的內容，請參閱[Kuberenetes 1.8+ 的計量伺服器][metrics-server-github]。
-
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
+> [!NOTE]
+> 如果您的 AKS 叢集低於 1.10  ，則不會自動安裝計量伺服器。 若要安裝，請複製 `metrics-server` GitHub 存放庫並安裝範例資源定義。 若要檢視這些 YAML 定義的內容，請參閱[Kuberenetes 1.8+ 的計量伺服器][metrics-server-github]。
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
 若要使用自動調整程式，必須為您 Pod 中所有容器和 Pod 定義 CPU 要求和限制。 在 `azure-vote-front` 部署中，前端容器已經要求 0.25 個 CPU，限制為 0.5 個 CPU。 這些資源要求和限制定義如下列範例程式碼片段所示：
 

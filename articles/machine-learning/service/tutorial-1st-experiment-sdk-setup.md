@@ -1,5 +1,5 @@
 ---
-title: 教學課程：設定環境和工作區。
+title: 教學課程：設定環境變數和工作區。
 titleSuffix: Azure Machine Learning service
 description: 在本教學課程系列中，您會遵循端對端步驟來開始使用在 Jupyter 筆記本中執行的 Azure Machine Learning Python SDK。  第一部分中已建立雲端筆記本伺服器環境及工作區來管理您的實驗和機器學習模型。
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70fee90fb82618a409d2566a3235ad8ca42e1760
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828654"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934420"
 ---
-# <a name="tutorial-setup-environment-and-workspace"></a>教學課程：設定環境和工作區
+# <a name="tutorial-set-up-environment-and-workspace"></a>教學課程：設定環境變數和工作區
 
 在本教學課程中，您會遵循端對端步驟來開始使用在 Jupyter 筆記本中執行的 Azure Machine Learning Python SDK。 本教學課程是**教學課程系列的第一部分 (共兩部分)** ，其中包含 Python 環境的安裝和設定，以及如何建立工作區來管理您的實驗和機器學習模型。 [**第二部分**](tutorial-1st-experiment-sdk-train.md)會以此為基礎來定型多個機器學習模型，並使用 Azure 入口網站和 SDK 來引進模型管理程序。
 
@@ -25,7 +25,7 @@ ms.locfileid: "68828654"
 
 > [!div class="checklist"]
 > * 建立要在下一個教學課程中使用的機器學習工作區。
-> * 建立筆記本 VM，這是已預先安裝並預先設定 Azure Machine Learning Python SDK 的雲端式 Jupyter 筆記本伺服器。
+> * 建立已安裝並預先設定 Azure Machine Learning Python SDK 的雲端式 Jupyter Notebook VM。
 
 ## <a name="prerequisites"></a>必要條件
 

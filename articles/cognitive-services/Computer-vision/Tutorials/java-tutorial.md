@@ -7,18 +7,18 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
-ms.openlocfilehash: 16f75095c7e4461c84a1fea28cc620c49b6c5bca
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: fc3a4bb1fad836d8f3dadd5a06169b705ef4d4fc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565683"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881264"
 ---
-# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>搭配 REST API 和 JAVA 使用電腦視覺功能
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>搭配 REST API 和 Java 使用電腦視覺功能
 
 此教學課程將說明「Azure 認知服務電腦視覺 REST API」的功能。
 
@@ -34,7 +34,7 @@ ms.locfileid: "68565683"
 > * 讀取影像中的印刷文字
 > * 讀取影像中的手寫文字
 
-JAVA Swing 表單應用程式已撰寫, 但沒有任何功能。 在本教學課程中，您會新增「電腦視覺 REST API」特定的程式碼以完成應用程式的功能。
+已經撰寫 Java Swing 表單應用程式，但還沒有任何功能。 在本教學課程中，您會新增「電腦視覺 REST API」特定的程式碼以完成應用程式的功能。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -44,7 +44,7 @@ JAVA Swing 表單應用程式已撰寫, 但沒有任何功能。 在本教學課
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>訂閱電腦視覺 API 並取得訂用帳戶金鑰
 
-建立範例之前, 您必須訂閱屬於 Azure 認知服務一部分的電腦視覺 API。 如需訂用帳戶和金鑰管理詳細資料，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 在本教學課程中，主要金鑰和次要金鑰都是有可用的有效金鑰。
+建立範例之前，您必須先訂閱「電腦視覺 API」，這是「Azure 認知服務」的組件。 如需訂用帳戶和金鑰管理詳細資料，請參閱[訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)。 在本教學課程中，主要金鑰和次要金鑰都是有可用的有效金鑰。
 
 ## <a name="acquire-incomplete-tutorial-project"></a>取得不完整的教學課程專案
 
@@ -78,7 +78,7 @@ JAVA Swing 表單應用程式已撰寫, 但沒有任何功能。 在本教學課
 
 1. 結束教學課程應用程式。
 
-## <a name="add-tutorial-code-to-the-project"></a>將教學課程程式碼加入至專案
+## <a name="add-tutorial-code-to-the-project"></a>將教學課程的程式碼新增至專案中
 
 Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示範一種不同的「電腦視覺」功能 (分析、OCR 等)。 六個教學課程區段沒有相互依存性，因此您可以新增一個區段、全部六個區段，或任何子集。 您可依任意順序新增區段。
 
@@ -88,7 +88,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
 
 若要完成教學課程應用程式的「分析」功能，請執行下列步驟：
 
-#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>新增 [分析] 按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>新增分析按鈕的事件處理常式程式碼
 
 **analyzeImageButtonActionPerformed** 事件處理常式方法會清除表單、顯示 URL 中指定的影像，然後呼叫 **AnalyzeImage** 方法來分析影像。 當 **AnalyzeImage** 傳回時，該方法會在 [回應]  文字區域中顯示格式化 JSON 回應，從 **JSONObject** 擷取第一個標題，然後顯示該標題和標題是否正確的信賴等級。
 
@@ -336,7 +336,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
 
 若要完成教學課程應用程式的「名人」功能，請執行下列步驟：
 
-#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>新增 [名人] 按鈕的事件處理常式程式碼
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>新增名人按鈕的事件處理常式程式碼
 
 **celebritiesImageButtonActionPerformed** 事件處理常式方法會清除表單、顯示 URL 中指定的影像，然後呼叫 **CelebritiesImage** 方法來分析影像。 當 **CelebritiesImage** 傳回時，該方法會在 [回應]  文字區域中顯示格式化 JSON 回應，從 **JSONObject** 擷取第一個名人名稱，然後在視窗上顯示該名稱和是否正確識別名人的信賴等級。
 
@@ -573,7 +573,7 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-#### <a name="run-the-thumbnail-function"></a>執行縮圖函數
+#### <a name="run-the-thumbnail-function"></a>執行縮圖函式
 
 按 **F6** 執行應用程式。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 按一下 [縮圖]  索引標籤，輸入影像的 URL，然後按一下 [產生縮圖]  按鈕來分析影像並查看結果。
 
@@ -842,12 +842,12 @@ Java Swing 應用程式已設有六個索引標籤。 每個索引標籤皆示�
     }
 ```
 
-#### <a name="run-the-handwriting-function"></a>執行手寫功能
+#### <a name="run-the-handwriting-function"></a>執行手寫函式
 
 若要執行應用程式，請按 **F6**。 將您的訂用帳戶金鑰放入 [訂用帳戶金鑰]  欄位中，然後確認在 [訂用帳戶區域]  中使用的區域正確。 按一下 [讀取手寫文字]  索引標籤，輸入手寫文字影像的 URL，然後按一下 [讀取影像]  按鈕來分析影像並查看結果。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本指南中, 您使用了電腦視覺 REST API 搭配 JAVA 來測試許多可用的影像分析功能。 接下來, 請參閱參考檔, 以深入瞭解相關的 Api。
+在本指南中，您使用了電腦視覺 REST API 與 Java 來測試許多可用的影像分析功能。 接下來，請參閱參考文件，以深入了解相關的 API。
 
 - [電腦視覺 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

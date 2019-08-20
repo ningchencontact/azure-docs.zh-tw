@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428783"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848429"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure 藍圖服務概觀
 
@@ -54,7 +54,7 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 
 |資源  | 階層選項| 說明  |
 |---------|---------|---------|
-|資源群組 | 訂用帳戶 | 建立新的資源群組以供藍圖內的其他成品使用。  這些預留位置資源群組可讓您確切地以自己想要的方式組織資源，並針對包含的原則和角色指派成品以及 Azure Resource Manager 範本提供範圍限制器。 |
+|資源群組 | Subscription | 建立新的資源群組以供藍圖內的其他成品使用。  這些預留位置資源群組可讓您確切地以自己想要的方式組織資源，並針對包含的原則和角色指派成品以及 Azure Resource Manager 範本提供範圍限制器。 |
 |Azure Resource Manager 範本 | 訂用帳戶、資源群組 | 範本可用來撰寫複雜的環境。 範例環境：SharePoint 伺服器陣列、Azure Automation State Configuration 或 Log Analytics 工作區。 |
 |原則指派 | 訂用帳戶、資源群組 | 可讓原則或方案指派到藍圖所指派到的訂用帳戶。 原則或方案必須在藍圖定義位置的範圍內。 如果原則或方案具有參數，您可以在藍圖建立或是藍圖指派期間指派這些參數。 |
 |角色指派 | 訂用帳戶、資源群組 | 新增現有使用者或群組到內建角色，以確保適當人員一律擁有資源的正確存取權。 角色指派可針對整個訂用帳戶進行定義，或是以巢狀方式針對包含在藍圖內的特定資源群組定義。 |
@@ -79,7 +79,7 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 
 ## <a name="blueprint-assignment"></a>藍圖指派
 
-藍圖的每個**已發佈** **版本**都可指派給現有的訂用帳戶。 在入口網站中，藍圖會將**版本**預設為最近**已發佈**的版本。 如果有成品參數 (或是藍圖參數)，則參數將會在指派過程中定義。
+藍圖的每個**已發佈** **版本**都可指派 (具有最長 90 個字元的名稱) 給現有的訂用帳戶。 在入口網站中，藍圖會將**版本**預設為最近**已發佈**的版本。 如果有成品參數 (或是藍圖參數)，則參數將會在指派過程中定義。
 
 ## <a name="permissions-in-azure-blueprints"></a>Azure 藍圖中的權限
 
@@ -110,6 +110,17 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 
 > [!NOTE]
 > 如果使用系統指派的受控識別，Azure 藍圖的服務主體在指派的訂用帳戶上需要**擁有者**角色才能進行部署。 如果使用入口網站，會針對部署自動授與此角色並撤銷。 如果使用 REST API，必須手動授與此角色，但在部署完成之後仍會自動撤銷。 如果使用使用者指派的受控識別，只有建立藍圖指派的使用者才需要**擁有者**權限。
+
+## <a name="naming-limits"></a>命名限制
+
+以下是針對某些欄位存在的限制清單：
+
+|Object|欄位|允許的字元|最大 長度|
+|-|-|-|-|
+|藍圖|Name|字母、數字、連字號和句點|48|
+|藍圖|版本|字母、數字、連字號和句點|20|
+|藍圖指派|Name|字母、數字、連字號和句點|90|
+|藍圖成品|Name|字母、數字、連字號和句點|48|
 
 ## <a name="video-overview"></a>影片概觀
 

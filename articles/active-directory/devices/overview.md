@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d38ca8bdf93ff201b3f5842f4cb0e8409dcd0c3
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481667"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851776"
 ---
 # <a name="what-is-a-device-identity"></a>什麼是裝置身分識別？
 
@@ -46,7 +46,7 @@ ms.locfileid: "67481667"
    - 已加入 Azure AD 的裝置由組織所擁有，且會使用屬於該組織的 Azure AD 帳戶進行登入。 這些裝置僅存在於雲端中。
       - Windows 10 
 - **已加入混合式 Azure AD**
-   - 已加入混合式 Azure AD 的裝置由組織所擁有，且會使用屬於該組織的 Azure AD 帳戶進行登入。 這些裝置存在於雲端和 
+   - 已加入混合式 Azure AD 的裝置由組織所擁有，且會使用屬於該組織的 Azure AD 帳戶進行登入。 它們存在於雲端和內部部署中。
       - Windows 7、8.1 或 10
       - Windows Server 2008 或更新版本
 

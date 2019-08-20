@@ -11,14 +11,14 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0be78b444c9af9c5c0a818d790982670d2b68ee8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477609"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850558"
 ---
-# <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>使用 Desired State Configuration 來設定 Linux 虛擬機器
+# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>使用 Desired State Configuration 來設定虛擬機器
 
 您可以啟用 Desired State Configuration (DSC) 來管理和監視您 Windows 和 Linux 伺服器的設定。 可以識別或自動更正漂移自所需設定的設定。 本快速入門逐步說明 DSC 將 Linux VM 上架及使用部署 LAMP 堆疊。
 
@@ -43,7 +43,7 @@ ms.locfileid: "67477609"
 3. 尋找您需要啟用 DSC 的虛擬機器。 若要尋找特定的虛擬機器，您可以使用搜尋欄位和篩選選項。
 4. 按一下虛擬機器，然後選取 [連線] 
 5. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」  。 您可以設定[設定模式](https://docs.microsoft.com/powershell/dsc/metaconfig)來控制電腦的設定行為。
-6. 按一下 [檔案] &gt; [新增] &gt; [專案] 
+6. 按一下 [確定] 
 
 ![將 Azure VM 上架至 DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -104,7 +104,7 @@ configuration LAMPServer {
 1. 在自動化帳戶的左側窗格中選取 [狀態組態 (DSC)]  ，然後按一下 [組態]  索引標籤。
 2. 按一下 [+ 新增] 
 3. 選取您在先前步驟中儲存的組態檔 
-4. 按一下 [檔案] &gt; [新增] &gt; [專案] 
+4. 按一下 [確定] 
 
 ## <a name="compile-a-configuration"></a>編譯設定
 

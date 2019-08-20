@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f1059fac4d44138a4e9bc04c858501234974dc43
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 08/08/2019
+ms.openlocfilehash: 5d7414d13b3fb1390b12084f0480e0549a380264
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350959"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931614"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 Python 連線並查詢資料
 本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
@@ -30,9 +30,9 @@ ms.locfileid: "58350959"
 > 本快速入門會使用原始 SQL 查詢方法連線至 MySQL，以執行查詢。 如果您使用 Web 架構，請為這些架構使用建議的連接器。 例如，對於 Django，建議使用 [mysqlclient](https://pypi.org/project/mysqlclient/)。
 >
 
-### <a name="windows"></a> Windows
-1. 從 [python.org](https://www.python.org/downloads/windows/) 下載並安裝 Python 2.7。 
-2. 啟動命令提示字元，以檢查 Python 安裝。 執行使用大寫 V 切換參數的 `C:\python27\python.exe -V` 命令，來查看版本號碼。
+### <a name="windows"></a>Windows
+1. 從 [python.org](https://www.python.org/downloads/windows/) 下載並安裝 Python 3.7。 
+2. 啟動命令提示字元，以檢查 Python 安裝。 執行使用大寫 V 切換參數的 `C:\python37\python.exe -V` 命令，來查看版本號碼。
 3. 從對應至您 Python 版本的 [mysql.com](https://dev.mysql.com/downloads/connector/python/) 安裝 MySQL 的 Python 連接器。
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
@@ -63,9 +63,9 @@ ms.locfileid: "58350959"
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]  ，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
 3. 按一下伺服器名稱。
-4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
+4. 從伺服器的 [概觀]  面板，記下 [伺服器名稱]  和 [伺服器管理員登入名稱]  。 如果您忘記密碼，您也可以從此面板重設密碼。
  ![Azure Database for MySQL 伺服器名稱](./media/connect-python/1_server-overview-name-login.png)
 
 ## <a name="run-python-code"></a>執行 Python 程式碼

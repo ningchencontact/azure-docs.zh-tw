@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424245"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976921"
 ---
 ::: zone target="docs"
 
@@ -109,12 +109,9 @@ ms.locfileid: "68424245"
 1. 在理貨單上寫下貴公司名稱和地址資訊，作為您的寄件者資訊。
 2. 使用下列電子郵件範本傳送電子郵件給 Quantium Solutions。
 
-    - 如果日本郵局運費到付託運單未隨附或遺失，請在這封電子郵件註明。 Quantium Solutions (Japan) 會要求日本郵局在取貨時提供理貨單。
-    - 如果您有多個訂單，請透過電子郵件確保每件都會順利取貨。
-
     ```
     To: Customerservice.JP@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
@@ -123,6 +120,9 @@ ms.locfileid: "68424245"
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
+    - **如果您要在大阪中挑選**，請將電子郵件範本中的主旨修改為：`Pickup request for Microsoft Azure OSA`。
+    - 如果日本郵局運費到付託運單未隨附或遺失，請在這封電子郵件註明。 Quantium Solutions (Japan) 會要求日本郵局在取貨時提供理貨單。
+    - 如果您有多個訂單，請透過電子郵件確保每件都會順利取貨。
 
 3. 在預約取貨時間後，接收來自 Quantium Solutions 的電子郵件確認。 電子郵件確認也會包含運費到付理貨單的資訊。
 

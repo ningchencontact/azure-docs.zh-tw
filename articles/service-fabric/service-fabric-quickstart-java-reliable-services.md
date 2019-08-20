@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Service Fabric 上建立 Java 應用程式 | Microsoft Docs
+title: 快速入門：在 Azure Service Fabric 上建立 Java 應用程式
 description: 在本快速入門中，您會使用 Service Fabric 可靠服務範例應用程式建立適用於 Azure 的 Java 應用程式。
 services: service-fabric
 documentationcenter: java
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
-ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: mvc, devcenter, seo-java-august2019
+ms.openlocfilehash: a69590adc329361ac1c2191e7a984757af4f69af
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008136"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977097"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入門：將 Java 可靠服務應用程式部署至 Service Fabric
 
@@ -65,13 +65,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![本機叢集狀況良好](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. 開啟 Eclipse。
-3. 按一下 [檔案] -> [匯入] -> [Gradle]-> [現有的 Gradle 專案]，然後依照精靈的指示操作。
-4. 按一下目錄，然後在您從 GitHub 資料夾複製的 `service-fabric-java-quickstart` 資料夾中選擇 `Voting` 目錄。 按一下 [完成] (Finish)。
+3. 選取 [檔案]   > [匯入]   > [Gradle]   > [現有的 Gradle 專案]  ，然後依照精靈的指示操作。
+4. 選取 [目錄]  ，然後在您從 GitHub 資料夾複製的 `service-fabric-java-quickstart` 資料夾中選擇 `Voting` 目錄。 選取 [完成]  。
 
     ![Eclipse 匯入對話方塊](./media/service-fabric-quickstart-java/eclipseimport.png)
 
 5. 在 Eclipse 的 [封裝總管] 中現在有 `Voting` 專案。
-6. 以滑鼠右鍵按一下專案，並選取 [Service Fabric] 下拉式清單下的 [發行應用程式...]。 選擇 **PublishProfiles/Local.json** 作為目標設定檔，並按一下 [發佈]。
+6. 以滑鼠右鍵按一下專案，並選取 [Service Fabric]  下拉式清單下的 [發佈應用程式]  。 選擇 **PublishProfiles/Local.json** 作為目標設定檔，並選取 [發佈]  。
 
     ![本機發佈對話方塊](./media/service-fabric-quickstart-java/localjson.png)
 
@@ -90,14 +90,14 @@ Service Fabric Explorer 會在所有 Service Fabric 叢集中執行，並可藉�
 若要調整 Web 前端服務，請執行下列動作：
 
 1. 在您的叢集中開啟 Service Fabric Explorer，例如 `https://localhost:19080`。
-2. 按一下樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 (三個點)，然後選擇 [調整服務]。
+2. 選取樹狀檢視中 **fabric:/Voting/VotingWeb** 節點旁的省略符號 ( **...** )，然後選取 [調整服務]  。
 
     ![Service Fabric Explorer 的 [調整服務]](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     您現在可以選擇調整 Web 前端服務的執行個體數目。
 
-3. 將數字變更為 **2**，然後按一下 [調整服務]。
-4. 按一下樹狀檢視中的 **fabric:/Voting/VotingWeb** 節點，然後展開資料分割節點 (以 GUID 表示)。
+3. 將數字變更為 **2**，然後選取 [縮放服務]  。
+4. 選取樹狀檢視中的 **fabric:/Voting/VotingWeb** 節點，然後展開資料分割節點 (以 GUID 表示)。
 
     ![Service Fabric Explorer 調整服務完成](./media/service-fabric-quickstart-java/servicescaled.png)
 

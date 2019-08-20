@@ -1,17 +1,17 @@
 ---
 title: 註冊 Azure 資料目錄中的資料資產
-description: 如何在 Azure 資料目錄中註冊資料資產
+description: 本教學課程說明如何在 Azure 資料目錄中註冊資料資產。
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735198"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950239"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>教學課程：註冊 Azure 資料目錄中的資料資產
 
@@ -117,7 +117,7 @@ ms.locfileid: "68735198"
 
 1. 選取 Azure 資料目錄入口網站中的 [首頁]  。 如果您已關閉網頁瀏覽器，請移至 [Azure 資料目錄首頁](https://www.azuredatacatalog.com)。
 
-2. 在搜尋方塊中輸入 `product` ，然後按 **ENTER**鍵。
+2. 在搜尋方塊中輸入 `product`，然後按 **ENTER**鍵。
 
     ![Azure 資料目錄--基本文字搜尋](media/register-data-assets-tutorial/data-catalog-basic-text-search.png)
 
@@ -142,7 +142,7 @@ ms.locfileid: "68735198"
 
 1. 清除 [篩選]  中 [物件類型]  底下的 [資料表]  篩選。  
 
-2. 在搜尋方塊中輸入 `tags:product` ，然後按 **ENTER**鍵。 請參閱 [資料目錄搜尋語法參考](/rest/api/datacatalog/#search-syntax-reference) ，以取得用來搜尋資料目錄的所有屬性。
+2. 在搜尋方塊中輸入 `tags:product`，然後按 **ENTER**鍵。 請參閱 [資料目錄搜尋語法參考](/rest/api/datacatalog/#search-syntax-reference)，以取得用來搜尋資料目錄的所有屬性。
 
 3. 確認您在結果中看到資料表和資料庫。  
 
@@ -162,7 +162,7 @@ ms.locfileid: "68735198"
 
 使用括號進行分組，您即可將一部分的查詢分組以達到邏輯隔離 (尤其是搭配布林運算子)。
 
-1. 在搜尋方塊中輸入 `name:product AND (tags:product AND objectType:table)` ，然後按 **ENTER**鍵。
+1. 在搜尋方塊中輸入 `name:product AND (tags:product AND objectType:table)`，然後按 **ENTER**鍵。
 
 2. 確認您只在搜尋結果中看到 **Product** 資料表。
 

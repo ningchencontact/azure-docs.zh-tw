@@ -3,20 +3,20 @@ title: 聲場專案概觀
 titlesuffix: Azure Cognitive Services
 description: 聲場專案是一種聲場引擎，可提供 3D 互動式體驗，整合聲場模擬波形物理特性模擬與互動式設計控制項。
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704746"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932970"
 ---
 # <a name="what-is-project-acoustics"></a>何謂 Project Acoustics？
 聲場專案是可提供 3D 互動式體驗的聲場引擎。 它可模擬複雜場景中的繞射、傳送及殘響等聲波效果，完全不需要手動加上區域標記。 它也包含遊戲引擎和音訊中介軟體整合。 聲場專案的原理類似於靜態光照：離線詳細模擬物理特性以提供實際基準，並透過清楚表達的設計控制項，使用輕量的執行階段，實現您的藝術目標。
@@ -40,11 +40,17 @@ ms.locfileid: "68704746"
 * **聲場模擬：** 在本機執行的分析步驟，根據上述的選取範圍針對場景執行體素化或其他幾何分析。 在編輯器中將結果視覺化，以驗證場景設定。 在聲場模擬提交時，您會將體素資料送往 Azure，並取回聲場遊戲資產。
 * **執行階段：** 在將資產載入您的層級後，便已準備好可以在您的層級接聽聲場。 根據原始程式碼控制細微調整，在編輯器中即時設計聲場。 您也可以從層級指令碼來驅動控制項。
 
-## <a name="platforms"></a>平台
+## <a name="runtime-platforms"></a>執行時間平台
 目前可將聲場專案執行階段外掛程式部署至下列平台：
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## <a name="editor-platforms"></a>編輯器平台
+聲場專案編輯器外掛程式適用于下列平台：
+* Windows
+* MacOS (僅限 Unity)
 
 ## <a name="download"></a>下載
 * [聲場專案 Unity 外掛程式與範例](https://www.microsoft.com/en-us/download/details.aspx?id=57346)

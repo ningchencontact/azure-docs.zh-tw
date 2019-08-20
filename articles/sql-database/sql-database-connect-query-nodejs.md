@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.openlocfilehash: 4a99acaaae0c0efee61d97605a81d74549e02509
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 72e509a9a7f820c26895bdfac9216b0373729f6c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569211"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947105"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>快速入門：使用 Node.js 查詢 Azure SQL 資料庫
 
@@ -56,13 +56,13 @@ ms.locfileid: "68569211"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
+2. 移至 [SQL 資料庫]  或 [SQL 受控執行個體]  頁面。
 
 3. 在 [概觀]  頁面上，針對單一資料庫檢閱 [伺服器名稱]  旁的完整伺服器名稱，若為受控執行個體，則檢閱 [主機]  旁的完整伺服器名稱。 若要複製伺服器名稱或主機名稱，請將滑鼠暫留在其上方，然後選取 [複製]  圖示。 
 
 ## <a name="create-the-project"></a>建立專案
 
-開啟命令提示字元，並建立名為 sqltest  的資料夾。 瀏覽至您建立的資料夾中，然後執行下列命令：
+開啟命令提示字元，並建立名為 sqltest  的資料夾。 開啟您建立的資料夾，然後執行下列命令：
 
   ```bash
   npm init -y

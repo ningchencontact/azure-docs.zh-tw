@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e3912e90762977bc801279fde481fc26516e51a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840798"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882646"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>快速入門：使用 REST API 在 Postman 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "68840798"
 
 此文章說明如何以互動方式制訂要求。 或者，您可以[下載並匯入 Postman 集合](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) \(英文\) 以使用預先定義的要求。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -80,7 +80,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 1. 將動詞變更為 **PUT**。
 
-2. 複製此 URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`。
+2. 複製此 URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`。
 
 3. 在要求本文中提供索引定義 (下面提供可供複製的程式碼)。
 
@@ -298,6 +298,7 @@ https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/
 
 ## <a name="next-steps"></a>後續步驟
 
-REST 用戶端對於臨時探索相當寶貴，但是現在您知道 REST API 的運作方式，您可以繼續進行程式碼。 對於您的下一個步驟，請參閱下列連結：
+現在您已了解如何執行核心工作，接下來可以繼續進行其他的 REST API 呼叫以取得更進階的功能，例如索引子或[設定認知搜尋管線](cognitive-search-tutorial-blob.md)。 對於您的下一個步驟，建議您參閱下列連結：
 
-+ [快速入門：使用 .NET SDK 建立索引](search-get-started-dotnet.md)
+> [!div class="nextstepaction"]
+> [REST 教學課程：在 Azure 搜尋服務中編製半結構化資料 (JSON Blob) 的索引](search-semi-structured-data.md)

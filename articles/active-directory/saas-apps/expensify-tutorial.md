@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37eb989f49593570aa9fcc2ee6f2e5863b59fbc1
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: fe57c0655cf01f8dfa0f9cd0d75584fd4f130c0a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637758"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976096"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>教學課程：整合 Expensify 與 Azure Active Directory
 
@@ -36,7 +36,7 @@ ms.locfileid: "68637758"
 
 若要開始，您需要下列項目：
 
-* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的免費試用。
+* Azure AD 訂用帳戶。 如果沒有訂用帳戶，您可以取得[免費帳戶](https://azure.microsoft.com/free/)。
 * 已啟用 Expensify 單一登入 (SSO) 的訂用帳戶。
 
 ## <a name="scenario-description"></a>案例描述
@@ -56,20 +56,20 @@ ms.locfileid: "68637758"
 1. 在 [從資源庫新增]  區段的搜尋方塊中輸入 **Expensify**。
 1. 從結果面板選取 [Expensify]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-expensify"></a>設定及測試 Expensify 的 Azure AD 單一登入
 
 以名為 **B. Simon** 的測試使用者，設定及測試與 Expensify 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 Expensify 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Expensify 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** - 讓您的使用者能夠使用此功能。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
 2. **[設定 Expensify SSO](#configure-expensify-sso)** - 在應用程式端設定單一登入設定。
-3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 B.Simon 測試 Azure AD 單一登入。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 B.Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Expensify 測試使用者](#create-expensify-test-user)** - 在 Expensify 中建立一個與 Azure AD 使用者代表 B.Simon 連結的對應使用者。
+    1. **[建立 Expensify 測試使用者](#create-expensify-test-user)** - 在 Expensify 中建立一個與 Azure AD 使用者代表 B.Simon 連結的對應使用者。
 6. **[測試 SSO](#test-sso)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
@@ -83,32 +83,20 @@ ms.locfileid: "68637758"
 
     a. 在 [登入 URL]  文字方塊中，輸入 URL：`https://www.expensify.com/authentication/saml/login`
 
-    b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://www.<companyname>.expensify.com`
+    b. 在 [識別碼 (實體識別碼)]  文字方塊中，輸入 URL：`https://www.expensify.com`
+
+    c. b. 在 [回覆 URL]  文字方塊中，使用下列模式來輸入 URL：`https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
 
     > [!NOTE]
-    > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [Expensify 用戶端支援小組](mailto:help@expensify.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > [回覆 URL] 不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Expensify 用戶端支援小組](mailto:help@expensify.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [中繼資料 XML]  ，然後選取 [下載]  來下載憑證，並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面上的 [SAML 簽署憑證]  區段中，尋找 [中繼資料 XML]  ，然後選取 [下載]  ，以下載憑證，並將其儲存在電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
 1. 在 [設定 Expensify]  區段上，根據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
-
-### <a name="configure-expensify-sso"></a>設定 Expensify SSO
-
-若要在 Expensify 中啟用 SSO，您必須先在應用程式中啟用 [網域控制]  。 您可以透過[這裡](https://help.expensify.com/domain-control)所列的步驟，在應用程式中啟用 [網域控制]。 如需其他支援，請與 [Expensify 用戶端支援小組](mailto:help@expensify.com)合作。 一旦啟用了 [網域控制]，請遵循下列步驟：
-
-![設定單一登入](./media/expensify-tutorial/tutorial_expensify_51.png)
-
-1. 登入 Expensify 應用程式。
-
-2. 在左側面板中，按一下 [Settings] \(設定\)  ，然後瀏覽至 [SAML]  。
-
-3. 將 [SAML Login] \(SAML 登入\)  選項切換成 [Enabled] \(已啟用\)  。
-
-4. 從記事本中的 Azure AD 開啟下載的同盟中繼資料，複製其內容並貼到 [識別提供者中繼資料]  文字方塊中。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -140,11 +128,25 @@ ms.locfileid: "68637758"
 1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
 1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
 
+## <a name="configure-expensify-sso"></a>設定 Expensify SSO
+
+若要在 Expensify 中啟用 SSO，您必須先在應用程式中啟用 [網域控制]  。 您可以透過[這裡](https://help.expensify.com/domain-control)所列的步驟，在應用程式中啟用 [網域控制]。 如需其他支援，請與 [Expensify 用戶端支援小組](mailto:help@expensify.com)合作。 一旦啟用了 [網域控制]，請遵循下列步驟：
+
+![設定單一登入](./media/expensify-tutorial/tutorial_expensify_51.png)
+
+1. 登入 Expensify 應用程式。
+
+2. 在左側面板中，按一下 [Settings] \(設定\)  ，然後瀏覽至 [SAML]  。
+
+3. 將 [SAML Login] \(SAML 登入\)  選項切換成 [Enabled] \(已啟用\)  。
+
+4. 從記事本中的 Azure AD 開啟下載的同盟中繼資料，複製其內容並貼到 [識別提供者中繼資料]  文字方塊中。
+
 ### <a name="create-expensify-test-user"></a>建立 Expensify 測試使用者
 
 在本節中，您要在 Expensify 中建立名為 B.Simon 的使用者。 請與 [Expensify 用戶端支援小組](mailto:help@expensify.com)合作，在 Expensify 平台中新增使用者。
 
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 

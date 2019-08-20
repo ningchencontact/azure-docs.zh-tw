@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3bc06a8903fbc431d991e6ef2a4aad8fbaff2365
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f254572f5c26a809f401e99f527ccd3d30451c3d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736858"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931578"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
@@ -35,7 +35,7 @@ ms.locfileid: "68736858"
 > * 下載記錄的資料
 > * 檢視記錄的資料
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="create-a-vm"></a>建立 VM
 
@@ -108,6 +108,11 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
    ![選取流量記錄版本](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. 選取您在步驟 3 建立的儲存體帳戶。
+   > [!NOTE]
+   > 如果是下列情況，NSG 流量記錄不會與儲存體帳戶搭配使用：
+   > * 儲存體帳戶已啟用防火牆。
+   > * 儲存體帳戶已啟用[階層命名空間](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)。
+1. 在入口網站的左上角，選取 [所有服務]  。 在 [篩選]  方塊中，輸入*網路監看員*。 當搜尋結果中出現**網路監看員**時，請加以選取。
 10. 將 [保留 (天數)]  設定為 5，然後選取 [儲存]  。
 
 ## <a name="download-flow-log"></a>下載流量記錄
@@ -212,7 +217,7 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 | 具有使用            | 動作                 | 允許 (A) 或拒絕 (D) 流量。  
 | C            | 流程狀態 **僅限第 2 版** | 擷取流程的狀態。 可能的狀態為 **B**：開始，當流量建立時。 不提供統計資料。 **C**：繼續進行中的流量。 提供 5 分鐘間隔的統計資料。 **E**：結束，當流量終止時。 提供統計資料。 |
 | 30 | 已傳送的封包數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包總數。 |
-| 16978 | 已傳送的位元組數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。 | 
+| 16978 | 已傳送的位元組數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。 |
 | 24 | 已傳送的封包數 - 目的地到來源 **僅限第 2 版** | 上次更新之後從目的地傳送到來源的 TCP 或 UDP 封包總數。 |
 | 14008| 已傳送的位元組數 - 目的地到來源 **僅限第 2 版** | 上次更新之後從目的地傳送到來源的 TCP 與 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。|
 

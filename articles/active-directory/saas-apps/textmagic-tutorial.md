@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53711a80f35177c911b754a0ce3f189ac106adb2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088868"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>教學課程：Azure Active Directory 與 TextMagic 整合
 
@@ -32,7 +32,7 @@ TextMagic 與 Azure AD 整合提供下列優點：
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -166,13 +166,13 @@ TextMagic 與 Azure AD 整合提供下列優點：
 
     ![TextMagic 設定](./media/textmagic-tutorial/config2.png)
 
-    a. 在 [識別提供者實體識別碼：] ****   文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] **** 值。
+    a. 在 [識別提供者實體識別碼：]  文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼]  值。
 
-    b. 在 [識別提供者 SSO URL：] ****   文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] **** 值。
+    b. 在 [識別提供者 SSO URL：]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
 
-    c. 在 [識別提供者 SLO URL：] ****   文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] **** 值。
+    c. 在 [識別提供者 SLO URL：]  文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
 
-    d. 在記事本中開啟您從 Azure 入口網站下載的 **base-64 編碼憑證**，將憑證的內容複製到剪貼簿，再貼到 [公用 x509 憑證] ****   文字方塊中。
+    d. 在從 Azure 入口網站下載的記事本檔案中開啟您的 **base-64** 編碼憑證，將憑證的內容複製到剪貼簿，再貼到 [公開 x509 憑證]  文字方塊。
 
     e. 按一下 [檔案]  。
 

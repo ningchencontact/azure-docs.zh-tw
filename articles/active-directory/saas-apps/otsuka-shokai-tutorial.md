@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: f558b33079821efcf56731eb95073e0170a72795
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274187"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943542"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>教學課程：整合 Otsuka Shokai 與 Azure Active Directory
 
@@ -80,7 +80,7 @@ ms.locfileid: "67274187"
 
 1. 在 [以 SAML 設定單一登入]  頁面上，已預先設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
-1. Otsuka Shokai 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 Otsuka Shokai 應用程式要求 **nameidentifier** 需與 **user.objectid** 相對應，因此您必須按一下 [編輯] ****  圖示以編輯屬性對應，並變更屬性對應。
+1. Otsuka Shokai 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 Otsuka Shokai 應用程式要求 **nameidentifier** 需與 **user.objectid** 相對應，因此您必須按一下 [編輯]  圖示以編輯屬性對應，並變更屬性對應。
 
     ![image](common/edit-attribute.png)
 

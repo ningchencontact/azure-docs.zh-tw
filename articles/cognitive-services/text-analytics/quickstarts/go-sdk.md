@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 Go SDK 來呼叫文字分析服務
+title: 快速入門：適用於 Go 的文字分析用戶端程式庫 | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，協助您快速開始使用 Microsoft 認知服務中的文字分析 API。
+description: 取得資訊和程式碼範例，協助您在 Azure 認知服務中快速開始使用文字分析 API。
 services: cognitive-services
 author: laramume
 manager: assafi
@@ -10,27 +10,84 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d3644022e1877369368953b9f147c64aaae2d459
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 25d8052cda422c185d49c36c5daff9ac4582e66c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697634"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881013"
 ---
-# <a name="quickstart-call-the-text-analytics-service-using-the-go-sdk"></a>快速入門：使用 Go SDK 來呼叫文字分析服務 
-<a name="HOLTop"></a>
+# <a name="quickstart-text-analytics-client-library-for-go"></a>快速入門：適用於 Go 的文字分析用戶端程式庫
 
-透過此快速入門，開始使用適用於 Go 的文字分析 SDK 來分析語言。 本文示範如何偵測語言、分析情感、擷取關鍵片語，以及識別已連結的實體。 雖然 REST API 與大部分程式設計語言相容，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices) 上找到。
+開始使用適用於 Go 的文字分析用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。 
+
+使用適用於 Go 的文字分析用戶端程式庫執行：
+
+* 情感分析
+* 語言偵測
+* 實體辨識
+* 關鍵片語擷取
+
+[參考文件](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [套件 (Github)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [範例](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 ## <a name="prerequisites"></a>必要條件
 
-* [適用於 Go 的文字分析 SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)
+* Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+* 最新版的 [Go](https://golang.org/dl/)
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+## <a name="setting-up"></a>設定
 
-## <a name="set-up-a-new-project"></a>設定新專案
+### <a name="create-a-text-analytics-azure-resource"></a>建立文字分析 Azure 資源 
 
-在您慣用的程式碼編輯器或 IDE 中，建立新的 Go 專案。 然後在 Go 檔案中新增下列 import 陳述式。
+Azure 認知服務會由您訂閱的 Azure 資源呈現。 請使用 [Azure 入口網站](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)或 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) 在本機電腦上建立文字分析的資源。 您也可以：
+
+* 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services/#decision)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。
+* 在 [Azure 入口網站](https://portal.azure.com)上檢視您的資源。
+
+從試用版訂用帳戶或資源取得金鑰後，請為名為 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
+
+### <a name="create-a-new-go-project"></a>建立新的 Go 專案
+
+在主控台視窗 (cmd、PowerShell、Bash) 中，為您的 Go 專案建立新的工作區，並瀏覽至該工作區。 您的工作區將包含三個資料夾： 
+
+* **src** - 此目錄包含原始程式碼和套件。 任何使用 `go get` 命令安裝的套件都將位於此處。
+* **pkg** - 此目錄包含已編譯的 Go 套件物件。 這些檔案都具有 `.a` 副檔名。
+* **bin** - 此目錄包含您執行 `go install` 時所建立的二進位可執行檔。
+
+> [!TIP]
+> 深入了解 [Go 工作區](https://golang.org/doc/code.html#Workspaces)的結構。 本指南包含用來設定 `$GOPATH` 和 `$GOROOT` 的資訊。
+
+建立名為 `my-app` 的工作區，以及 `src`、`pkg` 和 `bin` 所需的子目錄：
+
+```console
+$ mkdir -p my-app/{src, bin, pkg}  
+$ cd my-app
+```
+
+### <a name="install-the-text-analytics-client-library-for-go"></a>安裝適用於 Go 的文字分析用戶端程式庫
+
+安裝適用於 Go 的用戶端程式庫： 
+
+```console
+$ go get -u <https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics>
+```
+
+或者，如果您使用 dep，請在存放庫中執行：
+
+```console
+$ dep ensure -add <https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics>
+```
+
+### <a name="create-your-go-application"></a>建立您的 Go 應用程式
+
+接著，建立名為 `src/quickstart.go` 的檔案：
+
+```bash
+$ cd src
+$ touch quickstart.go
+```
+
+在您慣用的 IDE 或文字編輯器中開啟 `quickstart.go`。 然後，新增套件名稱，並匯入下列程式庫：
 
 ```golang
 import (
@@ -56,25 +113,47 @@ func BoolPointer(v bool) *bool {
 }
 ```
 
-## <a name="create-text-analytics-client-and-authenticate-credentials"></a>建立文字分析用戶端並驗證認證
+在您專案的 main 函式中，為資源的 Azure 端點和金鑰建立變數。 如果您在啟動應用程式後才建立環境變數，則必須先關閉執行該應用程式的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。
 
-在您專案的 main 函式中，建立新的 `TextAnalytics` 物件。 針對您的文字分析訂用帳戶，使用正確的 Azure 區域。 例如： `https://eastus.api.cognitive.microsoft.com` 。 如果您使用試用金鑰，則不需更新位置。
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```golang
-//Replace 'eastus' with the correct region for your Text Analytics subscription
-textAnalyticsClient := textanalytics.New("https://eastus.api.cognitive.microsoft.com")
+// This sample assumes you have created an environment variable for your key
+subscriptionKey := os.Getenv("TEXT_ANALYTICS_SUBSCRIPTION_KEY")
+// replace this endpoint with the correct one for your Azure resource. 
+endpoint := "https://eastus.api.cognitive.microsoft.com"
 ```
 
-建立您的金鑰變數，並將其傳遞至 `autorest.NewCognitiveServicesAuthorizer` 函式，接著變數會傳遞至用戶端的 `authorizer` 屬性。
+## <a name="object-model"></a>物件模型 
+
+文字分析用戶端是一個 [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) 物件，會使用您的金鑰向 Azure 進行驗證。 此用戶端提供數種用來分析文字 (以單一字串或批次的形式) 的方法。 
+
+文字會以 `documents` 清單的形式傳送至 API，而此清單中列載 `id`、`text` 和 `language` 屬性的組合 (視使用的方法而定) 所屬的 `dictionary` 物件。 `text` 屬性會儲存要在原始 `language` 中分析的文字，而 `id` 可以是任何值。 
+
+回應物件是一份清單，包含每個文件的分析資訊。 
+
+## <a name="code-examples"></a>程式碼範例
+
+這些程式碼片段說明如何使用適用於 Python 的文字分析用戶端程式庫來執行下列工作：
+
+* [驗證用戶端](#authenticate-the-client)
+* [情感分析](#sentiment-analysis)
+* [語言偵測](#language-detection)
+* [實體辨識](#entity-recognition)
+* [關鍵片語擷取](#key-phrase-extraction)
+
+## <a name="authenticate-the-client"></a>驗證用戶端
+
+在您專案的 main 函式中，建立新的 [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) 物件。 將您的金鑰傳至 [autorest.NewCognitiveServicesAuthorizer()](https://godoc.org/github.com/Azure/go-autorest/autorest#NewCognitiveServicesAuthorizer) 函式，繼而傳至用戶端的 `authorizer` 屬性。
 
 ```golang
-subscriptionKey := "<<subscriptionKey>>"
+textAnalyticsClient := textanalytics.New(endpoint)
 textAnalyticsClient.Authorizer = autorest.NewCognitiveServicesAuthorizer(subscriptionKey)
 ```
 
 ## <a name="sentiment-analysis"></a>情感分析
 
-建立名為 `SentimentAnalysis()` 的新函式，取用稍早建立的用戶端。 建立 `MultiLanguageInput` 物件清單，包含您要分析的文件。 每個物件會包含 `id`、`Language` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字，`language` 是文件語言，而 `id` 可以是任何值。 
+建立名為 `SentimentAnalysis()` 的新函式，取用稍早建立的用戶端。 建立 [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) 物件的清單，其中包含您要分析的文件。 每個物件會包含 `id`、`Language` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字，`language` 是文件語言，而 `id` 可以是任何值。 
 
 ```golang
 func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
@@ -86,28 +165,13 @@ func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
             ID:StringPointer("0"),
             Text:StringPointer("I had the best day of my life."),
         },
-        textanalytics.MultiLanguageInput {
-            Language: StringPointer("en"),
-            ID:StringPointer("1"),
-            Text:StringPointer("This was a waste of my time. The speaker put me to sleep."),
-        },
-        textanalytics.MultiLanguageInput {
-            Language: StringPointer("es"),
-            ID:StringPointer("2"),
-            Text:StringPointer("No tengo dinero ni nada que dar..."),
-        },
-        textanalytics.MultiLanguageInput {
-            Language: StringPointer("it"),
-            ID:StringPointer("3"),
-            Text:StringPointer("L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."),
-        },
     }
 
     batchInput := textanalytics.MultiLanguageBatchInput{Documents:&inputDocuments}
 }
 ```
 
-在同一個函式中，呼叫 `textAnalyticsclient.Sentiment()` 並取得結果。 接著逐一查看結果，並列印每個文件的識別碼和人氣分數。 接近 0 的分數表示負面人氣，而接近 1 的分數則表示正面人氣。
+在相同的函式中，呼叫用戶端的 [Sentiment()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.Sentiment) 函式，並取得結果。 接著逐一查看結果，並列印每個文件的識別碼和人氣分數。 接近 0 的分數表示負面人氣，而接近 1 的分數則表示正面人氣。
 
 ```golang
 result, _ := textAnalyticsclient.Sentiment(ctx, BoolPointer(false), &batchInput)
@@ -134,14 +198,11 @@ for _,error := range *batchResult.Errors {
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
 ```
 
 ## <a name="language-detection"></a>語言偵測
 
-建立名為 `LanguageDetection()` 的新函式，取用稍早建立的用戶端。 建立 `LanguageInput` 物件清單，包含您要分析的文件。 每個物件會包含 `id` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字，而 `id` 可以是任何值。 
+建立名為 `LanguageDetection()` 的新函式，取用稍早建立的用戶端。 建立 [LanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#LanguageInput) 物件的清單，其中包含您要分析的文件。 每個物件會包含 `id` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字，而 `id` 可以是任何值。 
 
 ```golang
 func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
@@ -152,21 +213,13 @@ func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
             ID:StringPointer("0"),
             Text:StringPointer("This is a document written in English."),
         },
-        textanalytics.LanguageInput {
-            ID:StringPointer("1"),
-            Text:StringPointer("Este es un document escrito en Español."),
-        },
-        textanalytics.LanguageInput {
-            ID:StringPointer("2"),
-            Text:StringPointer("这是一个用中文写的文件"),
-        },
     }
 
     batchInput := textanalytics.LanguageBatchInput{Documents:&inputDocuments}
 }
 ```
 
-在同一個函式中，呼叫 `textAnalyticsclient.DetectLanguage()` 並取得結果。 接著逐一查看結果，並輸出每個文件的識別碼和偵測到的語言。
+在相同的函式中，呼叫用戶端的 [DetectLanguage()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.DetectLanguage)，並取得結果。 接著逐一查看結果，並輸出每個文件的識別碼和偵測到的語言。
 
 ```golang
 result, _ := textAnalyticsclient.DetectLanguage(ctx, BoolPointer(false), &batchInput)
@@ -193,14 +246,12 @@ for _,error := range *result.Errors {
 ### <a name="output"></a>輸出
 
 ```console
-Document ID: 0 Detected Languages with Score: English 1.000000,
-Document ID: 1 Detected Languages with Score: Spanish 1.000000,
-Document ID: 2 Detected Languages with Score: Chinese_Simplified 1.000000,
+Document ID: 0 Detected Languages with Score: English 1.000000
 ```
 
 ## <a name="entity-recognition"></a>實體辨識
 
-建立名為 `ExtractEntities()` 的新函式，取用稍早建立的用戶端。 建立 `MultiLanguageInput` 物件清單，包含您要分析的文件。 每個物件會包含 `id`、`language` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字，`language` 是文件語言，而 `id` 可以是任何值。 
+建立名為 `ExtractEntities()` 的新函式，取用稍早建立的用戶端。 建立 [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) 物件的清單，其中包含您要分析的文件。 每個物件會包含 `id`、`language` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字，`language` 是文件語言，而 `id` 可以是任何值。 
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -211,19 +262,14 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
             Language: StringPointer("en"),
             ID:StringPointer("0"),
             Text:StringPointer("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."),
-        },
-        textanalytics.MultiLanguageInput {
-            Language: StringPointer("es"),
-            ID:StringPointer("1"),
-            Text:StringPointer("La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."),
-        },
+        }
     }
 
     batchInput := textanalytics.MultiLanguageBatchInput{Documents:&inputDocuments}
 }
 ```
 
-在同一個函式中，`call textAnalyticsclient.Entities()` 並取得結果。 接著逐一查看結果，並輸出每個文件的識別碼以及擷取的實體分數。
+在相同的函式中，呼叫用戶端的 [Entities()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.Entities)，並取得結果。 接著逐一查看結果，並輸出每個文件的識別碼以及擷取的實體分數。
 
 ```golang
     result, _ := textAnalyticsclient.Entities(ctx, BoolPointer(false), &batchInput)
@@ -274,23 +320,11 @@ Document ID: 0
             Offset: 89  Length: 5   Score: 0.800000
         Name: Altair 8800   Type: Other
             Offset: 116 Length: 11  Score: 0.800000
-
-Document ID: 1
-    Extracted Entities:
-        Name: Microsoft Type: Organization
-            Offset: 21  Length: 9   Score: 0.999756
-        Name: Redmond (Washington)  Type: Location
-            Offset: 60  Length: 7   Score: 0.991128
-        Name: 21 kilómetros Type: Quantity  Sub-Type: Dimension
-
-            Offset: 71  Length: 13  Score: 0.800000
-        Name: Seattle   Type: Location
-            Offset: 88  Length: 7   Score: 0.999878
 ```
 
 ## <a name="key-phrase-extraction"></a>關鍵片語擷取
 
-建立名為 `ExtractKeyPhrases()` 的新函式，取用稍早建立的用戶端。 建立 `MultiLanguageInput` 物件清單，包含您要分析的文件。 每個物件會包含 `id`、`language` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字，`language` 是文件語言，而 `id` 可以是任何值。
+建立名為 `ExtractKeyPhrases()` 的新函式，取用稍早建立的用戶端。 建立 [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) 物件的清單，其中包含您要分析的文件。 每個物件會包含 `id`、`language` 和 `text` 屬性。 `text` 屬性會儲存要分析的文字，`language` 是文件語言，而 `id` 可以是任何值。
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -298,24 +332,9 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
     ctx := context.Background()
     inputDocuments := []textanalytics.MultiLanguageInput {
         textanalytics.MultiLanguageInput {
-            Language: StringPointer("ja"),
-            ID:StringPointer("0"),
-            Text:StringPointer("猫は幸せ"),
-        },
-        textanalytics.MultiLanguageInput {
-            Language: StringPointer("de"),
-            ID:StringPointer("1"),
-            Text:StringPointer("Fahrt nach Stuttgart und dann zum Hotel zu Fu."),
-        },
-        textanalytics.MultiLanguageInput {
             Language: StringPointer("en"),
-            ID:StringPointer("2"),
+            ID:StringPointer("0"),
             Text:StringPointer("My cat might need to see a veterinarian."),
-        },
-        textanalytics.MultiLanguageInput {
-            Language: StringPointer("es"),
-            ID:StringPointer("3"),
-            Text:StringPointer("A mi me encanta el fútbol!"),
         },
     }
 
@@ -323,7 +342,7 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-在相同的函式中，呼叫 textAnalyticsclient.KeyPhrases() 並取得結果。 然後逐一查看結果，並輸出每個文件的識別碼以及擷取的主要片語。
+在相同的函式中，呼叫用戶端的 [KeyPhrases()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.KeyPhrases)，並取得結果。 然後逐一查看結果，並輸出每個文件的識別碼以及擷取的主要片語。
 
 ```golang
     result, _ := textAnalyticsclient.KeyPhrases(ctx, BoolPointer(false), &batchInput)
@@ -352,30 +371,27 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 ```console
 Document ID: 0
     Extracted Key Phrases:
-        幸せ
-
-Document ID: 1
-    Extracted Key Phrases:
-        Stuttgart
-        Hotel
-        Fahrt
-        Fu
-
-Document ID: 2
-    Extracted Key Phrases:
         cat
         veterinarian
-
-Document ID: 3
-    Extracted Key Phrases:
-        fútbol
 ```
 
+## <a name="clean-up-resources"></a>清除資源
+
+如果您想要清除和移除認知服務訂用帳戶，則可以刪除資源或資源群組。 刪除資源群組也會刪除與資源群組相關聯的任何其他資源。
+
+* [入口網站](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>後續步驟
+
 
 > [!div class="nextstepaction"]
 > [文字分析與 Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>另請參閱
 
- [文字分析概觀](../overview.md)[常見問題集 (FAQ)](../text-analytics-resource-faq.md)
+* [文字分析概觀](../overview.md)
+* [情感分析](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [實體辨識](../how-tos/text-analytics-how-to-entity-linking.md)
+* [偵測語言](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [辨識語言](../how-tos/text-analytics-how-to-language-detection.md)
+* 此範例的原始程式碼可以在 [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices) 上找到。

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086059"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>教學課程：Azure Active Directory 與 Zscaler Beta 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "67086059"
 * 使用 Azure 入口網站集中管理您的帳戶。
 
 如需有關軟體即服務 (SaaS) 應用程式與 Azure AD 整合的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -83,7 +83,7 @@ ms.locfileid: "67086059"
 - [建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)，以使用 Britta Simon 測試 Azure AD 單一登入。
 - [指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)，讓 Britta Simon 能夠使用 Azure AD 單一登入。
 - [建立 Zscaler Beta 測試使用者](#create-a-zscaler-beta-test-user)，使 Zscaler Beta 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-- [測試單一登入](#test-single-sign-on)，驗證設定是否能運作。
+- [測試單一登入](#test-single-sign-on)，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
@@ -112,7 +112,7 @@ ms.locfileid: "67086059"
     > [!NOTE]
     > 這不是真實的值。 請使用實際的登入 URL 值更新此值。 若要取得此值，請連絡 [Zscaler Beta 用戶端支援小組](https://www.zscaler.com/company/contact)。
 
-5. Zscaler Beta 應用程式需要特定格式的 SAML 判斷提示。 您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 選取 [編輯] **** 以開啟 [使用者屬性]    對話方塊。
+5. Zscaler Beta 應用程式需要特定格式的 SAML 判斷提示。 您必須將自訂屬性對應新增至 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 選取 [編輯]  ，以開啟 [使用者屬性]  對話方塊。
 
     ![[使用者屬性] 對話方塊](common/edit-attribute.png)
 
@@ -305,7 +305,7 @@ ms.locfileid: "67086059"
 
 ## <a name="additional-resources"></a>其他資源
 
-- [如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,141 +1,192 @@
 ---
-title: 快速入門：使用適用於 .NET 的 Azure SDK 和 C# 呼叫文字分析服務
+title: 快速入門：適用於 .NET 的文字分析用戶端程式庫 | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: 協助您快速開始使文字分析服務和 C# 的資訊及程式碼範例。
+description: 透過此快速入門開始使用 Azure 認知服務中的文字分析 API。
 services: cognitive-services
 author: raymondl
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/05/2019
 ms.author: assafi
-ms.openlocfilehash: d12f6b400b270c6ef631d9f503980efef1ae8458
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: deb8c742161d59c8926c1ec139978d15b891bd4a
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840373"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019481"
 ---
-# <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>快速入門：使用 .NET SDK 和 C# 來呼叫文字分析服務
+# <a name="quickstart-text-analytics-client-library-for-net"></a>快速入門：適用於 .NET 的文字分析用戶端程式庫
 <a name="HOLTop"></a>
 
-本快速入門可協助您開始使用適用於 .NET 的 Azure SDK 和 C# 來分析語言。 雖然[文字分析](//go.microsoft.com/fwlink/?LinkID=759711) REST API 與大部分程式設計語言相容，但 SDK 會提供簡單的方法，將服務整合到您的應用程式。
+開始使用適用於 .NET 的文字分析用戶端程式庫。 請遵循下列步驟來安裝套件，並試用基本工作的程式碼範例。 
 
-> [!NOTE]
-> 為了簡單起見，本文中的範例程式碼使用文字分析 .NET SDK 的同步方法。 不過，針對生產案例，建議您在自己的應用程式中使用批次非同步方法，讓應用程式保有可擴充性且回應靈敏。 例如，您可以使用 `SentimentBatchAsync`，而非 `Sentiment`。
->
-> 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics) 上找到此範例的批次非同步版本。
+使用適用於 .NET 的文字分析用戶端程式庫執行：
 
-如需技術詳細資料，請針對適用於 .NET 的 SDK 參閱[文字分析參考](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet)。
+* 情感分析
+* 語言偵測
+* 實體辨識
+* 關鍵片語擷取
+
+[參考文件](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [程式庫來源程式碼](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [套件 (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+
+> [!NOTE] 
+> 為了簡單起見，本文中的範例程式碼使用文字分析 .NET SDK 的同步方法。 不過，針對生產案例，建議您在自己的應用程式中使用批次非同步方法，讓應用程式保有可擴充性且回應靈敏。 例如，呼叫 [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview)，而不是 [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet)。
 
 ## <a name="prerequisites"></a>必要條件
 
-* Visual Studio 2017 或更新版本的任何版本
-* [適用於 .NET 的文字分析 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+* Azure 訂用帳戶 - [建立免費帳戶](https://azure.microsoft.com/free/)
+* 最新版的 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)。
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+## <a name="setting-up"></a>設定
 
-## <a name="create-the-visual-studio-solution-and-install-the-sdk"></a>建立 Visual Studio 解決方案並安裝 SDK
+### <a name="create-a-text-analytics-azure-resource"></a>建立文字分析 Azure 資源
 
-1. 建立新的主控台應用程式 (.NET Core) 專案。 [存取 Visual Studio](https://visualstudio.microsoft.com/vs/)。
-1. 以滑鼠右鍵按一下方案，然後選取 [管理方案的 NuGet 套件]  。
-1. 選取 [瀏覽]  索引標籤。搜尋 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**。
+若要取得金鑰來驗證應用程式，可使用由您所訂閱 Azure 資源呈現的 Azure 認知服務。 請使用 [Azure 入口網站](../../cognitive-services-apis-create-account.md)或 [Azure CLI](../../cognitive-services-apis-create-account-cli.md) 在本機電腦上建立文字分析的資源。 您也可以：
 
-## <a name="authenticate-your-credentials"></a>驗證您的認證
+* 取得可免費使用 7 天的[試用版金鑰](https://azure.microsoft.com/try/cognitive-services/#decision)。 註冊之後，即可在 [Azure 網站](https://azure.microsoft.com/try/cognitive-services/my-apis/)上取得該金鑰。  
+* 在 [Azure 入口網站](https://portal.azure.com/)上檢視您的資源
 
-1. 新增下列 `using` 陳述式至主要類別檔 (預設為 Program.cs)。
+從試用版訂用帳戶或資源取得金鑰後，請為名為 `TEXT_ANALYTICS_SUBSCRIPTION_KEY` 的金鑰[建立環境變數](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)。
 
-    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Net.Http;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-    using Microsoft.Rest;
-    ```
+### <a name="create-a-new-c-application"></a>建立新的 C# 應用程式
 
-2. 建立新的 `ApiKeyServiceClientCredentials` 類別以儲存認證，並對每個要求新增認證。
+在您慣用的編輯器或 IDE 中，建立新的 .NET Core 應用程式。 
 
-    ```csharp
-    class ApiKeyServiceClientCredentials : ServiceClientCredentials
-    {
-        private readonly string apiKey;
+在主控台視窗中 (例如 cmd、PowerShell 或 Bash)，使用 `dotnet new` 命令建立名為 `text-analytics quickstart` 的新主控台應用程式。 此命令會建立簡單的 "Hello World" C# 專案，內含單一原始程式檔：*program.cs*。 
 
-        public ApiKeyServiceClientCredentials(string apiKey)
-        {
-            this.apiKey = apiKey;
-        }
-
-        public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            if (request == null)
-            {
-                throw new ArgumentNullException("request");
-            }
-            request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
-            return base.ProcessHttpRequestAsync(request, cancellationToken);
-        }
-    }
-    ```
-
-3. 更新 `Program` 類別。 新增文字分析 API 金鑰的常數成員，並新增另一個服務端點常數成員。 請記得文字分析資源要使用正確的 Azure 位置。
-
-    ```csharp
-    // Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
-    private const string ApiKey = "enter-your-textanalytics-api-key-here";
-    // You can get the resource location from Azure Portal -> your TA resource -> Overview
-    // There are two acceptable formats for the endpoint, both
-    // require that you omit the `/text/analytics/<version>` suffix:
-    // 1. A location based endpoint URL -
-    //     "https://<your-location>.api.cognitive.microsoft.com";
-    // 2. A resource name based endpoint URL -
-    //     "https://<your-resource-name>.cognitiveservices.azure.com";
-    private const string Endpoint = "enter-your-base-resource-endpoint-here";
-    ```
-
-> [!Tip]
-> 為了提升生產系統中的祕密安全性，建議使用 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)。
->
-
-## <a name="create-a-text-analytics-client"></a>建立文字分析用戶端
-
-在專案的 `Main` 函式中，呼叫您要叫用的範例方法。 傳遞您定義的 `Endpoint` 和 `ApiKey` 參數。
-
-```csharp
-    public static void Main(string[] args)
-    {
-        var credentials = new ApiKeyServiceClientCredentials(ApiKey);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = Endpoint
-        };
-
-        // Change the console encoding to display non-ASCII characters.
-        Console.OutputEncoding = System.Text.Encoding.UTF8;
-        SentimentAnalysisExample(client);
-        // DetectLanguageExample(client);
-        // RecognizeEntitiesExample(client);
-        // KeyPhraseExtractionExample(client);
-        Console.ReadLine();
-    }
+```console
+dotnet new console -n text-analytics-quickstart
 ```
 
-下列各節將說明如何呼叫每個服務功能。
+將目錄變更為新建立的應用程式資料夾。 您可以使用下列命令來建置應用程式：
 
-## <a name="perform-sentiment-analysis"></a>執行人氣分析
+```console
+dotnet build
+```
 
-1. 建立新函式 `SentimentAnalysisExample()`，以取用稍早建立的用戶端。
-2. 在同一個函式中，呼叫 `client.Sentiment()` 並取得結果。 如果成功，結果將會包含情感 `Score`，若不成功則為 `errorMessage`。 接近 0 的分數表示負面人氣，而接近 1 的分數則表示正面人氣。
+建置輸出應該不會有警告或錯誤。 
 
-    ```csharp
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+從專案目錄，在慣用的編輯器或 IDE 中開啟 *program.cs* 檔案。 新增下列 `using` 指示詞：
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+using Microsoft.Rest;
+```
+
+在應用程式的 `Main` 方法中，為資源的 Azure 端點和金鑰建立變數。 如果您在啟動應用程式後才建立環境變數，則必須先關閉執行該應用程式的編輯器、IDE 或殼層，再重新加以開啟，才能存取該變數。 您會在稍後定義方法。
+
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
+```csharp
+static void Main(string[] args)
+{
+    // replace this endpoint with the correct one for your Azure resource. 
+    string endpoint = $"https://westus.api.cognitive.microsoft.com";
+    //This sample assumes you have created an environment variable for your key
+    string key = Environment.GetEnvironmentVariable("TEXT_ANALYTICS_SUBSCRIPTION_KEY");
+
+    var credentials = new ApiKeyServiceClientCredentials(key);
+    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+    {
+        Endpoint = endpoint
+    };
+
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
+    SentimentAnalysisExample(client);
+    // languageDetectionExample(client);
+    // RecognizeEntitiesExample(client);
+    // KeyPhraseExtractionExample(client);
+    Console.ReadLine();
+}
+```
+
+### <a name="install-the-client-library"></a>安裝用戶端程式庫
+
+在應用程式目錄中，使用下列命令安裝適用於 .NET 的文字分析用戶端程式庫：
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
+```
+
+如果您使用 Visual Studio IDE，則可以取得可下載 NuGet 套件形式的用戶端程式庫。
+
+## <a name="object-model"></a>物件模型
+
+文字分析用戶端是 [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) 物件，會使用您的金鑰向 Azure 進行驗證，並提供可接受文字作為單一字串或批次的函式。 您可以透過同步或非同步方式將文字傳送至 API。 回應物件會包含每個傳送文件的分析資訊。 
+
+
+## <a name="code-examples"></a>程式碼範例
+
+* [驗證用戶端](#authenticate-the-client)
+* [情感分析](#sentiment-analysis)
+* [語言偵測](#language-detection)
+* [實體辨識](#entity-recognition)
+* [關鍵片語擷取](#key-phrase-extraction)
+
+## <a name="authenticate-the-client"></a>驗證用戶端
+
+建立新的 `ApiKeyServiceClientCredentials` 類別以儲存認證，並對用戶端的要求新增認證。 `ProcessHttpRequestAsync()` 的覆寫會建立在其中，以將您的金鑰新增 `Ocp-Apim-Subscription-Key` 標頭。
+
+```csharp
+class ApiKeyServiceClientCredentials : ServiceClientCredentials
+{
+    private readonly string apiKey;
+
+    public ApiKeyServiceClientCredentials(string apiKey)
+    {
+        this.apiKey = apiKey;
+    }
+
+    public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        if (request == null)
+        {
+            throw new ArgumentNullException("request");
+        }
+        request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
+        return base.ProcessHttpRequestAsync(request, cancellationToken);
+    }
+}
+```
+
+在 `main()` 方法中，使用您的金鑰和端點來具現化用戶端。
+
+```csharp
+var credentials = new ApiKeyServiceClientCredentials(key);
+TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+{
+    Endpoint = endpoint
+};
+```
+
+## <a name="sentiment-analysis"></a>情感分析
+
+建立名為 `SentimentAnalysisExample()` 的新函式，該函式會使用您稍早建立的用戶端，並呼叫其 [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet) 函式。 如果成功，傳回的 [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet)物件將會包含情感 `Score`，若不成功則為 `errorMessage`。 
+
+接近 0 的分數表示負面人氣，而接近 1 的分數則表示正面人氣。
+
+```csharp
+static void SentimentAnalysisExample(TextAnalyticsClient client){
     var result = client.Sentiment("I had the best day of my life.", "en");
-
-    // Printing sentiment results
     Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
-    ```
+}
+```
 
 ### <a name="output"></a>輸出
 
@@ -143,20 +194,22 @@ ms.locfileid: "68840373"
 Sentiment Score: 0.87
 ```
 
-## <a name="perform-language-detection"></a>執行語言偵測
+## <a name="language-detection"></a>語言偵測
 
-1. 建立新函式 `DetectLanguageExample()`，以取用稍早建立的用戶端。
-2. 在同一個函式中，呼叫 `client.DetectLanguage()` 並取得結果。 如果成功，結果將會在 `DetectedLanguages` 中包含偵測到的語言清單，若不成功則為 `errorMessage`。 然後，列印第一個傳回的語言。
-
-    ```csharp
-    var result = client.DetectLanguage("This is a document written in English.");
-
-    // Printing detected languages
-    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
-    ```
+建立名為 `languageDetectionExample()` 的新函式，該函式會使用您稍早建立的用戶端，並呼叫其 [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) 函式。 如果成功，傳回的 [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) 物件將會在 `DetectedLanguages` 中包含偵測到的語言清單，若不成功則為 `errorMessage`。  列印第一個傳回的語言。
 
 > [!Tip]
 > 在某些情況下，可能難以根據輸入來區分語言。 您可以使用 `countryHint` 參數來指定 2 個字母的國碼。 根據預設，API 會使用 "US" 作為預設 countryHint，若要移除此行為，您可以將此值設定為空字串 `countryHint = ""`，以重設此參數。
+
+```csharp
+static void languageDetectionExample(TextAnalyticsClient client){
+    var result = client.DetectLanguage("This is a document written in English.");
+    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
+}
+```
+<!--
+[!code-csharp[Language Detection example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
+-->
 
 ### <a name="output"></a>輸出
 
@@ -164,25 +217,26 @@ Sentiment Score: 0.87
 Language: English
 ```
 
-## <a name="perform-entity-recognition"></a>執行實體辨識
+## <a name="entity-recognition"></a>實體辨識
 
-1. 建立新函式 `RecognizeEntitiesExample()`，以取用稍早建立的用戶端。
-2. 在同一個函式中，呼叫 `client.Entities()` 並取得結果。 然後逐一查看結果。 如果成功，結果將會在 `Entities` 中包含偵測到的實體清單，若不成功則為 `errorMessage`。 對於每個偵測到的實體，列印其類型、子類型、維基百科名稱 (如果存在)，以及在原始文字中的位置。
+建立名為 `RecognizeEntitiesExample()` 的新函式，該函式會使用您稍早建立的用戶端，並呼叫其 [Entities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) 函式。 逐一查看結果。 如果成功，傳回的 [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) 物件將會在 `Entities` 中包含偵測到的語言清單，若不成功則為 `errorMessage`。 對於每個偵測到的實體，列印其類型、子類型、維基百科名稱 (如果存在)，以及在原始文字中的位置。
 
-    ```csharp
+```csharp
+static void entityRecognitionExample(TextAnalyticsClient client){
+
     var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
-
-    // Printing recognized entities
     Console.WriteLine("Entities:");
-    foreach (var entity in result.Entities)
-    {
+    foreach (var entity in result.Entities){
         Console.WriteLine($"\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
-        foreach (var match in entity.Matches)
-        {
+        foreach (var match in entity.Matches){
             Console.WriteLine($"\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
         }
     }
-    ```
+}
+```
+<!--
+[!code-csharp[Entity Recognition example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
+-->
 
 ### <a name="output"></a>輸出
 
@@ -204,22 +258,21 @@ Entities:
         Offset: 116,    Length: 11,     Score: 0.800
 ```
 
-## <a name="perform-key-phrase-extraction"></a>執行關鍵片語擷取
+## <a name="key-phrase-extraction"></a>關鍵片語擷取
 
-1. 建立新函式 `KeyPhraseExtractionExample()`，以取用稍早建立的用戶端。
-2. 在同一個函式中，呼叫 `client.KeyPhrases()` 並取得結果。 如果成功，結果將會在 `KeyPhrases` 中包含偵測到的關鍵片語清單，若不成功則為 `errorMessage`。 然後，列印任何偵測到的關鍵片語。
+建立名為 `KeyPhraseExtractionExample()` 的新函式，該函式會使用您稍早建立的用戶端，並呼叫其 [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) 函式。 如果成功，結果將會在 `KeyPhrases` 中包含偵測到的關鍵片語清單，若不成功則為 `errorMessage`。 列印任何偵測到的關鍵片語。
 
-    ```csharp
-    var result = client.KeyPhrases("My cat might need to see a veterinarian.");
+```csharp
+var result = client.KeyPhrases("My cat might need to see a veterinarian.");
 
-    // Printing key phrases
-    Console.WriteLine("Key phrases:");
+// Printing key phrases
+Console.WriteLine("Key phrases:");
 
-    foreach (string keyphrase in result.KeyPhrases)
-    {
-        Console.WriteLine($"\t{keyphrase}");
-    }
-    ```
+foreach (string keyphrase in result.KeyPhrases)
+{
+    Console.WriteLine($"\t{keyphrase}");
+}
+```
 
 ### <a name="output"></a>輸出
 
@@ -229,6 +282,13 @@ Key phrases:
     veterinarian
 ```
 
+## <a name="clean-up-resources"></a>清除資源
+
+如果您想要清除和移除認知服務訂用帳戶，則可以刪除資源或資源群組。 刪除資源群組也會刪除與資源群組相關聯的任何其他資源。
+
+* [入口網站](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
@@ -236,4 +296,7 @@ Key phrases:
 
 
 * [文字分析概觀](../overview.md)
-* [常見問題集 (FAQ)](../text-analytics-resource-faq.md)
+* [情感分析](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [實體辨識](../how-tos/text-analytics-how-to-entity-linking.md)
+* [偵測語言](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [辨識語言](../how-tos/text-analytics-how-to-language-detection.md)

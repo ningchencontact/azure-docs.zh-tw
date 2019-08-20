@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 08/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9bfe5f21da6418f82b2099a5da4ba8c3c32c25f3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2a4726357e35fa123355d9ba450f7c6d8624fe78
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564501"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946224"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>快速入門：使用 C# 分析令人反感的影像
 
 本文提供可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的資訊和程式碼範例。 您將了解如何掃描成人或猥褻內容、可擷取的文字和人臉，以仲裁可能令人反感的內容。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
 ## <a name="prerequisites"></a>必要條件
 
 - Content Moderator 訂用帳戶金鑰。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱 Content Moderator 並取得金鑰。
-- 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)
+- [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 的任何版本
 
 
 > [!NOTE]
@@ -49,22 +49,22 @@ ms.locfileid: "68564501"
 
 在 *Program.cs* 檔案的頂端新增下列 `using` 陳述式。
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-8)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-7)]
 
 ### <a name="create-the-content-moderator-client"></a>建立 Content Moderator 用戶端
 
 在您的 *Program.cs* 檔案中新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端提供者。 在相同命名空間中的 **Program** 類別旁新增程式碼。 您必須以區域識別碼和訂用帳戶金鑰的值更新 **AzureRegion** 和 **CMSubscriptionKey** 欄位。
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=84-107)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=83-106)]
 
 
 ### <a name="set-up-input-and-output-targets"></a>設定輸入和輸出目標
 
 將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。 這些欄位會指定輸入影像內容和輸出 JSON 內容的檔案。
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=48-52)]
 
-您必須建立 *_ImageFiles.txt* 輸入檔，並據以更新其路徑 (相對於執行目錄的相對路徑)。 開啟 _ImageFiles.txt_，並新增要仲裁之影像的 URL。 本快速入門會以下列 URL 作為範例輸入。
+您必須建立 ImageFiles.txt  輸入檔，並據以更新其路徑 (相對於執行目錄的相對路徑)。 開啟 _ImageFiles.txt_，並新增要仲裁之影像的 URL。 本快速入門會以下列 URL 作為範例輸入。
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -75,20 +75,20 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 在 *Program.cs* 中，將下列程式碼新增至相同命名空間中的 **Program** 類別旁。 您將使用此類別的執行個體，為每個審核的影像記錄仲裁結果。
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=109-124)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=108-123)]
 
 
 ### <a name="define-the-image-evaluation-method"></a>定義影像評估方法
 
 將下列方法新增至 **Program** 類別。 此方法會以三種不同的方式評估單一影像，並傳回評估結果。 若要深入了解個別作業的功用，請進入[後續步驟](#next-steps)一節中的連結。
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=55-81)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=54-80)]
 
 ### <a name="load-the-input-images"></a>載入輸入影像
 
 在 **Program** 類別中對 **Main** 方法新增下列程式碼。 此程式碼會設定程式，使其為輸入檔中的每個影像 URL 擷取評估資料。 接著會將此資料寫入至單一輸出檔案。
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=16-45)]
 
 ## <a name="run-the-program"></a>執行程式
 

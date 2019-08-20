@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 使用 Jenkins 從 GitHub 部署至 Azure App Service
+title: 教學課程：使用 Jenkins 從 GitHub 部署至 Azure App Service
 description: 設定 Jenkins 以進行 Java Web 應用程式從 GitHub 的持續整合 (CI) 以及對 Azure App Service 的持續部署 (CD)
 services: jenkins
 ms.service: jenkins
@@ -8,12 +8,13 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 019c4a8f77f2664c68dcc6499fb2f27cc0d1447c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-august2019
+ms.openlocfilehash: 955ce9724d576e56766ab3d87a374a65e4ca5c0e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326917"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967131"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>教學課程：使用 Jenkins 持續整合和部署從 GitHub 部署至 Azure App Service
 
@@ -68,7 +69,7 @@ ms.locfileid: "68326917"
 
    若未出現這些外掛程式，請檢查 [已安裝]  索引標籤以確定它們尚未安裝。
 
-1. 若要安裝您選取的外掛程式，請選擇 [立即下載並於重新啟動後安裝]  。
+1. 若要安裝您選取的外掛程式，請選取 [立即下載並於重新啟動後安裝]  。
 
 1. 作業完成後，請在 Jenkins 功能表上選取 [管理 Jenkins]  返回 Jenkins 管理頁面，以進行後續步驟。
 
@@ -76,7 +77,7 @@ ms.locfileid: "68326917"
 
 1. [登入 Spring Boot 範例應用程式的 GitHub 存放庫](https://github.com/spring-guides/gs-spring-boot)。 
 
-1. 在 GitHub 的右上角選擇 [派生]  。
+1. 在 GitHub 的右上角選取 [派生]  。
 
    ![從 GitHub 派生範例存放庫](media/tutorial-jenkins-deploy-web-app-azure-app-service/fork-github-repo.png)
 
@@ -102,7 +103,7 @@ ms.locfileid: "68326917"
 
    ![新增 GitHub 伺服器](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
-1. 若未選取 [管理勾點]  屬性，請選取此屬性。 選擇 [進階]  以便指定其他設定。 
+1. 若未選取 [管理勾點]  屬性，請選取此屬性。 選取 [進階]  以便指定其他設定。 
 
    ![選擇 [進階] 以顯示更多設定](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
@@ -110,7 +111,7 @@ ms.locfileid: "68326917"
 
    ![選擇 [管理其他 GitHub 動作]](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
-1. 選取 [從登入和密碼]  ，以便您輸入 GitHub 使用者名稱和密碼。 作業完成後，請選擇 [建立權杖認證]  ，以建立 [GitHub 個人存取權杖 (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)。   
+1. 選取 [從登入和密碼]  ，以便您輸入 GitHub 使用者名稱和密碼。 作業完成後，請選取 [建立權杖認證]  ，以建立 [GitHub 個人存取權杖 (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)。   
 
    ![從登入和密碼建立 GitHub PAT](media/tutorial-jenkins-deploy-web-app-azure-app-service/create-github-token-credentials.png)
 
@@ -170,7 +171,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
    | **租用戶識別碼** | <*yourAzureActiveDirectoryTenant-ID*> | 您 Azure Active Directory 租用戶的 `tenant` GUID 值 | 
    | **識別碼** | <*yourAzureServicePrincipalName*> | 您 Azure 服務主體的 `displayName` 值 | 
 
-1. 若要確認您的服務主體可運作，請選擇 [驗證服務主體]  。 完成時，選擇 [確定]  。
+1. 若要確認您的服務主體可運作，請選取 [驗證服務主體]  。 完成後，選取 [確定]  。
 
 接著，建立用來建置和部署應用程式的 Jenkins 管線。
 
@@ -182,7 +183,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
    ![選取 [新增項目]。](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
-1. 提供管線作業的名稱 (例如 "My-Java-Web-App")，然後選取 [管線]  。 在底部選擇 [確定]  。  
+1. 提供管線作業的名稱 (例如 "My-Java-Web-App")，然後選取 [管線]  。 選取底部的 [確定]  。  
 
    ![選取 [管線]](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
@@ -200,7 +201,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
       ![選取 [準備執行環境]，並設定環境變數](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
 
-1. 完成之後，請選擇 [儲存]  。
+1. 完成時，選取 [儲存]  。
 
 接著，建立 Jenkins 的組建和部署指令碼。
 
@@ -273,7 +274,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
    ![在指令碼上指定管線](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
-1. 完成之後，請選擇 [儲存]  。
+1. 完成時，選取 [儲存]  。
 
 接著，建置您的應用程式並將其部署至 Azure App Service。 
 
@@ -309,7 +310,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
    `complete/src/main/java/Hello/Application.java`
    
-1. 從 GitHub 的右上角選擇 [編輯此檔案]  。
+1. 從 GitHub 的右上角選取 [編輯此檔案]  。
 
 1. 對 `commandLineRunner()` 方法進行下列變更，並將變更認可至存放庫的 `master` 分支。 `master` 分支中的這個認可會在 Jenkins 中起始建置。 
    

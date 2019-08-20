@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
 ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68309522"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立私人容器登錄
@@ -22,7 +22,7 @@ Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Dock
 
 進行此快速入門時，您必須執行 Azure CLI (建議使用 2.0.55 版或更新版本)。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli]。
 
-您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何 [macOS][docker-mac], [Windows][docker-windows]或 [Linux][docker-linux] 系統上設定 Docker 的套件。
+您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系統上設定 Docker 的套件。
 
 由於 Azure Cloud Shell 未包含所有必要的 Docker 元件 (`dockerd` 精靈)，因此您無法使用本快速入門中的 Cloud Shell。
 

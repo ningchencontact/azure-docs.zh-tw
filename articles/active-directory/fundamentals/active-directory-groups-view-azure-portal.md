@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561897"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942875"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -27,7 +27,7 @@ ms.locfileid: "68561897"
 
 在本快速入門中，您將檢視貴組織的所有現有群組並檢視指派的成員。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。 
+如果您沒有 Azure 訂用帳戶，請在開始前先建立[免費帳戶](https://azure.microsoft.com/free/) 。 
 
 ## <a name="prerequisites"></a>必要條件
 在開始之前，您必須：
@@ -53,7 +53,7 @@ ms.locfileid: "68561897"
 3. 選取 [建立]  。
 
 ## <a name="create-a-new-user"></a>建立新的使用者
-建立新的使用者，名為 _Alain Charon_。 使用者必須存在才能新增為群組成員。 如需如何建立使用者的詳細資訊，請參閱[如何新增或刪除使用者](add-users-azure-active-directory.md)。
+建立新的使用者，名為 _Alain Charon_。 使用者必須存在才能新增為群組成員。 請先核取 [自訂功能變數名稱] 索引標籤，以取得要在其中建立使用者的已驗證網域名稱。 如需如何建立使用者的詳細資訊，請參閱[如何新增或刪除使用者](add-users-azure-active-directory.md)。
 
 1. 選取 [Azure Active Directory]  、[使用者]  ，然後選取 [新增使用者]  。
 

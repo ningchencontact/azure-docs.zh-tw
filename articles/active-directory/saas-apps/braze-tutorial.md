@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8d4a4bd21e0f7a7f483e139beb1840b5c3cc7f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3a32548bdafa999fe72e8b2f8e3b80961ebe3c9a
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165077"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>教學課程：Azure Active Directory 與 Braze 整合
 
@@ -33,7 +33,7 @@ Braze 與 Azure AD 整合可提供下列優點：
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -115,7 +115,7 @@ Braze 與 Azure AD 整合可提供下列優點：
     在 [登入 URL]  文字方塊中，以下列模式輸入 URL︰`https://<SUBDOMAIN>.braze.com/sign_in`
 
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Braze 用戶端支援小組](mailto:support@braze.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 針對子網域，請使用 Braze 執行個體 URL 中所列的協調子網域。 例如，如果您的執行個體是 US-01，URL 是 https://dashboard-01.braze.com 。 這表示您的子網域將是 dashboard-01。
 
 6. Braze 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性]  區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  按鈕以開啟 [使用者屬性]  對話方塊。
 
@@ -164,7 +164,7 @@ Braze 與 Azure AD 整合可提供下列優點：
 
 ### <a name="configure-braze-single-sign-on"></a>設定 Braze 單一登入
 
-若要設定 **Braze** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)]  和複製的適當 URL 傳送給 [Braze 支援小組](mailto:support@braze.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Braze** 端設定單一登入，您必須確定 Braze 帳戶管理員已為您的帳戶啟用 SAML SSO。 啟用之後，您可以移至 [公司設定] > [安全性設定]，並將 [SAML SSO] 區段切換為 [開啟]。 在本節中，您將需要複製並貼上已下載的 [憑證 (Base64)]  ，並新增 SAML 名稱。 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -218,7 +218,7 @@ Braze 與 Azure AD 整合可提供下列優點：
 
 ### <a name="create-braze-test-user"></a>建立 Braze 測試使用者
 
-在本節中，您會在 Braze 中建立名為 Britta Simon 的使用者。 請與  [Braze 支援小組](mailto:support@braze.com)合作，在 Braze 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Braze 中建立名為 Britta Simon 的使用者。 您可以在 Braze 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

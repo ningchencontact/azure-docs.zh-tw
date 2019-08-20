@@ -3,26 +3,26 @@ title: 聲場專案 Unity 聲場模擬教學課程
 titlesuffix: Azure Cognitive Services
 description: 本教學課程描述在 Unity 中運用聲場專案進行聲場模擬。
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2362b3916d1b1f430350d975dc0b61914a777be2
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: b7249c3048ba3af3adbaac01f43770482a0d38ad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706699"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933212"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>聲場專案 Unity 聲場模擬教學課程
 本教學課程描述在 Unity 中運用聲場專案進行聲場模擬。
 
 軟體需求：
-* 適用於 Windows 的 [Unity 2018.2+](https://unity3d.com)
+* 適用於 Windows 或 MacOS 的 [Unity 2018.2+](https://unity3d.com)
 * [Unity 專案中整合的聲場專案外掛程式](unity-integration.md)或[聲場專案 Unity 範例內容](unity-quickstart.md)
 * 選用：[Azure Batch 帳戶](create-azure-account.md)，以使用雲端運算加快聲場模擬速度
 
@@ -179,6 +179,25 @@ ms.locfileid: "68706699"
 
 Azure 認證會安全地儲存在您的本機電腦上，並與您的 Unity 編輯器建立關聯。 它們僅供用來與 Azure 建立安全連線。
 
+## <a name="to-find-the-status-of-a-running-job-on-the-azure-portal"></a>在 Azure 入口網站上尋找執行中作業的狀態
+
+1. 在 [製作] 索引標籤上尋找製作作業識別碼：
+
+![Unity 製作作業識別碼的螢幕擷取畫面](media/unity-job-id.png)  
+
+2. 開啟 [Azure 入口網站](https://portal.azure.com)，瀏覽至用於製作的 Batch 帳戶，然後選取 [作業] 
+
+![作業連結的螢幕擷取畫面](media/azure-batch-jobs.png)  
+
+3. 在作業清單中搜尋作業識別碼
+
+![製作作業狀態的螢幕擷取畫面](media/azure-bake-job-status.png)  
+
+4. 按一下作業識別碼以查看相關工作的狀態和整體作業狀態
+
+![製作工作狀態的螢幕擷取畫面](media/azure-batch-task-state.png)  
+
+
 ### <a name="Estimating-bake-cost"></a> 正在評估 Azure 製作成本
 
 若要預估所指定製作項目的成本，請取用在 [Estimated Compute Cost] \(預估計算成本\)  顯示的值 (這是一個持續時間)，然後將其乘以您所選 [VM Node Type] \(VM 節點類型\)  的每小時成本 (採用您的當地貨幣)。 此結果將不會包含讓節點啟動並開始執行所需的節點時間。 例如，如果您選取 [Standard_F8s_v2]  作為您的節點類型，其成本為每小時 0.40 美元，而 [Estimated Compute Cost] \(預估計算成本\) 為 3 小時又 57 分鐘，則執行作業的預估成本將會是 0.40 美元 * ~4 小時 = ~1.60 美元。 實際成本可能會稍微高一點，因為讓節點啟動需要額外的時間。 您可以在 [Azure Batch 定價](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 頁面上找到每小時節點成本 (針對類別選取 [計算最佳化] 或 [高效能計算])。
@@ -188,6 +207,7 @@ Azure 認證會安全地儲存在您的本機電腦上，並與您的 Unity 編�
 
 ### <a name="minimum-hardware-requirements"></a>最低硬體需求
 * 具備至少 8 個核心和 32 GB RAM 的 x86-64 處理器
+* [已啟用 Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)，以執行 Docker
 
 例如，在配備 Intel Xeon E5-1660 @ 3 GHz 和 32 GB RAM 的 8 核心電腦上測試 -
 * 具有 100 個探查的小型場景，大約需要 2 小時進行粗略聲場模擬，或需要 32 小時進行精細聲場模擬。
@@ -195,13 +215,15 @@ Azure 認證會安全地儲存在您的本機電腦上，並與您的 Unity 編�
 
 ### <a name="setup-docker"></a>設定 Docker
 在將會處理模擬的電腦上安裝和設定 Docker -
-1. 安裝 [Docker 工具組](https://www.docker.com/products/docker-desktop)。
-2. 啟動 Docker 設定、瀏覽至 [進階] 選項，並設定至少具備 8 GB RAM的資源。 您可以配置給 Docker 的 CPU 越多，製作完成的速度就越快。 ![Docker 設定範例的螢幕擷取畫面](media/docker-settings.png)
-3. 瀏覽至 [共用磁碟機]，然後開啟用於處理之磁碟機的共用。![Docker 共用磁碟機選項的螢幕擷取畫面](media/docker-shared-drives.png)
+1. 安裝 [Docker Desktop](https://www.docker.com/products/docker-desktop)。
+2. 啟動 Docker 設定、瀏覽至 [進階] 選項，並設定至少具備 8 GB RAM的資源。 您可以配置給 Docker 的 CPU 越多，製作完成的速度就越快。  
+![Docker 設定範例的螢幕擷取畫面](media/docker-settings.png)
+1. 瀏覽至 [共用磁碟機]，然後開啟用於處理之磁碟機的共用。  
+![Docker 共用磁碟機選項的螢幕擷取畫面](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>執行本機製作
 1. 按一下 [Bake] \(聲場模擬\)  索引標籤上的 [Prepare Local Bake] \(準備在本機進行聲場模擬\) 按鈕，然後選取要儲存輸入檔案和執行指令碼的資料夾。 然後，您可以在任何電腦上執行製作，只要它符合最低硬體需求，並藉由將資料夾複製到該電腦來安裝 Docker。
-2. 使用 "runlocalbake.bat" 指令碼啟動模擬。 該指令碼將使用模擬處理所需的工具組擷取 Project Acoustics Docker 映像，並啟動模擬。 
+2. 在 Windows 上使用 "runlocalbake.bat" 指令碼，或在 MacOS 上使用 "runlocalbake.sh" 指令碼啟動模擬。 該指令碼將使用模擬處理所需的工具組擷取 Project Acoustics Docker 映像，並啟動模擬。 
 3. 模擬完成後，請將產生的 .ace 檔案複製回您的 Unity 專案。 若要確定 Unity 會將此辨識為二進位檔案，請將 ".bytes" 附加到檔案副檔名 (例如，"Scene1.ace.bytes")。 模擬的詳細記錄會儲存在 "AcousticsLog.txt" 中。 如果您遇到任何問題，請共用此檔案以協助進行診斷。
 
 ## <a name="Data-Files"></a> 由聲場模擬程序新增的資料檔案

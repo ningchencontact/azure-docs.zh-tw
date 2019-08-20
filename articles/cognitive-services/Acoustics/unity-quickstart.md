@@ -3,20 +3,20 @@ title: 搭配 Unity 的聲場專案快速入門
 titlesuffix: Azure Cognitive Services
 description: 使用範例內容對 Unity 中的聲場專案設計控制項進行實驗，並部署至 Windows 桌面。
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93eb44bf91bc2c8346660a4d770ee6d83501c3ae
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 0ea020ca76381a4ae5d6b6e480c94e63f9aa2dab
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706610"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933089"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>聲場專案 Unity 快速入門
 使用適用於 Unity 的聲場專案範例內容對模擬所支援的設計控制項進行實驗。
@@ -38,16 +38,35 @@ ms.locfileid: "68706610"
 
 * 選擇 **ProjectAcoustics.unitypackage**
 
+* 按一下 [匯入]  按鈕，將 Unity 套件整合到您的專案中  
+  
+    ![Unity 匯入套件對話方塊的螢幕擷取畫面](media/import-dialog.png)  
+
 如果您正在將套件匯入現有專案，請參閱 [Unity 整合](unity-integration.md)以取得額外步驟和注意事項。
+
+>[!NOTE] 
+>匯入完成後，主控台記錄中將會顯示數個錯誤。  請繼續進行下一個步驟，並重新啟動 Unity。
 
 ## <a name="restart-unity"></a>重新啟動 Unity
 聲場工具組的製作部分需要 .NET 4.x 指令碼處理執行階段版本。 套件匯入將會更新您的 Unity 播放器設定。 請重新啟動 Unity 來讓此設定生效。
 
 您可以透過開啟 [Player Settings]  \(玩家設定\)，確認此設定是否已生效：
 
-![Unity 播放器設定面板的螢幕擷取畫面](media/player-settings.png)
+![Unity 播放器設定面板的螢幕擷取畫面](media/player-settings.png)  
 
-![Unity 播放器設定面板 (已選取 .NET 4.5) 的螢幕擷取畫面](media/net45.png)
+![Unity 播放器設定面板 (已選取 .NET 4.5) 的螢幕擷取畫面](media/net45.png)  
+
+>[!NOTE]
+>螢幕擷取畫面取自 Unity 2018.x。 較新版本的 Unity 可能會有所不同。
+
+## <a name="open-the-project-acoustics-bake-window"></a>開啟聲場專案聲場模擬視窗
+從 Unity 功能表選擇 [Window] \(視窗\) > [Acoustics] \(聲場\)  ：
+
+![醒目提示 [聲場] 視窗功能表選項的 Unity 編輯器螢幕擷取畫面](media/window-acoustics.png)
+
+名為 [聲場]  的新浮動視窗隨即出現。  此視窗是聲場模擬的屬性設定所在之處。
+
+![Unity 編輯器的 [聲場] 視窗開啟時的螢幕擷取畫面](media/unity-editor-plugin-window.png)  
 
 ## <a name="experiment-with-design-controls"></a>對設計控制項進行實驗
 開啟 **ProjectAcousticsSample** 資料夾中的範例場景，然後按一下 Unity 編輯器中的 [Play] \(進行遊戲\) 按鈕。 使用 W、A、S、D 與滑鼠即可四處移動。 若要比較場景音效使用原音與不使用原音時的不同，請按下 **R** 按鈕直到重疊文字變成紅色並說出「原音：已停用」。 若要查看鍵盤快速鍵以取得更多控制項，請按下 **F1**。 若要使用控制項，您也可以按一下滑鼠右鍵來選取要執行的動作，然後按一下滑鼠左鍵來執行該動作。
@@ -56,7 +75,7 @@ ms.locfileid: "68706610"
 
 ![Unity AcousticsAdjust 指令碼的螢幕擷取畫面](media/acoustics-adjust.png)
 
-以下會探索可透過所提供的控制項來產生的一些效果。 如需每個控制項的詳細資訊，請參閱[聲場專案 Unity 設計教學課程](unreal-workflow.md)。
+以下會探索可透過所提供的控制項來產生的一些效果。 如需每個控制項的詳細資訊，請參閱[聲場專案 Unity 設計教學課程](unity-workflow.md)。
 
 ### <a name="modify-distance-based-attenuation"></a>修改以距離為基礎的衰減
 **聲場專案** Unity 空間定位外掛程式所提供的音訊 DSP，會遵循 Unity 編輯器所內建，以每個來源距離為基礎的衰減。 距離型衰減控制項位於聲音來源之 [Inspector] \(偵測器\)  面板中 [Audio Source] \(音訊來源\)  元件的 [3D Sound Settings] \(3D 聲音設定\)  底下：

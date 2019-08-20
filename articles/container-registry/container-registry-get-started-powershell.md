@@ -10,10 +10,10 @@ ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68309487"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立私人容器登錄
@@ -26,7 +26,7 @@ Azure Container Registry 是受控的私用 Docker 容器登錄服務，用於�
 
 本快速入門需要 Azure PowerShell 模組。 執行 `Get-Module -ListAvailable Az` 來判斷您安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
-您也必須在本機上安裝 Docker。 Docker 提供 [macOS][docker-mac], [Windows][docker-windows] 和 [Linux][docker-linux] 系統適用的套件。
+您也必須在本機上安裝 Docker。 Docker 提供 [macOS][docker-mac]、[Windows][docker-windows] 及 [Linux][docker-linux] 系統適用的套件。
 
 由於 Azure Cloud Shell 未包含所有必要的 Docker 元件 (`dockerd` 精靈)，因此您無法使用本快速入門中的 Cloud Shell。
 

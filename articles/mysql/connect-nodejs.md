@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
-ms.openlocfilehash: 9806855aff54e72da6ac8336338c63f82ffda736
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ad022f6ac9cebbe92cdca3a4b368524d828a9cbb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351502"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931566"
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 Node.js 連線並查詢資料
 本快速入門示範如何從 Windows、Ubuntu Linux 和 Mac 平台使用 [Node.js](https://nodejs.org/) 來連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Node.js 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
@@ -33,7 +33,7 @@ ms.locfileid: "58351502"
 ### <a name="windows"></a>**Windows**
 1. 造訪 [Node.js 下載頁面](https://nodejs.org/en/download/) \(英文\)，然後選取您需要的 Windows 安裝程式選項。
 2. 建立本機專案資料夾，例如 `nodejsmysql`。 
-3. 啟動命令提示字元，然後將目錄變更為專案資料夾，例如 `cd c:\nodejsmysql\`
+3. 開啟命令提示字元，然後將目錄變更為專案資料夾，例如 `cd c:\nodejsmysql\`
 4. 執行 NPM 工具將 mysql 程式庫安裝至專案資料夾中。
 
    ```cmd
@@ -83,15 +83,15 @@ ms.locfileid: "58351502"
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
-3. 按一下伺服器名稱。
-4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
+2. 從 Azure 入口網站的左側功能表中，選取 [所有資源]  ，然後搜尋您所建立的伺服器 (例如 **mydemoserver**)。
+3. 選取伺服器名稱。
+4. 從伺服器的 [概觀]  面板，記下 [伺服器名稱]  和 [伺服器管理員登入名稱]  。 如果您忘記密碼，您也可以從此面板重設密碼。
  ![Azure Database for MySQL 伺服器名稱](./media/connect-nodejs/1_server-overview-name-login.png)
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>在 Node.js 中執行 JavaScript 程式碼
 1. 將 JavaScript 程式碼貼入文字檔，然後使用副檔名 .js 來將它儲存到專案資料夾 (例如 C:\nodejsmysql\createtable.js 或 /home/username/nodejsmysql/createtable.js)。
-2. 啟動命令提示字元或 Bash 殼層，然後將目錄變更為您的專案資料夾 `cd nodejsmysql`。
-3. 若要執行應用程式，請鍵入後接檔案名稱的節點命令，例如 `node createtable.js`。
+2. 開啟命令提示字元或 Bash 殼層，然後將目錄變更為您的專案資料夾 `cd nodejsmysql`。
+3. 若要執行應用程式，請輸入後接檔案名稱的節點命令，例如 `node createtable.js`。
 4. 在 Windows 上，如果節點應用程式不在您的環境變數路徑中，則可能需要使用完整路徑來啟動節點應用程式，例如 `"C:\Program Files\nodejs\node.exe" createtable.js`
 
 ## <a name="connect-create-table-and-insert-data"></a>連線、建立資料表及插入資料
