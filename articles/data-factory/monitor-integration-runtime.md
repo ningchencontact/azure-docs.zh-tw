@@ -43,12 +43,12 @@ Cmdlet 會為不同類型的整合執行階段傳回不同的資訊。 本文說
 
 | 屬性 | Description |
 -------- | ------------- | 
-| 名稱 | Azure 整合執行階段的名稱。 |  
+| Name | Azure 整合執行階段的名稱。 |  
 | State | Azure 整合執行階段的狀態。 | 
 | Location | Azure 整合執行階段的位置。 如需 Azure 整合執行階段的位置詳細資訊，請參閱[整合執行階段簡介](concepts-integration-runtime.md)。 |
 | DataFactoryName | Azure 整合執行階段所屬的資料處理站名稱。 | 
 | ResourceGroupName | 資料處理站所屬的資源群組名稱。  |
-| 描述 | 整合執行階段的說明。  |
+| Description | 整合執行階段的說明。  |
 
 ### <a name="status"></a>狀態
 下表提供 Azure 整合執行階段的可能狀態：
