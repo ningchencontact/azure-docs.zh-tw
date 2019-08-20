@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 849c3a745de08e7cf8ff7f1b8bb237a6d0f54395
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384155"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615358"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>透過 Azure Cosmos DB 全域資料散發 - 運作原理
 
@@ -34,7 +34,7 @@ Azure Cosmos DB 是 Azure 中的基礎服務, 因此它會部署在全球所有 
 
 實體分割區是由一組複本 (稱為「*複本集*」) 所執行。 每部機器都會裝載數百個對應至一組固定進程內各種實體分割區的複本, 如上圖所示。 對應到實體分割區的複本均會動態放置，並在區域中叢集和資料中心內的機器間進行負載平衡。  
 
-一個複本只會屬於一個 Azure Cosmos DB 租用戶。 每個複本都會裝載 Cosmos DB [資料庫引擎](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) \(英文\) 的執行個體，其會管理資源以及相關聯的索引。 Cosmos DB 資料庫引擎會在 Atom-記錄-序列 (ARS) 型的類型系統上運作。 引擎與架構的概念無關, 會模糊記錄結構和實例值之間的界限。 Cosmos DB 會以有效率的方式，在擷取時自動為每個項目編製索引，藉以達到完全不會區分結構描述的論點，讓使用者能夠查詢他們的全域散發資料，而不需處理結構描述或索引管理。
+一個複本只會屬於一個 Azure Cosmos DB 租用戶。 每個複本都會裝載 Cosmos DB [資料庫引擎](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) \(英文\) 的執行個體，其會管理資源以及相關聯的索引。 Cosmos 資料庫引擎會在以 atom-記錄順序 (ARS) 為基礎的類型系統上運作。 引擎與架構的概念無關, 會模糊記錄結構和實例值之間的界限。 Cosmos DB 會以有效率的方式，在擷取時自動為每個項目編製索引，藉以達到完全不會區分結構描述的論點，讓使用者能夠查詢他們的全域散發資料，而不需處理結構描述或索引管理。
 
 Cosmos 資料庫引擎是由元件所組成, 包括執行數個協調基本類型、語言執行時間、查詢處理器, 以及負責交易式儲存和資料索引的儲存體和索引子系統。各自. 為了提供持久性和高可用性，資料庫引擎會在 SSD 上保存它的資料和索引，並且分別在複本集內的資料庫引擎執行個體之間複寫它。 較大的租使用者會對應到較高的輸送量和儲存體規模, 並具有更大或更多複本或兩者。 系統的每個元件都是完全非同步的，沒有任何執行緒會遭到封鎖，而且每個執行緒都會進行短暫存留的工作，而不會產生任何不必要的執行緒切換。 速率限制和背壓會在整個堆疊上，從許可控制連接到所有 I/O 路徑。 Cosmos database engine 的設計目的是要利用更細緻的平行存取, 並在節省的系統資源量內運作時提供高輸送量。
 

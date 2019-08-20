@@ -6,12 +6,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 70f3471b22027bbf5ece87897e678370767f6743
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 56f293600d876a5bc52b618ce8eed044e93f424d
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717075"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616878"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB：在 Azure 平台上實作 Lambda 架構 
 
@@ -42,7 +42,7 @@ Lambda 架構為泛型、可擴充且容錯的資料處理架構，可因應 [Na
 
 進一步讀取時，我們可以僅採用下列項目實作此架構：
 
-* Azure Cosmos DB 集合
+* Azure Cosmos 容器
 * HDInsight (Apache Spark 2.1) 叢集
 * Spark 連接器 [1.0](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark_2.1.0_2.11-1.0.0)
 
@@ -114,7 +114,7 @@ val query = streamData.withColumn("countcol", streamData.col("id").substr(0, 0))
 
  1. 所有**資料**都只會推入到 Azure Cosmos DB (避免多轉換問題)。
  2. **批次層**有主要的資料集 (固定、僅附加的原始資料集) 儲存於 Azure Cosmos DB。 使用 HDI Spark，您可以預先計算將在計算的批次檢視中儲存的彙總。
- 3. **服務層**是有主要資料集和計算的批次檢視這兩個集合的 Azure Cosmos DB 資料庫。
+ 3. **服務層**是一個 Azure Cosmos 資料庫, 其中包含主要資料集和計算的批次視圖的集合。
  4. 本文稍後將討論**速度層**。
  5. 合併批次檢視和即時檢視的結果，或個別進行這些結果的 ping，均可回答所有查詢。
 
@@ -161,7 +161,7 @@ limit 10
 
 ![顯示每個雜湊標記推文數目的圖表](./media/lambda-architecture/lambda-architecture-batch-hashtags-bar-chart.png)
 
-現在您已有了查詢，使用 Spark 連接器將查詢儲存回集合，將輸出資料儲存至不同的集合。  在此範例中，使用 Scala 展示連線。 和上述範例類似，建立設定連線將 Apache Spark 資料框架儲存至不同的 Azure Cosmos DB 集合。
+現在您已有了查詢，使用 Spark 連接器將查詢儲存回集合，將輸出資料儲存至不同的集合。  在此範例中，使用 Scala 展示連線。 與上一個範例類似, 請建立設定連線, 以將 Apache Spark 資料框架儲存至不同的 Azure Cosmos 容器。
 
 ```
 val writeConfigMap = Map(
@@ -192,7 +192,7 @@ val tweets_bytags = spark.sql("select hashtags.text as hashtags, count(distinct 
 tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-這個最後一個陳述式現在已將您的 Spark 資料框架儲存到新的 Azure Cosmos DB 集合；就 Lambda 架構觀點而言，這是**服務層**內的**批次檢視**。
+最後一個語句現在已將您的 Spark 資料框架儲存至新的 Azure Cosmos 容器;從 lambda 架構的觀點來看, 這是您在**服務層**內的**batch 視圖**。
  
 #### <a name="resources"></a>資源
 
@@ -205,7 +205,7 @@ tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 
 ![反白顯示 Lambda 架構速度層的圖表](./media/lambda-architecture/lambda-architecture-speed.png)
 
-若要這樣做，請建立個別的 Azure Cosmos DB 集合，以儲存結構化串流查詢的結果。  這可讓您得到此資訊的其他系統存取，而不只是 Apache Spark。 另外，使用 Cosmos DB 存留時間 (TTL) 功能，可以設定在設定的持續時間之後自動刪除您的文件。  如需 Azure Cosmos DB TTL 功能的詳細資訊，請參閱[利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期](time-to-live.md)
+若要這麼做, 請建立個別的 Azure Cosmos 容器, 以儲存結構化串流查詢的結果。  這可讓您得到此資訊的其他系統存取，而不只是 Apache Spark。 另外，使用 Cosmos DB 存留時間 (TTL) 功能，可以設定在設定的持續時間之後自動刪除您的文件。  如需 Azure Cosmos DB TTL 功能的詳細資訊, 請參閱[使用存留時間自動將 Azure Cosmos 容器中的資料過期](time-to-live.md)
 
 ```
 // Import Libraries

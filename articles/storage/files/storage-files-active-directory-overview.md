@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: addb97d71da1ceac8717ae77204c87a8197dac86
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6cdee8f1ad59962822e9e0394547c395c13e4bd8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935177"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611788"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>瞭解 SMB 存取的 Azure 檔案儲存體 Azure Active Directory 網域服務 (Azure AD DS) 驗證支援
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -59,7 +59,7 @@ Azure 檔案使用 Azure AD Domain Services 來支援從加入網域的 VM 搭�
 ### <a name="enable-azure-ad-domain-service-authentication-for-smb-access"></a>啟用 Azure AD 網域服務驗證以進行 SMB 存取
 您可以在2018年9月24日之後建立之新的和現有的儲存體帳戶上, 啟用 Azure AD 網域服務驗證以進行 Azure 檔案儲存體。 
 
-啟用此功能之前, 請確認已針對與您的儲存體帳戶相關聯的主要 Azure AD 租使用者部署 Azure AD Domain Services。 如果您尚未設定 Azure AD Domain Services，請遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/create-instance.md) 中的逐步指示操作。
+啟用此功能之前, 請確認已針對與您的儲存體帳戶相關聯的主要 Azure AD 租使用者部署 Azure AD Domain Services。 如果您尚未設定 Azure AD Domain Services，請遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md) 中的逐步指示操作。
 
 Azure AD Domain Services 部署通常需要 10 到 15 分鐘。 在部署 Azure AD Domain Services 之後，您可以為 Azure 檔案啟用透過 SMB 進行 Azure AD 驗證的功能。 如需詳細資訊, 請參閱[針對 Azure 檔案儲存體啟用透過 SMB 的 Azure Active Directory 網域服務驗證](storage-files-active-directory-enable.md)。 
 

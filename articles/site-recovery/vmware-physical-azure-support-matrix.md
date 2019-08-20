@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: raynew
-ms.openlocfilehash: 65c330a9b2dcc97160280daede926573fdef4c00
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679369"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617652"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -167,7 +167,7 @@ IPv4 | 是
 Azure 虛擬網路服務端點<br/> | 是
 加速的網路 | 否
 
-## <a name="storage"></a>存放區
+## <a name="storage"></a>儲存體
 **元件** | **支援**
 --- | ---
 動態磁碟 | OS 磁片必須是基本磁碟。 <br/><br/>資料磁碟可以是動態磁碟
@@ -181,7 +181,7 @@ Docker 磁碟設定 | 否
 客體/伺服器共用叢集磁碟 | 否
 客體/伺服器加密磁碟 | 否
 客體/伺服器 NFS | 否
-來賓/伺服器 iSCSI | 否
+來賓/伺服器 iSCSI | 針對遷移-是<br/>針對嚴重損壞修復-否, iSCSI 會容錯回復為 VM 的連接磁片
 客體/伺服器 SMB 3.0 | 否
 客體/伺服器 RDM | 是<br/><br/> 實體伺服器為 N/A
 客體/伺服器磁碟 > 1 TB | 是, 磁片必須大於 1024 MB<br/><br/>複寫至受控磁片時最多 8192 GB (9.26 版)<br></br> 複寫至儲存體帳戶時最多 4095 GB

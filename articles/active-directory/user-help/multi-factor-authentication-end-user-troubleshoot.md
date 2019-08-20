@@ -13,12 +13,12 @@ ms.date: 08/07/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df32ec9c2d181072bb67a8ca0f2cb04560287286
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 178ce07db24976d7df590d353603da67b68122e8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949757"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616110"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>針對常見的雙因素驗證問題進行疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "68949757"
 >[!Important]
 >本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 >
->此內容也僅適用于您的工作或學校帳戶, 您的組織提供給您的帳戶 ( alain@contoso.com例如)。 如果您遇到雙因素驗證和個人 Microsoft 帳戶的問題, 您自行設定的帳戶 ( danielle@outlook.com例如), 請參閱開啟[或關閉雙因素驗證以取得您的 Microsoft 帳戶](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
+>此內容也僅適用于您的工作或學校帳戶, 您的組織提供給您的帳戶 ( alain@contoso.com例如)。 如果您遇到雙因素驗證和個人 Microsoft 帳戶的問題, 您自行設定的帳戶 ( danielle@outlook.com例如), 請參閱開啟[或關閉雙因素驗證以取得您的 Microsoft 帳戶](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
 
 ## <a name="i-forgot-my-mobile-device-at-home"></a>我在家裡忘了我的行動裝置
 
@@ -92,7 +92,11 @@ ms.locfileid: "68949757"
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>我無法讓應用程式密碼正常執行
 
-應用程式密碼會針對不支援雙因素驗證的舊版桌面應用程式, 取代您的一般密碼。 請先確定您輸入的密碼正確。 如果無法修正此問題, 請嘗試我的應用程式使用[管理應用程式密碼以進行雙步驟驗證](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-using-the-myapps-portal)一文中的**建立和刪除應用程式**密碼一節中的步驟, 為應用程式建立新的應用程式密碼。
+應用程式密碼會針對不支援雙因素驗證的舊版桌面應用程式, 取代您的一般密碼。 請先確定您輸入的密碼正確。 如果無法修正此問題, 請嘗試我的應用程式使用[管理應用程式密碼以進行雙步驟驗證](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page)一文中的**建立和刪除應用程式**密碼一節中的步驟, 為應用程式建立新的應用程式密碼。
+
+## <a name="why-cant-i-turn-two-factor-verification-off"></a>為什麼無法關閉雙重要素驗證？
+
+如果您使用與公司或學校帳戶 (例如alain@contoso.com) 的雙因素驗證, 則最有可能表示您的組織已決定您必須使用這項新增的安全性功能。 因為您的組織已決定您必須使用這項功能, 所以您無法個別將它關閉。 不過, 如果您使用具有個人帳戶的雙因素驗證 (例如alain@outlook.com), 則您可以開啟和關閉此功能。 如需如何為您的個人 Microsoft 帳戶控制雙因素驗證的指示, 請參閱開啟[或關閉 Microsoft 帳戶的雙因素驗證](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>我找不到我的問題的解答
 

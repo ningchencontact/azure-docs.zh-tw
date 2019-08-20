@@ -6,18 +6,18 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 54eb2df06df56c33e1a3cd74e7a4a93c07aab682
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845916"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575658"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>測試 Azure 受控應用程式的入口網站介面
 
 建立受控應用程式[的 createUiDefinition json](create-uidefinition-overview.md)檔案之後, 您需要測試使用者體驗。 若要簡化測試, 請使用在入口網站中載入檔案的沙箱環境。 您不需要實際部署受控應用程式。 沙箱會在目前的全螢幕入口網站體驗中呈現您的使用者介面。 或者, 您可以使用腳本來測試介面。 本文中會展示這兩種方法。 沙箱是預覽介面的建議方式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **createUiDefinition.json** 檔案。 如果您沒有此檔案, 請複製[範例](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)檔案。
 
@@ -91,7 +91,7 @@ ms.locfileid: "68845916"
 
 指令碼會在瀏覽器中開啟新的索引標籤。 它會顯示入口網站，其中包含您用來建立受控應用程式的介面。
 
-提供欄位的值。 作業完成後，您會看到傳至範本的值。
+提供欄位的值。 完成後, 您會看到傳遞至範本的值, 您可以在瀏覽器的開發人員工具主控台中找到此範本。
 
 ![顯示值](./media/test-createuidefinition/show-json.png)
 

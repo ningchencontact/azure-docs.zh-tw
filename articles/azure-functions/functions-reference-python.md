@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 0cdd7f291b43f442b8471a19f515e4a2d12b4e74
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 637205bd4ad438d7efbee6fb304b0a934aefdfdf
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562867"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615890"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
@@ -315,14 +315,22 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>發行到 Azure
 
-當您準備好要發行時, 請確定您的所有相依性都列在 [*需求 .txt* ] 檔案中, 該檔案位於專案目錄的根目錄中。 如果您正在使用需要編譯器且不支援從 PyPl 安裝多版 Linux 相容的套件，則發行至 Azure 會失敗，並發生下列錯誤： 
+當您準備好要發行時, 請確定您的所有相依性都列在 [*需求 .txt* ] 檔案中, 該檔案位於專案目錄的根目錄中。 Azure Functions 可以[從遠端建立](functions-deployment-technologies.md#remote-build)這些相依性。
+
+若要部署至 Azure 並執行遠端組建, 請使用下列命令:
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
+
+如果您不是使用遠端組建, 並使用需要編譯器的套件, 且不支援從 PyPI 安裝許多 Linux 相容的輪, 則發行至 Azure 而不在本機建立, 將會因下列錯誤而失敗:
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
 The terminal process terminated with exit code: 1
 ```
 
-若要自動建置和設定必要的二進位檔，請在本機電腦上[安裝 Docker](https://docs.docker.com/install/)，並執行下列命令以使用 [Azure Functions Core Tools](functions-run-local.md#v2) (func) 來發行。 在 Azure 中，請記得以您的函式應用程式名稱取代 `<app name>`。 
+若要在本機建立並設定必要的二進位檔, 請在您的本機電腦上[安裝 Docker](https://docs.docker.com/install/) , 然後執行下列命令, 使用[Azure Functions Core Tools](functions-run-local.md#v2) (func) 進行發佈。 在 Azure 中，請記得以您的函式應用程式名稱取代 `<app name>`。 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

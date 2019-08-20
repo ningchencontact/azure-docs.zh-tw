@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: f4252fcd70ff5aa9c2056b72add7c79283ce7fcf
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f234eaea0d4df3859ef9458ea334f1b7616add34
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473441"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612939"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>在受控網域上設定 Kerberos 限制委派 (KCD)
 許多應用程式都需要以使用者的登入身分存取資源。 Active Directory 支援稱為 Kerberos 委派的機制，可用於此使用案例。 再者，您可以限制委派，讓使用者的登入身分只能用來存取特定資源。 Azure AD Domain Services 受控網域與傳統Active Directory 網域不同，因為前者的權限更為嚴格且更為安全。
@@ -47,15 +47,15 @@ Kerberos 限制委派 (KCD) 會限制指定的伺服器可代表使用者存取�
 資源型 KCD 是使用 PowerShell 所設定的。 您將視模擬帳戶是電腦帳戶還是使用者帳戶/服務帳戶而定，使用 `Set-ADComputer` 或 `Set-ADUser` Cmdlet。
 
 ### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>為受控網域上的電腦帳戶設定資源型 KCD
-假設您有在電腦 'contoso100-webapp.contoso100.com' 上執行的 Web 應用程式。 它需要以網域使用者的登入身分存取資源 ('contoso100-api.contoso100.com' 上執行的 Web API)。 以下是針對此案例設定資源型 KCD 的方式：
+假設您有一個在電腦 ' contoso-webapp.contoso.com ' 上執行的 web 應用程式。 它需要在網域使用者的內容中存取資源 (在 ' contoso-api.contoso.com ' 上執行的 Web API)。 以下是針對此案例設定資源型 KCD 的方式：
 
 1. [建立自訂 OU](create-ou.md)。 您可以將管理這個自訂 OU 的權限委派給受控網域內的使用者。
 2. 將兩種虛擬機器 (執行 Web 應用程式的虛擬機器和執行 Web API 的虛擬機器) 都加入受控網域中。 請在自訂 OU 內建立這些電腦帳戶。
 3. 現在，使用下列 PowerShell 命令來設定資源型 KCD：
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
-Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+$ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
+Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 > [!NOTE]
@@ -80,5 +80,5 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 >
 
 ## <a name="related-content"></a>相關內容
-* [Azure AD Domain Services - 入門指南](create-instance.md)
+* [Azure AD Domain Services - 入門指南](tutorial-create-instance.md)
 * [Kerberos 限制委派概觀](https://technet.microsoft.com/library/jj553400.aspx)

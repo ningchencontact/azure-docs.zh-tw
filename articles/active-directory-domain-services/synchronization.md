@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 475817985885cdd6023e72f20ecf35a3ca582924
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1c52ac967d241f31d96988fa5ead8b4e049f6f4c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472433"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617109"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 受控網域中的同步處理
 下圖說明同步處理在 Azure AD Domain Services 受控網域中的運作方式。
@@ -60,7 +60,7 @@ ms.locfileid: "67472433"
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>如何將特定屬性同步到受控網域
 下表列出一些常見的屬性並說明如何將它們同步到受控網域。
 
-| 受控網域中的屬性 | source | 注意 |
+| 受控網域中的屬性 | Source | 注意 |
 |:--- |:--- |:--- |
 | UPN |Azure AD 租用戶中的使用者 UPN 屬性 |來自您 Azure AD 租用戶的 UPN 屬性會依原狀同步到您的受控網域。 因此，登入您受控網域的最可靠方法是使用您的 UPN。 |
 | SAMAccountName |Azure AD 租用戶中或自動產生的使用者 mailNickname 屬性 |SAMAccountName 屬性是來自您 Azure AD 租用戶中的 mailNickname 屬性。 如果有多個使用者帳戶具有相同的 mailNickname 屬性，系統就會自動產生 SAMAccountName。 如果使用者的 mailNickname 或 UPN 前置詞長度超過 20 個字元，系統就會自動產生 SAMAccountName 來滿足 SAMAccountName 屬性上的 20 個字元限制。 |
@@ -69,7 +69,7 @@ ms.locfileid: "67472433"
 | 使用者和群組的 SID 歷程記錄 |內部部署主要使用者和群組 SID |您的受控網域中使用者和群組的 SidHistory 屬性會設定為與內部部署網域中對應的主要使用者或群組 SID 相符。 此功能可協助以更簡單的方式將內部部署應用程式原封不動地轉移到受控網域，因為您不需要重新設定資源的 ACL。 |
 
 > [!NOTE]
-> **使用 UPN 格式來登入受控網域：** 系統可能會針對受控網域中的某些使用者帳戶自動產生 SAMAccountName 屬性。 如果有多個使用者具有相同的 mailNickname 屬性，或使用者的 UPN 前置詞太長，可能就會自動為這些使用者產生 SAMAccountName。 因此，SAMAccountName 格式 (例如 'CONTOSO100\joeuser') 並不一定是登入網域的可靠方法。 使用者的自動產生 SAMAccountName 可能會與其 UPN 前置詞不同。 請使用 UPN 格式 (例如 'joeuser@contoso100.com') 可靠地登入受控網域。
+> **使用 UPN 格式來登入受控網域：** 系統可能會針對受控網域中的某些使用者帳戶自動產生 SAMAccountName 屬性。 如果有多個使用者具有相同的 mailNickname 屬性，或使用者的 UPN 前置詞太長，可能就會自動為這些使用者產生 SAMAccountName。 因此, SAMAccountName 格式 (例如 ' CONTOSO\dee ') 不一定是登入網域的可靠方式。 使用者的自動產生 SAMAccountName 可能會與其 UPN 前置詞不同。 請使用 UPN 格式 (例如 'dee@contoso.com') 可靠地登入受控網域。
 
 ### <a name="attribute-mapping-for-user-accounts"></a>使用者帳戶的屬性對應
 下表說明如何將您 Azure AD 租用戶中使用者物件的特定屬性同步到受控網域中對應的屬性。
@@ -94,7 +94,7 @@ ms.locfileid: "67472433"
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | postalCode |postalCode |
 | preferredLanguage |preferredLanguage |
-| state |st |
+| 狀態 |st |
 | streetAddress |streetAddress |
 | surname |sn |
 | telephoneNumber |telephoneNumber |
@@ -116,7 +116,7 @@ ms.locfileid: "67472433"
 ## <a name="password-hash-synchronization-and-security-considerations"></a>密碼雜湊同步處理和安全性考量
 當您啟用 Azure AD Domain Services 時，Azure AD 目錄就會以 NTLM 和 Kerberos 相容的格式產生並儲存密碼雜湊。 
 
-針對現有的雲端使用者帳戶，由於 Azure AD 絕對不會儲存他們的純文字密碼，所以無法自動產生這些雜湊。 因此，Microsoft 要求[雲端使用者重設/變更其密碼](active-directory-ds-getting-started-password-sync.md)，以產生其密碼雜湊並儲存於 Azure AD 中。 針對在啟用 Azure AD Domain Services 之後於 Azure AD 中建立的任何雲端使用者帳戶，以 NTLM 和 Kerberos 相容的格式產生並儲存密碼雜湊。 
+針對現有的雲端使用者帳戶，由於 Azure AD 絕對不會儲存他們的純文字密碼，所以無法自動產生這些雜湊。 因此，Microsoft 要求[雲端使用者重設/變更其密碼](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)，以產生其密碼雜湊並儲存於 Azure AD 中。 針對在啟用 Azure AD Domain Services 之後於 Azure AD 中建立的任何雲端使用者帳戶，以 NTLM 和 Kerberos 相容的格式產生並儲存密碼雜湊。 
 
 針對使用 Azure AD Connect 同步從內部部署 AD 同步處理的使用者帳戶，您需要[設定 Azure AD Connect 同步來以 NTLM 和 Kerberos 相容的格式同步處理密碼雜湊](active-directory-ds-getting-started-password-sync-synced-tenant.md)。
 
@@ -126,7 +126,6 @@ NTLM 和 Kerberos 相容的密碼雜湊一律會以加密方式儲存於 Azure A
 如本文前面某節所述，並不會有從受控網域往回同步到 Azure AD 租用戶的情況。 您可以選擇在您的受控網域中[建立自訂組織單位 (OU)](create-ou.md)。 此外，您還可以在這些自訂 OU 內建立其他 OU、使用者、群組或服務帳戶。 在自訂 OU 內建立的所有物件都不會往回同步到您的 Azure AD 租用戶。 這些物件僅供在您的受控網域內使用。 因此，不論是使用 Azure AD PowerShell Cmdlet、Azure AD Graph API，還是使用 Azure AD 管理 UI，都看不到這些物件。
 
 ## <a name="related-content"></a>相關內容
-* [功能 - Azure AD 網域服務](active-directory-ds-features.md)
 * [部署案例 - Azure AD 網域服務](scenarios.md)
 * [Azure AD Domain Services 的網路考量](network-considerations.md)
-* [開始使用 Azure AD Domain Services](create-instance.md)
+* [開始使用 Azure AD Domain Services](tutorial-create-instance.md)

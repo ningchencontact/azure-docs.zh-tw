@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: a194919a488f6cb59c76315c9d8a3db1e9c1feb1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 285af0e5e5d5ab03027fc29064a5f3623ed10e2f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472194"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617054"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD Domain Services 受控網域的安全 LDAP (LDAPS) 進行疑難排解
 
@@ -42,9 +42,9 @@ ms.locfileid: "67472194"
 
 
 ## <a name="related-content"></a>相關內容
-* [Azure AD Domain Services - 入門指南](create-instance.md)
-* [管理 Azure AD Domain Services 網域](manage-domain.md)
+* [Azure AD Domain Services - 入門指南](tutorial-create-instance.md)
+* [管理 Azure AD Domain Services 網域](tutorial-create-management-vm.md)
 * [LDAP 查詢基本概念](https://technet.microsoft.com/library/aa996205.aspx)
-* [管理 Azure AD Domain services 的群組原則](manage-group-policy.md)
+* [管理 Azure AD Domain Services 的群組原則](manage-group-policy.md)
 * [網路安全性群組](../virtual-network/security-overview.md)
 * [建立網路安全性群組](../virtual-network/tutorial-filter-network-traffic.md)

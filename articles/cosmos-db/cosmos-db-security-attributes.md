@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f1b578ff70e8a2795ba886e6d0c75eff521f77c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442561"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615530"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Azure Cosmos DB 的安全性屬性
 
@@ -26,7 +26,7 @@ ms.locfileid: "68442561"
 
 | 安全性屬性 | 是/否 | 注意 |
 |---|---|--|
-| 待用加密 (例如伺服器端加密、使用客戶管理金鑰的伺服器端加密, 以及其他加密功能) | 是 | 預設會加密所有 Cosmos DB 資料庫和備份;請參閱[Azure Cosmos DB 中的資料加密](database-encryption-at-rest.md)。 不支援使用客戶管理的金鑰進行伺服器端加密。 |
+| 待用加密 (例如伺服器端加密、使用客戶管理金鑰的伺服器端加密, 以及其他加密功能) | 是 | 預設會加密所有 Cosmos 的資料庫和備份;請參閱[Azure Cosmos DB 中的資料加密](database-encryption-at-rest.md)。 不支援使用客戶管理的金鑰進行伺服器端加密。 |
 | 傳輸中的加密 (例如 ExpressRoute 加密、VNet 加密中和 VNet VNet 加密)| 是 | 所有 Azure Cosmos DB 資料都會在傳輸時加密。 |
 | 加密金鑰處理 (CMK、BYOK 等)| 否 |  |
 | 資料行層級加密 (Azure 資料服務)| 是 | 僅適用于資料表 API Premium。 並非所有 Api 都支援這項功能。 請[參閱 Azure Cosmos DB 簡介:資料表 API](table-introduction.md)。 |

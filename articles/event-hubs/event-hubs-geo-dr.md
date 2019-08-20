@@ -14,18 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562707"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611713"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure 事件中樞 - 異地災害復原 
 
 當整個 Azure 區域或資料中心 (如果未使用[可用性區域](../availability-zones/az-overview.md)) 遇到停機時，最重要的是資料處理作業能夠繼續在不同的區域或資料中心運作。 因此，「地理災害復原」和「異地複寫」對於任何企業而言都是重要的功能。 Azure 事件中樞支援命名空間層級的地理災害復原和異地複寫。 
 
-異地嚴重損壞修復功能適用于事件中樞標準和專用 SKU。 請注意, 您只能在相同的 SKU 層中進行地理配對的命名空間。 比方說, 如果您在只在我們專用 SKU 中提供的叢集中有命名空間, 它只能與另一個叢集中的命名空間配對。 
+> [!NOTE]
+> 異地嚴重損壞修復功能僅適用于[標準和專用 sku](https://azure.microsoft.com/pricing/details/event-hubs/)。  
 
 ## <a name="outages-and-disasters"></a>中斷與災害
 
@@ -37,7 +38,9 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 
 ## <a name="basic-concepts-and-terms"></a>基本概念與術語
 
-災害復原功能會實作中繼資料災害復原，並依賴主要和次要災害復原命名空間。 請注意, 「地理災難復原」功能僅適用于「[標準」和「專用」 sku](https://azure.microsoft.com/pricing/details/event-hubs/) 。 您不需要進行任何連接字串變更，因為連接是透過別名建立的。
+災害復原功能會實作中繼資料災害復原，並依賴主要和次要災害復原命名空間。 
+
+異地嚴重損壞修復功能僅適用于[標準和專用 sku](https://azure.microsoft.com/pricing/details/event-hubs/) 。 您不需要進行任何連接字串變更，因為連接是透過別名建立的。
 
 本文中使用下列術語：
 
@@ -48,6 +51,19 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 -  *中繼資料*：實體 (例如事件中樞和取用者群組)；以及與命名空間相關聯之服務的屬性。 請注意，只有實體及其設定會自動複寫。 不會複寫訊息和事件。 
 
 -  *容錯移轉*：啟用次要命名空間的程序。
+
+## <a name="supported-namespace-pairs"></a>支援的命名空間配對
+以下是支援的主要和次要命名空間組合:  
+
+| 主要命名空間 | 次要命名空間 | Suppported | 
+| ----------------- | -------------------- | ---------- |
+| 標準 | 標準 | 是 | 
+| 標準 | 專用 | 是 | 
+| 專用 | 專用 | 是 | 
+| 專用 | 標準 | 否 | 
+
+> [!NOTE]
+> 您無法配對位於相同專用叢集中的命名空間。 您可以配對位於不同叢集中的命名空間。 
 
 ## <a name="setup-and-failover-flow"></a>設定和容錯移轉流程
 

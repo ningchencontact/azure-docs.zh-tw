@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 757366f1d1f94d11438be4df0772ce1155f71cee
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 3758766b1051acb9321ec67727eecef249971065
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310578"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615090"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB 做為金鑰值存放區 – 成本概觀
 
 Azure Cosmos DB 是全域散發的多模型資料庫服務，可用來輕鬆建置具高可用性的大規模應用程式。 根據預設，Azure Cosmos DB 會自動有效率地編製它內嵌之所有資料的索引。 這樣可在任何種類的資料上進行快速且一致的 [SQL](how-to-sql-query.md) (和 [JavaScript](stored-procedures-triggers-udfs.md)) 查詢。 
 
-本文說明 Azure Cosmos DB 做為金鑰值存放區時，進行簡單寫入與讀取作業的成本。 寫入作業包括文件的插入、取代、刪除和更新插入。 除了保證 99.99%可用性 SLA 適用於所有單一區域帳戶和所有多重區域帳戶寬鬆的一致性，並可享有達 99.999%的讀取可用性所有多重區域資料庫帳戶，Azure Cosmos DB 提供保證 < 10 毫秒延遲讀取和 （索引） 寫入分別 99 百分位數。 
+本文說明 Azure Cosmos DB 做為金鑰值存放區時，進行簡單寫入與讀取作業的成本。 寫入作業包括文件的插入、取代、刪除和更新插入。 除了保證所有單一區域帳戶和所有多重區域帳戶具有寬鬆一致性的 99.99% 可用性 SLA, 所有多重區域資料庫帳戶都有 99.999% 的讀取可用性, Azure Cosmos DB 提供保證 < 10 毫秒延遲分別讀取 (索引) 寫入的和 (第99個百分位數)。 
 
 ## <a name="why-we-use-request-units-rus"></a>為什麼我們要使用「要求單位」(RU)
 
 Azure Cosmos DB 效能是以分割區已佈建的[要求單位](request-units.md) (RU) 數量為基礎。 佈建為第二個資料粒度，且以 RU/秒為單位購買 ([不應該與每小時計費混淆](https://azure.microsoft.com/pricing/details/cosmos-db/))。 RU 應該被視為可簡化佈建應用程式必要輸送量的貨幣。 我們的客戶不必去區別讀取和寫入容量單位。 RU 的單一貨幣模型可有效率地共用讀取和寫入之間已佈建的容量。 此佈建容量模型可讓服務提供可預測且一致的輸送量、保證低延遲以及高可用性。 最後，我們使用 RU 來建立模型輸送量，但每個佈建的 RU 也會有定義的資源數量 (記憶體、核心)。 RU/秒不只是 IOPS。
 
-做為全域散發的資料庫系統，Cosmos DB 是除了高可用性以外，唯一就延遲、輸送量和一致性提供 SLA 的 Azure 服務。 您所佈建的輸送量會套用到與您 Cosmos DB 資料庫帳戶相關聯的每一個區域。 針對讀取，Cosmos DB 提供多個定義完善的[一致性層級](consistency-levels.md)，以供您選擇。 
+做為全域散發的資料庫系統，Cosmos DB 是除了高可用性以外，唯一就延遲、輸送量和一致性提供 SLA 的 Azure 服務。 您所布建的輸送量會套用到與您的 Cosmos 資料庫帳戶相關聯的每個區域。 針對讀取，Cosmos DB 提供多個定義完善的[一致性層級](consistency-levels.md)，以供您選擇。 
 
 下表顯示根據 1 KB 和 100 KB 的文件大小，執行讀取和寫入交易所需要的 RU 數目。
 

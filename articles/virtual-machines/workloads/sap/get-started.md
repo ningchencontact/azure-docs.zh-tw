@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ecf3ec6ba9c71f3d7624b541ba0618645ab14f4
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: da7b9c44d15ac0ca16afe15e429a6fe2cf89e366
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535080"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575234"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -49,7 +49,7 @@ Azure 上的 SAP 工作負載區段中的檔變更會列在本文結尾。
 - [Azure (大型實例) 上 SAP Hana 的高可用性和嚴重損壞修復](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
 - [針對 Azure (大型實例) 上的 SAP Hana 進行疑難排解和監視](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 
-後續步驟:
+後續步驟：
 
 - 瞭解[Azure (大型實例) 上 SAP Hana 的總覽和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
@@ -122,6 +122,7 @@ Azure 上的 SAP 工作負載區段中的檔變更會列在本文結尾。
 
 ## <a name="change-log"></a>變更記錄檔
 
+- 08/16/2019:在[azure Red Hat Enterprise Linux 上設定 Pacemaker 的](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)變更, 以在更新至新版本的 azure 隔離代理程式時, 提醒客戶更新自訂角色中的動作  
 - 08/15/2019:[SAP Hana Azure 虛擬機器儲存體](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)設定的變更, 以反映 ultra (舊稱 ultra SSD) 的正式運作
 - 08/01/2019:在[Azure 中的 SUSE Linux Enterprise Server 上設定 Pacemaker](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) , 以整合特別針對 SLES 15 進行的變更 
 - 07/23/2019:在[Azure 中使用檔案共用在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 實例叢集的](sap-high-availability-guide-wsfc-file-share.md)變更, 以反映 Azure Site Recovery 服務的儲存空間直接存取支援

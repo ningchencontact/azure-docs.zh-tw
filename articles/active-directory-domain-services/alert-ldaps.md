@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 8a542f7927ddd834c7273f6ef8b251ddc35e8436
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f9f4a8b52548dad011f5e825fa42c50da970ea7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234196"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613150"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - 針對安全 LDAP 設定進行疑難排解
 
-本文會針對[設定 Azure AD Domain Services 的安全 LDAP](configure-ldaps.md) 時的常見問題提供解決方案。
+本文會針對[設定 Azure AD Domain Services 的安全 LDAP](tutorial-configure-ldaps.md) 時的常見問題提供解決方案。
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101：安全 LDAP 網路安全性群組組態
 
@@ -40,13 +40,13 @@ ms.locfileid: "68234196"
 2. 從資料表選擇與網域相關聯的 NSG。
 3. 按一下 **輸入安全性規則**
 4. 建立連接埠 636 規則
-   1. 按一下頂端導覽列上的 [新增]  。
-   2. 選擇來源的 [IP 位址]  。
+   1. 按一下頂端導覽列上的 [新增]。
+   2. 選擇來源的 [IP 位址]。
    3. 指定此規則的來源連接埠範圍。
    4. 輸入 "636" 作為目的地連接埠範圍。
    5. 通訊協定為 **TCP**。
    6. 為規則提供適當的名稱、描述和優先順序。 此規則的優先順序應高於「全部拒絕」規則的優先順序 (如果有的話)。
-   7. 按一下 [確定]  。
+   7. 按一下 [確定]。
 5. 確認規則已建立。
 6. 請在兩個小時後檢查網域的健康情況，以確保您已正確完成所有步驟。
 
@@ -62,7 +62,7 @@ ms.locfileid: "68234196"
 
 **解決方案：**
 
-依照[設定安全 LDAP](configure-ldaps.md) 一文中所述的步驟，建立新的安全 LDAP 憑證。
+依照[設定安全 LDAP](tutorial-configure-ldaps.md) 一文中所述的步驟，建立新的安全 LDAP 憑證。
 
-## <a name="contact-us"></a>與我們連絡
+## <a name="contact-us"></a>請與我們連絡
 請連絡 Azure Active Directory Domain Services 產品小組， [分享意見或尋求支援](contact-us.md)。

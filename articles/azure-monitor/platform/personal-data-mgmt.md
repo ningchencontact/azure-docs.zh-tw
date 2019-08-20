@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827383"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617298"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>儲存在 Log Analytics 和 Application Insights 中的個人資料指引
 
@@ -98,6 +98,11 @@ Log Analytics 是彈性的存放區，在指定資料結構描述的同時，允
 我們已將處理「清除」API 路徑的功能納入到隱私權中。 請謹慎使用此路徑，原因是這項操作會引發相關風險、可能影響效能，而且可能會扭曲整個彙總、量測和 Log Analytics 的其他方面。 如需替代的私人資料處理方法，請參閱[個人資料處理策略](#strategy-for-personal-data-handling)一節。
 
 清除作業需要極高的特殊權限，若未對 Azure 中的應用程式或使用者 (甚至包括資源擁有者) 明確授與 Azure Resource Manager 角色，其將無權執行此作業。 這個角色便是「資料清除者」，由於可能會遺失資料，委派此角色時請務必小心。 
+
+> [!IMPORTANT]
+> 為了管理系統資源, 清除要求會在每小時的50要求進行節流。 您應該藉由傳送單一命令 (其述詞包含所有需要清除的使用者身分識別) 來批次處理清除要求的執行。 使用[in 運算子](/azure/kusto/query/inoperator)來指定多個身分識別。 您應該在執行清除要求之前先執行查詢, 以確認結果是否符合預期。 
+
+
 
 獲派 Azure Resource Manager 角色後，就可使用兩個新的 API 路徑： 
 

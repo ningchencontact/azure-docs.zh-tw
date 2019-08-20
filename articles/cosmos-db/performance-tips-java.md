@@ -1,18 +1,18 @@
 ---
 title: 適用於 Java 的 Azure Cosmos DB 效能提示
-description: 了解用以改善 Azure Cosmos DB 資料庫效能的用戶端設定選項
+description: 瞭解改善 Azure Cosmos 資料庫效能的用戶端設定選項
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 7d6427db7090b3419fbe67535baeb4a5df6a5d65
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7d221c2afc952f40da035c6e2c282b3b932aa5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261319"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616768"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB 和 Java 的效能祕訣
 
@@ -59,7 +59,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
    <a id="same-region"></a>
 2. **為了效能在相同 Azure 區域中共置用戶端**
 
-    可能的話，請將任何呼叫 Azure Cosmos DB 的應用程式放在與 Azure Cosmos DB 資料庫相同的區域中。 以約略的比較來說，在相同區域內對 Azure Cosmos DB 進行的呼叫會在 1-2 毫秒內完成，但美國西岸和美國東岸之間的延遲則會大於 50 毫秒。 視要求所採用的路由而定，各項要求從用戶端傳遞至 Azure 資料中心界限時的這類延遲可能有所不同。 確保呼叫端應用程式與佈建的 Azure Cosmos DB 端點位於相同的 Azure 區域中，將可能達到最低的延遲。 如需可用區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
+    可能的話, 請將任何呼叫 Azure Cosmos DB 的應用程式放在與 Azure Cosmos 資料庫相同的區域中。 以約略的比較來說，在相同區域內對 Azure Cosmos DB 進行的呼叫會在 1-2 毫秒內完成，但美國西岸和美國東岸之間的延遲則會大於 50 毫秒。 視要求所採用的路由而定，各項要求從用戶端傳遞至 Azure 資料中心界限時的這類延遲可能有所不同。 確保呼叫端應用程式與佈建的 Azure Cosmos DB 端點位於相同的 Azure 區域中，將可能達到最低的延遲。 如需可用區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
 
     ![Azure Cosmos DB 連接原則的圖例](./media/performance-tips/same-region.png)
    
@@ -127,7 +127,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     如需詳細資訊，請參閱 [Azure Cosmos DB 索引編製原則](indexing-policies.md)。
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>輸送量
 <a id="measure-rus"></a>
 
 1. **測量和調整較低的要求單位/秒使用量**

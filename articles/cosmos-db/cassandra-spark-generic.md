@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc28cf590a1fd2c3fdfe8651f136526188801c04
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893621"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615635"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>從 Spark 連線至 Azure Cosmos DB Cassandra API
 
@@ -40,14 +40,14 @@ ms.locfileid: "60893621"
 
 下表列出連接器所提供的 Azure Cosmos DB Cassandra API 特定輸送量設定參數。 如需所有設定參數的詳細清單，請參閱 Spark Cassandra 連接器 GitHub 存放庫的[設定參考](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md)頁面。
 
-| **屬性名稱** | **預設值** | **說明** |
+| **屬性名稱** | **預設值** | **描述** |
 |---------|---------|---------|
 | spark.cassandra.output.batch.size.rows |  1 |每個單一批次的資料列數目。 將此參數設定為 1。 此參數用來為繁重的工作負載達到更高的輸送量。 |
 | spark.cassandra.connection.connections_per_executor_max  | None | 每個執行程式的每個節點連線數目上限。 10*n 相當於 n 個節點的 Cassandra 叢集中每個節點有 10 個連線。 因此，如果針對 5 個節點的 Cassandra 叢集，您需要每個執行程式的每個節點有 5 個連線，則您應該將此設定設為 25。 請根據 Spark 工作設定的平行處理原則程度或執行程式數目來修改此值。   |
 | spark.cassandra.output.concurrent.writes  |  100 | 定義每個執行程式可能發生的平行寫入數目。 因為您將 "batch.size.rows" 設定為 1，所以請務必據以相應增加此值。 請根據您想要針對工作負載達到的平行處理原則程度或輸送量來修改此值。 |
 | spark.cassandra.concurrent.reads |  512 | 定義每個執行程式可能發生的平行讀取數目。 請根據您想要針對工作負載達到的平行處理原則程度或輸送量來修改此值  |
-| spark.cassandra.output.throughput_mb_per_sec  | None | 定義每個執行程式的總寫入輸送量。 此參數可用作 Spark 工作輸送量的上限，並以 Cosmos DB 集合的佈建輸送量為基礎。   |
-| spark.cassandra.input.reads_per_sec| None   | 定義每個執行程式的總讀取輸送量。 此參數可用作 Spark 工作輸送量的上限，並以 Cosmos DB 集合的佈建輸送量為基礎。  |
+| spark.cassandra.output.throughput_mb_per_sec  | None | 定義每個執行程式的總寫入輸送量。 此參數可用來作為 spark 作業輸送量的上限, 並以 Cosmos 容器的布建輸送量為基礎。   |
+| spark.cassandra.input.reads_per_sec| None   | 定義每個執行程式的總讀取輸送量。 此參數可用來作為 spark 作業輸送量的上限, 並以 Cosmos 容器的布建輸送量為基礎。  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | 定義每個單一 Spark 工作可在傳送至 Cassandra API 之前，先存放在記憶體中的批次數目 |
 | spark.cassandra.connection.keep_alive_ms | 60000 | 定義未使用的連線可供使用的期間。 | 
 

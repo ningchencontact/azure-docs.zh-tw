@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24e7e67145b789737484fcb594f48127c41eafe9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570560"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575217"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>在 Azure 中的 Red Hat Enterprise Linux 上設定 Pacemaker
 
@@ -107,12 +107,16 @@ ms.locfileid: "68570560"
    > RHEL 7.6: fence-agents-4.2.1-11-preview. el7 _ 6。8  
    > RHEL 7.5: fence-agents-4.0.11-86. el7 _ 5。8  
    > RHEL 7.4: fence-agents-4.0.11-66. el7 _ 4.12  
-   > 如需詳細資訊, 請參閱以[RHEL 高可用性叢集成員身分執行的 AZURE VM 需要很長的時間才能圍住, 或隔離會在 VM 關機之前失敗/超時](https://access.redhat.com/solutions/3408711)
+   > 如需詳細資訊, 請參閱以[RHEL 高可用性叢集成員身分執行的 AZURE VM 需要很長的時間才能圍住, 或隔離會在 VM 關機之前失敗/超時](https://access.redhat.com/solutions/3408711)。
 
    檢查 Azure 隔離代理程式的版本。 如有必要, 請將其更新為等於或晚于上述的版本。
+
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
    </code></pre>
+
+   > [!IMPORTANT]
+   > 如果您需要更新 Azure 隔離代理程式, 而且如果使用自訂角色, 請務必更新自訂角色, 以包含關閉動作。 如需詳細資訊, 請參閱[建立適用于隔離代理程式的自訂角色](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent)。  
 
 1. **[A]** 設定主機名稱解析
 

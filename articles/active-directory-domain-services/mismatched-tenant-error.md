@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 676efa155c85ab371ec41c49ad0c15eb2bd5a24a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 4978f7b782271daff996807172a24103bd8d9860
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233995"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617287"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>解決現有 Azure AD Domain Services 受控網域的不相符目錄錯誤
 您有現有的 Azure AD 網域服務受控網域。 當您瀏覽至 Azure 入口網站並檢視受控網域時，您會看到下列錯誤訊息：
@@ -54,14 +54,14 @@ ms.locfileid: "68233995"
 - Azure AD Domain Services 受控網域可以在屬於相同 Azure AD 租用戶內之任何 Azure 訂用帳戶的虛擬網路上啟用。
 
 
-## <a name="resolution"></a>解決方案
+## <a name="resolution"></a>解析度
 您有兩個選項可以用來解決不相符目錄錯誤。 您可以：
 
-- 按一下 [刪除]  按鈕，刪除現有的受控網域。 使用 [Azure 入口網站](https://portal.azure.com)重新建立，讓受控網域和可用的虛擬網路屬於 Azure AD 目錄。 將先前加入已刪除網域的所有機器加入新建立的受控網域。
+- 按一下 [刪除] 按鈕，刪除現有的受控網域。 使用 [Azure 入口網站](https://portal.azure.com)重新建立，讓受控網域和可用的虛擬網路屬於 Azure AD 目錄。 將先前加入已刪除網域的所有機器加入新建立的受控網域。
 
 - 將包含虛擬網路的 Azure 訂用帳戶移至受控網域所屬的 Azure AD 目錄。 請遵循[將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)一文中的步驟。
 
 
 ## <a name="related-content"></a>相關內容
-* [Azure AD Domain Services - 入門指南](create-instance.md)
+* [Azure AD Domain Services - 入門指南](tutorial-create-instance.md)
 * [疑難排解指南 - Azure AD Domain Services](troubleshoot.md)

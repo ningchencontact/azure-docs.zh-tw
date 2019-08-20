@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67566069"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611914"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>將現有的 Azure 服務匯流排標準命名空間遷移至進階層
 之前, Azure 服務匯流排只會在標準層上提供命名空間。 命名空間是針對低輸送量和開發人員環境優化的多租使用者的設置。 進階層會針對每個命名空間提供專用資源, 以獲得可預測的延遲, 並以固定價格增加輸送量。 Premium 層已針對需要額外企業功能的高輸送量和生產環境進行優化。
@@ -115,7 +115,8 @@ ms.locfileid: "67566069"
    1. 同步完成之後, 請選取頁面底部的 **[下一步]** 。
 
 1. 查看 [摘要] 頁面上的變更。 選取 [**完成遷移**] 來切換命名空間, 並完成遷移。
-    ![切換命名空間-切換][]功能表: 當遷移完成時, 會出現確認頁面。
+    ![切換命名空間-切換功能表][]  
+    當遷移完成時, 會出現 [確認] 頁面。
     ![交換器命名空間-成功][]
 
 ## <a name="caveats"></a>需要注意的事項

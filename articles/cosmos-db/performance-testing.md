@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a5842d590a4597253bac39c0b7a6f62e6acad908
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ac257d4eb9fb9e26739f1a63049751f9298efb5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243522"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616775"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB 的效能和規模測試
 
@@ -42,7 +42,7 @@ ms.locfileid: "66243522"
 **步驟 2：** 修改 App.config 中 EndpointUrl、AuthorizationKey、CollectionThroughput 及 DocumentTemplate (選擇性) 的設定。
 
 > [!NOTE]
-> 以高輸送量佈建集合之前，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)以估算每個集合的成本。 Azure Cosmos DB 會以小時為單位，對儲存體和輸送量分別計價。 測試完成後，您可以藉由刪除或降低 Azure Cosmos DB 集合的輸送量來節省成本。
+> 以高輸送量佈建集合之前，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)以估算每個集合的成本。 Azure Cosmos DB 會以小時為單位，對儲存體和輸送量分別計價。 您可以藉由在測試後刪除或降低 Azure Cosmos 容器的輸送量來節省成本。
 > 
 > 
 

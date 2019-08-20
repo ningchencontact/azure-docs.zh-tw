@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 77cfde8cc9c6556b907f1185f451c70c8c8e888d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2e6036c5f29614f2e91278b693c07dc3dc8595f2
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534093"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575476"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 入口網站建立站對站連線 (傳統)
 
@@ -39,7 +39,7 @@ ms.locfileid: "69534093"
 * 確定您有相容的 VPN 裝置以及能夠對其進行設定的人員。 如需相容 VPN 裝置和裝置組態的詳細資訊，請參閱[關於 VPN 裝置](vpn-gateway-about-vpn-devices.md)。
 * 確認您的 VPN 裝置有對外開放的公用 IPv4 位址。
 * 如果您不熟悉位於內部部署網路組態的 IP 位址範圍，您需要與能夠提供那些詳細資料的人協調。 當您建立此組態時，您必須指定 IP 位址範圍的首碼，以供 Azure 路由傳送至您的內部部署位置。 內部部署網路的子網路皆不得與您所要連線的虛擬網路子網路重疊。
-* 目前需要 PowerShell，才能指定共用金鑰及建立 VPN 閘道連線。 安裝最新版的 Azure 服務管理 (SM) PowerShell Cmdlet。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。 使用 PowerShell 進行這項設定時，請確定您是以系統管理員身分執行。
+* 目前需要 PowerShell，才能指定共用金鑰及建立 VPN 閘道連線。 安裝最新版的 Azure 服務管理 (SM) PowerShell Cmdlet。 若要安裝 Cmdlet, 請參閱[服務管理](/powershell/azure/servicemanagement/install-azure-ps)。 如需 PowerShell 一般安裝的詳細資訊, 請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。 使用 PowerShell 進行這項設定時，請確定您是以系統管理員身分執行。
 
 ### <a name="values"></a>此練習的範例組態值
 
@@ -159,6 +159,12 @@ DNS 設定不是 S2S 組態的必要部分，但如果您想要名稱解析，�
 
 ### <a name="step-1-connect-to-your-azure-account"></a>步驟 1. 連線至您的 Azure 帳戶
 
+您必須使用 PowerShell 服務管理模組, 在本機執行這些命令。 若要切換至服務管理, 請使用下列命令:
+
+```powershell
+azure config mode asm
+```
+
 1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
 
    ```powershell
@@ -177,18 +183,14 @@ DNS 設定不是 S2S 組態的必要部分，但如果您想要名稱解析，�
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>步驟 2. 設定共用金鑰及建立連線
 
-使用 PowerShell 和傳統部署模型時，入口網站中的資源名稱有時不是 Azure 使用 PowerShell 時預期看見的名稱。 下列步驟將協助您匯出網路組態檔，以取得名稱的確切值。 您必須使用 PowerShell 服務管理模組, 在本機執行這些命令。 若要切換至服務管理, 請使用下列命令:
-
-```powershell
-azure config mode asm
-```
+當您在入口網站中建立傳統 VNet (不使用 PowerShell) 時, Azure 會將資源組名新增至簡短名稱。 例如, 根據 Azure, 您為此練習建立的 VNet 名稱是 "Group TestRG1 TestVNet1", 而不是 "TestVNet1"。 PowerShell 需要虛擬網路的完整名稱, 而不是出現在入口網站中的簡短名稱。 在入口網站中看不到完整名稱。 下列步驟可協助您匯出網路設定檔, 以取得虛擬網路名稱的確切值。 
 
 1. 在您的電腦上建立目錄，然後將網路組態檔匯出到該目錄。 在此範例中，會將網路組態檔匯出到 C:\AzureNet。
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-2. 使用 xml 編輯器開啟網路組態檔，並檢查 'LocalNetworkSite name' 和 'VirtualNetworkSite name' 的值。 修改範例以反映您所需的值。 指定包含空格的名稱時，請使用單引號括住值。
+2. 使用 xml 編輯器開啟網路組態檔，並檢查 'LocalNetworkSite name' 和 'VirtualNetworkSite name' 的值。 修改此練習的範例, 以反映 xml 中的值。 指定包含空格的名稱時，請使用單引號括住值。
 
 3. 設定共用金鑰及建立連線。 '-SharedKey' 是您產生和指定的值。 在範例中，我們使用的是 'abc123'，但是您可以產生且 (應該) 使用更為複雜的值。 重要的是，您在此指定的值必須與您在設定 VPN 裝置時指定的值相同。
 

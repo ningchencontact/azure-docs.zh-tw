@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5cbbd507352471f5e093ef018de4b0c849aad442
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 93b00aec868cf947b67329934c703f5d1b774426
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000786"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615392"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
@@ -123,7 +123,7 @@ PreferredLocations 值可以設定為任何提供 Cosmos DB 的 Azure 區域。 
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>如何開始針對 SQL API 進行開發？
 
-首先，您必須註冊 Azure 訂用帳戶。 註冊 Azure 訂用帳戶之後，您可以將 SQL API 容器新增至您的 Azure 訂用帳戶。 如需加入 Azure Cosmos DB 帳戶的相關指示，請參閱[建立 Azure Cosmos DB 資料庫帳戶](create-sql-api-dotnet.md#create-account)。
+首先，您必須註冊 Azure 訂用帳戶。 註冊 Azure 訂用帳戶之後，您可以將 SQL API 容器新增至您的 Azure 訂用帳戶。 如需新增 Azure Cosmos DB 帳戶的指示, 請參閱[建立 Azure Cosmos 資料庫帳戶](create-sql-api-dotnet.md#create-account)。
 
 [SDK](sql-api-sdk-dotnet.md) 適用於 .NET、Python、Node.js、JavaScript 和 Java。 開發人員也可以使用 [RESTful HTTP API](/rest/api/cosmos-db/)，經由各種平台和語言來與 Azure Cosmos DB 資源互動。
 
@@ -203,11 +203,11 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 
 ### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>什麼是適用於 MongoDB 的 Azure Cosmos DB API？
 
-Azure Cosmos DB 適用于 MongoDB 的 API 是一種連線通訊協定相容性層, 可讓應用程式使用現有的、支援 MongoDB 的 Sdk 和驅動程式, 輕鬆且透明地與原生 Azure Cosmos DB 資料庫引擎通訊。 開發人員現在可以使用現有的 MongoDB 工具鏈和技能, 建立利用 Azure Cosmos DB 的應用程式。 開發人員受益于 Azure Cosmos DB 的獨特功能, 其中包括使用多宿主複寫、自動編制索引、備份維護、財務支援的服務等級協定 (Sla) 等的全域散發。
+Azure Cosmos DB 適用于 MongoDB 的 API 是一種連線通訊協定相容性層, 可讓應用程式使用現有、支援 MongoDB 的 Sdk 和適用于 MongoDB 的驅動程式, 輕鬆且透明地與原生 Azure Cosmos 資料庫引擎通訊。 開發人員現在可以使用現有的 MongoDB 工具鏈和技能, 建立利用 Azure Cosmos DB 的應用程式。 開發人員受益于 Azure Cosmos DB 的獨特功能, 其中包括使用多宿主複寫、自動編制索引、備份維護、財務支援的服務等級協定 (Sla) 等的全域散發。
 
 ### <a name="how-do-i-connect-to-my-database"></a>我要如何連線到我的資料庫？
 
-若要使用適用於 MongoDB 的 Azure Cosmos DB API 來連線至 Cosmos 資料庫，最快的方式是直接前往 [Azure 入口網站](https://portal.azure.com)。 移至您的帳戶，然後在左側瀏覽功能表中按一下 [快速入門]  。 快速入門是取得程式碼片段以連接到您的資料庫的最佳方式。
+若要使用適用於 MongoDB 的 Azure Cosmos DB API 來連線至 Cosmos 資料庫，最快的方式是直接前往 [Azure 入口網站](https://portal.azure.com)。 移至您的帳戶，然後在左側瀏覽功能表中按一下 [快速入門]。 快速入門是取得程式碼片段以連接到您的資料庫的最佳方式。
 
 Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos DB 帳戶需要驗證和透過 SSL 的安全通訊，因此請務必使用 TLSv1.2。
 
@@ -217,7 +217,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 
 除了常見的 MongoDB 錯誤碼，適用於 MongoDB 的 Azure Cosmos DB API 有專用錯誤碼：
 
-| 錯誤               | 程式碼  | 描述  | 方案  |
+| Error               | 程式碼  | 描述  | 方案  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
 | ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例: <em> &nbsp; getCollection(&nbsp;' users ')。 aggregate ([ &nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name:「中」}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
@@ -332,13 +332,13 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=
 
 [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 和 [Azure Cosmos DB 資料移轉工具](import-data.md)皆有受到支援。
 
-### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>假設我一開始就有 n  GB 的資料，而我的資料將隨著時間過去成長為 1 TB，我該如何針對此服務完成儲存體大小的擴充？
+### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>假設我一開始就有 n GB 的資料，而我的資料將隨著時間過去成長為 1 TB，我該如何針對此服務完成儲存體大小的擴充？
 
 Azure Cosmos DB 的設計乃藉由使用水平調整提供無限制的儲存體。 這項服務能監視並有效地增加您的儲存體。
 
 ### <a name="how-do-i-monitor-the-table-api-offering"></a>如何監視資料表 API 供應項目？
 
-您可以使用資料表 API 的 [計量]  窗格，來監視要求和儲存體使用量。
+您可以使用資料表 API 的 [計量] 窗格，來監視要求和儲存體使用量。
 
 ### <a name="how-do-i-calculate-the-throughput-i-require"></a>如何計算我需要的輸送量？
 
@@ -410,7 +410,7 @@ Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即�
 
 是，您可以提供索引定義來變更索引編制原則。 您需要適當地進行編碼和逸出這些設定。
 
-針對非 .NET SDK，索引編製原則只能在入口網站的**資料總管**中進行設定，請瀏覽至您想要變更的特定資料表，然後移至 [規模與設定]  -> [索引編製原則]，進行所需的變更，然後 [儲存]  。
+針對非 .NET SDK，索引編製原則只能在入口網站的**資料總管**中進行設定，請瀏覽至您想要變更的特定資料表，然後移至 [規模與設定] -> [索引編製原則]，進行所需的變更，然後 [儲存]。
 
 透過 .NET SDK，您可在 app.config 檔案中提交原則：
 
@@ -453,7 +453,7 @@ Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即�
 滿足以下任一條件時，您應該變更 TableThroughput：
 
 * 您即將要執行資料擷取、轉換及載入 (ETL)，或想要在短時間內上傳大量資料。
-* 您需要更多來自後端容器或容器集的輸送量。 例如，您發現使用的輸送量比佈建的輸送量還多，而您正要開始進行節流。 如需詳細資訊，請參閱[設定 Azure Cosmos DB 容器輸送量](set-throughput.md)。
+* 您需要更多來自後端容器或容器集的輸送量。 例如，您發現使用的輸送量比佈建的輸送量還多，而您正要開始進行節流。 如需詳細資訊, 請參閱[設定 Azure Cosmos 容器的輸送量](set-throughput.md)。
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>我可以相應增加或減少資料表 API 資料表的輸送量嗎？
 
@@ -489,7 +489,7 @@ Azure Cosmos DB 已設計為全域散發的 SLA 型系統，並提供可用性�
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>將資料內嵌至「Azure 資料表」儲存體時，我從未收到「配額已滿」通知 (表示分割區已滿)。 當我使用資料表 API 時，卻收到了這則訊息。 這個供應項目會限制我，並強迫我變更我現有的應用程式嗎？
 
-Azure Cosmos DB 是 SLA 型系統，它提供無限制的調整和延遲、輸送量、可用性、一致性保證。 若要獲得保證的進階效能，您必須確定資料大小和索引是可管理且可調整的。 每個資料分割索引鍵的實體或項目數目限制為 10 GB，這是為了確保我們能夠提供絕佳的查閱和查詢效能。 為了確保您的應用程式能夠針對 Azure 儲存體進行更佳的調整，建議您「避免」  建立常用資料分割 (將所有資訊儲存在一個資料分割，然後進行查詢)。
+Azure Cosmos DB 是 SLA 型系統，它提供無限制的調整和延遲、輸送量、可用性、一致性保證。 若要獲得保證的進階效能，您必須確定資料大小和索引是可管理且可調整的。 每個資料分割索引鍵的實體或項目數目限制為 10 GB，這是為了確保我們能夠提供絕佳的查閱和查詢效能。 為了確保您的應用程式能夠針對 Azure 儲存體進行更佳的調整，建議您「避免」建立常用資料分割 (將所有資訊儲存在一個資料分割，然後進行查詢)。
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>這樣說來，資料表 API 仍然需要 PartitionKey 和 RowKey 嗎？
 
@@ -682,7 +682,7 @@ Azure Cosmos DB 能提供效能和延遲上的保證，限定作業時的上限�
 
 Azure Cosmos DB 是 SLA 型系統，它提供無限制的調整和延遲、輸送量、可用性、一致性保證。 此無限制的儲存是根據使用資料分割做為重要概念的水平方式資料相應放大。 資料分割概念的詳細說明請見[在 Azure Cosmos DB 中進行資料分割和調整](partition-data.md)一文。
 
-您應該遵守實體數目或每個邏輯資料分割之項目數的 10 GB 限制。 為了確保您的應用程式能夠進行適當的調整，建議您「避免」  建立常用資料分割 (將所有資訊儲存在一個資料分割，然後進行查詢)。 當您的資料分佈有所傾斜：也就是說，如果您在一個資料分割索引鍵放了大量資料 (超過 10&nbsp;GB) 時才會發生這個錯誤。 您可以使用儲存體入口網站來找到資料的分佈。 若要修正此錯誤，方法是重新建立資料表，然後選擇細微的主要資料分割索引鍵，以讓資料分佈情形更加適當。
+您應該遵守實體數目或每個邏輯資料分割之項目數的 10 GB 限制。 為了確保您的應用程式能夠進行適當的調整，建議您「避免」建立常用資料分割 (將所有資訊儲存在一個資料分割，然後進行查詢)。 當您的資料分佈有所傾斜：也就是說，如果您在一個資料分割索引鍵放了大量資料 (超過 10&nbsp;GB) 時才會發生這個錯誤。 您可以使用儲存體入口網站來找到資料的分佈。 若要修正此錯誤，方法是重新建立資料表，然後選擇細微的主要資料分割索引鍵，以讓資料分佈情形更加適當。
 
 ### <a name="is-it-possible-to-use-cassandra-api-as-key-value-store-with-millions-or-billions-of-individual-partition-keys"></a>是否能將 Cassandra API 做為索引鍵值存放區，以存放數百萬或數十億個個別的資料分割索引鍵？
 
@@ -720,7 +720,7 @@ Apache Cassandra API 是一種平台服務，可讓您輕鬆地規劃容量並�
 
 基於可用性和低延遲的考量，Azure Cosmos DB 預設會提供全域發佈。 您不需要設定複本或其他項目。 所有寫入一律會在您撰寫的任何區域中認可永久仲裁, 同時提供效能保證。
 
-### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gcgrace-compression-memtableflushperiod-and-more"></a>各種設定會對資料表中繼資料 (例如 Bloom 篩選、快取、讀取修復變更、gc_grace 和 compression memtable_flush_period 等) 造成什麼影響？
+### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gc_grace-compression-memtable_flush_period-and-more"></a>各種設定會對資料表中繼資料 (例如 Bloom 篩選、快取、讀取修復變更、gc_grace 和 compression memtable_flush_period 等) 造成什麼影響？
 
 Azure Cosmos DB 會為讀取/寫入和輸送量提供效能，讓您不必接觸任何組態設定，也不會意外地操作到它們。
 

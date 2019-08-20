@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 246a1461973dba129a5b1d12be8a09703eb99267
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c5aa7af1ca6f4fe0768add47d2037d797e4ef99b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015979"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613238"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流程設計工具建立進階編碼工作流程  
 ## <a name="overview"></a>總覽
@@ -87,7 +87,7 @@ ms.locfileid: "69015979"
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-如果您需要支援或有任何關於在工作流程設計工具中建立自訂工作流程的問題，請傳送電子郵件至 mepd@microsoft.com。
+如果您需要支援或有任何關於在工作流程設計工具中建立自訂工作流程的問題，請傳送電子郵件至 mepd@microsoft.com。 撰寫電子郵件時, 請使用英文語言。
 
 ## <a name="see-also"></a>另請參閱
 [Azure Premium 編碼器工作流程設計工具訓練影片](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)

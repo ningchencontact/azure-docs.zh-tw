@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d44937c977ba264d671f2053d387470651af68a
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69030880"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612878"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
@@ -31,6 +31,9 @@ ms.locfileid: "69030880"
 ## <a name="configuration"></a>組態
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>我可以針對單一 Azure AD 目錄建立多個受控網域嗎？
 資料分割 您只能針對單一 Azure AD 目錄，建立由 Azure AD Domain Services 所服務的單一受控網域服務。  
+
+### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>我可以在傳統虛擬網路中啟用 Azure AD Domain Services 嗎？
+新部署不支援傳統虛擬網路。 繼續支援在傳統虛擬網路中部署的現有受控網域。
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>是否可以啟用 Azure Resource Manager 虛擬網路中的 Azure AD 網域服務？
 是的。 可以啟用 Azure Resource Manager 虛擬網路中的 Azure AD Domain Services。 不再支援傳統 Azure 虛擬網路建立新的受控網域。

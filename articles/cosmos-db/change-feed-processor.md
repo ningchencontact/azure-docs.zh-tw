@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e5142e9b4e7c2c79fd2b7e41123db4422334b730
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0efd11ef4e9dda2c522e145bf5cb942998d59e53
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467797"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573962"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB 中的變更摘要處理器 
 
@@ -85,12 +85,13 @@ ms.locfileid: "68467797"
 ## <a name="additional-resources"></a>其他資源
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [GitHub 上的使用範例](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
 * [GitHub 上的其他範例](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以在下列文章中繼續深入了解變更摘要：
+您現在可以在下列文章中繼續深入瞭解變更摘要處理器:
 
 * [變更摘要的概觀](change-feed.md)
-* [讀取變更摘要的方式](read-change-feed.md)
-* [搭配使用變更摘要與 Azure Functions](change-feed-functions.md)
+* [使用變更摘要估計工具](how-to-use-change-feed-estimator.md)
+* [變更摘要處理器開始時間](how-to-configure-change-feed-start-time.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637784"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615714"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 大量執行程式程式庫概觀
  
@@ -36,7 +36,7 @@ Azure Cosmos DB 是一種快速且具有彈性的全域分散式資料庫服務�
  
 * 它可以使用相應放大架構，在一小時內大量匯入 1 TB 以上的資料。  
 
-* 它能夠以修補程式的形式，大量更新 Azure Cosmos DB 容器中的現有資料。 
+* 它可以大量更新 Azure Cosmos 容器中的現有資料做為修補程式。 
  
 ## <a name="how-does-the-bulk-executor-operate"></a>大量執行程式的運作方式為何？ 
 

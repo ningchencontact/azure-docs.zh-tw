@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: vijetaj
-ms.openlocfilehash: 2af65dbae59774ed718d58f055158e61f15e2198
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ee63f7aae70e93dfbe857b8680d2b4a477600d72
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68557501"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575101"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
 
@@ -54,7 +54,7 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1.使用 Microsoft ML Server 或 Python 來探索資料及開發模型
+## <a name="1-explore-data--develop-models-with-microsoft-ml-server"></a>1.使用 Microsoft ML Server 探索資料 & 開發模型
 您可以使用 R 和 Python 等語言在 DSVM 上進行資料分析。
 
 針對 R，您可以使用 RStudio 這類 IDE，在 [開始] 功能表、桌面或「Visual Studio R 工具」即可找到這類 IDE。 除了開放原始碼/CRAN-R 以外，Microsoft 還提供額外的程式庫以便進行可調整的分析，以及分析大於平行區塊分析所允許之記憶體大小的資料。 
@@ -73,7 +73,7 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 
 現在您將建立新的 Python 專案。 瀏覽至 [檔案] -> [新增] -> [專案] -> [Python]，然後選取您要建置的 Python 應用程式類型。 您能以滑鼠右鍵按一下 [Python 環境]、選取 [新增/移除 Python 環境]，然後選取所需的環境，以將目前專案的 Python 環境設定為所需的版本 (Python 2.7 或 3.6)。 您可以在產品[文件](https://aka.ms/ptvsdocs)中找到關於使用 PTVS 的詳細資訊。
 
-## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2.使用 Jupyter Notebook 來探索您的資料，並以 Python 或 R 進行模型分析
+## <a name="2-use-jupyter-notebooks"></a>2.使用 Jupyter 筆記本
 Jupyter Notebook 是一個強大的環境，可提供以瀏覽器為基礎的 "IDE" 進行資料探索和模型分析。 您可以在 Jupyter Notebook 使用 Python 2、Python 3 或 R (開放原始碼和 Microsoft R Server)。
 
 若要啟動 Jupyter 筆記本，請按一下標題為 [Jupyter 筆記本] 的 [開始] 功能表圖示 / 桌面圖示。 在 DSVM 命令提示字元上，您也可以從有現有筆記本或您想要建立新筆記本的目錄中，執行 ```jupyter notebook``` 命令。  
@@ -92,7 +92,7 @@ Jupyter Notebook 是一個強大的環境，可提供以瀏覽器為基礎的 "I
 
 一旦位於筆記本，您即可探索資料、建立模型，以及使用您所選的程式庫測試模型。
 
-## <a name="3-build-models-using-r-or-python-and-operationalize-them-using-azure-machine-learning"></a>3.使用 R 或 Python 建置模型並且使用 Azure Machine Learning 實作
+## <a name="3-train--deploy-models-with-azure-machine-learning"></a>3.使用 Azure Machine Learning 訓練 & 部署模型
 建置並驗證您的模型之後，下一個步驟通常是將它部署到生產環境中。 這可讓您的用戶端應用程式以即時方式或分批模式叫用模型預測。 Azure Machine Learning 提供一個機制來實作以 R 或 Python 建置的模型。
 
 當您在 Azure Machine Learning 中實作模型時，系統會公開一項可讓用戶端進行 REST 呼叫的 Web 服務，以便傳入輸入參數以及接收來自模型的預測做為輸出。   
@@ -210,19 +210,19 @@ ans = consume(ep, sleepstudy)$ans
 
 Azure Machine Learning R 程式庫的詳細資訊可以在[這裡](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf)找到。
 
-## <a name="4-administer-your-azure-resources-using-azure-portal-or-powershell"></a>4.使用 Azure 入口網站或 Powershell 管理您的 Azure 資源
+## <a name="4-manage-azure-resources"></a>4.管理 Azure 資源
 DSVM 不僅可讓您在虛擬機器本機建置分析解決方案，也可讓您存取 Microsoft Azure 雲端上的服務。 Azure 提供數個可從 DSVM 管理和存取的計算、儲存、資料分析服務及其他服務。
 
-若要管理 Azure 訂用帳戶和雲端資源，您可以使用瀏覽器並指向 [Azure 入口網站](https://portal.azure.com)。 您也可以使用 Azure Powershell 並透過指令碼管理 Azure 訂用帳戶和資源。
-您可以從桌面上的捷徑或從標題為 "Microsoft Azure Powershell" 的 [開始] 功能表執行 Azure Powershell。 如需如何使用 Windows Powershell 指令碼管理 Azure 訂用帳戶和資源的詳細資訊，請參閱 [Microsoft Azure Powershell 文件](../../powershell-azure-resource-manager.md) 。
+若要管理您的 Azure 訂用帳戶和雲端資源, 您有兩個選項:
++ **Azure 入口網站**: 使用您的瀏覽器並指向[Azure 入口網站](https://portal.azure.com)
 
-## <a name="5-extend-your-storage-space-with-a-shared-file-system"></a>5.使用共用的檔案系統來擴充您的儲存空間
++ **Azure powershell**: 使用 Windows Powershell 腳本。 從桌面上的快捷方式或從標題為 "Microsoft Azure Powershell" 的 [開始] 功能表執行 Azure Powershell。 如需完整詳細資料, 請參閱[Microsoft Azure Powershell 檔](../../powershell-azure-resource-manager.md)。 
+
+## <a name="5-extend-storage-with-shared-file-systems"></a>5.使用共用檔案系統擴充儲存體
 資料科學家可以在小組內共用大型資料集、程式碼或其他資源。 DSVM 本身有大約 45 GB 的可用空間。 若要擴充您的儲存體，您可以使用「Azure 檔案服務」，然後將它掛接在一或多個 DSVM 執行個體上或透過 REST API 存取。  您也可以使用 [Azure 入口網站](../../virtual-machines/windows/attach-managed-disk-portal.md)或使用 [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) 來新增額外的專用資料磁碟。 
 
 > [!NOTE]
 > 「Azure 檔案服務」共用的空間上限為 5 TB，個別檔案大小限制為 1 TB。 
-> 
-> 
 
 您可以使用 Azure PowerShell 建立 Azure 檔案服務共用。 以下是可在 Azure PowerShell 下執行以建立 Azure 檔案服務共用的指令碼。
 
@@ -258,7 +258,7 @@ net use z:  \\<mydatadisk>.file.core.windows.net\<<teamsharename>>
 
 您現在可以將此磁碟機當作 VM 上的任何一般磁碟機存取。
 
-## <a name="6-share-code-with-your-team-using-github"></a>6.使用 GitHub 與您的小組共用程式碼
+## <a name="6-share-code-in-github"></a>6.在 GitHub 中共用程式碼
 GitHub 是一個程式碼存放庫，您可以在其中找到由開發人員社群所分享、適用於 使用各種技術之不同工具的範例程式碼和來源。 它會使用 Git 技術來追蹤和儲存各版本的程式碼檔案。 GitHub 也是一個平台，您可以在其中建立自己的存放庫，以儲存您小組共用的程式碼和文件、實作版本控制，也可以控制有權檢視和貢獻程式碼的人員。 如需有關使用 Git 的詳細資訊，請瀏覽 [GitHub 說明頁面](https://help.github.com/) \(英文\)。 您可以使用 GitHub 來與您的小組共同作業、使用社群所開發的程式碼，以及將程式碼貢獻回社群。
 
 DSVM 已在命令列和 GUI 上載入用戶端工具，以便存取 GitHub 存放庫。 可搭配 Git 與 GitHub 使用的命令列工具稱為 Git Bash。 DSVM 上安裝的 Visual Studio 具有 Git 延伸模組。 您可以在 [開始] 功能表和桌面上找到這些工具的啟動圖示。
@@ -273,7 +273,7 @@ DSVM 已在命令列和 GUI 上載入用戶端工具，以便存取 GitHub 存�
 
 從 github.com 上提供的幾個資源，即可找到透過 Git 使用 GitHub 存放庫的詳細資訊。 [功能提要](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 是有用的參考資料。
 
-## <a name="7-access-various-azure-data-and-analytics-services"></a>7.存取各種 Azure 資料和分析服務
+## <a name="7-access-many-azure-data--analytics-services"></a>7.存取許多 Azure 資料 & 分析服務
 ### <a name="azure-blob"></a>Azure Blob
 Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資料。 本節說明如何將資料移至 Azure Blob 及存取儲存在 Azure Blob 中的資料。
 
@@ -851,8 +851,8 @@ Azure Cosmos DB 是雲端中的一種 NoSQL 資料庫。 它可讓您使用 JSON
 
 匯入資料之後，您即可移至 Jupyter 並開啟標題為 *DocumentDBSample*  且包含 Python 程式碼的筆記本，以存取 Azure Cosmos DB 及進行一些基本查詢。 如需深入了解 Cosmos DB，請參閱服務 [文件頁面](https://docs.microsoft.com/azure/cosmos-db/)。
 
-## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8.使用 Power BI Desktop 建立報表和儀表板
-您可以在 Power BI 中將前述 Cosmos DB 範例中的 Volcano JSON 檔案視覺化，以深入了解資料。 在 [Power BI 文章](../../cosmos-db/powerbi-visualize.md)中可找到詳細的步驟。 高階步驟如下：
+## <a name="8-power-bi-reports--dashboards"></a>8.Power BI 報表 & 儀表板 
+您可以從 Power BI desktop 中上述 Cosmos DB 範例將火山 JSON 檔案視覺化, 以取得資料的視覺化深入解析。 在 [Power BI 文章](../../cosmos-db/powerbi-visualize.md)中可找到詳細的步驟。 高階步驟如下：
 
 1. 開啟 Power BI Desktop 並執行「取得資料」。 將 URL 指定為︰ https://cahandson.blob.core.windows.net/samples/volcano.json
 2. 您應該會看到匯入為清單的 JSON 記錄
@@ -884,7 +884,7 @@ in
 
 ![Power BI Desktop 報告檢視 - Power BI 連接器](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
 
-## <a name="9-dynamically-scale-your-dsvm-to-meet-your-project-needs"></a>9.動態調整 DSVM 以符合您的專案需求
+## <a name="9-dynamic-dsvm-scaling"></a>9.動態 DSVM 調整 
 您可以相應增加和減少 DSVM 以符合您的專案需求。 如果您在晚上或週末不需要使用 VM，就可以從 [Azure 入口網站](https://portal.azure.com)關閉 VM。
 
 > [!NOTE]
@@ -898,10 +898,23 @@ in
 
 ![VM 執行個體設定](./media/vm-do-ten-things/VMScaling.PNG)
 
-## <a name="10-install-additional-tools-on-your-virtual-machine"></a>10.在虛擬機器上安裝其他工具
+## <a name="10-add-more-tools"></a>10.新增更多工具
 DSVM 中已預先建置數項工具，可應付許多常見的資料分析需求。 這可讓您因無須逐一安裝和設定環境而節省您的時間，因只需支付所用的資源而節省您的成本。
 
 您可以運用本文略述的其他 Azure 資料和分析服務，以增強您的分析環境。 在某些情況下，您的需求可能需要額外的工具，包括一些專屬的協力廠商工具。 您有完整的系統管理權限可在虛擬機器上安裝您所需的新工具。 您也可以在 Python 和 R 中安裝其他未預先安裝的封裝。 對於 Python，您可以使用 ```conda``` 或 ```pip```。 對於 R，您可以在 R 主控台中使用 ```install.packages()```，或使用整合式開發環境 (IDE) 並選擇 [套件] -> [安裝套件]。
+
+## <a name="deep-learning"></a>深度學習
+
+除了以架構為基礎的範例，我們也提供一套完整的逐步解說，都已在 DLVM 上驗證過。 這些逐步解說有助於您在影像和文字/語言理解之類的領域中，快速開發深度學習應用程式。 我們會持續新增更多跨不同領域和技術的端對端教學課程。   
+
+
+- [跨不同架構執行類神經網路](https://github.com/ilkarman/DeepLearningFrameworks)：完整的逐步解說，示範如何將程式碼從一種架構移轉至另一種架構。 其中也示範如何跨架構來比較模型和執行階段效能。 
+
+- [建置端對端解決方案在影像內偵測產品的操作說明指南](https://github.com/Azure/cortana-intelligence-product-detection-from-images)：影像偵測是一種可在影像內找出並分類物體的技術。 這項技術在許多現實生活商業領域中潛藏龐大的商機。 例如，零售商可以利用這項技術來判斷客戶從貨架上挑選什麼產品。 這項資訊進而有助於商店管理產品庫存。 
+
+- [音訊的深度學習](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) 本教學課程示範如何在[都市音效資料集](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html)偵測音訊事件來訓練深度學習模型，並提供如何使用音訊資料的概觀。
+
+- [更文字文件的分類](https://github.com/anargyri/lstm_han)：此逐步解說將示範如何建置和定型兩種不同的類神經網路架構：分層注意網路和長短期記憶 (LSTM) 網路。 這些類神經網路會使用深入學習的 Keras API 將文字文件分類。 Keras 是三個最受歡迎深度學習架構的前端：Microsoft Cognitive Toolkit、TensorFlow 和 Theano。
 
 ## <a name="summary"></a>總結
 這些只是您可以在 Microsoft Data Science Virtual Machine 上可做的一些事情。 您還可以做更多事情，讓它成為有效的分析環境。

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: bb5a267d1c7058193f1d7c8ed4087f5c0ebab267
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9dcb8b2e9c1b75aac3c195f89777ac9c6eb030d7
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426586"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575258"
 ---
 # <a name="user-defined-restore-points"></a>使用者定義的還原點
 
@@ -61,7 +61,7 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 1. 登入您的[Azure 入口網站][Azure portal]帳戶。
 
-2. 瀏覽至您想要為其建立還原點的 SQL 資料倉儲。
+2. 流覽至您想要為其建立還原點的 SQL 資料倉儲。
 
 3. 從左窗格中選取 **[總覽**], 然後選取 [ **+ 新增還原點**]。 如果 [新增還原點] 按鈕未啟用, 請確定資料倉儲並未暫停。
 

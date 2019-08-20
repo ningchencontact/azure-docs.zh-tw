@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515544"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611942"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -30,8 +30,7 @@ ms.locfileid: "69515544"
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>可支援資料收集代理程式的平台 
-
-本節列出 Azure 資訊安全中心代理程式可在其上執行並可從中收集資料的平台。
+本節列出 Azure 資訊安全中心所使用的 Log Analytics 代理程式可執行檔平臺。
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Windows 電腦和 VM 支援的平台
 以下為支援的 Windows 作業系統：

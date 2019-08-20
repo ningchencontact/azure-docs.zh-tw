@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 08/19/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1cc661509a28bb57bed0361b48cdeda5e6338e54
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 28def73926294a025d70844e535a0856153ae30a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679315"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611926"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>使用一般事件格式來連接您的外部解決方案
 
@@ -54,6 +54,13 @@ Azure Sentinel 和 CEF 設備之間的連線會以三個步驟進行:
 或者，您可以透過手動方式在現有的 Azure VM、在另一個雲端中的 VM 或在內部部署機器上部署代理程式。 
 
  ![內部部署的 CEF](./media/connect-cef/cef-syslog-onprem.png)
+
+## <a name="security-considerations"></a>安全性考量
+
+請務必根據貴組織的安全性原則來設定電腦的安全性。 例如, 您可以設定您的網路以配合公司網路安全性原則, 並變更背景程式中的埠和通訊協定, 以符合您的需求。 您可以使用下列指示來改善您的電腦安全性性設定:  [Azure 中的安全 VM](../virtual-machines/linux/security-policy.md)、[網路安全性的最佳作法](../security/fundamentals/network-best-practices.md)。
+
+若要在安全性解決方案和 Syslog 電腦之間使用 TLS 通訊, 您必須設定 Syslog daemon (rsyslog 或 Syslog-ng) 以在 TLS 中進行通訊:[使用 tls rsyslog 來加密 Syslog 流量](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html),[使用 tls-Syslog-ng 加密記錄檔訊息](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)。
+
 
 ## <a name="step-1-configure-your-syslog-vm"></a>步驟 1:設定 Syslog VM
 

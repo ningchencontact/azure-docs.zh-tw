@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: iainfou
-ms.openlocfilehash: daddb2d13aee08fe7294ab2d7f0892bab761562b
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c6572ab8bc2a10039f327233f983c2e822fba3b0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472675"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617223"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>使用 PowerShell 啟用 Azure Active Directory Domain Services
 本文說明如何使用 PowerShell 啟用 Azure Active Directory (AD) Domain Services。
@@ -62,7 +62,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso100.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -124,7 +124,7 @@ $Vnet=New-AzVirtualNetwork `
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso100.com"
+$ManagedDomainName = "contoso.com"
 $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
@@ -140,9 +140,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **佈建受控網域之後，別忘了其他設定步驟。**
 > 佈建受控網域之後，您仍然需要完成下列工作：
-> * 為虛擬網路 **[更新 DNS 設定](active-directory-ds-getting-started-dns.md)** ，讓虛擬機器可以找到受管理的網域來進行網域聯結或驗證。
-> * **[啟用 Azure AD Domain Services 的密碼同步化](active-directory-ds-getting-started-password-sync.md)** ，讓使用者可使用他們的公司認證來登入受管理的網域。
-
+> * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。 若要設定 DNS, 請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中, 系統會提示您自動設定這些 DNS 設定。
+> * 建立所需的網路安全性群組規則, 以限制受控網域的輸入流量。 若要建立網路安全性群組規則, 請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中, 系統會提示您自動建立適當的網路安全性群組規則。
+> * **[啟用 Azure AD Domain Services 的密碼同步化](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)** ，讓使用者可使用他們的公司認證來登入受管理的網域。
 
 ## <a name="powershell-script"></a>PowerShell 指令碼
 用來執行本文中所列出所有工作的 PowerShell 指令碼如下所示。 複製指令碼，並將它儲存至使用 '.ps1' 副檔名的檔案。 在 PowerShell 中或使用 PowerShell 整合式指令碼環境 (ISE) 執行指令碼。
@@ -153,9 +153,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@contoso100.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso100.com"
+$ManagedDomainName = "contoso.com"
 $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
@@ -224,11 +224,12 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **佈建受控網域之後，別忘了其他設定步驟。**
 > 佈建受控網域之後，您仍然需要完成下列工作：
-> * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。
-> * 啟用 Azure AD Domain Services 的密碼同步化，讓使用者可使用他們的公司認證來登入受控網域。
+> * 為虛擬網路更新 DNS 設定，讓虛擬機器可以找到受控網域來進行網域聯結或驗證。 若要設定 DNS, 請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中, 系統會提示您自動設定這些 DNS 設定。
+> * 建立所需的網路安全性群組規則, 以限制受控網域的輸入流量。 若要建立網路安全性群組規則, 請在入口網站中選取您的 Azure AD DS 受控網域。 在 [**總覽**] 視窗中, 系統會提示您自動建立適當的網路安全性群組規則。
+> * **[啟用 Azure AD Domain Services 的密碼同步化](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)** ，讓使用者可使用他們的公司認證來登入受管理的網域。
 
 ## <a name="next-steps"></a>後續步驟
 建立受控網域之後，請執行下列設定工作，如此一來您就可以使用受控網域：
 
-* [更新虛擬網路的 DNS 伺服器設定，以指向受控網域](active-directory-ds-getting-started-dns.md)
-* [為受控網域啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)
+* [更新虛擬網路的 DNS 伺服器設定，以指向受控網域](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+* [為受控網域啟用密碼同步化](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)

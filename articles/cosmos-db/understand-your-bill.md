@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f800560aa4ddef52c2274fa8b3f5c98d68189f0f
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 1dc4120ec9f1db8ac34800096ae407b5581758a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717528"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614156"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解您的 Azure Cosmos DB 帳單
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只�
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>使用異地複寫與多重主機的計費範例  
 
-您可以隨時在 Azure Cosmos DB 資料庫帳戶中新增/移除位於世界任何位置的 Azure 區域。 您為各種 Azure Cosmos DB 資料庫與容器設定的輸送量，將會保留在與您 Azure Cosmos 資料庫帳戶相關的每個 Azure 區域中。 如果您的 Azure Cosmos 資料庫帳戶內所有資料庫與容器所設定的佈建輸送量 (RU/秒) 總和 (每小時佈建量) 為 T，而與您資料庫帳戶相關聯的 Azure 區域數目為 N，那麼您 Azure Cosmos 資料庫帳戶已知小時的總佈建輸送量分別為，(a) 設定為單一寫入區域等於T x N RU/秒，以及 (b) 設定為能夠處理寫入的所有區域等於 T x (N+1) RU/秒。 佈建的輸送量 (單一寫入區域) 費用為每 100 RU/秒 $0.008/小時，多個可寫入區域 (多重主機設定) 佈建的輸送量費用為每 100 RU/秒 $0.016/小時 (請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/))。 不論您選擇單一寫入區域或多重寫入區域，Azure Cosmos DB 都能讓您從任何區域讀取資料。
+您可以隨時在 Azure Cosmos 資料庫帳戶的任何位置新增/移除 Azure 區域。 您為各種 Azure Cosmos 資料庫和容器設定的輸送量, 將會保留在與您的 Azure Cosmos 資料庫帳戶相關聯的每個 Azure 區域中。 如果您的 Azure Cosmos 資料庫帳戶內所有資料庫與容器所設定的佈建輸送量 (RU/秒) 總和 (每小時佈建量) 為 T，而與您資料庫帳戶相關聯的 Azure 區域數目為 N，那麼您 Azure Cosmos 資料庫帳戶已知小時的總佈建輸送量分別為，(a) 設定為單一寫入區域等於T x N RU/秒，以及 (b) 設定為能夠處理寫入的所有區域等於 T x (N+1) RU/秒。 佈建的輸送量 (單一寫入區域) 費用為每 100 RU/秒 $0.008/小時，多個可寫入區域 (多重主機設定) 佈建的輸送量費用為每 100 RU/秒 $0.016/小時 (請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/))。 不論您選擇單一寫入區域或多重寫入區域，Azure Cosmos DB 都能讓您從任何區域讀取資料。
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>計費範例：多重區域 Azure Cosmos 帳戶，單一區域寫入
 
@@ -228,7 +228,7 @@ Azure Cosmos DB 是一個完全受控的雲端原生資料庫服務，透過只�
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB 保留容量計費
 
-Azure Cosmos DB 保留容量可讓您預先購買佈建的輸送量 (保留容量或保留)，它可以套用至所有 Azure 區域的所有 Azure Cosmos DB 資料庫與容器 (適用於任何 API 或資料模型)。 因為每個區域的佈建輸送量價格各不相同，所以您可以將保留容量視為以折扣價購得的現金點數，而您可以從中提領，用於每個區域依其各自價格佈建的輸送量。 例如，假設您有一個具備單一容器的 Azure Cosmos 帳戶，容器中佈建 50 K RU/秒與全域複寫兩個區域 - 美國東部與日本東部。 如果選擇隨用隨付選項，您必須支付：  
+Azure Cosmos DB 保留容量可讓您預先購買布建的輸送量 (保留容量或保留), 以套用至所有 azure 區域的所有 Azure Cosmos 資料庫和容器 (適用于任何 API 或資料模型)。 因為每個區域的佈建輸送量價格各不相同，所以您可以將保留容量視為以折扣價購得的現金點數，而您可以從中提領，用於每個區域依其各自價格佈建的輸送量。 例如，假設您有一個具備單一容器的 Azure Cosmos 帳戶，容器中佈建 50 K RU/秒與全域複寫兩個區域 - 美國東部與日本東部。 如果選擇隨用隨付選項，您必須支付：  
 
 * 在美國東部：該區域 50-K RU/秒的費率為每 100 RU/秒 $0.008 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: bb96e7ccbc38a71d24178c31f8eb9a077c06b8f0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472532"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617121"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>設定從 Azure AD 到受控網域的限域同步處理
 此文章說明如何設定只將特定使用者帳戶從 Azure AD 目錄同步至 Azure AD Domain Services 受控網域。
@@ -47,8 +47,8 @@ ms.locfileid: "67472532"
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>使用 Azure 入口網站，建立新的受控網域並啟用群組型限域同步處理
 
-1. 遵循[使用者入門指南](create-instance.md)，以建立受控網域。
-2. 在 Azure AD Domain Services 建立精靈的同步處理樣式選取範圍期間，選擇 [限域]  。
+1. 遵循[使用者入門指南](tutorial-create-instance.md)，以建立受控網域。
+2. 在 Azure AD Domain Services 建立精靈的同步處理樣式選取範圍期間，選擇 [限域]。
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>使用 PowerShell，建立新的受控網域並啟用群組型限域同步處理
 請使用 PowerShell 來完成這組步驟。 請參考指示以[使用 PowerShell 啟用 Azure Active Directory Domain Services](powershell-create-instance.md)。 此文章中的一些步驟已經過些微修改來設定限域同步處理。
@@ -58,7 +58,7 @@ ms.locfileid: "67472532"
 1. 完成下列工作：
    * [工作 1：安裝必要的 PowerShell 模組](powershell-create-instance.md#task-1-install-the-required-powershell-modules)。
    * [工作 2：在 Azure AD 目錄中建立必要的服務主體](powershell-create-instance.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory)。
-   * [工作 3:建立並設定 ' AAD DC Administrators' group]powershell-create-instance.md#task-3-create-and-configure-the-aad-dc-administrators-group。）
+   * [工作 3:建立並設定「AAD DC 系統管理員」群組] powershell-建立實例。 md # 工作-3-建立和設定-AAD-DC-Administrators----------------------
    * [工作 4：註冊 Azure AD Domain Services 資源提供者](powershell-create-instance.md#task-4-register-the-azure-ad-domain-services-resource-provider)。
    * [工作 5：建立資源群組](powershell-create-instance.md#task-5-create-a-resource-group)。
    * [工作 6：建立和設定虛擬網路](powershell-create-instance.md#task-6-create-and-configure-the-virtual-network)。
@@ -81,7 +81,7 @@ ms.locfileid: "67472532"
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso100.com"
+   $ManagedDomainName = "contoso.com"
    $ResourceGroupName = "ContosoAaddsRg"
    $VnetName = "DomainServicesVNet_WUS"
    $AzureLocation = "westus"

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 67707b64bb6018b322ba980535651c126a526eb7
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b96896c0366c6fba2548480b166bdb9cf6ca692c
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479543"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575340"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>連接 SQL 資料倉儲與 SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "68479543"
 
 使用 SQL Server Management Studio (SSMS) 連接及查詢 Azure SQL 資料倉儲。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用本教學課程，您需要：
 
 * 現有的 SQL 資料倉儲。 若要建立資料倉儲，請參閱 [建立 SQL 資料倉儲][Create a SQL Data Warehouse]。
@@ -57,7 +57,7 @@ ms.locfileid: "68479543"
 現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。
-2. 選取 [新增查詢] 。 新的查詢視窗隨即開啟。
+2. 選取 [新增查詢]。 新的查詢視窗隨即開啟。
    
     ![新增查詢][4]
 3. 將此 TSQL 查詢複製到查詢視窗中：

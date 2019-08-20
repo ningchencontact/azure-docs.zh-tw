@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: e321091f2abcff4c385b442ac6474c0592845e2e
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602042"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616679"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>安全存取 Azure Cosmos DB 中的資料
 
@@ -105,7 +105,7 @@ Cosmos DB 資源權杖提供一個安全的替代方式，無需主要或唯讀�
 <a id="users"></a>
 
 ## <a name="users"></a>使用者人數
-Cosmos DB 使用者會與 Cosmos DB 資料庫相關聯。  每個資料庫都包含零個或多個 Cosmos DB 使用者。  下列程式碼範例示範如何建立 Cosmos DB 使用者資源。
+Cosmos DB 的使用者與 Cosmos 資料庫相關聯。  每個資料庫都包含零個或多個 Cosmos DB 使用者。  下列程式碼範例示範如何建立 Cosmos DB 使用者資源。
 
 ```csharp
 //Create a user.
@@ -193,5 +193,5 @@ Azure Cosmos DB 可讓您搜尋、選取、修改和刪除資料庫或集合中�
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解 Cosmos DB 資料庫安全性，請參閱 [Cosmos DB：資料庫安全性](database-security.md)。
+* 若要深入瞭解 Cosmos 資料庫安全性, 請[參閱 Cosmos DB:資料庫安全性](database-security.md)。
 * 若要了解如何建構 Cosmos DB 授權權杖，請參閱 [Cosmos DB 資源的存取控制 (英文)](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。

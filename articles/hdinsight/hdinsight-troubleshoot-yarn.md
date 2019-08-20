@@ -4,14 +4,14 @@ description: 取得有關使用 Apache Hadoop YARN 和 Azure HDInsight 的常見
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 8396f682558b71ca99af845bd51f7b2c8059f79b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: 8bfe249b0295bc860cf17a006c3787ff8afa676b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072007"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69573718"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>使用 Azure HDInsight 針對 Apache Hadoop YARN 問題進行疑難排解
 
@@ -19,28 +19,28 @@ ms.locfileid: "67072007"
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>如何在叢集上建立新的 YARN 佇列？
 
-### <a name="resolution-steps"></a>解決步驟 
+### <a name="resolution-steps"></a>解決步驟
 
-在 Ambari 使用下列步驟建立新的 YARN 佇列，然後平衡所有佇列之間的容量配置。 
+在 Ambari 使用下列步驟建立新的 YARN 佇列，然後平衡所有佇列之間的容量配置。
 
 在本例中，兩個現有的佇列 (**預設**和 **thriftsvr**) 都從 50% 的容量變更為 25% 的容量，讓新的佇列 (spark) 有 50% 的容量。
 
-| 佇列 | Capacity | 最大容量 |
+| 佇列 | 容量 | 最大容量 |
 | --- | --- | --- |
-| 預設值 | 25% | 50% |
+| 預設 | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
-1. 選取 [Ambari 檢視]  圖示，然後選取格線模式。 接著，選取 [YARN 佇列管理員]  。
+1. 選取 [Ambari 檢視] 圖示，然後選取格線模式。 接著，選取 [YARN 佇列管理員]。
 
     ![選取 Ambari 檢視圖示](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
-2. 選取 [預設]  佇列。
+2. 選取 [預設] 佇列。
 
     ![選取預設佇列](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
-3. 對於 [預設]  佇列，將 [容量]  從 50% 變更為 25%。 對於 [thriftsvr]  佇列，將 [容量]  變更為 25%。
+3. 對於 [預設] 佇列，將 [容量] 從 50% 變更為 25%。 對於 [thriftsvr] 佇列，將 [容量] 變更為 25%。
 
     ![將預設和 thriftsvr 佇列的容量變更為 25%](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
-4. 若要建立新的佇列，請選取 [新增佇列]  。
+4. 若要建立新的佇列，請選取 [新增佇列]。
 
     ![選取 [新增佇列]](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
 
@@ -48,10 +48,10 @@ ms.locfileid: "67072007"
 
     ![將佇列命名為 Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
 
-6. 將 [容量]  值保持在 50%，然後選取 [動作]  按鈕。
+6. 將 [容量] 值保持在 50%，然後選取 [動作] 按鈕。
 
     ![選取 [動作] 按鈕](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
-7. 選取 [Save and Refresh Queues] \(儲存並重新整理佇列)  。
+7. 選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。
 
     ![選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
 
@@ -61,20 +61,19 @@ ms.locfileid: "67072007"
 
 - [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
-
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>如何下載叢集的 YARN 記錄？
-
 
 ### <a name="resolution-steps"></a>解決步驟 
 
 1. 使用安全殼層 (SSH) 用戶端連線到 HDInsight 叢集。 如需詳細資訊，請參閱[其他閱讀資料](#additional-reading-2)。
 
-2. 若要列出目前執行中的 YARN 應用程式本身的應用程式識別碼，請執行下列命令：
+1. 若要列出目前執行中的 YARN 應用程式本身的應用程式識別碼，請執行下列命令：
 
     ```apache
     yarn top
     ```
-    識別碼會列在 [APPLICATIONID]  資料行。 您可以從 [APPLICATIONID]  資料行下載記錄。
+
+    識別碼會列在 [APPLICATIONID] 資料行。 您可以從 [APPLICATIONID] 資料行下載記錄。
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -89,42 +88,42 @@ ms.locfileid: "67072007"
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. 若要下載所有應用程式主機的 YARN 容器記錄，請使用下列命令：
-   
+1. 若要下載所有應用程式主機的 YARN 容器記錄，請使用下列命令：
+
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```
 
-    此命令會建立名為 amlogs.txt 的記錄檔。 
+    此命令會建立名為 amlogs.txt 的記錄檔。
 
-4. 若要下載僅有最新應用程式主機的 YARN 容器記錄，請使用下列命令：
+1. 若要下載僅有最新應用程式主機的 YARN 容器記錄，請使用下列命令：
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
     ```
 
-    此命令會建立名為 latestamlogs.txt 的記錄檔。 
+    此命令會建立名為 latestamlogs.txt 的記錄檔。
 
-4. 若要下載前兩部應用程式主機的 YARN 容器記錄，請使用下列命令：
+1. 若要下載前兩部應用程式主機的 YARN 容器記錄，請使用下列命令：
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt
     ```
 
-    此命令會建立名為 first2amlogs.txt 的記錄檔。 
+    此命令會建立名為 first2amlogs.txt 的記錄檔。
 
-5. 若要下載所有 YARN 容器記錄，請使用下列命令：
+1. 若要下載所有 YARN 容器記錄，請使用下列命令：
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    此命令會建立名為 logs.txt 的記錄。 
+    此命令會建立名為 logs.txt 的記錄。
 
-6. 若要下載特定容器的 YARN 容器記錄，請使用下列命令：
+1. 若要下載特定容器的 YARN 容器記錄，請使用下列命令：
 
     ```apache
-    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 
+    yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt
     ```
 
     此命令會建立名為 containerlogs.txt 的記錄檔。
@@ -134,6 +133,12 @@ ms.locfileid: "67072007"
 - [使用 SSH 連線到 HDInsight (Apache Hadoop)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN 概念與應用程式](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
+## <a name="next-steps"></a>後續步驟
 
-### <a name="see-also"></a>另請參閱
-[使用 Azure HDInsight 進行疑難排解](hdinsight-troubleshoot-guide.md)
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
+
+- 透過[Azure 社區支援](https://azure.microsoft.com/support/community/)取得 azure 專家的解答。
+
+- [@AzureSupport](https://twitter.com/azuresupport)連接-官方 Microsoft Azure 帳戶, 以改善客戶體驗。 將 Azure 社區連接到正確的資源: 解答、支援和專家。
+
+- 如果您需要更多協助, 您可以從[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支援要求。 從功能表列選取 [**支援**], 或開啟 [說明 **+ 支援**] 中樞。 如需詳細資訊, 請參閱[如何建立 Azure 支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。 您的 Microsoft Azure 訂用帳戶包含訂用帳戶管理和帳單支援的存取權, 而技術支援則透過其中一項[Azure 支援方案](https://azure.microsoft.com/support/plans/)提供。

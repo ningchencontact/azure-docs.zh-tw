@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: a8bd260db7a141ce845ce7fb5b7e10f642907b82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310271"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575296"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>升級 SQL 資料倉儲可將效能發揮到極限
 
@@ -63,7 +63,7 @@ ms.locfileid: "60310271"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> 從移轉 Gen1 至 Gen2 透過 Azure 入口網站是永久性的。 不是傳回至 Gen1 的程序。  
+> 透過 Azure 入口網站從 Gen1 到 Gen2 的遷移是永久的。 沒有傳回 Gen1 的進程。  
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -111,10 +111,10 @@ ms.locfileid: "60310271"
 ## <a name="start-the-upgrade"></a>開始升級
 
 1. 在 Azure 入口網站中移至計算最佳化 Gen1 層資料倉儲。 如果要升級的計算最佳化 Gen1 層資料倉儲已暫停，請[繼續執行資料倉儲](pause-and-resume-compute-portal.md)。 
-2. 選取 [工作] 索引標籤底下的 [升級至 Gen2]  卡片：![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+2. 選取 [工作] 索引標籤底下的 [升級至 Gen2] 卡片：![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
-    > 如果您未在 [工作] 索引標籤下看見 [升級至 Gen2]  卡片，您的訂用帳戶類型受限於目前的區域。
+    > 如果您未在 [工作] 索引標籤下看見 [升級至 Gen2] 卡片，您的訂用帳戶類型受限於目前的區域。
     > [提交支援票證](sql-data-warehouse-get-started-create-support-ticket.md)，將您的訂用帳戶列入允許清單中。
 
 3. 在升級之前，請確定您的工作負載已完成執行並停止。 在您的資料倉儲重新上線成為計算最佳化 Gen2 層資料倉儲之前，會發生幾分鐘的停機時間。 **選取升級**：
@@ -185,9 +185,9 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 瀏覽至您想要為其建立還原點的 SQL 資料倉儲。
+2. 流覽至您想要為其建立還原點的 SQL 資料倉儲。
 
-3. 在 [概觀] 區段頂端，選取 [+ 新增還原點]  。
+3. 在 [概觀] 區段頂端，選取 [+ 新增還原點]。
 
     ![新增還原點](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
 
@@ -198,12 +198,12 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>使用 Azure 入口網站還原作用中或已暫停的資料庫
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 瀏覽至您想要還原的 SQL 資料倉儲。
-3. 在 [概觀] 區段頂端，選取 [還原]  。
+2. 流覽至您想要從中還原的 SQL 資料倉儲。
+3. 在 [概觀] 區段頂端，選取 [還原]。
 
     ![ 還原概觀](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
 
-4. 選取 [自動還原點]  或 [使用者定義的還原點]  。
+4. 選取 [自動還原點] 或 [使用者定義的還原點]。
 
     ![自動還原點](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 
@@ -215,7 +215,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要復原的資料庫，使用[還原 AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet。
+若要復原資料庫, 請使用[set-azsqldatabase 搭配](/powershell/module/az.sql/restore-azsqldatabase)Cmdlet。
 
 > [!NOTE]
 > 您可以執行異地還原來還原至 Gen2！ 若要這麼做，請指定 Gen2 ServiceObjectiveName (例如 DW1000**c**) 作為選擇性參數。

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acfa31434534eb3618b8a279ea6cff543fae076
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949827"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616154"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>管理您的雙因素驗證方法設定
 
@@ -135,6 +135,10 @@ ms.locfileid: "68949827"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 取得疑難排解秘訣, 並協助進行[雙因素驗證時遇到問題](multi-factor-authentication-end-user-troubleshoot.md)
+新增或更新您的雙因素驗證設定之後, 您可以管理您的應用程式密碼、登入, 或取得一些常見的雙因素驗證相關問題的協助。
 
 - 針對不支援雙因素驗證的任何應用程式,[管理雙因素驗證的應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)。
+
+- [使用雙因素驗證進行登入](multi-factor-authentication-end-user-signin.md)
+
+- [取得雙因素驗證的協助](multi-factor-authentication-end-user-troubleshoot.md)

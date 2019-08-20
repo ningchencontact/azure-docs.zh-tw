@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8829c2534184bc14e82dfbf30d2170a7a1b8add0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967295"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615001"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化已佈建的輸送量成本
 
@@ -29,11 +29,11 @@ Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提�
 
 用來決定佈建輸送量策略的一些指導方針如下：
 
-**如果您有下列情況，請考慮在 Azure Cosmos DB 資料庫 (包含一組容器) 上佈建輸送量**：
+**如果是下列情況, 請考慮在 Azure Cosmos 資料庫上布建輸送量 (包含一組容器)** :
 
 1. 您有幾十個 Azure Cosmos 容器，並想要在全部或其中一部分共用輸送量。 
 
-2. 您要從設計目的是要在 IaaS 所裝載的 VM 上或在內部部署環境上執行的單一租用戶資料庫 (例如，NoSQL 或關聯式資料庫) 遷移至 Azure Cosmos DB。 如果有許多的集合/資料表/圖形，並不希望對您的資料模型中的任何變更。 請注意，您可能會危害的一些優點，如果您不更新您的資料模型，從內部部署資料庫移轉時，Azure Cosmos DB 所提供。 建議您一律重新存取資料模型，以獲得最佳效能，並獲得最佳成本。 
+2. 您要從設計目的是要在 IaaS 所裝載的 VM 上或在內部部署環境上執行的單一租用戶資料庫 (例如，NoSQL 或關聯式資料庫) 遷移至 Azure Cosmos DB。 如果您有許多集合/資料表/圖表, 而且不想對資料模型進行任何變更。 請注意, 如果您在從內部部署資料庫進行遷移時, 不會更新您的資料模型, 可能就必須危害 Azure Cosmos DB 所提供的好處。 建議您一律重新存取資料模型，以獲得最佳效能，並獲得最佳成本。 
 
 3. 您想要在會有非預期突增工作負載的資料庫層級，透過集區輸送量來應付不在規劃中的突增工作負載。 
 
@@ -57,7 +57,7 @@ Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提�
 |----|----|----|
 |SQL API|資料庫|容器|
 |適用於 MongoDB 的 Azure Cosmos DB API|資料庫|Collection|
-|Cassandra API|keyspace|資料表|
+|Cassandra API|Keyspace|資料表|
 |Gremlin API|資料庫帳戶|圖形|
 |資料表 API|資料庫帳戶|資料表|
 
@@ -113,7 +113,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 ## <a name="optimize-by-changing-indexing-policy"></a>變更索引編製原則以便最佳化 
 
-根據預設，Azure Cosmos DB 會自動地對每一筆記錄的每個屬性編製索引。 這被為了簡化開發和跨許多不同類型的臨機操作查詢，確保優異的效能。 如果您的大型記錄有數千個屬性，支付輸送量成本來對每個屬性編製索引可能不是實用的方法，當您只是要針對其中的 10 個或 20 個屬性進行查詢時更是如此。 隨著您快要進行到處理特定工作負載的階段，我們的指導是您要微調索引原則。 如需 Azure Cosmos DB 索引編製原則的完整詳細資料，請至[此處](indexing-policies.md)尋找。 
+根據預設，Azure Cosmos DB 會自動地對每一筆記錄的每個屬性編製索引。 這是為了簡化開發, 並確保在許多不同類型的臨機操作查詢之間有絕佳的效能。 如果您的大型記錄有數千個屬性，支付輸送量成本來對每個屬性編製索引可能不是實用的方法，當您只是要針對其中的 10 個或 20 個屬性進行查詢時更是如此。 隨著您快要進行到處理特定工作負載的階段，我們的指導是您要微調索引原則。 如需 Azure Cosmos DB 索引編製原則的完整詳細資料，請至[此處](indexing-policies.md)尋找。 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>監視佈建和取用的輸送量 
 
@@ -159,7 +159,7 @@ connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 
 2. 若要估計您的應用程式所需的保留輸送量，其中一個方法為對照應用程式使用的代表性 Azure Cosmos 容器或資料庫，記錄與執行一般作業相關聯的要求單位 RU 費用，然後估計您預期每秒會執行的作業數目。 此外，請務必測量並包含一般查詢和其使用量。 若要了解如何以程式設計方式或使用入口網站來預估查詢的 RU 費用，請參閱[最佳化查詢成本](online-backup-and-restore.md)。 
 
-3. 取得作業和其成本 Ru 中的另一個方法是藉由啟用 Azure 監視器記錄檔，這樣可讓您的作業/持續時間和要求費用細目。 Azure Cosmos DB 會提供每一項作業的要求費用，以便您可以從回應回存每個作業費用，然後用於分析。 
+3. 另一種取得作業的方式及其在 ru 中的成本是藉由啟用 Azure 監視器記錄, 讓您能夠細分操作/持續時間和要求費用。 Azure Cosmos DB 會提供每一項作業的要求費用，以便您可以從回應回存每個作業費用，然後用於分析。 
 
 4. 您可以視需要彈性地相應增加和減少所佈建的輸送量，以因應工作負載需求。 
 

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f2145811338200b38e84766459844b4c83e5a80
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00f8a0e8d655f9412eceb7b0901ced829e490f78
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382766"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616102"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>手動新增帳戶至應用程式
 
@@ -105,6 +105,6 @@ ms.locfileid: "68382766"
 
 - 將您的帳戶新增至應用程式之後，即可在您的裝置上使用 Microsoft Authenticator 應用程式登入。 如需詳細資訊，請參閱[使用應用程式登入](user-help-auth-app-sign-in.md)。
 
-- 如果您在取得個人 Microsoft 帳戶的驗證碼時遇到問題, 請參閱[Microsoft 帳戶安全性資訊 & 驗證碼](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes)一文中的**疑難排解驗證程式代碼問題**一節。
+- 如果您在取得個人 Microsoft 帳戶的驗證碼時遇到問題, 請參閱[Microsoft 帳戶安全性資訊 & 驗證碼](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes)一文中的**疑難排解驗證程式代碼問題**一節。
 
 - 對於執行 iOS 的裝置，您也可以將您的帳戶認證和相關應用程式設定 (例如您的帳戶順序) 備份到雲端。 如需更多資訊，請參閱[使用 Microsoft Authenticator 應用程式備份和復原](user-help-auth-app-backup-recovery.md)。

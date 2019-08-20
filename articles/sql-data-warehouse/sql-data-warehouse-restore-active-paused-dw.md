@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 8593378dd35a6aaa31aaefca41dd921c6e65d336
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 7470dd96109823057a174d2ecf097583dcb51898
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426742"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575282"
 ---
 # <a name="restore-an-existing-azure-sql-data-warehouse"></a>還原現有的 Azure SQL 資料倉儲
 
@@ -89,7 +89,7 @@ $RestoredDatabase.status
 ## <a name="restore-an-existing-data-warehouse-through-the-azure-portal"></a>透過 Azure 入口網站還原現有的資料倉儲
 
 1. 登入 [Azure 入口網站][Azure portal]。
-2. 瀏覽至您想要還原的 SQL 資料倉儲。
+2. 流覽至您想要從中還原的 SQL 資料倉儲。
 3. 在 [概觀] 刀鋒視窗頂端，選取 [還原]。
 
     ![ 還原概觀](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)

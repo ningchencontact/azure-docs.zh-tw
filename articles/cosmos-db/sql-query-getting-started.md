@@ -1,33 +1,33 @@
 ---
-title: 開始使用 Azure Cosmos DB 中的 SQL 查詢
-description: SQL 查詢的簡介
+title: Azure Cosmos DB 中的 SQL 查詢入門
+description: SQL 查詢簡介
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
-ms.openlocfilehash: 87b275806c06443e37e9e92c35a38b4cde378322
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5537133b31bb63c9fa6ac3a52b344f7f1d9c4c8a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342562"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614354"
 ---
-# <a name="getting-started-with-sql-queries"></a>開始使用 SQL 查詢
+# <a name="getting-started-with-sql-queries"></a>SQL 查詢入門
 
-Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) 作為 JSON 查詢語言的查詢項目。 Azure Cosmos DB 查詢語言的設計目的是要：
+Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) (SQL) 當做 JSON 查詢語言來查詢專案。 Azure Cosmos DB 查詢語言的設計目標是:
 
-* 支援 SQL，其中一種最熟悉且熱門查詢語言，而不是發明新的查詢語言。 SQL 進行豐富的查詢提供正式的程式設計模型，透過 JSON 項目。  
+* 支援 SQL, 這是最熟悉且熱門的查詢語言之一, 而不是發明新的查詢語言。 SQL 提供了正式的程式設計模型, 可在 JSON 專案上進行豐富的查詢。  
 
-* 使用 JavaScript 的程式設計模型做為基礎的查詢語言。 JavaScript 的類型系統、 運算式評估和函式引動過程是 SQL API 的根目錄。 這些根目錄提供自然程式設計模型功能，像是關聯式投射、 跨 JSON 項目，階層式導覽自我聯結、 空間查詢，以及叫用的使用者定義函數 (Udf) 完全以 JavaScript 撰寫。
+* 使用 JavaScript 的程式設計模型作為查詢語言的基礎。 JavaScript 的類型系統、運算式評估和函式呼叫都是 SQL API 的根。 這些根提供自然的程式設計模型, 可用於關聯式投射、跨 JSON 專案的階層式導覽、自我聯結、空間查詢, 以及叫用完全以 JavaScript 撰寫的使用者定義函數 (Udf)。
 
 ## <a name="upload-sample-data"></a>上傳範例資料
 
-在您的 Cosmos DB SQL API 帳戶，建立容器，稱為`Families`。 容器中建立兩個簡單的 JSON 項目。 您可以使用此資料集的 Azure Cosmos DB 查詢文件中執行大部分的範例查詢。
+在您的 SQL API Cosmos DB 帳戶中, 建立名`Families`為的容器。 在容器中建立兩個簡單的 JSON 專案。 您可以使用此資料集, 在 Azure Cosmos DB 查詢檔中執行大部分的範例查詢。
 
-### <a name="create-json-items"></a>建立 JSON 項目
+### <a name="create-json-items"></a>建立 JSON 專案
 
-下列程式碼會建立兩個簡單的 JSON 項目，有關系列。 Andersen 和另一個給 Wakefield 家族的簡單 JSON 項目包含父代、 子系和其寵物、 位址和註冊資訊。 第一個項目具有字串、 數字、 布林值、 陣列和巢狀的屬性。
+下列程式碼會建立兩個關於家族的簡單 JSON 專案。 Andersen 和 Wakefield 系列的簡單 JSON 專案包括父系、小孩及其寵物、位址和註冊資訊。 第一個專案具有字串、數位、布林值、陣列和嵌套屬性。
 
 
 ```json
@@ -52,7 +52,7 @@ Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) 作為 JSO
 }
 ```
 
-第二個項目會使用`givenName`並`familyName`而不是`firstName`和`lastName`。
+第二個專案`givenName`使用`familyName`和, `firstName`而`lastName`不是和。
 
 ```json
 {
@@ -84,11 +84,11 @@ Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) 作為 JSO
 }
 ```
 
-### <a name="query-the-json-items"></a>查詢 JSON 項目
+### <a name="query-the-json-items"></a>查詢 JSON 專案
 
-嘗試一些查詢，對 JSON 資料，以了解一些 Azure Cosmos DB 的 SQL 查詢語言的重要層面。
+對 JSON 資料嘗試一些查詢, 以瞭解 Azure Cosmos DB SQL 查詢語言的一些重要層面。
 
-下列查詢傳回的項目所在`id`欄位相符項目`AndersenFamily`。 因為它是`SELECT *`查詢，查詢的輸出是完整的 JSON 項目。 如需 SELECT 語法的詳細資訊，請參閱[SELECT 陳述式](sql-query-select.md)。 
+下列查詢會傳回`id`欄位符合`AndersenFamily`的專案。 因為這`SELECT *`是查詢, 所以查詢的輸出是完整的 JSON 專案。 如需 SELECT 語法的詳細資訊, 請參閱[select 語句](sql-query-select.md)。 
 
 ```sql
     SELECT *
@@ -96,7 +96,7 @@ Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) 作為 JSO
     WHERE f.id = "AndersenFamily"
 ```
 
-查詢結果為： 
+查詢結果如下: 
 
 ```json
     [{
@@ -118,7 +118,7 @@ Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) 作為 JSO
     }]
 ```
 
-下列查詢中，會重新格式化 JSON 輸出成不同的圖形。 查詢評估新的 JSON`Family`具有兩個選取的欄位物件`Name`和`City`、 地址的縣 （市） 時的狀態相同。 "NY，NY"會比對此案例。
+下列查詢會將 JSON 輸出重新格式化為不同的圖形。 當地址城市與狀態相同`Family`時, 查詢會使用兩`Name`個`City`選取的欄位來投影新的 JSON 物件。 「NY, NY」符合此案例。
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -126,7 +126,7 @@ Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) 作為 JSO
     WHERE f.address.city = f.address.state
 ```
 
-查詢結果為：
+查詢結果如下:
 
 ```json
     [{
@@ -137,7 +137,7 @@ Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) 作為 JSO
     }]
 ```
 
-下列查詢會傳回家族中的所有指定之名稱的子系其`id`符合`WakefieldFamily`依據縣 （市） 排序。
+下列查詢會傳回家族`id`中符合`WakefieldFamily`的所有子系名稱 (依城市排序)。
 
 ```sql
     SELECT c.givenName
@@ -158,15 +158,15 @@ Azure Cosmos DB SQL API 帳戶支援使用結構化查詢語言 (SQL) 作為 JSO
 
 ## <a name="remarks"></a>備註
 
-上述範例會示範 Cosmos DB 查詢語言的數個層面：  
+前述範例顯示 Cosmos DB 查詢語言的幾個層面:  
 
-* SQL API 處理 JSON 值，因為它處理樹狀結構形狀的實體，而不是資料列和資料行。 您可以像參考中任意深度，樹狀節點`Node1.Node2.Node3…..Nodem`類似的兩個部分參考`<table>.<column>`ANSI SQL 中。
+* 因為 SQL API 適用于 JSON 值, 所以它會處理樹狀結構實體, 而不是資料列和資料行。 您可以參考任何任意深度的樹狀節點, 例如`Node1.Node2.Node3…..Nodem`, 類似于 ANSI SQL `<table>.<column>`中的兩部分參考。
 
-* 因為查詢語言會使用無結構描述的資料，必須以動態方式繫結的型別系統。 相同的運算式在不同的項目上可能會產生不同的類型。 查詢的結果是有效的 JSON 值，但不一定是固定的結構描述。  
+* 因為查詢語言會使用無架構資料, 所以必須以動態方式系結型別系統。 相同的運算式在不同的項目上可能會產生不同的類型。 查詢的結果是有效的 JSON 值, 但不保證是固定的架構。  
 
-* Azure Cosmos DB 只支援嚴謹的 JSON 項目。 型別系統和運算式會限制為只能處理 JSON 類型。 如需詳細資訊，請參閱 < [JSON 規格](https://www.json.org/)。  
+* Azure Cosmos DB 只支援嚴謹的 JSON 項目。 類型系統和運算式僅限於處理 JSON 類型。 如需詳細資訊, 請參閱[JSON 規格](https://www.json.org/)。  
 
-* Cosmos DB 容器是 JSON 項目的無結構描述集合。 內含項目，以隱含方式會擷取關聯的區域內和跨容器項目不是由主索引鍵和外部索引鍵關係。 這項功能是很重要的內部項目聯結在本文稍後討論。
+* Cosmos 容器是一種無架構的 JSON 專案集合。 在容器專案內和之間的關聯會由內含專案隱含地捕捉, 而不是由主鍵和外鍵關聯所控制。 這項功能對於本文稍後討論的內部專案聯結非常重要。
 
 ## <a name="next-steps"></a>後續步驟
 

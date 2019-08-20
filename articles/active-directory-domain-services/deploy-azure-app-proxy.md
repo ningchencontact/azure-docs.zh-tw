@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 35211d6f832033a2bb16c495ebab839b7f740445
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 21693926bae681cf15d31dca06344dfa5d865e3b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031034"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613003"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure Active Directory Domain Services 受控網域上部署 Azure AD 應用程式
 Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部部署應用程式，協助您支援遠端背景工作角色。 使用 Azure AD 網域服務，您現在可以提升執行內部部署的舊版應用程式並隨即轉移至 Azure 基礎結構服務。 然後，您可以使用 Azure AD 應用程式 Proxy 發佈這些應用程式，為您組織中的使用者提供安全遠端存取。
@@ -35,7 +35,7 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 1. 有效的 **Azure 訂用帳戶**。
 2. **Azure AD 目錄** - 與內部部署目錄或僅限雲端的目錄同步處理。
 3. 需要**Azure AD Premium 授權**才能使用 Azure AD 應用程式 Proxy。
-4. **Azure AD 網域服務** 必須已針對 Azure AD 目錄啟用。 如果還沒有啟用，請按照 [入門指南](create-instance.md)所述的所有工作來進行。
+4. **Azure AD 網域服務** 必須已針對 Azure AD 目錄啟用。 如果還沒有啟用，請按照 [入門指南](tutorial-create-instance.md)所述的所有工作來進行。
 
 <br>
 
@@ -114,18 +114,18 @@ Azure Active Directory (AD) 應用程式 Proxy 可藉由發佈要透過網際網
 
 使用 Get-adcomputer PowerShell cmdlet 來擷取已安裝 Azure AD 應用程式 Proxy 連接器之電腦的設定。
 ```powershell
-$ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
+$ConnectorComputerAccount = Get-ADComputer -Identity contoso-proxy.contoso.com
 ```
 
 之後，使用組 Set-ADComputer cmdlet 來設定資源伺服器的資源型 KCD。
 ```powershell
-Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
+Set-ADComputer contoso-resource.contoso.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
 如果您已在受控網域上部署多個應用程式 Proxy 連接器，您需要設定每個此類連接器執行個體的資源型 KCD。
 
 
 ## <a name="related-content"></a>相關內容
-* [Azure AD Domain Services - 入門指南](create-instance.md)
+* [Azure AD Domain Services - 入門指南](tutorial-create-instance.md)
 * [在受控網域上設定 Kerberos 限制委派](deploy-kcd.md)
 * [Kerberos 限制委派概觀](https://technet.microsoft.com/library/jj553400.aspx)

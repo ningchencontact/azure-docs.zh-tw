@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772982"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617060"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD 網域服務 - 疑難排解指南
 這篇文章提供設定或管理 Azure Active Directory (AD) 網域服務時，可能會遇到的問題之疑難排解提示。
@@ -32,7 +32,7 @@ ms.locfileid: "68772982"
 
 | **錯誤訊息** | **解決方案** |
 | --- |:--- |
-| *名稱 contoso100.com 使用於此網路上。指定未使用的名稱。* |[虛擬網路中的網域名稱衝突](troubleshoot.md#domain-name-conflict) |
+| *此網路上已有使用中的名稱 contoso.com。指定未使用的名稱。* |[虛擬網路中的網域名稱衝突](troubleshoot.md#domain-name-conflict) |
 | *無法在此 Azure AD 租用戶中啟用網域服務。對於名為「Azure AD 網域服務同步處理」的應用程式，此服務沒有足夠的權限。刪除名為「Azure AD 網域服務同步處理」的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[網域服務沒有「Azure AD 網域服務同步處理」應用程式的足夠權限。](troubleshoot.md#inadequate-permissions) |
 | *無法在此 Azure AD 租用戶中啟用網域服務。Azure AD 租用戶中的網域服務應用程式沒有啟用網域服務所需的權限。刪除應用程式識別碼為 d87dcbc6-a371-462e-88e3-28ad15ec4e64 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[未在您的租用戶中正確設定網域服務應用程式](troubleshoot.md#invalid-configuration) |
 | *無法在此 Azure AD 租用戶中啟用網域服務。您的 Azure AD 租用戶已停用 Microsoft Azure AD 應用程式。啟用應用程式識別碼為 00000002-0000-0000-c000-000000000000 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[您的 Azure AD 租用戶已停用 Microsoft Graph 應用程式](troubleshoot.md#microsoft-graph-disabled) |
@@ -40,7 +40,7 @@ ms.locfileid: "68772982"
 ### <a name="domain-name-conflict"></a>網域名稱衝突
 **錯誤訊息：**
 
-*名稱 contoso100.com 使用於此網路上。指定未使用的名稱。*
+*此網路上已有使用中的名稱 contoso.com。指定未使用的名稱。*
 
 **補救：**
 
@@ -135,12 +135,12 @@ if ($sp -ne $null)
 >
 >
 
-* 確定您已根據《入門指南》中所述的步驟來 [啟用密碼同步處理](active-directory-ds-getting-started-password-sync.md) 。
+* 確定您已根據《入門指南》中所述的步驟來 [啟用密碼同步處理](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 。
 * **外部帳戶：** 確定受影響的使用者帳戶不是 Azure AD 租用戶中的外部帳戶。 外部帳戶的範例包括 Microsoft 帳戶 (例如 joe@live.com) 或來自外部 Azure AD 目錄的使用者帳戶。 因為 Azure Active Directory Domain Services 沒有這類使用者帳戶的認證，這些使用者會無法登入受控網域。
 * **同步處理的帳戶：** 如果受影響的使用者帳戶會從內部部署目錄進行同步處理，請確認：
 
   * 您已部署或更新為 [Azure AD Connect 的最新版本](https://www.microsoft.com/download/details.aspx?id=47594)。
-  * 您已設定 Azure AD Connect 以 [執行完整同步處理](active-directory-ds-getting-started-password-sync.md)。
+  * 您已設定 Azure AD Connect 以 [執行完整同步處理](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)。
   * 根據您的目錄大小，可能需要一些時間，使用者帳戶和認證雜湊才可在 Azure AD 網域服務中提供使用。 請確定您已等候足夠的時間後，再重試驗證。
   * 如果在您驗證上述步驟之後問題仍持續發生，請嘗試重新啟動 Microsoft Azure AD 同步服務。 在您的同步電腦上，啟動命令提示字元，然後執行下列命令：
 

@@ -7,16 +7,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 7923ce10912ebb6f09c1c3d8390dd51b4f876bea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552005"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616954"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>使用 Azure Cosmos DB 變更摘要以視覺方式呈現即時資料分析
 
-Azure Cosmos DB 變更摘要是可在記錄建立或修改的同時，從 Azure Cosmos DB 容器中取得這些記錄的連續和累加摘要的機制。 變更摘要可藉由接聽容器是否有任何變更來支援工作。 然後變更摘要會輸出已排序的文件清單，這些文件已依其修改的順序變更過。 若要深入了解變更摘要，請參閱[使用變更摘要](change-feed.md)一文。 
+Azure Cosmos DB 變更摘要是一種機制, 可在建立或修改這些記錄時, 從 Azure Cosmos 容器取得記錄的連續和增量摘要。 變更摘要可藉由接聽容器是否有任何變更來支援工作。 然後變更摘要會輸出已排序的文件清單，這些文件已依其修改的順序變更過。 若要深入了解變更摘要，請參閱[使用變更摘要](change-feed.md)一文。 
 
 本文說明電子商務公司如何使用變更摘要了解使用者模式、執行即時資料分析和視覺效果。 您將會分析事件，例如，使用者檢視某個項目、將某項目新增至其購物車，或購買某項目等。 當上述其中一個事件發生時，即會建立新的記錄，且變更摘要會記錄該筆記錄。 接著，變更摘要會觸發程序一系列的步驟，而產生計量的視覺效果，用以分析公司的效能和活動。 可以視覺方式呈現的範例計量包括營收、非重複的網站訪客、最受歡迎的項目，以及在已檢視、已新增至購物車與已購買的項目之間所做的平均價格比較。 這些範例計量可協助電子商務公司評估其網站熱門程度、擬定廣告和定價策略，以及制定應投資於哪些商品的相關決策。
 
@@ -41,9 +41,9 @@ Azure Cosmos DB 變更摘要是可在記錄建立或修改的同時，從 Azure 
    }
    ```
 
-2. **Cosmos DB：** 產生的資料會儲存在 Azure Cosmos DB 集合中。  
+2. **Cosmos DB：** 產生的資料會儲存在 Azure Cosmos 容器中。  
 
-3. **變更摘要：** 變更摘要會接聽 Azure Cosmos DB 集合的變更。 每當有新的文件新增至集合時 (也就是發生使用者檢視某個項目、將某項目新增至其購物車或購買某項目之類的事件時)，變更摘要就會觸發 [Azure 函式](../azure-functions/functions-overview.md)。  
+3. **變更摘要：** 變更摘要會接聽 Azure Cosmos 容器的變更。 每當有新的文件新增至集合時 (也就是發生使用者檢視某個項目、將某項目新增至其購物車或購買某項目之類的事件時)，變更摘要就會觸發 [Azure 函式](../azure-functions/functions-overview.md)。  
 
 4. **Azure 函式：** Azure 函式會處理新的資料，並將其傳送至 [Azure 事件中樞](../event-hubs/event-hubs-about.md)。  
 
@@ -53,7 +53,7 @@ Azure Cosmos DB 變更摘要是可在記錄建立或修改的同時，從 Azure 
 
 7. **Power BI：** Power BI 可以視覺方式呈現 Azure 串流分析所傳送的資料。 您可以建置儀表板，以即時查看計量的變化。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Microsoft .NET Framework 4.7.1 或更新版本
 
@@ -143,7 +143,7 @@ Azure 事件中樞會接收事件資料，並加以儲存、處理然後轉送�
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>設定用來讀取變更摘要的 Azure 函式
 
-在建立新的文件或修改 Cosmos DB 集合中的現行文件時，變更摘要就會自動將修改過的文件新增至其集合變更歷程記錄。 現在，您將建置並執行可處理變更摘要的 Azure 函式。 在您已建立的集合中建立或修改文件時，變更摘要將會觸發 Azure 函式。 然後，Azure 函式會將修改過的文件傳送至事件中樞。
+建立新檔或在 Cosmos 容器中修改目前檔時, 變更摘要會自動將修改過的檔新增至其集合變更的歷程記錄。 現在，您將建置並執行可處理變更摘要的 Azure 函式。 在您已建立的集合中建立或修改文件時，變更摘要將會觸發 Azure 函式。 然後，Azure 函式會將修改過的文件傳送至事件中樞。
 
 1. 返回您複製到裝置上的存放庫。  
 
@@ -316,9 +316,9 @@ Power BI 是一套商務分析工具，用來分析資料及分享見解。 它�
 
    ![視覺效果](./media/changefeed-ecommerce-solution/visualizations.png)
 
-## <a name="optional-visualize-with-an-e-commerce-site"></a>選用：電子商務網站的視覺化
+## <a name="optional-visualize-with-an-e-commerce-site"></a>選擇性：電子商務網站的視覺化
 
-現在，您將觀察如何使用新的資料分析工具與實際的電子商務網站連線。 若要建置電子商務網站，請使用 Azure Cosmos DB 資料庫來儲存產品目錄清單 (女用、男用、男女通用)、產品目錄，以及最受歡迎的項目清單。
+現在，您將觀察如何使用新的資料分析工具與實際的電子商務網站連線。 若要建立電子商務網站, 請使用 Azure Cosmos 資料庫來儲存產品類別目錄清單 (女性、男、Unisex)、產品目錄, 以及最受歡迎的專案清單。
 
 1. 瀏覽回 [Azure 入口網站](https://portal.azure.com/)，然後依序瀏覽至您的 **Cosmos DB 帳戶**和**資料總管**。  
 

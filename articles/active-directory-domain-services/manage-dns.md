@@ -1,108 +1,94 @@
 ---
-title: 管理 DNS 的 Azure AD Domain Services |Microsoft Docs
-description: 管理適用於 Azure AD Domain Services 的 DNS
-services: active-directory-ds
-documentationcenter: ''
+title: 管理 Azure AD Domain Services 的 DNS |Microsoft Docs
+description: 瞭解如何安裝 DNS 伺服器工具來管理 Azure Active Directory Domain Services 受控網域的 DNS。
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/07/2019
 ms.author: iainfou
-ms.openlocfilehash: 6753c26a99bb38e92613a6bad753e7dd101ba68e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9279f97d5260eae698d5dbee10e077b71ab01992
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473134"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612379"
 ---
-# <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>管理 Azure AD 網域服務受控網域上的 DNS
-Azure Active Directory 網域服務包括可為受控網域提供 DNS 解析的 DNS (網域名稱解析) 伺服器。 有時候，您可能需要在受控網域上設定 DNS。 您可能需要為未新增網域的機器建立 DNS 記錄、設定負載平衡器的虛擬 IP 位址，或設定外部 DNS 轉寄站。 基於這個理由，屬於「AAD DC 系統管理員」群組的使用者會獲授與受控網域上的 DNS 系統管理權限。
+# <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>管理 Azure AD Domain Services 受控網域中的 DNS
+
+在 Azure Active Directory Domain Services (Azure AD DS) 中, 主要元件是 DNS (功能變數名稱解析)。 Azure AD DS 包含 DNS 伺服器, 可提供受控網域的名稱解析。 此 DNS 伺服器包含內建的 DNS 記錄, 以及允許服務執行之主要元件的更新。
+
+當您執行自己的應用程式和服務時, 可能需要為未加入網域的電腦建立 DNS 記錄、設定負載平衡器的虛擬 IP 位址, 或設定外部 DNS 轉寄站。 屬於*AAD DC 系統管理員*群組的使用者會被授與 Azure AD DS 受控網域上的 DNS 管理許可權, 而且可以建立和編輯自訂 DNS 記錄。
+
+本文說明如何安裝 DNS 伺服器工具, 然後使用 DNS 主控台來記錄管理。
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>開始之前
-若要完成本文中所列的工作，您需要：
 
-1. 有效的 **Azure 訂用帳戶**。
-2. **Azure AD 目錄** - 與內部部署目錄或僅限雲端的目錄同步處理。
-3. **Azure AD 網域服務** 必須已針對 Azure AD 目錄啟用。 如果還沒有啟用，請按照 [入門指南](create-instance.md)所述的所有工作來進行。
-4. **已加入網域的虛擬機器** ，您可在其中管理 Azure AD 網域服務受控網域。 如果您沒有這類虛擬機器，請依照名為[將 Windows 虛擬機器加入受控網域](active-directory-ds-admin-guide-join-windows-vm.md)一文所述的所有工作進行操作。
-5. 您需要目錄中 **屬於「AAD DC 系統管理員」群組之使用者帳戶** 的認證，才能管理受控網域的 DNS。
+若要完成本文, 您需要下列資源和許可權:
 
-<br>
+* 有效的 Azure 訂用帳戶。
+    * 如果您沒有 Azure 訂用帳戶, 請[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* 與您的訂用帳戶相關聯的 Azure Active Directory 租使用者, 可以與內部部署目錄或僅限雲端目錄同步處理。
+    * 如有需要, 請[建立 Azure Active Directory 租][create-azure-ad-tenant]使用者, 或[將 Azure 訂用帳戶與您的帳戶建立關聯][associate-azure-ad-tenant]。
+* 已在您的 Azure AD 租使用者中啟用並設定 Azure Active Directory Domain Services 受控網域。
+    * 如有需要, 請完成教學課程, 以[建立及設定 Azure Active Directory Domain Services 實例][create-azure-ad-ds-instance]。
+* 已加入 Azure AD DS 受控網域的 Windows Server 管理 VM。
+    * 如有需要, 請完成教學課程以[建立 Windows SERVER VM, 並將它加入受控網域][create-join-windows-vm]。
+* 屬於您 Azure AD 租使用者中*AZURE AD DC 系統管理員*群組成員的使用者帳戶。
 
-## <a name="task-1---create-a-domain-joined-virtual-machine-to-remotely-administer-dns-for-the-managed-domain"></a>工作 1 - 建立已加入網域的虛擬機器以從遠端管理受控網域的 DNS
-使用 Active Directory 管理中心 (ADAC) 或 AD PowerShell 等熟悉的 Active Directory 系統管理工具，可以從遠端管理 Azure AD 網域服務受控網域。 同樣地，使用 DNS 伺服器系統管理工具，可以從遠端管理受控網域的 DNS。
+## <a name="install-dns-server-tools"></a>安裝 DNS 伺服器工具
 
-Azure AD 目錄中的系統管理員沒有權限，不能透過遠端桌面連接受控網域上的網域控制站。 「AAD DC 系統管理員」群組的成員可以使用 DNS 伺服器工具，從已加入受控網域的 Windows Server/用戶端電腦遠端管理受控網域的 DNS。 DNS 伺服器工具是遠端伺服器管理工具 (RSAT) 選用功能的一部分。
+若要建立及修改 DNS, 您必須安裝 DNS 伺服器工具。 這些工具可以在 Windows Server 中安裝為功能。 如需有關如何在 Windows 用戶端上安裝系統管理工具的詳細資訊, 請參閱 install[遠端伺服器管理工具 (RSAT)][install-rsat]。
 
-第一個工作是建立已加入受控網域的 Windows Server 虛擬機器。 如需相關指示，請參閱標題為 [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)的文章。
+1. 登入您的管理 VM。 如需如何使用 Azure 入口網站進行連線的步驟, 請參閱連線[到 Windows SERVER VM][connect-windows-server-vm]。
+1. 當您登入 VM 時, 預設應該會開啟**伺服器管理員**。 如果不是, 請在 [**開始**] 功能表上, 選取 [**伺服器管理員**]。
+1. 在 [**伺服器管理員**] 視窗的 [*儀表板*] 窗格中, 選取 [**新增角色及功能**]。
+1. 在 [*新增角色及功能嚮導]* 的 [**開始之前**] 頁面上, 選取 **[下一步]** 。
+1. 在 [*安裝類型*] 中, 保留核取 [以**角色為基礎或功能型的安裝**] 選項, 然後選取 **[下一步]** 。
+1. 在 [**伺服器選擇**] 頁面上, 從伺服器集區中選擇目前的 VM, 例如*myvm.contoso.com*, 然後選取 **[下一步]** 。
+1. 在 [伺服器角色] 頁面上，按 [下一步]。
+1. 在 [**功能**] 頁面上, 展開 [**遠端伺服器管理工具**] 節點, 然後展開 [**角色管理工具**] 節點。 從角色管理工具清單中，選取 [DNS 伺服器工具] 功能。
 
-## <a name="task-2---install-dns-server-tools-on-the-virtual-machine"></a>工作 2 - 在虛擬機器上安裝 DNS 伺服器工具
-完成下列步驟，在已加入網域的虛擬機器上安裝 DNS 管理工具。 如需有關[安裝和使用遠端伺服器管理工具](https://technet.microsoft.com/library/hh831501.aspx)的詳細資訊，請參閱 TechNet。
+    ![從可用的角色管理工具清單中選擇安裝 DNS 伺服器工具](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 
-1. 瀏覽至 Azure 入口網站。 在左側面板上按一下 [所有資源]  。 找出並按一下您在工作 1 中建立的虛擬機器。
-2. 在 [概觀] 索引標籤上按一下 [連線]  按鈕。隨即建立並下載遠端桌面通訊協定 (.rdp) 檔案。
+1. 在 [**確認**] 頁面上, 選取 [**安裝**]。 安裝群組原則管理工具可能需要一或兩分鐘的時間。
+1. 當功能安裝完成時, 選取 [關閉] 以**結束**[**新增角色及功能**]。
 
-    ![連線至 Windows 虛擬機器](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. 若要連線至您的 VM，請開啟下載的 RDP 檔案。 出現提示時，按一下 [連線]  。 使用屬於「AAD DC 系統管理員」群組之使用者的認證。 例如，'bob@domainservicespreview.onmicrosoft.com'。 您可能會在登入過程中收到憑證警告。 按一下 [是] 或 [繼續] 來連線。
+## <a name="open-the-dns-management-console-to-administer-dns"></a>開啟 DNS 管理主控台來管理 DNS
 
-4. 在 [開始] 畫面中開啟 [伺服器管理員]  。 按一下 [伺服器管理員] 視窗中央窗格內的 [新增角色及功能]  。
-
-    ![啟動虛擬機器上的伺服器管理員](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
-5. 在 [新增角色及功能精靈]  的 [開始之前]  頁面上，按 [下一步]  。
-
-    ![[開始之前] 頁面](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
-6. 在 [安裝類型]  頁面上，保持勾選 [角色型或功能型安裝]  選項，然後按 [下一步]  。
-
-    ![[安裝類型] 頁面](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
-7. 在 [伺服器選擇]  頁面上，從伺服器集區中選取目前的虛擬機器，然後按 [下一步]  。
-
-    ![[伺服器選擇] 頁面](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. 在 [伺服器角色]  頁面上，按 [下一步]  。
-9. 在 [功能]  頁面上，按一下以展開 [遠端伺服器管理工具]  節點，然後按一下以展開 [角色管理工具]  節點。 從角色管理工具清單中，選取 [DNS 伺服器工具]  功能。
-
-    ![[功能] 頁面](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
-10. 在 [確認]  頁面上，按一下 [安裝]  以在虛擬機器上安裝 DNS 伺服器工具功能。 順利完成功能安裝時，按一下 [關閉]  以結束 [新增角色及功能]  精靈。
-
-    ![確認電子郵件](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
-
-## <a name="task-3---launch-the-dns-management-console-to-administer-dns"></a>工作 3 - 啟動 DNS 管理主控台來管理 DNS
-現在，您可以使用 Windows Server DNS 工具來管理受控網域上的 DNS。
+安裝 DNS 伺服器工具之後, 您就可以管理 Azure AD DS 受控網域上的 DNS 記錄。
 
 > [!NOTE]
-> 您必須是「AAD DC 系統管理員」群組的成員，才能在受控網域上管理 DNS。
->
->
+> 若要管理 Azure AD DS 受控網域中的 DNS, 您必須登入屬於*AAD DC 系統管理員*群組成員的使用者帳戶。
 
-1. 從 [開始] 畫面中，按一下 [系統管理工具]  。 您應該會看到安裝在虛擬機器上的 [DNS]  主控台。
+1. 從 [開始] 畫面中, 選取 [系統**管理工具**]。 隨即會顯示可用的管理工具清單, 包括上一節中所安裝的**DNS** 。 選取 [ **dns** ] 以啟動 dns 管理主控台。
+1. 在 [連線**到 DNS 伺服器**] 對話方塊中, 選取 **[下列電腦**], 然後輸入受控網域的 DNS 功能變數名稱, 例如*contoso.com*:
 
-    ![系統管理工具 - DNS 主控台](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
-2. 按一下 [DNS]  以啟動 DNS 管理主控台。
-3. 在 [連線到 DNS 伺服器]  對話方塊中，按一下 [下列電腦]  ，然後輸入受控網域的 DNS 網域名稱 (例如 'contoso100.com')。
+    ![連接到 DNS 主控台中的 Azure AD DS 受控網域](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 
-    ![DNS 主控台 - 連線到網域](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
-4. DNS 主控台連線到受控網域。
+1. DNS 主控台會連線到指定的 Azure AD DS 受控網域。 展開 [**正向對應區域**] 或 [**反向對應區域**], 以建立必要的 DNS 專案, 或視需要編輯現有的記錄。
 
     ![DNS 主控台 - 管理網域](./media/active-directory-domain-services-admin-guide/dns-console-managed-domain.png)
-5. 您現在可以使用 DNS 主控台來為已在其中啟用 AAD 網域服務之虛擬網路內的電腦新增 DNS 項目。
 
 > [!WARNING]
-> 使用 DNS 管理工具來管理受控網域的 DNS 時，請務必小心。 務必要確定您 **並未刪除或修改網域中的網域服務所使用的內建 DNS 記錄**。 內建 DNS 記錄包括網域 DNS 記錄、名稱伺服器記錄和其他用於 DC 位置的記錄。 如果您修改這些記錄，虛擬網路上的網域服務會中斷。
->
->
+> 當您使用 DNS 伺服器工具來記錄管理時, 請確定您不會刪除或修改 Azure AD DS 所使用的內建 DNS 記錄。 內建 DNS 記錄包括網域 DNS 記錄、名稱伺服器記錄和其他用於 DC 位置的記錄。 如果您修改這些記錄，虛擬網路上的網域服務會中斷。
+
+## <a name="next-steps"></a>後續步驟
 
 如需管理 DNS 的詳細資訊，請參閱 [Technet 上的 DNS 工具文章](https://technet.microsoft.com/library/cc753579.aspx)。
 
-## <a name="related-content"></a>相關內容
-* [Azure AD Domain Services - 入門指南](create-instance.md)
-* [將 Windows Server 虛擬機器加入 Azure Active Directory Domain Services 受控網域](active-directory-ds-admin-guide-join-windows-vm.md)
-* [管理 Azure AD Domain Services 網域](manage-domain.md)
-* [DNS 系統管理工具](https://technet.microsoft.com/library/cc753579.aspx)
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[create-join-windows-vm]: join-windows-vm.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
+[connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm
+
+<!-- EXTERNAL LINKS -->
+[install-rsat]: /windows-server/remote/remote-server-administration-tools#BKMK_Thresh

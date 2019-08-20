@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: c5b423fca3e0ec116fceefb6867189f4f8413b96
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 67dda1ab56c6a706a9fdbef45fabdae9167ffe2b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856094"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616331"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>在 Azure Machine Learning 中建立和存取資料集 (預覽)
 
@@ -24,15 +24,13 @@ ms.locfileid: "68856094"
 
 有了 Azure Machine Learning 資料集, 您可以: 
 
-* 在資料集所參考的**儲存體中保留一份資料複本**
+* 在資料集所參考的**儲存體中保存一份資料**。 
 
-* 透過探索資料分析來**分析資料** 
+* **在模型定型期間輕鬆存取資料**, 而不需要擔心連接字串或資料路徑。
 
-* **在模型定型期間輕鬆存取資料**, 而不需要擔心連接字串或資料路徑
+* **共用資料 &** 與其他使用者共同作業。
 
-* **共用資料 &** 與其他使用者共同作業
-
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要建立及使用資料集, 您需要:
 
@@ -43,48 +41,24 @@ ms.locfileid: "68856094"
 * [已安裝適用于 Python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), 其中包括 azureml 資料集封裝。
 
 > [!Note]
-> 某些資料集類別 (預覽) 在[dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)套件 (GA) 上具有相依性。 針對 Linux 使用者, 只有下列散發版本才支援這些類別:Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
+> 某些資料集類別 (預覽) 在[dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)套件上具有相依性。 針對 Linux 使用者, 只有下列散發版本才支援這些類別:Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
 
-## <a name="data-formats"></a>資料格式
+## <a name="dataset-types"></a>資料集類型
+資料集會根據使用者在定型中取用它們的方式, 分類成各種類型。 目前我們支援以表格格式表示資料的 TabularDatasets, 方法是剖析提供的檔案或檔案清單。 這讓您能夠將資料具體化為 pandas 資料框架。 您可以從 csv、tsv、parquet 檔案、SQL 查詢結果等建立 TabularDataset。如需完整清單, 請流覽我們的檔。
 
-您可以從下列格式建立 Azure Machine Learning 資料集:
-+ [分隔](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none--partition-format-none-)
-+ [json](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false--partition-format-none-)
-+ [Excel](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true--partition-format-none-)
-+ [Parquet](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false--partition-format-none-)
-+ [pandas 資料框架](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-pandas-dataframe-dataframe--path-none--in-memory-false-)
-+ [SQL query](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
-+ [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
+若要深入瞭解即將推出的 API 變更, 請參閱[什麼是 Azure Machine Learning 服務？](https://aka.ms/tabular-dataset) 
 
 ## <a name="create-datasets"></a>建立資料集 
 
 藉由建立資料集, 您可以建立資料來源位置的參考, 以及其中繼資料的複本。 資料會保留在現有的位置, 因此不會產生額外的儲存成本。
 
-### <a name="create-from-local-files"></a>從本機檔案建立
-
-藉由使用[`auto_read_files()`](/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false--partition-format-none-) `Dataset`類別的方法指定檔案或資料夾路徑, 從本機電腦載入檔案。  這個方法會執行下列步驟, 而不需要您指定檔案類型或剖析引數:
-
-* 推斷和設定分隔符號。
-* 略過檔案頂端的空白記錄。
-* 推斷和設定標頭資料列。
-* 推斷和轉換資料行資料類型。
-
-```Python
-from azureml.core.dataset import Dataset
-
-dataset = Dataset.auto_read_files('./data/crime.csv')
-```
-
-或者, 使用檔案特有的函式來明確控制檔案的剖析。 
-
-
-### <a name="create-from-azure-datastores"></a>從 Azure 資料存放區建立
+若要讓 Azure Machine Learning 服務可存取的資料, 必須從[Azure 資料存放區](how-to-access-data.md)或公用 web url 中的路徑建立資料集。
 
 若要從[Azure 資料](how-to-access-data.md)存放區建立資料集:
 
 * 確認您擁有`contributor`或`owner`已註冊 Azure 資料存放區的存取權。
 
-* 藉由參考資料存放區中的路徑來建立資料集 
+* 藉由參考資料存放區中的路徑來建立資料集。
 
 ```Python
 from azureml.core.workspace import Workspace
@@ -97,54 +71,91 @@ datastore_name = 'your datastore name'
 workspace = Workspace.from_config()
 
 # retrieve an existing datastore in the workspace by name
-dstore = Datastore.get(workspace, datastore_name)
+datastore = Datastore.get(workspace, datastore_name)
 ```
+### <a name="create-tabulardatasets"></a>建立 TabularDatasets
 
-使用方法，從 [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) 讀取分隔的檔案，並建立未註冊的資料集。`from_delimited_files()`
+在類別上`TabularDatasetFactory`使用方法來讀取csv或tsv格式的檔案,並建立未註冊的TabularDataset。`from_delimited_files()` 如果您從多個檔案讀取, 結果將會匯總成一個表格式標記法。
 
 ```Python
-# create an in-memory Dataset on your local machine
-dataset = Dataset.from_delimited_files(dstore.path('data/src/crime.csv'))
+# create a TabularDataset from multiple paths in datastore
+datastore_paths = [
+                  (datastore, 'weather/2018/11.csv'),
+                  (datastore, 'weather/2018/12.csv'),
+                  (datastore, 'weather/2019/*.csv')
+                 ]
+weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 
-# returns the first 5 rows of the Dataset as a pandas Dataframe.
-dataset.head(5)
+# create a TabularDataset from a delimited file behind a public web url
+web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+
+# preview the first 3 rows of titanic_ds
+titanic_ds.take(3).to_pandas_dataframe()
 ```
+
+| |PassengerId|式|Pclass|Name|性別|Age|SibSp|Parch|票|費用|插槽|著手
+-|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
+0|1|0|3|Braund, Mr. Owen Harris|male|22。0|1|0|A/5 21171|7.2500||S
+1|2|1|1|Cumings, Mrs John Bradley (Florence Briggs Th 。|female|38。0|1|0|電腦17599|71.2833|C85|C
+2|3|1|3|Heikkinen, 錯過。 Laina|female|26.0|0|0|STON/O2。 3101282|7.9250||S
 
 ## <a name="register-datasets"></a>註冊資料集
 
 若要完成建立程式, 請使用工作區註冊您的資料集:
 
-[`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-)使用方法將資料集註冊到您的工作區, 讓它們可以與其他人共用, 並在各種不同的實驗中重複使用。
+`register()`使用方法將資料集註冊到您的工作區, 讓它們可以與其他人共用, 並在各種不同的實驗中重複使用。
 
 ```Python
-dataset = dataset.register(workspace = workspace,
-                           name = 'dataset_crime',
-                           description = 'Training data',
-                           exist_ok = False
-                           )
+titanic_ds = titanic_ds.register(workspace = workspace,
+                                 name = 'titanic_ds',
+                                 description = 'titanic training data')
 ```
 
->[!NOTE]
-> 如果`exist_ok = False`為 (預設值), 而且您嘗試使用與另一個相同的名稱來註冊資料集, 就會發生錯誤。 將設定`True`為以覆寫現有的。
+## <a name="version-datasets"></a>版本資料集
 
-## <a name="access-data-in-datasets"></a>存取資料集中的資料
-
-已註冊的資料集會在計算叢集 (例如 Azure Machine Learning 計算) 上, 從本機和遠端存取。 若要跨實驗存取已註冊的資料集, 請使用下列程式碼, 依名稱取得您的工作區和已註冊的資料集。
+您可以建立新的版本, 以在相同名稱下註冊新的資料集。 [資料集版本] 是將資料的狀態設為書簽的方式, 因此您可以套用特定版本的資料集進行實驗或未來的複製。 考慮版本控制的一般案例: 
+* 當有新資料可供重新定型時。
+* 當您套用不同的資料準備或功能工程方法時。
 
 ```Python
-workspace = Workspace.from_config()
+# create a TabularDataset from new Titanic training data
+web_paths = [
+            'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
+            'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
+           ]          
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
-# See list of datasets registered in workspace.
-print(Dataset.list(workspace))
+# create a new version of titanic_ds
+titanic_ds = titanic_ds.register(workspace = workspace,
+                                 name = 'titanic_ds',
+                                 description = 'new titanic training data',
+                                 create_new_version = True)
+```
 
-# Get dataset by name
-dataset = Dataset.get(workspace, 'dataset_crime')
 
-# Load data into pandas DataFrame
-dataset.to_pandas_dataframe()
+## <a name="access-your-data-during-training"></a>在定型期間存取您的資料
+
+已註冊的資料集會在計算叢集 (例如 Azure Machine Learning 計算) 上, 從本機和遠端存取。 若要跨實驗存取已註冊的資料集, 請使用下列程式碼, 依名稱取得您的工作區和已註冊的資料集。 根據預設, `get_by_name` 類別上的方法會傳回已向工作區註冊之資料集的最新版本。`Dataset`
+
+```Python
+%%writefile $script_folder/train.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+workspace = run.experiment.workspace
+
+dataset_name = 'titanic_ds'
+
+# Get a dataset by name
+titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
+
+# Load a TabularDataset into pandas DataFrame
+df = titanic_ds.to_pandas_dataframe()
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
-* [探索和準備資料集](how-to-explore-prepare-data.md)。
-* 如需使用資料集的範例, 請參閱[範例筆記本](https://aka.ms/dataset-tutorial)。
+* 使用自動化機器學習來[訓練 TabularDatasets](https://aka.ms/automl-dataset)。
+* 如需使用資料集進行定型的更多範例, 請參閱[範例筆記本](https://aka.ms/dataset-tutorial)。

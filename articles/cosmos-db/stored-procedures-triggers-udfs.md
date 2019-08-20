@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717540"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614066"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>預存程序、觸發程序和使用者定義函式
 
@@ -79,11 +79,11 @@ Azure Cosmos DB 支援兩種類型的觸發程式:
 
 ### <a name="pre-triggers"></a>預先觸發程序
 
-Azure Cosmos DB 提供的觸發程序可透過在 Azure Cosmos DB 項目上執行作業來叫用。 例如，當您正在建立項目時，可以指定預先觸發程序。 在此情況下，在建立項目之前，會先執行預先觸發程序。 預先觸發程序不能有任何輸入參數。 如有必要，要求物件可用來從原始要求來更新文件內文。 註冊觸發程序時，使用者可以指定與之搭配執行的作業。 如果觸發程序是使用 `TriggerOperation.Create` 建立的，這表示將不會允許在取代作業中使用觸發程序。 如需範例，請參閱[如何撰寫觸發程序](how-to-write-stored-procedures-triggers-udfs.md#triggers)文章。
+Azure Cosmos DB 提供可透過在 Azure Cosmos 專案上執行作業來叫用的觸發程式。 例如，當您正在建立項目時，可以指定預先觸發程序。 在此情況下，在建立項目之前，會先執行預先觸發程序。 預先觸發程序不能有任何輸入參數。 如有必要，要求物件可用來從原始要求來更新文件內文。 註冊觸發程序時，使用者可以指定與之搭配執行的作業。 如果觸發程序是使用 `TriggerOperation.Create` 建立的，這表示將不會允許在取代作業中使用觸發程序。 如需範例，請參閱[如何撰寫觸發程序](how-to-write-stored-procedures-triggers-udfs.md#triggers)文章。
 
 ### <a name="post-triggers"></a>後續觸發程序
 
-後續觸發程序與預先觸發程序類似，都與 Azure Cosmos DB 項目上的作業相關聯，而且不需要任何輸入參數。 它們是在作業完成*之後*執行的，而且可以存取傳送給用戶端的回應訊息。 如需範例，請參閱[如何撰寫觸發程序](how-to-write-stored-procedures-triggers-udfs.md#triggers)文章。
+類似于預先觸發程式之後的觸發程式, 也會與 Azure Cosmos 專案上的作業相關聯, 而且不需要任何輸入參數。 它們是在作業完成*之後*執行的，而且可以存取傳送給用戶端的回應訊息。 如需範例，請參閱[如何撰寫觸發程序](how-to-write-stored-procedures-triggers-udfs.md#triggers)文章。
 
 > [!NOTE]
 > 已註冊的觸發程式不會在其對應的作業 (建立/刪除/取代/更新) 發生時自動執行。 執行這些作業時, 必須明確地呼叫它們。 若要深入瞭解, 請參閱[如何執行觸發](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)程式一文。

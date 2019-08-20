@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5fff27094881ffbada2bda7937fa714ffc07133
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0e1be41c854e212a7b673d8c2dff42d7b9981fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954356"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616139"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>將安全性資訊 (預覽) 設定為使用驗證器應用程式
 
@@ -145,6 +145,8 @@ ms.locfileid: "68954356"
     >如果這其中一些選項遺失，很可能是因為您的組織不允許那些方法。 如果發生這種情況，您將必須選擇可用的方法，或連絡您的系統管理員以取得更多協助。
 
 ## <a name="next-steps"></a>後續步驟
+
+- 使用 Microsoft Authenticator 應用程式登入, 請遵循[使用雙步驟驗證或安全性資訊登入一](security-info-setup-signin.md)文中的步驟進行。
 
 - 如果您遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](user-help-reset-password.md)一文中的步驟來重設密碼。
 

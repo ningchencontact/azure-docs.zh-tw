@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: f8cb7458deddc95f33fa5e4582ffa7c25c3c64e6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ef006e94ee22886f1129c7c9ca31e20503312fe3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619825"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616939"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用大量執行程式 Java 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您將建置會產生隨機文件的 Java 應用程式，而這些文件會大量匯入至 Azure Cosmos DB 容器。 匯入之後，您會大量更新文件的某些屬性。 
+本教學課程說明如何使用 Azure Cosmos DB 大量執行程式的 Java 程式庫來匯入和更新 Azure Cosmos DB 文件。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中, 您會建立 JAVA 應用程式, 以產生隨機檔, 並將其大量匯入至 Azure Cosmos 容器。 匯入之後，您會大量更新文件的某些屬性。 
 
 目前, 只有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶支援大量執行程式程式庫。 本文說明如何搭配 SQL API 帳戶使用大量執行程式 JAVA 程式庫。 若要了解如何搭配 Gremlin API 使用大量執行程式 .Net 程式庫，請參閱[在 Azure Cosmos DB Gremlin API 中執行大量作業](bulk-executor-graph-dotnet.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。  
 
@@ -88,7 +88,7 @@ ms.locfileid: "68619825"
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
    ```
 
-4. 呼叫 importAll API，以產生隨機文件來大量匯入至 Azure Cosmos DB 容器。 您可以設定 CmdLineConfiguration.java 檔案內的命令列組態。
+4. 呼叫 importAll API, 以產生隨機檔來大量匯入至 Azure Cosmos 容器。 您可以設定 CmdLineConfiguration.java 檔案內的命令列組態。
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -105,7 +105,7 @@ ms.locfileid: "68619825"
 
    importAll 方法可接受下列參數：
  
-   |**參數**  |**說明**  |
+   |**參數**  |**描述**  |
    |---------|---------|
    |isUpsert    |   啟用文件更新插入的旗標。 如果具有指定識別碼的文件已經存在，文件會進行更新。  |
    |disableAutomaticIdGeneration     |   停用自動產生識別碼的旗標。 預設會設定為 true。   |
@@ -155,7 +155,7 @@ ms.locfileid: "68619825"
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. 呼叫 updateAll API，以產生隨機文件來大量匯入至 Azure Cosmos DB 容器。 您可以設定要傳遞到 CmdLineConfiguration.java 檔案內的命令列組態。
+2. 呼叫 updateAll API, 以產生隨機檔, 然後將其大量匯入至 Azure Cosmos 容器。 您可以設定要傳遞到 CmdLineConfiguration.java 檔案內的命令列組態。
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -206,7 +206,7 @@ ms.locfileid: "68619825"
    * 將 JVM 堆積大小設定為夠大的數字，以避免處理大量文件時發生任何記憶體問題。 建議的堆積大小：max(3GB, 3 * sizeof(在一個批次中傳遞至大量輸入 API 的所有文件))。  
    * 具有前置處理時間，在您對大量文件執行大量作業時，這可讓您取得更高的輸送量。 因此，如果您想要匯入 10,000,000 份文件，較好的方式是對 10 份大量文件 (每份中有 1,000,000 份文件) 執行 10 次大量匯入，而不是對 100 份大量文件 (每份中有 100,000 份文件) 執行 100 次大量匯入。  
 
-* 在對應到特定 Azure Cosmos DB 容器的單一虛擬機器中，建議您為整個應用程式具現化單一 DocumentBulkExecutor 物件。  
+* 建議在對應到特定 Azure Cosmos 容器的單一虛擬機器中, 為整個應用程式具現化單一 DocumentBulkExecutor 物件。  
 
 * 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫無法取用整個容器的輸送量 (如果容器的輸送量 > 1 百萬 RU/s)，建議您建立個別虛擬機器來並行執行大量作業 API 呼叫。
 

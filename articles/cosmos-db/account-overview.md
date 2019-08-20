@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 617d19b0dd9da926eb49170c1566febc6f6280ba
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 833d8533ff3289693e1744db2d77d4bed6a9ea69
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467804"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617004"
 ---
 # <a name="work-with-azure-cosmos-account"></a>使用 Azure Cosmos 帳戶
 
@@ -25,7 +25,7 @@ Azure Cosmos 帳戶是全域散發和高可用性的基本單位。 若要將您
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Azure Cosmos 帳戶中的元素
 
-Azure Cosmos DB 容器是延展性的基本單位。 您在容器上可佈建的輸送量 (RU/秒) 和儲存體幾乎不受限制。 Azure Cosmos DB 會使用您指定的邏輯分割區索引鍵以透明的方式分割您的容器，以彈性地調整您佈建的輸送量和儲存體。 如需詳細資訊，請參閱[使用 Azure Cosmos 容器和項目](databases-containers-items.md)。
+Azure Cosmos 容器是擴充性的基本單位。 您在容器上可佈建的輸送量 (RU/秒) 和儲存體幾乎不受限制。 Azure Cosmos DB 會使用您指定的邏輯分割區索引鍵以透明的方式分割您的容器，以彈性地調整您佈建的輸送量和儲存體。 如需詳細資訊，請參閱[使用 Azure Cosmos 容器和項目](databases-containers-items.md)。
 
 目前，您在一個 Azure 訂用帳戶下最多可建立 100 個 Azure Cosmos 帳戶。 單一 Azure Cosmos 帳戶可管理的資料量和佈建的輸送量幾乎不受限制。 若要管理您的資料和佈建的輸送量，您可以在您的帳戶下建立一或多個 Azure Cosmos 資料庫，並且可在該資料庫內建立一或多個容器。 下圖顯示 Azure Cosmos 帳戶中的元素階層：
 

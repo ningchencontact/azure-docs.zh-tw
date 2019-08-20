@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: a81b22d8ca538c7dc25a9c6631c2b455d5a6c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b74c7b178ee4512067de4b8decba0c3c565ccd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257226"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616957"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
-本教學課程說明如何使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將文件匯入並更新至 Azure Cosmos DB 容器。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中，您會看到 .NET 應用程式範例如何將隨機產生的文件大量匯入至 Azure Cosmos DB 容器。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。 
+本教學課程提供有關使用 Azure Cosmos DB 的大量執行程式 .NET 程式庫將檔匯入和更新至 Azure Cosmos 容器的指示。 若要深入了解大量執行程式程式庫，以及它如何協助您利用大量輸送量與儲存體，請參閱[大量執行程式程式庫概觀](bulk-executor-overview.md)一文。 在本教學課程中, 您會看到將隨機產生的檔大量匯入至 Azure Cosmos 容器的範例 .NET 應用程式。 匯入之後，應用程式會說明如何將修補程式指定為可在特定文件欄位上執行的作業，來大量更新匯入的資料。 
 
 目前，只有 Azure Cosmos DB SQL API 和 Gremlin API 帳戶可支援大量執行程式程式庫。 本文說明如何搭配 SQL API 帳戶使用大量執行程式 .NET 程式庫。 若要了解如何搭配 Gremlin API 使用大量執行程式 .Net 程式庫，請參閱[在 Azure Cosmos DB Gremlin API 中執行大量作業](bulk-executor-graph-dotnet.md)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* 如果您還沒有安裝 Visual Studio 2019，您可以下載並使用[Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 Azure 開發。
+* 如果您尚未安裝 Visual Studio 2019, 您可以下載並使用[Visual Studio 2019 的社區版](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 Azure 開發。
 
 * 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。 
 
@@ -72,7 +72,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    connectionPolicy)
    ```
 
-4. BulkExecutor 物件值進行初始化高的重試等候時間和節流要求。 接著，這些值會設定為 0，如此會將壅塞控制傳遞給 BulkExecutor 以決定其存留期。  
+4. 針對等候時間和節流的要求, BulkExecutor 物件會使用高重試值進行初始化。 接著，這些值會設定為 0，如此會將壅塞控制傳遞給 BulkExecutor 以決定其存留期。  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    
    |**參數**  |**描述** |
    |---------|---------|
-   |enableUpsert    |   若要啟用更新插入文件的旗標。 如果具有指定識別碼的文件已經存在，文件會進行更新。 預設會設定為 false。      |
+   |enableUpsert    |   啟用檔更新插入的旗標。 如果具有指定識別碼的文件已經存在，文件會進行更新。 預設會設定為 false。      |
    |disableAutomaticIdGeneration    |    停用自動產生識別碼的旗標。 預設會設定為 true。     |
    |maxConcurrencyPerPartitionKeyRange    | 每個資料分割索引鍵範圍的最大並行程度，若設定為 Null，程式庫會使用預設值 20。 |
    |maxInMemorySortingBatchSize     |  從文件列舉程式提取的最大文件數，也就是在每個階段中傳遞至 API 呼叫的最大文件數。  針對大量匯入之前的記憶體內前置處理排序階段，若設定為 Null，程式庫將會使用預設值 min(documents.count, 1000000)。       |
@@ -115,7 +115,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    |NumberOfDocumentsImported (long)   |  在提供給大量匯入 API 呼叫的文件中，成功匯入的文件總數。       |
    |TotalRequestUnitsConsumed (double)   |   大量匯入 API 呼叫取用的要求單位 (RU) 總數。      |
    |TotalTimeTaken (TimeSpan)    |   大量匯入 API 呼叫完成執行的時間總計。      |
-   |BadInputDocuments (List\<object>)   |     格式錯誤而未成功匯入大量匯入 API 呼叫的文件清單。 使用者應該修正傳回的文件，然後再次嘗試匯入。 格式錯誤的文件包含其識別碼值不是字串 (Null 或任何其他視為無效的資料類型) 的文件。    |
+   |BadInputDocuments (列出\<物件 >)   |     格式錯誤而未成功匯入大量匯入 API 呼叫的文件清單。 使用者應該修正傳回的文件，然後再次嘗試匯入。 格式錯誤的文件包含其識別碼值不是字串 (Null 或任何其他視為無效的資料類型) 的文件。    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中大量更新資料
 
@@ -171,11 +171,11 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 * 為達到最佳效能，請從位於與 Cosmos DB 帳戶寫入區域相同區域的 Azure 虛擬機器中執行應用程式。  
 
-* 在對應到特定 Cosmos DB 容器的單一虛擬機器中，建議您為整個應用程式具現化單一 BulkExecutor 物件。  
+* 建議在對應到特定 Cosmos 容器的單一虛擬機器中, 為整個應用程式具現化單一 BulkExecutor 物件。  
 
-* 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果單一的虛擬機器執行的單一大量作業 API 呼叫會取用整個容器的輸送量 (如果您的容器輸送量 > 1 百萬個 RU/秒)，建議您最好建立個別的虛擬機器，以同時執行大量作業 API 呼叫。  
+* 單一大量作業 API 執行會取用大量用戶端機器的 CPU 和網路 IO。 這是因為由內部繁衍出多個工作，因此請避免在每次執行大量作業 API 呼叫時，您的應用程式處理程序內繁衍出多個並行工作。 如果在單一虛擬機器上執行的單一大量作業 API 呼叫無法取用整個容器的輸送量 (如果容器的輸送量 > 1000000 RU/秒), 建議您建立個別的虛擬機器以同時執行大量作業 API 呼叫。  
 
-* 請確定 InitializeAsync() 是在具現化 BulkExecutor 物件之後叫用，以便提取目標 Cosmos DB 容器資料分割對應。  
+* 請確定在具現化 BulkExecutor 物件之後叫用 InitializeAsync (), 以提取目標 Cosmos 容器分割區對應。  
 
 * 在應用程式的 App.Config 中，為擁有最佳效能，請確保已啟用 **gcServer**
   ```xml  
@@ -197,4 +197,4 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
   ```
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解 Nuget 套件詳細資料及版本的大量執行程式的.NET 程式庫的資訊，請參閱[大量執行程式 SDK 的詳細資訊](sql-api-sdk-bulk-executor-dot-net.md)。 
+* 若要深入瞭解 Nuget 套件詳細資料和大量執行程式 .NET 程式庫的版本資訊, 請參閱[大量執行程式 SDK 詳細資料](sql-api-sdk-bulk-executor-dot-net.md)。 

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: vijetaj
-ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d128a7af60a1504d05fb5316969fccc49c397f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68557360"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574976"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
@@ -31,7 +31,7 @@ ms.locfileid: "68557360"
 
 在本逐步解說中，我們會分析 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 資料集。 這是一組標示為垃圾郵件或非垃圾郵件 (亦即這些郵件不是垃圾郵件) 的電子郵件，並同時包含關於電子郵件內容的一些統計資料。 其中所含的統計資料會在下下一節中討論。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 您必須先具有下列項目，才可以使用 Linux 資料科學虛擬機器：
 
 * **Azure 訂用帳戶**。 如果您還沒有訂用帳戶，請參閱 [立即建立免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
@@ -70,7 +70,7 @@ ms.locfileid: "68557360"
 * ***capital\_run\_length\_longest*** 是一連串大寫字母的最長長度。
 * ***capital\_run\_length\_average*** 是所有連串大寫字母的平均長度。
 * ***capital\_run\_length\_total*** 是所有連串大寫字母的總長度。
-*  indicates whether the email was considered  or not (1 = , 0 = not ).
+* indicates whether the email was considered  or not (1 = , 0 = not ).
 
 ## <a name="explore-the-dataset-with-microsoft-r-open"></a>使用 Microsoft R Open 探索資料集
 讓我們使用 R 來檢查資料並執行某些基本的機器學習服務。資料科學 VM 已預先安裝了 [Microsoft R Open](https://mran.revolutionanalytics.com/open/)。 此版本的 R 中有多執行緒的數學程式庫，可提供比單一執行緒版本還要好的效能。 Microsoft R Open 也可藉由使用 CRAN 封裝儲存機制的快照來提供重現性。
@@ -229,6 +229,20 @@ ms.locfileid: "68557360"
 
     consume(ep, smallTestSet[1:10, ])
 
+<a name="deep-learning"></a>
+
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>深度學習教學課程和逐步解說
+
+除了以架構為基礎的範例，我們也提供一套完整的逐步解說，都已在 DLVM 上驗證過。 這些逐步解說有助於您在影像和文字/語言理解之類的領域中，快速開發深度學習應用程式。 我們會持續新增更多跨不同領域和技術的端對端教學課程。   
+
+
+- [跨不同架構執行類神經網路](https://github.com/ilkarman/DeepLearningFrameworks)：完整的逐步解說，示範如何將程式碼從一種架構移轉至另一種架構。 其中也示範如何跨架構來比較模型和執行階段效能。 
+
+- [建置端對端解決方案在影像內偵測產品的操作說明指南](https://github.com/Azure/cortana-intelligence-product-detection-from-images)：影像偵測是一種可在影像內找出並分類物體的技術。 這項技術在許多現實生活商業領域中潛藏龐大的商機。 例如，零售商可以利用這項技術來判斷客戶從貨架上挑選什麼產品。 這項資訊進而有助於商店管理產品庫存。 
+
+- [音訊的深度學習](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) 本教學課程示範如何在[都市音效資料集](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html)偵測音訊事件來訓練深度學習模型，並提供如何使用音訊資料的概觀。
+
+- [更文字文件的分類](https://github.com/anargyri/lstm_han)：此逐步解說將示範如何建置和定型兩種不同的類神經網路架構：分層注意網路和長短期記憶 (LSTM) 網路。 這些類神經網路會使用深入學習的 Keras API 將文字文件分類。 Keras 是三個最受歡迎深度學習架構的前端：Microsoft Cognitive Toolkit、TensorFlow 和 Theano。
 
 ## <a name="use-other-tools-available"></a>使用其他可用工具
 其餘各節示範如何使用一些已安裝在 Linux 資料科學 VM 上的工具。以下是所討論的工具清單︰

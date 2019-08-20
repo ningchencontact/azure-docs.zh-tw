@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1ee54fac5a4c325ea5db3b97522fd2772b8dbd4
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 15ecdf0feb0d8e5307eac9916748e0bacdf51620
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382421"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616055"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>下載並安裝 Microsoft Authenticator 應用程式
 
@@ -52,7 +52,7 @@ ms.locfileid: "68382421"
 - **Apple iOS。** 在 Apple iOS 裝置上，移至 App Store 以[下載並安裝 Microsoft Authenticator 應用程式](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458)。
 
 >[!Important]
->如果您目前不在行動裝置上, 您仍然可以從 [ [Microsoft Authenticator] 頁面](https://www.microsoft.com/en-us/account/authenticator)傳送下載連結給自己, 以取得 Microsoft Authenticator 應用程式。
+>如果您目前不在行動裝置上, 您仍然可以從 [ [Microsoft Authenticator] 頁面](https://www.microsoft.com/account/authenticator)傳送下載連結給自己, 以取得 Microsoft Authenticator 應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 

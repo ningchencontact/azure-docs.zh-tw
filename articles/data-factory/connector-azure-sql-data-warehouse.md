@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 2d0c8cfb5e146694304d32eca27836f49d82e887
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 3b50b0e81103f0b4c8ffa757673c9ec0ef652fc0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618698"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614134"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本:"]
@@ -58,7 +58,7 @@ ms.locfileid: "68618698"
 
 以下是 Azure SQL 資料倉儲連結服務支援的屬性：
 
-| 內容            | 描述                                                  | 必要項                                                     |
+| 屬性            | 描述                                                  | 必要項                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | 類型屬性必須設為 **AzureSqlDW**。             | 是                                                          |
 | connectionString    | 針對 **connectionString** 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼/服務主體金鑰放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 | 是                                                          |
@@ -231,7 +231,7 @@ ms.locfileid: "68618698"
 
 若要將資料從或複製到 Azure SQL 資料倉儲, 支援下列屬性:
 
-| 內容  | 描述                                                  | 必要項                    |
+| 屬性  | 描述                                                  | 必要項                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 資料集的**type**屬性必須設定為 **AzureSqlDWTable**。 | 是                         |
 | tableName | 「Azure SQL 資料倉儲」執行個體中連結服務所參考的資料表或檢視名稱。 | 否 (來源)；是 (接收) |
@@ -258,13 +258,13 @@ ms.locfileid: "68618698"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供「Azure SQL 資料倉儲」來源和接收所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供「Azure SQL 資料倉儲」來源和接收所支援的屬性清單。
 
 ### <a name="azure-sql-data-warehouse-as-the-source"></a>Azure SQL 資料倉儲作為來源
 
 若要從「Azure SQL 資料倉儲」複製資料，請將複製活動來源中的**類型**屬性設定為 **SqlDWSource**。 複製活動的 [來源] 區段支援下列屬性：
 
-| 內容                     | 描述                                                  | 必要項 |
+| 屬性                     | 描述                                                  | 必要項 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | 是      |
 | sqlReaderQuery               | 使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. | 否       |
@@ -367,7 +367,7 @@ GO
 
 若要將資料複製到「Azure SQL 資料倉儲」，請將複製活動中的接收類型設定為 **SqlDWSink**。 複製活動的 [接收] 區段支援下列屬性：
 
-| 內容          | 描述                                                  | 必要項                                      |
+| 屬性          | 描述                                                  | 必要項                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 複製活動接收端的**type**屬性必須設定為 **SqlDWSink**。 | 是                                           |
 | allowPolyBase     | 指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱[使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse)一節中的條件約束和詳細資料。<br/><br/>允許的值為 **True** 和 **False** (預設值)。 | 否                                            |
@@ -377,7 +377,7 @@ GO
 | rejectSampleValue | 決定在 PolyBase 重新計算已拒絕的資料列百分比之前，所要擷取的資料列數目。<br/><br/>允許的值為 1、2 等其他值。 | 是，如果 **rejectType** 是**百分比**。 |
 | useTypeDefault    | 指定當 PolyBase 從文字檔擷取資料時，如何處理分隔符號文字檔中的遺漏值。<br/><br/>從 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx) 的＜引數＞一節深入了解這個屬性。<br/><br/>允許的值為 **True** 和 **False** (預設值)。<br><br> | 否                                            |
 | writeBatchSize    | 要插入 SQL 資料表中**每個批次**的資料列數目。 只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**整數** (資料列數目)。 根據預設, Data Factory 會依據資料列大小, 以動態方式決定適當的批次大小。 | 否                                            |
-| writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**時間範圍**。 範例:“00:30:00” (30 分鐘)。 | 否                                            |
+| writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。只有在未使用 PolyBase 時才適用。<br/><br/>允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否                                            |
 | preCopyScript     | 指定一個供「複製活動」在每次執行時將資料寫入到「Azure SQL 資料倉儲」前執行的 SQL 查詢。 使用此屬性來清除預先載入的資料。 | 否                                            |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL 資料倉儲接收範例
@@ -400,7 +400,7 @@ GO
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>使用 PolyBase 將資料載入 Azure SQL 資料倉儲
 
-使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，將可看到輸送量大幅提升。 如需詳細的比較，請參閱[效能參考](copy-activity-performance.md#performance-reference)。 如需使用案例的逐步解說，請參閱[將 1 TB 載入至 Azure SQL 資料倉儲](v1/data-factory-load-sql-data-warehouse.md)。
+使用 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 是以高輸送量將大量資料載入 Azure SQL 資料倉儲的有效方法。 使用 PolyBase 而不是預設的 BULKINSERT 機制，將可看到輸送量大幅提升。 如需使用案例的逐步解說，請參閱[將 1 TB 載入至 Azure SQL 資料倉儲](v1/data-factory-load-sql-data-warehouse.md)。
 
 * 如果您的來源資料是在**Azure Blob、Azure Data Lake Storage Gen1 或 Azure Data Lake Storage Gen2**中, 且**格式與 PolyBase 相容**, 您可以使用複製活動直接叫用 polybase, 讓 Azure SQL 資料倉儲從來源提取資料。 如需詳細資料，請參閱 **[使用 PolyBase 直接複製](#direct-copy-by-using-polybase)** 。
 * 如果您的來源資料存放區與格式不受 PolyBase 支援，您可以改用 **[使用 PolyBase 分段複製](#staged-copy-by-using-polybase)** 功能。 分段複製功能也能提供更好的輸送量。 它會自動將資料轉換成與 PolyBase 相容的格式。 並會將資料儲存在 Azure Blob 儲存體中。 然後，它會將資料載入 SQL 資料倉儲。
@@ -597,20 +597,20 @@ NULL 值是一種特殊形式的預設值。 如果資料欄可以是 Null，Blo
 | Datetime                              | Datetime                       |
 | datetime2                             | Datetime                       |
 | Datetimeoffset                        | DateTimeOffset                 |
-| DECIMAL                               | DECIMAL                        |
+| Decimal                               | Decimal                        |
 | FILESTREAM attribute (varbinary(max)) | Byte[]                         |
 | 浮點數                                 | Double                         |
 | image                                 | Byte[]                         |
 | ssNoversion                                   | Int32                          |
-| money                                 | DECIMAL                        |
+| money                                 | Decimal                        |
 | nchar                                 | String, Char[]                 |
-| numeric                               | DECIMAL                        |
+| numeric                               | Decimal                        |
 | nvarchar                              | String, Char[]                 |
-| real                                  | 單身                         |
+| real                                  | Single                         |
 | rowversion                            | Byte[]                         |
 | smalldatetime                         | Datetime                       |
 | smallint                              | Int16                          |
-| smallmoney                            | DECIMAL                        |
+| smallmoney                            | Decimal                        |
 | time                                  | TimeSpan                       |
 | tinyint                               | Byte                           |
 | uniqueidentifier                      | Guid                           |

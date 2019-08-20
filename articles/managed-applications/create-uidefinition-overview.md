@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ee6d9332a2be5ccb22b7571b348e2e0aae78fb2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
-ms.translationtype: HT
+ms.openlocfilehash: 783c4f5b1f5a7f2be748bc7173da2d068e1425f4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563552"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575645"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>適用于 Azure 受控應用程式建立體驗的 CreateUiDefinition
 
@@ -52,13 +52,11 @@ parameters 屬性的結構描述取決於指定的處理常式和版本之組合
 
 建議包含 `$schema`，但是為選用。 如果指定，`version` 的值必須符合 `$schema` URI 內的版本。
 
-您可以使用 JSON 編輯器來建立 UI 定義, 然後在[Ui 定義沙箱](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade)中進行測試以進行預覽。 如需有關沙箱的詳細資訊, 請參閱[測試入口網站介面的 Azure 受控應用程式](test-createuidefinition.md)。
+您可以使用 JSON 編輯器來建立 createUiDefinition, 然後在[CreateUiDefinition 沙箱](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade)中進行測試以進行預覽。 如需有關沙箱的詳細資訊, 請參閱[測試入口網站介面的 Azure 受控應用程式](test-createuidefinition.md)。
 
 ## <a name="basics"></a>基本知識
 
 基本概念是 Azure 入口網站剖析檔案時所產生的第一個步驟。 除了顯示 `basics` 中指定的元素之外，入口網站會插入元素，以供使用者選擇部署的訂用帳戶、資源群組和位置。 可能的話, 查詢整個部署的參數 (例如叢集名稱或系統管理員認證) 的元素應該會在此步驟中執行。
-
-如果專案的行為取決於使用者的訂用帳戶、資源群組或位置, 則該元素不能用在基本概念中。 例如，**Microsoft.Compute.SizeSelector** 取決於使用者的訂用帳戶和位置，來判斷可用大小的清單。 因此，**Microsoft.Compute.SizeSelector** 只能用於步驟中。 一般而言，basics 中只能使用 **Microsoft.Common** 命名空間中的元素。 雖然其他命名空間中的某些專案 (例如**Microsoft. Compute. 認證**) 仍然是允許的, 但並不依存于使用者的內容。
 
 ## <a name="steps"></a>步驟
 

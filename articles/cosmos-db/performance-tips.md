@@ -1,17 +1,17 @@
 ---
 title: 適用於 .NET 的 Azure Cosmos DB 效能提示
-description: 了解用以改善 Azure Cosmos DB 資料庫效能的用戶端設定選項
+description: 瞭解改善 Azure Cosmos 資料庫效能的用戶端設定選項
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: 21886c11bea6ff09cf97362e06c6d304aaa0d8cc
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3c4dbd38edaf36461578e087010d978a25450d06
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250049"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614922"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -47,7 +47,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
      |連線模式  |支援的通訊協定  |支援的 SDK  |API/服務連接埠  |
      |---------|---------|---------|---------|
-     |閘道器  |   HTTPS    |  所有 SDK    |   SQL (443)、Mongo (10250、10255、10256)、Table (443)、Cassandra (10350)、Graph (443)    |
+     |閘道  |   HTTPS    |  所有 SDK    |   SQL (443)、Mongo (10250、10255、10256)、Table (443)、Cassandra (10350)、Graph (443)    |
      |直接    |    HTTPS     |  .NET 和 JAVA SDK    |   10,000-20,000 範圍內的連接埠    |
      |直接    |     TCP    |  .NET SDK    | 10,000-20,000 範圍內的連接埠 |
 
@@ -78,7 +78,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
    <a id="same-region"></a>
 3. **為了效能在相同 Azure 區域中共置用戶端**
 
-    可能的話，請將任何呼叫 Azure Cosmos DB 的應用程式放在與 Azure Cosmos DB 資料庫相同的區域中。 以約略的比較來說，在相同區域內對 Azure Cosmos DB 進行的呼叫會在 1-2 毫秒內完成，但美國西岸和美國東岸之間的延遲則會大於 50 毫秒。 視要求所採用的路由而定，各項要求從用戶端傳遞至 Azure 資料中心界限時的這類延遲可能有所不同。 確保呼叫端應用程式與佈建的 Azure Cosmos DB 端點位於相同的 Azure 區域中，將可能達到最低的延遲。 如需可用區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
+    可能的話, 請將任何呼叫 Azure Cosmos DB 的應用程式放在與 Azure Cosmos 資料庫相同的區域中。 以約略的比較來說，在相同區域內對 Azure Cosmos DB 進行的呼叫會在 1-2 毫秒內完成，但美國西岸和美國東岸之間的延遲則會大於 50 毫秒。 視要求所採用的路由而定，各項要求從用戶端傳遞至 Azure 資料中心界限時的這類延遲可能有所不同。 確保呼叫端應用程式與佈建的 Azure Cosmos DB 端點位於相同的 Azure 區域中，將可能達到最低的延遲。 如需可用區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
 
     ![Azure Cosmos DB 連接原則的圖例](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
@@ -160,13 +160,13 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     當您使用 SQL .NET SDK 版本 1.11.4 和更新版本時，SQL SDK 會在 32 位元主機處理序中運作。 不過，若使用跨分割區查詢，建議您使用 64 位元主機處理以獲得改進的效能。 下列的應用程式類型預設使用 32 位元主機處理序，若要將其變更為 64 位元，請根據您的應用程式類型依照下列步驟執行：
 
-    - 針對「可執行檔」應用程式，做法是在 [專案屬性]  視窗中的 [建置]  索引標籤上取消選取 [建議使用 32 位元]  選項。
+    - 針對「可執行檔」應用程式，做法是在 [專案屬性] 視窗中的 [建置] 索引標籤上取消選取 [建議使用 32 位元] 選項。
 
-    - 針對 VSTest 型的測試專案，可以從 [Visual Studio 測試]  功能表選項，選取 [測試]  ->[測試設定]  ->[以 X64 做為預設處理器架構]  來完成。
+    - 針對 VSTest 型的測試專案，可以從 [Visual Studio 測試] 功能表選項，選取 [測試]->[測試設定]->[以 X64 做為預設處理器架構] 來完成。
 
-    - 針對本機部署的 ASP.NET Web 應用程式，可以在 [工具]  ->[選項]  ->[專案和方案]  ->[Web 專案]  之下，選取 [將 64 位元版本的 IIS Express 用於網站和專案]  來完成。
+    - 針對本機部署的 ASP.NET Web 應用程式，可以在 [工具]->[選項]->[專案和方案]->[Web 專案] 之下，選取 [將 64 位元版本的 IIS Express 用於網站和專案] 來完成。
 
-    - 針對部署於 Azure 上的 ASP.NET Web 應用程式，可以在 Azure 入口網站上的 [應用程式設定]  中選擇 [以 64 位元做為平台]  來完成。
+    - 針對部署於 Azure 上的 ASP.NET Web 應用程式，可以在 Azure 入口網站上的 [應用程式設定] 中選擇 [以 64 位元做為平台] 來完成。
 
 ## <a name="indexing-policy"></a>索引原則
  
@@ -183,7 +183,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
     如需詳細資訊，請參閱 [Azure Cosmos DB 索引編製原則](index-policy.md)。
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>輸送量
 <a id="measure-rus"></a>
 
 1. **測量和調整較低的要求單位/秒使用量**

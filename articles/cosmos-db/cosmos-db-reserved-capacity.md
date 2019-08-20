@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ab42c600b975adac9f13e8e75da9696e51e7e94d
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e4d33756f1e09abedbf828deb447fbf14c6bfed7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779868"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616910"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中獲得最低的保留容量費用
 
@@ -57,7 +57,7 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
    | 資源群組 | 套用保留容量折扣的資源群組。 |
    |詞彙  |   一年或三年。   |
    |輸送量類型   |  輸送量會以要求單位的形式布建。 您可以為布建的輸送量購買保留, 以進行單一區域寫入和多個區域寫入。 輸送量類型有兩個值可供選擇:每小時 100 RU/秒, 每小時100多主機 RU/秒。|
-   | 保留容量單位| 您想要保留的輸送量數量。 您可以藉由判斷每個區域所有 Cosmos DB 資源 (例如資料庫或容器) 所需的輸送量來計算此值。 然後將此值乘上與您 Cosmos DB 資料庫相關聯的區域數相。 例如: 如果您有五個區域，其中每個區域每秒為 1 百萬個要求單位，則購買保留容量時，請選擇每秒 5 百萬個要求單位。 |
+   | 保留容量單位| 您想要保留的輸送量數量。 您可以藉由判斷每個區域所有 Cosmos DB 資源 (例如資料庫或容器) 所需的輸送量來計算此值。 然後將它乘以您將與 Cosmos 資料庫建立關聯的區域數目。 例如: 如果您有五個區域，其中每個區域每秒為 1 百萬個要求單位，則購買保留容量時，請選擇每秒 5 百萬個要求單位。 |
 
 
 5. 填寫表單之後, 就會計算購買保留容量所需的價格。 輸出也會顯示您所選選項所取得的折扣百分比。 接下來, 按一下 [**選取**]
@@ -92,6 +92,6 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
    * [了解隨用隨付訂用帳戶的保留使用量](../billing/billing-understand-reserved-instance-usage.md)
    * [合作夥伴中心 CSP 計劃中的 Azure 保留容量](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>需要協助嗎? 與我們連絡。
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 1654ccabab751896fcbbab09d112080ccc2f67b6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 1b26f78c6d44123ef1baa3c55fd16c3340d59dd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467720"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616849"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>透過 Azure Cosmos DB SQL API 帳戶使用地理空間和 GeoJSON 位置資料
 
@@ -249,7 +249,7 @@ ST_ISVALID 和 ST_ISVALIDDETAILED 可用來檢查空間物件是否有效。 例
 ### <a name="linq-querying-in-the-net-sdk"></a>.NET SDK 中的 LINQ 查詢
 SQL .NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提供者，供您在 LINQ 運算式中使用。 SQL LINQ 提供者會將這些方法呼叫，轉譯為同等的 SQL 內建函數呼叫 (分別為 ST_DISTANCE 和 ST_WITHIN)。 
 
-以下是 LINQ 查詢的範例，該查詢會使用 LINQ 在 Azure Cosmos DB 集合中找出所有文件，而這些文件的「位置」值會在指定點的 30 公里半徑內。
+以下是 LINQ 查詢的範例, 它會尋找 Azure Cosmos 容器中的所有檔, 其「位置」值在指定點的半徑 (使用 LINQ) 中為30公里。
 
 **距離的 LINQ 查詢**
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 18eacc914a30dc6004bef71e9d3910e170c43d9b
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018903"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575135"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 > [!div class="op_single_selector"]
@@ -176,11 +176,10 @@ Azure 備份伺服器一律加入網域。 如果您打算將伺服器移到不�
     當您使用自己的 SQL 2017 實例時, 您需要手動設定 SSRS。 設定 SSRS 之後，請確保 SSRS 的 IsInitialized 屬性設定為 True。 當這個屬性設定為 True 時，MABS 會假設 SSRS 已設定好，並且會跳過 SSRS 設定。
 
     將下列值使用於 SSRS 設定： 
-
-        - Service Account: ‘Use built-in account’ should be Network Service
-        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
-        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
-        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+    - 服務帳戶:' 使用內建帳戶 ' 應為網路服務
+    - Web 服務 URL:' 虛擬目錄 ' 應該是 ReportServer_<SQLInstanceName>
+    - 資料庫：DatabaseName 應為 ReportServer $<SQLInstanceName>
+    - 入口網站 URL:' 虛擬目錄 ' 應該是 Reports_<SQLInstanceName>
 
     [深入了解](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) SSRS 設定。
 

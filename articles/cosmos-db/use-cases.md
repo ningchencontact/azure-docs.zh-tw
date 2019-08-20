@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 28a4cc854842b66a9fb61134e3ca9ac9a5f38fed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04c1466c47d28f638bf7461050cb06b59c7d2396
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965603"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614235"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>常見的 Azure Cosmos DB 使用案例
 本文提供數個常見的 Azure Cosmos DB 使用案例概觀。  本文中的建議可作為使用 Cosmos DB 來開發應用程式時的起點。   
@@ -44,7 +44,7 @@ IoT 使用案例在如何內嵌、處理和儲存資料方面通常共用一些�
 
 ![Azure Cosmos DB IoT 參考架構](./media/use-cases/iot.png)
 
-Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量資料擷取和低延遲。 您可以將需要處理以取得即時資訊分析的內嵌資料，使用漏斗方式倒入 Azure 串流分析以進行即時分析。 您可以將資料載入 Azure Cosmos DB 以進行臨機操作查詢。 將資料載入 Azure Cosmos DB 之後，這些資料便可供查詢。 此外，可以在變更摘要上讀取新的資料以及現有資料的變更。 變更摘要是永久性的記錄檔，僅以附加寫入方式循序儲存 Cosmos DB 容器的變更。 Azure Cosmos DB 中的全部資料或資料變更可用來在即時分析中作為參考資料。 此外，您還可以將 Azure Cosmos DB 資料連線到 HDInsight 來進行 Pig、Hive 或 Map/Reduce 作業，以進一步精簡和處理資料。  接著，系統會將精簡過的資料載入回 Azure Cosmos DB 以供報告使用。   
+Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量資料擷取和低延遲。 您可以將需要處理以取得即時資訊分析的內嵌資料，使用漏斗方式倒入 Azure 串流分析以進行即時分析。 您可以將資料載入 Azure Cosmos DB 以進行臨機操作查詢。 將資料載入 Azure Cosmos DB 之後，這些資料便可供查詢。 此外，可以在變更摘要上讀取新的資料以及現有資料的變更。 變更摘要是持續性的只附加記錄, 會依照順序來儲存 Cosmos 容器的變更。 Azure Cosmos DB 中的全部資料或資料變更可用來在即時分析中作為參考資料。 此外，您還可以將 Azure Cosmos DB 資料連線到 HDInsight 來進行 Pig、Hive 或 Map/Reduce 作業，以進一步精簡和處理資料。  接著，系統會將精簡過的資料載入回 Azure Cosmos DB 以供報告使用。   
 
 如需使用 Azure Cosmos DB、EventHubs 和 Storm 的範例 IoT 解決方案，請參閱 [GitHub 上的 hdinsight-storm-examples 存放庫 (英文)](https://github.com/hdinsight/hdinsight-storm-examples/)。
 
@@ -108,7 +108,7 @@ JSON (Cosmos DB 所支援的格式) 是一種呈現 UI 配置資料的有效格�
 * [Citrix](https://customers.microsoft.com/story/citrix)。 Citrix 使用 Azure Service Fabric 和 Azure Cosmos DB 開發單一登入解決方式。
 * [TEXA](https://customers.microsoft.com/story/texaspa) TEXA 針對汽車車主推出的革命性 IoT 解決方案不僅可幫助節省時間、金錢、燃料，還可能幫助保命。
 * [Domino's Pizza](https://www.dominos.com)。 Domino's Pizza Inc. 是一個美國披薩餐廳連鎖店。
-* [Johnson Controls](https://www.johnsoncontrols.com)。 Johnson Controls 是全球多樣化的技術與多重產業領導者，超過 150 個國家/地區提供各種不同的客戶。
+* [Johnson Controls](https://www.johnsoncontrols.com)。 Johnson 控制項是全球多樣化技術和多產業領導服務, 提供超過150個國家/地區的各種客戶。
 * [Microsoft Windows、通用市集、Azure IoT 中樞、Xbox Live 及其他網際網路級別的服務](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/)。 Microsoft 如何使用 Azure Cosmos DB 來建置可大幅調整的服務。
 * [Microsoft 資料與分析小組](https://customers.microsoft.com/story/microsoftdataandanalytics)。 Microsoft 的「資料與分析」小組使用 Azure Cosmos DB 來達成全球級別的巨量資料收集
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india)。 Sulekha 使用 Azure Cosmos DB 來連接印度各地的客戶和企業。

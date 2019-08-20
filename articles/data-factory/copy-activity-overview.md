@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966396"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614258"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -128,9 +128,9 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 ### <a name="syntax-details"></a>語法詳細資料
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動的類型屬性必須設定為：**Copy** | 是 |
+| type | 複製活動的類型屬性必須設定為：**複製** | 是 |
 | inputs | 指定您所建立指向來源資料的資料集。 複製活動僅支援單一輸入。 | 是 |
 | outputs | 指定您所建立指向接收資料的資料集。 複製活動僅支援單一輸出。 | 是 |
 | typeProperties | 要設定複製活動的屬性群組。 | 是 |
@@ -144,7 +144,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 ## <a name="monitoring"></a>監視
 
-您可以在 Azure Data Factory 的 [編寫與監視] UI 上或以程式設計方式監視複製活動執行。 接著，您可以將您案例的效能和組態，與內部測試中複製活動的[效能參考](copy-activity-performance.md#performance-reference)進行比較。
+您可以在 Azure Data Factory 的 [編寫與監視] UI 上或以程式設計方式監視複製活動執行。
 
 ### <a name="monitor-visually"></a>以視覺化方式監視
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 1ad3c446df2f2ce62024dfdda589669653f65ef4
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 300fd31632a6b3c9043c19dd9b47f40258080261
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488700"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614214"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
@@ -31,7 +31,7 @@ ms.locfileid: "68488700"
 >
 > 如果叢集儲存體是 Azure Blob 儲存體 (WASB)，請勿停用 MFA。
 
-啟用 Azure AD-DS 是必要條件，如此您才能建立具有 ESP 的 HDInsight 叢集。 如需詳細資訊，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/create-instance.md)。 
+啟用 Azure AD-DS 是必要條件，如此您才能建立具有 ESP 的 HDInsight 叢集。 如需詳細資訊，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md)。 
 
 Azure AD-DS 啟用時，所有使用者和物件依預設都會開始從 Azure Active Directory (AAD) 同步處理至 Azure AD-DS。 同步作業的所需時間取決於 Azure AD 中的物件數目。 數十萬個物件的同步可能需要幾天的時間。 
 
@@ -39,7 +39,7 @@ Azure AD-DS 啟用時，所有使用者和物件依預設都會開始從 Azure A
 
 您可以選擇只同步需要存取 HDInsight 叢集的群組。 這個僅同步特定群組的選項，稱為*特定範圍同步處理*。 請參閱[設定從 Azure AD 到受控網域的特定範圍同步處理](../../active-directory-domain-services/scoped-synchronization.md)，以取得指示。
 
-在啟用安全 LDAP 時，請在憑證的主體名稱與主體替代名稱中放入網域名稱。 例如，如果您的網域名稱是 *contoso100.onmicrosoft.com*，請確定相同的名稱存在於您的憑證主體名稱與主體替代名稱中。 如需詳細資訊，請參閱[針對 Azure AD-DS 受控網域設定安全的 LDAP](../../active-directory-domain-services/configure-ldaps.md)。 以下是建立自我簽署憑證並讓主體名稱與 DnsName (主體替代名稱) 中都有網域名稱 (*contoso100.onmicrosoft.com*) 的範例：
+在啟用安全 LDAP 時，請在憑證的主體名稱與主體替代名稱中放入網域名稱。 例如，如果您的網域名稱是 *contoso100.onmicrosoft.com*，請確定相同的名稱存在於您的憑證主體名稱與主體替代名稱中。 如需詳細資訊，請參閱[針對 Azure AD-DS 受控網域設定安全的 LDAP](../../active-directory-domain-services/tutorial-configure-ldaps.md)。 以下是建立自我簽署憑證並讓主體名稱與 DnsName (主體替代名稱) 中都有網域名稱 (*contoso100.onmicrosoft.com*) 的範例：
 
 ```powershell
 $lifetime=Get-Date
@@ -70,7 +70,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ## <a name="networking-considerations"></a>網路考量
 
 > [!NOTE]  
-> Azure AD-DS 必須部署在 Azure Resource Manager (ARM) 架構的 vNET 中。 Azure AD-DS 不支援傳統虛擬網路。 如需詳細資訊，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-network.md)。
+> Azure AD-DS 必須部署在以 Azure Resource Manager 為基礎的 vNET 中。 Azure AD-DS 不支援傳統虛擬網路。 如需詳細資訊，請參閱[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md#create-and-configure-the-virtual-network)。
 
 啟用 Azure AD-DS 之後，本機網域名稱服務 (DNS) 伺服器會在 AD 虛擬機器 (VM) 上執行。 將 Azure AD-DS 虛擬網路 (VNET) 設定為使用這些自訂的 DNS 伺服器。 若要找出正確的 IP 位址，請選取 [管理] 類別下的 [屬性]，然後查看 [虛擬網路上的 IP 位址] 下方列出的 IP 位址。
 

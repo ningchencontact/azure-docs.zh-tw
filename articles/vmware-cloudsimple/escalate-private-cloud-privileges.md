@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e53d0d4f8f19a3cf81f1adb6c62b2797a50d146
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b54f1d8c0705488c53925d097433e77aed3eac72
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812222"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617603"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>從 CloudSimple 入口網站提升私用雲端 vCenter 許可權 
+# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>從 CloudSimple 入口網站提升私用雲端 vCenter 許可權
 
 如需您私人雲端 vCenter 的系統管理存取權, 您可以暫時提升 CloudSimple 許可權。  使用較高的許可權, 您可以安裝 VMware 解決方案、新增身分識別來源, 以及管理使用者。
 
@@ -38,7 +38,7 @@ ms.locfileid: "68812222"
 
     ![變更 vSphere 許可權](media/escalate-private-cloud-privilege.png)
 
-4. 選取 [vSphere] 使用者類型。  只有 **CloudOwner@cloudsimple.local** 本機使用者可以升級。
+4. 選取 [vSphere] 使用者類型。  只有`CloudOwner@cloudsimple.local`本機使用者可以升級。
 
 5. 從下拉式選單中選取 [呈報時間間隔]。 選擇可讓您完成工作的最短時間。
 
