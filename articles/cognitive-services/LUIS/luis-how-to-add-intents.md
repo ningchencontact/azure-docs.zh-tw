@@ -1,34 +1,34 @@
 ---
-title: 新增對應方式
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 新增意圖-LUIS
+titleSuffix: Azure Cognitive Services
 description: 將意圖新增至 LUIS 應用程式，以識別具有相同用意的問題或命令群組。
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb90a902b8f7fe8b37b81c2825cbdfc25ef5dc0d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148157"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932884"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>新增意圖以判斷語句的使用者用意
 
 將[意圖](luis-concept-intent.md)新增至 LUIS 應用程式，以識別具有相同用意的問題或命令群組。 
 
-從上方導覽列的 [建置]  區段，然後從左側面板的 [意圖]  管理意圖。 
+從上方導覽列的 [建置] 區段，然後從左側面板的 [意圖] 管理意圖。 
 
 ## <a name="add-intent"></a>新增意圖
 
-1. 在 [意圖]  頁面上，選取 [建立新意圖]  。
+1. 在 [意圖] 頁面上，選取 [建立新意圖]。
 
-1. 在 [建立新的意圖]  對話方塊中，輸入意圖名稱 `GetEmployeeInformation`，然後按一下 [完成]  。
+1. 在 [建立新的意圖] 對話方塊中，輸入意圖名稱 `GetEmployeeInformation`，然後按一下 [完成]。
 
     ![新增意圖](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
@@ -44,29 +44,29 @@ ms.locfileid: "65148157"
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
-## <a name="intent-prediction-errors"></a>意圖預測誤差 
+## <a name="intent-prediction-errors"></a>意圖預測錯誤 
 
-在意圖範例 [utterance] 可能意圖預測錯誤範例 [utterance] 目前正在的目的之間決定在定型期間預測意圖。 
+意圖中的範例語句可能會在範例語句目前所在的意圖與在定型期間決定的預測意圖之間有意圖預測錯誤。 
 
-若要找出 [utterance] 預測錯誤並加以修正，請使用**篩選**選項的**評估**選項不正確和 Unclear 結合**檢視**選項**詳細檢視**。 
+若要找出語句的預測錯誤並加以修正, 請使用 [**篩選**] 選項的 [不正確] 和 [不清楚] 的**評估**選項和 [**詳細視圖**] 的**view**選項。 
 
-![若要找出 [utterance] 預測錯誤並加以修正，使用的篩選選項。](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+![若要尋找語句預測錯誤並加以修正, 請使用 [篩選] 選項。](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-當套用的篩選條件和檢視，並有範例談話，但發生錯誤時，範例 [utterance] 清單會顯示談話和問題。
+套用篩選和視圖, 而且有範例語句出現錯誤時, [範例語句] 清單會顯示語句和問題。
 
-![![時套用的篩選條件和檢視，且有錯誤的範例談話，範例 [utterance] 清單會顯示談話和問題。](。 / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![![套用篩選準則和視圖時, 如果有範例語句出現錯誤, 則範例語句清單會顯示語句和問題。](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-每個資料列會顯示目前的訓練範例 utterance，這是最接近的競爭對手的分數，這是這些兩個分數的差異的預測分數。 
+每個資料列都會顯示語句範例的目前定型分數, 這是最接近的競爭對手分數, 這就是這兩個分數的差異。 
 
-### <a name="fixing-intents"></a>修正 「 意圖 」
+### <a name="fixing-intents"></a>修正意圖
 
-若要了解如何修正意圖預測錯誤，請使用[摘要儀表板](luis-how-to-use-dashboard.md)。 摘要儀表板提供作用中版本的最後一個訓練的分析，並提供了修正您的模型最上層的建議。  
+若要瞭解如何修正意圖預測錯誤, 請使用 [[摘要] 儀表板](luis-how-to-use-dashboard.md)。 [摘要] 儀表板會提供作用中版本最後一次訓練的分析, 並提供修正模型的最佳建議。  
 
 ## <a name="add-a-custom-entity"></a>新增自訂實體
 
 語句新增至意圖後，您可以從語句中選取文字來建立自訂實體。 自訂實體是標記文字以供擷取及正確意圖的方法。 
 
-請參閱[將實體新增至 [utterance]](luis-how-to-add-example-utterances.md)若要深入了。
+若要深入瞭解, 請參閱[將實體新增至語句](luis-how-to-add-example-utterances.md)。
 
 ## <a name="entity-prediction-discrepancy-errors"></a>意圖預測差異錯誤 
 
@@ -82,7 +82,7 @@ ms.locfileid: "65148157"
 
 ## <a name="using-the-contextual-toolbar"></a>使用內容相關的工具列
 
-在清單中，核取方塊左邊的 [utterance] 中，選取一或多個範例談話時 [utterance] 清單上方的工具列可讓您執行下列動作：
+在清單中選取一個或多個範例語句時, 藉由勾選語句左側的方塊, 語句清單上方的工具列可讓您執行下列動作:
 
 * 重新指派意圖：將語句移至不同的意圖
 * 刪除語句
@@ -99,7 +99,7 @@ ms.locfileid: "65148157"
 * 刪除：從意圖中移除語句。 如果您仍想要語句，最好的方法是將其移至 **None** 意圖。 
 * 加入模式：模式可讓您採用一般語句，並標示可取代的文字和可忽略的文字，藉此減少意圖中更多語句的需求。 
 
-[加上標籤的意圖]  資料行可讓您變更語句的意圖。
+[加上標籤的意圖] 資料行可讓您變更語句的意圖。
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>在利用意圖變更模型後訓練您的應用程式
 

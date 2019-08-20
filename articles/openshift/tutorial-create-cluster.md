@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/14/2019
-ms.openlocfilehash: 9fd37a8343858f44719fe4422b3b9994db42f8af
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 4c186787af08a565dc100dfbd79d166688d89d8f
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672473"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013444"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>教學課程：建立 Azure Red Hat OpenShift 叢集
 
@@ -67,7 +67,7 @@ az login
 CLUSTER_NAME=<cluster name in lowercase>
 ```
 
-選擇要建立叢集的位置。 如需在 Azure 上支援 OpenShift 的 Azure 區域清單，請參閱[支援的區域](supported-resources.md#azure-regions)。 例如： `LOCATION=eastus` 。
+選擇要建立叢集的位置。 如需在 Azure 上支援 OpenShift 的 Azure 區域清單，請參閱[支援的區域](supported-resources.md#azure-regions)。 例如：`LOCATION=eastus`。
 
 ```bash
 LOCATION=<location>
@@ -140,7 +140,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 ```
 
 > [!NOTE]
-> 如果您收到的錯誤表示主機名稱不可用，則可能是因為您的叢集名稱並非唯一。 嘗試刪除原始應用程式註冊，並使用不同的叢集名稱重新執行 [建立新的應用程式註冊] (howto-aad-app-configuration.md#create-a-new-app-registration) 中的步驟 (省略建立新的使用者和安全性群組的步驟)。
+> 如果您收到的錯誤表示主機名稱不可用，則可能是因為您的叢集名稱並非唯一。 嘗試刪除原始應用程式註冊，並使用不同的叢集名稱重新執行 [建立新的應用程式註冊](howto-aad-app-configuration.md#create-an-azure-ad-app-registration) 中的步驟 (省略建立新的使用者和安全性群組的步驟)。
 
 `az openshift create` 將在幾分鐘之後完成。
 
@@ -154,7 +154,7 @@ az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 
 在輸出中尋找 `publicHostName`，例如：`"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
 
-叢集的登入 URL 將是 `https://` 加上尾隨的 `publicHostName` 值。  例如： `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io` 。  您將在下一個步驟中以此 URI 作為應用程式註冊重新導向 URI 的一部分。
+叢集的登入 URL 將是 `https://` 加上尾隨的 `publicHostName` 值。  例如：`https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`。  您將在下一個步驟中以此 URI 作為應用程式註冊重新導向 URI 的一部分。
 
 ## <a name="step-3-update-your-app-registration-redirect-uri"></a>步驟 3：更新您的應用程式註冊重新導向 URI
 
