@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/30/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f027f5b295d75c105e81360a10718239e5b08e4d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698278"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626307"
 ---
 | Resource | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "68698278"
 | 部署歷程記錄中每個資源群組的部署 |800<sup>1</sup> |800 |
 | 每個部署的資源 |800 |800 |
 | 每個唯一範圍的管理鎖定 |20 |20 |
-| 每個資源或資源群組的標記數目 |15 |15 |
+| 每個資源或資源群組的標記數目 |50 |50 |
 | 標記金鑰長度 |512 |512 |
 | 標記值長度 |256 |256 |
 

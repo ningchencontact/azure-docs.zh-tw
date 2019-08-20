@@ -146,12 +146,12 @@
               href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
             - name: 傳統部署
               href: ./move-limitations/classic-model-move-limitations.md
+            - name: 網路功能
+              href: ./move-limitations/networking-move-limitations.md
             - name: '[復原服務]'
               href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
             - name: 虛擬機器
               href: ./move-limitations/virtual-machines-move-limitations.md
-            - name: 虛擬網路
-              href: ./move-limitations/virtual-network-move-limitations.md
     - name: Tags
       items:
         - name: 標記資源

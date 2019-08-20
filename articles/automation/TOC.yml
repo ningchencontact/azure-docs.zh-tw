@@ -216,9 +216,6 @@
         - name: 針對虛擬機器上變更雜行疑難排解
           href: automation-tutorial-troubleshoot-changes.md
           displayName: inventory
-        - name: 使用清查集合來管理虛擬機器
-          href: automation-vm-inventory.md
-          displayName: inventory
     - name: 疑難排解
       items:
         - name: 登入

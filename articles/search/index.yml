@@ -7,9 +7,8 @@ metadata:
   description: 了解如何使用 Azure 搜尋服務，在私人和異質性內容中建立企業搜尋解決方案。 教學課程、API 參考和其他文件會說明如何使用簡單及進階語法並搭配各種案例，將可搜尋的內容合併到可供查詢的單一快速索引。
   services: search
   author: HeidiSteen
-  manager: cgronlun
+  manager: nitinme
   ms.service: search
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/12/2019
   ms.author: heidist

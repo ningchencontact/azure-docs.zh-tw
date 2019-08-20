@@ -117,7 +117,7 @@
     - name: 使用說明指南
       items:
         - name: 保護您的環境
-          href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
+          href: private-cloud-secure.md
         - name: 私人雲端管理
           items:
             - name: 提升私人雲端權限
@@ -143,7 +143,7 @@
             - name: Azure 應用程式閘道與 VMware VM
               href: azure-application-gateway.md
             - name: 將私人雲端 vCenter 伺服器設定為 vRealize 自動化端點
-              href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
+              href: configure-server-vrealize-automation-endpoint.md
             - name: 將工作負載 VM 遷移至私人雲端
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: 確保 Azure 上 VMware 中的應用程式高可用性

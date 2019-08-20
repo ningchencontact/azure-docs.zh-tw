@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 4d13779317793b5edd971dd457a77e0bc5cae1c8
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: f85605610727ef2c1e1987b7ef93a41ce2417a25
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426858"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626305"
 ---
 | Resource | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -33,7 +33,7 @@ ms.locfileid: "68426858"
 
 <sup>1</sup>預設限制會因供應專案類別類型而異, 例如免費試用版和隨用隨付, 以及依系列 (例如 Dv2、F 和 G)。例如, Enterprise 合約訂閱的預設值是350。
 
-<sup>2</sup>您可以對每個訂用帳戶套用不限數目的標記。 每個資源或資源群組的標記數目受限於 15。 只有當標記數目為10000或更少時, Resource Manager 才會傳回訂用帳戶中[唯一標記名稱和值的清單](/rest/api/resources/tags)。 當數位超過10000時, 您仍然可以透過標記來尋找資源。  
+<sup>2</sup>您可以對每個訂用帳戶套用不限數目的標記。 每個資源或資源群組的標記數目限制為50。 只有當標記數目為10000或更少時, Resource Manager 才會傳回訂用帳戶中[唯一標記名稱和值的清單](/rest/api/resources/tags)。 當數位超過10000時, 您仍然可以透過標記來尋找資源。  
 
 <sup>3</sup>Azure 資源群組和 Resource Manager 不再需要這些功能。
 

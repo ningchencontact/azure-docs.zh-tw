@@ -170,7 +170,7 @@
     - name: 調整應用程式
       items:
         - name: 相應增加伺服器容量
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: 設定 PremiumV2 層
           href: app-service-configure-premium-tier.md
         - name: 相應放大至多個執行個體

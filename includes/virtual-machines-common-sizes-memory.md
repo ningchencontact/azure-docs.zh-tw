@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3d45defa9ff8e7b2e03d550b76c0e18192c58c4a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881598"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626308"
 ---
 記憶體最佳化的虛擬機器大小的記憶體與 CPU 比例相當高，最適合關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。
 
 * Ev3 系列以超執行緒組態搭配 E5-2673 v4 2.3 GHz (Broadwell) 處理器，可為多數一般用途的工作負載提供更好的價值主張，並且讓 Ev3 更為符合其他多數雲端的一般用途 VM 的需求。  除了記憶體已擴充 (從 7 GiB/vCPU 到 8 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Ev3 承襲了 D/Dv2 系列的高記憶體 VM 大小。
 
-* Eav3 系列和 Easv3 系列利用 AMD 的2.35 版 Ghz EPYC<sup>TM</sup> 7452V 處理器, 以多執行緒的方式設定, 最多可 256GB L3 快取, 增加執行大部分記憶體優化工作負載的選項。  Eav3 系列和 Easv3 系列具有與 Ev3 & Esv3 系列相同的記憶體和磁片設定。
+* Eav3 系列和 Easv3 系列利用 AMD 的2.35 版 Ghz EPYC<sup>TM</sup> 7452V 處理器, 在多執行緒設定中, 最多可達 256mb L3 快取, 因而增加了執行大部分記憶體優化工作負載的選項。  Eav3 系列和 Easv3 系列具有與 Ev3 & Esv3 系列相同的記憶體和磁片設定。
 
 * Mv2 系列提供雲端中任何 VM 的最高 vCPU 計數 (最多208個 vcpu) 和最大記憶體 (最多 5.7 TiB)。 它很適合用於受益於高 vCPU 計數和大量記憶體的極大型資料庫或其他應用程式。
 
