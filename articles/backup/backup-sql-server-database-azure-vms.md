@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688632"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854122"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -168,7 +168,7 @@ Windows Registry Editor Version 5.00
    為了將備份負載最佳化，Azure 備份會將每個備份作業的資料庫數目上限設為 50。
 
      * 若要保護 50 個以上的資料庫，請設定多個備份。
-     * 若要[](#enable-auto-protection)啟用整個實例或 Always On 可用性群組。 在 [**自動保護**] 下拉式清單中, 選取 [**開啟**], 然後選取 **[確定]** 。
+     * 若要[啟用自動保護](#enable-auto-protection)整個實例或 Always On 可用性群組。 在 [**自動保護**] 下拉式清單中, 選取 [**開啟**], 然後選取 **[確定]** 。
 
     > [!NOTE]
     > [自動保護](#enable-auto-protection)功能不僅會同時在所有現有的資料庫上啟用保護, 也會自動保護新增至該實例或可用性群組的任何新資料庫。  
@@ -177,7 +177,7 @@ Windows Registry Editor Version 5.00
 
     ![啟用 Always On 可用性群組的自動保護](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. 在 [**備份原則**] 中, 選擇原則, 然後選取 **[確定]** 。
+5. 在 [**備份原則**] 中, 選擇原則, 然後選取 **[確定]** 。
 
    - 選取預設原則為 [HourlyLogBackup]。
    - 選擇之前為 SQL 建立的現有備份原則。
@@ -185,11 +185,11 @@ Windows Registry Editor Version 5.00
 
      ![選取備份原則](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. 在 [ **備份**] 中, 選取 [ **啟用備份**]。
+6. 在 [備份] 中，選取 [啟用備份]。
 
     ![啟用所選備份原則](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. 在入口網站的 [通知] ****  區域中，追蹤設定進度。
+7. 在入口網站的 [通知] 區域中，追蹤設定進度。
 
     ![[通知] 區域](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -273,7 +273,7 @@ Windows Registry Editor Version 5.00
 
 - 您可以一次選取自動保護的資料庫數目沒有限制。
 - 當您啟用自動保護時, 您無法選擇性地保護或排除實例中的資料庫不受保護。
-- 如果您的實例已包含一些受保護的資料庫, 即使在您開啟自動保護之後, 它們仍會在其各自的原則之下受到保護。 稍後新增的所有未受保護資料庫, 只有在啟用自動保護時所定義的單一原則, 會列在 [ **設定備份**] 底下。 不過, 您可以在稍後變更與自動保護資料庫相關聯的原則。  
+- 如果您的實例已包含一些受保護的資料庫, 即使在您開啟自動保護之後, 它們仍會在其各自的原則之下受到保護。 稍後新增的所有未受保護資料庫, 只有在啟用自動保護時所定義的單一原則, 會列在 [**設定備份**] 底下。 不過, 您可以在稍後變更與自動保護資料庫相關聯的原則。  
 
 若要啟用自動保護:
 
@@ -288,7 +288,7 @@ Windows Registry Editor Version 5.00
 
 ![在該實例上停用自動保護](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## <a name="next-steps"></a>後續步驟
 
 了解如何：

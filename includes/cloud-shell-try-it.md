@@ -4,12 +4,12 @@ ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
-ms.openlocfilehash: bfefefc365f2725f9f3feacf1e6159d09cc43ba9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: f443b11207f6844bcffc1c7963209bc315f725b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68736207"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623874"
 ---
 ## <a name="use-azure-cloud-shell"></a>使用 Azure Cloud Shell
 
@@ -25,7 +25,7 @@ Azure Cloud Shell 是裝載於 Azure 中的互動式殼層環境，可在瀏覽�
 
 若要在 Azure Cloud Shell 中執行本文中的程式碼：
 
-1. 啟動 Cloud Shell。
+1. 開啟 Cloud Shell。
 1. 選取程式碼區塊上的 [複製]  按鈕，複製程式碼。 
 1. 在 Windows 和 Linux 上按 **Ctrl**+**Shift**+**V**；或在 macOS 上按 **Cmd**+**Shift**+**V**，將程式碼貼到 Cloud Shell工作階段中。 
 1. 按下 **Enter** 鍵執行程式碼。

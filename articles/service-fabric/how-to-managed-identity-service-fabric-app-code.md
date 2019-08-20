@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 528e1b0a353cdcd716f9bca63c423af7a6f12641
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d5593da4f874688fa099827e418b12e41363f4bd
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958235"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624881"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>如何利用 Service Fabric 應用程式的受控識別來存取 Azure 服務
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>如何利用 Service Fabric 應用程式的受控識別來存取 Azure 服務 (預覽)
 
 Service Fabric 應用程式可以利用受控識別來存取支援 Azure Active Directory 型驗證的其他 Azure 資源。 應用程式可以取得代表其身分識別的[存取權杖](../active-directory/develop/developer-glossary.md#access-token), 這可能是系統指派或使用者指派, 並使用它做為「持有人」權杖, 向另一個服務 (也稱為[受保護的資源伺服器](../active-directory/develop/developer-glossary.md#resource-server)) 驗證其本身。 權杖代表指派給 Service Fabric 應用程式的身分識別, 而且只會發行至共用該身分識別的 Azure 資源 (包括 SF 應用程式)。 如需受控識別的詳細描述, 以及系統指派和使用者指派的識別之間的差異, 請參閱[受控識別總覽](../active-directory/managed-identities-azure-resources/overview.md)檔。 在本文中, 我們會將受管理身分識別功能的 Service Fabric 應用程式稱為[用戶端應用](../active-directory/develop/developer-glossary.md#client-application)程式。
 

@@ -64,7 +64,7 @@ sections:
               src: media/index/spark-logo.png
             title: 內建分析搭配 Apache Spark
           - href: /azure/cosmos-db/change-feed/
-            html: <p>讀取 Azure Cosmos DB 容器中儲存的文件清單，並以文件的修改順序做出排序，執行變更摘要的即時分析序。 </p>
+            html: <p>讀取 Azure Cosmos 容器中儲存的文件清單，並以文件的修改順序做出排序，執行變更摘要的即時分析序。 </p>
             image:
               src: media/index/change-feed-logo.png
             title: 變更摘要

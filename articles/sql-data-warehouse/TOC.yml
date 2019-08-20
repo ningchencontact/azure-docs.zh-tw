@@ -273,6 +273,8 @@
       items:
         - name: 升級至 Gen2
           href: upgrade-to-latest-generation.md
+        - name: 管理計算
+          href: manage-compute-with-azure-functions.md
         - name: 監視工作負載 - 入口網站
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 監視工作負載 - DMV

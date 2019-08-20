@@ -29,6 +29,8 @@
           items:
             - name: 開始使用應用程式整合
               href: plan-an-application-integration.md
+            - name: 規劃存取面板部署
+              href: access-panel-deployment-plan.md
             - name: 開發人員指導方針
               href: developer-guidance-for-integrating-applications.md
         - name: 單一登入

@@ -19,6 +19,10 @@
 - name: 概念
   expanded: false
   items:
+    - name: 採用條件式存取
+      href: howto-conditional-access-adoption-kit.md
+    - name: 一般條件式存取原則
+      href: concept-conditional-access-policy-common.md
     - name: 條件
       href: conditions.md
     - name: 位置條件
@@ -38,6 +42,22 @@
       href: plan-conditional-access.md
     - name: 最佳作法
       href: best-practices.md
+    - name: 一般原則範本
+      items:
+        - name: 需要管理員的 MFA
+          href: howto-conditional-access-policy-admin-mfa.md
+        - name: 需要 Azure 管理的 MFA
+          href: howto-conditional-access-policy-azure-management.md
+        - name: 封鎖舊式驗證
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: 依據風險的條件式存取
+          href: howto-conditional-access-policy-risk.md
+        - name: 需要受信任的位置進行 MFA 註冊
+          href: howto-conditional-access-policy-registration.md
+        - name: 依位置封鎖存取
+          href: howto-conditional-access-policy-location.md
+        - name: 需要相容的裝置
+          href: howto-conditional-access-policy-compliant-device.md
     - name: 封鎖舊式驗證
       href: block-legacy-authentication.md
     - name: MFA 註冊的條件式存取

@@ -4,8 +4,16 @@
   items:
     - name: 概觀
       href: user-help-two-step-verification-overview.md
-    - name: 關閉我的帳戶
-      href: multi-factor-authentication-end-user-first-time.md
+    - name: 設定雙因素驗證方法
+      items:
+        - name: 概觀
+          href: multi-factor-authentication-end-user-first-time.md
+        - name: 設定驗證器應用程式
+          href: multi-factor-authentication-setup-auth-app.md
+        - name: 設定行動裝置
+          href: multi-factor-authentication-setup-phone-number.md
+        - name: 設定辦公室電話
+          href: multi-factor-authentication-setup-office-phone.md
     - name: 測試您的設定
       href: multi-factor-authentication-end-user-manage-settings.md
     - name: 取得說明

@@ -1,93 +1,80 @@
 - name: Azure AD Domain Services 文件
   href: index.yml
 - name: 概觀
-  expanded: true
   items:
     - name: 何謂 Azure AD 網域服務？
       href: overview.md
-    - name: 與 Windows Server AD 比較
-      href: comparison.md
-    - name: 與 Azure AD 聯結比較
-      href: active-directory-ds-compare-with-azure-ad-join.md
-    - name: 特性
-      href: active-directory-ds-features.md
+    - name: 比較身分識別服務
+      href: compare-identity-solutions.md
+- name: 教學課程
+  expanded: true
+  items:
+    - name: 建立受控網域
+      href: tutorial-create-instance.md
+    - name: 加入網域 Windows Server VM
+      href: join-windows-vm.md
+    - name: 安裝管理工具
+      href: tutorial-create-management-vm.md
+    - name: 設定安全 LDAP
+      href: tutorial-configure-ldaps.md
 - name: 範例
   items:
     - name: 使用 Azure PowerShell 來建立 Azure AD DS 執行個體
       href: powershell-create-instance.md
 - name: 概念
   items:
-    - name: 同步處理如何運作
+    - name: Azure AD DS 同步處理的運作方式
       href: synchronization.md
+    - name: 密碼雜湊同步處理如何運作
+      href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: 什麼是 Azure Active Directory？
+      href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Azure Active Directory 架構
+      href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: 實作最低權限的系統管理模型
+      href: /windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: 作法
   items:
-    - name: 建立 Azure AD DS 執行個體
+    - name: 一般設定
       items:
-        - name: 工作 1：設定基本設定
-          href: create-instance.md
-        - name: 工作 2：設定網路設定
-          href: active-directory-ds-getting-started-network.md
-        - name: 工作 3：設定系統管理員群組並啟用 Azure AD Domain Services
-          href: active-directory-ds-getting-started-admingroup.md
-        - name: 工作 4：更新虛擬網路的 DNS 設定
-          href: active-directory-ds-getting-started-dns.md
-        - name: 工作 5：啟用密碼雜湊同步處理
-          href: active-directory-ds-getting-started-password-sync.md
+        - name: 啟用密碼雜湊同步處理
+          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
+        - name: 在 Azure AD 設定保留範圍同步處理
+          href: scoped-synchronization.md
+        - name: 建立組織單位 (OU)
+          href: create-ou.md
+        - name: 建立群組受控服務帳戶 (gMSA)
+          href: create-gmsa.md
     - name: 適用於 Azure AD DS 的方案
       items:
-        - name: 案例
+        - name: 常見案例
           href: scenarios.md
-        - name: 規劃虛擬網路
+        - name: 虛擬網路考量事項
           href: network-considerations.md
     - name: 管理 Azure AD DS
       items:
-        - name: 啟用安全性稽核事件 (預覽)
-          href: security-audit-events.md
-        - name: 檢查受控網域的健康狀態
-          href: check-health.md
-        - name: 在 Azure AD 中將保留範圍同步處理至受控網域
-          href: scoped-synchronization.md
-        - name: 保護受控網域
-          href: secure-your-domain.md
-        - name: 在受控網域上建立 OU
-          href: create-ou.md
-        - name: 在受控網域上建立群組受控服務帳戶
-          href: create-gmsa.md
-        - name: 管理適用於 Azure AD Domain Services 的群組原則
+        - name: 管理群組原則
           href: manage-group-policy.md
-        - name: 設定受控網域上的密碼原則
-          href: password-policy.md
+        - name: 管理 DNS
+          href: manage-dns.md
+        - name: 檢查健康狀態
+          href: check-health.md
+        - name: 設定電子郵件通知
+          href: notifications.md
         - name: 刪除受控網域
           href: delete-aadds.md
-        - name: 阵立 Azure AD DS 管理虛擬機器
-          href: manage-domain.md
-        - name: 管理適用於 Azure AD Domain Services 的 DNS
-          href: manage-dns.md
-        - name: 更新電子郵件通知
-          href: notifications.md
-        - name: 在 Azure AD Domain Services 網域中設定安全的 LDAP (LDAPS)
-          href: configure-ldaps.md
-          items:
-            - name: 工作 2：匯出安全 LDAP 憑證
-              href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-            - name: 工作 3：使用 Azure 入口網站，為受控網域啟用安全 LDAP
-              href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-            - name: 工作 4：設定 DNS 以從網際網路存取受控網域
-              href: active-directory-ds-ldaps-configure-dns.md
-            - name: 工作 5：繫結至受控網域，並鎖定安全 LDAP 存取
-              href: active-directory-ds-ldaps-bind-lockdown.md
-    - name: 將應用程式部署至 Azure AD DS
+    - name: 保護 Azure AD DS
       items:
-        - name: 設定 SharePoint 伺服器設定檔同步處理的支援
-          href: deploy-sp-profile-sync.md
+        - name: 保護受控網域
+          href: secure-your-domain.md
         - name: 設定 Kerberos 限制委派
           href: deploy-kcd.md
-        - name: 部署 Azure AD 應用程式 Proxy
-          href: deploy-azure-app-proxy.md
-    - name: 將虛擬機器加入 Azure AD DS
+        - name: 設定密碼和帳戶鎖定原則
+          href: password-policy.md
+        - name: 啟用安全性稽核事件 (預覽)
+          href: security-audit-events.md
+    - name: 加入網域 VM
       items:
-        - name: Windows Server VM
-          href: join-windows-vm.md
         - name: 來自範本的 Windows Server VM
           href: join-windows-vm-template.md
         - name: CentOS
@@ -98,24 +85,31 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: 針對 Azure AD DS 問題進行疑難排解
+    - name: 將應用程式部署至 Azure AD DS
       items:
-        - name: 疑難排解指南
+        - name: 部署 Azure AD 應用程式 Proxy
+          href: deploy-azure-app-proxy.md
+        - name: 設定 SharePoint 伺服器設定檔同步處理的支援
+          href: deploy-sp-profile-sync.md
+    - name: 疑難排解
+      items:
+        - name: 常見錯誤
           href: troubleshoot.md
-        - name: 疑難排解警示
-          href: troubleshoot-alerts.md
+        - name: 常見警示
           items:
-            - name: 修正損毀的 NSG 組態
+            - name: 常見警示
+              href: troubleshoot-alerts.md
+            - name: 修正損毀的網路組態
               href: alert-nsg.md
             - name: 還原遺失的服務主體
               href: alert-service-principal.md
-            - name: 安全 LDAP 錯誤
+            - name: 安全 LDAP 警示
               href: alert-ldaps.md
-        - name: 解析不相符的租用戶錯誤
+        - name: 不相符的租用戶錯誤
           href: mismatched-tenant-error.md
         - name: 暫時停權的網域
           href: suspension.md
-        - name: 針對安全 LDAP 進行疑難排解
+        - name: 安全的 LDAP
           href: tshoot-ldaps.md
 - name: 資源
   items:
