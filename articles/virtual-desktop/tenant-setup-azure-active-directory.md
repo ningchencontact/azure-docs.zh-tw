@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 3d418d9f18c98e1b6fdf39924ab41dae77fba291
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204759"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014097"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>教學課程：在 Windows 虛擬桌面預覽版中建立租用戶
 
@@ -42,17 +42,25 @@ ms.locfileid: "67204759"
 
 若要授與服務權限：
 
-1. 開啟瀏覽器並連線到 [Windows 虛擬桌面同意頁面](https://rdweb.wvd.microsoft.com)。
-2. 針對 [同意選項]   > [伺服器應用程式]  ，輸入 Azure Active Directory 租用戶名稱或目錄識別碼，然後選取 [提交]  。
-        
-   若為雲端解決方案提供者客戶，識別碼是合作夥伴入口網站中客戶的 Microsoft 識別碼。 若為企業客戶，識別碼位於 [Azure Active Directory]   > [屬性]   > [目錄識別碼]  之下。
-3. 使用全域管理員帳戶登入 Windows 虛擬桌面同意頁面。 例如，如果您屬於 Contoso 組織，您的帳戶可能是 admin@contoso.com 或 admin@contoso.onmicrosoft.com。  
-4. 選取 [接受]  。
-5. 等候一分鐘。
-6. 回到 [Windows 虛擬桌面同意頁面](https://rdweb.wvd.microsoft.com)。
-7. 移至 [同意選項]   > [用戶端應用程式]  ，輸入相同的 Azure Active Directory 租用戶名稱或目錄識別碼，然後選取 [提交]  。
-8. 如同步驟 3 一樣，以全域管理員身分登入 Windows 虛擬桌面同意頁面。
-9. 選取 [接受]  。
+1. 開啟瀏覽器，並開始進行 [Windows 虛擬桌面伺服器應用程式](https://login.microsoftonline.com/common/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback)的管理員同意流程。
+   > [!NOTE]
+   > 如果您管理客戶，而需要為客戶的目錄授與管理員同意，請在瀏覽器中輸入下列 URL，並將 {tenant} 取代為客戶的 Azure AD 網域名稱。 例如，如果客戶的組織已註冊 contoso.onmicrosoft.com 的 Azure AD 網域名稱，請將 {tenant} 取代為 contoso.onmicrosoft.com。
+   >```
+   >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
+
+2. 使用全域管理員帳戶登入 Windows 虛擬桌面同意頁面。 例如，如果您屬於 Contoso 組織，您的帳戶可能是 admin@contoso.com 或 admin@contoso.onmicrosoft.com。  
+3. 選取 [接受]  。
+4. 請稍後片刻，讓 Azure AD 可記錄同意。
+5. 開啟瀏覽器，並開始進行 [Windows 虛擬桌面用戶端應用程式](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback)的管理員同意流程。
+   >[!NOTE]
+   > 如果您管理客戶，而需要為客戶的目錄授與管理員同意，請在瀏覽器中輸入下列 URL，並將 {tenant} 取代為客戶的 Azure AD 網域名稱。 例如，如果客戶的組織已註冊 contoso.onmicrosoft.com 的 Azure AD 網域名稱，請將 {tenant} 取代為 contoso.onmicrosoft.com。
+   >```
+   > https://login.microsoftonline.com/{tenant}/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
+
+6. 如同步驟 2 一樣，以全域管理員身分登入 Windows 虛擬桌面同意頁面。
+7. 選取 [接受]  。
 
 ## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>將 TenantCreator 應用程式角色指派給 Azure Active Directory 租用戶中的使用者
 
@@ -65,7 +73,7 @@ ms.locfileid: "67204759"
    如果您正在處理多個 Azure Active Directory 租用戶，最佳做法是開啟私人瀏覽器工作階段，然後將 URL 複製並貼入位址列中。
 2. 在 Azure 入口網站的搜尋列中，搜尋**企業應用程式**，然後選取 [服務]  類別底下出現的項目。
 3. 在 [企業應用程式]  中，搜尋 [Windows 虛擬桌面]  。 您會看到您在上一節中同意的兩個應用程式。 在這兩個應用程式中，選取 [Windows 虛擬桌面]  。
-   ![在 [企業應用程式] 中搜尋「Windows 虛擬桌面」時的搜尋結果螢幕擷取畫面。 已醒目提示名為「Windows 虛擬桌面」的應用程式。](media/tenant-enterprise-app.png)
+   ![在 企業應用程式] 中搜尋「Windows 虛擬桌面」時的搜尋結果螢幕擷取畫面。 已醒目提示名為「Windows 虛擬桌面」的應用程式。](media/tenant-enterprise-app.png)
 4. 選取 [使用者和群組]  。 您可能會看到對應用程式授與同意權的系統管理員已列出，並且已獲派**預設存取**角色。 這還不足以建立 Windows 虛擬桌面租用戶。 請繼續遵循這些指示來對使用者新增 **TenantCreator** 角色。
    ![指派來管理「Windows 虛擬桌面」企業應用程式的使用者和群組螢幕擷取畫面。 螢幕擷取畫面顯示只有一個適用於「預設存取」的指派。](media/tenant-default-access.png)
 5. 選取 [新增使用者]  ，然後在 [新增指派]  刀鋒視窗中選取 [使用者和群組]  。

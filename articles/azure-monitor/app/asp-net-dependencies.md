@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326436"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534614"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 應用程式深入解析中的相依性追蹤 
 
@@ -90,7 +90,7 @@ ms.locfileid: "68326436"
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>從網頁追蹤 AJAX 呼叫
 
-針對網頁, Application Insights JavaScript SDK 會自動將 AJAX 呼叫收集為相依性, 如[這裡](javascript.md#ajax-performance)所述。 本檔著重于伺服器元件的相依性。
+若為網頁, Application Insights JavaScript SDK 會自動將 AJAX 呼叫收集為相依性。
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>先進的 SQL 追蹤以取得完整的 SQL 查詢
 
@@ -113,7 +113,7 @@ ms.locfileid: "68326436"
 
 * [應用程式對應](app-map.md)會以視覺化方式顯示您應用程式與相鄰元件之間的相依性。
 * [交易診斷](transaction-diagnostics.md)會顯示統一、相互關聯的伺服器資料。
-* [[瀏覽器]](javascript.md#ajax-performance)索引標籤會顯示來自您使用者瀏覽器的 AJAX 呼叫。
+* [[瀏覽器]](javascript.md)索引標籤會顯示來自您使用者瀏覽器的 AJAX 呼叫。
 * 從速度緩慢或失敗的要求逐一點選以檢查其相依性呼叫。
 * [分析](#logs-analytics)可用來查詢相依性資料。
 
