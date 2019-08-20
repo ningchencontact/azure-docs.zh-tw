@@ -7,15 +7,15 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7795612d8aa4974bc640571d49ad1520e2a0f94c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963847"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623818"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>什麼是 Service Fabric 應用程式資源模型？
-建議您透過 Azure Resource Manager, 將 Service Fabric 應用程式部署到您的 Service Fabric 叢集。 這個方法可讓您以 JSON 描述應用程式和服務, 並將它們部署在與叢集相同的 Resource Manager 範本中。 相對於透過 PowerShell 或 Azure CLI 來部署和管理應用程式, 不需要等待叢集準備就緒。 應用程式註冊、布建和部署的流程, 都可以在單一步驟中進行。 這是在您的叢集中管理應用程式生命週期的最佳作法。 如需詳細資訊, 請參閱[最佳做法](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)。
+建議您透過 Azure Resource Manager, 將 Service Fabric 應用程式部署到您的 Service Fabric 叢集。 這個方法可讓您以 JSON 描述應用程式和服務, 並將它們部署在與叢集相同的 Resource Manager 範本中。 相對於透過 PowerShell 或 Azure CLI 來部署和管理應用程式, 不需要等待叢集準備就緒。 應用程式註冊、佈建和部署程序全都可以透過一個步驟完成。 這是在叢集中管理應用程式生命週期的最佳做法。 如需詳細資訊, 請參閱[最佳做法](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)。
 
 當可行時，將應用程式視為 Resource Manager 資源來管理有助於改善：
 * 審核記錄:Resource Manager 會針對每個作業進行審核, 並保留詳細的*活動記錄*, 協助您追蹤對這些應用程式和叢集所做的任何變更。
@@ -33,7 +33,7 @@ ms.locfileid: "68963847"
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>使用 Azure Resource Manager 部署應用程式資源  
 若要使用 Azure Resource Manager 的應用程式資源模型來部署應用程式及其服務, 您需要封裝應用程式程式碼、上傳套件, 然後在 Azure Resource Manager 範本中以應用程式的形式參考套件的位置resource. 如需詳細資訊, 請參閱[封裝應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg)。
           
-然後, 建立 Azure Resource Manager 範本、使用應用程式詳細資料更新參數檔案, 然後將它部署在 Service Fabric 叢集上。 請參閱這裡的範例
+然後, 建立 Azure Resource Manager 範本、使用應用程式詳細資料更新參數檔案, 然後將它部署在 Service Fabric 叢集上。 請參閱[這裡](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM)的範例。
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶 
 從 Resource Manager 範本部署應用程式時, 需要有儲存體帳戶才能暫存應用程式映射。 您可以重複使用現有的儲存體帳戶, 或建立新的儲存體帳戶來暫存您的應用程式。 如果您想要使用現有的儲存體帳戶, 您可以略過此步驟。 

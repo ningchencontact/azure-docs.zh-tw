@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295557"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624775"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Azure 資訊安全中心中的 Azure 服務層威脅偵測
 
@@ -47,6 +47,7 @@ ms.locfileid: "68295557"
 |**可疑的連入 SSH 網路活動**|取樣的網路流量分析偵測到您部署中資源的異常連入 SSH 通訊。 在此環境中, 對您的資源的連入連線數量相對較高會被視為異常。 此活動可能表示嘗試暴力密碼破解 SSH 介面。
 |**來自多個來源的可疑連入 RDP 網路活動**|取樣的網路流量分析偵測到來自多個來源的異常連入 RDP 通訊, 以及您部署中的資源。 在此環境中, 連線到您的資源的各種唯一 Ip 都會被視為異常。 此活動可能表示嘗試從多部主機 (殭屍網路) 對 RDP 介面進行暴力密碼破解攻擊。|
 |**可疑的連入 RDP 網路活動**|取樣的網路流量分析偵測到您部署中的資源有異常的連入 RDP 通訊。 在此環境中, 對您的資源的連入連線數量相對較高會被視為異常。 此活動可能表示嘗試暴力密碼破解 SSH 介面。|
+|**偵測到具有惡意位址的網路通訊**|取樣的網路流量分析偵測到來自您部署中資源的通訊, 以及可能的命令和控制 (C & C) 伺服器。 請注意，這類型的活動可能會導致外部實體將您的 IP 標記為惡意。|
 
 若要瞭解資訊安全中心可以如何使用網路相關的信號來套用威脅防護, 請參閱[Azure 資訊安全中心中的啟發式 DNS](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)偵測。
 ## Azure 管理層 (Azure Resource Manager) (預覽)<a name ="management-layer"></a>
@@ -72,9 +73,9 @@ ms.locfileid: "68295557"
 >[!NOTE]
 > 上述幾項分析都是由 Microsoft Cloud App Security (MCAS) 提供技術支援。 若要受益于這些分析, 需要已啟用的 MCAS 授權。 如果您有 MCAS 授權, 則預設會啟用這些警示。 若要停用它們:
 >
-> 1. 在 [資訊安全中心] 刀鋒視窗中，選取 [安全性原則]  。 針對您要變更的訂用帳戶按一下 [編輯設定]  。
-> 2. 按一下 [威脅偵測]  。
-> 3. 在 [啟用整合]  底下，取消選取 [允許 Microsoft Cloud App Security 存取我的資料]  ，然後按一下 [儲存]  。
+> 1. 在 [資訊安全中心] 刀鋒視窗中，選取 [安全性原則]。 針對您要變更的訂用帳戶按一下 [編輯設定]。
+> 2. 按一下 [威脅偵測]。
+> 3. 在 [啟用整合] 底下，取消選取 [允許 Microsoft Cloud App Security 存取我的資料]，然後按一下 [儲存]。
 
 >[!NOTE]
->Azure 資訊安全中心會將安全性相關的客戶資料儲存在與其資源相同的地理位置。 如果 Microsoft 尚未在資源的地理位置部署 Azure 資訊安全中心, 則會將資料儲存在美國。 當 Microsoft Cloud App Security (MCAS) 啟用時, 會根據 MCAS 的地理位置規則來儲存這項資訊。 如需詳細資訊, 請參閱[非區域服務的資料儲存體](http://azuredatacentermap.azurewebsites.net/)。
+>Azure 資訊安全中心會將安全性相關的客戶資料儲存在與其資源相同的地理位置。 如果 Microsoft 尚未在資源的地理位置部署 Azure 資訊安全中心, 則會將資料儲存在美國。 當 Microsoft Cloud App Security (MCAS) 啟用時, 會根據 MCAS 的地理位置規則來儲存這項資訊。 如需詳細資訊, 請參閱[非區域服務的資料儲存體](https://azuredatacentermap.azurewebsites.net/)。

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eee881e6d4e446e07867261545a90dfacaa93712
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512208"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622795"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中將識別提供者新增至您的應用程式
 
@@ -94,13 +94,11 @@ ms.locfileid: "69512208"
 
 ### <a name="add-the-azure-active-directory-identity-provider"></a>新增 Azure Active Directory 識別提供者
 
-1. 按一下頂端功能表中的 [目錄和訂用帳戶篩選]，然後選擇包含您 Azure AD B2C 租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+1. 請確定您使用的是包含 Azure AD B2C 租使用者的目錄。 在頂端功能表中選取 [**目錄 + 訂**用帳戶] 篩選, 然後選擇包含您 Azure AD B2C 租使用者的目錄。
 1. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-1. 選取 [識別提供者]，然後選取 [新增]。
+1. 選取 [**識別提供者**], 然後選取 **[新增 OpenID Connect 提供者]** 。
 1. 輸入 [名稱]。 例如，輸入 *Contoso Azure AD*。
-1. 選取 [**識別提供者類型**], 選取 [ **OpenID connect]** , 然後按一下 **[確定]** 。
-1. 按一下 [設定此識別提供者]。
-1. 在 [**中繼資料 url**] 中, 輸入下列`your-AD-tenant-domain` url, 並將取代為您 Azure AD 租使用者的功能變數名稱。
+1. 在 [**中繼資料 url**] 中, 輸入`your-AD-tenant-domain`下列 url, 並將取代為您 Azure AD 租使用者的功能變數名稱:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -108,28 +106,27 @@ ms.locfileid: "69512208"
 
     例如： `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration` 。
 
-1. 針對 [**用戶端識別碼**], 輸入您先前記錄的*應用程式 (用戶端) 識別碼*。
-1. 針對 [**用戶端密碼**], 輸入您先前記錄的*用戶端密碼*值。
-1. 您也可以選擇輸入 **Domain_hint** 的值。 例如： `ContosoAD` 。 [網域提示](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)是應用程式的驗證要求中所包含的指示詞。 它們可用來加快使用者進入其同盟 IdP 登入頁面的速度。 或者，多租用戶應用程式也可使用網域提示來加速使用者直接前往其租用戶的品牌化 Azure AD 登入頁面。
-1. 選取 [確定]。
-1. 選取 [對應此識別提供者的宣告]，然後設定下列宣告：
+1. 針對 [**用戶端識別碼**], 輸入您先前記錄的應用程式識別碼。
+1. 針對 [**用戶端密碼**], 輸入您先前記錄的用戶端密碼。
+1. 保留 [**範圍**]、[**回應類型**] 和 [**回應模式]** 的預設值。
+1. 選擇性輸入**Domain_hint**的值。 例如, *ContosoAD*。 [網域提示](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)是應用程式的驗證要求中所包含的指示詞。 它們可用來加快使用者進入其同盟 IdP 登入頁面的速度。 或者，多租用戶應用程式也可使用網域提示來加速使用者直接前往其租用戶的品牌化 Azure AD 登入頁面。
+1. 在 [**識別提供者宣告對應**] 底下, 輸入下列宣告對應值:
 
-    - 針對 [使用者識別碼]，輸入 `oid`。
-    - 針對 [顯示名稱]，輸入 `name`。
-    - 針對 [名字]，輸入 `given_name`。
-    - 針對 [姓氏]，輸入 `family_name`。
-    - 針對 [電子郵件]，輸入 `unique_name`。
+    * **使用者識別碼**: *oid*
+    * **顯示名稱**:*名稱*
+    * **名字**: *given_name*
+    * **姓氏**: *family_name*
+    * **電子郵件**: *unique_name*
 
-1. 選取 **[確定]** , 然後選取 [**建立**] 以儲存您的設定。
+1. 選取 [ **儲存**]。
 
 ### <a name="add-the-facebook-identity-provider"></a>新增 Facebook 識別提供者
 
-1. 選取 [識別提供者]，然後選取 [新增]。
-1. 輸入 [名稱]。 例如，輸入 *Facebook*。
-1. 選取 [**識別提供者類型**], 選取 [ **Facebook**], 然後選取 **[確定]** 。
-1. 選取 [**設定此識別提供者**], 然後輸入您先前記錄的*應用程式識別碼*作為**用戶端識別碼**。
-1. 輸入您記錄為**用戶端密碼**的*應用程式密碼*。
-1. 選取 **[確定]** , 然後選取 [**建立**] 以儲存您的 Facebook 設定。
+1. 選取 [**識別提供者**], 然後選取 [ **Facebook**]。
+1. 輸入 [名稱]。 例如, *Facebook*。
+1. 針對 [**用戶端識別碼**], 輸入您稍早建立的 Facebook 應用程式的應用程式識別碼。
+1. 針對 [**用戶端密碼**], 輸入您所記錄的應用程式密碼。
+1. 選取 [ **儲存**]。
 
 ## <a name="update-the-user-flow"></a>更新使用者流程
 

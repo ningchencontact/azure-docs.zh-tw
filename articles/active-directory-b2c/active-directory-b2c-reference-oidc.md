@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 08/20/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f6188f5c5bdd256ee84c5e7dc8632e5c067ceca5
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 36efdb7db57d3acfa7384d904e9be8faad4c6534
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541731"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622081"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入
 
@@ -32,11 +32,10 @@ Azure AD B2C 擴充標準的 OpenID Connect 通訊協定，功能更強大，而
 
 當您的 web 應用程式需要驗證使用者並執行使用者流程時, 它可以將使用者導向至`/authorize`端點。 使用者會根據使用者流程採取動作。
 
-在此要求中, 用戶端會在`scope`參數中指出它需要從使用者取得的許可權, 以及要`p`在參數中執行的使用者流程。 後續小節中提供三個範例 (含有換行符號以提高可讀性)，各使用不同的使用者流程。 為了瞭解每個要求的運作方式，請試著將要求貼到瀏覽器來執行。 您可以將`fabrikamb2c`取代為您的租使用者名稱 (如果有的話), 並建立使用者流程。 您也必須取代`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`。 將此用戶端識別碼取代為您已建立之應用程式註冊的應用程式識別碼。 也請將原則名稱`b2c_1_sign_in`變更為您在租使用者中擁有的原則名稱。
+在此要求中, 用戶端會在`scope`參數中指出它需要從使用者取得的許可權, 並指定要執行的使用者流程。 後續小節中提供三個範例 (含有換行符號以提高可讀性)，各使用不同的使用者流程。 為了瞭解每個要求的運作方式，請試著將要求貼到瀏覽器來執行。 您可以將`fabrikamb2c`取代為您的租使用者名稱 (如果有的話), 並建立使用者流程。 您也必須取代`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`。 將此用戶端識別碼取代為您已建立之應用程式註冊的應用程式識別碼。 也請將原則名稱 (`{policy}`) 變更為您在租使用者中擁有的原則名稱, `b2c_1_sign_in`例如。
 
-#### <a name="use-a-sign-in-user-flow"></a>使用登入使用者流程
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -44,40 +43,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &scope=openid%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
-&p=b2c_1_sign_in
-```
-
-#### <a name="use-a-sign-up-user-flow"></a>使用註冊使用者流程
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code+id_token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=form_post
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_sign_up
-```
-
-#### <a name="use-an-edit-profile-user-flow"></a>使用編輯設定檔使用者流程
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=code+id_token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=form_post
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_edit_profile
 ```
 
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
+| 出租 | 是 | Azure AD B2C 租使用者的名稱 |
+| 策略 | 是 | 執行的使用者流程。 這是在您的 Azure AD B2C 租使用者中建立的使用者流程名稱。 使用者流程的名稱應該以開頭`b2c_1_`。 例如: `b2c_1_sign_in`、 `b2c_1_sign_up`或。 `b2c_1_edit_profile` |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
 | nonce | 是 | 包含在要求中的值 (由應用程式所產生), 以宣告形式包含在產生的識別碼權杖中。 然後, 應用程式可以驗證此值, 以減輕權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
-| p | 是 | 執行的使用者流程。 這是在您的 Azure AD B2C 租使用者中建立的使用者流程名稱。 使用者流程的名稱應該以開頭`b2c\_1\_`。 |
 | response_type | 是 | 必須包含 OpenID Connect 的識別碼權杖。 如果您的 web 應用程式也需要權杖來呼叫 Web API, 您可以`code+id_token`使用。 |
 | scope | 是 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 `offline_access`範圍對 web 應用程式而言是選擇性的。 這表示您的應用程式將需要重新整理*權杖*, 才能延伸資源的存取權。 |
 | prompt | 否 | 需要的使用者互動類型。 此時唯一有效的值是 `login`，可強制使用者針對該要求輸入其認證。 |
@@ -91,7 +64,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 使用 `response_mode=fragment` 的成功回應如下所示：
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
@@ -106,7 +79,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
 錯誤回應也可以傳送至`redirect_uri`參數, 讓應用程式可以適當地處理:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -125,11 +98,15 @@ error=access_denied
 
 Azure AD B2C 具有 OpenID Connect 中繼資料端點, 可讓應用程式在執行時間取得 Azure AD B2C 的相關資訊。 這項資訊包括端點、權杖內容和權杖簽署金鑰。 您的 B2C 租用戶中的每個使用者流程都有一份 JSON 中繼資料文件。 例如，`fabrikamb2c.onmicrosoft.com` 中適用於 `b2c_1_sign_in` 使用者流程的中繼資料文件位於：
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
+```
 
 此設定文件的屬性之一是 `jwks_uri`，就上述使用者流程而言，它的值是：
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
+```
 
 若要判斷使用哪個使用者流程來簽署識別碼權杖 (以及從何處取得中繼資料), 您有兩個選項。 首先，使用者流程名稱包含於識別碼權杖的 `acr` 宣告中。 另一個選項是當您發出要求時在 `state` 參數的值中將使用者流程編碼，然後將它解碼以判斷使用了哪個使用者流程。 任一種方法都有效。
 
@@ -159,9 +136,9 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點, 可讓應用程式在執�
 
 您也可以針對應用程式本身的後端 Web API 要求存取權杖, 方法是使用應用程式的用戶端識別碼作為要求的範圍 (這會產生具有該用戶端識別碼的存取權杖做為「物件」):
 
-```
-POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+```HTTP
+POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -169,17 +146,18 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
+| 出租 | 是 | Azure AD B2C 租使用者的名稱 |
+| 策略 | 是 | 用來取得授權碼的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串, 而不是 POST 主體。 |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
 | client_secret | 是 | 在[Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。 這個應用程式密碼是重要的安全性構件， 您應該要用安全的方法把它儲存在您的伺服器上。 定期變更此用戶端密碼。 |
 | code | 是 | 您在使用者流程開頭取得的授權碼。 |
 | grant_type | 是 | 授與的類型，針對授權碼流程來說，必須是 `authorization_code` 。 |
-| p | 是 | 用來取得授權碼的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串, 而不是 POST 主體。 |
 | redirect_uri | 是 | 應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
 | scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用 id_tokens 參數形式的權限，以登入使用者及取得使用者相關資料。 它可以用來取得應用程式本身後端 Web API 的權杖, 這是由與用戶端相同的應用程式識別碼所表示。 `offline_access`範圍表示您的應用程式需要重新整理權杖, 才能延伸資源的存取權。 |
 
 成功的權杖回應看起來如下：
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -189,6 +167,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | 參數 | 描述 |
 | --------- | ----------- |
 | not_before | 權杖生效的時間 (以新紀元 (Epoch) 時間表示)。 |
@@ -200,7 +179,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 錯誤回應看起來如下：
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -216,9 +195,9 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 現在您已成功取得存取權杖，因此可在對後端 Web API 發出的要求中使用該權杖，方法是在 `Authorization` 標頭中加入該權杖：
 
-```
+```HTTP
 GET /tasks
-Host: https://mytaskwebapi.com
+Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
@@ -226,9 +205,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 識別碼權杖會在短時間內過期。 在權杖到期後重新整理它們, 以繼續存取資源。 您可以藉由`POST` `/token`向端點提交另一個要求來重新整理權杖。 此時，請提供 `refresh_token` 參數，而不是 `code` 參數：
 
-```
-POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+```HTTP
+POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -236,17 +215,18 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
+| 出租 | 是 | Azure AD B2C 租使用者的名稱 |
+| 策略 | 是 | 用來取得原始重新整理權杖的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串, 而不是 POST 主體。 |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
 | client_secret | 是 | 在[Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。 這個應用程式密碼是重要的安全性構件， 您應該要用安全的方法把它儲存在您的伺服器上。 定期變更此用戶端密碼。 |
 | grant_type | 是 | 授與的類型, 必須是授權碼流程中這個部分的重新整理權杖。 |
 | refresh_token | 是 | 在流程的第二個部分中取得的原始重新整理權杖。 必須同時在授權和權杖要求中使用範圍,才能接收重新整理權杖。`offline_access` |
-| p | 是 | 用來取得原始重新整理權杖的使用者流程。 您無法在此要求中使用不同的使用者流程。 將此參數新增至查詢字串, 而不是 POST 主體。 |
 | redirect_uri | 否 | 應用程式的 `redirect_uri` 參數，您會在此處收到授權碼。 |
 | scope | 否 | 範圍的空格分隔清單。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 它可用來將權杖傳送到您應用程式本身的後端 Web API, 這是由與用戶端相同的應用程式識別碼來表示。 `offline_access`範圍表示您的應用程式需要重新整理權杖, 才能延伸資源的存取權。 |
 
 成功的權杖回應看起來如下：
 
-```
+```JSON
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -256,6 +236,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
+
 | 參數 | 描述 |
 | --------- | ----------- |
 | not_before | 權杖生效的時間 (以新紀元 (Epoch) 時間表示)。 |
@@ -267,7 +248,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 錯誤回應看起來如下：
 
-```
+```JSON
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -285,7 +266,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 若要登出使用者, 請將使用者重新導向至`end_session`先前所述的 OpenID connect 元資料檔案中所列的端點:
 
-```
+```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 

@@ -7,14 +7,14 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: f9d7f87e9d7b1761c165e08e37cd6a3237c8212a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: c225971675557ba9bc98aafa25d17a3ef95a594a
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965518"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624954"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>使用系統指派的受控識別來部署 Service Fabric 應用程式
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>使用系統指派的受控識別 (預覽) 部署 Service Fabric 應用程式
 
 為了存取 Azure Service Fabric 應用程式的受控識別功能, 您必須先在叢集上啟用受控識別權杖服務。 此服務負責使用其受控識別來驗證 Service Fabric 應用程式, 並代表其取得存取權杖。 啟用服務之後, 您可以 Service Fabric Explorer 在左窗格的 [**系統**] 區段底下的 [ManagedIdentityTokenService] 中看到它, 並在 [其他系統服務] 旁的 [ **Fabric:/system/** ] 底下執行。
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.author: bharathb
-ms.openlocfilehash: 041f9c95b22fd4b8c238c603deb0558f2bca01a8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a4de902e51b101d14aac599c9aad8c4feb86a9c6
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737624"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624583"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>將數百 TB 的資料遷移至 Azure Cosmos DB 
 
@@ -140,9 +140,16 @@ Azure Cosmos DB 的遷移策略根據 API 選擇和資料大小而有所不同�
 
 6. 其中一些錯誤可能是來源資料中的檔不正確所造成。 您應該識別並修正這些問題。 接下來, 您應該在失敗的資料分割上重新執行匯入步驟來 reingest 它們。 
 
-完成遷移之後, 您可以驗證 Azure Cosmos DB 中的檔計數與源資料庫中的檔計數相同。 在此範例中, Azure Cosmos DB 中的總大小為 65 tb。 遷移後, 可以選擇性地開啟索引, 而 ru 可以降低為工作負載作業所需的層級。   
+完成遷移之後, 您可以驗證 Azure Cosmos DB 中的檔計數與源資料庫中的檔計數相同。 在此範例中, Azure Cosmos DB 中的總大小為 65 tb。 遷移後, 可以選擇性地開啟索引, 而 ru 可以降低為工作負載作業所需的層級。
+
+## <a name="contact-the-azure-cosmos-db-team"></a>聯絡 Azure Cosmos DB 小組
+雖然您可以遵循本指南來成功地將大型資料集遷移至 Azure Cosmos DB, 但對於大規模的遷移, 建議您 Azure Cosmos DB 的產品小組, 以驗證資料模型化和一般架構審查。 根據您的資料集和工作負載, 產品小組也可以建議適用于您的其他效能和成本優化。 若要與 Azure Cosmos DB 小組尋求大規模遷移的協助, 您可以在「一般諮詢」問題類型和「大型 (TB +) 遷移」問題子類型底下開啟支援票證, 如下所示。
+
+![遷移支援主題](./media/migrate-cosmosdb-data/supporttopic.png)
+
 
 ## <a name="next-steps"></a>後續步驟
 * 若要深入瞭解, 請嘗試使用[.net](bulk-executor-dot-net.md)和[JAVA](bulk-executor-java.md)中的大量執行程式程式庫。 
 * 大量執行程式程式庫已整合到 Cosmos DB Spark 連接器中, 若要深入瞭解, 請參閱[Azure Cosmos DB Spark 連接器](spark-connector.md)一文。  
+* 請洽詢「一般諮詢」問題類型和「大型 (TB +) 遷移」問題子類型底下的支援票證, 以取得 Azure Cosmos DB 產品小組, 以取得大規模遷移的其他協助。 
 

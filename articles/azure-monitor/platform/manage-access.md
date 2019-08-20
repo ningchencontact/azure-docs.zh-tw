@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 59e5bbaf8deccdd8218e9c5590266070ed3b5ebb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881432"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624329"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理 Azure 監視器中的記錄資料和工作區
 
@@ -44,12 +44,12 @@ Azure 監視器會將[記錄](data-platform-logs.md)資料儲存在 log Analytic
 
 ### <a name="configure-from-the-azure-portal"></a>從 Azure 入口網站設定
 
-您可以在**Log Analytics 工作區**功能表中, 于工作區的 [**總覽**] 頁面上, 查看目前的工作區存取控制模式。 
+您可以在**Log Analytics 工作區**功能表中, 于工作區的 [**總覽**] 頁面上, 查看目前的工作區存取控制模式。
 
 ![View workspace 存取控制模式](media/manage-access/view-access-control-mode.png)
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
-1. 在 Azure 入口網站中, 選取工作區 > 的 Log Analytics 工作區。  
+1. 在 Azure 入口網站中, 選取工作區 > 的 Log Analytics 工作區。
 
 您可以從工作區的 [**屬性**] 頁面變更此設定。 如果您沒有設定工作區的許可權, 將會停用變更設定。
 
@@ -60,7 +60,7 @@ Azure 監視器會將[記錄](data-platform-logs.md)資料儲存在 log Analytic
 使用下列命令來檢查訂用帳戶中所有工作區的存取控制模式:
 
 ```powershell
-Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions}
 ```
 
 輸出應該如以下所示：
@@ -70,10 +70,10 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-值為時`False` , 表示工作區是使用工作區內容存取模式來設定。  值為時`True` , 表示工作區是以資源內容存取模式來設定。 
+值為時`False` , 表示工作區是使用工作區內容存取模式來設定。  值為時`True` , 表示工作區是以資源內容存取模式來設定。
 
->[!NOTE]
->如果傳回的工作區沒有布林值, 而且是空的, 這也會符合`False`值的結果。
+> [!NOTE]
+> 如果傳回的工作區沒有布林值, 而且是空的, 這也會符合`False`值的結果。
 >
 
 使用下列腳本, 將特定工作區的存取控制模式設定為資源內容許可權:
@@ -81,9 +81,9 @@ DefaultWorkspace21532: False
 ```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
-if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
 ```
@@ -92,9 +92,9 @@ Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properti
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
-if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
@@ -159,10 +159,10 @@ Log Analytics 讀者角色包含下列 Azure 動作：
 * 新增及移除管理解決方案
 
     > [!NOTE]
-    > 若要成功執行後面兩個動作，就必須在資源群組或訂用帳戶層級授與此權限。  
+    > 若要成功執行後面兩個動作，就必須在資源群組或訂用帳戶層級授與此權限。
 
 * 讀取儲存體帳戶金鑰
-* 設定 Azure 儲存體的記錄集合  
+* 設定 Azure 儲存體的記錄集合
 * 編輯 Azure 資源的監視設定，包括
   * 將 VM 擴充功能新增至 VM
   * 在所有 Azure 資源上設定 Azure 診斷
@@ -201,8 +201,8 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 
 | 使用權限 | 描述 |
 | ---------- | ----------- |
-| `Microsoft.Insights/logs/<tableName>/read`<br><br>範例:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 能夠查看資源的所有記錄資料。  |
-| `Microsoft.Insights/diagnosticSettings/write ` | 能夠設定診斷設定, 以允許此資源的記錄檔。 |
+| `Microsoft.Insights/logs/<tableName>/read`<br><br>例如：<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 能夠查看資源的所有記錄資料。  |
+| `Microsoft.Insights/diagnosticSettings/write` | 能夠設定診斷設定, 以允許此資源的記錄檔。 |
 
 `/read`許可權通常是從包含 _\*/read 或_ _\*_ 許可權 (例如內建[讀取器](../../role-based-access-control/built-in-roles.md#reader)和[參與者](../../role-based-access-control/built-in-roles.md#contributor)角色) 的角色授與。 請注意, 包含特定動作或專屬內建角色的自訂角色可能不包含此許可權。
 

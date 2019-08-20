@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 352fd16d98e6f376e230d2112a9b94b66ccc1b5a
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: a93a0cf5dad83ae3c69b15fda9ba6f4268b9a91f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542724"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624164"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的永久性協調流程
 
@@ -73,6 +73,25 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 此範例與計時器觸發函式之間的差異在於，此處的清理觸發程序時間不是根據排程。 例如，每小時執行函式的 CRON 排程會在 1:00、2:00、3:00 等時間執行它，很可能會陷入重疊問題。 不過，在此範例中，如果清除需要 30 分鐘，則會排程在 1:00、2:30、4:00 等時間，不會有機會重疊。
+
+## <a name="starting-an-eternal-orchestration"></a>啟動永久性協調流程
+使用[StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)方法來啟動永久性協調流程。 這與觸發任何其他協調流程函數並無不同。  
+
+> [!NOTE]
+> 如果您需要確保單一永久性協調流程正在執行, 請務必在啟動協調流程時維護相同`id`的實例。 如需詳細資訊，請參閱[執行個體管理](durable-functions-instance-management.md)。
+
+```csharp
+[FunctionName("Trigger_Eternal_Orchestration")]
+public static async Task<HttpResponseMessage> OrchestrationTrigger(
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage request,
+    [OrchestrationClient] DurableOrchestrationClientBase client)
+{
+    string instanceId = "StaticId";
+    // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
+    await client.StartNewAsync("Periodic_Cleanup_Loop"), instanceId, null); 
+    return client.CreateCheckStatusResponse(request, instanceId);
+}
+```
 
 ## <a name="exit-from-an-eternal-orchestration"></a>從永久協調流程離開
 

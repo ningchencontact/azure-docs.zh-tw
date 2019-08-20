@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036178"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623971"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移 (預覽) (AKS)
 
@@ -40,7 +40,7 @@ ms.locfileid: "69036178"
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>如何在 Azure Machine Learning 服務中監視資料漂移
 
-使用 Azure Machine Learning 服務, 資料漂移會透過資料集或部署進行監視。 若要監視資料漂移, 基準資料集-通常會指定模型的訓練資料集。 第二個資料集 (通常是從部署收集的模型輸入資料) 會針對基準資料集進行測試。 這兩個資料集都會進行[分析](how-to-explore-prepare-data.md#explore-with-summary-statistics), 並輸入至資料漂移監視服務。 機器學習模型已定型, 可偵測這兩個資料集之間的差異。 模型的效能會轉換成漂移係數, 測量兩個資料集之間的漂移程度。 使用[模型 interpretability](machine-learning-interpretability-explainability.md)時, 會計算構成漂移係數的功能。 從資料集設定檔中, 會追蹤每項功能的統計資訊。 
+使用 Azure Machine Learning 服務, 資料漂移會透過資料集或部署進行監視。 若要監視資料漂移, 基準資料集-通常會指定模型的訓練資料集。 第二個資料集 (通常是從部署收集的模型輸入資料) 會針對基準資料集進行測試。 這兩個資料集都會進行分析, 並輸入至資料漂移監視服務。 機器學習模型已定型, 可偵測這兩個資料集之間的差異。 模型的效能會轉換成漂移係數, 測量兩個資料集之間的漂移程度。 使用[模型 interpretability](machine-learning-interpretability-explainability.md)時, 會計算構成漂移係數的功能。 從資料集設定檔中, 會追蹤每項功能的統計資訊。 
 
 ## <a name="prerequisites"></a>必要條件
 

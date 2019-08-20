@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86895ab315784c49c2b240badb249dce57ae958a
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242254"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622566"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory 無縫單一登入
 
@@ -31,7 +31,7 @@ ms.locfileid: "60242254"
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-無縫 SSO 可以與[密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)或[傳遞驗證](how-to-connect-pta.md)登入方法合併使用。 無縫 SSO 不適用於 Active Directory 同盟服務 (ADFS)  。
+無縫 SSO 可以與[密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)或[傳遞驗證](how-to-connect-pta.md)登入方法合併使用。 無縫 SSO 不適用於 Active Directory 同盟服務 (ADFS)。
 
 ![無縫單一登入](./media/how-to-connect-sso/sso1.png)
 
@@ -40,10 +40,10 @@ ms.locfileid: "60242254"
 
 ## <a name="key-benefits"></a>主要權益
 
-- 良好的使用者體驗 
+- 良好的使用者體驗
   - 使用者會自動登入內部部署和雲端式應用程式。
   - 使用者不需要重複輸入其密碼。
-- 容易部署和管理 
+- 容易部署和管理
   - 在內部部署上不需要任何其他元件，即可進行這項工作。
   - 與任何雲端驗證方法搭配運作：[密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md)或[傳遞驗證](how-to-connect-pta.md)。
   - 可以推出給使用群組原則的一部分使用者或所有使用者。
@@ -53,8 +53,8 @@ ms.locfileid: "60242254"
 
 - 登入使用者名稱可以是內部部署的預設使用者名稱 (`userPrincipalName`)，或在 Azure AD Connect 中設定的另一個屬性 (`Alternate ID`)。 兩種使用案例均可行，因為無縫 SSO 在 Kerberos 票證中使用 `securityIdentifier` 宣告在 Azure AD 中查詢對應的使用者物件。
 - 無縫 SSO 是一種靈活變換的功能。 如果因任何原因而失敗，使用者登入體驗會改回其一般行為；亦即，使用者必須在登入頁面上輸入密碼。
-- 如果應用程式 (例如`https://myapps.microsoft.com/contoso.com`) 轉送`domain_hint`(OpenID Connect) 或`whr`(SAML) 參數來識別您的租用戶或`login_hint`參數來識別使用者，使用者會在其 Azure AD 登入要求，會自動登入，不需要輸入使用者名稱或密碼。
-- 使用者也獲得無訊息登入體驗，如果應用程式 (例如`https://contoso.sharepoint.com`) 將登入要求傳送至 Azure AD 的端點設定為租用戶-也就是`https://login.microsoftonline.com/contoso.com/<..>`或是`https://login.microsoftonline.com/<tenant_ID>/<..>`-而不是 Azure AD 常見端點時-也就是`https://login.microsoftonline.com/common/<...>`.
+- 如果`https://myapps.microsoft.com/contoso.com`應用程式 (例如) `domain_hint`轉送 (OpenID connect) 或`whr` (SAML) 參數來識別您的租使用者, 或`login_hint`在其 Azure AD 登入要求中, 將參數識別為使用者, 則使用者為自動登入, 而不需要輸入使用者名稱或密碼。
+- 如果應用程式 (例如`https://contoso.sharepoint.com`,) 將登入要求傳送至設定為租使用者的 Azure AD 端點 (也`https://login.microsoftonline.com/contoso.com/<.>`就是或`https://login.microsoftonline.com/<tenant_ID>/<.>` ), 而不是 Azure AD 的通用端點 (也就是), `https://login.microsoftonline.com/common/<...>`則使用者也會獲得無訊息登入體驗.
 - 支援登出。 這可讓使用者選擇使用另一個 Azure AD 帳戶來進行登入，而不自動使用「無縫 SSO」來自動登入。
 - 使用非互動式流程，來支援 Office 365 Win32 用戶端 (Outlook、Word、Excel 和其他產品) 16.0.8730.xxxx 版和更新版本。 針對 OneDrive，您必須啟用 [OneDrive 無訊息設定功能](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) \(英文\) 以獲得無訊息登入體驗。
 - 您可以透過 Azure AD Connect 啟用它。
@@ -83,7 +83,7 @@ ms.locfileid: "60242254"
 ## <a name="next-steps"></a>後續步驟
 
 - [**快速入門**](how-to-connect-sso-quick-start.md) - 開始使用 Azure AD 無縫 SSO。
-- [**部署方案**](https://aka.ms/AuthenticationDeploymentPlan) - 逐步部署方案。
+- [**部署方案**](https://aka.ms/deploymentplans/sso) - 逐步部署方案。
 - [**技術性深入探討**](how-to-connect-sso-how-it-works.md) - 了解這項功能的運作方式。
 - [**常見問題集**](how-to-connect-sso-faq.md) - 常見問題集的答案。
 - [**疑難排解**](tshoot-connect-sso.md) - 了解如何解決此功能的常見問題。

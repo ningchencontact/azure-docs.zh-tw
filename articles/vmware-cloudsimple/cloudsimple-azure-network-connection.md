@@ -8,20 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eca3e316d866814f6727dd8ef2c3fa490a551383
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 90e3121c3f036d1abc8ca372ee349aef3485d07b
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563157"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624999"
 ---
 # <a name="azure-network-connections-overview"></a>Azure 網路連線總覽
 
-當您在區域中建立 CloudSimple 服務時, 它會:
+當您在區域中建立 CloudSimple 服務並建立節點時, 您可以:
 
-* 建立 Azure ExpressRoute 線路, 並將其附加至該區域中的服務。
-* 使用 Azure ExpressRoute 將您的 CloudSimple 區域網路連接到您的 Azure 虛擬網路或內部部署網路。
-* 提供從您的私用雲端環境存取 Azure 訂用帳戶或內部部署網路中執行的服務。
+* 要求 Azure ExpressRoute 電路, 並將其連結至該區域中的 CloudSimple 網路。
+* 使用 Azure ExpressRoute 將您的 CloudSimple 區域網路連線到您的 Azure 虛擬網路或內部部署網路。
+* 從您的私人雲端環境, 提供存取您的 Azure 訂用帳戶或內部部署網路中執行的服務。
 
 ExpressRoute 連線是具有低延遲的高頻寬。
 
@@ -35,15 +35,32 @@ Azure 網路連線可讓您:
 
 ## <a name="azure-virtual-network-connection"></a>Azure 虛擬網路連線
 
-私人雲端可以使用 ExpressRoute 連接到您的 Azure 資源。  ExpressRoute 連線可讓您從私人雲端存取在 Azure 訂用帳戶中執行的資源。  此連線可讓您將私人雲端網路擴充至您的 Azure 虛擬網路。
+私人雲端可以使用 ExpressRoute 連接到您的 Azure 資源。  ExpressRoute 連線可讓您從私人雲端存取在 Azure 訂用帳戶中執行的資源。  此連線可讓您將私人雲端網路擴充至您的 Azure 虛擬網路。  來自 CloudSimple 網路的路由會透過 BGP 與您的 Azure 虛擬網路交換。  如果您已設定虛擬網路對等互連, 則會從您的 CloudSimple 網路存取所有對等互連的虛擬網路。
 
-[![虛擬網路的 Azure ExpressRoute 連線](media/cloudsimple-azure-network-connection.png)
+![虛擬網路的 Azure ExpressRoute 連線](media/cloudsimple-azure-network-connection.png)
 
 ## <a name="expressroute-connection-to-on-premises-network"></a>連至內部部署網路的 ExpressRoute 連線
 
-您可以將現有的 Azure ExpressRoute 線路連線到您的 CloudSimple 區域。 ExpressRoute Global 觸及功能是用來彼此連接兩個線路。  會在內部部署和 CloudSimple ExpressRoute 線路之間建立連接。  此連線可讓您將內部部署網路延伸至私人雲端網路。
+您可以將現有的 Azure ExpressRoute 線路連線到您的 CloudSimple 區域。 ExpressRoute Global 觸及功能是用來彼此連接兩個線路。  會在內部部署和 CloudSimple ExpressRoute 線路之間建立連接。  此連線可讓您將內部部署網路延伸至私人雲端網路。 來自 CloudSimple 網路的路由會透過 BGP 與您的內部部署網路交換。
 
 ![內部部署 ExpressRoute 連線-全球範圍](media/cloudsimple-global-reach-connection.png)
+
+
+## <a name="connection-to-on-premises-network-and-azure-virtual-network"></a>連線至內部部署網路和 Azure 虛擬網路
+
+內部部署網路和 Azure 虛擬網路的連線可以與您的 CloudSimple 網路並存。  此連線會使用 BGP 來交換內部部署網路、Azure 虛擬網路和 CloudSimple 網路之間的路由。  當您將 CloudSimple 網路連線到 Azure 虛擬網路時, 如果有全球接觸連線, Azure 虛擬網路路由將會顯示在您的內部部署網路上。  路由交換會在邊緣路由器之間的 Azure 中進行。
+
+![使用 Azure 虛擬網路連線的內部部署 ExpressRoute 連線](media/cloudsimple-global-reach-and-vnet-connection.png)
+
+### <a name="important-considerations"></a>重要考量︰
+
+從內部部署網路和 Azure 虛擬網路連線到 CloudSimple 網路, 可讓您在所有網路之間進行路由交換。
+
+* 內部部署網路和 CloudSimple 網路都可以看到 Azure 虛擬網路。
+* 如果您已從內部部署網路連線到您的 Azure 虛擬網路, 使用全球觸達的 CloudSimple 網路連接將允許從 CloudSimple 網路存取虛擬網路。
+* 連線的任何網路之間的子網位址**不得**重迭。
+* CloudSimple**不**會通告 ExpressRoute 連線的預設路由
+* 如果您的內部部署路由器會通告預設路由, 來自 CloudSimple 網路和 Azure 虛擬網路的流量將會使用公告的預設路由。  因此, 您無法使用公用 IP 位址來存取 Azure 上的虛擬機器。
 
 ## <a name="next-steps"></a>後續步驟
 

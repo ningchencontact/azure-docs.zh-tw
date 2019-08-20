@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 08/19/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4d7a23ed0a84ebd671c69744dfec145763ef6897
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879099"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622725"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
 
@@ -34,7 +34,7 @@ Azure AD 自助式密碼重設會依使用者授權來維持合規性，而組�
 * 雲端使用者的自助式密碼重設
    * 我是**僅限雲端的使用者**而且忘了我的密碼。
       * 我想要將我的密碼**重設**為我所知道的密碼。
-   * 此功能包含在 Azure AD Premium P1 或 P2，或 Microsoft 365 商務版中。
+   * 這項功能包含在 Azure AD Premium P1 或 P2、Microsoft 365 商務版或 Office 365 中。
 
 * 自助式密碼重設/變更/**使用內部部署回寫**來解鎖
    * 我是**混合式使用者**，我的內部部署 Active Directory 使用者帳戶已使用 Azure AD Connect 與我的 Azure AD 帳戶同步處理。 我想要變更我的密碼、忘了我的密碼，或已鎖定。

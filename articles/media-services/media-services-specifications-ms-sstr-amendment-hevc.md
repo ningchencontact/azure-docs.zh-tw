@@ -3,7 +3,7 @@ title: Azure 媒體服務 - HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增
 description: 此規格說明在 Azure 媒體服務中採用 HEVC 的分散式 MP4 即時串流所適用的通訊協定和格式。 這是 Smooth Streaming 通訊協定文件 (MS-SSTR) 的增修條款，意在納入對 HEVC 內嵌和串流的支援。 本文僅指出為了傳遞 HEVC 而需要的變更，但「(無變更)」是表示複製文字僅供說明之用，則屬例外。
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: femila
 editor: ''
 ms.assetid: f27d85de-2cb8-4269-8eed-2efb566ca2c6
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: dfd6de1ab2e4530afb56d1c6c67e6d78eb9ee474
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e0637b2a015a610f9c3f92809f63a442980b63b1
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015688"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624810"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款 
 
@@ -27,7 +27,7 @@ ms.locfileid: "69015688"
 
 本文提供可啟用 HEVC 編碼視訊之 Smooth Streaming 的 Smooth Streaming 通訊協定規格 [MS-SSTR] 所適用的詳細修訂文件。 在此規格中，我們僅概述為了傳遞 HEVC 視訊轉碼器所需的變更。 本文依循與 [MS-SSTR] 規格相同的編號結構描述。 整份文件中顯示的空白標題，是為了讓讀者了解他們在 [MS SSTR] 規格中的位置。  「(無變更)」是表示複製文字僅供說明之用。
 
-本文在 Smooth Streaming 資訊清單中提供 HEVC 視訊轉碼器訊號的技術實作需求，而標準參考已更新為參考包含 HEVC、HEVC 一般加密的現行 MPEG 標準，且 ISO Base Media 檔案格式已更新為與最新規格一致。 
+本文針對 HEVC 視頻編解碼器 (使用 ' hev1 ' 或 ' hvc1 ' 格式追蹤) 在 Smooth Streaming 資訊清單中提供信號的技術執行需求, 並更新標準化的參考以參考目前的 MPEG 標準包含 HEVC、一般加密的 HEVC, 以及 ISO Base Media 檔案格式的 box 名稱已更新為與最新規格一致。 
 
 參考的 Smooth Streaming 通訊協定規格 [MS-SSTR] 說明用來以下列方式傳遞即時和點播數位媒體 (例如音訊及視訊) 的電傳格式：從編碼器到 Web 伺服器、從伺服器到另一部伺服器，以及從伺服器到 HTTP 用戶端。
 使用透過 HTTP 的 MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) 型資料結構傳遞，可幾近即時地在壓縮媒體內容的不同品質水準間進行切換。 其結果是，HTTP 用戶端使用者可享有穩定的播放體驗，即使用戶端電腦或裝置的網路和視訊轉譯條件有所變動，仍不受影響。
@@ -148,10 +148,12 @@ ms.locfileid: "69015688"
 >   **FourCC (變數)：** 識別用於各個樣本之媒體格式的四字元代碼。 下列的值範圍保留為下列語意：
 > 
 > * "hev1"：此音軌的視訊樣本會使用 HEVC 視訊，採用 [ISO/IEC-14496-15] 所指定的 ‘hev1’ 樣本說明格式。
+>
+> * "hvc1":此追蹤的影片範例使用 HEVC 影片, 使用 [ISO/IEC-iec-14496-15] 中指定的 ' hvc1 ' 範例描述格式。
 > 
 >   **CodecPrivateData (變數)：** 這項資料會指定媒體格式的特定參數和音軌中所有樣本通用的參數，以十六進位編碼位元組的字串表示。 位元組序列的格式和語意會隨著 **FourCC** 欄位的值而不同，如下所示：
 > 
->   * 當 TrackElement 說明 HEVC 視訊時，**FourCC** 欄位「應該」等於 **"hev1"** 。
+>   * 當 TrackElement 描述 HEVC 影片時, **FourCC**欄位應等於 **"hev1"** 或 **"hvc1"**
 > 
 >   **CodecPrivateData**欄位應包含下列位元組序列的十六進位編碼字串標記法, 指定于 ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (不會從 MS ms-sstr 變更)
 > 
@@ -173,7 +175,7 @@ ms.locfileid: "69015688"
 
 ### <a name="223-fragment-request"></a>2.2.3 片段要求 
 
->   **注意**：對 **MinorVersion** 2 和 ‘hev1’ 要求的預設媒體格式，為 [ISO/IEC 14496-12] ISO Base Media 檔案格式第四版和 [ISO/IEC 23001-7] 一般加密第二版中指定的 ‘iso8’ 品牌 ISO Base Media 檔案格式。
+>   **注意**：針對**MinorVersion** 2 和 ' hev1 ' 或 ' hvc1 ' 所要求的預設媒體格式為 ' iso8 ' 品牌 Iso base media 檔案格式 (在 [ISO/iec 14496-12] Iso Base Media 檔案格式第四版) 中指定, 而 [ISO/iec 23001-7] 一般加密第二版。
 
 ### <a name="224-fragment-response"></a>2.2.4 片段回應 
 

@@ -8,16 +8,19 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 74e36d944450e1ce2c61481b2cb7e345860212af
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326890"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624093"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
 除了對 Azure 資源進行審核和[修復](../how-to/remediate-resources.md), Azure 原則可以在虛擬機器內進行設定。 此驗證會由「來賓設定」延伸模組和用戶端執行。 延伸模組會透過用戶端來驗證設定，例如作業系統設定、應用程式設定或目前狀態、環境設定等。
+
+此時, Azure 原則來賓設定只會在機器內部執行設定的審核。
+尚未可以套用設定。
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 

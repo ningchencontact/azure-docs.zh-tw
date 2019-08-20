@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 852190f7b66c0d2c527d1784c72f963e11620064
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 3c3205b64803ac4ee67997ef546ffd64c89f23b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371100"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624824"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>使用雲端中的自動化機器學習來將模型定型
 
@@ -51,7 +51,6 @@ provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2
                                                             # for GPU, use "STANDARD_NC6"
                                                             # vm_priority = 'lowpriority', # optional
                                                             max_nodes=6)
-
 compute_target = ComputeTarget.create(
     ws, amlcompute_cluster_name, provisioning_config)
 
@@ -67,35 +66,37 @@ compute_target.wait_for_completion(
 + 必須少於 64 個字元。
 + 不得包含下列任一字元：`\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
-## <a name="access-data-using-getdata-function"></a>使用 get_data () 函數存取資料
+## <a name="access-data-using-tabulardataset-function"></a>使用 TabularDataset 函數存取資料
 
-提供訓練資料的遠端資源存取。 針對在遠端計算上執行的自動化機器學習實驗，資料必須使用 `get_data()` 函式加以擷取。
+將 X 和 y 定義`TabularDataset`為, 這會傳遞至 AutoMLConfig 中的自動化 ML。 `from_delimited_files`根據預設, 會`infer_column_types`將設定為 true, 這將會自動推斷資料行類型。 
 
-若要提供存取，您必須：
-+ 建立包含 `get_data()` 函式的 get_data.py 檔案
-+ 將該檔案放在可當成絕對路徑存取的目錄中
-
-您可以在 get_data.py 檔案中封裝用來從 Blob 儲存體或本機磁碟讀取資料的程式碼。 在下列程式碼範例中，資料來自 sklearn 套件。
+如果您想要手動設定資料行類型, 您可以設定`set_column_types`引數以手動設定每個資料行的類型。 在下列程式碼範例中，資料來自 sklearn 套件。
 
 ```python
 # Create a project_folder if it doesn't exist
+if not os.path.isdir('data'):
+    os.mkdir('data')
+    
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-#Write the get_data file.
-%%writefile $project_folder/get_data.py
-
 from sklearn import datasets
+from azureml.core.dataset import Dataset
 from scipy import sparse
 import numpy as np
+import pandas as pd
 
-def get_data():
+data_train = datasets.load_digits()
 
-    digits = datasets.load_digits()
-    X_digits = digits.data[10:,:]
-    y_digits = digits.target[10:]
+pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
+pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
 
-    return { "X" : X_digits, "y" : y_digits }
+ds = ws.get_default_datastore()
+ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
+
+X = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/X_train.csv'))
+y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
+
 ```
 
 ## <a name="create-run-configuration"></a>建立執行設定
@@ -119,7 +120,6 @@ run_config.environment.python.conda_dependencies = dependencies
 如需此設計模式的其他範例, 請參閱此[範例筆記本](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb)。
 
 ## <a name="configure-experiment"></a>設定實驗
-
 指定 `AutoMLConfig` 的設定。  (請參閱[完整參數清單](how-to-configure-auto-train.md#configure-experiment)及其可能值。)
 
 ```python
@@ -143,7 +143,8 @@ automl_config = AutoMLConfig(task='classification',
                              path=project_folder,
                              compute_target=compute_target,
                              run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             X = X,
+                             y = y,
                              **automl_settings,
                              )
 ```
@@ -158,7 +159,8 @@ automl_config = AutoMLConfig(task='classification',
                              path=project_folder,
                              compute_target=compute_target,
                              run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             X = X,
+                             y = y,
                              **automl_settings,
                              model_explainability=True,
                              X_valid=X_test

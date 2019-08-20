@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3bee473adde9c4762cf400dff6190eb76a4cc8d7
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509275"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624695"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Async JAVA SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "67509275"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [大量執行程式-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [大量執行程式-JAVA](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同步作業，並且支援 [Netty 程式庫](https://netty.io/)。 預先存在的 [SQL API Java SDK](sql-api-sdk-java.md) 不支援非同步作業。 
 
@@ -45,25 +45,25 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
-* TCP 模式現在預設
-* 跨分割區中的查詢計量現在會傳回所有資料分割
-* 全域的強式現在可正常運作
-* 查詢的容錯移轉未正確重試的多重主機
-* 相依性 bumps 安全性 hotfix
+* TCP 模式現在預設為開啟
+* 跨分割區中的查詢計量現在會傳回所有分割區
+* 全域強大的功能現在可以正常運作
+* 多重主機的查詢容錯移轉未正確重試
+* 安全性修補程式的相依性凸塊
 
 ### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
-* 如需雜湊 V2 支援的錯誤修正
+* 雜湊 V2 支援的錯誤修正
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
-* Client#close() 上的資源流失的錯誤修正 ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88))。
+* 用戶端 # close () 上的資源流失錯誤修正 ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88))。
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
-* 已新增的接續權杖支援跨分割區查詢。
+* 已新增跨分割區查詢的接續 token 支援。
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
-* 在直接模式中，已修正一些 bug。
-* 在直接模式中改進的記錄功能。
-* 改善的連線管理。
+* 已修正直接模式中的一些 bug。
+* 已改善直接模式中的記錄。
+* 改良的連接管理。
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * 直接模式連線能力現已正式推出 (GA)。 如需使用直接模式連線能力的範例，請參閱 [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 存放庫。
@@ -156,9 +156,9 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
-| [2.4.3](#2.4.3) |2019 年 5 月 5日日|--- |
-| [2.4.2](#2.4.2) |2019 年 5 月 1日日|--- |
-| [2.4.1](#2.4.1) |2019 年 2 月 20日日|--- |
+| [2.4.3](#2.4.3) |3月5日, 2019|--- |
+| [2.4.2](#2.4.2) |3月1日, 2019|--- |
+| [2.4.1](#2.4.1) |2019年2月20日|--- |
 | [2.4.0](#2.4.0) |2019 年 2 月 8日|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |2019 年 2 月 4日|--- |
 | [2.3.1](#2.3.1) |2019 年 1 月 15日|--- |
@@ -176,6 +176,6 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 ## <a name="faq"></a>常見問題集
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 

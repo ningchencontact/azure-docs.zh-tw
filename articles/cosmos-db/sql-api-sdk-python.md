@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ed90c22fa8c5b94567a9886ca71c9b35fbb103f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626786"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624631"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Python SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "60626786"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [大量執行程式-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [大量執行程式-JAVA](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -145,7 +145,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 服務會拒絕使用已停用 SDK 的任何 Cosmos DB 要求。
 
 > [!WARNING]
-> 所有 **1.0.0** 版之前的 Azure SQL SDK for Python 版本都將於「2016 年 2 月 29 日」  淘汰。 
+> 所有 **1.0.0** 版之前的 Azure SQL SDK for Python 版本都將於「2016 年 2 月 29 日」淘汰。 
 > 
 > 
 

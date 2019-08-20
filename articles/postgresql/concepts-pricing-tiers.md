@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f65bc0a9969ac713c2fb9f8629b97fbe522e9fe0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967860"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624852"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的定價層-單一伺服器
 
@@ -40,7 +40,7 @@ ms.locfileid: "68967860"
 
 計算資源會以 vCore 的形式提供，vCore 代表了基礎硬體的邏輯 CPU。 中國東部1、中國北部1、US DoD 中部和 US DoD 東部會利用以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎的 Gen 4 邏輯 Cpu。 所有其他區域都會利用以 Intel E5 2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的 Gen 5 邏輯 Cpu。
 
-## <a name="storage"></a>存放區
+## <a name="storage"></a>儲存體
 
 您佈建的儲存體是「適用於 PostgreSQL 伺服器的 Azure 資料庫」可用的儲存體容量。 儲存體會用於資料庫檔案、暫存檔案、交易記錄和 PostgreSQL 伺服器記錄。 您佈建的儲存體總數也會定義您伺服器可用的 I/O 容量。
 
@@ -67,7 +67,7 @@ ms.locfileid: "68967860"
 |              | **一般用途** | **記憶體最佳化** |
 |:-------------|:--------------------|:---------------------|
 | 儲存體類型 | Azure 進階儲存體 | Azure 進階儲存體 |
-| 儲存體大小 | 32 GB 到 16 TB| 32到 16 TB |
+| 儲存體大小 | 32 GB 到 16 TB| 32 GB 到 16 TB |
 | 儲存體遞增大小 | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>最大 20000 IOPS | 3 IOPS/GB<br/>最小值為 100 IOPS<br/>最大 20000 IOPS |
 

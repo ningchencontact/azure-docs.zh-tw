@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/09/2019
-ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945068"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623849"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>移轉至叢集組態中以角色為基礎的細微存取
 
@@ -30,8 +30,8 @@ ms.locfileid: "68945068"
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 讀者                                | -讀取權限, 包括秘密                                                                   | -讀取權限, 不**包括**秘密 |           |   |   |
 | HDInsight 叢集操作員<br>(新角色) | N/A                                                                                              | -讀取/寫入存取權, 包括秘密         |   |   |
-| 參與者                           | -讀取/寫入存取權, 包括秘密<br>-建立和管理所有類型的 Azure 資源。     | 沒有變更 |
-| 擁有者                                 | -讀取/寫入存取權, 包括秘密<br>-所有資源的完整存取權<br>-將存取權委派給其他人 | 沒有變更 |
+| 參與者                           | -讀取/寫入存取權, 包括秘密<br>-建立和管理所有類型的 Azure 資源。     | 無變更 |
+| 擁有者                                 | -讀取/寫入存取權, 包括秘密<br>-所有資源的完整存取權<br>-將存取權委派給其他人 | 無變更 |
 
 如需如何將 HDInsight 叢集操作員角色指派新增至使用者以授與對叢集密碼之讀取/寫入存取權的詳細資訊, 請參閱下一節[將 hdinsight 叢集操作員角色指派新增至使用者](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)。
 
@@ -201,7 +201,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>如果我沒有採取任何動作, 會發生什麼事？
 
-和將不會再傳回任何資訊, 而且`GET /configurations/{configurationName}`呼叫將不會再傳回敏感性參數, 例如儲存體帳戶金鑰或叢集密碼。 `POST /configurations/gateway` `GET /configurations` 對應的 SDK 方法和 PowerShell Cmdlet 也是如此。
+和呼叫不會再傳回任何資訊, 而且`GET /configurations/{configurationName}`呼叫將不會再傳回敏感性參數, 例如儲存體帳戶金鑰或叢集密碼。 `POST /configurations/gateway` `GET /configurations` 對應的 SDK 方法和 PowerShell Cmdlet 也是如此。
 
 如果您使用上述其中一個工具的舊版 Visual Studio、VSCode、IntelliJ 或 Eclipse, 則在您更新之前, 將無法再運作。
 

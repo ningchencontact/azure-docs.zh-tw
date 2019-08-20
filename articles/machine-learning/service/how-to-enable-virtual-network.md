@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 1b5e3777109b13baa7d774a524664551798ba4ca
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: aab93e1ecd112f7ef9fdb0829469efa14aff2e98
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558145"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623994"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 
@@ -266,6 +266,8 @@ except ComputeTargetException:
     如果您不想要使用預設輸出規則, 而想要限制虛擬網路的輸出存取, 請參閱[限制來自虛擬網路的輸出](#limiting-outbound-from-vnet)連線一節。
 
 1. 將 VM 或 HDInsight 叢集附加至 Azure Machine Learning 服務工作區。 如需詳細資訊，請參閱[為模型定型設定計算目標](how-to-set-up-training-targets.md)。
+
+<a id="aksvnet"></a>
 
 ## <a name="use-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes Service (AKS)
 

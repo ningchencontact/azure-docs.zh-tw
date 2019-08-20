@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 989d52e773ed01a8fd1f4d383c42d7628e196a60
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d24481c1364b41f38e4ca7b8f7d726ebc22a1117
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814716"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624634"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 大量執行程式程式庫:下載資訊 
 
@@ -33,9 +33,9 @@ ms.locfileid: "68814716"
 
 | |  |
 |---|---|
-| **描述**| .Net 大量執行程式程式庫可讓用戶端應用程式對 Azure Cosmos DB 帳戶執行大量作業。 此程式庫提供 BulkImport、BulkUpdate 和 BulkDelete 命名空間。 BulkImport 模組能夠以最佳化方式大量內嵌文件，如此就能充分取用為集合佈建的輸送量。 BulkUpdate 模組能夠以修補程式的形式，大量更新 Azure Cosmos DB 容器中的現有資料。 BulkDelete 模組能夠以最佳化方式大量刪除文件，如此就能充分取用為集合佈建的輸送量。|
+| **描述**| .Net 大量執行程式程式庫可讓用戶端應用程式對 Azure Cosmos DB 帳戶執行大量作業。 此程式庫提供 BulkImport、BulkUpdate 和 BulkDelete 命名空間。 BulkImport 模組能夠以最佳化方式大量內嵌文件，如此就能充分取用為集合佈建的輸送量。 BulkUpdate 模組可以大量更新 Azure Cosmos 容器中的現有資料做為修補程式。 BulkDelete 模組能夠以最佳化方式大量刪除文件，如此就能充分取用為集合佈建的輸送量。|
 |**SDK 下載**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
-| **GitHub 中的 BulkExecutor 程式庫**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
+| **GitHub 中的大量執行程式程式庫**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API 文件**|[.NET API 參考文件](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
 |**開始使用**|[開始使用大量執行程式程式庫 .NET SDK](bulk-executor-dot-net.md)|
 | **目前支援的架構**| Microsoft .NET Framework 4.5.2, 4.6.1 與 .NET Standard 2.0 |
@@ -60,7 +60,7 @@ ms.locfileid: "68814716"
 
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
-* 已新增 .NET Standard 2.0 為其中一個支援的目標架構，以讓 BulkExecutor 程式庫可以使用 .NET Core 應用程式。
+* 已將 .NET Standard 2.0 新增為其中一個支援的目標架構, 讓大量執行程式程式庫可與 .NET Core 應用程式搭配使用。
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
@@ -80,11 +80,11 @@ ms.locfileid: "68814716"
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-* 已修正導致 BulkExecutor 所用之使用者代理程式的格式問題。
+* 已修正在大量執行程式所使用的使用者代理程式中造成格式化問題的問題。
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 
-* 改善 BulkExecutor 匯入及更新 API，以在儲存體超過目前容量時順暢地適應 Cosmos DB 容器的彈性調整，而不擲回例外狀況。
+* 改善大量執行程式的匯入和更新 Api, 以在儲存體超過目前的容量而不擲回例外狀況時, 以透明的方式調整 Cosmos 容器的彈性調整。
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
@@ -92,7 +92,7 @@ ms.locfileid: "68814716"
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 
-* 已修正導致 BulkExecutor 匯入固定集合時擲回 JSRT 錯誤的問題。
+* 已修正問題, 這會導致大量執行程式在匯入至固定集合時擲回 JSRT 錯誤。
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 

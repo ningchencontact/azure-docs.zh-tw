@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: bc9d3f6b461412f0e28cba3cb86d288085ffe500
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 490085da1e8f6b8e151168433836d59329887c6e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543585"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623967"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 
@@ -59,6 +59,9 @@ ms.locfileid: "69543585"
 **估計時間**：約 20 分鐘。
 
 建立或附加 AKS 叢集是工作區的一次性程式。 您可以重複使用此叢集進行多個部署。 如果您刪除叢集或包含該叢集的資源群組, 則必須在下次需要部署時建立新的叢集。 您可以將多個 AKS 叢集附加至您的工作區。
+
+> [!TIP]
+> 如果您想要使用 Azure 虛擬網路保護您的 AKS 叢集, 您必須先建立虛擬網路。 如需詳細資訊, 請參閱[使用 Azure 虛擬網路保護實驗和推斷](how-to-enable-virtual-network.md#aksvnet)。
 
 如果您想要建立用於__開發__、__驗證__和__測試__的 AKS 叢集, 而不是生產環境, 您可以指定叢集__目的__來進行開發__測試__。
 
@@ -115,6 +118,8 @@ az ml computetarget create aks -n myaks
 
 > [!TIP]
 > 現有的 AKS 叢集可以在 Azure 區域中, 而不是您的 Azure Machine Learning 服務工作區。
+>
+> 如果您想要使用 Azure 虛擬網路保護您的 AKS 叢集, 您必須先建立虛擬網路。 如需詳細資訊, 請參閱[使用 Azure 虛擬網路保護實驗和推斷](how-to-enable-virtual-network.md#aksvnet)。
 
 > [!WARNING]
 > 將 AKS 叢集附加至工作區時, 您可以藉由設定`cluster_purpose`參數來定義使用叢集的方式。
@@ -272,6 +277,7 @@ print(token)
 
 ## <a name="next-steps"></a>後續步驟
 
+* [保護虛擬網路中的實驗和推斷](how-to-enable-virtual-network.md)
 * [如何使用自訂 Docker 映射部署模型](how-to-deploy-custom-docker-image.md)
 * [部署疑難排解](how-to-troubleshoot-deployment.md)
 * [使用 SSL 保護 Azure Machine Learning Web 服務](how-to-secure-web-service.md)

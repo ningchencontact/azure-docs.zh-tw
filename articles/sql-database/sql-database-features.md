@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 7e5c33577a2d926266ae45057509b112dc27ce7b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c4ba2269003c9d401982b83f4e66c8caf45a0073
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985730"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624708"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server
 
@@ -53,7 +53,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [定序 - 伺服器/執行個體](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | 否, 一律會使用預設`SQL_Latin1_General_CP1_CI_AS`邏輯伺服器定序。 | 是, 可以在[建立實例](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)時設定, 而且之後無法更新。 |
 | [資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | 是 - [進階層、標準層 - S3 以上、一般用途層和業務關鍵層](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |是 |
 | [Common language runtime-CLR](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 否 | 是, 但不能存取語句中`CREATE ASSEMBLY`的檔案系統-請參閱[CLR 差異](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 是 | 目前不是[因為包含時間點還原的還原脫離](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database)。 這是即將修正的瑕疵。 |
+| [自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 是 | 是 |
 | [自主使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | 是 | 是 |
 | [控制流程語言關鍵字](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | 是 | 是 |
 | [認證](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/credentials-database-engine) | 是, 但只有[資料庫範圍認證](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql)。 | 是, 但只支援 Azure Key Vault `SHARED ACCESS SIGNATURE`和, 請參閱[詳細資料](sql-database-managed-instance-transact-sql-information.md#credential) |
@@ -132,7 +132,7 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [暫存資料表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [是](sql-database-temporal-tables.md) | [是](sql-database-temporal-tables.md) |
 | 時區選擇 | 否 | [是](sql-database-managed-instance-timezone.md), 而且必須在建立受控執行個體時設定。 |
 | 威脅偵測|  [是](sql-database-threat-detection.md)|[是](sql-database-managed-instance-threat-detection.md)|
-| [追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) \(機器翻譯\) | 否 | 否 |
+| [追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) \(機器翻譯\) | 否 | 是, 但只有有限的全域追蹤旗標集合。 請參閱[DBCC 差異](sql-database-managed-instance-transact-sql-information.md#dbcc) |
 | [異動複寫](sql-database-managed-instance-transactional-replication.md) | 是,[僅限交易式和快照式複寫訂閱者](sql-database-single-database-migrate.md) | 是, 在[公開預覽](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)中。 請參閱[這裡](sql-database-managed-instance-transact-sql-information.md#replication)的條件約束。 |
 | [變數](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 是 | 是 |
 | [透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 是 - 僅限一般用途與商務關鍵服務層級| [是](transparent-data-encryption-azure-sql.md) |

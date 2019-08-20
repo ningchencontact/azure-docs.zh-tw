@@ -4,14 +4,14 @@ description: 使用 Azure Resource Manager 將資源移到新的資源群組或�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 53482fdd760517967c9a4a976b43b64ba745c637
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 114e0d8e935aa8e6ac3f70a34a8050b19758fb42
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542944"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624548"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>將資源移到新的資源群組或訂用帳戶
 
@@ -32,9 +32,11 @@ ms.locfileid: "69542944"
    * [應用程式服務移動指引](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services 移動指引](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [傳統部署模型移動指引](./move-limitations/classic-model-move-limitations.md)-傳統計算、傳統儲存體、傳統虛擬網路和雲端服務
+   * [網路移動指引](./move-limitations/networking-move-limitations.md)
    * [復原服務移動指引](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [虛擬機器移動指引](./move-limitations/virtual-machines-move-limitations.md)
-   * [虛擬網路移動指引](./move-limitations/virtual-network-move-limitations.md)
+
+   如果目的地資源群組包含虛擬網路, 其相依資源的狀態可能會封鎖移動, 即使這些資源不會牽涉到移動。 如需詳細資訊, 請參閱[網路移動指引](./move-limitations/virtual-network-move-limitations.md)。
 
 1. 來源和目的地訂用帳戶必須為作用中。 如果您在啟用已停用的帳戶時遇到問題，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
 
@@ -97,10 +99,11 @@ ms.locfileid: "69542944"
 1. **針對跨訂用帳戶移動, 資源和其相依資源必須位於相同的資源群組中, 而且必須一起移動。** 例如, 具有受控磁片的 VM 需要將 VM 和受控磁片一起移動, 以及其他相依資源。
 
    如果您要將資源移到新的訂用帳戶, 請查看資源是否有任何相依資源, 以及它們是否位於相同的資源群組中。 如果資源不在相同的資源群組中, 請檢查資源是否可以合併到相同的資源群組中。 若是如此, 請在資源群組之間使用移動作業, 將所有這些資源帶入相同的資源群組。
-    
-如需詳細資訊, 請參閱跨訂用帳戶[移動的案例](#scenario-for-move-across-subscriptions)。
+
+   如需詳細資訊, 請參閱跨訂用帳戶[移動的案例](#scenario-for-move-across-subscriptions)。
 
 ## <a name="scenario-for-move-across-subscriptions"></a>跨訂用帳戶移動的案例
+
 將資源從一個訂用帳戶移至另一個訂用帳戶是三個步驟的程式:
 
 ![跨訂用帳戶移動案例](./media/resource-group-move-resources/cross-subscription-move-scenario.png)

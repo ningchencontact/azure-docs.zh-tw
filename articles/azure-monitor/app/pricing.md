@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/13/2019
+ms.date: 08/19/2019
 ms.author: dalek
-ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534602"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624380"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -103,7 +103,7 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 
 請不要使用每日用量上限，而是改用[取樣](../../azure-monitor/app/sampling.md)將資料量調整到您想要的程度。 然後，只使用每日上限作為應付萬一應用程式開始未預期地傳送大量遙測時的「最後手段」。
 
-若要變更每日上限，請在 Application Insights 資源的 [設定] 區段中，從 [使用量和估計成本] 窗格選取 [每日上限]。
+若要變更每日上限, 請在 Application Insights 資源的 [**設定**] 區段的 [**使用量和估計成本**] 頁面中, 選取 [**每日上限**]。
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-003.png)
 
@@ -135,11 +135,13 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 
 ## <a name="change-the-data-retention-period"></a>變更資料保留期
 
-Application Insights 現在會將有限數量的 Application Insights 客戶上架到我們的可變保留預覽。 您可以在[這裡](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)取得如何參與此預覽計畫的資訊。
+Application Insights 資源的預設保留期為90天。 可以為每個 Application Insights 資源選取不同的保留週期。 一組完整的可用保留週期為30、60、90、120、180、270、365、550或730天。 
 
-Application Insights 資源的預設保留期為90天。 可以為每個 Application Insights 資源選取不同的保留週期。 一組完整的可用保留週期為30、60、120、180、270、365、550或730天。 
+若要變更保留期, 請在 Application Insights 資源中, 移至 [**使用量和估計成本**] 頁面, 然後選取 [**資料保留**] 選項:
 
-針對較長的保留期啟用計費時, 將會以目前為 Azure Log Analytics 資料保留費用的相同費率來計費保留時間超過90天的資料。 若要深入瞭解, 請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。  藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031), 隨時掌握最新的可變保留進度。 
+![調整每日遙測資料量上限](./media/pricing/pricing-005.png)
+
+針對較長的保留期啟用計費時, 將會以目前為 Azure Log Analytics 資料保留費用的相同費率來計費保留時間超過90天的資料。 若要深入瞭解, 請[Azure 監視器定價頁面](https://azure.microsoft.com/pricing/details/monitor/)。 藉由[投票此建議](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031), 隨時掌握最新的可變保留進度。 
 
 ## <a name="limits-summary"></a>限制摘要
 

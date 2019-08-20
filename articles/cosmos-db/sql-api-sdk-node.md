@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: ead98e12cbf417ae1218320a8814df0222f07172
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 27b548d03e6b05179da744e636a5c887e6b01ad5
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883677"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624683"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Node.js SDK：版本資訊和資源
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "68883677"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [大量執行程式-.NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [大量執行程式-JAVA](sql-api-sdk-bulk-executor-java.md)
 
 |Resource  |連結  |
 |---------|---------|

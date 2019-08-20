@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: atsenthi
-ms.openlocfilehash: b6e1108ffee13f1583d920947404963a69616788
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 1facd85563a54de2b703bbc8c192976db92c30f7
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68958417"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624894"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>將 Service Fabric 應用程式的受控識別存取權授與 Azure 資源
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>將 Service Fabric 應用程式的受控識別存取權授與 Azure 資源 (預覽)
 
 在應用程式可以使用其受控識別來存取其他資源之前, 必須先將許可權授與受保護 Azure 資源上的該身分識別。 授與許可權通常是 Azure 服務的「控制平面」上的管理動作, 其擁有透過 Azure Resource Manager 路由傳送的受保護資源, 這會強制執行任何適用的角色型存取檢查。
 
