@@ -83,7 +83,7 @@ Azure AD 應用程式 Proxy 提供下列優點:
 
 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)(MCAS) 可協助您找出有用的應用程式, 讓使用者可以批准並新增至企業應用程式庫, 讓使用者受益于 SSO 和條件式存取等功能。
 
-「 ** * Cloud App Security** 可協助我們確保我們的人員能以支援協助保護 Accenture 的基本安全性原則的方式, 正確地使用我們的雲端和 SaaS 應用程式。」*--- [John Blasi, 管理總監, 資訊安全性, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+「 ***Cloud App Security** 可協助我們確保我們的人員能以支援協助保護 Accenture 的基本安全性原則的方式, 正確地使用我們的雲端和 SaaS 應用程式。」* --- [John Blasi, 管理總監, 資訊安全性, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 除了偵測影子 IT 之外, MCAS 也可以判斷應用程式的風險層級, 防止未經授權存取公司資料、可能的資料洩漏, 以及應用程式中的其他固有安全性風險。
 

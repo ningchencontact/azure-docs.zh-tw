@@ -76,7 +76,7 @@ FIM 基準一開始會識別作業系統和支援應用程式的已知良好狀�
 
 ## <a name="tracking-changes-to-windows-files"></a>追蹤 Windows 檔案的變更
 
-1. 在 [**加入變更追蹤的 Windows**檔案] 視窗的 [**輸入路徑**] 文字方塊中, 輸入包含您要追蹤之檔案的資料夾。在下圖的範例中, **Contoso Web 應用程式**位於 D:\**ContosWebApp**資料夾結構內的磁片磁碟機。  
+1. 在 [**加入變更追蹤的 Windows**檔案] 視窗的 [**輸入路徑**] 文字方塊中, 輸入包含您要追蹤之檔案的資料夾。在下圖的範例中, **Contoso Web 應用程式** 位於 D:\ **ContosWebApp** 資料夾結構內的磁片磁碟機。  
 1. 藉由提供設定類別的名稱、啟用遞迴, 並使用萬用字元 (*) 尾碼指定頂端資料夾, 來建立自訂的 Windows 檔案專案。
 
     ![在檔案上啟用 FIM](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
