@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/16/2018
-ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.date: 08/13/2019
+ms.openlocfilehash: 6d79bfa8f390d145bfd963b40497030140a3d135
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591926"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013576"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -86,32 +86,35 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 建立 Linux 適用的資料科學虛擬機器執行個體的步驟如下：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu)上的虛擬機器清單。 如果您尚未登入 Azure 帳戶，系統可能會提示您登入。 
-1. 按一下底部的 [建立]  以進入 wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-1. 下列各節提供精靈中每個步驟 (列舉於上圖的右邊) 的輸入，可用來建立 Microsoft 資料科學虛擬機器。 以下是設定每個步驟所需的輸入：
+1. 按一下 [建立]  來顯示精靈。
+    ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. 下列各節提供精靈中每個步驟的輸入，可用來建立 Microsoft 資料科學虛擬機器。 以下是設定每個步驟所需的輸入：
 
-   a. **基本**：
-
-   * **名稱**：您建立的資料科學伺服器名稱。
-   * **VM 磁碟類型**：如果您偏好固態硬碟 (SSD)，請選擇 [進階 SSD]  。 否則請選擇 [標準 HDD]  。 
-   * **使用者名稱**：第一個帳戶登入識別碼。
-   * **密碼**：第一個帳戶密碼 (您可以使用 SSH 公開金鑰來代替密碼)。
-   * 訂用帳戶  ：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
-   * **資源群組**：您可以建立新群組或使用現有的群組。
-   * **位置**：選取最適合的資料中心。 它通常是擁有您大部分資料的資訊中心，或是最接近您實際位置可進行最快速網路存取的資料中心。
-
-   b. **大小**：
-
-   * 選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 針對 GPU 型 VM 執行個體，選取一部 NC 或 ND 類別的 VM。 [依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)頁面會列出使用 GPU 的區域。
-
-   c. **設定**：
-
-   * 在大部分情況下，您可以只使用預設值。 若考慮使用非預設值，可將滑鼠停留在特定欄位的資訊連結上以取得說明。
-
-   d. **摘要**：
-
-   * 請確認您輸入的所有資訊都正確無誤。 系統會提供使用規定的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 若要開始佈建，請按一下 [建立]  。 
-
-佈建大約需要 5 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
+    a. **基本**：
+    
+    * 訂用帳戶  ：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
+    * **資源群組**：您可以建立新群組或使用現有的群組。
+    * **虛擬機器名稱**：您要建立之資料科學伺服器的名稱。
+    * **區域**：選取最適合的資料中心。 它通常是擁有您大部分資料的資訊中心，或是最接近您實際位置可進行最快速網路存取的資料中心。
+    * **可用性選項**：如果您想要在可用性設定組/區域中使用此 VM，請設定此選項，否則請保留預設值。
+    * **映像**：保留預設值
+    * **大小**：選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 針對 GPU 型 VM 執行個體，選取一部 NC 或 ND 系列的 VM。 
+    * **使用者名稱**：系統管理員使用者名稱
+    * **SSH 公開金鑰**：使用單行格式的 RSA 公開金鑰 (您可以使用密碼，而非 SSH 金鑰)。
+    
+    b. **磁碟**：
+    
+    * **OS 磁碟類型**：如果您偏好固態硬碟 (SSD)，請選擇 [進階 SSD]  。 否則請選擇 [標準 HDD]  。
+    
+    c. 針對其餘設定，您可以只使用預設值。 若考慮使用非預設值，可將滑鼠停留在特定欄位的資訊連結上以取得說明。
+    
+    最後，選取 [檢閱 + 建立] 
+    
+    d. **檢閱 + 建立**：
+    
+    * 驗通過後，請確認您輸入的所有資訊都正確無誤。 系統會提供使用規定的連結。 VM 除了計算您在 [大小] 輸入中所選擇的伺服器大小之外，不會收取任何其他費用。 若要開始佈建，請按一下 [建立]  。
+    
+    佈建大約需要 5 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>如何存取 Linux 適用的資料科學虛擬機器
 
@@ -352,7 +355,7 @@ SQL Server 的 ODBC 驅動程式封裝也隨附兩個命令列工具：
 R 和 Python 中提供可用於存取資料庫的程式庫。
 
 * 在 R 中，**RODBC** 套件或 **dplyr** 套件可讓您查詢資料庫伺服器或在其上執行 SQL 陳述式。
-* 在 Python 中， **pyodbc** 程式庫提供使用 ODBC 作為基礎層的資料庫存取。  
+* 在 Python 中，**pyodbc** 程式庫提供使用 ODBC 作為基礎層的資料庫存取。  
 
 ### <a name="azure-tools"></a>Azure 工具
 
@@ -412,7 +415,7 @@ vw house_dataset
 
 #### <a name="xgboost"></a>XGBoost
 
-這是針對推進式決策 (樹) 演算法設計及最佳化的的程式庫。 此程式庫的目標是要將機器的運算限制推到所需的極致，以提供可調整、可攜且精確的大規模樹狀推進式決策。
+這是針對推進式決策 (樹) 演算法設計及最佳化的程式庫。 此程式庫的目標是要將機器的運算限制推到所需的極致，以提供可調整、可攜且精確的大規模樹狀推進式決策。
 
 它提供了命令列以及 R 程式庫。
 
@@ -479,6 +482,6 @@ rattle()
 以下是如何繼續進行學習和探索的方式：
 
 * [適用於 Linux 的資料科學虛擬機器上的資料科學](linux-dsvm-walkthrough.md)逐步解說示範如何使用此處佈建的 Linux 資料科學 VM 來執行數個常見的資料科學工作。 
-* 試試本文中所述的工具，在資料科學 VM 上探索各種資料科學工具。 您也可以在虛擬機器內的殼層上執行 *dsvm-more-info* ，以獲得關於 VM 上所安裝工具的基本簡介和詳細資訊的指標。  
+* 試試本文中所述的工具，在資料科學 VM 上探索各種資料科學工具。 您也可以在虛擬機器內的殼層上執行 *dsvm-more-info*，以獲得關於 VM 上所安裝工具的基本簡介和詳細資訊的指標。  
 * 了解如何使用 [Team Data Science Process](https://aka.ms/tdsp)，以系統化方式建置端對端分析方案。
 * 瀏覽 [Azure AI 資源庫](https://gallery.azure.ai/)，可取得使用 Azure AI 服務的機器學習和資料分析範例。

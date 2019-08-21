@@ -8,19 +8,19 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 45925b1c4252b0ff0080a2c287e7ed2fae444168
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546682"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986288"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>如何從 Node.js 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概觀
-此文章示範如何在 Node.js 應用程式中使用「Azure 儲存體資料表」服務或 Azure Cosmos DB 來執行一般案例。
+本文示範如何在 Node.js 應用程式中使用「Azure 儲存體資料表」服務或 Azure Cosmos DB 來執行一般案例。
 
 ## <a name="create-an-azure-service-account"></a>建立 Azure 服務帳戶
 
@@ -37,7 +37,7 @@ ms.locfileid: "59546682"
 ## <a name="configure-your-application-to-access-azure-storage-or-the-azure-cosmos-db-table-api"></a>設定您的應用程式以存取 Azure 儲存體或 Azure Cosmos DB 資料表 API
 若要使用 Azure 儲存體或 Azure Cosmos DB，您需要 Azure Storage SDK for Node.js，這包含一組能與「儲存體 REST」服務進行通訊的便利程式庫。
 
-### <a name="use-node-package-manager-npm-to-install-the-package"></a>使用 Node Package Manager (NPM) 來安裝套件
+### <a name="use-node-package-manager-npm-to-install-the-package"></a>使用 Node Package Manager (NPM) 安裝封裝
 1. 使用命令列介面，例如 **PowerShell** (Windows)、**終端機** (Mac) 或 **Bash** (Unix)，瀏覽至儲存所建立應用程式的資料夾。
 2. 在命令視窗中輸入 **npm install azure-storage** 。 此命令的輸出類似下列範例。
 
@@ -51,9 +51,9 @@ ms.locfileid: "59546682"
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. 您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。 該資料夾中有 **azure-storage** 套件，其中包含存取儲存體所需的程式庫。
+3. 您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。 該資料夾中有 **azure-storage** 封裝，當中包含存取儲存體所需的程式庫。
 
-### <a name="import-the-package"></a>匯入套件
+### <a name="import-the-package"></a>匯入封裝
 將下列程式碼加在應用程式中的 **server.js** 檔案之上：
 
 ```javascript
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>新增 Azure Cosmos DB 連線
-若要新增 Azure Cosmos DB 連線，請建立 **TableService** 物件，然後指定您的帳戶名稱、主要索引鍵及端點。 您可以在 Azure 入口網站中，從您 Cosmos DB 的 [設定] > [連接字串] 中複製這些值。 例如︰
+若要新增 Azure Cosmos DB 連線，請建立 **TableService** 物件，然後指定您的帳戶名稱、主要索引鍵及端點。 您可以在 Azure 入口網站中，從您 Cosmos DB 的 [設定]   > [連接字串]  中複製這些值。 例如︰
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -135,7 +135,7 @@ var task = {
 ```
 
 > [!NOTE]
-> 每筆記錄還有 [時間戳記] 欄位，插入或更新實體時，Azure 會設定此欄位。
+> 每筆記錄還有 [時間戳記]  欄位，插入或更新實體時，Azure 會設定此欄位。
 >
 >
 
@@ -295,7 +295,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 如果作業成功，`result.entries` 就會包含符合查詢的實體陣列。 如果查詢無法傳回所有實體，`result.continuationToken` 便不是 *Null*，而可作為 **queryEntities** 的第三個參數來擷取更多結果。 在初始查詢中，第三個參數請使用 *null* 。
 
 ### <a name="query-a-subset-of-entity-properties"></a>查詢實體屬性的子集
-一個資料表查詢可以只擷取實體的少數欄位。
+一項資料表查詢可以只擷取實體的少數欄位。
 這可以減少頻寬並提高查詢效能 (尤其是對大型實體而言)。 請使用 **select** 子句，並傳遞要傳回的欄位名稱。 例如，下列查詢只會傳回 **description** 和 **dueDate** 欄位。
 
 ```javascript
@@ -322,7 +322,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ```
 
 > [!NOTE]
-> 刪除項目時應該考慮使用 ETag，以確保項目未被另一個程序修改過。 請參閱 [更新實體](#update-an-entity) ，以取得使用 ETag 的相關資訊。
+> 刪除項目時應該考慮使用 ETag，以確保項目未被另一個程序修改過。 請參閱 [更新實體](#update-an-entity)，以取得使用 ETag 的相關資訊。
 >
 >
 
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 請注意，您必須一併提供主機資訊，因為當 SAS 持有者嘗試存取資料表時，會需要此資訊。
 
-用戶端應用程式接著以 **TableServiceWithSAS** 來使用 SAS，對資料表執行操作。 下列範例會連線到資料表並執行查詢。 請參閱[使用共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)一文，了解 tableSAS 的格式。 
+用戶端應用程式接著以 **TableServiceWithSAS** 來使用 SAS，對資料表執行操作。 下列範例會連線到資料表並執行查詢。 如需關於資料表 SAS 的格式詳細資訊，請參閱[使用共用存取簽章 (SAS) 對 Azure 儲存體資源授與有限存取權](../storage/common/storage-sas-overview.md)一文。 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

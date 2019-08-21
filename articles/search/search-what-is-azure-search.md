@@ -1,33 +1,44 @@
 ---
 title: Azure 搜尋服務簡介 - Azure 搜尋服務
-description: Azure 搜尋服務是來自 Microsoft 的完全受控託管雲端搜尋服務。 檢閱功能描述、開發工作流程、比較 Azure 搜尋服務與其他 Microsoft 搜尋產品優缺點，以及如何開始使用。
-manager: cgronlun
+description: Azure 搜尋服務是來自 Microsoft 的完全受控託管雲端搜尋服務。 檢閱功能描述、開發工作流程、比較其他 Microsoft 搜尋產品優缺點，以及如何開始使用。
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/13/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7a12c9153332e9d6fc70512bc55fe0a53f7c78fc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: eefa0eb5d1e15df34089d7baa3241cbbed4724c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827148"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034847"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
-Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 查詢是透過使用者定義的索引而執行的。
 
-+ 建置僅包含您的資料、來自多個內容類型和平台的搜尋索引。 
+Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 您的自訂程式碼會叫用資料內嵌 (編製索引)、發出查詢要求及處理回應。 搜尋體驗會透過 Azure 搜尋服務的功能，在您的用戶端程式代碼中進行定義，而查詢會針對您在 Azure 搜尋服務上建立、擁有及儲存的持續性索引執行。
 
-+ 利用 AI 擴充，從映像檔中擷取文字和特性，或從原始文字中擷取實體和關鍵片語。
+![Azure 搜尋服務架構](media/search-what-is-azure-search/azure-search-diagram.png "Azure 搜尋服務架構")
 
-+ 使用 Facet 導覽和篩選、同義字、自動完成，以及「您的意思是」自動校正搜尋字詞的文字分析，建立直覺化的搜尋體驗。 透過函式和提升邏輯獲得相關性微調。
-
-+ 建立特定使用案例的搜尋應用程式。 地理搜尋支援「尋找附近地點」體驗。 透過語言分析器支援多語言搜尋，以進行非英文的全文檢索搜尋。
+<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
++ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
++ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
++ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
 
 透過簡單的 [REST API](/rest/api/searchservice/) 或 [.NET SDK](search-howto-dotnet-sdk.md) 展現功能，並同時隱蔽資訊擷取固有之複雜性。 除了 API 之外，Azure 入口網站也提供系統管理和內容管理的支援，以及建立原型和查詢索引的工具。 因為服務在雲端執行，Microsoft 會管理基礎結構和可用性。
+
+## <a name="when-to-use-azure-search"></a>何時使用 Azure 搜尋服務
+
+Azure 搜尋服務適用於下列應用程式案例：
+
++ 將異質內容類型合併為可搜尋的單一私人索引。 查詢一律會針對您搭配文件建立和載入的索引進行，而且索引一律會位於 Azure 搜尋服務服務的雲端中。 您可以從任何來源或平台，將 JSON 文件的資料流填入索引。 或者，針對 Azure 上的內容，您可以使用「索引子」  將資料提取到索引中。 索引定義和管理/擁有權是使用 Azure 搜尋服務的主要原因。
+
++ 輕鬆實作與搜尋相關的功能。 Azure 搜尋服務 API 簡化了查詢結構、多面向導覽、篩選 (包括地理空間搜尋)、同義字對應、自動提示查詢和相關性調整。 透過內建功能，您可以滿足終端使用者希望搜尋體驗能類似 Web 搜尋引擎的期望。
+
++ 編製非結構化文字的索引，或從影像檔擷取文字和資訊。 Azure 搜尋服務的認知搜尋功能會將 AI 處理新增至索引管線。 一些常見的使用案例，包括已掃描文件的 OCR、大型文件的實體辨識和關鍵片語擷取、語言偵測和文字轉譯及情感分析。
+
++ 使用 Azure 搜尋服務的自訂和語言分析器滿足語言需求。 如果您有非英文的內容，Azure 搜尋服務可支援 Lucene 分析器和 Microsoft 的自然語言處理器。 您也可以設定分析器來完成原始內容的特殊處理，例如篩選出變音符號。
 
 <a name="feature-drilldown"></a>
 
@@ -58,7 +69,7 @@ Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提�
 | 用於原型設計和檢查的工具 | 在入口網站中，您可以使用 [[匯入資料]  ](search-import-data-portal.md) 精靈設定索引子、使用索引設計工具建立索引，以及使用 [[搜尋總管]  ](search-explorer.md) 測試查詢並修改評分設定檔。 您也可以開啟任何索引，以檢視其結構描述。 |
 | 監視和診斷 | [**啟用監視功能**](search-monitor-usage.md)，使其超越永遠可以在入口網站看到，且一目了然的計量。 自動會擷取每秒查詢次數、延遲和節流的計量，並在入口網站頁面中報告，不需要其他設定。 <br/><br/>[**搜尋流量分析**](search-traffic-analytics.md)是另一個監視的替代方式，在伺服器端和用戶端收集並分析資料，以率先了解使用者在搜尋方塊中輸入的內容。 |
 | 伺服器端加密 | [**Microsoft 管理的待用加密**](search-security-overview.md#encrypted-transmission-and-storage)會內建到內部儲存層，而且無法回復。 您可以選擇性地使用[**客戶管理的加密金鑰 (預覽)** ](search-security-manage-encryption-keys.md) 補充預設加密。 您在 Azure Key Vault 中建立並管理的金鑰用來加密 Azure 搜尋服務中的索引和同義字地圖。 |
-| 基礎結構 | **高可用性平台**可確保相當可靠的搜尋服務體驗。 經過適當的調整， [Azure 搜尋服務可提供 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。<br/><br/> Azure 搜尋服務是**完全受控和可調整的**端對端解決方案，完全不需要基礎結構管理。 以兩種方式調整您的服務，即可針對您的需求量身訂做，以處理更多的文件儲存體、更高的查詢負載，或兩者。<br/><br/>|
+| 基礎結構 | **高可用性平台**可確保相當可靠的搜尋服務體驗。 經過適當的調整，[Azure 搜尋服務可提供 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。<br/><br/> Azure 搜尋服務是**完全受控和可調整的**端對端解決方案，完全不需要基礎結構管理。 以兩種方式調整您的服務，即可針對您的需求量身訂做，以處理更多的文件儲存體、更高的查詢負載，或兩者。<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>如何使用 Azure 搜尋服務
 ### <a name="step-1-provision-service"></a>步驟 1：佈建服務
@@ -101,6 +112,7 @@ Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提�
 + 索引層的 Azure 資料整合 (編目程式)
 + 集中管理的 Azure 入口網站
 + Azure 調整性、可靠性和世界級的可用性
++ 透過 AI 處理，原始資料會變得更容易搜尋，包括影像中的文字或尋找非結構化內容中的圖樣。
 + 語言和自訂分析，還有分析器提供可靠的全文檢索搜尋，支援 56 種語言
 + [搜尋導向應用程式常用的核心功能包括](#feature-drilldown)：評分、多面向、建議、同義字、地區搜尋等。
 

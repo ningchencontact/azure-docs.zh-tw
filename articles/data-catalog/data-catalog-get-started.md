@@ -1,17 +1,17 @@
 ---
 title: 建立 Azure 資料目錄
-description: 有關如何建立 Azure 資料目錄的快速入門。
+description: 本快速入門說明如何使用 Azure 入口網站來建立 Azure 資料目錄。
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.openlocfilehash: df2f536dc95dd74dbae1c8bda1a9934a73fd1fe0
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736499"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976866"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>快速入門：建立 Azure 資料目錄
 
@@ -19,7 +19,7 @@ Azure 資料目錄是完全受控的雲端服務，可作為企業資料資產�
 
 本快速入門將協助您開始建立 Azure 資料目錄。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,7 +36,7 @@ Azure 資料目錄是完全受控的雲端服務，可作為企業資料資產�
 
 1. 移至 [Azure 入口網站](https://portal.azure.com) > [建立資源]  ，然後選取 [資料目錄]  。
 
-    ![建立資料目錄](media/data-catalog-get-started/data-catalog-create.png)
+    ![Azure 資料目錄建立按鈕](media/data-catalog-get-started/data-catalog-create.png)
 
 2. 指定資料目錄的 [名稱]  、想要使用的 [訂用帳戶]  、目錄的 [位置]  和 [定價層]  。 然後選取 [建立]  。
 
@@ -82,7 +82,7 @@ Azure 資料目錄是完全受控的雲端服務，可作為企業資料資產�
 
 ## <a name="find-a-data-catalog-in-the-azure-portal"></a>在 Azure 入口網站中尋找資料目錄
 
-1. 在網頁瀏覽器的另一個索引標籤中或在不同的網頁瀏覽器視窗中，移至 [Azure 入口網站](https://portal.azure.com) ，然後使用您在上一個步驟中用來建立資料目錄的相同帳戶進行登入。
+1. 在網頁瀏覽器的另一個索引標籤中或在不同的網頁瀏覽器視窗中，移至 [Azure 入口網站](https://portal.azure.com)，然後使用您在上一個步驟中用來建立資料目錄的相同帳戶進行登入。
 
 2. 選取 [所有服務]  ，然後按一下 [資料目錄]  。
 
