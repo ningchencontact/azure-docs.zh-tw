@@ -99,7 +99,7 @@ Microsoft Azure 的 Red Hat OpenShift 需要代表您的叢集執行工作的權
 5. 依序展開**Directory**下方的清單和啟用**Directory.ReadAll**
 6. 按一下 **新增權限**以接受變更。
 7. API 權限 面板現在應該會顯示這兩*User.Read*並*Directory.ReadAll*。 請注意在警告**所需的系統管理員同意**旁的資料行*Directory.ReadAll*。
-8. 您若是*Azure 訂用帳戶系統管理員*，按一下**授與系統管理員同意*訂用帳戶名稱*** 如下。 如果您不是*Azure 訂用帳戶管理員*，要求系統管理員同意。
+8. 您若是*Azure 訂用帳戶系統管理員*，按一下**授與系統管理員同意*訂用帳戶名稱***  如下。 如果您不是*Azure 訂用帳戶管理員*，要求系統管理員同意。
 ![API 權限 面板的螢幕擷取畫面。 User.Read 和 Directory.ReadAll 權限新增，系統管理員同意所需的 Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
