@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 87f5a14bcd6003ad81b663ed97e5349dcbff2a30
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 597670803514fa59faaafdad73786cdb745a0976
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296520"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640910"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 
@@ -51,21 +51,21 @@ Azure 資訊安全中心正在透過與 [Windows Defender 進階威脅防護](ht
 
 ## <a name="platform-support"></a>平台支援
 
-資訊安全中心中的 windows Defender ATP 支援在屬於標準服務訂用帳戶的 Windows Server 2012 R2 和 Windows Server 2016 作業系統上進行偵測。
+資訊安全中心中的 windows Defender ATP 支援在標準服務訂用帳戶中的 Windows Server 2016、2012 R2 和 2008 R2 SP1 作業系統上進行偵測。
 
 > [!NOTE]
 > 當您使用 Azure 資訊安全中心來監視伺服器時, 系統會自動建立 Windows Defender ATP 租使用者, 而且 Windows Defender ATP 資料預設會儲存在歐洲。 如果您需要將資料移至另一個位置, 您必須聯絡 Microsoft 支援服務以重設租使用者。
 
 ## <a name="onboarding-servers-to-security-center"></a>讓伺服器在資訊安全中心上線 
 
-若要讓伺服器在資訊安全中心上線，從 Windows Defender ATP 伺服器上線按一下 [移至 Azure 資訊安全中心以讓伺服器上線]  。
+若要讓伺服器在資訊安全中心上線，從 Windows Defender ATP 伺服器上線按一下 [移至 Azure 資訊安全中心以讓伺服器上線]。
 
-1. 在 [上線]  刀鋒視窗中，選取或建立工作區 (即資料儲存位置)。 <br>
+1. 在 [上線] 刀鋒視窗中，選取或建立工作區 (即資料儲存位置)。 <br>
 2. 如果您看不到所有的工作區，可能是因為權限不足，請確定您的工作區設定為 Azure 安全性標準層。 如需詳細資訊，請參閱[升級為 Azure 資訊安全中心標準層以增強安全性](security-center-pricing.md)。
     
-3. 選取 [新增伺服器]  以檢視如何安裝 Microsoft Monitoring Agent 的指示。 
+3. 選取 [新增伺服器] 以檢視如何安裝 Microsoft Monitoring Agent 的指示。 
 
-4. 上線之後，您可以在 [計算與應用程式]  底下監視電腦。
+4. 上線之後，您可以在 [計算與應用程式] 底下監視電腦。
 
    ![上線的電腦](media/security-center-wdatp/onboard-computers.png)
 

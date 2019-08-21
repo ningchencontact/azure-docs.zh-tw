@@ -6,17 +6,16 @@ manager: pablocas
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: dff0ffaed49d7e4b7ba8211827a26bc3e9a87d9d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 21a36988b31571f2110fe4fd2802aa5d84ee0216
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841111"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635933"
 ---
 #   <a name="conditional-skill"></a>條件式技能
 
@@ -46,14 +45,14 @@ Microsoft.Skills.Util.ConditionalSkill
 
 -   注釋路徑 (運算式中的路徑必須以 "$ (" 和 ")" 分隔)
  <br/>
-    範例:
+    例如：
     ```
         "= $(/document)"
         "= $(/document/content)"
     ```
 
 -  常值 (字串、數位、true、false、null) <br/>
-    範例:
+    例如：
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
@@ -62,21 +61,21 @@ Microsoft.Skills.Util.ConditionalSkill
     ```
 
 -  使用比較運算子 (= =、! =、> =、>、< =、<) 的運算式 <br/>
-    範例:
+    例如：
     ```
         "= $(/document/language) == 'en'"
         "= $(/document/sentiment) >= 0.5"
     ```
 
 -   使用布林運算子 (& &、| |、!、^) 的運算式 <br/>
-    範例:
+    例如：
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
         "= !true"
     ```
 
 -   使用數值運算子 (+、-、 \*、/、%) 的運算式 <br/>
-    範例: 
+    例如： 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
         "= $(/document/totalValue) * 1.10"       // multiplication
@@ -88,9 +87,9 @@ Microsoft.Skills.Util.ConditionalSkill
 ## <a name="skill-inputs"></a>技能輸入
 輸入會區分大小寫。
 
-| 輸入   | 描述 |
+| Input   | 描述 |
 |-------------|-------------|
-| condition (條件)   | 此輸入是一個[評估的欄位](#evaluated-fields), 代表要評估的條件。 此條件應評估為布林值 (*true*或*false*)。   <br/>  範例: <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| condition (條件)   | 此輸入是一個[評估的欄位](#evaluated-fields), 代表要評估的條件。 此條件應評估為布林值 (*true*或*false*)。   <br/>  例如： <br/> "= true" <br/> "= $ (/document/language) = = ' fr '" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | 如果條件評估為*true*, 則此輸入是一個已[評估的欄位](#evaluated-fields), 代表要傳回的值。 常數位符串應該以單引號 (' 和 ') 來傳回。 <br/>範例值: <br/> "= 'contract'"<br/>"= $ (/document/contractType)" <br/> "= $ (/document/entities/\*)" <br/> |
 | whenFalse   | 如果條件評估為*false*, 則此輸入是一個[評估的欄位](#evaluated-fields), 代表要傳回的值。 <br/>範例值: <br/> "= 'contract'"<br/>"= $ (/document/contractType)" <br/> "= $ (/document/entities/\*)" <br/>
 

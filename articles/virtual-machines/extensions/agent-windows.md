@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
+ms.date: 07/20/2019
 ms.author: roiyz
-ms.openlocfilehash: 3de0e7ac20296544f7ca02030056aa60542cb0b0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c3b7b0588e6c1446203f7bb4a3ec7f168f08988f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706175"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637501"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虛擬機器代理程式概觀
 Microsoft Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全的輕量型處理程序，可管理虛擬機器 (VM) 與 Azure 網狀架構控制器的互動。 VM 代理程式已啟用主要角色並執行 Azure 虛擬機器擴充功能。 VM 擴充功能可啟用 VM 的部署後組態，例如安裝和設定軟體。 VM 擴充功能也會啟用復原功能，例如重設 VM 的系統管理密碼。 若沒有 Azure VM 代理程式，便無法執行 VM 擴充功能。
@@ -60,7 +60,7 @@ Windows 客體代理程式套件將分成兩個部分：
 如果您沒有安裝代理程式，就無法使用部分 Azure 服務，例如 Azure 備份或 Azure 安全性。 這些服務需要安裝擴充功能。 如果您已部署不含 WinGA 的 VM，之後就可以安裝最新版的代理程式。
 
 ### <a name="manual-installation"></a>手動安裝
-Windows VM 代理程式可以使用 Windows Installer 套件來手動安裝。 當您建立部署至 Azure 的自訂 VM 映像時，可能需要手動安裝。 若要手動安裝 Windows VM 代理程式，[下載 VM 代理程式安裝程式](https://go.microsoft.com/fwlink/?LinkID=394789)。
+Windows VM 代理程式可以使用 Windows Installer 套件來手動安裝。 當您建立部署至 Azure 的自訂 VM 映像時，可能需要手動安裝。 若要手動安裝 Windows VM 代理程式，[下載 VM 代理程式安裝程式](https://go.microsoft.com/fwlink/?LinkID=394789)。 Windows Server 2008 R2 和更新版本支援 VM 代理程式。
 
 按兩下 Windows Installer 檔案即可安裝 VM 代理程式。 如需自動安裝 VM 代理程式，請執行下列命令：
 
@@ -102,7 +102,7 @@ foreach ($vm in $vms) {
 
 ### <a name="manual-detection"></a>手動偵測
 
-登入 Windows VM 時，可以使用工作管理員來檢查執行中的程序。 若要檢查 Azure VM 代理程式，請開啟 [工作管理員]、按一下 [詳細資料]  索引標籤，然後尋找程序名稱 **WindowsAzureGuestAgent.exe**。 此程序的目前狀態表示已安裝 VM 代理程式。
+登入 Windows VM 時，可以使用工作管理員來檢查執行中的程序。 若要檢查 Azure VM 代理程式，請開啟 [工作管理員]、按一下 [詳細資料] 索引標籤，然後尋找程序名稱 **WindowsAzureGuestAgent.exe**。 此程序的目前狀態表示已安裝 VM 代理程式。
 
 
 ## <a name="upgrade-the-vm-agent"></a>升級 VM 代理程式

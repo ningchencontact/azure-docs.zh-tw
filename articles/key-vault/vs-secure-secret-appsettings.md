@@ -7,14 +7,14 @@ manager: paulyuk
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: 3f5196c81550446221a4524330e355c595b65c6a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934378"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639471"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
 
@@ -23,7 +23,7 @@ ms.locfileid: "68934378"
 
 過去，所有 Web 應用程式組態設定都會儲存在組態檔中，例如 Web.config。此做法會導致將祕密設定 (例如雲端認證) 簽入至公用原始檔控制系統 (例如 GitHub)。 同時，也可能會因為變更原始程式碼和重新設定開發設定所需的額外負荷，而難以遵循安全性最佳作法。
 
-為了確保開發程序的安全性，必須建立工具和架構程式庫，在最低限度或完全不變更原始程式碼的情況下安全地儲存應用程式秘密設定。
+為了確保開發程式安全, 會建立工具和架構程式庫, 以最少或完全不變更原始程式碼的方式, 安全地儲存應用程式秘密設定。
 
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET 和 .NET Core 應用程式
 
@@ -45,12 +45,12 @@ ms.locfileid: "68934378"
 
     ![新增金鑰保存庫存取原則](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. 將您的密碼新增至 Azure 入口網站上的金鑰保存庫。 針對巢狀組態設定，請將 ':' 取代為 '--'，使金鑰保存庫密碼名稱成為有效的名稱。 金鑰保存庫密碼的名稱中不可包含 ':'。
+3. 將您的密碼新增至 Azure 入口網站上的 Key Vault。 針對巢狀組態設定，請將 ':' 取代為 '--'，使金鑰保存庫密碼名稱成為有效的名稱。 金鑰保存庫密碼的名稱中不可包含 ':'。
 
     ![新增金鑰保存庫密碼](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE] 
-    > 在 Visual Studio 2017 V 15.6 版之前, 我們建議您安裝適用于 Visual Studio 的 Azure 服務驗證延伸模組。 但它現在已被取代, 因為 funcionality 會在 Visual Studio 內整合。 因此, 如果您使用舊版的 visual Studio 2017, 建議您至少更新為 VS 2017 15.6 或更新版本, 讓您能夠以原生方式使用這項功能, 並從使用 Visual Studio 登入身分識別本身存取金鑰保存庫。
+    > 在 Visual Studio 2017 V 15.6 版之前, 我們建議您安裝適用于 Visual Studio 的 Azure 服務驗證延伸模組。 但它現在已被取代, 因為功能已在 Visual Studio 內整合。 因此, 如果您使用舊版的 visual Studio 2017, 建議您至少更新為 VS 2017 15.6 或更新版本, 讓您能夠以原生方式使用這項功能, 並從使用 Visual Studio 登入身分識別本身存取金鑰保存庫。
     >
  
 4. 將下列 NuGet 封裝新增至您的專案：
@@ -97,10 +97,10 @@ ms.locfileid: "68934378"
 
 1. 將下列 NuGet 套件安裝到您的專案
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic
+    Microsoft.Configuration.ConfigurationBuilders.Base
     ```
 
-2. 建立如下的檔案。 請將其儲存在專案資料夾以外的位置。
+2. 建立與下列類似的檔案。 請將其儲存在專案資料夾以外的位置。
 
     ```xml
     <root>
@@ -123,7 +123,7 @@ ms.locfileid: "68934378"
     </configBuilders>
     ```
 
-4. 指定 appSettings 區段會使用秘密組態產生器。 請確定秘密設定的任何項目皆使用虛擬值。
+4. 指定 appSettings 區段會使用秘密組態產生器。 請確定密碼設定的專案具有虛擬值。
 
     ```xml
         <appSettings configBuilders="Secrets">

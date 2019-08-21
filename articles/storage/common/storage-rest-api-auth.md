@@ -1,26 +1,26 @@
 ---
-title: 呼叫包含驗證的 Azure 儲存體服務 REST API 作業 | Microsoft Docs
-description: 呼叫包含驗證的 Azure 儲存體服務 REST API 作業
+title: 使用共用金鑰授權呼叫 Azure 儲存體服務 REST API 作業 |Microsoft Docs
+description: 使用 Azure 儲存體 REST API, 向使用共用金鑰授權的 Blob 儲存體提出要求。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1463a470c84d38ebc30e32cf539aa9d6f64a6854
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989931"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640670"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 儲存體 REST API
 
-本文說明如何使用 Blob 儲存體服務 REST API 以及如何驗證對服務的呼叫。 它是以開發人員的觀點來撰寫, 他不知道什麼是 REST, 而且也不知道如何進行 REST 呼叫。 我們會查看 REST 呼叫的參考文件，了解如何將它轉譯為實際的 REST 呼叫 – 哪些欄位放到哪裡？ 了解如何設定 REST 呼叫之後，您可以運用此知識來使用任何其他儲存體服務 REST API。
+本文說明如何使用 Blob 儲存體服務 REST Api, 以及如何授權服務的呼叫。 它是以開發人員的觀點來撰寫, 他不知道什麼是 REST, 而且也不知道如何進行 REST 呼叫。 我們會查看 REST 呼叫的參考文件，了解如何將它轉譯為實際的 REST 呼叫 – 哪些欄位放到哪裡？ 了解如何設定 REST 呼叫之後，您可以運用此知識來使用任何其他儲存體服務 REST API。
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 應用程式會列出儲存體帳戶的 blob 儲存體中的容器。 若要試用本文中的程式碼，您需要下列項目︰ 
 
@@ -267,12 +267,13 @@ Content-Length: 1511
 ## <a name="creating-the-authorization-header"></a>建立授權標頭
 
 > [!TIP]
-> Azure 儲存體現在支援 blob 和佇列的 Azure Active Directory (Azure AD) 整合。 Azure AD 可提供更簡單的 Azure 儲存體要求授權體驗。 如需使用 Azure AD 來授權 REST 作業的詳細資訊, 請參閱[使用 Azure Active Directory 進行驗證](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)。 如需 Azure AD 與 Azure 儲存體整合的總覽, 請參閱[使用 Azure Active Directory 驗證 Azure 儲存體的存取權](storage-auth-aad.md)。
+> Azure 儲存體現在支援 blob 和佇列的 Azure Active Directory (Azure AD) 整合。 Azure AD 可提供更簡單的 Azure 儲存體要求授權體驗。 如需使用 Azure AD 來授權 REST 作業的詳細資訊, 請參閱[使用 Azure Active Directory 進行授權](/rest/api/storageservices/authorize-with-azure-active-directory)。 如需 Azure AD 與 Azure 儲存體整合的總覽, 請參閱[使用 Azure Active Directory 驗證 Azure 儲存體的存取權](storage-auth-aad.md)。
 
-有一篇在概念上說明 (沒有程式碼) 如何執行 [Azure 儲存體服務驗證](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services)的文章。
+本文會說明概念上 (沒有程式碼) 如何[授權 Azure 儲存體的要求](/rest/api/storageservices/authorize-requests-to-azure-storage)。
+
 讓我們萃取該文章的精華，並顯示程式碼。
 
-首先，使用共用金鑰驗證。 授權標頭格式如下所示：
+首先, 使用共用金鑰授權。 授權標頭格式如下所示：
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -360,7 +361,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 
 如果您有查詢參數, 此範例也會包含這些參數。 以下的程式碼也會處理其他查詢參數，以及具有多個值的查詢參數。 請記住, 您要建立此程式碼來處理所有 REST Api。 您想要包含所有的可能性, 即使 ListContainers 方法不需要它們。
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -376,7 +377,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -571,3 +572,4 @@ Content-Length: 1135
 * [Blob 服務 REST API](/rest/api/storageservices/blob-service-rest-api)
 * [檔案服務 REST API](/rest/api/storageservices/file-service-rest-api)
 * [佇列服務 REST API](/rest/api/storageservices/queue-service-rest-api)
+* [資料表服務 REST API](/rest/api/storageservices/table-service-rest-api)

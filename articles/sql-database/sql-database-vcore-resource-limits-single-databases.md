@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/14/2019
-ms.openlocfilehash: f69fc89fe5634c9467cf728c7ab5c4d8ac6c5c74
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512308"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637255"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>使用 vCore 為基礎的購買模型的單一資料庫資源限制
 
@@ -35,7 +35,7 @@ ms.locfileid: "69512308"
 ## <a name="general-purpose-service-tier-for-provisioned-compute"></a>已布建計算的一般用途服務層級
 
 > [!IMPORTANT]
-> AustraliaEast 區域已不再支援新的第4代資料庫。
+> 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
 
 ### <a name="gen4-compute-generation-part-1"></a>第4代計算世代 (第1部分)
 
@@ -184,7 +184,7 @@ ms.locfileid: "69512308"
 ## <a name="business-critical-service-tier-for-provisioned-compute"></a>已布建計算的商務關鍵服務層級
 
 > [!IMPORTANT]
-> AustraliaEast 區域已不再支援新的第4代資料庫。
+> 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
 
 ### <a name="gen4-compute-generation-part-1"></a>第4代計算世代 (第1部分)
 

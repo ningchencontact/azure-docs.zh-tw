@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: e5af3803ebb4cb0a88a082d3c85d0df68da8d1b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566623"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637292"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>在 vCore 服務層級之間選擇, 並從 DTU 服務層進行遷移
 
@@ -28,7 +28,7 @@ ms.locfileid: "68566623"
 在 Gen4 硬體中，每個虛擬核心的記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。
 
 > [!IMPORTANT]
-> AustraliaEast 區域已不再支援新的第4代資料庫。
+> 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
 > [!NOTE]
 > 如需以 DTU 為基礎之服務層的相關資訊, 請參閱[以 dtu 為基礎的購買模型的服務層](sql-database-service-tiers-dtu.md)。 如需以 DTU 為基礎和以 vCore 為基礎的購買模型之服務層級之間差異的詳細資訊, 請參閱[Azure SQL Database 購買模型](sql-database-purchase-models.md)。
 
@@ -45,7 +45,7 @@ VCore 為基礎的購買模型提供三個服務層級: 一般用途、超大規
 |最適用的對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整的計算和儲存體選項。|具有高 i/o 需求的商務應用程式。 使用數個隔離的複本, 為失敗提供最高的復原能力。|具有可高度擴充性的儲存體和讀取規模需求的大多數商務工作負載。|
 |計算|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心<br/>**無伺服器計算**:<br/>第 5 代：0.5-4 虛擬核心|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|
 |記憶體|已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB<br/>**無伺服器計算**:<br/>第 5 代：每個虛擬核心 3 GB|已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB |已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB|
-|存放區|使用遠端存放。<br/>**單一資料庫布建計算**:<br/>5 GB – 4 TB<br/>**單一資料庫無伺服器計算**:<br/>5 GB - 1 TB<br/>**受控實例**:32 GB - 8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫布建計算**:<br/>5 GB – 4 TB<br/>**受控實例**:<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
+|儲存體|使用遠端存放。<br/>**單一資料庫布建計算**:<br/>5 GB – 4 TB<br/>**單一資料庫無伺服器計算**:<br/>5 GB - 1 TB<br/>**受控實例**:32 GB - 8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫布建計算**:<br/>5 GB – 4 TB<br/>**受控實例**:<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
 |I/o 輸送量 (近似)|**單一資料庫**:500 IOPS (每個 vCore 具有7000的最大 IOPS)。<br/>**受控實例**:視檔案[大小而](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)定。|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|超大規模資料庫是多層式架構, 在多個層級進行快取。 有效的 IOPs 將視工作負載而定。|
 |可用性|1個複本、無讀取規模複本|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域冗余高可用性 (HA)|1個讀寫複本, 加上 0-4[個讀取規模複本](sql-database-read-scale-out.md)|
 |備份|[讀取權限異地多餘儲存體 (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 天 (預設為7天)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中以快照集為基礎的備份。 還原時可使用這些快照集進行快速復原。 備份是即時的, 不會影響計算 i/o 效能。 還原速度很快, 而且不是資料大小的作業 (需要幾分鐘, 而不是小時或數天)。|

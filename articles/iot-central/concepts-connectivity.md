@@ -8,118 +8,118 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d8b49b17698d3b527ceab88abdb1a37452f7a06
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693182"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638350"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central 中的裝置連線能力
 
 本文介紹 Microsoft Azure IoT Central 裝置連線能力的重要相關概念。
 
-使用 azure IoT Central [Azure IoT 中樞裝置佈建服務 」 (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps)管理所有的裝置註冊和連線。
+Azure IoT Central 會使用[Azure IoT 中樞裝置布建服務 (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps)來管理所有裝置註冊和連線。
 
-使用 DPS 可讓：
+使用 DPS 可啟用:
 
-- IoT 中心，以支援大規模的連線裝置和上架。
-- 您可以產生裝置認證和設定離線的裝置，而不需註冊的裝置透過 IoT 中心 UI。
-- 若要使用連接的裝置被共用存取簽章 (SAS)。
-- 連線使用業界標準 X.509 憑證的裝置。
-- 您要使用您自己的裝置識別碼，在 IoT Central 中註冊裝置。 使用您自己的裝置識別碼，可簡化與現有的後端辦公室系統整合。
-- 單一、 一致的方式將裝置連接到 IoT 中心。
+- IoT Central 支援大規模上線和連線裝置。
+- 您可以產生裝置認證並將裝置設定為離線, 而不需要透過 IoT Central UI 註冊裝置。
+- 要使用共用存取簽章 (SAS) 連接的裝置。
+- 使用業界標準的 x.509 憑證連接的裝置。
+- 您可以使用自己的裝置識別碼, 在 IoT Central 中註冊裝置。 使用您自己的裝置識別碼可簡化與現有後置 office 系統的整合。
+- 單一且一致的方式, 可將裝置連接到 IoT Central。
 
-這篇文章會說明下列四個使用案例：
+本文說明下列四種使用案例:
 
-1. [快速連線使用單一裝置的 SAS](#connect-a-single-device)
-1. [使用 SAS 大規模的裝置連線](#connect-devices-at-scale-using-sas)
-1. [連接的裝置使用 X.509 憑證的大量](#connect-devices-using-x509-certificates)這是建議用於生產環境的方法。
+1. [使用 SAS 快速連接單一裝置](#connect-a-single-device)
+1. [使用 SAS 大規模連接裝置](#connect-devices-at-scale-using-sas)
+1. [使用 x.509 憑證大規模](#connect-devices-using-x509-certificates)地連線裝置。這是建議用於生產環境的方法。
 1. [將裝置連線但先不註冊](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>將單一裝置連線
 
-當您利用 IoT Central 試用或測試的裝置，則這個方法會很有用。 您可以使用從您的 IoT Central 應用程式的裝置連線資訊來產生裝置的連接字串。 如需詳細步驟，請參閱 <<c0> [ 如何產生連接到 Azure IoT Central 應用程式的裝置連接字串](howto-generate-connection-string.md)。
+當您要試驗 IoT Central 或測試裝置時, 這個方法很有用。 您可以使用 IoT Central 應用程式中的裝置連線資訊, 來產生裝置的連接字串。 如需詳細步驟, 請參閱[如何產生裝置連接字串以連接至 Azure IoT Central 應用程式](howto-generate-connection-string.md)。
 
-## <a name="connect-devices-at-scale-using-sas"></a>使用 SAS 大規模的裝置連線
+## <a name="connect-devices-at-scale-using-sas"></a>使用 SAS 大規模連接裝置
 
-若要將裝置連接到 IoT Central，大規模使用 SAS，您需要註冊，然後再將裝置：
+若要使用 SAS 將裝置連線到大規模 IoT Central, 您必須註冊裝置, 然後再進行設定:
 
 ### <a name="register-devices-in-bulk"></a>大量註冊裝置
 
-若要註冊大量的裝置與 IoT Central 應用程式，使用 CSV 檔案[匯入裝置識別碼和裝置名稱](howto-manage-devices.md#import-devices)。
+若要向 IoT Central 應用程式註冊大量裝置, 請使用 CSV 檔案來匯[入裝置識別碼和裝置名稱](howto-manage-devices.md#import-devices)。
 
-若要擷取匯入的裝置的連線資訊[從您的 IoT Central 應用程式匯出 CSV 檔案](howto-manage-devices.md#export-devices)。
+若要取出已匯入之裝置的連線資訊, 請[從您的 IoT Central 應用程式匯出 CSV](howto-manage-devices.md#export-devices)檔案。
 
 > [!NOTE]
-> 若要深入了解如何連接裝置，以及在不含第一個它們在註冊 IoT Central，請參閱[第一個註冊的裝置不連線](#connect-without-registering-devices)。
+> 若要瞭解如何連接裝置, 而不需先在 IoT Central 中註冊, 請參閱連線[但不先註冊裝置](#connect-without-registering-devices)。
 
 ### <a name="set-up-your-devices"></a>設定您的裝置
 
-若要啟用您的裝置連線，並將資料傳送至 IoT 中，您的 IoT Central 應用程式，從匯出檔案，在您的裝置程式碼中使用的連接資訊。 如需連線裝置的詳細資訊，請參閱 <<c0> [ 後續步驟](#next-steps)。
+使用裝置程式碼中匯出檔案的連線資訊, 讓您的裝置能夠連線到 IoT 並傳送至您的 IoT Central 應用程式。 如需連接裝置的詳細資訊, 請參閱[後續步驟](#next-steps)。
 
-## <a name="connect-devices-using-x509-certificates"></a>使用 X.509 憑證的裝置連線
+## <a name="connect-devices-using-x509-certificates"></a>使用 x.509 憑證來連接裝置
 
-在生產環境中，使用 X.509 憑證是 IoT 中心的建議的裝置驗證機制。 若要深入了解，請參閱[使用 X.509 CA 憑證進行裝置驗證](../iot-hub/iot-hub-x509ca-overview.md)。
+在生產環境中, 使用 x.509 憑證是 IoT Central 的建議裝置驗證機制。 若要深入了解，請參閱[使用 X.509 CA 憑證進行裝置驗證](../iot-hub/iot-hub-x509ca-overview.md)。
 
-下列步驟說明如何將裝置連接至使用 X.509 憑證的 IoT Central:
+下列步驟說明如何使用 x.509 憑證, 將裝置連線至 IoT Central:
 
-1. 在您的 IoT Central 應用程式_新增並驗證中繼或根 X.509 憑證_您用來產生裝置憑證：
+1. 在 IoT Central 應用程式中, 新增並驗證您要用來產生裝置憑證_的中繼或根 x.509 憑證_:
 
-    - 瀏覽至**管理 > 裝置連線 > 憑證 (X.509)** 並新增 X.509 根或中繼憑證，您用來產生分葉裝置憑證。
+    - 流覽至 **[系統管理] > [裝置連線] [> 憑證 (x.509)** ], 然後新增您用來產生分葉裝置憑證的 x.509 根或中繼憑證。
 
       ![連線設定](media/concepts-connectivity/connection-settings.png)
 
-      如果您有安全性缺口，或您主要的憑證設定為過期，請使用次要憑證可減少停機時間。 您可以繼續使用次要憑證，而您更新主要憑證的裝置佈建。
+      如果您有安全性缺口或主要憑證設定為過期, 請使用次要憑證來縮短停機時間。 當您更新主要憑證時, 您可以繼續使用次要憑證來布建裝置。
 
-    - 驗證憑證擁有權，可確保憑證上的傳者具有憑證的私密金鑰。 若要確認憑證：
-        - 選取 [] 按鈕旁**驗證碼**產生程式碼。
-        - 使用您在上一個步驟中產生的驗證程式碼中建立 X.509 驗證憑證。 將憑證儲存為.cer 檔案。
-        - 上傳已簽署的驗證憑證，然後選取**確認**。
+    - 驗證憑證擁有權可確保憑證的上傳者擁有憑證的私密金鑰。 若要驗證憑證:
+        - 選取 [**驗證碼**] 旁的按鈕, 以產生程式碼。
+        - 使用您在上一個步驟中產生的驗證碼來建立 x.509 驗證憑證。 將憑證儲存為 .cer 檔案。
+        - 上傳已簽署的驗證憑證, 然後選取 [**驗證**]。
 
           ![連線設定](media/concepts-connectivity/verify-cert.png)
 
-1. 使用 CSV 檔案_匯入和註冊裝置_IoT Central 應用程式中。
+1. 使用 CSV 檔案, 在您的 IoT Central 應用程式中匯_入和註冊裝置_。
 
-1. _設定您的裝置。_ 使用上傳的根憑證來產生分葉憑證。 使用**裝置識別碼**中分葉憑證的 CNAME 值。 裝置識別碼應該是全部小寫。 然後撰寫您的裝置佈建服務的資訊。 當裝置第一處於開啟狀態時，它會從 DPS 擷取其 IoT Central 應用程式的連接資訊。
+1. _設定您的裝置。_ 使用上傳的根憑證來產生分葉憑證。 使用**裝置識別碼**作為分葉憑證中的 CNAME 值。 裝置識別碼應為全部小寫。 然後使用布建服務資訊來為您的裝置進行程式設計。 當裝置第一次開啟時, 它會從 DPS 抓取您的 IoT Central 應用程式的連接資訊。
 
-### <a name="further-reference"></a>進一步的參考
+### <a name="further-reference"></a>進一步參考
 
 - 適用於 [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases) 的範例實作。
 
-- [C 範例裝置用戶端](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)。
+- [C 範例裝置用戶端](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)。
 
-### <a name="for-testing-purposes-only"></a>僅供測試用途
+### <a name="for-testing-purposes-only"></a>僅供測試之用
 
-僅供測試，您可以使用這些公用程式產生的 CA 憑證和裝置憑證。
+僅供測試之用, 您可以使用這些公用程式來產生 CA 憑證和裝置憑證。
 
-- 如果您使用 DevKit 裝置，這[命令列工具](https://aka.ms/iotcentral-docs-dicetool)會產生您可以新增至您的 IoT Central 應用程式，以驗證憑證的 CA 憑證。
+- 如果您使用 DevKit 裝置, 此[命令列工具](https://aka.ms/iotcentral-docs-dicetool)會產生可新增至 IoT Central 應用程式的 CA 憑證, 以驗證憑證。
 
-- 使用此[命令列工具](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md )來：
-  - 建立的憑證鏈結。 在 GitHub 文章中，請遵循步驟 2。
-  - 將憑證儲存為.cer 檔案上傳至您的 IoT Central 應用程式中。
-  - 您可以使用 IoT Central 應用程式的驗證程式碼來產生驗證憑證。 在 GitHub 文章中，請遵循步驟 3。
-  - 建立分葉憑證，為您為參數，此工具來使用您的裝置識別碼的裝置。 在 GitHub 文章中，請依照步驟 4。
+- 使用此[命令列工具](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md )來執行下列動作:
+  - 建立憑證鏈。 遵循 GitHub 文章中的步驟2。
+  - 將憑證儲存為 .cer 檔案, 以上傳至您的 IoT Central 應用程式。
+  - 使用來自 IoT Central 應用程式的驗證碼來產生驗證憑證。 遵循 GitHub 文章中的步驟3。
+  - 使用您的裝置識別碼作為工具的參數, 為您的裝置建立分葉憑證。 遵循 GitHub 文章中的步驟4。
 
-## <a name="connect-without-registering-devices"></a>連接，而不註冊裝置
+## <a name="connect-without-registering-devices"></a>連接而不註冊裝置
 
-IoT 中心可讓主要案例就是 oem 大量製造裝置可以連線到 IoT Central 應用程式，且不需先註冊。 製造商必須產生適當的認證，並設定在 factory 中的裝置。 當裝置啟動第一次時，它會自動連接至 IoT Central 應用程式。 IoT 中心操作員必須核准的裝置，才可以 stat 傳送的資料。
+IoT Central 的主要案例是讓 Oem 能夠大量製造可連線至 IoT Central 應用程式的裝置, 而不需先進行註冊。 製造商必須產生適當的認證, 並在 factory 中設定裝置。 當裝置第一次開啟時, 它會自動連接到 IoT Central 應用程式。 IoT Central 操作員必須先核准裝置, 才能傳送資料。
 
-下圖概述此流程：
+下圖概述此流程:
 
 ![連線設定](media/concepts-connectivity/device-connection-flow1.png)
 
-下列步驟說明此程序的更多詳細資料。 這些步驟稍有不同，取決於您要使用 SAS 或 X.509 憑證進行裝置驗證：
+下列步驟將更詳細地說明此程式。 根據您是使用 SAS 或 x.509 憑證來進行裝置驗證, 步驟會有些許不同:
 
-1. 設定您的連線設定：
+1. 設定您的連線設定:
 
-    - **X.509 憑證：** [新增並驗證根/中繼憑證](#connect-devices-using-x509-certificates)並用它來產生下一個步驟中的裝置憑證。
-    - **SAS：** 將複製的主索引鍵。 這個金鑰是 IoT Central 應用程式的群組 SAS 索引鍵。 使用金鑰來產生下一個步驟中的裝置的 SAS 金鑰。
+    - **X.509 憑證:** [新增並驗證根/中繼憑證](#connect-devices-using-x509-certificates), 並在下列步驟中使用它來產生裝置憑證。
+    - **SAS：** 複製 [主要金鑰]。 此金鑰是 IoT Central 應用程式的群組 SAS 金鑰。 在下列步驟中, 使用金鑰來產生裝置 SAS 金鑰。
     ![連線設定 SAS](media/concepts-connectivity/connection-settings-sas.png)
 
 1. 產生您的裝置認證
-    - **X.509 憑證中：** 產生您使用的根或中繼憑證，您新增至您的 IoT Central 應用程式的裝置之分葉憑證。 請務必使用小寫**裝置識別碼**為分葉憑證的 CNAME。 針對測試用途，使用這[命令列工具](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md )來產生裝置憑證。
-    - **SAS：** 使用此[命令列工具](https://www.npmjs.com/package/dps-keygen)來產生裝置的 SAS 金鑰。 使用群組**主索引鍵**從上一個步驟。 裝置識別碼必須是小寫。
+    - **憑證 X. x.509:** 使用您新增至 IoT Central 應用程式的根或中繼憑證, 為您的裝置產生分葉憑證。 請確定您使用的是較低的**裝置識別碼**作為分葉憑證中的 CNAME。 僅供測試之用, 請使用此[命令列工具](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md )來產生裝置憑證。
+    - **SAS：** 使用此[命令列工具](https://www.npmjs.com/package/dps-keygen)來產生裝置 SAS 金鑰。 使用上一個步驟中的群組**主要金鑰**。 裝置識別碼必須為小寫。
 
       若要安裝 [金鑰產生器公用程式](https://github.com/Azure/dps-keygen)，請執行下列命令：
 
@@ -127,34 +127,34 @@ IoT 中心可讓主要案例就是 oem 大量製造裝置可以連線到 IoT Cen
       npm i -g dps-keygen
       ```
 
-      若要從群組的 SAS 金鑰產生裝置金鑰，請執行下列命令：
+      若要從群組 SAS 主要金鑰產生裝置金鑰, 請執行下列命令:
 
       ```cmd/sh
       dps-keygen -mk:<Primary_Key(GroupSAS)> -di:<device_id>
       ```
 
-1. 若要設定您的裝置，快閃每個裝置**領域識別碼**，**裝置識別碼**，和**X.509 裝置憑證**或是**SAS 金鑰**。
+1. 若要設定您的裝置, 請使用**範圍識別碼**、**裝置識別碼**和**x.509 裝置憑證**或**SAS 金鑰**來將每個裝置閃爍一次。
 
-1. 然後開啟裝置，讓它連接到您的 IoT Central 應用程式。 當您切換裝置上時，它會先連接至 DPS 擷取其 IoT Central 註冊資訊。
+1. 然後開啟裝置以連接到您的 IoT Central 應用程式。 當您在裝置上切換時, 它會先連線到 DPS 以取得其 IoT Central 的註冊資訊。
 
-1. 連接的裝置一開始顯示成**關聯的裝置**上**Device Explorer**頁面。 裝置佈建狀態為 [已註冊]  。 **關聯**裝置，以適當的裝置範本及核准的裝置連線到您的 IoT Central 應用程式。 裝置可以從 IoT 中樞擷取連接字串，並開始傳送資料。 裝置佈建現已完成，現已佈建狀態**已佈建**。
+1. 連線裝置一開始會在 [ **Device Explorer** ] 頁面上顯示為未**關聯的裝置**。 裝置佈建狀態為 [已註冊]。 **將裝置關聯**到適當的裝置範本, 並核准裝置以連接到您的 IoT Central 應用程式。 然後, 裝置可以從 IoT 中樞取出連接字串, 並開始傳送資料。 裝置布建已完成, 且布建狀態現在已布**建**。
 
 ## <a name="provisioning-status"></a>佈建狀態
 
-當實際的裝置連接到您的 IoT Central 應用程式，其佈建狀態變更，如下所示：
+當實際裝置連線到您的 IoT Central 應用程式時, 其布建狀態會變更如下:
 
-1. 裝置佈建狀態是第一個**Registered**。 此狀態表示裝置會在 IoT Central 中建立具有裝置識別碼。 在註冊裝置時：
-    - 在新增新的真實裝置**Device Explorer**頁面。
-    - 使用加入一組裝置**匯入**上**Device Explorer**頁面。
-    - 未以手動方式在註冊裝置**Device Explorer**頁面上，但使用有效的認證連接，並會顯示為**無關聯**上的裝置**Device Explorer**頁面。
+1. 裝置布建狀態會先**註冊**。 此狀態表示裝置是在 IoT Central 中建立, 並具有裝置識別碼。 裝置會在下列情況中註冊:
+    - [ **Device Explorer** ] 頁面上會加入新的實際裝置。
+    - 在 [ **Device Explorer** ] 頁面上使用 [匯**入**] 來新增一組裝置。
+    - 裝置未在 [ **Device Explorer** ] 頁面上手動註冊, 但已使用有效的認證連線, 而且在 [ **Device Explorer** ] 頁面上會顯示為未**關聯**的裝置。
 
-1. 裝置佈建狀態會變為**已佈建**連線到您的 IoT Central 應用程式，以有效認證的裝置完成佈建步驟。 在此步驟中，裝置會從 IoT 中樞來擷取連接字串。 裝置現在可以連線到 IoT 中樞，並開始傳送資料。
+1. 當使用有效認證連線到您的 IoT Central 應用程式的裝置完成布建步驟時, 裝置布建狀態會變更為 [已布**建**]。 在此步驟中, 裝置會從 IoT 中樞抓取連接字串。 裝置現在可以連接到 IoT 中樞並開始傳送資料。
 
-1. 操作員可以封鎖裝置。 當裝置遭到封鎖時，它無法將資料傳送至您的 IoT Central 應用程式。 已封鎖裝置的佈建狀態為**封鎖**。 它可以繼續傳送資料之前，操作員必須重設裝置。 運算子會解除封鎖的裝置佈建狀態回到先前的值，當**Registered**或是**已佈建**。
+1. 操作員可以封鎖裝置。 當裝置遭到封鎖時, 它無法將資料傳送至您的 IoT Central 應用程式。 封鎖的裝置布建狀態為 [已**封鎖**]。 操作員必須先重設裝置, 才能繼續傳送資料。 當操作員解除封鎖裝置時, 布建狀態會回到其先前的值 (**已註冊或已**布**建**)。
 
 ## <a name="sdk-support"></a>SDK 支援
 
-Azure 裝置 Sdk 供應項目最簡單的方式為您實作裝置程式碼。 可用的裝置 SDK 如下：
+Azure 裝置 Sdk 提供最簡單的方式來執行您的裝置程式碼。 可用的裝置 SDK 如下：
 
 - [Azure IoT SDK for C](https://github.com/azure/azure-iot-sdk-c)
 - [Azure IoT SDK for Python](https://github.com/azure/azure-iot-sdk-python)
@@ -162,7 +162,7 @@ Azure 裝置 Sdk 供應項目最簡單的方式為您實作裝置程式碼。 �
 - [Azure IoT SDK for Java](https://github.com/azure/azure-iot-sdk-java)
 - [Azure IoT SDK for .NET](https://github.com/azure/azure-iot-sdk-csharp)
 
-每個裝置在連線時，都會使用可識別裝置的唯一連接字串。 裝置只能連接到 IoT 中樞註冊的所在。 當您在 Azure IoT Central 應用程式中建立實際的裝置時，應用程式產生的資訊，您必須建構連接字串使用`dps-keygen`。
+每個裝置在連線時，都會使用可識別裝置的唯一連接字串。 裝置只能連線到其註冊所在的 IoT 中樞。 當您在 Azure IoT Central 應用程式中建立真實裝置時, 應用程式會產生使用`dps-keygen`來建立連接字串所需的資訊。
 
 ### <a name="sdk-features-and-iot-hub-connectivity"></a>SDK 的功能和 IoT 中樞連線能力
 
@@ -203,9 +203,9 @@ Azure 裝置 Sdk 供應項目最簡單的方式為您實作裝置程式碼。 �
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解在 Azure IoT Central 的裝置連線能力，以下是建議的後續步驟：
+現在您已瞭解 Azure IoT Central 中的裝置連線能力, 以下是建議的後續步驟:
 
 - [準備及連線 DevKit 裝置](howto-connect-devkit.md)
 - [準備及連線 Raspberry Pi](howto-connect-raspberry-pi-python.md)
 - [將一般 Node.js 用戶端連線至 Azure IoT Central 應用程式](howto-connect-nodejs.md)
-- [C SDK:佈建的裝置用戶端 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- [C SDK:布建裝置用戶端 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

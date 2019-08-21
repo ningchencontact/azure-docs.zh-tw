@@ -1,27 +1,26 @@
 ---
-title: 範例:使用 Bing 實體搜尋 API 建立自訂認知技能-Azure 搜尋服務
+title: 範例：使用 Bing 實體搜尋 API 建立自訂認知技能-Azure 搜尋服務
 description: 示範在 Azure 搜尋服務中對應至認知搜尋索引管線的自訂技能中, 使用 Bing 實體搜尋服務。
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a032288338d2d6a53489105790b6862eefadf609
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 58f98f3807955db0b32cbcd1ed0d409814e35a76
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841240"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639907"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>範例:使用 Bing 實體搜尋 API 建立自訂技能
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>範例：使用 Bing 實體搜尋 API 建立自訂技能
 
 在此範例中, 您將瞭解如何建立 Web API 的自訂技能。 這項技能將接受位置、公用圖表和組織, 並傳回其描述。 此範例會使用[Azure](https://azure.microsoft.com/services/functions/)函式來包裝[Bing 實體搜尋 API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) , 使其可執行自訂技能介面。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + 如果您不熟悉自訂技能應實行的輸入/輸出介面, 請閱讀[自訂技能介面](cognitive-search-custom-skill-interface.md)一文。
 

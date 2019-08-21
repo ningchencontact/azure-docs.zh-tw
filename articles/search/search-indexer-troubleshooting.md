@@ -2,20 +2,18 @@
 title: 針對常見搜尋索引子問題進行疑難排解 - Azure 搜尋服務
 description: 使用 Azure 搜尋服務中的索引子修正錯誤與一般問題，包括資料來源連線、防火牆及遺漏的文件。
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: 1cb3260fa11354de963318a023fec912d082eae4
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 4692be287e9b38cf116107d2e7c1043f23a6b34b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653408"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640605"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>針對 Azure 搜尋服務中的常見索引子問題進行疑難排解
 
@@ -35,11 +33,11 @@ Azure 儲存體提供可設定的防火牆。 根據預設，防火牆會停用�
 
 防火牆啟用時，不會有特定錯誤訊息。 一般而言，防火牆錯誤看起來會像 `The remote server returned an error: (403) Forbidden`。
 
-您可以在[入口網站](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)驗證防火牆是否已啟用。 唯一支援的因應措施是停用防火牆，藉由選擇允許存取權[「 所有網路 」](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)。
+您可以在[入口網站](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)驗證防火牆是否已啟用。 唯一支援的解決方法是選擇允許從 [[所有網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)] 進行存取, 以停用防火牆。
 
-如果您的索引子，並沒有附加的技能組合，您_可能_嘗試[加入例外狀況](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules)搜尋服務的 IP 位址。 不過，這種情況下不支援，而且不保證可以運作。
+如果您的索引子沒有附加的技能集, 您_可能會_嘗試為搜尋服務的 IP 位址[新增例外](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules)狀況。 不過, 這種情況不受支援, 而且不保證能正常執行。
 
-您可以找出您的搜尋服務的 IP 位址 ping 其 FQDN (`<your-search-service-name>.search.windows.net`)。
+您可以藉由 ping 其 FQDN (`<your-search-service-name>.search.windows.net`) 來找出搜尋服務的 IP 位址。
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
@@ -68,7 +66,7 @@ api-key: [admin key]
 
 Blob 索引子會[從容器的 Blob 中尋找並擷取文字](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs)。 擷取文字的某些問題包括：
 
-* 文件僅包含掃描的影像。 具有非文字內容的 PDF Blob (例如掃描的影像 (JPG)) 不會在標準 Blob 編製索引管線中產生結果。 如果您有文字項目使用的映像內容，您可以使用[認知搜尋](cognitive-search-concept-image-scenarios.md)尋找及擷取文字。
+* 文件僅包含掃描的影像。 具有非文字內容的 PDF Blob (例如掃描的影像 (JPG)) 不會在標準 Blob 編製索引管線中產生結果。 如果您的影像內容包含文字元素, 您可以使用[認知搜尋](cognitive-search-concept-image-scenarios.md)來尋找並解壓縮文字。
 * Blob 索引子已設為只為中繼資料建立索引。 若要擷取內容，Blob 索引子必須設為[同時擷取內容和中繼資料](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)：
 
 ```
@@ -91,5 +89,5 @@ api-key: [admin key]
 * 尚未為文件建立索引。 檢查入口網站以了解成功的索引子執行。
 * 文件已在索引子執行後更新。 若您的索引子是根據[排程](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule)執行，它最後將重新執行並擷取文件。
 * 資料來源中指定的[查詢](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax)排除了文件。 若文件並非資料來源的一部分，索引子將無法為文件建立索引。
-* [欄位對應](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings)或是[認知搜尋](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro)已變更的文件，它看起來與預期不同。
+* [[欄位](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings)對應] 或 [[認知搜尋](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro)] 已變更檔, 而且看起來與您預期的不同。
 * 請使用[查閱文件 API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) 來尋找您的文件。

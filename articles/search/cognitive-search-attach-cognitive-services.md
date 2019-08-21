@@ -1,22 +1,20 @@
 ---
 title: 連結認知服務資源與技能 - Azure 搜尋服務
 description: 在 Azure 搜尋服務中將認知服務的多個訂用帳戶附加至認知擴充管線的指示。
-manager: cgronlun
+manager: nitinme
 author: LuisCabrer
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 1a8bf1eaf37dbbd4462b0ebd93f74502f89f9d7b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: dcdef8df25bdf6a7a60b1221d1463e6be5486875
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841345"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639439"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
 
@@ -140,7 +138,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="example-estimate-costs"></a>範例:預估成本
+## <a name="example-estimate-costs"></a>範例：預估成本
 
 若要估計與認知搜尋索引相關的成本, 請從一般檔的外觀開始著手, 讓您可以執行一些數位。 例如, 您可能會大致估計:
 

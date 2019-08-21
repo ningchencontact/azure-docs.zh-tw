@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: eeac83bb0bb4ad873873a99721c9269659f2a685
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b689b577ed940dad03cdf25570187bde98222ee3
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841027"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635890"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>具名實體辨識認知技能
 

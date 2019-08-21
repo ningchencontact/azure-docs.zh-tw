@@ -5,18 +5,17 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 316cfb228050030b15e791e1d890c9048eadc109
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 57dd8e47d44248270920e44268b99c98d399504d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841104"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69635902"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>已淘汰的認知搜尋技能
 
@@ -25,7 +24,7 @@ ms.locfileid: "68841104"
 * 技能名稱：即將淘汰的技能名稱，其對應至 @odata.type 屬性。
 * 最後一個可用的 API 版本：可用於建立/更新包含對應已淘汰技能之技能集的 Azure 搜尋服務公用 API 最後一個版本。
 * 結束支援：對應技能已視為不受支援後的最後一天。 先前建立的技能集應會繼續運作，但建議使用者遷移出已淘汰的技能。
-* 建議:將路徑遷移至受支援的技能。 建議使用者遵循建議，以便繼續獲得支援。
+* 建議：將路徑遷移至受支援的技能。 建議使用者遵循建議，以便繼續獲得支援。
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 

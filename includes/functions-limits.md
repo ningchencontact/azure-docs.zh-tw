@@ -4,16 +4,16 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: aa43fe6c7999b8fa73419916870f9dfca0c01e3d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d00af77a2d502cb534a4ab4a0db9231e5e8748b7
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601303"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636428"
 ---
 | Resource | [耗用量方案](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium 方案](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service 計畫](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| 相應放大 | 事件驅動 | 事件驅動 | [手動/自動調整](../articles/app-service/web-sites-scale.md) | 
+| 相應放大 | 事件驅動 | 事件驅動 | [手動/自動調整](../articles/app-service/manage-scale-up.md) | 
 | 執行個體數上限 | 200 | 20 | 10-20 |
 |預設[超時](../articles/azure-functions/functions-scale.md#timeout)時間 (分鐘) |5 | 30 |30<sup>2</sup> |
 |最大[時間輸出持續時間](../articles/azure-functions/functions-scale.md#timeout)(分鐘) |10 | 無限制 | 無界限<sup>3</sup> |

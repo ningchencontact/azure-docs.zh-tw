@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: be391f2aa9ee5d94ffc36a6e03d3af8881346520
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932346"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636561"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 方案概觀
 
@@ -100,7 +100,7 @@ App Service 方案的_定價層_可決定您獲得哪些 App Service 功能，�
 
 反向的運作方式也是一樣。 當您覺得不再需要更高層的功能時，可以相應減少到較低層，這樣可以節省費用。
 
-如需有關相應增加 App Service 方案的詳細資訊，請參閱[在 Azure 中相應增加應用程式](web-sites-scale.md)。
+如需有關相應增加 App Service 方案的詳細資訊，請參閱[在 Azure 中相應增加應用程式](manage-scale-up.md)。
 
 如果您的應用程式與其他應用程式處於相同的 App Service 方案中，您可以藉由隔離計算資源以改善應用程式的效能。 您可以透過將應用程式移到不同的 App Service 方案來實現。 如需詳細資訊，請參閱[將應用程式移至另一個 App Service 方案](app-service-plan-manage.md#move)。
 

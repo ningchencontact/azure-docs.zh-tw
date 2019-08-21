@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: aab93e1ecd112f7ef9fdb0829469efa14aff2e98
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 05c5d42d3c20948df4f42db50dd93abd60288c00
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623994"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639584"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 
@@ -163,7 +163,15 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 如果您搭配 Machine Learning Compute 使用強制通道, 請將[使用者定義的路由 (udr)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)新增至包含計算資源的子網。
 
-* 在資源所在的區域中, 為 Azure Batch 服務所使用的每個 IP 位址建立一個 UDR。 這些 Udr 可讓 Batch 服務與計算節點進行通訊, 以進行工作排程。 若要取得 Batch 服務的 IP 位址清單, 請聯絡 Azure 支援。
+* 在資源所在的區域中, 為 Azure Batch 服務所使用的每個 IP 位址建立一個 UDR。 這些 Udr 可讓 Batch 服務與計算節點進行通訊, 以進行工作排程。 若要取得 Batch 服務的 IP 位址清單, 請使用下列其中一種方法:
+
+    * 下載[azure IP 範圍和服務](https://www.microsoft.com/download/details.aspx?id=56519)標籤, 並搜尋的`BatchNodeManagement.<region>`檔案, 其中`<region>`是您的 Azure 區域。
+
+    * 使用[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)下載資訊。 下列範例會下載 IP 位址資訊, 並篩選出美國東部2區域的資訊:
+
+        ```azurecli-interactive
+        az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+        ```
 
 * 您的內部部署網路應用裝置不得封鎖對 Azure 儲存體的輸出流量。 具體而言, url 的格式`<account>.table.core.windows.net`為、 `<account>.queue.core.windows.net`和`<account>.blob.core.windows.net`。
 

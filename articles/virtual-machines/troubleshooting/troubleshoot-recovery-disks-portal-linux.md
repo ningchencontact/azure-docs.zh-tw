@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: 6a848717e4796e0bb35cbcf045bb50fabf543c1b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 21122847c1b417b00cfe8c69b8324a2f73bf31ea
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617666"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641120"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>使用 Azure 入口網站將 OS 磁碟連結至復原 VM，以針對 Linux VM 進行疑難排解
 如果 Linux 虛擬機器 (VM) 發生開機或磁碟錯誤，您可能需要對虛擬硬碟本身執行疑難排解步驟。 常見的例子是 `/etc/fstab` 中的項目無效，導致 VM 無法成功開機。 本文詳細說明如何使用 Azure 入口網站將虛擬硬碟連接至另一個 Linux VM，以修正任何錯誤，然後重新建立原始 VM。
@@ -27,7 +27,7 @@ ms.locfileid: "69617666"
 疑難排解程序如下所示︰
 
 1. 停止受影響的 VM。
-1. 為 VM 的 OS 磁片建立快照集。
+1. 取得 VM 的 OS 磁片快照集。
 1. 從快照集建立虛擬硬碟。
 1. 將虛擬硬碟連結和掛接至另一個 Windows VM，以進行疑難排解。
 1. 連接至疑難排解 VM。 編輯檔案或執行任何工具來修正原始虛擬硬碟的問題。
@@ -175,18 +175,6 @@ Azure 入口網站現在支援變更 VM 的 OS 磁片。 若要這樣做，請�
 
 1. 選擇您已修復的新磁片, 然後輸入 VM 的名稱以確認變更。 如果您在清單中看不到磁片, 請在從疑難排解 VM 卸離磁片後, 等待 10 ~ 15 分鐘。 也請確定磁片與 VM 位於相同的位置。
 1. 選取 [確定]。
-
-## <a name="re-enable-boot-diagnostics"></a>重新啟用開機診斷
-當您從現有的虛擬硬碟建立 VM 時，可能不會自動啟用開機診斷。 若要檢查開機診斷狀態並在需要時開啟，請在入口網站中選取 VM。 在 [監視] 底下，按一下 [診斷設定]。 請確定狀態是 [開啟]，而且已選取 [開機診斷] 旁邊的核取記號。 如果有進行任何變更，請按一下 [儲存]：
-
-![更新開機診斷設定](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>藉由連結新的 OS 磁碟來針對受控磁碟 VM 進行疑難排解
-1. 停止受影響的 VM。
-2. 針對受控磁碟 VM 的 OS 磁碟[建立受控磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
-3. [從快照集建立受控磁碟](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)。
-4. [連結作為 VM 資料磁碟的受控磁碟](../windows/attach-disk-ps.md)。
-5. [將步驟 4 的資料磁碟變更為 OS 磁碟](../windows/os-disk-swap.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如果連接至 VM 時發生問題，請參閱[針對 Azure VM 的 SSH 連接進行疑難排解](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果存取 VM 上執行的應用程式時發生問題，請參閱[針對 Linux VM 上的應用程式連線問題進行疑難排解](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。

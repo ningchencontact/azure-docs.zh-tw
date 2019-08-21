@@ -2,20 +2,18 @@
 title: 層級和 sku 的服務限制 - Azure 搜尋服務
 description: 容量計劃中使用的服務限制，以及 Azure 搜尋服務要求和回應的最大限制。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 35beb55d7326b954a568a377b73696fe598742c5
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 9ddc7ad8882b30a17be5820116da72c5ab32fad9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348309"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640616"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 儲存體、工作負載的最大限制, 以及索引、檔和其他物件的數量上限, 取決於您是否**在免費**、**基本**、**標準**或**儲存體優化**定價層布建[Azure 搜尋服務](search-create-service-portal.md)。

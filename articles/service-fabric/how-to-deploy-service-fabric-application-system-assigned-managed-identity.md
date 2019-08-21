@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: c225971675557ba9bc98aafa25d17a3ef95a594a
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 9f6f3d43f80b3c69b0c1106b8e395b4d8f5d32ab
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624954"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640710"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>使用系統指派的受控識別 (預覽) 部署 Service Fabric 應用程式
 
@@ -92,7 +92,7 @@ ms.locfileid: "69624954"
     ```
     這是與上述服務的身分識別對應, 但從服務定義的觀點來看。 這裡會依應用程式資訊清單中宣告的`WebAdmin`易記名稱 () 來參考此身分識別。
 
-## <a name="related-articles"></a>相關文章
+## <a name="next-steps"></a>後續步驟
 
 * 審查 Azure Service Fabric 中的[受控識別支援](./concepts-managed-identity.md)
 

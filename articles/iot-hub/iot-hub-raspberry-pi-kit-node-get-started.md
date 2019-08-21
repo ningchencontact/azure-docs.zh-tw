@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi 至 cloud (Node.js) - 將 Raspberry Pi 連接至 Azure IoT 中樞 | Microsoft Docs
-description: 了解如何設定與 Raspberry Pi 連線到 Azure IoT 中樞，Raspberry Pi 將資料傳送至 Azure 雲端平台，在本教學課程。
+description: 瞭解如何在本教學課程中設定 Raspberry Pi, 並將其連線至 Raspberry Pi 的 Azure IoT 中樞, 以將資料傳送到 Azure 雲端平臺。
 author: wesmc7777
 manager: philmea
 keywords: azure iot raspberry pi, raspberry pi iot 中樞, raspberry pi 將資料傳送至雲端, raspberry pi 至 cloud
@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: e7863e4a0f4cab6f6328de19d1611710f9188de3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e7346fa0f9cc977755c441077a50707dd207019f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838752"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638282"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 連接至 Azure IoT Hub (Node.js)
 
@@ -94,10 +94,7 @@ ms.locfileid: "67838752"
 
 1. 下載 Raspbian。
 
-   a. [下載 Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (.zip 檔案)。
-
-   > [!WARNING]
-   > 請使用上面的連結來下載 `raspbian-2017-07-5` zip 映像。 最新版的 Raspbian 映像有一些已知的 Wiring-Pi Node 問題，這可能會導致您後續步驟失敗。
+   a. [使用桌面的 Raspbian Buster](https://www.raspberrypi.org/downloads/raspbian/)(.zip 檔案)。
 
    b. 將 Raspbian 映像解壓縮到您電腦上的資料夾。
 
@@ -119,13 +116,13 @@ ms.locfileid: "67838752"
 
 1. 將 Pi 連接至監視器、鍵盤及滑鼠。
 
-2. 啟動 Pi，然後使用登入 Raspbian`pi`作為使用者名稱和`raspberry`做為密碼。
+2. 啟動 Pi, 然後使用`pi`做為使用者名稱和`raspberry`密碼來登入 Raspbian。
 
-3. 按一下 Raspberry 圖示 > [偏好設定]   > [Raspberry Pi 組態]  。
+3. 按一下 Raspberry 圖示 > [偏好設定] > [Raspberry Pi 組態]。
 
    ![[Raspbian 偏好設定] 功能表](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
-4. 在 [介面]  索引標籤上，將 [I2C]  和 [SSH]  設定為 [啟用]  ，然後按一下 [確定]  。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
+4. 在 [介面]索引標籤上，將 [I2C] 和 [SSH] 設定為 [啟用]，然後按一下 [確定]。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
 
    ![在 Raspberry Pi 上啟用 I2C 和 SSH](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 
@@ -195,10 +192,10 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
    node -v
    ```
 
-   如果版本低於 10.x，或如果在 Pi 上沒有 Node.js，請安裝最新版本。
+   如果版本低於 11. x, 或 Pi 上沒有 node.js, 請安裝最新版本。
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -251,9 +248,9 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
 ## <a name="read-the-messages-received-by-your-hub"></a>讀取您的中樞所接收的訊息
 
-監視您的 IoT 中樞，從您的裝置所接收的訊息其中一個方法是使用 Azure IoT Tools for Visual Studio Code。 若要進一步了解，請參閱[使用 Azure IoT Tools for Visual Studio Code 來傳送和接收訊息，您的裝置與 IoT 中樞之間](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
+若要監視您的 IoT 中樞從裝置接收的訊息, 其中一種方式是使用 Visual Studio Code 的 Azure IoT Tools。 若要深入瞭解, 請參閱[使用 Visual Studio Code 的 Azure IoT Tools, 在您的裝置與 IoT 中樞之間傳送和接收訊息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
 
-如需詳細的方式處理您的裝置所傳送的資料，請繼續下一節。
+如需更多方式來處理您的裝置所傳送的資料, 請繼續進行下一節。
 
 ## <a name="next-steps"></a>後續步驟
 

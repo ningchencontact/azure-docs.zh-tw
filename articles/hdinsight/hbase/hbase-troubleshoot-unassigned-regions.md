@@ -5,19 +5,19 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: e75f2fdd0530b92e8c8405b74c2a364ff9e9e28e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/16/2019
+ms.openlocfilehash: 6e734a661557b024257fcd1b9d9c2da6a3bc8f85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935428"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640233"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight 中區域伺服器的問題
 
 本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
 
-## <a name="scenario-unassigned-regions"></a>案例:未指派的區域
+## <a name="scenario-unassigned-regions"></a>案例：未指派的區域
 
 ### <a name="issue"></a>問題
 
@@ -27,31 +27,31 @@ ms.locfileid: "68935428"
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-從 Apache HBase Master UI, 可以看到區域計數在所有區域伺服器之間不平衡。
+從 Apache HBase Master UI 中, 您可以看到所有區域伺服器之間不平衡的區域數目。 然後，您可以執行 `hbase hbck` 命令來查看區域鏈結中的漏洞。
 
 ### <a name="cause"></a>原因
 
 漏洞可能是離線區域的結果。
 
-### <a name="resolution"></a>解決方法
+### <a name="resolution"></a>解析度
 
 修正指派。 請遵循下列步驟，讓未指派的區域恢復正常狀態：
 
 1. 使用 SSH 登入 HDInsight HBase 叢集。
 
-1. 執行`hbase zkcli`命令以使用 zookeeper shell 進行連接。
+1. 執行`hbase zkcli`命令以使用 ZooKeeper shell 進行連接。
 
 1. 執行`rmr /hbase/regions-in-transition` 或`rmr /hbase-unsecure/regions-in-transition`命令。
 
 1. 使用`exit`命令結束 zookeeper shell。
 
-1. 開啟 Ambari UI，並從 Ambari 重新啟動 Active HBase Master 服務。
+1. 開啟 Apache Ambari UI，然後重新啟動 Active HBase Master 服務。
 
 1. 再次`hbase hbck`執行命令 (不含任何進一步的選項)。 檢查輸出, 並確定已指派所有區域。
 
 ---
 
-## <a name="scenario-dead-region-servers"></a>案例:失效的區域伺服器
+## <a name="scenario-dead-region-servers"></a>案例：失效的區域伺服器
 
 ### <a name="issue"></a>問題
 
@@ -61,11 +61,11 @@ multiple regions being unassigned or holes in the chain of regions
 
 多個分割 WAL 目錄。
 
-1. 取得目前 wal 的清單: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`。
+1. 取得目前 Wal 的清單: `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`。
 
 1. `wals.out`檢查檔案。 如果有太多分割目錄 (從 *-分割開始), 區域伺服器可能會因為這些目錄而失敗。
 
-### <a name="resolution"></a>解決方法
+### <a name="resolution"></a>解析度
 
 1. 從 Ambari 入口網站停止 HBase。
 

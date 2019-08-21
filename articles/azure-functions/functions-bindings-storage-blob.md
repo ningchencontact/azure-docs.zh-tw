@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: fc7cb7f82fce4f7da02f39b0b423841ac270dcbd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e970afbfd9c302dc95667a7c356e95824838e9b4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564818"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636464"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -392,7 +392,7 @@ public void run(
 
 Blob 觸發程序提供數個中繼資料屬性。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些值的語意與 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) 類型相同。
 
-|屬性  |Type  |描述  |
+|屬性  |類型  |描述  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|觸發 Blob 的路徑。|
 |`Uri`|`System.Uri`|Blob 的主要位置 URI。|
@@ -459,7 +459,7 @@ JavaScript 和 Java 函式會將整個 Blob 載入記憶體中，而 C# 函式�
 > 如果您需要更快或更可靠的 Blob 處理，請考慮在建立 Blob 時建立[佇列訊息](../storage/queues/storage-dotnet-how-to-use-queues.md)。 然後，使用[佇列觸發程序](functions-bindings-storage-queue.md) (而不是 Blob 觸發程序) 處理該 Blob。 另一個選項是使用 Event Grid；請參閱教學課程[使用 Event Grid 自動調整已上傳映像的大小](../event-grid/resize-images-on-storage-blob-upload-event.md)。
 >
 
-## <a name="input"></a>輸入
+## <a name="input"></a>Input
 
 使用 Blob 儲存體輸入繫結來讀取 Blob。
 

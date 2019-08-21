@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 2965376d72cf32c0394d0c493a141bbb1f820ace
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: adc21358011454c8687998dc5d257052959b933b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624922"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640740"
 ---
 # <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>設定現有的 Azure Service Fabric 叢集以啟用受控識別支援 (預覽)
 為了存取 Azure Service Fabric 應用程式的受控識別功能, 您必須先在叢集上啟用**受控識別權杖服務**。 此服務負責使用其受控識別來驗證 Service Fabric 應用程式, 並代表其取得存取權杖。 啟用服務之後, 您可以在左窗格中的 [**系統**] 區段底下的 [ManagedIdentityTokenService] Service Fabric Explorer 中看到它, 並在 [ **Fabric:/system/** ] 名稱底下執行。
@@ -75,8 +75,3 @@ ms.locfileid: "69624922"
 * [使用使用者指派的受控識別來部署 Azure Service Fabric 應用程式](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [從服務程式代碼運用 Service Fabric 應用程式的受控識別](./how-to-managed-identity-service-fabric-app-code.md)
 * [將其他 Azure 資源的存取權授與 Azure Service Fabric 應用程式](./how-to-grant-access-other-resources.md)
-
-## <a name="related-articles"></a>相關文章
-* 審查 Azure Service Fabric 中的[受控識別支援](./concepts-managed-identity.md)
-
-* [在現有的 Azure Service Fabric 叢集中啟用受控識別支援](./configure-existing-cluster-enable-managed-identity-token-service.md)

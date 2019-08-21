@@ -9,12 +9,12 @@ ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2607e09e6b8428c2aacc8ee7c6be42f54284a1ce
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775351"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641101"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 授權存取 Azure blob 和佇列
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) 會透過[角色型存取控制 (RBAC)](../../
 
 ### <a name="access-permissions-for-data-operations"></a>資料作業的存取權限
 
-如需呼叫特定 Blob 或佇列服務作業所需許可權的詳細資訊, 請參閱[呼叫 Blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。
+如需呼叫特定 Blob 或佇列服務作業所需許可權的詳細資訊, 請參閱[呼叫 Blob 和佇列資料作業的許可權](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。
 
 ## <a name="resource-scope"></a>資源範圍
 
@@ -85,5 +85,5 @@ Azure 檔案儲存體僅針對已加入網域的 Vm (預覽) 支援透過 SMB �
 ## <a name="next-steps"></a>後續步驟
 
 - [使用適用于 Azure 資源的 Azure Active Directory 和受控識別, 授權對 blob 和佇列的存取](storage-auth-aad-msi.md)
-- [從應用程式中使用 Azure Active Directory 進行驗證以存取 Blob 和佇列](storage-auth-aad-app.md)
+- [使用應用程式中的 Azure Active Directory 進行授權, 以存取 blob 和佇列](storage-auth-aad-app.md)
 - [Azure Active Directory 型存取控制的 Azure 儲存體支援已正式運作](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)

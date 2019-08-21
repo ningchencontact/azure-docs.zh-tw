@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fc51dfb90158316b3fe6c11b5265f1cf3251505
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306946"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641039"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>如何在 Azure VM 上重設本機 Linux 密碼
 
@@ -30,11 +30,14 @@ ms.locfileid: "60306946"
 
 ## <a name="manual-password-reset-procedure"></a>手動密碼重設程序
 
-1.  刪除 VM，並保留已連接的磁碟。
+> [!NOTE]
+> 下列步驟不適用於具有非受控磁片的 VM。
 
-2.  將 OS 磁碟機作為資料磁碟連接到相同位置中另一部暫時的 VM。
+1. 取得受影響 VM 的 OS 磁片快照集、從快照集建立磁片, 然後將磁片連結至疑難排解 VM。 如需詳細資訊, 請參閱[使用 Azure 入口網站將 OS 磁片連接至復原 VM, 以針對 WINDOWS VM 進行疑難排解](troubleshoot-recovery-disks-portal-linux.md)。
 
-3.  在暫時的 VM 上，執行下列 SSH 命令以成為進階使用者。
+2. 使用遠端桌面連線到疑難排解 VM。
+
+3.  在疑難排解 VM 上執行下列 SSH 命令, 使其成為超級使用者。
 
     ```bash
     sudo su
@@ -98,12 +101,12 @@ ms.locfileid: "60306946"
     umount /tempmount
     ```
 
-11. 從管理入口網站卸離磁碟。
+11. 在 Azure 入口網站中, 從疑難排解 VM 卸離磁片。
 
-12. 重新建立 VM。
+12. [變更受影響 VM 的 OS 磁片](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm)。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [將 OS 磁碟連結至另一個 Azure VM，以針對 Azure VM 進行疑難排解](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx) \(英文\)
 
-* [Azure CLI:如何刪除並重新部署 VM，以從 VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)
+* [Azure CLI:如何從 VHD 刪除和重新部署 VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

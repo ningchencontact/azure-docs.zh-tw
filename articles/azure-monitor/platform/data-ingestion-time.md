@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990163"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639493"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure 監視器中的記錄資料擷取時間
 Azure 監視器是一種大規模的資料服務，服務對象為每月需傳送數 TB 資料 (且不斷成長) 的上千名客戶。 而在收集記錄資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
@@ -100,8 +100,11 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
+
+先前的百分位數檢查適用于找出延遲的一般趨勢。 若要識別延遲的短期尖峰, 使用最大值 (`max()`) 可能會更有效率。
+
 如果您想要在一段時間內向下切入特定電腦的內嵌時間, 請使用下列查詢, 這也會將圖表中過去一天的資料視覺化: 
+
 
 ``` Kusto
 Heartbeat 

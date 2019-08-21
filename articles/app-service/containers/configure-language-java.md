@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: b71cf55944c1049fa2c3ddca79f02a8b75b9b2ec
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
-ms.translationtype: MT
+ms.openlocfilehash: 07d44bb54c288202d571f8e664822ecf9b4998be
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563009"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639767"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -440,7 +440,7 @@ Linux 上的 Azure App Service 可讓 JAVA 開發人員在完全受控的 Linux 
 
 在 Linux 上的 App Service 中執行的 WildFly 應用程式伺服器會以獨立模式執行，而不會在網域設定中執行。 當您相應放大 App Service 方案時，每個 WildFly 執行個體會設定為獨立伺服器。
 
-使用[調整規模規則](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md)以及藉由[增加執行個體計數](../web-sites-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以垂直或水平方式調整您的應用程式。
+使用[調整規模規則](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md)以及藉由[增加執行個體計數](../manage-scale-up.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以垂直或水平方式調整您的應用程式。
 
 ### <a name="customize-application-server-configuration"></a>自訂應用程式伺服器設定
 

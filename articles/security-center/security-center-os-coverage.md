@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 21a42b2986b52282fbab914fa702d8c4a323ed35
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1f5a144728614ee13bf4f08bb594f0546d446880
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611942"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640791"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -111,7 +111,7 @@ ms.locfileid: "69611942"
 |------|------|-----|-----|
 | Windows Defender (Microsoft 反惡意程式碼軟體)| Windows Server 2016| 否，內建於 OS| 是 |
 | System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組 | 是 |
-| Trend Micro – 所有版本 | Windows Server 系列  | 否 | 是 |
+| 趨勢微–所有版本 * | Windows Server 系列  | 否 | 是 |
 | Symantec v12.1.1100+| Windows Server 系列  | 否 | 是 |
 | McAfee v10+ | Windows Server 系列  | 否 | 是 |
 | McAfee v10+ | Linux 伺服器系列  | 否 | 是的 **\*** |
@@ -121,6 +121,7 @@ ms.locfileid: "69611942"
 
 > [!NOTE]
 > - 在 Windows Server 2008 R2 虛擬機器上偵測 System Center Endpoint Protection (SCEP) 需要安裝 SCEP (PowerShell 3.0 或更高版本)。
+> - 深度安全性代理程式支援偵測趨勢微保護。  不支援 OfficeScan 代理程式。
 
 ## <a name="supported-paas-features"></a>支援的 PaaS 功能
 

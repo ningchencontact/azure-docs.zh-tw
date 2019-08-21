@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c749f090cbb0aeb036a53a01e6cd516617c3186d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 77d5e4ace14fb0071b6e01a01edbad0128382303
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953885"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639726"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
 
@@ -97,7 +97,7 @@ ms.locfileid: "68953885"
 
 ## <a name="scale-an-app-service-plan"></a>調整 App Service 方案
 
-若要相應增加 App Service 方案的定價層，請參閱[在 Azure 中相應增加應用程式](web-sites-scale.md)。
+若要相應增加 App Service 方案的定價層，請參閱[在 Azure 中相應增加應用程式](manage-scale-up.md)。
 
 若要相應縮小方案的執行個體計數，請參閱[手動或自動調整執行個體計數](../monitoring-and-diagnostics/insights-how-to-scale.md)。
 
@@ -113,7 +113,7 @@ ms.locfileid: "68953885"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在 Azure 中相應增加應用程式的規模](web-sites-scale.md)
+> [在 Azure 中相應增加應用程式的規模](manage-scale-up.md)
 
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9609a886bdcbf093cffaf888f9aeaff0d61acec1
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990277"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636657"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 入口網站中設定 App Service 應用程式
 
@@ -167,7 +167,7 @@ ms.locfileid: "68990277"
 
 ![一般設定](./media/configure-common/open-general.png)
 
-在這裡, 您可以設定應用程式的一些一般設定。 某些設定需要您相應[增加至更高的定價層](web-sites-scale.md)。
+在這裡, 您可以設定應用程式的一些一般設定。 某些設定需要您相應[增加至更高的定價層](manage-scale-up.md)。
 
 - **堆疊設定**:用來執行應用程式的軟體堆疊, 包括語言和 SDK 版本。 針對 Linux 應用程式和自訂容器應用程式, 您也可以設定選擇性的啟動命令或檔案。
 - **平臺設定**:可讓您設定裝載平臺的設定, 包括:
@@ -268,4 +268,4 @@ ms.locfileid: "68990277"
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [在 Azure App Service 中監視基本概念]: ./web-sites-monitor.md
 [管線模式]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[在 Azure App Service 中調整應用程式規模]: ./web-sites-scale.md
+[在 Azure App Service 中調整應用程式規模]: ./manage-scale-up.md

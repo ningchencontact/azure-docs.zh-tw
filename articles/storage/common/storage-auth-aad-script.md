@@ -9,12 +9,12 @@ ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d6a85d0f9480418bd840786e17ee258dbdb90c48
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 32b3f113658a20790e0f149739a882004f12fe21
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985220"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640818"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>執行 Azure CLI 或具有 Azure AD 認證的 PowerShell 命令, 以存取 blob 或佇列資料
 
@@ -26,7 +26,7 @@ Azure 儲存體提供 Azure CLI 和 PowerShell 的延伸模組, 可讓您使用 
 
 支援容器和佇列上的作業的延伸模組。 您可能呼叫的作業取決於授與您用來登入 Azure CLI 或 PowerShell 之 Azure AD 安全性主體的許可權。 給予 Azure 儲存體容器或佇列的權限，是透過角色型存取控制 (RBAC) 指派的。 例如, 如果您被指派「 **Blob 資料讀取**者」角色, 則您可以執行從容器或佇列讀取資料的指令碼命令。 如果您已獲指派**Blob 資料參與者**角色, 則您可以執行讀取、寫入或刪除容器或佇列或其包含之資料的指令碼命令。 
 
-如需有關容器或佇列上每個 Azure 儲存體作業所需許可權的詳細資訊, 請參閱[使用 OAuth 權杖呼叫儲存體作業](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#call-storage-operations-with-oauth-tokens)。  
+如需有關容器或佇列上每個 Azure 儲存體作業所需許可權的詳細資訊, 請參閱[使用 OAuth 權杖呼叫儲存體作業](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)。  
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>使用 Azure AD 認證呼叫 CLI 命令
 

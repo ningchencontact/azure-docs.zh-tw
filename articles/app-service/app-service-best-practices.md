@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 55b66237cfbd2db9254362b7fa7efe7da7c624d4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b4c7524415865f7db5d4514c14f8e45030620330
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617604"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636681"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service 的最佳作法
 本文將摘要說明使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)的最佳作法。 
@@ -39,7 +39,7 @@ ms.locfileid: "67617604"
 ## <a name="CPUresources"></a>當應用程式耗用超出預期的 CPU 時
 當您經由監視或服務建議，發現應用程式耗用超出預期的記憶體，或 CPU 用量連續暴增時，請考慮相應增加或相應放大 App Service 方案。 如果應用程式是具狀態，則相應增加是唯一選項，如果應用程式是無狀態，則相應放大提供較大彈性和更高的調整可能性。 
 
-如需有關「具狀態」和「無狀態」應用程式的詳細資訊，您可以觀看這段影片︰[在 Azure App Service 上規劃可調整的端對端多層式應用程式](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)。 如需 App Service 調整和自動調整選項的詳細資訊，請參閱[在 Azure App Service 中調整 Web 應用程式的規模](web-sites-scale.md)。  
+如需有關「具狀態」和「無狀態」應用程式的詳細資訊，您可以觀看這段影片︰[在 Azure App Service 上規劃可調整的端對端多層式應用程式](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)。 如需 App Service 調整和自動調整選項的詳細資訊，請參閱[在 Azure App Service 中調整 Web 應用程式的規模](manage-scale-up.md)。  
 
 ## <a name="socketresources"></a>當通訊端資源耗盡時
 使用的用戶端程式庫未實作為重複使用 TCP 連線是耗盡輸出 TCP 連線的常見原因，而未使用更高階的通訊協定 (例如 HTTP - Keep-Alive) 也是原因之一。 請檢閱 App Service 方案中各應用程式所參考的每個程式庫的說明文件，以確保在程式碼中設定或存取程式庫時，能夠有效率地重複使用輸出連線。 此外，請遵循程式庫文件指引，適當地建立和釋放或清除，以免連線流失。 在進行這類用戶端程式庫調查時，可相應放大至多個執行個體來緩和影響。

@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/29/2019
+ms.date: 08/16/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9d4fd798309398dff38081cc66b4071c5dd1f5bf
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1344b86b9fa922dc22870dda495ff367a511b8ca
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670777"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640252"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 參考文件
 
@@ -74,11 +74,11 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 在您選取特定端點之後，就會看到**歡迎試用**。
 
-[![Swagger try](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
+[![Swagger 試用](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
-展開該區段後，即會顯示每個必要和選擇性參數的輸入欄位。 輸入正確的值，然後選取 [執行]  。
+展開該區段後，即會顯示每個必要和選擇性參數的輸入欄位。 輸入正確的值，然後選取 [執行]。
 
-[![嘗試的 swagger](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
+[![Swagger 已嘗試](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
 當您執行測試之後，就可以驗證回應資料。
 
@@ -86,41 +86,41 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 每個列出的端點也會包含回應主體資料，可用來驗證您的開發和測試。 這些範例包含您想要看到適用於成功 HTTP 要求的狀態碼和 JSON。
 
-[![Swagger 的回應](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
+[![Swagger 回應](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
 範例也會包含錯誤碼，可用來協助偵錯或改善失敗的測試。
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 授權
 
 > [!NOTE]
-> * 建立 Azure 的數位對應項資源的使用者主體會有空間系統管理員角色指派，並將能夠建立其他使用者的其他角色指派。 這類使用者以及其角色可被授權可呼叫 Api。
+> * 建立 Azure 數位 Twins 資源的使用者主體將具有「空間管理員」角色指派, 而且能夠為其他使用者建立其他角色指派。 這類使用者和其角色可以獲得授權以呼叫 Api。
 
-1. 請依照下列中的步驟[本快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)或[註冊 Azure 的數位對應項應用程式與 Azure Active Directory 的舊版](./how-to-use-legacy-aad.md)來建立及設定 Azure AD 應用程式。 或者，您可以重複使用現有的應用程式註冊。
+1. 請遵循[本快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)中的步驟, 或向[Azure Active Directory 舊版註冊您的 Azure 數位 Twins 應用](./how-to-use-legacy-aad.md)程式, 以建立和設定 Azure AD 應用程式。 或者, 您可以重複使用現有的應用程式註冊。
 
-1. 應用程式註冊中加入下列回覆 url:
+1. 將下列回復 url 新增至應用程式註冊:
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | 名稱  | 更換為 | 範例 |
+    | Name  | 更換為 | 範例 |
     |---------|---------|---------|
-    | YOUR_SWAGGER_URL | 您在入口網站中找到的管理 REST API 文件 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+    | YOUR_SWAGGER_URL | 您的管理 REST API 在入口網站中找到的檔 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-1. 複製您的 Azure AD 應用程式識別碼。
+1. 複製 Azure AD 應用程式的識別碼。
 
-之後完成的 Azure Active Directory 註冊：
+完成 Azure Active Directory 註冊之後:
 
-1. 選取 **授權**swagger 頁面上的按鈕。
+1. 選取 swagger 頁面上的 [**授權**] 按鈕。
 
-    [![選取 Swagger 授權按鈕](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![選取 [Swagger 授權] 按鈕](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-1. 貼上到的應用程式識別碼**client_id**欄位。
+1. 將 [應用程式識別碼] 貼到 [ **client_id** ] 欄位中。
 
     [![Swagger client_id 欄位](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-1. 您接著將導向至下列的強制回應成功。
+1. 然後, 系統會將您重新導向至下列成功模式。
 
-    [![Swagger 重新導向的強制回應](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
+    [![Swagger 重新導向模式](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
 若要深入了解如何以互動方式測試由 OAuth 2.0 所保護的要求，請參閱[官方文件](https://swagger.io/docs/specification/authentication/oauth2/)。
 

@@ -5,17 +5,15 @@ manager: jlembicz
 author: LiamCavanagh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
-ms.custom: seodec2018
-ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3e47fc0c46c638a51e6555ccbdc1885f081c149
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61288697"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640553"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本文件將討論以「Azure 搜尋服務」建置的多租用戶應用程式的租用戶隔離策略。
@@ -24,15 +22,15 @@ ms.locfileid: "61288697"
 「Azure 搜尋服務」是一個搜尋即服務解決方案，可讓開發人員不需管理任何基礎結構或成為資訊擷取專家，就能夠將豐富的搜尋體驗新增到應用程式中。 資料會上傳至服務，然後儲存在雲端。 使用對「Azure 搜尋服務」API 的簡單要求，接著便可修改及搜尋資料。 如需此服務的概觀，請參閱 [這篇文章](https://aka.ms/whatisazsearch)。 在討論設計模式之前，請務必了解「Azure 搜尋服務」的一些概念。
 
 ### <a name="search-services-indexes-fields-and-documents"></a>搜尋服務、索引、欄位及文件
-使用「Azure 搜尋服務」時，使用者需訂閱「搜尋服務」  。 由於資料是上傳到「Azure 搜尋服務」，因此它會儲存在該搜尋服務內的「索引」  中。 單一服務內可能會有好幾個索引。 若要使用熟悉的資料庫概念，搜尋服務可以比喻為資料庫，而服務內的索引則可比喻為資料庫內的資料表。
+使用「Azure 搜尋服務」時，使用者需訂閱「搜尋服務」。 由於資料是上傳到「Azure 搜尋服務」，因此它會儲存在該搜尋服務內的「索引」 中。 單一服務內可能會有好幾個索引。 若要使用熟悉的資料庫概念，搜尋服務可以比喻為資料庫，而服務內的索引則可比喻為資料庫內的資料表。
 
-搜尋服務內的每個索引都有自己的結構描述，此結構描述是由一些可自訂的「欄位」  所定義。 資料會以個別「文件」  的形式新增到「Azure 搜尋服務」索引中。 每個文件都必須上傳至特定的索引，並且必須符合該索引的結構描述。 使用「Azure 搜尋服務」來搜尋資料時，會針對特定索引發出全文檢索搜尋查詢。  若要將這些概念比喻成資料庫的概念，則欄位可以比喻為資料表中的資料行，而文件則可以比喻為資料列。
+搜尋服務內的每個索引都有自己的結構描述，此結構描述是由一些可自訂的「欄位」所定義。 資料會以個別「文件」的形式新增到「Azure 搜尋服務」索引中。 每個文件都必須上傳至特定的索引，並且必須符合該索引的結構描述。 使用「Azure 搜尋服務」來搜尋資料時，會針對特定索引發出全文檢索搜尋查詢。  若要將這些概念比喻成資料庫的概念，則欄位可以比喻為資料表中的資料行，而文件則可以比喻為資料列。
 
 ### <a name="scalability"></a>延展性
 「標準」 [定價層](https://azure.microsoft.com/pricing/details/search/) 中的任何「Azure 搜尋服務」服務都可以調整成兩個維度︰儲存體和可用性。
 
-*  來增加搜尋服務的儲存體。
-*  可被新增到服務中，以增加搜尋服務所能處理的要求輸送量。
+* 來增加搜尋服務的儲存體。
+* 可被新增到服務中，以增加搜尋服務所能處理的要求輸送量。
 
 新增及移除資料分割和複本將可讓搜尋服務的容量，隨著應用程式要求的資料量和流量成長。 為了讓搜尋服務達到讀取 [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)，它將需要兩個複本。 為了讓服務達到讀寫 [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)，它將需要三個複本。
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 72614a7f804f404e3e560d944db7b3d2e496c383
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: a3817b3e9f62a863f3fea9305ef169db2eb84491
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705679"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637950"
 ---
 # <a name="getting-started"> </a>關於 Azure App Service 中的 Mobile Apps
 
@@ -104,7 +104,7 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 [Xamarin.iOS 和 Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[自動調整]: ../app-service/web-sites-scale.md
+[自動調整]: ../app-service/manage-scale-up.md
 [預備環境]: ../app-service/deploy-staging-slots.md
 [混合式連線]: ../biztalk-services/integration-hybrid-connection-overview.md
 [虛擬網路]: ../app-service/web-sites-integrate-with-vnet.md

@@ -9,16 +9,16 @@ ms.date: 06/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0f73871d8248b2f52bab5934eef03d883c72ed79
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985385"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640496"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>設定 Azure 儲存體連接字串
 
-連接字串包含您的應用程式在執行時間使用共用金鑰授權存取 Azure 儲存體帳戶中資料所需的驗證資訊。 您可以設定連接字串，以進行下列動作：
+連接字串包含您的應用程式在執行時間使用共用金鑰授權存取 Azure 儲存體帳戶中資料所需的授權資訊。 您可以設定連接字串，以進行下列動作：
 
 * 連線至 Azure 儲存體模擬器
 * 在 Azure 中存取儲存體帳戶。

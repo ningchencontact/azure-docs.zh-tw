@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 412a3cb32663f5bd3bfad2d565b6797f92e26b75
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567335"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641116"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -42,7 +42,7 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上:第4代和�
 | 實例保留的最大儲存體 |  一般用途: 8 TB<br/>業務關鍵:1TB | 一般用途:8 TB<br/> 商務關鍵性 1 TB、2 TB 或 4 TB, 視核心數目而定 |
 
 > [!IMPORTANT]
-> AustraliaEast 區域已不再支援新的第4代資料庫。
+> 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
 
 ### <a name="service-tier-characteristics"></a>服務層的特性
 

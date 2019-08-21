@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 08/10/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 41ebca7bd4ea299bda7e2d7a95edced583866527
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9b65a9b7440922d2b1d7a02a79cc6d0811a1d9fc
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966800"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639349"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>使用 Azure Machine Learning, 大規模建立 TensorFlow 深度學習模型
 
@@ -215,6 +215,7 @@ Azure Machine Learning 服務在 TensorFlow 中支援兩種分散式訓練方法
 若要使用 Horovod, 請[`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py)在 TensorFlow 函數`distributed_training`中指定參數的物件。 此參數可確保已安裝 Horovod 程式庫, 以供您在定型腳本中使用。
 
 ```Python
+from azureml.core.runconfig import MpiConfiguration
 from azureml.train.dnn import TensorFlow
 
 # Tensorflow constructor

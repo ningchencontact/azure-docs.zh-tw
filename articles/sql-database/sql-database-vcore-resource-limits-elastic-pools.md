@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: b84e317745b7bd20f4862bd04584e42254a660d1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa35cb1ae0ad035bdef6ff8e19cf115188ba7f3a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566192"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640847"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>使用以虛擬核心為基礎的購買模型的彈性集區資源限制
 
@@ -37,7 +37,7 @@ ms.locfileid: "68566192"
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層級：儲存體大小與計算大小
 
 > [!IMPORTANT]
-> AustraliaEast 區域已不再支援新的第4代資料庫。
+> 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般目的服務層級：第 4 代計算平台 (第 1 部分)
 
@@ -153,7 +153,7 @@ ms.locfileid: "68566192"
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層級：儲存體大小與計算大小
 
 > [!IMPORTANT]
-> AustraliaEast 區域已不再支援新的第4代資料庫。
+> 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>業務關鍵服務層級：第 4 代計算平台 (第 1 部分)
 
@@ -273,7 +273,7 @@ ms.locfileid: "68566192"
 
 下表描述集區資料庫的屬性。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 每個資料庫的虛擬核心上限 |集區中任何資料庫可以使用的虛擬核心數目上限，是否可用則是根據集區中其他資料庫的使用量而定。 每個資料庫的虛擬核心數目上限不等於資料庫的資源保證。 這個設定是全域設定，會套用至集區中的所有資料庫。 將每個資料庫的虛擬核心設定為最上限，以處理資料庫使用率的尖峰。 某種程度的過量使用是可預期的情況，因為集區通常會假設資料庫的熱門和冷門使用模式；在這些模式中，所有資料庫不會同時處於尖峰期。|
 | 每個資料庫的虛擬核心下限 |集區中單一資料庫能夠保證的虛擬核心數下限。 這個設定是全域設定，會套用至集區中的所有資料庫。 每個資料庫最小虛擬核心建議設定為 0，同時也是預設值。 此屬性會設為 0 到每一資料庫的虛擬核心使用量平均值之間的任意數。 集區中資料庫數目和每個資料庫虛擬核心數目下限的乘積不能超過每個集區的虛擬核心。|

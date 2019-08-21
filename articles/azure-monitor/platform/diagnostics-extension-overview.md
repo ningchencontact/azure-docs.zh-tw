@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0325a3bda912c95d8d27646bc1e80fff5ce10a8
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236238"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639435"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什麼是 Azure 診斷延伸模組
 Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](../../azure-monitor/overview.md)。
@@ -27,9 +27,9 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 | --- | --- |
 | 效能計數器計量 |作業系統和自訂效能計數器 |
 | 應用程式記錄 |追蹤您應用程式寫入的訊息 |
-| Windows 事件記錄 |傳送至 Windows 事件記錄系統的資訊 |
+| Windows 事件記錄檔 |傳送至 Windows 事件記錄系統的資訊 |
 | .NET EventSource 記錄 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 類別的程式碼編寫事件 |
-| IIS 記錄 |IIS 網站的相關資訊 |
+| IIS 記錄檔 |IIS 網站的相關資訊 |
 | [以資訊清單為基礎的 ETW 記錄](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) \(英文\) |針對任何程序所產生之 Windows 事件所進行的事件追蹤。(1) |
 | 損毀傾印 (記錄) |應用程式損毀時之程序狀態的相關資訊 |
 | 自訂錯誤記錄 |您的應用程式或服務所建立的記錄 |
@@ -52,7 +52,7 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 若要深入了解如何設定此接收，請參閱 [Azure 診斷結構描述文件](diagnostics-extension-schema-1dot3.md)。
 
 ## <a name="costs"></a>費用
-每個上述選項可能會產生費用。 請務必研究，以避免非預期的物料單。  Application Insights]、 [事件中樞和 Azure 儲存體具有個別擷取相關聯的成本和儲存的時間。 特別是，Azure 儲存體將會包含任何資料，不限次數因此您可能想要降低您的成本在特定時間週期之後清除較舊的資料。    
+上述每個選項都可能會產生成本。 請務必研究它們以避免非預期的帳單。  Application Insights、事件中樞和 Azure 儲存體有與內嵌和儲存時間相關聯的個別成本。 特別是, Azure 儲存體會永久保存任何資料, 因此您可能會想要在一段時間後清除較舊的資料, 讓您的成本降低。    
 
 ## <a name="versioning-and-configuration-schema"></a>版本控制和設定結構描述
 請參閱 [Azure 診斷版本歷程記錄和結構描述](diagnostics-extension-schema.md)。
@@ -74,7 +74,7 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 
 ## <a name="virtual-machines"></a>虛擬機器
 * 如果您使用 Visual Studio，請參閱[使用 Visual Studio 來追蹤 Microsoft Azure 虛擬機器](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)來開始。 否則，請參閱
-* [在 Azure 虛擬機器上設定 Azure 診斷](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+* [在 Azure 虛擬機器上設定 Azure 診斷](/azure/virtual-machines/extensions/diagnostics-windows)
 
 如需更進階的主題，請參閱
 

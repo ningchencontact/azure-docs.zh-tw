@@ -6,18 +6,16 @@ manager: pablocas
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 1868e9fd3a7dde5d6302753986019f481a577007
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 5ce2c1aebebe802aa0fd3bda74c168e7a12341c0
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841293"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639283"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>如何參考認知搜尋技能集中的註釋
 
@@ -35,7 +33,7 @@ ms.locfileid: "68841293"
 | 擴充內容 | 執行擴充所在的內容，以擴充何種元素的觀點來表示。 根據預設，擴充內容會在 `"/document"` 層級上，其範圍僅限於個別文件。 當技能執行時，該技能的輸出會成為[已定義內容的屬性](#example-2)。|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>範例 1:簡單註解參考
+## <a name="example-1-simple-annotation-reference"></a>範例 1：簡單註解參考
 
 在 Azure Blob 儲存體中, 假設您有各種檔案包含您想要使用實體辨識來解壓縮的人員名稱參考。 在下列技能定義中，`"/document/content"` 是整份文件的文字表示法，而 "people" 則是對識別為人員的實體擷取到的完整名稱。
 

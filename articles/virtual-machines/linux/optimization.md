@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bd59257c1136f52beaf217c1f983c8aeb7bd81d5
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671118"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640747"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上最佳化 Linux VM
 您可以從命令列或入口網站，輕鬆建立 Linux 虛擬機器 (VM)。 本教學課程示範如何在 Microsoft Azure 平台上設定，以確保將其效能最佳化。 本主題會使用 Ubuntu Server VM，但您也可以使用 [自己的映像做為範本](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)來建立 Linux 虛擬機器。  
@@ -60,9 +60,9 @@ ms.locfileid: "67671118"
 
 對於沒有 cloud-init 支援的映像，從 Azure Marketplace 部署的 VM 映像具有與作業系統整合的 VM Linux 代理程式。 此代理程式可讓 VM 與各種 Azure 服務進行互動。 假設您從 Azure Marketplace 部署標準映像，需要執行以下操作來正確配置 Linux 交換檔設定︰
 
-找出並修改 **/etc/waagent.conf** 檔案中的兩個項目。 它們控制專用交換檔案的存在和交換檔的大小。 您要修改的參數是 `ResourceDisk.EnableSwap=N` 和 `ResourceDisk.SwapSizeMB=0`。 
+找出並修改 **/etc/waagent.conf** 檔案中的兩個項目。 它們控制專用交換檔案的存在和交換檔的大小。 您需要驗證`ResourceDisk.EnableSwap`的參數為和`ResourceDisk.SwapSizeMB` 
 
-將參數變更為下列設定︰
+若要啟用已正確啟用的磁片和掛接的交換檔, 請確定參數具有下列設定:
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={符合您需求的大小 (MB)} 
