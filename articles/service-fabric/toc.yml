@@ -108,7 +108,7 @@
 - name: 範例
   items:
     - name: 程式碼範例
-      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+      href: 'https://docs.microsoft.com/samples/browse/'
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
@@ -354,7 +354,7 @@
       href: service-fabric-api-management-overview.md
     - name: 應用程式資源模型
       href: service-fabric-concept-resource-model.md
-    - name: 受控識別
+    - name: 受控識別 (預覽)
       href: concepts-managed-identity.md
 - name: 使用說明指南
   items:
@@ -747,7 +747,7 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: 針對本機叢集進行疑難排解
           href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: 使用 Service Fabric 應用程式的受控識別
+    - name: 使用 Service Fabric 應用程式的受控識別 (預覽)
       items:
         - name: 叢集設定
           items:

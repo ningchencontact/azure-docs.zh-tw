@@ -930,6 +930,8 @@
               href: platform/alerts-understand-migration.md
             - name: 使用移轉工具
               href: platform/alerts-using-migration-tool.md
+            - name: 自動移轉程序
+              href: platform/alerts-automatic-migration.md
             - name: 管理傳統計量警示
               href: platform/alerts-classic-portal.md
             - name: 使用 Resource Manager 範本的傳統計量警示

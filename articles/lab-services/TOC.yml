@@ -72,7 +72,7 @@
   items:
     - name: 教室實驗室
       items:
-        - name: 建立及設定實驗室帳戶
+        - name: 建立及設定實驗室帳戶 (實驗室帳戶擁有者)
           items:
             - name: 建立及管理實驗室帳戶
               href: classroom-labs/how-to-manage-lab-accounts.md
@@ -82,7 +82,7 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: 附加或中斷連結共用映像資源庫
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-        - name: 建立、設定和使用教室實驗室
+        - name: 建立和設定教室實驗室 (老師)
           items:
             - name: 建立和管理教室實驗室
               href: classroom-labs/how-to-manage-classroom-labs.md
@@ -90,8 +90,6 @@
               href: classroom-labs/how-to-create-manage-template.md
             - name: 設定與控制使用量
               href: classroom-labs/how-to-configure-student-usage.md
-            - name: 存取教室實驗室
-              href: classroom-labs/how-to-use-classroom-lab.md
             - name: 建立和管理排程
               href: classroom-labs/how-to-create-schedules.md
             - name: 使用範本 VM 內的多個 VM 建立環境
@@ -102,6 +100,10 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: 設定或重設適用於虛擬機器的密碼
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+        - name: 在教室實驗室中連線至 VM (學生)
+          items:
+            - name: 存取教室實驗室
+              href: classroom-labs/how-to-use-classroom-lab.md
     - name: DevTest Labs
       items:
         - name: 設定實驗室
@@ -120,6 +122,8 @@
               href: configure-lab-remote-desktop-gateway.md
             - name: 在實驗室中張貼公告
               href: devtest-lab-announcements.md
+            - name: 在 VM 上啟用瀏覽器連線
+              href: enable-browser-connection-lab-virtual-machines.md
             - name: 設定成本管理
               href: devtest-lab-configure-cost-management.md
             - name: 傳送自動關閉通知
@@ -166,6 +170,8 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: 使用共用映像資源庫中的映像建立虛擬機器
               href: add-vm-use-shared-image.md
+            - name: 透過瀏覽器連線至 VM
+              href: connect-virtual-machine-through-browser.md
             - name: 使用 PowerShell 或 CLI 啟動或停止 VM
               href: use-command-line-start-stop-virtual-machines.md
             - name: 重新啟動 VM
