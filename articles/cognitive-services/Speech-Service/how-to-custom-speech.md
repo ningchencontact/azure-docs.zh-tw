@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a5ced51eabe708dc7883fc91e5b6fa67f9211381
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f2b95affd08c989a9d1cdee53c0a4e6df16af106
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559640"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892043"
 ---
 # <a name="what-is-custom-speech"></a>什麼是自訂語音？
 
-「[自訂語音](https://aka.ms/custom-speech)」是一組線上工具, 可讓您針對應用程式、工具和產品評估及改善 Microsoft 的語音轉換文字準確度。 開始使用是幾個測試音訊檔案。 請遵循下列連結, 開始建立自訂的語音轉換文字體驗。
+「[自訂語音](https://aka.ms/customspeech)」是一組線上工具, 可讓您針對應用程式、工具和產品評估及改善 Microsoft 的語音轉換文字準確度。 開始使用是幾個測試音訊檔案。 請遵循下列連結, 開始建立自訂的語音轉換文字體驗。
 
 ## <a name="whats-in-custom-speech"></a>自訂語音有哪些功能？
 

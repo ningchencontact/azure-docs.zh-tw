@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0a3a9330eaa977f72cdbaba4e11aaa706b437fad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 45520d39c822c734e3fc725bca3375e93983a118
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945912"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637462"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教學課程：批次測試資料集
 
@@ -95,7 +95,7 @@ ms.locfileid: "68945912"
 
 ## <a name="review-batch-results"></a>檢閱批次結果
 
-批次圖表會顯示四個象限的結果。 圖表的右邊是一個篩選條件。 根據預設，會將該篩選條件設定為清單中第一個意圖。 此篩選包含所有意圖, 而且只包含簡單和複合實體。 當您選取某個[圖表區段](luis-concept-batch-test.md#batch-test-results)或圖表內的某一點時，相關聯的語句即會顯示於圖表下方。 
+批次圖表會顯示四個象限的結果。 圖表的右邊是一個篩選條件。 篩選包含意圖和實體。 當您選取某個[圖表區段](luis-concept-batch-test.md#batch-test-results)或圖表內的某一點時，相關聯的語句即會顯示於圖表下方。 
 
 將滑鼠停留在圖表上方時，滑鼠滾輪可以放大或縮小圖表中的顯示。 當圖表上有許多點緊密聚集在一起時，這非常有用。 
 
@@ -103,27 +103,27 @@ ms.locfileid: "68945912"
 
 ### <a name="getjobinformation-test-results"></a>GetJobInformation 測試結果
 
-篩選條件中顯示的 **GetJobInformation** 測試結果顯示四個預測中有 2 個成功。 在右上方象限上選取**誤判**的名稱，以查看圖表下方的語句。 
+篩選條件中顯示的 **GetJobInformation** 測試結果顯示四個預測中有 2 個成功。 選取左下方的 [名稱**False** ], 以查看圖表下方的語句。 
 
-![LUIS 批次測試語句](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+使用鍵盤 Ctrl + E 來切換至 [標籤] 視圖, 以查看使用者語句的確切文字。 
 
-為什麼這兩個語句會被預測為 **ApplyForJob**，而不是正確的意圖 **GetJobInformation**？ 這兩個意圖在選字選與字詞排列方面非常密切相關。 此外，適用於 **ApplyForJob** 的範例幾乎是 **GetJobInformation** 的三倍。 範例語句的這個不對稱性在 **ApplyForJob** 意圖中相當重要。 
+語句`Is there a database position open in Los Colinas?`標示為_GetJobInformation_ , 但目前的模型已預測語句為_ApplyForJob_。 
+
+比起**GetJobInformation**, **ApplyForJob**的範例幾乎有三倍。 這 unevenness 的範例語句會以**ApplyForJob**意圖的偏好進行權衡, 因而導致不正確的預測。 
 
 請注意，這兩個意圖具有相同的錯誤計數。 一個意圖中不正確的預測也會影響另一個意圖。 這兩者都有錯誤，因為針對一個意圖不正確地預測了語句，而且也不會針對另一個意圖進行不正確的預測。 
 
-![LUIS 批次測試篩選錯誤](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-對應 [誤判] 區段中之頂點的語句為 `Can I apply for any database jobs with this resume?` 和 `Can I apply for any database jobs with this resume?`。 針對第一個語句，`resume` 這個字只適用於 **ApplyForJob**。 針對第二個語句，`apply` 這個字只適用於 **ApplyForJob** 意圖。
-
-## <a name="fix-the-app"></a>修正應用程式
+## <a name="how-to-fix-the-app"></a>如何修正應用程式
 
 本節目標是藉由修正應用程式，針對 **GetJobInformation** 正確預測所有語句。 
 
-有個看似快速的修正是將這些批次檔語句新增到正確的意圖。 但那不是您想要做的。 您想要 LUIS 正確預測這些語句，而不需將它們新增為範例。 
+有個看似快速的修正是將這些批次檔語句新增到正確的意圖。 這不是您想要執行的動作。 您想要 LUIS 正確預測這些語句，而不需將它們新增為範例。 
 
 您可能也會想要從 **ApplyForJob** 移除語句，直到語句數量與 **GetJobInformation** 一樣為止。 那樣做可能會修正測試結果，但會妨礙 LUIS 下一次準確預測該意圖。 
 
-第一個修正是將更多語句新增到 **GetJobInformation**。 第二個修正是減少字組對於 **ApplyForJob** 意圖的比重，例如 `resume` 和 `apply`。 
+修正方法是將更多語句新增至**GetJobInformation**。 請記得改變語句長度、單字選擇和文字排列, 同時仍以尋找作業資訊的目的為目標, 而_不_是針對作業套用。
 
 ### <a name="add-more-utterances"></a>新增更多語句
 
@@ -161,15 +161,13 @@ ms.locfileid: "68945912"
 
 1. 選取頂端導覽列中的 [Test] \(測試\)。 如果批次結果仍處於開放狀態，請選取 [返回清單]。  
 
-2. 選取批次名稱右邊的省略符號 (***...***) 按鈕，然後選取 [執行資料集]。 等候批次測試完成。 請注意，[查看結果] 按鈕現在是綠色。 這表示整個批次已成功執行。
+1. 選取批次名稱右邊的省略號 (***...***) 按鈕, 然後選取 [**執行**]。 等候批次測試完成。 請注意，[查看結果] 按鈕現在是綠色。 這表示整個批次已成功執行。
 
-3. 選取 [See results] \(查看結果\)。 這些意圖的意圖名稱左邊應該都會有綠色圖示。 
-
-    ![已醒目提示批次結果按鈕的 LUIS 螢幕擷取畫面](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. 選取 [See results] \(查看結果\)。 這些意圖的意圖名稱左邊應該都會有綠色圖示。 
 
 ## <a name="create-batch-file-with-entities"></a>建立含有實體的批次檔 
 
-為了在批次測試中確認實體，必須在批次 JSON 檔案中標示實體。 只會使用機器學習的實體: 簡單和複合實體。 不要新增非機器學習的實體，因為一律可透過規則運算式或明確的文字相符項目找到它們。
+為了在批次測試中確認實體，必須在批次 JSON 檔案中標示實體。 
 
 適用於文字 ([語彙基元](luis-glossary.md#token)) 總計數的實體變化可能會影響預測品質。 若已將定型資料提供給含有已標示語句的意圖，請確定這類資料包括各種實體長度。 
 
@@ -178,7 +176,6 @@ ms.locfileid: "68945912"
 測試語句中提供的 **Job** 實體值，通常是一或兩個文字，以及一些有更多文字的範例。 如果「您自己」的人力資源應用程式的作業名稱通常會有許多文字，則應用程式中已使用 **Job** 實體標示的範例語句就無法正常運作。
 
 1. 在文字編輯器 (例如 `HumanResources-entities-batch.json`VSCode[) 中建立 ](https://code.visualstudio.com/)，或[下載此項目](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)。
-
 
 2. 在 JSON 格式的批次檔中，新增一個物件陣列，其中包含語句和您想要在測試中預測的**意圖**，以及語句中任何實體的位置。 由於實體會以語彙基元為基礎，因此，請確定會在字元上啟動和停止每個實體。 不要以空格開始或結束語句。 這會在批次檔匯入期間造成錯誤。  
 
@@ -200,8 +197,6 @@ ms.locfileid: "68945912"
 6. 選取 [執行] 按鈕。 等候測試完成。
 
 7. 選取 [See results] \(查看結果\)。
-
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="review-entity-batch-results"></a>檢閱實體批次結果
 

@@ -34,8 +34,10 @@
       href: create-host-pools-powershell.md
     - name: 將 Windows 授權套用至 Windows 虛擬桌面工作階段主機
       href: apply-windows-license.md
-    - name: 設定主機集區的使用者設定檔共用
+    - name: 使用檔案共用建立主機集區的設定檔容器
       href: create-host-pools-user-profile.md
+    - name: 使用 Azure NetApp Files 建立主機集區的設定檔容器
+      href: create-fslogix-profile-container.md
     - name: 設定 Windows 虛擬桌面負載平衡方法
       href: configure-host-pool-load-balancing.md
     - name: 準備和自訂主要 VHD 映像

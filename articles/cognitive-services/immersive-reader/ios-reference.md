@@ -1,20 +1,20 @@
 ---
 title: 沉浸式讀取器 iOS SDK 參考
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 沉浸式讀取器 iOS SDK 的參考
 services: cognitive-services
-author: MeganRoach
+author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
-ms.author: t-meroa
-ms.openlocfilehash: acdaaf0bf08644053e86343ae4b002002fee6a84
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.author: metan
+ms.openlocfilehash: 615c09dd8a7287918bb009ce11854278b21554c1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966588"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899404"
 ---
 # <a name="immersive-reader-sdk-reference"></a>沉浸式讀取器 SDK 參考
 
@@ -34,7 +34,7 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 
 #### <a name="parameters"></a>參數
 
-| 名稱 | Type | 描述 |
+| Name | Type | 描述 |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | 要從中呼叫函式之 iOS 應用程式的流覽控制器。 |
 | `token` | String | Azure AD 驗證 token。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
@@ -44,7 +44,7 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 | `onSuccess` | ()-> Void | 當沉浸式讀取器成功啟動時, 所叫用的關閉。 |
 | `onFailure` | (_ 錯誤:[錯誤](#error))-> Void | 當沉浸式讀取器無法載入時, 所叫用的關閉。 這個關閉[`Error`](#error)會傳回物件, 代表與失敗相關聯的錯誤碼和錯誤訊息。 如需詳細資訊, 請參閱[錯誤碼](#error-codes)。 |
 
-## <a name="types"></a>類型
+## <a name="types"></a>型別
 
 ### <a name="content"></a>內容
 
@@ -61,7 +61,7 @@ struct Content: Encodable {
 
 | MIME 類型 | 描述 |
 | --------- | ----------- |
-| 文字/純文字 | 純文字。 |
+| text/plain | 純文字。 |
 | application/mathml+xml | 數學標記語言 (MathML)。 [深入了解](https://developer.mozilla.org/en-US/docs/Web/MathML)。
 
 ### <a name="options"></a>選項。

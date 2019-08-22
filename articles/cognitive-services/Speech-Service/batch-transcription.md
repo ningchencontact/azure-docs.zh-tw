@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: e98ac335f475e4a6db6b17d5954512f5749e6aec
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 101cfacf071292d00556656b0df9c6bf9c15f414
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881161"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515878"
 ---
 # <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
 如果您想要轉譯儲存體 (例如 Azure Blob) 中數量龐大的音訊，則適用批次轉譯。 透過使用該專屬 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並以非同步方式接收轉譯。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="subscription-key"></a>訂用帳戶金鑰
 
@@ -90,9 +90,9 @@ Batch 轉譯 API 支援下列格式：
 | `PunctuationMode` | 指定如何處理辨識結果中的標點符號。 接受的值為`None` (會停用標點符號)、`dictated` (暗示明確的標點符號)、`automatic` (會讓解碼器處理標點符號) 或 `dictatedandautomatic` (暗示口述的標點符號或自動)。 |
  | `AddWordLevelTimestamps` | 指定是否將字組層級時間戳記新增至輸出。 接受的值為`true` 會啟用字組層級時間戳記，而 `false` (預設值) 會停用。 |
  | `AddSentiment` | 指定應該將情感新增至語句。 接受的值`true`為, 可讓每個`false`語句的情感和 (預設值) 停用它。 |
- | `AddDiarization` | 指定應該在輸入上執行 diarization alalysis, 這應該是包含兩個語音的 mono 通道。 接受`true`的值為, 可讓`false` diarization 和 (預設值) 停用它。 它也需要`AddWordLevelTimestamps`設定為 true。|
+ | `AddDiarization` | 指定應該在輸入上執行 diarization 分析, 這應該是包含兩個語音的 mono 通道。 接受`true`的值為, 可讓`false` diarization 和 (預設值) 停用它。 它也需要`AddWordLevelTimestamps`設定為 true。|
 
-### <a name="storage"></a>存放區
+### <a name="storage"></a>儲存體
 
 批次轉譯支援[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)來讀取音訊, 並將轉譯寫入儲存體。
 

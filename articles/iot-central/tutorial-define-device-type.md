@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 54884728533aeff0472ed99660be00478227fbcd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd3ec276fdc95ad326d14a5b21e8ab793b154080
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056774"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875768"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT Central 應用程式中定義新的裝置類型
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 本教學課程將為建置者說明如何使用裝置範本在 Microsoft Azure IoT Central 應用程式中定義新的裝置類型。 裝置範本會定義裝置類型的遙測、狀態、屬性和設定。
 
@@ -287,7 +289,7 @@ ms.locfileid: "67056774"
 
     | 欄位                | 值                |
     | -------------------- | -------------------- |
-    | 顯示名稱         | 位置             |
+    | 顯示名稱         | Location             |
     | 欄位名稱           | location             |
     | 初始值        | 美國華盛頓州西雅圖          |
     | 說明          | 裝置位置      |

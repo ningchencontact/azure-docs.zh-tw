@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559580"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640434"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>準備資料以建立自訂語音
 
@@ -74,7 +74,7 @@ ms.locfileid: "68559580"
 
 轉譯檔案是純文字檔案。 使用這些指導方針來準備您的轉譯。
 
-| 內容 | 值 |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | 純文字 (.txt) |
 | 編碼格式 | ANSI/ASCII、UTF-8、UTF-8-BOM、UTF-16-LE 或 UTF-16-是。 若為 zh-CN, 則不支援 ANSI/ASCII 和 UTF-8 編碼。 |
@@ -104,7 +104,7 @@ ms.locfileid: "68559580"
 
 準備要進行分割的音訊時, 請遵循這些指導方針。
 
-| 內容 | 值 |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | RIFF (.wav), 其取樣率至少為 16 khz-16 位, PCM 中的速率至少為 256 KBps, 並分組為 .zip 檔案 |
 | 檔案名稱 | 僅限 ASCII 字元。 名稱中的 Unicode 字元將會失敗 (例如, 中文字元或 "-" 之類的符號)。 不允許重複的名稱。 |
@@ -118,13 +118,13 @@ ms.locfileid: "68559580"
 
 文字記錄必須備妥此表格中所列的規格。 每個音訊檔案都必須與文字記錄相符。
 
-| 內容 | 值 |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | 純文字 (.txt), 分組為 .zip |
 | 檔案名稱 | 使用與相符的音訊檔案相同的名稱 |
 | 編碼格式 | UTF-8-僅限 BOM |
 | 每一行的語句數目 | 無限制 |
-| 檔案大小上限 | 50M |
+| 檔案大小上限 | 50 MB |
 
 此資料類型中的所有文字記錄檔案都應該分組成一個 zip 檔案。 Zip 檔案中不允許有任何子資料夾。 例如, 您上傳的 zip 檔案包含名為 ' kingstory '、45秒長的音訊檔案, 以及另一個名為 ' queenstory. mp3 ' 200 秒長的檔案。 您將需要上傳另一個包含兩份文字記錄的 zip 檔案, 一個名稱為 ' kingstory .txt ', 另一個則是 ' queenstory .txt '。 在每個純文字檔案中, 您將提供相符音訊的完整正確轉譯。
 
@@ -139,7 +139,7 @@ ms.locfileid: "68559580"
 > [!NOTE]
 > 長音訊分割服務會利用語音轉換文字的批次轉譯功能, 其僅支援標準訂用帳戶 (S0) 使用者。
 
-| 內容 | 值 |
+| 屬性 | 值 |
 | -------- | ----- |
 | 檔案格式 | RIFF (.wav), 其取樣率至少為 16 khz-16 位, PCM 中的速率至少為 256 KBps, 並分組為 .zip 檔案 |
 | 檔案名稱 | 僅限 ASCII 字元。 名稱中的 Unicode 字元將會失敗 (例如, 中文字元或 "-" 之類的符號)。 不允許重複的名稱。 |

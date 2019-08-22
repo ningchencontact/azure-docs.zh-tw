@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1d9fc20055fe3adb571b5a77330cc6537998cb5f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688321"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534479"
 ---
 # <a name="immersive-reader-sdk-reference"></a>沉浸式讀取器 SDK 參考
 
@@ -35,7 +35,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="parameters"></a>參數
 
-| 名稱 | Type | 描述 |
+| Name | Type | 描述 |
 | ---- | ---- |------------ |
 | `token` | string | Azure AD 驗證 token。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
 | `subdomain` | string | Azure 中您的沉浸式讀取器資源的自訂子域。 請參閱[Azure AD authentication](./azure-active-directory-authentication.md)的作法。 |
@@ -50,7 +50,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 如果無法`Promise`載入沉浸式讀取器[`Error`](#error) , 則傳回的將會被物件拒絕。 如需詳細資訊, 請參閱[錯誤碼](#error-codes)。
 
-## <a name="types"></a>類型
+## <a name="types"></a>型別
 
 ### <a name="content"></a>內容
 
@@ -71,8 +71,9 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | MIME 類型 | 描述 |
 | --------- | ----------- |
-| 文字/純文字 | 純文字。 |
+| text/plain | 純文字。 |
 | application/mathml+xml | 數學標記語言 (MathML)。 [深入了解](https://developer.mozilla.org/en-US/docs/Web/MathML)。
+| 應用程式/application. vnd.openxmlformats-officedocument.spreadsheetml.sheet. wordprocessingml 檔 | Microsoft Word .docx 格式檔。
 
 ### <a name="options"></a>選項。
 
@@ -104,7 +105,8 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | ---- | ----------- |
 | BadArgument | 提供的引數無效。 `message`如需詳細資料, 請參閱。 |
 | 等候逾時 | 沉浸式讀取器無法在指定的超時時間內載入。 |
-| TokenExpired| 提供的權杖已過期。 |
+| TokenExpired | 提供的權杖已過期。 |
+| 流速控制 | 已超過呼叫率限制。 |
 
 ## <a name="launching-the-immersive-reader"></a>啟動沉浸式讀取器
 

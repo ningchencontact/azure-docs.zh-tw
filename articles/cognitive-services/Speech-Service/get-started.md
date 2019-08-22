@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a8797afdfacfcfc75445c7f35083aeb9bb847ac1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562928"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535103"
 ---
 # <a name="try-speech-services-for-free"></a>免費試用語音服務
 
@@ -34,11 +34,11 @@ ms.locfileid: "68562928"
 
 1. 請移至[試用認知服務](https://azure.microsoft.com/try/cognitive-services/)。
 
-1. 選取 [語音識別 API]  索引標籤。
+1. 選取 [語音識別 API] 索引標籤。
 
    ![語音服務索引標籤](media/index/try-speech-api-free-trial1.png)
 
-1. 在 [語音服務]  底下，選取 [取得 API 金鑰]  按鈕。
+1. 在 [**語音服務**] 底下, 選取 [**取得 API 金鑰**]。
 
    ![API 金鑰](media/index/try-speech-api-free-trial2.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "68562928"
 
 1. 使用 Microsoft、Facebook、LinkedIn 或 GitHub 帳戶登入。
 
-    您可以在 [Microsoft 帳戶入口網站](https://account.microsoft.com/account)註冊免費的 Microsoft 帳戶。 若要開始使用，請按一下 [使用 Microsoft 登入]  ，然後在系統要求您登入時，按一下 [建立帳戶]  。 依照步驟來建立及驗證新的 Microsoft 帳戶。
+    您可以在 [Microsoft 帳戶入口網站](https://account.microsoft.com/account)註冊免費的 Microsoft 帳戶。 若要開始使用, 請選取 [**使用 Microsoft 帳戶登入**], 然後在系統要求您登入時, 選取 [**建立一個]。** 依照步驟來建立及驗證新的 Microsoft 帳戶。
 
 登入「試用認知服務」之後，您的免費試用便開始啟用。 顯示的網頁會列出您目前有試用訂用帳戶的所有 Azure 認知服務。 **語音服務**旁邊會列出兩個訂用帳戶金鑰。 您可以在應用程式中使用任一金鑰。
 
@@ -59,9 +59,9 @@ ms.locfileid: "68562928"
 
 新的 Azure 帳戶會收到可用 30 天的 $200 美元服務額度。 您可以使用此額度來進一步探索語音服務，或開始進行應用程式開發。
 
-若要註冊新的 Azure 帳戶，請前往 [Azure 登入頁面](https://azure.microsoft.com/free/ai/)，按一下 [開始免費使用]  並使用您的 Microsoft 帳戶建立新 Azure 帳戶。
+若要註冊新的 Azure 帳戶, 請前往[Azure 註冊頁面](https://azure.microsoft.com/free/ai/), 選取 [**開始免費],** 然後使用您的 Microsoft 帳戶建立新的 Azure 帳戶。
 
-您可以在 [Microsoft 帳戶入口網站](https://account.microsoft.com/account)註冊免費的 Microsoft 帳戶。 若要開始使用，請按一下 [使用 Microsoft 登入]  ，然後在系統要求您登入時，按一下 [建立帳戶]  。 依照步驟來建立及驗證新的 Microsoft 帳戶。
+您可以在 [Microsoft 帳戶入口網站](https://account.microsoft.com/account)註冊免費的 Microsoft 帳戶。 若要開始使用, 請選取 [**使用 Microsoft 帳戶登入**], 然後在系統要求您登入時, 選取 [**建立一個]。** 依照步驟來建立及驗證新的 Microsoft 帳戶。
 
 建立 Azure 帳戶後，請遵循下一節中的步驟，以啟用語音服務的訂用帳戶。
 
@@ -71,37 +71,37 @@ ms.locfileid: "68562928"
 
 1. 使用您的 Microsoft 帳戶，登入 [Azure 入口網站](https://portal.azure.com/)。
 
-1. 選取入口網站左上方的 [建立資源]  。
+1. 選取入口網站左上方的 [建立資源]。
 
     ![建立資源](media/index/try-speech-api-create-speech1.png)
 
-1. 在 [新增]  視窗中，搜尋 **speech**。
+1. 在 [新增] 視窗中，搜尋 **speech**。
 
-1. 在搜尋結果中，選取 [Speech]  。
+1. 在搜尋結果中，選取 [Speech]。
 
     ![選取 Speech](media/index/try-speech-api-create-speech2.png)
 
-1. 在 [Speech]  底下選取 [建立]  按鈕。
+1. 在 [Speech] 底下選取 [建立] 按鈕。
 
     ![選取 [建立] 按鈕](media/index/try-speech-api-create-speech3.png)
 
-1. 在 [建立]  底下輸入：
+1. 在 [建立] 底下輸入：
 
    * 新資源的名稱。 此名稱可協助您區分相同服務的多個訂用帳戶。
    * 選擇與新資源相關聯的 Azure 訂用帳戶來決定費用的計費方式。
    * 選擇將使用資源的[區域](regions.md)。
-   * 選擇免費或付費的定價層。 如需每一層的定價和使用量配額完整資訊，請按一下 [檢視完整定價詳細資料]  。
+   * 選擇免費或付費的定價層。 如需有關每一層的定價和使用量配額的完整資訊, 請選取 [**查看完整定價詳細資料**]。
    * 為此語音訂用帳戶建立新的資源群組，或將該訂用帳戶指派給現有的資源群組。 資源群組可協助組織各種 Azure 訂用帳戶。
-   * 為了方便未來存取您的訂用帳戶，請選取 [釘選到儀表板]  核取方塊。
-   * 選取 [建立]  。
+   * 為了方便未來存取您的訂用帳戶，請選取 [釘選到儀表板] 核取方塊。
+   * 選取 [建立]。
 
      ![選取 [建立] 按鈕](media/index/try-speech-api-create-speech4.png)
 
-     建立和部署新的語音資源可能需要一些時間。 選取 [快速入門]  可查看新資源的相關資訊。
+     建立和部署新的語音資源可能需要一些時間。 選取 [快速入門] 可查看新資源的相關資訊。
 
      ![快速入門面板](media/index/try-speech-api-create-speech5.png)
 
-1. 在 [快速入門]  的步驟 1 底下按一下 [金鑰]  連結，以顯示您的訂用帳戶金鑰。 每個訂用帳戶都有兩個金鑰，您可以在應用程式中使用任一個金鑰。 選取每個金鑰旁邊的按鈕，將它複製到剪貼簿，以便貼到您的程式碼中。
+1. 在 [**快速入門**] 下, 選取步驟1底下的 [**金鑰**] 連結, 以顯示您的訂用帳戶金鑰 每個訂用帳戶都有兩個金鑰，您可以在應用程式中使用任一個金鑰。 選取每個金鑰旁邊的按鈕，將它複製到剪貼簿，以便貼到您的程式碼中。
 
 > [!NOTE]
 > 您可以在一或多個區域中建立無限數量的標準層訂用帳戶。 不過，您可以建立只有一個免費層的訂用帳戶。 免費層上的模型部署若持續 7 天未使用，將會自動解除委任。

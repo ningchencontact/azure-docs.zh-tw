@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855107"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624248"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>語音合成標記語言 (SSML)
 
@@ -31,6 +31,10 @@ SSML 的語音服務執行是以全球資訊網協會的[語音合成標記語�
 從標準和類神經語音中選擇, 或為您的產品或品牌建立專屬的自訂語音。 75 + standard 語音提供45以上的語言和地區設定, 而5類神經語音則提供4種語言和地區設定。 如需支援的語言、地區設定和語音 (神經和標準) 的完整清單，請參閱[語言支援](language-support.md)。
 
 若要深入瞭解標準、類神經和自訂語音, 請參閱[文字轉換語音的總覽](text-to-speech.md)。
+
+## <a name="special-characters"></a>特殊字元
+
+使用 SSML 轉換文字到合成的語音時, 請記住, 就像使用 XML 一樣, 特殊字元 (例如引號、撇號和方括弧) 必須經過轉義。 如需詳細資訊, [請參閱可延伸標記語言 (XML) (XML) 1.0:附錄 D](https://www.w3.org/TR/xml/#sec-entexpand)。
 
 ## <a name="supported-ssml-elements"></a>支援的 SSML 元素
 
@@ -142,6 +146,7 @@ SSML 的語音服務執行是以全球資訊網協會的[語音合成標記語�
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | 表達正面且滿意的表情 |
 | | type=`empathy` | 表達管也和認知的意義 |
+| | type=`chat` | 以偶爾、寬鬆的語調說話 |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | 表達類似于新聞廣播的正式音調 |
 | | type=`sentiment` | 傳達觸控訊息或故事 |
 
@@ -285,12 +290,12 @@ SSML 的語音服務執行是以全球資訊網協會的[語音合成標記語�
 
 | 屬性 | 描述 | 必要/選用 |
 |-----------|-------------|---------------------|
-| 介紹 | 表示文字的基準間距。 您可以用下列方式表達音調:<ul><li>絕對值, 以數位表示, 後面接著 "Hz" (赫茲)。 例如, 600Hz。</li><li>以數位表示的相對值, 前面加上 "+" 或 "-", 後面接著 "Hz" 或 "st", 以指定要變更音調的數量。 例如: + 80Hz 或-2st。 "St" 表示變更單位是 semitone, 這是標準 diatonic 尺規上的一半色調 (半步驟)。</li><li>常數值:<ul><li>x-低</li><li>低</li><li>中</li><li>高</li><li>x-高</li><li>預設</li></ul></li></ul>. | 選擇性 |
+| 介紹 | 表示文字的基準間距。 您可以用下列方式表達音調:<ul><li>絕對值, 以數位表示, 後面接著 "Hz" (赫茲)。 例如, 600Hz。</li><li>以數位表示的相對值, 前面加上 "+" 或 "-", 後面接著 "Hz" 或 "st", 以指定要變更音調的數量。 例如: + 80Hz 或-2st。 "St" 表示變更單位是 semitone, 這是標準 diatonic 尺規上的一半色調 (半步驟)。</li><li>常數值:<ul><li>x-低</li><li>低</li><li>中</li><li>高</li><li>x-高</li><li>預設值</li></ul></li></ul>. | 選擇性 |
 | 輪廓 | 類神經語音不支援等高線。 [等高線] 代表語音內容在語音輸出中指定時間位置的 [音調] 變更, 做為目標陣列。 每個目標都是由一組參數配對所定義。 例如: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>每一組參數中的第一個值會指定音調變更的位置, 以文字持續時間的百分比表示。 第二個值指定要增加或減少音調的數量, 使用相對值或用於音調的列舉值 (請參閱`pitch`)。 | 選擇性 |
 | range  | 值, 表示文字的音調範圍。 您可以使用`range`相同的絕對值、相對值或用來描述`pitch`的列舉值來表示。 | 選擇性 |
-| 增長率  | 表示文字的說話速率。 您可以表達`rate`如下:<ul><li>相對值, 以做為預設值之乘數的數位來表示。 例如, 值*1*會導致速率不會變更。 值為 *.5*會產生速率的減半。 值為*3*會產生速率的增加三倍。</li><li>常數值:<ul><li>x-慢</li><li>slow</li><li>中</li><li>地</li><li>x-快速</li><li>預設</li></ul></li></ul> | 選擇性 |
+| 增長率  | 表示文字的說話速率。 您可以表達`rate`如下:<ul><li>相對值, 以做為預設值之乘數的數位來表示。 例如, 值*1*會導致速率不會變更。 值為 *.5*會產生速率的減半。 值為*3*會產生速率的增加三倍。</li><li>常數值:<ul><li>x-慢</li><li>slow</li><li>中</li><li>地</li><li>x-快速</li><li>預設值</li></ul></li></ul> | 選擇性 |
 | 持續時間  | 語音合成 (TTS) 服務讀取文字 (以秒或毫秒為單位) 時所經過的時間長度。 例如, 2*秒*或*1800ms*。 | 選擇性 |
-| 磁碟區  | 表示說話語音的音量層級。 您可以將磁片區表示為:<ul><li>絕對值, 以0.0 到100.0 範圍內的數位表示, 從*quietest*到*loudest*。 例如, 75。 預設值為100.0。</li><li>以數位表示的相對值, 其前面加上 "+" 或 "-", 以指定要變更磁片區的數量。 例如 + 10 或-5.5。</li><li>常數值:<ul><li>安靜</li><li>x-soft</li><li>軟</li><li>中</li><li>很</li><li>x-大聲</li><li>預設</li></ul></li></ul> | 選擇性 |
+| 磁碟區  | 表示說話語音的音量層級。 您可以將磁片區表示為:<ul><li>絕對值, 以0.0 到100.0 範圍內的數位表示, 從*quietest*到*loudest*。 例如, 75。 預設值為100.0。</li><li>以數位表示的相對值, 其前面加上 "+" 或 "-", 以指定要變更磁片區的數量。 例如 + 10 或-5.5。</li><li>常數值:<ul><li>安靜</li><li>x-soft</li><li>軟</li><li>中</li><li>很</li><li>x-大聲</li><li>預設值</li></ul></li></ul> | 選擇性 |
 
 ### <a name="change-speaking-rate"></a>改變說話速度
 

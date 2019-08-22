@@ -8,39 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 26792246267ced6d9fff50fe4fea11cc8d280d6a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 63eb13dd131fcc1c424c02fdac10f531cc9f0282
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966678"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876633"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>QnA Maker 知識庫內容的語言支援
+
 QnA Maker 支援多種語言的知識庫內容。 不過，個別的 QnA Maker 服務均應保留給單一語言使用。 針對特定 QnA Maker 服務而建立的第一個知識庫，會設定該服務的語言。 請參閱[這裡](../Overview/languages-supported.md)以取得支援的語言清單。
 
 系統會從要擷取的資料來源內容自動辨識語言。 在您建立新的 QnA Maker 服務和該服務中新的知識庫之後，您可以確認語言已正確設定。
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 選取 [資源群組]，並瀏覽至部署 QnA Maker 服務的資源群組，然後選取 [Azure 搜尋服務] 資源。
+1. 選取 [資源群組]，並瀏覽至部署 QnA Maker 服務的資源群組，然後選取 [Azure 搜尋服務] 資源。
 
     ![選取 [Azure 搜尋服務] 資源](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
-3. 選取 **testkb** 索引。 此 Azure 搜尋索引一律是第一個建立的索引，且其中包含該服務中所有知識庫的已儲存內容。 
+1. 選取 **testkb** 索引。 此 Azure 搜尋索引一律是第一個建立的索引，且其中包含該服務中所有知識庫的已儲存內容。 
 
     ![選取測試 KB](../media/qnamaker-how-to-language-kb/select-testkb.png)
 
-4. 選取顯示 testkb 詳細資料的 [欄位] 區段。
+1. [選取**欄位**] 區段, 其中顯示_testkb_的詳細資料。
 
     ![選取欄位](../media/qnamaker-how-to-language-kb/selectfields.png)
 
-5. 勾選 [分析器] 的方塊以檢視語言詳細資料。
+1. 勾選 [分析器] 的方塊以檢視語言詳細資料。
 
     ![選取分析器](../media/qnamaker-how-to-language-kb/select-analyzer.png)
 
-6. 您應該會發現分析器已設定為特定語言。 這是在知識庫建立步驟執行期間自動偵測到的語言。 此語言在資源建立後即無法變更。
+1. 您應該會發現_分析器_設定為特定的語言。 在從匯入的檔案和 Url 進行知識庫建立步驟期間, 會自動偵測到此語言。 此語言在資源建立後即無法變更。
 
     ![已選取的分析器](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
 

@@ -1,35 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure AD 裝置身分識別文件
+summary: 了解如何在設定及管理 Azure AD 中的裝置身分識別。
 metadata:
-  document_id: null
-  title: Azure Active Directory 裝置身分識別管理文件 - 教學課程、概念和參考 | Microsoft Docs
+  title: Azure AD 裝置身分識別文件
   description: 了解如何在設定及管理 Azure AD 中的裝置身分識別。
   services: active-directory
-  ms.subservice: devices
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 透過 Azure AD 中的裝置，您的使用者可存取公司資產。 為了保護公司資產，身為 IT 管理員，您希望能夠在 Azure AD 中管理這些裝置。 這可讓您確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。<br>裝置身分識別管理也是裝置型條件式存取的基礎。 使用裝置型條件式存取時，您可以確保只能透過受控裝置存取環境中的資源。
-sections:
-  - title: 逐步教學課程
-    items:
-      - type: paragraph
-        text: 了解如何將內部部署已加入 AD 的裝置與 Azure AD 整合。
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: 受控網域
-            href: hybrid-azuread-join-managed-domains.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: 同盟網域
-            href: hybrid-azuread-join-federated-domains.md
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: e26be2206ba63fa4721ced7ed1a2f35ddc63a5fd
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69648930"
+landingContent:
+- title: 關於裝置身分識別
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是裝置身分識別？
+      url: overview.md
+    - text: 企業狀態漫遊是什麼？
+      url: enterprise-state-roaming-overview.md
+  - linkListType: concept
+    links:
+    - text: Azure AD 註冊裝置
+      url: concept-azure-ad-register.md
+    - text: Azure AD 加入裝置
+      url: concept-azure-ad-join.md
+    - text: 混合式 Azure AD 已加入裝置
+      url: concept-azure-ad-join-hybrid.md
+    - text: SSO 至內部部署資源
+      url: azuread-join-sso.md
+    - text: 主要重新整理權杖
+      url: concept-primary-refresh-token.md
+- title: 設定和管理已加入 Azure AD 的裝置
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 規劃 Azure AD 聯結實作
+      url: azureadjoin-plan.md
+    - text: 在已加入 Azure AD 的裝置上管理本機系統管理員群組
+      url: assign-local-admin.md
+    - text: 尋找及管理 Azure AD 中的過時裝置
+      url: manage-stale-devices.md
+- title: 設定和管理已加入混合式 Azure AD 的裝置
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 規劃混合式 Azure AD 聯結實作
+      url: hybrid-azuread-join-plan.md
+    - text: 針對已加入混合式 Azure AD 的裝置進行疑難排解
+      url: troubleshoot-hybrid-join-windows-current.md

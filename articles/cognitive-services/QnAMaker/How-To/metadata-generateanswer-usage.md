@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 18b901b429ee675726ef0e36535f1f97f4cdd076
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967647"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543006"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>取得 GenerateAnswer API 和中繼資料的解答
 
@@ -228,6 +228,18 @@ GenerateAnswer 的回應包含相符的問題和答案集合的對應中繼資�
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="common-http-errors"></a>常見的 HTTP 錯誤
+
+|程式碼|說明|
+|:--|--|
+|2xx|成功|
+|400|要求的參數不正確，表示必要參數遺失、格式不正確或太大|
+|400|要求的本文不正確，表示 JSON 遺失、格式不正確或太大|
+|401|金鑰無效|
+|403|禁止 - 您沒有正確的權限|
+|404|KB 不存在|
+|410|此 API 已被淘汰且不再提供|
 
 ## <a name="next-steps"></a>後續步驟
 

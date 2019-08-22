@@ -251,6 +251,8 @@
           href: mitigate-se.md
         - name: 排定的事件
           href: scheduled-events.md
+        - name: 監視已排定事件
+          href: scheduled-event-service.md
         - name: 監視中繼資料
           href: instance-metadata-service.md
         - name: 啟用巢狀虛擬化

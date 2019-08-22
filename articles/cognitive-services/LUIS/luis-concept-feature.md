@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639204"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624578"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 應用程式中的片語清單功能
 
@@ -69,7 +69,7 @@ ms.locfileid: "68639204"
 
 ### <a name="non-interchangeable-lists"></a>不可交換清單
 
-不可交換片語清單是將偵測提升到 LUIS 的信號。 片語清單指出比其他字詞更重要的單字或片語。 這有助於決定意圖和實體偵測。 例如，假設有全球旅遊之類的主旨範圍（表示跨文化特性，但仍然使用單一語言）。 有些單字和片語對於應用程式很重要但並非同義詞。 
+不可交換片語清單是將偵測提升到 LUIS 的信號。 片語清單會指出比其他字更重要的單字或片語。 這有助於決定意圖和實體偵測。 例如，假設有全球旅遊之類的主旨範圍（表示跨文化特性，但仍然使用單一語言）。 有些單字和片語對於應用程式很重要但並非同義詞。 
 
 此外，例如，針對罕見、專用及外來的字詞，應使用不可交換片語清單。 LUIS 可能無法辨識罕見與專用的文字以及外來文字 (應用程式的文化特性之外)。 不可交換的設定表示這組罕見文字會構成 LUIS 應學習辨識的類別，但這些文字並不是同義字或可彼此交換的。
 

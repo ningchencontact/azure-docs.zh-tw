@@ -102,7 +102,9 @@
           items:
             - name: 建立動態群組
               href: groups-create-rule.md
-            - name: 動態群組規則
+            - name: 更新成員資格規則
+              href: groups-update-rule.md
+            - name: 動態群組規則和語法
               href: groups-dynamic-membership.md
             - name: 變更群組成員資格類型
               href: groups-change-type.md

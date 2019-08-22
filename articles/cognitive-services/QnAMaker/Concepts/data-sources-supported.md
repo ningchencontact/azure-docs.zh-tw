@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/16/2019
 ms.author: diberry
-ms.openlocfilehash: 78c75e69be5521660937e34da0d7261dba1de385
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5175dee24542c716b3d087412864ae7e6f056d18
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955458"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615971"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
 QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔案或 MS Word DOC 檔的常見問題集、產品手冊、指導方針、支援文件和原則) 擷取問答組合。 內容也可以從結構化 QnA 內容檔案新增至知識庫。 
+
+## <a name="data-types"></a>資料類型
 
 下表摘要說明 QnA Maker 所支援的內容類型和檔案格式。
 
@@ -32,11 +34,21 @@ QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔�
 
 ## <a name="data-source-locations"></a>資料來源位置
 
-大部分的資料來源位置都必須提供公用 Url 或檔案, 而不需要驗證。 
+資料來源位置是**公用 url 或**檔案, 不需要驗證。 
 
-[Sharepoint 資料來源位置](../How-to/add-sharepoint-datasources.md)允許提供已驗證的檔案。 Sharepoint 資源必須是檔案, 而不是網頁。 
+如果您需要驗證資料來源, 請考慮下列方法, 將該資料匯入 QnA Maker:
 
-如果您有已驗證的檔案或 URL, 替代選項是將檔案從已驗證的網站下載到本機電腦, 然後從本機電腦將檔案新增至知識庫。 
+* [手動下載檔案](#download-file-from-authenticated-data-source-location)並匯入 QnA Maker
+* 已驗證[Sharepoint 位置](#import-file-from-authenticated-sharepoint)的匯入檔案 
+
+### <a name="download-file-from-authenticated-data-source-location"></a>從已驗證的資料來源位置下載檔案
+
+如果您有已驗證的檔案 (而不是在已驗證的 Sharepoint 位置) 或 URL, 另一個選項是將檔案從已驗證的網站下載到本機電腦, 然後從本機電腦將檔案新增至知識庫。
+
+### <a name="import-file-from-authenticated-sharepoint"></a>從已驗證的 Sharepoint 匯入檔案 
+
+[Sharepoint 資料來源位置](../How-to/add-sharepoint-datasources.md)允許提供已驗證的檔案。 Sharepoint 資源必須是檔案, 而不是網頁。 如果 URL 的結尾是 web 延伸模組, 例如 **。ASPX**, 它不會從 Sharepoint 匯入 QnA Maker。
+
 
 ## <a name="faq-urls"></a>常見問題集 URL
 
@@ -133,9 +145,21 @@ Answer2
 
 來源檔案中的任何其他資料行都會被忽略。
 
+### <a name="example-of-structured-excel-file"></a>結構化 Excel 檔案的範例
+
 以下是具有 HTML 內容的結構化 QnA .xls 檔案範例：
 
  ![知識庫的結構化 QnA Excel 範例](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Excel 檔案中單一答案的替代問題範例
+
+以下是結構化 QnA *.xls*檔案的範例, 其中單一答案有數個替代問題:
+
+ ![Excel 檔案中單一答案的替代問題範例](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+匯入檔案之後, 問與答配對會在知識庫中, 如下所示:
+
+ ![匯入知識庫之單一回應的替代問題螢幕擷取畫面](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>透過匯入的結構化資料格式
 

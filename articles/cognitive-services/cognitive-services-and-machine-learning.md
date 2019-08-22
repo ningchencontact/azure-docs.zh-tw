@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/15/2019
 ms.author: diberry
-ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697929"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535210"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>認知服務和機器學習
 
@@ -131,6 +131,10 @@ ms.locfileid: "68697929"
 |--|--|
 |[自訂視覺](./custom-vision-service/home.md)|[Export](./Custom-Vision-Service/export-model-python.md) for Tensorflow for Android, CoreML for IOS11, ONNX FOR Windows ML|
 
+## <a name="learn-more"></a>更多資訊
+
+* [架構指南-Microsoft 有哪些機器學習服務產品？](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [機器學習服務-深度學習與機器學習的簡介](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>後續步驟
 

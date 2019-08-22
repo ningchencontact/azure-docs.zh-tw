@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 022b16669791b9b9cce066b3dd17c70b33569cc0
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8cd63913c0e96d496aa617369601c1dd121b4b46
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955242"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542839"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>什麼是 QnA Maker 知識庫？
 
@@ -59,6 +59,70 @@ QnA Maker 知識庫是由一組問題/回答 (QnA) 配對以及與每個 QnA 配
 
 使用的功能包括但不限於單字層級的語義、主體中的詞彙層級重要性, 以及深度學習的語義模型, 以判斷兩個文字字串之間的相似性與相關性。
 
+## <a name="http-request-and-response-with-endpoint"></a>使用端點的 HTTP 要求和回應
+當您發佈知識庫時, 服務會建立以 REST 為基礎的 HTTP**端點**, 可以整合到您的應用程式中, 通常是聊天機器人。 
+
+### <a name="the-user-query-request-to-generate-an-answer"></a>產生解答的使用者查詢要求
+
+**使用者查詢**是終端使用者要求知識庫的問題, 例如`How do I add a collaborator to my app?`。 查詢通常採用自然語言格式, 或幾個代表問題的關鍵字, 例如`help with collaborators`。 查詢會從用戶端應用程式中的 HTTP**要求**傳送至您的知識。
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 20,
+    "strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+您可以藉由設定屬性 (例如[scoreThreshold](./confidence-score.md#choose-a-score-threshold)、 [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)和[stringFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags)) 來控制回應。
+
+使用[交談內容](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context)搭配[多回合功能](../how-to/multiturn-conversation.md), 讓交談能夠縮小問題和答案, 以尋找正確和最終的答案。
+
+### <a name="the-response-from-a-call-to-generate-answer"></a>呼叫產生答案的回應
+
+HTTP**回應**是根據指定使用者查詢的最相符項, 從知識庫中抓取的答案。 回應包含答案和預測分數。 如果您想要使用`top`屬性來要求多個頂尖答案, 您可以取得一個以上的頂尖答案, 每個都有一個分數。 
+
+```json
+{
+    "answers": [
+        {
+            "questions": [
+                "What is the closing time?"
+            ],
+            "answer": "10.30 PM",
+            "score": 100,
+            "id": 1,
+            "source": "Editorial",
+            "metadata": [
+                {
+                    "name": "restaurant",
+                    "value": "paradise"
+                },
+                {
+                    "name": "location",
+                    "value": "secunderabad"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### <a name="test-and-production-knowledge-base"></a>測試和生產知識庫
+知識庫是儲存以 QnA Maker 建立、維護和使用的問答的存放庫。 每個 QnA Maker 層均可用於多個知識庫。
+
+知識庫有兩種狀態：測試和發佈。 
+
+**測試知識庫**是針對回應的正確性和完整性進行編輯、儲存和測試的版本。 對於測試知識庫所做的變更，不會影響到應用程式/聊天機器人的終端使用者。 測試知識庫在 HTTP 要求`test`中稱為。 
+
+**已發佈的知識庫**是聊天機器人/應用程式中所使用的版本。 發佈知識庫的動作會將測試知識庫的內容放入發佈的知識庫版本。 因為發佈的知識庫是應用程式透過端點使用的版本，所以應該小心確保內容正確且經過完整測試。 已發佈的知識庫`prod`在 HTTP 要求中稱為。 
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -68,3 +132,11 @@ QnA Maker 知識庫是由一組問題/回答 (QnA) 配對以及與每個 QnA 配
 ## <a name="see-also"></a>另請參閱
 
 [QnA Maker 概觀](../Overview/overview.md)
+
+使用下列方式建立和編輯知識庫: 
+* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.Net SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+
+產生答案: 
+* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.Net SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

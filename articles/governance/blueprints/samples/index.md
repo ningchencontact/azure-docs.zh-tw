@@ -5,14 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 06/26/2019
+ms.date: 08/20/2019
 ms.author: dacoulte
-ms.openlocfilehash: e1bafdaa2883afb44aa3c609c0ccba0ce9d0a4ab
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 884777bce761f6b16581a28038bf9a28ce6a3801
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934171"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650503"
 ---
 # <a name="azure-blueprints-samples"></a>Azure 藍圖範例
 
@@ -22,14 +23,26 @@ ms.locfileid: "68934171"
 
 |  |  |
 |---------|---------|
-|[IRS 1075](./irs-1075/index.md)| 提供成立條件以符合 IRS 1075。|
+| [IRS 1075](./irs-1075/index.md) | 提供成立條件以符合 IRS 1075。|
 | [ISO 27001](./iso27001/index.md) | 提供成立條件以符合 ISO 27001。 |
 | [ISO 27001 共用服務](./iso27001-shared/index.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 ISO 27001 證明。 |
 | [ISO 27001 App Service 環境/SQL Database 工作負載](./iso27001-ase-sql-workload/index.md) | 提供 [ISO 27001 共用服務](./iso27001-shared/index.md)藍圖範例的其他基礎結構。 |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | 提供成立條件以符合 NIST SP 800-53 R4。 |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | 提供一組原則以協助符合 PCI-DSS v3.2.1 規範。 |
 | [UK OFFICIAL 與 UK NHS Governance](./ukofficial/index.md) | 提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 UK OFFICIAL 與 UK NHS 證明。 |
+| [CAF 基礎](./caf-foundation/index.md) | 提供一組控制項來協助您管理雲端資產，使其與[適用於 Azure 的 Microsoft 雲端採用架構 (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index.md)一致。 |
+| [CAF 移轉登陸區域](./caf-migrate-landing-zone/index.md) | 提供一組控制項來協助您設定第一個工作負載的移轉及管理雲端資產，使其與[適用於 Azure 的 Microsoft Cloud 採用架構 (CAF)](/azure/architecture/cloud-adoption/migrate/index.md) 一致。 |
 
+## <a name="samples-strategy"></a>範例策略
+
+![藍圖範例的這略](../media/blueprint-samples-strategy.png)
+
+CAF 基礎和 CAF 移轉登陸區域藍圖會假設客戶正在準備現有的全新單一訂用帳戶，以便將內部部署資產/工作負載遷移至 Azure。
+(上圖中的區域 A 和 B)。  
+
+您有機會逐一查看範例藍圖，並尋找客戶所套用的自訂模式。 也有機會主動處理產業專屬的藍圖，像是金融服務和電子商務 (區域 B 的頂端)。 同樣地，我們已預想到要為複雜的架構考量建立藍圖，例如多個訂用帳戶、高可用性、跨區域資源，以及對現有訂用帳戶和資源實作控制項的客戶 (區域 C 和 D)。
+
+有一些範例藍圖可用於合規性需求及架構複雜性都很高的客戶案例 (上圖中的區域 E)。 上面的區域 F 就是由客戶和合作夥伴處理的區域，他們運用範例藍圖並根據其獨特需求進行自訂。
 
 ## <a name="next-steps"></a>後續步驟
 

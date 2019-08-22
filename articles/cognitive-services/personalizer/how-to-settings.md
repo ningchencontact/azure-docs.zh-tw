@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663888"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559101"
 ---
 # <a name="personalizer-settings"></a>個人化工具設定
 
@@ -25,15 +25,15 @@ ms.locfileid: "68663888"
 
 請針對每個意見反應迴圈建立一個個人化工具資源。 
 
-1. 登入 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)。 先前的連結會帶您前往個人化工具服務的 [建立]  頁面。 
+1. 登入 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)。 先前的連結會帶您前往個人化工具服務的 [建立] 頁面。 
 1. 輸入服務名稱、選擇訂用帳戶、位置、定價層及資源群組。
-1. 選擇確認及 [建立]  。
+1. 選擇確認及 [建立]。
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>在 Azure 入口網站中設定服務設定
 
 1. 登入 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)。
 1. 尋找個人化工具資源。 
-1. 在 [資源管理]  區段中，選取 [設定]  。
+1. 在 [資源管理] 區段中，選取 [設定]。
 
     離開 Azure 入口網站之前，從**金鑰**頁面中複製其中一個資源金鑰。 您需要此金鑰方可使用[個人化工具 SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer)。
 
@@ -49,7 +49,7 @@ ms.locfileid: "68663888"
 |預設報酬|如果個人化工具未在「報酬等候時間」的時段內收到任何報酬呼叫，便會指派預設報酬。 預設報酬會預設為零，且大部分情況下皆是如此。|
 |報酬彙總|如果從相同的排名 API 呼叫收到多個報酬，便會使用下列其中一個彙總方法：**總和**或**最早**。 「最早」會挑選最早收到的分數，並捨棄其餘分數。 如果您想要從可能重複的呼叫中挑出唯一的報仇，這會非常有用。 |
 
-在變更這些設定之後，請務必選取 [儲存]  。
+在變更這些設定之後，請務必選取 [儲存]。
 
 ### <a name="exploration-setting"></a>探索設定 
 
@@ -59,7 +59,7 @@ ms.locfileid: "68663888"
 
 ![探索設定會決定要在進行探索時回應多少百分比的排名呼叫](media/settings/configure-exploration-setting.png)
 
-在變更此設定之後，請務必選取 [儲存]  。
+在變更此設定之後，請務必選取 [儲存]。
 
 ### <a name="model-update-frequency"></a>模型更新頻率
 
@@ -69,23 +69,24 @@ ms.locfileid: "68663888"
 
 ![模型更新頻率會設定要將新的個人化工具模型重新定型的頻率。](media/settings/configure-model-update-frequency-settings.png)
 
-在變更此設定之後，請務必選取 [儲存]  。
+在變更此設定之後，請務必選取 [儲存]。
 
 ### <a name="data-retention"></a>資料保留
 
 **資料保留期間**會設定個人化工具要將資料記錄保留多少天。 必須有過去的資料記錄才能執行[離線評估](concepts-offline-evaluation.md)，此評估可用來測量個人化工具是否有效，並將學習原則最佳化。
 
-在變更此設定之後，請務必選取 [儲存]  。
+在變更此設定之後，請務必選取 [儲存]。
 
 ## <a name="export-the-personalizer-model"></a>匯出個人化工具模型
 
-從 [資源管理] 的 [模型和原則]  區段，檢閱模型的建立日期和上次更新日期，然後匯出目前的模型。 您可以使用 Azure 入口網站或個人化工具 API 來匯出要加以封存的模型檔案。 
+從 [資源管理] 的 [模型和原則] 區段，檢閱模型的建立日期和上次更新日期，然後匯出目前的模型。 您可以使用 Azure 入口網站或個人化工具 API 來匯出要加以封存的模型檔案。 
 
 ![匯出目前的個人化工具模型](media/settings/export-current-personalizer-model.png)
 
 ## <a name="import-and-export-learning-policy"></a>匯入和匯出學習原則
 
-從 [資源管理] 的 [模型和原則]  區段，匯入新的學習原則或匯出目前的學習原則。
+從 [資源管理] 的 [模型和原則] 區段，匯入新的學習原則或匯出目前的學習原則。
+您可以從先前的匯出取得學習原則檔案, 或下載在離線評估期間探索到的優化原則。 對這些檔案進行手動變更將會影響機器學習服務的效能和離線評估的正確性, 而且 Microsoft 無法擔保機器學習和評估的正確性, 或手動編輯的原則所產生的服務例外狀況。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a8a75601daf36ca21ea56a5930219d7d467f0c85
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663882"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557816"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>如何透過離線評估來分析您的學習迴圈
 
@@ -30,9 +30,9 @@ ms.locfileid: "68663882"
 ## <a name="prerequisites"></a>必要條件
 
 1. 您必須已設定個人化工具迴圈
-1. 個人化工具迴圈在其記錄中必須有至少 50,000 個事件，以提供有意義的評估結果。
+1. 個人化工具迴圈必須有代表性的資料量-身為約略, 我們會在其記錄中建議至少50000個事件, 以取得有意義的評估結果。
 
-(選擇性) 您可能先前也已匯出「學習原則」  檔案，以便在相同評估中進行比較和測試。
+(選擇性) 您可能先前也已匯出「學習原則」檔案，以便在相同評估中進行比較和測試。
 
 ## <a name="steps-to-start-a-new-offline-evaluation"></a>開始新離線評估的步驟
 

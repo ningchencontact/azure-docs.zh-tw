@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 08/20/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3126613a9dca00d221610dc46116dd409c65d53d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2b2879a1ebcf01a0433873e8da77c4ce55a078cd
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446634"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647006"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>選擇 QnA Maker 部署的容量
 
 QnA Maker 服務會採用對三項 Azure 資源的相依性：
 1.  App Service (用於執行階段)
-2.  Azure 搜尋服務 (用來儲存 QnA)
+2.  Azure 搜尋服務 (用於儲存和搜尋 Qna)
 3.  App Insights (選擇性，用來儲存交談記錄和遙測資料)
 
 在建立 QnA Maker 服務之前，您應決定您適合使用上述服務的哪幾層。 
 
 一般而言，您有三個參數必須考量：
 
-1. **您所需的服務輸送量**：根據您的需求為您的應用程式服務選取適當的[應用程式方案](https://azure.microsoft.com/pricing/details/app-service/plans/)。 您可以[相應增加](https://docs.microsoft.com/azure/app-service/web-sites-scale)或相應減少應用程式。 這應該也會影響您的 Azure 搜尋服務 SKU 選取，請參閱[這裡](https://docs.microsoft.com/azure/search/search-sku-tier)以取得更多詳細資訊。
+1. **您所需的服務輸送量**：根據您的需求為您的應用程式服務選取適當的[應用程式方案](https://azure.microsoft.com/pricing/details/app-service/plans/)。 您可以[相應增加](https://docs.microsoft.com/azure/app-service/manage-scale-up)或相應減少應用程式。 這應該也會影響您的 Azure 搜尋服務 SKU 選取，請參閱[這裡](https://docs.microsoft.com/azure/search/search-sku-tier)以取得更多詳細資訊。
 
 1. **知識庫的大小和數量**：針對您的案例選擇適當的 [Azure 搜尋服務 SKU](https://azure.microsoft.com/pricing/details/search/)。 您可以在特定層中發佈 N-1 個知識庫，其中，N 是該層中允許的索引數上限。 同時也請檢查每個層允許的大小上限和文件數目。
 
@@ -39,7 +39,7 @@ QnA Maker 服務會採用對三項 Azure 資源的相依性：
 
 下表為您提供某些高階指導方針。
 
-|                        | QnA Maker 管理 | App Service 方案 | Azure 搜尋服務 | 限制                      |
+|                        | QnA Maker 管理 | App Service | Azure 搜尋服務 | 限制                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | 測試        | 免費 SKU             | 免費層   | 免費層    | 最多發佈 2 個 KB，大小為 50 MB  |
 | 開發/測試環境   | 標準 SKU         | 共用      | 基本        | 最多發佈 14 KB，大小為 2 GB    |

@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: IoT 隨插即用預覽版文件
+metadata:
+  title: IoT 隨插即用預覽版文件 - 教學課程和 API 參考 | Microsoft Docs
+  description: 了解如何透過教學課程、API 參考、影片和其他文件的協助來使用 IoT 隨插即用。
+  author: dominicbetts
+  manager: philmea
+  ms.service: iot-pnp
+  services: iot-pnp
+  ms.topic: landing-page
+  ms.date: 07/23/2019
+  ms.author: dobett
+abstract:
+  description: 了解如何使用 IoT 隨插即用預覽版來定義裝置模型，讓雲端解決方案能夠自動了解您的裝置並開始與其互動 — 完全不需要撰寫任何裝置程式碼。 教學課程、API 參考、影片和其他文件可協助您將裝置連線至雲端解決方案，例如 Azure IoT Central 或合作夥伴應用程式。
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/index/video-thumb-pnp-introduction.png
+      width: 250
+    title: 'IoT 隨插即用簡介。 (11:54)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player'
+    width: 250
+sections:
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 了解如何<a href="quickstart-create-pnp-device">使用裝置功能模型來建立裝置</a>。
+      - type: paragraph
+        text: 了解如何<a href="quickstart-connect-pnp-device-solution">將裝置連線到您的解決方案</a>。
+  - title: 逐步教學課程
+    items:
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-pnp-visual-studio-code">使用 Visual Studio Code 建立裝置</a>
+          - html: <a href="tutorial-build-device-certification">建立可供認證的裝置</a>
+          - html: <a href="tutorial-certification-test">認證您的裝置</a>

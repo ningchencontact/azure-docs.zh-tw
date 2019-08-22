@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 08/14/2019
-  ms.openlocfilehash: 03de9ceffe4495b1c3a39dad6617cc72d022fbbd
-  ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+  ms.date: 08/16/2019
+  ms.openlocfilehash: 2c42ee93804eb1e0e24b0b67925a092cc8517ceb
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 08/16/2019
-  ms.locfileid: "69557844"
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69650381"
 landingContent:
 - title: Azure 資料箱系列
   linkLists:
@@ -53,75 +53,43 @@ landingContent:
     links:
     - text: 適用於資料箱
       url: data-box-system-requirements.md
-    - text: 適用於資料箱 Blob 儲存體
-      url: data-box-system-requirements-rest.md
     - text: 若為資料箱磁碟
       url: data-box-disk-system-requirements.md
     - text: 針對 Data Box Heavy
       url: data-box-heavy-system-requirements.md
-- title: 部署資料箱
+- title: 訂購、設定、複製、寄回
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 順序
+    - text: 資料箱
       url: data-box-deploy-ordered.md
-    - text: 連接纜線
-      url: data-box-deploy-set-up.md
-    - text: 透過 SMB 連線、複製資料
-      url: data-box-deploy-copy-data.md
-    - text: 傳回、上傳並確認 Azure 資料
-      url: data-box-deploy-picked-up.md
-- title: 部署資料箱磁碟
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 順序
+    - text: 資料箱磁碟
       url: data-box-disk-deploy-ordered.md
-    - text: 解除鎖定並連接
-      url: data-box-disk-deploy-set-up.md
-    - text: 複製、驗證資料
-      url: data-box-disk-deploy-copy-data.md
-    - text: 傳回、上傳並確認 Azure 資料
-      url: data-box-disk-deploy-picked-up.md
-- title: 部署 Data Box Heavy
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 順序
+    - text: Data Box Heavy
       url: data-box-heavy-deploy-ordered.md
-    - text: 連接纜線
-      url: data-box-heavy-deploy-set-up.md
-    - text: 透過 SMB 連線、複製資料
-      url: data-box-heavy-deploy-copy-data.md
-    - text: 傳回、上傳並確認 Azure 資料
-      url: data-box-heavy-deploy-picked-up.md
 - title: 管理裝置
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure 中的資料箱、Data Box Heavy
+    - text: Azure 中的資料箱
       url: data-box-portal-admin.md
-    - text: 透過本機 UI 的資料箱、Data Box Heavy
-      url: data-box-local-web-ui-admin.md
     - text: Azure 中的資料箱磁碟
       url: data-box-portal-ui-admin.md
-- title: 常見問題集
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 常見問題集 - 資料箱
-      url: data-box-faq.md
-    - text: 常見問題集 - 資料箱磁碟
-      url: data-box-disk-faq.md
+    - text: Azure 中的 Data Box Heavy
+      url: data-box-portal-admin.md
 - title: 疑難排解
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 資料箱、Data Box Heavy
+    - text: 資料箱
       url: data-box-troubleshoot.md
-    - text: 資料箱 Blob 儲存體
-      url: data-box-troubleshoot-rest.md
     - text: 資料箱磁碟
       url: data-box-disk-troubleshoot.md
+    - text: Data Box Heavy
+      url: data-box-troubleshoot.md
+    - text: 透過資料箱常見問題集
+      url: data-box-faq.md
+    - text: 透過資料箱磁碟常見問題集
+      url: data-box-disk-faq.md
     - text: 開啟支援票證
       url: data-box-disk-contact-microsoft-support.md

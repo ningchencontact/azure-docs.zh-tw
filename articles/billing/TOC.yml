@@ -179,12 +179,14 @@
   items:
     - name: 找不到訂用帳戶
       href: billing-no-subscriptions-found.md
+    - name: 付款問題
+      href: billing-troubleshoot-azure-payment-issues.md
     - name: 卡片遭拒
-      href: 'https://support.microsoft.com/en-us/help/4042960'
+      href: billing-troubleshoot-declined-card.md
     - name: 註冊問題
-      href: 'https://support.microsoft.com/en-us/help/4042959'
-    - name: 登入問題
-      href: 'https://support.microsoft.com/en-us/help/4042961'
+      href: billing-troubleshoot-azure-sign-up.md
+    - name: 訂用帳戶登入問題
+      href: billing-troubleshoot-sign-in-issue.md
     - name: 已停用企業成本檢視
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: 請連絡支援人員

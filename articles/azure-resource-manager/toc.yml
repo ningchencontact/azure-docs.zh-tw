@@ -97,9 +97,6 @@
         - name: 範本模組化
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
-        - name: 管理祕密
-          displayname: key vault
-          href: resource-manager-keyvault-parameter.md
         - name: 建立多個執行個體
           href: resource-group-create-multiple.md
         - name: 使用範本擴充功能
@@ -124,6 +121,13 @@
           href: secure-template-with-sas-token.md
         - name: 部署至多個資源群組或訂用帳戶
           href: resource-manager-cross-resource-group-deployment.md
+    - name: 提供參數
+      items:
+        - name: 建立參數檔案
+          href: resource-manager-parameter-files.md
+        - name: 傳遞敏感值
+          displayname: key vault
+          href: resource-manager-keyvault-parameter.md
     - name: CI/CD
       items:
         - name: 具有管線的 VS 專案
