@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e3aaf943b5eecd9ec1853c09ea36156b98560d3d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007958"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648713"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>使用 Azure Marketplace 映像透過 Azure 資源的受控識別來建立 Terraform Linux 虛擬機器
 
@@ -43,14 +43,14 @@ Terraform Marketplace 映像可讓您輕鬆地在 Azure 上開始使用 Terrafor
 
 ## <a name="details-on-the-create-terraform-tab"></a>建立 Terraform 索引標籤的詳細資料
 
-在 [建立 Terraform] 索引標籤中輸入以下的詳細資料：
+在 [建立 Terraform]  索引標籤中輸入以下的詳細資料：
 
 1. **基本概念**
     
    * **名稱**：Terraform 虛擬機器的名稱。
    * **使用者名稱：** 第一個帳戶登入識別碼。
    * **密碼**：第一個帳戶密碼。 (您可以使用 SSH 公開金鑰而不使用密碼。)
-   * 訂用帳戶：要用來建立虛擬機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
+   * 訂用帳戶  ：要用來建立虛擬機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
    * **資源群組**：新的或現有的資源群組。
    * **位置**：最適合的資料中心。 通常是擁有您大部分資料的資訊中心，或是最接近您實際位置可進行最快速網路存取的資料中心。
 
@@ -65,7 +65,7 @@ Terraform Marketplace 映像可讓您輕鬆地在 Azure 上開始使用 Terrafor
 
 4. **購買**
 
-   * 若要開始佈建程序，選取 [購買]。 會提供一個交易條款的連結。 VM 除了計算您在 [大小] 步驟中所選擇的伺服器大小之外，不會收取任何其他費用。
+   * 若要開始佈建程序，選取 [購買]  。 會提供一個交易條款的連結。 VM 除了計算您在 [大小] 步驟中所選擇的伺服器大小之外，不會收取任何其他費用。
 
 Terraform VM 映像會執行下列步驟：
 
@@ -85,7 +85,7 @@ Terraform VM 映像會執行下列步驟：
 
 `. ~/tfEnv.sh`
 
-先前的指令碼會使用 [AZ CLI 2.0 版互動式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)機制向 Azure 驗證，並指派整個訂用帳戶上的虛擬機器受控識別參與者權限。 
+先前的指令碼會使用 [AZ CLI 2.0 版互動式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively)機制向 Azure 驗證，並指派整個訂用帳戶上的虛擬機器受控識別參與者權限。 
 
  VM 有一個 Terraform 遠端狀態後端。 若要在您的 Terraform 部署中啟用此後端，將 remoteState.tf 檔案從 tfTemplate 目錄複製到 Terraform 指令碼的根目錄。  
 

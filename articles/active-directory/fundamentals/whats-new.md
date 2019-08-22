@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45a7477fa312a172579c6b4717e9f679ac253e1b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 50f2f1f7f5d8509a28557e9704bc178be465b1ee
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823826"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648666"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -36,6 +36,20 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 - 方案變更
 
 此頁面會每月更新，因此請定期瀏覽。 如果想要尋找超過 6 個月的項目，請至 [Azure Active Directory 的新增功能封存](whats-new-archive.md) (英文)。
+
+---
+
+## <a name="august-2019"></a>2019 年 8 月
+
+### <a name="adalnet-ignores-the-msalnet-shared-cache-for-on-behalf-of-scenarios"></a>ADAL.NET 會針對代理者案例忽略 MSAL.NET 共用快取
+
+**類型：** 已修正  
+**服務類別：** 驗證 (登入)  
+**產品功能：** 使用者驗證
+
+從 Azure AD authentication library (ADAL.NET) 第5.0.0 版-preview 開始, 應用程式開發人員必須[針對 web 應用程式和 Web api, 將每個帳戶的一個](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api)快取序列化。 否則, 某些使用代理者[流程](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow)的案例以及某些特定的`UserAssertion`使用案例, 可能會導致權限提高。 為避免此弱點, ADAL.NET 現在會忽略適用于代理者案例的 Microsoft authentication library for dotnet (MSAL.NET) 共用快取。
+
+如需有關此問題的詳細資訊, 請參閱[Azure Active Directory 驗證程式庫權限提高弱點](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258)。
 
 ---
 
@@ -69,7 +83,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 **類型：** 針對變更做規劃  
 **服務類別：** MFA  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 我們會從[Office 365 Ip 位址和 URL Web 服務](https://docs.microsoft.com/office365/enterprise/office-365-ip-web-service)移除 MFA 伺服器 ip 位址。 如果您目前依賴這些頁面來更新您的防火牆設定, 您必須確定也包含使用者入門的**Azure 多因素驗證服務器防火牆需求**一節中記載的 IP 位址清單。 [使用 Azure 多因素驗證服務器](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy#azure-multi-factor-authentication-server-firewall-requirements)一文。
 
@@ -122,7 +136,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 您現在可以自動為這些新整合的應用程式建立、更新和刪除使用者帳戶:
 
@@ -170,7 +184,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 **類型：** 新功能  
 **服務類別：** 自助密碼重設  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 新的驗證方法使用 & insights 報告可協助您瞭解 Azure 多因素驗證和自助式密碼重設等功能在您的組織中註冊和使用的方式, 包括已註冊的數目每項功能的使用者、用來重設密碼的自助式密碼重設頻率, 以及重設發生的方法。
 
@@ -182,7 +196,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 **類型：** 新功能  
 **服務類別：** Identity Protection  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 所有 Azure AD 系統管理員現在都可以選取現有安全性報告頂端的橫幅, 例如**標示為有風險的使用者**報告, 以開始使用有風險的**使用者**和有風險的登**入**報告中所示的新安全性體驗. 經過一段時間之後, 所有的安全性報告都會從較舊的版本移至新版本, 而新的報表會提供您下列額外的功能:
 
@@ -226,7 +240,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 您現在可以自動為這些新整合的應用程式建立、更新和刪除使用者帳戶:
 
@@ -276,7 +290,7 @@ Azure AD 應用程式現在可以針對 OAuth 2.0 要求, 使用靜態查詢參�
 
 **類型：** 新功能  
 **服務類別：** 報表  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 我們很高興宣佈, Azure AD 活動記錄 (Audit 和登入報告) 現在可以透過 Azure AD PowerShell 模組取得。 之前, 您可以使用 MS 圖形 API 端點來建立自己的腳本, 現在我們已將該功能擴充至 PowerShell Cmdlet。
 
@@ -288,7 +302,7 @@ Azure AD 應用程式現在可以針對 OAuth 2.0 要求, 使用靜態查詢參�
 
 **類型：** 已變更的功能  
 **服務類別：** 報表  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 我們已更新 Audit 和登入記錄報告, 因此您現在可以套用各種篩選, 而不需要將它們新增為報表畫面上的資料行。 此外, 您現在可以決定要在螢幕上顯示的篩選數目。 這些更新會共同合作, 讓您的報表更容易閱讀, 而且更有範圍滿足您的需求。
 
@@ -302,7 +316,7 @@ Azure AD 應用程式現在可以針對 OAuth 2.0 要求, 使用靜態查詢參�
 
 **類型：** 新功能  
 **服務類別：** Identity Protection  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 我們很高興宣佈適用于 Microsoft Graph 的新 riskDetections API 現已開放公開預覽。 您可以使用這個新的 API 來查看您組織的身分識別保護相關使用者和登入風險偵測的清單。 您也可以使用此 API 更有效率地查詢您的風險偵測, 包括偵測類型、狀態、層級等等的詳細資料。
 
@@ -328,7 +342,7 @@ Azure AD 應用程式現在可以針對 OAuth 2.0 要求, 使用靜態查詢參�
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 您現在可以自動為這些新整合的應用程式建立、更新和刪除使用者帳戶:
 
@@ -372,7 +386,7 @@ Azure AD 應用程式現在可以針對 OAuth 2.0 要求, 使用靜態查詢參�
 
 **類型：** 即將淘汰  
 **服務類別：** MFA  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 從2019年7月1日起, Microsoft 將不再為新的部署提供 MFA 伺服器。 新客戶若想要在其組織中要求多重要素驗證, 現在必須使用雲端式 Azure 多重要素驗證。 在7月1日前啟動 MFA Server 的客戶不會看到變更。 您仍然可以下載最新版本、取得未來的更新, 以及產生啟用認證。
 
@@ -398,7 +412,7 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生, 但我們會提供額
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 您現在可以使用 Azure 入口網站的 **企業應用程式** 區域中的 使用量和深入解析 報表, 以應用程式為主的登入資料檢視, 包括下列資訊:
 
@@ -416,7 +430,7 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生, 但我們會提供額
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 請遵循這些新的教學課程, 使用 Azure AD 布建服務, 自動建立、刪除和更新下列雲端式應用程式的使用者帳戶:
 
@@ -436,7 +450,7 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生, 但我們會提供額
 
 **類型：** 新功能  
 **服務類別：** N/A  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 您現在可以使用 Azure AD 中的身分識別安全分數功能來監視及改善您的身分識別安全性狀態。 身分識別安全分數功能會使用單一儀表板來協助您:
 
@@ -472,7 +486,7 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生, 但我們會提供額
 
 **類型：** 新功能  
 **服務類別：** Identity Protection  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 我們很高興宣佈您現在可以使用具風險的使用者 API 來抓取使用者的風險歷程記錄、解除有風險的使用者, 以及確認使用者是否遭到入侵。 這項變更可協助您更有效率地更新使用者的風險狀態, 並瞭解其風險歷程記錄。
 
@@ -538,7 +552,7 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生, 但我們會提供額
 
 **類型：** 已變更的功能  
 **服務類別：** 報表  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 我們很高興宣佈 Azure AD 活動記錄的 Microsoft Graph API 端點支援正式運作。 在此版本中, 您現在可以使用1.0 版的 Azure AD audit 記錄, 以及登入記錄 Api。
 
@@ -550,7 +564,7 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生, 但我們會提供額
 
 **類型：** 新功能  
 **服務類別：** 條件式存取  
-**產品功能：** 身分識別的安全性與保護  
+**產品功能：** 身分識別安全性與保護  
 
 系統管理員現在可以建立條件式存取原則, 以供結合的註冊頁面使用。 這包括套用原則以允許註冊, 如果:
 
@@ -568,13 +582,13 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生, 但我們會提供額
 
 ## <a name="april-2019"></a>2019 年 4 月
 
-### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>已重新整理的新 Azure AD 威脅情報偵測現已推出 Azure AD Identity Protection
+### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-as-part-of-azure-ad-identity-protection"></a>新的 Azure AD 威脅情報偵測現在可作為 Azure AD Identity Protection 的一部分
 
 **類型：** 新功能  
 **服務類別：** Azure AD Identity Protection  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
-已重新整理的 Azure AD Identity Protection 現在提供 Azure AD 威脅情報偵測。 這個新功能可協助您指出特定使用者不尋常的使用者活動, 或根據 Microsoft 內部和外部威脅情報, 與已知的攻擊模式保持一致。
+Azure AD 的威脅情報偵測現在已在更新的 Azure AD Identity Protection 功能中提供。 這種新功能有助於指出特定使用者或活動的異常使用者活動, 其與根據 Microsoft 內部和外部威脅情報來源的已知攻擊模式一致。
 
 如需 Azure AD Identity Protection 重新整理版本的詳細資訊, 請參閱[現已公開預覽的四個主要 Azure AD Identity Protection 增強功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935), 以及[Azure Active Directory Identity Protection 的內容 (重新整理)。](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) 篇. 如需有關 Azure AD 威脅情報偵測的詳細資訊, 請參閱[Azure Active Directory Identity Protection 風險事件](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence)一文。
 
@@ -612,7 +626,7 @@ Azure AD 權利管理 (現為公開預覽狀態) 可協助客戶委派存取套�
 
 **類型：** 新功能  
 **服務類別：** 報表  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 為了協助您使用 Azure AD 活動記錄來處理視覺效果的意見反應, 我們在 Log Analytics 中引進了新的深入解析功能。 這項功能可協助您使用我們的互動式範本 (稱為活頁簿), 深入瞭解您的 Azure AD 資源。 這些預先建立的活頁簿可以提供應用程式或使用者的詳細資料, 包括:
 
@@ -684,7 +698,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 **類型：** 新功能  
 **服務類別：** 條件式存取  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 以應用程式保護為基礎的條件式存取現在可使用「**需要應用程式保護**原則」來取得。 這項新原則有助於避免下列情況來增加貴組織的安全性:
 
@@ -702,7 +716,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 **類型：** 新功能  
 **服務類別：** 條件式存取  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 我們已增強 Microsoft Edge 的 Azure AD 支援, 包括提供 Azure AD 單一登入和條件式存取的新支援。 如果您先前已使用 Microsoft Intune Managed Browser, 您現在可以改用 Microsoft Edge。
 
@@ -710,7 +724,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 ---
 
-## <a name="march-2019"></a>2019年3月
+## <a name="march-2019"></a>2019 年 3 月
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Azure Active Directory B2C 中的 Identity Experience Framework 和自訂原則支援現已推出 (GA)
 
@@ -802,7 +816,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 **類型：** 已變更的功能  
 **服務類別：** 報表  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 我們已建立新的 Azure AD **Audit logs**  頁面, 以協助改善可讀性及搜尋資訊的方式。 若要查看 [新增**審核記錄**] 頁面, 請在 Azure AD 的 [**活動**] 區段中選取 [ **Audit logs** ]。
 
@@ -816,7 +830,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 **類型：** 已變更的功能  
 **服務類別：** 條件式存取  
-**產品功能：** 身分識別的安全性與保護
+**產品功能：** 身分識別安全性與保護
 
 為了協助防止系統管理員透過設定錯誤的條件式存取原則, 不小心將自己鎖在自己的租使用者中, 我們在 Azure 入口網站中建立了新的警告和更新的指引。 如需新指引的詳細資訊, 請參閱[什麼是 Azure Active Directory 條件式存取中的服務](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies)相依性。
 
@@ -836,7 +850,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 **類型：** 已變更的功能  
 **服務類別：** 報表  
-**產品功能：** 監視與報表
+**產品功能：** 監視與報告
 
 您現在可以直接從 Azure 入口網站下載大量的活動記錄。 此更新可讓您:
 
@@ -884,7 +898,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 ---
 
-### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱建立群組或應用程式的存取權檢閱
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>使用 Azure AD 存取權審查來建立群組或應用程式的存取權審查
 
 **類型：** 新功能  
 **服務類別：** 存取權檢閱  
@@ -896,7 +910,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD 應用程式庫推出新的同盟應用程式 - 2019 年 2 月
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD 應用程式庫中可用的新同盟應用程式-2019 年2月
 
 **類型：** 新功能  
 **服務類別：** 企業應用程式  
@@ -910,7 +924,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 ---
 
-### <a name="enhanced-combined-mfasspr-registration"></a>增強的合併 MFA/SSPR 註冊
+### <a name="enhanced-combined-mfasspr-registration"></a>增強的結合 MFA/SSPR 註冊
 
 **類型：** 已變更的功能  
 **服務類別：** 自助密碼重設  
@@ -938,7 +952,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 ---
 
-### <a name="updated-policy-management-experience-for-user-flows"></a>更新的使用者流程原則管理體驗
+### <a name="updated-policy-management-experience-for-user-flows"></a>使用者流程的更新原則管理體驗
 
 **類型：** 已變更的功能  
 **服務類別：** B2C - 消費者身分識別管理  
@@ -952,7 +966,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 ---
 
-### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>選擇 Azure AD B2C 所提供的特定網頁元素版本
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>選擇 Azure AD B2C 所提供的特定頁面元素版本
 
 **類型：** 新功能  
 **服務類別：** B2C - 消費者身分識別管理  
@@ -964,7 +978,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 ---
 
-### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>可設定的終端使用者密碼需求 B2C (GA)
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>B2C (GA) 的可設定使用者密碼需求
 
 **類型：** 新功能  
 **服務類別：** B2C - 消費者身分識別管理  
@@ -976,7 +990,7 @@ Azure AD Connect 正在轉換我們的電子郵件警示系統, 可能會向一�
 
 ---
 
-### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>自訂品牌化驗證體驗的新預設範本
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>自訂品牌驗證體驗的新預設範本
 
 **類型：** 新功能  
 **服務類別：** B2C - 消費者身分識別管理  

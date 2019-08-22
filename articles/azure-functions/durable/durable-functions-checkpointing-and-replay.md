@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b1fd31a758501620129fdbbc532b8defcf927045
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ed9e4aced7983cce10a577b38c1c170474cf83d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648494"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876868"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>長期函式中的檢查點和重新執行 (Azure Functions)
 
@@ -61,7 +61,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-在每個 `await` (C#) 或 `yield` 陳述式中，長期工作架構會將函式的執行狀態檢查點記入資料表儲存體。 此狀態就是「協調流程歷程記錄」  。
+在每個 `await` (C#) 或 `yield` 陳述式中，長期工作架構會將函式的執行狀態檢查點記入資料表儲存體。 此狀態就是「協調流程歷程記錄」。
 
 ## <a name="history-table"></a>歷程記錄資料表
 
@@ -74,14 +74,14 @@ module.exports = df.orchestrator(function*(context) {
 一旦檢查點完成，協調器函式就可以安心地從記憶體移除，直到有更多工作要執行。
 
 > [!NOTE]
-> Azure 儲存體不提供將資料儲存至資料表儲存體和佇列之間的任何交易式保證。 為了處理失敗，長期函式儲存體提供者會使用「最終一致性」  模式。 這些模式可確保如果在檢查點中間發生損毀或連線中斷，不會遺失任何資料。
+> Azure 儲存體不提供將資料儲存至資料表儲存體和佇列之間的任何交易式保證。 為了處理失敗，長期函式儲存體提供者會使用「最終一致性」模式。 這些模式可確保如果在檢查點中間發生損毀或連線中斷，不會遺失任何資料。
 
 完成時，稍早顯示的函式歷程記錄在 Azure 資料表儲存體中看起來如下所示 (針對示範目的縮寫)：
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | 輸入 | 名稱             | 結果                                                    | 狀態 |
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Name             | 結果                                                    | 狀態 |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
@@ -145,7 +145,7 @@ module.exports = df.orchestrator(function*(context) {
 
   如果協調器需要延遲，可以使用 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) 或 `createTimer` (JavaScript) API。
 
-* 協調器程式碼必須**永不起始任何非同步作業**，除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 或 `context.df` 物件的 API。 例如，沒有 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync` 在 .NET 中，或 `setTimeout()` 和 `setInterval()` 在 JavaScript 中。 長期工作架構會在單一執行緒上執行協調器程式碼，並且無法與可以由其他非同步 API 排程的任何其他執行緒進行互動。
+* 協調器程式碼必須**永不起始任何非同步作業**，除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 或 `context.df` 物件的 API。 例如，沒有 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync` 在 .NET 中，或 `setTimeout()` 和 `setInterval()` 在 JavaScript 中。 長期工作架構會在單一執行緒上執行協調器程式碼，並且無法與可以由其他非同步 API 排程的任何其他執行緒進行互動。 發生這種情況`InvalidOperationException`時, 就會擲回例外狀況。
 
 * 在協調器程式碼中**應該避免無限迴圈**。 由於長期工作架構會在協調流程函式進行時儲存執行歷程記錄，所以無限迴圈可能會造成協調器執行個體用盡記憶體。 在無限迴圈的案例中，使用例如 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) 或 `continueAsNew` (JavaScript) 之類的 API 重新啟動函式執行，並捨棄先前的執行歷程記錄。
 
@@ -161,9 +161,9 @@ module.exports = df.orchestrator(function*(context) {
 > [!NOTE]
 > 本章節描述長期工作架構的內部實作詳細資料。 您不需要知道這項資訊就可以使用長期函式。 它只是用來協助您了解重新執行行為。
 
-可以在協調器函式中安全地等候的工作偶爾會稱為「長期工作」  。 這些工作是由長期工作架構建立和管理的工作。 範例是由 `CallActivityAsync`、`WaitForExternalEvent` 和 `CreateTimer` 傳回的工作。
+可以在協調器函式中安全地等候的工作偶爾會稱為「長期工作」。 這些工作是由長期工作架構建立和管理的工作。 範例是由 `CallActivityAsync`、`WaitForExternalEvent` 和 `CreateTimer` 傳回的工作。
 
-這些「長期工作」  是藉由使用 `TaskCompletionSource` 物件的清單在內部進行管理。 在重新執行期間，這些工作會建立為協調器程式碼執行的一部分，並且在發送器列舉對應歷程記錄事件時完成。 這項作業是以同步方式使用單一執行緒來完成，直到已重新執行所有歷程記錄。 歷程記錄重新執行結束時未完成的任何長期工作都有適當的執行動作。例如，訊息可以會被加入佇列以呼叫活動函式。
+這些「長期工作」是藉由使用 `TaskCompletionSource` 物件的清單在內部進行管理。 在重新執行期間，這些工作會建立為協調器程式碼執行的一部分，並且在發送器列舉對應歷程記錄事件時完成。 這項作業是以同步方式使用單一執行緒來完成，直到已重新執行所有歷程記錄。 歷程記錄重新執行結束時未完成的任何長期工作都有適當的執行動作。例如，訊息可以會被加入佇列以呼叫活動函式。
 
 此處所述的執行行為應該可以協助您了解為什麼協調器函式程式碼不得為 `await` 非長期工作：發送器執行緒無法等候它完成，該工作的任何回呼都有可能會損毀協調器函式的追蹤狀態。 某些執行階段檢查正在進行中，以嘗試防止這個情況。
 

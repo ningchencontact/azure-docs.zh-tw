@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0f8942d92958ee8add9645239cc5664a4a96bb33
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533364"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648650"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>使用事件方格來觸發動作以回應 IoT 中樞事件
 
@@ -72,7 +72,7 @@ ms.locfileid: "69533364"
 
 ### <a name="device-telemetry-schema"></a>裝置遙測架構
 
-裝置遙測訊息必須是有效的 JSON 格式, 並將 contentType 設定為 JSON, 並在訊息[系統屬性](iot-hub-devguide-routing-query-syntax.md#system-properties)中將 contentEncoding 設定為 utf-8。 如果未設定, 則 IoT 中樞會以 base 64 編碼格式寫入訊息。
+裝置遙測訊息必須是有效的 JSON 格式, 且 contentType 設為**application/JSON** , 而 contentEncoding 在訊息[系統屬性](iot-hub-devguide-routing-query-syntax.md#system-properties)中設定為**utf-8** 。 這兩個屬性都不區分大小寫。 如果未設定內容編碼, 則 IoT 中樞會以基底64編碼格式寫入訊息。
 
 您可以藉由選取端點作為事件方格, 來擴充裝置遙測事件, 然後再將它們發佈至事件方格。 如需詳細資訊, 請參閱[Message 擴充總覽](iot-hub-message-enrichments-overview.md)。
 
@@ -174,9 +174,9 @@ IoT 中樞事件訂閱可以根據事件種類、資料內容和主旨 (也就�
 devices/{deviceId}
 ```
 
-事件方格也允許篩選每個事件的屬性, 包括資料內容。 這可讓您根據遙測訊息的內容來選擇要傳遞的事件。 請參閱[advanced 篩選](../event-grid/event-filtering.md#advanced-filtering)以觀看範例。 若要篩選遙測訊息本文, 您必須在訊息[系統屬性](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中, 將 contentType 設定為 JSON 並 CONTENTENCODING 為 utf-8。
+事件方格也允許篩選每個事件的屬性, 包括資料內容。 這可讓您根據遙測訊息的內容來選擇要傳遞的事件。 請參閱[advanced 篩選](../event-grid/event-filtering.md#advanced-filtering)以觀看範例。 若要篩選遙測訊息本文, 您必須在訊息[系統屬性](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中, 將 contentType 設定為**application/json**並 contentEncoding 為**utf-8** 。 這兩個屬性都不區分大小寫。
 
-針對非遙測事件 (例如 DeviceConnected、DeviceDisconnected、DeviceCreated 和 DeviceDeleted), 您可以在建立訂閱時使用事件方格篩選。 對於遙測事件, 除了事件方格中的篩選之外, 使用者也可以透過訊息路由查詢來篩選裝置 twins、訊息屬性和主體。 我們會根據您的「裝置遙測」的事件方格訂用帳戶, 在 IoT 中樞中建立預設[路由](iot-hub-devguide-messages-d2c.md)。 這個單一路由可以處理您的所有事件方格訂用帳戶。 若要在傳送遙測資料之前篩選訊息, 您可以更新您的[路由查詢](iot-hub-devguide-routing-query-syntax.md)。 請注意, 只有在主體是 JSON 時, 才可以將路由查詢套用至訊息本文。 您也必須在訊息[系統屬性](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中, 將 contentType 設定為 JSON 並 CONTENTENCODING 為 utf-8。
+針對非遙測事件 (例如 DeviceConnected、DeviceDisconnected、DeviceCreated 和 DeviceDeleted), 您可以在建立訂閱時使用事件方格篩選。 對於遙測事件, 除了事件方格中的篩選之外, 使用者也可以透過訊息路由查詢來篩選裝置 twins、訊息屬性和主體。 我們會根據您的「裝置遙測」的事件方格訂用帳戶, 在 IoT 中樞中建立預設[路由](iot-hub-devguide-messages-d2c.md)。 這個單一路由可以處理您的所有事件方格訂用帳戶。 若要在傳送遙測資料之前篩選訊息, 您可以更新您的[路由查詢](iot-hub-devguide-routing-query-syntax.md)。 請注意, 只有在主體是 JSON 時, 才可以將路由查詢套用至訊息本文。 您也必須在訊息[系統屬性](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)中, 將 contentType 設定為**application/json**並 contentEncoding 為**utf-8** 。
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>裝置連線和裝置中斷連線事件的限制
 
