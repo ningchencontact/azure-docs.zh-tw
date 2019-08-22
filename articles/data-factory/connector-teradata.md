@@ -34,7 +34,7 @@ ms.locfileid: "69557878"
 具體而言，這個 Teradata 連接器支援：
 
 - Teradata**版本14.10、15.0、15.10、16.0、16.10 和 16.20**。
-- 使用**基本**或**Windows**驗證來複製資料。
+- 使用**Basic**或**Windows**驗證來複製資料。
 - 從 Teradata 來源進行平行複製。 如需詳細資訊, 請參閱[從 Teradata 的平行複製](#parallel-copy-from-teradata)一節。
 
 > [!NOTE]
@@ -142,8 +142,8 @@ Teradata 連結服務支援下列屬性:
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為`TeradataTable`。 | 是 |
-| database | Teradata 資料庫的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
-| table | Teradata 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| database | Teradata 資料庫的名稱。 | 否 (如果已指定活動來源中的"query") |
+| table | Teradata 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例:**
 

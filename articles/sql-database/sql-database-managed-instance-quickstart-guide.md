@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: 97f7393622311103d94d3067205f902e3eec6843
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567355"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647207"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>開始使用 Azure SQL Database 受控執行個體
 
@@ -55,8 +55,6 @@ ms.locfileid: "68567355"
 ## <a name="customize-network-environment"></a>自訂網路環境
 
 雖然 VNet/子網路可以在使用 [Azure 入口網站](sql-database-managed-instance-get-started.md)建立執行個體時自動設定，您應該在開始建立受控執行個體之前建立它，以設定 VNet 和子網路的參數。 建立並設定網路環境最簡單的方式，便是使用 [Azure 資源部署](sql-database-managed-instance-create-vnet-subnet.md)範本，其會建立要放置執行個體的網路和子網路。 您只需要按下 Azure Resource Manager 部署按鈕，並將參數填入表單中。
-
-或者，您也可以使用 [PowerShell 指令碼](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) \(英文\) 來將網路的建立自動化。
 
 或者，您也可以使用此 [PowerShell 指令碼](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) \(英文\) 來將網路的建立自動化。
 

@@ -1,7 +1,7 @@
 ---
 title: 快速入門：在 Azure 入口網站中建置採用 AI 擴充的索引 - Azure 搜尋服務
 description: 使用Azure 入口網站和範例資料，在 Azure 搜尋服務的索引編製入口網站中使用資料擷取、自然語言和影像處理技能。
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.openlocfilehash: 7bc8bd77ef581134fad0cb2e11277dc4fcee99c4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a4654e5895e9c7768b9fa6b975ef848294bcc8cc
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841190"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648913"
 ---
 # <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>快速入門：使用 Azure 搜尋服務中的認知技能，建立 AI 索引管線
 

@@ -2,19 +2,19 @@
 title: REST 快速入門：使用 Postman 建立、載入及查詢索引 - Azure 搜尋服務
 description: 了解如何使用 Postman 和範例資料與定義呼叫 Azure 搜尋服務 REST API。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.openlocfilehash: e3912e90762977bc801279fde481fc26516e51a6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b1fcca0b135852660890f9f7591ee115d2ef2b47
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882646"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656784"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>快速入門：使用 REST API 在 Postman 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "68882646"
 
 此文章說明如何以互動方式制訂要求。 或者，您可以[下載並匯入 Postman 集合](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) \(英文\) 以使用預先定義的要求。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 

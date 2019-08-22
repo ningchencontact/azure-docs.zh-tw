@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 07/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 1b749df7c5b3badbc6e7eccd885cb953ab3d0afa
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277394"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900577"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>什麼是 Azure Data Box Gateway？
 
@@ -57,7 +57,6 @@ Azure 資料箱閘道是可讓您順利將資料傳送到 Azure 的儲存體解�
 |快速存取     | 裝置上的本機快取可讓您快速存取最近使用的檔案。|
 |離線上傳     | 中斷連線模式支援離線上傳案例。|
 |資料重新整理     | 能夠以來自雲端的最新檔案對本機檔案進行重新整理。|
-|加密    | BitLocker 支援本機加密資料，以及透過 *https* 對雲端的安全資料傳輸       |
 |災害復原     | 內建的網路災害復原        |
 
 

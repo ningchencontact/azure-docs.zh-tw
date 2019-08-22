@@ -1,20 +1,20 @@
 ---
 title: 快速入門：建立可啟動沈浸式閱讀程式的 iOS 應用程式 (Swift)
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將從頭開始建置 iOS 應用程式，並且新增沈浸式閱讀程式功能。
 services: cognitive-services
-author: MeganRoach
+author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.author: t-meroa
-ms.openlocfilehash: 64b3cab857a541d0bede88e7fdf21c00526b9a43
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.author: metan
+ms.openlocfilehash: 64fd7508244f2123cc10ee96ec4f805050aedfaa
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965153"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899538"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>快速入門：建立可啟動沈浸式閱讀程式的 iOS 應用程式 (Swift)
 
@@ -22,7 +22,7 @@ ms.locfileid: "68965153"
 
 在本快速入門中，您將從頭開始建置 iOS 應用程式，並且使用沈浸式閱讀程式 SDK 來整合沈浸式閱讀程式。 本快速入門的完整工作範例可以在[這裡](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/quickstart-swift)取得。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
