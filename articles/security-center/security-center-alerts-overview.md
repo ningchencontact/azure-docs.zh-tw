@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 25fb94afdfe68510c66cff130a3abc8b74d7311d
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295690"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647315"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure 資訊安全中心中的安全性警示
 
@@ -50,7 +50,7 @@ ASC 會監視資源是否已部署在 Azure 上, 或部署于其他內部部署�
 
 ## <a name="what-are-alert-incidents"></a>什麼是警示事件？
 
-安全性事件是相關警示的集合, 而不是個別列出每個警示。 資訊安全中心使用融合, 將不同的警示和低精確度信號相互關聯至安全性事件。
+安全性事件是相關警示的集合, 而不是個別列出每個警示。 資訊安全中心使用[雲端智慧警示相互關聯](security-center-alerts-cloud-smart.md), 將不同的警示和低精確度信號相互關聯至安全性事件。
 
 資訊安全中心會使用事件, 為您提供攻擊活動和所有相關警示的單一觀點。 這個視圖可讓您快速瞭解攻擊者所採取的動作, 以及受影響的資源。 如需詳細資訊, 請參閱[雲端智慧警示相互關聯](security-center-alerts-cloud-smart.md)。
 

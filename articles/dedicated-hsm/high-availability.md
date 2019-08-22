@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 784a6821502a0e02a74d619047604ffe47df7e97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf55761bb58e309f919e08530fe047a137756323
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60914156"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656546"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure 專用 HSM 高可用性
 
-Azure 專用 HSM 的基礎是由 Microsoft 高可用性資料中心所構成。 但是，任何高可用性的資料中心都很容易受到當地故障的影響，而且在極端情況下，可能會出現區域層級的故障。 Microsoft 會將 HSM 裝置部署到同個區域內的不同資料中心，以確保不會因為佈建了多個裝置，而導致裝置共用到單一機架。 可藉由跨資料中心使用 Gemalto HA 群組功能區域中配對這些 Hsm 設定了額外的層級的高可用性。 也可以跨區域配對裝置，以便在需要災害復原的情況下，解決區域容錯移轉問題。 使用這種多層高可用性設定，即可自動應對任何裝置故障情形，保持應用程式正常運作。 所有資料中心在現場也會備有備用裝置和元件，因此可以及時更換任何故障的裝置。
+Azure 專用 HSM 的基礎是由 Microsoft 高可用性資料中心所構成。 但是，任何高可用性的資料中心都很容易受到當地故障的影響，而且在極端情況下，可能會出現區域層級的故障。 Microsoft 會將 HSM 裝置部署到同個區域內的不同資料中心，以確保不會因為佈建了多個裝置，而導致裝置共用到單一機架。 藉由使用 Gemalto HA 群組功能, 將這些 Hsm 與區域中的資料中心配對, 可以達到更高層級的高可用性。 也可以跨區域配對裝置，以便在需要災害復原的情況下，解決區域容錯移轉問題。 使用這種多層高可用性設定，即可自動應對任何裝置故障情形，保持應用程式正常運作。 所有資料中心在現場也會備有備用裝置和元件，因此可以及時更換任何故障的裝置。
 
 ## <a name="high-availability-example"></a>高可用性範例
 
-如需進一步瞭解如何在軟體層級設定 HSM 裝置以實現高可用性，請參閱《Gemalto Luna 網路 HSM 管理指南》(英文)， 可至 [Gemalto 客戶支援入口網站](https://supportportal.gemalto.com/csm/)下載。
+如需進一步瞭解如何在軟體層級設定 HSM 裝置以實現高可用性，請參閱《Gemalto Luna 網路 HSM 管理指南》(英文)， 您可以在[GEMALTO HSM 頁面](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/)取得這份檔。
 
 下圖顯示的是一個高可用性的架構。 此架構在同個區域中使用了多台裝置，且在獨立區域中有多台配對裝置。 此架構最少使用了四個 HSM 裝置和虛擬網路元件。
 

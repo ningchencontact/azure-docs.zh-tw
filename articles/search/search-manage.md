@@ -2,7 +2,7 @@
 title: 入口網站中 Azure 搜尋服務的服務管理 - Azure 搜尋服務
 description: 使用 Azure 入口網站來管理 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務)。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565426"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647665"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 入口網站中 Azure 搜尋服務的服務管理
 > [!div class="op_single_selector"]
@@ -28,11 +28,11 @@ ms.locfileid: "60565426"
 Azure 搜尋服務是完全受控、以雲端為基礎的搜尋服務，用來在自訂應用程式內建置豐富的搜尋經驗。 本文章涵蓋服務管理工作，可供您在 [Azure 入口網站](https://portal.azure.com)中針對已佈建的搜尋服務執行。 服務管理原先的設計是輕量級的，限定於下列工作︰
 
 > [!div class="checklist"]
-> * 管理 API 金鑰  (用於讀取或寫入您的服務存取權) 的存取權。
+> * 管理 API 金鑰 (用於讀取或寫入您的服務存取權) 的存取權。
 > * 變更資料分割和複本的配置來調整服務容量。
 > * 監視資源使用量，相對於服務層級的最大限制。
 
-請注意，「升級」  不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資料，請參閱[建立 Azure 搜尋服務](search-create-service-portal.md)。
+請注意，「升級」不是管理工作。 因為資源是在佈建服務時進行配置，所以移動到其他層需要新的服務。 如需詳細資料，請參閱[建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 > [!Tip]
 > 尋找有關如何分析搜尋流量或查詢效能的說明嗎？ 您可以監視查詢磁碟區、使用者搜尋哪些字詞，以及搜尋結果將客戶引導至索引中特定文件的成功率。 如需詳細資訊，請參閱 [Azure 搜尋服務的搜尋流量分析](search-traffic-analytics.md)、[監視使用量和查詢度量](search-monitor-usage.md)、[效能和最佳化](search-performance-optimization.md)。
@@ -60,7 +60,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>監視資源使用量
-在儀表板中，僅能針對服務儀表板中顯示的資訊，以及一些透過查詢服務取得的度量進行資源監視。 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。 如果您想要擷取和保存記錄的事件，您可以佈建外部資源，例如 Azure 監視。 如需詳細資訊，請參閱 <<c0> [ 監視 Azure 搜尋服務](search-monitor-usage.md)。
+在儀表板中，僅能針對服務儀表板中顯示的資訊，以及一些透過查詢服務取得的度量進行資源監視。 在服務儀表板上的使用量區段中，您可以快速判斷資料分割資源層級是否適合您的應用程式。 如果您想要捕獲並保存已記錄的事件, 您可以布建外部資源, 例如 Azure 監視。 如需詳細資訊, 請參閱[監視 Azure 搜尋服務](search-monitor-usage.md)。
 
 使用搜尋服務 REST API，可以程式設計的方式取得文件和索引的計數： 
 
@@ -87,7 +87,7 @@ Azure 搜尋服務不會透過入口網站或程式設計介面公開個別服�
 <a id="scale"></a>
 
 ## <a name="scale-up-or-down"></a>擴大或縮小規模
-每個搜尋服務都會以一個複本和一個資料分割的最小值開始執行。 如果您註冊的[層提供專用資源](search-limits-quotas-capacity.md)，請按一下服務儀表板中的 [級別]  圖格來調整資源使用量。
+每個搜尋服務都會以一個複本和一個資料分割的最小值開始執行。 如果您註冊的[層提供專用資源](search-limits-quotas-capacity.md)，請按一下服務儀表板中的 [級別] 圖格來調整資源使用量。
 
 當您透過任何資源加入處理能力時，服務即會自動使用這些資源。 您無須再執行其他動作，但在新資源產生作用前，會有些許的延遲。 佈建其他資源需要 15 分鐘或更久的時間。
 

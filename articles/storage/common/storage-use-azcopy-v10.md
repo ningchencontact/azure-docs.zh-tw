@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 60b3d1dcc7d60b25319b3fa5dd740541a457927f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 6b5be5271e2ff579d93cb70f7c8da93d861d4dc0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640096"
+ms.locfileid: "69648735"
 ---
 # <a name="get-started-with-azcopy"></a>開始使用 AzCopy
 
@@ -238,7 +238,7 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 此範例命令會以遞迴方式將資料從本機目錄複寫到 blob 容器。 將虛構的 SAS 權杖附加至容器 URL 的結尾。
 
 ```azcopy
-azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
+azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
 若要深入瞭解 SAS 權杖以及如何取得它, 請參閱[使用共用存取簽章 (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)。

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 48792a90a42d0cfe5c0b34c872b3d474d6a784f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 75bbcfa831ba7ef0b3dd0da629cfa94768d6ae9d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433497"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873320"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中結合 ScaleR 與 SparkR
 
@@ -193,7 +193,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>將航線和天氣資料匯入至 Spark DataFrames
 
-現在我們使用 SparkR [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) 函式，將天氣和航線資料匯入到 Spark DataFrame。 如同其他許多 Spark 方法一樣，這個函式會延遲執行，意思就是排入佇列等候執行，但等到必要時才會執行。
+現在我們使用 SparkR [read.df()](http://spark.apache.org/docs/latest/api/R/read.df.html) 函式，將天氣和航線資料匯入到 Spark DataFrame。 如同其他許多 Spark 方法一樣，這個函式會延遲執行，意思就是排入佇列等候執行，但等到必要時才會執行。
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -266,7 +266,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>聯結天氣與航線資料
 
-現在，我們將使用 SparkR [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) 函式進行航線與天氣資料的左方外部聯結 (依照起飛 AirportID 和日期時間)。 外部聯結讓我們能保留所有的航線資料記錄 (即使沒有相符的天氣資料)。 聯結之後，我們會移除一些多餘的資料行，而將保留的資料行重新命名，以移除聯結所引入的內送 DataFrame 前置詞。
+現在，我們將使用 SparkR [join()](http://spark.apache.org/docs/latest/api/R/join.html) 函式進行航線與天氣資料的左方外部聯結 (依照起飛 AirportID 和日期時間)。 外部聯結讓我們能保留所有的航線資料記錄 (即使沒有相符的天氣資料)。 聯結之後，我們會移除一些多餘的資料行，而將保留的資料行重新命名，以移除聯結所引入的內送 DataFrame 前置詞。
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -536,7 +536,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - 如需在 Apache Spark 上使用 Machine Learning Server 的詳細資訊，請參閱[快速入門指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) \(英文\)。
 
-- 在 HDInsight 上的 ML 服務的資訊，請參閱[ML 服務的概觀在 HDInsight 上](r-server/r-server-overview.md)。
+- 如需 HDInsight 上 ML 服務的相關資訊, 請參閱[hdinsight 上的 Ml 服務總覽](r-server/r-server-overview.md)。
 
 如需使用 SparkR 的詳細資訊，請參閱：
 

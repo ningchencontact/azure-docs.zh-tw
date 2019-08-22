@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815714"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873077"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務為您的模型微調超參數
 
@@ -325,11 +325,9 @@ RunDetails(hyperdrive_run).show()
 
 此外，您可以使用平行座標圖，以視覺化方式識別效能與個別超參數值之間的關聯性。 
 
-![超參數微調平行座標](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
+[![超參數微調平行座標](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 您也可以在 Azure 入口網站中，視覺化您所有的超參數微調執行。 如需如何在入口網站中檢視實驗的詳細資訊，請參閱[如何追蹤實驗](how-to-track-experiments.md#view-the-experiment-in-the-web-portal)。
-
-![超參數微調入口網站](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 
 ## <a name="find-the-best-model"></a>尋找最佳模型
 

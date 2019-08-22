@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 9f40ec658fc6725f381300d967c9d7cd61c3a218
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: a0c34fcc70d92f98a6d72e4cd2fc78d34d863d55
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624156"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650464"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions 中的部署技術
 
@@ -60,7 +60,7 @@ Azure Functions 支援跨平臺本機開發和 Windows 和 Linux 上的裝載。
 
 ### <a name="remote-build"></a>遠端組建
 
-Azure Functions 可以自動在 zip 部署後所收到的程式碼上執行組建。 根據您的應用程式是在 Windows 或 Linux 上執行, 這些組建的行為會稍有不同。 當先前已將應用程式設定為在 [[從封裝執行](run-functions-from-deployment-package.md)] 中執行時, 不會執行遠端組建。 
+Azure Functions 可以自動在 zip 部署後所收到的程式碼上執行組建。 根據您的應用程式是在 Windows 或 Linux 上執行, 這些組建的行為會稍有不同。 當先前已將應用程式設定為在 [[從封裝執行](run-functions-from-deployment-package.md)] 中執行時, 不會執行遠端組建。 若要瞭解如何使用遠端組建, 請流覽至 [ [zip 部署](#zip-deploy)]。
 
 > [!NOTE]
 > 如果您遇到遠端組建的問題, 可能是因為您的應用程式是在功能推出之前建立 (2019 年8月1日)。 嘗試建立新的函數應用程式。
@@ -85,11 +85,11 @@ Azure Functions 可以自動在 zip 部署後所收到的程式碼上執行組�
 
 ##### <a name="consumption-preview-plan"></a>耗用量 (預覽) 方案
 
-在取用方案中執行的 Linux 函式應用程式沒有 SCM/Kudu 網站, 這會限制部署選項。 不過, 在取用方案中執行的 Linux 上的函式應用程式會支援遠端組建。 這些遠端組建會使用[Oryx](https://github.com/microsoft/Oryx)。
+在取用方案中執行的 Linux 函式應用程式沒有 SCM/Kudu 網站, 這會限制部署選項。 不過, 在取用方案中執行的 Linux 上的函式應用程式會支援遠端組建。
 
 ##### <a name="dedicated-and-premium-preview-plans"></a>專用和 Premium (預覽) 方案
 
-在[專用 (App Service) 方案](functions-scale.md#app-service-plan)和[Premium 方案](functions-scale.md#premium-plan)的 Linux 上執行的函式應用程式, 也有受限的 SCM/Kudu 網站, 其本身會利用[Oryx](https://github.com/microsoft/Oryx)。
+在[專用 (App Service) 方案](functions-scale.md#app-service-plan)和[Premium 方案](functions-scale.md#premium-plan)的 Linux 上執行的函式應用程式, 也有受限的 SCM/Kudu 網站。
 
 ## <a name="deployment-technology-details"></a>部署技術詳細資料
 
@@ -111,7 +111,7 @@ Azure Functions 提供下列部署方法。
 
 >__使用方式:__ 使用您最愛的用戶端工具來部署:[VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure)、 [Visual Studio](functions-develop-vs.md#publish-to-azure)或[Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure)。 若要將 .zip 檔案手動部署至函式應用程式, 請遵循[從 .zip 檔案或 URL 部署](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)中的指示。
 
-若要使用遠端組建執行 zip 部署, 請使用下列[Core Tools](functions-run-local.md)命令:
+若要使用[遠端組建](#remote-build)執行 zip 部署, 請使用下列[Core Tools](functions-run-local.md)命令:
 
 ```bash
 func azure functionapp publish <app name> --build remote

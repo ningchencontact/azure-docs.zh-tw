@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: e078c75911a332c7e70f3a578723735729b9e6b6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e6a1ec1d11404e6179fda919c58f581c3524c4d4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954488"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650347"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>使用 PowerShell 備份和還原 Azure Vm 中的 SQL 資料庫
 
@@ -167,6 +167,18 @@ $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Nam
 * 使用[get-azrecoveryservicesbackupschedulepolicyobject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0)來查看預設的備份原則排程。
 * 您可以使用[使用 get-azrecoveryservicesbackupprotectionpolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) Cmdlet 來建立新的備份原則。 您可以輸入排程和保留原則物件。
 
+根據預設, 開始時間是在排程原則物件中定義。 使用下列範例, 將開始時間變更為所需的開始時間。 所需的開始時間也應該是 UTC。 下列範例假設每日備份所需的開始時間為 01:00 AM UTC。
+
+```powershell
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
+$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+> [!IMPORTANT]
+> 您只需要提供30分鐘倍數的開始時間。 在上述範例中, 它只能是 "01:00:00" 或 "02:30:00"。 開始時間不能為 "01:15:00"
+
 下列範例會將排程原則和保留原則儲存在變數中。 然後, 它會使用這些變數做為新原則的參數 (**NewSQLPolicy**)。 **NewSQLPolicy**會採用每日的「完整」備份, 保留180天, 並每隔2小時進行一次記錄備份
 
 ```powershell
@@ -181,7 +193,7 @@ $NewSQLPolicy = New-AzRecoveryServicesBackupProtectionPolicy -Name "NewSQLPolicy
 Name                 WorkloadType       BackupManagementType BackupTime                Frequency                                IsDifferentialBackup IsLogBackupEnabled
                                                                                                                                 Enabled
 ----                 ------------       -------------------- ----------                ---------                                -------------------- ------------------
-NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 9:00:00 PM      Daily                                    False                True
+NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 AM      Daily                                    False                True
 ```
 
 ## <a name="enable-backup"></a>啟用備份
@@ -198,7 +210,7 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 此命令將會傳回此資源的「備份容器」, 而狀態將會是「已註冊」
 
 > [!NOTE]
-> 如果未指定 force 參數, 系統會要求使用者以「您要停用此容器的保護」文字來確認。 請忽略此文字, 並說「Y」以確認。 這是已知的問題, 我們正努力移除 text 和 force 參數的需求
+> 如果未指定 force 參數, 系統會要求使用者以「您要停用此容器的保護」文字來確認。 請忽略此文字, 並說「Y」以確認。 這是已知的問題, 我們正努力移除強制參數的文字和需求。
 
 ### <a name="fetching-sql-dbs"></a>正在提取 SQL Db
 

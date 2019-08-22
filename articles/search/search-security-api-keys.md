@@ -2,7 +2,7 @@
 title: 建立、管理及保護系統管理與查詢 API 金鑰 - Azure 搜尋
 description: 服務端點的 API 金鑰控制存取權。 系統管理金鑰授與寫入權限。 可針對唯讀存取權建立查詢金鑰。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: d3880ed367ebe33e04f37b139927b75e3d01b178
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a148ccccd156b0bf637a134758b3a1c8b9db70a7
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855772"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647893"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>針對 Azure 搜尋服務建立及管理 API 金鑰
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 190b7f15a8ae0a5b9472188129f7116050fc831f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466827"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650142"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>整合多個 Azure 監視器 Application Insights 資源 
-本文說明如何集中一處查詢和檢視所有 Application Insights 應用程式記錄檔資料，即使它們位於不同的 Azure 訂用帳戶中，以取代淘汰的 Application Insights Connector。 您在單一查詢中可納入的資源 (Application Insights 資源) 數目上限為 100 個。  
+本文說明如何在同一個位置查詢和查看所有 Application Insights 記錄資料, 即使它們位於不同的 Azure 訂用帳戶中, 也可以取代 Application Insights Connector。 您可以包含在單一查詢中的 Application Insights 資源數目限制為100。
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>查詢多個 Application Insights 資源的建議方法 
 在查詢中列出多個 Application Insights 資源可能很麻煩且難以維護。 相反地，您可以利用函數將查詢邏輯與應用程序範圍分開。  
@@ -32,7 +32,14 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-使用聯集運算子搭配應用程式清單來建立函式，然後使用 *applicationsScoping* 別名將查詢在您的工作區中儲存成函式。  
+使用聯集運算子搭配應用程式清單來建立函式，然後使用 *applicationsScoping* 別名將查詢在您的工作區中儲存成函式。 
+
+您可以隨時修改所列出的應用程式，方法是在入口網站中瀏覽至您工作區中的 [查詢總管] 並選取函式來進行編輯後再儲存，或是使用 `SavedSearch` PowerShell Cmdlet。 
+
+>[!NOTE]
+>這個方法無法搭配記錄警示使用, 因為警示規則資源 (包括工作區和應用程式) 的存取驗證是在警示建立期間執行。 不支援在建立警示之後, 將新資源新增至函式。 如果您想要針對記錄警示中的資源範圍使用函式, 您必須在入口網站中編輯警示規則, 或使用 Resource Manager 範本來更新已設定範圍的資源。 或者, 您可以在記錄警示查詢中包含資源的清單。
+
+`withsource= SourceApp` 命令在結果中新增一個資料行，可指定傳送記錄的應用程式。 在此範例中, parse 運算子是選擇性的, 並使用從 SourceApp 屬性中解壓縮應用程式名稱。 
 
 ```
 union withsource=SourceApp 
@@ -43,13 +50,6 @@ app('Contoso-app4').requests,
 app('Contoso-app5').requests 
 | parse SourceApp with * "('" applicationName "')" *  
 ```
-
->[!NOTE]
->您可以隨時修改所列出的應用程式，方法是在入口網站中瀏覽至您工作區中的 [查詢總管] 並選取函式來進行編輯後再儲存，或是使用 `SavedSearch` PowerShell Cmdlet。 `withsource= SourceApp` 命令在結果中新增一個資料行，可指定傳送記錄的應用程式。 
->
->該查詢使用 Application Insights 資料結構，雖然查詢是在工作區中執行的，因為 applicationsScoping 函數會傳回 Application Insights 資料結構。 
->
->在此範例中，parse 運算子是選擇性的，它會從 SourceApp 屬性中擷取應用程式名稱。 
 
 您現在可以在跨資源查詢中使用 applicationsScoping 函數：  
 
@@ -62,7 +62,7 @@ applicationsScoping
 | render timechart
 ```
 
-函式別名會從所有定義的應用程式傳送要求的聯集。 接著，查詢會篩選失敗的要求，並依應用程式將趨勢視覺化。
+該查詢使用 Application Insights 資料結構，雖然查詢是在工作區中執行的，因為 applicationsScoping 函數會傳回 Application Insights 資料結構。 函式別名會從所有定義的應用程式傳送要求的聯集。 接著，查詢會篩選失敗的要求，並依應用程式將趨勢視覺化。
 
 ![跨查詢結果範例](media/unify-app-resource-data/app-insights-query-results.png)
 
@@ -103,17 +103,17 @@ applicationsScoping //this brings data from Application Insights resources
 | ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
-| AvailabilityDuration | duration |
+| AvailabilityDuration | 持續時間 |
 | AvailabilityMessage | message |
-| AvailabilityRunLocation | location |
-| AvailabilityTestId | id |
+| AvailabilityRunLocation | 位置 |
+| AvailabilityTestId | ID |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
-| City | client_city |
+| 縣/市 | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| 国家/地区 | client_CountryOrRegion | 
+| Country | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -125,14 +125,14 @@ applicationsScoping //this brings data from Application Insights resources
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| 作業系統 | client_OS | 
+| OS | client_OS | 
 | PageViewCount | itemCount |
-| PageViewDuration | duration | 
+| PageViewDuration | 持續時間 | 
 | PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
-| RequestDuration | duration | 
-| RequestID | id | 
+| RequestDuration | 持續時間 | 
+| RequestID | ID | 
 | RequestName | name | 
 | RequestSuccess | success | 
 | ResponseCode | resultCode | 

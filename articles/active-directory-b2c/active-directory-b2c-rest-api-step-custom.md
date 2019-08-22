@@ -1,36 +1,36 @@
 ---
 title: REST API 宣告交換-Azure Active Directory B2C
-description: 加入在 Active Directory B2C 自訂原則中的 REST API 宣告交換。
+description: 將 REST API 宣告交換新增至 Active Directory B2C 中的自訂原則。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439004"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644914"
 ---
-# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>若要在 Azure Active Directory B2C 自訂原則新增 REST API 宣告交換
+# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中將 REST API 宣告交換新增至自訂原則
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-您可以新增至支援的 RESTful API 的互動您[自訂原則](active-directory-b2c-overview-custom.md)Azure Active Directory (Azure AD) B2C 中。 這篇文章會示範如何建立與 RESTful 服務互動的 Azure AD B2C 使用者旅程圖。
+您可以在 Azure Active Directory (Azure AD) B2C 中, 將與 RESTful API 的互動新增至您的[自訂原則](active-directory-b2c-overview-custom.md)。 本文說明如何建立與 RESTful 服務互動的 Azure AD B2C 使用者旅程圖。
 
-互動包括宣告交換的 REST API 宣告與 Azure AD B2C 之間的資訊。 宣告交換具有下列特性：
+互動包括 REST API 宣告和 Azure AD B2C 之間的宣告交換資訊。 宣告交換具有下列特性:
 
 - 可以設計成協調流程步驟。
 - 可以觸發外部動作。 例如，它可以在外部資料庫中記錄一個事件。
 - 可用來擷取值，然後將它存放在使用者資料庫中。
 - 可以變更執行流程。
 
-表示在這篇文章中的案例包含下列動作：
+本文中所述的案例包含下列動作:
 
 1. 查閱外部系統中的使用者。
 2. 取得註冊該使用者的城市。
@@ -39,13 +39,13 @@ ms.locfileid: "67439004"
 ## <a name="prerequisites"></a>必要條件
 
 - 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
-- 要互動的 REST API 端點。 簡單的 Azure 函式，例如此發行項使用。 若要建立 Azure 函式，請參閱[在 Azure 入口網站中建立您的第一個函式](../azure-functions/functions-create-first-azure-function.md)。
+- 要互動的 REST API 端點。 本文使用簡單的 Azure 函數做為範例。 若要建立 Azure 函式, 請參閱[在 Azure 入口網站中建立您的第一個](../azure-functions/functions-create-first-azure-function.md)函式。
 
 ## <a name="prepare-the-api"></a>準備 API
 
-在本節中，您準備 Azure 的函式，來獲得價值`email`，然後傳回的值`city`，可供 Azure AD B2C 做為宣告。
+在本節中, 您會準備 Azure 函式以接收的值`email`, 然後傳回可供 Azure AD B2C 做`city`為宣告的值。
 
-變更您要使用下列程式碼建立 Azure 函式的 run.csx 檔案：
+變更您所建立之 Azure 函式的 .csx 檔案, 以使用下列程式碼:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -82,11 +82,11 @@ public class ResponseContent
 }
 ```
 
-## <a name="configure-the-claims-exchange"></a>宣告交換設定
+## <a name="configure-the-claims-exchange"></a>設定宣告交換
 
 技術設定檔提供宣告交換的設定。
 
-開啟*TrustFrameworkExtensions.xml*檔案，並新增下列**ClaimsProvider**內的 XML 項目**ClaimsProviders**項目。
+開啟*TrustFrameworkExtensions*檔案, 並在**ClaimsProviders**元素內新增下列**ClaimsProvider** xml 元素。
 
 ```XML
 <ClaimsProvider>
@@ -97,8 +97,10 @@ public class ResponseContent
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
-        <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -113,11 +115,13 @@ public class ResponseContent
 </ClaimsProvider>
 ```
 
-**InputClaims**元素定義傳送至 REST 服務的宣告。 在此範例中，宣告值`givenName`傳送至 REST 服務來作為宣告`email`。 **OutputClaims**元素定義預期來自 REST 服務的宣告。
+**InputClaims**元素會定義傳送至 REST 服務的宣告。 在此範例中, 宣告的值`givenName`會傳送至 REST 服務做為`email`宣告。 **OutputClaims**元素會定義預期來自 REST 服務的宣告。
+
+上述`AuthenticationType`批註, 並`AllowInsecureAuthInProduction`指定當您移至生產環境時應該進行的變更。 若要瞭解如何保護您的 RESTful Api 以用於生產環境, 請參閱使用基本驗證和[安全 RESTful api 搭配憑證驗證](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)來[保護 RESTful api](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 。
 
 ## <a name="add-the-claim-definition"></a>新增宣告定義
 
-加入定義`city`內**BuildingBlocks**項目。 您可以在 TrustFrameworkExtensions.xml 檔案開頭處找到此元素。
+在`city` **BuildingBlocks**元素內新增的定義。 您可以在 TrustFrameworkExtensions.xml 檔案開頭處找到此元素。
 
 ```XML
 <BuildingBlocks>
@@ -136,7 +140,7 @@ public class ResponseContent
 
 有許多使用案例都可將 REST API 呼叫用來作為協調流程步驟。 作為協調流程步驟，它可在使用者成功完成工作 (例如首次註冊) 後作為外部系統的更新，或作為設定檔更新以讓資訊保持同步。 在此情況下，它會用來加強設定檔編輯之後提供給應用程式的資訊。
 
-加入設定檔編輯使用者旅程圖中的步驟。 使用者之後驗證 （協調流程步驟 1-4 中下列 XML 程式碼），而且使用者已提供更新的設定檔資訊 （步驟 5）。 複製設定檔編輯使用者旅程圖 XML 程式碼，從*TrustFrameworkBase.xml*的檔案您*TrustFrameworkExtensions.xml*檔案**UserJourneys**項目。 然後進行步驟 6 所作的修改。
+將步驟新增至設定檔編輯使用者旅程圖。 使用者通過驗證後 (下列 XML 中的協調流程步驟 1-4), 且使用者已提供更新的設定檔資訊 (步驟 5)。 將設定檔編輯使用者旅程圖 XML 程式碼從*trustframeworkbase.xml*複製到**UserJourneys**元素內的*TrustFrameworkExtensions。* 然後在步驟6進行修改。
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -146,7 +150,7 @@ public class ResponseContent
 </OrchestrationStep>
 ```
 
-使用者旅程圖的最終 XML 看起來應該如下列範例：
+使用者旅程圖的最終 XML 看起來應該像下列範例:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -206,9 +210,9 @@ public class ResponseContent
 
 ## <a name="add-the-claim"></a>新增宣告
 
-編輯*ProfileEdit.xml*檔案，並新增`<OutputClaim ClaimTypeReferenceId="city" />`要**OutputClaims**項目。
+編輯*profileedit.xml* , 並將新增`<OutputClaim ClaimTypeReferenceId="city" />`至**OutputClaims**元素。
 
-加入新的宣告之後，技術設定檔看起來像此範例中：
+加入新的宣告之後, 技術設定檔看起來就像下面這個範例:
 
 ```XML
 <TechnicalProfile Id="PolicyProfile">
@@ -225,13 +229,13 @@ public class ResponseContent
 
 ## <a name="upload-your-changes-and-test"></a>上傳您的變更並測試
 
-1. (選擇性：)儲存現有的版本 （透過下載） 的檔案再繼續進行。
-2. 上傳*TrustFrameworkExtensions.xml*並*ProfileEdit.xml* ，然後選取要覆寫現有的檔案。
-3. 選取  **B2C_1A_ProfileEdit**。
-4. 針對**選取 應用程式**自訂原則的 概觀 頁面上選取 web 應用程式名稱*webapp1*先前登錄。 請確定**回覆 URL**是`https://jwt.ms`。
-4. 選取 **立即執行**。 使用您的帳戶認證登入，然後按一下**繼續**。
+1. (選擇性：)繼續之前, 請先儲存檔案的現有版本 (透過下載)。
+2. 上傳*TrustFrameworkExtensions*和*profileedit.xml* , 然後選取以覆寫現有的檔案。
+3. 選取 [ **B2C_1A_ProfileEdit**]。
+4. 針對 [**選取應用程式**], 在自訂原則的 [總覽] 頁面上, 選取您先前註冊之名為*webapp1*的 web 應用程式。 請確定 [**回復 URL** ] 為`https://jwt.ms`。
+4. 選取 [**立即執行**]。 使用您的帳號憑證登入, 然後按一下 [**繼續**]。
 
-如果所有項目已正確設定時，此權杖還包含新的宣告`city`，以值`Redmond`。
+如果所有專案都已正確設定, 則權杖會包含新`city`的宣告, 其`Redmond`值為。
 
 ```JSON
 {
@@ -251,5 +255,13 @@ public class ResponseContent
 
 ## <a name="next-steps"></a>後續步驟
 
-- 您也可以將互動設計成驗證設定檔。 如需詳細資訊，請參閱[逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為對使用者輸入的驗證](active-directory-b2c-rest-api-validation-custom.md)。
-- [修改設定檔編輯以從使用者收集其他資訊](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+您也可以將互動設計成驗證設定檔。 如需詳細資訊，請參閱[逐步解說：將 REST API 宣告交換整合到 Azure AD B2C 使用者旅程圖中以作為對使用者輸入的驗證](active-directory-b2c-rest-api-validation-custom.md)。
+
+[修改設定檔編輯以從使用者收集其他資訊](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[參考：RESTful 技術設定檔](restful-technical-profile.md)
+
+若要瞭解如何保護您的 Api, 請參閱下列文章:
+
+* [使用基本驗證 (使用者名稱和密碼) 保護您的 RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+* [使用用戶端憑證保護您的 RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

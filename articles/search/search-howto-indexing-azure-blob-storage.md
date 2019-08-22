@@ -3,19 +3,19 @@ title: 為 Azure Blob 儲存體內容編製索引以用於全文檢索搜尋 - A
 description: 了解如何使用 Azure 搜尋服務對 Azure Blob 儲存體編製索引，以及從文件擷取文字。
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 832be20f78d1e88a3bb6d1c25c7aaf5d7354e857
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c72a60dfb19c71ee039e2fcdb278581e41117b93
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753974"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656661"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -68,7 +68,7 @@ blob 索引子可以從下列文件格式擷取文字：
 
 您可以採取下列其中一種方式提供 blob 容器的認證︰
 
-- **完整存取儲存體帳戶連接字串**：`DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` 您可以從 Azure 入口網站取得連接字串，方法是瀏覽至儲存體帳戶 刀鋒視窗 > 設定 > （適用於傳統儲存體帳戶） 的索引鍵或設定 > 存取金鑰 （適用於 Azure Resource Manager 儲存體帳戶）。
+- **完整存取儲存體帳戶連接字串**：`DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`您可以從 Azure 入口網站取得連接字串, 方法是流覽至 [儲存體帳戶] 分頁, > 設定 > 金鑰 (適用于傳統儲存體帳戶) 或 > 存取金鑰的設定 (適用于 Azure Resource Manager 儲存體帳戶)。
 - **儲存體帳戶共用存取簽章** (SAS) 連接字串︰`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`SAS 對於容器和物件 (在此案例中為 blob) 應該擁有列出和讀取權限。
 -  **容器共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`SAS 對於容器應該擁有列出和讀取權限。
 
@@ -116,14 +116,14 @@ blob 索引子可以從下列文件格式擷取文字：
 
 如需建立索引子 API 的詳細資訊，請參閱 [建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
 
-如需定義索引子排程的詳細資訊，請參閱[如何排程 Azure 搜尋服務索引子](search-howto-schedule-indexers.md)。
+如需定義索引子排程的詳細資訊, 請參閱[如何排定 Azure 搜尋服務的索引子](search-howto-schedule-indexers.md)。
 
 ## <a name="how-azure-search-indexes-blobs"></a>Azure 搜尋服務如何編製 blob 的索引
 
 取決於[組態](#PartsOfBlobToIndex)，blob 索引子只可以編製儲存體中繼資料的索引 (僅當您關注中繼資料且無須編製 blob 內容的索引時很有用)，儲存體和內容中繼資料，或中繼資料和文字內容。 根據預設，索引子會擷取中繼資料和內容。
 
 > [!NOTE]
-> 根據預設，結構化內容 (例如 JSON 或CSV) 的 Blob 會以單一區塊文字編製索引。 如果您想要編製 JSON 和 CSV blob 索引結構化的方式，請參閱[編製 JSON blob](search-howto-index-json-blobs.md)並[編製 CSV blob](search-howto-index-csv-blobs.md)如需詳細資訊。
+> 根據預設，結構化內容 (例如 JSON 或CSV) 的 Blob 會以單一區塊文字編製索引。 如果您想要以結構化方式編制 JSON 和 CSV blob 的索引, 請參閱[編制 json blob](search-howto-index-json-blobs.md)的索引和[索引 csv blob](search-howto-index-csv-blobs.md)以取得詳細資訊。
 >
 > 複合或內嵌文件 (例如 ZIP 封存或具有內嵌 Outlook 電子郵件 (內含附件) 的 Word 文件) 也會編制索引為單一文件。
 
@@ -141,14 +141,14 @@ blob 索引子可以從下列文件格式擷取文字：
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - 上次修改 blob 的時間戳記。 Azure 搜尋服務會使用此時間戳記來識別已變更的 blob，以避免在初始編製索引之後重新對所有項目編制索引。
   * **metadata\_storage\_size** (Edm.Int64) - blob 大小 (位元組)。
   * **metadata\_storage\_content\_md5** (Edm.String) - blob 內容的 MD5 雜湊，如果有的話。
-  * **中繼資料\_儲存體\_sas\_語彙基元**(Edm.String)-可供暫存 SAS 權杖[自訂技術](cognitive-search-custom-skill-interface.md)取得 blob 的存取權。 這個語彙基元不應該儲存供稍後使用，因為它可能會過期。
+  * **元\_資料儲存\_ sas\_權杖**(Edm. String)-可供[自訂技能](cognitive-search-custom-skill-interface.md)用來存取 blob 的暫存 sas 權杖。 此標記不應該儲存以供日後使用, 因為它可能會過期。
 
 * 每個文件格式特有的中繼資料屬性會擷取到[這裡](#ContentSpecificMetadata)列出的欄位。
 
 您不需要在您的搜尋索引中針對上述所有屬性定義欄位 - 只擷取您的應用程式所需的屬性。
 
 > [!NOTE]
-> 通常，您現有的索引中的欄位名稱會與文件擷取期間所產生的欄位名稱不同。 您可以使用 [欄位對應]  將 Azure 搜尋服務提供的屬性名稱對應至您的搜尋索引中的欄位名稱。 您會在下面看到使用欄位對應的範例。
+> 通常，您現有的索引中的欄位名稱會與文件擷取期間所產生的欄位名稱不同。 您可以使用 [欄位對應] 將 Azure 搜尋服務提供的屬性名稱對應至您的搜尋索引中的欄位名稱。 您會在下面看到使用欄位對應的範例。
 >
 >
 
@@ -337,12 +337,12 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
 您可能會想在索引中「組合」來自多個來源的文件。 例如，您可能會想要將來自 Blob 的文字與儲存在 Cosmos DB 中的其他中繼資料合併。 您甚至可以搭配各種索引子使用推送編製索引 API，以建立來自多個部分的搜尋文件。 
 
-若要達成此目的，所有索引子和其他元件都需要在文件索引鍵上達成協議。 如需詳細的逐步解說，請參閱這篇外部文章：[結合 Azure 搜尋服務中的其他資料的文件](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)。
+若要達成此目的，所有索引子和其他元件都需要在文件索引鍵上達成協議。 如需詳細的逐步解說，請參閱這篇外部文章：將[檔與 Azure 搜尋服務中的其他資料結合](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html)。
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>編制純文字的索引 
 
-如果所有的 Blob 都包含相同編碼的純文字，您可以使用「文字剖析模式」  來大幅提升編制索引的效能。 若要使用文字剖析模式，請將 `parsingMode` 設定屬性設定為 `text`：
+如果所有的 Blob 都包含相同編碼的純文字，您可以使用「文字剖析模式」來大幅提升編制索引的效能。 若要使用文字剖析模式，請將 `parsingMode` 設定屬性設定為 `text`：
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json

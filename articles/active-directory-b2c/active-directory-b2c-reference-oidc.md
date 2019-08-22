@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 36efdb7db57d3acfa7384d904e9be8faad4c6534
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 35abb84f92ed9a7295c45afc69b673a3be46be15
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622081"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874122"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中利用 OpenID Connect 的 Web 登入
 
@@ -32,7 +32,7 @@ Azure AD B2C 擴充標準的 OpenID Connect 通訊協定，功能更強大，而
 
 當您的 web 應用程式需要驗證使用者並執行使用者流程時, 它可以將使用者導向至`/authorize`端點。 使用者會根據使用者流程採取動作。
 
-在此要求中, 用戶端會在`scope`參數中指出它需要從使用者取得的許可權, 並指定要執行的使用者流程。 後續小節中提供三個範例 (含有換行符號以提高可讀性)，各使用不同的使用者流程。 為了瞭解每個要求的運作方式，請試著將要求貼到瀏覽器來執行。 您可以將`fabrikamb2c`取代為您的租使用者名稱 (如果有的話), 並建立使用者流程。 您也必須取代`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`。 將此用戶端識別碼取代為您已建立之應用程式註冊的應用程式識別碼。 也請將原則名稱 (`{policy}`) 變更為您在租使用者中擁有的原則名稱, `b2c_1_sign_in`例如。
+在此要求中, 用戶端會在`scope`參數中指出它需要從使用者取得的許可權, 並指定要執行的使用者流程。 若要瞭解要求的運作方式, 請嘗試將要求貼入瀏覽器並加以執行。 以您的租用戶名稱取代 `{tenant}`。 將`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`取代為您先前在租使用者中註冊之應用程式的應用程式識別碼。 也請將原則名稱 (`{policy}`) 變更為您在租使用者中擁有的原則名稱, `b2c_1_sign_in`例如。
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -48,7 +48,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | 出租 | 是 | Azure AD B2C 租使用者的名稱 |
-| 策略 | 是 | 執行的使用者流程。 這是在您的 Azure AD B2C 租使用者中建立的使用者流程名稱。 使用者流程的名稱應該以開頭`b2c_1_`。 例如: `b2c_1_sign_in`、 `b2c_1_sign_up`或。 `b2c_1_edit_profile` |
+| 策略 | 是 | 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如: `b2c_1_sign_in`、 `b2c_1_sign_up`或。 `b2c_1_edit_profile` |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
 | nonce | 是 | 包含在要求中的值 (由應用程式所產生), 以宣告形式包含在產生的識別碼權杖中。 然後, 應用程式可以驗證此值, 以減輕權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
 | response_type | 是 | 必須包含 OpenID Connect 的識別碼權杖。 如果您的 web 應用程式也需要權杖來呼叫 Web API, 您可以`code+id_token`使用。 |
@@ -274,14 +274,14 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | 出租 | 是 | Azure AD B2C 租使用者的名稱 |
 | 策略 | 是 | 您想要用來將使用者登出應用程式的使用者流程。 |
-| id_token_hint| 否 | 先前發行的識別碼權杖, 用來傳遞至登出端點, 做為與用戶端目前已驗證的會話相關的提示。 |
-| post_logout_redirect_uri | 否 | 使用者在成功登出後應重新導向至的 URL。如果未包含, Azure AD B2C 會向使用者顯示一般訊息。 |
+| id_token_hint| 否 | 先前發行的識別碼權杖, 用來傳遞至登出端點, 做為與用戶端目前已驗證的會話相關的提示。 可確保在您的 Azure AD B2C 應用程式設定中,是已註冊的回復URL。`post_logout_redirect_uri` `id_token_hint` |
+| post_logout_redirect_uri | 否 | 使用者在成功登出後應重新導向至的 URL。如果未包含, Azure AD B2C 會向使用者顯示一般訊息。 除非您提供`id_token_hint`, 否則您不應該在 Azure AD B2C 應用程式設定中, 將此 url 註冊為回復 url。 |
 | 狀態 | 否 | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和`state`回應中的值是否相同。 |
 
-### <a name="require-id-token-hint-in-logout-request"></a>登出要求中需要識別碼權杖提示
+### <a name="secure-your-logout-redirect"></a>保護您的登出重新導向
 
 登出之後, 使用者會被重新導向至`post_logout_redirect_uri`參數中指定的 URI, 而不論已為應用程式指定的回復 url。 不過, 如果傳遞有效`id_token_hint`的, Azure AD B2C 會在執行重新導向之前`post_logout_redirect_uri` , 驗證的值是否符合其中一個應用程式設定的重新導向 uri。 如果沒有為應用程式設定相符的回復 URL, 則會顯示錯誤訊息, 而且不會重新導向使用者。
 
-### <a name="external-identity-provider-session"></a>外部識別提供者會話
+### <a name="external-identity-provider-sign-out"></a>外部識別提供者登出
 
 將使用者導向至`end_session`端點會使用 Azure AD B2C 來清除部分使用者的單一登入狀態, 但不會將使用者登出其社交識別提供者 (IDP) 會話。 如果使用者在後續登入時選取相同的 IDP, 則會重新驗證, 而不需要輸入其認證。 如果使用者想要登出應用程式, 則不一定表示他們想要登出其 Facebook 帳戶。 不過, 如果使用本機帳戶, 使用者的會話就會正確結束。

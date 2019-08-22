@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: MT
+ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033526"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650701"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -39,7 +39,7 @@ ms.locfileid: "69033526"
 
 - **供應專案別名**:用來在合作夥伴中心入口網站中參考供應專案的名稱。 此名稱不會在 marketplace 中使用, 而且與供應專案*名稱*和其他會向客戶顯示的值不同。 在您選取 [*建立*] 之後, 就無法變更這個值。
 
-<br>範例:測試供應專案1&#8482;
+<br>範例：測試供應專案1&#8482;
 
 選取 [建立]。  系統會為此供應專案建立供應專案的 **[總覽**] 頁面。  
 
@@ -225,7 +225,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體, 而不
 
 #### <a name="description"></a>**描述**
 
-此為必填欄位。 要包含在描述中的專案: 
+這是必要欄位。 要包含在描述中的專案: 
 
 * 在您的描述中的前幾個句子清楚描述您供應項目的價值主張。  
 * 請記住，前幾個句子可能會顯示在搜尋引擎結果中。  
@@ -302,12 +302,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體, 而不
 
     上述內容看起來像這樣:
 
-    <h1>這是標題1</h1> 
-    <h2>這是標題2</h2> 
-    <h3>這是標題3</h3> 
-    <h4>這是標題4</h4> 
-    <h5>這是標題5</h5> 
-    <h6>這是標題6</h6> 
+    ![範例標題](./media/heading.png)
 
 #### <a name="links"></a>連結
 
@@ -381,7 +376,7 @@ Azure Marketplace 發行者可以選擇在標準合約下提供其軟體, 而不
 **建立新方案**(針對選擇透過 Microsoft 銷售的使用者, 至少須規劃一項方案)
 
 - **方案識別碼:** 為此供應專案中的每個方案建立唯一的方案識別碼。 [產品 URL] 和 [Azure Resource Manager 範本] (如果適用) 中的客戶會看到此識別碼。 僅使用小寫、英數位元、虛線或底線。 此方案識別碼最多可以有50個字元。 請注意, 在選取 [建立] 之後, 就無法修改識別碼。
-- **方案名稱:** 當決定要在您的供應專案內選取哪一個方案時, 客戶會看到此名稱。 為此供應專案中的每個方案建立唯一的供應專案名稱。 方案名稱是用來區分可能屬於相同供應專案一部分的軟體方案 (例如 供應項目名稱:Windows Server;計畫Windows Server 2016、Windows Server 2019)。
+- **方案名稱:** 當決定要在您的供應專案內選取哪一個方案時, 客戶會看到此名稱。 為此供應專案中的每個方案建立唯一的供應專案名稱。 方案名稱是用來區分可能屬於相同供應專案一部分的軟體方案 (例如 供應項目名稱：Windows Server;計畫Windows Server 2016、Windows Server 2019)。
 
 ### <a name="plan-listing"></a>計畫清單
 

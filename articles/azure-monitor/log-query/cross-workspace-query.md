@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a1ea4012b7cda5b5deab82027e5547a9c9ef786f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722694"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650144"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>在 Azure 監視器中執行跨資源記錄查詢  
 
@@ -134,6 +134,11 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
+
+>[!NOTE]
+>這個方法無法搭配記錄警示使用, 因為警示規則資源 (包括工作區和應用程式) 的存取驗證是在警示建立期間執行。 不支援在建立警示之後, 將新資源新增至函式。 如果您想要針對記錄警示中的資源範圍使用函式, 您必須在入口網站中編輯警示規則, 或使用 Resource Manager 範本來更新已設定範圍的資源。 或者, 您可以在記錄警示查詢中包含資源的清單。
+
+
 ![時間圖](media/cross-workspace-query/chart.png)
 
 ## <a name="next-steps"></a>後續步驟

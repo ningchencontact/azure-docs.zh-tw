@@ -1,24 +1,21 @@
 ---
 title: Azure Functions 的規模調整和主控 |Microsoft Docs
 description: 瞭解如何在 Azure Functions 耗用量方案和 Premium 方案之間進行選擇。
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: azure 函式, 函式, 取用方案, premium 方案, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdef1457254b6deb8a0b791b11c94154518b4301
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636453"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874942"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -143,9 +140,6 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 在「耗用量」和「高階」方案中, Azure Functions 基礎結構會根據其函數觸發所在的事件數目, 新增函式主機的其他實例, 以調整 CPU 和記憶體資源。 耗用量方案中的每個函式實例都限制為 1.5 GB 的記憶體和一個 CPU。  主機的實例是整個函式應用程式, 這表示函數應用程式內的所有函式會共用實例內的資源, 並同時進行調整。 共用相同取用方案的函數應用程式會獨立調整。  在 premium 方案中, 您的方案大小會決定該實例上該方案中所有應用程式的可用記憶體和 CPU。  
 
 函式程式碼檔案會儲存在函式主要儲存體帳戶的 Azure 檔案儲存體共用上。 當您刪除函式應用程式的主要儲存體帳戶時，函式程式碼檔案會被刪除，且無法復原。
-
-> [!NOTE]
-> 在取用方案中使用 Blob 觸發程序時，處理新 Blob 時最多會有 10 分鐘的延遲。 當函式應用程式已進入閒置狀態時，就會發生此延遲。 在函數應用程式開始執行之後，會立即處理 blob。 若要避免此冷啟動延遲, 請使用 Premium 計畫, 或使用[事件方格觸發](functions-bindings-event-grid.md)程式。 如需詳細資訊，請參閱 [blob 觸發程序繫結參考文件](functions-bindings-storage-blob.md#trigger)。
 
 ### <a name="runtime-scaling"></a>執行階段調整
 

@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 10/06/2017
-ms.openlocfilehash: 243f4e63cc04bca018c2bf69492dccf163e92b73
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/16/2019
+ms.openlocfilehash: 0a89cd2c576a3539d7b1b6a282a2287551e8265a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780842"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877141"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>排程和廣播作業 (node.js)
 
@@ -48,9 +48,11 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 * **scheduleJobService.js** 會使用作業在模擬裝置應用程式中呼叫直接方法，並更新裝置對應項 (twin) 的所需屬性。
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
 
-* Node.js 10.0. x 版或更新版本[準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
+若要完成本教學課程，您需要：
+
+* Node.js 10.0. x 版或更新版本。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
@@ -68,39 +70,39 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 1. 建立名為 **simDevice** 的新空白資料夾。  在命令提示字元中，使用下列命令在 **simDevice** 資料夾中建立 package.json 檔案。  接受所有預設值：
 
-   ```
+   ```console
    npm init
    ```
 
 2. 在命令提示字元中，於 **simDevice** 資料夾中執行下列命令來安裝 **azure-iot-device** 裝置 SDK 套件和 **azure-iot-device-mqtt** 套件：
-   
-   ```
+
+   ```console
    npm install azure-iot-device azure-iot-device-mqtt --save
    ```
 
 3. 使用文字編輯器，在 [simDevice] 資料夾中建立新的 **simDevice.js** 檔案。
 
 4. 在 **simDevice.js** 檔案的開頭新增下列 'require' 陳述式：
-   
-    ```
+
+    ```javascript
     'use strict';
-   
+
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. 新增 **connectionString** 變數，並用它來建立**用戶端**執行個體。  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+5. 新增 **connectionString** 變數，並用它來建立**用戶端**執行個體。 `{yourDeviceConnectionString}`將預留位置值取代為您先前複製的裝置連接字串。
+
+    ```javascript
+    var connectionString = '{yourDeviceConnectionString}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
 6. 新增下列函式以處理 **lockDoor** 方法。
-   
-    ```
+
+    ```javascript
     var onLockDoor = function(request, response) {
-   
+
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
             if (err) {
@@ -109,14 +111,14 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
         });
-   
+
         console.log('Locking Door!');
     };
     ```
 
 7. 新增下列程式碼以註冊 **lockDoor** 方法的處理常式。
 
-   ```
+   ```javascript
    client.open(function(err) {
         if (err) {
             console.error('Could not connect to IotHub client.');
@@ -145,30 +147,30 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 1. 建立名為 **scheduleJobService** 的新空白資料夾。  在命令提示字元中，使用下列命令在 **scheduleJobService** 資料夾中建立 package.json 檔案。  接受所有預設值：
 
-    ```
+    ```console
     npm init
     ```
 
 2. 在命令提示字元中，於 **scheduleJobService** 資料夾中執行下列命令來安裝 **azure-iothub** 裝置 SDK 套件和 **azure-iot-device-mqtt** 套件：
-   
-    ```
+
+    ```console
     npm install azure-iothub uuid --save
     ```
 
 3. 使用文字編輯器，在 [scheduleJobService] 資料夾中建立新的 **scheduleJobService.js** 檔案。
 
-4. 在 **dmpatterns_gscheduleJobServiceetstarted_service.js** 檔案的開頭新增下列 'require' 陳述式：
-   
-    ```
+4. 在**scheduleJobService**開頭處新增下列 ' 必要 ' 語句:
+
+    ```javascript
     'use strict';
-   
+
     var uuid = require('uuid');
     var JobClient = require('azure-iothub').JobClient;
     ```
 
-5. 新增下列變數宣告，並取代預留位置值︰
-   
-    ```
+5. 新增下列變數宣告。 以您在[取得 IoT 中樞連接字串](#get-the-iot-hub-connection-string)中複製的值取代預留位置值。`{iothubconnectionstring}` 如果您註冊的裝置不同于**myDeviceId**, 請務必在查詢準則中加以變更。
+
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
@@ -177,8 +179,8 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```
 
 6. 新增下列將用來監視作業執行的函式：
-   
-    ```
+
+    ```javascript
     function monitorJob (jobId, callback) {
         var jobMonitorInterval = setInterval(function() {
             jobClient.getJob(jobId, function(err, result) {
@@ -197,14 +199,14 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```
 
 7. 新增下列程式碼來排定呼叫裝置方法的作業：
-   
-    ```
+  
+    ```javascript
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
         responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
-   
+
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
@@ -228,8 +230,8 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```
 
 8. 新增下列程式碼來排定更新裝置對應項 (twin) 的作業：
-   
-    ```
+
+    ```javascript
     var twinPatch = {
        etag: '*',
        properties: {
@@ -239,9 +241,9 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
            }
        }
     };
-   
+
     var twinJobId = uuid.v4();
-   
+
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
                                 queryCondition,
@@ -270,18 +272,26 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 現在您已經準備好執行應用程式。
 
 1. 在命令提示字元中，於 **simDevice** 資料夾中執行下列命令來開始接聽重新啟動直接方法。
-   
-    ```
+
+    ```console
     node simDevice.js
     ```
 
 2. 在 **scheduleJobService** 資料夾的命令提示字元中，執行下列命令以觸發鎖門作業並更新對應項
-   
-    ```
+
+    ```console
     node scheduleJobService.js
     ```
 
-3. 您會在主控台中看到直接方法的裝置回應。
+3. 您會在主控台中看到直接方法和作業狀態的裝置回應。
+
+   以下顯示直接方法的裝置回應:
+
+   ![模擬裝置應用程式輸出](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
+
+   以下顯示直接方法和裝置對應項更新的服務排程工作, 以及執行完成的作業:
+
+   ![執行模擬裝置應用程式](./media/iot-hub-node-node-schedule-jobs/schedule-job-service.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,14 +8,14 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 298770b1b2da816ddef9154fafb20d7c6cb82df3
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 6c18a244ceae2ccd9a536abeb6bc2d85760bb0a6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849030"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875916"
 ---
-# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立及執行工作
+# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>在您的 Azure IoT Central 應用程式中建立及執行作業
 
 您可以使用 Microsoft Azure IoT Central 利用工作來大規模管理您的已連線裝置。 作業可讓您對裝置屬性、設定和命令進行大量更新。 本文會逐步引導您瞭解如何開始在自己的應用程式中使用作業。
 
@@ -27,7 +27,7 @@ ms.locfileid: "67849030"
 
 1. 選取 [ **+ 新增**] 以建立新的作業。
 
-    ![建立新工作](./media/howto-run-a-job/createnewjob.png)
+    ![建立新的工作](./media/howto-run-a-job/createnewjob.png)
 
 1. 輸入 [名稱] 和 [描述] 來識別您要建立的作業。
 
@@ -75,17 +75,17 @@ ms.locfileid: "67849030"
 | 狀態訊息       | 狀態意義                                          |
 | -------------------- | ------------------------------------------------------- |
 | 已完成            | 此工作已在所有裝置上執行。              |
-| Failed               | 此工作失敗而未在裝置上完整執行。  |
-| Pending              | 此作業尚未開始在裝置上執行。         |
-| 執行中              | 此工作目前正在裝置上執行。             |
+| 已失敗               | 此工作失敗而未在裝置上完整執行。  |
+| 擱置              | 此作業尚未開始在裝置上執行。         |
+| Running              | 此工作目前正在裝置上執行。             |
 | 已停止              | 此工作已被使用者手動停止。           |
 
 狀態訊息後面會有作業中的裝置總覽。 下表列出可能的裝置狀態值:
 
 | 狀態訊息       | 狀態意義                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Succeeded            | 作業執行成功的裝置數目。       |
-| Failed               | 作業執行失敗的裝置數目。       |
+| 成功            | 作業執行成功的裝置數目。       |
+| 已失敗               | 作業執行失敗的裝置數目。       |
 
 ### <a name="view-the-device-status"></a>檢視裝置狀態
 
@@ -94,8 +94,8 @@ ms.locfileid: "67849030"
 | 狀態訊息       | 狀態意義                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
 | 已完成            | 工作已在此裝置上執行。                                     |
-| Failed               | 工作在此裝置上執行失敗。 錯誤訊息會顯示詳細資訊。  |
-| Pending              | 作業尚未在此裝置上執行。                                   |
+| 已失敗               | 工作在此裝置上執行失敗。 錯誤訊息會顯示詳細資訊。  |
+| 擱置              | 作業尚未在此裝置上執行。                                   |
 
 > [!NOTE]
 > 如果裝置已被刪除, 您就無法選取該裝置, 它會以裝置識別碼顯示為已刪除。

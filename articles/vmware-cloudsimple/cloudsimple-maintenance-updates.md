@@ -3,25 +3,25 @@ title: Azure VMware Solution by CloudSimple-CloudSimple 維護和更新
 description: 說明已排程維護和更新的 CloudSimple 服務程式
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5d6eeecbecc89995c25e687cc6808ed3b0c5dc5c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816212"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877938"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 維護和更新
 
-私用雲端環境的設計是不會有單一失敗點:
+私用雲端環境的設計是不會有單一失敗點。
 
-* ESXi 叢集已設定 vSphere 高可用性。 叢集的大小會調整為至少有一個備用節點可供復原。
+* ESXi 叢集已設定 vSphere 高可用性 (HA)。 叢集的大小會調整為至少有一個備用節點可供復原。
 * 多餘的主要儲存體是由 vSAN 提供, 這需要至少三個節點才能針對單一失敗提供保護。 vSAN 可以設定為較大的叢集提供更高的復原能力。
-* vCenter、PSC 和 NSX Manager Vm 都設定了 RAID-10 儲存原則, 以防止儲存失敗。 Vm 會藉由 vSphere HA 而受到保護, 以防止節點/網路失敗。
+* vCenter、PSC 和 NSX Manager Vm 都設定了 RAID 10 的儲存體, 以避免儲存失敗。 Vm 會藉由 vSphere HA 而受到保護, 以防止節點/網路失敗。
 * ESXi 主機具有多餘的風扇和 Nic。
 * TOR 和書脊交換器會在 HA 配對中設定, 以提供復原功能。
 
@@ -57,9 +57,9 @@ CloudSimple 會在私人雲端中備份、維護和更新這些 VMware 元素:
 CloudSimple 備份包括:
 
 * VCenter、PSC 和 DVS 規則的夜間增量備份。
-* 使用 vCenter 原生 Api 來備份應用層上的元件。
-* 在 VMware 管理軟體更新或升級之前自動備份。
-* 在透過 TLS 1.2 加密通道將資料傳輸到 Azure 之前, 由 vCenter 在來源上的資料加密。 資料會儲存在 Azure blob 中, 其會跨區域複寫。
+* 用來在應用層備份元件的 vCenter 原生 Api。
+* 更新或升級 VMware 管理軟體之前的自動備份。
+* 在資料透過 TLS 1.2 加密通道傳送至 Azure 之前, 來源的 vCenter 資料加密。 資料會儲存在 Azure blob 中, 其會跨區域複寫。
 
 您可以藉由開啟[支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)來要求還原。
 
@@ -105,4 +105,4 @@ CloudSimple 提供 VMware 軟體元件的每季維護更新。 當 VMware 軟體
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用 Veeam 備份工作負載 vm](https://docs.azure.cloudsimple.com/backup-workloads-veeam/)。
+[使用 Veeam 備份工作負載 Vm](backup-workloads-veeam.md)

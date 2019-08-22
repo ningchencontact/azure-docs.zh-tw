@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ede7167d570c7bd2ba7e04c3a9a703555efb35cd
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 63c0a04a6d18d6af850b1492d2efa9df9aa65219
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698528"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877371"
 ---
 # <a name="set-up-a-device-template"></a>設定裝置範本
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 裝置範本是一份藍圖，可為連線至 Azure IoT Central 應用程式的某種裝置，定義其所具有的特性和行為。
 
@@ -66,7 +68,7 @@ ms.locfileid: "68698528"
 
 例如，您可以新增溫度遙測量測：
 
-| 顯示名稱        | 欄位名稱    |  單位    | 最小值   |最大值|
+| 顯示名稱        | 欄位名稱    |  單位    | Min   |max|
 | --------------------| ------------- |-----------|-------|---|
 | 溫度         | temp          |  degC     |  0    |100|
 
@@ -173,7 +175,7 @@ assetloc: {
 
 選取 [儲存] 之後，[風扇速度] 設定會顯示為圖格。 操作員可以使用 [Device Explorer] 頁面上的設定來變更裝置的風扇速度。
 
-## <a name="properties"></a>Properties
+## <a name="properties"></a>屬性
 
 屬性是與裝置相關聯的中繼資料, 例如固定裝置位置和序號。 在裝置範本中新增多個屬性之後，這些屬性會在 [屬性] 索引標籤上顯示為圖格。屬性具有類型, 例如數位、文字、日期、切換、裝置屬性、標籤或固定位置。 操作員會在建立裝置時指定屬性的值, 並可隨時編輯這些值。 裝置屬性是唯讀的，而且會從裝置傳送至應用程式。 操作員無法變更裝置屬性。 當實際裝置連線時, 裝置屬性磚會在應用程式中更新。
 

@@ -3,19 +3,19 @@ title: 與 Azure SQL Database 連線並使用索引子為內容編製索引 - Az
 description: 了解如何為 Azure 搜尋服務中的全文檢索搜尋使用索引子，在 Azure SQL Database 中搜耙資料。 本文涵蓋連線、索引子設定以及資料擷取。
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755092"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656225"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
 
@@ -158,7 +158,7 @@ ms.locfileid: "66755092"
 
 **間隔** 參數是必需的。 間隔指兩個連續索引子開始執行的時間。 允許的最小間隔為 5 分鐘；最長間隔為一天。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 間隔的模式為： `P(nD)(T(nH)(nM))`。 範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 個小時。
 
-如需定義索引子排程的詳細資訊，請參閱[如何排程 Azure 搜尋服務索引子](search-howto-schedule-indexers.md)。
+如需定義索引子排程的詳細資訊, 請參閱[如何排定 Azure 搜尋服務的索引子](search-howto-schedule-indexers.md)。
 
 <a name="CaptureChangedRows"></a>
 
@@ -274,7 +274,7 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
 | --- | --- | --- |
 | bit |Edm.Boolean、Edm.String | |
 | int、smallint、tinyint |Edm.Int32、Edm.Int64、Edm.String | |
-| bigint |Edm.Int64、Edm.String | |
+| Bigint |Edm.Int64、Edm.String | |
 | real、float |Edm.Double、Edm.String | |
 | smallmoney、money 十進位數值 |Edm.String |Azure 搜尋服務不支援將十進位類型轉換為 Edm.Double，因為這麼做會降低準確度。 |
 | char、nchar、varchar、nvarchar |Edm.String<br/>Collection(Edm.String) |如果 SQL 字串代表下列 JSON 字串陣列，該字串可用來填入 Collection(Edm.String) 欄位：`["red", "white", "blue"]` |

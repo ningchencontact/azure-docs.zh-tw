@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d95760745dc3554bc63271cedc63dcf3bf017c5c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59b5138950e0fb94ea0051fa9cfe9aa75cd7d770
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855225"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877797"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>使用 SQL Server IaaS 代理程式擴充功能, 將 Azure 虛擬機器上的管理工作自動化
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 * 在 Azure 入口網站中虛擬機器的 [SQL Server] 面板上, 以及 Azure Marketplace 上 SQL Server 影像的 [Azure PowerShell]。
 * 透過 Azure PowerShell 來手動安裝延伸模組。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 以下是在您的 VM 上使用 SQL Server IaaS 代理程式擴充功能的需求:
 
 **作業系統**：
@@ -88,14 +88,17 @@ SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 您可以使用 PowerShell 來查看 SQL Server IaaS 代理程式的目前模式: 
 
   ```powershell-interactive
-     //Get the SqlVirtualMachine
+     #Get the SqlVirtualMachine
      $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
      $sqlvm.Properties.sqlManagement
   ```
 
-針對已安裝 NoAgent 或輕型 IaaS 擴充功能的 SQL Server Vm, 您可以使用 Azure 入口網站將模式升級為 full。 無法降級。 若要這麼做, 您必須完全卸載 SQL Server IaaS 擴充功能, 然後再安裝一次。 
+已安裝*羽量級*IaaS 延伸模組 SQL Server vm 可以使用 Azure 入口網站將模式升級為_full_ 。 在作業系統升級為 Windows 2008 R2 (含) 以上版本之後,_無代理程式_模式中的 SQL Server vm 可以升級至_完整_版本。 不可能降級-若要這麼做, 您必須完全卸載 SQL IaaS 擴充功能, 然後再次安裝。 
 
 若要將代理程式模式升級為完整: 
+
+
+# <a name="azure-portaltabazure-portal"></a>[Azure 入口網站](#tab/azure-portal)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 移至您的[SQL 虛擬機器](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource)資源。 
@@ -108,8 +111,33 @@ SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 
     ![核取方塊, 同意在虛擬機器上重新開機 SQL Server 服務](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
 
+# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+
+執行下列 Az CLI 程式碼片段:
+
+  ```azurecli-interactive
+  # Update to full mode
+
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+執行下列 PowerShell 程式碼片段:
+
+  ```powershell-interactive
+  # Update to full mode
+
+  $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+  $SqlVm.Properties.sqlManagement="Full"
+  $SqlVm | Set-AzResource -Force
+  ```
+
+---
+
+
 ##  <a name="installation"></a>安裝
-當您向[SQL VM 資源提供者](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-the-sql-vm-resource-provider)註冊您的 SQL Server VM 時, 會安裝 SQL Server IaaS 延伸模組。 如有需要, 您可以使用完整或輕量模式來手動安裝 SQL Server IaaS 代理程式。 
+當您向[SQL VM 資源提供者](virtual-machines-windows-sql-register-with-resource-provider.md)註冊您的 SQL Server VM 時, 會安裝 SQL Server IaaS 延伸模組。 如有需要, 您可以使用完整或輕量模式來手動安裝 SQL Server IaaS 代理程式。 
 
 當您使用 Azure 入口網站布建其中一部 SQL Server 的虛擬機器 Azure Marketplace 映射時, 會自動安裝完整模式的 SQL Server IaaS 代理程式延伸模組。 
 
@@ -119,10 +147,10 @@ SQL Server IaaS 擴充功能的完整模式可為 SQL Server VM 上的單一實�
 使用 PowerShell 安裝具有完整模式的 SQL Server IaaS 代理程式:
 
   ```powershell-interactive
-     // Get the existing compute VM
+     #Get the existing compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL Server VM with 'Full' SQL Server IaaS agent
+     #Register the SQL Server VM with 'Full' SQL Server IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
@@ -158,10 +186,10 @@ SQL Server IaaS 擴充功能會在 SQL Server 上使用名為的實例, 如果�
 
 
   ```powershell-interactive
-     // Get the existing  Compute VM
+     /#Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
+     #Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  

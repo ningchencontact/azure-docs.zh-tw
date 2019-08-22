@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/06/2018
+ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: c4f2994413fca07f4a168cf12ba7967b00b6b0e2
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3594828ff3a79242e1cfd4663c415d8de502a329
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668097"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872759"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>排程和廣播作業 (.NET)
 
@@ -47,9 +47,12 @@ ms.locfileid: "68668097"
 
 **ScheduleJob** 會使用作業呼叫 **LockDoor** 直接方法，並在多部裝置上更新裝置對應項所需的屬性。
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
 
-* Visual Studio。
+若要完成本教學課程，您需要：
+
+* Visual Studio。 本教學課程使用 Visual Studio 2017。
+
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
@@ -64,18 +67,18 @@ ms.locfileid: "68668097"
 
 在本節中，您會建立 .NET 主控台應用程式，回應解決方案後端所呼叫的直接方法。
 
-1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **SimulateDeviceMethods**。
-   
+1. 在 Visual Studio 中, 使用 [ C# **主控台應用程式**] 專案範本, 將 Visual Windows 傳統桌面專案新增至新的或現有的方案。 將專案命名為 **SimulateDeviceMethods**。
+
     ![新的 Visual C# Windows 傳統裝置應用程式](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
-    
-2. 在方案總管中，以滑鼠右鍵按一下 **SimulateDeviceMethods** 專案，然後按一下 [管理 NuGet 套件...]
+
+2. 在方案總管中, 以滑鼠右鍵按一下**SimulateDeviceMethods**專案, 然後選取 [**管理 NuGet 套件 ...** ]。
 
 3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **Microsoft.Azure.Devices.Client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 套件與其相依性，並新增對它的參考。
-   
+
     ![NuGet 套件管理員視窗用戶端應用程式](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
 4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
-   
+
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
@@ -97,7 +100,7 @@ ms.locfileid: "68668097"
         Console.WriteLine();
         Console.WriteLine("Locking Door!");
         Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
-            
+
         string result = "'Door was locked.'";
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
@@ -115,7 +118,7 @@ ms.locfileid: "68668097"
     ```
 
 8. 最後，在 **Main** 方法中新增下列程式碼以開啟 IoT 中樞的連線，並啟動方法接聽程式︰
-   
+
     ```csharp
     try
     {
@@ -140,12 +143,12 @@ ms.locfileid: "68668097"
         Console.WriteLine("Error in sample: {0}", ex.Message);
     }
     ```
-        
-9. 儲存您的工作，並建置您的解決方案。         
+
+9. 儲存您的工作，並建置您的解決方案。
 
 > [!NOTE]
 > 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)一文中所建議，實作重試原則 (例如連線重試)。
-> 
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
 
@@ -161,14 +164,14 @@ ms.locfileid: "68668097"
 
     ![新的 Visual C# Windows 傳統桌面專案](./media/iot-hub-csharp-csharp-schedule-jobs/createnetapp.png)
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ScheduleJob** 專案，然後按一下 [管理 NuGet 套件...]。
+2. 在方案總管中, 以滑鼠右鍵按一下**ScheduleJob**專案, 然後選取 [**管理 NuGet 套件 ...** ]。
 
 3. 在 [NuGet 套件管理員] 視窗中選取 [瀏覽]、搜尋 **Microsoft.Azure.Devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用條款。 此步驟會下載及安裝 [Azure IoT 服務 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 套件與其相依性，並加入對它的參考。
 
     ![NuGet 封裝管理員視窗](./media/iot-hub-csharp-csharp-schedule-jobs/servicesdknuget.png)
 
 4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
-    
+
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
@@ -213,7 +216,7 @@ ms.locfileid: "68668097"
         CloudToDeviceMethod directMethod = 
           new CloudToDeviceMethod("LockDoor", TimeSpan.FromSeconds(5), 
           TimeSpan.FromSeconds(5));
-       
+
         JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
             $"DeviceId IN ['{deviceId}']",
             directMethod,
@@ -250,7 +253,7 @@ ms.locfileid: "68668097"
 
     > [!NOTE]
     > 如需有關查詢語法的詳細資訊，請參閱 [IoT 中樞查詢語言](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language)。
-    > 
+    >
 
 10. 最後，將下列幾行新增至 **Main** 方法：
 
@@ -275,17 +278,17 @@ ms.locfileid: "68668097"
     Console.ReadLine();
     ```
 
-11. 儲存您的工作，並建置您的解決方案。 
+11. 儲存您的工作，並建置您的解決方案。
 
 ## <a name="run-the-apps"></a>執行應用程式
 
 您現在可以開始執行應用程式。
 
-1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的解決方案，然後按一下 [建置]。 **多個啟始專案**。 請確定 `SimulateDeviceMethods` 位於清單頂端，後面接著 `ScheduleJob`。 將其兩個動作設為 [啟動]，然後按一下 [確定]。
+1. 在 Visual Studio 方案總管中, 以滑鼠右鍵按一下您的方案, 然後選取 [**設定啟始專案**]。 然後選取 [**多個啟始專案**]。 請確定**SimulateDeviceMethods**位於清單頂端, 後面接著**ScheduleJob**。 將其動作設定為 [**啟動**], 然後選取 **[確定]** 。
 
-2. 執行專案，方法是按一下 [開始] 或移至 [偵錯] 功能表，然後按一下 [開始偵錯]。
+2. 選取 [**開始**], 或前往 [**調試**程式] 功能表, 然後選取 [**開始調試**程式] 來執行專案。
 
-3. 您會看到來自裝置及後端應用程式的輸出。
+3. 您會看到來自裝置和後端應用程式的輸出。
 
     ![執行應用程式以排程作業](./media/iot-hub-csharp-csharp-schedule-jobs/schedulejobs.png)
 

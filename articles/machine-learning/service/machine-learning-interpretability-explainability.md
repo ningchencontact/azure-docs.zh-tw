@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 06/21/2019
-ms.openlocfilehash: 1e742c278b9356c7501964541802e0c96dc74b09
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e8eb79c4baebebb1974a977394215545ef944db
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358654"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872396"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>具有 Azure Machine Learning 服務的模型 interpretability
 
@@ -69,7 +69,7 @@ __Direct explainers__來自整合式程式庫。 SDK 會包裝所有 explainers,
 * **排列功能重要性說明**:排列功能重要性是一種技術, 用來說明[Breiman 的隨機](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf)樹系紙張所能啟發的分類和回歸模型 (請參閱第10節)。 概括而言, 它的運作方式是針對整個資料集, 一次隨機亂數據一項功能, 並計算感利率的效能度量量會降低。 變更愈大, 此功能的重要性就愈高。
 
 * **酸橙說明**(`contrib`):以酸橙色的說明為依據, 會使用最新的當地可解譯模型說明 (酸) 演算法來建立本機代理模型。 不同于全域代理模型, 「酸」會著重于訓練本機代理模型來說明個別的預測。
-* **漢字文字說明**(`contrib`):漢字文字說明會使用階層式的注意網路, 從文字資料取得給定黑色方塊文字模型的模型說明。 我們會在指定的老師模型預測輸出上訓練漢字代理模型。 在文字主體上全域定型之後, 我們為特定檔新增了微調步驟, 以改善說明的正確性。 漢字使用雙向 RNN 和兩個注意層, 以進行句子和單字注意。 一旦 DNN 在老師模型上定型, 並在特定檔上進行微調, 我們就可以從注意層將 importances 一詞摘錄出來。 我們發現漢字比文字資料的酸綠色或 SHAP 更精確, 但是在定型時間也更昂貴。 不過, 我們已改善定型時間, 方法是讓使用者選擇使用手套 word 內嵌來初始化網路, 雖然它仍然緩慢。 藉由在遠端 Azure GPU VM 上執行漢字, 可以大幅改善定型時間。 漢字的執行會在「檔分類的階層式注意網路 (-{et al, 2016)」 ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)) 中說明。
+* **漢字文字說明**(`contrib`):漢字文字說明會使用階層式的注意網路, 從文字資料取得給定黑色方塊文字模型的模型說明。 我們會在指定的老師模型預測輸出上訓練漢字代理模型。 在文字主體上全域定型之後, 我們為特定檔新增了微調步驟, 以改善說明的正確性。 漢字使用雙向 RNN 和兩個注意層, 以進行句子和單字注意。 一旦 DNN 在老師模型上定型, 並在特定檔上進行微調, 我們就可以從注意層將 importances 一詞摘錄出來。 我們發現漢字比文字資料的酸綠色或 SHAP 更精確, 但是在定型時間也更昂貴。 不過, 我們已改善定型時間, 方法是讓使用者選擇使用手套 word 內嵌來初始化網路, 雖然它仍然緩慢。 藉由在遠端 Azure GPU VM 上執行漢字, 可以大幅改善定型時間。 漢字的執行會在「[檔分類的階層式注意網路 (最強烈 et al, 2016)](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification)」中說明。
 
 
 __Meta explainers__會自動選取適當的直接說明, 並根據給定的模型和資料集產生最佳的說明資訊。 Meta explainers 會運用我們已整合或開發的所有程式庫 (SHAP、酸橙、模擬等等)。 下列是 SDK 中可用的中繼 explainers:

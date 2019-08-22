@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976985"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873184"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>裝置到雲端 IoT 中樞訊息的訊息擴充 (預覽)
 
@@ -76,6 +76,8 @@ Message 擴充有三個主要元素:
 
 * 訊息大小總計 (包括擴充) 不能超過 256 KB。 如果訊息大小超過 256 KB, IoT 中樞將會捨棄訊息。 當訊息卸載時, 您可以使用[IoT 中樞度量](iot-hub-metrics.md)來識別和偵測錯誤。 例如, 您可以監視 d2c 無效。
 
+* Message 擴充不適用於數位對應項變更事件 ( [IoT 隨插即用公開預覽](../iot-pnp/overview-iot-plug-and-play.md)的一部分)。
+
 ## <a name="pricing"></a>定價
 
 Message 擴充可免費使用。 目前, 當您將訊息傳送至 IoT 中樞時, 會向您收取費用。 即使訊息傳送至多個端點, 您只需要針對該訊息收取一次。
@@ -87,6 +89,8 @@ Message 擴充可免費使用。 目前, 當您將訊息傳送至 IoT 中樞時,
 ## <a name="next-steps"></a>後續步驟
 
 如需將訊息路由傳送至 IoT 中樞的詳細資訊, 請參閱這些文章:
+
+* [訊息增強教學課程](tutorial-message-enrichments.md)
 
 * [使用 IoT 中樞訊息路由將裝置到雲端訊息傳送至不同的端點](iot-hub-devguide-messages-d2c.md)
 

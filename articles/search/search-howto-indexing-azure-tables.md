@@ -3,19 +3,19 @@ title: 為 Azure 表格儲存體中的內容編製索引以用於全文檢索搜
 description: 了解如何使用 Azure 搜尋服務索引器對 Azure 表格儲存體中儲存的資料編製索引。
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dffb0a41dbf33cd86014115b089036d69a8e4718
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755078"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648175"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>使用 Azure 搜尋服務對 Azure 表格儲存體編制索引
 本文章說明如何使用 Azure 搜尋服務來對儲存於 Azure 表格儲存體中的資料編制索引。
@@ -67,7 +67,7 @@ ms.locfileid: "66755078"
 
 您可以採取下列其中一種方式提供資料表的認證︰ 
 
-- **完整存取儲存體帳戶連接字串**：`DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`您可以從 Azure 入口網站取得連接字串︰移至 [儲存體帳戶]  刀鋒視窗 > [設定]   > [金鑰]  (傳統儲存體帳戶)，或 [設定]   >  [存取金鑰]  (Azure Resource Manager 儲存體帳戶)。
+- **完整存取儲存體帳戶連接字串**：`DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`您可以從 Azure 入口網站取得連接字串︰移至 [儲存體帳戶] 刀鋒視窗 > [設定] > [金鑰] (傳統儲存體帳戶)，或 [設定] >  [存取金鑰] (Azure Resource Manager 儲存體帳戶)。
 - **儲存體帳戶共用存取簽章連接字串**︰`TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`共用存取簽章應該有容器 (在此案例中為資料表) 和物件 (資料表資料列) 的列出和讀取權限。
 -  **資料表共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`共用存取簽章應該有資料表的查詢 (讀取) 權限。
 
@@ -115,7 +115,7 @@ ms.locfileid: "66755078"
 
 如需建立索引子 API 的詳細資訊，請參閱[建立索引子](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
 
-如需定義索引子排程的詳細資訊，請參閱[如何排程 Azure 搜尋服務索引子](search-howto-schedule-indexers.md)。
+如需定義索引子排程的詳細資訊, 請參閱[如何排定 Azure 搜尋服務的索引子](search-howto-schedule-indexers.md)。
 
 ## <a name="deal-with-different-field-names"></a>處理不同的欄位名稱
 有時候，現有索引中的欄位名稱與資料表中的屬性名稱不同。 您可以使用欄位對應，將資料表中的屬性名稱對應至您搜尋索引中的欄位名稱。 若要深入了解欄位對應，請參閱 [Azure 搜尋服務索引子欄位對應會橋接資料來源和搜尋索引之間的差異](search-indexer-field-mappings.md)。

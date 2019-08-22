@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4bc9a79576c3165585a4a2c897bd41bfb77c080c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43357bdeb444fed20f29107d10dc31a61857fccf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693143"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877515"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT 中心架構
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 本文提供 Microsoft Azure IoT 中心架構的概觀。
 
@@ -71,21 +73,21 @@ Azure IoT 中心會使用時間序列來儲存您的裝置所傳送的量值資�
 
 在裝置範本中：
 
-- [量值]  可指定裝置傳送給應用程式的遙測。
-- [設定]  可指定操作者可以設定的組態。
-- [屬性]  可指定操作者可以設定的中繼資料。
-- [規則]  可根據裝置傳送的資料，讓應用程式的行為自動化。
-- [儀表板]  是應用程式中可自訂的裝置檢視。
+- [量值] 可指定裝置傳送給應用程式的遙測。
+- [設定] 可指定操作者可以設定的組態。
+- [屬性] 可指定操作者可以設定的中繼資料。
+- [規則] 可根據裝置傳送的資料，讓應用程式的行為自動化。
+- [儀表板] 是應用程式中可自訂的裝置檢視。
 
 根據每個裝置範本，應用程式可以有一或多個模擬與真實裝置。
 
-## <a name="data-export"></a>匯出資料
+## <a name="data-export"></a>資料匯出
 
-Azure IoT Central 應用程式中，您可以[您的資料持續匯出](howto-export-data-event-hubs-service-bus.md)您自己的 Azure 事件中樞和 Azure 服務匯流排執行個體。 您也會定期可以將資料匯出到您的 Azure Blob 儲存體帳戶中。 IoT 中心可以匯出度量、 裝置和裝置範本。
+在 Azure IoT Central 應用程式中, 您可以[持續將資料匯出](howto-export-data-event-hubs-service-bus.md)至自己的 Azure 事件中樞, 並 Azure 服務匯流排實例。 您也可以定期將資料匯出至 Azure Blob 儲存體帳戶。 IoT Central 可以匯出度量、裝置和裝置範本。
 
-## <a name="batch-device-updates"></a>批次的裝置更新
+## <a name="batch-device-updates"></a>Batch 裝置更新
 
-Azure IoT Central 應用程式中，您可以[建立及執行作業](howto-run-a-job.md)來管理連接的裝置。 這些工作可讓您執行大量更新裝置屬性或設定值，或執行命令。 例如，您可以建立作業，以提高多個 refrigerated 販賣的風扇速度。
+在 Azure IoT Central 應用程式中, 您可以[建立和執行作業](howto-run-a-job.md)來管理已連線的裝置。 這些作業可讓您對裝置屬性或設定進行大量更新, 或執行命令。 例如, 您可以建立作業來增加多個冷飲自動販賣機器的風扇速度。
 
 ## <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
 
@@ -103,10 +105,10 @@ Azure IoT 中心內的安全性功能包括：
 ## <a name="ui-shell"></a>UI Shell
 
 UI Shell 是現代化、回應式、HTML5 瀏覽器型應用程式。
-系統管理員可以自訂應用程式的 UI，藉由套用自訂佈景主題及修改為指向您自己的自訂說明資源的說明連結。 若要深入了解 UI 自訂，請參閱[來自訂 Azure IoT Central UI](howto-customize-ui.md)文章。
+系統管理員可以自訂應用程式的 UI, 方法是套用自訂主題, 並修改說明連結, 以指向您自己的自訂説明資源。 若要深入瞭解 UI 自訂, 請參閱[自訂 Azure IOT CENTRAL UI](howto-customize-ui.md)文章。
 
-操作員可以建立個人化的應用程式儀表板。 您可以有數個儀表板，顯示不同的資料，並在它們之間切換。
+操作員可以建立個人化的應用程式儀表板。 您可以有數個顯示不同資料的儀表板, 並在兩者之間切換。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解 Azure IoT Central 的架構，建議的下一個步驟是了解[裝置連線能力](concepts-connectivity.md)在 Azure IoT Central。
+既然您已瞭解 Azure IoT Central 的架構, 建議的下一個步驟是瞭解 Azure IoT Central 中的[裝置連線能力](concepts-connectivity.md)。

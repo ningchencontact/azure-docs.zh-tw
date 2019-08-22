@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 80c90ceb0e2edac47d67b99e7fb7f03c1ab82fb1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5b3c65361f45c8ad5bdf3adf89dc3002c229d0d0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882360"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650413"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -87,7 +87,7 @@ ms.locfileid: "68882360"
 
    若要讓待命次要可用性群組或容錯移轉叢集實例具有免費的被動授權, 您必須符合[授權指南 PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf)所述的下列所有準則:
 
-   1. 您具有透過[軟體保證](https://www.microsoft.comlicensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)的[授權流動性](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2)。 
+   1. 您具有透過[軟體保證](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3)的[授權流動性](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2)。 
    1. 被動 SQL Server 實例不會將 SQL Server 資料提供給用戶端, 或執行 active SQL Server 工作負載。 它只會用來與主伺服器進行同步處理, 否則會以暖待命狀態維護被動資料庫。 如果它正在提供資料, 例如向執行中 SQL Server 工作負載的用戶端報告, 或執行任何「工作」 (例如, 次要伺服器的其他備份), 則必須是付費的授權 SQL Server 實例。 
    1. Active SQL Server 授權涵蓋于軟體保證中, 並允許**一個**被動的次要 SQL Server 實例, 與授權作用中伺服器的計算數量相同。 
    1. 次要 SQL Server VM 會利用自備授權 (BYOL) 或 Azure Hybrid Benefit (AHB)[授權模型](virtual-machines-windows-sql-ahb.md)。 

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 41a9c87731dcb6a2cb31e9120a0170b892c58b6f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e6c5ea86534001e0e5de2b02c4151af70631e4ef
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884100"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650021"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure 搜尋服務中的簡單查詢語法
 Azure 搜尋服務會實作兩種以 Lucene 為基礎的查詢語言：[簡單查詢剖析器](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html)和 [Lucene 查詢剖析器](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)。 在 Azure 搜尋服務中，簡單查詢語法會排除 fuzzy/slop 選項。  

@@ -8,22 +8,24 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fdeefdc1ec5372d6ac17f0f985ee0c50ce902e56
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 508e8b4b3a909e87f538f67b1ad9a5efdbcd9551
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165331"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876029"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>在 Azure IoT Central 中建立規則的 Webhook 動作
 
 *本主題適用於建置員和系統管理員。*
 
-Webhook 可讓您將 IoT Central 應用程式連線至其他應用程式和服務，以進行遠端監視和通知。 Webhook 會在 IoT Central 應用程式中觸發規則時，自動通知您所連線的其他應用程式和服務。 觸發規則時，您的 IoT Central 應用程式會傳送 POST 要求至其他應用程式的 HTTP 端點。 承載包含裝置詳細資料和規則觸發程序詳細資料。
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+Webhook 可讓您將 IoT Central 應用程式連線至其他應用程式和服務，以進行遠端監視和通知。 Webhook 會在 IoT Central 應用程式中觸發規則時，自動通知您所連線的其他應用程式和服務。 每當觸發規則時, 您的 IoT Central 應用程式就會將 POST 要求傳送至其他應用程式的 HTTP 端點。 承載包含裝置詳細資料和規則引發程式詳細資料。
 
 ## <a name="set-up-the-webhook"></a>設定 webhook
 
-在此範例中，您會連接至 RequestBin，以使用 webhook 的規則引發時收到通知。
+在此範例中, 您會連接到 RequestBin, 以在使用 webhook 引發規則時收到通知。
 
 1. 開啟 [RequestBin](https://requestbin.net/)。
 
@@ -37,11 +39,11 @@ Webhook 可讓您將 IoT Central 應用程式連線至其他應用程式和服�
 
 1. 儲存規則。
 
-現在當觸發規則時，您會看到新的要求，會出現在 RequestBin。
+現在當觸發規則時, 您會在 RequestBin 中看到新的要求。
 
-## <a name="payload"></a>Payload
+## <a name="payload"></a>內容
 
-觸發規則時，將會對回呼 URL 提出 HTTP POST 要求，其中包含具有測量、裝置、規則和應用程式詳細資料的 JSON 承載。 遙測規則，承載看起來如下所示：
+觸發規則時，將會對回呼 URL 提出 HTTP POST 要求，其中包含具有測量、裝置、規則和應用程式詳細資料的 JSON 承載。 對於遙測規則, 承載看起來如下所示:
 
 ```json
 {
@@ -97,4 +99,4 @@ Webhook 可讓您將 IoT Central 應用程式連線至其他應用程式和服�
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何設定和使用 webhook，建議的下一個步驟是瀏覽[建置在 Microsoft Flow 中的工作流程](howto-add-microsoft-flow.md)。
+既然您已瞭解如何設定和使用 webhook, 建議的下一個步驟是探索[Microsoft Flow 中的建立工作流程](howto-add-microsoft-flow.md)。

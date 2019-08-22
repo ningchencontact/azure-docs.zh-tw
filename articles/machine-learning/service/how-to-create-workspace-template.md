@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 0e78d9cfce59615a53534fe9815205e39f64853d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868825"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873156"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure Machine Learning 服務的工作區
 
@@ -23,7 +23,7 @@ ms.locfileid: "67868825"
 
 如需詳細資訊，請參閱 [使用 Azure Resource Manager 範本部署應用程式](../../azure-resource-manager/resource-group-template-deploy.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，可以[試用免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -39,9 +39,9 @@ ms.locfileid: "67868825"
 
 * Azure 資源群組
 * Azure 儲存體帳戶
-* Azure 金鑰保存庫
+* Azure Key Vault
 * Azure Application Insights
-* Azure Container Registry
+* Azure 容器登錄
 * Azure Machine Learning 工作區
 
 資源群組是保存服務的容器。 各種服務是 Azure Machine Learning 工作區的必要項。
@@ -64,15 +64,13 @@ ms.locfileid: "67868825"
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 
-1. 遵循[從自訂範本部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)的步驟。 當您看見 [編輯範本]  畫面時，貼入此文件的範本。
-1. 選取 [儲存]  以使用範本。 提供下列資訊，並同意列出的條款及條件：
+1. 遵循[從自訂範本部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)的步驟。 當您看見 [編輯範本] 畫面時，貼入此文件的範本。
+1. 選取 [儲存] 以使用範本。 提供下列資訊，並同意列出的條款及條件：
 
    * 訂用帳戶：選取要用於這些資源的 Azure 訂用帳戶。
    * 資源群組：選取或建立資源群組以包含服務。
    * 工作區名稱：要用於將建立之Azure Machine Learning 工作區的名稱。 工作區名稱必須介於 3 到 33 個字元之間。 只能包含英數字元和 '-'。
    * 位置：選取將建立資源的位置。
-
-     ![Azure 入口網站中的範本參數](media/how-to-create-workspace-template/template-parameters.png)
 
 如需詳細資訊，請參閱[從自訂範本部署資源](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)。
 

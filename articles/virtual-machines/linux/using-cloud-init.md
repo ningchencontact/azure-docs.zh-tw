@@ -3,7 +3,7 @@ title: Azure 中 Linux 虛擬機器的 cloud-init 支援概觀 | Microsoft Docs
 description: Microsoft Azure 中的 cloud-init 功能概觀
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: danielsollondon
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,36 +13,39 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: rclaus
-ms.openlocfilehash: 057f7c42c037dac4cb2be686df09287de7113f0d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 08/20/2019
+ms.author: danis
+ms.openlocfilehash: 7e22aaf2ead4dd618c2907f8659455e1862110a5
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695396"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650093"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure 中虛擬機器的 Cloud-init 支援
-本文說明針對 [cloud-init](https://cloudinit.readthedocs.io) 存在的支援，以便在 Azure 中佈建時，設定虛擬機器 (VM) 或虛擬機器擴展集 (VMSS)。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
+本文說明在 Azure 中布建時, [cloud init](https://cloudinit.readthedocs.io)用來設定虛擬機器 (VM) 或虛擬機器擴展集的支援。 一旦 Azure 佈建資源，這些 cloud-init 指令碼就會在初次開機時執行。  
 
 ## <a name="cloud-init-overview"></a>Cloud-Init 概觀
 [Cloud-init (英文)](https://cloudinit.readthedocs.io) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 因為在初次開機程序期間時會呼叫 Cloud-init，因此不需要使用任何額外的步驟或必要的代理程式，就可以套用您的設定。  如需如何正確地設定 `#cloud-config` 檔案格式的詳細資訊，請參閱 [cloud-init 文件網站](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data) \(英文\)。  `#cloud-config` 檔案是以 base64 編碼的文字檔。
 
 Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install** 或 **yum install** 來安裝套件。 您可以改為定義要安裝的套件清單。 Cloud-init 會針對您選取的散發套件自動使用原生的套件管理工具。
 
- 我們一直積極地與背書的 Linux 發行版本合作夥伴合作，以便在 Azure Marketplace 中提供支援 Cloud-init 的映像。 這些映像會讓您的 Cloud-init 部署和設定順暢地與 VM 和 VM 擴展集 (VMSS) 運作。 下表概述目前支援 cloud-init 的映像在 Azure 平台上的可用性：
+我們一直積極地與背書的 Linux 發行版本合作夥伴合作，以便在 Azure Marketplace 中提供支援 Cloud-init 的映像。 這些映射會讓您的雲端 init 部署和設定順暢地與 Vm 和虛擬機器擴展集搭配使用。 下表概述目前支援 cloud-init 的映像在 Azure 平台上的可用性：
 
 | 發行者 | 供應項目 | SKU | Version | cloud-init 就緒 |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |18.04-LTS |最新 |是 | 
-|Canonical |UbuntuServer |17.10 |最新 |是 | 
 |Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
 |Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
 |CoreOS |CoreOS |Stable |最新 |是 |
-|OpenLogic |CentOS |7-CI |最新 |preview |
-|RedHat |RHEL |7-RAW-CI |最新 |preview |
+|OpenLogic 7。6 |CentOS |7-CI |最新 |預覽 |
+|RedHat 7。6 |RHEL |7-RAW-CI |7.6.2019072418 |是 |
+|RedHat 7。7 |RHEL |7-RAW-CI |7.7.2019081601 |預覽 |
+    
+目前 Azure Stack 不支援使用雲端 init 來布建 RHEL 7. x 和 CentOS 7.x。
 
-目前 Azure Stack 不支援使用 cloud-init 來佈建 RHEL 7.4 和 CentOS 7.4。
+* 對於 RHEL 7.6, 雲端 init 封裝, 支援的套件為:*18.2-1. el7 _ 6。2* 
+* 針對 RHEL 7.7 (預覽), 雲端 init 封裝, 支援的套件為:*18.5-3.el7*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init 和 Linux 代理程式 (WALA) 之間有哪些差異？
 WALA 是 Azure 平台專屬的代理程式，用於佈建及設定 VM，並處理 Azure 擴充功能。 我們一直在加強設定 VM 使用 cloud-init 代替 Linux 代理程式的工作，以讓現有的 cloud-init 客戶使用其目前的 cloud-init 指令碼。  如果您已經對設定 Linux 系統所使用的 cloud-init 指令碼有所投入，則**不需要其他任何設定**，就可以將其啟用。 
@@ -56,7 +59,7 @@ VM 的 WALA 設定有時間限制，必須在 VM 佈建時間上限內運作。 
 
 部署此映像的第一個步驟是使用 [az group create](/cli/azure/group) 命令建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 eastus  位置建立名為 myResourceGroup  的資源群組。
+下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -73,7 +76,7 @@ packages:
 
 最後一個步驟是使用 [az vm create](/cli/azure/vm) 命令來建立 VM。 
 
-下列範例會建立名為 *centos74* 的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  使用 `--custom-data` 參數以傳入 cloud-init 組態檔。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init.txt  組態的完整路徑。 下列範例會建立名為 *centos74* 的 VM：
+下列範例會建立名為 *centos74* 的 VM，並建立 SSH 金鑰 (如果它們不存在於預設金鑰位置)。 若要使用一組特定金鑰，請使用 `--ssh-key-value` 選項。  使用 `--custom-data` 參數以傳入 cloud-init 組態檔。 如果您將檔案儲存於目前工作目錄之外的位置，請提供 cloud-init.txt 組態的完整路徑。 下列範例會建立名為 *centos74* 的 VM：
 
 ```azurecli-interactive 
 az vm create \

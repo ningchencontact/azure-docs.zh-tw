@@ -1,32 +1,32 @@
 ---
-title: 防火牆資料表-CloudSimple 的 VMware 解決方案-Azure
+title: 依 CloudSimple 的 Azure VMware 解決方案-防火牆資料表
 description: 深入瞭解 CloudSimple 私用雲端防火牆資料表和防火牆規則。
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d25aa9252f061cee7f4cffdca42f00d84f719a3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812654"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877721"
 ---
 # <a name="firewall-tables-overview"></a>防火牆資料表總覽
 
-防火牆資料表會列出規則, 以篩選進出私人雲端資源的網路流量。 您可以將它們套用至 VLAN 或子網。 然後, 這些規則會控制來源網路或 IP 位址之間的網路流量, 以及目的地網路或 IP 位址。
+防火牆資料表會列出規則, 以篩選進出私人雲端資源的網路流量。 您可以將防火牆資料表套用至 VLAN/子網。 這些規則會控制來源網路或 IP 位址與目的地網路或 IP 位址之間的網路流量。
 
 ## <a name="firewall-rules"></a>防火牆規則
 
 下表描述防火牆規則中的參數。
 
-| 內容 | 詳細資料 |
+| 屬性 | 詳細資料 |
 | ---------| --------|
 | **名稱** | 唯一識別防火牆規則及其用途的名稱。 |
-| **優先順序** | 介於100和4096之間的數位, 100 為最高優先順序。 規則會依照優先順序進行處理。 當流量跨越規則比對時, 規則處理就會停止。 如此一來, 就不會處理具有較低優先順序且具有較高優先順序之規則具有相同屬性的任何規則。  請小心避免規則衝突。 |
+| **優先順序** | 介於100和4096之間的數位, 100 為最高優先順序。 規則會依照優先順序進行處理。 當流量遇到規則相符的情況時, 規則處理就會停止。 因此, 優先順序較低的規則不會處理具有較高優先順序之規則的相同屬性。  請小心避免規則衝突。 |
 | **狀態追蹤** | 追蹤可以是無狀態 (私用雲端、網際網路或 VPN) 或具狀態 (公用 IP)。  |
 | **通訊協定** | 選項包括 [Any]、[TCP] 或 [UDP]。 如果您需要 ICMP, 請使用任何。 |
 | **Direction** | 規則是否套用至輸入或輸出流量。 |
@@ -53,7 +53,7 @@ ms.locfileid: "68812654"
 
 系統會在每個防火牆資料表上建立下列預設規則。
 
-|Priority|名稱|狀態追蹤|Direction|流量類型|Protocol|Source|來源連接埠|目的地|目的地通訊埠|Action|
+|Priority|Name|狀態追蹤|Direction|流量類型|Protocol|Source|來源連接埠|目的地|目的地通訊埠|Action|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|allow-all-to-internet|狀態|傳出|公用 IP 或網際網路流量|全部|Any|Any|Any|Any|允許|
 |65001|deny-all-from-internet|狀態|傳入|公用 IP 或網際網路流量|全部|Any|Any|Any|Any|拒絕|
@@ -62,4 +62,4 @@ ms.locfileid: "68812654"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定防火牆資料表和規則](https://docs.azure.cloudsimple.com/firewall/)
+* [設定防火牆資料表和規則](firewall.md)

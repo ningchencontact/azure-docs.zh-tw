@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1196f3b186abcd914c409db06b52654f82f4158b
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: e3cc95c908ea81d21b6f32bed8b754feb5d724ff
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377329"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874154"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OAuth 2.0 隱含流程的單一頁面登入
 
@@ -27,7 +27,7 @@ ms.locfileid: "68377329"
 
 為了支援這些應用程式，Azure Active Directory B2C (Azure AD B2C) 使用 OAuth 2.0 隱含流程。 如需 OAuth 2.0 授權隱含授權流程的說明，請參閱 [OAuth 2.0 規格的 4.2 節](https://tools.ietf.org/html/rfc6749) 。 在隱含流程中，應用程式會直接從 Azure Active Directory (Azure AD) 授權端點接收權杖，而不需執行任何伺服器對伺服器交換。 所有驗證邏輯和會話處理都是透過頁面重新導向或快顯方塊, 完全在 JavaScript 用戶端中完成。
 
-Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而不僅止於簡單的驗證與授權。 Azure AD B2C 導入了[原則參數](active-directory-b2c-reference-policies.md)。 利用原則參數，您可以使用 OAuth 2.0 來為應用程式新增原則，例如註冊、登入和設定檔管理使用者流程。 在本文的範例 HTTP 要求中, 會使用**fabrikamb2c.onmicrosoft.com**作為範例。 您可以將`fabrikamb2c`取代為您的租使用者名稱 (如果有的話), 並建立使用者流程。
+Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而不僅止於簡單的驗證與授權。 Azure AD B2C 導入了[原則參數](active-directory-b2c-reference-policies.md)。 利用原則參數，您可以使用 OAuth 2.0 來為應用程式新增原則，例如註冊、登入和設定檔管理使用者流程。 在本文的範例 HTTP 要求中, 會使用 **{tenant}. onmicrosoft**作為範例。 將`{tenant}`取代為您的租使用者名稱 (如果有的話), 並同時建立使用者流程。
 
 隱含登入流程看起來像下圖。 本文稍後將詳細說明每個步驟。
 
@@ -37,12 +37,10 @@ Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而�
 
 當您的 web 應用程式需要驗證使用者並執行使用者流程時, 它可以將使用者導向至`/authorize`端點。 使用者會根據使用者流程採取動作。
 
-在此要求中, 用戶端會在`scope`參數中指出它需要從使用者取得的許可權, 以及要`p`在參數中執行的使用者流程。 後續小節中提供三個範例 (含有換行符號以提高可讀性)，各使用不同的使用者流程。 為了瞭解每個要求的運作方式，請試著將要求貼到瀏覽器來執行。 您可以將`fabrikamb2c`取代為您的租使用者名稱 (如果有的話), 並建立使用者流程。
+在此要求中, 用戶端會指出它需要從使用者`scope`取得的許可權, 以及要執行的使用者流程。 若要瞭解要求的運作方式, 請嘗試將要求貼入瀏覽器並加以執行。 將 `{tenant}` 取代為您的 Azure AD B2C 租用戶名稱。 將`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`取代為您先前在租使用者中註冊之應用程式的應用程式識別碼。 以`{policy}`您在租使用者中建立的原則名稱取代, `b2c_1_sign_in`例如。
 
-### <a name="use-a-sign-in-user-flow"></a>使用登入使用者流程
-
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -50,37 +48,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &scope=openid%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
-&p=b2c_1_sign_in
-```
-
-### <a name="use-a-sign-up-user-flow"></a>使用註冊使用者流程
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=id_token+token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=fragment
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_sign_up
-```
-
-### <a name="use-an-edit-profile-user-flow"></a>使用編輯設定檔使用者流程
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
-client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
-&response_type=id_token+token
-&redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
-&response_mode=fragment
-&scope=openid%20offline_access
-&state=arbitrary_data_you_can_receive_in_the_response
-&nonce=12345
-&p=b2c_1_edit_profile
 ```
 
 | 參數 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
+|出租| 是 | Azure AD B2C 租使用者的名稱|
+|策略| 是| 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如: `b2c_1_sign_in`、 `b2c_1_sign_up`或。 `b2c_1_edit_profile` |
 | client_id | 是 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
 | response_type | 是 | 必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含回應類型 `token`。 如果您使用 `token`，您的應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。  如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
 | redirect_uri | 否 | 應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
@@ -88,7 +61,6 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope | 是 | 範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 對於 Web 應用程式， `offline_access` 範圍是選擇性。 它指出您的應用程式需要重新整理權杖，才能長久存取資源。 |
 | 狀態 | 否 | 包含於也會隨權杖回應傳回之要求中的值。 它可以是您想要使用之任何內容的字串。 通常會使用隨機產生的唯一值來防止跨網站偽造要求攻擊。 驗證要求出現前，也會先使用此狀態來為使用者在應用程式中的狀態相關資訊編碼，例如他們先前所在的網頁。 |
 | nonce | 是 | 要求中所含的值 (由應用程式產生)，它會以宣告形式包含於產生的識別碼權杖中。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
-| p | 是 | 要執行的原則。 這是在您的 Azure AD B2C 租用戶中建立的原則 (使用者流程) 名稱。 原則名稱值的開頭應該為**b2c\_1\_** 。 |
 | prompt | 否 | 需要的使用者互動類型。 目前唯一支援的值為 `login`。 此參數會強制使用者在該要求上輸入其認證。 單一登入不會生效。 |
 
 此時會要求使用者完成原則的工作流程。 使用者可能必須輸入使用者名稱和密碼、以社交身分識別登入、註冊目錄, 或是其他任何數目的步驟。 使用者動作取決於使用者流程的定義方式。
@@ -98,7 +70,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 ### <a name="successful-response"></a>成功的回應
 使用 `response_mode=fragment` 和 `response_type=id_token+token` 的成功回應如下所示 (內含換行符號以利閱讀)：
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &token_type=Bearer
@@ -120,7 +92,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### <a name="error-response"></a>錯誤回應
 錯誤回應也能傳送到重新導向 URI，以便讓應用程式能夠適當地處理它們：
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -141,11 +113,15 @@ error=access_denied
 
 Azure AD B2C 具有 OpenID Connect 中繼資料端點。 應用程式可以使用此端點，在執行階段擷取 Azure AD B2C 的相關資訊。 這項資訊包括端點、權杖內容和權杖簽署金鑰。 您的 Azure AD B2C 租用戶中的每個使用者流程都有一份 JSON 中繼資料文件。 例如，fabrikamb2c.onmicrosoft.com 租用戶中 b2c_1_sign_in 使用者流程的中繼資料文件位於：
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
+```
 
 此設定文件的屬性之一是 `jwks_uri`。 相同使用者流程的值會是：
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+```HTTP
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
+```
 
 若要判斷使用了哪個使用者流程來簽署識別碼權杖 (以及可從何處擷取中繼資料)，您有兩個選項。 首先，使用者流程名稱包含於 `id_token` 的 `acr` 宣告中。 如需如何剖析識別碼權杖中的宣告相關資訊，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。 另一個選項是當您發出要求時，在 `state` 參數的值中將使用者流程編碼。 然後將 `state` 參數解碼，以判斷使用了哪個使用者流程。 任一種方法都有效。
 
@@ -175,8 +151,8 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點。 應用程式可以使�
 
 在一般 web 應用程式流程中, 您會對`/token`端點提出要求。 不過, 端點不支援 CORS 要求, 因此無法選擇進行 AJAX 呼叫來取得重新整理權杖。 相反地，您可以在隱藏的 HTML iframe 元素中使用隱含流程，為其他 Web API 取得新權杖。 以下是範例 (內含換行符號以利閱讀)：
 
-```
-https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+```HTTP
+https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -185,11 +161,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&p=b2c_1_sign_in
 ```
 
 | 參數 | 必要？ | 描述 |
 | --- | --- | --- |
+|出租| 必要項 | Azure AD B2C 租使用者的名稱|
+策略| 必要項| 要執行的使用者流程。 指定您在 Azure AD B2C 租使用者中建立的使用者流程名稱。 例如: `b2c_1_sign_in`、 `b2c_1_sign_up`或。 `b2c_1_edit_profile` |
 | client_id |必要項 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
 | response_type |必要項 |必須包含 OpenID Connect 登入的 `id_token` 。  它也可能包含回應類型 `token`。 如果您在這裡使用 `token`，應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。 如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
 | redirect_uri |建議 |應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
@@ -206,7 +183,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 ### <a name="successful-response"></a>成功的回應
 使用`response_mode=fragment`的成功回應如下列範例所示:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_sent_earlier
@@ -226,7 +203,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 ### <a name="error-response"></a>錯誤回應
 錯誤回應也能傳送到重新導向 URI，以便讓應用程式能夠適當地處理它們。  對於`prompt=none`, 預期的錯誤看起來像這個範例:
 
-```
+```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
 error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
@@ -247,16 +224,17 @@ error=user_authentication_required
 
 您只要將使用者重新導向至 `end_session_endpoint` (列於[驗證識別碼權杖](#validate-the-id-token)中所述的相同 OpenID Connect 中繼資料文件中) 即可。 例如:
 
-```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
-p=b2c_1_sign_in
-&post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
+```HTTP
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| 參數 | 必要？ | 描述 |
-| --- | --- | --- |
-| p |必要項 |用來將使用者登出應用程式的原則。 |
-| post_logout_redirect_uri |建議 |使用者在成功登出之後，應該要前往的 URL。若未包含此項，Azure AD B2C 就會向使用者顯示一般訊息。 |
+| 參數 | 必要項 | 描述 |
+| --------- | -------- | ----------- |
+| 出租 | 是 | Azure AD B2C 租使用者的名稱 |
+| 策略 | 是 | 您想要用來將使用者登出應用程式的使用者流程。 |
+| post_logout_redirect_uri | 否 | 使用者在成功登出後應重新導向至的 URL。如果未包含, Azure AD B2C 會向使用者顯示一般訊息。 |
+| 狀態 | 否 | 如果要求中包含 `state` 參數，回應中就應該出現相同的值。 應用程式應確認要求和`state`回應中的值是否相同。 |
+
 
 > [!NOTE]
 > 將使用者導向至 `end_session_endpoint`，會利用 Azure AD B2C 清除使用者的部分單一登入狀態。 不過，它不會將使用者登出使用者的社交身分識別提供者工作階段。 如果使用者在後續登入時選取相同的識別提供者, 則會重新驗證使用者, 而不需要輸入其認證。 舉例來說，如果使用者想要登出您的 Azure AD B2C 應用程式，不一定代表他們想要完全登出自己的 Facebook 帳戶。 不過，如果使用本機帳戶，使用者的工作階段將會正確地結束。

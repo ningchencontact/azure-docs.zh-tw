@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 412a3cb32663f5bd3bfad2d565b6797f92e26b75
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641116"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874407"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -56,11 +56,13 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上:第4代和�
 | 資料庫大小上限 | 取決於每個執行個體的最大儲存體大小 | 取決於每個執行個體的最大儲存體大小 |
 | 每個執行個體的資料庫數目上限 | 100 | 100 |
 | 每個實例的資料庫檔案數目上限 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
+| 檔案大小上限 | 8 TB | 4 TB |
 | 資料/記錄 IOPS (大約) | 每個檔案 500 - 7,500<br/>\*[增加檔案大小以取得更多 IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 k-110 K (1375/vCore)<br/>新增更多虛擬核心, 以取得更佳的 IO 效能。 |
 | 記錄寫入輸送量限制 | 每個虛擬核心 3 MB/秒<br/>每個實例最大每秒 22 MB | 每個 vCore 4 MB/秒<br/>每個實例最大 48 MB/秒|
 | 資料輸送量 (大約) | 每個檔案 100 - 250 MB/秒<br/>\*[增加檔案大小以取得更佳的 IO 效能](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | 儲存 IO 延遲 (近似) | 5-10 毫秒 | 1-2 毫秒 |
 | 最大 tempDB 大小 | 192 - 1920 GB (每個虛擬核心 24 GB)<br/>新增更多虛擬核心以取得更多 TempDB 空間。 | 受限於實例儲存體大小上限。 TempDB 記錄檔大小目前僅限於 24GB/vCore。 |
+| 記憶體內部 OLTP | 不支援 | 可用 |
 | 會話數上限 | 30000 | 30000 |
 
 > [!NOTE]

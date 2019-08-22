@@ -5,15 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/22/2019
 ms.author: victorh
-ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740877"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891713"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題
 
@@ -361,6 +360,13 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 ### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>哪些原因會導致後端健康情況傳回未知的狀態？
 
 通常當應用程式閘道子網上的網路安全性群組 (NSG)、自訂 DNS 或使用者定義路由 (UDR) 封鎖對後端的存取權時, 您會看到 [不明] 狀態。 如需詳細資訊, 請參閱[應用程式閘道的後端健康情況、診斷記錄和計量](application-gateway-diagnostics.md)。
+
+### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>在任何情況下, NSG 流量記錄不會顯示允許的流量？
+
+是的。 如果您的設定符合下列案例, 您將不會在 NSG 流量記錄中看到允許的流量:
+- 您已部署應用程式閘道 v2
+- 您在應用程式閘道子網上有 NSG
+- 您已在該 NSG 上啟用 NSG 流量記錄
 
 ## <a name="next-steps"></a>後續步驟
 

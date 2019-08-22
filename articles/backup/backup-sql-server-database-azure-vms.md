@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e18d6519d1ee3c1750757af5c59157de8bdde80c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637921"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872896"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -175,7 +175,7 @@ Windows Registry Editor Version 5.00
    為了將備份負載最佳化，Azure 備份會將每個備份作業的資料庫數目上限設為 50。
 
      * 若要保護 50 個以上的資料庫，請設定多個備份。
-     * 若要[啟用自動保護](#enable-auto-protection)整個實例或 Always On 可用性群組。 在 [**自動保護**] 下拉式清單中, 選取 [**開啟**], 然後選取 **[確定]** 。
+     * 若要[啟用](#enable-auto-protection)整個實例或 Always On 可用性群組, 請在 [**自動保護**] 下拉式清單中, 選取 [**開啟**], 然後選取 **[確定]** 。
 
     > [!NOTE]
     > [自動保護](#enable-auto-protection)功能不僅會同時在所有現有的資料庫上啟用保護, 也會自動保護新增至該實例或可用性群組的任何新資料庫。  

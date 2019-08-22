@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 07d44bb54c288202d571f8e664822ecf9b4998be
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
-ms.translationtype: HT
+ms.openlocfilehash: 428c470eb633c7727f65c5a9a3afa76bce50b177
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639767"
+ms.locfileid: "69647253"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>設定適用于 Azure App Service 的 Linux JAVA 應用程式
 
@@ -423,7 +423,7 @@ App Service Linux 會將傳入要求路由傳送至埠 80, 讓您的應用程式
 ## <a name="configure-java-ee-wildfly"></a>設定 JAVA EE (WildFly)
 
 > [!NOTE]
-> App Service Linux 上的 JAVA Enterprise Edition 目前為預覽狀態。 **不**建議將此堆疊用於生產面向的工作。 JAVA SE 和 Tomcat 堆疊的資訊。
+> App Service Linux 上的 JAVA Enterprise Edition 目前為預覽狀態。 **不**建議將此堆疊用於生產面向的工作。
 
 Linux 上的 Azure App Service 可讓 JAVA 開發人員在完全受控的 Linux 服務上, 建立、部署及調整 JAVA Enterprise (JAVA EE) 應用程式。  基礎 JAVA 企業執行時間環境是開放原始碼[WildFly](https://wildfly.org/)應用程式伺服器。
 
@@ -434,7 +434,6 @@ Linux 上的 Azure App Service 可讓 JAVA 開發人員在完全受控的 Linux 
 - [安裝模組和相依性](#install-modules-and-dependencies)
 - [設定資料來源](#configure-data-sources)
 - [啟用訊息提供者](#enable-messaging-providers)
-- [設定會話管理快取](#configure-session-management-caching)
 
 ### <a name="scale-with-app-service"></a>使用 App Service 調整
 
@@ -652,14 +651,121 @@ Web 應用程式實例是無狀態的, 因此每個啟動的新實例都必須�
 
 4. 透過適用於 JMS 提供者的模組 XML 描述元、.jar 相依性、JBoss CLI 命令及啟動指令碼，來遵循＜安裝模組和相依性＞一節中概述的步驟。 除了這四個檔案，您也必須建立一個 XML 檔案，來定義 JMS 佇列和主題的 JNDI 名稱。 如需參考設定檔，請參閱[這個存放庫](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig)。
 
-### <a name="configure-session-management-caching"></a>設定工作階段管理快取
+## <a name="use-redis-as-a-session-cache-with-tomcat"></a>使用 Redis 作為 Tomcat 的會話快取
 
-根據預設，Linux 上的 App Service 將使用工作階段親和性 Cookie，來確保具現有工作階段的用戶端要求會路由傳送到您應用程式的相同執行個體。 此預設行為不需要任何設定，但有一些限制：
+您可以設定 Tomcat 使用外部會話存放區, 例如[Azure Cache For Redis](/azure/azure-cache-for-redis/)。 這可讓您在使用者轉移至應用程式的另一個實例時, 保留使用者會話狀態 (例如購物車資料), 例如在發生自動調整、重新開機或容錯移轉的情況下。
 
-- 如果應用程式執行個體會重新啟動或相應減少，應用程式伺服器中的使用者工作階段狀態將會遺失。
-- 如果應用程式具有很長的工作階段逾時設定或固定的使用者數目，可能需要一些時間，才能自動調整新的執行個體來接收負載，因為只會將新的工作階段路由傳送至最新啟動的執行個體。
+若要搭配使用 Tomcat 與 Redis, 您必須將應用程式設定為使用[PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html)的執行。 下列步驟會使用[Pivotal 會話管理員來說明此程式: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store)作為範例。
 
-您可以將 WildFly 設定為使用外部會話存放區, 例如[Azure Cache For Redis](/azure/azure-cache-for-redis/)。 您必須停用[現有的 ARR 實例親和性](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)設定, 以關閉會話 cookie 型路由, 並允許已設定的 WildFly 會話存放區操作而不受干擾。
+1. 開啟 Bash 終端機, 並`export <variable>=<value>`使用來設定下列每個環境變數。
+
+    | 變數                 | 值                                                                      |
+    |--------------------------|----------------------------------------------------------------------------|
+    | RESOURCEGROUP_NAME       | 包含您 App Service 實例之資源群組的名稱。       |
+    | WEBAPP_NAME              | App Service 實例的名稱。                                     |
+    | WEBAPP_PLAN_NAME         | App Service 方案的名稱                                          |
+    | 地區                   | 裝載應用程式的區功能變數名稱稱。                           |
+    | REDIS_CACHE_NAME         | Azure Cache for Redis 實例的名稱。                           |
+    | REDIS_PORT               | 您的 Redis 快取接聽的 SSL 埠。                             |
+    | REDIS_PASSWORD           | 實例的主要存取金鑰。                                  |
+    | REDIS_SESSION_KEY_PREFIX | 您指定的值, 用來識別來自您應用程式的工作階段金鑰。 |
+
+    您可以在服務實例的 [**屬性**] 或 [**存取金鑰**] 區段中, 尋找 Azure 入口網站上的名稱、埠和存取金鑰資訊。
+
+2. 使用下列內容建立或更新您應用程式的*src/main/webapp/META-INF/上下文 .xml*檔案:
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <Context path="">
+        <!-- Specify Redis Store -->
+        <Valve className="com.gopivotal.manager.SessionFlushValve" />
+        <Manager className="org.apache.catalina.session.PersistentManager">
+            <Store className="com.gopivotal.manager.redis.RedisStore"
+                   connectionPoolSize="20"
+                   host="${REDIS_CACHE_NAME}.redis.cache.windows.net"
+                   port="${REDIS_PORT}"
+                   password="${REDIS_PASSWORD}"
+                   sessionKeyPrefix="${REDIS_SESSION_KEY_PREFIX}"
+                   timeout="2000"
+            />
+        </Manager>
+    </Context>
+    ```
+
+    此檔案會指定並設定您應用程式的會話管理員執行。 它會使用您在上一個步驟中設定的環境變數, 將您的帳戶資訊保留在原始程式檔中。
+
+3. 使用 FTP 將會話管理員的 JAR 檔案上傳到您的 App Service 實例, 並將它放在 */home/tomcat/lib*目錄中。 如需詳細資訊, 請參閱[使用 FTP/S 將您的應用程式部署到 Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-ftp)。
+
+4. 停用 App Service 實例的[會話親和性 cookie](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) 。 若要這麼做, 您可以流覽至您 Azure 入口網站的應用程式, 然後將 **[設定 > 一般設定] > [ARR 親和性**] 設為 [**關閉**]。 或者, 您可以使用下列命令:
+
+    ```azurecli
+    az webapp update -g <resource group> -n <webapp name> --client-affinity-enabled false
+    ```
+
+    根據預設, App Service 會使用會話親和性 cookie, 以確保具有現有會話的用戶端要求會路由傳送至應用程式的相同實例。 此預設行為不需要任何設定, 但當您的應用程式實例重新開機時, 或當流量路由傳送到另一個實例時, 就無法保留使用者會話狀態。 當您[停用現有的 ARR 實例相似性](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)設定以關閉以會話 cookie 為基礎的路由時, 您可以讓已設定的會話存放區在不受干擾的情況下運作。
+
+5. 流覽至 App Service 實例的 [**屬性**] 區段, 然後尋找**其他的輸出 IP 位址**。 這些代表您的應用程式所有可能的輸出 IP 位址。 複製這些, 以便在下一個步驟中使用。
+
+6. 針對每個 IP 位址, 在您的 Azure Cache for Redis 實例中建立防火牆規則。 您可以從 Redis 實例的 [**防火牆**] 區段中的 [Azure 入口網站] 執行此動作。 為每個規則提供唯一的名稱, 並將 [**起始 ip 位址**] 和 [**結束 ip 位址**] 值設為相同的 IP 位址。
+
+7. 流覽至 Redis 實例的 [ **Advanced settings** ] 區段, 並將 [**僅允許透過 SSL 存取**] 設定為 [**否**]。 這可讓您的 App Service 實例透過 Azure 基礎結構與 Redis 快取進行通訊。
+
+8. 更新您`azure-webapp-maven-plugin`應用程式的*pom .xml*檔案中的設定, 以參考您的 Redis 帳戶資訊。 此檔案會使用您先前設定的環境變數, 將您的帳戶資訊保留在原始程式檔中。
+
+    如有必要, `1.7.0`請變更為 Azure App Service 的目前[Maven 外掛程式](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)版本。
+
+    ```xml
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.7.0</version>
+        <configuration>
+
+            <!-- Web App information -->
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
+            <appName>${WEBAPP_NAME}-${REGION}</appName>
+            <region>${REGION}</region>
+            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+
+            <appSettings>
+                <property>
+                    <name>REDIS_CACHE_NAME</name>
+                    <value>${REDIS_CACHE_NAME}</value>
+                </property>
+                <property>
+                    <name>REDIS_PORT</name>
+                    <value>${REDIS_PORT}</value>
+                </property>
+                <property>
+                    <name>REDIS_PASSWORD</name>
+                    <value>${REDIS_PASSWORD}</value>
+                </property>
+                <property>
+                    <name>REDIS_SESSION_KEY_PREFIX</name>
+                    <value>${REDIS_SESSION_KEY_PREFIX}</value>
+                </property>
+                <property>
+                    <name>JAVA_OPTS</name>
+                    <value>-Xms2048m -Xmx2048m -DREDIS_CACHE_NAME=${REDIS_CACHE_NAME} -DREDIS_PORT=${REDIS_PORT} -DREDIS_PASSWORD=${REDIS_PASSWORD} IS_SESSION_KEY_PREFIX=${REDIS_SESSION_KEY_PREFIX}</value>
+                </property>
+
+            </appSettings>
+
+        </configuration>
+    </plugin>
+    ```
+
+9. 重建並重新部署您的應用程式。
+
+    ```bash
+    mvn package
+    mvn azure-webapp:deploy
+    ```
+
+您的應用程式現在會使用您的 Redis 快取來進行會話管理。
+
+如需您可以用來測試這些指示的範例, 請參閱 GitHub 上的[調整狀態-java-web 應用程式-azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure)存放庫。
 
 ## <a name="docker-containers"></a>Docker 容器
 

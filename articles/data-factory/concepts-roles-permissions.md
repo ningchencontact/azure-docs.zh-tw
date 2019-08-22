@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 19666eb668dd120c1705c6a62a8ba1abd2321026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 765464f8593e217fba0b564a1fabad7777e94a36
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61261804"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873604"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory 的角色和權限
 
@@ -24,7 +24,7 @@ ms.locfileid: "61261804"
 
 ## <a name="roles-and-requirements"></a>角色和需求
 
-若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為「參與者」  或「擁有者」  角色，或是 Azure 訂用帳戶的「管理員」  。 若要檢視您在訂用帳戶中擁有的權限，請在 Azure 入口網站中選取右上角的使用者名稱，然後選取 [權限]  。 如果您有多個訂用帳戶的存取權，請選取適當的訂用帳戶。 
+若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為「參與者」或「擁有者」角色，或是 Azure 訂用帳戶的「管理員」。 若要檢視您在訂用帳戶中擁有的權限，請在 Azure 入口網站中選取右上角的使用者名稱，然後選取 [權限]。 如果您有多個訂用帳戶的存取權，請選取適當的訂用帳戶。 
 
 若要建立及管理 Data factory 的子資源 (包括資料集、連結服務、管線、觸發程序和整合執行階段)，必須要符合下列需求：
 - 若要在 Azure 入口網站中建立及管理子資源，您必須屬於資源群組層級或更高層級的 **Data Factory 參與者**角色。
@@ -80,9 +80,13 @@ Azure Repos 和 GitHub 上的權限與 Data Factory 權限無關。 因此，具
   1. 指派資料處理站層級的內建**參與者**角色。
   2. 建立具有 **Microsoft.Resources/deployments/** 權限的自訂角色。 在資源群組層級對使用者指派這個自訂角色。
 
+- 讓使用者只能在連結服務中測試連接
+
+    建立具有下列動作之許可權的自訂角色角色:**DataFactory/factory/getFeatureValue/read**和**DataFactory/factory/getDataPlaneAccess/read**。 為使用者在 data factory 資源上指派此自訂角色。
+
 - 讓使用者從 PowerShell 或 SDK 更新資料處理站，而不是在 Azure 入口網站中進行。
 
-  對使用者指派資料處理站資源的內建**參與者**角色。 此角色可讓使用者在 Azure 入口網站中查看資源，但使用者無法存取 [發佈]  和 [全部發佈]  按鈕。
+  對使用者指派資料處理站資源的內建**參與者**角色。 此角色可讓使用者在 Azure 入口網站中查看資源，但使用者無法存取 [發佈] 和 [全部發佈] 按鈕。
 
 ## <a name="next-steps"></a>後續步驟
 

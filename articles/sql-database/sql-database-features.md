@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: c4ba2269003c9d401982b83f4e66c8caf45a0073
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: a8d36e48558432edfaa242b9db13c59adacf5619
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624708"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876346"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比較：Azure SQL Database 與 SQL Server
 
@@ -102,8 +102,6 @@ Microsoft 會持續為 Azure SQL Database 新增功能。 請使用下列篩選�
 | [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|是|是|
 | [運算子](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | 大部分 - 請參閱個別運算子 |是 - 請參閱 [T-SQL 差異](sql-database-managed-instance-transact-sql-information.md) |
 | [分割](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | 是 | 是 |
-| 公用 IP 位址 | 是的。 您可以使用防火牆或服務端點來限制存取權。  | 是的。 需要明確啟用, 而且必須在 NSG 規則中啟用埠3342。 如有需要, 可以停用公用 IP。 如需詳細資訊, 請參閱[公用端點](sql-database-managed-instance-public-endpoint-securely.md)。 | 
-| [資料庫還原時間點](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 是-超大規模資料庫以外的所有服務層級-請參閱[SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore)復原 | 是 - 請參閱 [SQL Database 復原](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | 資料分割 您可以使用`OPENROWSET`函數查詢放在 Azure Blob 儲存體的檔案中的資料。 | 資料分割 您可以使用`OPENROWSET`函數查詢放在 Azure Blob 儲存體的檔案中的資料。 |
 | [述詞](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 是 | 是 |
 | [查詢通知](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | 否 | 是 |
@@ -147,39 +145,47 @@ Azure 平臺提供一些 PaaS 功能, 可新增為標準資料庫功能的額外
 | --- | --- | --- |
 | [主動式異地複寫](sql-database-active-geo-replication.md) | 是-超大規模資料庫以外的所有服務層級 | 否, 請參閱[自動容錯移轉群組 (預覽)](sql-database-auto-failover-group.md)做為替代方案 |
 | [自動容錯移轉群組](sql-database-auto-failover-group.md) | 是-超大規模資料庫以外的所有服務層級 | 是，現已在[公開預覽版](sql-database-auto-failover-group.md)中推出|
+| 自動調整規模 | 是, 在[無伺服器模型](sql-database-serverless.md)中 | 否, 您必須選擇保留的計算和儲存體。 |
+| [Azure Active Directory (AAD) 驗證](sql-database-aad-authentication.md) | 是的。 僅限 AAD 使用者。 | 是的。 包括伺服器層級的 AAD 登入。 |
 | [Azure 資源健康狀態](/azure/service-health/resource-health-overview) | 是 | 否 |
+| 備份保留 | 是的。 預設值為7天, 最大值為35天。 | 是的。 預設值為7天, 最大值為35天。 |
 | [資料移轉服務 (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | 是 | 是 |
 | 檔案系統存取 | 資料分割 使用[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)或[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) , 從 Azure Blob 儲存體存取和載入資料, 以做為替代方式。 | 資料分割 使用[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)或[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) , 從 Azure Blob 儲存體存取和載入資料, 以做為替代方式。 |
 | [異地還原](sql-database-recovery-using-backups.md#geo-restore) | 是-超大規模資料庫以外的所有服務層級 | 是-使用[Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa)。 |
 | [超大規模資料庫架構](sql-database-service-tier-hyperscale.md) | 是 | 否 |
 | [長期備份保留-LTR](sql-database-long-term-retention.md) | 是, 保持自動備份最多10年。 | 尚未提供。 使用`COPY_ONLY` [手動備份](sql-database-managed-instance-transact-sql-information.md#backup)做為暫時的因應措施。 |
-| [原則式管理](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 否 | 否 |
-| 資源集區 | 是, 身為[彈性](sql-database-elastic-pool.md)集區 | 內建 - 單一「受控執行個體」可以有共用相同資源集區的多個資料庫 |
-| 相應增加或相應減少 (線上) | 是, 您可以在最短的停機時間內變更 DTU 或保留的虛擬核心或最大儲存體。 | 是, 您可以在最短的停機時間內變更保留的虛擬核心或最大儲存體。 | 
-| 自動調整規模 | 是, 在[無伺服器模型](sql-database-serverless.md)中 | 否, 您必須選擇保留的計算和儲存體。 |
 | 暫停/繼續 | 是, 在[無伺服器模型](sql-database-serverless.md)中 | 否 | 
-| [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) \(機器翻譯\) | [是](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | 是[版本 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
+| [原則式管理](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 否 | 否 |
+| 公用 IP 位址 | 是的。 您可以使用防火牆或服務端點來限制存取權。  | 是的。 需要明確啟用, 而且必須在 NSG 規則中啟用埠3342。 如有需要, 可以停用公用 IP。 如需詳細資訊, 請參閱[公用端點](sql-database-managed-instance-public-endpoint-securely.md)。 | 
+| [資料庫還原時間點](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 是-超大規模資料庫以外的所有服務層級-請參閱[SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore)復原 | 是 - 請參閱 [SQL Database 復原](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| 資源集區 | 是, 身為[彈性](sql-database-elastic-pool.md)集區 | 資料分割 單一受控 mnstance 可以有多個共用相同資源集區的資料庫。 受控實例無法共用資源。 |
+| 相應增加或相應減少 (線上) | 是, 您可以在最短的停機時間內變更 DTU 或保留的虛擬核心或最大儲存體。 | 是, 您可以在最短的停機時間內變更保留的虛擬核心或最大儲存體。 |
 | [SQL 分析](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | 是 | 是 |
 | [SQL 資料同步](sql-database-get-started-sql-data-sync.md) | 是 | 否 |
-| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 是 | 是 |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 否, [azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)是個別的 azure 雲端服務。 | 否, [azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)是個別的 azure 雲端服務。 |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 是，使用 Azure Data Factory (ADF) 環境中的受控 SSIS，其中的套件會儲存於 Azure SQL Database 所裝載的 SSISDB 中，並於 Azure SSIS Integration Runtime (IR) 上執行，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)。 <br/><br/>若要比較 SQL Database 伺服器與受控執行個體中的 SSIS 功能，請參閱[比較 Azure SQL Database 單一資料庫/彈性集區與受控執行個體](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)。 | 是，使用 Azure Data Factory (ADF) 環境中的受控 SSIS，其中的套件會儲存於受控執行個體所裝載的 SSISDB 中，並於 Azure SSIS Integration Runtime (IR) 上執行，請參閱[在 ADF 中建立 Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)。 <br/><br/>若要比較 SQL Database 與受控執行個體中的 SSIS 功能，請參閱[比較 Azure SQL Database 單一資料庫/彈性集區與受控執行個體](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)。 |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | 否 - 請參閱 [Power BI](https://docs.microsoft.com/power-bi/) | 否 - 請參閱 [Power BI](https://docs.microsoft.com/power-bi/) |
 | [查詢效能深入解析 (QPI)](sql-database-query-performance.md) | 是 | 資料分割 使用 SQL Server Management Studio 和 Azure Data Studio 中的內建報表。 |
 | [VNet](../virtual-network/virtual-networks-overview.md) | 部分, 它會使用[VNet 端點](sql-database-vnet-service-endpoint-rule-overview.md)來啟用限制存取 | 是, 受控執行個體會插入客戶的 VNet 中。 請參閱[子網](sql-database-managed-instance-transact-sql-information.md#subnet)和[VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
+| VNet 服務端點 | [是](sql-database-vnet-service-endpoint-rule-overview.md) | 否 |
 
 ## <a name="tools"></a>工具
 Azure SQL database 支援各種資料工具, 可協助您管理資料。
 
-| **SQL 工具** | **單一資料庫和彈性集區** | **受控實例** |
+| **工具** | **單一資料庫和彈性集區** | **受控實例** |
 | --- | --- | --- |
+| Azure 入口網站 | 是 | 是 |
+| Azure CLI | 是 | 是|
 | [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | 是 | 是 |
+| Azure Powershell | 是 | 是 |
 | [BACPAC 檔案 (匯出)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 是 - 請參閱 [SQL Database 匯出](sql-database-export.md) | 是 - 請參閱 [SQL Database 匯出](sql-database-export.md) |
 | [BACPAC 檔案 (匯入)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 是 - 請參閱 [SQL Database 匯入](sql-database-import.md) | 是 - 請參閱 [SQL Database 匯入](sql-database-import.md) |
 | [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | 否 | 否 |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | 否 | 否 |
+| [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) \(機器翻譯\) | [是](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) | 是[版本 150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | 是 | 是 |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | 是 | 是[18.0 版和更高版本](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+| [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 是 | 是 |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 否 - 請參閱[擴充事件](sql-database-xevent-db-diff-from-svr.md) | 是 |
 | [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [是](https://www.microsoft.com/download/details.aspx?id=38829) | 否 |
 

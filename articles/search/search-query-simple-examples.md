@@ -1,8 +1,8 @@
 ---
-title: 使用 「 簡單 」 的搜尋語法-Azure 搜尋服務的查詢範例
+title: 使用「簡單」搜尋語法的查詢範例-Azure 搜尋服務
 description: 全文檢索搜尋、篩選搜尋、地理搜尋、多面向搜尋，和其他用來查詢 Azure 搜尋服務索引的查詢字串適用的簡單查詢範例。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653515"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647624"
 ---
-# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>使用 Azure 搜尋服務中的 「 簡單 」 的搜尋語法的查詢範例
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>在 Azure 搜尋服務中使用「簡單」搜尋語法的查詢範例
 
 [簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)會叫用預設查詢剖析器，以對 Azure 搜尋服務索引執行全文檢索搜尋查詢。 簡單查詢分析器速度快，可處理 Azure 搜尋服務中的常見案例，包括全文檢索搜尋、篩選搜尋、多面向搜尋和地理搜尋。 本文中的範例示範在使用簡單語法時可用的查詢作業，請逐步執行這些範例。
 
@@ -55,9 +55,9 @@ URL 組合具有下列元素：
 
 ## <a name="send-your-first-query"></a>傳送第一個查詢
 
-在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]  。 結果會以詳細 JSON 文件的形式傳回。 會傳回整個文件，可讓您查看所有欄位和所有的值。
+在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 系統會傳回整份檔, 讓您查看所有欄位和所有值。
 
-將此 URL 貼入 REST 用戶端上，做為驗證步驟，以及檢視文件結構。
+將此 URL 貼入 REST 用戶端做為驗證步驟, 並查看檔結構。
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
@@ -83,13 +83,13 @@ URL 組合具有下列元素：
 searchFields=business_title&$select=business_title&search=*
 ```
 
-以下是使用逗號分隔的清單中的多個欄位相同的查詢。
+以下是在逗號分隔清單中有多個欄位的相同查詢。
 
 ```http
 search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
 ```
 
-### <a name="full-url"></a>完整的 URL
+### <a name="full-url"></a>完整 URL
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=business_title&$select=business_title&search=*
@@ -194,7 +194,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ```
 
 > [!NOTE]
-> 透過值範圍進行面向化是常見的搜尋應用程式需求。 如需為 Facet 導覽結構建立篩選條件的詳細資訊和範例，請參閱[「如何實作多面向導覽」中的「根據範圍篩選」  ](search-faceted-navigation.md#filter-based-on-a-range)。
+> 透過值範圍進行面向化是常見的搜尋應用程式需求。 如需為 Facet 導覽結構建立篩選條件的詳細資訊和範例，請參閱[「如何實作多面向導覽」中的「根據範圍篩選」](search-faceted-navigation.md#filter-based-on-a-range)。
 
 ## <a name="example-5-geo-search"></a>範例 5：地區搜尋
 
@@ -211,7 +211,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
       "count": "true"
     }
 ```
-為了更容易閱讀的結果，請搜尋結果會經過修剪，包括工作識別碼、 工作職稱及工作位置。 起始座標是從索引中的隨機文件取得 (在此例中為史泰登島上的工作地點)。
+針對更容易閱讀的結果, 搜尋結果會被修剪以包含作業識別碼、職稱和工作位置。 起始座標是從索引中的隨機文件取得 (在此例中為史泰登島上的工作地點)。
 
 您也可以使用 GET 在 Postman 中試用看看：
 

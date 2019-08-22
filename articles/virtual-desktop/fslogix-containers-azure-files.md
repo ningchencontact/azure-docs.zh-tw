@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 6bb3be3805243bba4d11037b180e7f8418a84014
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: MT
+ms.openlocfilehash: 54d3f175e74b9f94c7845725e3d8f4531750df57
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947210"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877563"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 設定檔容器和 Azure 檔案
 
@@ -86,7 +86,7 @@ Windows 虛擬桌面提供客戶所使用 Vm 的大小、類型和計數的完�
 若要確保您的 Windows 虛擬桌面環境遵循最佳做法:
 
 - Azure 檔案儲存體儲存體帳戶必須位於與會話主機 Vm 相同的區域中。
-- Azure 檔案儲存體許可權應符合[需求-設定檔容器](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers)中所述的許可權。
+- Azure 檔案儲存體許可權應符合[需求-設定檔容器](https://docs.microsoft.com/fslogix/overview#requirements)中所述的許可權。
 - 每個主機集區都必須根據相同的主要映射, 建立相同類型和大小的 VM。
 - 每部主機集區 VM 都必須位於相同的資源群組中, 以協助管理、調整和更新。
 - 為了達到最佳效能, 儲存體解決方案和 FSLogix 設定檔容器應該位於相同的資料中心位置。
@@ -99,6 +99,6 @@ Windows 虛擬桌面提供客戶所使用 Vm 的大小、類型和計數的完�
 - 若要開始建立您的桌面虛擬化解決方案, 請參閱[在 Windows 虛擬桌面中建立租](tenant-setup-azure-active-directory.md)使用者。
 - 若要在 Windows 虛擬桌面租使用者內建立主機集區, 請參閱[使用 Azure Marketplace 建立主機集](create-host-pools-azure-marketplace.md)區。
 - 若要在雲端中設定完全受控的檔案共用, 請參閱[設定 Azure 檔案儲存體共用](/articles/storage/files/storage-files-active-directory-enable.md)。
-- 若要設定 FSLogix 設定檔容器, 請參閱[設定主機集區的使用者設定檔共用](create-host-pools-user-profile.md)。
+- 若要設定 FSLogix 設定檔容器, 請參閱[使用檔案共用建立主機集區的設定檔容器](create-host-pools-user-profile.md)。
 - 若要將使用者指派給主機集區, 請參閱[管理 Windows 虛擬桌面的應用程式群組](manage-app-groups.md)。
 - 若要從網頁瀏覽器存取您的 Windows 虛擬桌面資源, 請參閱[連接到 Windows 虛擬桌面](connect-web.md)。

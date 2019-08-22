@@ -6,15 +6,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/01/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: b6bb70e4c56adb162006d2597d301c73b12d2a8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0801931b57302ae1d627dab783a40d2407c19ac
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540878"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650077"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務搜尋 Blob 儲存體
 
@@ -38,7 +38,7 @@ ms.locfileid: "65540878"
 ## <a name="image-search"></a>影像搜尋
 Azure 搜尋服務的全文檢索搜尋、多面向導覽和排序功能現在可套用至 Blob 中儲存的影像中繼資料。
 
-認知搜尋包含映像處理技術，例如[光學字元辨識 (OCR)](cognitive-search-skill-ocr.md)並且識別[視覺化功能](cognitive-search-skill-image-analysis.md)，使您能夠在每個找到的視覺化內容編製索引映像。
+認知搜尋包括影像處理技能 (例如[光學字元辨識 (OCR))](cognitive-search-skill-ocr.md)和[視覺功能](cognitive-search-skill-image-analysis.md)的識別, 讓您可以為每個影像中找到的視覺內容編制索引。
 
 ## <a name="index-and-search-through-json-blobs"></a>檢索和搜尋 JSON Blob
 可以將 Azure 搜尋服務設定為擷取在包含 JSON 的 Blob 中找到的結構化內容。 Azure 搜尋服務可以讀取 JSON Blob，並將結構化內容剖析成 Azure 搜尋服務文件的適當欄位。 Azure 搜尋服務也會採用包含 JSON 物件陣列的 Blob，並將每個元素對應至不同的 Azure 搜尋服務文件。
@@ -50,7 +50,7 @@ JSON 剖析目前無法透過入口網站設定。 [深入了解 Azure 搜尋服
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
-按一下 [新增 Azure 搜尋服務]  會啟動一個流程，您可以在其中選取現有的 Azure 搜尋服務或建立新的服務。 如果您建立新的服務，您將會跳脫儲存體帳戶的入口網站經驗。 您可以瀏覽回到儲存體入口網站頁面，然後重新選取 [新增 Azure 搜尋服務]  選項，便可在其中選取現有的服務。
+按一下 [新增 Azure 搜尋服務] 會啟動一個流程，您可以在其中選取現有的 Azure 搜尋服務或建立新的服務。 如果您建立新的服務，您將會跳脫儲存體帳戶的入口網站經驗。 您可以瀏覽回到儲存體入口網站頁面，然後重新選取 [新增 Azure 搜尋服務] 選項，便可在其中選取現有的服務。
 
 ## <a name="next-steps"></a>後續步驟
 閱讀完整的[文件](https://aka.ms/azsblobindexer)以深入了解 Azure 搜尋服務 Blob 索引子。

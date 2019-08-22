@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 2047f11272c6154d4443e889eff24401c2f73afa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e9ac50f38b2cf7bc3531e58e87ff2a8768c0a45
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067685"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650475"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何設定 Azure Functions 執行階段目標版本
 
@@ -21,12 +21,12 @@ ms.locfileid: "67067685"
 
 ## <a name="automatic-and-manual-version-updates"></a>自動和手動版本更新
 
-Azure Functions 可讓您針對特定版本的執行階段使用`FUNCTIONS_EXTENSION_VERSION`函式應用程式中的應用程式設定。 函式應用程式會保留在指定的主要版本上，直到您明確選擇移至新版本為止。
+Azure Functions 可讓您使用函數應用程式中的`FUNCTIONS_EXTENSION_VERSION`應用程式設定, 以特定版本的執行時間為目標。 函式應用程式會保留在指定的主要版本上，直到您明確選擇移至新版本為止。
 
 如果您只指定主要版本 ("~2" 代表 2.x 或 "~1" 代表 1.x)，當新版本推出時，函數應用程式會自動更新到執行階段的新次要版本。 新的次要版本不會導入重大變更。 如果您指定次要版本 (例如 "2.0.12345")，則函式應用程式會釘選到該特定版本，直到您明確地變更它。
 
 > [!NOTE]
-> 如果您釘選到特定版本的 Azure Functions，並試著發佈至 Azure 中使用 Visual Studio 時，對話視窗隨即出現提示您更新至最新版本，或取消發行。 若要避免這個問題，新增`<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>`屬性，在您`.csproj`檔案。
+> 如果您釘選到特定版本的 Azure Functions, 然後嘗試使用 Visual Studio 來發行至 Azure, 則會顯示對話方塊視窗, 提示您更新至最新版本或取消發行。 若要避免這個情況, `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>`請在您`.csproj`的檔案中新增屬性。
 
 有新版本公開發行時，入口網站會提示您向上移至該版本。 移至新版本之後，您隨時可以使用 `FUNCTIONS_EXTENSION_VERSION` 應用程式設定移回舊版。
 
@@ -36,14 +36,14 @@ Azure Functions 可讓您針對特定版本的執行階段使用`FUNCTIONS_EXTEN
 
 ## <a name="view-and-update-the-current-runtime-version"></a>檢視並更新目前的執行階段版本
 
-您可以變更函式應用程式所使用的執行階段版本。 由於可能會發生重大變更，因此您只能在函數應用程式中已建立任何函式之前變更執行階段版本。 雖然執行階段版本取決於 `FUNCTIONS_EXTENSION_VERSION` 設定，但您應該在 Azure 入口網站中進行這項變更，而不是直接變更該設定。 這是因為入口網站會驗證您的變更，並視需要進行其他相關變更。
+您可以變更函數應用程式所使用的執行階段版本。 由於可能會有重大變更, 您只能在函式應用程式中建立任何函式之前, 變更執行階段版本。 雖然執行階段版本取決於 `FUNCTIONS_EXTENSION_VERSION` 設定，但您應該在 Azure 入口網站中進行這項變更，而不是直接變更該設定。 這是因為入口網站會驗證您的變更，並視需要進行其他相關變更。
 
 ### <a name="from-the-azure-portal"></a>從 Azure 入口網站
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
-> 使用 Azure 入口網站，您無法變更已包含函式的函式應用程式的執行階段版本。
+> 使用 Azure 入口網站, 您無法變更已包含函式之函式應用程式的執行階段版本。
 
 ### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>從 Azure CLI
 
@@ -96,7 +96,7 @@ az functionapp config appsettings set --name <function_app> \
 
 以函式應用程式的名稱取代 `<function_app>`。 還要以函式應用程式的資源群組名稱取代 `<my_resource_group>`。 此外，將 `<version>` 取代為有效的 1.x 執行階段版本取代為 `~2` (代表 2.x 版本)。
 
-您可以選擇上述程式碼範例中的 [試試看]  ，從 [Azure Cloud Shell](../cloud-shell/overview.md) 執行此命令。 在執行 [az login](/cli/azure/reference-index#az-login) 登入之後，您也可以使用[本機 Azure CLI](/cli/azure/install-azure-cli) 來執行此命令。
+您可以選擇上述程式碼範例中的 [試試看]，從 [Azure Cloud Shell](../cloud-shell/overview.md) 執行此命令。 在執行 [az login](/cli/azure/reference-index#az-login) 登入之後，您也可以使用[本機 Azure CLI](/cli/azure/install-azure-cli) 來執行此命令。
 
 
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 9a62001f168e0577ea07ad030923a4d0398e50af
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534969"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872491"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -51,7 +51,7 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 
 | 屬性 | 描述  |使用者可設定嗎？|的關鍵字 </br>路由查詢|
 | --- | --- | --- | --- |
-| message-id |使用者可設定的訊息識別碼，用於「要求-回覆」模式。 格式:區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。  | 是 | messageId |
+| message-id |使用者可設定的訊息識別碼，用於「要求-回覆」模式。 格式：區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。  | 是 | messageId |
 | iothub-enqueuedtime |IoT 中樞收到[裝置到雲端](iot-hub-devguide-d2c-guidance.md)訊息的日期和時間。 | 否 | Enqueuedtime 之外 |
 | user-id |用來指定訊息來源的識別碼。 當 IoT 中樞產生訊息時，它會設定為 `{iot hub name}`。 | 是 | userId |
 | iothub-connection-device-id |由 IoT 中樞在裝置到雲端訊息上設定的識別碼。 它包含傳送訊息之裝置的 **deviceId** 。 | 否 | connectionDeviceId |
@@ -63,7 +63,7 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 
 | 屬性 | 描述  |使用者可設定嗎？|
 | --- | --- | --- |
-| message-id |使用者可設定的訊息識別碼，用於「要求-回覆」模式。 格式:區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。  |是|
+| message-id |使用者可設定的訊息識別碼，用於「要求-回覆」模式。 格式：區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。  |是|
 | sequence-number |IoT 中樞指派給每則雲端到裝置訊息的數字 (對每個裝置佇列而言都是唯一的)。 |否|
 | to |[雲端到裝置](iot-hub-devguide-c2d-guidance.md) 訊息中指定的目的地。 |否|
 | absolute-expiry-time |訊息到期的日期和時間。 |否|   |
@@ -73,7 +73,7 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 
 ## <a name="message-size"></a>訊息大小
 
-IoT 中樞會以不限通訊協定的方式 (只考慮實際的承載) 測量郵件大小。 大小 (以位元組為單位) 的計算方式為下列項目的總和︰
+IoT 中樞會以不限通訊協定的方式 (只考慮實際的承載) 測量郵件大小。 大小 (以位元組為單位) 會計算為下列值的總和:
 
 * 內文大小 (以位元組為單位)。
 * 訊息系統屬性所有值的大小 (以位元組為單位)。

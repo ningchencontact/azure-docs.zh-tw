@@ -2,19 +2,19 @@
 title: 常見問題集 (FAQ) - Azure 搜尋服務
 description: 取得有關 Microsoft Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 常見問題的解答。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023984"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649841"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure 搜尋服務 - 常見問題集 (FAQ)
 
@@ -44,7 +44,7 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 ### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>可備份及還原 (或下載及移動) 索引或索引快照集嗎？
 
-雖然您可以隨時[取得索引定義](https://docs.microsoft.com/rest/api/searchservice/get-index)，但沒有索引擷取、快照或備份還原功能，可將雲端中執行的「擴展」  索引下載到本機系統，或移至其他 Azure 搜尋服務。
+雖然您可以隨時[取得索引定義](https://docs.microsoft.com/rest/api/searchservice/get-index)，但沒有索引擷取、快照或備份還原功能，可將雲端中執行的「擴展」索引下載到本機系統，或移至其他 Azure 搜尋服務。
 
 索引是從您撰寫的程式碼建立及擴展，而且只會在雲端中的 Azure 搜尋服務上執行。 一般而言，想要將索引移至其他服務的客戶可藉由編輯其程式碼以使用新的端點，然後重新執行索引來完成。 如果您想要有擷取快照集或備份索引的功能，請在 [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index) 上投下一票。
 
@@ -64,7 +64,7 @@ Azure 搜尋服務支援多個資料來源、[許多語言的語言分析](https
 
 不可以，不支援此作業。 搜尋的範圍一律是單一索引。
 
-### <a name="can-i-restrict-search-index-access-by-user-identity"></a>可以依使用者識別來限制搜尋索引的存取嗎？
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>我可以依使用者身分識別來限制搜尋索引的存取權嗎？
 
 您可以使用 `search.in()` 篩選器來實作[安全性篩選](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)。 篩選條件是利用[身分識別管理服務，例如 Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) 撰寫而成，能以定義的使用者群組成員資格為基礎修剪搜尋結果。
 

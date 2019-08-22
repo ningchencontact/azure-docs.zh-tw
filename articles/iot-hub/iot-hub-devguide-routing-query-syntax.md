@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400638"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877066"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT 中樞訊息路由查詢語法
 
@@ -51,12 +51,13 @@ IoT 中樞會針對所有裝置到雲端訊息定義[常見格式](iot-hub-devgu
 
 系統屬性可協助識別訊息的內容和來源。 
 
-| 屬性 | type | 描述 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | contentType | string | 使用者會指定訊息的內容類型。 若要允許對訊息本文進行查詢，此值應該設為 application/JSON。 |
 | contentEncoding | string | 使用者會指定訊息的編碼類型。 允許的值為 UTF-8、UTF-16、UTF-32 (若 contentType 是設為 application/JSON)。 |
 | iothub-connection-device-id | string | 此值是由 IoT 中樞設定，並能識別裝置的識別碼。 若要查詢，請使用 `$connectionDeviceId`。 |
 | iothub-enqueuedtime | string | 此值是由 IoT 中樞設定，並代表將訊息加入佇列的實際時間 (以 UTC 表示)。 若要查詢，請使用 `enqueuedTime`。 |
+| iothub-介面-名稱 | string | 這個值是由使用者設定, 代表實作為遙測訊息的數位對應項介面名稱。 若要查詢，請使用 `$interfaceName`。 這項功能可做為[IoT 隨插即用公開預覽](../iot-pnp/overview-iot-plug-and-play.md)的一部分。 |
 
 如 [IoT 中樞訊息](iot-hub-devguide-messages-construct.md)中所述，訊息中還有其他系統屬性。 除了 **contentType**、**contentEncoding** 和 **enqueuedTime** 之外，可查詢的屬性還包括 **connectionDeviceId** 和 **connectionModuleId**。
 
@@ -86,7 +87,7 @@ processingPath = 'hot'
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-如需支援的運算子和函式的完整清單，請參閱[運算式和條件](iot-hub-devguide-query-language.md#expressions-and-conditions)
+[[運算式和條件](iot-hub-devguide-query-language.md#expressions-and-conditions)] 中會顯示支援的運算子和函式的完整清單。
 
 ## <a name="message-routing-query-based-on-message-body"></a>根據訊息本文的訊息路由查詢 
 
@@ -163,7 +164,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>根據裝置對應項的訊息路由查詢 
 
-訊息路由可讓您針對[裝置對應項](iot-hub-devguide-device-twins.md)標記和屬性 (其為 JSON 物件) 進行查詢。 請注意，不支援針對模組對應項進行查詢。 範例的裝置對應項標記和屬性如下所示。
+訊息路由可讓您針對[裝置對應項](iot-hub-devguide-device-twins.md)標記和屬性 (其為 JSON 物件) 進行查詢。 不支援查詢模組對應項。 範例的裝置對應項標記和屬性如下所示。
 
 ```JSON
 {

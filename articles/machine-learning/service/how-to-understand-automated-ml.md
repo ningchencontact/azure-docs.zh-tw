@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: ea85a0906ce231312c491d31a33c331480d23812
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a5632767ef8230d16b47f350436fda53794efdf5
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362151"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872609"
 ---
 # <a name="understand-automated-machine-learning-results"></a>瞭解自動化機器學習結果
 
@@ -47,15 +47,15 @@ ms.locfileid: "68362151"
 
 1. 在實驗清單中, 選取您想要探索的測試。
 
-   ![實驗清單](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)
+   [![實驗清單](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
 
 1. 在底部的資料表中, 選取 [**執行編號**]。
 
-   ![實驗回合](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)
+   [實驗執行![ ](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
 1. 在 [反覆運算] 資料表中, 選取您想要進一步探索之模型的**反復專案編號**。
 
-   ![實驗模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)
+   [![實驗模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
 當您使用`RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)時, 您也會在執行期間看到這些相同的結果。
 
@@ -104,7 +104,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 
 針對分類問題，Azure Machine Learning 會針對每個已建置的模型自動提供混淆矩陣。 針對每個混淆矩陣，自動化 ML 會將分類正確的標籤顯示為綠色，並將分類不正確的標籤顯示為紅色。 圓形的大小代表該組合中的樣本數。 此外，每個預測標籤和每個真值標籤的頻率計數均會顯示於相鄰的長條圖中。 
 
-範例 1:準確度很差的分類模型 ![準確度很差的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+範例 1：準確度很差的分類模型 ![準確度很差的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
 範例 2：高準確度的分類模型 (理想) ![高準確度的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
@@ -115,7 +115,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 
 精確度一詞代表分類器能夠正確標示所有執行個體。 召回率代表分類器能夠針對特定標籤找到的所有執行個體。 精確度與召回率曲線會顯示這兩個概念之間的關聯性。 在理想情況下，此模型會有 100% 的精確度和 100% 的準確度。
 
-範例 1:具有低精確度與低召回率的分類模型 ![具有低精確度與低召回率的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+範例 1：具有低精確度與低召回率的分類模型 ![具有低精確度與低召回率的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
 範例 2：具有 ~100% 精確度與 ~100% 召回率的分類模型 (理想) ![具有高精確度與召回率的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
 
@@ -123,7 +123,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 
 接收者操作特徵 (或 ROC) 是對於特定模型之分類正確標籤與分類不正確標籤的繪圖。 在具有高偏差的資料集上將模型定型時，ROC 曲線可提供的資訊較少，因為它將不會顯示誤判標籤。
 
-範例 1:具有低確判標籤與高誤判標籤的分類模型 ![具有低確判標籤與高誤判標籤的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+範例 1：具有低確判標籤與高誤判標籤的分類模型 ![具有低確判標籤與高誤判標籤的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
 
 範例 2：具有高確判標籤與低誤判標籤的分類模型 ![具有高確判標籤與低誤判標籤的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
 
@@ -133,7 +133,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 
 升力圖可用來評估分類模型的效能。 它會顯示相較於不使用模型，您能夠預期使用模型會做得更好。 
 
-範例 1:模型執行效能比隨機選取模型更糟 ![比隨機選取模型更糟的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
+範例 1：模型執行效能比隨機選取模型更糟 ![比隨機選取模型更糟的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
 
 範例 2：模型執行效能優於隨機選取模型 ![執行得更好的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
 
@@ -143,7 +143,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 
 使用累計增益圖，可協助您使用對應至模型中所需增益的百分比來選擇分類截止。 此資訊提供另一種方式來查看隨附升力圖中的結果。
 
-範例 1:增益最少的分類模型 ![增益最少的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
+範例 1：增益最少的分類模型 ![增益最少的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
 
 範例 2：增益顯著的分類模型 ![增益顯著的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
 
@@ -153,7 +153,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 
 校正圖可用來顯示預測模型的信賴度。 它會顯示預測機率與實際機率之間的關聯性，其中「機率」代表特定執行個體屬於某個標籤的可能性。 經過準確校正的模型會與 y=x 線對齊，在其預測中具有合理的信賴度。 過度信賴的模型會與 y=0 線對齊，其會顯示預測機率，但沒有任何實際機率。
 
-範例 1:經過更準確校正的模型 ![經過更準確校正的模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
+範例 1：經過更準確校正的模型 ![經過更準確校正的模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
 
 範例 2：過度信賴的模型 ![過度信賴的模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
@@ -190,9 +190,9 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
 在每個回合之後，您都能查看每個迴歸模型的預測與真值圖。 為了保護資料隱私權，會將值組合在一起，而每組的大小均會顯示為圖表區域下半部的長條圖。 您可以根據模型所在的理想值，將預測模型與顯示誤差幅度且顏色較淡的陰影區域進行比較。
 
-範例 1:在預測中準確度較低的迴歸模型 ![在預測中準確度較低的迴歸模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
+範例 1：在預測中準確度較低的迴歸模型 ![在預測中準確度較低的迴歸模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-範例 2：在其預測中準確度較高的迴歸模型 ![在其預測中準確度較高的迴歸模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
+範例 2：具有高精確度[ ![的回歸模型在其預測中具有高精確度的回歸模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 
@@ -200,7 +200,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error (�
 
 殘差代表觀察到的 y - 預測的 y。 若要顯示低偏差的錯誤幅度，殘差直方圖應該會形成以 0 為中心的鐘形曲線。 
 
-範例 1:其錯誤中有偏差的迴歸模型 ![其錯誤中有偏差的 SA 迴歸模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
+範例 1：其錯誤中有偏差的迴歸模型 ![其錯誤中有偏差的 SA 迴歸模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
 範例 2：錯誤分佈更均勻的迴歸模型 ![錯誤分佈更均勻的迴歸模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 

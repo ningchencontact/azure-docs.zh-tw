@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4aadac343e023e68432741c1f1231bc0ec9fe0ea
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5e3b96d79ddef7940fd4029f9268e3040a63d2fb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990193"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875076"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -728,7 +728,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 ![在入口網站中管理函式金鑰。](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-目前沒有任何支援的 API 可透過程式設計方式取得函式金鑰。
+您可以使用[金鑰管理 API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)以程式設計方式取得功能鍵。
 
 ### <a name="api-key-authorization"></a>API 金鑰授權
 
@@ -801,7 +801,7 @@ HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度
 
 下表說明您在 function.json 檔案中設定的繫結設定屬性。 就 C# 類別程式庫而言，沒有任何屬性 (Attribute) 的屬性 (Property) 與這些 *function.json* 屬性 (Property) 對應。
 
-|內容  |描述  |
+|屬性  |描述  |
 |---------|---------|
 | **type** |必須設為 `http`。 |
 | **direction** | 必須設為 `out`。 |

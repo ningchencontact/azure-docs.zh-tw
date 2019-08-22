@@ -8,16 +8,18 @@ ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: d9d7b2d189c6a1533be2d1cae4989669787c3f2a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ad5f660ff72eceecbb6db2e9557b023ed2c6ea99
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848999"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875818"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>從一或多個規則將多個動作分組以執行
 
 *本文適用于構建者和系統管理員。*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 在 Azure IoT Central 中, 您會建立規則, 以在符合條件時執行動作。 規則是以裝置遙測或事件為基礎。 例如, 您可以在裝置溫度超過閾值時通知操作員。 本文說明如何使用[Azure 監視器](../azure-monitor/overview.md)*動作群組*, 將多個動作附加至 IoT Central 規則。 您可以將動作群組附加到多個規則。 [動作群組](../azure-monitor/platform/action-groups.md)是由 Azure 訂用帳戶的擁有者所定義的通知喜好設定集合。
 
@@ -60,7 +62,7 @@ ms.locfileid: "67848999"
 | 動作類型 | 輸出格式 |
 | ----------- | -------------- |
 | Email       | 標準 IoT Central 電子郵件範本 |
-| sms         | Azure IoT Central 警示: $ {applicationName}-"$ {ruleName}" 已于 $ {triggerDate} $ {triggerTime} 于 "$ {deviceName}" 上觸發 |
+| SMS         | Azure IoT Central 警示: $ {applicationName}-"$ {ruleName}" 已于 $ {triggerDate} $ {triggerTime} 于 "$ {deviceName}" 上觸發 |
 | 語音       | Azure triggerDate} $ {triggerTime}, 在應用程式 $ {applicationName} 中, 已于裝置 "$ {deviceName}" 上觸發規則 "$ {ruleName}" |
 | Webhook     | { "schemaId" :"AzureIoTCentralRuleWebhook", "data": {[一般 webhook](#payload)承載}} |
 

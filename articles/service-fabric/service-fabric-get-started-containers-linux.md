@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: atsenthi
-ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599561"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650660"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "68599561"
 > [!NOTE]
 > 本文適用於 Linux 開發環境。  Service Fabric 叢集執行階段與 Docker 執行階段必須在相同的作業系統上執行。  您無法在 Windows 叢集上執行 Linux 容器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 執行下列項目的開發電腦︰
   * [Service Fabric SDK 和工具](service-fabric-get-started-linux.md)。
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -181,28 +181,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ![容器的 Service Fabric Yeoman 產生器][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>設定容器存放庫驗證
- 如果您的容器需要向私人存放庫進行驗證，則新增 `RepositoryCredentials`。 在本文中，新增 myregistry.azurecr.io 容器登錄的帳戶名稱和密碼。 確保該原則已新增在對應至正確服務套件的 'ServiceManifestImport' 標籤之下。
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-   </ServiceManifestImport>
-``` 
-
-我們建議您將存放庫密碼加密。 如需指示，請參閱[在 Service Fabric 應用程式中管理已加密的祕密](service-fabric-application-secret-management.md)。
-
-### <a name="configure-cluster-wide-credentials"></a>設定整個叢集的認證
-請參閱[這裡的文件](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
+請參閱[容器存放庫驗證](configure-container-repository-credentials.md), 以瞭解如何為容器映射下載設定不同類型的驗證。
 
 ## <a name="configure-isolation-mode"></a>設定隔離模式
-使用 6.3 執行階段版本，可針對 Linux 容器支援 VM 隔離，因而可針對容器支援兩種格式模式：處理序和 HyperV。 使用 HyperV 隔離模式，在每個容器與容器主機之間隔離核心。 HyperV 隔離是使用 [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker) \(英文\) 來實作的。 隔離模式是在應用程式資訊清單檔的 `ServicePackageContainerPolicy` 元素中針對 Linux 叢集所指定的。 可以指定的隔離模式有 `process`、`hyperv` 和 `default`。 預設值為處理序隔離模式。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
+在6.3 執行時間版本中, Linux 容器支援 VM 隔離, 因而支援兩種容器隔離模式: 進程和 Hyper-v。 使用 Hyper-v 隔離模式時, 會在每個容器和容器主機之間隔離核心。 Hyper-v 隔離是使用[清除容器](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker)來執行。 隔離模式是在應用程式資訊清單檔的 `ServicePackageContainerPolicy` 元素中針對 Linux 叢集所指定的。 可以指定的隔離模式有 `process`、`hyperv` 和 `default`。 預設值為處理序隔離模式。 下列程式碼片段顯示如何在應用程式資訊清單檔中指定隔離模式。
 
 ```xml
 <ServiceManifestImport>

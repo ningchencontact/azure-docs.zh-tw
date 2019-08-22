@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 8e7456eff3062ef6667e7b0022ea9740c397a493
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5ffa77a05e6019ee6b5e29c5af5ed0130e027cae
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679236"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876506"
 ---
 > [!NOTE]
 > 本檔詳細說明2019年7月31日 Azure 資訊安全中心已淘汰的功能清單。
@@ -160,7 +160,7 @@ Log Analytics 儀表板已在單一工作區上顯示深入解析。 不過, 原
 - [Microsoft Advanced 威脅分析](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-淘汰之後, 您將無法從 UI 或 API 新增或修改上述清單中所提及的任何解決方案類型。
+淘汰之後, 您將無法從 UI 或 API 新增或修改上述清單中所提及的任何解決方案類型。 Azure 資訊安全中心將不會再探索前述合作夥伴解決方案的任何新實例。
 
 如果您有現有的已連線解決方案, 我們鼓勵您移至 Azure Sentinel。
 

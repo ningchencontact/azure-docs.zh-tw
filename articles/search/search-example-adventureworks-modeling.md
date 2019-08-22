@@ -2,18 +2,18 @@
 title: 範例：將 AdventureWorks 詳細目錄資料庫模型化 - Azure 搜尋服務
 description: 了解如何在「Azure 搜尋服務」中將關聯式資料模型化、將其轉換成扁平化資料集，以供編製索引及進行全文檢索搜尋。
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
-ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52ccf3edfca5b3481b038bd5d3449c1dd6354179
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61291884"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649910"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>範例：針對 Azure 搜尋服務將 AdventureWorks 詳細目錄資料庫模型化
 

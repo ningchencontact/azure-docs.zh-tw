@@ -1,74 +1,74 @@
 ---
-title: 調整資料分割和複本，適用於查詢和編製索引-Azure 搜尋服務
+title: 調整資料分割和複本以進行查詢和編制索引-Azure 搜尋服務
 description: 在「Azure 搜尋服務」中調整分割區和複本電腦資源，其中每個資源都是以計費搜尋單位來計價。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485707"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650071"
 ---
-# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>調整資料分割和複本適用於查詢和編製索引工作負載，在 Azure 搜尋服務
+# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>在 Azure 搜尋服務中調整資料分割和複本以進行查詢和編制索引工作負載
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。
 
-當您設定的服務時，便可以使用資源組態[基本層次](https://aka.ms/azuresearchbasic)或其中一個[標準] 或 [儲存體最佳化層](search-limits-quotas-capacity.md)。 對於這些層的服務，購買容量就是增加「搜尋單位」  (SU)，每個分割區和複本會計為一個 SU。 
+當您在[基本層](https://aka.ms/azuresearchbasic)或其中一個[標準或儲存體優化層](search-limits-quotas-capacity.md)中設定服務時, 可以使用資源設定。 對於這些層的服務，購買容量就是增加「搜尋單位」(SU)，每個分割區和複本會計為一個 SU。 
 
 使用較少 SU，帳單費用也會相應降低。 只要服務處於已設定的狀態，就會持續計費。 如果您暫時不使用某項服務，避免計費的唯一方法就是刪除該服務，然後當您需要該服務時再予以重建。
 
 > [!Note]
 > 刪除服務會刪除它上面的一切。 Azure 搜尋服務內沒有任何機制可備份和還原持續性搜尋資料。 若要將現有的索引重新部署在新的服務上，您應該執行原先用來建立和載入此索引的程式。 
 
-## <a name="terminology-replicas-and-partitions"></a>術語： 複本和分割區
-複本和分割區是支撐搜尋服務的主要資源。
+## <a name="terminology-replicas-and-partitions"></a>術語: 複本和分割區
+複本和分割區是回到搜尋服務的主要資源。
 
-| 資源 | 定義 |
+| Resource | 定義 |
 |----------|------------|
 |*分割數* | 為讀寫作業 (例如，在重建或重新整理索引時) 提供索引儲存體和 I/O。|
-|複本  | 搜尋服務的執行個體，主要用來讓查詢作業達到負載平衡。 每個複本一律會裝載一份索引。 如果您有 12 個複本，服務上就會分別載入 12 份索引。|
+|複本 | 搜尋服務的執行個體，主要用來讓查詢作業達到負載平衡。 每個複本一律會裝載一份索引。 如果您有 12 個複本，服務上就會分別載入 12 份索引。|
 
 > [!NOTE]
 > 沒有任何方法可直接操作或管理哪些索引會在複本上執行。 每個複本上各有一份索引是服務架構的一部分。
 >
 
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>如何將複本和分割區配置
+## <a name="how-to-allocate-replicas-and-partitions"></a>如何配置複本和分割區
 在「Azure 搜尋服務」中，一開始會為服務配置由一個分割區和一個複本組成的最低層級資源。 如果階層支援，您便可以增量調整運算資源，方法是在您需要較多的儲存體和 I/O 時新增分割區，或新增更多複本來因應較大的查詢磁碟區或提供較佳的效能。 單一服務必須具有足夠的資源，才能處理所有工作負載 (編製索引和查詢)。 您無法將多個服務之間的工作負載再加以細分。
 
-若要增加或變更複本和分割區的配置，建議使用 Azure 入口網站。 在入口網站會強制執行允許的組合，使其低於上限的限制。 如果您需要指令碼或程式碼為基礎的佈建方法， [Azure PowerShell](search-manage-powershell.md)或[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/services)是替代的解決方案。
+若要增加或變更複本和分割區的配置，建議使用 Azure 入口網站。 入口網站會對允許的組合強制執行限制, 而這會維持在最大限制之下。 如果您需要以腳本為基礎或以程式碼為基礎的布建方法, [Azure PowerShell](search-manage-powershell.md)或[管理 REST API](https://docs.microsoft.com/rest/api/searchmanagement/services)為替代解決方案。
 
 一般而言，搜尋應用程式需要的複本數量會多於分割區數量，特別是在服務作業偏向查詢工作負載的情況下。 [高可用性](#HA) 一節將會說明原因。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後選取搜尋服務。
 
-2. 在 **設定**，開啟**擴展**頁面以修改複本和分割區。 
+2. 在 [**設定**] 中, 開啟 [**調整**] 頁面以修改複本和分割區。 
 
-   下列螢幕擷取畫面顯示一個複本和分割區佈建的標準服務。 在底部的公式會指出多少個搜尋單位正在使用 (1)。 如果單位價格為 $100 （而不實際價格），執行這項服務的每月成本就會平均是美金 100 元。
+   下列螢幕擷取畫面顯示以一個複本和分割區布建的標準服務。 底部的公式表示正在使用的搜尋單位數目 (1)。 如果單價為 $100 (不是真正的價格), 執行這項服務的每月成本會平均為 $100。
 
-   ![顯示目前的值的 [調整] 頁面](media/search-capacity-planning/1-initial-values.png "顯示目前的值的 [調整] 頁面")
+   ![顯示目前值的縮放頁面](media/search-capacity-planning/1-initial-values.png "顯示目前值的縮放頁面")
 
-3. 使用滑桿來增加或減少資料分割數目。 在底部的公式會指出正在使用多少個搜尋單位。
+3. 使用滑杆來增加或減少分割區的數目。 底部的公式表示正在使用多少個搜尋單位。
 
-   此範例會加倍容量，具有兩個複本，並每個資料分割。 請注意計算搜尋單位;現在是四個因為計費公式是複本乘以資料分割 (2 x 2)。 加倍容量時，多個會增加執行服務的成本。 如果搜尋單位成本為 $100，新的每月帳單會現在是 400 美元。
+   這個範例會將容量加倍, 其中每個都有兩個複本和分割區。 請注意搜尋單位元數目;這現在是四個, 因為計費公式是複本乘以分割區 (2 x 2)。 比起執行服務的成本翻倍, 使容量加倍。 如果搜尋單位成本為 $100, 則新的每月帳單現在會是 $400。
 
-   目前的每個單位的每一層的成本，請瀏覽[定價頁面](https://azure.microsoft.com/pricing/details/search/)。
+   如需每個層級的目前每個單位成本, 請造訪[定價頁面](https://azure.microsoft.com/pricing/details/search/)。
 
-   ![新增複本和分割區](media/search-capacity-planning/2-add-2-each.png "新增複本和分割區")
+   ![新增複本和]分割區(media/search-capacity-planning/2-add-2-each.png "新增複本和")分割區
 
-3. 按一下 **儲存**來確認變更。
+3. 按一下 [**儲存**] 以確認變更。
 
-   ![確認變更小數位數和計費](media/search-capacity-planning/3-save-confirm.png "確認變更小數位數和計費")
+   ![確認變更規模和計費](media/search-capacity-planning/3-save-confirm.png "確認變更規模和計費")
 
-   容量中的變更需要數小時才能完成。 您無法取消之後，程序已啟動，而且沒有複本和分割區的調整任何即時監視。 不過，下列訊息保持可見狀態，進行變更時。
+   容量變更需要數小時才能完成。 您無法在進程啟動後取消, 而且不會即時監視複本和分割區的調整。 不過, 在進行變更時, 仍會顯示下列訊息。
 
-   ![在入口網站中的狀態訊息](media/search-capacity-planning/4-updating.png "入口網站中的狀態訊息")
+   ![入口網站中的狀態訊息](media/search-capacity-planning/4-updating.png "入口網站中的狀態訊息")
 
 
 > [!NOTE]
@@ -82,7 +82,7 @@ ms.locfileid: "67485707"
 
 「基本」服務可以有不多不少 1 個分割區及最多 3 個複本，上限為 3 個 SU。 唯一可調整的資源是複本。 您至少需要 2 個複本，才能在查詢上達到高可用性。
 
-所有標準和儲存體最佳化的搜尋服務可以假設下列組合複本和分割區 36 個 SU 的限制。 
+所有標準和儲存體優化的搜尋服務都可以採用下列複本和分割區組合, 受限於 36-SU 限制。 
 
 |   | **1 個資料分割** | **2 個資料分割** | **3 個資料分割** | **4 個資料分割** | **6 個資料分割** | **12 個資料分割** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -114,7 +114,7 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 
 「Azure 搜尋服務」的「服務等級協定」(SLA) 是針對查詢作業和由新增、更新或刪除文件所組成的索引更新。
 
-基本層最多一個分割區和三個複本。 如果想要具備立即回應檢索和查詢輸送量需求波動的彈性，請考慮標準層的其中一個。  如果您發現您的儲存體需求的成長速度會比查詢輸送量，請考慮儲存體最佳化層級的其中一個。
+基本層最多一個分割區和三個複本。 如果想要具備立即回應檢索和查詢輸送量需求波動的彈性，請考慮標準層的其中一個。  如果您發現儲存體需求的成長速度比查詢輸送量快, 請考慮其中一個儲存體優化層級。
 
 ### <a name="index-availability-during-a-rebuild"></a>索引在重建期間的可用性
 
@@ -125,7 +125,7 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 
 若要讓索引在重建期間保持可用，您必須在相同服務上有使用不同名稱的索引副本，或在不同服務上有相同名稱的索引副本，然後在您的程式碼中提供重新導向或容錯移轉邏輯。
 
-## <a name="disaster-recovery"></a>災害復原
+## <a name="disaster-recovery"></a>嚴重損壞修復
 目前沒有任何內建的機制可進行災害復原。 因此新增資料分割或複本並不是達成災害復原目標的正確選擇。 最常見的方法是在其他區域中設定第二個搜尋服務，來新增服務等級的備援。 與索引重建期間的可用性一樣，重新導向或容錯移轉邏輯必須來自您的程式碼。
 
 ## <a name="increase-query-performance-with-replicas"></a>利用複本提高查詢效能
@@ -143,4 +143,4 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 
 ## <a name="next-steps"></a>後續步驟
 
-[Azure 搜尋服務選擇定價層](search-sku-tier.md)
+[選擇 Azure 搜尋服務的定價層](search-sku-tier.md)

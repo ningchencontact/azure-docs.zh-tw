@@ -3,26 +3,26 @@ title: 重建 Azure 搜尋服務索引或重新整理可搜尋內容 - Azure 搜
 description: 藉由完整重建或部分累加索引編製來新增元素、更新現有的元素或文件或刪除過時的文件，以重新整理 Azure 搜尋服務索引。
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2595912732389c8a415d1854a84a7b9c182e4dc7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a03472b72ea7c2dc69d79400e33d5ec65cc6126
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60871143"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647696"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>如何重建 Azure 搜尋服務索引
 
 本文說明如何重建 Azure 搜尋服務索引、需要重建索引的情況為何，以及降低重建索引對進行中查詢要求之影響的建議。
 
-「重建」  是指卸除並重新建立與索引 (包括所有欄位型反向索引) 相關聯的實體資料結構。 在 Azure 搜尋服務中，您無法卸除並重新建立個別的欄位。 若要重建索引，必須刪除所有的欄位儲存體，根據現有的或修訂過的索引結構描述來重新建立，然後填入推送至索引的資料，或從外部來源提取的資料。 在開發期間通常會重建索引，但您可能也需要重建生產層級的索引，以配合結構變更 (如新增複雜類型)，或新增欄位至建議工具。
+「重建」是指卸除並重新建立與索引 (包括所有欄位型反向索引) 相關聯的實體資料結構。 在 Azure 搜尋服務中，您無法卸除並重新建立個別的欄位。 若要重建索引，必須刪除所有的欄位儲存體，根據現有的或修訂過的索引結構描述來重新建立，然後填入推送至索引的資料，或從外部來源提取的資料。 在開發期間通常會重建索引，但您可能也需要重建生產層級的索引，以配合結構變更 (如新增複雜類型)，或新增欄位至建議工具。
 
-相較於使索引離線時的重建，「資料重新整理」  執行為背景工作。 您可以新增、移除及取代文件查詢工作負載，且對查詢工作負載的中斷最短，不過查詢通常需要較長的時間才能完成。 如需有關更新索引內容的詳細資訊，請參閱[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。
+相較於使索引離線時的重建，「資料重新整理」執行為背景工作。 您可以新增、移除及取代文件查詢工作負載，且對查詢工作負載的中斷最短，不過查詢通常需要較長的時間才能完成。 如需有關更新索引內容的詳細資訊，請參閱[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\)。
 
 ## <a name="rebuild-conditions"></a>重建條件
 
@@ -38,8 +38,8 @@ ms.locfileid: "60871143"
 可以進行任何其他修改，而不會影響現有的實體結構。 具體來說，下列變更*不*需要重建索引：
 
 + 新增欄位
-+ 在現有欄位上設定 [retrievable]  屬性
-+ 在現有欄位上設定 [searchAnalyzer] 
++ 在現有欄位上設定 [retrievable] 屬性
++ 在現有欄位上設定 [searchAnalyzer]
 + 在索引中新增新的分析器定義
 + 新增、更新或刪除評分設定檔
 + 新增、更新或刪除 CORS 設定
@@ -51,7 +51,7 @@ ms.locfileid: "60871143"
 
 在 Azure 搜尋服務中，您無法依每個欄位來控制編製索引，即無法選擇刪除或重新建立特定欄位。 同樣地，沒有內建機制能[根據準則來編製索引](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents) \(英文\)。 任何您所需的準則驅動索引編製，都必須透過自訂程式碼來達成。
 
-不過，您輕鬆就能「重新整理」  索引中的文件。 對於許多搜尋解決方案，外部來源資料是暫時性的，且來源資料和搜尋索引之間的同步處理是常見的作法。 在程式碼中，呼叫[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\) 作業或 [.NET 的對等項目](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) \(英文\)，以更新索引內容或為新欄位加入值。
+不過，您輕鬆就能「重新整理」索引中的文件。 對於許多搜尋解決方案，外部來源資料是暫時性的，且來源資料和搜尋索引之間的同步處理是常見的作法。 在程式碼中，呼叫[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) \(英文\) 作業或 [.NET 的對等項目](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) \(英文\)，以更新索引內容或為新欄位加入值。
 
 ## <a name="partial-indexing-with-indexers"></a>使用索引子部分編製索引
 

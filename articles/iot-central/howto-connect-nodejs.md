@@ -1,6 +1,6 @@
 ---
 title: 將一般 Node.js 用戶端應用程式連線至 Azure IoT Central | Microsoft Docs
-description: 身為裝置開發人員，如何將一般的 Node.js 裝置連線到 Azure IoT Central 應用程式。
+description: 身為裝置開發人員, 如何將一般 Node.js 裝置連線到您的 Azure IoT Central 應用程式。
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/14/2019
@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3b73344a233182fe8366795cfa111b706c6d06ac
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444225"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876240"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 本文說明如何以裝置開發人員身分，將代表真實裝置的一般 Node.js 應用程式連線到 Microsoft Azure IoT 中心應用程式。
 
@@ -28,39 +30,39 @@ ms.locfileid: "67444225"
 
 ## <a name="create-a-device-template"></a>建立裝置範本
 
-Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設定和命令的裝置範本：
+在您的 Azure IoT Central 應用程式中, 您需要具有下列測量、裝置屬性、設定和命令的裝置範本:
 
 ### <a name="telemetry-measurements"></a>遙測量測
 
-將下列遙測資料上**測量**頁面：
+在 [量**值**] 頁面上新增下列遙測:
 
-| 顯示名稱 | 欄位名稱  | Units | Min | max | 小數位數 |
+| 顯示名稱 | 欄位名稱  | 單位 | Min | max | 小數位數 |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | 溫度  | 溫度 | F     | 60  | 110 | 0              |
-| 溼度     | 溼度    | %     | 0   | 100 | 0              |
-| 壓力     | pressure    | kPa   | 80  | 110 | 0              |
+| 濕度     | 溼度    | %     | 0   | 100 | 0              |
+| Pressure     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
 > 遙測量測的資料類型為浮點數。
 
-在裝置範本中輸入完全如上表所示的欄位名稱。 如果欄位名稱不符合對應的裝置程式碼中的屬性名稱，無法顯示遙測資料，應用程式中。
+在裝置範本中輸入完全如上表所示的欄位名稱。 如果功能變數名稱不符合對應裝置程式碼中的屬性名稱, 則無法在應用程式中顯示遙測。
 
 ### <a name="state-measurements"></a>狀態量值
 
-上加入下列的狀態**測量**頁面：
+在 [量**值**] 頁面上新增下列狀態:
 
 | 顯示名稱 | 欄位名稱  | 值 1 | 顯示名稱 | 值 2 | 顯示名稱 |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| 風扇模式     | fanmode     | 1       | 執行中      | 0       | 已停止      |
+| 風扇模式     | fanmode     | 1       | Running      | 0       | 已停止      |
 
 > [!NOTE]
 > 狀態量測的資料類型為字串。
 
-在裝置範本中輸入完全如上表所示的欄位名稱。 如果欄位名稱不符合對應的裝置程式碼中的屬性名稱，就無法顯示狀態的應用程式中。
+在裝置範本中輸入完全如上表所示的欄位名稱。 如果功能變數名稱不符合對應裝置程式碼中的屬性名稱, 則無法在應用程式中顯示狀態。
 
 ### <a name="event-measurements"></a>事件量值
 
-加入下列事件上**測量**頁面：
+在 [量**值**] 頁面上新增下列事件:
 
 | 顯示名稱 | 欄位名稱  | Severity |
 | ------------ | ----------- | -------- |
@@ -69,61 +71,61 @@ Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設
 > [!NOTE]
 > 事件量測的資料類型為字串。
 
-### <a name="location-measurements"></a>位置的度量
+### <a name="location-measurements"></a>位置測量
 
-新增下列位置測量**測量**頁面：
+在 [量**值**] 頁面上新增下列位置測量:
 
 | 顯示名稱 | 欄位名稱  |
 | ------------ | ----------- |
-| Location     | location    |
+| Location     | 位置    |
 
-資料類型組成的兩個位置測量浮點數經度和緯度，以及選擇性浮點數的高度。
+位置量測資料類型是由經度和緯度的兩個浮點數所組成, 而非高度的選擇性浮點數。
 
-在裝置範本中輸入完全如上表所示的欄位名稱。 如果欄位名稱不符合對應的裝置程式碼中的屬性名稱，就無法顯示位置的應用程式中。
+在裝置範本中輸入完全如上表所示的欄位名稱。 如果功能變數名稱不符合對應裝置程式碼中的屬性名稱, 則無法在應用程式中顯示該位置。
 
 ### <a name="device-properties"></a>裝置屬性
 
-新增下列裝置屬性上**屬性**頁面：
+在 [**屬性**] 頁面上新增下列裝置屬性:
 
-| 顯示名稱        | 欄位名稱        | 数据类型 |
+| 顯示名稱        | 欄位名稱        | 資料類型 |
 | ------------------- | ----------------- | --------- |
-| 序號       | serialNumber      | text      |
-| 裝置製造商 | manufacturer      | text      |
+| 序號       | serialNumber      | 文字      |
+| 裝置製造商 | 製造商      | 文字      |
 
-在裝置範本中輸入完全如上表所示的欄位名稱。 如果欄位名稱不符合對應的裝置程式碼中的屬性名稱，則無法顯示內容，應用程式中。
+在裝置範本中輸入完全如上表所示的欄位名稱。 如果功能變數名稱不符合對應裝置程式碼中的屬性名稱, 則無法在應用程式中顯示內容。
 
 ### <a name="settings"></a>設定
 
-新增下列**數字**上的設定**設定**頁面：
+在 [**設定**] 頁面上新增下列**數目**設定:
 
-| 顯示名稱    | 欄位名稱     | Units | 小數位數 | Min | max  | Initial |
+| 顯示名稱    | 欄位名稱     | 單位 | 小數位數 | Min | max  | 初始 |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | 風扇速度       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | 設定溫度 | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-在裝置範本中輸入完全如上表所示的欄位名稱。 如果欄位名稱不符合對應的裝置程式碼中的屬性名稱，則裝置無法接收的設定值。
+在裝置範本中輸入完全如上表所示的欄位名稱。 如果功能變數名稱不符合對應裝置程式碼中的屬性名稱, 裝置就無法接收設定值。
 
 ### <a name="commands"></a>命令
 
-新增下列命令，在**命令**頁面：
+在 [**命令**] 頁面上新增下列命令:
 
 | 顯示名稱    | 欄位名稱     | 預設逾時 | 資料類型 |
 | --------------- | -------------- | --------------- | --------- |
-| 倒數計時       | 倒數計時      | 30              | number    |
+| 倒數       | 倒數      | 30              | 號    |
 
-倒數計時命令中加入下列的輸入的欄位：
+將下列輸入欄位新增至倒數命令:
 
 | 顯示名稱    | 欄位名稱     | 資料類型 | 值 |
 | --------------- | -------------- | --------- | ----- |
-| 從計算      | countFrom      | number    | 10    |
+| 計數來源      | countFrom      | 號    | 10    |
 
-完全依照顯示資料表中插入裝置範本輸入欄位名稱。 如果欄位名稱不符合對應的裝置程式碼中的屬性名稱，則裝置無法處理命令。
+在裝置範本中輸入完全如上表所示的功能變數名稱。 如果功能變數名稱不符合對應裝置程式碼中的屬性名稱, 則裝置無法處理此命令。
 
 ## <a name="add-a-real-device"></a>新增真實裝置
 
-Azure IoT Central 應用程式中加入您在上一節中建立的裝置範本中的實際的裝置。
+在您的 Azure IoT Central 應用程式中, 將實際裝置新增至您在上一節中建立的裝置範本。
 
-然後在 [新增裝置] 教學課程，以遵循指示[產生實際的裝置的連接字串](tutorial-add-device.md#generate-connection-string)。 您在下一節中使用此連接字串：
+然後遵循「新增裝置」教學課程中的指示,[產生實際裝置的連接字串](tutorial-add-device.md#generate-connection-string)。 您會在下一節中使用此連接字串:
 
 ### <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 
@@ -161,9 +163,9 @@ Azure IoT Central 應用程式中加入您在上一節中建立的裝置範本�
     var client = clientFromConnectionString(connectionString);
     ```
 
-    更新預留位置`{your device connection string}`具有[裝置連接字串](tutorial-add-device.md#generate-connection-string)。 在此範例中，您會初始化`targetTemperature`為零，您可以使用目前正在讀取的從裝置或裝置對應項的值。
+    以`{your device connection string}` [裝置連接字串](tutorial-add-device.md#generate-connection-string)更新預留位置。 在此範例中, 您`targetTemperature`會將初始化為零, 您可以使用裝置的目前讀取或裝置對應項的值。
 
-1. 若要傳送的遙測、 狀態、 事件及位置測量 Azure IoT Central 應用程式時，將下列函式加入檔案：
+1. 若要將遙測、狀態、事件和位置度量傳送至您的 Azure IoT Central 應用程式, 請將下列函式新增至檔案:
 
     ```javascript
     // Send device measurements.
@@ -254,7 +256,7 @@ Azure IoT Central 應用程式中加入您在上一節中建立的裝置範本�
     }
     ```
 
-1. 新增下列程式碼來處理從 IoT Central 應用程式傳送的倒數計時命令：
+1. 新增下列程式碼, 以處理從 IoT Central 應用程式傳送的倒數計時命令:
 
     ```javascript
     // Handle countdown command
@@ -337,26 +339,26 @@ node connectedAirConditionerAdv.js
 
 身為 Azure IoT 中心應用程式的操作者，您可以針對真實裝置：
 
-* 在 [量值]  頁面上檢視遙測：
+* 在 [量值] 頁面上檢視遙測：
 
     ![檢視遙測](media/howto-connect-nodejs/viewtelemetry.png)
 
-* 檢視上的位置**測量**頁面：
+* 在 [量**值**] 頁面上, 查看位置:
 
-    ![檢視位置度量](media/howto-connect-nodejs/viewlocation.png)
+    ![視圖位置測量](media/howto-connect-nodejs/viewlocation.png)
 
-* 在 [屬性]  頁面上檢視從裝置傳送的裝置屬性值。 當裝置連線的裝置屬性的磚更新：
+* 在 [屬性] 頁面上檢視從裝置傳送的裝置屬性值。 裝置屬性磚會在裝置連線時更新:
 
     ![檢視裝置屬性](media/howto-connect-nodejs/viewproperties.png)
 
-* 設定從風扇速度和目標溫度**設定**頁面：
+* 從 [**設定**] 頁面設定 [風扇速度] 和 [目標溫度]:
 
     ![設定風扇速度](media/howto-connect-nodejs/setfanspeed.png)
 
-* 呼叫的倒數計時命令**命令**頁面：
+* 從 [**命令**] 頁面呼叫倒數命令:
 
-    ![呼叫倒數計時命令](media/howto-connect-nodejs/callcountdown.png)
+    ![呼叫倒數命令](media/howto-connect-nodejs/callcountdown.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何連接至 Azure IoT Central 應用程式的泛型 Node.js 用戶端，建議的下一個步驟是了解如何[設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。
+既然您已瞭解如何將一般 Node.js 用戶端連線至您的 Azure IoT Central 應用程式, 建議的下一個步驟是瞭解如何為您自己的 IoT 裝置[設定自訂裝置範本](howto-set-up-template.md)。

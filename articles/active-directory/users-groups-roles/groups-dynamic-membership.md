@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397870"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650234"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -44,6 +44,12 @@ ms.locfileid: "66397870"
 
 運算式內的部分順序很重要，可避免發生語法錯誤。
 
+### <a name="rule-builder-in-the-azure-portal"></a>Azure 入口網站中的規則產生器
+
+Azure AD 提供規則產生器, 更快速地建立及更新您的重要規則。 規則產生器最多可支援五個規則。 若要加入第六個和任何後續的規則詞彙, 您必須使用文字方塊。 如需更多逐步指示, 請參閱[更新動態群組](groups-update-rule.md)。
+
+   ![新增動態群組的成員資格規則](./media/groups-update-rule/update-dynamic-group-rule.png)
+
 ### <a name="rules-with-a-single-expression"></a>使用單一運算式的規則
 
 單一運算式是最簡單的成員資格規則形式，只包含上述三個部分。 具有單一運算式的規則看起來像這樣：`Property Operator Value`，其中屬性的語法是 object.property 的名稱。
@@ -61,7 +67,7 @@ user.department -eq "Sales"
 有三種類型的屬性可用來建構成員資格規則。
 
 * Boolean
-* 字串
+* String
 * 字串集合
 
 以下是您可用來建立單一運算式的使用者屬性。
@@ -96,7 +102,7 @@ user.department -eq "Sales"
 | postalCode |任何字串值或 *null* |(user.postalCode -eq "value") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage -eq "en-US") |
 | sipProxyAddress |任何字串值或 *null* |(user.sipProxyAddress -eq "value") |
-| state |任何字串值或 *null* |(user.state -eq "value") |
+| 狀態 |任何字串值或 *null* |(user.state -eq "value") |
 | streetAddress |任何字串值或 *null* |(user.streetAddress -eq "value") |
 | surname |任何字串值或 *null* |(user.surname -eq "value") |
 | telephoneNumber |任何字串值或 *null* |(user.telephoneNumber -eq "value") |
@@ -120,14 +126,14 @@ user.department -eq "Sales"
 | 運算子 | 語法 |
 | --- | --- |
 | Not Equals |-ne |
-| Equals |-eq |
+| 等於 |-eq |
 | Not Starts With |-notStartsWith |
 | 開頭為 |-startsWith |
 | Not Contains |-notContains |
-| Contains |-contains |
+| 包含 |-contains |
 | Not Match |-notMatch |
 | Match |-match |
-| 在 | -in |
+| 入 | -in |
 | 不在 | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>使用 -in 和 -notIn 運算子
@@ -142,7 +148,7 @@ user.department -eq "Sales"
 
 
 ### <a name="using-the--match-operator"></a>使用 -match 運算子 
-**-match** 運算子可用來比對任何規則運算式。 範例：
+**-match** 運算子可用來比對任何規則運算式。 例如：
 
 ```
 user.displayName -match "Da.*"   
@@ -261,7 +267,7 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore--syntax"></a>使用底線 (\_) 語法
+### <a name="using-the-underscore-_-syntax"></a>使用底線 (\_) 語法
 
 底線 (\_) 語法會比對發生在其中一個多重值字串集合屬性中的特定值，以將使用者或裝置新增至動態群組。 會搭配使用 -any 或 -all 運算子。
 
@@ -283,7 +289,7 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 Direct Reports for "{objectID_of_manager}"
 ```
 
-以下是規則的有效，其中"62e19b97-8b3d-4d4a-a106-4ce66896a863 」 是規則的 「 管理員 」 的 objectID 的範例：
+以下是有效規則的範例, 其中 "62e19b97-8b3d-4d4a-a106-4ce66896a863" 是管理員的 objectID:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -291,26 +297,26 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 下列秘訣可協助您正確使用此規則。
 
-* [經理識別碼]  是經理的物件識別碼。 在經理的**設定檔**可找到它。
-* 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理]  屬性。 您可以在使用者的 [設定檔]  中檢查目前值。
-* 此規則僅支援經理的直屬員工。 換句話說，您建立的群組無法「同時」  包含經理的直屬員工及其員工。
+* [經理識別碼]是經理的物件識別碼。 在經理的**設定檔**可找到它。
+* 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理] 屬性。 您可以在使用者的 [設定檔] 中檢查目前值。
+* 此規則僅支援經理的直屬員工。 換句話說，您建立的群組無法「同時」包含經理的直屬員工及其員工。
 * 此規則無法與任何其他成員資格規則結合。
 
 ### <a name="create-an-all-users-rule"></a>建立「所有使用者」規則
 
 您建立的群組可以包含使用成員資格規則的租用戶內的所有使用者。 未來在租用戶中新增或移除使用者時，系統會自動調整群組的成員資格。
 
-「 所有使用者 」 規則是使用單一-ne 運算子與 null 值的運算式來建構的。 此規則會將 B2B 來賓使用者，以及成員使用者新增到群組。
+「所有使用者」規則是使用使用-ne 運算子和 null 值的單一運算式來建立的。 此規則會將 B2B 來賓使用者，以及成員使用者新增到群組。
 
 ```
 user.objectid -ne null
 ```
 
-### <a name="create-an-all-devices-rule"></a>建立 「 所有的裝置 」 規則
+### <a name="create-an-all-devices-rule"></a>建立「所有裝置」規則
 
 您建立的群組可以包含使用成員資格規則的租用戶內的所有裝置。 未來在租用戶中新增或移除裝置時，系統會自動調整群組的成員資格。
 
-「 所有的裝置 」 規則是使用單一-ne 運算子與 null 值的運算式來建構：
+「所有裝置」規則是使用單一運算式來建立, 並使用-ne 運算子和 null 值:
 
 ```
 device.objectid -ne null
@@ -318,7 +324,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>擴充屬性和自訂擴充屬性
 
-為動態成員資格規則中的字串屬性支援擴充屬性和自訂延伸模組屬性。 擴充屬性會從內部部署 Windows Server AD 進行同步處理，並採用 "ExtensionAttributeX" 格式，其中 X 等於 1-15。 以下是使用擴充屬性 (attribute) 作為屬性 (property) 的規則範例：
+動態成員資格規則中支援擴充屬性和自訂延伸模組屬性作為字串屬性。 擴充屬性會從內部部署 Windows Server AD 進行同步處理，並採用 "ExtensionAttributeX" 格式，其中 X 等於 1-15。 以下是使用擴充屬性 (attribute) 作為屬性 (property) 的規則範例：
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -335,7 +341,7 @@ device.objectid -ne null
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。 此外，您現在可以在動態使用者群組規則建立器中選取 [取得自訂擴充屬性]  連結，輸入唯一的應用程式識別碼，然後接收在建立動態成員資格規則時所要使用的自訂擴充屬性完整清單。 您也可以重新整理這份清單，來針對該應用程式取得任何新的自訂擴充屬性。
+使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。 此外，您現在可以在動態使用者群組規則建立器中選取 [取得自訂擴充屬性] 連結，輸入唯一的應用程式識別碼，然後接收在建立動態成員資格規則時所要使用的自訂擴充屬性完整清單。 您也可以重新整理這份清單，來針對該應用程式取得任何新的自訂擴充屬性。
 
 ## <a name="rules-for-devices"></a>裝置的規則
 
@@ -347,7 +353,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 任何字串值 |(device.displayName -eq "Rob iPhone")
- deviceOSType | 任何字串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ deviceOSType | 任何字串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device.deviceostype-包含 "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | 任何字串值 | (device.deviceOSVersion -eq "9.1")
  deviceCategory | 有效的裝置類別名稱 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 任何字串值 | (device.deviceManufacturer -eq "Samsung")
@@ -358,7 +364,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  managementType | MDM (適用於行動裝置)<br>PC (適用於 Intune PC 代理程式管理的電腦) | (device.managementType -eq "MDM")
  deviceId | 有效的 Azure AD 裝置識別碼 | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 有效的 Azure AD 物件識別碼 |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | 比對 Intune 裝置屬性以觸發新式工作場所的裝置的任何字串 | (device.systemLabels -contains "M365Managed")
+ systemLabels | 比對 Intune 裝置屬性以觸發新式工作場所的裝置的任何字串 | (systemLabels-包含 "M365Managed")
 
 > [!Note]  
 > 針對 deviceOwnership，為裝置建立動態群組時，您需要將此值設定為等於 "Company"。 在 Intune 上，裝置擁有權會改以 Corporate 表示。 如需詳細資訊，請參閱 [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes)。 

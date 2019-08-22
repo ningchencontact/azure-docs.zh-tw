@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848966"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877298"
 ---
 # <a name="create-a-new-device-template-version"></a>建立新的裝置範本版本
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可藉由新增、編輯或刪除量值、設定或屬性，快速反覆使用您的裝置範本設計。 某些變更可能會干擾目前連線的裝置。 Azure IoT 中心可識別這些重大變更，並提供將這些更新安全地部署到裝置的方法。
 
@@ -48,7 +50,7 @@ Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可藉由新增�
 
 有版本變更時，規則和裝置儀表板會發生什麼情況？
 
-[規則]  可能包含相依於屬性的條件。 如果您已移除一或多個屬性，則可能會在新的裝置範本版本中違背這些規則。 您可以移至這些特定規則，並更新條件來修正規則。 前一版的規則應有作用，不受影響。
+[規則] 可能包含相依於屬性的條件。 如果您已移除一或多個屬性，則可能會在新的裝置範本版本中違背這些規則。 您可以移至這些特定規則，並更新條件來修正規則。 前一版的規則應有作用，不受影響。
 
 **裝置儀表板**可以包含數種圖格類型。 有些圖格可能包含設定和屬性。 移除圖格中所使用的屬性或設定時，圖格會完全或部分損壞。 您可以移至此圖格，藉由移除圖格或更新圖格的內容來修正問題。
 
@@ -58,8 +60,8 @@ Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可藉由新增�
 
 1. 移至 [ **Device Explorer** ] 頁面。
 1. 選取您需要移轉到另一個版本的裝置。
-1. 選擇 [移轉裝置]  。
-1. 選取您希望裝置移轉至的版本號碼並選擇 [移轉]  。
+1. 選擇 [移轉裝置]。
+1. 選取您希望裝置移轉至的版本號碼並選擇 [移轉]。
 
 ![如何移轉裝置](media/howto-version-device-template/pick-version.png)
 

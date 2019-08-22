@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: d50acc50880229626c847d41d9abe9a9e13d9c6e
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 58d03d80c82fbf58803f7fefa8ef60c19f99bced
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736121"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876877"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 開發和部署 WebJob - Azure App Service
 
@@ -37,7 +37,7 @@ ms.locfileid: "68736121"
 > [!NOTE]
 > .NET Core Webjob 無法與 Web 專案連結。 如果您需要使用 web 應用程式部署 WebJob, 您應該將[webjob 建立為 .NET Framework 主控台應用程式](#webjobs-as-net-framework-console-apps)。  
 
-### <a name="deploy-to-azure-app-service"></a>部署至 Azure App Service
+### <a name="deploy-to-azure-app-service"></a>部署到 Azure App Service
 
 將 .NET Core WebJob 發行至 Visual Studio 的 App Service 會使用與發佈 ASP.NET Core 應用程式相同的工具。
 
@@ -90,7 +90,7 @@ ms.locfileid: "68736121"
 
 如果您是使用 Visual Studio 2015，請安裝 [Azure SDK for .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/)。
 
-如果您使用的是 Visual Studio 2019, 請安裝[Azure 開發工作負載](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads)。
+如果您是使用 Visual Studio 2017，請安裝 [Azure 開發工作負載](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads)。
 
 ### <a id="convert"></a>啟用現有主控台應用程式專案的 WebJobs 部署
 

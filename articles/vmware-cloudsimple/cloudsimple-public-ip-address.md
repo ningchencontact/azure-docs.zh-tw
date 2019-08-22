@@ -1,23 +1,23 @@
 ---
-title: VMware Solution by CloudSimple-Azure 公用 IP 位址
-description: 透過 CloudSimple 瞭解有關 VMware 解決方案的公用 IP 位址及其優點
+title: 依 CloudSimple 的 Azure VMware 解決方案-公用 IP 位址
+description: 瞭解公用 IP 位址及其在 Azure VMware Solution by CloudSimple 的優點
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 29d2bdb75a7f4409e6b3ffee2608cfe7adde6b1f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 147ab6b5ace4493e1a0b303c320cb2e81d829b29
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812533"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877672"
 ---
 # <a name="cloudsimple-public-ip-address-overview"></a>CloudSimple 公用 IP 位址總覽
 
-公用 IP 位址可讓網際網路資源在私人 IP 位址上與私人雲端資源進行輸入通訊。 私人 IP 位址可以是虛擬機器或軟體負載平衡器。 私人 IP 位址位於您的私用雲端 vCenter。 公用 IP 位址可讓您將在私人雲端上執行的服務公開至網際網路。
+公用 IP 位址可讓網際網路資源在私人 IP 位址上與私人雲端資源進行輸入通訊。 私人 IP 位址是私人雲端 vCenter 上的虛擬機器或軟體負載平衡器。 公用 IP 位址可讓您將在私人雲端上執行的服務公開至網際網路。
 
 公用 IP 位址專用於私人 IP 位址, 直到您將它取消指派為止。 公用 IP 位址只能指派給一個私人 IP 位址。
 
@@ -33,4 +33,4 @@ ms.locfileid: "68812533"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 瞭解如何[配置公用 IP 位址](https://docs.azure.cloudsimple.com/public-ips/)
+* 瞭解如何[配置公用 IP 位址](public-ips.md)

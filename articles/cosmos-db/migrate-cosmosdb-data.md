@@ -7,18 +7,23 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.author: bharathb
-ms.openlocfilehash: a4de902e51b101d14aac599c9aad8c4feb86a9c6
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6092b3aac2b0282a795d89730266e72179b34e8a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624583"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648903"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>將數百 TB 的資料遷移至 Azure Cosmos DB 
 
 Azure Cosmos DB 可以儲存數 tb 的資料。 您可以執行大規模的資料移轉, 將生產工作負載移到 Azure Cosmos DB。 本文說明將大規模資料移至 Azure Cosmos DB 所牽涉到的挑戰, 並為您介紹有助於挑戰和將資料移轉至 Azure Cosmos DB 的工具。 在此案例研究中, 客戶使用 Cosmos DB SQL API。  
 
 將整個工作負載遷移至 Azure Cosmos DB 之前, 您可以遷移資料的子集, 以驗證一些層面, 例如分割區索引鍵選擇、查詢效能和資料模型化。 驗證概念證明之後, 您就可以將整個工作負載移到 Azure Cosmos DB。  
+
+您也可以使用[Cosmos DB 啟動程式](https://azurecosmosdb.github.io/CosmosBootstrap/)來加速在 Azure Cosmos DB 上建立或遷移應用程式。 在此計畫中, Azure Cosmos DB 小組的工程師會指派給您的專案, 並協助您將資料移轉至 Azure Cosmos DB。 按一下下方按鈕以註冊 Cosmos DB 啟動程式:
+
+> [!div class="nextstepaction"]
+> [Cosmos DB 啟動程式](https://azurecosmosdb.github.io/CosmosBootstrap/)
 
 ## <a name="tools-for-data-migration"></a>資料移轉工具 
 
@@ -152,4 +157,7 @@ Azure Cosmos DB 的遷移策略根據 API 選擇和資料大小而有所不同�
 * 若要深入瞭解, 請嘗試使用[.net](bulk-executor-dot-net.md)和[JAVA](bulk-executor-java.md)中的大量執行程式程式庫。 
 * 大量執行程式程式庫已整合到 Cosmos DB Spark 連接器中, 若要深入瞭解, 請參閱[Azure Cosmos DB Spark 連接器](spark-connector.md)一文。  
 * 請洽詢「一般諮詢」問題類型和「大型 (TB +) 遷移」問題子類型底下的支援票證, 以取得 Azure Cosmos DB 產品小組, 以取得大規模遷移的其他協助。 
+* 使用[Cosmos DB 啟動程式](https://azurecosmosdb.github.io/CosmosBootstrap/)來加速在 Azure Cosmos DB 上建立或遷移您的應用程式。
 
+> [!div class="nextstepaction"]
+> [Cosmos DB 啟動程式](https://azurecosmosdb.github.io/CosmosBootstrap/)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e73a64a9782535da31e2eacbaa2740007707c774
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990455"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872417"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
 
@@ -317,7 +317,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後開啟您的工作區。 
 1. 在 [應用程式] 底下，選取 [計算]。
 
-    ![[檢視計算] 索引標籤](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![[查看計算] 索引標籤](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>建立計算目標
 
@@ -336,8 +336,6 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 1. 填寫表單。 針對必要的屬性 (特別是 **VM 系列**) 和**節點上限**提供值，以便向上微調計算。  
 
-    ![填妥表單](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
 1. 選取 [建立]。
 
 
@@ -348,8 +346,6 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 接著，您會看到該計算目標的詳細資料： 
 
     ![檢視電腦目標的詳細資料](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>連結計算目標
 

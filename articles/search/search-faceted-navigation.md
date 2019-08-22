@@ -2,30 +2,30 @@
 title: 如何在類別階層實作多面向導覽 - Azure 搜尋服務
 description: 將 Facet 導覽加入與 Azure 搜尋服務 (Microsoft Azure 上託管的雲端搜尋服務) 整合的應用程式。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6fc1e1aaaa3b2489dd4083f56d45ab0abc2b6892
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8e325abf1f58458d2fa035c8c8f081173efb0e65
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165962"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649900"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。
 
  ![Azure 搜尋服務作業入口網站示範](media/search-faceted-navigation/azure-search-faceting-example.png "Azure 搜尋服務作業入口網站示範")
 
-多面向導覽是替代的搜尋進入點。 它提供了方便的替代功能，讓您不必手動輸入複雜搜尋運算式。 多面向可協助您找到要找的項目，同時確保您不會得到沒有項目的結果。 身為開發人員，面向可讓您公開最有用的搜尋準則，瀏覽您的搜尋服務索引。 在線上零售應用程式中，通常會根據品牌、部門 (童鞋)、尺寸、價格、熱門程度和評分來建置多面向導覽。 
+多面向導覽是替代的搜尋進入點。 它提供了方便的替代功能，讓您不必手動輸入複雜搜尋運算式。 多面向可協助您找到要找的項目，同時確保您不會得到沒有項目的結果。 身為開發人員, facet 可讓您公開最有用的搜尋條件, 以流覽您的搜尋索引。 在線上零售應用程式中，通常會根據品牌、部門 (童鞋)、尺寸、價格、熱門程度和評分來建置多面向導覽。 
 
 實作多面向導覽會因各搜尋技術而不同。 在 Azure 搜尋服務中，多面向導覽會在查詢時使用您先前歸屬在結構描述中的欄位來建置。
 
--   在應用程式所建置的查詢中，查詢必須傳送「面向查詢參數」  ，以取得該文件結果集的可用面向篩選值。
+-   在應用程式所建置的查詢中，查詢必須傳送「面向查詢參數」，以取得該文件結果集的可用面向篩選值。
 
 -   若要實際修剪文件結果集，應用程式還必須套用 `$filter` 運算式。
 
@@ -149,7 +149,7 @@ Azure 搜尋服務會根據您輸入的一或多個字詞，以及多面向導�
 ## <a name="check-the-data"></a>檢查資料
 資料品質會直接影響所具體化的多面向導覽結構是否符合您的預期。 它也會影響建構篩選器來減少結果集的作業容易與否。
 
-若您想要根據「品牌」或「價格」進行多面向導覽，每個文件就應包含 BrandName  和 ProductPrice  值，它們要像篩選選項般有效且一致，並能提昇效率。
+若您想要根據「品牌」或「價格」進行多面向導覽，每個文件就應包含 BrandName 和 ProductPrice 值，它們要像篩選選項般有效且一致，並能提昇效率。
 
 以下是一些需要注意的提醒事項：
 
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 面向查詢參數已設定至欄位，且根據資料類型能夠由包含 `count:<integer>`、`sort:<>`、`interval:<integer>` 與 `values:<list>` 的逗號分隔清單進一步參數化。 當設定範圍時，針對數值資料支援值清單。 如需用量詳細資訊，請參閱 [搜尋文件 (Azure 搜尋服務 API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 。
 
-由您的應用程式制訂的要求也應該與面向一起建置篩選條件，以根據選取的面向值縮小候選文件集的範圍。 就單車店而言，多面向導覽可提供「有哪些顏色、製造商和單車類型可供販售？」  等問題的線索。 篩選功能可解答「哪些單車確實是位於此價格帶內的紅色登山車？」  之類的問題。 當您按一下 [紅色] 來表示僅顯示紅色的商品，應用程式傳送的下一個查詢會包含 `$filter=Color eq ‘Red’`。
+由您的應用程式制訂的要求也應該與面向一起建置篩選條件，以根據選取的面向值縮小候選文件集的範圍。 就單車店而言，多面向導覽可提供「有哪些顏色、製造商和單車類型可供販售？」等問題的線索。 篩選功能可解答「哪些單車確實是位於此價格帶內的紅色登山車？」之類的問題。 當您按一下 [紅色] 來表示僅顯示紅色的商品，應用程式傳送的下一個查詢會包含 `$filter=Color eq ‘Red’`。
 
 下列來自 `JobsSearch.cs` 頁面的程式碼片段會在您選取「職稱」面向的值時，在篩選中新增所選的職稱。
 
@@ -254,7 +254,7 @@ if (businessTitleFacet != "")
 
 請記得索引結構描述會定義哪一個欄位可做為面向。 假設欄位可面向化，查詢會指定要執行面向化的欄位。 您執行面向化的欄位會提供顯示於標籤下方的值。 
 
-顯示於各標籤下方的值會從索引擷取。 例如，如果面向欄位是 [色彩]  ，其他篩選條件可用的值會是適用於該欄位的值 (紅色、黑色，依此類推)。
+顯示於各標籤下方的值會從索引擷取。 例如，如果面向欄位是 [色彩]，其他篩選條件可用的值會是適用於該欄位的值 (紅色、黑色，依此類推)。
 
 僅針對數值與日期時間值，您可以明確地在面向欄位上設定值 (例如， `facet=Rating,values:1|2|3|4|5`)。 這些欄位類型允許值清單，以簡化將面向結果分離至連續範圍 (根據數值或時間間隔其中之一的範圍) 的動作。 
 
@@ -282,7 +282,7 @@ if (businessTitleFacet != "")
 
 **使用更多篩選條件修剪面向結果**
 
-面向結果是在符合面向字詞的搜尋結果中找到的文件。 在下列範例中，「雲端運算」  的搜尋結果中有 254 個項目也具有做為內容類型的「內部規格」  。 項目毋須互斥。 如果項目同時符合兩個篩選條件的條件，則會個別計數。 在 `Collection(Edm.String)` 欄位 (通常用來實作文件標記) 上進行面向化時可能發生此重複情形。
+面向結果是在符合面向字詞的搜尋結果中找到的文件。 在下列範例中，「雲端運算」的搜尋結果中有 254 個項目也具有做為內容類型的「內部規格」。 項目毋須互斥。 如果項目同時符合兩個篩選條件的條件，則會個別計數。 在 `Collection(Edm.String)` 欄位 (通常用來實作文件標記) 上進行面向化時可能發生此重複情形。
 
         Search term: "cloud computing"
         Content type
@@ -321,7 +321,7 @@ if (businessTitleFacet != "")
 
 面向計數可能會因為分區結構而不正確。 每個搜尋索引都有多個分區，且每個分區都會依照文件計數報告前 N 個面向，然後結合為單一結果。 如果一些分區有許多相符值，而一些有較少相符值，您可能發現結果中有一些面向值遺失或短少。
 
-雖然此行為可以隨時變更，如果您今天碰到這個行為，您可以解決它以人為方式擴張的計數：\<數字 > 大的數字，以加強來自各分區的完整報告。 如果計數: 的值大於或等於欄位中唯一值的數目，您就能保證結果正確。 不過，當文件計數很高的時候，則會有效能的負面影響，因此請謹慎使用此選項。
+雖然此行為隨時可能會變更, 但如果您今天遇到這項行為, 您可以透過人為因而誇大來解決此問題\<: 數位 > 為較大的數位, 以強制執行每個分區的完整報告。 如果計數: 的值大於或等於欄位中唯一值的數目，您就能保證結果正確。 不過，當文件計數很高的時候，則會有效能的負面影響，因此請謹慎使用此選項。
 
 ### <a name="user-interface-tips"></a>使用者介面秘訣
 **針對多面向導覽中的各欄位新增標籤**
@@ -352,7 +352,7 @@ Azure Search 透過提供兩種方法進行範圍運算，來簡化範圍建構�
 ### <a name="build-a-filter-for-a-range"></a>針對範圍建置篩選條件
 若要根據您選取的範圍篩選文件，您可以在定義範圍端點的兩段式運算式中使用 `"ge"` 與 `"lt"` 篩選運算子。 例如，如果您選擇 10-25 作為 `listPrice` 欄位的範圍，篩選條件會是 `$filter=listPrice ge 10 and listPrice lt 25`。 在程式碼範例中，篩選條件運算式使用 **priceFrom** 與 **priceTo** 參數來設定端點。 
 
-  ![查詢範圍的值](media/search-faceted-navigation/Facet-6-buildfilter.PNG "查詢範圍的值")
+  ![查詢某個範圍的值](media/search-faceted-navigation/Facet-6-buildfilter.PNG "查詢某個範圍的值")
 
 <a name="geofacets"></a> 
 
@@ -385,21 +385,21 @@ Azure 搜尋服務作業入口網站示範包含了本文所參考的範例。
    
    多面向導覽結構會隨搜尋結果一併傳回。 在搜尋結果頁面中，多面向導覽結構會包含各面向結果計數。 我們並未選取任何面向，因此會傳回所有符合的結果。
    
-   ![選取面向之前搜尋結果](media/search-faceted-navigation/faceted-search-before-facets.png "選取面向之前搜尋結果")
+   ![選取 facet 之前的搜尋結果](media/search-faceted-navigation/faceted-search-before-facets.png "選取 facet 之前的搜尋結果")
 
 4. 按一下 [職稱]、[位置] 或 [最低工資]。 初始搜尋時面向會是 Null，但是隨著它們取得值，搜尋結果會修剪不再符合的項目。
    
-   ![搜尋結果選取面向之後](media/search-faceted-navigation/faceted-search-after-facets.png "搜尋結果選取面向之後")
+   ![選取 facet 後的搜尋結果](media/search-faceted-navigation/faceted-search-after-facets.png "選取 facet 後的搜尋結果")
 
 5. 若要清除多面向查詢，以便能夠嘗試不同的查詢行為，請按一下所選面向後面的 `[X]` 以清除面向。
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>深入了解
+## <a name="learn-more"></a>更多資訊
 觀賞[深入了解 Azure 搜尋服務](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)。 在 45:25 時有示範如何實作多面向。
 
 如需多面向導覽設計原則的深入見解，推薦您下列連結：
 
 * [設計模式：多面向導覽](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [實作多面向搜尋 – 第 1 部分時，會產生前端考量。](https://articles.uie.com/faceted_search2/)
+* [執行多面向搜尋時的前端考慮–第1部分](https://articles.uie.com/faceted_search2/)
 

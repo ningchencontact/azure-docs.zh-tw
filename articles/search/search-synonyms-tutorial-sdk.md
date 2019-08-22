@@ -1,7 +1,7 @@
 ---
 title: 同義字C#範例-Azure 搜尋服務
-description: 在這個C#範例中，了解如何將 「 同義字 」 功能新增至 Azure 搜尋服務中的索引。 同義字對應是一份對等詞彙清單。 支援同義字的欄位會展開查詢，以包含使用者提供的詞彙和所有相關的同義字。
-manager: cgronlun
+description: 在此C#範例中, 您將瞭解如何將同義字功能新增至 Azure 搜尋服務中的索引。 同義字對應是一份對等詞彙清單。 支援同義字的欄位會展開查詢，以包含使用者提供的詞彙和所有相關的同義字。
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,31 +9,31 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad71a6ab5090e601ef075617edf08c421abebdb0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025161"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647761"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>範例：在 C# 中新增 Azure 搜尋服務的同義字
 
 同義字可藉由比對在語意上視為等於輸入詞彙的詞彙來展開查詢。 例如，您可能希望 "car" 比對包含 "automobile" 或 "vehicle" 詞彙的文件。 
 
-在 Azure 搜尋服務中，同義字會定義於*同義字對應*中，透過*對應規則*讓相等的詞彙產生關聯。 此範例涵蓋了用於加入和使用同義字與現有索引的必要步驟。 您會了解如何：
+在 Azure 搜尋服務中，同義字會定義於*同義字對應*中，透過*對應規則*讓相等的詞彙產生關聯。 這個範例涵蓋新增和使用具有現有索引之同義字的基本步驟。 您會了解如何：
 
 > [!div class="checklist"]
-> * 建立使用同義字地圖[SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet)類別。 
-> * 設定[SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet)上應該支援同義字透過查詢擴充欄位屬性。
+> * 使用[SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet)類別建立同義字對應。 
+> * 在應該支援透過同義字進行查詢展開的欄位上, 設定[SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet)屬性。
 
-可以用正常方式，您可以查詢已啟用同義字的欄位。 沒有任何存取同義字所需的其他查詢語法。
+您可以像平常一樣查詢具有同義字功能的欄位。 存取同義字不需要其他查詢語法。
 
 您可以建立多個同義字對應、將它們張貼為可供任何索引使用的全服務資源，然後參照哪一個要在欄位層級使用。 查詢時，除了搜尋索引，Azure 搜尋服務會查閱同義字對應 (如果在查詢中使用的欄位上指定一個同義字對應)。
 
 > [!NOTE]
-> 同義字可由以程式設計的方式，而不是在入口網站。 如果 Azure 入口網站的同義字支援對您很有用，請在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上提供您的意見反應
+> 同義字可以程式設計方式建立, 但不能在入口網站中建立。 如果 Azure 入口網站的同義字支援對您很有用，請在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上提供您的意見反應
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 教學課程包含下列需求︰
 
@@ -44,7 +44,7 @@ ms.locfileid: "65025161"
 
 ## <a name="overview"></a>總覽
 
-之前與之後查詢會示範同義字的值。 在此範例中，使用範例應用程式可執行查詢並傳回範例索引的結果。 範例應用程式會建立名為 "hotels" 並已填入兩份文件的小型索引。 此應用程式會使用未出現在索引中的詞彙和詞句來執行搜尋查詢，啟用同義字功能，然後再次發出相同的搜尋。 下列程式碼示範整體流程。
+之前與之後查詢會示範同義字的值。 在此範例中, 使用執行查詢並傳回範例索引結果的範例應用程式。 範例應用程式會建立名為 "hotels" 並已填入兩份文件的小型索引。 此應用程式會使用未出現在索引中的詞彙和詞句來執行搜尋查詢，啟用同義字功能，然後再次發出相同的搜尋。 下列程式碼示範整體流程。
 
 ```csharp
   static void Main(string[] args)
@@ -163,18 +163,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 第一個查詢會尋找 `five star=>luxury` 規則所產生的文件。 第二個查詢會使用 `internet,wifi` 展開搜尋，而第三個查詢會同時使用 `hotel, motel` 和 `economy,inexpensive=>budget` 來尋找相符的文件。
 
-新增同義字會全然改變搜尋經驗。 在此範例中，原始的查詢無法傳回有意義的結果，即使我們索引中的文件不相關。 啟用同義字，我們就可以展開索引以包含常用的詞彙，而不需變更索引中的基礎資料。
+新增同義字會全然改變搜尋經驗。 在此範例中, 即使索引中的檔相關, 原始查詢還是無法傳回有意義的結果。 啟用同義字，我們就可以展開索引以包含常用的詞彙，而不需變更索引中的基礎資料。
 
 ## <a name="sample-application-source-code"></a>範例應用程式的原始程式碼
 您可以在 [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) 上尋找本逐步解說中所用範例應用程式的完整原始程式碼。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-範例之後進行清除的最快方式是藉由刪除包含 Azure 搜尋服務的資源群組。 您現在可以刪除資源群組，以永久刪除當中所包含的所有項目。 在入口網站中，資源群組名稱位在 Azure 搜尋服務的 [概觀] 頁面上。
+在範例之後進行清除的最快方式是刪除包含 Azure 搜尋服務服務的資源群組。 您現在可以刪除資源群組，以永久刪除當中所包含的所有項目。 在入口網站中，資源群組名稱位在 Azure 搜尋服務的 [概觀] 頁面上。
 
 ## <a name="next-steps"></a>後續步驟
 
-此範例示範 「 同義字 」 功能，在C#建立和張貼對應規則，然後呼叫同義字地圖的查詢上的程式碼。 您可以在 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 和 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 參考文件中找到其他資訊。
+這個範例示範程式碼中C#的同義字功能, 以建立及張貼對應規則, 然後在查詢上呼叫同義字對應。 您可以在 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 和 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 參考文件中找到其他資訊。
 
 > [!div class="nextstepaction"]
 > [如何在 Azure 搜尋服務中使用同義字](search-synonyms.md)

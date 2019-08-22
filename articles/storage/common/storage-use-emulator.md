@@ -7,12 +7,12 @@ ms.date: 08/10/2018
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 9e0e024a5bd3c9cf16879bb9ea93727a338ddbf4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: ee8dd9da186013dc168e20e6b8b842cca85de172
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986396"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877632"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -221,9 +221,21 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 ## <a name="storage-emulator-release-notes"></a>儲存體模擬器版本資訊
 
+### <a name="version-510"></a>版本5.10
+
+* 儲存體模擬器不會拒絕 Blob、佇列和表格服務端點上的2019-07-07 版的儲存體服務。
+
+### <a name="version-59"></a>版本5。9
+
+* 儲存體模擬器不會拒絕 Blob、佇列和表格服務端點上的2019-02-02 版的儲存體服務。
+
+### <a name="version-58"></a>版本5。8
+
+* 儲存體模擬器不會拒絕 Blob、佇列和表格服務端點上的2018-11-09 版的儲存體服務。
+
 ### <a name="version-57"></a>5\.7 版
 
-已修正啟用記錄時會造成當機的錯誤。
+* 已修正啟用記錄時會造成當機的錯誤。
 
 ### <a name="version-56"></a>5\.6 版
 
@@ -236,11 +248,11 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 ### <a name="version-54"></a>版本 5.4
 
-若要改善安裝穩定性，模擬器不會嘗試在安裝時保留連接埠。 如果想要保留連接埠，可以使用 **init** 命令的 *-reserveports* 選項來指定連接埠。
+* 若要改善安裝穩定性，模擬器不會嘗試在安裝時保留連接埠。 如果想要保留連接埠，可以使用 **init** 命令的 *-reserveports* 選項來指定連接埠。
 
 ### <a name="version-53"></a>版本 5.3
 
-儲存體模擬器現在支援 Blob、佇列和資料表服務端點上 2017-07-29 版的儲存體服務。
+* 儲存體模擬器現在支援 Blob、佇列和資料表服務端點上 2017-07-29 版的儲存體服務。
 
 ### <a name="version-52"></a>5\.2 版
 
@@ -249,7 +261,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 ### <a name="version-51"></a>版本 5.1
 
-修正了儲存體模擬器在某些回應中傳回 `DataServiceVersion` 標頭 (但服務未傳回) 的問題。
+* 修正了儲存體模擬器在某些回應中傳回 `DataServiceVersion` 標頭 (但服務未傳回) 的問題。
 
 ### <a name="version-50"></a>版本 5.0
 

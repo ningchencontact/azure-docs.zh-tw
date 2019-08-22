@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 08/20/2019
 ms.author: v-adgera
-ms.openlocfilehash: 7ceb36d818c84642461372f0df70c8088908550c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965834"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873668"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -53,7 +53,9 @@ ms.locfileid: "68965834"
 
 ## <a name="obtain-an-oauth-20-token"></a>取得 OAuth 2.0 權杖
 
-接下來，設定 Postman 以取得 Azure Active Directory 權杖。 之後，使用取得的權杖來向 Azure Digital Twins 提出已驗證的 HTTP 要求：
+[!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
+
+安裝和設定 Postman 以取得 Azure Active Directory token。 之後，使用取得的權杖來向 Azure Digital Twins 提出已驗證的 HTTP 要求：
 
 1. 前往 [www.getpostman.com](https://www.getpostman.com/) 以下載應用程式。
 1. 確認您的**授權 URL** 正確無誤。 其應採用下列格式：
@@ -62,7 +64,7 @@ ms.locfileid: "68965834"
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | 名稱  | 更換為 | 範例 |
+    | Name  | 更換為 | 範例 |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | 您的租用戶或組織的名稱 | `microsoft` |
 

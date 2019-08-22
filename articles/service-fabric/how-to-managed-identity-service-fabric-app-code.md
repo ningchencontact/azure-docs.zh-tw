@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: f0944e9fddc0afb28f758ba7b16232330d3bc34d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635532"
+ms.locfileid: "69656631"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>如何利用 Service Fabric 應用程式的受控識別來存取 Azure 服務 (預覽)
 
@@ -60,7 +60,7 @@ GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01
 | `GET` | HTTP 指令動詞，指出您想要擷取端點中的資料。 在此案例中是 OAuth 存取權杖。 | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | 透過 MSI_ENDPOINT 環境變數提供之 Service Fabric 應用程式的受控識別端點。 |
 | `api-version` | 查詢字串參數, 指定受控識別權杖服務的 API 版本;目前唯一接受的值是`2019-07-01-preview`, 而且可能會變更。 |
-| `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 這會反映為所發行`aud`權杖的 (物件) 宣告。 此範例會要求權杖來存取 Azure Key Vault, 其應用程式識別碼 URI 為 https://keyvault.azure.com/ 。 |
+| `resource` | 查詢字串參數，指出目標資源的應用程式識別碼 URI。 這會反映為所發行`aud`權杖的 (物件) 宣告。 此範例會要求權杖來存取 Azure Key Vault, 其應用程式識別碼 URI 為 HTTPs:\//keyvault.azure.com/。 |
 | `Secret` | Service Fabric 服務的 Service Fabric 受控識別權杖服務所需的 HTTP 要求標頭欄位, 用來驗證呼叫者。 此值是由 SF 執行時間透過 MSI_SECRET 環境變數提供。 |
 
 

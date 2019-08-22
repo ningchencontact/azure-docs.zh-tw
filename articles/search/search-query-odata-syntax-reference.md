@@ -1,13 +1,13 @@
 ---
 title: OData 運算式語法參考-Azure 搜尋服務
-description: 正式文法和語法規格，Azure 搜尋服務查詢中的 OData 運算式。
+description: Azure 搜尋服務查詢中 OData 運算式的正式文法和語法規格。
 ms.date: 06/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5d7e6456cd6a6648ff2ca38ecbb4f2de5479d7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428648"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647500"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-search"></a>Azure 搜尋服務的 OData 運算式語法參考
 
-Azure 搜尋服務會使用[OData 運算式](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html)作為整個 API 的參數。 OData 運算式用於大多數情況下，`$orderby`和`$filter`參數。 這些運算式可能很複雜，其中包含多個子句、 函數和運算子的。 不過，甚至是簡單的 OData 運算式，例如 Azure 搜尋服務 REST API 的許多地方使用路徑的屬性。 比方說，路徑運算式用來參考的複雜的欄位，隨處在 API 中，例如當列出子欄位中的子欄位[建議工具](index-add-suggesters.md)，則[計分函數](index-add-scoring-profiles.md)，則`$select`參數或甚至[Lucene 查詢中加入欄位的搜尋](query-lucene-syntax.md)。
+Azure 搜尋服務使用[OData 運算式](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html)做為整個 API 中的參數。 最常見的是, OData 運算式是用於`$orderby`和`$filter`參數。 這些運算式可能很複雜, 其中包含多個子句、函數和運算子。 不過, 即使是屬性路徑之類的簡單 OData 運算式, 也會用於 Azure 搜尋服務 REST API 的許多部分。 例如, 路徑運算式是用來在 API 中的任何位置參考複雜欄位的子欄位, 例如在[建議工具](index-add-suggesters.md)中列出子欄位、[計分函數](index-add-scoring-profiles.md)、 `$select`參數, 或甚至是[以 Lucene 回復搜尋查詢](query-lucene-syntax.md)。
 
-本文說明所有這些形式的 OData 運算式使用正式文法。 另外還有[互動式圖表](#syntax-diagram)協助以視覺化方式探索文法。
+本文說明所有使用正式文法的 OData 運算式形式。 另外還有一個[互動式圖表](#syntax-diagram), 可協助您以視覺化方式流覽文法。
 
 ## <a name="formal-grammar"></a>正式文法
 
-我們可以說明使用 EBNF 的 Azure 搜尋服務所支援的 OData 語言子集 ([擴充式 Backus-naur 形式](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 文法。 「 由上而下 」，最複雜的運算式中，從開始，它們分解成更基本的運算式時，會列出規則。 在頂端的文法規則對應到特定的參數，Azure 搜尋服務 REST api:
+我們可以使用 EBNF ([延伸巴克斯-Backus-naur 表單](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) 文法來描述 Azure 搜尋服務所支援的 OData 語言子集。 規則會以「由上而下」列出, 從最複雜的運算式開始, 再將其細分為更基本的運算式。 最上方是對應至 Azure 搜尋服務 REST API 之特定參數的文法規則:
 
-- [`$filter`](search-query-odata-filter.md)定義由`filter_expression`規則。
-- [`$orderby`](search-query-odata-orderby.md)定義由`order_by_expression`規則。
-- [`$select`](search-query-odata-select.md)定義由`select_expression`規則。
-- 欄位所定義的路徑`field_path`規則。 欄位路徑中使用 API。 它們會參考的索引，其中一個最上層欄位或 子欄位與一或多個[複雜欄位](search-howto-complex-data-types.md)祖系。
+- [`$filter`](search-query-odata-filter.md), 由`filter_expression`規則定義。
+- [`$orderby`](search-query-odata-orderby.md), 由`order_by_expression`規則定義。
+- [`$select`](search-query-odata-select.md), 由`select_expression`規則定義。
+- 欄位路徑, 由`field_path`規則定義。 在整個 API 中都會使用欄位路徑。 它們可以參考索引的最上層欄位, 或是具有一或多個[複雜欄位](search-howto-complex-data-types.md)祖系的子欄位。
 
-EBNF 可瀏覽後[語法圖](https://en.wikipedia.org/wiki/Syntax_diagram)，可讓您以互動方式探索其規則之間的文法和關聯性。
+在 EBNF 是可流覽的[語法圖表](https://en.wikipedia.org/wiki/Syntax_diagram)之後, 可讓您以互動方式流覽文法和其規則之間的關聯性。
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -207,14 +207,14 @@ query_type ::= "'full'" | "'simple'"
 search_mode ::= "'any'" | "'all'"
 ```
 
-## <a name="syntax-diagram"></a>語法圖
+## <a name="syntax-diagram"></a>語法圖表
 
-若要以視覺化方式探索 Azure 搜尋服務所支援的 OData 語言文法，請嘗試互動式的語法圖：
+若要以視覺化方式流覽 Azure 搜尋服務所支援的 OData 語言文法, 請嘗試互動式語法圖:
 
 > [!div class="nextstepaction"]
 > [Azure 搜尋服務的 OData 語法圖表](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>請參閱  
+## <a name="see-also"></a>另請參閱  
 
 - [Azure 搜尋服務中的篩選條件](search-filters.md)
 - [搜尋文件 (Azure 搜尋服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

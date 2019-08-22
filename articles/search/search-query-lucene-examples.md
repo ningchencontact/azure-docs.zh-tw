@@ -2,7 +2,7 @@
 title: Lucene 查詢範例 - Azure 搜尋服務
 description: Azure 搜尋服務中的模糊搜尋、鄰近搜尋、詞彙提升、規則運算式搜尋與萬用字元搜尋的 Lucene 查詢語法。
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53a1f09fcc9897f4def565a9119ad97ca365cae3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3f6a39129db9e8c43a5e2de68d919ba1037c3f5c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882741"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648227"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>使用 "full" Lucene 搜尋語法的查詢範例 (Azure 搜尋服務中的先進查詢)
 
@@ -81,7 +81,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 本文中的所有範例會指定 **queryType=full** 搜尋參數，表示 Lucene 查詢剖析器處理的完整語法。 
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>範例 1:範圍限定于欄位清單的查詢
+## <a name="example-1-query-scoped-to-a-list-of-fields"></a>範例 1：範圍限定于欄位清單的查詢
 
 第一個範例不是 Lucene 特有的, 但我們會引導它引進第一個基本查詢概念: 欄位範圍。 這個範例會將整個查詢和回應的範圍限定為幾個特定的欄位。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
 

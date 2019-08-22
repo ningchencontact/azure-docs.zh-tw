@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 38b37b45964dd724b18f22a478be0d85a7036ce7
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9b96294362400891113812e308ff59bd0e438b90
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946955"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873358"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Apache Hadoop 應用程式
 
@@ -37,13 +37,13 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
 |[Azure HDInsight 的爆炸 Presto](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto 是快速且可擴充的分散式 SQL 查詢引擎。 Presto 專為分隔儲存體與計算所打造的架構，最適合用來查詢 Azure Data Lake Storage、Azure Blob 儲存體、SQL 與 NoSQL 資料庫以及其他資料來源中的資料。 |
 |[適用于 HDInsight 雲端的 StreamSets 資料收集器](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop、HBase、Spark、Kafka |StreamSets 資料收集器是輕量且功能強大的引擎, 可即時串流資料。 使用資料收集器來路由和處理資料流程中的資料。 它隨附30天試用版授權。 |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop、Spark、HBase |適用于 HDInsight 的 Trifacta Wrangler Enterprise 針對任何規模的資料支援全企業的資料整頓。 在 Azure 上執行 Trifacta 的成本是 Trifacta 訂用帳戶成本加上虛擬機器的 Azure 基礎結構成本的組合。 |
-|[Unifi 資料平臺](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-catalog) |Hadoop、HBase、風暴、Spark |Unifi 資料平臺是一套緊密整合的自助式資料工具套件, 其設計目的是要讓商務使用者能夠解決增加收益、降低成本或操作複雜度的資料挑戰。 |
+|[Unifi 資料平臺](https://unifisoftware.com/platform/) |Hadoop、HBase、風暴、Spark |Unifi 資料平臺是一套緊密整合的自助式資料工具套件, 其設計目的是要讓商務使用者能夠解決增加收益、降低成本或操作複雜度的資料挑戰。 |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |適用于 HDInsight Spark 叢集的解決資料應用程式。 |
 |[為 AI 驅動的資料目錄進行等高線](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |使用 AI 以商務詞彙自動標記資料, 以將資料進行目錄、組織及控管。 Waterline 是自助式分析、合規性與治理以及 IT 管理計劃成功的重要環節。 |
 
 本文提供的指示將使用 Azure 入口網站。 您也可以從入口網站匯出 Azure Resource Manager 範本或從廠商取得 Resource Manage 範本的複本，然後使用 Azure PowerShell 與 Azure 傳統 CLI 來部署範本。  請參閱[使用 Resource Manager 範本在 HDInsight 上建立 Apache Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 如果您想要在現有的 HDInsight 叢集上安裝 HDInsight 應用程式，您必須有 HDInsight 叢集。 若要建立叢集，請參閱 [建立叢集](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。 您也可以在建立 HDInsight 叢集時安裝 HDInsight 應用程式。
 
 ## <a name="install-applications-to-existing-clusters"></a>將應用程式安裝到現有的叢集
@@ -80,7 +80,7 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
     ![HDinsight 應用程式安裝的應用程式](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. 選取其中一個已安裝的應用程式以顯示內容。 此屬性會列出：
 
-    |內容 | 描述 |
+    |屬性 | 描述 |
     |---|---|
     |應用程式名稱 |應用程式名稱。 |
     |狀態 |應用程式狀態。 |

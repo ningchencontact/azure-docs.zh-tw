@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b7157cd58abc7f1fecf288e72b0232c8a67b7ee
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 4aa948a785153dd0d70a9af41ae0ed25036827f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512579"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656260"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
@@ -43,7 +43,7 @@ ms.locfileid: "69512579"
 * `auth_enabled`-如果已啟用金鑰驗證, `True`則為, `False`否則為。
 * `token_auth_enabled`-如果已啟用權杖驗證, `True`則為, `False`否則為。
 * `scoring_uri` - REST API 的位址。
-
+* `swagger_uri`-OpenAPI 規格的位址。 如果您已啟用自動產生架構, 就可以使用此 URI。 如需詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md#schema)。
 
 有三種方法可以針對已部署的 Web 服務擷取這項資訊：
 
@@ -56,6 +56,7 @@ ms.locfileid: "69512579"
                                            image_config=image_config,
                                            workspace=ws)
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 * 您可以使用 `Webservice.list` 擷取工作區中已針對模型部署的 Web 服務的清單。 您可以新增篩選來縮小傳回的資訊清單。 如需可篩選項目的詳細資訊，請參閱 [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) 參考文件。
@@ -63,6 +64,7 @@ ms.locfileid: "69512579"
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
+    print(services[0].swagger_uri)
     ```
 
 * 如果您知道已部署服務的名稱，則可以建立 `Webservice` 的新執行個體，並將工作區和服務名稱作為參數提供。 新物件包含已部署服務的相關資訊。
@@ -70,11 +72,12 @@ ms.locfileid: "69512579"
     ```python
     service = Webservice(workspace=ws, name='myservice')
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 ### <a name="authentication-for-services"></a>服務的驗證
 
-Azure Machine Learning 提供兩種方式來控制對 web 服務的存取。 
+Azure Machine Learning 提供兩種方式來控制對 web 服務的存取。
 
 |驗證方法|ACI|AKS|
 |---|---|---|

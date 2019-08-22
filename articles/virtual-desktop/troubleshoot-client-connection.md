@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 9cd754b1810595c3ae82a7e4edfd9a3abe145b3f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816427"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876769"
 ---
 # <a name="remote-desktop-client-connections"></a>遠端桌面用戶端連線
 
@@ -34,19 +34,19 @@ nslookup rdweb.wvd.microsoft.com
 
 請嘗試與其他用戶端連線, 例如適用于 Windows 7 或 Windows 10 的遠端桌面用戶端, 並檢查您是否可以開啟網頁用戶端。
 
-### <a name="error-opening-another-site-fails"></a>錯誤:開啟另一個網站失敗
+### <a name="error-opening-another-site-fails"></a>Error:開啟另一個網站失敗
 
 **原因：** 網路問題和/或中斷。
 
 **補丁**請聯絡網路支援。
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>錯誤:Nslookup 無法解析名稱
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Error:Nslookup 無法解析名稱
 
 **原因：** 網路問題和/或中斷。
 
 **補丁**聯絡網路支援
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>錯誤:您無法連線, 但其他用戶端可以連接
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Error:您無法連線, 但其他用戶端可以連接
 
 **原因：** 瀏覽器未如預期般運作, 且已停止運作。
 
@@ -61,7 +61,7 @@ nslookup rdweb.wvd.microsoft.com
 
 嘗試使用另一個瀏覽器或用戶端進行連接。
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>錯誤:其他瀏覽器和用戶端也會故障或無法開啟
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Error:其他瀏覽器和用戶端也會故障或無法開啟
 
 **原因：** 網路和/或作業系統問題或中斷
 
@@ -135,19 +135,19 @@ Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>錯誤:O_ADD_USER_TO_GROUP_FAILED/無法將 USER = ≤ username ≥新增至群組 = 遠端桌面使用者。 理由:Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Error:O_ADD_USER_TO_GROUP_FAILED/無法將 USER = ≤ username ≥新增至群組 = 遠端桌面使用者。 原因：Win32.ERROR_NO_SUCH_MEMBER
 
 **原因：** VM 尚未聯結至使用者物件所在的網域。
 
 **補丁**將 VM 新增至正確的網域。 請參閱將[Windows Server 虛擬機器加入受控網域](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)。
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>錯誤:Nslookup 無法解析名稱
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Error:Nslookup 無法解析名稱
 
 **原因：** 網路問題或中斷。
 
 **補丁**聯絡網路支援
 
-### <a name="error-connectionfailedclientprotocolerror"></a>錯誤:ConnectionFailedClientProtocolError
+### <a name="error-connectionfailedclientprotocolerror"></a>Error:ConnectionFailedClientProtocolError
 
 **原因：** 使用者嘗試連接的 Vm 未加入網域。
 
@@ -173,7 +173,7 @@ Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 - 若要針對在 Windows 虛擬桌面環境中建立租使用者和主機集區的問題進行疑難排解, 請參閱[建立租使用者和主機集](troubleshoot-set-up-issues.md)區。
 - 若要在 Windows 虛擬桌面中設定虛擬機器 (VM) 時針對問題進行疑難排解, 請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
 - 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解, 請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
-- 若要深入瞭解預覽服務, 請參閱[Windows 桌面預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?)。
+- 若要深入瞭解預覽服務, 請參閱[Windows 虛擬桌面預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?)。
 - 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)進行疑難排解。
 - 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
 - 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。

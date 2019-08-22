@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: 81b2145e6107558f2d9698c7e5d03658f1129b00
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 63534260e042a1b47ca5e635c48123672d663a9b
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667940"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873274"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>排程及廣播作業 (Python)
 
@@ -47,15 +47,17 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 **scheduleJobService.py** 會使用作業在模擬裝置應用程式中呼叫直接方法，並更新裝置對應項的所需屬性。
 
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
-
-以下是必要條件的安裝指示。
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 > [!NOTE]
 > **適用於 Python 的 Azure IoT SDK** 不直接支援 [作業] 功能。 反之，本教學課程使用非同步執行緒與計時器提供替代方案。 如需進一步的更新，請參閱 [適用於 Python 的 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-python) 頁面上的 [服務用戶端 SDK] 功能清單。
 >
+
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+## <a name="prerequisites"></a>必要條件
+
+若要完成本教學課程，您需要：
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -74,6 +76,10 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS, 請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   >
 
 2. 使用文字編輯器，在工作目錄中建立新的 **simDevice.py** 檔案。
 
@@ -158,9 +164,27 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 
 ## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
 
-[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+在本文中, 您會建立後端服務, 以在裝置上叫用直接方法, 並更新裝置對應項。 服務需要**服務 connect**許可權, 才能在裝置上呼叫直接方法。 服務也需要登錄**讀取**和登錄**寫入**許可權, 才能讀取和寫入身分識別登錄。 沒有僅包含這些許可權的預設共用存取原則, 因此您需要建立一個。
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+若要建立共用存取原則, 以授與**服務**連線、登錄**讀取**和登錄**寫入**許可權, 以及取得此原則的連接字串, 請遵循下列步驟:
+
+1. 在[Azure 入口網站](https://portal.azure.com)中開啟您的 IoT 中樞。 若要進入 IoT 中樞, 最簡單的方法是選取 [**資源群組**], 選取您的 iot 中樞所在的資源群組, 然後從資源清單中選取您的 iot 中樞。
+
+2. 在 IoT 中樞的左側窗格中, 選取 [**共用存取原則**]。
+
+3. 從原則清單上方的頂端功能表中, 選取 [**新增**]。
+
+4. 在 [**新增共用存取原則**] 窗格中, 輸入原則的描述性名稱;例如: *serviceAndRegistryReadWrite*。 在 **[許可權** **]** 底下, 選取 [服務連線及登錄**寫入**] (當您選取 [登錄**寫入**] 時, 會自動選取 [登錄**讀取**]) 然後選取 [建立]。
+
+    ![示範如何新增共用存取原則](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+
+5. 回到 [**共用存取原則**] 窗格, 從原則清單中選取您的新原則。
+
+6. 在 [**共用存取金鑰**] 底下, 選取 [**連接字串-主要金鑰**] 的複製圖示, 然後儲存值。
+
+    ![顯示如何擷取連接字串](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+
+如需 IoT 中樞共用存取原則和許可權的詳細資訊, 請參閱[存取控制和許可權](./iot-hub-devguide-security.md#access-control-and-permissions)。
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>排定用於呼叫直接方法及更新裝置對應項 (twin) 屬性的作業
 
@@ -172,9 +196,13 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
     pip install azure-iothub-service-client
     ```
 
+   > [!NOTE]
+   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS, 請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   >
+
 2. 使用文字編輯器，在工作目錄中建立新的 **scheduleJobService.py** 檔案。
 
-3. 在 **scheduleJobService.py** 檔案開頭新增下列 `import` 陳述式和變數：
+3. 在 scheduleJobService.py 檔案`import`的開頭新增下列語句和變數。 將預留位置取代為您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 iot 中樞連接字串。 `{IoTHubConnectionString}` 以您在在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼取代預留位置:`{deviceId}`
 
     ```python
     import sys

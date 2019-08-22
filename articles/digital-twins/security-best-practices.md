@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/19/2019
 ms.author: v-adgera
-ms.openlocfilehash: 64a980ba8ed581b3cad369951220d47baf9e17ab
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849292"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656514"
 ---
 # <a name="security-best-practices"></a>安全性最佳作法
 
@@ -26,6 +26,9 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > [!IMPORTANT]
 > 若要確保 IoT 空間能獲得最大安全性，請檢閱其他安全性資源。 請務必包含您的裝置廠商。
 
+> [!TIP]
+> 使用[適用于 iot 的 Azure 資訊安全中心](https://docs.microsoft.com/azure/asc-for-iot/)來協助偵測 iot 安全性威脅和弱點。
+
 ## <a name="iot-security-best-practices"></a>IoT 安全性最佳做法
 
 可以安全地保護 IoT 裝置的一些主要做法包括：
@@ -36,6 +39,7 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > * 請考量可能會使用裝置 IP 位址篩選和連接埠限制。
 > * 限制 I/O 和裝置頻寬，以改善效能。 速率限制可以藉由防止拒絕服務的攻擊來改善安全性。
 > * 讓裝置韌體保持最新狀態。
+> * 當裝置、網路和閘道的安全性最佳作法持續改善和進化時, 定期進行審核及檢查。
 
 可以安全地保護 IoT 空間的一些主要做法包括：
 
@@ -43,6 +47,7 @@ Azure Digital Twins 也會使用 Azure IoT 中的其他安全性功能，包括 
 > * 加密已儲存或永續性的資料。
 > * 需要定期變更或重新整理密碼或金鑰。
 > * 謹慎地依角色來限制存取權和權限。 請參閱後續的[角色型存取控制最佳做法](#rbac)一節。
+> * 請考慮使用分割的網路拓撲, 讓每個網路上的裝置與其他網路隔離。
 > * 使用功能強大的加密。 需要長密碼，以及使用安全的通訊協定和雙因素驗證。
 
 [監視](./how-to-configure-monitoring.md) IoT 資源，以監看落在經常性作業範圍外的極端值、威脅或資源參數。 使用 Azure 分析進行監視管理。

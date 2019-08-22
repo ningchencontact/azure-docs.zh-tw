@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: a874c8a1fe2e8a81e2f42b2c88447fd52b47f3ad
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1c86649a989b16d928a46d322af3d805b6fbf832
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611959"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647355"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -53,10 +53,10 @@ ms.locfileid: "69611959"
 
 以 Azure 搜尋服務為基礎的解決方案會以下列方式產生成本:
 
-+ 最低設定服務的基本成本
++ 最低設定服務的基本成本 (建立服務)
 + 相應增加時的累加成本 (新增複本或資料分割)
-+ 輸出資料傳輸的頻寬費用
-+ 利用認知服務資源的認知搜尋
++ 頻寬費用 (輸出資料傳輸) 
++ 認知搜尋 (附加認知服務 AI 擴充、適用于知識存放區的 Azure 儲存體)
 
 ### <a name="service-costs"></a>服務成本
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 7c5a15790c3a88e9aa3921d6cc2626576aedaa64
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 73fd9a989c72cb33baccefdfa512f34de5bb88bd
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816365"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876721"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows 虛擬桌面 PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "68816365"
 
 本節列出在設定 Windows 虛擬桌面時通常會使用的 PowerShell 命令, 並提供方法來解決使用它們時可能發生的問題。
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>錯誤:RdsAppGroupUser 命令--指定的 UserPrincipalName 已指派給指定主機集區中的 RemoteApp 應用程式群組
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Error:RdsAppGroupUser 命令--指定的 UserPrincipalName 已指派給指定主機集區中的 RemoteApp 應用程式群組
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
@@ -36,7 +36,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **補丁**如果使用者同時需要遠端應用程式和遠端桌面, 請建立不同的主機集區, 或授與使用者遠端桌面的存取權, 這將允許在工作階段主機 VM 上使用任何應用程式。
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>錯誤:RdsAppGroupUser 命令--指定的 UserPrincipalName 不存在於與遠端桌面租使用者相關聯的 Azure Active Directory 中
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Error:RdsAppGroupUser 命令--指定的 UserPrincipalName 不存在於與遠端桌面租使用者相關聯的 Azure Active Directory 中
 
 ```PowerShell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
@@ -50,7 +50,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 - 使用者不會系結至企業對消費者 (B2C) 或企業對企業 (B2B) 商務。
 - Windows 虛擬桌面租使用者系結至正確的 Azure Active Directory。
 
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>錯誤:RdsDiagnosticActivities--使用者未獲授權查詢管理服務
+### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Error:RdsDiagnosticActivities--使用者未獲授權查詢管理服務
 
 ```PowerShell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
@@ -60,7 +60,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **補丁**發出 RdsDiagnosticActivities with-TenantName \<TenantName >。
 
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>錯誤:RdsDiagnosticActivities--使用者未獲授權查詢管理服務
+### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Error:RdsDiagnosticActivities--使用者未獲授權查詢管理服務
 
 ```PowerShell
 Get-RdsDiagnosticActivities -Deployment -username <username>
@@ -70,7 +70,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **修正:** -部署參數只能由部署系統管理員使用。 這些系統管理員通常是遠端桌面服務/Windows 虛擬桌面小組的成員。 以-TenantName \<TenantName > 取代-Deployment 參數。
 
-### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>錯誤:RdsRoleAssignment--使用者未獲授權查詢管理服務
+### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Error:RdsRoleAssignment--使用者未獲授權查詢管理服務
 
 **原因 1：** 使用的帳戶沒有租使用者的遠端桌面服務擁有者許可權。
 
@@ -89,7 +89,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 - 若要針對在 Windows 虛擬桌面環境中建立租使用者和主機集區的問題進行疑難排解, 請參閱[建立租使用者和主機集](troubleshoot-set-up-issues.md)區。
 - 若要在 Windows 虛擬桌面中設定虛擬機器 (VM) 時針對問題進行疑難排解, 請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
 - 若要疑難排解 Windows 虛擬桌面用戶端連線的問題, 請參閱[遠端桌面用戶端連接](troubleshoot-client-connection.md)。
-- 若要深入瞭解預覽服務, 請參閱[Windows 桌面預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
+- 若要深入瞭解預覽服務, 請參閱[Windows 虛擬桌面預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
 - 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)進行疑難排解。
 - 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
 - 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。

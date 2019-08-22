@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164a71354423bebc1422ba94747f2daeec33909d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828926"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648326"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>使用 Microsoft Authenticator 應用程式啟用無密碼登入 (預覽)
 
@@ -29,7 +29,7 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 > [!NOTE]
 > 自2017年3月起, 這項功能已在 Microsoft Authenticator 應用程式中, 因此, 有可能在目錄中啟用原則時, 使用者可能會立即遇到此流程, 如果原則未啟用, 則會看到錯誤訊息。 請留意這項變更，並且讓使用者做好準備。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - Azure 多重要素驗證, 以允許做為驗證方法的推播通知 
 - 在執行 iOS 8.0 或更新版本或 Android 6.0 或更新版本的裝置上安裝的最新版 Microsoft Authenticator。
@@ -92,7 +92,7 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 
 ### <a name="device-registration"></a>裝置註冊
 
-建立這個新的強式認證的必要條件之一, 是裝置也必須在 Azure AD 租使用者內註冊給個別使用者。 由於目前的裝置註冊限制, 裝置只能在單一租使用者中註冊。 此限制表示，Microsoft Authenticator 應用程式中只有一個工作或學校帳戶可以啟用手機登入。
+建立這個新的強式認證的必要條件之一, 是安裝 Microsoft Authenticator 應用程式的裝置, 也必須在 Azure AD 租使用者中註冊給個別使用者。 由於目前的裝置註冊限制, 裝置只能在單一租使用者中註冊。 此限制表示，Microsoft Authenticator 應用程式中只有一個工作或學校帳戶可以啟用手機登入。
 
 > [!NOTE]
 > 裝置註冊與裝置管理或「MDM」不同。 它只會在 Azure AD 目錄中, 將裝置識別碼和使用者識別碼關聯在一起。  

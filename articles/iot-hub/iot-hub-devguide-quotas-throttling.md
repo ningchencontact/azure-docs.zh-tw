@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950533"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877177"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
@@ -25,6 +25,10 @@ ms.locfileid: "68950533"
 佈建每個 IoT 中樞時，都會為其佈建特定層級中的特定單位數。 層級和單位數會決定您每天可傳送的訊息配額上限。 對於免費層中樞，用來計算每日配額的訊息大小為 0.5 KB，而對於所有其他層的訊息大小則為 4 KB。 如需詳細資訊，請參閱 [Azure IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
 層級也會決定「IoT 中樞」在所有作業上強制執行的節流限制。
+
+### <a name="iot-plug-and-play"></a>IoT Plug and Play
+
+在公開預覽期間, IoT 隨插即用裝置會針對每個介面傳送個別的訊息, 這可能會增加計入訊息配額的訊息數目。
 
 ## <a name="operation-throttles"></a>作業節流
 

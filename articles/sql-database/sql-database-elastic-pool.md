@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 305a35d1d40d94d1ce8e463b4af51eb84278bc3f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510269"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876416"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL 資料庫
 
@@ -155,8 +155,14 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 在 Azure 入口網站中建立彈性集區的方式有兩種。
 
-1. 您可以在 [Marketplace] 中搜尋 **SQL 彈性集區**，或按一下 [SQL 彈性集區] 瀏覽刀鋒視窗上的 [+新增]，以建立彈性集區。 您可以透過此集區佈建工作流程來指定新的或現有的伺服器。
-2. 或者，您可以瀏覽至現有 SQL 伺服器，然後按一下 [建立集區] 直接將集區建立至該伺服器，以建立彈性集區。 唯一的差別在於您略過在集區佈建工作流程期間指定伺服器的步驟。
+1. 在 Azure 入口網站的左側功能表中, 選取 [ **AZURE SQL** ]。 如果 Azure SQL 不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入*azure sql* 。
+2. 選取 [ **+ 新增**] 以開啟 [**選取 SQL 部署] 選項**頁面。 您可以選取 [**資料庫**] 磚上的 [**顯示詳細資料**], 以查看有關彈性集區的其他資訊。
+3. 在 [**資料庫**] 磚的 [**資源類型**] 下拉式清單中, 選取 [**彈性集**區], 然後選取 [**建立**]:
+
+   ![建立彈性集區](./media/sql-database-elastic-pool/create-elastic-pool.png)
+
+
+1. 或者, 您可以流覽至現有的 Azure SQL server, 然後按一下 [ **+ 新增集**區], 直接在該伺服器中建立集區, 藉以建立彈性集區。
 
 > [!NOTE]
 > 您可以在伺服器上建立多個集區，但無法將來自不同伺服器的資料庫新增到相同的集區。

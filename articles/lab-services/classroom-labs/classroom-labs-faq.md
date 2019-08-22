@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2019
+ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 261f337ac72a28bc2e1c74e23731242cc3bd0075
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 411037dd97350d877aff4e2d094c3408f168f9fd
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68572026"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648568"
 ---
 # <a name="classroom-labs-in-azure-lab-services---frequently-asked-questions-faq"></a>Azure 實驗室服務中的教室實驗室-常見問題 (FAQ)
 取得一些關於 Azure 實驗室服務中的教室實驗室最常見問題的解答。 
@@ -44,13 +44,13 @@ ms.locfileid: "68572026"
 訂閱[Azure 實驗室服務的 blog](https://azure.microsoft.com/blog/tag/azure-lab-services/)。
 
 ## <a name="update-notifications"></a>更新通知
-訂閱[實驗室服務更新](https://azure.microsoft.com/updates/?product=lab-services), 以隨時掌握 DevTest Labs 的新功能。
+訂閱[實驗室服務更新](https://azure.microsoft.com/updates/?product=lab-services), 以隨時掌握實驗室服務的新功能。
 
 ## <a name="general"></a>一般
 ### <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
 如果此處未列出您的問題, 請讓我們知道, 讓我們可以協助您找到答案。
 
 - 將問題張貼在此常見問題集尾端。 
-- 若要觸及更多讀者，可將問題張貼在 [Azure DevTest Labs MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)。 
-- 若要提出功能要求，請將您的要求和想法提交到 [Azure DevTest Labs 使用者心聲](https://feedback.azure.com/forums/320373-azure-devtest-labs)。
+- 若要觸及更多物件, 請在[Azure 實驗室服務-Stack Overflow 論壇](https://stackoverflow.com/questions/tagged/azure-lab-services)上張貼問題。 
+- 對於功能要求, 請將您的要求和想法提交至[Azure 實驗室服務-User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774)。
 

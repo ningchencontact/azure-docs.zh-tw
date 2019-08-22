@@ -15,18 +15,18 @@ ms.date: 06/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 4b2934c8b93ffb247661886cb2791c0719996aeb
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 47db310f6affa6317a74020d182c521d65cd32f3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297192"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875236"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>本機 Git 部署至 Azure App Service
 
 本操作指南會示範如何將您的應用程式部署至本機電腦上的 Git 儲存機制[Azure App Service](overview.md) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 遵循本使用說明指南中的步驟：
 
@@ -149,14 +149,14 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
 
 當您使用 Git 來發佈至 Azure 中的 App Service 應用程式時, 您可能會看到下列常見的錯誤訊息:
 
-|Message|原因|解決方案
+|Message|原因|解析度
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|應用程式未啟動且正在執行。|在 Azure 入口網站中啟動應用程式。 當 web 應用程式停止時, 無法使用 Git 部署。|
 |`Couldn't resolve host 'hostname'`|' Azure ' 遠端的位址資訊不正確。|使用 `git remote -v` 命令，列出所有遠端以及相關聯的 URL。 驗證 'azure' 遠端的 URL 是否正確。 如有需要，移除此遠端並使用正確的 URL 重新建立。|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|您在期間`git push`未指定分支, 或未在中`.gitconfig`設定`push.default`此值。|再次`git push`執行, 並指定主要分支: `git push azure master`。|
 |`src refspec [branchname] does not match any.`|您嘗試在 ' azure ' 遠端上推送至 master 以外的分支。|再次`git push`執行, 並指定主要分支: `git push azure master`。|
 |`RPC failed; result=22, HTTP code = 5xx.`|如果您嘗試透過 HTTPS 推送大型 Git 存放庫，就會發生這個錯誤。|變更本機電腦上的 git 設定, 使其`postBuffer`變得更大。 例如： `git config --global http.postBuffer 524288000` 。|
-|`Error - Changes committed to remote repository but your web app not updated.`|您已使用指定其他必要模組的_package. json_檔案來部署 node.js 應用程式。|如需`npm ERR!`失敗的詳細內容, 請參閱此錯誤之前的錯誤訊息。 以下是此錯誤的已知原因, 以及對應`npm ERR!`的訊息:<br /><br />**封裝的 json 檔案格式不正確**:`npm ERR! Couldn't read dependencies.`<br /><br />**原生模組沒有適用于 Windows 的二進位散發**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />或 <br />' npm ERR! [modulename@version] 預先安裝: \make || gmake\`|
+|`Error - Changes committed to remote repository but your web app not updated.`|您已使用指定其他必要模組的_package. json_檔案來部署 node.js 應用程式。|如需`npm ERR!`失敗的詳細內容, 請參閱此錯誤之前的錯誤訊息。 以下是此錯誤的已知原因, 以及對應`npm ERR!`的訊息:<br /><br />**封裝的 json 檔案格式不正確**:`npm ERR! Couldn't read dependencies.`<br /><br />**原生模組沒有適用于 Windows 的二進位散發**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />或 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>其他資源
 

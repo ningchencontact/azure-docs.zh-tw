@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
 ms.author: jlembicz
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 25edc52be90b6133ec0a0f0b5e8ea525d75d4800
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0cd2cf4b7847b767bac391f2547c0a5c3e3a9135
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881520"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891563"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>將自訂分析器新增至 Azure 搜尋服務索引
 
@@ -279,7 +279,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**說明和選項**|  
 |-|-|-|  
 |[keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (有選項時才需套用類型) |將欄位的整個內容視為單一語彙基元。 這適合用於郵遞區號、識別碼和產品名稱等資料。|  
-|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|透過規則運算式模式彈性地將文字分割成字詞。<br /><br /> **選項**<br /><br /> lowercase (類型：bool) - 判斷字詞是否為小寫。 預設值是 true。<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (類型：字串) - 用來比對語彙基元分隔符號的規則運算式模式。 預設值為 \w+。<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (類型：字串) - 規則運算式旗標。 預設值是空字串。 允許的值：CANON_EQ、CASE_INSENSITIVE、COMMENTS、DOTALL、LITERAL、MULTILINE、UNICODE_CASE、UNIX_LINES<br /><br /> stopwords (類型：字串陣列) - 停用字詞清單。 預設值是空白清單。|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|透過規則運算式模式彈性地將文字分割成字詞。<br /><br /> **選項**<br /><br /> lowercase (類型：bool) - 判斷字詞是否為小寫。 預設值是 true。<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (類型：字串) - 用來比對語彙基元分隔符號的規則運算式模式。 預設值為 \w+。<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (類型：字串) - 規則運算式旗標。 預設值是空字串。 允許的值：CANON_EQ、CASE_INSENSITIVE、COMMENTS、DOTALL、LITERAL、MULTILINE、UNICODE_CASE、UNIX_LINES<br /><br /> stopwords (類型：字串陣列) - 停用字詞清單。 預設值是空白清單。|  
 |[simple](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(有選項時才需套用類型) |在非字母的位置分割文字，並將其轉換成小寫。 |  
 |[standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(也稱為 standard.lucene)|StandardAnalyzer|Standard Lucene 分析器，由標準 Token 化工具、小寫篩選器及停止篩選器所組成。<br /><br /> **選項**<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值為 255。 超過長度上限的權杖會進行分割。 可用的語彙基元長度上限是 300 個字元。<br /><br /> stopwords (類型：字串陣列) - 停用字詞清單。 預設值是空白清單。|  
 |standardasciifolding.lucene|(有選項時才需套用類型) |使用 ASCII 折疊篩選器的標準分析器。 |  
@@ -323,7 +323,7 @@ analyzer_type 僅提供給可自訂的分析器使用。 如果沒有任何選�
 |[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|將輸入 Token 化到指定的 n-gram 大小。<br /><br /> **選項**<br /><br /> minGram (類型：int) - 預設值：1，最大值：300。<br /><br /> maxGram (類型：int) - 預設值：2，最大值：300。 必須大於 minGram。 <br /><br /> tokenChars (類型：字串陣列) - 要在語彙基元中保留的字元類別。 允許的值："letter"、"digit"、"whitespace"、"punctuation"、"symbol"。 預設為空陣列 - 保留所有字元。 |  
 |[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|路徑類階層的 Token 化工具。<br /><br /> **選項**<br /><br /> delimiter (類型：字串) - 預設值：'/。<br /><br /> replacement (類型：字串) - 如有設定，則會取代分隔符號字元。 預設值與分隔符號的值相同。<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值：300，最大值：300。 長度超過 maxTokenLength 的路徑會遭到忽略。<br /><br /> reverse (類型：bool) - 如果為 true，則會以反向順序產生語彙基元。 預設：false。<br /><br /> skip (類型：bool) - 要略過的起始語彙基元數目。 預設值為 0。|  
 |[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|此 Token 化工具會使用 RegEx 模式比對來建構不同的語彙基元。<br /><br /> **選項**<br /><br /> [模式](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html)(類型: 字串)-正則運算式模式。 預設值為 \W +。 <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (類型：字串) - 規則運算式旗標。 預設值是空字串。 允許的值：CANON_EQ、CASE_INSENSITIVE、COMMENTS、DOTALL、LITERAL、MULTILINE、UNICODE_CASE、UNIX_LINES<br /><br /> group (類型：int) - 要將哪個群組擷取至語彙基元。 預設值為 -1 (分割)。|
-|[standard_v2](http://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|遵循 [Unicode 文字分割規則](https://unicode.org/reports/tr29/)來分解文字。<br /><br /> **選項**<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值：255，最大值：300。 超過長度上限的權杖會進行分割。|  
+|[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|遵循 [Unicode 文字分割規則](https://unicode.org/reports/tr29/)來分解文字。<br /><br /> **選項**<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值：255，最大值：300。 超過長度上限的權杖會進行分割。|  
 |[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|將 URL 和電子郵件 Token 化為一個語彙基元。<br /><br /> **選項**<br /><br /> maxTokenLength (類型：int) - 語彙基元長度的上限。 預設值：255，最大值：300。 超過長度上限的權杖會進行分割。|  
 |[whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(有選項時才需套用類型) |在空白字元處分割文字。 分割長度超過 255 個字元的語彙基元。|  
 

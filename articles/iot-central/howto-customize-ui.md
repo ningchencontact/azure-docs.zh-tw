@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cef0014fb47aeddcad785fb3f938ab928964a942
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 28a0e91befb717882aa202a776e0b9cddb8fd390
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725730"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876092"
 ---
-# <a name="customize-the-azure-iot-central-ui"></a>自訂 Azure IoT Central UI 
+# <a name="customize-the-azure-iot-central-ui"></a>自訂 Azure IoT Central UI
 
-本文說明如何以系統管理員的身分, 藉由套用自訂主題和修改說明連結, 以指向您自己的自訂說明資源, 以自訂應用程式的 UI。 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+本文說明如何以系統管理員的身分, 藉由套用自訂主題和修改說明連結, 以指向您自己的自訂說明資源, 以自訂應用程式的 UI。
 
 下列螢幕擷取畫面顯示使用標準主題的頁面:
 

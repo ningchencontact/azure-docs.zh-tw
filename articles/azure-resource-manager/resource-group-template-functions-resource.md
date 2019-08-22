@@ -4,14 +4,14 @@ description: 描述 Azure Resource Manager 範本中用來擷取資源相關值�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 08/06/2019
+ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839265"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650424"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -634,7 +634,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 
 ## <a name="resourceid"></a>resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 傳回資源的唯一識別碼。 如果資源名稱不確定或未佈建在相同的範本內，請使用此函數。 
 
@@ -646,43 +646,46 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 | resourceGroupName |否 |string |預設值為目前資源群組。 需要擷取另一個訂用帳戶中的資源群組時，請指定此值。 |
 | resourceType |是 |string |資源的類型 (包括資源提供者命名空間)。 |
 | resourceName1 |是 |string |資源的名稱。 |
-| resourceName2 |否 |string |如果是巢狀資源，則為下一個資源名稱區段。 |
+| resourceName2 |否 |string |下一個資源名稱區段 (如有需要)。 |
+
+當資源類型包含更多區段時, 請繼續新增資源名稱作為參數。
 
 ### <a name="return-value"></a>傳回值
 
 識別碼會以下列格式傳回：
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
 
 ### <a name="remarks"></a>備註
 
-當搭配[訂用帳戶層級部署](deploy-to-subscription.md)時，`resourceId()` 函式只能擷取部署在該層級的資源識別碼。 例如，您可以取得原則定義或角色定義的識別碼，但不是儲存體帳戶的識別碼。 對於對資源群組的部署，情況則相反。 您無法取得部署在訂用帳戶層級資源的資源識別碼。
+您提供的參數數目會根據資源是父系或子資源, 以及資源是否位於相同的訂用帳戶或資源群組而有所不同。
 
-您指定的參數值取決於資源是否在相同的訂用帳戶和資源群組中作為目前的部署。 若要在相同的訂用帳戶和資源群組中取得儲存體帳戶的資源識別碼，請使用：
-
-```json
-"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-```
-
-若要在相同的訂用帳戶但不同的資源群組中取得儲存體帳戶的資源識別碼，請使用：
+若要取得相同訂用帳戶和資源群組中父資源的資源識別碼, 請提供資源的類型和名稱。
 
 ```json
-"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+"[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-若要在不同的訂用帳戶和資源群組中取得儲存體帳戶的資源識別碼，請使用：
+若要取得子資源的資源識別碼, 請注意資源類型中的區段數目。 為資源類型的每個區段提供資源名稱。 區段的名稱會對應至該階層的該部分所存在的資源。
+
+```json
+"[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
+```
+
+若要取得相同訂用帳戶中資源的資源識別碼, 但使用不同的資源群組, 請提供資源組名。
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
+```
+
+若要取得不同訂用帳戶和資源群組中資源的資源識別碼, 請提供訂用帳戶識別碼和資源組名。
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-若要在不同的資源群組中取得資料庫的資源識別碼，請使用：
-
-```json
-"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
-```
+當搭配[訂用帳戶層級部署](deploy-to-subscription.md)時，`resourceId()` 函式只能擷取部署在該層級的資源識別碼。 例如，您可以取得原則定義或角色定義的識別碼，但不是儲存體帳戶的識別碼。 對於對資源群組的部署，情況則相反。 您無法取得部署在訂用帳戶層級資源的資源識別碼。
 
 若要在訂用帳戶範圍部署時取得訂用帳戶層級資源的資源識別碼，請使用：
 
@@ -766,7 +769,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c225aa5f821925247d27890e9ee75f3eac4d9eb9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36c06182d0807ce3d255477a865023ae7b74e2cb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977348"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874919"
 ---
 # <a name="create-a-data-source"></a>建立資料來源
 
@@ -22,7 +22,11 @@ Azure 地圖服務 Web SDK 會將資料儲存在資料來源中, 以將資料優
 
 **GeoJSON 資料來源**
 
-以 GeoJSON 為基礎的資料來源可以使用類別在`DataSource`本機載入和儲存資料。 您可以使用 GeoJSON 資料, 以[資料](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data)命名空間中的 helper 類別手動建立或建立。 `DataSource`類別提供匯入本機或遠端 GeoJSON 檔案的功能。 遠端 GeoJSON 檔必須裝載在啟用 CORs 的端點上。 `DataSource`類別會提供群集點資料的功能。 
+以 GeoJSON 為基礎的資料來源可以使用類別在`DataSource`本機載入和儲存資料。 您可以使用 GeoJSON 資料, 以[資料](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data)命名空間中的 helper 類別手動建立或建立。 `DataSource`類別提供匯入本機或遠端 GeoJSON 檔案的功能。 遠端 GeoJSON 檔必須裝載在啟用 CORs 的端點上。 `DataSource`類別會提供群集點資料的功能。 您可以使用`DataSource`類別輕鬆地新增、移除和更新資料。
+
+
+> [!TIP]
+> 如果您想要覆寫中`DataSource`的所有資料, 當您呼叫`clear` then `add`函式時, 對應將會嘗試重新轉譯兩次, 這可能會造成一些延遲。 改為`setShapes`使用函式, 此函式會移除並取代資料來源中的所有資料, 而且只會觸發地圖的單一重新呈現。
 
 **向量圖格來源**
 

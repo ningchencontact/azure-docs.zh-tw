@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: ea7b38f509fcdaa4e41ce17db3beca44b05a59b2
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 9be0b93335cef919db4efa2fce361bda1f9b934e
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514488"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891985"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
@@ -50,11 +50,11 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 
 IoT 中樞也會提供免費層供您測試和評估。 其具有標準層的所有功能，但允許的傳訊量有限。 您無法從免費層升級至基本或標準層。
 
-## <a name="partitions"></a>分割數
+## <a name="partitions"></a>分割區
 
 Azure IoT 中樞包含 [Azure 事件中樞](../event-hubs/event-hubs-features.md)的多個核心元件，包括[分割區](../event-hubs/event-hubs-features.md#partitions)。 IoT 中樞的事件資料流通常會填入由各種不同 IoT 裝置報告的內送遙測資料。 事件資料流的分割可用來減少同時讀取和寫入事件資料流時所發生的爭用。
 
-分割區限制是在 IoT 中樞建立時所選擇的，無法變更。 基本層 IoT 中樞和標準層 IoT 中樞的最大分割區限制為 32。 大部分的 IoT 中樞只需要 4 個分割區。 如需關於決定分割區的詳細資訊，請參閱事件中樞的常見問題集：[我需要多少個分割區？](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+分割區限制是在 IoT 中樞建立時所選擇的，無法變更。 基本層 IoT 中樞和標準層 IoT 中樞的最大分割區限制為32。 大部分的 IoT 中樞只需要 4 個分割區。 如需關於決定分割區的詳細資訊，請參閱事件中樞的常見問題集：[我需要多少個分割區？](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 ## <a name="tier-upgrade"></a>層級升級
 
@@ -83,7 +83,7 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 | [建立檔案上傳 SAS URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | 是 | 是 |
 | [接收裝置繫結通知](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | 是 | 是 |
 | [傳送裝置事件](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | 是 | 是 |
-| 傳送模組事件 | AMQP 和 MQTT 只 | AMQP 和 MQTT 只 |
+| 傳送模組事件 | 僅限 AMQP 和 MQTT | 僅限 AMQP 和 MQTT |
 | [更新檔案上傳狀態](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 是 | 是 |
 | [大量裝置作業](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | 是，IoT Edge 功能除外 | 是 |
 | [清除命令佇列](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | 是 |
@@ -129,12 +129,8 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 
 如果您即將達到 IoT 中樞上允許的訊息限制，可以使用這些[步驟來自動調整](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)，以增加相同 IoT 中樞層的 IoT 中樞單位。
 
-## <a name="sharding"></a>分區化
-
-雖然單一 IoT 中樞可以擴充到數百萬個裝置，但有時候您的解決方案需要單一 IoT 中樞無法保證的特定效能特性。 在此情況下，您可以將裝置分割到多個 IoT 中樞。 多個 IoT 中心可減緩資料傳輸量暴增，並取得所需的輸送量或作業速率。
-
 ## <a name="next-steps"></a>後續步驟
 
-* 如需有關 IoT 中樞功能和效能詳細資料的詳細資訊，請參閱 < [IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub)或是[IoT 中樞配額與節流](iot-hub-devguide-quotas-throttling.md)。
+* 如需 IoT 中樞功能和效能詳細資料的詳細資訊, 請參閱[IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub)或[IoT 中樞配額和](iot-hub-devguide-quotas-throttling.md)節流。
 
 * 若要變更 IoT 中樞層，請遵循[升級 IoT 中樞](iot-hub-upgrade.md)內的步驟。

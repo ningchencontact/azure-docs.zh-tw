@@ -7,14 +7,16 @@ author: viv-liu
 ms.author: viviali
 ms.date: 06/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 16d7691d59e0805c7f8cf565a599ca5e6a78a7cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 897b72dd7b292492e45cdc7401fe1acc5c86ca20
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053038"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877463"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>視覺化與分析 Power BI 儀表板中的 Azure IoT Central 資料
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 *此主題適用於系統管理員。*
 
@@ -31,7 +33,7 @@ ms.locfileid: "67053038"
 
 ## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>從 Microsoft AppSource取得 [Azure IoT Central 的 Power BI 解決方案](https://aka.ms/iotcentralpowerbisolutiontemplate)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 設定解決方案需要下列項目：
 - Azure 訂用帳戶的存取權
 - 使用[連續資料匯出](howto-export-data.md)從 IoT Central 應用程式匯出的資料。 我們建議您開啟量測、裝置和裝置範本串流，以充分利用 Power BI 儀表板。

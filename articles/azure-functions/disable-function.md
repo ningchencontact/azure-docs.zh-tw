@@ -7,25 +7,57 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 08/05/2019
 ms.author: glenga
-ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60710555"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650485"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>如何停用 Azure Functions 中的函式
 
-本文說明如何停用 Azure Functions 中的函式。 「停用」  函式表示讓執行階段忽略為此函式定義的自動觸發程序。 您這麼做的方式取決於執行階段版本和程式設計語言：
+本文說明如何停用 Azure Functions 中的函式。 「停用」函式表示讓執行階段忽略為此函式定義的自動觸發程序。 您這麼做的方式取決於執行階段版本和程式設計語言：
 
-* Functions 1.x
-  * 指令碼語言
-  * C# 類別庫
-* Functions 2.x
+* 函數 2.x:
   * 一種方法適用於所有語言
   * C# 類別庫的選擇性方法
+* 函數 1.x:
+  * 指令碼語言
+  * C# 類別庫
+
+## <a name="functions-2x---all-languages"></a>Functions 2.x - 所有語言
+
+在函數2.x 中, 您可以使用格式`AzureWebJobs.<FUNCTION_NAME>.Disabled`的應用程式設定來停用函式。 您可以透過數種方式來建立和修改此應用程式設定, 包括使用 [ [Azure CLI](/cli/azure/) ], 並從[Azure 入口網站](https://portal.azure.com)中的函式 [**管理**] 索引標籤。 
+
+### <a name="azure-cli"></a>Azure CLI
+
+在 Azure CLI 中, 您會使用[`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)命令來建立和修改應用程式設定。 下列命令會建立名為的`QueueTrigger`應用程式`AzureWebJobs.QueueTrigger.Disabled`設定, 並將其設定為`true`, 以停用名為的函式。 
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> \
+--settings AzureWebJobs.QueueTrigger.Disabled=true
+```
+
+若要重新啟用函式, 請使用的值`false`重新執行相同的命令。
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> \
+--settings AzureWebJobs.QueueTrigger.Disabled=false
+```
+
+### <a name="portal"></a>入口網站
+
+您也可以使用函式的 [管理] 索引標籤上的 [函式狀態] 切換。此切換可藉由建立和刪除 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 應用程式設定來產生作用。
+
+![函式狀態切換](media/disable-function/function-state-switch.png)
+
+## <a name="functions-2x---c-class-libraries"></a>Functions 2.x - C# 類別庫
+
+在 Functions 2.x 類別庫中，我們建議您使用所有語言都適用的方法。 但如有需要，您可以[使用如 Functions 1.x 中的 Disable 屬性](#functions-1x---c-class-libraries)。
 
 ## <a name="functions-1x---scripting-languages"></a>Functions 1.x - 指令碼語言
 
@@ -56,7 +88,7 @@ ms.locfileid: "60710555"
 
 在第二個範例中，如有名為 IS_DISABLED 且設為 `true` 或 1 的應用程式設定，此函式就會停用。
 
-您可以在 Azure 入口網站中編輯此檔案，或使用函式的 [管理]  索引標籤上的 [函式狀態]  切換。此入口網站切換可藉由變更 *function.json* 檔案來產生作用。
+您可以在 Azure 入口網站中編輯此檔案，或使用函式的 [管理] 索引標籤上的 [函式狀態] 切換。此入口網站切換可藉由變更 *function.json* 檔案來產生作用。
 
 ![函式狀態切換](media/disable-function/function-state-switch.png)
 
@@ -99,21 +131,9 @@ public static class QueueFunctions
 > [!IMPORTANT]
 > `Disabled` 屬性是停用類別庫函式的唯一方式。 您不應該直接編輯為類別庫函式所產生的 *function.json* 檔案。 如果您編輯該檔案，無論您對 `disabled` 屬性做什麼都不會有任何作用。
 >
-> [管理]  索引標籤上的 [函式狀態]  切換也是如此，因為它可藉由變更 *function.json* 檔案來產生作用。
+> [管理] 索引標籤上的 [函式狀態] 切換也是如此，因為它可藉由變更 *function.json* 檔案來產生作用。
 >
 > 另請注意，入口網站可能會在此函式並未停用時，指出它已停用。
-
-
-
-## <a name="functions-2x---all-languages"></a>Functions 2.x - 所有語言
-
-在 Functions 2.x 中，您可使用應用程式設定來停用函式。 例如，若要停用名為 `QueueTrigger` 的函式，您可建立名為 `AzureWebJobs.QueueTrigger.Disabled` 的應用程式設定，並將它設定為 `true`。 若要啟用此函式，請將應用程式設定設為 `false`。 您也可以使用函式的 [管理]  索引標籤上的 [函式狀態]  切換。此切換可藉由建立和刪除 `AzureWebJobs.<functionname>.Disabled` 應用程式設定來產生作用。
-
-![函式狀態切換](media/disable-function/function-state-switch.png)
-
-## <a name="functions-2x---c-class-libraries"></a>Functions 2.x - C# 類別庫
-
-在 Functions 2.x 類別庫中，我們建議您使用所有語言都適用的方法。 但如有需要，您可以[使用如 Functions 1.x 中的 Disable 屬性](#functions-1x---c-class-libraries)。
 
 ## <a name="next-steps"></a>後續步驟
 

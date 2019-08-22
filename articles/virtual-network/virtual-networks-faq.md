@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7ec731c6b75ff556c9e00f7041fea32f807fe5f4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035328"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892029"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -29,9 +29,11 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 它是專屬�
 
 您可以使用 VNet：
 
-* 建立專用的僅限私人雲端 VNet 您並非每次都需要為解決方案取得跨單位組態。 當您建立 VNet 時，您的服務和 VNet 中的 VM 可以直接且安全地在雲端中彼此通訊。 您仍然可以設定 VM 的端點連線，以及需要網際網路通訊作為解決方案一部分的服務。
-* 安全地擴充資料中心 您可以使用 VNet 建置傳統的站台對站台 (S2S) VPN，安全地擴充資料中心容量。 S2S VPN 使用 IPSEC 在您的公司 VPN 閘道與 Azure 之間提供安全連接。
-* 啟用混合式雲端案例 VNet 可讓您彈性地支援許多混合式雲端案例。 您可以將雲端型應用程式安全地連接到任何類型的內部部署系統，例如大型主機和 Unix 系統。
+* 建立專用的私人僅限雲端 VNet。 針對您的解決方案，有時候您不需要跨單位組態。 當您建立 VNet 時，您的服務和 VNet 中的 VM 可以直接且安全地在雲端中彼此通訊。 您仍然可以設定 VM 的端點連線，以及需要網際網路通訊作為解決方案一部分的服務。
+
+* 安全地擴充您的資料中心。 您可以使用 VNet 建置傳統的站台對站台 (S2S) VPN，安全地擴充資料中心容量。 S2S VPN 使用 IPSEC 在您的公司 VPN 閘道與 Azure 之間提供安全連接。
+
+* 啟用混合式雲端案例。 VNet 可讓您彈性地支援許多混合式雲端案例。 您可以將雲端型應用程式安全地連接到任何類型的內部部署系統，例如大型主機和 Unix 系統。
 
 ### <a name="how-do-i-get-started"></a>如何開始使用？
 請造訪[虛擬網路文件](https://docs.microsoft.com/azure/virtual-network/)以開始使用。 本內容提供所有 VNet 功能的概觀和部署資訊。

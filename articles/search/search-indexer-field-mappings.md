@@ -3,19 +3,19 @@ title: 可使用索引子用於自動編製索引的欄位對應 - Azure 搜尋�
 description: 設定 Azure 搜尋服務索引子欄位對應，以處理欄位名稱和資料表示法的差異。
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 771a6e413cd08a338da41c09cd6a0da35e28e5e4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b64f6dcecb26e35689ad6f569ade6c7862f06f1a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840647"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648129"
 ---
 # <a name="field-mappings-and-transformations-using-azure-search-indexers"></a>使用 Azure 搜尋服務索引子的欄位對應和轉換
 
