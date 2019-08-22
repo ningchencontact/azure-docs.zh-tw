@@ -2,7 +2,7 @@
 title: Node.js 快速入門：使用 Azure 搜尋服務 REST API 建立、載入及查詢索引 - Azure 搜尋服務
 description: 適用於 Azure 搜尋服務的 Node.js 範例，示範如何建立、載入資料，以及從 JavaScript 查詢資料。
 author: lobrien
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/30/2019
 ms.author: laobri
-ms.openlocfilehash: 41ad5aed975f30250d53d746e7590f88e375b6e9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: b22a6371522674895465afac88e68f556ab09bcb
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977247"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656293"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>快速入門：在 Node.js 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -28,13 +28,13 @@ ms.locfileid: "68977247"
 
 建立 Node.js 應用程式，以建立、載入和查詢 Azure 搜尋服務索引。 本文示範如何逐步建立應用程式。 或者，您可以[下載原始程式碼和資料](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/)，並從命令列執行應用程式。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
 本快速入門會使用下列服務、工具和資料。
 
-+ [Node.js](https://nodejs.org)。
++ [Node.js](https://nodejs.org).
 + [NPM](https://www.npmjs.com) 應由 Node.js 安裝。
 + 本文或[存放庫的**快速入門**目錄](https://github.com/Azure-Samples/azure-search-javascript-samples/)會提供範例索引結構和比對文件。
 + [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。

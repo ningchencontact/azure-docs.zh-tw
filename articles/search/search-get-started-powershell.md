@@ -3,18 +3,18 @@ title: PowerShell 快速入門：使用 REST API 建立、載入及查詢索引 
 description: 說明如何使用 PowerShell 的 Invoke-RestMethod 與 Azure 搜尋服務 REST API 建立索引、載入資料以及執行查詢。
 ms.date: 07/11/2019
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 3c47a9a809357d1ad09d8a2dd2ef5a7f1a31a02d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 171e5a59c59b27469eb3c344fa45c6814b9fbf97
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840716"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656278"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>快速入門：使用 REST API 在 PowerShell 中建立 Azure 搜尋服務索引
 > [!div class="op_single_selector"]

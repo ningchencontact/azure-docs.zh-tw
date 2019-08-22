@@ -1,6 +1,6 @@
 ---
 title: 快速入門：使用 C# 建立可啟動沈浸式閱讀程式的 Web 應用程式
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您會從頭開始建置 Web 應用程式，並且新增沈浸式閱讀程式 API 功能。
 services: cognitive-services
 author: metanMSFT
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 0d67385975db13539c28745eede4fb288a0daedd
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ed49f834cb7cd4f649d84aea9e549e212771eead
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989133"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899356"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>快速入門：建立可啟動沈浸式閱讀程式的 Web 應用程式 (C#)
 
@@ -23,7 +23,7 @@ ms.locfileid: "68989133"
 
 在本快速入門中，您會從頭開始建置 Web 應用程式，並且使用沈浸式閱讀程式 SDK 來與沈浸式閱讀程式整合。 本快速入門的完整工作範例可以在[這裡](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp)取得。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 35a41abb156326612c2d60829980f73457cde881
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 05b591137a53e60b3197feb7f57564a8d4af7a44
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601760"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624288"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -83,8 +83,6 @@ Azure 備份目前支援對 Azure 檔案共用設定每日一次的排程備份�
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>每個檔案共用可以進行多少個隨選備份？ <br/>
 在任何時間點，檔案共用最多可以有 200 個快照集。 如您的原則所定義，此限制包含 Azure 備份所產生的快照集。 如果您的備份在達到此限制之後開始失敗，請刪除隨選還原點，以便未來備份成功。
 
-### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>在我的儲存體帳戶上啟用虛擬網路之後，帳戶中的檔案共用備份卻開始失敗。 原因為何？
-已啟用虛擬網路的儲存體帳戶不支援 Azure 檔案共用的備份。 在儲存體帳戶中停用虛擬網路，以達成成功的備份。
 
 ## <a name="restore"></a>Restore
 

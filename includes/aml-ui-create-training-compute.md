@@ -9,18 +9,16 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/06/2019
-ms.openlocfilehash: cf35651f7dd839e8792029851b9bfe278036624c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eb84dc1b5bf3f756e484ef27aaa998ab6b94cc51
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174596"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891671"
 ---
 對計算目標執行實驗，此目標為連結至工作區的計算資源。  建立計算目標之後，您可以將其重複用於未來的執行。
 
 1. 選取底部的 [執行]  以執行實驗。
-
-     ![執行實驗](./media/aml-ui-create-training-compute/run-experiment.png)
 
 1. 當 [設定計算目標]  對話方塊出現時，如果您的工作區中已有計算資源，您即可加以選取。  否則，請選取 [新建]  。
 

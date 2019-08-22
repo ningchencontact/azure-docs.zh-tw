@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 84fa7aa006a6bc5365527dbf8043797617543590
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ff212e77b6fcaaa057c22c420cce82e7ea6c82e6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704547"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877283"
 ---
 <!---
 Purpose of an Overview article: 
@@ -23,7 +23,9 @@ Purpose of an Overview article:
 3. To compare the service to another service/product that has some similar functionality, ex. SQL Database / SQL Data Warehouse, if appropriate. This info can be in a short list or table. 
 -->
 
-# <a name="what-is-azure-iot-central"></a>什麼是 Azure IoT Central？
+# <a name="what-is-azure-iot-central"></a>何謂 Azure IoT 中心？
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Azure IoT Central 是一個完全受控的 IoT 軟體即服務解決方案，可讓您輕鬆地建立連接實體與數位世界的產品。 您可以將連線的產品願景帶到生活中，方法如下：
 

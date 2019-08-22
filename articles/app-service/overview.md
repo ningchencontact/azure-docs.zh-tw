@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5ce8abd08f82a2a8b69cc996bfd8f7f060bb8c23
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8a7268ebae80df5a0004e824641e24b979b9c79f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205038"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637703"
 ---
 # <a name="app-service-overview"></a>App Service 概觀
 
@@ -36,7 +36,7 @@ App Service 不只能將 Microsoft Azure 的功能新增到您的應用程式，
 
 * **多種語言和架構** - App Service 具有 ASP.NET、ASP.NET Core、Java、Ruby、Node.js、PHP 或 Python 的第一級支援。 您也可以將 [PowerShell 和其他指令碼或可執行檔](webjobs-create.md) 做為背景服務來執行。
 * **DevOps 最佳化** - 使用 Azure DevOps、GitHub、BitBucket、Docker Hub 或 Azure Container Registry 設定[持續整合和部署](deploy-continuous-deployment.md)。 透過 [測試和預備環境](deploy-staging-slots.md)升級更新。 使用 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 或[跨平台命令列介面 (CLI)](/cli/azure/install-azure-cli)，在 App Service 中管理您的應用程式。
-* **具高可用性的全域調整** - 以手動或自動方式相應[增加](web-sites-scale.md)或[放大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Microsoft 的通用資料中心基礎結構中隨處裝載您的應用程式，而 App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 會承諾高可用性。
+* **具高可用性的全域調整** - 以手動或自動方式相應[增加](manage-scale-up.md)或[放大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Microsoft 的通用資料中心基礎結構中隨處裝載您的應用程式，而 App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 會承諾高可用性。
 * **SaaS 平台和內部部署資料的連線** - 有超過 50 種適用於企業系統 (例如 SAP)、SaaS 服務 (例如 Salesforce) 和網際網路服務 (例如 Facebook) 的[連接器](../connectors/apis-list.md)可供選擇。 使用[混合式連線](app-service-hybrid-connections.md)和 [Azure 虛擬網路](web-sites-integrate-with-vnet.md)存取內部部署資料。
 * **安全性和法規遵循** - App Service 為 [ISO、SOC 和 PCI 相容](https://www.microsoft.com/en-us/trustcenter)。 可使用 [Azure Active Directory](configure-authentication-provider-aad.md) 或社交登入 ([Google](configure-authentication-provider-google.md)、[Facebook](configure-authentication-provider-facebook.md)、[Twitter](configure-authentication-provider-twitter.md) 和 [Microsoft](configure-authentication-provider-microsoft.md)) 驗證使用者。 建立 [IP 位址限制](app-service-ip-restrictions.md)和[管理服務身分識別](overview-managed-identity.md)。
 * **應用程式範本** - 從 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 中的廣泛應用程式範本清單中進行選擇，例如 WordPress、Joomla 和 Drupal。

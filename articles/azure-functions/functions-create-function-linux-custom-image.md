@@ -11,18 +11,18 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619620"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562927"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>在 Linux 上使用自訂映像建立函式
 
 Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可以[在預設的 Azure App Service 容器上裝載](functions-create-first-azure-function-azure-cli-linux.md)。 此功能需要 [Functions 2.x 執行階段](functions-versions.md)。
 
-在本教學課程中，您將了解如何以自訂 Docker 映像的形式將函式部署到 Azure。 當您需要自訂內建容器映像時，此模式相當有用。 當您的函式需要特定的語言版本，或需要內建映像未提供的特定相依性或設定時，您可能會想使用自訂映像。 在 [Azure Functions 基底映像存放庫](https://hub.docker.com/_/microsoft-azure-functions-base)中可找到針對 Azure Functions 支援的基底映像。 [Python 支援](functions-reference-python.md)目前處於預覽階段。
+在本教學課程中，您將了解如何以自訂 Docker 映像的形式將函式部署到 Azure。 當您需要自訂內建容器映像時，此模式相當有用。 當您的函式需要特定的語言版本，或需要內建映像未提供的特定相依性或設定時，您可能會想使用自訂映像。 在 [Azure Functions 基底映像存放庫](https://hub.docker.com/_/microsoft-azure-functions-base)中可找到針對 Azure Functions 支援的基底映像。 
 
 本教學課程會引導您使用 Azure Functions Core Tools 在自訂 Linux 映像中建立建立函式。 您會將此映像發佈到 Azure 中使用 Azure CLI 建立的函式應用程式。 稍後，您會更新此函式以連線到 Azure 佇列儲存體。 您也會啟用。  
 
@@ -69,8 +69,6 @@ func init MyFunctionProj --docker
 * `dotnet`：建立 .NET Core 類別庫專案 (.csproj)。
 * `node`：建立 JavaScript 專案。
 * `python`：建立 Python 專案。
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 當命令執行時，您會看到如下輸出：
 

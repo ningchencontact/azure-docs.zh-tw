@@ -1,20 +1,20 @@
 ---
 title: 教學課程：建立可拍攝相片的 iOS 應用程式，並在沈浸式閱讀程式中加以啟動 (Swift)
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，您將從頭開始建置 iOS 應用程式，並將「圖片」新增至沈浸式閱讀程式功能。
 services: cognitive-services
-author: MeganRoach
+author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.author: t-meroa
-ms.openlocfilehash: d0e6cf05043c82faa04d530571ad7cacb3a02854
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.author: metan
+ms.openlocfilehash: bdaee97c8c5d7e19076847c5f1f7c07c528c1747
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990396"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899380"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>教學課程：建立以相片中的內容啟動沈浸式閱讀程式的 iOS 應用程式 (Swift)
 
@@ -24,7 +24,7 @@ ms.locfileid: "68990396"
 
 在本教學課程中，您將從頭開始建置 iOS 應用程式，並且使用沈浸式閱讀程式 SDK 整合讀取 API 與沈浸式閱讀程式。 本教學課程的完整工作範例可以在[這裡](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/picture-to-immersive-reader-swift)取得。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 

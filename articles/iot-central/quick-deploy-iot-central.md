@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 4ce0606558cad981b183282bee026bdcef6b0cdd
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 78fb48d2584e94e5c38a4648f1ae41e566637601
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815782"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875588"
 ---
 # <a name="create-an-azure-iot-central-application"></a>建立 Azure IoT Central 應用程式
 
-「建置者」  可使用 Azure IoT Central UI 來定義 Microsoft Azure IoT Central 應用程式。 本快速入門說明如何建立包含範例 _和模擬 _的 Azure IoT Central 應用程式。
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+「建置者」  可使用 Azure IoT Central UI 來定義 Microsoft Azure IoT Central 應用程式。 本快速入門說明如何建立包含範例_裝置範本_和模擬_裝置_的 Azure IoT Central 應用程式。
 
 ## <a name="create-an-application"></a>建立應用程式
 

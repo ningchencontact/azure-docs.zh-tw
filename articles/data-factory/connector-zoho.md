@@ -78,7 +78,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 內容 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**ZohoObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -108,7 +108,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為：**ZohoSource** | 是 |
-| 查詢 | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 

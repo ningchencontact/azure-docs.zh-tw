@@ -33,7 +33,7 @@ ms.locfileid: "61473054"
 具體而言，這個 Sybase 連接器支援：
 
 - SAP Sybase SQL Anywhere (ASA) **第 16 版和更新版本**；不支援 IQ 和 ASE。
-- 使用 **Basic** (基本) 或 **Windows** 驗證來複製資料。
+- 使用 **Basic** 或 **Windows** 驗證來複製資料。
 
 ## <a name="prerequisites"></a>先決條件
 
@@ -57,7 +57,7 @@ ms.locfileid: "61473054"
 | type | 類型屬性必須設定為：**Sybase** | 是 |
 | server | Sybase 伺服器的名稱。 |是 |
 | database | Sybase 資料庫的名稱。 |是 |
-| authenticationType | 用來連接到 Sybase 資料庫的驗證類型。<br/>允許的值包括：**基本**和 **Windows**。 |是 |
+| authenticationType | 用來連接到 Sybase 資料庫的驗證類型。<br/>允許的值包括：**Basic**和 **Windows**。 |是 |
 | username | 指定連線到 Sybase 資料庫時所要使用的使用者名稱。 |是 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
@@ -96,7 +96,7 @@ ms.locfileid: "61473054"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
-| tableName | Sybase 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| tableName | Sybase 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 

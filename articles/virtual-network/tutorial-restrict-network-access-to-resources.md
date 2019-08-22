@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 4d3fd152782c65c7f63e459a1c35dee6ae764361
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 34cb2b6c5a770aa9ec38ce02a97d976fe28251ac
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708837"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638747"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>教學課程：透過使用 Azure 入口網站的虛擬網路服務端點來限制對 PaaS 資源的網路存取
 
@@ -45,20 +45,22 @@ ms.locfileid: "64708837"
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 選取 [網絡]，然後選取 [虛擬網路]。
-3. 輸入或選取下列資訊，然後選取 [建立]︰
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+2. 選取 [網絡]  ，然後選取 [虛擬網路]  。
+3. 輸入或選取下列資訊，然後選取 [建立]  ︰
 
    |設定|值|
    |----|----|
    |Name| myVirtualNetwork |
    |位址空間| 10.0.0.0/16|
-   |訂用帳戶| 選取您的訂用帳戶|
-   |資源群組 | 選取 [新建]，然後輸入 *myResourceGroup*。|
-   |位置| 選取 [美國東部] |
+   |Subscription| 選取您的訂用帳戶|
+   |Resource group | 選取 [新建]  ，然後輸入 *myResourceGroup*。|
+   |Location| 選取 [美國東部]  |
    |子網路名稱| 公開|
    |子網路位址範圍| 10.0.0.0/24|
+   |DDoS 保護| 基本|
    |服務端點| 已停用|
+   |防火牆| 已停用|
 
    ![輸入虛擬網路的相關基本資訊](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -66,18 +68,18 @@ ms.locfileid: "64708837"
 
 每項服務、每個子網路都會啟用服務端點。 建立子網路，並啟用子網路的服務端點。
 
-1. 在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，輸入 myVirtualNetwork。 當搜尋結果中出現 **myVirtualNetwork** 時加以選取。
-2. 將子網路新增至虛擬網路。 在 [設定] 底下選取 [子網路]，然後選取 [+ 子網路]，如下圖所示：
+1. 在入口網站頂端的 [搜尋資源、服務和文件]  方塊中，輸入 myVirtualNetwork  。 當搜尋結果中出現 **myVirtualNetwork** 時加以選取。
+2. 將子網路新增至虛擬網路。 在 [設定]  底下選取 [子網路]  ，然後選取 [+ 子網路]  ，如下圖所示：
 
     ![新增子網路](./media/tutorial-restrict-network-access-to-resources/add-subnet.png) 
 
-3. 在 [新增子網路] 底下選取或輸入下列資訊，然後選取 [確定]︰
+3. 在 [新增子網路]  底下選取或輸入下列資訊，然後選取 [確定]  ︰
 
     |設定|值|
     |----|----|
     |Name| 私人 |
     |位址範圍| 10.0.1.0/24|
-    |服務端點| 選取 [服務] 底下的 [Microsoft.Storage]|
+    |服務端點| 選取 [服務]  底下的 [Microsoft.Storage] |
 
 > [!CAUTION]
 > 針對具有資源的現有子網路啟用服務端點之前，請參閱[變更子網路設定](virtual-network-manage-subnet.md#change-subnet-settings)。
@@ -86,31 +88,31 @@ ms.locfileid: "64708837"
 
 根據預設，子網路中的所有 VM 可以與所有資源通訊。 建立網路安全性群組，並將它與子網路產生關聯，即可限制與子網路中所有資源之間的通訊。
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 選擇 [網路]，然後選取 [網路安全性群組]。
-3. 在 [建立網路安全性群組] 底下，輸入或選取下列資訊，然後選取 [建立]︰
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+2. 選擇 [網路]  ，然後選取 [網路安全性群組]  。
+3. 在 [建立網路安全性群組]  底下，輸入或選取下列資訊，然後選取 [建立]  ︰
 
     |設定|值|
     |----|----|
     |Name| myNsgPrivate |
-    |訂用帳戶| 選取您的訂用帳戶|
-    |資源群組 | 選取 [使用現有項目]，然後選取 [myResourceGroup]。|
-    |位置| 選取 [美國東部] |
+    |Subscription| 選取您的訂用帳戶|
+    |Resource group | 選取 [使用現有項目]  ，然後選取 [myResourceGroup]  。|
+    |Location| 選取 [美國東部]  |
 
-4. 建立網路安全性群組之後，請在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，輸入 myNsgPrivate。 當 **myNsgPrivate** 出現在搜尋結果中時，請加以選取。
-5. 在 [設定] 下，選取 [輸出安全性規則]。
-6. 選取 [+ 新增] 。
-7. 建立一個規則，允許 Azure 儲存體服務的輸出通訊。 輸入或選取下列資訊，然後選取 [新增]︰
+4. 建立網路安全性群組之後，請在入口網站頂端的 [搜尋資源、服務和文件]  方塊中，輸入 myNsgPrivate  。 當 **myNsgPrivate** 出現在搜尋結果中時，請加以選取。
+5. 在 [設定]  下，選取 [輸出安全性規則]  。
+6. 選取 [+ 新增]  。
+7. 建立一個規則，允許 Azure 儲存體服務的輸出通訊。 輸入或選取下列資訊，然後選取 [新增]  ︰
 
     |設定|值|
     |----|----|
-    |來源| 選取 [VirtualNetwork] |
+    |來源| 選取 [VirtualNetwork]  |
     |來源連接埠範圍| * |
-    |目的地 | 選取 [服務標記]|
-    |目的地服務標記 | 選取 [儲存體]|
+    |目的地 | 選取 [服務標記] |
+    |目的地服務標記 | 選取 [儲存體] |
     |目的地連接埠範圍| * |
     |通訊協定|任意|
-    | 動作|允許|
+    |動作|允許|
     |優先順序|100|
     |Name|Allow-Storage-All|
 
@@ -118,35 +120,35 @@ ms.locfileid: "64708837"
 
     |設定|值|
     |----|----|
-    |來源| 選取 [VirtualNetwork] |
+    |來源| 選取 [VirtualNetwork]  |
     |來源連接埠範圍| * |
-    |目的地 | 選取 [服務標記]|
-    |目的地服務標記| 選取 [網際網路]|
+    |目的地 | 選取 [服務標記] |
+    |目的地服務標記| 選取 [網際網路] |
     |目的地連接埠範圍| * |
     |通訊協定|任意|
-    | 動作|拒絕|
+    |動作|拒絕|
     |優先順序|110|
     |Name|Deny-Internet-All|
 
-9. 在 [設定] 下，選取 [輸入安全性規則]。
-10. 選取 [+ 新增] 。
-11. 建立，允許從任一處對子網路輸入遠端桌面通訊協定 (RDP) 流量的輸入安全性規則。 此規則會覆寫拒絕來自網際網路之所有輸入流量的預設安全性規則。 允許與子網路的遠端桌面連線，以便在稍後步驟中可以測試連線。 在 [設定] 下選取 [輸入安全性規則]，然後選取 [+新增]、輸入下列值，再選取 [新增]：
+9. 在 [設定]  下，選取 [輸入安全性規則]  。
+10. 選取 [+ 新增]  。
+11. 建立，允許從任一處對子網路輸入遠端桌面通訊協定 (RDP) 流量的輸入安全性規則。 此規則會覆寫拒絕來自網際網路之所有輸入流量的預設安全性規則。 允許與子網路的遠端桌面連線，以便在稍後步驟中可以測試連線。 在 [設定]  下選取 [輸入安全性規則]  ，然後選取 [+新增]  、輸入下列值，再選取 [新增]  ：
 
     |設定|值|
     |----|----|
     |來源| 任意 |
     |來源連接埠範圍| * |
-    |目的地 | 選取 [VirtualNetwork]|
+    |目的地 | 選取 [VirtualNetwork] |
     |目的地連接埠範圍| 3389 |
     |通訊協定|任意|
-    | 動作|允許|
+    |動作|允許|
     |優先順序|120|
     |Name|Allow-RDP-All|
 
-12. 在 [設定] 底下，選取 [子網路]。
-13. 選取 [+ 關聯]
-14. 在 [建立子網路關聯] 底下，選取 [虛擬網路]，然後在 [選擇虛擬網路] 底下選取 [myVirtualNetwork]。
-15. 在 [選取子網路] 下，選取 [私人]，然後選取 [確定]。
+12. 在 [設定]  底下，選取 [子網路]  。
+13. 選取 [+ 關聯] 
+14. 在 [建立子網路關聯]  底下，選取 [虛擬網路]  ，然後在 [選擇虛擬網路]  底下選取 [myVirtualNetwork]  。
+15. 在 [選取子網路]  下，選取 [私人]  ，然後選取 [確定]  。
 
 ## <a name="restrict-network-access-to-a-resource"></a>限制對資源的網路存取
 
@@ -154,54 +156,54 @@ ms.locfileid: "64708837"
 
 ### <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 選取 [儲存體]，然後選取 [儲存體帳戶 - blob、檔案、資料表、佇列]。
-3. 輸入或選取下列資訊、接受其餘預設值，然後選取 [建立]：
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+2. 選取 [儲存體]  ，然後選取 [儲存體帳戶 - blob、檔案、資料表、佇列]  。
+3. 輸入或選取下列資訊、接受其餘預設值，然後選取 [建立]  ：
 
     |設定|值|
     |----|----|
     |Name| 請輸入在所有 Azure 位置間具有唯一性、長度介於 3-24 個字元，且僅使用數字和小寫字母的名稱。|
     |帳戶類型|StorageV2 (一般用途 v2)|
-    |位置| 選取 [美國東部] |
+    |Location| 選取 [美國東部]  |
     |複寫| 本地備援儲存體 (LRS)|
-    |訂用帳戶| 選取您的訂用帳戶|
-    |資源群組 | 選取 [使用現有項目]，然後選取 [myResourceGroup]。|
+    |Subscription| 選取您的訂用帳戶|
+    |Resource group | 選取 [使用現有項目]  ，然後選取 [myResourceGroup]  。|
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>在儲存體帳戶中建立檔案共用
 
-1. 建立儲存體帳戶之後，請在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，輸入儲存體帳戶的名稱。 當您儲存體帳戶的名稱出現在搜尋結果時，請選取它。
-2. 選取 [檔案]，如下圖所示：
+1. 建立儲存體帳戶之後，請在入口網站頂端的 [搜尋資源、服務和文件]  方塊中，輸入儲存體帳戶的名稱。 當您儲存體帳戶的名稱出現在搜尋結果時，請選取它。
+2. 選取 [檔案]  ，如下圖所示：
 
    ![儲存體帳戶](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
 
-3. 選取 [+ 檔案共用]。
-4. 在 [名稱] 下，輸入 my-file-share，然後選取 [確定]。
-5. 關閉 [檔案服務] 方塊。
+3. 選取 [+ 檔案共用]  。
+4. 在 [名稱]  下，輸入 my-file-share  ，然後選取 [確定]  。
+5. 關閉 [檔案服務]  方塊。
 
 ### <a name="restrict-network-access-to-a-subnet"></a>限制對子網路的網路存取
 
-根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線，包括網際網路。 拒絕來自網際網路以及所有虛擬網路中所有其他子網路的網路存取，myVirtualNetwork 虛擬網路中的「私人」子網路除外。
+根據預設，儲存體帳戶會接受來自任何網路用戶端的網路連線，包括網際網路。 拒絕來自網際網路以及所有虛擬網路中所有其他子網路的網路存取，myVirtualNetwork  虛擬網路中的「私人」  子網路除外。
 
-1. 在儲存體帳戶的 [設定] 下，選取 [防火牆和虛擬網路]。
-2. 選取 [選取的網路]。
-3. 選取 [+新增現有的虛擬網路]。
-4. 在 [新增網路] 下，選取下列值，並選取 [新增]：
+1. 在儲存體帳戶的 [設定]  下，選取 [防火牆和虛擬網路]  。
+2. 選取 [選取的網路]  。
+3. 選取 [+新增現有的虛擬網路]  。
+4. 在 [新增網路]  下，選取下列值，並選取 [新增]  ：
 
     |設定|值|
     |----|----|
-    |訂用帳戶| 選取您的訂用帳戶。|
-    |虛擬網路|在 [虛擬網路] 下，選取 [myVirtualNetwork]|
-    |子網路| 在 [子網路] 下，選取 [私人]|
+    |Subscription| 選取您的訂用帳戶。|
+    |虛擬網路|在 [虛擬網路]  下，選取 [myVirtualNetwork] |
+    |子網路| 在 [子網路]  下，選取 [私人] |
 
     ![防火牆與虛擬網路](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. 選取 [ **儲存**]。
-6. 關閉 [防火牆和虛擬網路] 方塊。
-7. 在儲存體帳戶的 [設定] 下，選取 [存取金鑰]，如下圖所示：
+6. 關閉 [防火牆和虛擬網路]  方塊。
+7. 在儲存體帳戶的 [設定]  下，選取 [存取金鑰]  ，如下圖所示：
 
       ![防火牆與虛擬網路](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
-8. 將 [金鑰] 值記下，因為當您在稍後步驟中將檔案共用對應至 VM 中的磁碟機代號時，必須以手動方式將它輸入。
+8. 將 [金鑰]  值記下，因為當您在稍後步驟中將檔案共用對應至 VM 中的磁碟機代號時，必須以手動方式將它輸入。
 
 ## <a name="create-virtual-machines"></a>建立虛擬機器
 
@@ -209,45 +211,45 @@ ms.locfileid: "64708837"
 
 ### <a name="create-the-first-virtual-machine"></a>建立第一部虛擬機器
 
-1. 選取 Azure 入口網站左上角的 [+ 建立資源]。
-2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。
-3. 輸入或選取下列資訊，然後選取 [確定]︰
+1. 選取 Azure 入口網站左上角的 [+ 建立資源]  。
+2. 選取 [計算]  ，然後選取 [Windows Server 2016 Datacenter]  。
+3. 輸入或選取下列資訊，然後選取 [確定]  ︰
 
    |設定|值|
    |----|----|
    |Name| myVmPublic|
    |使用者名稱|輸入您選擇的使用者名稱。|
    |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
-   |訂用帳戶| 選取您的訂用帳戶。|
-   |資源群組| 選取 [使用現有項目]，然後選取 [myResourceGroup]。|
-   |位置| 選取 [美國東部]。|
+   |Subscription| 選取您的訂用帳戶。|
+   |Resource group| 選取 [使用現有項目]  ，然後選取 [myResourceGroup]  。|
+   |Location| 選取 [美國東部]  。|
 
    ![輸入虛擬機器的相關基本資訊](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
-4. 選取虛擬機器的大小，然後選取 [選取]。
-5. 在 [設定] 下，選取 [網路]，然後選取 [myVirtualNetwork]。 然後選取 [子網路]，並選取 [公用]，如下圖所示：
+4. 選取虛擬機器的大小，然後選取 [選取]  。
+5. 在 [設定]  下，選取 [網路]  ，然後選取 [myVirtualNetwork]  。 然後選取 [子網路]  ，並選取 [公用]  ，如下圖所示：
 
    ![選取虛擬網路](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
 
-6. 在 [網路安全性群組] 下方，選取 [進階]。 入口網站會自動為您建立允許連接埠 3389 的網路安全性群組；您必須開啟此連接埠，才能在後續的步驟中連線至虛擬機器。 在 [設定] 頁面上選取 [確定]。
-7. 在 [摘要] 頁面上，選取 [建立] 來開始進行虛擬機器部署。 VM 需要幾分鐘的時間進行部署，但您在 VM 建立時可以繼續下一個步驟。
+6. 在 [網路安全性群組]  下方，選取 [進階]  。 入口網站會自動為您建立允許連接埠 3389 的網路安全性群組；您必須開啟此連接埠，才能在後續的步驟中連線至虛擬機器。 在 [設定]  頁面上選取 [確定]  。
+7. 在 [摘要]  頁面上，選取 [建立]  來開始進行虛擬機器部署。 VM 需要幾分鐘的時間進行部署，但您在 VM 建立時可以繼續下一個步驟。
 
 ### <a name="create-the-second-virtual-machine"></a>建立第二部虛擬機器
 
-再次完成步驟 1-7，但在步驟 3 中，請將虛擬機器命名為 myVmPrivate，並在步驟 5 中選取 [私人] 子網路。
+再次完成步驟 1-7，但在步驟 3 中，請將虛擬機器命名為 myVmPrivate  ，並在步驟 5 中選取 [私人]  子網路。
 
 部署 VM 需要幾分鐘的時間。 請等到 VM 建立完成，並在入口網站開啟設定後，再繼續下一個步驟。
 
 ## <a name="confirm-access-to-storage-account"></a>確認對儲存體帳戶的存取
 
-1. 一旦 myVmPrivate VM 完成建立後，Azure 會開啟它的設定。 選取 [連線] 按鈕以連線到 VM，如下圖所示：
+1. 一旦 myVmPrivate  VM 完成建立後，Azure 會開啟它的設定。 選取 [連線]  按鈕以連線到 VM，如下圖所示：
 
    ![連接到虛擬機器](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
 
-2. 在選取 [連線] 按鈕之後，將會建立一個「遠端桌面通訊協定」(.rdp) 檔案並下載至您的電腦。  
-3. 開啟所下載的 rdp 檔案。 如果出現提示，請選取 [連接]。 輸入您在建立 VM 時指定的使用者名稱和密碼。 您可能需要選取 [其他選擇]，然後選取 [使用不同的帳戶]，以指定您在建立 VM 時輸入的認證。 
-4. 選取 [確定] 。
-5. 您可能會在登入過程中收到憑證警告。 如果您收到警告，請選取 [是] 或 [繼續] 以繼續進行連線。
-6. 在 myVmPrivate VM 上，使用 PowerShell 將 Azure 檔案共用對應至磁碟機 Z。 在執行後續命令之前，請將 `<storage-account-key>` 和 `<storage-account-name>` 取代為您在[建立儲存體帳戶](#create-a-storage-account)中提供或取出的值。
+2. 在選取 [連線]  按鈕之後，將會建立一個「遠端桌面通訊協定」(.rdp) 檔案並下載至您的電腦。  
+3. 開啟所下載的 rdp 檔案。 如果出現提示，請選取 [連接]  。 輸入您在建立 VM 時指定的使用者名稱和密碼。 您可能需要選取 [其他選擇]  ，然後選取 [使用不同的帳戶]  ，以指定您在建立 VM 時輸入的認證。 
+4. 選取 [確定]  。
+5. 您可能會在登入過程中收到憑證警告。 如果您收到警告，請選取 [是]  或 [繼續]  以繼續進行連線。
+6. 在 myVmPrivate  VM 上，使用 PowerShell 將 Azure 檔案共用對應至磁碟機 Z。 在執行後續命令之前，請將 `<storage-account-key>` 和 `<storage-account-name>` 取代為您在[建立儲存體帳戶](#create-a-storage-account)中提供或取出的值。
 
    ```powershell
    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -271,36 +273,36 @@ ms.locfileid: "64708837"
    ping bing.com
    ```
 
-   您不會收到回應，因為與「私人」子網路相關聯的網路安全性群組不允許對網際網路進行輸出存取。
+   您不會收到回應，因為與「私人」  子網路相關聯的網路安全性群組不允許對網際網路進行輸出存取。
 
-8. 關閉 myVmPrivate 虛擬機器的遠端桌面工作階段。
+8. 關閉 myVmPrivate  虛擬機器的遠端桌面工作階段。
 
 ## <a name="confirm-access-is-denied-to-storage-account"></a>確認對儲存體帳戶的存取遭到拒絕
 
-1. 在入口網站頂端的 [搜尋資源、服務和文件] 方塊中，輸入 myVmPublic。
+1. 在入口網站頂端的 [搜尋資源、服務和文件]  方塊中，輸入 myVmPublic  。
 2. 當 **myVmPublic** 出現在搜尋結果中時，請選取它。
-3. 在 myVmPublic VM 的 [確認對儲存體帳戶的存取](#confirm-access-to-storage-account) 中，完成步驟 1-6。
+3. 在 myVmPublic  VM 的 [確認對儲存體帳戶的存取](#confirm-access-to-storage-account) 中，完成步驟 1-6。
 
-   短暫等候之後，您會收到 `New-PSDrive : Access is denied` 錯誤。 存取遭到拒絕，因為 myVmPublic VM 是部署在「公用」子網路中。 「公用」子網路沒有已啟用的服務端點可供 Azure 儲存體使用。 儲存體帳戶只允許「私人」子網路，而不允許「公用」子網路的網路存取。
+   短暫等候之後，您會收到 `New-PSDrive : Access is denied` 錯誤。 存取遭到拒絕，因為 myVmPublic  VM 是部署在「公用」  子網路中。 「公用」  子網路沒有已啟用的服務端點可供 Azure 儲存體使用。 儲存體帳戶只允許「私人」  子網路，而不允許「公用」  子網路的網路存取。
 
-4. 關閉 myVmPublic VM 的遠端桌面工作階段。
+4. 關閉 myVmPublic  VM 的遠端桌面工作階段。
 
 5. 從您的電腦，瀏覽至 Azure [入口網站](https://portal.azure.com)。
-6. 在 [搜尋資源、服務和文件] 方塊中，輸入您建立的儲存體帳戶之名稱。 當您儲存體帳戶的名稱出現在搜尋結果時，請選取它。
-7. 選取 [檔案]。
+6. 在 [搜尋資源、服務和文件]  方塊中，輸入您建立的儲存體帳戶之名稱。 當您儲存體帳戶的名稱出現在搜尋結果時，請選取它。
+7. 選取 [檔案]  。
 8. 您會收到下圖中所示的錯誤：
 
    ![拒絕存取錯誤](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
 
-   存取遭到拒絕，因為您的電腦不在 MyVirtualNetwork 虛擬網路的「私人」子網路中。
+   存取遭到拒絕，因為您的電腦不在 MyVirtualNetwork  虛擬網路的「私人」  子網路中。
 
 ## <a name="clean-up-resources"></a>清除資源
 
 當不再需要資源群組時，請將資源群組及其包含的所有資源刪除：
 
-1. 在入口網站頂端的 [搜尋] 方塊中，輸入 myResourceGroup。 當您在搜尋結果中看到 myResourceGroup 時，請加以選取。
-2. 選取 [刪除資源群組]。
-3. 針對 [輸入資源群組名稱:] 輸入 myResourceGroup，然後選取 [刪除]。
+1. 在入口網站頂端的 [搜尋]  方塊中，輸入 myResourceGroup  。 當您在搜尋結果中看到 myResourceGroup  時，請加以選取。
+2. 選取 [刪除資源群組]  。
+3. 針對 [輸入資源群組名稱:]  輸入 myResourceGroup  ，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 
