@@ -5,15 +5,15 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/29/2019
-ms.openlocfilehash: 78dff1b9d9db4e54ab1a8f7203088753e206c610
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/21/2019
+ms.openlocfilehash: 635b7adb8753b7e9490e8f14a0699c09297fdbbb
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641951"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899088"
 ---
-# <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>案例:當 Azure 儲存體容器包含許多檔案時, Apache Spark 作業執行速度會變慢 Azure HDInsight
+# <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>案例：當 Azure 儲存體容器包含許多檔案時, Apache Spark 作業執行速度會變慢 Azure HDInsight
 
 本文說明在 Azure HDInsight 叢集中使用 Apache Spark 元件時, 疑難排解步驟和問題的可能解決方法。
 
@@ -27,13 +27,11 @@ ms.locfileid: "68641951"
 
 為了追蹤分割區, Spark 必須維護`FileStatusCache` , 其中包含目錄結構的相關資訊。 使用此快取, Spark 可以剖析路徑並留意可用的磁碟分割。 追蹤分割區的優點是, Spark 只會在您讀取資料時, 觸及必要的檔案。 若要讓這份資訊保持在最新狀態, 當您撰寫新資料時, Spark 必須列出目錄底下的所有檔案, 並更新此快取。
 
-在 Spark 1.6 中, 每次您更新目錄時 (1) 會清除快取 (2) 以遞迴方式列出所有檔案, (3) 更新整個快取。 這會導致許多清單作業。
-
 在 Spark 2.1 中, 雖然我們不需要在每次寫入後更新快取, 但 Spark 會檢查現有的分割區資料行是否符合目前寫入要求中的建議專案, 因此也會在每次寫入開始時, 導致列出作業。
 
 在 Spark 2.2 中, 使用附加模式寫入資料時, 應該修正此效能問題。
 
-## <a name="resolution"></a>解決方法
+## <a name="resolution"></a>解析度
 
 當您建立分割資料集時, 請務必使用資料分割配置, 以限制 Spark 必須列出才能更新的`FileStatusCache`檔案數目。
 

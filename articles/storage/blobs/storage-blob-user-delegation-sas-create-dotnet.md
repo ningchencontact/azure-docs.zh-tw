@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: bed95c070649785a701f9d08a98faf29c8ee1413
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990685"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900436"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>使用 .NET 建立容器或 blob 的使用者委派 SAS (預覽)
 
@@ -44,7 +44,7 @@ Install-Package Azure.Identity -IncludePrerelease
 
 若要使用 Azure CLI 建立服務主體並指派 RBAC 角色, 請呼叫[az ad sp create for rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)命令。 提供 Azure 儲存體資料存取角色, 以指派給新的服務主體。 角色必須包含**storageAccounts/blobServices/generateUserDelegationKey**動作。 如需有關 Azure 儲存體提供之內建角色的詳細資訊, 請參閱[Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)。
 
-此外, 請提供角色指派的範圍。 服務主體會建立使用者委派金鑰, 這是在儲存體帳戶層級執行的作業, 因此角色指派的範圍應設定為儲存體帳戶、資源群組或訂用帳戶的層級。 如需建立使用者委派 SAS 之 RBAC 許可權的詳細資訊, 請參閱[建立使用者委派 sas (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)中的**使用 rbac 指派許可權**一節。
+此外, 請提供角色指派的範圍。 服務主體會建立使用者委派金鑰, 這是在儲存體帳戶層級執行的作業, 因此角色指派的範圍應設定為儲存體帳戶、資源群組或訂用帳戶的層級。 如需建立使用者委派 SAS 之 RBAC 許可權的詳細資訊, 請參閱[建立使用者委派 sas (REST API)](/rest/api/storageservices/create-user-delegation-sas)中的**使用 rbac 指派許可權**一節。
 
 如果您沒有足夠的許可權可將角色指派給服務主體, 您可能需要要求帳戶擁有者或系統管理員執行角色指派。
 
@@ -165,7 +165,7 @@ UriBuilder fullUri = new UriBuilder()
 };
 ```
 
-## <a name="example-get-a-user-delegation-sas"></a>範例:取得使用者委派 SAS
+## <a name="example-get-a-user-delegation-sas"></a>範例：取得使用者委派 SAS
 
 下列範例方法顯示驗證安全性主體和建立使用者委派 SAS 的完整程式碼:
 
@@ -221,7 +221,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 }
 ```
 
-## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>範例:讀取具有使用者委派 SAS 的 blob
+## <a name="example-read-a-blob-with-a-user-delegation-sas"></a>範例：讀取具有使用者委派 SAS 的 blob
 
 下列範例會測試在上一個範例中, 從模擬的用戶端應用程式建立的使用者委派 SAS。 如果 SAS 有效, 用戶端應用程式就能夠讀取 blob 的內容。 如果 SAS 無效 (例如, 如果它已過期), Azure 儲存體會傳回錯誤碼 403 (禁止)。
 
@@ -276,4 +276,4 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 ## <a name="see-also"></a>另請參閱
 
 - [取得使用者委派金鑰作業](/rest/api/storageservices/get-user-delegation-key)
-- [建立使用者委派 SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [建立使用者委派 SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

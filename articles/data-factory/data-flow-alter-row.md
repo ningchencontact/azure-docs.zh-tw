@@ -1,48 +1,57 @@
 ---
-title: 對應資料流程 Alter 資料列轉換的 azure Data Factory
-description: 如何更新使用 Azure Data Factory 對應資料流程 Alter 資料列轉換的資料庫目標
+title: Azure Data Factory 對應的資料流程 Alter Row 轉換
+description: 如何使用 Azure Data Factory 對應的資料流程改變數據列轉換來更新資料庫目標
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2cd69d5977b8ad1d9be2a71a006579fe3abfd23
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520153"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971261"
 ---
-# <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter 資料列轉換
+# <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter Row 轉換
 
-您可以使用 Alter 資料列轉換來設定的資料列的 insert、 delete、 update 和更新插入的原則。 您可以加入一個對多條件，做為運算式。 這些情況可能會導致資料列 （或資料列） 插入、 更新、 刪除或更新插入。 Alter 資料列可能會產生 DDL 與 DML 動作，對您的資料庫。
+使用 Alter Row 轉換來設定資料列的 insert、delete、update 和 upsert 原則。 您可以新增一到多個條件做為運算式。 這些條件應依照優先順序來指定, 因為每個資料列會以對應至第一個相符運算式的原則來標示。 每一個條件都會導致插入、更新、刪除或 upserted 資料列 (或資料列)。 Alter Row 可以針對您的資料庫產生 DDL & DML 動作。
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![修改資料列設定](media/data-flow/alter-row1.png "Alter 資料列設定")
+![改變數據列設定](media/data-flow/alter-row1.png "改變數據列設定")
 
 > [!NOTE]
-> Alter 資料列轉換只會對資料庫在資料流程中的接收器。 在偵錯工作階段期間，不會發生的動作，您將指派給資料列 （insert、 update、 delete、 upsert）。 您必須執行資料流程工作新增至管線，並使用管線偵錯] 或 [觸發程序制定您的資料庫資料表的 alter 資料列原則。
+> Alter Row 轉換只會在資料流程中的資料庫接收上運作。 您指派給資料列 (insert、update、delete、upsert) 的動作不會在 debug 會話期間發生。 您必須將「執行資料流程」工作加入至管線, 並使用管線 debug 或觸發程式來制定資料庫資料表的 alter row 原則。
+
+## <a name="indicate-a-default-row-policy"></a>指出預設的資料列原則
+
+建立 Alter Row 轉換, 並指定條件為的`true()`資料列原則。 不符合任何先前定義之運算式的每個資料列都會標示為指定的資料列原則。 根據預設, 不符合任何條件運算式的每個資料列都會標示為`Insert`。
+
+![改變數據列一個原則](media/data-flow/alter-row4.png "改變數據列一個原則")
+
+> [!NOTE]
+> 若要使用一個原則標記所有資料列, 您可以建立該原則的條件, 並將條件`true()`指定為。
 
 ## <a name="view-policies"></a>檢視原則
 
-上切換資料流程偵錯模式，然後在 [資料預覽] 窗格中檢視的 alter 資料列原則結果。 在資料工作流程進行偵錯模式中執行 alter 資料列不會產生 DDL 或 DML 動作，對您的目標。 若要有這些動作發生，請執行資料流程管線中執行資料流程的活動內的資料。
+在 [資料預覽] 窗格中開啟 [資料流程] 偵錯工具, 以查看您的 alter row 原則結果。 在資料流程的「資料流程」 (Debug) 模式中執行 alter row 不會針對您的目標產生 DDL 或 DML 動作。 若要執行這些動作, 請在管線內執行「資料流程」活動內的資料流程。
 
-![變更資料列的原則](media/data-flow/alter-row3.png "Alter 資料列的原則")
+![改變數據列原則](media/data-flow/alter-row3.png "改變數據列原則")
 
-這可讓您驗證並檢視您的條件所依據的每個資料列的狀態。 有圖示代表每個插入、 更新、 刪除和更新插入會發生在資料流程中指出哪些動作的動作會發生，當您執行資料流程管線中的資料。
+這可讓您根據條件來驗證和查看每個資料列的狀態。 您的資料流程中會有每個插入、更新、刪除和 upsert 動作的圖示代表, 這表示當您在管線內執行資料流程時, 將會發生哪一個動作。
 
 ## <a name="sink-settings"></a>接收設定
 
-您必須擁有資料庫，接收要運作的 Alter 資料列的類型。 在 接收設定中，您必須設定允許每個動作。
+您必須有資料庫接收類型, Alter Row 才能正常執行。 在 [接收設定] 中, 您應該將每個對應于您 Alter Row 條件的動作設定為 [允許]。
 
-![Alter 資料列接收器](media/data-flow/alter-row2.png "Alter 資料列接收")
+![改變數據列接收](media/data-flow/alter-row2.png "改變數據列接收")
 
-資料庫接收 ADF 資料流程中的預設行為是插入資料列。 如果您想要允許更新、 更新插入，以及刪除，您也必須檢查兩個方塊中的接收器，以允許執行的動作。
+ADF 資料流程中具有資料庫接收的預設行為是插入資料列。 如果您也想要允許更新、更新插入和刪除, 您也必須在接收中檢查這些方塊以允許動作。
 
 > [!NOTE]
-> 如果您的插入、 更新或 upsert 修改接收之目標資料表的結構描述，您的資料流程將會失敗。 若要修改目標結構描述，您的資料庫中，您必須選擇 「 重新建立資料表 」 選項，接收中。 這會卸除並重新建立您的資料表與新的結構描述定義。
+> 如果您的插入、更新或更新插入修改了接收中目標資料表的架構, 資料流程將會失敗。 若要修改資料庫中的目標架構, 您必須選擇接收中的 [重新建立資料表] 選項。 這會卸載並重新建立您的資料表, 並使用新的架構定義。
 
 ## <a name="next-steps"></a>後續步驟
 
-Alter 資料列轉換之後，您可能想要[接收資料至目的地資料存放區](data-flow-sink.md)。
+在 Alter Row 轉換之後, 您可能會想要將[資料接收到目的地資料存放區](data-flow-sink.md)。

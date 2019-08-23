@@ -1,19 +1,19 @@
 ---
-title: 中備份與還原 Azure Database for PostgreSQL-單一伺服器
-description: 深入了解自動備份和還原您的 Azure Database for PostgreSQL 伺服器-單一伺服器。
+title: 適用於 PostgreSQL 的 Azure 資料庫中的備份與還原-單一伺服器
+description: 瞭解自動備份和還原您的適用於 PostgreSQL 的 Azure 資料庫伺服器-單一伺服器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/21/2019
+ms.openlocfilehash: bf2e289ad12f459c37a93ad3936c30339ecf663d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65068862"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907527"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>中備份與還原 Azure Database for PostgreSQL-單一伺服器
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>適用於 PostgreSQL 的 Azure 資料庫中的備份與還原-單一伺服器
 
 適用於 PostgreSQL 的 Azure 資料庫會自動建立伺服器備份，並將其儲存在使用者設定的本地備援或異地備援儲存體中。 備份可以用來將伺服器還原至某個時間點。 備份和還原可保護資料免於意外損毀或刪除，是商務持續性策略中不可或缺的一部分。
 
@@ -38,7 +38,7 @@ ms.locfileid: "65068862"
 
 例如，如果您已佈建的伺服器大小為 250 GB，您就能免費獲得 250 GB 的備份儲存體。 超過 250 GB 的儲存體則會收費。
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>還原
 
 在適用於 PostgreSQL 的 Azure 資料庫中，還原執行作業會從原始伺服器的備份中建立新的伺服器。
 
@@ -62,7 +62,7 @@ ms.locfileid: "65068862"
 
 ### <a name="geo-restore"></a>異地還原
 
-如果您已將伺服器設定為使用異地備援備份，您可以將伺服器還原到另一個可使用服務的 Azure 區域中。 當您的伺服器因為裝載伺服器區域中的事件而無法使用時，異地還原就是預設的復原選項。 如果區域中的大規模意外導致您無法使用資料庫應用程式，則您可以從異地備援備份，將伺服器還原到任何其他區域中的伺服器。 在建立備份及將它複寫至不同區域之間會有延遲。 此延遲可能最長達一小時，因此當發生災害時，最多可能會遺失最長達一小時的資料。
+如果您已將伺服器設定為使用異地備援備份，您可以將伺服器還原到另一個可使用服務的 Azure 區域中。 如果區域中的大規模意外導致您無法使用資料庫應用程式，則您可以從異地備援備份，將伺服器還原到任何其他區域中的伺服器。 在建立備份及將它複寫至不同區域之間會有延遲。 此延遲可能最長達一小時，因此當發生災害時，最多可能會遺失最長達一小時的資料。
 
 在異地還原期間，可以進行變更的伺服器設定包括計算世代、vCore、備份保留期間及備份備援選項。 不支援變更定價層 (基本、一般用途或記憶體最佳化) 或儲存體大小。
 
@@ -77,6 +77,6 @@ ms.locfileid: "65068862"
 
 ## <a name="next-steps"></a>後續步驟
 
+- 瞭解如何使用 [Azure 入口網站](howto-restore-server-portal.md)進行還原。
+- 瞭解如何使用 [Azure CLI](howto-restore-server-cli.md)進行還原。
 - 若要深入了解商務持續性，請參閱 [商務持續性概觀](concepts-business-continuity.md)。
-- 若要使用 Azure 入口網站還原至某個時間點，請參閱 [使用 Azure 入口網站將資料庫還原至時間點](howto-restore-server-portal.md)。
-- 若要使用 Azure CLI 還原至某個時間點，請參閱 [使用 CLI 將資料庫還原至時間點](howto-restore-server-cli.md)。

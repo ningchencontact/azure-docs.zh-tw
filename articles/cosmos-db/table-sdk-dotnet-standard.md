@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: e92c2e58122556f90b25f070fff9e6e6616b0257
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 22a27ba19670344f351205b6a4865bf85daf0bab
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976839"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900265"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 資料表 .NET Standard API：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -34,6 +34,9 @@ ms.locfileid: "68976839"
 |**報告問題**|[報告問題](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-預覽
+* 錯誤修正
 
 ### <a name="a-name104104"></a><a name="1.0.4"/>1.0.4
 * 錯誤修正
@@ -76,9 +79,10 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | Version | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.0.5-預覽](#1.0.5-preview) |Auguest 20, 2019 |--- |
 | [1.0.4](#1.0.4) |Auguest 12、2019 |--- |
 | [1.0.4-預覽](#1.0.4-preview) |2019年7月26日 |--- |
-| 1.0.2-preview |2019 5 月2日 |--- |
+| 1.0.2-預覽 |2019 5 月2日 |--- |
 | [1.0.1](#1.0.1) |2019年4月19日 |--- |
 | [1.0.0](#1.0.0) |2019 年 3 月 13 日 |--- |
 | [0.11.0-preview](#0.11.0-preview) |2019年3月5日 |--- |

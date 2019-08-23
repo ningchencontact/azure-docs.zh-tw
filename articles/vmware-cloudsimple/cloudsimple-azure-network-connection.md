@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 90e3121c3f036d1abc8ca372ee349aef3485d07b
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: cfd4d65b07cf255ac2b60d6bf8376723a997374e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624999"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972937"
 ---
 # <a name="azure-network-connections-overview"></a>Azure 網路連線總覽
 
@@ -44,7 +44,6 @@ Azure 網路連線可讓您:
 您可以將現有的 Azure ExpressRoute 線路連線到您的 CloudSimple 區域。 ExpressRoute Global 觸及功能是用來彼此連接兩個線路。  會在內部部署和 CloudSimple ExpressRoute 線路之間建立連接。  此連線可讓您將內部部署網路延伸至私人雲端網路。 來自 CloudSimple 網路的路由會透過 BGP 與您的內部部署網路交換。
 
 ![內部部署 ExpressRoute 連線-全球範圍](media/cloudsimple-global-reach-connection.png)
-
 
 ## <a name="connection-to-on-premises-network-and-azure-virtual-network"></a>連線至內部部署網路和 Azure 虛擬網路
 

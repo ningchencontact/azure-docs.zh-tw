@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9c24f613de8bf26331f6fe328358aaf8a320d522
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0da3373ba2c13bd6a00a92a6b38bead86fc9a5ea
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794241"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897019"
 ---
 # <a name="create-a-blob-snapshot"></a>建立 Blob 快照集
 
 快照集是在某個點時間取得的唯讀 Blob 版本。 快照集對於備份 Blob 非常有用。 建立快照集後，您便可加以讀取、複製或刪除，但無法加以修改。
 
-Blob 的快照集與其基底 Blob 相同，除了 Blob URI 附加了 [日期時間]  值以表示擷取快照當時的時間。 例如，如果分頁 Blob URI 為 `http://storagesample.core.blob.windows.net/mydrives/myvhd`，則快照集 URI 類似於 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`。
+Blob 的快照集與其基底 Blob 相同，除了 Blob URI 附加了 [日期時間] 值以表示擷取快照當時的時間。 例如，如果分頁 Blob URI 為 `http://storagesample.core.blob.windows.net/mydrives/myvhd`，則快照集 URI 類似於 `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`。
 
 > [!NOTE]
 > 所有快照集會共用基底 blob 的 URI。 基底 blob 與快照集之間的唯一差別在於附加的 **DateTime** 值。
@@ -78,12 +78,12 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 * 當您建立區塊 Blob 的快照集時，該 Blob 的認可區塊清單也會複製到快照集。 系統不會複製任何未認可的區塊。
 
 ## <a name="specify-an-access-condition"></a>指定存取條件
-當您呼叫 [CreateSnapshotAsync][dotnet_CreateSnapshotAsync] 時，您可以指定存取條件，如此一來，只有在符合條件時，才會建立快照集。 若要指定存取條件，請使用 [AccessCondition][dotnet_AccessCondition] 參數。 如果不符合指定的條件，就不會建立快照集，而且 Blob 服務會傳回狀態碼 [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed。
+當您呼叫[CreateSnapshotAsync][dotnet_CreateSnapshotAsync]時, 您可以指定存取條件, 只有在符合條件時才會建立快照集。 若要指定存取條件, 請使用[AccessCondition][dotnet_AccessCondition]參數。 如果不符合指定的條件, 就不會建立快照集, 而且 Blob 服務會傳回狀態碼[HTTPStatusCode][dotnet_HTTPStatusCode]。PreconditionFailed.
 
 ## <a name="delete-snapshots"></a>刪除快照集
 除非快照集也一併刪除，否則您無法刪除具有快照集的 Blob。 您可以個別刪除快照集，或指定在刪除來源 Blob 時刪除所有的快照集。 如果您嘗試刪除仍具有快照集的 Blob，則會發生錯誤。
 
-下列程式碼範例示範如何在 .NET 中刪除 blob 及其快照集，其中 `blockBlob` 是 [CloudBlockBlob][dotnet_CloudBlockBlob]類型的物件：
+下列程式碼範例顯示如何在 .net 中刪除 blob 及其快照集, 其中`blockBlob`是[CloudBlockBlob][dotnet_CloudBlockBlob]類型的物件:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
@@ -127,7 +127,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 * 無論唯一的區塊或分頁是在 Blob 或快照集中，您的儲存體帳戶都會產生費用。 在您更新快照集所依據的 Blob 之前，您的帳戶不會針對與該 Blob 相關聯的快照集產生額外費用。 在您更新基底 blob 之後，它會與其快照集分離。 發生這種情況時，您需支付每個 blob 或快照集中唯一的區塊或頁面。
 * 當您取代區塊 Blob 內的某個區塊時，後續即會將該區塊視為唯一區塊進行收費。 即使該區塊的區塊識別碼和資料與其在快照集中擁有的相同，也是如此。 再次認可該區塊之後，它就會與其在任何快照集中的對應項目分離，而您將需支付其資料的費用。 這同樣適用分頁 Blob 中以相同資料更新的頁面。
-* 藉由呼叫 [UploadFromFile][dotnet_UploadFromFile]、[UploadText][dotnet_UploadText]、[UploadFromStream][dotnet_UploadFromStream], 或 [UploadFromByteArray][dotnet_UploadFromByteArray] 方法來取代區塊 Blob，會取代該 Blob 中的所有區塊。 如果您的快照集與該 Blob 相關聯，基底 Blob 和快照集中的所有區塊現在都會分離出來，而您將針對這兩個 Blob 的所有區塊支付費用。 即使基底 Blob 和快照集中的資料保持一致，也是如此。
+* 藉由呼叫[UploadFromFile][dotnet_UploadFromFile]、 [UploadText][dotnet_UploadText]、 [UploadFromStream][dotnet_UploadFromStream]或[UploadFromByteArray][dotnet_UploadFromByteArray]方法來取代區塊 blob, 會取代 blob 中的所有區塊。 如果您的快照集與該 Blob 相關聯，基底 Blob 和快照集中的所有區塊現在都會分離出來，而您將針對這兩個 Blob 的所有區塊支付費用。 即使基底 Blob 和快照集中的資料保持一致，也是如此。
 * Azure Blob 服務未提供方法來判斷兩個區塊是否包含相同資料。 已上傳且認可的每個區塊都會被視為唯一，即使它具有相同資料和相同的區塊識別碼也一樣。 由於費用是針對唯一區塊而產生，因此請務必注意，更新含有快照集的 Blob 會產生額外的唯一區塊及額外費用。
 
 ### <a name="minimize-cost-with-snapshot-management"></a>透過管理快照集將成本降到最低
@@ -135,7 +135,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 我們建議您謹慎管理快照集，以避免產生額外費用。 您可以遵循以下最佳做法，協助您將快照集儲存體產生的成本降到最低︰
 
 * 每當您更新 Blob 時，刪除並重新建立與該 Blob 相關聯的快照集，除非您的應用程式設計為需要維護快照集，否則即使您正以相同資料進行更新也一樣。 藉由刪除並重新建立 Blob 的快照集，讓您可以確保該 Blob 和快照集不會分離開來。
-* 如果您正在維護 Blob 的快照集，請避免呼叫 [UploadFromFile][dotnet_UploadFromFile]、[UploadText][dotnet_UploadText]、[UploadFromStream][dotnet_UploadFromStream], 或 [UploadFromByteArray][dotnet_UploadFromByteArray]來更新 Blob。 這些方法會取代 Blob 中的所有區塊，造成您的基底 Blob 和其快照集明顯分離。 請改用 [PutBlock][dotnet_PutBlock] 和 [PutBlockList][dotnet_PutBlockList] 方法，更新區塊的最少可能數目。
+* 如果您要維護 blob 的快照集, 請避免呼叫[UploadFromFile][dotnet_UploadFromFile]、 [UploadText][dotnet_UploadText]、 [UploadFromStream][dotnet_UploadFromStream]或[UploadFromByteArray][dotnet_UploadFromByteArray]來更新 blob。 這些方法會取代 Blob 中的所有區塊，造成您的基底 Blob 和其快照集明顯分離。 請改用 [PutBlock][dotnet_PutBlock] 和 [PutBlockList][dotnet_PutBlockList] 方法，更新區塊的最少可能數目。
 
 ### <a name="snapshot-billing-scenarios"></a>快照集計費案例
 下列案例示範如何針對區塊 Blob 及其快照集產生費用。
@@ -160,7 +160,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 **案例 4**
 
-在案例 4 中，基底 Blob 已完全更新，且未包含它的任何原始區塊。 因此，此帳戶必須支付所有八個唯一區塊的費用。 如果您使用 [UploadFromFile][dotnet_UploadFromFile]、[UploadText][dotnet_UploadText][UploadFromStream][dotnet_UploadFromStream], 或 [UploadFromByteArray][dotnet_UploadFromByteArray] 等更新方法，就會發生這個案例，因為這些方法會取代 Blob 的所有內容。
+在案例 4 中，基底 Blob 已完全更新，且未包含它的任何原始區塊。 因此，此帳戶必須支付所有八個唯一區塊的費用。 如果您使用[UploadFromFile][dotnet_UploadFromFile]、 [UploadText][dotnet_UploadText]、 [UploadFromStream][dotnet_UploadFromStream]或[UploadFromByteArray][dotnet_UploadFromByteArray]等 update 方法, 這種情況可能會發生, 因為這些方法會取代 blob 的所有內容。
 
 ![Azure 儲存體資源](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
@@ -172,7 +172,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 [dotnet_AccessCondition]: https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.accesscondition
 [dotnet_CloudBlockBlob]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob
-[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.generatedblobs.createsnapshotasync
+[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.createsnapshotasync
 [dotnet_HTTPStatusCode]: https://docs.microsoft.com/java/api/com.microsoft.store.partnercenter.network.httpstatuscode
 [dotnet_PutBlockList]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
 [dotnet_PutBlock]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock

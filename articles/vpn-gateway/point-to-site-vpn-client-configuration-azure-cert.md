@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 79e7027d308d389aa672d164de91df61b1142e32
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 07d48ed195f74c9aef5d34de1925ab8fc2a3ae21
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534160"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899893"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -133,13 +133,13 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
    ```
    sudo apt install network-manager-strongswan
    ```
-2. 選取 [Network Manager] \(網路管理員\) 圖示 (向上箭頭/向下箭頭)，然後選取 [Edit Connections] \(編輯連線\)。
+2. 選取 [**設定**], 然後選取 [**網路**]。
 
    ![編輯連線](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. 按一下 [新增] 按鈕建立新連線。
+3. **+** 按一下按鈕以建立新的連接。
 
    ![新增連線](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. 從下拉式功能表中選取 [IPsec/IKEv2 (strongswan)]，然後按一下 [Create] \(建立\)。 您可以在這個步驟中將連線重新命名。
+4. 從功能表中選取 [ **IPsec/IKEv2 (strongSwan)** ], 然後按兩下。 您可以在此步驟中命名您的連接。
 
    ![選擇連線類型](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. 從所下載用戶端組態檔中包含的 [Generic] 資料夾開啟 **VpnSettings.xml** 檔案。 尋找名為 **VpnServer** 的標籤，然後複製開頭為 'azuregateway'，結尾為 '.cloudapp.net' 的名稱。
@@ -148,8 +148,8 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 6. 將此名稱貼到新 VPN 連線 [閘道] 區段的 [位址] 欄位中。 接下來，選取 [憑證] 欄位結尾處的資料夾圖示，接著瀏覽至 [Generic] 資料夾，然後選取 [VpnServerRoot] 檔案。
 7. 在連線的 [Client] \(用戶端\) 區段中，針對 [Authentication] \(驗證\)，選取 [Certificate/private key] \(憑證/私密金鑰\)。 針對 [Certificate] \(憑證\) 和 [Private key] \(私密金鑰\)，選擇稍早建立的憑證和私密金鑰。 在 [Options] \(選項\) 中，選取 [Request an inner IP address] \(要求內部 IP 位址\). 然後按一下 [新增]。
 
-   ![要求內部 IP 位址](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
-8. 按一下 [網路管理員] 圖示 (向上箭頭/向下箭頭)，然後將游標停留在 [VPN 連線] 上方。 您會看到您建立的 VPN 連線。 按一下以起始連線。
+   ![要求內部 IP 位址](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
+8. 開啟連接。
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 

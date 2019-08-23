@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6869602b7d4aff6d779d189f0b6444dde2055d4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5630c157ef7843726bcc17455a1e683e58b88ffd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261911"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905246"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -63,7 +63,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | 受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | 系統指派 | 可用 | 可用 | 可用 | 可用 |
-| 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 使用者指派 | 可用 | 無 | 無 | 無 |
 
 請參閱下列清單來設定 Azure App Service 的受控識別 (若區域提供)：
 
@@ -76,8 +76,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 |受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 系統指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
-| 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 系統指派 | 預覽 | 無 | 無 | 無 |
+| 使用者指派 | 預覽 | 無 | 無 | 無 |
 
 請參閱下列清單以使用受控識別搭配[Azure 藍圖](../../governance/blueprints/overview.md):
 
@@ -89,7 +89,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 受控識別類型 |全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | 系統指派 | 可用 | 可用 | 可用 | 可用 |
-| 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 使用者指派 | 可用 | 無 | 無 | 無 |
 
 請參閱下列清單來設定 Azure Functions 的受控識別 (若區域提供)：
 
@@ -102,8 +102,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 系統指派 | 預覽 | 預覽 | 尚未提供 | 預覽 |
-| 使用者指派 | 尚未提供 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 系統指派 | 預覽 | 預覽 | 無 | 預覽 |
+| 使用者指派 | 無 | 無 | 無 | 無 |
 
 請參閱下列清單來設定 Azure Logic Apps 的受控識別 (若區域提供)：
 
@@ -114,8 +114,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 系統指派 | 可用 | 尚未提供 | 尚未提供 | 尚未提供 |
-| 使用者指派 | 尚未提供 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 系統指派 | 可用 | 無 | 無 | 無 |
+| 使用者指派 | 無 | 無 | 無 | 無 |
 
 請參閱下列清單來設定 Azure Data Factory V2 的受控識別 (若區域提供)：
 
@@ -128,8 +128,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 系統指派 | 可用 | 可用 | 尚未提供 | 尚未提供 |
-| 使用者指派 | 尚未提供 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 系統指派 | 可用 | 可用 | 無 | 無 |
+| 使用者指派 | 無 | 無 | 無 | 無 |
 
 請參閱下列清單來設定 Azure APIM 的受控識別 (若區域提供)：
 
@@ -139,8 +139,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 系統指派 | Linux：預覽<br>Windows:尚未提供 | 尚未提供 | 尚未提供 | 尚未提供 |
-| 使用者指派 | Linux：預覽<br>Windows:尚未提供 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 系統指派 | Linux：預覽<br>Windows:無 | 無 | 無 | 無 |
+| 使用者指派 | Linux：預覽<br>Windows:無 | 無 | 無 | 無 |
 
 請參閱下列清單來設定 Azure 容器執行個體的受控識別 (若區域提供)：
 
@@ -152,8 +152,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 受控識別類型 | 全部正式推出<br>全域 Azure 區域 | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| 系統指派 | 可用 | 尚未提供 | 尚未提供 | 尚未提供 |
-| 使用者指派 | 預覽 | 尚未提供 | 尚未提供 | 尚未提供 |
+| 系統指派 | 可用 | 無 | 無 | 無 |
+| 使用者指派 | 預覽 | 無 | 無 | 無 |
 
 請參閱下列清單以設定 Azure Container Registry 工作的受控識別 (在可用區域中):
 
@@ -172,16 +172,16 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 - [透過 Azure CLI 指派存取權](howto-assign-access-CLI.md)
 - [透過 Azure Resource Manager 範本指派存取權](../../role-based-access-control/role-assignments-template.md)
 
-| 雲端 | 資源識別碼 | 狀態 |
+| 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://management.azure.com/`| 可用 |
 | Azure Government | `https://management.usgovcloudapi.net/` | 可用 |
 | Azure Germany | `https://management.microsoftazure.de/` | 可用 |
 | Azure China 21Vianet | `https://management.chinacloudapi.cn` | 可用 |
 
-### <a name="azure-key-vault"></a>Azure 金鑰保存庫
+### <a name="azure-key-vault"></a>Azure Key Vault
 
-| 雲端 | 資源識別碼 | 狀態 |
+| 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://vault.azure.net`| 可用 |
 | Azure Government | `https://vault.usgovcloudapi.net` | 可用 |
@@ -190,7 +190,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="azure-data-lake"></a>Azure Data Lake 
 
-| 雲端 | 資源識別碼 | 狀態 |
+| 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://datalake.azure.net/` | 可用 |
 | Azure Government |  | 無法使用 |
@@ -199,16 +199,16 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="azure-sql"></a>Azure SQL 
 
-| 雲端 | 資源識別碼 | 狀態 |
+| 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://database.windows.net/` | 可用 |
 | Azure Government | `https://database.usgovcloudapi.net/` | 可用 |
 | Azure Germany | `https://database.cloudapi.de/` | 可用 |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | 可用 |
 
-### <a name="azure-event-hubs"></a>Azure 事件中心
+### <a name="azure-event-hubs"></a>Azure 事件中樞
 
-| 雲端 | 資源識別碼 | 狀態 |
+| 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://eventhubs.azure.net` | 預覽 |
 | Azure Government |  | 無法使用 |
@@ -217,7 +217,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="azure-service-bus"></a>Azure 服務匯流排
 
-| 雲端 | 資源識別碼 | 狀態 |
+| 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://servicebus.azure.net`  | 預覽 |
 | Azure Government |  | 無法使用 |
@@ -226,7 +226,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="azure-storage-blobs-and-queues"></a>Azure 儲存體 blob 和佇列
 
-| 雲端 | 資源識別碼 | 狀態 |
+| 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | 可用 |
@@ -235,7 +235,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| 雲端 | 資源識別碼 | 狀態 |
+| 雲端 | 資源 ID | 狀態 |
 |--------|------------|--------|
 | Azure 全域 | `https://*.asazure.windows.net` | 可用 |
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | 可用 |

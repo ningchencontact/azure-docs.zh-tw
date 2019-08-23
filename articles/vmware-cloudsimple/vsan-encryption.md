@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 288a05fc09e0c59a01a8d4c9940c0d51cabdd28f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640952"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972340"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>設定 CloudSimple 私用雲端的 vSAN 加密
 
 您可以設定 vSAN 軟體加密功能, 讓您的 CloudSimple 私人雲端可以與在 Azure 虛擬網路中執行的金鑰管理伺服器搭配運作。
 
-使用 vSAN 加密時, VMware 需要使用外部 KMIP 1.1 相容的協力廠商金鑰管理伺服器 (KMS) 工具。 您可以利用 VMware 認證且適用于 Azure 的任何受支援 KMS。 
+使用 vSAN 加密時, VMware 需要使用外部 KMIP 1.1 相容的協力廠商金鑰管理伺服器 (KMS) 工具。 您可以利用 VMware 認證且適用于 Azure 的任何受支援 KMS。
 
 本指南說明如何使用在 Azure 虛擬網路中執行的 HyTrust KeyControl KMS。 適用于 vSAN 的任何其他認證的協力廠商 KMS 解決方案都可以使用類似的方法。
 

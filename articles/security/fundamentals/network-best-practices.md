@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 09caffcfdad4b132858b6ec52b36fe037f488b3a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934716"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900474"
 ---
 # <a name="azure-best-practices-for-network-security"></a>適用于網路安全性的 Azure 最佳作法
 本文討論 Azure 最佳作法的集合, 以加強您的網路安全性。 這些最佳作法衍生自我們的 Azure 網路經驗和客戶的經驗。
@@ -114,7 +114,7 @@ Azure 網路安全性設備可提供比網路層級控制更佳的安全性。 �
 若要尋找可用的 Azure 虛擬網路安全性設備，請移至 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 並搜尋 "security" 和 "network security"。
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>部署安全性區域的周邊網路
-[周邊網路](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (也稱為 DMZ) 是實體或邏輯網路區段，可在您的資產與網際網路之間提供額外一層安全性。 在周邊網路邊緣上的特製化網路存取控制裝置，只允許所要的流量進入您的虛擬網路。
+[周邊網路](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (也稱為 DMZ) 是實體或邏輯網路區段，可在您的資產與網際網路之間提供額外一層安全性。 在周邊網路邊緣上的特製化網路存取控制裝置，只允許所要的流量進入您的虛擬網路。
 
 周邊網路非常實用，因為您可以將網路存取控制管理、監視、記錄和報告的重點放在位於 Azure 虛擬網路邊緣的裝置。 周邊網路是您通常會啟用分散式阻斷服務 (DDoS) 預防、入侵偵測/入侵預防系統 (IDS/IPS)、防火牆規則和原則、web 篩選、網路反惡意程式碼等的地方。 網路安全性裝置位於網際網路與您的 Azure 虛擬網路之間，具有兩個網路均適用的介面。
 
@@ -133,7 +133,7 @@ Azure 網路安全性設備可提供比網路層級控制更佳的安全性。 �
 * [站對站 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)。 可靠且完備的技術，但連線是透過網際網路來建立。 頻寬限制為最多 1.25 Gbps。 在某些情況下, 站對站 VPN 是理想的選項。
 * **Azure ExpressRoute**。 我們建議您針對跨單位連線改用 [ExpressRoute](../../expressroute/expressroute-introduction.md)。 ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 透過 ExpressRoute, 您可以建立與 Microsoft 雲端服務 (例如 Azure、Office 365 和 Dynamics 365) 的連接。 ExpressRoute 是內部部署位置或 Microsoft Exchange 主機服務提供者之間專用的 WAN 連結。 因為這是一個電信連線, 所以您的資料不會透過網際網路傳輸, 因此不會暴露在網際網路通訊的潛在風險中。
 
-ExpressRoute 連線的位置可能會影響防火牆容量、擴充性、可靠性和網路流量可見度。 您必須識別在現有 (內部部署) 網路中終止 ExpressRoute 的位置。 您可以:
+ExpressRoute 連線的位置可能會影響防火牆容量、擴充性、可靠性和網路流量可見度。 您必須識別在現有 (內部部署) 網路中終止 ExpressRoute 的位置。 您可以：
 
 - 如果您需要繼續現有的資料中心隔離, 或只是將外部網路資源放在 Azure 上, 請在防火牆外終止 (周邊網路範例)。
 - 在防火牆內終止 (網路延伸模組範例)。 這是預設建議。 在所有其他情況下, 建議您將 Azure 視為第 n 個資料中心。

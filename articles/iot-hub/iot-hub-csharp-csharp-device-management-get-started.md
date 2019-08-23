@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 44dea072b9871d0be6e18549896456af2a4989f6
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 5a0be55df9be67fcf6ff5d53e18e3eb2b0e69d7f
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558759"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904470"
 ---
 # <a name="get-started-with-device-management-net"></a>開始使用裝置管理 (.NET)
 
@@ -34,7 +34,9 @@ ms.locfileid: "69558759"
 
 * **TriggerReboot**。 此應用程式會在模擬裝置應用程式中呼叫直接方法、顯示回應, 並顯示更新的報告屬性。
 
-若要完成本教學課程，您需要下列必要條件：
+## <a name="prerequisites"></a>必要條件
+
+若要完成本教學課程，您需要：
 
 * Visual Studio。
 
@@ -81,7 +83,7 @@ ms.locfileid: "69558759"
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. 將下列欄位新增到 **Program** 類別。 將預留位置值取代為您先前在[取得 IoT 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串。
+1. 將下列欄位新增到 **Program** 類別。 將預留位置值取代為您先前在[取得 IoT 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串。 `{iot hub connection string}`
 
    ```csharp
    static RegistryManager registryManager;
@@ -133,7 +135,7 @@ ms.locfileid: "69558759"
 
 ## <a name="create-a-simulated-device-app"></a>建立模擬裝置應用程式
 
-在本節中, 您會執行下列動作:
+在本節中，您可：
 
 * 建立 .NET 主控台應用程式，以回應雲端所呼叫的直接方法。
 
@@ -164,11 +166,10 @@ ms.locfileid: "69558759"
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. 將下列欄位新增到 **Program** 類別。 將預留位置的值取代為您在上一節中所記下的裝置連接字串。
+1. 將下列欄位新增到 **Program** 類別。 將預留位置值取代為您先前在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中所記下的裝置連接字串。 `{device connection string}`
 
     ```csharp
-    static string DeviceConnectionString = 
-      "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
+    static string DeviceConnectionString = "{device connection string}";
     static DeviceClient Client = null;
     ```
 
@@ -233,7 +234,7 @@ ms.locfileid: "69558759"
    }
    ```
 
-1. 在方案總管中, 以滑鼠右鍵按一下您的方案, 然後選取 [**設定啟始專案**]。 
+1. 在方案總管中, 以滑鼠右鍵按一下您的方案, 然後選取 [**設定啟始專案**]。
 
 1. 針對 [**一般屬性** > ] [**啟始專案**], 選取 [**單一啟始專案**], 然後選取 [ **SimulateManagedDevice** ] 專案。 選取 [ **確定** ] 以儲存變更。
 
@@ -244,7 +245,7 @@ ms.locfileid: "69558759"
 
 ## <a name="run-the-apps"></a>執行應用程式
 
-您現在可以開始執行應用程式。
+您現在已經準備好執行應用程式。
 
 1. 若要執行 .NET 裝置應用程式**SimulateManagedDevice**, 請在方案總管中, 以滑鼠右鍵按一下**SimulateManagedDevice**專案, 選取 [ **Debug**], 然後選取 [**開始新實例**]。 應用程式應該會開始接聽來自 IoT 中樞的方法呼叫。
 

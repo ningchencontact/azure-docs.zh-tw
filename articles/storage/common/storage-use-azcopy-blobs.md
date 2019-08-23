@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: eead4436a7135f6f74528cde52883ea247360fc6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: a95e643d6561f425484a21b5032b1df585d0460b
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648782"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900334"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>使用 AzCopy 和 Blob 儲存體傳輸資料
 
@@ -195,7 +195,7 @@ AzCopy 會使用[伺服器對伺服器](https://docs.microsoft.com/rest/api/stor
 
 ## <a name="synchronize-files"></a>同步處理檔案
 
-您可以同步處理本機檔案系統與 blob 容器的內容。 同步處理是單向的。 換句話說, 您可以選擇這兩個端點中的哪一個是來源, 以及哪一個是目的地。
+您可以同步處理本機檔案系統與 blob 容器的內容。 同步處理是單向的。 換句話說, 您可以選擇這兩個端點中的哪一個是來源, 以及哪一個是目的地。 同步處理也會使用伺服器到伺服器 Api。
 
 > [!NOTE]
 > 目前, 只有沒有階層式命名空間的帳戶才支援此案例。 目前的 AzCopy 版本不會在其他來源和目的地之間同步處理 (例如:檔案儲存體或 Amazon Web Services (AWS) S3 bucket)。

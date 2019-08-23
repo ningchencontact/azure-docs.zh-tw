@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08e27052c3583ddea7a2fb6fe96fa6b48cd6c372
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5d2247aab872a71f250bd0b4b52714e402d2102d
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333873"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905203"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Azure Active Directory Identity Protection 風險事件參考
 
@@ -64,7 +64,7 @@ ms.locfileid: "68333873"
 ## <a name="unfamiliar-sign-in-properties"></a>不熟悉的登入屬性
 
 **偵測類型：** 即時  
-**舊名稱：** 從不熟悉的位置登入的次數
+**舊名稱：** 從不熟悉的位置登入
 
 此風險事件種類會考慮過去的登入歷程記錄 (IP、緯度/經度和 ASN), 以尋找異常的登入。系統會儲存有關使用者先前所用位置的資訊，並考量這些「熟悉的」位置。 從不在熟悉位置清單中的位置登入時，會觸發此風險事件。 新建立的使用者將處於「學習模式」一段時間, 其中不熟悉的登入屬性風險事件會在我們的演算法學慣用戶行為時關閉。 學習模式持續時間是動態的, 而且取決於演算法收集足夠的使用者登入模式資訊所需的時間。 最短持續時間為五天。 使用者可以在長時間沒有活動後回到學習模式。 系統也會忽略從熟悉的裝置以及地理上靠近熟悉位置的位置進行的登入。 
 
@@ -76,3 +76,8 @@ ms.locfileid: "68333873"
 **舊名稱：** 這項偵測將會顯示在舊版 Azure AD Identity Protection 報表 (已標示為有風險的使用者、風險事件) 為「具有洩漏認證的使用者」
 
 此風險事件種類指出指定使用者不尋常的使用者活動, 或根據 Microsoft 內部和外部威脅情報來源, 與已知的攻擊模式一致。
+
+## <a name="admin-confirmed-user-compromised"></a>系統管理員已確認使用者遭盜用
+
+**偵測類型：** 離線 <br>
+此偵測表示系統管理員已在具風險的使用者 UI 或使用 riskyUsers API 中, 選取 [確認使用者遭盜用]。 若要查看哪些系統管理員已確認此使用者遭入侵, 請檢查使用者的風險歷程記錄 (透過 UI 或 API)。

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: 928a85c9d03148198fe3e965636740812ce732f7
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 08/21/2019
+ms.openlocfilehash: 0884120c15b2e48566d1889400197e316bac9021
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976274"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907453"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>讀取適用於 PostgreSQL 的 Azure 資料庫中的複本-單一伺服器
 
@@ -120,33 +120,49 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > 獨立伺服器無法再次設定為複本。
 > 在您停止讀取複本上的複寫之前，請確定該複本上已經有您所需要的所有資料。
 
-當您停止複寫時, 複本會失去其前一個主要複本和其他複本的所有連結。 主要和複本之間沒有自動容錯移轉。 
+當您停止複寫時, 複本會失去其前一個主要複本和其他複本的所有連結。
 
 了解如何[停止複寫至複本](howto-read-replicas-portal.md)。
+
+## <a name="fail-over"></a>容錯移轉
+主要和複本伺服器之間沒有自動容錯移轉。 
+
+由於複寫是非同步, 因此主要和複本之間會有延遲。 Lag 的數量取決於主伺服器上執行的工作負載有多長。 在大部分的情況下, 複本延遲的範圍是幾秒鐘到幾分鐘的時間。 您可以使用每個複本可用的計量*複本延遲*來追蹤實際的複寫延遲。 此度量會顯示上次重新執行交易之後的時間。 我們建議您在一段時間內觀察複本延遲, 以識別您的平均延遲。 您可以針對複本延遲設定警示, 如此一來, 如果它超出預期的範圍, 您就可以採取動作。
+
+> [!Tip]
+> 如果您故障切換到複本, 從主伺服器取消複本時的延遲將會指出遺失的資料量。
+
+一旦決定要故障移交至複本之後, 
+
+1. 停止複寫至複本必須執行此步驟, 讓複本伺服器能夠接受寫入。 在此過程中, 複本伺服器將會重新開機, 並從主要 delinked。 一旦您起始停止複寫, 後端進程通常需要大約2分鐘的時間才能完成。 深入瞭解[停止](#stop-replication)複寫。
+    
+2. 將您的應用程式指向 (先前的) 複本, 每部伺服器都有唯一的連接字串。 更新您的應用程式, 使其指向 (先前) 複本, 而不是 master。
+    
+一旦您的應用程式成功處理讀取和寫入, 您就已完成容錯移轉。 您的應用程式體驗所需的停機時間將取決於您偵測到問題, 並完成上述步驟1和2。
 
 
 ## <a name="considerations"></a>考量
 
 本節將摘要說明有關讀取複本功能的考量。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 建立讀取複本之前，`azure.replication_support` 參數必須在主要伺服器上設定為 **REPLICA**。 變更此參數後，必須重新啟動伺服器，才能讓變更生效。 `azure.replication_support` 參數僅適用於「一般用途」和「記憶體最佳化」層級。
 
 ### <a name="new-replicas"></a>新複本
 讀取複本會建立為最新適用於 PostgreSQL 的 Azure 資料庫伺服器。 現有伺服器無法設定為複本。 您無法為另一個讀取複本建立複本。
 
 ### <a name="replica-configuration"></a>複本設定
-系統會使用與主要伺服器相同的伺服器設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
+使用與主伺服器相同的計算和儲存設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
 
 > [!IMPORTANT]
-> 在將主要伺服器設定更新為新值之前，應將複本的設定更新為相等或更大的值。 此動作可確保複本可以跟上主要伺服器上所做的變更。
+> 將主要設定更新為新值之前, 請將複本設定更新為相等或更大的值。 此動作可確保複本可以跟上主要伺服器上所做的變更。
 
 PostgreSQL 會要求讀取複本上的 `max_connections` 參數值大於或等於主要伺服器的值，否則讀取複本將不會啟動。 在適用於 PostgreSQL 的 Azure 資料庫中，`max_connections` 參數值會以 SKU 作為基礎。 如需詳細資訊，請參閱[適用於 PostgreSQL 的 Azure 資料庫限制](concepts-limits.md)。 
 
 如果您嘗試更新伺服器的值，但並未遵循這些限制，則您會收到錯誤。
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[于 postgresql 要求](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)讀取複本上的`max_prepared_transactions`參數值必須大於或等於主要值, 否則複本將不會啟動。 如果您想要在`max_prepared_transactions`主伺服器上變更, 請先在複本上變更它。
+[于 postgresql 要求](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)讀取複本上的`max_prepared_transactions`參數值必須大於或等於主要值, 否則複本將不會啟動。 如果您想要在`max_prepared_transactions`主伺服器上變更, 請先在複本上變更它。
 
 ### <a name="stopped-replicas"></a>已停止的複本
 如果您停止主要伺服器和讀取複本之間的複寫，複本將會重新啟動以套用變更。 停止的複本會變成支接受讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
@@ -155,4 +171,5 @@ PostgreSQL 會要求讀取複本上的 `max_connections` 參數值大於或等�
 刪除主要伺服器時，其所有讀取複本都會變成獨立伺服器。 這些複本將會重新啟動以反映此變更。
 
 ## <a name="next-steps"></a>後續步驟
-了解如何[在 Azure 入口網站中建立及管理讀取複本](howto-read-replicas-portal.md)。
+* 了解如何[在 Azure 入口網站中建立及管理讀取複本](howto-read-replicas-portal.md)。
+* 瞭解如何[建立和管理 Azure CLI 中的讀取複本](howto-read-replicas-cli.md)。

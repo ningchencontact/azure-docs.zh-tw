@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/20/2019
 tags: connectors
-ms.openlocfilehash: 9e46c51ae06920bd57f272248f06020dfad380e7
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 59263f74086f789e46e854ca320455e84dcb42c1
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326720"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907645"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
 
@@ -35,7 +35,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要遵循本文中的範例，您需要以下項目：
 
@@ -109,48 +109,44 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    **建立內部部署 SAP 連線**
 
-    1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道]  屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
+   提供 SAP 伺服器的連線資訊。 針對 [資料閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。 當您完成時, 請選取 [**建立**]。 Logic Apps 會設定並測試您的連線, 以確保連線正常運作。
 
-         - 如果 [登入類型]  屬性設定為 [應用程式伺服器]  ，則需要這些通常會顯示為選擇性項目的屬性：
+   * 如果 [登入類型] 屬性設定為 [應用程式伺服器]，則需要這些通常會顯示為選擇性項目的屬性：
 
-            ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+     ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-         - 如果 [登入類型]  屬性設定為 [群組]  ，則需要這些通常會顯示為選擇性項目的屬性：
+   * 如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性：
 
-            ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+     ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-           根據預設, 強式類型是用來透過對架構執行 XML 驗證來檢查是否有不正確值。 此行為可協助您稍早偵測到問題。 [**安全類型**] 選項可用於回溯相容性, 而且只會檢查字串長度。 深入瞭解[安全輸入選項](#safe-typing)。
-
-    1. 當您完成時, 請選取 [**建立**]。
-
-       Logic Apps 會設定並測試您的連線, 以確保連線正常運作。
+   根據預設, 強式類型是用來透過對架構執行 XML 驗證來檢查是否有不正確值。 此行為可協助您稍早偵測到問題。 [**安全類型**] 選項可用於回溯相容性, 而且只會檢查字串長度。 深入瞭解[安全輸入選項](#safe-typing)。
 
 1. 立即尋找並從 SAP 伺服器選取動作。
 
-    1. 在 [ **SAP 動作**] 方塊中, 選取資料夾圖示。 從檔案清單中，尋找並選取您要使用的 SAP 訊息。 若要瀏覽清單，請使用箭號。
+   1. 在 [ **SAP 動作**] 方塊中, 選取資料夾圖示。 從檔案清單中，尋找並選取您要使用的 SAP 訊息。 若要瀏覽清單，請使用箭號。
 
-       這個範例會選取具有**Orders**類型的 IDoc。
+      這個範例會選取具有**Orders**類型的 IDoc。
 
-       ![尋找並選取 IDoc 動作](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+      ![尋找並選取 IDoc 動作](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
-       如果找不到您需要的動作，您可手動輸入路徑，例如：
+      如果找不到您需要的動作，您可手動輸入路徑，例如：
 
-       ![手動提供路徑給 IDoc 動作](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
+      ![手動提供路徑給 IDoc 動作](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
 
-       > [!TIP]
-       > 透過運算式編輯器提供**SAP 動作**的值。 如此一來, 您就可以針對不同的訊息類型使用相同的動作。
+      > [!TIP]
+      > 透過運算式編輯器提供**SAP 動作**的值。 如此一來, 您就可以針對不同的訊息類型使用相同的動作。
 
-       如需有關 IDoc 作業的詳細資訊，請參閱 [IDOC 作業的訊息結構描述](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)。
+      如需有關 IDoc 作業的詳細資訊，請參閱 [IDOC 作業的訊息結構描述](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)。
 
-    1. 在 [輸入訊息]  方塊內按一下，動態內容清單隨即顯示。 在該清單中的 [收到 HTTP 要求時]  之下，選取 [內文]  欄位。
+   1. 在 [輸入訊息] 方塊內按一下，動態內容清單隨即顯示。 在該清單中的 [收到 HTTP 要求時] 之下，選取 [內文] 欄位。
 
-       此步驟包含來自 HTTP 要求觸發程式的本文內容, 並將該輸出傳送至您的 SAP 伺服器。
+      此步驟包含來自 HTTP 要求觸發程式的本文內容, 並將該輸出傳送至您的 SAP 伺服器。
 
-       ![選取 [內文] 欄位](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
+      ![選取 [內文] 欄位](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
 
-       當您完成時, 您的 SAP 動作會如下列範例所示:
+      當您完成時, 您的 SAP 動作會如下列範例所示:
 
-       ![完整的 SAP 動作](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+      ![完整的 SAP 動作](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
 1. 儲存您的邏輯應用程式。 在設計工具工具列上, 選取 [**儲存**]。
 
@@ -164,7 +160,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 在搜尋方塊中，輸入「回應」做為篩選條件。 從 [**動作**] 清單中, 選取 [**回應**]。
 
-1. 在 [內文]  方塊內按一下，動態內容清單隨即顯示。 從該清單的 [**將訊息傳送至 SAP**] 底下  , 選取 [內文] 欄位。
+1. 在 [內文] 方塊內按一下，動態內容清單隨即顯示。 從該清單的 [**將訊息傳送至 SAP**] 底下 , 選取 [內文] 欄位。
 
    ![完整的 SAP 動作](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
 
@@ -217,17 +213,17 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    **建立內部部署 SAP 連線**
 
-   - 提供 SAP 伺服器的連線資訊。 針對 [資料閘道]  屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
+   提供 SAP 伺服器的連線資訊。 針對 [資料閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。 當您完成時, 請選取 [**建立**]。 Logic Apps 會設定並測試您的連線, 以確保連線正常運作。
 
-      - 如果 [登入類型]  屬性設定為 [應用程式伺服器]  ，則需要這些通常會顯示為選擇性項目的屬性：
+   * 如果 [登入類型] 屬性設定為 [應用程式伺服器]，則需要這些通常會顯示為選擇性項目的屬性：
 
-         ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+     ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      - 如果 [登入類型]  屬性設定為 [群組]  ，則需要這些通常會顯示為選擇性項目的屬性：
+   * 如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性：
 
-          ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
+     ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
-      根據預設, 強式類型是用來透過對架構執行 XML 驗證來檢查是否有不正確值。 此行為可協助您稍早偵測到問題。 [**安全類型**] 選項可用於回溯相容性, 而且只會檢查字串長度。 深入瞭解[安全輸入選項](#safe-typing)。
+   根據預設, 強式類型是用來透過對架構執行 XML 驗證來檢查是否有不正確值。 此行為可協助您稍早偵測到問題。 [**安全類型**] 選項可用於回溯相容性, 而且只會檢查字串長度。 深入瞭解[安全輸入選項](#safe-typing)。
 
 1. 根據 SAP 系統設定提供必要的參數。
 
@@ -262,6 +258,41 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 1. 在邏輯應用程式功能表上, 選取 **[總覽**]。 針對您的邏輯應用程式, 檢查**執行歷程記錄**中是否有任何新的執行。
 
 1. 開啟最近的執行，其會在觸發程序的輸出區段中顯示從 SAP 系統傳送的訊息。
+
+## <a name="receive-idocs-packets-from-sap"></a>從 SAP 接收 Idoc 封包
+
+您可以設定 SAP 在封包 (也就是 Idoc 的批次或群組)[中傳送 idoc](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html)。 若要接收 IDOC 封包, SAP 連接器 (尤其是觸發程式) 不需要額外的設定。 不過, 若要在觸發程式收到封包之後處理 IDOC 封包中的每個專案, 則需要執行一些額外的步驟, 將封包分割成個別的 Idoc。
+
+以下範例示範如何使用[ `xpath()` ](./workflow-definition-language-functions-reference.md#xpath)函式, 從封包中解壓縮個別的 idoc: 
+
+1. 開始之前, 您需要有一個具有 SAP 觸發程式的邏輯應用程式。 如果您還沒有此邏輯應用程式, 請遵循本主題中的先前步驟來設定[具有 SAP 觸發程式的邏輯應用程式](#receive-from-sap)。 
+
+   例如:
+
+   ![SAP 觸發程式](./media/logic-apps-using-sap-connector/first-step-trigger.png)
+
+1. 從您的邏輯應用程式從 SAP 接收的 XML IDOC 取得根命名空間。 若要從 XML 檔解壓縮此命名空間, 請新增一個步驟來建立本機字串變數, 並使用`xpath()`運算式來儲存該命名空間:
+
+   `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
+
+   ![取得命名空間](./media/logic-apps-using-sap-connector/get-namespace.png)
+
+1. 若要將個別 IDOC 解壓縮, 請新增一個步驟來建立陣列變數, 並使用另一個`xpath()`運算式來儲存 IDOC 集合:
+
+   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')` 
+
+   ![取得專案的陣列](./media/logic-apps-using-sap-connector/get-array.png)
+
+   陣列變數會透過列舉集合, 讓邏輯應用程式可個別處理每個 IDOC。 在此範例中, 邏輯應用程式會使用迴圈, 將每個 IDOC 傳輸至 SFTP 伺服器:
+
+   ![傳送 IDOC](./media/logic-apps-using-sap-connector/loop-batch.png)
+
+   每個 IDOC 都必須包含根命名空間, 這是在將 IDOC 傳送到下游應用程式`<Receive></Receive`之前, 或在此情況下, 將檔案內容包裝在元素中的原因, 以及根命名空間。
+
+> [!TIP]
+> 當您建立新的邏輯應用程式時, 您可以在邏輯應用程式設計工具中選取此範本, 以使用此模式的快速入門範本。
+>
+> ![Batch 範本](./media/logic-apps-using-sap-connector/batch-template.png)
 
 ## <a name="generate-schemas-for-artifacts-in-sap"></a>在 SAP 中產生成品的結構描述
 
@@ -300,13 +331,13 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    **建立內部部署 SAP 連線**
 
-   1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道]  屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
+   1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
 
-      - 如果 [登入類型]  屬性設定為 [應用程式伺服器]  ，則需要這些通常會顯示為選擇性項目的屬性：
+      - 如果 [登入類型] 屬性設定為 [應用程式伺服器]，則需要這些通常會顯示為選擇性項目的屬性：
 
         ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      - 如果 [登入類型]  屬性設定為 [群組]  ，則需要這些通常會顯示為選擇性項目的屬性：
+      - 如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性：
 
         ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
@@ -457,10 +488,6 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 ## <a name="known-issues-and-limitations"></a>已知問題與限制
 
 以下是 SAP 連接器目前的已知問題和限制：
-
-* 只有單一傳送至 SAP 呼叫或訊息可與 tRFC 搭配使用。 不支援 BAPI 認可模式, 例如在同一個會話中進行多個 tRFC 呼叫。
-
-* SAP 觸發程式不支援從 SAP 接收批次 Idoc。 此動作可能會導致 SAP 系統與資料閘道之間的 RFC 連線失敗。
 
 * SAP 觸發程序不支援資料閘道叢集。 在某些容錯移轉案例中, 與 SAP 系統通訊的資料閘道節點可能會與使用中節點不同, 這會導致非預期的行為。 針對傳送案例, 支援資料閘道叢集。
 

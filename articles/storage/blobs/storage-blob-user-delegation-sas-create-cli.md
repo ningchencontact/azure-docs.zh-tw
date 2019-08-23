@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 1c60c4b868854952771ba297107904762a2357d8
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032997"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896971"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>使用 Azure CLI (預覽) 建立容器或 blob 的使用者委派 SAS
 
@@ -49,7 +49,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-如需內建角色 (包括**storageAccounts/blobServices/generateUserDelegationKey**動作) 的詳細資訊, 請參閱[Azure 資源的內建角色](/role-based-access-control/built-in-roles)。
+如需內建角色 (包括**storageAccounts/blobServices/generateUserDelegationKey**動作) 的詳細資訊, 請參閱[Azure 資源的內建角色](../../role-based-access-control/built-in-roles.md)。
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>使用 Azure AD 認證來保護 SAS
 
@@ -63,7 +63,7 @@ az role assignment create \
 
 若要為具有 Azure CLI 的容器建立使用者委派 SAS, 請呼叫[az storage container 產生-SAS](/cli/azure/storage/container#az-storage-container-generate-sas)命令。
 
-容器上使用者委派 SAS 的支援許可權包括 [新增]、[建立]、[刪除]、[列出]、[讀取] 和 [寫入]。 可以單獨或結合指定許可權。 如需這些許可權的詳細資訊, 請參閱[建立使用者委派 SAS](/rest/api/storageservices/create-a-user-delegation-sas)。
+容器上使用者委派 SAS 的支援許可權包括 [新增]、[建立]、[刪除]、[列出]、[讀取] 和 [寫入]。 可以單獨或結合指定許可權。 如需這些許可權的詳細資訊, 請參閱[建立使用者委派 SAS](/rest/api/storageservices/create-user-delegation-sas)。
 
 下列範例會傳回容器的使用者委派 SAS 權杖。 請記得以您自己的值取代括弧中的預留位置值:
 
@@ -87,7 +87,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 若要使用 Azure CLI 建立 blob 的使用者委派 SAS, 請呼叫[az storage blob 產生-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas)命令。
 
-Blob 上使用者委派 SAS 的支援許可權包括 [新增]、[建立]、[刪除]、[讀取] 和 [寫入]。 可以單獨或結合指定許可權。 如需這些許可權的詳細資訊, 請參閱[建立使用者委派 SAS](/rest/api/storageservices/create-a-user-delegation-sas)。
+Blob 上使用者委派 SAS 的支援許可權包括 [新增]、[建立]、[刪除]、[讀取] 和 [寫入]。 可以單獨或結合指定許可權。 如需這些許可權的詳細資訊, 請參閱[建立使用者委派 SAS](/rest/api/storageservices/create-user-delegation-sas)。
 
 下列語法會傳回 blob 的使用者委派 SAS。 此範例會指定`--full-uri`參數, 傳回已附加 SAS 權杖的 blob URI。 請記得以您自己的值取代括弧中的預留位置值:
 
@@ -115,5 +115,5 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立使用者委派 SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [建立使用者委派 SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
 - [取得使用者委派金鑰作業](/rest/api/storageservices/get-user-delegation-key)

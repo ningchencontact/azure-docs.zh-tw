@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd451f4c7ada3c062862098d4cda5314152be0c0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d819479c5e4bdbf8287dc7408c0f7813f5e32b13
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882002"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900195"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>使用 MLflow 和 Azure Machine Learning 服務追蹤計量和部署模型 (預覽)
 
@@ -27,6 +27,8 @@ ms.locfileid: "68882002"
 + 將您的 MLflow 實驗部署為 Azure Machine Learning web 服務。 藉由部署為 web 服務, 您可以將 Azure Machine Learning 監視和資料漂移偵測功能套用至生產環境模型。 
 
 [MLflow](https://www.mlflow.org)是一個開放原始碼程式庫, 可用於管理機器學習實驗的生命週期。 MLFlow 追蹤是 MLflow 的元件, 可記錄及追蹤您的定型執行計量和模型成品, 無論您的實驗環境是在本機、在虛擬機器、遠端計算叢集上, 甚至 Azure Databricks。
+
+下圖說明使用 MLflow 追蹤時, 您可以採取任何實驗--不論它是在虛擬機器上本機電腦上的遠端計算目標上, 或是在 Azure Databricks 叢集上, 並追蹤其執行計量和存放模型成品在您的 Azure Machine Learning 工作區中。
 
 ![使用 azure machine learning mlflow 的圖表](media/how-to-use-mlflow/mlflow-diagram-track.png)
 
@@ -49,7 +51,7 @@ ms.locfileid: "68882002"
 |監視模型效能||✓|  |   |
 | 偵測資料漂移 |   | ✓ |   | ✓ |
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [安裝 MLflow。](https://mlflow.org/docs/latest/quickstart.html)
 * 在您的本機電腦上[安裝 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) sdk 會提供 MLflow 的連線能力, 以存取您的工作區。
@@ -139,9 +141,11 @@ run = exp.submit(src)
 
 ## <a name="track-azure-databricks-runs"></a>追蹤 Azure Databricks 執行
 
-具有 Azure Machine Learning 服務的 MLflow 追蹤可讓您將已記錄的計量和成品從 Databrick 執行儲存到您的 Azure Machine Learning 工作區。
+具有 Azure Machine Learning 服務的 MLflow 追蹤可讓您在 Azure Machine Learning 工作區中, 儲存來自 Databricks 執行的已記錄計量和成品。
 
-若要使用 Azure Databricks 執行您的 Mlflow 實驗, 您必須先建立[Azure Databricks 工作區和](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)叢集。 在您的叢集中, 請務必從 PyPi 安裝*azureml mlflow*程式庫, 以確保您的叢集能夠存取必要的函式和類別。
+若要使用 Azure Databricks 執行您的 Mlflow 實驗, 您必須先建立[Azure Databricks 工作區和](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)叢集
+
+在您的叢集中, 請務必從 PyPi 安裝*azureml mlflow*程式庫, 以確保您的叢集能夠存取必要的函式和類別。
 
 ### <a name="install-libraries"></a>安裝程式庫
 
@@ -210,10 +214,13 @@ ws.get_details()
 
 將您的 MLflow 實驗部署為 Azure Machine Learning web 服務, 可讓您利用 Azure Machine Learning 模型管理和資料漂移偵測功能, 並將其套用至您的生產環境模型。
 
+下圖說明使用 MLflow deploy API 時, 您可以將現有的 MLflow 模型部署為 Azure Machine Learning web 服務, 而不論其架構 (PyTorch、Tensorflow、scikit-learn-學習、ONNX 等), 以及在中管理您的生產環境模型。您的工作區。
+
 ![使用 azure machine learning mlflow 的圖表](media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
 ### <a name="log-your-model"></a>記錄您的模型
-在我們可以部署之前, 請確定您的模型已儲存, 讓您可以參考它及其路徑位置以進行部署。 在定型腳本中, 應該會有類似下列 mlflow 的程式碼: [sklearn _model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html)方法, 將您的模型儲存至指定的輸出目錄。 
+
+在您可以部署之前, 請確定您的模型已儲存, 讓您可以參考它及其路徑位置以進行部署。 在定型腳本中, 應該會有類似下列 mlflow 的程式碼: [sklearn _model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html)方法, 將您的模型儲存至指定的輸出目錄。 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
@@ -227,7 +234,7 @@ mlflow.sklearn.log_model(regression_model, model_save_path)
 
 ### <a name="retrieve-model-from-previous-run"></a>從上一次執行取出模型
 
-若要取得所需的執行, 我們需要在儲存模型之位置的執行歷程記錄中的執行識別碼和路徑。 
+若要取得所需的執行, 您需要在儲存模型的執行歷程記錄中的執行識別碼和路徑。 
 
 ```python
 # gets the list of runs for your experiment as an array
@@ -244,7 +251,7 @@ model_save_path = 'model'
 
 `mlflow.azureml.build_image()`函式會以架構感知的方式, 從儲存的模型建立 Docker 映射。 它會自動建立架構特定的推斷包裝函式程式碼, 並為您指定套件相依性。 指定模型路徑、您的工作區、執行識別碼和其他參數。
 
-在下列程式碼中, 我們會使用執行: */< 執行 >/model*來建立 docker 映射, 做為 scikit-learn 學習實驗的 model_uri 路徑。
+下列程式碼會使用*執行:/< 執行*來建立 docker 映射, >/model 做為 scikit-learn-學習實驗的 model_uri 路徑。
 
 ```python
 import mlflow.azureml
@@ -290,9 +297,9 @@ webservice.wait_for_deployment(show_output=True)
 ```
 #### <a name="deploy-to-aks"></a>部署到 AKS
 
-若要部署至 AKS, 您需要建立 AKS 叢集, 並將您要部署的 Docker 映射帶入其中。 在此範例中, 我們會從 ACI 部署引進先前建立的映射。
+若要部署至 AKS, 您需要建立 AKS 叢集, 並將您要部署的 Docker 映射帶入其中。 針對此範例, 請從 ACI 部署中帶入先前建立的映射。
 
-為了從先前的 ACI 部署取得映射, 我們使用[image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py)類別。 
+若要從先前的 ACI 部署取得影像, 請使用[image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py)類別。 
 
 ```python
 from azureml.core.image import Image

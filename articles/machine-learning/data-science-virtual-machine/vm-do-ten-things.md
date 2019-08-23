@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: vijetaj
-ms.openlocfilehash: ee63f7aae70e93dfbe857b8680d2b4a477600d72
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: MT
+ms.openlocfilehash: cd4acdd4009a94b51807a536c28b138b86d2aced
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575101"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971931"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
 
@@ -64,10 +64,6 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 * 為每個版本建立自訂環境，方法是瀏覽至 [工具] -> [Python 工具] -> [Python 環境]，然後按一下 Visual Studio Community Edition 中的 [+ 自訂]
 * 提供描述並將環境前置詞路徑設定為 *c:\anaconda\envs\python2* (適用於 Anaconda Python 2.7)
 * 按一下 [自動偵測]，然後按一下 [套用] 來儲存環境。
-
-以下是自訂環境設定在 Visual Studio 中的外觀。
-
-![已選取適用於 Visual Studio 的 Python 工具的 Visual Studio 螢幕擷取畫面](./media/vm-do-ten-things/PTVSSetup.png)
 
 如需有關如何建立 Python 環境的詳細資訊，請參閱 [PTVS 文件](https://aka.ms/ptvsdocs) 。
 
@@ -219,7 +215,7 @@ DSVM 不僅可讓您在虛擬機器本機建置分析解決方案，也可讓您
 + **Azure powershell**: 使用 Windows Powershell 腳本。 從桌面上的快捷方式或從標題為 "Microsoft Azure Powershell" 的 [開始] 功能表執行 Azure Powershell。 如需完整詳細資料, 請參閱[Microsoft Azure Powershell 檔](../../powershell-azure-resource-manager.md)。 
 
 ## <a name="5-extend-storage-with-shared-file-systems"></a>5.使用共用檔案系統擴充儲存體
-資料科學家可以在小組內共用大型資料集、程式碼或其他資源。 DSVM 本身有大約 45 GB 的可用空間。 若要擴充您的儲存體，您可以使用「Azure 檔案服務」，然後將它掛接在一或多個 DSVM 執行個體上或透過 REST API 存取。  您也可以使用 [Azure 入口網站](../../virtual-machines/windows/attach-managed-disk-portal.md)或使用 [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md) 來新增額外的專用資料磁碟。 
+資料科學家可以在小組內共用大型資料集、程式碼或其他資源。 DSVM 本身有大約 45 GB 的可用空間。 若要擴充您的儲存體，您可以使用「Azure 檔案服務」，然後將它掛接在一或多個 DSVM 執行個體上或透過 REST API 存取。  您也可以使用[Azure 入口網站](../../virtual-machines/windows/attach-managed-disk-portal.md), 或使用[Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md)來新增額外的專用資料磁片。 
 
 > [!NOTE]
 > 「Azure 檔案服務」共用的空間上限為 5 TB，個別檔案大小限制為 1 TB。 
@@ -295,8 +291,6 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
     AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
 以您的檔案儲存路徑取代 **C:\myfolder**，以您的 Blob 儲存體帳戶名稱取代 **mystorageaccount**、以容器名稱取代 **mycontainer**，並以您的 Blob 儲存體存取金鑰取代 **storage account key**。 您可以在 [Azure 入口網站](https://portal.azure.com)中尋找您的儲存體帳戶認證。
-
-![Azure 入口網站中的儲存體帳戶金鑰和容器資訊的螢幕擷取畫面](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 在 PowerShell 或從命令提示字元執行 AzCopy 命令。 以下是使用 AzCopy 命令的一些範例：
 
@@ -393,9 +387,7 @@ Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存�
 
 **將資料從 VM 移至 Data Lake：Azure Data Lake 總管**
 
-您可以使用 **Azure Data Lake Explorer** ，將資料從虛擬機器中的本機檔案上傳至 Data Lake 儲存體。
-
-![使用 Data Lake Explorer 上傳檔案的螢幕擷取畫面](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+您可以使用**Azure Data Lake Explorer** , 將[資料從虛擬機器中的本機檔案上傳至 Data Lake 儲存體](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
 
 您也可以使用 [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/) 來建置資料管線，以將資料在 Azure Data Lake 的移入和移出操作化。 請參閱這篇[文章](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) ，以引導您完成建置資料管線的步驟。
 
@@ -406,8 +398,6 @@ Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存�
 ![[新增資料來源] 對話方塊的螢幕擷取畫面](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 您可以在 Visual Studio 中，從 Blob 儲存體讀取資料、進行一些資料操作、功能工程，以及將結果資料輸出至 Azure 資料湖或 Azure Blob 儲存體。 當您參考 Blob 儲存體中的資料時，請使用 **wasb://** ；當您參考 Azure Data Lake 中的資料時，請使用 **swbhdfs://**
-
-![反白顯示 WASB 項目的查詢螢幕擷取畫面](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 您可以在 Visual Studio 中，使用下列 U-SQL 查詢：
 
@@ -486,7 +476,7 @@ Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm
 
 ![啟用 HDInsight 叢集的遠端存取](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
-* 建立 Azure Machine Learning 工作區。 您的機器學習實驗將會儲存在此 Machine Learning 工作區中。 在入口網站中選取反白顯示的選項，如下列螢幕擷取畫面所示：
+* 建立 Azure Machine Learning 工作區。 您的機器學習實驗將會儲存在此 Machine Learning 工作區中。 在入口網站中選取反白顯示的選項, 如下列螢幕擷取畫面所示:
 
 ![建立 Azure Machine Learning 工作區](./media/vm-do-ten-things/Create_ML_Space.PNG)
 
@@ -880,9 +870,7 @@ in
 
 ![Power BI 桌面](./media/vm-do-ten-things/PowerBIVolcanoData.png)
 
-您可以開始使用資料模型來建立報告和視覺效果。 您可以遵循這篇 [Power BI 文章](../../cosmos-db/powerbi-visualize.md#build-the-reports)中的步驟來建立報告。 輸出會是一個如以下所示的報告。
-
-![Power BI Desktop 報告檢視 - Power BI 連接器](./media/vm-do-ten-things/power_bi_connector_pbireportview2.png)
+您可以開始使用資料模型來建立報告和視覺效果。 您可以遵循這篇 [Power BI 文章](../../cosmos-db/powerbi-visualize.md#build-the-reports)中的步驟來建立報告。
 
 ## <a name="9-dynamic-dsvm-scaling"></a>9.動態 DSVM 調整 
 您可以相應增加和減少 DSVM 以符合您的專案需求。 如果您在晚上或週末不需要使用 VM，就可以從 [Azure 入口網站](https://portal.azure.com)關閉 VM。
@@ -894,9 +882,7 @@ in
 
 如果您需要處理一些大規模分析，而需要更多 CPU 和/或記憶體和/或磁碟容量，您可以找到許多在 CPU 核心、用於深度學習的 GPU 型執行個體、記憶體容量及磁碟類型 (包括固態硬碟機) 方面，符合您計算和預算需求的 VM 大小選擇。 [Azure 虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)頁面提供完整 VM 清單和其每小時的計算價格。
 
-同樣地，如果您的 VM 處理容量需求降低 (例如：將主要工作負載移至 Hadoop 或 Spark 叢集)，您可以從 [Azure 入口網站](https://portal.azure.com)移至您的 VM 執行個體設定來相應減少叢集。 以下為螢幕擷取畫面。
-
-![VM 執行個體設定](./media/vm-do-ten-things/VMScaling.PNG)
+同樣地，如果您的 VM 處理容量需求降低 (例如：將主要工作負載移至 Hadoop 或 Spark 叢集)，您可以從 [Azure 入口網站](https://portal.azure.com)移至您的 VM 執行個體設定來相應減少叢集。 
 
 ## <a name="10-add-more-tools"></a>10.新增更多工具
 DSVM 中已預先建置數項工具，可應付許多常見的資料分析需求。 這可讓您因無須逐一安裝和設定環境而節省您的時間，因只需支付所用的資源而節省您的成本。

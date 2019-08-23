@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7838fd30869629298c5b44cc4b3e5c1e5daa7051
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: ef5a605fb0190e67de8b2bb95bbccfd8fd3cf279
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519993"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906043"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>教學課程：設定 Signagelive 來自動布建使用者
 
@@ -56,8 +56,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
 將 Signagelive 設定為使用 Azure AD 自動布建使用者之前, 您必須啟用 Signagelive 上的 SCIM 布建。
 
-1.  觸達[Signagelive](mailto:development@signagelive.com) , 以取得設定 SCIM 布建所需的秘密權杖。
-
+  觸達[Signagelive](mailto:development@signagelive.com) , 以取得設定 SCIM 布建所需的秘密權杖。
 
 ## <a name="add-signagelive-from-the-gallery"></a>從資源庫新增 Signagelive
 
@@ -86,7 +85,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 本節將引導您逐步設定 Azure AD 布建服務, 以根據 Azure AD 中的使用者和/或群組指派, 在 Signagelive 中建立、更新和停用使用者和/或群組。
 
 > [!TIP]
->  您也可以選擇啟用 BitaBIZ 的 SAML 型單一登入, 請遵循[Signagelive 單一登入教學](Signagelive-tutorial.md)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能互相補充，您還是可以將它們分開設定。
+>  您也可以選擇啟用 Signagelive 的 SAML 型單一登入, 請遵循[Signagelive 單一登入教學](Signagelive-tutorial.md)課程中提供的指示。 雖然自動使用者佈建和單一登入這兩個功能互相補充，您還是可以將它們分開設定。
 
 ### <a name="to-configure-automatic-user-provisioning-for-signagelive--in-azure-ad"></a>若要在 Azure AD 中設定 Signagelive 的自動使用者布建:
 
@@ -106,7 +105,8 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
     ![布建索引標籤](common/provisioning-automatic.png)
 
-5. 在 [管理員認證] 區段下` https://samlapi.signagelive.com/scim/v2` , 輸入 [**租使用者 URL**]。 在 [**秘密權杖**] 欄位中, 輸入工程開發小組所提供的**持有人權杖**值。 按一下 [**測試連接**] 以確保 Azure AD 可以連接到 Signagelive。 如果連線失敗, 請確定您的 Signagelive 帳戶具有系統管理員許可權, ![然後再試一次租使用者 URL + 權杖](common/provisioning-testconnection-tenanturltoken.png)
+5. 在 [管理員認證] 區段下` https://samlapi.signagelive.com/scim/v2` , 輸入 [**租使用者 URL**]。 在 [**秘密權杖**] 欄位中, 輸入工程開發小組所提供的**持有人權杖**值。 按一下 [**測試連接**] 以確保 Azure AD 可以連接到 Signagelive。 如果連線失敗, 請確定您的 Signagelive 帳戶具有系統管理員許可權, 然後再試一次。
+    ![租使用者 URL + 權杖](common/provisioning-testconnection-tenanturltoken.png)
 
 6. 在 [通知電子郵件] 欄位中，輸入應該收到佈建錯誤通知的個人或群組電子郵件地址，然後選取 [發生失敗時傳送電子郵件通知] 核取方塊。
 
@@ -144,9 +144,9 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 
     ![正在儲存布建設定](common/provisioning-configuration-save.png)
 
-此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [**同步處理詳細資料**] 區段來監視進度, 並遵循連結來布建活動報告, 其中描述 Signagelive 上的 Azure AD 布建服務所執行的所有動作。
+此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行。 如需布建使用者和/或群組所需時間長度的詳細資訊, 請參閱布建[使用者需要多久時間](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)。 
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
+您可以使用 [**目前狀態**] 區段來監視進度, 並遵循 [布建活動報告] 的連結, 其中描述 Signagelive 上的 Azure AD 布建服務所執行的所有動作。 如需詳細資訊, 請參閱[檢查使用者](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)布建的狀態。 若要讀取 Azure AD 布建記錄, 請參閱[關於自動使用者帳戶](../manage-apps/check-status-user-account-provisioning.md)布建的報告。
 
 ## <a name="additional-resources"></a>其他資源
 

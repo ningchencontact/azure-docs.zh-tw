@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/14/2019
-ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 08/22/2019
+ms.openlocfilehash: 481419a5db6efd600d74851238cd1a12d8766186
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637255"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972539"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>使用 vCore 為基礎的購買模型的單一資料庫資源限制
 
@@ -301,7 +301,7 @@ ms.locfileid: "69637255"
 |IO 延遲 (大約)|待決定|待決定|待決定|待決定|待決定|待決定|待決定|待決定|
 |並行背景工作 (要求) 數上限|200|400|800|1600|2400|3200|4000|8000|
 |並行工作階段數上限|30000|30000|30000|30000|30000|30000|30000|30000|
-|複本數目|2|2|2|2|2|2|2|2|
+|次要複本|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |讀取向外延展|是|是|是|是|是|是|是|是|
 |內含備份儲存體 |7|7|7|7|7|7|7|7|

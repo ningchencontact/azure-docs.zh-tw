@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 7cd555f66bb6f65f498f9b3e5db9bbeda0505a8f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0a8b3a8bcfc2aa8270d7be140a94e5b83973f3e5
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384967"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972121"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>管理受保護機器上的行動代理程式
 
@@ -29,7 +29,7 @@ ms.locfileid: "68384967"
 
      ![[複寫的項目] 視窗](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. 按一下通知，然後在 [代理程式更新] 中，選取您想要升級行動服務的機器。 然後按一下 [確定] 。
+4. 按一下通知，然後在 [代理程式更新] 中，選取您想要升級行動服務的機器。 然後按一下 [確定]。
 
      ![複寫的項目 VM 清單](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
@@ -61,7 +61,7 @@ Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Acco
 
 ### <a name="on-a-linux-machine"></a>在 Linux 機器上
 1. 在 Linux 機器上，以 **root** 使用者身分登入。
-2. 在終端機中，移至 /user/local/ASR。
+2. 在終端機中, 移至/Usr/local/asr。
 3. 執行下列命令：
     ```
     uninstall.sh -Y

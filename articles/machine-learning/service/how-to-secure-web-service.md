@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e730e1b5534c4c74734816f5481247e341436b08
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656331"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897348"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>使用 SSL 透過 Azure Machine Learning 保護 web 服務
 
@@ -149,9 +149,9 @@ aci_config = AciWebservice.deploy_configuration(
   > [!WARNING]
   > 如果您使用*leaf_domain_label*透過 Microsoft 的憑證來建立服務, 請勿手動更新叢集的 DNS 值。 此值應自動設定。
 
-  更新 AKS 叢集之公用 IP 位址的 [設定] 索引標籤上的 DNS。 (請參閱下圖)。公用 IP 位址是在包含 AKS 代理程式節點和其他網路資源的資源群組下建立的資源類型。
+  在左窗格中 [設定] 底下的 [**設定**] 索引卷標上, 更新 AKS 叢集之公用 IP 位址的 DNS。 (請參閱下圖)。公用 IP 位址是在包含 AKS 代理程式節點和其他網路資源的資源群組下建立的資源類型。
 
-  ![Azure Machine Learning 服務：使用 SSL 保護 Web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  [![Azure Machine Learning 服務:使用 SSL 保護 web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>更新 SSL 憑證
 
@@ -230,9 +230,7 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 ## <a name="disable-ssl"></a>停用 SSL
 
-若要針對部署至 Azure Kubernetes Service 的模型停用 SSL, 您可以使用 SDK 或 CLI:
-
-**使用 SDK**
+若要針對部署至 Azure Kubernetes Service 的模型停`SslConfiguration`用 SSL, 請使用`status="Disabled"`建立, 然後執行更新:
 
 ```python
 from azureml.core.compute import AksCompute
@@ -246,12 +244,6 @@ aks_target = AksCompute(ws, clustername)
 ssl_configuration = SslConfiguration(status="Disabled")
 update_config = AksUpdateConfiguration(ssl_configuration)
 aks_target.update(update_config)
-```
-
-**使用 CLI**
-
-```azurecli
- az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-disable True
 ```
 
 ## <a name="next-steps"></a>後續步驟

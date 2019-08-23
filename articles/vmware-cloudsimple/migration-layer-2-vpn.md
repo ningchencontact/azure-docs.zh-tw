@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa7117fd7b5c8fa92f9d9cff1d7b1cbc18555840
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 55401ca498f06aa0b959c3926f2a07f40e7fb638
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881199"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972624"
 ---
-# <a name="migrate-workloads-using-layer-2-stretched-networks"></a>使用第2層延伸網路遷移工作負載
+# <a name="migrate-workloads-using-layer-2-stretched-networks"></a>使用第 2 層延伸網路遷移工作負載
 
 在本指南中, 您將瞭解如何使用第2層 VPN (L2VPN), 將第2層網路從您的內部部署環境延展到 CloudSimple 私用雲端。 此解決方案可讓您將內部部署 VMware 環境中執行的工作負載, 遷移至相同子網位址空間內 Azure 中的私人雲端, 而不需要重新建立您的工作負載。
 
@@ -276,7 +276,7 @@ POST https://192.168.110.201/api/v1/vpn/ipsec/local-endpoints
 "trust_crl_ids": []
 }
 ```
- 
+
 ### <a name="create-a-peer-endpoint"></a>建立對等端點
 
 ```

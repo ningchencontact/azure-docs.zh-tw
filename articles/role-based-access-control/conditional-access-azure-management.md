@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 3aa24fdfc156c0197d724fd57729f5b11fa908ee
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d4036b2aaa59eeb8e38a5881e465031d7a2f15e3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278152"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899716"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>使用條件式存取來管理 Azure 管理的存取權
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 中的條件式存取會根據您指定的特�
 
 通常, 您會使用條件式存取來控制雲端應用程式的存取。 您也可以設定原則，以根據特定條件 (例如登入風險、位置或裝置) 來控制 Azure 管理的存取，以及強制執行各項需求 (如多重要素驗證)。
 
-若要建立 Azure 管理的原則，您可在選擇要套用原則的應用程式時，選取 [雲端應用程式]  之下的 [Microsoft Azure 管理]  。
+若要建立 Azure 管理的原則，您可在選擇要套用原則的應用程式時，選取 [雲端應用程式] 之下的 [Microsoft Azure 管理]。
 
 ![Azure 管理的條件式存取](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
@@ -40,6 +40,7 @@ Azure Active Directory (Azure AD) 中的條件式存取會根據您指定的特�
 - Azure PowerShell
 - Visual Studio 訂閱系統管理員入口網站
 - Azure DevOps
+- Azure Data Factory 入口網站
 
 請注意，此原則適用於可呼叫 Azure Resource Manager API 的 Azure PowerShell。 不適用於呼叫 Microsoft Graph 的[Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)。
 

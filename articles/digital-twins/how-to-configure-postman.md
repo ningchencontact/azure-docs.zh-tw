@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/21/2019
 ms.author: v-adgera
-ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873668"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904286"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>如何針對 Azure Digital Twins 設定 Postman
 
@@ -35,9 +35,9 @@ ms.locfileid: "69873668"
 
 設定 Azure Active Directory 應用程式，以使用 OAuth 2.0 隱含授與流程。
 
-1. 按照[此快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)的步驟來建立類型為「原生」的 Azure AD 應用程式。 或者，您可以重複使用現有的原生應用程式註冊。
+1. 依照[我們的快速入門](./quickstart-view-occupancy-dotnet.md)中的步驟, 建立 Azure AD 應用程式。 或者,[使用舊版 AAD 分頁建立原生應用程式](./how-to-use-legacy-aad.md)。
 
-1. 在 [必要權限] 底下，選取 [新增]，然後在 [加入 API 存取權] 底下輸入 **Azure Digital Twins**。 如果搜尋沒有找到 API，請改為搜尋 **Azure 智慧空間**。 然後，依序選取 [授與權限] > [委派的權限] 和 [完成]。
+1. 在 [ **API 許可權**] 底下, 選取 [**新增許可權**]。 然後, [**我的組織使用的 api**] 底下的**Azure 數位 Twins** 。 如果搜尋沒有找到 API，請改為搜尋 **Azure 智慧空間**。 然後, 選取 **[委派的許可權**]、[**讀取** > ]、[**寫入**] 和 [**新增許可權**]。
 
     [![Azure Active Directory 應用程式註冊新增 api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
@@ -75,7 +75,7 @@ ms.locfileid: "69873668"
     | 授與類型 | `Implicit` |
     | 回呼 URL | `https://www.getpostman.com/oauth2/callback` |
     | 驗證 URL | 使用取自步驟 2 的**授權 URL** |
-    | 用戶端識別碼 | 使用從上一節中建立或重新決定用途之 Azure Active Directory 應用程式的**應用程式識別碼** |
+    | 用戶端識別碼 | 使用在上一節中建立或重複使用之 Azure Active Directory 應用**程式的應用程式識別碼** |
     | `Scope` | 保留空白 |
     | State | 保留空白 |
     | 用戶端驗證 | `Send as Basic Auth header` |

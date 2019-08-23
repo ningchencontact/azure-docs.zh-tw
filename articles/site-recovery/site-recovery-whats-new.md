@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3dc20036ead29c62d47b4a628d7ce8101b9d31f4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717682"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972512"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 最新功能
 
@@ -25,9 +25,30 @@ ms.locfileid: "68717682"
 
 如需 Site Recovery 更新支援和指示, 請[參閱這篇文章](service-updates-how-to.md)。
 
+## <a name="updates-august-2019"></a>更新 (2019 年8月)
+
+### <a name="update-rollup-39"></a>更新彙總套件39
+
+[更新彙總套件 39](https://support.microsoft.com/help/4517283/update-rollup-39-for-azure-site-recovery)提供下列更新。
+
+**更新** | **詳細資料**
+--- | ---
+**提供者和代理程式** | Site Recovery 代理程式和提供者的更新 (如匯總中所述)
+**問題修正/改進** | 一些修正和改進 (如匯總中所述)
+
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 嚴重損壞修復
+
+資料表中摘要說明 Azure VM 嚴重損壞修復的新功能。
+
+**功能** | **詳細資料**
+--- | ---
+**不 Azure AD 的加密** | 目前支援對執行 Windows 的受控磁片進行 Azure VM 複寫, 而不含 Azure AD 應用程式的加密。
+**容錯移轉的網路資源** | 容錯移轉至另一個區域時, 您現在可以將網路資源設定 (Nsg、負載平衡、公用 IP 位址) 連結至 VM。 
+
 ## <a name="updates-july-2019"></a>更新 (2019 年7月)
 
-### <a name="update-rollup-38"></a>更新彙總套件38
+### <a name="update-rollup-38"></a>更新彙總套件 38
 
 [更新彙總套件 38](https://support.microsoft.com/help/4513507/)提供下列更新。
 

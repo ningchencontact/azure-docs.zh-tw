@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 510f58cc0b71fb75ac6f5e15fc883c3caf4a8f9a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946397"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897932"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning 服務的企業安全性
 
@@ -31,7 +31,7 @@ ms.locfileid: "68946397"
 * 用戶端會將權杖提供給 Azure Resource Manager & 所有 Azure Machine Learning 服務
 * Azure Machine Learning 服務提供使用者計算的 Azure Machine Learning token。 例如, Machine Learning Compute。 在執行完成之後, 使用者計算會使用此權杖來回呼 Azure Machine Learning 服務 (將範圍限制為工作區)。
 
-![顯示驗證如何在 Azure Machine Learning 服務中運作的螢幕擷取畫面](./media/enterprise-readiness/authentication.png)
+[![顯示驗證如何在 Azure Machine Learning 服務中運作的螢幕擷取畫面](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Web 服務部署的驗證
 
@@ -185,7 +185,7 @@ HDI HDInsight 和 VM 等計算目標的 SSH 密碼和金鑰會儲存在與 Micro
 
 Azure 監視器計量可以用來查看和監視 Azure Machine Learning 服務工作區的計量。 從 [ [Azure 入口網站](https://portal.azure.com)] 中選取您的工作區, 然後使用 [__計量__] 連結。
 
-![顯示工作區範例計量的螢幕擷取畫面](./media/enterprise-readiness/workspace-metrics.png)
+[![顯示工作區範例計量的螢幕擷取畫面](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 計量包括有關執行、部署和註冊的資訊。
 
@@ -197,7 +197,7 @@ Azure 監視器計量可以用來查看和監視 Azure Machine Learning 服務�
 
 下列螢幕擷取畫面顯示工作區的活動記錄:
 
-![螢幕擷取畫面, 顯示工作區下的活動記錄](./media/enterprise-readiness/workspace-activity-log.png)
+[![螢幕擷取畫面, 顯示工作區下的活動記錄](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 評分要求詳細資料會儲存在 Application insights 中, 在建立工作區時, 會在使用者的訂用帳戶中建立。 記錄的資訊包含像是 HTTPMethod、UserAgent、ComputeType、RequestUrl、StatusCode、RequestId、Duration 等欄位。
 
@@ -220,14 +220,14 @@ Azure 監視器計量可以用來查看和監視 Azure Machine Learning 服務�
 
 客戶也可以視需要布建附加至工作區的其他計算 (Azure Kubernetes Service、VM 等)。
 
-![顯示建立工作區工作流程的螢幕擷取畫面](./media/enterprise-readiness/create-workspace.png)
+[![顯示建立工作區工作流程的螢幕擷取畫面](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>儲存原始碼 (訓練腳本)
 
 下圖顯示程式碼快照集工作流程。
 與 Azure Machine Learning 服務工作區相關聯的是目錄 (實驗), 其中包含原始程式碼 (訓練腳本)。  這些腳本會儲存在客戶的本機電腦和雲端 (在客戶的訂用帳戶下的 Azure Blob 儲存體中)。 程式碼快照集會用來執行或檢查歷程記錄。
 
-![顯示建立工作區工作流程的螢幕擷取畫面](./media/enterprise-readiness/code-snapshot.png)
+[![顯示建立工作區工作流程的螢幕擷取畫面](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### <a name="training"></a>訓練
 
@@ -253,7 +253,7 @@ Azure 監視器計量可以用來查看和監視 Azure Machine Learning 服務�
 
 此步驟會顯示在流程中, 其中定型運算會將*執行計量*寫回 Azure Machine Learning 服務, 從該處儲存于 Cosmos DB 中。 用戶端可以呼叫 Azure Machine Learning 服務, 然後再從 Cosmos DB 提取計量, 然後傳回給用戶端。
 
-![顯示建立工作區工作流程的螢幕擷取畫面](./media/enterprise-readiness/training-and-metrics.png)
+[![顯示建立工作區工作流程的螢幕擷取畫面](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>建立 web 服務
 
@@ -267,7 +267,7 @@ Azure 監視器計量可以用來查看和監視 Azure Machine Learning 服務�
 * 評分要求詳細資料會儲存在應用程式深入解析中, 這是在使用者的訂用帳戶中
 * 遙測也會推送至 Microsoft/Azure 訂用帳戶
 
-![顯示建立工作區工作流程的螢幕擷取畫面](./media/enterprise-readiness/inferencing.png)
+[![顯示建立工作區工作流程的螢幕擷取畫面](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## <a name="next-steps"></a>後續步驟
 

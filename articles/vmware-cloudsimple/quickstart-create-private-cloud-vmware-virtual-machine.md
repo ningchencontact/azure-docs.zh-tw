@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4e1642366d41906035e1ba1b7f75d0ad875c739b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574749"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972407"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>在您的私人雲端上建立 VMware 虛擬機器
 
@@ -143,7 +143,7 @@ CloudSimple 入口網站中的 [網路] 頁面可讓您指定防火牆資料表�
 
     ![公用 IP](media/quick-create-pc-public-ip.png)
 
-開始配置公用 IP 位址的工作。 您可以在 [**活動 >** 工作] 頁面上檢查工作的狀態。 配置完成時, 新的專案會顯示在 [公用 Ip] 頁面上。 
+開始配置公用 IP 位址的工作。 您可以在 [**活動 >** 工作] 頁面上檢查工作的狀態。 配置完成時, 新的專案會顯示在 [公用 Ip] 頁面上。
 
 必須使用上述指定的本機位址來設定此 IP 位址所需對應的 VM。 設定 IP 位址的程式是 VM 作業系統特有的。 如需正確的程式, 請參閱 VM 作業系統的檔。
 
@@ -205,7 +205,7 @@ python2.7 -m SimpleHTTPServer 80
 ```
 python3 -m http.server 80
 ```
-在您的桌面上啟動瀏覽器, 並將它指向公用 IP 位址的埠 80, 以流覽 VM 上的檔案。 
+在您的桌面上啟動瀏覽器, 並將它指向公用 IP 位址的埠 80, 以流覽 VM 上的檔案。
 
 ### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>公用 IP 的預設 CloudSimple 防火牆規則
 

@@ -10,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 05c5d42d3c20948df4f42db50dd93abd60288c00
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 6e5ae4966a62c24594ec6efa9454d5e03f75c25b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639584"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971531"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>在 Azure 虛擬網路中保護 Azure ML 實驗和推斷作業
 
-在本文中, 您將瞭解如何在 Azure 虛擬網路 (vnet) 中 Azure Machine Learning 保護測試/定型作業, 以及推斷/評分作業。 
+在本文中, 您將瞭解如何在 Azure 虛擬網路 (vnet) 中 Azure Machine Learning 保護測試/定型作業, 以及推斷/評分作業。
 
 **虛擬網路**會作為安全性界限, 將您的 Azure 資源與公用網際網路隔離。 您也可以將 Azure 虛擬網路加入到您的內部部署網路， 藉由加入網路, 您可以安全地定型模型, 並存取已部署的模型以進行推斷。
 
@@ -29,25 +29,25 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 
 ## <a name="prerequisites"></a>必要條件
 
-+ Azure Machine Learning 服務[工作區](how-to-manage-workspace.md)。 
++ Azure Machine Learning 服務[工作區](how-to-manage-workspace.md)。
 
-+ [Azure 虛擬網路服務](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)和[IP 網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)的一般工作知識。 
++ [Azure 虛擬網路服務](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)和[IP 網路](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)的一般工作知識。
 
-+ 既有的虛擬網路和子網, 可與您的計算資源搭配使用。 
++ 既有的虛擬網路和子網, 可與您的計算資源搭配使用。
 
 ## <a name="use-a-storage-account-for-your-workspace"></a>針對您的工作區使用儲存體帳戶
 
 若要在虛擬網路中使用 Azure 儲存體帳戶作為工作區, 請執行下列動作:
 
-1. 建立虛擬網路背後的實驗運算實例 (例如 Machine Learning Compute 實例), 或將實驗運算實例附加至工作區 (例如, HDInsight 叢集或虛擬機器)。 
+1. 建立虛擬網路背後的實驗運算實例 (例如 Machine Learning Compute 實例), 或將實驗運算實例附加至工作區 (例如, HDInsight 叢集或虛擬機器)。
 
    如需詳細資訊, 請參閱本文中的「使用 Machine Learning Compute 實例」和「使用虛擬機器或 HDInsight 叢集」章節。
 
-1. 在 Azure 入口網站中, 移至附加至工作區的儲存體。 
+1. 在 Azure 入口網站中, 移至附加至工作區的儲存體。
 
-   ![附加至 Azure Machine Learning 服務工作區的儲存體](./media/how-to-enable-virtual-network/workspace-storage.png)
+   [![附加至 Azure Machine Learning 服務工作區的儲存體](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. 在 [ **Azure 儲存體**] 頁面上, 選取 [__防火牆和虛擬網路__]。 
+1. 在 [ **Azure 儲存體**] 頁面上, 選取 [__防火牆和虛擬網路__]。
 
    ![[Azure 儲存體] 頁面上的 [防火牆和虛擬網路] 區域 Azure 入口網站](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
@@ -56,7 +56,12 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
     - 在 [__虛擬網路__] 底下, 選取 [__新增現有的虛擬網路__] 連結。 此動作會新增您的實驗計算實例所在的虛擬網路 (請參閱步驟 1)。
     - 選取 [__允許受信任的 Microsoft 服務存取此儲存體帳戶__] 核取方塊。
 
-   ![Azure 入口網站中的 [防火牆和虛擬網路] 窗格](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)
+    > [!IMPORTANT]
+    > 使用 Azure Machine Learning SDK 時, 您的開發環境必須能夠連接到 Azure 儲存體帳戶。 當儲存體帳戶位於虛擬網路內時, 防火牆必須允許從開發環境的 IP 位址進行存取。
+    >
+    > 若要啟用儲存體帳戶的存取權, 請*從開發用戶端上的網頁瀏覽器*造訪儲存體帳戶的__防火牆和虛擬網路__。 然後使用 [__新增您的用戶端 ip 位址__] 核取方塊, 將用戶端的 ip 位址新增至__位址範圍__。 您也可以使用 [__位址範圍__] 欄位, 手動輸入開發環境的 IP 位址。 新增用戶端的 IP 位址之後, 即可使用 SDK 來存取儲存體帳戶。
+
+   [![Azure 入口網站中的 [防火牆和虛擬網路] 窗格](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
 1. 當您執行實驗時, 請在您的實驗程式碼中, 將回合設定變更為使用 Azure Blob 儲存體:
 
@@ -65,9 +70,9 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
     ```
 
 > [!IMPORTANT]
-> 您可以將 Azure Machine Learning 服務的_預設儲存體帳戶_放在虛擬網路中 _, 僅供實驗_之用。
+> 您可以將 Azure Machine Learning 服務的_預設儲存體帳戶_放在虛擬網路中 _, 僅供實驗_之用。 當您建立工作區時, 會自動布建預設儲存體帳戶。
 >
-> 您可以將_非預設儲存體帳戶_放在虛擬網路中 _, 僅供實驗_之用。
+> 您可以將_非預設儲存體帳戶_放在虛擬網路中 _, 僅供實驗_之用。 函`storage_account` [式`Workspace.create()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)中的參數可讓您依 Azure 資源識別碼指定自訂的儲存體帳戶。
 >
 > 用於_推斷_的預設和非預設儲存體帳戶, 都必須具有_儲存體帳戶不受限制的存取權_。
 >
@@ -81,11 +86,11 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
 * 資料存放區的連接字串
 
 若要在虛擬網路背後的 Azure Key Vault 使用 Azure Machine Learning 測試功能, 請執行下列動作:
-1. 移至與工作區相關聯的金鑰保存庫。 
+1. 移至與工作區相關聯的金鑰保存庫。
 
-   ![與 Azure Machine Learning 服務工作區相關聯的金鑰保存庫](./media/how-to-enable-virtual-network/workspace-key-vault.png)
+   [![與 Azure Machine Learning 服務工作區相關聯的金鑰保存庫](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
-1. 在 [ **Key Vault** ] 頁面上, 選取左窗格中的 [__防火牆和虛擬網路__]。 
+1. 在 [ **Key Vault** ] 頁面上, 選取左窗格中的 [__防火牆和虛擬網路__]。
 
    ![[Key Vault] 窗格中的 [防火牆和虛擬網路] 區段](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
@@ -94,31 +99,25 @@ Azure Machine Learning 服務依賴其他 Azure 服務來處理計算資源。 �
     - 在 [__虛擬網路__] 底下, 選取 [__新增現有的虛擬網路__], 以新增您的實驗計算實例所在的虛擬網路。
     - 在 [__允許信任的 Microsoft 服務略過此防火牆__] 底下, 選取 __[是]__ 。
 
-   ![[Key Vault] 窗格中的 [防火牆和虛擬網路] 區段](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)
+   [![[Key Vault] 窗格中的 [防火牆和虛擬網路] 區段](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 ## <a name="use-a-machine-learning-compute-instance"></a>使用 Machine Learning Compute 實例
 
-若要在虛擬網路中使用 Azure Machine Learning 計算實例, 請考慮下列網路需求:
+若要在虛擬網路中使用 Azure Machine Learning 計算實例, 必須符合下列網路需求:
 
-- 虛擬網路必須在與 Azure Machine Learning 服務工作區相同的訂用帳戶和區域中。
+> [!div class="checklist"]
+> * 虛擬網路必須在與 Azure Machine Learning 服務工作區相同的訂用帳戶和區域中。
+> * 為計算叢集指定的子網必須有足夠的未指派 IP 位址, 以容納叢集目標的 Vm 數目。 如果子網沒有足夠的未指派 IP 位址, 則會部分配置叢集。
+> * 查看虛擬網路的訂用帳戶或資源群組的安全性原則或鎖定, 是否限制管理虛擬網路的許可權。 如果您打算透過限制流量來保護虛擬網路, 請讓計算服務的一些埠保持開啟。 如需詳細資訊, 請參閱[必要的埠](#mlcports)一節。
+> * 如果您要將多個計算叢集放在一個虛擬網路中, 您可能需要要求增加一或多個資源的配額。
 
-- 為計算叢集指定的子網必須有足夠的未指派 IP 位址, 以容納叢集目標的 Vm 數目。 如果子網路沒有足夠的未指派 IP 位址，則將局部配置叢集。
+Machine Learning Compute 實例會自動在包含虛擬網路的資源群組中配置額外的網路資源。 針對每個計算叢集, 服務會配置下列資源:
 
-- 如果您打算透過限制流量來保護虛擬網路, 請讓計算服務的一些埠保持開啟。 如需詳細資訊，請參閱[必要連接埠](#mlcports)一節。
+* 一個網路安全性群組
+* 一個公用 IP 位址
+* 一個負載平衡器
 
-- 查看虛擬網路的訂用帳戶或資源群組的安全性原則或鎖定, 是否限制管理虛擬網路的許可權。
-
-- 如果您要將多個計算叢集放在一個虛擬網路中, 您可能需要要求增加一或多個資源的配額。
-
-    Machine Learning Compute 實例會自動在包含虛擬網路的資源群組中配置額外的網路資源。 針對每個計算叢集, 服務會配置下列資源:
-
-    - 一個網路安全性群組
-
-    - 一個公用 IP 位址
-
-    - 一個負載平衡器
-
-  這些資源會被訂用帳戶的[資源配額](https://docs.microsoft.com/azure/azure-subscription-service-limits)所限制。
+這些資源會被訂用帳戶的[資源配額](https://docs.microsoft.com/azure/azure-subscription-service-limits)所限制。
 
 ### <a id="mlcports"></a> 所需連接埠
 
@@ -140,7 +139,7 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 下列影像顯示 Azure 入口網站中的 NSG 規則設定:
 
-![Machine Learning Compute 的輸入 NSG 規則](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
+[![Machine Learning Compute 的輸入 NSG 規則](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png#lightbox)
 
 ![Machine Learning Compute 的輸出 NSG 規則](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
@@ -157,7 +156,7 @@ Machine Learning Compute 目前使用 Azure Batch 服務將 VM 佈建在指定�
 
 下圖顯示 Azure 入口網站中的 NSG 規則設定:
 
-![Machine Learning Compute 的輸出 NSG 規則](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)
+[![Machine Learning Compute 的輸出 NSG 規則](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 ### <a name="user-defined-routes-for-forced-tunneling"></a>強制通道的使用者定義路由
 
@@ -282,13 +281,13 @@ except ComputeTargetException:
 若要將虛擬網路中的 AKS 新增至您的工作區, 請執行下列動作:
 
 > [!IMPORTANT]
-> 開始下列程式之前, 請先檢查必要條件並規劃叢集的 IP 位址。 如需詳細資訊，請參閱[在 Azure Kubernetes Service (AKS) 中設定進階網路](https://docs.microsoft.com/azure/aks/configure-advanced-networking)。
+> 開始下列程式之前, 請遵循在[Azure Kubernetes Service 中設定 advanced 網路中的必要條件 (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites)作法和規劃叢集的 IP 位址。
 >
 > AKS 實例和 Azure 虛擬網路必須位於相同的區域。
 
 1. 在[Azure 入口網站](https://portal.azure.com)中, 請確定控制虛擬網路的 NSG 具有使用__AzureMachineLearning__做為**來源**而 Azure Machine Learning 服務啟用的輸入規則。
 
-    ![Azure Machine Learning 服務新增計算窗格](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)
+    [![Azure Machine Learning 服務新增計算窗格](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
 
 1. 選取您的 Azure Machine Learning 服務工作區。
 
@@ -315,8 +314,8 @@ except ComputeTargetException:
 1. 請確定控制虛擬網路的 NSG 群組具有針對評分端點啟用的輸入安全性規則, 以便可從虛擬網路外部呼叫。
    > [!IMPORTANT]
    > 為 NSG 保留預設輸出規則。 如需詳細資訊，請參閱[安全性群組](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)中的預設安全性規則一節。
-  
-   ![輸入安全性規則](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
+
+   [![輸入安全性規則](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
 您也可以使用 Azure Machine Learning SDK, 在虛擬網路中新增 Azure Kubernetes Service。 如果您在虛擬網路中已經有 AKS 叢集, 請將其附加至工作區, 如[如何部署至 AKS](how-to-deploy-to-aks.md)中所述。 下列程式碼會在名為`default` `mynetwork`的虛擬網路子網中建立新的 AKS 實例:
 

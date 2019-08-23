@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 602e4356ccd9eb45855462a7a25e0966dc176b4f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946536"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899932"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 安全性與合規性藍圖 - 適用於 UK OFFICIAL 的三層式 IaaS Web 應用程式
 
@@ -109,7 +109,7 @@ ms.locfileid: "68946536"
 - (1) 個商務層負載平衡器
 - (1) 個 資料層負載平衡器
 
-存放區
+儲存體
 - 一共 (14) 個儲存體帳戶
   - Active Directory 網域控制站可用性設定組
     - (2) 個主要本地備援儲存體 (LRS) 帳戶：每部 VM 1 個  
@@ -186,7 +186,7 @@ ms.locfileid: "68946536"
 
 [在 Azure 虛擬機器中部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)。
 
-**Active Directory 整合**：作為專用 AD DS 架構的替代方案，客戶可能會想要使用 [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) 整合或 [Azure 中已加入內部部署樹系的 Active Directory](/azure/architecture/reference-architectures/identity.md)。
+**Active Directory 整合**：作為專用 AD DS 架構的替代方案，客戶可能會想要使用 [Azure Active Directory](/azure/architecture/reference-architectures/identity) 整合或 [Azure 中已加入內部部署樹系的 Active Directory](/azure/architecture/reference-architectures/identity)。
 
 ### <a name="security"></a>安全性
 
@@ -200,9 +200,9 @@ ms.locfileid: "68946536"
 
 **IP 範圍**：架構中的 IP 範圍是建議的範圍。 建議客戶考量自己的環境並使用適當的範圍。
 
-**混合式連線**：雲端式工作負載會使用 Azure VPN 閘道，透過 IPSEC VPN 連線到內部部署資料中心。 客戶應該確保他們是使用適當的 VPN 閘道來連線到 Azure。 範例：[VPN 閘道 Resource Manager 範本](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection) \(英文\)。 執行具有巨量資料需求的大規模、任務關鍵性工作負載的客戶，可能會想要考慮使用 [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) \(英文\) 的混合式網路架構，以取得針對 Microsoft 雲端服務的私人網路連線能力。
+**混合式連線**：雲端式工作負載會使用 Azure VPN 閘道，透過 IPSEC VPN 連線到內部部署資料中心。 客戶應該確保他們是使用適當的 VPN 閘道來連線到 Azure。 範例：[VPN 閘道 Resource Manager 範本](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection) \(英文\)。 執行具有巨量資料需求的大規模、任務關鍵性工作負載的客戶，可能會想要考慮使用 [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) \(英文\) 的混合式網路架構，以取得針對 Microsoft 雲端服務的私人網路連線能力。
 
-**分開考量**：此參考架構會將用於管理作業和商務作業的 VNet 分隔開來。 透過遵循 [Microsoft 雲端服務和網路安全性](/azure/architecture/vdc/networking-virtual-datacenter.md)最佳作法在網路區段之間使用 NSG，將 VNet 和子網路分隔開來將能允許流量管理 (包括流量輸入和輸出限制)。
+**分開考量**：此參考架構會將用於管理作業和商務作業的 VNet 分隔開來。 透過遵循 [Microsoft 雲端服務和網路安全性](/azure/architecture/vdc/networking-virtual-datacenter)最佳作法在網路區段之間使用 NSG，將 VNet 和子網路分隔開來將能允許流量管理 (包括流量輸入和輸出限制)。
 
 **資源管理**：Azure 資源 (例如 VM、VNet 及負載平衡器) 是透過將它們組成 [Azure 資源群組](../../azure-resource-manager/resource-group-overview.md) 來管理。 接著可將資源型存取控制角色指派給每個資源群組，以限制只有經授權的使用者可以存取。
 

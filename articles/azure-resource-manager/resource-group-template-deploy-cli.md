@@ -4,14 +4,14 @@ description: 使用 Azure Resource Manager 和 Azure CLI, 將資源部署至 Azu
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: bd43e919cc0b2bcf1d130c7e616b7da064abcc65
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853836"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971020"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 範本與 Azure CLI 部署資源
 
@@ -133,7 +133,7 @@ az group deployment create \
 
 ## <a name="parameters"></a>參數
 
-若要傳遞參數值，您可以使用內嵌參數或參數檔案。 本文中的前述範例顯示的是內嵌參數。
+若要傳遞參數值，您可以使用內嵌參數或參數檔案。
 
 ### <a name="inline-parameters"></a>內嵌參數
 
@@ -146,7 +146,7 @@ az group deployment create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-如果您使用 Azure CLI 搭配 Windows 命令提示字元 (CMD) 或 PowerShell, 請以下列格式傳遞陣列: `exampleArray="['value1','value2']"`。
+如果您要使用 Azure CLI 搭配 Windows 命令提示字元 (CMD) 或 PowerShell, 請以下列格式傳遞陣列`exampleArray="['value1','value2']"`:。
 
 您也可以取得檔案內容，並提供該內容作為內嵌參數。
 
@@ -172,23 +172,7 @@ arrayContent.json 的格式為：
 
 相對於在您的指令碼中將參數做為內嵌值傳遞，使用包含該參數值的 JSON 檔案可能較為容易。 參數檔案必須是本機檔案。 Azure CLI 不支援外部參數檔案。
 
-參數檔必須是下列格式︰
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-請注意，參數區段包含符合於範本中所定義之參數 (storageAccountType) 的參數名稱。 參數檔案包含參數的值。 這個值會在部署期間自動傳遞至範本。 您可以建立多個參數檔案，然後視情況傳入適當的參數檔案。 
-
-複製上述的範例，然後將它另存為名叫 `storage.parameters.json` 的檔案。
+如需參數檔案的詳細資訊, 請參閱[建立 Resource Manager 參數](resource-manager-parameter-files.md)檔案。
 
 若要傳遞本機參數檔案，請使用 `@` 來指定名為 storage.parameters.json 的本機檔案。
 
@@ -198,18 +182,6 @@ az group deployment create \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
-```
-
-### <a name="parameter-precedence"></a>參數優先順序
-
-您可以在相同的部署作業中使用內嵌參數和本機參數檔案。 例如，您可以在部署期間指定本機參數檔案中的某些值，並新增其他內嵌值。 如果您同時為本機檔案中和內嵌的參數提供值，內嵌值的優先順序較高。
-
-```azurecli
-az group deployment create \
-  --resource-group testgroup \
-  --template-file demotemplate.json \
-  --parameters @demotemplate.parameters.json \
-  --parameters exampleArray=@arrtest.json
 ```
 
 ## <a name="test-a-template-deployment"></a>測試範本部署

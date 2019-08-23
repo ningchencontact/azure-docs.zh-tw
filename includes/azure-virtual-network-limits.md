@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 1fd08efd12e723a16445eba1d341f017a86a212e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68481394"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903866"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager 下列限制僅適用于透過每個訂用帳戶的每個區域**Azure Resource Manager**管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -78,7 +78,7 @@ ms.locfileid: "68481394"
 | Resource | 預設限制 | 上限 |
 | --- | --- | --- |
 | 虛擬網路 |100 |100 |
-| 區域網路網站 |20 |請連絡支援人員。 |
+| 區域網路網站 |20 |50 |
 | 每個虛擬網路的 DNS 伺服器 |20 |20 |
 | 每個虛擬網路的私人 IP 位址 |4,096 |4,096 |
 | 虛擬機器或角色執行個體之每個 NIC 的並行 TCP 或 UDP 流程 |500000, 最多1000000個, 適用于兩個以上的 Nic。 |500000, 最多1000000個, 適用于兩個以上的 Nic。 |

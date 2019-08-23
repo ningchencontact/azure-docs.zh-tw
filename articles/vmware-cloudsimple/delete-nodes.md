@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9dbe1751ac77f370991af75ea161247c21700ff2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 122e0636f54e066ae86ed2d19cefe5863b026293
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886984"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972824"
 ---
-# <a name="delete-nodes-from-vmware-solution-by-cloudsimple---azure"></a>從 VMware 解決方案中刪除 CloudSimple 的節點-Azure
+# <a name="delete-nodes-from-azure-vmware-solution-by-cloudsimple"></a>從 Azure VMware Solution by CloudSimple 刪除節點
 
-CloudSimple 節點一旦建立, 就會計量。  必須刪除節點, 才能停止計量節點。  您會刪除不是從 Azure 入口網站使用的節點。 
+CloudSimple 節點一旦建立, 就會計量。  必須刪除節點, 才能停止計量節點。  您會刪除不是從 Azure 入口網站使用的節點。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -25,7 +25,6 @@ CloudSimple 節點一旦建立, 就會計量。  必須刪除節點, 才能停�
 
 * 已刪除使用節點所建立的私用雲端。  若要刪除私人雲端, 請參閱[CloudSimple 私用雲端來刪除 Azure VMware 解決方案](delete-private-cloud.md)。
 * 已藉由壓縮私人雲端, 從私人雲端移除節點。  若要壓縮私人雲端, 請參閱透過[CloudSimple 私用雲端縮小 Azure VMware 解決方案](shrink-private-cloud.md)。
-
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 

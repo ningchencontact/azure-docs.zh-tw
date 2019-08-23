@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/22/2019
+ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 52d7b84fe6210d8a4d46814ad6749bed0463478e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: a0b0df9110f062b5f9c23840cb21308b634c9c81
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405658"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898166"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 動作群組是 Azure 訂用帳戶擁有者定義的通知喜好設定集合。 Azure 監視器和服務健康狀態警示使用動作群組來通知使用者警示已被觸發。 根據使用者的需求而定，不同的警示可能使用相同的動作群組或不同的動作群組。 一個訂用帳戶中最多可設定 2,000 個動作群組。
@@ -76,6 +76,11 @@ ms.locfileid: "68405658"
 > [!NOTE]
 > 請參閱以下各專案的[監視訂用帳戶服務限制, 以監控](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits)數值限制。  
 
+### <a name="automation-runbook"></a>自動化 Runbook
+如需 Runbook 承載的限制, 請參閱[Azure 訂用帳戶服務限制](../../azure-subscription-service-limits.md)。
+
+您在動作群組中可能會有有限數目的 Runbook 動作。 
+
 ### <a name="azure-app-push-notifications"></a>Azure 應用程式推播通知
 您在動作群組中可能會有有限數目的 Azure 應用程式動作。
 
@@ -87,6 +92,16 @@ ms.locfileid: "68405658"
 
 動作群組中的電子郵件動作數目可能有限。 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
 
+### <a name="email-azure-resource-manager-role"></a>寄送電子郵件給 Azure Resource Manager 角色
+傳送電子郵件給訂用帳戶角色的成員。
+
+動作群組中的電子郵件動作數目可能有限。 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
+
+### <a name="function"></a>函數
+設定為動作的函式應用程式的函式金鑰會透過函式 API 進行讀取, 這目前需要 v2 函式應用程式, 以將應用程式設定 "AzureWebJobsSecretStorageType" 設為 "files"。 如需詳細資訊, 請參閱[函數 V2 中的金鑰管理變更]( https://aka.ms/funcsecrets)。
+
+動作群組中的函式動作數目可能有限。
+
 ### <a name="itsm"></a>ITSM
 ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../../azure-monitor/platform/itsmc-overview.md)。
 
@@ -95,51 +110,7 @@ ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../../azure-mo
 ### <a name="logic-app"></a>邏輯應用程式
 動作群組中的邏輯應用程式動作數目可能有限。
 
-### <a name="function"></a>函數
-設定為動作的函式應用程式的函式金鑰會透過函式 API 進行讀取, 這目前需要 v2 函式應用程式, 以將應用程式設定 "AzureWebJobsSecretStorageType" 設為 "files"。 如需詳細資訊, 請參閱[函數 V2 中的金鑰管理變更]( https://aka.ms/funcsecrets)。
-
-動作群組中的函式動作數目可能有限。
-
-### <a name="automation-runbook"></a>自動化 Runbook
-如需 Runbook 承載的限制, 請參閱[Azure 訂用帳戶服務限制](../../azure-subscription-service-limits.md)。
-
-您在動作群組中可能會有有限數目的 Runbook 動作。 
-
-### <a name="sms"></a>SMS
-如需其他重要資訊, 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)和[SMS 警示行為](../../azure-monitor/platform/alerts-sms-behavior.md)。
-
-動作群組中的 SMS 動作數目可能有限。  
-
-### <a name="voice"></a>語音
-請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
-
-動作群組中的語音動作數目可能有限。
-
-### <a name="webhook"></a>Webhook
-Webhook 會使用下列規則來重試。 傳回下列 HTTP 狀態碼時, 最多會重試2次 webhook 呼叫:408、429、503、504 或 HTTP 端點沒有回應。 第一次重試會在 10 秒後執行。 第二次重試會在 100 秒後執行。 兩次失敗後, 沒有任何動作群組會呼叫端點30分鐘。 
-
-來源 IP 位址範圍
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
-
-若要接收這些 IP 位址變更的相關更新, 建議您設定服務健康狀態警示, 以監視有關動作群組服務的語音總機。
-
-在動作群組中, 您可能會有有限數目的 Webhook 動作。
-
-#### <a name="secure-webhook"></a>安全 Webhook
+### <a name="secure-webhook"></a>安全 Webhook
 **安全 Webhook 功能目前為預覽狀態。**
 
 [動作群組] [Webhook] 動作可讓您利用 Azure Active Directory 來保護您的動作群組與受保護 Web API (Webhook 端點) 之間的連線。 下面將說明利用這項功能的整體工作流程。 如需 Azure AD 應用程式和服務主體的總覽, 請參閱[Microsoft 身分識別平臺 (v2.0) 總覽](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)。
@@ -156,12 +127,12 @@ Webhook 會使用下列規則來重試。 傳回下列 HTTP 狀態碼時, 最多
     - 修改 PowerShell 腳本的變數 $myAzureADApplicationObjectId, 以使用您 Azure AD 應用程式的物件識別碼
     - 執行修改過的腳本。
     
-1. 設定動作群組 Webhook 動作。
+1. 設定動作群組安全 Webhook 動作。
     - 將腳本中的值 $myApp. ObjectId, 並在 Webhook 動作定義的 [應用程式物件識別碼] 欄位中輸入。
     
     ![安全 Webhook 動作](./media/action-groups/action-groups-secure-webhook.png)
 
-##### <a name="secure-webhook-powershell-script"></a>安全 Webhook PowerShell 腳本
+#### <a name="secure-webhook-powershell-script"></a>安全 Webhook PowerShell 腳本
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
@@ -229,6 +200,41 @@ Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
+
+### <a name="sms"></a>SMS
+如需其他重要資訊, 請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)和[SMS 警示行為](../../azure-monitor/platform/alerts-sms-behavior.md)。
+
+動作群組中的 SMS 動作數目可能有限。  
+
+### <a name="voice"></a>語音
+請參閱[速率限制資訊](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
+
+動作群組中的語音動作數目可能有限。
+
+### <a name="webhook"></a>Webhook
+Webhook 會使用下列規則來重試。 傳回下列 HTTP 狀態碼時, 最多會重試2次 webhook 呼叫:408、429、503、504 或 HTTP 端點沒有回應。 第一次重試會在 10 秒後執行。 第二次重試會在 100 秒後執行。 兩次失敗後, 沒有任何動作群組會呼叫端點30分鐘。 
+
+來源 IP 位址範圍
+ - 13.72.19.232
+ - 13.106.57.181
+ - 13.106.54.3
+ - 13.106.54.19
+ - 13.106.38.142
+ - 13.106.38.148
+ - 13.106.57.196
+ - 13.106.57.197
+ - 52.244.68.117
+ - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
+ - 51.4.138.199
+ - 51.5.148.86
+ - 51.5.149.19
+
+若要接收這些 IP 位址變更的相關更新, 建議您設定服務健康狀態警示, 以監視有關動作群組服務的語音總機。
+
+在動作群組中, 您可能會有有限數目的 Webhook 動作。
+
 
 
 ## <a name="next-steps"></a>後續步驟

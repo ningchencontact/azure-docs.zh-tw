@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 37624c79a345f956de9a289c672340e391199e2f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650701"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900125"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -153,23 +153,9 @@ ms.locfileid: "69650701"
 
 ## <a name="connect-lead-management"></a>連接潛在客戶管理
 
-藉由在 marketplace 中列出您的供應專案並連結客戶關係管理 (CRM) 系統, 直接與客戶連線, 讓您可以在客戶有興趣或部署您的之後, 立即收到客戶連絡人資訊。基礎.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-- **選擇潛在客戶目的地**(下拉式功能表):提供連線詳細資料給您希望我們傳送客戶潛在客戶的 CRM 系統。 
-
-合作夥伴中心支援下列適用于潛在客戶管理的 CRM 系統。 選取設定指示的連結。
-
-- Azure Blob –提供連絡人電子郵件、容器名稱和儲存體帳戶連接字串。 
-- [Azure 資料表](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)–提供連絡人電子郵件和儲存體帳戶連接字串。 
-- [DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) –提供連絡人電子郵件、URL 和驗證模式 (Office 365 或 Azure Active Directory)。
-- [Https 端點](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https)–提供連絡人電子郵件和 HTTPS 端點 URL。 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) –提供連絡人電子郵件、表單識別碼、MUNCHKIN 帳戶識別碼和伺服器識別碼。
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -提供連絡人電子郵件和組織識別碼。 
-
-#### <a name="additional-lead-management-resources"></a>其他潛在客戶管理資源
-- [潛在客戶管理常見問題](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [常見的潛在客戶設定錯誤](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [潛在客戶管理總覽一頁](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+如需詳細資訊, 請參閱[潛在客戶管理總覽](./commercial-marketplace-get-customer-leads.md)。
 
 繼續進行下一節之前, 請記得先**儲存**!
 

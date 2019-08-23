@@ -1,21 +1,19 @@
 ---
 title: 使用 Visual Studio 開發 Azure Functions |Microsoft 文件
 description: 瞭解如何使用適用于 Visual Studio 2019 的 Azure Functions 工具來開發和測試 Azure Functions。
-services: functions
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 6040552ccee5269e4a04d8b7a1ee072400a8506d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 10c356afc235494b00777561259190ae78b65482
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68593239"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905688"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -33,7 +31,7 @@ Visual Studio 在開發函數時提供下列優點:
 
 除非另有說明, 否則顯示的程式和範例適用于 Visual Studio 2019。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 從 Visual Studio 2017 開始, Azure Functions 工具會包含在 Visual Studio 的 Azure 開發工作負載中。 請確定您在 Visual Studio 安裝中包含**Azure 開發**工作負載。
 
@@ -212,6 +210,9 @@ For an example of how to test a queue triggered function, see the [queue trigger
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
 [本機] 代表 local.settings.json 檔案中的一個設定值，而 [遠端] 是 Azure 的函式應用程式中的目前設定。  選擇 [新增設定] 來建立新的應用程式設定。 使用 [從本機插入值] 連結，將設定值複製到 [遠端] 欄位。 當您選取 [確定] 時，暫止的變更會寫入至本機設定檔案和函式應用程式。
+
+> [!NOTE]
+> 根據預設, 不會將本機. settings. json 檔案簽入原始檔控制中。 這表示當您從原始檔控制複製區域函式專案時, 專案不會有本機. 設定 json 檔案。 在此情況下, 您必須手動在專案根目錄中建立本機. 設定的 json 檔案, 讓 [**應用程式設定**] 對話方塊如預期般運作。 
 
 您也可以使用下列其中一種方式管理應用程式設定：
 

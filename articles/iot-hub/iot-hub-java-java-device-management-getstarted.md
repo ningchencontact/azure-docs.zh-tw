@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/08/2017
-ms.openlocfilehash: 87e6f69c06fb9f8bc03d184cfe160964403e7a2a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/20/2019
+ms.openlocfilehash: 7fed6caa719824dd51b19789a7066ffaea13d336
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780861"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907771"
 ---
 # <a name="get-started-with-device-management-java"></a>開始使用裝置管理 (Java)
 
@@ -51,11 +51,13 @@ ms.locfileid: "68780861"
 > [!NOTE]
 > 如需可用來建置應用程式，以在裝置與您的解決方案後端執行之 SDK 的資訊，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
+## <a name="prerequisites"></a>必要條件
+
 若要完成本教學課程，您需要：
 
-* Java SE 8。 <br/> [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 Java。
+* Java SE 8。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 Java。
 
-* Maven 3。  <br/> [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 [Maven](https://maven.apache.org/what-is-maven.html)。
+* Maven 3。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 [Maven](https://maven.apache.org/what-is-maven.html)。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
@@ -85,21 +87,23 @@ ms.locfileid: "68780861"
 
 此主控台應用程式會連線到您的 IoT 中樞來叫用直接方法，並讀取回報屬性。
 
-1. 建立稱為 dm-get-started 的空資料夾。
+1. 建立稱為**dm-** 開始使用的空白資料夾。
 
-2. 在 dm-get-started 資料夾的命令提示字元下，使用下列命令建立名為 **trigger-reboot** 的 Maven 專案。 以下顯示完整的單一命令：
+2. 在**dm-** 入門資料夾中, 于命令提示字元下使用下列命令建立名為**觸發程式**的 Maven 專案:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```cmd/sh
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-3. 在命令提示字元中，巡覽至 trigger-reboot 資料夾。
+3. 在命令提示字元中, 流覽至 [**觸發程式-重新開機**] 資料夾。
 
-4. 使用文字編輯器，在 trigger-reboot 資料夾中開啟 pom.xml 檔案，並對 [相依性] 節點新增下列相依性。 這個相依性可讓您在應用程式中使用 iot-service-client 套件與 IoT 中樞通訊：
+4. 使用文字編輯器, 在 [**觸發程式重新開機**] 資料夾中開啟**pom**檔案, 並將下列相依性新增至 [相依性 **]** 節點。 這個相依性可讓您在應用程式中使用 iot-service-client 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.7.23</version>
+      <version>1.17.1</version>
       <type>jar</type>
     </dependency>
     ```
@@ -125,9 +129,9 @@ ms.locfileid: "68780861"
     </build>
     ```
 
-6. 儲存並關閉 pom.xml 檔案。
+6. 儲存並關閉 **pom.xml** 檔案。
 
-7. 使用文字編輯器開啟 trigger-reboot\src\main\java\com\mycompany\app\App.java 來源檔案。
+7. 使用文字編輯器, 開啟**trigger-reboot\src\main\java\com\mycompany\app\App.java**原始檔。
 
 8. 在此檔案中新增下列 **import** 陳述式：
 
@@ -182,7 +186,7 @@ ms.locfileid: "68780861"
     public static void main(String[] args) throws IOException
     ```
 
-12. 若要在模擬的裝置上叫用 reboot 直接方法，請將下列程式碼新增至 **main** 方法：
+12. 若要在模擬的裝置上叫用重新開機直接方法, 請將**main**方法中的程式碼取代為下列程式碼:
 
     ```java
     System.out.println("Starting sample...");
@@ -224,36 +228,50 @@ ms.locfileid: "68780861"
     System.out.println("Shutting down sample...");
     ```
 
-15. 儲存並關閉 trigger-reboot\src\main\java\com\mycompany\app\App.java 檔案。
+15. 儲存並關閉**trigger-reboot\src\main\java\com\mycompany\app\App.java**檔案。
 
-16. 建置 **trigger-reboot** 後端應用程式，並更正任何錯誤。 在命令提示字元中，巡覽至 trigger-reboot 資料夾，並執行下列命令：
+16. 建置 **trigger-reboot** 後端應用程式，並更正任何錯誤。 在命令提示字元中, 流覽至 [**觸發程式-重新開機**] 資料夾, 然後執行下列命令:
 
-    `mvn clean package -DskipTests`
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="create-a-simulated-device-app"></a>建立模擬裝置應用程式
 
 在本節中，您將建立模擬裝置的 Java 主控台應用程式。 此應用程式會從您的 IoT 中樞接聽 reboot 直接方法呼叫，並立即回應該呼叫。 然後會休眠一段時間，以模擬重新開機程序，再使用回報屬性來通知 **trigger-reboot** 後端應用程式重新開機已完成。
 
-1. 在 dm-get-started 資料夾的命令提示字元下，使用下列命令建立名為 **simulated-device** 的 Maven 專案。 以下是完整的單一命令：
+1. 在**dm-** 入門資料夾中, 于命令提示字元使用下列命令建立名為**模擬裝置**的 Maven 專案:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```cmd/sh
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-2. 在命令提示字元中，瀏覽到 simulated-device 資料夾。
+2. 在命令提示字元中, 流覽至**模擬裝置**資料夾。
 
-3. 使用文字編輯器，在 simulated-device 資料夾中開啟 pom.xml 檔案，並對 [相依性] 節點新增下列相依性。 這個相依性可讓您在應用程式中使用 iot-service-client 套件與 IoT 中樞通訊：
+3. 使用文字編輯器, 在**模擬裝置**資料夾中開啟**pom**檔案, 並將下列相依性新增至 [相依性 **]** 節點。 這個相依性可讓您在應用程式中使用 iot-service-client 套件與 IoT 中樞通訊：
 
     ```xml
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.17.5</version>
     </dependency>
     ```
 
     > [!NOTE]
     > 您可以使用 [Maven 搜尋](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)來檢查最新版的 **iot-device-client**。
 
-4. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
+4. 將下列相依性新增至 [相依性 **]** 節點。 此相依性會設定 Apache [SLF4J](https://www.slf4j.org/)記錄外觀的 NOP, 裝置用戶端 SDK 會使用它來執行記錄。 這是選擇性設定, 但如果您省略它, 當您執行應用程式時, 可能會在主控台中看到警告。 如需有關在裝置用戶端 SDK 中進行記錄的詳細資訊, 請參閱*Azure IoT 裝置 SDK For JAVA*讀我檔案的範例[記錄](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)。
+
+    ```xml
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-nop</artifactId>
+      <version>1.7.28</version>
+    </dependency>
+    ```
+
+5. 將下列 [建置] 節點新增至 [相依性] 節點之後。 此設定會指示 Maven 使用 Java 1.8 來建置應用程式：
 
     ```xml
     <build>
@@ -271,11 +289,11 @@ ms.locfileid: "68780861"
     </build>
     ```
 
-5. 儲存並關閉 pom.xml 檔案。
+6. 儲存並關閉 **pom.xml** 檔案。
 
-6. 使用文字編輯器開啟 simulated-device\src\main\java\com\mycompany\app\App.java 來源檔案。
+7. 使用文字編輯器, 開啟**simulated-device\src\main\java\com\mycompany\app\App.java**原始檔。
 
-7. 在此檔案中新增下列 **import** 陳述式：
+8. 在此檔案中新增下列 **import** 陳述式：
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -289,7 +307,7 @@ ms.locfileid: "68780861"
     import java.util.HashSet;
     ```
 
-7. 將下列類別層級變數新增到 **App** 類別中。 將`{yourdeviceconnectionstring}`取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)一節中所記下的裝置連接字串:
+9. 將下列類別層級變數新增到 **App** 類別中。 將`{yourdeviceconnectionstring}`取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)一節中所記下的裝置連接字串:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -300,7 +318,7 @@ ms.locfileid: "68780861"
     private static DeviceClient client;
     ```
 
-8. 若要實作直接方法狀態事件的回呼處理常式，請將下列巢狀類別新增至 **App** 類別：
+10. 若要實作直接方法狀態事件的回呼處理常式，請將下列巢狀類別新增至 **App** 類別：
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -312,7 +330,7 @@ ms.locfileid: "68780861"
     }
     ```
 
-9. 若要實作裝置對應項狀態事件的回呼處理常式，請將下列巢狀類別新增至 **App** 類別：
+11. 若要實作裝置對應項狀態事件的回呼處理常式，請將下列巢狀類別新增至 **App** 類別：
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -324,7 +342,7 @@ ms.locfileid: "68780861"
     }
     ```
 
-10. 若要實作屬性事件的回呼處理常式，請將下列巢狀類別新增至 **App** 類別：
+12. 若要實作屬性事件的回呼處理常式，請將下列巢狀類別新增至 **App** 類別：
 
     ```java
     protected static class PropertyCallback implements PropertyCallBack<String, String>
@@ -337,7 +355,7 @@ ms.locfileid: "68780861"
     }
     ```
 
-11. 若要實作執行緒以模擬裝置重新開機，請將下列巢狀類別新增至 **App** 類別。 此執行緒會休眠五秒，再設定 **lastReboot** 回報屬性：
+13. 若要實作執行緒以模擬裝置重新開機，請將下列巢狀類別新增至 **App** 類別。 此執行緒會休眠五秒，再設定 **lastReboot** 回報屬性：
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -358,7 +376,7 @@ ms.locfileid: "68780861"
     }
     ```
 
-12. 若要在裝置上實作直接方法，請將下列巢狀類別新增至 **App** 類別。 當模擬應用程式接收到**重新開機**直接方法的呼叫時, 它會將通知傳回給呼叫者, 然後啟動執行緒來處理重新開機:
+14. 若要在裝置上實作直接方法，請將下列巢狀類別新增至 **App** 類別。 當模擬應用程式接收到**重新開機**直接方法的呼叫時, 它會將通知傳回給呼叫者, 然後啟動執行緒來處理重新開機:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -390,20 +408,20 @@ ms.locfileid: "68780861"
     }
     ```
 
-13. 修改 **main** 方法的簽章以擲回下列例外狀況：
+15. 修改 **main** 方法的簽章以擲回下列例外狀況：
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-14. 若要具現化 **main** 方法，請將下列程式碼新增至 **DeviceClient**：
+16. 若要具現化**DeviceClient**, 請將**main**方法中的程式碼取代為下列程式碼:
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-15. 若要開始接聽直接方法呼叫，請將下列程式碼新增至 **main** 方法：
+17. 若要開始接聽直接方法呼叫，請將下列程式碼新增至 **main** 方法：
 
     ```java
     try
@@ -421,7 +439,7 @@ ms.locfileid: "68780861"
     }
     ```
 
-16. 若要關閉裝置模擬器，請將下列程式碼新增至 **main** 方法：
+18. 若要關閉裝置模擬器，請將下列程式碼新增至 **main** 方法：
 
     ```java
     System.out.println("Press any key to exit...");
@@ -432,25 +450,31 @@ ms.locfileid: "68780861"
     System.out.println("Shutting down...");
     ```
 
-17. 儲存並關閉 simulated-device\src\main\java\com\mycompany\app\App.java 檔案。
+19. 儲存並關閉 simulated-device\src\main\java\com\mycompany\app\App.java 檔案。
 
-18. 建置 **simulated-device** 後端應用程式，並更正所有錯誤。 在命令提示字元中，瀏覽到 simulated-device 資料夾，並執行下列命令︰
+20. 建置 **simulated-device** 應用程式，並更正所有錯誤。 在命令提示字元中, 流覽至**模擬裝置**資料夾, 然後執行下列命令:
 
-    `mvn clean package -DskipTests`
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="run-the-apps"></a>執行應用程式
 
-您現在可以開始執行應用程式。
+您現在已經準備好執行應用程式。
 
-1. 在 simulated-device 資料夾的命令提示字元中，執行下列命令以開始接聽來自您 IoT 中樞的 reboot 方法呼叫：
+1. 在**模擬裝置**資料夾的命令提示字元中, 執行下列命令以開始接聽來自 IoT 中樞的重新開機方法呼叫:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```cmd/sh
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
     ![會接聽 reboot 直接方法呼叫的 Java IoT 中樞模擬裝置應用程式](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-2. 在 trigger-reboot 資料夾的命令提示字元中，執行下列命令以呼叫您模擬裝置上來自 IoT 中樞的 reboot 方法：
+2. 在**觸發程式重新開機**資料夾的命令提示字元中, 執行下列命令, 以從您的 IoT 中樞在模擬裝置上呼叫重新開機方法:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```cmd/sh
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
     ![會呼叫 reboot 直接方法的 Java IoT 中樞服務應用程式](./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png)
 

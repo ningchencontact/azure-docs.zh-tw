@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019686"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896991"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
 
@@ -44,7 +44,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 設定步驟包括以下設定和使用 Azure Active Directory 驗證的程序。
 
 1. 建立和填入 Azure AD。
-2. 選用：和目前與 Azure 訂用帳戶相關聯的 Active Directory 產生關聯並加以變更。
+2. 選擇性：和目前與 Azure 訂用帳戶相關聯的 Active Directory 產生關聯並加以變更。
 3. 為 Azure SQL Database 伺服器、「受控執行個體」或 [Azure SQL 資料倉儲](https://azure.microsoft.com/services/sql-data-warehouse/)建立 Azure Active Directory 系統管理員。
 4. 設定用戶端電腦。
 5. 在對應至 Azure AD 身分識別的資料庫中建立自主資料庫使用者。
@@ -116,8 +116,9 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 
 Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別連接至資料庫：
 
-- 使用整合式 Windows 驗證
-- 使用 Azure AD 主體名稱和密碼
+- Azure Active Directory 密碼
+- Azure Active Directory 整合式
+- 包含 MFA 的 Active Directory 通用驗證
 - 使用應用程式權杖驗證
 
 Azure AD 伺服器主體 (登入) (**公開預覽**) 支援下列驗證方法：
@@ -125,7 +126,6 @@ Azure AD 伺服器主體 (登入) (**公開預覽**) 支援下列驗證方法：
 - Azure Active Directory 密碼
 - Azure Active Directory 整合式
 - 包含 MFA 的 Active Directory 通用驗證
-- Azure Active Directory 互動式
 
 
 ### <a name="additional-considerations"></a>其他考量

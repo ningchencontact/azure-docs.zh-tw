@@ -3,16 +3,16 @@ title: 常見問題疑難排解
 description: 瞭解如何針對使用 Azure Resource Graph 查詢 Azure 資源的問題進行疑難排解。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 511d170f90e8ed34b00a3960d084223ec73d99dd
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480549"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900014"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>使用 Azure Resource Graph 疑難排解錯誤
 
@@ -34,7 +34,7 @@ ms.locfileid: "68480549"
 
 Azure CLI 和 PowerShell 只轉送前1000個訂用帳戶, 以 Azure Resource Graph。 Azure Resource Graph 的 REST API 會接受執行查詢的最大訂閱數。
 
-#### <a name="resolution"></a>解決方法
+#### <a name="resolution"></a>解析度
 
 具有訂用帳戶子集的查詢批次要求會保留在1000訂閱限制之下。 解決方案會使用 PowerShell 中的**訂**用帳戶參數。
 
@@ -60,6 +60,33 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>案例：不支援的內容類型 REST 標頭
+
+#### <a name="issue"></a>問題
+
+查詢 Azure Resource Graph REST API 收到傳回_500_ (內部伺服器錯誤) 回應的客戶。
+
+#### <a name="cause"></a>原因
+
+Azure Resource Graph REST API 僅支援`Content-Type` **application/json**的。 某些 REST 工具或代理程式預設為**text/純文字**, REST API 不支援。
+
+#### <a name="resolution"></a>解析度
+
+驗證您用來查詢 Azure Resource Graph 的工具或代理程式是否已為`Content-Type` **application/json**設定 REST API 標頭。
+### <a name="rest-403"></a>案例：沒有清單中所有訂用帳戶的讀取權限
+
+#### <a name="issue"></a>問題
+
+使用 Azure Resource Graph 查詢明確傳遞訂用帳戶清單的客戶會收到_403_ (禁止) 回應。
+
+#### <a name="cause"></a>原因
+
+如果客戶沒有所有提供之訂用帳戶的讀取權限, 則要求會因為缺乏適當的安全性許可權而遭到拒絕。
+
+#### <a name="resolution"></a>解析度
+
+在訂用帳戶清單中至少包含一個訂用帳戶, 而執行查詢的客戶至少具有的讀取存取權。 如需詳細資訊, 請參閱[Azure Resource Graph 中的許可權](../overview.md#permissions-in-azure-resource-graph)。
 
 ## <a name="next-steps"></a>後續步驟
 

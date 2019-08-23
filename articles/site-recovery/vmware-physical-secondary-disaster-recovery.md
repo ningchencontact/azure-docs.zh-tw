@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 9a1cb63bd2a209c72af608d23515723a63b180e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417720"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972101"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>設定內部部署 VMware 虛擬機器或實體伺服器至次要網站的災害復原
 
@@ -57,7 +57,7 @@ Azure Site Recovery 將持續創新，以 Azure 作為災害復原站台，為 V
 **支援矩陣** | [按一下這裡以取得詳細資訊](./vmware-physical-azure-support-matrix.md)|[下載 ASR Scout 相容矩陣](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成本教學課程：
 
 - [檢閱](vmware-physical-secondary-support-matrix.md)所有元件的支援需求。
@@ -159,7 +159,7 @@ Scout Update 7 是完整的安裝程式，可用於全新安裝，也可以升�
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>CS、PS 和 RX 上 PHP 和 MySQL 的手動升級
 設定伺服器、處理伺服器和 RX 伺服器上的 PHP 指令碼平台應升級到 7.2.10 版。
 設定伺服器、處理伺服器和 RX 伺服器上的MySQL 資料庫管理系統應升級為 5.7.23 版。
-請依照提供的手動步驟[快速安裝指南](https://aka.ms/asr-scout-quick-install-guide)升級 PHP 和 MySQL 版本。
+請遵循[快速安裝指南](https://aka.ms/asr-scout-quick-install-guide)中所提供的手動步驟, 升級 PHP 和 MySQL 版本。
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 更新日期：2017 年 10 月 12 日
@@ -188,7 +188,7 @@ Scout Update 6 是累積更新。 其中包含 Update 1 到 Update 5 的所有�
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- 適用於 RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 位元：UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- 適用於 RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 位元：UA_\<Linux OS > _ 8.0.4.0 _ga_update_4_9035261_26sep16. tar. gz
   1. 解壓縮 .zip 檔。
   2. **RX 伺服器**：將 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 複製到 RX 伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。
   3. **設定伺服器和處理序伺服器**：將 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 複製到設定伺服器和處理序伺服器。 連按兩下加以執行。<br>
@@ -268,7 +268,7 @@ Scout Update 4 是累積更新。 包含 Update 1 到 Update 3 的所有修正�
 * 針對實體叢集，修正當壓縮來源磁碟區時，導致無法在 vContinuum 精靈中調整磁碟區大小的問題。
 * 修正當叢集磁碟是 PRDM 磁碟時，叢集保護會因發生「找不到磁碟簽章」錯誤而失敗的問題。
 * 修正超出範圍例外狀況所造成的 cxps 傳輸伺服器當機。
-* 現在在 vContinuum 精靈的 [推送安裝]  頁面中可以調整 [伺服器名稱] 和 [IP 位址] 欄的大小。
+* 現在在 vContinuum 精靈的 [推送安裝] 頁面中可以調整 [伺服器名稱] 和 [IP 位址] 欄的大小。
 * RX API 增強功能：
   * 現已推出五個最新可用的共同一致性點 (僅限保證標記)。
   * 顯示所有受保護裝置的容量和可用空間詳細資料。
@@ -326,7 +326,7 @@ Update 1 包含下列錯誤修正和新功能：
 
 * 每個伺服器執行個體享有 31 天的免費保護。 這可讓您測試功能或設定概念證明。
 * 伺服器上的所有作業 (包括容錯移轉和容錯回復) 在前 31 天都是免費的。 此時間是從第一次使用 Site Recovery Scout 保護伺服器開始計算。 從第 32 天起，每部受保護的伺服器都會依照標準執行個體費率，向客戶擁有的網站收取 Site Recovery 保護費用。
-* 在保存庫的 [儀表板]  上，隨時可取得目前計費的受保護伺服器數目。
+* 在保存庫的 [儀表板] 上，隨時可取得目前計費的受保護伺服器數目。
 * 新增對 vSphere 命令列介面 (vCLI) 5.5 Update 2 的支援。
 * 新增對來源伺服器上下列 Linux 作業系統的支援：
     * RHEL 6 Update 6
@@ -341,7 +341,7 @@ Update 1 包含下列錯誤修正和新功能：
   * 不會如預期般強制執行重新同步處理閾值，因而導致不一致的複寫行為。
   * RPO 設定並未正確地顯示在設定伺服器主控台中。 未壓縮的資料值未正確地顯示壓縮的值。
   * 未如預期在 vContinuum 精靈中刪除移除作業，而且未從設定伺服器主控台中刪除複寫作業。
-  * 在 vContinuum 精靈中，於 MSCS VM 的保護期間，按一下磁碟檢視中的 [詳細資料]  ，磁碟會自動取消選取。
+  * 在 vContinuum 精靈中，於 MSCS VM 的保護期間，按一下磁碟檢視中的 [詳細資料]，磁碟會自動取消選取。
   * 在實體到虛擬 (P2V) 案例中，必要的 HP 服務 (例如 CIMnotify 和 CqMgHost) 不會移至 VM 復原中的 [手動]。 此問題會導致額外的開機時間。
   * 主要目標伺服器上有超過 26 個磁碟時，Linux VM 的保護就會失敗。
 

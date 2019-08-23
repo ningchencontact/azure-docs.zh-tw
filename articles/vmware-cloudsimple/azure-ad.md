@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b9060ecbb9ca9e77d994a8f20378e2c53927586a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 8e8ea11da0339103375009709be8795cdede2448
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617381"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972934"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>使用 Azure AD 做為 CloudSimple 私用雲端上的 vCenter 身分識別提供者
 
@@ -98,4 +98,4 @@ Azure AD 是 Microsoft 多租使用者雲端式目錄和身分識別管理服務
 
 3. 在許可權提升後, 登入您的私人雲端 vCenter。
 4. 遵循使用上一個步驟中的值在[vCenter 上新增身分識別來源](set-vcenter-identity.md#add-an-identity-source-on-vcenter)中的指示, 將 Azure Active Directory 設定為身分識別來源。
-5. 將使用者/群組從 Azure AD 新增至 vCenter 群組, 如 VMware 主題<a href="https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html" target="_blank">將成員新增至 Vcenter 單一登入群組</a>中所述。
+5. 將使用者/群組從 Azure AD 新增至 vCenter 群組, 如 VMware 主題[將成員新增至 Vcenter 單一登入群組](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)中所述。

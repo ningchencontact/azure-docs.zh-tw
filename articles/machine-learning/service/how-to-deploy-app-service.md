@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2019
-ms.openlocfilehash: a5fd376a6da70ed68baedf44fd4c2cc47e68d3cf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: HT
+ms.openlocfilehash: ada2a19de12c2f3f6b23fcc3d759afb0c747d37d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872379"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897426"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>將機器學習模型部署到 Azure App Service (預覽)
 
@@ -108,11 +108,11 @@ package.wait_for_creation(show_output=True)
 
 1. 從  [Azure 入口網站](https://portal.azure.com)中, 選取您的 Azure Machine Learning 工作區。 在 [__總覽__] 區段中,使用 [登錄] 連結來存取工作區的 Azure Container Registry。
 
-    ![工作區總覽的螢幕擷取畫面](media/how-to-deploy-app-service/workspace-overview.png)
+    [![工作區總覽的螢幕擷取畫面](media/how-to-deploy-app-service/workspace-overview.png)](media/how-to-deploy-app-service/workspace-overview-expanded.png)
 
 2. 從 [Azure Container Registry] 中, 選取 [__存放庫__], 然後選取您要部署的__映射名稱__。 針對您想要部署的版本, 選取 [ __...__ ] 專案, 然後 [__部署至 web 應用程式__]。
 
-    ![從 ACR 部署至 web 應用程式的螢幕擷取畫面](media/how-to-deploy-app-service/deploy-to-web-app.png)
+    [![從 ACR 部署至 web 應用程式的螢幕擷取畫面](media/how-to-deploy-app-service/deploy-to-web-app.png)](media/how-to-deploy-app-service/deploy-to-web-app-expanded.png)
 
 3. 若要建立 Web 應用程式, 請提供網站名稱、訂用帳戶、資源群組, 然後選取 [App service 方案/位置]。 最後，選取 [建立]。
 
@@ -122,7 +122,7 @@ package.wait_for_creation(show_output=True)
 
 從 [ [Azure 入口網站](https://portal.azure.com)] 中, 選取在上一個步驟中建立的 Web 應用程式。 在 [__總覽__] 區段中, 複製 [ __URL__]。 此值是服務的__基底 URL__ 。
 
-![Web 應用程式總覽的螢幕擷取畫面](media/how-to-deploy-app-service/web-app-overview.png)
+[![Web 應用程式總覽的螢幕擷取畫面](media/how-to-deploy-app-service/web-app-overview.png)](media/how-to-deploy-app-service/web-app-overview-expanded.png)
 
 將要求傳遞至模型的 web 服務位於`{baseurl}/score`。 例如： `https://mywebapp.azurewebsites.net/score` 。 下列 Python 程式碼示範如何將資料提交至 URL, 並顯示回應:
 

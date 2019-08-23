@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 356b430e0bb9170999398eb8eb68ad31f2d5eeb6
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017305"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899693"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>部署診斷工具
 
@@ -25,7 +25,7 @@ ms.locfileid: "69017305"
 - 將訊息傳送給特定工作階段主機上的作用中使用者。
 - 將使用者登出工作階段主機。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須先建立 Azure Active Directory 應用程式註冊和 Log Analytics 工作區, 才能部署工具的 Azure Resource Manager 範本。 您或系統管理員需要這些許可權才能執行此動作:
 
@@ -106,7 +106,7 @@ ms.locfileid: "69017305"
     -   處理器資訊 (\*)\\處理器時間
     -   每個會話的使用者輸入\*延遲\\() 最大輸入延遲
 
-[在 Azure 監視器中深入瞭解 Windows 和 Linux 效能資料來源中](/articles/azure-monitor/platform/data-sources-performance-counters.md)的效能計數器。
+[在 Azure 監視器中深入瞭解 Windows 和 Linux 效能資料來源中](/azure/azure-monitor/platform/data-sources-performance-counters)的效能計數器。
 
 >[!NOTE]
 >您設定的任何其他計數器都不會顯示在診斷工具本身。 若要讓它出現在診斷工具中, 您必須設定工具的設定檔。 GitHub 會在稍後提供如何使用 advanced administration 進行這項操作的指示。
@@ -189,7 +189,7 @@ ms.locfileid: "69017305"
 
 在您將診斷工具提供給使用者之前, 請確定他們具有下列許可權:
 
-- 使用者需要 log analytics 的讀取存取權。 如需詳細資訊, 請參閱以[Azure 監視器開始使用角色、許可權和安全性](/articles/azure-monitor/platform/roles-permissions-security.md)。
+- 使用者需要 log analytics 的讀取存取權。 如需詳細資訊, 請參閱以[Azure 監視器開始使用角色、許可權和安全性](/azure/azure-monitor/platform/roles-permissions-security)。
 -  使用者也需要 Windows 虛擬桌面租使用者的讀取權限 (RDS 讀取者角色)。 如需詳細資訊, 請參閱[Windows 虛擬桌面預覽中的委派存取](delegated-access-virtual-desktop.md)。
 
 您也需要為使用者提供下列資訊:
@@ -229,22 +229,22 @@ ms.locfileid: "69017305"
 - LogicalDisk (\*)\|% 可用空間:
 
     - 顯示邏輯磁片上可用的總可用空間百分比。
-    - 閾值:小於 20% 會標示為狀況不良。
+    - 閾值：小於 20% 會標示為狀況不良。
 
 - LogicalDisk (C:\\) Avg。磁片佇列長度:
 
     - 代表儲存系統的條件。
-    - 閾值:高於5的標記為狀況不良。
+    - 閾值：高於5的標記為狀況不良。
 
 - 記憶體 (\*)\\可用 mb:
 
     - 系統的可用記憶體。
-    - 閾值:小於 500 mb, 標示為狀況不良。
+    - 閾值：小於 500 mb, 標示為狀況不良。
 
 - 處理器資訊 (\*)\\處理器時間:
 
-    - 閾值:高於 80% 會標示為狀況不良。
+    - 閾值：高於 80% 會標示為狀況不良。
 
 - [使用者輸入延遲 () 每\*個\\會話 () 最大輸入延遲](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    - 閾值:高於2000毫秒會標示為狀況不良。
+    - 閾值：高於2000毫秒會標示為狀況不良。

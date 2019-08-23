@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5095e680eb7fd33d28acb2d187f83d86db1b46bf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: 8e535fc581e186abd032206c2bbf78623d95967f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656631"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899775"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>如何利用 Service Fabric 應用程式的受控識別來存取 Azure 服務 (預覽)
 
@@ -23,7 +23,7 @@ Service Fabric 應用程式可以利用受控識別來存取支援 Azure Active 
 > 受控識別代表與包含資源之訂用帳戶相關聯之對應 Azure AD 租使用者中的 Azure 資源與服務主體之間的關聯。 因此, 在 Service Fabric 的內容中, 受管理的身分識別僅支援部署為 Azure 資源的應用程式。 
 
 > [!IMPORTANT]
-> 在使用 Service Fabric 應用程式的受控識別之前, 必須先將受保護資源的存取權授與用戶端應用程式。 請參閱[支援 Azure AD 驗證的 Azure 服務](/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources)清單, 以檢查支援, 然後前往個別服務的檔, 以瞭解如何將身分識別存取權授與所需資源的特定步驟。 
+> 在使用 Service Fabric 應用程式的受控識別之前, 必須先將受保護資源的存取權授與用戶端應用程式。 請參閱[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)清單, 以檢查支援, 然後前往個別服務的檔, 以瞭解如何將身分識別存取權授與所需資源的特定步驟。 
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>使用 REST API 取得存取權杖
 在啟用受控識別的叢集中, Service Fabric 執行時間會公開可供應用程式用來取得存取權杖的 localhost 端點。 端點可在叢集的每個節點上使用, 而且可供該節點上的所有實體存取。 授權的呼叫者可以藉由呼叫此端點並出示驗證碼, 來取得存取權杖。程式碼是由每個不同服務程式代碼套件啟用的 Service Fabric 執行時間所產生, 而且會系結至裝載該服務程式代碼套件的進程存留期。

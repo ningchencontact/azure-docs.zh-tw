@@ -2,19 +2,18 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a6ceee0f7db4b7b368dce1a28c8edc0b2b11180
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: eb55d993ad8960f821c2b72f0a53602166b7cc7e
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174621"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900625"
 ---
-對於待用資料：
+待用資料:
 
-- BitLocker XTS-AES AES 256 位元加密來保護本機資料。
-- 資料儲存在共用的存取權會受到限制。
+- 存取儲存在共用中的資料會受到限制。
 
-    - 存取共用資料的 SMB 用戶端需要與共用相關聯的使用者認證。 建立共用時，會定義這些認證。
-    - 建立共用時，會新增要存取共用的 NFS 用戶端的 IP 位址。
+    - 存取共用資料的 SMB 用戶端需要與共享相關聯的使用者認證。 建立共用時, 會定義這些認證。
+    - 建立共用時, 必須新增存取共用之 NFS 用戶端的 IP 位址。

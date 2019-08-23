@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3f1772384621978524539514a0d647a4921a7b20
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69564104"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972697"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>使用 ExpressRoute 從內部部署連接到 CloudSimple
 
@@ -60,8 +60,8 @@ ms.locfileid: "69564104"
 
 6. 以<a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">支援</a>建立的連線來提出票證。
     * 問題類型：**技術**
-    * 訂閱:**CloudSimple 服務部署所在的訂用帳戶**
+    * 訂用帳戶：**CloudSimple 服務部署所在的訂用帳戶**
     * 服務：**VMware 解決方案 (依 CloudSimple)**
     * 問題類型:**服務要求**
-    * 問題子類型:**建立連至內部部署的 ExpressRoute 連線**
+    * 問題子類型：**建立連至內部部署的 ExpressRoute 連線**
     * 提供您複製並儲存在詳細資料窗格中的資源識別碼和授權金鑰。

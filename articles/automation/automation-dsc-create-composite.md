@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9e76532d41e23cba376755ca524ca6911385204
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: d830b8e27bb6f66a533b8106cbec53eeca4ca139
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559368"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970723"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>將設定轉換成複合資源
 
@@ -49,7 +49,7 @@ CompositeResource 會自動化從您的設定建立新模組的程式。
 
 產生模組之後, 您可以在每次進行變更時遞增版本並新增版本資訊, 並將其發佈至您自己的[PowerShellGet 存放庫](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo)。
 
-當您建立包含設定 (或多個設定) 的複合資源模組之後, 您可以在 Azure 的可[組合撰寫體驗](/azure/automation/compose-configurationwithcompositeresources)中使用它們, 或將它們新增至[DSC 設定腳本](/powershell/dsc/resources/configurations)來產生 MOF 檔案和將[MOF 檔案上傳至 Azure 自動化](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
+當您建立包含設定 (或多個設定) 的複合資源模組之後, 您可以在 Azure 的可[組合撰寫體驗](/azure/automation/compose-configurationwithcompositeresources)中使用它們, 或將它們新增至[DSC 設定腳本](/powershell/dsc/configurations/configurations)來產生 MOF 檔案和將[MOF 檔案上傳至 Azure 自動化](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
 然後從[內部部署](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)或[在 Azure 中](/azure/automation/automation-dsc-onboarding#azure-virtual-machines)註冊您的伺服器, 以提取設定。
 專案的最新更新也已發行 Azure 自動化的[runbook](https://www.powershellgallery.com/packages?q=DscGallerySamples) , 可將從 PowerShell 資源庫匯入設定的程式自動化。
 

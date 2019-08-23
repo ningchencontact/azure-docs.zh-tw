@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/25/2017
-ms.openlocfilehash: 88d9abda7d56deefc5880eb50799ac89a89ac44f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/20/2019
+ms.openlocfilehash: 049fc534c6bf3d777268363968ac2a8b92ca8d1c
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780944"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904441"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>開始使用裝置管理 (node.js)
 
@@ -33,7 +33,9 @@ ms.locfileid: "68780944"
 
 * **dmpatterns_getstarted_service.js**，它會在模擬裝置應用程式上呼叫直接方法，顯示回應，並顯示更新的報告屬性。
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
+
+若要完成本教學課程，您需要：
 
 * Node.js 10.0. x 版或更新版本。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
 
@@ -49,7 +51,7 @@ ms.locfileid: "68780944"
 
 ## <a name="create-a-simulated-device-app"></a>建立模擬裝置應用程式
 
-在本節中, 您將執行下列步驟:
+在本節中，您可：
 
 * 建立 Node.js 主控台應用程式，以回應雲端所呼叫的直接方法
 
@@ -58,40 +60,40 @@ ms.locfileid: "68780944"
 * 使用報告屬性來啟用裝置對應項查詢，以識別裝置及其上次重新啟動時間
 
 1. 建立稱為 **manageddevice** 的空資料夾。  在 **manageddevice** 資料夾中，於命令提示字元使用下列命令建立 package.json 檔案。  接受所有預設值：
-      
-    ```
+
+    ```cmd/sh
     npm init
     ```
 
 2. 在命令提示字元中，於 **manageddevice** 資料夾中執行下列命令來安裝 **azure-iot-device** 裝置 SDK 套件和 **azure-iot-device-mqtt** 套件：
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
 3. 使用文字編輯器，在 **manageddevice** 資料夾中建立 **dmpatterns_getstarted_device.js** 檔案。
 
 4. 在 **dmpatterns_getstarted_device.js** 檔案開頭新增下列 'require' 陳述式：
-   
-    ```
+
+    ```javascript
     'use strict';
-   
+
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. 新增 **connectionString** 變數，並用它來建立**用戶端**執行個體。  以您裝置的連接字串取代連接字串。  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
+5. 新增 **connectionString** 變數，並用它來建立**用戶端**執行個體。  將預留位置值取代為您先前在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中所複製的裝置連接字串。 `{yourdeviceconnectionstring}`  
+
+    ```javascript
+    var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
 6. 新增下列函式以在裝置上實作直接方法
-   
-    ```
+
+    ```javascript
     var onReboot = function(request, response) {
-   
+
         // Respond the cloud app for the direct method
         response.send(200, 'Reboot started', function(err) {
             if (err) {
@@ -100,7 +102,7 @@ ms.locfileid: "68780944"
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
         });
-   
+
         // Report the reboot before the physical restart
         var date = new Date();
         var patch = {
@@ -110,7 +112,7 @@ ms.locfileid: "68780944"
                 }
             }
         };
-   
+
         // Get device Twin
         client.getTwin(function(err, twin) {
             if (err) {
@@ -123,7 +125,7 @@ ms.locfileid: "68780944"
                 });  
             }
         });
-   
+
         // Add your device's reboot API for physical restart.
         console.log('Rebooting!');
     };
@@ -131,8 +133,7 @@ ms.locfileid: "68780944"
 
 7. 開啟您 IoT 中樞的連線，並啟動直接方法接聽程式︰
 
-   
-    ```
+    ```javascript
     client.open(function(err) {
         if (err) {
             console.error('Could not open IotHub client');
@@ -159,14 +160,14 @@ ms.locfileid: "68780944"
 在本節中，您會建立 Node.js 主控台應用程式，此應用程式會使用直接方法起始遠端重新開機。 應用程式使用裝置對應項查詢來探索該裝置的上次重新開機時間。
 
 1. 建立名為 **triggerrebootondevice** 的空白資料夾。 在命令提示字元中，於 **triggerrebootondevice** 資料夾中使用下列命令來建立 package.json 檔案。 接受所有預設值：
-   
-    ```
+
+    ```cmd/sh
     npm init
     ```
 
 2. 在 **triggerrebootondevice** 資料夾中，於命令提示字元執行下列命令以安裝 **azure-iothub** 裝置 SDK 套件以及 **azure-iot-device-mqtt** 套件：
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iothub --save
     ```
 
@@ -174,18 +175,16 @@ ms.locfileid: "68780944"
 
 4. 在 **dmpatterns_getstarted_service.js** 檔案開頭新增下列 'require' 陳述式：
 
-  
-    ```
+    ```javascript
     'use strict';
-   
+
     var Registry = require('azure-iothub').Registry;
     var Client = require('azure-iothub').Client;
     ```
 
-5. 新增下列變數宣告，並取代預留位置值︰
+5. 新增下列變數宣告, 並將`{iothubconnectionstring}`預留位置值取代為您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 iot 中樞連接字串:
 
-   
-    ```
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     var registry = Registry.fromConnectionString(connectionString);
     var client = Client.fromConnectionString(connectionString);
@@ -193,18 +192,18 @@ ms.locfileid: "68780944"
     ```
 
 6. 新增下列函式來叫用裝置方法，以重新啟動目標裝置︰
-   
-    ```
+
+    ```javascript
     var startRebootDevice = function(twin) {
-   
+
         var methodName = "reboot";
-   
+
         var methodParams = {
             methodName: methodName,
             payload: null,
             timeoutInSeconds: 30
         };
-   
+
         client.invokeDeviceMethod(deviceToReboot, methodParams, function(err, result) {
             if (err) {
                 console.error("Direct method error: "+err.message);
@@ -216,12 +215,12 @@ ms.locfileid: "68780944"
     ```
 
 7. 新增下列函式來查詢裝置並取得上次重新啟動時間︰
-   
-    ```
+
+    ```javascript
     var queryTwinLastReboot = function() {
-   
+
         registry.getTwin(deviceToReboot, function(err, twin){
-   
+
             if (twin.properties.reported.iothubDM != null)
             {
                 if (err) {
@@ -238,8 +237,7 @@ ms.locfileid: "68780944"
 
 8. 新增下列函式來呼叫可觸發重新啟動直接方法，並查詢上次重新啟動時間的函式︰
 
-   
-    ```
+    ```javascript
     startRebootDevice();
     setInterval(queryTwinLastReboot, 2000);
     ```
@@ -248,22 +246,28 @@ ms.locfileid: "68780944"
 
 ## <a name="run-the-apps"></a>執行應用程式
 
-您現在可以開始執行應用程式。
+您現在已經準備好執行應用程式。
 
 1. 在 **manageddevice** 資料夾中，於命令提示字元中執行下列命令以開始接聽重新啟動直接方法。
 
-   
-    ```
+    ```cmd/sh
     node dmpatterns_getstarted_device.js
     ```
 
 2. 在命令提示字元中，於 **triggerrebootondevice** 資料夾執行下列命令以觸發裝置對應項的遠端重新啟動，以及查詢裝置對應項來尋找上次重新啟動時間。
 
-   
-    ```
+    ```cmd/sh
     node dmpatterns_getstarted_service.js
     ```
 
-3. 您會在主控台中看到直接方法的裝置回應。
+3. 您會在主控台中看到重新開機直接方法和重新開機狀態的裝置回應。
+
+   以下顯示服務所傳送之重新開機直接方法的裝置回應:
+
+   ![manageddevice 應用程式輸出](./media/iot-hub-node-node-device-management-get-started/device.png)
+
+   以下顯示的服務會觸發重新開機, 並輪詢裝置對應項的上次重新開機時間:
+
+   ![triggerrebootondevice 應用程式輸出](./media/iot-hub-node-node-device-management-get-started/service.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

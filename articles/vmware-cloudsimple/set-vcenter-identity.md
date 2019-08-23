@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6229e78958fdc4995153d99ad02a15804330f1b
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544561"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972657"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>設定要使用的 vCenter 身分識別來源 Active Directory
 
@@ -63,7 +63,7 @@ VMware vCenter 支援不同的身分識別來源, 以驗證存取 vCenter 的使
 當您擁有上表中的資訊時, 您可以將內部部署 Active Directory 新增為 vCenter 上的單一登入身分識別來源。
 
 > [!TIP]
-> 您可以在<a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html" target="_blank">VMware 檔頁面</a>上找到有關單一登入識別來源的詳細資訊。
+> 您可以在[VMware 檔頁面](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html)上找到有關單一登入識別來源的詳細資訊。
 
 ## <a name="set-up-new-active-directory-on-a-private-cloud"></a>在私人雲端上設定新的 Active Directory
 

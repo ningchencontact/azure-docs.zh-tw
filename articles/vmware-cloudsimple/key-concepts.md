@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e434065feb218b0a46220b95cc6bfd9a7033de30
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 120ab94ce62010acf4e742bd5220405961dad6db
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816121"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972715"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>透過 CloudSimple 管理 Azure VMware 解決方案的重要概念
 
@@ -34,7 +34,6 @@ ms.locfileid: "68816121"
 ## <a name="cloudsimple-node"></a>CloudSimple 節點
 
 CloudSimple 節點是在其中部署 VMware ESXi 程式管理元件的專用、裸機、超大範圍計算和儲存體主機。 此節點接著會併入 VMware vSphere、vCenter、vSAN 和 NSX 平臺中。 CloudSimple 網路服務和 edge 網路服務也會一併啟用。 每個節點都可做為計算和儲存體容量的單位, 以供您布建以建立[CloudSimple 私人](cloudsimple-private-cloud.md)雲端。 您在可用 CloudSimple 服務的區域中布建或保留節點。
-
 
 深入瞭解[CloudSimple 節點](cloudsimple-node.md)。
 

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418247"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972069"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>從 VMware VM 和實體伺服器至次要網站之災害復原的支援矩陣
 
@@ -30,7 +30,7 @@ ms.locfileid: "66418247"
 
 **作業系統** | **詳細資料**
 --- | ---
-vCenter 伺服器 | vCenter 5.5、6.0 和 6.5<br/><br/> 如果您是執行 6.0 或 6.5，請注意，僅支援 5.5 的功能。
+vCenter Server | vCenter 5.5、6.0 和 6.5<br/><br/> 如果您是執行 6.0 或 6.5，請注意，僅支援 5.5 的功能。
 
 
 ## <a name="replicated-vm-support"></a>已複寫的 VM 支援

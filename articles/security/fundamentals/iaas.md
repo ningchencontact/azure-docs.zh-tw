@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0e8be1675dd2b400f89ab17fe85c037066302409
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927935"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906025"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 本文說明適用於 VM 和作業系統的最佳做法。
@@ -182,7 +182,7 @@ Azure VM 就跟所有內部部署 VM 一樣，受控於使用者。 Azure 不會
 **詳細資料**：使用 RBAC 來確保只有中央網路群組具有網路資源的許可權。
 
 **最佳做法**：識別並補救已公開的 Vm, 允許從「任何」來源 IP 位址進行存取。   
-**詳細資料**：使用 Azure 資訊安全中心。 如果您的任何網路安全性群組具有一或多個允許從「任何」來源 IP 位址存取的輸入規則, 資訊安全中心將會建議您限制透過網際網路面向端點的存取。 資訊安全中心會建議您編輯這些輸入規則, 以[限制存取](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md)實際需要存取權的來源 IP 位址。
+**詳細資料**：使用 Azure 資訊安全中心。 如果您的任何網路安全性群組具有一或多個允許從「任何」來源 IP 位址存取的輸入規則, 資訊安全中心將會建議您限制透過網際網路面向端點的存取。 資訊安全中心會建議您編輯這些輸入規則, 以[限制存取](../../security-center/security-center-network-recommendations.md)實際需要存取權的來源 IP 位址。
 
 **最佳做法**：限制管理埠 (RDP、SSH)。   
 **詳細資料**：您可以使用即時[(JIT) VM 存取](../../security-center/security-center-just-in-time.md)來鎖定 Azure vm 的輸入流量、降低暴露于攻擊的風險, 並在需要時輕鬆地連接到 vm。 啟用 JIT 時, 資訊安全中心會藉由建立網路安全性群組規則, 來鎖定對您的 Azure Vm 的輸入流量。 系統會鎖定選取的 VM 連接埠的輸入流量。 這些埠是由 JIT 解決方案所控制。

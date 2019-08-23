@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 56470c08f0ac940dae42821ae61846f1c86d52eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479508"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900394"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>選擇適合資料轉送的 Azure 解決方案
 
@@ -42,7 +42,7 @@ ms.locfileid: "66479508"
 
 ![Azure 資料轉送工具](media/storage-choose-data-transfer-solution/azure-data-transfer-options-3.png)
 
-離線轉送裝置的上限：資料箱磁碟、資料箱和 Data Box Heavy 可透過下訂某裝置類型的多個訂單來擴充。* 
+離線轉送裝置的上限：資料箱磁碟、資料箱和 Data Box Heavy 可透過下訂某裝置類型的多個訂單來擴充。*
 
 ## <a name="selecting-a-data-transfer-solution"></a>選取資料轉送解決方案
 
@@ -65,9 +65,9 @@ ms.locfileid: "66479508"
     如果是，請使用下列中的選項：[案例 4：定期資料轉送](storage-solution-periodic-data-transfer.md)。
  
 
-## <a name="data-transfer-feature-in-azure-portal"></a>在 Azure 入口網站中的資料傳輸功能
+## <a name="data-transfer-feature-in-azure-portal"></a>Azure 入口網站中的資料傳輸功能
 
-您也可以移至您的 Azure 儲存體帳戶，在 Azure 入口網站並選取**資料傳輸**功能。 提供您的環境中的網路頻寬、 您想要傳送的資料大小和資料傳輸的頻率。 您會看到最佳的資料傳輸解決方案，對應至您所提供的資訊。 
+您也可以在 Azure 入口網站中移至您的 Azure 儲存體帳戶, 然後選取 [**資料傳輸**] 功能。 提供您環境中的網路頻寬、您想要傳輸的資料大小, 以及資料傳輸的頻率。 您會看到與您所提供之資訊對應的最佳資料傳輸解決方案。 
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -83,4 +83,4 @@ ms.locfileid: "66479508"
 - 使用 REST API 轉送資料
 
     - [在 .NET 中](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [在 Java 中](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [在 Java 中](https://docs.microsoft.com/java/api/overview/azure/storage)

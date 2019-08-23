@@ -16,12 +16,12 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381553"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900065"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect：暫存伺服器和災害復原
 利用預備模式中的伺服器，您可以在啟用伺服器之前變更組態並預覽變更。 它也可以讓您執行完整的匯入和完整的同步處理，以在生產環境中進行這些變更之前，確認所有變更皆如預期。
@@ -42,7 +42,7 @@ ms.locfileid: "60381553"
 
 您仍然可以使用 Synchronization Service Manager 來強制執行匯出。
 
-預備模式的伺服器會繼續收到來自 Active Directory 和 Azure AD 的變更。 這樣永遠都有最新的變更複本，並且可以非常快速地接管另一部伺服器的責任。 如果您對您的主要伺服器進行組態變更，則您有責任對預備模式的伺服器進行相同的變更。
+預備模式中的伺服器會繼續接收來自 Active Directory 和 Azure AD 的變更, 並可在發生失敗時, 快速接管另一部伺服器的責任。 如果您對您的主要伺服器進行組態變更，則您有責任對預備模式的伺服器進行相同的變更。
 
 對於具備較舊同步處理技術知識的人員，預備模式是不同的，因為伺服器有它自己的 SQL 資料庫。 此架構可讓預備模式伺服器位於不同的資料中心。
 
@@ -56,18 +56,18 @@ ms.locfileid: "60381553"
 5. [切換作用中的伺服器](#switch-active-server)
 
 #### <a name="prepare"></a>準備
-1. 安裝 Azure AD Connect、選取**預備模式**，然後取消選取安裝精靈中最後一個頁面上的 [啟動同步處理]  。 此模式可讓您手動執行同步處理引擎。
+1. 安裝 Azure AD Connect、選取**預備模式**，然後取消選取安裝精靈中最後一個頁面上的 [啟動同步處理]。 此模式可讓您手動執行同步處理引擎。
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
-2. 登出/登入，並從 [開始] 功能表中選取 [同步處理服務]  。
+2. 登出/登入，並從 [開始] 功能表中選取 [同步處理服務]。
 
 #### <a name="configuration"></a>組態
 如果您已對主要伺服器進行變更，並想要將組態與預備伺服器進行比較，則請使用 [Azure AD Connect 組態文件產生器](https://github.com/Microsoft/AADConnectConfigDocumenter)。
 
 #### <a name="import-and-synchronize"></a>匯入和同步處理
-1. 選取 [連接器]  ，並選取第一個類型為 [Active Directory Domain Services]  的連接器。 按一下 [執行]  ，選取 [完整匯入]  和 [確定]  。 對這種類型的所有連接器執行下列動作。
-2. 選取 [Azure Active Directory (Microsoft)]  類型的連接器。 按一下 [執行]  ，選取 [完整匯入]  和 [確定]  。
-3. 確定仍然選取 [連接器] 索引標籤。 針對每一個 [Active Directory Domain Services]  類型的連接器按一下 [執行]  、選取 [差異同步處理]  和 [確定]  。
-4. 選取 [Azure Active Directory (Microsoft)]  類型的連接器。 按一下 [執行]  ，選取 [差異同步處理]  和 [確定]  。
+1. 選取 [連接器]，並選取第一個類型為 [Active Directory Domain Services] 的連接器。 按一下 [執行]，選取 [完整匯入] 和 [確定]。 對這種類型的所有連接器執行下列動作。
+2. 選取 [Azure Active Directory (Microsoft)]類型的連接器。 按一下 [執行]，選取 [完整匯入] 和 [確定]。
+3. 確定仍然選取 [連接器] 索引標籤。 針對每一個 [Active Directory Domain Services] 類型的連接器按一下 [執行]、選取 [差異同步處理] 和 [確定]。
+4. 選取 [Azure Active Directory (Microsoft)]類型的連接器。 按一下 [執行]，選取 [差異同步處理] 和 [確定]。
 
 您現在已預備匯出變更至 Azure AD 和內部部署 AD (如果您正在使用 Exchange 混合部署)。 接下來的步驟可讓您在實際開始匯出至目錄之前，檢查將要變更的項目。
 
@@ -92,7 +92,7 @@ ms.locfileid: "60381553"
 2. 在**預備模式**的伺服器上執行安裝精靈並停用**預備模式**。
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
 
-## <a name="disaster-recovery"></a>災害復原
+## <a name="disaster-recovery"></a>嚴重損壞修復
 實作設計的一部分是規劃您在失去同步處理伺服器的災害中應如何應對。 有不同的模型可供使用，要使用哪一個模組取決於許多因素，包括：
 
 * 您在 Azure AD 的停機期間無法變更物件的容錯能力如何？
@@ -102,7 +102,7 @@ ms.locfileid: "60381553"
 根據這些問題的解答和組織的原則，可實作下列其中一個策略：
 
 * 必要時重建。
-* 具有備用的待命伺服器，稱為「預備模式」  。
+* 具有備用的待命伺服器，稱為「預備模式」。
 * 使用虛擬機器。
 
 如果您未使用內建的 SQL Express 資料庫，您也應該檢閱 [SQL 高可用性](#sql-high-availability) 一節。
@@ -113,7 +113,7 @@ ms.locfileid: "60381553"
 同步處理引擎伺服器不會儲存有關物件的任何狀態，因此可以從 Active Directory 與 Azure AD 中的資料重建資料庫。 **sourceAnchor** 屬性可用來聯結來自內部部署和雲端的物件。 如果您使用現有的內部部署與雲端物件重建伺服器，則同步處理引擎會在重新安裝時一起比對這些物件。 您需要記錄和儲存的項目是對伺服器進行的組態變更，例如篩選和同步處理規則。 這些自訂設定必須在您開始同步處理之前重新套用。
 
 ### <a name="have-a-spare-standby-server---staging-mode"></a>具有備用的待命伺服器 - 預備模式
-如果您有更複雜的環境，則建議使用一或多個待命伺服器。 您可以在安裝期間啟用狀態為「預備模式」  的伺服器。
+如果您有更複雜的環境，則建議使用一或多個待命伺服器。 您可以在安裝期間啟用狀態為「預備模式」的伺服器。
 
 如需詳細資訊，請參閱[預備模式](#staging-mode)。
 

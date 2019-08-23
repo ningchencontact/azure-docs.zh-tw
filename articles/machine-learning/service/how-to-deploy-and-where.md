@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7bfbec194733f2f8422eef45236a64e45bb553c7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656367"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897647"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -723,7 +723,7 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 服務建立和
 
 1. 使用__服務__連線來設定與您的 Azure Machine Learning 服務工作區的服務主體連線, 以存取您的所有成品。 移至 [專案設定], 按一下 [服務連接], 然後選取 [Azure Resource Manager]。
 
-    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+    [![視圖-服務-連接](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
 
 1. 將 AzureMLWorkspace 定義為__範圍層級__, 並填入後續的參數。
 
@@ -731,11 +731,11 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 服務建立和
 
 1. 接下來, 若要使用 Azure Pipelines 持續部署機器學習模型, 請選取 [管線] 底下的 [__發行__]。 新增 [成品], 選取 [AzureML 模型成品] 和在先前步驟中建立的服務連接。 選取要觸發部署的模型和版本。 
 
-    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    [![AzureMLmodel-成品](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. 在您的模型成品上啟用模型觸發程式。 藉由開啟觸發程式, 每次指定的版本 (亦即, 該模型的最新版本) 是在您的工作區中註冊, 會觸發 Azure DevOps 發行管線。 
 
-    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+    [![啟用-模型-觸發程式](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 如需更多範例專案和範例, 請參閱下列範例存放庫:
 

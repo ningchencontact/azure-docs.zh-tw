@@ -1,17 +1,17 @@
 ---
 title: 使用 PowerShell 與範本部署資源 | Microsoft Docs
-description: 使用 Azure Resource Manager 和 Azure PowerShell，將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
+description: 使用 Azure Resource Manager 和 Azure PowerShell, 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f9fb786933d03b27be47c9f778a5f1575ca17c2
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476975"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970897"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 範本與 Azure PowerShell 來部署資源
 
@@ -21,36 +21,36 @@ ms.locfileid: "66476975"
 
 ## <a name="deployment-scope"></a>部署範圍
 
-您可以針對您的 Azure 訂用帳戶或訂用帳戶內的資源群組的部署。 在大部分情況下，您會針對部署至資源群組。 使用訂用帳戶部署來套用原則和角色指派，在訂用帳戶。 您也可以使用訂用帳戶部署來建立資源群組，並將資源部署到它。 根據部署的範圍，您可以使用不同的命令。
+您可以將部署的目標設為 Azure 訂用帳戶或訂用帳戶內的資源群組。 在大部分情況下, 您會將部署目標設為資源群組。 使用訂用帳戶部署, 在訂用帳戶之間套用原則和角色指派。 您也可以使用「訂用帳戶」部署來建立資源群組, 並將資源部署到其中。 視部署的範圍而定, 您可以使用不同的命令。
 
-若要部署到**資源群組**，使用[新增 AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+若要部署至**資源群組**, 請使用[new-azresourcegroupdeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
 ```
 
-若要部署到**訂用帳戶**，使用[新增 AzDeployment](/powershell/module/az.resources/new-azdeployment):
+若要部署至**訂**用帳戶, 請使用[new-azdeployment](/powershell/module/az.resources/new-azdeployment):
 
 ```azurepowershell
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-目前，管理群組部署僅支援透過 REST API。 請參閱[使用 Resource Manager 範本與 Resource Manager REST API 部署資源](resource-group-template-deploy-rest.md)。
+目前, 只有透過 REST API 支援管理群組部署。 請參閱[使用 Resource Manager 範本部署資源和 Resource Manager REST API](resource-group-template-deploy-rest.md)。
 
-這篇文章中的範例會使用資源群組部署。 如需有關訂用帳戶部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](deploy-to-subscription.md)。
+本文中的範例會使用資源群組部署。 如需訂用帳戶部署的詳細資訊, 請參閱在訂用帳戶[層級建立資源群組和資源](deploy-to-subscription.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要部署範本。 如果您還沒有其中一個，下載並儲存[範例範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)從 Azure 快速入門範本存放庫。 本文所使用的本機檔案名稱是 **c:\MyTemplates\azuredeploy.json**。
+您需要一個要部署的範本。 如果您還沒有帳戶, 請從 Azure 快速入門範本存放庫下載並儲存[範例範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)。 本文所使用的本機檔案名稱是 **c:\MyTemplates\azuredeploy.json**。
 
-除非您使用 Azure Cloud shell 來部署範本時，您需要安裝 Azure PowerShell 並連線至 Azure:
+除非您使用 Azure Cloud shell 來部署範本, 否則您需要安裝 Azure PowerShell 並聯機至 Azure:
 
 - **在本機電腦上安裝 Azure PowerShell Cmdlet。** 如需詳細資訊，請參閱[開始使用 Azure PowerShell](/powershell/azure/get-started-azureps)。
 - **使用 [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** 來連線至 Azure。 如果您有多個 Azure 訂用帳戶，則可能還需要執行 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)。 如需詳細資訊，請參閱[使用多個 Azure 訂用帳戶](/powershell/azure/manage-subscriptions-azureps)。
 
 ## <a name="deploy-local-template"></a>部署本機範本
 
-下列範例會建立資源群組，並會從本機電腦的範本部署。 資源群組的名稱只能包含英數字元、句點 (.)、底線、連字號及括弧。 最多可有 90 個字元。 不能以句點結束。
+下列範例會建立資源群組, 並從您的本機電腦部署範本。 資源群組的名稱只能包含英數字元、句點 (.)、底線、連字號及括弧。 最多可有 90 個字元。 不能以句點結束。
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 部署需要幾分鐘的時間才能完成。
 
-## <a name="deploy-remote-template"></a>部署遠端的範本
+## <a name="deploy-remote-template"></a>部署遠端範本
 
 您可能希望將 Resource Manager 範本儲存在外部位置，而不是儲存在您的本機電腦。 您可以將範本儲存在原始檔控制存放庫 (例如 GitHub) 中。 或者，您可以將它們儲存在 Azure 儲存體帳戶中，讓組織共用存取。
 
@@ -82,9 +82,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 ## <a name="deploy-from-azure-cloud-shell"></a>從 Azure Cloud shell 部署
 
-您可以使用 [Azure Cloud Shell](https://shell.azure.com) 來部署範本。 若要部署外部範本，請提供範本的 URI。 若要部署本機範本，您必須先將範本載入 Cloud Shell 的儲存體帳戶。 若要將檔案上傳到殼層，請從殼層視窗選取 [上傳/下載檔案]  功能表圖示。
+您可以使用 [Azure Cloud Shell](https://shell.azure.com) 來部署範本。 若要部署外部範本，請提供範本的 URI。 若要部署本機範本，您必須先將範本載入 Cloud Shell 的儲存體帳戶。 若要將檔案上傳到殼層，請從殼層視窗選取 [上傳/下載檔案] 功能表圖示。
 
-若要開啟 Cloud Shell，請瀏覽至 [https://shell.azure.com](https://shell.azure.com)，或從下列程式碼區段選取 [試試看]  ：
+若要開啟 Cloud Shell，請瀏覽至 [https://shell.azure.com](https://shell.azure.com)，或從下列程式碼區段選取 [試試看]：
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -95,16 +95,16 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-若要將程式碼貼到殼層中，請在殼層內按一下滑鼠右鍵，然後選取 [貼上]  。
+若要將程式碼貼到殼層中，請在殼層內按一下滑鼠右鍵，然後選取 [貼上]。
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
 
-這項功能就是所謂*錯誤時回復*。 當部署失敗時，您可以從部署記錄自動重新部署先前成功的部署。 若要指定重新部署，請在部署命令中使用 `-RollbackToLastDeployment` 或 `-RollBackDeploymentName` 參數。 如果您有已知的良好狀態的基礎結構部署，而且想要還原為此狀態，這項功能很有用。 有一些注意事項和限制：
+這項功能也稱為「*發生錯誤時復原*」。 當部署失敗時，您可以從部署記錄自動重新部署先前成功的部署。 若要指定重新部署，請在部署命令中使用 `-RollbackToLastDeployment` 或 `-RollBackDeploymentName` 參數。 如果您的基礎結構部署有已知的良好狀態, 而且想要還原為此狀態, 此功能就很有用。 有一些警告和限制:
 
-- 完全依照其先前執行相同的參數，則會執行重新部署。 您無法變更參數。
-- 先前的部署會使用執行[完整模式](./deployment-modes.md#complete-mode)。 也會刪除任何不包含在先前的部署的資源，而任何資源的設定會設定為先前的狀態。 請確定您完全了解[部署模式](./deployment-modes.md)。
-- 重新部署只會影響資源，不會受到影響的任何資料變更。
-- 這項功能只有在資源群組部署中，未訂用帳戶層級部署。 如需訂用帳戶層級部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](./deploy-to-subscription.md)。
+- 重新部署的執行方式與先前使用相同參數執行的完全相同。 您無法變更參數。
+- 先前的部署是使用[完整模式](./deployment-modes.md#complete-mode)來執行。 先前部署中未包含的任何資源都會刪除, 而且任何資源設定都會設為先前的狀態。 請確定您完全瞭解[部署模式](./deployment-modes.md)。
+- 重新部署只會影響資源, 任何資料變更都不會受到影響。
+- 只有資源群組部署支援這項功能, 而不是訂用帳戶層級部署。 如需訂用帳戶層級部署的詳細資訊, 請參閱在訂用帳戶[層級建立資源群組和資源](./deploy-to-subscription.md)。
 
 若要使用這個選項，您的部署必須有唯一的名稱，以便在歷程記錄中進行識別。 如果您沒有唯一的名稱，則目前失敗的部署可能會覆寫歷程記錄中先前成功的部署。 您只可以使用此選項搭配根層級部署。 從巢狀範本部署不適用於重新部署。
 
@@ -130,7 +130,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
 
 ## <a name="pass-parameter-values"></a>傳遞參數值
 
-若要傳遞參數值，您可以使用內嵌參數或參數檔案。 本文中的前述範例顯示的是內嵌參數。
+若要傳遞參數值，您可以使用內嵌參數或參數檔案。
 
 ### <a name="inline-parameters"></a>內嵌參數
 
@@ -156,7 +156,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 
 當您需要提供組態值時，從檔案取得參數值會很有幫助。 例如，您可以提供 [Linux 虛擬機器的 cloud-init 值](../virtual-machines/linux/using-cloud-init.md)。
 
-如果您需要將物件的陣列，在 PowerShell 中建立雜湊表，並將它們新增至陣列。 在部署期間，做為參數傳遞該陣列。
+如果您需要傳入物件的陣列, 請在 PowerShell 中建立雜湊表, 並將它們新增至陣列。 在部署期間傳遞該陣列做為參數。
 
 ```powershell
 $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
@@ -167,28 +167,11 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $subnetArray
 ```
 
-
 ### <a name="parameter-files"></a>參數檔案
 
 相對於在您的指令碼中將參數做為內嵌值傳遞，使用包含該參數值的 JSON 檔案可能較為容易。 參數檔案可以是本機檔案或具有可存取 URI 的外部檔案。
 
-參數檔必須是下列格式︰
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-     "storageAccountType": {
-         "value": "Standard_GRS"
-     }
-  }
-}
-```
-
-請注意，參數區段包含符合於範本中所定義之參數 (storageAccountType) 的參數名稱。 參數檔案包含參數的值。 這個值會在部署期間自動傳遞至範本。 您可以建立多個參數檔案，然後視情況傳入適當的參數檔案。
-
-複製上述的範例，然後將它另存為名叫 `storage.parameters.json` 的檔案。
+如需參數檔案的詳細資訊, 請參閱[建立 Resource Manager 參數](resource-manager-parameter-files.md)檔案。
 
 若要傳遞本機參數檔案，請使用 **TemplateParameterFile** 參數︰
 
@@ -205,16 +188,6 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
-
-### <a name="parameter-precedence"></a>參數優先順序
-
-您可以在相同的部署作業中使用內嵌參數和本機參數檔案。 例如，您可以在部署期間指定本機參數檔案中的某些值，並新增其他內嵌值。 如果您同時為本機檔案中和內嵌的參數提供值，內嵌值的優先順序較高。
-
-不過，當使用外部參數檔案時，您無法傳遞內嵌或本機檔案的其他值。 當您指定 **TemplateParameterUri** 參數中的參數檔案時，所有內嵌參數都會被忽略。 請提供外部檔案中的所有參數值。 如果您的範本包含不能包含在參數檔案中的機密值，請將該值新增至金鑰保存庫，或以動態方式提供所有內嵌參數值。
-
-### <a name="parameter-name-conflicts"></a>參數名稱衝突
-
-如果您範本所含的參數名稱與 PowerShell 命令中的其中一個參數一樣，PowerShell 會以加上後置 **FromTemplate** 的方式呈現您範本中的參數。 例如，範本中名為 **ResourceGroupName** 的參數會與 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) Cmdlet 中的 **ResourceGroupName** 參數發生衝突。 系統會提示您為 **ResourceGroupNameFromTemplate** 提供值。 一般而言，在為參數命名時，請勿使用與部署作業所用參數相同的名稱，以避免發生這種混淆的情形。
 
 ## <a name="test-template-deployments"></a>測試範本部署
 

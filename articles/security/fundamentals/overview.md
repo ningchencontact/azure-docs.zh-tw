@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e87fc74b3fa989471f9074a33fc66d8cb8250aa0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2cc8f4f81ad95376dcbc10c2952c1b2ed95ffe42
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927846"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907903"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>總覽
@@ -150,7 +150,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 -   應用程式錯誤 (顯示例外狀況事件)
 -   效能 (顯示效能事件)
 
-## <a name="storage"></a>存放區
+## <a name="storage"></a>儲存體
 本節提供關於 Azure 儲存體安全性中主要功能的其他資訊，以及這些功能的摘要資訊。
 
 ### <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
@@ -270,6 +270,7 @@ Web 應用程式防火牆是 [Azure 應用程式閘道](../../application-gatewa
 
 
 防止 Web 攻擊的集中式 Web 應用程式防火牆可簡化安全性管理作業，並更加確保應用程式能夠對抗入侵威脅。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成具有 Web 應用程式防火牆的應用程式閘道。
+
 ### <a name="traffic-manager"></a>流量管理員
 Microsoft [Azure 流量管理員](../../traffic-manager/traffic-manager-overview.md)可讓您控制使用者流量，將流量分散到不同資料中心的服務端點。 流量管理員支援的服務端點包括 Azure VM、Web Apps 和雲端服務。 您也可以將流量管理員使用於外部、非 Azure 端點。 流量管理員會使用網域名稱系統 (DNS)，根據[流量路由方法](../../traffic-manager/traffic-manager-routing-methods.md)和端點的健全狀況，將用戶端要求導向到最適當的端點。
 
@@ -295,18 +296,8 @@ Microsoft [Azure 流量管理員](../../traffic-manager/traffic-manager-overview
 -   規則計數器：包含套用每個 NSG 規則以拒絕或允許流量之次數的項目。
 
 ### <a name="azure-security-center"></a>Azure 資訊安全中心
-資訊安全中心可協助您預防、偵測和回應威脅，並加強對 Azure 資源安全性的能見度及控制權。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理、協助偵測可能忽略的威脅，並適用於廣泛的安全性解決方案生態系統。 網路建議集中圍繞在防火牆、網路安全性群組、設定輸入流量規則等等。
 
-可用的網路建議如下：
-
--   [新增新一代防火牆](../../security-center/security-center-add-next-generation-firewall.md)：建議您新增由 Microsoft 合作夥伴提供的新一代防火牆 (NGFW)，以提升您的安全防護。
-
--   [僅透過 NGFW 路由傳送流量](../../security-center/security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)：建議您設定網路安全性群組 (NSG) 規則，強制透過您的 NGFW 將輸入流量傳送到 VM。
-
--   [啟用子網路/虛擬機器上的網路安全性群組](../../security-center/security-center-enable-network-security-groups.md)：建議您在子網路或 VM 上啟用 NSG。
-
--   [透過網際網路面向端點限制存取](../../security-center/security-center-restrict-access-through-internet-facing-endpoints.md)：建議您為 NSG 設定輸入流量規則。
-
+[Azure 資訊安全中心](../../security-center/security-center-intro.md)會持續分析 Azure 資源的安全性狀態, 以取得網路安全性的最佳作法。 當資訊安全中心識別潛在的安全性弱點時, 它會建立[建議](../../security-center/security-center-recommendations.md), 引導您完成設定所需控制項來強化和保護資源的程式。
 
 ## <a name="compute"></a>計算
 
@@ -387,7 +378,7 @@ Microsoft 在其產品與服務上使用多個安全性作法與技術來管理�
 - [Azure Active Directory 應用程式 Proxy](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) 為內部部署裝載的 Web 應用程式提供 SSO 及安全的遠端存取。
 
 ## <a name="next-steps"></a>後續步驟
-- [開始使用 Microsoft Azure 安全性](./https://docs.microsoft.com/azure/security)
+- [開始使用 Microsoft Azure 安全性](https://docs.microsoft.com/azure/security)
 
 您可以用來保護 Azure 中的服務和資料的 Azure 服務與功能
 

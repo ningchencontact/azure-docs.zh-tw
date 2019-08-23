@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 7675a22b4b2d8b13524f06f45d6bb805c1e2fad1
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 8f55e2eb3ac7fe2e869b6b1061f6d45d11894ccf
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019141"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905930"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
@@ -31,7 +31,7 @@ ms.locfileid: "69019141"
 > App Service 憑證可以用於任何 Azure 或非 Azure 服務，並不限於應用程式服務。 若要如此，您需要建立一個可在任何地方使用的 App Service 憑證本機 PFX 複本。 如需詳細資訊，請參閱[建立 App Service 憑證的本機 PFX 複本](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/)。
 >
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要遵循本操作說明指南：
 
@@ -50,7 +50,7 @@ ms.locfileid: "69019141"
 
 | 設定 | 描述 |
 |-|-|
-| 名稱 | App Service 憑證的易記名稱。 |
+| Name | App Service 憑證的易記名稱。 |
 | 裸網域主機名稱 | 在此指定根域。 發行的憑證會保護根域和`www`子域。 在發行的憑證中, [一般名稱] 欄位包含根域, [主體別名] 欄位則包含`www`網域。 若只要保護所有子網域，請在這裡指定子網域的完整網域名稱 (例如 `mysubdomain.contoso.com`)。|
 | 訂閱 | 裝載 Web 應用程式的資料中心。 |
 | 資源群組 | 包含憑證的資源群組。 您可以使用新的資源群組，或為您的 App Service 應用程式選取相同的資源群組。 |
@@ -71,7 +71,7 @@ ms.locfileid: "69019141"
 
 | 設定 | 描述 |
 |-|-|
-| 名稱 | 包含英數字元和虛線的唯一名稱。 |
+| Name | 包含英數字元和虛線的唯一名稱。 |
 | 資源群組 | 建議選取相同的資源群組作為您的 App Service 憑證。 |
 | Location | 選取與 App Service 應用程式相同的位置。 |
 | 定價層 | 如需詳細資訊，請參閱 [Azure Key Vault 定價詳細資料](https://azure.microsoft.com/pricing/details/key-vault/)。 |
@@ -139,7 +139,7 @@ ms.locfileid: "69019141"
 
 ## <a name="renew-certificate"></a>更新憑證
 
-若要隨時開啟憑證的自動更新，請選取 [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)頁面中的憑證，然後按一下左側導覽中的 [自動更新設定]。
+若要隨時開啟憑證的自動更新，請選取 [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)頁面中的憑證，然後按一下左側導覽中的 [自動更新設定]。 根據預設, App Service 憑證的有效期間為1年。
 
 選取 [開啟]，然後按一下 [儲存]。 如果您已經開啟自動更新，憑證可以在過期前的 60 天開始自動更新。
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 08/23/2019
 ms.author: victorh
-ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: ebe02e8bf3fecc03c46bb66c9ab178e4f277e6e4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304587"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971625"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
 
@@ -25,7 +25,7 @@ Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 A
 * 具狀態防火牆即服務
 * 內建高可用性且不受限制的雲端延展性
 * FQDN 篩選
-* FQDN 標記
+* FQDN 標籤
 * 網路流量篩選規則
 * 輸出 SNAT 支援
 * 輸入 DNAT 支援
@@ -34,7 +34,7 @@ Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 A
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure 防火牆的一般部署模型是什麼？
 
-您可以將「Azure 防火牆」部署在任何虛擬網路上，但客戶通常會將其部署在中央虛擬網路上，然後以中樞和支點模型方式，將其他虛擬網路與其對等互連。 接著，您便可以從對等互連的虛擬網路設定預設路由，使其指向此中央防火牆虛擬網路。 全域 VNet 對等互連支援，但不建議因為潛在的效能和延遲問題而跨區域。 為了達到最佳效能，部署每個區域一個防火牆。
+您可以將「Azure 防火牆」部署在任何虛擬網路上，但客戶通常會將其部署在中央虛擬網路上，然後以中樞和支點模型方式，將其他虛擬網路與其對等互連。 接著，您便可以從對等互連的虛擬網路設定預設路由，使其指向此中央防火牆虛擬網路。 支援全域 VNet 對等互連, 但不建議使用, 因為跨區域可能會發生效能和延遲問題。 為了達到最佳效能, 請為每個區域部署一個防火牆。
 
 此模型的優點是能夠集中控制不同訂用帳戶上的多個分支 VNET。 這也可讓您節省成本，因為您不需要在每個 VNet 中分別部署防火牆。 若要衡量節省的成本，應根據客戶流量模式，與相關的對等成本做比較。
 
@@ -46,11 +46,11 @@ Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 A
 
 Azure 防火牆支援規則和規則集合。 規則集合是一組共用相同順序和優先順序的規則。 規則集合會依其優先順序執行。 網路規則集合的優先順序高於應用程式規則集合，而所有規則都將終止。
 
-有三種類型的規則集合：
+有三種類型的規則集合:
 
-* *應用程式規則*：設定可從子網路存取的完整的網域名稱 (Fqdn)。
-* *網路規則*：設定包含來源位址、 通訊協定、 目的地連接埠及目的地位址的規則。
-* *NAT 規則*:設定 DNAT 規則以允許連入連線。
+* *應用程式規則*：設定可從子網存取的完整功能變數名稱 (Fqdn)。
+* *網路規則*：設定包含來源位址、通訊協定、目的地埠及目的地位址的規則。
+* *NAT 規則*:設定 DNAT 規則以允許連入連接。
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure 防火牆是否支援輸入流量篩選？
 
@@ -62,7 +62,7 @@ Azure 防火牆支援輸入和輸出篩選。 輸入保留適用於非 HTTP/S �
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Azure 防火牆的運作方式與市集中現有的服務 (例如 NVA) 有何不同？
 
-Azure 防火牆是一種基本防火牆服務，可以處理特定的客戶案例。 預期的是，您必須混合使用協力廠商 Nva 和 Azure 防火牆。 使用上，首重相輔相成。
+Azure 防火牆是一種基本防火牆服務，可以處理特定的客戶案例。 您應該會混合使用協力廠商 Nva 和 Azure 防火牆。 使用上，首重相輔相成。
 
 ## <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>應用程式閘道 WAF 與 Azure 防火牆有什麼不同？
 
@@ -72,9 +72,9 @@ Web 應用程式防火牆 (WAF) 是應用程式閘道的一個功能，可提供
 
 「Azure 防火牆」服務可補足網路安全性群組功能。 兩者結合時，可提供更好的「深度防禦」網路安全性。 網路安全性群組提供分散式網路層流量篩選，可限制每個訂用帳戶中虛擬網路內資源的流量。 「Azure 防火牆」是完全具狀態的集中式網路防火牆即服務，可跨不同的訂用帳戶和虛擬網路，提供網路層級和應用程式層級的保護。
 
-## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>為支援 Azure 防火牆子網路上的網路安全性群組 (Nsg)？
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Azure 防火牆子網是否支援網路安全性群組 (Nsg)？
 
-Azure 防火牆是受管理的服務具有多個保護層，包括具有 NIC 層級的 Nsg （不可見） 的平台保護。  子網路層級的 Nsg 不需要 Azure 防火牆子網路上，以確保無服務中斷情況已停用。
+Azure 防火牆是受控服務, 具有多個保護層, 包括具備 NIC 層級 Nsg (無法查看) 的平臺保護。  Azure 防火牆子網上不需要子網層級 Nsg, 且已停用以確保不會中斷服務。
 
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>如何使用我的服務端點設定 Azure 防火牆？
 
@@ -86,7 +86,7 @@ Azure 防火牆是受管理的服務具有多個保護層，包括具有 NIC 層
 
 ## <a name="how-can-i-stop-and-start-azure-firewall"></a>如何停止和啟動 Azure 防火牆？
 
-您可以使用 Azure PowerShell 的「解除配置」  和「配置」  方法。
+您可以使用 Azure PowerShell 的「解除配置」和「配置」方法。
 
 例如:
 
@@ -113,7 +113,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="what-are-the-known-service-limits"></a>已知的服務限制有哪些？
 
-如需 Azure 防火牆服務限制，請參閱[Azure 訂用帳戶和服務限制、 配額和條件約束](../azure-subscription-service-limits.md#azure-firewall-limits)。
+如需 Azure 防火牆服務的限制, 請參閱[azure 訂用帳戶和服務限制、配額和條件約束](../azure-subscription-service-limits.md#azure-firewall-limits)。
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>中樞虛擬網路中的 Azure 防火牆是否可以在兩個輪幅虛擬網路之間轉寄和篩選網路流量？
 
@@ -121,32 +121,36 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Azure 防火牆可以在同一個虛擬網路或對等虛擬網路的子網路之間轉寄和篩選網路流量嗎？
 
-是。 不過，設定相同的 VNET 中的子網路之間的流量重新導向至 Udr 需要多加注意。 雖然對 UDR 而言，使用 VNET 位址範圍作為目標前置詞已足夠，但這也會使得所有流量透過 Azure 防火牆執行個體從一部機器路由至相同子網路中的另一部機器。 若要避免此狀況，需在下一個躍點類型為 **VNET** 的 UDR 中包括子網路的路由。 管理這些路由可能會很麻煩，而且容易出錯。 對於內部網路區隔的建議方法是使用網路安全性群組，而這不需要 UDR。
+是的。 不過, 若要設定 Udr 以重新導向相同 VNET 中子網之間的流量, 則需要額外注意。 雖然對 UDR 而言，使用 VNET 位址範圍作為目標前置詞已足夠，但這也會使得所有流量透過 Azure 防火牆執行個體從一部機器路由至相同子網路中的另一部機器。 若要避免此狀況，需在下一個躍點類型為 **VNET** 的 UDR 中包括子網路的路由。 管理這些路由可能會很麻煩，而且容易出錯。 對於內部網路區隔的建議方法是使用網路安全性群組，而這不需要 UDR。
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>私人網路之間的 Azure 防火牆輸出 SNAT 嗎？
 
-每個私人 IP 範圍的目的地 IP 位址時，azure 的防火牆不 SNAT [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)。 如果您的組織使用的私人網路的公用 IP 位址範圍，Azure 防火牆 SNATs AzureFirewallSubnet 中位址的流量，防火牆的私人 ip 位址的其中一個。
+當目的地 IP 位址是每個[IANA RFC 1918](https://tools.ietf.org/html/rfc1918)的私人 ip 範圍時, Azure 防火牆不會 SNAT。 如果您的組織使用私人網路的公用 IP 位址範圍, Azure 防火牆會 SNATs AzureFirewallSubnet 中其中一個防火牆私人 IP 位址的流量。
 
-## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>強制通道/鏈結至支援網路虛擬設備嗎？
+## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>受支援的網路虛擬裝置是否有強制通道/連結？
 
-強制通道不支援根據預設，但可透過支援的協助。
+預設不支援強制通道, 但可透過支援協助進行啟用。
 
-「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]  ，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
+「Azure 防火牆」必須能夠直接連線到網際網路。 如果您的 AzureFirewallSubnet 學習到透過 BGP 連至您內部部署網路的預設路由，您必須將其覆寫為 0.0.0.0/0 UDR，且 **NextHopType** 值必須設為 [網際網路]，以保有直接網際網路連線。 根據預設，Azure 防火牆不支援對內部部署網路的強制通道。
 
-不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 如果接受，我們將允許您的訂用帳戶，並確保能維持必要的防火牆的網際網路連線能力。
+不過，如果您的設定需要對內部部署網路的強制通道，Microsoft 將以個別案例為原則提供支援。 連絡支援人員，以便我們檢閱您的案例。 若已接受, 我們將允許您的訂用帳戶, 並確保維持必要的防火牆網際網路連線能力。
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>是否有任何防火牆資源群組的限制？
 
-是。 防火牆、子網路、VNet 和公用 IP 位址全都必須在相同的資源群組中。
+是的。 防火牆、子網路、VNet 和公用 IP 位址全都必須在相同的資源群組中。
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>在設定傳入網路流量的 DNAT 時，是否也需要設定對應的網路規則，才能允許該流量？
 
-沒有。 NAT 規則會隱含地新增對應的網路規則，以允許已轉譯的流量。 若要覆寫這個行為，您可以明確地使用符合已轉譯流量的拒絕規則來新增網路規則集合。 若要深入了解 Azure 防火牆規則處理邏輯，請參閱 [Azure 防火牆規則處理邏輯](rule-processing.md)。
+資料分割 NAT 規則會隱含地新增對應的網路規則，以允許已轉譯的流量。 若要覆寫這個行為，您可以明確地使用符合已轉譯流量的拒絕規則來新增網路規則集合。 若要深入了解 Azure 防火牆規則處理邏輯，請參閱 [Azure 防火牆規則處理邏輯](rule-processing.md)。
 
-## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>如何使用萬用字元應用程式規則的目標 FQDN 中運作？
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>如何在應用程式規則中將萬用字元用於目標 FQDN？
 
-如果您設定 * **。 contoso.com**，它可讓*anyvalue*。 contoso.com，但不是 contoso.com （網域頂點）。 如果您想要允許網域頂點，您必須明確地設定它做為目標的 FQDN。
+如果您設定**contoso.com**, 它會允許*anyvalue*contoso.com, 但無法 contoso.com (網域頂點)。 如果您想要允許網域頂點, 您必須將它明確設定為目標 FQDN。
 
-## <a name="what-does-provisioning-state-failed-mean"></a>什麼*佈建狀態：失敗*表示嗎？
+## <a name="what-does-provisioning-state-failed-mean"></a>*布建狀態為何:失敗* mean？
 
-每當套用組態變更時，Azure 防火牆會嘗試更新所有及其基礎後端執行個體。 在罕見的情況下，這些後端執行個體的其中一個可能無法使用新的設定更新，並在更新程序會停止與失敗的佈建狀態。 您的 Azure 防火牆仍可運作，但套用的設定可能處於不一致的狀態，其中某些情況下會有先前的設定，其他人有更新的規則集。 如果發生這種情況，請嘗試更新您的設定一次直到作業成功，而且在您的防火牆*Succeeded*佈建狀態。
+每當套用設定變更時, Azure 防火牆會嘗試更新其所有基礎後端實例。 在罕見的情況下, 其中一個後端實例可能無法使用新的設定進行更新, 且更新程式會以失敗的布建狀態來停止。 您的 Azure 防火牆仍可運作, 但套用的設定可能處於不一致的狀態, 其中有些實例有先前的設定, 而其他實例則具有更新的規則集。 如果發生這種情況, 請嘗試再更新一次您的設定, 直到作業成功且您的防火牆處於*成功*布建狀態。
+
+## <a name="is-there-a-character-limit-for-a-firewall-name"></a>是否有防火牆名稱的字元限制？
+
+是的。 防火牆名稱有50個字元的限制。 

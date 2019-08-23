@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934822"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899961"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>沒有密碼的世界 Azure Active Directory
 
@@ -226,7 +226,7 @@ FIDO2 安全性金鑰可以用來登入 Azure AD, 方法是在 Windows 10 鎖定
 
 #### <a name="user-sets-up-fido2-security-key"></a>使用者設定 FIDO2 安全性金鑰
 
-雖然系統管理員可以手動布建[金鑰](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable), 並將其散發給使用者, 但在 Windows 10 鎖定畫面上布建和啟用 FIDO2 認證提供者將透過[Intune](https://docs.microsoft.com/intune/windows-enrollment-methods)提供支援。 系統管理員也必須使用[Azure 入口網站](https://portal.azure.com/)來啟用硬體權杖裝置, 作為無密碼的驗證方法。
+雖然系統管理員可以手動布建[金鑰](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless), 並將其散發給使用者, 但在 Windows 10 鎖定畫面上布建和啟用 FIDO2 認證提供者將透過[Intune](https://docs.microsoft.com/intune/windows-enrollment-methods)提供支援。 系統管理員也必須使用[Azure 入口網站](https://portal.azure.com/)來啟用硬體權杖裝置, 作為無密碼的驗證方法。
 
 部署 FIDO2 安全性金鑰也需要使用者使用[合併註冊](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)來註冊其金鑰。 透過合併註冊, 使用者只需註冊一次, 即可獲得 Azure 多重要素驗證和單一登入密碼重設 (SSPR) 的優點。
 
@@ -343,4 +343,4 @@ FIDO2 安全性金鑰可提供安全驗證, 與外型規格無關。 安全性�
 ## <a name="next-steps"></a>後續步驟
 
 * 概述[什麼是無密碼？](../../active-directory/authentication/concept-authentication-passwordless.md)
-* [如何在 Azure AD 中啟用無密碼](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)
+* [如何在 Azure AD 中啟用無密碼](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

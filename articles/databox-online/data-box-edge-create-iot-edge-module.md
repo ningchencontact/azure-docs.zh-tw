@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 734ad263356ab9f91c7cb92ab174a14e0c5dd867
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: daf7b01725a931b8fa76be14e06e2b32cffe5da6
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775182"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900640"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>開發C# IoT Edge 模組以在 Data Box Edge 上移動檔案
 
@@ -40,7 +40,7 @@ ms.locfileid: "68775182"
 
 一旦檔案位於雲端共用之後，它就會自動上傳至您的 Azure 儲存體帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您擁有：
 
@@ -127,8 +127,10 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 2. 在 **FileCopyModule 命名空間**頂端，為稍後用到的類型新增下列 using 陳述式。 **Microsoft.Azure.Devices.Client.Transport.Mqtt** 是將訊息傳送至 IoT Edge 中樞的通訊協定。
 
     ```
-    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
-    using Newtonsoft.Json;
+    namespace FileCopyModule
+    {
+        using Microsoft.Azure.Devices.Client.Transport.Mqtt;
+        using Newtonsoft.Json;
     ```
 3. 將 **InputFolderPath** 和 **OutputFolderPath** 變數新增至 Program 類別。
 
@@ -140,7 +142,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. 新增**FileEvent**類別以定義訊息內文。
+4. 在上一個步驟之後, 請新增**FileEvent**類別來定義訊息本文。
 
     ```
     /// <summary>
@@ -156,7 +158,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
     }
     ```
 
-5. 在 **Init** 方法中，該程式碼會建立並設定 **ModuleClient** 物件。 此物件允許模組使用 MQTT 通訊協定連線至本機的 Azure IoT Edge 執行階段，來傳送和接收訊息。 Init 方法中使用的連接字串，會由 IoT Edge 執行階段提供給模組。 程式碼會註冊 FileCopy 回呼，透過 **input1** 端點接收來自 IoT Edge 中樞的訊息。
+5. 在**Init 方法**中, 程式碼會建立並設定**ModuleClient**物件。 此物件允許模組使用 MQTT 通訊協定連線至本機的 Azure IoT Edge 執行階段，來傳送和接收訊息。 Init 方法中使用的連接字串，會由 IoT Edge 執行階段提供給模組。 程式碼會註冊 FileCopy 回呼，透過 **input1** 端點接收來自 IoT Edge 中樞的訊息。 以下列程式碼取代**Init 方法**。
 
     ```
     /// <summary>
@@ -178,11 +180,11 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
     }
     ```
 
-6. 插入適用於 **FileCopy** 的程式碼。
+6. 移除**管線訊息方法**的程式碼, 並在其位置插入**FileCopy**的程式碼。
 
     ```
         /// <summary>
-        /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
+        /// This method is called whenever the module is sent a message from the IoT Edge Hub.
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
         /// </summary>
@@ -236,6 +238,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
     ```
 
 7. 儲存這個檔案。
+8. 您也可以下載此專案的[現有程式碼範例](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable)。 接著, 您可以針對此範例中的**program.cs**檔案, 驗證您所儲存的檔案。
 
 ## <a name="build-your-iot-edge-solution"></a>建置 IoT Edge 解決方案
 
@@ -246,7 +249,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
     `docker login <ACR login server> -u <ACR username>`
 
-    使用您從容器登錄中複製而來的登入伺服器和使用者名稱。 
+    使用您從容器登錄中複製而來的登入伺服器和使用者名稱。
 
     ![建置並推送 IoT Edge 解決方案](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-1.png)
 

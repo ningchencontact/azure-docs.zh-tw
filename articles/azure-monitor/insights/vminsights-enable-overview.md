@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 039a4db11adf66e0c28826106df5845b42fedef5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f395ba5d63463aa177b453d187d025a4461eff28
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688257"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905583"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>啟用適用於 VM 的 Azure 監視器 (預覽) 總覽
 
@@ -33,7 +33,10 @@ ms.locfileid: "68688257"
 
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，請確定您了解下列各節中的資訊。
+開始之前，請確定您了解下列各節中的資訊。 
+
+>[!NOTE]
+>本節所述的下列資訊也適用于[服務對應解決方案](service-map.md)。  
 
 ### <a name="log-analytics"></a>Log Analytics
 
@@ -46,8 +49,8 @@ ms.locfileid: "68688257"
 - 英國南部
 - 西歐
 - 東南亞
-- 澳大利亞東部
-- 澳大利亞東南部
+- 澳大利亞東部<sup>1</sup>
+- 澳大利亞東南部<sup>1</sup>
 
 <sup>1</sup> 此區域目前不支援適用於 VM 的 Azure 監視器的健康情況功能。
 
@@ -153,6 +156,9 @@ ms.locfileid: "68688257"
 
 無論您為單一 Azure VM 啟用適用於 VM 的 Azure 監視器, 或使用大規模部署方法, 請使用 Azure VM Dependency agent 擴充功能來安裝代理程式, 以作為體驗的一部分。
 
+>[!NOTE]
+>本節所述的下列資訊也適用于[服務對應解決方案](service-map.md)。  
+
 在混合式環境中, 您可以手動下載並安裝 Dependency agent。 如果您的 Vm 是在 Azure 外部託管, 請使用自動化部署方法。
 
 下表說明對應功能在混合式環境中支援的連線來源。
@@ -167,8 +173,8 @@ ms.locfileid: "68688257"
 
 | 檔案 | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## <a name="role-based-access-control"></a>角色型存取控制
 
@@ -200,15 +206,15 @@ ms.locfileid: "68688257"
 |LogicalDisk |Avg.Disk sec/Transfer |
 |LogicalDisk |Avg.Disk sec/Write |
 |LogicalDisk |Disk Bytes/sec |
-|LogicalDisk |磁碟讀取的位元組數/秒 |
+|LogicalDisk |Disk Read Bytes/sec |
 |LogicalDisk |Disk Reads/sec |
 |LogicalDisk |Disk Transfers/sec |
-|LogicalDisk |磁碟寫入的位元組數/秒 |
+|LogicalDisk |Disk Write Bytes/sec |
 |LogicalDisk |Disk Writes/sec |
 |LogicalDisk |Free Megabytes |
 |記憶體 |可用的 MB 數 |
-|網路介面卡 |接收的位元組/秒 |
-|網路介面卡 |傳送的位元組/秒 |
+|網路介面卡 |Bytes Received/sec |
+|網路介面卡 |Bytes Sent/sec |
 |處理器 |% Processor Time |
 
 ### <a name="linux-performance-counters"></a>Linux 效能計數器
@@ -216,7 +222,7 @@ ms.locfileid: "68688257"
 |物件名稱 |計數器名稱 |
 |------------|-------------|
 |Logical Disk |% Used Space |
-|Logical Disk |磁碟讀取的位元組數/秒 |
+|Logical Disk |Disk Read Bytes/sec |
 |Logical Disk |Disk Reads/sec |
 |Logical Disk |Disk Transfers/sec |
 |Logical Disk |Disk Write Bytes/sec |

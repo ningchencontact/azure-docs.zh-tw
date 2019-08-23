@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1478e8f44db2e6a1d52d069d2f52830c265b2641
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7cda51870a98b2606a0133a61ad6f786e7e9324a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036822"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900146"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>為客戶參與 & PowerApps 供應專案建立新的 Dynamics 365
 
@@ -82,27 +82,11 @@ ms.locfileid: "69036822"
 
 ## <a name="connect-lead-management"></a>連接潛在客戶管理
 
-藉由連結客戶關係管理 (CRM) 系統, 直接與客戶連線。 當您這麼做時, 您會在客戶表示感利息或部署您的產品時, 收到客戶連絡人資訊。
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-若要連接您的 CRM 系統, 請選取 **[連線]** 。
+如需詳細資訊, 請參閱[潛在客戶管理總覽](./commercial-marketplace-get-customer-leads.md)。
 
-### <a name="choose-a-lead-destination"></a>選擇潛在客戶目的地
-
-選取 [連線 **]** 之後, 您會看到一個下拉式功能表, 您可以在其中選取您的 CRM 系統, 然後提供連接詳細資料。
-
-合作夥伴中心支援下列適用于潛在客戶管理的 CRM 系統。 選取設定指示的連結。
-
-- [Azure 資料表](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)–提供您的儲存體帳戶連接字串。 
-- [Dynamics 365 For Customer Engagement (先前為 DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) ): 提供您的 Dynamics 365 實例 URL 和驗證模式 (Office 365 或 Azure Active Directory)。
-- [Https 端點](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https)–提供您的 HTTPS 端點 URL。 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) –提供您的伺服器識別碼、MUNCHKIN 帳戶識別碼和表單識別碼。
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -提供您的組織識別碼。 
-
-#### <a name="additional-lead-management-resources"></a>其他潛在客戶管理資源
-
-- [潛在客戶管理常見問題](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [常見的潛在客戶設定錯誤](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [潛在客戶管理總覽一頁](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+繼續進行下一節之前, 請記得先**儲存**!
 
 ## <a name="properties"></a>屬性
 

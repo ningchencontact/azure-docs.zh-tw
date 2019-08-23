@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5da91f37d197e9d427343a09d0376076c356e92d
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 12fecfc3a20d91b9324e1662f3f937340b7ff5c4
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877822"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972443"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>CloudSimple 節點配額限制
 
@@ -27,7 +27,7 @@ ms.locfileid: "69877822"
 * 訂用帳戶：**您的訂用帳戶識別碼**
 * 服務類型:**VMware 解決方案 (依 CloudSimple)**
 * 問題類型:**專用節點配額**
-* 問題子類型:**增加專用節點的配額**
+* 問題子類型：**增加專用節點的配額**
 * 主旨：**增加配額**
 
 在支援票證的詳細資料中, 提供必要的節點數目和節點 SKU。

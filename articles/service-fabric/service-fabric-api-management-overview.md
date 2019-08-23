@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 0dac2730bcc13b979de6a8faaaa53c0aaf15e902
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621804"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900524"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 搭配 Azure API 管理概觀
 
@@ -54,7 +54,7 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
 
 ## <a name="send-traffic-to-a-stateless-service"></a>將流量傳送到無狀態服務
 
-在最簡單的案例中，會將流量轉送到無狀態服務執行個體。 為了達成此目的，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會對應至 Service Fabric 後端中特定的無狀態服務執行個體。 系統會將傳送到該服務的要求傳送到該無狀態服務執行個體地隨機複本。
+在最簡單的案例中，會將流量轉送到無狀態服務執行個體。 為了達成此目的，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會對應至 Service Fabric 後端中特定的無狀態服務執行個體。 傳送至該服務的要求會傳送至服務的隨機實例。
 
 #### <a name="example"></a>範例
 在以下案例中，Service Fabric 應用程式包含一個名為 `fabric:/app/fooservice` 的無狀態服務，此服務會公開內部 HTTP API。 此服務執行個體名稱為已知的名稱，可直接以硬式編碼編寫在「API 管理」輸入處理原則中。 
@@ -63,7 +63,7 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
 
 ## <a name="send-traffic-to-a-stateful-service"></a>將流量傳送到具狀態服務
 
-與無狀態服務案例類似，系統可以將流量轉送到具狀態服務執行個體。 在此情況下，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會將要求對應至特定「具狀態」  服務執行個體的特定分割區。 與每個要求對應的分割區是使用來自傳入 HTTP 要求的一些輸入資料 (例如 URL 路徑中的值) 透過 Lambda 方法計算來得出的。 您可以將原則設定為只將要求傳送到主要複本，或針對讀取作業傳送到隨機複本。
+與無狀態服務案例類似，系統可以將流量轉送到具狀態服務執行個體。 在此情況下，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會將要求對應至特定「具狀態」服務執行個體的特定分割區。 與每個要求對應的分割區是使用來自傳入 HTTP 要求的一些輸入資料 (例如 URL 路徑中的值) 透過 Lambda 方法計算來得出的。 您可以將原則設定為只將要求傳送到主要複本，或針對讀取作業傳送到隨機複本。
 
 #### <a name="example"></a>範例
 
@@ -77,7 +77,7 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
 
 在較進階的案例中，您可以定義一個將要求對應至多個服務執行個體的「API 管理」作業。 在此情況下，每個作業都會包含一個原則，此原則會根據來自傳入 HTTP 要求的值 (例如 URL 路徑或查詢字串) 將要求對應至特定的服務執行個體，而在具狀態服務的案例中，則是會對應至服務執行個體內的分割區。 
 
-為了達成此目的，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會根據從傳入 HTTP 要求擷取到的值，對應至 Service Fabric 後端中的無狀態服務執行個體。 系統會將對服務執行個體發出的要求傳送到服務執行個體的隨機複本。
+為了達成此目的，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會根據從傳入 HTTP 要求擷取到的值，對應至 Service Fabric 後端中的無狀態服務執行個體。 服務的要求會傳送至服務的隨機實例。
 
 #### <a name="example"></a>範例
 
@@ -94,7 +94,7 @@ Service Fabric 中的服務可以是無狀態或具狀態服務，並且可使�
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>將流量傳送到多個具狀態服務
 
-與無狀態服務範例類似，「API 管理」可以將要求對應至多個「具狀態」  服務執行個體，在此情況下，您可能也需要為每個具狀態服務執行個體執行分割區解析。
+與無狀態服務範例類似，「API 管理」可以將要求對應至多個「具狀態」服務執行個體，在此情況下，您可能也需要為每個具狀態服務執行個體執行分割區解析。
 
 為了達成此目的，「API 管理」作業會包含一個具有 Service Fabric 後端的輸入處理原則，此後端會根據從傳入 HTTP 要求擷取到的值，對應至 Service Fabric 後端中的具狀態服務執行個體。 除了將要求對應至特定服務執行個體之外，也可以將要求對應至服務執行個體內的特定分割區，以及視需要對應至分割區內的主要複本或隨機次要複本。
 

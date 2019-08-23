@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f7afd3d4b03c55c6cd9878b7d22106eee371ba99
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 1a33e20ec540a05885eb13a3828d28ffc9923fff
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877915"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972847"
 ---
 # <a name="cloudsimple-security-overview"></a>CloudSimple 安全性總覽
 
@@ -81,7 +81,7 @@ CloudSimple 服務會以邏輯方式區隔第2層網路, 在您的私用雲端�
 
 CloudSimple 負責定期修補受管理的 VMware 軟體 (ESXi、vCenter 和 NSX)。
 
-## <a name="identity-and-access-management"></a>Identity and Access Management
+## <a name="identity-and-access-management"></a>身分識別和存取管理
 
 客戶可以使用多重要素驗證或 SSO, 依照偏好向其 Azure 帳戶進行驗證 (在 Azure AD 中)。 從 Azure 入口網站, 您可以啟動 CloudSimple 入口網站, 而不需重新驗證認證。
 

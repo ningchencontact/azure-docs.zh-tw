@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: aae2270417e0bb3bdf0dd847e2e09e7cb1999d39
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624775"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972475"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Azure 資訊安全中心中的 Azure 服務層威脅偵測
 
@@ -50,6 +50,10 @@ ms.locfileid: "69624775"
 |**偵測到具有惡意位址的網路通訊**|取樣的網路流量分析偵測到來自您部署中資源的通訊, 以及可能的命令和控制 (C & C) 伺服器。 請注意，這類型的活動可能會導致外部實體將您的 IP 標記為惡意。|
 
 若要瞭解資訊安全中心可以如何使用網路相關的信號來套用威脅防護, 請參閱[Azure 資訊安全中心中的啟發式 DNS](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)偵測。
+
+>[!NOTE]
+>建立 VM 之後的第一個小時內, 不會產生 Azure 資訊安全中心中的 Azure 網路層威脅偵測警示。
+
 ## Azure 管理層 (Azure Resource Manager) (預覽)<a name ="management-layer"></a>
 
 >[!NOTE]
