@@ -1,250 +1,220 @@
 ---
-title: 刪除 Azure 中的復原服務保存庫
-description: 描述如何刪除復原服務保存庫。
-services: backup
-author: rayne-wiselman
+title: 在 Azure 中刪除復原服務保存庫
+description: 說明如何刪除復原服務保存庫。
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.author: raynew
-ms.openlocfilehash: 01c20ce84f5c97b3a0ac437fe602861085b5052c
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.date: 07/29/2019
+ms.author: dacurwin
+ms.openlocfilehash: 9c63170b60a871182042acab8a35e505c603f260
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827891"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018878"
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 
-這篇文章描述如何刪除[Azure 備份](backup-overview.md)復原服務保存庫。 它包含移除相依性，然後刪除保存庫的指示。
+本文說明如何刪除[Azure 備份](backup-overview.md)復原服務保存庫。 其中包含移除相依性, 然後刪除保存庫的指示。
 
 
 ## <a name="before-you-start"></a>開始之前
 
-您無法刪除具有相依性，例如受保護的伺服器或與保存庫相關聯的備份管理伺服器的復原服務保存庫。<br/>
-無法刪除保存庫包含備份資料，（也就是即使您已停止保護，但保留備份資料）。
+您無法刪除具有相依性的復原服務保存庫, 例如受保護的伺服器或與保存庫相關聯的備份管理伺服器。
 
-如果您刪除包含相依性的保存庫時，它就會顯示下列錯誤：
+- 無法刪除包含備份資料的保存庫 (也就是, 即使您已停止保護, 但仍保留備份資料)。
 
-![刪除保存庫時發生錯誤](./media/backup-azure-delete-vault/error.png)
+- 如果您刪除包含相依性的保存庫, 則會顯示下列錯誤:
 
-依正常程序刪除保存庫會依照下面的順序中所述的步驟：
-- 停止保護並且刪除備份資料
-- 刪除受保護的伺服器或備份管理伺服器
-- 刪除保存庫
+  ![刪除保存庫錯誤](./media/backup-azure-delete-vault/error.png)
+
+- 如果您從包含相依性的入口網站刪除內部部署受保護專案 (MARS、MABS 或 DPM 至 Azure), 則會顯示警告訊息:
+
+  ![刪除受保護的伺服器錯誤](./media/backup-azure-delete-vault/error-message.jpg)
+
+  
+若要正常地刪除保存庫, 請選擇符合您設定的案例, 並遵循建議的步驟:
+
+狀況 | 移除相依性以刪除保存庫的步驟 |
+-- | --
+我有使用 Azure 備份代理程式 (MARS) 備份至 Azure 的內部部署檔案和資料夾 | 執行刪除備份資料和備份專案中的步驟-[適用于 MARS 代理程式](#delete-backup-items-from-mars-management-console)
+我有使用 MABS (Microsoft Azure 備份 Server) 或 DPM (System Center Data Protection Manager) 保護的內部部署機器 | 執行刪除備份資料和備份專案- [MABS 代理程式](#delete-backup-items-from-mabs-management-console)中的步驟
+我在雲端中有受保護的專案 (例如 laaS VM、Azure 檔案共用等)  | 執行 [刪除備份資料和備份專案] 中的步驟-[針對雲端中的受保護專案](#delete-protected-items-in-cloud)
+我在內部部署和雲端都有受保護的專案 | 依照下列循序執行刪除備份資料和備份專案中的步驟: <br> - [針對雲端中的受保護專案](#delete-protected-items-in-cloud)<br> - [針對 MARS 代理程式](#delete-backup-items-from-mars-management-console) <br> - [針對 MABS 代理程式](#delete-backup-items-from-mabs-management-console)
+我在內部部署或雲端沒有任何受保護的專案;不過, 我仍在取得保存庫刪除錯誤 | [使用 Azure Resource Manager 用戶端執行刪除復原服務保存庫](#delete-the-recovery-services-vault-using-azure-resource-manager-client)中的步驟
 
 
-## <a name="delete-backup-data-and-backup-items"></a>刪除備份資料和備份的項目
+## <a name="delete-protected-items-in-cloud"></a>刪除雲端中受保護的專案
 
-再繼續進行進一步的讀取 **[這](#before-you-start)** 區段來了解相依性，並在保存庫刪除程序。
+繼續閱讀 **[本](#before-you-start)** 節之前, 請先瞭解相依性和保存庫刪除程式。
 
-### <a name="for-protected-items-in-cloud"></a>在雲端中的受保護項目
+若要停止保護並刪除備份資料, 請執行下列步驟:
 
-若要停止保護並刪除備份資料，請執行如下：
+1. 從入口網站 > 復原**服務保存庫** > **備份專案**, 選擇雲端中的受保護專案 (例如 AzureVirtual 機器、Azure 儲存體 (Azure 檔案儲存體)、SQL on Azure VM 等等)。
 
-1. 從入口網站 > 復原服務保存庫 > 備份項目選擇在雲端中的 受保護的項目。
+    ![選取備份類型](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-    ![選取備份類型](./media/backup-azure-delete-vault/azure-storage-selected.jpg)
+2. 以滑鼠右鍵按一下備份專案。 根據備份專案是否受保護而定, 功能表將顯示 [**停止備份**] 或 [**刪除備份資料**]。
 
-2. 針對每個項目，您需要以滑鼠右鍵按一下，然後選擇 **停止備份**。
+    - 針對 [**停止備份**], 從下拉式選單選取 [**刪除備份資料**]。 輸入備份專案的**名稱**(區分大小寫), 選取 [**原因**], 輸入 [**批註**], 然後按一下 [**停止備份**]。
 
-    ![選取備份類型](./media/backup-azure-delete-vault/stop-backup-item.png)
+        ![選取備份類型](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-3. 在 **停止備份** > **選擇選項**，選取**刪除備份資料**。
-4. 輸入項目的名稱，然後按一下**停止備份**。
-   - 這會確認您想要刪除的項目。
-   - **停止備份**確認之後，就會啟動 按鈕。
-   - 如果您保留並不會刪除資料時，您無法刪除保存庫。
+    - 針對 [**刪除備份資料**], 輸入備份專案的名稱 (區分大小寫), 選取 [**原因**], 輸入 [**批註**], 然後按一下 [**刪除**]。 
 
-     ![刪除備份資料](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+         ![刪除備份資料](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. 請檢查**通知**![刪除備份資料](./media/backup-azure-delete-vault/messages.png)。 完成之後，服務會顯示訊息：**停止備份並刪除備份資料 」*備份項目*"** 。 **已成功完成作業**。
-6. 按一下 **重新整理**上**備份項目**功能表上，以檢查是否要移除 備份項目。
+5. 檢查 [刪除備份資料](./media/backup-azure-delete-vault/messages.png)]**通知** ![。 完成後, 服務會顯示訊息:**正在停止備份並刪除「*備份專案*」的備份資料**。 **已成功完成**作業。
+6. 按一下 [**備份專案**] 功能表上的 [重新整理], 以檢查備份專案是否已移除。
 
       ![刪除備份資料](./media/backup-azure-delete-vault/empty-items-list.png)
 
-### <a name="for-mars-agent"></a>MARS 代理程式
+## <a name="delete-protected-items-on-premises"></a>刪除內部部署的受保護專案
 
-若要停止保護並刪除備份資料，請在下面所列的順序執行步驟：
+繼續閱讀 **[本](#before-you-start)** 節之前,請先瞭解相依性和保存庫刪除程式。
 
-- [步驟 1：從 MARS 管理主控台刪除備份項目](#step-1-delete-backup-items-from-mars-management-console)
-- [步驟 2：從入口網站移除 Azure Backup agent](#step-1-delete-backup-items-from-mars-management-console)
+1. 從保存庫的 [儀表板] 功能表, 按一下 [**備份基礎結構**]。
+2. 視您的內部部署案例而定, 選擇下列選項:
+
+      - 針對**Azure 備份代理程式**, 請選擇 [**受保護的伺服器** >  **Azure 備份代理程式**], 然後選取您想要刪除的伺服器。 
+
+        ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/identify-protected-servers.png)
+
+      - 針對**Azure 備份伺服器**/ **DPM**, 請選擇 [ **備份管理伺服器**]。 選取您想要刪除的伺服器。 
 
 
-#### <a name="step-1-delete-backup-items-from-mars-management-console"></a>步驟 1：從 MARS 管理主控台刪除備份項目
+          ![選取保存庫以開啟其儀表板](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-如果您無法執行此步驟，因為伺服器無法使用，然後連絡 Microsoft 支援服務。
+3. [**刪除**] 分頁隨即出現, 並顯示警告訊息。
 
-- 啟動 MARS 管理主控台，請前往**動作**窗格，然後選擇**排程備份**。
-- 從**修改或停止排定的備份**精靈中，選擇**停止使用此備份排程並刪除所有儲存的備份**然後按一下**下一步**。
+     ![刪除備份資料](./media/backup-azure-delete-vault/delete-protected-server.png)
+
+     檢查警告訊息和 [同意] 核取方塊中提供的指示。
+    
+    > [!NOTE]
+    >- 如果受保護的伺服器與 Azure 服務同步, 而且存在備份專案, 則 [同意] 核取方塊會顯示相依的備份專案數目, 以及用來查看備份專案的連結。
+    >- 如果受保護的伺服器不會與 Azure 服務同步, 而且存在備份專案, 則 [同意] 核取方塊會顯示備份專案的數目。
+    >- 如果備份專案不存在, 則 [同意] 核取方塊會要求刪除。
+
+4. 選取 [同意] 核取方塊, 然後按一下 [**刪除**]。
+
+
+
+
+5. 檢查 [刪除備份資料](./media/backup-azure-delete-vault/messages.png)]**通知** ![。 完成後, 服務會顯示訊息:**正在停止備份並刪除「*備份專案*」的備份資料**。 **已成功完成**作業。
+6. 按一下 [**備份專案**] 功能表上的 [重新整理], 以檢查備份專案是否已移除。
+
+您現在可以從管理主控台繼續刪除備份專案:
+    
+   - [使用 MARS 保護的專案](#delete-backup-items-from-mars-management-console)
+    - [使用 MABS 保護的專案](#delete-backup-items-from-mabs-management-console)
+
+
+### <a name="delete-backup-items-from-mars-management-console"></a>從 MARS 管理主控台刪除備份專案
+
+從 MARS 管理主控台刪除備份專案
+
+- 啟動 MARS 管理主控台, 移至 [**動作**] 窗格, 然後選擇 [**排程備份**]。
+- 從 [**修改或停止排程備份**嚮導] 中, 選擇 [**停止使用此備份排程並刪除所有儲存的備份**] 選項, 然後按 **[下一步]** 。
 
     ![修改或停止排定的備份](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
-- 從**停止排定的備份**精靈中，按一下**完成**。
+- 在 [**停止排程的備份**嚮導] 中, 按一下 **[完成]** 。
 
-    ![停止排定的備份](./media/backup-azure-delete-vault/stop-schedule-backup.png)
-- 系統會提示您輸入安全性 pin 碼。 若要產生的 pin 碼，請執行下列步驟：
+    ![停止排程的備份](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+- 系統會提示您輸入安全性 Pin 碼。 若要產生 PIN, 請執行下列步驟:
   - 登入 Azure 入口網站。
-  - 瀏覽至 [復原服務保存庫]   > [設定]   > [屬性]  。
-  - 在 [安全性 PIN 碼]  底下，按一下 [產生]  。 複製這個 PIN。（此 pin 碼，為有效時間只有五分鐘）
-- 在 [管理] 主控台 （用戶端應用程式） 中貼上 PIN，然後按一下**Ok**。
+  - 瀏覽至 [復原服務保存庫] > [設定] > [屬性]。
+  - 在 [安全性 PIN 碼] 底下，按一下 [產生]。 複製此 PIN。 (此 PIN 僅適用于五分鐘)。
+- 在管理主控台 (用戶端應用程式) 中貼上 PIN, 然後按一下 **[確定]** 。
 
-  ![安全性 pin 碼](./media/backup-azure-delete-vault/security-pin.png)
+  ![安全性 Pin 碼](./media/backup-azure-delete-vault/security-pin.png)
 
-- 在 **修改備份進度**精靈，您會看到*刪除的備份資料會保留 14 天。該時間之後，將永久刪除備份資料。*  
+- 在 [**修改備份進度**] 中, 您會*看到已刪除的備份資料將會保留14天。在這段時間之後, 備份資料將會永久刪除。*  
 
     ![刪除備份基礎結構](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
-既然您已刪除的備份項目，從內部部署，請完成接下來的步驟，從入口網站。
+現在您已從內部部署刪除備份專案, 請從入口網站完成後續步驟。
 
-#### <a name="step-2-from-portal-remove-azure-backup-agent"></a>步驟 2：從入口網站移除 Azure Backup Agent
+### <a name="delete-backup-items-from-mabs-management-console"></a>從 MABS 管理主控台刪除備份專案
 
-請確定[步驟 1](#step-1-delete-backup-items-from-mars-management-console)完成之後，才繼續進行：
+從 MABS 管理主控台刪除備份專案
 
-1. 在 [保存庫儀表板] 功能表中，按一下**備份基礎結構**。
-2. 按一下 **受保護伺服器**若要檢視的基礎結構伺服器。
+**方法 1**若要停止保護並刪除備份資料, 請執行下列步驟:
 
-    ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/identify-protected-servers.png)
+1.  在 DPM 管理主控台中, 按一下巡覽列上的 [**保護**]。
+2.  在 [顯示] 窗格中, 選取您要移除的保護群組成員。 以滑鼠右鍵按一下以選擇 [**停止保護群組成員**] 選項。
+3.  從 [**停止保護**] 對話方塊中, 選取 [**刪除受保護的資料** > ] [**線上刪除存放裝置**] 核取方塊, 然後按一下 [**停止保護**]。
 
-3. 在 [受保護的伺服器]  清單中，按一下 [Azure 備份代理程式]。
+    ![線上刪除儲存體](./media/backup-azure-delete-vault/delete-storage-online.png)
 
-    ![選取備份類型](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
+受保護的成員狀態現在已變更為**可用的非**作用中複本。
 
-4. 按一下 保護使用 Azure 備份代理程式的伺服器清單中的伺服器。
+4. 以滑鼠右鍵按一下非作用中的保護群組, 然後選取 [**移除非**作用中保護]。
 
-    ![選取特定受保護的伺服器](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
+    ![移除非作用中保護](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
-5. 在選取的伺服器儀表板中，按一下 **刪除**。
+5. 從 [**刪除非**作用中保護] 視窗選取 [**刪除線上存放裝置**], 然後按一下 **[確定]** 。
 
-    ![刪除選取的伺服器](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
+    ![移除磁片上的複本並上線](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
-6. 在 [**刪除**] 功能表中，輸入伺服器的名稱，然後按一下**刪除**。
+**方法 2**啟動**MABS 管理**主控台。 在 [**選擇資料保護方式**] 區段中, 取消選取 [**我想要線上保護**]。
 
-     ![刪除備份資料](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+  ![選取資料保護方式](./media/backup-azure-delete-vault/data-protection-method.png)
 
-> [!NOTE]
-> 如果您看到下列錯誤，然後執行步驟中所列的第一個[刪除備份項目從管理主控台](#step-1-delete-backup-items-from-mars-management-console)。
->
->![刪除失敗](./media/backup-azure-delete-vault/deletion-failed.png)
->
->如果您無法執行步驟，從 [管理] 主控台中刪除備份，比方說，因為無法使用 [管理] 主控台的伺服器連絡 Microsoft 支援服務。
-
-7. 請檢查**通知**![刪除備份資料](./media/backup-azure-delete-vault/messages.png)。 完成之後，服務會顯示訊息：**停止備份並刪除備份資料 」*備份項目*"** 。 **已成功完成作業**。
-8. 按一下 **重新整理**上**備份項目**功能表上，以檢查是否要移除 備份項目。
-
-
-### <a name="for-mabs-agent"></a>MABS 代理程式
-
-若要停止保護並刪除備份資料，請在下面所列的順序執行步驟：
-
-- [步驟 1：從 MABS 管理主控台中刪除備份項目](#step-1-delete-backup-items-from-mabs-management-console)
-- [步驟 2：從入口網站中，移除 Azure 備份管理伺服器](#step-2-from-portal-remove-azure-backup-agent)
-
-#### <a name="step-1-delete-backup-items-from-mabs-management-console"></a>步驟 1：從 MABS 管理主控台中刪除備份項目
-
-如果您無法執行此步驟，因為伺服器無法使用，然後連絡 Microsoft 支援服務。
-
-**方法 1**若要停止保護並刪除備份資料，請執行下列步驟：
-
-1.  在 DPM 系統管理員主控台中，按一下**保護**巡覽列上。
-2.  在 [顯示] 窗格中，選取您想要移除的保護群組成員。 按一下滑鼠右鍵以選擇**停止保護的群組成員**選項。
-3.  從**停止保護**對話方塊中，選取**刪除受保護的資料** > **刪除存放裝置上線**核取方塊，然後按一下 **停止保護**。
-
-    ![刪除線上儲存體](./media/backup-azure-delete-vault/delete-storage-online.png)
-
-受保護的成員狀態現在會變成**非作用中複本可供使用**。
-
-5. 以滑鼠右鍵按一下 非作用中保護群組，然後選取**移除作用中保護**。
-
-    ![除非作用中保護](./media/backup-azure-delete-vault/remove-inactive-protection.png)
-
-6. 從**刪除非作用中保護**視窗中，選取**刪除線上儲存體**然後按一下**Ok**。
-
-    ![移除複本，在磁碟上且在線上](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
-
-**方法 2**啟動**MABS 管理**主控台。 在 **選取資料保護方式**區段中，取消選取**我想要線上保護**。
-
-  ![選擇資料保護方式](./media/backup-azure-delete-vault/data-protection-method.png)
-
-既然您已刪除的備份項目，從內部部署，請完成接下來的步驟，從入口網站。
-
-#### <a name="step-2-from-portal-remove-azure-backup-management-servers"></a>步驟 2：從入口網站中，移除 Azure 備份管理伺服器
-
-請確定[步驟 1](#step-1-delete-backup-items-from-mabs-management-console)完成之後，才繼續進行：
-
-1. 在 [保存庫儀表板] 功能表中，按一下**備份基礎結構**。
-2. 按一下 **備份管理伺服器**來檢視伺服器。
-
-    ![選取保存庫以開啟其儀表板](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
-
-3. 以滑鼠右鍵按一下項目 >**刪除**。
-4. 在 [**刪除**] 功能表中，輸入伺服器的名稱，然後按一下**刪除**。
-
-     ![刪除備份資料](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
-
-> [!NOTE]
-> 如果您看到下列錯誤，然後執行步驟中所列的第一個[刪除備份項目從管理主控台](#step-2-from-portal-remove-azure-backup-management-servers)。
->
->![刪除失敗](./media/backup-azure-delete-vault/deletion-failed.png)
->
-> 如果您無法執行步驟，從 [管理] 主控台中刪除備份，比方說，因為無法使用 [管理] 主控台的伺服器連絡 Microsoft 支援服務。
-
-5. 請檢查**通知**![刪除備份資料](./media/backup-azure-delete-vault/messages.png)。 完成之後，服務會顯示訊息：**停止備份並刪除備份資料 」*備份項目*"** 。 **已成功完成作業**。
-6. 按一下 **重新整理**上**備份項目**功能表上，以檢查是否要移除 備份項目。
+現在您已從內部部署刪除備份專案, 請從入口網站完成後續步驟。
 
 
 ## <a name="delete-the-recovery-services-vault"></a>刪除復原服務保存庫
 
-1. 當已移除所有相依性時，捲動至**Essentials**保存庫功能表中的窗格。
-2. 確認沒有任何**備份項目**，**備份管理伺服器**，或**複寫的項目**列出。 如果項目仍會出現在保存庫中，[將它們移除](#delete-backup-data-and-backup-items)。
+1. 移除所有相依性之後, 請在 [保存庫] 功能表中, 移至 [**基本**] 窗格。
+2. 確認沒有任何 [**備份專案**]、[**備份管理伺服器**] 或 [複寫的**專案] 已**列出。 如果專案仍然出現在保存庫中, 請參閱[開始之前](#before-you-start)一節。
 
-3. 當保存庫中沒有其他項目時，在保存庫儀表板中按一下 [刪除]  。
+3. 當保存庫中沒有其他項目時，在保存庫儀表板中按一下 [刪除]。
 
     ![刪除備份資料](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-4. 若要確認您想要刪除保存庫，請按一下 [是]  。 保存庫便會被刪除，入口網站會回到 [新增]  服務功能表。
+4. 若要確認您想要刪除保存庫，請按一下 [是]。 保存庫便會被刪除，入口網站會回到 [新增] 服務功能表。
 
-## <a name="delete-the-recovery-services-vault-using-azure-resource-manager-client"></a>刪除復原服務保存庫使用 Azure Resource Manager 用戶端
+## <a name="delete-the-recovery-services-vault-using-azure-resource-manager-client"></a>使用 Azure Resource Manager 用戶端刪除復原服務保存庫
 
-刪除復原服務保存庫僅建議使用此選項時，會移除所有相依性和依舊*保存庫刪除錯誤*。
+只有當移除所有相依性, 而且您仍然收到保存*庫刪除錯誤*時, 才建議使用此選項來刪除復原服務保存庫。
 
-
-
-- 從**Essentials**窗格中的保存庫功能表中，確認沒有任何**備份項目**，**備份管理伺服器**，或**複寫的項目**列出。 如果沒有備份的項目，則執行中的步驟[刪除備份資料和備份的項目](#delete-backup-data-and-backup-items)。
-- 重試[從入口網站中刪除保存庫](#delete-the-recovery-services-vault)。
-- 如果移除所有相依性，您依舊*保存庫刪除錯誤*接著使用 ARMClient 工具來執行步驟如下所示。
+- 從保存庫功能表的 [**基本**] 窗格中, 確認沒有任何 [**備份專案**]、[**備份管理伺服器**] 或 [複寫的**專案] 已**列出。 如果有備份專案, 請參閱[開始之前](#before-you-start)一節。
+- 再次嘗試[從入口網站刪除保存庫](#delete-the-recovery-services-vault)。
+- 如果移除所有相依性, 但您仍收到保存*庫刪除錯誤*, 請使用 ARMClient 工具來執行下列步驟:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. 安裝從 chocolatey[此處](https://chocolatey.org/)並安裝 ARMClient 執行下列命令：
+1. 從[這裡](https://chocolatey.org/)安裝 chocolatey, 並安裝 ARMClient 執行下列命令:
 
    `choco install armclient --source=https://chocolatey.org/api/v2/`
-2. 登入您的 Azure 帳戶，並執行此命令：
+2. 登入您的 Azure 帳戶, 然後執行此命令:
 
     `ARMClient.exe login [environment name]`
 
-3. 在 Azure 入口網站中，蒐集您想要刪除的保存庫的訂用帳戶識別碼和資源群組名稱。
+3. 在 Azure 入口網站中, 收集您想要刪除之保存庫的訂用帳戶識別碼和資源組名。
 
-如需有關 ARMClient 命令的詳細資訊，請參閱這[文件](https://github.com/projectkudu/ARMClient/blob/master/README.md)。
+如需 ARMClient 命令的詳細資訊, 請參閱這[份檔](https://github.com/projectkudu/ARMClient/blob/master/README.md)。
 
 ### <a name="use-azure-resource-manager-client-to-delete-recovery-services-vault"></a>使用 Azure Resource Manager 用戶端來刪除復原服務保存庫
 
-1. 執行下列命令，使用您的訂用帳戶識別碼、 資源群組名稱和保存庫名稱。 當您執行命令時，如果您沒有任何相依性會刪除保存庫。
+1. 使用您的訂用帳戶識別碼、資源組名和保存庫名稱來執行下列命令。 當您執行命令時, 如果您沒有任何相依性, 它會刪除保存庫。
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-2. 如果保存庫不是空的您會收到錯誤 「 因為有此保存庫內的現有資源，無法刪除保存庫 」。 若要移除受保護的項目 / 容器內的保存庫中，執行下列動作：
+2. 如果保存庫不是空的, 您將會收到錯誤「因為此保存庫中有現有的資源, 所以無法刪除保存庫」。 若要移除保存庫中受保護的專案/容器, 請執行下列動作:
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-3. 在 Azure 入口網站中，確認已刪除保存庫。
+3. 在 Azure 入口網站中, 確認已刪除保存庫。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-[深入了解](backup-azure-recovery-services-vault-overview.md)復原服務保存庫。<br/>
-[深入了解](backup-azure-manage-windows-server.md)監視和管理復原服務保存庫。
+[深入瞭解](backup-azure-recovery-services-vault-overview.md)復原服務保存庫。<br/>
+[瞭解如何](backup-azure-manage-windows-server.md)監視和管理復原服務保存庫。
