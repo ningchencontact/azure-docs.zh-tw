@@ -133,24 +133,8 @@
           href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
         - name: 未安裝弱點評估
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: 新增 Web 應用程式防火牆
-          href: security-center-add-web-application-firewall.md
-        - name: 完成應用程式保護
-          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-        - name: 新增新一代防火牆
-          href: security-center-add-next-generation-firewall.md
         - name: 啟用網路安全性群組
           href: security-center-enable-network-security-groups.md
-        - name: 透過網際網路面向端點限制存取
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
-        - name: 僅透過 NGFW 路由傳送流量
-          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-        - name: 在 SQL 資料庫上啟用稽核與威脅偵測
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: 在 SQL 伺服器上啟用稽核與威脅偵測
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: 啟用透明資料加密
-          href: security-center-enable-transparent-data-encryption.md
         - name: 威脅報告
           href: security-center-threat-report.md
         - name: 自訂警示

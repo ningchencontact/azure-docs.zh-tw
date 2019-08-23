@@ -5,15 +5,15 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: fe6c6d461fd6b99ce2ce57ebdd61a3f3e961489c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 42e965b188db2b84579ab322fbe19781000dff7e
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174142"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894136"
 ---
 ## <a name="storage"></a>儲存體
 
@@ -24,4 +24,3 @@ ms.locfileid: "67174142"
 | [針對儲存體帳戶拒絕使用非經常性存取層處理](../articles/governance/policy/samples/deny-cool-access-tiering.md) | 針對 Blob 儲存體帳戶禁止使用非經常性存取層處理。  |
 | [針對儲存體帳戶確保只允許 HTTPS 流量](../articles/governance/policy/samples/ensure-https-storage-account.md) | 要求儲存體帳戶使用 HTTPS 流量。  |
 | [確保儲存體檔案加密](../articles/governance/policy/samples/ensure-storage-file-encryption.md) | 要求針對儲存體帳戶啟用檔案加密。  |
-| [要求儲存體帳戶加密](../articles/governance/policy/samples/require-storage-account-encryption.md) | 要求儲存體帳戶使用 Blob 加密。  |

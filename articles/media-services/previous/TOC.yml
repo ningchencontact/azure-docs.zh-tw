@@ -72,7 +72,7 @@
             - name: 更換儲存體存取金鑰之後更新媒體服務
               href: media-services-roll-storage-access-keys.md
             - name: 管理跨多個儲存體帳戶的資產
-              href: meda-services-managing-multiple-storage-accounts.md
+              href: media-services-managing-multiple-storage-accounts.md
         - name: 配額和限制
           href: media-services-quotas-and-limitations.md
     - name: 設定 Postman
@@ -94,8 +94,6 @@
               href: media-services-dotnet-upload-files.md
             - name: REST
               href: media-services-rest-upload-files.md
-        - name: 透過 Aspera 上傳大型檔案
-          href: media-services-upload-files-with-aspera.md
         - name: 透過 StorSimple 上傳檔案
           href: media-services-upload-files-from-storsimple.md
         - name: 複製現有的 blob
