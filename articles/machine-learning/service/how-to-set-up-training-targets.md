@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d9d6dc8a980c543aa1a94c0ed4e9ae845769567
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
-ms.translationtype: HT
+ms.openlocfilehash: b1ee18abfab2cf286ee010bd6d25dfbc5a38cebb
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997894"
+ms.locfileid: "70011569"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
 
@@ -432,6 +432,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * 使用 `Estimator` 物件提交實驗，如[使用估算程式將 ML 模型定型](how-to-train-ml-models.md)中所示。
 * [使用 CLI 擴充功能](reference-azure-machine-learning-cli.md#experiments)提交實驗。
 * 透過[VS Code 延伸](how-to-vscode-tools.md#train-and-tune-models)模組提交實驗。
+
+<a id="gitintegration"></a>
 
 ## <a name="git-tracking-and-integration"></a>Git 追蹤與整合
 

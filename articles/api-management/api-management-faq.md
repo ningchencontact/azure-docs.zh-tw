@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f4140754afa8de994b227dc187cd73c9ccfa86f9
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 55a340f2ee2dceb31a8457f6f2201160e573e8a2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666021"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012368"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="contact-us"></a>與我們連絡
+## <a name="contact-us"></a>請與我們連絡
 * [如何向 Microsoft Azure API 管理小組詢問問題？](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>常見問題集
@@ -38,7 +38,6 @@ ms.locfileid: "67666021"
 * [為什麼「我想要新增」的原則無法用於原則編輯器？](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [如何在單一 API 中設定多個環境？](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [可以使用 SOAP 搭配 API 管理嗎？](#can-i-use-soap-with-api-management)
-* [API 管理閘道 IP 位址是否固定？我可以用在防火牆規則嗎？](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 * [可以設定具有 AD FS 安全性的 OAUth 2.0 授權伺服器嗎？](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [API 管理在部署到多個地理位置時使用何種路由方法？](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [可以使用 Azure Resource Manager 範本建立 API 管理服務執行個體嗎？](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
@@ -65,7 +64,7 @@ ms.locfileid: "67666021"
 
 * 使用 HTTP 基本驗證。 如需詳細資訊，請參閱[匯入和發佈您的第一個 API](import-and-publish.md)。
 * 依照[如何使用 Azure API 管理中的用戶端憑證驗證保護後端服務](api-management-howto-mutual-certificates.md)所述，使用 SSL 相互驗證。
-* 在您的後端服務上使用 IP 允許清單。 在所有層除了耗用量層的 API 管理中，閘道的 IP 位址會維持不變，但有一些[注意事項](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)。 您可以設定您的允許清單來允許此 IP 位址。 您可以在 Azure 入口網站中的 [儀表板] 上取得API 管理執行個體的 IP 位址。
+* 在您的後端服務上使用 IP 允許清單。 在 API 管理的所有層中, 除了使用層之外, 閘道的 IP 位址會維持不變, 並在[IP 檔一文](api-management-howto-ip-addresses.md)中說明一些值得注意的事項。
 * 將您的 API 管理執行個體連接至 Azure 虛擬網路。
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>如何將我的 API 管理服務執行個體複製到新的執行個體？
@@ -87,7 +86,7 @@ ms.locfileid: "67666021"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 移至包含您要更新之 API 管理執行個體的資源群組。
-3. 在 API 管理中指派**Api 管理服務參與者**角色給使用者。
+3. 在 [API 管理] 中, 將 [ **Api 管理] 服務參與者**角色指派給使用者。
 
 新增的參與者現在即可使用 Azure PowerShell [Cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 以系統管理員身分登入的步驟如下︰
 
@@ -108,19 +107,6 @@ ms.locfileid: "67666021"
 ### <a name="can-i-use-soap-with-api-management"></a>可以使用 SOAP 搭配 API 管理嗎？
 現在可以使用 [SOAP 傳遞](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/)支援。 系統管理員可以匯入其 SOAP 服務的 WSDL，而 Azure API 管理將會建立 SOAP 前端。 開發人員入口網站文件、測試主控台、原則和分析全都適用於 SOAP 服務。
 
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>API 管理閘道 IP 位址是否固定？ 我可以用在防火牆規則嗎？
-在 API 管理的所有層級中，API 管理租用戶的公用 IP 位址 (VIP) 在租用戶的存留期內是靜態的，但有一些例外狀況。 在下列情況下，IP 位址會變更︰
-
-* 服務遭到刪除，然後又重新建立。
-* 服務訂用帳戶遭到[暫止](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)或[警告](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (例如，因為未付款)，然後又恢復。
-* 您新增或移除「Azure 虛擬網路」(您只能在「開發人員」或「進階」層使用「虛擬網路」)。
-
-對於多重區域的部署，如果區域被清空而後恢復，區域位址則會變更 (您只能在進階層使用多重區域部署)。
-
-針對多重區域部署設定的進階層租用戶，每個區域會被指派一個公用 IP 位址。
-
-您可以在 Azure 入口網站的租用戶頁面上取得您的 IP 位址 (或在多重區域部署中取得多個位址)。
-
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>可以設定具有 AD FS 安全性的 OAUth 2.0 授權伺服器嗎？
 若要了解如何使用 Active Directory Federation Services (AD FS) 安全性來設定 OAuth 2.0 授權伺服器，請參閱[在 API 管理中使用 ADFS](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/)。
 
@@ -128,7 +114,7 @@ ms.locfileid: "67666021"
 API 管理會在部署到多個地理位置時，使用[效能流量路由方法](../traffic-manager/traffic-manager-routing-methods.md#performance)。 連入流量會傳送至最接近的 API 閘道。 如果一個區域離線，則連入流量會自動路由傳送至下一個最接近的閘道。 深入了解[流量管理員路由方法](../traffic-manager/traffic-manager-routing-methods.md)中的路由方法。
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>可以使用 Azure Resource Manager 範本建立 API 管理服務執行個體嗎？
-是的。 請參閱 [Azure API 管理服務](https://aka.ms/apimtemplate)快速入門範本。
+是的。 請參閱[AZURE API 管理服務](https://aka.ms/apimtemplate)快速入門範本。
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>是否可以對後端使用自我簽署的 SSL 憑證？
 是的。 這可以透過 PowerShell 或直接提交至 API 來完成。 這將會停用信任鏈結驗證，在從 API 管理對後端服務進行通訊時，還可讓您使用自我簽署或私人簽署的憑證。

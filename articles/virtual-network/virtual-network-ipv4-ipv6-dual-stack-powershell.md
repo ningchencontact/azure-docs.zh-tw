@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式-PowerShell
+title: 使用 Azure 中的基本 Load Balancer 部署 IPv6 雙重堆疊應用程式-PowerShell
 titlesuffix: Azure Virtual Network
 description: 本文說明如何使用 Azure Powershell, 在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式。
 services: virtual-network
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: b9a6b0ee6796acc2b9adc88480f6933af413e4e6
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0ce051892cde9cb50b43a6d4f66ed3d461e71285
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260855"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011439"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>在 Azure 中部署 IPv6 雙重堆疊應用程式-PowerShell (預覽)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>使用基本 Load Balancer 部署 IPv6 雙重堆疊應用程式-PowerShell (預覽)
 
-本文說明如何在 Azure 中部署雙重堆疊 (IPv4 + IPv6) 應用程式, 其中包含雙重堆疊虛擬網路和子網、具有雙重 (IPv4 + IPv6) 前端設定的負載平衡器、具有雙重 IP 設定之 Nic 的 Vm、網路安全性群組和公用 Ip。
+本文說明如何使用包含雙重堆疊虛擬網路和子網的 Azure CLI, 來部署具有基本 Load Balancer 的雙重堆疊 (IPv4 + IPv6) 應用程式、具有雙重 (IPv4 + IPv6) 前端設定的基本 Load Balancer, 以及具有下列專案之 Nic 的虛擬機器:雙重 IP 設定、網路安全性群組和公用 Ip。
+
+若要使用 Standard Load Balancer 部署雙重堆疊 (IPV4 + IPv6) 應用程式, 請參閱[使用 Azure PowerShell 部署具有 Standard Load Balancer 的 IPv6 雙重堆疊應用程式](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)。
 
 > [!Important]
 > Azure 虛擬網路的 IPv6 支援目前處於公開預覽狀態。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -31,7 +33,7 @@ ms.locfileid: "68260855"
 
 如果您選擇在本機安裝和使用 PowerShell, 本文會要求 Azure PowerShell 模組版本6.9.0 或更新版本。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在 Azure 中部署雙重堆疊應用程式之前, 您必須使用下列 Azure PowerShell 來設定此預覽功能的訂用帳戶:
 
 如下所示進行註冊:

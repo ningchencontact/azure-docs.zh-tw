@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式-CLI
+title: 在 Azure 中使用基本 Load Balancer 部署 IPv6 雙重堆疊應用程式-CLI
 titlesuffix: Azure Virtual Network
 description: 本文說明如何使用 Azure CLI 在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式。
 services: virtual-network
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 75af2012c4e6287a2fbe76098c2a325e6c9ae2ef
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 265a14fa216741a5a5994389e671e7558a527261
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640682"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013722"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式-CLI (預覽)
+# <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>使用基本 Load Balancer-CLI 部署 IPv6 雙重堆疊應用程式 (預覽)
 
-本文說明如何在 Azure 中部署雙重堆疊 (IPv4 + IPv6) 應用程式, 其中包含具有雙重堆疊子網的雙重堆疊虛擬網路、具有雙重 (IPv4 + IPv6) 前端設定的負載平衡器、具有雙 IP 設定的 Nic 的 Vm、雙重網路安全性群組規則和雙重公用 Ip。
+本文說明如何 Azure CLI 使用基本 Load Balancer 部署雙重堆疊 (IPv4 + IPv6) 應用程式, 其中包含具有雙重堆疊子網的雙重堆疊虛擬網路、具有雙重 (IPv4 + IPv6) 前端設定的基本 Load Balancer、具有 Nic 的 Vm具有雙重 IP 設定、雙重網路安全性群組規則和雙重公用 Ip。
+
+若要使用 Standard Load Balancer 部署雙重堆疊 (IPV4 + IPv6) 應用程式, 請參閱[使用 Azure CLI 部署具有 Standard Load Balancer 的 IPv6 雙重堆疊應用程式](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)。
 
 > [!Important]
 > 適用于 Azure 虛擬網路的 IPv6 雙重堆疊目前為公開預覽版。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。

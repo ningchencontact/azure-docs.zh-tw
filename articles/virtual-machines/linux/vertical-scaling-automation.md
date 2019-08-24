@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0317344fd8ee1eb415b61d4f5035219e649b18d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f4f49030d479e85b749db28c59fd2e2462ff405f
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695486"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013589"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>使用 Azure 自動化來垂直調整 Azure Linux 虛擬機器
 垂直調整大小是指為回應工作負載而增加或減少電腦資源的程序。 在 Azure 中，可以透過變更虛擬機器的大小來完成。 在下列情況中這種方式很有幫助
@@ -36,6 +36,7 @@ ms.locfileid: "67695486"
 3. 將 Webhook 加入您的 Runbook 中
 4. 將警示加入虛擬機器中
 
+
 ## <a name="scale-limitations"></a>規模限制
 
 因為這是第一部虛擬機器大小的緣故，所以它可以調整的大小，會受限於目前虛擬機器部署所在之叢集中是否可使用其他大小。 本文所用的已發佈自動化 Runbook 中，已考量了這個情況，只會於下列成對的 VM 大小內調整大小。 這表示 Standard_D1v2 虛擬機器不會突然相應增加為 Standard_G5 或相應減少為 Basic_A0。 也不支援限制的虛擬機器大小相應增加/減少。 
@@ -43,14 +44,14 @@ ms.locfileid: "67695486"
 您可以在以下大小配對之間選擇調整︰
 
 * [A 系列](#a-series)
-* [B-Series](#b-series)
+* [B 系列](#b-series)
 * [D 系列](#d-series)
 * [E 系列](#e-series)
 * [F 系列](#f-series)
-* [G-Series](#g-series)
+* [G 系列](#g-series)
 * [H 系列](#h-series)
 * [L 系列](#l-series)
-* [M-Series](#m-series)
+* [M 系列](#m-series)
 * [N 系列](#n-series)
 
 ### <a name="a-series"></a>A 系列
@@ -88,12 +89,12 @@ ms.locfileid: "67695486"
 
 | 初始大小 | 相應增加大小 | 
 | --- | --- |
-| 標準_D1 | 標準_D2 |
-| 標準_D2 | Standard_D3 |
-| Standard_D3 | 標準_D4 |
-| 標準_D11 | 標準_D12 |
-| 標準_D12 | 標準_D13 |
-| 標準_D13 | 標準_D14 |
+| Standard_D1 | Standard_D2 |
+| Standard_D2 | Standard_D3 |
+| Standard_D3 | Standard_D4 |
+| Standard_D11 | Standard_D12 |
+| Standard_D12 | Standard_D13 |
+| Standard_D13 | Standard_D14 |
 | Standard_DS1 | Standard_DS2 |
 | Standard_DS2 | Standard_DS3 |
 | Standard_DS3 | Standard_DS4 |
@@ -223,6 +224,8 @@ ms.locfileid: "67695486"
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
+
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>將 Azure 自動化設定為可存取您的虛擬機器
 您需要做的第一件事是建立將裝載 Runbook 的 Azure 自動化帳戶，而 Runbook 用來調整 VM 調整集執行個體。 最近，自動化服務引進「執行身分帳戶」功能，極輕鬆即可代表使用者設定服務主體來自動執行 Runbook。 您可以在下文中閱讀更多相關資訊：

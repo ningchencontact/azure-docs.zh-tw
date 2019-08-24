@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8987c14fab141a71ba2dd9f1ed228a56ce419bce
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: b7cb4f1a106d8caa2c43f5f17c5efa16a3ee6df2
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982828"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011635"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -151,7 +151,7 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 
 ### <a name="runs"></a>回合數
 
-回合是包含下列資訊的記錄：
+「執行」是一次訓練腳本的回合。 Azure Machine Learning 會記錄所有執行, 並儲存下列資訊:
 
 * 與回合有關的中繼資料 (時間戳記、持續時間等等)
 * 由您的指令碼記錄的計量

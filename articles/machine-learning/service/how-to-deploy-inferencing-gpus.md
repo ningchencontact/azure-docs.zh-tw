@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 08ceb5d795465a5759d0130618eafdccdc8c3c91
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847973"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011528"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>使用 GPU 部署深度學習模型以進行推斷
 
@@ -23,13 +23,16 @@ ms.locfileid: "68847973"
 
 推斷 (或模型計分) 是用來進行預測的已部署模型的階段。 使用 Gpu 而非 Cpu, 可提供高度可平行計算的效能優勢。
 
+> [!IMPORTANT]
+> 只有 Azure Kubernetes Service 支援 GPU 推斷。
+
 > [!TIP]
 > 雖然本文中的程式碼片段會 usee TensorFlow 模型, 但您可以將此資訊套用至任何支援 Gpu 的機器學習架構。
 
 > [!NOTE]
 > 本文中的資訊是[以如何部署至 Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)一文中的資訊為基礎。 本文一般會涵蓋部署至 AKS, 本文涵蓋 GPU 特定部署。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。
 

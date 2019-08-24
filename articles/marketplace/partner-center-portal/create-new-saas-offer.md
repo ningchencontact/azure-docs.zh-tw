@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900125"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013096"
 ---
 # <a name="create-a-new-saas-offer"></a>建立新的 SaaS 供應專案
 
@@ -79,25 +79,29 @@ ms.locfileid: "69900125"
 - 您的供應專案必須使用[SaaS 履行 api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)來與 Azure Marketplace 整合。
 - 如需更廣泛的需求, 請參閱[SaaS 供應專案發佈指南](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)。
 
-#### <a name="saas-on-azure-billing-infrastructure-costs"></a>Azure 計費基礎結構成本上的 SaaS
-如果 SaaS 供應專案裝載于 Azure 中, 則身為發行者的您必須考慮使用 Azure 基礎結構的費用, 並將軟體授權費用視為單一成本專案。 這種成本會以固定的每月費用表示給客戶。 Azure 基礎結構的使用方式是由合作夥伴直接管理和計費。 客戶不會看到實際的基礎結構使用量費用。 發行者通常選擇將 Azure 基礎結構使用量費用算在他們的軟體授權定價中。 
+#### <a name="saas-pricing-and-billing-options"></a>SaaS 定價和計費選項
+透過在發行者的 Azure 訂用帳戶中執行的 SaaS 解決方案, 客戶所支付的授權費用, 包括部署軟體的基礎結構成本。 Azure 基礎結構的使用方式是由合作夥伴直接管理和計費。 客戶不會看到實際的基礎結構使用量費用。 發行者應將 Azure 基礎結構使用費用組合成其軟體授權價格。 
 
-軟體授權費用會以每月定期以網站為基礎的訂用帳戶, 以隨用隨付的方式呈現, 且不會以計量付費或使用。
+SaaS 提供了以一般費用、每位使用者或使用計量付費服務的消費費用為依據的每月或年度計費支援。 Microsoft 的商用 marketplace 會在代理程式模型上運作, 讓發行者設定價格、Microsoft 帳單客戶和 Microsoft 向發行者收取收益, 同時也會將機構費用預繳。
+
+下表顯示成本和支出的範例細分, 以示範代理程式模型。
 
 |**您的授權成本**|**每月 $100**|
 |:---|:---|
 |Azure 使用量成本 (D1/1 核心)|直接向發行者收費，不是向客戶收費|
 |客戶是由 Microsoft 計費|每月 $100.00 (發行者必須考慮授權費用中任何產生或通過的基礎結構成本)|
 
-- 在此案例中，Microsoft 針對您的軟體授權收費 $100.00，並支付 $80.00 給發行者。
+|**Microsoft 收取的費用**|**每月 $100**|
+|:---|:---|
+|Microsoft 向您支付授權成本的 80% <br>**針對合格的 SaaS 應用程式, Microsoft 會支付您的授權成本 90%*|每月 $80.00 <br>*$* 每月 90.00 *|
+
+- 在此範例中, Microsoft 會向客戶收取軟體授權的 $100.00 費用, 並向發行者收取 $80.00。
 - 已符合**Marketplace 服務費用**的合作夥伴, 將會在2019年 6 2020 月30日前的 SaaS 供應專案上看到較少的交易費用。 在此案例中, Microsoft 會為您的軟體授權帳單 $100.00, 並向發行者收取 $90.00。
 
 > [!NOTE]
 > **減少 Marketplace 服務費用**:對於您在我們的商業 Marketplace 上發佈的特定 SaaS 供應專案, Microsoft 會將其 Marketplace 服務費用從 20% (如 Microsoft 發行者合約中所述) 降到 10%。 為了讓您的供應專案符合資格, 至少必須將您的其中一個供應專案指定為 IP 共同銷售就緒或 IP 共同銷售優先。  至少必須符合每個行事曆月份結束前五 (5) 個工作天的資格, 才能收到該月份的縮減 Marketplace 服務費用。  降低的 Marketplace 服務費用不適用於 Vm、受管理的應用程式, 或透過我們的商業 Marketplace 提供的任何其他產品。  優惠的 Marketplace 服務費用僅適用于 Microsoft 在2019年5月1日到2020日之間所收集之授權費用的合格供應專案。  在這段時間之後, Marketplace 服務費用會回到其一般金額。 
 
-|**Microsoft 收取的費用**|**每月 $100**|
-|:---|:---|
-|Microsoft 向您支付授權成本的 80% <br>**針對合格的 SaaS 應用程式, Microsoft 會支付您的授權成本 90%*|每月 $80.00 <br>*$* 每月 90.00 *|
+
 
 
 #### <a name="csp-program-opt-in"></a>CSP 方案加入宣告
@@ -153,9 +157,23 @@ ms.locfileid: "69900125"
 
 ## <a name="connect-lead-management"></a>連接潛在客戶管理
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+藉由在 marketplace 中列出您的供應專案並連結客戶關係管理 (CRM) 系統, 直接與客戶連線, 讓您可以在客戶有興趣或部署您的之後, 立即收到客戶連絡人資訊。基礎.
 
-如需詳細資訊, 請參閱[潛在客戶管理總覽](./commercial-marketplace-get-customer-leads.md)。
+- **選擇潛在客戶目的地**(下拉式功能表):提供連線詳細資料給您希望我們傳送客戶潛在客戶的 CRM 系統。 
+
+合作夥伴中心支援下列適用于潛在客戶管理的 CRM 系統。 選取設定指示的連結。
+
+- Azure Blob –提供連絡人電子郵件、容器名稱和儲存體帳戶連接字串。 
+- [Azure 資料表](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)–提供連絡人電子郵件和儲存體帳戶連接字串。 
+- [DYNAMICS CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) –提供連絡人電子郵件、URL 和驗證模式 (Office 365 或 Azure Active Directory)。
+- [Https 端點](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https)–提供連絡人電子郵件和 HTTPS 端點 URL。 
+- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) –提供連絡人電子郵件、表單識別碼、MUNCHKIN 帳戶識別碼和伺服器識別碼。
+- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -提供連絡人電子郵件和組織識別碼。 
+
+#### <a name="additional-lead-management-resources"></a>其他潛在客戶管理資源
+- [潛在客戶管理常見問題](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [常見的潛在客戶設定錯誤](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [潛在客戶管理總覽一頁](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 繼續進行下一節之前, 請記得先**儲存**!
 

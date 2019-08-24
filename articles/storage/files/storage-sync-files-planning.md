@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: bd587bfed7fcfea8e8cd99ca155ee9d86222ae3d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699326"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013526"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -171,7 +171,7 @@ Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Window
     - [可用空間] 原則會根據磁片區上的可用空間, 使用熱度圖繼續將檔案分層。
     - 日期原則會略過可能因為存取檔案的重復資料刪除優化作業而有資格進行階層式檔案分層。
 - 針對進行中的重復資料刪除優化作業, 如果檔案尚未分層, 則 [重復資料刪除] [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps)設定會延遲具有日期原則的雲端階層處理。 
-    - 範例:如果 MinimumFileAgeDays 設定為7天, 而雲端階層處理日期原則為30天, 則日期原則會在37天后將檔案分層。
+    - 範例：如果 MinimumFileAgeDays 設定為7天, 而雲端階層處理日期原則為30天, 則日期原則會在37天后將檔案分層。
     - 注意:一旦以 Azure 檔案同步將檔案分層之後, 重復資料刪除優化工作將會略過該檔案。
 - 如果執行 Windows Server 2012 R2 並已安裝 Azure 檔案同步代理程式的伺服器已升級為 Windows Server 2016 或 Windows Server 2019, 則必須執行下列步驟, 以支援相同磁片區上的重復資料刪除和雲端階層處理:  
     - 卸載 Windows Server 2012 R2 的 Azure 檔案同步代理程式, 然後重新開機伺服器。
@@ -254,12 +254,15 @@ Azure 檔案同步僅於下列區域提供：
 | East US | Virginia |
 | 美國東部 2 | Virginia |
 | 法國中部 | 巴黎 |
-| 南韓中部| Seoul |
-| 南韓南部| Busan |
+| 法國南部 * | 馬賽 |
+| 南韓中部 | Seoul |
+| 南韓南部 | Busan |
 | 日本東部 | 東京，埼玉 |
 | 日本西部 | 大阪 |
 | 美國中北部 | Illinois |
 | 北歐 | 愛爾蘭 |
+| 南非北部 | 約翰尼斯堡 |
+| 南非西部 * | 開普敦 |
 | 美國中南部 | Texas |
 | 印度南部 | 辰內 |
 | 東南亞 | 新加坡 |
@@ -274,6 +277,8 @@ Azure 檔案同步僅於下列區域提供：
 | 美國西部 2 | Washington |
 
 Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中的 Azure 檔案共用進行同步。
+
+針對以星號標示的區域, 您必須聯絡 Azure 支援以要求存取這些區域中的 Azure 儲存體。 [本檔概述此](https://azure.microsoft.com/global-infrastructure/geographies/)程式。
 
 ### <a name="azure-disaster-recovery"></a>Azure 災害復原
 為防範遺失 Azure 區域，Azure 檔案同步會與[異地備援儲存體備援](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) 選項整合。 GRS 儲存體的運作方式是在主要區域中您通常與其互動的儲存體，與配對的次要區域中的儲存體之間，使用非同步區塊複寫。 發生導致 Azure 區域暫時或永久離線的災害時，Microsoft 會將儲存體容錯移轉到配對的區域。 
@@ -296,12 +301,15 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | East US             | 美國西部            |
 | 美國東部 2           | 美國中部         |
 | 法國中部      | 法國南部       |
+| 法國南部        | 法國中部     |
 | 日本東部          | 日本西部         |
 | 日本西部          | 日本東部         |
 | 南韓中部       | 南韓南部        |
 | 南韓南部         | 南韓中部      |
 | 北歐        | 西歐        |
 | 美國中北部    | 美國中南部   |
+| 南非北部  | 南非西部  |
+| 南非西部   | 南非北部 |
 | 美國中南部    | 美國中北部   |
 | 印度南部         | 印度中部      |
 | 東南亞      | 東亞          |

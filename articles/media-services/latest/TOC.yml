@@ -149,7 +149,7 @@
       items:
         - name: 概觀
           href: media-services-apis-overview.md
-          displayName: 'accessing, naming, long-running'
+          displayName: 'accessing, naming, long-running, invalid character'
         - name: 分頁、篩選、排序實體
           href: entities-overview.md
         - name: RBAC

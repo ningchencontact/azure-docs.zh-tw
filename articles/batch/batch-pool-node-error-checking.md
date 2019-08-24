@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 07/16/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9481263773cc919fecacce80191cf209ec2a1282
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359253"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012478"
 ---
 # <a name="check-for-pool-and-node-errors"></a>檢查是否有集區和節點錯誤
 
@@ -64,7 +64,7 @@ ms.locfileid: "68359253"
 
 ## <a name="pool-compute-node-errors"></a>集區計算節點錯誤
 
-即使 Batch 成功地在集區中配置節點, 各種問題也可能導致某些節點狀況不良, 而且無法執行工作。 這些節點仍會產生費用, 因此請務必偵測問題, 以避免對無法使用的節點付費。
+即使 Batch 成功地在集區中配置節點, 各種問題也可能導致某些節點狀況不良, 而且無法執行工作。 這些節點仍會產生費用, 因此請務必偵測問題, 以避免對無法使用的節點付費。 除了常見的節點錯誤之外, 瞭解目前的[作業狀態](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)對於疑難排解很有用。
 
 ### <a name="start-task-failures"></a>啟動工作失敗
 
@@ -118,7 +118,7 @@ Azure Batch 將[節點狀態](https://docs.microsoft.com/rest/api/batchservice/c
 
 ### <a name="node-disk-full"></a>節點磁片已滿
 
-集區節點 VM 的暫存磁片磁碟機是由批次用於作業檔案、工作檔案和共用檔案。 
+集區節點 VM 的暫存磁片磁碟機是由批次用於作業檔案、工作檔案和共用檔案。
 
 - 應用程式套件檔案
 - 工作資源檔

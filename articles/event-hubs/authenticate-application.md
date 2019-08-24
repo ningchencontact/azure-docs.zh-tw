@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 9ea22dfc83883238923de06a764d7ef1f11cb475
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
-ms.translationtype: HT
+ms.openlocfilehash: 818bebdb7555d1b515a5c4a3439d11d4a4766e56
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992987"
+ms.locfileid: "70011978"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>使用 Azure Active Directory 來驗證應用程式, 以存取事件中樞資源
 Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源和應用程式提供了整合式的存取控制管理功能。 搭配 Azure 事件中樞使用 Azure AD 的主要優點是您不再需要將認證儲存在程式碼中。 相反地, 您可以從 Microsoft 身分識別平臺要求 OAuth 2.0 存取權杖。 Azure AD 會驗證執行應用程式的安全性主體 (使用者、群組或服務主體)。 如果驗證成功, Azure AD 會將存取權杖傳回給應用程式, 然後應用程式就可以使用存取權杖來授權 Azure 事件中樞資源的要求。
@@ -26,9 +26,9 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Azure 事件中樞的內建角色
 Azure 提供下列內建 RBAC 角色, 以使用 Azure AD 和 OAuth 來授權事件中樞資料的存取:
 
-- [Azure 事件中樞資料擁有](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview)者:使用此角色來提供事件中樞資源的完整存取權。
-- [Azure 事件中樞資料寄件者](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender-preview):使用此角色可將存取權授與事件中樞資源。
-- [Azure 事件中樞資料接收器](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver-preview):使用此角色可授與接收事件中樞資源的存取權。   
+- [Azure 事件中樞資料擁有](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)者:使用此角色來提供事件中樞資源的完整存取權。
+- [Azure 事件中樞資料寄件者](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender):使用此角色可將存取權授與事件中樞資源。
+- [Azure 事件中樞資料接收器](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver):使用此角色可授與接收事件中樞資源的存取權。   
 
 > [!IMPORTANT]
 > 我們的預覽版本支援將事件中樞資料存取權限新增至擁有者或參與者角色。 不過, 「擁有者」和「參與者」角色的資料存取權限已不再遵守。 如果您使用的是「擁有者」或「參與者」角色, 請切換到使用 Azure 事件中樞資料擁有者角色。

@@ -12,16 +12,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/26/2019
 ms.author: kumud
-ms.openlocfilehash: e97a5a478871d94e074b59558a11df1ec752b0f9
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b397c874045a89f5992aeadacfbbd4434a486977
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249852"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012830"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>使用 Azure 中的基本 Load Balancer 部署 IPv6 雙重堆疊應用程式-範本 (預覽)
 
-本文提供 IPv6 設定工作的清單, 其中包含適用于的 Azure Resource Manager VM 範本部分。 使用本文所述的範本, 在 Azure 中部署雙重堆疊 (IPv4 + IPv6) 應用程式, 其中包含具有 IPv4 和 IPv6 子網的雙重堆疊虛擬網路、具有雙重 (IPv4 + IPv6) 前端設定的負載平衡器、具有雙重 IP 的 Nic 的 Vm設定、網路安全性群組和公用 Ip。 
+本文提供 IPv6 設定工作的清單, 其中包含適用于的 Azure Resource Manager VM 範本部分。 使用本文所述的範本來部署具有基本 Load Balancer 的雙重堆疊 (IPv4 + IPv6) 應用程式, 其中包含具有 IPv4 和 IPv6 子網的雙重堆疊虛擬網路、具有雙重 (IPv4 + IPv6) 前端設定的基本 Load Balancer、具有的 Vm具有雙重 IP 設定、網路安全性群組和公用 Ip 的 Nic。
+
+若要使用 Standard Load Balancer 部署雙重堆疊 (IPV4 + IPv6) 應用程式, 請參閱[使用 Standard Load Balancer 範本部署 IPv6 雙重堆疊應用程式](ipv6-configure-standard-load-balancer-template-json.md)。
 
 ## <a name="required-configurations"></a>必要設定
 
@@ -107,7 +109,7 @@ ms.locfileid: "68249852"
             }
 ```
 
-## <a name="optional-configuration"></a>選用設定
+## <a name="optional-configuration"></a>選用組態
 
 ### <a name="ipv6-internet-access-for-the-virtual-network"></a>虛擬網路的 IPv6 網際網路存取
 
@@ -176,7 +178,7 @@ ms.locfileid: "68249852"
 ```
 
 ## <a name="sample-vm-template-json"></a>範例 VM 範本 JSON
-若要使用 Azure Resource Manager 範本在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式, 請在[這裡](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/)查看範例範本。
+若要使用 Azure Resource Manager 範本, 在 Azure 虛擬網路中部署具有基本 Load Balancer 的 IPv6 雙重堆疊應用程式, 請[在這裡](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/)查看範例範本。
 
 ## <a name="next-steps"></a>後續步驟
 

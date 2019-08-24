@@ -15,12 +15,12 @@ ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 09551eb2620349fa2445c1da3a7e0d66062ebaf0
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899727"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013380"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -54,15 +54,15 @@ ms.locfileid: "69899727"
 | [自動化 Runbook 運算子](#automation-runbook-operator) | 讀取 Runbook 屬性 - 以便能夠建立 Runbook 的作業。 |
 | [Avere 參與者](#avere-contributor) | 可以建立和管理 Avere vFXT 叢集。 |
 | [Avere 運算子](#avere-operator) | 由 Avere vFXT 叢集用來管理叢集 |
-| [Azure 事件中樞資料擁有者 (預覽)](#azure-event-hubs-data-owner-preview) | 允許 Azure 事件中樞資源的完整存取權。 |
-| [Azure 事件中樞資料接收器 (預覽)](#azure-event-hubs-data-receiver-preview) | 允許接收 Azure 事件中樞資源的存取權。 |
-| [Azure 事件中樞資料寄件者 (預覽)](#azure-event-hubs-data-sender-preview) | 允許傳送 Azure 事件中樞資源的存取權。 |
+| [Azure 事件中樞資料擁有者](#azure-event-hubs-data-owner) | 允許 Azure 事件中樞資源的完整存取權。 |
+| [Azure 事件中樞資料接收器](#azure-event-hubs-data-receiver) | 允許接收 Azure 事件中樞資源的存取權。 |
+| [Azure 事件中樞資料寄件者](#azure-event-hubs-data-sender) | 允許傳送 Azure 事件中樞資源的存取權。 |
 | [Azure Kubernetes Service 叢集管理員角色](#azure-kubernetes-service-cluster-admin-role) | 列出叢集管理員認證動作。 |
 | [Azure Kubernetes Service 叢集使用者角色](#azure-kubernetes-service-cluster-user-role) | 列出叢集使用者認證動作。 |
 | [Azure 地圖服務資料讀取器 (預覽)](#azure-maps-data-reader-preview) | 授與從 Azure 地圖服務帳戶讀取對應相關資料的存取權。 |
-| [Azure 服務匯流排資料擁有者 (預覽)](#azure-service-bus-data-owner-preview) | 允許 Azure 服務匯流排資源的完整存取權。 |
-| [Azure 服務匯流排資料接收器 (預覽)](#azure-service-bus-data-receiver-preview) | 允許接收 Azure 服務匯流排資源的存取權。 |
-| [Azure 服務匯流排資料寄件者 (預覽)](#azure-service-bus-data-sender-preview) | 允許 Azure 服務匯流排資源的「傳送」存取權。 |
+| [Azure 服務匯流排資料擁有者](#azure-service-bus-data-owner) | 允許 Azure 服務匯流排資源的完整存取權。 |
+| [Azure 服務匯流排資料接收器](#azure-service-bus-data-receiver) | 允許接收 Azure 服務匯流排資源的存取權。 |
+| [Azure 服務匯流排資料寄件者](#azure-service-bus-data-sender) | 允許 Azure 服務匯流排資源的「傳送」存取權。 |
 | [Azure Stack 註冊擁有者](#azure-stack-registration-owner) | 可讓您管理 Azure Stack 註冊。 |
 | [備份參與者](#backup-contributor) | 可讓您管理備份服務, 但無法建立保存庫並將存取權授與其他人 |
 | [備份操作員](#backup-operator) | 可讓您管理備份服務，但無法移除備份、建立保存庫及為其他人提供存取權 |
@@ -556,7 +556,7 @@ ms.locfileid: "69899727"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="azure-event-hubs-data-owner-preview"></a>Azure 事件中樞資料擁有者 (預覽)
+## <a name="azure-event-hubs-data-owner"></a>Azure 事件中樞資料擁有者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -571,7 +571,7 @@ ms.locfileid: "69899727"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="azure-event-hubs-data-receiver-preview"></a>Azure 事件中樞資料接收器 (預覽)
+## <a name="azure-event-hubs-data-receiver"></a>Azure 事件中樞資料接收器
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -586,7 +586,7 @@ ms.locfileid: "69899727"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="azure-event-hubs-data-sender-preview"></a>Azure 事件中樞資料寄件者 (預覽)
+## <a name="azure-event-hubs-data-sender"></a>Azure 事件中樞資料寄件者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -646,7 +646,7 @@ ms.locfileid: "69899727"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="azure-service-bus-data-owner-preview"></a>Azure 服務匯流排資料擁有者 (預覽)
+## <a name="azure-service-bus-data-owner"></a>Azure 服務匯流排資料擁有者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -661,7 +661,7 @@ ms.locfileid: "69899727"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="azure-service-bus-data-receiver-preview"></a>Azure 服務匯流排資料接收器 (預覽)
+## <a name="azure-service-bus-data-receiver"></a>Azure 服務匯流排資料接收器
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -678,7 +678,7 @@ ms.locfileid: "69899727"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="azure-service-bus-data-sender-preview"></a>Azure 服務匯流排資料寄件者 (預覽)
+## <a name="azure-service-bus-data-sender"></a>Azure 服務匯流排資料寄件者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

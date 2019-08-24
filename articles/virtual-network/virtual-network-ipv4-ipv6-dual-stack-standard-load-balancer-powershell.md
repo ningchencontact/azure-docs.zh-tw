@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 虛擬網路中使用 Standard Load Balancer 部署 IPv6 雙重堆疊應用程式-PowerShell
+title: 在 Azure 虛擬網路中部署 IPv6 雙重堆疊應用程式-PowerShell
 titlesuffix: Azure Virtual Network
 description: 本文說明如何使用 Azure Powershell, 在 Azure 虛擬網路中部署具有 Standard Load Balancer 的 IPv6 雙重堆疊應用程式。
 services: virtual-network
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 99e01aa611eea3d6379e2a250cc99d121e41aa82
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 05794cfaf6a550d32acdfb731a5f477111e65606
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269672"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011412"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-with-standard-load-balancer-in-azure---powershell-preview"></a>在 Azure 中使用 Standard Load Balancer 部署 IPv6 雙重堆疊應用程式-PowerShell (預覽)
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>在 Azure 中部署 IPv6 雙重堆疊應用程式-PowerShell (預覽)
 
-本文說明如何在 Azure 中部署雙重堆疊 (IPv4 + IPv6) 應用程式, 其中包含雙重堆疊虛擬網路和子網、具有雙重 (IPv4 + IPv6) 前端設定的負載平衡器、具有雙重 IP 設定之 Nic 的 Vm、網路安全性群組和公用 Ip。
+本文說明如何使用 Azure 中的 Standard Load Balancer 部署雙重堆疊 (IPv4 + IPv6) 應用程式, 其中包含雙協定堆疊虛擬網路和子網、具有雙重 (IPv4 + IPv6) 前端設定的 Standard Load Balancer, 以及具有下列專案之 Nic 的虛擬機器:雙重 IP 設定、網路安全性群組和公用 Ip。
 
 > [!Important]
 > Azure 虛擬網路的 IPv6 支援目前處於公開預覽狀態。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -176,7 +176,7 @@ $lb = New-AzLoadBalancer `
 ### <a name="create-an-availability-set"></a>建立可用性設定組
 若要改善您應用程式的高可用性，請將 VM 放在可用性設定組中。
 
-使用 [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) 建立可用性設定組。 下列範例會建立名為 myAvailabilitySet  的可用性設定組：
+使用 [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) 建立可用性設定組。 下列範例會建立名為 myAvailabilitySet 的可用性設定組：
 
 ```azurepowershell-interactive
 $avset = New-AzAvailabilitySet `
@@ -239,7 +239,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-a-virtual-network"></a>建立虛擬網路
 
-使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVnet  的虛擬網路和 mySubnet  ：
+使用 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) 建立虛擬網路。 下列範例會建立名為 myVnet 的虛擬網路和 mySubnet：
 
 ```azurepowershell-interactive
 # Create dual stack subnet

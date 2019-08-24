@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 778690fb2796cea3154b3acbb662341fdaea87da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1074495f5ac9112b6ce4f67ad2d81ee57b28e720
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699132"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012700"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>如何搭配 Azure Application Insights Java SDK 使用 Micrometer
 Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼的計量，並可讓您將資料匯出到您慣用的監視系統。 這篇文章會教導您如何搭配 Application Insights Spring Boot 和非 Spring Boot 應用程式使用 Micrometer。
@@ -64,7 +64,7 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
 將以下相依性新增至您的 pom.xml 或 build.gradle 檔案：
 
 * Application Insights Spring-boot-starter 2.1.2 或更新版本
-* Azure-spring-boot-metrics-starters 2.0.7 或更新版本  
+* Azure-短期開機-計量-初學者2.1.5 或更高版本  
 * [Application Insights 資源](../../azure-monitor/app/create-new-resource.md )
 
 步驟：
@@ -75,12 +75,12 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
-          <version>2.0.7</version>
+          <version>2.1.6</version>
     </dependency>
     ```
 1. 使用以下屬性搭配 Application Insights 檢測金鑰更新 application.properties 或 yml 檔案：
 
-     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
+     `management.metrics.export.azuremonitor.instrumentation-key=<your-instrumentation-key-here>`
 3. 建置應用程式並執行
 4. 上述動作應該能讓您的應用程式使用自動收集至 Azure 監視器的預先彙總計量。 如需如何微調 Application Insights Spring Boot 簡易版的詳細資訊，請參閱 [GitHub 上的讀我檔案](https://github.com/Microsoft/azure-spring-boot/releases/latest)。
 

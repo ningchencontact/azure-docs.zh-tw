@@ -3,18 +3,18 @@ author: stevestein
 ms.service: sql-database
 ms.subservice: operations
 ms.topic: include
-ms.date: 08/09/2019
+ms.date: 08/23/2019
 ms.author: sstein
-ms.openlocfilehash: f7b385f359311217595352be31ba0687ca87bf40
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9e189d0582d2e81193c892cb349b475ed0d68df8
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873683"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014747"
 ---
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>使用 Azure 入口網站建立及管理 Azure SQL 資源
 
-Azure 入口網站提供單一頁面, 您可以在其中管理[所有的 AZURE sql 資源](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql), 包括您的 SQL 虛擬機器。
+Azure 入口網站提供單一頁面, 您可以在其中管理[所有的 AZURE sql 資源](https://go.microsoft.com/fwlink/?linkid=2100641), 包括您的 SQL 虛擬機器。
 
 若要存取**AZURE sql 資源**頁面, 請在 Azure 入口網站的左側功能表中選取 [ **azure sql** ]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入*azure sql* 。
 

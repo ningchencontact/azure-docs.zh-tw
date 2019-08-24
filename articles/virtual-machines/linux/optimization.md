@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad512baad86133cc1aad80438a6b68d2a31a6cc6
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640747"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013597"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上最佳化 Linux VM
 您可以從命令列或入口網站，輕鬆建立 Linux 虛擬機器 (VM)。 本教學課程示範如何在 Microsoft Azure 平台上設定，以確保將其效能最佳化。 本主題會使用 Ubuntu Server VM，但您也可以使用 [自己的映像做為範本](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)來建立 Linux 虛擬機器。  
@@ -53,7 +53,7 @@ ms.locfileid: "69640747"
 ## <a name="your-vm-temporary-drive"></a>VM 暫存磁碟機
 根據預設，當您建立 VM 時，Azure 會提供作業系統磁碟 ( **/dev/sda**) 和暫存磁碟 ( **/dev/sdb**)。  您加入的所有額外磁碟會顯示為 **/dev/sdc**、 **/dev/sdd**、 **/dev/sde**，依此類推。 暫存磁碟 ( **/dev/sdb**) 上的所有資料均不具持久性，因此當 VM 調整大小、重新部署或維護等特定事件發生迫使 VM 重新啟動時，資料可能會遺失。  暫存磁碟的類型和大小與您在部署時所選擇的 VM 大小相關。 對於所有進階大小的 VM (DS、G 及 DS_V2 系列)，暫存磁碟機均有本機 SSD 提供支援，因此可以產生最高 48k IOps 的額外效能。 
 
-## <a name="linux-swap-file"></a>Linux 交換檔
+## <a name="linux-swap-partition"></a>Linux 交換磁碟分割
 如果您的 Azure VM 是來自 Ubuntu 或 CoreOS 映像，則您可以使用 CustomData 將 cloud-config 傳送到 cloud-init。 如果您[上傳自訂 Linux 映像](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，使用 cloud-init，您也可以使用 cloud-init 設定交換資料分割。
 
 在 Ubuntu 雲端映像上，您必須使用 cloud-init 設定交換資料分割。 如需詳細資訊，請參閱 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)。
@@ -127,6 +127,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>使用軟體 RAID 來達到更高的 I/Ops
 如果工作負載所需的 IOps 超過單一磁碟可提供的極限，您便需要使用由多個磁碟組成的軟體 RAID 組態。 因為 Azure 已在本機網狀架構層級執行磁碟恢復功能，因此您可以從 RAID-0 等量組態獲得最高層級的效能。  先在 Azure 環境中佈建及建立磁碟、將它們連結至 Linux VM，然後再分割、格式化及掛接磁碟機。  如需在 Azure 中針對 Linux VM 配置軟體 RAID 設定的詳細資訊，請參閱 **[在 Linux 上設定軟體 RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 文件。
+
+作為傳統 RAID 設定的替代方案, 您也可以選擇安裝邏輯磁片區管理員 (LVM), 以將多個實體磁片設定為單一等量邏輯存放磁片區。 在此設定中, 會將讀取和寫入分散到磁片區群組中包含的多個磁片 (類似于 RAID0)。 基於效能考量，您可能希望建立等量邏輯磁碟區，如此一來，讀取和寫入就能利用您所有已連結的資料磁碟。  如需在 Azure 中的 Linux VM 上設定等量邏輯磁片區的詳細資訊, 請參閱在 **[azure 中的 LINUX vm 上設定 LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** 檔。
 
 ## <a name="next-steps"></a>後續步驟
 請記住，如同所有最佳化討論內容所述，您需要在變更前後執行測試，以測量變更所造成的影響。  最佳化是需要逐步進行的程序，這些程序會對環境中不同的機器產生不同的結果。  對某項組態有用的做法不見得適用於其他組態。

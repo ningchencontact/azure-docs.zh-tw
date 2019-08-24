@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 9a7baa6385e0130b784b264a4c53c232ae8a1b50
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
-ms.translationtype: HT
+ms.openlocfilehash: 85b1e3eae9d7472fa829665707fca481a28f0623
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980466"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011280"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>如何在 Azure AD Domain Services 受控網域中同步處理物件和認證
 
@@ -127,7 +127,7 @@ Azure AD 具有更簡單和一般的命名空間。 若要讓使用者可靠地�
 
 對於僅限雲端的 Azure AD 環境,[使用者必須重設/變更其密碼](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds), 才能產生必要的密碼雜湊, 並將其儲存在 Azure AD 中。 針對在啟用 Azure AD Domain Services 之後於 Azure AD 中建立的任何雲端使用者帳戶，以 NTLM 和 Kerberos 相容的格式產生並儲存密碼雜湊。 這些新帳戶不需要重設/變更其密碼, 就會產生舊版密碼雜湊。
 
-針對使用 Azure AD Connect 從內部部署 AD DS 環境同步的混合式使用者帳戶, 您必須[將 Azure AD Connect 設定為以 NTLM 和 Kerberos 相容的格式同步處理密碼雜湊](active-directory-ds-getting-started-password-sync-synced-tenant.md)。
+針對使用 Azure AD Connect 從內部部署 AD DS 環境同步的混合式使用者帳戶, 您必須[將 Azure AD Connect 設定為以 NTLM 和 Kerberos 相容的格式同步處理密碼雜湊](tutorial-configure-password-hash-sync.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
