@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 999bffe9650f3d2f2a04dba728a9aa41fa46a6b0
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e7a170eaf74531cf4bd8c28aafaa5873f2459d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593417"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982420"
 ---
 # <a name="using-azure-cdn-with-sas"></a>搭配 SAS 使用 Azure CDN
 
@@ -44,15 +44,15 @@ ms.locfileid: "67593417"
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
-如需有關設定參數的詳細資訊，請參閱 [SAS 參數考量](#sas-parameter-considerations)和[共用存取簽章參數](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters)。
+如需有關設定參數的詳細資訊，請參閱 [SAS 參數考量](#sas-parameter-considerations)和[共用存取簽章參數](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works)。
 
 ![CDN SAS 設定](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>選項 1：從 Azure CDN 至 blob 儲存體使用 SAS 與傳遞
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>選項 1：使用從 Azure CDN 傳遞至 blob 儲存體的 SAS
 
 此選項是最簡單的選項，僅使用從 Azure CDN 傳遞至原始伺服器的單一 SAS 權杖。
  
-1. 選取一個端點、選取 [快取規則]  ，然後從 [查詢字串快取]  清單中，選取 [快取所有不重複的 URL]  。
+1. 選取一個端點、選取 [快取規則]，然後從 [查詢字串快取] 清單中，選取 [快取所有不重複的 URL]。
 
     ![CDN 快取規則](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
@@ -67,7 +67,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
    
 3. 使用快取規則或在原始伺服器新增 `Cache-Control` 標頭來微調快取持續時間。 由於 Azure CDN 會將 SAS 權杖視為純查詢字串，因此最佳做法是，您應該設定一個在 SAS 到期時間或此時間之前到期的快取持續時間。 否則，如果檔案的快取持續時間比 SAS 的有效期長，便可能在過了 SAS 到期時間之後，從 Azure CDN 原始伺服器存取該檔案。 如果發生這種情況，而您想要讓已快取的檔案變成無法存取，就必須對該檔案執行清除作業，以將它從快取中清除。 如需有關在 Azure CDN 上設定快取持續時間的資訊，請參閱[使用快取規則來控制 Azure CDN 快取行為](cdn-caching-rules.md)。
 
-### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>選項 2：使用重寫規則的隱藏的 CDN SAS 權杖
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>選項 2：使用重寫規則的隱藏 CDN SAS 權杖
  
 此選項僅適用於**來自 Verizon 的 Azure 進階 CDN**設定檔。 使用此選項時，您可以保護原始伺服器的 Blob 儲存體。 如果您不需要特定的檔案存取限制，但想要防止使用者直接存取儲存體原始伺服器來縮短 Azure CDN 卸載時間，便可以使用此選項。 存取原始伺服器指定容器中檔案的任何人都必須有使用者未知的 SAS 權杖。 不過，由於 URL 重寫規則，CDN 端點上不需要 SAS 權杖。
  
@@ -79,7 +79,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
    下列範例「URL 重寫」規則使用規則運算式模式，其中包含一個擷取群組和一個名為 *sasstoragedemo* 的端點：
    
-   來源：   
+   來源:   
    `(container1\/.*)`
    
    目的地：   
@@ -97,7 +97,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
 3. 使用快取規則或在原始伺服器新增 `Cache-Control` 標頭來微調快取持續時間。 由於 Azure CDN 會將 SAS 權杖視為純查詢字串，因此最佳做法是，您應該設定一個在 SAS 到期時間或此時間之前到期的快取持續時間。 否則，如果檔案的快取持續時間比 SAS 的有效期長，便可能在過了 SAS 到期時間之後，從 Azure CDN 原始伺服器存取該檔案。 如果發生這種情況，而您想要讓已快取的檔案變成無法存取，就必須對該檔案執行清除作業，以將它從快取中清除。 如需有關在 Azure CDN 上設定快取持續時間的資訊，請參閱[使用快取規則來控制 Azure CDN 快取行為](cdn-caching-rules.md)。
 
-### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>選項 3：使用重寫規則使用 CDN 安全性權杖驗證
+### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>選項 3：使用 CDN 安全性權杖驗證搭配重寫規則
 
 若要使用 Azure CDN 安全性權杖驗證，您必須具有 **來自 Verizon 的 Azure 進階 CDN** 設定檔。 此選項是最安全且可自訂的選項。 用戶端存取權取決於您在安全性權杖上設定的安全性參數。 建立並設定安全性權杖後，所有 CDN 端點 URL 上都需要此權杖。 不過，由於 URL 重寫規則，CDN 端點上不需要 SAS 權杖。 如果 SAS 權杖之後變成無效，Azure CDN 將無法再重新驗證來自原始伺服器的內容。
 
@@ -117,7 +117,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
    下列範例「URL 重寫」規則使用規則運算式模式，其中包含一個擷取群組和一個名為 *sasstoragedemo* 的端點：
    
-   來源：   
+   來源:   
    `(container1\/.*)`
    
    目的地：   
@@ -135,8 +135,8 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 
 | SAS 參數名稱 | 描述 |
 | --- | --- |
-| Start | Azure CDN 可以開始存取 Blob 檔案的時間。 由於時鐘誤差 (當時鐘訊號針對不同元件在不同時間抵達時) 的緣故，因此如果您想要讓資產立即可供使用，請選擇提早 15 分鐘的時間。 |
-| End | 之後 Azure CDN 即無法再存取 Blob 檔案的時間。 Azure CDN 上先前快取的檔案仍然可供存取。 若要控制檔案到期時間，請在 Azure CDN 安全性權杖上設定適當的到期時間或清除資產。 |
+| 開始 | Azure CDN 可以開始存取 Blob 檔案的時間。 由於時鐘誤差 (當時鐘訊號針對不同元件在不同時間抵達時) 的緣故，因此如果您想要讓資產立即可供使用，請選擇提早 15 分鐘的時間。 |
+| 結束 | 之後 Azure CDN 即無法再存取 Blob 檔案的時間。 Azure CDN 上先前快取的檔案仍然可供存取。 若要控制檔案到期時間，請在 Azure CDN 安全性權杖上設定適當的到期時間或清除資產。 |
 | 允許的 IP 位址 | 選擇性。 如果您使用**來自 Verizon 的 Azure CDN**，您可以將此參數設定為[來自 Verizon 的 Azure CDN Edge Server IP 範圍](/azure/cdn/cdn-pop-list-api) \(英文\) 中定義的範圍。 如果您使用**來自 Akamai 的 Azure CDN**，則無法設定 IP 範圍參數，因為 IP 位址並非靜態。|
 | 允許的通訊協定 | 針對使用帳戶 SAS 來提出之要求允許的通訊協定。 建議使用 HTTPS 設定。|
 

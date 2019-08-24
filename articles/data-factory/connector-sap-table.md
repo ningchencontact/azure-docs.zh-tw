@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8d98405cfbabdff25c40d41b209d79761e699396
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967394"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996583"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP 資料表複製資料
 
@@ -40,7 +40,7 @@ ms.locfileid: "68967394"
 - 若已設定 SNC, 則使用基本驗證或安全網路通訊 (SNC) 來複製資料。
 - 連接到 SAP 應用程式伺服器或 SAP 訊息伺服器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用此 SAP 資料表連接器, 您需要:
 
@@ -65,7 +65,7 @@ ms.locfileid: "68967394"
 
 以下是針對 SAP BW 開放式中樞連結服務支援的屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `type` | 屬性必須設定為`SapTable`。 `type` | 是 |
 | `server` | SAP 實例所在的伺服器名稱。<br/>用來連接到 SAP 應用程式伺服器。 | 否 |
@@ -173,7 +173,7 @@ ms.locfileid: "68967394"
 
 若要將資料從和複製到 SAP BW 開放式中樞連結服務, 支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `type` | 屬性必須設定為`SapTableResource`。 `type` | 是 |
 | `tableName` | 要從中複製資料的 SAP 資料表名稱。 | 是 |
@@ -205,7 +205,7 @@ ms.locfileid: "68967394"
 
 若要從 SAP 資料表複製資料, 支援下列屬性:
 
-| 內容                         | 描述                                                  | 必要項 |
+| 屬性                         | 描述                                                  | 必要項 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 屬性必須設定為`SapTableSource`。 `type`         | 是      |
 | `rowCount`                         | 要抓取的資料列數目。                              | 否       |
@@ -223,11 +223,11 @@ ms.locfileid: "68967394"
 <br/>
 >`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound`做為範例, 每個資料分割中的資料列數目會使用下列公式來計算: (和之間的總數據列數)/。 `partitionOption` `partitionOnInt`<br/>
 <br/>
->若要平行載入資料分割以加速複製, 平行程度是由複製活動上的[`parallelCopies`](copy-activity-performance.md#parallel-copy)設定所控制。 例如, 如果您將設定`parallelCopies`為四, Data Factory 會同時根據您指定的資料分割選項和設定, 產生並執行四個查詢, 而且每個查詢都會從您的 SAP 資料表中抓取部分資料。 我們強烈建議您`maxPartitionsNumber`建立`parallelCopies`屬性值的倍數。
+>若要平行載入資料分割以加速複製, 平行程度是由複製活動上的[`parallelCopies`](copy-activity-performance.md#parallel-copy)設定所控制。 例如, 如果您將設定`parallelCopies`為四, Data Factory 會同時根據您指定的資料分割選項和設定, 產生並執行四個查詢, 而且每個查詢都會從您的 SAP 資料表中抓取部分資料。 我們強烈建議您`maxPartitionsNumber`建立`parallelCopies`屬性值的倍數。 將資料複製到以檔案為基礎的資料存放區時, 也會建議寫入資料夾做為多個檔案 (僅指定資料夾名稱), 在此情況下, 效能會比寫入單一檔案更好。
 
 在`rfcTableOptions`中, 您可以使用下列常用的 SAP 查詢運算子來篩選資料列:
 
-| Operator | 描述 |
+| 運算子 | 描述 |
 | :------- | :------- |
 | `EQ` | 等於 |
 | `NE` | 不等於 |

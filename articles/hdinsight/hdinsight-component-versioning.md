@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 30eb922e17810ddd53166a702b5fc513684f2140
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b451769f5f98bf64ca340504c983f16d1db36647
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742385"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991559"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -178,6 +178,9 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>適用於叢集的預設節點設定和虛擬機器大小
 
 下表列出 HDInsight 叢集的預設虛擬機器 (VM) 大小。  此圖表提供必要資訊，可協助您了解建立 PowerShell 或 Azure CLI 指令碼以部署 HDInsight 叢集時，所要使用的 VM 大小。
+
+> [!NOTE]
+> 具有資料磁片的唯一叢集類型是 Kafka, 以及已啟用加速寫入功能的 HBase 叢集。 在這些情況下, HDInsight 支援 P30 和 S30 磁片大小。
 
 > [!IMPORTANT]  
 > 如果您的叢集需要 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。

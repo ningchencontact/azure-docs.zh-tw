@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: abde79ab131719fe4f2963db98c7a6daa3419424
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876844"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981067"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
 
@@ -112,7 +112,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoam
 1. 流覽至**系統管理範本** >  **Windows 元件** > **遠端桌面服務** **遠端桌面工作階段主機** **會話時間限制**。 >   > 
 2. 在右側面板中, 選取 [設定作用中**但閒置遠端桌面服務會話**] 原則的時間限制。
 3. 出現 [強制回應] 視窗之後, 將 [**未設定**] 的 [原則] 選項變更為 [**啟用**] 以啟用原則。
-4. 在原則選項下方的下拉式功能表中, 將時間長度設定為**4 小時**。
+4. 在原則選項下方的下拉式功能表中, 將時間長度設定為**3 小時**。
 
 您也可以藉由執行下列命令, 手動設定遠端會話原則:
 
@@ -122,7 +122,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fRese
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>設定時區重新導向

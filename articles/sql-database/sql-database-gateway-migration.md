@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 從 Gen2 到 Gen3 的閘道遷移通知 |Microsoft Docs
+title: Azure SQL Database 的閘道流量遷移通知 |Microsoft Docs
 description: 文章提供有關遷移 Azure SQL Database 閘道 IP 位址的使用者通知
 services: sql-database
 ms.service: sql-database
@@ -10,23 +10,23 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 85691464684ff327c01a85bf357514f447564dd7
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1fc6c054b32c62fbebaa2af738e25ef0dec362ac
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568110"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981295"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database 流量遷移至較新的閘道
 
-隨著 Azure 基礎結構的改善, Microsoft 會定期重新整理硬體, 以確保我們能提供最佳的客戶體驗。 在接下來的幾個月, 我們打算新增以較新硬體世代為基礎的閘道, 並解除委任在某些區域中的舊硬體上建立的閘道。  
+隨著 Azure 基礎結構的改善, Microsoft 會定期重新整理硬體, 以確保我們能提供最佳的客戶體驗。 在接下來的幾個月, 我們打算新增以較新硬體層代為基礎的閘道、將流量遷移至它們, 最後解除委任在某些區域的舊版硬體上建立的閘道。  
 
 客戶將會在每個區域中可用的閘道變更之前, 透過電子郵件和 Azure 入口網站中的通知。 最新的資訊將會保留在 [ [Azure SQL Database 閘道 IP 位址](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses)] 資料表中。
 
 ## <a name="impact-of-this-change"></a>這項變更的影響
 
-第一輪的閘道解除委任已排程于下欄區域中2019年9月1日:
-
+第一次將流量遷移至較新的閘道時, 會排定在下欄區域中**2019 年10月14日**:
+- 巴西南部
 - 美國西部
 - 西歐
 - East US
@@ -40,12 +40,14 @@ ms.locfileid: "68568110"
 - 美國東部 2
 - 東亞
 
-已解除委任的 IP 位址將會停止接受流量, 而且任何新的連線嘗試都會路由傳送到該區域中的其中一個閘道。
+流量遷移會變更 DNS 針對您的 SQL Database 所解析的公用 IP 位址。
+如果您有, 將會受到影響
+- 將內部部署防火牆中任何特定閘道的 IP 位址硬式編碼
+- 任何使用 SQL-DMO 做為服務端點, 但無法與閘道 IP 位址通訊的子網
 
-您不會看到這項變更的影響:
-
-- 使用重新導向作為其連線原則的客戶不會看到任何影響。
-- 從 Azure 內部和使用服務標籤的 SQL Database 連線不會受到影響。
+如果您有, 將不會受到影響 
+- 重新導向作為連線原則
+- 從 Azure 內部和使用服務標籤的 SQL Database 連線
 - 使用支援的 JDBC Driver for SQL Server 版本所建立的連接將不會有任何影響。 如需支援的 JDBC 版本, 請參閱[下載適用于 SQL Server 的 MICROSOFT JDBC Driver](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)。
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>如果受到影響, 該怎麼辦？

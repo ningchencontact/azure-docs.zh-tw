@@ -1,23 +1,20 @@
 ---
 title: Azure Functions 開發指引 | Microsoft Docs
 description: 了解在 Azure 中開發函式所需的 Azure Functions 概念與技術，其中包含所有的程式設計語言和繫結。
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: 開發指南, azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 2715aeae5d10241703fa876557d1edcea1723874
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c60fedfe855cc803ee2f4b1c463e2b0614239c04
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874962"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982640"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
@@ -44,7 +41,7 @@ function.json 檔案會定義函式的觸發程序、繫結和其他組態設定
 }
 ```
 
-如需更多範例, 請參閱[函數. json wiki 頁面](https://github.com/Azure/azure-functions-host/wiki/function.json)。
+如需詳細資訊，請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)。
 
 `bindings` 屬性可讓您設定觸發程序和繫結。 每個繫結都共用一些共用設定，以及特定類別的繫結特有的一些設定。 每個繫結都需要下列設定︰
 
@@ -55,7 +52,7 @@ function.json 檔案會定義函式的觸發程序、繫結和其他組態設定
 | `name` |string |用於函式中所繫結資料的名稱。 在 C# 中，這是引數名稱；在 JavaScript 中，這是索引鍵/值清單中的索引鍵。 |
 
 ## <a name="function-app"></a>函數應用程式
-函數應用程式在 Azure 中提供您的函式可在其中執行的執行內容。 函式應用程式是由一或多個個別函式所組成，這些函式可一起管理、部署與調整。 函式應用程式中的所有函式會共用相同的定價方案、持續部署和執行階段版本。 請將函式應用程式視為用來組織及集體管理函式的方式。 
+函數應用程式在 Azure 中提供您的函式可在其中執行的執行內容。 因此, 這是您的函式部署和管理的單位。 函式應用程式是由一或多個個別函式所組成，這些函式可一起管理、部署與調整。 函數應用程式中的所有函式會共用相同的定價方案、部署方法和執行階段版本。 請將函式應用程式視為用來組織及集體管理函式的方式。 若要深入瞭解, 請參閱[如何管理函數應用程式](functions-how-to-use-azure-function-app-settings.md)。 
 
 > [!NOTE]
 > 函式應用程式中的所有函式都必須以相同的語言撰寫。 在[舊版](functions-versions.md)的 Azure Functions 執行階段中，這不是必要的。

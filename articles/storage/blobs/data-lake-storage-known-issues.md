@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 951b1f3749807ac6aee78a96ae7eb38877ca6acc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950689"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991800"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知問題
 
@@ -32,7 +32,7 @@ Blob 儲存體 Api 已停用, 以防止可能發生的功能操作問題, 因為
 
 如果其中有任何一個使用 Blob Api, 而您想要使用它們來處理您上傳至帳戶的所有內容, 則您有兩個選項。
 
-* **選項 1**：請不要在 Blob 儲存體帳戶上啟用階層式命名空間, 直到 Blob Api 可與 Azure Data Lake Gen2 Api 互通為止。 使用沒有階層式命名空間的儲存體帳戶, 表示您無法存取 Data Lake Storage Gen2 特定功能, 例如目錄和檔系統存取控制清單。
+* **選項 1**：請不要在 Blob 儲存體帳戶上啟用階層式命名空間, 直到 Blob Api 可與 Azure Data Lake Gen2 Api 互通為止。 使用沒有階層式命名空間的儲存體帳戶, 表示您無法存取 Data Lake Storage Gen2 特定功能, 例如目錄和容器存取控制清單。
 
 * **選項 2**：在[Data Lake Storage 上註冊多重通訊協定存取](data-lake-storage-multi-protocol-access.md)的公開預覽。 呼叫 Blob Api 的工具和應用程式以及 Blob 儲存體功能, 例如診斷記錄, 都可以使用具有階層式命名空間的帳戶。
 

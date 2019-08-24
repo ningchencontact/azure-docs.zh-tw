@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: 3f40c69900b0d7f1c3bf446c1153e21dd7fd4d1b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a8db8de6ef062dcf757f3d264379677d6550ea3a
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014932"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997683"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>使用 Azure 媒體分析修訂臉部逐步解說
 
@@ -40,7 +40,7 @@ ms.locfileid: "69014932"
 
 ### <a name="download-and-setup"></a>下載及安裝
 
-1. 從[這裡](https://github.com/Azure/Azure-Media-Services-Explorer)下載 AMSE 工具。
+1. 從[這裡](https://aka.ms/amseforv2)下載 AMSE for AMS v2 工具。
 1. 使用您的服務金鑰登入您的媒體服務帳戶。
 
     若要取得帳戶名稱和金鑰資訊，請移至 [Azure 入口網站](https://portal.azure.com/)，然後選取 AMS 帳戶。 選取 [Settings] \(設定) > [Keys] \(金鑰)。 [管理金鑰] 視窗會顯示帳戶名稱以及主要和次要金鑰。 複製帳戶名稱和主要金鑰的值。

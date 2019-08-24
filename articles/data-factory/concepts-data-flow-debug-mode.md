@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 945d123c0901722a527e7cc8181c91f09e4e95ec
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 71e08f00600bebcc21eba32d991353c9bcaeaa97
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014514"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991931"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>對應資料流程偵錯模式
 
@@ -53,7 +53,14 @@ ms.locfileid: "69014514"
 
 ![資料預覽](media/data-flow/datapreview.png "資料預覽")
 
+> [!NOTE]
+> 檔案來源只會限制您看到的資料列, 而不是讀取的資料列。 對於非常大型的資料集, 建議您取得該檔案的一小部分, 並將它用於您的測試。 您可以針對每個屬於檔案資料集類型的來源, 在 [偵錯工具] 設定中選取暫存檔案。
+
 在資料流程的偵錯模式中執行時，您的資料不會寫入至接收轉換。 Debug 會話的目的是做為您轉換的測試控管。 偵錯期間不需要接收，而且會在資料流程中忽略。 如果您想要測試您的接收中的資料寫入, 請從 Azure Data Factory 管線執行資料流程, 並從管線使用 Debug 執行。
+
+### <a name="testing-join-conditions"></a>測試聯結條件
+
+當單元測試聯結、存在或查閱轉換時, 請確定您使用一小組已知的資料進行測試。 您可以使用上述的 [偵錯工具設定] 選項, 設定要用於測試的暫存檔案。 這是必要的, 因為在限制或取樣大型資料集的資料列時, 您無法預測要將哪些資料列和哪些金鑰讀入流程中進行測試。 結果是不具決定性的, 這表示您的聯結條件可能會失敗。
 
 ### <a name="quick-actions"></a>快速動作
 

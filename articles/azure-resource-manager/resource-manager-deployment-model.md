@@ -3,15 +3,15 @@ title: Resource Manager 與傳統部署 | Microsoft Docs
 description: 描述資源管理員部署模型與傳統 (或服務管理) 部署模型之間的差異。
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: overview
-ms.date: 11/15/2017
+ms.topic: conceptual
+ms.date: 08/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 773d369f23154a510624169b9329555a1f865320
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
-ms.translationtype: HT
+ms.openlocfilehash: 9356a1603a39f2ac4d18b27445bf0f8d3a555d7e
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206306"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982463"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 與傳統部署：了解資源的部署模型和狀態
 
@@ -102,12 +102,12 @@ Get-AzVM -ResourceGroupName ExampleGroup
 
 下表描述計算、網路和儲存體資源提供者互動方式的變更：
 
-| Item | 傳統 | Resource Manager |
+| 項目 | 傳統 | Resource Manager |
 | --- | --- | --- |
 | 虛擬機器的雲端服務 |雲端服務是一種容器，專門保管那些要求平台和負載平衡可用性的虛擬機器。 |使用新模型建立虛擬機器時，雲端服務已經不是必要的物件了。 |
 | 虛擬網路 |虛擬網路是虛擬機器的選用項目。 如果包含，即無法使用 Resource Manager 部署虛擬網路。 |虛擬機器需要已使用 Resource Manager 部署的虛擬網路。 |
 | 儲存體帳戶 |虛擬機器需要能儲存作業系統的 VHD、暫存磁碟及其他資料磁碟的儲存體帳戶。 |虛擬機器需要儲存體帳戶，才能將其磁碟儲存在 Blob 儲存體。 |
-| 可用性設定組 (Availability Sets) |在虛擬機器上設定相同的 "AvailabilitySetName" 之後，即表示平台的可用性。 容錯網域的最大個數為 2。 |「可用性設定組」是 Microsoft.Compute 提供者公開的資源。 需要高可用性的虛擬機器必須包含在「可用性設定組」中。 容錯網域的最大個數現在是 3。 |
+| 可用性設定組 |在虛擬機器上設定相同的 "AvailabilitySetName" 之後，即表示平台的可用性。 容錯網域的最大個數為 2。 |「可用性設定組」是 Microsoft.Compute 提供者公開的資源。 需要高可用性的虛擬機器必須包含在「可用性設定組」中。 容錯網域的最大個數現在是 3。 |
 | 同質群組 |建立虛擬網路時需要同質群組。 不過，隨著區域虛擬網路引進，就再也不需要了。 |簡而言之，透過 Azure Resource Manager 而公開的 API，其實不存在同質群組這種概念。 |
 | 負載平衡 |雲端服務的建立，為部署的虛擬機器提供隱含的負載平衡器。 |負載平衡器是 Microsoft.Network 提供者所公開的資源。 虛擬機器如果需要平衡負載，其主要網路介面應該參考負載平衡器。 負載平衡器可以放在內部或外部。 負載平衡器執行個體會參考 IP 位址的後端集區，其中包含虛擬機器的 NIC (選擇性)，以及參考負載平衡器的公用或私人 IP 位址 (選擇性)。 |
 | 虛擬 IP 位址 |將虛擬機器新增到雲端服務後，雲端服務會得到預設的 VIP (虛擬 IP 位址)。 虛擬 IP 位址是隱含性負載平衡器的相關位址。 |公用 IP 位址是 Microsoft.Network 提供者所公開的資源。 公用 IP 位址可以是靜態 (保留) 或動態。 動態公用 IP 可以指派至負載平衡器。 使用安全性群組可以保護公用 IP。 |

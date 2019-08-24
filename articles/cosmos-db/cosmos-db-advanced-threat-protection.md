@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: 0504da45cbbd60629954d3e3ca3230e05761c1d6
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e22e05618c8b8977ba8b03afd3b654d27d4fa6bd
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640353"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981741"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB 的先進威脅防護
 
 Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報, 可偵測不尋常且可能有害的嘗試存取或惡意探索 Azure Cosmos DB 帳戶。 這一層保護可讓您處理威脅, 即使不是安全性專家, 也能將它們與中央安全性監視系統整合。
 
-當活動發生異常時, 就會觸發安全性警示。 這些安全性警示會與 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合, 並透過電子郵件傳送給訂用帳戶系統管理員, 並提供可疑活動的詳細資料, 以及如何調查和修復威脅的建議。
+當活動發生異常時, 就會觸發安全性警示。 這些安全性警示會與[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)整合, 並透過電子郵件傳送給訂用帳戶系統管理員, 並提供可疑活動的詳細資料, 以及如何調查和修復威脅的建議。
 
 > [!NOTE]
 >
@@ -31,16 +31,16 @@ Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報, 可�
 
 ### <a name="set-up-atp-using-the-portal"></a>使用入口網站設定 ATP
 
-1. 啟動 Azure 入口網站, 網址  [https://portal.azure.com](https://portal.azure.com/)為。
+1. 啟動 Azure 入口網站, 網址[https://portal.azure.com](https://portal.azure.com/)為。
 
 2. 從 [Azure Cosmos DB] 帳戶的 [**設定**] 功能表中, 選取 [ **Advanced security**]。
 
     ![設定 ATP](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png)
 
-3. 在 [ **Advanced security** configuration] 分頁中:
+3. 在 [ **Advanced security** configuration] 分頁中:
 
     * 按一下 [ **Advanced 威脅防護**] 選項, 將其設定為 [**開啟**]。
-    * 按一下 [ **儲存** ] 以儲存新的或已更新的先進威脅防護原則。   
+    * 按一下 [儲存]，以儲存新的或更新的進階威脅防護原則。   
 
 ### <a name="set-up-atp-using-rest-api"></a>使用 REST API 設定 ATP
 
@@ -75,5 +75,5 @@ Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報, 可�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入瞭解 [Azure Cosmos DB 中的診斷記錄](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
-* 深入瞭解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* 深入瞭解[Azure Cosmos DB 中的診斷記錄](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
+* 深入了解 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)

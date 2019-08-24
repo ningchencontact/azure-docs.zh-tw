@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567257"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998231"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -344,9 +344,12 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 如果您使用的是彈性集區或受控執行個體，則也需要設定這些資源的診斷設定，以便將診斷遙測串流到工作區中。
 
-### <a name="use-the-sql-analytics-solution"></a>使用 SQL 分析解決方案
+### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>使用 SQL 分析解決方案進行監視和警示
 
-您可以使用 SQL 分析做為階層式儀表板，檢視您的 SQL Database 資源。 若要深入了解如何使用 SQL 分析解決方案，請參閱[使用 SQL 分析解決方案監視 SQL Database](../log-analytics/log-analytics-azure-sql.md)。
+您可以使用 SQL 分析做為階層式儀表板，檢視您的 SQL Database 資源。
+
+- 若要深入了解如何使用 SQL 分析解決方案，請參閱[使用 SQL 分析解決方案監視 SQL Database](../log-analytics/log-analytics-azure-sql.md)。
+- 若要瞭解如何針對以 SQL 分析為基礎的 SQL Database 和受控實例設定警示, 請參閱[建立 SQL Database 和受控實例的警示](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)。
 
 ## <a name="stream-into-event-hubs"></a>串流至事件中樞
 
@@ -457,7 +460,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-runtime-statistics"></a>查詢存放區執行階段統計資料
 
-|內容|描述|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
@@ -508,7 +511,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="query-store-wait-statistics"></a>查詢存放區等候統計資料
 
-|內容|描述|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
@@ -575,7 +578,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="database-wait-statistics-dataset"></a>資料庫等候統計資料資料集
 
-|內容|描述|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
@@ -604,7 +607,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="time-outs-dataset"></a>逾時資料集
 
-|內容|描述|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
@@ -627,7 +630,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="blockings-dataset"></a>封鎖資料集
 
-|內容|描述|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
@@ -651,7 +654,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="deadlocks-dataset"></a>死結 (Deadlock) 資料集
 
-|內容|描述|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
@@ -672,7 +675,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="automatic-tuning-dataset"></a>自動調整資料集
 
-|內容|描述|
+|屬性|描述|
 |---|---|
 |TenantId|您的租用戶識別碼 |
 |SourceSystem|一律：Azure |
@@ -715,3 +718,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+若要瞭解如何根據 log analytics 的遙測設定警示, 請參閱:
+
+- [建立 SQL Database 和受控實例的警示](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

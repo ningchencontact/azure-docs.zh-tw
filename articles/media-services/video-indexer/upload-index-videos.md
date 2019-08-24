@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 8fffc74075abf6dcc4b5c293819f739a9725646b
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305631"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998165"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -60,17 +60,17 @@ ms.locfileid: "68305631"
 - 索引狀態變更： 
     - 屬性：    
     
-        |名稱|描述|
+        |Name|描述|
         |---|---|
-        |id|影片識別碼|
-        |state|影片狀態|  
+        |ID|影片識別碼|
+        |狀態|影片狀態|  
     - 範例: HTTPs:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 在影片中識別到的人員：
   - 屬性
     
-      |名稱|描述|
+      |Name|描述|
       |---|---|
-      |id| 影片識別碼|
+      |ID| 影片識別碼|
       |faceId|影片索引中出現的臉部識別碼|
       |knownPersonId|臉部模型中唯一的個人識別碼|
       |personName|人員名稱|
@@ -102,7 +102,7 @@ ms.locfileid: "68305631"
 
 上傳您的影片後，影片索引器會選擇性地對影片進行編碼。 然後，繼續進行索引編製並分析影片。 當影片索引器完成分析時，您會收到包含影片識別碼的通知。  
 
-使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)或[重新編製影片索引](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API 時，其中一個選擇性參數為 `streamingPreset`。 如果您將 `streamingPreset` 設定為 `Default`、`SingleBitrate` 或 `AdaptiveBitrate`，就會觸發編碼程序。 完成編製索引及編碼工作後，影片就會發佈，因此您也可以對影片進行串流處理。 您想要串流影片的串流端點必須處於 [執行中]  狀態。
+使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)或[重新編製影片索引](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API 時，其中一個選擇性參數為 `streamingPreset`。 如果您將 `streamingPreset` 設定為 `Default`、`SingleBitrate` 或 `AdaptiveBitrate`，就會觸發編碼程序。 完成編製索引及編碼工作後，影片就會發佈，因此您也可以對影片進行串流處理。 您想要串流影片的串流端點必須處於 [執行中] 狀態。
 
 若要執行編製索引及編碼工作，[連線至您影片索引器帳戶的 Azure 媒體服務帳戶](connect-to-azure.md)需要保留單元。 如需詳細資訊，請參閱[調整媒體處理](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview)。 由於這些都是計算密集的作業，強烈建議使用 S3 單元類型。 RU 數量會定義可以平行執行的作業數目上限。 基準建議是 10 個 S3 RU。 
 
@@ -159,9 +159,9 @@ public async Task Sample()
     // as an alternative to specifying video URL, you can upload a file.
     // remove the videoUrl parameter from the query params below and add the following lines:
     //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-    //byte[] buffer =newbyte[video.Length];
+    //byte[] buffer =new byte[video.Length];
     //video.Read(buffer, 0, buffer.Length);
-    //content.Add(newByteArrayContent(buffer));
+    //content.Add(new ByteArrayContent(buffer));
 
     queryParams = CreateQueryString(
         new Dictionary<string, string>()

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 8/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 13d6eb64b2089cf93f08c294cc9b6a2034b64fa0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640866"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990548"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>使用 Azure 資訊安全中心建議增強安全性
 您可以設定安全性原則，然後實作 Azure 資訊安全中心提供的建議，以降低發生重大安全性事件的機會。 本文說明如何使用資訊安全中心的安全性原則和建議，以協助減少安全性攻擊。 
@@ -75,6 +75,6 @@ Jeff 繼續瀏覽高優先權和中優先順序的建議，然後進行實作決
 ## <a name="next-steps"></a>後續步驟
 請確定您已備妥監視程序，您會在監視過程中定期檢查資訊安全中心的建議，以確保資源在一段時間內保持安全無虞。
 
-本案例示範如何使用資訊安全中心的安全性原則和建議，以協助減少安全性攻擊。 請參閱[事件回應案例](security-center-incident-response.md)，以了解如何在攻擊發生前備妥事件回應計劃。
+本案例示範如何使用資訊安全中心的安全性原則和建議，以協助減少安全性攻擊。
 
-了解如何以[事件回應](security-center-incident-response.md)來回應威脅。
+瞭解如何透過[管理和回應安全性警示](security-center-managing-and-responding-alerts.md)來回應威脅。

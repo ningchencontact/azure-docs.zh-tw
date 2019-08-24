@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cafe761d2b566a7bddce503765c11bf9f8e00f2a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2954f0bfcfe78243c2df12182f45034f46c8391d
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847445"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991900"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 處理巨量資料需求
 
@@ -25,7 +25,7 @@ ms.locfileid: "68847445"
 > * 下載資料
 > * 將資料視覺化
 
-首先建立儲存體帳戶和檔案系統。 然後，授與資料的存取權。 本文的前幾節可協助您完成這些工作。 在其餘各節中，我們會特別說明每個處理階段的選項與工具。
+一開始先建立儲存體帳戶和容器。 然後，授與資料的存取權。 本文的前幾節可協助您完成這些工作。 在其餘各節中，我們會特別說明每個處理階段的選項與工具。
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>建立 Data Lake Storage Gen2 帳戶
 
@@ -33,16 +33,16 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 若要建立一個帳戶，請參閱[快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
-## <a name="create-a-file-system"></a>建立檔案系統
+## <a name="create-a-container"></a>建立容器
 
-「檔案系統」是資料夾和檔案的容器。 您需要至少一個檔案系統，才能開始擷取您儲存體帳戶中的資料。  以下是您可用來建立檔案系統的工具清單。
+以下是您可以用來建立檔案容器的工具清單。
 
 |Tool | 指引 |
 |---|--|
-|Azure 儲存體總管 | [使用儲存體總管建立檔案系統](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure 儲存體總管 | [使用儲存體總管建立容器](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
 |AzCopy | [使用 AzCopyV10 建立 Blob 容器或檔案共用](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|Hadoop 檔案系統 (HDFS) 命令列介面 (CLI) 搭配 HDInsight |[使用 HDFS 搭配 HDInsight 建立檔案系統](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Azure Databricks Notebook 中的程式碼|[建立儲存體帳戶檔案系統 (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [建立檔案系統並加以掛接 (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|搭配 HDInsight 的 Hadoop 容器 (HDFS) 命令列介面 (CLI) |[使用 HDFS 搭配 HDInsight 來建立容器](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
+|Azure Databricks Notebook 中的程式碼|[建立儲存體帳戶容器 (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [建立容器並加以掛接 (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
 使用儲存體總管或 AzCopy 來建立檔案系統是最簡單的方式。 使用 HDInsight 與 Databricks 來建立檔案系統比較複雜一點。 不過，如果您打算使用 HDInsight 或 Databricks 叢集來處理您的資料，則可先建立您的叢集，然後使用 HDFS CLI 來建立檔案系統。  
 

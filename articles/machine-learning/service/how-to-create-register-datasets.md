@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/21/2019
-ms.openlocfilehash: 67dda1ab56c6a706a9fdbef45fabdae9167ffe2b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.date: 08/22/2019
+ms.openlocfilehash: 497a00570d85ab83f71416e979e485db4685b64a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616331"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992122"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>在 Azure Machine Learning 中建立和存取資料集 (預覽)
 
@@ -44,7 +44,8 @@ ms.locfileid: "69616331"
 > 某些資料集類別 (預覽) 在[dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py)套件上具有相依性。 針對 Linux 使用者, 只有下列散發版本才支援這些類別:Red Hat Enterprise Linux、Ubuntu、Fedora 和 CentOS。
 
 ## <a name="dataset-types"></a>資料集類型
-資料集會根據使用者在定型中取用它們的方式, 分類成各種類型。 目前我們支援以表格格式表示資料的 TabularDatasets, 方法是剖析提供的檔案或檔案清單。 這讓您能夠將資料具體化為 pandas 資料框架。 您可以從 csv、tsv、parquet 檔案、SQL 查詢結果等建立 TabularDataset。如需完整清單, 請流覽我們的檔。
+
+資料集會根據使用者在定型中取用它們的方式, 分類成各種類型。 目前我們支援以表格格式表示資料的[TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) , 方法是剖析提供的檔案或檔案清單。 這讓您能夠將資料具體化為 pandas 資料框架。 您可以從 csv、tsv、parquet 檔案、SQL 查詢結果等建立物件。`TabularDataset`如需完整清單, 請流覽我們的檔。
 
 若要深入瞭解即將推出的 API 變更, 請參閱[什麼是 Azure Machine Learning 服務？](https://aka.ms/tabular-dataset) 
 
@@ -136,7 +137,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## <a name="access-your-data-during-training"></a>在定型期間存取您的資料
 
-已註冊的資料集會在計算叢集 (例如 Azure Machine Learning 計算) 上, 從本機和遠端存取。 若要跨實驗存取已註冊的資料集, 請使用下列程式碼, 依名稱取得您的工作區和已註冊的資料集。 根據預設, `get_by_name` 類別上的方法會傳回已向工作區註冊之資料集的最新版本。`Dataset`
+已註冊的資料集會在計算叢集 (例如 Azure Machine Learning 計算) 上, 從本機和遠端存取。 若要跨實驗存取已註冊的資料集, 請使用下列程式碼, 依名稱取得您的工作區和已註冊的資料集。 根據預設, [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) 類別上的方法會傳回已向工作區註冊之資料集的最新版本。`Dataset`
 
 ```Python
 %%writefile $script_folder/train.py

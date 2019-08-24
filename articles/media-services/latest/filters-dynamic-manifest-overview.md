@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: bbbb570cc042d5faa16b66c42aef9792b24fdb12
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: dc9f59894da071e956283591cf7206bc371650b7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854061"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991437"
 ---
 # <a name="pre-filtering-manifests-by-using-dynamic-packager"></a>使用動態封裝器預先篩選資訊清單
 
@@ -52,7 +52,7 @@ Azure 媒體服務支援 HLS、MPEG 破折號和 Smooth Streaming 通訊協定�
 
 ![Azure 媒體播放器診斷][amp_diagnostics]
  
-### <a name="examples-urls-with-filters-in-query-string"></a>範例：查詢字串中含有篩選的 Url
+### <a name="examples-urls-with-filters-in-query-string"></a>例如：查詢字串中含有篩選的 Url
 
 您可以將篩選套用至 ABR 串流通訊協定:HLS、MPEG-DASH 和 Smooth Streaming。 下表顯示包含篩選器之 URL 的一些範例：
 
@@ -107,7 +107,7 @@ Azure 媒體服務支援 HLS、MPEG 破折號和 Smooth Streaming 通訊協定�
 
 ## <a name="adjusting-the-presentation-window-dvr"></a>調整簡報視窗 (DVR)
 
-目前, Azure 媒體服務提供迴圈封存, 其中的持續時間可以設定為5分鐘到25小時。 資訊清單篩選可以在封存頂端建立循環 DVR 視窗封存，而不會刪除媒體。 在許多情況下，廣播者想要提供受限制的 DVR 時段以隨著即時邊緣移動，並同時保留更大的封存視窗。 廣播者可能會想要使用超出 DVR 視窗的資料來反白顯示剪輯，或者想要為不同的裝置提供不同的 DVR 視窗。 例如, 大部分的行動裝置都不會處理大型的 DVR 視窗 (您可以讓行動裝置有2分鐘的 DVR 視窗, 而桌面用戶端的1小時)。
+目前, Azure 媒體服務提供迴圈封存, 可在1分鐘-25 小時內設定持續時間。 資訊清單篩選可以在封存頂端建立循環 DVR 視窗封存，而不會刪除媒體。 在許多情況下，廣播者想要提供受限制的 DVR 時段以隨著即時邊緣移動，並同時保留更大的封存視窗。 廣播者可能會想要使用超出 DVR 視窗的資料來反白顯示剪輯，或者想要為不同的裝置提供不同的 DVR 視窗。 例如，大多數的行動裝置不處理大型 DVR 視窗 (您可以讓行動裝置有 2 分鐘長的 DVR 視窗，而桌上型用戶端的有一小時長)。
 
 ![DVR 視窗][dvr_filter]
 

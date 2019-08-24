@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: a600c50e97f0d069443112a59d529c0d6f6fecad
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 6e3ce21419e131ceef65939202eb70a98f10b040
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737068"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982441"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>有關在 Azure VM 備份上執行之 SQL Server 資料庫的常見問題
 
@@ -37,9 +37,10 @@ ms.locfileid: "68737068"
 預設會針對所有使用者啟用自動修復功能;不過, 如果您退出宣告, 請執行下列動作:
 
   * 在 SQL Server 實例的*C:\Program Files\Azure 工作負載 Backup\bin*資料夾中, 建立或編輯**extensionsettingsoverrides.json**檔案。
-  * 在 **extensionsettingsoverrides.json**中, 設定 *{"EnableAutoHealer": false}* 。
+  * 在**extensionsettingsoverrides.json**中, 設定 *{"EnableAutoHealer": false}* 。
   * 儲存變更並關閉該檔案。
-  * 在 SQL Server 實例上, 開啟 [工作] [**管理**], 然後重新開機**AzureWLBackupCoordinatorSvc**服務。  
+  * 在 SQL Server 實例上, 開啟 [工作] [**管理**], 然後重新開機**AzureWLBackupCoordinatorSvc**服務。
+   
 
 ## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>我可以控制 SQL server 上執行的並行備份數目嗎？
 
@@ -71,12 +72,12 @@ Azure 備份復原服務保存庫可以偵測並保護與保存庫位於相同�
 [**備份作業**] 功能表只會顯示特定的備份作業。 針對排程工作, 使用[Azure 監視器的監視](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>未來的資料庫會自動加入以進行備份嗎？
-是, 您可以透過 [自動保護](backup-sql-server-database-azure-vms.md#enable-auto-protection)來達成此功能。  
+是, 您可以透過[自動保護](backup-sql-server-database-azure-vms.md#enable-auto-protection)來達成此功能。  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>如果我從 autoprotected 實例中刪除資料庫, 備份會發生什麼事？
 如果從 autoprotected 實例中卸載資料庫, 仍然會嘗試資料庫備份。 這表示已刪除的資料庫會開始顯示為 [**備份專案**] 底下的 [狀況不良], 而且仍然受到保護。
 
-停止保護此資料庫的正確方式, 是在此資料庫上執行 [**刪除資料**] 的 [ **停止備份**]。  
+停止保護此資料庫的正確方式, 是在此資料庫上執行 [**刪除資料**] 的 [**停止備份**]。  
 
 ## <a name="if-i-do-stop-backup-operation-of-an-autoprotected-database-what-will-be-its-behavior"></a>如果我停止 autoprotected 資料庫的備份作業, 會有何行為？
 如果您**使用 [保留資料] 停止備份**, 則不會進行任何未來的備份, 而且現有的復原點仍會保持不變。 資料庫仍會被視為受保護, 並顯示在**備份專案**底下。

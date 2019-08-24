@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/19/2019
+ms.date: 08/22/2019
 ms.author: dalek
-ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 45a8f8a7ee4d887503aeaf8e0e285c45a21c4bcc
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624380"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982627"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -65,30 +65,43 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 
 ![在左側功能表中，選取 [帳務]](./media/pricing/02-billing.png)
 
-## <a name="data-rate"></a>資料速率
-您可以透過三種方式限制傳送的資料量：
+## <a name="managing-your-data-volume"></a>管理您的資料量 
 
-* **取樣**：您可以使用取樣來減少從伺服器和用戶端應用程式傳送的遙測量，這對計量的扭曲程度最小。 取樣是您可用來調整所傳送資料量的主要工具。 深入了解[取樣功能](../../azure-monitor/app/sampling.md)。 
-* **每日上限**：在 Azure 入口網站中建立 Application Insights 資源時，每日上限會設定為每日 100 GB。 在 Visual Studio 中建立 Application Insights 資源時，預設值很小 (只有每日 32.3 MB)。 每日上限預設值的設定是為了協助測試。 這是預期使用者在將應用程式部署至生產環境之前，會提高每日上限。 
-
-    除非您針對高流量的應用程式要求更高的最大值，否則每日的最高上限是 1,000 GB。 
-
-    設定每日上限時，請務必小心。 您的目的應該是「一律不要達到每日上限」。 如果達到每日上限，就會失去當天其餘時間的資料，而無法監視應用程式。 若要變更每日上限，請使用 [每日用量上限] 選項。 您可以在 [使用量和估計成本] 窗格中存取此選項 (本文稍後會有更詳細的說明)。
-    我們已移除某些訂用帳戶類型的信用額度無法用於 Application Insights 的限制。 先前，如果訂用帳戶有消費限制，則 [每日上限] 對話方塊中會有指示，說明如何移除消費限制並讓每日上限提高到每日 32.3 MB 以上。
-* **節流**：節流會將資料速率限制在每秒 32,000 個事件 (每個檢測金鑰以 1 分鐘計算平均值)。
-
-如果應用程式超過節流速率會發生什麼事？
-
-* 系統會每分鐘評估應用程式傳送的資料量。 如果每秒速率超過每分鐘平均值，伺服器會拒絕部分要求。 SDK 會緩衝處理資料，然後嘗試重新傳送它。 它會在數分鐘的期間內散佈大量資料。 如果應用程式始終以高於節流速率的方式傳送資料，有些資料會就遭到捨棄。 (ASP.NET、Java 和 JavaScript SDK 會嘗試以此方式重新傳送資料，其他 SDK 則可能直接捨棄節流的資料)。當節流發生時，會有通知警告來警示您已發生這種情況。
-
-如何知道應用程式正在傳送多少資料？
-
-您可以使用下列其中一個選項來查看應用程式傳誦多紹資料：
+若要瞭解您的應用程式所傳送的資料量, 您可以:
 
 * 開啟 [使用量和估計成本] 窗格以查看每日資料量圖表。 
 * 在 [計量瀏覽器] 中，新增圖表。 針對圖表計量，選取 [資料點量]。 開啟 [群組]，然後依 [資料類型] 分組。
+* `systemEvents`使用資料類型。 比方說, 若要查看過去一天的資料量內嵌, 查詢會是:
 
-## <a name="reduce-your-data-rate"></a>降低資料速率
+```kusto
+systemEvents 
+| where timestamp >= ago(1d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes)
+```
+
+此查詢可用於[Azure 記錄警示](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log), 以設定資料磁片區的警示。 
+
+您傳送的資料量可透過三種方式來管理:
+
+* **取樣**：您可以使用取樣來減少從伺服器和用戶端應用程式傳送的遙測量，這對計量的扭曲程度最小。 取樣是您可用來調整所傳送資料量的主要工具。 深入了解[取樣功能](../../azure-monitor/app/sampling.md)。
+ 
+* **每日上限**：在 Azure 入口網站中建立 Application Insights 資源時，每日上限會設定為每日 100 GB。 在 Visual Studio 中建立 Application Insights 資源時，預設值很小 (只有每日 32.3 MB)。 每日上限預設值的設定是為了協助測試。 這是預期使用者在將應用程式部署至生產環境之前，會提高每日上限。 
+
+    除非您針對高流量的應用程式要求更高的最大值，否則每日的最高上限是 1,000 GB。 
+    
+    有關每日上限的警告電子郵件會傳送給屬於這些角色成員的帳戶, 以供您的 Application Insights 資源:"ServiceAdmin"、"AccountAdmin"、"共同管理員"、"Owner"。
+
+    設定每日上限時，請務必小心。 您的目的應該是「一律不要達到每日上限」。 如果達到每日上限，就會失去當天其餘時間的資料，而無法監視應用程式。 若要變更每日上限，請使用 [每日用量上限] 選項。 您可以在 [使用量和估計成本] 窗格中存取此選項 (本文稍後會有更詳細的說明)。
+    
+    我們已移除某些訂用帳戶類型的信用額度無法用於 Application Insights 的限制。 先前，如果訂用帳戶有消費限制，則 [每日上限] 對話方塊中會有指示，說明如何移除消費限制並讓每日上限提高到每日 32.3 MB 以上。
+    
+* **節流**：節流會將資料速率限制在每秒 32,000 個事件 (每個檢測金鑰以 1 分鐘計算平均值)。 系統會每分鐘評估應用程式傳送的資料量。 如果每秒速率超過每分鐘平均值，伺服器會拒絕部分要求。 SDK 會緩衝處理資料，然後嘗試重新傳送它。 它會在數分鐘的期間內散佈大量資料。 如果應用程式始終以高於節流速率的方式傳送資料，有些資料會就遭到捨棄。 (ASP.NET、Java 和 JavaScript SDK 會嘗試以此方式重新傳送資料，其他 SDK 則可能直接捨棄節流的資料)。當節流發生時，會有通知警告來警示您已發生這種情況。
+
+## <a name="reduce-your-data-volume"></a>減少您的資料量
+
 以下是您可進行以減少資料量的一些事項︰
 
 * 使用 [取樣](../../azure-monitor/app/sampling.md)。 此技術可在不扭曲計量的情況下降低資料速率。 您不會失去在 [搜尋] 中的相關項目之間瀏覽的能力。 在伺服器應用程式中，取樣會自動運作。

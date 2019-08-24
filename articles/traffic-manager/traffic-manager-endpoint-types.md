@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: allensu
-ms.openlocfilehash: 1b72fc510543ff57f5fac1b03e76df7ffed3fbfe
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 9de5b161c6bb1897058898dddd620ad093f148be
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333818"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981061"
 ---
 # <a name="traffic-manager-endpoints"></a>流量管理員端點
 
@@ -101,7 +101,7 @@ PublicIPAddress 資源是 Azure Resource Manager 資源。 它們不存在於傳
 
 * [我可以在相同的區域中使用具有多個 Web 應用程式的流量管理員嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [如何? 將我的流量管理員設定檔的 Azure 端點移至不同的資源群組嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
+* [如何? 將我的流量管理員設定檔的 Azure 端點移至不同的資源群組嗎？](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,20 +11,20 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851127"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991980"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>管理及要求 Azure 資源的配額
 
-如同使用其他 Azure 服務，對於與 Azure Machine Learning 服務相關聯的特定資源有一些限制。 您可以限制在實際的基礎計算取得用於模型定型或計分推斷/建立限制範圍可從工作區的數目上限。 
+如同使用其他 Azure 服務，對於與 Azure Machine Learning 服務相關聯的特定資源有一些限制。 這些限制的範圍是您可以建立的工作區數目上限, 以及用於模型定型或推斷/評分的實際基礎計算限制。 
 
 此文章針對您訂用帳戶之各種 Azure 資源所預先設定的限制提供更詳細的資料，另外還包含針對各種資源類型要求配額增強功能的方便連結。 設置這些限制可防止因詐欺而導致的預算超支，並遵循 Azure 的容量條件約束。
 
-當您為生產工作負載設計及相應增加您的 Azure Machine Learning 服務資源時，請記住這些配額。 比方說，如果您的叢集未連線到您指定的節點目標數目，則您可能已達到 Azure Machine Learning 計算核心限制為您的訂用帳戶。 如果您想要將限制或配額提升到預設限制以上，您可以免費提出線上客戶支援要求。 由於 Azure 容量有其條件約束，您無法將限制提升至高於下表所示的「上限」值。 如果沒有上限欄，資源即沒有可調整的限制。
+當您為生產工作負載設計及相應增加您的 Azure Machine Learning 服務資源時，請記住這些配額。 例如, 如果您的叢集未達到您所指定的目標節點數目, 您可能已達到訂用帳戶的 Azure Machine Learning 計算核心限制。 如果您想要將限制或配額提升到預設限制以上，您可以免費提出線上客戶支援要求。 由於 Azure 容量有其條件約束，您無法將限制提升至高於下表所示的「上限」值。 如果沒有上限欄，資源即沒有可調整的限制。
 
 ## <a name="special-considerations"></a>特殊考量
 
@@ -54,9 +54,9 @@ ms.locfileid: "65851127"
 就 Azure Machine Learning Compute 而言，對於訂用帳戶中的每個區域允許的核心數目與特有計算資源數目，均有預設的配額限制。 此配額不同於上述 VM 核心配額，而且目前在兩個資源類型之間不共用核心限制。
 
 可用的資源：
-+ 每個區域的專用的核心有預設限制為 24-300 取決於您的訂用帳戶優惠類型。  您可以增加每個訂用帳戶的專用核心數目。 請連絡 Azure 支援以討論增加選項。
++ 根據您的訂用帳戶供應專案類型, 每個區域的專用核心預設限制為 24-300。  您可以增加每個訂用帳戶的專用核心數目。 請連絡 Azure 支援以討論增加選項。
 
-+ 每個區域的低優先順序核心有預設限制為 24-300，視您的訂用帳戶優惠類型而定。  您可以增加每個訂用帳戶的低優先順序核心數目。 請連絡 Azure 支援以討論增加選項。
++ 根據您的訂用帳戶供應專案類型而定, 每個區域的低優先順序核心預設限制為 24-300。  您可以增加每個訂用帳戶的低優先順序核心數目。 請連絡 Azure 支援以討論增加選項。
 
 + 每個區域的叢集都有預設的限制 (100 個) 和上限 (200 個)。 如果您想要要求增加到超過此限制，請連絡 Azure 支援。
 
@@ -68,12 +68,20 @@ ms.locfileid: "65851127"
 | 單一 Azure Machine Learning Compute (AmlCompute) 資源中的節點數上限 | 100 個節點 |
 | 每個節點的最大 GPU MPI 流程數 | 1 - 4 |
 | 每個節點的最大 GPU 背景工作角色數 | 1 - 4 |
-| 作業存留期上限 | 90 天<sup>1</sup> |
-| 低優先順序節點上的最大工作存留期 | 1 天<sup>2</sup> |
+| 作業存留期上限 | 90天<sup>1</sup> |
+| 低優先順序節點上的最大工作存留期 | 1天<sup>2</sup> |
 | 每個節點的最大參數伺服器數 | 1 |
 
 <sup>1</sup> 存留期上限是指執行開始到完成的時間。 已完成的執行會無限期保留；未在存留期上限內完成的執行，其資料將無法存取。
-<sup>2</sup>低優先順序節點上的作業可能會預先清空容量條件約束的任何時間。 建議您在工作時實作檢查點。
+每次有容量限制時, 低優先順序節點上的<sup>2</sup>個作業都可以預先清空。 建議您在作業中執行檢查點。
+
+### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 管線
+針對 Azure Machine Learning 管線, 管線中的步驟數目以及訂用帳戶中每個區域的排程型執行數目會有配額限制。
+- 管線中允許的最大步驟數目是30000
+- 每個訂用帳戶每個月已發佈管線的排程執行數目上限為100000
+
+> [!NOTE]
+> 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。
 
 ### <a name="container-instances"></a>容器執行個體
 
@@ -91,15 +99,15 @@ ms.locfileid: "65851127"
 
 透過 Azure 入口網站檢視各種資源 (例如虛擬機器、儲存體、網路) 的配額非常簡單。
 
-1. 在左窗格中，選取 [所有服務]  ，然後選取 [一般] 類別底下的 [訂用帳戶]  。
+1. 在左窗格中，選取 [所有服務]，然後選取 [一般] 類別底下的 [訂用帳戶]。
 
 1. 從訂用帳戶清單中，選取您要尋找其配額的訂用帳戶。
 
    **有一點需要注意**，具體而言是檢視 Azure Machine Learning Compute 配額時。 如上所述，該配額與您訂用帳戶上的計算配額是分開的。
 
-1. 在左窗格中，選取**Machine Learning 服務**然後從顯示的清單中選取任何工作區
+1. 在左窗格中, 選取 [ **Machine Learning 服務**], 然後從顯示的清單中選取任何工作區
 
-1. 在下一個刀鋒視窗的 [支援與疑難排解]  區段下方，選取 [使用量 + 配額]  ，以檢視目前配額限制與使用量。
+1. 在下一個刀鋒視窗的 [支援與疑難排解] 區段下方，選取 [使用量 + 配額]，以檢視目前配額限制與使用量。
 
 1. 選取訂用帳戶以檢視配額限制。 請記得篩選出您感興趣的區域。
 
@@ -110,7 +118,7 @@ ms.locfileid: "65851127"
 
 您無法將限制提升到高於下表中所示的上限值。 如果沒有上限，資源即沒有可調整的限制。 [這篇](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)文章涵蓋配額增加程序的詳細資料。
 
-要求增加配額時，您必須選取您要求提升配額的服務，這可以是 Machine Learning 服務配額、容器執行個體或儲存體的配額。 除了 Azure Machine Learning Compute 以外，您也可以在依照前述步驟檢視配額時直接按一下 [要求配額]  按鈕。
+要求增加配額時，您必須選取您要求提升配額的服務，這可以是 Machine Learning 服務配額、容器執行個體或儲存體的配額。 除了 Azure Machine Learning Compute 以外，您也可以在依照前述步驟檢視配額時直接按一下 [要求配額] 按鈕。
 
 > [!NOTE]
 > [免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)無法增加限制或配額。 如果您有[免費試用訂用帳戶](https://azure.microsoft.com/offers/ms-azr-0044p)，則可以升級到[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)訂用帳戶。 如需詳細資訊，請參閱[將 Azure 免費試用升級至隨用隨付](../../billing/billing-upgrade-azure-subscription.md)和[免費試用訂用帳戶常見問題集](https://azure.microsoft.com/free/free-account-faq)。

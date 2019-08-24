@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963454"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980489"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取最佳做法
 
@@ -87,7 +87,9 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>條件式存取是否能與 Exchange ActiveSync 搭配使用？
 
-是, 您可以在條件式存取原則中使用 Exchange ActiveSync, 但有一些[限制](block-legacy-authentication.md)。 
+是, 您可以在條件式存取原則中使用 Exchange ActiveSync。
+
+某些雲端應用程式 (例如 SharePoint Online 和 Exchange Online) 也支援舊版驗證通訊協定。 當用戶端應用程式可以使用舊版驗證通訊協定來存取雲端應用程式時，Azure AD 無法針對該存取嘗試強制執行條件式存取原則。 若要預防用戶端應用程式略過強制執行的原則，您應該確認是否可以只針對受影響的雲端應用程式啟用新式驗證。
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>您應該如何使用 Office 365 應用程式來設定條件式存取？
 

@@ -7,26 +7,26 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: d03cfd49887adf1f6a4650e374d3e13eeca735a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 533958221898b620500b7363f3710f75f155934a
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077466"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998051"
 ---
-# <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>在 Azure Database for PostgreSQL-超大規模 (Citus) （預覽） 的資料表共置
+# <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>適用於 PostgreSQL 的 Azure 資料庫中的資料表共置–超大規模資料庫 (Citus)
 
-共置表示一起儲存在相同節點上的相關的資訊。 查詢即可，毋需任何網路流量的所有必要的資料時，快速。 共置不同節點上的相關的資料，可讓查詢有效率地以平行方式執行每個節點上。
+共置表示將相關資訊一起儲存在相同的節點上。 當所有必要的資料都可供使用, 且沒有任何網路流量時, 查詢可以快速完成。 在不同節點上共置相關資料, 可讓查詢在每個節點上以平行方式執行。
 
 ## <a name="data-colocation-for-hash-distributed-tables"></a>雜湊分散式資料表的資料共置
 
-在超大規模的資料列會儲存在分區中，如果雜湊散發資料行中的值落在分區的雜湊的範圍內。 使用相同的雜湊範圍分區會放置在相同節點上。 平均散發資料行值的資料列都在相同節點上整個資料表。
+在適用於 PostgreSQL 的 Azure 資料庫–超大規模資料庫 (Citus) Preview 中, 如果散發資料行中值的雜湊落在分區的雜湊範圍內, 則會將資料列儲存在分區中。 具有相同雜湊範圍的分區一律會放在相同的節點上。 具有相等散發資料行值的資料列一定會在資料表間的相同節點上。
 
 ![分區](media/concepts-hyperscale-colocation/colocation-shards.png)
 
-## <a name="a-practical-example-of-colocation"></a>共置的實用範例
+## <a name="a-practical-example-of-colocation"></a>共置的實際範例
 
-請考慮下列資料表中可能是多租用戶 web analytics SaaS 的一部分：
+請考慮下列可能屬於多租使用者 web 分析 SaaS 的資料表:
 
 ```sql
 CREATE TABLE event (
@@ -45,9 +45,9 @@ CREATE TABLE page (
 );
 ```
 
-現在我們想要回答的查詢，可能會公布的面向客戶的儀表板，例如：「 傳回過去一週的開頭的所有頁面瀏覽數 '/ 部落格' 六個的租用戶中。 」
+現在我們想要回答客戶面向儀表板可能發出的查詢。 範例查詢是「傳回過去一周內所有頁面的造訪次數 (以租使用者六的 '/blog ' 為開頭)。」
 
-如果我們的資料位於單一伺服器部署選項，我們就可以輕鬆地表示我們使用 SQL 所提供的關聯式作業的一組豐富的查詢：
+如果我們的資料是在單一伺服器部署選項中, 我們可以使用 SQL 所提供的一組豐富關聯式作業, 輕鬆地表達查詢:
 
 ```sql
 SELECT page_id, count(event_id)
@@ -62,13 +62,13 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-只要[工作組](https://en.wikipedia.org/wiki/Working_set)單一伺服器資料表的這項查詢放入記憶體，是適當的解決方案。 不過，我們來看一下縮放的超大規模的部署選項與資料模型的機會。
+只要此查詢的[工作集](https://en.wikipedia.org/wiki/Working_set)符合記憶體, 單一伺服器資料表就是適當的解決方案。 讓我們考慮使用超大規模資料庫 (Citus) 部署選項來調整資料模型的機會。
 
-### <a name="distributing-tables-by-id"></a>散發資料表的識別碼
+### <a name="distribute-tables-by-id"></a>依識別碼散發資料表
 
-單一伺服器查詢開始變慢，因為租用戶和每個租用戶中儲存的資料數量成長。 工作集調整大小使其在記憶體中的停駐點和 CPU 成為瓶頸。
+單一伺服器查詢開始會因為租使用者數目和為每個租使用者儲存的資料成長而變慢。 工作集會停止在記憶體中進行調整, 而 CPU 會變成瓶頸。
 
-在此情況下，我們會使用超大規模的多節點之間可以分區資料。 我們需要進行分區化時散發資料行第一個也是最重要選項。 讓我們開始使用各種貝氏`event_id`事件資料表和`page_id`如`page`資料表：
+在此情況下, 我們可以使用超大規模資料庫 (Citus) 來分區多個節點之間的資料。 在我們決定分區時, 第一個和最重要的選擇是散發資料行。 讓我們從使用`event_id`事件資料表和`page_id` `page`資料表的簡單選擇開始:
 
 ```sql
 -- naively use event_id and page_id as distribution columns
@@ -77,7 +77,7 @@ SELECT create_distributed_table('event', 'event_id');
 SELECT create_distributed_table('page', 'page_id');
 ```
 
-當資料散佈於不同的背景工作角色時，我們無法執行聯結，因為我們會在單一的 PostgreSQL 節點上。 相反地，我們必須發出兩個查詢：
+當資料散佈在不同的背景工作時, 我們無法像在單一于 postgresql 節點上一樣執行聯結。 相反地, 我們需要發出兩個查詢:
 
 ```sql
 -- (Q1) get the relevant page_ids
@@ -92,24 +92,24 @@ WHERE page_id IN (/*…page IDs from first query…*/)
 GROUP BY page_id ORDER BY count DESC LIMIT 10;
 ```
 
-之後，兩個步驟的結果必須結合應用程式。
+之後, 這兩個步驟的結果必須由應用程式結合。
 
-執行查詢，必須參閱散布在節點的分區中的資料。
+執行查詢必須查閱分散在各個節點的分區中的資料。
 
 ![效率不佳的查詢](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
 
-在此情況下資料分佈會建立大量的缺點：
+在此情況下, 資料散發會產生顯著的缺點:
 
--   從查詢執行多個查詢的每個分區的額外負荷
--   傳回至用戶端的多個資料列的第 1 季負擔
--   第 2 季變得大
--   您不必在多個步驟中撰寫查詢需要應用程式中的變更
+-   查詢每個分區並執行多個查詢的額外負荷。
+-   Q1 將許多資料列傳回給用戶端的額外負荷。
+-   Q2 變得很大。
+-   需要在多個步驟中撰寫查詢的需求, 需要在應用程式中進行變更。
 
-因為資料已分散，查詢可以平行處理。 不過，它才有幫助的查詢會執行的工作數量大於本質上查詢許多分區的額外負荷。
+資料散佈在一起, 因此可以平行處理查詢。 只有當查詢執行的工作量明顯大於查詢許多分區的額外負荷時, 才會有好處。
 
-### <a name="distributing-tables-by-tenant"></a>散發租用戶資料表
+### <a name="distribute-tables-by-tenant"></a>依租使用者散發資料表
 
-在超大規模，具有相同的散發資料行值的資料列會保證在相同節點上。 從頭開始，我們可以建立具有資料表`tenant_id`作為散發資料行。
+在超大規模資料庫 (Citus) 中, 具有相同散發資料行值的資料列保證會在相同的節點上。 從開始, 我們可以使用`tenant_id`來建立資料表, 做為散發資料行。
 
 ```sql
 -- co-locate tables by using a common distribution column
@@ -117,7 +117,7 @@ SELECT create_distributed_table('event', 'tenant_id');
 SELECT create_distributed_table('page', 'tenant_id', colocate_with => 'event');
 ```
 
-現在超大規模可以回答原始的單一伺服器查詢，而不需修改 （第 1 季）：
+Now 超大規模資料庫 (Citus) 可以回答原始單一伺服器查詢, 而不需要修改 (Q1):
 
 ```sql
 SELECT page_id, count(event_id)
@@ -132,12 +132,12 @@ WHERE tenant_id = 6 AND path LIKE '/blog%'
 GROUP BY page_id;
 ```
 
-因為篩選和聯結 tenant_id，超大規模會知道可以使用共置的分區，其中包含該特定租用戶的資料集回答整個查詢。 單一 PostgreSQL 節點可以回答的查詢，以單一步驟。
+由於 tenant_id 上的 filter 和 join, 超大規模資料庫 (Citus) 知道可以使用包含該特定租使用者之資料的共置分區集合來回答整個查詢。 單一于 postgresql 節點可以在單一步驟中回答查詢。
 
-![更佳的查詢](media/concepts-hyperscale-colocation/colocation-better-query.png)
+![更好的查詢](media/concepts-hyperscale-colocation/colocation-better-query.png)
 
-在某些情況下，查詢和資料表結構描述必須變更唯一條件約束中包含租用戶識別碼，並聯結條件。 不過，這通常是簡單的變更。
+在某些情況下, 必須變更查詢和資料表架構, 以在唯一的條件約束和聯結條件中包含租使用者識別碼。 這種變更通常是直接的。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 請參閱 如何將租用戶資料共置於[多租用戶教學課程](tutorial-design-database-hyperscale-multi-tenant.md)
+- 請參閱[多租使用者教學](tutorial-design-database-hyperscale-multi-tenant.md)課程中的租使用者資料的共存方式。

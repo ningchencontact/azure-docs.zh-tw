@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: ba5ab7ce85933545a41f23e2ecd913acbb7e72d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40d888da214bad079c665c8d0e6095e8762a131e
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703847"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990643"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure 資訊安全中心威脅情報報告
 本文件說明 Azure 資訊安全中心威脅情報報告可如何協助您深入了解產生安全性警示的威脅。
@@ -48,19 +48,19 @@ ms.locfileid: "60703847"
 * **活動報告**︰著重說明特定攻擊活動的詳細資料。
 * **威脅摘要報告**︰涵蓋先前兩種報告的所有項目。
 
-這類資訊在[事件回應](security-center-incident-response.md)處理期間非常有用，因為該期間會持續進行調查，以了解攻擊來源、攻擊者的動機，以及日後該如何減少此問題。
+這種類型的資訊在事件回應程式期間非常有用, 因為它會持續進行調查, 以瞭解攻擊來源、攻擊者的動機, 以及如何解決此問題。
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>如何存取威脅情報報告？
-您可以查看 [安全性警示]  圖格來檢視目前的警示。 開啟 Azure 入口網站並遵循下列步驟來查看有關每個警示的詳細資料：
+您可以查看 [安全性警示] 圖格來檢視目前的警示。 開啟 Azure 入口網站並遵循下列步驟來查看有關每個警示的詳細資料：
 
-1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示]  圖格。
-2. 按一下圖格便可開啟 [安全性警示]  刀鋒視窗，其中包含有關警示的更多詳細資料，按一下您想了解的安全性警示即可取得更多相關資訊。
+1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示] 圖格。
+2. 按一下圖格便可開啟 [安全性警示] 刀鋒視窗，其中包含有關警示的更多詳細資料，按一下您想了解的安全性警示即可取得更多相關資訊。
 
     ![安全性警示](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. 在此案例中，[已執行的可疑處理序]  刀鋒視窗會顯示警示的詳細資料，如下圖所示︰
+3. 在此案例中，[已執行的可疑處理序] 刀鋒視窗會顯示警示的詳細資料，如下圖所示︰
 
     ![安全性警示詳細資料](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. 根據警示類型而定，針對每個安全性警示所提供的資訊數量會有所不同。 [報告]  欄位中有威脅情報報告的連結。 按一下連結，便會出現另一個含有 PDF 檔案的瀏覽器視窗。
+4. 根據警示類型而定，針對每個安全性警示所提供的資訊數量會有所不同。 [報告] 欄位中有威脅情報報告的連結。 按一下連結，便會出現另一個含有 PDF 檔案的瀏覽器視窗。
 
    ![儲存體選擇](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 
@@ -70,7 +70,6 @@ ms.locfileid: "60703847"
 在本文件中，您已了解 Azure 資訊安全中心威脅情報報告如何在安全性警示調查期間幫上忙。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)。 尋找有關使用服務的常見問題。
-* [善用 Azure 資訊安全中心進行事件回應](security-center-incident-response.md)
 * [Azure 資訊安全中心的偵測功能](security-center-detection-capabilities.md)
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)。 了解如何規劃及了解採用 Azure 資訊安全中心的設計考量。
 * [管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。 了解如何管理和回應安全性警示。

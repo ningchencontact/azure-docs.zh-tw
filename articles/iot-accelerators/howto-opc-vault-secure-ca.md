@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b08358680793ccdadca27c5f2aa57fbffe89b53a
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f35836f60fae11c0955c128e96a4cea188681942
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973788"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997669"
 ---
-# <a name="how-to-run-the-opc-ua-certificate-management-service-securely"></a>如何安全地執行 OPC UA 憑證管理服務
+# <a name="how-to-run-the-opc-vault-certificate-management-service-securely"></a>如何安全地執行 OPC 保存庫憑證管理服務
 
-本文說明如何在 Azure 中安全地執行 OPC UA 憑證管理服務, 以及要考慮的其他安全性指導方針。
+本文說明如何在 Azure 中安全地執行 OPC 保存庫憑證管理服務, 以及要考慮的其他安全性指導方針。
 
 ## <a name="roles"></a>角色
 
@@ -32,7 +32,7 @@ OPC 保存庫微服務已設定為允許不同的角色存取服務的各個部�
 
 ### <a name="certificate-management-service-roles"></a>憑證管理服務角色
 
-微服務會定義下列角色:
+OPC 保存庫微服務會定義下列角色:
 
 - **讀者**：根據預設, 租使用者中所有已驗證的使用者都具有「讀取」存取權。 
   - 應用程式和憑證要求的讀取存取權。 可以列出及查詢應用程式和憑證要求。 此外, 也可以使用讀取權限來存取裝置探索資訊和公用憑證。
@@ -132,14 +132,14 @@ OPC 保存庫微服務已設定為允許不同的角色存取服務的各個部�
 
 CA 階層檔必須包含所有操作中的 Ca, 包括所有相關的附屬 Ca、父 Ca 和根 Ca, 即使它們不是由服務所管理。 可能會提供一組完整的未過期 CA 憑證, 而不是正式檔。
 
-> [!IMPORTANT]
+> [!NOTE]
 > OPC 保存庫範例應用程式支援下載服務中所使用和產生的所有憑證, 以提供檔。
 
 ### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>記錄所有憑證授權單位單位 (Ca) 發行的憑證
 
 在過去12個月內發出的一組完整憑證, 應提供給檔。
 
-> [!IMPORTANT]
+> [!NOTE]
 > OPC 保存庫範例應用程式支援下載服務中所使用和產生的所有憑證, 以提供檔。
 
 ### <a name="document-the-sop-for-securely-deleting-cryptographic-keys"></a>記錄安全刪除密碼編譯金鑰的程式
@@ -220,7 +220,7 @@ Key Vault 使用的密碼編譯模組 (HSM 或軟體) 皆經過 FIPS (聯邦資�
 
 憑證撤銷程式會在[總覽](overview-opc-vault-architecture.md)和[如何管理](howto-opc-vault-manage.md)檔中說明。
     
-### <a name="document-certification-authority-key-generation-ceremony"></a>檔憑證授權單位單位金鑰產生儀式 
+### <a name="document-certification-authority-ca-key-generation-ceremony"></a>檔憑證授權單位單位 (CA) 金鑰產生儀式 
 
 因為 Azure KeyVault 中的安全儲存體, 以及[如何管理](howto-opc-vault-manage.md)檔中所述, 所以 OPC 保存庫微服務中的簽發者 CA 金鑰產生已簡化。
 

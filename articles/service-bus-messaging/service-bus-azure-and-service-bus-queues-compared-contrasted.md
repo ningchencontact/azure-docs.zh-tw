@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
-ms.translationtype: MT
+ms.openlocfilehash: 0ebf18fe2dc6906bc2c06d94388d126fb55c6024
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017797"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981406"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 此文章分析 Microsoft Azure 目前提供之下列兩種不同類型佇列的差異與相同處：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
@@ -68,7 +68,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | 比較準則 | 儲存體佇列 | 服務匯流排佇列 |
 | --- | --- | --- |
 | 排序保證 |**否** <br/><br>如需詳細資訊，請參閱＜其他資訊＞一節的第一個注意事項。</br> |**是 - 先進先出 (FIFO)**<br/><br>(透過使用訊息工作階段) |
-| 傳遞保證 |**至少一次** |**至少一次**<br/><br/>**最多一次** |
+| 傳遞保證 |**至少一次** |至少**一次**(使用 PeekLock 接收模式-這是預設值) <br/><br/>**最多一次**(使用 ReceiveAndDelete 接收模式) <br/> <br/> 深入瞭解各種[接收模式](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | 不可部分完成作業支援 |**否** |**是**<br/><br/> |
 | 接收行為 |**非封鎖**<br/><br/>(如果找不到新的訊息，便立即完成) |**含/不含逾時的封鎖**<br/><br/>(提供長期輪詢，或稱為 [Comet 技術](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**非封鎖**<br/><br/>(僅限透過使用 .NET 受控 API) |
 | 推送型 API |**否** |**是**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 和 **OnMessage** 工作階段的 .NET API。 |

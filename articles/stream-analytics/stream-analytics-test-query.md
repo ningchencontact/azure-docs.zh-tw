@@ -7,49 +7,103 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad0e0ca75bf3d3a8d9d1029d42f8609b3c4c627b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b8670fc7958e66e7c25e27bb3a22429ab20b2514
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620818"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990887"
 ---
-# <a name="test-a-stream-analytics-query-with-sample-data"></a>使用樣本資料測試串流分析查詢
+# <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>使用樣本資料測試 Azure 串流分析作業
 
-藉由使用 Azure Stream Analytics，您可以從輸入資料取樣，或上傳至 Azure 入口網站中測試查詢，而不需要啟動或停止工作的範例資料。
+在 Azure 串流分析中, 您可以測試查詢, 而不需要啟動或停止您的作業。 您可以針對來自輸入接收的傳入資料, 或從本機檔案上傳的範例資料來測試查詢。
 
-## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>上傳或從即時來源來測試查詢的範例資料
+## <a name="sample-incoming-data-from-input"></a>輸入的範例傳入資料
 
-1. 登入 Azure 入口網站。 
+Azure 串流分析會自動從您的串流輸入提取事件。 您可以針對預設範例執行查詢, 或設定範例的特定時間範圍。
 
+1. 登入 Azure 入口網站。
+
+2. 找出並選取現有的串流分析作業。
+
+3. 在 [串流分析作業] 頁面上，[工作拓撲] 標題下方，選取 [查詢] 開啟 [查詢] 編輯器視窗。 
+
+4. 若要查看傳入事件的範例清單, 請選取 [具有檔案的輸入] 圖示, 範例事件就會自動出現在**輸入預覽**中。 
+
+   a. 如果您的資料的 JSON 或 CSV, 則會自動偵測到其序列化類型。 您也可以藉由變更下拉式功能表中的選項, 手動將它變更為 JSON、CSV、AVRO。
+    
+   b. 使用選取器來以**資料表**或**原始**格式來查看您的資料。
+    
+   c. 如果顯示的資料不是最新的, 請選取 [重新整理] 以查看最新的事件。
+
+   下表是**資料表格式**的資料範例:
+
+   ![Azure 串流分析資料表格式輸入範例](./media/stream-analytics-test-query/asa-sample-table.png)
+
+   下表是**原始格式**的資料範例:
+
+   ![以原始格式的 Azure 串流分析範例輸入](./media/stream-analytics-test-query/asa-sample-raw.png)
+
+5. 若要使用傳入的資料測試查詢, 請選取 [**測試查詢**]。 結果會出現在 [**測試結果**] 索引標籤中。您也可以選取 [**下載結果**] 來下載結果。
+
+   ![Azure 串流分析範例測試查詢結果](./media/stream-analytics-test-query/asa-test-query.png)
+
+6. 若要針對傳入事件的特定時間範圍測試查詢, 請選取 [**選取時間範圍**]。
+   
+   ![傳入範例事件的 Azure 串流分析時間範圍](./media/stream-analytics-test-query/asa-select-time-range.png)
+
+7. 設定您想要用來測試查詢的事件時間範圍, 然後選取 [**範例**]。 在該時間範圍內, 您最多可以抓取1000個事件或 1 MB, 視何者先發生。
+
+   ![Azure 串流分析設定傳入範例事件的時間範圍](./media/stream-analytics-test-query/asa-set-time-range.png)
+
+8. 一旦針對選取的時間範圍取樣事件之後, 它們就會出現在 [**輸入預覽**] 索引標籤中。
+
+   ![Azure 串流分析 view 測試結果](./media/stream-analytics-test-query/asa-view-test-results.png)
+
+9. 選取 [**重設**] 以查看傳入事件的範例清單。 如果您選取 [**重設**], 將會遺失您的時間範圍選取專案。 選取 [**測試查詢**] 以測試您的查詢, 並在 [**測試結果**] 索引標籤中查看結果。
+
+10. 當您對查詢進行變更時, 請選取 [**儲存查詢**] 來測試新的查詢邏輯。 這可讓您反復修改查詢並再次測試, 以查看輸出如何變更。
+
+11. 確認瀏覽器中顯示的結果之後, 您就可以**開始**工作。
+
+## <a name="upload-sample-data-from-a-local-file"></a>從本機檔案上傳範例資料
+
+您可以使用本機檔案中的範例資料來測試您的 Azure 串流分析查詢, 而不是使用即時資料。
+
+1. 登入 Azure 入口網站。
+   
 2. 找到現有的串流分析作業並加以選取。
 
-3. 在 [串流分析作業] 頁面上，[工作拓撲]  標題下方，選取 [查詢]  開啟 [查詢] 編輯器視窗。 
+3. 在 [串流分析作業] 頁面上，[工作拓撲] 標題下方，選取 [查詢] 開啟 [查詢] 編輯器視窗。
 
-4. 若要測試您的查詢您可以接著是取樣的即時輸入或從檔案上的傳的資料。 必須以 JSON、CSV 或 AVRO 將資料序列化。 範例輸入必須以 UTF-8 編碼而且不壓縮。 在入口網站上測試 CSV 輸入時僅支援逗號 (,) 分隔符號。
+4. 若要使用本機檔案測試查詢, 請選取 [**輸入預覽**] 索引標籤上的 **[上傳範例輸入**]。 
 
-    1. 使用即時輸入： 以滑鼠右鍵按一下任何輸入。 然後選取**範例資料從輸入**。 在下一個畫面中，您可以設定此範例的持續時間。 取樣事件從即時來源將會擷取最多 1000 個事件或 1 MB （視何者先），讓取樣的資料不一定代表指定完整的時間間隔。
+   ![Azure 串流分析上傳範例檔案](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-    1. 使用檔案： 以滑鼠右鍵按一下任何輸入。 然後選取 [從檔案上傳樣本資料]  。 
+5. 上傳您的本機檔案來測試查詢。 您只能上傳具有 JSON、CSV 或 AVRO 格式的檔案。 選取 [確定]。
 
-    ![串流分析查詢編輯器的測試查詢](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
+   ![Azure 串流分析上傳範例檔案](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
-5. 取樣或上傳完成後，請選取**測試**來根據您所提供的範例資料測試此查詢。
+6. 當您上傳檔案時, 您也可以將表單中的檔案內容視為資料表或其原始格式來查看。 如果您選取 [**重設**], 範例資料會回到上一節中所述的傳入輸入資料。 您可以隨時上傳任何其他檔案來測試查詢。
 
-    ![串流分析查詢編輯器的樣本資料](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
+7. 選取 [**測試查詢**], 針對上傳的範例檔案測試您的查詢。
 
-6. 如果您需要該測試輸出供稍後使用，您的查詢輸出會顯示在瀏覽器中，並提供連結，以便下載結果。 
+8. 測試結果會根據您的查詢來顯示。 您可以變更查詢, 然後選取 [**儲存查詢**] 來測試新的查詢邏輯。 這可讓您反復修改查詢並再次測試, 以查看輸出如何變更。
 
-7. 反覆修改查詢，然後再次測試，以查看輸出的變更狀況。
+9. 當您在查詢中使用多個輸出時, 會根據選取的輸出來顯示結果。 
 
-   ![串流分析查詢編輯器樣本輸出](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
+   ![Azure 串流分析選取的輸出](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
-   當您在查詢中使用多個輸出時，結果會分別顯示在不同的索引標籤中，您可以輕鬆地切換索引標籤。
-
-8. 驗證顯示在瀏覽器中的結果後，請按一下 [儲存]  以儲存查詢。 然後按一下 [啟動]  以啟動作業，並讓其處理連入事件。
+10. 確認瀏覽器中顯示的結果之後, 您就可以**開始**工作。
 
 ## <a name="next-steps"></a>後續步驟
-> [!div class="nextstepaction"]
-> [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [Azure Stream Analytics 查詢語言參考](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+
+* [常見串流分析使用模式的查詢範例](stream-analytics-stream-analytics-query-patterns.md)
+
+* [瞭解 Azure 串流分析的輸入](stream-analytics-add-inputs.md)
+
+* [了解來自 Azure 串流分析的輸出](stream-analytics-define-outputs.md)

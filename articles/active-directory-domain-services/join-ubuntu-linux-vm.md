@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: c782629d422eb8846b209fed7ab6b5a5c015de25
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80dbb4f3d0c8b993beab5f6344d6034d6c2b6895
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612287"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990582"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>在 Azure 中將 Ubuntu 虛擬機器加入受控網域
 本文說明如何將 Ubuntu Linux 虛擬機器加入 Azure AD Domain Services 受控網域。
@@ -88,7 +88,7 @@ sudo vi /etc/hosts
 3. 在 Kerberos 安裝期間，您會看到粉紅色畫面。 'krb5-user' 套件的安裝會提示輸入領域名稱 (以全部大寫)。 安裝會寫入 /etc/krb5.conf 的 [realm] 和 [domain_realm] 區段中。
 
     > [!TIP]
-    > 如果您的受控網功能變數名稱稱是 contoso.com, 請輸入 contoso.COM 作為領域。 請記住，必須以全部大寫指定領域名稱。
+    > 如果您的受控網功能變數名稱稱是 contoso.com, 請輸入 CONTOSO.COM 作為領域。 請記住，必須以全部大寫指定領域名稱。
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>在 Linux 虛擬機器上設定 NTP (網路時間通訊協定)
@@ -121,7 +121,7 @@ sudo systemctl start ntp
 1. 探索 AAD 網域服務受控網域。 在 SSH 終端機中輸入下列命令：
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -138,7 +138,7 @@ sudo systemctl start ntp
     >
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. 將電腦加入網域。 在 SSH 終端機中輸入下列命令：
@@ -149,7 +149,7 @@ sudo systemctl start ntp
     > 如果您的 VM 無法加入網域, 請確定 VM 的網路安全性群組允許 TCP + UDP 埠464上的輸出 Kerberos 流量連到您 Azure AD DS 受控網域的虛擬網路子網。
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM' --install=/
     ```
 
 當電腦成功加入受控網域時，您應該會收到訊息 (「已成功在領域中註冊電腦」)。
@@ -192,10 +192,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## <a name="verify-domain-join"></a>確認加入網域
 確認電腦是否已成功加入受控網域。 連接到使用不同的 SSH 連線加入網域的 Ubuntu VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
 
-1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 Ubuntu 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@contoso.COM')。
+1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 Ubuntu 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO.COM')。
     
     ```console
-    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-ubuntu.contoso.com
     ```
 
 2. 在 SSH 終端機中輸入下列命令，以查看是否已正確初始化主目錄。

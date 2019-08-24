@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 4722cda0506493671ff872d75e7376f3de74b1b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886646"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981247"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 和資料倉儲網路存取控制
 
@@ -33,6 +33,7 @@ ms.locfileid: "68886646"
 
 - 虛擬網路防火牆規則:-使用此功能可允許來自 Azure 界限內特定虛擬網路的流量
 
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 ## <a name="allow-azure-services"></a>允許 Azure 服務 
 [從 Azure 入口網站](sql-database-single-database-get-started.md)建立新的 Azure SQL Server 期間, 會將此設定保留為未核取狀態。

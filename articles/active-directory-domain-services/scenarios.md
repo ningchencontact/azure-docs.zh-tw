@@ -1,90 +1,115 @@
 ---
-title: Azure Active Directory Domain Services：部署案例 | Microsoft Docs
-description: Azure AD 網域服務的部署案例
+title: Azure AD Domain Services 的常見部署案例 |Microsoft Docs
+description: 瞭解 Azure Active Directory Domain Services 的一些常見案例和使用案例, 以提供價值並滿足商務需求。
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/21/2017
+ms.date: 08/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 9e8ac5e83fa3cc9b1e266a9009bad86f41233ed8
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6f81bc2ccf11cbcc3621dc1149879864c88cf0cf
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472657"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980509"
 ---
-# <a name="deployment-scenarios-and-use-cases"></a>部署案例和使用案例
-在本節中，我們會看一些受益於 Azure Active Directory (AD) 網域服務的部署案例和使用案例。
+# <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services 的常見使用案例和情節
 
-## <a name="secure-easy-administration-of-azure-virtual-machines"></a>安全、輕鬆管理 Azure 虛擬機器
-您可以使用 Azure Active Directory 網域服務有效率地管理您的 Azure 虛擬機器。 Azure 虛擬機器可以加入至受控網域，如此一來，您便可以使用您公司的 AD 認證來登入。 這種方法有助於避免認證管理的麻煩，例如維護每個 Azure 虛擬機器上的本機系統管理員帳戶。
+Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務, 例如加入網域、群組原則、LDAP 和 Kerberos/NTLM 驗證。 Azure AD DS 與您現有的 Azure AD 租用戶整合，讓使用者能夠使用其現有認證登入。 您可以使用這些網域服務, 而不需要在雲端中部署、管理和修補網域控制站, 以提供更順暢的內部部署資源隨即轉移至 Azure。
 
-已加入至受控網域的伺服器虛擬機器也可以使用群組原則來管理和保護其安全。 您可以將所需的安全性基準套用到您的 Azure 虛擬機器，並依據公司的安全性指導方針加以鎖定。 例如，您可以使用群組原則管理功能，來限制在這些虛擬機器上可以啟動的應用程式類型。
+本文概述一些常見的商務案例, 其中 Azure AD DS 提供價值並符合這些需求。
+
+## <a name="secure-administration-of-azure-virtual-machines"></a>Azure 虛擬機器的安全管理
+
+為了讓您使用一組 AD 認證, Azure 虛擬機器 (Vm) 可以聯結至 Azure AD DS 受控網域。 這種方法可減少認證管理問題, 例如維護每個 VM 上的本機系統管理員帳戶, 或在環境之間個別的帳戶和密碼。
+
+您也可以使用群組原則來管理和保護已加入 Azure AD DS 受控網域的 Vm。 必要的安全性基準可套用至 Vm, 以根據公司安全性方針將其鎖定。 例如, 您可以使用群組原則管理功能來限制可在 VM 上啟動的應用程式類型。
 
 ![流暢的管理 Azure 虛擬機器](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-當伺服器和其他基礎結構到達生命週期結束時，Contoso 將目前裝載於內部部署的許多應用程式移動至雲端。 其目前的 IT 標準會強制代管公司應用程式的伺服器必須加入網域，並使用群組原則進行管理。 Contoso 的 IT 系統管理員偏好將在 Azure 中部署的虛擬機器加入網域，讓管理更容易。 這麼一來，系統管理員和使用者可以使用他們的公司認證來登入網域。 同時，可以使用群組原則將機器設定為符合所需的安全性基準。 Contoso 偏好不要在 Azure 中部署、監視、管理網域控制站，以便保護 Azure 虛擬機器。 因此，Azure AD 網域服務十分適合這個使用案例。
+讓我們來看一個常見的範例案例。 隨著伺服器和其他基礎結構的生命週期結束, Contoso 想要將目前裝載于內部部署的應用程式移至雲端。 其目前的 IT 標準規定, 主控公司應用程式的伺服器必須已加入網域, 並使用群組原則進行管理。 Contoso 的 IT 系統管理員想要加入 Azure 中部署的 Vm, 讓系統管理更容易, 因為使用者可以使用其公司認證進行登入。 加入網域時, 也可以使用群組原則設定 Vm, 以符合所需的安全性基準。 Contoso 不想要在 Azure 中部署、監視和管理自己的網域控制站。
 
-**部署注意事項**
+Azure AD DS 非常適合這種使用案例。 Azure AD DS 受控網域可讓您將 Vm 加入網域、使用單一認證集, 以及套用群組原則。 身為受控網域, 您不需要自行設定和維護網域控制站。
 
-此部署案例請考慮下列重點︰
+### <a name="deployment-notes"></a>部署注意事項
 
-* Azure Active Directory Domain Services 所提供的受控網域依預設會提供單一個一般組織單位 (OU) 結構。 位於單一一般 OU 中所有加入網域的機器。 不過，您可以選擇建立自訂的 OU。
-* Azure AD 網域服務以每個使用者和電腦容器內建 GPO 的形式支援簡單群組原則。 您可以建立自訂 GPO，並將它們的目標設為自訂 OU。
-* Azure AD 網域服務支援基礎 AD 電腦物件結構描述。 您無法延伸電腦物件的結構描述。
+下列部署考慮適用于此範例使用案例:
 
-## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>將使用 LDAP 繫結驗證的內部部署應用程式「隨即轉移」(lift-and-shift) 至 Azure 基礎結構服務
+* Azure AD DS 受控網域預設會使用單一、一般的組織單位 (OU) 結構。 所有已加入網域的 Vm 都在單一 OU 中。 如有需要, 您可以建立自訂 Ou。
+* Azure AD DS 會針對使用者和電腦容器使用內建的 GPO。 如需其他控制, 您可以建立自訂 Gpo, 並將它們的目標設為自訂 Ou。
+* Azure AD DS 支援基底 AD 電腦物件架構。 您無法擴充電腦物件的架構。
+
+## <a name="lift-and-shift-on-premises-applications-that-use-ldap-bind-authentication"></a>使用 LDAP 系結驗證的隨即轉移內部部署應用程式
+
+在範例案例中, Contoso 有許多年前從 ISV 購買的內部部署應用程式。 應用程式目前是由 ISV 在維護模式下進行, 要求應用程式的變更相當耗費資源。 此應用程式具有 web 架構的前端, 會使用 web 表單來收集使用者認證, 然後藉由對內部部署 AD DS 環境執行 LDAP 系結來驗證使用者。
+
 ![LDAP 繫結](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
-Contoso 有多年前購自 ISV 的一個內部部署應用程式。 ISV 將應用程式目前設為維護模式，並且要求對應用程式進行變更對 Contoso 來說所費不貲。 這個應用程式具有 Web 式前端，它會使用 Web 表單收集使用者認證，然後向公司的 Active Directory 執行 LDAP 繫結來驗證使用者。 Contoso 想要將此應用程式移轉至 Azure 基礎結構服務。 最好的情況是應用程式如常運作，而不需要任何變更。 此外，使用者應該能夠使用其現有的公司認證進行驗證，而不必重新訓練使用者以不同方式執行作業。 換句話說，一般使用者應該不知道應用程式執行所在的位置，而且不會察覺到移轉。
+Contoso 想要將此應用程式遷移至 Azure。 應用程式應該會繼續正常運作, 不需要任何變更。 此外, 使用者應該能夠使用其現有的公司認證來進行驗證, 而不需要額外的訓練。 這對執行應用程式的使用者而言應該是透明的。
 
-**部署注意事項**
+在此案例中, Azure AD DS 可讓應用程式在驗證過程中執行 LDAP 系結。 舊版內部部署應用程式可以隨即轉移至 Azure, 並繼續順暢地驗證使用者, 而不需要變更設定或使用者體驗。
 
-此部署案例請考慮下列重點︰
+### <a name="deployment-notes"></a>部署注意事項
 
-* 確定應用程式不需要對目錄進行修改/寫入。 不支援 Azure Active Directory Domain Services 所提供的受控網域的 LDAP 寫入存取權。
-* 您無法直接對受控網域變更密碼。 一般使用者可以使用 Azure AD 的自助密碼變更機制或對內部部署目錄變更其密碼。 這些變更會自動同步處理，而且可在受控網域中取得。
+下列部署考慮適用于此範例使用案例:
 
-## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-read-to-access-the-directory-to-azure-infrastructure-services"></a>將使用 LDAP 讀取存取目錄的內部部署應用程式「隨即轉移」(lift-and-shift) 至 Azure 基礎結構服務
-Contoso 有大約十年前開發的內部部署企業營運 (LOB) 應用程式。 此應用程式是目錄感知而且其設計是要搭配 Windows Server AD 使用。 應用程式使用 LDAP (輕量型目錄存取通訊協定) 以從 Active Directory 讀取使用者的相關資訊/屬性。 應用程式不會修改屬性，也不會寫入目錄。 Contoso 想要將此應用程式移轉至 Azure 基礎結構服務，並淘汰目前裝載這個應用程式的過時內部部署硬體。 應用程式無法重新編寫以使用現代目錄 API (例如以 REST 為基礎的 Azure AD 圖形 API)。 因此，在移轉應用程式以在雲端中執行而不修改程式碼或重寫應用程式的情況下，需要「隨即轉移」(lift-and-shift) 選項。
+* 請確定應用程式不需要修改/寫入目錄。 不支援對 Azure AD DS 受控網域進行 LDAP 寫入存取。
+* 您不能直接針對 Azure AD DS 受控網域變更密碼。 一般使用者可以使用 Azure AD 的自助密碼變更機制或對內部部署目錄變更其密碼。 這些變更會自動同步處理, 並可在 Azure AD DS 受控網域中使用。
 
-**部署注意事項**
+## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>使用 LDAP 讀取來存取目錄的隨即轉移內部部署應用程式
 
-此部署案例請考慮下列重點︰
+就像先前的範例案例一樣, 假設 Contoso 具有內部部署的企業營運 (LOB) 應用程式, 這幾乎是十年前開發的。 此應用程式是目錄感知, 其設計目的是使用輕量型目錄存取協定 (LDAP), 從 AD DS 讀取有關使用者的資訊/屬性。 應用程式不會修改屬性, 或以其他方式寫入目錄。
 
-* 確定應用程式不需要對目錄進行修改/寫入。 不支援 Azure Active Directory Domain Services 所提供的受控網域的 LDAP 寫入存取權。
-* 確定應用程式不需要自訂/延伸的 Active Directory 結構描述。 Azure AD 網域服務中不支援結構描述延伸模組。
+Contoso 想要將此應用程式遷移至 Azure, 並淘汰目前裝載此應用程式的過時內部部署硬體。 應用程式無法重寫以使用新式目錄 Api, 例如以 REST 為基礎的 Azure AD 圖形 API。 您可以使用隨即轉移選項, 將應用程式遷移至雲端執行, 而不需要修改程式碼或重寫應用程式。
 
-## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure-infrastructure-services"></a>將內部部署服務或精靈應用程式移轉至 Azure 基礎結構服務
-某些應用程式包含多個階層，其中一層必須對後端層 (如資料庫層) 執行經驗證的呼叫。 Active Directory 服務帳戶通常會用於這些使用案例。 您可以隨即轉移這些應用程式到 Azure 基礎結構服務，並將 Azure AD 網域服務用於這類應用程式的身分識別需求。 您可以選擇使用從內部部署目錄同步至 Azure AD 的同一服務帳戶。 或者，您可以先建立自訂 OU，然後在該 OU 中建立另外的服務帳戶，來部署這類應用程式。
+為協助進行此案例, Azure AD DS 可讓應用程式對受控網域執行 LDAP 讀取, 以取得所需的屬性資訊。 應用程式不需要重新撰寫, 因此, 隨即轉移至 Azure 可讓使用者繼續使用應用程式, 而不會發現執行的位置有變更。
+
+### <a name="deployment-notes"></a>部署注意事項
+
+下列部署考慮適用于此範例使用案例:
+
+* 請確定應用程式不需要修改/寫入目錄。 不支援對 Azure AD DS 受控網域進行 LDAP 寫入存取。
+* 請確定應用程式不需要自訂/擴充 Active Directory 架構。 Azure AD DS 中不支援架構延伸。
+
+## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure"></a>將內部部署服務或 daemon 應用程式遷移至 Azure
+
+某些應用程式包含多個層級, 其中其中一層需要對後端層 (例如資料庫) 執行已驗證的呼叫。 AD 服務帳戶通常用於這些案例中。 當您將應用程式隨即轉移至 Azure 時, Azure AD DS 可讓您以相同的方式繼續使用服務帳戶。 您可以選擇使用從內部部署目錄同步處理的相同服務帳戶來 Azure AD 或建立自訂 OU, 然後在該 OU 中建立個別的服務帳戶。 無論使用哪一種方法, 應用程式都會以相同的方式繼續運作, 以對其他層和服務進行已驗證的呼叫。
 
 ![使用 WIA 的服務帳戶](./media/active-directory-domain-services-scenarios/wia-service-account.png)
 
-Contoso 有自訂內建的軟體保存庫應用程式，其中包含 Web 前端、SQL 伺服器和後端 FTP 伺服器。 他們使用服務帳戶的 Windows 整合式驗證來向 FTP 伺服器驗證 Web 前端。 並設定 Web 前端以服務帳戶的身分執行。 後端伺服器則設定為從服務帳戶授權對 Web 前端的存取權。 Contoso 偏好不要在雲端中部署網域控制站虛擬機器來將此應用程式移至 Azure 基礎結構服務。 Contoso 的 IT 系統管理員可以將裝載 Web 前端、SQL 伺服器和 FTP 伺服器的伺服器部署到 Azure 中的虛擬機器。 接著將這些機器加入 Azure AD 網域服務的受控網域。 然後，他們可以在他們的內部部署目錄中使用同一服務帳戶進行應用程式的驗證用途。 此服務帳戶會同步處理至 Azure Active Directory Domain Services 受控的網域，而且可供使用。
+在此範例案例中, Contoso 有一個自訂的軟體保存庫應用程式, 其中包含 web 前端、SQL server 和後端 FTP 伺服器。 使用服務帳戶的 Windows 整合式驗證會向 FTP 伺服器驗證 web 前端。 並設定 Web 前端以服務帳戶的身分執行。 後端伺服器則設定為從服務帳戶授權對 Web 前端的存取權。 Contoso 不想在雲端部署和管理自己的網域控制站 Vm, 將此應用程式移至 Azure。
 
-**部署注意事項**
+在此案例中, 裝載 web 前端、SQL server 和 FTP 伺服器的伺服器可以遷移至 Azure Vm, 並加入 Azure AD DS 受控網域。 然後, Vm 就可以在其內部部署目錄中使用相同的服務帳戶來進行應用程式的驗證, 這會透過 Azure AD 使用 Azure AD Connect 進行同步處理。
 
-此部署案例請考慮下列重點︰
+### <a name="deployment-notes"></a>部署注意事項
 
-* 確定應用程式使用使用者名稱/密碼進行驗證。 Azure AD 網域服務不支援憑證/智慧卡式驗證。
-* 您無法直接對受控網域變更密碼。 一般使用者可以使用 Azure AD 的自助密碼變更機制或對內部部署目錄變更其密碼。 這些變更會自動同步處理，而且可在受控網域中取得。
+下列部署考慮適用于此範例使用案例:
+
+* 請確定應用程式使用使用者名稱 + 密碼進行驗證。 Azure AD DS 不支援憑證或以智慧卡為基礎的驗證。
+* 您不能直接針對 Azure AD DS 受控網域變更密碼。 一般使用者可以使用 Azure AD 的自助密碼變更機制或對內部部署目錄變更其密碼。 這些變更會自動同步處理, 並可在 Azure AD DS 受控網域中使用。
 
 ## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Azure 中的 Windows Server 遠端桌面服務部署
-您可以使用 Azure AD Domain Services，將受控 AD 網域服務提供給 Azure 中部署的遠端桌面伺服器。
 
-如需此部署案例的詳細資訊，請參閱如何[整合 Azure AD Domain Services 與 RDS 部署](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds)。
-
+您可以使用 Azure AD DS, 為 Azure 中部署的遠端桌面伺服器提供受控網域服務。 如需此部署案例的詳細資訊, 請參閱[如何將 Azure AD Domain Services 與您的 RDS 部署整合][windows-rds]。
 
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>已加入網域的 HDInsight 叢集 (預覽)
-您可以設定 Azure HDInsight 叢集，該叢集已加入 Azure AD Domain Services 受控網域並啟用 Apache Ranger。 透過 Apache Ranger 建立和套用 Hive 原則，並允許使用者 (如資料科學家) 使用 ODBC 型工具 (如 Excel、Tableau 等) 連線到 Hive。Microsoft 正努力將其他工作負載 (例如 HBase、Spark、Storm) 盡快新增至已加入網域的 HDInsight。
 
-如需此部署案例的詳細資訊，請參閱如何[設定已加入網域的 HDInsight 叢集](../hdinsight/domain-joined/apache-domain-joined-configure.md)
+您可以設定 Azure HDInsight 叢集, 此叢集已加入已啟用 Apache Ranger 的 Azure AD DS 受控網域。 此功能目前為預覽狀態。 您可以透過 Apache Ranger 建立和套用 Hive 原則, 並允許使用者 (例如資料科學家) 使用 ODBC 工具 (如 Excel 或 Tableau) 連接到 Hive。 我們會繼續將其他工作負載 (例如 HBase、Spark 和風暴) 新增至已加入網域的 HDInsight。
+
+如需此部署案例的詳細資訊, 請參閱[如何設定已加入網域的 HDInsight][hdinsight]叢集
+
+## <a name="next-steps"></a>後續步驟
+
+若要開始使用, 請[建立並設定 Azure Active Directory Domain Services 實例][tutorial-create-instance]
+
+<!-- INTERNAL LINKS -->
+[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
+[tutorial-create-instance]: tutorial-create-instance.md
+
+<!-- EXTERNAL LINKS -->
+[windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

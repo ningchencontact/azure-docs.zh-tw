@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 4a37345cf33cbb02a6bd9a70b0253a55ee4c9478
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035588"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989913"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>在 Azure Logic Apps 中利用區塊化處理大型訊息
 
@@ -117,7 +117,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
 1. 您的邏輯應用程式送包含空白訊息本文的起始 HTTP POST 或 PUT 要求。 要求標頭會包含此資訊，提其您邏輯應用程式想要以區塊上傳的內容：
 
-   | Logic Apps 要求標頭欄位 | 值 | 類型 | 描述 |
+   | Logic Apps 要求標頭欄位 | 值 | Type | 描述 |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | chunked | String | 指出內容以區塊上傳 |
    | **x-ms-content-length** | <*content-length*> | Integer | 進行區塊化前的所有內容大小 (位元組) |
@@ -128,7 +128,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
    | 端點回應標頭欄位 | Type | 必要項 | 描述 |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | 否 | 建議的區塊大小 (位元組) |
-   | **Location** | String | 否 | 傳送 HTTP PATCH 訊息的 URL 位置 |
+   | **Location** | String | 是 | 傳送 HTTP PATCH 訊息的 URL 位置 |
    ||||
 
 3. 您的邏輯應用程式建立並傳送後續 HTTP PATCH 訊息，每項訊息都帶有此資訊：
@@ -137,7 +137,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
    * 這些與內容區塊相關的標題詳細資料會在各個 PATCH 訊息中傳出：
 
-     | Logic Apps 要求標頭欄位 | 值 | 類型 | 描述 |
+     | Logic Apps 要求標頭欄位 | 值 | Type | 描述 |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | String | 目前內容區塊的位元組範圍，包含開始值、結束值和內容大小總計，例如："bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | String | 分塊內容的類型 |
@@ -146,7 +146,7 @@ GET 要求將 "Range" 標頭設定為 "bytes=0-1023"，這是位元組範圍。 
 
 4. 在每個修補程式要求之後, 端點會回應 "200" 狀態碼和下列回應標頭, 以確認每個區塊的接收:
 
-   | 端點回應標頭欄位 | 類型 | 必要項 | 描述 |
+   | 端點回應標頭欄位 | Type | 必要項 | 描述 |
    |--------------------------------|------|----------|-------------|
    | **Range** | String | 是 | 端點已接收之內容的位元組範圍, 例如: "bytes = 0-1023" |   
    | **x-ms-chunk-size** | Integer | 否 | 建議的區塊大小 (位元組) |

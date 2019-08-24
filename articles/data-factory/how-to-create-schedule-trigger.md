@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b38e85994fc99272a649b9e529380cb953d1bca
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65151079"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996362"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>建立依排程執行管線的觸發程序
 本文提供有關排程觸發程序的資訊，以及建立、啟動和監視排程觸發程序的步驟。 如需了解其他類型的觸發程序，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
@@ -32,36 +32,36 @@ ms.locfileid: "65151079"
 > [!NOTE]
 > 如需有關建立管線和排程觸發程序、將觸發程序與管線建立關聯以及執行和監視管線的完整逐步解說，請參閱[快速入門：使用 Data Factory UI 來建立資料處理站](quickstart-create-data-factory-portal.md)。
 
-1. 切換至 [編輯]  索引標籤。 
+1. 切換至 [編輯] 索引標籤。 
 
     ![切換至 [編輯] 索引標籤](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
-1. 按一下功能表上的 [觸發程序]  ，然後按一下 [新增/編輯]  。 
+1. 按一下功能表上的 [觸發程序]，然後按一下 [新增/編輯]。 
 
     ![新增觸發程序功能表](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. 在 [新增觸發程序]  頁面上按一下 [選擇觸發程序...]  ，然後按一下 [新增]  。 
+2. 在 [新增觸發程序] 頁面上按一下 [選擇觸發程序...]，然後按一下 [新增]。 
 
     ![新增觸發程序 - 新增觸發程序](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
-3. 在 [新增觸發程序]  頁面中，執行下列步驟： 
+3. 在 [新增觸發程序] 頁面中，執行下列步驟： 
 
-    1. 確認已針對 [類型]  選取 [排程]  。 
-    2. 針對 [開始日期 (UTC)]  指定觸發程序的開始日期時間。 預設會設定為目前的日期時間。 
-    3. 指定觸發程序的 [週期]  。 請從下拉式清單 (每分鐘、每小時、每天、每週及每月) 中選取其中一個值。 在文字方塊中輸入乘數。 例如，如果您想要讓觸發程序每隔 15 分鐘執行一次，您可以選取 [每分鐘]  ，然後在文字方塊中輸入 **15**。 
-    4. 針對 [結束]  欄位，如果您不想要為觸發程序指定結束日期時間，請選取 [沒有指定結束日期]  。 若要指定結束日期時間，請選取 [日期]  並指定結束日期時間，然後按一下 [套用]  。 每次執行管線都會產生相關成本。 如果您是在進行測試，您可能會想要確保只觸發管線幾次。 不過，請確定發佈時間與結束時間之間有足夠的時間可供管線執行。 在您將方案發佈至 Data Factory 之後，觸發程序才會生效，而不是在您將觸發程序儲存在 UI 時生效。
+    1. 確認已針對 [類型] 選取 [排程]。 
+    2. 針對 [開始日期 (UTC)] 指定觸發程序的開始日期時間。 預設會設定為目前的日期時間。 
+    3. 指定觸發程序的 [週期]。 請從下拉式清單 (每分鐘、每小時、每天、每週及每月) 中選取其中一個值。 在文字方塊中輸入乘數。 例如，如果您想要讓觸發程序每隔 15 分鐘執行一次，您可以選取 [每分鐘]，然後在文字方塊中輸入 **15**。 
+    4. 針對 [結束] 欄位，如果您不想要為觸發程序指定結束日期時間，請選取 [沒有指定結束日期]。 若要指定結束日期時間，請選取 [日期] 並指定結束日期時間，然後按一下 [套用]。 每次執行管線都會產生相關成本。 如果您是在進行測試，您可能會想要確保只觸發管線幾次。 不過，請確定發佈時間與結束時間之間有足夠的時間可供管線執行。 在您將方案發佈至 Data Factory 之後，觸發程序才會生效，而不是在您將觸發程序儲存在 UI 時生效。
 
         ![觸發程序設定](./media/how-to-create-schedule-trigger/trigger-settings.png)
-4. 在 [新增觸發程序]  視窗中，選取 [已啟用]  選項，然後按 [下一步]  。 您可以稍後使用此核取方塊來停用觸發程序。 
+4. 在 [新增觸發程序] 視窗中，選取 [已啟用] 選項，然後按 [下一步]。 您可以稍後使用此核取方塊來停用觸發程序。 
 
     ![觸發程序設定 - 下一步按鈕](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
-5. 在 [新增觸發程序]  頁面中檢閱警告訊息，然後按一下 [完成]  。
+5. 在 [新增觸發程序] 頁面中檢閱警告訊息，然後按一下 [完成]。
 
     ![觸發程序設定 - 完成按鈕](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
-6. 按一下 [發佈]  ，將變更發佈至 Data Factory。 必須等到您發佈對 Data Factory 所做的變更之後，觸發程序才會開始觸發管線回合。 
+6. 按一下 [發佈]，將變更發佈至 Data Factory。 必須等到您發佈對 Data Factory 所做的變更之後，觸發程序才會開始觸發管線回合。 
 
     ![發佈按鈕](./media/how-to-create-schedule-trigger/publish-2.png)
-8. 切換至左側的 [監視]  索引標籤。 按一下 [重新整理]  即可重新整理清單。 您會看到所排定之觸發程序所觸發的管線回合。 請留意 [觸發方式]  資料行中的值。 如果您使用 [立即觸發]  選項，就會在清單中看到手動觸發程序回合。 
+8. 切換至左側的 [監視] 索引標籤。 按一下 [重新整理] 即可重新整理清單。 您會看到所排定之觸發程序所觸發的管線回合。 請留意 [觸發方式] 資料行中的值。 如果您使用 [立即觸發] 選項，就會在清單中看到手動觸發程序回合。 
 
     ![監視已觸發的執行](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
-9. 按一下 [管線執行]  旁的向下箭號，切換至 [觸發程序執行]  檢視。 
+9. 按一下 [管線執行] 旁的向下箭號，切換至 [觸發程序執行] 檢視。 
 
     ![監視觸發程序執行](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -111,31 +111,31 @@ ms.locfileid: "65151079"
     - 此觸發程序與 **Adfv2QuickStartPipeline** 管線關聯。 若要將多個管線與觸發程序建立關聯，請新增更多個 **pipelineReference** 區段。
     - 快速入門中的管線會採用兩個**參數**值：**inputPath** 和 **outputPath**。 因此，您將從觸發程序傳遞這些參數的值。
 
-2. 使用建立觸發程序**組 AzDataFactoryV2Trigger** cmdlet:
+2. 使用**start-azdatafactoryv2trigger** Cmdlet 建立觸發程式:
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. 確認觸發程序的狀態是  **Stopped**利用**Get AzDataFactoryV2Trigger** cmdlet:
+3. 使用**start-azdatafactoryv2trigger** Cmdlet 來確認觸發程式的狀態是否已**停止**:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. 使用啟動觸發程序**開始 AzDataFactoryV2Trigger** cmdlet:
+4. 使用**start-azdatafactoryv2trigger** Cmdlet 來啟動觸發程式:
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. 確認觸發程序的狀態是  **Started**利用**Get AzDataFactoryV2Trigger** cmdlet:
+5. 使用**start-azdatafactoryv2trigger** Cmdlet 來確認觸發程式的狀態是否已**啟動**:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  使用觸發程序會在 Azure PowerShell 中執行的 get **Get AzDataFactoryV2TriggerRun** cmdlet。 若要取得有關觸發程序回合的資訊，請定期執行以下命令。 更新 **TriggerRunStartedAfter** 和 **TriggerRunStartedBefore** 的值，以符合您觸發程序定義中的值：
+6.  使用**AzDataFactoryV2TriggerRun** Cmdlet, 取得在 Azure PowerShell 中執行的觸發程式。 若要取得有關觸發程序回合的資訊，請定期執行以下命令。 更新 **TriggerRunStartedAfter** 和 **TriggerRunStartedBefore** 的值，以符合您觸發程序定義中的值：
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -254,9 +254,7 @@ ms.locfileid: "65151079"
 "parameters": {
     "scheduledRunTime": "@trigger().scheduledTime"
 }
-```    
-
-如需詳細資訊，請參閱[如何讀取或寫入分割的資料](how-to-read-write-partitioned-data.md)中的指示。
+```
 
 ## <a name="json-schema"></a>JSON 結構描述
 下列 JSON 定義將說明如何使用排程和週期來建立排程觸發程序：
@@ -325,21 +323,21 @@ ms.locfileid: "65151079"
 
 ### <a name="schema-defaults-limits-and-examples"></a>結構描述預設值、限制及範例
 
-| JSON 屬性 | type | 必要項 | 預設值 | 有效值 | 範例 |
+| JSON 屬性 | Type | 必要項 | 預設值 | 有效值 | 範例 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | 字串 | 是 | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Object | 是 | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | String | 是 | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | 物件 | 是 | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | 否 | 1 | 1 到 1,000 | `"interval":10` |
-| **endTime** | 字串 | 是 | None | 代表未來時間的日期時間值。 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Object | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | String | 是 | None | 代表未來時間的日期時間值。 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | 物件 | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 屬性
 下表說明 **startTime** 屬性如何控制觸發程序執行：
 
 | startTime 值 | 週期性無排程 | 週期性有排程 |
 |:--- |:--- |:--- |
-| 開始時間已過去 | 計算開始時間之後的第一個未來執行時間，並在該時間執行。<br/><br/>根據從上次執行時間算出的時間來執行後續的執行作業。<br/><br/>請參閱本表後面的範例。 | 觸發程序會在「到了」  指定的開始時間才啟動。 第一次執行是根據從開始時間算出的排程。<br/><br/>根據週期排程執行後續的執行作業。 |
-| 開始時間在未來或現在 | 在指定的開始時間執行一次。<br/><br/>根據從上次執行時間算出的時間來執行後續的執行作業。 | 觸發程序會在「到了」  指定的開始時間才啟動。 第一次執行是根據從開始時間算出的排程。<br/><br/>根據週期排程執行後續的執行作業。 |
+| 開始時間已過去 | 計算開始時間之後的第一個未來執行時間，並在該時間執行。<br/><br/>根據從上次執行時間算出的時間來執行後續的執行作業。<br/><br/>請參閱本表後面的範例。 | 觸發程序會在「到了」指定的開始時間才啟動。 第一次執行是根據從開始時間算出的排程。<br/><br/>根據週期排程執行後續的執行作業。 |
+| 開始時間在未來或現在 | 在指定的開始時間執行一次。<br/><br/>根據從上次執行時間算出的時間來執行後續的執行作業。 | 觸發程序會在「到了」指定的開始時間才啟動。 第一次執行是根據從開始時間算出的排程。<br/><br/>根據週期排程執行後續的執行作業。 |
 
 我們來看看一個範例：當開始時間在過去、具有週期性但無排程時，會發生什麼情況。 假設目前時間是 `2017-04-08 13:00`，開始時間是 `2017-04-07 14:00`，而週期是每隔兩天。 (定義 **recurrence** 值的方式是將 **frequency** 屬性設定為 "day"，並將 **interval**屬性設定為 2)。請注意，**startTime** 值是過去的時間，發生在目前時間之前。
 
@@ -361,8 +359,8 @@ ms.locfileid: "65151079"
 
 | JSON 元素 | 描述 | 有效值 |
 |:--- |:--- |:--- |
-| **minutes** | 一小時內觸發程序執行的分鐘數。 | <ul><li>整數</li><li>一連串整數</li></ul>
-| **hours** | 一天內觸發程序執行的小時數。 | <ul><li>整數</li><li>一連串整數</li></ul> |
+| **minutes** | 一小時內觸發程序執行的分鐘數。 | <ul><li>Integer</li><li>一連串整數</li></ul>
+| **hours** | 一天內觸發程序執行的小時數。 | <ul><li>Integer</li><li>一連串整數</li></ul> |
 | **weekDays** | 觸發程序在一週中的執行日。 此值只能與 weekly 頻率搭配指定。 | <ul><li>Monday、Tuesday、Wednesday、Thursday、Friday、Saturday、Sunday</li><li>日期值陣列 (最大陣列大小為 7)</li><li>日值不區分大小寫</li></ul> |
 | **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 | <ul><li>**monthlyOccurrence** 物件的陣列︰`{ "day": day,  "occurrence": occurrence }`。</li><li>**day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。</li><li>**occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。</li></ul> |
 | **monthDays** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 | <ul><li><= -1 和 >= -31 的任何值</li><li>>= 1 和 <= 31 任何值</li><li>值的陣列</li></ul> |

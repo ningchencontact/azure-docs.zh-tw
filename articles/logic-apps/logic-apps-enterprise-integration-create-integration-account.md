@@ -11,12 +11,12 @@ manager: carmonm
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: cffcfe53cf30d8fc34fdb27e50ef74e71700125a
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 55843f9acaafa0c5963cfac735fdb92eeeacdc02
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68606868"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982919"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 來建立和管理 B2B 解決方案的整合帳戶
 
@@ -36,7 +36,7 @@ ms.locfileid: "68606868"
 * 將整合帳戶移到另一個 Azure 資源群組或訂用帳戶。
 * 刪除整合帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -58,13 +58,13 @@ ms.locfileid: "68606868"
 
    ![提供整合帳戶詳細資料](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | 內容 | 必要項 | Value | 描述 |
+   | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
-   | **名稱** | 是 | <*integration-account-name*> | 整合帳戶的名稱, 例如「Fabrikam-整合」 |
+   | **名稱** | 是 | <*integration-account-name*> | 您的整合帳戶名稱, 其中只能包含字母、數位、連字號 (`-`)、底線 (`_`)、括弧 (`(`, `)`) 和句點 (`.`)。 這個範例會使用「Fabrikam-整合」。 |
    | **訂用帳戶** | 是 | <*Azure-subscription-name*> | Azure 訂用帳戶的名稱 |
    | **資源群組** | 是 | <*Azure-resource-group-name*> | 用來組織相關資源之[Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 針對此範例, 請建立名為 "FabrikamIntegration-RG" 的新資源群組。 |
    | 定價層 | 是 | <*定價層級*> | 整合帳戶的定價層, 您可于稍後變更。 針對此範例, 請選取 [**免費**]。 如需詳細資訊，請參閱下列主題： <p>- [Logic Apps 計價模式](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps 限制和設定](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Location** | 是 | <*Azure-區域*> | 要儲存整合帳戶中繼資料的區域。 請選取與邏輯應用程式相同的位置, 或在與整合帳戶相同的位置中建立邏輯應用程式。 在此範例中, 請使用「美國西部」。 <p>**注意**：若要在[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)內建立整合帳戶, 請選取該 ISE 作為位置。 如需詳細資訊, 請參閱[在 ISE 中建立整合帳戶](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)。 |
+   | **位置** | 是 | <*Azure-區域*> | 要儲存整合帳戶中繼資料的區域。 請選取與邏輯應用程式相同的位置, 或在與整合帳戶相同的位置中建立邏輯應用程式。 在此範例中, 請使用「美國西部」。 <p>**注意**：若要在[整合服務環境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)內建立整合帳戶, 請選取該 ISE 作為位置。 如需詳細資訊, 請參閱[在 ISE 中建立整合帳戶](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)。 |
    | **Log Analytics** | 否 | Off、On | 針對此範例, 請保留 [**關閉**] 設定。 |
    |||||
 
@@ -247,9 +247,9 @@ ms.locfileid: "68606868"
 
 1. 根據您的選擇, 遵循下列步驟來變更資源群組或訂用帳戶:
 
-   * 資源群組:從 [**資源群組**] 清單中, 選取目的地資源群組。 或者, 若要建立不同的資源群組, 請選取 [**建立新的資源群組**]。
+   * 資源群組：從 [**資源群組**] 清單中, 選取目的地資源群組。 或者, 若要建立不同的資源群組, 請選取 [**建立新的資源群組**]。
 
-   * 訂閱:從 [**訂**用帳戶] 清單中, 選取目的地訂用帳戶。 從 [**資源群組**] 清單中, 選取目的地資源群組。 或者, 若要建立不同的資源群組, 請選取 [**建立新的資源群組**]。
+   * 訂用帳戶：從 [**訂**用帳戶] 清單中, 選取目的地訂用帳戶。 從 [**資源群組**] 清單中, 選取目的地資源群組。 或者, 若要建立不同的資源群組, 請選取 [**建立新的資源群組**]。
 
 1. 若要確認您的瞭解, 與所移動資源相關聯的任何腳本或工具都將無法使用, 直到您使用新的資源識別碼更新它們為止, 請選取 [確認] 方塊, 然後選取 **[確定]** 。
 

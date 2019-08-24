@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 0e3803edd47c3589652b3fedecd12125e3ff40b7
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: b59bd7c7196ceb87da087967498eca6dda7c212b
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612793"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990609"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>將 Red Hat Enterprise Linux 7 虛擬機器加入受控網域
 本文說明如何將 Red Hat Enterprise Linux (RHEL) 7 虛擬機器加入 Azure AD 網域服務受控網域。
@@ -84,7 +84,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
 1. 探索 AAD 網域服務受控網域。 在 SSH 終端機中輸入下列命令：
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -100,7 +100,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     > * 以大寫字母指定網域名稱，否則 kinit 會失敗。
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. 將電腦加入網域。 在 SSH 終端機中輸入下列命令：
@@ -111,7 +111,7 @@ sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
     > 如果您的 VM 無法加入網域, 請確定 VM 的網路安全性群組允許 TCP + UDP 埠464上的輸出 Kerberos 流量連到您 Azure AD DS 受控網域的虛擬網路子網。
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM'
     ```
 
 當電腦成功加入受控網域時，您應該會收到訊息 (「已成功在領域中註冊電腦」)。
@@ -120,10 +120,10 @@ sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
 ## <a name="verify-domain-join"></a>確認加入網域
 確認電腦是否已成功加入受控網域。 連接到使用不同的 SSH 連線加入網域的 RHEL VM。 使用網域使用者帳戶，然後查看使用者帳戶是否解析正確。
 
-1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 RHEL 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@contoso.COM')。
+1. 在 SSH 終端機中輸入下列命令，以使用 SSH 連線到加入網域的 RHEL 虛擬機器。 使用屬於受控網域的網域帳戶 (例如，在此例中為 'bob@CONTOSO.COM')。
     
     ```console
-    ssh -l bob@contoso.COM contoso-rhel.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-rhel.contoso.com
     ```
 
 2. 在 SSH 終端機中輸入下列命令，以查看是否已正確初始化主目錄。

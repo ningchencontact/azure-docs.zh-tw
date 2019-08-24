@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 7b5c0a045fe932db38666559ee415d7b27aa11e4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614170"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996451"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>複製活動效能和擴充性指南
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本:"]
@@ -41,30 +41,30 @@ ms.locfileid: "69614170"
 
 ADF 提供無伺服器架構, 允許不同層級的平行處理原則, 讓開發人員能夠建立管線來充分利用您的網路頻寬, 以及儲存 IOPS 和頻寬, 以最大化您環境的資料移動輸送量。  這表示您可以藉由測量來來源資料存放區、目的地資料存放區, 以及來源與目的地之間的網路頻寬所提供的最小輸送量來估計您可達到的輸送量。  下表根據您環境的資料大小和頻寬限制來計算複製持續時間。 
 
-| 資料大小 \ 頻寬 | 50 Mbps    | 100 Mbps  | 200 Mbps  | 500 Mbps  | 1 Gbps   | 10 Gbps  |
-| --------------------- | ---------- | --------- | --------- | --------- | -------- | -------- |
-| 1 GB                  | 2.7 分鐘    | 1.4 分鐘   | 0.7 分鐘   | 0.3 分鐘   | 0.1 分鐘  | 0.0 分鐘  |
-| 10 GB                 | 27.3 分鐘   | 13.7 分鐘  | 6.8 分鐘   | 2.7 分鐘   | 1.3 分鐘  | 0.1 分鐘  |
-| 100 GB                | 4.6 小時    | 2.3 小時   | 1.1 小時   | 0.5 小時   | 0.2 小時  | 0.0 小時  |
-| 1 TB                  | 46.6 小時   | 23.3 小時  | 11.7 小時  | 4.7 小時   | 2.3 小時  | 0.2 小時  |
-| 10 TB                 | 19.4 天  | 9.7 天  | 4.9 天  | 1.9 天  | 0.9 天 | 0.1 天 |
-| 100 TB                | 194.2 天 | 97.1 天 | 48.5 天 | 19.4 天 | 9.5 天 | 0.9 天 |
-| 1 PB                  | 64.7 月    | 32.4 月   | 16.2 月   | 6.5 月    | 3.2 月   | 0.3 月   |
-| 10 PB                 | 647.3 月   | 323.6 月  | 161.8 月  | 64.7 月   | 31.6 月  | 3.2 月   |
+| 資料大小/ <br/> 頻寬 | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
+| --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
+| **1 GB**                    | 2.7 分鐘    | 1.4 分鐘   | 0.3 分鐘   | 0.1 分鐘  | 0.03 分鐘 | 0.01 分鐘 | 0.0 分鐘   |
+| **10 GB**                   | 27.3 分鐘   | 13.7 分鐘  | 2.7 分鐘   | 1.3 分鐘  | 0.3 分鐘  | 0.1 分鐘  | 0.03 分鐘  |
+| **100 GB**                  | 4.6 小時    | 2.3 小時   | 0.5 小時   | 0.2 小時  | 0.05 小時 | 0.02 小時 | 0.0 小時   |
+| **1 TB**                    | 46.6 小時   | 23.3 小時  | 4.7 小時   | 2.3 小時  | 0.5 小時  | 0.2 小時  | 0.05 小時  |
+| **10 TB**                   | 19.4 天  | 9.7 天  | 1.9 天  | 0.9 天 | 0.2 天 | 0.1 天 | 0.02 天 |
+| **100 TB**                  | 194.2 天 | 97.1 天 | 19.4 天 | 9.7 天 | 1.9 天 | 1天   | 0.2 天  |
+| **1 PB**                    | 64.7 月    | 32.4 月   | 6.5 月    | 3.2 月   | 0.6 月   | 0.3 月   | 0.06 月   |
+| **10 PB**                   | 647.3 月   | 323.6 月  | 64.7 月   | 31.6 月  | 6.5 月   | 3.2 月   | 0.6 月    |
 
 ADF 複製可在不同層級進行調整:
 
 ![ADF 複製的縮放方式](media/copy-activity-performance/adf-copy-scalability.png)
 
-- 單一複製活動可以利用可調整的計算資源: 使用 Azure Integration Runtime 時, 您可以用無伺服器的方式為每個複製活動指定[最多 256 diu](#data-integration-units) ;使用自我裝載的 Integration Runtime 時, 您可以手動相應增加機器或相應放大至多部電腦 ([最多4個節點](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), 而單一複製活動會在所有節點上分割其檔案集。
-- 單一複製活動會使用多個執行緒讀取和寫入資料存放區。
 - ADF 控制流程可以平行啟動多個複製活動, 例如,[針對每個迴圈](control-flow-for-each-activity.md)使用。
+- 單一複製活動可以利用可調整的計算資源: 使用 Azure Integration Runtime 時, 您可以用無伺服器的方式為每個複製活動指定[最多 256 diu](#data-integration-units) ;使用自我裝載的 Integration Runtime 時, 您可以手動相應增加機器或相應放大至多部電腦 ([最多4個節點](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), 而單一複製活動會在所有節點上分割其檔案集。
+- 單一複製活動會[以平行方式](#parallel-copy)使用多個執行緒讀取和寫入資料存放區。
 
 ## <a name="performance-tuning-steps"></a>效能微調步驟
 
 採取下列步驟, 使用複製活動來微調 Azure Data Factory 服務的效能。
 
-1. **建立基準。** 在開發階段, 使用複製活動針對代表性資料範例來測試您的管線。 在[複製活動監視](copy-activity-overview.md#monitoring)之後收集執行詳細資料和效能特性。
+1. **挑選測試資料集並建立基準。** 在開發階段, 使用複製活動針對代表性資料範例來測試您的管線。 您選擇的資料集應該代表您的一般資料模式 (資料夾結構、檔案模式、資料結構描述等), 而且夠大, 足以評估複製的效能, 例如, 需要10分鐘或更久的時間才能完成複製活動。 在[複製活動監視](copy-activity-overview.md#monitoring)之後收集執行詳細資料和效能特性。
 
 2. **如何將單一複製活動的效能最大化**:
 
@@ -78,19 +78,19 @@ ADF 複製可在不同層級進行調整:
 
    當您增加 DIU 設定時, 複製活動應該會以最線性的方式進行調整。  如果 DIU 設定加倍, 您就不會看到輸送量加倍, 因此可能會發生兩件事:
 
-   - 您所執行的特定複製模式不會因新增更多 Diu 而受益。  即使您已指定較大的 DIU 值, 實際使用的 DIU 還是會維持不變, 因此您會取得與之前相同的輸送量。  如果是這種情況, 請移至步驟 #3
+   - 您所執行的特定複製模式不會因新增更多 Diu 而受益。  即使您已指定較大的 DIU 值, 實際使用的 DIU 還是會維持不變, 因此您會取得與之前相同的輸送量。  如果是這種情況, 您可以同時執行多個複本, 同時參考步驟 3, 以最大化匯總輸送量。
    - 藉由新增更多 Diu (更有動力), 進而驅動資料提取、傳輸和載入的速率偏高, 來源資料存放區、其間的網路或目的地資料存放區已達到其瓶頸, 而且可能正在進行節流。  如果是這種情況, 請嘗試聯絡您的資料存放區系統管理員或網路系統管理員以提高上限, 或減少 DIU 設定, 直到節流停止發生為止。
 
    **如果要在自我裝載的 Integration Runtime 上執行複製活動:**
 
-   我們建議您將專用的獨立電腦與裝載資料存放區的伺服器搭配使用, 以裝載整合執行時間
+   我們建議您將專用的獨立電腦與裝載資料存放區的伺服器搭配使用, 以裝載整合執行時間。
 
    從[平行複製](#parallel-copy)設定的預設值開始, 並使用自我裝載 IR 的單一節點。  執行效能測試回合, 並記下所達到的效能。
 
    如果您想要達到更高的輸送量, 您可以擴充或相應放大自我裝載的 IR:
 
    - 如果自我裝載 IR 節點上的 CPU 和可用記憶體未完全使用, 但並行作業的執行達到限制, 您應該增加可在節點上執行的並行作業數目來相應增加。  如需相關指示, 請參閱[這裡](create-self-hosted-integration-runtime.md#scale-up)。
-   - 另一方面, 如果自我裝載 IR 節點上的 CPU 很高, 而且可用的記憶體偏低, 您可以加入新的節點, 以協助相應放大多個節點上的負載。  如需相關指示, 請參閱[這裡](create-self-hosted-integration-runtime.md#high-availability-and-scalability)。
+   - 另一方面, 如果自我裝載 IR 節點上的 CPU 很高, 或可用記憶體不足, 您可以加入新的節點, 以協助相應放大多個節點上的負載。  如需相關指示, 請參閱[這裡](create-self-hosted-integration-runtime.md#high-availability-and-scalability)。
 
    當您相應增加或相應放大自我裝載 IR 的容量時, 請重複執行效能測試, 以查看是否有更好的輸送量。  如果輸送量停止改善, 很可能是來源資料存放區、網路介於其間, 或目的地資料存放區已達到其瓶頸, 因而開始受到節流。 如果是這種情況, 請嘗試聯絡您的資料存放區系統管理員或網路系統管理員以提高上限, 或回到您先前的自我裝載 IR 調整設定。 
 
@@ -98,9 +98,7 @@ ADF 複製可在不同層級進行調整:
 
    現在您已將單一複製活動的效能最大化, 如果您尚未達到環境的輸送量上限 (網路、來源資料存放區和目的地資料存放區), 您可以使用 ADF 平行執行多個複製活動控制流程結構, 例如[For each 迴圈](control-flow-for-each-activity.md)。
 
-4. **診斷並優化效能。** 如果您觀察到的效能不符合您的預期, 請找出效能瓶頸。 然後將效能最佳化，以消除或減少瓶頸的影響。
-
-   在某些情況下, 當您在 Azure Data Factory 中執行複製活動時, 您會在[複製活動監視](copy-activity-overview.md#monitor-visually)之上看到「效能調整秘訣」訊息, 如下列範例所示。 訊息會告訴您針對指定的複本執行所識別的瓶頸。 它也會引導您進行要變更的內容, 以提高複製輸送量。 效能微調秘訣目前提供的建議如下:
+4. **效能微調秘訣和優化功能。** 在某些情況下, 當您在 Azure Data Factory 中執行複製活動時, 您會在[複製活動監視](copy-activity-overview.md#monitor-visually)之上看到「效能調整秘訣」訊息, 如下列範例所示。 訊息會告訴您針對指定的複本執行所識別的瓶頸。 它也會引導您進行要變更的內容, 以提高複製輸送量。 效能微調秘訣目前提供的建議如下:
 
    - 當您將資料複製到 Azure SQL 資料倉儲時, 請使用 PolyBase。
    - 當資料存放區端的資源為瓶頸時, 增加 Azure Cosmos DB 要求單位或 Azure SQL Database Dtu (資料庫輸送量單位)。
@@ -114,12 +112,11 @@ ADF 複製可在不同層級進行調整:
 
    ![複製監視和效能微調祕訣](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-   此外，以下是一些常見的考量。 效能診斷的完整說明不在本文的討論之列。
+   此外, 以下是一些您應該注意的效能優化功能:
 
-   - 效能優化功能:
-     - [平行複製](#parallel-copy)
-     - [資料整合單位](#data-integration-units)
-     - [分段複製](#staged-copy)
+   - [平行複製](#parallel-copy)
+   - [資料整合單位](#data-integration-units)
+   - [分段複製](#staged-copy)
    - [自我裝載整合執行時間的擴充性](concepts-integration-runtime.md#self-hosted-integration-runtime)
 
 5. **將設定擴充到整個資料集。** 當您對執行結果及效能感到滿意時, 可以展開定義和管線來涵蓋整個資料集。
@@ -136,7 +133,9 @@ Azure Data Factory 提供下列效能優化功能:
 
 資料整合單位是一種量值, 代表 Azure Data Factory 中單一單位的能力 (CPU、記憶體和網路資源分配的組合)。 資料整合單位僅適用于[Azure 整合運行](concepts-integration-runtime.md#azure-integration-runtime)時間, 但不會套用至[自我裝載整合運行](concepts-integration-runtime.md#self-hosted-integration-runtime)時間。
 
-允許複製活動執行的 Diu, 是介於2到256之間。 如果未指定，下表列出用於不同複製案例中的預設 DIU：
+您將以 **# 個已使用的\* diu 複製\*持續時間單位價格/DIU 小時**計費。 請在[這裡](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)查看目前的價格。 每個訂用帳戶類型可能會套用當地貨幣和個別折扣。
+
+允許複製活動執行的 Diu, 是**介於2到256之間**。 如果未指定, 或您在 UI 上選擇 [自動], Data Factory 根據您的來源接收組和資料模式, 動態套用最佳 DIU 設定。 下表列出不同複製案例中使用的預設 Diu:
 
 | 複製案例 | 服務決定的預設 DIU |
 |:--- |:--- |
@@ -151,7 +150,7 @@ Azure Data Factory 提供下列效能優化功能:
 > [!NOTE]
 > 目前只有當您將多個檔案從 Azure 儲存體、Azure Data Lake Storage、Amazon S3、Google Cloud Storage、雲端 FTP 或雲端 SFTP 複製到任何其他雲端資料存放區時, 才會套用超過四個 Diu 的設定。
 
-**範例**
+**範例:**
 
 ```json
 "activities":[
@@ -173,10 +172,6 @@ Azure Data Factory 提供下列效能優化功能:
 ]
 ```
 
-#### <a name="data-integration-units-billing-impact"></a>資料整合單位計費影響
-
-請記住, 系統會根據複製作業的總時間來向您收費。 您要支付資料移動費用的總持續時間是 Diu 之間的持續時間總和。 若過去某複製作業使用 2 個雲端單位花費 1 小時，現在使用 8 個雲端單位花費 15 分鐘，則兩者的整體費用幾乎相同。
-
 ### <a name="parallel-copy"></a>平行複製
 
 您可以使用**parallelCopies**屬性來指出您想要複製活動使用的平行處理原則。 您可以將此屬性視為可以從來源讀取或以平行方式寫入接收資料存放區的複製活動內的最大執行緒數目。
@@ -193,6 +188,15 @@ Azure Data Factory 提供下列效能優化功能:
 > 當您在以檔案為基礎的存放區之間複製資料時, 預設行為通常會提供您最佳的輸送量。 系統會根據您的來源檔案模式自動決定預設行為。
 
 若要控制裝載資料存放區之電腦上的負載, 或微調複製效能, 您可以覆寫預設值並指定**parallelCopies**屬性的值。 值必須是大於或等於 1 的整數。 在執行時間, 為了達到最佳效能, 複製活動會使用小於或等於您所設定之值的值。
+
+**注意事項：**
+
+- 當您在以檔案為基礎的存放區之間複製資料時, **parallelCopies**會決定檔案層級的平行處理原則。 單一檔案內的區塊化會自動且透明地出現在下方。 其設計目的是針對指定的來源資料存放區類型, 使用最適合的區塊大小, 以平行方式載入資料, 並與**parallelCopies**。 資料移動服務在執行階段用於複製作業的實際平行複製數目不會超過您擁有的檔案數目。 如果複製行為是**mergeFile**, 複製活動就無法利用檔案層級的平行處理原則。
+- 當您從不是以檔案為基礎的存放區複製資料時 ( [Oracle](connector-oracle.md#oracle-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [Sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap 開放式中樞](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)連接器除外, 做為已啟用資料分割的來源), 會儲存至以檔案為基礎之資料移動服務的存放區。忽略**parallelCopies**屬性。 即使已指定平行處理原則，也不會套用於此案例。
+- **ParallelCopies**屬性正交于**dataIntegrationUnits**。 前者會跨所有資料整合單位計算。
+- 當您指定**parallelCopies**屬性的值時, 請考慮來源和接收資料存放區的負載增加。 也請考慮負載增加至自我裝載整合執行時間 (如果複製活動是由其進行授權), 例如針對混合式複製。 當您對相同的資料存放區執行相同活動的多個活動或並存執行時, 就會發生這種負載增加的情況。 如果您注意到資料存放區或自我裝載整合執行時間已負擔負載, 請減少**parallelCopies**值以減輕負載。
+
+**範例:**
 
 ```json
 "activities":[
@@ -213,13 +217,6 @@ Azure Data Factory 提供下列效能優化功能:
     }
 ]
 ```
-
-**注意事項：**
-
-* 當您在以檔案為基礎的存放區之間複製資料時, **parallelCopies**會決定檔案層級的平行處理原則。 單一檔案內的區塊化會自動且透明地出現在下方。 其設計目的是針對指定的來源資料存放區類型, 使用最適合的區塊大小, 以平行方式載入資料, 並與**parallelCopies**。 資料移動服務在執行階段用於複製作業的實際平行複製數目不會超過您擁有的檔案數目。 如果複製行為是**mergeFile**, 複製活動就無法利用檔案層級的平行處理原則。
-* 當您從不是以檔案為基礎的存放區複製資料時 ( [Oracle](connector-oracle.md#oracle-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [Sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap 開放式中樞](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)連接器除外, 做為已啟用資料分割的來源), 會儲存至以檔案為基礎之資料移動服務的存放區。忽略**parallelCopies**屬性。 即使已指定平行處理原則，也不會套用於此案例。
-* **ParallelCopies**屬性正交于**dataIntegrationUnits**。 前者會跨所有資料整合單位計算。
-* 當您指定**parallelCopies**屬性的值時, 請考慮來源和接收資料存放區的負載增加。 也請考慮負載增加至自我裝載整合執行時間 (如果複製活動是由其進行授權), 例如針對混合式複製。 當您對相同的資料存放區執行相同活動的多個活動或並存執行時, 就會發生這種負載增加的情況。 如果您注意到資料存放區或自我裝載整合執行時間已負擔負載, 請減少**parallelCopies**值以減輕負載。
 
 ### <a name="staged-copy"></a>分段複製
 
@@ -305,5 +302,5 @@ Azure Data Factory 提供下列效能優化功能:
 請參閱其他複製活動文章:
 
 - [複製活動概觀](copy-activity-overview.md)
-- [複製活動架構對應](copy-activity-schema-and-type-mapping.md)
-- [複製活動容錯](copy-activity-fault-tolerance.md)
+- [使用 Azure Data Factory 將資料從您的 data lake 或資料倉儲遷移至 Azure](data-migration-guidance-overview.md)
+- [將資料從 Amazon S3 遷移至 Azure 儲存體](data-migration-guidance-s3-azure-storage.md)

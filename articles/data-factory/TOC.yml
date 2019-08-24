@@ -110,6 +110,19 @@
           href: tutorial-deploy-ssis-packages-azure.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
+    - name: 載入 Data Lake Storage Gen2
+      href: load-azure-data-lake-storage-gen2.md
+      items:
+        - name: 從 Data Lake Storage Gen1 複製
+          href: load-azure-data-lake-storage-gen2-from-gen1.md
+    - name: 載入 Azure SQL 資料倉儲
+      href: load-azure-sql-data-warehouse.md
+    - name: 載入 Data Lake Storage Gen1
+      href: load-azure-data-lake-store.md
+    - name: 載入 SAP BW 資料
+      href: load-sap-bw-data.md
+    - name: 載入 Office 365 資料
+      href: load-office-365-data.md
 - name: 範例
   items:
     - name: 程式碼範例
@@ -358,29 +371,14 @@
           href: delete-activity.md
         - name: 複製資料工具
           href: copy-data-tool.md
-        - name: 載入 Data Lake Storage Gen2
-          href: load-azure-data-lake-storage-gen2.md
-          items:
-            - name: 從 Data Lake Storage Gen1 複製
-              href: load-azure-data-lake-storage-gen2-from-gen1.md
-        - name: 載入 Azure SQL 資料倉儲
-          href: load-azure-sql-data-warehouse.md
-        - name: 載入 Data Lake Storage Gen1
-          href: load-azure-data-lake-store.md
-        - name: 載入 SAP BW 資料
-          href: load-sap-bw-data.md
-        - name: 載入 Office 365 資料
-          href: load-office-365-data.md
-        - name: 讀取或寫入分割的資料
-          href: how-to-read-write-partitioned-data.md
+        - name: 效能和微調
+          href: copy-activity-performance.md
         - name: 格式和壓縮支援
           href: supported-file-formats-and-compression-codecs.md
         - name: 結構描述和類型對應
           href: copy-activity-schema-and-type-mapping.md
         - name: 容錯
           href: copy-activity-fault-tolerance.md
-        - name: 效能和微調
-          href: copy-activity-performance.md
     - name: 轉換資料
       href: transform-data.md
       items:

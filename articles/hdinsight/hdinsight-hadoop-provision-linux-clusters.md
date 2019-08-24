@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 4159eed04ff1a4e81ea36a4d7f06f342a63fe367
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: c47cc49a8e81b44a4529f8f82954797e2648c938
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442033"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983099"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集
 
@@ -51,7 +51,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 * [叢集類型和設定](#cluster-types) 
 * [叢集名稱](#cluster-name)
 * [叢集登入和 SSH 使用者名稱](#cluster-login-and-ssh-username)
-* [Location](#location)
+* [位置](#location)
 
 ## <a name="resource-group-name"></a>資源群組名稱
 
@@ -256,6 +256,7 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 
 ## <a name="next-steps"></a>後續步驟
 
+- [使用 Azure HDInsight 疑難排解叢集建立失敗](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 - [什麼是 HDInsight、Apache Hadoop 生態系統以及 Hadoop 叢集？](hadoop/apache-hadoop-introduction.md)
 - [開始使用 HDInsight 中的 Apache Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 - [從 Windows PC 在 HDInsight 上的 Hadoop 生態系統中作業](hdinsight-hadoop-windows-tools.md)

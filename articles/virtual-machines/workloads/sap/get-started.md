@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da7b9c44d15ac0ca16afe15e429a6fe2cf89e366
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: a8737d468b49904eaa16e873dd5d468b4eed6fb6
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575234"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992013"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -121,7 +121,7 @@ Azure 上的 SAP 工作負載區段中的檔變更會列在本文結尾。
 
 
 ## <a name="change-log"></a>變更記錄檔
-
+- 08/22/2019:在[Azure 中的 SUSE Linux Enterprise Server 上設定 Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)以更新自訂角色建立的 url 中的變更  
 - 08/16/2019:在[azure Red Hat Enterprise Linux 上設定 Pacemaker 的](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker)變更, 以在更新至新版本的 azure 隔離代理程式時, 提醒客戶更新自訂角色中的動作  
 - 08/15/2019:[SAP Hana Azure 虛擬機器儲存體](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)設定的變更, 以反映 ultra (舊稱 ultra SSD) 的正式運作
 - 08/01/2019:在[Azure 中的 SUSE Linux Enterprise Server 上設定 Pacemaker](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) , 以整合特別針對 SLES 15 進行的變更 

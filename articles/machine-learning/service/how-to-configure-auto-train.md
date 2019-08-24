@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a73d048a66c70eaf22caf6b33c4a495df6d730dd
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013653"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997925"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>在 Python 中設定自動化 ML 實驗
 
@@ -78,7 +78,7 @@ automl_config = AutoMLConfig(task="classification")
 >* 資料必須是表格式格式。
 >* 您想要預測的值 (目標資料行) 必須存在於資料中。
 
-範例:
+例如：
 
 *   Numpy 陣列
 
@@ -207,6 +207,8 @@ automl_config = AutoMLConfig(task="classification")
 ### <a name="primary-metric"></a>主要計量
 主要度量;如上述範例所示, 會決定要在模型定型期間用來進行優化的度量。 您可以選取的主要度量取決於您選擇的工作類型。 以下是可用計量的清單。
 
+瞭解[自動化機器學習結果](how-to-understand-automated-ml.md)中的特定定義。
+
 |分類 | 迴歸 | 時間序列預測
 |-- |-- |--
 |精確度| spearman_correlation | spearman_correlation
@@ -222,7 +224,7 @@ automl_config = AutoMLConfig(task="classification")
 若要啟用此特徵化, `"preprocess": True`請[ `AutoMLConfig`為類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)指定。
 
 > [!NOTE]
-> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時, 定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
+> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
 
 ### <a name="time-series-forecasting"></a>時間序列預測
 針對時間序列預測工作類型, 您有額外的參數可供定義。
@@ -377,7 +379,7 @@ best_run, fitted_model = automl_run.get_output()
 
 + API 1: `get_engineered_feature_names()`傳回工程化功能名稱的清單。
 
-  用法:
+  Usage :
   ```python
   fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
   ```
@@ -393,7 +395,7 @@ best_run, fitted_model = automl_run.get_output()
 
 + API 2: `get_featurization_summary()`傳回所有輸入功能的特徵化摘要。
 
-  用法:
+  Usage :
   ```python
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
@@ -401,7 +403,7 @@ best_run, fitted_model = automl_run.get_output()
   >[!Note]
   >請為工作 = ' 預測 ' 使用 ' timeseriestransformer ', 否則請使用 ' datatransformer ' 進行「回歸」或「分類」工作。
 
-  輸出:
+  輸出：
   ```
   [{'RawFeatureName': 'A',
     'TypeDetected': 'Numeric',

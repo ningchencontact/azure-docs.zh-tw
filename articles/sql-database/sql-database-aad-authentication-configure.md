@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b6414ac41b1bb43e3fe1470a7ae2b1358126003a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a14926dea576e0331cb8c0f8010f060f47faa3e7
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569679"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991168"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>使用 SQL 設定及管理 Azure Active Directory 驗證
 
@@ -412,6 +412,9 @@ conn.Open();
 ### <a name="sqlcmd"></a>sqlcmd
 
 下列陳述式中使用 sqlcmd 13.1 進行連線，從 [下載中心](https://go.microsoft.com/fwlink/?LinkID=825643)即可取得此版本。
+
+> [!NOTE]
+> `sqlcmd``-G`使用命令時, 不會使用系統身分識別, 而且需要使用者主體登入。
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b0c9d55846a0240dde92de16ea17e9403a112c3e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9264aa6d24256b991abefe35b41045caa2e76d67
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699224"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997773"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>將大量資料移轉至 Azure 檔案同步
 您可以透過兩種方式將大量資料移轉至 Azure 檔案同步:
@@ -22,9 +22,10 @@ ms.locfileid: "68699224"
 
 本文說明如何以與 Azure 檔案同步相容的方式, 離線遷移檔案。請遵循這些指示來避免檔案衝突, 並在啟用同步處理之後, 保留您的檔案和資料夾存取控制清單 (Acl) 和時間戳記。
 
-## <a name="online-migration-tools"></a>線上移轉工具
-本文中所述的程式不僅適用于資料箱, 也適用于其他離線遷移工具。 它也適用于 AzCopy、Robocopy 或合作夥伴工具和服務等線上工具。 不過, 您會克服最初的上傳挑戰, 請遵循本文中的步驟, 以與 Azure 檔案同步相容的方式來使用這些工具。
+## <a name="migration-tools"></a>移轉工具
+本文中所述的程式不僅適用于資料箱, 也適用于其他離線遷移工具。 它也適用于透過網際網路直接運作的 AzCopy、Robocopy 或合作夥伴工具和服務等工具。 不過, 若要克服最初的上傳挑戰, 請遵循本文中的步驟, 以與 Azure 檔案同步相容的方式來使用這些工具。
 
+在某些情況下, 您必須先從一部 Windows 伺服器移至另一部 Windows Server, 再採用 Azure 檔案同步。[儲存體遷移服務](https://aka.ms/storagemigrationservice)(SMS) 可以提供協助。 無論您是否需要遷移至 Azure 檔案同步 (Windows Server 2012R2 和更新版本) 支援的伺服器作業系統版本, 或是只需要遷移, 因為您要為 Azure 檔案同步購買新系統, SMS 有許多功能和優點可協助您 migra) 順利完成。
 
 ## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>使用工具離線傳輸資料的優點
 以下是使用傳輸工具 (如資料箱進行離線遷移) 的主要優點:
@@ -48,7 +49,7 @@ ms.locfileid: "68699224"
 
 ![顯示如何設定 Azure 檔案同步的圖表](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| 步驟 | Detail |
+| 步驟 | 詳細資料 |
 |---|---------------------------------------------------------------------------------------|
 | ![步驟 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [訂購資料箱](../../databox/data-box-deploy-ordered.md)。 資料箱系列提供[數項產品](https://azure.microsoft.com/services/storage/databox/data)以符合您的需求。 當您收到資料箱時, 請遵循其檔, 將[您的資料複製](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box)到資料箱上的此 UNC 路徑:  *\\< DeviceIPAddres StorageAccountName_AzFile\> \> \< \<共用\>名*。 在這裡, 「*共用*名」是預備共用的名稱。 將資料箱送回 Azure。 |
 | ![步驟 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | 等到您的檔案顯示在您選擇做為暫時暫存共用的 Azure 檔案共用中。 *請勿啟用同步處理到這些共用。* |

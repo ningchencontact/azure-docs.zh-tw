@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.openlocfilehash: 00cace13a1d3db2bca45791960ca9bf2fb9260bd
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 08/21/2019
+ms.openlocfilehash: e0309ac70d39272bf045e49ca7ddecd258cc1f36
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976908"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992053"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
@@ -49,7 +49,7 @@ ms.locfileid: "68976908"
 
 
 ### <a name="paired-regions"></a>配對的區域
-除了通用複本區域之外, 您還可以在主伺服器的 Azure 配對區域中建立讀取複本。 如果您不知道您的區域配對, 可以從[Azure 配對區域一文](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)深入瞭解。
+除了通用複本區域之外, 您還可以在主伺服器的 Azure 配對區域中建立讀取複本。 如果您不知道您的區域配對, 可以從[Azure 配對區域一文](../best-practices-availability-paired-regions.md)深入瞭解。
 
 如果您使用跨區域複本進行嚴重損壞修復計畫, 建議您在配對的區域中建立複本, 而不是在其他其中一個區域。 配對的區域會避免同時更新, 並排定實體隔離和資料存放區的優先順序。  
 

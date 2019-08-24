@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 776a27ca0babfd7557bf4d16c449a8dfa5bceaf7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874407"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998205"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -42,7 +42,8 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上:第4代和�
 | 實例保留的最大儲存體 |  一般用途: 8 TB<br/>業務關鍵:1TB | 一般用途:8 TB<br/> 商務關鍵性 1 TB、2 TB 或 4 TB, 視核心數目而定 |
 
 > [!IMPORTANT]
-> 澳大利亞東部或巴西南部區域不再支援新的第4代資料庫。
+> - 第4代硬體即將推出。建議您在第5代硬體上部署新的受控實例。
+> - 第4代硬體目前可在下欄區域使用:歐洲北部、西歐、美國東部、美國中南部、美國中北部、美國西部2、美國中部、加拿大中部、印度南部、東南亞和韓國中部。
 
 ### <a name="service-tier-characteristics"></a>服務層的特性
 
@@ -106,7 +107,7 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上:第4代和�
 |Visual Studio 企業版|2 |64|
 |Visual Studio Professional 和 MSDN 平臺|2|32|
 
-\*當您規劃部署時, 請考慮商務關鍵性 (BC) vCore (因為新增的冗余) 會耗用4倍以上的容量, 而不是一般用途 (GP) vCore。 因此, 針對您的計算, 1 個 GP vCore = 1 個 vCore unit 和1個 BC vCore = 4 個 vCore 單位。 若要簡化您對預設限制的耗用量分析, 請摘要說明部署受控實例之區域中所有子網的 vCore 單位, 並將結果與訂用帳戶類型的實例單位限制進行比較。 **VCore 單位限制的最大數目**適用于區域中的每個訂用帳戶。 每個個別子網沒有限制, 不同之處在于跨多個子網部署的所有虛擬核心總和必須小於或等於**vCore 單位的最大數目**。
+\*在規劃部署中, 請考慮商務關鍵性 (BC) 服務層級需要四 (4) 倍以上的 vCore 容量, 而不是一般用途 (GP) 服務層級。 例如: 1個 GP vCore = 1 個 vCore unit 和1個 BC vCore = 4 個 vCore 單位。 若要簡化您對預設限制的耗用量分析, 請摘要說明部署受控實例之區域中所有子網的 vCore 單位, 並將結果與訂用帳戶類型的實例單位限制進行比較。 **VCore 單位限制的最大數目**適用于區域中的每個訂用帳戶。 每個個別子網沒有限制, 不同之處在于跨多個子網部署的所有虛擬核心總和必須小於或等於**vCore 單位的最大數目**。
 
 \*\*較大的子網和 vCore 限制適用于下欄區域:澳大利亞東部、美國東部、美國東部2、歐洲北部、美國中南部、東南亞、英國南部、西歐、美國西部2。
 

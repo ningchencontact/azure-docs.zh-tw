@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 3c4811d990cfe107bc3bc4e6d359659b1935c6a4
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 9d611717ad8fee5f810a8d0876f1ebd5995249a7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297210"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996799"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>持續部署至 Azure App Service
 
@@ -28,13 +28,11 @@ ms.locfileid: "68297210"
 
 如需原始檔控制服務的詳細資訊, 請參閱建立存放庫[建立儲存機制 (GitHub)]、建立存放庫[建立儲存機制 (BitBucket)]或[建立新的 Git 存放庫 (Azure Repos)]。
 
-若要從入口網站不直接支援的雲端存放庫手動設定持續部署 (例如[GitLab](https://gitlab.com/)), 請參閱[使用手動步驟設定連續部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
-
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="authorize-azure-app-service"></a>授權 Azure App Service 
 
-若要使用 Azure Repos, 請確定您的 Azure DevOps 組織已連結至您的 Azure 訂用帳戶。 如需詳細資訊, 請參閱[設定 Azure DevOps Services 帳戶, 使其可以部署至 web 應用程式](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
+若要使用 Azure Repos, 請確定您的 Azure DevOps 組織已連結至您的 Azure 訂用帳戶。 如需詳細資訊, 請參閱[設定 Azure DevOps Services 帳戶, 使其可以部署至 web 應用程式](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)。
 
 針對 Bitbucket 或 GitHub, 授權 Azure App Service 連接到您的存放庫。 您只需要對原始檔控制服務授權一次。 
 
@@ -63,7 +61,7 @@ ms.locfileid: "68297210"
 1. 在 [**部署中心**] 頁面上選取您的授權原始檔控制提供者, 然後選取 [**繼續**]。 針對 GitHub 或 Bitbucket, 您也可以選取 [**變更帳戶**] 來變更授權的帳戶。 
    
    > [!NOTE]
-   > 若要使用 Azure Repos, 請確定您的 Azure DevOps Services 組織已連結至您的 Azure 訂用帳戶。 如需詳細資訊, 請參閱[設定 Azure DevOps Services 帳戶, 使其可以部署至 web 應用程式](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
+   > 若要使用 Azure Repos, 請確定您的 Azure DevOps Services 組織已連結至您的 Azure 訂用帳戶。 如需詳細資訊, 請參閱[設定 Azure DevOps Services 帳戶, 使其可以部署至 web 應用程式](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)。
    
 1. 若是 GitHub 或 Azure Repos, 請在 [**組建提供者**] 頁面上, 選取 [ **App Service 組建服務**], 然後選取 [**繼續**]。 Bitbucket 一律會使用 App Service 組建服務。
    
@@ -81,7 +79,7 @@ ms.locfileid: "68297210"
    - 針對 Azure Repos, 請選取您想要持續部署的**Azure DevOps 組織**、**專案**、存放**庫**和**分支**。
      
      > [!NOTE]
-     > 如果您的 Azure DevOps 組織未列出, 請確定它已連結至您的 Azure 訂用帳戶。 如需詳細資訊, 請參閱[設定 Azure DevOps Services 帳戶, 使其可以部署至 web 應用程式](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
+     > 如果您的 Azure DevOps 組織未列出, 請確定它已連結至您的 Azure 訂用帳戶。 如需詳細資訊, 請參閱[設定 Azure DevOps Services 帳戶, 使其可以部署至 web 應用程式](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)。
      
 1. 選取 **繼續**。
    
@@ -149,6 +147,10 @@ ms.locfileid: "68297210"
 ![停用連續部署](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="use-unsupported-repos"></a>使用不支援的存放庫
+
+針對 Windows 應用程式, 您可以從入口網站不直接支援的雲端 Git 或 Mecurial 存放庫手動設定持續部署, 例如[GitLab](https://gitlab.com/)。 您可以選擇 [**部署中心**] 頁面中的 [外部] 方塊來執行此動作。 如需詳細資訊, 請參閱[使用手動步驟設定連續部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
 
 ## <a name="additional-resources"></a>其他資源
 

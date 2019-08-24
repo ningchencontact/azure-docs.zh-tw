@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: cb82d47be11570baf7865468c804162a20a7685f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 59574f0a07f4ecc145f2b0efd430e65cbdebcc65
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855472"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991568"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>使用 Power BI 分析 Azure Data Lake Storage Gen2 中的資料
 
 在本文中, 您將瞭解如何使用 Power BI Desktop 來分析儲存在具有階層命名空間 (Azure Data Lake Storage Gen2) 之儲存體帳戶中的資料並加以視覺化。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
@@ -39,7 +39,7 @@ ms.locfileid: "68855472"
 
     ![[取得資料] 頁面](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. 在 [ **Azure Data Lake Storage Gen2** ] 對話方塊中, 您可以使用檔案系統端點格式, 提供您 Azure Data Lake Storage Gen2 帳戶、filesystem 或子資料夾的 URL。 Data Lake Storage Gen2 的 url 具有下列模式`https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` , 然後按一下 **[確定]** 。
+4. 在 [ **Azure Data Lake Storage Gen2** ] 對話方塊中, 您可以使用容器端點格式, 提供您 Azure Data Lake Storage Gen2 帳戶、filesystem 或子資料夾的 URL。 Data Lake Storage Gen2 的 url 具有下列模式`https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` , 然後按一下 **[確定]** 。
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

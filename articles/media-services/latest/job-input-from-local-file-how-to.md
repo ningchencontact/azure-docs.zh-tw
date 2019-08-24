@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: 399f6724b8948c8e507bc50622a4fb65b2262491
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 94ac332867d46deb426672fbc40cc72cc121fe64
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653947"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998142"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>從本機檔案建立工作輸入
 
@@ -31,6 +31,12 @@ ms.locfileid: "67653947"
 * 使用 SAS URL，將檔案上傳至儲存體中的容器
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
+
+下列程式碼片段會建立輸出資產 (如果尚未存在):
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAssetAsync)]
+
+下列程式碼片段會提交編碼作業:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 

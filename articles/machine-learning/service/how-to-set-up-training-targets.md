@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e73a64a9782535da31e2eacbaa2740007707c774
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
-ms.translationtype: MT
+ms.openlocfilehash: 7d9d6dc8a980c543aa1a94c0ed4e9ae845769567
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872417"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997894"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
 
@@ -433,7 +433,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [使用 CLI 擴充功能](reference-azure-machine-learning-cli.md#experiments)提交實驗。
 * 透過[VS Code 延伸](how-to-vscode-tools.md#train-and-tune-models)模組提交實驗。
 
-## <a name="github-tracking-and-integration"></a>GitHub 追蹤與整合
+## <a name="git-tracking-and-integration"></a>Git 追蹤與整合
 
 當您啟動定型回合, 其中來原始目錄是本機 Git 存放庫時, 儲存機制的相關資訊會儲存在執行歷程記錄中。 例如, 存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
 

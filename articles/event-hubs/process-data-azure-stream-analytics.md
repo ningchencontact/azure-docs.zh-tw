@@ -8,18 +8,15 @@ ms.author: spelluru
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: 003e68b36ff71fb2991cf087ef33f72aba73a8be
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233968"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991937"
 ---
-# <a name="process-data-from-your-event-hub-using-azure-stream-analytics-preview"></a>使用 Azure 串流分析 (預覽) 處理來自事件中樞的資料
+# <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>使用 Azure 串流分析處理來自事件中樞的資料 
 Azure 串流分析服務可讓您輕鬆地從 Azure 事件中樞內嵌、處理和分析串流資料, 並提供強大的深入解析來驅動即時動作。 此整合可讓您快速建立熱路徑分析管線。 您可以使用 Azure 入口網站將傳入的資料視覺化, 並撰寫串流分析的查詢。 準備好您的查詢之後, 只要按幾下滑鼠就可以將它移到生產環境中。 
-
-> [!NOTE]
-> 此功能目前為預覽狀態。 
 
 ## <a name="key-benefits"></a>主要權益
 以下是 Azure 事件中樞和 Azure 串流分析整合的主要優點: 
@@ -50,7 +47,7 @@ Azure 串流分析服務可讓您輕鬆地從 Azure 事件中樞內嵌、處理�
 1. 您會立即在此索引標籤中看到最新傳入資料的快照集。
     - 系統會自動偵測您資料中的序列化類型 (JSON/CSV)。 您也可以手動將它變更為 JSON/CSV/AVRO。
     - 您可以預覽資料表格式或原始格式的傳入資料。 
-    - 如果顯示的資料不是最新  的, 請選取 [重新整理] 以查看最新的事件。 
+    - 如果顯示的資料不是最新的, 請選取 [重新整理] 以查看最新的事件。 
 
         以下是**資料表格式**的資料範例: ![產生資料表格式的結果](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
@@ -80,7 +77,7 @@ Azure 串流分析服務可讓您輕鬆地從 Azure 事件中樞內嵌、處理�
 ## <a name="known-limitations"></a>已知限制
 測試查詢時, 測試結果大約需要6秒的時間來載入。 我們正努力改善測試的效能。 不過, 在生產環境中部署時, Azure 串流分析會有次秒延遲。
 
-## <a name="streaming-units"></a>串流單位
+## <a name="streaming-units"></a>資料流單位
 您的 Azure 串流分析作業預設為三個串流單位 (su)。 若要調整這項設定, 請在 Azure 入口網站的 [**串流分析作業**] 頁面中, 選取左側功能表上的 [**調整**]。 若要深入瞭解串流處理單位, 請參閱[瞭解和調整串流單位](../stream-analytics/stream-analytics-streaming-unit-consumption.md)。
 
 ![調整串流單位](./media/process-data-azure-stream-analytics/scale.png)

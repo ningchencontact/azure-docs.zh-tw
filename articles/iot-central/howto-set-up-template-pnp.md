@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 982ebf28a0f99a6eace2448676c934855cd99d1f
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fd7cd8f73f602953573b7e6edab32bf2a6aecc05
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879730"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998128"
 ---
 # <a name="set-up-and-manage-a-device-template-preview-features"></a>設定和管理裝置範本 (預覽功能)
 
@@ -36,7 +36,7 @@ ms.locfileid: "69879730"
 > [!NOTE]
 > 只有建置者和系統管理員可以建立、編輯和刪除裝置範本。 任何使用者都可以從現有的裝置範本, 在 [**裝置**] 頁面上建立裝置。
 
-[IoT 隨插即用](https://aka.ms/iot-pnp-docs)可讓 IoT Central 整合裝置, 而不需要撰寫任何內嵌的裝置程式碼。 IoT 隨插即用的核心是描述裝置功能的裝置功能模型架構。 在 IoT Central 預覽應用程式中, 裝置範本會使用這些 IoT 隨插即用裝置功能模型。
+[IoT 隨插即用](../iot-pnp/overview-iot-plug-and-play.md)可讓 IoT Central 整合裝置, 而不需要撰寫任何內嵌的裝置程式碼。 IoT 隨插即用的核心是描述裝置功能的裝置功能模型架構。 在 IoT Central 預覽應用程式中, 裝置範本會使用這些 IoT 隨插即用裝置功能模型。
 
 作為產生器, 您有數個選項可用於建立裝置範本:
 

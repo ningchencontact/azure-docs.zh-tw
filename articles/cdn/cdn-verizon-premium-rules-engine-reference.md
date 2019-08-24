@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5fc611af75a7f733576f9343a4375fb56cacc030
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67593154"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996761"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>來自 Verizon 的 Azure CDN Premium 規則引擎參考
 
@@ -70,6 +70,8 @@ Character | 描述
 \* | 星號可讓前置字元比對零或多次。
 空白字元 | 空白字元通常會被視為常值字元。
 'value' | 單引號會被視為常值字元。 單引號組不具有特殊意義。
+
+支援正則運算式的比對條件和功能接受由 Perl 相容的正則運算式 (PCRE) 所定義的模式。
 
 ## <a name="next-steps"></a>後續步驟
 

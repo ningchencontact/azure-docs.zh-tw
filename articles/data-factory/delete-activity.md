@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
-ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.date: 08/20/2019
+ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335659"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996312"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Delete 活動
 
@@ -44,6 +44,7 @@ ms.locfileid: "68335659"
 -   [Azure Blob 儲存體](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Azure 檔案儲存體](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>檔案系統資料存放區
 
@@ -51,6 +52,7 @@ ms.locfileid: "68335659"
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
+-   [Google Cloud Storage](connector-google-cloud-storage.md)
 
 ## <a name="syntax"></a>語法
 
@@ -79,7 +81,7 @@ ms.locfileid: "68335659"
 
 ## <a name="type-properties"></a>類型屬性
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | 資料集 | 提供資料集參考，以判斷要刪除哪些檔案或資料夾 | 是 |
 | recursive | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式刪除檔案。  | 資料分割 預設為 `false`。 |
@@ -87,7 +89,7 @@ ms.locfileid: "68335659"
 | enablelogging | 指出您是否需要記錄已刪除的資料夾或檔案名稱。 如果為 true，則您需要進一步提供儲存體帳戶來儲存記錄檔，以便您可以藉由讀取記錄檔來追蹤 Delete 活動的行為。 | 否 |
 | logStorageSettings | 僅適用於 enablelogging = true 時。<br/><br/>一組儲存體屬性，可指定您要儲存記錄檔 (包含由 Delete 活動刪除的資料夾或檔案名稱) 的位置。 | 否 |
 | linkedServiceName | 僅適用於 enablelogging = true 時。<br/><br/>[Azure 儲存體](connector-azure-blob-storage.md#linked-service-properties)、 [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)或[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)的連結服務, 用來儲存記錄檔, 其中包含由 Delete 活動刪除的資料夾或檔案名。 請注意, 它必須使用與 [刪除活動] 用來刪除檔案的相同 Integration Runtime 類型進行設定。 | 否 |
-| 路徑 | 僅適用於 enablelogging = true 時。<br/><br/>要在您的儲存體帳戶中儲存記錄檔的路徑。 如不提供路徑，服務會為您建立容器。 | 否 |
+| path | 僅適用於 enablelogging = true 時。<br/><br/>要在您的儲存體帳戶中儲存記錄檔的路徑。 如不提供路徑，服務會為您建立容器。 | 否 |
 
 ## <a name="monitoring"></a>監視
 
@@ -115,7 +117,7 @@ ms.locfileid: "68335659"
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Delete 活動的範例記錄檔
 
-| 名稱 | Category | 狀態 | 錯誤 |
+| Name | Category | 狀態 | Error |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | 檔案 | 已刪除 |  |
 | test2/hello789.txt | 檔案 | 已刪除 |  |

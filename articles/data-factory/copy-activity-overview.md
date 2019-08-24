@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 59ac4b36a4bc2b3ff454b3a2ae98ce60f6bfcb5f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614258"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996614"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -263,9 +263,6 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 ## <a name="incremental-copy"></a>增量複製
 Data Factory 支援以累加方式將差異資料從來源資料存放區複製到接收資料存放區的案例。 請參閱[教學課程：以累加方式複製資料](tutorial-incremental-copy-overview.md)。
-
-## <a name="read-and-write-partitioned-data"></a>讀取和寫入分割的資料
-在第 1 版中，Azure Data Factory 支援使用 SliceStart/SliceEnd/WindowStart/WindowEnd 系統變數讀取或寫入分割的資料。 在目前的版本中，您可以透過使用管線參數，以觸發程序的開始時間/已排程時間作為參數的值來達成此行為。 如需詳細資訊，請參閱[如何讀取或寫入分割的資料](how-to-read-write-partitioned-data.md)。
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列快速入門、教學課程和範例：

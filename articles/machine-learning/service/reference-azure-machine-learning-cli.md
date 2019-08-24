@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 05/02/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a82a44127a470b6366eeffc60c73f762d5a8f525
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 6c5068512f8ba26f7710bca7c0fccb98e0a5be33
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348575"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996736"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的 CLI 擴充功能
 
@@ -30,7 +30,7 @@ Azure Machine Learning CLI 是 [Azure CLI](https://docs.microsoft.com/cli/azure/
 
 CLI 不是 Azure Machine Learning SDK 的取代項目。 它是一種互補的工具, 已優化以處理高度參數化的工作, 這些工作非常適合自動化。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 若要使用 CLI，您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -112,7 +112,14 @@ az extension remove -n azure-cli-ml
 
     如需詳細資訊, 請參閱[az ml 資料存放區附加-blob](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob)。
 
-    
++ 將檔案上傳到資料存放區。
+
+    ```azurecli-interactive
+    az ml datastore upload  -n datastorename -p sourcepath
+    ```
+
+    如需詳細資訊, 請參閱[az ml 資料存放區上傳](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-upload)。
+
 + 將 AKS 叢集連結為計算目標。
 
     ```azurecli-interactive
@@ -153,6 +160,42 @@ az extension remove -n azure-cli-ml
     ```
 
     如需詳細資訊, 請參閱[az ml 實驗清單](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list)。
+
+## <a name="environment-management"></a>環境管理
+
+下列命令示範如何建立、註冊及列出工作區的 Azure Machine Learning 服務[環境](how-to-configure-environment.md):
+
++ 建立環境的基案檔案:
+
+    ```azurecli-interactive
+    az ml environment scaffold -n myenv -d myenvdirectory
+    ```
+
+    如需詳細資訊, 請參閱[az ml 環境 scaffold](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-scaffold)。
+
++ 註冊環境:
+
+    ```azurecli-interactive
+    az ml environment register -d myenvdirectory
+    ```
+
+    如需詳細資訊, 請參閱[az ml 環境 register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-register)。
+
++ 列出已註冊的環境:
+
+    ```azurecli-interactive
+    az ml environment list
+    ```
+
+    如需詳細資訊, 請參閱[az ml 環境 list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-list)。
+
++ 下載已註冊的環境:
+
+    ```azurecli-interactive
+    az ml environment download -n myenv -d downloaddirectory
+    ```
+
+    如需詳細資訊, 請參閱[az ml 環境下載](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download)。
 
 ## <a name="model-registration-profiling-deployment"></a>模型註冊, 分析, 部署
 

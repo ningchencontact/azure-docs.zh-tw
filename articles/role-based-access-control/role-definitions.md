@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ece5d8f9733dde57c2990bfbb6bb90305d8bc37d
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 2ec3872b9e11830f7891e98f5fc0182b99e1586d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977194"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997335"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解適用於 Azure 資源的角色定義
 
@@ -88,7 +88,7 @@ AssignableScopes []
 - 建立、更新或刪除 Blob 容器
 - 刪除資源群組及其所有資源
 
-您的資料不會繼承管理存取權。 此隔離可防止具有萬用字元 (`*`) 的角色不受限地存取您的資料。 例如，如果使用者具有訂用帳戶的[讀取者](built-in-roles.md#reader)角色，則可以檢視儲存體帳戶，但預設為無法檢視基礎資料。
+如果容器驗證方法設定為「Azure AD 使用者帳戶」而非「存取金鑰」, 則不會將管理存取權繼承至您的資料。 此隔離可防止具有萬用字元 (`*`) 的角色不受限地存取您的資料。 例如，如果使用者具有訂用帳戶的[讀取者](built-in-roles.md#reader)角色，則可以檢視儲存體帳戶，但預設為無法檢視基礎資料。
 
 在此之前，資料作業不可使用角色型存取控制。 資料作業的授權會因為資源提供者不同而有差異。 用於管理作業的相同角色型存取控制授權模型已擴充至資料作業。
 

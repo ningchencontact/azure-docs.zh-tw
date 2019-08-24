@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/16/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 8d90d71b8d29d26f09ef617ddd56ce91eb4e5e2e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 632b23a726b8e006152662ef7814aa4b7ef887fc
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541440"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69984527"
 ---
 本節提供舊版虛擬機器大小的相關資訊。 這些大小仍可使用，但有較新一代的大小可供使用。 
 
@@ -61,7 +61,7 @@ MBps = 每秒 10^6 位元組，而 GiB = 1024^3 位元組。
 
 ## <a name="nvv2-series"></a>NVv2 系列
 
-**較新的大小建議**:[NVv3 系列](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series-preview-1)
+**較新的大小建議**:[NVv3 系列](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 NVv2 系列的虛擬機器採用 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 以及具備 Intel Broadwell CPU 的 NVIDIA GRID 技術。 這些虛擬機器專用於 GPU 高速圖形應用程式以及虛擬桌面，客戶可用於將其資料視覺化、將結果模擬到檢視中、運用於 CAD 之上，或是轉譯內容及串流內容。 除此之外，這些虛擬機器可以執行單一的精密工作負載，像是編碼及轉譯。 NVv2 虛擬機器支援進階儲存體，同時相較於之前的 NV 系列，配備兩倍的系統記憶體 (RAM)。  
 

@@ -1,5 +1,5 @@
 ---
-title: 深度學習與機器學習的簡介
+title: 深度學習與機器學習服務
 titleSuffix: Azure Machine Learning service
 description: 瞭解深度學習與機器學習之間的關係, 以及它們如何融入人工智慧的類別。 本文說明深度學習如何解決案例, 例如詐騙偵測、語音和臉部辨識、情感分析, 以及時間序列預測。
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5301be493ef22fc2d74cc337d88b04caf391fdaa
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934283"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982815"
 ---
-# <a name="introduction-to-deep-learning-vs-machine-learning"></a>深度學習與機器學習的簡介
+# <a name="deep-learning-vs-machine-learning"></a>深度學習與機器學習服務
 
 本文可協助您瞭解深度學習與機器學習服務之間的關聯性。 您將瞭解兩個概念的比較, 以及它們如何符合更廣泛的人工智慧類別。 最後, 本文會說明如何將深度學習套用到真實世界的案例, 例如詐騙偵測、語音和臉部辨識、情感分析和時間序列預測。
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9c27b81717c32ccf4c78143a3d3d31de7181c5fe
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966454"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996618"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -46,7 +46,7 @@ ms.locfileid: "68966454"
 > [!Note]
 > 不支援 Oracle Proxy 伺服器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
@@ -62,7 +62,7 @@ ms.locfileid: "68966454"
 
 Oracle 連結服務支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | type 屬性必須設定為 **Oracle**。 | 是 |
 | connectionString | 指定連線到 Oracle 資料庫執行個體所需的資訊。 <br/>將此欄位`SecureString`標記為, 以安全地將它儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中, 並從`password`連接字串中提取設定。 請參閱下列範例, 並[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md), 並提供更多詳細資料。 <br><br>**支援的連線類型**：您可以使用 [Oracle SID] 或 [Oracle 服務名稱] 來識別您的資料庫：<br>- 如果您使用 SID：`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 如果您使用服務名稱：`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 是 |
@@ -167,7 +167,7 @@ Oracle 連結服務支援下列屬性:
 
 若要將資料從和複製到 Oracle, 請將資料集的 type `OracleTable`屬性設定為。 以下是支援的屬性。
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為`OracleTable`。 | 是 |
 | tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 | 是 |
@@ -198,11 +198,11 @@ Oracle 連結服務支援下列屬性:
 ### <a name="oracle-as-source"></a>Oracle 作為來源
 
 >[!TIP]
->若要使用資料分割有效率地從 Oracle 載入資料, 請參閱[從 oracle 進行平行複製](#parallel-copy-from-oracle)。
+>若要使用資料分割有效率地從 Oracle 載入資料, 請從[oracle 的平行複製](#parallel-copy-from-oracle)深入瞭解。
 
 若要從 Oracle 複製資料, 請將複製活動中的來源類型`OracleSource`設定為。 複製活動的 [來源] 區段支援下列屬性。
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為`OracleSource`。 | 是 |
 | oracleReaderQuery | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。<br>當您啟用資料分割載入時, 您必須在查詢中攔截任何對應的內建資料分割參數。 如需範例, 請參閱[從 Oracle 平行複製](#parallel-copy-from-oracle)一節。 | 否 |
@@ -249,7 +249,7 @@ Oracle 連結服務支援下列屬性:
 
 若要將資料複製到 Oracle, 請將複製活動中的接收`OracleSink`類型設定為。 複製活動的 [接收] 區段支援下列屬性。
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的類型屬性必須設定為`OracleSink`。 | 是 |
 | writeBatchSize | 當緩衝區大小達到`writeBatchSize`時, 將資料插入 SQL 資料表中。<br/>允許的值為整數 (資料列數目)。 |否 (預設值為 10000) |
@@ -293,9 +293,9 @@ Data Factory Oracle 連接器會提供內建的資料分割, 以平行方式從 
 
 ![資料分割選項的螢幕擷取畫面](./media/connector-oracle/connector-oracle-partition-options.png)
 
-當您啟用資料分割複本時, Data Factory 會針對您的 Oracle 來源執行平行查詢, 以依分割區載入資料。 平行程度是由複製活動上[`parallelCopies`](copy-activity-performance.md#parallel-copy)的設定所控制。 例如, 如果您將設定`parallelCopies`為四, Data Factory 會同時產生並根據您指定的資料分割選項和設定執行四個查詢。 每個查詢都會從您的 Oracle 資料庫中抓取部分資料。
+當您啟用資料分割複本時, Data Factory 會針對您的 Oracle 來源執行平行查詢, 以依分割區載入資料。 平行程度是由複製活動上[`parallelCopies`](copy-activity-performance.md#parallel-copy)的設定所控制。 例如, 如果您將設定`parallelCopies`為四, Data Factory 會根據您指定的資料分割選項和設定, 同時產生並執行四個查詢, 而且每個查詢都會從您的 Oracle 資料庫中取得部分資料。
 
-使用資料分割來啟用平行複製是個不錯的主意, 特別是當您從 Oracle 資料庫載入大量資料時。 以下是適用于不同案例的建議設定:
+使用資料分割來啟用平行複製是個不錯的主意, 特別是當您從 Oracle 資料庫載入大量資料時。 以下是適用于不同案例的建議設定。 將資料複製到以檔案為基礎的資料存放區時, 會建議寫入資料夾做為多個檔案 (僅指定資料夾名稱), 在此情況下, 效能會比寫入單一檔案更好。
 
 | 狀況                                                     | 建議的設定                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: bf9bb7adfa25ea16498a32b57d4927de7e81c007
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 98b97abf9fe0d8e71f93022dcbfeff0a5339d5a1
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826908"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983072"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>將 Apache Spark 和 Apache Hive 與 Hive 倉儲連接器整合
 
@@ -51,7 +51,7 @@ Hive 倉儲連接器所支援的部分作業包括:
 
         ![Spark2 Ambari 設定](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. 將`spark.hadoop.hive.llap.daemon.service.hosts`設定為與 [ **Advanced hive-interactive-env**] 底下的屬性 [ **LLAP 應用程式名稱**] 相同的值。 例如： `llap0`
+    1. 將`spark.hadoop.hive.llap.daemon.service.hosts`設定為與位於 * * Advanced hive-interactive-site * * 之下的**llap**屬性相同的值。 例如： `@llap0`
 
     1. 設定`spark.sql.hive.hiveserver2.jdbc.url`為 JDBC 連接字串, 它會連接到互動式查詢叢集上的 Hiveserver2。 叢集的連接字串看起來會像下面的 URI。 `CLUSTERNAME`是您的 Spark 叢集名稱, `user`而和`password`參數會設定為叢集的正確值。
 

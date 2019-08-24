@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 08/06/2019
-ms.openlocfilehash: c7092b2cbcef01ef71261b6f5498cde56a40c358
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 08/22/2019
+ms.openlocfilehash: 476b8cff23d09d81fe356a6445e27794b267d9a2
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857244"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69998096"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>使用 Azure HDInsight 疑難排解叢集建立失敗
 
@@ -29,7 +29,7 @@ ms.locfileid: "68857244"
 
 ## <a name="permissions-issues"></a>權限問題
 
-如果您使用 Data Lake Storage Gen 2, 請確定指派給 HDInsight 叢集的使用者指派受控識別是在 **儲存體 Blob 資料參與者**角色或**儲存體 blob 資料擁有者角色**中。 如需完整的安裝指示, 請參閱[使用 Azure Data Lake Storage Gen2 搭配 Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account)叢集。
+如果您使用 Azure Data Lake Storage Gen 2, 並收到「此要求未獲授權, 無法使用此許可權執行此作業」錯誤, 請開啟 Azure 入口網站, 移至您的儲存體帳戶, 然後在 [存取控制 (IAM)] 底下, 確認**儲存體 Blob資料參與者**或**儲存體 Blob 資料擁有者角色**角色已將存取權指派給訂用帳戶的**使用者指派受控識別**。 如需詳細指示, 請參閱在[Data Lake Storage Gen2 帳戶上設定受控識別的許可權](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account)。
 
 如果您使用 Data Lake Storage Gen 1, 請參閱[這裡](../hdinsight-hadoop-use-data-lake-store.md)的安裝和設定指示。 HBase 叢集不支援 Data Lake Storage Gen 1, 而且在 HDInsight 4.0 版中不支援。
 
@@ -73,6 +73,8 @@ ms.locfileid: "68857244"
 ## <a name="storage-account-name-restrictions"></a>儲存體帳戶名稱限制
 
 儲存體帳戶名稱不可超過24個字元, 且不能包含特殊字元。 這些限制也適用於儲存體帳戶中的預設容器名稱。
+
+其他命名限制也適用于建立叢集。 如需詳細資訊, 請參閱叢集[名稱限制](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name)。
 
 ## <a name="service-outages"></a>服務中斷
 

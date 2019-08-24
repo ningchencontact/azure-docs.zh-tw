@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c316e55700fc8a28ed39bea960a9fe2b2bbd4df1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
-ms.translationtype: HT
+ms.openlocfilehash: 52f6e7ebb1cbae14878b1897bd8c59c73dd0f493
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900379"
+ms.locfileid: "69981015"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 入口網站中佈建 Windows SQL Server 虛擬機器
 
@@ -122,7 +122,7 @@ ms.locfileid: "69900379"
 * 在 [ **Advanced**] 底下, 選取 [使用**受控磁碟**] 底下的 **[是]** 。
 
    > [!NOTE]
-   > Microsoft 建議使用 SQL Server 適用的受控磁碟。 受控磁碟會在背景中處理儲存體。 此外，當具有受控磁碟的虛擬機器在相同的可用性設定組時，Azure 會分散儲存資源以提供適當的備援。 如需詳細資訊，請參閱 [Azure 受控磁碟概觀][../managed-disks-overview.md)。 如需可用性設定組中受控磁碟的具體資訊，請參閱[在可用性設定組中使用 VM 的受控磁碟](../manage-availability.md)。
+   > Microsoft 建議使用 SQL Server 適用的受控磁碟。 受控磁碟會在背景中處理儲存體。 此外，當具有受控磁碟的虛擬機器在相同的可用性設定組時，Azure 會分散儲存資源以提供適當的備援。 如需詳細資訊, 請參閱[Azure 受控磁碟總覽](../managed-disks-overview.md)。 如需可用性設定組中受控磁碟的具體資訊，請參閱[在可用性設定組中使用 VM 的受控磁碟](../manage-availability.md)。
 
 ![SQL VM 磁片設定](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-disks.png)
   

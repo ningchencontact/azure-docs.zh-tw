@@ -1,23 +1,23 @@
 ---
 title: 了解部署順序
-description: 了解藍圖定義將會經歷的生命週期和每個階段的詳細資料。
+description: 瞭解藍圖定義所經歷的生命週期, 以及每個階段的詳細資料。
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/25/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b05a7ce260e8cc1da4ac8a0c186694ae097a3b1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71584c9a69ebab6583973003aa51e94a1afe1b14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721299"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991988"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>了解 Azure 藍圖中的部署順序
 
-Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源的建立順序。 本文說明下列概念：
+Azure 藍圖在處理藍圖定義的指派時, 會使用**排序次序**來決定資源建立的順序。 本文說明下列概念：
 
 - 使用的預設排序順序
 - 如何自訂順序
@@ -29,7 +29,7 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
 
 ## <a name="default-sequencing-order"></a>預設排序順序
 
-如果藍圖定義包含才能部署成品沒有指示詞，或指示詞為 null，則會使用下列順序：
+如果藍圖定義未包含部署成品之順序的指示詞, 或指示詞為 null, 則會使用下列順序:
 
 - 訂用帳戶層級**角色指派**成品，依成品名稱排序
 - 訂用帳戶層級**原則指派**成品，依成品名稱排序
@@ -43,17 +43,21 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
 - 資源群組子 **Azure Resource Manager 範本**成品，依成品名稱排序
 
 > [!NOTE]
-> 利用[artifacts()](../reference/blueprint-functions.md#artifacts)會建立隱含的相依性所參考的成品。
+> 成品[()](../reference/blueprint-functions.md#artifacts)的使用會對所參考的成品建立隱含的相依性。
 
 ## <a name="customizing-the-sequencing-order"></a>自訂排序順序
 
-當您在撰寫大型藍圖定義，可能必須在以特定順序中建立的資源。 此案例的最常見的使用模式時，藍圖定義包含數個 Azure Resource Manager 範本。 藍圖會藉由允許定義排序順序來處理此模式。
+撰寫大型藍圖定義時, 可能需要以特定順序建立資源。 此案例最常見的使用模式是當藍圖定義包含數個 Azure Resource Manager 範本時。 藍圖會藉由允許定義排序順序來處理此模式。
 
-排序可透過在 JSON 中定義 `dependsOn` 屬性來完成。 藍圖定義中，資源群組和成品物件支援此屬性。 `dependsOn` 為成品名稱字串陣列，代表在其建立前必須建立的特定成品。
+排序可透過在 JSON 中定義 `dependsOn` 屬性來完成。 藍圖定義、資源群組和成品物件都支援此屬性。 `dependsOn` 為成品名稱字串陣列，代表在其建立前必須建立的特定成品。
 
-### <a name="example---ordered-resource-group"></a>範例-排序資源群組
+> [!NOTE]
+> 建立藍圖物件時, 每個成品資源都會從檔案名 (如果使用[PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)) 取得其名稱, 如果使用[REST API](/rest/api/blueprints/artifacts/createorupdate), 則從 URL 端點取得。
+> 成品中的_資源_群組參考必須符合藍圖定義中定義的專案。
 
-此範例藍圖定義有資源群組宣告的值定義自訂的排序順序`dependsOn`，以及標準的資源群組。 在此範例中，名為 **assignPolicyTags** 的成品會在 **ordered-rg** 資源群組之前進行處理。
+### <a name="example---ordered-resource-group"></a>範例-已排序的資源群組
+
+此藍圖定義範例`dependsOn`中的資源群組已定義自訂排序次序, 其方式是宣告的值以及標準的資源群組。 在此範例中，名為 **assignPolicyTags** 的成品會在 **ordered-rg** 資源群組之前進行處理。
 **standard-rg** 會根據預設排序順序進行處理。
 
 ```json
@@ -77,9 +81,7 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
         },
         "targetScope": "subscription"
     },
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint",
-    "type": "Microsoft.Blueprint/blueprints",
-    "name": "mySequencedBlueprint"
+    "type": "Microsoft.Blueprint/blueprints"
 }
 ```
 
@@ -98,15 +100,13 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
         ]
     },
     "kind": "policyAssignment",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
-    "type": "Microsoft.Blueprint/artifacts",
-    "name": "assignPolicyTags"
+    "type": "Microsoft.Blueprint/artifacts"
 }
 ```
 
-### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>範例-根據資源群組的訂用帳戶層級範本成品
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>範例-依據資源群組的訂用帳戶層級範本成品
 
-這個範例是在訂用帳戶層級取決於資源群組部署的 Resource Manager 範本。 在預設排序，會在任何資源群組和資源群組中的子成品之前建立的訂用帳戶層級成品。 像這樣的 blueprint （藍圖） 定義中定義的資源群組：
+此範例適用于在訂用帳戶層級部署的 Resource Manager 範本, 以依賴資源群組。 在預設排序中, 訂用帳戶層級成品會在這些資源群組中的任何資源群組和子構件之前建立。 資源群組定義于藍圖定義中, 如下所示:
 
 ```json
 "resourceGroups": {
@@ -118,7 +118,7 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
 }
 ```
 
-取決於訂用帳戶層級範本成品**等候-對-我**資源群組定義如下：
+訂用帳戶層級範本成品取決於 [**等候我**的資源群組], 其定義如下:
 
 ```json
 {
@@ -134,9 +134,7 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
         "description": ""
     },
     "kind": "template",
-    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
-    "type": "Microsoft.Blueprint/blueprints/artifacts",
-    "name": "subtemplateWaitForRG"
+    "type": "Microsoft.Blueprint/blueprints/artifacts"
 }
 ```
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4d6c7665d281ff7c27fd8b61537804b6803b3b43
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 1634d7cd3dfe8d118e220fa8620ef6467c15ea2c
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360162"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983011"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>在 Azure IoT 中樞中驗證下游裝置
 
@@ -29,6 +29,12 @@ ms.locfileid: "68360162"
 下游裝置可以使用下列三種方法的其中一種向 IoT 中樞進行驗證: 對稱金鑰 (有時稱為共用存取金鑰)、x.509 自我簽署憑證, 或 x.509 憑證授權單位單位 (CA) 簽署的憑證。 驗證步驟類似于使用 IoT 中樞設定任何非 IoT Edge 裝置的步驟, 但要宣告閘道關聯性的差異很小。
 
 本文中的步驟會顯示手動裝置布建, 而不是使用 Azure IoT 中樞裝置布建服務進行自動布建。 
+
+## <a name="prerequisites"></a>必要條件
+
+完成[設定 IoT Edge 裝置以作為透明閘道](how-to-create-transparent-gateway.md)中的步驟。
+
+本文是指在數個點的*閘道主機名稱*。 閘道主機名稱會在 IoT Edge 閘道裝置上 yaml 檔案的**hostname**參數中宣告。 它是用來建立本文中的憑證, 而在下游裝置的連接字串中則稱為。 閘道主機名稱必須可解析為 IP 位址, 方法是使用 DNS 或主機檔案專案。
 
 ## <a name="symmetric-key-authentication"></a>對稱金鑰驗證
 
@@ -133,7 +139,7 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
 
-   您將會在連接到 IoT 中樞的分葉裝置應用程式中參考這些檔案。 您可以使用如[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)之類的服務或類似[安全複製協定](https://www.ssh.com/ssh/scp/)的函式來移動憑證檔案。
+   您將會在連接到 IoT 中樞的分葉裝置應用程式中參考這些檔案。 您可以使用像是[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)的服務或類似[安全複製通訊協定](https://www.ssh.com/ssh/scp/)的功能來移動憑證檔案。
 
 您可以使用[適用于 Azure CLI 的 IoT 擴充](https://github.com/Azure/azure-iot-cli-extension)功能來完成相同的裝置建立作業。 下列範例會建立具有 x.509 自我簽署驗證的新 IoT 裝置, 並指派父裝置: 
 
@@ -187,7 +193,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
 
-   您將會在連接到 IoT 中樞的分葉裝置應用程式中參考這些檔案。 您可以使用如[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)之類的服務或類似[安全複製協定](https://www.ssh.com/ssh/scp/)的函式來移動憑證檔案。
+   您將會在連接到 IoT 中樞的分葉裝置應用程式中參考這些檔案。 您可以使用像是[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)的服務或類似[安全複製通訊協定](https://www.ssh.com/ssh/scp/)的功能來移動憑證檔案。
 
 您可以使用[適用于 Azure CLI 的 IoT 擴充](https://github.com/Azure/azure-iot-cli-extension)功能來完成相同的裝置建立作業。 下列範例會使用 x.509 CA 簽署的驗證來建立新的 IoT 裝置, 並指派父裝置: 
 

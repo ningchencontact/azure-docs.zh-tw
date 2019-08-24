@@ -4,17 +4,17 @@ description: 使用 Azure IoT Edge 裝置作為可處理來自下游裝置之資
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e61ddd6cb51795fad564b6246fb24ea4ce48f028
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698610"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982936"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
@@ -52,8 +52,6 @@ ms.locfileid: "68698610"
 設定為閘道的 Azure IoT Edge 裝置。 針對下列其中一個作業系統, 請使用 IoT Edge 安裝步驟:
   * [Windows](how-to-install-iot-edge-windows.md)
   * [Linux](how-to-install-iot-edge-linux.md)
-
-本文是指在數個點的*閘道主機名稱*。 閘道主機名稱會在 IoT Edge 閘道裝置上 yaml 檔案的**hostname**參數中宣告。 它是用來建立本文中的憑證, 而在下游裝置的連接字串中則稱為。 閘道主機名稱必須可解析為 IP 位址, 方法是使用 DNS 或主機檔案專案。
 
 ## <a name="generate-certificates-with-windows"></a>使用 Windows 產生憑證
 
@@ -142,15 +140,18 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
    此指令碼命令會建立數個憑證和金鑰檔案, 但我們將在本文稍後參考其中一項:
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
-2. 使用下列命令建立 IoT Edge 裝置 CA 憑證和私密金鑰。 提供閘道主機名稱, 可在閘道裝置上的 iotedge\config.yaml 檔案中找到。 閘道主機名稱用來命名檔案和憑證產生期間。 
+2. 使用下列命令建立 IoT Edge 裝置 CA 憑證和私密金鑰。 提供 CA 憑證的名稱, 例如**MyEdgeDeviceCA**。 名稱是用來命名檔案和憑證產生期間。 
 
    ```powershell
-   New-CACertsEdgeDevice "<gateway hostname>"
+   New-CACertsEdgeDeviceCA "MyEdgeDeviceCA"
    ```
 
    此指令碼命令會建立數個憑證和金鑰檔, 包括我們稍後將在本文中參考的兩個檔案:
-   * `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >如果您提供的名稱不是**MyEdgeDeviceCA**, 則此命令所建立的憑證和金鑰會反映該名稱。 
 
 現在您已擁有憑證, 請直接跳到在[閘道上安裝憑證](#install-certificates-on-the-gateway)
 
@@ -193,6 +194,8 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
 
 1. 建立根 CA 憑證和一個中繼憑證。 這些憑證放置在 *\<WRKDIR>* 中。
 
+   如果您已在此工作目錄中建立根和中繼憑證, 請不要再次執行此腳本。 重新執行此腳本將會覆寫現有的憑證。 相反地, 請繼續進行下一個步驟。 
+
    ```bash
    ./certGen.sh create_root_and_intermediate
    ```
@@ -200,15 +203,18 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
    此腳本會建立數個憑證和金鑰。 請記下其中一個, 我們將在下一節中參考:
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`
 
-2. 使用下列命令建立 IoT Edge 裝置 CA 憑證和私密金鑰。 提供閘道主機名稱, 可在閘道裝置上的 iotedge/yaml 檔案中找到。 閘道主機名稱用來命名檔案和憑證產生期間。 
+2. 使用下列命令建立 IoT Edge 裝置 CA 憑證和私密金鑰。 提供 CA 憑證的名稱, 例如**MyEdgeDeviceCA**。 名稱是用來命名檔案和憑證產生期間。 
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<gateway hostname>"
+   ./certGen.sh create_edge_device_ca_certificate "MyEdgeDeviceCA"
    ```
 
    此腳本會建立數個憑證和金鑰。 請注意兩個, 我們將在下一節中參考: 
-   * `<WRKDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * `<WRKDIR>/private/iot-edge-device-<gateway hostname>.key.pem`
+   * `<WRKDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * `<WRKDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
+
+   >[!TIP]
+   >如果您提供的名稱不是**MyEdgeDeviceCA**, 則此命令所建立的憑證和金鑰會反映該名稱。 
 
 ## <a name="install-certificates-on-the-gateway"></a>在閘道上安裝憑證
 
@@ -216,8 +222,8 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
 
 1. 從 *\<WRKDIR>* 複製下列檔案。 將其儲存在您 IoT Edge 裝置上的任何位置。 我們將您 IoT Edge 裝置上的目的地目錄稱之為 *\<CERTDIR>* 。 
 
-   * 裝置 CA 憑證 -  `<WRKDIR>\certs\iot-edge-device-<gateway hostname>-full-chain.cert.pem`
-   * 裝置 CA 私密金鑰 - `<WRKDIR>\private\iot-edge-device-<gateway hostname>.key.pem`
+   * 裝置 CA 憑證 -  `<WRKDIR>\certs\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem`
+   * 裝置 CA 私密金鑰 - `<WRKDIR>\private\iot-edge-device-ca-MyEdgeDeviceCA.key.pem`
    * 根 CA-`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
    您可以使用像是[Azure Key Vault](https://docs.microsoft.com/azure/key-vault)的服務或類似[安全複製通訊協定](https://www.ssh.com/ssh/scp/)的功能來移動憑證檔案。  如果您在 IoT Edge 裝置本身產生憑證, 可以略過此步驟, 並使用工作目錄的路徑。
@@ -233,16 +239,16 @@ Azure IoT Edge git 存放庫包含可用來產生測試憑證的腳本。 在本
 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>\\certs\\iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
       ```
    
    * Linux： 
       ```yaml
       certificates:
-        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-<gateway hostname>-full-chain.cert.pem"
-        device_ca_pk: "<CERTDIR>/private/iot-edge-device-<gateway hostname>.key.pem"
+        device_ca_cert: "<CERTDIR>/certs/iot-edge-device-ca-MyEdgeDeviceCA-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/iot-edge-device-ca-MyEdgeDeviceCA.key.pem"
         trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
       ```
 

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 5639571739f3eb6263f62444e7ab02186e2ca945
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 21720ead788a505f86c4d35eb5a39943ff4a2e12
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742588"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981008"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>從 Azure 下載 Linux VHD
 
@@ -58,9 +58,9 @@ ms.locfileid: "68742588"
 若要使用 VHD 作為現有 VM 或資料磁碟新執行個體的磁碟，請完成下列步驟：
 
 1.  登入 [Azure 入口網站](https://portal.azure.com/)。
-2.  在 [中樞] 功能表上，按一下 [虛擬機器]。
+2.  在左功能表上，選取 [虛擬機器]。
 3.  從清單中選取 VM。
-4.  在 VM 的刀鋒視窗中，按一下 [停止]。
+4.  在 VM 的頁面上, 選取 [**停止**]。
 
     ![停止 VM](./media/download-vhd/export-stop.png)
 
@@ -68,21 +68,21 @@ ms.locfileid: "68742588"
 
 若要下載 VHD 檔案，您需要產生[共用存取簽章 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL。 產生 URL 時，會將到期時間指派給 URL。
 
-1.  在 VM 刀鋒視窗的功能表中，按一下 [磁碟]。
-2.  選取 VM 的作業系統磁片, 然後按一下 [**磁片匯出**]。
-3.  按一下 [產生 URL]。
+1.  在 VM 頁面的功能表上, 選取 [**磁片**]。
+2.  選取 VM 的作業系統磁片, 然後選取 [**磁片匯出**]。
+3.  選取 [**產生 URL**]。
 
     ![產生 URL](./media/download-vhd/export-generate.png)
 
 ## <a name="download-vhd"></a>下載 VHD
 
-1.  在產生的 URL 之下，按一下 [下載 VHD 檔案]。
-
+1.  在產生的 URL 底下, 選取 [**下載 VHD**檔案]。
+**
     ![下載 VHD](./media/download-vhd/export-download.png)
 
-2.  您可能需要在瀏覽器中按一下 [儲存] 以開始下載。 VHD 檔案的預設名稱是 *abcd*。
+2.  您可能需要在瀏覽器中選取 [**儲存**], 才能開始下載。 VHD 檔案的預設名稱是 *abcd*。
 
-    ![在瀏覽器中按一下 [儲存]](./media/download-vhd/export-save.png)
+    ![在瀏覽器中選取 [儲存]](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>後續步驟
 

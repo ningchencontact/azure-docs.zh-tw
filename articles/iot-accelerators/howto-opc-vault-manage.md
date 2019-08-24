@@ -1,5 +1,5 @@
 ---
-title: 如何管理 OPC 保存庫憑證管理服務-Azure |Microsoft Docs
+title: 如何管理 OPC 保存庫憑證服務-Azure |Microsoft Docs
 description: 管理 OPC 保存庫根 CA 憑證和使用者權限。
 author: mregen
 ms.author: mregen
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6e53914b16bc126cdab7300d918dbb7b6b868728
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 4420e5b0d895f8ea30dbd39fc50dd7480d57d086
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69973801"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996003"
 ---
-# <a name="how-to-manage-the-opc-ua-certificate-service"></a>如何管理 OPC UA 憑證服務
+# <a name="how-to-manage-the-opc-vault-certificate-service"></a>如何管理 OPC 保存庫憑證服務
 
-本文說明 Azure 中 OPC UA 憑證管理服務的管理工作、如何更新簽發者 CA 憑證、如何更新憑證撤銷清單 (CRL), 以及如何授與及撤銷使用者存取權。
+本文說明 Azure 中的 OPC 保存庫憑證管理服務的管理工作、如何更新簽發者 CA 憑證、如何更新憑證撤銷清單 (CRL), 以及如何授與及撤銷使用者存取權。
 
 ## <a name="create-or-renew-the-root-ca-certificate"></a>建立或更新根 CA 憑證
 

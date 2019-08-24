@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: aa2cfbee6feeacf46003fdc244f0aeea5df0f41a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847352"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991916"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的存取控制
 
@@ -31,7 +31,7 @@ RBAC 會使用角色指派, 有效地將許可權集套用至*安全性主體*�
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>角色指派對檔案和目錄層級存取控制清單的影響
 
-雖然使用 RBAC 角色指派是控制存取權限的強大機制, 但它是相對於 Acl 的粗糙細微性機制。 RBAC 的最小細微性是檔案系統層級，而此層級在評估時的優先順序將會高於 ACL。 因此, 如果您將角色指派給檔案系統範圍中的安全性主體, 該安全性主體就會擁有該檔案系統中所有目錄和檔案與該角色相關聯的授權層級, 而不論 ACL 指派為何。
+雖然使用 RBAC 角色指派是控制存取權限的強大機制, 但它是相對於 Acl 的粗糙細微性機制。 RBAC 的最小細微性是在容器層級, 而這會以高於 Acl 的優先順序進行評估。 因此, 如果您將角色指派給容器範圍內的安全性主體, 該安全性主體就會擁有與該角色中所有目錄和檔案相關聯的授權層級, 而不論 ACL 指派為何。
 
 當安全性主體透過[內建角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)或自訂角色授與 RBAC 資料許可權時, 系統會在要求授權時先評估這些許可權。 如果要求的作業是由安全性主體的 RBAC 指派授權, 則會立即解析授權, 而且不會執行任何額外的 ACL 檢查。 或者, 如果安全性主體沒有 RBAC 指派, 或要求的操作不符合指派的許可權, 則會執行 ACL 檢查, 以判斷安全性主體是否已獲授權執行要求的作業。
 
@@ -81,7 +81,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 
 ### <a name="levels-of-permission"></a>許可權層級
 
-檔案系統物件的權限為 [讀取]、[寫入] 和 [執行]，這些權限可以用於下表所示的檔案和目錄：
+容器物件的許可權為 [**讀取**]、[**寫入**] 和 [**執行**], 而且可以在檔案和目錄上使用, 如下表所示:
 
 |            |    檔案     |   目錄 |
 |------------|-------------|----------|
@@ -90,7 +90,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 | **執行 (X)** | 不表示 Data Lake Storage Gen2 內容中的任何項目 | 需要周遊目錄的子項目 |
 
 > [!NOTE]
-> 如果您只使用 Acl (無 RBAC) 來授與許可權, 則若要將檔案的讀取或寫入存取權授與服務主體, 您必須授與服務主體對該檔案系統的**執行**許可權, 以及資料夾階層中的每個資料夾。導致檔案。
+> 如果您只使用 Acl (無 RBAC) 來授與許可權, 則若要將檔案的讀取或寫入存取權授與服務主體, 您必須將容器的**執行**許可權, 以及資料夾階層中的每個資料夾, 授與給服務主體。導致檔案。
 
 #### <a name="short-forms-for-permissions"></a>權限的簡短形式
 
@@ -154,7 +154,7 @@ SAS 權杖會在其權杖中包含允許的權限。 SAS 權杖中包含的權�
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>指派新檔案或目錄的擁有群組
 
-* **案例 1**：根目錄 "/"。 在建立 Data Lake Storage Gen2 檔案系統時，即會建立此目錄。 在此案例中，擁有群組會設定為建立檔案系統的使用者 (如果該系統是使用 OAuth 建立的)。 如果檔案系統是使用共用金鑰、帳戶 SAS 或服務 SAS 所建立, 則擁有者和擁有群組會設定為 **$superuser**。
+* **案例 1**：根目錄 "/"。 建立 Data Lake Storage Gen2 容器時, 會建立此目錄。 在此情況下, 如果使用 OAuth 來建立容器, 則擁有群組會設定為使用者。 如果容器是使用共用金鑰、帳戶 SAS 或服務 SAS 所建立, 則擁有者和擁有群組會設定為 **$superuser**。
 * **案例 2** (其餘所有案例)：在建立新項目時，會從父目錄複製擁有群組。
 
 ##### <a name="changing-the-owning-group"></a>變更擁有群組
@@ -216,13 +216,13 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 如「存取檢查演算法」所說明，遮罩會限制具名使用者、擁有群組及具名群組的存取。  
 
 > [!NOTE]
-> 對於新的 Data Lake Storage Gen2 檔案系統，根目錄 ("/") 的存取 ACL 遮罩會預設為 750 (目錄) 和 640 (檔案)。 檔案不會接收 X 位元，因為它與僅限儲存的系統中包含的檔案無關。
+> 針對新的 Data Lake Storage Gen2 容器, 根目錄 ("/") 的存取 ACL 遮罩會預設為 750 (針對目錄) 和 640 (代表檔案)。 檔案不會接收 X 位元，因為它與僅限儲存的系統中包含的檔案無關。
 >
 > 遮罩可就個別的呼叫指定。 這可讓不同的取用系統 (例如叢集) 將不同的有效遮罩用於其檔案作業上。 指定於給定要求上的遮罩會完全覆寫預設遮罩。
 
 #### <a name="the-sticky-bit"></a>黏性位元
 
-黏性位元是 POSIX 檔案系統的進階功能。 在 Data Lake Storage Gen2 的內容中，不太可能需要黏性位元。 總而言之，如果已在目錄上啟用黏性位元，子項目便只能由子項目的擁有使用者刪除或重新命名。
+[粘滯位] 是 POSIX 容器的更先進功能。 在 Data Lake Storage Gen2 的內容中，不太可能需要黏性位元。 總而言之，如果已在目錄上啟用黏性位元，子項目便只能由子項目的擁有使用者刪除或重新命名。
 
 Azure 入口網站中不會顯示該粘滯位。
 
@@ -291,7 +291,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="who-is-the-owner-of-a-file-or-directory"></a>誰是檔案或目錄的擁有者？
 
-檔案或目錄的建立者會成為擁有者。 就根目錄而言，這會是檔案系統建立者的使用者身分識別。
+檔案或目錄的建立者會成為擁有者。 在根目錄的案例中, 這是建立容器的使用者身分識別。
 
 ### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-directory-at-creation"></a>在建立檔案或目錄時，會將哪個群組設定為擁有群組？
 
@@ -320,7 +320,7 @@ $ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 是否支援 ACL 的繼承？
 
-Azure RBAC 指派可以繼承。 指派會從訂用帳戶、資源群組和儲存體帳戶資源向下傳至檔案系統資源。
+Azure RBAC 指派可以繼承。 指派會從訂用帳戶、資源群組和儲存體帳戶資源流動到容器資源。
 
 ACL 則不會繼承。 但預設 ACL 可以用來為父目錄下建立的子目錄和檔案設定 ACL。 
 

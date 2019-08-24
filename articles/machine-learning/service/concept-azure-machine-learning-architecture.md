@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 8987c14fab141a71ba2dd9f1ed228a56ce419bce
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990091"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982828"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -133,7 +133,7 @@ Azure Machine Learning 服務與架構無關。 當您建立模型時, 您可以
 
 資料集提供使用常用格式的資料 (例如使用`from_delimited_files()`或`to_pandas_dataframe()`) 的方法。
 
-如需詳細資訊, 請參閱[建立和註冊 Azure Machine Learning 資料集](how-to-create-register-datasets.md)。  如需使用資料集的更多範例, 請參閱[範例筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets)。
+如需詳細資訊, 請參閱[建立和註冊 Azure Machine Learning 資料集](how-to-create-register-datasets.md)。  如需使用資料集的更多範例, 請參閱[範例筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets)。
 
 **資料**存放區是 Azure 儲存體帳戶的儲存體抽象概念。 資料存放區可以使用 Azure Blob 容器或 Azure 檔案共用作為後端儲存體。 每個工作區都有預設資料存放區，而且您可以註冊額外的資料存放區。 使用 Python SDK API 或 Azure Machine Learning CLI 在資料存放區中儲存及擷取檔案。
 

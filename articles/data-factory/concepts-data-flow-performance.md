@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 8eb244a0eff1569ac27feae68104db613373463a
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404602"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992330"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>對應資料流程效能和微調指南
 
@@ -117,6 +117,10 @@ Azure Data Factory 對應資料流程可提供無程式碼的瀏覽器介面, �
 * 您可以控制 ADF 會使用多少個磁碟分割。 在每個來源 & 接收轉換以及每個個別的轉換中, 您可以設定資料分割配置。 對於較小的檔案, 您可能會發現選取 [單一分割區] 有時可以比要求 Spark 分割小型檔案更好且快速。
 * 如果您的來源資料沒有足夠的資訊, 您可以選擇 [迴圈配置資源], 並設定分割區的數目。
 * 如果您流覽資料, 併發現您有可以是良好雜湊索引鍵的資料行, 請使用雜湊資料分割選項。
+* 在 [資料預覽] 和 [管線偵錯工具] 中進行調試時, 請注意檔案型源資料集的限制和取樣大小只會套用至傳回的資料列數目, 而不會套用至讀取的資料列數目。 這一點很重要, 因為它可能會影響您的偵錯工具執行效能, 而且可能會導致流程失敗。
+* 請記住, debug 叢集預設是小型的單一節點叢集, 因此請使用暫存的小型檔案進行偵錯工具。 移至 [偵錯工具] [設定], 並使用暫存檔案指向資料的小型子集。
+
+![Debug 設定](media/data-flow/debugsettings3.png "Debug 設定")
 
 ### <a name="file-naming-options"></a>檔案命名選項
 

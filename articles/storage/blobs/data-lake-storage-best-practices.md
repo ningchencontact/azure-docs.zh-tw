@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: a5bfc664c412c93bbf3e522b01528e8247be3291
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016062"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991879"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
@@ -31,11 +31,11 @@ Azure Data Lake Storage Gen2 針對 Azure Active Directory (Azure AD) 使用者�
 
 ### <a name="security-for-groups"></a>群組的安全性
 
-當您或您的使用者需要在啟用階層命名空間的情況下，存取儲存體帳戶中的資料時，最好是使用 Azure Active Directory 安全性群組。 某些建議開始使用的群組可能是**ReadOnlyUsers**、 **WriteAccessUsers**和**FullAccessUsers** , 適用于檔案系統的根目錄, 甚至是個別用於主要子目錄。 如果預期之後可能會新增任何其他使用者的群組 (但未經過識別)，您可以考慮建立空的安全性群組，讓其可存取特定資料夾。 使用安全性群組可確保您在將新權限指派給數千個檔案時，不需要很長的處理時間。
+當您或您的使用者需要在啟用階層命名空間的情況下，存取儲存體帳戶中的資料時，最好是使用 Azure Active Directory 安全性群組。 某些建議開始使用的群組可能是容器根目錄的**ReadOnlyUsers**、 **WriteAccessUsers**和**FullAccessUsers** , 甚至是個別的金鑰子目錄。 如果預期之後可能會新增任何其他使用者的群組 (但未經過識別)，您可以考慮建立空的安全性群組，讓其可存取特定資料夾。 使用安全性群組可確保您在將新權限指派給數千個檔案時，不需要很長的處理時間。
 
 ### <a name="security-for-service-principals"></a>服務主體的安全性
 
-Azure Databricks 這類服務通常會使用 Azure Active Directory 服務主體來存取 Data Lake Storage Gen2 中的資料。 對於許多客戶而言, 單一 Azure Active Directory 服務主體可能就已足夠, 而且可以在 Data Lake Storage Gen2 檔案系統的根目錄擁有完整許可權。 但其他客戶可能需要多個叢集與不同的服務主體，一個叢集有資料的完整存取，而另一個叢集只有讀取存取權。 
+Azure Databricks 這類服務通常會使用 Azure Active Directory 服務主體來存取 Data Lake Storage Gen2 中的資料。 對於許多客戶而言, 單一 Azure Active Directory 服務主體可能就已足夠, 而且可以在 Data Lake Storage Gen2 容器的根目錄擁有完整許可權。 但其他客戶可能需要多個叢集與不同的服務主體，一個叢集有資料的完整存取，而另一個叢集只有讀取存取權。 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>啟用 Data Lake Storage Gen2 防火牆與 Azure 服務存取權
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 29af70a2713e7b4aebf611d8f2b547e38c6c5d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b7a72c03d41d54aa80505e781b6f6d32cd2a2c0
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623089"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991374"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>針對實驗室中的構件失敗進行診斷 
 建立構件之後，您可以檢查以確認其成功或失敗。 Azure DevTest Labs 中的構件記錄會提供資訊供您用來診斷構件失敗。 有幾個選項可供您檢視 Windows VM 的構件記錄資訊：
@@ -34,11 +34,11 @@ ms.locfileid: "60623089"
 
 1. 在 Azure 入口網站的資源清單中選取您的實驗室。
 2. 選擇您要調查之構件所在的 Windows VM。
-3. 在左面板的 [一般]  下，選取 [構件]  。 與該 VM 相關聯的構件清單隨即出現。 清單中會指出構件的名稱及構件狀態。
+3. 在左面板的 [一般] 下，選取 [構件]。 與該 VM 相關聯的構件清單隨即出現。 清單中會指出構件的名稱及構件狀態。
 
    ![構件狀態](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
 
-4. 選取顯示 [失敗]  狀態的構件。 構件會隨即開啟。 系統會顯示延伸訊息，其中包含有關構件失敗的詳細資料。
+4. 選取顯示 [失敗] 狀態的構件。 構件會隨即開啟。 系統會顯示延伸訊息，其中包含有關構件失敗的詳細資料。
 
    ![構件錯誤訊息](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error.png)
 
@@ -46,13 +46,14 @@ ms.locfileid: "60623089"
 ## <a name="troubleshoot-artifact-failures-from-within-the-virtual-machine"></a>針對虛擬機器中的構件失敗進行疑難排解
 
 1. 登入您要診斷之構件所在的 VM。
-2. 移至 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\1.9  \Status，其中 1.9  是 Azure 自訂指令碼延伸模組的版本號碼。
+2. 移至 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\1.9\Status，其中 1.9 是 Azure 自訂指令碼延伸模組的版本號碼。
 
    ![狀態檔案](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
 
 3. 開啟**狀態**檔案。
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+如需有關在**Linux** VM 上尋找記錄檔的指示, 請參閱下列文章:[搭配 Linux 虛擬機器使用 Azure 自訂腳本擴充功能第2版](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+
 
 ## <a name="related-blog-posts"></a>相關部落格文章
 * [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (在 DevTest Labs 中使用 Resource Manager 範本將 VM 加入至現有 Active Directory 網域)

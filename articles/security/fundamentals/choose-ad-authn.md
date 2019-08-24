@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ba9cda5aeebaf0764068a463cdb55f3ef5542ea3
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928037"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997808"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
 
@@ -66,6 +66,9 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 下一節將使用決策樹，協助您判斷何種驗證方法最適合您。 它會協助您針對 Azure AD 混合式身分識別解決方案部署雲端，判斷要部署雲端還是同盟驗證。
 
 ## <a name="decision-tree"></a>決策樹
+
+> [!NOTE]
+> 當 UserPrincipalName 選擇為替代識別碼時, PTA 只適用于替代識別碼。 只有, 才會將內部部署 UserPrincipalName 從 AD 同步處理到 AAD。 如需詳細資訊, 請參閱[傳遞驗證是否支援「替代識別碼」做為使用者名稱, 而不是 "userPrincipalName"？](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)。
 
 ![Azure AD 驗證決策樹](./media/choose-ad-authn/azure-ad-authn-image1.png)
 

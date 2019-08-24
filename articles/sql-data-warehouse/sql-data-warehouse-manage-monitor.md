@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 07/23/2019
+ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f2dab34ea0ef64f4062819e9b2d475e6a226856b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: b67986fdc53a2b927f6481846ab179a826490c01
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405430"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995706"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 監視工作負載
 本文說明如何使用動態管理檢視 (DMV) 來監視您的工作負載。 這包括調查 Azure SQL 資料倉儲中的查詢執行。
@@ -206,9 +206,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-如果您的查詢會耗用大量的記憶體, 或收到與 tempdb 的配置相關的錯誤訊息, 通常是因為有非常大的 CREATE TABLE, 因為在中執行的[select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)或[INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)語句失敗最後的資料移動作業。 在最後一個 INSERT SELECT 之前, 這通常會被識別為分散式查詢計畫中的 ShuffleMove 作業。
+如果您的查詢會耗用大量的記憶體, 或收到與 tempdb 的配置相關的錯誤訊息, 可能是因為有非常大的 CREATE TABLE, 因為在中執行的[select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)或[INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)語句失敗最後的資料移動作業。 在最後一個 INSERT SELECT 之前, 這通常會被識別為分散式查詢計畫中的 ShuffleMove 作業。  使用[sys.databases _pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)來監視 ShuffleMove 作業。 
 
-最常見的緩和措施是將您的 CTAS 或 INSERT SELECT 語句分割成多個 load 語句, 讓資料磁片區不會超過每個節點 tempdb 限制的1TB。 您也可以將叢集調整為較大的大小, 以將 tempdb 大小分散到多個節點, 以減少每個個別節點上的 tempdb。 
+最常見的緩和措施是將您的 CTAS 或 INSERT SELECT 語句分割成多個 load 語句, 讓資料磁片區不會超過每個節點 tempdb 限制的1TB。 您也可以將叢集調整為較大的大小, 以將 tempdb 大小分散到多個節點, 以減少每個個別節點上的 tempdb。
+
+除了 CTAS 和 INSERT SELECT 語句之外, 使用記憶體不足而執行的大型複雜查詢可能會溢出到 tempdb, 導致查詢失敗。  請考慮以較大的[資源類別](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management)執行, 以避免溢出至 tempdb。
 
 ## <a name="monitor-memory"></a>監視記憶體
 

@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 7c018ad15ee653bcdc903492028ec5ed058dbd14
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016380"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992225"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>將您的巨量資料分析解決方案從 Azure Data Lake Storage Gen1 升級為 Azure Data Lake Storage Gen2
 
@@ -235,7 +235,7 @@ Data Lake Storage Gen1 會將特定資訊和資料推送給其他可協助您運
 
 * 如果您使用不會複製 ACL 的工具，或您不想複製 ACL，則需要在適當的最上層手動設定目的地的 ACL。 您可以使用儲存體總管來執行此作業。 確保這些 ACL 是預設 ACL，您複製的檔案和資料夾才能繼承它們。
 
-* 在 Data Lake Storage Gen1 中，您可以設定 ACL 的最高層級位於帳戶的根目錄。 不過, 在 Data Lake Storage Gen2 中, 您可以設定 Acl 的最高層級位於檔案系統的根資料夾中, 而不是整個帳戶。 因此，如果您想要在帳戶層級設定預設 ACL，則必須在 Data Lake Storage Gen2 帳戶中的所有檔案系統間複製這些 ACL。
+* 在 Data Lake Storage Gen1 中，您可以設定 ACL 的最高層級位於帳戶的根目錄。 不過, 在 Data Lake Storage Gen2 中, 您可以設定 Acl 的最高層級位於容器中的根資料夾, 而不是整個帳戶。 因此，如果您想要在帳戶層級設定預設 ACL，則必須在 Data Lake Storage Gen2 帳戶中的所有檔案系統間複製這些 ACL。
 
 * 兩個儲存系統之間的檔案命名限制不同。 從 Data Lake Storage Gen2 複製到 Data Lake Storage Gen1 時，這些差異格外令人關切，因為後者有更多受限的條件約束。
 

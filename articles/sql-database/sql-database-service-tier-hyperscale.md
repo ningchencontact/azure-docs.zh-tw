@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d9d70444adee26eab77c0e3d256cd8f340a1b4c8
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566727"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981152"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>超大規模資料庫服務層級, 最高可達 100 TB
 
@@ -110,7 +110,7 @@ Azure 儲存體節點是來自頁面伺服器之資料的最終目的地。 此�
 
 可以使用 [Azure 入口網站](https://portal.azure.com)、[T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)、[Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 或是 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) 來建立超大規模資料庫。 超大規模資料庫僅在使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)時才提供。
 
-下列 T-SQL 命令會建立超大規模資料庫。 您必須在 `CREATE DATABASE` 陳述式中指定版本和服務目標。 如需有效服務目標的清單, 請參閱[資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier)。
+下列 T-SQL 命令會建立超大規模資料庫。 您必須在 `CREATE DATABASE` 陳述式中指定版本和服務目標。 如需有效服務目標的清單, 請參閱[資源限制](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute)。
 
 ```sql
 -- Create a HyperScale Database
@@ -232,7 +232,7 @@ Azure SQL Database 超大規模資料庫層目前可在下欄區域使用:
 | 彈性集區 |  SQL Database 超大規模資料庫目前不支援彈性集區。|
 | 移轉至超大規模資料庫模目前是單向作業 | 一旦資料庫遷移至超大規模資料庫後，就無法直接遷移至非超大規模資料庫服務層級。 目前，將資料庫從超大規模資料庫遷移至非超大規模資料庫的唯一方法，是使用 BACPAC 檔案進行匯出/匯入。|
 | 使用持續性記憶體內建物件來遷移資料庫 | 超大規模資料庫僅支援非持續性記憶體內建物件 (資料表類型、原生 SPs 和函數)。  在將資料庫移轉至超大規模資料庫服務層級之前, 必須先卸載持續性記憶體內部資料表和其他物件, 並將其重新建立為非記憶體中的物件。|
-| 變更資料追蹤 | 您將無法使用超大規模資料庫資料庫的變更資料追蹤。 |
+| 變更追蹤 | 您將無法搭配超大規模資料庫資料庫使用變更追蹤。 |
 | 異地複寫  | 您還無法為 Azure SQL Database 超大規模資料庫設定異地複寫。  您可以執行異地還原 (針對 DR 或其他目的, 在不同的地理位置還原資料庫) |
 | TDE/AKV 整合 | Azure SQL Database 超大規模資料庫尚不支援使用 Azure Key Vault (通常稱為自備金鑰或 BYOK) 的透明資料庫加密, 不過, 已完全支援具有服務管理金鑰的 TDE。 |
 |智慧型資料庫功能 | 1.Create Index、Drop Index 顧問模型不會針對超大規模資料庫 Db 定型。 <br/>2.架構問題, DbParameterization-超大規模資料庫資料庫不支援最近新增的 advisers。|

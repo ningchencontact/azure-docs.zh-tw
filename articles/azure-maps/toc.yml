@@ -233,6 +233,8 @@
       items:
         - name: IoT 中樞
           href: /azure/iot-hub
+        - name: IoT 隨插即用
+          href: /azure/iot-pnp
         - name: IoT 中樞裝置佈建服務
           href: /azure/iot-dps
         - name: 地圖

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: gwallace
-ms.openlocfilehash: 14bbbb6581d3e6d00db532e343f8362fc44d0044
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: c7251b24ccd15971a704b6b47288f49168b27039
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876348"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980886"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安裝和設定 Terraform 以在 Azure 中佈建 VM 和的其他基礎結構
  
@@ -47,10 +47,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 若要讓 Terraform 將資源佈建至 Azure，請建立 [Azure AD 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)。 此服務主體會授與您的 Terraform 指令碼，讓您可以在 Azure 訂用帳戶中佈建資源。
 
-如果您有多個 Azure 訂用帳戶，請先使用 [az account show](/cli/azure/account#az-account-show) 查詢帳戶，以取得訂用帳戶識別碼和租用戶識別碼值的清單：
+如果您有多個 Azure 訂用帳戶, 請先使用[az account list](/cli/azure/account#az-account-list)查詢您的帳戶, 以取得訂用帳戶識別碼和租使用者識別碼值的清單:
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 若要使用選取的訂用帳戶，請使用 [az account set](/cli/azure/account#az-account-set) 為此工作階段設定訂用帳戶。 設定 `SUBSCRIPTION_ID` 環境變數，以保存從您要使用之訂用帳戶傳回的 `id` 欄位值：

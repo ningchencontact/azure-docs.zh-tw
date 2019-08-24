@@ -4,18 +4,26 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: fef6225812980900ad55944644310433a6105de2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f1eee95cf35b831fc2a213044d700fd5afbdfc96
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68556871"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997941"
 ---
-當您建立新的模型時, 您必須手動更新您想要使用新模型的每個服務。 若要更新 Web 服務，請使用 `update` 方法。 下列程式碼示範如何使用 SDK 來更新 web 服務的模型:
+若要更新 Web 服務，請使用 `update` 方法。 您可以更新 web 服務, 以使用新的模型、輸入腳本, 或可使用推斷設定指定的相依性。 如需詳細資訊, 請參閱[Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-)的參考。
+
+> [!IMPORTANT]
+> 當您建立模型的新版本時, 您必須手動更新您想要使用的每個服務。
+
+**使用 SDK**
+
+下列程式碼示範如何使用 SDK 來更新 web 服務的模型、環境和專案腳本:
 
 ```python
+from azureml.core import Environment
 from azureml.core.webservice import Webservice
-from azureml.core.model import Model
+from azureml.core.model import Model, InferenceConfig
 
 # register new model
 new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
@@ -24,15 +32,24 @@ new_model = Model.register(model_path="outputs/sklearn_mnist_model.pkl",
                            description="test",
                            workspace=ws)
 
+# Use version 3 of the environment
+deploy_env = Environment.get(workspace=ws,name="myenv",version="3")
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=deploy_env)
+
 service_name = 'myservice'
 # Retrieve existing service
 service = Webservice(name=service_name, workspace=ws)
 
+
+
 # Update to new model(s)
-service.update(models=[new_model])
+service.update(models=[new_model], inference_config=inference_config)
 print(service.state)
 print(service.get_logs())
 ```
+
+**使用 CLI**
 
 您也可以使用 ML CLI 來更新 web 服務。 下列範例示範如何註冊新的模型, 然後將 web 服務更新為使用新的模型:
 
@@ -43,3 +60,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 
 > [!TIP]
 > 在此範例中, 會使用 JSON 檔, 將來自註冊命令的模型資訊傳遞至 update 命令。
+>
+> 若要將服務更新為使用新的專案腳本或環境, 請建立[推斷設定檔](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema), 並使用`ic`參數來指定它。
+
+如需詳細資訊, 請參閱[az ml 服務更新](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update)參考。

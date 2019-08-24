@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: a9451b5dcd572eee27809cf66df889f06da960ed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2a94f82e4830bd1e9c96039f5ef8fe6546b0d0b
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571493"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982668"
 ---
 # <a name="role-based-access-control-rbac-and-privileged-identity-management-pim"></a>以角色為基礎的存取控制 (RBAC) 和 Privileged Identity Management (PIM)
 
@@ -27,7 +27,7 @@ Microsoft 提供一套控制措施, 可在 Microsoft Azure 內即時執行並僅
 
 ![RBAC-總覽](media/rbac-overview.png)
 
-* **安全性主體**:安全性主體可以是下列任何一項:使用者、群組、[服務主體] 或[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 安全性主體應使用 Azure Active Directory 群組指派許可權。
+* **安全性主體**:安全性主體可以是下列任何一項:使用者、群組、[服務主體](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals)或[受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。 安全性主體應使用 Azure Active Directory 群組指派許可權。
 
 * **角色定義**:角色定義 (也稱為「角色」 (Role)) 是許可權的集合。 這些許可權會定義指派給角色定義的安全性主體可以執行的作業。 這項功能是由 Azure 資源角色和 Azure Active Directory 系統管理員角色所提供。 Azure 隨附一組內建角色 (連結), 可以使用自訂角色來增強。
 
@@ -134,7 +134,7 @@ Microsoft 已透過 Azure Privileged Identity Management 實作為即時 (JIT) �
 
 使用 PIM 可防止在不使用即時存取或不會執行許可權指派之例行審核的環境中可能發生的一般許可權指派問題。 其中一個常見的問題是, 在需要更高許可權的工作完成之後, 將會忘記並保留較高的許可權。 另一個問題是在設定其他類似的安全性主體時, 透過複製指派給安全性主體的存取權, 在環境內產生較高的許可權。
 
-## <a name="key-design-considerations"></a>主要設計考慮
+## <a name="key-design-considerations"></a>主要設計考量
 
 使用強制最低許可權安全性來設計 RBAC 策略時, 應考慮下列安全性需求:
 

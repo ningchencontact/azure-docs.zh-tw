@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 3b50b0e81103f0b4c8ffa757673c9ec0ef652fc0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614134"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996683"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本:"]
@@ -431,12 +431,14 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、Azure Data Lake Storage Gen1
 2. **源資料格式**為**Parquet**、 **ORC**或分隔的**文字**, 具有下列設定:
 
    1. 資料夾路徑不包含萬用字元篩選準則。
-   2. 檔案名指向單一檔案, 或者是`*`或。 `*.*`
-   3. `rowDelimiter` 必須為 **\n**。
-   4. `nullValue` 會設定為**空字串** ("") 或保留預設值，而 `treatEmptyAsNull` 則保留預設值或設定為 true。
-   5. `encodingName` 會設定為 **utf-8**，也就是預設值。
+   2. 檔案名是空的, 或指向單一檔案。 如果您在複製活動中指定萬用字元檔案名, 它只能是`*`或。 `*.*`
+   3. `rowDelimiter`是**預設值**、 **\n**、 **\r\n**或 **\r**。
+   4. `nullValue`會保留為預設值或設為**空字串**(""), `treatEmptyAsNull`而且會保留為預設值或設為 true。
+   5. `encodingName`會保留為預設值或設定為**utf-8**。
    6. `quoteChar`未`escapeChar`指定、 `skipLineCount`和。 PolyBase 支援略過標頭列，這在 ADF 中可設定為 `firstRowAsHeader`。
    7. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。
+
+3. 如果您的來源是資料夾, `recursive`則複製活動中的必須設定為 true。
 
 ```json
 "activities":[
@@ -445,7 +447,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、Azure Data Lake Storage Gen1
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "BlobDataset",
+                "referenceName": "ParquetDataset",
                 "type": "DatasetReference"
             }
         ],
@@ -457,7 +459,11 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob、Azure Data Lake Storage Gen1
         ],
         "typeProperties": {
             "source": {
-                "type": "BlobSource",
+                "type": "ParquetSource",
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true
+                }
             },
             "sink": {
                 "type": "SqlDWSink",

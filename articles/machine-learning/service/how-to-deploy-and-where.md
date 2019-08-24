@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a4146e20efae87287b77687e4a1d3b0196cb1c95
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69897647"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997943"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -416,7 +416,20 @@ def run(request):
 
 推斷設定會描述如何設定模型來進行預測。 此設定不屬於您的輸入腳本;它會參考您的輸入腳本, 並用來尋找部署所需的所有資源。 它稍後會在實際部署模型時使用。
 
-下列範例示範如何建立推斷設定。 此設定會指定執行時間、專案腳本, 以及 (選擇性) conda 環境檔案:
+推斷設定可以使用 Azure Machine Learning 環境來定義您的部署所需的軟體相依性。 環境可讓您建立、管理及重複使用定型和部署所需的軟體相依性。 下列範例示範如何從您的工作區載入環境, 然後將它與推斷設定搭配使用:
+
+```python
+from azureml.core import Environment
+from azureml.core.model import InferenceConfig
+
+deploy_env = Environment.get(workspace=ws,name="myenv",version="1")
+inference_config = InferenceConfig(entry_script="x/y/score.py",
+                                   environment=deploy_env)
+```
+
+如需環境的詳細資訊, 請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)。
+
+您也可以直接指定相依性, 而不使用環境。 下列範例示範如何建立推斷設定, 以從 conda 檔案載入軟體相依性:
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -468,10 +481,40 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-> [!TIP]
-> 在將您的模型部署為服務之前, 您可能會想要進行分析, 以判斷最佳的 CPU 和記憶體需求。 您可以使用 SDK 或 CLI 來分析您的模型。 如需詳細資訊, 請參閱[設定檔 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)和[az ml 模型設定檔](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)參考。
->
-> 模型分析結果會以物件的`Run`形式發出。 如需詳細資訊, 請參閱[ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)類別參考。
+#### <a name="profiling"></a>分析
+
+在將您的模型部署為服務之前, 您可能會想要進行分析, 以判斷最佳的 CPU 和記憶體需求。 您可以使用 SDK 或 CLI 來分析您的模型。 下列範例示範如何從 SDK 流量分析:
+
+> [!IMPORTANT]
+> 流量分析時, 您提供的推斷設定無法參考 Azure Machine Learning 環境。 相反地, 請使用`conda_file` `InferenceConfig`物件的參數來定義軟體相依性。
+
+```python
+import json
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10]
+]})
+
+profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
+profile.wait_for_profiling(true)
+profiling_results = profile.get_results()
+print(profiling_results)
+```
+
+此程式碼會顯示類似下列文字的結果:
+
+```python
+{'cpu': 1.0, 'memoryInGB': 0.5}
+```
+
+模型分析結果會以物件的`Run`形式發出。
+
+如需從 CLI 流量分析的詳細資訊, 請參閱[az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)。
+
+如需詳細資訊, 請參閱下列參考檔:
+
+* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
+* [profile ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--model~s--inference-config--input-data-)
+* [推斷設定檔架構](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>部署至目標
 
@@ -742,7 +785,136 @@ Azure Machine Learning 計算目標是由 Azure Machine Learning 服務建立和
 * [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 * [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
+## <a name="package-models"></a>封裝模型
+
+在某些情況下, 您可能會想要建立 Docker 映射, 而不部署模型。 例如, 當您計畫[部署至 Azure App Service](how-to-deploy-app-service.md)。 或者, 您可能會想要下載映射並在本機 Docker 安裝上執行。 您甚至可能會想要下載用來建立映射、加以檢查、修改, 然後手動建立的檔案。
+
+模型封裝可讓您執行這兩項操作。 它會將裝載模型所需的所有資產封裝為 web 服務, 並可讓您下載完全建立的 Docker 映射或建立元件所需的檔案。 有兩種方式可以使用模型封裝:
+
+* __下載封裝模型__:您可以下載包含模型的 Docker 映射, 以及將其裝載為 web 服務所需的其他檔案。
+* __產生 dockerfile__:您會下載建立 Docker 映射所需的 dockerfile、模型、專案腳本和其他資產。 接著, 您可以先檢查檔案或進行變更, 再于本機建立映射。
+
+這兩個套件都可以用來取得本機 Docker 映射。 
+
+> [!TIP]
+> 建立封裝類似于部署模型, 因為它會使用已註冊的模型和推斷設定。
+
+> [!IMPORTANT]
+> 在本機下載完全建立映射或建立映射的功能, 需要在您的開發環境上執行工作的[Docker](https://www.docker.com)安裝。
+
+### <a name="download-a-packaged-model"></a>下載封裝的模型
+
+下列範例示範如何建立映射, 其已在工作區的 Azure Container Registry 中註冊:
+
+```python
+package = Model.package(ws, [model], inference_config)
+package.wait_for_creation(show_output=True)
+```
+
+建立封裝之後, 您可以使用`package.pull()`將映射提取到您的本機 Docker 環境。 此命令的輸出會顯示映射的名稱。 例如： `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338` 。 下載之後, 請使用`docker images`命令來列出本機映射:
+
+```text
+REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+myworkspacef78fd10.azurecr.io/package    20190822181338      7ff48015d5bd        4 minutes ago       1.43GB
+```
+
+若要使用此映射來啟動本機容器, 請使用下列命令, 從 shell 或命令列啟動已命名的容器。 將值取代為從命令傳回的映射識別碼: `docker images` `<imageid>`
+
+```bash
+docker run -p 6789:5001 --name mycontainer <imageid>
+```
+
+此命令會啟動名為`myimage`的最新映射版本。 它會將本機埠6789對應至 web 服務正在接聽之容器中的埠 (5001)。 它也會將名稱`mycontainer`指派給容器, 讓您更容易停止。 啟動之後, 您可以將要求提交`http://localhost:6789/score`至。
+
+### <a name="generate-dockerfile-and-dependencies"></a>產生 dockerfile 和相依性
+
+下列範例示範如何下載 dockerfile、模型及其他在本機建立映射所需的資產。 `generate_dockerfile=True`參數指出我們想要檔案, 而不是完整建立的映射:
+
+```python
+package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
+package.wait_for_creation(show_output=True)
+# Download the package
+package.save("./imagefiles")
+# Get the Azure Container Registry that the model/dockerfile uses
+acr=package.get_container_registry()
+print("Address:", acr.address)
+print("Username:", acr.username)
+print("Password:", acr.password)
+```
+
+此程式碼會將建立映射所需的檔案下載`imagefiles`到目錄。 儲存檔案中包含的 dockerfile 會參考存放在 Azure Container Registry 中的基底映射。 在本機 Docker 安裝上建立映射時, 您必須使用位址、使用者名稱和密碼來向此登錄進行驗證。 使用下列步驟, 使用本機 Docker 安裝來建立映射:
+
+1. 從 shell 或命令列會話, 使用下列命令, 以 Azure Container Registry 來驗證 Docker。 以`<address>`使用`<username>` `<password>`抓取的值取代、和:`package.get_container_registry()`
+
+    ```bash
+    docker login <address> -u <username> -p <password>
+    ```
+
+2. 若要建立映射, 請使用下列命令。 將`<imagefiles>`取代為`package.save()`儲存檔案的目錄路徑:
+
+    ```bash
+    docker build --tag myimage <imagefiles>
+    ```
+
+    此命令會將映射名稱設定`myimage`為。
+
+若要確認已建立映射, 請使用`docker images`命令。 您應該會在`myimage`清單中看到影像:
+
+```text
+REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
+<none>          <none>              2d5ee0bf3b3b        49 seconds ago      1.43GB
+myimage         latest              739f22498d64        3 minutes ago       1.43GB
+```
+
+若要根據此映射啟動新的容器, 請使用下列命令:
+
+```bash
+docker run -p 6789:5001 --name mycontainer myimage:latest
+```
+
+此命令會啟動名為`myimage`的最新映射版本。 它會將本機埠6789對應至 web 服務正在接聽之容器中的埠 (5001)。 它也會將名稱`mycontainer`指派給容器, 讓您更容易停止。 啟動之後, 您可以將要求提交`http://localhost:6789/score`至。
+
+### <a name="example-client-to-test-the-local-container"></a>測試本機容器的範例用戶端
+
+下列程式碼是可搭配容器使用的 Python 用戶端範例:
+
+```python
+import requests
+import json
+
+# URL for the web service
+scoring_uri = 'http://localhost:6789/score'
+
+# Two sets of data to score, so we get two results back
+data = {"data":
+        [
+            [ 1,2,3,4,5,6,7,8,9,10 ],
+            [ 10,9,8,7,6,5,4,3,2,1 ]
+        ]
+        }
+# Convert to JSON string
+input_data = json.dumps(data)
+
+# Set the content type
+headers = {'Content-Type': 'application/json'}
+
+# Make the request and display the response
+resp = requests.post(scoring_uri, input_data, headers=headers)
+print(resp.text)
+```
+
+如需其他程式設計語言的更多範例用戶端, 請參閱[使用部署為 web 服務的模型](how-to-consume-web-service.md)。
+
+### <a name="stop-the-docker-container"></a>停止 Docker 容器
+
+若要停止容器, 請從不同的 shell 或命令列使用下列命令:
+
+```bash
+docker kill mycontainer
+```
+
 ## <a name="clean-up-resources"></a>清除資源
+
 若要刪除已部署的 Web 服務，請使用 `service.delete()`。
 若要刪除已註冊的模型，請使用 `model.delete()`。
 

@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 91cde6965f3635d6d2acfaf581f570779020f8ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445282"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982917"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 憑證使用方式詳細資料
 
@@ -93,14 +93,14 @@ New-CACertsCertChain rsa
 同樣地，這些命令會產生「裝置 CA 憑證」。
 
 ```bash
-./certGen.sh create_edge_device_certificate "<gateway device name>"
+./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
 ```
 
 ```Powershell
-New-CACertsEdgeDevice "<gateway device name>"
+New-CACertsEdgeDeviceCA "<gateway device name>"
 ```
 
-* 傳入這些指令碼的 **\<閘道裝置名稱\>** **不可**與 config.yaml 中的「hostname」參數相同。 如果使用者在兩個位置中使用相同的名稱設定 IoT Edge，則這些指令碼可將「.ca」字串附加到 **\<閘道裝置名稱\>** 上來避免名稱衝突，進而發生問題。 不過，最好避免使用相同的名稱。
+* 傳入這些腳本的 **\<閘道裝置\>名稱**不應該與 yaml 中的 "hostname" 參數相同。 如果使用者在兩個位置中使用相同的名稱設定 IoT Edge，則這些指令碼可將「.ca」字串附加到 **\<閘道裝置名稱\>** 上來避免名稱衝突，進而發生問題。 不過，最好避免使用相同的名稱。
 
 >[!Tip]
 > 若要將裝置的 IoT「分葉」裝置連線到透過 IoT Edge 使用我們的 IoT 裝置 SDK 的應用程式，必須將選擇性的「GatewayHostName」參數家到裝置連接字串的尾端。 產生 Edge 中樞伺服器憑證時，會以小寫的 config.yaml 主機名稱為基礎，因此，若要名稱相符並且成功通過 TLS 憑證驗證，請輸入小寫的 GatewayHostName 參數。

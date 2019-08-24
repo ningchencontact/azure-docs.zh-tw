@@ -1,24 +1,86 @@
 ---
 title: 刪除資源群組和資源 - Azure Resource Manager
-description: 描述刪除資源群組時，Azure Resource Manager 如何排列刪除資源的順序。 其會描述回應碼和資源管理員的處理方式，以判斷刪除作業是否成功。
+description: 說明如何刪除資源群組和資源。 其中說明如何 Azure Resource Manager 在刪除資源群組時, 對資源的刪除進行排序。 其會描述回應碼和資源管理員的處理方式，以判斷刪除作業是否成功。
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 08/22/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 18990b51b5ff2184197db48fd139d63750626663
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 75cdeb88a68dece59d6b037592f7212fa895e821
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204212"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991710"
 ---
-# <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager 資源群組刪除
+# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager 資源群組和資源刪除
 
-本文描述當您刪除資源群組時，Azure Resource Manager 如何排列刪除資源的順序。
+本文說明如何刪除資源群組和資源。 其中說明當您刪除資源群組時, Azure Resource Manager 如何排序資源刪除。
 
-## <a name="determine-order-of-deletion"></a>決定刪除的順序
+## <a name="delete-resource-group"></a>刪除資源群組
+
+使用下列其中一種方法來刪除資源群組。
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name <resource-group-name>
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group delete --name <resource-group-name>
+```
+
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+1. 在[入口網站](https://portal.azure.com)中, 選取您想要刪除的資源群組。
+
+1. 選取 [刪除資源群組]。
+
+   ![刪除資源群組](./media/resource-group-delete/delete-group.png)
+
+1. 若要確認刪除, 請輸入資源群組的名稱
+
+---
+
+## <a name="delete-resource"></a>刪除資源
+
+使用下列其中一種方法來刪除資源。
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResource `
+  -ResourceGroupName ExampleResourceGroup `
+  -ResourceName ExampleVM `
+  -ResourceType Microsoft.Compute/virtualMachines
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az resource delete \
+  --resource-group ExampleResourceGroup \
+  --name ExampleVM \
+  --resource-type "Microsoft.Compute/virtualMachines"
+```
+
+# <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
+
+1. 在[入口網站](https://portal.azure.com)中, 選取您想要刪除的資源。
+
+1. 選取 [刪除]。 下列螢幕擷取畫面顯示虛擬機器的管理選項。
+
+   ![刪除資源](./media/resource-group-delete/delete-resource.png)
+
+1. 出現提示時，確認刪除。
+
+---
+
+## <a name="how-order-of-deletion-is-determined"></a>如何判斷刪除的順序
 
 當您刪除資源群組時，Resource Manager 會決定刪除資源的順序。 它使用下列順序：
 
@@ -27,8 +89,6 @@ ms.locfileid: "67204212"
 2. 接著刪除管理其他資源的資源。 資源可以設定 `managedBy` 屬性，指出由不同的資源來管理它。 設定此屬性時，會先刪除管理其他資源的資源，再刪除這些資源。
 
 3. 在前兩個類別之後，刪除其餘資源。
-
-## <a name="resource-deletion"></a>資源刪除
 
 決定順序之後，Resource Manager 會針對每個資源發出 DELETE 作業。 它會等候任何相依性完成，再繼續進行。
 
@@ -40,7 +100,7 @@ ms.locfileid: "67204212"
 
 針對非同步作業，預期的成功回應碼為 202。 Resource Manager 會追蹤位置標頭和 azure-async 作業標頭，以判斷非同步刪除作業的狀態。
   
-### <a name="errors"></a>Errors
+### <a name="errors"></a>錯誤
 
 當刪除作業傳回錯誤時，Resource Manager 會重試 DELETE 呼叫。 若狀態碼為 5xx、429 和 408，則會發生重試。 根據預設，重試的時間週期為 15 分鐘。
 
@@ -50,7 +110,7 @@ Resource Manager 會在嘗試刪除的每個資源上發出 GET 呼叫。 此 GE
 
 不過，如果資源上的 GET 呼叫傳回 200 或 201，Resource Manager 會重新建立資源。
 
-### <a name="errors"></a>Errors
+### <a name="errors"></a>錯誤
 
 如果 GET 作業傳回錯誤，Resource Manager 會針對下列錯誤碼重試 GET：
 

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: rimman
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: dba29ea2d4d0ad18f021e0271c6131f9473cbe8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 27961413d0dddc165f90ebde1c5e1aee6b8d9fd3
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827809"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981844"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>使用 Striim 將資料移轉至 Azure Cosmos DB SQL API 帳戶
  
@@ -20,7 +20,7 @@ Azure marketplace 中的 Striim 映射提供從資料倉儲和資料庫到 Azure
 
 本文說明如何使用 Striim, 將資料從**Oracle 資料庫**遷移至**Azure Cosmos DB SQL API 帳戶**。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您沒有 [Azure 訂用帳戶](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 

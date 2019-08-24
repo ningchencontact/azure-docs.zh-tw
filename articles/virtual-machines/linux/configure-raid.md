@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: a7e6c0b2f260976842a0b3ac1f7f69fa859e2283
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d194f4d883063c27da05c9ddf63de2b225a8c10a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671672"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980976"
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上設定軟體 RAID
 在 Azure 的 Linux 虛擬機器上使用軟體 RAID，以單一 RAID 裝置的形式顯示多個連接的資料磁碟，這種案例很常遇到。 相較於只使用單一磁碟，這通常可用來提高效能並允許增加輸送量。
@@ -122,19 +122,19 @@ ms.locfileid: "67671672"
 
 1. 在新的 RAID 裝置上建立檔案系統
    
-    a. **CentOS、Oracle Linux、SLES 12、openSUSE 和 Ubuntu**
+    **CentOS、Oracle Linux、SLES 12、openSUSE 和 Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    b. **SLES 11**
+    **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11** - 啟用 boot.md 並建立 mdadm.conf
+    **SLES 11** - 啟用 boot.md 並建立 mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -144,7 +144,7 @@ ms.locfileid: "67671672"
    > [!NOTE]
    > 在 SUSE 系統上進行這些變更之後，可能需要重新開機。 針對 SLES 12，這在並 *非* 必要步驟。
    > 
-   > 
+   
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>將新的檔案系統新增至 /etc/fstab
 > [!IMPORTANT]

@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 3d10814858d38d61e5346a4eb0dfb3d3d24ad4c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 286fa60fef8de5240fb2ccd0f14ced0c4e38ff73
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568321"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981361"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>將應用程式升級以使用最新的彈性資料庫用戶端程式庫
 
-新版本的 [彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md) 是透過 Visual Studio 中的 NuGet 和 NuGetPackage Manager 介面提供。 升級包含用戶端程式庫的錯誤修正以及對新功能的支援。
+新版本的[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)可透過 nuget 和 Visual Studio 中的 Nuget 套件管理員介面取得。 升級包含用戶端程式庫的錯誤修正以及對新功能的支援。
 
 **如需最新版本**：請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 

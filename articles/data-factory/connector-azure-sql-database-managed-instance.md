@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/21/2019
 ms.author: jingwang
-ms.openlocfilehash: 1baa28dd1c9cc323e3dc7ca6fc5fbe2eac54652a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0cc7313531e92aa0f57b09a9252902848297bdbf
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829147"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996654"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
 
@@ -55,7 +55,7 @@ ms.locfileid: "68829147"
 
 以下是針對 Azure SQL Database 受控執行個體連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | Type 屬性必須設定為**AzureSqlMI**。 | 是 |
 | connectionString |這個屬性會指定使用 SQL 驗證連接到受控實例所需的**connectionString**資訊。 如需詳細資訊，請參閱下列範例。 <br/>預設通訊埠為1433。 如果您使用具有公用端點的 Azure SQL Database 受控執行個體, 請明確指定埠3342。<br>將此欄位標記為**SecureString** , 將它安全地儲存在 Azure Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中。 如果是 SQL 驗證, 請從連接`password`字串中提取設定。 如需詳細資訊, 請參閱資料表後面的 JSON 範例, 並[將認證儲存在 Azure Key Vault 中](store-credentials-in-key-vault.md)。 |是 |
@@ -126,31 +126,33 @@ ms.locfileid: "68829147"
 
 若要使用以服務主體為基礎的 Azure AD 應用程式權杖驗證，請遵循下列步驟：
 
-1. 從 Azure 入口網站[建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)。 請記下應用程式名稱，以及下列可定義連結服務的值：
+1. 請遵循下列步驟, 為您的受控執行個體布建[Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)。
+
+2. 從 Azure 入口網站[建立 Azure Active Directory 應用程式](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)。 請記下應用程式名稱，以及下列可定義連結服務的值：
 
     - 應用程式識別碼
     - 應用程式金鑰
     - 租用戶識別碼
 
-2. [建立](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)Azure Data Factory 受控識別的登入。 在 SQL Server Management Studio (SSMS) 中, 使用**系統管理員 (sysadmin**) 的 SQL Server 帳戶, 連接到您的受控執行個體。 在**master**資料庫中, 執行下列 t-sql:
+3. [建立](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)Azure Data Factory 受控識別的登入。 在 SQL Server Management Studio (SSMS) 中, 使用**系統管理員 (sysadmin**) 的 SQL Server 帳戶, 連接到您的受控執行個體。 在**master**資料庫中, 執行下列 t-sql:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-2. 為 Azure Data Factory 受控識別[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)。 連接到您想要從中複製資料的資料庫, 然後執行下列 T-sql: 
+4. 為 Azure Data Factory 受控識別[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)。 連接到您想要從中複製資料的資料庫, 然後執行下列 T-sql: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-3. 授與 Data Factory 受控識別所需的許可權, 就像您一般對 SQL 使用者和其他人所做的一樣。 執行下列程式碼。 如需更多選項, 請參閱[這份檔](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current)。
+5. 授與 Data Factory 受控識別所需的許可權, 就像您一般對 SQL 使用者和其他人所做的一樣。 執行下列程式碼。 如需更多選項, 請參閱[這份檔](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current)。
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
     ```
 
-4. 在 Azure Data Factory 中設定 Azure SQL Database 受控執行個體連結服務。
+6. 在 Azure Data Factory 中設定 Azure SQL Database 受控執行個體連結服務。
 
 **範例: 使用服務主體驗證**
 
@@ -185,25 +187,27 @@ ms.locfileid: "68829147"
 
 若要使用受控識別驗證, 請遵循下列步驟。
 
-1. [建立](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)Azure Data Factory 受控識別的登入。 在 SQL Server Management Studio (SSMS) 中, 使用**系統管理員 (sysadmin**) 的 SQL Server 帳戶, 連接到您的受控執行個體。 在**master**資料庫中, 執行下列 t-sql:
+1. 請遵循下列步驟, 為您的受控執行個體布建[Azure Active Directory 系統管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)。
+
+2. [建立](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)Azure Data Factory 受控識別的登入。 在 SQL Server Management Studio (SSMS) 中, 使用**系統管理員 (sysadmin**) 的 SQL Server 帳戶, 連接到您的受控執行個體。 在**master**資料庫中, 執行下列 t-sql:
 
     ```sql
     CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-2. 為 Azure Data Factory 受控識別[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)。 連接到您想要從中複製資料的資料庫, 然後執行下列 T-sql: 
+3. 為 Azure Data Factory 受控識別[建立自主資料庫使用者](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)。 連接到您想要從中複製資料的資料庫, 然後執行下列 T-sql: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
     ```
 
-3. 授與 Data Factory 受控識別所需的許可權, 就像您一般對 SQL 使用者和其他人所做的一樣。 執行下列程式碼。 如需更多選項, 請參閱[這份檔](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current)。
+4. 授與 Data Factory 受控識別所需的許可權, 就像您一般對 SQL 使用者和其他人所做的一樣。 執行下列程式碼。 如需更多選項, 請參閱[這份檔](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current)。
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
     ```
 
-4. 在 Azure Data Factory 中設定 Azure SQL Database 受控執行個體連結服務。
+5. 在 Azure Data Factory 中設定 Azure SQL Database 受控執行個體連結服務。
 
 **範例: 使用受控識別驗證**
 
@@ -265,7 +269,7 @@ ms.locfileid: "68829147"
 
 若要從 Azure SQL Database 受控執行個體複製資料, 複製活動的 [來源] 區段中支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的類型屬性必須設定為**SqlMISource**。 | 是 |
 | sqlReaderQuery |此屬性使用自訂 SQL 查詢來讀取資料。 例如 `select * from MyTable`。 |否 |
@@ -371,7 +375,7 @@ GO
 
 若要將資料複製到 Azure SQL Database 受控執行個體, 複製活動的 [接收] 區段中支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的 type 屬性必須設定為**SqlMISink**。 | 是 |
 | writeBatchSize |要插入 SQL 資料表中*每個批次*的資料列數目。<br/>允許的值為整數的資料列數目。 根據預設, Azure Data Factory 會依據資料列大小, 以動態方式決定適當的批次大小。  |否 |
@@ -580,21 +584,21 @@ END
 | Datetime |Datetime |
 | datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
-| DECIMAL |DECIMAL |
+| Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | 浮點數 |Double |
 | image |Byte[] |
 | ssNoversion |Int32 |
-| money |DECIMAL |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |DECIMAL |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |單身 |
+| real |Single |
 | rowversion |Byte[] |
 | smalldatetime |Datetime |
 | smallint |Int16 |
-| smallmoney |DECIMAL |
+| smallmoney |Decimal |
 | sql_variant |物件 |
 | 文字 |String, Char[] |
 | time |TimeSpan |

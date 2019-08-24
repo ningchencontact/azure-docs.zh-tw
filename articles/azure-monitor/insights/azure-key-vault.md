@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849206"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997695"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure 監視器中的 Azure Key Vault 分析解決方案
 
@@ -103,28 +103,28 @@ Azure Key Vault 解決方案會直接從 Key Vault 收集診斷記錄。
 ## <a name="azure-monitor-log-records"></a>Azure 監視器記錄
 Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄](../../key-vault/key-vault-logging.md)收集的 **KeyVaults** 類型記錄。  下表是這些記錄的屬性：  
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
-| SourceSystem |*Azure* |
-| CallerIpAddress |提出要求之用戶端的 IP 位址 |
-| Category | *AuditEvent* |
-| CorrelationId |選擇性的 GUID，用戶端可傳遞此 GUID 來讓用戶端記錄與服務端 (金鑰保存庫) 記錄相互關聯。 |
-| DurationMs |服務 REST API 要求時所花費的時間，以毫秒為單位。 這個時間不包括網路延遲，因此在用戶端所測量到的時間可能不符合此時間。 |
-| httpStatusCode_d |由要求傳回的 HTTP 狀態碼 (例如 *200*) |
-| id_s |要求的唯一識別碼 |
-| identity_claim_appid_g | 應用程式識別碼的 GUID |
-| OperationName |[Azure 金鑰保存庫記錄](../../key-vault/key-vault-logging.md)中所記載的作業名稱 |
-| OperationVersion |用戶端所要求的 REST API 版本 (例如 *2015-06-01*) |
-| requestUri_s |要求的 Uri |
-| Resource |金鑰保存庫的名稱 |
-| ResourceGroup |金鑰保存庫的資源群組 |
-| resourceId |Azure 資源管理員資源識別碼。 對於 Key Vault 記錄來說，這是 Key Vault 的資源識別碼。 |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *VAULTS* |
-| ResultSignature |HTTP 狀態 (例如 *OK*) |
-| ResultType |REST API 要求的結果 (例如 *Success*) |
-| SubscriptionId |包含金鑰保存庫的訂用帳戶的 Azure 訂用帳戶識別碼 |
+| `Type` |*AzureDiagnostics* |
+| `SourceSystem` |*Azure* |
+| `CallerIpAddress` |提出要求之用戶端的 IP 位址 |
+| `Category` | *AuditEvent* |
+| `CorrelationId` |選擇性的 GUID，用戶端可傳遞此 GUID 來讓用戶端記錄與服務端 (金鑰保存庫) 記錄相互關聯。 |
+| `DurationMs` |服務 REST API 要求時所花費的時間，以毫秒為單位。 這個時間不包括網路延遲，因此在用戶端所測量到的時間可能不符合此時間。 |
+| `httpStatusCode_d` |由要求傳回的 HTTP 狀態碼 (例如 *200*) |
+| `id_s` |要求的唯一識別碼 |
+| `identity_claim_appid_g` | 應用程式識別碼的 GUID |
+| `OperationName` |[Azure 金鑰保存庫記錄](../../key-vault/key-vault-logging.md)中所記載的作業名稱 |
+| `OperationVersion` |用戶端所要求的 REST API 版本 (例如 *2015-06-01*) |
+| `requestUri_s` |要求的 Uri |
+| `Resource` |金鑰保存庫的名稱 |
+| `ResourceGroup` |金鑰保存庫的資源群組 |
+| `ResourceId` |Azure 資源管理員資源識別碼。 對於 Key Vault 記錄來說，這是 Key Vault 的資源識別碼。 |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | *VAULTS* |
+| `ResultSignature` |HTTP 狀態 (例如 *OK*) |
+| `ResultType` |REST API 要求的結果 (例如 *Success*) |
+| `SubscriptionId` |包含金鑰保存庫的訂用帳戶的 Azure 訂用帳戶識別碼 |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>從舊的 Key Vault 解決方案進行移轉
 從 2017 年 1 月開始，從 Key Vault 傳送記錄到 Log Analytics 的支援方式已變更。 這些變更可提供下列優點︰

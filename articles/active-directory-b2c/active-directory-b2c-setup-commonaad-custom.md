@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1938164e957daa84b22fa83e9cb9fa8d51ffeb15
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 8524eb8f9a8d220964e5dd1f6f8dc6d1aaf94a6d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654089"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69980709"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定多租用戶 Azure Active Directory 的登入
 
@@ -26,7 +26,7 @@ ms.locfileid: "67654089"
 >[!NOTE]
 >在下列指示中，會使用 `Contoso.com` 作為組織的 Azure AD 租用戶，以及使用 `fabrikamb2c.onmicrosoft.com` 作為 Azure AD B2C 租用戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 
@@ -35,35 +35,35 @@ ms.locfileid: "67654089"
 若要讓特定 Azure AD 組織的使用者登入，您需要在組織 Azure AD 租用戶內註冊應用程式。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含組織 Azure AD B2C 租用戶 (contoso.com) 的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [應用程式註冊]  。
-4. 選取 [新增應用程式註冊]  。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含組織 Azure AD B2C 租用戶 (contoso.com) 的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [應用程式註冊]。
+4. 選取 [新增應用程式註冊]。
 5. 輸入應用程式的名稱。 例如： `Azure AD B2C App` 。
-6. 針對 [應用程式類型]  ，選取 `Web app / API`。
-7. 針對 [登入 URL]  ，以全小寫字母輸入下列 URL，其中以您 Azure AD B2C 租用戶的名稱 (fabrikamb2c.onmicrosoft.com) 取代 `your-tenant`：
+6. 針對 [應用程式類型]，選取 `Web app / API`。
+7. 針對 [登入 URL]，以全小寫字母輸入下列 URL，其中以您 Azure AD B2C 租用戶的名稱 (fabrikamb2c.onmicrosoft.com) 取代 `your-tenant`：
 
     ```
     https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
 
-8. 按一下 [建立]  。 複製 [應用程式識別碼]  以供稍後使用。
-9. 選取應用程式，然後選取 [設定]  。
-10. 選取 [金鑰]  ，輸入金鑰描述，選取持續時間，然後按一下 [儲存]  。 複製所顯示的金鑰值以供稍後使用。
-11. 在 [設定]  底下，選取 [屬性]  、將 [多重租用戶]  設定為 `Yes`，然後按一下 [儲存] 
+8. 按一下 [建立]。 複製 [應用程式識別碼] 以供稍後使用。
+9. 選取應用程式，然後選取 [設定]。
+10. 選取 [金鑰]，輸入金鑰描述，選取持續時間，然後按一下 [儲存]。 複製所顯示的金鑰值以供稍後使用。
+11. 在 [設定] 底下，選取 [屬性]、將 [多重租用戶] 設定為 `Yes`，然後按一下 [儲存]
 
 ## <a name="create-a-policy-key"></a>建立原則金鑰
 
 您必須將所建立的應用程式金鑰儲存在 Azure AD B2C 租用戶中。
 
-1. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-2. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-3. 在 [概觀] 頁面上，選取 [識別體驗架構]  。
-4. 選取 [原則金鑰]  ，然後選取 [新增]  。
-5. 針對 [選項]  選擇 `Manual`。
-6. 輸入原則金鑰的 [名稱]  。 例如： `ContosoAppSecret` 。  金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
-7. 在 [祕密]  中，輸入您先前記錄的應用程式金鑰。
-8. 針對 [金鑰使用方法]  ，選取 `Signature`。
-9. 按一下 [建立]  。
+1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+2. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+3. 在 [概觀] 頁面上，選取 [識別體驗架構]。
+4. 選取 [原則金鑰]，然後選取 [新增]。
+5. 針對 [選項] 選擇 `Manual`。
+6. 輸入原則金鑰的 [名稱]。 例如： `ContosoAppSecret` 。  金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+7. 在 [祕密] 中，輸入您先前記錄的應用程式金鑰。
+8. 針對 [金鑰使用方法]，選取 `Signature`。
+9. 按一下 [建立]。
 
 ## <a name="add-a-claims-provider"></a>新增宣告提供者
 
@@ -107,11 +107,11 @@ ms.locfileid: "67654089"
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="email" />
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="unique_name" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
@@ -143,15 +143,15 @@ ms.locfileid: "67654089"
 
 現在，您應該已設定原則，所以 Azure AD B2C 知道如何與 Azure AD 目錄進行通訊。 嘗試上傳原則的擴充檔案，這只是為了確認它到目前為止沒有任何問題。
 
-1. 在 Azure AD B2C 租用戶的 [自訂原則]  頁面上，選取 [上傳原則]  。
-2. 啟用 [覆寫現有的原則]  ，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
-3. 按一下 [上傳]  。
+1. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
+2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
+3. 按一下 [上傳]。
 
 ## <a name="register-the-claims-provider"></a>註冊宣告提供者
 
 目前，識別提供者已設定，但還未出現在任何註冊/登入畫面中。 若要讓它可供使用，您必須建立現有範本使用者旅程圖的複本，然後修改它，讓它也包含 Azure AD 識別提供者。
 
-1. 從 Starter Pack 開啟 TrustFrameworkBase.xml  檔案。
+1. 從 Starter Pack 開啟 TrustFrameworkBase.xml 檔案。
 2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
 3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
 4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
@@ -181,27 +181,27 @@ ms.locfileid: "67654089"
 
     將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `Common-AAD` 。
 
-3. 儲存 TrustFrameworkExtensions.xml  檔案，並再次上傳它以供驗證。
+3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
 與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下頂端功能表中的 [目錄和訂用帳戶]  篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的 [所有服務]  ，然後搜尋並選取 [Azure AD B2C]  。
-4. 選取 [應用程式]  ，然後選取 [新增]  。
-5. 輸入應用程式的名稱，例如 testapp1  。
-6. 針對 [Web 應用程式 / Web API]  ，選取 `Yes`，然後y在 [回覆 URL]  欄位輸入 `https://jwt.ms`。
-7. 按一下 [建立]  。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [應用程式]，然後選取 [新增]。
+5. 輸入應用程式的名稱，例如 testapp1。
+6. 針對 [Web 應用程式 / Web API]，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
+7. 按一下 [建立]。
 
 ## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
 
 更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
 
-1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml  複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignContoso.xml*。
+1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignContoso.xml*。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInContoso` 。
 3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_contoso`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignContoso) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
-6. 確定 [選取應用程式]  欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行]  來進行測試。
+6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。
