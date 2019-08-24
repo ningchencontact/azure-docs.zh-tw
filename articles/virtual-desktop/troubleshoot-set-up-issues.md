@@ -2,17 +2,17 @@
 title: Windows 虛擬桌面租使用者和主機集區建立-Azure
 description: 如何在 Windows 虛擬桌面租使用者環境的安裝期間疑難排解和解決租使用者和主機集區的問題。
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 9e58c3bfc0e74f9aac61085608a843954b0923c0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: helohr
+ms.openlocfilehash: 93f111eb4439b89ac367ad7e7b951e26cecb86e4
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249565"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981085"
 ---
 # <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 
@@ -24,7 +24,7 @@ ms.locfileid: "68249565"
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>取得 Windows 10 企業版多會話映射
 
-若要使用 Windows 10 企業版的多會話映射, 請移至 Azure Marketplace,   > 選取 [開始使用] [**Microsoft Windows 10** > 和  [Windows 10 企業版] [虛擬桌面預覽版, 版本 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)]。
+若要使用 Windows 10 企業版的多會話映射, 請移至 Azure Marketplace,  > 選取 [開始使用] [**Microsoft Windows 10** > 和  [Windows 10 企業版] [虛擬桌面預覽版, 版本 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)]。
 
 ![為虛擬桌面預覽版選取 Windows 10 企業版 (版本 1809) 的螢幕擷取畫面。](media/AzureMarketPlace.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "68249565"
 
 **原因：** 已登入的使用者未獲指派其 Azure Active Directory 中的 TenantCreator 角色。
 
-**補丁**依照[將 TenantCreator 應用程式角色指派給 Azure Active Directory 租使用者中的使用者](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant)中的指示進行。 依照指示進行之後, 您將會有已指派給 TenantCreator 角色的使用者。
+**補丁**依照[將 TenantCreator 應用程式角色指派給 Azure Active Directory 租使用者中的使用者](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role)中的指示進行。 依照指示進行之後, 您將會有已指派給 TenantCreator 角色的使用者。
 
 ![已指派 TenantCreator 角色的螢幕擷取畫面。](media/TenantCreatorRoleAssigned.png)
 
@@ -348,7 +348,7 @@ New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDef
 - 若要在 Windows 虛擬桌面中設定虛擬機器 (VM) 時針對問題進行疑難排解, 請參閱[工作階段主機虛擬機器](troubleshoot-vm-configuration.md)設定。
 - 若要疑難排解 Windows 虛擬桌面用戶端連線的問題, 請參閱[遠端桌面用戶端連接](troubleshoot-client-connection.md)。
 - 若要針對搭配 Windows 虛擬桌面使用 PowerShell 時的問題進行疑難排解, 請參閱[Windows 虛擬桌面 PowerShell](troubleshoot-powershell.md)。
-- 若要深入瞭解預覽服務, 請參閱[Windows 桌面預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
+- 若要深入瞭解預覽服務, 請參閱[Windows 虛擬桌面預覽環境](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)。
 - 若要進行疑難排解教學課程，請參閱[教學課程：針對 Resource Manager 範本部署](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)進行疑難排解。
 - 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
 - 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)。
