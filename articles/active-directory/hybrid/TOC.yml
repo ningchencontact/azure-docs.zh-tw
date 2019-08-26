@@ -350,3 +350,5 @@
       href: reference-connect-adsynctools.md
     - name: ADConnectivityTools 參考
       href: reference-connect-adconnectivitytools.md
+    - name: msExchUserHoldPolicies 和 cloudMSExchUserHoldPolicies
+      href: reference-connect-msexchuserholdpolicies.md

@@ -3,15 +3,14 @@ documentType: LandingData
 title: Bing Web 搜尋 API 文件
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
-  title: Bing Web 搜尋 API 文件 - 教學課程、快速入門與 API 參考 | Microsoft Docs
+  title: Bing Web 搜尋 API 文件 - 教學課程、快速入門和 API 參考
+  titleSuffix: Azure Cognitive Services
   description: 了解如何使用 Bing Web 搜尋 API 搜尋網路上的網頁、影像、影片、新聞和其他資訊。
   services: cognitive-services
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-web-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 7/25/2019
   ms.author: nitinme

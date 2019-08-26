@@ -3,15 +3,14 @@ documentType: LandingData
 title: Bing 圖片搜尋 API 文件
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing 圖片搜尋 API 文件 - 教學課程、快速入門、API 參考 | Microsoft Docs
+  title: Bing 影像搜尋 API 文件 - 教學課程、快速入門和 API 參考
+  titleSuffix: Azure Cognitive Services
   description: 了解如何使用 Bing 影像搜尋 API 來搜尋網路上的影像。
   services: cognitive-services
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-image-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 7/25/2019
   ms.author: nitinme

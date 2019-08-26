@@ -473,6 +473,21 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: SaaS 履行 API - 常見問題集
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: 潛在客戶管理概觀
+          href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+          items:
+            - name: Azure Blob
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
+            - name: Azure 資料表
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
+            - name: Dynamics 365 for Customer Engagement
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
+            - name: HTTPS 端點
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
+            - name: Marketo
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
+            - name: Salesforce
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: 試用您的供應項目
           href: ./partner-center-portal/test-drive.md
     - name: 發佈狀態

@@ -253,14 +253,20 @@
           href: sql-data-warehouse-connect-overview.md
         - name: 連接字串
           href: sql-data-warehouse-connection-strings.md
-        - name: 安裝 Visual Studio SSDT
-          href: sql-data-warehouse-install-visual-studio.md
-        - name: 使用 Visual Studio SSDT 查詢
-          href: sql-data-warehouse-query-visual-studio.md
-        - name: 使用 SSMS 查詢
-          href: sql-data-warehouse-query-ssms.md
-        - name: 使用 sqlcmd 連接及查詢
-          href: sql-data-warehouse-get-started-connect-sqlcmd.md
+        - name: 變更管理和部署
+          items:
+            - name: 安裝 Visual Studio SSDT
+              href: sql-data-warehouse-install-visual-studio.md
+            - name: 原始檔控制整合
+              href: sql-data-warehouse-source-control-integration.md
+        - name: 連線和查詢
+          items:
+            - name: Visual Studio SSDT
+              href: sql-data-warehouse-query-visual-studio.md
+            - name: SSMS
+              href: sql-data-warehouse-query-ssms.md
+            - name: sqlcmd
+              href: sql-data-warehouse-get-started-connect-sqlcmd.md
     - name: 工作負載管理
       items:
         - name: 分析工作負載

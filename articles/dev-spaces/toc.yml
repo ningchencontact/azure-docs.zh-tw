@@ -73,6 +73,8 @@
           href: how-to/manage-secrets.md
         - name: 使用自訂 NuGet 摘要
           href: how-to/use-custom-nuget-feed.md
+        - name: 使用私人 Helm 存放庫
+          href: how-to/use-private-helm-repo.md
         - name: 使用 Kubectl 搭配 Azure Dev Spaces
           href: how-to/use-kubectl-with-azure-dev-spaces.md
         - name: 升級 Azure Dev Spaces 工具

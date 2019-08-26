@@ -2,15 +2,15 @@
 documentType: LandingData
 title: Bing 自訂搜尋文件
 metadata:
-  title: Bing 自訂搜尋 API 文件 - 教學課程、快速入門和 API 參考 - Microsoft 認知服務 | Microsoft Docs
+  title: Bing 自訂搜尋 API 文件 - 教學課程、快速入門和 API 參考
+  titleSuffix: Azure Cognitive Services
   description: 了解如何使用 Bing 自訂搜尋入口網站和 API 來建立自訂搜尋體驗
   services: cognitive-services
   author: v-deken
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: bing-custom-search
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: v-deken

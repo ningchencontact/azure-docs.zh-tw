@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Bing 影片搜尋 API 文件
 metadata:
-  title: Bing 影片搜尋 API 文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
+  title: Bing 影片搜尋 API 文件 - 教學課程、快速入門和 API 參考
+  titleSuffix: Azure Cognitive Services
   description: 了解如何使用 Bing 影片搜尋 API 並從 Web 搜尋和尋找影片。
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

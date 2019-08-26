@@ -2,15 +2,14 @@
 documentType: LandingData
 title: 電腦視覺 API 文件
 metadata:
-  title: API 文件 - 電腦視覺 - Azure 認知服務 | Microsoft Docs
+  title: API 文件 - 電腦視覺
+  titleSuffix: Azure Cognitive Services
   description: 了解如何使用電腦視覺來處理影像，並傳回資訊。 教學課程會示範如何建置使用 API 的應用程式。
   services: cognitive-services
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/26/2019
   ms.author: nitinme

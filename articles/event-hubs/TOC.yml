@@ -71,12 +71,24 @@
           href: event-hubs-geo-dr.md
     - name: 安全性
       items:
-        - name: 適用於 Azure 資源的受控服務識別
-          href: event-hubs-managed-service-identity.md
-        - name: 角色型存取控制 (預覽)
-          href: event-hubs-role-based-access-control.md
-        - name: 驗證和安全性模型概觀
-          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Authorization
+          items:
+            - name: 授與 Azure 事件中樞的存取權
+              href: authorize-access-event-hubs.md
+            - name: 透過 Azure Active Directory 授與存取權
+              href: authorize-access-azure-active-directory.md
+            - name: 透過共用存取簽章授與存取權
+              href: authorize-access-shared-access-signature.md
+        - name: Authentication
+          items:
+            - name: 向 Azure Active Directory 進行驗證
+              items:
+                - name: 使用受控識別進行驗證
+                  href: authenticate-managed-identity.md
+                - name: 從應用程式進行驗證
+                  href: authenticate-application.md
+            - name: 使用共用存取簽章進行驗證
+              href: authenticate-shared-access-signature.md
         - name: 安全性屬性
           href: event-hubs-security-attributes.md
     - name: AMQP 1.0 通訊協定指南
@@ -166,6 +178,8 @@
           href: event-hubs-service-endpoints.md
         - name: 在事件中樞命名空間中啟用虛擬網路整合和防火牆
           href: event-hubs-tutorial-virtual-networks-firewalls.md
+        - name: 設定客戶管理的金鑰來加密待用資料
+          href: configure-customer-managed-key.md
     - name: 疑難排解
       items:
         - name: 例外狀況

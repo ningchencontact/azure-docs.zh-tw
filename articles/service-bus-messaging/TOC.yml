@@ -79,10 +79,6 @@
       href: service-bus-samples.md
 - name: 概念
   items:
-    - name: 適用於 Azure 資源的受控識別
-      href: service-bus-managed-service-identity.md
-    - name: 角色型存取控制 (預覽)
-      href: service-bus-role-based-access-control.md
     - name: 進階傳訊
       href: service-bus-premium-messaging.md
     - name: Azure 佇列和服務匯流排佇列的比較
@@ -95,8 +91,25 @@
       href: service-bus-async-messaging.md
     - name: 處理中斷與災害
       href: service-bus-outages-disasters.md
-    - name: Azure 常見安全性屬性
-      href: service-bus-messaging-security-attributes.md
+    - name: 安全性
+      items:
+        - name: 驗證和授權
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: 使用共用存取簽章
+              items:
+                - name: 從 ACS 遷移至 SAS
+                  href: service-bus-migrate-acs-sas.md
+                - name: 使用共用存取簽章進行驗證
+                  href: service-bus-sas.md
+            - name: 使用 Azure Active Directory
+              items:
+                - name: 使用 Azure 資源的受控識別進行驗證
+                  href: service-bus-managed-service-identity.md
+                - name: 從應用程式進行驗證
+                  href: authenticate-application.md
+        - name: Azure 常見安全性屬性
+          href: service-bus-messaging-security-attributes.md
 - name: 使用說明指南
   items:
     - name: 建立命名空間
@@ -119,13 +132,6 @@
               href: service-bus-to-event-grid-integration-concept.md
             - name: Azure 事件方格範例
               href: service-bus-to-event-grid-integration-example.md
-        - name: 驗證和授權
-          href: service-bus-authentication-and-authorization.md
-          items:
-            - name: 從 ACS 遷移至 SAS
-              href: service-bus-migrate-acs-sas.md
-            - name: 使用共用存取簽章進行驗證
-              href: service-bus-sas.md
         - name: 主題篩選和動作
           href: topic-filters.md
         - name: 從標準遷移到進階命名空間

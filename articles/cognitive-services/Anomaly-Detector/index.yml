@@ -2,15 +2,15 @@
 documentType: LandingData
 title: 異常偵測器 API 文件
 metadata:
-  title: 異常偵測器 API - 教學課程、快速入門和 API 參考 - Azure 認知服務 | Microsoft Docs
+  title: 異常偵測器 API - 教學課程、快速入門、API 參考
+  titleSuffix: Azure Cognitive Services
   description: 使用異常偵測器 API 來監視一段時間的資料，並透過機器學習偵測異常情況。 取得資料摸深入解析，包括磁碟區、產業或案例等資訊。
   services: cognitive-services
   author: aahill
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: anomaly-detector
   ms.topic: landing-page
   ms.date: 03/26/2019
   ms.author: aahi

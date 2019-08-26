@@ -3,8 +3,14 @@
 - name: 範例應用程式
   expanded: true
   items:
-    - name: Linux 容器中的 Web 應用程式
-      href: secure-web-app.md
+    - name: 安全開發的新手
+      items:
+        - name: Linux 容器中的 Web 應用程式
+          href: secure-web-app.md
+    - name: 符合產業規範的解決方案
+      items:
+        - name: 支付卡產業
+          href: secure-pci-web-app.md
 - name: 概念
   expanded: true
   items:

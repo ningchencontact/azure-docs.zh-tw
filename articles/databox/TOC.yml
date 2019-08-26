@@ -95,8 +95,10 @@
               href: data-box-disk-deploy-set-up.md
             - name: 3 - 複製及驗證
               href: data-box-disk-deploy-copy-data.md
-            - name: 4 - 傳回、上傳並確認
+            - name: 4 - 退回
               href: data-box-disk-deploy-picked-up.md
+            - name: 5 - 確認上傳
+              href: data-box-disk-deploy-upload-verify.md
         - name: 概念
           items:
             - name: 檢閱需求

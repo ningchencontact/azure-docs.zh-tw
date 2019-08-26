@@ -3,15 +3,14 @@ documentType: LandingData
 title: Bing 拼字檢查 API 文件
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Spell Check API 文件 - 教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
+  title: Bing 拼寫檢查 API 檔 - 教學課程和 API 參考
+  titleSuffix: Azure Cognitive Services
   description: 了解如何使用 Bing Spell Check API 來取得文字文件的建議修正。 教學課程會示範如何建置使用 API 的應用程式。
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

@@ -327,6 +327,8 @@
           href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
         - name: Apache Spark 事件記錄檔 - RequestBodyTooLarge
           href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
+        - name: Apache ZooKeeper 無法仲裁
+          href: ./zookeeper-troubleshoot-quorum-fails.md
 - name: 參考
   items:
     - name: 程式碼範例

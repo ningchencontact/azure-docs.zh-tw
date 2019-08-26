@@ -149,6 +149,8 @@
       items:
         - name: OPC 對應項架構
           href: overview-opc-twin-architecture.md
+        - name: OPC 保存庫架構
+          href: overview-opc-vault-architecture.md
     - name: 使用說明指南
       items:
         - name: 連線的處理站
@@ -169,14 +171,14 @@
               href: howto-opc-twin-deploy-dependencies.md
         - name: OPC 保存庫
           items:
-            - name: 將 OPC 保存庫部署到現有專案
-              items:
-                - name: OPC 用戶端和 OPC PLC 間的安全通訊
-                  href: howto-opc-vault-deploy-existing-client-plc-communication.md
-                - name: 保護 OPC UA 用戶端和 OPC UA 伺服器應用程式
-                  href: howto-opc-vault-deploy-existing-client-server-communication.md
-            - name: 從頭開始部署 OPC 保存庫
-              href: howto-opc-vault-deploy-scratch.md
+            - name: 部署 OPC 保存庫服務
+              href: howto-opc-vault-deploy.md
+            - name: 管理 OPC 保存庫服務
+              href: howto-opc-vault-manage.md
+            - name: 使用 OPC 保存庫保護 OPC UA 裝置通訊
+              href: howto-opc-vault-secure.md
+            - name: 安全地操作 OPC 保存庫服務
+              href: howto-opc-vault-secure-ca.md
         - name: OPC 發行者
           items:
             - name: 設定 OPC 發行者

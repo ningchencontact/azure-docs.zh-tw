@@ -193,6 +193,8 @@
           href: api-management-howto-create-groups.md
         - name: 部署至多個 Azure 區域
           href: api-management-howto-deploy-multi-region.md
+        - name: 擷取 IP 位址
+          href: api-management-howto-ip-addresses.md
         - name: 將事件記錄到 Azure 事件中樞
           href: api-management-howto-log-event-hubs.md
         - name: 使用 Azure Application Insights 記錄要求

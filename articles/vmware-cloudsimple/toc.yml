@@ -106,8 +106,6 @@
               href: users.md
             - name: 設定對私人雲端的虛擬網路連線
               href: virtual-network-connection.md
-            - name: 編輯使用者設定檔
-              href: 'https://docs.azure.cloudsimple.com/editprofile/'
         - name: 設定私人雲端的 VMware 虛擬機器
           items:
             - name: 在 Azure 中建立 VM
@@ -147,7 +145,7 @@
             - name: 將工作負載 VM 遷移至私人雲端
               href: migrate-workloads.md
             - name: 確保 Azure 上 VMware 中的應用程式高可用性
-              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+              href: ensuring-high-availability.md
             - name: 選擇負載平衡解決方案
               href: load-balancers.md
         - name: VMware 生態系統
@@ -156,8 +154,10 @@
               href: backup-workloads-veeam.md
             - name: 使用 Zerto 將私人雲端設定為災難復原站台
               href: disaster-recovery-zerto.md
+            - name: 使用 VMware SRM 將私人雲端設定為災害復原網站
+              href: disaster-recovery-site-recovery-manager.md
             - name: VMware 水平解決方案指南
-              href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
+              href: horizon-guide.md
             - name: 設定私人雲端的 vSAN 加密
               href: vsan-encryption.md
             - name: 為 Oracle RAC 最佳化您的私人雲端

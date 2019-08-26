@@ -17,12 +17,16 @@
       href: tutorial-create-management-vm.md
     - name: 設定安全 LDAP
       href: tutorial-configure-ldaps.md
+    - name: 設定密碼雜湊同步
+      href: tutorial-configure-password-hash-sync.md
 - name: 範例
   items:
     - name: 使用 Azure PowerShell 來建立 Azure AD DS 執行個體
       href: powershell-create-instance.md
 - name: 概念
   items:
+    - name: 一般部署案例
+      href: scenarios.md
     - name: Azure AD DS 同步處理的運作方式
       href: synchronization.md
     - name: 密碼雜湊同步處理如何運作
@@ -37,8 +41,6 @@
   items:
     - name: 一般設定
       items:
-        - name: 啟用密碼雜湊同步處理
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: 在 Azure AD 設定保留範圍同步處理
           href: scoped-synchronization.md
         - name: 建立組織單位 (OU)
@@ -47,8 +49,6 @@
           href: create-gmsa.md
     - name: 適用於 Azure AD DS 的方案
       items:
-        - name: 常見案例
-          href: scenarios.md
         - name: 虛擬網路考量事項
           href: network-considerations.md
     - name: 管理 Azure AD DS
