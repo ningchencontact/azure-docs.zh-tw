@@ -45,14 +45,14 @@ ms.locfileid: "67875208"
 > 不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression 的組合。 如需詳細資訊, 請參閱[疑難排解一節](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)中的說明。
 
 
-1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]  。
+1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
 
     ![在 [設定] 之下，選擇 Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
    * 除非您已經為此應用程式設定 Application Insights 資源，否則請選擇建立新的資源。 
 
      > [!NOTE]
-     > 當您按一下 [確定]  來建立新資源時，系統會提示您 [套用監視設定]  。 選取 [繼續]  會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
+     > 當您按一下 [確定] 來建立新資源時，系統會提示您 [套用監視設定]。 選取 [繼續] 會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
 
      ![檢測 Web 應用程式](./media/azure-web-apps/create-resource-01.png)
 
@@ -81,14 +81,14 @@ ms.locfileid: "67875208"
 
 以 .NET Core、獨立式部署和 ASP.NET Core 3.0 為目標的完整架構, 目前**不支援**以代理程式/延伸模組為基礎的監視。 (透過程式碼的[手動檢測](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)功能將在先前的所有案例中使用)。
 
-1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]  。
+1. 在 Azure 控制台中，選取您應用程式服務的 [Application Insights]。
 
     ![在 [設定] 之下，選擇 Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
    * 除非您已經為此應用程式設定 Application Insights 資源，否則請選擇建立新的資源。 
 
      > [!NOTE]
-     > 當您按一下 [確定]  來建立新資源時，系統會提示您 [套用監視設定]  。 選取 [繼續]  會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
+     > 當您按一下 [確定] 來建立新資源時，系統會提示您 [套用監視設定]。 選取 [繼續] 會將新的 Application Insights 資源連結至您的應用程式服務，這麼做也會**觸發應用程式服務的重新啟動**。 
 
      ![檢測 Web 應用程式](./media/azure-web-apps/create-resource-01.png)
 
@@ -356,7 +356,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 |`AppContainsDiagnosticSourceAssembly**:true`|此值表示延伸模組偵測到應用`System.Diagnostics.DiagnosticSource`程式中的參考, 而且將會回復。| 請移除參考。
 |`IKeyExists:false`|這個值表示檢測金鑰不存在於 AppSetting `APPINSIGHTS_INSTRUMENTATIONKEY`中。 可能的原因：這些值可能已被意外移除、忘記設定自動化腳本中的值等等。 | 請確定 App Service 的應用程式設定中有該設定。
 
-### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression
+### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>不支援 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression
 
 如果您在編碼內容的情況下使用 APPINSIGHTS_JAVASCRIPT_ENABLED = true, 您可能會收到類似下列的錯誤: 
 
