@@ -38,7 +38,7 @@ ms.locfileid: "67705946"
 
 | 配送映像 | 版本 |
 |---|---|
-| Windows 10 | 核心 |
+| Windows 10 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
@@ -74,10 +74,10 @@ ms.locfileid: "67705946"
 
 | 名稱 | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.2 | ssNoversion |
+| typeHandlerVersion | 1.2 | int |
 
 
 ## <a name="deployment"></a>部署
