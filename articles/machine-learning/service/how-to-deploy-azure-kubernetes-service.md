@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 490085da1e8f6b8e151168433836d59329887c6e
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 26f965169f1fd01676efd3356534a8ac9f2121f7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623967"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036077"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>將模型部署到 Azure Kubernetes Service 叢集
 
@@ -229,7 +229,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 ## <a name="web-service-authentication"></a>Web 服務驗證
 
-部署到 Azure Kubernetes Service 時, 預設會啟用__金鑰型__驗證。 您也可以啟用__權杖__驗證。 權杖驗證需要用戶端使用 Azure Active Directory 帳戶來要求驗證權杖, 以用來對已部署的服務提出要求。
+部署到 Azure Kubernetes Service 時, 預設會啟用__金鑰型__驗證。 您也可以啟用__權杖型__驗證。 以權杖為基礎的驗證需要用戶端使用 Azure Active Directory 帳戶來要求驗證權杖, 以用來對已部署的服務提出要求。
 
 若要__停__用驗證, `auth_enabled=False`請在建立部署設定時設定參數。 下列範例會使用 SDK 來停用驗證:
 
@@ -269,7 +269,7 @@ print(token)
 > [!IMPORTANT]
 > 您將需要在權杖的`refresh_by`時間之後要求新的權杖。
 >
-> Microsoft 強烈建議您在與 Azure Kubernetes Service 叢集相同的區域中建立您的 Azure Machine Learning 工作區。 若要使用權杖進行驗證, web 服務會呼叫您的 Azure Machine Learning 工作區建立所在的區域。 如果您的工作區區域無法使用, 則即使您的叢集與工作區位於不同的區域, 您也無法提取 web 服務的權杖。 這實際上會導致 Azure AD 驗證無法使用, 直到您的工作區區域再次可用為止。 此外, 您的叢集區域和工作區區域之間的距離愈大, 提取權杖所需的時間就越長。
+> Microsoft 強烈建議您在與 Azure Kubernetes Service 叢集相同的區域中建立您的 Azure Machine Learning 工作區。 若要使用權杖進行驗證, web 服務會呼叫您的 Azure Machine Learning 工作區建立所在的區域。 如果您的工作區區域無法使用, 則即使您的叢集與工作區位於不同的區域, 您也無法提取 web 服務的權杖。 這可有效地導致以權杖為基礎的驗證無法使用, 直到您的工作區區域再次可用為止。 此外, 您的叢集區域和工作區區域之間的距離愈大, 提取權杖所需的時間就越長。
 
 ## <a name="update-the-web-service"></a>更新 Web 服務
 

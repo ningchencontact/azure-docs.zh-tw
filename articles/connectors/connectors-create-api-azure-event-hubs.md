@@ -6,22 +6,23 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24f66782821f372f5c045dbb82db24fa8b6ad482
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720052"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051091"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>使用 Azure 事件中樞與 Azure Logic Apps 監視、接收和傳送事件
 
-本文說明如何使用 Azure 事件中樞連接器，從邏輯應用程式內部監視和管理傳送至 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)的事件。 這樣一來，您就可以建立邏輯應用程式，來自動執行從事件中樞檢查、傳送和接收事件的工作和工作流程。 如需連接器專屬的技術資訊，請參閱[Azure 事件中樞連接器參考](https://docs.microsoft.com/connectors/eventhubs/)</a>。
+本文說明如何使用 Azure 事件中樞連接器，從邏輯應用程式內部監視和管理傳送至 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)的事件。 這樣一來，您就可以建立邏輯應用程式，來自動執行從事件中樞檢查、傳送和接收事件的工作和工作流程。 如需連接器特定的技術資訊, 請參閱[Azure 事件中樞連接器參考](https://docs.microsoft.com/connectors/eventhubs/)</a>。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
@@ -34,19 +35,19 @@ ms.locfileid: "64720052"
 
 ## <a name="check-permissions-and-get-connection-string"></a>檢查使用權限並取得連接字串
 
-若要讓邏輯應用程式存取事件中樞，請確認您有權取得事件中樞命名空間的連接字串。
+若要確定您的邏輯應用程式可以存取您的事件中樞, 請檢查您的許可權, 並取得事件中樞命名空間的連接字串。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 移至您的事件中樞「命名空間」  ，而不是特定事件中樞。 
+1. 移至您的事件中樞「命名空間」，而不是特定事件中樞。 
 
-1. 在命名空間 功能表中，在**設定**，選取**共用存取原則**。 在 [宣告]  之下，確認您有該命名空間的 [管理]  權限。
+1. 在 [命名空間] 功能表的 [**設定**] 底下, 選取 [**共用存取原則**]。 在 [宣告] 之下，確認您有該命名空間的 [管理] 權限。
 
    ![管理事件中樞命名空間的權限](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
 1. 如果您想要在稍後手動輸入您的連線資訊，請取得事件中樞命名空間的連接字串。
 
-   1. 在 [原則]  下，選擇 [RootManageSharedAccessKey]  。
+   1. 在 [原則] 下，選擇 [RootManageSharedAccessKey]。
 
    1. 尋找主索引鍵的連接字串。 選擇 [複製] 按鈕，然後儲存連接字串以供稍後使用。
 
@@ -59,7 +60,7 @@ ms.locfileid: "64720052"
 
 <a name="add-trigger"></a>
 
-## <a name="add-event-hubs-trigger"></a>新增事件中樞觸發程序
+## <a name="add-event-hubs-trigger"></a>新增事件中樞觸發程式
 
 在 Azure Logic Apps 中，每個邏輯應用程式都必須使用[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)啟動，而該觸發程序會在特定事件發生或符合特定條件時引發。 每次引發觸發程序時，Logic Apps 引擎都會建立邏輯應用程式執行個體，並開始執行應用程式的工作流程。
 
@@ -67,13 +68,13 @@ ms.locfileid: "64720052"
 
 1. 在 Azure 入口網站或 Visual Studio 中，建立空白的邏輯應用程式，以開啟 Logic Apps 設計工具。 這個範例會使用 Azure 入口網站。
 
-1. 在搜尋方塊中，輸入「事件中樞」作為篩選條件。 從觸發程序清單中，選取此觸發程序：**當事件可用於事件中樞-事件中樞**
+1. 在搜尋方塊中，輸入「事件中樞」作為篩選條件。 從觸發程序清單中，選取此觸發程序：**事件中樞內可用的事件-事件中樞**
 
    ![選取觸發程序](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
 1. 如果系統提示您輸入連線詳細資料，請[立即建立事件中樞連線](#create-connection)。 
 
-1. 在觸發程序，提供您想要監視的事件中樞的相關資訊。 有更多的屬性，開啟**加入新參數**清單。 選取參數，是在觸發程序卡片中將該屬性。
+1. 在觸發程式中, 提供您想要監視之事件中樞的相關資訊。 如需更多屬性, 請開啟 [**加入新的參數**] 清單。 選取參數會將該屬性加入至觸發程式卡片。
 
    ![觸發程序屬性](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
@@ -81,28 +82,28 @@ ms.locfileid: "64720052"
    |----------|----------|-------------|
    | **事件中樞名稱** | 是 | 您想要監視的事件中樞名稱 |
    | **內容類型** | 否 | 事件的內容類型。 預設為 `application/octet-stream`。 |
-   | **取用者群組名稱** | 否 | [的事件中樞取用者群組名稱](../event-hubs/event-hubs-features.md#consumer-groups)用來讀取事件。 若未指定，就會使用預設取用者群組。 |
-   | **最大事件計數** | 否 | 最大事件數目。 觸發程序傳回的事件數目會介於 1 到這個屬性指定的數目之間。 |
-   | **間隔** | 是 | 正整數，描述工作流程的執行頻率為基礎的頻率 |
-   | **頻率** | 是 | 循環的時間單位 |
+   | **取用者群組名稱** | 否 | 用來讀取事件[的事件中樞取用者群組的名稱](../event-hubs/event-hubs-features.md#consumer-groups)。 若未指定，就會使用預設取用者群組。 |
+   | **事件計數上限** | 否 | 事件的最大數目。 觸發程序傳回的事件數目會介於 1 到這個屬性指定的數目之間。 |
+   | **間隔** | 是 | 一個正整數, 描述工作流程執行的頻率 (根據頻率) |
+   | **頻率** | 是 | 週期的時間單位 |
    ||||
 
    **其他屬性**
 
    | 屬性 | 必要項 | 描述 |
    |----------|----------|-------------|
-   | **內容結構描述** | 否 | 若要從事件中樞讀取事件的 JSON 內容的結構描述。 比方說，如果您指定內容的結構描述時，您可以觸發邏輯應用程式僅在符合結構描述的事件。 |
-   | **最小的資料分割索引鍵** | 否 | 輸入要讀取的最小[分割區](../event-hubs/event-hubs-features.md#partitions)識別碼。 預設會讀取所有分割區。 |
-   | **最大的資料分割索引鍵** | 否 | 輸入要讀取的最大[分割區](../event-hubs/event-hubs-features.md#partitions)識別碼。 預設會讀取所有分割區。 |
-   | **時區** | 否 | 只有在您指定的開始時間，因為此觸發程序不接受 UTC 位移時，才適用。 選取您要套用的時區。 <p>如需詳細資訊，請參閱 <<c0> [ 建立及執行週期性工作和使用 Azure Logic Apps 的工作流程](../connectors/connectors-native-recurrence.md)。 |
-   | **開始時間** | 否 | 提供下列格式的開始時間： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區)<p>-或-<p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區)<p>如需詳細資訊，請參閱 <<c0> [ 建立及執行週期性工作和使用 Azure Logic Apps 的工作流程](../connectors/connectors-native-recurrence.md)。 |
+   | **內容架構** | 否 | 要從事件中樞讀取之事件的 JSON 內容架構。 例如, 如果您指定內容架構, 則只能針對符合架構的事件觸發邏輯應用程式。 |
+   | **最小分割區索引鍵** | 否 | 輸入要讀取的最小[分割區](../event-hubs/event-hubs-features.md#partitions)識別碼。 預設會讀取所有分割區。 |
+   | **最大分割區索引鍵** | 否 | 輸入要讀取的最大[分割區](../event-hubs/event-hubs-features.md#partitions)識別碼。 預設會讀取所有分割區。 |
+   | **時區** | 否 | 只有在您指定開始時間時才適用, 因為此觸發程式不接受 UTC 時差。 選取您要套用的時區。 <p>如需詳細資訊, 請參閱[使用 Azure Logic Apps 建立及執行循環性工作和工作流程](../connectors/connectors-native-recurrence.md)。 |
+   | **開始時間** | 否 | 提供下列格式的開始時間： <p>YYYY-MM-DDThh:mm:ss (如果您選取時區)<p>-或-<p>YYYY-MM-DDThh:mm:ssZ (如果您未選取時區)<p>如需詳細資訊, 請參閱[使用 Azure Logic Apps 建立及執行循環性工作和工作流程](../connectors/connectors-native-recurrence.md)。 |
    ||||
 
-1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
+1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
 
 1. 現在，繼續針對您想要使用觸發程序結果來執行的工作，於邏輯應用程式中新增一或多個動作。 
 
-   例如，篩選事件，根據特定的值，例如類別目錄時，您可以新增條件，讓**傳送事件-事件中樞**動作會傳送符合條件的事件。 
+   例如, 若要根據特定值 (例如類別) 來篩選事件, 您可以新增條件, 讓 [**傳送事件**] 動作只會傳送符合您條件的事件。 
 
 > [!NOTE]
 > 所有事件中樞觸發程序都是*長時間輪詢*觸發程序；這表示當引發觸發程序時，觸發程序會處理所有事件，然後等候 30 秒等事件中樞中出現更多事件。
@@ -117,19 +118,19 @@ ms.locfileid: "64720052"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-1. 在觸發程序或動作下，選擇**新增步驟**。
+1. 在觸發程式或動作底下, 選擇 [**新增步驟**]。
 
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
+   選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
 
 1. 在搜尋方塊中，輸入「事件中樞」作為篩選條件。
-從 [動作] 清單中，選取此動作：**傳送事件-事件中樞**
+從 [動作] 清單中, 選取此動作:**傳送事件-事件中樞**
 
-   ![選取 傳送事件 」 動作](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
+   ![選取 [傳送事件] 動作](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
 1. 如果系統提示您輸入連線詳細資料，請[立即建立事件中樞連線](#create-connection)。 
 
-1. 在動作中，提供您想要傳送之事件的相關資訊。 有更多的屬性，開啟**加入新參數**清單。 選取參數可將該屬性的動作卡。
+1. 在動作中, 提供您想要傳送之事件的相關資訊。 如需更多屬性, 請開啟 [**加入新的參數**] 清單。 選取參數會將該屬性加入至 [動作] 卡片。
 
    ![選取事件中樞名稱，並提供事件內容](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
@@ -138,14 +139,14 @@ ms.locfileid: "64720052"
    | **事件中樞名稱** | 是 | 您要傳送事件的事件中樞 |
    | **內容** | 否 | 您要傳送事件的內容 |
    | **屬性** | 否 | 要傳送的應用程式屬性與值 |
-   | **分割區索引鍵** | 否 | [分割區](../event-hubs/event-hubs-features.md#partitions)要傳送事件的識別碼 |
+   | **分割區索引鍵** | 否 | 要傳送事件之位置的[分割](../event-hubs/event-hubs-features.md#partitions)區識別碼 |
    ||||
 
-   例如，您可以從事件中樞觸發程序傳送輸出到另一個事件中樞：
+   例如, 您可以將事件中樞觸發程式的輸出傳送至另一個事件中樞:
 
-   ![傳送事件範例](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action-example.png)
+   ![Send 事件範例](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action-example.png)
 
-1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
+1. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
 
 <a name="create-connection"></a>
 
@@ -157,7 +158,7 @@ ms.locfileid: "64720052"
 
    | 屬性 | 必要項 | Value | 描述 |
    |----------|----------|-------|-------------|
-   | 連線名稱  | 是 | <*connection-name*> | 要為連線建立的名稱 |
+   | 連線名稱 | 是 | <*connection-name*> | 要為連線建立的名稱 |
    | **事件中樞命名空間** | 是 | <*event-hubs-namespace*> | 選取您想要使用的事件中樞命名空間。 |
    |||||  
 
@@ -165,10 +166,10 @@ ms.locfileid: "64720052"
 
    ![建立事件中樞連線](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
-   若要手動輸入連接字串，請選擇 [手動輸入連線資訊]  。 
+   若要手動輸入連接字串, 請選取 [**手動輸入連接資訊**]。 
    了解[如何尋找您的連接字串](#permissions-connection-string)。
 
-2. 選取要使用的事件中樞原則 (若尚未選取)。 選擇 [建立]  。
+2. 選取要使用的事件中樞原則 (若尚未選取)。 選擇 [建立]。
 
    ![建立事件中樞連線 (第二部分)](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 
@@ -176,7 +177,7 @@ ms.locfileid: "64720052"
 
 ## <a name="connector-reference"></a>連接器參考
 
-技術的詳細資訊，例如觸發程序、 動作和限制，如所述的連接器的 OpenAPI (以前稱為 Swagger) 檔案，請參閱 <<c0> [ 連接器的參考頁面](/connectors/eventhubs/)。
+如需如連接器的 OpenAPI (先前為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱[連接器的參考頁面](/connectors/eventhubs/)。
 
 ## <a name="next-steps"></a>後續步驟
 

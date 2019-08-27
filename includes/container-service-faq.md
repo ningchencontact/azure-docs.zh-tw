@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3e1e1266122ebcccc0149ca8e0421577becd6708
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174536"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036674"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(已被取代) Container Service 常見問題集
 
@@ -37,7 +37,7 @@ ms.locfileid: "67174536"
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Azure Container Service 和 ACS 引擎有何不同？ 
 Azure Container Service 是具有 SLA 保證的 Azure 服務，其功能可在 Azure 入口網站、Azure 命令列工具和 Azure API 中使用。 此服務可讓您快速實作和管理執行標準容器協調流程工具的叢集，但設定選擇相對較少。 
 
-[ACS 引擎](http://github.com/Azure/acs-engine)是開放原始碼專案，可讓進階使用者自訂各種層級的叢集組態。 因為能改變基礎結構和軟體的組態，所以我們沒有為 ACS 引擎提供 SLA。 其支援的處理是透過 GitHub 上的開放原始碼專案，而非透過 Microsoft 官方管道。 
+[ACS 引擎](https://github.com/Azure/acs-engine)是開放原始碼專案，可讓進階使用者自訂各種層級的叢集組態。 因為能改變基礎結構和軟體的組態，所以我們沒有為 ACS 引擎提供 SLA。 其支援的處理是透過 GitHub 上的開放原始碼專案，而非透過 Microsoft 官方管道。 
 
 如需其他詳細資訊，請參閱我們的[容器支援原則](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers)。
 
@@ -93,11 +93,11 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 1. 在入口網站中，瀏覽至叢集部署的資源群組。  
 
-2. 按一下 [概觀]  ，然後按一下 [基本資訊]  下 [部署]  的連結。 
+2. 按一下 [概觀]，然後按一下 [基本資訊] 下 [部署] 的連結。 
 
-3. 在 [部署歷程記錄]  刀鋒視窗中，按一下名稱開頭為 **microsoft-acs** 且後接部署日期的部署。 範例︰microsoft-acs-201701310000。  
+3. 在 [部署歷程記錄] 刀鋒視窗中，按一下名稱開頭為 **microsoft-acs** 且後接部署日期的部署。 範例︰microsoft-acs-201701310000。  
 
-4. 在 [摘要]  頁面的 [輸出]  底下，提供了一些叢集連結。 **SSHMaster0** 會提供容器服務叢集中第一個主要主機的 SSH 連接字串。 
+4. 在 [摘要] 頁面的 [輸出] 底下，提供了一些叢集連結。 **SSHMaster0** 會提供容器服務叢集中第一個主要主機的 SSH 連接字串。 
 
 如先前所述，您也可以使用 Azure 工具來尋找主要主機的 FQDN。 請使用建立叢集時所指定的主要主機 FQDN 和使用者名稱，透過 SSH 連線到主要主機。 例如:
 

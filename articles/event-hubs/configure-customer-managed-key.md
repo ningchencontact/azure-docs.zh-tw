@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 794f8f136521acbb51139b9e781a30c71a1560e6
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 311f69ffa436eebb261fb8aa5ee72886ad9fe9d0
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992753"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035900"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>使用 Azure 入口網站, 設定客戶管理的金鑰來加密待用 Azure 事件中樞資料
 Azure 事件中樞使用 Azure 儲存體服務加密 (Azure SSE) 提供待用資料的加密。 事件中樞依賴 Azure 儲存體來儲存資料, 而且根據預設, 與 Azure 儲存體一起儲存的所有資料都會使用 Microsoft 管理的金鑰進行加密。 
@@ -170,7 +170,7 @@ Azure 事件中樞現在支援使用 Microsoft 管理的金鑰或客戶管理的
 > 若要在使用 BYOK 加密的命名空間上啟用異地 DR, 配對的次要命名空間必須在專用叢集中, 而且必須在其上啟用系統指派的受控識別。 若要深入瞭解, 請參閱[適用于 Azure 資源的受控](../active-directory/managed-identities-azure-resources/overview.md)識別。
 
 > [!NOTE]
-> 針對 BYOK 加密事件中樞命名空間, 預覽版本中不支援虛擬網路 (VNet) 服務端點。 
+> 如果您事件中樞命名空間的 Azure Key Vault 上設定虛擬網路 (VNet) 服務端點, 將不會支援 BYOK。 
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -7,23 +7,23 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffdda51c4739dfad6c326a5c90f4a93ebfb321cd
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 1d036ae8c23977b563da56826e68991f26e1178a
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294905"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047549"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>啟用 Linux IaaS VM 適用的 Azure 磁碟加密 
 
-您可以啟用許多磁碟加密案例，步驟可能會因案例而有所不同。 下列各節涵蓋更詳細的 Linux IaaS VM 案例。 您可以使用磁碟加密之前[Azure 磁碟加密的必要條件](azure-security-disk-encryption-prerequisites.md)必須先完成，而[Linux IaaS Vm 適用的其他必要條件](azure-security-disk-encryption-prerequisites.md#additional-prerequisites-for-linux-iaas-vms)應該檢閱 區段。
+您可以啟用許多磁碟加密案例，步驟可能會因案例而有所不同。 下列各節涵蓋更詳細的 Linux IaaS VM 案例。 在您可以使用磁片加密之前, 必須先完成[Azure 磁碟加密必要條件](azure-security-disk-encryption-prerequisites.md), 並檢查[Linux IaaS vm 的其他必要條件](azure-security-disk-encryption-prerequisites.md#additional-prerequisites-for-linux-iaas-vms)一節。
 
-在磁碟加密前製作[快照集](../virtual-machines/windows/snapshot-copy-managed-disk.md)及/或進行備份。 擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。 具有受控磁碟的 VM 需要有備份，才能進行加密。 建立備份之後，您可以使用組 AzVMDiskEncryptionExtension cmdlet 來加密受控的磁碟，藉由指定-skipVmBackup 參數。 如需如何備份和還原已加密 VM 的詳細資訊，請參閱 [Azure 備份](../backup/backup-azure-vms-encryption.md)一文。 
+在磁碟加密前製作[快照集](../virtual-machines/windows/snapshot-copy-managed-disk.md)及/或進行備份。 擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。 具有受控磁碟的 VM 需要有備份，才能進行加密。 備份完成後, 您可以藉由指定-skipVmBackup 參數, 使用 AzVMDiskEncryptionExtension 指令程式將受控磁片加密。 如需如何備份和還原已加密 VM 的詳細資訊，請參閱 [Azure 備份](../backup/backup-azure-vms-encryption.md)一文。 
 
 >[!WARNING]
 > - 如果您先前曾使用 [Azure 磁碟加密搭配 Azure AD 應用程式](azure-security-disk-encryption-prerequisites-aad.md)來加密此 VM，則必須繼續使用此選項來加密您的 VM。 您無法在此加密的 VM 上使用 [Azure 磁碟加密](azure-security-disk-encryption-prerequisites.md)，因為這不是支援的案例，表示尚未對此加密的 VM 支援從 AAD 應用程式離開。
  > - Azure 磁碟加密需要讓 Key Vault 和 VM 共置於相同區域中。 請在和所要加密 VM 相同的區域中建立並使用 Key Vault。
-> - 當加密 Linux OS 磁碟區、 VM 應該視為無法使用。 我們強烈建議以避免封鎖任何開啟的檔案，必須在加密程序期間存取問題進行加密時，避免 SSH 登入。 若要檢查進度[Get AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus)或[vm 加密顯示](/cli/azure/vm/encryption#az-vm-encryption-show)命令可用。 對於 30GB OS 磁碟區，此過程可能需要幾個小時，再加上額外的時間來進行加密資料磁碟區。 除非使用加密格式所有選項，否則資料磁碟區加密時間將與資料磁碟區的大小和數量成正比。 
+> - 加密 Linux OS 磁片區時, VM 應視為無法使用。 我們強烈建議您在加密進行時避免 SSH 登入, 以避免在加密程式期間封鎖需要存取的任何已開啟檔案的問題。 若要檢查進度, 可以使用[AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus)或[vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show)命令。 對於 30GB OS 磁碟區，此過程可能需要幾個小時，再加上額外的時間來進行加密資料磁碟區。 除非使用加密格式所有選項，否則資料磁碟區加密時間將與資料磁碟區的大小和數量成正比。 
 > - 只有資料磁碟區支援在 Linux VM 上停用加密。 如果 OS 磁碟區已加密，則不支援在資料或 OS 磁碟區上停用加密。  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "67294905"
 在這個案例中，您可以使用 Resource Manager 範本、PowerShell Cmdlet 或 CLI 命令啟用加密。 若您需要虛擬機器擴充之結構描述資訊，請參閱 [Linux 擴充功能之 Azure 磁碟加密](../virtual-machines/extensions/azure-disk-enc-linux.md)一文。
 
 >[!IMPORTANT]
- >您必須在啟用 Azure 磁碟加密之前，先在 Azure 磁碟加密之外對以受控磁碟為基礎的 VM 執行個體建立快照集和/或備份。 您可以從入口網站建立受控磁碟的快照集，也可以使用 [Azure 備份](../backup/backup-azure-vms-encryption.md)來建立。 擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。 建立備份之後，集 AzVMDiskEncryptionExtension cmdlet 可用來加密受控的磁碟，藉由指定-skipVmBackup 參數。 之前在建立備份，而且已經指定此參數，將會針對受控的磁碟為基礎的 Vm 失敗組 AzVMDiskEncryptionExtension 命令。 
+ >您必須在啟用 Azure 磁碟加密之前，先在 Azure 磁碟加密之外對以受控磁碟為基礎的 VM 執行個體建立快照集和/或備份。 您可以從入口網站建立受控磁碟的快照集，也可以使用 [Azure 備份](../backup/backup-azure-vms-encryption.md)來建立。 擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。 建立備份之後, 您可以藉由指定-skipVmBackup 參數, 使用 AzVMDiskEncryptionExtension 指令程式將受控磁片加密。 在進行備份並指定了這個參數之前, AzVMDiskEncryptionExtension 命令將會對以受控磁片為基礎的 Vm 失敗。 
 >
 >加密或停用加密功能，可能會導致 VM 重新啟動。 
 >
@@ -58,7 +58,7 @@ ms.locfileid: "67294905"
     > disk-encryption-keyvault 參數值的語法為完整識別碼字串：/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
 key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **確認磁碟已加密：** 若要檢查的 IaaS VM 的加密狀態，請使用[az vm 加密顯示](/cli/azure/vm/encryption#az-vm-encryption-show)命令。 
+- **確認磁碟已加密：** 若要檢查 IaaS VM 的加密狀態, 請使用[az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show)命令。 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
@@ -71,9 +71,9 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
      ```
 
 ### <a name="bkmk_RunningLinuxPSH"> </a>使用 PowerShell 在現有或執行中的 Linux VM 上啟用加密
-使用[組 AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet 以在 Azure 中執行中 IaaS 虛擬機器上啟用加密。 採取[快照集](../virtual-machines/windows/snapshot-copy-managed-disk.md)及 （或) 備份虛擬機器[Azure 備份](../backup/backup-azure-vms-encryption.md)磁碟加密之前。 若要執行的 Linux VM 加密的 PowerShell 指令碼中已經指定了-skipVmBackup 參數。
+使用[AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) Cmdlet, 在 Azure 中執行中的 IaaS 虛擬機器上啟用加密。 在磁片加密之前, 請建立[快照](../virtual-machines/windows/snapshot-copy-managed-disk.md)集和/或使用[Azure 備份](../backup/backup-azure-vms-encryption.md)備份 VM。 在 PowerShell 腳本中, 已指定-skipVmBackup 參數來加密執行中的 Linux VM。
 
--  **加密執行中的 VM：** 下列指令碼會初始化您的變數，並執行組 AzVMDiskEncryptionExtension cmdlet。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 MyVirtualMachineResourceGroup、 MySecureVM 和 MySecureVault 取代您的值。 修改-將 VolumeType 參數來指定您要加密的磁碟。
+-  **加密執行中的 VM：** 下列腳本會初始化您的變數, 並執行 AzVMDiskEncryptionExtension 指令程式。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 將 MyVirtualMachineResourceGroup、MySecureVM 和 MySecureVault 取代為您的值。 修改-VolumeType 參數, 以指定您要加密的磁片。
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -107,13 +107,13 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
     >[!NOTE]
     > disk-encryption-keyvault 參數值的語法為完整識別碼字串：/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
     
-- **確認磁碟已加密：** 若要檢查的 IaaS VM 的加密狀態，請使用[Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet。 
+- **確認磁碟已加密：** 若要檢查 IaaS VM 的加密狀態, 請使用[AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) Cmdlet。 
     
      ```azurepowershell-interactive 
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
-- **停用磁碟加密**：若要停用加密，請使用[停用 AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet。 只能在 Linux VM 的資料磁碟區上停用加密。
+- **停用磁碟加密**：若要停用加密, 請使用[AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) Cmdlet。 只能在 Linux VM 的資料磁碟區上停用加密。
      
      ```azurepowershell-interactive 
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
@@ -124,9 +124,9 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 
 您可以使用 [Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)，在 Azure 中現有或執行中的 IaaS Linux VM 上啟用磁碟加密。
 
-1. 按一下 Azure 快速入門範本上的 [部署至 Azure]  。
+1. 按一下 Azure 快速入門範本上的 [部署至 Azure]。
 
-2. 選取訂用帳戶、資源群組、資源群組位置、參數、法律條款及合約。 按一下 [建立]  ，以在現有或執行中的 IaaS VM 上啟用加密。
+2. 選取訂用帳戶、資源群組、資源群組位置、參數、法律條款及合約。 按一下 [建立]，以在現有或執行中的 IaaS VM 上啟用加密。
 
 下表列出現有或執行中 VM 的 Resource Manager 範本參數︰
 
@@ -135,16 +135,16 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 | vmName | 要執行加密作業的 VM 名稱。 |
 | keyVaultName | 應上傳 BitLocker 金鑰的金鑰保存庫名稱。 您可以使用 Cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MyKeyVaultResourceGroupName"` 來取得|
 | keyVaultResourceGroup | 包含金鑰保存庫的資源群組名稱|
-|  keyEncryptionKeyURL | 用來加密所產生 BitLocker 金鑰的金鑰加密金鑰 URL。 如果您在 UseExistingKek 下拉式清單中選取 [nokek]  ，此參數是選擇性的。 如果您在 UseExistingKek 下拉式清單中選取 [kek]  ，您必須輸入 _keyEncryptionKeyURL_ 值。 |
+|  keyEncryptionKeyURL | 用來加密所產生 BitLocker 金鑰的金鑰加密金鑰 URL。 如果您在 UseExistingKek 下拉式清單中選取 [nokek]，此參數是選擇性的。 如果您在 UseExistingKek 下拉式清單中選取 [kek]，您必須輸入 _keyEncryptionKeyURL_ 值。 |
 | volumeType | 執行加密作業所在磁碟區的類型。 有效值為 _OS_、_Data_ 和 _All_。 
 | forceUpdateTag | 每次需要強制執行作業時傳入唯一的值，例如 GUID。 |
 | resizeOSDisk | 是否應該先將 OS 分割區調整大小以佔用完整的 OS VHD，然後才分割系統磁碟區。 |
-| location | 所有資源的位置。 |
+| 位置 | 所有資源的位置。 |
 
 
 
 ## <a name="encrypt-virtual-machine-scale-sets"></a>加密虛擬機器擴展集
-[Azure 虛擬機器擴展集](../virtual-machine-scale-sets/overview.md)可讓您建立和管理一組負載平衡的相同 VM。 VM 執行個體的數目可以自動增加或減少，以因應需求或已定義的排程。 請使用 CLI 或 Azure PowerShell 來加密虛擬機器擴展集。 在 Linux 擴展集虛擬機器上支援只加密資料磁碟。
+[Azure 虛擬機器擴展集](../virtual-machine-scale-sets/overview.md)可讓您建立和管理一組負載平衡的相同 VM。 VM 執行個體的數目可以自動增加或減少，以因應需求或已定義的排程。 請使用 CLI 或 Azure PowerShell 來加密虛擬機器擴展集。 Linux 擴展集虛擬機器上僅支援資料磁片加密。
 
 您可以在[這裡](https://github.com/Azure-Samples/azure-cli-samples/tree/master/disk-encryption/vmss)找到 Linux 擴展集資料磁碟加密的批次檔案範例。 這個範例會建立資源群組和 Linux 擴展集、掛接 5 GB 資料磁碟，並加密虛擬機器擴展集。
 
@@ -178,7 +178,7 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 
 ### <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>使用 Azure PowerShell 加密虛擬機器擴展集
 
-使用[組 AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet 在 Windows 虛擬機器擴展集上啟用加密。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。
+使用[AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) Cmdlet, 在 Windows 虛擬機器擴展集上啟用加密。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。
 
 -  **加密執行中的虛擬機器擴展集**：
       ```powershell
@@ -209,13 +209,13 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
     >[!NOTE]
     > disk-encryption-keyvault 參數值的語法為完整識別碼字串：/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **取得虛擬機器集的加密狀態**：使用[Get AzVmssVMDiskEncryption](/powershell/module/az.compute/get-azvmssvmdiskencryption) cmdlet。
+- **取得虛擬機器集的加密狀態**：使用[AzVmssVMDiskEncryption](/powershell/module/az.compute/get-azvmssvmdiskencryption) Cmdlet。
     
     ```powershell
     Get-AzVmssVMDiskEncryption -ResourceGroupName "MyVMScaleSetResourceGroup" -VMScaleSetName "MySecureVmss"
     ```
 
-- **在虛擬機器擴展集上停用加密**：使用[停用 AzVmssDiskEncryption](/powershell/module/az.compute/disable-azvmssdiskencryption) cmdlet。 
+- **在虛擬機器擴展集上停用加密**：使用[AzVmssDiskEncryption](/powershell/module/az.compute/disable-azvmssdiskencryption) Cmdlet。 
 
     ```powershell
     Disable-AzVmssDiskEncryption -ResourceGroupName "MyVMScaleSetResourceGroup" -VMScaleSetName "MySecureVmss"
@@ -226,11 +226,11 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 若要將 Linux 虛擬機器擴展集加密或解密，請使用下方的 Azure Resource Manager 範本與指示：
 
 - [在 Linux 虛擬機器擴展集上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Linux 虛擬機器擴展集上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [在 Linux 虛擬機器擴展集上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. 按一下 [ **部署至 Azure**]。
      2. 填寫必要欄位，然後同意條款及條件。
-     3. 按一下 [購買]  以部署範本。
+     3. 按一下 [購買] 以部署範本。
 
 ## <a name="bkmk_EFA"> </a>將 EncryptFormatAll 功能使用於 Linux IaaS VM 上的資料磁碟
 
@@ -263,9 +263,9 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
      ```
 
 ### <a name="bkmk_EFAPSH"> </a> 使用 EncryptFormatAll 參數搭配 PowerShell cmdlet
-使用[組 AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) EncryptFormatAll 參數的 cmdlet。 
+使用[AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) Cmdlet 搭配 EncryptFormatAll 參數。 
 
-**使用 EncryptFormatAll 來加密執行中的 VM：** 做為範例下, 面的指令碼會初始化變數，並執行 EncryptFormatAll 參數集 AzVMDiskEncryptionExtension cmdlet。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 MyVirtualMachineResourceGroup、 MySecureVM 和 MySecureVault 取代您的值。
+**使用 EncryptFormatAll 來加密執行中的 VM：** 例如, 下列腳本會初始化您的變數, 並使用 EncryptFormatAll 參數來執行 AzVMDiskEncryptionExtension Cmdlet。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 將 MyVirtualMachineResourceGroup、MySecureVM 和 MySecureVault 取代為您的值。
   
 ```azurepowershell
 $KVRGname = 'MyKeyVaultResourceGroup';
@@ -298,9 +298,11 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
          
         `echo "/dev/disk/azure/scsi1/lun0 /mnt/mountpoint ext4 defaults,nofail 1 2" >> /etc/fstab`
     
-    4. 若要將這些磁碟加密-EncryptFormatAll 執行集 AzVMDiskEncryptionExtension PowerShell cmdlet。
+    4. 執行 AzVMDiskEncryptionExtension PowerShell Cmdlet 搭配-EncryptFormatAll 來加密這些磁片。
          ```azurepowershell-interactive
-         Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
+     $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
+
+         Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri  -DiskEncryptionKeyVaultId $KeyVault.ResourceId -EncryptFormatAll -SkipVmBackup -VolumeType Data
          ```
     5. 在這些新的磁碟上設定 LVM。 請注意，VM 完成開機之後，加密磁碟機就會解除鎖定。 因此，LVM 掛接後續也必須延遲。
 
@@ -314,14 +316,14 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
 * [準備已預先加密的 Linux VHD](azure-security-disk-encryption-appendix.md#bkmk_preLinux)
 
 >[!IMPORTANT]
- >您必須在啟用 Azure 磁碟加密之前，先在 Azure 磁碟加密之外對以受控磁碟為基礎的 VM 執行個體建立快照集和/或備份。 您可以從入口網站建立受控磁碟的快照集，也可以使用 [Azure 備份](../backup/backup-azure-vms-encryption.md)來建立。 擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。 建立備份之後，集 AzVMDiskEncryptionExtension cmdlet 可用來加密受控的磁碟，藉由指定-skipVmBackup 參數。 之前在建立備份，而且已經指定此參數，將會針對受控的磁碟為基礎的 Vm 失敗組 AzVMDiskEncryptionExtension 命令。 
+ >您必須在啟用 Azure 磁碟加密之前，先在 Azure 磁碟加密之外對以受控磁碟為基礎的 VM 執行個體建立快照集和/或備份。 您可以從入口網站建立受控磁碟的快照集，也可以使用 [Azure 備份](../backup/backup-azure-vms-encryption.md)來建立。 擁有備份可確保在加密期間發生任何非預期的失敗時，能有復原選項可供選擇。 建立備份之後, 您可以藉由指定-skipVmBackup 參數, 使用 AzVMDiskEncryptionExtension 指令程式將受控磁片加密。 在進行備份並指定了這個參數之前, AzVMDiskEncryptionExtension 命令將會對以受控磁片為基礎的 Vm 失敗。 
 >
 >加密或停用加密功能，可能會導致 VM 重新啟動。 
 
 
 
 ### <a name="bkmk_VHDprePSH"> </a> 使用 Azure PowerShell 來加密具有預先加密 VHD 的 IaaS VM 
-您也可以使用 PowerShell cmdlet 在加密的 VHD 上啟用磁碟加密[組 AzVMOSDisk](/powershell/module/Az.Compute/Set-AzVMOSDisk#examples)。 下列範例會提供一些常見的參數。 
+您可以使用 PowerShell Cmdlet [Set-set-azvmosdisk](/powershell/module/Az.Compute/Set-AzVMOSDisk#examples), 在加密的 VHD 上啟用磁片加密。 下列範例會提供一些常見的參數。 
 
 ```azurepowershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
@@ -352,10 +354,10 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>透過 Azure PowerShell 在新增的磁碟上啟用加密
- 使用 Powershell 來加密 Linux 的新磁碟時，必須指定新的序列版本。 序列版本必須是唯一的。 下列指令碼會產生序列版本的 GUID。 採取[快照集](../virtual-machines/windows/snapshot-copy-managed-disk.md)及 （或) 備份虛擬機器[Azure 備份](../backup/backup-azure-vms-encryption.md)磁碟加密之前。 PowerShell 指令碼，來加密新加入的資料磁碟中已指定-skipVmBackup 參數。
+ 使用 Powershell 來加密 Linux 的新磁碟時，必須指定新的序列版本。 序列版本必須是唯一的。 下列指令碼會產生序列版本的 GUID。 在磁片加密之前, 請建立[快照](../virtual-machines/windows/snapshot-copy-managed-disk.md)集和/或使用[Azure 備份](../backup/backup-azure-vms-encryption.md)備份 VM。 已在 PowerShell 腳本中指定-skipVmBackup 參數, 以加密新增的資料磁片。
  
 
--  **加密執行中虛擬機器的資料磁碟：** 下列指令碼會初始化您的變數，並執行組 AzVMDiskEncryptionExtension cmdlet。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 MyVirtualMachineResourceGroup、 MySecureVM 和 MySecureVault 取代您的值。 VolumeType 參數可使用之值有 All、OS 及 Data。 若虛擬機器先前以「作業系統」或「全部」磁碟區類型加密，則應變更 --VolumeType 參數為「所有」，確保作業系統和新的資料磁碟都包含在其中。
+-  **加密執行中虛擬機器的資料磁碟：** 下列腳本會初始化您的變數, 並執行 AzVMDiskEncryptionExtension 指令程式。 資源群組、VM 和金鑰保存庫應該已經建立為必要條件。 將 MyVirtualMachineResourceGroup、MySecureVM 和 MySecureVault 取代為您的值。 VolumeType 參數可使用之值有 All、OS 及 Data。 若虛擬機器先前以「作業系統」或「全部」磁碟區類型加密，則應變更 --VolumeType 參數為「所有」，確保作業系統和新的資料磁碟都包含在其中。
 
       ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -387,7 +389,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
      ```
 
     >[!NOTE]
-    > 磁碟加密-key vault 參數的值的語法是完整的識別項字串: / subscriptions/[subscription-id-guid]/resourceGroups/[KVresource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+    > 磁片加密-keyvault 參數值的語法是完整的識別碼字串:/subscriptions/[訂用帳戶識別碼-guid]/resourceGroups/[KVresource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 
 ## <a name="disable-encryption-for-linux-vms"></a>停用 Linux VM 的加密
@@ -396,7 +398,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 >[!IMPORTANT]
 >只有資料磁碟區支援在 Linux VM 上透過 Azure 磁碟加密停用加密。 如果 OS 磁碟區已加密，則不支援在資料或 OS 磁碟區上停用加密。  
 
-- **停用使用 Azure PowerShell 的磁碟加密：** 若要停用加密，請使用[停用 AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet。 
+- **停用使用 Azure PowerShell 的磁碟加密：** 若要停用加密, 請使用[AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) Cmdlet。 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [-VolumeType {ALL, DATA, OS}]
      ```
@@ -408,7 +410,7 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 - **透過 Resource Manager 範本停用加密：** 使用[在執行中的 Linux VM 上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad)範本來停用加密。
      1. 按一下 [ **部署至 Azure**]。
      2. 選取訂用帳戶、資源群組、位置、VM、法律條款及合約。
-     3.  按一下 [購買]  以在執行中的 Windows VM 上停用磁碟加密。 
+     3.  按一下 [購買] 以在執行中的 Windows VM 上停用磁碟加密。 
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,6 +1,6 @@
 ---
-title: 常見的警示的結構描述定義的 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook
-description: 了解 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook 中常見的警示的結構描述定義
+title: 適用于 Webhook/Logic Apps/Azure Functions/自動化 Runbook 的一般警示架構定義
+description: 瞭解 Webhook/Logic Apps/Azure Functions/自動化 Runbook 的一般警示架構定義
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: c37ecfbadd7345fea347ff488895f16ba505c818
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 94938358bc4e4782e91401e24a01a3688c6a51ba
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594371"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034809"
 ---
 # <a name="common-alert-schema-definitions"></a>常見的警示結構描述定義
 
-這篇文章說明[常見的警示的結構描述定義](https://aka.ms/commonAlertSchemaDocs)的 Webhook/邏輯應用程式/Azure 函式/自動化 Runbook。 
+本文說明 Webhook/Logic Apps/Azure Functions/自動化 Runbook 的[一般警示架構定義](https://aka.ms/commonAlertSchemaDocs)。 
 
 ## <a name="overview"></a>總覽
 
-任何警示的執行個體描述**受影響的資源**並**警示原因的**，和這些執行個體以通用的結構描述，下列各節中所述：
-* **Essentials**:一組**標準化欄位**，在所有的警示類型，描述通用**哪項資源**警示是以及其他一般警示中繼資料 （例如嚴重性或描述）。 
-* **警示內容**:一組欄位會描述**造成警示的**，使用不同的欄位**根據警示類型**。 比方說，計量的警示會有計量的值，在警示內容中，度量名稱等的欄位，而活動記錄警示會有事件產生警示的相關資訊。 
+任何警示實例都會描述**受影響的資源**和**警示的原因**, 而這些實例會在下列各節的一般架構中加以說明:
+* **基本**概念:一組**標準化的欄位**, 通用於所有警示類型, 其中描述警示所在的**資源**, 以及其他常見的警示中繼資料 (例如, 嚴重性或描述)。 
+* **警示內容**:描述**警示原因的**一組欄位, 其中的欄位會**根據警示類型**而有所不同。 例如, 計量警示在警示內容中會有類似計量名稱和計量值的欄位, 而活動記錄警示則會包含產生警示之事件的相關資訊。 
 
 ##### <a name="sample-alert-payload"></a>範例警示承載
 ```json
@@ -74,23 +74,23 @@ ms.locfileid: "67594371"
 }
 ```
 
-## <a name="essentials-fields"></a>[基本資訊] 欄位
+## <a name="essentials-fields"></a>[基本] 欄位
 
 | 欄位 | 描述|
 |:---|:---|
-| alertId | 用來唯一識別警示的執行個體的 GUID。 |
-| alertRule | 警示規則產生警示的執行個體的名稱。 |
-| Severity | 警示的嚴重性。 可能的值：Sev0、 Sev1、 Sev2、 Sev3、 Sev4 |
-| signalType | 識別在其定義警示規則的訊號。 可能的值：計量、 記錄檔中，活動記錄檔 |
-| monitorCondition | 當警示引發時，會將警示的監視條件設定為 '引發'。 當清除造成引發警示的基礎條件時，監視條件設為 '[已解決]'。   |
-| monitoringService | 監視的服務或產生警示的解決方案。 警示內容的欄位會依照監視的服務。 |
-| alertTargetIds | 警示的 ARM 識別碼所有受影響的目標清單。 記錄警示，Log Analytics 工作區或 Application Insights 執行個體上定義，它可以是個別的工作區/應用程式。 |
-| originAlertId | 為產生的監視服務所產生的警示執行個體的識別碼。 |
-| firedDateTime | 當引發警示的執行個體的 UTC 日期時間 |
-| resolvedDateTime | 當警示的執行個體的監視條件設定為 '' 已在中解決 UTC 日期時間。 目前僅適用於計量警示。|
-| description | 警示規則中所定義的描述 |
-|essentialsVersion| [Essentials] 區段的版本號碼。|
-|alertContextVersion | AlertContext 區段的版本號碼 |
+| alertId | 唯一識別警示實例的 GUID。 |
+| alertRule | 產生警示實例之警示規則的名稱。 |
+| Severity | 警示的嚴重性。 可能的值：Sev0, Sev1, Sev2, Sev3, Sev4 |
+| signalType | 識別已定義警示規則的信號。 可能的值：度量、記錄、活動記錄 |
+| monitorCondition | 當警示引發時, 警示的監視條件會設定為「已引發」。 當引發警示的基礎條件清除時, 監視條件會設定為 [已解決]。   |
+| monitoringService | 產生警示的監視服務或解決方案。 警示內容的欄位是由監視服務所決定。 |
+| alertTargetIds | 所有受影響的警示目標的 ARM 識別碼清單。 針對 Log Analytics 工作區或 Application Insights 實例上定義的記錄警示, 其為對應的工作區/應用程式。 |
+| originAlertId | 產生警示的監視服務所產生的警示實例識別碼。 |
+| firedDateTime | 以 UTC 引發警示實例的日期時間 |
+| resolvedDateTime | 當警示實例的監視條件設定為 [已解決] 時的日期時間 (UTC)。 目前僅適用于計量警示。|
+| description | 警示規則中定義的描述 |
+|essentialsVersion| [基本] 區段的版本號碼。|
+|alertContextVersion | AlertCoNtext 區段的版本號碼 |
 
 ##### <a name="sample-values"></a>範例值
 ```json
@@ -114,11 +114,11 @@ ms.locfileid: "67594371"
 }
 ```
 
-## <a name="alert-context-fields"></a>'警示內容 欄位
+## <a name="alert-context-fields"></a>[警示內容] 欄位
 
 ### <a name="metric-alerts"></a>計量警示
 
-#### <a name="monitoringservice--platform"></a>monitoringService = 'Platform'
+#### <a name="monitoringservice--platform"></a>monitoringService = ' Platform '
 
 ##### <a name="sample-values"></a>範例值
 ```json
@@ -154,8 +154,8 @@ ms.locfileid: "67594371"
 ### <a name="log-alerts"></a>記錄警示
 
 > [!NOTE]
-> + 已定義的自訂 JSON 承載的記錄警示，啟用通用的結構描述將會還原為如下所述的承載結構描述。
-> + 具有共用結構描述，啟用的警示有大小上限為 256KB，每個警示。 **如果它們會導致跨此臨界值警示的大小，搜尋結果不會內嵌記錄警示承載中。** 這可以藉由檢查旗標 'IncludedSearchResults' 決定。 在搜尋結果不包含的情況下，建議您搭配使用的搜尋查詢[Log Analytics API](https://docs.microsoft.com/rest/api/loganalytics/query/get)。 
+> + 針對已定義自訂 JSON 承載的記錄警示, 啟用通用架構會將裝載架構還原為以下所述的內容。
+> + 啟用通用架構的警示, 其大小上限為每個警示 256 KB。 **如果搜尋結果導致警示大小超過此閾值, 則不會內嵌在記錄警示承載中。** 這可以藉由檢查旗標 ' IncludedSearchResults ' 來判斷。 在未包含搜尋結果的案例中, 建議您搭配使用搜尋查詢與[Log ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)。 
 
 #### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
 
@@ -224,7 +224,7 @@ ms.locfileid: "67594371"
 }
 ```
 
-#### <a name="monitoringservice--application-insights"></a>monitoringService = 'Application Insights'
+#### <a name="monitoringservice--application-insights"></a>monitoringService = ' Application Insights '
 
 ##### <a name="sample-values"></a>範例值
 ```json
@@ -289,7 +289,7 @@ ms.locfileid: "67594371"
 
 ### <a name="activity-log-alerts"></a>活動記錄警示
 
-#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = 'Activity Log - Administrative'
+#### <a name="monitoringservice--activity-log---administrative"></a>monitoringService = ' 活動記錄-系統管理 '
 
 ##### <a name="sample-values"></a>範例值
 ```json
@@ -316,6 +316,102 @@ ms.locfileid: "67594371"
 }
 ```
 
+#### <a name="monitoringservice--activity-log---policy"></a>monitoringService = ' 活動記錄-原則 '
+
+##### <a name="sample-values"></a>範例值
+```json
+{
+  "alertContext": {
+    "authorization": {
+      "action": "Microsoft.Resources/checkPolicyCompliance/read",
+      "scope": "/subscriptions/<GUID>"
+    },
+    "channels": "Operation",
+    "claims": "{\"aud\":\"https://management.azure.com/\",\"iss\":\"https://sts.windows.net/<GUID>/\",\"iat\":\"1566711059\",\"nbf\":\"1566711059\",\"exp\":\"1566740159\",\"aio\":\"42FgYOhynHNw0scy3T/bL71+xLyqEwA=\",\"appid\":\"<GUID>\",\"appidacr\":\"2\",\"http://schemas.microsoft.com/identity/claims/identityprovider\":\"https://sts.windows.net/<GUID>/\",\"http://schemas.microsoft.com/identity/claims/objectidentifier\":\"<GUID>\",\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier\":\"<GUID>\",\"http://schemas.microsoft.com/identity/claims/tenantid\":\"<GUID>\",\"uti\":\"Miy1GzoAG0Scu_l3m1aIAA\",\"ver\":\"1.0\"}",
+    "caller": "<GUID>",
+    "correlationId": "<GUID>",
+    "eventSource": "Policy",
+    "eventTimestamp": "2019-08-25T11:11:34.2269098+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Warning",
+    "operationName": "Microsoft.Authorization/policies/audit/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "isComplianceCheck": "True",
+      "resourceLocation": "eastus2",
+      "ancestors": "<GUID>",
+      "policies": "[{\"policyDefinitionId\":\"/providers/Microsoft.Authorization/policyDefinitions/<GUID>/\",\"policySetDefinitionId\":\"/providers/Microsoft.Authorization/policySetDefinitions/<GUID>/\",\"policyDefinitionReferenceId\":\"vulnerabilityAssessmentMonitoring\",\"policySetDefinitionName\":\"<GUID>\",\"policyDefinitionName\":\"<GUID>\",\"policyDefinitionEffect\":\"AuditIfNotExists\",\"policyAssignmentId\":\"/subscriptions/<GUID>/providers/Microsoft.Authorization/policyAssignments/SecurityCenterBuiltIn/\",\"policyAssignmentName\":\"SecurityCenterBuiltIn\",\"policyAssignmentScope\":\"/subscriptions/<GUID>\",\"policyAssignmentSku\":{\"name\":\"A1\",\"tier\":\"Standard\"},\"policyAssignmentParameters\":{}}]"
+    },
+    "status": "Succeeded",
+    "subStatus": "",
+    "submissionTimestamp": "2019-08-25T11:12:46.1557298+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---autoscale"></a>monitoringService = ' 活動記錄-自動調整 '
+
+##### <a name="sample-values"></a>範例值
+```json
+{
+  "alertContext": {
+    "channels": "Admin, Operation",
+    "claims": "{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn\":\"Microsoft.Insights/autoscaleSettings\"}",
+    "caller": "Microsoft.Insights/autoscaleSettings",
+    "correlationId": "<GUID>",
+    "eventSource": "Autoscale",
+    "eventTimestamp": "2019-08-21T16:17:47.1551167+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Insights/AutoscaleSettings/Scaleup/Action",
+    "operationId": "<GUID>",
+    "properties": {
+      "description": "The autoscale engine attempting to scale resource '/subscriptions/d<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS' from 9 instances count to 10 instances count.",
+      "resourceName": "/subscriptions/<GUID>/resourceGroups/voiceassistancedemo/providers/Microsoft.Compute/virtualMachineScaleSets/alexademo",
+      "oldInstancesCount": "9",
+      "newInstancesCount": "10",
+      "activeAutoscaleProfile": "{\r\n  \"Name\": \"Auto created scale condition\",\r\n  \"Capacity\": {\r\n    \"Minimum\": \"1\",\r\n    \"Maximum\": \"10\",\r\n    \"Default\": \"1\"\r\n  },\r\n  \"Rules\": [\r\n    {\r\n      \"MetricTrigger\": {\r\n        \"Name\": \"Percentage CPU\",\r\n        \"Namespace\": \"microsoft.compute/virtualmachinescalesets\",\r\n        \"Resource\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"ResourceLocation\": \"eastus\",\r\n        \"TimeGrain\": \"PT1M\",\r\n        \"Statistic\": \"Average\",\r\n        \"TimeWindow\": \"PT5M\",\r\n        \"TimeAggregation\": \"Average\",\r\n        \"Operator\": \"GreaterThan\",\r\n        \"Threshold\": 0.0,\r\n        \"Source\": \"/subscriptions/<GUID>/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachineScaleSets/testVMSS\",\r\n        \"MetricType\": \"MDM\",\r\n        \"Dimensions\": [],\r\n        \"DividePerInstance\": false\r\n      },\r\n      \"ScaleAction\": {\r\n        \"Direction\": \"Increase\",\r\n        \"Type\": \"ChangeCount\",\r\n        \"Value\": \"1\",\r\n        \"Cooldown\": \"PT1M\"\r\n      }\r\n    }\r\n  ]\r\n}",
+      "lastScaleActionTime": "Wed, 21 Aug 2019 16:17:47 GMT"
+    },
+    "status": "Succeeded",
+    "submissionTimestamp": "2019-08-21T16:17:47.2410185+00:00"
+  }
+}
+```
+
+#### <a name="monitoringservice--activity-log---security"></a>monitoringService = ' 活動記錄-安全性 '
+
+##### <a name="sample-values"></a>範例值
+```json
+{
+  "alertContext": {
+    "channels": "Operation",
+    "correlationId": "<GUID>",
+    "eventSource": "Security",
+    "eventTimestamp": "2019-08-26T08:34:14+00:00",
+    "eventDataId": "<GUID>",
+    "level": "Informational",
+    "operationName": "Microsoft.Security/locations/alerts/activate/action",
+    "operationId": "<GUID>",
+    "properties": {
+      "threatStatus": "Quarantined",
+      "category": "Virus",
+      "threatID": "2147519003",
+      "filePath": "C:\\AlertGeneration\\test.eicar",
+      "protectionType": "Windows Defender",
+      "actionTaken": "Blocked",
+      "resourceType": "Virtual Machine",
+      "severity": "Low",
+      "compromisedEntity": "testVM",
+      "remediationSteps": "[\"No user action is necessary\"]",
+      "attackedResourceType": "Virtual Machine"
+    },
+    "status": "Active",
+    "submissionTimestamp": "2019-08-26T09:28:58.3019107+00:00"
+  }
+}
+```
+
 #### <a name="monitoringservice--servicehealth"></a>monitoringService = 'ServiceHealth'
 
 ##### <a name="sample-values"></a>範例值
@@ -323,15 +419,15 @@ ms.locfileid: "67594371"
 {
   "alertContext": {
     "authorization": null,
-    "channels": "Admin",
+    "channels": 1,
     "claims": null,
     "caller": null,
     "correlationId": "f3cf2430-1ee3-4158-8e35-7a1d615acfc7",
-    "eventSource": "ServiceHealth",
+    "eventSource": 2,
     "eventTimestamp": "2019-06-24T11:31:19.0312699+00:00",
     "httpRequest": null,
     "eventDataId": "<GUID>",
-    "level": "Informational",
+    "level": 3,
     "operationName": "Microsoft.ServiceHealth/maintenance/action",
     "operationId": "<GUID>",
     "properties": {
@@ -355,7 +451,8 @@ ms.locfileid: "67594371"
     },
     "status": "Active",
     "subStatus": null,
-    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00"
+    "submissionTimestamp": "2019-06-24T11:31:31.7147357+00:00",
+    "ResourceType": null
   }
 }
 ```
@@ -390,6 +487,6 @@ ms.locfileid: "67594371"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [深入了解常見的警示結構描述](https://aka.ms/commonAlertSchemaDocs)
-- [了解如何建立邏輯應用程式，運用常見的警示結構描述來處理所有警示。](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- [深入瞭解一般警示架構](https://aka.ms/commonAlertSchemaDocs)
+- [瞭解如何建立邏輯應用程式, 利用通用的警示架構來處理您的所有警示。](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 

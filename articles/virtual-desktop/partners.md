@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 6fe2e63138ce9e0f4e8980e4f37330228ac2bdb6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369505"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036133"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 虛擬桌面合作夥伴整合
 
@@ -82,7 +82,7 @@ ThinPrint 是 Windows 虛擬桌面的增值服務提供者, 可從 Windows 虛�
 ThinPrint 的 ezeep 解決方案會藉由啟用現有企業列印基礎結構的連接, 來擴充 Windows 虛擬桌面的值。 ezeep 可讓使用者在企業中控制列印, 而不論其所在位置。 使用者可以使用 ezeep 來填補 Windows 虛擬桌面與列印硬體之間的橋樑。
 
 - [請參閱聯合解決方案簡介。](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
-- [前往合作夥伴網站。](http://www.ezeep.com/wvd-printing)
+- [前往合作夥伴網站。](https://www.ezeep.com/wvd-printing)
 
 ## <a name="workspot"></a>Workspot
 

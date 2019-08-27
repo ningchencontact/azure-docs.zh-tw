@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fd6836451a73551487b8f97903594154a2efc894
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4586255e96647267bc913f2bc054610163e16bd3
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105797"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050872"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>使用 Azure Logic Apps 在 Outlook.com 中管理電子郵件、行事曆和連絡人
 
@@ -28,11 +28,11 @@ ms.locfileid: "62105797"
 
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Outlook.com 帳戶](https://outlook.live.com/owa/)
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您要在其中存取 Outlook.com 帳戶的邏輯應用程式。 若要使用 Outlook.com 觸發程序啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 
 

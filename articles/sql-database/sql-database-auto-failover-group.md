@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/16/2019
-ms.openlocfilehash: 69a3b4fc966b6dd506d91e52b33967a2e001367f
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 6357b5a477390f484a47167a0b9d2e524d37c9ac
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575786"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035777"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -279,6 +279,9 @@ ms.locfileid: "69575786"
    > 設定錯誤的 NSG 安全性規則會導致資料庫複製作業停滯。
 
 7. 次要實例會使用正確的 DNS 區域識別碼進行設定。 DNS 區域是受控實例的屬性, 其識別碼會包含在主機名稱位址中。 當第一個受控實例在每個 VNet 中建立時, 區域識別碼會產生為隨機字串, 而且相同的識別碼會指派給相同子網中的所有其他實例。 一旦指派之後, 就無法修改 DNS 區域。 包含在相同容錯移轉群組中的受控實例必須共用 DNS 區域。 若要完成這項操作, 請在建立次要實例時, 將主要實例的區域識別碼傳遞為 DnsZonePartner 參數的值。 
+
+   > [!NOTE]
+   > 如需有關使用受控實例設定容錯移轉群組的詳細教學課程, 請參閱[將受控實例新增至容錯移轉群組](sql-database-managed-instance-failover-group-tutorial.md)。
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>升級或降級主要資料庫
 

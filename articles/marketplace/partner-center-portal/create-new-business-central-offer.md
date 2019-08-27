@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900152"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033271"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>建立新的 Dynamics 365 Business Central 供應專案
 
@@ -354,7 +354,7 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 ## <a name="supplemental-content"></a>補充內容
 
-此頁面可讓您提供供應專案的其他必要資訊。
+此頁面可讓您提供供應專案的其他相關資訊, 以協助我們驗證您的供應專案。 此資訊不會向客戶顯示或發佈至 marketplace。
 
 ### <a name="target-release"></a>目標版本
 
@@ -362,15 +362,15 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 ### <a name="supported-editions"></a>支援的版本
 
-指出您的解決方案是否支援 Microsoft Dynamics 365 Business Central 的 Essentials 和 (或) Premium 版本。 至少必須選取一個值。
+如果您的供應專案需要 Premium 版本的 Microsoft Dynamics 365 Business Central, 請選取 [僅限**premium** ]。 否則, 請同時選取 [ **Essentials** ] 和 [ **Premium**]。
 
 ### <a name="key-usage-scenario"></a>金鑰使用案例
 
-上傳`.pdf`一個檔案, 其中列出您的供應專案金鑰使用案例, 並列在檔 (.pdf 格式) 中。 在我們核准您的 marketplace 供應專案之前, 我們的驗證小組可能會驗證此處所列的所有案例。
+您必須 pload 一個`.pdf`檔案, 其中列出您供應專案的金鑰使用案例, 並列在檔中 (.pdf 格式)。 在我們核准您的 marketplace 供應專案之前, 我們的驗證小組可能會驗證此處所列的所有案例。
 
 ### <a name="app-tests-automation"></a>應用程式測試自動化
 
-也在這裡上傳**應用程式測試自動化**檔案 (. App)。
+您可以選擇性地將**應用程式測試自動化**檔案 (位於應用程式) 上傳至這裡。
 
 ### <a name="test-accounts"></a>測試帳戶
 

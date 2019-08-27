@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a34ee4e90b551da35aff8802c8badc0d74ff539
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60450738"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050779"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>使用 Azure Logic Apps 來監視及管理 SharePoint 資源
 
@@ -37,9 +37,9 @@ ms.locfileid: "60450738"
 您可以使用觸發程序，從 SharePoint 收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用動作，在 SharePoint 中執行工作。 您也可以讓其他動作使用 SharePoint 動作的輸出。 例如，如果您定期從 SharePoint 擷取檔案，可以使用 Slack 連接器將訊息傳送給您的小組。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 SharePoint 網站位址和使用者認證
 
@@ -51,9 +51,9 @@ ms.locfileid: "60450738"
 
 * 您要在其中存取 SharePoint 帳戶的邏輯應用程式。 若要開始使用 SharePoint 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 SharePoint 動作，請使用觸發程序來啟動您的邏輯應用程式，例如 Salesforce 觸發程序 (如果您有 Salesforce 帳戶)。
 
-  例如，您可以使用「記錄建立時機」  Salesforce 觸發程序來啟動邏輯應用程式。 
+  例如，您可以使用「記錄建立時機」Salesforce 觸發程序來啟動邏輯應用程式。 
   此觸發程序會在每次於 Salesforce 中建立新記錄 (例如潛在客戶) 時引發。 
-  然後，您可以使用 SharePoint「建立檔案」  動作，來追蹤此觸發程序。 這樣一來，在建立新記錄時，邏輯應用程式會在 SharePoint 中建立檔案，該檔案具有新記錄的相關資訊。
+  然後，您可以使用 SharePoint「建立檔案」動作，來追蹤此觸發程序。 這樣一來，在建立新記錄時，邏輯應用程式會在 SharePoint 中建立檔案，該檔案具有新記錄的相關資訊。
 
 ## <a name="connect-to-sharepoint"></a>連線至 SharePoint
 
@@ -65,14 +65,14 @@ ms.locfileid: "60450738"
 
    -或-
 
-   若是現有的邏輯應用程式，請在想要新增 SharePoint 動作的最後一個步驟底下，選擇 [新增步驟]  。 
+   若是現有的邏輯應用程式，請在想要新增 SharePoint 動作的最後一個步驟底下，選擇 [新增步驟]。 
    在搜尋方塊中，輸入 "sharepoint" 作為篩選條件。 
    在動作清單底下，選取您想要的動作。
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
-   選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
+   選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
 
-1. 當系統提示您登入時，請提供必要的連線資訊。 如果您使用 SharePoint Server，請確定您選取**透過內部部署資料閘道連線**。 完成之後，請選擇 [建立]  。
+1. 當系統提示您登入時，請提供必要的連線資訊。 如果您使用 SharePoint Server, 請務必選取 [透過內部**部署資料網**關聯機]。 完成之後，請選擇 [建立]。
 
 1. 為您選取的觸發程序或動作提供必要的詳細資料，並且繼續建置邏輯應用程式的工作流程。
 

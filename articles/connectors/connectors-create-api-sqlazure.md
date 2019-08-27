@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 804a913d17c3151d07a1ecf229e2db148dc45558
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696409"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050764"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SQL Server 或 Azure SQL Database
 
@@ -24,9 +24,9 @@ ms.locfileid: "64696409"
 
 您可以建立會由 SQL 資料庫或其他系統 (例如，Dynamics CRM Online) 中的事件所觸發而執行的邏輯應用程式。 邏輯應用程式也可以取得、插入及刪除資料，還可執行 SQL 查詢或已儲存的程序。 例如，您可以建置邏輯應用程式，以自動檢查 Dynamics CRM Online 中是否有新記錄、將新記錄的項目新增至 SQL 資料庫，然後傳送電子郵件警示。
 
-如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器專屬的技術資訊，請參閱 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 連接器參考</a>。
+如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 如需連接器專屬的技術資訊，請參閱 [SQL Server 連接器參考](https://docs.microsoft.com/connectors/sql/)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 需要存取 SQL 資料庫的邏輯應用程式。 若要使用 SQL 觸發程序啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 
 
@@ -56,7 +56,7 @@ ms.locfileid: "64696409"
 
 2. 在搜尋方塊中，輸入「sql 伺服器」作為篩選條件。 從觸發程序清單中，選取您想要的 SQL 觸發程序。 
 
-   此範例中，選取此觸發程序：**SQL Server-建立項目時**
+   針對此範例, 請選取此觸發程式:**SQL Server-建立專案時**
 
    ![選取「SQL Server - 建立項目時」觸發程序](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "64696409"
 
    ![選取資料表](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
 
-4. 設定 [間隔]  和 [頻率]  屬性，以指定邏輯應用程式檢查資料表的頻率。
+4. 設定 [間隔] 和 [頻率] 屬性，以指定邏輯應用程式檢查資料表的頻率。
 
    這個範例只會檢查選取的資料表而已。 
    若要進行更有趣的作業，請新增動作來執行您想要的工作。 
@@ -73,7 +73,7 @@ ms.locfileid: "64696409"
    例如，若要檢視資料表中的新項目，則可新增其他動作，例如，建立具有資料表欄位的檔案，然後傳送電子郵件警示。 
    若要了解此連接器或其他連接器的其他動作，請參閱 [Logic Apps 連接器](../connectors/apis-list.md)。
 
-5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。 
+5. 當您完成時, 請在設計工具工具列上選取 [**儲存**]。 
 
    此步驟會自動在 Azure 中即時啟用並發佈邏輯應用程式。 
 
@@ -85,28 +85,28 @@ ms.locfileid: "64696409"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在邏輯應用程式設計工具的觸發程序或動作下，選擇 [新增步驟]   > [新增動作]  。
+2. 在邏輯應用程式設計工具的 [觸發程式] 或 [動作] 底下, 選取 [**新增步驟** > ] [新增**動作**]。
 
-   ![選擇 [新增步驟] > [新增動作]](./media/connectors-create-api-sqlazure/add-action.png)
+   ![選取 [新步驟]、[新增動作]](./media/connectors-create-api-sqlazure/add-action.png)
    
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選擇顯示的加號 ( **+** )，然後選擇 [新增動作]  。
+   選取顯示的加號 ( **+** ), 然後選取 [**新增動作**]。
 
 2. 在搜尋方塊中，輸入「sql 伺服器」作為篩選條件。 從動作清單中，選取您想要的任何 SQL 動作。 
 
-   此範例中，選取此動作，就會取得單一記錄：**SQL Server-取得資料列**
+   針對此範例, 請選取此動作, 這會取得單一記錄:**SQL Server-取得資料列**
 
    ![輸入「sql 伺服器」，選取 [SQL Server - 取得資料列]](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
 3. 如果系統提示您輸入連線詳細資料，請[立即建立 SQL 連線](#create-connection)。 
-   或者，如果連線已存在，請選取 [資料表名稱]  ，並輸入您所要記錄的 [資料列識別碼]  。
+   或者，如果連線已存在，請選取 [資料表名稱]，並輸入您所要記錄的 [資料列識別碼]。
 
    ![輸入資料表名稱和資料列識別碼](./media/connectors-create-api-sqlazure/table-row-id.png)
    
    這個範例只會傳回所選資料表的一個資料列而已。 
    若要檢視此資料列中的資料，請新增其他動作，以使用資料列欄位建立檔案以供之後檢閱，並將該檔案儲存在雲端儲存體帳戶中。 若要了解此連接器或其他連接器的其他動作，請參閱 [Logic Apps 連接器](../connectors/apis-list.md)。
 
-4. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。 
+4. 當您完成時, 請在設計工具工具列上選取 [**儲存**]。 
 
 <a name="create-connection"></a>
 
@@ -118,16 +118,16 @@ ms.locfileid: "64696409"
 
 ## <a name="handle-bulk-data"></a>處理大量資料
 
-有時候，您可能必須使用結果集太大，連接器不會傳回所有結果，在此同時，或您想更有效控制的大小和結構的結果集。 以下是一些您可以處理這類大型結果集的方法：
+有時候, 您可能必須使用結果集, 如此一來, 連接器不會同時傳回所有結果, 或者您想要更有效地控制結果集的大小和結構。 以下是一些您可以處理這類大型結果集的方法:
 
-* 若要協助您管理為較小的集的結果，開啟*分頁*。 如需詳細資訊，請參閱 <<c0> [ 取得大量資料、 記錄和項目，藉由使用分頁](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md)。
+* 若要協助您以較小的集合來管理結果, 請開啟*分頁*功能。 如需詳細資訊, 請參閱[使用分頁取得大量資料、記錄和專案](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md)。
 
-* 建立您想要的方式組織結果的預存程序。
+* 建立預存程式, 以您想要的方式來組織結果。
 
-  當開始或插入多個資料列時，邏輯應用程式可逐一查看這些資料列使用[ *until 迴圈*](../logic-apps/logic-apps-control-flow-loops.md#until-loop)內這些[限制](../logic-apps/logic-apps-limits-and-config.md)。 
-  不過，當您的邏輯應用程式必須使用記錄集太大，比方說，數千或數百萬個資料列，您想要對資料庫的呼叫所產生的成本降至最低。
+  取得或插入多個資料列時, 您的邏輯應用程式可以在這些[限制](../logic-apps/logic-apps-limits-and-config.md)內使用[*until 迴圈*](../logic-apps/logic-apps-control-flow-loops.md#until-loop), 逐一查看這些資料列。 
+  不過, 當您的邏輯應用程式必須處理的記錄集很大 (例如, 數千或數百萬個數據列) 時, 您會想要將對資料庫的呼叫所產生的成本降至最低。
 
-  若要組織您想要的方式中的結果，您可以建立[*預存程序*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) ，在您的 SQL 執行個體中執行，並使用**SELECT-ORDER BY**陳述式。 
+  若要以您想要的方式組織結果, 您可以建立在 SQL 實例中執行的[*預存*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine)程式, 並使用**SELECT-ORDER BY**語句。 
   此解決方案可讓您對結果的大小和結構擁有更好的控制能力。 
   邏輯應用程式會使用 SQL Server 連接器的**執行預存程序**動作來呼叫預存程序。
 

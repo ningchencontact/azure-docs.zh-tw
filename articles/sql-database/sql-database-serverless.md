@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
+author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 07/05/2019
-ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 08/26/2019
+ms.openlocfilehash: 418ca6f8d6258b826bb126252d7cf7b1c5fee299
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515293"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035712"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器 (預覽)
 
@@ -136,7 +136,7 @@ SQL 快取會隨著資料以相同的方式從磁片提取, 而且速度與布�
 |資料庫複製|建立資料庫為複本。<br>匯出至 BACPAC 檔案。|
 |SQL 資料同步|按照可設定的排程執行或定期執行中樞與成員資料庫之間的同步|
 |修改特定資料庫中繼資料|正在加入新的資料庫標記。<br>變更最大虛擬核心、最小虛擬核心或自動暫停延遲。|
-|SQL Server Management Studio (SSMS)|使用 SSMS 第 18 版並針對伺服器中的任何資料庫開啟新的查詢視窗，就會在相同伺服器中繼續任何自動暫停的資料庫。 如果使用已關閉 IntelliSense 的 SSMS 17.9.1 版，則不會發生這種行為。|
+|SQL Server Management Studio (SSMS)|使用早于18.1 的 SSMS 版本, 並針對伺服器中的任何資料庫開啟新的查詢視窗, 將會繼續相同伺服器中任何自動暫停的資料庫。 如果使用 SSMS 18.1 版或更新版本, 則不會發生此行為。|
 
 在部署某些需要線上資料庫的服務更新期間, 也會觸發 Autoresuming。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62496aceb1454283449e952c0ed86623597e9e66
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1431a46bf0981ee7ca3ecd06be9d7ebc35f05982
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011678"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032735"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
@@ -35,7 +35,7 @@ ms.locfileid: "70011678"
 本文假設您已熟悉[Azure Active Directory 中的裝置身分識別管理簡介](../device-management-introduction.md)。
 
 > [!NOTE]
-> Windows 10 混合式 Azure AD 加入所需的最低網域功能和樹系功能等級為 Windows Server 2008 R2。
+> Windows 10 混合式 Azure AD 加入所需的最低網域控制站版本為 Windows Server 2008 R2。
 
 ## <a name="plan-your-implementation"></a>計劃您的實作
 
@@ -124,7 +124,7 @@ ms.locfileid: "70011678"
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **adfs/services/trust/2005/windowstransport** 或 **adfs/services/trust/13/windowstransport** 都只能啟用為內部網路對應端點，且不得透過 Web 應用程式 Proxy 公開為內部網路對應端點。 若要深入瞭解如何停用 WS-TRUST Windows 端點, 請參閱[停用 proxy 上的 Ws-trust windows 端點](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)。 您可以在 AD FS 管理主控台的 [服務] > [端點] 下方查看已啟用的端點。
+> **adfs/services/trust/2005/windowstransport** 或 **adfs/services/trust/13/windowstransport** 都只能啟用為內部網路對應端點，且不得透過 Web 應用程式 Proxy 公開為內部網路對應端點。 若要深入了解如何停用 WS-Trust Windows 端點，請參閱[在 Proxy上停用 WS-Trust Windows 端點](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)。 您可以在 AD FS 管理主控台的 [服務] > [端點] 下方查看已啟用的端點。
 
 > [!NOTE]
 > Azure AD 不支援受控網域中的智慧卡或憑證。

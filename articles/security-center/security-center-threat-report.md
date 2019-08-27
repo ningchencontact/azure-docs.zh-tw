@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 40d888da214bad079c665c8d0e6095e8762a131e
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.author: v-mohabe
+ms.openlocfilehash: 7ab42fdb03209173c61b70fdf498aa77b39a1c23
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990643"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036390"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure 資訊安全中心威脅情報報告
 本文件說明 Azure 資訊安全中心威脅情報報告可如何協助您深入了解產生安全性警示的威脅。
 
 ## <a name="what-is-a-threat-intelligence-report"></a>何謂威脅情報報告？
-資訊安全中心威脅偵測的運作方式如下：監視來自 Azure 資源、網路和已連線合作夥伴解決方案的安全性資訊。 它會分析這項資訊 (通常是來自多個來源的相互關聯資訊) 以識別威脅。 此程序為資訊安全中心[偵測功能](security-center-detection-capabilities.md)的一部分。
+資訊安全中心威脅偵測的運作方式如下：監視來自 Azure 資源、網路和已連線合作夥伴解決方案的安全性資訊。 它會分析這項資訊 (通常是來自多個來源的相互關聯資訊) 以識別威脅。 如需詳細資訊, 請參閱[Azure 資訊安全中心偵測和回應威脅的方式](security-center-alerts-overview.md#detect-threats)。
 
 當資訊安全中心識別到威脅時，便會觸發[安全性警示](security-center-managing-and-responding-alerts.md)，其內含關於特定事件的詳細資訊，包括修復方面的建議。 為了協助事件回應小組調查和補救威脅，資訊安全中心包含威脅情報報告，其中包含所偵測到威脅的相關資訊，包括如下資訊：
 
@@ -70,7 +70,6 @@ ms.locfileid: "69990643"
 在本文件中，您已了解 Azure 資訊安全中心威脅情報報告如何在安全性警示調查期間幫上忙。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)。 尋找有關使用服務的常見問題。
-* [Azure 資訊安全中心的偵測功能](security-center-detection-capabilities.md)
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)。 了解如何規劃及了解採用 Azure 資訊安全中心的設計考量。
 * [管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。 了解如何管理和回應安全性警示。
 * [在 Azure 資訊安全中心處理安全性事件](security-center-incident.md)

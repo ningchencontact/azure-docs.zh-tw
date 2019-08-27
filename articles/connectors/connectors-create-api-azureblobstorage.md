@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: d9c29837e99d327112e6a9d648a5c56cc35e8555
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: d57ea1a881980203b1c8f216239b27b64f0d71cd
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296631"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051049"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>使用 Azure Logic Apps 在 Azure Blob 儲存體中建立和管理 Blob
 
@@ -34,13 +35,13 @@ ms.locfileid: "67296631"
 
 ## <a name="limits"></a>限制
 
-* 根據預設，Azure Blob 儲存體動作才能讀取或寫入的檔案*50 MB 或更小*。 若要處理超過 50 MB，但上限為 1024 MB 的檔案，支援 Azure Blob 儲存體動作[訊息區塊處理](../logic-apps/logic-apps-handle-large-messages.md)。 **取得 blob 內容**動作會隱含地使用區塊處理。
+* 根據預設, Azure Blob 儲存體動作可以讀取或寫入*50 MB 或更小*的檔案。 若要處理大於 50 MB 但最多 1024 MB 的檔案, Azure Blob 儲存體動作支援[訊息區塊](../logic-apps/logic-apps-handle-large-messages.md)化。 「**取得 blob 內容**」動作會隱含地使用區塊化。
 
-* Azure Blob 儲存體觸發程序不支援區塊處理。 當要求檔案的內容時，觸發程序選取 是 50 MB 的檔案或更小。 若要取得大於 50 MB 的檔案，請依照下列模式：
+* Azure Blob 儲存體觸發程式不支援區塊化。 當要求檔案內容時, 觸發程式只會選取 50 MB 或更小的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式：
 
-  * 使用 Azure Blob 儲存體觸發程序會傳回檔案內容，例如**blob 新增或修改 （僅限屬性） 的時**。
+  * 使用會傳回檔案屬性的 Azure Blob 儲存體觸發程式, 例如**新增或修改 Blob 時 (僅限屬性)** 。
 
-  * 請遵循使用 Azure Blob 儲存體觸發程序**取得 blob 內容**讀取完整的檔案，並會隱含地使用區塊處理的動作。
+  * 遵循具有 [Azure Blob 儲存體**取得 Blob 內容**] 動作的觸發程式, 它會讀取完整的檔案, 並隱含地使用區塊化。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -56,13 +57,13 @@ ms.locfileid: "67296631"
 
 在 Azure Logic Apps 中，每個邏輯應用程式都必須使用[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)啟動，而該觸發程序會在特定事件發生或符合特定條件時引發。 每次引發觸發程序時，Logic Apps 引擎都會建立邏輯應用程式執行個體，並開始執行應用程式的工作流程。
 
-此範例示範如何開始使用邏輯應用程式工作流程**blob 新增或修改 （僅限屬性） 的時**觸發程序時新增或更新您的儲存體容器中 blob 的屬性。
+這個範例會示範如何在儲存體容器中新增或更新 blob 的屬性時, 使用**新增或修改 blob 時 (僅限屬性)** 觸發程式來啟動邏輯應用程式工作流程。
 
-1. 在  [Azure 入口網站](https://portal.azure.com)或 Visual Studio，建立空白邏輯應用程式，這會開啟邏輯應用程式設計工具。 這個範例會使用 Azure 入口網站。
+1. 在[Azure 入口網站](https://portal.azure.com)或 Visual Studio 中, 建立空白邏輯應用程式, 以開啟邏輯應用程式設計工具。 這個範例會使用 Azure 入口網站。
 
 2. 在搜尋方塊中，輸入「azure blob」作為篩選條件。 從觸發程序清單中，選取您想要的觸發程序。
 
-   此範例會使用此觸發程序：**當 blob 新增或修改 （僅限屬性）**
+   這個範例會使用此觸發程式:**新增或修改 blob 時 (僅限屬性)**
 
    ![選取觸發程序](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -70,7 +71,7 @@ ms.locfileid: "67296631"
 
    在此範例中，請選取您想要監視的容器和資料夾。
 
-   1. 在 [容器]  方塊中，選取 [資料夾] 圖示。
+   1. 在 [容器] 方塊中，選取 [資料夾] 圖示。
 
    2. 在資料夾清單中，選擇右角括弧 ( **>** )，然後一直瀏覽，直到您找到並選取您想要的資料夾。
 
@@ -78,7 +79,7 @@ ms.locfileid: "67296631"
 
    3. 選取您想要讓觸發程序檢查資料夾是否有變更的間隔和頻率。
 
-4. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
+4. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
 
 5. 現在，繼續針對您想要使用觸發程序結果來執行的工作，於邏輯應用程式中新增一或多個動作。
 
@@ -90,15 +91,15 @@ ms.locfileid: "67296631"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)或 Visual Studio 的「邏輯應用程式設計工具」中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在邏輯應用程式設計工具中，在觸發程序或動作中，選擇**新增步驟**。
+2. 在邏輯應用程式設計工具中, 于觸發程式或動作底下, 選擇 [**新增步驟**]。
 
    ![新增動作](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 選擇加號 ( **+** )，隨即出現，並選取**新增動作**。
+   若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 選擇顯示的加號 ( **+** ), 然後選取 [**新增動作**]。
 
 3. 在搜尋方塊中，輸入「azure blob」作為篩選條件。 從 [動作] 清單中，選取您想要的動作。
 
-   此範例會使用這項動作：**取得 blob 內容**
+   這個範例會使用此動作:**取得 blob 內容**
 
    ![選取動作](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
 
@@ -107,13 +108,13 @@ ms.locfileid: "67296631"
 
    針對此範例，請選取您想要的檔案。
 
-   1. 從 [Blob]  方塊中，選取 [資料夾] 圖示。
+   1. 從 [Blob] 方塊中，選取 [資料夾] 圖示。
   
       ![選取資料夾](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
    2. 根據 Blob 的**識別碼**，尋找並選取您想要的檔案。 您可以在先前所述 Blob 儲存體觸發程序所傳回的 Blob 中繼資料內，找到此**識別碼**。
 
-5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
+5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]。
 若要測試邏輯應用程式，請確定所選取的資料夾包含 Blob。
 
 此範例只會取得 Blob 的內容。 若要檢視內容，請新增另一個動作，以使用另一個連接器建立具有 Blob 的檔案。 例如，新增 OneDrive 動作來根據 Blob 內容建立檔案。
@@ -128,7 +129,7 @@ ms.locfileid: "67296631"
 
 ## <a name="connector-reference"></a>連接器參考
 
-取得技術詳細資料，例如觸發程序、 動作和連接器的 Open API 所述的限制 (以前稱為 Swagger) 檔案，請參閱 <<c0> [ 連接器的參考頁面](/connectors/azureblobconnector/)。
+如需如連接器的 Open API (先前稱為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱[連接器的參考頁面](/connectors/azureblobconnector/)。
 
 ## <a name="next-steps"></a>後續步驟
 

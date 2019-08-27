@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c347a5740a13d071d4bb06daf43463f974198e5d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 2b33c35b1e4f83c30e2efdf64aed0b5f2035c79b
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980806"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032086"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的權杖總覽
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD) B2C 會在處理每個[驗證流程](active-directory-b2c-apps.md)時發出數種類型的安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。
+Azure Active Directory B2C (Azure AD B2C) 會在處理每個[驗證流程](active-directory-b2c-apps.md)時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。
 
 ## <a name="token-types"></a>權杖類型
 
@@ -40,7 +40,7 @@ Azure AD B2C 支援[OAuth 2.0 和 OpenID connect 通訊協定](active-directory-
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
 - `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
 
-您的應用程式從 Azure AD B2C 接收的安全性權杖可以`/authorize`來自或`/token`端點。 從`/authorize`端點取得識別碼權杖時, 會使用[隱含流程](active-directory-b2c-reference-spa.md)來完成, 這通常用於登入以 javascript 為基礎的 web 應用程式的使用者。 從 `/token` 端點取得 ID 權杖時，它們已經使用[機密程式碼流程](active-directory-b2c-reference-oidc.md)來完成，這會使權杖保持規避瀏覽器。
+您的應用程式從 Azure AD B2C 接收的安全性權杖可以`/authorize`來自或`/token`端點。 從`/authorize`端點取得識別碼權杖時, 會使用[隱含流程](active-directory-b2c-reference-spa.md)來完成, 這通常用於登入以 JavaScript 為基礎的 web 應用程式的使用者。 從`/token`端點取得 ID 權杖時, 會使用[授權碼流程](active-directory-b2c-reference-oidc.md#get-a-token)來完成, 這會讓權杖在瀏覽器中隱藏。
 
 ## <a name="claims"></a>宣告
 

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: manayar
-ms.openlocfilehash: 3846815dabdc9e351f3d8449feb88affb9c6efdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d12fde33ec9d55c891c801f1b89143b4db6f8ae7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803508"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035760"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>使用虛擬機器擴展集垂直自動調整
 
 這篇文章描述如何使用或不使用重新佈建以垂直調整 Azure [虛擬機器擴充集](https://azure.microsoft.com/services/virtual-machine-scale-sets/) 。 若為垂直調整不在擴展集中的虛擬機器，請參閱[使用 Azure 自動化垂直調整 Azure 虛擬機器](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-垂直調整也稱為向相應增加  和相應減少  ，意味增加或減少虛擬機器 (VM) 大小以回應工作負載。 將此行為與[水平調整](virtual-machine-scale-sets-autoscale-overview.md) (也稱為相應放大  和相應縮小  ) 做比較，後者會根據工作負載改變虛擬機器數目。
+垂直調整也稱為向相應增加和相應減少，意味增加或減少虛擬機器 (VM) 大小以回應工作負載。 將此行為與[水平調整](virtual-machine-scale-sets-autoscale-overview.md) (也稱為相應放大和相應縮小) 做比較，後者會根據工作負載改變虛擬機器數目。
 
 重新佈建表示移除現有的 VM，並以新的 VM 取代它。 當您增加或減少虛擬機器擴展集中的虛擬機器大小時，在某些情況下您想要調整現有虛擬機器的大小並保留資料，而在其他情況下您需要部署具有新大小的新虛擬機器。 本文件涵蓋這兩種情況。
 
@@ -56,8 +56,8 @@ ms.locfileid: "60803508"
 > | Standard_A2m_v2 |Standard_A8m_v2  |
 > | Standard_B1s |Standard_B2s |
 > | Standard_B1ms |Standard_B8ms |
-> | 標準_D1 |標準_D4 |
-> | 標準_D11 |標準_D14 |
+> | Standard_D1 |Standard_D4 |
+> | Standard_D11 |Standard_D14 |
 > | Standard_DS1 |Standard_DS4 |
 > | Standard_DS11 |Standard_DS14 |
 > | Standard_D1_v2 |Standard_D5_v2 |
@@ -89,7 +89,7 @@ ms.locfileid: "60803508"
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
-> 
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>使用執行身分功能來建立 Azure 自動化帳戶

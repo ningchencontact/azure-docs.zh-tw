@@ -49,6 +49,8 @@
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
     - name: 使用 Ambari 和 Azure 監視器記錄監視叢集可用性
       href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+    - name: 比較儲存體選項
+      href: ../hdinsight-hadoop-compare-storage-options.md
 - name: 作法
   items:
     - name: 使用叢集儲存體

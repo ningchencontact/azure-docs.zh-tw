@@ -11,19 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: e7ae5f83ff9dbb16733656a3bb4452ace750cf3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f136fb666e93adc0fe92aee014e3da9a37bbd6aa
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64690109"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035804"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>使用 Azure CLI 來建立 Azure AD 應用程式，並設定它以存取媒體服務 API 
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
 
 此主題說明如何使用 Azure CLI 來建立 Azure Active Directory (Azure AD) 應用程式和服務主體，以存取「Azure 媒體服務」資源。 
 
@@ -45,7 +45,7 @@ ms.locfileid: "64690109"
  
 ```azurecli
 az login
-az ad sp create-for-rbac --name <appName> --password <strong password>
+az ad sp create-for-rbac --name <appName> 
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 

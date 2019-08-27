@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: aad42ea891b671bd481322d8b499d375ca06a7dc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 5d13e7375c9e3cd874bc61b686ff2549c38da1f3
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512635"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036375"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure 資訊安全中心和 Azure 虛擬機器
 [Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)可協助您保護、偵測威脅並採取相應的措施。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理，協助您偵測可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。
@@ -59,8 +59,6 @@ ms.locfileid: "69512635"
 
 > [!NOTE]
 > 若要深入了解每個可用的**防止原則**，請參閱[設定安全性原則](tutorial-security-policy.md)文章。
-> 
-> 
 
 ## <a name="manage-security-recommendations"></a>管理安全性建議
 資訊安全中心會分析 Azure 資源的安全性狀態。 當資訊安全中心識別潛在的安全性弱點時，它會建立建議。 這些建議會引導您完成設定所需控制項的程序。
@@ -89,8 +87,8 @@ ms.locfileid: "69512635"
 
 ![安全性健康狀態](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
-## <a name="manage-and-respond-to-security-alerts"></a>管理及回應安全性警示
-資訊安全中心會自動收集、分析及整合您 Azure 資源、網路和已連線的合作夥伴解決方案 (例如防火牆和端點保護解決方案) 的記錄檔資料，來偵測真正的威脅並減少誤判情形。 藉由利用[偵測功能](security-center-detection-capabilities.md)的各種彙總，資訊安全中心能夠產生優先順序的安全性警示，協助您快速地調查問題並提供如何修正可能攻擊的建議。
+## <a name="manage-and-respond-to-security-alerts"></a>管理和回應安全性警示
+資訊安全中心會自動收集、分析及整合您 Azure 資源、網路和已連線的合作夥伴解決方案 (例如防火牆和端點保護解決方案) 的記錄檔資料，來偵測真正的威脅並減少誤判情形。 藉由利用[偵測功能](security-center-alerts-overview.md#detect-threats)的各種彙總，資訊安全中心能夠產生優先順序的安全性警示，協助您快速地調查問題並提供如何修正可能攻擊的建議。
 
 ![安全性警示](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

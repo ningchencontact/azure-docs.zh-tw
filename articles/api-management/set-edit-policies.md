@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 052bf619cd6f41aad139db45a8f3ecd9f4a0a62f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205287"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034924"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>如何設定或編輯 Azure API 管理原則
 
@@ -32,30 +32,32 @@ ms.locfileid: "67205287"
 
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 瀏覽至您的 APIM 執行個體。
-3. 按一下 [API]  索引標籤。
+3. 按一下 [API] 索引標籤。
 
     ![編輯原則](./media/set-edit-policies/code-editor.png)
 
 4. 選取其中一個您先前匯入的 API。
-5. 選取 [設計]  索引標籤。
-6. 選取您要套用原則的作業。 如果您想要將原則套用至所有作業，請選取 [所有作業]  。
-7. 在 [輸入處理]  或 [輸出處理]  區段中選取 **</>** (程式碼編輯器) 圖示。
+5. 選取 [設計] 索引標籤。
+6. 選取您要套用原則的作業。 如果您想要將原則套用至所有作業，請選取 [所有作業]。
+7. 在 [輸入處理] 或 [輸出處理] 區段中選取 **</>** (程式碼編輯器) 圖示。
 8. 將需要的原則程式碼貼入其中一個適當的區塊。
-         
-        <policies>
-             <inbound>
-                 <base />
-             </inbound>
-             <backend>
-                 <base />
-             </backend>
-             <outbound>
-                 <base />
-             </outbound>
-             <on-error>
-                 <base />
-             </on-error>
-         </policies>
+
+    ```XML
+    <policies>
+        <inbound>
+            <base />
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
  
 ## <a name="configure-scope"></a>設定範圍
 
@@ -77,14 +79,14 @@ ms.locfileid: "67205287"
 全域範圍已設定為 APIM 執行個體中的**所有 API**。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至您的 APIM 執行個體。
-2. 按一下 [全部 API]  。
+2. 按一下 [全部 API]。
 
     ![全域範圍](./media/api-management-howto-policies/global-scope.png)
 
 3. 按一下三角形圖示。
-4. 選取 [程式碼編輯器]  。
+4. 選取 [程式碼編輯器]。
 5. 新增或編輯原則。
-6. 按下 [儲存]  。 
+6. 按下 [儲存]。 
 
     所做的變更會立即散佈至 API 管理閘道。
 
@@ -92,14 +94,14 @@ ms.locfileid: "67205287"
 
 產品範圍已設定為所選的產品。
 
-1. 按一下 [產品]  。
+1. 按一下 [產品]。
 
     ![產品範圍](./media/api-management-howto-policies/product-scope.png)
 
 2. 選取您要套用原則的產品。
-3. 按一下 [原則]  。
+3. 按一下 [原則]。
 4. 新增或編輯原則。
-5. 按下 [儲存]  。 
+5. 按下 [儲存]。 
 
 ### <a name="api-scope"></a>API 範圍
 
@@ -109,11 +111,11 @@ API 範圍已設定為所選 API 的**所有作業**。
 
     ![API 範圍](./media/api-management-howto-policies/api-scope.png)
 
-2. 選取 [所有作業] 
+2. 選取 [所有作業]
 3. 按一下三角形圖示。
-4. 選取 [程式碼編輯器]  。
+4. 選取 [程式碼編輯器]。
 5. 新增或編輯原則。
-6. 按下 [儲存]  。 
+6. 按下 [儲存]。 
 
 ### <a name="operation-scope"></a>作業範圍 
 
@@ -125,9 +127,9 @@ API 範圍已設定為所選 API 的**所有作業**。
     ![作業範圍](./media/api-management-howto-policies/operation-scope.png)
 
 3. 按一下三角形圖示。
-4. 選取 [程式碼編輯器]  。
+4. 選取 [程式碼編輯器]。
 5. 新增或編輯原則。
-6. 按下 [儲存]  。 
+6. 按下 [儲存]。 
 
 ## <a name="next-steps"></a>後續步驟
 

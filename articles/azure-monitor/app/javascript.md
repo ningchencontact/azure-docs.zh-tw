@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 77c5285462c4368badd63d7cdbf6589c7ad03c8d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534552"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035224"
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 
@@ -36,7 +36,7 @@ Application Insights 可以使用於任何網頁 - 您剛剛新增 JavaScript �
 > [!IMPORTANT]
 > 您只需要使用下列其中一種方法, 即可將 Application Insights JavaScript SDK 新增至您的應用程式。 如果您使用以 NPM 為基礎的安裝程式, 請勿使用以程式碼片段為基礎的安裝程式。 使用以程式碼片段為基礎的方法時, 反向案例也不會使用以 NPM 為基礎的安裝程式。 
 
-### <a name="npm-based-setup"></a>以 NPM 為基礎的設定 
+### <a name="npm-based-setup"></a>以 NPM 為基礎的設定
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -198,7 +198,7 @@ dataset
 2. 識別與此呼叫堆疊對應的來源對應。 來源對應必須符合堆疊框架的原始程式檔, 但尾碼為`.map`
 3. 將來源對應拖放到呼叫堆疊的 Azure 入口網站![](https://i.imgur.com/Efue9nU.gif)
 
-## <a name="application-insights-web-basic"></a>Application Insights Web 基本
+### <a name="application-insights-web-basic"></a>Application Insights Web 基本
 
 若要取得輕量經驗, 您可以改為安裝基本版本的 Application Insights
 ```
@@ -242,7 +242,7 @@ SDK V2 版本中的重大變更:
 
 從 CDN 下載腳本時, 會將頁面的所有追蹤排入佇列。 下載的腳本完成非同步初始化之後, 所有已排入佇列的事件都會被追蹤。 因此, 您不會在頁面的整個生命週期期間遺失任何遙測。 這個安裝程式會為您的頁面提供無縫分析系統, 讓您的使用者看不到。
 
-> 摘要:
+> 摘要：
 > - **25 KB** gzipped
 > - **15 毫秒**的整體初始化時間
 > - 在頁面生命週期期間遺漏了**零**追蹤

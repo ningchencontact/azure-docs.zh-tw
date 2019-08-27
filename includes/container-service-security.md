@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c7b9e3a9eb5c906fa598da9c8c547cb542ecb719
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174532"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036673"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(已淘汰) 保護 Azure Container Service 中的 Docker 容器
 
@@ -24,7 +24,7 @@ ms.locfileid: "67174532"
 ### <a name="public-and-private-images"></a>公用和私人映像
 一般情況下，可公開取得的容器映像並無法保證安全性，這個情況就和任何已公開發佈的軟體套件一樣。 容器映像包含多個軟體層，每個軟體層可能各有弱點。 它是了解容器映像來源 (包括映像擁有者，以便判斷它是否為可靠來源)、其所含軟體層和軟體版本的關鍵。 
 
-例如，如果您進入 Docker Hub 官方所提供的 [nginx 存放庫](https://hub.docker.com/_/nginx/)，並瀏覽至 [標記]  索引標籤，您就會看到每個映像以色彩標示的弱點。 每一種色彩各代表一個映像軟體層弱點。 如需有關 Docker Hub 弱點掃描的詳細資訊，請參閱[了解 Docker Hub 的官方存放庫](https://blog.docker.com/2015/06/understanding-official-repos-docker-hub/)。
+例如，如果您進入 Docker Hub 官方所提供的 [nginx 存放庫](https://hub.docker.com/_/nginx/)，並瀏覽至 [標記] 索引標籤，您就會看到每個映像以色彩標示的弱點。 每一種色彩各代表一個映像軟體層弱點。 如需有關 Docker Hub 弱點掃描的詳細資訊，請參閱[了解 Docker Hub 的官方存放庫](https://blog.docker.com/2015/06/understanding-official-repos-docker-hub/)。
 
 ![Docker Hub 中的 Nginx 映像](./media/container-service-security/docker-hub-nginx.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "67174532"
 
 即使使用私人登錄，您最好也要使用映像掃描解決方案來另外進行安全性驗證。 容器映像中的每個軟體層都有可能出現與容器映像中的其他層無關的弱點。 隨著越來越多公司開始根據容器技術部署其生產工作負載，為了確保能夠防止安全性威脅，映像掃描對其組織來說就變得重要。 
 
-安全性監視和掃描解決方案 (例如 [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) 和 [Aqua Security](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)等) 可用來掃描私人登錄中的容器映像，並找出潛在弱點。 請務必了解不同解決方案所提供的掃描深度。 例如，某些解決方案可能只會就已知弱點對映像層進行交叉驗證。 這些解決方案可能無法驗證透過某些套件管理員軟體所建置的映像層軟體。 其他解決方案則可能已更加深入地整合掃描功能，因此可以找出任何已封裝軟體中的弱點。
+安全性監視和掃描解決方案 (例如 [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry) 和 [Aqua Security](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry)等) 可用來掃描私人登錄中的容器映像，並找出潛在弱點。 請務必了解不同解決方案所提供的掃描深度。 例如，某些解決方案可能只會就已知弱點對映像層進行交叉驗證。 這些解決方案可能無法驗證透過某些套件管理員軟體所建置的映像層軟體。 其他解決方案則可能已更加深入地整合掃描功能，因此可以找出任何已封裝軟體中的弱點。
 
 ### <a name="production-deployment-rules-and-audit"></a>生產部署的規則和稽核
 當應用程式部署在生產環境後，請務必要設定一些規則，以確保生產環境所使用的映像安全無虞，而且沒有任何弱點。

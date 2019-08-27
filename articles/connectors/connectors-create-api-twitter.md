@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22b75b2d2b47dbd496eda06c09b418ae66f6403a
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104981"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050696"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視及管理 Twitter
 
@@ -29,7 +29,7 @@ ms.locfileid: "62104981"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 Twitter 帳戶和使用者認證
 
@@ -37,7 +37,7 @@ ms.locfileid: "62104981"
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 您要在其中存取 Twitter 帳戶的邏輯應用程式。 若要開始使用 Twitter 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 Twitter 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」  觸發程序。
+* 您要在其中存取 Twitter 帳戶的邏輯應用程式。 若要開始使用 Twitter 觸發程序，請[建立空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 若要使用 Twitter 動作，請使用其他觸發程序來啟動邏輯應用程式，例如「週期」觸發程序。
 
 ## <a name="connect-to-twitter"></a>連接到 Twitter
 
@@ -54,12 +54,12 @@ ms.locfileid: "62104981"
 
    * 針對現有的邏輯應用程式： 
    
-     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]  。 
+     * 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]。 
 
        -或-
 
      * 請在想要新增動作的步驟之間，將指標移至步驟之間的箭號。 
-     選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
+     選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
      
        在搜尋方塊中，輸入 "twitter" 作為篩選條件。 
        請在動作清單底下，選取您想要的動作。
@@ -70,15 +70,15 @@ ms.locfileid: "62104981"
 
 ## <a name="examples"></a>範例
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 觸發程序：當有新推文張貼時
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter 觸發程式:當有新推文張貼時
 
 此觸發程序會在偵測到新推文時 (例如，具有主題標籤 #Seattle 時)，啟動邏輯應用程式工作流程。 所以舉例來說，當找到這些推文時，您可以將具有推文內容的檔案新增至儲存體，例如藉由使用 Dropbox 連接器新增到 Dropbox 帳戶。 
 
 您可以選擇性地包含條件，要求合格的推文必須來自至少具有指定跟隨者數目的使用者。
 
-**企業範例**：您可以使用此觸發程序來監視公司相關的推文，並將推文的內容上傳到 SQL database。
+**企業範例**：您可以使用此觸發程式來監視貴公司的推文, 並將推文的內容上傳至 SQL 資料庫。
 
-### <a name="twitter-action-post-a-tweet"></a>Twitter 動作：張貼推文
+### <a name="twitter-action-post-a-tweet"></a>Twitter 動作:張貼推文
 
 此動作會張貼推文，但是您可以設定動作，讓推文包含由先前所述觸發程序找到的推文內容。 
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
+ms.date: 08/25/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f09a8c2f8caae3cbb182cf2dc4621deb95f7e5c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499668"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033329"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD Identity Governance？
 
@@ -80,6 +80,8 @@ Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制�
 您也可以在 Azure 入口網站中查看身分**識別**控管的 [入門] 索引標籤, 開始使用 [權利管理]、[存取評論]、[Privileged Identity Management] 和 [使用規定]。
 
 ![身分識別管理入門](./media/identity-governance-overview/getting-started.png)
+
+如果您有任何關於身分識別治理功能的意見反應, 請按一下 Azure 入口網站中的 [**獲得意見反應？** ] 以提交您的意見反應。 小組會定期審查您的意見反應。
 
 ## <a name="next-steps"></a>後續步驟
 

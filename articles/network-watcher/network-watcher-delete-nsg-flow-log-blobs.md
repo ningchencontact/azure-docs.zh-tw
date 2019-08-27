@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6b6227827e8d1efbb1d20899cd08315c4cbb0150
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6898bed0645146af9c0131307459e31bad661329
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875200"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036302"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>刪除網路監看員中的網路安全性群組流量記錄儲存體 blob
 
-目前, 無法根據保留原則設定, 從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)問題。 您現在必須執行 PowerShell 腳本, 以手動方式刪除儲存體帳戶中的流量記錄, 如這篇文章中所述。
+目前有一個問題是，系統不會根據保留原則設定從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)。 您現在必須執行 PowerShell 腳本, 以手動方式刪除儲存體帳戶中的流量記錄, 如這篇文章中所述。
 
 ## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>執行 PowerShell 腳本以刪除 NSG 流量記錄
  
@@ -135,5 +135,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## <a name="next-steps"></a>後續步驟
+- 客戶可以使用[Azure](https://azure.microsoft.com/services/scheduler/)排程器或[Azure 自動化](https://azure.microsoft.com/services/automation/)自動化執行腳本
 - 若要深入瞭解 NSG 記錄, 請參閱[網路安全性群組的 Azure 監視器記錄 (nsg)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 

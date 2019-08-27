@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 67318fee540195fc913739d78e80649100c54e70
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560428"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034822"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -25,15 +25,15 @@ ms.locfileid: "67560428"
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示是什麼？
 當您的監視資料中發現重要條件時，警示會主動通知您。 它們可讓您在系統使用者注意到問題之前，找出並解決問題。 
 
-本文討論「Azure 監視器」中統一的警示體驗，此體驗現在包含 Log Analytics 和 Application Insights 所管理的警示。 [先前的警示體驗](alerts-classic.overview.md)和警示類型稱為**傳統警示**。 您可以透過按一下警示頁面上方的 [檢視傳統警ˋ]  來檢視此舊版體驗和舊版警示類型。 
+本文討論「Azure 監視器」中統一的警示體驗，此體驗現在包含 Log Analytics 和 Application Insights 所管理的警示。 [先前的警示體驗](alerts-classic.overview.md)和警示類型稱為**傳統警示**。 您可以透過按一下警示頁面上方的 [檢視傳統警ˋ] 來檢視此舊版體驗和舊版警示類型。 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 下圖代表警示流程。 
 
 ![警示流程](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-警示規則會分開警示和警示引發時所採取的動作。 
+警示規則會與警示和警示引發時所採取的動作隔開。 
 
 **警示規則** - 警規則會擷取用於警示的目標和準則。 警示規則可處於已啟用或已停用狀態。 警示只有在啟用時才會引發。 
 
@@ -43,7 +43,7 @@ ms.locfileid: "67560428"
 
 **訊號** - 訊號是由目標資源所發出並可以是數種類型。 計量、Activity log、Application Insights 及記錄。
 
-**準則** - 準則是目標資源上所套用訊號和邏輯的組合。 範例： 
+**準則** - 準則是目標資源上所套用訊號和邏輯的組合。 例如： 
    - 百分比 CPU > 70%
    - 伺服器回應時間 > 4 ms 
    - 記錄查詢的結果計數 > 100
@@ -67,23 +67,23 @@ ms.locfileid: "67560428"
 
 之前，「Azure 監視器」計量、Application Insights、Log Analytics 及「服務健康狀態」具有個別的警示功能。 隨著時間進展，Azure 已改善並結合使用者介面與不同的警示方法。 這樣的整併仍在持續進行中。 因此，新的警示系統中仍可能沒有某些警示功能。  
 
-| **監視來源** | **訊號類型**  | **說明** | 
+| **監視來源** | **訊號類型**  | **描述** | 
 |-------------|----------------|-------------|
-| 服務健康情況 | 活動記錄檔  | 不支援。 請參閱[建立服務通知的活動記錄警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
+| 服務健康狀態 | 活動記錄  | 不支援。 請參閱[建立服務通知的活動記錄警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
 | Application Insights | Web 可用性測試 | 不支援。 請參閱 [Web 測試警示](../../azure-monitor/app/monitor-web-app-availability.md)。 可供任何經檢測可傳送資料給 Application Insights 的網站使用。 當網站的可用性或回應能力低於預期時收到通知。 |
 
 ## <a name="manage-alerts"></a>管理警示
-您可以設定警示的狀態來指定警示在解決流程中的位置。 當符合警示規則中指定的準則時，會建立或引發警示，該警示具有 [新]  狀態。 當您認可警示並將它關閉時，您可以變更狀態。 任何狀態變更都會儲存在警示的記錄中。
+您可以設定警示的狀態來指定警示在解決流程中的位置。 當符合警示規則中指定的準則時，會建立或引發警示，該警示具有 [新] 狀態。 當您認可警示並將它關閉時，您可以變更狀態。 任何狀態變更都會儲存在警示的記錄中。
 
 支援下列警示狀態：
 
 | State | 描述 |
 |:---|:---|
-| 新增 | 已經偵測到問題，但尚未檢閱。 |
+| 換一個 | 已經偵測到問題，但尚未檢閱。 |
 | 已認可 | 系統管理員已檢閱警示，且已開始處理。 |
-| 關閉 | 已解決問題。 關閉警示之後，您可以將警示變更為另一個狀態以重新開啟它。 |
+| 已關閉 | 已解決問題。 關閉警示之後，您可以將警示變更為另一個狀態以重新開啟它。 |
 
-**警示狀態**與**監視條件**不同且無關。 警示狀態是由使用者所設定的。 監視條檢是由系統所設定的。 當引發警示時，警示的監視條件會設定為「已引發」  。 當導致引發警示的根本條件清除時，監視條件就會設定為「已解決」  。 警示狀態需等到使用者變更它之後才會變更。 了解[如何變更警示與智慧群組的狀態](https://aka.ms/managing-alert-smart-group-states)。
+**警示狀態**與**監視條件**不同且無關。 警示狀態是由使用者所設定的。 監視條檢是由系統所設定的。 當引發警示時，警示的監視條件會設定為「已引發」。 當導致引發警示的根本條件清除時，監視條件就會設定為「已解決」。 警示狀態需等到使用者變更它之後才會變更。 了解[如何變更警示與智慧群組的狀態](https://aka.ms/managing-alert-smart-group-states)。
 
 ## <a name="smart-groups"></a>智慧群組 
 智慧群組目前為預覽階段。 
@@ -94,7 +94,10 @@ ms.locfileid: "67560428"
 ## <a name="alerts-experience"></a>警示體驗 
 對於特定時間內建立的警示，預設的 [警示] 頁面提供警示的摘要。 它會顯示每個嚴重性的警示總計，且有欄顯示每個嚴重性和每個狀態的警示總數。 選取任何嚴重性以開啟依照該嚴重性篩選的 [所有警示](#all-alerts-page) 頁面。
 
-或者，您可以[以程式設計方式列舉您訂用帳戶使用 REST Api 產生警示的執行個體](#manage-your-alert-instances-programmatically)。
+或者, 您可以[使用 REST api, 以程式設計方式列舉您的訂用帳戶所產生的警示實例](#manage-your-alert-instances-programmatically)。
+
+> [!NOTE]
+   >  只有在過去30天內產生的警示可以在 UX 或透過 REST Api 存取。
 
 它不會顯示或追蹤舊版[傳統警示](#classic-alerts)。 您可以變更訂用帳戶或篩選參數來更新頁面。 
 
@@ -102,9 +105,9 @@ ms.locfileid: "67560428"
 
 您可以選取頁面頂端下拉式功能表中的值來篩選此檢視。
 
-| 欄 | 描述 |
+| 「資料行」 | 描述 |
 |:---|:---|
-| 訂用帳戶 | 選取您要檢視警示的 Azure 訂用帳戶。 您可以選擇選取 所有訂用帳戶。 檢視中所包含唯一的警示，您選取的訂用帳戶中擁有存取權。 |
+| 訂閱 | 選取您想要查看其警示的 Azure 訂用帳戶。 您可以選擇性地選擇選取所有訂用帳戶。 只有您在所選訂用帳戶中有權存取的警示才會包含在此視圖中。 |
 | 資源群組 | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
 | 時間範圍 | 只有在所選時間範圍內引發的警示才會包含在檢視中。 支援的值為過去 1 小時、過去 24 小時、過去 7 天和過去 30 天。 |
 
@@ -118,7 +121,7 @@ ms.locfileid: "67560428"
 
 
 ## <a name="manage-alert-rules"></a>管理警示規則
-按一下 [管理警示規則]  以顯示 [規則]  頁面。 [規則]  是可管理各個 Azure 訂用帳戶之所有警示規則的單一位置。 它會列出所有警示規則，並可根據目標資源、資源群組、規則名稱或狀態來排序。 您也可以從這個頁面編輯、啟用或停用警示規則。  
+按一下 [管理警示規則] 以顯示 [規則]頁面。 [規則] 是可管理各個 Azure 訂用帳戶之所有警示規則的單一位置。 它會列出所有警示規則，並可根據目標資源、資源群組、規則名稱或狀態來排序。 您也可以從這個頁面編輯、啟用或停用警示規則。  
 
  ![警示規則](./media/alerts-overview/alerts-preview-rules.png)
 
@@ -145,46 +148,46 @@ ms.locfileid: "67560428"
 
 您可以透過在頁面頂端的下拉式功能表中選取下列值來篩選檢視。
 
-| 欄 | 描述 |
+| 「資料行」 | 描述 |
 |:---|:---|
-| 訂用帳戶 | 選取您要檢視警示的 Azure 訂用帳戶。 您可以選擇選取 所有訂用帳戶。 檢視中所包含唯一的警示，您選取的訂用帳戶中擁有存取權。 |
+| 訂閱 | 選取您想要查看其警示的 Azure 訂用帳戶。 您可以選擇性地選擇選取所有訂用帳戶。 只有您在所選訂用帳戶中有權存取的警示才會包含在此視圖中。 |
 | 資源群組 | 選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 |
 | 資源類型 | 選取一個或多個資源類型。 檢視僅會包含所選類型目標之具目標的警示。 指定資源群組之後，才可使用此欄。 |
-| 資源 | 選取資源。 只有以該資源作為目標的警示才會包含在檢視中。 指定資源類型之後，才可使用此欄。 |
-| Severity | 選取警示嚴重性，或選取 [所有]  以包含所有嚴重性的警示。 |
-| 監視器條件 | 選取監視器條件，或選取 [所有]  以包含條件的警示。 |
-| 警示狀態 | 選取警示狀態，或選取 [所有]  以包含狀態的警示。 |
-| 監視器服務 | 選取服務，或選取 [所有]  以包含所有服務。 只會包含由使用服務作為目標之規則所建立的警示。 |
+| Resource | 選取資源。 只有以該資源作為目標的警示才會包含在檢視中。 指定資源類型之後，才可使用此欄。 |
+| Severity | 選取警示嚴重性，或選取 [所有] 以包含所有嚴重性的警示。 |
+| 監視器條件 | 選取監視器條件，或選取 [所有] 以包含條件的警示。 |
+| 警示狀態 | 選取警示狀態，或選取 [所有] 以包含狀態的警示。 |
+| 監視器服務 | 選取服務，或選取 [所有] 以包含所有服務。 只會包含由使用服務作為目標之規則所建立的警示。 |
 | 時間範圍 | 只有在所選時間範圍內引發的警示才會包含在檢視中。 支援的值為過去 1 小時、過去 24 小時、過去 7 天和過去 30 天。 |
 
-選取頁面頂端的 [欄]  以選取要顯示的欄。 
+選取頁面頂端的 [欄] 以選取要顯示的欄。 
 
-## <a name="alert-details-page"></a>警示詳細資料頁面
+## <a name="alert-details-page"></a>[警示詳細資料] 頁面
 當您選取警示時，隨即顯示 [警示詳細資料] 頁面。 它會提供警示的詳細資料，且可讓您變更其狀態。
 
 ![警示詳細資料](media/alerts-overview/alert-detail2.png)
 
-[警示詳細資料] 頁面包含下列各節。
+[警示詳細資料] 頁面包含下列區段。
 
 | Section | 描述 |
 |:---|:---|
 | 總結 | 顯示警示的內容和其他重要資訊。 |
 | 歷程記錄 | 列出警示採取的每個動作，以及對警示所做的任何變更。 目前僅限於狀態變更。 |
-| 診斷 | 內含警示之智慧群組的相關資訊。 「警示計數」  是指智慧群組中包含的警示數目。 包括相同智慧群組中過去 30 天內所建立的其他警示，不論警示清單頁面中所設定的時間篩選條件為何。 選取警示以檢視其詳細資料。 |
+| 診斷 | 內含警示之智慧群組的相關資訊。 「警示計數」是指智慧群組中包含的警示數目。 包括相同智慧群組中過去 30 天內所建立的其他警示，不論警示清單頁面中所設定的時間篩選條件為何。 選取警示以檢視其詳細資料。 |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>您的警示執行個體的角色型存取控制 (RBAC)
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>警示實例的角色型存取控制 (RBAC)
 
-耗用量和管理警示的執行個體的要求有內建 RBAC 角色的使用者[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)或是[監視讀取器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)。 這些角色支援在任何 Azure 資源管理員範圍內，從訂用帳戶層級更細微的指派，在資源層級。 例如，如果使用者只具有 '監視參與者' 'ContosoVM1' 的虛擬機器的存取權，然後他可以使用及管理上 'ContosoVM1' 產生的警示。
+警示實例的耗用量和管理需要使用者具備[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)或[監視讀取](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)者的內建 RBAC 角色。 任何 Azure Resource Manager 範圍都支援這些角色, 從訂用帳戶層級到資源層級的細微指派皆可。 例如, 如果使用者只有虛擬機器 ' ContosoVM1 ' 的「監視參與者」存取權, 他就只能取用和管理 ' ContosoVM1 ' 上產生的警示。
 
-## <a name="manage-your-alert-instances-programmatically"></a>以程式設計方式管理您的警示執行個體
+## <a name="manage-your-alert-instances-programmatically"></a>以程式設計方式管理您的警示實例
 
-有許多案例中，您會以程式設計方式查詢所產生的警示對您的訂用帳戶。 這可能是建立在 Azure 入口網站中，外部的自訂檢視或分析您的警示來識別模式和趨勢。
+在許多情況下, 您會想要以程式設計方式查詢針對您的訂用帳戶所產生的警示。 這可能是在 Azure 入口網站外部建立自訂的視圖, 或是用來分析您的警示以識別模式和趨勢。
 
-您可以針對您使用的訂用帳戶所產生的警示查詢[警示的管理 REST API](https://aka.ms/alert-management-api)或使用[警示的 Azure 資源 Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)。
+您可以使用[警示管理 REST API](https://aka.ms/alert-management-api)或使用警示的 [ [Azure Resource Graph] REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)來查詢針對您的訂用帳戶所產生的警示。
 
-[警示的 Azure 資源 Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)可讓您大規模的警示執行個體的查詢。 這被建議您不必管理跨許多訂用帳戶中產生警示的案例。 
+警示的  [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)可讓您大規模查詢警示實例。 如果您必須管理跨多個訂用帳戶所產生的警示, 建議使用此選項。 
 
-下列範例要求給 API 傳回一個訂用帳戶內的警示的計數：
+下列對 API 的範例要求會傳回一個訂用帳戶內的警示計數:
 
 ```json
 {
@@ -197,9 +200,9 @@ ms.locfileid: "67560428"
   }
 }
 ```
-警示可以查詢其['基本'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)欄位。
+您可以查詢這些警示的「[基本](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)」欄位。
 
-[警示管理 REST API](https://aka.ms/alert-management-api)可用來取得有關特定警示，包括的詳細資訊及其['警示內容'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)欄位。
+[警示管理 REST API](https://aka.ms/alert-management-api)可以用來取得特定警示的詳細資訊, 包括其 [[警示內容](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)] 欄位。
 
 ## <a name="classic-alerts"></a>傳統警示 
 

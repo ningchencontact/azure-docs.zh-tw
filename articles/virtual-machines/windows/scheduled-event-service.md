@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中設定 Windows Vm 的維護通知 |Microsoft Docs
-description: 瞭解如何為您的 Azure 虛擬機器設定排程的維護通知。
+title: 在 Azure 中監視 Windows Vm 的已排程事件 |Microsoft Docs
+description: 瞭解如何監視 Azure 虛擬機器的已排程事件。
 services: virtual-machines-windows
 documentationcenter: ''
 author: mysarn
@@ -10,14 +10,14 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 18b46b848946bb2450604bdf0650a004e21778d9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657407"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051852"
 ---
-# <a name="set-up-notifications-about-maintenance-affecting-your-vm"></a>設定影響 VM 的維護通知
+# <a name="monitoring-scheduled-events"></a>監視 Scheduled Events
 
 更新會每天套用到 Azure 的不同部分, 以確保在其上執行的服務安全且保持在最新狀態。 除了已規劃的更新之外, 也可能會發生未計畫的事件。 例如, 如果偵測到任何硬體效能降低或錯誤, Azure 服務可能需要執行未規劃的維護。 使用即時移轉時, 記憶體會保留更新, 而且通常會對更新的影響進行嚴格的追蹤, 在大多數情況下, 這些事件對客戶而言幾乎是透明的, 而且不會有任何影響, 也不會造成虛擬機器凍結的幾秒鐘。 不過, 對於某些應用程式, 即使幾秒鐘的虛擬機器凍結也可能會造成影響。 事先瞭解即將推出的 Azure 維護非常重要, 以確保這些應用程式的最佳體驗。 [Scheduled Events 服務](scheduled-events.md)提供了程式設計介面, 可讓您在即將進行的維護時收到通知, 並可讓您正常地處理維護。 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 7d4f36be51591d6be2b4c42eb8a8950ab52a0258
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 2a88e778458da3c5faace401863998dda746ac75
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782571"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051499"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階威脅防護
 
@@ -111,7 +111,7 @@ Azure 儲存體的進階威脅防護可多提供一道安全智慧，偵測儲�
 
 ![Azure 儲存體進階威脅防護警示電子郵件](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert-email.png)
 
-您可以從 Azure 資訊安全中心的[安全性警示圖格](../../security-center/security-center-managing-and-responding-alerts.md#managing-security-alerts)，檢閱與管理目前的安全性警示。 按一下特定警示，即會提供適合用來調查目前威脅及解決未來威脅的詳細資料與動作。
+您可以從 Azure 資訊安全中心的[安全性警示圖格](../../security-center/security-center-managing-and-responding-alerts.md)，檢閱與管理目前的安全性警示。 按一下特定警示，即會提供適合用來調查目前威脅及解決未來威脅的詳細資料與動作。
 
 ![Azure 儲存體進階威脅防護警示電子郵件](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
 

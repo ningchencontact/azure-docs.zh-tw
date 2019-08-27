@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: v-mohabe
-ms.openlocfilehash: a8033448c2db2ca30ece54b3367ecb60ecf12c3d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: afb7d4530a56687e7cd4d9c279451870d5567284
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990695"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032112"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用於計劃採用 Azure 資訊安全中心的組織中的資訊技術 (IT) 專業人員、IT 架構設計人員、資訊安全性分析師和雲端系統管理員。
@@ -215,7 +215,7 @@ Azure 資訊安全中心使用 Microsoft Monitoring Agent –這是 Azure 監視
 
 
 ## <a name="incident-response"></a>事件回應
-資訊安全中心會偵測並在發生威脅時警示您。 組織應監視新的安全性警示並視需要採取動作，進一步調查或修補攻擊。 如需資訊安全中心威脅偵測運作方式的詳細資訊，請閱讀 [Azure 資訊安全中心的偵測功能](security-center-detection-capabilities.md)。
+資訊安全中心會偵測並在發生威脅時警示您。 組織應監視新的安全性警示並視需要採取動作，進一步調查或修補攻擊。 如需有關資訊安全中心威脅偵測如何運作的詳細資訊, 請參閱[Azure 資訊安全中心如何偵測及回應威脅](security-center-alerts-overview.md#detect-threats)。
 
 雖然本文目的並非要幫助您建立自己的事件回應計劃，但我們會在雲端生命週期中使用 Microsoft Azure 安全性回應做為事件回應階段的基礎。 這些階段如下圖所示：
 

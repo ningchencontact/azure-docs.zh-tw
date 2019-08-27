@@ -1,34 +1,34 @@
 ---
-title: 使用自訂規則和通知來擴充 Azure IoT Central |Microsoft Docs
-description: 身為方案開發人員，IoT Central 應用程式設定為裝置停止傳送遙測時，請傳送電子郵件通知。 此解決方案會使用 Azure Stream Analytics 和 Azure Functions。
+title: 使用自訂規則和通知擴充 Azure IoT Central |Microsoft Docs
+description: 身為解決方案開發人員, 請設定 IoT Central 應用程式, 以在裝置停止傳送遙測時傳送電子郵件通知。 此解決方案使用 Azure 串流分析和 Azure Functions。
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/14/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c31fa96457a3945c39fcc34770cb6783af3b81e8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742420"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049111"
 ---
-# <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>使用自訂規則傳送通知，來擴充 Azure IoT Central
+# <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>使用傳送通知的自訂規則來擴充 Azure IoT Central
 
-本使用方法指南所顯示的是，解決方案開發人員，如何擴充您的 IoT Central 應用程式使用自訂規則和通知。 此範例會示範用戶端裝置停止傳送遙測時，傳送通知給操作員。 解決方案會使用[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)來偵測裝置停止傳送遙測時的查詢。 Stream Analytics 作業使用[Azure Functions](https://docs.microsoft.com/azure/azure-functions/)傳送通知電子郵件使用[SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/)。
+本操作指南示範如何以解決方案開發人員的身分, 以自訂規則和通知擴充您的 IoT Central 應用程式。 此範例顯示當裝置停止傳送遙測時, 傳送通知給操作員。 解決方案會使用[Azure 串流分析](https://docs.microsoft.com/azure/stream-analytics/)查詢來偵測裝置何時停止傳送遙測。 串流分析作業會使用[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) , 以使用[SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/)來傳送通知電子郵件。
 
-本使用方法指南會示範如何超越 IoT Central 它已經怎麼使用內建規則和動作。
+本操作指南會示範如何使用內建的規則和動作, 將 IoT Central 延伸到它的功能以外。
 
-在本使用說明指南中，您將了解如何：
+在本操作指南中, 您將瞭解如何:
 
-* Stream IoT Central 應用程式使用的遙測*連續資料匯出*。
-* 建立裝置停止傳送資料時偵測到的 Stream Analytics 查詢。
-* 傳送電子郵件通知使用 Azure Functions 和 SendGrid 服務。
+* 使用*連續資料匯出*, 從 IoT Central 應用程式串流遙測。
+* 建立串流分析查詢, 以偵測裝置停止傳送資料的時間。
+* 使用 Azure Functions 和 SendGrid 服務來傳送電子郵件通知。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此操作指南中的步驟，您必須具備有效的 Azure 訂用帳戶。
 
@@ -36,137 +36,137 @@ ms.locfileid: "66742420"
 
 ### <a name="iot-central-application"></a>IoT Central 應用程式
 
-建立 IoT Central 應用程式來自[Azure IoT Central-我的應用程式](https://aka.ms/iotcentral)頁面使用下列設定：
+從 [ [Azure IoT Central-我的應用程式](https://aka.ms/iotcentral)] 頁面使用下列設定建立 IoT Central 應用程式:
 
 | 設定 | 值 |
 | ------- | ----- |
 | 付款計劃 | Pay-As-You-Go |
-| 應用程式範本 | Contoso 範例 |
-| 應用程式名稱 | 接受預設值，或選擇您自己的名稱 |
-| URL | 接受預設值，或選擇您自己唯一的 URL 前置詞 |
-| 目錄 | Azure Active Directory 租用戶 |
+| 應用程式範本 | 範例 Contoso |
+| 應用程式名稱 | 接受預設值, 或選擇您自己的名稱 |
+| URL | 接受預設值, 或選擇您自己唯一的 URL 前置詞 |
+| 目錄 | 您的 Azure Active Directory 租使用者 |
 | Azure 訂用帳戶 | 您的 Azure 訂用帳戶 |
 | 區域 | East US |
 
-範例和螢幕擷取畫面，在此發行項使用**美國東部**區域。 選擇靠近您的位置，並確定您在相同的區域中建立的所有資源。
+本文中的範例和螢幕擷取畫面會使用「**美國東部**」區域。 選擇接近您的位置的位置, 並確定您在相同的區域中建立所有資源。
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>資源群組
 
-使用[Azure 入口網站來建立資源群組](https://portal.azure.com/#create/Microsoft.ResourceGroup)稱為**DetectStoppedDevices**以包含您所建立的其他資源。 在您的 IoT Central 應用程式的相同位置中建立您的 Azure 資源。
+使用 Azure 入口網站建立名為**DetectStoppedDevices**的[資源群組](https://portal.azure.com/#create/Microsoft.ResourceGroup), 以包含您所建立的其他資源。 在與 IoT Central 應用程式相同的位置中建立 Azure 資源。
 
-### <a name="event-hubs-namespace"></a>事件中樞命名空間
+### <a name="event-hubs-namespace"></a>Event Hubs 命名空間
 
-使用[Azure 入口網站來建立事件中樞命名空間](https://portal.azure.com/#create/Microsoft.EventHub)使用下列設定：
+使用 Azure 入口網站建立具有下列設定的[事件中樞命名空間](https://portal.azure.com/#create/Microsoft.EventHub):
 
 | 設定 | 值 |
 | ------- | ----- |
-| 名稱    | 選擇您的命名空間名稱 |
+| Name    | 選擇您的命名空間名稱 |
 | 定價層 | 基本 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | DetectStoppedDevices |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | DetectStoppedDevices |
 | Location | East US |
 | 輸送量單位 | 1 |
 
-### <a name="stream-analytics-job"></a>Stream Analytics 作業
+### <a name="stream-analytics-job"></a>串流分析工作
 
-使用[Azure 入口網站來建立 Stream Analytics 作業](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)使用下列設定：
+使用[Azure 入口網站來建立](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)具有下列設定的串流分析作業:
 
 | 設定 | 值 |
 | ------- | ----- |
-| 名稱    | 選擇您的作業名稱 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | DetectStoppedDevices |
+| Name    | 選擇您的作業名稱 |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | DetectStoppedDevices |
 | Location | 美國東部 |
-| 裝載環境 | 雲端 |
-| 串流單位 | 3 |
+| 主控環境 | 雲端 |
+| 資料流單位 | 3 |
 
-### <a name="function-app"></a>函式應用程式
+### <a name="function-app"></a>函數應用程式
 
-使用[Azure 入口網站建立函數應用程式](https://portal.azure.com/#create/Microsoft.FunctionApp)使用下列設定：
+使用 Azure 入口網站來建立具有下列設定的[函數應用程式](https://portal.azure.com/#create/Microsoft.FunctionApp):
 
 | 設定 | 值 |
 | ------- | ----- |
-| 應用程式名稱    | 選擇您的函式應用程式名稱 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | DetectStoppedDevices |
+| 應用程式名稱    | 選擇您的函數應用程式名稱 |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | DetectStoppedDevices |
 | OS | Windows |
-| 主控方案 | 取用方案 |
+| 主控方案 | 使用情況方案 |
 | Location | East US |
 | 執行階段堆疊 | .NET |
 | 儲存體 | 新建 |
 
 ### <a name="sendgrid-account"></a>SendGrid 帳戶
 
-使用[Azure 入口網站來建立 SendGrid 帳戶](https://portal.azure.com/#create/Sendgrid.sendgrid)使用下列設定：
+使用 Azure 入口網站建立具有下列設定的[SendGrid 帳戶](https://portal.azure.com/#create/Sendgrid.sendgrid):
 
 | 設定 | 值 |
 | ------- | ----- |
-| 名稱    | 選擇您的 SendGrid 帳戶名稱 |
+| Name    | 選擇您的 SendGrid 帳戶名稱 |
 | 密碼 | 建立密碼 |
-| Subscription | 您的訂用帳戶 |
-| Resource group | DetectStoppedDevices |
+| 訂閱 | 您的訂用帳戶 |
+| 資源群組 | DetectStoppedDevices |
 | 定價層 | F1 免費 |
-| 連絡人資訊 | 填寫必要資訊 |
+| 連絡資訊 | 填寫必要資訊 |
 
-當您已建立所有必要的資源，您**DetectStoppedDevices**資源群組看起來像下列螢幕擷取畫面：
+當您建立所有必要的資源之後, 您的**DetectStoppedDevices**資源群組看起來會像下列螢幕擷取畫面:
 
-![偵測已停止的裝置的資源群組](media/howto-create-custom-rules/resource-group.png)
+![偵測已停止的裝置資源群組](media/howto-create-custom-rules/resource-group.png)
 
 ## <a name="create-an-event-hub"></a>建立事件中樞
 
-您可以設定為持續將遙測匯出至事件中樞的 IoT Central 應用程式。 在本節中，您可以建立事件中樞，以從您的 IoT Central 應用程式接收遙測資料。 事件中樞提供遙測資料至您的 Stream Analytics 作業進行處理。
+您可以設定 IoT Central 應用程式, 以持續將遙測匯出至事件中樞。 在本節中, 您會建立事件中樞, 以從您的 IoT Central 應用程式接收遙測。 事件中樞會將遙測傳遞至您的串流分析作業以進行處理。
 
-1. 在 Azure 入口網站中，瀏覽至您的事件中樞命名空間，然後選取 **+ 事件中樞**。
-1. 命名您的事件中樞**centralexport**，然後選取**建立**。
+1. 在 Azure 入口網站中, 流覽至您的事件中樞命名空間, 然後選取  **+ 事件中樞**。
+1. 將您的事件中樞命名為**centralexport**, 然後選取 [**建立**]。
 
-您的事件中樞命名空間看起來像下列螢幕擷取畫面：
+您的事件中樞命名空間看起來會像下列螢幕擷取畫面:
 
-![事件中樞命名空間](media/howto-create-custom-rules/event-hubs-namespace.png)
+![Event Hubs 命名空間](media/howto-create-custom-rules/event-hubs-namespace.png)
 
 ## <a name="get-sendgrid-api-key"></a>取得 SendGrid API 金鑰
 
-函式應用程式必須傳送電子郵件的 SendGrid API 金鑰。 若要建立 SendGrid API 金鑰：
+您的函數應用程式需要 SendGrid API 金鑰, 才能傳送電子郵件訊息。 建立 SendGrid API 金鑰:
 
-1. 在 Azure 入口網站中，瀏覽至您的 SendGrid 帳戶。 然後選擇**管理**來存取您的 SendGrid 帳戶。
-1. 在您的 SendGrid 帳戶，選擇**設定**，然後**API 金鑰**。 選擇**建立 API 金鑰**:
+1. 在 Azure 入口網站中, 流覽至您的 SendGrid 帳戶。 然後選擇 [**管理**] 以存取您的 SendGrid 帳戶。
+1. 在您的 SendGrid 帳戶中, 依序選擇 [**設定**] 和 [ **API 金鑰**]。 選擇 [**建立 API 金鑰**]:
 
     ![建立 SendGrid API 金鑰](media/howto-create-custom-rules/sendgrid-api-keys.png)
 
-1. 在上**建立 API 金鑰**頁面上，建立名為索引鍵**AzureFunctionAccess**具有**完整存取權**權限。
-1. 請記下的 API 金鑰，您會需要它，當您設定您的函式應用程式。
+1. 在 [**建立 API 金鑰**] 頁面上, 使用 [**完整訪問**許可權] 建立名為**AzureFunctionAccess**的金鑰。
+1. 記下 API 金鑰, 當您設定函數應用程式時, 就需要它。
 
-## <a name="define-the-function"></a>定義函式
+## <a name="define-the-function"></a>定義函數
 
-此解決方案會使用 Azure Functions 應用程式傳送電子郵件通知，當 Stream Analytics 作業偵測到已停止的裝置。 若要建立函式應用程式：
+此解決方案會使用 Azure Functions 應用程式, 在串流分析作業偵測到已停止的裝置時傳送電子郵件通知。 若要建立您的函數應用程式:
 
-1. 在 Azure 入口網站中，瀏覽至**App Service**執行個體中**DetectStoppedDevices**資源群組。
-1. 選取  **+** 來建立新的函式。
-1. 在 **選擇的開發環境**頁面上，選擇 **-入口網站**，然後選取**繼續**。
-1. 在  **CREATE FUNCTION**頁面上，選擇**Webhook + API** ，然後選取**建立**。
+1. 在 Azure 入口網站中, 流覽至**DetectStoppedDevices**資源群組中的**App Service**實例。
+1. 選取 **+** 以建立新的函式。
+1. 在 [**選擇開發環境**] 頁面上, 選擇 [**入口網站內**], 然後選取 [**繼續**]。
+1. 在 [**建立**函式] 頁面上, 選擇 [ **Webhook + API** ], 然後選取 [**建立**]。
 
-在入口網站建立預設函式呼叫**HttpTrigger1**:
+入口網站會建立名為**HttpTrigger1**的預設函數:
 
-![預設 HTTP 觸發程序函式](media/howto-create-custom-rules/default-function.png)
+![預設 HTTP 觸發程式函數](media/howto-create-custom-rules/default-function.png)
 
-### <a name="configure-function-bindings"></a>設定函式繫結
+### <a name="configure-function-bindings"></a>設定函式系結
 
-若要傳送使用 SendGrid 電子郵件，您需要設定您的函式繫結，如下所示：
+若要使用 SendGrid 傳送電子郵件, 您必須設定函式的系結, 如下所示:
 
-1. 選取 **整合**，選擇 輸出**HTTP ($return)** ，然後選取**刪除**。
-1. 選擇 **+ 新輸出**，然後選擇**SendGrid**，然後選擇**選取**。 選擇**安裝**安裝 SendGrid 延伸模組。
-1. 安裝完成時，選取**使用函式傳回值**。 新增有效**位址**接收電子郵件通知。  新增有效**地址**來做為電子郵件寄件者。
-1. 選取 **新**旁**SendGrid API 金鑰應用程式設定**。 請輸入**SendGridAPIKey**做為金鑰，以及您先前記下做為值的 SendGrid API 金鑰。 然後選取 [建立]  。
-1. 選擇**儲存**以儲存您的函式的 SendGrid 繫結。
+1. 選取 [**整合**], 選擇 [輸出**HTTP ($return)** ], 然後選取 [**刪除**]。
+1. 選擇 [ **+ 新增輸出**], 然後選擇 [ **SendGrid**], 再選擇 [**選取**]。 選擇 [**安裝**] 以安裝 SendGrid 擴充功能。
+1. 當安裝完成時, 請選取 [使用函式傳回**值**]。 新增有效的**至位址**以接收電子郵件通知。  新增有效**的 [發**件人] 位址, 做為電子郵件傳送者使用。
+1. 選取 [ **SENDGRID API 金鑰應用程式設定**] 旁的 [**新增**]。 輸入**SendGridAPIKey**做為金鑰, 以及您先前記下的 SendGrid API 金鑰做為值。 然後選取 [建立]。
+1. 選擇 [**儲存**] 以儲存函式的 SendGrid 系結。
 
-整合設定看起來像下列螢幕擷取畫面：
+整合設定看起來如下列螢幕擷取畫面所示:
 
-![函式應用程式整合](media/howto-create-custom-rules/function-integrate.png)
+![函數應用程式整合](media/howto-create-custom-rules/function-integrate.png)
 
 ### <a name="add-the-function-code"></a>新增函式程式碼
 
-若要實作您的函式，新增C#程式碼，以剖析傳入的 HTTP 要求並傳送電子郵件，如下所示：
+若要執行您的C#函式, 請新增程式碼來剖析傳入 HTTP 要求並傳送電子郵件, 如下所示:
 
-1. 選擇**HttpTrigger1**函式應用程式中函式，並取代C#為下列程式碼的程式碼：
+1. 選擇函式應用程式中的**HttpTrigger1**函式, C#並將程式碼取代為下列程式碼:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -206,23 +206,23 @@ ms.locfileid: "66742420"
     }
     ```
 
-    儲存新的程式碼之前，可能會看見一則錯誤訊息。
+    您可能會看到錯誤訊息, 直到您儲存新的程式碼為止。
 
-1. 選取 **儲存**儲存函式。
+1. 選取 [**儲存**] 以儲存函數。
 
-### <a name="test-the-function-works"></a>測試函式可運作
+### <a name="test-the-function-works"></a>測試函式運作
 
-若要在入口網站中測試函式，請先選擇**記錄檔**底部的程式碼編輯器。 然後選擇**測試**右邊的程式碼編輯器。 使用下列做為 JSON**要求本文**:
+若要在入口網站中測試函式, 請先選擇程式碼編輯器底部的 [**記錄**]。 然後選擇 [程式碼編輯器] 右邊的 [**測試**]。 使用下列 JSON 做為**要求主體**:
 
 ```json
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
 ```
 
-函式記錄檔訊息會出現在**記錄檔**面板：
+函數記錄檔訊息會顯示在 [**記錄**] 面板中:
 
-![函式記錄輸出](media/howto-create-custom-rules/function-app-logs.png)
+![函數記錄輸出](media/howto-create-custom-rules/function-app-logs.png)
 
-在幾分鐘的時間之後,**至**電子郵件地址會收到一封電子郵件，使用下列內容：
+幾分鐘後, 收件電子郵件地址會收到包含下列內容的電子郵件:
 
 ```txt
 The following device(s) have stopped sending telemetry:
@@ -233,31 +233,31 @@ test-device-2   2019-05-02T14:23:50.717Z
 test-device-3   2019-05-02T14:24:28.919Z
 ```
 
-## <a name="add-stream-analytics-query"></a>新增 Stream Analytics 查詢
+## <a name="add-stream-analytics-query"></a>新增串流分析查詢
 
-此解決方案會使用 Stream Analytics 查詢來偵測裝置停止超過 120 秒傳送遙測時。 此查詢會使用事件中樞的遙測資料，做為輸入。 作業會將查詢結果傳送至函式應用程式。 在本節中，您可以設定 Stream Analytics 作業：
+此解決方案使用串流分析查詢來偵測裝置停止傳送遙測超過120秒的時間。 查詢會使用來自事件中樞的遙測作為其輸入。 作業會將查詢結果傳送至函數應用程式。 在本節中, 您會設定串流分析作業:
 
-1. 在 Azure 入口網站中，瀏覽至您的 Stream analytics 作業，底下**作業拓樸**選取**輸入**，選擇 **+ 新增串流輸入**，然後選擇 **事件中樞**。
-1. 使用下表中的資訊，來設定使用您先前建立的事件中樞的輸入，然後選擇**儲存**:
+1. 在 Azure 入口網站中, 流覽至您的串流分析作業, 在 [**工作拓撲**] 下選取 [**輸入**], 選擇 [ **+ 新增串流輸入**], 然後選擇 [**事件中樞**]。
+1. 使用下表中的資訊, 使用您先前建立的事件中樞來設定輸入, 然後選擇 [**儲存**]:
 
     | 設定 | 值 |
     | ------- | ----- |
     | 輸入別名 | centraltelemetry |
-    | Subscription | 您的訂用帳戶 |
+    | 訂閱 | 您的訂用帳戶 |
     | 事件中樞命名空間 | 您的事件中樞命名空間 |
-    | 事件中樞名稱 | 使用現有- **centralexport** |
+    | 事件中樞名稱 | 使用現有的- **centralexport** |
 
-1. 底下**作業拓樸**，選取**輸出**，選擇 **+ 新增**，然後選擇**Azure 函式**。
-1. 使用下表中的資訊，來設定輸出，然後選擇**儲存**:
+1. 在 [**作業拓撲**] 下, 選取 [**輸出**], 選擇 [ **+ 新增**], 然後選擇 [ **Azure function**]。
+1. 請使用下表中的資訊來設定輸出, 然後選擇 [**儲存**]:
 
     | 設定 | 值 |
     | ------- | ----- |
     | 輸出別名 | emailnotification |
-    | Subscription | 您的訂用帳戶 |
-    | 函式應用程式 | 函式應用程式 |
+    | 訂閱 | 您的訂用帳戶 |
+    | 函數應用程式 | 您的函數應用程式 |
     | 函數  | HttpTrigger1 |
 
-1. 底下**作業的拓樸**，選取**查詢**和現有的查詢取代為下列 SQL:
+1. 在 [**作業拓撲**] 下, 選取 [**查詢**], 並將現有的查詢取代為下列 SQL:
 
     ```sql
     with
@@ -299,38 +299,38 @@ test-device-3   2019-05-02T14:24:28.919Z
     ```
 
 1. 選取 [ **儲存**]。
-1. 若要啟動 Stream Analytics 作業，請選擇**概觀**，然後**開始**，然後**現在**，然後**啟動**:
+1. 若要啟動串流分析作業, 請依序選擇 **[總覽**]、[**開始**]、[**現在**], 然後**啟動**:
 
     ![串流分析](media/howto-create-custom-rules/stream-analytics.png)
 
-## <a name="configure-export-in-iot-central"></a>在 IoT 中心中設定匯出
+## <a name="configure-export-in-iot-central"></a>在 IoT Central 中設定匯出
 
-瀏覽至[IoT Central 應用程式](https://aka.ms/iotcentral)您範本所建立的 Contoso。 在本節中，您可以設定應用程式串流至事件中樞的遙測從模擬的裝置。 若要匯出的設定：
+流覽至您從 Contoso 範本建立的[IoT Central 應用程式](https://aka.ms/iotcentral)。 在本節中, 您會設定應用程式, 以將遙測從模擬的裝置串流至您的事件中樞。 若要設定匯出:
 
-1. 瀏覽至**連續資料匯出**頁面上，選取 **+ 新增**，然後**Azure 事件中樞**。
-1. 使用下列設定來設定匯出，然後選取**儲存**:
+1. 流覽至 **連續資料匯出** 頁面, 選取  **+ 新增**, 然後**Azure 事件中樞**。
+1. 使用下列設定來設定匯出, 然後選取 [**儲存**]:
 
     | 設定 | 值 |
     | ------- | ----- |
     | 顯示名稱 | 匯出至事件中樞 |
-    | Enabled | 另一 |
-    | 事件中樞命名空間 | 事件中樞命名空間名稱 |
+    | Enabled | 開啟 |
+    | Event Hubs 命名空間 | 您的事件中樞命名空間名稱 |
     | 事件中樞 | centralexport |
-    | 量測 | 另一 |
+    | 度量 | 開啟 |
     | 裝置 | 關閉 |
     | 裝置範本 | 關閉 |
 
-![連續資料匯出組態](media/howto-create-custom-rules/cde-configuration.png)
+![連續資料匯出設定](media/howto-create-custom-rules/cde-configuration.png)
 
-等到匯出狀態變成**執行**再繼續。
+等到匯出狀態為 [**正在**執行], 然後再繼續。
 
 ## <a name="test"></a>測試
 
-若要測試方案，您可以停用 IoT 中心從連續資料匯出至已停止的模擬裝置：
+若要測試解決方案, 您可以停用從 IoT Central 到模擬的已停止裝置的連續資料匯出:
 
-1. 在您的 IoT Central 應用程式，瀏覽至**連續資料匯出**頁面，然後選取**匯出至事件中樞**匯出組態。
-1. 設定**Enabled**要**Off** ，然後選擇 **儲存**。
-1. 在至少兩分鐘後**至**電子郵件地址會收到看起來像下列的範例內容的一或多個電子郵件：
+1. 在您的 IoT Central 應用程式中, 流覽至 [**連續資料匯出**] 頁面, 然後選取 [**匯出至事件中樞**匯出設定]。
+1. 將 [**已啟用**] 設定為**關閉**, 然後選擇 [**儲存**]。
+1. 至少兩分鐘後, 收件電子郵件地址就會收到一或多個類似下列範例內容的電子郵件:
 
     ```txt
     The following device(s) have stopped sending telemetry:
@@ -341,16 +341,16 @@ test-device-3   2019-05-02T14:24:28.919Z
 
 ## <a name="tidy-up"></a>整理一下
 
-不妨整理一下之後此操作說明,，並避免不必要的成本，刪除**DetectStoppedDevices**在 Azure 入口網站中的資源群組。
+若要在此操作說明之後進行整理, 並避免不必要的成本, 請刪除 Azure 入口網站中的**DetectStoppedDevices**資源群組。
 
-您可以刪除 IoT Central 應用程式，從**管理**應用程式內的頁面。
+您可以從應用程式內的 [**管理**] 頁面中刪除 IoT Central 應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 
 在此操作指南中，您已了解如何：
 
-* Stream IoT Central 應用程式使用的遙測*連續資料匯出*。
-* 建立裝置停止傳送資料時偵測到的 Stream Analytics 查詢。
-* 傳送電子郵件通知使用 Azure Functions 和 SendGrid 服務。
+* 使用*連續資料匯出*, 從 IoT Central 應用程式串流遙測。
+* 建立串流分析查詢, 以偵測裝置停止傳送資料的時間。
+* 使用 Azure Functions 和 SendGrid 服務來傳送電子郵件通知。
 
-既然您已經知道如何建立自訂規則和通知時，建議的下一個步驟是了解如何[擴充 Azure IoT Central 自訂的分析與](howto-create-custom-analytics.md)。
+現在您已瞭解如何建立自訂規則和通知, 建議的下一個步驟是瞭解如何[使用自訂分析來擴充 Azure IoT Central](howto-create-custom-analytics.md)。

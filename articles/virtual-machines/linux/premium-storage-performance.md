@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 70da3509ce44fe260f8010ccf6eb1d2192ca6e73
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 79bd41c08a566b55efb4a29084847848e001629f
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695506"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036042"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
@@ -27,3 +27,12 @@ ms.locfileid: "68695506"
 
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
+
+如果您想要對磁片進行基準測試, 請參閱關於[磁片的](disks-benchmarks.md)效能評定文章。
+
+深入了解可用的磁碟類型：[選取磁碟類型](disks-types.md)  
+
+若為 SQL Server 使用者，請參閱「SQL Server 的效能最佳作法」文章：
+
+* [Azure 虛擬機器中的 SQL Server 效能最佳作法](../windows/sql/virtual-machines-windows-sql-performance.md)
+* [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

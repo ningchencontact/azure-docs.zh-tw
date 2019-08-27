@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817204"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036034"
 ---
 ## <a name="application-performance-indicators"></a>應用程式效能指標
 
@@ -96,7 +96,7 @@ IOPS，亦即 Input/output Operations Per Second (每秒鐘輸入/輸出作業�
 | --- | --- | --- | --- |
 | **IOPS 或每秒交易數** |每秒發出給儲存體磁碟的 I/O 要求數。 |Disk Reads/sec <br> Disk Writes/sec |tps <br> r/s <br> w/s |
 | **磁碟讀取和寫入** |磁碟上執行的讀取和寫入作業 %。 |% Disk Read Time <br> % Disk Write Time |r/s <br> w/s |
-| **輸送量** |每秒讀取或寫入磁碟的資料量。 |磁碟讀取的位元組數/秒 <br> Disk Write Bytes/sec |kB_read/s <br> kB_wrtn/s |
+| **輸送量** |每秒讀取或寫入磁碟的資料量。 |Disk Read Bytes/sec <br> Disk Write Bytes/sec |kB_read/s <br> kB_wrtn/s |
 | **延遲** |完成磁碟 IO 要求的總時間。 |Average Disk sec/Read <br> Average disk sec/Write |await <br> svctm |
 | **IO 大小** |發出給儲存體磁碟的 I/O 要求大小。 |Average Disk Bytes/Read <br> Average Disk Bytes/Write |avgrq-sz |
 | **佇列深度** |等候讀取或寫入儲存體磁碟的未完成 I/O 要求數。 |目前磁碟佇列長度 |avgqu-sz |
@@ -111,7 +111,7 @@ IOPS，亦即 Input/output Operations Per Second (每秒鐘輸入/輸出作業�
 
 影響在進階儲存體上執行之應用程式效能的主要因素, 是 IO 要求、VM 大小、磁片大小、磁片數目、磁碟快取、多執行緒和佇列深度的本質。 您可以使用系統提供的參數來控制這些因素。 大部分應用程式可能沒有選項讓您直接改變 IO 大小和佇列深度。 例如，如果您使用 SQL Server，您無法選擇 IO 大小和佇列深度。 SQL Server 會選擇最佳 IO 大小和佇列深度值，以獲得最高效能。 務必了解這兩種因素對應用程式效能的影響，才能佈建適當的資源來滿足效能需求。
 
-在本節中，請參閱您建立的應用程式需求檢查清單，以識別您需要將應用程式效能最佳化到何種程度。 據此，您將能夠判斷需要調整本節中的哪些因素。 若要證明每個因素對應用程式效能的影響，請在應用程式安裝上執行效能評定工具。 如需在 Windows 和 Linux Vm 上執行一般效能評定工具的步驟, 請參閱本文結尾的基準測試一節。
+在本節中，請參閱您建立的應用程式需求檢查清單，以識別您需要將應用程式效能最佳化到何種程度。 據此，您將能夠判斷需要調整本節中的哪些因素。 若要證明每個因素對應用程式效能的影響，請在應用程式安裝上執行效能評定工具。 如需在 Windows 和 Linux Vm 上執行一般效能評定工具的步驟, 請參閱最後連結的基準測試一文。
 
 ### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>一眼就能將 IOPS、輸送量和延遲優化
 
@@ -166,7 +166,7 @@ IO 大小是其中一個很重要的因素。 IO 大小是指應用程式所產�
 > [!NOTE]
 > 因為提高 IOPS 或輸送量時，也會提高另一個因素，在提高任何一個因素時，請確保不會達到磁碟或 VM 的輸送量或 IOPS 限制。
 
-若要證明 IO 大小對應用程式效能的影響，您可以在 VM 和磁碟上執行效能評定工具。 請建立多個測試回合，而且每個回合使用不同的 IO 大小，以查看影響。 如需詳細資訊, 請參閱本文結尾的基準測試一節。
+若要證明 IO 大小對應用程式效能的影響，您可以在 VM 和磁碟上執行效能評定工具。 請建立多個測試回合，而且每個回合使用不同的 IO 大小，以查看影響。 如需詳細資訊, 請參閱最後連結的基準測試一文。
 
 ## <a name="high-scale-vm-sizes"></a>高延展性 VM 大小
 
@@ -326,7 +326,7 @@ sudo yum install microsoft-hyper-v
 
 在 Windows 中，您可以使用「儲存空間」將磁碟串接在一起。 您必須為集區中的每個磁碟設定一欄。 否則，由於磁碟之間的流量分配不平均，等量磁碟區的整體效能可能會低於預期。
 
-重要事項:您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。 連接8個以上的磁片時, 請使用 PowerShell 來建立磁片區。 您可以使用 PowerShell 將欄數設定為等於磁碟數量。 例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
+重要：您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。 連接8個以上的磁片時, 請使用 PowerShell 來建立磁片區。 您可以使用 PowerShell 將欄數設定為等於磁碟數量。 例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
 
 在 Linux 上，請使用 MDADM 公用程式將磁碟串接在一起。 如需有關在 Linux 上等量分割磁碟的詳細步驟，請參閱 [在 Linux 上設定軟體 RAID](../articles/virtual-machines/linux/configure-raid.md)。
 
@@ -387,11 +387,3 @@ Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指�
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解可用的磁碟類型：
-
-* [選取磁碟類型](../articles/virtual-machines/windows/disks-types.md)  
-
-若為 SQL Server 使用者，請參閱「SQL Server 的效能最佳作法」文章：
-
-* [Azure 虛擬機器中的 SQL Server 效能最佳作法](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

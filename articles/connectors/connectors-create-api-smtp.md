@@ -11,12 +11,12 @@ ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1649f197d4dbd88e2b485ab32f254a2d09696a84
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106145"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050737"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>使用 Azure Logic Apps 從您的 SMTP 帳戶傳送電子郵件
 
@@ -24,7 +24,7 @@ ms.locfileid: "62106145"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 
 
 * 您的 SMTP 帳戶和使用者認證
 
@@ -36,7 +36,7 @@ ms.locfileid: "62106145"
 
   例如，您可以使用**記錄建立時機** Salesforce 觸發程序來啟動邏輯應用程式。 
   此觸發程序會在每次於 Salesforce 中建立新記錄 (例如潛在客戶) 時引發。 
-  然後，您可以使用 SMTP [傳送電子郵件]  動作，來追蹤此觸發程序。 這樣一來，在建立新記錄時，邏輯應用程式會從您的 SMTP 帳戶，傳送與新記錄相關的電子郵件。
+  然後，您可以使用 SMTP [傳送電子郵件] 動作，來追蹤此觸發程序。 這樣一來，在建立新記錄時，邏輯應用程式會從您的 SMTP 帳戶，傳送與新記錄相關的電子郵件。
 
 ## <a name="connect-to-smtp"></a>連接到 SMTP
 
@@ -44,10 +44,10 @@ ms.locfileid: "62106145"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]  。 
+1. 請在想要新增 SMTP 動作的最後一個步驟底下，選擇 [新增步驟]。 
 
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
-   選擇顯示的加號 ( **+** )，然後選取 [新增動作]  。
+   選擇顯示的加號 ( **+** )，然後選取 [新增動作]。
 
 1. 在搜尋方塊中，輸入 "smtp" 作為篩選條件。 請在動作清單底下，選取您想要的動作。
 
@@ -55,7 +55,7 @@ ms.locfileid: "62106145"
 
    | 屬性 | 必要項 | 描述 |
    |----------|----------|-------------|
-   | 連線名稱  | 是 | 與 SMTP 伺服器的連線名稱 | 
+   | 連線名稱 | 是 | 與 SMTP 伺服器的連線名稱 | 
    | **SMTP 伺服器位址** | 是 | SMTP 伺服器的位址 | 
    | **使用者名稱** | 是 | SMTP 帳戶的使用者名稱 | 
    | **密碼** | 是 | SMTP 帳戶的密碼 | 

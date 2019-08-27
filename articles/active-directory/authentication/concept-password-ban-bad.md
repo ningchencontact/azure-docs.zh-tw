@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2b4ed91969248bc0818f98306a108555eac424
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67853046"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032884"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
 
@@ -98,7 +98,7 @@ Azure AD 密碼保護的設計, 是為了有效率地封鎖所有可能用於密
 
 即使使用者的密碼包含禁用密碼，如果整體密碼還不夠強，仍然可能接受此密碼。 新設定的密碼會經歷下列步驟來評估其整體強度，以判斷應該接受或拒絕該密碼。
 
-### <a name="step-1-normalization"></a>步驟 1：正規化
+### <a name="step-1-normalization"></a>步驟 1:正規化
 
 新密碼會先經歷正規化程序。 這項技術可讓一小部分的禁用密碼對應到較大的一組可能弱式密碼。
 
@@ -113,7 +113,7 @@ Azure AD 密碼保護的設計, 是為了有效率地封鎖所有可能用於密
 
 範例：假設密碼 "blank" 遭到禁止，而使用者嘗試將其密碼變更為 “Bl@nK”。 即使 “Bl@nk” 並未明確遭到禁用，正規化程序會將這個密碼轉換為 “blank”，這禁用密碼。
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>步驟 2：檢查密碼是否被視為禁用
+### <a name="step-2-check-if-password-is-considered-banned"></a>步驟 2:檢查密碼是否被視為禁用
 
 #### <a name="fuzzy-matching-behavior"></a>模糊比對行為
 
@@ -121,7 +121,7 @@ Azure AD 密碼保護的設計, 是為了有效率地封鎖所有可能用於密
 
 範例：假設密碼 "abcdef" 遭到禁止，而使用者嘗試將其密碼變更為下列其中一項：
 
-‘abcdeg’    *(最後一個字元從 ‘f’ 變更為 ‘g’)* ‘abcdefg’   *’(g’ 附加至結尾)* ‘abcde’     *(尾端 ‘f’ 已從結尾刪除)*
+' abcdeg ' *(最後一個字元從 ' f ' 變更為 ' g ')* ' abcdefg ' *' (g ' 附加至結尾)* ' abcde ' *(尾端 ' f ' 已從結尾刪除)*
 
 以上每個密碼並未明確符合禁用密碼 "abcdef"。 不過, 由於每個範例都是在禁用字詞 ' abcdef ' 的1個編輯距離中, 因此它們全都視為符合「abcdef」。
 
@@ -160,7 +160,7 @@ Azure AD 密碼保護的設計, 是為了有效率地封鎖所有可能用於密
 
 |   | 使用全域禁用密碼清單的 Azure AD 密碼保護 | 使用自訂禁用密碼清單的 Azure AD 密碼保護|
 | --- | --- | --- |
-| 僅限雲端使用者 | Azure AD Free | Azure AD Premium P1 或 P2 |
+| 僅限雲端使用者 | Azure AD 免費版 | Azure AD Premium P1 或 P2 |
 | 從內部部署 Windows Server Active Directory 同步處理的使用者 | Azure AD Premium P1 或 P2 | Azure AD Premium P1 或 P2 |
 
 > [!NOTE]

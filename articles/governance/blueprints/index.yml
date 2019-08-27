@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 06/14/2019
   ms.author: dacoulte
 abstract:
   description: Azure 藍圖使用 Azure Resource Manager 範本等可組合成品來佈建資源、角色型存取控制和原則，協助您透過重複的步驟部署及更新雲端環境。
@@ -25,6 +25,11 @@ sections:
               src: ./media/portal.svg
             text: Azure 入口網站
             href: create-blueprint-portal.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: create-blueprint-powershell.md
           - image:
               alt: REST
               src: ./media/rest.svg

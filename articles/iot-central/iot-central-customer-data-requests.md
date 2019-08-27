@@ -3,17 +3,17 @@ title: Azure IoT Central 的客戶資料要求功能 | Microsoft Docs
 description: Azure IoT 中心的客戶資料要求功能
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/24/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 4c63ac8d6b16b2a0476600f67c66b2ccc8dc2aab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1775c8680b2e0d931c623d2e8ced2224205a767
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685563"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050481"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
 
@@ -33,7 +33,7 @@ Azure Active Directory 物件識別碼可用來識別使用者和指派角色。
 
 ## <a name="deleting-customer-data"></a>刪除客戶資料
 
-若要刪除使用者資料，只能透過 IoT 中心管理頁面。 應用程式系統管理員可以選取要刪除選取的使用者**刪除**中要刪除記錄的應用程式右上角。 應用程式系統管理員也可以移除不再與特定應用程式相關聯的個人帳戶。
+若要刪除使用者資料，只能透過 IoT 中心管理頁面。 應用程式系統管理員可以選取要刪除的使用者, 然後選取應用程式右上角的 [**刪除**] 來刪除記錄。 應用程式系統管理員也可以移除不再與特定應用程式相關聯的個人帳戶。
 
 刪除使用者之後，就不會再將警示以電子郵件傳送給他們。 不過，這些使用者的電子郵件地址必須從每個已設定的警示中個別移除。
 

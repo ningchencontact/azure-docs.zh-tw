@@ -16,25 +16,25 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9af969700f4f2dfbedc4833badd7e7349696302
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39e76abcac94a877e6bc7ea5c417c77c8c2febff
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244585"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032686"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>加入混合式 Azure AD 的後置設定工作
 
 在您執行 Azure AD Connect 為組織進行加入混合式 Azure AD 的設定後，您必須再執行若干步驟，才能完成該設定。  請執行您的裝置適用的步驟即可。
 
 ## <a name="1-configure-controlled-rollout-optional"></a>1.設定受控制的導入 (選擇性)
-所有已加入網域且執行 Windows 10 和 Windows Server 2016 的裝置，都會在所有設定步驟皆完成後自動向 Azure AD 註冊。 如果您偏好的受控制的導入，而不是此自動註冊，您可以使用群組原則選擇性地啟用或停用自動導入。  此群組原則應在開始進行其他設定步驟之前設定：Azure AD
+所有已加入網域且執行 Windows 10 和 Windows Server 2016 的裝置，都會在所有設定步驟皆完成後自動向 Azure AD 註冊。 如果您偏好的受控制的導入，而不是此自動註冊，您可以使用群組原則選擇性地啟用或停用自動導入。  在開始其他設定步驟之前, 應該先設定此群組原則:
 * 在您的 Active Directory 中建立群組原則物件。
 * 為其命名 (例如，加入混合式 Azure AD)。
 * 編輯並移至：[電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [裝置註冊]。
 
 >[!NOTE]
->2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所] 
+>2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所]
 
 * 停用此設定：將加入網域的電腦註冊為裝置。
 * 套用並按一下 [確定]。
@@ -94,7 +94,7 @@ ms.locfileid: "60244585"
 * 將 GPO 連結至您選擇的位置 (組織單位、安全性群組，或所有裝置的網域)。
 
 >[!NOTE]
->2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所] 
+>2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所]
 
 ## <a name="next-steps"></a>後續步驟
 [設定裝置回寫](how-to-connect-device-writeback.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 338ceef8ce94e97f7569f85b0079f75aed033612
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 18bbeb2b4936b1c8a03ffdc7eade8dc92d094fde
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558632"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050604"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 Azure 虛擬網路 (Vnet) 可讓您將任何 Azure 資源放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -140,7 +140,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 + **SMTP 轉送**：SMTP 轉送的輸出網路連線能力, 它會`smtpi-co1.msn.com`在主機`smtpi-db3.msn.com`、 `smtpi-ch1.msn.com` `smtpi-sin.msn.com` 、和底下解析`ies.global.microsoft.com`
 
-+ **開發人員入口網站 CAPTCHA**：開發人員入口網站 CAPTCHA 的輸出網路連線，是在主機 `client.hip.live.com` 下解析。
++ **開發人員入口網站 CAPTCHA**：開發人員入口網站 CAPTCHA 的輸出網路連線能力, 它會在主機`client.hip.live.com`和`partner.hip.live.com`下解析。
 
 + **Azure 入口網站診斷**：從虛擬網路內部使用 APIM 延伸模組時，若要從 Azure 入口網站啟用診斷記錄的流程，則需要在連接埠 443 上有 `dc.services.visualstudio.com` 的輸出存取權。 這有助於針對您在使用延伸模組時所可能面臨的問題進行疑難排解。
 

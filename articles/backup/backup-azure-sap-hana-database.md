@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dacurwin
-ms.openlocfilehash: f5a76ef44ebef0689ec0587434996f28ba7b7025
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a11d454feb965907f3bd4e994c0916eeb7236fa7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735547"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034558"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>將 SAP Hana 資料庫備份至 Azure
 
@@ -106,9 +106,9 @@ ms.locfileid: "68735547"
 
 1. 在步驟2中, 按一下 [**設定備份**]。
 2. 在 [**選取要備份的專案**] 中, 選取您想要保護的所有資料庫, > **[確定]** 。
-3. 在 [ **備份原則** > ] 中,**選擇 [備份原則**], 並根據下列指示建立資料庫的新備份原則。
+3. 在 [**備份原則** > ] 中,**選擇 [備份原則**], 並根據下列指示建立資料庫的新備份原則。
 4. 建立原則之後, 請在 [**備份**] 功能表上, 按一下 [**啟用備份**]。
-5. 在入口網站的 [ **通知** ] 區域中, 追蹤備份設定的進度。
+5. 在入口網站的 [**通知**] 區域中, 追蹤備份設定的進度。
 
 ### <a name="create-a-backup-policy"></a>建立備份原則
 

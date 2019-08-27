@@ -12,33 +12,38 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 08/26/2019
 ms.author: b-juche
-ms.openlocfilehash: 03a9f61d8840149419eac2b4cf5f8d9f50ed6546
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d5bdb7ead976065391ab31261b30328f03ff2177
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848782"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051804"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>使用 Azure NetApp Files 的方案架構
 本文提供最佳做法的參考, 可協助您瞭解使用 Azure NetApp Files 的解決方案架構。  
 
-## <a name="solutions-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service 的解決方案 (AKS)
+## <a name="azure-kubernetes-service-aks-solutions"></a>Azure Kubernetes Service (AKS) 解決方案
 
-[Azure NetApp Files 與 AKS 整合](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
+* [Azure NetApp Files 與 AKS 整合](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
 
-## <a name="solutions-for-oracle-database"></a>Oracle database 的解決方案
+## <a name="oracle-database-solutions"></a>Oracle 資料庫解決方案
 
 * [使用 Azure NetApp Files 的 Oracle on Azure 部署最佳作法指南](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Oracle VM 映射及其在 Microsoft Azure 上的部署:共用存放裝置設定選項](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 
-## <a name="solutions-for-sap-applications"></a>SAP 應用程式的解決方案
+## <a name="sap-application-solutions"></a>SAP 應用程式解決方案 
 
 * [使用 Azure NetApp Files 的 Microsoft Azure 上的 SAP 應用程式](https://www.netapp.com/us/media/tr-4746.pdf)
 * [SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 高可用性與適用于 SAP 應用程式的 Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
 * [Azure 虛擬機器高可用性, 適用于 Red Hat Enterprise Linux 上的 SAP NetWeaver, 以及適用于 SAP 應用程式的 Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 
-## <a name="talon-solutions"></a>Talon 解決方案 
+## <a name="talon-solutions"></a>Talon 解決方案
 
-[使用 Azure NetApp Files 和 Talon FAST™進行全域散發的企業檔案共用](https://www.talonstorage.com/products/azure-netapp-files)
+* [使用 Azure NetApp Files 和 Talon FAST™進行全域散發的企業檔案共用](https://www.talonstorage.com/products/azure-netapp-files)
+
+## <a name="windows-virtual-desktopvdi-solutions"></a>Windows 虛擬桌面/VDI 解決方案
+
+* [使用 Azure NetApp Files 建立主機集區的 FSLogix 設定檔容器](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
+

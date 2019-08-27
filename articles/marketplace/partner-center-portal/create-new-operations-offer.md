@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f9223fdead9d22e8f58076b47502e71c06741e3f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: e711e94a4ac8098137456c2ae5bf018107687354
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900113"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033227"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>建立新的 Dynamics 365 for Operations 供應專案
 
@@ -339,11 +339,11 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 ## <a name="supplemental-content"></a>補充內容
 
-此頁面可讓您提供供應專案的其他必要資訊。
+此頁面可讓您提供供應專案的其他相關資訊, 以協助我們驗證您的供應專案。 此資訊不會向客戶顯示或發佈至 marketplace。
 
 ### <a name="validation-assets"></a>驗證資產
 
-您必須在此區段中上傳自訂分析報表 (CAR)。 這份報告是根據一組預先定義的最佳作法規則來分析您的自訂和延伸模組模型而產生的。
+您必須在此區段中上傳[自訂分析報表 (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) 。 這份報告是根據一組預先定義的最佳作法規則來分析您的自訂和延伸模組模型而產生的。
 
 這個檔案必須是 .xls 或 .xlsx 格式。 如果您有一個以上的報表, 您可以上傳包含所有報表的 .zip 檔案。
 

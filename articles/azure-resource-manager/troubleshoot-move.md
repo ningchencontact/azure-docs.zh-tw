@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 445ee2784a74a366089a49a0e2f2f17d51ef93bf
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: b688218b871a5f652e7f4de172d23f1b1fb0aa5c
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624308"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035511"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>針對將 Azure 資源移至新的資源群組或訂用帳戶進行疑難排解
 
@@ -43,7 +43,9 @@ ms.locfileid: "69624308"
 
 ## <a name="resource-not-in-succeeded-state"></a>資源不是處於成功狀態
 
-如果您收到錯誤訊息, 指出無法移動資源, 因為它不是處於成功狀態, 實際上可能是封鎖移動的相依資源。 請參閱[相依資源的狀態](./move-limitations/networking-move-limitations.md#state-of-dependent-resources)。
+當您收到錯誤訊息, 指出無法移動資源, 因為它不是處於成功狀態, 實際上可能是封鎖移動的相依資源。
+
+如果來源或目標資源群組包含虛擬網路, 則會在移動期間檢查虛擬網路的所有相依資源的狀態。 如果其中任何一項資源處於失敗狀態, 則會封鎖移動。 例如, 如果使用虛擬網路的虛擬機器失敗, 則移動會遭到封鎖。 即使虛擬機器不是其中一項要移動的資源, 而且不在移動的其中一個資源群組中, 移動也會遭到封鎖。 若要避免這個問題, 請將您的資源移至沒有虛擬網路的資源群組。
 
 ## <a name="next-steps"></a>後續步驟
 

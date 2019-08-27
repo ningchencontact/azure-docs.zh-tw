@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: f981c14e26c51c427dab6b418cab8df46b1bb026
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302253"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034743"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>瞭解遷移工具的運作方式
 
@@ -95,7 +95,7 @@ AnonymousThrottlingError、SASThrottlingError 和 ThrottlingError 上的傳統�
 - 服務可用性
 - 儲存體容量
 - 節流要求
-- 要求總數
+- 要求總計
 
 平均每秒要求數、一致性層級、每分鐘取用的最大 RUPM、每秒最大 ru、觀察到的讀取延遲、觀察到的寫入延遲、儲存容量目前無法在[新系統](metrics-supported.md#microsoftdocumentdbdatabaseaccounts)中使用。
 
@@ -147,7 +147,7 @@ Mongo 失敗要求的警示必須分割成多個警示, 因為沒有提供相同
 | AuthorizationError | 維度為 "ResponseType" = "AuthorizationError" 的交易度量 | |
 | AverageE2ELatency | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
-| Capacity | BlobCapacity | 使用`aggregationType` ' average ', 而不是 ' last '。 度量僅適用于 Blob 服務 |
+| 容量 | BlobCapacity | 使用`aggregationType` ' average ', 而不是 ' last '。 度量僅適用于 Blob 服務 |
 | ClientOtherError | 維度為 "ResponseType" = "ClientOtherError" 的交易度量  | |
 | ClientTimeoutError | 維度為 "ResponseType" = "ClientTimeOutError" 的交易度量 | |
 | ContainerCount | ContainerCount | 使用`aggregationType` ' average ', 而不是 ' last '。 度量僅適用于 Blob 服務 |
@@ -260,9 +260,16 @@ Mongo 失敗要求的警示必須分割成多個警示, 因為沒有提供相同
 
 因為您訂用帳戶中的傳統警示規則有一些最近的變更, 所以無法遷移訂用帳戶。 這個問題是暫時性的。 在數天后, 您可以在遷移狀態恢復**準備進行遷移**之後重新開機遷移。
 
-### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>原則或範圍鎖定, 導致我們無法遷移您的規則
+### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>範圍鎖定導致我們無法遷移您的規則
 
-在遷移過程中, 將會建立新的計量警示和新的動作群組, 然後將會刪除傳統警示規則。 不過, 有一個原則或範圍鎖定, 導致我們無法建立資源。 根據原則或範圍鎖定, 部分或所有規則無法遷移。 若要解決這個問題, 您可以暫時移除範圍鎖定或原則, 並再次觸發遷移。
+在遷移過程中, 將會建立新的計量警示和新的動作群組, 然後將會刪除傳統警示規則。 不過, 範圍鎖定可能會讓我們無法建立或刪除資源。 根據範圍鎖定, 部分或所有規則無法遷移。 若要解決這個問題, 您可以移除訂用帳戶、資源群組或資源的範圍鎖定, 這會列在[遷移工具](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)中, 然後再次觸發遷移。 範圍鎖定無法停用, 而且必須在遷移程式期間移除。 [深入瞭解管理範圍鎖定](../../azure-resource-manager/resource-group-lock-resources.md#portal)。
+
+### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>具有「拒絕」效果的原則導致我們無法遷移您的規則
+
+在遷移過程中, 將會建立新的計量警示和新的動作群組, 然後將會刪除傳統警示規則。 不過, 原則可能會讓我們無法建立資源。 根據原則, 部分或所有規則無法遷移。 封鎖進程的原則會列在 [[遷移] 工具](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)中。 解決此問題的方法是:
+
+- 從原則指派中排除訂用帳戶或資源群組, 以進行遷移程式的持續時間。 [深入瞭解管理原則排除範圍](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion)。
+- 移除或變更「audit」或「append」的效果 (例如, 可以解決與遺漏標記相關的問題)。 [深入瞭解管理原則效果](../../governance/policy/concepts/definition-structure.md#policy-rule)。
 
 ## <a name="next-steps"></a>後續步驟
 

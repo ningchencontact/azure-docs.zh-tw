@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 7cda51870a98b2606a0133a61ad6f786e7e9324a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.date: 08/26/2019
+ms.openlocfilehash: 58dd9ade749458facd6f11682af0b730258a7584
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900146"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033241"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>為客戶參與 & PowerApps 供應專案建立新的 Dynamics 365
 
@@ -353,7 +353,7 @@ Microsoft 可以藉由使用這種類型的試用產品來裝載和維護服務�
 
 ## <a name="supplemental-content"></a>補充內容
 
-此頁面可讓您提供供應專案的其他必要資訊。
+此頁面可讓您提供供應專案的其他相關資訊, 以協助我們驗證您的供應專案。 此資訊不會向客戶顯示或發佈至 marketplace。
 
 ### <a name="key-usage-scenario"></a>金鑰使用案例
 

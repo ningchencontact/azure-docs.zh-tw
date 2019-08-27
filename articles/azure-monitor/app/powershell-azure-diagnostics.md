@@ -11,16 +11,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: mbullwin
-ms.openlocfilehash: 89ed75e4ae3363c2cb25020e6074aa17baf94eda
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0c963e4cd7befffe69fef159542eabd29059e3d9
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827097"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035195"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>使用 PowerShell 設定 Azure 雲端服務的 Application Insights
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [Microsoft Azure](https://azure.com) 可以[設定為傳送 Azure 診斷](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)至 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)。 診斷與 Azure 雲端服務和 Azure VM 相關。 可輔助您從應用程式使用 Application Insights SDK 傳送的遙測資料。 在 Azure 中自動建立新資源的程序中，您可以使用 PowerShell 設定診斷。
 

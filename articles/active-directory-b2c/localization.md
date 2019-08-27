@@ -1,5 +1,5 @@
 ---
-title: 當地語系化 - Azure Active Directory B2C | Microsoft Docs
+title: 當地語系化-Azure Active Directory B2C
 description: 指定 Azure Active Directory B2C 中自訂原則的 Localization 元素。
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a02983c5019870e8b17db48184b2f238a82f8a40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec9b4e7ce761d524d047f4d12cab9e5b782e6032
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510589"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70033453"
 ---
 # <a name="localization"></a>當地語系化
 
@@ -47,7 +47,7 @@ ms.locfileid: "66510589"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1:n | 支援語言清單。 | 
+| SupportedLanguages | 1:n | 支援語言清單。 |
 | LocalizedResources | 0:n | 當地語系化資源的清單。 |
 
 ## <a name="supportedlanguages"></a>SupportedLanguages
@@ -65,7 +65,7 @@ ms.locfileid: "66510589"
 
 | 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1:n | 根據 RFC 5646 顯示符合語言標記的內容 - 識別語言的標記。 | 
+| SupportedLanguage | 1:n | 根據 RFC 5646 顯示符合語言標記的內容 - 識別語言的標記。 |
 
 ## <a name="localizedresources"></a>LocalizedResources
 
@@ -86,7 +86,7 @@ ms.locfileid: "66510589"
 
 **LocalizedCollections** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1:n | 支援語言清單。 |
 
@@ -102,16 +102,17 @@ ms.locfileid: "66510589"
 
 **LocalizedCollection** 元素包含下列元素：
 
-| 項目 | 發生次數 | 描述 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
-| Item | 0:n | 定義在使用者介面中可供使用者選取的某個宣告選項，例如下拉式清單中的值。 |
+| 項目 | 0:n | 定義在使用者介面中可供使用者選取的某個宣告選項，例如下拉式清單中的值。 |
 
 **Item** 元素包含下列屬性：
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| Text | 是 | 此選項應會在使用者介面中向使用者顯示的易記顯示字串。 |
+| 文字 | 是 | 此選項應會在使用者介面中向使用者顯示的易記顯示字串。 |
 | 值 | 是 | 與選取此選項相關聯的字串宣告值。 |
+| SelectByDefault | 否 | 指出預設是否應該在 UI 中選取此選項。 可能的值：True 或 False。 |
 
 下列範例顯示 **LocalizedCollections** 元素的用法。 其包含兩個 **LocalizedCollection** 元素，一個適用於英文，另一個適用於西班牙文。 兩者皆會使用英文和西班牙文的項目清單，設定宣告 `Gender` 的**限制**集合。
 
@@ -131,7 +132,6 @@ ms.locfileid: "66510589"
       <Item Text="Masculino" Value="M" />
     </LocalizedCollection>
 </LocalizedCollections>
-
 ```
 
 ### <a name="localizedstrings"></a>LocalizedStrings
@@ -147,7 +147,7 @@ ms.locfileid: "66510589"
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | ElementType | 是 | 參考原則中的宣告類型元素或使用者介面元素。 可能的值：`ClaimType`、`UxElement`、`ErrorMessage`、`Predicate` 或  。 `ClaimType` 值用於將其中一個宣告屬性當地語系化，如 StringId 中所指定。 `UxElement` 值用於將其中一個使用者介面元素當地語系化，如 StringId 中所指定。 `ErrorMessage` 值用於將其中一個系統錯誤訊息當地語系化，如 StringId 中所指定。 `Predicate` 值用於將其中一個 [Predicate](predicates.md) 錯誤訊息當地語系化，如 StringId 中所指定。 `InputValidation` 值用於將其中一個 [PredicateValidation](predicates.md) 群組錯誤訊息當地語系化，如 StringId 中所指定。 |
-| ElementId | 是 | 如果 **ElementType** 設為 `ClaimType``Predicate` 或 `InputValidation`，則此元素會包含對 ClaimsSchema 區段中已定義之宣告類型的參考。 | 
+| ElementId | 是 | 如果 **ElementType** 設為 `ClaimType``Predicate` 或 `InputValidation`，則此元素會包含對 ClaimsSchema 區段中已定義之宣告類型的參考。 |
 | StringId | 是 | 如果 **ElementType** 設為 `ClaimType`，則此元素會包含對宣告類型之屬性的參考。 可能的值：`DisplayName`、`AdminHelpText` 或 `PatternHelpText`。 `DisplayName` 值用於設定宣告顯示名稱。 `AdminHelpText` 值用於設定宣告使用者的說明文字名稱。 `PatternHelpText` 值用於設定宣告模式說明文字。 如果 **ElementType** 設為 `UxElement`，則此元素會包含使用者介面元素之屬性的參考。 如果 **ElementType** 設為 `ErrorMessage`，則此元素會指定錯誤訊息的識別碼。 如需 `UxElement` 識別碼的完整清單，請參閱[當地語系化字串識別碼](localization-string-ids.md)。|
 
 
@@ -187,7 +187,7 @@ ms.locfileid: "66510589"
 
 <LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>              
+<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
 ## <a name="set-up-localization"></a>設定當地語系化
@@ -207,12 +207,13 @@ ms.locfileid: "66510589"
 </Localization>
 ```
 
-### <a name="provide-language-specific-strings-and-collections"></a>提供特定語言的字串和集合 
+### <a name="provide-language-specific-strings-and-collections"></a>提供特定語言的字串和集合
 
-請在關閉 **SupportedLanguages** 元素之後，在 **Localization** 元素內新增 **LocalizedResources** 元素。 替每個頁面 (內容定義) 與您想要支援的語言新增 **LocalizedResources** 元素。 若要自訂英文、西班牙文和法文的統一註冊或登入頁面、註冊頁面和多重要素驗證 (MFA) 頁面，請新增下列 **LocalizedResources** 元素。  
+請在關閉 **SupportedLanguages** 元素之後，在 **Localization** 元素內新增 **LocalizedResources** 元素。 替每個頁面 (內容定義) 與您想要支援的語言新增 **LocalizedResources** 元素。 若要自訂英文、西班牙文和法文的統一註冊或登入頁面、註冊頁面和多重要素驗證 (MFA) 頁面，請新增下列 **LocalizedResources** 元素。
+
 - 統一註冊或登入頁面 (英文) `<LocalizedResources Id="api.signuporsignin.en">`
 - 統一註冊或登入頁面 (西班牙文) `<LocalizedResources Id="api.signuporsignin.es">`
-- 統一註冊或登入頁面 (法文) `<LocalizedResources Id="api.signuporsignin.fr">` 
+- 統一註冊或登入頁面 (法文) `<LocalizedResources Id="api.signuporsignin.fr">`
 - 註冊 (英文) `<LocalizedResources Id="api.localaccountsignup.en">`
 - 註冊 (西班牙文) `<LocalizedResources Id="api.localaccountsignup.es">`
 - 註冊 (法文) `<LocalizedResources Id="api.localaccountsignup.fr">`
@@ -220,7 +221,7 @@ ms.locfileid: "66510589"
 - 多重要素驗證 (西班牙文) `<LocalizedResources Id="api.phonefactor.es">`
 - 多重要素驗證 (法文) `<LocalizedResources Id="api.phonefactor.fr">`
 
-每個 **LocalizedResources** 元素包含所有必要的 **LocalizedStrings** 元素，其中有多個 **LocalizedString** 元素和 **LocalizedCollections** 元素，以及多個 **LocalizedCollection** 元素。  下列範例會新增註冊頁面英文當地語系化： 
+每個 **LocalizedResources** 元素包含所有必要的 **LocalizedStrings** 元素，其中有多個 **LocalizedString** 元素和 **LocalizedCollections** 元素，以及多個 **LocalizedCollection** 元素。  下列範例會新增註冊頁面英文當地語系化：
 
 注意:此範例會參考 `Gender` 和 `City` 宣告類型。 若要使用此範例，請務必定義這些宣告。 如需詳細資訊，請參閱 [ClaimsSchema](claimsschema.md)。
 
@@ -276,7 +277,7 @@ ms.locfileid: "66510589"
 </LocalizedResources>
 ```
 
-### <a name="edit-the-contentdefinition-for-the-page"></a>編輯頁面的 ContentDefinition 
+### <a name="edit-the-contentdefinition-for-the-page"></a>編輯頁面的 ContentDefinition
 
 對於欲進行當地語系化的每個頁面，請指定要在 **ContentDefinition** 中尋找的語言代碼。
 
@@ -363,7 +364,3 @@ ms.locfileid: "66510589"
   </Localization>
 </BuildingBlocks>
 ```
-
-
-
-

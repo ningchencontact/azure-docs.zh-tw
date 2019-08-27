@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4d3816eebe85f01301c770a50a618142bcbfbb21
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 92274f63db78d53bdd0fa3fd440977422be3b4a1
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839959"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036289"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署檔案系統來回複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -34,11 +34,11 @@ ms.locfileid: "67839959"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>支援的案例
-您可以從內部部署檔案系統  將資料複製到下列資料存放區：
+您可以從內部部署檔案系統將資料複製到下列資料存放區：
 
 [!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
 
-您可以從下列資料存放區將資料複製到內部部署檔案系統  ：
+您可以從下列資料存放區將資料複製到內部部署檔案系統：
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
@@ -46,7 +46,7 @@ ms.locfileid: "67839959"
 > 來源檔案成功複製至目的地後，「複製活動」不會將它刪除。 如果您需要在成功複製後刪除來源檔案，請建立自訂活動來刪除檔案，並在管道中使用該活動。
 
 ## <a name="enabling-connectivity"></a>啟用連線
-Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔案系統，或從內部部署的檔案系統連出。 您必須在內部部署環境安裝「資料管理閘道」，Data Factory 服務才能連接到任何支援的內部部署資料存放區 (包括檔案系統)。 如需有關資料管理閘道以及設定閘道的逐步指示，請參閱[利用資料管理閘道在內部部署資源和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)。 除了資料管理閘道，不需要安裝其他二進位檔即可和內部部署檔案系統進行通訊。 您必須安裝和使用「資料管理閘道」，即使檔案系統位於 Azure IaaS VM 中也一樣。 如需有關閘道的詳細資訊，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。
+Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案系統，或從內部部署的檔案系統連出。 您必須在內部部署環境安裝「資料管理閘道」，Data Factory 服務才能連接到任何支援的內部部署資料存放區 (包括檔案系統)。 如需有關資料管理閘道以及設定閘道的逐步指示，請參閱[利用資料管理閘道在內部部署資源和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)。 除了資料管理閘道，不需要安裝其他二進位檔即可和內部部署檔案系統進行通訊。 您必須安裝和使用「資料管理閘道」，即使檔案系統位於 Azure IaaS VM 中也一樣。 如需有關閘道的詳細資訊，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。
 
 若要使用 Linux 檔案共用，請在 Linux 伺服器上安裝 [Samba](https://www.samba.org/)，在 Windows 伺服器上安裝「資料管理閘道」。 不支援在 Linux 伺服器上安裝資料管理閘道。
 
@@ -55,7 +55,7 @@ Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔�
 
 若要建立管線，最簡單的方式就是使用**複製精靈**。 請參閱[教學課程：使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md)，以取得使用複製資料精靈建立管線的快速逐步解說。
 
-您也可以使用下列工具來建立管線：**Visual Studio**， **Azure PowerShell**， **Azure Resource Manager 範本**， **.NET API**，並**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
+您也可以使用下列工具來建立管線：**Visual Studio**、 **Azure PowerShell**、 **Azure Resource Manager 範本**、 **.net API**和**REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
@@ -69,23 +69,23 @@ Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔�
 下列各節提供 JSON 屬性的相關詳細資料，這些屬性是用來定義檔案系統特定的 Data Factory 實體：
 
 ## <a name="linked-service-properties"></a>連結服務屬性
-您可以利用「內部部署檔案伺服器」  已連結服務，將內部部署的檔案系統連結到 Azure Data Factory。 下表說明內部部署檔案伺服器連結服務專屬的 JSON 元素。
+您可以利用「內部部署檔案伺服器」已連結服務，將內部部署的檔案系統連結到 Azure Data Factory。 下表說明內部部署檔案伺服器連結服務專屬的 JSON 元素。
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| type |確保 type 屬性設為 **OnPremisesFileServer**。 |是 |
+| Type |確保 type 屬性設為 **OnPremisesFileServer**。 |是 |
 | host |指定想要複製之資料夾的根路徑。 字串中的特殊字元需使用逸出字元 ‘ \ ’。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 |是 |
 | userid |指定具有伺服器存取權之使用者的識別碼。 |否 (如果您選擇 encryptedCredential) |
 | password |指定使用者 (userid) 的密碼。 |否 (如果您選擇 encryptedCredential) |
-| encryptedCredential |指定您可以執行新增 AzDataFactoryEncryptValue cmdlet 取得的加密的認證。 |否 (如果您選擇以純文字指定使用者識別碼和密碼) |
+| encryptedCredential |藉由執行 AzDataFactoryEncryptValue Cmdlet, 指定您可以取得的加密認證。 |否 (如果您選擇以純文字指定使用者識別碼和密碼) |
 | gatewayName |指定 Data Factory 應該用來連接到內部部署檔案伺服器的閘道器名稱。 |是 |
 
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>範例連結服務和資料集定義
 | 狀況 | 連結服務定義中的主機 | 資料集定義中的 folderPath |
 | --- | --- | --- |
-| 資料管理閘道電腦上的本機資料夾︰ <br/><br/>範例：D:\\\* 或 D:\folder\subfolder\\* |D:\\\\ (適用於資料管理閘道 2.0 和更新版本) <br/><br/> localhost (適用於比資料管理閘道 2.0 更早的版本) |.\\\\ 或 folder\\\\subfolder (適用於資料管理閘道 2.0 和更新版本) <br/><br/>D:\\\\ 或 D:\\\\folder\\\\subfolder (適用低於閘道 2.0 的版本) |
-| 遠端共用資料夾︰ <br/><br/>範例︰\\\\myserver\\share\\\* 或 \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ 或 folder\\\\subfolder |
+| 資料管理閘道電腦上的本機資料夾︰ <br/><br/>例如：D:\\\* 或 D:\folder\subfolder\\\* |D:\\\\ (適用於資料管理閘道 2.0 和更新版本) <br/><br/> localhost (適用於比資料管理閘道 2.0 更早的版本) |.\\\\ 或 folder\\\\subfolder (適用於資料管理閘道 2.0 和更新版本) <br/><br/>D:\\\\ 或 D:\\\\folder\\\\subfolder (適用低於閘道 2.0 的版本) |
+| 遠端共用資料夾︰ <br/><br/>範例: \\ \\myserver共用\\ *或\\myserver 共用資料夾子\\資料夾\\ \\ \\ \\ \\\\* |\\\\\\\\myserver\\\\share |.\\\\ 或 folder\\\\subfolder |
 
 >[!NOTE]
 >透過 UI 撰寫時，您不需要像透過 JSON 那樣輸入雙反斜線 (`\\`) 來逸出，只需指定單一反斜線。
@@ -131,7 +131,7 @@ Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔�
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | folderPath |指定資料夾的子路徑。 針對字串中的特殊字元，請使用逸出字元 '\'。 不支援萬用字元篩選。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
-| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>當未指定輸出資料集的 fileName  ，且在活動接收中未指定 preserveHierarchy  時，所產生檔案的名稱格式如下： <br/><br/>`Data.<Guid>.txt` (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
+| fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>當未指定輸出資料集的 fileName，且在活動接收中未指定 preserveHierarchy 時，所產生檔案的名稱格式如下： <br/><br/>`Data.<Guid>.txt` (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
 | fileFilter |指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。 <br/><br/>允許的值為︰`*` (多個字元) 和 `?` (單一字元)。<br/><br/>範例 1："fileFilter": "*.log"<br/>範例 2："fileFilter":2014-1-?.txt"<br/><br/>請注意，fileFilter 適用於輸入 FileShare 資料集。 |否 |
 | partitionedBy |您可以使用 partitionedBy 來指定時間序列資料的動態 folderPath/fileName。 例如，folderPath 可針對每小時的資料進行參數化。 |否 |
 | format | 以下是支援的檔案類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat**、**ParquetFormat**。 將格式下的 **type** 屬性設定為這些值其中之一。 如需詳細資訊，請參閱[文字格式](data-factory-supported-file-and-compression-formats.md#text-format)、[Json 格式](data-factory-supported-file-and-compression-formats.md#json-format)、[Avro 格式](data-factory-supported-file-and-compression-formats.md#avro-format)、[Orc 格式](data-factory-supported-file-and-compression-formats.md#orc-format)和 [Parquet 格式](data-factory-supported-file-and-compression-formats.md#parquet-format)章節。 <br><br> 如果您想要在以檔案為基礎的存放區之間**依原樣複製檔案** (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。 |否 |
@@ -206,7 +206,7 @@ Data Factory 支援透過「資料管理閘道」  連接到內部部署的檔�
 請參閱 [Azure Data Factory 中的檔案和壓縮格式](data-factory-supported-file-and-compression-formats.md)文章以了解詳細資訊。
 
 ## <a name="json-examples-for-copying-data-to-and-from-file-system"></a>從檔案系統來回複製資料的 JSON 範例
-下列範例提供可用來建立管線，使用的範例 JSON 定義[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或是[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)。 它們會示範如何將資料複製到內部部署檔案系統和 Azure Blob 儲存體，以及複製其中的資料。 您可以使用 Azure Data Factory 中的複製活動，把資料「直接」  複製到[支援的來源和接收器](data-factory-data-movement-activities.md#supported-data-stores-and-formats)一文中所述的任何接收器。
+下列範例提供可用來使用[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)或[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)建立管線的範例 JSON 定義。 它們會示範如何將資料複製到內部部署檔案系統和 Azure Blob 儲存體，以及複製其中的資料。 您可以使用 Azure Data Factory 中的複製活動，把資料「直接」複製到[支援的來源和接收器](data-factory-data-movement-activities.md#supported-data-stores-and-formats)一文中所述的任何接收器。
 
 ### <a name="example-copy-data-from-an-on-premises-file-system-to-azure-blob-storage"></a>範例：將資料從內部部署檔案系統複製到 Azure Blob 儲存體
 此範例示範如何將資料從內部部署檔案系統複製到 Azure Blob 儲存體。 範例有下列 Data Factory 實體：

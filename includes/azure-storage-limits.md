@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e692b4704d14a1f0d18f2a3be7397a13a969bc40
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: d5ce4c094da3a411168c7fe4c282b15ceac7bb86
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371768"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036675"
 ---
 下表說明 Azure 一般用途 v1、v2 和 Blob 儲存體帳戶的預設限制。 輸入限制是指傳送至儲存體帳戶之要求中的所有資料。 輸出限制是指從儲存體帳戶接收的回應中的所有資料。
 
@@ -45,5 +45,5 @@ ms.locfileid: "68371768"
 
 如果您應用程式的需求超過單一儲存體帳戶的延展性目標，您可以將應用程式建置為使用多個儲存體帳戶。 接著您可以在這些儲存體帳戶之間分割資料物件。 如需有關大量價格的資訊, 請參閱[Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 
-所有儲存體帳戶都能在一般網路拓撲上執行，並支援本文中說明的延展性和效能目標，無論它們在何時建立。 如需 Azure 儲存體平面網路架構及延展性的詳細資訊，請參閱 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) \(英文\)。
+所有儲存體帳戶都能在一般網路拓撲上執行，並支援本文中說明的延展性和效能目標，無論它們在何時建立。 如需 Azure 儲存體平面網路架構及延展性的詳細資訊，請參閱 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) \(英文\)。
 

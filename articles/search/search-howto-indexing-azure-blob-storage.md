@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c72a60dfb19c71ee039e2fcdb278581e41117b93
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: ce268f03f53378544b8c329ee69a2bcb8dcc232d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656661"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70032124"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -375,13 +375,13 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 | XLS (application/vnd.ms-excel) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |擷取文字，包括內嵌文件 |
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |擷取文字，包括內嵌文件 |
 | PPT (application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |擷取文字，包括內嵌文件 |
-| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |擷取文字，包括附件 |
+| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |擷取文字，包括附件 |
 | ZIP (application/zip) |`metadata_content_type` |從封存中的所有文件擷取文字 |
-| XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |移除 XML 標記並且擷取文字 |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |擷取文字<br/>注意：如果您需要從 JSON Blob 擷取多個文件欄位，請參閱[編製索引 JSON Blob](search-howto-index-json-blobs.md) 的詳細資訊 |
+| XML (application/xml) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> |移除 XML 標記並且擷取文字 |
+| JSON (application/json) |`metadata_content_type`<br/>`metadata_content_encoding` |擷取文字<br/>注意：如果您需要從 JSON Blob 擷取多個文件欄位，請參閱[編製索引 JSON Blob](search-howto-index-json-blobs.md) 的詳細資訊 |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |擷取文字，包括附件 |
-| RTF (應用程式/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | 擷取文字|
-| 純文字 (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | 擷取文字|
+| RTF (應用程式/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | 擷取文字|
+| 純文字 (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | 擷取文字|
 
 
 ## <a name="help-us-make-azure-search-better"></a>協助我們改進 Azure 搜尋服務

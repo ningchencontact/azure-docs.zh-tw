@@ -5,14 +5,14 @@ services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/16/2019
+ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: 6f5ae426018c9e7fa2ac586a2886c8e5e609069b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813857"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034862"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure 監視器記錄的結構
 使用[記錄查詢](log-query-overview.md)快速取得資料見解的能力, 是 Azure 監視器的強大功能。 若要建立有效率且有用的查詢, 您應該瞭解一些基本概念, 例如您想要的資料位於何處, 以及其結構化方式。 本文提供您開始使用所需的基本概念。
@@ -46,7 +46,7 @@ union withsource = table *
 如需所建立資料表的詳細資訊, 請參閱每個資料來源的檔。 範例包括[代理程式資料來源](../platform/agent-data-sources.md)、[診斷記錄](../platform/diagnostic-logs-schema.md)和[監視解決方案](../insights/solutions-inventory.md)的文章。
 
 ### <a name="workspace-permissions"></a>工作區許可權
-如需有關在工作區中提供資料存取權的詳細資訊, 請參閱[工作區許可權和範圍](../platform/manage-access.md#manage-accounts-and-users)。 除了授與工作區本身的存取權之外, 您還可以使用[資料表層級 RBAC](../platform/manage-access.md#table-level-rbac)來限制個別資料表的存取權。
+請參閱[設計 Azure 監視器記錄部署](../platform/design-logs-deployment.md), 以瞭解存取控制策略和建議, 以提供工作區中資料的存取權。 除了授與工作區本身的存取權之外, 您還可以使用[資料表層級 RBAC](../platform/manage-access.md#table-level-rbac)來限制個別資料表的存取權。
 
 ## <a name="application-insights-application"></a>Application Insights 應用程式
 當您在 Application Insights 中建立應用程式時, 會在 Azure 監視器記錄中自動建立對應的應用程式。 收集資料不需要任何設定, 而且應用程式會自動寫入監視資料, 例如頁面流覽、要求和例外狀況。

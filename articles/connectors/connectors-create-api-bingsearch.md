@@ -1,21 +1,22 @@
 ---
-title: 連線到 Bing 搜尋-Azure Logic Apps
+title: 連接到 Bing 搜尋-Azure Logic Apps
 description: 使用 Bing 搜尋 REST API 和 Azure Logic Apps 尋找新聞
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61004ed75a1935ada21b5c620a909fb5289aebb8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60952543"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050992"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>使用 Bing 搜尋和 Azure Logic Apps 尋找新聞
 
@@ -23,8 +24,8 @@ ms.locfileid: "60952543"
 
 例如，您可以根據搜尋準則尋找新聞項目，並讓 Twitter 張貼這些項目作為 Twitter 摘要中的推文。
 
-如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
-如需連接器專屬的技術資訊，請參閱 <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">Bing 搜尋連接器參考</a>。
+如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+如需連接器專屬的技術資訊，請參閱 [Bing 搜尋連接器參考](https://docs.microsoft.com/connectors/bingsearch/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -44,7 +45,7 @@ ms.locfileid: "60952543"
 
 2. 在搜尋方塊中，輸入 "Bing 搜尋" 作為篩選條件。 從觸發程序清單中，選取您想要的觸發程序。
 
-   此範例會使用此觸發程序：**Bing 搜尋-在新的新聞文章**
+   這個範例會使用此觸發程式:**Bing 搜尋-新的新聞文章**
 
    ![尋找 Bing 搜尋觸發程序](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -59,7 +60,7 @@ ms.locfileid: "60952543"
    | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
    | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
    | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
-   | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
+   | 位移 | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
    例如:
@@ -68,7 +69,7 @@ ms.locfileid: "60952543"
 
 4. 選取要讓觸發程序檢查結果的間隔和頻率。
 
-5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
+5. 當您完成時, 請在設計工具工具列上選取 [**儲存**]。
 
 6. 現在，繼續針對您想要使用觸發程序結果來執行的工作，於邏輯應用程式中新增一或多個動作。
 
@@ -80,23 +81,23 @@ ms.locfileid: "60952543"
 
 1. 在 Azure 入口網站或 Visual Studio 的邏輯應用程式設計工具中，開啟邏輯應用程式。 這個範例會使用 Azure 入口網站。
 
-2. 在觸發程序或動作底下，選擇 [新增步驟]   >  [新增動作]  。
+2. 在觸發程式或動作底下, 選取 [**新增步驟**  > ] [新增**動作**]。
 
-   此範例會使用此觸發程序：
+   這個範例會使用此觸發程式:
 
-   **Bing 搜尋-在新的新聞文章**
+   **Bing 搜尋-新的新聞文章**
 
    ![新增動作](./media/connectors-create-api-bing-search/add-action.png)
 
    若要在現有步驟之間新增動作，請將滑鼠放在連接箭頭上。 
-   選擇顯示的加號 ( **+** )，然後選擇 [新增動作]  。
+   選取顯示的加號 ( **+** ), 然後選取 [**新增動作**]。
 
 3. 在搜尋方塊中，輸入 "Bing 搜尋" 作為篩選條件。
 從 [動作] 清單中，選取您想要的動作。
 
-   此範例會使用這項動作：
+   這個範例會使用此動作:
 
-   **Bing 搜尋-查詢清單新聞**
+   **Bing 搜尋-依查詢列出新聞**
 
    ![尋找 Bing 搜尋動作](./media/connectors-create-api-bing-search/bing-search-select-action.png)
 
@@ -110,30 +111,30 @@ ms.locfileid: "60952543"
    | Market | 是 | <*locale*> | 搜尋地區設定。 預設為 "en-US"，但您可以選取其他值。 |
    | Safe Search | 是 | <*search-level*> | 排除成人內容的篩選層級。 預設為「中度」，但您可以選取其他層級。 |
    | Count | 否 | <*results-count*> | 傳回指定數目的結果。 預設為 20，但您可以指定其他值。 傳回結果的實際數目可能小於指定數目。 |
-   | Offset | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
+   | 位移 | 否 | <*skip-value*> | 傳回結果前要跳過的結果數目 |
    |||||
 
    例如，假設您想要的結果其類別名稱包括 "tech" 這個字。
 
-   1. 按一下 [搜尋查詢]  方塊，動態內容清單隨即出現。 
-   從該清單中選擇 [運算式]  ，運算式產生器隨即出現。 
+   1. 按一下 [搜尋查詢] 方塊，動態內容清單隨即出現。 
+   從該清單中選取 [**運算式**], 運算式產生器隨即出現。 
 
       ![Bing 搜尋觸發程序](./media/connectors-create-api-bing-search/bing-search-action.png)
 
       現在您可以開始建立運算式。
 
-   2. 從函式清單中選取 **contains()** 函式，它會出現在運算式方塊中。 按一下 [動態內容]  ，欄位清單會再次出現，但請確認您的資料指標停留在括號內。
+   2. 從函式清單中選取 **contains()** 函式，它會出現在運算式方塊中。 按一下 [動態內容]，欄位清單會再次出現，但請確認您的資料指標停留在括號內。
 
       ![選取函式](./media/connectors-create-api-bing-search/expression-select-function.png)
 
-   3. 從欄位清單中選取 [類別]  ，它會轉換成參數。 
+   3. 從欄位清單中選取 [類別]，它會轉換成參數。 
    在第一個參數後新增逗號，並在逗號後新增這個字：`'tech'` 
 
       ![選取欄位](./media/connectors-create-api-bing-search/expression-select-field.png)
 
-   4. 完成時，選擇 [確定]  。
+   4. 完成後，選取 [確定]。
 
-      運算式現在會出現在 [搜尋查詢]  方塊中，格式如下：
+      運算式現在會出現在 [搜尋查詢] 方塊中，格式如下：
 
       ![完成的運算式](./media/connectors-create-api-bing-search/resolved-expression.png)
 
@@ -141,7 +142,7 @@ ms.locfileid: "60952543"
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. 當您完成時，請在設計工具的工具列上，選擇 [儲存]  。
+5. 當您完成時, 請在設計工具工具列上選取 [**儲存**]。
 
 <a name="create-connection"></a>
 
@@ -160,18 +161,13 @@ ms.locfileid: "60952543"
 
    例如:
 
-   ![建立連線](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
+   ![建立連接](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 
-2. 完成之後，請選擇 [建立]  。
+2. 當您完成時，選取 [建立]。
 
 ## <a name="connector-reference"></a>連接器參考
 
-技術的詳細資訊，例如觸發程序、 動作和限制，如所述的連接器的 OpenAPI (以前稱為 Swagger) 檔案，請參閱 <<c0> [ 連接器的參考頁面](/connectors/bingsearch/)。
-
-## <a name="get-support"></a>取得支援
-
-* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+如需如連接器的 OpenAPI (先前為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱[連接器的參考頁面](/connectors/bingsearch/)。
 
 ## <a name="next-steps"></a>後續步驟
 

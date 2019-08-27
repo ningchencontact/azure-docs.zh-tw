@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d34040722ac8793fd4bbb02f2d3fa59247f8267c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 9b4e7ce714d0a1f65e0a35b9c493e99200c668c6
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639624"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034855"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>將 Azure 活動記錄匯出至儲存體或 Azure 事件中樞
 [Azure 活動記錄](activity-logs-overview.md)可讓您深入瞭解 azure 訂用帳戶中所發生的訂用帳戶層級事件。 除了在 Azure 入口網站中查看活動記錄, 或將它複製到 Log Analytics 工作區, 您可以使用 Azure 監視器收集的其他資料進行分析, 您可以建立記錄設定檔, 將活動記錄封存至 Azure 儲存體帳戶, 或將其串流至 事件中樞。
@@ -55,7 +55,7 @@ ms.locfileid: "69639624"
 
 **應該匯出哪些區域 (位置)。** 您應該包含所有位置, 因為活動記錄檔中的許多事件都是全域事件。
 
-**活動記錄應保留在儲存體帳戶中的時間長度。** 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
+**活動記錄應保留在儲存體帳戶中的時間長度。** 保留期為 0 天表示會永遠保留記錄。 否則, 此值可以是介於1到365之間的任何天數。
 
 如果已設定保留原則, 但已停用儲存體帳戶中的記錄, 則保留原則不會有任何作用。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。
 
@@ -117,7 +117,7 @@ ms.locfileid: "69639624"
     | StorageAccountId |否 |應儲存活動記錄之儲存體帳戶的資源識別碼。 |
     | serviceBusRuleId |否 |服務匯流排規則識別碼，您想要在其中建立事件中樞的服務匯流排命名空間。 這是格式為的字串: `{service bus resource ID}/authorizationrules/{key name}`。 |
     | Location |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 |
-    | RetentionInDays |是 |在儲存體帳戶中應保留事件的天數, 介於1到2147483647之間。 值為 0 會無限期地儲存記錄。 |
+    | RetentionInDays |是 |在儲存體帳戶中應保留事件的天數, 介於1到365之間。 值為 0 會無限期地儲存記錄。 |
     | Category |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值為_Write_、 _Delete_和_Action_。 |
 
 ### <a name="example-script"></a>範例指令碼

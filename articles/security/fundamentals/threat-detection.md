@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c7a31337888dcdc2a8f8b95c5203cc659882b038
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927875"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036183"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
@@ -384,6 +384,6 @@ Web 應用程式防火牆提供下列優點：
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure 資訊安全中心偵測功能](../../security-center/security-center-detection-capabilities.md)：協助識別以您的 Azure 資源為目標的作用中威脅，並提供您快速回應所需的見解。
+- [回應現今的威脅](../../security-center/security-center-alerts-overview.md#respond-threats):協助識別以您的 Azure 資源為目標的作用中威脅，並提供您快速回應所需的見解。
 
 - [Azure SQL Database 威脅偵測](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/)：協助解決您對資料庫潛在威脅的疑慮。

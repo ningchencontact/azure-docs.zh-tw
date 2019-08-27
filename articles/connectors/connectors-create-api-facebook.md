@@ -1,24 +1,25 @@
 ---
-title: 連線到 Facebook - Azure Logic Apps | Microsoft Docs
+title: 連接到 Facebook-Azure Logic Apps
 description: 使用 Facebook REST API 和 Azure Logic Apps 管理您的動態時報和頁面
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 11/07/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+manager: carmonm
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 25595127d913d3cd093e0af3d7916e33fc7cb352
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83431184d7e9c5970ece6af143ee9b5166da96d5
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105969"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050945"
 ---
-# <a name="get-started-with-the-facebook-connector"></a>開始使用 Facebook 連接器
+# <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>使用 Azure Logic Apps 管理您的 Facebook 時間軸和頁面
+
 連線到 Facebook 並張貼在動態時報上、取得頁面摘要等等。 您可以利用 Facebook 來：
 
 * 根據您從 Facebook 所取得的資料，來建置您的商務流程。 
@@ -28,18 +29,20 @@ ms.locfileid: "62105969"
 您可以從建立邏輯應用程式立即開始，請參閱[建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="create-a-connection-to-facebook"></a>建立至 Facebook 的連線
+
 當您將這個連接器新增到邏輯應用程式時，您必須授權邏輯應用程式，使其能夠連線到您的 Facebook。
 
 1. 登入您的 Facebook 帳戶。
-2. 選取 [授權]  ，然後允許您的邏輯應用程式連線並使用您的 Facebook。 
+
+2. 選取 [授權]，然後允許您的邏輯應用程式連線並使用您的 Facebook。 
 
 > [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 > 
 
+## <a name="connector-reference"></a>連接器參考
 
-## <a name="connector-specific-details"></a>連接器特定的詳細資料
+如需如連接器的 OpenAPI (先前為 Swagger) 檔案所述的技術詳細資料 (例如觸發程式、動作和限制), 請參閱[連接器的參考頁面](/connectors/facebook/)。
 
-檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/facebook/)的所有限制。
+## <a name="next-steps"></a>後續步驟
 
-## <a name="more-connectors"></a>其他連接器
-返回 [API 清單](apis-list.md)。
+* 了解其他 [Logic Apps 連接器](../connectors/apis-list.md)

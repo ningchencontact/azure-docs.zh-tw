@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2b7f2b0e20e85e1e62f8efabb81eddd5f901f2
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: eb4486c889dec29f81b57605c3ccee510242f832
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991104"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035148"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 Power BI 行動版的遠端存取
 
@@ -103,28 +103,27 @@ SPN 是使用 Kerberos 驗證之服務的唯一識別碼。 您必須確定您�
 
 若要完成應用程式的設定, 請移至 **[使用者和群組** ] 區段, 並指派使用者以存取此應用程式。
 
-## <a name="step-3-grant-power-bi-mobile-access-to-report-services"></a>步驟 3：授與 Power BI 行動版對報表服務的存取權
+## <a name="step-3-modify-the-reply-uris-for-the-application"></a>步驟 3：修改應用程式的回復 URI
 
-在 Power BI 的行動應用程式可以連接和存取報表服務之前, 您必須在 Azure AD 中正確註冊。  
+在 Power BI 的行動應用程式可以連接和存取報表服務之前, 您必須先設定在步驟2中為您自動建立的應用程式註冊。 
 
 1. 在 [Azure Active Directory**總覽**] 頁面上, 選取 [**應用程式註冊**]。
 2. 在 [**所有應用程式**] 索引標籤底下, 搜尋您在步驟2中建立的應用程式。
 3. 選取應用程式, 然後選取 [**驗證**]。
 4. 根據您所使用的平臺, 新增下列重新導向 Uri。
 
-   為 Power BI 行動版**iOS**註冊應用程式時, 請新增下列類型的重新導向 Uri: 公用用戶端 (Mobile & Desktop):
+   為 Power BI 行動版**iOS**設定應用程式時, 請新增下列類型的重新導向 Uri: 公用用戶端 (行動 & 桌面):
    - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
-   為 Power BI 行動版**Android**註冊應用程式時, 請新增下列類型的重新導向 Uri: 公用用戶端 (行動 & 桌面):
+   為 Power BI 行動版**Android**設定應用程式時, 請新增下列類型的重新導向 Uri: 公用用戶端 (行動 & 桌面):
    - `urn:ietf:wg:oauth:2.0:oob`
+   - `mspbi-adal://com.microsoft.powerbimobile`
 
    > [!IMPORTANT]
-   > 必須加入重新導向 Uri, 應用程式才能正常運作。 如果您要針對 iOS 和 Android 設定此設定, 您只需要註冊**單一**應用程式, 並新增 Ios 和 android 的重新導向 uri。 如果您需要為每個平臺各有不同的應用程式, 則需要包含這`mspbi-adal://com.microsoft.powerbimobile`兩個應用程式的重新導向 URI:。
-
-2. 既然您已註冊原生應用程式, 就可以讓它存取您目錄中的其他應用程式, 在此情況下, 會存取透過應用程式 Proxy 發佈的報表服務。 [依照步驟 3:授與 proxy 應用程式](application-proxy-configure-native-client-application.md#step-3-grant-access-to-your-proxy-application)的存取權。
+   > 必須加入重新導向 Uri, 應用程式才能正常運作。 如果您要為 Power BI 行動版 iOS 和 Android 設定應用程式, 請將以下類型的 [公用用戶端 (行動 & 桌面)] 重新導向 URI 新增至針對 iOS 所設定的`urn:ietf:wg:oauth:2.0:oob`重新導向 uri 清單:。
 
 ## <a name="step-4-connect-from-the-power-bi-mobile-app"></a>步驟 4：從 Power BI 行動版應用程式連接
 

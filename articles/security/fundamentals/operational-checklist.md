@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 381b3129d1b6b2204413e4a634ee28380cbc394e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 3ac414ddd9a59154beadd60132393be8f8dfde98
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907889"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035984"
 ---
 # <a name="azure-operational-security-checklist"></a>Azure 作業安全性檢查清單
 在 Azure 上部署應用程式很快速、輕鬆且符合成本效益。 在生產環境中部署雲端應用程式之前，針對您需要考慮的重要和建議作業安全性動作清單，取得檢查清單以協助評估應用程式是很有幫助的。
@@ -44,7 +44,7 @@ Azure 提供的基礎結構服務套件，可讓您用來部署應用程式。 A
 |[<br>安全性原則和建議](../../security-center/security-center-planning-and-operations-guide.md)|<ul><li>使用 [Azure 資訊安全中心](../../security-center/security-center-install-endpoint-protection.md)來部署端點解決方案。</li><li>新增 [Web 應用程式防火牆 (WAF)](../../application-gateway/waf-overview.md) 來保護 Web 應用程式。</li><li>   使用來自 Microsoft 合作夥伴的[防火牆](../../sentinel/connect-data-sources.md)來增加您的安全性保護。 </li><li>對您的 Azure 訂用帳戶套用安全性連絡人詳細資料;這是[Microsoft 安全性回應中心 (MSRC)](https://technet.microsoft.com/security/dn528958.aspx)在發現您的客戶資料已被非法或未經授權的合作物件存取時, 會與您聯繫。</li></ul> |
 | [<br>身分識別與存取管理](identity-management-best-practices.md)|<ul><li>[使用 Azure AD 同步處理內部部署目錄與雲端目錄](../../active-directory/hybrid/whatis-hybrid-identity.md)。</li><li>使用[單一登入](https://azure.microsoft.com/resources/videos/overview-of-single-sign-on/)可讓使用者以其在 Azure AD 中的組織帳戶作為基礎，存取其 SaaS 應用程式。</li><li>使用[密碼重設登錄活動](../../active-directory/active-directory-passwords-reporting.md)報告可監視進行註冊的使用者。</li><li>對使用者啟用 [Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md)。</li><li>開發人員可以針對應用程式使用安全的身分識別功能，例如 [Microsoft 安全性開發週期 (SDL)](https://www.microsoft.com/download/details.aspx?id=12379)。</li><li>主動監視可疑的活動，方法是使用 Azure AD Premium 異常報告和 [Azure AD Identity Protection 功能](../../active-directory/identity-protection/overview.md)。</li></ul> |
 |[<br>持續安全性監視](../../security-center/security-center-planning-and-operations-guide.md)|<ul><li>使用惡意程式碼評定解決方案[Azure 監視器記錄](../../log-analytics/log-analytics-queries.md)來報告您基礎結構中的反惡意程式碼保護狀態。</li><li>使用[更新評量](../../automation/automation-update-management.md)判斷潛在安全性問題的整體風險，以及這些更新是否或如何適用於您的環境。</li><li>[身分識別和存取](../../security-center/security-center-monitoring.md)提供您的使用者概觀 </li><ul><li>使用者身分識別狀態、</li><li>嘗試登入失敗的次數,</li><li> 這些嘗試期間所使用的使用者帳戶、已鎖定的帳戶</li> <li>密碼已變更或重設的帳戶 </li><li>目前已登入的帳戶數目。</li></ul></ul> |
-| [<br>Azure 資訊安全中心的偵測功能](../../security-center/security-center-detection-capabilities.md)|<ul><li>使用[偵測功能](../../security-center/security-center-detection-capabilities.md)，可識別目標為 Microsoft Azure 資源的作用中威脅。</li><li>使用[整合性威脅情報](https://blogs.msdn.microsoft.com/azuresecurity/2016/12/19/get-threat-intelligence-reports-with-azure-security-center/)，可利用 Microsoft 產品和服務、[Microsoft 數位犯罪防治中心 (DCU)](https://www.microsoft.com/trustcenter/security/cybercrime)、[Microsoft Security Response Center (MSRC)](response-center.md) 以及外部摘要的全域威脅情報，尋找已知的不良執行者。</li><li>使用[行為分析](https://blogs.technet.microsoft.com/enterprisemobility/2016/06/30/ata-behavior-analysis-monitoring/)，可套用已知模式來探索惡意行為。 </li><li>使用[異常偵測](https://msdn.microsoft.com/library/azure/dn913096.aspx)，可使用統計分析來建置歷程基準。</li></ul> |
+| [<br>Azure 資訊安全中心的偵測功能](../../security-center/security-center-alerts-overview.md#detect-threats)|<ul><li>使用[偵測功能](../../security-center/security-center-alerts-overview.md#detect-threats)，可識別目標為 Microsoft Azure 資源的作用中威脅。</li><li>使用[整合性威脅情報](https://blogs.msdn.microsoft.com/azuresecurity/2016/12/19/get-threat-intelligence-reports-with-azure-security-center/)，可利用 Microsoft 產品和服務、[Microsoft 數位犯罪防治中心 (DCU)](https://www.microsoft.com/trustcenter/security/cybercrime)、[Microsoft Security Response Center (MSRC)](response-center.md) 以及外部摘要的全域威脅情報，尋找已知的不良執行者。</li><li>使用[行為分析](https://blogs.technet.microsoft.com/enterprisemobility/2016/06/30/ata-behavior-analysis-monitoring/)，可套用已知模式來探索惡意行為。 </li><li>使用[異常偵測](https://msdn.microsoft.com/library/azure/dn913096.aspx)，可使用統計分析來建置歷程基準。</li></ul> |
 | [<br>開發人員作業 (DevOps)](https://docs.microsoft.com/azure/architecture/checklist/dev-ops)|<ul><li>[基礎結構即程式碼 (IaC)](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/)是一種做法，可用來將建立及卸除網路和虛擬機器加以自動化並驗證，從而協助提供安全且穩定的應用程式裝載平台。</li><li>[持續整合及部署](https://www.visualstudio.com/docs/build/overview)會驅動進行中的合併和程式碼測試，以便及早找出缺失。 </li><li>[Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) 可透過您管線的每個階段管理自動化的部署。</li><li>執行中應用程式的[應用程式效能監視](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/), 包括應用程式健康情況和客戶使用方式的生產環境, 協助組織形成假設並快速驗證或反駁策略。</li><li>使用[負載測試和自動縮放](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing)，就可以在我們的應用程式中找出效能問題，從而改善部署品質，並確保我們的應用程式一律保持最新狀態，或使用符合商務需求。</li></ul> |
 
 

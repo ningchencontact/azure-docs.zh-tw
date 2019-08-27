@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 1c2416d9fb1d45116bb6594b29863c1fe8f524a3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5d6e68b4b17c31056ed1f96a779823fc856962fb
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883210"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034731"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>設計您的 Azure 監視器記錄部署
 
@@ -71,7 +71,7 @@ Log Analytics 工作區提供：
 |:---|:---|
 | [存取模式](#access-mode) | 使用者用來存取工作區的方法。  定義可用資料的範圍, 以及套用的存取控制模式。 |
 | [存取控制模式](#access-control-mode) | 在工作區上設定, 以定義是否要在工作區或資源層級套用許可權。 |
-| [Permissions](manage-access.md#manage-accounts-and-users) | 適用于工作區或資源的個人或使用者群組的許可權。 定義使用者可存取的資料。 |
+| [Permissions](manage-access.md) | 適用于工作區或資源的個人或使用者群組的許可權。 定義使用者可存取的資料。 |
 | [資料表層級 RBAC](manage-access.md#table-level-rbac) | 選擇性的細微許可權, 適用于所有使用者, 不論其存取模式或存取控制模式為何。 定義使用者可以存取的資料類型。 |
 
 ## <a name="access-mode"></a>存取模式
@@ -105,7 +105,7 @@ Azure 監視器會根據您執行記錄搜尋的內容, 自動決定正確的模
 | | 工作區-內容 | 資源內容 |
 |:---|:---|:---|
 | 每個模型的用途為何？ | 管理中心。 需要設定資料收集的系統管理員, 以及需要存取各種資源的使用者。 目前也需要存取 Azure 外部資源的記錄。 | 應用程式小組。 受監視的 Azure 資源系統管理員。 |
-| 使用者需要什麼才能查看記錄？ | 工作區的許可權。 請參閱[管理帳戶和使用者](manage-access.md#manage-accounts-and-users)中的**工作區許可權**。 | 資源的讀取權限。 請參閱[管理帳戶和使用者](manage-access.md#manage-accounts-and-users)中的**資源許可權**。 許可權可以是繼承的 (例如, 從包含的資源群組), 或直接指派給資源。 系統將會自動指派資源的記錄許可權。 |
+| 使用者需要什麼才能查看記錄？ | 工作區的許可權。 請參閱[使用工作區許可權來管理存取權](manage-access.md#manage-access-using-workspace-permissions)中的**工作區許可權**。 | 資源的讀取權限。 請參閱[使用 Azure 許可權來管理存取權](manage-access.md#manage-access-using-azure-permissions)中的**資源許可權**。 許可權可以是繼承的 (例如, 從包含的資源群組), 或直接指派給資源。 系統將會自動指派資源的記錄許可權。 |
 | 許可權的範圍為何？ | 區域. 具有工作區存取權的使用者可以從他們有許可權的資料表查詢工作區中的所有記錄。 請參閱[資料表存取控制](manage-access.md#table-level-rbac) | Azure 資源。 使用者可以從任何工作區查詢可存取的特定資源、資源群組或訂用帳戶的記錄, 但無法查詢其他資源的記錄。 |
 | 使用者存取記錄的方式為何？ | <ul><li>從**Azure 監視器** 功能表啟動**記錄**。</li></ul> <ul><li>從**Log Analytics 工作區**啟動**記錄**。</li></ul> <ul><li>從 Azure 監視器活頁[簿](../visualizations.md#workbooks)。</li></ul> | <ul><li>從 Azure 資源的功能表啟動**記錄**</li></ul> <ul><li>從**Azure 監視器** 功能表啟動**記錄**。</li></ul> <ul><li>從**Log Analytics 工作區**啟動**記錄**。</li></ul> <ul><li>從 Azure 監視器活頁[簿](../visualizations.md#workbooks)。</li></ul> |
 
@@ -128,7 +128,7 @@ Azure 監視器會根據您執行記錄搜尋的內容, 自動決定正確的模
     > [!NOTE]
     > 如果使用者只有工作區的資源許可權, 則只有在工作區存取模式設定為 [**使用資源] 或 [工作區] 許可權**時, 才能夠使用資源內容模式來存取工作區。
 
-若要瞭解如何使用 PowerShell 變更入口網站中的存取控制模式, 或使用 Resource Manager 範本, 請參閱[定義存取控制模式](manage-access.md#define-access-control-mode)。
+若要瞭解如何使用 PowerShell 變更入口網站中的存取控制模式, 或使用 Resource Manager 範本, 請參閱[設定存取控制模式](manage-access.md#configure-access-control-mode)。
 
 ## <a name="recommendations"></a>建議
 

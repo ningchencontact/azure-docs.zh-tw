@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a4146e20efae87287b77687e4a1d3b0196cb1c95
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 7f856c0b69788c3d0b711d567777aba6cb4c6918
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997943"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036100"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -78,12 +78,29 @@ ws = Workspace.from_config(path=".file-path/ws_config.json")
 
 + **使用 SDK**
 
-  ```python
-  model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
-  print(model.name, model.id, model.version, sep='\t')
-  ```
+  使用 SDK 來定型模型時, 您可以接收[執行](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master)或[AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master)物件, 視您定型模型的方式而定。 每個物件都可以用來註冊實驗執行所建立的模型。
 
-  `model_path`是指模型的雲端位置。 在此範例中, 會使用單一檔案的路徑。 若要在模型註冊中包含多個檔案`model_path` , 請將設定為包含檔案的目錄。
+  + 從`azureml.core.Run`物件註冊模型:
+ 
+    ```python
+    model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
+    print(model.name, model.id, model.version, sep='\t')
+    ```
+
+    `model_path`是指模型的雲端位置。 在此範例中, 會使用單一檔案的路徑。 若要在模型註冊中包含多個檔案`model_path` , 請將設定為包含檔案的目錄。 如需詳細資訊, 請參閱[register_model](https://review.docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&branch=master#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none----kwargs-)參考。
+
+  + 從`azureml.train.automl.run.AutoMLRun`物件註冊模型:
+
+    ```python
+        description = 'My AutoML Model'
+        model = run.register_model(description = description)
+
+        print(run.model_id)
+    ```
+
+    在此範例中, `metric`未`iteration`指定和參數, 因此會註冊具有最佳主要度量的反復專案。 會使用從執行傳回的值,而不是模型名稱。`model_id`
+
+    如需詳細資訊, 請參閱[AutoMLRun. register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) reference。
 
 + **使用 CLI**
 
@@ -184,6 +201,9 @@ ws = Workspace.from_config(path=".file-path/ws_config.json")
 當您註冊模型時, 您會提供用來在登錄中管理模型的模型名稱。 您會將此名稱與[模型搭配使用。 get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-)可在本機檔案系統上取出模型檔案的路徑。 如果您註冊資料夾或檔案集合, 此 API 會傳回包含這些檔案之目錄的路徑。
 
 當您註冊模型時, 您可以為它指定一個名稱, 它會對應至模型的放置位置, 不論是在本機或在服務部署期間。
+
+> [!IMPORTANT]
+> 如果您使用自動化機器學習來定型模型, `model_id`則會使用值做為模型名稱。 如需註冊和部署使用自動化 ml 定型之模型的範例, 請[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment)參閱。
 
 下列範例會傳回名`sklearn_mnist_model.pkl`為之單一檔案的路徑 (已使用名稱`sklearn_mnist`註冊):
 

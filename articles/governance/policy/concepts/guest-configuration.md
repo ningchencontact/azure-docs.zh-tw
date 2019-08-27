@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 18a85fae7d2d241bd8d582db73c71e1d1472f04d
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624093"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036309"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -28,11 +28,16 @@ ms.locfileid: "69624093"
 
 為了稽核虛擬機器內的設定，會啟用[虛擬機器延伸模組](../../../virtual-machines/extensions/overview.md)。 延伸模組會下載適用的原則指派及相對應的設定定義。
 
-### <a name="register-guest-configuration-resource-provider"></a>註冊來賓設定資源提供者
+### <a name="limits-set-on-the-exension"></a>在 exension 上設定的限制
+
+為了限制延伸, 使其不會影響在機器內執行的應用程式, 不允許來賓設定超過 5% 的 CPU 使用率。
+這適用于由 Microsoft 提供作為「內建」的設定, 以及客戶所撰寫之自訂設定的實際 boh。
+
+## <a name="register-guest-configuration-resource-provider"></a>註冊來賓設定資源提供者
 
 您必須先註冊資源提供者，才能使用「來賓設定」。 您可以透過入口網站或透過 PowerShell 註冊。 如果透過入口網站來指派來賓設定原則, 則會自動註冊資源提供者。
 
-#### <a name="registration---portal"></a>註冊 - 入口網站
+### <a name="registration---portal"></a>註冊 - 入口網站
 
 若要透過 Azure 入口網站註冊「來賓設定」的資源提供者，請依照下列步驟進行操作：
 
@@ -44,7 +49,7 @@ ms.locfileid: "69624093"
 
 1. 篩選或捲動，直到找出 **Microsoft.GuestConfiguration** 為止，然後按一下同一列上的 [註冊]。
 
-#### <a name="registration---powershell"></a>註冊 - PowerShell
+### <a name="registration---powershell"></a>註冊 - PowerShell
 
 若要透過 PowerShell 註冊「來賓設定」的資源提供者，請執行下列命令：
 
@@ -53,7 +58,7 @@ ms.locfileid: "69624093"
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
-### <a name="validation-tools"></a>驗證工具
+## <a name="validation-tools"></a>驗證工具
 
 在虛擬機器內，「來賓設定」會使用本機工具來執行稽核。
 
@@ -68,7 +73,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 「來賓設定」用戶端會每隔 5 分鐘檢查一次是否有新內容。 一旦收到來賓指派，系統便會每隔 15 分鐘檢查一次設定。 稽核完成後，系統會立即將結果傳送給來賓設定資源提供者。 發生原則[評估觸發程序](../how-to/get-compliance-data.md#evaluation-triggers)時，系統會將機器的狀態寫入到來賓設定資源提供者。 這會導致 Azure 原則評估 Azure Resource Manager 屬性。 隨選 Azure 原則評估會從來賓設定資源提供者抓取最新的值。 不過，該評估不會對虛擬機器內的設定觸發新的稽核作業。
 
-### <a name="supported-client-types"></a>支援的用戶端類型
+## <a name="supported-client-types"></a>支援的用戶端類型
 
 下表顯示 Azure 映像上的支援作業系統清單：
 
@@ -89,7 +94,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 任何版本都不支援 Windows Server Nano Server。
 
-### <a name="guest-configuration-extension-network-requirements"></a>來賓設定擴充功能網路需求
+## <a name="guest-configuration-extension-network-requirements"></a>來賓設定擴充功能網路需求
 
 若要與 Azure 中的來賓設定資源提供者進行通訊, 虛擬機器需要在埠**443**上對 Azure 資料中心進行輸出存取。 如果您在 Azure 中使用私人虛擬網路, 但不允許輸出流量, 則必須使用[網路安全性群組](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)規則來設定例外狀況。 目前, Azure 原則來賓設定的服務標記不存在。
 
@@ -100,7 +105,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="guest-configuration-definition-requirements"></a>來賓設定定義需求
 
-每個由來賓設定的 audit 執行都需要兩個原則定義: 一個**DeployIfNotExists**定義和一個**audit**定義。 **DeployIfNotExists**定義是用來準備具有來賓設定代理程式的虛擬機器, 以及支援[驗證工具](#validation-tools)的其他元件。
+每個由來賓設定的 audit 執行都需要兩個原則定義: **DeployIfNotExists**定義和**AuditIfNotExists**定義。 **DeployIfNotExists**定義是用來準備具有來賓設定代理程式的虛擬機器, 以及支援[驗證工具](#validation-tools)的其他元件。
 
 **DeployIfNotExists** 原則定義會驗證並修正下列項目：
 
@@ -111,18 +116,18 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 如果**DeployIfNotExists**指派不符合規範, 則可以使用[補救](../how-to/remediate-resources.md#create-a-remediation-task)工作。
 
-一旦**DeployIfNotExists**指派符合規範,**審核**策略指派會使用本機驗證工具來判斷設定指派是否符合規範。
+一旦**DeployIfNotExists**指派符合規範, **AuditIfNotExists**原則指派就會使用本機驗證工具來判斷設定指派是否符合規範。
 驗證工具會將結果提供給「來賓設定」用戶端。 用戶端會將結果轉送至「來賓延伸模組」，以便透過「來賓設定」資源提供者提供結果。
 
 「Azure 原則」會使用「來賓設定」資源提供者 **complianceStatus** 屬性在 [合規性] 節點中回報合規性。 如需詳細資訊，請參閱[取得合規性資料](../how-to/getting-compliance-data.md)。
 
 > [!NOTE]
-> **審核**策略需要**DeployIfNotExists**原則才會傳回結果。
-> 若沒有**DeployIfNotExists**,**審核**策略會將「0」的資源顯示為「狀態」。
+> **AuditIfNotExists**原則需要**DeployIfNotExists**原則才會傳回結果。
+> 若沒有**DeployIfNotExists**, **AuditIfNotExists**原則會顯示 "0 of 0" 資源作為狀態。
 
-「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 及 Windows 虛擬機器內的「稽核密碼」安全性設定*包含 18 項原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **Audit**，針對 Linux 則有 3 組。 在每個案例中，定義內的邏輯僅會驗證依據[原則規則](definition-structure.md#policy-rule)定義進行評估的目標作業系統。
+「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 及 Windows 虛擬機器內的「稽核密碼」安全性設定*包含 18 項原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **AuditIfNotExists**，針對 Linux 則有 3 組。 在每個案例中，定義內的邏輯僅會驗證依據[原則規則](definition-structure.md#policy-rule)定義進行評估的目標作業系統。
 
-## <a name="multiple-assignments"></a>多個指派
+### <a name="multiple-assignments"></a>多個指派
 
 來賓設定原則目前只支援為每個虛擬機器指派相同的來賓指派一次, 即使原則指派使用不同的參數也一樣。
 
