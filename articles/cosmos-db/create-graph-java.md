@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019
-ms.openlocfilehash: 58356db2fbdf53bbd16e6fd20de54e022afb38b3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: cea53aefae2e559b7874b1235e4f952fe46ea642
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736654"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509618"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>快速入門：使用 Java SDK 在 Azure Cosmos DB 中建立圖形資料庫 
 
@@ -106,7 +106,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連線資訊，並將其複製到應用程式中。 這些設定可讓您的應用程式與託管資料庫進行通訊。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [金鑰]  。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [金鑰]  。 
 
     複製 URI 值的第一個部分。
 
@@ -165,14 +165,14 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     
     如果遇到逾時錯誤，請檢查您已在[更新您的連線資訊](#update-your-connection-information)中正確更新連線資訊，也請嘗試重新執行最後一個命令。 
     
-    程式停止後，按 Enter，然後在網際網路瀏覽器中切換回 Azure 入口網站。 
+    程式停止後，選取 Enter，然後在網際網路瀏覽器中切換回 Azure 入口網站。 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>檢閱並新增範例資料
 
 您現在可以移回 [資料總管] 並查看已新增到圖行的頂點，然後新增額外的資料點。
 
-1. 按一下 [資料總管]  ，展開 **sample-graph**，按一下 [圖形]  ，然後再按一下 [套用篩選條件]  。 
+1. 選取 [資料總管]  ，展開 **sample-graph**，選取 [圖形]  ，然後再選取 [套用篩選條件]  。 
 
    ![在 Azure 入口網站的 [資料總管] 中建立新文件](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -180,13 +180,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
    ![Azure 入口網站的資料總管之圖形中的新頂點](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. 現在來加入一些新使用者。 按一下 [新增頂點]  按鈕，將資料新增至您的圖形。
+3. 現在來加入一些新使用者。 選取 [新增頂點]  將資料新增至您的圖形。
 
    ![在 Azure 入口網站的 [資料總管] 中建立新文件](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. 在 [標籤] 方塊中，輸入「人員」  。
 
-5. 按一下 [新增屬性]  ，以新增以下各項屬性。 請注意，您可以在圖形中為每個人建立獨特的屬性。 只需要識別碼索引鍵。
+5. 選取 [新增屬性]  ，以新增以下各項屬性。 請注意，您可以在圖形中為每個人建立獨特的屬性。 只需要識別碼索引鍵。
 
     索引鍵|value|注意
     ----|----|----
@@ -197,13 +197,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     > [!NOTE]
     > 在本快速入門中，您會建立非資料分割集合。 不過，如果您藉由在集合建立期間指定資料分割索引鍵來建立資料分割集合，您就必須包含資料分割索引鍵作為每個新頂點的索引鍵。 
 
-6. 按一下 [確定]  。 您可能需要展開畫面，才能在螢幕底部看到 [確定]  。
+6. 選取 [確定]  。 您可能需要展開畫面，才能在螢幕底部看到 [確定]  。
 
-7. 再次按一下 [新增頂點]  並新增額外的新使用者。 
+7. 再次選取 [新增頂點]  並新增額外的新使用者。 
 
 8. 輸入*人員*的標籤。
 
-9. 按一下 [新增屬性]  ，以新增以下各項屬性：
+9. 選取 [新增屬性]  ，以新增以下各項屬性：
 
     索引鍵|value|注意
     ----|----|----
@@ -211,17 +211,17 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     gender|male| 
     school|MIT| 
 
-10. 按一下 [確定]  。 
+10. 選取 [確定]  。 
 
-11. 按一下 [套用篩選條件]  按鈕，預設的 `g.V()` 篩選條件會顯示圖形中的所有值。 所有使用者現在會顯示在 [結果]  清單中。 
+11. 選取 [套用篩選條件]  按鈕，預設的 `g.V()` 篩選條件會顯示圖形中的所有值。 所有使用者現在會顯示在 [結果]  清單中。 
 
-    隨著您新增更多的資料，您可以使用篩選條件來限制您的結果。 依預設，[資料總管] 會使用 `g.V()` 擷取圖形中的所有頂點。 您可將其變更為不同的[圖形查詢](tutorial-query-graph.md) (例如 `g.V().count()`)，以使用 JSON 格式傳回圖形中所有頂點的計數。 若您變更篩選條件，請將篩選條件變更回 `g.V()`，然後按一下 [套用篩選條件]  ，即可再次顯示所有的結果。
+    隨著您新增更多的資料，您可以使用篩選條件來限制您的結果。 依預設，[資料總管] 會使用 `g.V()` 擷取圖形中的所有頂點。 您可將其變更為不同的[圖形查詢](tutorial-query-graph.md) (例如 `g.V().count()`)，以使用 JSON 格式傳回圖形中所有頂點的計數。 若您變更篩選條件，請將篩選條件變更回 `g.V()`，然後選取 [套用篩選條件]  ，即可再次顯示所有的結果。
 
-12. 現在您可以將 rakesh 和 ashley 連線。 請確定已在 [結果]  清單中選取 **ashley**，然後按一下右下方 [目標]  旁邊的 [![變更圖形中頂點的目標](./media/create-graph-java/edit-pencil-button.png)]。 您可能需要加寬視窗，才可看到按鈕。
+12. 現在您可以將 rakesh 和 ashley 連線。 請確定已在 [結果]  清單中選取 **ashley**，然後選取右下方 [目標]  旁邊的 [![變更圖形中頂點的目標](./media/create-graph-java/edit-pencil-button.png)]。 您可能需要加寬視窗，才可看到按鈕。
 
     ![變更圖形中頂點的目標](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. 在 [目標]  方塊中輸入 rakesh  ，並在 [邊緣標籤]  方塊中輸入 knows  ，然後按一下核取方塊。
+13. 在 [目標]  方塊中輸入 rakesh  ，並在 [邊緣標籤]  方塊中輸入「認識」  ，然後選取核取方塊。
 
     ![在 [資料總管] 中新增 ashley 與 rakesh 之間的連線](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 

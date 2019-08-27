@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: c738b2d44c5faca1ef95b2da8fd1f90a1b3af919
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: a7950d80bd5aa21b26a7724845f10515a65c033d
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371020"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512717"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入門：建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 資源
 
@@ -165,6 +165,8 @@ export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 * [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet) - 此方法會建立 (如果不存在) 或取得 (如果已經存在) 容器作為非同步作業。 您可以檢查來自回應的狀態碼，以判斷容器是新建立的 (201) 還是傳回的現有容器 (200)。 
 * [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) - 此方法會在容器內建立項目。 
 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) - 此方法會在容器內建立項目 (如果尚未存在) 或取代項目 (如果已存在)。 
+
 * [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
 ) - 此方法會使用具有參數化值的 SQL 陳述式，在 Azure Cosmos 資料庫中的容器下建立項目的查詢。 
 
@@ -294,7 +296,7 @@ public class Program
 
 ### <a name="create-a-database"></a>建立資料庫 
 
-在 `program.cs` 類別內定義 `CreateDatabaseAsync` 方法。 如果 `FamilyDatabase` 不存在，則此方法會建立它。 
+在 `program.cs` 類別內定義 `CreateDatabaseAsync` 方法。 如果 `FamilyDatabase` 不存在，則此方法會建立它。
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -322,7 +324,7 @@ private async Task CreateContainerAsync()
 
 ### <a name="create-an-item"></a>建立項目
 
-透過使用下列程式碼新增 `AddItemsToContainerAsync` 方法來建立家庭項目：
+透過使用下列程式碼新增 `AddItemsToContainerAsync` 方法來建立家庭項目。 您可以使用 `CreateItemAsync` 或 `UpsertItemAsync` 方法來建立項目：
 
 ```csharp
 private async Task AddItemsToContainerAsync()

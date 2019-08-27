@@ -15,27 +15,30 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
 ms.author: vijetaj
-ms.openlocfilehash: 5816f53115f3ec54cbd9784894a5262b68dd6e95
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2814ad51d2f0f868833cf9c6964b7ea4a8424435
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565187"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574918"
 ---
 # <a name="what-is-azure-data-science-virtual-machine-for-linux-and-windows"></a>適用於 Linux 和 Windows 的 Azure 資料科學虛擬機器是什麼？
 
-資料科學虛擬機器 (DSVM) 是 Microsoft Azure 雲端上的自訂 VM 映像，專為進行資料科學建置。 它已預先安裝和預先設定許多常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。 我們提供 Windows Server 和 Linux 版。 我們提供了 Server 2016 和 Server 2012 的 Windows 版 DSVM。 我們在 Ubuntu 16.04 LTS 和 CentOS 7.4 上提供 Linux 版本的 DSVM。
+資料科學虛擬機器 (DSVM) 是 Microsoft Azure 雲端上的自訂 VM 映像，專為進行資料科學建置。 它已預先安裝和預先設定許多常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。 
 
-本文討論您可以使用資料科學 VM 執行哪些作業。 文中提供一些使用 VM 的重要案例，並逐項列出 Windows 和 Linux 版本上提供的重要功能。 本文也提供開始使用此服務的相關指示。
+工具組態皆已經由 Microsoft 的資料科學家和開發人員，以及由更廣泛的資料科學社群進行完善的測試，以確保它們的穩定性和一般的可行性。
+
+下列項目有提供 DSVM：
++ Windows Server 2016、Windows Server 2012
++ Ubuntu 16.04 LTS 和 CentOS 7.4
+
+**所有深度學習 VM** 工具都已併入到資料科學 VM。 
 
 
-## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>我可以使用資料科學虛擬機器來做什麼？
+## <a name="what-can-i-do-with-dsvm"></a>DSVM 有何用途？
 資料科學虛擬機器 (DSVM) 的目標在於提供無衝突、預先設定及完全整合的資料科學環境，讓所有技能等級和各個企業的資料專業人員使用。 與其自行推出同等級的工作區，您只要佈建 DSVM 即可，不需要花費好幾天或甚至「好幾週」  的時間來安裝、設定及完成套件管理程序。 配置 DSVM 之後，您可以立即開始進行資料科學專案。
 
 資料科學 VM 是針對使用廣泛用途案例而設計和設定的。 您可以隨著專案需求的變更來相應增加或減少環境。 您也可以使用慣用語言來設計資料科學工作的程式，以及安裝其他工具來自訂系統以符合確切需求。
-
-## <a name="key-scenarios"></a>主要案例
-本節建議一些資料科學 VM 可以部署的主要案例。
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>在雲端中預先設定分析桌面
 資料科學 VM 提供資料科學小組外觀的基準組態，將其本機桌面取代為受控雲端桌面。 此基準確保小組的所有資料科學家都有一致的設定，用來確認實驗，並提升共同作業。 它也可減輕系統管理員的負擔，進而降低成本。 此負擔減輕後，評估、安裝及維護各種必要的軟體套件以執行進階分析所需的時間，也得以縮短。
@@ -47,18 +50,37 @@ ms.locfileid: "68565187"
 資料科學黑客松 (Hackathon)/競賽或大型資料模型化和探索需要相應放大硬體容量，通常是很短的期間。 資料科學 VM 可幫助在相應放大的伺服器上快速隨選複寫資料科學環境，允許需要強大運算資源執行的實驗。
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>自訂 Azure Notebooks 的計算能力
-
-[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) 是免費的託管服務，無需任何安裝程序，就能用來在雲端中開發、執行和共用 Jupyter Notebook。 不過，免費服務層級的限制為 4 GB 記憶體和 1GB 資料。 若要解除所有的限制，您接著可以將 Notebooks 專案附加至資料科學 VM 或執行 Jupyter 伺服器的任何其他 VM。 如果您以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks，Notebooks 會自動顯示與該帳戶相關聯之訂用帳戶中的任何資料科學 VM。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)。
+[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) 是免費的託管服務，無需任何安裝程序，就能用來在雲端中開發、執行和共用 Jupyter Notebook。 不過，免費服務層級的限制為 4 GB 記憶體和 1GB 資料。 若要解除所有的限制，您接著可以將 Notebooks 專案附加至資料科學 VM 或執行 Jupyter 伺服器的任何其他 VM。 如果您以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks，Notebooks 會自動顯示與該帳戶相關聯之訂用帳戶中的任何資料科學 VM。 您可以[將資料科學 VM 連結至 Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) 以擴充可用的計算能力。
 
 ### <a name="short-term-experimentation-and-evaluation"></a>短期實驗和評估
 資料科學 VM 可以用來評估或學習工具，例如 Microsoft ML Server、SQL Server、Visual Studio 工具、Jupyter、深入學習/ML 工具組，與社群中需要最少設定的受歡迎新工具。 資料科學 VM 可快速設定，因此可以套用至其他短期使用案例。 這些案例包括複寫已發佈的實驗、執行示範、遵循線上課程和會議教學課程的逐步解說。
 
 ### <a name="deep-learning"></a>深入學習
-資料科學 VM 可以用於在 GPU (圖形處理單元) 型硬體使用深入學習演算法的定型模型。 利用 Azure 雲端的 VM 規模調整功能，DSVM 可協助您依需求在雲端使用 GPU 型硬體。 當訓練大型模型或需要高速計算同時保留相同的 OS 磁碟時，可以切換到 GPU 型 VM。  Windows Server 2016 版的 DSVM 預先安裝了 GPU 驅動程式、架構和 GPU 版本的深入學習架構。 在 Linux 版本上，GPU 的深入學習於 CentOS 和 Ubuntu DSVM 上啟用。 您可以將 Ubuntu、CentOS 或 Windows-2016 版資料科學 VM 部署到非 GPU 型 Azure 虛擬機器。 在此情況下，所有深度學習架構都會回復為 CPU 模式。
+資料科學 VM 可以用於在 GPU (圖形處理單元) 型硬體使用深入學習演算法的定型模型。 利用 Azure 雲端的 VM 規模調整功能，DSVM 可協助您依需求在雲端使用 GPU 型硬體。 當訓練大型模型或需要高速計算同時保留相同的 OS 磁碟時，可以切換到 GPU 型 VM。  Windows Server 2016 版的 DSVM 預先安裝了 GPU 驅動程式、架構和 GPU 版本的深入學習架構。 在 Linux 版本上，GPU 的深入學習於 CentOS 和 Ubuntu DSVM 上啟用。 您可以將 Ubuntu、CentOS 或 Windows-2016 版資料科學 VM 部署到非 GPU 型 Azure 虛擬機器。 在此情況下，所有深度學習架構都會回復為 CPU 模式。 深入了解[可用的深度學習和 AI 架構](dsvm-deep-learning-ai-frameworks.md)。
+ 
+深入了解[可用的深度學習和 AI 架構](dsvm-deep-learning-ai-frameworks.md)。
 
-## <a name="whats-included-in-the-data-science-vm"></a>資料科學 VM 中包含什麼？
-資料科學虛擬機器已安裝和設定許多常用的資料科學和深入學習工具。 它也包含各項工具，讓您可以輕鬆地使用各種 Azure 資料與分析產品 (例如 Microsoft ML Server (R、Python))，來建置預測模型或 SQL Server 2017 以進行大規模資料集探索。 資料科學 VM 包含來自開放原始碼社群及 Microsoft 的許多其他工具，以及範例程式碼和 Notebook。 下表列舉並比較 Windows 和 Linux 版本的資料科學虛擬機器所包含的主要元件。
+<a name="included"></a>
 
+## <a name="whats-included-on-dsvm"></a>DSVM 包含哪些內容？
+資料科學虛擬機器已安裝和設定許多常用的資料科學和深入學習工具。 它也包含各項工具，讓您可以輕鬆地使用各種 Azure 資料與分析產品 (例如 Microsoft ML Server (R、Python))，來建置預測模型或 SQL Server 2017 以進行大規模資料集探索。 資料科學 VM 包含來自開放原始碼社群及 Microsoft 的許多其他工具，以及[範例程式碼和筆記本](dsvm-samples-and-walkthroughs.md)。 
+
+工具和平台：
++ [支援的程式設計語言](dsvm-languages.md)
+
++ [支援的資料平台](dsvm-data-platforms.md)
+
++ [開發工具和 IDE](dsvm-tools-development.md)
+
++ [深度學習和 AI 架構](dsvm-deep-learning-ai-frameworks.md)。
+
++ [機器學習與資料科學工具](dsvm-ml-data-science-tools.md)
+
++ [資料擷取工具](dsvm-tools-ingestion.md)
+
++ [資料探索和虛擬化工具](dsvm-tools-explore-and-visualize.md)
+
+下表列舉並比較 Windows 和 Linux 版本的資料科學虛擬機器所包含的主要元件。
 
 | **工具**                                                           | **Windows 版本** | **Linux 版本** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
@@ -70,7 +92,7 @@ ms.locfileid: "68565187"
 | 關聯式資料庫                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS)、<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
 | 資料庫工具                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp、sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * ODBC/JDBC 驅動程式| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (查詢工具)， <br /> * bcp、sqlcmd <br /> * ODBC/JDBC 驅動程式|
 | 可調整資料庫中分析與 SQL Server ML 服務 (R、Python) | Y     |N              |
-| 採用下列核心的 **[Jupyter Notebook Server](https://jupyter.org/) ，**                                  | Y     | Y |
+| 採用下列核心的 **[Jupyter Notebook Server](https://jupyter.org/)，**                                  | Y     | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Y | Y |
@@ -129,18 +151,16 @@ ms.locfileid: "68565187"
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow 服務](https://www.tensorflow.org/serving/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA、cuDNN、NVIDIA 驅動程式](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
-| **巨量資料平台 (僅限 Devtest)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* 本機獨立 [Spark](https://spark.apache.org/) | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* 本機 [Hadoop](https://hadoop.apache.org/) (HDFS、YARN) | N | Y |
-
-## <a name="get-started"></a>開始使用
-
-### <a name="windows-data-science-vm"></a>Windows 資料科學 VM
-* 如需如何建立和使用 Windows DSVM 的詳細資訊，請參閱[佈建 Windows 資料科學虛擬機器](provision-vm.md)。 如需有關如何執行您在 Windows DSVM 上的資料科學專案所需的各種工作的詳細資訊，請參閱[您可以在資料科學虛擬機器上做的十件事](vm-do-ten-things.md)。
-
-### <a name="linux-data-science-vm"></a>Linux 資料科學 VM
-* 如需如何建立和使用 Ubuntu DSVM 的詳細資訊，請參閱[佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器](dsvm-ubuntu-intro.md)。 如需如何建立和使用 CentOS DSVM 的詳細資訊，請參閱[在 Azure 上佈建 Linux CentOS 資料科學虛擬機器](linux-dsvm-intro.md)。
-* 如需為您示範如何使用 Linux VM (CentOS 和 Ubuntu) 執行數個常見資料科學工作的逐步解說，請參閱 [Linux 資料科學虛擬機器上的資料科學](linux-dsvm-walkthrough.md)。
 
 ## <a name="next-steps"></a>後續步驟
-[Azure 的 R 開發人員指南](/azure/architecture/data-guide/technology-choices/r-developers-guide)
+
+請透過下列文章來深入了解：
+
++ Windows:
+  + [設定 Windows DSVM](provision-vm.md)
+  + [您可以在 Windows DSVM 上進行的十件事](vm-do-ten-things.md)
+
++ Linux：
+  + [設定 Linux DSVM (Ubuntu)](dsvm-ubuntu-intro.md)
+  + [設定 Linux DSVM (CentOS)](linux-dsvm-intro.md)
+  + [Linux DSVM 上的資料科學](linux-dsvm-walkthrough.md)

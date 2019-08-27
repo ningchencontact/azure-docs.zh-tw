@@ -8,14 +8,14 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 06/26/2019
+ms.date: 08/16/2019
 ms.author: alinast
-ms.openlocfilehash: 9f88eccf1e488d52fbbbd064cc5d7f54c2eec32b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 40a98f915bc11ad17eae27596519cc78539fb2bb
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459101"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640292"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>快速入門：使用 Azure Digital Twins 尋找空閒會議室
 
@@ -72,6 +72,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 此空間圖形會使用 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 檔案來加以佈建。
 
 1. 執行 `dotnet run ProvisionSample`。
+
     >[!NOTE]
     >裝置登入 Azure CLI 工具可用來對 Azure AD 驗證使用者。 使用者必須輸入指定代碼，才能使用 [Microsoft 登入](https://microsoft.com/devicelogin)頁面來進行驗證。 輸入代碼後，請遵循相關步驟來進行驗證。 當工具執行時，使用者必須進行驗證。
 
@@ -80,11 +81,11 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 1. 佈建步驟可能需要進行幾分鐘的時間。 它也會在 Digital Twins 執行個體內佈建 IoT 中樞。 這個過程會一直循環進行，直到 IoT 中樞顯示狀態為 `Running`。
 
-    ![佈建範例][4]
+    [![佈建範例](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
 
 1. 執行結束時，請複製裝置的 `ConnectionString` 以便用於裝置模擬器範例。 您只需要複製下圖所述的字串。
 
-    ![佈建範例][1]
+    [![複製連接字串](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
     >[!TIP]
     > 您可以使用 [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer) 檢視和修改空間圖形。
@@ -99,7 +100,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 1. 編輯 [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) 以使用先前的 `ConnectionString` 來更新 DeviceConnectionString  。
 1. 執行 `dotnet run` 來開始傳送感應器資料。 您會看到資料傳送到 Digital Twins，如下圖所示。
 
-     ![裝置連線能力][2]
+     [![裝置連線能力](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
 1. 讓此模擬器執行，以便您可以使用下一個步驟的動作來並排檢視結果。 此視窗會顯示傳送到 Digital Twins 的模擬感應器資料。 下一個步驟會進行即時查詢，以尋找有新鮮空氣的空閒會議室。
 
@@ -118,7 +119,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
    - 有新鮮空氣的空閒會議室。
    - 會議室有人使用或空中品質不良。
 
-     ![取得有新鮮空氣的空閒空間][3]
+     [![取得有新鮮空氣的空閒空間](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
 若要了解本快速入門所發生的情況以及已呼叫的 API，請使用 digital-twins-samples-csharp 中找到的程式碼工作區專案來開啟 [Visual Studio Code](https://code.visualstudio.com/Download)。 使用下列命令：
 
@@ -160,9 +161,3 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 >[!div class="nextstepaction"]
 >[教學課程：部署 Azure Digital Twins 及設定空間圖形](tutorial-facilities-setup.md)
-
-<!-- Images -->
-[1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
-[2]: media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png
-[3]: media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png
-[4]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png

@@ -11,20 +11,20 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 84e05b7afa2746587f2ea5008d493730ccbfad7e
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 40a2d3ab4ec358b5b2d0105703cdc25cdb777c29
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950044"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562980"
 ---
-# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>使用 Core Tools 和 Azure CLI 建立第一個在 Linux 上裝載的函式 (預覽)
+# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli"></a>使用 Core Tools 和 Azure CLI 建立第一個在 Linux 上裝載的函式
 
-Azure Functions 可讓您在[無伺服器](https://azure.com/serverless) Linux 環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 Linux 裝載功能需要 [Functions 2.0 執行階段](functions-versions.md)。 支援以無伺服器[取用量方案](functions-scale.md#consumption-plan)在 Linux 上執行的函數應用程式，目前處於預覽狀態。 若要深入了解，請參閱[此預覽考量文章](https://aka.ms/funclinux)。
+Azure Functions 可讓您在[無伺服器](https://azure.com/serverless) Linux 環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 Linux 裝載功能需要 [Functions 2.x 執行階段](functions-versions.md)。 無伺服器函式會在[取用方案](functions-scale.md#consumption-plan)中執行。
 
 本快速入門文章會逐步解說如何使用 Azure CLI 建立第一個在 Linux 上執行的函式應用程式。 您可以使用 [Azure Functions Core Tools](functions-run-local.md) 在本機建立函式程式碼，然後將其部署至 Azure。
 
-下列步驟適用於 Mac、Windows 或 Linux 電腦。 本文說明如何以 JavaScript 或 C# 建立函式。 若要了解如何建立 Python 函式，請參閱[使用 Core Tools 和 Azure CLI 建立第一個 Python 函式 (預覽)](functions-create-first-function-python.md)。
+下列步驟適用於 Mac、Windows 或 Linux 電腦。 本文說明如何以 JavaScript 或 C# 建立函式。 若要了解如何建立 Python 函式，請參閱[使用 Core Tools 和 Azure CLI 建立第一個 Python 函式](functions-create-first-function-python.md)。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6725bbc1978109d2b690a98e2cf98cc8c8c25141
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033032"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534793"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>教學課程：使用 Azure Machine Learning，搭配 MNIST 資料和 scikit-learn 定型映像分類模型
 
@@ -40,33 +40,15 @@ ms.locfileid: "69033032"
 
 ## <a name="prerequisites"></a>必要條件
 
-請跳至[設定您的開發環境](#start)閱讀完整的 Notebook 步驟，或依照下列指示取得 Notebook，並在 Azure Notebooks 或您自己的 Notebook 伺服器上加以執行。  若要執行 Notebook，您將需要：
+* 完成[教學課程：開始建立您的第一個 ML 實驗](tutorial-1st-experiment-sdk-setup.md)，以便：
+    * 建立工作區
+    * 建立雲端 Notebook 伺服器
+    * 啟動 Jupyter 筆記本儀表板
 
-* 已安裝下列項目的 Python 3.6 Notebook 伺服器：
-    * Azure Machine Learning SDK for Python
-    * `matplotlib`和`scikit-learn`
-* 教學課程 Notebook 和 **utils.py** 檔案
-* 機器學習工作區
-* 與 Notebook 位於相同目錄中的工作區組態檔
+* 啟動 Jupyter 筆記本儀表板之後，請開啟 **tutorials/img-classification-part1-training.ipynb** 筆記本。
 
-請從以下各節取得前述所有必要項目。
+如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中使用此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得此教學課程和隨附的 **utils.py** 檔案。  請確定您已在環境中安裝 `matplotlib` 和 `scikit-learn`。
 
-* 使用[您工作區中的雲端 Notebook 伺服器](#azure)
-* 使用[您自己的 Notebook 伺服器](#server)
-
-### <a name="azure"></a>使用您工作區中的雲端 Notebook 伺服器
-
-您可以輕鬆地開始使用自己的雲端式 Notebook 伺服器。 我們已在您建立此雲端資源後，為您安裝及設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* 啟動 Notebook 網頁之後，請開啟 **tutorials/img-classification-part1-training.ipynb** Notebook。
-
-### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
- 完成這些步驟之後，請從您複製的目錄執行 **tutorials/img-classification-part1-training.ipynb** Notebook。
 
 ## <a name="start"></a>設定您的開發環境
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 652fe182663d37c389658c8fe3b172826168e51f
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: c09e2cd812dd34976218ff71036734466943e8cd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617983"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "69623859"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>教學課程：使用 Event Grid 自動調整已上傳映像的大小
 
@@ -41,7 +41,7 @@ ms.locfileid: "59617983"
 
 ---
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立一般的 Azure 儲存體帳戶
@@ -221,11 +221,11 @@ az functionapp deployment source config --name $functionapp \
 
 事件訂閱表示您想要傳送至特定端點之提供者產生的事件。 在此情況下，端點會由函式公開。 使用下列步驟，在 Azure 入口網站中建立事件訂閱，以傳送通知給您的函式： 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左側功能表中的 [所有服務]，然後選取 [函式應用程式]。 
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左側功能表中的 [所有服務]  ，然後選取 [函式應用程式]  。 
 
     ![瀏覽至 Azure 入口網站中的函式應用程式](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
-2. 展開函式應用程式，選擇 **Thumbnail** 函式，然後選取 [新增事件方格訂用帳戶]。
+2. 展開函式應用程式，選擇 **Thumbnail** 函式，然後選取 [新增事件方格訂用帳戶]  。
 
     ![瀏覽至 Azure 入口網站中的函式應用程式](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
@@ -238,17 +238,17 @@ az functionapp deployment source config --name $functionapp \
     | **名稱** | imageresizersub | 用以識別新事件訂閱的名稱。 | 
     | **主題類型** |  儲存體帳戶 | 選擇儲存體帳戶事件提供者。 | 
     | **訂用帳戶** | 您的 Azure 訂用帳戶 | 預設會選取您目前的 Azure 訂用帳戶。   |
-    | **資源群組** | myResourceGroup | 選取 [使用現有]，並選擇您在本教學課程中一直使用的資源群組。  |
+    | **資源群組** | myResourceGroup | 選取 [使用現有]  ，並選擇您在本教學課程中一直使用的資源群組。  |
     | **Resource** |  您的 Blob 儲存體帳戶 |  選擇您建立的 Blob 儲存體帳戶。 |
-    | **事件類型** | 已建立 Blob | 取消勾選 [已建立 Blob] 以外的所有類型。 只有 `Microsoft.Storage.BlobCreated` 的事件類型會傳遞至函式。| 
+    | **事件類型** | 已建立 Blob | 取消勾選 [已建立 Blob]  以外的所有類型。 只有 `Microsoft.Storage.BlobCreated` 的事件類型會傳遞至函式。| 
     | **訂閱者類型** |  自動產生 |  預先定義為 Web Hook。 |
     | **訂閱者端點** | 自動產生 | 使用為您產生的端點 URL。 | 
-4. 切換至 [篩選條件] 索引標籤，執行下列動作：     
-    1. 選取 [啟用主旨篩選] 選項。
-    2. 針對 [主旨開頭]，輸入下列值：**/blobServices/default/containers/images/blobs/**。
+4. 切換至 [篩選條件]  索引標籤，執行下列動作：     
+    1. 選取 [啟用主旨篩選]  選項。
+    2. 針對 [主旨開頭]  ，輸入下列值： **/blobServices/default/containers/images/blobs/** 。
 
         ![指定事件訂閱的篩選條件](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png) 
-2. 選取 [建立] 以新增事件訂閱。 當 Blob 新增至 `images` 容器時，這會建立可觸發 `Thumbnail` 函式的事件訂閱。 此函式會調整映像大小，並將其新增至 `thumbnails` 容器。
+2. 選取 [建立]  以新增事件訂閱。 當 Blob 新增至 `images` 容器時，這會建立可觸發 `Thumbnail` 函式的事件訂閱。 此函式會調整映像大小，並將其新增至 `thumbnails` 容器。
 
 既然已設定了後端服務，您可以在範例 Web 應用程式中測試映像調整大小功能。 
 
@@ -258,23 +258,25 @@ az functionapp deployment source config --name $functionapp \
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-按一下 [上傳相片] 區域，以選取並上傳檔案。 您也可以將相片拖曳到此區域。 
+按一下 [上傳相片]  區域，以選取並上傳檔案。 您也可以將相片拖曳到此區域。 
 
-請注意，上傳的映像消失之後，上傳映像的複本會顯示在 [產生縮圖] 浮動切換中。 此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
+請注意，上傳的映像消失之後，上傳映像的複本會顯示在 [產生縮圖]  浮動切換中。 此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
 
 ![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
 
-按一下 [選擇檔案] 來選取檔案，然後按一下 [上傳映像]。 上傳成功時，瀏覽器會瀏覽至成功頁面。 按一下連結以返回首頁。 所上傳映像的複本會顯示在 [產生縮圖] 區域中。 (如果映像一開始並未出現，請嘗試重新載入頁面)。此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
+按一下 [選擇檔案]  來選取檔案，然後按一下 [上傳映像]  。 上傳成功時，瀏覽器會瀏覽至成功頁面。 按一下連結以返回首頁。 所上傳映像的複本會顯示在 [產生縮圖]  區域中。 (如果映像一開始並未出現，請嘗試重新載入頁面)。此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
 
 ![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-按一下 [選擇檔案] 來選取檔案，然後按一下 [上傳映像]。 上傳成功時，瀏覽器會瀏覽至成功頁面。 按一下連結以返回首頁。 所上傳映像的複本會顯示在 [產生縮圖] 區域中。 (如果映像一開始並未出現，請嘗試重新載入頁面)。此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
+按一下 [選擇檔案]  來選取檔案，然後按一下 [上傳映像]  。 上傳成功時，瀏覽器會瀏覽至成功頁面。 按一下連結以返回首頁。 所上傳映像的複本會顯示在 [產生縮圖]  區域中。 (如果映像一開始並未出現，請嘗試重新載入頁面)。此映像已由函式調整大小、新增至 *thumbnails* 容器，並由 Web 用戶端下載。
 
 ![瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 ## <a name="next-steps"></a>後續步驟
 

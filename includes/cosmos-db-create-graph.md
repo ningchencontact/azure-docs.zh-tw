@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: a24159a482c55496bb1e6031be951196258a6796
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565485"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541444"
 ---
 您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立圖形資料庫。 
 
-1. 按一下 [資料總管]   > [新增圖形]  。
+1. 選取 [資料總管]   > [新增圖形]  。
 
     [新增圖形]  區域會顯示在最右邊，您可能需要向右捲動才會看到。
 
@@ -32,4 +32,4 @@ ms.locfileid: "68565485"
     圖形識別碼|sample-graph|輸入 *sample-graph* 作為新集合的名稱。 圖形名稱與資料庫識別碼具有相同的字元需求。
     資料分割索引鍵| /pk |所有 Cosmos DB 帳戶都需要分割索引鍵，才能進行水準調整。 了解如何在[圖表資料分割](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning)一文中選取適當的分割區索引鍵。
 
-3. 填妥表單後，按一下 [確定]  。
+3. 填妥表單後，選取 [確定]  。

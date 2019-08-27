@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ea3779ce7d4d77e6b0a55b8a00374b701a073b66
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598525"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876446"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>建置 .NET 主控台應用程式來管理 Azure Cosmos DB SQL API 帳戶中的資料
 
@@ -253,7 +253,7 @@ ms.locfileid: "68598525"
 
 選取 **F5** 鍵執行您的應用程式。
 
-恭喜！ 您已成功建立 Azure Cosmos DB 資料庫。  
+恭喜！ 您已成功建立 Azure Cosmos 資料庫。  
 
 ## <a id="CreateColl"></a>步驟 5：建立容器
 > [!WARNING]
@@ -283,10 +283,10 @@ ms.locfileid: "68598525"
 
    選取 **F5** 鍵執行您的應用程式。
 
-恭喜！ 您已成功建立 Azure Cosmos DB 容器。  
+恭喜！ 您已成功建立 Azure Cosmos 容器。  
 
 ## <a id="CreateDoc"></a>步驟 6：將項目新增至容器
-項目可以使用 **CosmosContainer** 類別的 [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) 函式來建立。 使用 SQL API 時，預期的項目會是文件，這是使用者定義的 (任意) JSON 內容。 您現在可以將項目插入 Azure Cosmos DB 容器中。
+項目可以使用 **CosmosContainer** 類別的 [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) 函式來建立。 使用 SQL API 時，預期的項目會是文件，這是使用者定義的 (任意) JSON 內容。 您現在可以將項目插入 Azure Cosmos 容器中。
 
 首先，我們來建立 **Family** 類別，以代表此範例中儲存在 Azure Cosmos DB 內的物件。 我們也會建立 **Family** 內使用的 **Parent**、**Child**、**Pet**、**Address** 子類別。 請注意，項目必須將 **Id** 屬性序列化為 JSON 中的**識別碼**。
 
@@ -320,10 +320,10 @@ ms.locfileid: "68598525"
 
 選取 **F5** 鍵執行您的應用程式。
 
-恭喜！ 您已成功建立兩個 Azure Cosmos DB 項目。  
+恭喜！ 您已成功建立兩個 Azure Cosmos 項目。  
 
 ## <a id="Query"></a>步驟 7：查詢 Azure Cosmos DB 資源
-Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查詢](sql-api-sql-query.md)。 下列範例程式碼示範如何對上一個步驟中插入的項目執行查詢。
+Azure Cosmos DB 支援對儲存於每個容器中的 JSON 文件進行豐富[查詢](sql-api-sql-query.md)。 下列範例程式碼示範如何對上一個步驟中插入的項目執行查詢。
 
 1. 將 **QueryItemsAsync** 方法複製並貼到 **AddItemsToContainerAsync** 方法底下。
 
@@ -347,7 +347,7 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查
 
 選取 **F5** 鍵執行您的應用程式。
 
-恭喜！ 您已成功查詢 Azure Cosmos DB 容器。
+恭喜！ 您已成功查詢 Azure Cosmos 容器。
 
 ## <a id="ReplaceItem"></a>步驟 8：取代 JSON 項目
 現在，我們會更新 Azure Cosmos DB 中的項目。
@@ -375,7 +375,7 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查
 
    選取 **F5** 鍵執行您的應用程式。
 
-恭喜！ 您已成功取代 Azure Cosmos DB 項目。
+恭喜！ 您已成功取代 Azure Cosmos 項目。
 
 ## <a id="DeleteDocument"></a>步驟 9：刪除項目
 現在，我們將刪除 Azure Cosmos DB 中的項目。
@@ -404,7 +404,7 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查
 
 選取 **F5** 鍵執行您的應用程式。
 
-恭喜！ 您已成功刪除 Azure Cosmos DB 項目。
+恭喜！ 您已成功刪除 Azure Cosmos 項目。
 
 ## <a id="DeleteDatabase"></a>步驟 10：刪除資料庫
 現在我們會刪除資料庫。 刪除已建立的資料庫將會移除資料庫和所有子系資源 (容器、項目，以及任何預存程序、使用者定義的函式和觸發程序)。 我們也會處置 **CosmosClient** 執行個體。
@@ -419,7 +419,7 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查
 
 選取 **F5** 鍵執行您的應用程式。
 
-恭喜！ 您已成功刪除 Azure Cosmos DB 資料庫。
+恭喜！ 您已成功刪除 Azure Cosmos 資料庫。
 
 ## <a id="Run"></a>步驟 11：一起執行您的 C# 主控台應用程式！
 在 Visual Studio 中選取 F5，即可在偵錯模式下建置和執行應用程式。

@@ -8,17 +8,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/21/2019
-ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.date: 08/16/2019
+ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668416"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891683"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>教學課程：透過視覺化介面預測汽車價格
 
-在這個分成兩部分的教學課程中，您將了解如何使用 Azure Machine Learning 服務的視覺化介面來開發和部署預測性分析解決方案，以預測任何汽車的價格。 
+在這個分成兩部分的教學課程中，您會了解如何使用 Azure Machine Learning 服務的視覺化介面來開發和部署預測性分析解決方案，以預測任何汽車的價格。 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -27,9 +27,11 @@ ms.locfileid: "68668416"
 在教學課程的第一部分中，您將了解如何：
 
 > [!div class="checklist"]
-> * 匯入及清除資料
+> * 建立新實驗
+> * 匯入資料
+> * 準備資料
 > * 訓練機器學習模型
-> * 對模型進行評分和評估
+> * 評估機器學習模型
 
 在教學課程的[第二部分](ui-tutorial-automobile-price-deploy.md)中，您將了解如何將預測模型部署為 Azure Web 服務，以便用來根據您傳入的技術規格預測任何汽車的價格。 
 
@@ -37,13 +39,17 @@ ms.locfileid: "68668416"
 
 若要找到它，請從 [實驗頁面]  選取 [新增]  ，然後選取 [範例 1 - 迴歸：  汽車價格預測 (基本)] 實驗。
 
-## <a name="create-a-workspace"></a>建立工作區
+## <a name="create-a-new-experiment"></a>建立新實驗
+
+若要建立視覺化介面實驗，您首先需要 Azure Machine Learning 服務工作區。 在本節中，您將了解如何建立這兩個資源。
+
+### <a name="create-a-new-workspace"></a>建立新的工作區
 
 如果您有 Azure Machine Learning 服務工作區，請跳至下一節。
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-new-experiment"></a>建立新的實驗
+### <a name="create-an-experiment"></a>建立實驗
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中開啟工作區。
 
@@ -57,7 +63,7 @@ ms.locfileid: "68668416"
 
 1. 選取畫布頂端的預設實驗名稱「實驗建立時間」  ，並將其重新命名為有意義的名稱。 例如， **「汽車價格預測」** 。 此名稱不必是唯一的。
 
-## <a name="specify-data"></a>指定資料
+## <a name="import-data"></a>匯入資料
 
 機器學習取決於資料。 幸而，此介面中包含數個範例資料集，可供您在實驗時使用。 在本教學課程中，使用範例資料集**汽車價格資料 (原始)** 。 
 
@@ -65,7 +71,7 @@ ms.locfileid: "68668416"
 
 1. 選取資料集**汽車價格資料 (原始)** ，並將其拖曳到畫布上。
 
-   ![將資料拖曳到畫布](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
+   ![將資料拖曳到畫布](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
 1. 選取要使用的資料行。 在選擇區頂端的搜尋方塊中輸入**選取**，以尋找**選取資料集中的資料行**模組。
 
@@ -87,11 +93,11 @@ ms.locfileid: "68668416"
 
     在 [選取資料行]  對話方塊中選取 [所有資料行]  ，並包含 [所有功能]  。 對話方塊應該會看起來如下：
 
-     ![資料行選取器](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+     ![資料行選取器](./media/ui-tutorial-automobile-price-train-score/select-all.gif)
 
 1. 在右下方，選取 [確定]  按鈕，以關閉資料行選取器。
 
-## <a name="run-the-experiment"></a>執行實驗
+### <a name="run-the-experiment"></a>執行實驗
 
 您隨時可以按一下資料集或模組的輸出連接埠，以查看資料於該時間點在資料流程中的型態。 如果 [視覺化]  選項已停用，則必須先執行實驗。
 
@@ -100,7 +106,7 @@ ms.locfileid: "68668416"
 有可用的計算目標之後，便會執行實驗。 執行完成時，每個模組上會出現綠色的核取記號。
 
 
-## <a name="visualize-the-data"></a>將資料視覺化
+### <a name="visualize-the-data"></a>將資料視覺化
 
 現在您已執行初始實驗，接下來可以將資料視覺化，以深入了解您擁有的資料集。
 
@@ -110,9 +116,9 @@ ms.locfileid: "68668416"
 
     在此資料集中，每個資料列分別代表一款汽車，而與每款汽車相關聯的變數會顯示為資料行。 此資料集中有 205 個資料列和 26 個資料行。
 
-     每當您按一下資料的資料行時，該資料行的 [統計資料]  資訊和 [視覺效果]  影像就會出現在左側。 例如，當您按一下**車門數**時，您會看到它有兩個唯一值和兩個遺漏值。 向下捲動可查看其值：雙門和四門。
+    每當您按一下資料的資料行時，該資料行的 [統計資料]  資訊和 [視覺效果]  影像就會出現在左側。
 
-     ![預覽資料](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+    [![預覽資料](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif#lightbox)
 
 1. 按一下每個資料行即可深入了解您的資料集，並判斷這些資料行是否有助於預測汽車的價格。
 
@@ -137,15 +143,11 @@ ms.locfileid: "68668416"
 
     * 在右下方，選取 [確定]  按鈕，以關閉資料行選取器。
 
-    ![排除資料行](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![排除資料行](./media/ui-tutorial-automobile-price-train-score/exclude-column.gif)
         
     現在，[選取資料集中的資料行] 的屬性窗格指出它會傳遞資料集中的所有資料行，但 [自負虧損]  除外。
         
     [屬性] 窗格顯示 [自負虧損]  資料行已排除。
-        
-    ![屬性窗格](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
-        
-    您可以按兩下模組並輸入文字，為模組新增註解。 這有助於您快速檢視模組在您實驗中的執行情況。 
 
 1. 按兩下**選取資料集中的資料行**模組，然後輸入註解「排除自負虧損」。 
     
@@ -168,22 +170,22 @@ ms.locfileid: "68668416"
 1. 在 [屬性] 窗格中，選取 [清除模式]  下方的 [移除整個資料列]  。
 
 1. 按兩下模組，並輸入註解「移除遺漏值資料列」。
- 
-    ![移除資料列](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
 
     您的實驗目前看起來如下：
     
     ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
 
-## <a name="train-the-model"></a>訓練模型
+## <a name="train-a-machine-learning-model"></a>訓練機器學習模型
 
 現在資料已就緒，接下來可以建構預測模型。 您將使用您的資料來訓練模型。 然後，您將測試模型以確認它預測價格的精準度。
+
+### <a name="select-an-algorithm"></a>選取演算法
 
 **分類**和**迴歸**是兩種受監督的機器學習服務演算法。 **分類**可從一組已定義的類別預測答案，例如色彩 (紅色、藍色或綠色)。 **迴歸**可用來預測數字。
 
 因為要預測價格，也就是一個數字，因此您將使用迴歸演算法。 在此範例中，您將使用線性迴歸模型。
 
-您將藉由提供一組包含價格的資料來訓練模型。 模型會掃描的資料，然後尋找汽車性能與價格之間的關聯性。
+### <a name="split-the-data"></a>分割資料
 
 請將資料分割成個別的訓練和測試資料集，用來訓練和測試模型。
 
@@ -191,17 +193,17 @@ ms.locfileid: "68668416"
 
 1. 選取**分割資料**模組。 在 [屬性] 窗格中，將第一個輸出資料集中的資料列比例設為 0.7。 如此，我們將使用百分之 70 的資料來訓練模型，並保留百分之 30 供測試之用。
 
-    ![此螢幕擷取畫面顯示屬性窗格的正確組態。 [分割資料] 的值應為「分割資料列」、0.7、「隨機分割」、0、False。](./media/ui-tutorial-automobile-price-train-score/split-data.png)
-
 1. 按兩下 [分割資料]  ，然後輸入註解「將資料集分割為訓練集 (0.7) 和測試集 (0.3)」
+
+### <a name="train-the-model"></a>訓練模型
+
+您將藉由提供一組包含價格的資料來訓練模型。 模型會掃描的資料，然後尋找汽車性能與價格之間的關聯性。
 
 1. 若要選取學習演算法，請清除您的模組選擇區搜尋方塊。
 
 1. 依序展開 [機器學習]  和 [初始化模型]  。 這會顯示數個可用來初始化機器學習演算法的模組類別。
 
 1. 在此實驗中，請選取 [迴歸]   > [線性迴歸]  ，然後將其拖曳到實驗畫布。
-
-    ![此螢幕擷取畫面顯示屬性窗格的正確組態。 [分割資料] 的值應為「分割資料列」、0.7、「隨機分割」、0、False。](./media/ui-tutorial-automobile-price-train-score/linear-regression-module.png)
 
 1. 找出**訓練模型**模組，並將其拖曳到實驗畫布。 將「線性迴歸」模組的輸出連線至「訓練模型」模組的左側輸入，並將**分割資料**模組的訓練資料輸出 (左側連接埠) 連線至**訓練模型**模組的右側輸入。
 
@@ -215,7 +217,7 @@ ms.locfileid: "68668416"
 
     ![此螢幕擷取畫面顯示實驗在新增「訓練模型」模組之後的正確組態。](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-## <a name="score-and-evaluate-the-model"></a>對模型進行評分和評估
+## <a name="evaluate-a-machine-learning-model"></a>評估機器學習模型
 
 現在您已完成使用百分之 70 資料模型的訓練，而可用它來為其他百分之 30 的資料評分，以了解模型的運作是否理想。
 
@@ -244,26 +246,6 @@ ms.locfileid: "68668416"
 * **決定係數**：也稱為 R 平方值，這是一個統計計量，可指出模型對於資料的適用程度。
 
 針對每個誤差統計資料，越小越好。 值越小，表示預測越接近實際值。 就 [決定係數] 而言，其值愈接近一 (1.0)，預測就愈精準。
-
-## <a name="manage-experiments-in-azure-machine-learning-service-workspace"></a>在 Azure Machine Learning 服務工作區中管理實驗
-
-您可以透過 Azure Machine Learning 服務工作區來管理在視覺化介面中建立的實驗。 您可以使用工作區查看更多詳細資訊，例如個人實驗執行、診斷記錄、執行圖形等等。
-
-1. 在 [Azure 入口網站](https://portal.azure.com/)中開啟工作區。  
-
-1. 在您的工作區中，選取 [實驗]  。 然後，選取您建立的實驗。
-
-    ![顯示如何在 Azure 入口網站中瀏覽至實驗的螢幕擷取畫面](./media/ui-tutorial-automobile-price-train-score/portal-experiments.png)
-
-    在此頁面上，您會看到實驗的概觀及其最新的執行。
-
-    ![此螢幕擷取畫面顯示實驗統計資料在 Azure 入口網站中的概觀](./media/ui-tutorial-automobile-price-train-score/experiment-overview.png)
-
-1. 選取執行號碼以查看特定執行的相關詳細資料。
-
-    ![詳細執行報告的螢幕擷取畫面](./media/ui-tutorial-automobile-price-train-score/run-details.png)
-
-    執行報告會即時更新。 如果您在實驗中使用**執行 Python 指令碼**或**執行 R 指令碼**模組，您可以在 [記錄]  索引標籤中指定要輸出的指令碼記錄。
 
 ## <a name="clean-up-resources"></a>清除資源
 

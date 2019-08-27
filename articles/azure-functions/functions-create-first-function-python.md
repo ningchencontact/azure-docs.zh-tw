@@ -11,16 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5b90702f89af260a67b69bf96c2e079a45298723
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722790"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575453"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>在 Azure 中建立 HTTP 觸發的函式
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 本文說明如何使用命令列工具建立在 Azure Functions 中執行的 Python 專案。 您所建立的函式會由 HTTP 要求觸發。 最後，您會在 Azure 中發行專案，使其以[無伺服器函式](functions-scale.md#consumption-plan)的形式執行。
 
@@ -32,7 +30,7 @@ ms.locfileid: "68722790"
 
 + 安裝 [Python 3.6](https://www.python.org/downloads/)。
 
-+ 安裝 [Azure Functions Core Tools](./functions-run-local.md#v2) 2.6.1071 版或更新版本。
++ 安裝 [Azure Functions Core Tools](./functions-run-local.md#v2) 2.7.1575 版或更新版本。
 
 + 安裝 [Azure CLI](/cli/azure/install-azure-cli) 2.x 版或更新版本。
 
@@ -40,9 +38,9 @@ ms.locfileid: "68722790"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment"></a>建立並啟用虛擬環境
+## <a name="create-and-activate-a-virtual-environment-optional"></a>建立並啟用虛擬環境 (選擇性)
 
-若要在本機開發及測試 Python 函式，您必須在 Python 3.6 環境中工作。 執行下列命令來建立並啟用名為 `.venv` 的虛擬環境。
+若要在本機開發及測試 Python 函式，建議您使用 Python 3.6 環境。 執行下列命令來建立並啟用名為 `.venv` 的虛擬環境。
 
 ### <a name="bash"></a>Bash：
 
@@ -81,8 +79,6 @@ func init MyFunctionProj
 ```console
 cd MyFunctionProj
 ```
-
-接著，您可以更新 host.json 檔案以啟用延伸組合。  
 
 ## <a name="create-a-function"></a>建立函式
 
@@ -165,15 +161,19 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-
 > [!NOTE]
-> 適用於 Linux 的 Azure Functions 取用方案目前為預覽狀態，只在下列區域提供：美國西部、美國東部、西歐、東亞。 此外，Linux 和 Windows 應用程式無法裝載在相同的資源群組中。 如果您有名為 `myResourceGroup` 的現有資源群組，且其中包含 Windows 函式應用程式或 Web 應用程式，則必須使用不同的資源群組。
+> Linux 和 Windows 應用程式無法裝載在相同的資源群組中。 如果您有名為 `myResourceGroup` 的現有資源群組，且其中包含 Windows 函式應用程式或 Web 應用程式，則必須使用不同的資源群組。
+
+此命令也會在可用於監視及檢視記錄的同一個資源群組中，佈建相關聯的 Azure Application Insights 執行個體。
 
 您現在已準備好將本機 Functions 專案發佈至 Azure 中的函式應用程式。
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+> [!NOTE]
+> 若要針對已發佈的 Python 應用程式檢視近乎即時的記錄，建議您使用 [Application Insights 即時計量資料流](functions-monitoring.md#streaming-logs)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,12 +7,12 @@ ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d49ef19d763ea3ae643a9c7bbbbb620ae414c664
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7be9a208f82dd9a487c1794a7996f9bb11bb09d8
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816780"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515447"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>ISO 27001 藍圖範例的控制項對應
 
@@ -118,13 +118,13 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 - \[預覽\]：稽核 Blob 未加密的儲存體帳戶
 - \[預覽\]：部署 VM 擴充功能，以稽核 Windows VM 不應使用可還原的加密來儲存密碼
 - \[預覽\]：稽核 Windows VM 不應使用可還原的加密來儲存密碼
-- \[預覽\]：在 Azure 資訊安全中心中監視未加密的 SQL 資料庫
 - \[預覽\]：在 Azure 資訊安全中心中監視未加密的 VM 磁碟
 - 稽核自動化帳戶變數加密的啟用
 - 稽核只允許對您 Redis Cache 的安全連線
 - 稽核儲存體帳戶的安全傳輸
 - 稽核 Service Fabric 中的 ClusterProtectionLevel 屬性設定為 EncryptAndSign
 - 稽核透明資料加密狀態
+- 應在 SQL 資料庫上啟用透明資料加密
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 事件記錄
 
@@ -135,9 +135,9 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 - \[預覽\]：稽核 VMSS 中的相依性代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核 VMSS 中的記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
-- \[預覽\]：在 Azure 資訊安全中心中監視未稽核的 SQL 資料庫
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
+- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
 
 ## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 系統管理員與操作員的記錄
 
@@ -147,9 +147,9 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 - \[預覽\]：稽核 VMSS 中的相依性代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核 VMSS 中的記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
-- \[預覽\]：在 Azure 資訊安全中心中監視未稽核的 SQL 資料庫
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
+- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 時鐘同步處理
 
@@ -159,9 +159,9 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 - \[預覽\]：稽核 VMSS 中的相依性代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核 VMSS 中的記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
-- \[預覽\]：在 Azure 資訊安全中心中監視未稽核的 SQL 資料庫
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
+- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 在作業系統上安裝軟體
 

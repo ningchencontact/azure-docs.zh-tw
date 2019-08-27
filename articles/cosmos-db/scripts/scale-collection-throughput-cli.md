@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 指令碼 - 調整 Azure Cosmos DB 容器輸送量 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 調整 Azure Cosmos DB 容器輸送量
+title: Azure CLI 指令碼 - 調整 Azure Cosmos 容器輸送量 | Microsoft Docs
+description: Azure CLI 指令碼範例 - 調整 Azure Cosmos 容器輸送量
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,16 +8,16 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 593fade731fac86e7fcda69bfe223716127de9e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a7ae4b015ba476ca1ffdb4b4510334490a6f6fee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038444"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616687"
 ---
-# <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 調整 Azure Cosmos DB 容器輸送量
+# <a name="scale-azure-cosmos-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 調整 Azure Cosmos 容器輸送量
 
-此範例會調整任何一種 Azure Cosmos DB 容器的容器輸送量。  
+此範例會調整任何一種 Azure Cosmos 容器的容器輸送量。  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -43,9 +43,9 @@ az group delete --name $resourceGroupName
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | 建立 Azure Cosmos DB 帳戶。 |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | 建立 Azure Cosmos DB 資料庫。 |
-| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | 建立 Azure Cosmos DB 容器。 |
-| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | 更新 Azure Cosmos DB 容器。 |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | 建立 Azure Cosmos 資料庫。 |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | 建立 Azure Cosmos 容器。 |
+| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | 更新 Azure Cosmos 容器。 |
 | [az group delete](/cli/azure/group#az-group-delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟

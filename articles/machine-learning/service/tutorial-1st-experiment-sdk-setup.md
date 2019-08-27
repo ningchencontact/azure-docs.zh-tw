@@ -1,5 +1,5 @@
 ---
-title: 教學課程：設定環境變數和工作區。
+title: 教學課程：建立您的第一個 ML 實驗：設定
 titleSuffix: Azure Machine Learning service
 description: 在本教學課程系列中，您會遵循端對端步驟來開始使用在 Jupyter 筆記本中執行的 Azure Machine Learning Python SDK。  第一部分中已建立雲端筆記本伺服器環境及工作區來管理您的實驗和機器學習模型。
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 70fee90fb82618a409d2566a3235ad8ca42e1760
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: cc16f3c8ea287e78d7b7b4d9a56f5a2e82c26f01
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934420"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515335"
 ---
-# <a name="tutorial-set-up-environment-and-workspace"></a>教學課程：設定環境變數和工作區
+# <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>教學課程：開始建立您的第一個 ML 實驗
 
 在本教學課程中，您會遵循端對端步驟來開始使用在 Jupyter 筆記本中執行的 Azure Machine Learning Python SDK。 本教學課程是**教學課程系列的第一部分 (共兩部分)** ，其中包含 Python 環境的安裝和設定，以及如何建立工作區來管理您的實驗和機器學習模型。 [**第二部分**](tutorial-1st-experiment-sdk-train.md)會以此為基礎來定型多個機器學習模型，並使用 Azure 入口網站和 SDK 來引進模型管理程序。
 

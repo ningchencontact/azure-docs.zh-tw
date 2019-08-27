@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1e30650f932d15d23d7ffe7bd9b9fe07e9872511
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839310"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891607"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>教學課程：透過視覺化介面部署機器學習模型
 
@@ -83,11 +83,9 @@ ms.locfileid: "67839310"
 
 1. 選取 Web 服務名稱以檢視其他詳細資料。
 
-     ![Web 服務檢視中其他可用的詳細資料螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/web-service-details.png)
-
 1. 選取 [測試]  。
 
-    ![顯示 Web 服務測試頁面的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
+    [![顯示 Web 服務測試頁面的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)](./media/ui-tutorial-automobile-price-deploy/web-service-test.png#lightbox)
 
 1. 輸入測試資料或使用自動填入的範例資料，然後選取 [測試]  。
 
@@ -105,8 +103,6 @@ ms.locfileid: "67839310"
 
 瀏覽至 [API 文件]  索引標籤，以尋找更多 API 詳細資料。
 
-  ![使用者可以在 [API 文件] 索引標籤中找到其他 API 詳細資料的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
-
 ## <a name="manage-models-and-deployments"></a>管理模型和部署
 
 您也可以透過 Azure Machine Learning 服務工作區來管理在視覺化介面中建立的模型和 Web 服務部署。
@@ -119,11 +115,9 @@ ms.locfileid: "67839310"
 
     在此頁面上，您會看到模型的其他詳細資料。
 
-    ![在 Azure 入口網站中顯示實驗統計資料概觀的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/model-details.png)
-
 1. 選取 [部署]  ，這會列出使用模型的任何 Web 服務。 選取 Web 服務名稱，即可移至 Web 服務的詳細資料頁面。 在此頁面上，您可以取得更詳細的 Web 服務資訊。
 
-    ![詳細執行報告的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)
+    [![詳細執行報告的螢幕擷取畫面](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
 
 ## <a name="clean-up-resources"></a>清除資源
 

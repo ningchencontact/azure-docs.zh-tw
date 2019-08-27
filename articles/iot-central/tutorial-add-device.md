@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b073a270fabb8657be19b79601fa90f1b9a0351b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 03fd31333a97290a5e8a00029867fc4e73a0cdd7
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015230"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875614"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT Central 應用程式
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 本教學課程將說明如何在 Microsoft Azure IoT Central 應用程式中新增和設定實際裝置。
 
@@ -25,7 +27,7 @@ ms.locfileid: "66015230"
 1. 首先，身為操作員，您將了解如何在 Azure IoT Central 應用程式中新增和設定實際裝置。 在此部分結束時，您會擷取要在第二個單元中使用的連接字串。
 2. 其次，身為裝置開發人員，您將了解實際裝置中的程式碼。 您會將第一個單元中的連接字串新增至範例程式碼。
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 新增實際裝置
@@ -36,11 +38,8 @@ ms.locfileid: "66015230"
 
 ## <a name="prerequisites"></a>必要條件
 
-在開始之前，建置者至少應完成第一個建置者教學課程，以建立 Azure IoT Central 應用程式：
+在開始之前，建置者至少應完成第一個建置者教學課程，以建立 Azure IoT Central 應用程式：[定義新的裝置類型](tutorial-define-device-type.md) (必要)
 
-* [定義新的裝置類型](tutorial-define-device-type.md) (必要)
-* [為您的裝置設定規則和動作](tutorial-configure-rules.md) (選用)
-* [自訂操作員的檢視](tutorial-customize-operator.md) (選用)
 
 在您的開發電腦上安裝 [Node.js](https://nodejs.org/) 8.0.0 版或更新版本。 您可以在命令列執行 `node --version` 來檢查版本。 Node.js 適用於多種作業系統。
 

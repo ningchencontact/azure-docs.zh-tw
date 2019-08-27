@@ -13,12 +13,12 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6145ccc67eedfdae8e9e1aa9245ff8d34101d387
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949558"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615989"
 ---
 # <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>雙因素驗證和您的公司或學校帳戶概觀
 
@@ -29,7 +29,15 @@ ms.locfileid: "68949558"
 >[!Important]
 >本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 >
->此內容也僅適用於您的公司或學校帳戶，貴組織提供給您的帳戶 (例如 alain@contoso.com)。 如果您遇到雙因素驗證和個人 Microsoft 帳戶、您自行設定帳戶 (例如 danielle@outlook.com) 的問題，請參閱[開啟或關閉 Microsoft 帳戶的雙步驟驗證](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
+>此內容也僅適用於您的公司或學校帳戶，貴組織提供給您的帳戶 (例如 alain@contoso.com)。 如果您遇到雙因素驗證和個人 Microsoft 帳戶、您自行設定帳戶 (例如 danielle@outlook.com) 的問題，請參閱[開啟或關閉 Microsoft 帳戶的雙步驟驗證](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。
+
+## <a name="who-decides-if-you-use-this-feature"></a>由誰決定是否使用這項功能？
+
+視帳戶類型之不同，您的組織可能會決定您必須使用雙因素驗證，或是您可以自行決定。
+
+- **公司或學校帳戶。** 如果您使用公司或學校帳戶 (例如 alain@contoso.com)，則會由您的組織決定您是否必須使用雙因素驗證，以及特定的驗證方法。 因為您的組織已決定您必須使用此功能，所以您無法個別關閉此功能。
+
+- **個人 Microsoft 帳戶。** 您可以選擇為個人 Microsoft 帳戶 (例如 alain@outlook.com) 設定雙因素驗證。 如果您遇到雙因素驗證與個人 Microsoft 帳戶的問題，請參閱[開啟或關閉 Microsoft 帳戶的雙步驟驗證](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)。 因為是否使用此功能是由您選擇，所以您可以視需要開啟和關閉它。
 
 ## <a name="two-factor-verification-related-articles"></a>雙因素驗證相關文章
 

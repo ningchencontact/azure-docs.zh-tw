@@ -10,18 +10,18 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe9cd6c951f9eba73cee1bea66df88f3143859b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 220d2aefd714cd3546fa4d5c2ac8852d2786b8ac
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156280"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575414"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>快速入門：使用 PowerShell 暫停與繼續 Azure SQL 資料倉儲中的計算
 
 使用 PowerShell 來暫停 Azure SQL 資料倉儲中的計算以節省成本。 在您準備好使用資料倉儲時[繼續計算](sql-data-warehouse-manage-compute-overview.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -56,8 +56,8 @@ Set-AzContext -SubscriptionName "MySubscription"
 遵循下列步驟來尋找您資料倉儲的位置資訊。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]。
-3. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 資料倉儲隨即開啟。
+2. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]  。
+3. 從 [SQL 資料庫]  頁面中，選取 [mySampleDataWarehouse]  。 資料倉儲隨即開啟。
 
     ![伺服器名稱和資源群組](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
@@ -125,13 +125,13 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Serv
 
     ![清除資源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 若要暫停計算，請按一下 [暫停] 按鈕。 資料倉儲暫停時，您會看到 [啟動] 按鈕。  若要繼續計算，請按一下 [啟動]。
+2. 若要暫停計算，請按一下 [暫停]  按鈕。 資料倉儲暫停時，您會看到 [啟動]  按鈕。  若要繼續計算，請按一下 [啟動]  。
 
-3. 若要移除資料倉儲，而不再支付計算或儲存體的費用，請按一下 [刪除]。
+3. 若要移除資料倉儲，而不再支付計算或儲存體的費用，請按一下 [刪除]  。
 
-4. 若要移除您所建立的 SQL 伺服器，請按一下 [mynewserver 20171113.database.windows.net]，然後按一下 [刪除]。  請謹慎使用刪除，因為刪除伺服器也會刪除所有指派給伺服器的資料庫。
+4. 若要移除您所建立的 SQL 伺服器，請按一下 [mynewserver 20171113.database.windows.net]  ，然後按一下 [刪除]  。  請謹慎使用刪除，因為刪除伺服器也會刪除所有指派給伺服器的資料庫。
 
-5. 若要移除此資源群組，請按一下 [myResourceGroup]，然後按一下 [刪除資源群組]。
+5. 若要移除此資源群組，請按一下 [myResourceGroup]  ，然後按一下 [刪除資源群組]  。
 
 
 ## <a name="next-steps"></a>後續步驟

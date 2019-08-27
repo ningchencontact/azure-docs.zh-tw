@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/22/2018
 ms.author: ramkris
-ms.openlocfilehash: dfb4e40aeed797a55a7b2cabad32d33920547c06
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479502"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616663"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
 
@@ -42,7 +42,7 @@ ms.locfileid: "66479502"
 ## <a id="Prerequisites"></a>針對此 Java Web 應用程式教學課程的必要條件
 開始進行本應用程式開發教學課程之前，您必須具備下列條件：
 
-* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+* 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -50,7 +50,7 @@ ms.locfileid: "66479502"
 * [Eclipse IDE for Java EE Developers。](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [已啟用某個 Java Runtime Environment (例如 Tomcat 或 Jetty) 的 Azure 網站。](../app-service/app-service-web-get-started-java.md)
 
-如果您是第一次安裝這些工具，coreservlets.com 提供了安裝程序的的逐步解說，請參閱其 [教學課程：安裝 TomCat7 並與 Eclipse 搭配使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文中的 [快速入門] 一節。
+如果您是第一次安裝這些工具，coreservlets.com 提供了安裝程序的逐步解說，請參閱其 [教學課程：安裝 TomCat7 並與 Eclipse 搭配使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文中的 [快速入門] 一節。
 
 ## <a id="CreateDB"></a>步驟 1：建立 Azure Cosmos DB 帳戶
 我們將從建立 Azure Cosmos DB 帳戶開始著手。 如果您已經擁有帳戶，或如果您正在使用 Azure Cosmos DB 模擬器來進行本教學課程，可以跳到[步驟 2：建立 Java JSP 應用程式](#CreateJSP)。
@@ -122,7 +122,7 @@ ms.locfileid: "66479502"
         }
    
     在此專案中，您會使用 [Project Lombok](https://projectlombok.org/) 來產生建構函式、getter、setter 及產生器。 或者，您也可以手動撰寫此程式碼，或讓 IDE 產生它。
-2. 若要叫用 Azure Cosmos DB 服務，您必須將新的 **DocumentClient**具現化。 一般而言，最好是重複使用 **DocumentClient** ，而不要針對每個後續要求建構新的用戶端。 我們可以將用戶端包裝在 **DocumentClientFactory**中以重複使用用戶端。 您必須在 DocumentClientFactory.java 中，貼上您在[步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。 將 [YOUR\_ENDPOINT\_HERE] 以您的 URI 取代，並將 [YOUR\_KEY\_HERE] 以您的主要金鑰取代。
+2. 若要叫用 Azure Cosmos DB 服務，您必須將新的 **DocumentClient**具現化。 一般而言，最好是重複使用 **DocumentClient**，而不要針對每個後續要求建構新的用戶端。 我們可以將用戶端包裝在 **DocumentClientFactory**中以重複使用用戶端。 您必須在 DocumentClientFactory.java 中，貼上您在[步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。 將 [YOUR\_ENDPOINT\_HERE] 以您的 URI 取代，並將 [YOUR\_KEY\_HERE] 以您的主要金鑰取代。
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -250,7 +250,7 @@ ms.locfileid: "66479502"
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. 與 Azure Cosmos DB 資料庫和集合相同，文件也會由自我連結參照。 下列 helper 函式可讓我們依另一個屬性 (例如 "id") 抓取文件，而不是依自我連結：
+5. 與 Azure Cosmos 資料庫和集合相同，文件也會由自我連結參照。 下列 helper 函式可讓我們依另一個屬性 (例如 "id") 抓取文件，而不是依自我連結：
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -737,12 +737,12 @@ Azure 網站讓部署 Java 應用程式變得相當簡單，您只需將應用�
 3. 在 Eclipse 的 [檔案]  功能表上，按一下 [匯入]  。
 4. 在 [匯入]  視窗中，依序按一下 [Git]  、[使用 Git 的專案]  和 [下一步]  。
 5. 在 [選取儲存機制來源]  畫面上，按一下 [複製 URI]  。
-6. 在 [來源 Git 存放庫]  畫面的 [URI]  方塊中，輸入 https://github.com/Azure-Samples/documentdb-java-todo-app.git，然後按一下 [下一步]  。
+6. 在 [來源 Git 存放庫]  畫面的 [URI]  方塊中，輸入 https://github.com/Azure-Samples/documentdb-java-todo-app.git ，然後按一下 [下一步]  。
 7. 在 [分支選取]  畫面上，確定已選取 [主要]  ，然後按 [下一步]  。
 8. 在 [本機目的地]  畫面上，按一下 [瀏覽]  以選取可以複製儲存機制的資料夾，然後按 [下一步]  。
 9. 在 [選取要用於匯入專案的精靈]  畫面上，確定已選取 [匯入現有的專案]  ，然後按 [下一步]  。
 10. 在 [匯入專案]  畫面上，取消選取 **DocumentDB** 專案，然後按一下 [完成]  。 DocumentDB 專案包含 Azure Cosmos DB Java SDK，我們將會改成新增為相依性。
-11. 在 [專案總管]  中，瀏覽至 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java，並將 [主機] 和 [MASTER_KEY] 值取代為您 Azure Cosmos DB 帳戶的 [URI] 和 [主要金鑰]，然後儲存檔案。 如需詳細資訊，請參閱[步驟 1。建立 Azure Cosmos DB 資料庫帳戶](#CreateDB)。
+11. 在 [專案總管]  中，瀏覽至 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java，並將 [主機] 和 [MASTER_KEY] 值取代為您 Azure Cosmos DB 帳戶的 [URI] 和 [主要金鑰]，然後儲存檔案。 如需詳細資訊，請參閱[步驟 1。建立 Azure Cosmos 資料庫帳戶](#CreateDB)。
 12. 在 [專案總管]  中，以滑鼠右鍵按一下 **azure-documentdb-java-sample**，按一下 [組建路徑]  ，然後按一下 [設定組建路徑]  。
 13. 在 [Java 組建路徑]  畫面的右側窗格中，選取 [程式庫]  索引標籤，然後按一下 [新增外部 JAR]  。 瀏覽至 lombok.jar 檔案的位置，按一下 [開啟]  ，然後按一下 [確定]  。
 14. 使用步驟 12 重新開啟 [屬性]  視窗，然後在左側窗格中按一下 [目標執行階段]  。

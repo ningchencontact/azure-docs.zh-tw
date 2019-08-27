@@ -6,25 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/13/2019
+ms.date: 08/21/2019
 ms.author: heidist
-ms.openlocfilehash: eefa0eb5d1e15df34089d7baa3241cbbed4724c2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034847"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899692"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 
-Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 您的自訂程式碼會叫用資料內嵌 (編製索引)、發出查詢要求及處理回應。 搜尋體驗會透過 Azure 搜尋服務的功能，在您的用戶端程式代碼中進行定義，而查詢會針對您在 Azure 搜尋服務上建立、擁有及儲存的持續性索引執行。
+Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 您的自訂程式碼會叫用資料擷取 (索引編制) 來建立和載入索引。 另一方面，應用程式的程式碼會發出查詢要求和處理回應。 搜尋體驗會透過 Azure 搜尋服務的功能，在您的用戶端中進行定義，而查詢會針對您在 Azure 搜尋服務上建立、擁有及儲存的持續性索引執行。
 
-![Azure 搜尋服務架構](media/search-what-is-azure-search/azure-search-diagram.png "Azure 搜尋服務架構")
-
-<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
-+ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
-+ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
-+ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
+![Azure 搜尋服務架構](media/search-what-is-azure-search/azure-search-diagram.svg "Azure 搜尋服務架構")
 
 透過簡單的 [REST API](/rest/api/searchservice/) 或 [.NET SDK](search-howto-dotnet-sdk.md) 展現功能，並同時隱蔽資訊擷取固有之複雜性。 除了 API 之外，Azure 入口網站也提供系統管理和內容管理的支援，以及建立原型和查詢索引的工具。 因為服務在雲端執行，Microsoft 會管理基礎結構和可用性。
 
@@ -36,7 +31,7 @@ Azure 搜尋服務適用於下列應用程式案例：
 
 + 輕鬆實作與搜尋相關的功能。 Azure 搜尋服務 API 簡化了查詢結構、多面向導覽、篩選 (包括地理空間搜尋)、同義字對應、自動提示查詢和相關性調整。 透過內建功能，您可以滿足終端使用者希望搜尋體驗能類似 Web 搜尋引擎的期望。
 
-+ 編製非結構化文字的索引，或從影像檔擷取文字和資訊。 Azure 搜尋服務的認知搜尋功能會將 AI 處理新增至索引管線。 一些常見的使用案例，包括已掃描文件的 OCR、大型文件的實體辨識和關鍵片語擷取、語言偵測和文字轉譯及情感分析。
++ 編製非結構化文字的索引，或從影像檔擷取文字和資訊。 Azure 搜尋服務的[認知搜尋](cognitive-search-concept-intro.md)功能會將 AI 處理新增至索引管線。 一些常見的使用案例，包括已掃描文件的 OCR、大型文件的實體辨識和關鍵片語擷取、語言偵測和文字轉譯及情感分析。
 
 + 使用 Azure 搜尋服務的自訂和語言分析器滿足語言需求。 如果您有非英文的內容，Azure 搜尋服務可支援 Lucene 分析器和 Microsoft 的自然語言處理器。 您也可以設定分析器來完成原始內容的特殊處理，例如篩選出變音符號。
 
@@ -93,7 +88,9 @@ Azure 搜尋服務適用於下列應用程式案例：
 推送模式是透過 SDK 或 REST API 來提供，可用來將已更新的文件傳送到索引。 使用 JSON 格式，您幾乎可以從任何資料集發送資料。 如需載入資料的指引，請參閱[新增、更新或刪除文件](/rest/api/searchservice/addupdate-or-delete-documents)或[如何使用 .NET SDK](search-howto-dotnet-sdk.md)。
 
 ### <a name="step-4-search"></a>步驟 4：Search
-填入索引後，您可以透過 REST API 或 .NET SDK，使用簡單的 HTTP 要求對服務端點[發出搜尋查詢](/rest/api/searchservice/Search-Documents)。
+填入索引後，您可以透過 [REST API](/rest/api/searchservice/Search-Documents) 或 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations)，使用簡單的 HTTP 要求對服務端點[發出搜尋查詢](search-query-overview.md)。
+
+逐步執行[建立您的第一個搜尋應用程式](tutorial-csharp-create-first-app.md)以建置並擴充用來收集使用者輸入並處理結果的網頁。 您也可以使用 [Postman 來進行互動式 REST](search-get-started-postman.md) 呼叫或在 Azure 入口網站使用內建的[搜尋總管](search-explorer.md)來查詢現有索引。
 
 ## <a name="how-it-compares"></a>比較的結果
 

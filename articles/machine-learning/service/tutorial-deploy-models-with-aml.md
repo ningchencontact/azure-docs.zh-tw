@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: c673fd43abe6808256eb74f435aad48ed8d41539
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a4395105c66756c4743373707309a88e2afa96b7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359839"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534809"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>教學課程：在 Azure 容器執行個體中部署映像分類模型
 
@@ -38,10 +38,10 @@ ms.locfileid: "68359839"
 > 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.41 版的測試。
 
 ## <a name="prerequisites"></a>必要條件
-跳至[設定開發環境](#start)以讀過所有筆記本步驟。  
 
-若要執行筆記本，請先完成模型訓練，相關內容位於[教學課程 (第 1 部分)：使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。   然後使用同一個筆記本伺服器執行 **tutorials/img-classification-part2-deploy.ipynb** 筆記本。
+若要執行筆記本，請先完成模型訓練，相關內容位於[教學課程 (第 1 部分)：將映像分類模型定型](tutorial-train-models-with-aml.md)。   然後使用同一個筆記本伺服器開啟 **tutorials/img-classification-part2-deploy.ipynb** 筆記本。
 
+如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中使用此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得。  請確定您已在環境中安裝 `matplotlib` 和 `scikit-learn`。 
 
 ## <a name="start"></a>設定環境
 

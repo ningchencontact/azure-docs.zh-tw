@@ -1,6 +1,6 @@
 ---
 title: Azure 上的 Kubernetes 教學課程 - 升級叢集
-description: 在本 Azure Kubernetes Service (AKS) 教學課程中，您將了解如何將現有的 AKS 叢集升級至最新的可用 Kubernetes 版本。
+description: 在本 Azure Kubernetes Service (AKS) 教學課程中，您會了解如何將現有的 AKS 叢集升級至最新的可用 Kubernetes 版本。
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 0986da64fda659b949d5d1e6cfae03df2daded19
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 9fe02c9b563259abb51a1a768c7facdf1bf601f7
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019147"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898830"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>教學課程：在 Azure Kubernetes Service (AKS) 中升級 Kubernetes
 
@@ -40,12 +40,12 @@ ms.locfileid: "69019147"
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-在下列範例中，目前的版本是 1.13.9  ，可用版本則顯示於 [升級]  資料行下方。
+在下列範例中，目前的版本是 1.13.10  ，可用版本則顯示於 [升級]  資料行下方。
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 -------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.13.9           1.13.9             1.14.5
+default  myResourceGroup  1.13.10          1.13.10            1.14.5, 1.14.6
 ```
 
 ## <a name="upgrade-a-cluster"></a>升級叢集
@@ -58,16 +58,16 @@ default  myResourceGroup  1.13.9           1.13.9             1.14.5
 1. 當新節點準備好並加入叢集時，Kubernetes 排程器會開始在其上執行 Pod。
 1. 舊節點會遭到刪除，而叢集中的下一個節點會開始隔離和清空流程。
 
-使用 [az aks upgrade][] 命令升級 AKS 叢集。 下列範例會將叢集升級至 Kubernetes 1.14.5  版。
+使用 [az aks upgrade][] 命令升級 AKS 叢集。 下列範例會將叢集升級至 Kubernetes 1.14.6  版。
 
 > [!NOTE]
-> 您一次只能升級一個次要版本。 例如，您可以從 1.12.x  升級至 1.13.x  ，但無法直接從 1.12.8  升級至 1.14.x  。 若要從 1.12.x  升級至 1.14.x  ，必須先從 1.12.x  升級至 1.13.x  ，然後再執行從 1.13.x  到 1.14.x  的升級。
+> 您一次只能升級一個次要版本。 例如，您可以從 1.12.x  升級至 1.13.x  ，但無法直接從 1.12.x  升級至 1.14.x  。 若要從 1.12.x  升級至 1.14.x  ，必須先從 1.12.x  升級至 1.13.x  ，然後再執行從 1.13.x  到 1.14.x  的升級。
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.14.5
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.14.6
 ```
 
-下列扼要的範例輸出顯示 *kubernetesVersion* 現在回報 1.14.5  ：
+下列扼要的範例輸出顯示 *kubernetesVersion* 現在回報 1.14.6  ：
 
 ```json
 {
@@ -85,7 +85,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.14.5",
+  "kubernetesVersion": "1.14.6",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -100,12 +100,12 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-下列範例輸出顯示 AKS 叢集執行的是 *KubernetesVersion 1.14.5*：
+下列範例輸出顯示 AKS 叢集執行的是 KubernetesVersion 1.14.6  ：
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.14.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.14.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>刪除叢集

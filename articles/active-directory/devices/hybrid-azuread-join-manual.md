@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a56fcc45d4efb21c4904380d731d9e95584c39fd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5722d0b14c43bcdee7a06ebf5545cfc6254f7508
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879420"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562345"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>教學課程：手動設定已加入混合式 Azure Active Directory 的裝置
 
@@ -25,7 +25,7 @@ ms.locfileid: "68879420"
 > [!TIP]
 > 如果您可以選擇使用 Azure AD Connect，請參閱[受控](hybrid-azuread-join-managed-domains.md)或[同盟](hybrid-azuread-join-federated-domains.md)網域的相關教學課程。 您可以使用 Azure AD Connect，大幅簡化混合式 Azure AD Join 的設定。
 
-如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 在本教學課程中，您了解如何：
+如果您有內部部署 Active Directory 環境，而且您想要將加入網域的裝置加入 Azure AD，您可以藉由設定混合式 Azure AD 已加入裝置來完成。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 手動設定混合式 Azure AD Join

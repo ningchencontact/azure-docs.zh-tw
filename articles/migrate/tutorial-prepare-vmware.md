@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 16c0354466d5c2a1207873a1e83e209da9339705
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679147"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509998"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>準備 VMware VM 以進行評量並移轉至 Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "68679147"
 [Azure Migrate](migrate-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。 
 
 
-本教學課程是一個系列中的第一篇，說明如何評估及遷移 VMware VM。 在本教學課程中，您了解如何：
+本教學課程是一個系列中的第一篇，說明如何評估及遷移 VMware VM。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 準備 Azure。 設定 Azure 帳戶和資源的權限，以搭配使用 Azure Migrate。
@@ -31,7 +31,7 @@ ms.locfileid: "68679147"
 > [!NOTE]
 > 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程會在情況允許時都使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱 VMware 評量和移轉的操作說明。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 ## <a name="prepare-azure"></a>準備 Azure
@@ -137,7 +137,7 @@ Azure Migrate 需要存取 vCenter Server，才能探索用於評估和無代理
 1. [檢閱](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements)無代理程式移轉的 VMware 伺服器需求。
 2. 設定帳戶以透過無代理程式移轉[所需的權限](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions)來存取 vCenter Server。
 3. [注意](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)透過無代理程式移轉將 VMware VM 遷移至 Azure 的需求。
-4. [檢閱](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements)無代理程式移轉的設備需求。]
+4. [檢閱](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements)無代理程式移轉的設備需求。
 5. 請注意無代理程式移轉的設備 [URL 存取](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements)和[連接埠存取](migrate-support-matrix-vmware.md#agentless-migration-port-requirements)需求。
 
 

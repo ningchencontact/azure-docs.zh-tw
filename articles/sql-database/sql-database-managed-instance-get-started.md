@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 646a602d7e6c47454f039a5f4f1981a60b56fa56
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567512"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873880"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入門：建立 Azure SQL Database 受控執行個體
 
@@ -35,11 +35,11 @@ ms.locfileid: "68567512"
 
 下列步驟說明如何建立受控執行個體。
 
-1. 選取 Azure 入口網站中左上角的 [建立資源]  。
-2. 找出 [受控執行個體]  ，然後選取 [Azure SQL 受控執行個體]  。
-3. 選取 [建立]  。
+1. 在 Azure 入口網站的左側功能表中，選取 [Azure SQL]  。 如果 Azure SQL 不在清單中，請選取 [所有服務]  ，然後在搜尋方塊中輸入 *Azure SQL*。
+2. 選取 [+ 新增]  以開啟 [選取 SQL 部署選項]  頁面。 您可以在 [受控執行個體]  圖格上選取 [顯示詳細資料]  ，以檢視有關 Azure SQL Database 受控執行個體的其他資訊。
+3. 選取 [建立]  ：
 
-   ![建立受控執行個體](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
+   ![建立受控執行個體](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
 4. 使用下表中的資訊，填妥 **SQL 受控執行個體**表單中所要求的資訊。
 
@@ -51,7 +51,7 @@ ms.locfileid: "68567512"
    |**密碼**|任何有效密碼。|密碼長度至少必須有 16 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
    |**時區**|您的受控執行個體所要觀察的時區。|如需詳細資訊，請參閱[時區](sql-database-managed-instance-timezone.md)。|
    |**定序**|您要用於受控執行個體的定序。|如果您從 SQL Server 遷移資料庫，請使用 `SELECT SERVERPROPERTY(N'Collation')` 來檢查來源定序並使用該值。 如需定序的相關資訊，請參閱[設定或變更伺服器定序](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)。|
-   |**位置**|要在其中建立受控執行個體的位置。|如需有關區域的資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
+   |**位置**|要在其中建立受控執行個體的位置。|如需區域的相關資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
    |**虛擬網路**|選取 [建立新的虛擬網路]  或有效的虛擬網路與子網路。| 如果網路或子網路無法使用，您必須先[修改成符合網路需求](sql-database-managed-instance-configure-vnet-subnet.md)後，才能選取它作為新的受控執行個體目標。 如需關於設定受控執行個體網路環境的需求資訊，請參閱[設定受控執行個體的虛擬網路](sql-database-managed-instance-connectivity-architecture.md)。 |
    |**啟用公用端點**   |核取此選項以啟用公用端點   |若要讓受控執行個體可透過公用資料端點來存取，您必須核取 [啟用公用端點]  。| 
    |**允許從此存取**   |選取其中一個選項： <ul> <li>**Azure 服務**</li> <li>**Internet**</li> <li>**無存取權**</li></ul>   |入口網站體驗可讓您對公用端點設定安全性群組。 </br> </br> 根據您的案例，選取下列其中一個選項： </br> <ul> <li>Azure 服務 - 從 Power BI 或其他多租用戶服務連線時，建議使用此選項。 </li> <li> 網際網路 - 可在您想要快速啟動受控執行個體時用於測試目的。 不建議用於生產環境。 </li> <li> 無存取權 - 此選項會建立拒絕安全性規則。 您必須修改這項規則，以便讓受控執行個體可透過公用端點來存取。 </li> </ul> </br> 如需公用端點安全性的詳細資訊，請參閱[搭配公用端點來安全地使用 Azure SQL Database 受控執行個體](sql-database-managed-instance-public-endpoint-securely.md)。|

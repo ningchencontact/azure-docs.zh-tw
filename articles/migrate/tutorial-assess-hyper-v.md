@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60e1db913336cc9f9e355c2e8f8466854de20389
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: b93d9ee65850749e79714b632584f1977ca88c81
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828338"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639991"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>使用 Azure Migrate 伺服器評估來評估 Hyper-V VM
 
@@ -23,7 +23,7 @@ ms.locfileid: "68828338"
 
 
 
-本教學課程是一個系列中的第二篇，會示範如何評估 Hyper-V VM 並將其遷移至 Azure。 在本教學課程中，您了解如何：
+本教學課程是一個系列中的第二篇，會示範如何評估 Hyper-V VM 並將其遷移至 Azure。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 設定 Azure Migrate 專案。
@@ -35,7 +35,7 @@ ms.locfileid: "68828338"
 > [!NOTE]
 > 教學課程將會針對案例示範最簡單的部署路徑，讓您可以快速設定概念證明。 教學課程會在情況允許時都使用預設選項，且不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱操作說明文章。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -128,13 +128,17 @@ Azure Migrate 伺服器評估會執行輕量型 Hyper-V VM 設備。
 
 匯入所下載的檔案，並建立 VM。
 
-1. 在會裝載設備 VM 的 Hyper-V 主機上，將壓縮的 VHD 檔案解壓縮至其中的資料夾。 會解壓縮出三個資料夾。
+1. 將壓縮的 VHD 檔案下載至要放置設備 VM 的 Hyper-V 主機之後，請將 ZIP 檔案解壓縮。
+    - 在解壓縮的位置中，檔案會解壓縮到名為 **AzureMigrateAppliance_VersionNumber** 的資料夾中。
+    - 此資料夾包含子資料夾，其名稱也是 **AzureMigrateAppliance_VersionNumber**。
+    - 這個子資料夾也包含三個子資料夾 - **快照集**、**虛擬硬碟**和**虛擬機器**。
+
 2. 開啟 Hyper-V 管理員。 在 [動作]  中，按一下 [匯入虛擬機器]  。
 
     ![部署 VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. 在 [匯入虛擬機器精靈] > [開始之前]  ，按 [下一步]  。
-3. 在 [尋找資料夾]  中，指定已解壓縮的 VHD 所在的資料夾。 然後按 [下一步]  。
+3. 在 [尋找資料夾]  中，選取 [虛擬機器]  資料夾。 然後按 [下一步]  。
 1. 在 [選取虛擬機器]  中，按 [下一步]  。
 2. 在 [選擇匯入類型]  中，按一下 [複製虛擬機器 (建立新的唯一識別碼)]  。 然後按 [下一步]  。
 3. 在 [選擇目的地]  中，保留預設設定。 按 [下一步]  。
@@ -259,7 +263,7 @@ Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com Hyper
 
     ![建立評估](./media/tutorial-assess-hyper-v/assessment-create.png)
 
-6. 評量建立好之後，可在 伺服器   > **Azure Migrate：** 。
+6. 評量建立好之後，可在 [伺服器]   >  **[Azure Migrate：伺服器評量]** 。
 7. 按一下 [匯出評估]  ，將其下載為 Excel 檔案。
 
 

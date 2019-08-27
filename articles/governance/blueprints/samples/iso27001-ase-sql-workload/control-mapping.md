@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 59e47c448f58235114c8fb3147637b77dd5fcf23
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: de043e682fea5cb629a127763515b162c3ad4943
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226057"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515933"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 工作負載藍圖的控制項對應
 
@@ -39,9 +39,9 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 了解有哪些資源違反這些原則可協助您採取修正動作，以確保 Azure 資源僅限定給經授權的使用者存取。
 
 - \[預覽\]：部署 VM 擴充功能，以稽核沒有密碼的 Linux VM 帳戶
-- \[預覽\]：部署 VM 擴充功能，以稽核允許沒有密碼的帳戶進行遠端連線的 Linux VM
+- \[預覽\]：部署 VM 擴充功能，以稽核允許來自無密碼之帳戶的遠端連線的 Linux VM
 - \[預覽\]：稽核沒有密碼的 Linux VM 帳戶
-- \[預覽\]：稽核允許沒有密碼的帳戶進行遠端連線的 Linux VM
+- \[預覽\]：稽核允許來自無密碼之帳戶的遠端連線的 Linux VM
 - 稽核傳統儲存體帳戶的使用
 - 稽核傳統虛擬機器的使用
 - 稽核不是使用受控磁碟的 VM
@@ -112,19 +112,19 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 此藍圖指派了 13 項 [Azure 原則](../../../policy/overview.md)定義，據以強制執行特定的密碼編譯控制項及稽核弱式密碼編譯設定的使用，以協助您強制執行密碼編譯控制項的使用原則。
 了解您的 Azure 資源在哪些層面可能使用非最佳化的密碼編譯組態，有助於您採取更正措施，以確保資源會根據您的資訊安全性原則進行設定。 具體而言，此藍圖所指派的原則會要求 Blob 儲存體帳戶和 Data Lake Storage 帳戶必須加密；SQL 資料庫必須進行透明資料加密；稽核儲存體帳戶、SQL 資料庫、虛擬機器磁碟和自動化帳戶變數是否缺少加密；稽核儲存體帳戶、函式應用程式、Web 應用程式、API 應用程式和 Redis 快取的連線是否不安全；稽核弱式虛擬機器密碼加密；稽核未加密的 Service Fabric 通訊。
 
-- \[預覽\]：稽核函數應用程式的僅限 HTTPS 存取權限
-- \[預覽\]：稽核 Web 應用程式的僅限 HTTPS 存取權限
-- \[預覽\]：稽核 API 應用程式的僅限 HTTPS 存取權限
+- \[預覽\]：稽核函數應用程式的僅限 HTTPS 存取
+- \[預覽\]：稽核 Web 應用程式的僅限 HTTPS 存取
+- \[預覽\]：稽核 API 應用程式的僅限 HTTPS 存取
 - \[預覽\]：稽核 Blob 未加密的儲存體帳戶
 - \[預覽\]：部署 VM 擴充功能，以稽核 Windows VM 不應使用可還原的加密來儲存密碼
 - \[預覽\]：稽核 Windows VM 不應使用可還原的加密來儲存密碼
-- \[預覽\]：在 Azure 資訊安全中心中監視未加密的 SQL 資料庫
 - \[預覽\]：在 Azure 資訊安全中心中監視未加密的 VM 磁碟
 - 稽核自動化帳戶變數加密的啟用
 - 稽核只允許對您 Redis Cache 的安全連線
 - 稽核儲存體帳戶的安全傳輸
 - 稽核 Service Fabric 中的 ClusterProtectionLevel 屬性設定為 EncryptAndSign
 - 稽核透明資料加密狀態
+- 應在 SQL 資料庫上啟用透明資料加密
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 事件記錄
 
@@ -135,9 +135,9 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 - \[預覽\]：稽核 VMSS 中的相依性代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核 VMSS 中的記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
-- \[預覽\]：在 Azure 資訊安全中心中監視未稽核的 SQL 資料庫
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
+- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
 
 ## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 系統管理員與操作員的記錄
 
@@ -147,9 +147,9 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 - \[預覽\]：稽核 VMSS 中的相依性代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核 VMSS 中的記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
-- \[預覽\]：在 Azure 資訊安全中心中監視未稽核的 SQL 資料庫
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
+- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 時鐘同步處理
 
@@ -159,9 +159,9 @@ Azure 會實作[角色型存取控制 (RBAC)](../../../../role-based-access-cont
 - \[預覽\]：稽核 VMSS 中的相依性代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
 - \[預覽\]：稽核 VMSS 中的記錄分析代理程式部署 - 未列出的 VM 映像 (OS)
-- \[預覽\]：在 Azure 資訊安全中心中監視未稽核的 SQL 資料庫
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
+- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 在作業系統上安裝軟體
 

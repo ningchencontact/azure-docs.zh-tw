@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: f254572f5c26a809f401e99f527ccd3d30451c3d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931578"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636206"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
-網路安全性群組 (NSG) 可讓您篩選虛擬機器 (VM) 的輸入流量和輸出流量。 您可以使用網路監看員的 NSG 流量記錄功能，記錄流經 NSG 的網路流量。 在本教學課程中，您了解如何：
+網路安全性群組 (NSG) 可讓您篩選虛擬機器 (VM) 的輸入流量和輸出流量。 您可以使用網路監看員的 NSG 流量記錄功能，記錄流經 NSG 的網路流量。 在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 建立具有網路安全性群組的 VM
@@ -35,7 +35,7 @@ ms.locfileid: "68931578"
 > * 下載記錄的資料
 > * 檢視記錄的資料
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-a-vm"></a>建立 VM
 
@@ -95,7 +95,8 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
     建立儲存體帳戶可能需要一分鐘的時間。 建好儲存體帳戶之前，請不要繼續其餘步驟。 如果您使用現有儲存體帳戶，而不是新建一個，請確定在所選儲存體帳戶的 [設定]  下方，[防火牆與虛擬網路]  的 [所有網路]  (預設值) 已選取。 在所有情況下，儲存體帳戶必須與 NSG 位在同一個區域中。 
     
     > [!NOTE]
-    > 雖然 Microsoft.Insight 和 Microsoft.Network 提供者目前是 Azure 儲存體支援的受信任 Microsoft 服務，但 NSG 流量記錄仍未完全上線。 為了啟用 NSG 流量記錄，必須仍可選取 [所有網路]  ，直到這項功能完全上線為止。 
+    > 雖然 Microsoft.Insight 和 Microsoft.Network 提供者目前是 [Azure 儲存體支援的受信任 Microsoft 服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)，但 NSG 流量記錄仍未完全上線。 若要啟用 NSG 流量記錄，必須如上所述選取 [所有網路]  。
+    
 4. 在入口網站的左上角，選取 [所有服務]  。 在 [篩選]  方塊中，輸入*網路監看員*。 當搜尋結果中出現**網路監看員**時，請加以選取。
 5. 在 [記錄]  下，選取 [NSG 流量記錄]  ，如下列圖所示：
 
@@ -114,6 +115,8 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
    > * 儲存體帳戶已啟用[階層命名空間](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)。
 1. 在入口網站的左上角，選取 [所有服務]  。 在 [篩選]  方塊中，輸入*網路監看員*。 當搜尋結果中出現**網路監看員**時，請加以選取。
 10. 將 [保留 (天數)]  設定為 5，然後選取 [儲存]  。
+    > [!IMPORTANT]
+    > 目前有一個問題是，系統不會根據保留原則設定從 Blob 儲存體自動刪除網路監看員的[網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)。 如果您有現有的非零保留原則，建議您定期刪除超過其保留期間的儲存體 Blob 以避免產生任何費用。 如需如何刪除 NSG 流量記錄儲存體 Blob 的詳細資訊，請參閱[刪除 NSG 流量記錄儲存體 Blob](network-watcher-delete-nsg-flow-log-blobs.md)。
 
 ## <a name="download-flow-log"></a>下載流量記錄
 

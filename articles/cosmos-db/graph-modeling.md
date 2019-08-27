@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: c6ae23efa90874bbefc2aff35f8798aa6c0da791
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 94df90db4a715d2540dfc5ec0aa521d76d22f757
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503734"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624219"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 的圖表資料模型
 
@@ -94,7 +94,7 @@ ms.locfileid: "67503734"
 
 但是使用 `in()` 函式向邊緣中相反的方向進行周遊一律會導致跨分割區查詢。 深入了解[圖表分割](graph-partitioning.md)。 如果需要使用 `in()` 函式不斷地進行周遊，建議您新增兩個方向的邊緣。
 
-您可以使用 `.to()` 或 `.from()` 述詞決定邊緣方向以 `.addE()`Gremlin 步驟。 或使用 [BulkExecutor library for Gremlin API](bulk-executor-graph-dotnet.md)。
+您可以使用 `.to()` 或 `.from()` 述詞決定邊緣方向以 `.addE()`Gremlin 步驟。 或使用[適用於 Gremlin API 的大量執行程式文件庫](bulk-executor-graph-dotnet.md)。
 
 > [!NOTE]
 > 邊緣物件都有預設的方向。

@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: dc12d77e9a57938051300277940b6e5107e45496
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234495"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648490"
 ---
 ## <a name="prerequisites"></a>必要條件
 
 ### <a name="azure-subscription"></a>Azure 訂用帳戶
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/)。
 
 ### <a name="azure-roles"></a>Azure 角色
 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為「參與者」  或「擁有者」  角色，或是 Azure 訂用帳戶的「管理員」  。 若要檢視您在訂用帳戶中擁有的權限，請在 **Azure 入口網站**中選取右上角的使用者名稱、選取 [更多選項]  (...)，然後選取 [我的權限](https://portal.azure.com)。 如果您有多個訂用帳戶的存取權，請選取適當的訂用帳戶。
@@ -38,21 +38,17 @@ ms.locfileid: "68234495"
 ### <a name="azure-storage-account"></a>Azure 儲存體帳戶
 您可以使用一般用途的 Azure 儲存體帳戶 (特別是 Blob 儲存體) 作為本教學課程中的「來源」  和「目的地」  資料存放區。 如果您沒有一般用途的 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../articles/storage/common/storage-quickstart-create-account.md)來建立帳戶。 
 
-#### <a name="get-the-storage-account-name-and-account-key"></a>取得儲存體帳戶名稱和帳戶金鑰
-您在此快速入門中將需要使用 Azure 儲存體帳戶的名稱和金鑰。 下列程序提供可取得儲存體帳戶名稱和金鑰的步驟： 
+#### <a name="get-the-storage-account-name"></a>取得儲存體帳戶名稱
+您在此快速入門中將需要使用 Azure 儲存體帳戶的名稱。 下列程序提供可取得儲存體帳戶名稱的步驟： 
 
 1. 在網頁瀏覽器中，移至 [Azure 入口網站](https://portal.azure.com)，然後使用您的 Azure 使用者名稱與密碼登入。
 2. 選取 [所有服務]   > [儲存體]   > [儲存體帳戶]  。
 3. 在 [儲存體帳戶]  頁面中，篩選您的儲存體帳戶 (如有需要)，然後選取您的儲存體帳戶。 
-4. 從 [ *\<帳戶名稱>*  - 儲存體帳戶]  頁面的側邊欄中，移至 [設定]  標籤，然後選取 [存取金鑰]  。 [ *\<帳戶名稱>*  - 存取金鑰]  隨即出現。
-
-   ![取得儲存體帳戶名稱和金鑰](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
-5. 將 [儲存體帳戶名稱]  和 [金鑰1]  方塊的值複製到剪貼簿。 將它們貼到 [記事本] 或任何其他編輯器中並加以儲存。 您稍後會在此快速入門中用到。   
 
 #### <a name="create-a-blob-container"></a>建立 Blob 容器
 在這一節中，您會在 Azure Blob 儲存體中建立一個名為 **adftutorial** 的 Blob 容器。
 
-1. 從 [ *\<帳戶名稱>*  - 儲存體帳戶]  頁面的側邊欄中，選取 [概觀]   > [Blob]  。
+1. 從 [儲存體帳戶] 頁面中，選取 [概觀]   > [Blob]  。
 2. 在 [ *\<帳戶名稱>*  - Blob]  頁面的工具列上，選取 [容器]  。
 3. 在 [新增容器]  對話方塊中，輸入 **adftutorial** 作為名稱，然後選取 [確定]  。 [ *\<帳戶名稱>*  - Blob]  頁面已更新，以便在容器清單中包含 **adftutorial**。
 

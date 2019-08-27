@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: vijetaj
-ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 488dc7db01bd865268e143b68cdaccd989010912
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591816"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534927"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Windows 資料科學虛擬機器
 
@@ -48,6 +48,7 @@ DSVM 中包含下列工具：
   * [Apache Drill](https://drill.apache.org/) - 適用於 Apache Hadoop、NoSQL 和雲端儲存體的無結構描述 SQL 查詢引擎。 可支援 ODBC 和 JDBC 介面，以便從 PowerBI、Microsoft Excel 和 Tableau 等標準 BI 工具查詢 NoSQL 和檔案。
 * R 和 Python 語言的程式庫，可用於 Azure Machine Learning 和其他 Azure 服務
 * 包括 Git Bash 的 Git，可搭配原始程式碼存放庫 (包括 GitHub 和 Azure DevOps) 運作。 Git 會提供數個可在 Git Bash 和命令提示字元上存取的熱門 Linux 命令列公用程式。 範例包括 awk、sed、perl、grep、find、wget 和 curl。
+* 開發工具和編輯器 (RStudio、PyCharm)
 
 ### <a name="about-data-science"></a>關於資料科學
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: f465ac91936b766d2c19ea8efd67b3acc8df6d75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20a9ca8e28961a6dc49947a22f745424961b4a3f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243934"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615258"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>如何使用 JavaScript 查詢 API 在 Azure Cosmos DB 中撰寫預存程序和觸發程序
 
@@ -19,7 +19,7 @@ Azure Cosmos DB 可讓您使用流暢的 JavaScript 介面來執行最佳化查�
 
 ## <a id="stored-procedures"></a>使用 JavaScript 查詢 API 撰寫預存程序
 
-下列程式碼範例說明如何在預存程序的內容中使用 JavaScript 查詢 API。 預存程序會插入輸入參數所指定的 Azure Cosmos DB 項目，然後使用 `__.filter()` 方法，根據輸入項目的大小屬性，以 minSize、maxSize 和 totalSize 來更新中繼資料文件。
+下列程式碼範例說明如何在預存程序的內容中使用 JavaScript 查詢 API。 預存程序會插入輸入參數所指定的 Azure Cosmos 項目，然後使用 `__.filter()` 方法，根據輸入項目的大小屬性，以 minSize、maxSize 和 totalSize 來更新中繼資料文件。
 
 > [!NOTE]
 > 使用 JavaScript 查詢 API 時，`__` (雙底線) 是 `getContext().getCollection()` 的別名。

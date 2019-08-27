@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-java-july2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019
 monikerRange: vsts
-ms.openlocfilehash: 87090e205f4aa3e6b2886e6384921ddd46ea717d
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 381af2989a7622501462e574d05b54eea8416518
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489523"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543433"
 ---
-# <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>使用 Azure DevOps Projects 建立適用於 Java 的 CI/CD 管線
+# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>快速入門：使用 Azure DevOps Projects 設定適用於 Java 應用程式的 CI/CD 管線
 
 Azure DevOps Projects 提供簡化的體驗，可建立 Azure 資源，並在 Azure Pipelines 中為您的 Java 應用程式設定持續整合 (CI) 與持續傳遞 (CD) 管線。  
 

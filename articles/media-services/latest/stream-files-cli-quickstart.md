@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: ''
-ms.date: 02/19/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 58193a94d09dee5df611acf5d98c8661dd18abbb
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550209"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639973"
 ---
-# <a name="tutorial-stream-video-files---cli"></a>教學課程：串流影片檔案 - CLI
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - CLI
 
 此教學課程說明如何使用 Azure 媒體服務和 Azure CLI，在各種不同的瀏覽器和裝置上輕鬆地編碼和串流視訊。 您可以使用 HTTPS、SAS URL 或 Azure Blob 儲存體中的檔案路徑來指定輸入內容。
 
@@ -334,7 +334,7 @@ az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 > 如果播放程式裝載在 HTTPS 網站上，請務必以 "https" 作為 URL 的開頭。
 
 1. 開啟網頁瀏覽器並前往 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)。
-2. 在 [URL]  方塊中，貼上您在上一節建置的 URL。 您可以貼上 HLS、 Dash 或 Smooth 格式的 URL。 Azure 媒體播放器將自動使用適當的串流通訊協定，以便在您的裝置上播放。
+2. 在 [URL]  方塊中，貼上您在上一節建置的 URL。 您可以貼上 HLS、Dash 或 Smooth 格式的 URL。 Azure 媒體播放器將自動使用適當的串流通訊協定，以便在您的裝置上播放。
 3. 選取 [更新播放程式]  。
 
 >[!NOTE]

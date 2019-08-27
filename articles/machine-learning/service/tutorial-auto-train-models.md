@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990485"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534835"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -42,36 +42,11 @@ ms.locfileid: "68990485"
 
 ## <a name="prerequisites"></a>必要條件
 
-請跳至[設定您的開發環境](#start)閱讀完整的 Notebook 步驟，或依照下列指示取得 Notebook，並在 Azure Notebooks 或您自己的 Notebook 伺服器上加以執行。 若要執行 Notebook，您將需要：
+* 完成第一部分，也就是[資料準備教學課程](tutorial-data-prep.md)。
 
-* [執行資料準備教學課程](tutorial-data-prep.md)。
-* 已安裝下列項目的 Python 3.6 Notebook 伺服器：
-    * 適用於 Python 的 Azure Machine Learning SDK，含 `automl` 和 `notebooks` 額外項目
-    * `matplotlib`
-* 教學課程筆記本
-* 機器學習工作區
-* 與 Notebook 位於相同目錄中的工作區組態檔
+* 完成第一部分之後，請使用相同的筆記本伺服器開啟 **tutorials/regression-part2-automated-ml.ipynb** 筆記本。
 
-請從以下各節取得前述所有必要項目。
-
-* 使用[您工作區中的雲端 Notebook 伺服器](#azure)
-* 使用[您自己的 Notebook 伺服器](#server)
-
-### <a name="azure"></a>使用您工作區中的雲端 Notebook 伺服器
-
-您可以輕鬆地開始使用自己的雲端式 Notebook 伺服器。 我們已在您建立此雲端資源後，為您安裝及設定[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk)。
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* 啟動 Notebook 網頁之後，請執行 **tutorials/regression-part2-automated-ml.ipynb** Notebook。
-
-### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
-
-使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。  務必在您的環境中安裝 `matplotlib``automl` 和 `notebooks` 額外項目。
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-完成所有步驟後，請執行 **tutorials/regression-part2-automated-ml.ipynb** 筆記本。
+如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中使用此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得。  請確定您已從 Azure Machine Learning SDK 安裝 `matplotlib` 和 `automl` 額外項目`notebooks`。
 
 ## <a name="start"></a>設定您的開發環境
 

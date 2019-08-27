@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: f1a1a8a6b32567a1571c70e76a4ae6c570d27ca5
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561402"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900575"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -185,6 +185,9 @@ A. 針對資料箱服務，Microsoft 會處理進出 Azure 資料中心的物流
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>問： 我的資料箱服務在運送期間可以跨國家/地區邊界使用嗎？
 A. 所有的資料箱裝置都是在與目的地相同的國家/地區內寄送，並不會跨越任何跨國界。 唯一的例外狀況是位於歐盟 (EU) 的訂單，該地區的裝置可以在任何歐盟國家/地區之間運送。 這適用於資料箱及 Data Box Heavy 裝置。
+
+### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>問： 我在美國東部訂購了一個資料箱，但收到的裝置卻是從美國西部的某個位置出貨。 我應該將裝置送歸何處？
+A. 我們會設法讓您盡快收到資料箱裝置。 我們雖會優先從最接近您儲存體帳戶位置的資料中心出貨，但會從有可用庫存的任何 Azure 資料中心寄送裝置。 您的資料箱應送歸出貨標籤中所顯示的同一個出貨位置。
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>問： 電子墨水顯示器並未顯示寄回用的出貨標籤。 我該怎麼辦？
 A. 如果電子墨水顯示器並未顯示寄回用的出貨標籤，請執行下列步驟：

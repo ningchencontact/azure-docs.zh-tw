@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 853d7f7bf9950640a824eee4ae3e044265b518f7
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 5345bbf2514c8b06ab80d4563227725a398f9407
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017222"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898347"
 ---
 # <a name="implement-iot-spatial-analytics-using-azure-maps"></a>使用 Azure 地圖服務執行 IoT 空間分析
 
@@ -290,6 +290,10 @@ Azure Functions 是無伺服器計算服務，可讓我們依需求執行程式�
 如需 Azure 地圖服務 REST API 的完整清單，請參閱：
 
 * [Azure 地圖服務 REST API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+
+深入了解 IoT 隨插即用，請參閱：
+
+* [IoT 隨插即用](https://docs.microsoft.com/azure/iot-pnp)
 
 若要取得 Azure 認證的 IoT 裝置清單，請造訪：
 

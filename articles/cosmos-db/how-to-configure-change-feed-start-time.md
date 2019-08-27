@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 7db14f6406223486ea0efb80d3d1cfcd0351f414
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3ad9aff10b3bae36a173f776f55a434fd8b38b98
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037225"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574277"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>如何設定變更摘要處理器的開始時間
 
@@ -51,8 +51,7 @@ ms.locfileid: "69037225"
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以在下列文章中繼續深入了解變更摘要：
+您現在可以在下列文章中繼續深入了解變更摘要處理器：
 
-* [變更摘要的概觀](change-feed.md)
-* [讀取變更摘要的方式](read-change-feed.md)
-* [使用變更摘要處理器](change-feed-processor.md)
+* [變更摘要處理器的概觀](change-feed-processor.md)
+* [使用變更摘要估算器](how-to-use-change-feed-estimator.md)

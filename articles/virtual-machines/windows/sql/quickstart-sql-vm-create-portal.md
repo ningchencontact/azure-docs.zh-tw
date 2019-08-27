@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb35cc99164cc8da047e8309d63bf7909abf4815
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 50297147d371898c35259bf4be59337eaa716579
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846019"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877875"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
 
@@ -36,22 +36,21 @@ ms.locfileid: "67846019"
 
 ## <a id="subscription"></a> 取得 Azure 訂用帳戶
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a id="select"></a> 選取 SQL Server VM 映像
 
 1. 使用您的帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在 Azure 入口網站中，選取 [建立資源]  。 
+1. 在 Azure 入口網站的左側功能表中，選取 [Azure SQL]  。 如果 **Azure SQL** 不在清單中，請選取 [所有服務]  ，然後在搜尋方塊中輸入 Azure SQL  。
+1. 選取 [+ 新增]  以開啟 [選取 SQL 部署選項]  頁面。 您可以選取 [SQL 虛擬機器]  圖格上的 [顯示詳細資料]  ，以檢視其他資訊。
+1. 選取**免費的 SQL Server 授權：Windows Server 2016 上的 SQL Server 2017 Developer** 映像 (從下拉式清單中)。
 
-1. 在搜尋欄位中輸入 `SQL Server 2017 Developer on Windows Server 2016`，然後按 ENTER 鍵。 展開 Windows Server 2016 上的 SQL Server 2017 選項。 
-
-1. 選取**免費的 SQL Server 授權：Windows Server 2016 上的 SQL Server 2017 Developer** 影像。 本教學課程中使用 Developer 版本，因為它是免費供開發測試使用的 SQL Server 完整功能版。 您只需支付執行 VM 的費用。 如需完整的定價考量，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)。
-
-   ![新的搜尋視窗](./media/quickstart-sql-vm-create-portal/newsearch.png)
-
+   ![新的搜尋視窗](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
 1. 選取 [建立]  。
+
+   ![新的搜尋視窗](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a> 提供基本詳細資料
 
@@ -65,7 +64,7 @@ ms.locfileid: "67846019"
     1. 輸入 _SQLVM_ 作為 [虛擬機器名稱]  。 
     1. 選擇 [區域]  的位置。 
     1. 基於此快速入門的目的，請將 [可用性選項]  設定保留為 [不需要基礎結構備援]  。 如需關於可用性選項的詳細資訊，請參閱[可用性](../../windows/availability.md)。 
-    1. 在 映像  清單中，選取免費的 _SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer 的映像。 
+    1. 在 [**映像**] 清單中，選取 [免費的 SQL Server 授權：  Windows Server 2016 上的 SQL Server 2017 Developer]。 
     1. 選擇為虛擬機器的**大小** [變更大小]  ，然後選取 **A2 Basic** 供應項目。 在資源使用完畢後請務必加以清除，以防止產生任何非預期的費用。 
 
    ![執行個體詳細資料](media/quickstart-sql-vm-create-portal/basics-instance-details.png)

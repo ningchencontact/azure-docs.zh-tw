@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 3be1da54b16a24ce3c4431dfe26eb778cea5c83d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 769cb2c6a3ae0e5b94ffd65425634ac9dd0221d0
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545258"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640031"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>教學課程：存取 Azure 實驗室服務中的教室實驗室
 在本教學課程中，您會以學生的身分連線到教室實驗室中的虛擬機器 (VM)。 
@@ -27,21 +27,37 @@ ms.locfileid: "59545258"
 在本教學課程中，您會執行下列動作：
 
 > [!div class="checklist"]
-> * 使用註冊連結 
-> * 連接至虛擬機器
+> * 向實驗室註冊
+> * 啟動 VM
+> * 連接至 VM
 
-## <a name="use-the-registration-link"></a>使用註冊連結
+## <a name="register-to-the-lab"></a>向實驗室註冊
 
-1. 瀏覽至教師/授課者提供給您的**註冊 URL**。 完成註冊之後，您不需要使用註冊 URL。 請改用 URL：[https://labs.azure.com](https://labs.azure.com)。 請注意，目前不支援 Internet Explorer 11。 
+1. 瀏覽至教師/授課者提供給您的**註冊 URL**。 完成註冊之後，您不需要使用註冊 URL。 請改用 URL：[https://labs.azure.com](https://labs.azure.com)。 目前尚未支援 Internet Explorer 11。 
 1. 使用學校帳戶登入服務，以完成註冊。 
 2. 註冊之後，請確認您有看到可存取的實驗室虛擬機器。 
-3. 等候虛擬機器就緒，然後**啟動** VM。 這個程序需要一些時間。  
+3. 請等候虛擬機器準備就緒。 在 [VM] 圖格上，請注意下欄欄位：
+    1. 在圖格頂端，您會看到**實驗室的名稱**。
+    1. 在圖格右邊，您會看到代表 VM **作業系統 (OS)** 的圖示。 在此範例中為 Windows OS。 
+    1. 圖格上的進度列會顯示針對指派給您的[配額時數](how-to-configure-student-usage.md#set-quotas-for-users)所使用的時數。 此時間是除了實驗室的排程時間外額外分配給您的時間。 
+    1. 您會在圖格底部看到用來啟動/停止 VM 和連線至 VM 的圖示/按鈕。 
+    1. 在按鈕右邊，您會看到 VM 的狀態。 確認您看到的 VM 狀態為 [已停止]  。 
+
+        ![處於已停止狀態的 VM](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+
+## <a name="start-the-vm"></a>啟動 VM
+1. 選取第一個按鈕來**啟動** VM，如下圖所示。 這個程序需要一些時間。  
 
     ![啟動 VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+4. 確認 VM 的狀態已設定為 [執行中]  。 
 
-## <a name="connect-to-the-virtual-machine"></a>連接至虛擬機器
+    ![處於執行中狀態的 VM](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
 
-1. 在您要存取的實驗室虛擬機器圖格上，選取 [連線]。 
+    請注意，第一個按鈕的圖示會變更為代表**停止**作業。 您可以選取此按鈕來停止 VM。 
+
+## <a name="connect-to-the-vm"></a>連接至 VM
+
+1. 選取第二個按鈕 (如下圖所示)，以**連線**至實驗室的 VM。 
 
     ![連接到 VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. 執行下列其中一個步驟： 

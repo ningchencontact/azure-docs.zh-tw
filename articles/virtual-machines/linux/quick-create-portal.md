@@ -13,55 +13,49 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/12/2018
+ms.date: 8/20/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f491a160e0f4f72f072dc43c46571f96dd19a297
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: feaefef23b433a296d25cc11b5cd89d86acd280f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671032"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650205"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Linux 虛擬機器
 
-您可以透過 Azure 入口網站建立 Azure 虛擬機器 (VM)。 Azure 入口網站是以瀏覽器為基礎的使用者介面，可用來建立 VM 及其相關聯的資源。 本快速入門說明如何使用 Azure 入口網站，來部署執行 Ubuntu 16.04 LTS 的 Linux 虛擬機器 (VM)。 為了查看作用中的 VM，您還會以 SSH 連線至 VM，並安裝 NGINX 網頁伺服器。
+您可以透過 Azure 入口網站建立 Azure 虛擬機器 (VM)。 Azure 入口網站是以瀏覽器為基礎的使用者介面，可用來建立 Azure 資源。 本快速入門說明如何使用 Azure 入口網站，來部署執行 Ubuntu 18.04 LTS 的 Linux 虛擬機器 (VM)。 為了查看作用中的 VM，您還會以 SSH 連線至 VM，並安裝 NGINX 網頁伺服器。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-ssh-key-pair"></a>建立 SSH 金鑰組
 
 您必須要有 SSH 金鑰組，才能完成本快速入門的操作。 如果您已經擁有 SSH 金鑰組，則可略過此步驟。
 
-開啟 Bash 殼層，然後使用 [ssh-keygen](https://www.ssh.com/ssh/keygen/) 來建立 SSH 金鑰組。 如果本機電腦上沒有 Bash 殼層，則可以使用 [Azure Cloud Shell](https://shell.azure.com/bash)。  
+開啟 Bash 殼層，然後使用 [ssh-keygen](https://www.ssh.com/ssh/keygen/) 來建立 SSH 金鑰組。 如果本機電腦上沒有 Bash 殼層，則可以使用 [Azure Cloud Shell](https://shell.azure.com/bash)。
 
-```bash
-ssh-keygen -t rsa -b 2048
-```
 
-上述命令會在 `~/.ssh directory` 中產生具有預設名稱 `id_rsa` 的公開和私密金鑰。 此命令會傳回公開金鑰的完整路徑。 請使用公開金鑰的路徑，透過 `cat` 來顯示其內容。
-
-```bash 
-cat ~/.ssh/id_rsa.pub
-```
-
-儲存此命令的輸出。 在設定用來登入 VM 的系統管理員帳戶時會用到它。
-
-如需如何建立 SSH 金鑰的詳細資訊 (包括 PuTTy 的用法)，請參閱[對 Windows 使用 SSH 金鑰](ssh-from-windows.md)。
-
-如果您使用 Cloud Shell 建立 SSH 金鑰組，該金鑰組會儲存在 [Cloud Shell 所自動掛接](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)的 Azure 檔案共用內。 在擷取到金鑰前請勿刪除此檔案共用或儲存體帳戶，否則會無法存取 VM。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 在頁面頂端的功能表中，選取 `>_` 圖示以開啟 Cloud Shell。
+1. 請確定 CloudShell 在左上方顯示 **Bash**。 如果其顯示 PowerShell，請使用下拉式清單來選取 [Bash]  ，然後選取 [確認]  以變更為 Bash 殼層。
+1. 輸入 `ssh-keygen -t rsa -b 2048` 以建立 ssh 金鑰。 
+1. 系統會提示您輸入用來儲存金鑰組的檔案。 只要按 **Enter** 鍵即可儲存在預設位置 (以括弧列出)。 
+1. 系統會要求您輸入複雜密碼。 您可以輸入 SSH 金鑰的複雜密碼，或按 **Enter** 鍵以無複雜密碼的狀態繼續進行。
+1. `ssh-keygen` 命令會在 `~/.ssh directory` 中產生具有預設名稱 `id_rsa` 的公開和私密金鑰。 此命令會傳回公開金鑰的完整路徑。 請使用公開金鑰的路徑，透過輸入 `cat ~/.ssh/id_rsa.pub` 來以 `cat` 顯示其內容。
+1. 複製此命令的輸出，並將其儲存在某處以供本文稍後使用。 這是您的公開金鑰，您會在設定用來登入 VM 的系統管理員帳戶時用到它。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 [Azure 入口網站](https://portal.azure.com)。
+請先登入 [Azure 入口網站](https://portal.azure.com) (如果您尚未登入)。
 
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
 1. 選擇 Azure 入口網站左上角的 [建立資源]  。
 
-1. 在 Azure Marketplace 資源清單上方的搜尋方塊中，依 Canonical 搜尋並選取**Ubuntu Server 16.04 LTS**，然後選擇 [建立]  。
+1. 在 [熱門]  中，選取 [Ubuntu Server 18.04 LTS]  。
 
-1. 在 [基本資料]  索引標籤中的 [專案詳細資料]  底下，確認已選取正確的訂用帳戶，然後在 [資源群組]  下方選擇 [新建]  。 在快顯視窗中輸入 *myResourceGroup* 作為資源群組的名稱，然後選擇 [確定]  。 
+1. 在 [基本資料]  索引標籤中的 [專案詳細資料]  底下，確認已選取正確的訂用帳戶，然後在 [資源群組]  下方選擇 [新建]  。 輸入 myResourceGroup  作為資源群組的名稱，然後選擇 [確定]  。 
 
     ![為您的 VM 建立新的資源群組](./media/quick-create-portal/project-details.png)
 
@@ -69,7 +63,7 @@ cat ~/.ssh/id_rsa.pub
 
     ![執行個體詳細資料區段](./media/quick-create-portal/instance-details.png)
 
-1. 在 [系統管理員帳戶]  下方選取 [SSH 公開金鑰]  ，輸入您的使用者名稱，然後將您的公開金鑰貼到文字方塊中。 請移除公開金鑰中的任何前置或尾端的空白字元。
+1. 在 [系統管理員帳戶]  下方選取 [SSH 公開金鑰]  ，輸入您的使用者名稱，然後貼上您的公開金鑰。 請移除公開金鑰中的任何前置或尾端的空白字元。
 
     ![系統管理員帳戶](./media/quick-create-portal/administrator-account.png)
 
@@ -92,13 +86,13 @@ cat ~/.ssh/id_rsa.pub
 
     ![入口網站 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. 在 [連線至虛擬機器]  頁面中，維持預設選項，以便使用 IP 位址透過連接埠 22 進行連線。 在**使用 VM 本機帳戶登入**中，會顯示連線命令。 按一下按鈕以複製該命令。 下列範例說明 SSH 連線命令的內容：
+2. 在 [連線至虛擬機器]  頁面中，維持預設選項，以便使用 IP 位址透過連接埠 22 進行連線。 在**使用 VM 本機帳戶登入**中，會顯示連線命令。 選取按鈕以複製該命令。 下列範例說明 SSH 連線命令的內容：
 
     ```bash
     ssh azureuser@10.111.12.123
     ```
 
-3. 使用和您建立 SSH 金鑰組時所用的同一個 Bash 殼層 (例如 [Azure Cloud Shell](https://shell.azure.com/bash) 或本機 Bash 殼層)，將 SSH 連線命令貼到殼層中，以建立 SSH 工作階段。 
+3. 使用和您建立 SSH 金鑰組時所用的同一個 Bash 殼層 (您可以重新開啟 Cloud Shell，方法是再次選取 `>_` 或移至 https://shell.azure.com/bash) ，將 SSH 連線命令貼到殼層中，以建立 SSH 工作階段。
 
 ## <a name="install-web-server"></a>安裝 Web 伺服器
 

@@ -10,18 +10,18 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 46fb1fc6455cd35d8bb1eaf0a1b7ee499f5c1caf
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731975"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574880"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中暫停與繼續 Azure SQL 資料倉儲的計算
 
 使用 Azure 入口網站來暫停 Azure SQL 資料倉儲中的計算以節省成本。 在您準備好使用資料倉儲時[繼續計算](sql-data-warehouse-manage-compute-overview.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -37,19 +37,19 @@ ms.locfileid: "57731975"
 
 遵循下列步驟來暫停 SQL 資料倉儲。
 
-1. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]。
-2. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 這會開啟資料倉儲。 
-3. 在 [mySampleDataWarehouse] 頁面上，留意到 [狀態] 目前為 [上線]。
+1. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]  。
+2. 從 [SQL 資料庫]  頁面中，選取 [mySampleDataWarehouse]  。 這會開啟資料倉儲。 
+3. 在 [mySampleDataWarehouse]  頁面上，留意到 [狀態]  目前為 [上線]  。
 
     ![計算上線](media/pause-and-resume-compute-portal/compute-online.png)
 
-4. 若要暫停資料倉儲，請按一下 [暫停] 按鈕。 
-5. 螢幕會出現詢問您是否要繼續的確認問題。 按一下 [是] 。
-6. 請稍候片刻，並留意到 [狀態] 將變成 [正在暫停]。
+4. 若要暫停資料倉儲，請按一下 [暫停]  按鈕。 
+5. 螢幕會出現詢問您是否要繼續的確認問題。 按一下 [是]  。
+6. 請稍候片刻，並留意到 [狀態]  將變成 [正在暫停]  。
 
     ![正在暫停](media/pause-and-resume-compute-portal/pausing.png)
 
-7. 暫停作業完成後，狀態將會變成 [已暫停]，選項按鈕則會是 [啟動]。
+7. 暫停作業完成後，狀態將會變成 [已暫停]  ，選項按鈕則會是 [啟動]  。
 8. 資料倉儲的計算資源功能現已離線。 在您繼續服務之前，將無需支付計算費用。
 
     ![計算離線](media/pause-and-resume-compute-portal/compute-offline.png)
@@ -59,19 +59,19 @@ ms.locfileid: "57731975"
 
 遵循下列步驟來繼續 SQL 資料倉儲。
 
-1. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]。
-2. 從 [SQL 資料庫] 頁面中，選取 [mySampleDataWarehouse]。 這會開啟資料倉儲。 
-3. 在 [mySampleDataWarehouse] 頁面上，留意到 [狀態] 目前為 [已暫停]。
+1. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]  。
+2. 從 [SQL 資料庫]  頁面中，選取 [mySampleDataWarehouse]  。 這會開啟資料倉儲。 
+3. 在 [mySampleDataWarehouse]  頁面上，留意到 [狀態]  目前為 [已暫停]  。
 
     ![計算離線](media/pause-and-resume-compute-portal/compute-offline.png)
 
-4. 若要繼續資料倉儲，請按一下 [啟動]。 
-5. 螢幕會出現詢問您是否要啟動的確認問題。 按一下 [是] 。
-6. 留意到 [狀態] 將變成 [正在繼續]。
+4. 若要繼續資料倉儲，請按一下 [啟動]  。 
+5. 螢幕會出現詢問您是否要啟動的確認問題。 按一下 [是]  。
+6. 留意到 [狀態]  將變成 [正在繼續]  。
 
     ![繼續中](media/pause-and-resume-compute-portal/resuming.png)
 
-7. 資料倉儲再度上線時，狀態將會變成 [上線]，選項按鈕則會是 [暫停]。
+7. 資料倉儲再度上線時，狀態將會變成 [上線]  ，選項按鈕則會是 [暫停]  。
 8. 資料倉儲的計算資源現已上線，且您可以使用服務。 費用計算將繼續進行。
 
     ![計算上線](media/pause-and-resume-compute-portal/compute-online.png)
@@ -89,13 +89,13 @@ ms.locfileid: "57731975"
 
     ![清除資源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. 若要暫停計算，請按一下 [暫停] 按鈕。 資料倉儲暫停時，您會看到 [啟動] 按鈕。  若要繼續計算，請按一下 [啟動]。
+1. 若要暫停計算，請按一下 [暫停]  按鈕。 資料倉儲暫停時，您會看到 [啟動]  按鈕。  若要繼續計算，請按一下 [啟動]  。
 
-2. 若要移除資料倉儲，而不再支付計算或儲存體的費用，請按一下 [刪除]。
+2. 若要移除資料倉儲，而不再支付計算或儲存體的費用，請按一下 [刪除]  。
 
-3. 若要移除您所建立的 SQL 伺服器，請按一下 [mynewserver 20171113.database.windows.net]，然後按一下 [刪除]。  請謹慎使用刪除，因為刪除伺服器也會刪除所有指派給伺服器的資料庫。
+3. 若要移除您所建立的 SQL 伺服器，請按一下 [mynewserver 20171113.database.windows.net]  ，然後按一下 [刪除]  。  請謹慎使用刪除，因為刪除伺服器也會刪除所有指派給伺服器的資料庫。
 
-4. 若要移除此資源群組，請按一下 [myResourceGroup]，然後按一下 [刪除資源群組]。
+4. 若要移除此資源群組，請按一下 [myResourceGroup]  ，然後按一下 [刪除資源群組]  。
 
 
 ## <a name="next-steps"></a>後續步驟

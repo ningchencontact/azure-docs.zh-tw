@@ -3,19 +3,19 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 06/19/2019
+ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935020"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894075"
 ---
-在此步驟中，您將建立資源群組和 Azure SQL Database 單一資料庫。
+在此步驟中，您將建立 Azure SQL Database 單一資料庫。 
 
 > [!IMPORTANT]
-> 務必設定防火牆規則，使用您在本文中執行步驟的電腦所用的公用 IP 位址。 
+> 務必設定防火牆規則，以使用您用來完成本文的電腦公用 IP 位址。
 >
 > 如需資訊，請參閱[建立資料庫層級防火牆規則](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)，或者，若要判斷對於電腦的伺服器層級防火牆規則所用的 IP 位址，請參閱[建立伺服器層級防火牆](../sql-database-server-level-firewall-rule.md)。  
 
@@ -23,10 +23,11 @@ ms.locfileid: "68935020"
 
 使用 Azure 入口網站建立您的資源群組和單一資料庫。
 
-1. 選取 Azure 入口網站左上角的 [建立資源]  。
-2. 選取 [資料庫]  ，然後選取 [SQL Database]  以開啟 [建立 SQL Database]  頁面。
+1. 在 Azure 入口網站的左側功能表中，選取 [Azure SQL]  。 如果 **Azure SQL** 不在清單中，請選取 [所有服務]  ，然後在搜尋方塊中輸入 Azure SQL  。
+2. 選取 [+ 新增]  以開啟 [選取 SQL 部署選項]  頁面。 您可以選取 [資料庫]  圖格上的 [顯示詳細資料]  ，以查看不同資料庫的其他資訊。
+3. 選取 [建立]  ：
 
-   ![建立單一資料庫](../media/sql-database-get-started-portal/create-database-1.png)
+   ![建立單一資料庫](../media/sql-database-get-started-portal/create-single-database.png)
 
 3. 在 [基本資料]  索引標籤的 [專案詳細資料]  區段中，輸入或選取下列值：
 

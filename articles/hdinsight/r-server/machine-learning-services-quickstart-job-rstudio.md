@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 484763adfa154dcdf226b03f1f591d248532ee35
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 295430027afabcfcf793a87ae5859dc9c6675966
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451499"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876300"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>快速入門：使用 RStudio Server 對 Azure HDInsight 中的 ML 服務叢集執行 R 指令碼
 
@@ -182,3 +182,6 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 > [!div class="nextstepaction"]
 >[在 HDInsight 上計算 ML 服務的內容選項](./r-server-compute-contexts.md)
+
+> [!NOTE]
+> 本頁面說明 RStudio 軟體的功能。 Microsoft Azure HDInsight 與 RStudio, Inc. 沒有附屬關係。

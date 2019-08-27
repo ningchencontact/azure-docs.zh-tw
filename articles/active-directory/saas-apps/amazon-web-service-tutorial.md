@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346c995cbc8be6e609020db799959d873ce89b3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 672a3571202b92232bd45a42254a43019f6a9796
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944962"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617335"
 ---
 # <a name="tutorial-integrate-amazon-web-services-aws-with-azure-active-directory"></a>教學課程：整合 Amazon Web Services (AWS) 與 Azure Active Directory
 
@@ -189,7 +189,7 @@ ms.locfileid: "68944962"
 
     c. 選取 [Allow programmatic and AWS Management Console access] \(允許透過程式設計方式和 AWS 管理主控台存取\)  。
   
-    d. 完成時，選取 [下一步:**權限]** 。
+    d. 完成時，選取 [下一步：**權限]** 。
 
 9. 在 [附加權限原則]  對話方塊中，請根據您的組織需求附加適當的原則。 然後，選取 **[下一步：檢閱]** 。  
 
@@ -369,6 +369,12 @@ ms.locfileid: "68944962"
    您可以從資源庫中，將多個 AWS 租用戶 (以 `servicePrincipals` 表示) 新增至 Azure AD 以進行佈建。 不過，有一個已知的問題，就是無法自動從用於佈建的多個 AWS `servicePrincipals` 中，將所有匯入的角色寫入用於 SSO 的單一 `servicePrincipal`。 
    
    因應措施如下：您可以使用 [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) 來擷取所有匯入每個 AWS `servicePrincipal` (已設定佈建) 的 `appRoles`。 接著，您可以將這些角色字串新增至已設定 SSO 的 AWS `servicePrincipal`。
+ 
+* 角色必須符合下列需求才能從 AWS 匯入到 Azure AD：
+
+  * 角色必須只有一個定義在 AWS 中的 saml 提供者
+
+  * 角色 ARN 和所要匯入角色的 saml 提供者 ARN 合併起來的長度必須是 119 個字元或更少
 
 ## <a name="additional-resources"></a>其他資源
 

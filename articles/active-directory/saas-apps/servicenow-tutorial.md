@@ -1,5 +1,5 @@
 ---
-title: 教學課程：Azure Active Directory 與 ServiceNow 整合 | Microsoft Docs
+title: 教學課程：Azure Active Directory 單一登入 (SSO) 與 ServiceNow 整合 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 與 ServiceNow 之間的單一登入。
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/27/2019
+ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ba516aa2c3d2decaa4962f1ccd0394ebe9a4a62
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 431d20c4c5ae5355d456ca3453b832e590cbb199
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706117"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559009"
 ---
-# <a name="tutorial-integrate-servicenow-with-azure-active-directory"></a>教學課程：整合 ServiceNow 與 Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 ServiceNow 整合
 
 在本教學課程中，您將了解如何整合 ServiceNow 與 Azure Active Directory (Azure AD)。 在整合 ServiceNow 與 Azure AD 時，您可以︰
 
@@ -31,7 +31,7 @@ ms.locfileid: "67706117"
 * 讓使用者使用其 Azure AD 帳戶自動登入 ServiceNow。
 * 在 Azure 入口網站集中管理您的帳戶。
 
-若要深入了解 SaaS 應用程式與 Azure AD 的整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
+若要深入了解 SaaS 應用程式與 Azure AD 整合，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -62,23 +62,23 @@ ServiceNow Classic (行動) 應用程式現已設定了搭配 Azure AD 啟用 SS
 1. 在 [從資源庫新增]  區段的搜尋方塊中，輸入 **ServiceNow**。
 1. 從結果面板中選取 [ServiceNow]  ，然後新增應用程式。 當應用程式新增至您的租用戶時，請等候幾秒鐘。
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+## <a name="configure-and-test-azure-ad-single-sign-on-for-servicenow"></a>設定及測試 ServiceNow 的 Azure AD 單一登入
 
 以名為 **B.Simon** 的測試使用者，設定及測試與 ServiceNow 搭配運作的 Azure AD SSO。 若要讓 SSO 能夠運作，您必須建立 Azure AD 使用者與 ServiceNow 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 ServiceNow 搭配運作的 Azure AD SSO，請完成下列建置組塊：
 
 1. **[設定 Azure AD SSO](#configure-azure-ad-sso)** ，讓您的使用者能夠使用此功能。
+    1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** ，以使用 B.Simon 測試 Azure AD 單一登入。
+    1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** ，讓 B.Simon 能夠使用 Azure AD 單一登入。
+    1. **[針對 ServiceNow Express 設定 Azure AD SSO](#configure-azure-ad-sso-for-servicenow-express)** - 讓您的使用者能夠使用此功能。
 2. **[設定 ServiceNow](#configure-servicenow)** 以在應用程式端設定 SSO 設定。
-3. **[針對 ServiceNow Express 設定 Azure AD SSO](#configure-azure-ad-sso-for-servicenow-express)** - 讓您的使用者能夠使用此功能。
-4. **[設定 ServiceNow Express SSO](#configure-servicenow-express-sso)** - 在應用程式端設定單一登入設定。
-5. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** ，以使用 B.Simon 測試 Azure AD 單一登入。
-6. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** ，讓 B.Simon 能夠使用 Azure AD 單一登入。
-7. **[建立 ServiceNow 測試使用者](#create-servicenow-test-user)** ，使 ServiceNow 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
-8. **[測試 SSO](#test-sso)** ，以驗證組態是否能運作。
-9. **[測試 ServiceNow Classic (行動) 的 SSO](#test-sso-for-servicenow-classic-mobile)** ，以驗證組態是否能運作。
+    1. **[建立 ServiceNow 測試使用者](#create-servicenow-test-user)** ，使 ServiceNow 中對應的 B.Simon 連結到該使用者在 Azure AD 中的代表項目。
+    1. **[設定 ServiceNow Express SSO](#configure-servicenow-express-sso)** - 在應用程式端設定單一登入設定。    
+3. **[測試 SSO](#test-sso)** ，以驗證組態是否能運作。
+4. **[測試 ServiceNow Classic (行動) 的 SSO](#test-sso-for-servicenow-classic-mobile)** ，以驗證組態是否能運作。
 
-### <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>設定 Azure AD SSO
 
 依照下列步驟在 Azure 入口網站中啟用 Azure AD SSO。
 
@@ -86,18 +86,18 @@ ServiceNow Classic (行動) 應用程式現已設定了搭配 Azure AD 啟用 SS
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
-   ![編輯基本 SAML 組態](common/edit-urls.png)
+   ![編輯基本 SAML 設定](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
+4. 在 [基本 SAML 設定]  區段上，執行下列步驟：
 
     a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com/navpage.do`
 
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com`
 
     > [!NOTE]
-    > 這些都不是真正的值。 您必須使用實際的「登入 URL」及「識別碼」來更新這些值 (本教學課程稍後會說明)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 您必須使用實際的「登入 URL」及「識別碼」來更新這些值 (本教學課程稍後會說明)。 您也可以參考 Azure 入口網站中**基本 SAML 設定**區段所示的模式。
 
-1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  以下載憑證並將其儲存在電腦上。
+1. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，尋找 [憑證 (Base64)]  並選取 [下載]  ，以下載憑證並將其儲存在電腦上。
 
    ![憑證下載連結](common/certificatebase64.png)
 
@@ -109,7 +109,72 @@ ServiceNow Classic (行動) 應用程式現已設定了搭配 Azure AD 啟用 SS
 
    ![複製組態 URL](common/copy-configuration-urls.png)
 
-### <a name="configure-servicenow"></a>設定 ServiceNow
+### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
+
+在本節中，您將在 Azure 入口網站中建立名為 B.Simon 的測試使用者。
+
+1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
+1. 在畫面頂端選取 [新增使用者]  。
+1. 在 [使用者]  屬性中，執行下列步驟：
+   1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
+   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
+   1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
+   1. 按一下頁面底部的 [新增]  。
+
+### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
+
+在本節中，您會將 ServiceNow 的存取權授與 B.Simon，讓她能夠使用 Azure 單一登入。
+
+1. 在 Azure 入口網站中，選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
+1. 在應用程式清單中，選取 [ServiceNow]  。
+1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
+
+   ![[使用者和群組] 連結](common/users-groups-blade.png)
+
+1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中選取 [使用者和群組]  。
+
+    ![[新增使用者] 連結](common/add-assign-user.png)
+
+1. 在 [使用者和群組]  對話方塊的 [使用者] 清單中選取 [B.Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
+1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
+1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
+
+### <a name="configure-azure-ad-sso-for-servicenow-express"></a>為 ServiceNow Express 設定 Azure AD SSO
+
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [ServiceNow]  應用程式整合頁面上，選取 [單一登入]  。
+
+    ![設定單一登入連結](common/select-sso.png)
+
+2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
+
+    ![單一登入選取模式](common/select-saml-option.png)
+
+3. 在 [以 SAML 設定單一登入]  頁面上，按一下 [編輯]  圖示以開啟 [基本 SAML 設定]  對話方塊。
+
+    ![編輯基本 SAML 設定](common/edit-urls.png)
+
+4. 在 [基本 SAML 設定]  區段上，執行下列步驟：
+
+    a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com/navpage.do`
+
+    b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com`
+
+    > [!NOTE]
+    > 這些都不是真正的值。 您必須使用實際的「登入 URL」及「識別碼」來更新這些值 (本教學課程稍後會說明)。 您也可以參考 Azure 入口網站中**基本 SAML 設定**區段所示的模式。
+
+5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載 [憑證 (Base64)]  ，並將其儲存在電腦上。
+
+    ![憑證下載連結](common/certificatebase64.png)
+
+6. 我們提供 ServiceNow 單鍵設定服務，也就是讓 Azure AD 自動設定 ServiceNow，以便進行 SAML 型驗證。 若要啟用此服務，請移至 [安裝 ServiceNow]  區段，按一下 [檢視逐步指示]  以開啟 [設定登入] 視窗。
+
+    ![設定單一登入](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
+
+7. 在 [設定單一登入]  表單中輸入 ServiceNow 執行個體名稱、管理員使用者名稱和管理員密碼，然後按一下 [立即設定]  。 請確定提供的系統管理員使用者名稱必須在 ServiceNow 中指派 **security_admin** 角色，才能運作。 否則，若要手動設定 ServiceNow 以使用 Azure AD 作為「SAML 識別提供者」，請按一下 [手動設定單一登入]  ，然後從 [快速參考] 區段複製 [登出 URL]、[Azure AD 識別碼] 及 [登入 URL]  。
+
+    ![設定應用程式 URL](./media/servicenow-tutorial/configure.png "設定應用程式 URL")
+
+## <a name="configure-servicenow"></a>設定 ServiceNow
 
 1. 以系統管理員身分登入您的 ServiceNow 應用程式。
 
@@ -159,7 +224,7 @@ ServiceNow Classic (行動) 應用程式現已設定了搭配 Azure AD 啟用 SS
 
         ![設定單一登入](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-    * 在 [設定單一登入]  表單中輸入 ServiceNow 執行個體名稱、管理員使用者名稱和管理員密碼，然後按一下 [立即設定]  。 請注意，提供的系統管理員使用者名稱必須在 ServiceNow 中指派 **security_admin** 角色，才能運作。 否則，若要手動設定 ServiceNow 以使用 Azure AD 作為「SAML 識別提供者」，請按一下 [手動設定單一登入]  ，然後從 [快速參考] 區段複製 [登出 URL]、[SAML 實體識別碼] 及 [SAML 單一登入服務 URL]  。
+    * 在 [設定單一登入]  表單中輸入 ServiceNow 執行個體名稱、管理員使用者名稱和管理員密碼，然後按一下 [立即設定]  。 請確定提供的系統管理員使用者名稱必須在 ServiceNow 中指派 **security_admin** 角色，才能運作。 否則，若要手動設定 ServiceNow 以使用 Azure AD 作為「SAML 識別提供者」，請按一下 [手動設定單一登入]  ，然後從 [快速參考] 區段複製 [登出 URL]、[SAML 實體識別碼] 及 [SAML 單一登入服務 URL]  。
 
         ![設定應用程式 URL](./media/servicenow-tutorial/configure.png "設定應用程式 URL")
 
@@ -262,40 +327,12 @@ ServiceNow Classic (行動) 應用程式現已設定了搭配 Azure AD 啟用 SS
 
           ![設定單一登入](./media/servicenow-tutorial/servicenowactivate.png "設定單一登入")
 
-### <a name="configure-azure-ad-sso-for-servicenow-express"></a>為 ServiceNow Express 設定 Azure AD SSO
+### <a name="create-servicenow-test-user"></a>建立 ServiceNow 測試使用者
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [ServiceNow]  應用程式整合頁面上，選取 [單一登入]  。
+本節的目標是在 ServiceNow 中建立名為 Britta Simon 的使用者。 ServiceNow 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](servicenow-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
 
-    ![設定單一登入連結](common/select-sso.png)
-
-2. 在 [選取單一登入方法]  對話方塊中，選取 [SAML/WS-Fed]  模式以啟用單一登入。
-
-    ![單一登入選取模式](common/select-saml-option.png)
-
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。   
-
-    ![編輯基本 SAML 組態](common/edit-urls.png)
-
-4. 在 [基本 SAML 組態]  區段上，執行下列步驟：
-
-    a. 在 [登入 URL]  文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com/navpage.do`
-
-    b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://<instance-name>.service-now.com`
-
-    > [!NOTE]
-    > 這些都不是真正的值。 您必須使用實際的「登入 URL」及「識別碼」來更新這些值 (本教學課程稍後會說明)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
-
-5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中，按一下 [下載]  ，以依據您的需求從指定選項下載 [憑證 (Base64)]  ，並儲存在您的電腦上。
-
-    ![憑證下載連結](common/certificatebase64.png)
-
-6. 我們提供 ServiceNow 單鍵設定服務，也就是讓 Azure AD 自動設定 ServiceNow，以便進行 SAML 型驗證。 若要啟用此服務，請移至 [安裝 ServiceNow]  區段，按一下 [檢視逐步指示]  以開啟 [設定登入] 視窗。
-
-    ![設定單一登入](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
-
-7. 在 [設定單一登入]  表單中輸入 ServiceNow 執行個體名稱、管理員使用者名稱和管理員密碼，然後按一下 [立即設定]  。 請注意，提供的系統管理員使用者名稱必須在 ServiceNow 中指派 **security_admin** 角色，才能運作。 否則，若要手動設定 ServiceNow 以使用 Azure AD 作為「SAML 識別提供者」，請按一下 [手動設定單一登入]  ，然後從 [快速參考] 區段複製 [登出 URL]、[Azure AD 識別碼] 及 [登入 URL]  。
-
-    ![設定應用程式 URL](./media/servicenow-tutorial/configure.png "設定應用程式 URL")
+> [!NOTE]
+> 如果您需要手動建立使用者，請連絡 [ServiceNow 用戶端支援小組](https://www.servicenow.com/support/contact-support.html)
 
 ### <a name="configure-servicenow-express-sso"></a>設定 ServiceNow Express SSO
 
@@ -387,44 +424,7 @@ ServiceNow Classic (行動) 應用程式現已設定了搭配 Azure AD 啟用 SS
 
     f. 按一下 [檔案]  。
 
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
-
-在本節中，您將在 Azure 入口網站中建立名為 B.Simon 的測試使用者。
-
-1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]  、[使用者]  和 [所有使用者]  。
-1. 在畫面頂端選取 [新增使用者]  。
-1. 在 [使用者]  屬性中，執行下列步驟：
-   1. 在 [名稱]  欄位中，輸入 `B.Simon`。  
-   1. 在 [使用者名稱]  欄位中，輸入 username@companydomain.extension。 例如： `B.Simon@contoso.com` 。
-   1. 選取 [顯示密碼]  核取方塊，然後記下 [密碼]  方塊中顯示的值。
-   1. 按一下頁面底部的 [新增]  。
-
-### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
-
-在本節中，您會將 ServiceNow 的存取權授與 B.Simon，讓她能夠使用 Azure 單一登入。
-
-1. 在 Azure 入口網站中，選取 [企業應用程式]  ，然後選取 [所有應用程式]  。
-1. 在應用程式清單中，選取 [ServiceNow]  。
-1. 在應用程式的概觀頁面中尋找 [管理]  區段，然後選取 [使用者和群組]  。
-
-   ![[使用者和群組] 連結](common/users-groups-blade.png)
-
-1. 選取 [新增使用者]  ，然後在 [新增指派]  對話方塊中選取 [使用者和群組]  。
-
-    ![[新增使用者] 連結](common/add-assign-user.png)
-
-1. 在 [使用者和群組]  對話方塊的 [使用者] 清單中選取 [B.Simon]  ，然後按一下畫面底部的 [選取]  按鈕。
-1. 如果您在 SAML 判斷提示中需要任何角色值，請在 [選取角色]  對話方塊的清單中為使用者選取適當的角色，然後按一下畫面底部的 [選取]  按鈕。
-1. 在 [新增指派]  對話方塊中，按一下 [指派]  按鈕。
-
-### <a name="create-servicenow-test-user"></a>建立 ServiceNow 測試使用者
-
-本節的目標是在 ServiceNow 中建立名為 Britta Simon 的使用者。 ServiceNow 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](servicenow-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
-
-> [!NOTE]
-> 如果您需要手動建立使用者，請連絡 [ServiceNow 用戶端支援小組](https://www.servicenow.com/support/contact-support.html)
-
-### <a name="test-sso"></a>測試 SSO
+## <a name="test-sso"></a>測試 SSO
 
 當您在存取面板中選取 [ServiceNow] 圖格時，應該會自動登入您已設定 SSO 的 ServiceNow。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
@@ -461,3 +461,5 @@ ServiceNow Classic (行動) 應用程式現已設定了搭配 Azure AD 啟用 SS
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [設定使用者佈建](servicenow-provisioning-tutorial.md)
+
+- [使用 Azure AD 來試用 ServiceNow](https://aad.portal.azure.com)

@@ -1,6 +1,6 @@
 ---
 title: 如何存取 Azure 實驗室服務中的教室實驗室 | Microsoft Docs
-description: 在此教學課程中，您會在由教師設定的教室實驗室中存取虛擬機器。
+description: 在本教學課程中，您會在由教師設定的教室實驗室中存取虛擬機器。
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,47 +12,76 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 08/19/2019
 ms.author: spelluru
-ms.openlocfilehash: bc5c12d4bb92edaafcc9808da8c48106a6e0cbd5
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8987a22d4546fe887d1dda9adff8f46afe667618
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548028"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644994"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>如何存取 Azure 實驗室服務中的教室實驗室
-此文章將說明如何存取教室實驗室、連線到實驗室中的 VM，以及停止 VM。 
+本文說明如何向教室實驗室註冊、檢視您可以存取的所有實驗室、啟動/停止實驗室中的 VM，以及連線至 VM。 
 
-## <a name="register-to-a-lab"></a>向實驗室註冊
-1. 瀏覽至教師/授課者提供給您的**註冊 URL**。 
-2. 使用學校帳戶登入服務，以完成註冊。 
-3. 註冊之後，請確認您有看到可存取的實驗室虛擬機器。 
-2. 等候虛擬機器就緒，然後**啟動** VM。 這個程序需要一些時間。  
+## <a name="register-to-the-lab"></a>向實驗室註冊
+
+1. 瀏覽至教師/授課者提供給您的**註冊 URL**。 完成註冊之後，您不需要使用註冊 URL。 請改用 URL：[https://labs.azure.com](https://labs.azure.com)。 目前尚未支援 Internet Explorer 11。 
+1. 使用學校帳戶登入服務，以完成註冊。 
+2. 註冊之後，請確認您有看到可存取的實驗室虛擬機器。 
+3. 請等候虛擬機器準備就緒。 在 [VM] 圖格上，請注意下欄欄位：
+    1. 在圖格頂端，您會看到**實驗室的名稱**。
+    1. 在圖格右邊，您會看到代表 VM **作業系統 (OS)** 的圖示。 在此範例中為 Windows OS。 
+    1. 您會在圖格底部看到用來啟動/停止 VM 和連線至 VM 的圖示/按鈕。 
+    1. 在按鈕右邊，您會看到 VM 的狀態。 確認您看到的 VM 狀態為 [已停止]  。
+
+        ![處於已停止狀態的 VM](../media/tutorial-connect-vm-in-classroom-lab/vm-in-stopped-state.png)
+
+## <a name="start-or-stop-the-vm"></a>啟動或停止 VM
+1. 選取第一個按鈕來**啟動** VM，如下圖所示。 這個程序需要一些時間。  
 
     ![啟動 VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
+4. 確認 VM 的狀態已設定為 [執行中]  。 
+
+    ![處於執行中狀態的 VM](../media/tutorial-connect-vm-in-classroom-lab/vm-running.png)
+
+    請注意，第一個按鈕的圖示會變更為代表**停止**作業。 您可以選取此按鈕來停止 VM。 
+
+## <a name="connect-to-the-vm"></a>連接至 VM
+
+1. 選取第二個按鈕 (如下圖所示)，以**連線**至實驗室的 VM。 
+
+    ![連接到 VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
+2. 執行下列其中一個步驟： 
+    1. 針對 **Windows** 虛擬機器，將 **RDP** 檔案儲存至硬碟。 開啟 RDP 檔案以連線至虛擬機器。 使用授課者/教授提供給您的**使用者名稱**和**密碼**來登入機器。 
+    3. 對於 **Linux** 虛擬機器，您可以使用 **SSH** 或 **RDP** (若已啟用) 進行連線。 如需詳細資訊，請參閱[啟用 Linux 機器的遠端桌面連線](how-to-enable-remote-desktop-linux.md)。 
+
+## <a name="progress-bar"></a>進度列 
+圖格上的進度列會顯示針對指派給您的[配額時數](how-to-configure-student-usage.md#set-quotas-for-users)所使用的時數。 此時間是除了實驗室的排程時間外額外分配給您的時間。 進度列的色彩和進度列底下的文字會依下列案例而有所不同：
+
+- 如果某個課程正在進行中 (在課程的排程內)，進度列會呈現灰色，表示並未使用配額時數。 
+
+    ![灰色的進度列](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-class-in-progress.png)
+- 如果未指派配額 (零小時)，則會顯示**僅在課程期間可用**的文字來取代進度列。 
+    
+    ![未設定配額時的狀態](../media/tutorial-connect-vm-in-classroom-lab/available-during-class.png)
+- 如果您**用完配額**，進度列的色彩會變成**紅色**。 
+
+    ![紅色的進度列](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-red-color.png)
+- 超出實驗室的排程時間，而且已使用一些配額時間時，進度列色彩會變成**藍色**。 
+
+    ![藍色的進度列](../media/tutorial-connect-vm-in-classroom-lab/progress-bar-blue-color.png)
 
 
 ## <a name="view-all-the-classroom-labs"></a>檢視所有教室實驗室
 向實驗室註冊之後，您可以採取下列步驟來檢視所有教室實驗室： 
 
-1. 瀏覽至 [https://labs.azure.com](https://labs.azure.com)。 請注意，目前不支援 Internet Explorer 11。 
+1. 瀏覽至 [https://labs.azure.com](https://labs.azure.com)。 目前尚未支援 Internet Explorer 11。 
 2. 使用您用來向實驗室註冊的使用者帳戶登入服務。 
 3. 確認您看到您有權存取的所有實驗室。 
 
     ![檢視所有連結](../media/how-to-use-classroom-lab/all-labs.png)
 
-## <a name="connect-to-the-virtual-machine-in-a-classroom-lab"></a>連線到教室實驗室中的虛擬機器
-
-1. 如果 VM 尚未啟動，請選取圖格上的 [啟動] 加以啟動。 
-2. 在您要存取的實驗室虛擬機器圖格上，選取 [連線]。 
-3. 執行下列其中一個步驟： 
-   1. 針對 **Windows** 虛擬機器，將 **RDP** 檔案儲存至硬碟。 開啟 RDP 檔案以連線至虛擬機器。 使用授課者/教授提供給您的**使用者名稱**和**密碼**來登入機器。 
-   3. 針對 **Linux** 虛擬機器，在 [連線至您的虛擬機器] 對話方塊上複製並儲存 SSH 連接字串。 使用此連接字串，從 SSH 終端機 (例如 [Putty](https://www.putty.org/)) 連線至虛擬機器。
-
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>停止教室實驗室中的虛擬機器
-
-若要停止您的 VM，請選取圖格上的 [停止]。 當 VM 停止時，在圖格上的 [啟動] 按鈕會啟用。 
 
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章：

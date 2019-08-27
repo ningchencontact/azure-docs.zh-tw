@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed57f581db593a288e62d25a2f0b8ee42c28114
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 10911e5100add2dca84475857a6909fb20d452c4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852962"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891551"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -55,8 +55,10 @@ ms.locfileid: "68852962"
 > 1. 選取 [新增註冊]  。
 > 1. 當 [註冊應用程式]  頁面出現時，輸入您應用程式的註冊資訊：
 >      - 在 [名稱]  區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `ASPNET-Quickstart`。
->      - 在 [重新導向 URL]  中新增 `https://localhost:44368/`，然後按一下 [註冊]  。
-選取 [驗證]  功能表、在 [隱含授與]  下方設定 [識別碼權杖]  ，然後選取 [儲存]  。
+>      - 在 [重新導向 URL]  中新增 `http://localhost:44368/`，然後按一下 [註冊]  。
+>      - 從左側流覽窗格的 [管理] 區段下，選取 [驗證] 
+>          - 在 [隱含授與]  子區段底下，選取 [識別碼權杖]  。
+>          - 然後選取 [儲存]  。
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>步驟 1：在 Azure 入口網站中設定您的應用程式
@@ -91,12 +93,13 @@ ms.locfileid: "68852962"
 > 其中：
 > - `Enter_the_Application_Id_here` - 是您註冊的應用程式所具備的應用程式識別碼。
 > - `Enter_the_Tenant_Info_Here` - 是下列選項之一：
->   - 如果您的應用程式支援 [僅限我的組織]  ，請將此值取代為 [租用戶識別碼]  或 [租用戶名稱]  (例如 contoso.microsoft.com)
+>   - 如果您的應用程式支援 [僅限我的組織]  ，請將此值取代為 [租用戶識別碼]  或 [租用戶名稱]  (例如 contoso.onmicrosoft.com)
 >   - 如果您的應用程式支援 [任何組織目錄中的帳戶]  ，請將此值取代為 `organizations`
 >   - 如果您的應用程式支援 [所有 Microsoft 帳戶使用者]  ，請將此值取代為 `common`
 >
 > > [!TIP]
-> > 若要尋找 [應用程式識別碼]  、[目錄 (租用戶) 識別碼]  和 [支援的帳戶類型]  ，請移至 [概觀]  頁面
+> > - 若要尋找 [應用程式識別碼]  、[目錄 (租用戶) 識別碼]  和 [支援的帳戶類型]  ，請移至 [概觀]  頁面
+> > - 確定 **Web.config** 中的 `redirectUri` 值對應至針對 AzureAD 中的應用程式註冊所定義的**重新導向 URI** (如果不是，請瀏覽至應用程式註冊的 [驗證]  功能表，並更新 [重新導向 URI]  以使兩者相符)
 
 ## <a name="more-information"></a>詳細資訊
 

@@ -4,27 +4,27 @@ description: 本教學課程會逐步引導您設定開發機器和雲端資源�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2019
+ms.date: 08/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 94a287cd996bd18b757620254540f8dc0df499e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66fa7c2f61af250e4b63b67f6941bed768bd94c4
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051773"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541919"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教學課程：開發適用於 Windows 裝置的 IoT Edge 模組
 
 使用 Visual Studio 開發程式碼並將其部署至執行 IoT Edge 的 Windows 裝置。
 
-在快速入門中，您已使用 Windows 虛擬機器建立 IoT Edge 裝置，並部署了來自 Azure Marketplace 的預先建置模組。 本教學課程會逐步引導您了解要如何做才能開發您自己的程式碼並將其部署至 IoT Edge 裝置。 本教學課程是其他所有教學課程的實用先決條件，其內容會深入探討特定的程式設計語言或 Azure 服務。 
+在快速入門中，您已使用 Windows 虛擬機器建立 IoT Edge 裝置，並部署了來自 Azure Marketplace 的預先建置模組。 本教學課程會逐步引導您了解要如何做才能開發您自己的程式碼並將其部署至 IoT Edge 裝置。 本教學課程是其他教學課程的實用先決條件，其內容會深入探討特定的程式設計語言或 Azure 服務。 
 
 本教學課程使用將 **C# 模組部署至 Windows 裝置**的範例。 選擇此範例是因為這是最常見的開發案例。 如果您想要以不同的語言進行開發，或打算將 Azure 服務部署為模組，本教學課程對於了解開發工具還是很有用。 了解開發概念後，您就可以選擇您偏好的語言或 Azure 服務來對細節進行深入了解。 
 
-在本教學課程中，您了解如何：
+在本教學課程中，您會了解如何：
 
 > [!div class="checklist"]
 > * 設定開發機器。
@@ -126,26 +126,25 @@ Azure IoT Edge Tools 擴充功能會針對 Visual Studio 中所有支援的 IoT 
 3. 在設定新專案的視窗中，將專案和解決方案重新命名為 **CSharpTutorialApp** 之類的描述性項目。 按一下 [建立]  以建立專案。
 
    ![設定新的 Azure IoT Edge 專案](./media/tutorial-develop-for-windows/configure-project.png)
- 
 
-4. 在 IoT Edge 應用程式和模組視窗中，使用下列值設定您的專案： 
+4. 在 [新增模組] 視窗中，使用下列值設定您的專案： 
 
    | 欄位 | 值 |
    | ----- | ----- |
-   | 選取範本 | 選取 [C# 模組]  。 | 
-   | 模組專案名稱 | 接受預設值 **IoTEdgeModule1**。 | 
-   | Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會從模組專案名稱值預先填入容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/iotedgemodule1。 |
+   | Visual Studio 範本 | 選取 [C# 模組]  。 | 
+   | 模組名稱 | 接受預設值 **IotEdgeModule1**。 | 
+   | 存放庫 URL | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會從模組專案名稱值預先填入容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 <br><br> 最終的映像存放庫看起來類似於：\<登錄名稱\>.azurecr.io/iotedgemodule1。 |
 
-   ![針對目標裝置、模組類型和容器登錄設定您的專案](./media/tutorial-develop-for-windows/add-module-to-solution.png)
+      ![針對目標裝置、模組類型和容器登錄設定您的專案](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
-5. 選取 [是]  以套用變更。 
+5. 選取 [新增]  以建立模組。 
 
 Visual Studio 視窗中載入您的新專案後，請花點時間熟悉其所建立的檔案： 
 
 * 名為 **CSharpTutorialApp** 的 IoT Edge 專案。
-    * **Modules** 資料夾包含專案中所納入模組的指標。 在此案例中，應該就是 IoTEdgeModule1。 
+    * **Modules** 資料夾包含專案中所納入模組的指標。 在此案例中，應該就是 IotEdgeModule1。 
     * **deployment.template.json** 檔案是可協助您建立部署資訊清單的範本。 「部署資訊清單」  檔案會確切定義您想要在裝置上部署的模組、模組的設定方式，以及模組要如何彼此通訊以及與雲端通訊。 
-* 名為 **IoTEdgeModule1** 的 IoT Edge 模組專案。
+* 名為 **IotEdgeModule1** 的 IoT Edge 模組專案。
     * **program.cs** 檔案包含預設的 C# 模組程式碼，此程式碼隨附於專案範本中。 預設模組會從來源取得輸入，再將其傳遞至 IoT 中樞。 
     * **module.json** 檔案會保存模組的相關詳細資料，包括完整的映像存放庫、映像版本，以及要對每個支援的平台使用哪一個 Dockerfile。
 
@@ -201,7 +200,7 @@ IoT Edge 執行階段需要登錄認證才能將容器映像提取到 IoT Edge �
 
 7. 尋找 $edgeHub 所需屬性的 **routes** 屬性。 
 
-   IoT Edge 中樞模組的其中一個功能是在部署中的所有模組之間傳送訊息。 檢閱 routes 屬性中的值。 第一個路由 **IotEdgeModule1ToIoTHub** 會使用萬用字元 ( **\*** ) 來包含任何來自 IoTEdgeModule1 模組中任何輸出佇列的訊息。 這些訊息會進入 $upstream  ，這是會指出 IoT 中樞的保留名稱。 第二個路由 **sensorToIotEdgeModule1** 會取得來自 tempSensor 模組的訊息，並將其路由傳送至 IotEdgeModule1 模組的 input1  輸入佇列。 
+   IoT Edge 中樞模組的其中一個功能是在部署中的所有模組之間傳送訊息。 檢閱 routes 屬性中的值。 第一個路由 **IotEdgeModule1ToIoTHub** 會使用萬用字元 ( **\*** ) 來包含任何來自 IotEdgeModule1 模組中任何輸出佇列的訊息。 這些訊息會進入 $upstream  ，這是會指出 IoT 中樞的保留名稱。 第二個路由 **sensorToIotEdgeModule1** 會取得來自 tempSensor 模組的訊息，並將其路由傳送至 IotEdgeModule1 模組的 input1  輸入佇列。 
 
    ![檢閱 deployment.template.json 中的路由](./media/tutorial-develop-for-windows/deployment-routes.png)
 

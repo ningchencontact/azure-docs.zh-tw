@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d78c640f4269c799d3d371e6dd9db477faf96694
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: faad0a0166c1b11f51f814bb6ce3351d7a017239
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807436"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900016"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 
@@ -62,6 +62,9 @@ Resource Graph 接著會更新其資料庫。 Resource Graph 也會執行標準�
 
 > [!NOTE]
 > Resource Graph 會使用主體在登入期間可使用的訂用帳戶。 若要查看作用中工作階段期間加入的新訂用帳戶資源，主體必須重新整理內容。 若登出後再登入，則此動作會自動執行。
+
+Azure CLI 和 Azure PowerShell 會使用使用者可存取的訂用帳戶。 直接使用 REST API 時，訂用帳戶清單會由使用者提供。 如果使用者可存取清單中的任何訂用帳戶，則系統會傳回使用者可存取訂用帳戶的查詢結果。 這種行為與呼叫[資源群組 - 清單](/rest/api/resources/resourcegroups/list)時相同 \- 您會取得您可以存取的資源群組，而且沒有任何跡象表明結果可能是部分的。
+如果使用者具有適當權限的訂用帳戶清單中沒有任何訂用帳戶，則回應為 403  (禁止)。
 
 ## <a name="throttling"></a>節流
 

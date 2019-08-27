@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 92575f2fc8e6dbcfc5767a179ddf60df1bce0c83
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 842efca1b40827f63ab23581aeac7e5226d04349
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872572"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900272"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (C)
 
@@ -29,7 +29,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -55,21 +55,21 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 * **iOS**：IoT 中樞裝置 SDK 能以 CocoaPod 形式取得並用於 Mac 與 iOS 裝置開發。 如需詳細資訊，請參閱 [Microsoft Azure IoT 的 iOS 範例](https://cocoapods.org/pods/AzureIoTHubClient) \(英文\)。
 
-不過，在此快速入門中，您將準備用來從 GitHub 複製並建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) \(英文\) 的開發環境。 GitHub 上的 SDK 包括此快速入門中使用的範例程式碼。 
+不過，在此快速入門中，您將準備用來從 GitHub 複製並建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) \(英文\) 的開發環境。 GitHub 上的 SDK 包括此快速入門中使用的範例程式碼。
 
 1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
     在開始安裝 `CMake` **之前**，請務必將 Visual Studio 必要條件 (Visual Studio 和「使用 C++ 的桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
-2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
-    
+2. 開啟命令提示字元或 Git Bash 殼層，然後瀏覽至您想要作為 Azure IoT C SDK 複製目的地的工作目錄。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
+
     預期此作業需要幾分鐘的時間才能完成。
 
-
-3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
+3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 從工作目錄輸入下列命令：
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -77,12 +77,12 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     cd cmake
     ```
 
-4. 執行下列命令 (該命令會建置您開發用戶端平台特有的 SDK 版本)。 `cmake` 目錄中會產生模擬裝置的 Visual Studio 解決方案。 
+4. 執行下列命令以建置開發用戶端平台專屬的 SDK 版本。 `cmake` 目錄中會產生模擬裝置的 Visual Studio 解決方案。
 
     ```cmd
     cmake ..
     ```
-    
+
     如果 `cmake` 找不到 C++ 編譯器，您在執行上述命令時，可能會收到建置錯誤。 如果發生這種情況，請嘗試在 [Visual Studio 命令提示字元](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)中執行此命令。 
 
     建置成功後，最後幾行輸出會類似於下列輸出：
@@ -100,7 +100,6 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     -- Generating done
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
-
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -138,10 +137,10 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 模擬裝置應用程式會連線到您 IoT 中樞上的裝置特定端點，並且以模擬遙測形式傳送字串。
 
-1. 使用文字編輯器開啟 iothub_convenience_sample.c 原始程式檔並檢閱用於傳送遙測的範例程式碼。 該檔案位於下列位置：
+1. 使用文字編輯器開啟 iothub_convenience_sample.c 原始程式檔並檢閱用於傳送遙測的範例程式碼。 此檔案位於 Azure IoT C SDK 複製所在工作目錄底下的下列位置：
 
     ```
-    \azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
+    azure-iot-sdk-c\iothub_client\samples\iothub_convenience_sample\iothub_convenience_sample.c
     ```
 
 2. 尋找 `connectionString` 常數的宣告：
@@ -150,12 +149,13 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     /* Paste in your device connection string  */
     static const char* connectionString = "[device connection string]";
     ```
+
     使用先前所記錄的裝置連接字串來取代 `connectionString` 常數的值。 接著，將您的變更儲存到 **iothub_convenience_sample.c**。
 
-3. 在本機終端機視窗中，瀏覽到您在 Azure IoT SDK 中建立之 CMake 目錄中的 *iothub_convenience_sample* 專案目錄。
+3. 在本機終端機視窗中，瀏覽到您在 Azure IoT SDK 中建立之 CMake 目錄中的 *iothub_convenience_sample* 專案目錄。 從工作目錄輸入下列命令：
 
-    ```
-    cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
+    ```cmd/sh
+    cd azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
 4. 在本機終端機視窗中執行 CMake，以使用已更新的 `connectionString` 值建置範例：
@@ -176,7 +176,6 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="read-the-telemetry-from-your-hub"></a>從您的中樞讀取遙測
 
-
 在本節中，您將使用 Azure Cloud Shell 搭配 [IoT 擴充功能](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)來監視由模擬裝置傳送的裝置訊息。
 
 1. 使用 Azure Cloud Shell，執行下列命令以連線到您的 IoT 中樞並讀取訊息：
@@ -188,8 +187,6 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     ```
 
     ![使用 Azure CLI 來閱讀裝置訊息](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
-
-    
 
 ## <a name="clean-up-resources"></a>清除資源
 

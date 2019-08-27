@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cf73b6e0477e46f0a2eac43d7fa6bccc6845db92
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968930"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615252"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中撰寫預存程序、觸發程序和使用者定義函式
 
@@ -48,11 +48,11 @@ var helloWorldStoredProc = {
 
 ### <a id="create-an-item"></a>使用預存程序建立項目
 
-當您使用預存程序建立項目時，該項目會插入 Azure Cosmos DB 容器中，並傳回新建立的項目所具備的識別碼。 建立項目是非同步作業，並依存於 JavaScript 回呼函式。 此回呼函式有兩個參數 - 一個用於作業失敗時的錯誤物件，一個用於傳回值 (在此案例中為已建立的物件)。 在回呼內，您可以處理例外狀況或擲回錯誤。 如果未提供回呼，而且發生錯誤，則 Azure Cosmos DB 執行階段會擲回錯誤。 
+當您使用預存程序建立項目時，該項目會插入 Azure Cosmos 容器中，並傳回新建立的項目所具備的識別碼。 建立項目是非同步作業，並依存於 JavaScript 回呼函式。 此回呼函式有兩個參數 - 一個用於作業失敗時的錯誤物件，一個用於傳回值 (在此案例中為已建立的物件)。 在回呼內，您可以處理例外狀況或擲回錯誤。 如果未提供回呼，而且發生錯誤，則 Azure Cosmos DB 執行階段會擲回錯誤。 
 
 預存程序也包含用來設定描述的參數，此為布林值。 當此參數設定為 true 時，若沒有描述，則預存程序將會擲回例外狀況。 否則，預存程序的其餘部分會繼續執行。
 
-下列範例預存程序會採用新的 Azure Cosmos DB 項目，作為輸入，並將其插入 Azure Cosmos DB 容器中，然後傳回新建立的項目所具備的識別碼。 在此範例中，我們使用[快速入門 .NET SQL API](create-sql-api-dotnet.md) 中提供的 ToDoList 範例
+下列範例預存程序會採用新的 Azure Cosmos 項目，作為輸入，並將其插入 Azure Cosmos 容器中，然後傳回新建立的項目所具備的識別碼。 在此範例中，我們使用[快速入門 .NET SQL API](create-sql-api-dotnet.md) 中提供的 ToDoList 範例
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -87,7 +87,7 @@ function sample(arr) {
 
 ### <a id="transactions"></a>預存程序內的交易
 
-您可以使用預存程序，對容器內的項目實作交易。 下列範例將在有趣的足球遊戲應用程式內使用交易，透過單一作業讓兩隊互相交易球員。 預存程序嘗試讀取兩個 Azure Cosmos DB 項目，這兩個項目分別對應於以引數形式傳入的球員識別碼。 如果有找到這兩個球員，則預存程序會藉由交換他們的球隊來更新項目。 如果過程中發生任何錯誤，預存程序會擲回以隱含方式中止交易的 JavaScript 例外狀況。
+您可以使用預存程序，對容器內的項目實作交易。 下列範例將在有趣的足球遊戲應用程式內使用交易，透過單一作業讓兩隊互相交易球員。 預存程序嘗試讀取兩個 Azure Cosmos 項目，這兩個項目分別對應於以引數形式傳入的球員識別碼。 如果有找到這兩個球員，則預存程序會藉由交換他們的球隊來更新項目。 如果過程中發生任何錯誤，預存程序會擲回以隱含方式中止交易的 JavaScript 例外狀況。
 
 ```javascript
 // JavaScript source code
@@ -214,7 +214,7 @@ Azure Cosmos DB 支援預先觸發程序和後續觸發程序。 預先觸發程
 
 ### <a id="pre-triggers"></a>預先觸發程序
 
-下列範例說明如何使用預先觸發程序對要建立的 Azure Cosmos DB 項目驗證屬性。 在此範例中，我們使用[快速入門 .NET SQL API](create-sql-api-dotnet.md) 中提供的 ToDoList 範例，為新增的項目加上時間戳記屬性 (如果還沒有的話)。
+下列範例說明如何使用預先觸發程序對要建立的 Azure Cosmos 項目驗證屬性。 在此範例中，我們使用[快速入門 .NET SQL API](create-sql-api-dotnet.md) 中提供的 ToDoList 範例，為新增的項目加上時間戳記屬性 (如果還沒有的話)。
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -235,7 +235,7 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-預先觸發程序不能有任何輸入參數。 觸發程序中的要求物件可用來操作與作業相關聯的要求訊息。 在前述範例中，預先觸發程序會在建立 Azure Cosmos DB 項目時執行，而且要求訊息本文會包含要以 JSON 格式建立的項目。
+預先觸發程序不能有任何輸入參數。 觸發程序中的要求物件可用來操作與作業相關聯的要求訊息。 在前述範例中，預先觸發程序會在建立 Azure Cosmos 項目時執行，而且要求訊息本文會包含要以 JSON 格式建立的項目。
 
 註冊觸發程序時，您可以指定可與其搭配執行的作業。 此觸發程序應使用 `TriggerOperation` 值 `TriggerOperation.Create` 來建立，這表示不允許在取代作業中使用此觸發程序，如下列程式碼所示。
 

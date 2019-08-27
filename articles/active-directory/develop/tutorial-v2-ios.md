@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/15/2019
+ms.date: 08/14/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2968ae229c52cdd2b36111710f0aa6c0dc4fce4c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2c9afa63a26b7ac990867517f44825054b4c5436
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852422"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512405"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>從 iOS 應用程式登入使用者並呼叫 Microsoft Graph
 
@@ -48,7 +48,7 @@ ms.locfileid: "68852422"
 - 您需要 XCode 10.x 版，才能在本指南中建置應用程式。 您可以從 [iTunes 網站](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode 下載 URL") 下載 XCode。
 - Microsoft 驗證程式庫 ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc))。 您可以使用相依性管理員或以手動方式新增程式庫。 以下指示會示範作法。
 
-此教學課程會建立新的專案。 如果您想改為下載完整的教學課程，[請下載程式碼](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip).
+此教學課程會建立新的專案。 如果您想改為下載完整的教學課程，[請下載程式碼](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)。
 
 ## <a name="create-a-new-project"></a>建立新專案
 
@@ -94,6 +94,12 @@ ms.locfileid: "68852422"
 
 ```
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
+```
+
+從終端機視窗中，在與更新後的 `Cartfile` 相同的目錄中執行下列命令，讓 Carthage 更新專案中的相依性：
+
+```bash
+carthage update --platform iOS
 ```
 
 ### <a name="manually"></a>手動
