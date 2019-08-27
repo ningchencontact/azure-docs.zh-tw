@@ -5,83 +5,83 @@ services: virtual-machines
 author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 4/30/2019
+ms.date: 8/22/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: c2931fa410cf92755a5df5b7129dcf93de900930
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b2a7bbef2c421281780c0191fa32381468899bbf
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173959"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020320"
 ---
-Azure 會定期更新其平台來改善可靠性、 效能和安全性的虛擬機器之主機基礎結構。 這些更新的目的範圍中修補軟體元件，在裝載環境中升級網路元件，或解除委任的硬體。 
+Azure 會定期更新其平臺, 以改善虛擬機器主機基礎結構的可靠性、效能和安全性。 這些更新的用途範圍從修補主控環境中的軟體元件, 到升級網路元件或解除委任硬體。 
 
-更新很少會影響裝載的 Vm。 更新沒有作用，Azure 就可以選擇更新的影響最大方法：
+更新很少會影響託管的 Vm。 當更新有作用時, Azure 會選擇最不影響力的更新方法:
 
-- 如果更新不需要重新開機，VM 會暫停，而主機已更新，或 VM 即時移轉至已更新的主機。
+- 如果更新不需要重新開機, VM 會在主機更新時暫停, 或 VM 會即時移轉至已更新的主機。
 
-- 如果維護需要重新開機，規劃的維護會通知您。 Azure 也提供在其中您可以自行開始維護，適用於您一次的時間範圍。 自我維護視窗通常是 30 天，除非維護非常緊急。 Azure 會投資技術以減少的計劃的平台的維護需要重新啟動 Vm 的案例數目。 
+- 如果維護需要重新開機, 系統會通知您已規劃的維護。 Azure 也提供一個時間範圍, 讓您能夠在一段時間內自行開始維護。 除非維護非常緊急, 否則 [自我維護] 視窗通常是35天。 Azure 正在投資技術, 以減少規劃的平臺維護需要重新開機 Vm 的案例數。 
 
-本頁說明 Azure 如何執行這兩種類型的維護。 如需非計劃性事件 （中斷） 的詳細資訊，請參閱 [管理的 Windows Vm 的可用性](../articles/virtual-machines/windows/manage-availability.md)或對應的發行項，如[Linux](../articles/virtual-machines/linux/manage-availability.md)。
+本頁說明 Azure 如何執行這兩種類型的維護。 如需未規劃事件 (中斷) 的詳細資訊, 請參閱管理適用于 [Windows 的 vm 可用性](../articles/virtual-machines/windows/manage-availability.md)或適用于[Linux](../articles/virtual-machines/linux/manage-availability.md)的對應文章。
 
-VM 內，您可以取得有關即將進行維護的通知[使用的 Windows 排定的事件](../articles/virtual-machines/windows/scheduled-events.md)若是[Linux](../articles/virtual-machines/linux/scheduled-events.md)。
+在 VM 中, 您可以[使用適用于 Windows](../articles/virtual-machines/windows/scheduled-events.md)或[Linux](../articles/virtual-machines/linux/scheduled-events.md)的 Scheduled Events, 來取得即將進行之維護的相關通知。
 
-如需管理計劃性的維護的指示，請參閱[處理計劃性維護通知適用於 Linux](../articles/virtual-machines/linux/maintenance-notifications.md)或對應的發行項，如[Windows](../articles/virtual-machines/windows/maintenance-notifications.md)。
+如需管理預定維護的指示, 請參閱[處理適用于 Linux 的預定維修通知](../articles/virtual-machines/linux/maintenance-notifications.md)或適用于[Windows](../articles/virtual-machines/windows/maintenance-notifications.md)的對應文章。
 
 ## <a name="maintenance-that-doesnt-require-a-reboot"></a>不需要重新開機的維護
 
-如稍早所述，大部分的平台更新不會影響客戶的 Vm。 不受影響的更新方法不可行，Azure 就可以選擇是最低的影響力，客戶 vm 的更新機制。 
+如先前所述, 大部分的平臺更新不會影響客戶 Vm。 當不受影響的更新不可行時, Azure 會選擇最少影響力至客戶 Vm 的更新機制。 
 
-大部分的非零值影響維護會小於 10 秒暫停 VM。 在某些情況下，Azure 會使用記憶體保留維護機制。 這些機制會暫停 30 秒的 VM，並保留在 RAM 中的記憶體。 VM 會接著繼續執行，並會自動同步處理其時鐘。 
+大部分非零影響的維護都會暫停 VM 10 秒。 在某些情況下, Azure 會使用記憶體保留維護機制。 這些機制會將 VM 暫停最多30秒, 並將記憶體保留在 RAM 中。 然後會繼續執行 VM, 並自動同步處理其時鐘。 
 
-記憶體保留維護適用於超過 90%的 Azure Vm。 它不適用於 G、 M、 N 和 H 系列。 越來越多，azure 會使用即時移轉技術，並改進記憶體保留維護機制，以縮短的暫停持續時間。  
+記憶體保留維護適用于超過 90% 的 Azure Vm。 它不適用於 G、M、N 和 H 系列。 Azure 逐漸使用即時移轉技術, 並改善記憶體保留的維護機制, 以減少暫停的持續時間。  
 
-這些不需要重新開機的維護作業一次會套用一個容錯網域。 如果他們收到任何警告健康情況訊號，停止它們。 
+這些不需要重新開機的維護作業, 會一次套用一個容錯網域。 如果他們收到任何警告健康情況信號, 就會停止。 
 
-這些類型的更新可能會影響某些應用程式。 時 VM 即時移轉至不同的主機，某些機密的工作負載可能會導致 VM 暫停幾分鐘內顯示輕微的效能降低。 若要準備 VM 維護，並減少在 Azure 的維護影響，請嘗試[使用的 Windows 排定的事件](../articles/virtual-machines/windows/scheduled-events.md)或[Linux](../articles/virtual-machines/linux/scheduled-events.md)之類的應用程式。 Azure 正致力於維護控制的功能，這些機密的應用程式。 
+這些更新類型可能會影響某些應用程式。 當 VM 即時移轉至不同的主機時, 某些機密工作負載可能會在幾分鐘內顯示輕微的效能降低, 導致 VM 暫停。 若要準備 VM 維護並降低 Azure 維護期間的影響, 請嘗試針對這類應用程式[使用適用于 Windows](../articles/virtual-machines/windows/scheduled-events.md)或[Linux](../articles/virtual-machines/linux/scheduled-events.md)的 Scheduled Events。 Azure 也可讓您完整控制[Azure 專用主機](../articles/virtual-machines/windows/dedicated-hosts.md)和[隔離 vm](../articles/security/fundamentals/isolation-choices.md)上對這類非零影響平臺的維護。 維護控制功能處於預覽狀態, 您可以藉由提交[註冊表單](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u)來要求存取權。 它可讓您選擇略過非零的影響平臺更新, 並在35天的輪流時間範圍內, 將更新當作批次套用。
 
 ### <a name="live-migration"></a>即時移轉
 
-即時移轉是不需要重新開機，而且會保留 vm 的記憶體的作業。 它會導致暫停或凍結，通常維時不能超過 5 秒。 除了 G、 M、 N，而 H 系列中，所有的基礎結構即服務 (IaaS) Vm，可進行即時移轉。 符合資格的 Vm 會代表超過 90%的 IaaS Vm 部署到 Azure 的伺服器團隊。 
+「即時移轉」是一種不需要重新開機的作業, 而且會保留 VM 的記憶體。 它會造成暫停或凍結, 通常不會超過5秒。 除了 G、M、N 和 H 系列以外, 所有基礎結構即服務 (IaaS) Vm 都符合即時移轉的資格。 合格的 Vm 代表已部署至 Azure 車隊的 IaaS Vm 90% 以上。 
 
-Azure 平台會開始即時移轉，在下列情況：
-- 預定的維修
+Azure 平臺會在下列案例中開始進行即時移轉:
+- 計劃性維護
 - 硬體失敗
-- 配置最佳化
+- 配置優化
 
-某些計劃性維護的情況下使用即時移轉，以及您可以使用排程的事件，事先知道時即時移轉作業會啟動。
+某些規劃的維護案例會使用即時移轉, 而您可以在即時移轉作業開始時, 使用 Scheduled Events 來事先瞭解。
 
-即時移轉也可用來移動 Vm，Azure 機器學習服務演算法預測即將發生硬體失敗或當您想要最佳化 VM 配置時。 如需有關偵測到的已降級的硬體執行個體的預測模型的詳細資訊，請參閱[改善 Azure VM 復原能力，預測性機器學習服務和即時移轉](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure)。 如果您使用這些服務，即時移轉的通知會出現在 Azure 入口網站中監視和服務健全狀況記錄檔中也如同已排定事件。
+即時移轉也可以在 Azure Machine Learning 演算法預測即將發生的硬體故障或您想要優化 VM 配置時, 用來移動 Vm。 如需偵測已降級硬體之實例的預測性模型的詳細資訊, 請參閱[使用預測性機器學習和即時移轉來改善 AZURE VM 復原](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure)。 如果您使用這些服務, 即時移轉通知會出現在監視器和服務健康狀態記錄以及 Scheduled Events 中的 Azure 入口網站。
 
-## <a name="maintenance-that-requires-a-reboot"></a>維護需要重新開機
+## <a name="maintenance-that-requires-a-reboot"></a>需要重新開機的維護
 
-在少數情況下，Vm 必須重新啟動因維護計劃，將會通知您事先。 計劃性的維護有兩個階段: 「 自助 」 階段和排程的維護階段。
+在需要重新開機 Vm 以進行預定維護的罕見情況下, 您會事先收到通知。 規劃的維護有兩個階段: 自助階段和排定的維護階段。
 
-期間*自助式階段*，這通常會持續四週，您在 Vm 上開始維護。 隨著自助的詳細資訊，您可以查詢每個 VM，以查看其狀態和上次維護要求的結果。
+在*自助階段*期間, 通常會持續四周, 您可以開始在 vm 上進行維護。 作為自助服務的一部分, 您可以查詢每個 VM, 以查看其狀態和上一次維護要求的結果。
 
-當您開始進行自助維護時，您的 VM 會重新部署至已經更新的節點。 VM 重新開機，因為暫存磁碟會遺失，並會更新虛擬網路介面相關聯的動態 IP 位址。
+當您開始進行自助維護時，您的 VM 會重新部署至已經更新的節點。 因為 VM 會重新開機, 所以暫存磁片會遺失, 而且會更新與虛擬網路介面相關聯的動態 IP 位址。
 
-在自助服務的維護期間，作業就會停止，發生錯誤時 VM 不會更新，並取得重試自助式維護選項。 
+如果在自助式維護期間發生錯誤, 作業會停止, VM 不會更新, 您可以選擇重試自助式維護。 
 
-「 自助 」 階段結束時，*排定的維護階段*開始。 在這個階段，您仍然可以查詢維護階段，但您無法自行開始維護。
+當自助階段結束時,*排程的維護階段*便會開始。 在此階段中, 您仍然可以查詢維護階段, 但無法自行開始進行維護。
 
-如需有關管理維護需要重新開機的詳細資訊，請參閱[處理計劃性維護通知適用於 Linux](../articles/virtual-machines/linux/maintenance-notifications.md)或對應的發行項，如[Windows](../articles/virtual-machines/windows/maintenance-notifications.md)。 
+如需管理需要重新開機之維護的詳細資訊, 請參閱[處理適用于 Linux 的預定維修通知](../articles/virtual-machines/linux/maintenance-notifications.md)或[Windows](../articles/virtual-machines/windows/maintenance-notifications.md)的對應文章。 
 
-### <a name="availability-considerations-during-scheduled-maintenance"></a>已排程的維護期間的可用性考量 
+### <a name="availability-considerations-during-scheduled-maintenance"></a>排定的維護期間的可用性考慮 
 
-如果您決定等到排程的維護階段，有幾件事您應該考慮以維護您的 Vm 的最高的可用性。 
+如果您決定等到排定的維護階段, 您應該考慮幾件事, 以維持 Vm 的最高可用性。 
 
 #### <a name="paired-regions"></a>配對的區域
 
-每個 Azure 區域都會與相同的地理區域內的另一個區域配對。 共同，形成區域配對。 在排程的維護階段期間，Azure 會更新區域配對的單一區域中的 Vm。 比方說，在更新美國中北部的 VM，Azure 不更新任何在美國中南部的 VM 在相同的時間。 不過，像是北歐等其他區域可以和美國東部一同進行維護。 了解區域配對的運作方式可協助您將 VM 更妥善地分散於各區域。 如需詳細資訊，請參閱 [Azure 區域配對](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
+每個 Azure 區域都會與相同地理位置內的另一個區域配對。 兩者一起建立一個區域配對。 在排定的維護階段期間, Azure 只會更新區域配對中單一區域的 Vm。 例如, 在美國中北部更新 VM 時, Azure 不會同時更新美國中南部的任何 VM。 不過，像是北歐等其他區域可以和美國東部一同進行維護。 了解區域配對的運作方式可協助您將 VM 更妥善地分散於各區域。 如需詳細資訊，請參閱 [Azure 區域配對](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。
 
 #### <a name="availability-sets-and-scale-sets"></a>可用性設定組和擴展集
 
-部署 Azure Vm 上的負載時，您可以建立內的 Vm*可用性設定組*以提供您的應用程式的高可用性。 使用可用性設定組，您就可以確保在需要重新開機的中斷或維護事件，至少一個 VM 使用的。
+在 Azure Vm 上部署工作負載時, 您可以在*可用性設定組*內建立 vm, 為您的應用程式提供高可用性。 使用可用性設定組, 您可以確保在需要重新開機的中斷或維護事件期間, 至少有一部 VM 可供使用。
 
-在可用性設定組內，個別 VM 會散佈在多達 20 個更新網域 (UD)。 在排程的維護期間，只有一個 UD 會更新一次。 Ud 不一定會以循序方式更新。 
+在可用性設定組內，個別 VM 會散佈在多達 20 個更新網域 (UD)。 在排定的維護期間, 在任何指定時間都只會更新一個 UD。 Ud 不一定會依序更新。 
 
-虛擬機器*擴展集*是 Azure 計算資源，您可以使用來部署和管理一組相同 Vm 做為單一資源。 擴展集自動部署於 Ud，像是可用性設定組中的 Vm。 為可用性設定組，當您使用擴展集，只有一個 UD 會更新在任何指定的時間，在排定的維護期間。
+虛擬機器*擴展集*是一種 Azure 計算資源, 可讓您用來部署和管理一組完全相同的 vm 作為單一資源。 擴展集會自動部署在 ud 之間, 例如可用性設定組中的 Vm。 如同可用性設定組, 當您使用擴展集時, 在排定的維護期間, 任何指定的時間都只會更新一個 UD。
 
-如需有關設定您的 Vm 以獲得高可用性的詳細資訊，請參閱 [管理 Windows 針對您 Vm 的可用性](../articles/virtual-machines/windows/manage-availability.md)或對應的發行項，如[Linux](../articles/virtual-machines/linux/manage-availability.md)。
+如需設定 Vm 以獲得高可用性的詳細資訊, 請參閱管理適用于 [Windows 的 vm 可用性](../articles/virtual-machines/windows/manage-availability.md)或適用于[Linux](../articles/virtual-machines/linux/manage-availability.md)的對應文章。

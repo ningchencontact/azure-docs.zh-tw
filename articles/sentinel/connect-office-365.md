@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0013540bf0ca921b2f41260dea185f6aa32567d7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 39245cb43dacfeec2b647936d5e5790d4a185467
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679254"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019003"
 ---
 # <a name="connect-data-from-office-365-logs"></a>從 Office 365 記錄連接資料
 
@@ -37,6 +37,9 @@ ms.locfileid: "68679254"
 
 - 您必須是租使用者的全域管理員或安全性系統管理員
 - 在您的電腦上登入 Azure Sentinel 以建立連線, 請確定埠4433已開放給網路流量。
+- 如果您的租使用者沒有 Office 365 E3 或 Office 365 E5 授權, 您必須使用下列其中一個程式, 在您的 tentant 上啟用統一的審核:
+    - [使用 AdminAuditLogConfig Cmdlet](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps)並啟用參數 "UnifiedAuditLogIngestionEnabled")。
+    - [或使用安全性 & 合規性中心 UI](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin)。
 
 ## <a name="connect-to-office-365"></a>連接至 Office 365
 

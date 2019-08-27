@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/12/2019
-ms.openlocfilehash: 701c266705c16198f35cddc36cdf1d431331c2d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 07/31/2019
+ms.openlocfilehash: 9b58d6e189c891d0dd2917d7d150f133dc35f917
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847947"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019107"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>在 Python 中啟動、監視和取消定型執行
 
@@ -29,7 +29,7 @@ ms.locfileid: "68847947"
 * 建立子執行。
 * 標記和尋找執行。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您將需要下列專案:
 
@@ -220,9 +220,32 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > 當它們移出範圍時, 子回合會自動標示為已完成。
 
-您也可以逐一啟動子系執行, 但因為每個建立都會導致網路呼叫, 所以比提交批次執行的效率更低。
+若要有效率地建立多個子執行, [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-)請使用方法。 因為每個建立都會導致網路呼叫, 所以建立一批回合比逐一建立執行更有效率。
 
-若要查詢特定父系的子執行, 請使用[`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-)方法。
+### <a name="submit-child-runs"></a>提交子回合
+
+子系執行也可以從父執行提交。 這可讓您建立父系和子回合的階層, 每個階層都是在不同的計算目標上執行, 並由一般父系執行識別碼連接。
+
+使用[' submit_child () '](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-count-none--tag-key-none--tag-values-none-)方法, 從父執行中提交子執行。 若要在父執行腳本中執行這項操作, 請取得執行內容, 並使用內容實例的 ' ' submit_child ' ' 方法提交子回合。
+
+```python
+## In parent run script
+parent_run = Run.get_context()
+child_run_config = ScriptRunConfig(source_directory='.', script='child_script.py')
+parent_run.submit_child(child_run_config)
+```
+
+在子執行中, 您可以查看父代執行識別碼:
+
+```python
+## In child run script
+child_run = Run.get_context()
+child_run.parent.id
+```
+
+### <a name="query-child-runs"></a>查詢子執行
+
+若要查詢特定父系的子執行, 請使用[`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-)方法。 ' ' ' 遞迴 = True ' ' ' 引數可讓您查詢子系和孫系的嵌套樹狀結構。
 
 ```python
 print(parent_run.get_children())

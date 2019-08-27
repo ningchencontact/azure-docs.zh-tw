@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c1c96fdb1f4f42c7592791881b855f74d411171
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123462"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018274"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>自動調整 Azure API 管理執行個體  
 
@@ -24,7 +24,10 @@ Azure API 管理服務執行個體可以根據一組規則進行自動調整。 
 
 本文將逐步解說設定自動調整的程序，並建議自動調整規則的最佳設定。
 
-## <a name="prerequisites"></a>先決條件
+> [!NOTE]
+> 取用層中的 API管理服務會根據流量自動調整, 而不需要任何額外的設定。
+
+## <a name="prerequisites"></a>必要條件
 
 若要依照本文中的步驟進行，您必須：
 
@@ -33,7 +36,7 @@ Azure API 管理服務執行個體可以根據一組規則進行自動調整。 
 + 了解 [Azure API 管理執行個體的容量](api-management-capacity.md)的概念。
 + 了解 [Azure API 管理執行個體的手動調整程序](upgrade-and-scale.md)，包括成本後果。
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-standard.md](../../includes/api-management-availability-premium-standard.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Azure API 管理自動調整限制
 
@@ -53,17 +56,17 @@ Azure API 管理服務執行個體可以根據一組規則進行自動調整。 
 
     ![Azure 監視器](media/api-management-howto-autoscale/01.png)
 
-2. 從左側功能表中選取 [自動調整]  。
+2. 從左側功能表中選取 [自動調整]。
 
     ![Azure 監視器的自動調整資源](media/api-management-howto-autoscale/02.png)
 
 3. 在下拉式功能表中，根據篩選條件找出您的 Azure API 管理服務。
 4. 選取所需的 Azure API 管理服務執行個體。
-5. 在新開啟的區段中，按一下 [啟用自動調整規模]  按鈕。
+5. 在新開啟的區段中，按一下 [啟用自動調整規模] 按鈕。
 
     ![Azure 監視器的啟用自動調整](media/api-management-howto-autoscale/03.png)
 
-6. 在 [規則]  區段中，按一下 [+ 新增規則]  。
+6. 在 [規則] 區段中，按一下 [+ 新增規則]。
 
     ![Azure 監視器中自動調整的新增規則](media/api-management-howto-autoscale/04.png)
 
@@ -76,8 +79,8 @@ Azure API 管理服務執行個體可以根據一組規則進行自動調整。 
     | 計量來源         | 目前的資源  | 根據目前的 Azure API 管理資源計量定義規則。                                                                                                                                                                                                     |
     | *準則*            |                   |                                                                                                                                                                                                                                                                                 |
     | 時間彙總      | Average           |                                                                                                                                                                                                                                                                                 |
-    | 度量名稱           | Capacity          | 容量計量是一個 Azure API 管理計量，可反映 Azure API 管理執行個體的資源使用量。                                                                                                                                                            |
-    | 時間粒紋統計資料  | Average           |                                                                                                                                                                                                                                                                                 |
+    | 計量名稱           | 容量          | 容量計量是一個 Azure API 管理計量，可反映 Azure API 管理執行個體的資源使用量。                                                                                                                                                            |
+    | 時間粒度統計資料  | Average           |                                                                                                                                                                                                                                                                                 |
     | 運算子              | 大於      |                                                                                                                                                                                                                                                                                 |
     | 閾值             | 80%               | 平均容量計量的閾值。                                                                                                                                                                                                                                 |
     | 持續時間 (分鐘) | 30                | 平均容量計量的時間範圍僅適用於使用模式。 時間週期越長，反應將更順暢；間歇性尖峰對相應放大決策所造成的影響將更低。 不過，它也會延遲相應放大觸發程序。 |
@@ -86,11 +89,11 @@ Azure API 管理服務執行個體可以根據一組規則進行自動調整。 
     | 執行個體計數        | 1                 | 將 Azure API 管理執行個體相應放大 1 個單位。                                                                                                                                                                                                                          |
     | 緩和時間 (分鐘)   | 60                | 至少需要 20 分鐘的時間，才能將 Azure API 管理服務相應放大。在大部分情況下，60 分鐘的緩和期可防止觸發多個相應放大作業。                                                                                                  |
 
-8. 按一下 [新增]  以儲存規則。
+8. 按一下 [新增] 以儲存規則。
 
     ![Azure 監視器的相應放大規則](media/api-management-howto-autoscale/05.png)
 
-9. 再按一下 [+ 新增規則]  。
+9. 再按一下 [+ 新增規則]。
 
     這次，需定義相應縮小規則。 它將可在 API 的使用量減少時，確保資源不會浪費。
 
@@ -103,8 +106,8 @@ Azure API 管理服務執行個體可以根據一組規則進行自動調整。 
     | 計量來源         | 目前的資源  | 根據目前的 Azure API 管理資源計量定義規則。                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *準則*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | 時間彙總      | Average           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | 度量名稱           | Capacity          | 與針對相應放大規則所使用之容量相同的計量。                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-    | 時間粒紋統計資料  | Average           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | 計量名稱           | 容量          | 與針對相應放大規則所使用之容量相同的計量。                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+    | 時間粒度統計資料  | Average           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | 運算子              | 小於         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | 閾值             | 35%               | 與相應放大規則類似，此值絕大部分取決於 Azure API 管理的使用模式。 |
     | 持續時間 (分鐘) | 30                | 與針對相應放大規則所使用之持續時間相同的值。                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -113,7 +116,7 @@ Azure API 管理服務執行個體可以根據一組規則進行自動調整。 
     | 執行個體計數        | 1                 | 與針對相應放大規則所使用之持續時間相同的值。                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | 緩和時間 (分鐘)   | 90                | 相應縮小應該比相應放大更保守，因此緩和期應該更長。                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-11. 按一下 [新增]  以儲存規則。
+11. 按一下 [新增] 以儲存規則。
 
     ![Azure 監視器的相應縮小規則](media/api-management-howto-autoscale/06.png)
 
@@ -124,7 +127,7 @@ Azure API 管理服務執行個體可以根據一組規則進行自動調整。 
 
     ![Azure 監視器的相應縮小規則](media/api-management-howto-autoscale/07.png)
 
-13. 按一下 [儲存]  。 您已設定自動調整。
+13. 按一下 [儲存]。 您已設定自動調整。
 
 ## <a name="next-steps"></a>後續步驟
 

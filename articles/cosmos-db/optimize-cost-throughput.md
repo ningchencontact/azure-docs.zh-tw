@@ -4,14 +4,14 @@ description: 本文說明如何針對儲存在 Azure Cosmos DB 中的資料獲�
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/26/2019
 ms.author: rimman
-ms.openlocfilehash: 8829c2534184bc14e82dfbf30d2170a7a1b8add0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615001"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020097"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化已佈建的輸送量成本
 
@@ -65,7 +65,7 @@ Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提�
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>透過限制要求的速率來進行最佳化
 
-對於不太受延遲影響的工作負載，您可以佈建少一點輸送量，並讓應用程式在實際輸送量超過所佈建的輸送量時，處理限速工作。 伺服器將預先使用 RequestRateTooLarge (HTTP 狀態碼 429) 來結束要求，並傳回 `x-ms-retry-after-ms` 標頭，以指出使用者重試要求之前必須等候的時間量 (毫秒)。 
+對於不太受延遲影響的工作負載，您可以佈建少一點輸送量，並讓應用程式在實際輸送量超過所佈建的輸送量時，處理限速工作。 伺服器將事先結束要求`RequestRateTooLarge` (HTTP 狀態碼 429), 並`x-ms-retry-after-ms`傳回標頭, 指出使用者重試要求之前必須等待的時間量 (以毫秒為單位)。 
 
 ```html
 HTTP Status 429, 
@@ -77,15 +77,13 @@ HTTP Status 429,
 
 原生 SDK (.NET/.NET Core、Java、Node.js 和 Python) 會隱含地攔截這個回應、採用伺服器指定的 retry-after 標頭，然後重試此要求。 除非有多個用戶端同時存取您的帳戶，否則下次重試將會成功。
 
-如果您有多個用戶端不斷逐漸地以高於要求速率的方式運作，則目前設定為 9 個的預設重試計數可能會不敷使用。 在這類情況下，用戶端會對應用程式擲回 `DocumentClientException`，且狀態碼為 429。 在 ConnectionPolicy 執行個體上設定 `RetryOptions`，即可變更預設重試次數。 根據預設，如果要求繼續以高於要求速率的方式運作，則會在 30 秒的累計等候時間後傳回 DocumentClientException (狀態碼 429)。 即使目前的重試計數小於最大重試計數 (預設值 9 或使用者定義的值)，也會發生這種情況。 
+如果您有多個用戶端不斷逐漸地以高於要求速率的方式運作，則目前設定為 9 個的預設重試計數可能會不敷使用。 在這類情況下，用戶端會對應用程式擲回 `DocumentClientException`，且狀態碼為 429。 在 ConnectionPolicy 執行個體上設定 `RetryOptions`，即可變更預設重試次數。 根據預設, 如果`DocumentClientException`要求繼續以高於要求速率的方式運作, 則在30秒的累計等候時間之後, 會傳回具有狀態碼429的。 即使目前的重試計數小於最大重試計數 (預設值 9 或使用者定義的值)，也會發生這種情況。 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet)  會設定為 3，因此在此情況下，如果要求作業因為超過集合的保留輸送量而受到限速，要求作業會先重試三次，再對應用程式擲回例外狀況。 [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds)  會設定為 60，因此在此情況下，如果自第一次要求後所累積的重試等候時間 (以秒為單位) 超過 60 秒，系統就會擲回例外狀況。
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet)設定為 3, 因此在此情況下, 如果要求作業的速率受限於容器的保留輸送量, 則要求作業會重試三次, 再將例外狀況擲回至應用程式。 [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds)設定為 60, 因此在此情況下, 如果第一個要求超過60秒後的累計重試等候時間 (以秒為單位), 則會擲回例外狀況。
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 

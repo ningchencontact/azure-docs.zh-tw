@@ -4,16 +4,16 @@ description: 摘要說明使用 Azure Migrate 服務, 將 VMware Vm 評估和遷
 services: backup
 author: rayne-wiselman
 manager: carmonm
-ms.service: backup
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952123"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018137"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 評量和移轉的支援矩陣
 
@@ -43,7 +43,7 @@ ms.locfileid: "68952123"
 --- | ---
 Azure Government | US Gov 維吉尼亞州
 亞太地區 | 東亞或東南亞
-澳洲 | 澳大利亞東部或澳大利亞東南部
+澳大利亞 | 澳大利亞東部或澳大利亞東南部
 加拿大 | 加拿大中部或加拿大東部
 歐洲 | 北歐或西歐
 印度 | 印度中部或印度南部

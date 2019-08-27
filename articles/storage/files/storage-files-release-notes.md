@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 45f383691a52d841f35ed9b67d4658341de18afc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036248"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019118"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -71,6 +71,12 @@ Azure 檔案同步代理程式支援下列版本：
 
 - 支援較大的檔案共用大小
     - 有了較大型 Azure 檔案共用的預覽, 我們也增加了檔案同步的支援限制。 在第一個步驟中, Azure 檔案同步現在支援單一同步處理命名空間中的最多25TB 和50million 檔案。 若要申請大型檔案共用預覽, 請填寫此表單 https://aka.ms/azurefilesatscalesurvey 。 
+- 支援儲存體帳戶上的防火牆和虛擬網路設定
+    - Azure 檔案同步現在支援儲存體帳戶上的防火牆和虛擬網路設定。 若要將您的部署設定為使用防火牆和虛擬網路設定, 請參閱[設定防火牆和虛擬網路設定](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)。
+- 用來立即同步處理 Azure 檔案共用中已變更檔案的 PowerShell Cmdlet
+    - 若要立即同步處理 Azure 檔案共用中變更的檔案, 可使用 AzStorageSyncChangeDetection PowerShell Cmdlet, 以手動方式在 Azure 檔案共用中起始變更的偵測。 此 Cmdlet 適用于某些類型的自動化程式在 Azure 檔案共用中進行變更的案例, 或由系統管理員完成的變更 (例如將檔案和目錄移到共用中)。 針對使用者變更, 建議您在 IaaS VM 中安裝 Azure 檔案同步代理程式, 並讓終端使用者透過 IaaS VM 存取檔案共用。 如此一來, 所有變更都會快速地同步處理至其他代理程式, 而不需要使用 AzStorageSyncChangeDetection Cmdlet。 若要深入瞭解, 請參閱[AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection)檔。
+- 改善的入口網站體驗 (如果您遇到未同步的檔案)
+    - 如果您有無法同步的檔案, 我們現在可以區別入口網站中的暫時性和持續性錯誤。 暫時性錯誤通常會自行解決, 而不需要系統管理動作。 例如, 在檔案控制代碼關閉之前, 目前使用中的檔案將不會同步。 針對持續性錯誤, 我們現在會顯示受到每個錯誤影響的檔案數目。 持續性錯誤計數也會顯示在同步處理群組中所有伺服器端點的 [檔案不同步] 資料行中。
 - 改良的 Azure 備份檔案層級還原
     - 現在會偵測到使用 Azure 備份還原的個別檔案, 並更快地同步處理到伺服器端點。
 - 已改善雲端階層處理重新叫用 Cmdlet 的可靠性 

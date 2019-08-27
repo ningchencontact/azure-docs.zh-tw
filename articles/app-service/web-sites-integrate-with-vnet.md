@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 7246a0223e156abd866594c65542069944601b01
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68740901"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018260"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本檔說明 Azure App Service 虛擬網路整合功能, 以及如何使用[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式進行設定。 [Azure 虛擬網路][VNETOverview](Vnet) 可讓您將許多 Azure 資源放在非網際網路可路由網路中。  
@@ -84,8 +84,9 @@ VNet 整合不支援的事項包括：
 * 應用程式和 VNet 必須位於相同的區域
 * 您無法刪除具有整合式應用程式的 VNet。 您必須先移除整合 
 * 根據 App Service 方案, 您只能有一個區域 VNet 整合。 相同 App Service 方案中的多個應用程式可以使用相同的 VNet。 
+* 當有使用區域 VNet 整合的應用程式時, 您無法變更應用程式或 App Service 方案的訂用帳戶
 
-一個位址用於一個 App Service 方案執行個體。 如果您將應用程式調整為5個實例, 則會使用5個位址。 因為子網大小在指派之後無法變更, 所以您必須使用夠大的子網, 以容納您的應用程式可能會達到的任何規模。 包含32位址的/27 是建議的大小, 因為它會容納擴充為20個實例的 Premium App Service 方案。
+一個位址用於一個 App Service 方案執行個體。 如果您將應用程式調整為5個實例, 則會使用5個位址。 因為子網大小在指派之後無法變更, 所以您必須使用夠大的子網, 以容納您的應用程式可能會達到的任何規模。 包含64位址的/26 是建議的大小。 如果您未變更 App Service 計畫的大小, 則包含32位址的/27 可配合高階 App Service 規劃20個實例。 當您相應增加或減少 App Service 方案時, 您需要一小段時間才會有兩個位址。 
 
 如果您想要讓應用程式在另一個 App Service 計畫連接到另一個 App Service 方案中已由應用程式連線的 VNet, 您必須選取與既有的 VNet 整合所使用的子網不同的子網。  
 
@@ -102,6 +103,8 @@ VNet 整合不支援的事項包括：
    ![選取 [VNet 和子網路]][7]
 
 當您的應用程式與 VNet 整合之後, 它會使用您的 VNet 所設定的相同 DNS 伺服器。 
+
+區域 VNet 整合需要將您的整合子網委派給 Microsoft Web。  VNet 整合 UI 會自動將子網委派給 Microsoft Web。 如果您的帳戶沒有足夠的網路許可權來設定此功能, 您將需要可在整合子網上設定屬性的人員, 才能委派子網。 若要手動委派整合子網, 請移至 Azure 虛擬網路子網 UI, 並設定適用于 Microsoft Web 的委派。
 
 若要中斷您應用程式與 VNet 的連線，請選取 [中斷連線]。 這會重新啟動 Web 應用程式。 
 
@@ -249,7 +252,7 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 
 
 ## <a name="troubleshooting"></a>疑難排解
-儘管功能易於設定，這不表示您的體驗不會遇到問題。 如果您在存取所需端點時遇到問題，有一些公用程式，您可以用來從應用程式主控台測試連線功能。 有兩個您可以使用的主控台。 一個是 Kudu 主控台，另一個則是 Azure 入口網站中的主控台。 若要從您的應用程式觸達 Kudu 主控台，請移至 [工具] -> [Kudu]。 這與移至 [sitename].scm.azurewebsites.net 相同。 開啟之後，請移至 [偵錯主控台] 索引標籤。若要前往 Azure 入口網站裝載的主控台，請從您的應用程式移至 [工具] -> [主控台]。 
+儘管功能易於設定，這不表示您的體驗不會遇到問題。 如果您在存取所需端點時遇到問題，有一些公用程式，您可以用來從應用程式主控台測試連線功能。 有兩個您可以使用的主控台。 一個是 Kudu 主控台，另一個則是 Azure 入口網站中的主控台。 若要從您的應用程式觸達 Kudu 主控台，請移至 [工具] -> [Kudu]。 您也可以連線到位於 [sitename]. azurewebsites. net 的 Kudo 主控台。 網站載入後, 請移至 [調試主控台] 索引標籤。若要前往 Azure 入口網站裝載的主控台，請從您的應用程式移至 [工具] -> [主控台]。 
 
 #### <a name="tools"></a>工具
 由於安全性限制，工具 **ping**、**nslookup** 和 **tracert** 無法透過主控台運作。 為了填滿此空隙，已加入兩個不同的工具。 為了測試 DNS 功能，已加入名為 nameresolver.exe的工具。 其語法為：

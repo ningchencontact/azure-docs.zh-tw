@@ -1,77 +1,77 @@
 ---
-title: Azure 的移轉支援矩陣
-description: 提供支援設定和 Azure Migrate 服務的限制的摘要。
+title: Azure Migrate 支援矩陣
+description: 提供支援設定的摘要, 以及 Azure Migrate 服務的限制。
 services: backup
 author: rayne-wiselman
 manager: carmonm
-ms.service: backup
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: raynew
-ms.openlocfilehash: b2ca1b9118ecc3d112a49bb4c79b413c46fe67cb
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 49bd193303255cdf7d18fd5da9dec8d84c50a829
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811553"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019195"
 ---
-# <a name="azure-migrate-support-matrix"></a>Azure 的移轉支援矩陣
+# <a name="azure-migrate-support-matrix"></a>Azure Migrate 支援矩陣
 
-您可以使用[Azure Migrate 服務](migrate-overview.md)評定，並將機器移轉至 Microsoft Azure 雲端。 本文摘要說明一般的支援設定和 Azure Migrate 的案例和部署的限制。
+您可以使用[Azure Migrate 服務](migrate-overview.md)來評估電腦, 並將機器遷移至 Microsoft Azure 雲端。 本文摘要說明 Azure Migrate 案例和部署的一般支援設定和限制。
 
 
 ## <a name="azure-migrate-versions"></a>Azure Migrate 版本
 
-有兩個版本的 Azure Migrate 服務：
+Azure Migrate 服務有兩個版本：
 
-- **目前版本**:使用此版本，您可以建立新的 Azure Migrate 專案，探索內部部署會評估，並協調評估及移轉。 [深入了解](whats-new.md#azure-migrate-new-version)。
-- **舊版**:使用舊版的 Azure Migrate （支援的內部部署 VMware Vm 的評量） 的客戶，您現在應該使用目前的版本。 在舊版中，您無法建立新的 Azure Migrate 專案，或執行新的探索。
+- **目前的版本**：使用此版本, 您可以建立新的 Azure Migrate 專案、探索內部部署評估, 以及協調評量與遷移。 [深入了解](whats-new.md#azure-migrate-new-version)。
+- **先前版本**：針對使用舊版 Azure Migrate (僅支援內部部署 VMware VM 的評量) 的客戶，您現在應該改為使用目前的版本。 在先前的版本中, 您無法建立新的 Azure Migrate 專案或執行新的探索。
 
-## <a name="supported-migration-scenarios"></a>支援的移轉案例
+## <a name="supported-migration-scenarios"></a>支援的遷移案例
 
-下表摘要說明支援的移轉案例。
+下表摘要說明支援的遷移案例。
 
-**部署** | **詳細資料*** 
+**部署** | **說明*** 
 --- | --- 
-**在內部評估** | 評估內部部署工作負載和 VMware Vm 和 HYPER-V Vm 上執行的資料。 評估 Azure Migrate Server 評量和 Microsoft Data Migration Assistant (DMA)，以及第三方工具，包括 Cloudamize、 Corent 技術和 Turbonomic 伺服器使用。
-**在內部部署移轉至 Azure** | 移轉工作負載和實體伺服器、 VMware Vm、 HYPER-V Vm，或 AWS/GCP 的執行個體，azure 上執行的資料。 使用 Azure Migrate Server 評量和 Azure 資料庫移轉服務 (DMS)，進行移轉，以及使用第三方工具，包括 Carbonite 和 CorentTech。
+**內部部署評量** | 評估在 VMware Vm 和 Hyper-v Vm 上執行的內部部署工作負載和資料。 評估使用 Azure Migrate Server 評估和 Microsoft Data Migration Assistant (DMA), 以及包含 Cloudamize、Corent Tech 和 Turbonomic 伺服器的協力廠商工具。
+**內部部署至 Azure 的遷移** | 將實體伺服器、VMware Vm、Hyper-v Vm 和 AWS/GCP 實例上執行的工作負載和資料移轉至 Azure。 使用 Azure Migrate Server 評估和 Azure 資料庫移轉服務 (DMS) 進行遷移, 以及使用包含 Carbonite 和 CorentTech 的協力廠商工具。
 
-特定的工具支援的摘要，如下所示。
+特定工具支援摘要如下。
 
-**工具** | **評量/移轉** | **詳細資料**
+**工具** | **評量/遷移** | **詳細資料**
 --- | --- | ---
-Azure Migrate Server 評定 | 評量 | 試試看 server 評估[HYPER-V](tutorial-prepare-hyper-v.md)並[VMware](tutorial-prepare-vmware.md)。
-Cloudamize | 評量 | [深入了解](https://www.cloudamize.com/platform#tab-0)。
-CorentTech | 評量 | [深入了解](https://www.corenttech.com/)。
-Turbonomic | 評量 | [深入了解](https://turbonomic.com/solutions/technologies/azure-cloud/)。
-Azure Migrate Server 移轉 | 移轉 | 試試看的伺服器移轉[HYPER-V](tutorial-migrate-hyper-v.md)並[VMware](tutorial-migrate-vmware.md)。
-Carbonite | 移轉 | [深入了解](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure)。
-CorentTech | 移轉 | [深入了解](https://www.corenttech.com/)。
+Azure Migrate 伺服器評量 | 評定 | 試用[hyper-v](tutorial-prepare-hyper-v.md)和[VMware](tutorial-prepare-vmware.md)的伺服器評估。
+Cloudamize | 評定 | [深入了解](https://www.cloudamize.com/platform#tab-0)。
+CorentTech | 評定 | [深入了解](https://www.corenttech.com/)。
+Turbonomic | 評定 | [深入了解](https://turbonomic.com/solutions/technologies/azure-cloud/)。
+Azure Migrate 伺服器移轉 | 遷移 | 試用[hyper-v](tutorial-migrate-hyper-v.md)和[VMware](tutorial-migrate-vmware.md)的伺服器遷移。
+Carbonite | 遷移 | [深入了解](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure)。
+CorentTech | 遷移 | [深入了解](https://www.corenttech.com/)。
 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 專案
 
 **支援** | **詳細資料**
 --- | ---
-Subscription | 您可以在訂用帳戶的單一 Azure Migrate 專案。
-Azure 權限 | 您需要 「 參與者 」 或 「 擁有者權限的訂用帳戶中建立 Azure Migrate 專案。
-VMware VM  | 評估最多 35000 單一專案中的 VMware Vm。
-Hyper-V VM | 評估最多 10,000 個單一專案中的 HYPER-V Vm。
+訂閱 | 您在訂用帳戶中可以有單一 Azure Migrate 專案。
+Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
+VMware VM  | 在單一專案中評估最多35000個 VMware Vm。
+Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。
 
-專案可以包含 VMware Vm 和 HYPER-V Vm 到評定的上限。
+專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
 
 
-## <a name="vmware-assessment-and-migration"></a>VMware 評定及移轉
+## <a name="vmware-assessment-and-migration"></a>VMware 評估與遷移
 
-[檢閱](migrate-support-matrix-vmware.md)Azure Migrate Server 評量與伺服器移轉支援矩陣 VMware 虛擬機器。
+請[參閱](migrate-support-matrix-vmware.md)適用于 VMware vm 的 Azure Migrate server 評估和伺服器遷移支援對照表。
 
-## <a name="hyper-v-assessment-and-migration"></a>HYPER-V 評定及移轉
+## <a name="hyper-v-assessment-and-migration"></a>Hyper-V 評量及移轉
 
-[檢閱](migrate-support-matrix-hyper-v.md)Azure Migrate Server 評量與伺服器移轉支援矩陣 HYPER-V 虛擬機器。
+請[參閱](migrate-support-matrix-hyper-v.md)適用于 hyper-v vm 的 Azure Migrate server 評估和伺服器遷移支援對照表。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- [評定 VMware Vm](tutorial-assess-vmware.md)進行移轉。
-- [評估 HYPER-V Vm](tutorial-assess-hyper-v.md)進行移轉。
+- [評估 VMware vm](tutorial-assess-vmware.md)以進行遷移。
+- [評估 Hyper-v vm](tutorial-assess-hyper-v.md)以進行遷移。
 

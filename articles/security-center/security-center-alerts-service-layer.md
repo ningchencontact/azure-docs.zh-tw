@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/18/2019
+ms.date: 8/25/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 5458d26172123f0f6cb9914a04ec05b3163a084f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: bc1b2a07f15ca98da7750c85cd25f2c5766c9bb5
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013280"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018172"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Azure 資訊安全中心中的 Azure 服務層威脅偵測
 
@@ -52,7 +52,7 @@ ms.locfileid: "70013280"
 若要瞭解資訊安全中心可以如何使用網路相關的信號來套用威脅防護, 請參閱[Azure 資訊安全中心中的啟發式 DNS](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/)偵測。
 
 >[!NOTE]
->建立 VM 之後的第一個小時內, 不會產生 Azure 資訊安全中心中的 Azure 網路層威脅偵測警示。
+>在 Azure 資訊安全中心中的 Azure 網路層威脅偵測警示只會在已指派相同 IP 位址的虛擬機器上, 于發生可疑通訊的整個一小時內產生。 這適用于虛擬機器, 以及在客戶的訂用帳戶中建立為受控服務之一部分的虛擬機器 (例如 AKS、Databricks)。
 
 ## Azure 管理層 (Azure Resource Manager) (預覽)<a name ="management-layer"></a>
 

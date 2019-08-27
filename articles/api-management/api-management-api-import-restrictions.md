@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: af550d3cdf359fc79b3cc2c799e531e5ec491c4e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bf39e508b8e4c883934b51fdc99eaef96caf1235
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613638"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018218"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 匯入的限制和已知問題
 
@@ -34,11 +34,12 @@ ms.locfileid: "67613638"
 ### <a name="open-api-general"> </a>一般
 
 -   整個路徑和查詢所需的參數必須具有唯一的名稱。 (在 OpenAPI 中，參數名稱只需要在某個位置內是唯一的，例如路徑、查詢、標頭。 不過，在 API 管理中，可透過路徑和查詢參數來區分作業 (OpenAPI 並不支援此做法)。 這就是為什麼參數名稱必須在整個 URL 範本內是唯一的。)
--   **\$ref**指標不可以參考外部檔案。
+-   ref 指標無法參考外部檔案。 **\$**
 -   **x-ms-paths** 和 **x-servers** 是唯二支援的副檔名。
 -   在匯入時系統會忽略自訂副檔名，不會儲存或保留用於匯出。
 -   **遞迴** - API 管理不支援以遞迴方式定義的定義 (例如，結構描述參考本身)。
 -   來源檔案 URL (如果有的話) 會套用到相對的伺服器 URL。
+-   系統會忽略安全性定義。
 
 ### <a name="open-api-v2"> </a>OpenAPI 第 2 版
 
@@ -55,7 +56,7 @@ ms.locfileid: "67613638"
 
 ## <a name="wsdl"> </a>WSDL
 
-WSDL 檔案用來建立 SOAP 傳遞及 SOAP 至 REST Api。
+WSDL 檔案是用來建立 SOAP 傳遞和 SOAP 對 REST Api。
 
 -   **SOAP 繫結** - 僅支援「文件」和「常值」編碼的 SOAP 繫結樣式。 不支援「rpc」樣式或 SOAP 編碼。
 -   **WSDL:Import** - 不支援此屬性。 客戶應該將匯入的項目合併成一份文件。
@@ -64,7 +65,7 @@ WSDL 檔案用來建立 SOAP 傳遞及 SOAP 至 REST Api。
 -   **MTOM** - 使用 MTOM 的服務「可能」可以運作。 目前不提供官方支援。
 -   **遞迴** - APIM 不支援遞迴定義的類型 (例如，參考自己的陣列)。
 -   **多個命名空間** - 在結構描述中可使用多個命名空間，但只有目標命名空間可用來定義訊息部分。 命名空間若不是用來定義其他輸入或輸出元素的目標，則不會保留。 雖然這類 WSDL 文件可以匯入，但在匯出慈時，所有訊息部分都會有 WSDL 的目標命名空間。
--   **陣列**-SOAP 至 REST 」 轉換支援只包裝陣列在下列範例所示：
+-   **陣列**-SOAP 對 REST 轉換僅支援下列範例中所示的包裝陣列:
 
 ```xml
     <complexType name="arrayTypeName">

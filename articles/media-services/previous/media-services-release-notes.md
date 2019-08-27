@@ -11,26 +11,26 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff85638a05855d0b755a7b1812ee7025274b559c
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991905"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019303"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 到 v3 的遷移指引](../latest/migrate-from-v2-to-v3.md)
 
 我們想要收到客戶的意見，以針對影響到您的問題進行修正。 若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中提交貼文。 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>目前的已知問題
-### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
+### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>媒體服務一般問題
 
 | 問題 | 描述 |
 | --- | --- |
@@ -42,8 +42,16 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 | 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。 |如需詳細資訊，請參閱[本節](media-services-deliver-content-overview.md#known-issues)。 |
 | 媒體服務 .NET SDK 物件無法序列化，因此無法與 Redis 的 Azure 快取搭配運作。 |如果您嘗試將 SDK AssetCollection 物件序列化以將其新增至 Redis 的 Azure 快取，則會擲回例外狀況。 |
 
-## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
+## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
+
+## <a name="august-2019"></a>2019 年 8 月
+
+### <a name="deprecation-of-media-processors"></a>淘汰媒體處理器
+
+我們宣佈淘汰*Windows Azure 媒體編碼器*(WAME) 和*Azure 媒體編碼器*(AME) 媒體處理器, 即將于2019年11月30日淘汰。
+
+如需詳細資訊, 請參閱[將 WAME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101334)並[將 AME 遷移至媒體編碼器標準](https://go.microsoft.com/fwlink/?LinkId=2101335)。
 
 ## <a name="march-2019"></a>2019 年 3 月
 
@@ -51,7 +59,7 @@ Azure 媒體服務的媒體 Hyperlapse 預覽功能已被取代。
 
 ## <a name="december-2018"></a>2018 年 12 月
 
-Azure 媒體服務的媒體 Hyperlapse 預覽功能即將淘汰。 自 2018 年 12 月 19 日起，媒體服務將不再變更或改進媒體超縮時攝影功能。 它將會於 2019 年 3 月 29 日淘汰，並且不再提供使用。
+Azure 媒體服務的 Media Hyperlapse Preview 功能即將淘汰。 自 2018 年 12 月 19 日起，媒體服務將不再變更或改進媒體超縮時攝影功能。 它將會於 2019 年 3 月 29 日淘汰，並且不再提供使用。
 
 ## <a name="october-2018"></a>2018 年 10 月
 
@@ -136,7 +144,7 @@ Azure Media Redactor 正式運作：此媒體處理器會透過將所選個人�
 
  現在，您可以使用媒體服務存取其服務的遙測/計量資料。 您可以使用目前的媒體服務版本收集直播頻道、串流端點和即時封存實體的遙測資料。 如需詳細資訊，請參閱[媒體服務遙測](media-services-telemetry-overview.md)。
 
-## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>2016 年 7 月版本
+## <a name="a-idjuly_changes16july-2016-release"></a><a id="july_changes16"/>2016 年 7 月版本
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>更新編碼工作所產生的資訊清單檔案 (*.ISM)
 將編碼工作提交至「媒體編碼器標準」或「媒體編碼器進階」時，編碼工作會在輸出資產中產生[串流資訊清單檔案](media-services-deliver-content-overview.md) (*.ism)。 在最新的服務版本中，此串流資訊清單檔案的語法已更新。
 
@@ -504,7 +512,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 ## <a id="november_changes_12"></a>2012 年 11 月版本
 本節說明的變更是 2012 年 11 月 (2.0.0.0 版) SDK 所包含的更新。 進行這些變更時，可能必須修改或重寫為 2012 年 6 月預覽 SDK 版本撰寫的程式碼。
 
-* Assets
+* 資產
   
     * IAsset.Create(assetName) 是*唯一的*資產建立函式。 IAsset.Create 已不會在方法呼叫期間上傳檔案。 請使用 IAssetFile 進行上傳。
     * IAsset.Publish 方法和 AssetState.Publish 列舉值已從服務 SDK 中移除。 任何依存於此值的程式碼都必須重寫。

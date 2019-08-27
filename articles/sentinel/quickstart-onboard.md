@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2019
+ms.date: 08/22/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0c37d6167012af46204cbca29397f5d226b9649b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: b609dc70c45941ec1132c7cdf614cf9bec8119ff
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611895"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019010"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Azure Sentinel 預覽的面板
 
@@ -59,7 +59,8 @@ ms.locfileid: "69611895"
 
    >[!NOTE] 
    > - Azure 資訊安全中心所建立的預設工作區不會出現在清單中;您無法在其上安裝 Azure Sentinel。
-   > - Azure Sentinel 可以在下列任何區域中部署的工作區上執行:澳大利亞東南部、加拿大中部、印度中部、美國東部、美國東部 2 EUAP (不帶)、日本東部、東南亞、英國南部、西歐、美國西部2。
+   > - Azure Sentinel 可以在下列任何區域中部署的工作區上執行:澳大利亞東部、澳大利亞東南部、加拿大中部、印度中部、美國東部、美國東部 2 EUAP ()、日本東部、東南亞、英國南部、西歐、美國西部2、美國中西部、法國中部、韓國中部、北歐、美國東部2、東亞、美國西部、美國中部、美國中南部。
+
 
 6. 按一下 [**新增 Azure Sentinel**]。
   
