@@ -117,7 +117,7 @@ ms.locfileid: "68989279"
 
 1. 返回 Azure AD 租用戶，選取 [應用程式註冊]  ，然後尋找並選取您想要設定的用戶端應用程式。
 1. 重複進行[設定用戶端應用程式以存取 Web API](quickstart-configure-app-access-web-apis.md) 中所述的步驟。
-1. 當您進行到 [選取 API][](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+1. 當您進行到 [選取 API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
 ) 步驟時，選取您的資源。 您應該會看到可供用戶端權限要求使用的新範圍。
 
 ## <a name="more-on-the-application-manifest"></a>應用程式資訊清單的詳細資料

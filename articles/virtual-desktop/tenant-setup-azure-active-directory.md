@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014097"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516193"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>教學課程：在 Windows 虛擬桌面預覽版中建立租用戶
 
@@ -34,7 +34,7 @@ ms.locfileid: "69014097"
    * 系統管理員帳戶必須是公司或學校帳戶。
 * Azure 訂用帳戶。
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>將 Azure Active Directory 權限授與給 Windows 虛擬桌面預覽版服務
+## <a name="grant-permissions-to-windows-virtual-desktop"></a>授與權限給 Windows 虛擬桌面
 
 如果您已經將此 Azure Active Directory 執行個體的權限授與 Windows 虛擬桌面，請略過本節。
 
@@ -62,7 +62,7 @@ ms.locfileid: "69014097"
 6. 如同步驟 2 一樣，以全域管理員身分登入 Windows 虛擬桌面同意頁面。
 7. 選取 [接受]  。
 
-## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>將 TenantCreator 應用程式角色指派給 Azure Active Directory 租用戶中的使用者
+## <a name="assign-the-tenantcreator-application-role"></a>指派 TenantCreator 應用程式角色
 
 將 TenantCreator 應用程式角色指派給 Azure Active Directory 使用者，可讓該使用者建立與 Azure Active Directory 執行個體相關聯的 Windows 虛擬桌面租用戶。 您必須使用全域管理員帳戶來指派 TenantCreator 角色。
 
@@ -73,7 +73,7 @@ ms.locfileid: "69014097"
    如果您正在處理多個 Azure Active Directory 租用戶，最佳做法是開啟私人瀏覽器工作階段，然後將 URL 複製並貼入位址列中。
 2. 在 Azure 入口網站的搜尋列中，搜尋**企業應用程式**，然後選取 [服務]  類別底下出現的項目。
 3. 在 [企業應用程式]  中，搜尋 [Windows 虛擬桌面]  。 您會看到您在上一節中同意的兩個應用程式。 在這兩個應用程式中，選取 [Windows 虛擬桌面]  。
-   ![在 企業應用程式] 中搜尋「Windows 虛擬桌面」時的搜尋結果螢幕擷取畫面。 已醒目提示名為「Windows 虛擬桌面」的應用程式。](media/tenant-enterprise-app.png)
+   ![在 [企業應用程式] 中搜尋「Windows 虛擬桌面」時的搜尋結果螢幕擷取畫面。 已醒目提示名為「Windows 虛擬桌面」的應用程式。](media/tenant-enterprise-app.png)
 4. 選取 [使用者和群組]  。 您可能會看到對應用程式授與同意權的系統管理員已列出，並且已獲派**預設存取**角色。 這還不足以建立 Windows 虛擬桌面租用戶。 請繼續遵循這些指示來對使用者新增 **TenantCreator** 角色。
    ![指派來管理「Windows 虛擬桌面」企業應用程式的使用者和群組螢幕擷取畫面。 螢幕擷取畫面顯示只有一個適用於「預設存取」的指派。](media/tenant-default-access.png)
 5. 選取 [新增使用者]  ，然後在 [新增指派]  刀鋒視窗中選取 [使用者和群組]  。
