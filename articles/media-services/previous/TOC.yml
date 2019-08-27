@@ -49,6 +49,15 @@
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
 - name: 作法
   items:
+    - name: 舊版元件
+      href: legacy-components.md
+      items:
+        - name: 從 Azure 媒體編碼器遷移
+          href: migrate-azure-media-encoder.md
+          displayName: AME
+        - name: 從 Windows Azure 媒體編碼器遷移
+          href: migrate-windows-azure-media-encoder.md
+          displayName: WAME
     - name: 管理
       items:
         - name: 帳戶

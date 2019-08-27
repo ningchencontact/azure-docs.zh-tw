@@ -179,6 +179,9 @@
         - name: 微調超參數
           displayName: parameter
           href: how-to-tune-hyperparameters.md
+        - name: 訓練時使用 Key Vault
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
     - name: 追蹤及監視實驗
       items:
         - name: 啟動、監視或取消執行
