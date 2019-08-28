@@ -4,18 +4,18 @@ hide_bc: false
 title: Azure 物聯網文件 - 教學課程和 API 參考 | Microsoft Docs
 description: Azure 物聯網 (IoT) 是由 Microsoft 管理的雲端服務集合，它會連線、監視及控制數十億個 IoT 資產。 簡單地說，IoT 解決方案是由一個或多個在雲端上執行，且互相通訊的 IoT 裝置和後端服務所組成。
 services: azure-iot
-author: dsk-2015
+author: philmea
 manager: philmea
 ms.service: azure-iot
-ms.topic: landing-page
-ms.date: 02/12/2019
-ms.author: dkshir
-ms.openlocfilehash: d19b6fff3bf2b43ecb692bd8d8e33a202e969570
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: hub-page
+ms.date: 08/27/2019
+ms.author: philmea
+ms.openlocfilehash: 7ea66c873d6ba70c2a7b3907a83a466117b56190
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216489"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074334"
 ---
 <div id="main" class="v2">
     <div class="container">
