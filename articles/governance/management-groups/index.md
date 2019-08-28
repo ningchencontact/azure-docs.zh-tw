@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c9bc02959c64baecf11e2d1651051cd9bdda61d7
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516980"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060630"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -26,9 +26,9 @@ ms.locfileid: "68516980"
 
 ![管理群組階層樹狀結構範例](./media/tree.png)
 
-建立階層以便套用原則；例如，將「生產」群組的 VM 位置限制為美國西部。 此原則將會同時繼承至管理群組底下的兩個 "EA Subscription" (EA 訂用帳戶)，並會套用至那些訂用帳戶底下的所有 VM。 此安全性原則無法由資源或訂用帳戶擁有者改變，並能進一步提升治理能力。
+您可以建立套用原則的階層，例如將名為「生產」群組中的 VM 位置限制為美國西部區域。 此原則將會同時繼承至管理群組底下的兩個 "EA Subscription" (EA 訂用帳戶)，並會套用至那些訂用帳戶底下的所有 VM。 此安全性原則無法由資源或訂用帳戶擁有者改變，並能進一步提升治理能力。
 
-另一個使用管理群組的案例是讓使用者能存取多個訂閱。 將多個訂用帳戶移至該管理群組底下，讓您能在管理群組上建立[角色型存取控制](../../role-based-access-control/overview.md) (RBAC) 指派；如此一來，所有訂用帳戶均能繼承該存取權。
+另一個案例是使用管理群組來向使用者提供多個訂用帳戶的存取權。 將多個訂用帳戶移至該管理群組底下，讓您能在管理群組上建立[角色型存取控制](../../role-based-access-control/overview.md) (RBAC) 指派；如此一來，所有訂用帳戶均能繼承該存取權。
 只需要單獨對管理群組進行指派，使用者便能存取其所需要的所有內容，無需透過指令碼將 RBAC 指派給多個訂用帳戶。
 
 ### <a name="important-facts-about-management-groups"></a>關於管理群組的重要事實
@@ -55,7 +55,7 @@ ms.locfileid: "68516980"
   - 建立新的訂用帳戶時，會自動預設為根管理群組。
 - 所有 Azure 客戶都可以看到根管理群組，但並非所有的客戶都有權管理該根管理群組。
   - 有訂用帳戶存取權的所有人，都可以查看訂用帳戶在階層中的上下內容。  
-  - 根管理群組的預設存取權不會授予任何人。 Azure AD 全域管理員是唯一可以提升自己以取得存取權的使用者。  全域管理員一旦有存取權之後，就可以將任何 RBAC 角色指派給其他使用者以進行管理。  
+  - 根管理群組的預設存取權不會授予任何人。 Azure AD 全域管理員是唯一可以提升自己以取得存取權的使用者。  一旦全域管理員擁有根管理群組存取權之後，就可以將任何 RBAC 角色指派給其他使用者以進行管理。  
 
 > [!IMPORTANT]
 > 根管理群組上的任何使用者存取權指派或原則指派，都會**套用至目錄中的所有資源**。

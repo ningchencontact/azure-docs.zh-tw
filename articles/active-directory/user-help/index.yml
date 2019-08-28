@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: 使用者說明文件
+summary: 身為員工、IT 工作者或終端使用者，您會為公司或學校帳戶設定驗證、設自己的密碼、設定並加入裝置、設定 Microsoft Authenticator 應用程式並使用各種入口網站。
+metadata:
+  title: 關於驗證、應用程式和裝置的使用者說明
+  description: 身為員工或終端使用者，您會了解如何設定和使用驗證、Microsoft Authenticator 應用程式和「我的應用程式」入口網站。
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: user-help
+  ms.topic: landing-page
+  ms.collection: M365-identity-device-management
+  author: eross-msft
+  ms.author: lizross
+  ms.date: 08/26/2019
+  ms.openlocfilehash: 687ae4b276b4e975c9b9de9d688f23180deaeebc
+  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70062200"
+landingContent:
+- title: 設定並使用 Microsoft Authenticator 應用程式
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 Microsoft Authenticator 應用程式？
+      url: user-help-auth-app-overview.md
+  - linkListType: download
+    links:
+    - text: 下載並安裝應用程式
+      url: user-help-auth-app-download-install.md
+  - linkListType: how-to-guide
+    links:
+    - text: 備份及復原帳戶資訊
+      url: user-help-auth-app-backup-recovery.md
+    - text: 使用應用程式登入
+      url: user-help-auth-app-sign-in.md
+- title: 設定並使用雙步驟驗證
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 何謂雙因素驗證？
+      url: user-help-two-step-verification-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 設定驗證方法
+      url: multi-factor-authentication-end-user-first-time.md
+    - text: 管理設定
+      url: multi-factor-authentication-end-user-manage-settings.md
+    - text: 取得說明
+      url: multi-factor-authentication-end-user-troubleshoot.md
+- title: 設定和使用「我的應用程式」入口網站
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是「我的應用程式」入口網站？
+      url: my-apps-portal-end-user-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: 更新您的資訊
+      url: my-apps-portal-end-user-update-profile.md
+    - text: 取得說明
+      url: my-apps-portal-end-user-troubleshoot.md
+- title: 設定和使用安全性資訊 (預覽)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 何謂安全性資訊 (預覽)？
+      url: user-help-security-info-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 設定安全性資訊方法
+      url: security-info-add-update-methods-overview.md
+    - text: 在登入提示期間新增資訊
+      url: security-info-setup-signin.md
+- title: 設定和使用「我的設定檔」(預覽)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 何謂「我的設定檔」 (預覽) 入口網站？
+      url: myprofile-portal-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 管理您的組織
+      url: myprofile-portal-organizations-page.md
+    - text: 管理您的已連線裝置
+      url: myprofile-portal-devices-page.md
+- title: 重設您自己的密碼
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 何謂密碼重設？
+      url: user-help-password-reset-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 註冊以進行密碼重設
+      url: active-directory-passwords-reset-register.md
+    - text: 重設密碼
+      url: user-help-reset-password.md
