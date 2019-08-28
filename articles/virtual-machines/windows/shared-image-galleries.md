@@ -1,5 +1,5 @@
 ---
-title: Azure 共用映像庫 |Microsoft Docs
+title: Azure 共用映射資源庫 |Microsoft Docs
 description: 了解如何使用共用映像資源庫，跨組織共用 VM 映像。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -9,7 +9,6 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -17,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: b28ad9b61a14a1961cf2a9de828df320134be838
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 35789e7f85e99d7985e8e19b82a7aea585483daf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709185"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088708"
 ---
 # <a name="shared-image-gallery-overview"></a>共用映像資源庫概觀
 

@@ -14,12 +14,12 @@ ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a9d997f9ced0fbd921abfb13cda5a4845eb3763
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: fc6f6f7b02db664ca6cd62dc7aad61baf5f132fa
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616210"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088413"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>管理適用於雙步驟驗證的應用程式密碼
 
@@ -47,7 +47,7 @@ ms.locfileid: "69616210"
 
 - **您的組織使用雙因素驗證和 [其他安全性驗證] 頁面。** 如果您使用公司或學校帳戶 (例如), alain@contoso.com並在您的組織中搭配雙因素驗證, 您可以從 [[其他安全性驗證] 頁面](https://account.activedirectory.windowsazure.com/Proofup.aspx)管理您的應用程式密碼。 如需詳細指示, 請參閱本文中[的使用其他安全性驗證頁面來建立和刪除應用程式密碼](#create-and-delete-app-passwords-from-the-additional-security-verification-page)。
 
-- **您的組織使用雙因素驗證和 Office 365 入口網站。** 如果您在組織中使用工作或學校帳戶 (例如alain@contoso.com)、雙因素驗證和 Office 365 應用程式, 您可以從[Office 365 入口網站頁面](https://office.portal.com)管理您的應用程式密碼。 如需詳細指示, 請參閱本文中[的使用 Office 365 入口網站建立和刪除應用程式密碼](#create-and-delete-app-passwords-using-the-office-365-portal)。
+- **您的組織使用雙因素驗證和 Office 365 入口網站。** 如果您在組織中使用工作或學校帳戶 (例如alain@contoso.com)、雙因素驗證和 Office 365 應用程式, 您可以從[Office 365 入口網站頁面](https://www.office.com)管理您的應用程式密碼。 如需詳細指示, 請參閱本文中[的使用 Office 365 入口網站建立和刪除應用程式密碼](#create-and-delete-app-passwords-using-the-office-365-portal)。
 
 - **您正在使用雙因素驗證搭配個人 Microsoft 帳戶。** 如果您使用具有雙因素驗證的個人 Microsoft 帳戶 ( alain@outlook.com例如), 您可以從 [安全性] [[基本] 頁面](https://account.microsoft.com/security/)管理您的應用程式密碼。 如需詳細指示, 請參閱搭配[不支援雙步驟驗證的應用程式使用應用程式密碼](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification)。
 

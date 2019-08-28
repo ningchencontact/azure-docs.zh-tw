@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0e32c81f37a8b81511cd009dfddbcc546aee1797
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876742"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073921"
 ---
 # <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 
@@ -34,39 +34,45 @@ ms.locfileid: "69876742"
 
 **原因：** 在 Azure Resource Manager 範本介面修正程式中輸入認證時, 發生了錯誤的錯誤。
 
-**補丁**請遵循這些指示來更正認證。
+**補丁**請採取下列其中一個動作來解決。
 
-1. 手動將 Vm 新增至網域。
-2. 重新部署認證已確認。 請參閱[使用 PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區。
-3. 使用範本將 Vm 加入網域, 並將[現有的 WINDOWS VM 加入 AD 網域](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)。
+- 手動將 Vm 新增至網域。
+- 確認認證之後, 重新部署範本。 請參閱[使用 PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區。
+- 使用範本將 Vm 加入網域, 並將[現有的 WINDOWS VM 加入 AD 網域](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)。
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Error:等候使用者輸入時發生超時
 
 **原因：** 用來完成加入網域的帳戶可能會有多重要素驗證 (MFA)。
 
-**補丁**請遵循這些指示來完成加入網域。
+**補丁**請採取下列其中一個動作來解決。
 
-1. 暫時移除帳戶的 MFA。
-2. 使用服務帳戶。
+- 暫時移除帳戶的 MFA。
+- 使用服務帳戶。
 
 ### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Error:布建期間使用的帳戶沒有完成作業的許可權
 
 **原因：** 所使用的帳戶沒有將 Vm 加入網域的許可權, 因為合規性與法規。
 
-**補丁**請遵循這些指示。
+**補丁**請採取下列其中一個動作來解決。
 
-1. 使用屬於系統管理員群組成員的帳戶。
-2. 將所需的許可權授與所使用的帳戶。
+- 使用屬於系統管理員群組成員的帳戶。
+- 將所需的許可權授與所使用的帳戶。
 
 ### <a name="error-domain-name-doesnt-resolve"></a>Error:功能變數名稱無法解析
 
-**原因 1：** Vm 位於與網域所在的虛擬網路 (VNET) 沒有關聯的資源群組中。
+**原因 1：** Vm 位於與網域所在的虛擬網路 (VNET) 沒有關聯的虛擬網路上。
 
 **修正 1:** 在布建 Vm 的 VNET 和執行網域控制站 (DC) 的 VNET 之間, 建立 VNET 對等互連。 請參閱[建立虛擬網路對等互連-Resource Manager、不同的](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions)訂用帳戶。
 
-**原因 2：** 使用 AadService (AADS) 時, 尚未設定 DNS 專案。
+**原因 2：** 使用 Azure Active Directory Domain Services (Azure AD DS) 時, 虛擬網路不會更新其 DNS 伺服器設定, 以指向受管理的網域控制站。
 
-**修正 2:** 若要設定網域服務, 請參閱[啟用 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns)。
+**修正 2:** 若要更新包含 Azure AD DS 之虛擬網路的 DNS 設定, 請參閱[更新 Azure 虛擬網路的 dns 設定](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network)。
+
+**原因 3:** 網路介面的 DNS 伺服器設定不會指向虛擬網路上的適當 DNS 伺服器。
+
+**修正 3:** 請遵循 [變更 DNS 伺服器] 中的步驟, 採取下列其中一個動作來解決。
+- 使用[變更 dns 伺服器](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers)中的步驟, 將網路介面的 DNS 伺服器設定變更為**自訂**, 並指定虛擬網路上 DNS 伺服器的私人 IP 位址。
+- 將網路介面的 DNS 伺服器設定從 [[變更 dns 伺服器](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers)] 的步驟變更為 [**繼承自虛擬網路**], 然後使用 [[變更 dns 伺服器](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers)] 中的步驟變更虛擬網路的 dns 伺服器設定。
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>未安裝 Windows 虛擬桌面代理程式和 Windows 虛擬桌面開機載入器
 

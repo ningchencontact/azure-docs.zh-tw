@@ -9,17 +9,16 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496511"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073219"
 ---
 # <a name="use-an-app-service-environment"></a>使用 App Service Environment #
 
@@ -31,11 +30,11 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 - **儲存體**：儲存體可用來裝載客戶發佈的應用程式。
 
 > [!NOTE]
-> 「App Service 環境」有兩個版本：ASEv1 和 ASEv2。 在 ASEv1 中，您必須先管理資源，才可加以使用。 若要了解如何設定及管理 ASEv1，請參閱[設定 App Service Environment v1][ConfigureASEv1]。 本文的其餘部分著重於 ASEv2。
+> 「App Service 環境」有兩個版本：ASEv1 和 ASEv2。 在 ASEv1 中，您必須先管理資源，才可加以使用。 若要瞭解如何設定和管理 ASEv1, 請參閱[設定 App Service 環境 v1][ConfigureASEv1]。 本文的其餘部分著重於 ASEv2。
 >
 >
 
-您可以使用適用於應用程式存取的外部 VIP 或內部 VIP，來部署 ASE (ASEv1 和 ASEv2)。 使用外部 VIP 的部署常稱為外部 ASE。 內部版本稱為 ILB ASE，因為它是使用內部負載平衡器 (ILB)。 若要深入了解 ILB ASE，請參閱[建立和使用 ILB ASE][MakeILBASE]。
+您可以使用適用於應用程式存取的外部 VIP 或內部 VIP，來部署 ASE (ASEv1 和 ASEv2)。 使用外部 VIP 的部署常稱為外部 ASE。 內部版本稱為 ILB ASE，因為它是使用內部負載平衡器 (ILB)。 若要深入瞭解 ILB ASE, 請參閱[建立和使用 ILB ase][MakeILBASE]。
 
 ## <a name="create-an-app-in-an-ase"></a>在 ASE 中建立應用程式 ##
 
@@ -44,11 +43,11 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 - 您可以挑選 ASE 作為位置，而不用挑選部署應用程式的地理位置。
 - 在 ASE 中建立的所有 App Service 方案必須在「隔離」定價層中。
 
-如果您沒有 ASE，則可以遵循[建立 App Service Environment][MakeExternalASE] 中的指示來建立一個 ASE。
+如果您沒有 ASE, 可以遵循[建立 App Service 環境][MakeExternalASE]中的指示建立一個。
 
 若要在 ASE 中建立應用程式：
 
-1. 選取 [建立資源]   >  [Web + 行動]   >  [Web 應用程式]  。
+1. 選取 [建立資源]  >  [Web + 行動]  >  [Web 應用程式]。
 
 2. 輸入應用程式的名稱。 如果您已在 ASE 中選取 App Service 方案，則應用程式的網域名稱會反映 ASE 的網域名稱。
 
@@ -56,21 +55,21 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
 1. 選取一個訂用帳戶。
 
-1. 輸入新資源群組的名稱，或選取 [使用現有]  並從下拉式清單中挑選一個。
+1. 輸入新資源群組的名稱，或選取 [使用現有] 並從下拉式清單中挑選一個。
 
 1. 選取您的作業系統。 
 
 1. 選取 ASE 中現有的 App Service 方案，或透過下列步驟建立一個新的方案：
 
-    a. 選取 [新建]  。
+    a. 選取 [新建]。
 
     b. 輸入 App Service 方案的名稱。
 
-    c. 在 [位置]  下拉式清單中選取您的 ASE。 
+    c. 在 [位置] 下拉式清單中選取您的 ASE。 
     
-    d. 選取 [隔離]  定價層。 選取 [選取]  。
+    d. 選取 [隔離] 定價層。 選取 [選取]。
 
-    e. 選取 [確定]  。
+    e. 選取 [確定]。
     
     ![隔離定價層][2]
 
@@ -78,7 +77,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
     > Linux 應用程式和 Windows 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service 環境中。 
     >
 
-2. 選取 [建立]  。
+2. 選取 [建立]。
 
 ## <a name="how-scale-works"></a>調整方式 ##
 
@@ -92,7 +91,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
 ## <a name="ip-addresses"></a>IP 位址 ##
 
-App Service 能夠將專用的 IP 位址配置給應用程式。 設定以 IP 為基礎的 SSL 之後，就可以使用這項功能，如下所述：[將現有的自訂 SSL 憑證繫結至 Azure App Service][ConfigureSSL]。 但是，在 ASE 中，有一個明顯的例外。 您無法新增額外的 IP 位址來供 ILB ASE 中以 IP 為基礎的 SSL 使用。
+App Service 能夠將專用的 IP 位址配置給應用程式。 設定以 IP 為基礎的 SSL 之後, 就可以使用這項功能, 如將[現有的自訂 ssl 憑證系結至 Azure App Service][ConfigureSSL]中所述。 但是，在 ASE 中，有一個明顯的例外。 您無法新增額外的 IP 位址來供 ILB ASE 中以 IP 為基礎的 SSL 使用。
 
 在 ASEv1 中，您必須先配置 IP 位址作為資源，才可以使用它們。 在 ASEv2 中，您可以如同在多租用戶的 App Service 中一樣，從您的應用程式使用它們。 ASEv2 中一律會有一個備用位址 (最多 30 個 IP 位址)。 每次您使用一個位址時，就會新增另一個位址，如此一律會有立即可供使用的位址。 配置另一個 IP 位址時，需有時間延遲，以避免快速連續新增 IP 位址。
 
@@ -100,20 +99,20 @@ App Service 能夠將專用的 IP 位址配置給應用程式。 設定以 IP �
 
 在 ASEv2 中，當您相應放大 App Service 方案時，系統會自動新增背景工作來支援它們。 每個 ASE 建立時都會包含兩個前端。 此外，您的 App Service 方案中，每 15 個執行個體會有一個前端，因此前端會依據此規則自動相應放大。 例如，如果您有 15 個執行個體，則會有三個前端。 如果調整至 30 個執行個體，則您會有四個前端 ，依此類推。
 
-這個前端數目應該足以適用於大部分情況。 但是，您也可用更快的速率相應放大。 您可以將前端與執行處理的比例變更至最低每五個執行個體有一個前端。 變更比例需付費。 如需詳細資訊，請參閱 [Azure App Service 價格][Pricing]。
+這個前端數目應該足以適用於大部分情況。 但是，您也可用更快的速率相應放大。 您可以將前端與執行處理的比例變更至最低每五個執行個體有一個前端。 變更比例需付費。 如需詳細資訊, 請參閱[Azure App Service 定價][Pricing]。
 
 前端資源是 ASE 的 HTTP/HTTPS 端點。 依照預設前端組態，每個前端的記憶體使用量始終大約為 60%。 客戶工作負載不會在前端上執行。 前端調整的關鍵因素是 CPU，其主要是由 HTTPS 流量所驅動。
 
 ## <a name="app-access"></a>應用程式存取 ##
 
-在外部 ASE 中，您在建立應用程式時使用的網域，和多租用戶 App Service 的網域是不一樣的。 它包括了 ASE 的名稱。 如需有關如何建立外部 ASE 的詳細資訊，請參閱[建立 App Service Environment][MakeExternalASE]。 外部 ASE 中的網域名稱看起來像 *.&lt;asename&gt;.p.azurewebsites.net*。 例如，如果您的 ASE 名為 _external-ase_，而且您在該 ASE 中裝載名為 _contoso_ 的應用程式，則下列 URL 將可連至該應用程式：
+在外部 ASE 中，您在建立應用程式時使用的網域，和多租用戶 App Service 的網域是不一樣的。 它包括了 ASE 的名稱。 如需如何建立外部 ASE 的詳細資訊, 請參閱[建立 App Service 環境][MakeExternalASE]。 外部 ASE 中的網域名稱看起來像 *.&lt;asename&gt;.p.azurewebsites.net*。 例如，如果您的 ASE 名為 _external-ase_，而且您在該 ASE 中裝載名為 _contoso_ 的應用程式，則下列 URL 將可連至該應用程式：
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-URL contoso.scm.external-ase.p.azurewebsites.net 用來存取 Kudu 主控台，或可利用 Web 部署發佈您的應用程式。 如需 Kudu 主控台的詳細資訊，請參閱 [Azure App Service 的 Kudu 主控台][Kudu]。 Kudu 主控台提供給您的 Web UI 可供偵錯、上傳檔案、編輯檔案及更多功能。
+URL contoso.scm.external-ase.p.azurewebsites.net 用來存取 Kudu 主控台，或可利用 Web 部署發佈您的應用程式。 如需 Kudu 主控台的詳細資訊, 請參閱[適用于 Azure App Service 的 Kudu 主控台][Kudu]。 Kudu 主控台提供給您的 Web UI 可供偵錯、上傳檔案、編輯檔案及更多功能。
 
-在 ILB ASE 中，您會在部署時決定網域。 如需有關如何建立 ILB ASE 的詳細資訊，請參閱[建立並使用 ILB ASE][MakeILBASE]。 如果您指定網域名稱 _ilb-ase.info_，則該 ASE 中的應用程式會在應用程式建立期間使用該網域。 對於名為 _contoso_ 的應用程式，則 URL 會是：
+在 ILB ASE 中，您會在部署時決定網域。 如需有關如何建立 ILB ASE 的詳細資訊, 請參閱[建立和使用 ILB ase][MakeILBASE]。 如果您指定網域名稱 _ilb-ase.info_，則該 ASE 中的應用程式會在應用程式建立期間使用該網域。 對於名為 _contoso_ 的應用程式，則 URL 會是：
 
 - contoso.ilb-ase.info
 - contoso.scm.ilb-ase.info
@@ -128,15 +127,15 @@ URL contoso.scm.external-ase.p.azurewebsites.net 用來存取 Kudu 主控台，�
 - 在 Kudu 主控台中拖放。
 - IDE，例如 Visual Studio、Eclipse 或 IntelliJ IDEA。
 
-使用外部 ASE 時，這些發行選項的行為相同。 如需詳細資訊，請參閱[在 Azure App Service 中部署][AppDeploy]。 
+使用外部 ASE 時，這些發行選項的行為相同。 如需詳細資訊, 請參閱[Azure App Service 中的部署][AppDeploy]。 
 
-在發佈上的主要差異和 ILB ASE 有關。 使用 ILB ASE 時，所有發佈端點都只能透過 ILB 取得。 ILB 位於虛擬網路的 ASE 子網路中的私人 IP。 如果您沒有 ILB 的網路存取權，便無法在該 ASE 上發佈任何應用程式。 如[建立和使用 ILB ASE][MakeILBASE] 中所述，您需要在系統中設定應用程式的 DNS。 其中包含 SCM 端點。 如果未正確定義它們，就無法發佈。 您的 IDE 也需要有 ILB 的網路存取權，以便直接發佈到它。
+在發佈上的主要差異和 ILB ASE 有關。 使用 ILB ASE 時，所有發佈端點都只能透過 ILB 取得。 ILB 位於虛擬網路的 ASE 子網路中的私人 IP。 如果您沒有 ILB 的網路存取權，便無法在該 ASE 上發佈任何應用程式。 如[建立和使用 ILB ASE][MakeILBASE]中所述, 您需要為系統中的應用程式設定 DNS。 其中包含 SCM 端點。 如果未正確定義它們，就無法發佈。 您的 IDE 也需要有 ILB 的網路存取權，以便直接發佈到它。
 
-根據預設，以網際網路為基礎的 CI 系統，例如 GitHub 和 Azure DevOps，不適用於 ILB ASE 的因為發佈端點不是透過網際網路存取。 針對 Azure DevOps 可解決這個問題，它將可以連線到 ILB 內部網路中安裝自我裝載的版本代理程式。 或者，您也可以使用 CI 系統，會使用提取模型，例如 Dropbox。
+根據預設, 以網際網路為基礎的 CI 系統 (例如 GitHub 和 Azure DevOps) 不會與 ILB ASE 搭配使用, 因為發佈端點無法存取網際網路。 針對 Azure DevOps, 您可以在內部網路中安裝自我裝載的發行代理程式, 讓它能夠連線到 ILB, 藉此解決此情況。 或者, 您也可以使用使用提取模型的 CI 系統, 例如 Dropbox。
 
-ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。 您可以在應用程式的發行設定檔，以及應用程式的入口網站刀鋒視窗中看到 (在 [概觀]   >  [基本資訊]  ，以及 [屬性]  中)。 
+ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。 您可以在應用程式的發行設定檔，以及應用程式的入口網站刀鋒視窗中看到 (在 [概觀]  >  [基本資訊]，以及 [屬性] 中)。 
 
-## <a name="pricing"></a>價格 ##
+## <a name="pricing"></a>定價 ##
 
 已建立名稱為**隔離**的價格 SKU，僅供與 ASEv2 搭配使用。 ASEv2 中裝載的所有 App Service 方案都位於「隔離」定價 SKU 中。 隔離的 App Service 方案費率會因區域而有所不同。 
 
@@ -148,13 +147,13 @@ ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。
 
 如果您將前端大小調整為 2 個核心，但不調整比率，則您需支付額外核心的費用。  ASE 已建立 2 個前端，所以即使低於自動調整閾值，如果大小增加到 2 個核心前端，您需支付 2 個額外核心的費用。
 
-如需詳細資訊，請參閱 [Azure App Service 價格][Pricing]。
+如需詳細資訊, 請參閱[Azure App Service 定價][Pricing]。
 
 ## <a name="delete-an-ase"></a>刪除 ASE ##
 
 若要刪除 ASE： 
 
-1. 請使用 [App Service Environment]  刀鋒視窗頂端的 [刪除]  。 
+1. 請使用 [App Service Environment] 刀鋒視窗頂端的 [刪除]。 
 
 1. 輸入 ASE 的名稱以確認您想要將它刪除。 當您刪除 ASE 時，將同時刪除其中包含的所有內容。 
 

@@ -10,17 +10,16 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13bc43595c09b3700798935f70c401c9311651c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60766638"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070885"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>透過可預測方式在 Azure 中佈建和部署微服務
 本教學課程示範如何在 [Azure App Service](https://azure.microsoft.com/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。 
@@ -65,13 +64,13 @@ ms.locfileid: "60766638"
 3. 您會進入 [deploy-to-azure](https://deploy.azure.com) 網站，並要求您輸入部署參數。 請注意，大部分的欄位都會填入儲存機制名稱以及一些隨機字串。 您可以視需要變更所有欄位，但唯一必須輸入的項目是 SQL Server 管理登入和密碼，然後按 [ **下一步**]。
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
-4. 接著，按一下 [ **部署** ] 啟動部署程序。 程序執行並完成之後，請按一下 http://todoapp XXXX  .azurewebsites.net 連結來瀏覽已部署的應用程式。 
+4. 接著，按一下 [ **部署** ] 啟動部署程序。 程序執行並完成之後，請按一下 http://todoapp XXXX.azurewebsites.net 連結來瀏覽已部署的應用程式。 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    
    在您第一次瀏覽至 UI 時，UI 會比較慢，因為應用程式剛剛啟動，但確信它是功能完整的應用程式。
-5. 回到 [部署] 頁面，並按一下 [管理]  連結，以在 Azure 入口網站中查看新的應用程式。
-6. 在 [ **Essentials** ] 下拉式清單中，按一下 [資源群組] 連結。 另請注意應用程式已連線至 [外部專案]  下的 GitHub 存放庫。 
+5. 回到 [部署] 頁面，並按一下 [管理] 連結，以在 Azure 入口網站中查看新的應用程式。
+6. 在 [ **Essentials** ] 下拉式清單中，按一下 [資源群組] 連結。 另請注意應用程式已連線至 [外部專案] 下的 GitHub 存放庫。 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
 7. 在資源群組刀鋒視窗中，請注意，資源群組中已經有兩個應用程式和一個 SQL Database。
@@ -192,11 +191,11 @@ ms.locfileid: "60766638"
 ## <a name="deploy-the-resource-group-template-yourself"></a>自行部署資源群組範本
 [ **部署至 Azure** ] 按鈕不錯，但是，只有在已將 azuredeploy.json 推送至 GitHub 時，它才可讓您在 azuredeploy.json 中部署資源群組範本。 Azure .NET SDK 也提供工具，讓您直接從本機電腦部署任何 JSON 範本檔案。 若要這樣做，請遵循下面的步驟：
 
-1. 在 Visual Studio 中，按一下 [檔案]   > [新增]   > [專案]  。
-2. 按一下 [Visual C#]   > [雲端]   > [Azure 資源群組]  ，然後按一下 [確定]  。
+1. 在 Visual Studio 中，按一下 [檔案] > [新增] > [專案]。
+2. 按一下 [Visual C#] > [雲端] > [Azure 資源群組]，然後按一下 [確定]。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
-3. 在 [選取 Azure 範本]  中，選取 [空白範本]  ，然後按一下 [確定]  。
+3. 在 [選取 Azure 範本] 中，選取 [空白範本]，然後按一下 [確定]。
 4. 將 azuredeploy.json 拖曳至新專案的 [ **樣本** ] 資料夾。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
@@ -204,7 +203,7 @@ ms.locfileid: "60766638"
 6. 按一下 [ **加入資源**]，將一些標準 Application Insight 資源加入 JSON 檔案，但此作業僅供示範之用。 如果您只想部署 JSON 檔案，請跳至部署步驟。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
-7. 選取 [Web Apps 的 Application Insights]  ，並確定已選取現有 App Service 方案和應用程式，然後按一下 [新增]  。
+7. 選取 [Web Apps 的 Application Insights]，並確定已選取現有 App Service 方案和應用程式，然後按一下 [新增]。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
@@ -223,7 +222,7 @@ ms.locfileid: "60766638"
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 登入 Azure 帳戶 (如果您尚未這樣做)。
-14. 在您的訂用帳戶中選取現有的資源群組，或選取 **azuredeploy.json**，然後按一下 [編輯參數]  建立新的資源群組。
+14. 在您的訂用帳戶中選取現有的資源群組，或選取 **azuredeploy.json**，然後按一下 [編輯參數] 建立新的資源群組。
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
@@ -238,7 +237,7 @@ ms.locfileid: "60766638"
     > 自動調整是**標準**層級或更高層級所提供的功能，而計劃層級警示是**基本**層級或更高層級所提供的功能，您需要將 **sku** 參數設為**標準**或**進階**，才能看到所有新的 App Insights 資源都已啟動。
     > 
     > 
-16. 按一下 [ **部署**]。 如果您選取 [儲存密碼]  ，則會將密碼**以純文字形式**儲存至參數檔。 否則，系統會在部署過程要求您輸入資料庫密碼。
+16. 按一下 [ **部署**]。 如果您選取 [儲存密碼]，則會將密碼**以純文字形式**儲存至參數檔。 否則，系統會在部署過程要求您輸入資料庫密碼。
 
 這樣就大功告成了！ 現在，您只需要移至 [Azure 入口網站](https://portal.azure.com/)和 [Azure 資源總管工具](https://resources.azure.com)，即可查看已新增 JSON 已部署應用程式中的新警示和自動調整設定。
 

@@ -3,15 +3,15 @@ title: 在 Azure Cosmos DB 中佈建資料庫輸送量
 description: 了解如何在 Azure Cosmos DB 中佈建資料庫層級的輸送量
 author: rimman
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: 2744422e2e082c5bc6f63975b1100f336d32d5fa
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: HT
+ms.openlocfilehash: 29bc65c8afaa1fe4bdc39923bd2219184e8b3a96
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250067"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093005"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中佈建資料庫的輸送量
 
@@ -25,12 +25,12 @@ ms.locfileid: "68250067"
 
 1. [建立新的 Azure Cosmos 帳戶](create-sql-api-dotnet.md#create-account)，或選取現有 Azure Cosmos 帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取 [新增資料庫]  。 提供下列詳細資料：
+1. 開啟 [資料總管] 窗格，然後選取 [新增資料庫]。 提供下列詳細資料：
 
    * 輸入資料庫識別碼。 
-   * 選取 [佈建輸送量]  。
+   * 選取 [佈建輸送量]。
    * 輸入輸送量 (例如 1000 RU)。
-   * 選取 [確定]  。
+   * 選取 [確定]。
 
 ![[新增資料庫] 對話方塊的螢幕擷取畫面](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 

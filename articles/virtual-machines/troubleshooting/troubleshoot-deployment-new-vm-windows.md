@@ -11,17 +11,16 @@ ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6bdf0816e40e34b184da0340a8dbaffbcd7657e8
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6dbe4c1533aecfab4a62ce3ad90b694c0c00f4b6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710448"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103494"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>針對在 Azure 中建立新 Windows VM 時的部署問題進行疑難排解
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -76,9 +75,9 @@ ms.locfileid: "67710448"
 * 以較小的 VM 大小重試要求。
 * 如果無法變更要求的 VM 的大小︰
   * 停止可用性設定組中的所有 VM。
-    按一下 [資源群組]   > [您的資源群組]   > [資源]   > [您的可用性設定組]   > [虛擬機器]   > [您的虛擬機器]   > [停止]  。
+    按一下 [資源群組] > [您的資源群組] > [資源] > [您的可用性設定組] > [虛擬機器] > [您的虛擬機器] > [停止]。
   * 所有 VM 都停止後，建立所需大小的新 VM。
-  * 先啟動新 VM，然後選取每個已停止的 VM 並按一下 [啟動]  。
+  * 先啟動新 VM，然後選取每個已停止的 VM 並按一下 [啟動]。
 
 **原因 2：** 叢集沒有可用的資源。
 

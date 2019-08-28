@@ -10,16 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: e551f23c833a5ed88fe14a2f61b03581be0c74fc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 9d94c4be90b408da7635f47567aa8f713f14de86
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480005"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083194"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>在 Azure 上支援第2代 Vm (預覽)
 
@@ -114,7 +113,7 @@ Marketplace 目前提供下列 Windows 第2代映射:
 
 您也可以使用虛擬機器擴展集來建立第2代 Vm。 在 Azure CLI 中, 使用 Azure 擴展集來建立第2代 Vm。
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 * **第2代 Vm 可以在所有 Azure 區域中使用嗎？**  
     是的。 但並非所有層[代 2 VM 大小](#generation-2-vm-sizes)都可以在每個區域中使用。 第2代 VM 的可用性取決於 VM 大小的可用性。

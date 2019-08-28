@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 837e29731b617fcb8da95b89668403638c4d049a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60733701"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087411"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>發佈至 Azure 事件方格 (預覽) 的 Durable Functions
 
@@ -35,16 +34,16 @@ ms.locfileid: "60733701"
 * 安裝 [Azure 儲存體模擬器](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)。
 * 安裝 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 或使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
-## <a name="create-a-custom-event-grid-topic"></a>建立自訂的事件格線主題
+## <a name="create-a-custom-event-grid-topic"></a>建立自訂事件方格主題
 
-建立從 Durable Functions 中傳送事件的 event grid 主題。 下列指示說明如何使用 Azure CLI 建立主題。 如需如何使用 PowerShell 或 Azure 入口網站執行此作業的相關資訊，請參閱下列文章：
+建立事件方格主題, 以從 Durable Functions 傳送事件。 下列指示說明如何使用 Azure CLI 建立主題。 如需如何使用 PowerShell 或 Azure 入口網站執行此作業的相關資訊，請參閱下列文章：
 
 * [EventGrid 快速入門：建立自訂事件 - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [EventGrid 快速入門：建立自訂事件 - Azure 入口網站](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-使用 `az group create` 命令建立資源群組。 目前，Azure Event Grid 不支援所有區域。 如需支援區域的資訊，請參閱[Azure Event Grid 概觀](https://docs.microsoft.com/azure/event-grid/overview)。
+使用 `az group create` 命令建立資源群組。 Azure 事件方格目前不支援所有區域。 如需有關支援哪些區域的詳細資訊, 請參閱[Azure 事件方格總覽](https://docs.microsoft.com/azure/event-grid/overview)。
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -52,7 +51,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>建立自訂主題
 
-Event grid 主題會提供使用者定義的端點，作為您發佈至事件。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它會變成 DNS 項目。
+事件方格主題會提供您張貼事件的使用者定義端點。 以主題的唯一名稱取代 `<topic_name>`。 主題名稱必須是唯一的，因為它會變成 DNS 項目。
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -89,7 +88,7 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 }
 ```
 
-可能的 Azure Event Grid 組態屬性位於[host.json 文件](../functions-host-json.md#durabletask)。 設定之後`host.json`檔案中，您的函式應用程式就會將生命週期事件傳送至 event grid 主題。 您必須在本機和在 Azure 中執行函式應用程式時，此工作。 ' '
+可能的 Azure 事件方格設定屬性可以在[host. json 檔](../functions-host-json.md#durabletask)中找到。 設定`host.json`檔案之後, 您的函數應用程式會將生命週期事件傳送至事件方格主題。 這適用于您在本機和 Azure 中執行函數應用程式的情況。
 
 在函式應用程式和 `local.setting.json` 中設定主題索引鍵的應用程式設定。 以下 JSON 是本機偵錯的 `local.settings.json` 範例。 以主題索引鍵取代 `<topic_key>`。  
 
@@ -108,11 +107,11 @@ az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "k
 
 ## <a name="create-functions-that-listen-for-events"></a>建立可接聽事件的函式
 
-建立函式應用程式。 最好的方式是在與 event grid 主題相同的區域中找到它。
+建立函式應用程式。 最好是在與事件方格主題相同的區域中找到它。
 
-### <a name="create-an-event-grid-trigger-function"></a>建立 event grid 觸發程序函式
+### <a name="create-an-event-grid-trigger-function"></a>建立事件方格觸發程式函式
 
-建立可接收生命週期事件的函式。 選取 [自訂函式]  。
+建立可接收生命週期事件的函式。 選取 [自訂函式]。
 
 ![選取 [建立自訂函式]。](./media/durable-functions-event-publishing/functions-portal.png)
 
@@ -138,11 +137,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-選取 `Add Event Grid Subscription`。 此操作會將您建立 event grid 主題的事件格線訂用帳戶。 如需詳細資訊，請參閱 [Azure 事件方格概念](https://docs.microsoft.com/azure/event-grid/concepts)。
+選取 `Add Event Grid Subscription`。 此作業會為您所建立的事件方格主題新增事件方格訂用帳戶。 如需詳細資訊，請參閱 [Azure 事件方格概念](https://docs.microsoft.com/azure/event-grid/concepts)。
 
 ![選取事件方格觸發程序連結。](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-針對 [主題類型]  選取 `Event Grid Topics`。 選取您建立的 event grid 主題的資源群組。 然後選取 event grid 主題的執行個體。 按 `Create`。
+針對 [主題類型] 選取 `Event Grid Topics`。 選取您為事件方格主題所建立的資源群組。 然後選取事件方格主題的實例。 按 `Create`。
 
 ![建立事件格線訂用帳戶。](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -250,7 +249,7 @@ namespace LifeCycleEventSpike
 
 下列清單說明生命週期事件結構描述︰
 
-* **`id`** ：事件格線事件的唯一識別碼。
+* **`id`** ：事件方格事件的唯一識別碼。
 * **`subject`** ：事件主體的路徑。 `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` 會是 `Running`、`Completed`、`Failed` 和 `Terminated`。  
 * **`data`** ：Durable Functions 專屬參數。
   * **`hubName`** ：[TaskHub](durable-functions-task-hubs.md) 名稱。
@@ -258,11 +257,11 @@ namespace LifeCycleEventSpike
   * **`instanceId`** ：Durable Functions 執行個體識別碼。
   * **`reason`** ：與追蹤事件相關聯的其他資料。 如需詳細資訊，請參閱 [Durable Functions 中的診斷 (Azure Functions)](durable-functions-diagnostics.md)
   * **`runtimeStatus`** ：協調流程執行階段狀態。 執行中、已完成、失敗、已取消。
-* **`eventType`** : 「 orchestratorEvent"
+* **`eventType`** : "orchestratorEvent"
 * **`eventTime`** ：事件時間 (UTC)。
 * **`dataVersion`** ：生命週期事件結構描述的版本。
 * **`metadataVersion`** ：中繼資料的版本。
-* **`topic`** ：事件格線主題資源。
+* **`topic`** ：事件方格主題資源。
 
 ## <a name="how-to-test-locally"></a>本機測試方式
 

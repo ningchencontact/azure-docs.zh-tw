@@ -1,25 +1,24 @@
 ---
-title: Azure Functions 觸發程序和繫結範例
-description: 了解如何設定 Azure 函式繫結
+title: Azure Functions 觸發程式和系結範例
+description: 瞭解如何設定 Azure 函數系結
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: bced6dc71063b6be68d739ef67fb5ec46c3d1be6
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d1959792823e04cf34d65ab775ae8c51e741e293
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480442"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097475"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 觸發程序和繫結範例
+# <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 觸發程式和系結範例
 
-這篇文章示範如何設定[觸發程序和繫結](./functions-triggers-bindings.md)在 Azure 函式。
+本文示範如何在 Azure 函數中設定[觸發程式和](./functions-triggers-bindings.md)系結。
 
 假設您想要每當新訊息出現在 Azure 佇列儲存體時，就在 Azure 表格儲存體寫入新的資料列。 此案例可以使用 Azure 佇列儲存體觸發程序和 Azure 表格儲存體輸出繫結來實作。 
 
@@ -50,7 +49,7 @@ ms.locfileid: "67480442"
 
 `bindings` 陣列中的第二個元素是 Azure 表格儲存體輸出繫結。 `type` 和 `direction` 屬性可識別繫結。 `name` 屬性指定函式如何提供新的資料表資料列，在本例中是透過函式傳回值。 資料表的名稱是在 `tableName` 中，而連接字串則是在 `connection` 所識別的應用程式設定中。
 
-若要在 Azure 入口網站中檢視及編輯 *function.json* 的內容，請按一下函數的 [整合]  索引標籤上的 [進階編輯器]  選項。
+若要在 Azure 入口網站中檢視及編輯 *function.json* 的內容，請按一下函數的 [整合] 索引標籤上的 [進階編輯器] 選項。
 
 > [!NOTE]
 > `connection` 的值是包含連接字串的應用程式設定名稱，而不是連接字串本身。 繫結使用儲存在應用程式設定中的連接字串，以強制遵循 *function.json* 不包含服務祕密的最佳做法。
@@ -87,7 +86,7 @@ public class Person
 
 ## <a name="javascript-example"></a>JavaScript 範例
 
-相同*function.json*檔案可以搭配 JavaScript 函式：
+相同的*函數. json*檔案可以與 JavaScript 函式搭配使用:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -105,9 +104,9 @@ function generateRandomId() {
 }
 ```
 
-## <a name="class-library-example"></a>類別程式庫範例
+## <a name="class-library-example"></a>類別庫範例
 
-在類別庫中，會由屬性 (而非 function.json 檔案) 提供相同的觸發程序和繫結資訊 &mdash;佇列和資料表名稱、儲存體帳戶、輸入和輸出的函式參數&mdash;。 以下是範例：
+在類別庫中，會由屬性 (而非 function.json 檔案) 提供相同的觸發程序和繫結資訊 &mdash;佇列和資料表名稱、儲存體帳戶、輸入和輸出的函式參數&mdash;。 以下為範例：
 
 ```csharp
 public static class QueueTriggerTableOutput
@@ -135,9 +134,9 @@ public class Person
 }
 ```
 
-您現在已由 Azure 佇列所觸發，並將資料輸出到 Azure 資料表儲存體的工作函式。
+您現在有一個可運作的函式, 它會由 Azure 佇列觸發, 並將資料輸出到 Azure 資料表儲存體。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [繫結運算式模式的 azure 函式](./functions-bindings-expressions-patterns.md)
+> [Azure Functions 系結運算式模式](./functions-bindings-expressions-patterns.md)

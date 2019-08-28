@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f97cce2d1a8b2de5634215629ddb997dc8f7196a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235193"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077978"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>適用於最佳網路延遲的 Azure Proximity Placement Groups (搭配 SAP 應用程式)
 以 SAP NetWeaver 或 SAP S/4HANA 架構為基礎的 SAP 應用程式, 對於 SAP 應用層與 SAP 資料庫層之間的網路延遲是敏感的。 這些架構的敏感性原因在於, 大部分商務邏輯都是在應用層中執行。 執行商務邏輯的結果是, SAP 應用層會以高頻率 (每秒數千和數萬個) 發出查詢至資料庫層。 在大部分情況下, 這些查詢的本質很簡單。 而且通常可以在不到500毫秒或更少的情況中, 于資料庫層上執行。 從應用層將這類查詢傳送至資料庫層, 並從資料庫層接收結果集的時間, 對於執行商務程式所花費的時間有重大影響。 這對網路延遲的敏感性是需要花費在 SAP 部署專案中的原因, 以達到最佳的網路延遲。 在[SAP 附注 #1100926-常見問題:網路效能](https://launchpad.support.sap.com/#/notes/1100926/E), SAP 發佈了如何分類網路延遲的一些指導方針。

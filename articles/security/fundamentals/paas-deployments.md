@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: a562630ef19c134c227ef44b944c1dd921ff2e46
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726813"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098633"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
@@ -139,7 +139,7 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 **詳細資料**：[App Service 環境](/azure/app-service/environment/intro)具有虛擬網路整合功能，可協助您透過網路安全性群組限制連入來源 IP 位址。 虛擬網路可讓您將 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 若要深入了解，請參閱[將您的應用程式與 Azure 虛擬網路整合](/azure/app-service/web-sites-integrate-with-vnet)。
 
 **最佳做法**：監視 App Service 環境的安全性狀態。   
-**詳細資料**：使用 Azure 資訊安全中心來監視 App Service 環境。 當資訊安全中心發現潛在的安全性弱點時會建立[建議](/azure/security-center/security-center-virtual-machine-recommendations)，引導您完成設定所需控制項的程序。
+**詳細資料**：使用 Azure 資訊安全中心來監視 App Service 環境。 當資訊安全中心發現潛在的安全性弱點時會建立[建議](../../security-center/security-center-virtual-machine-protection.md)，引導您完成設定所需控制項的程序。
 
 > [!NOTE]
 > 監視 App Service 是預覽功能，僅適用於資訊安全中心的[標準層](/azure/security-center/security-center-pricing)。

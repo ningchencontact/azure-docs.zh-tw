@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: af2295643869ba8022fe15cf1e1cef3f2f20a428
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c3ebaae9fc023eb309bceeac7543b279a21fd436
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849835"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079791"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>使用 Azure 入口網站在可用性區域中建立 Windows 虛擬機器
 
@@ -35,11 +34,11 @@ ms.locfileid: "67849835"
 
 ## <a name="create-virtual-machine"></a>建立虛擬機器
 
-1. 按一下 Azure 入口網站左上角的 [建立資源]  。
+1. 按一下 Azure 入口網站左上角的 [建立資源]。
 
-2. 選取 [計算]  ，然後選取 [Windows Server 2016 Datacenter]  。 
+2. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。 
 
-3. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼用於登入虛擬機器。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。 選擇支援可用性區域的位置，例如美國東部 2。 完成時，按一下 [確定]  。
+3. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼用於登入虛擬機器。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。 選擇支援可用性區域的位置，例如美國東部 2。 完成時，按一下 [確定]。
 
     ![在入口網站刀鋒視窗中輸入 VM 的基本資訊](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
@@ -47,11 +46,11 @@ ms.locfileid: "67849835"
 
     ![選取 VM 大小](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. 在 [設定]   > [高可用性]  底下，從 [可用性區域]  下拉式清單中選取其中一個編號的區域、保留其餘的預設值，並按一下 [確定]  。
+5. 在 [設定] > [高可用性] 底下，從 [可用性區域] 下拉式清單中選取其中一個編號的區域、保留其餘的預設值，並按一下 [確定]。
 
     ![選取可用性區域](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 
-6. 在摘要頁面上，按一下 [建立]  開始進行虛擬機器部署。
+6. 在摘要頁面上，按一下 [建立] 開始進行虛擬機器部署。
 
 7. 系統會將 VM 釘選到 Azure 入口網站儀表板。 一旦完成部署後，VM 摘要就會自動開啟。
 
@@ -61,13 +60,13 @@ ms.locfileid: "67849835"
 
 您可以在入口網站中確認這些資源的區域設定。  
 
-1. 按一下 [資源群組]  ，然後按一下 VM 的資源群組名稱，例如 *myResourceGroup*。
+1. 按一下 [資源群組]，然後按一下 VM 的資源群組名稱，例如 *myResourceGroup*。
 
-2. 按一下磁碟資源的名稱。 [概觀]  頁面包括資源的位置和可用性區域的詳細資料。
+2. 按一下磁碟資源的名稱。 [概觀] 頁面包括資源的位置和可用性區域的詳細資料。
 
     ![受控磁碟的可用性區域](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
 
-3. 按一下公用 IP 位址資源的名稱。 [概觀]  頁面包括資源的位置和可用性區域的詳細資料。
+3. 按一下公用 IP 位址資源的名稱。 [概觀] 頁面包括資源的位置和可用性區域的詳細資料。
 
     ![IP 位址的可用性區域](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
 

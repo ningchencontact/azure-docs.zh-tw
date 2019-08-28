@@ -11,17 +11,16 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: be3768aadb3e256aa7b0ba7fe3d72cf4169e9bb2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1dc776f0a61ac1a29ab3fe3ebdd542469863cd50
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705707"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071363"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>使用用於容器的 Web 應用程式進行持續部署
 
@@ -32,12 +31,12 @@ ms.locfileid: "67705707"
 ![ACR Webhook 的螢幕擷取畫面](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取頁面左側的 [App Service]  選項。
+2. 選取頁面左側的 [App Service] 選項。
 3. 選取您要設定持續部署的應用程式名稱。
-4. 在 [容器設定]  頁面上，選取 [單一容器] 
-5. 選取 [Azure Container Registry] 
-6. 選取 [持續部署] > [開啟] 
-7. 選取 [儲存]  以啟用持續部署。
+4. 在 [容器設定] 頁面上，選取 [單一容器]
+5. 選取 [Azure Container Registry]
+6. 選取 [持續部署] > [開啟]
+7. 選取 [儲存] 以啟用持續部署。
 
 ## <a name="use-the-acr-webhook"></a>使用 ACR Webhook
 
@@ -50,12 +49,12 @@ ms.locfileid: "67705707"
 ## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>透過 Docker Hub 啟用持續部署 (選用)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取頁面左側的 [App Service]  選項。
+2. 選取頁面左側的 [App Service] 選項。
 3. 選取您要設定持續部署的應用程式名稱。
-4. 在 [容器設定]  頁面上，選取 [單一容器] 
-5. 選取 [Docker Hub] 
-6. 選取 [持續部署] > [開啟] 
-7. 選取 [儲存]  以啟用持續部署。
+4. 在 [容器設定] 頁面上，選取 [單一容器]
+5. 選取 [Docker Hub]
+6. 選取 [持續部署] > [開啟]
+7. 選取 [儲存] 以啟用持續部署。
 
 ![應用程式設定的螢幕擷取畫面](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 

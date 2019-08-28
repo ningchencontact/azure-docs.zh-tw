@@ -6,20 +6,19 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae6c2bd27e9192966ecffb4d4296063201fca970
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387084"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098009"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Durable Functions 中的監視器案例 - 天氣監看員範例
 
-監視器模式指的是工作流程中的彈性「週期性」  程序，例如，輪詢直到符合特定條件。 本文會說明使用 [Durable Functions](durable-functions-overview.md) 來實作監視的範例。
+監視器模式指的是工作流程中的彈性「週期性」程序，例如，輪詢直到符合特定條件。 本文會說明使用 [Durable Functions](durable-functions-overview.md) 來實作監視的範例。
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -27,7 +26,7 @@ ms.locfileid: "66387084"
 
 此範例會監視某地點的目前天氣狀況，並在天空放晴時用簡訊對使用者發出警示。 您可以使用一般的計時器觸發函式來檢查天氣並傳送警示。 不過，這個方法有一個問題，那就是**存留期管理**。 如果應傳送的警示只有一個，則監視器必須在偵測到天氣晴朗後自行停用。 監視模式除了可以結束自身的執行外，還有其他優點：
 
-* 監視器會依間隔 (而非排程) 來執行：計時器觸發程序每小時「執行」  一次；監視器會在動作之間「等候」  一小時。 除非有指定，否則監視器的動作不會重疊，對於長時間執行的工作來說，這一點很重要。
+* 監視器會依間隔 (而非排程) 來執行：計時器觸發程序每小時「執行」一次；監視器會在動作之間「等候」一小時。 除非有指定，否則監視器的動作不會重疊，對於長時間執行的工作來說，這一點很重要。
 * 監視器可具有動態間隔：等待時間可以根據某些條件來變更。
 * 監視器可於某些條件成立時終止，或由其他程序加以終止。
 * 監視器可以採用參數。 此範例會示範如何將相同的天氣監視程序套用至任何要求的地點和電話號碼。
@@ -62,7 +61,7 @@ ms.locfileid: "66387084"
 
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>天氣監視協調流程 (Visual Studio Code 和 Azure 入口網站程式碼範例)
 
-**E3_Monitor** 函式會使用協調器函式的標準 function.json  。
+**E3_Monitor** 函式會使用協調器函式的標準 function.json。
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Monitor/function.json)]
 
@@ -78,7 +77,7 @@ ms.locfileid: "66387084"
 
 此協調器函式會執行下列動作：
 
-1. 取得 **MonitorRequest**，其中包含要監視的「地點」  以及要用來作為簡訊通知傳送目的地的「電話號碼」  。
+1. 取得 **MonitorRequest**，其中包含要監視的「地點」以及要用來作為簡訊通知傳送目的地的「電話號碼」。
 2. 判斷監視器的到期時間。 為求簡單明瞭，這個範例會使用硬式編碼值。
 3. 呼叫 **E3_GetIsClear** 來判斷所要求之地點的天空是否晴朗。
 4. 如果天氣晴朗，則呼叫 **E3_SendGoodWeatherAlert** 以將簡訊通知傳送至要求的電話號碼。
@@ -89,7 +88,7 @@ ms.locfileid: "66387084"
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>強型別資料轉送 (僅限 .NET)
 
-協調器需要多段資料，因此[共用 POCO 物件](../functions-reference-csharp.md#reusing-csx-code)用於強型別資料傳輸，在C#和C#指令碼：  
+協調器需要多個資料片段, 因此會在和C# C#腳本中使用[共用 POCO 物件](../functions-reference-csharp.md#reusing-csx-code)進行強型別資料傳輸:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
@@ -98,7 +97,7 @@ JavaScript 範例會使用一般 JSON 物件作為參數。
 
 ## <a name="helper-activity-functions"></a>協助程式活動函式
 
-如同其他範例一樣，協助程式活動函式是使用 `activityTrigger` 觸發程序繫結的一般函式。 **E3_GetIsClear** 函式會使用 Weather Underground API 取得目前的天氣狀況，並判斷天空是否晴朗。 function.json  定義如下：
+如同其他範例一樣，協助程式活動函式是使用 `activityTrigger` 觸發程序繫結的一般函式。 **E3_GetIsClear** 函式會使用 Weather Underground API 取得目前的天氣狀況，並判斷天空是否晴朗。 function.json 定義如下：
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
@@ -112,7 +111,7 @@ JavaScript 範例會使用一般 JSON 物件作為參數。
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-**E3_SendGoodWeatherAlert** 函式會使用 Twilio 繫結來傳送手機簡訊，通知使用者這是散步的好時機。 其 function.json  很簡單：
+**E3_SendGoodWeatherAlert** 函式會使用 Twilio 繫結來傳送手機簡訊，通知使用者這是散步的好時機。 其 function.json 很簡單：
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/function.json)]
 

@@ -10,17 +10,16 @@ ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 52d02fd79571e42f71c06b7090534136e4a5e341
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 0f4915add76ce21064b7a79ae110f608592263bd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814682"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067135"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 複製 Azure App Service App
 
@@ -31,7 +30,7 @@ ms.locfileid: "68814682"
 Standard、Premium、Premium V2 和隔離的應用程式服務方案支援應用程式複製。 新功能會使用與 App Service 備份功能相同的限制，請參閱[在 Azure App Service 中備份應用程式](manage-backup.md)。
 
 ## <a name="cloning-an-existing-app"></a>複製現有的應用程式
-案例:您想要將位於美國中南部區域的現有應用程式內容，複製到位於美國中北部區域的新應用程式。 使用 Azure Resource Manager 版本的 PowerShell Cmdlet 並搭配 `-SourceWebApp` 選項來建立新的應用程式，即可實現此目的。
+案例：您想要將位於美國中南部區域的現有應用程式內容，複製到位於美國中北部區域的新應用程式。 使用 Azure Resource Manager 版本的 PowerShell Cmdlet 並搭配 `-SourceWebApp` 選項來建立新的應用程式，即可實現此目的。
 
 若知道包含來源應用程式的資源群組名稱，您就能使用下列 PowerShell 命令來取得來源應用程式的資訊 (在此例中名為 `source-webapp`)：
 
@@ -64,7 +63,7 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>複製現有應用程式至 App Service 環境
-案例:您想要將位於美國中南部區域的現有應用程式內容，複製到現有 App Service 環境 (ASE) 的新應用程式中。
+案例：您想要將位於美國中南部區域的現有應用程式內容，複製到現有 App Service 環境 (ASE) 的新應用程式中。
 
 若知道包含來源應用程式的資源群組名稱，您就能使用下列 PowerShell 命令來取得來源應用程式的資訊 (在此例中名為 `source-webapp`)：
 
@@ -81,7 +80,7 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 由於舊版因素，因此需有 `Location` 參數，但在 ASE 中建立應用程式時，則會忽略此參數。 
 
 ## <a name="cloning-an-existing-app-slot"></a>複製現有的應用程式位置
-案例:您想要將應用程式的現有部署位置複製到新的應用程式或新位置。 新的應用程式可以位於與原始應用程式位置相同的區域或不同區域中。
+案例：您想要將應用程式的現有部署位置複製到新的應用程式或新位置。 新的應用程式可以位於與原始應用程式位置相同的區域或不同區域中。
 
 若知道包含來源應用程式的資源群組名稱，您就能使用下列 PowerShell 命令，來取得繫結至 `source-app` 之來源應用程式位置的資訊 (在此例中名為 `source-appslot`)：
 
@@ -99,14 +98,14 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 建立多區域的應用程式並將 Azure 流量管理員設定為將流量路由傳送到這些所有應用程式，是確保客戶的應用程式具有高可用性的重要案例。 複製現有應用程式時，您可以選擇將這兩個應用程式連線到新的流量管理員設定檔或現有設定檔。 只支援 Azure Resource Manager 版本的流量管理員。
 
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>在複製應用程式時建立新流量管理員設定檔
-案例:您想要將應用程式複製到另一個區域，同時設定包含這兩個應用程式的 Azure Resource Manager 流量管理員設定檔。 下列命令示範如何建立從來源應用程式至新應用程式的複製作業，同時設定新的流量管理員設定檔：
+案例：您想要將應用程式複製到另一個區域，同時設定包含這兩個應用程式的 Azure Resource Manager 流量管理員設定檔。 下列命令示範如何建立從來源應用程式至新應用程式的複製作業，同時設定新的流量管理員設定檔：
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>將新複製的應用程式新增至現有的流量管理員設定檔
-案例:您已經擁有 Azure Resource Manager 流量管理員設定檔，如今想要將這兩個應用程式新增為端點。 若要這麼做，您必須先組合現有的流量管理員設定檔識別碼。 您需要訂用帳戶識別碼、資源群組名稱和現有流量管理員設定檔名稱。
+案例：您已經擁有 Azure Resource Manager 流量管理員設定檔，如今想要將這兩個應用程式新增為端點。 若要這麼做，您必須先組合現有的流量管理員設定檔識別碼。 您需要訂用帳戶識別碼、資源群組名稱和現有流量管理員設定檔名稱。
 
 ```powershell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"

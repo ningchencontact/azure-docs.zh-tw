@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
-ms.openlocfilehash: 18cb7433de81ddf6733a494778d0a7c82afb5677
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3f7ba22fa8e2a8709fc37a891b3da64b6d83e654
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323988"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095634"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch Management 解決方案
 
@@ -36,7 +35,7 @@ Batch 管理 .NET 程式庫會公開使用 Batch 帳戶、帳戶金鑰、應用�
 
 Azure [Active Directory 驗證程式庫][aad_adal](ADAL) 提供了一種程式設計介面, 可供 Azure AD 在您的應用程式中使用。 若要從您的應用程式呼叫 ADAL，您必須在 Azure AD 租用戶中註冊您的應用程式。 當您註冊應用程式時，要提供 Azure AD 有關您應用程式的資訊，包括 Azure AD 租用戶內的名稱。 Azure AD 接著會提供您在執行階段用來將應用程式與 Azure AD 產生關聯的應用程式識別碼。 若要深入了解應用程式識別碼，請參閱[Azure Active Directory 中的應用程式物件和服務主體物件之間的關聯性討論](../active-directory/develop/app-objects-and-service-principals.md)。
 
-若要註冊 AccountManagement 範例應用程式, 請遵循[整合應用程式與 Azure Active Directory][aad_integrate]中的[新增應用程式](../active-directory/develop/quickstart-register-app.md)一節中的步驟。 指定 [原生用戶端應用程式]  作為應用程式類型。 適用於**重新導向 URI** 的業界標準 OAuth 2.0 URI 是 `urn:ietf:wg:oauth:2.0:oob`。 不過，您可以針對**重新導向 URI** 指定任何有效的 URI (例如 `http://myaccountmanagementsample`)，因為它不需要是實際的端點：
+若要註冊 AccountManagement 範例應用程式, 請遵循[整合應用程式與 Azure Active Directory][aad_integrate]中的[新增應用程式](../active-directory/develop/quickstart-register-app.md)一節中的步驟。 指定 [原生用戶端應用程式] 作為應用程式類型。 適用於**重新導向 URI** 的業界標準 OAuth 2.0 URI 是 `urn:ietf:wg:oauth:2.0:oob`。 不過，您可以針對**重新導向 URI** 指定任何有效的 URI (例如 `http://myaccountmanagementsample`)，因為它不需要是實際的端點：
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -50,18 +49,18 @@ Azure [Active Directory 驗證程式庫][aad_adal](ADAL) 提供了一種程式�
 
 在 Azure 入口網站中遵循下列步驟：
 
-1. 在 Azure 入口網站的左側導覽窗格中，選擇 [所有服務]  ，按一下 [應用程式註冊]  ，然後按一下 [新增]  。
+1. 在 Azure 入口網站的左側導覽窗格中，選擇 [所有服務]，按一下 [應用程式註冊]，然後按一下 [新增]。
 2. 在應用程式註冊清單中搜尋您應用程式的名稱︰
 
     ![搜尋您的應用程式名稱](./media/batch-aad-auth-management/search-app-registration.png)
 
-3. 顯示 [設定]  刀鋒視窗。 在 [API 存取]  區段中，選取 [必要權限]  。
-4. 按一下 [新增]  以新增必要權限。 
-5. 在步驟 1 中，輸入 **Windows Azure 服務管理 API**，從結果清單選取該 API，然後按一下 [選取]  按鈕。
-6. 在步驟 2 中，選取**存取 Azure 傳統部署模型做為組織使用者**旁的核取方塊，然後按一下 [選取]  按鈕。
-7. 按一下 [完成]  按鈕。
+3. 顯示 [設定] 刀鋒視窗。 在 [API 存取] 區段中，選取 [必要權限]。
+4. 按一下 [新增] 以新增必要權限。 
+5. 在步驟 1 中，輸入 **Windows Azure 服務管理 API**，從結果清單選取該 API，然後按一下 [選取] 按鈕。
+6. 在步驟 2 中，選取**存取 Azure 傳統部署模型做為組織使用者**旁的核取方塊，然後按一下 [選取] 按鈕。
+7. 按一下 [完成] 按鈕。
 
-[必要權限]  刀鋒視窗現在會顯示已向 ADAL 和 Resource Manager API 授與您應用程式的權限。 當您第一次向 Azure AD 註冊您的應用程式時，權限依預設會授與給 ADAL。
+[必要權限] 刀鋒視窗現在會顯示已向 ADAL 和 Resource Manager API 授與您應用程式的權限。 當您第一次向 Azure AD 註冊您的應用程式時，權限依預設會授與給 ADAL。
 
 ![委派權限給 Azure Resource Manager API](./media/batch-aad-auth-management/required-permissions-management-plane.png)
 

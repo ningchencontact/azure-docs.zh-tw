@@ -3,15 +3,15 @@ title: 在 Azure Cosmos DB 中尋找要求單位 (RU) 費用
 description: 了解如何尋找對 Azure Cosmos 容器執行的任何作業所產生的要求單位 (RU) 費用。
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 96c36067456a49a5760d6fde488dcb4ad8311a90
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356454"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093716"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中尋找要求單位費用
 
@@ -29,13 +29,13 @@ ms.locfileid: "68356454"
 
 1. [建立新的 Azure Cosmos 帳戶](create-sql-api-dotnet.md#create-account)並為其提供資料，或選取已包含資料的現有 Azure Cosmos 帳戶。
 
-1. 前往 [資料總管]  窗格，然後選取您要處理的容器。
+1. 前往 [資料總管] 窗格，然後選取您要處理的容器。
 
-1. 選取 [新增 SQL 查詢]  。
+1. 選取 [新增 SQL 查詢]。
 
-1. 輸入有效的查詢，然後選取 [執行查詢]  。
+1. 輸入有效的查詢，然後選取 [執行查詢]。
 
-1. 選取下 [查詢統計資料]  ，以顯示您執行的要求實際的要求費用。
+1. 選取下 [查詢統計資料]，以顯示您執行的要求實際的要求費用。
 
 ![Azure 入口網站之中 SQL 查詢要求費用的螢幕擷取畫面](./media/find-request-unit-charge/portal-sql-query.png)
 
@@ -176,13 +176,13 @@ RU 費用可用名為 `getLastRequestStatistics` 的自訂[資料庫命令](http
 
 1. [建立新的 Azure Cosmos 帳戶](create-mongodb-dotnet.md#create-a-database-account)並為其提供資料，或選取已包含資料的現有帳戶。
 
-1. 前往 [資料總管]  窗格，然後選取您要處理的集合。
+1. 前往 [資料總管] 窗格，然後選取您要處理的集合。
 
-1. 選取 [新增查詢]  。
+1. 選取 [新增查詢]。
 
-1. 輸入有效的查詢，然後選取 [執行查詢]  。
+1. 輸入有效的查詢，然後選取 [執行查詢]。
 
-1. 選取下 [查詢統計資料]  ，以顯示您執行的要求實際的要求費用。
+1. 選取下 [查詢統計資料]，以顯示您執行的要求實際的要求費用。
 
 ![Azure 入口網站之中 MongoDB 查詢要求費用的螢幕擷取畫面](./media/find-request-unit-charge/portal-mongodb-query.png)
 

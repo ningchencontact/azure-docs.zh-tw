@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 4b0cd88cbb3729a3e81aeb5d6f43f417c8cb2f17
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c37b81e08e5d9f150081a9dc12af51175e3f590c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682758"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084693"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用於 Linux 的 DSC 擴充功能 (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -36,18 +35,18 @@ DSCForLinux 擴充功能由 Microsoft 所發佈及支援。 此擴充功能可�
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
 DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)，但下列項目除外：
 
-| 配送映像 | Version |
+| 發佈 | Version |
 |---|---|
 | Debian | 所有版本 |
 | Ubuntu| 18.04 |
  
-### <a name="internet-connectivity"></a>網際網路連線
+### <a name="internet-connectivity"></a>網際網路的連線能力
 
 要使用 DSCForLinux 擴充功能，必須將目標虛擬機器連線至網際網路。 例如，註冊擴充功能需要連線至自動化服務。 其他動作 (例如推送、提取、安裝) 則需要連線至 Azure 儲存體/Github。 這取決於客戶所提供的設定。
 
@@ -67,7 +66,7 @@ DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](https
 * `ConfigurationModeFrequencyMins`：(選擇性，int) 指定 DSC 確認組態處於適當狀態的頻率 (以分鐘為單位)。
 
 > [!NOTE]
-> 如果您使用低於 2.3 的版本，則模式參數會與 ExtensionAction 相同。 模式似乎是一個多載的詞彙。 因此，為了避免混淆，自 2.3 版起均使用 ExtensionAction。 為了顧及回溯相容性，此擴充功能同時支援模式和 ExtensionAction。 
+> 如果您使用低於 2.3 的版本，則模式參數會與 ExtensionAction 相同。 模式似乎是多載的詞彙。 因此，為了避免混淆，自 2.3 版起均使用 ExtensionAction。 為了顧及回溯相容性，此擴充功能同時支援模式和 ExtensionAction。 
 >
 
 ### <a name="12-protected-configuration"></a>1.2 受保護的組態
@@ -419,7 +418,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-錯誤碼：51 代表不支援的發行版本或不支援的擴充功能動作。
+錯誤碼:51 代表不支援的發行版本或不支援的擴充功能動作。
 在某些情況下，如果電腦上已有較高版本的 OMI 存在，DSC Linux 擴充功能會無法安裝 OMI。 [錯誤回應：(000003) 不允許降級]
 
 

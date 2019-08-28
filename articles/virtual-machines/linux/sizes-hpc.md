@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 847f25d9be1a8654bbc0435d7874acb0ff793304
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ee99869c2b7a7b3ab38fdd9eae0687862ea53819
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695589"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100869"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>高效能運算的虛擬機器大小
 
@@ -33,22 +32,22 @@ ms.locfileid: "67695589"
 
 ### <a name="mpi"></a>MPI 
 
-SR-IOV 啟用在 Azure 上的 VM 大小所允許的 MPI 用於幾乎任何類別。
-在非 SR-IOV 啟用 Vm 上支援 Intel MPI 5.x 版本。 更新版本 （2017年和 2018年） 的 Intel MPI 執行階段程式庫可能會或可能不相容的 Azure Linux RDMA 驅動程式。
+Azure 上已啟用 SR-IOV 的 VM 大小幾乎可讓您使用任何 MPI 的類別。
+在未啟用 SR-IOV 的 Vm 上, 只支援 Intel MPI 5.x 版本。 Intel MPI 執行時間程式庫的較新版本 (2017、2018) 可能會與 Azure Linux RDMA 驅動程式不相容。
 
 
 ### <a name="supported-os-images"></a>支援的作業系統映像
  
-Azure Marketplace 有許多 Linux 散發套件支援 RDMA 連線能力：
+Azure Marketplace 有許多支援 RDMA 連線能力的 Linux 散發套件:
   
-* **CentOS 型 HPC** -非 SR-IOV 啟用 CentOS 型 6.5 版的 Vm，HPC 或更新版本 7.5 最適合。 H 系列 Vm 的建議版本 7.1 以 7.5。 已在 VM 上安裝 RDMA 驅動程式和 Intel MPI 5.1。
-  對於 SR-IOV 的 Vm，CentOS HPC 7.6 會隨附最佳化並預先載入的 RDMA 驅動程式與各種 MPI 套件安裝。
-  對於其他 RHEL/CentOS VM 映像中，新增 InfiniBandLinux 擴充功能，以啟用 InfiniBand。 這個的 Linux VM 擴充功能安裝 （在 SR-IOV Vm) 上進行 RDMA 連線的 Mellanox OFED 驅動程式。 下列 PowerShell cmdlet 會在現有具備 RDMA 功能的 VM 上安裝 InfiniBandDriverLinux 延伸模組的最新版本 （1.0 版）。 支援 RDMA 的 VM 會命名為*myVM*並部署在資源群組中名為*myResourceGroup*中*美國西部*區域，如下所示：
+* **CentOS 為基礎的 hpc** -針對非 sr-iov 啟用的 Vm, CentOS 型版本 6.5 HPC 或更新版本, 最多可達7.5。 針對 H 系列 Vm, 建議使用7.1 到7.5 版。 已在 VM 上安裝 RDMA 驅動程式和 Intel MPI 5.1。
+  針對 SR-IOV Vm, CentOS-HPC 7.6 已針對 RDMA 驅動程式和安裝的各種 MPI 套件進行優化和預先載入。
+  若為其他 RHEL/CentOS VM 映射, 請新增 InfiniBandLinux 延伸模組以啟用 [未使用]。 此 Linux VM 擴充功能會安裝適用于 RDMA 連線的 Mellanox OFED 驅動程式 (在 SR-IOV Vm 上)。 下列 PowerShell Cmdlet 會在現有具備 RDMA 功能的 VM 上安裝 InfiniBandDriverLinux 延伸模組的最新版本 (版本 1.0)。 具備 RDMA 功能的 VM 會命名為*myVM* , 並部署在*美國西部*區域中名為*myResourceGroup*的資源群組中, 如下所示:
 
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
   ```
-  或者，VM 延伸模組可以包含在 Azure Resource Manager 範本，以便於部署，使用下列 JSON 項目：
+  或者, 您可以將 VM 擴充功能包含在 Azure Resource Manager 範本中, 以便使用下列 JSON 元素進行輕鬆部署:
   ```json
   "properties":{
   "publisher": "Microsoft.HpcCompute",
@@ -57,7 +56,7 @@ Azure Marketplace 有許多 Linux 散發套件支援 RDMA 連線能力：
   } 
   ```
   
-  下列命令中現有的 VM 擴展集的所有處理支援 RDMA 之 Vm 上安裝最新版本 1.0 InfiniBandDriverLinux 擴充功能*myVMSS*部署在資源群組中名為*myResourceGroup*:
+  下列命令會在名為*myResourceGroup*的資源群組中名為*MYVMSS*的現有 VM 擴展集內的所有支援 RDMA 的 vm 上, 安裝最新版本 1.0 InfiniBandDriverLinux 延伸模組:
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
   Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
@@ -66,21 +65,21 @@ Azure Marketplace 有許多 Linux 散發套件支援 RDMA 連線能力：
   ```
   
   > [!NOTE]
-  > 在 CentOS 型 HPC 映像上， **yum** 組態檔中已停用核心更新。 這是因為 Linux RDMA 驅動程式以 RPM 封裝中，散發，而且如果更新核心，驅動程式更新可能無法運作。
+  > 在 CentOS 型 HPC 映像上， **yum** 組態檔中已停用核心更新。 這是因為 Linux RDMA 驅動程式是以 RPM 套件的形式散發, 如果核心已更新, 驅動程式更新可能無法正常執行。
   >
   
 
-* **SUSE Linux Enterprise Server** -SLES 12 SP3 for HPC、 SLES 12 SP3 for HPC (Premium)、 SLES 12 SP1 for HPC、 SLES 12 SP1 for HPC (Premium)、 SLES 12 SP4 和 SLES 15。 已在 VM 上安裝 RDMA 驅動程式並散發 Intel MPI 套件。 執行下列命令來安裝 MPI：
+* **SUSE Linux Enterprise Server** -SLES 12 SP3 for HPC、SLES 12 SP3 for Hpc (premium)、SLES 12 SP1 for HPC、SLES 12 SP1 for Hpc (Premium)、SLES 12 SP4 和 sles 15。 已在 VM 上安裝 RDMA 驅動程式並散發 Intel MPI 套件。 執行下列命令來安裝 MPI：
 
   ```bash
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
   
-* **Ubuntu** -Ubuntu Server 16.04 LTS、 18.04 LTS。 設定 VM 上的 RDMA 驅動程式，並向 Intel 註冊以下載 Intel MPI：
+* **Ubuntu** -ubuntu SERVER 16.04 LTS、18.04 LTS。 設定 VM 上的 RDMA 驅動程式，並向 Intel 註冊以下載 Intel MPI：
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  如需啟用設定 MPI 的 InfiniBand 的更多詳細資料請參閱 <<c0> [ 啟用 InfiniBand](../workloads/hpc/enable-infiniband.md)。
+  如需有關啟用「未[使用](../workloads/hpc/enable-infiniband.md)」的詳細資訊, 請參閱設定 MPI。
 
 
 ### <a name="cluster-configuration-options"></a>叢集組態選項
@@ -89,9 +88,9 @@ Azure 提供數個選項來建立 Linux HPC VM 的叢集，而這些 VM 可以�
 
 * **虛擬機器** - 在相同的可用性設定組中部署支援 RDMA 的 HPC VM (當您使用 Azure Resource Manager 部署模型時)。 如果您使用傳統部署模型，請將 VM 部署在相同的雲端服務中。 
 
-* **虛擬機器擴展集**-在虛擬機器擴展集，請確定您限制為單一放置群組部署。 例如，在 Resource Manager 範本中，將 `singlePlacementGroup` 屬性設定為 `true`。 
+* **虛擬機器擴展集**-在虛擬機器擴展集中, 請確定您將部署限制為單一放置群組。 例如，在 Resource Manager 範本中，將 `singlePlacementGroup` 屬性設定為 `true`。 
 
-* **在虛擬機器之間的 MPI** -如果 MPI 通訊如果虛擬機器 (Vm) 之間所需確保 Vm 會在相同的可用性設定組，或相同的虛擬機器擴展集。
+* **虛擬機器之間的 mpi** -如果虛擬機器 (vm) 之間需要 mpi 通訊, 請確定 vm 位於相同的可用性設定組或虛擬機器相同的擴展集內。
 
 * **Azure CycleCloud** - 在 [Azure CycleCloud](/azure/cyclecloud/) 中建立 HPC 叢集，以在 Linux 節點上執行 MPI 作業。
 
@@ -101,10 +100,10 @@ Azure 提供數個選項來建立 Linux HPC VM 的叢集，而這些 VM 可以�
 
 
 ### <a name="network-considerations"></a>網路考量事項
-* 在非-SR-IOV，啟用 RDMA 的 Linux Vm 在 Azure 中，eth1 會保留給 RDMA 網路流量。 請勿變更任何 eth1 設定或參考到此網路組態檔中的任何資訊。
-* 在 SR-IOV 啟用 Vm （HB 和 HC 系列），ib0 會保留給 RDMA 網路流量。
+* 在非 SR-IOV 的 Azure 中啟用 RDMA 的 Linux Vm 上, eth1 會保留給 RDMA 網路流量。 請勿變更任何 eth1 設定或參考此網路之設定檔中的任何資訊。
+* 在啟用 SR-IOV 的 Vm (HB 和 HC 系列) 上, ib0 會保留給 RDMA 網路流量。
 * Azure 中的 RDMA 網路會保留位址空間 172.16.0.0/16。 若要在 Azure 虛擬網路中已部署的執行個體上執行 MPI 應用程式，請確定虛擬網路位址空間不會與 RDMA 網路重疊。
-* 視您選擇的叢集管理工具而定，可能需要額外系統設定才能執行 MPI 作業。 例如，在叢集上的 Vm，您可能需要建立的叢集節點之間的信任，產生 SSH 金鑰，或建立無密碼 SSH 登入。
+* 視您選擇的叢集管理工具而定，可能需要額外系統設定才能執行 MPI 作業。 例如, 在 Vm 叢集上, 您可能需要藉由產生 SSH 金鑰或建立無密碼 SSH 登入, 在叢集節點之間建立信任。
 
 
 ## <a name="other-sizes"></a>其他大小
@@ -117,5 +116,5 @@ Azure 提供數個選項來建立 Linux HPC VM 的叢集，而這些 VM 可以�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解如何設定、 最佳化及調整[HPC 工作負載](../workloads/hpc/configure.md)在 Azure 上。
+- 深入瞭解如何在 Azure 上設定、優化和調整[HPC 工作負載](../workloads/hpc/configure.md)。
 - 深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。

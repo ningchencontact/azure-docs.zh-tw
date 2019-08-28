@@ -12,16 +12,15 @@ ms.assetid: 5feb1d64-ee6f-4907-949a-a7cffcbc6153
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ea8a2fa3a37815f3a7a48078e408e6607dc37eb4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: eb9929c66275959ed64ab66517f8b38190f1bdbd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709290"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089671"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>針對 Azure 中 Windows VM 的特定 RDP 錯誤訊息進行疑難排解
 您在 Azure 中針對 Windows 虛擬機器 (VM) 使用遠端桌面連線時，可能會接收到特定錯誤訊息。 本文將詳述一些較常發生的錯誤訊息，並提供解決它們的疑難排解步驟。 如果您無法使用 RDP 連線到 VM，但沒有遇到特定錯誤訊息，請參閱[遠端桌面的疑難排解指南](troubleshoot-rdp-connection.md)。
@@ -37,7 +36,7 @@ ms.locfileid: "67709290"
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>遠端工作階段中斷，因為沒有提供授權的遠端桌面授權伺服器可以使用。
-原因：遠端桌面伺服器角色 120 天授權寬限期已過期，您需要安裝授權。
+原因：遠端桌面伺服器角色的120天授權寬限期已過期, 因此您必須安裝授權。
 
 作為因應措施，請從入口網站儲存 RDP 檔案的本機複本，並在 PowerShell 命令提示字元執行該命令來連接。 此步驟只會停用該連線的授權：
 
@@ -50,7 +49,7 @@ ms.locfileid: "67709290"
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>遠端桌面找不到電腦「名稱」。
-原因：在您的電腦上的遠端桌面用戶端無法解析此 RDP 檔案設定中電腦的名稱。
+原因：您電腦上的遠端桌面用戶端無法解析 RDP 檔案設定中的電腦名稱稱。
 
 可能的解決方案：
 
@@ -68,9 +67,9 @@ ms.locfileid: "67709290"
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>發生驗證錯誤。 無法連絡本機安全性授權。
-原因：目標 VM 在認證的使用者名稱部分找不到安全性授權。
+原因：目標 VM 在認證的使用者名稱部分找不到安全性授權單位。
 
-當您的使用者名稱的格式*SecurityAuthority*\\*UserName* (範例：CORP\User1) *SecurityAuthority*部分是 VM 電腦名稱 （適用於本機安全性授權） 或 Active Directory 網域名稱。
+當您的使用者名稱格式為*SecurityAuthority* \\ *UserName* (範例:CORP\User1), *SecurityAuthority*部分是 VM 的電腦名稱稱 (針對本地安全機構) 或 Active Directory 功能變數名稱。
 
 可能的解決方案：
 
@@ -80,13 +79,13 @@ ms.locfileid: "67709290"
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows 安全性錯誤：您的認證無法運作。
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows 安全性錯誤:您的認證無法使用。
 原因：目標 VM 無法驗證您的帳戶名稱和密碼。
 
 以 Windows 為基礎的電腦可以驗證本機帳戶或網域帳戶之認證。
 
-* 本機帳戶，請使用*ComputerName*\\*UserName*語法 (範例：SQL1\Admin4798)。
-* 網域帳戶，請使用*DomainName*\\*UserName*語法 (範例：CONTOSO\peterodman)。
+* 若為本機帳戶, 請使用*ComputerName* \\ *UserName*語法 (範例:SQL1\Admin4798)。
+* 若為網域帳戶, 請使用*DomainName* \\ *UserName*語法 (範例:CONTOSO\peterodman)。
 
 如果您在新的 Active Directory 樹系將 VM 提升為網域控制站，您用來登入的本機系統管理員帳戶會轉換為對等的帳戶，在新樹系和網域中使用相同的密碼。 本機帳戶隨即刪除。
 
@@ -99,11 +98,11 @@ ms.locfileid: "67709290"
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>這部電腦無法連線到遠端電腦。
-原因：用來連接的帳戶並沒有遠端桌面登入權限。
+原因：用來連線的帳戶沒有遠端桌面登入許可權。
 
 每部 Windows 電腦都有遠端桌面使用者本機群組，其中包含能夠遠端登入的帳戶和群組。 本機系統管理員群組成員也有權限，即使這些帳戶未列在遠端桌面使用者本機群組中。 對於加入網域的機器，本機系統管理員群組也包含此網域的網域系統管理員。
 
-請確保您用於連接的帳戶具有遠端桌面登入權限。 因應措施是使用網域或本機系統管理員帳戶透過遠端桌面進行連接。 若要將所需帳戶新增至「遠端桌面」使用者本機群組，請使用 Microsoft Management Console 嵌入式管理單元 ([系統工具] > [本機使用者和群組] > [群組] > [遠端桌面使用者]  )。
+請確保您用於連接的帳戶具有遠端桌面登入權限。 因應措施是使用網域或本機系統管理員帳戶透過遠端桌面進行連接。 若要將所需帳戶新增至「遠端桌面」使用者本機群組，請使用 Microsoft Management Console 嵌入式管理單元 ([系統工具] > [本機使用者和群組] > [群組] > [遠端桌面使用者])。
 
 ## <a name="next-steps"></a>後續步驟
 如果您在使用 RDP 進行連線時沒有發生上述錯誤，而是遇到未知的問題，請參閱[遠端桌面的疑難排解指南](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。

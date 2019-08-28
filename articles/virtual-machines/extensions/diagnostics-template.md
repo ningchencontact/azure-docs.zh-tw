@@ -11,17 +11,16 @@ ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d1c5598bd7ea5b3f35d5447935953d4cd55664a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 9ba8fdba3b7283185920432b5b096b80b2e32021
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67706763"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092548"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>使用 Windows VM 和 Azure Resource Manager 範本的監視和診斷
 Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提供監視和診斷功能。 您可以將擴充功能納入為 Azure Resource Manager 範本的一部分，在虛擬機器上啟用這些功能。 請參閱 [使用 VM 延伸模組編寫 Azure 資源管理員範本](../windows/template-description.md#extensions) ，以取得將任何延伸模組納入為虛擬機器範本一部分的詳細資訊。 本文描述如何將 Azure 診斷延伸模組新增至 Windows 虛擬機器範本。  
@@ -63,7 +62,7 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
 ]
 ```
 
-另一個常見的慣例是在範本的根資源節點新增擴充功能組態，而不是在虛擬機器的資源節點底下定義。 使用這個方法時，您必須以「名稱」  和「類型」  值明確指定擴充功能與虛擬機器之間的階層式關係。 例如: 
+另一個常見的慣例是在範本的根資源節點新增擴充功能組態，而不是在虛擬機器的資源節點底下定義。 使用這個方法時，您必須以「名稱」和「類型」值明確指定擴充功能與虛擬機器之間的階層式關係。 例如: 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -78,14 +77,14 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
 
 *name* 屬性的值可用來參考資源群組中的延伸模組。 特別將其設為 **Microsoft.Insights.VMDiagnosticsSettings**，讓它可輕鬆地由 Azure 入口網站識別，確保監視圖表會在 Azure 入口網站中正確顯示。
 
-*TypeHandlerVersion* 會指定您想要使用的延伸模組的版本。 將 autoUpgradeMinorVersion  次要版本設為 **true** 可確保您獲得可用的最新擴充功能次要版本。 強烈建議您一律將 *autoUpgradeMinorVersion* 設為永遠為 **true** ，讓您永遠可以使用具有所有新功能和錯誤修正的可用最新診斷延伸模組。 
+*TypeHandlerVersion* 會指定您想要使用的延伸模組的版本。 將 autoUpgradeMinorVersion 次要版本設為 **true** 可確保您獲得可用的最新擴充功能次要版本。 強烈建議您一律將 *autoUpgradeMinorVersion* 設為永遠為 **true** ，讓您永遠可以使用具有所有新功能和錯誤修正的可用最新診斷延伸模組。 
 
-*settings* 元素包含延伸模組的組態屬性，可以從延伸模組 (有時稱為公用組態) 設定和讀取。 xmlcfg  屬性包含以 xml 為基礎之組態的診斷記錄、效能計數器等等，這些項目是由診斷代理程式收集。 如需 xml 結構描述本身的詳細資訊，請參閱 [診斷組態結構描述](https://msdn.microsoft.com/library/azure/dn782207.aspx) 。 常見的作法是將實際的 xml 組態儲存為 Azure 資源管理員範本中的變數，然後再進行串連和 base64 編碼，以設定 *xmlcfg*的值。 請參閱 [診斷組態變數](#diagnostics-configuration-variables) 以深入了解如何在變數中儲存 xml。 StorageAccount  屬性會指定要向其傳輸診斷資料的儲存體帳戶名稱。 
+*settings* 元素包含延伸模組的組態屬性，可以從延伸模組 (有時稱為公用組態) 設定和讀取。 xmlcfg 屬性包含以 xml 為基礎之組態的診斷記錄、效能計數器等等，這些項目是由診斷代理程式收集。 如需 xml 結構描述本身的詳細資訊，請參閱 [診斷組態結構描述](https://msdn.microsoft.com/library/azure/dn782207.aspx) 。 常見的作法是將實際的 xml 組態儲存為 Azure 資源管理員範本中的變數，然後再進行串連和 base64 編碼，以設定 *xmlcfg*的值。 請參閱 [診斷組態變數](#diagnostics-configuration-variables) 以深入了解如何在變數中儲存 xml。 StorageAccount 屬性會指定要向其傳輸診斷資料的儲存體帳戶名稱。 
 
-*protectedSettings* (有時稱為私用組態) 中的屬性可以設定，但是無法在設定之後讀取。 protectedSettings  的唯寫本質讓它對於儲存像是儲存體帳戶 (寫入診斷資料的位置) 金鑰的密碼相當有用。    
+*protectedSettings* (有時稱為私用組態) 中的屬性可以設定，但是無法在設定之後讀取。 protectedSettings 的唯寫本質讓它對於儲存像是儲存體帳戶 (寫入診斷資料的位置) 金鑰的密碼相當有用。    
 
 ## <a name="specifying-diagnostics-storage-account-as-parameters"></a>將診斷儲存體帳戶指定為參數
-上述的診斷擴充功能 json 片段假設兩個參數 existingdiagnosticsStorageAccountName  和 existingdiagnosticsStorageResourceGroup  ，以指定將會儲存診斷資料的診斷儲存體帳戶。 將診斷儲存體帳戶指定為參數，可讓您輕鬆地跨不同環境變更診斷儲存體帳戶，例如，您可能需要使用不同診斷儲存體帳戶進行測試，並且使用另一個進行生產部署。  
+上述的診斷擴充功能 json 片段假設兩個參數 existingdiagnosticsStorageAccountName 和 existingdiagnosticsStorageResourceGroup，以指定將會儲存診斷資料的診斷儲存體帳戶。 將診斷儲存體帳戶指定為參數，可讓您輕鬆地跨不同環境變更診斷儲存體帳戶，例如，您可能需要使用不同診斷儲存體帳戶進行測試，並且使用另一個進行生產部署。  
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -129,7 +128,7 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
 "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 ```
 
-上述組態中的度量定義 xml 節點是重要的組態元素，因為它會定義如何彙總和儲存稍早在 PerformanceCounter  節點中的 xml 所定義之效能計數器。 
+上述組態中的度量定義 xml 節點是重要的組態元素，因為它會定義如何彙總和儲存稍早在 PerformanceCounter 節點中的 xml 所定義之效能計數器。 
 
 > [!IMPORTANT]
 > 這些計量控制了 Azure 入口網站中的監視圖表與警示 。  若要在 Azure 入口網站中查看 VM 的監視資料，必須將具有 *resourceID* 和 **MetricAggregation** 的**計量**節點包含在您的 VM 的診斷組態中。 
@@ -147,13 +146,13 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
 
 *resourceID* 屬性會唯一識別您的訂用帳戶中的虛擬機器。 請確定使用 subscription() 和 resourceGroup() 函式，這樣範本就會根據訂用帳戶和您要部署的資源群組自動更新這些值。
 
-若您要在迴圈中建立多部虛擬機器，必須以 copyIndex() 函式填入 resourceID  值，以正確區分每個個別的 VM。 *xmlCfg* 值可以更新為支援此功能，如下所示：  
+若您要在迴圈中建立多部虛擬機器，必須以 copyIndex() 函式填入 resourceID 值，以正確區分每個個別的 VM。 *xmlCfg* 值可以更新為支援此功能，如下所示：  
 
 ```json
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-PT1M  及 PT1H  的 MetricAggregation 值分別表示超過一分鐘的彙總及超過一小時的彙總。
+PT1M 及 PT1H 的 MetricAggregation 值分別表示超過一分鐘的彙總及超過一小時的彙總。
 
 ## <a name="wadmetrics-tables-in-storage"></a>儲存體中的 WADMetrics 資料表
 上述的度量組態將會在您的診斷儲存體帳戶中產生具有下列命名慣例的資料表：
@@ -164,7 +163,7 @@ PT1M  及 PT1H  的 MetricAggregation 值分別表示超過一分鐘的彙總及
 * **V2S**：字串常數
 * **yyyymmdd**：資料表開始收集資料的日期
 
-範例:*WADMetricsPT1HP10DV2S20151108* 包含從 2015 年 11 月 11 日開始 10 天內，所有超過一小時的彙總計量資料    
+範例：*WADMetricsPT1HP10DV2S20151108* 包含從 2015 年 11 月 11 日開始 10 天內，所有超過一小時的彙總計量資料    
 
 每個 WADMetrics 資料表都包含下列資料行：
 

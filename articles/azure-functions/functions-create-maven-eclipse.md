@@ -7,19 +7,19 @@ author: jeffhollan
 manager: jpconnock
 keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
+ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9dcc959e51aa42fd6ef3173dba2aec8d9970deb1
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: b2f5567e037c65d7650b3f95a2ee81b93ac987b7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154577"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085877"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse"></a>使用 Java 和 Eclipse 中建立您的第一個函式 
+# <a name="create-your-first-function-with-java-and-eclipse"></a>使用 JAVA 和 Eclipse 建立您的第一個函式 
 
 本文示範如何使用 Eclipse IDEA 和 Apache Maven 建立[無伺服器](https://azure.microsoft.com/solutions/serverless/)函式專案、測試此專案並加以偵錯，然後將它部署至 Azure Functions。 
 
@@ -43,14 +43,14 @@ ms.locfileid: "67154577"
 
 ## <a name="create-a-functions-project"></a>建立 Functions 專案
 
-1. 在 Eclipse 中，選取**檔案**功能表，然後選取**新增-&gt; Maven 專案**。 
-1. 接受 [新增 Maven 專案]  對話方塊中的預設值，然後選取 [下一步]  。
-1. 選取 [新增原型]  並新增 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 的項目。
+1. 在 Eclipse 中, 選取 [檔案] 功能表, 然後選取 [**新增-&gt; Maven 專案**]。 
+1. 接受 [新增 Maven 專案] 對話方塊中的預設值，然後選取 [下一步]。
+1. 選取 [新增原型] 並新增 [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 的項目。
     - 原型群組識別碼：com.microsoft.azure
     - 原型構件識別碼：azure-functions-archetype
-    - 版本：使用最新版本**1.22**從[中央儲存機制](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Eclipse Maven 建立](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. 按一下  **確定** ，然後按一下 **下一步**輸入類似下列的快照集的值 (請使用不同的應用程式名稱以外的其他**fabrikam-函式-20170920120101928**)，以及最後**完成**。
+    - 版本：使用來自[中央存放庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+     ![Eclipse Maven create 的最新版本**1.22**](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+1. 按一下 **[確定]** , 然後按 **[下一步]** 輸入如下列快照集的值 (請使用**fabrikam-function-20170920120101928**以外的其他 appName), 最後**完成**。
     ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven 會以 _artifactId_ 名稱在新的資料夾中建立專案檔。 專案中產生的程式碼是 [HTTP 觸發](/azure/azure-functions/functions-bindings-http-webhook)的簡單函式，此函式會回應觸發 HTTP 要求的本文。
@@ -60,17 +60,17 @@ Maven 會以 _artifactId_ 名稱在新的資料夾中建立專案檔。 專案�
 > [!NOTE]
 > [Azure Functions Core Tools 第 2 版](functions-run-local.md#v2)必須安裝，才能在本機執行和偵錯函式。
 
-1. 在產生的專案上按一下滑鼠右鍵，然後選擇 [執行身分]  並 [Maven 組建]  。
-1. 在 [編輯組態]  對話方塊的 [目標]  和 [名稱]  欄位中輸入 `package`，然後選取 [執行]  。 這會建置並封裝函式程式碼。
-1. 建置完成後，使用 `azure-functions:run` 做為目標和名稱，建立另一個如上所述的執行組態。 按一下 [執行]  ，在 IDE 中執行函式。
+1. 在產生的專案上按一下滑鼠右鍵，然後選擇 [執行身分] 並 [Maven 組建]。
+1. 在 [編輯組態] 對話方塊的 [目標] 和 [名稱] 欄位中輸入 `package`，然後選取 [執行]。 這會建置並封裝函式程式碼。
+1. 建置完成後，使用 `azure-functions:run` 做為目標和名稱，建立另一個如上所述的執行組態。 按一下 [執行]，在 IDE 中執行函式。
 
 當您完成函式測試時，請在主控台視窗中終止執行階段。 一次只能有一個函式主機是作用中且在本機執行。
 
 ### <a name="debug-the-function-in-eclipse"></a>在 Eclipse 中進行函式偵錯
 
-在上一個步驟的 [執行身分]  組態設定中，將 `azure-functions:run` 變更為 `azure-functions:run -DenableDebug` 並執行更新後的組態，以在偵錯模式中啟動函數應用程式。
+在上一個步驟的 [執行身分] 組態設定中，將 `azure-functions:run` 變更為 `azure-functions:run -DenableDebug` 並執行更新後的組態，以在偵錯模式中啟動函數應用程式。
 
-選取 [執行]  功能表，然後開啟 [偵錯組態]  。 選擇 [遠端 Java 應用程式]  並建立新的應用程式。 為您的組態提供名稱，然後填入設定中。 連接埠應該與函式主機所開啟的偵錯連接埠一致，其預設值為 `5005`。 安裝之後，按一下 `Debug` 開始偵錯。
+選取 [執行] 功能表，然後開啟 [偵錯組態]。 選擇 [遠端 Java 應用程式] 並建立新的應用程式。 為您的組態提供名稱，然後填入設定中。 連接埠應該與函式主機所開啟的偵錯連接埠一致，其預設值為 `5005`。 安裝之後，按一下 `Debug` 開始偵錯。
 
 ![在 Eclipse 中進行函式偵錯](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
@@ -84,7 +84,7 @@ Maven 會以 _artifactId_ 名稱在新的資料夾中建立專案檔。 專案�
 az login
 ```
 
-在新的 [執行身分]  組態中使用 `azure-functions:deploy` Maven 目標，將您的程式碼部署到新的函式應用程式。
+在新的 [執行身分] 組態中使用 `azure-functions:deploy` Maven 目標，將您的程式碼部署到新的函式應用程式。
 
 部署完成時，您會看到可用來存取 Azure 函式應用程式的 URL：
 

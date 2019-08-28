@@ -10,30 +10,29 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 410990ecdca8a94be9c7c3d0b48a5092fcaa6060
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c759567e4d8c183452eccbbdca8459c8993d1361
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515898"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092427"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 預期狀態設定延伸模組處理常式簡介
 
 「Azure VM 代理程式」和相關的延伸模組是 Microsoft Azure 基礎結構服務的一部分。 VM 延伸模組是可延伸 VM 功能及簡化各種 VM 管理作業的軟體元件。
 
-Azure Desired State Configuration (DSC) 擴充功能是將 VM 啟動到主要使用案例[Azure 自動化狀態組態 (DSC) 服務](../../automation/automation-dsc-overview.md)。
-此服務會提供[優點](/powershell/dsc/metaconfig#pull-service)，包括持續管理 VM 設定和其他操作工具，例如 「 Azure 監視的整合。
-註冊服務的 VM 使用擴充功能提供彈性的解決方案，甚至是適用於 Azure 訂用帳戶。
+Azure Desired State Configuration (DSC) 延伸模組的主要使用案例是將 VM 啟動至[Azure 自動化狀態設定 (dsc) 服務](../../automation/automation-dsc-overview.md)。
+此服務提供的[優點](/powershell/dsc/metaconfig#pull-service)包括持續管理 VM 設定, 以及與其他操作工具 (例如 Azure 監視) 的整合。
+使用延伸模組向服務註冊 VM, 可提供彈性的解決方案, 甚至可以跨 Azure 訂用帳戶運作。
 
 您可以脫離 Automation DSC 服務來單獨使用 DSC 延伸模組。
-不過，這只會將組態推送到 VM。
-使用的而不在 VM 本機沒有進行中的報告。
+不過, 這只會將設定推送至 VM。
+在 VM 中的本機以外, 不會提供任何正在進行的報告。
 
 本文提供兩種案例的相關資訊：使用 DSC 延伸模組來進行「自動化」上線，以及藉由使用 Azure SDK 來使用 DSC 延伸模組作為工具，以將設定指派給 VM。
 
@@ -47,7 +46,7 @@ Azure Desired State Configuration (DSC) 擴充功能是將 VM 啟動到主要使
 本指南假設您已熟悉下列概念︰
 
 - **設定**：DSC 設定文件。
-- **節點**：DSC 設定的目標。 在本文件中，「節點」  一律是指 Azure VM。
+- **節點**：DSC 設定的目標。 在本文件中，「節點」一律是指 Azure VM。
 - **設定資料**：具有設定之環境資料的 .psd1 檔案。
 
 ## <a name="architecture"></a>架構
@@ -66,24 +65,24 @@ Azure DSC 延伸模組會使用「Azure VM 代理程式」架構來傳遞、套�
 
 Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure Automation DSC 服務時使用。 指令碼參數會對齊[本機設定管理員](/powershell/dsc/metaconfig)的可設定屬性。 如需了解指令碼參數，請參閱[採用 Azure Resource Manager 範本的預期狀態設定延伸模組](dsc-template.md)中的[預設設定指令碼](dsc-template.md#default-configuration-script)。 如需完整的指令碼，請參閱 [GitHub 中的 Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)。
 
-## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>向 Azure 自動化狀態組態 (DSC) 服務的資訊
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>向 Azure 自動化狀態設定 (DSC) 服務註冊的資訊
 
-當使用 DSC 擴充功能註冊狀態設定服務的節點，三個值必須提供。
+使用 DSC 擴充功能向狀態設定服務註冊節點時, 將需要提供三個值。
 
-- RegistrationUrl-Azure 自動化帳戶的 https 位址
-- RegistrationKey-共用密碼，用來向服務註冊節點
-- NodeConfigurationName-的節點組態 (MOF) 提取從設定伺服器角色服務的名稱
+- RegistrationUrl-Azure 自動化帳戶的 HTTPs 位址
+- RegistrationKey-用來向服務註冊節點的共用密碼
+- NodeConfigurationName-要從服務提取以設定伺服器角色的節點設定 (MOF) 的名稱
 
-這項資訊可以示[Azure 入口網站](../../automation/automation-dsc-onboarding.md#azure-portal)或者您可以使用 PowerShell。
+您可以在[Azure 入口網站](../../automation/automation-dsc-onboarding.md#azure-portal)中看到這項資訊, 或者您可以使用 PowerShell。
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
 
-節點組態名稱，請確定 Azure 狀態組態中存在的節點組態。  如果不存在，延伸模組部署便會傳回失敗。  也請確定您使用名稱*節點設定*並沒有組態。
-使用指令碼中定義的組態[編譯節點組態 （MOF 檔案）](https://docs.microsoft.com/azure/automation/automation-dsc-compile)。
-名稱一律為後面接著句號的組態`.`以及`localhost`或特定的電腦名稱。
+針對節點設定名稱, 請確定 Azure 狀態設定中有節點設定。  如果不存在, 延伸模組部署將會傳回失敗。  也請確定您使用的是*節點*設定的名稱, 而不是設定。
+設定會定義在用[來編譯節點設定 (MOF 檔案)](https://docs.microsoft.com/azure/automation/automation-dsc-compile)的腳本中。
+名稱一律會是設定`.` `localhost` , 後面接著句點和或特定電腦名稱稱。
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 範本中的 DSC 延伸模組
 
@@ -103,7 +102,7 @@ Azure DSC 延伸模組包含預設設定指令碼，可在將 VM 上線至 Azure
 
 **Get-AzVMDscExtensionStatus** Cmdlet 會擷取 DSC 延伸模組處理常式所制定之 DSC 設定的狀態。 此動作可在單一 VM 上執行，也可在一組 VM 上執行。
 
-**Remove-AzVMDscExtension** Cmdlet 會從特定虛擬機器中移除延伸模組處理常式。 此 Cmdlet「不會」  移除設定、將 WMF 解除安裝，或變更已在 VM 上套用的設定。 它只會移除延伸模組處理常式。 
+**Remove-AzVMDscExtension** Cmdlet 會從特定虛擬機器中移除延伸模組處理常式。 此 Cmdlet「不會」移除設定、將 WMF 解除安裝，或變更已在 VM 上套用的設定。 它只會移除延伸模組處理常式。 
 
 Resource Manager DSC 延伸模組 Cmdlet 相關的重要資訊：
 
@@ -114,7 +113,7 @@ Resource Manager DSC 延伸模組 Cmdlet 相關的重要資訊：
 
 ### <a name="get-started-with-cmdlets"></a>開始使用 Cmdlet
 
-Azure DSC 延伸模組可以使用 DSC 設定文件，在部署期間直接設定 Azure VM。 此步驟不會向「自動化」註冊節點。 該節點「不會」  受到集中管理。
+Azure DSC 延伸模組可以使用 DSC 設定文件，在部署期間直接設定 Azure VM。 此步驟不會向「自動化」註冊節點。 該節點「不會」受到集中管理。
 
 下列範例說明一個簡單的設定範例。 將設定以 IisInstall.ps1 名稱儲存在本機。
 
@@ -146,9 +145,9 @@ Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
-Azure CLI 可用來將 DSC 延伸模組部署到現有的虛擬機器。
+Azure CLI 可以用來將 DSC 延伸模組部署到現有的虛擬機器。
 
-執行 Windows 虛擬機器：
+若為執行 Windows 的虛擬機器:
 
 ```azurecli
 az vm extension set \
@@ -160,7 +159,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-針對執行 Linux 的虛擬機器：
+若為執行 Linux 的虛擬機器:
 
 ```azurecli
 az vm extension set \
@@ -177,9 +176,9 @@ az vm extension set \
 在入口網站中設定 DSC：
 
 1. 前往 VM。
-2. 在 [設定]  底下，選取 [延伸模組]  。
-3. 在建立的新頁面中，選取 [新增]  ，然後選取 [PowerShell 預期狀態設定]  。
-4. 在延伸模組資訊頁面底端，按一下 [建立]  。
+2. 在 [設定] 底下，選取 [延伸模組]。
+3. 在建立的新頁面中，選取 [新增]，然後選取 [PowerShell 預期狀態設定]。
+4. 在延伸模組資訊頁面底端，按一下 [建立]。
 
 入口網站會收集以下輸入資訊：
 
@@ -197,9 +196,9 @@ az vm extension set \
 
 - **版本**：指定要安裝的 DSC 延伸模組版本。 如需版本的相關資訊，請參閱 [DSC 延伸模組版本歷程記錄](/powershell/dsc/azuredscexthistory) (英文)。
 
-- **自動升級次要版本**：此欄位會對應至 Cmdlet 中的 **AutoUpdate** 參數，並允許延伸模組在安裝時自動更新為最新版本。 [是]  會指示延伸模組在處理延伸模組常式時，要使用最新版本，[否]  將強制安裝指定的 [版本]  。 未選取 [是]  亦未選取 [否]  ，等同選取 [否]  。
+- **自動升級次要版本**：此欄位會對應至 Cmdlet 中的 **AutoUpdate** 參數，並允許延伸模組在安裝時自動更新為最新版本。 [是] 會指示延伸模組在處理延伸模組常式時，要使用最新版本，[否] 將強制安裝指定的 [版本]。 未選取 [是] 亦未選取 [否]，等同選取 [否]。
 
-## <a name="logs"></a>記錄
+## <a name="logs"></a>記錄檔
 
 延伸模組的記錄會儲存在下列位置：`C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 

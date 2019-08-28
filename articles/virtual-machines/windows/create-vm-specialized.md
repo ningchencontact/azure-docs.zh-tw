@@ -11,16 +11,15 @@ ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 8f4169e7d94a5a838ecc11b22e7988223c25e02c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718822"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079674"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 從特製化磁碟建立 Windows VM
 
@@ -205,7 +204,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-若要使用此快照集建立的 VM，必須是高效能，將參數新增`-AccountType Premium_LRS`新增 AzSnapshotConfig 命令。 此參數建立的快照集會儲存為「進階受控磁碟」。 「進階受控磁碟」比「標準磁碟」費用高，因此請先確定您需要「進階磁碟」，再使用此參數。
+若要使用此快照集來建立需要執行高效能的 VM, 請將參數`-AccountType Premium_LRS`新增至 AzSnapshotConfig 命令。 此參數建立的快照集會儲存為「進階受控磁碟」。 「進階受控磁碟」比「標準磁碟」費用高，因此請先確定您需要「進階磁碟」，再使用此參數。
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>從快照集建立新的磁碟
 
@@ -313,7 +312,7 @@ $nsg = New-AzNetworkSecurityGroup `
 
 ### <a name="set-the-vm-name-and-size"></a>設定 VM 名稱和大小
 
-此範例將 VM 名稱設定為 myVM  ，將 VM 大小設定為 Standard_A2  。
+此範例將 VM 名稱設定為 myVM，將 VM 大小設定為 Standard_A2。
 
 ```powershell
 $vmName = "myVM"
@@ -354,7 +353,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>確認已建立 VM
-您應該可在 [Azure 入口網站](https://portal.azure.com)的 [瀏覽]   > [虛擬機器]  下，或透過使用下列 PowerShell 命令，看到新建立的 VM。
+您應該可在 [Azure 入口網站](https://portal.azure.com)的 [瀏覽] > [虛擬機器] 下，或透過使用下列 PowerShell 命令，看到新建立的 VM。
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

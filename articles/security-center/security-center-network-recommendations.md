@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6dfd3bd86e55d19bf1c15486a502a4cbab3c96a8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 3683550045699a24c27a3226fba2e90a671f80e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905309"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101018"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>保護 Azure 資訊安全中心內的網路資源
 Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲得網路安全性最佳做法。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議，以加強並保護您的資源。
@@ -153,7 +153,6 @@ Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲�
 若要深入了解適用於其他 Azure 資源類型的建議，請參閱下列文章︰
 
 * [保護 Azure 資訊安全中心內的機器和應用程式](security-center-virtual-machine-protection.md)
-* [保護 Azure 資訊安全中心內的應用程式](security-center-application-recommendations.md)
 * [保護 Azure 資訊安全中心內的 Azure SQL 服務](security-center-sql-service-recommendations.md)
 
 如要深入了解資訊安全中心，請參閱下列主題：

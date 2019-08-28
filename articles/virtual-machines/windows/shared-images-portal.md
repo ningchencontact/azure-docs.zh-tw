@@ -1,6 +1,6 @@
 ---
-title: 建立使用入口網站的 Windows 共用的 Azure 虛擬機器映像 |Microsoft Docs
-description: 了解如何使用 Azure 入口網站來建立及共用虛擬機器映像。
+title: 使用入口網站建立適用于 Windows 的共用 Azure 虛擬機器映射 |Microsoft Docs
+description: 瞭解如何使用 Azure 入口網站來建立及共用虛擬機器映射。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,21 +9,20 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 475bf3d07ff619618339207b53d5bcc4c8b0ab06
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e04cbd4750a97857166eb5939045bdb8ace1b426
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709154"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102390"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>建立使用 Azure 入口網站共用映像庫
+# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>使用 Azure 入口網站建立共用映射資源庫
 
 [共用映像資源庫](shared-image-galleries.md)可簡化跨組織共用自訂映像。 自訂映像類似 Marketplace 映像，但您要自行建立它們。 自訂映像可用於啟動部署工作，例如，預先載入應用程式、應用程式設定和其他 OS 設定。 
 
@@ -43,7 +42,7 @@ ms.locfileid: "67709154"
 
 ## <a name="before-you-begin"></a>開始之前
 
-若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像](tutorial-custom-images.md)來建立一個 (如有需要)。 如果受控映像會包含資料磁碟，資料磁碟大小不得超過 1 TB。
+若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像](tutorial-custom-images.md)來建立一個 (如有需要)。 如果受控映射包含資料磁片, 資料磁片大小不能超過 1 TB。
 
 逐步完成本文之後，請視需要取代資源群組和 VM 名稱。
 
@@ -55,29 +54,29 @@ ms.locfileid: "67709154"
 映像版本完成之後，您可以建立一或多個新的 VM。 
 
 > [!IMPORTANT]
-> 若要從另一個 azure 租用戶中的映像部署 VM，您無法使用入口網站。 若要從租用戶之間共用映像建立 VM，您必須使用[Azure CLI](../linux/shared-images.md#create-a-vm)或是[Powershell](shared-images.md#create-vms-from-an-image)。
+> 您無法使用入口網站, 從另一個 azure 租使用者中的映射部署 VM。 若要從租使用者之間共用的映射建立 VM, 您必須使用[Azure CLI](../linux/shared-images.md#create-a-vm)或[Powershell](shared-images.md#create-vms-from-an-image)。
 
 此範例在*美國東部*資料中心的 *myResourceGroup* 中建立名為 *myVMfromImage* 的 VM。
 
-1. 在您的映像版本頁面上，選取**建立 VM**從頁面頂端的功能表。
-1. 針對**資源群組**，選取**新建**和型別*myResourceGroup*的名稱。
-1. 在 **虛擬機器名稱**，型別*myVM*。
-1. 針對**地區**，選取*美國東部*。
-1. 針對**可用性選項**，保留預設值是*沒有所需的基礎結構備援性*。
-1. 值**映像**應該自動填入，如果您從映像版本的頁面開始。
-1. 針對**大小**，從可用大小清單中選擇的 VM 大小，然後按一下 選取。
-1. 在 [系統管理員帳戶]  底下提供使用者名稱 (例如 azureuser  ) 和密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
-1. 如果您想要允許遠端存取 VM，底下**公用輸入連接埠**，選擇**允許選取的連接埠**，然後選取**RDP (3389)** 從下拉式清單。 如果您不想允許遠端存取 VM，請勿**無**選取**公用輸入連接埠**。
-1. 當您完成時，請選取**檢閱 + 建立**在頁面底部的按鈕。
-1. VM 通過驗證之後，請選取**建立**底部的頁面以開始部署。
+1. 在映射版本的頁面上, 從頁面頂端的功能表中選取 [**建立 VM** ]。
+1. 針對 [**資源群組**], 選取 [**建立新**的], 然後在 [名稱] 中輸入*myResourceGroup* 。
+1. 在 [**虛擬機器名稱**] 中, 輸入*myVM*。
+1. 針對 [**地區**], 選取 [*美國東部*]。
+1. 針對 [**可用性選項**], 保留 [*不需要基礎結構冗余*] 的預設值。
+1. 如果您從影像版本的頁面啟動, 則 [**影像**] 的值應該會自動填入。
+1. 針對 [**大小**], 從可用的大小清單中選擇 VM 大小, 然後按一下 [選取]。
+1. 在 [系統管理員帳戶] 底下提供使用者名稱 (例如 azureuser) 和密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
+1. 如果您想要允許遠端存取 VM, 請在 [**公用輸入埠**] 底下, 選擇 [**允許選取的埠**], 然後從下拉式選單中選取 [ **RDP (3389)** ]。 如果您不想要允許對 VM 的遠端存取, 請將 [**公用輸入埠**] 選取為 [**無**]。
+1. 當您完成時, 請選取頁面底部的 [**審查 + 建立**] 按鈕。
+1. 在 VM 通過驗證之後, 請選取頁面底部的 [**建立**] 以開始部署。
 
 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，您可以刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器的資源群組，選取 [刪除]  ，然後確認要刪除的資源群組名稱。
+若不再需要，您可以刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器的資源群組，選取 [刪除]，然後確認要刪除的資源群組名稱。
 
-如果您想要刪除個別的資源，您需要以相反順序加以刪除。 例如，若要刪除的映像定義，您需要刪除所有從該映像建立的映像版本。
+如果您想要刪除個別的資源, 您必須以相反順序刪除它們。 例如, 若要刪除映射定義, 您必須刪除所有從該映射建立的映射版本。
 
 ## <a name="next-steps"></a>後續步驟
 

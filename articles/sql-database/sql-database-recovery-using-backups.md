@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/30/2019
-ms.openlocfilehash: 55d60ec332515fcfa3deb565a4a770027681537a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/27/2019
+ms.openlocfilehash: 00982ea837783a7e7a9dca257f04c77d48aceef2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566984"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103110"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL 資料庫
 
@@ -37,7 +37,7 @@ ms.locfileid: "68566984"
 - 如果資料庫大小上限大於 500 GB，會將 P11–P15 還原至 S4-S12 或 P1–P6。
 - 如果資料庫大小上限大於 250 GB，會將 P1–P6 還原至 S4-S12。
 
-當還原資料庫的大小上限大於目標資料庫服務層級和效能等級所包含的儲存量時, 會 icurred 額外成本。 布建超過所包含數量的額外儲存空間會收取額外費用。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。 如果實際的已使用空間量小於內含的儲存體數量, 您可以將最大資料庫大小設定為包含的數量, 以避免此額外成本。
+當還原資料庫的大小上限大於目標資料庫的服務層級和效能等級所包含的儲存空間時, 就會產生額外的成本。 布建超過所包含數量的額外儲存空間會收取額外費用。 如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。 如果實際的已使用空間量小於內含的儲存體數量, 您可以將最大資料庫大小設定為包含的數量, 以避免此額外成本。
 
 > [!NOTE]
 > 當您建立[資料庫複本](sql-database-copy.md)時，會使用[自動資料庫備份](sql-database-automated-backups.md)。
@@ -127,7 +127,7 @@ ms.locfileid: "68566984"
 
 ### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 入口網站進行異地還原
 
-若要使用 Azure 入口網站異地還原處於其[以 DTU 為基礎的模型保留期限](sql-database-service-tiers-dtu.md)或[以虛擬核心為基礎的模型保留期限](sql-database-service-tiers-vcore.md)的資料庫，請開啟 [SQL Database] 頁面，然後按一下 [新增]。 在 [選取來源] 文字方塊中，選取 [備份]。 指定要在區域和您選擇的伺服器上，執行復原的來源備份。
+若要使用 Azure 入口網站來異地還原資料庫, 請開啟 [SQL 資料庫] 頁面, 然後按一下 [**新增**]。 在 [選取來源] 文字方塊中，選取 [備份]。 指定要在區域和您選擇的伺服器上，執行復原的來源備份。
 
 > [!Note]
 > 受控執行個體不提供使用 Azure 入口網站的異地還原。 請改用 PowerShell。

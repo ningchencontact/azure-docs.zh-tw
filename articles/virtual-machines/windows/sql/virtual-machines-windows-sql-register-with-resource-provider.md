@@ -7,19 +7,18 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 552caf0f09dcfa291981ef73152cf4febfc4a840
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a4e217ce3fcfae0f7d103c545ff385f2dffe582d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882369"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100487"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>在 Azure 中使用 SQL VM 資源提供者註冊 SQL Server 虛擬機器
 
@@ -33,7 +32,7 @@ ms.locfileid: "68882369"
 
 若要利用 SQL VM 資源提供者, 您也必須向您的訂用帳戶註冊 SQL VM 資源提供者。 您可以使用 Azure 入口網站、Azure CLI 或 PowerShell 來完成這項操作。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要向資源提供者註冊您的 SQL Server VM, 您需要下列各項: 
 
@@ -209,7 +208,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 - SQL VM 資源提供者僅支援部署至公用雲端的 SQL Server Vm。 不支援對私人或政府雲端進行部署。 
  
 
-## <a name="frequently-asked-questions"></a>常見問答集 
+## <a name="frequently-asked-questions"></a>常見問題集 
 
 **我應該在 Azure Marketplace 中註冊從 SQL Server 映射布建的 SQL Server VM 嗎？**
 

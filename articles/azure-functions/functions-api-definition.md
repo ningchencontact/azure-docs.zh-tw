@@ -6,16 +6,15 @@ author: alexkarcher-msft
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 1bc53fadfb622794703deaff560c9083ca6a1a10
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 00dedd069914384a1883a54bfb433857286fb49c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656825"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097566"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions 中的 OpenAPI 2.0 中繼資料支援 (預覽)
 Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是預覽功能，可讓您用來撰寫函式應用程式內的 OpenAPI 2.0 定義。 接著您可以使用函式應用程式裝載該檔案。
@@ -45,7 +44,7 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 
 ### <a name="templates"></a>可用範本
 
-|名稱| 描述 |
+|Name| 描述 |
 |:-----|:-----|
 |已產生的定義|具有可從函式現有中繼資料推斷之最大數量資訊的 OpenAPI 定義。|
 
@@ -55,10 +54,10 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 
 |Swagger.json|入口網站 UI|Function.json|
 |:----|:-----|:-----|
-|[Host](https://swagger.io/specification/#fixed-fields-15)|**函式應用程式設定** > **App Service 設定** > **概觀** > **URL**|不存在 
-|[Paths](https://swagger.io/specification/#paths-object-29)|[整合]   > [選取的 HTTP 方法] |繫結：路由
-|[Path Item](https://swagger.io/specification/#path-item-object-32)|[整合]   > [路由範本] |繫結：方法
-|[安全性](https://swagger.io/specification/#security-scheme-object-112)|**金鑰**|不存在 |
+|[Host](https://swagger.io/specification/#fixed-fields-15)|**函式應用程式設定** > **App Service 設定** > **概觀** > **URL**|不存在
+|[Paths](https://swagger.io/specification/#paths-object-29)|[整合] > [選取的 HTTP 方法]|繫結：路由
+|[Path Item](https://swagger.io/specification/#path-item-object-32)|[整合] > [路由範本]|繫結：方法
+|[安全性](https://swagger.io/specification/#security-scheme-object-112)|**金鑰**|不存在|
 |operationID*|**路由 + 允許的動詞**|路由 + 允許的動詞|
 
 \*只有與 PowerApps 和 Flow 整合才需要作業識別碼。
@@ -73,7 +72,7 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 
 1. 瀏覽至函式應用程式設定中的 **API 定義 (預覽)** 。
    1. 將 **API 定義來源**設定為 **Function**。
-   1. 依序按一下 [產生 API 定義範本]  、[儲存]  可建立範本定義以供稍後修改。
+   1. 依序按一下 [產生 API 定義範本]、[儲存] 可建立範本定義以供稍後修改。
    1. 請注意您的 API 定義 URL 和金鑰。
 1. [設定持續整合/持續部署 (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment)。
 2. 在原始檔控制中的 \site\wwwroot\.azurefunctions\swagger\swagger.json 修改 swagger.json。

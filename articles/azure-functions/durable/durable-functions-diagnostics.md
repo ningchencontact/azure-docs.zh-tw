@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 167f697d4928d88114a30739a1d39a576c87ac84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cc60ee2c73aa6858f68d6b13a895a0188bb5735
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126644"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098142"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>在 Azure 中診斷 Durable Functions
 
@@ -25,7 +24,7 @@ ms.locfileid: "62126644"
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 是在 Azure Functions 中診斷和監視的建議方式。 一樣適用於長期函式。 如需如何在您的函式應用程式中利用 Application Insights 的概觀，請參閱[監視 Azure Functions](../functions-monitoring.md)。
 
-Azure Functions 長期延伸模組也會發出「追蹤事件」  ，可讓您追蹤協調流程的端對端執行。 可以使用 Azure 入口網站中的 [Application Insights Analytics](../../azure-monitor/app/analytics.md) 工具尋找及查詢。
+Azure Functions 長期延伸模組也會發出「追蹤事件」，可讓您追蹤協調流程的端對端執行。 可以使用 Azure 入口網站中的 [Application Insights Analytics](../../azure-monitor/app/analytics.md) 工具尋找及查詢。
 
 ### <a name="tracking-data"></a>追蹤資料
 
@@ -47,7 +46,7 @@ Azure Functions 長期延伸模組也會發出「追蹤事件」  ，可讓您�
 * **原因**：與追蹤事件相關聯的其他資料。 例如，如果執行個體正在等候外部事件通知，這個欄位會指出它正在等候之事件的名稱。 如果函式失敗，會包含錯誤詳細資料。
 * **isReplay**：布林值，指出追蹤事件是否要重新執行。
 * **extensionVersion**：持久工作擴充功能的版本。 報告延伸模組中可能的錯誤時，這個資料特別重要。 如果在長時間執行執行個體執行時發生更新，它可能會報告多個版本。
-* **sequenceNumber**：事件的執行序號。 與時間戳記結合，有助於依執行時間排序事件。 請注意，如果主機會在執行個體執行中重新啟動，這個數字將重設為零，所以務必一律先依 timestamp，然後依 sequenceNumber 進行排序。 
+* **sequenceNumber**：事件的執行序號。 與時間戳記結合，有助於依執行時間排序事件。 請注意，如果主機會在執行個體執行中重新啟動，這個數字將重設為零，所以務必一律先依 timestamp，然後依 sequenceNumber 進行排序。
 
 您可以在 `host.json` 檔案的 `logger` (Functions 1.x) 或 `logging` (Functions 2.x) 區段中，設定發出至 Application Insights 之追蹤資料的詳細資訊。
 
@@ -108,7 +107,7 @@ Azure Functions 長期延伸模組也會發出「追蹤事件」  ，可讓您�
 
 ### <a name="single-instance-query"></a>單一執行個體查詢
 
-下列查詢顯示 [Hello Sequence](durable-functions-sequence.md) 函式協調流程之單一執行個體的歷史追蹤資料。 它是使用 [Application Insights 查詢語言 (AIQL)](https://aka.ms/LogAnalyticsLanguageReference) 寫入的。 它會篩選重新執行，以便僅顯示「邏輯」  執行路徑。 您可以藉由排序 `timestamp` 和 `sequenceNumber` 來排序事件，如下列查詢中所示：
+下列查詢顯示 [Hello Sequence](durable-functions-sequence.md) 函式協調流程之單一執行個體的歷史追蹤資料。 它是使用 [Application Insights 查詢語言 (AIQL)](https://aka.ms/LogAnalyticsLanguageReference) 寫入的。 它會篩選重新執行，以便僅顯示「邏輯」執行路徑。 您可以藉由排序 `timestamp` 和 `sequenceNumber` 來排序事件，如下列查詢中所示：
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -208,7 +207,7 @@ Done!
 ```
 
 > [!NOTE]
-> 請記住，當記錄宣告要呼叫 F1、F2 和 F3 時，這些函式只會在第一次遇到時「實際」  被呼叫。 會略過重新執行期間發生的後續呼叫，且輸出會重新執行至協調器邏輯。
+> 請記住，當記錄宣告要呼叫 F1、F2 和 F3 時，這些函式只會在第一次遇到時「實際」被呼叫。 會略過重新執行期間發生的後續呼叫，且輸出會重新執行至協調器邏輯。
 
 如果您只想要記錄非重新執行的執行，您可以寫入條件運算式，只有在如果 `IsReplaying` 是 `false` 時記錄。 請考慮上面的範例，但是這次使用重新執行檢查。
 
@@ -316,8 +315,8 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 Azure Functions 支援直接偵錯函式程式碼，相同支援適用於長期函式，無論是在 Azure 中或在本機執行。 不過，在偵錯時有一些要注意的行為：
 
-* **重新執行**：收到新的輸入時，定期重新執行協調器函式。 這表示單一「邏輯」  執行協調器函式會導致叫用相同的中斷點多次，特別是當它先前已在函式程式碼中設定。
-* **Await**：每當遇到 `await` 時，它會將控制權讓回給持久的工作架構發送器。 如果這是第一次遇到特定 `await`，相關聯工作「永不」  繼續。 因為工作永遠不會繼續，所以「跨越」  等候 (在 Visual Studio 中為 F10) 實際上不可能。 跨越只有在重新執行工作時可行。
+* **重新執行**：收到新的輸入時，定期重新執行協調器函式。 這表示單一「邏輯」執行協調器函式會導致叫用相同的中斷點多次，特別是當它先前已在函式程式碼中設定。
+* **Await**：每當遇到 `await` 時，它會將控制權讓回給持久的工作架構發送器。 如果這是第一次遇到特定 `await`，相關聯工作「永不」繼續。 因為工作永遠不會繼續，所以「跨越」等候 (在 Visual Studio 中為 F10) 實際上不可能。 跨越只有在重新執行工作時可行。
 * **訊息逾時**：Durable Functions 會在內部使用佇列訊息，以驅動協調器函式和活動函式的執行。 在多部 VM 的環境中，中斷至偵錯一段延伸的時間可能會造成另一個 VM 選取訊息，導致重複執行。 這種行為也會結束一般佇列觸發函式，但是務必要在此內容中指出，因為佇列是實作詳細資料。
 
 > [!TIP]
@@ -327,7 +326,7 @@ Azure Functions 支援直接偵錯函式程式碼，相同支援適用於長期�
 
 根據預設，長期函式會將狀態儲存在 Azure 儲存體。 這表示您可以使用工具 (例如 [Microsoft Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)) 來檢查協調流程的狀態。
 
-![Azure 儲存體總管的螢幕擷取畫面](./media/durable-functions-diagnostics/storage-explorer.png)
+![Azure 儲存體總管螢幕擷取畫面](./media/durable-functions-diagnostics/storage-explorer.png)
 
 這對於偵錯相當有用，因為您會確實看到協調流程的狀態。 也可以檢查佇列中的訊息來了解哪些工作擱置 (在某些情況下停滯)。
 

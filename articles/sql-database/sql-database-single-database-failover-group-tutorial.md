@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6cf688750ac73763c7f0da4eea152cf6bf0c8285
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a80dc8ccaa72a57986ed6c64f7ab7050ab4c7de5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935037"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099127"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>教學課程：將 Azure SQL Database 單一資料庫新增至容錯移轉群組
 
@@ -27,7 +27,7 @@ ms.locfileid: "68935037"
 > - 在兩個邏輯 SQL server 之間建立單一資料庫的[容錯移轉群組](sql-database-auto-failover-group.md)。
 > - 測試容錯移轉。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 若要完成本教學課程，請確定您具有下列項目︰ 
@@ -61,16 +61,15 @@ ms.locfileid: "68935037"
 建立您的容錯移轉群組, 並使用 Azure 入口網站將您的單一資料庫新增至其中。 
 
 
-1. 選取[Azure 入口網站](https://portal.azure.com)左上角的 [**所有服務**]。 
-1. 在`sql servers` [搜尋] 方塊中輸入。 
-1. 選擇性選取 [SQL Server 到我的最愛**sql server** ] 旁的星號圖示, 然後將它新增至左側導覽窗格。 
-    
-    ![尋找 SQL Server](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
+1. 在[Azure 入口網站](https://portal.azure.com)的左側功能表中, 選取 [ **Azure SQL** ]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入 azure sql。 選擇性選取**AZURE SQL**旁的星號, 將它加入我的最愛, 然後將它新增為左側導覽中的專案。 
+1. 選取在第2節中建立的單一資料庫, 例如`mySampleDatbase`。 
+1. 在 [**伺服器名稱**] 底下選取伺服器的名稱, 以開啟伺服器的設定。
 
-1. 選取 [ **SQL server** ], 然後選擇您在第1節中建立`mysqlserver`的伺服器, 例如。
+   ![單一 db 的開啟伺服器](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. 在 [**設定**] 窗格下選取 [**容錯移轉群組**], 然後選取 [**新增群組**] 以建立新的容錯移轉群組。 
 
-    ![加入新的容錯移轉群組](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![加入新的容錯移轉群組](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. 在 [**容錯移轉群組**] 頁面上, 輸入或選取下列值, 然後選取 [**建立**]:
     - **容錯移轉組名**:輸入唯一的容錯移轉組名, 例如`failovergrouptutorial`。 
@@ -78,16 +77,16 @@ ms.locfileid: "68935037"
         - **伺服器名稱**：輸入次要伺服器的唯一名稱, 例如`mysqlsecondary`。 
         - **伺服器管理員登入**：型`azureuser`
         - **密碼**：輸入複雜密碼以符合密碼需求。
-        - **位置**：從下拉式選單中選擇 [位置], 例如 [美國東部 2]。 這個位置不能與您的主伺服器位於相同的位置。
+        - **位置**：從下拉式清單中選擇位置，例如 `East US`。 這個位置不能與您的主伺服器位於相同的位置。
 
     > [!NOTE]
     > 伺服器登入和防火牆設定必須符合您的主伺服器。 
     
-      ![建立容錯移轉群組的次要伺服器](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+      ![建立容錯移轉群組的次要伺服器](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **群組內的資料庫**:選取次要伺服器之後, 這個選項就會變成 [解除鎖定]。 選取此項以**選取要新增的資料庫**, 然後選擇您在第1節中建立的資料庫。 將資料庫新增到容錯移轉群組, 將會自動啟動異地複寫程式。 
         
-    ![將 SQL DB 新增到容錯移轉群組](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![將 SQL DB 新增到容錯移轉群組](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -99,12 +98,12 @@ ms.locfileid: "68935037"
    ```powershell-interactive
    # $subscriptionId = '<SubscriptionID>'
    # $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   # $location = "West US 2"
+   # $location = "West US"
    # $adminLogin = "azureuser"
    # $password = "PWD27!"+(New-Guid).Guid
    # $serverName = "mysqlserver-$(Get-Random)"
    # $databaseName = "mySampleDatabase"
-   $drLocation = "East US 2"
+   $drLocation = "East US"
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
@@ -194,16 +193,21 @@ ms.locfileid: "68935037"
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
 使用 Azure 入口網站測試容錯移轉。 
 
-1. 在[Azure 入口網站](https://portal.azure.com)中, 流覽至您的**SQL** server 伺服器。 
+1. 在[Azure 入口網站](https://portal.azure.com)的左側功能表中, 選取 [ **Azure SQL** ]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入 azure sql。 選擇性選取**AZURE SQL**旁的星號, 將它加入我的最愛, 然後將它新增為左側導覽中的專案。 
+1. 選取在第2節中建立的單一資料庫, 例如`mySampleDatbase`。 
+1. 在 [**伺服器名稱**] 底下選取伺服器的名稱, 以開啟伺服器的設定。
+
+   ![單一 db 的開啟伺服器](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. 在 [**設定**] 窗格下選取 [**容錯移轉群組**], 然後選擇您在第2節中建立的容錯移轉群組。 
   
-   ![從入口網站選取容錯移轉群組](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
+   ![從入口網站選取容錯移轉群組](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. 檢查哪一個伺服器是主要伺服器, 哪一個是次要伺服器。 
 1. 從工作窗格中選取 [**容錯移轉**], 以容錯移轉包含範例單一資料庫的容錯移轉群組。 
 1. 在通知您將會中斷 TDS 會話的警告上, 選取 **[是]** 。 
 
-   ![容錯移轉包含 SQL 資料庫的容錯移轉群組](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![容錯移轉包含 SQL 資料庫的容錯移轉群組](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
 1. 檢查哪一個伺服器現在是主要的, 哪個伺服器是次要的。 如果故障通過成功, 這兩部伺服器應該會有已交換的角色。 
 1. 再次選取 [**容錯移轉**], 讓伺服器無法回到原先的角色。 

@@ -10,16 +10,15 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df7b14c8221ab7837cabe968a82cfc5d5d9050c4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704429"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072586"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API 管理原則中的錯誤處理
 
@@ -77,7 +76,7 @@ ms.locfileid: "64704429"
 
  當發生錯誤且控制項跳至 `on-error` 原則區段時，該錯誤就會儲存在 [context.LastError](api-management-policy-expressions.md#ContextVariables) 屬性中，此屬性可供 `on-error` 區段中的原則存取。 LastError 具有下列屬性。  
   
-| 名稱       | type   | 描述                                                                                               | 必要項 |
+| Name       | Type   | 描述                                                                                               | 必要項 |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
 | `Source`   | string | 發生錯誤之元素的名稱。 可能是原則或內建的管線步驟名稱。     | 是      |
 | `Reason`   | string | 方便電腦理解的錯誤碼，可用於處理錯誤。                                       | 否       |
@@ -108,7 +107,7 @@ ms.locfileid: "64704429"
 | `Source`       | 條件                                                       | `Reason`                    | `Message`                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | rate-limit   | 超過了速率限制                                             | RateLimitExceeded         | 超過速率限制                                                                                                               |
-| quota        | 超過配額                                                  | QuotaExceeded             | 呼叫量配額不足。 會在 xx:xx:xx 中補充配額。 -或- 頻寬配額不足。 會在 xx:xx:xx 中補充配額。 |
+| 配額        | 已超出配額                                                  | QuotaExceeded             | 呼叫量配額不足。 會在 xx:xx:xx 中補充配額。 -或- 頻寬配額不足。 會在 xx:xx:xx 中補充配額。 |
 | jsonp        | 回呼參數值無效 (包含錯誤的字元) | CallbackParameterInvalid  | 回呼參數 {callback-parameter-name} 的值不是有效的 JavaScript 識別碼。                                          |
 | ip-filter    | 無法從要求中剖析呼叫端 IP                          | FailedToParseCallerIP     | 無法建立呼叫端的 IP 位址。 拒絕存取。                                                                        |
 | ip-filter    | 呼叫端 IP 不在允許清單中                                | CallerIpNotAllowed        | 不允許呼叫端 IP 位址 {ip-address}。 拒絕存取。                                                                        |

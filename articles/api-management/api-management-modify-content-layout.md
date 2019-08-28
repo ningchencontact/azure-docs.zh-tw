@@ -10,23 +10,22 @@ ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: fd9902a83a813daffc52e089e6e8bfc4137c5b8f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656623"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072279"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>在 Azure API 管理中修改開發人員入口網站的頁面內容和配置
 在 Azure API 管理中自訂開發人員入口網站的基本方式有三種：
 
-* [編輯靜態頁面和頁面配置元素的內容][modify-content-layout] (如本指南所述)
-* [更新用於開發人員入口網站上頁面元素的樣式][customize-styles]
-* [修改入口網站所產生的網頁用範本][portal-templates] (例如 API 文件、產品、使用者驗證等)
+* [編輯靜態頁面和頁面配置元素的內容][modify-content-layout](本指南說明)
+* [在開發人員入口網站中更新頁面元素所使用的樣式][customize-styles]
+* [修改入口網站所產生的頁面所使用的範本][portal-templates](例如, API 檔、產品、使用者驗證等)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -46,18 +45,18 @@ ms.locfileid: "60656623"
 
 您可以從 Azure 入口網站存取開發人員入口網站。
 
-1. 從 API 管理執行個體的工具列中按一下 [開發人員入口網站]  。
-2. 若要編輯小工具的內容，請從左側的 [開發人員入口網站]  功能表中按一下由兩個筆刷所組成的圖示。
-3. 若要修改標頭內容，請捲動到左側清單中的 [標頭]  區段。
+1. 從 API 管理執行個體的工具列中按一下 [開發人員入口網站]。
+2. 若要編輯小工具的內容，請從左側的 [開發人員入口網站] 功能表中按一下由兩個筆刷所組成的圖示。
+3. 若要修改標頭內容，請捲動到左側清單中的 [標頭] 區段。
 
     您可以從欄位中編輯小工具。
-4. 當您準備好發佈變更時，請按一下頁面底部的 [發佈]  。
+4. 當您準備好發佈變更時，請按一下頁面底部的 [發佈]。
 
 現在，您應該會在開發人員入口網站內的每個頁面上看到新的頁首。
 
 ## <a name="next-steps"> </a>後續步驟
-* [更新用於開發人員入口網站上頁面元素的樣式][customize-styles]
-* [修改入口網站所產生的網頁用範本][portal-templates] (例如 API 文件、產品、使用者驗證等)
+* [在開發人員入口網站中更新頁面元素所使用的樣式][customize-styles]
+* [修改入口網站所產生的頁面所使用的範本][portal-templates](例如, API 檔、產品、使用者驗證等)
 
 [Structure of developer portal pages]: #page-structure
 [Modifying the contents of a layout widget]: #modify-layout-widget

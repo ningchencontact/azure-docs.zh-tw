@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 3a8c571d3c6bb55fdd8b2d097b71b83afab5ca00
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8c63df2d9a7e398fb9b67edd3b57a3ba06cbe7a1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705912"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084332"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虛擬機器擴充功能和功能
 Azure 虛擬機器 (VM) 擴充功能是在 Azure VM 上提供部署後設定和自動化工作的小型應用程式。您可以使用現有的映像，然後將其自訂為部署的一部分，就不必建置自訂映像。
@@ -54,6 +53,6 @@ Azure 平台裝載許多擴充功能，包括 VM 設定、監視、安全性和�
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Linux 代理程式和擴充功能運作方式的詳細資訊，請參閱[適用於 Linux 的 Azure VM 擴充功能和功能](features-linux.md)。
 * 如需有關 Windows 客體代理程式和擴充功能運作方式的詳細資訊，請參閱[適用於 Windows 的 Azure VM 擴充功能和功能](features-windows.md)。  
-* 若要安裝 Windows 客體代理程式，請參閱[Azure Windows 虛擬機器代理程式概觀](agent-windows.md)。  
-* 若要安裝 Linux 代理程式，請參閱[Azure Linux 虛擬機器代理程式概觀](agent-linux.md)。  
+* 若要安裝 Windows 來賓代理程式, 請參閱[Azure Windows 虛擬機器代理程式總覽](agent-windows.md)。  
+* 若要安裝 Linux 代理程式, 請參閱[Azure Linux 虛擬機器代理程式總覽](agent-linux.md)。  
 

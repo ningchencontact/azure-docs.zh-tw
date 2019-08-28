@@ -1,30 +1,29 @@
 ---
-title: 使用來自 Azure Function 的傳回值
-description: 了解如何管理 Azure 函式的傳回值
+title: 使用來自 Azure 函式的傳回值
+description: 瞭解如何管理 Azure Functions 的傳回值
 services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 03cf85ab12a8f64d639c09db5ea75002b258aa84
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480291"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086416"
 ---
-# <a name="using-the-azure-function-return-value"></a>使用 Azure 函式的傳回值
+# <a name="using-the-azure-function-return-value"></a>使用 Azure 函數傳回值
 
-這篇文章說明如何傳回值的工作函式內。
+本文說明傳回值在函式內的運作方式。
 
-在有傳回值的語言中，您可以繫結函式[輸出繫結](./functions-triggers-bindings.md#binding-direction)的傳回值：
+在具有傳回值的語言中, 您可以將函式[輸出](./functions-triggers-bindings.md#binding-direction)系結系結至傳回值:
 
 * 在 C# 類別庫中，將輸出繫結屬性套用至方法傳回值。
-* 在其他語言中，將 function.json  中的 `name` 屬性設定為 `$return`。
+* 在其他語言中，將 function.json 中的 `name` 屬性設定為 `$return`。
 
 如果有多個輸出繫結，請只對其中一個使用傳回值。
 
@@ -66,7 +65,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 
 ## <a name="c-script-example"></a>C# 指令碼範例
 
-以下是 function.json  檔案中的輸出繫結：
+以下是 function.json 檔案中的輸出繫結：
 
 ```json
 {
@@ -99,7 +98,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 
 ## <a name="f-example"></a>F# 範例
 
-以下是 function.json  檔案中的輸出繫結：
+以下是 function.json 檔案中的輸出繫結：
 
 ```json
 {
@@ -121,7 +120,7 @@ let Run(input: WorkItem, log: ILogger) =
 
 ## <a name="javascript-example"></a>JavaScript 範例
 
-以下是 function.json  檔案中的輸出繫結：
+以下是 function.json 檔案中的輸出繫結：
 
 ```json
 {
@@ -144,7 +143,7 @@ module.exports = function (context, input) {
 
 ## <a name="python-example"></a>Python 範例
 
-以下是 function.json  檔案中的輸出繫結：
+以下是 function.json 檔案中的輸出繫結：
 
 ```json
 {
@@ -168,4 +167,4 @@ def main(input: azure.functions.InputStream) -> str:
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [處理 Azure Functions 繫結錯誤](./functions-bindings-errors.md)
+> [處理 Azure Functions 系結錯誤](./functions-bindings-errors.md)

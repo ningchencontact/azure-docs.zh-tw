@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d16c5b6304f598440fe4d70648dd652f0dcf06ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362283"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089944"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因為停用 DHCP 用戶端服務，而無法 RDP 連線至 Azure 虛擬機器
 
@@ -34,7 +33,7 @@ ms.locfileid: "60362283"
 **日期**：2015 年 12 月 16 日上午 11:19:36 </br>
 **事件識別碼**：7022 </br>
 **工作類別**：None </br>
-**層級**：錯誤 </br>
+**層級**：Error </br>
 **關鍵字**：傳統</br>
 **使用者**：N/A </br>
 **電腦**：myvm.cosotos.com</br>
@@ -77,7 +76,7 @@ VM 上的 DHCP 用戶端服務並未執行。
     嘗試連線至 VM 並查看問題是否已解決。
 5. 如果服務未啟動，請根據您收到的錯誤訊息，使用下列適當的解決方法：
 
-    | 錯誤  |  方案 |
+    | Error  |  方案 |
     |---|---|
     | 5- 拒絕存取  | 請參閱 [DHCP 用戶端服務因為拒絕存取錯誤而停止](#dhcp-client-service-is-stopped-because-of-an-access-denied-error)。  |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | 請參閱 [DHCP 用戶端服務當機或停止回應](#dhcp-client-service-crashes-or-hangs)。  |
@@ -167,7 +166,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP 用戶端服務當機或停止回應
 
-1. 如果服務狀態停滯在 [起始]  或 [停止]  狀態，請嘗試停止服務：
+1. 如果服務狀態停滯在 [起始] 或 [停止] 狀態，請嘗試停止服務：
 
         sc stop DHCP
 2. 將服務隔離在其自己的 'svchost' 容器上：
@@ -183,7 +182,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>將 OS 磁碟連結至復原 VM
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]  。 記下指派給所連結 OS 磁碟的磁碟機代號。
+2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給所連結 OS 磁碟的磁碟機代號。
 3.  開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 此指令碼假設指派給所連結 OS 磁碟的磁碟機代號為 **F**。將字母取代為 VM 中的適當值。
 
     ```

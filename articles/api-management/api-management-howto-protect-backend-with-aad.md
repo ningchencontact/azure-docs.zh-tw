@@ -9,22 +9,21 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: bef82302c4b137b53b52669652f8aeb5d788a82a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 344613c50f46337ffbd7e786f6753e8030c2af22
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774775"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072235"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>使用 OAuth 2.0 搭配 Azure Active Directory 與 API 管理來保護 API
 
 本指南說明如何使用 OAuth 2.0 通訊協定與 Azure Active Directory (Azure AD)，設定 Azure API 管理執行個體來保護 API。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要依照本文中的步驟進行，您必須有：
 * API 管理執行個體
 * 正在使用 API 管理執行個體發佈的 API

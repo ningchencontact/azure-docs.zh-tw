@@ -3,15 +3,15 @@ title: 如何使用 Azure Cosmos DB SDK 呼叫預存程序、觸發程序和使�
 description: 了解如何使用 Azure Cosmos DB SDK 來註冊和呼叫預存程序、觸發程序和使用者定義函式
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: e1215441b45e1fdba8d74c9149415f0da5c4c44a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
-ms.translationtype: HT
+ms.openlocfilehash: 7732039ff2494ef16fda5afe384a824ec786a8cf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68360393"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092934"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中註冊和使用預存程序、觸發程序和使用者定義函式
 

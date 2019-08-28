@@ -7,19 +7,18 @@ author: hermanndms
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bfd278cc4252167aace3aca52fec65fb3c6367f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ebf4a0f892e65bf96e07e333cf5446d3036108a0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869127"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099803"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)
 
@@ -159,9 +158,9 @@ SAP Hana on azure (大型實例) 的儲存體配置是透過 SAP 建議方針的
 | HANA 共用 | /hana/shared/SID | 儲存體 IP：/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 儲存體 IP：/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
-SID  是 HANA 執行個體的系統識別碼。 
+SID 是 HANA 執行個體的系統識別碼。 
 
-Tenant  是部署租用戶時的內部作業列舉。
+Tenant 是部署租用戶時的內部作業列舉。
 
 HANA usr/sap 會共用相同的磁碟區。 掛接點的專門用語包含 HANA 執行個體的系統識別碼及掛接編號。 在相應增加部署中，只有一個掛接，例如 mnt00001。 另一方面，在向外延展部署中，您會看到許多掛接，因為有背景工作角色和主要節點。 
 

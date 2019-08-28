@@ -9,18 +9,17 @@ ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 60caadf58a8acdc7cecb0074e189fd1656032327
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 033a9adfd81dc52858ab58e3170e69af6f56c323
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617077"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070635"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>將雲端資料夾的內容同步處理到 Azure App Service
 本文說明如何將您的內容從 Dropbox 和 OneDrive 同步處理到 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)。 
@@ -31,26 +30,26 @@ ms.locfileid: "67617077"
 
 若要啟用內容同步處理，請巡覽至 [Azure 入口網站](https://portal.azure.com)中的 App Service 應用程式頁面。
 
-在左側功能表中，按一下 [部署中心]   > [OneDrive]  或 [Dropbox]   > [授權]  。 請遵循授權提示。 
+在左側功能表中，按一下 [部署中心] > [OneDrive] 或 [Dropbox] > [授權]。 請遵循授權提示。 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
-您只需要對 OneDrive 或 Dropbox 授權一次。 如果您已獲授權，只需按一下 [繼續]  即可。 您可以按一下 [變更帳戶]  來變更授權的 OneDrive 或 Dropbox 帳戶。
+您只需要對 OneDrive 或 Dropbox 授權一次。 如果您已獲授權，只需按一下 [繼續] 即可。 您可以按一下 [變更帳戶] 來變更授權的 OneDrive 或 Dropbox 帳戶。
 
 ![](media/app-service-deploy-content-sync/continue.png)
 
-在 [設定]  頁面上，選取您想要同步處理的資料夾。 這個資料夾就會在 OneDrive 或 Dropbox 的下列指定內容路徑下建立。 
+在 [設定] 頁面上，選取您想要同步處理的資料夾。 這個資料夾就會在 OneDrive 或 Dropbox 的下列指定內容路徑下建立。 
    
 * **OneDrive**：`Apps\Azure Web Apps`
 * **Dropbox**：`Apps\Azure`
 
-完成後，按一下 [繼續]  。
+完成後，按一下 [繼續]。
 
-在 [摘要]  頁面上確認您的選項，然後按一下 [完成]  。
+在 [摘要] 頁面上確認您的選項，然後按一下 [完成]。
 
 ## <a name="synchronize-content"></a>同步處理內容
 
-當您想要使用 App Service 同步處理雲端資料夾中的內容時，請回到 [部署中心]  頁面，然後按一下 [同步]  。
+當您想要使用 App Service 同步處理雲端資料夾中的內容時，請回到 [部署中心] 頁面，然後按一下 [同步]。
 
 ![](media/app-service-deploy-content-sync/synchronize.png)
    
@@ -63,7 +62,7 @@ ms.locfileid: "67617077"
 
 若要停用內容同步處理，請巡覽至 [Azure 入口網站](https://portal.azure.com)中的 App Service 應用程式頁面。
 
-在左側功能表中，按一下 [部署中心]   > [中斷連線]  。
+在左側功能表中，按一下 [部署中心] > [中斷連線]。
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

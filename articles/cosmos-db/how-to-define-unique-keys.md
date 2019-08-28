@@ -3,15 +3,15 @@ title: 定義 Azure Cosmos 容器的唯一索引鍵
 description: 了解如何定義 Azure Cosmos 容器的唯一索引鍵
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 313dd07c2b8eeb5684310b57d74053d3cbc1b5e1
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.openlocfilehash: 67b6ca1914d1728930c29c4a0bbca6cf86753da9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356393"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093331"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>定義 Azure Cosmos 容器的唯一索引鍵
 
@@ -23,15 +23,15 @@ ms.locfileid: "68356393"
 
 1. [建立新的 Azure Cosmos 帳戶](create-sql-api-dotnet.md#create-account)，或選取現有帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取您要處理的容器。
+1. 開啟 [資料總管] 窗格，然後選取您要處理的容器。
 
-1. 按一下 [新容器]  。
+1. 按一下 [新容器]。
 
-1. 在 [新增容器]  對話方塊中，按一下 [+ 新增唯一索引鍵]  來新增唯一索引鍵項目。
+1. 在 [新增容器] 對話方塊中，按一下 [+ 新增唯一索引鍵] 來新增唯一索引鍵項目。
 
 1. 輸入唯一索引鍵條件限制的路徑
 
-1. 如有需要，可按一下 [+ 新增唯一索引鍵]  來新增更多唯一索引鍵項目
+1. 如有需要，可按一下 [+ 新增唯一索引鍵] 來新增更多唯一索引鍵項目
 
 ![Azure 入口網站中唯一索引鍵條件限制項目的螢幕擷取畫面](./media/how-to-define-unique-keys/unique-keys-portal.png)
 

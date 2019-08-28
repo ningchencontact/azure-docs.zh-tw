@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f95d3487adecb17e0f4b79e81a08e16bafe4594f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2b44b51da11bc1c51fcbc60992a9b5b870daf02e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855259"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100586"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>使用 Azure 快速入門範本, 在 Azure VM 上設定 SQL Server 的 Always On 可用性群組
 本文說明如何使用 Azure 快速入門範本, 部分自動化部署 Azure 中 SQL Server 虛擬機器的 Always On 可用性群組設定。 此程式會使用兩個 Azure 快速入門範本: 
@@ -34,7 +33,7 @@ ms.locfileid: "68855259"
 可用性群組設定的其他部分必須手動完成, 例如, 建立可用性群組並建立內部負載平衡器。 本文提供自動和手動步驟的順序。
  
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 若要使用快速入門範本自動設定 Always On 可用性群組, 您必須具備下列必要條件: 
 - [Azure 訂用帳戶](https://azure.microsoft.com/free/)。
 - 具有網域控制站的資源群組。 
@@ -112,7 +111,7 @@ Always On 可用性群組接聽程式需要 Azure Load Balancer 的內部實例�
    | **私人 IP 位址** | 從子網路指定可用的 IP 位址。 |
    | **訂用帳戶** |如果您有多個訂用帳戶，此欄位才會出現。 選取您想要與此資源相關聯的訂用帳戶。 通常是與可用性群組的所有資源相同的訂用帳戶。 |
    | **資源群組** |選取 SQL Server 執行個體所在的資源群組。 |
-   | **Location** |選取 SQL Server 執行個體所在的 Azure 位置。 |
+   | **位置** |選取 SQL Server 執行個體所在的 Azure 位置。 |
    | &nbsp; | &nbsp; |
 
 6. 選取 [建立]。 

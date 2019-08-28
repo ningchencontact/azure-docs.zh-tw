@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: d2fec29c96639d21db362f6982b88a90bd6c319f
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: df2a86dd1292f58511765e842ee97daddcff4e3e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019089"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102927"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>針對即時串流中的計時中繼資料傳送訊號 
 
@@ -210,7 +210,7 @@ RTMP 內嵌的 Azure 媒體服務支援下列 [AMF0] 命令:
 ### <a name="built-in-supported-scheme-id-uris"></a>內建支援的配置識別碼 Uri
 | 配置識別碼 URI                 |  描述                                             |
 |-------------------------------|----------------------------------------------------------|
-| https://aomedia.org/emsg/ID3   | 描述如何將 [ID3v2] 中繼資料當做 CMAF 相容 [MPEGCMAF] 中的計時中繼資料來攜帶。 如需詳細資訊, 請參閱[一般媒體應用程式格式的計時中繼資料 (CMAF)](https://aomediacodec.github.io/av1-id3/) |
+| HTTPs:\//aomedia.org/emsg/ID3   | 描述如何將 [ID3v2] 中繼資料當做 CMAF 相容 [MPEGCMAF] 中的計時中繼資料來攜帶。 如需詳細資訊, 請參閱[一般媒體應用程式格式的計時中繼資料 (CMAF)](https://aomediacodec.github.io/av1-id3/) |
 
 ### <a name="event-processing-and-manifest-signaling"></a>事件處理和資訊清單信號
 

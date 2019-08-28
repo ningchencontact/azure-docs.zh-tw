@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 08/29/2019
 ms.author: victorh
-ms.openlocfilehash: ebe02e8bf3fecc03c46bb66c9ab178e4f277e6e4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 119f28bcc4f88f0b4dc0ce65584dbce326087eba
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971625"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114768"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火牆常見問題集
 
@@ -153,4 +153,12 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>是否有防火牆名稱的字元限制？
 
-是的。 防火牆名稱有50個字元的限制。 
+是的。 防火牆名稱有50個字元的限制。
+
+## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>為什麼 Azure 防火牆需要/26 個子網大小？
+
+Azure 防火牆必須在調整規模時布建更多虛擬機器實例。 /26 位址空間可確保防火牆有足夠的 IP 位址可容納調整。
+
+## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>當服務調整時, 防火牆子網大小是否需要變更？
+
+資料分割 Azure 防火牆不需要大於/26 的子網。

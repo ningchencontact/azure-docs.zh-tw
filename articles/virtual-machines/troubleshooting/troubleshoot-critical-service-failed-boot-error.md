@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2a6e8985a2cb13da0f2e34f4e9961f84aacdd974
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449807"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103496"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>將 Azure VM 重新開機時，Windows 會在藍色畫面上顯示 "CRITICAL SERVICE FAILED"
 本文說明當您在 Microsoft Azure 中將 Windows 虛擬機器 (VM) 開機時可能發生的 "CRITICAL SERVICE FAILED" 錯誤。 文中會提供疑難排解步驟，以協助解決問題。 
@@ -26,7 +25,7 @@ ms.locfileid: "67449807"
 > [!NOTE] 
 > Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用「資源管理員」部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
-## <a name="symptom"></a>徵狀 
+## <a name="symptom"></a>徵兆 
 
 Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.md)中的開機螢幕擷取畫面時，您會在藍色畫面中看到下列其中一項錯誤訊息：
 
@@ -40,7 +39,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 - 系統檔案或記憶體損毀
 - 應用程式存取記憶體的禁止磁區
 
-## <a name="solution"></a>解決方法 
+## <a name="solution"></a>方案 
 
 若要解決此問題，請[連絡支援人員並提交傾印檔案](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file)，這有助我們更快診斷問題，或是嘗試下列自助解決方案。
 
@@ -94,8 +93,8 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
 2. [將 OS 磁碟中斷連結，然後將 OS 磁碟重新連結至受影響的 VM](troubleshoot-recovery-disks-portal-windows.md)。 VM 會開機進入安全模式。 若錯誤持續發生，請前往選用步驟。
-3. 開啟 [執行]  方塊，並執行 [驗證器]  以啟動磁碟機驗證器管理工具。
-4. 選取 [自動選取未簽署的驅動程式]  ，然後按一下 [下一步]  。
+3. 開啟 [執行] 方塊，並執行 [驗證器] 以啟動磁碟機驗證器管理工具。
+4. 選取 [自動選取未簽署的驅動程式]，然後按一下 [下一步]。
 5. 您會取得未簽署的驅動程式檔案清單。 記下檔案名稱。
 6. 從運作中 VM 複製這些檔案的相同版本，然後取代這些未簽署的檔案。 
 
@@ -104,21 +103,21 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  重新啟動 VM。 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>選用：分析傾印損毀模式中的傾印記錄
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>選擇性：分析傾印損毀模式中的傾印記錄
 
-若要自行分析傾印記錄檔，請遵循下列步驟：
+若要自行分析傾印記錄, 請遵循下列步驟:
 
 1. 將 OS 磁碟連結至還原 VM。
 2. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config**。需要將所有檔案複製為備份以便復原。
-3. 啟動 [登錄編輯程式]  (regedit.exe)。
-4. 選取 [HKEY_LOCAL_MACHINE]  機碼。 在功能表上，選取 [檔案]   > [載入 Hive]  。
-5. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config\SYSTEM** 資料夾。 針對 Hive 的名稱，輸入 **BROKENSYSTEM**。 新的 Hive 會顯示在 [HKEY_LOCAL_MACHINE]  機碼下方。
+3. 啟動 [登錄編輯程式] (regedit.exe)。
+4. 選取 [HKEY_LOCAL_MACHINE] 機碼。 在功能表上，選取 [檔案] > [載入 Hive]。
+5. 在您連結的 OS 磁碟上，瀏覽至 **\windows\system32\config\SYSTEM** 資料夾。 針對 Hive 的名稱，輸入 **BROKENSYSTEM**。 新的 Hive 會顯示在 [HKEY_LOCAL_MACHINE] 機碼下方。
 6. 瀏覽至 **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** 並進行下列變更：
 
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  選取 [BROKENSYSTEM]  。 在功能表上，選取 [檔案]   >  **[上傳 Hive]** 。
+7.  選取 [BROKENSYSTEM]。 在功能表上，選取 [檔案] >  **[上傳 Hive]** 。
 8.  修改 BCD 設定以開機進入偵錯模式。 從提升權限的命令提示字元執行下列命令：
 
     ```cmd

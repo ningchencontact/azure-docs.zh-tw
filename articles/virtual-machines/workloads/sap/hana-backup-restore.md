@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27f7a9b576263b97c251306c9817b85c31041739
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 705dfb0b62327d9675fe9bf3e5860b1396e2fab9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312234"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101316"
 ---
 # <a name="backup-and-restore"></a>備份與還原
 
@@ -118,7 +117,7 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 1. 在所有 SAP HANA (大型執行個體) 伺服器上安裝 SAP HANA HDB 用戶端。
 1. 在每個區域的第一部 SAP HANA (大型執行個體) 伺服器上，建立一個公開金鑰，以便存取其底下控制快照集建立的儲存體基礎結構。
 1. 將指令碼和組態檔從 [ GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1) 複製到 SAP HANA 安裝中的 **hdbsql** 位置。
-1. 視需要修改 HANABackupDetails.txt  檔案以符合適當的客戶規格。
+1. 視需要修改 HANABackupDetails.txt 檔案以符合適當的客戶規格。
 
 從 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1) 取得最新快照集指令碼和文件。 如需先前所列的步驟, 請參閱[Azure 上適用于 SAP Hana 的 Microsoft 快照集工具](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf)。
 
@@ -126,13 +125,13 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 如果您在一個 HANA 大型實例單位上執行具有多個 SAP Hana 實例的[MCOD 案例](https://launchpad.support.sap.com/#/notes/1681092), 則會為每個 SAP Hana 實例布建個別的存放磁片區。 如需有關 MDC 和其他考慮的詳細資訊, 請參閱[Azure 上的 Microsoft snapshot tools for SAP Hana](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf)中的「要記住的重要事項」。
  
 
-### <a name="step-1-install-the-sap-hana-hdb-client"></a>步驟 1：安裝 SAP HANA HDB 用戶端
+### <a name="step-1-install-the-sap-hana-hdb-client"></a>步驟 1:安裝 SAP HANA HDB 用戶端
 
 安裝在 Azure 上 SAP Hana (大型實例) 上的 Linux 作業系統包含針對備份和災難復原目的執行 SAP Hana 儲存體快照集所需的資料夾和腳本。 檢查 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1) 中是否有更近期的版本。 最新的腳本版本為4.1。 不同的指令碼在相同的主要版本中可能有不同的次要版本。
 
 當您安裝 SAP Hana 時, 您必須負責在 HANA 大型實例單位上安裝 SAP Hana HDB 用戶端。
 
-### <a name="step-2-change-the-etcsshsshconfig"></a>步驟 2：變更 /etc/ssh/ssh\_config
+### <a name="step-2-change-the-etcsshssh_config"></a>步驟 2:變更 /etc/ssh/ssh\_config
 
 在[適用于 Azure 的 Microsoft 快照集工具中 SAP Hana 的](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf)「啟用與儲存體的通訊」中, 會說明此步驟。
 
@@ -179,7 +178,7 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 
 #### <a name="test-connectivity-with-sap-hana"></a>測試與 SAP Hana 的連線能力
 
-將所有組態資料放入 HANABackupCustomerDetails.txt  檔案後，請檢查 HANA 執行個體資料的組態是否正確。 使用指令碼 `testHANAConnection`，其與 SAP HANA 相應增加或相應放大組態無關。
+將所有組態資料放入 HANABackupCustomerDetails.txt 檔案後，請檢查 HANA 執行個體資料的組態是否正確。 使用指令碼 `testHANAConnection`，其與 SAP HANA 相應增加或相應放大組態無關。
 
 如需詳細資訊, 請參閱[Azure 上 SAP Hana 的 Microsoft 快照集工具](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf)中的 < 檢查與 SAP Hana testHANAConnection 的連線能力。
 
@@ -214,7 +213,7 @@ SAP HANA on Azure (大型執行個體) 隨附固定的磁碟區大小供 SAP HAN
 ## <a name="snapshot-strategies"></a>快照集策略
 針對不同類型的快照集，其頻率取決於您是否使用 HANA 大型執行個體災害復原功能。 此功能依賴儲存快照集，其可能需要有關儲存體快照集執行頻率和期間的特殊建議。 
 
-在下面的考量和建議中，假設您「不」  使用 HANA 大型執行個體所提供的災害復原功能。 相反地，您會使用儲存體快照集來建立備份，且您能夠提供過去 30 天的時間點復原。 假設快照集和空間的數目有所限制, 請考慮下列需求:
+在下面的考量和建議中，假設您「不」使用 HANA 大型執行個體所提供的災害復原功能。 相反地，您會使用儲存體快照集來建立備份，且您能夠提供過去 30 天的時間點復原。 假設快照集和空間的數目有所限制, 請考慮下列需求:
 
 - 時間點復原的復原時間。
 - 使用的空間。

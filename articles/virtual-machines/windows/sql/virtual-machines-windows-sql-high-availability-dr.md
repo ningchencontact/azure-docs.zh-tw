@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: aac7a573b254c2e46d2ecf25d176df28e5e5d7da
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 175ea1c0c25a0c6dd41c68ea0a340cc1b18cc8b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137563"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100593"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 高可用性和災害復原
 
@@ -48,7 +47,7 @@ ms.locfileid: "67137563"
 
 您可以在含有 Always On 可用性群組 (稱為可用性群組) 的資料庫層級，具備適用於 SQL Server 的高可用性解決方案。 您也可以在含有 Always On 容錯移轉叢集執行個體 (容錯移轉叢集執行個體) 的執行個體層級，建立高可用性解決方案。 如需額外的備援，您可以藉由在容錯移轉叢集執行個體上建立可用性群組，在這兩個層級上建立備援。 
 
-| Technology | 範例架構 |
+| 技術 | 範例架構 |
 | --- | --- |
 | **可用性群組** |在相同區域的 Azure VM 中執行的可用性複本提供高可用性。 由於 Windows 容錯移轉叢集需要使用 Active Directory 網域，因此您需要設定網域控制站 VM。<br/> ![可用性群組](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-ha-always-on.png)<br/>如需詳細資訊，請參閱[在 Azure (GUI) 中設定可用性群組](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)。 |
 | **容錯移轉叢集執行個體** |有 3 種不同的方式可以建立需要使用共用儲存體的「容錯移轉叢集執行個體」(FCI)。<br/><br/>1.在 Azure VM 中執行的雙節點容錯移轉叢集，搭配以 [Windows Server 2016 儲存空間直接存取 \(S2D\) ](virtual-machines-windows-portal-sql-create-failover-cluster.md) 連接的儲存體，形成以軟體為基礎的虛擬 SAN。<br/><br/>2.在 Azure VM 中執行的雙節點容錯移轉叢集，搭配由協力廠商叢集解決方案支援的儲存體。 如需使用 SIOS DataKeeper 的特定範例，請參閱[使用容錯移轉叢集和協力廠商軟體 SIOS DataKeeper 之檔案共用的高可用性](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/) \(英文\)。<br/><br/>3.在 Azure VM 中執行的雙節點容錯移轉叢集，搭配透過 ExpressRoute 的遠端 iSCSI 目標共用區塊儲存體。 例如，NetApp 私用儲存體 (NPS) 會透過 ExpressRoute 使用 Equinix 將 iSCSI 目標公開至 Azure VM。<br/><br/>對於協力廠商共用儲存體和資料複寫解決方案，針對有關存取容錯移轉資料的任何問題您應該連絡廠商。<br/><br/>請注意，在 [Azure 檔案儲存體](https://azure.microsoft.com/services/storage/files/)最上層使用 FCI 尚未支援，因為這個解決方案不使用進階儲存體。 我們正在努力，很快就會推出這項支援。 |
@@ -56,10 +55,10 @@ ms.locfileid: "67137563"
 ## <a name="azure-only-disaster-recovery-solutions"></a>僅限 Azure：災害復原解決方案
 您可以使用可用性群組或資料庫鏡像，為 Azure 中的 SQL Server 資料庫提供災害復原解決方案，或者使用儲存體 Blob 進行備份和還原。
 
-| Technology | 範例架構 |
+| 技術 | 範例架構 |
 | --- | --- |
 | **可用性群組** |為了進行嚴重損壞修復，可用性複本會在 Azure VM 的多個資料中心執行。 這種跨區域解決方案可防止網站完全中斷。 <br/> ![可用性群組](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-alwayson.png)<br/>在區域內，所有複本都應位於相同的雲端服務與 VNet 中。 由於每個區域會有不同的 VNet，因此這些解決方案會需要 VNet 對 VNet 連線。 如需詳細資訊，請參閱[使用 Azure 入口網站設定 VNet 對 VNet 連接](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。 如需詳細指示，請參閱[在不同區域中的 Azure 虛擬機器上設定 SQL Server 可用性群組](virtual-machines-windows-portal-sql-availability-group-dr.md)。|
-| **資料庫鏡像** |為了進行嚴重損壞修復，主體、鏡像和伺服器會在不同的資料中心內執行。 您必須使用伺服器憑證部署。 不支援 SQL Server 2008 或 SQL Server 2008 R2 的 Azure VM 上的 SQL Server 資料庫鏡像。 <br/>![資料庫鏡像](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-dbmirroring.png) |
+| **資料庫鏡像** |為了進行嚴重損壞修復，主體、鏡像和伺服器會在不同的資料中心內執行。 您必須使用伺服器憑證進行部署。 在 Azure VM 上, SQL Server 2008 或 SQL Server 2008 R2 不支援 SQL Server 資料庫鏡像。 <br/>![資料庫鏡像](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-dbmirroring.png) |
 | **備份及還原與 Azure Blob 儲存體服務** |生產資料庫直接備份到不同資料中心的 blob 儲存體以進行災害復原。<br/>![備份與還原](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-backup-restore.png)<br/>如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的備份與還原](virtual-machines-windows-sql-backup-recovery.md)。 |
 | **使用 Azure Site Recovery 複寫 SQL Server 並將其容錯移轉至 Azure** |某個 Azure 資料中心的實際執行 SQL Server 直接複寫至不同 Azure 資料中心的 Azure 儲存體進行嚴重損壞修復。<br/>![使用 Azure Site Recovery 複寫](./media/virtual-machines-windows-sql-high-availability-dr/azure-only-dr-standalone-sqlserver-asr.png)<br/>如需詳細資訊，請參閱[使用 SQL Server 嚴重損壞修復和 Azure Site Recovery 保護 SQL Server](../../../site-recovery/site-recovery-sql.md)。 |
 
@@ -67,10 +66,10 @@ ms.locfileid: "67137563"
 ## <a name="hybrid-it-disaster-recovery-solutions"></a>混合式 IT:災害復原解決方案
 您可以使用可用性群組、資料庫鏡像及記錄傳送，為混合式 IT 環境中的 SQL Server 資料庫提供災害復原解決方案，以及使用 Azure Blob 儲存體進行備份和還原。
 
-| Technology | 範例架構 |
+| 技術 | 範例架構 |
 | --- | --- |
-| **可用性群組** |為了進行跨網站的嚴重損壞修復，部分可用性複本會在 Azure VM 中執行，而其他複本會在內部部署執行。 生產網站可以是內部部署或是在 Azure 資料中心。<br/>![可用性群組](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-alwayson.png)<br/>由於所有可用性複本都必須位於相同的容錯移轉叢集中，因此該叢集必須同時跨這兩個網路 (多重子網路的容錯移轉叢集)。 此組態需要 Azure 與內部部署網路之間的 VPN 連線。<br/><br/>若要成功對資料庫進行災害復原，您也應該在災害復原網站安裝複本網域控制站。<br/><br/>很可能要在 SSMS 中使用「新增複本精靈」以將 Azure 複本新增至現有 Always On 可用性群組。 如需詳細資訊，請參閱教學課程：將您的 Always On 可用性群組延伸至 Azure。 |
-| **資料庫鏡像** |為了使用伺服器憑證進行跨網站嚴重損壞修復，一個合作夥伴會在 Azure VM 中執行，而其他合作夥伴會在內部部署中執行。 合作夥伴不需要位於相同的 Active Directory 網域，且不需要 VPN 連線。<br/>![資料庫鏡像](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-dbmirroring.png)<br/>另一個資料庫鏡像案例，則是為了進行跨網站災害復原復，讓一個合作夥伴在 Azure VM 中執行，並讓其他合作夥伴在相同 Active Directory 網域的內部部署中執行。 需要 [Azure 虛擬網路與內部部署之間的 VPN 連線](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。<br/><br/>若要成功對資料庫進行災害復原，您也應該在災害復原網站安裝複本網域控制站。 不支援 SQL Server 2008 或 SQL Server 2008 R2 的 Azure VM 上的 SQL Server 資料庫鏡像。 |
+| **可用性群組** |為了進行跨網站的嚴重損壞修復，部分可用性複本會在 Azure VM 中執行，而其他複本會在內部部署執行。 生產網站可以是內部部署或是在 Azure 資料中心。<br/>![可用性群組](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-alwayson.png)<br/>由於所有可用性複本都必須位於相同的容錯移轉叢集中，因此該叢集必須同時跨這兩個網路 (多重子網路的容錯移轉叢集)。 此組態需要 Azure 與內部部署網路之間的 VPN 連線。<br/><br/>若要成功對資料庫進行災害復原，您也應該在災害復原網站安裝複本網域控制站。<br/><br/>很可能要在 SSMS 中使用「新增複本精靈」以將 Azure 複本新增至現有 Always On 可用性群組。 如需詳細資訊, 請參閱教學課程:將您的 Always On 可用性群組延伸至 Azure。 |
+| **資料庫鏡像** |為了使用伺服器憑證進行跨網站嚴重損壞修復，一個合作夥伴會在 Azure VM 中執行，而其他合作夥伴會在內部部署中執行。 合作夥伴不需要位於相同的 Active Directory 網域，且不需要 VPN 連線。<br/>![資料庫鏡像](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-dbmirroring.png)<br/>另一個資料庫鏡像案例，則是為了進行跨網站災害復原復，讓一個合作夥伴在 Azure VM 中執行，並讓其他合作夥伴在相同 Active Directory 網域的內部部署中執行。 需要 [Azure 虛擬網路與內部部署之間的 VPN 連線](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。<br/><br/>若要成功對資料庫進行災害復原，您也應該在災害復原網站安裝複本網域控制站。 在 Azure VM 上, SQL Server 2008 或 SQL Server 2008 R2 不支援 SQL Server 資料庫鏡像。 |
 | **記錄傳送** |為了進行跨網站嚴重損壞修復，一個合作夥伴會在 Azure VM 中執行，而其他合作夥伴會在內部部署中執行。 記錄傳送依賴 Windows 檔案共用，因此需要 Azure 虛擬網路和內部部署網路之間的 VPN 連線。<br/>![記錄傳送](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-log-shipping.png)<br/>若要成功對資料庫進行災害復原，您也應該在災害復原網站安裝複本網域控制站。 |
 | **備份及還原與 Azure Blob 儲存體服務** |內部部署生產資料庫直接備份到 Azure blob 儲存體以進行災害復原。<br/>![備份與還原](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-backup-restore.png)<br/>如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的備份與還原](virtual-machines-windows-sql-backup-recovery.md)。 |
 | **使用 Azure Site Recovery 複寫 SQL Server 並將其容錯移轉至 Azure** |內部部署實際執行 SQL Server 直接複寫至 Azure 儲存體進行嚴重損壞修復。<br/>![使用 Azure Site Recovery 複寫](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-standalone-sqlserver-asr.png)<br/>如需詳細資訊，請參閱[使用 SQL Server 嚴重損壞修復和 Azure Site Recovery 保護 SQL Server](../../../site-recovery/site-recovery-sql.md)。 |
@@ -110,7 +109,7 @@ Azure 中的可用性設定組可讓您將高可用性節點分別放入容錯�
 您仍可以透過直接連接至服務執行個體，分別連接至各個可用性複本。 此外，由於可用性群組能與資料庫鏡像用戶端回溯相容，因此只要將可用性複本設定成類似資料庫鏡像，即可連接至這類複本 (例如資料庫鏡像合作夥伴)：
 
 * 一個主要複本與一個次要複本
-* 次要複本被設定為不可讀取 ([可讀取次要]  選項設為 [否]  )
+* 次要複本被設定為不可讀取 ([可讀取次要] 選項設為 [否])
 
 使用 ADO.NET 或 SQL Server Native Client 對應至類似此資料庫鏡像組態的範例用戶端連接字串如下：
 

@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: 857382c09192e71d9727a91274993091f2f903b2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: d57d9bfa964759e639c2cf40d86bd603b1900ce7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718683"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103018"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>在 Azure VM 上建立 MATLAB Distributed Computing Server 叢集
 使用 Microsoft Azure 虛擬機器建立一或多個 MATLAB Distributed Computing Server 叢集，以執行需密集計算的平行 MATLAB 工作負載。 在 VM 上安裝 MATLAB Distributed Computing Server 軟體來作為基礎映像，並使用 Azure 快速入門範本或 Azure PowerShell 指令碼 (可在 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)上取得) 來部署和管理叢集。 在部署之後，連接到叢集以執行工作負載。
@@ -29,7 +28,7 @@ ms.locfileid: "67718683"
 
 藉由使用 Azure 虛擬機器，您可以建立 MATLAB Distributed Computing Server 叢集，讓其擁有所有可供提交平行工作的相同機制以作為內部部署叢集，例如互動式作業、批次作業、獨立的工作和通訊工作。 相較於佈建和使用傳統內部部署硬體，搭配使用 Azure 與 MATLAB 平台有許多好處︰能因應各種虛擬機器大小、可隨選建立叢集以便只針對使用的計算資源付費，以及能夠大規模測試模型。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **用戶端電腦** - 您將需要以 Windows 為基礎的用戶端電腦，以便在部署之後與 Azure 和 MATLAB Distributed Computing Server 叢集通訊。
 * **Azure PowerShell** - 請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 以將其安裝在您的用戶端電腦上。
 * **Azure 訂用帳戶** - 如果您沒有訂用帳戶，只需要幾分鐘就可以建立 [免費帳戶](https://azure.microsoft.com/free/) 。 針對較大的叢集，請考慮隨用隨付訂用帳戶或其他購買選項。

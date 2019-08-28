@@ -6,18 +6,17 @@ author: mscurrell
 manager: gwallace
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 90c8f3779283c23a98bac9d36fde2641c15afafe
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 33d448bc95f4cb12f5a06232cbab168a43d522c1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323468"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095186"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>使用低優先順序的 VM 搭配 Batch
 
@@ -175,8 +174,8 @@ VM 可能偶爾會被優先佔用；當發生優先佔用時，Batch 會執行�
 若要檢視 Azure 入口網站中的計量：
 
 1. 在入口網站中瀏覽至您的 Batch 帳戶，並檢視 Batch 帳戶的設定。
-2. 從 [監視]  區段選取 [計量]  。
-3. 從 [可用的計量]  清單中選取您所需的計量。
+2. 從 [監視] 區段選取 [計量]。
+3. 從 [可用的計量] 清單中選取您所需的計量。
 
 ![低優先順序節點的計量](media/batch-low-pri-vms/low-pri-metrics.png)
 

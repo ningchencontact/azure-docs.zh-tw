@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: cf85bfd8be146cb599ced61eaa2126ee9e12538b
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: f9edee7a0ff19a536d0ea719ede6d0cd2e9d6ac7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723063"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102641"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 入口網站開啟虛擬機器的連接埠
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -30,11 +29,11 @@ ms.locfileid: "67723063"
 
 ## <a name="create-a-network-security-group"></a>建立網路安全性群組
 
-1. 搜尋並選取 VM 的資源群組，選擇 [新增]  ，然後搜尋並選取 [網路安全性群組]  。
+1. 搜尋並選取 VM 的資源群組，選擇 [新增]，然後搜尋並選取 [網路安全性群組]。
 
-2. 選取 [建立]  。
+2. 選取 [建立]。
 
-    [建立網路安全性群組]  視窗隨即開啟。
+    [建立網路安全性群組] 視窗隨即開啟。
 
     ![建立網路安全性群組](./media/nsg-quickstart-portal/create-nsg.png)
 
@@ -42,29 +41,29 @@ ms.locfileid: "67723063"
 
 3. 選取或建立資源群組，然後選取位置。
 
-4. 選取 [建立]  以建立網路安全性群組。
+4. 選取 [建立] 以建立網路安全性群組。
 
 ## <a name="create-an-inbound-security-rule"></a>建立輸入安全性規則
 
 1. 選取您的新網路安全性群組。 
 
-2. 選取 [輸入安全性規則]  ，然後選取 [新增]  。
+2. 選取 [輸入安全性規則]，然後選取 [新增]。
 
     ![新增輸入規則](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-3. 選取 [進階]  。 
+3. 選取 [進階]。 
 
-4. 從下拉式功能表中選擇常見的**服務**，例如 **HTTP**。 如果要以提供特定連接埠供使用者使用，您也可以選取 [自訂]  。 
+4. 從下拉式功能表中選擇常見的**服務**，例如 **HTTP**。 如果要以提供特定連接埠供使用者使用，您也可以選取 [自訂]。 
 
-5. 選擇性地變更 [優先順序]  或 [名稱]  。 優先順序會影響規則的套用順序，數值越低的規則越早套用。
+5. 選擇性地變更 [優先順序] 或 [名稱]。 優先順序會影響規則的套用順序，數值越低的規則越早套用。
 
-6. 選取 [新增]  以建立規則。
+6. 選取 [新增] 以建立規則。
 
 ## <a name="associate-your-network-security-group-with-a-subnet"></a>將「網路安全性群組」與子網路建立關聯
 
 最後一個步驟是將您的網路安全性群組與子網路或特定網路介面建立關聯。 對於此範例，我們會將網路安全性群組與子網路建立關聯。 
 
-1. 選取 [子網路]  ，然後選取 [建立關聯]  。
+1. 選取 [子網路]，然後選取 [建立關聯]。
 
     ![將網路安全性群組與子網路建立關聯](./media/nsg-quickstart-portal/associate-subnet.png)
 
