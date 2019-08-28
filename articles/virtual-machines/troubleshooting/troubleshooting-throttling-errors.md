@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: 6ae14edb7fa6b44f7c3bb961ffbcceb26eb9dee3
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: db1c6e8e4f1e98db08d5f7ff0ef218fa42d25860
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875467"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103307"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>對 API 節流錯誤進行疑難排解 
 
@@ -90,7 +89,7 @@ API 呼叫統計資料可提供訂用帳戶用戶端行為的絕佳深入解析�
 PowerShell Cmdlet 目前使用 REST 服務 API，這是用戶端可直接輕鬆呼叫的 API (但尚未正式支援)。 若要查看 HTTP 要求格式，請執行 Cmdlet 搭配 -Debug 參數，或使用 Fiddler 在其執行時進行窺探。
 
 
-## <a name="best-practices"></a>最佳作法 
+## <a name="best-practices"></a>最佳做法 
 
 - 請勿無條件和/或立即地重試 Azure 服務 API 錯誤。 在發生不可重試的錯誤時讓用戶端程式碼進入快速重試迴圈，是經常發生的狀況。 重試最終會耗盡目標作業的群組允許的呼叫限制次數，而對訂用帳戶的其他用戶端造成影響。 
 - 在大量 API 自動化的案例中，請在目標作業群組的可用呼叫計數低於某個低閾值時考慮實作主動用戶端自我節流。 

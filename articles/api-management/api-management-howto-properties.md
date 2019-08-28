@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 46f4e1b3df5f1c77a57d432297685d6d1a0a14a8
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: d71d71c4d289235e5b67a5201c1f7417274b8fca
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405810"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072336"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用具名值
 
@@ -37,7 +36,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 指名的值可以包含常值字串和[原則運算式](/azure/api-management/api-management-policy-expressions)。 例如，`Expression` 的值是原則運算式，會傳回包含目前日期與時間的字串。 已將指名`Credential`的值標示為秘密, 因此預設不會顯示其值。
 
-| 名稱       | 值                      | Secret | Tags          |
+| Name       | 值                      | Secret | Tags          |
 | ---------- | -------------------------- | ------ | ------------- |
 | 值      | 42                         | 偽  | 重要-數位 |
 | 認證 | ••••••••••••••••••••••     | 真   | 安全性      |
@@ -53,7 +52,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
     [名稱] 和 [值] 都是必要值。 如果此屬性值是祕密，請勾選 [這是祕密] 核取方塊。 輸入一或多個選擇性標籤來協助組織您的具名值，然後按一下 [儲存]。
 
-4. 按一下 [建立] 。
+4. 按一下 [建立]。
 
 屬性建立之後，您可以按一下屬性來加以編輯。 如果您變更屬性名稱，任何參照該屬性的原則會自動更新以使用新的名稱。
 
@@ -61,7 +60,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 ## <a name="to-delete-a-property"></a>刪除屬性
 
-若要刪除屬性，請按一下屬性旁邊的 [刪除]  來刪除。
+若要刪除屬性，請按一下屬性旁邊的 [刪除] 來刪除。
 
 > [!IMPORTANT]
 > 如有任何原則參照該屬性，則您必須將該屬性從所有使用它的原則中移除，才能成功刪除該屬性。
@@ -70,9 +69,9 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 ## <a name="to-search-and-filter-named-values"></a>搜尋與篩選具名值
 
-[具名值] 索引標籤包括可協助您管理具名值的搜尋與篩選功能。 若要按照屬性名稱篩選屬性清單，請在 [搜尋屬性]  文字方塊中輸入搜尋字詞。 若要顯示所有具名值，請清除 [搜尋屬性] 文字方塊，然後按 Enter 鍵。
+[具名值] 索引標籤包括可協助您管理具名值的搜尋與篩選功能。 若要按照屬性名稱篩選屬性清單，請在 [搜尋屬性] 文字方塊中輸入搜尋字詞。 若要顯示所有具名值，請清除 [搜尋屬性] 文字方塊，然後按 Enter 鍵。
 
-若要按照標籤值篩選屬性清單，請在 [依標籤篩選]  文字方塊中輸入一或多個標籤。 若要顯示所有具名值，請清除 [依標記篩選] 文字方塊，然後按 Enter 鍵。
+若要按照標籤值篩選屬性清單，請在 [依標籤篩選] 文字方塊中輸入一或多個標籤。 若要顯示所有具名值，請清除 [依標記篩選] 文字方塊，然後按 Enter 鍵。
 
 ## <a name="to-use-a-property"></a>使用屬性
 

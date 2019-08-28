@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835255"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099977"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署
 
@@ -367,7 +366,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 如果您是使用以 Azure 分頁 Blob 儲存體或受控磁碟為基礎的磁碟，在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述的內容同樣適用於搭配 Oracle Database 所做的部署。
 
-Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)。 確切的配額會根據您使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱 [Azure 中的 Windows 虛擬機器大小][virtual-machines-sizes-windows]。
+Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)。 確切的配額會根據您使用的 VM 類型而定。 如需 VM 類型及其配額的清單, 請參閱[Azure 中的 Windows 虛擬機器大小][virtual-machines-sizes-windows]。
 
 若要識別支援的 Azure VM 類型，請參閱 SAP 附註 [1928533]。
 
@@ -379,7 +378,7 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 | \oracle\<SID>\origlogaB & mirrlogA | 進階 | None | 不需要 |
 | \oracle\<SID>\sapdata1...n | 進階 | 唯讀 | 可以使用 |
 | \oracle\<SID>\oraarch | 標準 | None | 不需要 |
-| Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
+| Oracle Home、saptrace... | OS 磁碟 | | 不需要 |
 
 
 裝載線上重做記錄之磁碟的選取，應由 IOPs 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其大小、IOPS 及輸送量必須能滿足需求。 
@@ -395,7 +394,7 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 | \oracle\<SID>\sapdata1...n | 進階 | 唯讀 | 建議  |
 | \oracle\SID\sapdata(n+1)* | 進階 | None | 可以使用 |
 | \oracle\<SID>\oraarch* | 進階 | None | 不需要 |
-| Oracle Home、saptrace... | 作業系統磁碟 | 不需要 |
+| Oracle Home、saptrace... | OS 磁碟 | 不需要 |
 
 *(n+1)：裝載 SYSTEM、TEMP 及 UNDO 資料表空間。 System 和 Undo 資料表空間的 I/O 模式，與其他裝載應用程式資料的資料表空間不同。 對於 System 和 Undo 資料表空間的效能來說，無快取是最佳選項。
 
@@ -419,7 +418,7 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 
 如需 Azure 中適用於 Oracle Database 之災害復原的相關資訊，請參閱[Azure 環境中 Oracle Database 12c 資料庫的災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)。
 
-### <a name="accelerated-networking"></a>加速網路
+### <a name="accelerated-networking"></a>加速的網路
 針對 Windows 上的 Oracle 部署，我們強烈建議使用 [Azure 加速網路](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) \(英文\) 中所述的加速網路功能。 另請考慮在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所提出的建議。 
 ### <a name="other"></a>其他
 [適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)也說明其他與搭配 Oracle Database 的 VM 部署相關的重要概念，包括 Azure 可用性設定組和 SAP 監視。
@@ -457,7 +456,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 如果您是使用以 Azure 分頁 Blob 儲存體或受控磁碟為基礎的磁碟，在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述的內容同樣適用於搭配 Oracle Database 所做的部署。
 
- Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)。確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱 [Azure 中的 Linux 虛擬機器大小][virtual-machines-sizes-linux]。
+ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)。確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單, 請參閱[Azure 中 Linux 虛擬機器的大小][virtual-machines-sizes-linux]。
 
 若要識別支援的 Azure VM 類型，請參閱 SAP 附註 [1928533]。
 
@@ -465,11 +464,11 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 | 元件 | 磁碟 | 快取 | 移除* |
 | --- | ---| --- | --- |
-| /oracle/\<SID > / origlogaA & mirrlogB | 進階 | None | 不需要 |
-| /oracle/\<SID > / origlogaB & mirrlogA | 進階 | None | 不需要 |
-| /oracle/\<SID>/sapdata1...n | 進階 | 唯讀 | 可以使用 |
-| /oracle/\<SID > / oraarch | 標準 | None | 不需要 |
-| Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
+| /oracle/\<SID >/origlogaA & mirrlogB | 進階 | None | 不需要 |
+| /oracle/\<SID >/origlogaB & mirrlogA | 進階 | None | 不需要 |
+| /oracle/\<SID >/sapdata1.。。位 | 進階 | 唯讀 | 可以使用 |
+| /oracle/\<SID >/oraarch | 標準 | None | 不需要 |
+| Oracle Home、saptrace... | OS 磁碟 | | 不需要 |
 
 *移除：使用 RAID0 的 LVM stripe 或 MDADM
 
@@ -479,14 +478,14 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 | 元件 | 磁碟 | 快取 | 移除* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | 進階 | None | 可以使用  |
-| /oracle/\<SID > / origlogaB | 進階 | None | 可以使用 |
-| /oracle/\<SID>/mirrlogAB | 進階 | None | 可以使用 |
+| /oracle/\<SID >/origlogaA | 進階 | None | 可以使用  |
+| /oracle/\<SID >/origlogaB | 進階 | None | 可以使用 |
+| /oracle/\<SID >/mirrlogAB | 進階 | None | 可以使用 |
 | /oracle/\<SID>/mirrlogBA | 進階 | None | 可以使用 |
-| /oracle/\<SID>/sapdata1...n | 進階 | 唯讀 | 建議  |
-| /oracle/\<SID>/sapdata(n+1)* | 進階 | None | 可以使用 |
-| /oracle/\<SID > / oraarch * | 進階 | None | 不需要 |
-| Oracle Home、saptrace... | 作業系統磁碟 | 不需要 |
+| /oracle/\<SID >/sapdata1.。。位 | 進階 | 唯讀 | 建議  |
+| /oracle/\<SID >/sapdata (n + 1) * | 進階 | None | 可以使用 |
+| /oracle/\<SID >/oraarch * | 進階 | None | 不需要 |
+| Oracle Home、saptrace... | OS 磁碟 | 不需要 |
 
 *移除：使用 RAID0 的 LVM stripe 或 MDADM
 
@@ -513,7 +512,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 Azure 中適用於 Oracle 資料庫的災害復原層面，已詳述於[Azure 環境中 Oracle Database 12c 資料庫的災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)中。
 
-### <a name="accelerated-networking"></a>加速網路
+### <a name="accelerated-networking"></a>加速的網路
 Oracle Linux 中針對 Azure 加速網路的支援，已於 Oracle Linux 7 Update 5 (Oracle Linux 7.5) 中推出。 如果您無法升級至最新的 Oracle Linux 7.5 版，可能的因應措施為使用 RedHat Compatible Kernel (RHCK)，而非使用 Oracle UEK 核心。 
 
 根據 SAP 附註 [#1565179](https://launchpad.support.sap.com/#/notes/1565179) \(英文\)，支援在 Oracle Linux 內使用 RHEL 核心。 針對 Azure 加速網路，最小的 RHCKL 核心版本必須是 3.10.0-862.13.1.el7。 如果您是將 Oracle Linux 中的 UEK 核心搭配 [Azure 加速網路](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) \(英文\) 使用，您必須使用 Oracle UEK 核心第 5 版。

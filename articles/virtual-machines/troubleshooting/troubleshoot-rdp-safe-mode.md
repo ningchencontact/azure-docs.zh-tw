@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc1200d6acef077e36f701a75f613aba0ccbb75f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319458"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103398"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>因為 VM 開機到安全模式而無法連線到 VM
 
@@ -52,21 +51,21 @@ ms.locfileid: "60319458"
 
         bcdedit /enum
 
-    若 VM 已設定為開機到安全模式，您將會在 [Windows 開機載入器]  區段下看到稱為 [安全開機]  的額外旗標。 若您沒有看到 [安全開機]  旗標，表示 VM 並非處於安全模式。 此文章不適用於您的案例。
+    若 VM 已設定為開機到安全模式，您將會在 [Windows 開機載入器] 區段下看到稱為 [安全開機] 的額外旗標。 若您沒有看到 [安全開機] 旗標，表示 VM 並非處於安全模式。 此文章不適用於您的案例。
 
-    [安全開機]  旗標會隨著下列值出現：
-   - 有限
+    [安全開機] 旗標會隨著下列值出現：
+   - 最小
    - 網路
 
      在這兩個模式中的任一個模式中，RDP 將不會啟動。 因此，修正方式仍然相同。
 
      ![有關安全模式旗標的影像](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
-3. 刪除 [安全開機]  旗標，這樣 VM 就會開機到標準模式：
+3. 刪除 [安全開機] 旗標，這樣 VM 就會開機到標準模式：
 
         bcdedit /deletevalue {current} safeboot
 
-4. 檢查開機設定資料以確定已移除 [安全開機]  旗標：
+4. 檢查開機設定資料以確定已移除 [安全開機] 旗標：
 
         bcdedit /enum
 
@@ -78,7 +77,7 @@ ms.locfileid: "60319458"
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 啟動復原 VM 的遠端桌面連線。
-3. 確定該磁碟在磁碟管理主控台中標示為 [線上]  。 記下指派給已連結 OS 磁碟的磁碟機代號。
+3. 確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給已連結 OS 磁碟的磁碟機代號。
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>啟用傾印記錄檔和序列主控台 (選擇性)
 
@@ -121,14 +120,14 @@ ms.locfileid: "60319458"
         bcdedit /store F:\boot\bcd /enum
     記下包含 **\windows** 資料夾的分割區識別碼名稱。 根據預設，識別碼名稱為 "Default"。
 
-    若 VM 已設定為開機到安全模式，您將會在 [Windows 開機載入器]  區段下看到稱為 [安全開機]  的額外旗標。 如果沒有看到 [安全開機]  旗標，代表此文章不適用於您的案例。
+    若 VM 已設定為開機到安全模式，您將會在 [Windows 開機載入器] 區段下看到稱為 [安全開機] 的額外旗標。 如果沒有看到 [安全開機] 旗標，代表此文章不適用於您的案例。
 
     ![開機識別碼的相關影像](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. 移除 [安全開機]  旗標，VM 就會開機到標準模式：
+3. 移除 [安全開機] 旗標，VM 就會開機到標準模式：
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. 檢查開機設定資料以確定已移除 [安全開機]  旗標：
+4. 檢查開機設定資料以確定已移除 [安全開機] 旗標：
 
         bcdedit /store F:\boot\bcd /enum
 5. [將 OS 磁碟中斷連結並建立 VM](../windows/troubleshoot-recovery-disks-portal.md)。 然後檢查問題是否已解決。

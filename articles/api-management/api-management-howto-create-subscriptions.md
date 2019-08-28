@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: bc791fea1dfd184749e84cb7b7a912972c6a9f12
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8b2238eb0fab9aeeb42d11b4176c0d681b5f8e5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657592"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073531"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>在 Azure API 管理中建立訂用帳戶
 
@@ -26,7 +25,7 @@ ms.locfileid: "60657592"
 
 本文將逐步引導您在 Azure 入口網站中建立訂用帳戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要採取本文中的步驟，必要條件如下：
 
@@ -35,10 +34,10 @@ ms.locfileid: "60657592"
 
 ## <a name="create-a-new-subscription"></a>建立新的訂用帳戶
 
-1. 選取左邊功能表的 [訂用帳戶]  。
-2. 選取 [訂用帳戶]  。
+1. 選取左邊功能表的 [訂用帳戶]。
+2. 選取 [訂用帳戶]。
 3. 提供訂用帳戶的名稱並選取範圍。
-4. （選擇性） 選擇是否訂用帳戶應該是與使用者相關聯。
+4. (選擇性) 選擇訂用帳戶是否應與使用者相關聯。
 5. 選取 [ **儲存**]。
 
 ![彈性的訂用帳戶](./media/api-management-subscriptions/flexible-subscription.png)

@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cfb0464fd7fbd271272a992cffead44e9ba3b553
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318930"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103425"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>因 NSG 中未啟用 RDP 連接埠而無法從遠端連線到 VM
 
@@ -38,9 +37,9 @@ ms.locfileid: "60318930"
 
 若要啟用 NSG 中的 RDP 連接埠，請遵循下列步驟：
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在 [虛擬機器]  中，選取有此問題的 VM。 
-3. 在 [設定]  中，選取 [網路]  。 
-4. 在 [輸入連接埠規則]  中，檢查是否已正確設定 RDP 的連接埠。 以下是設定範例： 
+2. 在 [虛擬機器] 中，選取有此問題的 VM。 
+3. 在 [設定] 中，選取 [網路]。 
+4. 在 [輸入連接埠規則] 中，檢查是否已正確設定 RDP 的連接埠。 以下是設定範例： 
 
     **優先順序**：300 </br>
     **連接埠**：3389 </br>
