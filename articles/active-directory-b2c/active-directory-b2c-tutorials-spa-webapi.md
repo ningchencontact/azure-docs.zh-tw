@@ -92,7 +92,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ### <a name="configure-the-web-api"></a>設定 Web API
 
-1. 在 Visual Studio 或 Visual Studio Code 中開啟 *B2C-WebApi/**appsettings.json*** 檔案。
+1. 在 Visual Studio 或 Visual Studio Code 中開啟 *B2C-WebApi/**appsettings.json***  檔案。
 1. 修改 `AzureAdB2C` 區塊以反映您的租用戶名稱、Web API 應用程式的應用程式識別碼、您的註冊/登入原則名稱，以及您先前定義的範圍。 該區塊應該會如下列範例所示 (具有適當的 `Tenant` 和 `ClientId` 值)：
 
     ```json
