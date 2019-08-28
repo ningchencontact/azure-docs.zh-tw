@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 5257724add570be480063ab776248a8fd1d944c7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034743"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061565"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>瞭解遷移工具的運作方式
 
@@ -36,7 +36,7 @@ ms.locfileid: "70034743"
 - 某些 Cosmos DB 計量的傳統警示規則。 請參閱本文稍後的[詳細資料](#cosmos-db-metrics)。
 - 傳統的警示規則會用於所有傳統虛擬機器和雲端服務計量 (Microsoft.classiccompute/virtualMachines 和 Microsoft.classiccompute/domainNames/個位置/角色)。 請參閱本文稍後的[詳細資料](#classic-compute-metrics)。
 
-如果您的訂用帳戶有任何這類傳統規則, 您必須手動進行遷移。 因為我們無法提供自動遷移, 所以這些類型的任何現有、傳統計量警示都將繼續工作, 直到2020年6月為止。 此延伸模組可讓您將時間移至新的警示。 不過, 2019 年8月之後, 就無法建立任何新的傳統警示。
+如果您的訂用帳戶有任何這類傳統規則, 您必須手動進行遷移。 因為我們無法提供自動遷移, 所以這些類型的任何現有、傳統計量警示都將繼續工作, 直到2020年6月為止。 此延伸模組可讓您將時間移至新的警示。 您也可以在2020年6月之前, 繼續針對上述例外狀況建立新的傳統警示。 不過, 針對其他所有專案, 2019 年8月之後就無法建立新的傳統警示。
 
 > [!NOTE]
 > 除了上述的例外狀況之外, 如果您的傳統警示規則無效, 亦即其已被[取代的計量](#classic-alert-rules-on-deprecated-metrics)或已刪除的資源, 則不會在自發遷移期間遷移。 當自動遷移發生時, 將會刪除任何這類不正確傳統警示規則。

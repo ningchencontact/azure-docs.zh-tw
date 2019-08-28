@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 08/26/2019
 ms.author: elioda
-ms.openlocfilehash: edbeffebd1f4ee41d8a2bdaddcdc7d84cbe1affe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 02ff65b27e03db9e9a48910e23d8ebf46de905a5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780939"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060722"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>開始使用裝置 twins (node.js)
 
@@ -29,7 +29,9 @@ ms.locfileid: "68780939"
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
 >
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
+
+若要完成本教學課程，您需要：
 
 * Node.js 10.0. x 版或更新版本。
 
@@ -53,28 +55,28 @@ ms.locfileid: "68780939"
 
 在本節中，您將建立一個 Node.js 主控台應用程式，此應用程式會將位置中繼資料新增至與 **myDeviceId** 相關聯的裝置對應項。 接著，它會選取位於美國的裝置來查詢儲存在 IoT 中樞的裝置對應項，再查詢會報告行動電話連線的對應項。
 
-1. 建立稱為 **addtagsandqueryapp** 的新空白資料夾。 在 **addtagsandqueryapp** 資料夾中，於命令提示字元使用下列命令建立新的 package.json 檔案。 接受所有預設值：
+1. 建立稱為 **addtagsandqueryapp** 的新空白資料夾。 在 **addtagsandqueryapp** 資料夾中，於命令提示字元使用下列命令建立新的 package.json 檔案。 `--yes`參數會接受所有預設值。
 
-    ```
-    npm init
+    ```cmd/sh
+    npm init --yes
     ```
 
 2. 在命令提示字元下，於 **addtagsandqueryapp** 資料夾中執行下列命令以安裝 **azure-iothub** 套件：
-   
-    ```
+
+    ```cmd/sh
     npm install azure-iothub --save
     ```
 
 3. 使用文字編輯器，在 **addtagsandqueryapp** 資料夾中建立新的 **AddTagsAndQuery.js** 檔案。
 
-4. 將下列程式碼新增至**addtagsandquery.js**檔案, 並使用您先前在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中所複製的 IoT 中樞連接字串來取代 **{iot hub connection string}** 預留位置值:
+4. 將下列程式碼新增至**addtagsandquery.js**檔案。 將`{iot hub connection string}`取代為您在[取得 IoT 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串。
 
    ``` javascript
         'use strict';
         var iothub = require('azure-iothub');
         var connectionString = '{iot hub connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
-   
+
         registry.getTwin('myDeviceId', function(err, twin){
             if (err) {
                 console.error(err.constructor.name + ': ' + err.message);
@@ -87,7 +89,7 @@ ms.locfileid: "68780939"
                       }
                     }
                 };
-   
+
                 twin.update(patch, function(err) {
                   if (err) {
                     console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
@@ -116,7 +118,7 @@ ms.locfileid: "68780939"
                     console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
             });
-   
+
             query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
@@ -130,17 +132,17 @@ ms.locfileid: "68780939"
 
     先前的程式碼會執行兩個查詢︰第一個只選取位於 **Redmond43** 工廠的裝置的裝置對應項，第二個會修改查詢，只選取也透過行動電話網路來連接的裝置。
 
-    先前的程式碼在建立**查詢**物件時，指定傳回的最大文件數。 **query** 物件包含 **hasMoreResults** 布林值屬性，可用來多次叫用 **nextAsTwin** 方法以擷取所有結果。 有一個稱為 **next** 的方法適用於非裝置對應項的結果，例如彙總查詢的結果。
+    當程式碼建立**查詢**物件時, 它會指定第二個參數中傳回的檔數目上限。 **query** 物件包含 **hasMoreResults** 布林值屬性，可用來多次叫用 **nextAsTwin** 方法以擷取所有結果。 有一個稱為**next**的方法適用于不是裝置 twins 的結果, 例如匯總查詢的結果。
 
 6. 使用下列命令執行應用程式：
 
-    ```
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 
    如果是查詢所有位於 **Redmond43** 中的裝置，您在結果中會看到一個裝置，而如果查詢將結果限於使用行動電話網路的裝置，則您不會看到任何裝置。
-   
-    ![查看查詢結果中的一部裝置](media/iot-hub-node-node-twin-getstarted/service1.png)
+
+   ![查看查詢結果中的一部裝置](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 在下一節，您將建立一個裝置應用程式，以報告連線資訊並變更上一節的查詢結果。
 
@@ -148,36 +150,36 @@ ms.locfileid: "68780939"
 
 在本節中，您將建立一個 Node.js 主控台應用程式，此應用程式會以 **myDeviceId** 來連接到您的中樞，然後更新其裝置對應項所報告的屬性，以包含資訊來指出目前使用行動電話網路來連線。
 
-1. 建立稱為 **reportconnectivity** 的新空白資料夾。 在 **reportconnectivity** 資料夾中，於命令提示字元使用下列命令建立新的 package.json 檔案。 接受所有預設值：
-   
-    ```
-    npm init
+1. 建立稱為 **reportconnectivity** 的新空白資料夾。 在 **reportconnectivity** 資料夾中，於命令提示字元使用下列命令建立新的 package.json 檔案。 `--yes`參數會接受所有預設值。
+
+    ```cmd/sh
+    npm init --yes
     ```
 
-2. 在 **reportconnectivity** 資料夾中，於命令提示字元執行下列命令以安裝 **azure-iot-device** 和 **azure-iot-device-mqtt** 套件：
-   
-    ```
+2. 在**reportconnectivity**資料夾的命令提示字元中, 執行下列命令來安裝**azure iot 裝置**和**azure iot 裝置 mqtt**套件:
+
+    ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
 3. 使用文字編輯器，在 **reportconnectivity** 資料夾中建立新的 **ReportConnectivity.js** 檔案。
 
-4. 將下列程式碼新增至 **ReportConnectivity.js** 檔案，並以您建立 **myDeviceId** 裝置身分識別時所複製的裝置連接字串，取代 **{device connection string}** 預留位置︰
+4. 將下列程式碼新增至**ReportConnectivity**檔案。 將`{device connection string}`取代為在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)時, 您在建立**myDeviceId**裝置身分識別時所複製的裝置連接字串。
 
-    ```
+    ```javascript
         'use strict';
         var Client = require('azure-iot-device').Client;
         var Protocol = require('azure-iot-device-mqtt').Mqtt;
-   
+
         var connectionString = '{device connection string}';
         var client = Client.fromConnectionString(connectionString, Protocol);
-   
+
         client.open(function(err) {
         if (err) {
             console.error('could not open IotHub client');
         }  else {
             console.log('client opened');
-   
+
             client.getTwin(function(err, twin) {
             if (err) {
                 console.error('could not get twin');
@@ -187,7 +189,7 @@ ms.locfileid: "68780939"
                         type: 'cellular'
                     }
                 };
-   
+
                 twin.properties.reported.update(patch, function(err) {
                     if (err) {
                         console.error('could not update twin');
@@ -206,7 +208,7 @@ ms.locfileid: "68780939"
 
 5. 執行裝置應用程式
 
-    ```   
+    ```cmd/sh
         node ReportConnectivity.js
     ```
 
@@ -214,7 +216,7 @@ ms.locfileid: "68780939"
 
 6. 現在，裝置已回報其連線資訊，它應該會出現在這兩個查詢中。 回到 **addtagsandqueryapp** 資料夾，並再次執行查詢︰
 
-    ```   
+    ```cmd/sh
         node AddTagsAndQuery.js
     ```
 

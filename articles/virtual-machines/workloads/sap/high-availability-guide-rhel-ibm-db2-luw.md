@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: bed56f169e2a985b23b3bca96c32f7caba596432
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036649"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061510"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -158,7 +158,7 @@ HADR 只是一種複寫功能。 它沒有任何失敗偵測, 也沒有自動接
 
 IBM Db2 LUW 的資源代理套裝程式含在 Red Hat Enterprise Linux Server HA 附加元件中。 針對本檔中所述的設定, 您應該使用適用于 SAP 的 Red Hat Enterprise Linux。 Azure Marketplace 包含適用于 SAP 或更高版本的 Red Hat Enterprise Linux 7.4 映射, 可供您用來部署新的 Azure 虛擬機器。 當您選擇 Azure VM Marketplace 中的 VM 映射時, 請留意 Red Hat 透過 Azure Marketplace 提供的各種支援或服務模型。
 
-### <a name="hosts-dns-updates"></a>主控件:DNS 更新
+### <a name="hosts-dns-updates"></a>主機DNS 更新
 建立所有主機名稱的清單, 包括虛擬主機名稱, 並更新您的 DNS 伺服器, 以啟用適當的 IP 位址來解析主機名稱。 如果 DNS 伺服器不存在, 或您無法更新及建立 DNS 專案, 您必須使用參與此案例之個別 Vm 的本機主機檔案。 如果您使用的是主機檔案專案, 請確定專案會套用至 SAP 系統內容中的所有 Vm。 不過, 我們建議您最好使用您的 DNS, 這在理想情況下會延伸到 Azure
 
 
@@ -517,15 +517,19 @@ j2ee/dbhost = db-virt-hostname
 使用 J2EE 設定工具來檢查或更新 JDBC URL。 因為 J2EE 設定工具是圖形化工具, 所以您必須安裝 X 伺服器:
  
 1. 登入 J2EE 實例的主要應用程式伺服器, 並執行:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
-1.在左側畫面中, 選擇 [**安全性存放區**]。
-1.在右邊的畫面中, 選擇 [jdbc/pool/\<SAPSID>/url.] 這個關鍵字
-1.將 JDBC URL 中的主機名稱變更為虛擬主機名稱。
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
-1.選取 [**新增**]。
-1.若要儲存您的變更, 請選取左上方的 [磁片] 圖示。
-1.關閉設定工具。
-1.重新開機 JAVA 實例。
+    
+    <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
+    
+1. 在左側畫面中, 選擇 [**安全性存放區**]。
+1. 在右邊的畫面中, 選擇 [ `jdbc/pool/\<SAPSID>/url`金鑰]。
+1. 將 JDBC URL 中的主機名稱變更為虛擬主機名稱。
+    
+    <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
+    
+1. 選取 [新增]。
+1. 若要儲存您的變更, 請選取左上方的 [磁片] 圖示。
+1. 關閉設定工具。
+1. 重新開機 JAVA 實例。
 
 ## <a name="configure-log-archiving-for-hadr-setup"></a>設定 HADR 設定的記錄檔封存
 若要設定 HADR 設定的 Db2 記錄封存, 建議您設定主要和待命資料庫, 使其具有來自所有記錄封存位置的自動記錄檔抓取功能。 主要和待命資料庫都必須能夠從所有記錄檔封存位置 (其中一個資料庫實例可能封存記錄檔) 中取出記錄封存檔案。 

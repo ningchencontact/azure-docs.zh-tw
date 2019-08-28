@@ -7,16 +7,17 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: d1a155845f5c04817611fb14f4a973527e3e039b
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e748ade19fe64399015acfc35892c5d9081bf9e3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050435"
+ms.locfileid: "70062095"
 ---
 # <a name="get-started-with-device-twins-net"></a>開始使用裝置 twins (.NET)
+
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 在本教學課程中, 您會建立下列 .NET 主控台應用程式:
@@ -31,7 +32,9 @@ ms.locfileid: "70050435"
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
 >
 
-若要完成本教學課程，您需要下列必要條件：
+## <a name="prerequisites"></a>必要條件
+
+若要完成本教學課程，您需要：
 
 * Visual Studio。
 
@@ -75,7 +78,7 @@ ms.locfileid: "70050435"
     using Microsoft.Azure.Devices;
     ```
 
-1. 將下列欄位新增到 **Program** 類別。 將預留位置值取代為您先前在[取得 IoT 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串。
+1. 將下列欄位新增到 **Program** 類別。 將`{iot hub connection string}`取代為您在[取得 IoT 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 IoT 中樞連接字串。
 
     ```csharp  
     static RegistryManager registryManager;
@@ -98,13 +101,13 @@ ms.locfileid: "70050435"
                 }
             }";
         await registryManager.UpdateTwinAsync(twin.DeviceId, patch, twin.ETag);
-   
+
         var query = registryManager.CreateQuery(
           "SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
         var twinsInRedmond43 = await query.GetNextAsTwinAsync();
         Console.WriteLine("Devices in Redmond43: {0}", 
           string.Join(", ", twinsInRedmond43.Select(t => t.DeviceId)));
-   
+
         query = registryManager.CreateQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
         var twinsInRedmond43UsingCellular = await query.GetNextAsTwinAsync();
         Console.WriteLine("Devices in Redmond43 using cellular network: {0}", 
@@ -155,7 +158,7 @@ ms.locfileid: "70050435"
     using Newtonsoft.Json;
     ```
 
-1. 將下列欄位新增到 **Program** 類別。 以您在[IoT 中樞的註冊新裝置](#register-a-new-device-in-the-iot-hub)中所記下的裝置連接字串來取代預留位置值。
+1. 將下列欄位新增到 **Program** 類別。 將`{device connection string}`取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中所記下的裝置連接字串。
 
     ```csharp  
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
@@ -193,7 +196,7 @@ ms.locfileid: "70050435"
         try
         {
             Console.WriteLine("Sending connectivity data as reported property");
-            
+
             TwinCollection reportedProperties, connectivity;
             reportedProperties = new TwinCollection();
             connectivity = new TwinCollection();

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 06/26/2019
-ms.openlocfilehash: 776a27ca0babfd7557bf4d16c449a8dfa5bceaf7
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 08/27/2019
+ms.openlocfilehash: 921a14243bc50651358f0df42b88857ab227916d
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998205"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060643"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控實例資源限制的總覽
 
@@ -51,7 +51,7 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上:第4代和�
 
 | **功能** | **一般用途** | **商務關鍵性** |
 | --- | --- | --- |
-| 虛擬核心數目\* | 第 4 代：8、16、24<br/>第 5 代：4、8、16、24、32、40、64、80 | 第 4 代：8、16、24、32 <br/> 第 5 代：4、8、16、24、32、40、64、80 |
+| 虛擬核心數目\* | 第 4 代：8、16、24<br/>第 5 代：4、8、16、24、32、40、64、80 | 第 4 代：8、16、24 <br/> 第 5 代：4、8、16、24、32、40、64、80 |
 | 最大記憶體 | 第 4 代：56 GB-168 GB (7GB/vCore)<br/>第 5 代：40.8 GB-408 GB (5.1 GB/vCore)<br/>新增更多虛擬核心以取得更多記憶體。 | 第 4 代：56 GB-168 GB (7GB/vCore)<br/>第 5 代：40.8 GB-408 GB (5.1 GB/vCore)<br/>新增更多虛擬核心以取得更多記憶體。 |
 | 實例保留的儲存體大小上限 | -2 TB 適用于4虛擬核心 (僅限第5代)<br/>-適用于其他大小的 8 TB | 第 4 代：1 TB <br/> 第 5 代： <br/>-1 TB 適用于4、8、16虛擬核心<br/>- 2 TB (適用於 24 個虛擬核心)<br/>- 4 TB (適用於 32、40、64、80 個虛擬核心) |
 | 資料庫大小上限 | 取決於每個執行個體的最大儲存體大小 | 取決於每個執行個體的最大儲存體大小 |
@@ -65,10 +65,12 @@ Azure SQL Database 受控實例可以部署在兩個硬體層代上:第4代和�
 | 最大 tempDB 大小 | 192 - 1920 GB (每個虛擬核心 24 GB)<br/>新增更多虛擬核心以取得更多 TempDB 空間。 | 受限於實例儲存體大小上限。 TempDB 記錄檔大小目前僅限於 24GB/vCore。 |
 | 記憶體內部 OLTP | 不支援 | 可用 |
 | 會話數上限 | 30000 | 30000 |
+| 可讀取複本 | 0 | 1 |
 
 > [!NOTE]
 > - 使用者和系統資料庫中的資料和記錄檔大小都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄不會持續留存，也不計入大小。 備份並未計入儲存體大小。
 > - 輸送量和 IOPS 也取決於受控實例未明確限制的頁面大小。
+> 您可以使用自動容錯移轉群組, 在不同的 Azure 區域中建立另一個可讀取的複本。
 
 ## <a name="supported-regions"></a>支援區域
 

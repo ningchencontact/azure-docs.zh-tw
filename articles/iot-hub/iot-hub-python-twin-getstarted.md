@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 62385f4bd07f4b80dc3d571d409e16c7e0dca205
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: c720dfe7aeaa39a1717362b040b5548e116cc246
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667836"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70062048"
 ---
 # <a name="get-started-with-device-twins-python"></a>開始使用裝置對應項 (Python)
 
@@ -49,11 +49,15 @@ ms.locfileid: "68667836"
 
 在本節中, 您會建立 Python 主控台應用程式, 以將位置中繼資料新增至與您的 **{裝置識別碼}** 相關聯的裝置對應項。 接著，它會選取位於 Redmond 的裝置來查詢儲存在 IoT 中樞的裝置對應項，再查詢會報告行動電話連線的對應項。
 
-1. 開啟命令提示字元並安裝 **Azure IoT Hub Service SDK for Python**。 安裝 SDK 之後，請關閉命令提示字元。
+1. 在您的工作目錄中, 開啟命令提示字元並安裝**適用于 Python 的 Azure IoT 中樞服務 SDK**。
 
-   ```
+   ```cmd/sh
    pip install azure-iothub-service-client
    ```
+
+   > [!NOTE]
+   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS, 請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   >
 
 2. 使用文字編輯器，建立新的 **AddTagsAndQuery.py** 檔案。
 
@@ -66,7 +70,7 @@ ms.locfileid: "68667836"
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. 新增下列程式碼, 將`[IoTHub Connection String]`和`[Device Id]`的預留位置取代為 IoT 中樞的連接字串, 以及您在上一節中建立的裝置識別碼。
+4. 新增下列程式碼。 將`[IoTHub Connection String]`取代為您在[取得 iot 中樞連接字串](#get-the-iot-hub-connection-string)中複製的 iot 中樞連接字串。 將`[Device Id]`取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中註冊的裝置識別碼。
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -80,7 +84,7 @@ ms.locfileid: "68667836"
 
 5. 將下列程式碼新增至 **AddTagsAndQuery.py** 檔案：
 
-     ```python
+    ```python
     def iothub_service_sample_run():
         try:
             iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
@@ -143,7 +147,7 @@ ms.locfileid: "68667836"
 
     如果是查詢所有位於 **Redmond43** 中的裝置，您在結果中會看到一個裝置，而如果查詢將結果限於使用行動電話網路的裝置，則您不會看到任何裝置。
 
-    ![顯示 Redmond 中所有裝置的第一個查詢](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
+    ![顯示 Redmond 中所有裝置的第一個查詢](./media/iot-hub-python-twin-getstarted/service-1.png)
 
 在下一節，您將建立一個裝置應用程式，以報告連線資訊並變更上一節的查詢結果。
 
@@ -151,11 +155,15 @@ ms.locfileid: "68667836"
 
 在本節中, 您會建立 Python 主控台應用程式, 以您的 **{裝置識別碼}** 連接到您的中樞, 然後更新其裝置對應項的報告屬性, 以包含使用行動電話通訊網路所連線的資訊。
 
-1. 開啟命令提示字元並安裝 **Azure IoT Hub Service SDK for Python**。 安裝 SDK 之後，請關閉命令提示字元。
+1. 從工作目錄中的命令提示字元, 安裝**適用于 Python 的 Azure IoT 中樞服務 SDK**:
 
-    ```
+    ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > Azure iothub-服務用戶端和 iothub 裝置用戶端的 pip 套件目前僅適用于 Windows 作業系統。 針對 Linux/Mac OS, 請參閱[準備適用于 Python 的開發環境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)文章的 Linux 和 Mac os 特定章節。
+   >
 
 2. 使用文字編輯器，建立新的 **ReportConnectivity.py** 檔案。
 
@@ -167,7 +175,7 @@ ms.locfileid: "68667836"
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
     ```
 
-4. 新增下列程式碼，使用您在先前小節中為 IoT 中樞裝置建立的連接字串來取代 `[IoTHub Device Connection String]` 的預留位置。
+4. 新增下列程式碼。 將預留位置值取代為您在[IoT 中樞註冊新裝置](#register-a-new-device-in-the-iot-hub)中所複製的裝置連接字串。 `[IoTHub Device Connection String]`
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -227,7 +235,7 @@ ms.locfileid: "68667836"
             return
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
-     ```
+    ```
 
     **Client** 物件會公開從裝置來與裝置對應項進行互動時所需的所有方法。 先前的程式碼在初始化 **Client** 物件之後，會擷取您裝置的裝置對應項，並以連線資訊來更新其報告屬性。
 
@@ -248,7 +256,7 @@ ms.locfileid: "68667836"
 
     您應該會看到裝置對應項已更新的確認。
 
-    ![更新對應項](./media/iot-hub-python-twin-getstarted/2-python-client-sample.png)
+    ![更新對應項](./media/iot-hub-python-twin-getstarted/device-1.png)
 
 8. 現在，裝置已回報其連線資訊，它應該會出現在這兩個查詢中。 請返回並再次執行查詢：
 
@@ -258,7 +266,7 @@ ms.locfileid: "68667836"
 
     這一次, 您的 **{裝置識別碼}** 應該會出現在這兩個查詢結果中。
 
-    ![第二個查詢](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
+    ![第二個查詢](./media/iot-hub-python-twin-getstarted/service-2.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,19 +10,20 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 08/12/2019
-ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 08/27/2019
+ms.openlocfilehash: 9261bae0d2bee990a5048cb87a863d96e1854d00
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967908"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061929"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 和資料倉儲的透明資料加密
 
 透明資料加密 (TDE) 可協助保護 Azure SQL Database、Azure SQL 受控執行個體和 Azure 資料倉儲, 使其免于透過加密待用資料的惡意離線活動威脅。 它會對資料庫、相關聯的備份和待用的交易記錄檔執行即時加密和解密，而不需變更應用程式。 根據預設，會為所有新部署的 Azure SQL 資料庫啟用 TDE。 TDE 無法用來加密 SQL Database 中的邏輯**主要**資料庫。  **主要**資料庫包含在使用者資料庫上執行 TDE 作業所需的物件。
 
-針對 Azure SQL 受控執行個體、舊版 Azure SQL Database 資料庫或 Azure SQL 資料倉儲，必須手動啟用 TDE。  
+Azure SQL Database、Azure SQL 受控執行個體或 Azure SQL 資料倉儲的舊版資料庫必須手動啟用 TDE。
+透過 restore 建立的受控執行個體資料庫會從源資料庫繼承加密狀態。
 
 透明資料加密會使用稱為資料庫加密金鑰的對稱金鑰，來將整個資料庫的儲存體加密。 此資料庫加密金鑰受到透明資料加密保護裝置的保護。 此保護裝置可以是服務管理的憑證 (服務管理的透明資料加密) 或儲存在 Azure Key Vault 中的非對稱金鑰 (攜帶您自己的金鑰)。 您要在 Azure SQL Database 和資料倉儲的伺服器層級，以及 Azure SQL 受控執行個體的執行個體層級設定透明資料加密保護裝置。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
 

@@ -5,21 +5,21 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: a11d454feb965907f3bd4e994c0916eeb7236fa7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6ac15e042f93befe406553d622c790eeabad7c2c
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034558"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060700"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>將 SAP Hana 資料庫備份至 Azure
 
 [Azure 備份](backup-overview.md)支援將 SAP Hana 資料庫備份至 Azure。
 
 > [!NOTE]
-> 此功能目前為公開預覽狀態。 目前尚未備妥生產環境, 而且不保證 SLA。 
+> 此功能目前為公開預覽狀態。 目前尚未備妥生產環境, 而且不保證 SLA。
 
 ## <a name="scenario-support"></a>案例支援
 
@@ -32,8 +32,11 @@ ms.locfileid: "70034558"
 ### <a name="current-limitations"></a>目前的限制
 
 - 您只能備份在 Azure Vm 上執行的 SAP Hana 資料庫。
-- 您只能在 Azure 入口網站中設定 SAP Hana 備份。 無法使用 PowerShell、CLI 或 REST API 來設定此功能。
-- 您只能以相應增加模式來備份資料庫。
+- 您只能備份在單一 Azure VM 中執行 SAP Hana 實例。 目前不支援相同 Azure VM 中的多個 HANA 實例。
+- 您只能以相應增加模式來備份資料庫。 相應放大 (亦即, 在多個 Azure Vm 上的 HANA 實例) 目前不支援備份。
+- 您無法以擴充伺服器中的動態階層處理 SAP Hana 實例, 也就是在另一個節點上出現動態階層。 這基本上是向外延展, 不受支援。
+- 您無法備份在相同伺服器中啟用動態階層處理的 SAP Hana 實例。 目前不支援動態分層。
+- 您只能在 Azure 入口網站中設定 SAP Hana 備份。 無法使用 PowerShell、CLI 來設定此功能。
 - 您可以每隔15分鐘備份一次資料庫記錄。 記錄備份只會在資料庫的成功完整備份完成後開始流動。
 - 您可以進行完整和差異備份。 目前不支援增量備份。
 - 將備份原則套用至 SAP Hana 備份之後, 即無法修改。 如果您想要使用不同的設定進行備份, 請建立新的原則, 或指派不同的原則。
@@ -44,23 +47,16 @@ ms.locfileid: "70034558"
 
 設定備份之前, 請務必執行下列動作:
 
-1. 在執行 SAP Hana 資料庫的 VM 上, 安裝官方的 Microsoft [.Net Core Runtime 2.1](https://dotnet.microsoft.com/download/linux-package-manager/sles/runtime-current)套件。 請注意：
-    - 您只需要**dotnet-runtime-2.1**套件。 您不需要**aspnetcore-runtime-2.1**。
-    - 如果 VM 沒有網際網路存取, 請從頁面中指定的 Microsoft 封裝摘要, 鏡像或提供 dotnet-runtime-2.1 (以及所有相依的 Rpm) 的離線快取。
-    - 在安裝套件期間, 系統可能會要求您指定一個選項。 若是如此, 請指定 [**方案 2**]。
-
-        ![封裝安裝選項](./media/backup-azure-sap-hana-database/hana-package.png)
-
-2. 在 VM 上, 使用 zypper 從官方 SLES 封裝/媒體安裝並啟用 ODBC 驅動程式套件, 如下所示:
+1. 在執行 SAP Hana 資料庫的 VM 上, 使用 zypper 從官方 SLES 封裝/媒體安裝並啟用 ODBC 驅動程式套件, 如下所示:
 
     ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
 
-3. 允許從 VM 連線到網際網路, 使其可以觸達 Azure, 如[以下](#set-up-network-connectivity)程式所述。
+2. 允許從 VM 連線到網際網路, 使其可以觸達 Azure, 如[以下](#set-up-network-connectivity)程式所述。
 
-4. 在以 root 使用者身分安裝 HANA 的虛擬機器中, 執行預先註冊腳本。 腳本會在流程的[入口網站](#discover-the-databases)中提供, 而且必須設定[正確的許可權](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions)。
+3. 在以 root 使用者身分安裝 HANA 的虛擬機器中, 執行預先註冊腳本。 腳本會在流程的[入口網站](#discover-the-databases)中提供, 而且必須設定[正確的許可權](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions)。
 
 ### <a name="set-up-network-connectivity"></a>設定網路連線能力
 
@@ -68,6 +64,7 @@ ms.locfileid: "70034558"
 
 - 您可以下載 Azure 資料中心的[ip 位址範圍](https://www.microsoft.com/download/details.aspx?id=41653), 然後允許存取這些 ip 位址。
 - 如果您使用網路安全性群組 (Nsg), 您可以使用 AzureCloud[服務](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)標籤來允許所有的 AZURE 公用 IP 位址。 您可以使用[set-azurenetworksecurityrule Cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0)來修改 NSG 規則。
+- 443埠應列入允許清單, 因為傳輸是透過 HTTPS。
 
 ## <a name="onboard-to-the-public-preview"></a>上架至公開預覽
 
@@ -79,8 +76,6 @@ ms.locfileid: "70034558"
     ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
-
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -182,6 +177,15 @@ ms.locfileid: "70034558"
     - 將**log_backup_using_backint**設定為**True**。
 
 
+## <a name="upgrading-protected-10-dbs-to-20"></a>將受保護的 1.0 Db 升級至2。0
+
+如果您要保護 SAP Hana 1.0 Db, 並想要升級至 2.0, 請執行下列所述的步驟。
+
+- 使用 [保留舊 SDC DB 的資料] 來停止保護。
+- 以正確的詳細資料 (sid 和 mdc) 重新執行預先註冊腳本。 
+- 重新註冊延伸模組 (備份 > view 詳細資料-> 選取相關的 Azure VM-> 重新註冊)。 
+- 按一下 [重新探索相同 VM 的 Db]。 這應該會顯示步驟2中具有正確詳細資料 (SYSTEMDB 和租使用者資料庫, 而非 SDC) 的新 Db。 
+- 保護這些新的資料庫。
 
 ## <a name="next-steps"></a>後續步驟
 

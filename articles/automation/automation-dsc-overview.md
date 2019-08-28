@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533461"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061381"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概觀
 
@@ -62,12 +62,7 @@ Azure Automation State Configuration 為 [PowerShell Desired State Configuration
 
 針對執行 Linux 的節點, 支援下列散發版本/版本:
 
-DSC Linux 擴充功能支援[Azure 上背書](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)的所有 Linux 散發套件, 但以下除外:
-
-發佈 | Version
--|-
-Debian  | 所有版本
-Ubuntu  | 18.04
+DSC Linux 延伸模組支援[支援的 Linux 發行](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions)版底下列出的所有 Linux 散發套件。
 
 ### <a name="dsc-requirements"></a>DSC 需求
 
@@ -79,7 +74,7 @@ Ubuntu  | 18.04
 
 如果您的節點位於私人網路內, 則需要下列埠和 Url, 狀態設定 (DSC) 才能與自動化進行通訊:
 
-* 連接埠:只需要 TCP 443 以便進行傳出網際網路存取。
+* 連接埠︰只需要 TCP 443 以便進行傳出網際網路存取。
 * 全域 URL：*.azure-automation.net
 * US Gov 維吉尼亞州的全域 URL： *.azure automation.us
 * 代理程式服務： https://\<workspaceId\>.agentsvc.azure-automation.net

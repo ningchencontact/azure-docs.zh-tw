@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df8aa51558bc3aa456758510792c198a8bd9cf78
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033988"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061853"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service 中使用 pod 安全性原則保護您的叢集 (AKS)
 
@@ -32,7 +32,7 @@ ms.locfileid: "69033988"
 
 ### <a name="install-aks-preview-cli-extension"></a>安裝 aks-preview CLI 擴充功能
 
-若要使用 pod 安全性原則, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新::
+若要使用 pod 安全性原則, 您需要*aks-preview* CLI 擴充功能版本0.4.1 或更高版本。 使用[az extension add][az-extension-add]命令來安裝*aks-preview* Azure CLI 擴充功能, 然後使用[az extension update][az-extension-update]命令檢查是否有任何可用的更新:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -136,7 +136,7 @@ subjects:
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>在 AKS 叢集中建立測試使用者
 
-根據預設, 當您使用[az aks get-認證][az-aks-get-credentials]命令時, aks 叢集的系統*管理員*認證並已新增至您`kubectl`的設定。系統管理員使用者略過 pod 安全性原則的強制執行。 如果您使用 AKS 叢集的 Azure Active Directory 整合, 您可以使用非系統管理員使用者的認證來登入, 以查看原則的強制執行。 在本文中, 我們將在您可以使用的 AKS 叢集中建立測試使用者帳戶。
+根據預設, 當您使用[az aks get-認證][az-aks-get-credentials]命令時, aks 叢集的系統*管理員*認證會新增至您`kubectl`的設定。系統管理員使用者略過 pod 安全性原則的強制執行。 如果您使用 AKS 叢集的 Azure Active Directory 整合, 您可以使用非系統管理員使用者的認證來登入, 以查看原則的強制執行。 在本文中, 我們將在您可以使用的 AKS 叢集中建立測試使用者帳戶。
 
 使用[kubectl create namespace][kubectl-create]命令, 為測試資源建立名為*psp aks*的範例命名空間。 然後, 使用[kubectl create serviceaccount][kubectl-create]命令, 建立名為*nonadmin 的*服務帳戶:
 
@@ -443,7 +443,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 ```
 
 > [!NOTE]
-> 在本文的第一個步驟中, 已在 AKS 叢集上啟用 pod 安全性原則功能。 建議的作法是只在定義您自己的原則之後, 才啟用 pod 安全性原則功能。 這是您要啟用 pod 安全性原則功能的階段。 已定義一或多個自訂原則, 且使用者帳戶已與這些原則相關聯。 現在您可以安全地使用 pod 安全性原則功能, 並將預設原則所造成的問題降到最低。
+> 在本文的第一個步驟中, 已在 AKS 叢集上啟用 pod 安全性原則功能。 建議的作法是只在定義您自己的原則之後, 才啟用 pod 安全性原則功能。 這是您要啟用 pod 安全性原則功能的階段。 已定義一或多個自訂原則, 且使用者帳戶已與這些原則相關聯。 現在您可以安全地啟用 pod 安全性原則功能, 並將預設原則所造成的問題降到最低。
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>再次測試不具特殊許可權的 pod 建立
 

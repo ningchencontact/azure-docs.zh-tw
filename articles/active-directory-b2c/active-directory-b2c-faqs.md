@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c84f68a9af855f61523919069e1947e051b130b4
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622257"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061366"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ)
 
@@ -43,11 +43,9 @@ Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。 Azure AD �
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>你們現在支援哪些社交身分識別提供者？ 你們打算在未來支援哪些？
 
-我們目前支援 Facebook、Google+、LinkedIn、Amazon、Twitter (預覽)、WeChat (預覽)、Weibo (預覽) 和 QQ (預覽)。 根據客戶需求，我們將會增加支援其他熱門的社交身分識別提供者。
+我們目前支援數個社交識別提供者, 包括 Amazon、Facebook、GitHub (預覽)、Google、LinkedIn、Microsoft 帳戶 (MSA)、QQ (預覽)、Twitter、WeChat (預覽) 和 Weibo (預覽)。 我們會根據客戶需求, 評估新增其他熱門社交識別提供者的支援。
 
-Azure AD B2C 也新增了[自訂原則](active-directory-b2c-overview-custom.md)的支援。 這些自訂原則可讓開發人員使用任何支援[OpenID connect](https://openid.net/specs/openid-connect-core-1_0.html)或 SAML 的身分識別提供者來建立自己的原則。
-
-查看我們的[自訂原則入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，開始使用自訂原則。
+Azure AD B2C 也支援[自訂原則](active-directory-b2c-overview-custom.md)。 自訂原則可讓您為任何支援[OpenID connect](https://openid.net/specs/openid-connect-core-1_0.html)或 SAML 的身分識別提供者建立自己的原則。 查看我們的[自訂原則入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，開始使用自訂原則。
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>我可以設定範圍，以便從各種社交身分識別提供者收集取用者的詳細資訊嗎？
 

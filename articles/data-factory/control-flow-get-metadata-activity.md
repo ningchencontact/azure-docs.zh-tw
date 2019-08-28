@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory 中的取得中繼資料活動 | Microsoft Docs
-description: 瞭解如何在 Data Factory 管線中使用 GetMetadata 活動。
+title: 取得 Azure Data Factory 中的中繼資料活動 |Microsoft Docs
+description: 瞭解如何在 Data Factory 管線中使用取得中繼資料活動。
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,52 +13,52 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 081d7219407decac5dd36a06f289436aa0da627b
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966334"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061543"
 ---
-# <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory 中的取得中繼資料活動
+# <a name="get-metadata-activity-in-azure-data-factory"></a>取得 Azure Data Factory 中的中繼資料活動
 
-GetMetadata 活動可用來取出 Azure Data Factory 中任何資料的**中繼資料**。 這個活動可以在下列案例使用：
+您可以使用 [取得中繼資料] 活動來抓取 Azure Data Factory 中任何資料的中繼資料。 您可以在下列案例中使用此活動:
 
-- 驗證任何資料的中繼資料資訊
-- 當資料準備好/可用時觸發管線
+- 驗證任何資料的中繼資料。
+- 當資料已就緒/可供使用時, 觸發管線。
 
 下列功能可用於控制流程：
 
-- GetMetadata 活動的輸出可用於條件運算式，以執行驗證。
-- 透過 Do-Until 迴圈滿足條件時，可以觸發管線
+- 您可以使用條件運算式中的 [取得中繼資料] 活動的輸出來執行驗證。
+- 您可以透過 Do 直到迴圈, 以在滿足條件時觸發管線。
 
-## <a name="supported-capabilities"></a>支援的功能
+## <a name="capabilities"></a>功能
 
-GetMetadata 活動以資料集作為必要的輸入，並輸出可用的中繼資料資訊作為活動輸出。 目前支援下列具有對應可擷取中繼資料的連接器，而且支援的中繼資料大小上限為 **1 MB**。
+取得中繼資料活動會採用資料集做為輸入, 並傳回中繼資料資訊做為輸出。 目前支援下列連接器和對應的可檢索中繼資料。 傳回的中繼資料大小上限為 1 MB。
 
 >[!NOTE]
->如果您在自封式 Integration Runtime 上執行 GetMetadata 活動，在 3.6 或以上的版本上才支援最新功能。 
+>如果您在自我裝載整合執行時間上執行 [取得中繼資料] 活動, 3.6 或更新版本會支援最新的功能。
 
 ### <a name="supported-connectors"></a>支援的連接器
 
-**檔案儲存體：**
+**檔案儲存體**
 
 | 連接器/中繼資料 | itemName<br>(檔案/資料夾) | itemType<br>(檔案/資料夾) | 大小<br>(檔案) | 已建立<br>(檔案/資料夾) | lastModified<br>(檔案/資料夾) |childItems<br>(資料夾) |contentMD5<br>(檔案) | 結構<br/>(檔案) | columnCount<br>(檔案) | 存在<br>(檔案/資料夾) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Azure Blob](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Azure Blob 儲存體](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Azure 檔案儲存體](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Azure 檔案](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [檔案系統](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- 針對 Amazon S3 和 Google Cloud Storage, 會`lastModified`套用至 bucket 和金鑰, 但不適用虛擬資料夾;; `exists`和則適用于值區和金鑰, 但不會套用到首碼或虛擬資料夾。
-- 針對 Azure Blob，`lastModified` 會套用至容器和 Blob，但是不會套用至虛擬資料夾。
+- 針對 Amazon S3 和 Google Cloud Storage, `lastModified`會套用至 bucket 和金鑰, 但不適用於虛擬資料夾, 並`exists`適用于值區和金鑰, 但不會套用至前置詞或虛擬資料夾。
+- 針對 Azure Blob 儲存體, `lastModified`會套用至容器和 Blob, 但不適用於虛擬資料夾。
 
-**關聯式資料庫：**
+**關係資料庫**
 
 | 連接器/中繼資料 | 結構 | columnCount | 存在 |
 |:--- |:--- |:--- |:--- |
@@ -69,30 +69,30 @@ GetMetadata 活動以資料集作為必要的輸入，並輸出可用的中繼�
 
 ### <a name="metadata-options"></a>中繼資料選項
 
-您可以在 GetMetadata 活動欄位清單中指定以下中繼資料類型，以進行擷取：
+您可以在 [取得中繼資料作用欄位] 清單中指定下列元資料類型, 以取得對應的資訊:
 
 | 中繼資料類型 | 描述 |
 |:--- |:--- |
 | itemName | 檔案或資料夾的名稱。 |
-| itemType | 檔案或資料夾的類型。 輸出值是 `File` 或 `Folder`。 |
-| 大小 | 檔案的大小 (位元組)。 僅適用於檔案。 |
+| itemType | 檔案或資料夾的類型。 傳回的值`File`為`Folder`或。 |
+| 大小 | 檔案的大小 (以位元組為單位)。 僅適用于檔案。 |
 | 已建立 | 檔案或資料夾的建立日期時間。 |
 | lastModified | 檔案或資料夾的上次修改日期時間。 |
-| childItems | 所指定資料夾內子資料夾和檔案的清單。 僅適用於資料夾。 輸出值為每個子項目的名稱和類型清單。 |
-| contentMD5 | 檔案的 MD5。 僅適用於檔案。 |
-| 結構 | 檔案或關聯式資料庫資料表內的資料結構。 輸出值為資料行名稱和資料行類型的清單。 |
-| columnCount | 檔案或關聯式資料表內的資料行數目。 |
-| 存在| 檔案/資料夾/資料表存在與否。 請注意，如果 GetaMetadata 欄位清單中指定了 "exists"，即使當項目 (檔案/資料夾/資料表) 不存在，活動也不會失敗；反之，它會在輸出中傳回 `exists: false`。 |
+| childItems | 指定資料夾中的子資料夾和檔案清單。 僅適用于資料夾。 傳回的值是每個子專案的名稱和類型清單。 |
+| contentMD5 | 檔案的 MD5。 僅適用于檔案。 |
+| 結構 | 檔案或關係資料庫資料表的資料結構。 傳回的值是資料行名稱和資料行類型的清單。 |
+| columnCount | 檔案或關聯式資料表中的資料行數目。 |
+| 存在| 檔案、資料夾或資料表是否存在。 請注意, `exists`如果在 [取得元資料欄位] 清單中指定了, 即使檔案、資料夾或資料表不存在, 活動也不會失敗。 相反地`exists: false` , 會在輸出中傳回。 |
 
 >[!TIP]
->當您想要驗證檔案/資料夾/資料表是否存在時，請在 GetMetadata 活動欄位清單中指定 `exists`，然後就可以從活動輸出檢查 `exists: true/false` 結果。 如果欄位清單中未設定 `exists`，則 GetMetadata 活動會在找不到物件時失敗。
+>當您想要驗證檔案、資料夾或資料表是否存在時, 請在`exists` [取得中繼資料作用欄位] 清單中指定。 然後, 您可以在`exists: true/false`活動輸出中檢查結果。 如果`exists`未在欄位清單中指定, 則如果找不到物件, 則取得中繼資料活動將會失敗。
 
 >[!NOTE]
->當您從檔案存放區取得中繼資料`modifiedDatetimeStart` , 並設定`modifiedDatetimeEnd`和 ( `childItems`或) 時, 在輸出中只會傳回指定路徑下的檔案, 其中包含範圍之間的上次修改時間, 但沒有子資料夾。
+>當您從檔案存放區取得中繼資料`modifiedDatetimeStart` , `modifiedDatetimeEnd`並設定`childItems`或時, 在輸出中只會包含指定之路徑中的檔案, 該檔案中的最後修改時間是在指定的範圍內。 中的不會包含子資料夾中的專案。
 
 ## <a name="syntax"></a>語法
 
-**GetMetadata 活動：**
+**GetMetadata 活動**
 
 ```json
 {
@@ -108,7 +108,7 @@ GetMetadata 活動以資料集作為必要的輸入，並輸出可用的中繼�
 }
 ```
 
-**資料集：**
+**Dataset**
 
 ```json
 {
@@ -132,18 +132,18 @@ GetMetadata 活動以資料集作為必要的輸入，並輸出可用的中繼�
 
 ## <a name="type-properties"></a>類型屬性
 
-目前 GetMetadata 活動可以擷取以下類型的中繼資料資訊。
+目前, 取得中繼資料活動可能會傳回下列類型的中繼資料資訊:
 
-內容 | 描述 | 必要項
+屬性 | 描述 | 必要項
 -------- | ----------- | --------
-欄位清單 | 列出所需的中繼資料資訊類型。 如需所支援中繼資料hapi 詳細資訊，請參閱[中繼資料選項](#metadata-options)一節。 | 是 
-資料集 | GetMetadata 活動要擷取其中繼資料活動的參考資料集。 如需所支援連接器的資訊，請參閱[支援的功能](#supported-capabilities)一節。如需資料集語法的詳細資訊，請參閱連接器主題。 | 是
+欄位清單 | 所需的中繼資料資訊類型。 如需所支援中繼資料的詳細資訊, 請參閱本文的[中繼資料選項](#metadata-options)一節。 | 是 
+資料集 | 要由「取得中繼資料」活動抓取其中繼資料的參考資料集。 如需所支援連接器的詳細資訊, 請參閱[功能](#capabilities)一節。 如需資料集語法的詳細資訊, 請參閱特定的連接器主題。 | 是
 formatSettings | 適用于使用格式類型資料集時。 | 否
 storeSettings | 適用于使用格式類型資料集時。 | 否
 
 ## <a name="sample-output"></a>範例輸出
 
-GetMetadata 結果顯示在活動輸出中。 以下兩個範例包含欄位清單中所選取的詳細中繼資料選項作為參考。 若要在後續活動中使用結果，請使用 `@{activity('MyGetMetadataActivity').output.itemName}` 模式。
+取得中繼資料結果會顯示在活動輸出中。 以下是兩個範例, 其中顯示大量的中繼資料選項。 若要在後續活動中使用結果, 請使用此模式`@{activity('MyGetMetadataActivity').output.itemName}`:。
 
 ### <a name="get-a-files-metadata"></a>取得檔案的中繼資料
 
@@ -193,9 +193,9 @@ GetMetadata 結果顯示在活動輸出中。 以下兩個範例包含欄位清�
 ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱 Data Factory 支援的其他控制流程活動： 
+深入瞭解 Data Factory 支援的其他控制流程活動:
 
 - [執行管線活動](control-flow-execute-pipeline-activity.md)
-- [For Each 活動](control-flow-for-each-activity.md)
+- [ForEach 活動](control-flow-for-each-activity.md)
 - [查閱活動](control-flow-lookup-activity.md)
 - [Web 活動](control-flow-web-activity.md)

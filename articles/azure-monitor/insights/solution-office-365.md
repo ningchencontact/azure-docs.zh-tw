@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741668"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061656"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -72,7 +72,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 從您的 Office 365 訂用帳戶：
 
-- 使用者名稱:系統管理帳戶的電子郵件地址。
+- 使用者名稱：系統管理帳戶的電子郵件地址。
 - 租用戶識別碼：Office 365 訂用帳戶的唯一識別碼。
 - 用戶端識別碼：16 個字元的字串，用來表示 Office 365 用戶端。
 - 用戶端密碼：驗證所需的加密字串。
@@ -83,45 +83,46 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 1. 在 [https://portal.azure.com](https://portal.azure.com/) 上登入 Azure 入口網站。
 1. 選取 [Azure Active Directory]，然後選取 [應用程式註冊]。
-1. 按一下 [新增應用程式註冊]。
+1. 按一下 [**新增註冊**]。
 
     ![新增應用程式註冊](media/solution-office-365/add-app-registration.png)
-1. 輸入應用程式**名稱**和**登入 URL**。  名稱應具有描述性。  用於 URL, 並保留**應用程式類型**的_Web 應用程式/API_ `http://localhost`
+1. 輸入應用程式**名稱**。 針對**支援的帳戶類型**, 選取**任何組織目錄 (任何 Azure AD 目錄-** 多租使用者) 中的帳戶。
     
     ![建立應用程式](media/solution-office-365/create-application.png)
-1. 按一下 [建立] 並驗證應用程式資訊。
+1. 按一下 [**註冊**並驗證應用程式資訊]。
 
     ![註冊的應用程式](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>設定 Office 365 的應用程式
 
-1. 按一下 [設定] 以開啟 [設定] 功能表。
-1. 選取 [屬性]。 將 [多重租用戶] 變更為 [是]。
+1. 選取 [**驗證**], 並確認已在 [**支援的帳戶類型**] 下選取**任何組織目錄 (任何 Azure AD 目錄-** 多租使用者) 中的帳戶。
 
     ![設定多租用戶](media/solution-office-365/settings-multitenant.png)
 
-1. 在 [設定] 功能表中，選取 [必要權限]，然後按一下 [新增]。
-1. 按一下 [選取 API]，然後按一下 [Office 365 管理 API]。 按一下 [Office 365 管理 API]。 按一下 [選取]。
+1. 選取 [ **API 許可權**], 然後按一下 [**新增許可權**]。
+1. 按一下 [ **Office 365 管理 api**]。 
 
     ![選取 API](media/solution-office-365/select-api.png)
 
-1. 在 [選取權限] 下，為 [應用程式權限] 和 [委派的權限] 選取下列選項：
+1. 在**您的應用程式需要何種許可權類型的情況**下, 請針對**應用程式許可權**和**委派的許可權**選取下列選項:
    - 讀取您組織的服務健康情況資訊
    - 讀取您組織的活動資料
    - 讀取您組織的活動報告
 
-     ![選取 API](media/solution-office-365/select-permissions.png)
+     ![選取 API](media/solution-office-365/select-permissions-01.png)![選取 API](media/solution-office-365/select-permissions-02.png)
 
-1. 按一下 [選取]，然後按一下 [完成]。
-1. 按一下 [授與權限]，然後在出現驗證要求時，按一下 [是]。
+1. 按一下 [新增權限]。
+1. 按一下 **[授與管理員同意**], 然後在系統要求驗證時按一下 **[是]** 。
 
-    ![授與權限](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>新增應用程式的金鑰
+### <a name="add-a-secret-for-the-application"></a>為應用程式新增秘密
 
-1. 在 [設定] 功能表中，選取 [金鑰]。
+1. 選取 [**憑證 & 密碼**], 然後選取 [**新增用戶端密碼**]。
+
+    ![按鍵](media/solution-office-365/secret.png)
+ 
 1. 輸入新金鑰的 [描述] 和 [持續時間]。
-1. 按一下 [儲存]，然後複製所產生的**值**。
+1. 按一下 [**新增**], 然後複製所產生的**值**。
 
     ![按鍵](media/solution-office-365/keys.png)
 
@@ -182,7 +183,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
 
-    範例:
+    範例：
 
     ```
     .\office365_consent.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631- yyyyyyyyyyyy'
@@ -366,7 +367,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
 
-    範例:
+    範例：
 
     ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
@@ -492,7 +493,7 @@ At line:12 char:18
     .\office365_unsubscribe.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> 
     ```
 
-    範例:
+    範例：
 
     ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
@@ -539,7 +540,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 以下是所有 Office 365 記錄通用的屬性。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | 記錄活動時所使用之裝置的 IP 位址。 IP 位址會以 IPv4 或 IPv6 位址格式顯示。 |
@@ -557,7 +558,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 以下是所有 Azure Active Directory 記錄通用的屬性。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -569,7 +570,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在 Active Directory 使用者嘗試登入時建立。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -583,7 +584,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在針對 Azure Active Directory 物件進行變更或新增時建立。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -601,7 +602,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄是從資料中心安全性稽核資料所建立。  
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | EffectiveOrganization | 提高權限/Cmdlet 的目標租用戶名稱。 |
 | ElevationApprovedTime | 核准提高權限時的時間戳記。 |
@@ -617,7 +618,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在對 Exchange 設定做出變更時建立。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -632,7 +633,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在針對 Exchange 信箱做出變更或新增時建立。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -655,7 +656,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在建立信箱稽核項目時建立。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -670,7 +671,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在針對 Exchange 群組做出變更或新增時建立。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -689,7 +690,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些是所有 SharePoint 記錄通用的屬性。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -706,7 +707,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 這些記錄會在針對 SharePoint 做出設定變更時建立。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |

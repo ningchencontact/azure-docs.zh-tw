@@ -1,5 +1,5 @@
 - name: 使用者說明文件
-  href: index.md
+  href: index.yml
 - name: 雙步驟驗證說明
   items:
     - name: 概觀
