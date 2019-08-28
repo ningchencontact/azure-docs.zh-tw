@@ -3,15 +3,15 @@ title: 管理 Azure Cosmos DB 中的索引編製原則
 description: 了解如何管理 Azure Cosmos DB 中的索引編製原則
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: thweiss
-ms.openlocfilehash: 0100be7eeacdcda5b123356e95e2510a365d0f22
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.openlocfilehash: 6e935b88c474d28c06b8cdd76d36f5ba64c942f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356435"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093202"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製原則
 
@@ -34,13 +34,13 @@ Azure Cosmos 容器會將其索引編製原則儲存為 JSON 文件，並可從 
 
 1. 建立新的 Azure Cosmos 帳戶，或選取現有帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取您要處理的容器。
+1. 開啟 [資料總管] 窗格，然後選取您要處理的容器。
 
-1. 按一下 [規模與設定]  。
+1. 按一下 [規模與設定]。
 
 1. 修改索引編製原則 JSON 文件 (請參閱[下面](#indexing-policy-examples)範例)
 
-1. 當您完成時，按一下 [儲存]  。
+1. 當您完成時，按一下 [儲存]。
 
 ![使用 Azure 入口網站管理索引編製](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
 
@@ -231,7 +231,7 @@ response = client.ReplaceContainer(containerPath, container)
     }
 ```
 
-注意：一般會建議您使用**退出**索引編製原則來讓 Azure Cosmos DB 主動地對可能會新增至模型的新屬性編製索引。
+注意:一般會建議您使用**退出**索引編製原則來讓 Azure Cosmos DB 主動地對可能會新增至模型的新屬性編製索引。
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>僅對特定屬性路徑使用空間索引
 ```

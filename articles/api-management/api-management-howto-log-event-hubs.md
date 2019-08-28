@@ -10,16 +10,15 @@ ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 14f84b5380a1c106114cdab425de7f69f4e19825
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 646d9206ec82d5f35ccab9365e76276ff779d225
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657538"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073476"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何將事件記錄到 Azure API 管理中的 Azure 事件中樞
 事件中樞是可高度調整的資料輸入服務，每秒可擷取數百萬個事件，可讓您處理和分析連接的裝置和應用程式所產生的大量資料。 事件中樞能做為事件管線的「大門」，一旦收集的資料進入事件中樞，它可以使用任何即時分析提供者或批次/儲存配接器轉換及儲存資料。 事件中樞能分隔事件串流的生產與這些事件的使用，讓事件消費者依照自己的排程存取事件。
@@ -92,13 +91,13 @@ ms.locfileid: "60657538"
 
 1. 瀏覽至您的 APIM 執行個體。
 2. 選取 [API] 索引標籤。
-3. 選取您要在其中新增原則的 API。 在此範例中，我們將原則新增至 [無限制]  產品中的 [Echo API]  。
-4. 選取 [所有作業]  。
+3. 選取您要在其中新增原則的 API。 在此範例中，我們將原則新增至 [無限制] 產品中的 [Echo API]。
+4. 選取 [所有作業]。
 5. 選取畫面頂端的 [設計] 索引標籤。
 6. 在 [輸入處理] 或 [輸出處理] 視窗中，按一下三角形 (鉛筆旁邊)。
 7. 選取 [程式碼編輯器]。 如需詳細資訊，請參閱[如何設定或編輯原則](set-edit-policies.md)。
 8. 將游標置於 `inbound` 或 `outbound` 原則區段。
-9. 在右側視窗中，選取 [進階原則]   > [登入 EventHub]  。 這會插入 `log-to-eventhub` 原則陳述式範本。
+9. 在右側視窗中，選取 [進階原則] > [登入 EventHub]。 這會插入 `log-to-eventhub` 原則陳述式範本。
 
 ```xml
 <log-to-eventhub logger-id ='logger-id'>
@@ -109,7 +108,7 @@ ms.locfileid: "60657538"
 
 您可以使用任何能傳回字串做為 `log-to-eventhub` 項目之值的運算式。 在此範例中，將記錄包含日期和時間、服務名稱、要求識別碼、要求 IP 位址和作業名稱的字串。
 
-按一下 [儲存]  ，儲存更新的原則組態。 儲存完成後，原則便會啟用，事件會記錄至指定的事件中樞。
+按一下 [儲存] ，儲存更新的原則組態。 儲存完成後，原則便會啟用，事件會記錄至指定的事件中樞。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 Azure 事件中樞

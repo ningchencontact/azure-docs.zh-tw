@@ -11,16 +11,15 @@ ms.assetid: 228b697b-3950-49f5-84bb-283bb56621b1
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 63e1ad044204bf7695d274fa46f06523fd9d460f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 2b5d218812878db6fb110c043afffd2f9a2d344d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720276"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102667"
 ---
 # <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>可將 IaaS 資源從傳統模型移轉至 Azure Resource Manager 的社群工具
 本文收錄由社群所提供、可協助將 IaaS 資源從傳統模型移轉至 Azure Resource Manager 部署模型的工具。
@@ -42,7 +41,7 @@ ms.locfileid: "67720276"
 [連結至工具文件](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
 ## <a name="migaz"></a>migAz
-migAz 是可將一整組傳統 IaaS 資源移轉至 Azure Resource Manager IaaS 資源的額外選項。 移轉可能會發生相同的訂用帳戶內或之間不同訂用帳戶和訂用帳戶類型 (例如：CSP 訂用帳戶）。
+migAz 是可將一整組傳統 IaaS 資源移轉至 Azure Resource Manager IaaS 資源的額外選項。 可以在相同的訂用帳戶中, 或在不同的訂閱和訂用帳戶類型之間進行遷移 (例如:CSP 訂用帳戶)。
 
 [連結至工具文件](https://github.com/Azure/migAz)
 

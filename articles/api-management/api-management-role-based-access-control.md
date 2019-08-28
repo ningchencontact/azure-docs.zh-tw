@@ -10,16 +10,15 @@ ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 2e53b0d582a69e10de22e85720833800d44058e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e33d981429f0e79accbe47ea0edea5f3c7a2157b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141492"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072201"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>如何在 Azure API 管理中使用角色型存取控制
 
@@ -52,7 +51,7 @@ API 管理目前提供三個內建角色，不久之後會再新增兩個角色�
 如果內建角色都無法滿足您的特定需求，您可以建立自訂角色來提供更精細的 API 管理實體存取管理。 例如，您可以建立自訂角色，使其具有 API 管理服務的唯讀權限，但只有單一特定 API 的寫入權限。 若要深入了解自訂角色，請參閱 [Azure RBAC 中的自訂角色](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)。 
 
 > [!NOTE]
-> 若要能夠看到 Azure 入口網站中的 「 API 管理執行個體，必須包含自訂的角色```Microsoft.ApiManagement/service/read```動作。
+> 若要能夠在 Azure 入口網站中查看 API 管理實例, 自訂角色必須包含```Microsoft.ApiManagement/service/read```動作。
 
 當您建立自訂角色時，從其中一個內建角色開始會比較輕鬆。 編輯屬性來新增 **Actions**、**NotActions** 或 **AssignableScopes**，然後將變更另存為新角色。 以下範例從「Azure API 管理服務讀者」角色開始，然後建立一個名為「計算機 API 編輯者」的自訂角色。 您可以將自訂角色指派給特定 API。 因此，這個角色只能存取該 API。 
 

@@ -10,16 +10,15 @@ ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e8519bf436e1af19a22a840f48bf1bfccdae99b2
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 9d75dff413e7b6e61d38b95e08bf9c891b583014
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341261"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073827"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API 管理中的 API 範本
 
@@ -79,7 +78,7 @@ ms.locfileid: "67341261"
 </div>  
 ```  
   
-### <a name="controls"></a>控制  
+### <a name="controls"></a>控制項  
  `API list` 範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
@@ -338,21 +337,21 @@ ms.locfileid: "67341261"
 </div>  
 ```  
   
-### <a name="controls"></a>控制  
+### <a name="controls"></a>控制項  
  `Operation` 範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>資料模型  
   
 |屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|`apiId`|string|目前的 API 識別碼。|  
+|`apiId`|string|目前 API 的識別碼。|  
 |`apiName`|string|API 的名稱。|  
 |`apiDescription`|string|API 的描述。|  
 |`api`|[API 摘要](api-management-template-data-model-reference.md#APISummary)實體。|目前的 API。|  
 |`operation`|[作業](api-management-template-data-model-reference.md#Operation)|目前顯示的作業。|  
 |`sampleUrl`|string|目前作業的 URL。|  
 |`operationMenu`|[作業功能表](api-management-template-data-model-reference.md#Menu)|此 API 的作業功能表。|  
-|`consoleUrl`|URI|[試用]  按鈕的 URI。|  
+|`consoleUrl`|URI|[試用] 按鈕的 URI。|  
 |`samples`|[程式碼範例](api-management-template-data-model-reference.md#Sample)實體的集合。|目前作業的程式碼範例。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
@@ -681,7 +680,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
   
 ```  
   
-#### <a name="controls"></a>控制  
+#### <a name="controls"></a>控制項  
  程式碼範例範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 #### <a name="data-model"></a>資料模型  
@@ -860,7 +859,7 @@ namespace CSHttpClientSample
 }     
 ```  
   
-#### <a name="controls"></a>控制  
+#### <a name="controls"></a>控制項  
  程式碼範例範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 #### <a name="data-model"></a>資料模型  
@@ -956,7 +955,7 @@ public class JavaSample
   
 ```  
   
-#### <a name="controls"></a>控制  
+#### <a name="controls"></a>控制項  
  程式碼範例範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 #### <a name="data-model"></a>資料模型  
@@ -1045,7 +1044,7 @@ public class JavaSample
   
 ```  
   
-#### <a name="controls"></a>控制  
+#### <a name="controls"></a>控制項  
  程式碼範例範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 #### <a name="data-model"></a>資料模型  
@@ -1157,7 +1156,7 @@ int main(int argc, const char * argv[])
   
 ```  
   
-#### <a name="controls"></a>控制  
+#### <a name="controls"></a>控制項  
  程式碼範例範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 #### <a name="data-model"></a>資料模型  
@@ -1247,7 +1246,7 @@ catch (HttpException $ex)
 ?>  
 ```  
   
-#### <a name="controls"></a>控制  
+#### <a name="controls"></a>控制項  
  程式碼範例範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 #### <a name="data-model"></a>資料模型  
@@ -1365,7 +1364,7 @@ except Exception as e:
 ####################################  
 ```
   
-#### <a name="controls"></a>控制  
+#### <a name="controls"></a>控制項  
  程式碼範例範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 #### <a name="data-model"></a>資料模型  
@@ -1436,7 +1435,7 @@ puts response.body
   
 ```  
   
-#### <a name="controls"></a>控制  
+#### <a name="controls"></a>控制項  
  程式碼範例範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 #### <a name="data-model"></a>資料模型  

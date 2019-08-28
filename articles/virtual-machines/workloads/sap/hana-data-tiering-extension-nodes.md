@@ -7,24 +7,23 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a292efc3e660379325ccb6870e540e38c6cdd5e9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 261009edc20f946fa86f0482d8ab5045f4b4f84b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709656"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099848"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>使用 SAP HANA 資料分層與擴充節點
 
 對於不同 SAP NetWeaver 版本的 SAP BW 和 SAP BW/4HANA，SAP 可支援資料分層模型。 如需關於資料分層模型的詳細資訊，請參閱 SAP 文件：[具有 SAP HANA 擴充節點之 HANA 上的 SAP BW/4HANA 和 SAP BW](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#)。
-透過 HANA 大型執行個體，您可以使用 SAP HANA 擴充節點的 option-1 組態，其相關說明請見常見問題集和 SAP 部落格文件。 Option-2 設定可以設定與下列 HANA 大型執行個體 Sku:S72m、 S192、 S192m、 S384 和 S384m。 
+透過 HANA 大型執行個體，您可以使用 SAP HANA 擴充節點的 option-1 組態，其相關說明請見常見問題集和 SAP 部落格文件。 您可以使用下列 HANA 大型實例 Sku 來設定選項 2:S72m、S192、S192m、S384 和 S384m。 
 
 當您檢視文件時，您可能不會立即看出其優勢。 但只要看看 SAP 大小調整指導方針，您就可以使用 option-1 和 option-2 SAP HANA 擴充節點看出其優勢。 範例如下：
 

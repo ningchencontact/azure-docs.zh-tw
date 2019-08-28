@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: b451769f5f98bf64ca340504c983f16d1db36647
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: a844d28067fc0851760849317160d5902918252e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991559"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074380"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -177,63 +177,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>適用於叢集的預設節點設定和虛擬機器大小
 
-下表列出 HDInsight 叢集的預設虛擬機器 (VM) 大小。  此圖表提供必要資訊，可協助您了解建立 PowerShell 或 Azure CLI 指令碼以部署 HDInsight 叢集時，所要使用的 VM 大小。
-
-> [!NOTE]
-> 具有資料磁片的唯一叢集類型是 Kafka, 以及已啟用加速寫入功能的 HBase 叢集。 在這些情況下, HDInsight 支援 P30 和 S30 磁片大小。
-
-> [!IMPORTANT]  
-> 如果您的叢集需要 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
-
-* 所有支援的區域，巴西南部和日本西部除外︰
-
-|叢集類型|Hadoop|hbase|互動式查詢|Storm|Spark|ML Server|Kafka|
-|---|---|---|---|---|---|---|---|
-|前端：預設 VM 大小|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
-|前端：建議的 VM 大小|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
-||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
-||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
-||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
-|背景工作：預設 VM 大小|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 (每個訊息代理程式有 2 個 S30 磁碟)|
-|背景工作：建議的 VM 大小|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
-||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
-||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
-||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
-||||E32 v3||E16 v3|E16 v3|ES4 v3|
-||||E64 v3||E20 v3|E20 v3|E8 v3|
-||||||E32 v3|E32 v3|ES8 v3|
-||||||E64 v3|E64 v3||
-|ZooKeeper：預設 VM 大小||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
-|ZooKeeper：建議的 VM 大小||A4 v2||A2 v2|||A2M v2|
-|||A8 v2||A4 v2|||D3 v2|
-|||A2m v2||A8 v2|||E8 v3|
-|ML 服務: 預設 VM 大小||||||D4 v2||
-|ML 服務: 建議的 VM 大小||||||D4 v2||
-|||||||D12 v2||
-|||||||D13 v2||
-|||||||D14 v2||
-|||||||E16 v3||
-|||||||E20 v3||
-|||||||E32 v3||
-|||||||E64 v3||
-
-* 僅限巴西南部和日本西部 (沒有 v2 大小)：
-
-  | 叢集類型 | Hadoop | hbase | 互動式查詢 |Storm | Spark | ML 服務 |
-  | --- | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D12 |D12  | D13 |A3 |D12 |D12 |
-  | 前端：建議的 VM 大小 |D3、<br/> D4、<br/> D12 |D3、<br/> D4、<br/> D12  | D13、<br/> D14 |A3、<br/> A4、<br/> A5 |D12、<br/> D13、<br/> D14 |D12、<br/> D13、<br/> D14 |
-  | 背景工作：預設 VM 大小 |D4 |D4  |  D14 |D3 |D13 |D4 |
-  | 背景工作：建議的 VM 大小 |D3、<br/> D4、<br/> D12 |D3、<br/> D4、<br/> D12  | D13、<br/> D14 |D3、<br/> D4、<br/> D12 |D4、<br/> D12、<br/> D13、<br/> D14 | D4、<br/> D12、<br/> D13、<br/> D14 |
-  | ZooKeeper：預設 VM 大小 | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
-  | ZooKeeper：建議的 VM 大小 | |A2、<br/> A3、<br/> A4 | |A2、<br/> A3、<br/> A4 | | |
-  | ML 服務: 預設 VM 大小 | | | | | |D4 |
-  | ML 服務: 建議的 VM 大小 | | | | | |D4、<br/> D12、<br/> D13、<br/> D14 |
-
-> [!NOTE]
-> - 前端稱為 Storm 叢集類型的 Nimbus。
-> - 背景工作角色稱為 Storm 叢集類型的「監督員」。
-> - 背景工作角色稱為 HBase 叢集類型的「區域」。
+如需有關為您的叢集選取哪些虛擬機器 Sku 的詳細資訊, 請參閱 Azure HDInsight 叢集設定[詳細資料](hdinsight-supported-node-configuration.md)。
 
 ## <a name="next-steps"></a>後續步驟
 - [使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)

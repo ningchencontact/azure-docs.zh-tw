@@ -10,21 +10,20 @@ ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b10bd15538ecca7934a397ca63db1150a0bfc32c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130665"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070029"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>搭配 Azure ExpressRoute 之 PowerApps 的 App Service 環境網路設定詳細資料
 
-客戶可以將 [Azure ExpressRoute][ExpressRoute] 線路連接至其虛擬網路基礎結構，以將其內部部署網路延伸至 Azure。 「App Service 環境」會建立在[虛擬網路][virtualnetwork]基礎結構的子網路中。 在「App Service 環境」上執行的應用程式會針對只能透過 ExpressRoute 連線存取的後端資源，建立安全連線。  
+客戶可以將[Azure ExpressRoute][ExpressRoute]線路連線至其虛擬網路基礎結構, 以將其內部部署網路擴充至 Azure。 App Service 環境是建立在[虛擬網路][virtualnetwork]基礎結構的子網中。 在「App Service 環境」上執行的應用程式會針對只能透過 ExpressRoute 連線存取的後端資源，建立安全連線。  
 
 您可以在下列案例中建立「App Service 環境」：
 - Azure Resource Manager 虛擬網路。
@@ -57,11 +56,11 @@ ms.locfileid: "62130665"
 
 * 連出網路路徑不可經過內部公司 Proxy，也不可在內部部署環境使用強制通道。 這些動作會變更來自「App Service 環境」的有效連出網路流量 NAT 位址。 變更「App Service 環境」連出網路流量的 NAT 位址會導致許多端點的連線失敗。 「App Service 環境」的建立會失敗。 所有現有的「App Service 環境」都會標示為狀況不良。
 
-* 必須允許透過連入網路存取「App Service 環境」的必要連接埠。 如需詳細資料，請參閱[如何控制 App Service 環境的連入流量][requiredports]。
+* 必須允許透過連入網路存取「App Service 環境」的必要連接埠。 如需詳細資訊, 請參閱[如何控制 App Service 環境的輸入流量][requiredports]。
 
-為了符合 DNS 需求，請務必為虛擬網路設定及維護有效的 DNS 基礎結構。 如果 DNS 設定在建立「App Service 環境」後已變更，開發人員可以強制「App Service 環境」套用新的 DNS 設定。 您可以在 [Azure 入口網站][NewPortal]中，使用「App Service 環境」管理底下的 [重新啟動]  圖示，來觸發輪流的環境重新啟動。 此重新啟動會讓環境套用新的 DNS 設定。
+為了符合 DNS 需求，請務必為虛擬網路設定及維護有效的 DNS 基礎結構。 如果 DNS 設定在建立「App Service 環境」後已變更，開發人員可以強制「App Service 環境」套用新的 DNS 設定。 您可以使用[Azure 入口網站][NewPortal]的 [App Service 環境管理] 底下的 [**重新開機**] 圖示, 來觸發輪流環境重新開機。 此重新啟動會讓環境套用新的 DNS 設定。
 
-為了符合連入網路存取需求，請在「App Service 環境」子網路上設定[網路安全性群組 (NSG)][NetworkSecurityGroups]。 NSG 可允許必要的存取權以[控制 App Service 環境的連入流量][requiredports]。
+若要滿足輸入網路存取需求, 請在 App Service 環境子網上設定[網路安全性群組 (NSG)][NetworkSecurityGroups] 。 NSG 允許必要的存取權[控制輸入流量以 App Service 環境][requiredports]。
 
 ## <a name="outbound-network-connectivity"></a>連出網路連線
 
@@ -85,9 +84,9 @@ ms.locfileid: "62130665"
 > 
 > 
 
-如需有關使用者定義路由的背景資訊，請參閱[虛擬網路流量路由][UDROverview]。  
+如需使用者定義路由的背景資訊, 請參閱[虛擬網路流量路由][UDROverview]。  
 
-若要了解如何建立及設定使用者定義的路由，請參閱[使用 PowerShell 以路由表路由傳送網路流量][UDRHowTo]。
+若要瞭解如何建立及設定使用者定義的路由, 請參閱[使用 PowerShell 來路由傳送具有路由表的網路流量][UDRHowTo]。
 
 ## <a name="udr-configuration"></a>UDR 設定
 
@@ -95,7 +94,7 @@ ms.locfileid: "62130665"
 
 ### <a name="prerequisites"></a>必要條件
 
-* 從 [Azure 下載頁面][AzureDownloads]安裝 Azure PowerShell。 選擇日期為 2015 年 6 月或之後的下載項目。 在 [命令列工具]   > [Windows PowerShell]  底下，選取 [安裝]  以安裝最新的 PowerShell Cmdlet。
+* 從[Azure 下載頁面][AzureDownloads]安裝 Azure PowerShell。 選擇日期為 2015 年 6 月或之後的下載項目。 在 [命令列工具] > [Windows PowerShell] 底下，選取 [安裝] 以安裝最新的 PowerShell Cmdlet。
 
 * 建立一個專供「App Service 環境」使用的唯一子網路。 唯一子網路可確保套用至子網路的 UDR 只會為「App Service 環境」開放連出流量。
 
@@ -118,7 +117,7 @@ ms.locfileid: "62130665"
 
 0.0.0.0/0 是一個廣泛的位址範圍。 此範圍會由 ExpressRoute 所通告的更明確位址範圍所覆寫。 具有 0.0.0.0/0 路由的 UDR 應該與只通告 0.0.0.0/0 的 ExpressRoute 設定搭配使用。 
 
-或者，您也可以下載 Azure 目前所使用的完整 CIDR 範圍清單。 您可以從 [Microsoft 下載中心][DownloadCenterAddressRanges]取得所有 Azure IP 位址範圍的 XML 檔案。  
+或者，您也可以下載 Azure 目前所使用的完整 CIDR 範圍清單。 您可以從[Microsoft 下載中心][DownloadCenterAddressRanges]取得所有 Azure IP 位址範圍的 XML 檔案。  
 
 > [!NOTE]
 >
@@ -148,7 +147,7 @@ ms.locfileid: "62130665"
 
 ## <a name="next-steps"></a>後續步驟
 
-若要開始使用「適用於 PowerApps 的 App Service 環境」，請參閱 [App Service 環境簡介][IntroToAppServiceEnvironment]。
+若要開始使用 PowerApps 的 App Service 環境, 請參閱[App Service 環境簡介][IntroToAppServiceEnvironment]。
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 

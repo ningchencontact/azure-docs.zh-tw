@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: eb8feb13caebc938d9b56a985c07ceb06e211b24
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 645d969d71a0b8707d7969f4bf68a07ab0211d0a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719183"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080017"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure Marketplace 中尋找 Windows VM 映像
 
@@ -48,8 +47,8 @@ ms.locfileid: "67719183"
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
-| MicrosoftRServer |RServer-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2019-WS2016 |企業 |
+| MicrosoftRServer |RServer-WS2016 |企業 |
 
 ## <a name="navigate-the-images"></a>瀏覽映像
 
@@ -122,7 +121,7 @@ advantys
 ...
 ```
 
-針對 MicrosoftWindowsServer  發佈者：
+針對 MicrosoftWindowsServer 發佈者：
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -139,7 +138,7 @@ WindowsServer
 WindowsServerSemiAnnual
 ```
 
-針對 WindowsServer  供應項目：
+針對 WindowsServer 供應項目：
 
 ```powershell
 $offerName="WindowsServer"
@@ -213,7 +212,7 @@ DataDiskImages   : []
 
 ```
 
-以下範例針對「資料科學虛擬機器 - Windows 2016」  映像顯示類似的命令，其中包含下列 `PurchasePlan` 屬性：`name`、`product` 及 `publisher`。 有些映像也有 `promotion code` 屬性。 若要部署此映像，請參閱下列各節來接受條款，並啟用以程式設計方式部署。
+以下範例針對「資料科學虛擬機器 - Windows 2016」映像顯示類似的命令，其中包含下列 `PurchasePlan` 屬性：`name`、`product` 及 `publisher`。 有些映像也有 `promotion code` 屬性。 若要部署此映像，請參閱下列各節來接受條款，並啟用以程式設計方式部署。
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"

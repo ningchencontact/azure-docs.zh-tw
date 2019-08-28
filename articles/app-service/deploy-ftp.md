@@ -10,18 +10,17 @@ ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: ae172c5a7ed6f90bfe132f346b356f2be81b349d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f239fb4464d2e7f67b91a2d18c21b089ffd52b27
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617056"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070492"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 將您的應用程式部署至 Azure App Service
 
@@ -33,24 +32,24 @@ ms.locfileid: "67617056"
 
 在 [Azure 入口網站](https://portal.azure.com)中，開啟應用程式的[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)。
 
-若要開啟 FTP 儀表板，請按一下 [部署中心]   > [FTP]   > [儀表板]  。
+若要開啟 FTP 儀表板，請按一下 [部署中心] > [FTP] > [儀表板]。
 
 ![開啟 FTP 儀表板](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>取得 FTP 連線資訊
 
-在 FTP 儀表板中，按一下 [複製]  複製 FTPS 端點和應用程式認證。
+在 FTP 儀表板中，按一下 [複製] 複製 FTPS 端點和應用程式認證。
 
 ![複製 FTP 資訊](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-建議您使用**應用程式認證**來部署到您的應用程式，因為它對於每個應用程式都是唯一的。 不過，如果您按一下 [使用者認證]  ，則可以設定使用者層級的認證，以將其用於 FTP/S 登入到訂用帳戶中的所有 App Service 應用程式。
+建議您使用**應用程式認證**來部署到您的應用程式，因為它對於每個應用程式都是唯一的。 不過，如果您按一下 [使用者認證]，則可以設定使用者層級的認證，以將其用於 FTP/S 登入到訂用帳戶中的所有 App Service 應用程式。
 
 > [!NOTE]
-> 驗證 FTP/FTPS 端點使用使用者層級認證 requirers 使用者名稱格式如下： 
+> 使用使用者層級認證向 FTP/FTPS 端點進行驗證時, 會 requirers 下列格式的使用者名稱: 
 >
 >`<app-name>\<user-name>`
 >
-> 使用者層級的認證連結到使用者並不是特定的資源，因為使用者名稱必須以下列格式將正確的應用程式端點的登入動作。
+> 由於使用者層級的認證會連結至使用者, 而不是特定的資源, 因此使用者名稱必須採用此格式, 才能將登入動作導向至正確的應用程式端點。
 >
 
 ## <a name="deploy-files-to-azure"></a>將檔案部署至 Azure
@@ -73,9 +72,9 @@ ms.locfileid: "67617056"
 
 為了增強安全性，您應該只允許 FTP over SSL。 如果您不使用 FTP 部署，您也可以停用 FTP 和 FTPS。
 
-在 [Azure 入口網站](https://portal.azure.com)中您應用程式的資源頁面中，選取左導覽列中的 [應用程式設定]  。
+在 [Azure 入口網站](https://portal.azure.com)中您應用程式的資源頁面中，選取左導覽列中的 [應用程式設定]。
 
-若要停用未加密的 FTP，請選取 [僅限 FTPS]  。 若要完全停用 FTP 和 FTPS，請選取 [停用]  。 完成時，按一下 [儲存]  。 如果使用 [僅限 FTPS]  ，您必須瀏覽至 Web 應用程式的 **SSL 設定** 刀鋒視窗，來強制使用 TLS 1.2 或更高版本。 TLS 1.0 和 1.1 不支援 [僅限 FTPS]  功能。
+若要停用未加密的 FTP，請選取 [僅限 FTPS]。 若要完全停用 FTP 和 FTPS，請選取 [停用]。 完成時，按一下 [儲存]。 如果使用 [僅限 FTPS]，您必須瀏覽至 Web 應用程式的 **SSL 設定** 刀鋒視窗，來強制使用 TLS 1.2 或更高版本。 TLS 1.0 和 1.1 不支援 [僅限 FTPS] 功能。
 
 ![停用 FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

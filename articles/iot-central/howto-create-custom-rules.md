@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: c31fa96457a3945c39fcc34770cb6783af3b81e8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d89e8f174c7006c1a0f771dd4dfaa816ded3698c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70049111"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100995"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>使用傳送通知的自訂規則來擴充 Azure IoT Central
 
@@ -36,7 +36,7 @@ ms.locfileid: "70049111"
 
 ### <a name="iot-central-application"></a>IoT Central 應用程式
 
-從 [ [Azure IoT Central-我的應用程式](https://aka.ms/iotcentral)] 頁面使用下列設定建立 IoT Central 應用程式:
+使用下列設定在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上建立 IoT Central 應用程式:
 
 | 設定 | 值 |
 | ------- | ----- |
@@ -305,7 +305,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 
 ## <a name="configure-export-in-iot-central"></a>在 IoT Central 中設定匯出
 
-流覽至您從 Contoso 範本建立的[IoT Central 應用程式](https://aka.ms/iotcentral)。 在本節中, 您會設定應用程式, 以將遙測從模擬的裝置串流至您的事件中樞。 若要設定匯出:
+在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上, 流覽至您從 Contoso 範本建立的 IoT Central 應用程式。 在本節中, 您會設定應用程式, 以將遙測從模擬的裝置串流至您的事件中樞。 若要設定匯出:
 
 1. 流覽至 **連續資料匯出** 頁面, 選取  **+ 新增**, 然後**Azure 事件中樞**。
 1. 使用下列設定來設定匯出, 然後選取 [**儲存**]:

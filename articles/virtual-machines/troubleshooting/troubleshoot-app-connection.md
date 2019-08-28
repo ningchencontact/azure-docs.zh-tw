@@ -12,16 +12,15 @@ ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 9bc528cdd098a2e355c542c3ca8f9bcb0287f339
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fd79e04cdd8f9d01131c016031d696c1583eb55d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710531"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080405"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>針對 Azure 中 虛擬機器上的應用程式連線問題進行疑難排解
 
@@ -32,7 +31,7 @@ ms.locfileid: "67710531"
 * [針對以 Windows 為基礎的 Azure 虛擬機器的遠端桌面連線進行疑難排解](troubleshoot-rdp-connection.md)
 * [針對以 Linux 為基礎的 Azure 虛擬機器的安全殼層 (SSH) 連線進行疑難排解](troubleshoot-ssh-connection.md)。
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您也可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
 
 ## <a name="quick-start-troubleshooting-steps"></a>快速入門的疑難排解步驟
 如果您在連接到應用程式時發生問題，請嘗試下列一般疑難排解步驟。 請在每個步驟之後，嘗試重新連接到您的應用程式︰
@@ -69,7 +68,7 @@ ms.locfileid: "67710531"
 
 若要判斷問題的來源並更正，請遵循下列步驟。
 
-## <a name="step-1-access-application-from-target-vm"></a>步驟 1：從目標 VM 存取應用程式
+## <a name="step-1-access-application-from-target-vm"></a>步驟 1:從目標 VM 存取應用程式
 嘗試使用適當的用戶端程式，從執行所在的 VM 存取應用程式。 使用本機主機名稱、本機 IP 位址或迴路位址 (127.0.0.1)。
 
 ![直接從 VM 啟動應用程式](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -105,7 +104,7 @@ ms.locfileid: "67710531"
 
 在 Windows 虛擬機器上，請使用「具有進階安全性的 Windows 防火牆」判斷防火牆規則是否排除了您應用程式的輸入與輸出流量。
 
-## <a id="step3"></a>步驟 3：從虛擬網路外部的存取應用程式
+## <a id="step3"></a>步驟 3：從虛擬網路外部存取應用程式
 嘗試從位於虛擬網路外部的電腦存取在該虛擬網路內 VM 上執行的應用程式。 使用與您的原始用戶端電腦不同的網路。
 
 ![從位於虛擬網路之外的電腦啟動應用程式](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)

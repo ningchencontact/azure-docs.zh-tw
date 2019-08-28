@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: gwallace
-ms.openlocfilehash: b36f6e2ace02324a63616f31fcdccfa666856699
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 116811a8b4d8e61a2a727cd4606344f2b169be96
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875226"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091606"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立 Linux VM
 
@@ -50,7 +49,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 
 使用對應到常見作業系統散發版本的 Azure CLI 別名，可以快速選擇版本。 下表列出別名 (依 Azure CLI 0.10 版)。 所有使用 `quick-create` 建立的 VM 預設都是由固態硬碟 (SSD) 儲存空間支援，SSD 提供更快的佈建及高效能磁碟存取。 (這些別名代表 Azure 上可用 OS 散發版本的一小部分。 [在 PowerShell 中](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[Web 上](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)搜尋映像以在 Azure Marketplace 中尋找更多映像，或者[可以上傳您自己的自訂映像](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。)
 
-| Alias | 發行者 | 供應項目 | SKU | Version |
+| 別名 | 發行者 | 供應項目 | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |CentOS |7.2 |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
@@ -67,7 +66,7 @@ azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 * VM 名稱
 * 位置 (`westus` 或 `westeurope` 都是不錯的預設值)
 * Linux (讓 Azure 知道您要的作業系統)
-* userName
+* username
 
 下列範例會指定所有值，因此不會有進一步的提示。 只要您有 ssh-rsa 格式公開金鑰檔案的 `~/.ssh/id_rsa.pub`，它就會如預期運作：
 

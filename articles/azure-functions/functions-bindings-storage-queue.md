@@ -7,17 +7,16 @@ author: craigshoemaker
 manager: gwallace
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: bf5219f8e147baba0e89a8c0e1fa6cb7b371473c
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 6c708bfd0f8e49e9a857b9f77fab6224354ff06a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774756"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097191"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 佇列儲存體繫結
 
@@ -324,7 +323,7 @@ def main(msg: func.QueueMessage):
 
 佇列觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 類別的屬性。
 
-|內容|Type|描述|
+|屬性|類型|描述|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|佇列承載 (如果為有效字串)。 如果佇列承載為字串，`QueueTrigger` 具有相同於 *function.json* 中由 `name` 屬性命名之變數的值。|
 |`DequeueCount`|`int`|此訊息已從佇列清除的次數。|
@@ -676,7 +675,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 ```
 
 
-|內容  |預設 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------|
 |maxPollingInterval|00:00:01|佇列輪詢之間的間隔上限。 最小值為 00:00: 00.100 (100 毫秒), 而遞增至 00:01:00 (1 分鐘)。 |
 |visibilityTimeout|00:00:00|處理訊息失敗時，重試之間的時間間隔。 |

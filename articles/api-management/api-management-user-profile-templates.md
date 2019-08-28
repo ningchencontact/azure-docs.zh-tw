@@ -10,16 +10,15 @@ ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f24b9c6ce2aeb318040b61c29d7e14c01886c46
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61074826"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073316"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的使用者設定檔範本
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
@@ -96,7 +95,7 @@ ms.locfileid: "61074826"
 </div>  
 ```  
   
-### <a name="controls"></a>控制  
+### <a name="controls"></a>控制項  
  此範本可能不使用任何[頁面控制項](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>資料模型  
@@ -104,7 +103,7 @@ ms.locfileid: "61074826"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|type|描述|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
 |`firstName`|string|目前使用者的名字。|  
 |`lastName`|string|目前使用者的姓氏。|  
@@ -315,7 +314,7 @@ ms.locfileid: "61074826"
 </div>  
 ```  
   
-### <a name="controls"></a>控制  
+### <a name="controls"></a>控制項  
  此範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
@@ -325,7 +324,7 @@ ms.locfileid: "61074826"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|type|描述|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
 |`firstName`|string|目前使用者的名字。|  
 |`lastName`|string|目前使用者的姓氏。|  
@@ -478,7 +477,7 @@ ms.locfileid: "61074826"
 </div>  
 ```  
   
-### <a name="controls"></a>控制  
+### <a name="controls"></a>控制項  
  此範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [app-actions](api-management-page-controls.md#app-actions)  
@@ -488,7 +487,7 @@ ms.locfileid: "61074826"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|type|描述|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
 |`firstName`|string|目前使用者的名字。|  
 |`lastName`|string|目前使用者的姓氏。|  
@@ -569,7 +568,7 @@ ms.locfileid: "61074826"
 ```  
   
 ##  <a name="UpdateAccountInfo"></a> 更新帳戶資訊  
- **更新帳戶資訊**範本可讓您自訂開發人員入口網站中的 [更新帳戶資訊]  頁面。  
+ **更新帳戶資訊**範本可讓您自訂開發人員入口網站中的 [更新帳戶資訊] 頁面。  
   
  ![使用者帳戶資訊頁面開發人員入口網站範本](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM 使用者帳戶資訊頁面開發人員入口網站範本")  
   
@@ -605,7 +604,7 @@ ms.locfileid: "61074826"
 </a>  
 ```  
   
-### <a name="controls"></a>控制  
+### <a name="controls"></a>控制項  
  此範本可能不使用任何[頁面控制項](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>資料模型  

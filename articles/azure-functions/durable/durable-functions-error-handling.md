@@ -6,20 +6,19 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79af90d1c2c5b698ee7394f7fb20486b3069038c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33d1b410119e631e0ccc9941beac1062d4ec30f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751953"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087338"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理錯誤
 
-Durable Function 協調流程在程式碼中實作，而且可以使用程式設計語言的錯誤處理功能。 這一點，確實已沒有任何新的概念，您需要了解如何將錯誤處理和補償納入協調流程。 不過，有一些行為值得注意。
+Durable Function 協調流程在程式碼中實作，而且可以使用程式設計語言的錯誤處理功能。 記住這一點之後, 您不需要瞭解在協調流程中納入錯誤處理和補償的任何新概念。 不過，有一些行為值得注意。
 
 ## <a name="errors-in-activity-functions"></a>活動函式中的錯誤
 

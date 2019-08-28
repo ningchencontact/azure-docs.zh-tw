@@ -11,22 +11,21 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b9689eeecb0549fae9f7131dd424e15c040b042
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955762"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073171"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
 > [!NOTE]
-> 部分的下列指導方針只適用於 Windows 或 Linux 應用程式服務。 例如，Linux 應用程式服務依預設，在 64 位元模式中執行。
+> 下列部分指導方針只能在 Windows 或 Linux 應用程式服務上使用。 例如, Linux 應用程式服務預設會在64位模式下執行。
 >
 
 對於 [Azure App Service 的 Web 應用程式功能](https://azure.microsoft.com/services/app-service/web/)的應用程式效能問題，本文提供常見問題集的解答。
@@ -54,7 +53,7 @@ ms.locfileid: "65955762"
 若要檢視您的 Web 應用程式事件記錄：
 
 1. 登入 [Kudu 網站](https://*yourwebsitename*.scm.azurewebsites.net)。
-2. 在功能表中，選取 [偵錯主控台]   >  [CMD]  。
+2. 在功能表中，選取 [偵錯主控台] >  [CMD]。
 3. 選取 **LogFiles** 資料夾。
 4. 若要檢視事件記錄，請選取 **eventlog.xml** 旁邊的鉛筆圖示。
 5. 若要下載記錄，請執行 PowerShell Cmdlet `Save-AzureWebSiteLog -Name webappname`。
@@ -64,21 +63,21 @@ ms.locfileid: "65955762"
 若要擷取 Web 應用程式的使用者模式記憶體傾印：
 
 1. 登入 [Kudu 網站](https://*yourwebsitename*.scm.azurewebsites.net)。
-2. 選取 [處理序總管]  功能表。
+2. 選取 [處理序總管] 功能表。
 3. 以滑鼠右鍵按一下 **w3wp.exe** 處理序或您的 WebJob 處理序。
-4. 選取 [下載記憶體傾印]   >  [完整傾印]  。
+4. 選取 [下載記憶體傾印] >  [完整傾印]。
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>如何檢視 Web 應用程式的處理序層級資訊？
 
 您有兩個選項可以用來檢視 Web 應用程式的處理序層級資訊：
 
 *   在 Azure 入口網站中：
-    1. 開啟 Web 應用程式的 [處理序總管]  。
+    1. 開啟 Web 應用程式的 [處理序總管]。
     2. 若要查看詳細資料，請選取 **w3wp.exe** 處理序。
 *   在 Kudu 主控台中：
     1. 登入 [Kudu 網站](https://*yourwebsitename*.scm.azurewebsites.net)。
-    2. 選取 [處理序總管]  功能表。
-    3. 針對 **w3wp.exe** 處理序，選取 [屬性]  。
+    2. 選取 [處理序總管] 功能表。
+    3. 針對 **w3wp.exe** 處理序，選取 [屬性]。
 
 ## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>當我瀏覽至我的應用程式時，我看到「錯誤 403 - 此 Web 應用程式已停止」。 如何解決這個問題？
 
@@ -96,24 +95,24 @@ ms.locfileid: "65955762"
 
 ## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>如何減少第一個要求閒置時間之後的回應時間？
 
-根據預設，Web 應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 缺點是在 Web 應用程式卸載之後對第一個要求的回應時間比較長，以便讓 Web 應用程式載入及啟動服務回應。 在基本和標準服務方案中，您可以開啟 [永遠開啟]  設定以讓應用程式保持載入。 這會排除應用程式閒置之後的較長載入時間。 若要變更 [永遠開啟]  設定：
+根據預設，Web 應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 缺點是在 Web 應用程式卸載之後對第一個要求的回應時間比較長，以便讓 Web 應用程式載入及啟動服務回應。 在基本和標準服務方案中，您可以開啟 [永遠開啟] 設定以讓應用程式保持載入。 這會排除應用程式閒置之後的較長載入時間。 若要變更 [永遠開啟] 設定：
 
 1. 在 Azure 入口網站中，移至您的 Web 應用程式。
-2. 選取 [應用程式設定]  。
-3. 針對 [永遠開啟]  ，選取 [開啟]  。
+2. 選取 [應用程式設定]。
+3. 針對 [永遠開啟]，選取 [開啟]。
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>如何開啟失敗要求追蹤？
 
 若要開啟失敗的要求追蹤：
 
 1. 在 Azure 入口網站中，移至您的 Web 應用程式。
-3. 選取 [所有設定]   >  [診斷記錄]  。
-4. 針對 [失敗的要求追蹤]  ，選取 [開啟]  。
+3. 選取 [所有設定] >  [診斷記錄]。
+4. 針對 [失敗的要求追蹤]，選取 [開啟]。
 5. 選取 [ **儲存**]。
-6. 在 Web 應用程式刀鋒視窗上，選取 [工具]  。
-7. 選取 [Visual Studio Online]  。
-8. 如果設定不是 [開啟]  ，請選取 [開啟]  。
-9. 選取 [執行]  。
+6. 在 Web 應用程式刀鋒視窗上，選取 [工具]。
+7. 選取 [Visual Studio Online]。
+8. 如果設定不是 [開啟]，請選取 [開啟]。
+9. 選取 [執行]。
 10. 選取 **Web.config**。
 11. 在 system.webServer 中，新增這項設定 (擷取特定 URL)：
 
@@ -148,8 +147,8 @@ ms.locfileid: "65955762"
     </tracing>
     ```
 13. 若要下載失敗的要求追蹤，在[入口網站](https://portal.azure.com)中，移至您的網站。
-15. 選取 [工具]   >  [Kudu]   >  [執行]  。
-18. 在功能表中，選取 [偵錯主控台]   >  [CMD]  。
+15. 選取 [工具] >  [Kudu] >  [執行]。
+18. 在功能表中，選取 [偵錯主控台] >  [CMD]。
 19. 選取 **LogFiles** 資料夾，然後選取名稱開頭為 **W3SVC** 的資料夾。
 20. 若要查看 XML 檔案，請選取鉛筆圖示。
 
@@ -180,7 +179,7 @@ Kestrel 1.0.2 版已經修正這個問題。 此版本隨附於 ASP.NET Core 1.0
 
 如果您使用 App Service 的本機快取功能，App Service 執行個體之「記錄檔」和「資料」資料夾的資料夾結構會受到影響。 使用本機快取時，會在儲存體的「記錄檔」和「資料」資料夾中建立子資料夾。 子資料夾會使用「唯一識別碼」+ 時間戳記的命名模式。 每個子資料夾都對應到將要用來執行或已用來執行 Web 應用程式的 VM 執行個體。
 
-若要判斷您是否使用本機快取，請檢查您的 App Service [應用程式設定]  索引標籤。如果使用本機快取，應用程式設定 `WEBSITE_LOCAL_CACHE_OPTION` 會設定為 `Always`。
+若要判斷您是否使用本機快取，請檢查您的 App Service [應用程式設定] 索引標籤。如果使用本機快取，應用程式設定 `WEBSITE_LOCAL_CACHE_OPTION` 會設定為 `Always`。
 
 如果您不是使用本機快取，但是也遇到此問題，請提交支援要求。
 

@@ -11,17 +11,16 @@ ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7bb87713f1f7d1f41f68f3743b2504784b37bb23
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 47ad2346f4574b10d12c46c1f72394225e014854
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723043"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102572"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虛擬機器概觀
 
@@ -134,7 +133,7 @@ VM [擴充](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ft
 
 | 方法 | 描述 |
 | --- | --- |
-| Azure 入口網站 |在 [中樞] 功能表中，按一下 [虛擬機器]  ，然後從清單中選取 VM。 在 VM 的刀鋒視窗上，您可存取概觀資訊、設定值，並監視度量。 |
+| Azure 入口網站 |在 [中樞] 功能表中，按一下 [虛擬機器]，然後從清單中選取 VM。 在 VM 的刀鋒視窗上，您可存取概觀資訊、設定值，並監視度量。 |
 | Azure PowerShell |如需使用 PowerShell 來管理 VM 的相關資訊，請參閱[使用 Azure PowerShell 模組來建立和管理 Windows VM](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 |
 | REST API |使用[取得 VM 資訊](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)作業來取得 VM 的相關資訊。 |
 | 用戶端 SDK |如需使用 C# 來管理 VM 的相關資訊，請參閱[使用 Azure Resource Manager 和 C# 來管理 Azure 虛擬機器](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 |

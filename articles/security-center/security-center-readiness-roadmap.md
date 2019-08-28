@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 1527dbd1df3e4a10a68a5949d9e0bca11628bdd2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 989d438ad2c5ec80b89540eb7ddfc80d69a9d0e6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781147"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100924"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure 資訊安全中心整備藍圖
 本文件提供的整備藍圖將協助您開始使用 Azure 資訊安全中心。
@@ -67,9 +67,8 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 
 文章    
 * [Azure 資訊安全中心的安全性健康情況監視](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [保護 Azure 資訊安全中心內的虛擬機器](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
+* [保護 Azure 資訊安全中心內的機器和應用程式](security-center-virtual-machine-protection.md)
 * [保護 Azure 資訊安全中心內的網路](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [保護 Azure 資訊安全中心內的應用程式](https://docs.microsoft.com/azure/security-center/security-center-application-recommendations)
 * [保護 Azure 資訊安全中心內的 Azure SQL 服務和資料](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 

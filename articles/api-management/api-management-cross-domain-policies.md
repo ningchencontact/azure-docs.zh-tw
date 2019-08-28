@@ -10,16 +10,15 @@ ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: db64a2f64c592a62f621355047a7bc9844d66457
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442322"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073728"
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨網域原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -54,7 +53,7 @@ ms.locfileid: "68442322"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |cross-domain|根元素。 子元素必須符合 [Adobe 跨網域原則檔案規格](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|
 
@@ -123,7 +122,7 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|預設|
+|Name|描述|必要項|預設|
 |----------|-----------------|--------------|-------------|
 |cors|根元素。|是|N/A|
 |allowed-origins|包含可說明跨網域要求之允許來源的 `origin` 元素。 `allowed-origins` 可包含指定了 `*` 以允許任何來源的單一 `origin` 元素，或一或多個包含 URI 的 `origin` 元素。|是|N/A|
@@ -136,9 +135,9 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 ### <a name="attributes"></a>屬性
 
-|名稱|描述|必要項|預設|
+|Name|描述|必要項|預設|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|事前回應中的 `Access-Control-Allow-Credentials` 標頭會設定為這個屬性的值，並影響用戶端是否能夠在跨網域要求中提交認證。|否|偽|
+|allow-credentials|事前回應中的 `Access-Control-Allow-Credentials` 標頭會設定為這個屬性的值，並影響用戶端是否能夠在跨網域要求中提交認證。|否|false|
 |preflight-result-max-age|事前回應中的 `Access-Control-Max-Age` 標頭會設定為這個屬性的值，並影響使用者代理程式是否能夠快取事前回應。|否|0|
 
 ### <a name="usage"></a>使用量
@@ -168,13 +167,13 @@ CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |jsonp|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-|名稱|描述|必要項|預設|
+|Name|描述|必要項|預設|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|跨網域 JavaScript 函數呼叫，開頭加上函數所在的完整網域名稱。|是|N/A|
 

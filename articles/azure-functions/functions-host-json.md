@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564778"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096409"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
@@ -114,9 +113,9 @@ ms.locfileid: "68564778"
 > [!NOTE]
 > 記錄取樣可能會造成一些執行不會顯示在 Application Insights 監視器刀鋒視窗。
 
-|內容  |預設 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------| 
-|isEnabled|真|啟用或停用取樣。| 
+|isEnabled|true|啟用或停用取樣。| 
 |maxTelemetryItemsPerSecond|5|取樣的開始臨界值。| 
 
 ## <a name="cosmosdb"></a>cosmosDb
@@ -176,7 +175,7 @@ ms.locfileid: "68564778"
 
 |屬性  |預設 | 描述 |
 |---------|---------|---------| 
-|enabled|真|指定是否已啟用此功能。 | 
+|enabled|true|指定是否已啟用此功能。 | 
 |healthCheckInterval|10 秒|定期背景健康情況檢查之間的時間間隔。 | 
 |healthCheckWindow|2 分鐘|與 `healthCheckThreshold` 設定搭配使用的滑動時間範圍。| 
 |healthCheckThreshold|6|在主機回收起始之前，健康情況檢查可以失敗的最大次數。| 
@@ -233,7 +232,7 @@ ms.locfileid: "68564778"
 
 |屬性  |預設 | 描述 |
 |---------|---------|---------| 
-|isEnabled|偽|啟用或停用主控台記錄。| 
+|isEnabled|false|啟用或停用主控台記錄。| 
 
 ## <a name="queues"></a>queues
 

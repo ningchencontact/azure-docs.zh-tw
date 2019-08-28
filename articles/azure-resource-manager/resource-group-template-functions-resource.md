@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: eddd99be9d4a30e3e71c806a3f98c6be6800e8fb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650424"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095758"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
 
@@ -188,7 +188,7 @@ ms.locfileid: "69650424"
 
 如果您在有條件地部署的資源中使用**list**函式, 即使未部署資源, 也會評估該函數。 如果**list**函數參考不存在的資源, 您會收到錯誤。 使用**if**函式, 確保只有在部署資源時才會評估函式。 如需使用 if 和 list 搭配條件式部署資源的範例範本, 請參閱[if 函數](resource-group-template-functions-logical.md#if)。
 
-### <a name="example"></a>範例
+### <a name="list-example"></a>清單範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)顯示如何在 outputs 區段中從儲存體帳戶傳回主要和次要金鑰。 它也會傳回儲存體帳戶的 SAS 權杖。 
 
@@ -284,7 +284,7 @@ ms.locfileid: "69650424"
 
 不保證所傳回的值會有陣列順序。
 
-### <a name="example"></a>範例
+### <a name="providers-example"></a>提供者範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/providers.json)顯示如何使用 provider 函式：
 
@@ -433,7 +433,7 @@ ms.locfileid: "69650424"
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 為正確 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 為不正確
 
-### <a name="example"></a>範例
+### <a name="reference-example"></a>參考範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json)部署資源，並會參考該資源。
 
@@ -600,7 +600,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 
 您也可以使用 resourceGroup 函式, 將標記從資源群組套用至資源。 如需詳細資訊, 請參閱[從資源群組套用標記](resource-group-using-tags.md#apply-tags-from-resource-group)。
 
-### <a name="example"></a>範例
+### <a name="resource-group-example"></a>資源群組範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json)會傳回資源群組的屬性。
 
@@ -737,7 +737,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 }
 ```
 
-### <a name="example"></a>範例
+### <a name="resource-id-example"></a>資源識別碼範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json)會傳回資源群組中儲存體帳戶的資源識別碼：
 
@@ -795,7 +795,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 }
 ```
 
-### <a name="example"></a>範例
+### <a name="subscription-example"></a>訂用帳戶範例
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json)顯示在 outputs 區段中所呼叫的 subscription 函式。 
 

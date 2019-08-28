@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4b6a140ec428ce3b053c41074f02f65f19b8dc72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312213"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102900"
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
@@ -27,8 +27,8 @@ Azure Migrate：伺服器評估會評估要遷移至 Azure 的內部部署機器
 ## <a name="before-you-start"></a>開始之前
 
 - 請確定您已[建立](how-to-add-tool-first-time.md)Azure Migrate 專案。
-- 如果您已經建立專案, 請確定您已[新增](how-to-assess.md)Azure Migrate:伺服器評估工具。
-- 請確定您已在 Azure Migrate 中探索到您的電腦。若要這麼做, 您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器, 然後將中繼資料和效能資料傳送至 Azure Migrate:伺服器評估。 [深入了解](migrate-appliance.md)。
+- 如果您已經建立專案, 請確定您已[新增](how-to-assess.md)Azure Migrate:伺服器評量工具。
+- 請確定您已在 Azure Migrate 中探索到您的電腦。若要這麼做, 您可以設定[VMware](how-to-set-up-appliance-vmware.md)或[hyper-v](how-to-set-up-appliance-hyper-v.md)的 Azure Migrate 設備。 設備會探索內部部署機器, 然後將中繼資料和效能資料傳送至 Azure Migrate:。 [深入了解](migrate-appliance.md)。
 
 ## <a name="how-does-it-work"></a>運作方式
 
@@ -36,7 +36,7 @@ Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overv
 - 若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。
 - 您只能在建立 Azure Migrate 專案的相同訂用帳戶中, 建立或附加工作區。
 - 若要將 Log Analytics 工作區附加至專案:
-    1. 在 [**伺服器**] **索引標籤的 [Azure Migrate:伺服器評估** ] 磚中, 按一下 **[總覽**]。
+    1. 在 [伺服器] 索引標籤的 **[Azure Migrate：伺服器評估** ] 磚中, 按一下 **[總覽**]。
     2. 在 **[總覽**] 中, 按一下向下箭號以展開 [**基本**]。
     3. 在 [ **OMS 工作區**] 中, 按一下 [**需要**設定]。
     4. 在 [**設定工作區**] 中, 指定您要建立新的工作區, 或使用現有的工作區:
@@ -51,14 +51,14 @@ Azure Migrate 使用[Azure 監視器記錄](../log-analytics/log-analytics-overv
   > 一旦您將工作區連結到專案，您之後便無法變更它。
 
 - 相關聯的工作區會以索引鍵 **Migration Project** 和**專案名稱**的值標記，您可用來在 Azure 入口網站中搜尋。
-- 若要瀏覽到與專案相關聯的工作區，您可以移至專案 [概觀]  頁面的 [基本資訊]  區段，然後存取該工作區
+- 若要瀏覽到與專案相關聯的工作區，您可以移至專案 [概觀] 頁面的 [基本資訊] 區段，然後存取該工作區
 
     ![瀏覽 Log Analytics 工作區](./media/concepts-dependency-visualization/oms-workspace.png)
 
 若要使用相依性視覺效果，您需要在待分析的每個內部部署機器上，下載及安裝代理程式。  
 
 - 必須在每個機器上安裝 [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)。 [深入瞭解](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma)如何安裝 MMA 代理程式。
-- 必須在每個機器上安裝[相依性代理程式](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)。 [深入瞭解](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent)如何安裝 dependency agent。
+- 必須在每個機器上安裝[相依性代理程式](../azure-monitor/platform/agents-overview.md#dependency-agent)。 [深入瞭解](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent)如何安裝 dependency agent。
 - 此外，如果您有無法連線至網際網路的機器，則必須在該機器上下載並安裝 Log Analytics 閘道。
 
 您不需要在所要評量的機器上有這些代理程式，除非您使用相依性視覺效果。

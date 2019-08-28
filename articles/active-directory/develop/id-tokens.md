@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/27/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85145d4a81eb4d12910758e01dda675ea378a46b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4968d1acbccca9c2c46b4bbb6f0853b82e8d7f71
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853183"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074271"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft 身分識別平臺識別碼權杖
 
@@ -30,7 +30,7 @@ ms.locfileid: "68853183"
 
 ## <a name="using-the-id_token"></a>使用 id_token
 
-識別碼權杖應該用來驗證使用者是否為其所宣稱的身分, 並取得其相關的其他實用資訊-不應將其用於授權來取代[存取權杖](access-tokens.md)。 它提供的宣告可用於您應用程式內部的 UX、設定資料庫的金鑰，以及提供用戶端應用程式的存取權。
+識別碼權杖應該用來驗證使用者是否為其所宣稱的身分, 並取得其相關的其他實用資訊-不應將其用於授權來取代[存取權杖](access-tokens.md)。 它所提供的宣告可用於應用程式內的 UX、做為資料庫中的索引鍵, 以及提供用戶端應用程式的存取權。  建立資料庫的金鑰時, 不`idp`應使用, 因為它會混亂來賓案例。  金鑰應單獨完成 ( `sub`一律是唯一的), 並`tid`在需要時用於路由。  如果您需要在服務之間共用資料, `oid`將可使用, `tid` + + `sub`因為多個服務全都`oid`取得相同的。
 
 ## <a name="claims-in-an-id_token"></a>id_token 中的宣告
 
@@ -57,7 +57,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |宣告 | 格式 | 描述 |
 |-----|--------|-------------|
 |`typ` | 字串 - 一律為 "JWT" | 表示權杖是 JWT。|
-|`alg` | String | 指出用來簽署權杖的演算法。 範例:"RS256" |
+|`alg` | String | 指出用來簽署權杖的演算法。 範例："RS256" |
 |`kid` | String | 用來簽署此權杖的公開金鑰指紋。 v1.0 和 v2.0 `id_tokens` 中都會發出此宣告。 |
 |`x5t` | String | 與 `kid` 相同 (用法和值)。 不過，這是為了達到相容性，只在 v1.0 `id_tokens` 中發出的舊版宣告。 |
 

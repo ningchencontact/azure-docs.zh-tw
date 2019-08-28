@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b303a18d481ae1a682d81d87e7c14060ffdfaf14
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 256aaf94175394fd737e53c6281f2d8b45e8af41
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869189"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099652"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA (大型執行個體) 儲存體架構
 
@@ -89,7 +88,7 @@ Azure 上的 SAP HANA (大型執行個體) 的儲存體配置是由傳統部署�
 
 此外還有其他變化形式。 
 
-## <a name="encryption-of-data-at-rest"></a>待用資料加密
+## <a name="encryption-of-data-at-rest"></a>加密待用資料
 用於「HANA 大型實例」的儲存體會針對資料儲存于2018年年底之後, 使用透明加密。 在先前的部署中, 您可以選擇取得已加密的磁片區。 如果您針對該選項決定, 您可以要求讓磁片區在線上加密。 從非加密到已加密磁碟區的轉移過程是透明的，並不需要停機。 
 
 利用類型 I 類別的 SKU，就會將儲存開機 LUN 的磁碟區加密。 在修訂版 3 HANA 大型實例戳記中, 使用 HANA 大型實例 Sku 的類型 II 類別, 您必須使用 OS 方法來加密開機 LUN。 在修訂 4 HANA 大型實例戳記中, 使用類型 II 單位的磁片區會儲存開機 LUN, 而且預設也會在靜止時加密。 

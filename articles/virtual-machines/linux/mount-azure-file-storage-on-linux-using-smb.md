@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ca58bbc6f7b983ff545eb2dca6240359637e214
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c394b013b057a78e99cafc0adde9727d0a75a87c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671235"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091835"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
 
@@ -34,7 +33,7 @@ ms.locfileid: "67671235"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-在「美國東部」  位置建立名為 myResourceGroup  的資源群組。
+在「美國東部」位置建立名為 myResourceGroup 的資源群組。
 
 ```bash
 az group create --name myResourceGroup --location eastus
@@ -42,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
 
-使用 [az storage account create](/cli/azure/storage/account)，在您所建立的資源群組中建立新的儲存體帳戶。 這個範例會建立名為儲存體帳戶*mySTORAGEACCT\<隨機數字 >* ，然後將該儲存體帳戶的名稱放在變數**STORAGEACCT**。 儲存體帳戶名稱必須是唯一的，請使用 `$RANDOM` 在結尾附加一個數字，使其成為唯一名稱。
+使用 [az storage account create](/cli/azure/storage/account)，在您所建立的資源群組中建立新的儲存體帳戶。 這個範例會建立名為*mySTORAGEACCT\<random number >* 的儲存體帳戶, 並將該儲存體帳戶的名稱放在變數**STORAGEACCT**中。 儲存體帳戶名稱必須是唯一的，請使用 `$RANDOM` 在結尾附加一個數字，使其成為唯一名稱。
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -72,7 +71,7 @@ STORAGEKEY=$(az storage account keys list \
 
 共用名稱必須全部使用小寫字母、數字和單一連字號，但開頭不可以是連字號。 如需有關為檔案共用與檔案命名的完整詳細資料，請參閱 [命名和參考共用、目錄、檔案及中繼資料](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)。
 
-此範例會建立名為 myshare  的共用 (具有 10-GiB 配額)。 
+此範例會建立名為 myshare 的共用 (具有 10-GiB 配額)。 
 
 ```bash
 az storage share create --name myshare \

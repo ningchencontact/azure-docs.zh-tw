@@ -10,17 +10,16 @@ ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc40c2296e583ab93a7c34d709cfbf1334ae3926
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60765100"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069853"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>在 App Service 環境 v1 中建立 Web 應用程式
 
@@ -36,11 +35,11 @@ ms.locfileid: "60765100"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本教學課程假設您已建立 App Service 環境。 如果尚未建立，請參閱 [建立 App Service 環境](app-service-web-how-to-create-an-app-service-environment.md)。 
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [建立資源] > [Web + 行動] > [Web 應用程式]  。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [建立資源] > [Web + 行動] > [Web 應用程式]。 
    
     ![][1]
 2. 選取您的訂用帳戶。  
@@ -48,7 +47,7 @@ ms.locfileid: "60765100"
     如果您有多個訂用帳戶，請注意，若要在您的 App Service 環境中建立應用程式，必須使用您在建立環境時所使用訂用帳戶來建立。 
 3. 選取或建立資源群組。
    
-    *資源群組*可讓您以單位的形式管理相關的 Azure 資源，並可在您為應用程式建立*角色型存取控制* (RBAC) 規則時發揮效用。 如需詳細資訊，請參閱 [Azure Resource Manager概觀][ResourceGroups]。 
+    *資源群組*可讓您以單位的形式管理相關的 Azure 資源，並可在您為應用程式建立*角色型存取控制* (RBAC) 規則時發揮效用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ResourceGroups]。 
 4. 選取或建立 App Service 方案。
    
     *App Service 規劃*是一組受控的 Web 應用程式。  當您選取價格時，支付的價格通常會套用到 App Service 方案，而非個別的應用程式。 在 ASE 中，您需對配置給 ASE 的計算執行個體付費，而不需對與您的 ASP 一起列出的項目付費。  若要相應增加 Web 應用程式的執行個體數目，您可相應增加 App Service 方案的執行個體，這會影響該方案中的所有 Web 應用程式。  方案中的某些功能 (例如網站位置或 VNET 整合) 也有數量限制。  如需詳細資訊，請參閱 [Azure App Service 方案概觀](../overview-hosting-plans.md)
@@ -58,12 +57,12 @@ ms.locfileid: "60765100"
     ![][5]
    
     如果您想要使用已存在於 App Service 環境中的 App Service 方案，請選取該方案。 如果您想要建立新的 App Service 方案，請參閱本教學課程的下一節： [在 App Service 環境中建立 App Service 方案](#createplan)。
-5. 輸入 Web 應用程式的名稱，然後按一下 [建立]  。 
+5. 輸入 Web 應用程式的名稱，然後按一下 [建立]。 
    
     如果 ASE 使用外部 VIP，則 ASE 中應用程式的 URL 為：[*網站名稱*].[*App Service 環境的名稱*].p.azurewebsites.net，而非 [*網站名稱*].azurewebsites.net
    
     如果 ASE 使用內部 VIP，則該 ASE 中應用程式的 URL 為：[*網站名稱*].[*在 ASE 建立期間指定的子網域*]   
-    在 ASE 建立期間選取您的 ASP 後，您會在 [名稱]  之下看到子網域更新
+    在 ASE 建立期間選取您的 ASP 後，您會在 [名稱] 之下看到子網域更新
 
 ## <a name="createplan"></a> 建立 App Service 方案
 當您在 App Service 環境中建立 App Service 方案時，您的背景工作角色選擇會因為在 ASE 中沒有共用的背景工作角色而有所不同。  您必須使用的背景工作角色也就是由系統管理員配置給 ASE 的背景工作角色。這代表在建立新的方案時，配置給 ASE 背景工作集區的背景工作角色數目，必須超過該背景工作集區中所有方案的執行個體總數。  如果您的 ASE 背景工作集區中沒有足夠的背景工作角色來建立方案，則您需要與 ASE 系統管理員合作來新增背景工作角色。
@@ -72,7 +71,7 @@ ms.locfileid: "60765100"
 
 下列指示說明如何在您依照本教學課程的上一節所說明來建立 Web 應用程式時，建立 App Service 方案。
 
-1. 在方案選取 UI 中按一下 [建立新項目]  ，並提供方案的名稱，就跟您平常在 ASE 以外的地方所做的一樣。
+1. 在方案選取 UI 中按一下 [建立新項目] ，並提供方案的名稱，就跟您平常在 ASE 以外的地方所做的一樣。
 2. 選取您想要從位置選擇器中使用的 ASE。
    
     因為 App Service 環境基本上是專用部署位置，所以它會顯示在 [位置] 下。 
@@ -84,7 +83,7 @@ ms.locfileid: "60765100"
     ![][3]
 
 ### <a name="selecting-a-worker-pool"></a>選取背景工作集區
-通常在 Azure App Service 中和 App Service 環境以外的地方，專用價格方案通常會有 3 種計算大小可供選擇。  同樣地，對於 ASE 您最多可以定義 3 個背景工作集區，並指定用於該背景工作集區的計算大小。  對 ASE 的租用戶來說，這代表租用戶並非根據 App Service 方案的計算大小來選取價格方案，而是選取所謂的「背景工作集區」  。  
+通常在 Azure App Service 中和 App Service 環境以外的地方，專用價格方案通常會有 3 種計算大小可供選擇。  同樣地，對於 ASE 您最多可以定義 3 個背景工作集區，並指定用於該背景工作集區的計算大小。  對 ASE 的租用戶來說，這代表租用戶並非根據 App Service 方案的計算大小來選取價格方案，而是選取所謂的「背景工作集區」。  
 
 背景工作角色集區選取 UI 會在名稱下方顯示該背景工作集區角色使用的計算大小。  可用數量是指有多少運算執行個體可使用於該集區。  總計集區實際上可能有超過這個數字的執行個體，但這個值只是指未使用的數量。  如果您需要調整 App Service 環境以新增更多計算資源，請參閱 [設定 App Service 環境](app-service-web-configure-an-app-service-environment.md)。
 

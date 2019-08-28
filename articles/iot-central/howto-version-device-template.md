@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c718794528989fbc46b404617f16d3a91ade6011
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 155f392410c5722a28ba09acafc1480e72586773
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877298"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100895"
 ---
 # <a name="create-a-new-device-template-version"></a>建立新的裝置範本版本
 
@@ -50,7 +50,7 @@ Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可藉由新增�
 
 有版本變更時，規則和裝置儀表板會發生什麼情況？
 
-[規則] 可能包含相依於屬性的條件。 如果您已移除一或多個屬性，則可能會在新的裝置範本版本中違背這些規則。 您可以移至這些特定規則，並更新條件來修正規則。 前一版的規則應有作用，不受影響。
+舊版裝置範本的**規則**會繼續原封不動地工作。 規則不會自動遷移至新的裝置範本版本。 您可以照常建立新範本版本的規則。 如需詳細資訊, 請參閱[建立遙測規則和在 Azure IoT Central 應用程式](howto-create-telemetry-rules.md)的使用方法文章中設定通知。
 
 **裝置儀表板**可以包含數種圖格類型。 有些圖格可能包含設定和屬性。 移除圖格中所使用的屬性或設定時，圖格會完全或部分損壞。 您可以移至此圖格，藉由移除圖格或更新圖格的內容來修正問題。
 

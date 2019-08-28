@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0442b987c502533bfbd55990f201a5c02b119804
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 70f0badc170c65b11bc244b5ed4ec2f9a205c72d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011302"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084868"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
@@ -273,4 +273,4 @@ Office 小組正在處理 Office 入口網站更新，以反映目前的產品�
 
 **問：為什麼我在同步步驟錯誤之後才看到事件6311和6401？**
 
-事件 6311-**伺服器在執行回呼和6401時發生未預期的錯誤**-**管理代理程式控制器發生未預期的錯誤**-一律會在同步處理步驟錯誤之後記錄。 若要解決這些錯誤, 您必須清除同步處理步驟錯誤。  如需詳細資訊, 請參閱[在同步處理期間針對錯誤進行疑難排解](tshoot-connect-sync-errors.md)和[使用 Azure AD Connect 同步疑難排解物件同步](/tshoot-connect-objectsync.md)作業
+事件 6311-**伺服器在執行回呼和6401時發生未預期的錯誤**-**管理代理程式控制器發生未預期的錯誤**-一律會在同步處理步驟錯誤之後記錄。 若要解決這些錯誤, 您必須清除同步處理步驟錯誤。  如需詳細資訊, 請參閱[在同步處理期間針對錯誤進行疑難排解](tshoot-connect-sync-errors.md)和[使用 Azure AD Connect 同步疑難排解物件同步](tshoot-connect-objectsync.md)作業

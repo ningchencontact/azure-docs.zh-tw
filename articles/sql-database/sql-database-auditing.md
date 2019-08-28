@@ -7,20 +7,20 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-ms.date: 04/16/2019
-ms.openlocfilehash: 69fe3287083523a3a47975a3db51d7241681f5c4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 08/22/2019
+ms.openlocfilehash: c8533f79dd2bf02a03ff4a37283359f3b3a5bf39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68569514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066078"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
-稽核 Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)，可追蹤資料庫事件並將事件寫入 Azure 儲存體帳戶、OMS 工作區或事件中樞的稽核記錄。 稽核也具備下列功能：
+Azure [SQL Database](sql-database-technical-overview.md)和[SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的審核會追蹤資料庫事件, 並將其寫入您 Azure 儲存體帳戶、log Analytics 工作區或事件中樞中的 audit 記錄。 稽核也具備下列功能：
 
 - 協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 
@@ -121,11 +121,22 @@ ms.locfileid: "68569514"
 
 - 使用 [Azure 入口網站](https://portal.azure.com)。  開啟相關的資料庫。 在資料庫的 [稽核] 頁面頂端，按一下 [檢視稽核記錄]。
 
-    ![檢視稽核記錄](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+    ![檢視稽核記錄](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
-- 然後，在 [稽核記錄] 頁面頂端，按一下 [在 OMS 中開啟] 以在 Log Analytics 中開啟記錄檢視，您可以在其中自訂時間範圍和搜尋查詢。
+- 然後, 您有兩種方式可查看記錄:
+    
+    按一下 [ **Audit 記錄**] 頁面頂端的 [ **log analytics** ] 將會開啟 log analytics 工作區中的 [記錄] 視圖, 您可以在其中自訂時間範圍和搜尋查詢。
+    
+    ![在 Log Analytics 工作區中開啟](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
-    ![在 Log Analytics 中開啟](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    按一下 [ **audit 記錄**] 頁面頂端的 [ **View 儀表板**] 將會開啟儀表板, 其中會顯示 [審核記錄] 資訊, 您可以在其中向下切入到安全性見解、存取機密資料等等。 此儀表板的設計目的是協助您取得資料的安全性見解。
+    您也可以自訂時間範圍和搜尋查詢。 
+    ![查看 Log Analytics 儀表板](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+
+    ![Log Analytics 儀表板](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
+
+    ![Log Analytics 安全性深入解析](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
+ 
 
 - 或者，您也可以從 Log Analytics 刀鋒視窗存取稽核記錄。 開啟 Log Analytics 工作區，然後在 [一般] 區段下，按一下 [記錄]。 您可以從簡單的查詢開始，例如：「搜尋 "SQLSecurityAuditEvents"」以檢視稽核記錄。
     從這裡, 您也可以使用[Azure 監視器記錄](../log-analytics/log-analytics-log-search.md), 對您的審核記錄資料執行先進的搜尋。 Azure 監視器記錄可讓您使用整合式搜尋和自訂儀表板, 在您的所有工作負載和伺服器上輕鬆分析數百萬筆記錄, 以提供您即時的 operational insights。 如需 Azure 監視器記錄搜尋語言和命令的其他實用資訊, 請參閱[Azure 監視器記錄搜尋參考](../log-analytics/log-analytics-log-search.md)。
@@ -257,7 +268,7 @@ ms.locfileid: "68569514"
 - [取得資料庫*延伸*的稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [取得伺服器*擴充*的稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>使用 ARM 範本管理 SQL 資料庫稽核
+## <a id="subheading-10"></a>使用 Azure Resource Manager 範本管理 SQL database 審核
 
 您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本來管 Azure SQL 資料庫，如下列範例所示：
 

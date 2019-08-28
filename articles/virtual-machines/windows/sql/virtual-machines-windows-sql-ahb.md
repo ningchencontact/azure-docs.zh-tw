@@ -8,19 +8,18 @@ manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb13cd65142214ccf852c591ae081e7e633e1a4d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 2cce369f6a0670790ede7367609f87c18672ddd5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935319"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100621"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>變更 Azure 中 SQL Server 虛擬機器的授權模型
 本文說明如何使用新的 SQL VM 資源提供者**microsoft.sqlvirtualmachine**, 在 Azure 中變更 SQL Server 虛擬機器 (VM) 的授權模型。
@@ -42,7 +41,7 @@ Azure Hybrid Benefit 允許在 Azure 虛擬機器上使用具有軟體保證 (�
 
 布建 VM 時, 會設定 SQL Server 的授權類型。 之後可以隨時變更。 在授權模型之間切換不會產生停機時間、不會重新開機 VM、不新增額外費用, 而且會立即生效。 事實上, 啟用 Azure Hybrid Benefit 可*降低*成本。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 使用 SQL VM 資源提供者需要 SQL Server IaaS 延伸模組。 因此, 您需要下列各項:
 - [Azure 訂用帳戶](https://azure.microsoft.com/free/)。

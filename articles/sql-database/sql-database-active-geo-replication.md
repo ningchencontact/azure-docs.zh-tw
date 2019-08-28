@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c1f50dfb499c220a4e13f043438798c556319ddf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935061"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092818"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>建立和使用主動式異地複寫
 
@@ -106,6 +106,10 @@ ms.locfileid: "68935061"
 ## <a name="preparing-secondary-database-for-failover"></a>準備次要資料庫以進行容錯移轉
 
 為確保您的應用程式可以在容錯移轉之後立即存取新的主要複本, 請確定已正確設定次要伺服器和資料庫的驗證需求。 如需詳細資訊，請參閱 [災害復原後的 SQL Database 安全性](sql-database-geo-replication-security-config.md)。 若要保證在容錯移轉後的相容性, 請確定次要資料庫上的備份保留原則符合主要複本。 這些設定不是資料庫的一部分, 而且不會複寫。 根據預設, 次要複本將會設定為預設的 PITR 保留期限 (7 天)。 如需詳細資訊，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
+
+> [!IMPORTANT]
+> 如果您的資料庫是容錯移轉群組的成員, 您就無法使用異地複寫 faiover 命令來起始其容錯移轉。 請考慮為群組使用容錯移轉命令。 如果您需要容錯移轉個別資料庫, 您必須先從容錯移轉群組中將它移除。 如需詳細資訊, 請參閱[容錯移轉群組](sql-database-auto-failover-group.md)。 
+
 
 ## <a name="configuring-secondary-database"></a>正在設定次要資料庫
 

@@ -6,17 +6,16 @@ author: laurenhughes
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 77fcfed125104588e27e6a0e80cdb4a92a744083
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 61e210d1b41966c493099e0619e969cf5ce30c50
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322442"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094003"
 ---
 # <a name="monitor-batch-solutions"></a>監視 Batch 解決方案
 
@@ -30,7 +29,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 具體針對 Batch 帳戶來說，活動記錄會收集關於帳戶建立和刪除及金鑰管理的事件。
 
-從活動記錄擷取事件的方法之一是使用 Azure 入口網站。 按一下 [所有服務]   > [活動記錄]  。 或是，使用 Azure CLI、PowerShell Cmdlet 或 Azure Monitor REST API 來查詢事件。 您也可以匯出活動記錄，或設定[活動記錄警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)。
+從活動記錄擷取事件的方法之一是使用 Azure 入口網站。 按一下 [所有服務] > [活動記錄]。 或是，使用 Azure CLI、PowerShell Cmdlet 或 Azure Monitor REST API 來查詢事件。 您也可以匯出活動記錄，或設定[活動記錄警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md)。
 
 ## <a name="batch-account-level-monitoring"></a>Batch 帳戶層級監視
 

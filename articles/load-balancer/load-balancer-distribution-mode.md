@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 98fdf76dc2e1cb8171e7b0b37216d5f5405a1e6a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 0d3ddf2e005338a19972cfcdef025579764f7f23
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275427"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114724"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>設定 Azure Load Balancer 的分配模式
 
@@ -32,7 +32,7 @@ Azure Load Balancer 的預設分配模式是一個 5 Tuple 的雜湊。 此 Tupl
 
 ## <a name="source-ip-affinity-mode"></a>來源 IP 同質性模式
 
-您也可以使用來源 IP 同質性分配模式來設定 Load Balancer。 這個分配模式也稱為工作階段同質性或用戶端 IP 同質性。 此模式會使用 2 Tuple (來源 IP 和目的地 IP) 或 3 Tuple (來源 IP、目的地 IP 及通訊協定類型) 雜湊將流量對應至可用的伺服器。 藉由使用來源 IP 同質性，從相同用戶端電腦起始的連線就會前往相同的 DIP 端點。
+您也可以使用來源 IP 同質性分配模式來設定 Load Balancer。 這個分配模式也稱為工作階段同質性或用戶端 IP 同質性。 此模式會使用 2 Tuple (來源 IP 和目的地 IP) 或 3 Tuple (來源 IP、目的地 IP 及通訊協定類型) 雜湊將流量對應至可用的伺服器。 藉由使用來源 IP 親和性, 從相同用戶端電腦啟動的連線會進入相同的 DIP 端點。
 
 下圖說明一個 2 Tuple 組態。 請注意此 2 Tuple 如何經由負載平衡器前往虛擬機器 1 (VM1)。 然後，VM2 和 VM3 會備份 VM1。
 
@@ -42,7 +42,7 @@ Azure Load Balancer 的預設分配模式是一個 5 Tuple 的雜湊。 此 Tupl
 
 另一個使用案例是媒體上傳。 這會透過 UDP 來上傳資料，但會透過 TCP 來存取控制層：
 
-* 用戶端對負載平衡公用位址起始一個 TCP 工作階段，然後被導向到特定的 DIP。 通道會保持作用中來監視連線健康情況。
+* 用戶端會對負載平衡的公用位址啟動 TCP 會話, 並將其導向至特定的 DIP。 通道會保持作用中來監視連線健康情況。
 * 相同的用戶端電腦對相同的負載平衡公用端點起始一個新的 UDP 工作階段。 該連線會被導向到與先前 TCP 連線相同的 DIP 端點。 媒體上傳既能以高輸送量的方式執行，同時又可透過 TCP.維護控制通道。
 
 > [!NOTE]
@@ -50,9 +50,26 @@ Azure Load Balancer 的預設分配模式是一個 5 Tuple 的雜湊。 此 Tupl
 
 ## <a name="configure-source-ip-affinity-settings"></a>設定來源 IP 同質性設定
 
-針對使用 Resource Manager 部署的虛擬機器，使用 PowerShell 來變更現有負載平衡規則上的負載平衡器分配設定。 這會更新分配模式： 
+### <a name="azure-portal"></a>Azure 入口網站
 
-```powershell
+您可以藉由修改入口網站中的負載平衡規則來變更散發模式的設定。
+
+1. 登入 Azure 入口網站, 然後按一下 [**資源群組**], 找出包含您想要變更之負載平衡器的資源群組。
+2. 在 [負載平衡器總覽] 分頁中, 按一下 [**設定**] 底下的 [**負載平衡規則**]。
+3. 在 [負載平衡規則] 分頁中, 按一下您想要變更分配模式的負載平衡規則。
+4. 在規則下, 變更 [**會話持續**性] 下拉式方塊會變更散發模式。  有下列選項可供使用：
+    
+    * **無 (以雜湊為基礎)** -指定來自相同用戶端的後續要求可能會由任何虛擬機器處理。
+    * **用戶端 ip (來源 IP 親和性 2-元組)** -指定來自相同用戶端 ip 位址的後續要求將由相同的虛擬機器處理。
+    * **用戶端 ip 和通訊協定 (來源 IP 親和性 3-元組)** -指定來自相同用戶端 ip 位址和通訊協定組合的後續要求會由相同的虛擬機器處理。
+
+5. 選擇 [散發模式], 然後按一下 [**儲存**]。
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+對於使用 Resource Manager 部署的虛擬機器, 請使用 PowerShell 來變更現有負載平衡規則的負載平衡器發佈設定。 下列命令會更新分配模式: 
+
+```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
 $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
@@ -60,7 +77,7 @@ Set-AzLoadBalancer -LoadBalancer $lb
 
 針對傳統的虛擬機器，使用 Azure PowerShell 來變更分配設定。 將 Azure 端點新增到虛擬機器，然後設定負載平衡器分配模式：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
@@ -88,13 +105,13 @@ Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Pro
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-當 `LoadBalancerDistribution` 元素不存在時，Azure Load Balancer 會使用預設的 5 Tuple 演算法。
+`LoadBalancerDistribution`當元素不存在時, Azure Load Balancer 會使用預設的5元組演算法。
 
 ### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>在負載平衡端點集上設定分配模式
 
 當端點是負載平衡端點集的一部分時，必須在負載平衡端點集上設定分配模式：
 
-```azurepowershell
+```azurepowershell-interactive
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
@@ -155,7 +172,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 如先前所述，針對 2 Tuple 同質性，請將 `LoadBalancerDistribution` 元素設定成 sourceIP，針對 3 Tuple 同質性，請設定成 sourceIPProtocol，或針對無同質性 (5 Tuple 同質性)，則設定成 none。
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>回應
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache

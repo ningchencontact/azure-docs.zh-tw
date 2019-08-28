@@ -6,18 +6,17 @@ author: laurenhughes
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5e5ed8a69d5140814899c24e96eded6dc61e5908
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 4733cf1a83bec472baae42f2ac29636bff5fc324
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323681"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095320"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>使用 Azure Batch CLI 範本和檔案傳輸
 
@@ -157,7 +156,7 @@ CLI 會提示您提供 `poolId` 和 `nodeCount` 參數的值。 您也可以在 
 }
 ```
 
-如果參數 JSON 檔案名為 pool-parameters.json  ，則會叫用範本，如下所示：
+如果參數 JSON 檔案名為 pool-parameters.json，則會叫用範本，如下所示：
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
@@ -261,11 +260,11 @@ az batch job create --template job-ffmpeg.json
 
 若要上傳範本：
 
-1. 在 Batch Explorer 中，選取 [資源庫]   > [本機範本]  。
+1. 在 Batch Explorer 中，選取 [資源庫] > [本機範本]。
 
 2. 選取或拖放本機集區或作業範本。
 
-3. 選取 [使用此範本]  ，並遵循螢幕上的提示。
+3. 選取 [使用此範本]，並遵循螢幕上的提示。
 
 ## <a name="file-groups-and-file-transfer"></a>檔案群組和檔案傳輸
 
@@ -283,7 +282,7 @@ az batch file download --file-group ffmpeg-output --local-path
     c:\output_lowres_videos
 ```
 
-集區和作業範本允許指定儲存在檔案群組中的檔案，以複製到集區節點上，或從集區節點複製回到檔案群組。 例如，在先前指定的作業範本中，會指定工作處理站的 ffmpeg-input  檔案群組，作為向下複製到節點進行轉碼的來源視訊檔案位置。 檔案群組 *ffmpeg-output* 是從執行每項工作的節點複製轉碼輸出檔案的位置。
+集區和作業範本允許指定儲存在檔案群組中的檔案，以複製到集區節點上，或從集區節點複製回到檔案群組。 例如，在先前指定的作業範本中，會指定工作處理站的 ffmpeg-input 檔案群組，作為向下複製到節點進行轉碼的來源視訊檔案位置。 檔案群組 *ffmpeg-output* 是從執行每項工作的節點複製轉碼輸出檔案的位置。
 
 ## <a name="summary"></a>總結
 

@@ -10,24 +10,23 @@ ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 00d5e3df78e85d19a519786dad1a1b176ad7fa08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8b250c45716146c505a803046b18bf5d05cf116
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837023"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073780"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用範本自訂 Azure API 管理開發人員入口網站。
 
 在 Azure API 管理中自訂開發人員入口網站的基本方式有三種：
 
 * [編輯靜態頁面和頁面配置元素的內容][modify-content-layout]
-* [更新用於開發人員入口網站上頁面元素的樣式][customize-styles]
-* [修改網站所產生來用於網頁的範本][portal-templates] (本指南會說明)
+* [在開發人員入口網站中更新頁面元素所使用的樣式][customize-styles]
+* [修改入口網站所產生的頁面所使用的範本][portal-templates](本指南說明)
 
 範本可用來自訂系統產生之開發人員入口網站網頁的內容 (例如 API 文件、產品、使用者驗證等)。 使用 [DotLiquid](http://dotliquidmarkup.org/) 語法及一組提供的當地語系化字串資源、圖示和頁面控制項，您可以依照您的想法自由靈活地設定頁面內容。
 
@@ -35,9 +34,9 @@ ms.locfileid: "60837023"
 
 ## <a name="developer-portal-templates-overview"></a>開發人員入口網站範本概觀
 
-當您以系統管理員身分登入時，可從 [開發人員入口網站]  編輯範本。 若要到達該處，請開啟 Azure 入口網站，然後從 API 管理執行個體的服務工具列按一下 [開發人員入口網站]  。
+當您以系統管理員身分登入時，可從 [開發人員入口網站] 編輯範本。 若要到達該處，請開啟 Azure 入口網站，然後從 API 管理執行個體的服務工具列按一下 [開發人員入口網站]。
 
-若要存取開發人員入口網站範本，請按一下左側的自訂圖示，顯示 [自訂] 功能表，然後按一下 [範本]  。
+若要存取開發人員入口網站範本，請按一下左側的自訂圖示，顯示 [自訂] 功能表，然後按一下 [範本]。
 
 ![開發人員入口網站範本][api-management-customize-menu]
 
@@ -59,11 +58,11 @@ ms.locfileid: "60837023"
 
 ![範本標記][api-management-template]
 
-[範本資料]  窗格可為能在特定範本中使用的實體，提供有關資料模型的指南。 它提供這份指南的方法是顯示開發人員入口網站中目前顯示的即時資料。 您可以按一下 [範本資料]  窗格右上角的矩形，展開範本窗格。
+[範本資料] 窗格可為能在特定範本中使用的實體，提供有關資料模型的指南。 它提供這份指南的方法是顯示開發人員入口網站中目前顯示的即時資料。 您可以按一下 [範本資料] 窗格右上角的矩形，展開範本窗格。
 
 ![範本資料模型][api-management-template-data]
 
-上述範例在開發人員入口網站中顯示了兩項產品，擷取自 [範本資料]  窗格顯示的資料，如下列範例所示：
+上述範例在開發人員入口網站中顯示了兩項產品，擷取自 [範本資料] 窗格顯示的資料，如下列範例所示：
 
 ```json
 {
@@ -141,15 +140,15 @@ ms.locfileid: "60837023"
 
 ![發佈範本][api-management-publish-template]
 
-按一下 [是]  確認，並讓範本即時顯示在開發人員入口網站中。
+按一下 [是] 確認，並讓範本即時顯示在開發人員入口網站中。
 
 ![確認發佈][api-management-publish-template-confirm]
 
-若要發佈目前所有尚未發佈的範本版本，請按一下範本清單的 [發佈]  。 未發佈的範本會在範本名稱後面標記星號。 本例中要發佈**產品清單**和**產品**範本。
+若要發佈目前所有尚未發佈的範本版本，請按一下範本清單的 [發佈]。 未發佈的範本會在範本名稱後面標記星號。 本例中要發佈**產品清單**和**產品**範本。
 
 ![發佈範本][api-management-publish-templates]
 
-請按一下 [Publish customizations]\(發佈自訂)  確認。
+請按一下 [Publish customizations]\(發佈自訂) 確認。
 
 ![確認發佈][api-management-publish-customizations]
 
@@ -177,7 +176,7 @@ ms.locfileid: "60837023"
 
 ![確認][api-management-reset-template-confirm]
 
-若要還原所有範本的預設版本，請按一下範本清單的 [Restore default templates]\(還原預設範本)  。
+若要還原所有範本的預設版本，請按一下範本清單的 [Restore default templates]\(還原預設範本) 。
 
 ![還原範本][api-management-restore-templates]
 

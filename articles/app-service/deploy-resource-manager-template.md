@@ -7,17 +7,16 @@ author: tfitzmac
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d8fa8b216ca6044adefe1398b58f5d14630540e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137190"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070465"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本部署 Web 應用程式的指引
 
@@ -129,7 +128,7 @@ Set-AzKeyVaultAccessPolicy `
 
 在 Azure Government 中，App Service 服務主體的識別碼為 **6a02c803-dafd-4136-b4c3-5a6f318b4714**。 使用上述範例中的該識別碼。
 
-在 Key Vault 中，選取 [憑證]  和 [產生/匯入]  以上傳憑證。
+在 Key Vault 中，選取 [憑證] 和 [產生/匯入] 以上傳憑證。
 
 ![匯入憑證](media/web-sites-rm-template-guidance/import-certificate.png)
 

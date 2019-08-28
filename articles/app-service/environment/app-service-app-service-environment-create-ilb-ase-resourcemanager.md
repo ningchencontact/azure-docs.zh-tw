@@ -10,17 +10,16 @@ ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 862887e1e530bfdca4359e914b9a81c9360ac4dd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130750"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070416"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 範本建立 ILB ASE範本建立 ILB ASE
 
@@ -40,15 +39,15 @@ ms.locfileid: "62130750"
 3. 上傳的 SSL 憑證會明確指派給 ILB ASE 做為其「預設」SSL 憑證。  如果應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootcomain.com) 來定址，此 SSL 憑證將使用於 ILB ASE 上應用程式的 SSL 流量
 
 ## <a name="creating-the-base-ilb-ase"></a>建立基底 ILB ASE
-在 GitHub 上 ([這裡][quickstartilbasecreate]) 可以取得範例 Azure Resource Manager 範本及其相關聯的參數檔案。
+您可以在[這裡][quickstartilbasecreate]的 GitHub 上取得範例 Azure Resource Manager 範本及其相關聯的參數檔案。
 
-「azuredeploy.parameters.json」  檔案中的大部分參數通用於建立 ILB ASE 以及繫結至公用 VIP 的 ASE。  建立 ILB ASE 時，以下清單會呼叫特殊附註或唯一的參數︰
+「azuredeploy.parameters.json」 檔案中的大部分參數通用於建立 ILB ASE 以及繫結至公用 VIP 的 ASE。  建立 ILB ASE 時，以下清單會呼叫特殊附註或唯一的參數︰
 
 * *internalLoadBalancingMode*：在大多數情況下，請將此屬性設定為 3，這表示連接埠 80/443 上的 HTTP/HTTPS 流量，以及 ASE 上 FTP 服務所接聽的控制/資料通道連接埠，都會繫結至已配置 ILB 的虛擬網路內部位址。  如果此屬性改為設定為 2，則只有 FTP 服務相關的連接埠 (控制和資料通道) 會繫結至 ILB 位址，而 HTTP/HTTPS 流量將保留在公用 VIP 上。
-* *dnsSuffix*：此參數定義將指派給 ASE 的預設根網域。  在 Azure App Service 的公用種變化中，所有 Web 應用程式的預設根網域皆為 azurewebsites.net  。  不過，由於 ILB ASE 位於客戶虛擬網路的內部，所以不適合使用公用服務的預設根網域。  相反地，ILB ASE 應具有適合在公司的內部虛擬網路內使用的預設根網域。  例如，假定的 Contoso Corporation 可能會將 internal-contoso.com  的預設根網域用於只能在 Contoso 虛擬網路內解析和存取的應用程式。 
+* *dnsSuffix*：此參數定義將指派給 ASE 的預設根網域。  在 Azure App Service 的公用種變化中，所有 Web 應用程式的預設根網域皆為 azurewebsites.net。  不過，由於 ILB ASE 位於客戶虛擬網路的內部，所以不適合使用公用服務的預設根網域。  相反地，ILB ASE 應具有適合在公司的內部虛擬網路內使用的預設根網域。  例如，假定的 Contoso Corporation 可能會將 internal-contoso.com 的預設根網域用於只能在 Contoso 虛擬網路內解析和存取的應用程式。 
 * *ipSslAddressCount*：在 *azuredeploy.json* 檔案中，此參數的值會自動預設為 0，因為 ILB ASE 只有單一 ILB 位址。  ILB ASE 沒有明確的 IP-SSL 位址，因此 ILB ASE 的 IP-SSL 位址集區必須設為零，否則會發生佈建錯誤。 
 
-一旦針對 ILB ASE 填入 azuredeploy.parameters.json  檔案，就可以使用下列 Powershell 程式碼片段建立 ILB ASE。  變更檔案 PATH，以符合 Azure Resource Manager 範本檔案位於您電腦上的位置。  也請記得提供您自己的 Azure Resource Manager 部署名稱和資源群組名稱的值。
+一旦針對 ILB ASE 填入 azuredeploy.parameters.json 檔案，就可以使用下列 Powershell 程式碼片段建立 ILB ASE。  變更檔案 PATH，以符合 Azure Resource Manager 範本檔案位於您電腦上的位置。  也請記得提供您自己的 Azure Resource Manager 部署名稱和資源群組名稱的值。
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
@@ -69,7 +68,7 @@ ms.locfileid: "62130750"
 
 然後必須將結果產生的.pfx 檔案轉換成 base64 字串，因為會使用 Azure Resource Manager 範本上載 SSL 憑證。  因為 Azure Resource Manager 範本是文字檔案，所以必須將 .pfx 檔案轉換成 base64 字串，才能納入為範本的參數。
 
-下列 Powershell 程式碼片段顯示產生自我簽署憑證、將憑證匯出為 .pfx 檔案、將 .pfx 檔案轉換成 base64 編碼的字串，然後將 base64 編碼字串儲存至個別檔案的範例。  Base64 編碼的 Powershell 程式碼改寫自 [Powershell 指令碼部落格][examplebase64encoding]。
+下列 Powershell 程式碼片段顯示產生自我簽署憑證、將憑證匯出為 .pfx 檔案、將 .pfx 檔案轉換成 base64 編碼的字串，然後將 base64 編碼字串儲存至個別檔案的範例。  適用于 base64 編碼的 Powershell 程式碼已從[Powershell 腳本的 Blog][examplebase64encoding]進行調整。
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
@@ -83,18 +82,18 @@ ms.locfileid: "62130750"
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
 
-成功產生 SSL 憑證並轉換成 base64 編碼字串後，GitHub 上的範例 Azure Resource Manager 範本即可用於[設定預設 SSL 憑證][configuringDefaultSSLCertificate]。
+成功產生 SSL 憑證並轉換成 base64 編碼字串之後, 您就可以使用 GitHub 上的範例 Azure Resource Manager 範本來設定[預設的 SSL 憑證][configuringDefaultSSLCertificate]。
 
-「azuredeploy.parameters.json」  檔案中的參數如下所列︰
+「azuredeploy.parameters.json」 檔案中的參數如下所列︰
 
 * *appServiceEnvironmentName*：所要設定之 ILB ASE 的名稱。
 * *existingAseLocation*：包含已部署 ILB ASE 之 Azure 區域的文字字串。  例如: "South Central US"。
-* *pfxBlobString*：.pfx 檔案的 based64 編碼字串表示法。  使用稍早所示的程式碼片段，您會複製 "exportedcert.pfx.b64" 中包含的字串並貼入做為 pfxBlobString  屬性的值。
+* *pfxBlobString*：.pfx 檔案的 based64 編碼字串表示法。  使用稍早所示的程式碼片段，您會複製 "exportedcert.pfx.b64" 中包含的字串並貼入做為 pfxBlobString 屬性的值。
 * *password*：用來保護 .pfx 檔案的密碼。
-* *certificateThumbprint*：憑證的指紋。  如果您從 Powershell 擷取此值 (例如先前程式碼片段中的 $certificate.Thumbprint  )，您可以使用現況值。  不過，如果您從 Windows 憑證對話方塊複製此值，請記得去除多餘的空格。  *certificateThumbprint* 應該看起來如下：AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* *certificateName*：您自己選擇的好記字串識別碼，可用來識別憑證。  此名稱做為 Microsoft.Web/certificates  實體 (表示 SSL 憑證) 的唯一 Azure Resource Manager 識別碼的一部分。  名稱**必須**以下列尾碼結尾︰\_yourASENameHere_InternalLoadBalancingASE。  入口網站會使用這個尾碼做為憑證要用於保護啟用 ILB 之 ASE 的指示器。
+* *certificateThumbprint*：憑證的指紋。  如果您從 Powershell 擷取此值 (例如先前程式碼片段中的 $certificate.Thumbprint )，您可以使用現況值。  不過，如果您從 Windows 憑證對話方塊複製此值，請記得去除多餘的空格。  *certificateThumbprint* 應該看起來如下：AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateName*：您自己選擇的好記字串識別碼，可用來識別憑證。  此名稱做為 Microsoft.Web/certificates 實體 (表示 SSL 憑證) 的唯一 Azure Resource Manager 識別碼的一部分。  名稱**必須**以下列尾碼結尾︰\_yourASENameHere_InternalLoadBalancingASE。  入口網站會使用這個尾碼做為憑證要用於保護啟用 ILB 之 ASE 的指示器。
 
-「azuredeploy.parameters.json」  的縮寫範例如下所示︰
+「azuredeploy.parameters.json」 的縮寫範例如下所示︰
 
     {
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
@@ -121,7 +120,7 @@ ms.locfileid: "62130750"
          }
     }
 
-一旦填入「azuredeploy.parameters.json」  檔案，就可以使用下列 Powershell 程式碼片段設定 SSL 憑證。  變更檔案 PATH，以符合 Azure Resource Manager 範本檔案位於您電腦上的位置。  也請記得提供您自己的 Azure Resource Manager 部署名稱和資源群組名稱的值。
+一旦填入「azuredeploy.parameters.json」 檔案，就可以使用下列 Powershell 程式碼片段設定 SSL 憑證。  變更檔案 PATH，以符合 Azure Resource Manager 範本檔案位於您電腦上的位置。  也請記得提供您自己的 Azure Resource Manager 部署名稱和資源群組名稱的值。
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"

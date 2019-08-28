@@ -1,6 +1,7 @@
 ---
-title: 使用輸入和輸出目錄來防止儲存體限制和實驗延遲
-description: 在本文中, 您將瞭解儲存實驗輸入檔案的位置, 以及要在何處寫入輸出檔案, 以避免發生儲存體限制錯誤和實驗延遲。
+title: 儲存 & 寫入實驗檔案的位置
+titleSuffix: Azure Machine Learning service
+description: 瞭解儲存實驗輸入檔案的位置, 以及要在何處寫入輸出檔, 以防止儲存體限制錯誤和實驗延遲。
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ea820536d93ec095f6f2929a9dc3b38d92779a58
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7d5e147173e766d0da54aa3422faef4b6035b914
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856057"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114521"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>儲存和寫入 Azure Machine Learning 實驗檔案的位置
 

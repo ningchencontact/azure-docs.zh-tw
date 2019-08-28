@@ -11,17 +11,16 @@ ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59a0cdd29e50501f023faf323948a400f325df0b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: acb6e14845beb4c947992e63f1984c072ba9f59f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706176"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084826"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解與使用 Azure Linux 代理程式
 
@@ -108,12 +107,12 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
 ## <a name="command-line-options"></a>命令列選項
 ### <a name="flags"></a>旗標
-* 詳細資訊：提高指定命令的詳細資訊
-* 強制執行：略過某些命令的互動式確認
+* 冗余增加指定命令的詳細資訊
+* 使略過某些命令的互動式確認
 
 ### <a name="commands"></a>命令
-* 說明：列出支援的命令和旗標。
-* 取消佈建：嘗試清除系統，使之適合重新佈建。 下列作業會刪除：
+* 説明：列出支援的命令和旗標。
+* 取消布建嘗試清理系統, 使其適用于重新布建。 下列作業會刪除：
   
   * 所有 SSH 主機金鑰 (如果組態檔中的 Provisioning.RegenerateSshHostKeyPair 是 'y')
   * /etc/resolv.conf 中的名稱伺服器設定
@@ -126,11 +125,11 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 > 
 > 
 
-* deprovision + user:在-deprovision （上述） 中執行的所有項目也會刪除最後佈建的使用者帳戶 （取自於 /var/lib/waagent） 和相關聯的資料。 此參數是為了取消佈建 Azure 上先前佈建的映像，以便擷取並重複使用。
+* 取消布建 + 使用者:執行-取消布建 (如上) 中的所有專案, 同時刪除最後布建的使用者帳戶 (從/var/lib/waagent 取得) 和相關聯的資料。 此參數是為了取消佈建 Azure 上先前佈建的映像，以便擷取並重複使用。
 * 版本：顯示 waagent 的版本
-* serialconsole:設定 GRUB，以將 ttyS0 （第一個序列埠） 為開機主控台。 這可確保將核心開機記錄傳送至序號埠且可用於偵錯。
-* 精靈：精靈，以管理與平台間的互動方式執行 waagent。 此引數是在 waagent init 指令碼中指定給 waagent。
-* 啟動：背景處理序方式執行 waagent
+* serialconsole:設定 GRUB 以將 ttyS0 (第一個序列埠) 標示為開機主控台。 這可確保將核心開機記錄傳送至序號埠且可用於偵錯。
+* 便執行 waagent 作為背景程式, 以管理與平臺的互動。 此引數是在 waagent init 指令碼中指定給 waagent。
+* 「以背景進程方式執行 waagent
 
 ## <a name="configuration"></a>組態
 組態檔 (/etc/waagent.conf) 控制 waagent 的動作。 以下顯示的是範例組態檔：
@@ -344,6 +343,6 @@ Ubuntu 雲端映像會利用 [cloud-init](https://launchpad.net/ubuntu/+source/c
 
 * 如需詳細資訊，請參閱下列資源，以便在佈建期間，於 Ubuntu 雲端映像上設定資源磁碟掛接點和交換空間：
   
-  * [Ubuntu Wiki:設定交換資料分割](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki:設定交換磁碟分割](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [將自訂資料插入 Azure 虛擬機器](../windows/classic/inject-custom-data.md)
 

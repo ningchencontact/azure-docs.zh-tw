@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a5a67133d52a0cdc0cc082ab85c1cc791c13ad5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3816fb56b806029d7a23b67741197e32de6a6ff3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876569"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103001"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 叢集上的憑證和安全性
 
@@ -72,7 +71,7 @@ ms.locfileid: "67876569"
 </Section>
 ```
 
-### <a name="using-x5092-securitycredentialstype"></a>使用 X509_2 SecurityCredentialsType
+### <a name="using-x509_2-securitycredentialstype"></a>使用 X509_2 SecurityCredentialsType
 
 透過 Java SDK，您可以指定 **SecurityCredentialsType** 的 **X509_2**。 此類型對應於 `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)) 的 `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) 類型。 
 
@@ -104,7 +103,7 @@ ms.locfileid: "67876569"
 
 Service Fabric SDK 可讓您與 Service Fabric 執行階段 API 通訊以使用平台。 當您在安全 Linux 叢集上執行任何使用此功能的應用程式時，都必須設定應用程式，使其具有可用來對 Service Fabric 執行階段進行驗證的憑證。 應用程式若包含使用 .NET Core 或 Java SDK 撰寫的 Service Fabric Reliable Service 服務，則必須進行此設定。 
 
-若要設定應用程式，請在 [憑證]  標記下新增 [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 元素；該標記位於 *ApplicationManifest.xml* 檔案中的 **ApplicationManifest** 標記下方。 下列 XML 顯示依憑證的指紋參考的憑證： 
+若要設定應用程式，請在 [憑證] 標記下新增 [**SecretsCertificate**](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 元素；該標記位於 *ApplicationManifest.xml* 檔案中的 **ApplicationManifest** 標記下方。 下列 XML 顯示依憑證的指紋參考的憑證： 
 
 ```xml
    <Certificates>

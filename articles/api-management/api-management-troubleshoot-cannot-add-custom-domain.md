@@ -9,18 +9,17 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 7aaf29ddf52fb07524aa972f12ca18c235a40928
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 30dfd864c6c237024c72325da813691ac5043bd0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68351516"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072083"
 ---
-# <a name="failed-to-update-api-management-service-hostnames"></a>無法更新 API 管理服務主機名稱
+# <a name="failed-to-update-api-management-service-hostnames"></a>無法更新 API 管理服務主機名
 
 本文說明當您新增 Azure API 管理服務的自訂網域時, 可能會遇到的「無法更新 API 管理服務主機名」錯誤。 本文提供可協助您解決問題的疑難排解步驟。
 

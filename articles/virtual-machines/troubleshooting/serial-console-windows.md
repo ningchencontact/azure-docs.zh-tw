@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a6e303c26278eff290a2d4efb6f96e9962cf2f87
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 008502a2edf1f7d28c94139afdf1bd32f94c13dc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775372"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080459"
 ---
 # <a name="azure-serial-console-for-windows"></a>適用于 Windows 的 Azure 序列主控台
 
@@ -33,7 +32,7 @@ Azure 入口網站中的序列主控台可讓您存取 Windows 虛擬機器 (Vm)
 > 序列主控台已在全球 Azure 區域中正式推出。 目前尚未在 Azure Government 或「Azure 中國」雲端中提供序列主控台。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 您的 VM 或虛擬機器擴展集實例必須使用資源管理部署模型。 不支援傳統部署。
 
@@ -270,7 +269,7 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 序列主控台無法搭配使用具有階層命名空間之 Azure Data Lake Storage Gen2 的儲存體帳戶使用。 | 這是階層命名空間的已知問題。 若要減輕問題, 請確定您的 VM 開機診斷儲存體帳戶不是使用 Azure Data Lake Storage Gen2 建立的。 只有在建立儲存體帳戶時, 才能設定此選項。 您可能必須在未啟用 Azure Data Lake Storage Gen2 的情況下, 建立個別的開機診斷儲存體帳戶來減輕此問題。
 
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 **問：如何傳送意見反應？**
 

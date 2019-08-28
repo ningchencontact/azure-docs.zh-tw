@@ -6,22 +6,21 @@ author: jeffhollan
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 8ad09550e572c98931346b44a6c6f84da29a85e4
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443977"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096236"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions Premium 方案 (預覽)
 
 Azure Functions Premium 方案是函數應用程式的裝載選項。 Premium 方案提供 VNet 連線能力、無冷啟動和 Premium 硬體等功能。  多個函數應用程式可以部署到相同的高階方案, 而方案則可讓您設定計算實例大小、基本方案大小和最大方案大小。  如需高階計畫和其他計畫和裝載類型的比較, 請參閱[函數級別和裝載選項](functions-scale.md)。
 
-## <a name="create-a-premium-plan"></a>建立 Premium 方案
+## <a name="create-a-premium-plan"></a>建立進階方案
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
@@ -95,7 +94,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 建立或調整您的方案時, 您可以選擇三種實例大小。  系統會向您收取每秒耗用的核心和記憶體總數。  您的應用程式可以視需要自動相應放大至多個實例。  
 
-|SKU|核心|記憶體|存放區|
+|SKU|核心|記憶體|儲存體|
 |--|--|--|--|
 |EP1|1|3.5 GB|250 GB|
 |EP2|2|7 GB|250 GB|
