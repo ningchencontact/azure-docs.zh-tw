@@ -238,7 +238,7 @@
     - name: 平台即服務
       items:
         - name: 平台即服務文件
-          href: sql-database-paas.yml
+          href: sql-database-paas-index.yml
         - name: 業務持續性
           href: sql-database-business-continuity.md
         - name: 高可用性

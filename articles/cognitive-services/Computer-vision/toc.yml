@@ -145,12 +145,16 @@
       items:
         - name: 安裝及執行容器
           href: computer-vision-how-to-install-containers.md
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
         - name: 設定容器
           href: computer-vision-resource-container-config.md
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
         - name: 使用 Kubernetes 搭配 Helm
           href: deploy-computer-vision-on-premises.md
+          displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
         - name: 使用容器執行個體
           href: deploy-computer-vision-on-container-instances.md
+          displayName: 'container instances, container, containers, images'
     - name: 使用電腦視覺連線服務
       href: vs-computer-vision-connected-service.md
     - name: 即時分析影片
