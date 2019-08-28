@@ -28,10 +28,7 @@
               href: tutorial-deploy-models-with-aml.md
         - name: 迴歸 (紐約市計程車資料)
           items:
-            - name: 1. 準備資料以進行模型化
-              displayName: data prep
-              href: tutorial-data-prep.md
-            - name: 2. ML 模型自動定型
+            - name: ML 模型自動定型
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
     - name: 視覺化介面
@@ -260,7 +257,7 @@
     - name: 建立可重複使用的工作流程
       displayName: pipelines
       items:
-        - name: ML 管線
+        - name: 在 Python 中建立 ML 管線
           href: how-to-create-your-first-pipeline.md
         - name: 適用於 CI/CD 的 Azure Pipelines
           displayName: 'continuous, integration, delivery'

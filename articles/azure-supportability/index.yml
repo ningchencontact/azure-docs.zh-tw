@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: Azure 支援性文件
+summary: 說明Azure 客戶如何在 Azure 入口網站中建立和管理支援要求。
+metadata:
+  title: Azure 支援性文件
+  description: 說明Azure 客戶如何在 Azure 入口網站中建立和管理支援要求。
+  services: azure supportability
+  ms.service: azure-supportability
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: 
+  author: arob98
+  ms.author: angrobe
+  ms.date: 08/24/2019
+  ms.openlocfilehash: 4ee8de0f591618be7eb3a08c04f5820faeebaf4a
+  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70052132"
+landingContent:
+- title: 建立支援要求
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 如何建立 Azure 支援要求
+      url: how-to-create-azure-support-request.md
+  - linkListType: get-started
+    links:
+    - text: 在 Azure 入口網站中建立支援要求
+      url: https://portal.azure.com/#create/Microsoft.Support
+- title: 增加配額要求
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 增加的 VM 系列 vCPU 限制
+      url: per-vm-quota-requests.md
+    - text: 增加的區域總 vCPU 限制
+      url: regional-quota-requests.md
+    - text: 增加網路限制
+      url: networking-quota-requests.md
+- title: 疑難排解
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 無法使用區域或 SKU
+      url: sku-series-unavailable.md

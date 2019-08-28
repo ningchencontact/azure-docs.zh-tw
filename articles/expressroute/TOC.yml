@@ -44,6 +44,8 @@
       href: expressroute-erdirect-about.md
     - name: 關於 ExpressRoute Global Reach
       href: expressroute-global-reach.md
+    - name: 將 Azure 連線到公用雲端
+      href: expressroute-connect-azure-to-public-cloud.md
     - name: 後端連線能力互通性
       items:
         - name: 引用和測試設定
