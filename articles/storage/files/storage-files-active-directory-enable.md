@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 23e8c82bad60675338a0482155ed8a92cdad3d3d
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 886cacc5e90136380a183f6b9ddd1123d726dcf3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617671"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129235"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>針對 Azure 檔案儲存體啟用透過 SMB 的 Azure Active Directory Domain Services 驗證
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -46,11 +46,9 @@ ms.locfileid: "69617671"
 
 2.  **在 Azure AD 租用戶上啟用 Azure AD Domain Services。**
 
-< < < < < < < HEAD 若要支援使用 Azure AD 認證進行驗證, 您必須為您的 Azure AD Domain Services 租使用者啟用 Azure AD。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md) 的逐步指導。
-= = = = = = = 若要支援 Azure AD 認證的驗證, 您必須為 Azure AD 租使用者啟用 Azure AD DS。 如果您不是 Azure AD 租使用者的系統管理員, 請洽詢系統管理員, 並依照逐步指引,[使用 Azure 入口網站來啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/create-instance.md)。
->>>>>>> 5f049740fef320adb172d59f68bd161bdc4318e1
+    若要支援使用 Azure AD 認證進行驗證，您必須為 Azure AD 租用戶啟用 Azure AD Domain Services。 如果您不是 Azure AD 租用戶的系統管理員，請連絡系統管理員，並遵循[使用 Azure 入口網站啟用 Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md) 的逐步指導。
 
-    It typically takes about 15 minutes for an Azure AD DS deployment to complete. Verify that the health status of Azure AD DS shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
+    Azure AD DS 部署通常需要大約15分鐘才能完成。 在繼續下一個步驟之前, 請確認Azure AD DS 的健全狀況狀態顯示為 [執行中, 已啟用密碼雜湊同步處理]。
 
 3.  **網域-加入具有 Azure AD DS 的 Azure VM。**
 

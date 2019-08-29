@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2cc8f4f81ad95376dcbc10c2952c1b2ed95ffe42
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 30ec36067b4a047478abc294361b015d12d21319
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907903"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129343"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 安全性簡介
 ## <a name="overview"></a>總覽
@@ -365,7 +365,7 @@ Microsoft 在其產品與服務上使用多個安全性作法與技術來管理�
 
 - [Cloud App Discovery](../../active-directory/cloudappdiscovery-get-started.md) 是 Azure Active Directory 的一個高階功能，可讓您識別組織中的員工所使用的雲端應用程式。
 
-- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/) 是一種安全性服務，會使用 Azure Active Directory 異常偵測功能來提供可能影響組織身分識別之風險事件和潛在弱點的合併檢視。
+- [Azure Active Directory Identity Protection](https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/)是一項安全性服務, 它會使用 Azure Active Directory 異常偵測功能, 讓合併的觀點能夠影響組織的那麼.
 
 - [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) 可讓您將 Azure VM 加入至網域，而不需部署網域控制站。 使用者利用其公司的 Active Directory 認證登入這些 VM，並可順暢地存取資源。
 

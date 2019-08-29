@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8fffc74075abf6dcc4b5c293819f739a9725646b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998165"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128208"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -30,15 +30,15 @@ ms.locfileid: "69998165"
 上傳您的視訊之後，影片索引器會選擇性地對視訊進行編碼 (如文章中所討論)。 建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
 
 ## <a name="uploading-considerations"></a>上傳考量
-
-- 若根據 URL 上傳影片 (首選)，則必須使用 TLS 1.2 (或更高版本) 來保護端點
-- 具有 URL 選項的上傳大小限制為30GB
-- 要求 URL 長度限制為2048個字元
-- 具有位元組陣列選項的上傳大小限制為 2 GB
-- 位元組陣列選項會在 30 分鐘後逾時
-- 在 `videoURL` 參數中提供的 URL 需要進行編碼
-- 編制索引媒體服務資產與從 URL 編制索引的限制相同
-- 影片索引子的單一檔案最大持續時間限制為4小時
+ 
+- 根據 URL 上傳您的影片時 (慣用), 端點必須使用 TLS 1.2 (或更高版本) 來保護。
+- [使用 URL 的上傳大小] 選項限制為 [30GB]。
+- 要求 URL 長度限制為6144個字元, 其中查詢字串 URL 長度限制為4096個字元。
+- 使用位元組陣列選項的上傳大小限制為 2 GB。
+- 位元組陣列選項在30分鐘後就會超時。
+- `videoURL`參數中提供的 URL 必須進行編碼。
+- 編制索引媒體服務資產與從 URL 編制索引的限制相同。
+- 影片索引子的最大持續時間限制為單一檔案4小時。
 
 > [!Tip]
 > 建議使用 .NET Framework 4.6.2 版。 或更高版本，因為舊版 .NET Framework 不會預設使用 TLS 1.2。

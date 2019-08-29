@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d294ceaaf77175a3010131b18864b71c7b26b88b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360823"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141891"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何透過 Python 使用服務匯流排主題和訂用帳戶
 
@@ -33,13 +33,13 @@ ms.locfileid: "68360823"
 - 從訂用帳戶接收訊息
 - 刪除主題和訂用帳戶
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF), 或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
 2. 依照快速入門中[的步驟進行:使用 Azure 入口網站建立主題](service-bus-quickstart-topics-subscriptions-portal.md)的服務匯流排主題和訂用帳戶, 以建立服務匯流排**命名空間**並取得**連接字串**。
 
     > [!NOTE]
     > 在本快速入門中, 您將會使用**Python**來建立主題和主題的**訂**用帳戶。 
-3. 安裝[Azure Python 套件][Azure Python package]。 請參閱[Python 安裝指南](../python-how-to-install.md)。
+3. 安裝[Azure Python 套件][Azure Python package]。 請參閱[Python 安裝指南](/azure/python/python-sdk-azure-install)。
 
 ## <a name="create-a-topic"></a>建立主題
 

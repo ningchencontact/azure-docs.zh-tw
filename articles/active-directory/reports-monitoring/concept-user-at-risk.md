@@ -15,26 +15,26 @@ ms.date: 01/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 950d0dc2f4a1a88e0c317b3398c7492cc6c52e2a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 3e6b79c7d5c2ed9744dc00eb1588c35f8ea94a76
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989829"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127643"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Azure 入口網站中標幟為有風險的使用者報告
 
-Azure Active Directory (Azure AD) 會偵測與使用者帳戶相關的可疑動作。 針對每個偵測到的動作，將會建立一筆稱為[風險事件](concept-risk-events.md)的記錄。
+Azure Active Directory (Azure AD) 會偵測與使用者帳戶相關的可疑動作。 針對每個偵測到的動作, 會建立稱為「[風險偵測](concept-risk-events.md)」的記錄。
 
 您可以從 [Azure 入口網站](https://portal.azure.com)中，藉由選取 [Azure Active Directory] 刀鋒視窗，然後瀏覽至 [安全性] 區段，來存取安全性報告。 
 
-偵測到的風險事件用來計算︰
+偵測到的風險偵測是用來計算:
 
 - **有風險的登入** - 有風險的登入表示非使用者帳戶合法擁有者的某人嘗試登入。 
 
 - **標幟為有風險的使用者** - 有風險的使用者表示可能被盜用的使用者帳戶。 
 
-若要了解如何設定原則來觸發這些風險事件，請參閱[如何設定使用者風險原則](../identity-protection/howto-user-risk-policy.md)。 
+若要瞭解如何設定觸發這些風險偵測的原則, 請參閱[如何設定使用者風險原則](../identity-protection/howto-user-risk-policy.md)。 
 
 ![有風險的登入](./media/concept-user-at-risk/10.png)
 
@@ -45,9 +45,9 @@ Azure Active Directory (Azure AD) 會偵測與使用者帳戶相關的可疑動�
 
 - 在 [Azure Active Directory Free 和 Basic 版本] 中，您會取得標幟為有風險的使用者清單。 
 
-- 此外，**Azure Active Directory Premium 1** 版本也可讓您檢查每份報告中所偵測到的某些基礎風險事件。 
+- 此外, **Azure Active Directory Premium 1**版本也可讓您檢查已針對每個報告偵測到的一些基礎風險偵測。 
 
-- **Azure Active Directory Premium 2** 版本可提供有關所有基礎風險事件的最詳細資訊，也可讓您設定安全性原則，自動回應已設定的風險層級。
+- **Azure Active Directory Premium 2**版本提供有關所有基礎風險偵測的最詳細資訊, 同時也可讓您設定安全性原則, 以自動回應已設定的風險層級。
 
 
 ## <a name="users-at-risk-report-for-azure-ad-free-and-basic-editions"></a>Azure AD 免費和基本版本的有風險使用者報告
@@ -73,7 +73,7 @@ Azure AD 進階版本中標幟為有風險的使用者報告可提供：
 
 - 可能已遭盜用的使用者帳戶清單 
 
-- 關於已偵測到之[風險事件類型](concept-risk-events.md)的彙總資訊
+- 已偵測到之[風險偵測類型](concept-risk-events.md)的相關匯總資訊
 
 - 下載報告的選項
 
@@ -89,11 +89,11 @@ Azure AD 進階版本中標幟為有風險的使用者報告可提供：
 
 - 關閉所有事件
 
-- 調查針對該使用者報告的風險事件。 
+- 調查使用者所回報的風險偵測。 
 
 ![有風險的登入](./media/concept-user-at-risk/324.png)
 
-若要調查風險事件，請從清單中選取一項，以開啟此風險事件的 [詳細資料] 刀鋒視窗。 在 [詳細資料] 刀鋒視窗上，您可以選擇手動關閉風險事件或重新啟動已手動關閉的風險事件。 
+若要調查風險偵測, 請從清單中選取一個, 以開啟此風險偵測的 [**詳細資料**] 分頁。 在 [**詳細資料**] 分頁上, 您可以選擇手動關閉風險偵測, 或重新開機手動關閉的風險偵測。 
 
 ![有風險的登入](./media/concept-user-at-risk/325.png)
 

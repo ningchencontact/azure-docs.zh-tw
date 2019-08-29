@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 7ff4db2e349d0da811ef262e308477bde3b27a3c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934589"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129288"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
 本文提供 Azure 中的安全性服務簡介, 協助您保護雲端中的資料、資源和應用程式, 並滿足企業的安全性需求。
@@ -147,7 +147,7 @@ Azure AD Privileged Identity Management 可讓您：
 
 #### <a name="identity-protection"></a>身分識別保護
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) 是一項安全性服務，可供整合檢視會影響組織身分識別的風險事件和潛在弱點。 Identity Protection 使用現有 Azure Active Directory 的異常偵測功能 (可透過 Azure AD 的異常活動報告取得)，並引進可即時偵測異常的新風險事件類型。
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md)是一項安全性服務, 可讓您匯總查看風險偵測和潛在弱點, 以影響組織的身分識別。 Identity Protection 使用現有 Azure Active Directory 的異常偵測功能 (可透過 Azure AD 的異常活動報告取得), 並引進可即時偵測異常的新風險偵測類型。
 
 ## <a name="secure-resource-access"></a>保護資源存取
 

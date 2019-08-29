@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623971"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128269"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>偵測部署到 Azure Kubernetes Service 的模型上的資料漂移 (預覽) (AKS)
 
@@ -46,7 +46,7 @@ ms.locfileid: "69623971"
 
 - Azure 訂用帳戶。 如果您沒有, 請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-- 已安裝適用于 Python 的 Azure Machine Learning SDK。 請使用[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)中的指示來執行下列動作:
+- 安裝 Azure Machine Learning SDK for Python。 請依照 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 中的指示執行下列工作：
 
     - 建立 Miniconda 環境
     - 安裝適用於 Python 的 Azure Machine Learning SDK
@@ -178,16 +178,7 @@ datadrift.disable_schedule()
 
 ## <a name="retrain-your-model-after-drift"></a>在漂移後重新定型您的模型
 
-當資料漂移對您已部署模型的效能造成負面影響時, 就是重新定型模型的時候了。 下列[ 方法可讓](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-)您初步瞭解新舊訓練資料集之間的變更。 `diff()` 
-
-```python
-from azureml.core import Dataset
-
-old_training_dataset.diff(new_training_dataset)
-```
-
-根據先前程式碼的輸出, 您可能會想要重新定型您的模型。 若要這麼做, 請繼續進行下列步驟。
+當資料漂移對您已部署模型的效能造成負面影響時, 就是重新定型模型的時候了。 若要這麼做, 請繼續進行下列步驟。
 
 * 調查收集的資料並準備資料, 以將新模型定型。
 * 將它分割成定型/測試資料。

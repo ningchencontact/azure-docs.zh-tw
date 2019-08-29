@@ -3,21 +3,20 @@ title: Azure Data Factory 中的管道及活動 | Microsoft Docs
 description: 了解 Azure Data Factory 中的管道及活動。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.author: shlo
-ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: c986b4efea905ce4e1d9ee6f08b688fe6ef6ef5e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976751"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142562"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管道及活動
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -133,7 +132,7 @@ activities | [**activities**] 區段內可以有一或多個已定義的活動�
 --- | ----------- | ---------
 name | 活動的名稱。 指定代表活動所執行之動作的名稱。 <br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li></ul>
 description | 說明活動用途的文字 | 是
-type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | 是
+Type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | 是
 linkedServiceName | 活動所使用的連結服務名稱。<br/><br/>活動可能會要求您指定可連結至所需計算環境的連結服務。 | 對於 HDInsight 活動、Azure Machine Learning 批次計分活動和預存程序活動而言為必要。 <br/><br/>否：所有其他
 typeProperties | typeProperties 區段中的屬性視每一種活動而定。 若要查看活動的類型屬性，請按一下先前小節中的活動連結。 | 否
 policies | 會影響活動之執行階段行為的原則。 這個屬性包含逾時和重試行為。 如果未指定，則會使用預設值。 如需詳細資訊，請參閱[活動原則](#activity-policy)一節。 | 否
@@ -173,8 +172,8 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
 JSON 名稱 | 描述 | 允許的值 | 必要項
 --------- | ----------- | -------------- | --------
 逾時 | 指定活動執行的逾時。 | 時間範圍 | 資料分割 預設逾時為 7 天。
-重試 | 重試次數上限 | 整數 | 資料分割 預設值為 0
-retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | 整數 | 資料分割 預設值為30秒
+重試 | 重試次數上限 | Integer | 資料分割 預設值為 0
+retryIntervalInSeconds | 重試嘗試之間的延遲 (秒) | Integer | 資料分割 預設值為30秒
 secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不會記錄到監視。 | Boolean | 資料分割 預設值為 false。
 
 ### <a name="control-activity"></a>控制活動
@@ -198,7 +197,7 @@ secureOutput | 設定為 true 時，活動的輸出會被視為安全，且不�
 --- | ----------- | --------
 name | 活動的名稱。 指定代表活動所執行之動作的名稱。<br/><ul><li>字元數目上限︰55</li><li>開頭必須為字母、數字或底線 (\_)</li><li>不允許使用下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\” | 是</li><ul>
 description | 說明活動用途的文字 | 是
-type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | 是
+Type | 活動的類型。 如需了解不同類型的活動，請參閱[資料移動活動](#data-movement-activities)、[資料轉換活動](#data-transformation-activities)和[控制活動](#control-activities)各節。 | 是
 typeProperties | typeProperties 區段中的屬性視每一種活動而定。 若要查看活動的類型屬性，請按一下先前小節中的活動連結。 | 否
 dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何相依於先前活動。 如需詳細資訊，請參閱[活動相依性](#activity-dependency)。 | 否
 
@@ -214,7 +213,7 @@ dependsOn | 這個屬性用來定義活動相依性，以及後續活動如何�
 - 活動 B 對於活動 A 具有相依性條件**已完成**：活動 B 會在活動 A 的最終狀態為已完成時執行
 - 活動 B 對於活動 A 具有相依性條件**略過**：活動 B 會在活動 A 的最終狀態為略過時執行。 「略過」發生於活動 X -> 活動 Y -> 活動 Z 的情節中，每個活動只有在前一個活動成功時才會執行。 如果活動 X 失敗，則活動 Y 的狀態為「略過」，因為永遠不會執行。 同樣地，活動 Z 的狀態也是「略過」。
 
-#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>範例:活動 2 相依於活動 1 成功
+#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>範例：活動 2 相依於活動 1 成功
 
 ```json
 {

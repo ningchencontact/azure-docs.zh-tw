@@ -7,22 +7,22 @@ author: luiscabrer
 ms.service: search
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/28/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 8cf72ba2fff65cf3382344fd2851c9c6027676c2
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2bdb65355f835eec232efd4f0493ecefbecfdd26
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635876"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128198"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>映像分析認知技能
 
 **映像分析**技能可根據映像內容擷取一組豐富的視覺功能。 例如，您可以從映像產生標題、產生標記，或識別名人和地標。 這項技能會使用認知服務中[電腦視覺](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)所提供的機器學習模型。 
 
 > [!NOTE]
-> 當您透過增加處理頻率、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須[連結可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
+> 小型磁片區 (低於20筆交易) 可以在 Azure 搜尋服務中免費執行, 但較大的工作負載[則需要附加可計費的認知服務資源](cognitive-search-attach-cognitive-services.md)。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
 > 內建技能的執行會依現有的[認知服務預付型方案價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價的說明請見 [Azure 搜尋服務價格頁面](https://go.microsoft.com/fwlink/?linkid=2042400)。
 
@@ -37,9 +37,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | 參數名稱     | 描述 |
 |--------------------|-------------|
 | defaultLanguageCode   |  此字串表示要傳回的語言。 服務會以指定語言傳回辨識結果。 如果未指定此屬性，則預設值為「en」。 <br/><br/>支援的語言為： <br/>*en* - 英文 (預設) <br/> *zh* - 簡體中文|
-|visualFeatures |   此字串陣列表示要傳回的視覺功能類型。 有效的視覺功能類型包括：  <ul><li> *類別* - 根據認知服務[說明文件](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)中定義的分類法，來分類映像內容。</li><li> *標記* - 使用與映像內容相關之字組的詳細清單標記映像。</li><li>*描述*-使用完整的英文句子來描述影像內容。</li><li>*臉部*-偵測臉部是否存在。 如果有的話，會產生座標、性別和年齡。</li><li> *imageType* -偵測影像是否為美工圖案或線條繪圖。</li><li>  *色彩*-決定輔色、主要色彩, 以及影像是否為黑色 & 白色。</li><li>*成人*-偵測影像本質上是否為色情 (描述裸體或性別 act)。 也會偵測出性暗示內容。</li></ul> 視覺功能的名稱會區分大小寫。|
-| details   | 字串陣列表示要傳回的特定領域詳細資料。 有效的視覺功能類型包括： <ul><li>*名人*-識別映射中偵測到的名人。</li><li>*地標*-識別映射中偵測到的地標。</li></ul>
- |
+|visualFeatures |   此字串陣列表示要傳回的視覺功能類型。 有效的視覺功能類型包括：  <ul><li> *類別*-根據認知服務[電腦視覺檔](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)中所定義的分類, 將影像內容分類。 </li><li> *標記* - 使用與映像內容相關之字組的詳細清單標記映像。</li><li>*描述*-使用完整的英文句子來描述影像內容。</li><li>*臉部*-偵測臉部是否存在。 如果有的話，會產生座標、性別和年齡。</li><li>    *imageType* -偵測影像是否為美工圖案或線條繪圖。</li><li>  *色彩*-決定輔色、主要色彩, 以及影像是否為黑色 & 白色。</li><li>*成人*-偵測影像本質上是否為色情 (描述裸體或性別 act)。 也會偵測出性暗示內容。</li></ul> 視覺功能的名稱會區分大小寫。|
+| details   | 字串陣列表示要傳回的特定領域詳細資料。 有效的視覺功能類型包括： <ul><li>*名人*-識別映射中偵測到的名人。</li><li>*地標*-識別映射中偵測到的地標。 </li></ul> |
 
 ## <a name="skill-inputs"></a>技能輸入
 
@@ -49,7 +48,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 
 
-##  <a name="sample-definition"></a>範例定義
+##  <a name="sample-skill-definition"></a>範例技能定義
+
 ```json
         {
             "description": "Extract image analysis.",
@@ -316,7 +316,17 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
             "targetFieldName": "faces"
         }
 ```
+### <a name="variation-on-output-field-mappings-nested-properties"></a>輸出欄位對應的變化 (嵌套屬性)
 
+您可以將輸出欄位對應定義為較低層級的屬性, 例如只是地標或名人。 在此情況下, 請確定您的索引架構具有可明確包含地標的欄位。
+
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": /document/normalized_images/*/categories/details/landmarks/*",
+            "targetFieldName": "landmarks"
+        }
+```
 ##  <a name="sample-input"></a>範例輸入
 
 ```json
@@ -493,6 +503,22 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 | NotSupportedVisualFeature  | 指定的功能類型無效。 |
 | NotSupportedImage | 不支援的映像，例如兒童色情內容。 |
 | InvalidDetails | 不支援的特定領域模型。 |
+
+如果您收到類似`"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`的錯誤, 請檢查路徑。 名人和地標都是底下的`detail`屬性。
+
+```json
+"categories":[  
+      {  
+         "name":"building_",
+         "score":0.97265625,
+         "detail":{  
+            "landmarks":[  
+               {  
+                  "name":"Forbidden City",
+                  "confidence":0.92013400793075562
+               }
+            ]
+```
 
 ## <a name="see-also"></a>另請參閱
 

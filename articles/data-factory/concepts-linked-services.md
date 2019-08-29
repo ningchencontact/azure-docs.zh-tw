@@ -3,21 +3,20 @@ title: Azure Data Factory 中的連結服務 |Microsoft Docs
 description: 深入瞭解 Data Factory 中的連結服務。 已連結的服務會將計算/資料存放區連結至資料處理站。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: 904e063ae64a971de7f34fbfac63b7679f3bc363
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 80e9cee0d973dc8575e9645c537b6b69fbeef700
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019945"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137126"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure Data Factory 中的連結服務
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -92,14 +91,11 @@ connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-in
 ```
 
 ## <a name="create-linked-services"></a>建立連結的服務
+
 您可以使用下列其中一個工具或 Sdk 來建立連結服務: [.NET API](quickstart-create-data-factory-dot-net.md)、 [PowerShell](quickstart-create-data-factory-powershell.md)、 [REST API](quickstart-create-data-factory-rest-api.md)、Azure Resource Manager 範本, 以及 Azure 入口網站
 
 ## <a name="data-store-linked-services"></a>資料存放區連結服務
-您可以在[支援的資料存放區和格式](copy-activity-overview.md#supported-data-stores-and-formats)中找到連接到資料存放區。 參考不同存放區所需特定連接屬性的清單。
-
-## <a name="data-store-supported-activities"></a>資料存放區支援的活動
-
-[!INCLUDE [Connector-activity support matrix](../../includes/connector-activity-support-matrix.md)]
+您可以從[連接器總覽](copy-activity-overview.md#supported-data-stores-and-formats)一文中, 找到 Data Factory 所支援的資料清單。 按一下資料存放區, 以瞭解支援的連接屬性。
 
 ## <a name="compute-linked-services"></a>計算連結服務
 如需您可以從資料處理站和不同設定連線的不同計算環境詳細資料, 請參閱[支援的計算環境](compute-linked-services.md)。

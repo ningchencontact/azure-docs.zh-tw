@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62814bb1e2934c406dc5fb1eb3b3bc3f3d2ee3b7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083792"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135546"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -30,14 +30,14 @@ ms.locfileid: "67083792"
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-設定應用程式 Proxy 應用程式 | 應用程式管理員 | 
-設定連接器群組屬性 | 應用程式管理員 | 
+設定應用程式 Proxy 應用程式 | 應用程式系統管理員 | 
+設定連接器群組屬性 | 應用程式系統管理員 | 
 已針對所有使用者停用功能之後建立應用程式註冊 | 應用程式開發人員 | 雲端應用程式系統管理員、應用程式系統管理員
-建立連接器群組 | 應用程式管理員 | 
-刪除連接器群組 | 應用程式管理員 | 
-停用應用程式 Proxy | 應用程式管理員 | 
-下載連接器服務 | 應用程式管理員 | 
-讀取所有設定 | 應用程式管理員 | 
+建立連接器群組 | 應用程式系統管理員 | 
+刪除連接器群組 | 應用程式系統管理員 | 
+停用應用程式 Proxy | 應用程式系統管理員 | 
+下載連接器服務 | 應用程式系統管理員 | 
+讀取所有設定 | 應用程式系統管理員 | 
 
 ## <a name="b2c"></a>B2C
 
@@ -45,7 +45,7 @@ ms.locfileid: "67083792"
 ---- | --------------------- | ----------------
 建立 Azure AD B2C 目錄 | 所有非來賓使用者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 建立 B2C 應用程式 | 全域管理員 | 
-建立企業應用程式 | 雲端應用程式系統管理員 | 應用程式系統管理員
+建立企業應用程式 | 雲端應用程式管理員 | 應用程式系統管理員
 建立、讀取、更新及刪除 B2C 原則 | 全域管理員 | 
 建立、讀取、更新及刪除識別提供者 | 全域管理員 | 
 建立、讀取、更新及刪除密碼重設使用者流程 | 全域管理員 | 
@@ -58,7 +58,7 @@ ms.locfileid: "67083792"
 讀取 B2C 稽核記錄 | 全域系統管理員 ([請參閱文件](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Azure AD B2C 的全域系統管理員並沒有相同的 Azure AD 全域系統管理員權限。 如果您有 Azure AD B2C 全域系統管理員權限，請確定您是在 Azure AD B2C 目錄，而非 Azure AD 目錄。
+> Azure AD B2C 全域管理員沒有與 Azure AD 全域管理員相同的許可權。 如果您有 Azure AD B2C 全域管理員許可權, 請確定您是在 Azure AD B2C 目錄中, 而不是 Azure AD 目錄。
 
 ## <a name="company-branding"></a>公司商標
 
@@ -73,7 +73,7 @@ ms.locfileid: "67083792"
 ---- | --------------------- | ----------------
 設定公司屬性 | 全域管理員 | 
 
-## <a name="connect"></a>連線
+## <a name="connect"></a>連接
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
@@ -88,7 +88,7 @@ ms.locfileid: "67083792"
 新增或刪除服務 | 擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 套用對同步處理錯誤的修正 | 參與者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 擁有者
 設定通知 | 參與者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 擁有者
-配置設定 | 擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
+組態設定 | 擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 設定同步處理通知 | 參與者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 擁有者
 讀取 ADFS 安全性報告 | 安全性讀取者 | 參與者、擁有者
 讀取所有設定 | 讀者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 參與者、擁有者
@@ -111,7 +111,7 @@ ms.locfileid: "67083792"
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
 建立 Azure AD Domain Services 執行個體 | 全域管理員 | 
-執行所有的 Azure AD Domain Services 工作 | Azure AD DC 系統管理員群組 ([請參閱文件](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+執行所有的 Azure AD Domain Services 工作 | Azure AD DC 系統管理員群組 ([請參閱文件](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 讀取所有設定 | 包含 AD DS 服務之 Azure 訂用帳戶上的讀者 | 
 
 ## <a name="devices"></a>裝置
@@ -127,12 +127,12 @@ ms.locfileid: "67083792"
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-同意任何委派的權限 | 雲端應用程式系統管理員 | 應用程式管理員
-同意不包括 Microsoft Graph 或 Azure AD Graph 的應用程式權限 | 雲端應用程式系統管理員 | 應用程式管理員
+同意任何委派的權限 | 雲端應用程式管理員 | 應用程式系統管理員
+同意不包括 Microsoft Graph 或 Azure AD Graph 的應用程式權限 | 雲端應用程式管理員 | 應用程式系統管理員
 同意對 Microsoft Graph 或 Azure AD Graph 的應用程式權限 | 全域管理員 | 
 同意應用程式存取自己的資料 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-建立企業應用程式 | 雲端應用程式系統管理員 | 應用程式管理員
-管理應用程式 Proxy | 應用程式管理員 | 
+建立企業應用程式 | 雲端應用程式管理員 | 應用程式系統管理員
+管理應用程式 Proxy | 應用程式系統管理員 | 
 管理使用者設定 | 全域管理員 | 
 讀取群組或應用程式的存取權檢閱 | 安全性讀取者 | 安全性系統管理員、使用者管理員
 讀取所有設定 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
@@ -143,24 +143,26 @@ ms.locfileid: "67083792"
 更新企業應用程式自助 | 企業應用程式擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 雲端應用程式系統管理員、應用程式系統管理員
 更新單一登入屬性 | 企業應用程式擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 雲端應用程式系統管理員、應用程式系統管理員
 
+
+
 ## <a name="groups"></a>群組
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-指派授權 | 使用者管理員 | 
-建立群組 | 使用者管理員 | 
-建立、更新或刪除群組或應用程式的存取權檢閱 | 使用者管理員 | 
-管理群組到期日 | 使用者管理員 | 
+指派授權 | 使用者系統管理員 | 
+建立群組 | 使用者系統管理員 | 
+建立、更新或刪除群組或應用程式的存取權檢閱 | 使用者系統管理員 | 
+管理群組到期日 | 使用者系統管理員 | 
 管理群組設定 | 全域管理員 | 
 讀取所有設定 (隱藏的成員資格除外) | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-讀取隱藏的成員資格 | 群組成員 | 群組擁有者、 密碼管理員、 Exchange 系統管理員、 SharePoint 系統管理員、 小組系統管理員、 使用者管理員
-讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 小組系統管理員使用者管理員
-撤銷授權 | 授權管理員 | 使用者管理員
-更新群組成員資格 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
-更新群組擁有者 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
-更新群組屬性 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者管理員
+讀取隱藏的成員資格 | 群組成員 | 群組擁有者、密碼管理員、Exchange 系統管理員、SharePoint 管理員、小組系統管理員、使用者系統管理員
+讀取具有隱藏成員資格之群組的成員資格 | 技術服務管理員 | 使用者系統管理員、小組系統管理員
+撤銷授權 | 授權管理員 | 使用者系統管理員
+更新群組成員資格 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者系統管理員
+更新群組擁有者 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者系統管理員
+更新群組屬性 | 群組擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 使用者系統管理員
 
-## <a name="identity-protection"></a>身分識別保護
+## <a name="identity-protection"></a>Identity Protection
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
@@ -169,19 +171,19 @@ ms.locfileid: "67083792"
 設定和啟用或停用登入風險原則| 安全性系統管理員 | 
 設定和啟用或停用使用者風險原則 | 安全性系統管理員 | 
 設定每週摘要 | 安全性系統管理員| 
-解除所有風險事件 | 安全性系統管理員 | 
+關閉所有風險偵測 | 安全性系統管理員 | 
 修正或關閉弱點 | 安全性系統管理員 | 
 讀取所有設定 | 安全性讀取者 | 
-讀取所有風險事件 | 安全性讀取者 | 
+讀取所有風險偵測 | 安全性讀取者 | 
 讀取弱點 | 安全性讀取者 | 
 
 ## <a name="licenses"></a>授權
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-指派授權 | 授權管理員 | 使用者管理員
+指派授權 | 授權管理員 | 使用者系統管理員
 讀取所有設定 | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-撤銷授權 | 授權管理員 | 使用者管理員
+撤銷授權 | 授權管理員 | 使用者系統管理員
 試用或購買訂用帳戶 | 計費管理員 | 
 
 
@@ -197,7 +199,7 @@ ms.locfileid: "67083792"
 ---- | --------------------- | ----------------
 讀取登入記錄 | 報表讀者 | 安全性讀取者、安全性系統管理員
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>多重要素驗證
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
@@ -205,10 +207,10 @@ ms.locfileid: "67083792"
 停用 MFA | 全域管理員 | 
 啟用 MFA | 全域管理員 | 
 管理 MFA 服務設定 | 全域管理員 | 
-要求選定使用者再次提供連絡方法 | 驗證系統管理員 | 
-在所有記住的裝置上還原多重要素驗證  | 驗證系統管理員 | 
+要求選定使用者再次提供連絡方法 | 驗證管理員 | 
+在所有記住的裝置上還原多重要素驗證  | 驗證管理員 | 
 
-## <a name="mfa-server"></a>MFA Server
+## <a name="mfa-server"></a>MFA 伺服器
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
@@ -229,7 +231,7 @@ ms.locfileid: "67083792"
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-管理識別提供者 | 全域管理員 | 
+管理身分識別提供者 | 全域管理員 | 
 管理設定 | 全域管理員 | 
 管理使用規定 | 全域管理員 | 
 讀取所有設定 | 全域管理員 | 
@@ -274,21 +276,21 @@ ms.locfileid: "67083792"
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-設定 MFA 信任的 IP 位址 | 條件式存取系統管理員 | 
-建立自訂控制項 | 條件式存取系統管理員 | 安全性系統管理員
-建立具名位置 | 條件式存取系統管理員 | 安全性系統管理員
-建立原則 | 條件式存取系統管理員 | 安全性系統管理員
-建立使用規定 | 條件式存取系統管理員 | 安全性系統管理員
-建立 VPN 連線憑證 | 條件式存取系統管理員 | 安全性系統管理員
-刪除傳統原則 | 條件式存取系統管理員 | 安全性系統管理員
-刪除使用規定 | 條件式存取系統管理員 | 安全性系統管理員
-刪除 VPN 連線憑證 | 條件式存取系統管理員 | 安全性系統管理員
-停用傳統原則 | 條件式存取系統管理員 | 安全性系統管理員
-管理自訂控制項 | 條件式存取系統管理員 | 安全性系統管理員
-管理具名位置 | 條件式存取系統管理員 | 安全性系統管理員
-管理使用規定 | 條件式存取系統管理員 | 安全性系統管理員
+設定 MFA 信任的 IP 位址 | 條件式存取管理員 | 
+建立自訂控制項 | 條件式存取管理員 | 安全性系統管理員
+建立具名位置 | 條件式存取管理員 | 安全性系統管理員
+建立原則 | 條件式存取管理員 | 安全性系統管理員
+建立使用規定 | 條件式存取管理員 | 安全性系統管理員
+建立 VPN 連線憑證 | 條件式存取管理員 | 安全性系統管理員
+刪除傳統原則 | 條件式存取管理員 | 安全性系統管理員
+刪除使用規定 | 條件式存取管理員 | 安全性系統管理員
+刪除 VPN 連線憑證 | 條件式存取管理員 | 安全性系統管理員
+停用傳統原則 | 條件式存取管理員 | 安全性系統管理員
+管理自訂控制項 | 條件式存取管理員 | 安全性系統管理員
+管理具名位置 | 條件式存取管理員 | 安全性系統管理員
+管理使用規定 | 條件式存取管理員 | 安全性系統管理員
 讀取所有設定 | 安全性讀取者 | 安全性系統管理員
-讀取具名位置 | 安全性讀取者 | 條件式存取系統管理員、 安全性系統管理員
+讀取具名位置 | 安全性讀取者 | 條件式存取系統管理員、安全性系統管理員
 
 ## <a name="security---identity-security-score"></a>安全性 - 身分識別安全性分數
 
@@ -313,26 +315,26 @@ ms.locfileid: "67083792"
 讀取所有設定 | 安全性讀取者 | 
 讀取標幟為有風險的使用者 | 安全性讀取者 | 
 
-## <a name="users"></a>使用者
+## <a name="users"></a>使用者人數
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
 將使用者新增至目錄角色 | 特殊權限角色管理員 | 
-將使用者新增至群組 | 使用者管理員 | 
-指派授權 | 授權管理員 | 使用者管理員
-建立來賓使用者 | 來賓邀請者 | 使用者管理員
-建立使用者 | 使用者管理員 | 
-刪除使用者 | 使用者管理員 | 
-使受限制管理員的重新整理權杖失效 (請參閱文件) | 使用者管理員 | 
-使非管理員的重新整理權杖失效 (請參閱文件) | 密碼管理員 | 使用者管理員
+將使用者新增到群組 | 使用者系統管理員 | 
+指派授權 | 授權管理員 | 使用者系統管理員
+建立來賓使用者 | 來賓邀請者 | 使用者系統管理員
+建立使用者 | 使用者系統管理員 | 
+刪除使用者 | 使用者系統管理員 | 
+使受限制管理員的重新整理權杖失效 (請參閱文件) | 使用者系統管理員 | 
+使非管理員的重新整理權杖失效 (請參閱文件) | 密碼管理員 | 使用者系統管理員
 使具特殊權限管理員的重新整理權杖失效 (請參閱文件) | 全域管理員 | 
 讀取基本設定 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-為受限制的管理員重設密碼 (請參閱文件) | 使用者管理員 | 
-為非管理員重設密碼 (請參閱文件) | 密碼管理員 | 使用者管理員
+為受限制的管理員重設密碼 (請參閱文件) | 使用者系統管理員 | 
+為非管理員重設密碼 (請參閱文件) | 密碼管理員 | 使用者系統管理員
 為具特殊權限的管理員重設密碼 | 全域管理員 | 
-撤銷授權 | 授權管理員 | 使用者管理員
-更新使用者主體名稱以外的所有屬性 | 使用者管理員 | 
-更新適用於受限制管理員的使用者主體名稱 (請參閱文件) | 使用者管理員 | 
+撤銷授權 | 授權管理員 | 使用者系統管理員
+更新使用者主體名稱以外的所有屬性 | 使用者系統管理員 | 
+更新適用於受限制管理員的使用者主體名稱 (請參閱文件) | 使用者系統管理員 | 
 更新具特殊權限管理員上的使用者主體名稱屬性 (請參閱文件) | 全域管理員 | 
 更新使用者設定 | 全域管理員 | 
 
@@ -341,7 +343,7 @@ ms.locfileid: "67083792"
 
 工作 | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-提交支援票證 | 服務管理員 | 應用程式系統管理員，Azure 資訊保護系統管理員，計費管理員、 雲端應用程式管理員，合規性系統管理員，Dynamics 365 系統管理員，桌面分析管理員、 Exchange 管理員密碼系統管理員，Intune 系統管理員、 Skype 商務系統管理員、 Power BI 系統管理員、 特殊權限驗證管理員、 SharePoint 系統管理員、 小組通訊的系統管理員、 小組系統管理員、 使用者管理員工作場所分析系統管理員
+提交支援票證 | 服務管理員 | 應用程式系統管理員、Azure 資訊保護系統管理員、計費管理員、雲端應用程式系統管理員、合規性管理員、Dynamics 365 系統管理員、電腦分析系統管理員、Exchange 系統管理員、密碼系統管理員、Intune 系統管理員、商務用 Skype 管理員、Power BI 系統管理員、特殊許可權驗證管理員、SharePoint 系統管理員、小組通訊管理員、小組系統管理員、使用者系統管理員、Workplace Analytics 管理員
 
 ## <a name="next-steps"></a>後續步驟
 

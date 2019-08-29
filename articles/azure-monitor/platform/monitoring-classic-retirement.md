@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: c53bc9527eeb6c7ca8194ef056177a79dd880957
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2ba93ad347783d467d467b72cfa49ffccf309fa0
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874780"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147343"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
@@ -72,6 +72,10 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 > [!IMPORTANT]
 > Microsoft Azure Monitor 已推出階段[工具, 可主動](alerts-using-migration-tool.md)將其傳統警示規則立即遷移至新的平臺。 並針對仍然存在且可遷移的所有傳統警示規則, 強制執行它, 從2019年9月開始。 移轉至傳統警示規則之後，客戶必須確實調整使用傳統警示規則的自動化作業，以處理來自 [Application Insights 中的整合計量和警示](#unified-metrics-and-alerts-in-application-insights)或[其他 Azure 資源的整合計量和警示](#unified-metrics-and-alerts-for-other-azure-resources)的新承載。 如需詳細資訊, 請參閱[準備傳統警示規則遷移](alerts-prepare-migration.md)
 
+本文將持續更新關於新 Azure 監視和警示功能的連結和詳細資料，以及工具的可用性，以協助使用者採用新的 Azure 監視器平台。
+
+## <a name="pricing-for-migrated-alert-rules"></a>已遷移警示規則的價格
+
 我們即將推出遷移工具, 可協助您將 Azure 監視器[傳統警示](../../azure-monitor/platform/alerts-classic.overview.md)遷移至新的警示體驗。 遷移的警示規則和對應的已遷移動作群組 (電子郵件、webhook 或 LogicApp) 將維持免費。 您在傳統警示中所擁有的功能, 包括編輯閾值、匯總類型和匯總資料細微性的能力, 將可透過您遷移的警示規則繼續免費使用。 不過, 如果您編輯遷移的警示規則以使用任何新的警示平臺功能、通知或動作類型, 則會套用對應的費用。 如需警示規則和通知的價格詳細資訊, 請參閱[Azure 監視器定價](https://azure.microsoft.com/pricing/details/monitor/)。
 
 以下是您將會產生警示規則費用的案例範例:
@@ -82,9 +86,6 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 - 超出 Azure 監視器所含免費單位而儲存的任何自訂計量
 - 任何已遷移的警示規則會進行編輯, 以使用較新的計量警示功能, 例如頻率、多個資源/維度、[動態閾值](alerts-dynamic-thresholds.md)、變更資源/信號等等。
 - 已編輯以使用較新通知或動作類型 (例如 SMS、語音通話和/或 ITSM 整合) 的任何已遷移動作群組。
-
-本文將持續更新關於新 Azure 監視和警示功能的連結和詳細資料，以及工具的可用性，以協助使用者採用新的 Azure 監視器平台。
-
 
 ## <a name="next-steps"></a>後續步驟
 

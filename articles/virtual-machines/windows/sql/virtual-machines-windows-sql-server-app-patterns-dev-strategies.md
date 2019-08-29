@@ -3,8 +3,8 @@ title: 在 VM 上的 SQL Server 應用程式模式 | Microsoft Docs
 description: 這篇文章涵蓋適用於 Azure VM 上的 SQL Server 應用程式模式。 它們可為解決方案架構師和開發人員提供基礎良好的應用程式架構和設計。
 services: virtual-machines-windows
 documentationcenter: na
-author: ninarn
-manager: craigg
+author: MashaMSFT
+manager: jroth
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
-ms.author: ninarn
-ms.openlocfilehash: 89935669d9dd2f7a30fbdc80694cc822df044c78
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: HT
+ms.author: mathoma
+ms.openlocfilehash: cbc2bfbb68910c3eb12352bebb575c4548885a24
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102037"
+ms.locfileid: "70124018"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]

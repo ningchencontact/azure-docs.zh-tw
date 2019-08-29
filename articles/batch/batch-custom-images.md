@@ -6,14 +6,14 @@ author: laurenhughes
 manager: gwallace
 ms.service: batch
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: 00da17512cbc2e713955ea83c7d9fa7517958169
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3c2213c25a8fdc6d6545711bd2af9b94662ee609
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036702"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141806"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-pool"></a>使用共用映射資源庫來建立集區
 
@@ -23,7 +23,7 @@ ms.locfileid: "69036702"
 
 當您使用自訂映射的共用映射資源庫時, 您可以控制作業系統類型和設定, 以及資料磁片的類型。 您的共用映射可以包含應用程式和參考資料, 一旦布建之後, 所有 Batch 集區節點就會變成可用。
 
-您也可以視環境需要有多個版本的映射。 當您使用映射版本來建立 VM 時, 會使用映射版本來為 VM 建立新的磁片。 
+您也可以視環境需要有多個版本的映射。 當您使用映射版本來建立 VM 時, 會使用映射版本來為 VM 建立新的磁片。
 
 使用共用映射可節省準備集區計算節點以執行 Batch 工作負載的時間。 在布建之後, 您可以使用 Azure Marketplace 映射並在每個計算節點上安裝軟體, 但使用共用映射通常會更有效率。 此外, 您可以為共用映射指定多個複本, 因此當您建立具有許多 Vm 的集區 (超過600個 Vm) 時, 您會節省建立集區的時間。
 
@@ -91,6 +91,19 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
     ...
 }
 ```
+
+## <a name="create-a-pool-from-a-shared-image-using-the-azure-portal"></a>使用 Azure 入口網站從共用映射建立集區
+
+使用下列步驟, 從 Azure 入口網站中的共用映射建立集區。
+
+1. 開啟 [Azure 入口網站](https://portal.azure.com)。
+1. 移至 [ **Batch 帳戶**], 然後選取您的帳戶。
+1. 選取 [集區], 然後按一下 [**新增**] 以建立新的集區。
+1. 在 [**映射類型**] 區段中, 選取 [**共用映射資源庫**]。
+1. 使用受控映射的相關資訊, 完成其餘各節。
+1. 選取 [確定]。
+
+![使用入口網站從共用映射建立集區。](media/batch-custom-images/create-custom-pool.png)
 
 ## <a name="considerations-for-large-pools"></a>大型集區的考量
 

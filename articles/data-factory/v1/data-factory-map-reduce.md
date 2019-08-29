@@ -3,22 +3,21 @@ title: 從 Azure Data Factory 叫用 MapReduce 程式
 description: 了解如何從 Azure Data Factory，在 Azure HDInsight 叢集上執行 MapReduce 程式以處理資料。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d32cd12989262ebeaafee60a02bb7ea2a9b1e32
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824213"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139286"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>從 Data Factory 叫用 MapReduce 程式
 > [!div class="op_single_selector" title1="轉換活動"]
@@ -184,7 +183,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 
 | 屬性 | 注意 |
 |:--- |:--- |
-| type |類型必須設為 **HDInsightMapReduce**。 |
+| Type |類型必須設為 **HDInsightMapReduce**。 |
 | className |類別的名稱是： **wordcount** |
 | jarFilePath |包含類別的 Jar 檔案路徑。 如果您複製/貼上下列程式碼，請記得變更叢集的名稱。 |
 | jarLinkedService |包含 Jar 檔案的 Azure 儲存體連結服務。 這個連結服務會參考與 HDInsight 叢集關聯的儲存體。 |

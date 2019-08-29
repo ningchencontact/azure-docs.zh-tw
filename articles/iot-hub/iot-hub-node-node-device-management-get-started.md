@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 049fc534c6bf3d777268363968ac2a8b92ca8d1c
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 98ec53d384186968d69c3f84cdfa12fbdbe92b71
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904441"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147454"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>開始使用裝置管理 (node.js)
 
@@ -34,8 +34,6 @@ ms.locfileid: "69904441"
 * **dmpatterns_getstarted_service.js**，它會在模擬裝置應用程式上呼叫直接方法，顯示回應，並顯示更新的報告屬性。
 
 ## <a name="prerequisites"></a>必要條件
-
-若要完成本教學課程，您需要：
 
 * Node.js 10.0. x 版或更新版本。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
 

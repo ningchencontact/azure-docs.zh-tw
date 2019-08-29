@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 12b88e14ed1d20ad26c9c8832877da08d3d98523
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543504"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146113"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -142,7 +142,7 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 首先, 在 Azure 中建立使用者指派的受控識別。 虛擬機器會使用此身分識別來存取儲存在 Key Vault 中的秘密。 如需詳細步驟, 請參閱[使用 Azure PowerShell 建立、列出或刪除使用者指派的受控識別](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)。
 
 接下來, 建立 Key Vault 實例。 如需詳細步驟, 請參閱[設定和取出秘密-PowerShell](../../../key-vault/quick-create-powershell.md)。
-指派許可權給實例, 以授與使用者指派的身分識別, 存取儲存在 Key Vault 中的秘密。 如需詳細步驟, 請參閱[設定和取出密碼-.net](../../../key-vault/quick-create-net.md#assign-permissions-to-your-application-to-read-secrets-from-key-vault)。
+指派許可權給實例, 以授與使用者指派的身分識別, 存取儲存在 Key Vault 中的秘密。 如需詳細步驟, 請參閱[設定和取出密碼-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)。
 
 然後, 將使用者指派的身分識別指派給您的虛擬機器。 如需詳細步驟, 請參閱[使用 PowerShell 在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)識別。
 請大規模使用 Azure Resource Manager 透過 Azure 原則指派此身分識別。 如需詳細步驟, 請參閱[使用範本在 AZURE VM 上設定 azure 資源的受控](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)識別。
@@ -318,11 +318,11 @@ New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.w
 
 當您使用自訂內容套件發佈自訂 Azure 原則之後, 如果您想要發佈新的版本, 則必須更新兩個欄位。
 
-- **版本**：當您執行 Cmdlet `New-GuestConfigurationPolicy` Cmdlet 時, 您必須指定大於目前發行的版本號碼。  這會更新新原則檔案中的來賓設定指派版本, 讓擴充功能能夠辨識封裝已更新。
-- **contentHash**:這會由`New-GuestConfigurationPolicy` Cmdlet 自動更新。  這是所建立`New-GuestConfigurationPackage`之封裝的雜湊值。  對於您發行的`.zip`檔案而言, 這必須是正確的。  如果只`contentUri`更新屬性, 例如在有人可以從入口網站手動變更原則定義的情況下, 擴充功能將不會接受內容套件。
+- **版本**：當您執行`New-GuestConfigurationPolicy` Cmdlet 時, 您必須指定大於目前發行的版本號碼。  屬性會更新新原則檔案中的來賓設定指派版本, 讓擴充功能能夠辨識封裝已更新。
+- **contentHash**:`New-GuestConfigurationPolicy` Cmdlet 會自動更新此屬性。  這是所建立`New-GuestConfigurationPackage`之封裝的雜湊值。  屬性對於您發行的`.zip`檔案而言必須是正確的。  如果只`contentUri`更新屬性 (例如, 在有人可以從入口網站手動變更原則定義的情況下), 延伸模組就不會接受內容套件。
 
 釋放更新套件的最簡單方式是重複本文中所述的程式, 並提供更新的版本號碼。
-這會確保所有屬性都已正確更新。
+該進程可確保所有屬性都已正確更新。
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>將 Windows 群組原則內容轉換成 Azure 原則來賓設定
 
@@ -330,7 +330,7 @@ New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.w
 DSC 社區已發佈工具, 可將匯出的群組原則範本轉換成 DSC 格式。
 將此工具與上述的來賓設定 Cmdlet 搭配使用, 您就可以轉換 Windows 群組原則內容, 並將其封裝/發佈以供 Azure 原則進行審核。
 如需使用此工具的詳細資訊, 請[參閱快速入門:將群組原則轉換成](/powershell/dsc/quickstarts/gpo-quickstart)DSC。
-內容轉換後, 上述步驟會建立 pakcage, 並將其發佈為 Azure 原則將與任何 DSC 內容相同。
+內容轉換後, 上述步驟會建立套件, 並將其發佈為 Azure 原則將與任何 DSC 內容相同。
 
 ## <a name="optional-signing-guest-configuration-packages"></a>選擇性：簽署來賓設定套件
 

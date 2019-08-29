@@ -1,32 +1,33 @@
 ---
-title: Azure 的資料方塊繁重的限制 |Microsoft Docs
-description: 說明系統的限制和建議的大小，Microsoft Azure 資料方塊沈重的元件和連線。
+title: Azure Data Box Heavy 限制 |Microsoft Docs
+description: 描述 Microsoft Azure Data Box Heavy 元件和連接的系統限制和建議大小。
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 07/03/2019
+ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 021aedc94b59f73e18679783cfc8b981924769c3
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 76e543a5bec749db55eb77649d2f6e0526f2cb1d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592351"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126113"
 ---
-# <a name="azure-data-box-heavy-limits"></a>Azure 資料方塊沈重的限制
+# <a name="azure-data-box-heavy-limits"></a>Azure Data Box Heavy 限制
 
-當您部署及操作您的 Azure 資料方塊大量裝置，請考慮這些限制。 下表描述資料箱的這些限制。
+當您部署和操作 Azure Data Box Heavy 裝置時, 請考慮這些限制。 下表描述資料箱的這些限制。
 
 
-## <a name="data-box-heavy-service-limits"></a>資料方塊大量的服務限制
+## <a name="data-box-heavy-service-limits"></a>Data Box Heavy 服務限制
 
 [!INCLUDE [data-box-service-limits](../../includes/data-box-service-limits.md)]
 
-## <a name="data-box-heavy-limits"></a>大量資料方塊的限制
+## <a name="data-box-heavy-limits"></a>Data Box Heavy 限制
 
-- 資料箱可以儲存最多 1 億個檔案，每個節點。
+- Data Box Heavy 可以儲存每個節點最多1000000000個檔案。
+- Data Box Heavy 在雲端中支援的每個節點最多512個容器或共用。 使用者共用中的最上層目錄會成為雲端中的容器或 Azure 檔案共用。
 
 ## <a name="azure-storage-limits"></a>Azure 儲存體限制
 

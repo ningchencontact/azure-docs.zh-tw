@@ -16,14 +16,14 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b6b310e2ca2c19bf4b163704627943a881501bd
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5fe8b50775390d60f75fafeae490e0307912600f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823846"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125269"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>什麼是 Azure AD 的存取權審查？
+# <a name="what-are-azure-ad-access-reviews"></a>什麼是 Azure AD 存取權檢閱？
 
 Azure Active Directory (Azure AD) 存取審查可讓組織有效率地管理群組成員資格、企業應用程式的存取權, 以及角色指派。 您可以定期檢閱使用者的存取權，以確定只有適當的人員會具有持續存取權。
 
@@ -60,6 +60,7 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 | 指派給已連線的應用程式 | 指定的檢閱者</br>自我審查 | Azure AD 存取權檢閱</br>Azure AD 企業應用程式 (預覽版) | 存取面板 |
 | Azure AD 角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
 | Azure 資源角色 | 指定的檢閱者</br>自我審查 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 入口網站 |
+
 
 ## <a name="onboard-access-reviews"></a>上架存取權檢閱
 

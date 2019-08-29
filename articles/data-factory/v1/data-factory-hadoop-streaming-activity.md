@@ -3,22 +3,21 @@ title: 使用 Hadoop 資料流活動轉換資料 - Azure | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 中的 Hadoop 資料流活動，以在隨選/您自己的 HDInsight 叢集上執行 Hadoop 資料流程式來轉換資料。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd9512f4ede8d9b8b1a8fd69b7120303fe6a0ad5
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486340"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139552"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 > [!div class="op_single_selector" title1="轉換活動"]
@@ -114,7 +113,7 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 ## <a name="example"></a>範例
 本逐步解說中的管線會在 Azure HDInsight 叢集上執行字數統計串流 Map/Reduce 程式。 
 
-### <a name="linked-services"></a>連結的服務
+### <a name="linked-services"></a>已連結的服務
 #### <a name="azure-storage-linked-service"></a>Azure 儲存體連結服務
 首先，建立連結的服務，將 Azure HDInsight 叢集使用的 Azure 儲存體連結到  Azure Data Factory。 如果您複製/貼上下列程式碼，請記得使用 Azure 儲存體的名稱和金鑰來取代帳戶名稱和帳戶金鑰。 
 
@@ -223,7 +222,7 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
     }
 }
 ```
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另請參閱
 * [Hive 活動](data-factory-hive-activity.md)
 * [Pig 活動](data-factory-pig-activity.md)
 * [MapReduce 活動](data-factory-map-reduce.md)

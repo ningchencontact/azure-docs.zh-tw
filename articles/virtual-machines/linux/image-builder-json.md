@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816313"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129066"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>預覽：建立 Azure 映射產生器範本 
 
@@ -190,6 +190,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 `imageVersionId`應該是映射版本的 ResourceId。 使用[az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list)列出映射版本。
 
 ## <a name="properties-buildtimeoutinminutes"></a>屬性: buildTimeoutInMinutes
+
 根據預設, 映射產生器將會執行240分鐘。 之後, 不論映射組建是否已完成, 它都會超時並停止。 如果遇到超時時間, 您會看到類似下面的錯誤:
 
 ```text
@@ -203,7 +204,6 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 
 ## <a name="properties-customize"></a>屬性: 自訂
-
 
 影像產生器支援多個「自建立者」。 自訂程式是用來自訂映射的函式, 例如執行腳本或重新開機伺服器。 
 

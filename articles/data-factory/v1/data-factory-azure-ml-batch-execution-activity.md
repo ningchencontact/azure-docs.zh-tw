@@ -3,22 +3,20 @@ title: 使用 Azure Data Factory 建立預測資料管線 | Microsoft Docs
 description: 說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c48c1d91ae08be29531f4a99ea75ab7a928f34
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567388"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140492"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 
@@ -54,7 +52,7 @@ Data Factory 服務可讓您建立資料管線，以移動和轉換資料，然�
 請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)和[建置您的第一個管線](data-factory-build-your-first-pipeline.md)文章，快速地開始使用 Azure Data Factory 服務。
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory 和 Machine Learning 一起合作
-Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 [Azure Machine Learning][azure-machine-learning] Web 服務進行預測性分析。 藉由在 Azure Data Factory 管線中使用**批次執行活動**，您便可以叫用 Azure Machine Learning Studio Web 服務來對批次中的資料進行預測。 如需詳細資訊，請參閱「使用批次執行活動來叫用 Azure Machine Learning Studio Web 服務」一節。
+Azure Data Factory 可讓您輕鬆地建立管線, 使用已發佈的[Azure Machine Learning][azure-machine-learning] web 服務進行預測性分析。 藉由在 Azure Data Factory 管線中使用**批次執行活動**，您便可以叫用 Azure Machine Learning Studio Web 服務來對批次中的資料進行預測。 如需詳細資訊，請參閱「使用批次執行活動來叫用 Azure Machine Learning Studio Web 服務」一節。
 
 經過一段時間後，必須使用新的輸入資料集來重新訓練 Azure Machine Learning Studio 評分實驗中的預測模型。 您可以透過執行下列步驟，從 Data Factory 管線重新訓練 Azure Machine Learning Studio 模型：
 
@@ -137,7 +135,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 [Azure Ma
 ### <a name="example"></a>範例
 此範例使用 Azure 儲存體來存放輸入和輸出資料。
 
-建議您在瀏覽此範例之前，先瀏覽[透過 Data Factory 建立第一個管線][adf-build-1st-pipeline]教學課程。 在此範例中使用 Data Factory 編輯器來建立 Data Factory 構件 (連結服務、資料集、管線)。
+我們建議您先流覽[使用 Data Factory 教學課程建立您的第一個管線][adf-build-1st-pipeline], 再進行此範例。 在此範例中使用 Data Factory 編輯器來建立 Data Factory 構件 (連結服務、資料集、管線)。
 
 1. 為您的 **Azure 儲存體**建立**連結服務**。 如果輸入和輸出檔案在不同的儲存體帳戶中，您就需要兩個連結服務。 以下是 JSON 範例：
 
@@ -184,7 +182,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，使用已發佈的 [Azure Ma
     }
     ```
 
-    您的輸入 csv 檔案必須要有資料行標題資料列。 如果使用 [複製活動]  建立 csv 或將其移至 Blob 儲存體，則接收屬性 **blobWriterAddHeader** 應該設為 **true**。 例如:
+    您的輸入 csv 檔案必須要有資料行標題資料列。 如果使用 [複製活動] 建立 csv 或將其移至 Blob 儲存體，則接收屬性 **blobWriterAddHeader** 應該設為 **true**。 例如:
 
     ```JSON
     sink:

@@ -4,7 +4,7 @@ description: Azure 虛擬機器和虛擬機器擴展集的雙向序列主控台�
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: gwallace
+manager: borisb
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4e0c91096d5efdcc9639a7127126d8e4b89ef068
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: HT
+ms.openlocfilehash: f6e08f113e29b44e4ec94d14624d62c1c3d48d45
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090150"
+ms.locfileid: "70124470"
 ---
 # <a name="azure-serial-console-for-linux"></a>適用于 Linux 的 Azure 序列主控台
 
@@ -49,34 +49,6 @@ Azure 入口網站中的序列主控台可讓您存取 Linux 虛擬機器 (Vm) �
 - 您的 VM 或虛擬機器擴展集實例必須設定為的序列輸出`ttys0`。 這是 Azure 映射的預設值, 但您會想要在自訂映射上再次檢查。 詳細資料[如下](#custom-linux-images)。
 
 
-## <a name="get-started-with-the-serial-console"></a>開始使用序列主控台
-Vm 和虛擬機器擴展集的序列主控台只能透過 Azure 入口網站進行存取:
-
-### <a name="serial-console-for-virtual-machines"></a>虛擬機器的序列主控台
-Vm 的序列主控台非常簡單, 只要在 Azure 入口網站的 [**支援 + 疑難排解**] 區段中按一下**序列主控台**即可。
-  1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-
-  1. 流覽至 [**所有資源**], 然後選取虛擬機器。 將會開啟該 VM 的概觀頁面。
-
-  1. 向下捲動至 [支援與疑難排解] 區段，然後選取 [序列主控台]。 這會開啟含有序列主控台的新窗格，並開始連線。
-
-     ![Linux 序列主控台視窗](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
-### <a name="serial-console-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的序列主控台
-序列主控台適用于虛擬機器擴展集的每個實例。 您必須先流覽至虛擬機器擴展集的個別實例, 才會看到 [**序列主控台**] 按鈕。 如果您的虛擬機器擴展集未啟用開機診斷, 請務必更新您的虛擬機器擴展集模型以啟用開機診斷, 然後將所有實例升級至新的模型, 才能存取序列主控台。
-  1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-
-  1. 流覽至 [**所有資源**], 然後選取虛擬機器擴展集。 虛擬機器擴展集的 [總覽] 頁面隨即開啟。
-
-  1. 流覽至**實例**
-
-  1. 選取虛擬機器擴展集實例
-
-  1. 從 [**支援 + 疑難排解**] 區段中, 選取 [**序列主控台**]。 這會開啟含有序列主控台的新窗格，並開始連線。
-
-     ![Linux 虛擬機器擴展集序列主控台](./media/virtual-machines-serial-console/vmss-start-console.gif)
-
-
 > [!NOTE]
 > 序列主控台需要一個已設定密碼的本機使用者。 只使用 SSH 公開金鑰設定的 Vm 或虛擬機器擴展集, 將無法登入序列主控台。 若要建立具有密碼的本機使用者，請使用 [VM 存取擴充功能](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (可透過在入口網站中選取 [重設密碼] 來使用此功能)，然後建立具有密碼的本機使用者。
 > 您也可以[使用 GRUB 來開機進入單一使用者模式](./serial-console-grub-single-user-mode.md)，以重設帳戶中的系統管理員密碼。
@@ -97,7 +69,7 @@ SUSE        | Azure 上提供的較新 SLES 映像已預設啟用序列主控台
 Oracle Linux        | 預設啟用的序列主控台存取。
 
 ### <a name="custom-linux-images"></a>自訂 Linux 映像
-若要啟用自訂 Linux VM 映像的序列主控台，請在 */etc/inittab* 檔案中啟用主控台存取以在 `ttyS0` 上執行終端機。 例如： `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 。
+若要啟用自訂 Linux VM 映像的序列主控台，請在 */etc/inittab* 檔案中啟用主控台存取以在 `ttyS0` 上執行終端機。 例如： `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 。 您可能也需要在 ttyS0 上產生 getty。 這可以透過來完成`systemctl start serial-getty@ttyS0.service`。
 
 您也會想要新增 ttys0 做為序列輸出的目的地。 如需有關設定自訂映射以使用序列主控台的詳細資訊, 請參閱在[Azure 中建立及上傳 LINUX VHD](https://aka.ms/createuploadvhd#general-linux-system-requirements)的一般系統需求。
 
@@ -114,47 +86,8 @@ SSH 設定問題 | 存取序列主控台，然後變更設定。 無論 VM 的 S
 與開機載入器互動 | 從序列主控台刀鋒視窗內重新啟動您的 VM，以存取 Linux VM 上的 GRUB。 如需更多詳細資料和散發版本特定的資訊, 請參閱[使用序列主控台存取 GRUB 和單一使用者模式](serial-console-grub-single-user-mode.md)。
 
 ## <a name="disable-the-serial-console"></a>停用序列主控台
-根據預設, 所有訂用帳戶都已啟用序列主控台存取。 您可以在訂用帳戶層級或 VM/虛擬機器擴展集層級停用序列主控台。 請注意, 您必須在 VM 上啟用開機診斷, 序列主控台才能正常執行。
 
-### <a name="vmvirtual-machine-scale-set-level-disable"></a>VM/虛擬機器擴展集層級停用
-您可以停用 [開機診斷] 設定, 針對特定的 VM 或虛擬機器擴展集停用序列主控台。 關閉 Azure 入口網站的開機診斷, 以停用 VM 或虛擬機器擴展集的序列主控台。 如果您在虛擬機器擴展集上使用序列主控台, 請務必將您的虛擬機器擴展集實例升級為最新的模型。
-
-> [!NOTE]
-> 若要啟用或停用訂用帳戶的序列主控台，您必須有該訂用帳戶的寫入權限。 這些權限包括系統管理員或擁有者角色。 自訂角色也可以有寫入權限。
-
-### <a name="subscription-level-disable"></a>訂用帳戶層級的停用
-透過[停用主控台 REST API 呼叫](/rest/api/serialconsole/console/disableconsole)，即可針對整個訂用帳戶停用序列主控台。 此動作需要訂用帳戶的參與者層級存取權或更新版本。 您可以使用 [API 文件] 頁面上提供的 [試用] 功能，針對訂用帳戶停用和啟用序列主控台。 針對 **subscriptionId** 輸入您的訂用帳戶識別碼，針對 **default** 輸入 **default**，然後選取 [執行]。 Azure CLI 命令尚未提供使用。
-
-若要重新啟用訂用帳戶的序列主控台, 請使用 [[啟用主控台] REST API 呼叫](/rest/api/serialconsole/console/enableconsole)。
-
-![REST API 試用](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
-
-或者，您也可以在 Cloud Shell 中使用下面的一組 Bash 命令，針對訂用帳戶停用、啟用序列主控台，以及檢視該主控台的停用狀態：
-
-* 針對訂用帳戶取得序列主控台的停用狀態：
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
-    ```
-* 針對訂用帳戶停用序列主控台：
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-* 針對訂用帳戶啟用序列主控台：
-    ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
+根據預設, 所有訂用帳戶都已啟用序列主控台存取。 您可以在訂用帳戶層級或 VM/虛擬機器擴展集層級停用序列主控台。 如需詳細指示, 請造訪[啟用和停用 Azure 序列主控台](./serial-console-enable-disable.md)。
 
 ## <a name="serial-console-security"></a>序列主控台安全性
 
@@ -184,18 +117,6 @@ SSH 設定問題 | 存取序列主控台，然後變更設定。 無論 VM 的 S
 
 ### <a name="use-serial-console-with-a-screen-reader"></a>使用序列主控台與螢幕閱讀程式
 序列主控台具備內建的螢幕助讀程式支援。 在開啟螢幕助讀程式的情況下瀏覽，可讓螢幕助讀程式大聲讀出目前所選按鈕的替代文字。
-
-## <a name="errors"></a>錯誤
-因為大部分的錯誤都是暫時性的，因此重試您的連線通常可以修正這些錯誤。 下表顯示錯誤清單及緩和措施。 這些錯誤和緩和措施適用于 Vm 和虛擬機器擴展集實例。
-
-Error                            |   風險降低
-:---------------------------------|:--------------------------------------------|
-無法擷取 *&lt;VMNAME&gt;* 的開機診斷設定。 若要使用序列主控台，請確定已針對此 VM 啟用診斷開機診斷。 | 請確定 VM 已啟用[開機診斷](boot-diagnostics.md)。
-VM 處於已停止 (已解除配置) 狀態。 啟動 VM 並重試序列主控台連線。 | VM 必須處於已啟動狀態，才能存取序列主控台。
-您沒有可使用此 VM 與序列主控台的必要權限。 請確定您至少具有「虛擬機器參與者」角色權限。| 存取序列主控台需要特定權限。 如需詳細資訊，請參閱[必要條件](#prerequisites)。
-無法判斷開機診斷儲存體帳戶 *&lt;STORAGEACCOUNTNAME&gt;* 的資源群組。 請確認已針對此 VM 啟用開機診斷，且您具有此儲存體帳戶的存取權。 | 存取序列主控台需要特定權限。 如需詳細資訊，請參閱[必要條件](#prerequisites)。
-Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.com` 列入允許清單。 有一個更詳細但較冗長的方法，就是將 [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)列入允許清單，而此範圍會經常變更。
-存取此 VM 的開機診斷儲存體帳戶時，遇到「禁止」回應。 | 請確定開機診斷沒有帳戶防火牆。 必須要有可存取的開機診斷儲存體帳戶，序列主控台才能運作。
 
 ## <a name="known-issues"></a>已知問題
 我們已了解序列主控台的一些問題。 以下是這些問題的清單，以及減輕其影響的步驟。 這些問題和緩和措施適用于 Vm 和虛擬機器擴展集實例。
@@ -241,7 +162,7 @@ A. 您映像的序列主控台存取設定很有可能是錯誤的。 如需有�
 
 **問：序列主控台是否適用於虛擬機器擴展集？**
 
-A. 是的，它是！ 請參閱[序列主控台以取得虛擬機器擴展集](#serial-console-for-virtual-machine-scale-sets)
+A. 是的，它是！ 請參閱[序列主控台以取得虛擬機器擴展集](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 **問：如果我只使用 SSH 金鑰驗證來設定 VM 或虛擬機器擴展集, 仍然可以使用序列主控台來連線到我的 VM/虛擬機器擴展集實例嗎？**
 

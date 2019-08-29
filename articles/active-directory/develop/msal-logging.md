@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f52ca8062ed1ed196a67d25385b712451afe8ae
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 02c093375ba2dc5c851a2deb35bdea28338ee982
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532737"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135774"
 ---
 # <a name="logging"></a>記錄
 Microsoft 驗證程式庫 (MSAL) 應用程式能產生記錄訊息，其可用來協助診斷問題及提供詳細資料。 應用程式可透過幾行程式碼來設定記錄，並針對詳細資料層級和是否要記錄個人和組織資料具有自訂控制。 建議您設定 MSAL 記錄回呼，並為使用者提供在遇到驗證問題時提交記錄的方法。
@@ -31,8 +31,8 @@ Microsoft 驗證程式庫 (MSAL) 應用程式能產生記錄訊息，其可用�
 
 MSAL 的記錄器允許擷取數個層級的詳細資料：
 
-- 錯誤:指出已發生問題並產生錯誤。 用來進行偵錯及識別問題。
-- 警告:發生可疑的事件，且應用程式針對該事件需要更多資訊。 不一定已經發生錯誤或失敗，但應該進行診斷並查明問題。
+- Error:指出已發生問題並產生錯誤。 用來進行偵錯及識別問題。
+- 警告：發生可疑的事件，且應用程式針對該事件需要更多資訊。 不一定已經發生錯誤或失敗，但應該進行診斷並查明問題。
 - Info：MSAL 記錄事件的原因為資訊性的目的，而不一定是為了進行偵錯。
 - Verbose：預設值。 MSAL 將會記錄大量資訊，並針對程式庫行為提供完整詳細資料。
 
@@ -100,14 +100,15 @@ var msalConfig = {
     auth: {
         clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
     },
-    system: {
-        logger: {
-            localCallback: loggerCallback,
-            level: Msal.LogLevel.Verbose,
-            piiLoggingEnabled: false,
-            correlationId: '1234'
-        }
-    }
+     system: {
+             logger: new Msal.Logger(
+                                loggerCallback ,{
+                                     level: Msal.LogLevel.Verbose,
+                                     piiLoggingEnabled: false,
+                                     correlationId: '1234'
+                                }
+                        )
+     }
 }
 
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);

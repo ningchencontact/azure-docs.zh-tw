@@ -4,15 +4,15 @@ description: 瞭解 Azure Cosmos DB 如何提供待用資料的加密, 以及它
 author: monhaber
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.author: v-mohabe
 ms.custom: seodec18
-ms.openlocfilehash: e22e05618c8b8977ba8b03afd3b654d27d4fa6bd
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 035c7e9ed5ab33c89a2a55b1133294db434bfe81
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981741"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123878"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB 的先進威脅防護
 
@@ -56,6 +56,31 @@ Azure Cosmos DB 的先進威脅防護提供一層額外的安全性情報, 可�
 * [啟用先進的威脅防護](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
 * [取得先進的威脅防護](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [停用先進的威脅防護](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+
+### <a name="using-azure-resource-manager-templates"></a>使用 Azure 資源管理員範本
+
+使用 Azure Resource Manager 範本來設定已啟用「先進的威脅防護」的 Cosmos DB。
+如需詳細資訊, 請參閱[使用 Advanced 威脅防護建立 CosmosDB 帳戶](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)。
+
+### <a name="using-azure-policy"></a>使用 Azure 原則
+
+使用 Azure 原則, 為 Cosmos DB 啟用先進的威脅防護。
+
+1. 啟動 [Azure**原則-定義**] 頁面, 然後搜尋 Cosmos DB 原則的 [**部署 Advanced 威脅防護**]。
+
+    ![搜尋原則](./media/cosmos-db-advanced-threat-protection/cosmos-db.png) 
+
+1. 按一下 [**為 CosmosDB 部署先進的威脅防護**] 原則, 然後按一下 [**指派**]。
+
+    ![選取訂用帳戶或群組](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png)
+
+
+1. 在 [**範圍**] 欄位中, 按一下三個點, 選取 [Azure 訂用帳戶] 或 [資源群組], 然後按一下 [**選取**]。
+
+    ![原則定義頁面](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png)
+
+
+1. 輸入其他參數, 然後按一下 [**指派**]。
 
 ## <a name="manage-atp-security-alerts"></a>管理 ATP 安全性警示
 

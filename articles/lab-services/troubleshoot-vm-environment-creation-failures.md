@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774422"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129045"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>針對 Azure DevTest Labs 中的虛擬機器 (VM) 和環境建立失敗進行疑難排解
 如果電腦名稱稱無效或您即將違反實驗室原則, DevTest Labs 就會提供警告。 有時候, 您會在`X`實驗室 VM 或環境狀態旁看到紅色, 通知您發生錯誤。  這篇文章提供幾個訣竅, 讓您可以用來找出基礎問題, 並希望在未來避免這個問題。
 
 ## <a name="portal-notifications"></a>入口網站通知
-如果您使用 Azure 入口網站, 第一個要查看的地方就是 [**通知] 面板**。  [通知] 面板 (可在主要命令列上按一下**鐘圖示**取得) 會告訴您實驗室 VM 或環境建立是否成功。  如果發生失敗, 您會看到與建立失敗相關聯的錯誤訊息。 詳細資料通常會提供進一步的資訊, 協助您解決問題。 在下列範例中, 因為核心不足, 導致虛擬機器建立失敗。 詳細訊息會告訴您如何修正問題, 並要求增加核心配額。
+如果您使用 Azure 入口網站, 第一個要查看的地方就是 [**通知] 面板**。  [通知] 面板 (可在主要命令列上按一下**鐘圖示**取得) 會告訴您實驗室 VM 或環境建立是否成功。  如果發生失敗, 您會看到與建立失敗相關聯的錯誤訊息。 詳細資料通常會提供進一步的資訊, 協助您解決問題。 在下列範例中, 因為核心不足, 導致虛擬機器建立失敗。 詳細訊息會告訴您如何修正問題, 並要求增加核心配額。
 
 ![Azure 入口網站通知](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
 

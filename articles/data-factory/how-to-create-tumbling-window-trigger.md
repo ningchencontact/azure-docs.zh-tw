@@ -3,21 +3,20 @@ title: 在 Azure Data Factory 中建立輪轉視窗觸發程序 | Microsoft Docs
 description: 了解如何在 Azure Data Factory 中建立依輪轉視窗執行管線的觸發程序。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.author: shlo
-ms.openlocfilehash: 0f78136edf58e76ed478bef9c255791d256c34a5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3fb958b446c3f1e78f78f40f112d8d55d37b0986
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678470"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141558"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>建立依輪轉視窗執行管線的觸發程序
 本文章提供建立、啟動、監視輪轉視窗觸發程序的步驟。 如需觸發程序及支援類型的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
@@ -104,7 +103,7 @@ ms.locfileid: "68678470"
 | **retryPolicy: intervalInSeconds** | 重試嘗試之間的延遲 (以秒指定) | Integer | 秒數，預設值是 30。 | 否 |
 | **dependsOn: type** | TumblingWindowTriggerReference 的類型。 如果已設定相依性, 則為必要項。 | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | 否 |
 | **dependsOn: size** | 相依性輪轉視窗的大小。 | 時間範圍<br/>(hh:mm:ss)  | 正 timespan 值, 預設為子觸發程式的視窗大小。  | 否 |
-| **dependsOn: offset** | 相依性觸發程式的位移。 | 時間範圍<br/>(hh:mm:ss) |  在自我相依性中必須是負值的 timespan 值。 如果未指定任何值, 視窗會與觸發程式本身相同。 | 自我相依性：是<br/>其他:否  |
+| **dependsOn: offset** | 相依性觸發程式的位移。 | 時間範圍<br/>(hh:mm:ss) |  在自我相依性中必須是負值的 timespan 值。 如果未指定任何值, 視窗會與觸發程式本身相同。 | 自我相依性：是<br/>另一方面否  |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>WindowStart 和 WindowEnd 系統變數
 

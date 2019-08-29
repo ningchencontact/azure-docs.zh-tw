@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 2ec3872b9e11830f7891e98f5fc0182b99e1586d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 4bf2e057f4c5dad650834f9b42c75be3aedec46e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997335"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142850"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解適用於 Azure 資源的角色定義
 
@@ -165,7 +165,7 @@ Bob 的許可權僅限於`Actions` [儲存體 Blob 資料參與者](built-in-rol
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-預覽或更新版本 |
 | [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 或更新版本 |
 | [Azure for Java](/java/azure/) | 1.9.0 或更新版本 |
-| [Azure for Python](/python/azure) | 0.40.0 或更新版本 |
+| [Azure for Python](/azure/python/) | 0.40.0 或更新版本 |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 或更新版本 |
 
 若要在 REST API 中檢視及使用資料作業，您必須將 **api-version** 參數設為下列版本或更新版本：

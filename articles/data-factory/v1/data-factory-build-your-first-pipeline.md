@@ -3,23 +3,20 @@ title: Data Factory 教學課程：第一個資料管線 | Microsoft Docs
 description: 此 Azure Data Factory 教學課程會示範如何使用 Hadoop 叢集上的 Hive 指令碼，建立和排程處理資料的 Data Factory。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 2dd2edfabff51c749890fe20d47a29c1ec39947c
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839443"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140389"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>教學課程：使用 Hadoop 叢集建置第一個管線來轉換資料
 > [!div class="op_single_selector"]
@@ -35,7 +32,7 @@ ms.locfileid: "67839443"
 
 在本教學課程中，您會使用資料管線建立您的第一個 Azure Data Factory。 管線藉由在 Azure HDInsight (Hadoop) 叢集上執行 Hive 指令碼，來將輸入資料轉換成輸出資料。  
 
-本文提供教學課程的概觀與必要條件。 完成必要條件之後，您可以使用下列其中一個工具/SDK 來進行教學課程：Visual Studio、 PowerShell、 Resource Manager 範本、 REST API。 選取文章開頭下拉式清單中的選項，或是選取文章結尾的連結來進行教學課程。    
+本文提供教學課程的概觀與必要條件。 完成必要條件之後，您可以使用下列其中一個工具/SDK 來進行教學課程：Visual Studio、PowerShell、Resource Manager 範本 REST API。 選取文章開頭下拉式清單中的選項，或是選取文章結尾的連結來進行教學課程。    
 
 ## <a name="tutorial-overview"></a>教學課程概觀
 在本教學課程中，您會執行下列步驟：
@@ -79,7 +76,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 如上所示的範例行中，第一行 (標有 2016-01-01) 會寫入 month=1 資料夾中的 000000_0 檔案。 同樣地，第二行會寫入 month=2 資料夾中的檔案；而第三行會寫入 month=3 資料夾中的檔案。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列必要條件：
 
 1. **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。 請參閱 [免費試用](https://azure.microsoft.com/pricing/free-trial/) 一文了解如何取得免費試用帳戶。
@@ -87,8 +84,8 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 3. 下載並檢閱位於下列位置的 Hive 查詢檔案 (**HQL**)：[https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql)。 這個查詢會轉換輸入資料並產生輸出資料。 
 4. 下載並檢閱位於下列位置的範例輸入檔案 (**input.log**)：[https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. 在您的 Azure Blob 儲存體中建立名為 **adfgetstarted** 的 Blob 容器。 
-6. 將 **partitionweblogs.hql** 檔案上傳到 **adfgetstarted** 容器的 [script]  資料夾中。 使用類似 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)的工具。 
-7. 將 **input.log** 檔案上傳到 **adfgetstarted** 容器中的 [inputdata]  資料夾。 
+6. 將 **partitionweblogs.hql** 檔案上傳到 **adfgetstarted** 容器的 [script] 資料夾中。 使用類似 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)的工具。 
+7. 將 **input.log** 檔案上傳到 **adfgetstarted** 容器中的 [inputdata] 資料夾。 
 
 完成必要條件之後，選取下列其中一個工具/SDK 來進行教學課程： 
 
@@ -97,7 +94,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 - [Resource Manager 範本](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Visual Studio 提供 gui 建置資料處理站。 而 PowerShell、Resource Manager 範本和 REST API，則可讓您選擇以撰寫指令碼/程式碼的方式來建置資料處理站。
+Visual Studio 提供 GUI 方式來建立您的資料處理站。 而 PowerShell、Resource Manager 範本和 REST API，則可讓您選擇以撰寫指令碼/程式碼的方式來建置資料處理站。
 
 > [!NOTE]
 > 本教學課程中的資料管線會轉換輸入資料來產生輸出資料， 它不是將資料從來源資料存放區，複製到目的地資料存放區。 如需如何使用 Azure Data Factory 複製資料的教學課程，請參閱[教學課程︰將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。

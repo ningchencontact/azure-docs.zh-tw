@@ -3,23 +3,21 @@ title: Data Factory - .NET API 變更記錄 | Microsoft Docs
 description: 描述 Azure Data Factory 的特定版本 NET API 中的重大變更、新增功能、錯誤修正等等...
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 8208271b-7f4c-4214-b665-d2ff503c4470
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 863f3500c84eeab1c3dac19141cd334fc6961694
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/22/2018
+ms.openlocfilehash: 35f0145526aa596691fde26e92695f64f5ac35e0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567243"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140526"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API 變更記錄
 > [!NOTE]
@@ -137,7 +135,7 @@ ms.locfileid: "60567243"
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>4\.0.1 版
-### <a name="breaking-changes"></a>重大變更
+### <a name="breaking-changes"></a>中斷性變更
 下列類別已重新命名。 新的名稱是 4.0.0 版之前的原始類別名稱。
 
 | 4\.0.0 中的名稱 | 4\.0.1 中的名稱 |
@@ -150,7 +148,7 @@ ms.locfileid: "60567243"
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>4\.0.0 版
-### <a name="breaking-changes"></a>重大變更
+### <a name="breaking-changes"></a>中斷性變更
 * 下列類別/介面已重新命名。
 
 | 舊名稱 | 新名稱 |
@@ -165,7 +163,7 @@ ms.locfileid: "60567243"
 | TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
 
-* **List** 方法現在會傳回分頁式結果。 如果回應包含非空白的 **NextLink** 屬性，用戶端應用程式需要繼續提取下一個頁面，直到傳回了所有頁面為止。  下列是一個範例：
+* **List** 方法現在會傳回分頁式結果。 如果回應包含非空白的 **NextLink** 屬性，用戶端應用程式需要繼續提取下一個頁面，直到傳回了所有頁面為止。  請看以下範例：
 
     ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");

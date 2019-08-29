@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 96ba829ffaadb6bc792c2d859e1e6766ab3ee394
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: HT
+ms.openlocfilehash: 605b3fd49408381f3148aef5fe7d62bac157644b
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095578"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141480"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -541,7 +541,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/azure/python/
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

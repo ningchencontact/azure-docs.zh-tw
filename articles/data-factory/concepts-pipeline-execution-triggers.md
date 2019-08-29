@@ -3,30 +3,29 @@ title: Azure Data Factory 中的管道執行和觸發程序 | Microsoft Docs
 description: 本文提供相關資訊來說明如何在 Azure Data Factory 中依需求或建立觸發程序來執行管道。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155225"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137041"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
-> [!div class="op_single_selector" title1="選取 Data Factory 服務所使用的版本："]
+> [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-scheduling-and-execution.md)
 > * [目前的版本](concepts-pipeline-execution-triggers.md)
 
-在 Azure Data Factory 中，「管線執行」  可定義管線執行的執行個體。 例如，假設您的管線會在上午 8 點、9 點和 10 點執行。 在此情況下，管線會有三個個別的執行 (或管線執行)。 每個管線執行都有唯一的管線執行識別碼。 執行識別碼是一組 GUID，可唯一定義特定的管線執行。
+在 Azure Data Factory 中，「管線執行」可定義管線執行的執行個體。 例如，假設您的管線會在上午 8 點、9 點和 10 點執行。 在此情況下，管線會有三個個別的執行 (或管線執行)。 每個管線執行都有唯一的管線執行識別碼。 執行識別碼是一組 GUID，可唯一定義特定的管線執行。
 
-將引數傳遞給管線中定義的參數，通常可將管線執行具現化。 您可以用手動方式或使用「觸發程序」  來執行管線。 本文提供兩種管線執行方式的詳細資料。
+將引數傳遞給管線中定義的參數，通常可將管線執行具現化。 您可以用手動方式或使用「觸發程序」來執行管線。 本文提供兩種管線執行方式的詳細資料。
 
 ## <a name="manual-execution-on-demand"></a>手動執行 (依需求)
 管線的手動執行也稱為_依需求_執行。
@@ -277,11 +276,11 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 ### <a name="schema-defaults-limits-and-examples"></a>結構描述預設值、限制及範例
 
-| JSON 屬性 | type | 必要項 | 預設值 | 有效值 | 範例 |
+| JSON 屬性 | Type | 必要項 | 預設值 | 有效值 | 範例 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | 是 | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | 是 | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | number | 否 | 1 | 1 到 1000 | `"interval":10` |
+| **interval** | 號 | 否 | 1 | 1 到 1000 | `"interval":10` |
 | **endTime** | string | 是 | None | 代表未來時間的日期時間值 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | object | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
@@ -290,8 +289,8 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 | startTime 值 | 週期性無排程 | 週期性有排程 |
 |:--- |:--- |:--- |
-| **開始時間在過去** | 計算開始時間之後的第一個未來執行時間，並在該時間執行。<br /><br />根據上次執行時間算出的時間執行後續的執行作業。<br /><br />請參閱本表後面的範例。 | 觸發程序會在「到了」  指定的開始時間才啟動。 第一次發生是根據排程，從開始時間計算。<br /><br />根據週期排程執行後續的執行作業。 |
-| **開始時間在未來或為目前時間** | 在指定的開始時間執行一次。<br /><br />根據上次執行時間算出的時間執行後續的執行作業。 | 觸發程序會在「到了」  指定的開始時間才啟動。 第一次發生是根據排程，從開始時間計算。<br /><br />根據週期排程執行後續的執行作業。 |
+| **開始時間在過去** | 計算開始時間之後的第一個未來執行時間，並在該時間執行。<br /><br />根據上次執行時間算出的時間執行後續的執行作業。<br /><br />請參閱本表後面的範例。 | 觸發程序會在「到了」指定的開始時間才啟動。 第一次發生是根據排程，從開始時間計算。<br /><br />根據週期排程執行後續的執行作業。 |
+| **開始時間在未來或為目前時間** | 在指定的開始時間執行一次。<br /><br />根據上次執行時間算出的時間執行後續的執行作業。 | 觸發程序會在「到了」指定的開始時間才啟動。 第一次發生是根據排程，從開始時間計算。<br /><br />根據週期排程執行後續的執行作業。 |
 
 我們來看看一個範例：當開始時間在過去、具有週期性但無排程時，會發生什麼情況。 假設目前時間是 2017-04-08 13:00，開始時間是 2017-04-07 14:00，而週期是每隔兩天。 (定義 **recurrence** 值的方式是將 **frequency** 屬性設定為 "day"，並將 **interval**屬性設定為 2)。請注意，**startTime** 值是過去的時間，發生在目前時間之前。
 
@@ -302,9 +301,9 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 最後，當未在觸發程序的排程中設定小時或分鐘時，將會使用第一次執行的小時或分鐘作為預設值。
 
 ### <a name="schedule-property"></a>schedule 屬性
-您可以使用 **schedule** 來「限制」  作業執行的數目。 例如，如果將每月執行的觸發程序排定為只在 31 日執行，則該觸發程序將只會在有第 31 天的月份執行。
+您可以使用 **schedule** 來「限制」作業執行的數目。 例如，如果將每月執行的觸發程序排定為只在 31 日執行，則該觸發程序將只會在有第 31 天的月份執行。
 
-您也可以使用 **schedule** 來「擴充」  作業執行的數目。 例如，如果將每月執行的觸發程序排定在月份的 1 日和 2 日執行，該觸發程序就會在月份的第 1 天和第 2 天執行，而不是一個月執行一次。
+您也可以使用 **schedule** 來「擴充」作業執行的數目。 例如，如果將每月執行的觸發程序排定在月份的 1 日和 2 日執行，該觸發程序就會在月份的第 1 天和第 2 天執行，而不是一個月執行一次。
 
 如果指定了多個 **schedule** 元素，則評估的順序是從最大到最小排程設定：第幾週、月日、星期幾、小時、分鐘。
 

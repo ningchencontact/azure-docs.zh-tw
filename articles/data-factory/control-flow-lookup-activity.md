@@ -3,21 +3,20 @@ title: Azure Data Factory 中的查閱活動 | Microsoft Docs
 description: 了解如何使用查閱活動查閱外部來源的值。 此輸出可供後續活動進一步參考。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: shlo
-ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768646"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141653"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory 中的查閱活動
 
@@ -54,7 +53,7 @@ ms.locfileid: "60768646"
 
 ## <a name="type-properties"></a>類型屬性
 
-名稱 | 描述 | type | 必要項？
+Name | 描述 | Type | 必要項？
 ---- | ----------- | ---- | --------
 資料集 | 提供查閱的資料集參考。 如需詳細資料，請參閱每個對應連接器文章中的＜**資料集屬性**＞一節。 | 索引鍵/值組 | 是
 source | 包含資料集特定的來源屬性，與複製活動來源相同。 如需詳細資料，請參閱每個對應連接器文章中的＜**複製活動屬性**＞一節。 | 索引鍵/值組 | 是

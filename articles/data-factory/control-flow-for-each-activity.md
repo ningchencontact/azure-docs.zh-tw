@@ -3,21 +3,20 @@ title: Azure Data Factory 中的 ForEach 活動 | Microsoft Docs
 description: For Each 活動定義管線中重複的控制流程。 它用於反覆查詢集合，並執行指定的活動。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.author: shlo
-ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 319f4e722184ce840d43b8f23e61711851a6d4a0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808758"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142471"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory 中的 ForEach 活動
 ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆查詢集合，並在迴圈中執行指定的活動。 此活動的迴圈實作與程式設計語言中的 Foreach 迴圈結構相似。
@@ -71,8 +70,8 @@ ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆�
 
 屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
-name | for-each 活動的名稱。 | 字串 | 是
-type | 必須設定為 **ForEach** | 字串 | 是
+name | for-each 活動的名稱。 | String | 是
+Type | 必須設定為 **ForEach** | String | 是
 isSequential | 指定應該循序或以平行方式執行迴圈。  以平行方式可一次執行最多 20 個迴圈反覆項目。 例如，如果您的 ForEach 活動會反覆查詢 10 個不同來源和接收資料集的複製活動，且 **isSequential** 設為 False，則所有複本會都執行一次。 預設值為 False。 <br/><br/> 如果 isSequential 設定為 False，請確認有正確的設定可執行多個可執行檔。 否則，應謹慎使用這個屬性，以避免引發寫入衝突。 如需詳細資訊，請參閱[平行執行](#parallel-execution)一節。 | Boolean | 資料分割 預設值為 False。
 batchCount | 批次計數，用於控制平行執行的數目 (當 isSequential 設定為 false 時)。 | 整數 (最大值 50) | 資料分割 預設值為 20。
 項目 | 傳回要反覆查詢之 JSON 陣列的運算式。 | 運算式 (傳回 JSON 陣列) | 是
@@ -474,7 +473,7 @@ activities | 要執行的活動。 | 活動清單 | 是
 
 ## <a name="aggregating-outputs"></a>彙總輸出
 
-到彙總的輸出__foreach__活動，請利用_變數_並_附加變數_活動。
+若要匯總__foreach__活動的輸出, 請利用_變數_和_附加變數_活動。
 
 首先，在管線中宣告 `array` _variable_。 然後在每個 __foreach__ 迴圈內叫用 _Append Variable_ 活動。 接著，也可以從您的陣列中擷取彙總。
 

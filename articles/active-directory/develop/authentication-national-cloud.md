@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abaf8c910710000930f4e0ab6200d0ebd75b8d46
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835206"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135865"
 ---
 # <a name="national-clouds"></a>國家雲端
 
@@ -68,9 +68,6 @@ ms.locfileid: "68835206"
   - 權杖通用端點為 `https://login.microsoftonline.de/common/oauth2/token`。
 
 對於單一租使用者應用程式, 請將先前 Url 中的「通用」取代為您的租使用者識別碼或名稱。 例如 `https://login.microsoftonline.de/contoso.com`。
-
-> [!NOTE]
-> [Azure AD v2.0 授權]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview)和權杖端點僅適用于全域服務。 國家雲端部署不支援它們。
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 

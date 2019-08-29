@@ -3,21 +3,20 @@ title: Azure Data Factory 中的資料集 |Microsoft Docs
 description: 深入瞭解 Data Factory 中的資料集。 資料集代表輸入/輸出資料。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-ms.openlocfilehash: bbf7159abf88ce70cc62d202a8375aad302a0552
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019961"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137308"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory 中的資料集
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -147,9 +146,7 @@ typeProperties | 每個類型的類型屬性都不同 (例如：Azure Blob、Azu
 - linkedServiceName 係指 AzureSqlDatabase 類型的已連結服務，在接下來的 JSON 程式碼片段中將會定義。
 
 ## <a name="dataset-type"></a>資料集類型
-有許多不同類型的資料集，視您使用的資料存放區而定。 如需 Data Factory 所支援的資料存放區清單，請參閱下表。 按一下某個資料存放區，即可了解如何為該資料存放區建立已連結的服務和資料集。
-
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/connector-activity-support-matrix.md)]
+有許多不同類型的資料集，視您使用的資料存放區而定。 您可以從[連接器總覽](connector-overview.md)一文中, 找到 Data Factory 所支援的資料清單。 按一下某個資料存放區，即可了解如何為該資料存放區建立已連結的服務和資料集。
 
 在上一節的範例中，資料集的類型是設定為 **AzureSqlTable**。 同樣地，針對 Azure Blob 資料集，資料集的類型是設定為 **AzureBlob**，如以下 JSON 所示：
 

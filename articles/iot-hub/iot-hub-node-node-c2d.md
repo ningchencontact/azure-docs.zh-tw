@@ -9,18 +9,16 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: d3e4e0f4e7b1f8d3e100b3f1b3446907cfd587c5
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: ba14a6bb9e234a5eae34232fc617f8b04284cd4f
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716954"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147468"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>使用 IoT 中樞 (node.js) 傳送雲端到裝置訊息
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
-
-## <a name="introduction"></a>簡介
 
 Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 將[遙測資料從裝置傳送至 IoT 中樞](quickstart-send-telemetry-node.md)快速入門會示範如何建立 iot 中樞、在其中布建裝置身分識別, 以及撰寫模擬裝置應用程式的程式碼, 以傳送裝置到雲端的訊息。
 
@@ -44,9 +42,10 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 > IoT 中樞透過 Azure IoT 裝置 Sdk, 為許多裝置平臺和語言 (包括 C、JAVA、Python 和 JAVAscript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中樞](https://azure.microsoft.com/develop/iot)。
 >
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
 
-* Node.js 10.0. x 版或更新版本。
+* Node.js 10.0. x 版或更新版本。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
+
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial)。)
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>在模擬的裝置應用程式中接收訊息

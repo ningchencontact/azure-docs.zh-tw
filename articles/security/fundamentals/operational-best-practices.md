@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 9da58bf3152867bc13dd1879ec57a69b8bd38cb0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828719"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129337"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 作業安全性最佳做法
 本文提供一組可在 Azure 中保護您的資料、應用程式和其他資產的操作最佳作法。
@@ -218,7 +218,7 @@ Azure 有兩個 DDoS [服務供應項目](../../virtual-network/ddos-protection-
 **詳細資料**：在 Azure[原則描述](../../governance/policy/concepts/definition-structure.md#display-name-and-description)或 azure 原則[計畫](../../governance/policy/concepts/definition-structure.md#initiatives)描述中新增對組織原則的參考, 以在貴組織的檔或 azure 原則本身中進行檔對應。
 
 ## <a name="monitor-azure-ad-risk-reports"></a>監視 Azure AD 風險報告
-大部分的安全性缺口出現於當攻擊者藉由竊取使用者的身分識別來取得環境的存取權時。 探索遭入侵的身分識別並不容易。 Azure AD 會使用調適性機器學習服務演算法和啟發學習法，來偵測與您使用者帳戶相關的可疑動作。 偵測到的每個可疑動作都會儲存在名為[風險事件](../../active-directory/reports-monitoring/concept-risk-events.md)的記錄中。 風險事件會記錄在 Azure AD 的安全性報告中。 如需詳細資訊, 請參閱有[風險的安全性報告上的使用者](../../active-directory/reports-monitoring/concept-user-at-risk.md)和有風險的登[入安全性報告](../../active-directory/reports-monitoring/concept-risky-sign-ins.md)。
+大部分的安全性缺口出現於當攻擊者藉由竊取使用者的身分識別來取得環境的存取權時。 探索遭入侵的身分識別並不容易。 Azure AD 會使用調適性機器學習服務演算法和啟發學習法，來偵測與您使用者帳戶相關的可疑動作。 每個偵測到的可疑動作都會儲存在名為[風險偵測](../../active-directory/reports-monitoring/concept-risk-events.md)的記錄中。 風險偵測會記錄在 Azure AD 的安全性報告中。 如需詳細資訊, 請參閱有[風險的安全性報告上的使用者](../../active-directory/reports-monitoring/concept-user-at-risk.md)和有風險的登[入安全性報告](../../active-directory/reports-monitoring/concept-risky-sign-ins.md)。
 
 ## <a name="next-steps"></a>後續步驟
 如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。

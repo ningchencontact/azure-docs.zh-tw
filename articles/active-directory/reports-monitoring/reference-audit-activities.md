@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a687823d1344ca11864523cb9187f48d7373fd41
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 56a94ef3f6ea5737b629efe44bd3e1cc1f36a693
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989627"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127136"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
 
@@ -348,10 +348,10 @@ Azure AD 中的報告架構包含下列元件：
 
 |稽核類別|activities|
 |---|---|
-|管理單位的管理|下載單一風險事件類型|
+|管理單位的管理|下載單一風險偵測類型|
 |管理單位的管理|下載加入每週摘要的管理員和狀態|
-|管理單位的管理|下載所有風險事件類型|
-|管理單位的管理|下載免費使用者風險事件|
+|管理單位的管理|下載所有風險偵測類型|
+|管理單位的管理|下載免費的使用者風險偵測|
 |管理單位的管理|下載標幟為有風險的使用者|
 |應用程式管理|已處理 Batch 邀請|
 |應用程式管理|已上傳 Batch 邀請|

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: da97dde43a6ef13db204f1d3be1229a0dfc30af5
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 8747111921df494b8d5618dc8d6ece99fa821e47
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668043"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147638"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>使用 IoT 中樞 (node.js) 將檔案從裝置上傳至雲端
 
@@ -44,9 +44,9 @@ ms.locfileid: "68668043"
 > [!NOTE]
 > IoT 中樞透過 Azure IoT 裝置 SDK 來支援許多裝置平台和語言 (包括 C、.NET、Javascript、Python 和 Java)。 如需如何將您的裝置連線至 Azure IoT 中樞的逐步指示, 請參閱 [Azure IoT 開發人員中心]。
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
 
-* Node.js 10.0. x 版或更新版本。
+* Node.js 10.0. x 版或更新版本。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 

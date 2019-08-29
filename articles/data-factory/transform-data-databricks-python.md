@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02c4644c4440c3a00a21ef22674bcc0d00902ac2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002837"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140798"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>在 Azure Databricks 中執行 Python 活動來轉換資料
 
@@ -66,10 +66,10 @@ ms.locfileid: "66002837"
 |---|---|---|
 |name|管線中的活動名稱。|是|
 |description|說明活動用途的文字。|否|
-|type|若是 Databricks Python 活動，則活動類型是 DatabricksSparkPython。|是|
+|Type|若是 Databricks Python 活動，則活動類型是 DatabricksSparkPython。|是|
 |linkedServiceName|Python 活動執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
 |pythonFile|要執行之 Python 檔案的 URI。 只支援 DBFS 路徑。|是|
-|parameters|將傳遞至 Python 檔案的命令列參數。 這是字串陣列。|否|
+|參數|將傳遞至 Python 檔案的命令列參數。 這是字串陣列。|否|
 |程式庫|要在負責執行工作的叢集上，即將安裝的程式庫清單。 可以是 < 字串, 物件 > 陣列|否|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 活動支援的程式庫

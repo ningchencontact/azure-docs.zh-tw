@@ -3,23 +3,20 @@ title: 從 Azure Data Factory 叫用 Spark 程式 | Microsoft Docs
 description: 了解如何從 Azure Data Factory 使用 MapReduce 活動來叫用 Spark 程式。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5f39331cb6fb5da370ec34b38592f513d713e957
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 08aa1303aeaa0a80f0825f45e037109b98e9771e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640284"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135345"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -331,7 +328,7 @@ Spark 活動是 Data Factory 所支援的其中一個[資料轉換活動](data-f
 | -------- | ----------- | -------- |
 | name | 管線中的活動名稱。 | 是 |
 | description | 說明活動用途的文字。 | 否 |
-| type | 這個屬性必須設為 HDInsightSpark。 | 是 |
+| Type | 這個屬性必須設為 HDInsightSpark。 | 是 |
 | linkedServiceName | Spark 程式執行所在的 HDInsight 連結服務名稱。 | 是 |
 | rootPath | 包含 Spark 檔案的 Blob 容器和資料夾。 檔案名稱有區分大小寫。 | 是 |
 | entryFilePath | Spark 程式碼/套件之根資料夾的相對路徑。 | 是 |

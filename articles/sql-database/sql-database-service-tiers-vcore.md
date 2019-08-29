@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c35863ed1d564adf4190efa1888d24f4f4f68ddf
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637292"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147863"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>在 vCore 服務層級之間選擇, 並從 DTU 服務層進行遷移
 
@@ -43,7 +43,7 @@ VCore 為基礎的購買模型提供三個服務層級: 一般用途、超大規
 ||**一般用途**|**業務關鍵**|**超大規模資料庫**|
 |---|---|---|---|
 |最適用的對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整的計算和儲存體選項。|具有高 i/o 需求的商務應用程式。 使用數個隔離的複本, 為失敗提供最高的復原能力。|具有可高度擴充性的儲存體和讀取規模需求的大多數商務工作負載。|
-|計算|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心<br/>**無伺服器計算**:<br/>第 5 代：0.5-4 虛擬核心|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|
+|計算|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心<br/>**無伺服器計算**:<br/>第 5 代：0.5-16 虛擬核心|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|
 |記憶體|已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB<br/>**無伺服器計算**:<br/>第 5 代：每個虛擬核心 3 GB|已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB |已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB|
 |儲存體|使用遠端存放。<br/>**單一資料庫布建計算**:<br/>5 GB – 4 TB<br/>**單一資料庫無伺服器計算**:<br/>5 GB - 1 TB<br/>**受控實例**:32 GB - 8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫布建計算**:<br/>5 GB – 4 TB<br/>**受控實例**:<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
 |I/o 輸送量 (近似)|**單一資料庫**:500 IOPS (每個 vCore 具有7000的最大 IOPS)。<br/>**受控實例**:視檔案[大小而](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)定。|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|超大規模資料庫是多層式架構, 在多個層級進行快取。 有效的 IOPs 將視工作負載而定。|

@@ -3,22 +3,21 @@ title: 使用 Azure .NET SDK 建立資料管線 |Microsoft Docs
 description: 了解如何使用 Data Factory .NET SDK，以程式設計方式建立、監視和管理 Azure Data Factory。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11120a84f2796061d76d8d813ba906da073b57c6
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487277"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140204"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>使用 Azure Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
 > [!NOTE]
@@ -30,7 +29,7 @@ ms.locfileid: "60487277"
 > [!NOTE]
 > 這篇文章並未涵蓋所有的 Data Factory .NET API。 如需適用於 Data Factory 之 .NET API 的完整文件，請參閱 [Data Factory .NET API 參考](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -112,14 +111,14 @@ ms.locfileid: "60487277"
 
 1. 使用 Visual Studio 2012/2013/2015 建立 C# .NET 主控台應用程式。
    1. 啟動 **Visual Studio** 2012/2013/2015。
-   2. 按一下 [檔案]  ，指向 [新增]  ，然後按一下 [專案]  。
-   3. 展開 [範本]  ，然後選取 [Visual C#]  。 在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。
-   4. 從右邊的專案類型清單中選取 [主控台應用程式]  。
+   2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
+   3. 展開 [範本]，然後選取 [Visual C#]。 在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。
+   4. 從右邊的專案類型清單中選取 [主控台應用程式] 。
    5. 在 [名稱] 中輸入 **DataFactoryAPITestApp** 。
    6. 在 [位置] 中選取 **C:\ADFGetStarted**。
-   7. 按一下 [確定]  以建立專案。
+   7. 按一下 [確定] 以建立專案。
 2. 按一下 [**工具**]，指向 [**NuGet 封裝管理員**]，然後按一下 [**封裝管理員主控台**]。
-3. 在 [Package Manager Console]  中，輸入下列命令：
+3. 在 [Package Manager Console] 中，輸入下列命令：
    1. 執行以下命令安裝 Data Factory 套件：`Install-Package Microsoft.Azure.Management.DataFactories`
    2. 執行下列命令安裝 Azure Active Directory 套件 (您在程式碼中使用 Active Directory API)︰`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. 以下列內容取代專案中 **App.config** 檔案的內容： 
@@ -447,15 +446,15 @@ ms.locfileid: "60487277"
     }
     ```
 
-15. 在 [方案總管] 中，展開專案：**DataFactoryAPITestApp**，以滑鼠右鍵按一下 [參考]  ，然後按一下 [新增參考]  。 選取 `System.Configuration` 組件的核取方塊，然後按一下 [確定]  。
-15. 建置主控台應用程式。 按一下功能表上的 [建置]  ，再按一下 [建置方案]  。
+15. 在 [方案總管] 中，展開專案：**DataFactoryAPITestApp**，以滑鼠右鍵按一下 [參考]，然後按一下 [新增參考]。 選取 `System.Configuration` 組件的核取方塊，然後按一下 [確定]。
+15. 建置主控台應用程式。 按一下功能表上的 [建置]，再按一下 [建置方案]。
 16. 確認您 Azure Blob 儲存體之 adftutorial 容器中至少有一個檔案。 如果沒有，請在「記事本」中以下列內容建立 Emp.txt 檔案，然後將它上傳至 adftutorial 容器。
 
     ```
     John, Doe
     Jane, Doe
     ```
-17. 按一下功能表上的 [偵錯]   -> [開始偵錯]  ，執行範例。 當您看到 [取得資料配量的執行詳細資料]  ，請等待數分鐘再按 **ENTER**。
+17. 按一下功能表上的 [偵錯] -> [開始偵錯]，執行範例。 當您看到 [取得資料配量的執行詳細資料]，請等待數分鐘再按 **ENTER**。
 18. 使用 Azure 入口網站確認 Data Factory： **APITutorialFactory** 是使用下列成品所建立：
     * 連結服務：**AzureStorageLinkedService**
     * 資料集：**DatasetBlobSource** 和 **DatasetBlobDestination**。

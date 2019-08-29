@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc02b8b5dccbec106e90430fc1714253df6ad847
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334011"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126518"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory Identity Protection 常見問題集
 
 本文包含有關 Azure Active Directory (Azure AD) Identity Protection.常見問題的解答。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。 
 
-## <a name="why-do-some-risk-events-have-closed-system-status"></a>為什麼有些風險事件會有「已關閉 (系統)」狀態？
+## <a name="why-do-some-risk-detections-have-closed-system-status"></a>為什麼部分風險偵測具有「已關閉 (系統)」狀態？
 
-**答：** 這些是 Identity Protection 所偵測到，並在稍後因為事件已不再具有危險性而關閉的風險事件。 這些事件不會計入使用者的風險層級。 
+**答：** Identity Protection 偵測到這些風險偵測, 並于稍後關閉, 因為事件不再被視為有風險。 這些事件不會計入使用者的風險層級。 
 
 ---
 

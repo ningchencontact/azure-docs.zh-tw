@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1244dd460196e5882caab0d4b526850da48d084
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383344"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135788"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 同步：防止意外刪除
 本主題說明 Azure AD Connect 中的防止意外刪除 (可防止意外刪除) 功能。
@@ -50,20 +50,22 @@ ms.locfileid: "60383344"
 
 如果這是非預期的結果，請進行調查，並採取修正動作。 若要查看哪些物件即將被刪除時，請執行下列作業：
 
-1. 從 [開始] 功能表啟動 [同步處理服務]  。
-2. 移至 [連接器]  。
+1. 從 [開始] 功能表啟動 [同步處理服務] 。
+2. 移至 [連接器]。
 3. 選取 **Azure Active Directory**類型的連接器。
-4. 在右側的 [動作]  之下，選取 [搜尋連接器空間]  。
-5. 在 [範圍]  下的快顯中，選取 [中斷連線起點]  ，並選擇一個過去的時間。 按一下 [搜尋]  。 此頁面會顯示所有即將刪除的物件。 按一下每個項目，您就可以了解該物件的其他資訊。 您也可以按一下 [資料行設定]  ，新增其他屬性以顯示在方格中。
+4. 在右側的 [動作] 之下，選取 [搜尋連接器空間]。
+5. 在 [範圍] 下的快顯中，選取 [中斷連線起點]，並選擇一個過去的時間。 按一下 [搜尋]。 此頁面會顯示所有即將刪除的物件。 按一下每個項目，您就可以了解該物件的其他資訊。 您也可以按一下 [資料行設定] ，新增其他屬性以顯示在方格中。
 
 ![搜尋連接器空間](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
+
+[!NOTE] 如果您不確定是否需要所有刪除, 而且想要關閉更安全的路由。 您可以使用 PowerShell Cmdlet: `Enable-ADSyncExportDeletionThreshold`設定新的閾值, 而不是停用可能會導致不想要刪除的閾值。 
 
 如果想要刪除所有項目，請執行下列作業：
 
 1. 若要擷取目前的刪除閾值，請執行 PowerShell Cmdlet `Get-ADSyncExportDeletionThreshold`。 提供 Azure AD 全域系統管理員帳戶與密碼。 預設值為 500。
 2. 若要暫時停用此保護功能並刪除這些項目，請執行 PowerShell Cmdlet： `Disable-ADSyncExportDeletionThreshold`。 提供 Azure AD 全域系統管理員帳戶與密碼。
    ![認證](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
-3. 如果 Azure Active Directory Connector 仍處於選取狀態，請選取 [執行]  動作，再選取 [匯出]  。
+3. 如果 Azure Active Directory Connector 仍處於選取狀態，請選取 [執行] 動作，再選取 [匯出]。
 4. 若要重新啟用此保護功能，請執行 PowerShell Cmdlet： `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`。 使用您在擷取目前刪除閾值時記下的值來取代 500。 提供 Azure AD 全域系統管理員帳戶與密碼。
 
 ## <a name="next-steps"></a>後續步驟

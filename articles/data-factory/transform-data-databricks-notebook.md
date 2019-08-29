@@ -3,21 +3,21 @@ title: 使用 Azure Databricks Notebook 來轉換資料 | Microsoft Docs
 description: 了解如何藉由執行 Databricks Notebook 來處理或轉換資料。
 services: data-factory
 documentationcenter: ''
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: db437c7699c7fddc2b04175537446f53c4c4bc85
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335850"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140820"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>執行 Databricks Notebook 來轉換資料
 
@@ -61,7 +61,7 @@ ms.locfileid: "68335850"
 |---|---|---|
 |name|管線中的活動名稱。|是|
 |description|說明活動用途的文字。|否|
-|type|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|是|
+|Type|若是 Databricks Notebook 活動，則活動類型是 DatabricksNotebook。|是|
 |linkedServiceName|Databricks Notebook 執行所在之 Databricks 連結服務的名稱。 若要深入了解此連結服務，請參閱 [計算連結服務](compute-linked-services.md) 一文。|是|
 |notebookPath|要在 Databricks 工作區中執行之 Notebook 的絕對路徑。 此路徑必須以斜線開頭。|是|
 |baseParameters|機碼值組的陣列。 基礎映像參數可以用於每個活動執行。 如果 Notebook 採用未指定的參數，則系統會使用 Notebook 的預設值。 在 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair) 中尋找更多參數的相關資料。|否|

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3d1f82c5eadde52edb721185a497d9b187eebb7b
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3ef727c4d1f1af13b66c7de02b8e67cc5e45f065
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668074"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147485"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>使用 IoT 中樞將檔案從裝置上傳至雲端 (JAVA)
 
@@ -44,7 +44,7 @@ ms.locfileid: "68668074"
 > [!NOTE]
 > IoT 中樞透過 Azure IoT 裝置 SDK 來支援許多裝置平台和語言 (包括 C、.NET 及 Javascript)。 如需如何將您的裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心](https://azure.microsoft.com/develop/iot)。
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
 
 * 最新的 [Java SE 開發套件 8](https://aka.ms/azure-jdks)
 

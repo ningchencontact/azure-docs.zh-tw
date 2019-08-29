@@ -3,22 +3,20 @@ title: Azure Data Factory - 客戶案例研究 | Microsoft Docs
 description: 深入了解我們某些客戶使用 Azure Data Factory 的情況。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 5474d9a1-e278-429f-bc31-db34551d3881
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: c636032766b90af78e7794b3d515b924fa31d6cd
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4944a870d27fd9ca0b64234b303906739bdc0d04
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596020"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139957"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - 客戶案例研究
 Data Factory 是雲端架構資訊管理服務，會自動移動和轉換資料。 許多產業的客戶會使用 Data Factory 和其他 Azure 服務來建置其分析管線以及解決其業務問題。  直接向我們的客戶學習他們使用 Data Factory 的方法和原因。

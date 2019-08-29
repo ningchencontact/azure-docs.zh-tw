@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: ff6a071a2d157bf79ab27fcbf4f9753fdbcac118
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a731d9e0c97cb8431b1294d961ad46ff324f32be
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354869"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141174"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>以自動化機器學習 (AutoML) 在 Azure HDInsight 中的 Apache Spark 上執行 Azure Machine Learning 工作負載
 
@@ -34,7 +34,7 @@ Azure Machine Learning 可簡化及加速機器學習模型的建立、定型和
 
 ## <a name="authentication-for-workspace"></a>工作區的驗證
 
-建立工作區和提交實驗都需要驗證權杖。 您可以使用 [Azure AD 應用程式](../../active-directory/develop/app-objects-and-service-principals.md)來產生此權杖。 如果帳戶未啟用多重要素驗證，則 [Azure AD 使用者](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)也可用來產生必要的驗證權杖。  
+建立工作區和提交實驗都需要驗證權杖。 您可以使用 [Azure AD 應用程式](../../active-directory/develop/app-objects-and-service-principals.md)來產生此權杖。 如果帳戶未啟用多重要素驗證，則 [Azure AD 使用者](/azure/python/python-sdk-azure-authenticate)也可用來產生必要的驗證權杖。  
 
 下列程式碼片段會使用 **Azure AD 應用程式**來建立驗證權杖。
 

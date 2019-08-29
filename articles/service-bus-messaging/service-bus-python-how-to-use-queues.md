@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: fa3aedf138564fedafe555adfbaf6c56efc1813e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 9bb53a8e68866e2ed346277171e2706f5907e8af
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360852"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141920"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>如何將服務匯流排佇列搭配 Python 使用
 
@@ -27,7 +27,7 @@ ms.locfileid: "68360852"
 
 在本教學課程中, 您將瞭解如何建立 Python 應用程式, 以在服務匯流排佇列中傳送和接收訊息。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
 2. 依照[使用 Azure 入口網站建立服務匯流排佇列一](service-bus-quickstart-portal.md)文中的步驟進行。
     1. 閱讀服務匯流排**佇列**的快速**總覽**。 
@@ -36,7 +36,7 @@ ms.locfileid: "68360852"
 
         > [!NOTE]
         > 在本教學課程中, 您將使用 Python 在服務匯流排命名空間中建立**佇列**。 
-1. 安裝 Python 或[python Azure 服務匯流排套件][Python Azure Service Bus package], 請參閱[Python 安裝指南](../python-how-to-install.md)。 請參閱[這裡](/python/api/overview/azure/servicebus?view=azure-python)的服務匯流排 Python SDK 的完整檔。
+1. 安裝 Python 或[python Azure 服務匯流排套件][Python Azure Service Bus package], 請參閱[Python 安裝指南](/azure/python/python-sdk-azure-install)。 請參閱[這裡](/python/api/overview/azure/servicebus?view=azure-python)的服務匯流排 Python SDK 的完整檔。
 
 ## <a name="create-a-queue"></a>建立佇列
 **ServiceBusClient**物件可讓您使用佇列。 將下列程式碼新增至您想要在其中以程式設計方式存取服務匯流排之任何 Python 檔案內的頂端附近：

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 1b35533eeb4c4a364588dbea11f74e8d6b76df3b
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: d9f1afdff53ada2df7722fcfdd7014fb6c417e39
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998231"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135179"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -555,7 +555,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |SourceSystem|一律：Azure |
 |TimeGenerated [UTC]|記錄檔記錄時的時間戳記 |
 |Type|一律：AzureDiagnostics |
-|ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQ |
+|ResourceProvider|資源提供者名稱。 一律：MICROSOFT.SQL |
 |Category|類別名稱。 一律：錯誤 |
 |OperationName|作業名稱。 一律：錯誤事件 |
 |Resource|資源的名稱 |

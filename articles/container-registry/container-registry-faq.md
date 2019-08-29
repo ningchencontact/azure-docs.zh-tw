@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 2b835765bbd40ffbd4a5117f767a7ba163e41dda
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309294"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142681"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>關於 Azure Container Registry 的常見問題
 
@@ -31,7 +31,7 @@ ms.locfileid: "68309294"
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>我可以使用 Resource Manager 範本建立 Azure Container Registry 嗎？
 
-是的。 以下是您可以用來建立登錄的[範本](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json)。
+是的。 以下是您可以用來建立登錄的[範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry)。
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR 中的映射是否有安全性弱點掃描？
 
@@ -127,7 +127,7 @@ az acr repository show-manifests -n myRegistry --repository myRepository --query
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-注意:您可以在`-y` delete 命令中新增以略過確認。
+注意：您可以在`-y` delete 命令中新增以略過確認。
 
 如需詳細資訊, 請參閱[在 Azure Container Registry 中刪除容器映射](container-registry-delete.md)。
 
@@ -412,7 +412,7 @@ curl $redirect_url
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>如何? 在 Windows 上收集 HTTP 追蹤？
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 - 在 fiddler 中啟用解密 HTTPs:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - 啟用 Docker 以透過 Docker ui 使用 proxy:<https://docs.docker.com/docker-for-windows/#proxies>

@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b0d8eef025efb6398f1d7c734ca558540b157fef
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963009"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128262"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>在具有 Azure Machine Learning 管線的大型資料集上執行批次預測
 
@@ -28,7 +28,7 @@ ms.locfileid: "68963009"
 
 在下列步驟中, 您會建立[機器學習管線](concept-ml-pipelines.md)來註冊預先定型的電腦視覺模型 ([開始-V3](https://arxiv.org/abs/1512.00567))。 然後, 您可以使用預先定型的模型, 對 Azure Blob 儲存體帳戶中可用的映射執行批次評分。 這些用於計分的影像均為來自 [ImageNet](http://image-net.org/) \(英文\) 資料集的未標記影像。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -114,7 +114,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>設定計算目標
 
-在 Azure Machine Learning 中，*計算* (或*計算目標*) 係指會在您機器學習管線中執行計算步驟的機器或叢集。 例如，您可以建立 `Azure Machine Learning compute`。
+在 Azure Machine Learning 中，*計算* (或*計算目標*) 係指會在您機器學習管線中執行計算步驟的機器或叢集。 例如, 您可以使用[AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py)類別來建立 Azure Machine Learning 計算。
 
 ```python
 from azureml.core.compute import AmlCompute

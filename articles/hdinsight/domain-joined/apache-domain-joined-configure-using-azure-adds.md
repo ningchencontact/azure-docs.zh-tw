@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 300fd31632a6b3c9043c19dd9b47f40258080261
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1165cbeff1144567e43f408c0866c0b8a571882d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614214"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125597"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
@@ -22,7 +22,7 @@ ms.locfileid: "69614214"
 在本文中，您將了解如何使用 Azure Active Directory Domain Services (Azure AD-DS) 來設定具有 ESP 的 HDInsight 叢集。
 
 > [!NOTE]  
-> 適用于叢集類型的 ESP 在 HDInsight 3.6 和4.0 中已正式運作:Apache Spark、互動式、Apache Hadoop 和 HBase。 適用于 Apache Kafka 叢集類型的 ESP 處於預覽狀態。
+> 適用于叢集類型的 ESP 在 HDInsight 3.6 和4.0 中已正式運作:Apache Spark、互動式、Hadoop 和 HBase。 Apache Kafka 叢集類型的 ESP 僅供預覽, 僅提供最佳的支援。 不支援在 ESP GA 日期之前建立的 ESP 叢集 (2018 年10月1日)。
 
 ## <a name="enable-azure-ad-ds"></a>啟用 Azure AD-DS
 

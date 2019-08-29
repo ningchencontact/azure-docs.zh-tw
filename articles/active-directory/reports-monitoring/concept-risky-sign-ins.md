@@ -15,20 +15,20 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629e7bf8ee7100b5927483ecfd4efa1d9223c151
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 72493400ba20ef3c838a636b66afdf26aa00ff62
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989929"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127425"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中有風險的登入報告
 
-Azure Active Directory (Azure AD) 會偵測使用者帳戶相關的可疑動作。 針對每個偵測到的動作，將會建立一筆稱為**風險事件**的記錄。 如需詳細資訊，請參閱 [Azure AD 風險事件](concept-risk-events.md)。 
+Azure Active Directory (Azure AD) 會偵測使用者帳戶相關的可疑動作。 針對每個偵測到的動作, 會建立稱為「**風險偵測**」的記錄。 如需詳細資訊, 請參閱[Azure AD 風險](concept-risk-events.md)偵測。 
 
 您可以從 [Azure 入口網站](https://portal.azure.com)中，藉由選取 [Azure Active Directory] 刀鋒視窗，然後瀏覽至 [安全性] 區段，來存取安全性報告。 
 
-有兩個會根據風險事件來進行計算的不同安全性報告：
+有兩個不同的安全性報告是根據風險偵測來計算:
 
 - **有風險的登入** - 有風險的登入表示非使用者帳戶合法擁有者的某人嘗試登入。
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) 會偵測使用者帳戶相關的可疑動作�
 
 ![有風險的登入](./media/concept-risky-sign-ins/10.png)
 
-若要了解如何設定原則來觸發這些風險事件，請參閱[如何設定使用者風險原則](../identity-protection/howto-user-risk-policy.md)。  
+若要瞭解如何設定觸發這些風險偵測的原則, 請參閱[如何設定使用者風險原則](../identity-protection/howto-user-risk-policy.md)。  
 
 ## <a name="who-can-access-the-risky-sign-ins-report"></a>誰可以存取風險登入報表？
 
@@ -54,9 +54,9 @@ Azure Active Directory (Azure AD) 會偵測使用者帳戶相關的可疑動作�
 
 - 在 [Azure Active Directory Free 和 Basic 版本] 中，您會取得有風險的登入清單。 
 
-- 此外，**Azure Active Directory Premium 1** 版本也可讓您檢查每份報告中所偵測到的某些基礎風險事件。 
+- 此外, **Azure Active Directory Premium 1**版本也可讓您檢查已針對每個報告偵測到的一些基礎風險偵測。 
 
-- **Azure Active Directory Premium 2** 版本可提供有關所有基礎風險事件的最詳細資訊，也可讓您設定安全性原則，自動回應已設定的風險層級。
+- **Azure Active Directory Premium 2**版本提供有關所有基礎風險偵測的最詳細資訊, 同時也可讓您設定安全性原則, 以自動回應已設定的風險層級。
 
 ## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Azure AD 免費和基本版本的有風險的登入報告
 
@@ -90,26 +90,26 @@ Azure AD 免費和基本版本會為您的使用者提供已偵測到的有風�
 
 Azure AD 進階版本中有風險的登入報告可為您提供：
 
-- 關於已偵測到之[風險事件類型](concept-risk-events.md)的彙總資訊。 使用 **Azure AD Premium P1 版本**時，您授權未涵蓋的偵測會顯示為偵測到**有額外風險的登入**風險事件。 使用 **Azure AD Premium P2 版本**時，您會獲得有關所有基礎偵測的最詳細資訊。
+- 已偵測到之[風險偵測類型](concept-risk-events.md)的相關匯總資訊。 使用**Azure AD Premium P1 版本**時, 您的授權未涵蓋的偵測會顯示為偵測**到有額外風險**的「風險偵測」登入。 使用 **Azure AD Premium P2 版本**時，您會獲得有關所有基礎偵測的最詳細資訊。
 
 - 下載報告的選項
 
 ![有風險的登入](./media/concept-risky-sign-ins/456.png)
 
-當您選取風險事件時，即會取得這個風險事件的詳細報告檢視，讓您能夠：
+當您選取風險偵測時, 您會取得此風險偵測的詳細報表檢視, 讓您能夠:
 
 - 選擇設定[使用者風險補救原則](../identity-protection/howto-user-risk-policy.md)  
 
-- 檢閱風險事件的偵測時間軸  
+- 檢查風險偵測的偵測時程表  
 
-- 檢閱已偵測到此風險事件的使用者清單
+- 查看已偵測到此風險偵測的使用者清單
 
-- 手動關閉風險事件。 
+- 手動關閉風險偵測。 
 
 ![有風險的登入](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> 有時，您可能會發現在[登入報告](concept-sign-ins.md)中沒有相對應登入項目的風險事件。 這是因為 Identity Protection 會同時評估**互動式**和**非互動式**登入的風險，而登入報告則只會顯示互動式登入的部分。
+> 有時候, 您可能會發現在登[入報告](concept-sign-ins.md)中沒有相對應登入專案的風險偵測。 這是因為 Identity Protection 會同時評估**互動式**和**非互動式**登入的風險，而登入報告則只會顯示互動式登入的部分。
 
 當您選取使用者時，即會取得這位使用者的詳細報告檢視，讓您能夠：
 
@@ -119,12 +119,12 @@ Azure AD 進階版本中有風險的登入報告可為您提供：
 
 - 關閉所有事件
 
-- 調查針對該使用者報告的風險事件。 
+- 調查使用者所回報的風險偵測。 
 
 ![有風險的登入](./media/concept-risky-sign-ins/324.png)
 
-若要調查風險事件，請從清單中選取一項。  
-這會開啟這個風險事件的 [詳細資料] 刀鋒視窗。 在 [詳細資料] 刀鋒視窗上，您可以選擇手動關閉風險事件或重新啟動已手動關閉的風險事件。 
+若要調查風險偵測, 請從清單中選取一個。  
+這會開啟此風險偵測的 [**詳細資料**] 分頁。 在 [**詳細資料**] 分頁上, 您可以選擇手動關閉風險偵測, 或重新開機手動關閉的風險偵測。 
 
 ![有風險的登入](./media/concept-risky-sign-ins/325.png)
 
@@ -132,4 +132,4 @@ Azure AD 進階版本中有風險的登入報告可為您提供：
 
 - [如何設定使用者風險原則](../identity-protection/howto-user-risk-policy.md)
 - [如何設定風險補救原則](../identity-protection/howto-user-risk-policy.md)
-- [風險事件類型](concept-risk-events.md)
+- [風險偵測類型](concept-risk-events.md)

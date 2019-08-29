@@ -1,22 +1,20 @@
 ---
 title: PowerShell 指令碼 - 使用 Data Factory 轉換雲端中的資料 | Microsoft Docs
 description: 這個 PowerShell 指令碼會藉由在 Azure HDInsight Spark 叢集上執行 Spark 程式，來轉換雲端中的資料。
-services: data-factory
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2017
-ms.author: shlo
-ms.openlocfilehash: bfec4ffa4d8a9f41b9c9c55ab0d84f4133bd2445
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 973efe90ea1da68e4c4e4b0dbbb4c191be18213d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160647"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140867"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell 指令碼 - 使用 Azure Data Factory 轉換雲端中的資料
 
@@ -26,7 +24,7 @@ ms.locfileid: "66160647"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * **Azure 儲存體帳戶**。 您需要建立 python 指令碼和輸入檔案，並上傳至 Azure 儲存體。 spark 程式的輸出會儲存在這個儲存體帳戶中。 隨選 Spark 叢集與其主要儲存體是使用相同的儲存體帳戶。  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>將 python 指令碼上傳至 Blob 儲存體帳戶

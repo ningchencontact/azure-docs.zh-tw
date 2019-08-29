@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967085"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124918"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>委派 Azure AD 權利管理 (預覽) 中的工作
 
@@ -30,13 +30,15 @@ ms.locfileid: "68967085"
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
 > 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-根據預設, 全域系統管理員和使用者系統管理員可以建立及管理 Azure AD 權利管理的所有層面。 不過, 這些角色中的使用者可能不知道需要存取套件的所有案例。 這通常是在部門中, 使用者知道需要共同作業的人員。
+根據預設, 全域系統管理員和使用者系統管理員可以建立及管理 Azure AD 權利管理的所有層面。 不過, 這些角色中的使用者可能不知道需要存取套件的所有案例。 這通常是在部門中, 使用者知道需要共同作業的人員。 
 
-您可以授與使用者執行其工作所需的最低許可權, 並避免建立衝突或不適當的存取權限, 而不是將不受限制的許可權授予非系統管理員。 本文說明您可以指派的角色, 以委派權利管理中的各種工作。
+您可以授與使用者執行其工作所需的最低許可權, 並避免建立衝突或不適當的存取權限, 而不是將不受限制的許可權授予非系統管理員。 本文說明您可以指派的角色, 以委派權利管理中的各種工作。 
 
 ## <a name="delegate-example-for-departmental-adoption"></a>委派部門採用範例
 
-若要瞭解如何在「權利管理」中委派工作, 它有助於考慮一個範例。 假設您的組織有下列五個使用者:
+若要瞭解如何在「權利管理」中委派工作, 它有助於考慮一個範例。 
+
+假設您的組織有下列五個使用者:
 
 | 使用者 | 部門 | 注意 |
 | --- | --- | --- |
@@ -59,6 +61,7 @@ ms.locfileid: "68967085"
 現在, 研究和行銷部門可以利用權利管理。 Bob、Carol、Dave 和 Elisa 可以在其各自的目錄中建立和管理存取封裝。
 
 ![權利管理委派範例](./media/entitlement-management-delegate/elm-delegate.png)
+
 
 ## <a name="entitlement-management-roles"></a>權利管理角色
 
@@ -113,6 +116,7 @@ ms.locfileid: "68967085"
 | [應用程式系統管理員](../users-groups-roles/directory-assign-admin-roles.md) | 目錄擁有者 |  |  | :heavy_check_mark: |  |
 | [雲端應用程式系統管理員](../users-groups-roles/directory-assign-admin-roles.md) | 目錄擁有者 |  |  | :heavy_check_mark: |  |
 | 使用者 | 目錄擁有者 | 只有在群組擁有者 | 只有在群組擁有者 | 只有應用程式擁有者 |  |
+
 
 ## <a name="add-a-catalog-creator"></a>新增目錄建立者
 

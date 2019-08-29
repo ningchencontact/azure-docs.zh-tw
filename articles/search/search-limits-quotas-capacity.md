@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: 9ddc7ad8882b30a17be5820116da72c5ab32fad9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640616"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141139"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 儲存體、工作負載的最大限制, 以及索引、檔和其他物件的數量上限, 取決於您是否**在免費**、**基本**、**標準**或**儲存體優化**定價層布建[Azure 搜尋服務](search-create-service-portal.md)。
@@ -124,6 +124,15 @@ ms.locfileid: "69640616"
 <sup>4</sup> 每個技能集上限為 30 個技術。
 
 <sup>5</sup> 在執行時間方面，Azure Blob 索引中的認知搜尋工作負載和映像分析較一般文字索引短。 影像分析和自然語言處理會耗用大量運算資源，並且需要大量的可用處理能力。 執行時間已減少，佇列中的其他作業才有機會執行。  
+
+## <a name="synonym-limits"></a>同義字限制
+
+允許的同義字對應數目上限會依定價層而有所不同。 每個規則最多可以有20個擴充, 其中的擴充是 equivalvent 的詞彙。 例如, 假設有「cat」, 與 "小貓"、"貓科" 和 "felis" (貓的 genus) 的關聯會計算為3個擴充。
+
+| Resource | 免費 | 基本 | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| -------- | -----|------ |----|----|----|-------|---|----|
+| 同義字地圖的最大值 |3 |3|5 |10 |20 |20 | 10 | 10 |
+| 每個對應的規則數目上限 |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## <a name="queries-per-second-qps"></a>每秒查詢數目 (QPS)
 

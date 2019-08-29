@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779682"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125118"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>使用 Azure Active Directory 來建立具彈性的存取控制管理策略
 
@@ -140,28 +140,28 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 **範例 A - 用以還原對任務關鍵性共同作業應用程式之存取權的應變 CA 原則：**
 
 * 原則 1：針對 Exchange 和 SharePoint 要求要有「已加入網域」的裝置
-  * 名稱:EM001 - ENABLE IN EMERGENCY:MFA Disruption[1/4] - Exchange SharePoint - 需要混合式 Azure AD Join
+  * 名稱：EM001 - ENABLE IN EMERGENCY:MFA Disruption[1/4] - Exchange SharePoint - 需要混合式 Azure AD Join
   * 使用者和群組：包含 ContingencyAccess。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：Any
   * 授與控制權：要求已加入網域
   * 狀態：已停用
 * 原則 2：封鎖 Windows 以外的平台
-  * 名稱:EM002 - ENABLE IN EMERGENCY:MFA Disruption[2/4] - Exchange SharePoint - 封鎖 Windows 以外的存取
+  * 名稱：EM002 - ENABLE IN EMERGENCY:MFA Disruption[2/4] - Exchange SharePoint - 封鎖 Windows 以外的存取
   * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：裝置平台包含所有平台，但 Windows 除外
   * 授與控制權：封鎖
   * 狀態：已停用
 * 原則 3：封鎖 CorpNetwork 以外的網路
-  * 名稱:EM003 - ENABLE IN EMERGENCY:MFA Disruption[3/4] - Exchange SharePoint - 封鎖公司網路以外的存取
+  * 名稱：EM003 - ENABLE IN EMERGENCY:MFA Disruption[3/4] - Exchange SharePoint - 封鎖公司網路以外的存取
   * 使用者和群組：包含所有使用者。 排除 CoreAdmins 和 EmergencyAccess
   * 雲端應用程式：Exchange Online 和 SharePoint Online
   * 條件：位置包含任何位置，但 CorpNetwork 除外
   * 授與控制權：封鎖
   * 狀態：已停用
 * 原則 4：明確封鎖 EAS
-  * 名稱:EM004 - ENABLE IN EMERGENCY:MFA Disruption[4/4] - Exchange - 封鎖所有使用者的 EAS
+  * 名稱：EM004 - ENABLE IN EMERGENCY:MFA Disruption[4/4] - Exchange - 封鎖所有使用者的 EAS
   * 使用者和群組：包含所有使用者
   * 雲端應用程式：包含 Exchange Online
   * 條件：用戶端應用程式：Exchange Active Sync
@@ -182,14 +182,14 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 **範例 B - 應變 CA 原則：**
 
 * 原則 1：封鎖不在 SalesContingency 小組中的所有人員
-  * 名稱:EM001 - ENABLE IN EMERGENCY:Device Compliance Disruption[1/2] - Salesforce - 封鎖 SalesforceContingency 以外的所有使用者
+  * 名稱：EM001 - ENABLE IN EMERGENCY:Device Compliance Disruption[1/2] - Salesforce - 封鎖 SalesforceContingency 以外的所有使用者
   * 使用者和群組：包含所有使用者。 排除 SalesAdmins 和 SalesforceContingency
   * 雲端應用程式：Salesforce。
   * 條件：None
   * 授與控制權：封鎖
   * 狀態：已停用
 * 原則 2：封鎖來自行動平台以外任何平台的銷售小組 (以縮小受攻擊面區域)
-  * 名稱:EM002 - ENABLE IN EMERGENCY:Device Compliance Disruption[2/2] - Salesforce - 封鎖 iOS 和 Android 以外的所有平台
+  * 名稱：EM002 - ENABLE IN EMERGENCY:Device Compliance Disruption[2/2] - Salesforce - 封鎖 iOS 和 Android 以外的所有平台
   * 使用者和群組：包含 SalesforceContingency。 排除 SalesAdmins
   * 雲端應用程式：Salesforce
   * 條件：裝置平台包含所有平台，但 iOS 和 Android 除外
@@ -232,7 +232,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 1. 作為變更控制策略的一部分，記載每個變更和先前狀態，如此才能在存取控制措施完全正常運作後，立即復原您實作的所有應變措施。
 2. 假設惡意執行者會在您已停用 MFA 時，嘗試透過密碼噴濺或網路釣魚來獲取密碼。 此外，不良執行者也可能已經有先前未授與任何資源存取權的密碼，而可在這段期間內嘗試使用。 針對關鍵使用者 (例如主管)，您可以藉由在停用其 MFA 之前重設其密碼，來局部降低此風險。
 3. 封存所有登入活動以識別在停用 MFA 的期間，哪些人存取了哪些資源。
-4. [將在這段期間內所回報的所有風險事件分級](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)。
+4. 分級在此視窗期間[回報的所有風險](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)偵測。
 
 ## <a name="after-a-disruption"></a>在中斷情況發生後
 
@@ -242,7 +242,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 2. 停用您的應變原則。 
 3. 將您在中斷情況發生期間所進行和記載的任何其他變更復原。
 4. 如果您使用了緊急存取帳戶，請記得重新產生認證，並在您的緊急存取帳戶程序中一併實際保護新的認證詳細資料。
-5. 繼續進行[將在可疑活動導致中斷情況後所回報的所有風險事件分級](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)。
+5. 繼續分級在可疑活動中斷之後[回報的所有風險](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins)偵測。
 6. [使用 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) 來撤銷所有已簽發的重新整理權杖，以將一組使用者設為目標。 對於在中斷情況發生期間所使用的特殊權限帳戶來說，撤銷所有重新整理權杖是很重要的，此做法將強制他們重新驗證並符合所還原原則的控制措施。
 
 ## <a name="emergency-options"></a>緊急選項
@@ -254,7 +254,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
    1. 如果您沒有輸出 IP 位址的目錄，或是必須啟用公司網路內部及外部的存取權，您可以透過指定 0.0.0.0/1 與 128.0.0.0/1，將整個 IPv4 位址空間新增為受信任的 IP。
 
 >[!IMPORTANT]
- > 如果您擴大受信任的 IP 位址範圍以將存取解除封鎖，系統就不會產生與 IP 位址關聯的風險事件 (例如，不可能的移動或不熟悉的位置)。
+ > 如果您擴大受信任的 IP 位址以解除封鎖存取, 則不會產生與 IP 位址相關聯的風險偵測 (例如不可能的移動或不熟悉的位置)。
 
 >[!NOTE]
  > 只有在使用 [Azure AD Premium 授權](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)的情況下，才能為 Azure MFA 設定[受信任的 IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings)。

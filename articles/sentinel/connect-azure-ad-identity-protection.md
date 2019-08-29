@@ -1,6 +1,6 @@
 ---
-title: Azure AD Identity Protection 資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
-description: 了解如何將 Azure AD Identity Protection 資料連接至 Azure 的 Sentinel。
+title: 將 Azure AD Identity Protection 資料連線到 Azure Sentinel 預覽 |Microsoft Docs
+description: 瞭解如何將 Azure AD Identity Protection 資料連線到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c88c157c5f37bb0bd1e82225bdacfbd60806bbf8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7478e5a5ec2260760bb6ddb1a90a66e3acdf2201
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620632"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129266"
 ---
-# <a name="connect-data-from-azure-ad-identity-protection"></a>從 Azure AD Identity Protection 連線資料
+# <a name="connect-data-from-azure-ad-identity-protection"></a>從 Azure AD Identity Protection 連接資料
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-您可以從串流記錄[Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)到 Azure Sentinel 串流到 Azure Sentinel 檢視儀表板、 建立自訂警示，並改善調查的警示。 Azure Active Directory Identity Protection 提供的合併的檢視具風險使用者、 風險事件及弱點，並能夠立即修復風險，以及設定原則以自動修復未來的事件。 此服務建基於 Microsoft 保護消費者身分識別的經驗，並獲得極大的訊號達到 13 億個登入一天。 
+您可以將[Azure AD Identity Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)的記錄串流至 Azure Sentinel, 以將警示串流至 Azure Sentinel 以查看儀表板、建立自訂警示, 以及改善調查。 Azure Active Directory Identity Protection 提供有風險的使用者、風險偵測和弱點的匯總視圖, 並能夠立即補救風險, 以及設定原則來自動補救未來的事件。 這項服務是以 Microsoft 的經驗為基礎來保護取用者身分識別, 並從一天超過13000000000個登入的信號獲得極高的精確度。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-- 您必須擁有[Azure Active Directory Premium P1 或 P2 的授權](https://azure.microsoft.com/pricing/details/active-directory/)
-- 以全域系統管理員或安全性系統管理員權限的使用者
+- 您必須擁有[Azure Active Directory Premium P1 或 P2 授權](https://azure.microsoft.com/pricing/details/active-directory/)
+- 具有全域管理員或安全性系統管理員許可權的使用者
 
 
 ## <a name="connect-to-azure-ad-identity-protection"></a>連接到 Azure AD Identity Protection
 
-如果您已經有 Azure AD Identity Protection，請確定它是[在您網路上啟用](../active-directory/identity-protection/enable.md)。
-如果在部署 Azure AD Identity Protection，並取得資料，請參閱警示的資料可以輕鬆地串流到 Azure 的 Sentinel。
+如果您已經有 Azure AD Identity Protection, 請確定已[在您的網路上啟用該功能](../active-directory/identity-protection/enable.md)。
+如果 Azure AD Identity Protection 已部署並取得資料, 則可以輕鬆地將警示資料串流至 Azure Sentinel。
 
 
-1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Azure AD Identity Protection**圖格。
+1. 在 Azure Sentinel 中, 選取 [**資料連線器**], 然後按一下 [ **Azure AD Identity Protection** ] 磚。
 
-2. 按一下  **Connect**開始串流處理至 Azure 的 Sentinel 的 Azure AD Identity Protection 事件。
+2. 按一下 **[連接]** 開始將 Azure AD Identity Protection 事件串流至 Azure Sentinel。
 
 
-6. 若要使用 Log Analytics 中的 Azure AD Identity Protection 警示相關的結構描述，搜尋**IdentityProtectionLogs_CL**。
+6. 若要在 Log Analytics 中針對 Azure AD Identity Protection 警示使用相關的架構, 請搜尋**IdentityProtectionLogs_CL**。
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 Azure AD Identity Protection。 若要深入了解 Azure Sentinel，請參閱下列文章：
-- 了解如何[了解您的資料，與潛在的威脅](quickstart-get-visibility.md)。
-- 開始[偵測威脅與 Azure Sentinel](tutorial-detect-threats.md)。
+在本檔中, 您已瞭解如何將 Azure AD Identity Protection 連接到 Azure Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章：
+- 瞭解如何[查看您的資料和潛在威脅](quickstart-get-visibility.md)。
+- 開始[使用 Azure Sentinel 偵測威脅](tutorial-detect-threats.md)。

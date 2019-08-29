@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.openlocfilehash: 60d8d4594d76fbef36df0259940d4437e28280cb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5957a7c555c5b5d9905fcb7e3310093416ae5efb
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873408"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147695"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>排定及廣播作業 (Java)
 
@@ -52,8 +52,6 @@ ms.locfileid: "69873408"
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
 
 ## <a name="prerequisites"></a>必要條件
-
-若要完成本教學課程，您需要：
 
 * 最新的 [Java SE 開發套件 8](https://aka.ms/azure-jdks)
 

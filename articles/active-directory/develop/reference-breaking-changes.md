@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931794"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125424"
 ---
 # <a name="whats-new-for-authentication"></a>驗證有什麼新功能？ 
 
@@ -41,7 +41,24 @@ ms.locfileid: "68931794"
 
 ## <a name="upcoming-changes"></a>即將推出的變更
 
-2019年8月:根據 URL 剖析規則強制執行後置條件-重複的參數將會觸發錯誤, 不會再忽略參數之間的引號, 而且會忽略[BOM](https://www.w3.org/International/questions/qa-byte-order-mark) 。
+2019年9月:根據 URL 剖析規則額外強制執行後續的語義-重複的參數將會觸發錯誤, 並忽略[BOM](https://www.w3.org/International/questions/qa-byte-order-mark) 。
+
+## <a name="august-2019"></a>2019 年 8 月
+
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>將會更嚴格地強制執行張貼表單的語義-空格, 而且將會忽略引號
+
+**生效日期**：2019年9月2日
+
+**受影響的端點**：1.0 和 2.0 版
+
+**受影響的通訊協定**：使用隨處張貼 ([用戶端認證](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)、[授權碼兌換](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)、 [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc)、 [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow), 以及重新整理[權杖兌換](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+
+從9/2 開始, 使用 POST 方法的驗證要求將會使用更嚴格的 HTTP 標準進行驗證。  具體而言, 不會再從要求表單值中移除空格和雙引號 (")。 這些變更不應該中斷任何現有的用戶端, 而且會確保每次都能可靠地處理傳送至 Azure AD 的要求。 在未來 (請參閱上文) 中, 我們打算另外拒絕重複的參數, 並忽略要求內的 BOM。 
+
+範例：
+
+今天, `?e=    "f"&g=h`會以-so `?e=f&g=h` `e`  == 的相同方式進行剖析`f`。  透過這`    "f"`項變更, 現在會進行剖析, 因此`e`  ==  -這不太可能是有效的引數, 而且要求現在會失敗。 
+
 
 ## <a name="july-2019"></a>2019年7月
 

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 08/16/2019
-ms.openlocfilehash: 2f82bd9c0bcacf2c552df84cdd4f8f2cd6a68c8a
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.date: 08/29/2019
+ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543389"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138724"
 ---
 # <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>使用 Azure 監視器記錄, 取得邏輯應用程式的深入解析和偵測資料
 
@@ -55,7 +55,7 @@ ms.locfileid: "69543389"
 
 ## <a name="install-logic-apps-management-solution"></a>安裝 Logic Apps 管理解決方案
 
-如果您已在建立邏輯應用程式時開啟 Azure 監視器記錄, 請略過此步驟。 您已安裝 Logic Apps 管理解決方案。
+如果您已在建立邏輯應用程式時設定 Azure 監視器記錄, 請略過此步驟。 您已安裝 Logic Apps 管理解決方案。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中, 尋找「log analytics 工作區」, 然後選取 [ **Log analytics 工作區**]。
 
@@ -107,23 +107,21 @@ ms.locfileid: "69543389"
 
    以下範例顯示特定邏輯應用程式的所有執行：
 
-   ![檢視邏輯應用程式或狀態的執行](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
+   ![查看邏輯應用程式的執行和狀態](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   此頁面包含以下進階選項：
+   此頁面具有 advanced 選項: 
 
-   * **追蹤的屬性：**
+   * **追蹤的屬性**資料行:針對您設定追蹤屬性的邏輯應用程式 (依動作分組), 您可以從這個資料行查看這些屬性。 若要查看這些追蹤的屬性, 請選取 [ **view**]。 請可以使用資料行篩選來搜尋追蹤屬性。
 
-     此欄顯示邏輯應用程式的追蹤屬性，並依照依動作分組。 若要查看追蹤的屬性, 請選取 [ **view**]。 請可以使用資料行篩選來搜尋追蹤屬性。
+      ![檢視邏輯應用程式的追蹤屬性](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-     ![檢視邏輯應用程式的追蹤屬性](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+      初次顯示任何新增的追蹤屬性可能需費時 10-15 分鐘。 深入了解[如何將追蹤屬性新增至應用程式邏輯](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)。
 
-     初次顯示任何新增的追蹤屬性可能需費時 10-15 分鐘。 深入了解[如何將追蹤屬性新增至應用程式邏輯](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)。
-
-   * **重新提交：** 您可以重新提交一個或多個已失敗、已成功或仍在執行的邏輯應用程式執行。 選取您要重新提交的執行核取方塊, 然後選取 [**重新提交**]。
+   * **重新提交**:您可以重新提交一個或多個已失敗、已成功或仍在執行中的邏輯應用程式。 選取您要重新提交的執行核取方塊, 然後選取 [**重新提交**]。
 
      ![重新提交邏輯應用程式執行](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-1. 若要篩選這些結果，您可以執行用戶端和伺服器端篩選。
+1. 若要篩選您的結果, 您可以執行用戶端和伺服器端的篩選。
 
    * **用戶端篩選：** 針對每個資料行, 選取您想要的篩選準則, 例如:
 
@@ -133,25 +131,21 @@ ms.locfileid: "69543389"
 
      ![變更時間範圍](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
 
-1. 若要檢視特定執行的所有動作及其詳細資料，請選取邏輯應用程式執行的資料列。
+1. 若要查看特定執行的所有動作及其詳細資料, 請選取邏輯應用程式執行的列。
 
-   以下範例顯示特定邏輯應用程式執行的所有動作：
+   以下範例顯示特定邏輯應用程式執行的所有動作和觸發程式:
 
    ![檢視邏輯應用程式執行的動作](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
 
-1. 在任何結果頁面上, 若要查看結果背後的查詢, 或查看所有結果, 請選取 [**查看全部**], 這會開啟 [記錄搜尋] 頁面。
+1. 在任何結果頁面上, 若要查看結果背後的查詢, 或查看所有結果, 請選取 [**查看全部**], 這會開啟 [**記錄**] 頁面。
 
-   ![在結果頁面上檢視全部](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+   ![查看所有結果](media/logic-apps-monitor-your-logic-apps-oms/logic-app-see-all.png)
 
-   在 [記錄搜尋] 頁面上, 您可以選擇下列選項:
+   在 [**記錄**檔] 頁面上, 您可以選擇下列選項:
 
    * 若要在資料表中查看查詢結果, 請選取 [**資料表**]。
 
-   * 若要變更查詢，您可以編輯搜尋列中的查詢字串。 若要獲得更好的體驗, 請選取 [ **Advanced Analytics**]。
-
-     ![檢視邏輯應用程式執行的動作和詳細資料](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
-     在 [log analytics] 頁面上, 您可以更新查詢, 並從資料表中查看結果。 此查詢使用 [Kusto 查詢語言](https://aka.ms/LogAnalyticsLanguageReference)，如果您想要檢視不同的結果，可予以編輯。
+   * 查詢會使用[Kusto 查詢語言](https://aka.ms/LogAnalyticsLanguageReference), 如果您想要查看不同的結果, 您可以進行編輯。 若要變更查詢, 請更新查詢字串, 然後選取 [**執行**] 來查看資料表中的結果。 
 
      ![Log Analytics-查詢檢視](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 879e2831dc099eabe43f1eefb81b1b7373c665dc
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a173272600bab71264ed3b85ce5141814c0a6aed
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898718"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147214"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>預覽-使用 Azure CLI 在 Azure Kubernetes Service (AKS) 叢集上建立 Windows Server 容器
 
@@ -121,8 +121,11 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-an-aks-cluster"></a>建立 AKS 叢集
 
 若要執行支援 Windows Server 容器之節點集區的 AKS 叢集, 您的叢集必須使用使用[AZURE CNI][azure-cni-about] (advanced) 網路外掛程式的網路原則。 如需協助規劃必要子網範圍和網路考慮的詳細資訊, 請參閱[設定 AZURE CNI 網路][use-advanced-networking]功能。 使用[az aks create][az-aks-create]命令來建立名為*myAKSCluster*的 aks 叢集。 此命令將會建立所需的網路資源 (如果不存在)。
-  * 叢集已設定一個節點
+  * 叢集設定了兩個節點
   * *Windows-admin-password*和*windows-admin-username*參數會針對在叢集上建立的任何 windows Server 容器, 設定系統管理員認證。
+
+> [!NOTE]
+> 若要確保您的叢集能夠可靠地運作, 您應該在預設節點集區中至少執行 2 (兩個) 節點。
 
 提供您自己的安全*PASSWORD_WIN* (請記住, 本文中的命令會進入 BASH shell):
 
@@ -132,7 +135,7 @@ PASSWORD_WIN="P@ssw0rd1234"
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --enable-addons monitoring \
     --kubernetes-version 1.14.6 \
     --generate-ssh-keys \
@@ -184,7 +187,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-下列輸出範例會顯示上一個步驟中建立的單一節點。 請確定節點的狀態為 *Ready*：
+下列範例輸出顯示叢集中的所有節點。 請確定所有節點的狀態為 [*就緒*]:
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION

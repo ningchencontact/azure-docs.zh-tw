@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a978e2755818e88cad580753e041eacd50a9e6d2
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 1b5615de8df42bca64822b0e459c7815412300af
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980471"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125371"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 新增功能的封存檔
 
@@ -1843,11 +1843,11 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 **服務類別：** Identity Protection  
 **產品功能：** 身分識別安全性與保護
 
-您針對偵測到風險事件所獲得的深入解析會與您的 Azure AD 訂用帳戶息息相關。 使用 Azure AD Premium P2 版本時，您會獲得有關所有基礎偵測的最詳細資訊。
+您針對偵測到的風險偵測所取得的深入解析, 會系結至您的 Azure AD 訂用帳戶。 使用 Azure AD Premium P2 版本時，您會獲得有關所有基礎偵測的最詳細資訊。
 
-使用 Azure AD Premium P1 版本時，您授權未涵蓋的偵測會顯示為「偵測到有額外風險的登入」風險事件。
+使用 Azure AD Premium P1 版本時, 您的授權未涵蓋的偵測會顯示為偵測到有額外風險的「風險偵測」登入。
 
-如需詳細資訊，請參閱 [Azure Active Directory 風險事件](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)。
+如需詳細資訊, 請參閱[Azure Active Directory 風險](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)偵測。
  
 ---
 
@@ -1913,7 +1913,7 @@ MFA 設定位於：**Azure Active Directory \> MFA 伺服器**
 
 **可用的內容？**
 
-在轉換至新系統管理主控台的過程中，我們提供了 2 個新 API 來擷取 Azure AD 活動記錄。 新的 API 集合除了能提供更豐富的稽核和登入活動外，還提供更豐富的篩選和排序功能。 現在可透過 Microsoft Graph 的 Identity Protection 風險事件 API 來存取先前透過安全性報告所使用的資料。
+在轉換至新系統管理主控台的過程中，我們提供了 2 個新 API 來擷取 Azure AD 活動記錄。 新的 API 集合除了能提供更豐富的稽核和登入活動外，還提供更豐富的篩選和排序功能。 您現在可以透過 Microsoft Graph 中的身分識別保護風險偵測 API 來存取先前透過安全性報告提供的資料。
 
 如需詳細資訊，請參閱：
 
@@ -2264,13 +2264,13 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
  
 ---
 
-### <a name="aggregation-of-real-time-risk-events"></a>即時風險事件的彙總
+### <a name="aggregation-of-real-time-risk-detections"></a>即時風險偵測的匯總
 
 **類型：** 已變更的功能    
 **服務類別：** 身分識別保護  
 **產品功能：** 身分識別安全性與保護
 
-在 Azure AD Identity Protection 中，現在會針對每個風險事件類型，彙總於指定日子源自於相同 IP 位址的所有即時風險事件。 這項變更會限制所顯示的風險事件量，但對使用者安全性並無任何影響。
+在 Azure AD Identity Protection 中, 現在會針對每個風險偵測類型, 匯總源自指定日期之相同 IP 位址的所有即時風險偵測。 這項變更會限制所顯示的風險偵測量, 而不會變更使用者的安全性。
 
 基礎即時偵測仍然會在使用者每次登入時運作。 如果您已設定登入風險安全性原則以進行 Multi-Factor Authentication 或封鎖存取，在每次發生具風險的登入時，仍然會觸發該原則。
  
@@ -2388,7 +2388,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 
 **可用的內容？**
 
- 在轉換至新系統管理主控台的過程中，有兩個可擷取 Azure AD 活動記錄的新 API 可供使用。 新的 API 集合除了能提供更豐富的稽核和登入活動外，還提供更豐富的篩選和排序功能。 現在透過 Microsoft Graph 中的 Identity Protection 風險事件 API，即可存取先前透過安全性報告提供的資料。
+ 在轉換至新系統管理主控台的過程中，有兩個可擷取 Azure AD 活動記錄的新 API 可供使用。 新的 API 集合除了能提供更豐富的稽核和登入活動外，還提供更豐富的篩選和排序功能。 您現在可以透過 Microsoft Graph 中的身分識別保護風險偵測 API 來存取先前透過安全性報告提供的資料。
 
 
 ## <a name="september-2017"></a>2017 年 9 月

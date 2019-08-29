@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 1022bdc26a340b6b54ad840d1fe47674509fa865
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5fdb822a445e8a62cd36e6dd05aa218b9b41ce9e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871664"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128727"
 ---
 # <a name="join-data"></a>聯結資料
 
@@ -63,7 +62,7 @@ ms.locfileid: "67871664"
     * 選取此選項可同時從兩個輸入資料表中查看索引鍵。
     * 取消選取即可只傳回左邊輸入的索引鍵資料行。
 
-1. 執行實驗, 或選取 [聯結資料] 模組, 選取  [執行] 以執行聯結。
+1. 執行實驗, 或選取 [聯結資料] 模組, 選取 [執行] 以執行聯結。
 
 1. 若要查看結果, 請以滑鼠右鍵按一下**聯結資料** > **結果資料集** > **視覺化**。
 

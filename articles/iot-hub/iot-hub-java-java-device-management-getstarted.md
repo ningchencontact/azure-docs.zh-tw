@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 7fed6caa719824dd51b19789a7066ffaea13d336
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 82c2c6d7ac347949a7cf24226fdb0095313ee689
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907771"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147693"
 ---
 # <a name="get-started-with-device-management-java"></a>開始使用裝置管理 (Java)
 
@@ -52,8 +52,6 @@ ms.locfileid: "69907771"
 > 如需可用來建置應用程式，以在裝置與您的解決方案後端執行之 SDK 的資訊，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
 ## <a name="prerequisites"></a>必要條件
-
-若要完成本教學課程，您需要：
 
 * Java SE 8。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 Java。
 

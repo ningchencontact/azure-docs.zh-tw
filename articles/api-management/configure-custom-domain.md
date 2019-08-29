@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 52eeedf4651cee012569034ae635a4736b3f3335
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975745"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135544"
 ---
 # <a name="configure-a-custom-domain-name"></a>設定自訂網域名稱
 
@@ -25,7 +25,7 @@ ms.locfileid: "68975745"
 > [!WARNING]
 > 想要使用憑證釘選以改善應用程式安全性的客戶，必須使用自訂網域名稱 > 與其所管理的憑證，而非預設憑證。 改為釘選預設憑證的客戶 > 會對其所未控制的憑證屬性採用硬式相依性，這不是建議做法。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要執行本文所述的步驟，您必須具有：
 
@@ -88,7 +88,7 @@ ms.locfileid: "68975745"
 -   設定指向您 API 管理閘道 IP 位址的 A 記錄。
 
 > [!NOTE]
-> 雖然 API 管理實例的 IP 位址是靜態的, 但在少數情況下可能會變更。 基於此原因, 建議您在設定自訂網域時使用 CNAME。 選擇 DNS 設定方法時, 請將這一點納入考慮。 如需詳細資訊, 請參閱[API MANANAGEMENT 常見問題](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)。
+> 雖然 API 管理實例的 IP 位址是靜態的, 但在少數情況下可能會變更。 基於此原因, 建議您在設定自訂網域時使用 CNAME。 選擇 DNS 設定方法時, 請將這一點納入考慮。 如需詳細資訊, 請參閱[API MANANAGEMENT 常見問題](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)。
 
 ## <a name="next-steps"></a>後續步驟
 

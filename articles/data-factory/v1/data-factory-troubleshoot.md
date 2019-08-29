@@ -9,17 +9,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: d729fd11f355650b1476e6864a6d70219bf37e12
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836167"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135126"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>資料處理站的疑難排解
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "67836167"
 
 ## <a name="troubleshooting-tips"></a>疑難排解秘訣
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Error:訂用帳戶未註冊為使用命名空間 'Microsoft.DataFactory'
-如果您收到此錯誤，Azure Data Factory 資源提供者尚未在您的電腦上註冊。 執行下列動作：
+如果您收到此錯誤，Azure Data Factory 資源提供者尚未在您的電腦上註冊。 請執行下列動作：
 
 1. 啟動 Azure PowerShell。
 2. 使用下列命令來登入您的 Azure 帳戶。
@@ -48,9 +48,9 @@ ms.locfileid: "67836167"
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>問題：執行 Data Factory Cmdlet 時發生未授權錯誤
 您在 Azure PowerShell 中可能未使用正確的 Azure 帳戶或訂用帳戶。 請使用下列 Cmdlet 來選取要用於 Azure PowerShell 的正確 Azure 帳戶和訂用帳戶帳戶。
 
-1. 連線-AzAccount-使用正確的使用者識別碼和密碼
-2. Get-AzSubscription-檢視帳戶的所有訂用帳戶。
-3. 選取 AzSubscription&lt;訂用帳戶名稱&gt;-選取正確的訂用帳戶。 請使用您在 Azure 入口網站上用來建立 Data Factory 的相同帳戶。
+1. 連接-Disconnect-azaccount-使用正確的使用者識別碼和密碼
+2. Get-azsubscription-查看帳戶的所有訂閱。
+3. 選取-get-azsubscription &lt;訂用&gt;帳戶名稱-選取正確的訂用帳戶。 請使用您在 Azure 入口網站上用來建立 Data Factory 的相同帳戶。
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>問題：無法從 Azure 入口網站啟動「資料管理閘道快速安裝」
 資料管理閘道的快速安裝需要有 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。 如果無法啟動快速安裝，請執行下列其中一項：
@@ -60,13 +60,13 @@ ms.locfileid: "67836167"
     如果您使用 Chrome，請移至 [Chrome 線上應用程式商店](https://chrome.google.com/webstore/)，使用關鍵字 "ClickOnce" 進行搜尋，選擇其中一個 ClickOnce 擴充功能並安裝。
 
     針對 Firefox 進行相同的操作 (安裝附加元件)。 按一下工具列上的 [開啟功能表] 按鈕 (右上角的三條水平線)，按一下 [附加元件]，以「ClickOnce」關鍵字進行搜尋，選擇其中一個 ClickOnce 延伸模組並安裝。
-* 使用入口網站中相同刀鋒視窗上顯示的 [手動安裝]  連結。 您可以使用這個方法來下載安裝檔案，然後手動執行它。 安裝成功之後，您會看到 [資料管理閘道組態] 對話方塊。 從入口網站畫面複製**金鑰**，並且在組態管理員中使用它來手動向服務註冊閘道器。  
+* 使用入口網站中相同刀鋒視窗上顯示的 [手動安裝] 連結。 您可以使用這個方法來下載安裝檔案，然後手動執行它。 安裝成功之後，您會看到 [資料管理閘道組態] 對話方塊。 從入口網站畫面複製**金鑰**，並且在組態管理員中使用它來手動向服務註冊閘道器。  
 
 ### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>問題：無法連線到內部部署 SQL Server
-在閘道器機器上啟動 [資料管理閘道組態管理員]  ，使用 [疑難排解]  索引標籤以測試從閘道器機器到 SQL Server 的連接。 如需連接/閘道器相關問題的疑難排解秘訣，請參閱 [針對閘道問題進行疑難排解](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 。   
+在閘道器機器上啟動 [資料管理閘道組態管理員]，使用 [疑難排解] 索引標籤以測試從閘道器機器到 SQL Server 的連接。 如需連接/閘道器相關問題的疑難排解秘訣，請參閱 [針對閘道問題進行疑難排解](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 。   
 
 ### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>問題：輸入配量永遠處於 Waiting 狀態
-配量可能因各種原因而處於**等候中**狀態。 其中一個常見的原因是 **external** 屬性未設定為 **true**。 在 Azure Data Factory 範圍外產生的任何資料集，都應該標示 **external** 屬性。 此屬性可指出資料為外部資料，並未受到 Data Factory 內的任何管線支持。 一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]  。
+配量可能因各種原因而處於**等候中**狀態。 其中一個常見的原因是 **external** 屬性未設定為 **true**。 在 Azure Data Factory 範圍外產生的任何資料集，都應該標示 **external** 屬性。 此屬性可指出資料為外部資料，並未受到 Data Factory 內的任何管線支持。 一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]。
 
 關於 **external** 屬性的用法，請參閱下列範例。 當您將 external 設定為 true 時，可以視需要指定 **externalData**\*。
 

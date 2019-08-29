@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/22/2019
+ms.date: 08/29/2019
 ms.author: dalek
-ms.openlocfilehash: 45a8f8a7ee4d887503aeaf8e0e285c45a21c4bcc
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: f2ea87f237fa5cca8a4b1f6773d2b47729cfb5b0
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982627"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147541"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -147,6 +147,9 @@ systemEvents
 在每個保留的記錄中，`itemCount` 會指出它所代表的原始記錄數目。 它等於 1 + 先前捨棄的記錄數目。 
 
 ## <a name="change-the-data-retention-period"></a>變更資料保留期
+
+> [!NOTE]
+> 我們已暫時移除這項功能, 但我們會解決可能的問題。  我們將在2019年9月的中間將其回復。
 
 Application Insights 資源的預設保留期為90天。 可以為每個 Application Insights 資源選取不同的保留週期。 一組完整的可用保留週期為30、60、90、120、180、270、365、550或730天。 
 

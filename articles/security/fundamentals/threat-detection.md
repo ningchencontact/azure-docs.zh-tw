@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 86b17efdb811e9e4040b8b267c161b950f6de5fd
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6278e848a82fb31939117fa9b916a92a2fb74a3e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036183"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129271"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 進階威脅偵測
 
@@ -30,13 +30,13 @@ Azure 提供各種選項來設定和自訂安全性，以符合您應用程式�
 
 ## <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) 是 [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md)  版本的功能，能針對可影響組織身分識別的風險事件和潛在弱點提供概觀。 Identity Protection 使用現有 Azure AD 異常偵測功能 (可透過 [Azure AD 異常活動報告](../../active-directory/active-directory-reporting-azure-portal.md)取得)，並引進可即時偵測異常的新風險事件類型。
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md)是[Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md)版本功能, 可讓您大致瞭解可能會影響貴組織身分識別的風險偵測和潛在弱點。 Identity Protection 使用現有的 Azure AD 異常偵測功能, 可透過[Azure AD 異常活動報告](../../active-directory/active-directory-reporting-azure-portal.md)取得, 並引進可偵測即時異常的新風險偵測類型。
 
 ![Azure AD Identity Protection 圖表](./media/threat-detection/azure-threat-detection-fig1.png)
 
-Identity Protection 會使用調適性機器學習演算法和啟發學習法，來偵測異常事件和風險事件，而這些事件都可能表示身分識別已遭到入侵。 Identity Protection 會使用此資料來產生報告和警示，讓您可以調查這些風險事件並採取適當的補救動作或緩和措施。
+Identity Protection 會使用調適型機器學習演算法和啟發學習法來偵測異常和風險偵測, 這可能表示身分識別已遭入侵。 Identity Protection 會使用此資料來產生報告和警示, 讓您可以調查這些風險偵測, 並採取適當的補救或緩和措施。
 
-Azure Active Directory Identity Protection 不只是監視和報告工具而已。 Identity Protection 會根據風險事件，計算每位使用者的使用者風險層級，讓您設定風險原則來自動保護您組織的身分識別。
+Azure Active Directory Identity Protection 不只是監視和報告工具而已。 根據風險偵測, Identity Protection 會計算每個使用者的使用者風險層級, 讓您可以設定以風險為基礎的原則來自動保護您組織的身分識別。
 
 除了 Azure Active Directory 和[EMS](../../active-directory/active-directory-conditional-access-azure-portal.md)所提供的其他條件式[存取控制](../../active-directory/active-directory-conditional-access-azure-portal.md)以外, 這些以風險為基礎的原則可以自動封鎖或提供彈性補救動作, 包括密碼重設和多重要素強制執行驗證。
 
@@ -46,14 +46,14 @@ Azure Active Directory Identity Protection 不只是監視和報告工具而已�
 
 Azure Identity Protection 可用以協助保護您的帳戶和身分識別的一些方法範例包括：
 
-[偵測風險事件和有風險的帳戶](../../active-directory/identity-protection/overview.md)
--   使用機器學習和啟發式規則偵測六種風險事件類型。
+[偵測風險偵測和有風險的帳戶](../../active-directory/identity-protection/overview.md)
+-   使用機器學習服務和啟發式規則偵測六種風險偵測類型。
 -   計算使用者風險層級。
 -   提供自訂建議，藉由將弱點醒目提示來改善整體安全性狀態。
 
-[調查風險事件](../../active-directory/identity-protection/overview.md)
--   傳送風險事件的通知。
--   使用相關和內容資訊來調查風險事件。
+[調查風險偵測](../../active-directory/identity-protection/overview.md)
+-   傳送風險偵測的通知。
+-   使用相關的內容資訊來調查風險偵測。
 -   提供基本工作流程來追蹤調查。
 -   讓您輕鬆存取補救動作 (例如重設密碼)。
 

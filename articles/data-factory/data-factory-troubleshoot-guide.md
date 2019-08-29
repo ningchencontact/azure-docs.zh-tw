@@ -5,19 +5,23 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 6/26/2019
+ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 1995ce2a91bfbc115f80c99687cc84b52ef614ec
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: f35a3567ae4ae7c3e2d59f776d3a3bc00ec2be3e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950101"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142390"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>疑難排解 Azure Data Factory
 
 本文探討 Azure Data Factory 中外部控制活動的常見疑難排解方法。
+
+## <a name="connector-and-copy-activity"></a>連接器和複製活動
+
+如需連接器問題, 例如使用複製活動時遇到錯誤, 請參閱針對[Azure Data Factory 連接器進行疑難排解](connector-troubleshoot-guide.md)。
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -86,11 +90,11 @@ ms.locfileid: "68950101"
 
 | 錯誤碼 | 錯誤訊息                                                | 描述                                                  | 建議                           |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2300、2310 | Hadoop 作業提交失敗。 錯誤:無法解析遠端名稱。 <br/><br/>找不到叢集。 | 提供的叢集 URI 無效。                              | 請確定叢集尚未刪除, 而且提供的 URI 正確。 當您在瀏覽器中開啟 URI 時, 您應該會看到 Ambari UI。 如果叢集位於虛擬網路中, 則 URI 應該是私用 URI。 若要開啟它, 請使用屬於相同虛擬網路的 VM。 如需詳細資訊, 請參閱[直接連接到 Apache Hadoop 服務](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services)。 |
-| 2300         | Hadoop 作業提交失敗。 作業: ...、Cluster: .../。 錯誤:工作已取消。 | 提交的作業超時。                         | 此問題可能是一般 HDInsight 連線能力或網路連線能力。 請先確認可以從任何瀏覽器取得 HDInsight Ambari UI。 確認您的認證仍然有效。 如果您使用的是自我裝載整合執行時間 (IR), 請務必從已安裝自我裝載 IR 的 VM 或電腦執行此動作。 然後再次嘗試從 Data Factory 提交工作。 如果仍然失敗, 請洽詢 Data Factory 小組以取得支援。 |
+| 2300、2310 | Hadoop 作業提交失敗。 Error:The remote name could not be resolved」的問題。 <br/><br/>找不到叢集。 | 提供的叢集 URI 無效。                              | 請確定叢集尚未刪除, 而且提供的 URI 正確。 當您在瀏覽器中開啟 URI 時, 您應該會看到 Ambari UI。 如果叢集位於虛擬網路中, 則 URI 應該是私用 URI。 若要開啟它, 請使用屬於相同虛擬網路的 VM。 如需詳細資訊, 請參閱[直接連接到 Apache Hadoop 服務](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services)。 |
+| 2300         | Hadoop 作業提交失敗。 作業: ...、Cluster: .../。 Error:工作已取消。 | 提交的作業超時。                         | 此問題可能是一般 HDInsight 連線能力或網路連線能力。 請先確認可以從任何瀏覽器取得 HDInsight Ambari UI。 確認您的認證仍然有效。 如果您使用的是自我裝載整合執行時間 (IR), 請務必從已安裝自我裝載 IR 的 VM 或電腦執行此動作。 然後再次嘗試從 Data Factory 提交工作。 如果仍然失敗, 請洽詢 Data Factory 小組以取得支援。 |
 | 2300         | 未經授權 Ambari 的使用者名稱或密碼不正確  <br/><br/>未經授權 使用者系統管理員在 Ambari 中遭到鎖定。   <br/><br/>403-禁止:存取遭到拒絕。 | HDInsight 的認證不正確或已過期。 | 更正認證並重新部署已連結的服務。 首先, 請在任何瀏覽器上開啟叢集 URI 並嘗試登入, 以確定認證可在 HDInsight 上工作。 如果認證無法使用, 您可以從 Azure 入口網站重設它們。 |
 | 2300、2310 | 502 - 網頁伺服器作為閘道或 Proxy 伺服器時收到無效的回應。       <br/>閘道錯誤。 | 這是來自 HDInsight 的錯誤。                               | 此錯誤來自 HDInsight 叢集。 如需詳細資訊, 請參閱[AMBARI UI 502 錯誤](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)、[連接到 spark Thrift 伺服器的502錯誤](https://hdinsight.github.io/spark/spark-thriftserver-errors.html)、 [502 連線到 spark Thrift 伺服器的錯誤](https://hdinsight.github.io/spark/spark-thriftserver-errors.html)和[疑難排解應用程式閘道中的閘道錯誤](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502)。 |
-| 2300         | Hadoop 作業提交失敗。 作業: ..., 叢集: ...錯誤: {\"error\":\"無法服務提交作業要求, 因為 templeton 服務忙碌中, 有太多提交作業要求。 請稍候片刻, 再重試此操作。 請參閱 config templeton. parallellism。提交以設定並行要求。  <br/><br/>Hadoop 作業提交失敗。 作業:161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`。   錯誤: {\"error\":\"IOException: yarn。例外狀況。 YarnException:無法將 application_1561147195099_3730 提交至 YARN: org. AccessControlException:佇列根目錄。 joblauncher 已經有500應用程式, 無法接受提交應用程式: application_1561147195099_3730 \ | 同時將太多作業提交給 HDInsight。 | 請考慮限制提交至 HDInsight 的並行作業數目。 如果作業是由相同的活動所提交, 請參閱 Data Factory 活動並行。 變更觸發程式, 讓並行管線執行會隨著時間分散。 如錯誤所建議, 請`templeton.parallellism.job.submit`參閱 HDInsight 檔以進行調整。 |
+| 2300         | Hadoop 作業提交失敗。 作業: ..., 叢集: ...錯誤: {\"error\":\"無法服務提交作業要求, 因為 templeton 服務忙碌中, 有太多提交作業要求。 請稍候片刻, 再重試此操作。 請參閱 config templeton. parallellism。提交以設定並行要求。  <br/><br/>Hadoop 作業提交失敗。 任務161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`。   錯誤: {\"error\":\"IOException: yarn。例外狀況。 YarnException:無法將 application_1561147195099_3730 提交至 YARN: org. AccessControlException:佇列根目錄。 joblauncher 已經有500應用程式, 無法接受提交應用程式: application_1561147195099_3730 \ | 同時將太多作業提交給 HDInsight。 | 請考慮限制提交至 HDInsight 的並行作業數目。 如果作業是由相同的活動所提交, 請參閱 Data Factory 活動並行。 變更觸發程式, 讓並行管線執行會隨著時間分散。 如錯誤所建議, 請`templeton.parallellism.job.submit`參閱 HDInsight 檔以進行調整。 |
 | 2303、2347 | Hadoop 工作失敗, 結束代碼為 ' 5 '。 如需wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr詳細資訊, 請參閱 ' '。  <br/><br/>Hive 執行失敗, 錯誤碼為 ' UserErrorHiveOdbcCommandExecutionFailure '。   如需wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out詳細資訊, 請參閱 ' '。 | 作業已提交至 HDInsight, 但在 HDInsight 上失敗。 | 已成功將作業提交至 HDInsight。 在叢集上失敗。 在 HDInsight Ambari UI 中開啟作業和記錄, 或從儲存體開啟檔案, 如錯誤訊息所建議。 檔案會顯示錯誤詳細資料。 |
 | 2328         | 處理要求時發生內部伺服器錯誤。 請重試要求或聯絡支援。 | 此錯誤會隨選在 HDInsight 中發生。                              | 當 HDInsight 布建失敗時, 此錯誤來自 HDInsight 服務。 請洽詢 HDInsight 小組, 並提供隨選叢集名稱。 |
 | 2310         | java.lang.NullPointerException                               | 當作業提交至 Spark 叢集時, 就會發生此錯誤。      | 此例外狀況來自 HDInsight。 它會隱藏實際的問題。 請洽詢 HDInsight 小組以取得支援。 提供叢集名稱和活動運行時間範圍。 |

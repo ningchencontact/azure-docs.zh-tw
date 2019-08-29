@@ -14,29 +14,29 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50501413a63921a9a34be1c04ed259990922b686
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525535"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141475"
 ---
 # <a name="use-service-management-from-python"></a>從 Python 使用服務管理
-本指南說明如何以程式設計方式，從 Python 執行一般服務管理工作。 [適用於 Python 的 Azure SDK](https://github.com/Azure/azure-sdk-for-python) \(英文\) 中的 **ServiceManagementService** 類別支援以程式設計方式存取 [Azure 入口網站][management-portal]中提供的大部分服務管理相關功能。 您可以使用此功能來建立、更新和刪除雲端服務、部署、資料管理服務，以及虛擬機器。 建置需要透過程式設計方式存取服務管理的應用程式時，此功能十分實用。
+本指南說明如何以程式設計方式，從 Python 執行一般服務管理工作。 [AZURE SDK For Python](https://github.com/Azure/azure-sdk-for-python)中的**ServiceManagementService**類別支援以程式設計方式存取[Azure 入口網站][management-portal]中提供的大部分服務管理相關功能。 您可以使用此功能來建立、更新和刪除雲端服務、部署、資料管理服務，以及虛擬機器。 建置需要透過程式設計方式存取服務管理的應用程式時，此功能十分實用。
 
 ## <a name="WhatIs"> </a>什麼是服務管理？
-「Azure 服務管理 API」可讓使用者以程式設計方式存取透過 [Azure 入口網站][management-portal]提供的大部分服務管理功能。 您可以使用「適用於 Python 的 Azure SDK」來管理雲端服務和儲存體帳戶。
+Azure 服務管理 API 可讓您以程式設計方式存取透過[Azure 入口網站][management-portal]所提供的大部分服務管理功能。 您可以使用「適用於 Python 的 Azure SDK」來管理雲端服務和儲存體帳戶。
 
 若要使用服務管理 API，您必須 [建立 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="Concepts"> </a>概念
-「適用於 Python 的 Azure SDK」含有[服務管理 API][svc-mgmt-rest-api]，這是一個 REST API。 所有 API 作業都會透過 SSL 執行，並使用 X.509 v3 憑證來相互驗證。 您可以從在 Azure 中執行的服務內存取此管理服務。 此外，也可以透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式，直接存取此管理服務。
+適用于 Python 的 Azure SDK 會包裝[服務管理 API][svc-mgmt-rest-api], 這是 REST API。 所有 API 作業都會透過 SSL 執行，並使用 X.509 v3 憑證來相互驗證。 您可以從在 Azure 中執行的服務內存取此管理服務。 此外，也可以透過網際網路，從任何可傳送 HTTPS 要求和接收 HTTPS 回應的應用程式，直接存取此管理服務。
 
 ## <a name="Installation"> </a>安裝
-本文中所述的所有功能都可在 `azure-servicemanagement-legacy` 套件中找到，您可以使用 pip 來安裝此套件。 如需有關安裝的詳細資訊 (例如，若您不熟悉 Python)，請參閱[安裝 Python 和 Azure SDK](../python-how-to-install.md)。
+本文中所述的所有功能都可在 `azure-servicemanagement-legacy` 套件中找到，您可以使用 pip 來安裝此套件。 如需有關安裝的詳細資訊 (例如，若您不熟悉 Python)，請參閱[安裝 Python 和 Azure SDK](/azure/python/python-sdk-azure-install)。
 
 ## <a name="Connect"> </a>連線到服務管理
-若要連線到服務管理端點，您必須具備 Azure 訂用帳戶 ID 和有效的管理憑證。 您可以透過 [Azure 入口網站][management-portal]取得訂用帳戶識別碼。
+若要連線到服務管理端點，您必須具備 Azure 訂用帳戶 ID 和有效的管理憑證。 您可以透過[Azure 入口網站][management-portal]取得您的訂用帳戶識別碼。
 
 > [!NOTE]
 > 目前在 Windows 上執行時，您可以使用以 OpenSSL 建立的憑證。 需要 Python 2.7.4 或更新版本。 建議您使用 OpenSSL 而非 .pfx，因為未來可能會移除對 .pfx 憑證的支援。
@@ -54,7 +54,7 @@ ms.locfileid: "60525535"
 
 如需有關 Azure 憑證的詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](cloud-services-certs-create.md)。 如需 OpenSSL 參數的完整說明，請參閱 [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html) 上的文件。
 
-建立這些檔案之後，請將 `.cer` 檔案上傳到 Azure。 在 [Azure 入口網站][management-portal]中的 [設定]  索引標籤上，選取 [上傳]  。 請記下您儲存 `.pem` 檔案的位置。
+建立這些檔案之後，請將 `.cer` 檔案上傳到 Azure。 在[Azure 入口網站][management-portal]的 [**設定**] 索引標籤上, 選取 [**上傳**]。 請記下您儲存 `.pem` 檔案的位置。
 
 在您取得訂用帳戶 ID 之後，請建立憑證，然後將 `.cer` 檔案上傳到 Azure，連線到 Azure 管理端點。 請將訂用帳戶 ID 和 `.pem` 檔案的路徑傳遞給 **ServiceManagementService** 來進行連線。
 
@@ -73,11 +73,11 @@ ms.locfileid: "60525535"
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-此命令會建立 `.cer` 檔案，並將其安裝在 [個人]  憑證存放區中。 如需詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](cloud-services-certs-create.md)。
+此命令會建立 `.cer` 檔案，並將其安裝在 [個人] 憑證存放區中。 如需詳細資訊，請參閱 [Azure 雲端服務的憑證概觀](cloud-services-certs-create.md)。
 
-建立憑證之後，請將 `.cer` 檔案上傳到 Azure。 在 [Azure 入口網站][management-portal]中的 [設定]  索引標籤上，選取 [上傳]  。
+建立憑證之後，請將 `.cer` 檔案上傳到 Azure。 在[Azure 入口網站][management-portal]的 [**設定**] 索引標籤上, 選取 [**上傳**]。
 
-在您取得訂用帳戶 ID 之後，請建立憑證，然後將 `.cer` 檔案上傳到 Azure，連線到 Azure 管理端點。 將訂用帳戶 ID 和您 [個人]  憑證存放區中憑證的位置傳遞給 **ServiceManagementService** (同樣地，將 *AzureCertificate* 取代為您憑證的名稱) 來進行連線。
+在您取得訂用帳戶 ID 之後，請建立憑證，然後將 `.cer` 檔案上傳到 Azure，連線到 Azure 管理端點。 將訂用帳戶 ID 和您 [個人] 憑證存放區中憑證的位置傳遞給 **ServiceManagementService** (同樣地，將 *AzureCertificate* 取代為您憑證的名稱) 來進行連線。
 
     from azure import *
     from azure.servicemanagement import *
@@ -115,11 +115,11 @@ ms.locfileid: "60525535"
 * 日本東部
 * 日本西部
 * 巴西南部
-* 澳洲東部
+* 澳大利亞東部
 * 澳大利亞東南部
 
 ## <a name="CreateCloudService"> </a>建立雲端服務
-當您建立應用程式並在 Azure 中執行它時，其程式碼和設定合稱為 Azure [雲端服務][cloud service]。 (在舊版的 Azure 中稱為「託管服務」  )。您可以使用 **create\_hosted\_service** 方法來建立新的託管服務。 請提供託管服務名稱 (在 Azure 中必須是唯一的)、標籤 (自動編碼為 base64)、描述及位置來建立此服務。
+當您建立應用程式並在 Azure 中執行它時, 程式碼和設定會統稱為 Azure[雲端服務][cloud service]。 (在舊版的 Azure 中稱為「託管服務」)。您可以使用 **create\_hosted\_service** 方法來建立新的託管服務。 請提供託管服務名稱 (在 Azure 中必須是唯一的)、標籤 (自動編碼為 base64)、描述及位置來建立此服務。
 
     from azure import *
     from azure.servicemanagement import *

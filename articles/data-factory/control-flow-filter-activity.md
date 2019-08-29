@@ -3,21 +3,20 @@ title: Azure Data Factory 中的篩選活動 | Microsoft Docs
 description: 篩選活動會篩選輸入。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: shlo
-ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7e2e735baa7e40b4170d3397327e90fc1a5d2d5
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60554842"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141682"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory 中的篩選活動
 您可以在管線中使用篩選活動，將篩選運算式套用至輸入陣列。 
@@ -39,10 +38,10 @@ ms.locfileid: "60554842"
 
 屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
-name | `Filter` 活動的名稱。 | 字串 | 是
-type | 必須設定為**篩選**。 | 字串 | 是
-condition (條件) | 要用來篩選輸入的條件。 | 運算是 | 是
-items | 應套用篩選條件的輸入陣列。 | 運算是 | 是
+name | `Filter` 活動的名稱。 | String | 是
+Type | 必須設定為**篩選**。 | String | 是
+condition (條件) | 要用來篩選輸入的條件。 | 運算式 | 是
+items | 應套用篩選條件的輸入陣列。 | 運算式 | 是
 
 ## <a name="example"></a>範例
 

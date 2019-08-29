@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 509bd472fe5f930ac830b8b4016129f8acb67324
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612878"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124667"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
@@ -61,6 +61,9 @@ ms.locfileid: "69612878"
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>受邀到我目錄的來賓使用者是否可以使用 Azure AD Domain Services？
 資料分割 以 [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 邀請流程受邀到您 Azure AD 目錄的來賓使用者會同步至您的 Azure AD Domain Services 受控網域。 不過，這些使用者的密碼不會儲存在您的 Azure AD 目錄中。 因此，Azure AD Domain Services 無法將這些使用者的 NTLM 和 Kerberos 雜湊同步至您的受控網域。 如此一來，這類使用者便無法登入受控網域，也無法將電腦加入到受控網域中。
+
+### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>我可以將現有的 Azure AD Domain Services 受控網域移至不同的訂用帳戶、資源群組、區域或虛擬網路嗎？
+資料分割 建立 Azure AD Domain Services 受控網域之後, 您就無法將實例移至不同的資源群組、虛擬網路、訂用帳戶等。當您部署 Azure AD DS 實例時, 請小心選取最適當的訂用帳戶、資源群組、區域和虛擬網路。
 
 ## <a name="administration-and-operations"></a>管理和作業
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>我可以使用遠端桌面連線到我的受控網域的網域控制站嗎？

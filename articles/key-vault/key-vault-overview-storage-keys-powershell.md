@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: df377b19d78a63b3cfc57347fff00345a9c63ead
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 21b046a54c2fbe309113222f54dbad4405fc409d
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562529"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136573"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault 受控儲存體帳戶 - PowerShell
 
@@ -21,6 +21,7 @@ ms.locfileid: "69562529"
 > - 使用應用程式或使用者身分識別來驗證用戶端應用程式，而非使用儲存體帳戶認證。 
 > - 在 Azure 上執行時，使用 [Azure AD 受控識別](/azure/active-directory/managed-identities-azure-resources/)。 受控識別能直接移除用戶端驗證，以及使用應用程式儲存認證或將認證儲存於應用程式中的需求。
 > - 使用同時也受 Key Vault 支援的角色型存取控制 (RBAC) 來管理授權。
+> - 對儲存體帳戶的 AAD 存取, 目前無法用於存取資料表。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -142,7 +143,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>啟用金鑰重新產生
 
-如果您想要讓 Key Vault 定期重新產生儲存體帳戶金鑰，您可以設定重新產生期間。 在下列範例中，我們會設定為期三天的重新產生期間。 3 天之後，Key Vault 會重新產生 'key1'，並將作用中的金鑰從 'key2' 交換為 'key1'。
+如果您想要讓 Key Vault 定期重新產生儲存體帳戶金鑰，您可以設定重新產生期間。 在下列範例中，我們會設定為期三天的重新產生期間。 三天后, Key Vault 會重新產生 ' key2 ', 並將作用中的金鑰從 ' key2 ' 交換為 ' key1 '。
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

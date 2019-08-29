@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4f19c16149dbed34c16d021ff7100cace9a06a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 57b441803a066b794d17b46afec4d930b94ebdea
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879133"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125125"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>運作方式：Azure Multi-Factor Authentication
 
 雙步驟驗證的安全性仰賴其分層方法。 使用多重驗證因素會為攻擊者帶來相當程度的挑戰。 即使攻擊者試圖打探使用者的密碼，在不持有額外驗證方法的情況下便沒有任何意義。 其運作方式需要下列二個以上的驗證方法：
 
-* 您知道的某些資訊 (通常是密碼)
-* 您擁有的某些東西 (不容易輕易複製的信任裝置，例如電話)
-* 您身上的某些特徵 (生物識別技術)
+* 您知道的資訊 (通常是密碼)
+* 您擁有的事物 (不易複製的受信任裝置，例如電話)
+* 代表您身分的事物 (生物識別技術)
 
 <center>
 
@@ -52,7 +52,7 @@ Multi-Factor Authentication 隨附於下列供應項目：
 * 訓練您的支援人員來處理使用者因無權存取其驗證方法或其無法正常運作而無法登入的案例。
    * 使用 Azure MFA 服務的條件式存取原則, 您的支援人員可以將使用者新增至從要求 MFA 的原則中排除的群組。
 * 請考慮使用名為「位置」的條件式存取, 將雙步驟驗證提示減到最少。 有了這項功能, 系統管理員可以針對從安全信任的網路位置 (例如用於新使用者上線的網路區段) 登入的使用者略過雙步驟驗證。
-* 部署 [Azure AD Identity Protection](../active-directory-identityprotection.md)，並根據風險事件觸發雙步驟驗證。
+* 部署[Azure AD Identity Protection](../active-directory-identityprotection.md)並根據風險偵測來觸發雙步驟驗證。
 
 ## <a name="next-steps"></a>後續步驟
 

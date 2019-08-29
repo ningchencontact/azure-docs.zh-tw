@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0645e01c8ad9c620b77abd9af6cf7fe7c26ab4ea
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: d00376c6689b6be773f24e8acd09c3697fb6a799
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335402"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126300"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>如何：設定登入風險原則
 
-Azure Active Directory 會以即時和離線方式偵測[風險事件類型](../reports-monitoring/concept-risk-events.md#risk-event-types)。 使用者登入時偵測到的每個風險事件，構成了名為有風險的登入的邏輯概念。 有風險的登入表示可能不是由使用者帳戶合法擁有者執行的嘗試登入。
+Azure Active Directory 偵測即時和離線的[風險偵測類型](../reports-monitoring/concept-risk-events.md#risk-detection-types)。 針對使用者登入所偵測到的每個風險偵測, 都會提供一個稱為具風險登入的邏輯概念。 有風險的登入表示可能不是由使用者帳戶合法擁有者執行的嘗試登入。
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>什麼是登入風險原則？
 
-Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨登入出現的可疑動作。 例如，使用匿名 IP 位址完成登入，或是從不熟悉的位置起始登入？ 在 Azure AD 中，系統可以偵測到的可疑動作也稱為風險事件。 根據在登入期間偵測到的風險事件，Azure AD 會計算一個值。 此值代表不是由合法使用者執行登入的可能性 (低、中、高)。 此可能性稱為**登入風險層級**。
+Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨登入出現的可疑動作。 例如，使用匿名 IP 位址完成登入，或是從不熟悉的位置起始登入？ 在 Azure AD 中, 系統可以偵測到的可疑動作也稱為風險偵測。 根據在登入期間偵測到的風險偵測, Azure AD 計算值。 此值代表不是由合法使用者執行登入的可能性 (低、中、高)。 此可能性稱為**登入風險層級**。
 
 登入風險原則是您可以針對特定登入風險層級設定的自動化回應。 在您的回應中，您可以封鎖對資源的存取，或需要傳遞多重要素驗證 (MFA) 查問以取得存取。
    
@@ -44,7 +44,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 - 可觸發原則的登入風險層級：
 
-    ![登入風險等級](./media/howto-sign-in-risk-policy/12.png)
+    ![登入風險層級](./media/howto-sign-in-risk-policy/12.png)
 
 - 您想要在符合登入風險層級時強制執行的存取類型：  
 
@@ -86,7 +86,7 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 
 ## <a name="best-practices"></a>最佳做法
 
-選擇 [高]  臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。  
+選擇 [高] 臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。  
 
 不過，它會從原則中排除標示 [低] 和 [中] 度風險的登入，而無法阻止攻擊者利用遭到入侵的身分識別。
 
@@ -96,9 +96,9 @@ Azure AD 會分析使用者的每次登入。 分析的目的是要偵測伴隨�
 - 在啟用原則並不實用 (例如無法存取技術服務人員) 的地區設定中排除使用者
 - 排除可能會產生大量誤判的使用者 (開發人員、安全性分析人員)
 - 在原則推出初期，或如果您必須盡量減少使用者所看到的挑戰，請使用 [高] 閾值。
-- 如果您的組織需要更高的安全性，請使用 [低]  臨界值。 選取 [低]  臨界值會帶來額外的使用者登入挑戰，並提高安全性。
+- 如果您的組織需要更高的安全性，請使用 [低] 臨界值。 選取 [低] 臨界值會帶來額外的使用者登入挑戰，並提高安全性。
 
-大部分組織的建議預設值是設定 [中]  臨界值的規則，以取得可用性與安全性之間的平衡。
+大部分組織的建議預設值是設定 [中] 臨界值的規則，以取得可用性與安全性之間的平衡。
 
 ## <a name="next-steps"></a>後續步驟
 

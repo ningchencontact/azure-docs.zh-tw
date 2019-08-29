@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a9b1144e3ef1f1a49c39d694f465653da5881cb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e8c3138b82c7dc4a7217e8cb67448a5d824398ba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987911"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127014"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>關於 Azure Active Directory 報告的常見問題集
 
@@ -37,7 +37,7 @@ ms.locfileid: "68987911"
 
 **問：我目前使用`https://graph.windows.net/<tenant-name>/reports/`端點 api, 以程式設計方式將 Azure AD 的安全性報告 (如洩漏的認證或從匿名 IP 位址登入等特定類型的偵測) 提取到我們的報告系統中。我該切換至什麼項目？**
 
-**答：** 您可以使用  [Identity Protection 風險事件 API](../identity-protection/graph-get-started.md)  來透過 Microsoft Graph 存取安全性偵測。 這個新的格式包含進階篩選和欄位選取等功能，讓您可以更靈活地查詢資料，並且將風險事件標準化為一種類型，以便更輕易地整合至 SIEM 和其他資料收集工具。 由於資料的格式不同，您無法以新查詢替換舊查詢。 不過，[新 API 會使用 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)，這是 O365 或 Azure AD 這類 API 的 Microsoft 標準格式。 因此該要求工作可以擴充您目前的 MS Graph 投資，或協助您開始轉換至新的標準平台。
+**答：** 您可以使用身分 [識別保護風險偵測 API](../identity-protection/graph-get-started.md)  , 透過 Microsoft Graph 來存取安全性偵測。 這種新格式可讓您以更大的彈性來查詢資料、使用先進的篩選、欄位選取等等, 以及將風險偵測標準化成一種類型, 以便更輕鬆地整合到 Siem 和其他資料收集工具。 由於資料的格式不同，您無法以新查詢替換舊查詢。 不過，[新 API 會使用 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)，這是 O365 或 Azure AD 這類 API 的 Microsoft 標準格式。 因此該要求工作可以擴充您目前的 MS Graph 投資，或協助您開始轉換至新的標準平台。
 
 ---
 
@@ -105,9 +105,9 @@ ms.locfileid: "68987911"
 
 ---
 
-## <a name="risky-sign-ins"></a>具風險的登入
+## <a name="risky-sign-ins"></a>有風險的登入
 
-**問：Identity Protection 有風險事件，但是我在登入報告中看不到對應的登入。這是預期行為嗎？**
+**問：Identity Protection 中有風險偵測, 但我在登入報告中看不到對應的登入。這是預期行為嗎？**
 
 **答：** 是，Identity Protection 會評估所有驗證流程的風險，無論是互動式或非互動式。 不過，所有登入只會報告顯示互動式登入。
 
@@ -115,7 +115,7 @@ ms.locfileid: "68987911"
 
 **問：如何知道為何在 Azure 入口網站中登入或使用者會標示為風險？**
 
-**答：** 如果您有 **Azure AD Premium** 訂用帳戶，則可以選取**標幟為有風險的使用者**中的使用者或選取**有風險的登入**報告中的記錄，來深入了解基礎風險事件。 如果您有**免費**或**基本**訂用帳戶，則可以檢視有風險的使用者和有風險的登入報告，但看不到基礎風險事件資訊。
+**答：** 如果您有**Azure AD Premium**訂用帳戶, 您可以在**標示為有風險的使用者**中選取使用者, 或選取有風險的登**入**報告中的記錄, 以深入瞭解基礎風險偵測。 如果您有**免費**或**基本**的訂用帳戶, 則可以查看有風險的使用者和有風險的登入報告, 但您看不到基礎風險偵測資訊。
 
 ---
 
@@ -125,7 +125,7 @@ ms.locfileid: "68987911"
 
 ---
 
-**問：「登入時偵測到其他風險」風險事件表示什麼？**
+**問：風險偵測「登入時偵測到其他風險」表示？**
 
 **答：** 為讓您深入了解您環境中所有具有風險的登入，「登入時偵測到其他風險」可作為 Azure AD Identity Protection 訂閱者專屬偵測的登入預留位置。
 

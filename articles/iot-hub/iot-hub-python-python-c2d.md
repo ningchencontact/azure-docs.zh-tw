@@ -8,18 +8,16 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
-ms.openlocfilehash: d2eb36faaeb4d1745d0d509432e3a886ce75ff51
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 340d728a45da4e392c85ab4ba7ce822f7762da3b
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667893"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147372"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>使用 IoT 中樞傳送雲端到裝置訊息 (Python)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
-
-## <a name="introduction"></a>簡介
 
 Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 將[遙測資料從裝置傳送至 IoT 中樞](quickstart-send-telemetry-python.md)快速入門會示範如何建立 iot 中樞、在其中布建裝置身分識別, 以及撰寫模擬裝置應用程式的程式碼, 以傳送裝置到雲端的訊息。
 
@@ -43,7 +41,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-以下是必要條件的安裝指示。 針對此操作說明, 您不需要安裝服務用戶端套件。
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 

@@ -17,14 +17,18 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 719939b393b01938a4d4faa41a5dca163b2a8949
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 611947c8c1d202cf4abf4222dfe0072aced58507
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834708"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135731"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式
+
+> [!NOTE]
+>  如果您未告訴伺服器您打算呼叫的資源, 伺服器將不會觸發該資源的條件式存取原則。 因此, 為了擁有 MFA 觸發程式, 您必須在 URL 中包含資源。 
+>
 
 Azure Active Directory (Azure AD) 使用 OAuth 2.0 讓您授權存取 Azure AD 租用戶中的 Web 應用程式和 Web API。 本指南不限於特定語言，其中說明如何在不使用任何[開放原始碼程式庫](active-directory-authentication-libraries.md)的情況下，傳送和接收 HTTP 訊息。
 
@@ -278,6 +282,8 @@ RFC 6750 規格會針對在回應中使用 WWW 驗證標頭和持有人配置的
 存取權杖有效期很短，到期後必須重新整理，才能繼續存取資源。 您可以重新整理 `access_token`，方法是向 `/token` 端點送出另一個 `POST` 要求，但這次提供 `refresh_token`，而不提供 `code`。  重新整理權杖對用戶端已同意授予存取權限的所有資源均有效，因此，對 `resource=https://graph.microsoft.com` 要求所發出的重新整理權杖，可用於向 `resource=https://contoso.com/api` 要求新的存取權杖。 
 
 重新整理權杖並沒有指定的存留期。 一般而言，重新整理權杖的存留期相當長。 不過，在某些情況下，重新整理權杖會過期、遭到撤銷或對要執行的動作缺乏足夠的權限。 應用程式必須預期並正確處理權杖發行端點所傳回的錯誤。
+
+[!NOTE] 存取權杖存留期可在以下位置找到: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes#configurable-token-lifetime-properties 存取權杖的預設值是1小時, 而重新整理權杖的預設值是90天。 您可以據以設定權杖存留期來變更這些存留期。 
 
 當您收到具有重新整理權杖錯誤的回應時，請捨棄目前的重新整理權杖並要求新的授權碼或存取權杖。 特別是，在授權碼授與流程中使用重新整理權杖時，如果您收到的回應含有 `interaction_required` 或 `invalid_grant` 錯誤代碼，請捨棄重新整理權杖並要求新的授權碼。
 

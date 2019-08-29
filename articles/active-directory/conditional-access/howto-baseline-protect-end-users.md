@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0f1a2e0bad39b54edc153416e4120bbc6912578c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532936"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125459"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>基準原則:終端使用者保護 (預覽)
 
@@ -24,7 +24,7 @@ ms.locfileid: "69532936"
 
 為了達成合理的安全性和可用性平衡, 使用者在每次登入時都不應該收到提示。 反映一般使用者行為的驗證要求 (例如從相同位置登入相同的裝置), 會有較低的入侵機會。 只有被視為有風險的登入和顯示不良動作專案的特性, 才會出現 MFA 挑戰。
 
-使用者保護是以風險為基礎的 MFA[基準原則](concept-baseline-protection.md), 可保護目錄中的所有使用者, 包括所有系統管理員角色。 若要啟用此原則, 所有使用者都必須使用驗證器應用程式註冊 MFA。 使用者可以略過14天的 MFA 登錄提示, 在這之後, 他們將會遭到封鎖而無法登入, 直到他們註冊 MFA 為止。 註冊 MFA 之後, 只有在有風險的登入嘗試時, 才會提示使用者進行 MFA。 遭盜用的使用者帳戶會遭到封鎖, 直到重設其密碼且已關閉風險事件為止。
+使用者保護是以風險為基礎的 MFA[基準原則](concept-baseline-protection.md), 可保護目錄中的所有使用者, 包括所有系統管理員角色。 若要啟用此原則, 所有使用者都必須使用驗證器應用程式註冊 MFA。 使用者可以略過14天的 MFA 登錄提示, 在這之後, 他們將會遭到封鎖而無法登入, 直到他們註冊 MFA 為止。 註冊 MFA 之後, 只有在有風險的登入嘗試時, 才會提示使用者進行 MFA。 遭盜用的使用者帳戶會遭到封鎖, 直到重設其密碼且已關閉風險偵測為止。
 
 > [!NOTE]
 > 此原則適用于所有使用者, 包括來賓帳戶, 並會在登入所有應用程式時進行評估。
@@ -33,7 +33,7 @@ ms.locfileid: "69532936"
 
 為了協助保護客戶, Microsoft 流失的認證服務會尋找公開可用的使用者名稱/密碼組。 如果它們符合我們的其中一個使用者, 我們會立即協助保護該帳戶。 識別為有流失認證的使用者已確認遭到入侵。 這些使用者在重設密碼之前, 將會遭到封鎖而無法登入。
 
-指派 Azure AD Premium 授權的使用者可以在其目錄中啟用功能的情況下, 透過自助式密碼重設 (SSPR) 來還原存取權。 沒有 premium 授權的使用者會遭到封鎖, 必須洽詢系統管理員以執行手動密碼重設, 並關閉已加上旗標的使用者風險事件。
+指派 Azure AD Premium 授權的使用者可以在其目錄中啟用功能的情況下, 透過自助式密碼重設 (SSPR) 來還原存取權。 沒有 premium 授權的使用者若遭到封鎖, 必須洽詢系統管理員以執行手動密碼重設, 並解除已加上旗標的使用者風險偵測。
 
 ### <a name="steps-to-unblock-a-user"></a>解除封鎖使用者的步驟
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848191"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128348"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -30,7 +30,7 @@ ms.locfileid: "68848191"
 | [本機環境](#local) | 完全控制您的開發環境和相依性。 使用您選擇的任何組建工具、環境或 IDE 來執行。 | 開始使用較長的時間。 必須安裝必要的 SDK 套件, 如果您還沒有環境, 也必須安裝它。 |
 | [Azure Databricks](#aml-databricks) | 適用于在可調整的 Apache Spark 平臺上執行大規模的機器學習工作流程。 | 適用于實驗性機器學習服務的大材小用, 或較小規模的實驗和工作流程。 Azure Databricks 所產生的額外成本。 請參閱[定價詳細資料](https://azure.microsoft.com/pricing/details/databricks/)。 |
 | [資料科學虛擬機器 (DSVM)](#dsvm) | 類似于雲端式筆記本 VM (已預先安裝 Python 和 SDK), 但已預先安裝其他常用的資料科學和機器學習工具。 易於調整, 並與其他自訂工具和工作流程結合。 | 相較于以雲端為基礎的筆記本 VM, 更慢的使用者入門體驗。 |
-| [Azure Notebooks](#aznotebooks) | 已預先安裝 Python 和 SDK 的免費和輕量快速入門體驗。 | 相較于以雲端為基礎的筆記本 VM, 更不會有更強大的 VM 可用。 與工作區和其他資源隔離。 |
+| [Azure Notebooks](#aznotebooks) | 已預先安裝 Python 和 SDK 的免費和輕量快速入門體驗。 | 相較于以雲端為基礎的筆記本 VM, 可用的 Vm 更不強大。 與工作區和其他資源隔離。 |
 
 本文也提供下列工具的其他使用秘訣:
 
@@ -38,7 +38,7 @@ ms.locfileid: "68848191"
 
 * [Visual Studio Code](#vscode)：如果您使用 Visual Studio Code，則有一些您可以安裝的實用擴充功能。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建立 Azure Machine Learning 服務工作區](how-to-manage-workspace.md)。 您只需要工作區, 就能開始使用自己的[雲端式筆記本伺服器](#notebookvm)、 [DSVM](#dsvm)、 [Azure Databricks](#aml-databricks)或[Azure Notebooks](#aznotebooks)。
 
@@ -72,7 +72,7 @@ Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建�
 
   如果您要進入程式碼, VM 會包含可協助您探索及瞭解如何使用 Azure Machine Learning 服務的教學課程和範例。 範例筆記本會儲存在工作區的 Azure Blob 儲存體帳戶中, 讓它們可在 Vm 之間共用。 執行時, 他們也可以存取您工作區的資料存放區和計算資源。
 
-+ **簡單設定**:從您的 Azure Machine Learning 工作區中隨時建立一個。 只提供名稱, 並指定 Azure VM 類型。 請在本[教學課程中立即試用:設定環境和工作](tutorial-1st-experiment-sdk-setup.md)區。
++ **簡單設定**:從您的 Azure Machine Learning 工作區中隨時建立一個。 只提供名稱, 並指定 Azure VM 類型。 請在本[教學課程中立即試用:設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)。
 
 + **可自訂**。 在受管理且安全的 VM 供應專案中, 您可以保留硬體功能的完整存取權, 並根據您的需求進行自訂。 例如, 您可以快速建立最新的 NVidia V100 供電 VM, 以執行 novel 類神經網路架構的逐步偵錯工具。
 
@@ -187,14 +187,19 @@ Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 但如�
 
     此命令會使用筆記本和 automl 額外專案來安裝基底 Azure Machine Learning SDK。 額外`automl`的是大型安裝, 如果您不想要執行自動化機器學習實驗, 可以從括弧中移除。 額外`automl`的也包含 Azure Machine Learning 資料準備 SDK, 預設為相依性。
 
-     ```shell
+    ```shell
     pip install azureml-sdk[notebooks,automl]
     ```
 
    > [!NOTE]
-   > 如果顯示訊息表示無法解除安裝 PyYAML ，請改用下列命令：
+   > * 如果顯示訊息表示無法解除安裝 PyYAML ，請改用下列命令：
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
+   >
+   > * 從 macOS Catalina 開始, zsh (Z shell) 是預設的登入命令介面和互動式 shell。 在 zsh 中, 使用下列命令, 將括弧加上\\"" (反斜線):
+   >
+   >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
+
 
    安裝 SDK 需要幾分鐘的時間。 如需安裝選項的詳細資訊, 請參閱[安裝指南](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
 
@@ -329,10 +334,10 @@ Azure Databricks 如何與 Azure Machine Learning 服務搭配運作:
    1. 在 [程式庫] 索引標籤上，選取 [重新啟動]。
 
    也請考慮:
-   + 在 Automl config 中, 使用 Azure Databricks 時, 請新增下列參數:
+   + 在 AutoML config 中, 使用 Azure Databricks 新增下列參數:
        1. ```max_concurrent_iterations```是根據叢集中的背景工作節點數目。
         2. ```spark_context=sc```是以預設 spark 內容為基礎。
-   + 或者, 如果您有舊的 SDK 版本, 請從叢集的已安裝的程式庫中取消選取它, 並移至垃圾桶。 安裝新版 SDK，並重新啟動叢集。 如果在此之後發生問題，請中斷連結再重新連結叢集。
+   + 或者, 如果您有舊的 SDK 版本, 請從叢集的已安裝的程式庫中取消選取它, 並移至垃圾桶。 安裝新版 SDK，並重新啟動叢集。 如果重新開機後發生問題, 請卸離並重新附加您的叢集。
 
 如果安裝成功, 則匯入的程式庫看起來應該像下列其中一項:
 
@@ -357,7 +362,7 @@ SDK for Databricks搭配自動化機器![學習服務 sdk, 並在 Databricks 上
 
 透過 [Azure 入口網站](https://portal.azure.com)開始使用 Azure Notebooks。  開啟您的工作區, 然後從 [**總覽**] 區段中, 選取 [**開始使用 Azure Notebooks**]。
 
-根據預設，Azure Notebooks 使用免費服務層級，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
+根據預設, Azure Notebooks 會使用限制為 4 GB 記憶體和 1 GB 資料的免費服務層級。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ## <a id="workspace"></a>建立工作區組態檔
 
@@ -371,7 +376,7 @@ SDK for Databricks搭配自動化機器![學習服務 sdk, 並在 Databricks 上
 }
 ```
 
-這個 JSON 檔案必須位於包含您的 Python 指令碼或 Jupyter Notebook 的目錄結構中。 它可以位於相同的目錄、名為*azureml*的子目錄, 或在上層目錄中。
+這個 JSON 檔案必須位於包含您的 Python 指令碼或 Jupyter Notebook 的目錄結構中。 可以位於相同的目錄，名為 *aml_config* 的子目錄，或位於父目錄。
 
 要使用程式碼中的此檔案，請使用 `ws=Workspace.from_config()`。 此程式碼會從檔案載入資訊，並連接到您的工作區。
 

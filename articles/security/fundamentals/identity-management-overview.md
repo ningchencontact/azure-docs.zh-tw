@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 1081fa8c9c7cc64418515aabbb755ecf056196ca
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 021767aa20dc35459c68fead674ff00510af2538
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826282"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129368"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
 
@@ -60,7 +60,7 @@ Azure AD 將內部部署的 Active Directory 環境延伸到雲端，讓使用�
 
 不只使用者不需要管理多組使用者名稱和密碼，還可根據自身的組織群組，以及其員工的狀態，自動佈建或解除佈建其應用程式的存取權。 Azure AD 引進了安全性和存取管理控制措施，可讓您集中管理所有 SaaS 應用程式的使用者存取權。
 
-深入了解:
+深入了解：
 
 * [單一登入概觀](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../../active-directory/manage-apps/what-is-single-sign-on.md)
@@ -70,7 +70,7 @@ Azure AD 將內部部署的 Active Directory 環境延伸到雲端，讓使用�
 
 Azure AD 應用程式 Proxy 可讓您在私人網路內發佈內部部署應用程式 (例如 [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) 網站、[Outlook Web 應用程式](https://technet.microsoft.com/library/jj657718.aspx)和 [IIS](https://www.iis.net/) 型應用程式)，並提供網路外部使用者的安全存取。 應用程式 Proxy 不僅針對多種內部部署 Web 應用程式提供遠端存取與 SSO，同時還提供 Azure AD 支援的數千個 SaaS 應用程式。 員工可以從家裡使用自己的裝置登入您的應用程式，還可透過這個雲端 Proxy 進行驗證。
 
-深入了解:
+深入了解：
 
 * [啟用 Azure AD 應用程式 Proxy](/azure/active-directory/manage-apps/application-proxy-enable)
 * [使用 Azure AD 應用程式 Proxy 發佈應用程式](/azure/active-directory/active-directory-application-proxy-publish)
@@ -81,7 +81,7 @@ Azure AD 應用程式 Proxy 可讓您在私人網路內發佈內部部署應用�
 
 Azure Multi-Factor Authentication 是需要使用多種驗證方法，並在使用者登入和交易中新增重要的第二層安全性的驗證方法。 Multi-Factor Authentication 有助於保護對資料與應用程式的存取，同時滿足使用者對簡單登入程序的需求。 它可以透過一些驗證選項：例如電話、文字訊息，或行動應用程式通知或驗證代碼，以及第三方 OAuth 權杖，來提供強大的驗證功能。
 
-深入了解:
+深入了解：
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [什麼是 Azure Multi-Factor Authentication？](/azure/active-directory/authentication/multi-factor-authentication)
@@ -91,7 +91,7 @@ Azure Multi-Factor Authentication 是需要使用多種驗證方法，並在使�
 
 RBAC 是建置於 Azure Resource Manager 上的授權系統，可提供更細緻的 Azure 資源存取管理。 RBAC 讓您能精確控制使用者擁有的存取範圍。 舉例來說，您可以限制讓一個使用者只能管理虛擬網路，而另一個使用者只能管理一個資源群組中的資源。 Azure 包含數個您可使用的內建角色。 以下列出四個基本內建角色。 前三個適用於所有資源類型。
 
-深入了解:
+深入了解：
 
 * [什麼是角色型存取控制 (RBAC)？](/azure/role-based-access-control/overview)
 * [適用於 Azure 資源的內建角色](/azure/role-based-access-control/built-in-roles)
@@ -108,7 +108,7 @@ RBAC 是建置於 Azure Resource Manager 上的授權系統，可提供更細緻
 * **使用者特定報告**：顯示特定使用者的裝置登入活動資料。
 * **活動記錄**：包含過去 24 小時、過去 7 天或過去 30 天內所有稽核事件的記錄，以及群組活動變更、密碼重設和登錄活動。
 
-深入了解:
+深入了解：
 
 * [檢視存取和使用情況報告](/azure/active-directory/active-directory-view-access-usage-reports)
 * [開始使用 Azure Active Directory 報告](/azure/active-directory/active-directory-reporting-getting-started)
@@ -122,7 +122,7 @@ Azure AD B2C 是高可用性的全域身分識別管理服務，可用於處理�
 
 當您使用 Azure AD B2C 時，您的取用者可以使用現有的社交帳戶 (Facebook、Google、Amazon、LinkedIn) 註冊應用程式，或是建立新的認證 (電子郵件地址與密碼，或使用者名稱與密碼)。
 
-深入了解:
+深入了解：
 
 * [什麼是 Azure Active Directory B2C？](https://azure.microsoft.com/services/active-directory-b2c/)
 * [Azure Active Directory B2C (預覽)：在您的應用程式中註冊及登入消費者](../../active-directory-b2c/active-directory-b2c-overview.md)
@@ -134,7 +134,7 @@ Azure AD 裝置註冊是裝置型[條件式存取](/azure/active-directory/activ
 
 與 Intune 這類的行動裝置管理解決方案結合時，將會以裝置的其他相關資訊更新 Azure AD 中的裝置屬性。 接著, 您可以建立條件式存取規則, 以強制從裝置存取, 以符合您的安全性和合規性標準。
 
-深入了解:
+深入了解：
 
 * [開始使用 Azure AD 裝置註冊](/azure/active-directory/active-directory-conditional-access-device-registration-overview)
 * [自動向 Azure AD 註冊加入網域的 Windows 裝置](/azure/active-directory/active-directory-conditional-access-automatic-device-registration)
@@ -153,16 +153,16 @@ Azure AD 裝置註冊是裝置型[條件式存取](/azure/active-directory/activ
 * 取得有關系統管理員存取記錄與系統管理員指派變更的報告。
 * 取得有關特殊權限角色存取的警示。
 
-深入了解:
+深入了解：
 
 * [什麼是 Azure AD Privileged Identity Management？](../../active-directory/privileged-identity-management/pim-configure.md)
 * [在 PIM 中指派 Azure AD 目錄角色](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>身分識別保護
 
-Azure AD Identity Protection 是一項安全性服務，可供整合檢視會影響組織身分識別的風險事件和潛在弱點。 Identity Protection 會利用現有的 Azure AD 異常偵測功能，這些功能可透過 Azure AD 異常活動報告取得。 Identity Protection 也引進新的風險事件類型，可以即時偵測異常行為。
+Azure AD Identity Protection 是一項安全性服務, 可為風險偵測和潛在弱點 (會影響組織的身分識別) 提供匯總的觀點。 Identity Protection 會利用現有的 Azure AD 異常偵測功能，這些功能可透過 Azure AD 異常活動報告取得。 Identity Protection 也引進了可即時偵測異常的新風險偵測類型。
 
-深入了解:
+深入了解：
 
 * [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview)
 * [第 9 頻道：Azure AD 和身分識別示範：身分識別保護預覽版](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
@@ -176,7 +176,7 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 * 通過驗證
 * 健全狀況監視
 
-深入了解:
+深入了解：
 
 * [混合式身分識別白皮書](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -186,7 +186,7 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 
 Azure Active Directory (Azure AD) 存取權檢閱可讓組織有效地管理群組成員資格、對企業應用程式的存取，以及特殊權限角色指派。
 
-深入了解:
+深入了解：
 
 * [Azure AD 存取權檢閱](../../active-directory/governance/access-reviews-overview.md)
 * [使用 Azure AD 存取權檢閱來管理使用者存取權](../../active-directory/governance/access-reviews-overview.md)

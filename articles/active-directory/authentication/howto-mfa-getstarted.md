@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776a73f8a20a3f5ad4e97a08ff3871e805a61eb3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879128"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125036"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃以雲端為基礎的 Azure 多因素驗證部署
 
@@ -24,7 +24,7 @@ ms.locfileid: "68879128"
 
 [Azure 多重要素驗證 (MFA)](concept-mfa-howitworks.md)可協助保護資料和應用程式的存取。 它使用第二種形式的驗證來提供一層額外的安全性。 組織可以使用[條件式存取](../conditional-access/overview.md), 讓解決方案符合他們的特定需求。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始部署 Azure 多重要素驗證之前, 必須考慮一些必要專案。
 
@@ -72,11 +72,11 @@ Azure 多重要素驗證是藉由強制執行具有條件式存取的原則來�
 * 洩漏的認證
 * 從匿名 IP 位址登入
 * 不可能進入非慣用位置
-* 從不熟悉的位置登入的次數
+* 從不熟悉的位置登入
 * 從受感染的裝置登入
 * 從具有可疑活動的 IP 位址登入
 
-Azure Active Directory Identity Protection 偵測到的部分風險事件會即時發生, 有些則需要離線處理。 系統管理員可以選擇封鎖展示有風險行為的使用者, 並手動修復、要求變更密碼, 或要求多重要素驗證作為其條件式存取原則的一部分。
+Azure Active Directory Identity Protection 偵測到的部分風險偵測會即時發生, 有些則需要離線處理。 系統管理員可以選擇封鎖展示有風險行為的使用者, 並手動修復、要求變更密碼, 或要求多重要素驗證作為其條件式存取原則的一部分。
 
 ## <a name="define-network-locations"></a>定義網路位置
 

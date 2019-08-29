@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: 98b5fb06bf018c9176fc989786d8bd1821914f43
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: db020092c076680eddd575f8e7e85a2060603dd8
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558446"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147777"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>使用 IoT 中樞將檔案從裝置上傳至雲端 (.NET)
 
@@ -47,7 +47,7 @@ ms.locfileid: "69558446"
 > [!NOTE]
 > IoT 中樞透過 Azure IoT 裝置 Sdk 來支援許多裝置平臺和語言, 包括 C、JAVA、Python 和 JAVAscript。 如需如何將您的裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心](https://azure.microsoft.com/develop/iot)。
 
-若要完成本教學課程，您需要下列必要條件：
+## <a name="prerequisites"></a>必要條件
 
 * Visual Studio
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 0e26b9b5aee61f399a39c032cdbd2084884538c9
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 27b180d8d95d7dad967b8ac2495a795ed70836b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982703"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147229"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中支援的 Kubernetes 版本
 
@@ -49,13 +49,13 @@ AKS 支援 Kubernetes 的四個次要版本：
 
 這就是所謂的「N-3」-(N (最新版本)-3 (次要版本))。
 
-例如, 如果 AKS 今天引進*1.13. x* , 則會提供下列版本的支援:
+例如, 如果 AKS 導入了*1.13* , 則會提供下列版本的支援:
 
 新的次要版本    |    支援的版本清單
 -----------------    |    ----------------------
-1.13. x               |    1.12. a、1.12. b、1.11. a、1.11. b、1.10. a、1.10. b
+1.13. a               |    1.12. a、1.12. b、1.11. a、1.11. b、1.10. a、1.10. b
 
-其中 "x" 和 ". a" 和 ". b" 是代表性的修補程式版本。
+其中「. a」和「. b」是代表性的修補程式版本。」答: 「從 1.13. a 可以與 1.12. 答不同。」 例如, 1.13.9 和1.12.8。
 
 如需有關版本變更和預期的通訊詳細資料, 請參閱下面的「通訊」。
 
@@ -72,7 +72,7 @@ AKS 支援 Kubernetes 的四個次要版本：
 1.9.b
 ```
 
-而 AKS 會發行 1.13. x, 這表示將會移除 1.9. x 版 (所有1.9 版本), 且不支援。
+和 AKS 版本1.13。 *, 這表示1.9。* 版本 (所有1.9 版) 將會移除且不支援。
 
 > [!NOTE]
 > 請注意, 如果客戶執行不受支援的 Kubernetes 版本, 系統會要求他們在要求叢集的支援時進行升級。 [AKS 支援原則](https://docs.microsoft.com/azure/aks/support-policies)不會涵蓋執行不受支援 Kubernetes 版本的叢集。
@@ -126,7 +126,7 @@ AKS 保留新增或移除已識別為有一或多個重大生產影響 bug 或�
 
 ### <a name="azure-portal-and-cli-default-versions"></a>Azure 入口網站和 CLI 預設版本
 
-當您在入口網站或 Azure CLI 中部署 AKS 叢集時, 叢集一律會設定為 N-1 次要版本和最新的修補程式。 例如, 如果 AKS 支援*1.13. x*, *1.12*  + .  + 1.12. b, *1.11*. a*1.11. b*, *1.10*  +  *b*, 新叢集的預設版本為*1.12. b*.
+當您在入口網站或 Azure CLI 中部署 AKS 叢集時, 叢集一律會設定為 N-1 次要版本和最新的修補程式。 例如  + , 如果 AKS 支援*1.13. a*: 1.12.*b*, *1.11*  + . a*1.11. b*、1.10. *a*  +  *1.10 b*, 新叢集的預設版本為*1.12. b*.
 
 AKS 預設為 N-1 (次要. latestPatch, 例如 1.12. b), 為客戶提供已知、穩定且已修補的版本。
 
@@ -161,8 +161,8 @@ KubernetesVersion    Upgrades
 
 如果您是在*n-4*版本, 則不受支援, 將會要求您進行升級。 如果您從版本 n-4 升級至 n-3 成功, 則您現在已在我們的支援原則中。 例如:
 
-- 如果支援的 AKS 版本為*1.13. x*、 *1.12. a*  +  *1.12. b*、 *1.11. c*  +  *1.11 d*和*1.10. e* + *1.10 f* , 而且您在*1.9. g*或*1.9. h*上, 您不在支援範圍內。
-- 如果從*1.9. g*或 1.9. *h*升級至*1.10. e* 或*1.10. f*成功, 您會回到我們的支援原則中。
+- 如果支援的 AKS 版本為*1.13. a*、 *1.12. b* + *1.12. c*、 *1.11. d* + *1.11. e*和*1.10. f* + *1.10. g* , 而且您是在*1.9. h*或*1.9。* , 您不在支援範圍內。
+- 如果從*1.9. h*或*1.9*升級至*1.10. f*或*1.10. g*成功, 您就會回到我們的支援原則中。
 
 不支援升級到早於 *n-4* 的版本。 在這類情況下，我們建議客戶建立新的 AKS 叢集，並重新部署其工作負載。
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 7aff0fe47d1586b63157d5df7882fc338637f714
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e3a29e6e8f21658f03fb7fc059b54aa167496d4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68381972"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147172"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -55,7 +55,7 @@ Azure 會在夜間排程自動將安全性修補程式套用至叢集中的 Linu
 
 ### <a name="windows-server-nodes"></a>Windows Server 節點
 
-對於 Windows Server 節點 (目前在 AKS 中處於預覽狀態), Windows Update 不會自動執行並套用最新的更新。 依照 Windows Update 發行週期和您自己的驗證程式的定期排程, 您應該在 AKS 叢集中的 Windows Server 節點集區上執行升級。 此升級程式會建立節點來執行最新的 Windows Server 映射和修補程式, 然後移除較舊的節點。 如需此程式的詳細資訊, 請參閱[升級 AKS 中的節點集][nodepool-upgrade]區。
+對於 Windows Server 節點 (目前在 AKS 中處於預覽狀態), Windows Update 不會自動執行並套用最新的更新。 依照 Windows Update 發行週期和您自己的驗證程式的定期排程, 您應該在 AKS 叢集中的叢集和 Windows Server 節點集區上執行升級。 此升級程式會建立節點來執行最新的 Windows Server 映射和修補程式, 然後移除較舊的節點。 如需此程式的詳細資訊, 請參閱[升級 AKS 中的節點集][nodepool-upgrade]區。
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>為何會使用 AKS 建立兩個資源群組？
 

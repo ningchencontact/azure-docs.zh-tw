@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93327091d0065a67d441dd56cadd83f4f7d2d1f2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: afab194c984dcbfa96a9342f46b892c7ec08d321
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970388"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135678"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -164,7 +164,7 @@ Azure AD 客戶現在可以設定原則來管理其組織之使用者和群組�
 
 如果您不想管理長清單的 IP 位址和範圍, 可以使用 Azure 網路安全性群組中的新**AzureActiveDirectoryDomainServices**網路服務標籤, 以協助保護您 Azure AD Domain Services 虛擬的輸入流量網路子網。
 
-如需這個新服務標記的詳細資訊, 請參閱[Azure AD Domain Services 的網路安全性群組](https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#default-network-service-group)。
+如需這個新服務標記的詳細資訊, 請參閱[Azure AD Domain Services 的網路安全性群組](../../active-directory-domain-services/network-considerations.md#network-security-groups-and-required-ports)。
 
 ---
 
@@ -590,7 +590,7 @@ TLS 1.0 和 TLS 1.1 的淘汰會在2019年8月31日發生, 但我們會提供額
 
 Azure AD 的威脅情報偵測現在已在更新的 Azure AD Identity Protection 功能中提供。 這種新功能有助於指出特定使用者或活動的異常使用者活動, 其與根據 Microsoft 內部和外部威脅情報來源的已知攻擊模式一致。
 
-如需 Azure AD Identity Protection 重新整理版本的詳細資訊, 請參閱[現已公開預覽的四個主要 Azure AD Identity Protection 增強功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935), 以及[Azure Active Directory Identity Protection 的內容 (重新整理)。](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) 篇. 如需有關 Azure AD 威脅情報偵測的詳細資訊, 請參閱[Azure Active Directory Identity Protection 風險事件](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence)一文。
+如需 Azure AD Identity Protection 重新整理版本的詳細資訊, 請參閱[現已公開預覽的四個主要 Azure AD Identity Protection 增強功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935), 以及[Azure Active Directory Identity Protection 的內容 (重新整理)。](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) 篇. 如需有關 Azure AD 威脅情報偵測的詳細資訊, 請參閱[Azure Active Directory Identity Protection 風險](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence)偵測一文。
 
 ---
 

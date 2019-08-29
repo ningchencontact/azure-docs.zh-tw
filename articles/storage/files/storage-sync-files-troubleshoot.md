@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 33e29b02adfccf94da84dd99451117485b892ba3
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
-ms.translationtype: HT
+ms.openlocfilehash: c6b9c0a8615960772ccac824c293b5f4ea6cfe55
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072898"
+ms.locfileid: "70129202"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>疑難排解 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -717,7 +717,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **需要補救** | 否 |
 
-之所以發生此錯誤，是因為同步資料庫發生內部錯誤。 此錯誤會在 Azure 檔案同步重試時自動解決。 如果此錯誤持續存在一段時間，請建立支援要求，我們會與您連絡，協助您解決這個問題。
+之所以發生此錯誤，是因為同步資料庫發生內部錯誤。 同步重試時, 會自動解決此錯誤。 如果此錯誤持續存在一段時間，請建立支援要求，我們會與您連絡，協助您解決這個問題。
 
 <a id="-2134364024"></a>**因為 Azure Active Directory 租使用者中的變更, 所以同步失敗**  
 

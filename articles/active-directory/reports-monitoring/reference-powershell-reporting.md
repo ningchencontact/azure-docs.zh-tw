@@ -17,14 +17,17 @@ ms.date: 07/12/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 372041dc24db4ed66977364e2a2997c7195cca9c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4d34204b936a608158a0ca3e8af2264059ffc6aa
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988042"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70136561"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>適用於報表的 Azure AD PowerShell Cmdlet
+
+> [!NOTE] 
+> 這些 Powershell Cmdlet 目前僅適用于[Azure AD Preview](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing)模組。 請注意, 預覽模組不建議用於生產環境使用。 
 
 有了 Azure Active Directory (Azure AD) 報表, 您可以在方向 (audit logs) 和驗證資料 (登入記錄) 中取得有關所有寫入作業的活動詳細資料。 雖然可以使用 MS 圖形 API 來取得資訊, 但現在您可以使用 Azure AD PowerShell Cmdlet 來抓取相同的資料, 以進行報告。
 

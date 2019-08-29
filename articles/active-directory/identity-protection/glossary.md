@@ -11,23 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6751fe74bfd9b8a07aec2263582d9f1a4bc0b2ac
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: b1a1c35929670891c38bb1b3e26806b4c9bed6a0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333977"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126453"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection 詞彙
 
 ### <a name="at-risk-user"></a>有風險 (使用者)
-具有一或多個作用中風險事件的使用者。 
+具有一或多個作用中風險偵測的使用者。 
 
 ### <a name="atypical-sign-in-location"></a>非典型登入位置
 從特定使用者、類似使用者或租用戶不常用的地理位置登入。
 
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
-Azure Active Directory 的安全性模組，可供整合檢視會影響組織身分識別的風險事件和潛在弱點。
+Azure Active Directory 的安全性模組, 可讓您匯總查看風險偵測, 以及影響組織身分識別的潛在弱點。
 
 ### <a name="conditional-access"></a>條件式存取
 用來保護資源存取的原則。 條件式存取規則會儲存在 Azure Active Directory 中, 並在授與資源的存取權之前 Azure AD 評估。  範例規則包括根據使用者位置、裝置健康狀態或使用者驗證方法來限制存取。
@@ -38,31 +38,31 @@ Azure Active Directory 的安全性模組，可供整合檢視會影響組織身
 ### <a name="event"></a>Event - 事件
 Azure Active Directory 中的活動記錄。
 
-### <a name="false-positive-risk-event"></a>誤判 (風險事件)
-由 Identity Protection 使用者手動設定的風險事件狀態，表示此風險事件已經過調查而且被誤標為風險事件。
+### <a name="false-positive-risk-detection"></a>假-正面 (風險偵測)
+由 Identity Protection 使用者手動設定的風險偵測狀態, 表示已調查風險偵測, 並不正確地將其標示為風險偵測。
 
 ### <a name="identity"></a>身分識別
 必須透過以密碼或憑證等準則為基礎的驗證作業來確認的個人或實體。
 
-### <a name="identity-risk-event"></a>身分識別風險事件
+### <a name="identity-risk-detection"></a>身分識別風險偵測
 由 Identity Protection 標示為異常的 AAD 事件，有可能表示身分識別已被入侵。
 
-### <a name="ignored-risk-event"></a>已忽略 (風險事件)
-由 Identity Protection 使用者手動設定的風險事件狀態，表示此風險事件已關閉，而不需採取補救動作。
+### <a name="ignored-risk-detection"></a>已忽略 (風險偵測)
+由 Identity Protection 使用者手動設定的風險偵測狀態, 表示風險偵測已關閉, 而不採取補救動作。
 
 ### <a name="impossible-travel-from-atypical-locations"></a>不可能來自非典型位置的移動
-偵測到同一位使用者有兩次登入時所觸發的風險事件，其中至少一次登入是來自非典型登入位置，而且登入之間的時間比在兩地之間實際移動所需的最短時間還要短。  
+當偵測到相同使用者的兩次登入時 (其中至少有一個是來自非典型登入位置), 以及登入之間的時間短于在這些情況下實際移動所需的最短時間時, 就會觸發風險偵測。堆放.  
 
 ### <a name="investigation"></a>調查
-檢閱風險事件相關活動、記錄和其他相關資訊的程序，以決定是否需要採取補救或緩和步驟，了解身分識別是否及如何遭到入侵，以及了解遭到入侵的身分識別如何被利用。
+檢查活動、記錄和與風險偵測相關的其他相關資訊, 以決定是否需要補救或緩和步驟, 瞭解身分識別是否及如何遭到入侵, 以及瞭解遭到入侵的方式使用了身分識別。
 
-### <a name="leaked-credentials"></a>認證外洩
-當我們的研究人員發現目前的使用者認證 (使用者名稱和密碼) 被公開張貼在黑暗網路 (Dark Web) 中時所觸發的風險事件。
+### <a name="leaked-credentials"></a>洩漏的認證
+當我們的研究人員在深色網站公開張貼目前的使用者認證 (使用者名稱和密碼) 時, 就會觸發風險偵測。
 
-### <a name="mitigation"></a>緩和
-此動作可限制或消除攻擊者利用遭到入侵的身分識別或裝置的能力，但不需將身分識別或裝置還原至安全的狀態。 緩和並未解決先前與身分識別或裝置相關聯的風險事件。
+### <a name="mitigation"></a>風險降低
+此動作可限制或消除攻擊者利用遭到入侵的身分識別或裝置的能力，但不需將身分識別或裝置還原至安全的狀態。 緩和措施並不會解決先前與身分識別或裝置相關聯的風險偵測。
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>多重要素驗證
 此種驗證方法需要兩個或更多驗證方法，其中可能包含使用者擁有的事物 (例如憑證)、使用者知道的事物 (例如使用者名稱、密碼或通關密語)、實體屬性 (例如指紋) 以及個人屬性 (例如個人簽章)。
 
 ### <a name="offline-detection"></a>離線偵測
@@ -75,10 +75,10 @@ Azure Active Directory 中的活動記錄。
 安全性原則的一部分，說明會觸發此原則的情況，以及原則觸發時所採取的動作。
 
 ### <a name="prevention"></a>預防
-預防藉由不當使用疑似或已知遭到入侵的身分識別或裝置來傷害組織的動作。 預防動作並不會保護裝置或身分識別的安全，且不會解決先前的風險事件。
+預防藉由不當使用疑似或已知遭到入侵的身分識別或裝置來傷害組織的動作。 預防動作不會保護裝置或身分識別, 也不會解決先前的風險偵測。
 
 ### <a name="privileged-user"></a>特殊權限 (使用者)
-在發生風險事件時，擁有永久或暫時系統管理權限，可存取 Azure Active Directory 中一或多項資源的使用者，例如全域管理員、計費管理員、服務管理員、使用者管理員和密碼管理員。 
+在風險偵測時, 具有 Azure Active Directory 中一或多個資源 (例如全域管理員、計費管理員、服務管理員、使用者系統管理員和密碼) 之永久或暫時系統管理許可權的使用者。系統. 
 
 ### <a name="real-time"></a>即時
 請參閱即時偵測。
@@ -86,23 +86,23 @@ Azure Active Directory 中的活動記錄。
 ### <a name="real-time-detection"></a>即時偵測
 在允許事件繼續進行之前，偵測異常狀況及評估事件的風險 (例如登入嘗試)。
 
-### <a name="remediated-risk-event"></a>已補救 (風險事件)
-Identity Protection 自動設定的風險事件狀態，表示已使用此風險事件類型的標準補救動作來補救此風險事件。 例如，當使用者密碼重設時，會自動補救許多指出先前密碼已遭入侵的風險事件。
+### <a name="remediated-risk-detection"></a>已補救 (風險偵測)
+Identity Protection 自動設定的風險偵測狀態, 表示已使用此類型風險偵測的標準補救動作來補救風險偵測。 例如, 重設使用者密碼時, 會自動補救許多表示先前密碼遭到入侵的風險偵測。
 
 ### <a name="remediation"></a>修復
-用來保護先前疑似或已知遭到入侵的身分識別或裝置的動作。 補救動作可讓身分識別或裝置還原到安全的狀態，以及解決先前與身分識別或裝置相關聯的風險事件。
+用來保護先前疑似或已知遭到入侵的身分識別或裝置的動作。 補救動作會將身分識別或裝置還原至安全狀態, 並解決先前與身分識別或裝置相關聯的風險偵測。
 
-### <a name="resolved-risk-event"></a>已解決 (風險事件)
-由 Identity Protection 使用者手動設定的風險事件狀態，表示使用者在 Identity Protection 外部採取適當的補救動作，而且應該將風險事件視為已關閉。
+### <a name="resolved-risk-detection"></a>已解決 (風險偵測)
+由 Identity Protection 使用者手動設定的風險偵測狀態, 表示使用者在 Identity Protection 外部採取適當的補救動作, 而且應該將風險偵測視為已關閉。
 
-### <a name="risk-event-status"></a>風險事件狀態
-風險事件的屬性，指出事件是否為作用中，若已關閉，則會指出其關閉原因。
+### <a name="risk-detection-status"></a>風險偵測狀態
+風險偵測的屬性, 指出事件是否為作用中, 如果已關閉, 則為關閉的原因。
 
-### <a name="risk-event-type"></a>風險事件類型
-風險事件的類別，指出導致事件被視為有風險的異常類型。
+### <a name="risk-detection-type"></a>風險偵測類型
+風險偵測的類別, 表示導致事件被視為有風險的異常類型。
 
-### <a name="risk-level-risk-event"></a>風險層級 (風險事件)
-指出風險事件的嚴重性 (高、中或低)，可協助 Identity Protection 使用者排定為了降低組織風險而採取之行動的優先順序。 
+### <a name="risk-level-risk-detection"></a>風險層級 (風險偵測)
+風險偵測嚴重性的指示 (高、中或低), 可協助 Identity Protection 使用者排定所採取的動作, 以降低組織的風險。 
 
 ### <a name="risk-level-sign-in"></a>風險層級 (登入)
 指出特定登入 (其他人正嘗試使用使用者的身分識別) 的可能性 (高、中或低)。
@@ -126,16 +126,16 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 在 Azure Active Directory 中驗證身分識別的程序或動作，以及擷取這項作業的事件。
 
 ### <a name="sign-in-from-anonymous-ip-address"></a>從匿名 IP 位址登入
-從被視為匿名 Proxy IP 位址的 IP 位址成功登入之後所觸發的風險事件。
+從已識別為匿名 proxy IP 位址的 IP 位址成功登入之後, 所觸發的風險偵測。
 
 ### <a name="sign-in-from-infected-device"></a>從受感染的裝置登入
-當登入源自已知由一或多個遭入侵裝置 (這類裝置會主動嘗試與 Bot 伺服器通訊) 使用的 IP 位址時所觸發的風險事件。
+當登入源自于 IP 位址 (已知由一或多個遭入侵的裝置所使用, 而這會主動嘗試與 bot 伺服器通訊) 時, 就會觸發風險偵測。
 
 ### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>從具有可疑活動的 IP 位址登入
-從短期內透過多個使用者帳戶多次嘗試登入失敗的 IP 位址成功登入之後所觸發的風險事件。
+在一小段時間內, 從多個使用者帳戶嘗試登入失敗次數過高的 IP 位址, 就會觸發風險偵測。
 
 ### <a name="sign-in-from-unfamiliar-location"></a>從不熟悉的位置登入
-當使用者從新的位置 (IP、經緯度和 ASN) 成功登入時所觸發的風險事件。
+當使用者從新的位置 (IP、緯度/經度和 ASN) 成功登入時, 就會觸發風險偵測。
 
 ### <a name="sign-in-risk"></a>登入風險
 請參閱風險層級 (登入)
@@ -153,7 +153,7 @@ Identity Protection 自動設定的風險事件狀態，表示已使用此風險
 條件式存取原則, 可根據預先定義的條件和規則, 考慮登入並套用緩和措施。
 
 ### <a name="users-flagged-for-risk"></a>標幟為有風險的使用者
-具有作用中或已補救風險事件的使用者
+有風險偵測的使用者 (作用中或已補救)
 
 ### <a name="vulnerability"></a>漏洞
 Azure Active Directory 中的組態或狀況，此組態或狀況會使目錄容易受到入侵或威脅的影響。

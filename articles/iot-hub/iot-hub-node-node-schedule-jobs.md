@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.openlocfilehash: 0a89cd2c576a3539d7b1b6a282a2287551e8265a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 124af71e458e103392c554a9c86d679f691df5b9
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877141"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147649"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>排程和廣播作業 (node.js)
 
@@ -49,8 +49,6 @@ Azure IoT 中樞是一項完全受控的服務，可讓後端應用程式建立�
 * **scheduleJobService.js** 會使用作業在模擬裝置應用程式中呼叫直接方法，並更新裝置對應項 (twin) 的所需屬性。
 
 ## <a name="prerequisites"></a>必要條件
-
-若要完成本教學課程，您需要：
 
 * Node.js 10.0. x 版或更新版本。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
 

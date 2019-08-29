@@ -11,12 +11,12 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 939f08fd16cf27e641cf6436a00396ad2db8e6c3
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499551"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126381"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>如何：設定 Azure 多重要素驗證註冊原則
 
@@ -31,7 +31,7 @@ Azure 多因素驗證提供一種方法來驗證您使用的不只是使用者�
 我們建議您針對使用者登入要求 Azure 多重要素驗證, 因為它:
 
 - 提供增強式驗證與一系列簡單的驗證選項
-- 在準備您的組織保護和復原 Identity Protection 中的風險事件時, 扮演著重要的角色
+- 在準備您的組織保護和復原 Identity Protection 中的風險偵測時, 扮演著重要的角色
 
 如需 MFA 的詳細資訊, 請參閱[什麼是 Azure 多重要素驗證？](../authentication/howto-mfa-getstarted.md)
 

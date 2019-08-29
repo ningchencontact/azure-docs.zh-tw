@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ec69f4bc2e73bfb390a6b23b1da627d77f9b5e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8cfefe02b8c9325a2d501289b10b09bc153b0593
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874242"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135766"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
 
@@ -194,6 +194,7 @@ ms.locfileid: "69874242"
 | AADSTS90019 | MissingTenantRealm - Azure AD 無法判斷要求中的租用戶識別碼。 |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - 主體名稱格式無效，或不符合預期的 `name[/host][@realm]` 格式。 主體名稱為必要項目，主機和領域是選擇性項目，而且可能設定為 null。 |
 | AADSTS90023 | InvalidRequest - 驗證服務要求無效。 |
+| AADSTS9002313 | InvalidRequest-要求格式不正確或無效。 -這裡的問題是因為對特定端點的要求發生問題。 此問題的建議是取得錯誤發生的 fiddler 追蹤, 並查看要求是否確實正確地格式化。 |
 | AADSTS90024 | RequestBudgetExceededError - 發生暫時性錯誤。 請再試一次。 |
 | AADSTS90033 | MsodsServiceUnavailable - Microsoft Online 目錄服務 (MSODS) 無法使用。 |
 | AADSTS90036 | MsodsServiceUnretryableFailure - MSODS 託管的 WCF 服務發生未預期且無法重試的錯誤。 請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。 |

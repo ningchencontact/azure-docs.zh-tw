@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a228c0d349fd45f34923a64ef99dcfba50c4c548
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 93532b1b40dc138a234d5433591a2ba79167194e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034981"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135563"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -123,7 +123,7 @@ ms.locfileid: "70034981"
 
 * **[裝置系統管理員](#device-administrators)** :此角色是只能指派為[裝置設定](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)中的其他本機系統管理員。 具有此角色的使用者，會在已加入 Azure Active Directory 的所有 Windows 10 裝置上，成為本機電腦系統管理員。 它們並沒有在 Azure Active Directory 中管理裝置物件的能力。 
 
-* **[目錄讀取器](#directory-readers)** ︰此角色只應指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的繼承應用程式。 請勿將它指派給使用者。
+* **[目錄讀取器](#directory-readers)** ︰此角色只應指派給不支援[同意架構](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)的繼承應用程式。 此角色中的使用者可以讀取基本目錄資訊。 此角色應用於:1) 授與一組特定的來賓使用者讀取權限, 而不是將其授與所有來賓使用者。 2) 授與一組特定的非系統管理員使用者存取 Azure 入口網站時, 在「僅限系統管理員存取 Azure AD 入口網站」設定為 [是] 時。 3) 授與服務主體對目錄 whereDirectory 的存取權。全部都不是選項。
 
 * **[目錄同步處理帳戶](#directory-synchronization-accounts)** ：請勿使用。 此角色會自動指派給 Azure AD Connect 服務，不適用於也不支援任何其他用途。
 
@@ -658,7 +658,7 @@ ms.locfileid: "70034981"
 | microsoft.aad.directory/groupSettingTemplates/basic/read | 讀取 Azure Active Directory 中 groupSettingTemplates 的基本屬性。 |
 
 ### <a name="directory-readers"></a>目錄讀取者
-可讀取基本目錄資訊。 用來授與應用程式的存取權，不適用於使用者。
+可讀取基本目錄資訊。 此角色中的使用者可以讀取基本目錄資訊。 此角色應用於:1) 授與一組特定的來賓使用者讀取權限, 而不是將其授與所有來賓使用者。 2) 授與一組特定的非系統管理員使用者存取 Azure 入口網站時, 在「僅限系統管理員存取 Azure AD 入口網站」設定為 [是] 時。 3) 授與服務主體對目錄 whereDirectory 的存取權。全部都不是選項。
 
 | **動作** | **描述** |
 | --- | --- |

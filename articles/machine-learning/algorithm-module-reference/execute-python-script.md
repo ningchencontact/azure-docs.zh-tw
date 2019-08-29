@@ -1,7 +1,7 @@
 ---
-title: 執行 Python 指令碼：模組參考
+title: 執行 Python 腳本:模組參考
 titleSuffix: Azure Machine Learning service
-description: 了解如何使用 Azure Machine Learning 服務中執行 Python 指令碼模組執行 Python 程式碼。
+description: 瞭解如何使用 Azure Machine Learning 服務中的 [執行 Python 腳本] 模組來執行 Python 程式碼。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,32 +9,31 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6e61ed5a18e69b107b78bf2042de21d14cd6beb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bd3433db92767f2d0d733ab71e4298fc5e618f8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029126"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128816"
 ---
-# <a name="execute-python-script-module"></a>執行 Python 指令碼模組
+# <a name="execute-python-script-module"></a>執行 Python 腳本模組
 
-本文說明 Azure Machine Learning 服務的視覺化介面 （預覽） 的模組。
+本文描述適用于 Azure Machine Learning 服務的視覺化介面 (預覽) 模組。
 
-您可以使用此模組來執行 Python 程式碼。 如需 Python 的架構和設計原則的詳細資訊，請參閱[下列文件。](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+使用此模組來執行 Python 程式碼。 如需有關 Python 架構和設計原則的詳細資訊, 請參閱[下列文章。](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
 
-使用 Python，您可以執行目前不支援現有的模組這類的工作：
+使用 Python, 您可以執行現有模組目前不支援的工作, 例如:
 
-+ 視覺化資料使用 `matplotlib`
-+ 使用 Python 程式庫列舉資料集和您的工作區中的模型
-+ 讀取、 載入和處理來自不支援的來源資料[匯入資料](./import-data.md)模組
++ 使用視覺化資料`matplotlib`
++ 使用 Python 程式庫來列舉工作區中的資料集和模型
++ 讀取、載入及操作匯[入資料](./import-data.md)模組不支援之來源的資料
 + 執行您自己的深入學習程式碼 
 
 
-Azure Machine Learning 會使用 Anaconda 散發套件的 Python，其中包含許多資料處理的一般公用程式。 我們將會自動更新 Anaconda 版本。 目前的版本為：
- -  Anaconda 4.5+、windows 散發套件的 Python 3.6 
+Azure Machine Learning 使用 Python 的 Anaconda 散發, 其中包含許多常用的資料處理公用程式。 我們會自動更新 Anaconda 版本。 目前的版本為:
+ -  適用于 Python 3.6 的 Anaconda 4.5 + 散發 
 
-預先安裝的套件如下：
+預先安裝的套件包括:
 -  asn1crypto==0.24.0
 - attrs==19.1.0
 - azure-common==1.1.18
@@ -47,29 +46,29 @@ Azure Machine Learning 會使用 Anaconda 散發套件的 Python，其中包含�
 - distro==1.4.0
 - idna==2.8
 - jsonschema==3.0.1
-- lightgbm==2.2.3
+- lightgbm = = 2.2。3
 - more-itertools==6.0.0
 - numpy==1.16.2
-- pandas==0.24.2
+- pandas = = 0.24。2
 - Pillow==6.0.0
 - pip==19.0.3
 - pyarrow==0.12.1
 - pycparser==2.19
 - pycryptodomex==3.7.3
-- pyrsistent==0.14.11
+- pyrsistent = = 0.14.11
 - python-dateutil==2.8.0
 - pytz==2018.9
 - requests==2.21.0
-- scikit-learn==0.20.3
+- scikit-learn-學習 = = 0.20。3
 - scipy==1.2.1
-- setuptools==40.8.0
+- setuptools = = 40.8。0
 - six==1.12.0
 - torch==1.0.1.post2
 - torchvision==0.2.2.post3
 - urllib3==1.24.1
 - wheel==0.33.1 
 
- 若要安裝其他套件不在預先安裝的清單中，例如*scikit-learn 其他*，將下列程式碼新增至您的指令碼： 
+ 若要安裝不在預先安裝清單中的其他套件 (例如*scikit-learn*), 請將下列程式碼新增至您的腳本: 
 
  ```python
 import os
@@ -78,51 +77,51 @@ os.system(f"pip install scikit-misc")
 
 ## <a name="how-to-use"></a>使用方式
 
-**執行 Python 指令碼**模組包含您可以使用做為起點的範例 Python 程式碼。 若要設定**執行 Python 指令碼**模組，提供輸入和 Python 程式碼中執行的一組**Python 指令碼**文字方塊。
+**執行 Python 腳本**模組包含範例 Python 程式碼, 可供您做為起點。 若要設定**執行 Python 腳本**模組, 請在 [ **Python 腳本**] 文字方塊中提供一組要執行的輸入和 Python 程式碼。
 
-1. 新增**執行 Python 指令碼**模組至您的實驗。
+1. 將**執行 Python 腳本**模組新增至您的實驗。
 
-2. 加上連接**Dataset1**介面，您想要用於輸入的任何資料集。 參考您的 Python 指令碼，做為此資料集**DataFrame1**。
+2. 從您想要用於輸入的介面, 新增和連接**Dataset1**任何資料集。 在您的 Python 腳本中, 以**DataFrame1**的形式參考此資料集。
 
-    如果您想要產生使用 Python 的資料，或使用 Python 程式碼來直接將模組匯入資料，資料集的使用是選擇性的。
+    如果您想要使用 Python 產生資料, 或使用 Python 程式碼將資料直接匯入模組, 則可以選擇使用資料集。
 
-    這個模組支援的第二個資料集上**Dataset2**。 為 DataFrame2 參考 Python 指令碼中的第二個資料集。
+    此模組支援在**Dataset2**上新增第二個資料集。 以 DataFrame2 的形式參考 Python 腳本中的第二個資料集。
 
-    資料集儲存在 Azure Machine Learning 會自動轉換成**pandas**時載入此模組的資料框架。
+    儲存在 Azure Machine Learning 中的資料集會自動轉換成**pandas**的資料。當此模組載入時, 畫面格。
 
-    ![執行 Python 輸入的對應](media/module/python-module.png)
+    ![執行 Python 輸入對應](media/module/python-module.png)
 
-4. 若要加入新的 Python 套件或程式碼，加入 壓縮的檔案，包含要在這些自訂的資源**指令碼組合**。 若要輸入**指令碼組合**必須壓縮的檔案已上傳至您的工作區。 
+4. 若要包含新的 Python 套件或程式碼, 請在**腳本**組合上新增包含這些自訂資源的 zip 壓縮檔案。 **腳本**組合的輸入必須是已上傳至工作區的 zip 壓縮檔案。 
 
-    上傳的 zip 壓縮封存中所包含的任何檔案可以用於實驗執行。 如果封存包含目錄結構，會保留結構，但您必須在前面加上名為的目錄**src**的路徑。
+    在實驗執行期間, 可以使用上傳的壓縮封存中包含的任何檔案。 如果封存包含目錄結構, 則會保留結構, 但是您必須在路徑前面加上名為**src**的目錄。
 
-5. 在 [ **Python 指令碼**] 文字方塊中，輸入或貼上有效的 Python 指令碼。
+5. 在 [ **Python 腳本**] 文字方塊中, 輸入或貼上有效的 Python 腳本。
 
-    **Python 指令碼**文字方塊會預先填入一些註解和資料存取和輸出的範例程式碼中的指示。 **您必須編輯或取代此程式碼。** 請務必遵循有關縮排和大小寫的 Python 慣例。
+    [ **Python 腳本**] 文字方塊會預先填入批註中的一些指示, 以及用於資料存取和輸出的範例程式碼。 **您必須編輯或取代此程式碼。** 請務必遵循適用于縮排和大小寫的 Python 慣例。
 
-    + 此指令碼必須包含名為函式`azureml_main`此模組的進入點。
-    + 進入點函式可以包含最多兩個輸入引數：`Param<dataframe1>`和 `Param<dataframe2>`
-    + 解壓縮及儲存在目錄中，連接到第三個輸入連接埠的 zip 的檔案`.\Script Bundle`，這也會新增至 Python `sys.path`。 
+    + 腳本必須包含名`azureml_main`為的函式, 做為此模組的進入點。
+    + 進入點函數最多可包含兩個輸入引數`Param<dataframe1>` : 和`Param<dataframe2>`
+    + 連線到第三個輸入埠的壓縮檔案會解壓縮並儲存在`.\Script Bundle`目錄中, 這也會新增至`sys.path`Python。 
 
-    因此，如果您的 zip 檔案包含`mymodule.py`，它使用匯入`import mymodule`。
+    因此, 如果您的 zip 檔案`mymodule.py`包含, 請使用`import mymodule`將它匯入。
 
-    + 可傳回兩個資料集的介面，必須是類型的序列`pandas.DataFrame`。 您可以在 您的 Python 程式碼中建立其他輸出，並將它們寫入直接寫入 Azure 儲存體。
+    + 您可以將兩個資料集傳回至介面, 這必須是類型`pandas.DataFrame`的序列。 您可以在 Python 程式碼中建立其他輸出, 並直接將其寫入 Azure 儲存體。
 
-6. 執行實驗，或選取的模組，然後按一下**執行所選**執行只是 Python 指令碼。
+6. 執行實驗, 或選取模組, 然後按一下 [**執行選取**], 只執行 Python 腳本。
 
-    所有資料和程式碼載入到虛擬機器，並使用指定的 Python 環境執行。
+    所有的資料和程式碼都會載入至虛擬機器, 並使用指定的 Python 環境執行。
 
 ## <a name="results"></a>結果
 
-必須為 pandas 提供內嵌的 Python 程式碼所執行的任何計算的結果。資料框架，好讓您可以使用與其他模組在實驗中的結果會自動轉換為 Azure Machine Learning 資料集格式。
+內嵌 Python 程式碼所執行的任何計算結果, 都必須以 pandas 的形式提供。資料框架, 它會自動轉換為 Azure Machine Learning 資料集格式, 讓您可以將結果與實驗中的其他模組搭配使用。
 
-此模組會傳回兩個資料集：  
+此模組會傳回兩個資料集:  
   
-+ **結果資料集 1**第一個傳回的 pandas 資料框架，在 Python 指令碼中所定義
++ **結果資料集 1**, 由 Python 腳本中第一個傳回的 pandas 資料框架所定義
 
-+ **產生資料集 2**第二個傳回的 pandas 資料框架，在 Python 指令碼中所定義
++ 在 Python 腳本中, 由第二個傳回的 pandas 資料框架所定義的**結果資料集 2**
 
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱[可用的模組集](module-reference.md)Azure Machine Learning 服務。 
+請參閱可用來 Azure Machine Learning 服務的[模組集合](module-reference.md)。 

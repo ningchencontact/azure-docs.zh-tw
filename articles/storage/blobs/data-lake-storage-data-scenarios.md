@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2954f0bfcfe78243c2df12182f45034f46c8391d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 68e1bcfeaa998b0698554fd93fd7ed2e88a29739
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991900"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70143003"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 處理巨量資料需求
 
@@ -39,10 +39,10 @@ Data Lake Storage Gen2 帳戶是具有階層命名空間的儲存體帳戶。
 
 |Tool | 指引 |
 |---|--|
-|Azure 儲存體總管 | [使用儲存體總管建立容器](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|Azure 儲存體總管 | [使用儲存體總管建立容器](data-lake-storage-explorer.md#create-a-container) |
 |AzCopy | [使用 AzCopyV10 建立 Blob 容器或檔案共用](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|搭配 HDInsight 的 Hadoop 容器 (HDFS) 命令列介面 (CLI) |[使用 HDFS 搭配 HDInsight 來建立容器](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Azure Databricks Notebook 中的程式碼|[建立儲存體帳戶容器 (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [建立容器並加以掛接 (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|搭配 HDInsight 的 Hadoop 容器 (HDFS) 命令列介面 (CLI) |[使用 HDFS 搭配 HDInsight 來建立容器](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
+|Azure Databricks Notebook 中的程式碼|[建立儲存體帳戶容器 (Scala)](data-lake-storage-quickstart-create-databricks-account.md#create-storage-account-container) <br><br> [建立容器並加以掛接 (Python)](data-lake-storage-use-databricks-spark.md#create-a-container-and-mount-it)|
 
 使用儲存體總管或 AzCopy 來建立檔案系統是最簡單的方式。 使用 HDInsight 與 Databricks 來建立檔案系統比較複雜一點。 不過，如果您打算使用 HDInsight 或 Databricks 叢集來處理您的資料，則可先建立您的叢集，然後使用 HDFS CLI 來建立檔案系統。  
 

@@ -11,16 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: bwren
-ms.openlocfilehash: 397272c3a47aca2aa73394f443d76dead66308e0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9ecae51d996e2e065b15d1fa70bdaf796f8f197b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555332"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124167"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄
+
 Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。 收集之後，您可以在查詢中，將資料剖析成個別的欄位，或將收集期間的資料擷取至個別的欄位。
 
 ![自訂記錄檔收集](media/data-sources-custom-logs/overview.png)
@@ -46,6 +47,9 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 > * 資料行名稱的字元數目上限為 500。 
 >
 
+>[!IMPORTANT]
+>自訂記錄檔收集要求撰寫記錄檔的應用程式會定期將記錄內容排清到磁片。 這是因為自訂記錄檔集合會依賴所追蹤記錄檔的檔案系統變更通知。
+
 ## <a name="defining-a-custom-log"></a>定義自訂記錄檔
 使用下列程序來定義自訂記錄檔。  如需新增自訂記錄檔之範例的逐步解說，請捲動到本文結尾處。
 
@@ -64,7 +68,6 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 
 如果使用時間戳記分隔符號，則儲存在 Azure 監視器中的每一筆記錄的 TimeGenerated 屬性將會填入針對記錄檔中的該項目指定的日期/時間。  如果使用新行字元分隔符號，則 TimeGenerated 會填入 Azure 監視器收集項目的日期和時間。
 
-
 1. 按一下 [瀏覽] 並瀏覽至範例檔案。  請注意，在某些瀏覽器中，這個按鈕可能標示為 [選擇檔案] 。
 2. 按一下 [下一步]。
 3. 自訂記錄檔精靈會上傳檔案並列出其識別的記錄。
@@ -75,7 +78,6 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 您必須在代理程式上定義一個或多個它可以在其中找到自訂記錄檔的路徑。  您可以提供該記錄檔的特定路徑和名稱，或者您可以使用萬用字元為該名稱指定路徑。 這可支援每天會建立一個新檔案的應用程式或在一個檔案到達特定大小時提供支援。 您也可以為單一記錄檔提供多個路徑。
 
 例如，應用程式可能會每天建立一個記錄檔，且名稱中會包含日期，如同 log20100316.txt。 這類記錄檔的模式可能是 *log\*.txt*，而這會套用到任何遵循應用程式命名配置的記錄檔。
-
 
 下表提供可用來指定不同記錄檔的有效模式範例。
 
@@ -105,7 +107,6 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 > [!NOTE]
 > 如果查詢中缺少 RawData 屬性，您可能需要先關閉再重新開啟瀏覽器。
 
-
 ### <a name="step-6-parse-the-custom-log-entries"></a>步驟 6. 剖析自訂記錄檔項目
 整個記錄檔項目會儲存在稱為 **RawData**的單一屬性中。  您很可能會想要將每個項目中的不同資訊片段，分成每筆記錄的個別屬性。 請參閱[在 Azure 監視器中剖析文字資料](../log-query/parse-text.md)以了解將 **RawData** 剖析成多個屬性的選項。
 
@@ -115,7 +116,6 @@ Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linu
 1. 從工作區 [進階設定] 的 [資料] 功能表中，選取 [自訂記錄] 以列出所有自訂記錄。
 2. 按一下要移除之自訂記錄旁邊的 [移除]。
 
-
 ## <a name="data-collection"></a>資料收集
 Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為每 5 分鐘一次。  代理程式會記錄它在從中收集項目的每個記錄檔中的位置。  如果代理程式離線一段時間，Azure 監視器即會從上次停止的地方收集項目，即使這些項目是在代理程式離線時所建立亦同。
 
@@ -124,7 +124,7 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 ## <a name="custom-log-record-properties"></a>自訂記錄檔記錄的屬性
 自訂記錄檔記錄的類型具有您提供的記錄檔名稱和下表中的屬性。
 
-| 內容 | 描述 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | TimeGenerated |Azure 監視器收集記錄的日期和時間。  如果記錄使用以時間為基礎的分隔符號，則這是從項目收集到的時間。 |
 | SourceSystem |收集記錄的來源代理程式類型。 <br> OpsManager - Windows 代理程式，直接連線或由 System Center Operations Manager 管理 <br> Linux – 所有的 Linux 代理程式 |
@@ -135,11 +135,11 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>新增自訂記錄檔的範例逐步解說
 下面的章節會逐步解說建立自訂記錄檔的範例。  所收集的範例記錄在每一行只有一個項目，其開頭為日期和時間，然後是以逗號分隔的程式碼、狀態及訊息欄位。  下面顯示了幾個範例項目。
 
-    2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2016-03-10 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2016-03-10 01:38:22 302,Error,Application could not connect to database
-    2016-03-10 01:31:34 303,Error,Application lost connection to database
+    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+    2019-08-27 01:38:22 302,Error,Application could not connect to database
+    2019-08-27 01:31:34 303,Error,Application lost connection to database
 
 ### <a name="upload-and-parse-a-sample-log"></a>上傳和剖析範例記錄檔
 我們提供其中一個記錄檔，並可以看到將會收集的事件。  在此案例中，新行字元足以做為分隔符號。  但如果記錄檔中的單一項目跨越多行，就必須使用時間戳記分隔符號。
@@ -157,14 +157,10 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 ![記錄檔名稱](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>驗證會收集自訂記錄
-我們使用 *Type=MyApp_CL* 這個查詢，以從收集到的記錄檔傳回所有記錄。
+我們會使用*MyApp_CL*的簡單查詢, 從收集的記錄檔傳回所有記錄。
 
 ![無自訂欄位的記錄檔查詢](media/data-sources-custom-logs/query-01.png)
 
-### <a name="parse-the-custom-log-entries"></a>剖析自訂記錄檔項目
-我們使用「自訂欄位」來定義 *EventTime*、*Code*、*Status* 和 *Message* 欄位，而且我們可以在查詢所傳回的記錄中看到差異。
-
-![有自訂欄位的記錄檔查詢](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="alternatives-to-custom-logs"></a>自訂記錄的替代方案
 如果您的資料符合列出的條件時，可使用自訂記錄，但是在下列情況下，您需要另一個策略：

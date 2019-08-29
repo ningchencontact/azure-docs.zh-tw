@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 5a0be55df9be67fcf6ff5d53e18e3eb2b0e69d7f
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 0ab714efc3e9eb0de9d6753854031110e09fe06b
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904470"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147842"
 ---
 # <a name="get-started-with-device-management-net"></a>開始使用裝置管理 (.NET)
 
@@ -35,8 +35,6 @@ ms.locfileid: "69904470"
 * **TriggerReboot**。 此應用程式會在模擬裝置應用程式中呼叫直接方法、顯示回應, 並顯示更新的報告屬性。
 
 ## <a name="prerequisites"></a>必要條件
-
-若要完成本教學課程，您需要：
 
 * Visual Studio。
 

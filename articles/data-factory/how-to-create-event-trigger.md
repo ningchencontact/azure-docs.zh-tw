@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 32edacb7dd66274757359c4eb0e8c169995026ce
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: a2c046d4375b891d17d545edd804d0fa1da6ee75
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019533"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142361"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>建立會執行管線來回應事件的觸發程序
 
@@ -90,7 +90,7 @@ ms.locfileid: "69019533"
 > [!IMPORTANT]
 > 每當您指定容器與資料夾、容器與檔案，或容器、資料夾與檔案時，都必須包含路徑的 `/blobs/` 區段，如下列範例所示。 針對**blobPathBeginsWith**, Data Factory UI 會在觸發程式`/blobs/` JSON 中的資料夾與容器名稱之間自動新增。
 
-| 內容 | 範例 | 描述 |
+| 屬性 | 範例 | 描述 |
 |---|---|---|
 | **Blob 路徑開頭** | `/containername/` | 接收容器中任何 Blob 的事件。 |
 | **Blob 路徑開頭** | `/containername/blobs/foldername/` | 接收 `containername` 容器與 `foldername` 資料夾中任何 Blob 的事件。 |

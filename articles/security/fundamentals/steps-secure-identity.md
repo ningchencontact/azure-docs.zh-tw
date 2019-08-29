@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 80c1ffd27b0668f19fd87e7eda62e578c861ba64
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934607"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129307"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -130,7 +130,7 @@ Azure Active Directory 有許多會自動攔截攻擊的功能，可讓偵測與
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>使用 Azure AD Identity Protection 來實作使用者風險安全性原則
 
-使用者風險可指出使用者的身分識別已遭到入侵的可能性，並會根據與使用者身分識別相關聯的[使用者風險事件](../../active-directory/identity-protection/overview.md)來算出。 使用者風險原則是條件式存取原則, 可評估特定使用者或群組的風險層級。 根據低、中、高風險層級，原則可以設定為封鎖存取，也可以設定為必須使用多重要素驗證來進行安全密碼變更。 Microsoft 會建議您要求高風險使用者必須進行安全密碼變更。
+使用者風險指出使用者的身分識別遭到入侵的可能性, 並根據與使用者身分識別相關聯的[使用者風險](../../active-directory/identity-protection/overview.md)偵測來計算。 使用者風險原則是條件式存取原則, 可評估特定使用者或群組的風險層級。 根據低、中、高風險層級，原則可以設定為封鎖存取，也可以設定為必須使用多重要素驗證來進行安全密碼變更。 Microsoft 會建議您要求高風險使用者必須進行安全密碼變更。
 
 ![標幟為有風險的使用者](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
@@ -156,7 +156,7 @@ Microsoft Azure 服務和功能提供可設定的安全性稽核和記錄選項�
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>監視 Azure AD Identity Protection 事件
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) 是一種通知、監視和報告工具，可用來偵測會影響組織身分識別的潛在弱點。 它會偵測風險事件，例如外洩的認證、不可能的行進路線、源自受感染裝置的登入、匿名 IP 位址、與可疑活動相關聯的 IP 位址，以及不明的位置。 請啟用通知警示，以接收有風險使用者的電子郵件和/或每週摘要電子郵件。
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) 是一種通知、監視和報告工具，可用來偵測會影響組織身分識別的潛在弱點。 它會偵測風險偵測, 例如洩露的認證、不可能的移動, 以及來自受感染裝置的登入、匿名 IP 位址、與可疑活動相關聯的 IP 位址, 以及不明的位置。 請啟用通知警示，以接收有風險使用者的電子郵件和/或每週摘要電子郵件。
 
 Azure AD Identity Protection 能提供兩個您應該每天監視的重要報告：
 1. 具風險的登入報告將能顯示您應該調查的使用者登入活動，因為執行該登入的可能不是帳戶的合法使用者。

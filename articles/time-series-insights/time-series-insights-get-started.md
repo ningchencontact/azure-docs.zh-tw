@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: bcab20c654657483fd37322de7ec0827fb171c01
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 584172a9b248a9d151ba9a980bf4e52ed1e1b926
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165718"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141958"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>在 Azure 入口網站中建立新的 Time Series Insights 環境
 
@@ -30,38 +30,38 @@ ms.locfileid: "67165718"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [+ 新增]  按鈕。
+1. 選取 [ **+ 建立資源**] 按鈕。
 
-1. 選取 [物聯網]  類別，然後選取 [時間序列深入解析]  。
+1. 選取 [物聯網] 類別，然後選取 [時間序列深入解析]。
 
-   ![建立 Time Series Insights 環境](media/time-series-insights-get-started/1-new-tsi.png)
+   建立時間序列深入解析環境) [ ![ ](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox)
 
-1. 在 [時間序列深入解析]  分頁上，選取 [建立]  。
+1. 在 [時間序列深入解析] 分頁上，選取 [建立]。
 
 1. 填入必要參數。 下表說明每個參數：
    
-   ![建立 Time Series Insights 資源群組](media/time-series-insights-get-started/2-create-tsi.png)
+   [![建立時間序列深入解析資源群組](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
    
    設定|建議值|描述
    ---|---|---
    環境名稱 | 唯一的名稱 | 此名稱代表[時間序列總管](https://insights.timeseries.azure.com)中的環境
-   訂用帳戶 | 您的訂用帳戶 | 如果您有多個訂用帳戶，最好是選擇包含事件來源的訂用帳戶。 Time Series Insights 可以自動偵測相同訂用帳戶中現有的 Azure IoT 中樞與事件中樞資源。
+   訂閱 | 您的訂用帳戶 | 如果您有多個訂用帳戶，最好是選擇包含事件來源的訂用帳戶。 Time Series Insights 可以自動偵測相同訂用帳戶中現有的 Azure IoT 中樞與事件中樞資源。
    資源群組 | 建立新的或使用現有的 | 資源群組是一起使用之 Azure 資源的集合。 您可以選擇現有的資源群組，例如包含事件中樞或 IoT 中樞的資源群組。 或者，如果此資源與其他資源不相關，您可以製作新的群組。
-   位置 | 最接近您的事件來源 | 最好是選擇包含事件來源資料的相同資料中心位置，以避免跨區域和跨地區頻寬成本，以及在將資料移出區域時增加延遲。
+   Location | 最接近您的事件來源 | 最好是選擇包含事件來源資料的相同資料中心位置，以避免跨區域和跨地區頻寬成本，以及在將資料移出區域時增加延遲。
    定價層 | S1 | 選擇所需的輸送量。 如需最低成本和入門容量，選取 S1。
    容量 | 1 | 容量是套用至輸入速率、儲存體容量以及與選取之 SKU 相關聯成本的乘數。  您可以在環境建立後變更其容量。 如需最低成本，選取 1 作為容量。 
   
-1. 請檢查**釘選到儀表板**來輕鬆地存取未來時間序列環境。
+1. 選取 [建立] 以開始佈建程序。 這需要幾分鐘的時間。
 
-   ![建立 Time Series Insights [釘選到儀表板]](media/time-series-insights-get-started/3-pin-create.png)
+1. 若要監視部署程序，選取 [通知] 符號 (鈴鐺圖示)。
 
-1. 選取 [建立]  以開始佈建程序。 這需要幾分鐘的時間。
+   [![觀賞通知](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
 
-1. 若要監視部署程序，選取 [通知]  符號 (鈴鐺圖示)。
+    當部署成功時，您可以選取 [移至資源] 以設定其他屬性、以資料存取原則設定安全性、新增事件來源和其他動作。
 
-   ![觀看通知](media/time-series-insights-get-started/4-notifications.png)
+1. 在 [資源**總覽**] 中, 選取右上角的**釘選圖示**, 以便日後輕鬆地存取您的時間序列深入解析環境。
 
-當部署成功時，您可以選取 [移至資源]  以設定其他屬性、以資料存取原則設定安全性、新增事件來源和其他動作。
+   [![建立時間序列深入解析釘選到儀表板](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

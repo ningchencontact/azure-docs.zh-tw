@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 1c6a0ce3e4e8d098d2bc048a331b0ae0cb5c6b13
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bb28171ceca9861fb5cc0b7be1db9ab58ef72a1b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881395"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124109"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -258,6 +258,7 @@ Application Insights SDK 從 2.4.0-beta1 版開始，會使用 `DiagnosticSource
 ## <a name="next-steps"></a>後續步驟
 
 - 撰寫[自訂遙測](../../azure-monitor/app/api-custom-events-metrics.md)。
+- 如需 ASP.NET Core 和 ASP.NET 中的先進相互關聯案例, 請參閱[追蹤自訂作業](custom-operations-tracking.md)一文。
 - 深入了解為其他 SDK [設定 cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name)。
 - 在 Application Insights 上將微服務的所有元件上線。 查看[支援的平台](../../azure-monitor/app/platforms.md)。
 - 參閱[資料模型](../../azure-monitor/app/data-model.md)以了解 Application Insights 類型。

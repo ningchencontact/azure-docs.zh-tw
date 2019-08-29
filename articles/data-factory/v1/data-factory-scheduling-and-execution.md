@@ -3,22 +3,20 @@ title: 使用 Data Factory 進行排程和執行 | Microsoft Docs
 description: 了解 Azure Data Factory 應用程式模型的排程和執行層面。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 2d7fc45faf1fb77c7d9181e5a2419096dd1ad0f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ea8a03f45a3655c5761e0011876c6232b5bf36b
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61258901"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135298"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory 排程和執行
 > [!NOTE]
@@ -31,7 +29,7 @@ ms.locfileid: "61258901"
 * [資料集](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>管線的開始和結束時間
-管線僅在其「開始」  時間與「結束」  時間之間有作用。 在開始時間之前或結束時間之後就不會執行。 如果管線已暫停，不論其開始和結束時間為何，都不會執行。 若要執行管線，則不該將它暫停。 您可以在管線定義中找到這些設定 (start、end、paused)： 
+管線僅在其「開始」時間與「結束」時間之間有作用。 在開始時間之前或結束時間之後就不會執行。 如果管線已暫停，不論其開始和結束時間為何，都不會執行。 若要執行管線，則不該將它暫停。 您可以在管線定義中找到這些設定 (start、end、paused)： 
 
 ```json
 "start": "2017-04-01T08:00:00Z",
@@ -52,14 +50,14 @@ ms.locfileid: "61258901"
 },
 ```
 
-如下圖所示，為活動指定排程會在管線的開始和結束時間內，建立一系列輪轉時段。 輪轉時段是一系列大小固定、非重疊的連續時間間隔。 活動的這些邏輯輪轉時段稱為「活動時段」  。
+如下圖所示，為活動指定排程會在管線的開始和結束時間內，建立一系列輪轉時段。 輪轉時段是一系列大小固定、非重疊的連續時間間隔。 活動的這些邏輯輪轉時段稱為「活動時段」。
 
 ![活動排程器範例](media/data-factory-scheduling-and-execution/scheduler-example.png)
 
 活動的 **scheduler** 屬性是選擇性的。 如果您指定此屬性，它就必須符合您在活動輸出資料集的定義中指定的頻率。 目前，驅動排程的是輸出資料集。 因此，即使活動不會產生任何輸出，您也必須指定輸出資料集。 
 
 ## <a name="specify-schedule-for-a-dataset"></a>為資料集指定排程
-Data Factory 管線中的一個活動可以接受零個或多個輸入「資料集」  ，並且會產生一個或多個輸出資料集。 針對活動，您可以在資料集定義中使用 **availability** 區段，來指定提供輸入資料或產生輸出資料的頻率。 
+Data Factory 管線中的一個活動可以接受零個或多個輸入「資料集」，並且會產生一個或多個輸出資料集。 針對活動，您可以在資料集定義中使用 **availability** 區段，來指定提供輸入資料或產生輸出資料的頻率。 
 
 **availability** 區段中的 **frequency** 會指定時間單位。 允許的 Frequency 值為：Minute、Hour、Day、Week 及 Month。 availability 區段中的 **interval** 屬性會指定 frequency 的倍數。 例如：如果將輸出資料集的 frequency 設定為 Day，並將 interval 是設定為 1，就會每天產生輸出資料。 如果您將 frequency 指定為 minute，建議您將 interval 設定為不小於 15。 
 
@@ -166,7 +164,7 @@ Data Factory 管線中的一個活動可以接受零個或多個輸入「資料�
 
 在此範例中，活動會在管線的開始與結束時間之間每小時執行一次。 針對三小時的時段 (上午 8 點 - 上午 9 點、上午 9 點 - 上午 10 點，以及上午 10 點 - 上午 11 點) 會每小時產生一次輸出資料。 
 
-活動執行所取用或產生的每個資料單位稱為「資料配量」  。 下表顯示具有一個輸入資料集和一個輸出資料集的活動範例： 
+活動執行所取用或產生的每個資料單位稱為「資料配量」。 下表顯示具有一個輸入資料集和一個輸出資料集的活動範例： 
 
 ![可用性排程器](./media/data-factory-scheduling-and-execution/availability-scheduler.png)
 
@@ -186,7 +184,7 @@ Data Factory 管線中的一個活動可以接受零個或多個輸入「資料�
 
 | 屬性 | 描述 | 必要項 | 預設 |
 | --- | --- | --- | --- |
-| frequency |指定資料集配量生產的時間單位。<br/><br/><b>支援的頻率</b>：Minute、Hour、Day、Week、Month |是 |NA |
+| 頻率 |指定資料集配量生產的時間單位。<br/><br/><b>支援的頻率</b>：Minute、Hour、Day、Week、Month |是 |NA |
 | interval |指定頻率的倍數<br/><br/>「頻率 x 間隔」會決定產生配量的頻率。<br/><br/>如果您需要將資料集以每小時為單位來切割，請將 <b>Frequency</b> 設定為 <b>Hour</b>，將 <b>interval</b> 設定為 <b>1</b>。<br/><br/><b>注意</b>：如果您將 Frequency 指定為 Minute，建議您將 interval 設定為不小於 15 |是 |NA |
 | style |指定是否應該在間隔開始/結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>如果 Frequency 設為 Month，style 設為 EndOfInterval，則會在當月最後一天產生配量。 如果 style 設為 StartOfInterval，則會在每月的第一天產生配量。<br/><br/>如果 Frequency 設為 Day，style 設為 EndOfInterval，則會在當天最後一個小時產生配量。<br/><br/>如果 Frequency 設為 Hour，style 設為 EndOfInterval，則會在每小時結束時產生配量。 例如，若為下午 1 – 2 點期間的配量，此配量會在下午 2 點產生。 |否 |EndOfInterval |
 | anchorDateTime |定義排程器用來計算資料集配量界限的時間絕對位置。 <br/><br/><b>注意</b>：如果 AnchorDateTime 有比頻率更細微的日期部分，則系統會忽略那些更細微的部分。 <br/><br/>例如，如果 <b>interval</b> 為 <b>hourly</b> (frequency：hour 且 interval：1)，而且 <b>AnchorDateTime</b> 包含<b>分鐘和秒鐘</b>，則會忽略 AnchorDateTime 的<b>分鐘和秒鐘</b>部分。 |否 |01/01/0001 |
@@ -270,12 +268,12 @@ Data Factory 管線中的一個活動可以接受零個或多個輸入「資料�
 
 | 屬性 | 允許的值 | Default Value | 描述 |
 | --- | --- | --- | --- |
-| concurrency |整數 <br/><br/>最大值：10 |1 |活動的並行執行數目。<br/><br/>它可決定不同配量上可以發生的平行活動執行數目。 例如，如果活動需要處理大量可用的資料，具有較大的並行值會加快資料處理。 |
+| concurrency |Integer <br/><br/>最大值：10 |1 |活動的並行執行數目。<br/><br/>它可決定不同配量上可以發生的平行活動執行數目。 例如，如果活動需要處理大量可用的資料，具有較大的並行值會加快資料處理。 |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |決定正在處理之資料配量的順序。<br/><br/>例如，如果您有 2 個配量 (一個發生在下午 4 點，另一個發生在下午 5 點)，而兩者都暫停執行。 如果您將 executionPriorityOrder 設為 NewestFirst，則會先處理下午 5 點的配量。 同樣地，如果您將 executionPriorityOrder 設為 OldestFIrst，則會處理下午 4 點的配量。 |
-| retry |整數<br/><br/>最大值可以是 10 |0 |在配量的資料處理標示為 [失敗] 前的重試次數。 資料配量的活動執行會一直重試，直到指定的重試計數為止。 在失敗後會儘速完成重試。 |
+| 重試 |Integer<br/><br/>最大值可以是 10 |0 |在配量的資料處理標示為 [失敗] 前的重試次數。 資料配量的活動執行會一直重試，直到指定的重試計數為止。 在失敗後會儘速完成重試。 |
 | timeout |TimeSpan |00:00:00 |活動的逾時。 範例：00:10:00 (意指逾時 10 分鐘)<br/><br/>如果您未指定值 (或值為 0)，代表無限逾時。<br/><br/>如果配量的資料處理時間超過逾時值，該活動會遭到取消，且系統會嘗試重試處理。 重試次數取決於 retry 屬性。 若發生逾時，狀態會設為 TimedOut。 |
 | delay |TimeSpan |00:00:00 |指定配量之資料處理開始之前的延遲。<br/><br/>資料配量的活動執行會在 Delay 超出預期執行時間後開始。<br/><br/>範例：00:10:00 (意指延遲 10 分鐘) |
-| longRetry |整數<br/><br/>最大值：10 |1 |配量執行失敗之前的長時間重試嘗試次數。<br/><br/>多個 longRetry 嘗試之間以 longRetryInterval 隔開。 所以如果您需要指定重試嘗試之間的時間，請使用 longRetry。 如果您指定 Retry 和 longRetry 兩者，每個 longRetry 嘗試都包含 Retry 嘗試，且最大嘗試次數是 Retry * longRetry。<br/><br/>例如，如果活動原則的設定如下︰<br/>Retry：3<br/>longRetry：2<br/>longRetryInterval：01:00:00<br/><br/>假設只有一個要執行的配量 (狀態是 Waiting)，且活動執行每次都失敗。 一開始會有 3 次連續執行嘗試。 在每次嘗試之後，配量狀態會是 Retry。 在前 3 次嘗試結束之後，配量狀態會是 LongRetry。<br/><br/>一個小時 (也就是 longRetryInteval 的值) 之後，會有另一組 3 次連續執行嘗試。 在那之後，配量狀態會是 Failed，不會再嘗試重試。 因此全部已進行 6 次嘗試。<br/><br/>如果任何執行成功，配量狀態會是 Ready 且不會再嘗試重試。<br/><br/>longRetry 可能用於下列情況：相依資料達到不具決定性的次數，或進行資料處理的整體環境很脆弱。 在這類情況下逐一進行重試並沒有幫助，而在一段時間後進行重試則會導致所要的結果。<br/><br/>提醒：請勿設定較大的 longRetry 或 longRetryInterval 值。 較大的值通常表示其他系統問題。 |
+| longRetry |Integer<br/><br/>最大值：10 |1 |配量執行失敗之前的長時間重試嘗試次數。<br/><br/>多個 longRetry 嘗試之間以 longRetryInterval 隔開。 所以如果您需要指定重試嘗試之間的時間，請使用 longRetry。 如果您指定 Retry 和 longRetry 兩者，每個 longRetry 嘗試都包含 Retry 嘗試，且最大嘗試次數是 Retry * longRetry。<br/><br/>例如，如果活動原則的設定如下︰<br/>Retry：3<br/>longRetry：2<br/>longRetryInterval：01:00:00<br/><br/>假設只有一個要執行的配量 (狀態是 Waiting)，且活動執行每次都失敗。 一開始會有 3 次連續執行嘗試。 在每次嘗試之後，配量狀態會是 Retry。 在前 3 次嘗試結束之後，配量狀態會是 LongRetry。<br/><br/>一個小時 (也就是 longRetryInteval 的值) 之後，會有另一組 3 次連續執行嘗試。 在那之後，配量狀態會是 Failed，不會再嘗試重試。 因此全部已進行 6 次嘗試。<br/><br/>如果任何執行成功，配量狀態會是 Ready 且不會再嘗試重試。<br/><br/>longRetry 可能用於下列情況：相依資料達到不具決定性的次數，或進行資料處理的整體環境很脆弱。 在這類情況下逐一進行重試並沒有幫助，而在一段時間後進行重試則會導致所要的結果。<br/><br/>提醒：請勿設定較大的 longRetry 或 longRetryInterval 值。 較大的值通常表示其他系統問題。 |
 | longRetryInterval |TimeSpan |00:00:00 |長時間重試嘗試之間的延遲 |
 
 如需詳細資訊，請參閱[管線](data-factory-create-pipelines.md)一文。 
@@ -390,7 +388,7 @@ Data Factory 監視和管理工具可讓您深入診斷記錄以了解失敗的�
 
 **活動：管線中的 Hive 活動**
 
-Hive 指令碼會收到適當的「日期時間」  資訊，做為使用 **WindowStart** 變數的參數，如下列程式碼片段所示。 Hive 指令碼會使用此變數將資料從正確的資料夾載入，並執行彙總來產生輸出。
+Hive 指令碼會收到適當的「日期時間」 資訊，做為使用 **WindowStart** 變數的參數，如下列程式碼片段所示。 Hive 指令碼會使用此變數將資料從正確的資料夾載入，並執行彙總來產生輸出。
 
 ```json
 {  

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: HT
+ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102879"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142206"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate：常見問題集 (FAQ)
 
@@ -172,7 +172,7 @@ Azure Migrate 會收集內部部署機器的效能歷程記錄, 並使用它來�
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-the-dependency-agent"></a>如何自動安裝 Microsoft Monitoring Agent (MMA) 和 Dependency Agent？
 
-使用此[腳本來安裝代理](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)程式。 遵循這些指示, 使用命令列或自動化[來安裝 MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) 。 針對 MMA, 請使用[此腳本](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)。
+使用此[腳本來安裝 Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)。 遵循這些指示, 使用命令列或自動化[來安裝 MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) 。 針對 MMA, 請使用[此腳本](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)。
 
 除了腳本以外, 您也可以使用 System Center Configuration Manager 和[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration)等部署工具來部署代理程式。
 
@@ -183,8 +183,7 @@ Azure Migrate 會收集內部部署機器的效能歷程記錄, 並使用它來�
 
 ### <a name="what-operating-systems-are-supported-by-the-dependency-agent"></a>相依性代理程式支援哪些作業系統？
 
-- 查看[Dependency agent 所支援的 Windows 作業系統](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems)清單。
-- 查看[Dependency agent 所支援的 Linux 作業系統](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)清單。
+查看[適用於 VM 的 Azure 監視器支援的 Windows 和 Linux 作業系統](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)清單。
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-an-hour"></a>我可以將 Azure Migrate 中的相依性視覺化超過一小時嗎？
 資料分割 您最多可以將相依性視覺化一小時。 您可以回到歷程記錄中的特定日期, 一開始就是一個月, 但視覺效果的最大持續時間為一小時。 例如, 您可以使用相依性對應中的持續時間來查看昨天的相依性, 但只能針對一小時的時段進行查看。 不過, 您可以使用 Azure 監視器記錄, 在較長的持續期間內查詢相依性[資料](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies)。

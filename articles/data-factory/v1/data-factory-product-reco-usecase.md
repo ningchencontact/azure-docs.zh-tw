@@ -3,27 +3,26 @@ title: Data Factory 使用案例 - 產品建議
 description: 了解使用 Azure Data Factory 以及其他服務所實作的使用案例。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60605688"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139149"
 ---
 # <a name="use-case---product-recommendations"></a>使用案例 - 產品建議
 Azure Data Factory 是許多服務之一，可用來實作解決方案加速器的 Cortana Intelligence 套件。  請參閱 [Cortana Intelligence 套件](https://www.microsoft.com/cortanaanalytics) 頁面以了解這個套件的詳細資料。 在本文中，我們描述 Azure 使用者已經使用 Azure Data Factory 和其他 Cortana Intelligence 元件服務解決與實作的常見使用案例。
 
-## <a name="scenario"></a>案例
+## <a name="scenario"></a>狀況
 線上零售商通常會想要向客戶呈現他們最有興趣、也因此最可能購買的產品，藉以誘使客戶購買產品。 若要達成此目的，線上零售商需要使用該特定使用者的個人化產品建議來自訂使用者的線上體驗。 這些個人化建議將會依據其目前和過去的購物行為資料、產品資訊、新引進的品牌以及產品和客戶區隔資料來提出。  此外，它們可以根據所有使用者的結合整體使用行為分析，提供使用者產品建議。
 
 這些零售商的目標是要最佳化使用者的點選-銷售轉換並獲得更高的銷售收益。  他們透過根據客戶興趣和動作提供關聯式、以行為為基礎的產品建議來達成此轉換。 對於此使用案例，我們使用線上零售商做為想要最佳化客戶的企業範例。 但是這些原則適用於所有想要建立客戶及產品和服務之關聯，並利用個人化產品建議強化其客戶購買體驗的所有企業。
@@ -48,7 +47,7 @@ Azure Data Factory 是許多服務之一，可用來實作解決方案加速器�
 
 ![使用案例圖](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-線上零售商網站每天都會產生數 GB 的未經處理 web 記錄檔，做為半結構化的檔案。 未經處理的 web 記錄檔和客戶及產品目錄資訊會定期擷取到 Azure Blob 儲存體，使用 Data Factory 的全域部署資料移動做為服務。 一天的未經處理記錄檔會在 Blob 儲存體中分割 (根據年和月) 以進行長期儲存。  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 可用來分割 Blob 存放區中的未經處理記錄檔，並使用 Hive 和 Pig 指令碼大規模處理擷取的記錄檔。 接著會處理分割的 Web 記錄資料，以擷取需要的輸入，讓機器學習服務建議系統產生個人化的產品建議。
+線上零售商網站每天都會產生數 GB 的未經處理 web 記錄檔，做為半結構化的檔案。 未經處理的 web 記錄檔和客戶及產品目錄資訊會定期擷取到 Azure Blob 儲存體，使用 Data Factory 的全域部署資料移動做為服務。 一天的未經處理記錄檔會在 Blob 儲存體中分割 (根據年和月) 以進行長期儲存。  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 可用來分割 Blob 存放區中的未經處理記錄，並使用 Hive 和 Pig 指令碼大規模處理擷取的記錄。 接著會處理分割的 Web 記錄資料，以擷取需要的輸入，讓機器學習服務建議系統產生個人化的產品建議。
 
 在此範例中，用於機器學習的建議系統是來自 [Apache Mahout](https://mahout.apache.org/)的開放原始碼機器學習建議平台。  任何 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 或自訂模型皆可套用至案例。  Mahout 模型可用來根據整體使用模式預測網站上項目之間的相似性，並根據個別使用者產生個人化的建議。
 

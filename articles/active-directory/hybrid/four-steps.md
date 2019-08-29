@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4eb5b4c634fe495a0ed149016d862defc2eb45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532457"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124931"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>具有 Azure Active Directory 的強身份識別基礎的四個步驟
 
@@ -141,7 +141,7 @@ Azure 的[自助式密碼重設](https://docs.microsoft.com/azure/active-directo
 
 Azure 提供的報告可供您和您的組織使用, 以確保使用者已註冊 MFA 和 SSPR。 尚未註冊的使用者可能必須在此程式中獲得教育。
 
-MFA 登[入報告](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting)包含 mfa 使用量的相關資訊, 並可讓您深入瞭解 mfa 在您組織中的運作方式。 存取 Azure AD 的登入活動 (以及審核和風險事件) 對於疑難排解、使用方式分析和辯論調查很重要。
+MFA 登[入報告](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting)包含 mfa 使用量的相關資訊, 並可讓您深入瞭解 mfa 在您組織中的運作方式。 存取 Azure AD 的登入活動 (以及審核和風險偵測) 對於疑難排解、使用方式分析和辯論調查很重要。
 
 同樣地, 您也可以使用「[自助式密碼管理」報告](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting)來判斷誰 (或尚未註冊 SSPR)。
 

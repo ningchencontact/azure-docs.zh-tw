@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 2ef4047b5dcb0658f4bc48da41ff4e177386fa40
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 803162110ead050f9d1a595b11c29ec6707640a8
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048564"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147420"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>開始使用 IoT 中樞模組身分識別和模組對應項 (node.js)
 
@@ -32,11 +32,11 @@ ms.locfileid: "70048564"
 > [!NOTE]
 > 如需可用來建置兩個應用程式，以在裝置上與解決方案後端執行的 Azure IoT SDK 詳細資訊，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
+
+* Node.js 10.0. x 版或更新版本。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 node.js。
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
-
-* 安裝最新的 [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node)。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 

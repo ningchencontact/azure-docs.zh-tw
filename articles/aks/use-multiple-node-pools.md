@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 656934f00879b47669fac4deaac5156cb100e159
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: caeb89332bd46b4f0cf2d0f9e5654aebca4d765d
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898755"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147258"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>預覽-在 Azure Kubernetes Service (AKS) 中建立及管理叢集的多個節點集區
 
@@ -101,12 +101,15 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --enable-vmss \
-    --node-count 1 \
+    --node-count 2 \
     --generate-ssh-keys \
     --kubernetes-version 1.13.10
 ```
 
 建立叢集需要幾分鐘的時間。
+
+> [!NOTE]
+> 若要確保您的叢集能夠可靠地運作, 您應該在預設節點集區中至少執行 2 (兩個) 節點, 因為基本的系統服務在此節點集區上執行。
 
 當叢集準備就緒時, 請使用[az aks get-認證][az-aks-get-credentials]命令來取得要搭配使用`kubectl`的叢集認證:
 
@@ -133,7 +136,7 @@ az aks nodepool add \
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-下列範例輸出顯示已成功建立節點集區中有三個節點的*mynodepool* 。 在上一個步驟中建立 AKS 叢集時, 會建立一個節點計數為*1*的預設*nodepool1* 。
+下列範例輸出顯示已成功建立節點集區中有三個節點的*mynodepool* 。 在上一個步驟中建立 AKS 叢集時, 會使用節點計數*2*來建立預設*nodepool1* 。
 
 ```console
 $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -151,7 +154,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -166,11 +169,14 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > 當您新增節點集區時, 如果未指定*OrchestratorVersion*或*VmSize* , 則會根據 AKS 叢集的預設值來建立節點。 在此範例中, 這是 Kubernetes 的版本*1.13.10*和節點大小*Standard_DS2_v2*。
 
 ## <a name="upgrade-a-node-pool"></a>升級節點集區
-
+ 
 > [!NOTE]
 > 叢集或節點集區上的升級和調整作業是互斥的。 您不能同時升級和調整叢集或節點集區。 相反地, 每個作業類型必須在目標資源上完成, 然後才在該相同資源上進行下一個要求。 請在我們的[疑難排解指南](https://aka.ms/aks-pending-upgrade)中閱讀更多相關資訊。
 
 當您在第一個步驟中建立 AKS 叢集時, `--kubernetes-version`已指定*1.13.10*的。 這會設定控制平面和初始節點集區的 Kubernetes 版本。 有不同的命令可用於升級控制平面和節點集區的 Kubernetes 版本。 命令是用來升級控制平面, `az aks nodepool upgrade`而則是用來升級個別的節點集區。 `az aks upgrade`
+
+> [!NOTE]
+> 節點集區 OS 映射版本會系結至叢集的 Kubernetes 版本。 在叢集升級之後, 您只會取得 OS 映射升級。
 
 讓我們將*mynodepool*升級至 Kubernetes *1.13.10*。 使用[az aks node pool upgrade][az-aks-nodepool-upgrade]命令升級節點集區, 如下列範例所示:
 
@@ -206,7 +212,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -269,7 +275,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -319,7 +325,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -372,7 +378,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
   },
   {
     ...
-    "count": 1,
+    "count": 2,
     ...
     "name": "nodepool1",
     "orchestratorVersion": "1.13.10",
@@ -389,7 +395,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>使用污點和容差排程 pod
 
-您現在的叢集中有兩個節點集區-一開始建立預設節點集區, 以及以 GPU 為基礎的節點集區。 使用 [ [kubectl] [取得節點][kubectl-get]] 命令來查看您叢集中的節點。 下列範例輸出顯示每個節點集區中的一個節點:
+您現在的叢集中有兩個節點集區-一開始建立預設節點集區, 以及以 GPU 為基礎的節點集區。 使用 [ [kubectl] [取得節點][kubectl-get]] 命令來查看您叢集中的節點。 下列範例輸出顯示節點:
 
 ```console
 $ kubectl get nodes

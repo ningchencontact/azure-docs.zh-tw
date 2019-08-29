@@ -3,21 +3,20 @@ title: Azure Data Factory 中的 If Condition 活動 | Microsoft Docs
 description: If Condition 活動允許您根據條件控制處理流程。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc6318b5033ff1297f917ab95b28f8ed9285e930
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153462"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142497"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory 中的 If Condition 活動
 If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中提供的功能相同。 它能在條件評估為 `true` 時執行一系列的活動，並在條件評估為 `false` 時執行另一系列的活動。 
@@ -66,8 +65,8 @@ If Condition 活動所提供的功能，與 If 陳述式在程式設計語言中
 
 屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | --------
-name | If-Condition 活動的名稱。 | 字串 | 是
-type | 必須設為 [IfCondition]  | 字串 | 是
+name | If-Condition 活動的名稱。 | String | 是
+Type | 必須設為 [IfCondition] | String | 是
 expression | 必須評估為 true 或 false 的運算式 | 結果類型為布林的運算式 | 是
 ifTrueActivities | 會在運算式評估為 `true` 時執行的一系列活動。 | Array | 是
 ifFalseActivities | 會在運算式評估為 `false` 時執行的一系列活動。 | Array | 是

@@ -11,33 +11,33 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 7fcf24256634ef11b575348d9da7d6bbbab8b67c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333920"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127773"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection 腳本
 
 這個腳本可協助您︰
 
-* 藉由模擬風險事件和弱點，在 Identity Protection 環境中填入資料
+* 藉由模擬風險偵測和弱點, 在身分識別保護環境中填入資料
 * 設定以風險為基礎的條件式存取原則, 並測試這些原則的影響
 
-## <a name="simulating-risk-events"></a>模擬風險事件
+## <a name="simulating-risk-detections"></a>模擬風險偵測
 
-本節將為您提供模擬下列風險事件類型的步驟：
+本節提供模擬下列風險偵測類型的步驟:
 
 * 從匿名 IP 位址登入 (容易)
 * 從不熟悉的位置登入 (適中)
 * 不可能到達非典型位置的移動 (困難)
 
-無法以安全的方式模擬其他風險事件。
+其他風險偵測無法以安全的方式模擬。
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>從匿名 IP 位址登入
 
-如需此風險事件的詳細資訊，請參閱[從匿名 IP 位址登入](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses)。 
+如需此風險偵測的詳細資訊, 請參閱[從匿名 IP 位址登入](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses)。 
 
 要完成下列程序，您必須使用：
 
@@ -47,13 +47,13 @@ ms.locfileid: "68333920"
 **若要模擬從匿名 IP 登入，請執行下列步驟**：
 
 1. 使用 [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)，瀏覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)。   
-2. 輸入您要在 [從匿名 IP 位址登入]  報告中顯示之帳戶的認證。
+2. 輸入您要在 [從匿名 IP 位址登入] 報告中顯示之帳戶的認證。
 
 登入將會在 10 - 15 分鐘內顯示於 [身分識別保護] 儀表板上。 
 
-### <a name="sign-ins-from-unfamiliar-locations"></a>從不熟悉的位置登入的次數
+### <a name="sign-ins-from-unfamiliar-locations"></a>從不熟悉的位置登入
 
-如需此風險事件的詳細資訊，請參閱[從不熟悉的位置登入](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)。 
+如需此風險偵測的詳細資訊, 請參閱[從不熟悉的位置登入](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)。 
 
 若要模擬不熟悉的位置，您必須從測試帳戶未曾用來登入的位置和裝置進行登入。
 
@@ -76,14 +76,14 @@ ms.locfileid: "68333920"
 
 ### <a name="impossible-travel-to-atypical-location"></a>不可能到達非典型位置的移動
 
-如需此風險事件的詳細資訊，請參閱[不可能到達非慣用位置](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations)。 
+如需此風險偵測的詳細資訊, 請參閱不[可能移動到非典型位置](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations)。 
 
-模擬不可能的移動情況相當困難，因為此演算法會使用機器學習服務來剔除誤判，例如，不可能來自熟悉裝置的移動，或從目錄中其他使用者所用的 VPN 登入。 此外，使用者必須要有 14 天的登入歷程記錄，且登入 10 次，此演算法才會開始產生風險事件。 由於機器學習模型的複雜性和前述規則，下列步驟有可能不會導致風險事件。 您可以為多個 Azure AD 帳戶複寫這些步驟，以發佈此風險事件。
+模擬不可能的移動情況相當困難，因為此演算法會使用機器學習服務來剔除誤判，例如，不可能來自熟悉裝置的移動，或從目錄中其他使用者所用的 VPN 登入。 此外, 此演算法需要14天的登入歷程記錄和10個使用者登入, 才會開始產生風險偵測。 由於有複雜的機器學習模型和上述規則, 因此下列步驟可能不會導致風險偵測。 您可能想要為多個 Azure AD 帳戶複寫這些步驟, 以發佈此風險偵測。
 
 **若要模擬不可能到達非典型位置的移動，請執行下列步驟**：
 
 1. 使用標準瀏覽器，瀏覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)。  
-2. 輸入您想要對其產生不可能移動風險事件之帳戶的認證。
+2. 輸入您想要為其產生不可能出差風險偵測的帳號憑證。
 3. 變更您的使用者代理程式。 您可以在 Internet Explorer 中從 [開發人員工具] 變更使用者代理程式，或在 Firefox 或 Chrome 中使用使用者代理程式切換器附加元件來變更您的使用者代理程式。
 4. 變更您的 IP 位址。 使用 VPN、Tor 附加元件，或在不同資料中心於 Azure 中啟動新機器，即可變更您的 IP 位址。
 5. 在前次登入之後的幾分鐘內，使用與之前相同的認證登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)。
@@ -110,7 +110,7 @@ ms.locfileid: "68333920"
 **若要測試使用者風險安全性原則，請執行下列步驟**：
 
 1. 使用租用戶的全域管理員認證來登入 [https://portal.azure.com](https://portal.azure.com)。
-2. 瀏覽至 [Identity Protection] 。 
+2. 瀏覽至 [Identity Protection]。 
 3. 在 [Azure AD Identity Protection] 頁面上，按一下 [使用者風險原則]。
 4. 在 [指派] 區段中，選取所需的使用者 (與群組) 和使用者風險層級。
 
@@ -118,8 +118,8 @@ ms.locfileid: "68333920"
 
 5. 在 [控制] 區段中，選取所需的存取控制 (例如，需要變更密碼)。
 5. 針對 [強制執行原則]，選取 [關閉]。
-6. 提高測試帳戶的使用者風險，例如，藉由模擬其中一個風險事件多次來執行。
-7. 等候幾分鐘，然後確認使用者的使用者層級為 [中]。 如果不是，請為使用者模擬更多風險事件。
+6. 藉由提高測試帳戶的使用者風險, 例如, 模擬幾次其中一項風險偵測。
+7. 等候幾分鐘，然後確認使用者的使用者層級為 [中]。 如果不是, 則會為使用者模擬更多的風險偵測。
 8. 針對 [強制執行原則]，選取 [開啟]。
 9. 您現在可以使用具有提高許可權的風險層級的使用者登入, 以測試以使用者風險為基礎的條件式存取。
 
@@ -140,7 +140,7 @@ ms.locfileid: "68333920"
 
 5. 在 [控制] 區段中，選取所需的存取控制 (例如，**需要多重要素驗證**)。 
 6. 針對 [強制執行原則]，選取 [開啟]。
-7. 按一下 [儲存] 。
+7. 按一下 [儲存]。
 8. 您現在可以使用有風險的會話登入來測試登入風險型條件式存取 (例如, 藉由使用 Tor 瀏覽器)。 
 
 ## <a name="see-also"></a>另請參閱

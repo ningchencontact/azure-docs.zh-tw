@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 91bdaf93c9dc9b051fce6e052ccd5bd2f5682eaa
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 3f0355ae14ed1a6157c8d3b7fccb5fb8a225ee80
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061951"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147494"
 ---
 # <a name="get-started-with-device-twins-java"></a>開始使用裝置對應項 (Java)
 
@@ -29,8 +29,6 @@ ms.locfileid: "70061951"
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
 
 ## <a name="prerequisites"></a>必要條件
-
-若要完成本教學課程，您需要：
 
 * 最新的 [Java SE 開發套件 8](https://aka.ms/azure-jdks)
 

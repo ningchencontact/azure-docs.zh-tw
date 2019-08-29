@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4e3756435703c4e8c887a4e7b9d4f75a6701d840
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335372"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126257"
 ---
 # <a name="how-to-unblock-users"></a>如何：解除封鎖使用者
 
@@ -52,7 +52,7 @@ ms.locfileid: "68335372"
 若要解鎖有風險的帳戶，您有下列選擇︰
 
 1. **重設密碼** - 您可以重設使用者的密碼。 
-2. **關閉所有風險事件** - 如果已達到設定的封鎖存取權限之使用者風險層級，使用者風險原則就會封鎖使用者。 您可以手動關閉已報告的風險事件來降低使用者的風險層級。 
+2. **關閉所有風險**偵測-如果已達到設定的封鎖存取使用者風險層級, 使用者風險原則就會封鎖使用者。 您可以手動關閉回報的風險偵測, 以減少使用者的風險層級。 
 3. **從原則中排除** - 如果您認為目前的登入原則設定對特定使用者造成問題，您可以排除這些使用者。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
 4. **停用原則** - 如果您認為您的原則設定對所有使用者造成問題，您可以停用原則。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
 

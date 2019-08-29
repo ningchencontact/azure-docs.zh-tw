@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/29/2019
 ms.author: raynew
-ms.openlocfilehash: 49bd193303255cdf7d18fd5da9dec8d84c50a829
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 99ef5c8a4a4291dd1b9d047da9006623dacd0b53
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019195"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147870"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 支援矩陣
 
@@ -31,10 +31,10 @@ Azure Migrate 服務有兩個版本：
 
 下表摘要說明支援的遷移案例。
 
-**部署** | **說明*** 
+**部署** | **詳細資料** 
 --- | --- 
 **內部部署評量** | 評估在 VMware Vm 和 Hyper-v Vm 上執行的內部部署工作負載和資料。 評估使用 Azure Migrate Server 評估和 Microsoft Data Migration Assistant (DMA), 以及包含 Cloudamize、Corent Tech 和 Turbonomic 伺服器的協力廠商工具。
-**內部部署至 Azure 的遷移** | 將實體伺服器、VMware Vm、Hyper-v Vm 和 AWS/GCP 實例上執行的工作負載和資料移轉至 Azure。 使用 Azure Migrate Server 評估和 Azure 資料庫移轉服務 (DMS) 進行遷移, 以及使用包含 Carbonite 和 CorentTech 的協力廠商工具。
+**內部部署至 Azure 的遷移** | 將實體伺服器、VMware Vm、Hyper-v Vm、實體伺服器和雲端式 VM 上執行的工作負載和資料移轉至 Azure。 使用 Azure Migrate Server 評估和 Azure 資料庫移轉服務 (DMS) 進行遷移, 以及使用包含 Carbonite 和 CorentTech 的協力廠商工具。
 
 特定工具支援摘要如下。
 
@@ -53,7 +53,7 @@ CorentTech | 遷移 | [深入了解](https://www.corenttech.com/)。
 
 **支援** | **詳細資料**
 --- | ---
-訂閱 | 您在訂用帳戶中可以有單一 Azure Migrate 專案。
+訂閱 | 您可以在訂用帳戶中有多個 Azure Migrate 專案。
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
 VMware VM  | 在單一專案中評估最多35000個 VMware Vm。
 Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。

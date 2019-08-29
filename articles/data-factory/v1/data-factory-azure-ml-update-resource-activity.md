@@ -3,21 +3,20 @@ title: 使用 Azure Data Factory 更新 Machine Learning 模型 | Microsoft Docs
 description: 說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a980f269c8b88618ffa3311c05310a88ade379ed
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567286"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140464"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>使用更新資源活動更新 Azure Machine Learning 模型
 
@@ -54,15 +53,15 @@ ms.locfileid: "60567286"
 
 ![Web 服務](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-您可以使用 [AzureML Batch 執行活動]  來叫用**訓練 Web 服務**。 叫用訓練 Web 服務與叫用 Azure ML Web 服務 (評分 Web 服務) 以便進行資料評分相同。 上述各節詳細說明如何從 Azure Data Factory 管線叫用 Azure ML Web 服務。 
+您可以使用 [AzureML Batch 執行活動] 來叫用**訓練 Web 服務**。 叫用訓練 Web 服務與叫用 Azure ML Web 服務 (評分 Web 服務) 以便進行資料評分相同。 上述各節詳細說明如何從 Azure Data Factory 管線叫用 Azure ML Web 服務。 
 
-您可以使用 [Azure ML 更新資源活動]  來叫用**評分 Web 服務**，進而以新訓練的模型更新 Web 服務。 下列範例提供連結的服務定義︰ 
+您可以使用 [Azure ML 更新資源活動] 來叫用**評分 Web 服務**，進而以新訓練的模型更新 Web 服務。 下列範例提供連結的服務定義︰ 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>評分 Web 服務是傳統的 Web 服務
 如果評分 Web 服務是**傳統 Web 服務**，請使用 Azure 入口網站來建立第二個**非預設且可更新的端點**。 如需相關步驟，請參閱[建立端點](../../machine-learning/machine-learning-create-endpoint.md)一文。 建立非預設的可更新端點之後，執行下列步驟：
 
-* 按一下 [批次執行]  以取得 **mlEndpoint** JSON 屬性的 URI 值。
-* 按一下 [更新資源]  連結以取得 **updateResourceEndpoint** JSON 屬性的 URI 值。 API 金鑰本身位於端點頁面 (位於右下角)。
+* 按一下 [批次執行] 以取得 **mlEndpoint** JSON 屬性的 URI 值。
+* 按一下 [更新資源] 連結以取得 **updateResourceEndpoint** JSON 屬性的 URI 值。 API 金鑰本身位於端點頁面 (位於右下角)。
 
 ![可更新端點](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
@@ -83,7 +82,7 @@ ms.locfileid: "60567286"
 ```
 
 ## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>評分 Web 服務是 Azure Resource Manager Web 服務 
-如果 Web 服務是會公開 Azure Resource Manager 端點的新 Web 服務類型，您不需要新增第二個「非預設」  端點。 連結服務中 **updateResourceEndpoint** 的格式如下︰ 
+如果 Web 服務是會公開 Azure Resource Manager 端點的新 Web 服務類型，您不需要新增第二個「非預設」端點。 連結服務中 **updateResourceEndpoint** 的格式如下︰ 
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
@@ -209,13 +208,13 @@ Azure 儲存體會保留下列資料：
 }
 ```
 
-在 [Azure ML Studio]  中，依下列方式取得 **mlEndpoint** 和 **apiKey** 的值：
+在 [Azure ML Studio] 中，依下列方式取得 **mlEndpoint** 和 **apiKey** 的值：
 
 1. 按一下左功能表中的 [ **Web 服務** ]。
 2. 按一下 Web 服務清單中的 **訓練 Web 服務** 。
-3. 按一下 [API 金鑰]  文字方塊旁的 [複製]。 將剪貼簿中的金鑰貼到 Data Factory JSON 編輯器中。
-4. 在 **Azure ML Studio** 中按一下 [批次執行]  連結。
-5. 從 [要求]  區段複製 [要求 URI]  並將它貼到 Data Factory JSON 編輯器中。   
+3. 按一下 [API 金鑰] 文字方塊旁的 [複製]。 將剪貼簿中的金鑰貼到 Data Factory JSON 編輯器中。
+4. 在 **Azure ML Studio** 中按一下 [批次執行] 連結。
+5. 從 [要求] 區段複製 [要求 URI] 並將它貼到 Data Factory JSON 編輯器中。   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Azure ML 可更新評分端點的連結服務：
 下列 JSON 程式碼片段定義的 Azure 機器學習連結服務可指向評分 Web 服務的非預設可更新端點。  

@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c4a3fc20e806ec91ed2646e6131f682bf5c80e38
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234437"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140842"
 ---
 # <a name="templates"></a>範本
 
@@ -26,11 +26,11 @@ ms.locfileid: "68234437"
 
 您可以透過下列兩種方法從範本開始建立 Data Factory 管線：
 
-1.  選取 [概觀] 頁面上的 [從範本建立管線]  來開啟 [範本資源庫]。
+1.  選取 [概觀] 頁面上的 [從範本建立管線] 來開啟 [範本資源庫]。
 
     ![從 [概觀] 頁面開啟 [範本資源庫]](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  在資源總管中的 [撰寫] 索引標籤上，選取 **+** ，然後選取 [來自範本的管線]  以開啟 [範本資源庫]。
+1.  在資源總管中的 [撰寫] 索引標籤上，選取 **+** ，然後選取 [來自範本的管線] 以開啟 [範本資源庫]。
 
     ![從 [撰寫] 索引標籤開啟 [範本資源庫]](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -80,11 +80,11 @@ Data Factory 使用 Azure Resource Manager 範本來儲存 Data Factory 管線�
 
 ### <a name="my-templates"></a>我的範本
 
-您也可以選取 [管線] 索引標籤上的 [儲存為範本]  來將管線儲存為範本。
+您也可以選取 [管線] 索引標籤上的 [儲存為範本] 來將管線儲存為範本。
 
 ![選取管線作為範本](media/solution-templates-introduction/templates-intro-image4.png)
 
-您可以在 [範本資源庫] 的 [我的範本]  區段檢視儲存為範本的管線。 您也可以在資源總管中的 [範本]  區段中看見它們。
+您可以在 [範本資源庫] 的 [我的範本] 區段檢視儲存為範本的管線。 您也可以在資源總管中的 [範本] 區段中看見它們。
 
 ![我的範本](media/solution-templates-introduction/templates-intro-image5.png)
 

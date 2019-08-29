@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: e5d2e485283f71b27bb5e93330a54e1b987044c4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: abf8b18d13e2990f053dd4273645dd7b9a324c77
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883835"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147752"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>開始使用 IoT 中樞模組身分識別和模組對應項 (.NET)
 
@@ -31,7 +31,7 @@ ms.locfileid: "68883835"
 > [!NOTE]
 > 如需可用來建置兩個應用程式，以在裝置上與解決方案後端執行的 Azure IoT SDK 詳細資訊，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
-若要完成本教學課程，您需要下列必要條件：
+## <a name="prerequisites"></a>必要條件
 
 * Visual Studio。
 

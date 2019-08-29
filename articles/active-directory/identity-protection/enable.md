@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304ba16985d5abfc4d385b3f1150cfa544c20b2a
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c8e73bd3639adcc43dd191ff2eacaf7335f08d72
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126590"
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>啟用 Azure Active Directory Identity Protection
 
 Azure Active Directory Identity Protection 是 Azure Active Directory (Azure AD) 的一項功能。 使用 Azure AD Identity Protection，您能夠：
 
-- 合併檢視有標幟的使用者，以及使用機器學習演算法偵測到的風險事件
+- 取得使用機器學習服務演算法偵測到的已旗標使用者和風險偵測的匯總視圖
 - 設定風險型條件式存取原則以自動保護您的使用者
 - 對漏洞採取行動以改善安全性狀態 
 
@@ -34,7 +34,7 @@ Azure Active Directory Identity Protection 是 Azure Active Directory (Azure AD)
 
 1. 以全域管理員身分[登入](https://ms.portal.azure.com/) Azure 入口網站。 
 
-2. 在 Azure 入口網站中，按一下 [Marketplace] 。
+2. 在 Azure 入口網站中，按一下 [Marketplace]。
    
     ![建立](./media/enable/01.png "建立")
 
@@ -42,7 +42,7 @@ Azure Active Directory Identity Protection 是 Azure Active Directory (Azure AD)
    
     ![建立](./media/enable/05.png "建立")
 
-4. 按一下 [Azure AD Identity Protection] 。
+4. 按一下 [Azure AD Identity Protection]。
    
     ![建立](./media/enable/06.png "建立")
 

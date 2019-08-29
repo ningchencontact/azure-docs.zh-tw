@@ -3,21 +3,20 @@ title: 以視覺化方式監視 Azure 資料處理站 | Microsoft Docs
 description: 瞭解如何以視覺化方式監視 Azure data factory
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: shlo
-ms.openlocfilehash: e680610263830c856a3ff902d8e55cd8b2b4a158
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 99ae0139d7b12c0bfb87030d2b749b12834a4f96
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114559"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141089"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>以視覺化方式監視 Azure 資料處理站
 Azure Data Factory 是以雲端為基礎的資料整合服務。 您可以使用它在雲端中建立資料驅動的工作流程, 以協調和自動化資料移動和資料轉換。 藉由使用 Azure Data Factory, 您可以:

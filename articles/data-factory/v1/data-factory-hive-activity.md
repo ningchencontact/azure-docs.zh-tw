@@ -3,22 +3,21 @@ title: 使用 Hive 活動轉換資料 - Azure | Microsoft Docs
 description: 了解如何使用 Azure 資料處理站中的 Hive 活動，以在隨選/您自己的 HDInsight 叢集上執行 Hive 查詢。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: a63ef969f17fc48145174d99fec53e77b61885a4
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827980"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139538"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hive 活動轉換資料 
 > [!div class="op_single_selector" title1="轉換活動"]
@@ -77,11 +76,11 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活
 | --- | --- | --- |
 | name |活動的名稱 |是 |
 | description |說明活動用途的文字 |否 |
-| type |HDinsightHive |是 |
+| Type |HDinsightHive |是 |
 | inputs |Hive 活動所耗用的輸入 |否 |
 | outputs |Hive 活動所耗用的輸出 |是 |
 | linkedServiceName |參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 |是 |
-| script |指定 Hive 指令碼內嵌 |否 |
+| 指令碼 |指定 Hive 指令碼內嵌 |否 |
 | scriptPath |在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。 使用 'script' 或 'scriptPath' 屬性。 兩者無法同時使用。 檔案名稱有區分大小寫。 |否 |
 | defines |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5e07243720872ff4555d4c000dcb7b0b7236e66f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534614"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126745"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 應用程式深入解析中的相依性追蹤 
 
@@ -39,6 +39,7 @@ ms.locfileid: "69534614"
 |[ServiceBus 用戶端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3\.0.0 和更新版本。 |
 |Azure Cosmos DB | 只有在使用 HTTP/HTTPS 時才會自動追蹤。 Application Insights 不會擷取 TCP 模式。 |
 
+如果您遺失相依性, 或使用不同的 SDK, 請確定它是在[自動收集](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)的相依性清單中。 如果不會自動收集相依性, 您仍然可以使用追蹤相依性[呼叫](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)來手動進行追蹤。
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>在主控台應用程式中設定自動相依性追蹤
 

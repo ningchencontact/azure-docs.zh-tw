@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 889158aeb40cfcbc69291845acfee833af0930b6
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 20a90a70c66310f6838b41a40aa945308bf338d4
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114287"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147914"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>將機器學習模型部署到 Azure App Service (預覽)
 
@@ -265,8 +265,8 @@ print(response.json())
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需設定 Web 應用程式的詳細資訊, 請參閱[Linux 上的 App Service](/azure/app-service/containers/)檔。
-* 如需有關調整的詳細資訊, 請參閱[開始使用 Azure 中的自動](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)調整。
-* 如需 SSL 支援的詳細資訊, 請參閱[在您的 Azure App Service 中使用 ssl 憑證](/azure/app-service/app-service-web-ssl-cert-load)。
-* 如需驗證的詳細資訊, 請參閱[設定您的 App Service 應用程式以使用 Azure Active Directory 登入](/azure/app-service/configure-authentication-provider-aad)。
+* 瞭解如何在[Linux 上的 App Service](/azure/app-service/containers/)檔中設定您的 Web 應用程式。
+* 深入瞭解如何在[Azure 中開始使用自動](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)調整規模。
+* [在您的 Azure App Service 中使用 SSL 憑證](/azure/app-service/app-service-web-ssl-cert-load)。
+* [設定 App Service 應用程式以使用 Azure Active Directory 登入](/azure/app-service/configure-authentication-provider-aad)。
 * [取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)

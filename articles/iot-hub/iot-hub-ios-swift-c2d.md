@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 8c6013e5bda2bec1c8a09fd9f2434cdd477eed01
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 1875e3437c13a678532c05b4057126f785b9125c
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618514"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147540"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>使用 IoT 中樞傳送雲端到裝置訊息 (iOS)
 
@@ -39,7 +39,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 > [!NOTE]
 > IoT 中樞透過 Azure IoT 裝置 Sdk, 為許多裝置平臺和語言 (包括 C、JAVA、Python 和 JAVAscript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中樞](https://www.azure.com/develop/iot)。
 
-若要完成此教學課程，您需要下列項目：
+## <a name="prerequisites"></a>必要條件
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 

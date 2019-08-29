@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery 中的 Hyper-V 至 Azure 災害復原架構 | Microsoft Docs
+title: Azure Site Recovery 中的 hyper-v 至 Azure 嚴重損壞修復架構
 description: 本文概述在使用 Azure Site Recovery 服務部署內部部署 Hyper-V VM (不含 VMM) 至 Azure 的災害復原時所使用的元件和架構。
 author: rayne-wiselman
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 3af96fd03ed8e9878c3418e66cfcf24c7f30088c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4035746772b44d7267d6a9cd90c7bdc02c804a8a
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845790"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147066"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V 至 Azure 的災害復原架構
 
