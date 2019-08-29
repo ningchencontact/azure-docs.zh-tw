@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: roiyz
-ms.openlocfilehash: 700d8c6ea1527598591aa4300a977f80085e04b0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 393b01d7815d94e4ad623c552f4110421c9d98bd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990356"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092260"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>適用于 Windows 的 Azure 監視器虛擬機器擴充功能
 
@@ -28,7 +27,7 @@ Azure 監視器記錄可提供跨雲端和內部部署資產的監視功能。 M
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
@@ -85,11 +84,11 @@ Azure 資訊安全中心會自動布建 Log Analytics 代理程式, 並將它與
 ```
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 |
+| Name | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | MicrosoftMonitoringAgent |
+| Type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (例如)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (例如) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |

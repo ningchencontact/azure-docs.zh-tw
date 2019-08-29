@@ -7,18 +7,17 @@ author: hermanndms
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 875060a59cf70d295534c3a4f56136010a560e74
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8bcfdefa2ea9de12ca6029839a41c91111a5c61c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709923"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078589"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>以儲存體快照集為基礎的 SAP HANA 備份
 
@@ -26,7 +25,7 @@ ms.locfileid: "67709923"
 
 這是與 SAP HANA 備份相關的三篇系列文章的其中一篇。 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)提供開始使用的概觀和資訊，[檔案層級的 SAP HANA Azure 備份](sap-hana-backup-file-level.md)涵蓋以檔案為基礎的備份選項。
 
-在單一執行個體全方位示範系統中使用 VM 備份功能時，應該考慮進行 VM 備份，而不是在作業系統層級管理 HANA 備份。 另一個替代方法是採用 Azure blob 快照集，建立連結至虛擬機器之個別虛擬磁碟的複本，並保留 HANA 資料檔案。 但關鍵點在於，當系統正在執行中，建立 VM 備份或磁碟快照集的一致性。 請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞  。 SAP HANA 有個功能支援這類的儲存體快照集。
+在單一執行個體全方位示範系統中使用 VM 備份功能時，應該考慮進行 VM 備份，而不是在作業系統層級管理 HANA 備份。 另一個替代方法是採用 Azure blob 快照集，建立連結至虛擬機器之個別虛擬磁碟的複本，並保留 HANA 資料檔案。 但關鍵點在於，當系統正在執行中，建立 VM 備份或磁碟快照集的一致性。 請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞。 SAP HANA 有個功能支援這類的儲存體快照集。
 
 ## <a name="sap-hana-snapshots-as-central-part-of-application-consistent-backups"></a>SAP HANA 快照集是應用程式保持備份一致性的關鍵所在
 
@@ -50,7 +49,7 @@ SAP HANA 中有個功能支援建立儲存體快照集。 單一容器系統有�
 
 快照集會出現在磁碟上的 SAP HANA 資料目錄中。
 
-當 SAP HANA 處於快照集準備模式時，執行儲存體快照集之前，您必須確定也能保證檔案系統一致性。 請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞  。
+當 SAP HANA 處於快照集準備模式時，執行儲存體快照集之前，您必須確定也能保證檔案系統一致性。 請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞。
 
 完成儲存體快照集時，務必確認 SAP HANA 快照集。 有個對應的 SQL 陳述式可以執行︰BACKUP DATA CLOSE SNAPSHOT (請參閱 [BACKUP DATA CLOSE SNAPSHOT 陳述式 (備份和復原)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm))。
 
@@ -71,7 +70,7 @@ Azure 備份服務提供備份和還原 VM 的選項。 關於此服務和運作
 
 「應用程式需要在還原的資料上實作自己的「修正」機制。」 _&quot;&quot;&quot;&quot;_
 
-因此，您必須確定備份啟動時，磁碟上的 SAP HANA 是處於一致的狀態。 請參閱本文稍早的＜SAP HANA 快照集＞  。 但是當 SAP HANA 保持在此快照集準備模式中時，還有潛在的問題。 如需詳細資訊，請參閱[建立儲存體快照集 (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)。
+因此，您必須確定備份啟動時，磁碟上的 SAP HANA 是處於一致的狀態。 請參閱本文稍早的＜SAP HANA 快照集＞。 但是當 SAP HANA 保持在此快照集準備模式中時，還有潛在的問題。 如需詳細資訊，請參閱[建立儲存體快照集 (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)。
 
 這篇文章中提到︰
 
@@ -135,7 +134,7 @@ Azure 備份最終將會允許備份個別 Azure 虛擬磁碟，加上虛擬機�
 
 - 測試中將兩個 Azure 資料磁碟連結至 VM，並在其上定義軟體 RAID 
 - 已經利用 SAP HANA 快照集功能確認的 SAP HANA 處於一致的狀態
-- 檔案系統凍結 (請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞  )
+- 檔案系統凍結 (請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞)
 - 從這兩個資料磁碟建立 blob 快照集
 - 檔案系統解除凍結
 - 確認 SAP HANA 快照集
@@ -145,7 +144,7 @@ Azure 備份最終將會允許備份個別 Azure 虛擬磁碟，加上虛擬機�
 - 啟動 VM 後，軟體 RAID 上的所有項目正常運作，並已回到 blob 快照集時間的狀態
 - HANA 已回到 HANA 快照集的狀態
 
-如果可以在進行 blob 快照集之前關閉 SAP HANA，程序會比較不複雜。 在此情況下，可以略過 HANA 快照集，而且如果系統上沒有在進行其他作業，也可以略過檔案系統凍結。 當需要在所有項目都在線上時執行快照集，複雜度就會增加。 請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞  。
+如果可以在進行 blob 快照集之前關閉 SAP HANA，程序會比較不複雜。 在此情況下，可以略過 HANA 快照集，而且如果系統上沒有在進行其他作業，也可以略過檔案系統凍結。 當需要在所有項目都在線上時執行快照集，複雜度就會增加。 請參閱相關文章 [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)中的＜建立儲存體快照集時，SAP HANA 資料的一致性＞。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)提供快速入門的概觀和詳細資訊。

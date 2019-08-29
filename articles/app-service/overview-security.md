@@ -10,17 +10,16 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0e592c03da222e5265ed53aab8ef73f3b477f33a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475857"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074110"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service 中的安全性
 
@@ -58,7 +57,7 @@ App Service 同時支援使用 FTP 和 FTPS 來部署您的檔案。 不過，�
 
 根據預設，App Service 應用程式會接受來自網際網路所有 IP 位址的要求，但是您可以限制存取一小部分的 IP 位址。 Windows 上的 App Service 可讓您定義允許存取應用程式的 IP 位址清單。 允許清單可以包含個別 IP 位址，或以子網路遮罩所定義的 IP 位址範圍。 如需詳細資訊，請參閱 [Azure App Service 靜態 IP 限制](app-service-ip-restrictions.md)。
 
-對於 Windows 上的 App Service，您也可以藉由設定 _web.config_ 來動態限制 IP 位址。如需詳細資訊，請參閱 <<c0> [ 動態 IP 安全性\<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
+對於 Windows 上的 App Service，您也可以藉由設定 _web.config_ 來動態限制 IP 位址。如需詳細資訊, 請參閱[動態\<IP 安全性 dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)。
 
 ## <a name="client-authentication-and-authorization"></a>用戶端驗證與授權
 
@@ -111,7 +110,7 @@ App Service 驗證和授權支援多個驗證提供者，包括 Azure Active Dir
 
 ## <a name="network-isolation"></a>網路隔離
 
-除了 [隔離式]  定價層，所有定價層都會在 App Service 中的共用網路基礎結構上執行您的應用程式。 例如，公用 IP 位址與前端負載平衡器會與其他租用戶共用。 [隔離式]  定價層可讓您在專屬 [App Service 環境](environment/intro.md)中執行您的應用程式，藉此完成網路隔離。 App Service 環境就會在您擁有的 [Azure 虛擬網路](/azure/virtual-network/)執行個體中執行。 它可讓您： 
+除了 [隔離式] 定價層，所有定價層都會在 App Service 中的共用網路基礎結構上執行您的應用程式。 例如，公用 IP 位址與前端負載平衡器會與其他租用戶共用。 [隔離式] 定價層可讓您在專屬 [App Service 環境](environment/intro.md)中執行您的應用程式，藉此完成網路隔離。 App Service 環境就會在您擁有的 [Azure 虛擬網路](/azure/virtual-network/)執行個體中執行。 它可讓您： 
 
 - 透過具有專屬前端的專屬公用端點來提供您的應用程式。
 - 使用內部負載平衡器 (ILB) 來提供內部應用程式，只允許從 Azure 虛擬網路內部進行存取。 ILB 有來自私人子網路的 IP 位址，這可讓您的應用程式與網際網路完全隔離。

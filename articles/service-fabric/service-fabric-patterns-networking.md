@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 0a411e0fe3b89eaaa19f4e18f5e614b03dd1d682
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599425"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073942"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 網路功能模式
 您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 本文說明如何建立使用下列功能的叢集︰
@@ -604,6 +604,10 @@ DnsSettings              : {
     ```
 
 在部署後，您會看到資源群組中有兩個負載平衡器。 如果您瀏覽負載平衡器，您會看到公用 IP 位址和指派給公用 IP 位址的管理端點 (連接埠 19000 和 19080)。 您也會看到靜態內部 IP 位址和指派給內部負載平衡器的應用程式端點 (連接埠 80)。 這兩個負載平衡器會使用相同的虛擬機器擴展集後端集區。
+
+## <a name="notes-for-production-workloads"></a>生產工作負載的相關注意事項
+
+上述 GitHub 範本是設計用來與 Azure Standard Load Balancer (SLB) (基本 SKU) 的預設 SKU 搭配使用。 此 SLB 沒有 SLA, 因此針對生產工作負載, 應使用標準 SKU。 如需詳細資訊, 請參閱[Azure Standard Load Balancer 總覽](/azure/load-balancer/load-balancer-standard-overview)。 任何使用 SLB 標準 SKU 的 Service Fabric 叢集都必須確保每個節點類型都有規則允許埠443上的輸出流量。 這是完成叢集設定的必要步驟, 而且沒有這類規則的任何部署將會失敗。 在上述「僅限內部」負載平衡器的範例中, 必須將額外的外部負載平衡器新增至範本, 並提供允許埠443輸出流量的規則。
 
 ## <a name="next-steps"></a>後續步驟
 [建立叢集](service-fabric-cluster-creation-via-arm.md)

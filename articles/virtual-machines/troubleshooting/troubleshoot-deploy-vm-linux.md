@@ -1,6 +1,6 @@
 ---
 title: 針對 Azure 中的 Linux 虛擬機器部署問題進行疑難排解 | Microsoft Docs
-description: 在 Azure Resource Manager 部署模型中的部署 Linux 虛擬機器問題進行疑難排解。
+description: 針對 Azure Resource Manager 部署模型中的 Linux 虛擬機器部署問題進行疑難排解。
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -11,37 +11,36 @@ ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 38d53af06312c993a749fa86619e25e60d39fff4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 6aed61f13da8f6a29c1c3fa619af58cb720ea8e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710466"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089958"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>針對 Azure 中的 Linux 虛擬機器部署問題進行疑難排解
 
 若要針對 Azure 中的虛擬機器 (VM) 部署問題進行疑難排解，請檢閱[常見問題](#top-issues)以了解常見的失敗和解決方式。
 
-如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
+如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
 
 ## <a name="top-issues"></a>常見問題
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>叢集無法支援要求的 VM 大小
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
 - 以較小的 VM 大小重試要求。
 - 如果無法變更要求的 VM 的大小︰
-    - 停止可用性設定組中的所有 VM。 按一下 [資源群組]  > 您的資源群組 > [資源]  > 您的可用性設定組 > [虛擬機器]  > 您的虛擬機器 > [停止]  。
+    - 停止可用性設定組中的所有 VM。 按一下 [資源群組] > 您的資源群組 > [資源] > 您的可用性設定組 > [虛擬機器] > 您的虛擬機器 > [停止]。
     - 在所有 VM 都停止後，建立所需大小的 VM。
     - 先啟動新的 VM，然後選取每個已停止的 VM 並按一下 [啟動]。
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>叢集沒有可用的資源
-\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
+\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
 - 稍後再重試要求。
 - 如果新的 VM 可以屬於不同的可用性設定組
     - 在不同的可用性設定組 (位於相同區域) 中建立 VM。
@@ -91,4 +90,4 @@ Linux 型 VM 的驅動程式位於[這裡](../linux/n-series-driver-setup.md)。
 ## <a name="next-steps"></a>後續步驟
 如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。
 
-或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。
+或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。

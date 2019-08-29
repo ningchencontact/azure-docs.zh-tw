@@ -11,16 +11,15 @@ ms.assetid: 3e097959-84fc-4f6a-8cc8-35e087fd1542
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: szark
-ms.openlocfilehash: 140ad3d65db08d596e6ab3d3d31f5606a7b4dc54
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: fe9eed24ef641ef1403aa940b88790e38512e874
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696057"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083539"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>準備適用於 Azure 的 Ubuntu 虛擬機器
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -34,7 +33,7 @@ Ubuntu 現在發佈官方 Azure VHD 提供下載，位於：[https://cloud-image
 * Ubuntu 18.04/Bionic：[bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
 * Ubuntu 18.10/Cosmic：[cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/releases/cosmic/release/ubuntu-18.10-server-cloudimg-amd64.vhd.zip)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已將 Ubuntu Linux 作業系統安裝到虛擬硬碟。 有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。 如需指示，請參閱 [安裝 Hyper-V 角色及設定虛擬機器](https://technet.microsoft.com/library/hh846766.aspx)。
 
 **Ubuntu 安裝注意事項**

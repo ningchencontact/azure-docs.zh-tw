@@ -7,16 +7,15 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: f81337cea3ece822ea05bcc94f4e05d6e177bf93
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 0388c712d6f44755e768e491944df1a9451653b7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735591"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085242"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
 
@@ -24,7 +23,7 @@ ms.locfileid: "68735591"
 
 如果這是您第一次使用 C# Functions，則您應該先閱讀 [Azure Functions C# 開發人員參考資料](functions-dotnet-class-library.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 + 完成[使用 Visual Studio 建立第一個函式](functions-create-your-first-function-visual-studio.md)一文中的步驟，以建立一個以 2.x 版執行階段為目標的本機函數應用程式。 您還必須已將專案發佈至 Azure 中的函數應用程式。
 

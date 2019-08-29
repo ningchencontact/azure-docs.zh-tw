@@ -9,26 +9,25 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a872b8c34011247e68b0d459482c0599ac0426f2
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 116ffa31fb540897f9a769b73c3a6474dda45b88
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228395"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101926"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
 本文提供 Azure 中 [SQL Server 虛擬機器](virtual-machines-windows-sql-server-iaas-overview.md)的定價指導方針。 影響成本的選項有數個，而挑選平衡成本和業務需求的正確映像相當重要。
 
 > [!TIP]
-> 如果您只需要了解特定 SQL Server 版本與虛擬機器大小組合的成本預估，請參閱 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 適用的定價頁面。 從 [OS/軟體]  清單選取您的平台和 SQL Server 版本。
+> 如果您只需要了解特定 SQL Server 版本與虛擬機器大小組合的成本預估，請參閱 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux) 適用的定價頁面。 從 [OS/軟體] 清單選取您的平台和 SQL Server 版本。
 >
 > ![VM 定價頁面上的 UI](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
 >
@@ -59,7 +58,7 @@ ms.locfileid: "68228395"
 |-----|-----|
 | Web | 小型網站 |
 | 標準 | 小型到中型工作負載 |
-| Enterprise | 大型或任務關鍵性工作負載|
+| 企業 | 大型或任務關鍵性工作負載|
 
 您有兩個選項來支付這些版本的 SQL Server 授權：*依使用量付費*或*自備授權 (BYOL)* 。
 
@@ -85,7 +84,7 @@ ms.locfileid: "68228395"
 | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
-> 在入口網站中建立 SQL Server 虛擬機器時，[選擇大小]  視窗會顯示估計的成本。 請務必注意，此預估值僅僅是執行 VM 的計算成本以及任何 OS 授權成本 (Windows 或協力廠商 Linux 作業系統)。
+> 在入口網站中建立 SQL Server 虛擬機器時，[選擇大小] 視窗會顯示估計的成本。 請務必注意，此預估值僅僅是執行 VM 的計算成本以及任何 OS 授權成本 (Windows 或協力廠商 Linux 作業系統)。
 >
 > ![選擇 VM 大小刀鋒視窗](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-choose-size-pricing-estimate.png)
 >

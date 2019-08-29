@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: chackdan
-ms.openlocfilehash: f1717cfb7980fc481f01c51c04d076aa2ca0f67d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 165dc95681b75e98d91c66b490e15c2e96608299
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876500"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098941"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>在 Linux 上建立執行 Apache Tomcat 伺服器的 Service Fabric 容器
 Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 技術實作。 此文章說明如何搭配 Apache Tomcat 和簡單的 Web 應用程式來建置容器，將該容器部署至執行 Linux 的 Service Fabric 叢集，然後連線至 Web 應用程式。  
@@ -49,7 +48,7 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
    cd service-fabric-java-getting-started/container-apache-tomcat-web-server-sample
    ```
 
-1. 以位於 Docker Hub 上的官方 [Tomcat 映像](https://hub.docker.com/_/tomcat/) \(英文\) 和 Tomcat 伺服器範例為基礎建立 Docker 檔案。 在 *service-fabric-java-getting-started/container-apache-tomcat-web-server-sample* 目錄中，建立名為 *Dockerfile* (無副檔名) 的檔案。 將下列內容新增至 Dockerfile  並儲存變更：
+1. 以位於 Docker Hub 上的官方 [Tomcat 映像](https://hub.docker.com/_/tomcat/) \(英文\) 和 Tomcat 伺服器範例為基礎建立 Docker 檔案。 在 *service-fabric-java-getting-started/container-apache-tomcat-web-server-sample* 目錄中，建立名為 *Dockerfile* (無副檔名) 的檔案。 將下列內容新增至 Dockerfile 並儲存變更：
 
    ```
    FROM library/tomcat
@@ -214,7 +213,7 @@ Apache Tomcat 是一個熱門且開放原始碼的 Java Servlet 和 Java Server 
    * 在本機叢集上，請使用 `http://localhost:19080/Explorer` (若使用 Mac OS X 上的 Vagrant，請將 *localhost* 取代為 VM 的私人 IP)。
    * 在安全的 Azure 叢集上，使用 `https://PublicIPorFQDN:19080/Explorer`。 
     
-   展開 [應用程式]  節點，並注意到有一個針對您應用程式類型的項目 (**ServiceFabricTomcatType**)，以及另一個針對該類型第一個執行個體的項目。 應用程式可能需要幾分鐘的時間才能完全部署，請耐心等候。
+   展開 [應用程式] 節點，並注意到有一個針對您應用程式類型的項目 (**ServiceFabricTomcatType**)，以及另一個針對該類型第一個執行個體的項目。 應用程式可能需要幾分鐘的時間才能完全部署，請耐心等候。
 
    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 

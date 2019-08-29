@@ -8,18 +8,18 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 7893c8e8b8d67b4b63bd9d6bb5a71552e95c9125
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 25751db785bf5d0b67195d1e1db660c0b9b5bf4e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850255"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100958"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>從 Azure 入口網站管理 IoT Central
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-您可以使用 [Azure 入口網站](https://portal.azure.com)來管理您的應用程式，而非從 IoT Central [Application Manager](https://aka.ms/iotcentral) 頁面建立和管理 IoT Central 應用程式。
+您可以使用[Azure 入口網站](https://portal.azure.com)來管理您的應用程式, 而不需要在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上建立和管理 IoT Central 應用程式。
 
 ## <a name="create-iot-central-applications"></a>建立 IoT Central 應用程式
 
@@ -35,11 +35,11 @@ ms.locfileid: "67850255"
 
 ![管理入口網站：搜尋結果](media/howto-manage-iot-central-from-portal/image0b1.png)
 
-現在，選取 [建立]  。
+現在，選取 [建立]。
 
 ![管理入口網站：IoT 中心資源](media/howto-manage-iot-central-from-portal/image0c1.png)
 
-填寫表單中的所有欄位。 此表單類似於您填妥以在 IoT Central [Application Manager](https://aka.ms/iotcentral) 頁面上建立應用程式的表單。 如需詳細資訊，請參閱[建立 IoT Central 應用程式](quick-deploy-iot-central.md)快速入門。
+填寫表單中的所有欄位。 此表單類似于您在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上填寫來建立應用程式的表單。 如需詳細資訊，請參閱[建立 IoT Central 應用程式](quick-deploy-iot-central.md)快速入門。
 
 ![管理入口網站：建立 IoT Central 資源](media/howto-manage-iot-central-from-portal/image1a.png)  
 
@@ -60,7 +60,7 @@ ms.locfileid: "67850255"
 
 ![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image3.png)
 
-若要將應用程式移至不同的資源群組, 請選取資源群組旁的 [**變更**]。 在 [移動資源]  頁面上，挑選要將此應用程式遷移至的資源群組。
+若要將應用程式移至不同的資源群組, 請選取資源群組旁的 [**變更**]。 在 [移動資源] 頁面上，挑選要將此應用程式遷移至的資源群組。
 
 ![管理入口網站：資源管理](media/howto-manage-iot-central-from-portal/image4a.png)
 

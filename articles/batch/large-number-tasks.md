@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: f91d47e1f57fb74575fbdad0a76386b53fb38b1f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1322b8eb14205ff29e109fae82466270f7507781
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322512"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094029"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>將大量工作提交至 Batch 作業
 
@@ -30,7 +29,7 @@ ms.locfileid: "68322512"
 
 ## <a name="use-task-collections"></a>使用工作集合
 
-Batch API 提供了有效率地以「集合」  形式，將工作新增至作業的方法，不用一次新增一個工作。 新增大量工作時，您應該使用適當的方法或多載，將工作新增為集合。 一般而言，您會藉由在逐一查看一組作業的輸入檔或參數時定義工作，來建構工作集合。
+Batch API 提供了有效率地以「集合」形式，將工作新增至作業的方法，不用一次新增一個工作。 新增大量工作時，您應該使用適當的方法或多載，將工作新增為集合。 一般而言，您會藉由在逐一查看一組作業的輸入檔或參數時定義工作，來建構工作集合。
 
 您在單一呼叫中可以新增的工作集合大小上限，取決於您使用的 Batch API：
 

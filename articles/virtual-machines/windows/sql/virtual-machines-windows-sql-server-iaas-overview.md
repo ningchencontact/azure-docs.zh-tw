@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ece55cdad04e71d339944b5fcda5a16d35630c16
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877759"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101998"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure 虛擬機器上的 SQL Server 是什麼？ (Windows)
 
@@ -102,7 +101,7 @@ Azure 虛擬機器提供不同的機器大小，以符合各種工作負載需�
 
 Azure 入口網站提供單一頁面, 您可以在其中管理[所有的 AZURE sql 資源](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql), 包括您的 SQL 虛擬機器。
 
-若要存取**AZURE sql 資源**頁面, 請在 Azure 入口網站的左側功能表中選取 [ **azure sql** ]。 如果**AZURE SQL**不在清單中, 請選取 [**所有服務**], 然後在搜尋方塊中輸入*azure sql* 。
+若要存取**AZURE sql 資源**頁面, 請在 Azure 入口網站的左側功能表中選取 [ **azure sql** ]。 如果 **Azure SQL** 不在清單中，請選取 [所有服務]，然後在搜尋方塊中輸入 Azure SQL。
 
 > [!NOTE]
 > **AZURE SQL**提供快速且輕鬆的方式來存取您的所有 SQL 資料庫、彈性集區、資料庫伺服器、sql 受控實例和 sql 虛擬機器。 Azure SQL 不是服務或資源。 

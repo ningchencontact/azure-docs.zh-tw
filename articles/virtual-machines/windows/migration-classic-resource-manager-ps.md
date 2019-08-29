@@ -11,16 +11,15 @@ ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: dc88a7936c4ab4994bd9de168a682b1253c34e1f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: bf964f23b6c38444fb15b61161cb7ed5a2b15e00
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720237"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102646"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 將 IaaS 資源從傳統移轉至 Azure Resource Manager
 以下步驟說明如何使用 Azure PowerShell 命令，將基礎結構即服務 (IaaS) 資源從傳統部署模型移轉至 Azure Resource Manager 部署模型。
@@ -38,7 +37,7 @@ ms.locfileid: "67720237"
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="step-1-plan-for-migration"></a>步驟 1：為移轉做規劃
+## <a name="step-1-plan-for-migration"></a>步驟 1:為移轉做規劃
 以下是您評估將 IaaS 資源從傳統移轉至 Resource Manager 時，我們所建議的一些最佳做法：
 
 * 將 [支援及不支援的功能和組態](migration-classic-resource-manager-overview.md)看一遍。 如果您的虛擬機器使用不支援的組態或功能，建議您等到宣布支援該組態/功能之後，再進行移轉。 或者，移除該功能或移出該組態以利移轉進行 (如果這麼做符合您的需求)。
@@ -49,7 +48,7 @@ ms.locfileid: "67720237"
 >
 >如果 ExpressRoute 閘道連線至另一個訂用帳戶中的 ExpressRoute 線路，則無法自動移轉。 在這種情況下，請移除 ExpressRoute 閘道，移轉虛擬網路，然後重新建立閘道。 如需相關步驟和詳細資訊，請參閱[將 ExpressRoute 線路和相關聯的虛擬網路從傳統部署模型移轉至 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
 
-## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>步驟 2：安裝最新版的 Azure PowerShell
+## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>步驟 2:安裝最新版的 Azure PowerShell
 共有兩個安裝 Azure PowerShell 的主要選項：[PowerShell 資源庫](https://www.powershellgallery.com/profiles/azure-sdk/)或 [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps)。 WebPI 接收每月更新。 PowerShell 資源庫則是持續接收更新。 本文是以 Azure PowerShell 2.1.0 為基礎。
 
 如需安裝指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
@@ -60,8 +59,8 @@ ms.locfileid: "67720237"
 若要執行此移轉，必須在 [Azure 入口網站](https://portal.azure.com)中將您新增為訂用帳戶的共同管理員。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在 [中樞] 功能表中，選取 [訂用帳戶]  。 如果您沒有看到，請選取 [所有服務]  。
-3. 尋找適當的訂用帳戶項目，然後查看 [我的角色]  欄位。 對於共同管理員而言，這個值應該是 [帳戶管理員]  。
+2. 在 [中樞] 功能表中，選取 [訂用帳戶]。 如果您沒有看到，請選取 [所有服務]。
+3. 尋找適當的訂用帳戶項目，然後查看 [我的角色] 欄位。 對於共同管理員而言，這個值應該是 [帳戶管理員]。
 
 如果您無法新增共同管理員，請連絡服務管理員或訂用帳戶的共同管理員，以將您新增為共同管理員。   
 
@@ -80,7 +79,7 @@ ms.locfileid: "67720237"
     Get-AzSubscription | Sort Name | Select Name
 ```
 
-設定目前工作階段的 Azure 訂用帳戶。 這個範例會將預設訂用帳戶名稱設定為 [我的 Azure 訂用帳戶]  。 將範例訂用帳戶名稱取代為您自己的名稱。
+設定目前工作階段的 Azure 訂用帳戶。 這個範例會將預設訂用帳戶名稱設定為 [我的 Azure 訂用帳戶]。 將範例訂用帳戶名稱取代為您自己的名稱。
 
 ```powershell
     Select-AzSubscription –SubscriptionName "My Azure Subscription"
@@ -117,7 +116,7 @@ ms.locfileid: "67720237"
     Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 ```
 
-設定目前工作階段的 Azure 訂用帳戶。 這個範例會將預設訂用帳戶設定為 [我的 Azure 訂用帳戶]  。 將範例訂用帳戶名稱取代為您自己的名稱。
+設定目前工作階段的 Azure 訂用帳戶。 這個範例會將預設訂用帳戶設定為 [我的 Azure 訂用帳戶]。 將範例訂用帳戶名稱取代為您自己的名稱。
 
 ```powershell
     Select-AzureSubscription –SubscriptionName "My Azure Subscription"
@@ -170,7 +169,7 @@ Get-AzVMUsage -Location "West US"
     $validate.ValidationMessages
     ```
 
-    下列命令會顯示封鎖移轉的任何警告和錯誤。 如果驗證成功，您便可以繼續進行下列「準備」  步驟：
+    下列命令會顯示封鎖移轉的任何警告和錯誤。 如果驗證成功，您便可以繼續進行下列「準備」步驟：
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `

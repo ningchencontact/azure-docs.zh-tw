@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fd88f8e9b32b3fe5a0d7ab0caf233098ea19fde0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f894a7438c56c3830eb62c516447195f10fc3b76
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323093"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094660"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>為 Azure Batch 集區中的運算節點選擇 VM 大小
 
@@ -44,25 +43,25 @@ ms.locfileid: "68323093"
 | 基本 A 系列 | 除了 Basic_A0 (A0)*以外*的所有大小 | Any |
 | A 系列 | 除了 Standard_A0*以外*的所有大小 | Any |
 | Av2 系列 | 所有大小 | Any |
-| B 系列 | None | 尚未提供 |
-| DC 系列 | None | 尚未提供 |
+| B 系列 | None | 無 |
+| DC 系列 | None | 無 |
 | Dv2、Dsv2 系列 | 所有大小 | Any |
 | Dv3、Dsv3 系列 | 所有大小 | Any |
-| [記憶體優化大小](../virtual-machines/linux/sizes-memory.md) | None | 尚未提供 |
+| [記憶體優化大小](../virtual-machines/linux/sizes-memory.md) | None | 無 |
 | Fsv2 系列 | 所有大小 | Any |
 | H 系列 | 所有大小 | Any |
 | Hb-系列<sup>2</sup> | 所有大小 | Any |
 | Hc-系列<sup>2</sup> | 所有大小 | Any |
 | Ls 系列 | 所有大小 | Any |
-| Lsv2 系列 | None | 尚未提供 |
+| Lsv2 系列 | None | 無 |
 | M 系列 | Standard_M64ms (僅限低優先順序)、Standard_M128s (僅限低優先順序) | Any |  
 | NCv2-系列<sup>2</sup> | 所有大小 | Any |
 | NCv3-系列<sup>2</sup> | 所有大小 | Any |
 | ND 系列<sup>2</sup> | 所有大小 | Any |
 | NDv2 系列 | 所有大小 | 使用者訂用帳戶模式 |
 | NV 系列 | 所有大小 | Any |
-| NVv3 系列 | None | 尚未提供 |
-| SAP HANA | None | 尚未提供 |
+| NVv3 系列 | None | 無 |
+| SAP HANA | None | 無 |
 
 <sup>1 一</sup>開始部分支援一些較新的 VM 系列。 這些 VM 系列可以由已設定為**使用者訂**用帳戶的集區**配置模式**的 Batch 帳戶進行配置。 如需 Batch 帳戶設定的詳細資訊, 請參閱[管理 batch 帳戶](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)。 請參閱[配額和限制](batch-quota-limit.md), 以瞭解如何為**使用者訂**用帳戶 Batch 帳戶的這些部分支援的 VM 系列要求配額。  
 
@@ -70,11 +69,11 @@ ms.locfileid: "68323093"
 
 ### <a name="pools-in-cloud-service-configuration"></a>雲端服務組態中的集區
 
-雲端服務組態中的 Batch 集區支援所有[適用於雲端服務的 VM 大小](../cloud-services/cloud-services-sizes-specs.md)，「除了」  下列幾個：
+雲端服務組態中的 Batch 集區支援所有[適用於雲端服務的 VM 大小](../cloud-services/cloud-services-sizes-specs.md)，「除了」下列幾個：
 
 | VM 系列  | 不支援的大小 |
 |------------|-------------------|
-| A 系列   | 超小型       |
+| A 系列   | 超小       |
 | Av2 系列 | Standard_A1_v2、Standard_A2_v2、Standard_A2m_v2 |
 
 ## <a name="size-considerations"></a>大小考量

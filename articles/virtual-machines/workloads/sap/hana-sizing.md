@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7a81468fd19d3bd5d6eee79bb8a75396e3021f1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f2540a0f9ea702ff620ccd4b68208cbb2e70aafd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707272"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101133"
 ---
 # <a name="sizing"></a>調整大小
 
@@ -27,7 +26,7 @@ ms.locfileid: "67707272"
 
 - [SAP 附註 #1793345 - SAP Suite on HANA 的大小調整 (英文)](https://launchpad.support.sap.com/#/notes/1793345)
 - [SAP 附註 #1872170 - Suite on HANA 與 S/4 HANA 大小調整報告 (英文)](https://launchpad.support.sap.com/#/notes/1872170)
-- [SAP 附註 #2121330-常見問題集：SAP BW on HANA 大小調整報告](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP 附注 #2121330-常見問題:HANA 大小調整報告上的 SAP BW](https://launchpad.support.sap.com/#/notes/2121330)
 - [SAP 附註 #1736976 - BW on HANA 的大小調整報告](https://launchpad.support.sap.com/#/notes/1736976)
 - [SAP 附註 #2296290 - 新的 BW on HANA 大小調整報告](https://launchpad.support.sap.com/#/notes/2296290)
 

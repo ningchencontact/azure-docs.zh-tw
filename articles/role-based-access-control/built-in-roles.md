@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 776b8303e3454b40979691ea32fdcca11be4fa71
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: fb1007929a26384da60e542865c750fd1d642440
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013380"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114662"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -70,6 +70,8 @@ ms.locfileid: "70013380"
 | [帳單讀取器](#billing-reader) | 允許對計費資料進行讀取存取 |
 | [BizTalk 參與者](#biztalk-contributor) | 可讓您管理 BizTalk 服務，但無法存取它們。 |
 | [區塊鏈成員節點存取 (預覽)](#blockchain-member-node-access-preview) | 允許存取區塊鏈成員節點 |
+| [藍圖參與者](#blueprint-contributor) | 可以管理藍圖定義, 但不能加以指派。 |
+| [藍圖運算子](#blueprint-operator) | 可以指派現有的已發行藍圖, 但無法建立新的藍圖。 注意: 這僅適用于使用使用者指派的受控識別來完成指派。 |
 | [CDN 端點參與者](#cdn-endpoint-contributor) | 可管理 CDN 端點，但無法對其他使用者授與存取權。 |
 | [CDN 端點讀者](#cdn-endpoint-reader) | 可檢視 CDN 端點，但無法進行變更。 |
 | [CDN 設定檔參與者](#cdn-profile-contributor) | 可管理 CDN 設定檔及其端點，但無法對其他使用者授與存取權。 |
@@ -948,6 +950,44 @@ ms.locfileid: "70013380"
 > | **NotDataActions** |  |
 > | 無 |  |
 
+## <a name="blueprint-contributor"></a>藍圖參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **描述** | 可以管理藍圖定義, 但不能加以指派。 |
+> | **Id** | 41077137-e803-4205-871c-5a86e6a753b4 |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft 藍圖/藍圖/* | 建立和管理藍圖定義或藍圖構件。 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="blueprint-operator"></a>藍圖運算子
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **描述** | 可以指派現有的已發行藍圖, 但無法建立新的藍圖。 注意: 這僅適用于使用使用者指派的受控識別來完成指派。 |
+> | **Id** | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft. 藍圖/blueprintAssignments/* | 建立和管理藍圖指派。 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
 ## <a name="cdn-endpoint-contributor"></a>CDN 端點參與者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1268,7 +1308,7 @@ ms.locfileid: "70013380"
 > | **動作** |  |
 > | Microsoft.Consumption/* |  |
 > | Microsoft.CostManagement/* |  |
-> | Microsoft.Billing/billingPeriods/read | 列出可用的計費週期 |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
@@ -1291,7 +1331,7 @@ ms.locfileid: "70013380"
 > | **動作** |  |
 > | Microsoft.Consumption/*/read |  |
 > | Microsoft.CostManagement/*/read |  |
-> | Microsoft.Billing/billingPeriods/read | 列出可用的計費週期 |
+> | Microsoft.Billing/billingPeriods/read |  |
 > | Microsoft.Resources/subscriptions/read | 取得訂用帳戶清單。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
@@ -1899,6 +1939,7 @@ ms.locfileid: "70013380"
 > | Microsoft.Insights/Register/Action | 註冊 Microsoft Insights 提供者 |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | 讀取/寫入/刪除 Application Insights Web 測試。 |
+> | Microsoft Insights/活頁簿/* |  |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | 讀取/寫入/刪除 log analytics 解決方案套件。 |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | 讀取/寫入/刪除 log analytics 儲存的搜尋。 |
 > | Microsoft.OperationalInsights/workspaces/search/action | 執行搜尋查詢 |
@@ -2474,6 +2515,7 @@ ms.locfileid: "70013380"
 > | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
+> | Microsoft .Sql/managedInstances/資料庫/transparentDataEncryption/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 建立和管理 SQL Server 稽核原則 |
 > | Microsoft.Sql/servers/auditingSettings/* | 建立和管理 SQL Server 稽核設定 |
@@ -2494,6 +2536,7 @@ ms.locfileid: "70013380"
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | 建立和管理 SQL Server 資料庫安全性警示原則 |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | 建立和管理 SQL Server 資料庫安全性度量 |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
+> | Microsoft .Sql/servers/資料庫/transparentDataEncryption/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |

@@ -7,19 +7,18 @@ author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7cbec63cb04075977c167d8b21bf3128e91434f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1d97130251f7ca56adaf77c5e70d6f08bd5cf514
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710044"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101518"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>使用 STONITH 在 SUSE 中進行高可用性設定
 本文件提供使用 STONITH 裝置在 SUSE 作業系統上進行高可用性設定的詳細逐步指示。
@@ -140,13 +139,13 @@ zypper in SAPHanaSR SAPHanaSR-doc
 依序選取 [yast2] > [High Availability] > [Cluster] \([yast2] > [ 高可用性] > [叢集]\) ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-因為已經安裝 halk2 套件，請按一下 [取消]  。
+因為已經安裝 halk2 套件，請按一下 [取消]。
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
-按一下 [繼續] 
+按一下 [繼續]
 
-預期值=已部署的節點數 (在此案例中為 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) 按一下 [下一步]  
+預期值=已部署的節點數 (在此案例中為 2) ![yast-Cluster-Security.png](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png) 按一下 [下一步]
 ![yast-cluster-configure-csync2.png](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png) 新增節點名稱，然後按一下 [Add suggested files] \(新增建議的檔案\)
 
 按一下 [Turn csync2 ON] \(開啟 csync2\)
@@ -161,16 +160,16 @@ zypper in SAPHanaSR SAPHanaSR-doc
 
 ![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
-按一下 [下一步]  
+按一下 [下一步]
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
 在預設選項中，[Booting] \(開機\) 處於關閉狀態，請將它變更為 [on] \(開啟\)，以在開機時啟動 Pacemaker。 您可以根據自己的設定需求來選擇。
-按一下 [下一步]  ，叢集設定就完成了。
+按一下 [下一步]，叢集設定就完成了。
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4. 設定 Softdog 監視程式
 本節說明監視程式 (softdog) 的設定。
 
-4.1 在這**兩個**節點上將下行加入至 /etc/init.d/boot.local  。
+4.1 在這**兩個**節點上將下行加入至 /etc/init.d/boot.local。
 ```
 modprobe softdog
 ```
@@ -258,7 +257,7 @@ systemctl start pacemaker
 ```
 crm_mon
 ```
-![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png)您也可以登入 hawk 來檢查叢集狀態*https://\<節點 IP >: 7630*。 預設使用者為 hacluster，而密碼為 linux。 如有需要，您可以使用 *passwd* 命令來變更密碼。
+![crm-mon 您也可以登入 hawk 以檢查叢集狀態*HTTPs://\<節點 IP >: 7630。* ](media/HowToHLI/HASetupWithStonith/crm-mon.png) 預設使用者為 hacluster，而密碼為 linux。 如有需要，您可以使用 *passwd* 命令來變更密碼。
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7.設定叢集屬性及資源 
 本節說明設定叢集資源的步驟。
@@ -323,7 +322,7 @@ crm configure load update crm-vip.txt
 當您執行命令 *crm_mon* 時，您可以看到有兩個資源。
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-此外，您可以看到在狀態*https://\<節點 IP 位址 >: 7630 cib/狀態*
+此外, 您可以在*HTTPs://\<節點 IP 位址 >: 7630/cib/live/state*中查看狀態
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -436,15 +435,15 @@ zypper -n install libyui-qt
 ![yast-pattern1.png](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 ![yast-pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
-按一下 [接受] 
+按一下 [接受]
 
 ![yast-changed-packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
-按一下 [繼續] 
+按一下 [繼續]
 
 ![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-安裝完成時，按 [下一步] 
+安裝完成時，按 [下一步]
 
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 

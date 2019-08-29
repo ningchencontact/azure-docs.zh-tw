@@ -11,16 +11,15 @@ ms.assetid: 066d01a6-2a54-4718-bcd0-90fe7a5303a1
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 05731acd5e808075145c50281063e8990129d882
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: d3241229fcf3ef99f71185c452ae615ec2cfc889
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708695"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091216"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>準備適用於 Azure 的 SLES 或 openSUSE 虛擬機器
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -97,7 +96,7 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-16. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]  。 您現在可以將 Linux VHD 上傳至 Azure。
+16. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
 
 ---
 ## <a name="prepare-opensuse-131"></a>準備執行 openSUSE 13.1+
@@ -157,7 +156,7 @@ SUSE 是建置您自己的 VHD 的替代選項，其也可在 [VMDepot](https://
 12. 確定 Azure Linux 代理程式會在啟動時執行：
     
         # sudo systemctl enable waagent.service
-13. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]  。 您現在可以將 Linux VHD 上傳至 Azure。
+13. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以開始使用您的 SUSE Linux 虛擬硬碟在 Azure 建立新的虛擬機器。 如果您是第一次將 .vhd 檔案上傳至 Azure，請參閱[從自訂磁碟建立 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。

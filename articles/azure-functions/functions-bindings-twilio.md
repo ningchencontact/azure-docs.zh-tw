@@ -7,17 +7,16 @@ author: craigshoemaker
 manager: gwallace
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c63b81e5461af5407d260651b79ec80e79fc9b4d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 32f987caed915aff8c581b974dec7689fc90b007
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479981"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114363"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions 的 Twilio 繫結
 
@@ -122,7 +121,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-您無法在同步程式碼中使用 out 參數。 以下是非同步的 C# 指令碼範例：
+您無法使用非同步程式碼中的 out 參數。 以下是非同步的 C# 指令碼範例：
 
 ```cs
 #r "Newtonsoft.Json"
@@ -298,7 +297,7 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
 }
 ```
 
-您無法在同步程式碼中使用 out 參數。 以下是非同步的 C# 指令碼範例：
+您無法使用非同步程式碼中的 out 參數。 以下是非同步的 C# 指令碼範例：
 
 ```cs
 #r "Newtonsoft.Json"

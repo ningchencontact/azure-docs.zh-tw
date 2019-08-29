@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: mlearned
-ms.openlocfilehash: 6c06453d479ae55ceb1c05a7ee8a29ce19a7a13b
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 1f07581be8fc416f8aae5eec1460ca3d33bda8f9
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034978"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114242"
 ---
 # <a name="preview---authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>預覽-從 Azure Kubernetes Service 使用 Azure Container Registry 進行驗證
 
@@ -59,7 +59,7 @@ az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-o
 
 ## <a name="create-acr-integration-for-existing-aks-clusters"></a>為現有的 AKS 叢集建立 ACR 整合
 
-在下方提供**acr 名稱**和**acr 資源識別碼**的有效值, 以整合 ACR 與現有的 acr 叢集。
+提供**acr 名稱**或**acr 資源識別碼**的有效值, 以整合現有的 ACR 與現有的 AKS 叢集, 如下所示。
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>

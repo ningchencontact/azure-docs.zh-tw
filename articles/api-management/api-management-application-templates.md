@@ -10,16 +10,15 @@ ms.assetid: f3122c4d-e10e-4cdf-977b-36e8f4133fc8
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: efb668971bc4a8c5a0968836aab71107aa6b88d5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657891"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072644"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API 管理中的應用程式範本
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
@@ -36,7 +35,7 @@ ms.locfileid: "60657891"
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="ProductList"></a> 應用程式清單  
- 「應用程式清單」  範本可讓您自訂開發人員入口網站中應用程式清單頁面的主體。  
+ 「應用程式清單」範本可讓您自訂開發人員入口網站中應用程式清單頁面的主體。  
   
  ![應用程式清單頁面開發人員入口網站範本](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM 應用程式清單頁面開發人員入口網站範本")  
   
@@ -72,14 +71,14 @@ ms.locfileid: "60657891"
 </div>  
 ```  
   
-### <a name="controls"></a>控制  
+### <a name="controls"></a>控制項  
  `Product list` 範本可能會使用下列[頁面控制項](api-management-page-controls.md)。  
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|type|描述|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
 |`Paging`|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
 |`Applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者可看見的應用程式。|  
@@ -137,7 +136,7 @@ ms.locfileid: "60657891"
 ```  
   
 ##  <a name="Application"></a> 應用程式  
- 「應用程式」  範本可讓您自訂開發人員入口網站中應用程式頁面的主體。  
+ 「應用程式」範本可讓您自訂開發人員入口網站中應用程式頁面的主體。  
   
  ![應用程式頁面開發人員入口網站範本](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM 應用程式頁面開發人員入口網站範本")  
   
@@ -179,7 +178,7 @@ ms.locfileid: "60657891"
   
 ```  
   
-### <a name="controls"></a>控制  
+### <a name="controls"></a>控制項  
  `Application` 範本不允許使用任何[頁面控制項](api-management-page-controls.md)。  
   
 ### <a name="data-model"></a>資料模型  

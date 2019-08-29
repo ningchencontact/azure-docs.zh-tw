@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f4d26702443ef3113dad98cde1d13b292fe657a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14ea9113bf5712d6ffce356d02abb7224c21771a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306694"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067713"
 ---
 # <a name="implement-x-csrf-pattern"></a>實作 X-CSRF 模式
 
@@ -26,7 +25,7 @@ ms.locfileid: "60306694"
 
 ## <a name="policy"></a>原則
 
-將程式碼貼至 [輸入]  區塊。
+將程式碼貼至 [輸入] 區塊。
 
 [!code-xml[Main](../../../api-management-policy-samples/examples/Get X-CSRF token from SAP gateway using send request.policy.xml)]
 

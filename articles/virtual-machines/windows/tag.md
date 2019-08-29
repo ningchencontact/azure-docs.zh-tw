@@ -9,18 +9,17 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 26ee777f7db05ca1850e2a01c1716810624906c0
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8270d17d998b27a067eb91a517a7c5fdfd23becd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67709843"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101859"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中標記 Windows 虛擬機器
 本文說明在 Azure 中透過 Resource Manager 部署模型標記 Windows 虛擬機器的各種不同方式。 標記是使用者定義的成對「索引鍵/值」，可直接置於資源或資源群組。 Azure 目前對每一個資源和資源群組最多支援 15 個標記。 標記可在建立或加入至現有資源時置於資源上。 請注意，標記只支援透過 Resource Manager 部署模型建立的資源。 如果想要標記 Linux 虛擬機器，請參閱 [如何在 Azure 中標記 Linux 虛擬機器](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。

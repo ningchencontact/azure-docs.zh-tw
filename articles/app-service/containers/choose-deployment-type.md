@@ -11,24 +11,23 @@ ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae28b185aa44ca22d59204826036435a10c64e91
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919954"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066778"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>自訂映像、多容器或內建平台映像？
 
 [Linux 上的 App Service](app-service-linux-intro.md) 提供三種不同的路徑將應用程式發佈到網路上：
 
 - **自訂映像部署**：將您的應用程式 Docker 化成為 Docker 映像，您所有的檔案和相依性都包含在執行就緒的封裝之中。
-- **多容器部署**：「 Docker 化 」 您的應用程式在使用 Docker Compose 組態檔的多個容器。
+- **多容器部署**：使用 Docker Compose 的設定檔, 在多個容器中「docker 化」您的應用程式。
 - **使用內建平台映像的應用程式部署**：我們的內建平台映像包含常用的 Web 應用程式執行階段和相依性，例如節點和 PHP。 使用任何一種 [Azure App Service 部署方法](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，將您的應用程式部署至 Web 應用程式的存放區，然後使用內建的平台映像執行應用程式。
 
 ## <a name="which-method-is-right-for-your-app"></a>哪一種方法最適合您的應用程式？ 
@@ -46,13 +45,13 @@ ms.locfileid: "64919954"
 
 ## <a name="next-steps"></a>後續步驟
 
-自訂容器：
+自訂容器:
 * [執行自訂容器](quickstart-docker-go.md)
 
-多個容器：
+多容器:
 * [建立多容器應用程式](quickstart-multi-container.md)
 
-下列文章可協助您開始使用 Linux 上的 App Service 中，使用內建平台映像：
+下列文章可協助您開始使用 Linux 上的 App Service 與內建的平臺映射:
 
 * [.NET Core](quickstart-dotnetcore.md)
 * [PHP](quickstart-php.md)

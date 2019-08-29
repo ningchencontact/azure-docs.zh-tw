@@ -11,16 +11,15 @@ ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2a106c639eb72d3793b0df8f4ddf36a4724f7418
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f7f57a43697a9376062bdd3baa2d5f7333bf4a7f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707871"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100149"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>在 Azure Resource Manager 中設定虛擬機器的 WinRM 存取
 
@@ -34,14 +33,14 @@ ms.locfileid: "67707871"
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="step-1-create-a-key-vault"></a>步驟 1：建立金鑰保存庫
+## <a name="step-1-create-a-key-vault"></a>步驟 1:建立金鑰保存庫
 您可以使用下列命令來建立金鑰保存庫
 
 ```
 New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
-## <a name="step-2-create-a-self-signed-certificate"></a>步驟 2：建立自我簽署憑證
+## <a name="step-2-create-a-self-signed-certificate"></a>步驟 2:建立自我簽署憑證
 您可以使用下列 PowerShell 指令碼建立自我簽署憑證
 
 ```
@@ -83,7 +82,7 @@ Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValu
 Microsoft.Compute 資源提供者在佈建 VM 時，需要金鑰保存庫內密碼的 URL。 這可讓 Microsoft.Compute 資源提供者下載密碼，並在 VM 上建立對等憑證。
 
 > [!NOTE]
-> 密碼的 URL 也必須包含版本。 範例 URL 如下所示 https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
+> 密碼的 URL 也必須包含版本。 範例 URL 看起來像 HTTPs:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>範本
 您可以使用下列程式碼取得範本中的 URL 連結

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4ab1d45e27762ef05ab7ec74c98ab0b0b934cbf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880549"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114280"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>在 IoT 解決方案中執行 IoT 隨插即用預覽模型探索
 
@@ -69,9 +69,9 @@ IoT 解決方案有兩種廣泛的類別: 專門建立的解決方案, 可與一
 1. 請閱讀探索遙測訊息, 以抓取裝置所執行的功能模型和介面的識別碼。
 1. 針對每個識別碼, 請閱讀完整的 JSON 檔案以尋找裝置的功能。
 1. 檢查您所建立的任何快取中是否有每個介面, 以儲存您的解決方案稍早所抓取的 JSON 檔案。
-1. 然後, 檢查具有該識別碼的介面是否存在於全域模型存放庫中。 如需詳細資訊, 請參閱[全域模型存放庫](howto-manage-models.md)。
-1. 如果介面不存在於全域模型存放庫中, 請嘗試在您的解決方案已知的任何私用模型存放庫中尋找它。 您需要連接字串才能存取私用模型存放庫。 如需詳細資訊, 請參閱[私用模型存放庫](howto-manage-models.md)。
-1. 如果您找不到全域模型存放庫或私用模型存放庫中的所有介面, 可以檢查裝置是否可以提供介面定義。 裝置可以執行標準的[ModelDefinition](concepts-common-interfaces.md)介面, 以發佈有關如何使用命令來取得介面檔案的資訊。
+1. 然後, 檢查具有該識別碼的介面是否存在於公用模型存放庫中。 如需詳細資訊, 請參閱[公用模型存放庫](howto-manage-models.md)。
+1. 如果公用模型存放庫中沒有介面, 請嘗試在您的解決方案已知的任何公司模型儲存機制中尋找它。 您需要連接字串, 才能存取公司模型存放庫。 如需詳細資訊, 請參閱[公司模型存放庫](howto-manage-models.md)。
+1. 如果您找不到公用模型存放庫或公司模型存放庫中的所有介面, 可以檢查裝置是否可以提供介面定義。 裝置可以執行標準的[ModelDefinition](concepts-common-interfaces.md)介面, 以發佈有關如何使用命令來取得介面檔案的資訊。
 1. 如果您找到裝置所執行之每個介面的 JSON 檔案, 您可以列舉裝置的功能。 使用您稍早撰寫的邏輯, 讓使用者能夠與裝置互動。
 1. 您隨時都可以呼叫數位 twins API 來取得裝置的功能模型識別碼和介面識別碼。
 

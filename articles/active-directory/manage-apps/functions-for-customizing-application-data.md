@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3524f34773f4627dff478ee7cc9cbff9f674bf8e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ec23d3f08fb22f73618c27443bcd8b72c43a9862
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931774"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113551"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -48,7 +48,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |通常為 source 物件的屬性名稱。 |
 | **suffix** |必要項 |String |您想要附加至 source 值結尾的字串。 |
@@ -61,7 +61,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |通常為 source 物件的屬性名稱。 |
 | **inputFormat** |必要項 |String |source 值的預期格式。 如需支援的格式，請參閱[https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
@@ -77,7 +77,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **separator** |必要項 |String |用來分隔串連成一個字串的 source 值的字串。 如果不需要分隔符號，可以是 ""。 |
 | **source1  … sourceN** |必要，變動次數 |String |要聯結在一起的字串值。 |
@@ -90,7 +90,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |通常為屬性的名稱。 |
 | **start** |必要項 |整數 |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
@@ -104,7 +104,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String | 通常是名字或姓氏屬性。 |
 
@@ -116,7 +116,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |Boolean String |預期的 **source** 值為 "True" 或 "False"。 |
 
@@ -146,7 +146,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |通常是來自**來源**物件的屬性名稱。 |
 | **oldValue** |選擇性 |String |在 **source** 或 **template** 中要被取代的值。 |
@@ -164,12 +164,13 @@ ms.locfileid: "68931774"
 
 > [!NOTE]
 >1. 這是最上層函式，無法巢狀處理。
->2. 此函式只能用於建立項目。 搭配屬性使用此函式時，請將 [套用對應] 屬性設定為 [僅限物件建立期間]。
+>2. 此函式不能套用至具有相符優先順序的屬性。  
+>3. 此函式只能用於建立項目。 搭配屬性使用此函式時，請將 [套用對應] 屬性設定為 [僅限物件建立期間]。
 
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |至少需要 2 個，沒有上限 |String | 要評估的唯一值產生規則清單。 |
 
@@ -182,7 +183,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |必要項 |String |**[appRoleAssignments]** 物件。 |
 
@@ -194,7 +195,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |**source** 值。 |
 | **delimiter** |必要項 |String |指定將用來分割字串的字元 (範例：",") |
@@ -207,7 +208,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |**source** 值。 |
 
@@ -219,7 +220,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |**Source** 值。 |
 | **defaultValue** |選擇性 |String |當 source 不符合任何 key 時要使用的預設值。 可以是空字串 ("")。 |
@@ -234,7 +235,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |通常為 source 物件的屬性名稱 |
 | **culture** |選擇性 |String |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|
@@ -247,7 +248,7 @@ ms.locfileid: "68931774"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要項 |String |通常為 source 物件的屬性名稱。 |
 | **culture** |選擇性 |String |根據 RFC 4646，文化特性 (Culture) 名稱的格式為 *languagecode2-country/regioncode2*，其中 *languagecode2* 是兩個字母的語言代碼，而 *country/regioncode2* 則是兩個字母的子文化特性代碼。 範例包括 ja-JP 代表日文 (日本)，en-US 代表英文 (美國)。 如果沒有兩個字母的語言代碼可供使用，則會使用衍生自 ISO 639-2 的三個字母代碼。|

@@ -1,5 +1,5 @@
 ---
-title: 設定可用性警示，使用 Azure Application Insights |Microsoft Docs
+title: 使用 Azure 應用程式 Insights 來設定可用性警示 |Microsoft Docs
 description: 在 Application Insights 中設定 Web 測試。 如果網站無法使用或回應緩慢，將收到警示。
 services: application-insights
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: cc022f91d4b4fec42929769df8c979320548a1f9
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 1d7527d6f52235c6b95ad2e336ea9f9ba85d6344
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305009"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114385"
 ---
 # <a name="availability-alerts"></a>可用性警示
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果您的應用程式沒有回應，或回應速度太慢，它可以警示您。
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果您的應用程式沒有回應, 或回應太慢, 它會發出警示。
 
 ## <a name="enable-alerts"></a>啟用警示
 
-根據預設，會立即自動啟用警示，但為了完整設定警示您有一開始建立您的可用性測試。
+警示現在預設會自動啟用, 但為了完整設定警示, 您必須先建立可用性測試。
 
 ![建立體驗](./media/availability-alerts/create-test.png)
 
@@ -35,11 +35,11 @@ ms.locfileid: "67305009"
 
 1. 儲存可用性測試之後，在 [詳細資料] 索引標籤上，按一下您剛剛建立之測試旁的省略符號。 按一下 [編輯警示]。
 
-   ![編輯儲存後](./media/availability-alerts/edit-alert.png)
+   ![儲存後編輯](./media/availability-alerts/edit-alert.png)
 
 2. 設定所需的嚴重性層級、規則描述以及，同時也是最重要的，您想要用於此警示規則的通知喜好設定出現在其中的動作群組。
 
-   ![編輯儲存後](./media/availability-alerts/set-action-group.png)
+   ![儲存後編輯](./media/availability-alerts/set-action-group.png)
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>對於 Y 個位置之中有 X 個回報失敗所發出的警示
 
@@ -61,18 +61,21 @@ ms.locfileid: "67305009"
 
 ### <a name="alert-on-custom-analytics-queries"></a>自訂分析查詢的警示
 
-使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)時，您可以設定[自訂記錄檔查詢](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log)的警示。 使用自訂查詢，您可以設定任何任意條件的警示，協助您取得可用性問題的最可靠訊號。 如果您要使用 TrackAvailability SDK 的傳送自訂可用性結果，這也特別適用。 
+使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)時，您可以設定[自訂記錄檔查詢](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log)的警示。 使用自訂查詢，您可以設定任何任意條件的警示，協助您取得可用性問題的最可靠訊號。 如果您使用 TrackAvailability SDK 傳送自訂的可用性結果, 這也適用。
 
 > [!Tip]
 > 可用性資料的計量包括呼叫我們 TrackAvailability SDK 時您可能會提交的任何自訂可用性結果。 您可以使用計量支援的警示，設定自訂可用性結果的警示。
 >
 
+## <a name="automate-alerts"></a>自動化警示
+
+若要使用 Azure Resource Manager 範本將此程式自動化, 請參閱[使用 Resource Manager 範本建立度量警示](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert)檔。
+
 ## <a name="troubleshooting"></a>疑難排解
 
-專用[疑難排解文章](troubleshoot-availability.md)。
+專屬的[疑難排解文章](troubleshoot-availability.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [多重步驟 web 測試](availability-multistep.md)
+* [多步驟 web 測試](availability-multistep.md)
 * [Url ping web 測試](monitor-web-app-availability.md)
-

@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c10262e50fff2903d7caf242304145a2ab93dbcd
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: e726b60a08f234ef021b2901f8ed29ec74f0ff47
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970608"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087565"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>在混合式 Runbook 背景工作角色上執行 Runbook
 
 在 Azure 自動化和混合式 Runbook 背景工作上執行的 Runbook 結構中沒有任何差異。 您使用的每個 Runbook 可能會有大幅差異。 此差異是因為以混合式 Runbook 背景工作角色為目標的 Runbook 通常會管理本機電腦上的資源，或管理部署所在本機環境中的資源。 Azure 自動化中的 Runbook 通常會管理 Azure 雲端中的資源。
 
-當您撰寫要在混合式 Runbook 背景工作角色上執行的 Runbook 時，應該在裝載混合式背景工作角色的機器內編輯並測試 Runbook。 主機電腦具有您管理及存取本機資源所需要的所有 PowerShell 模組和網路存取。 一旦在混合式背景工作角色機器上測試 Runbook 後，接著可以將其上傳至 Azure 自動化環境，其可供您在混合式背景工作角色中執行。 請務必知道，作業會以本機系統帳戶在 Windows 上執行，或以特殊使用者帳戶 `nxautomation` 在 Linux 上執行。 在 Linux 上, 這表示您必須確定`nxautomation`帳戶可以存取您儲存模組的位置。 當您使用[Install 模組]()Cmdlet 時, 請對 `-Scope`參數指定 AllUsers, 以確認該`naxautomation`帳戶具有存取權。
+當您撰寫要在混合式 Runbook 背景工作角色上執行的 Runbook 時，應該在裝載混合式背景工作角色的機器內編輯並測試 Runbook。 主機電腦具有您管理及存取本機資源所需要的所有 PowerShell 模組和網路存取。 一旦在混合式背景工作角色機器上測試 Runbook 後，接著可以將其上傳至 Azure 自動化環境，其可供您在混合式背景工作角色中執行。 請務必知道，作業會以本機系統帳戶在 Windows 上執行，或以特殊使用者帳戶 `nxautomation` 在 Linux 上執行。 在 Linux 上, 這表示您必須確定`nxautomation`帳戶可以存取您儲存模組的位置。 當您使用[Install 模組](/powershell/module/powershellget/install-module)Cmdlet 時, 請對 `-Scope`參數指定 AllUsers, 以確認該`naxautomation`帳戶具有存取權。
 
 如需 Linux 上 PowerShell 的詳細資訊, 請參閱[非 Windows 平臺上的 Powershell 已知問題](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms)。
 
