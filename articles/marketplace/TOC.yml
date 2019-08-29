@@ -60,6 +60,8 @@
         - name: 您的 Marketplace 權益
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: 共同銷售合作夥伴參與
+              href: ./marketplace-co-sell.md
             - name: 慣用的解決方案
               href: ./preferred-solutions.md
             - name: 整合式解決方案
@@ -490,6 +492,13 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: 試用您的供應項目
           href: ./partner-center-portal/test-drive.md
+        - name: 共同銷售選項
+          href: ./partner-center-portal/commercial-marketplace-co-sell.md
+          items:
+            - name: 國家及區域代碼
+              href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
+            - name: 狀態碼
+              href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
     - name: 發佈狀態
       href: ./partner-center-portal/publishing-status.md
     - name: 更新現有供應項目

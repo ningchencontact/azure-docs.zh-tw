@@ -12,12 +12,12 @@ metadata:
   author: eross-msft
   ms.author: lizross
   ms.date: 08/26/2019
-  ms.openlocfilehash: 687ae4b276b4e975c9b9de9d688f23180deaeebc
-  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.openlocfilehash: 168c8ad8acd1734aa06be111f42f4c0b2da92d3e
+  ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
   ms.translationtype: HT
   ms.contentlocale: zh-TW
-  ms.lasthandoff: 08/27/2019
-  ms.locfileid: "70062200"
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70072669"
 landingContent:
 - title: 設定並使用 Microsoft Authenticator 應用程式
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
       url: user-help-auth-app-backup-recovery.md
     - text: 使用應用程式登入
       url: user-help-auth-app-sign-in.md
-- title: 設定並使用雙步驟驗證
+- title: 選擇雙步驟驗證方法
   linkLists:
   - linkListType: overview
     links:
@@ -49,7 +49,7 @@ landingContent:
       url: multi-factor-authentication-end-user-manage-settings.md
     - text: 取得說明
       url: multi-factor-authentication-end-user-troubleshoot.md
-- title: 設定和使用「我的應用程式」入口網站
+- title: 在「我的應用程式」入口網站中更新您的資訊
   linkLists:
   - linkListType: overview
     links:
@@ -61,7 +61,7 @@ landingContent:
       url: my-apps-portal-end-user-update-profile.md
     - text: 取得說明
       url: my-apps-portal-end-user-troubleshoot.md
-- title: 設定和使用安全性資訊 (預覽)
+- title: 設定和管理您的安全性資訊 (預覽)
   linkLists:
   - linkListType: overview
     links:
@@ -73,7 +73,7 @@ landingContent:
       url: security-info-add-update-methods-overview.md
     - text: 在登入提示期間新增資訊
       url: security-info-setup-signin.md
-- title: 設定和使用「我的設定檔」(預覽)
+- title: 在「我的設定檔」入口網站上管理您的資訊 (預覽)
   linkLists:
   - linkListType: overview
     links:

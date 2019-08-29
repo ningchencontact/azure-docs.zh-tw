@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure 資料科學虛擬機器文件
 metadata:
   title: 資料科學虛擬機器文件 - Azure
-  description: 了解如何使用資料科學虛擬機器，這是針對資料科學所建置的 Azure 雲端中的實驗環境。 它已預先安裝和預先設定常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。
+  description: 了解如何使用資料科學虛擬機器，這是針對資料科學所建置的 Azure 雲端中的實驗環境。 已預先安裝並設定好熱門的資料科學和機器學習工具。 這項設計可讓您開始建立智慧型應用程式，以進行進階分析。
   services: machine-learning
   author: vijetajo
   ms.service: machine-learning
@@ -14,7 +14,7 @@ metadata:
   ms.date: 08/19/2019
   ms.author: vijetaj
 abstract:
-  description: Azure 資料科學虛擬機器 (DSVM) 是具有資料科學和機器學習工具的自訂 VM 映像。 您可以使用此 VM 來建立智慧型進階分析應用程式。 <a href="overview.md">深入了解...</a>
+  description: Azure 資料科學虛擬機器 (DSVM) 是具有資料科學和機器學習工具的自訂 VM 映像。 您可以使用此 VM 來建置智慧型應用程式以進行進階分析。 <a href="overview.md">深入了解</a>。
 sections:
   - title: 5 分鐘快速入門
     items:
@@ -35,7 +35,7 @@ sections:
           - html: <a href="linux-dsvm-intro">設定 Linux CentOS DSVM</a>
           - html: <a href="dsvm-ubuntu-intro">設定 Linux Ubuntu DSVM</a>
           - html: <a href="linux-dsvm-walkthrough">使用 Linux DSVM</a>
-  - title: 更多的 Azure Machine Learning 技術
+  - title: 更多 Azure Machine Learning 技術
     items:
       - type: paragraph
         text: Azure Machine Learning 中其他可用的技術：

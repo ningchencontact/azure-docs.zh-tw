@@ -381,6 +381,8 @@
           href: apache-hadoop-debug-jobs.md
 - name: 參考
   items:
+    - name: 支援的節點設定
+      href: ../hdinsight-supported-node-configuration.md
     - name: 程式碼範例
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell

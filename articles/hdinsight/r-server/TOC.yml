@@ -203,6 +203,8 @@
               href: ../hdinsight-migrate-granular-access-cluster-configurations.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
 - name: 參考
   items:
+    - name: 支援的節點設定
+      href: ../hdinsight-supported-node-configuration.md
     - name: 程式碼範例
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell

@@ -240,6 +240,8 @@
           href: virtual-machine-scale-sets-automatic-upgrade.md
         - name: 執行個體保護 (預覽)
           href: virtual-machine-scale-sets-instance-protection.md
+        - name: 刪除時終止通知 (預覽)
+          href: virtual-machine-scale-sets-terminate-notification.md
         - name: 共用映像資源庫
           items:
             - name: 概觀
