@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f50f013020c704ddc294a59f8c6c5dac24bbd5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51e97089b1de88ccf9f45b1a0f429abc0cfac9f3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835272"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101332"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 SAP ASE Azure 虛擬機器 DBMS 部署
 
@@ -393,7 +392,7 @@ SAP ASE 可執行檔應該位於或安裝於 VM OS 磁碟的系統磁碟機 (磁
 > 
 > 
 
-如需有關 DNS 名稱的更多詳細資料，請參閱[這裡][virtual-machines-azurerm-versus-azuresm]。
+您可以在[這裡][virtual-machines-azurerm-versus-azuresm]找到更多與 DNS 名稱相關的詳細資料。
 
 將 SAP 設定檔參數 icm/host_name_full 設定為 Azure VM 的 DNS 名稱，其連結看起來可能如下︰
 
@@ -504,7 +503,7 @@ SAP ASE 可執行檔應該位於或安裝於 VM 的根檔案系統 ( /sybase )�
 
 這個組態讓 tempdb 所耗用的空間比系統磁碟機能夠提供的還多。 作為參考，您可以在內部部署執行的現有系統上檢查 tempdb 裝置的大小。 或者，這類組態可針對無法使用系統磁碟機來提供的 tempdb 啟用 IOPS 數目。 內部部署執行的系統可以用來監視 tempdb 的 I/O 工作負載。
 
-永遠不要將任何 SAP ASE 目錄放置於 VM 的 /mnt 或 /mnt/resource 上。 對於 SAP ASE，此裝置也適用於 tempdb，即使 tempdb 中保留的物件只是暫時性的。 因為 /mnt 或 /mnt/resource 是預設的 Azure VM 暫存空間，而不是永續性空間。 如需有關 Azure VM 暫存空間的更多詳細資料，請參閱[這篇文章][virtual-machines-linux-how-to-attach-disk]
+永遠不要將任何 SAP ASE 目錄放置於 VM 的 /mnt 或 /mnt/resource 上。 對於 SAP ASE，此裝置也適用於 tempdb，即使 tempdb 中保留的物件只是暫時性的。 因為 /mnt 或 /mnt/resource 是預設的 Azure VM 暫存空間，而不是永續性空間。 如需 Azure VM 暫存空間的詳細資訊, 請參閱[這篇文章][virtual-machines-linux-how-to-attach-disk]
 
 如需資料和交易記錄檔部署，請參閱在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中提出的陳述和建議。 在以 Linux 為主的部署案例中，建議將 LVM 或 MDADM 的使用量用來建置具有足夠 IOPS、輸送量和磁碟區的等量磁碟區組。 
 
@@ -546,7 +545,7 @@ SAP ASE 可執行檔應該位於或安裝於 VM 的根檔案系統 ( /sybase )�
 > 
 > 
 
-如需有關 DNS 名稱的更多詳細資料，請參閱[這裡][virtual-machines-azurerm-versus-azuresm]。
+您可以在[這裡][virtual-machines-azurerm-versus-azuresm]找到更多與 DNS 名稱相關的詳細資料。
 
 將 SAP 設定檔參數 icm/host_name_full 設定為 Azure VM 的 DNS 名稱，其連結看起來可能如下︰
 

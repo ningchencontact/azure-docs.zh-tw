@@ -11,16 +11,15 @@ ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 353bc3499f93eca72dd325c2114cd364145986c6
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 9537744787df7fc6c470bc1ee6862ad3f2991ae9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722891"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088732"
 ---
 # <a name="resize-a-windows-vm"></a>調整 Windows VM 大小
 
@@ -55,7 +54,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-如果您要的大小未列出，請執行以下命令以解除配置 VM、調整其大小，然後重新啟動 VM。 取代 **\<newVMsize >** 與您想要的大小。
+如果您要的大小未列出，請執行以下命令以解除配置 VM、調整其大小，然後重新啟動 VM。 以您想要的大小取代 **\<newVMsize >** 。
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force

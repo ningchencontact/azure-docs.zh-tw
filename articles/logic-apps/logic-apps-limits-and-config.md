@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 891273a98c61b59e08b4a15f3b0892e6828a2a47
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900216"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099420"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -105,6 +105,8 @@ ms.locfileid: "69900216"
 
 ### <a name="integration-service-environment-ise"></a>整合服務環境 (ISE)
 
+以下是 Premium SKU 的輸送量限制:
+
 | Name | 限制 | 注意 |
 |------|-------|-------|
 | 基礎單位執行限制 | 當基礎結構容量達到 80% 時, 系統節流 | 提供每分鐘 ~ 4000 個動作執行, 也就是每個月 ~ 160000000 個動作執行次數 | |
@@ -113,6 +115,9 @@ ms.locfileid: "69900216"
 ||||
 
 若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與 Logic Apps 小組連絡](mailto://logicappsemail@microsoft.com)來協助處理您的需求。
+
+> [!NOTE]
+> [開發人員 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)沒有已發佈的限制, 因為此 sku 沒有任何服務等級協定 (SLA) 或相應增加的功能。 此 SKU 僅供實驗、開發和測試之用, 而不是實際執行或效能測試。
 
 <a name="request-limits"></a>
 
@@ -181,10 +186,10 @@ ms.locfileid: "69900216"
 
 * 每個 ISE (無論是[開發人員或](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)高階) 限制為5個整合帳戶總數:
 
-  | ISE SKU | 限制 |
-  |---------|-------|
-  | **高級** | 5 total-僅限[標準](../logic-apps/logic-apps-pricing.md#integration-accounts), 無免費或基本 |
-  | **開發人員** | 5總計-免費 (僅限 1)、標準或兩者, 但不含基本 |
+  | ISE SKU | 整合帳戶限制 |
+  |---------|----------------------------|
+  | **高級** | 總共5個[標準](../logic-apps/logic-apps-pricing.md#integration-accounts)帳戶, 包括一個免費的標準帳戶。 不允許免費或基本帳戶。 |
+  | **開發人員** | 5總計-[免費](../logic-apps/logic-apps-pricing.md#integration-accounts)(限制為1個帳戶) 和[標準](../logic-apps/logic-apps-pricing.md#integration-accounts)結合, 或所有標準帳戶。 不允許任何基本帳戶。 使用[開發人員 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)進行實驗、開發和測試, 但不適用於生產或效能測試。 |
   |||
 
 當您新增的整合帳戶超出 ISE 隨附的整合帳戶時, 額外成本也適用。 若要瞭解 Ise 的定價和計費方式, 請參閱[Logic Apps 定價模式](../logic-apps/logic-apps-pricing.md#fixed-pricing)。 如需定價費率, 請參閱[Logic Apps 定價](https://azure.microsoft.com/pricing/details/logic-apps/)。

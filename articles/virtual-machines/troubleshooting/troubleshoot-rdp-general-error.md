@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: abff12e1a304c51cb0df394534c7da0a35518008
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319508"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089803"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>在 Azure VM 中對 RDP 一般錯誤進行疑難排解
 
@@ -65,9 +64,9 @@ RDP 接聽程式的設定不正確。
 
 ### <a name="serial-console"></a>序列主控台
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>步驟 1：在序列主控台中開啟 CMD 執行個體
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>步驟 1:在序列主控台中開啟 CMD 實例
 
-1. 選取 [支援與疑難排解]   > [序列主控台 (預覽)]  來存取[序列主控台](serial-console-windows.md)。 如果已在 VM 上啟用此功能，您就能成功連線該 VM。
+1. 選取 [支援與疑難排解] > [序列主控台 (預覽)] 來存取[序列主控台](serial-console-windows.md)。 如果已在 VM 上啟用此功能，您就能成功連線該 VM。
 
 2. 針對 CMD 執行個體建立新通道。 輸入 **CMD** 以啟動通道來取得通道名稱。
 
@@ -77,7 +76,7 @@ RDP 接聽程式的設定不正確。
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>步驟 2：檢查 RDP 登錄機碼的值：
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>步驟 2:檢查 RDP 登錄機碼的值:
 
 1. 檢查 RDP 是否已被原則停用。
 
@@ -164,7 +163,7 @@ RDP 接聽程式的設定不正確。
 
 如果仍然發生問題，請移至步驟 2。
 
-#### <a name="step-2-enable-remote-desktop-services"></a>步驟 2：啟用遠端桌面服務
+#### <a name="step-2-enable-remote-desktop-services"></a>步驟 2:啟用遠端桌面服務
 
 如需詳細資訊，請參閱[無法在 Azure VM 上啟動遠端桌面服務](troubleshoot-remote-desktop-services-issues.md)。
 
@@ -174,11 +173,11 @@ RDP 接聽程式的設定不正確。
 
 ### <a name="offline-repair"></a>離線修復
 
-#### <a name="step-1-turn-on-remote-desktop"></a>步驟 1：開啟遠端桌面
+#### <a name="step-1-turn-on-remote-desktop"></a>步驟 1:開啟遠端桌面
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 2. 啟動復原 VM 的遠端桌面連線。
-3. 確定該磁碟在磁碟管理主控台中標示為 [線上]  。 記下指派給已連結 OS 磁碟的磁碟機代號。
+3. 確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給已連結 OS 磁碟的磁碟機代號。
 4. 啟動復原 VM 的遠端桌面連線。
 5. 開啟提升權限的命令提示字元工作階段 (**以系統管理員身分執行**)。 執行下列指令碼。 在此指令碼中，我們假設指派給已連結 OS 磁碟的磁碟機代號是 F。請將此磁碟機代號取代為 VM 的適當值。
 
@@ -234,7 +233,7 @@ RDP 接聽程式的設定不正確。
 
 如果仍然發生問題，請移至步驟 2。
 
-#### <a name="step-2-enable-remote-desktop-services"></a>步驟 2：啟用遠端桌面服務
+#### <a name="step-2-enable-remote-desktop-services"></a>步驟 2:啟用遠端桌面服務
 
 如需詳細資訊，請參閱[無法在 Azure VM 上啟動遠端桌面服務](troubleshoot-remote-desktop-services-issues.md)。
 
@@ -242,6 +241,6 @@ RDP 接聽程式的設定不正確。
 
 如需詳細資訊，請參閱 [Azure VM 中的遠端桌面時常斷線](troubleshoot-rdp-intermittent-connectivity.md)。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-support"></a>需要協助嗎？ 連絡支援人員
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

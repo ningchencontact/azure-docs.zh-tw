@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 9846bf7b28f1205f98eb59671553d309fe754d30
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: be3ccfd0c562763d0968398ddb042dc5f07dbdcf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707945"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101570"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>將一般化 VHD 上傳，並使用它在 Azure 中建立新的 VM
 
@@ -49,9 +48,9 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 
 1. 登入 Windows 虛擬機器。
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 將目錄變更到 %windir%\system32\sysprep，然後執行 `sysprep.exe`。
-3. 在 [系統準備工具]  對話方塊中，選取 [進入系統全新體驗 (OOBE)]  ，並確認已啟用 [一般化]  核取方塊。
-4. 針對 [關機選項]  ，選取 [關機]  。
-5. 選取 [確定]  。
+3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已啟用 [一般化] 核取方塊。
+4. 針對 [關機選項]，選取 [關機]。
+5. 選取 [確定]。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep 完成時，會關閉虛擬機器。 不要重新啟動 VM。
@@ -71,7 +70,7 @@ Get-AzStorageAccount | Format-Table
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>將 VHD 上傳至儲存體帳戶
 
-使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) Cmdlet，將 VHD 上傳至儲存體帳戶中的容器。 這個範例會將 myVHD.vhd  檔案從 *C:\Users\Public\Documents\Virtual hard disks\\* 上傳至 myResourceGroup  資源群組中名為 mystorageaccount  的儲存體帳戶。 檔案會放入名為 *mycontainer* 的容器，新的檔案名稱會是 *myUploadedVHD.vhd*。
+使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) Cmdlet，將 VHD 上傳至儲存體帳戶中的容器。 這個範例會將 myVHD.vhd 檔案從 *C:\Users\Public\Documents\Virtual hard disks\\* 上傳至 myResourceGroup 資源群組中名為 mystorageaccount 的儲存體帳戶。 檔案會放入名為 *mycontainer* 的容器，新的檔案名稱會是 *myUploadedVHD.vhd*。
 
 ```powershell
 $rgName = "myResourceGroup"

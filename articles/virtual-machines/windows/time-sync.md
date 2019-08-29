@@ -8,18 +8,17 @@ manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: d413fe73735f526444aea76d68f44163065578a0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 04b2eb70a9e304fb50f4f6cb94daf0a0dda86d63
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710239"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100250"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure 中 Windows VM 的時間同步
 
@@ -51,7 +50,7 @@ VMICTimeSync 服務會在範例或同步模式中運作，而且只會影響後�
 
 採用 Windows Server 2016 做為客體作業系統可達成 Windows 部署的最佳結果，Windows Server 2016 確保您可使用最新的時間同步處理改良功能。
 
-## <a name="configuration-options"></a>組態選項
+## <a name="configuration-options"></a>設定選項
 
 為裝載於 Azure 中 Windows VM 設定時間同步時有三個選項可選：
 

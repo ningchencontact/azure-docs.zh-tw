@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42ad7bc10cb7b93bd4db9260f950ae4ca12aba44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4611efa8767094ea8f92dac584a5610811947620
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61126871"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102578"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>從 Amazon Web Services (AWS) 和其他平台移轉至 Azure 中的受控磁碟
 
@@ -92,7 +91,7 @@ Azure 受控磁碟可免除管理儲存體帳戶的需求，進而簡化 VM 管�
 
 根據預設，所有 Premium 資料磁碟的磁碟快取原則都是*唯讀*，而連接至 VM 的 Premium 作業系統磁碟的磁碟快取原則則是*讀寫*。 為使應用程式的 IO 達到最佳效能，建議使用此組態設定。 對於頻繁寫入或唯寫的資料磁碟 (例如 SQL Server 記錄檔)，停用磁碟快取可獲得更佳的應用程式效能。
 
-### <a name="pricing"></a>價格
+### <a name="pricing"></a>定價
 
 請檢閱[受控磁碟的價格](https://azure.microsoft.com/pricing/details/managed-disks/)。 進階受控磁碟與進階非受控磁碟的價格相同。 但標準受控磁碟與標準非受控磁碟的價格不同。
 

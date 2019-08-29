@@ -11,17 +11,16 @@ ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b54d5003f67a1bd79e1e52eef87df858bc68ade1
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: fef8a17de4539a1427c269cdc512063d07df195c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551920"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066871"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -39,7 +38,7 @@ ms.locfileid: "67551920"
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>使用 SSH 支援搭配自訂 Docker 映像
 
-請參閱[設定 SSH 自訂容器中](configure-custom-container.md#enable-ssh)。
+請參閱[在自訂容器中設定 SSH](configure-custom-container.md#enable-ssh)。
 
 ## <a name="open-ssh-session-from-remote-shell"></a>從遠端殼層開啟 SSH 工作階段
 
@@ -51,7 +50,7 @@ ms.locfileid: "67551920"
 
 若要開始，您必須安裝 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 若要查看未安裝 Azure CLI 時的運作方式，請開啟 [Azure Cloud Shell](../../cloud-shell/overview.md)。 
 
-使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 指定 _\<訂用帳戶識別碼 >_ ， _\<群組名稱 >_ 並\_\<應用程式名稱 > _ 應用程式。
+使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 針對您的應用\_程式指定\<  _\<訂用帳戶識別碼 >_ 、  _\<群組名稱 >_ 和應用程式名稱 > _。
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
