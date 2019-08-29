@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 03/12/2019
-ms.openlocfilehash: 9b28a8efcc09954d9046ad1dda3ba5f10f45bdfa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.date: 08/27/2019
+ms.openlocfilehash: 8948a0fe6112df0d29c0f04685dadbd379a4a382
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840469"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098912"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>對資料庫伺服器使用虛擬網路服務端點和規則
 
@@ -31,44 +31,7 @@ ms.locfileid: "68840469"
 
 如果只是建立虛擬網路規則，您可以直接跳到[本文稍後](#anchor-how-to-by-using-firewall-portal-59j)的步驟和說明。
 
-<a name="anch-terminology-and-description-82f" />
-
-## <a name="terminology-and-description"></a>術語和描述
-
-**虛擬網路：** Azure 訂用帳戶可以有相關聯的虛擬網路。
-
-**子網路：** 虛擬網路包含**子網路**。 您有的任何 Azure 虛擬機器 (VM) 會指派給子網路。 一個子網路可以包含多個 VM 或其他計算節點。 計算虛擬網路外部的節點無法存取虛擬網路，除非您設定安全性來允許存取。
-
-**虛擬網路服務端點：** [虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]是一個子網路，其屬性值包含一或多個正式的 Azure 服務類型名稱。 本文中我們探討類型名稱 **Microsoft.Sql**，它參考名為 SQL Database 的 Azure 服務。
-
-**虛擬網路規則：** SQL Database 伺服器的虛擬網路規則是 SQL Database 伺服器的存取控制清單 (ACL) 中所列的子網路。 子網路必須包含 **Microsoft.Sql** 類型名稱，才能列在 SQL Database 的 ACL 中。
-
-虛擬網路規則會指示 SQL Database 伺服器接受來自子網路上每個節點的通訊。
-
-<a name="anch-benefits-of-a-vnet-rule-68b" />
-
-## <a name="benefits-of-a-virtual-network-rule"></a>虛擬網路規則的優點
-
-除非您採取動作，否則子網路上的 VM 無法與 SQL Database 通訊。 建立通訊的一個動作，就是建立虛擬網路規則。 為了選擇虛擬網路 (VNet) 規則方法，基本上需要經過一番比較與對照討論，以確實了解防火牆所提供的各種只能擇其一的安全性選項。
-
-### <a name="a-allow-access-to-azure-services"></a>A. 允許存取 Azure 服務
-
-防火牆窗格有一個標示為 [允許存取 Azure 服務] 的 [開啟/關閉] 按鈕。 [開啟] 設定允許來自所有 Azure IP 位址和所有 Azure 子網路的通訊。 這些 Azure IP 或子網路可能不是您所擁有。 此 [開啟] 設定可能超過您預計 SQL Database 應該開放的幅度。 虛擬網路規則功能提供更細微的控制。
-
-### <a name="b-ip-rules"></a>B. IP 規則
-
-SQL Database 防火牆可讓您指定 IP 位址範圍，以接受來自此範圍內的通訊進入 SQL Database。 此方法對 Azure 私人網路外部的穩定 IP 位址很適合。 但 Azure 私人網路內部的許多節點都以「動態」IP 位址設定。 動態 IP 位址可能變更，例如當 VM 重新啟動時。 在生產環境中，請勿在防火牆規則中指定動態 IP 位址。
-
-您可以取得 VM 的「靜態」IP 位址，以挽回 IP 選項。 如需詳細資訊, 請參閱[使用 Azure 入口網站設定虛擬機器的私人 IP 位址][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]。
-
-不過，靜態 IP 方法可能變得難以管理，在大規模使用時成本很高。 虛擬網路規則較容易建立和管理。
-
-> [!NOTE]
-> 子網路上還不能有 SQL Database。 如果 Azure SQL Database 伺服器是虛擬網路中某個子網路的節點，則虛擬網路內的所有節點都可以與 SQL Database 通訊。 在此情況下，VM 可以與 SQL Database 通訊，而不需要任何虛擬網路規則或 IP 規則。
-
-不過，截至 2017 年 9 月，Azure SQL Database 服務還不是可指派給子網路的服務。
-
-<a name="anch-details-about-vnet-rules-38q" />
+<!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## <a name="details-about-virtual-network-rules"></a>虛擬網路規則的詳細資料
 
@@ -141,27 +104,7 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>移除 [允許 Azure 服務存取伺服器] 的影響。
 
-許多使用者想要從他們的 Azure SQL 伺服器中移除 [允許 Azure 服務存取伺服器]，並取代為 VNet 防火牆規則。
-不過移除這個會影響下列功能：
-
-### <a name="import-export-service"></a>匯入匯出服務
-
-Azure SQL Database 匯入匯出服務會在 Azure 中的 VM 上執行。 這些 VM 不在您的 VNet 中，因此連線到您的資料庫時會得到一組 Azure IP。 若移除 [允許 Azure 服務存取伺服器]，這些 VM 將無法存取您的資料庫。
-您可以解決這個問題。 使用 DACFx API 直接在您的程式碼中執行 BACPAC 匯入或匯出。 請確定在您已設定防火牆規則的 VNet 子網路中的 VM 上，已部署這個 API。
-
-### <a name="sql-database-query-editor"></a>SQL Database 查詢編輯器
-
-Azure SQL Database 的查詢編輯器會部署在 Azure 中的 VM 上。 這些 VM 不在您的 VNet 中。 因此，連線到您的資料庫時，VM 會得到一組 Azure IP。 若移除 [允許 Azure 服務存取伺服器]，這些 VM 將無法存取您的資料庫。
-
-### <a name="table-auditing"></a>資料表稽核
-
-目前有兩種做法可以啟用 SQL Database 的稽核。 當您在您的 Azure SQL Server 上啟用服務端點之後，資料表稽核會失敗。 這裡的解決之道是改用 Blob 稽核。
-
-### <a name="impact-on-data-sync"></a>資料同步的影響
-
-Azure SQL Database 擁有使用 Azure IP 連線到資料庫的資料同步功能。 使用服務端點時，您可能會關閉 SQL Database 伺服器的 [允許 Azure 服務存取伺服器] 存取權。 這項動作將會中斷資料同步功能。
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>使用 VNet 服務端點搭配 Azure 儲存體的影響
 
@@ -171,9 +114,10 @@ Azure 儲存體已實作功能，可讓您限制連線至 Azure 儲存體帳戶�
 
 PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料倉儲。 如果您正在載入資料的來源 Azure 儲存體帳戶限制只能存取一組 VNet 子網路，從 PolyBase 到帳戶的連線會中斷。 如需透過連線至固定到 VNet 的 Azure 儲存體的 Azure SQL 資料倉儲來啟用 PolyBase 匯入和匯出案例，請按照下列所示的步驟進行：
 
-#### <a name="prerequisites"></a>先決條件
+#### <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > Azure SQL Database 仍然支援 PowerShell Azure Resource Manager 模組, 但所有未來的開發都是針對 Az .Sql 模組。 如需這些 Cmdlet, 請參閱[AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模組和 AzureRm 模組中命令的引數本質上完全相同。
 
@@ -182,12 +126,12 @@ PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料�
 3.  您必須開啟 Azure 儲存體帳戶 [防火牆與虛擬網路] 設定功能表下方的 [允許信任的 Microsoft 服務存取此儲存體帳戶]。 如需詳細資訊請參閱此[指南](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
  
 #### <a name="steps"></a>步驟
-1. 在 PowerShell 中，透過 Azure Active Directory (AAD) **註冊 SQL Database 伺服器**：
+1. 在 PowerShell 中, 使用 Azure Active Directory (AAD)**註冊您的 Azure SQL Server**裝載您的 Azure SQL 資料倉儲實例:
 
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
     
    1. 以此[指南](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)建立**一般用途的 v2 儲存體帳戶**。
@@ -196,7 +140,7 @@ PolyBase 通常用於將資料從 Azure 儲存體帳戶載入 Azure SQL 資料�
    > - 如果您有一般用途 v1 或 Blob 儲存體帳戶，您必須先使用此 [指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)**升級至 v2**。
    > - 關於 Azure Data Lake Storage Gen2 的已知問題，請參閱此[指南](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues)。
     
-1. 請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 將**儲存體 Blob 資料參與者**RBAC 角色指派給您的 SQL Database 伺服器。
+1. 請瀏覽至您儲存體帳戶之下的 [存取控制 \(IAM\)]，然後按一下 [新增角色指派]。 將**儲存體 Blob 資料參與者**RBAC 角色指派給您的 azure SQL Server 裝載您已向 Azure Active 目錄 (AAD) 註冊的 Azure SQL 資料倉儲, 如步驟 # 1 所示。
 
    > [!NOTE] 
    > 僅有具備「擁有者」權限的成員才能執行此步驟。 關於 Azure 資源的各種內建角色，請參閱此[指南](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
@@ -284,7 +228,7 @@ SQL VNet 動作的 PowerShell cmdlet 會在內部呼叫 REST API。 您可以直
 
 - [虛擬網路規則：業務][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您必須已有一個子網路是以 Azure SQL Database 相關的特定虛擬網路服務端點「類型名稱」所標記。
 

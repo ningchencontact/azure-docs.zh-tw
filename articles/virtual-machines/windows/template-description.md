@@ -11,16 +11,15 @@ ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710294"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101776"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 範本中的虛擬機器
 
@@ -316,7 +315,7 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 },
 ```
 
-作業系統磁碟的組態設定會使用 OsDisk 項目指派。 此範例會定義新的受控磁碟，其快取模式設定為 [ReadWrite]  ，而此磁碟會從[平台映像](cli-ps-findimage.md)建立：
+作業系統磁碟的組態設定會使用 OsDisk 項目指派。 此範例會定義新的受控磁碟，其快取模式設定為 [ReadWrite]，而此磁碟會從[平台映像](cli-ps-findimage.md)建立：
 
 ```
 "osDisk": { 
@@ -455,7 +454,7 @@ Start.ps1 指令碼可以完成許多組態工作。 例如，範例中新增至
 
 ![取得部署資訊](./media/template-description/virtual-machines-deployment-info.png)
     
-使用相同的範本來建立資源或更新現有的資源並不是問題。 當您使用命令來部署範本時，有機會說您想要使用的[模式](../../resource-group-template-deploy.md)。 模式可以設定為 [完成]  或 [累加]  。 預設值是執行累加式更新。 使用 [完成]  模式請小心，因為您可能會不小心刪除資源。 當您將模式設定為 [完成]  時，Resource Manager 就會刪除不在範本中的資源群組之任何資源。
+使用相同的範本來建立資源或更新現有的資源並不是問題。 當您使用命令來部署範本時，有機會說您想要使用的[模式](../../resource-group-template-deploy.md)。 模式可以設定為 [完成] 或 [累加]。 預設值是執行累加式更新。 使用 [完成] 模式請小心，因為您可能會不小心刪除資源。 當您將模式設定為 [完成] 時，Resource Manager 就會刪除不在範本中的資源群組之任何資源。
 
 ## <a name="next-steps"></a>後續步驟
 

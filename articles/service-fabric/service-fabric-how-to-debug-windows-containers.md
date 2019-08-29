@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: mikhegn
-ms.openlocfilehash: 043623869163a27cdbbdd7115fca43486577ca7d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a5ccf527850e1c05c5d7e273ada905d65d64cee4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599433"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073967"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>HOW TO：使用 Visual Studio 2019 在 Azure Service Fabric 中調試 Windows 容器
 
 有了 Visual Studio 2019, 您就可以將容器中的 .NET 應用程式當做 Service Fabric 服務來進行 debug。 本文說明如何設定環境，然後在執行於本機 Service Fabric 叢集的容器中，對 .NET 應用程式進行偵錯。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 在 Windows 10 上，請遵循本快速入門來[設定 Windows 10 以執行 Windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 * 在 Windows Server 2016 上，請遵循本快速入門來[設定 Windows 2016 以執行 Windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
@@ -81,4 +81,4 @@ ms.locfileid: "68599433"
     Visual Studio 支援適用於 .NET 和 .NET Core 的主控台與 ASP.NET 專案類型。
 
 ## <a name="next-steps"></a>後續步驟
-若要深入瞭解 Service Fabric 和容器的功能, 請參閱 Service Fabric 容器總覽] (Service Fabric-容器-overview.md)。
+若要深入瞭解 Service Fabric 和容器的功能, 請參閱[Service Fabric 容器總覽](service-fabric-containers-overview.md)。

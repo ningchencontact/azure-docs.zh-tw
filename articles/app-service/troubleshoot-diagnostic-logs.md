@@ -10,17 +10,16 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af6d8b61c5d49ae219e90513abb93185f957222e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059657"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074065"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>在 Azure App Service 中針對應用程式啟用診斷記錄
 ## <a name="overview"></a>總覽
@@ -34,8 +33,8 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 ### <a name="web-server-diagnostics"></a>Web 伺服器診斷
 您可以啟用或停用下列各種記錄：
 
-* **詳細的錯誤記錄**-導致 HTTP 狀態碼 400 或更大的任何要求的詳細資訊。 它包含的資訊可協助您判斷為何伺服器傳回錯誤碼。 其中一個應用程式的檔案系統中，最多 50 錯誤 （檔案），將會產生的每個錯誤的 HTML 檔案會保留。 當 HTML 檔案的數目超過 50 時，會自動刪除最舊的 26 檔案。
-* **失敗的要求追蹤** - 關於失敗要求的詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 一個資料夾會在應用程式的檔案系統中產生每個錯誤。 檔案的保留原則是詳細的錯誤記錄上述相同。
+* **詳細的錯誤記錄**-導致 HTTP 狀態碼400或更高之任何要求的詳細資訊。 它包含的資訊可協助您判斷為何伺服器傳回錯誤碼。 會針對應用程式檔案系統中的每個錯誤產生一個 HTML 檔案, 並保留最多50個錯誤 (檔案)。 當 HTML 檔案數目超過50時, 會自動刪除最舊的26個檔案。
+* **失敗的要求追蹤** - 關於失敗要求的詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 針對應用程式檔案系統中的每個錯誤, 會產生一個資料夾。 檔案保留原則與上述的詳細錯誤記錄相同。
 * **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)的 HTTP 交易相關資訊。 在判斷整體網站計量 (例如，處理的要求數目，或者有多少要求來自特定的 IP 位址) 時，這會相當有用。
 
 ### <a name="application-diagnostics"></a>應用程式診斷
@@ -48,14 +47,14 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 當您將內容發佈至應用程式時，App Service 也會記錄部署資訊。 此動作會自動發生，因此無須任何組態設定即會記錄部署動作。 部署記錄功能可讓您判斷部署失敗的原因。 例如，如果您使用自訂部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
 
 ## <a name="enablediag"></a>如何啟用診斷
-若要在 [Azure 入口網站](https://portal.azure.com)中啟用診斷，請移至應用程式的頁面，然後按一下 [設定] > [診斷記錄]  。
+若要在 [Azure 入口網站](https://portal.azure.com)中啟用診斷，請移至應用程式的頁面，然後按一下 [設定] > [診斷記錄]。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![記錄部分](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-啟用 [應用程式診斷]  時，也會選擇 [層級]  。 下表說明每個層級所包含的記錄類別：
+啟用 [應用程式診斷] 時，也會選擇 [層級]。 下表說明每個層級所包含的記錄類別：
 
-| Level| 包含的記錄類別 |
+| 層級| 包含的記錄類別 |
 |-|-|
 |**Disabled** | None |
 |**錯誤** | 錯誤、嚴重 |
@@ -64,23 +63,23 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 |**詳細資訊** | 追蹤、偵錯、資訊、警告、錯誤、嚴重 (所有類別) |
 |-|-|
 
-針對 [應用程式記錄]  ，您可以暫時開啟檔案系統選項以供偵錯之用。 這個選項會在 12 小時後自動關閉。 您也可以開啟 Blob 儲存體選項，來選取要寫入記錄的目標 Blob 容器。
+針對 [應用程式記錄]，您可以暫時開啟檔案系統選項以供偵錯之用。 這個選項會在 12 小時後自動關閉。 您也可以開啟 Blob 儲存體選項，來選取要寫入記錄的目標 Blob 容器。
 
 > [!NOTE]
 > 目前只能將 .NET 應用程式記錄寫入至 Blob 儲存體。 Java、PHP、Node.js、Python 應用程式記錄只能儲存在檔案系統上 (無須修改程式碼，即可將記錄寫入至外部儲存體)。
 >
 >
 
-針對 [Web 伺服器記錄]  ，您可以選取 [儲存體]  或 [檔案系統]  。 選取 [儲存體]  可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。 
+針對 [Web 伺服器記錄]，您可以選取 [儲存體] 或 [檔案系統]。 選取 [儲存體] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。 
 
 如果您在檔案系統上儲存記錄，這些檔案將可透過 FTP 來存取，或是使用 Azure CLI 以 Zip 封存檔的形式下載。
 
-根據預設，不會自動刪除記錄 (除了 [應用程式記錄 (檔案系統)]  之外)。 若要自動刪除記錄，請設定 [保留期限 (天)]  欄位。
+根據預設，不會自動刪除記錄 (除了 [應用程式記錄 (檔案系統)] 之外)。 若要自動刪除記錄，請設定 [保留期限 (天)] 欄位。
 
 > [!NOTE]
-> 如果您 [重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 作法：
+> 如果您 [重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 請這樣做：
 >
-> 1. 在 [設定]  索引標籤上，將個別的記錄功能設定為 [關閉]  。 儲存您的設定。
+> 1. 在 [設定] 索引標籤上，將個別的記錄功能設定為 [關閉]。 儲存您的設定。
 > 2. 重新啟用記錄至儲存體帳戶 Blob。 儲存您的設定。
 >
 >
@@ -108,14 +107,14 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 
 若要開啟連線到您應用程式 FTP 伺服器的 FTP 連線，請參閱[使用 FTP/S 將您的應用程式部署至 Azure App Service](deploy-ftp.md)。
 
-連線到您應用程式的 FTP/S 伺服器之後，請開啟記錄檔儲存所在的 [LogFiles]  資料夾。
+連線到您應用程式的 FTP/S 伺服器之後，請開啟記錄檔儲存所在的 [LogFiles] 資料夾。
 
 ### <a name="download-with-azure-cli"></a>使用 Azure CLI 來下載
 若要使用 Azure 命令列介面來下載記錄檔案，請開啟新的命令列提示字元、PowerShell、Bash 或終端機工作階段，然後輸入下列命令：
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-此命令會儲存名為 'appname' 為檔案的應用程式記錄**webapp_logs.zip**目前目錄中。
+此命令會將名為 ' appname ' 的應用程式記錄儲存至目前目錄中名為**webapp_logs**的檔案。
 
 > [!NOTE]
 > 如果您尚未安裝 Azure CLI，或尚未將其設定為使用您的「Azure 訂用帳戶」，請參閱[如何使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)。
@@ -130,7 +129,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 2. 將追蹤接聽套件新增至專案。
    * 以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。 選取 `Microsoft.ApplicationInsights.TraceListener` [深入了解](../azure-monitor/app/asp-net-trace-logs.md)
 3. 上傳您的專案並執行，以產生記錄資料。
-4. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]  。 您應該會看到您的記錄資料，以及要求、使用情況及其他遙測。 有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。 [深入了解](../azure-monitor/app/diagnostic-search.md)
+4. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。 您應該會看到您的記錄資料，以及要求、使用情況及其他遙測。 有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。 [深入了解](../azure-monitor/app/diagnostic-search.md)
 
 [深入了解使用 Application Insights 的效能追蹤](../azure-monitor/app/azure-web-apps.md)
 
@@ -190,7 +189,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 | 屬性名稱 | 值/格式 |
 | --- | --- |
 | Date |事件發生的日期與時間 |
-| Level |事件層級 (例如錯誤、警告、資訊) |
+| 層級 |事件層級 (例如錯誤、警告、資訊) |
 | ApplicationName |應用程式名稱 |
 | InstanceId |發生事件的應用程式執行個體 |
 | EventTickCount |事件發生的日期與時間 (刻度格式，精準度更高) |
@@ -215,7 +214,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 ![在瀏覽器中檢視的失敗要求](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 > [!NOTE]
-> 檢視格式化失敗的要求追蹤的簡單方法是瀏覽至入口網站中您的應用程式頁面。 從左側功能表中，選取**診斷並解決問題**，然後搜尋**失敗要求追蹤記錄**，然後按一下 瀏覽和檢視您想要的追蹤的圖示。
+> 若要查看已格式化的失敗要求追蹤, 簡單的方式是在入口網站中流覽至您的應用程式頁面。 從左側功能表中, 選取 [**診斷並解決問題**], 然後搜尋 [**失敗的要求追蹤記錄**], 然後按一下圖示以流覽並查看您想要的追蹤。
 >
 
 ### <a name="detailed-error-logs"></a>詳細錯誤記錄
