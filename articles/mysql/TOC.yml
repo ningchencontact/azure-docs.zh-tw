@@ -171,6 +171,8 @@
       items:
         - name: Azure 入口網站
           href: howto-auto-grow-storage-portal.md
+        - name: Azure CLI
+          href: howto-auto-grow-storage-cli.md
     - name: 存取伺服器記錄
       items:
         - name: 慢速查詢記錄

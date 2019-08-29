@@ -259,6 +259,8 @@
               href: sql-data-warehouse-install-visual-studio.md
             - name: 原始檔控制整合
               href: sql-data-warehouse-source-control-integration.md
+            - name: 持續整合及部署
+              href: sql-data-warehouse-continuous-integration-and-deployment.md
         - name: 連線和查詢
           items:
             - name: Visual Studio SSDT
