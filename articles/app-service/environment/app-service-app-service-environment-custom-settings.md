@@ -10,17 +10,16 @@ ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 6463759dbd217cd054f838c09c7cfcf99a06aa2c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: bf2441d5c0947ec94cbee247bdc4634ff9e53bfd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390825"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070303"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service 環境的自訂組態設定
 ## <a name="overview"></a>概觀
@@ -55,7 +54,7 @@ ms.locfileid: "54390825"
 ## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>使用 Azure 資源總管更新 App Service 環境
 或者，您可以使用 [Azure 資源總管](https://resources.azure.com)更新 App Service 環境。  
 
-1. 在 [資源總管] 中，移至 App Service 環境的節點 ([訂用帳戶] > [resourceGroups] > [提供者] > [Microsoft.Web] > [hostingEnvironments])。 接著，按一下您想要更新的特定 App Service 環境。
+1. 在 [資源總管] 中，移至 App Service 環境的節點 ([訂用帳戶]   > [resourceGroups]   > [提供者]   > [Microsoft.Web]   > [hostingEnvironments]  )。 接著，按一下您想要更新的特定 App Service 環境。
 2. 按一下右窗格上方工具列中的 [讀取/寫入]  ，允許在資源總管中進行互動式編輯。  
 3. 按一下藍色的 [編輯]  按鈕，開放編輯 Resource Manager 範本。
 4. 向下捲動到右窗格底部。 **clusterSettings** 屬性位在最底部，您可以在此輸入或更新其值。
@@ -91,7 +90,7 @@ ms.locfileid: "54390825"
         ],
 
 > [!WARNING]
-> 如果對安全通道無法了解的加密套件設定了不正確的值，對您的伺服器的所有 TLS 通訊可能會停止運作。 在這種情況下，您必須從 **clusterSettings** 移除 FrontEndSSLCipherSuiteOrder 項目，並提交更新的 Resource Manager 範本以還原回預設的加密套件設定。  請謹慎使用這項功能。
+> 如果對安全通道無法了解的加密套件設定了不正確的值，對您的伺服器的所有 TLS 通訊可能會停止運作。 在這種情況下，您必須從 **clusterSettings** 移除 FrontEndSSLCipherSuiteOrder  項目，並提交更新的 Resource Manager 範本以還原回預設的加密套件設定。  請謹慎使用這項功能。
 > 
 > 
 

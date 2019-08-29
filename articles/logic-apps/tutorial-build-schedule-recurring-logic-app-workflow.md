@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec29eef7e733155b205d4feda844883bbc4496c9
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884681"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051756"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>使用 Azure Logic Apps 來檢查排程上的流量
 
@@ -35,38 +36,38 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 ![邏輯應用程式概觀](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-如果您沒有 Azure 訂用帳戶，請在開始前，先<a href="https://azure.microsoft.com/free/" target="_blank">註冊一個免費的 Azure 帳戶</a>。
+如果您沒有 Azure 訂用帳戶，請在開始前，先[註冊一個免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
 * Logic Apps 支援的任何電子郵件提供者 (例如 Office 365 Outlook、Outlook.com 或 Gmail) 所提供的電子郵件帳戶。 對於其他提供者，請[檢閱這裡的連接器清單](https://docs.microsoft.com/connectors/)。 本快速入門使用 Outlook.com 帳戶。 如果您使用不同的電子郵件帳戶，整體步驟將維持不變，但您的 UI 外觀可能會略有不同。
 
-* 若要取得路線的行進時間，您需要 Bing 地圖服務 API 的存取金鑰。 若要取得此金鑰，請遵循<a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">如何取得 Bing 地圖服務金鑰</a>的步驟。 
+* 若要取得路線的行進時間，您需要 Bing 地圖服務 API 的存取金鑰。 若要取得此金鑰，請遵循[如何取得 Bing 地圖服務金鑰](https://msdn.microsoft.com/library/ff428642.aspx)的步驟。 
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
-使用您的 Azure 帳戶認證登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>。
+使用您的 Azure 帳戶認證登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-your-logic-app"></a>建立邏輯應用程式
 
-1. 從主要 Azure 功能表，選擇 [建立資源] > [企業整合] > [邏輯應用程式]。
+1. 從主要 Azure 功能表，選擇 [建立資源]   > [企業整合]   > [邏輯應用程式]  。
 
    ![建立邏輯應用程式](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 
-2. 在 [建立邏輯應用程式] 下，提供有關於邏輯應用程式的這項資訊，如下所示和描述。 完成時，請選擇 [釘選到儀表板] > [建立]。
+2. 在 [建立邏輯應用程式]  下，提供有關於邏輯應用程式的這項資訊，如下所示和描述。 完成時，請選擇 [釘選到儀表板]   > [建立]  。
 
    ![提供邏輯應用程式資訊](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
    | **名稱** | LA-TravelTime | 邏輯應用程式的名稱 | 
-   | **訂用帳戶** | <your-Azure-subscription-name> | Azure 訂用帳戶的名稱 | 
+   | **訂用帳戶** | <your-Azure-subscription-name  > | Azure 訂用帳戶的名稱 | 
    | **資源群組** | LA-TravelTime-RG | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱 | 
    | **位置** | 美國東部 2 | 用來存放邏輯應用程式相關資訊的區域 | 
-   | **Log Analytics** | 關閉 | 保留診斷記錄的 [關閉] 設定。 | 
+   | **Log Analytics** | 關閉 | 保留診斷記錄的 [關閉]  設定。 | 
    |||| 
 
-3. 在 Azure 部署您的應用程式之後，Logic Apps 設計工具隨即開啟，並顯示含有簡介影片和常用邏輯應用程式模式範本的頁面。 在 [範本] 底下，選擇 [空白邏輯應用程式]。
+3. 在 Azure 部署您的應用程式之後，Logic Apps 設計工具隨即開啟，並顯示含有簡介影片和常用邏輯應用程式模式範本的頁面。 在 [範本]  底下，選擇 [空白邏輯應用程式]  。
 
    ![選擇空白邏輯應用程式範本](./media/tutorial-build-scheduled-recurring-logic-app-workflow/choose-logic-app-template.png)
 
@@ -78,11 +79,11 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
    ![尋找並新增 [排程 - 週期] 觸發程序](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. 在 [週期] 圖形中，選擇**省略符號** (**...**) 按鈕，然後選擇 [重新命名]。 以下列描述為觸發程序重新命名：```Check travel time every weekday morning```
+2. 在 [週期]  圖形中，選擇**省略符號** ( **...** ) 按鈕，然後選擇 [重新命名]  。 以下列描述為觸發程序重新命名：```Check travel time every weekday morning```
 
    ![為觸發程序重新命名](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
-3. 在觸發程序內部，選擇 [顯示進階選項]。
+3. 在觸發程序內部，選擇 [顯示進階選項]  。
 
 4. 為您的觸發程序提供排程和週期詳細資料，如下所示和描述：
 
@@ -94,20 +95,20 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
    | **頻率** | 週 | 要用於週期的時間單位 | 
    | **時區** | None | 只有在指定開始時間時套用。 很適合用來指定非當地時區。 | 
    | **開始時間** | None | 將週期延遲至特定日期和時間。 如需詳細資訊，請參閱[排程定期執行的工作和工作流程](../connectors/connectors-native-recurrence.md)。 | 
-   | **在這幾天內** | 星期一、星期二、星期三、星期四、星期五 | 僅適用於 [頻率] 設定為 [週] 時。 | 
-   | **在這幾小時內** | 7、8、9 | 僅適用於 [頻率] 設定為 [週] 或 [天] 時。 選取要執行此週期的整點。 這個範例會在上午 7、8 和 9 點整點執行。 | 
-   | **在這幾分鐘內** | 0、15、30、45 | 僅適用於 [頻率] 設定為 [週] 或 [天] 時。 選取要執行此週期的時刻。 這個範例會每隔 15 分鐘執行一次 (從整點開始算起)。 | 
+   | **在這幾天內** | 星期一、星期二、星期三、星期四、星期五 | 僅適用於 [頻率]  設定為 [週] 時。 | 
+   | **在這幾小時內** | 7、8、9 | 僅適用於 [頻率]  設定為 [週] 或 [天] 時。 選取要執行此週期的整點。 這個範例會在上午 7、8 和 9 點整點執行。 | 
+   | **在這幾分鐘內** | 0、15、30、45 | 僅適用於 [頻率]  設定為 [週] 或 [天] 時。 選取要執行此週期的時刻。 這個範例會每隔 15 分鐘執行一次 (從整點開始算起)。 | 
    ||||
 
    此觸發程序會在每個工作天、每隔 15 分鐘引發一次 (從上午 7:00 開始到上午 9:45 結束)。 
-   [預覽] 方塊會顯示週期排程。 
+   [預覽]  方塊會顯示週期排程。 
    如需詳細資訊，請參閱[排程工作和工作流程](../connectors/connectors-native-recurrence.md)及[工作流程動作和觸發程序](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)。
 
 5. 若要立即隱藏觸發程序的詳細資料，請按一下圖形的標題列內部。
 
    ![摺疊圖形以隱藏詳細資料](./media/tutorial-build-scheduled-recurring-logic-app-workflow/collapse-trigger-shape.png)
 
-6. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]。 
+6. 儲存您的邏輯應用程式。 在設計工具的工具列上，選擇 [儲存]  。 
 
 邏輯應用程式目前作用中，但不會執行週期以外的任何其他作業。 因此，新增會在觸發程序引發時回應的動作。
 
@@ -115,23 +116,23 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 有了觸發程序之後，請新增可取得兩地間行進時間的[動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。 Logic Apps 會提供 Bing 地圖服務 API 的連接器，以便輕鬆地取得此資訊。 在開始這項工作之前，請確定您擁有本教學課程必要條件中所述的 Bing 地圖服務 API 金鑰。
 
-1. 在 Logic Apps 設計工具中，於您的觸發程序之下，選擇 [+新增步驟] > [新增動作]。
+1. 在 Logic Apps 設計工具中，於您的觸發程序之下，選擇 [+新增步驟]   > [新增動作]  。
 
 2. 搜尋 "maps"，然後選取此動作：**Bing 地圖服務 - 取得路線**
 
-3. 如果您沒有 Bing 地圖服務連線，系統會要求您建立連線。 提供以下連線詳細資料，然後選擇 [建立]。
+3. 如果您沒有 Bing 地圖服務連線，系統會要求您建立連線。 提供以下連線詳細資料，然後選擇 [建立]  。
 
    ![選取 [Bing 地圖服務 - 取得路線] 動作](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
    | 設定 | 值 | 說明 |
    | ------- | ----- | ----------- |
-   | 連線名稱 | BingMapsConnection | 為您的連線提供一個名稱。 | 
-   | **API 金鑰** | <*your-Bing-Maps-key*> | 輸入您先前收到的 Bing 地圖服務金鑰。 如果您沒有 Bing 地圖服務金鑰，請了解<a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">如何取得金鑰</a>。 | 
+   | 連線名稱  | BingMapsConnection | 為您的連線提供一個名稱。 | 
+   | **API 金鑰** | <*your-Bing-Maps-key*> | 輸入您先前收到的 Bing 地圖服務金鑰。 如果您沒有 Bing 地圖服務金鑰，請了解[如何取得金鑰](https://msdn.microsoft.com/library/ff428642.aspx)。 | 
    | | | |  
 
 4. 以下列描述為動作重新命名：```Get route and travel time with traffic```
 
-5. 提供 [取得路線] 動作的詳細資料，如下面範例所示和描述，例如：
+5. 提供 [取得路線]  動作的詳細資料，如下面範例所示和描述，例如：
 
    ![提供 [Bing 地圖服務 - 取得路線] 動作的資訊](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
@@ -157,9 +158,9 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 有時候，您可以在工作流程中對資料執行作業，並在後續動作中使用其結果。 若要儲存這些結果，以便輕鬆地重複使用或參考，您可以建立一些變數，以在處理後儲存這些結果。 您只能在邏輯應用程式的最上層建立變數。
 
-根據預設，前一個 [取得路線] 動作會透過 [行進持續時間流量] 欄位，傳回包含流量的目前行進時間 (以秒為單位)。 藉由轉換此值並改以分鐘為單位進行儲存，即可讓此值日後更容易重複使用，而不需再次轉換。
+根據預設，前一個 [取得路線]  動作會透過 [行進持續時間流量]  欄位，傳回包含流量的目前行進時間 (以秒為單位)。 藉由轉換此值並改以分鐘為單位進行儲存，即可讓此值日後更容易重複使用，而不需再次轉換。
 
-1. 在 [取得路線] 動作下方，選擇 [+ 新增步驟] > [新增動作]。
+1. 在 [取得路線]  動作下方，選擇 [+ 新增步驟]   > [新增動作]  。
 
 2. 搜尋「變數」，然後選取此動作：**變數 - 初始化變數**
 
@@ -172,13 +173,13 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
    | **名稱** | travelTime | 您的變數名稱 | 
-   | **類型** | 整數  | 您的變數資料類型 | 
+   | **類型** | 整數 | 您的變數資料類型 | 
    | **值** | 可將目前行進時間從秒數轉換為分鐘數的運算式 (請參閱此表格底下的步驟)。 | 您的變數初始值 | 
    |||| 
 
-   1. 若要建立 [值] 欄位的運算式，請按一下此欄位內部，動態內容清單隨即出現。 
+   1. 若要建立 [值]  欄位的運算式，請按一下此欄位內部，動態內容清單隨即出現。 
    必要時，讓您的瀏覽器變寬，直到清單出現為止。 
-   在動態內容清單中，選擇 [運算式]。 
+   在動態內容清單中，選擇 [運算式]  。 
 
       ![提供 [變數 - 初始化變數] 動作的資訊](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings.png)
 
@@ -194,20 +195,20 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
       ![輸入此運算式："div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
-   3. 將游標放在運算式內部的左括號 (**(**) 與逗號 (**,**) 之間。 
-   選擇 [動態內容]。
+   3. 將游標放在運算式內部的左括號 ( **(** ) 與逗號 ( **,** ) 之間。 
+   選擇 [動態內容]  。
 
       ![放置游標，選擇 [動態內容]](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
 
-   4. 在動態內容清單中，選取 [行進持續時間流量]。
+   4. 在動態內容清單中，選取 [行進持續時間流量]  。
 
       ![選取 [行進持續時間流量] 欄位](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
 
-   5. 在運算式內解析此欄位之後，請選擇 [確定]。
+   5. 在運算式內解析此欄位之後，請選擇 [確定]  。
 
       ![選擇 [確定]](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-5.png)
 
-      [值] 欄位隨即出現，如下所示：
+      [值]  欄位隨即出現，如下所示：
 
       ![包含已解析運算式的 [值] 欄位](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-6.png)
 
@@ -217,19 +218,19 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 ## <a name="compare-travel-time-with-limit"></a>比較行進時間與限制
 
-1. 在前一個動作之下，選擇 [+ 新增步驟] > [新增條件]。 
+1. 在前一個動作之下，選擇 [+ 新增步驟]   > [新增條件]  。 
 
 2. 以下列描述為條件重新命名：```If travel time exceeds limit```
 
 3. 建立一個條件，以檢查 **travelTime** 是否超過您指定的限制，如下所描述和顯示：
 
-   1. 在此條件內，按一下位於左邊 (寬型瀏覽器檢視) 或頂端 (窄型瀏覽器檢視) 的 [選擇值] 方塊內部。
+   1. 在此條件內，按一下位於左邊 (寬型瀏覽器檢視) 或頂端 (窄型瀏覽器檢視) 的 [選擇值]  方塊內部。
 
-   2. 從動態內容清單或參數清單中，選取 [變數] 下方的 [travelTime] 欄位。
+   2. 從動態內容清單或參數清單中，選取 [變數]  下方的 [travelTime]  欄位。
 
    3. 在比較方塊中，選取此運算子：**大於**
 
-   4. 在右側 (寬型檢視) 或底部 (窄型檢視) 的 [選擇值] 方塊中，輸入此限制：```15```
+   4. 在右側 (寬型檢視) 或底部 (窄型檢視) 的 [選擇值]  方塊中，輸入此限制：```15```
 
    例如，如果您在窄型檢視中作業，以下是您建立此條件的方式：
 
@@ -243,14 +244,14 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 現在，新增可在行進時間超過限制時傳送電子郵件給您的動作。 此電子郵件包含目前行進時間和行經指定路線所需的額外時間。 
 
-1. 在條件的 [若為 true] 分支中，選擇 [新增動作]。
+1. 在條件的 [若為 true]  分支中，選擇 [新增動作]  。
 
 2. 搜尋 [傳送電子郵件]，然後選取電子郵件連接器和您要使用的 [傳送電子郵件動作]。
 
    ![尋找並選取 [傳送電子郵件] 動作](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png)
 
-   * 對於個人 Microsoft 帳戶，選取 [Outlook.com]。 
-   * 對於 Azure 工作或學校帳戶，選取 [Office 365 Outlook]。
+   * 對於個人 Microsoft 帳戶，選取 [Outlook.com]  。 
+   * 對於 Azure 工作或學校帳戶，選取 [Office 365 Outlook]  。
 
 3. 如果您還沒有連線，系統會要求您登入您的電子郵件帳戶。
 
@@ -258,24 +259,24 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 4. 以下列描述為動作重新命名：```Send email with travel time```
 
-5. 在 [收件者] 方塊中，輸入收件者的電子郵件地址。 若要進行測試，請使用您的電子郵件地址。
+5. 在 [收件者]  方塊中，輸入收件者的電子郵件地址。 若要進行測試，請使用您的電子郵件地址。
 
-6. 在 [主旨] 方塊中，指定電子郵件的主旨，以及包含 [travelTime] 變數。
+6. 在 [主旨]  方塊中，指定電子郵件的主旨，以及包含 [travelTime]  變數。
 
    1. 輸入尾端有一個空格的文字 ```Current travel time (minutes):```。 
    
-   2. 從參數清單或動態內容清單中，選取 [變數] 下方的 [travelTime]。 
+   2. 從參數清單或動態內容清單中，選取 [變數]  下方的 [travelTime]  。 
    
       例如，如果您的瀏覽器以窄型檢視呈現：
 
       ![輸入主旨文字及傳回行進時間的運算式](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-subject-settings.png)
 
-7. 在 [內文] 方塊中，指定電子郵件內文的內容。 
+7. 在 [內文]  方塊中，指定電子郵件內文的內容。 
 
    1. 輸入尾端有一個空格的文字 ```Add extra travel time (minutes):```。 
    
    2. 必要時，讓您的瀏覽器變寬，直到動態內容清單出現為止。 
-   在動態內容清單中，選擇 [運算式]。
+   在動態內容清單中，選擇 [運算式]  。
 
       ![建立電子郵件內文的運算式](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings.png)
 
@@ -283,19 +284,19 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
       ![輸入運算式來計算額外的行進時間分鐘數](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
 
-   4. 將游標放在運算式內部的左括號 (**(**) 與逗號 (**,**) 之間。 選擇 [動態內容]。
+   4. 將游標放在運算式內部的左括號 ( **(** ) 與逗號 ( **,** ) 之間。 選擇 [動態內容]  。
 
       ![繼續建立運算式來計算額外的行進時間分鐘數](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
 
-   5. 在 [變數] 下方，選取 [travelTime]。
+   5. 在 [變數]  下方，選取 [travelTime]  。
 
       ![選取要在運算式中使用的 [travelTime] 欄位](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-4.png)
 
-   6. 在運算式內解析此欄位之後，請選擇 [確定]。
+   6. 在運算式內解析此欄位之後，請選擇 [確定]  。
 
       ![包含已解析運算式的 [內文] 欄位](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-5.png)
 
-      [內文] 欄位隨即出現，如下所示：
+      [內文]  欄位隨即出現，如下所示：
 
       ![包含已解析運算式的 [內文] 欄位](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-6.png)
 
@@ -307,7 +308,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 ## <a name="run-your-logic-app"></a>執行邏輯應用程式
 
-若要手動啟動邏輯應用程式，在設計工具工具列上，選擇 [執行]。 如果目前行進時間保持在您的限制之內，邏輯應用程式並不會執行任何作業，而會等到下一個間隔後再次檢查。
+若要手動啟動邏輯應用程式，在設計工具工具列上，選擇 [執行]  。 如果目前行進時間保持在您的限制之內，邏輯應用程式並不會執行任何作業，而會等到下一個間隔後再次檢查。
 但是，如果目前行進時間超過您的限制，您會收到一封電子郵件，其中包含目前行進時間和超過限制的分鐘數。 以下是邏輯應用程式傳送的範例電子郵件：
 
 ![包含行進時間的已傳送電子郵件](./media/tutorial-build-scheduled-recurring-logic-app-workflow/email-notification.png)
@@ -316,7 +317,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 恭喜，您已經建立並執行以排程為基礎的週期性邏輯應用程式。 
 
-若要建立使用 [排程 - 週期] 觸發程序的其他邏輯應用程式，請簽出在您建立邏輯應用程式之後可用的下列範本：
+若要建立使用 [排程 - 週期]  觸發程序的其他邏輯應用程式，請簽出在您建立邏輯應用程式之後可用的下列範本：
 
 * 讓每日提醒傳送給您。
 * 刪除較舊的 Azure blob。
@@ -324,7 +325,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果不再需要，請刪除包含邏輯應用程式的資源群組和相關資源。 在 Azure 主要功能表上，移至 [資源群組]，然後選取您邏輯應用程式的資源群組。 選擇 [刪除資源群組]。 輸入資源群組名稱作為確認，然後選擇 [刪除]。
+如果不再需要，請刪除包含邏輯應用程式的資源群組和相關資源。 在 Azure 主要功能表上，移至 [資源群組]  ，然後選取您邏輯應用程式的資源群組。 選擇 [刪除資源群組]  。 輸入資源群組名稱作為確認，然後選擇 [刪除]  。
 
 ![[概觀] > [刪除資源群組]](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 

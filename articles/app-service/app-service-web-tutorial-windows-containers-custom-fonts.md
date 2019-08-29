@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 15a1e388b17a66bf22fc0fd51744cb0aaa1b36d4
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f44c7a66b6d8fe7ed6ad114ea176c84351ac6493
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071508"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>使用 Windows 容器將 ASP.NET 應用程式移轉至 Azure App Service (預覽)
 
@@ -35,8 +34,8 @@ ms.locfileid: "65415514"
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">安裝適用於 Windows 的 Docker</a>。
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">切換 Docker 以執行 Windows 容器</a>。
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">安裝 Visual Studio 2019</a>，記得包含 **ASP.NET 與網頁程式開發**與 **Azure 開發**工作負載。 若您已安裝 Visual Studio 2019：
-    - 按一下 [說明] > [檢查更新] 以安裝最新的 Visual Studio 更新。
-    - 按一下 [工具] > [取得工具與功能] 以在 Visual Studio 中新增工作負載。
+    - 按一下 [說明]   > [檢查更新]  以安裝最新的 Visual Studio 更新。
+    - 按一下 [工具]   > [取得工具與功能]  以在 Visual Studio 中新增工作負載。
 
 ## <a name="set-up-the-app-locally"></a>在本機設定應用程式
 
@@ -51,7 +50,7 @@ ms.locfileid: "65415514"
 
 ### <a name="install-the-font"></a>安裝字型
 
-在 Windows 檔案總管中，瀏覽至 _custom-font-win-container-master/CustomFontSample_，以滑鼠右鍵按一下 _FrederickatheGreat-Regular.ttf_，然後選取 [安裝]。
+在 Windows 檔案總管中，瀏覽至 _custom-font-win-container-master/CustomFontSample_，以滑鼠右鍵按一下 _FrederickatheGreat-Regular.ttf_，然後選取 [安裝]  。
 
 可從 [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great) 下載此字型。
 
@@ -67,11 +66,11 @@ ms.locfileid: "65415514"
 
 ### <a name="configure-windows-container"></a>設定 Windows 容器
 
-在 [方案總管] 中，以滑鼠右鍵按一下 **CustomFontSample** 專案，然後選取 [新增] > [容器協調流程支援]。
+在 [方案總管] 中，以滑鼠右鍵按一下 **CustomFontSample** 專案，然後選取 [新增]   > [容器協調流程支援]  。
 
 ![[新增 ASP.NET 專案] 對話方塊](media/app-service-web-tutorial-windows-containers-custom-fonts/enable-container-orchestration.png)
 
-選取 [Docker Compose] > [確定]。
+選取 [Docker Compose]   > [確定]  。
 
 您的專案現在已設定為在 Windows 容器中執行。 _Dockerfile_ 已新增至 **CustomFontSample** 專案，而且 **docker-compose** 專案已新增至解決方案。 
 
@@ -97,30 +96,30 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 ### <a name="open-publish-wizard"></a>開啟發佈精靈
 
-在 [方案總管] 中，以滑鼠右鍵按一下 **CustomFontSample** 專案，然後選取 [發佈]。
+在 [方案總管] 中，以滑鼠右鍵按一下 **CustomFontSample** 專案，然後選取 [發佈]  。
 
 ![[新增 ASP.NET 專案] 對話方塊](media/app-service-web-tutorial-windows-containers-custom-fonts/open-publish-wizard.png)
 
 ### <a name="create-registry-and-publish"></a>建立登錄並發佈
 
-在 [發佈精靈] 中，選取 [容器登錄] > [建立新的 Azure Container Registry] > [發佈]。
+在 [發佈精靈] 中，選取 [容器登錄]   > [建立新的 Azure Container Registry]   > [發佈]  。
 
 ![[新增 ASP.NET 專案] 對話方塊](media/app-service-web-tutorial-windows-containers-custom-fonts/create-registry.png)
 
 ### <a name="sign-in-with-azure-account"></a>使用 Azure 帳戶登入
 
-在 [建立新的 Azure Container Registry] 對話方塊中，選取 [新增帳戶]，然後登入您的 Azure 訂用帳戶。 如果您已登入，請從下拉式清單中選取包含所需訂用帳戶的帳戶。
+在 [建立新的 Azure Container Registry]  對話方塊中，選取 [新增帳戶]  ，然後登入您的 Azure 訂用帳戶。 如果您已登入，請從下拉式清單中選取包含所需訂用帳戶的帳戶。
 
 ![登入 Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/add-an-account.png)
 
 ### <a name="configure-the-registry"></a>設定登錄
 
-依據下表建議的值設定新的容器登錄。 完成後，按一下 [建立]。
+依據下表建議的值設定新的容器登錄。 完成後，按一下 [建立]  。
 
 | 設定  | 建議的值 | 取得詳細資訊 |
 | ----------------- | ------------ | ----|
 |**DNS 首碼**| 保留產生的登錄名稱，或將它變更為其他唯一名稱。 |  |
-|**資源群組**| 按一下 [新增]，輸入 **myResourceGroup**，然後按一下 [確定]。 |  |
+|**資源群組**| 按一下 [新增]  ，輸入 **myResourceGroup**，然後按一下 [確定]  。 |  |
 |**SKU**| 基本 | [定價層](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**登錄位置**| 西歐 | |
 
@@ -134,7 +133,7 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
-從左側功能表，選取 [建立資源] > [網路]  > [用於容器的 Web App]。
+從左側功能表，選取 [建立資源]   > [網路]   > [用於容器的 Web App]  。
 
 ### <a name="configure-the-new-web-app"></a>設定新的 Web 應用程式
 
@@ -143,24 +142,24 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 | 設定  | 建議的值 | 取得詳細資訊 |
 | ----------------- | ------------ | ----|
 |**應用程式名稱**| 輸入唯一名稱。 | Web 應用程式的 URL 是 `http://<app_name>.azurewebsites.net`，其中 `<app_name>` 是您的應用程式名稱。 |
-|**資源群組**| 選取 [使用現有的項目]，然後輸入 **myResourceGroup**。 |  |
+|**資源群組**| 選取 [使用現有的項目]  ，然後輸入 **myResourceGroup**。 |  |
 |**作業系統**| Windows (預覽) | |
 
 ### <a name="configure-app-service-plan"></a>設定 App Service 方案
 
-按一下 [App Service 方案/位置] > [新建]。 指定新方案的名稱，選取 [西歐] 作為位置，然後按一下 [確定]。
+按一下 [App Service 方案/位置]   > [新建]  。 指定新方案的名稱，選取 [西歐]  作為位置，然後按一下 [確定]  。
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-service-plan.png)
 
 ### <a name="configure-container"></a>設定容器
 
-按一下 [設定容器] > [Azure Container Registry]。 選取您稍早在[發佈至 Azure Container Registry](#publish-to-azure-container-registry) 中建立的登錄、映像與標記，然後按一下 [確定]。
+按一下 [設定容器]   > [Azure Container Registry]  。 選取您稍早在[發佈至 Azure Container Registry](#publish-to-azure-container-registry) 中建立的登錄、映像與標記，然後按一下 [確定]  。
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-container.png)
 
 ### <a name="complete-app-creation"></a>完成應用程式建立作業
 
-按一下 [建立]，並等候 Azure 建立所需的資源。
+按一下 [建立]  ，並等候 Azure 建立所需的資源。
 
 ## <a name="browse-to-the-web-app"></a>瀏覽至 Web 應用程式
 
@@ -168,9 +167,9 @@ Azure 作業完成時，會顯示通知方塊。
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
 
-1. 按一下 [前往資源]。
+1. 按一下 [前往資源]  。
 
-2. 在應用程式頁面中，按一下 [URL] 下方的連結。
+2. 在應用程式頁面中，按一下 [URL]  下方的連結。
 
 新的瀏覽器頁面隨即開啟，並顯示下列頁面：
 

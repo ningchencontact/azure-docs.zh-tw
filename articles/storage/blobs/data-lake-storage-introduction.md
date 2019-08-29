@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de2dc5068dc454925744688a43f49a855aac42f3
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847222"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991839"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 簡介
 
@@ -64,7 +64,7 @@ Data Lake Storage Gen2 是巨量資料分析的額外功能，建置在 Azure Bl
 | 概念                                | 最上層組織 | 較低層級組織                                            | 資料容器 |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs – 一般用途物件儲存體 | 容器              | 虛擬目錄 (僅限 SDK – 不提供不可部分完成操作) | Blob           |
-| ADLS Gen2 – 分析儲存體          | 檔案系統             | 目錄                                                           | 檔案           |
+| ADLS Gen2 – 分析儲存體          | 容器            | 目錄                                                           | 檔案           |
 
 ## <a name="supported-open-source-platforms"></a>支援的開放原始碼平台
 

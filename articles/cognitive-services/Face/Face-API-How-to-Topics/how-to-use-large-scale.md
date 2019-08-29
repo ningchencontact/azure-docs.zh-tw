@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: dcbec817f771324219a68de96eb5dd262a887fc1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d8ecfb53b78277e4b0e4a85d60fb6712d0bc2292
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449051"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114843"
 ---
 # <a name="example-use-the-large-scale-feature"></a>範例：使用大型功能
 
@@ -32,7 +32,7 @@ LargePersonGroup 和 LargeFaceList 統稱為大規模作業。 LargePersonGroup 
 
 當您使用臉部 API 用戶端程式庫時，會透過 FaceClient 類別的建構函式，傳入訂用帳戶金鑰和訂用帳戶端點。 例如︰
 
-```CSharp
+```csharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
 string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
@@ -73,7 +73,7 @@ faceClient.Endpoint = SubscriptionEndpoint
 
 上表是 FaceList 與 LargeFaceList 之間的清單層級作業比較。 如所示，與 FaceList 相比時，LargeFaceList 附帶「定型」和「取得定型狀態」這兩項新作業。 將 LargeFaceList 定型是 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) \(英文\) 作業的前置條件。 FaceList 不需要定型。 以下程式碼片段是一個等候 LargeFaceList 定型的協助程式函式：
 
-```CSharp
+```csharp
 /// <summary>
 /// Helper function to train LargeFaceList and wait for finish.
 /// </summary>
@@ -123,7 +123,7 @@ private static async Task TrainLargeFaceList(
 
 以前，含已新增臉部的 FaceList 與 FindSimilar 的一般用法如下所示：
 
-```CSharp
+```csharp
 // Create a FaceList.
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
@@ -156,7 +156,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 
 將其移轉至 LargeFaceList 時，即會變成下列內容：
 
-```CSharp
+```csharp
 // Create a LargeFaceList.
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
@@ -233,7 +233,7 @@ LargePersonGroup 或 LargeFaceList 中的人員或臉部只有在定型後才可
 
 假設有一個類似於 `TrainLargeFaceList` 的 `TrainLargePersonGroup` 函式。 透過叫用 `System.Timers` 中的 [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) \(部分機器翻譯\) 類別，以在 LargePersonGroup 上進行獨立定型的一般實作為：
 
-```CSharp
+```csharp
 private static void Main()
 {
     // Create a LargePersonGroup.

@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 6680ddd65ce43a71873acb823f8ae57b449a56be
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 47b47a91b0cd223a17d6779d7f0db7cdb7c88a0b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423516"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123288"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>快速入門：使用 Bing 拼字檢查 REST API 和 Java 進行拼字檢查
 
@@ -110,7 +110,7 @@ ms.locfileid: "68423516"
     new InputStreamReader(connection.getInputStream()));
     String line;
     while ((line = in.readLine()) != null) {
-        System.out.println(prettify(line);
+        System.out.println(prettify(line));
     }
     in.close();
     ```
@@ -118,17 +118,16 @@ ms.locfileid: "68423516"
 ## <a name="call-the-api"></a>呼叫 API
 
 在應用程式的 main 函式中，呼叫您在上方建立的 check() 方法。
-
-    ```java
-    public static void main(String[] args) {
-        try {
-            check();
+```java
+        public static void main(String[] args) {
+            try {
+                check();
+            }
+            catch (Exception e) {
+                System.out.println (e);
+            }
         }
-        catch (Exception e) {
-            System.out.println (e);
-        }
-    }
-    ```
+```
 
 ## <a name="run-the-application"></a>執行應用程式
 

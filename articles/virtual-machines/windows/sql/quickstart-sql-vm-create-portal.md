@@ -7,19 +7,18 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 50297147d371898c35259bf4be59337eaa716579
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3ba804f76f8d443c0b49a9b4e5425333f01f0b9a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877875"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102334"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 SQL Server 2017 Windows 虛擬機器
 
@@ -36,7 +35,7 @@ ms.locfileid: "69877875"
 
 ## <a id="subscription"></a> 取得 Azure 訂用帳戶
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a id="select"></a> 選取 SQL Server VM 映像
 
@@ -64,7 +63,7 @@ ms.locfileid: "69877875"
     1. 輸入 _SQLVM_ 作為 [虛擬機器名稱]  。 
     1. 選擇 [區域]  的位置。 
     1. 基於此快速入門的目的，請將 [可用性選項]  設定保留為 [不需要基礎結構備援]  。 如需關於可用性選項的詳細資訊，請參閱[可用性](../../windows/availability.md)。 
-    1. 在 [**映像**] 清單中，選取 [免費的 SQL Server 授權：  Windows Server 2016 上的 SQL Server 2017 Developer]。 
+    1. 在 **映像** 清單中，選取免費的 _SQL Server 授權：_ Windows Server 2016 上的 SQL Server 2017 Developer 的映像。 
     1. 選擇為虛擬機器的**大小** [變更大小]  ，然後選取 **A2 Basic** 供應項目。 在資源使用完畢後請務必加以清除，以防止產生任何非預期的費用。 
 
    ![執行個體詳細資料](media/quickstart-sql-vm-create-portal/basics-instance-details.png)

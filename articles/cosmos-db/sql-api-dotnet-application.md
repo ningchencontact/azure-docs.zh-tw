@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9824e1468604763834e37abe94290d68d81077ab
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815147"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020117"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教學課程：使用 .NET SDK，透過 Azure Cosmos DB 開發 ASP NET Core MVC Web 應用程式 
 
@@ -120,22 +120,6 @@ ms.locfileid: "68815147"
    
    Azure Cosmos DB 中所儲存的資料都會透過線路傳遞，並儲存為 JSON。 如需透過 JSON.NET 控管物件序列化/取消序列化，您可以使用剛才所建立 **Item** 類別中示範的 **JsonProperty** 屬性。 使用 JSON 時，您不但可以控管屬性名稱格式，也可以跟命名 **Completed** 屬性時一樣地重新命名您的 .NET 屬性。 
 
-### <a name="add-a-controller"></a>新增控制器
-
-1. 從 [方案總管]  中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]  ，然後選取 [控制器]  。 [ **新增 Scaffold** ] 對話方塊隨即出現。
-
-1. 選取 [MVC 控制器 - 空]  ，然後選取 [新增]  。
-
-   ![[新增 Scaffold] 對話方塊的螢幕擷取畫面，其中已醒目提示 [MVC  控制器 - 空白] 選項](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-
-1. 將您的新控制器命名為 **ItemController**，然後以下列程式碼取代該檔案中的程式碼：
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
-
-   此處所使用的 **ValidateAntiForgeryToken** 屬性可協助應用程式防止跨網站偽造要求攻擊。 這不光只是新增此屬性，您的檢視也應該使用這個防偽權杖。 如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱[防止跨網站偽造要求][Preventing Cross-Site Request Forgery]。 [GitHub][GitHub] 上提供的原始程式碼已有完整實作。
-
-   我們也會在方法參數上使用 **Bind** 屬性，以協助防範 over-posting 攻擊。 如需詳細資訊，請參閱 [ASP.NET MVC 中的基本 CRUD 作業][Basic CRUD Operations in ASP.NET MVC]。
-
 ### <a name="add-views"></a>新增檢視
 
 接下來，讓我們建立下列三個檢視： 
@@ -190,6 +174,22 @@ ms.locfileid: "68815147"
    * 選取 [新增]  。
 
 完成這項作業之後，請將 Visual Studio 中的所有 cshtml 文件關閉，您稍後會回頭使用這些檢視。
+
+### <a name="add-a-controller"></a>新增控制器
+
+1. 從 [方案總管]  中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]  ，然後選取 [控制器]  。 [ **新增 Scaffold** ] 對話方塊隨即出現。
+
+1. 選取 [MVC 控制器 - 空]  ，然後選取 [新增]  。
+
+   ![[新增 Scaffold] 對話方塊的螢幕擷取畫面，其中已醒目提示 [MVC  控制器 - 空白] 選項](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+
+1. 將您的新控制器命名為 **ItemController**，然後以下列程式碼取代該檔案中的程式碼：
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+
+   此處所使用的 **ValidateAntiForgeryToken** 屬性可協助應用程式防止跨網站偽造要求攻擊。 這不光只是新增此屬性，您的檢視也應該使用這個防偽權杖。 如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱[防止跨網站偽造要求][Preventing Cross-Site Request Forgery]。 [GitHub][GitHub] 上提供的原始程式碼已有完整實作。
+
+   我們也會在方法參數上使用 **Bind** 屬性，以協助防範 over-posting 攻擊。 如需詳細資訊，請參閱 [ASP.NET MVC 中的基本 CRUD 作業][Basic CRUD Operations in ASP.NET MVC]。
 
 ## <a name="connect-to-cosmosdb"></a>步驟 5：連線至 Azure Cosmos DB 
 

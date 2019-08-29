@@ -9,19 +9,19 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 0675be988e7e9560560dd07338563c9fa22fcb4c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: af5b16448a39e0106dbc04724607ff603483484c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881647"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997750"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>什麼是 IoT Central (預覽功能)？
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> Azure IoT Central 中的 [IoT 隨插即用](https://aka.ms/iot-pnp-docs)功能目前為公開預覽狀態。 請勿將已啟用 IoT 隨插即用的 IoT Central 應用程式用於生產工作負載。 針對生產環境，請使用從目前正式推出的應用程式範本建立的 IoT Central 應用程式。
+> Azure IoT Central 中的 [IoT 隨插即用](../iot-pnp/overview-iot-plug-and-play.md)功能目前為公開預覽狀態。 請勿將已啟用 IoT 隨插即用的 IoT Central 應用程式用於生產工作負載。 針對生產環境，請使用從目前正式推出的應用程式範本建立的 IoT Central 應用程式。
 
 Azure IoT Central 是一個完全受控的 IoT 軟體即服務解決方案，可讓您輕鬆地建立連接實體與數位世界的產品。 您可以將連線的產品願景帶到生活中，方法如下：
 
@@ -95,7 +95,7 @@ Azure IoT Central 文件提及四個會與 Azure IoT Central 應用程式互動�
 
 ### <a name="create-device-templates"></a>建立裝置範本
 
-[IoT 隨插即用](https://aka.ms/iot-pnp-docs)可讓 IoT Central 整合裝置，您不需要撰寫任何內嵌的裝置程式碼。 IoT 隨插即用的核心是說明裝置功能的裝置功能模型結構描述。 在 IoT Central 預覽版應用程式中，裝置範本會使用這些 IoT 隨插即用裝置功能模型。
+[IoT 隨插即用](../iot-pnp/overview-iot-plug-and-play.md)可讓 IoT Central 整合裝置，您不需要撰寫任何內嵌的裝置程式碼。 IoT 隨插即用的核心是說明裝置功能的裝置功能模型結構描述。 在 IoT Central 預覽版應用程式中，裝置範本會使用這些 IoT 隨插即用裝置功能模型。
 
 身為建置者，您可以利用數個選項來建立裝置範本：
 
@@ -151,4 +151,4 @@ Azure IoT 中心應用程式完全由 Microsoft 裝載，可降低管理您的�
   - [以建置者身分，新增規則以讓您的解決方案自動化](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [以操作員身分，監視您的裝置](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [以操作員身分，將裝置新增至解決方案](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- 深入了解 [IoT 隨插即用](https://aka.ms/iot-pnp-docs)
+- 深入了解 [IoT 隨插即用](../iot-pnp/overview-iot-plug-and-play.md)

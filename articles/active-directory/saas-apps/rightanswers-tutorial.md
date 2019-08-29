@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 5f083178ca7e28831bf4f60940c3ced73a427dda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f242b2e33b50aa955446ae2b1f62421d39e58418
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092775"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>教學課程：Azure Active Directory 與 RightAnswers 整合
 
@@ -110,7 +110,7 @@ RightAnswers 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼 (實體識別碼)]  文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.rightanswers.com:<identifier>/portal`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [RightAnswers 用戶端支援小組](https://www.rightanswers.com/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [RightAnswers 用戶端支援小組](https://support.rightanswers.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入]  頁面的 [SAML 簽署憑證]  區段中按一下 [下載]  ，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -128,7 +128,7 @@ RightAnswers 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-rightanswers-single-sign-on"></a>設定 RightAnswers 單一登入
 
-若要在 **RightAnswers** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [RightAnswers 支援小組](https://www.rightanswers.com/contact-us/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **RightAnswers** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML]  和所複製的適當 URL 傳送給 [RightAnswers 支援小組](https://support.rightanswers.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!NOTE]
 > RightAnswers 支援小組必須執行實際的 SSO 設定。 當您的訂用帳戶啟用 SSO 之後，您會收到通知。

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 213794828b838010b526026ae15f24122748e141
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5de0fe47d8ca6372c35cc4f148f97b366a1a742c
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989432"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971405"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 JavaScript SDK 建置 Node.js 主控台應用程式，以管理 Azure Cosmos DB SQL API 資料
 
@@ -61,7 +61,7 @@ ms.locfileid: "68989432"
 2. 找出您想儲存 Node.js 應用程式的資料夾或目錄位置。
 3. 使用下列命令，建立兩個空白的 JavaScript 檔案：
 
-   * Windows：
+   * Windows:
      * ```fsutil file createnew app.js 0```
      * ```fsutil file createnew config.js 0```
 
@@ -138,7 +138,7 @@ ms.locfileid: "68989432"
 1. 複製並貼上下列程式碼，以設定資料庫識別碼和容器識別碼。 這些識別碼可讓 Azure Cosmos DB 用戶端尋找正確的資料庫和容器。
 
    ```javascript
-   const client = new CosmosClient({ endpoint, key } });
+   const client = new CosmosClient({ endpoint, key });
 
    // ADD THIS PART TO YOUR CODE
    const HttpStatusCodes = { NOTFOUND: 404 };

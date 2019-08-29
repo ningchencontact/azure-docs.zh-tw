@@ -7,17 +7,16 @@ manager: jeconnoc
 keywords: azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 36dbfca577f69c3a7c49d03ef31bc18c71222f95
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f3fc7691fc3afa3a1fe886655353d9ed41f631cc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881283"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096085"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
 Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、Java、JavaScript、PowerShell 和 Python。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發 [無伺服器](https://azure.microsoft.com/solutions/serverless/)應用程式。
@@ -45,7 +44,7 @@ Functions 提供範本，可讓您開始使用重要的案例，包括下列案�
 * **CosmosDBTrigger** - 當 Azure Cosmos DB 文件在 NoSQL 資料庫的集合中新增或更新時進行處理。 如需詳細資訊，請參閱 [Azure Cosmos DB 繫結](functions-bindings-cosmosdb-v2.md)。
 * **BlobTrigger** - 在新增至容器時，處理 Azure 儲存體 blob。 您可以使用此函式調整映像大小。 如需詳細資訊，請參閱 [Blob 儲存體繫結](functions-bindings-storage-blob.md)。
 * **QueueTrigger** - 在訊息送達 Azure 儲存體佇列中時回應。 如需詳細資訊，請參閱 [Azure 佇列儲存體繫結](functions-bindings-storage-queue.md)。
-* **EventGridTrigger** - 回應傳遞到 Azure 事件方格中之訂用帳戶的事件。 支援可接收事件 (包含篩選) 的訂用帳戶型模型。 適合建置事件型架構的解決方案。 如需範例，請參閱[使用事件方格自動調整已上傳映像的大小](../event-grid/resize-images-on-storage-blob-upload-event.md)。
+* **EventGridTrigger** -  回應傳遞到 Azure 事件方格中之訂用帳戶的事件。 支援可接收事件 (包含篩選) 的訂用帳戶型模型。 適合建置事件型架構的解決方案。 如需範例，請參閱[使用事件方格自動調整已上傳映像的大小](../event-grid/resize-images-on-storage-blob-upload-event.md)。
 * **EventHubTrigger** - 回應傳送到 Azure 事件中樞的事件。 特別適合用於應用程式檢測、使用者經驗或工作流程處理及物聯網 (IoT) 案例。 如需詳細資訊，請參閱[事件中樞繫結](functions-bindings-event-hubs.md)。
 * **ServiceBusQueueTrigger** - 將程式碼連接至其他 Azure 服務或內部部署服務，方法是接聽訊息佇列。 如需詳細資訊，請參閱[服務匯流排繫結](functions-bindings-service-bus.md)。
 * **ServiceBusTopicTrigger** - 將程式碼連接至其他 Azure 服務或內部部署服務，方法是訂閱主題。 如需詳細資訊，請參閱[服務匯流排繫結](functions-bindings-service-bus.md)。

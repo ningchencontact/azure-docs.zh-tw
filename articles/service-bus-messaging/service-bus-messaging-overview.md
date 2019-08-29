@@ -11,22 +11,22 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988497"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013126"
 ---
 # <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
 
-Microsoft Azure 服務匯流排是完全受控的企業[整合](https://azure.com/integration)訊息代理程式。 服務匯流排最常用來讓應用程式和服務彼此分離，對於非同步的資料和狀態傳輸來說，是可靠且安全的平台。 資料會使用「訊息」在不同的應用程式和服務之間傳輸。 訊息使用的是二進位格式，可包含 JSON、XML 或純文字。 
+Microsoft Azure 服務匯流排是完全受控的企業[整合](https://azure.com/integration)訊息代理程式。 服務匯流排最常用來讓應用程式和服務彼此分離，對於非同步的資料和狀態傳輸來說，是可靠且安全的平台。 資料會使用「訊息」  在不同的應用程式和服務之間傳輸。 訊息使用的是二進位格式，可包含 JSON、XML 或純文字。 
 
 一些常見的傳訊案例如下：
 
 * 傳訊：傳輸業務資料，例如銷售額、採購訂單、日誌或庫存進出狀況。
 * 將應用程式分離：提升應用程式和服務的可靠性與延展性 (用戶端和服務不需要同時在線上)。
-* 主題和訂用帳戶：讓「發行者」和「訂閱者」之間有 1:n 關聯性。
+* 主題和訂用帳戶：讓「發行者」和「訂閱者」之間有 1:n  關聯性。
 * 訊息工作階段：實作需要訊息排序或訊息延遲的工作流程。
 
 ## <a name="namespaces"></a>命名空間
@@ -35,15 +35,15 @@ Microsoft Azure 服務匯流排是完全受控的企業[整合](https://azure.co
 
 ## <a name="queues"></a>佇列
 
-「佇列」會收發訊息。 在接收端應用程式有空接收並處理訊息之前，佇列可讓您先儲存訊息。
+「佇列」  會收發訊息。 在接收端應用程式有空接收並處理訊息之前，佇列可讓您先儲存訊息。
 
 ![佇列](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-佇列中的訊息會進行排序並加上抵達時間戳記。 訊息一經接受就會安全地保存在備援儲存體中。 訊息會採用「提取」模式來傳遞，此模式會在收到要求時傳遞訊息。
+佇列中的訊息會進行排序並加上抵達時間戳記。 訊息一經接受就會安全地保存在備援儲存體中。 訊息會採用「提取」  模式來傳遞，此模式會在收到要求時傳遞訊息。
 
 ## <a name="topics"></a>主題
 
-您也可以使用「主題」來收送訊息。 佇列通常用於點對點通訊，主題則適用於發佈/訂閱案例。
+您也可以使用「主題」  來收送訊息。 佇列通常用於點對點通訊，主題則適用於發佈/訂閱案例。
 
 ![話題](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
@@ -97,7 +97,7 @@ Microsoft Azure 服務匯流排是完全受控的企業[整合](https://azure.co
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS、RBAC 和 Azure 資源的受控識別
 
-服務匯流排支援安全性通訊協定，例如[共用存取簽章](service-bus-sas.md) (SAS)、[角色型存取控制](service-bus-role-based-access-control.md) (RBAC) 和[Azure 資源的受控識別](service-bus-managed-service-identity.md)。
+服務匯流排支援安全性通訊協定，例如[共用存取簽章](service-bus-sas.md) (SAS)、[角色型存取控制](authenticate-application.md) (RBAC) 和[Azure 資源的受控識別](service-bus-managed-service-identity.md)。
 
 ### <a name="geo-disaster-recovery"></a>異地災害復原
 

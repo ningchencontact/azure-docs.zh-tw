@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 089334d32ca54035abfbf59446366ecbe3378c15
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 791017fffe96455157388fb43e0c1d65faba8933
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919748"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071528"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>在 Azure (預覽) 中執行自訂 Windows 容器
 
@@ -35,28 +34,28 @@ ms.locfileid: "64919748"
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">安裝適用於 Windows 的 Docker</a>。
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">切換 Docker 以執行 Windows 容器</a>。
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">安裝 Visual Studio 2017</a>，記得包含 **ASP.NET 與網頁程式開發**與 **Azure 開發**工作負載。 若您已安裝 Visual Studio 2017：
-    - 按一下 [說明] > [檢查更新] 以安裝最新的 Visual Studio 更新。
-    - 按一下 [工具] > [取得工具與功能] 以在 Visual Studio 中新增工作負載。
+    - 按一下 [說明]   > [檢查更新]  以安裝最新的 Visual Studio 更新。
+    - 按一下 [工具]   > [取得工具與功能]  以在 Visual Studio 中新增工作負載。
 
 ## <a name="create-an-aspnet-web-app"></a>建立 ASP.NET Web 應用程式
 
-在 Visual Studio 中，選取 [檔案] > [新增] > [專案] 以建立專案。 
+在 Visual Studio 中，選取 [檔案] > [新增] > [專案]  以建立專案。 
 
-在 [新增專案] 對話方塊中，選取 [Visual C#] > [Web] > [ASP.NET Web 應用程式 (.NET Framework)]。
+在 [新增專案]  對話方塊中，選取 [Visual C#] > [Web] > [ASP.NET Web 應用程式 (.NET Framework)]  。
 
-將應用程式命名為 _myFirstAzureWebApp_，然後選取 [確定]。
+將應用程式命名為 _myFirstAzureWebApp_，然後選取 [確定]  。
    
 ![New Project dialog box](./media/app-service-web-get-started-windows-container/new-project.png)
 
-您可以將任何類型的 ASP.NET web 應用程式部署至 Azure。 在本快速入門中，選取 **MVC** 範本，並確定驗證設定為 [不需要驗證]。
+您可以將任何類型的 ASP.NET web 應用程式部署至 Azure。 在本快速入門中，選取 **MVC** 範本，並確定驗證設定為 [不需要驗證]  。
 
-選取 [啟用 Docker Compose 支援]。
+選取 [啟用 Docker Compose 支援]  。
 
-選取 [確定] 。
+選取 [確定]  。
 
 ![[新增 ASP.NET 專案] 對話方塊](./media/app-service-web-get-started-windows-container/select-mvc-template.png)
 
-如果 _Dockerfile_ 檔案沒有自動開啟，請從 [方案總管] 開啟它。
+如果 _Dockerfile_ 檔案沒有自動開啟，請從 [方案總管]  開啟它。
 
 您需要使用[支援的父映像](#use-a-different-parent-image)。 請使用下列程式碼取代 `FROM` 這一行以變更父映像，然後儲存檔案：
 
@@ -64,23 +63,23 @@ ms.locfileid: "64919748"
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
-從功能表中，選取 [偵錯] > [啟動但不偵錯]，以在本機執行 Web 應用程式。
+從功能表中，選取 [偵錯] > [啟動但不偵錯]  ，以在本機執行 Web 應用程式。
 
 ![在本機執行應用程式](./media/app-service-web-get-started-windows-container/local-web-app.png)
 
 ## <a name="publish-to-docker-hub"></a>發佈至 Docker Hub
 
-在 [方案總管] 中，以滑鼠右鍵按一下 **myFirstAzureWebApp** 專案，然後選取 [發佈]。
+在 [方案總管]  中，以滑鼠右鍵按一下 **myFirstAzureWebApp** 專案，然後選取 [發佈]  。
 
 ![從方案總管發佈](./media/app-service-web-get-started-windows-container/solution-explorer-publish.png)
 
-發佈精靈會自動啟動。 選取 [容器登錄] > [Docker Hub] > [發佈]。
+發佈精靈會自動啟動。 選取 [容器登錄]   > [Docker Hub]   > [發佈]  。
 
 ![從專案概觀頁面發佈](./media/app-service-web-get-started-windows-container/publish-to-docker.png)
 
-提供 Docker Hub 帳戶認證並按一下 [儲存]。 
+提供 Docker Hub 帳戶認證並按一下 [儲存]  。 
 
-等待部署完成。 [發佈] 頁面現在會顯示您稍後將在 App Service 中使用的存放庫名稱。
+等待部署完成。 [發佈]  頁面現在會顯示您稍後將在 App Service 中使用的存放庫名稱。
 
 ![從專案概觀頁面發佈](./media/app-service-web-get-started-windows-container/published-docker-repository.png)
 
@@ -92,25 +91,25 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 
 ## <a name="create-a-windows-container-app"></a>建立 Windows 容器應用程式
 
-1. 選擇 Azure 入口網站左上角的 [建立資源]。
+1. 選擇 Azure 入口網站左上角的 [建立資源]  。
 
-2. 在 Azure Marketplace 資源清單上方的搜尋方塊中，搜尋並選取 [適用於容器的 Web 應用程式]。
+2. 在 Azure Marketplace 資源清單上方的搜尋方塊中，搜尋並選取 [適用於容器的 Web 應用程式]  。
 
-3. 提供應用程式名稱 (例如 *win-container-demo*)，接受預設值以建立新的資源群組，然後按一下 [作業系統] 方塊中的 [Windows (預覽)]。
+3. 提供應用程式名稱 (例如 *win-container-demo*)，接受預設值以建立新的資源群組，然後按一下 [作業系統]  方塊中的 [Windows (預覽)]  。
 
     ![](media/app-service-web-get-started-windows-container/portal-create-page.png)
 
-4. 按一下 [App Service 方案/位置] > [新建]，以建立 App Service 方案。 為新方案指定名稱，並接受預設值，然後按一下 [確定]。
+4. 按一下 [App Service 方案/位置]   > [新建]  ，以建立 App Service 方案。 為新方案指定名稱，並接受預設值，然後按一下 [確定]  。
 
     ![](media/app-service-web-get-started-windows-container/portal-create-plan.png)
 
-5. 按一下 [設定容器]。 在 [映像與選擇性標記] 中，使用在[發佈至 Docker Hub](#publish-to-docker-hub) 中複製的存放庫名稱，然後按一下 [確定]。
+5. 按一下 [設定容器]  。 在 [映像與選擇性標記]  中，使用在[發佈至 Docker Hub](#publish-to-docker-hub) 中複製的存放庫名稱，然後按一下 [確定]  。
 
     ![](media/app-service-web-get-started-windows-container/portal-configure-container-vs.png)
 
     如果您在他處有用於 Web 應用程式的自訂映像 (例如，在 [Azure Container Registry](/azure/container-registry/) 中或任何其他私人存放庫中)，您可以在此處加以設定。
 
-6. 按一下 [建立]，並等候 Azure 建立所需的資源。
+6. 按一下 [建立]  ，並等候 Azure 建立所需的資源。
 
 ## <a name="browse-to-the-container-app"></a>瀏覽至容器應用程式
 
@@ -118,9 +117,9 @@ Azure 作業完成時，會顯示通知方塊。
 
 ![](media/app-service-web-get-started-windows-container/portal-create-finished.png)
 
-1. 按一下 [前往資源]。
+1. 按一下 [前往資源]  。
 
-2. 在應用程式頁面中，按一下 [URL] 下方的連結。
+2. 在應用程式頁面中，按一下 [URL]  下方的連結。
 
 新的瀏覽器頁面隨即開啟，並顯示下列頁面：
 
@@ -151,7 +150,7 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
 
 ## <a name="update-locally-and-redeploy"></a>在本機更新和重新部署
 
-從 [方案總管]，開啟 _Views\Home\Index.cshtml_。
+從 [方案總管]  ，開啟 _Views\Home\Index.cshtml_。
 
 尋找頂端附近的 `<div class="jumbotron">` HTML 標籤，並以下列程式碼取代整個元素︰
 
@@ -162,11 +161,11 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
 </div>
 ```
 
-若要重新部署至 Azure，請在 [方案總管] 中，以滑鼠右鍵按一下 **myFirstAzureWebApp** 專案，然後選取 [發佈]。
+若要重新部署至 Azure，請在 [方案總管]  中，以滑鼠右鍵按一下 **myFirstAzureWebApp** 專案，然後選取 [發佈]  。
 
-在 [發佈] 頁面上，選取 [發佈] 並等候發佈完成。
+在 [發佈] 頁面上，選取 [發佈]  並等候發佈完成。
 
-若要告知 App Service 從 Docker Hub 提取新映像，請重新啟動應用程式。 返回入口網站的應用程式頁面，按一下 [重新啟動] > [是]。
+若要告知 App Service 從 Docker Hub 提取新映像，請重新啟動應用程式。 返回入口網站的應用程式頁面，按一下 [重新啟動]   > [是]  。
 
 ![在 Azure 中重新啟動 Web 應用程式](./media/app-service-web-get-started-windows-container/portal-restart-app.png)
 

@@ -7,19 +7,18 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 69789f11cc0ab3702ebbc905ce86f9992868e259
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 69781b7c5187bd9166946a96a8b47233d0f77208
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715476"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100682"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 來建立 SQL Server Windows 虛擬機器
 
@@ -175,7 +174,7 @@ ms.locfileid: "64715476"
 
 1. 登入遠端桌面工作階段之後，從 [開始] 功能表啟動 **SQL Server Management Studio 2017**。
 
-1. 在 [連線到伺服器] 對話方塊中，保留預設值。 伺服器名稱為 VM 的名稱。 驗證已設為 [Windows 驗證]。 選取 [ **連接**]。
+1. 在 [連線到伺服器]  對話方塊中，保留預設值。 伺服器名稱為 VM 的名稱。 驗證已設為 [Windows 驗證]  。 選取 [ **連接**]。
 
 您現在已從本機連線到 SQL Server。 若要從遠端連線，您必須從入口網站或以手動方式[設定連線](virtual-machines-windows-sql-connect.md)。
 

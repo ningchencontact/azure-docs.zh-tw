@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d24eb81361a337ed00d719a7fb5895e73583030
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106452"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096324"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 在 Azure 儲存體佇列中新增訊息
 
@@ -37,21 +36,21 @@ ms.locfileid: "58106452"
 
 在本節中，您會使用入口網站 UI 來將佇列儲存體輸出繫結新增至您稍早建立的函式。 這個繫結可以撰寫最少的程式碼，以在佇列中建立訊息。 您不需要為以下工作撰寫程式碼，例如開啟儲存體連線、建立佇列，或取得佇列的參考。 Azure Functions 執行階段和佇列輸出繫結會為您進行這些工作。
 
-1. 在 Azure 入口網站中，針對您在[從 Azure 入口網站建立您的第一個函式](functions-create-first-azure-function.md)中建立的函式應用程式，開啟函式應用程式分頁。 若要這樣做，請選取 [所有服務] > [函式應用程式]，然後選取您的函式應用程式。
+1. 在 Azure 入口網站中，針對您在[從 Azure 入口網站建立您的第一個函式](functions-create-first-azure-function.md)中建立的函式應用程式，開啟函式應用程式分頁。 若要這樣做，請選取 [所有服務] > [函式應用程式]  ，然後選取您的函式應用程式。
 
 1. 選取您在稍早的快速入門中建立的函式。
 
-1. 選取 [整合 > 新的輸出 > Azure 佇列儲存體]。
+1. 選取 [整合 > 新的輸出 > Azure 佇列儲存體]  。
 
-1. 按一下 [選取] 。
+1. 按一下 [選取]  。
 
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-1. 如果出現**延伸模組未安裝**訊息，請選擇 [安裝]，以在函式應用程式中安裝儲存體繫結延伸模組。 這可能需要數分鐘的時間。
+1. 如果出現**延伸模組未安裝**訊息，請選擇 [安裝]  ，以在函式應用程式中安裝儲存體繫結延伸模組。 這可能需要數分鐘的時間。
 
     ![安裝儲存體繫結延伸模組](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
 
-1. 在 [Azure 佇列儲存體輸出] 底下，使用此螢幕擷取畫面後續的表格中所指定的設定： 
+1. 在 [Azure 佇列儲存體輸出]  底下，使用此螢幕擷取畫面後續的表格中所指定的設定： 
 
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -61,7 +60,7 @@ ms.locfileid: "58106452"
     | **儲存體帳戶連線** | AzureWebJobsStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |
     | **佇列名稱**   | outqueue    | 儲存體帳戶中的連線目標佇列名稱。 |
 
-1. 按一下 [儲存] 來新增繫結。
+1. 按一下 [儲存]  來新增繫結。
 
 您已定義了輸出繫結，接下來您需要將程式碼更新為使用繫結來對佇列新增訊息。  
 
@@ -102,17 +101,17 @@ ms.locfileid: "58106452"
 
     ---
 
-1. 選取 [儲存] 來儲存變更。
+1. 選取 [儲存]  來儲存變更。
 
 ## <a name="test-the-function"></a>測試函式
 
-1. 儲存程式碼的變更後，選取 [執行]。 
+1. 儲存程式碼的變更後，選取 [執行]  。 
 
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-    請注意，**要求本文**包含 `name` 值：Azure。 這個值會出現在叫用函式時建立的佇列訊息中。
+    請注意，**要求本文**包含 `name` 值：Azure  。 這個值會出現在叫用函式時建立的佇列訊息中。
     
-    除了在這裡選取 [執行] 之外，您可以呼叫函式，方法是在瀏覽器中輸入 URL，並且在查詢字串中指定 `name` 值。 瀏覽器方法會顯示在[先前的快速入門](functions-create-first-azure-function.md#test-the-function)中。
+    除了在這裡選取 [執行]  之外，您可以呼叫函式，方法是在瀏覽器中輸入 URL，並且在查詢字串中指定 `name` 值。 瀏覽器方法會顯示在[先前的快速入門](functions-create-first-azure-function.md#test-the-function)中。
 
 2. 檢查記錄以確定函式已成功。 
 
@@ -122,25 +121,25 @@ ms.locfileid: "58106452"
 
 如果您已安裝儲存體總管並且連線到您在本快速入門使用的儲存體帳戶，請略過本節。
 
-1. 執行 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)工具，選取左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後選取 [下一步]。
+1. 執行 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)工具，選取左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]  ，然後選取 [下一步]  。
 
     ![執行「儲存體帳戶總管」工具。](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
-1. 在 Azure 入口網站中的函式應用程式分頁上，選取您的函式，然後選取 [整合]。
+1. 在 Azure 入口網站中的函式應用程式分頁上，選取您的函式，然後選取 [整合]  。
 
 1. 選取您在先前步驟中新增的 **Azure 佇列儲存體**輸出繫結。
 
-1. 展開分頁底部的 [文件] 區段。 
+1. 展開分頁底部的 [文件]  區段。 
 
    入口網站會顯示您可以在儲存體總管中用來連線至儲存體帳戶的認證。
 
    ![取得儲存體帳戶的連線認證。](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
-1. 從入口網站複製 [帳戶名稱] 值，並且將它貼至儲存體總管的 [帳戶名稱] 方塊中。
+1. 從入口網站複製 [帳戶名稱]  值，並且將它貼至儲存體總管的 [帳戶名稱]  方塊中。
  
-1. 按一下 [帳戶金鑰] 旁的顯示/隱藏圖示以顯示值，然後複製 [帳戶金鑰] 值並且將它貼至儲存體總管的 [帳戶金鑰] 方塊中。
+1. 按一下 [帳戶金鑰]  旁的顯示/隱藏圖示以顯示值，然後複製 [帳戶金鑰]  值並且將它貼至儲存體總管的 [帳戶金鑰]  方塊中。
   
-1. 選取 [下一步 > 連線]。
+1. 選取 [下一步 > 連線]  。
 
    ![貼上儲存體認證並連線。](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
@@ -148,7 +147,7 @@ ms.locfileid: "58106452"
 
 1. 在儲存體總管中，選取您用於本快速入門的儲存體帳戶。
 
-1. 展開 [佇列] 節點，然後選取名為 **outqueue** 的佇列。 
+1. 展開 [佇列]  節點，然後選取名為 **outqueue** 的佇列。 
 
    佇列包含訊息，該訊息將您執行 HTTP 觸發程序函式時建立的輸出繫結排入佇列。 如果您已叫用預設 `name` 值為 *Azure* 的函式，則佇列訊息是 *Name passed to the function:Azure*。
 

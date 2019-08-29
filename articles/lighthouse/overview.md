@@ -3,16 +3,16 @@ title: 什麼是 Azure Lighthouse ？
 description: Azure Lighthouse 能讓服務提供者以高度自動化且有效率的方式為其客戶傳遞受控服務。
 author: JnHs
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
-ms.openlocfilehash: eb55af5a1121eb193bb76efc9f9e0b833f4b5a1f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 05fa16504e25a6bf0f6aa1c0a348284abba6e1ed
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810792"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011889"
 ---
 # <a name="what-is-azure-lighthouse"></a>什麼是 Azure Lighthouse ？
 
@@ -42,3 +42,8 @@ Azure Lighthouse 包含多種方法，可協助簡化客戶業務開發及管理
 
 > [!NOTE]
 > 上述功能目前已在公用雲端中提供。 針對個別服務的區域可用性，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。
+
+## <a name="next-steps"></a>後續步驟
+
+- 了解 [Azure 委派的資源管理](concepts/azure-delegated-resource-management.md)。
+- 了解[跨租用戶管理體驗](concepts/cross-tenant-management-experience.md)。

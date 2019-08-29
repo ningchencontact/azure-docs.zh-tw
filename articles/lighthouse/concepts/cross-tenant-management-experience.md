@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 15454d4b3f0abad6166c4b163df6c8652669d649
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f6468e62e9969aa87d51e25ed220bf7d4bed989e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810912"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971559"
 ---
 # <a name="cross-tenant-management-experiences"></a>跨租用戶管理體驗
 
@@ -112,6 +112,7 @@ Azure 委派的資源管理能為管理多個客戶的資源提供更具彈性�
 
 - 從 Azure 入口網站中的 [說明 + 支援]  刀鋒視窗開啟委派資源的支援要求 (選取可供委派範圍使用的支援方案)
 
+## <a name="current-limitations"></a>目前的限制
 在所有案例中，請留意下列目前限制：
 
 - 由 Azure Resource Manager 所處理的要求可以使用 Azure 委派的資源管理來執行。 這些要求的作業 URI 會以 `https://management.azure.com` 作為開頭。 不過，由某個資源類型 (例如 KeyVault 祕密存取或儲存體資料存取) 的執行個體所處理的要求，並不支援 Azure 委派的資源管理。 這些要求的作業 URI 通常會以您執行個體特有的位址作為開頭，例如 `https://myaccount.blob.core.windows.net` 或 `https://mykeyvault.vault.azure.net/`。 此外，後者通常是資料作業，而非管理作業。 

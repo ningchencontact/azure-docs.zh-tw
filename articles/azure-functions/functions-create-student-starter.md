@@ -8,22 +8,21 @@ author: alexkarcher-msft
 manager: ggailey777
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b4a143f14dc4e443570e8eca9ce6ce9e81b1d783
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143105"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096631"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>使用 Azure 學生入門版建立函式
 
 在本教學課程中，我們將在 Azure 學生入門版訂用帳戶中建立 hello world HTTP 函式。 我們也將逐步說明 Azure Functions 中此訂用帳戶類型可用的功能。
 
-Microsoft Azure 學生入門版可讓您免費開始使用在雲端開發所需的 Azure 產品。 [在此深入了解這項供應項目。](https://azure.microsoft.com/offers/ms-azr-0144p/)
+Microsoft Azure 學生入門版  可讓您免費開始使用在雲端開發所需的 Azure 產品。 [在此深入了解這項供應項目。](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
 Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions/serverless/)環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 [在此深入了解 Functions。](./functions-overview.md)
 
@@ -41,7 +40,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 您必須擁有函式應用程式以便主控函式的執行。 函式應用程式可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 
 
-1. 選取 Azure 入口網站左上角的 [新增] 按鈕，然後選取 [計算] > [函式應用程式]。
+1. 選取 Azure 入口網站左上角的 [新增]  按鈕，然後選取 [計算]   > [函式應用程式]  。
 
     ![在 Azure 入口網站中建立函式應用程式](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -58,15 +57,15 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
     | **執行階段堆疊** | 慣用語言 | 選擇支援您慣用函式程式設計語言的執行階段。 針對 C# 和 F # 函式選擇 **.NET**。 |
     |**[Application Insights](./functions-monitoring.md)**| 已啟用 | Application Insights 用來儲存及分析函式應用程式的記錄。 如果您選擇支援 Application Insights 的位置，則會依預設啟用。 手動選擇附近區域來部署 Application Insights，即可針對任何函式啟用 Application Insights。 若沒有 Application Insights，您就只能檢視即時串流記錄。
 
-3. 選取上述的 [App Service 方案/位置] 以選擇不同的位置
+3. 選取上述的 [App Service 方案/位置]  以選擇不同的位置
 
-4. 選取 [新建]，然後為您的方案賦予唯一名稱。
+4. 選取 [新建]  ，然後為您的方案賦予唯一名稱。
 
 5. 選取最靠近您的位置。 [請在此參閱 Azure 區域的完整地圖。](https://azure.microsoft.com/global-infrastructure/regions/) 
 
     <img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
 
-6. 選取 [建立] 以佈建並部署函式應用程式。
+6. 選取 [建立]  以佈建並部署函式應用程式。
 
     <img src="./media/functions-create-student-starter/Function-create-end.png" width="315">
 
@@ -74,17 +73,17 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
     ![定義新的函式應用程式設定](./media/functions-create-student-starter/function-app-create-notification.png)
 
-8. 選取 [前往資源]，以檢視您新的函式應用程式。
+8. 選取 [前往資源]  ，以檢視您新的函式應用程式。
 
 接下來，您要在新的函式應用程式中建立函式。
 
 ## <a name="create-function"></a>建立由 HTTP 觸發的函式
 
-1. 展開新的函式應用程式，接著選取 [Functions] 旁的 **+** 按鈕、選擇 [入口網站內]，然後選取 [繼續]。
+1. 展開新的函式應用程式，接著選取 [Functions]  旁的 **+** 按鈕、選擇 [入口網站內]  ，然後選取 [繼續]  。
 
     ![Functions 快速入門選擇平台。](./media/functions-create-student-starter/function-app-quickstart-choose-portal.png)
 
-1. 選擇 [WebHook + API]，然後選取 [建立]。
+1. 選擇 [WebHook + API]  ，然後選取 [建立]  。
 
     ![Azure 入口網站中的 Functions 快速入門。](./media/functions-create-student-starter/function-app-quickstart-node-webhook.png)
 
@@ -94,7 +93,7 @@ Azure Functions 可讓您在[無伺服器](https://azure.microsoft.com/solutions
 
 ## <a name="test-the-function"></a>測試函式
 
-1. 在新的函式中，按一下右上方的 [</> 取得函式 URL]，選取 [預設 (函式索引鍵)]，然後按一下 [複製]。 
+1. 在新的函式中，按一下右上方的 [</> 取得函式 URL]  ，選取 [預設 (函式索引鍵)]  ，然後按一下 [複製]  。 
 
     ![從 Azure 入口網站複製函式 URL](./media/functions-create-student-starter/function-app-develop-tab-testing.png)
 

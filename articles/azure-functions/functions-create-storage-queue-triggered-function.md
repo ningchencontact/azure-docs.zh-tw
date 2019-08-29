@@ -7,17 +7,16 @@ author: ggailey777
 manager: jeconnoc
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 44d6311246ab303966b7cfd8bee854b1c017f85d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 60c8505b8180a60eed114deb4cd2b11f32c8baa4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902681"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096813"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>建立 Azure 佇列儲存體所觸發的函式
 
@@ -43,17 +42,17 @@ ms.locfileid: "54902681"
 
 ## <a name="create-a-queue-triggered-function"></a>建立由佇列觸發的函式
 
-1. 展開函式應用程式，然後按一下 [Functions] 旁的 [+] 按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內] 和 [繼續]。 否則，請移至步驟三。
+1. 展開函式應用程式，然後按一下 [Functions]  旁的 [+]  按鈕。 如果這是函式應用程式中的第一個函式，請依序選取 [入口網站內]  和 [繼續]  。 否則，請移至步驟三。
 
    ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
 
-1. 依序選擇 [更多範本] 和 [完成並檢視範本]。
+1. 依序選擇 [更多範本]  和 [完成並檢視範本]  。
 
     ![Functions 快速入門選擇更多範本](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-1. 在搜尋欄位中，輸入 `queue`，然後選擇 [佇列觸發程序] 範本。
+1. 在搜尋欄位中，輸入 `queue`，然後選擇 [佇列觸發程序]  範本。
 
-1. 如果出現提示，請選取 [安裝]，以在函式應用程式中安裝 Azure 儲存體延伸模組的任何相依性。 安裝成功之後，請選取 [繼續]。
+1. 如果出現提示，請選取 [安裝]  ，以在函式應用程式中安裝 Azure 儲存體延伸模組的任何相依性。 安裝成功之後，請選取 [繼續]  。
 
     ![安裝繫結延伸模組](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
@@ -67,25 +66,25 @@ ms.locfileid: "54902681"
     | **佇列名稱**   | myqueue-items    | 儲存體帳戶中的連線目標佇列名稱。 |
     | **儲存體帳戶連線** | AzureWebJobStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |    
 
-1. 按一下 [建立] 可建立函式。
+1. 按一下 [建立]  可建立函式。
 
 接下來，您要連線到 Azure 儲存體帳戶並建立 **myqueue-items** 儲存體佇列。
 
 ## <a name="create-the-queue"></a>建立佇列
 
-1. 在您的函式中，按一下 [整合]，展開 [文件]，然後複製**帳戶名稱**和**帳戶金鑰**。 您會使用這些認證來連線至 Azure 儲存體總管中的儲存體帳戶。 如果您已連線至儲存體帳戶，請跳至步驟 4。
+1. 在您的函式中，按一下 [整合]  ，展開 [文件]  ，然後複製**帳戶名稱**和**帳戶金鑰**。 您會使用這些認證來連線至 Azure 儲存體總管中的儲存體帳戶。 如果您已連線至儲存體帳戶，請跳至步驟 4。
 
     ![取得儲存體帳戶的連線認證。](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
-1. 執行 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)工具，按一下左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後按 [下一步]。
+1. 執行 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)工具，按一下左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]  ，然後按 [下一步]  。
 
     ![執行「儲存體帳戶總管」工具。](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 
-1. 輸入從步驟 1 得到的 [帳戶名稱] 和 [帳戶金鑰]，按 [下一步]，然後按一下 [連線]。
+1. 輸入從步驟 1 得到的 [帳戶名稱]  和 [帳戶金鑰]  ，按 [下一步]  ，然後按一下 [連線]  。
 
     ![輸入儲存體認證和連線。](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. 展開連結的儲存體帳戶、以滑鼠右鍵按一下 [佇列]、按一下 [建立佇列]、鍵入 `myqueue-items`，然後按 Enter 鍵。
+1. 展開連結的儲存體帳戶、以滑鼠右鍵按一下 [佇列]  、按一下 [建立佇列]  、鍵入 `myqueue-items`，然後按 Enter 鍵。
 
     ![建立儲存體佇列。](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -93,19 +92,19 @@ ms.locfileid: "54902681"
 
 ## <a name="test-the-function"></a>測試函式
 
-1. 回到 Azure 入口網站，並瀏覽至您的函式，然後展開頁面底部的 [記錄]，再確定記錄串流並未暫停。
+1. 回到 Azure 入口網站，並瀏覽至您的函式，然後展開頁面底部的 [記錄]  ，再確定記錄串流並未暫停。
 
-1. 在儲存體總管中，依序展開您的儲存體帳戶、[佇列] 和 [myqueue-items]，然後按一下 [新增訊息]。
+1. 在儲存體總管中，依序展開您的儲存體帳戶、[佇列]  和 [myqueue-items]  ，然後按一下 [新增訊息]  。
 
     ![將訊息新增至佇列。](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
-1. 將您的 "Hello World!" 輸入 在 [訊息文字] 訊息中，然後按一下 [確定]。
+1. 將您的 "Hello World!" 輸入 在 [訊息文字]  訊息中，然後按一下 [確定]  。
 
 1. 等候幾秒鐘，然後回到您的函式記錄，並確認系統已從佇列中讀取新訊息。
 
     ![檢視記錄中的訊息。](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
-1. 回到儲存體總管，按一下 [重新整理]，然後確認系統已處理訊息，佇列中已沒有該訊息。
+1. 回到儲存體總管，按一下 [重新整理]  ，然後確認系統已處理訊息，佇列中已沒有該訊息。
 
 ## <a name="clean-up-resources"></a>清除資源
 

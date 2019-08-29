@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 5028fd4179f19634b41bb46a5f6df40f36cc8e29
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b69bd62cb9bbe44fb37b3f3660c2f20f3965384e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275566"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051587"
 ---
 # <a name="tutorial-stream-live-with-media-services"></a>教學課程：透過媒體服務進行即時串流
 
@@ -163,10 +163,6 @@ foreach (StreamingPath path in paths.StreamingPaths)
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLocatorAssetAndStreamingEndpoint)]
-
-下列程式碼會示範如何清理所有即時事件的帳戶：
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupAccount)]   
 
 ## <a name="watch-the-event"></a>監看事件
 

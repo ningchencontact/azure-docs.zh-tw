@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: b175e68277ab456bea7eaa7b82619d61e45bf722
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442734"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114335"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>範例：如何即時分析影片
 
@@ -36,7 +36,7 @@ ms.locfileid: "67442734"
 
 針對近乎即時的分析系統，最簡單的設計即是無限迴圈，其中的每一個反覆項目都會抓取一個畫面、進行分析，然後取用結果：
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -54,7 +54,7 @@ while (true)
 
 雖然簡易的單一執行緒迴圈很適合用於輕量型的用戶端演算法，但在面對雲端 API 呼叫所涉及的延遲時，則無法很好地因應。 若要解決這個問題，就是讓長時間執行的 API 呼叫與畫面抓取平行執行。 在 C# 中，我們可以使用以工作為基礎的平行處理機制來達到這個目的，例如：
 
-```CSharp
+```csharp
 while (true)
 {
     Frame f = GrabFrame();
@@ -75,7 +75,7 @@ while (true)
 
 在我們的最後一個「產生者-取用者」系統中，會有一個看起來類似於前述無限迴圈的產生者執行緒。 不過，產生者不會在一有分析結果可用時便立即取用這些結果，而是只會將工作置於佇列中來進行追蹤。
 
-```CSharp
+```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
      
@@ -112,7 +112,7 @@ while (true)
 
 我們還有一個取用者執行緒，會從佇列中取出工作、等候這些工作完成，然後顯示結果或引發被擲回的例外狀況。 我們可以使用佇列，以便能確保依正確順序一次取用一個結果，而無須限制系統的最大畫面播放速率。
 
-```CSharp
+```csharp
 // Consumer thread. 
 while (true)
 {
@@ -144,7 +144,7 @@ while (true)
 
 為了說明一些可能性，以下列舉兩個使用此程式庫的範例應用程式。 第一個是一個簡易主控台應用程式，以下是重新產生的簡化版。 它會從預設的網路攝影機抓取畫面，然後提交給「臉部 API」來進行臉部偵測。
 
-```CSharp
+```csharp
 using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;

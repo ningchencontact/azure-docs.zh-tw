@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 579b35a06b74ffcef47ca0b41ff60bfdc4e0eb2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dba50c984984363682efce1f09ef462b3c0c5def
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099788"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078491"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>教學課程：Azure Active Directory 與 IQNavigator VMS 整合
 
@@ -114,7 +114,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
     d. 在 [轉送狀態]  文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「回覆 URL」和「轉送狀態」來更新這些值。 請連絡 [IQNavigator VMS 客戶支援小組](https://www.beeline.com/iqn-product-support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「回覆 URL」和「轉送狀態」來更新這些值。 請連絡 [IQNavigator VMS 客戶支援小組](https://www.beeline.com/support-iqn/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. IQNavigator 應用程式需要 [名稱識別碼] 宣告中有唯一的使用者識別碼值。 客戶可以為 [名稱識別碼] 宣告對應正確的值。 在此案例中，為了示範，我們已對應 user.UserPrincipalName。 但是，您應該根據組織的設定，對應正確的值。
 
@@ -126,7 +126,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-iqnavigator-vms-single-sign-on"></a>設定 IQNavigator VMS 單一登入
 
-若要在 **IQNavigator VMS** 端設定單一登入，您必須將**應用程式同盟中繼資料 URL** 傳送給 [ 支援小組](https://www.beeline.com/iqn-product-support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **IQNavigator VMS** 端設定單一登入，您必須將**應用程式同盟中繼資料 URL** 傳送給 [ 支援小組](https://www.beeline.com/support-iqn/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -181,7 +181,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-iqnavigator-vms-test-user"></a>建立 IQNavigator VM 測試使用者
 
-在本節中，您會在 IQNavigator VMS 中建立名為 Britta Simon 的使用者。 請與 [IQNavigator VM 支援小組](https://www.beeline.com/iqn-product-support/)合作，在 IQNavigator VM 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 IQNavigator VMS 中建立名為 Britta Simon 的使用者。 請與 [IQNavigator VM 支援小組](https://www.beeline.com/support-iqn/)合作，在 IQNavigator VM 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

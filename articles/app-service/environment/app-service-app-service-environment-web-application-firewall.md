@@ -10,17 +10,16 @@ ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 01224e4270ba8a7c7df4a311823dd6156038438a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089313"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070054"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>設定 App Service 環境的 Web 應用程式防火牆 (WAF)
 ## <a name="overview"></a>概觀
@@ -74,7 +73,7 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 
 ![管理儀表板][ManagementDashboard]
 
-按一下 [服務] 索引標籤可讓您設定所保護服務的 WAF。 如需設定 Barracuda WAF 的詳細資訊，請參閱[其文件](https://techlib.barracuda.com/waf/getstarted1) \(英文\)。 在下列範例中，已設定要處理 HTTP 和 HTTPS 流量的 App Service 應用程式。
+按一下 [服務]  索引標籤可讓您設定所保護服務的 WAF。 如需設定 Barracuda WAF 的詳細資訊，請參閱[其文件](https://techlib.barracuda.com/waf/getstarted1) \(英文\)。 在下列範例中，已設定要處理 HTTP 和 HTTPS 流量的 App Service 應用程式。
 
 ![管理加入服務][ManagementAddServices]
 
@@ -88,7 +87,7 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 
 ![流量管理員端點][TrafficManagerEndpoint]
 
-如果您的應用程式需要驗證，請確定您有某個資源不需要任何驗證，以讓流量管理員進行 Ping 處理確認應用程式是否可用。 您可以在 [Azure 入口網站](https://portal.azure.com)的 [設定] 頁面上設定 URL，如下圖所示：
+如果您的應用程式需要驗證，請確定您有某個資源不需要任何驗證，以讓流量管理員進行 Ping 處理確認應用程式是否可用。 您可以在 [Azure 入口網站](https://portal.azure.com)的 [設定]  頁面上設定 URL，如下圖所示：
 
 ![設定流量管理員][ConfigureTrafficManager]
 
