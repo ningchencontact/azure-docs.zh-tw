@@ -6,15 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 9030d85ff5bc83bb54f4a67a9f319a1670a6c2ad
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c9ebaeb66bc46132160c77c09f93fc2921dc8961
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881854"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906341"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing 當地商家搜尋 API v7 參考
 
@@ -70,12 +71,12 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 要求可能含有下列查詢參數。 請參閱必要參數的必要資料行。 您必須對查詢參數進行 URL 編碼。  
   
   
-|名稱|值|Type|必要項|  
+|Name|值|Type|必要項|  
 |----------|-----------|----------|--------------|
 |<a name="count" />count|要傳回的結果數目, 從`offset`參數所指定的索引開始。|String|否|   
 |<a name="localCategories" />localCategories|依商家類別定義搜尋的選項清單。  請參閱[當地商家類別搜尋](local-categories.md)|String|否|  
 |<a name="mkt" />mkt|產生結果的市場。 <br /><br />如需可能的市場值清單，請參閱市場代碼。<br /><br /> **注意：** 當地商家搜尋 API 目前僅支援 en-us 市場和語言。<br /><br />|String|是|
-|<a name="offset"/>offset|用於啟動 `count` 參數指定之結果的索引。|整數|否|  
+|<a name="offset"/>offset|用於啟動 `count` 參數指定之結果的索引。|Integer|否|  
 |<a name="query" />q|使用者的搜尋字詞。|String|否|  
 |<a name="responseformat" />responseFormat|要用於回應的媒體類型。 以下是可能的值 (不區分大小寫)。<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 預設值為 JSON。 如需回應所含 JSON 物件的相關資訊，請參閱[回應物件](#response-objects)。<br /><br />  如果您指定 JsonLd，回應本文會有內含搜尋結果的 JSON-LD 物件。 如需 JSON-LD 的相關資訊，請參閱 [JSON-LD](https://json-ld.org/)。|String|否|  
 |<a name="safesearch" />safeSearch|用來篩選成人內容的篩選條件。 以下是可能的篩選值 (不區分大小寫)。<br /><ul><li>關閉 &mdash; 傳回含有成人文字、影像或視訊的網頁。<br /><br/></li><li>中度 &mdash; 傳回含有成人文字、但不含成人影像或視訊的網頁。<br /><br/></li><li>嚴格 &mdash; 不傳回含有成人文字、影像或視訊的網頁。</li></ul><br /> 預設值為「中度」。<br /><br /> **注意：** 如果要求來自於 Bing 的成人內容原則必須將 `safeSearch` 設為「嚴格」的市場，Bing 將會忽略 `safeSearch` 值並使用「嚴格」。<br/><br/>**注意：** 如果您使用 `site:` 查詢運算子，則無論 `safeSearch` 查詢參數設定為何，回應都有可能包含成人內容。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才可使用 `site:`。 |String|否|  
@@ -107,7 +108,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="errorresponse"></a>ErrorResponse  
 要求失敗時，回應包含的最上層物件。  
   
-|名稱|值|Type|  
+|Name|值|Type|  
 |----------|-----------|----------|  
 |_type|類型提示。|String|  
 |<a name="errors" />errors|說明要求失敗原因的錯誤清單。|[Error](#error)[]|  
@@ -117,7 +118,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="license"></a>授權  
 定義可據以使用文字或相片的授權。  
   
-|名稱|值|Type|  
+|Name|值|Type|  
 |----------|-----------|----------|  
 |name|授權的名稱。|String|  
 |url|可讓使用者取得更多授權相關資訊的網站 URL。<br /><br /> 請使用名稱和 URL 建立超連結。|String|  
@@ -126,7 +127,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="link"></a>連結  
 定義超連結的元件。  
   
-|名稱|值|Type|  
+|Name|值|Type|  
 |----------|-----------|----------|  
 |_type|類型提示。|String|  
 |文字|顯示文字。|String|  
@@ -140,7 +141,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 請注意，發行者可以提供其名稱和 (或) 網站。  
   
-|名稱|值|Type|  
+|Name|值|Type|  
 |----------|-----------|----------|  
 |name|發行者的名稱。|String|  
 |url|發行者網站的 URL。<br /><br /> 請注意，發行者可能不會提供網站。|String|  
@@ -150,7 +151,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="place"></a>位置  
 定義有關當地商家的相關資訊，例如餐廳或旅館。  
   
-|名稱|值|Type|  
+|Name|值|Type|  
 |----------|-----------|----------|  
 |_type|類型提示，可能會設定為下列其中之一：<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>餐廳</ul><li>|String|  
 |位址|實體所在位置的郵政地址。|PostalAddress|  
@@ -174,23 +175,23 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 
 ### <a name="identifiable"></a>Identifiable
 
-|名稱|值|Type|  
+|Name|值|Type|  
 |-------------|-----------------|----------|
 |ID|資源識別碼|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 定義搜尋結果群組，例如主線。
 
-|名稱|值|Type|  
+|Name|值|Type|  
 |-------------|-----------------|----------|
 |items|要顯示在群組中的搜尋結果清單。|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 定義要顯示的搜尋結果項目。
 
-|名稱|值|Type|  
+|Name|值|Type|  
 |-------------|-----------------|----------|
-|resultIndex|答案中要顯示的項目以零為起始的索引。 如果該項目未包含此欄位，則會顯示答案中的所有項目。 例如，顯示「新聞」答案中的所有新聞發行項。|整數|
+|resultIndex|答案中要顯示的項目以零為起始的索引。 如果該項目未包含此欄位，則會顯示答案中的所有項目。 例如，顯示「新聞」答案中的所有新聞發行項。|Integer|
 |answerType|包含要顯示項目的答案。 例如「新聞」。<br /><br />請使用類型在 SearchResponse 物件中尋找答案。 類型是 SearchResponse 欄位的名稱。<br /><br /> 不過，只有在此物件包含值欄位時，才需要使用答案類型，否則請加以忽略。|String|
 |textualIndex|TextualAnswers 中要顯示答案的索引。| 不帶正負號的整數|
 |value|此為識別碼，用來識別要顯示的答案或要顯示的答案項目。 如果此識別碼用來識別答案，則會顯示答案的所有項目。|Identifiable|
@@ -198,7 +199,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="rankingresponse"></a>RankingResponse  
 定義內容在搜尋結果頁面上的放置位置和順序。  
   
-|名稱|值|  
+|Name|值|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|要顯示在主線中的搜尋結果。|  
 |<a name="ranking-pole" />pole|應獲得最明顯處理的搜尋結果 (例如，顯示在主線和資訊看板上方)。|  
@@ -209,7 +210,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 請注意，如果服務懷疑有阻絕服務攻擊，要求就會成功 (HTTP 狀態碼為 200 OK)；不過，回應本文將是空的。  
   
-|名稱|值|Type|  
+|Name|值|Type|  
 |----------|-----------|----------|  
 |_type|類型提示，設定為 SearchResponse。|String|  
 |places|與搜索查詢相關的實體清單。|JSON 物件|  

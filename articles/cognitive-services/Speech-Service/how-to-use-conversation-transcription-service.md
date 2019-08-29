@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5ad912b1cee5495e18a5eb2da4d981eadd74dd7d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559466"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066421"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>使用語音 SDK 轉譯多參與者交談
 
@@ -25,7 +25,9 @@ ms.locfileid: "68559466"
 
 * Windows、Linux 和 Android C++上C#的、和 JAVA 都支援對話 transcriber。
 * ROOBO DevKit 是支援建立交談轉譯的硬體環境, 因為它提供迴圈的多麥克風陣列, 可有效率地用於說話者識別。 [如需詳細資訊, 請參閱語音裝置 SDK](speech-devices-sdk.md)。
-* 對對話轉譯的語音 SDK 支援僅限於使用音訊提取和推播模式串流, 其中8個通道的16位 16 kHz PCM 音訊。
+* 適用于對話轉譯的語音 SDK 支援僅限於音訊提取和推播模式串流, 其中8個通道的16位 16 kHz PCM 音訊。 目前只有8聲道音訊 capture 支援這些套件:
+   * [ROOBO 智慧型音訊圓形 7-Mic 深色](https://ddk.roobo.com/)
+   * [Azure Kinect DK](https://azure.microsoft.com/en-in/services/kinect-dk/)。
 * 對話轉譯目前以 "en-us" 和 "zh-CN" 語言提供, 位於下欄區域: centralus 和 eastasia。
 
 ## <a name="prerequisites"></a>必要條件

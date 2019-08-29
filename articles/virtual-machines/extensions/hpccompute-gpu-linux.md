@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 167780971ec59efd1ca197958798564d1ef2d596
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706706"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092320"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>適用於 Linux 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -27,23 +26,23 @@ ms.locfileid: "67706706"
 
 這個擴充功能可在 Linux N 系列虛擬機器上安裝 NVIDIA GPU 驅動程式。 視虛擬機器系列而定，擴充功能會安裝 CUDA 或 GRID 驅動程式。 若您使用此擴充功能安裝 NVIDIA 驅動程式，即表示您接受並同意 [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330) (NVIDIA 使用者授權合約) 的條款。 在安裝過程中，VM 可能會重新開機以便完成驅動程式設定。
 
-使用的驅動程式和目前支援的版本上手動安裝指示[此處](
-https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)。
+如需手動安裝驅動程式和目前支援版本[的指示, 請參閱這裡。](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)
 也可使用擴充功能在 [Windows N 系列虛擬機器](hpccompute-gpu-windows.md)上安裝 NVIDIA GPU 驅動程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
 此擴充功能支援下列 OS 發行版，視特定 OS 版本的驅動程式支援而定。
 
-| 配送映像 | Version |
+| 發佈 | Version |
 |---|---|
 | Linux：Ubuntu | 16.04 LTS、18.04 LTS |
 | Linux：Red Hat Enterprise Linux | 7.3、7.4、7.5、7.6 |
 | Linux：CentOS | 7.3、7.4、7.5、7.6 |
 
-### <a name="internet-connectivity"></a>網際網路連線
+### <a name="internet-connectivity"></a>網際網路的連線能力
 
 適用於 NVIDIA GPU 驅動程式的 Microsoft Azure 擴充功能會要求目標 VM 需連線到網際網路並擁有存取權。
 
@@ -73,21 +72,21 @@ https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)�
 
 ### <a name="properties"></a>屬性
 
-| 名稱 | 值 / 範例 | 資料類型 |
+| Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| Type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | ssNoversion |
 
 ### <a name="settings"></a>設定
 
 所有設定都是選用的。 預設行為是如果驅動程式安裝未要求，則不更新核心，並會安裝最新支援的驅動程式和 CUDA 工具組 (若適用)。
 
-| 名稱 | 描述 | Default Value | 有效值 | 資料類型 |
+| Name | 描述 | Default Value | 有效值 | 資料類型 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 即使驅動程式安裝不需要，也會更新核心 | false | true、false | boolean |
-| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | string |
+| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 工具組版本。 系統會自動安裝所選 CUDA 的最新驅動程式。 | 最新 | GRID："430.30"、"418.70"、"410.92"、"410.71"、"390.75"、"390.57"、"390.42"<br> CUDA："10.0.130"、"9.2.88"、"9.1.85" | string |
 | installCUDA | 安裝 CUDA 工具組。 只與 NC/ND 系列 VM 相關。 | true | true、false | boolean |
 
 
@@ -178,7 +177,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 | 結束代碼 | 意義 | 可能的動作 |
 | :---: | --- | --- |
-| 0 | 作業已順利完成 |
+| 0 | 作業成功 |
 | 1 | 擴充功能的使用方式不正確 | 檢查執行輸出記錄 |
 | 10 | 適用於 Hyper-V 和 Azure 的 Linux Integration Services 無法使用或未安裝 | 檢查 lspci 輸出 |
 | 11 | 在此 VM 大小上找不到 NVIDIA GPU | 使用[支援的 VM 大小和 OS](../linux/n-series-driver-setup.md) |

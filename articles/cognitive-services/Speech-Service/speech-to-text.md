@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa80ebea93ae897ba01ff54bdb797ed4194665cd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558855"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068866"
 ---
 # <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 
@@ -63,13 +63,7 @@ ms.locfileid: "68558855"
 
 ## <a name="customization"></a>自訂
 
-除了語音服務所使用的通用模型之外, 您還可以建立特定于您體驗的自訂聲場、語言和發音模型。 以下是自訂選項的清單:
-
-| 模型 | 描述 |
-|-------|-------------|
-| [原音模型](how-to-customize-acoustic-models.md) | 如果您的應用程式、工具或裝置是在特定環境中使用, 例如在汽車或工廠中有特定的錄製條件, 則建立自訂聲場模型會很有説明。 例如，帶有口音的語音、特定背景雜音或使用特定麥克風來錄音。 |
-| [語言模型](how-to-customize-language-model.md) | 建立自訂語言模型來提升特定產業的詞彙和文法轉譯，例如醫療術語或 IT 專業術語。 |
-| [發音模型](how-to-customize-pronunciation.md) | 使用自訂發音模型，您可以定義語音形式和顯示字組或字詞。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 - 簡單的 .txt 檔。 |
+除了語音服務所使用的標準基準模型之外, 您還可以使用可用資料自訂模型以滿足您的需求, 以克服語音辨識的阻礙, 例如說話風格、詞彙和背景雜音, 請參閱[自訂語音](how-to-custom-speech.md)
 
 > [!NOTE]
 > 自訂選項會因語言/地區設定而有所不同 (請參閱[支援的語言](supported-languages.md))。

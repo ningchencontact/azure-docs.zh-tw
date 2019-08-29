@@ -9,16 +9,15 @@ ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 687783520b082cdfd1a6ffc91a8641ea35fafd68
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c3c54b003017f7512cd40c7798fc351e4e4a3f69
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323358"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094924"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>在 Batch 集區中使用 RDMA 或 GPU 執行個體
 
@@ -75,7 +74,7 @@ ms.locfileid: "68323358"
 
 為了對 Batch 集區設定特製 VM 大小，有數個選項可供您安裝必要的軟體或驅動程式：
 
-* 針對虛擬機器設定中的集區，選擇預先設定的 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM 映像，其中已預先安裝驅動程式和軟體。 範例： 
+* 針對虛擬機器設定中的集區，選擇預先設定的 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM 映像，其中已預先安裝驅動程式和軟體。 例如： 
 
   * [CentOS 型 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) - 包含 RDMA 驅動程式和 Intel MPI 5.1
 
@@ -115,7 +114,7 @@ ms.locfileid: "68323358"
 | **Sku** | 2016-Datacenter |
 | **節點大小** | NC6 標準 |
 | **應用程式套件參考** | GPUDriver，版本 411.82 |
-| **已啟用啟動工作** | True<br>**命令列** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**使用者身分識別** - 集區的自動使用者、系統管理員<br/>**等待成功** - True
+| **已啟用啟動工作** | 真<br>**命令列** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**使用者身分識別** - 集區的自動使用者、系統管理員<br/>**等待成功** - True
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>範例：Linux NC VM 集區上的 NVIDIA GPU 驅動程式
 
@@ -153,7 +152,7 @@ ms.locfileid: "68323358"
 | **自訂映像** | *映像的名稱* |
 | **節點代理程式 SKU** | batch.node.windows amd64 |
 | **節點大小** | H16r 標準 |
-| **已啟用節點間通訊** | True |
+| **已啟用節點間通訊** | 真 |
 | **每個節點的工作數上限** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>範例：Linux H16r VM 集區上的 Intel MPI
@@ -169,7 +168,7 @@ ms.locfileid: "68323358"
 | **供應項目** | CentOS-HPC |
 | **Sku** | 7.4 |
 | **節點大小** | H16r 標準 |
-| **已啟用節點間通訊** | True |
+| **已啟用節點間通訊** | 真 |
 | **每個節點的工作數上限** | 1 |
 
 ## <a name="next-steps"></a>後續步驟

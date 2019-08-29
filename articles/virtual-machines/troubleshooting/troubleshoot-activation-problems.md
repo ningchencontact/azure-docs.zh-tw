@@ -10,16 +10,15 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 46f52cb0478b47f8f6b45356815bc4c74e7cc800
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: d403292a7f7ab1080f4270a420c23353eda5fd71
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724117"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090036"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
@@ -51,9 +50,9 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 >
 >如果您使用 ExpressRoute 並有已發佈的預設路由，請參閱 [Azure VM 可能無法透過 ExpressRoute 進行啟用](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (英文)。
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>步驟 1 設定適當的 KMS 用戶端安裝識別碼
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>步驟1設定適當的 KMS 用戶端安裝金鑰
 
-從自訂映像建立 vm，您必須設定適當的 KMS 用戶端安裝識別碼的 vm。
+針對從自訂映射建立的 VM, 您必須為 VM 設定適當的 KMS 用戶端安裝金鑰。
 
 1. 在提升權限的命令提示字元執行 **slmgr.vbs /dlv**。 檢查輸出中的描述值，然後判斷它是建立自零售 (RETAIL通路) 還是大量 (VOLUME_KMSCLIENT) 授權媒體：
   
@@ -101,7 +100,7 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 
    請注意，如果您從虛擬網路中移除所有 DNS 伺服器，VM 將會使用 Azure 的內部 DNS 服務。 此服務可以解析 kms.core.windows.net。
   
-    也請確定在 VM 防火牆未封鎖到 KMS 端點的連接埠 1688年的輸出網路流量。
+    此外, 請確定 VM 中的防火牆不會封鎖對具有1688埠之 KMS 端點的輸出網路流量。
 
 5. 在您確認可成功連線到 kms.core.windows.net 之後，請在該提升權限的 Windows PowerShell 提示中執行下列命令。 此命令會多次嘗試啟用。
 
@@ -111,7 +110,7 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 
     成功啟用時，會傳回類似以下的資訊：
     
-    **正在啟用 windows server datacenter 版本 (12345678-1234年-1234年-1234年-12345678)... 已成功啟動的產品。**
+    **正在啟用 Windows (R), Serverdatacenter 而 edition (12345678-1234-1234-1234-12345678) 。 已成功啟用產品。**
 
 ## <a name="faq"></a>常見問題集 
 

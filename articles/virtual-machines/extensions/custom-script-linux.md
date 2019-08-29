@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 1a01f5f8aed994c16b8302e42996b27ee6a48003
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 23354ce310ad4916c8fa2eb9cb99c5e4521b4a62
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624866"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084727"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 自訂指令碼擴充功能第 2 版會在 Azure 虛擬機器上下載並執行指令碼。 此擴充功能適用於部署後設定、軟體安裝或其他任何設定/管理工作。 您可以從 Azure 儲存體或其他可存取的網際網路位置下載指令碼，或是將指令碼提供給擴充功能執行階段。 
@@ -111,7 +110,7 @@ Linux 的自訂指令碼擴充功能將在擴充功能支援的擴充功能 OS �
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | string |
-| type | CustomScript | string |
+| Type | CustomScript | string |
 | typeHandlerVersion | 2.0 | ssNoversion |
 | fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | 陣列 |
 | commandToExecute (例如) | python MyPythonScript.py \<my-param1 > | string |

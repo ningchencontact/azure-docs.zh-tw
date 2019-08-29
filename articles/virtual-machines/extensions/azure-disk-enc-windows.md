@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 9a3e135172f0744c053da816b3c77762dbe783c3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 11394f692765cc1df5db0eb5c0dd06425026505d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706106"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092636"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>適用於 Windows 的 Azure 磁碟加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -27,7 +26,7 @@ ms.locfileid: "67706106"
 
 Azure 磁碟加密會利用 BitLocker 在執行 Windows 的 Azure 虛擬機器上提供完整的磁碟加密。  此解決方案與 Azure Key Vault 整合，可讓您管理金鑰保存庫訂用帳戶中的磁碟加密金鑰與祕密。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如需先決條件的完整清單，請參閱 [Azure 磁碟加密先決條件](
 ../../security/azure-security-disk-encryption-prerequisites.md)。
@@ -36,18 +35,18 @@ Azure 磁碟加密會利用 BitLocker 在執行 Windows 的 Azure 虛擬機器�
 
 如需目前的 Windows 版本清單，請參閱 [Azure 磁碟加密先決條件](../../security/azure-security-disk-encryption-prerequisites.md)。
 
-### <a name="internet-connectivity"></a>網際網路連線
+### <a name="internet-connectivity"></a>網際網路的連線能力
 
 Azure 磁碟加密需要網際網路連線以存取 Active Directory、Key Vault、儲存體和套件管理端點。  如需網路安全性設定的詳細資訊，請參閱 [Azure 磁碟加密先決條件](
 ../../security/azure-security-disk-encryption-prerequisites.md)。
 
-## <a name="extension-schemata"></a>延伸模組結構描述
+## <a name="extension-schemata"></a>延伸模組架構
 
-有兩個結構描述針對 Azure 磁碟加密： v1.1、 更新、 建議的結構描述，不會使用 Azure Active Directory (AAD) 屬性和 v0.1、 舊版的結構描述需要 AAD 屬性。 您必須使用對應至延伸模組所使用的結構描述版本： AzureDiskEncryption 延伸模組版本 1.1 AzureDiskEncryption 0.1 的延伸模組版本的結構描述 v0.1 的結構描述 v1.1。
+Azure 磁碟加密有兩個架構: v1.1, 這是較新的建議架構, 不會使用 Azure Active Directory (AAD) 屬性和 v 0.1, 這是需要 AAD 屬性的較舊架構。 您必須使用對應至您所使用之延伸模組的架構版本: 架構 v1.1 (適用于 AzureDiskEncryption 延伸模組版本 1.1)、架構 v 0.1 (AzureDiskEncryption 擴充功能版本 0.1)。
 
-### <a name="schema-v11-no-aad-recommended"></a>結構描述 v1.1:無 AAD （建議選項）
+### <a name="schema-v11-no-aad-recommended"></a>架構 v1.1:無 AAD (建議)
 
-V1.1 結構描述建議，並不需要 Azure Active Directory 屬性。
+建議使用 v1.1 架構, 而且不需要 Azure Active Directory 的屬性。
 
 ```json
 {
@@ -74,9 +73,9 @@ V1.1 結構描述建議，並不需要 Azure Active Directory 屬性。
 ```
 
 
-### <a name="schema-v01-with-aad"></a>結構描述 v0.1： 與 AAD 
+### <a name="schema-v01-with-aad"></a>架構 v 0.1: 使用 AAD 
 
-0\.1 的結構描述需要`aadClientID`任一個`aadClientSecret`或`AADClientCertificate`。
+0\.1 架構需要`aadClientID` `aadClientSecret`和或`AADClientCertificate`。
 
 使用 `aadClientSecret`：
 
@@ -141,21 +140,21 @@ V1.1 結構描述建議，並不需要 Azure Active Directory 屬性。
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 | 資料類型 |
+| Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1, 1.1 | ssNoversion |
-| （0.1 的結構描述）AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (0.1 schema) AADClientSecret | password | string |
-| (0.1 schema) AADClientCertificate | thumbprint | string |
+| Type | AzureDiskEncryptionForLinux | string |
+| typeHandlerVersion | 0.1、1。1 | ssNoversion |
+| (0.1 架構)AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (0.1 架構)AADClientSecret | password | string |
+| (0.1 架構)AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 字典 |
 | EncryptionOperation | EnableEncryption、EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP'、'RSA-OAEP-256'、'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultURL | url | string |
-| （選擇性）複雜密碼 | password | string | 
+| 選擇性通行 | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | 作業系統、資料、全部 | string |
 

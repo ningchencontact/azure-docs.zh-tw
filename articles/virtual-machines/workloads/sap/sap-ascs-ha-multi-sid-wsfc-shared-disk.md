@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27e75ac256cf71441e00a004bb2331277aa07b43
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fada16b3ca5307a28eebca4dfe97dc96ba389212
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710030"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098704"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -209,7 +208,7 @@ ms.locfileid: "67710030"
 > ![Windows][Logo_Windows] Windows
 >
 
-在 2016 年 9 月中，Microsoft 發行的功能，您可以在其中管理使用多個虛擬 IP 位址[Azure 內部負載平衡器][load-balancer-multivip-overview]。 這項功能已存在 Azure 外部負載平衡器。 
+Microsoft 于2016年9月發行了一項功能, 可讓您使用[Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。 
 
 如果您有 SAP 部署，則必須使用內部負載平衡器，建立 SAP Central Services 執行個體的 Windows 叢集組態。
 
@@ -227,7 +226,7 @@ ms.locfileid: "67710030"
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您已經使用**檔案共用**來設定要用於一個 SAP ASCS/SCS 執行個體的 WSFC 叢集，如下圖所示。
 
@@ -385,11 +384,11 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 對於每個額外 SAP ASCS/SCS 執行個體，您必須新增叢集共用磁碟。 針對 Windows Server 2012 R2，目前使用的 WSFC 叢集共用磁碟是 SIOS DataKeeper 軟體解決方案。
 
-執行下列動作：
+請執行下列動作：
 1. 將額外磁碟或大小相同的磁碟 (您需要等量的磁碟) 新增至每個叢集節點中，並將其格式化。
 2. 使用 SIOS DataKeeper 設定儲存體複寫。
 
-此程序假設您已在 WSFC 叢集機器上安裝了 SIOS DataKeeper。 如果已經安裝，您現在必須在電腦之間設定複寫。 在詳細資料會描述此程序[為 SAP ASCS/SCS 叢集共用磁碟安裝 SIOS DataKeeper Cluster Edition][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]。  
+此程序假設您已在 WSFC 叢集機器上安裝了 SIOS DataKeeper。 如果已經安裝，您現在必須在電腦之間設定複寫。 [針對 SAP ASCS/SCS 叢集共用磁片安裝 SIOS DataKeeper Cluster Edition][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]中會詳細說明此程式。  
 
 ![新的 SAP ASCS/SCS 共用磁碟的 DataKeeper 同步鏡像][sap-ha-guide-figure-6006]
 
@@ -402,16 +401,16 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 ## <a name="install-an-sap-netweaver-multi-sid-system"></a>安裝 SAP NetWeaver 多重 SID 系統
 
-如需安裝第二個 SAP SID2 系統的完整程序的說明，請參閱 < [SAP NetWeaver HA 安裝 Windows 容錯移轉叢集和共用的磁碟的 SAP ASCS/SCS 執行個體上][sap-high-availability-installation-wsfc-shared-disk]。
+如需安裝第二個 SAP SID2 系統的完整程式說明, 請參閱 sap [ASCS/SCS 實例的 Windows 容錯移轉叢集和共用磁片上的 Sap NETWEAVER HA 安裝][sap-high-availability-installation-wsfc-shared-disk]。
 
 高階程序如下所示︰
 
-1. [使用高可用性 ASCS/SCS 執行個體安裝 SAP][sap-high-availability-installation-wsfc-shared-disk-install-ascs]。  
+1. [使用高可用性 ASCS/SCS 實例安裝 SAP][sap-high-availability-installation-wsfc-shared-disk-install-ascs]。  
  在此步驟中，您要在現有 WSFC 叢集節點 1 上使用高可用性 ASCS/SCS 執行個體安裝 SAP。
 
-2. [修改 ASCS/SCS 執行個體的 SAP 設定檔][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile]。
+2. [修改 ASCS/SCS 實例的 SAP 設定檔][sap-high-availability-installation-wsfc-shared-disk-modify-ascs-profile]。
 
-3. [設定探查連接埠][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]。  
+3. [設定探查埠][sap-high-availability-installation-wsfc-shared-disk-add-probe-port]。  
  在此步驟中，您要使用 PowerShell 設定 SAP 叢集資源 SAP SID2 IP 探查連接埠。 在其中一個 SAP ASCS/SCS 叢集節點上執行此組態。
 
 4. 安裝資料庫執行個體。  
@@ -421,21 +420,21 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
  在此步驟中，您要在現有 WSFC 叢集節點 2 上使用高可用性 ASCS/SCS 執行個體安裝 SAP。 若要安裝第二個叢集，請依照 SAP 安裝指南中的步驟。
 
 6. 開啟 SAP ASCS/SCS 執行個體和 ProbePort 的 Windows 防火牆連接埠。  
-    在用於 SAP ASCS/SCS 執行個體的兩個叢集節點上，您要開啟 SAP ASCS/SCS 所使用的所有 Windows 防火牆連接埠。 這些 SAP ASCS/SCS 執行個體的連接埠詳列於本章[SAP ASCS / SCS 連接埠][sap-net-weaver-ports-ascs-scs-ports]。
+    在用於 SAP ASCS/SCS 執行個體的兩個叢集節點上，您要開啟 SAP ASCS/SCS 所使用的所有 Windows 防火牆連接埠。 這些 SAP ASCS/SCS 實例埠會列在[SAP ASCS/Scs 埠][sap-net-weaver-ports-ascs-scs-ports]一章中。
 
-    如需所有其他 SAP 連接埠的清單，請參閱 <<c0> [ 的所有 SAP 產品的 TCP/IP 通訊埠][sap-net-weaver-ports]。  
+    如需所有其他 SAP 埠的清單, 請參閱[所有 sap 產品的 tcp/ip 埠][sap-net-weaver-ports]。  
 
-    此外，開啟 Azure 內部負載平衡器探查連接埠，在我們的案例中為 62350。 其描述[這篇文章中][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]。
+    此外，開啟 Azure 內部負載平衡器探查連接埠，在我們的案例中為 62350。 [這會在本文中][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port]加以說明。
 
-7. [變更 SAP evaluated 的回條 settlement (ERS) Windows 服務執行個體的啟動類型][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type]。
+7. [變更 SAP 評估回條 (ERS) Windows 服務實例的啟動類型][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type]。
 
 8. 在新的專用 VM 上安裝 SAP 主要應用程式伺服器，如 SAP 安裝指南所述。  
 
 9. 在新的專用 VM 上安裝 SAP 其他應用程式伺服器，如 SAP 安裝指南所述。
 
-10. [測試 SAP ASCS/SCS 執行個體容錯移轉和 SIOS 複寫][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]。
+10. [測試 SAP ASCS/SCS 實例容錯移轉和 SIOS][sap-high-availability-installation-wsfc-shared-disk-test-ascs-failover-and-sios-repl]複寫。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [網路限制：Azure Resource Manager][networking-limits-azure-resource-manager]
-- [多個 Vip 適用於 Azure 負載平衡器][load-balancer-multivip-overview]
+- [Azure Load Balancer 的多個 Vip][load-balancer-multivip-overview]

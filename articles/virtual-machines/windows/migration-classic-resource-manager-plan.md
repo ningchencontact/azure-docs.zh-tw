@@ -11,16 +11,15 @@ ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 26766be8b2468da0df44fa42655db0ee04db45a2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: bf8959abcf591acd902793e9247cd15e2cfdada9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327068"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089229"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。
@@ -32,7 +31,7 @@ ms.locfileid: "68327068"
 
 ![移轉階段](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>規劃
+## <a name="plan"></a>方案
 
 ### <a name="technical-considerations-and-tradeoffs"></a>技術考量和取捨
 
@@ -166,7 +165,7 @@ ms.locfileid: "68327068"
 - 請勿採取捷徑而略過驗證/準備/中止試執行移轉。
 - 在驗證/準備/中止步驟期間，您可能發生的問題，幾乎全都會浮現。
 
-## <a name="migration"></a>移轉
+## <a name="migration"></a>遷移
 
 ### <a name="technical-considerations-and-tradeoffs"></a>技術考量和取捨
 

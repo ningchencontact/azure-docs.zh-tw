@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 570429a2d5332e7d951271b36b79d9d16df174c0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535210"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982330"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>認知服務和機器學習
 
@@ -25,8 +25,8 @@ ms.locfileid: "69535210"
 |服務類別|用途|
 |--|--|
 |[決策](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|建置應用程式，以顯示有助於做出明智與高效決策的建議。|
-|[語言](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|允許您的應用程式使用預先建立的腳本處理自然語言、評估情感, 以及瞭解如何辨識使用者想要的內容。|
-|[搜尋](https://azure.microsoft.com/services/cognitive-services/directory/search/)|透過單一 API 呼叫, 將 Bing 搜尋 Api 新增至您的應用程式, 並利用合併數十億數十億個網頁、影像、影片和新聞的能力。|
+|[語言](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|允許您的應用程式使用預先建立的指令碼處理自然語言、評估情感，以及了解如何辨識使用者想要的內容。|
+|[搜尋](https://azure.microsoft.com/services/cognitive-services/directory/search/)|將 Bing 搜尋 API 新增至您的應用程式，並充分利用以單一 API 呼叫合併數十億個網頁、影像、影片和新聞的能力。|
 |[語音](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|將語音轉換成文字，並將文字轉換成自然發音語音。 從一種語言翻譯成另一種語言，並啟用說話者驗證和辨識。|
 |[視覺](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|辨識、識別、仲裁您的圖片、影片和數位筆跡內容，並為其製作標題及編製索引。|
 ||||
@@ -65,7 +65,7 @@ ms.locfileid: "69535210"
 
 認知服務會為您提供已定型的模型。 這會將資料和演算法結合在一起, 可從 REST API 或 SDK 取得。 視您的案例而定, 您可以在幾分鐘內執行此服務。  認知服務會提供一般問題的解答, 例如文字中的關鍵字組或影像中的專案識別。 
 
-機器學習服務是一種程式, 通常需要較長的時間才能順利執行。 這段時間是花在資料收集、清理、轉換、演算法選擇、模型定型和部署上, 以取得認知服務所提供的相同功能層級。 有了機器學習服務, 就可以為任何一種問題提供解答, 包括高度特殊化或特定的問題。 這些機器學習問題需要熟悉下列一或多項: 主題、機器學習服務、資料科學。
+機器學習服務是一種程式, 通常需要較長的時間才能順利執行。 這段時間是花在資料收集、清理、轉換、演算法選擇、模型定型和部署上, 以取得認知服務所提供的相同功能層級。 有了機器學習服務, 就可以針對高度特製化和/或特定問題提供解答。 機器學習服務問題需要熟悉特定的主題和問題的相關資料, 以及資料科學的專業知識。
 
 ## <a name="what-kind-of-data-do-you-have"></a>您有何種資料？
 

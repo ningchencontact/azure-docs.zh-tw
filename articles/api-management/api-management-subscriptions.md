@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243252"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073413"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API 管理中的訂用帳戶
 
@@ -42,12 +41,12 @@ ms.locfileid: "66243252"
 
 ### <a name="subscriptions-for-a-product"></a>產品的訂用帳戶
 
-傳統上，APIM 中的訂用帳戶始終與單一 [API 產品](api-management-terminology.md)範圍相關聯。 開發人員可在開發人員入口網站上找到產品清單。 然後他們會針對想要使用的產品提交訂用帳戶要求。 訂用帳戶要求獲得核准，可以自動或 API 發行者之後開發人員可以存取在產品中的所有 Api 中使用索引鍵。目前，開發人員入口網站只會在使用者設定檔 區段下顯示產品範圍的訂用帳戶。 
+傳統上，APIM 中的訂用帳戶始終與單一 [API 產品](api-management-terminology.md)範圍相關聯。 開發人員可在開發人員入口網站上找到產品清單。 然後他們會針對想要使用的產品提交訂用帳戶要求。 在核准訂用帳戶要求之後 (自動或由 API 發行者), 開發人員可以使用其中的金鑰來存取產品中的所有 Api。目前, 開發人員入口網站只會在 [使用者設定檔] 區段下顯示產品範圍的訂閱。 
 
 ![產品訂用帳戶](./media/api-management-subscriptions/product-subscription.png)
 
 > [!TIP]
-> 在某些情況下，API 發行者可能會想要公開發佈 API 產品，而不需要訂用帳戶。 他們可以取消選取 Azure 入口網站中產品 [設定]  頁面中的 [需要訂用帳戶]  選項。 因此，無需 API 金鑰即可存取產品下的所有 API。
+> 在某些情況下，API 發行者可能會想要公開發佈 API 產品，而不需要訂用帳戶。 他們可以取消選取 Azure 入口網站中產品 [設定] 頁面中的 [需要訂用帳戶] 選項。 因此，無需 API 金鑰即可存取產品下的所有 API。
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>適用於所有 API 或個別 API 的訂用帳戶
 

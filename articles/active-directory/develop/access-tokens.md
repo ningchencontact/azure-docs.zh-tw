@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: fasttrack-edit
+ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b935f8bb15357e0ca79665b5620be5778ad3c554
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d89d861b48b0c198b06a45613db668adcf551b39
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512517"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074315"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 身分識別平臺存取權杖
 
@@ -170,7 +170,7 @@ Azure AD 所簽發的權杖是使用業界標準非對稱式加密演算法 (例
 }
 ```
 
-`alg` 宣告表示用來簽署權杖的演算法，而 `kid` 宣告則表示用來簽署權杖的特定公開金鑰。
+宣告會指出用來簽署權杖的演算法, `kid`而宣告則表示用來驗證權杖的特定公開金鑰。 `alg`
 
 在任何指定的時間點，Azure AD 可能會使用一組特定公開-私密金鑰組的其中一個金鑰組來簽署 id_token。 Azure AD 會定期替換一組可能的金鑰，所以應將您的應用程式撰寫成自動處理這些金鑰變更。 檢查 Azure AD 所用公開金鑰的更新的合理頻率為每 24 小時。
 
@@ -224,7 +224,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 * MaxInactiveTime：如果未在 MaxInactiveTime 所規定的時間內使用重新整理權杖, 重新整理權杖將不再有效。
 * MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 設為其預設值 (直到撤銷為止) 以外的值，則在 MaxAgeSession* 中設定的時間經過之後，將必須重新驗證。
-* 範例:
+* 例如：
   * 租使用者的 MaxInactiveTime 為五天, 而使用者在一周內開始休假, 因此 Azure AD 在7天內未向使用者顯示新的權杖要求。 下次使用者要求新的權杖時, 他們會發現其重新整理權杖已被撤銷, 必須再次輸入其認證。
   * 敏感性應用程式的 MaxAgeSessionSingleFactor 為一天。 如果使用者在星期一登入, 而且在星期二 (經過25小時之後), 則需要重新驗證。
 

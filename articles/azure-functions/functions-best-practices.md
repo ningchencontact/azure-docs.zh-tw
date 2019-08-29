@@ -8,17 +8,16 @@ manager: jeconnoc
 keywords: azure functions, 模式, 最佳作法, 函數, 事件處理, webhook, 動態計算, 無伺服器架構
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19e088eee878695d24678d1df17b2848a4be1e01
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104660"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097548"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
@@ -84,7 +83,7 @@ ms.locfileid: "62104660"
 
 對於在實際執行函式應用程式中載入的項目，請務必小心。 記憶體會在應用程式中的每個函式間平均分配。
 
-如果您有多個.NET 函式中參考某個共用組件，請將它置於通用的共用資料夾中。 如果使用 C# 指令碼 (.csx)，請使用類似下列的範例陳述式來參考組件︰ 
+如果您有多個 .NET 函式中參考的共用元件, 請將它放在通用共用資料夾中。 如果使用 C# 指令碼 (.csx)，請使用類似下列的範例陳述式來參考組件︰ 
 
     #r "..\Shared\MyAssembly.dll". 
 
@@ -108,7 +107,7 @@ ms.locfileid: "62104660"
 
 函式應用程式中的 `host.json` 檔案能夠設定主機執行階段和觸發程序行為。  除了批次處理行為，您可以管理數個觸發程序的並行作業。  經常調整這些選項中的值，可協助每個執行個體針對所叫用函式的需求進行適當調整。
 
-主機檔案中的設定會套用到應用程式內、函式的「單一執行個體」  內的所有函式。 比方說，如果您的函式應用程式具有 2 個 HTTP 函式，且並行要求設定為 25，對任一 HTTP 觸發程序的要求會計入共用的 25 個並行要求中。  如果該函式應用程式調整為 10 個執行個體，這 2 個函式可有效地允許 250 個並行要求 (10 個執行個體 * 每個執行個體 25 個並行要求)。
+主機檔案中的設定會套用到應用程式內、函式的「單一執行個體」內的所有函式。 比方說，如果您的函式應用程式具有 2 個 HTTP 函式，且並行要求設定為 25，對任一 HTTP 觸發程序的要求會計入共用的 25 個並行要求中。  如果該函式應用程式調整為 10 個執行個體，這 2 個函式可有效地允許 250 個並行要求 (10 個執行個體 * 每個執行個體 25 個並行要求)。
 
 **HTTP 並行主機選項**
 

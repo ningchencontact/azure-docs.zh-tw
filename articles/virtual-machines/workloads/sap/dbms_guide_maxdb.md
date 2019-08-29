@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83319118c778d89749b1eb5d5fd792a5200c19c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6824eae4d5fed2eceaf85b9a674f980815afb260
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835998"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101378"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Azure VM 上的 SAP MaxDB、liveCache 與內容伺服器部署
 
@@ -320,7 +319,7 @@ SAP 目前支援 SAP MaxDB 7.9 版或更新版本，以便與 Azure 中 SAP NetW
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>針對 SAP MaxDB DBMS 支援的 Microsoft Windows 版本和 Azure VM 類型
 若要尋找在 Azure 上支援 SAP MaxDB DBMS 的 Microsoft Windows 版本，請參閱︰
 
-* [SAP 產品可用性對照表 (PAM)][sap-pam]
+* [SAP 產品可用性矩陣 (PAM)][sap-pam]
 * SAP 附註 [1928533]
 
 強烈建議使用最新版本的 Microsoft Windows 作業系統，也就是 Microsoft Windows 2016。
@@ -339,7 +338,7 @@ SAP 目前支援 SAP MaxDB 7.9 版或更新版本，以便與 Azure 中 SAP NetW
 
 簡單地說，您必須︰
 
-* 如果您使用 Azure 儲存體帳戶，請依[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的指示，將存放 SAP MaxDB 資料和記錄磁碟區 (資料和記錄檔) 的 Azure 儲存體帳戶設定為 [本地備援儲存體 (LRS)]  。
+* 如果您使用 Azure 儲存體帳戶，請依[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的指示，將存放 SAP MaxDB 資料和記錄磁碟區 (資料和記錄檔) 的 Azure 儲存體帳戶設定為 [本地備援儲存體 (LRS)]。
 * 將 SAP MaxDB 資料磁碟區 (資料檔) 的 IO 路徑，與記錄磁碟區 (記錄檔) 的 IO 路徑分隔開來。 這表示 SAP MaxDB 資料磁碟區 (資料檔) 必須安裝於一個邏輯磁碟機上，而 SAP MaxDB 記錄磁碟區 (記錄檔) 則須安裝於另一個邏輯磁碟機上。
 * 請依[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的指示，根據您是否要針對 SAP MaxDB 資料或記錄磁碟區 (資料和記錄檔) 使用磁碟，以及是使用 Azure 標準儲存體或 Azure 進階儲存體，為每個磁碟設定適當的快取類型。
 * 只要每個磁碟上目前的 IOPS 配額可滿足需求，就能夠將所有資料磁碟區儲存於單一掛接的磁碟上，而且也會將所有資料庫記錄磁碟區儲存於另一個單一掛接的磁碟上。
@@ -386,7 +385,7 @@ Azure 虛擬機器中支援的 SAP liveCache 最低版本為針對 **EhP 2 for S
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>針對 SAP liveCache DBMS 支援的 Microsoft Windows 版本和 Azure VM 類型
 若要尋找在 Azure 上支援 SAP liveCache 的 Microsoft Windows 版本，請參閱︰
 
-* [SAP 產品可用性對照表 (PAM)][sap-pam]
+* [SAP 產品可用性矩陣 (PAM)][sap-pam]
 * SAP 附註 [1928533]
 
 強烈建議使用最新版本的作業系統 Microsoft Windows Server。 
@@ -428,18 +427,18 @@ SAP 目前支援：
 
 強烈建議使用最新版的 SAP 內容伺服器，以及最新版的 **Microsoft IIS**。 
 
-請從 [SAP 產品可用性對照表 (PAM)][sap-pam] 中，查看支援的 SAP Content Server 與 Microsoft IIS 最新版本。
+在[Sap 產品可用性對照表 (PAM)][sap-pam]中, 檢查最新支援的 Sap 內容伺服器和 Microsoft IIS 版本。
 
 ### <a name="supported-microsoft-windows-and-azure-vm-types-for-sap-content-server"></a>針對 SAP 內容伺服器支援的 Microsoft Windows 和 Azure VM 類型
 若要找出在 Azure 上支援 SAP 內容伺服器的 Windows 版本，請參閱︰
 
-* [SAP 產品可用性對照表 (PAM)][sap-pam]
+* [SAP 產品可用性矩陣 (PAM)][sap-pam]
 * SAP 附註 [1928533]
 
 強烈建議使用最新版本的 Microsoft Windows Server。
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安裝 SAP 的 SAP 內容伺服器組態指導方針
-#### <a name="storage-configuration-for-content-server-in-azure"></a>在 Azure 中的內容伺服器的儲存體設定
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Azure 中內容伺服器的儲存體設定
 如果您將 SAP 內容伺服器設定成將檔案儲存在 SAP MaxDB 資料庫中，則本文件中針對 SAP MaxDB 所描述的所有 Azure 儲存體最佳做法建議，也適用於 SAP 內容伺服器案例。 
 
 如果您設定 SAP 內容伺服器來將檔案儲存於檔案系統中，建議使用專用的邏輯磁碟機。 使用 Windows 儲存體空間也可讓您增加邏輯磁碟大小和 IOPS 輸送量，如[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述。 

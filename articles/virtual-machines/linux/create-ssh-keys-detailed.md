@@ -11,16 +11,15 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 1859cdfaead27fda1956b553ebea06374c9cdc6a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: f166f460f1518588bd12cc5d0581101d417dd41a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668090"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083740"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>詳細步驟：在 Azure 中建立和管理對 Linux VM 進行驗證所需的 SSH 金鑰 
 您可以利用安全殼層 (SSH) 金鑰組，在 Azure 上建立依預設使用 SSH 金鑰進行驗證的 Linux 虛擬機器，而免除登入密碼的需求。 使用 Azure 入口網站、Azure CLI、Resource Manager 範本或其他工具建立的 VM，可以將 SSH 公開金鑰納入部署中，以設定 SSH 連線的 SSH 金鑰驗證。 
@@ -126,7 +125,7 @@ ls -al ~/.ssh
 
 `Enter passphrase (empty for no passphrase):`
 
-「強烈」  建議您為私密金鑰加上複雜密碼。 若未使用複雜密碼來保護金鑰檔案，任何人只要擁有該檔案，就可以用它登入具有對應公開金鑰的任何伺服器。 新增複雜密碼可提升防護能力，以防有人能夠取得您的私密金鑰檔案，讓您有時間變更金鑰。
+「強烈」建議您為私密金鑰加上複雜密碼。 若未使用複雜密碼來保護金鑰檔案，任何人只要擁有該檔案，就可以用它登入具有對應公開金鑰的任何伺服器。 新增複雜密碼可提升防護能力，以防有人能夠取得您的私密金鑰檔案，讓您有時間變更金鑰。
 
 ## <a name="generate-keys-automatically-during-deployment"></a>在部署期間自動產生金鑰
 

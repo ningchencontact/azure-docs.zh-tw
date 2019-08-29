@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: vijetaj
-ms.openlocfilehash: 2effbd5fec1bbe32bcd6f599d2c2cbba66f33bdb
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 33f1d102f128f7e63d625132c9d3c3834955747b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998093"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099439"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
 
@@ -207,7 +207,7 @@ ep <- endpoints(ws, s)
 ans = consume(ep, sleepstudy)$ans
 ```
 
-如需詳細資訊, 請參閱[Machine Learning Studio 中的 R 套件](/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning.md)。
+如需詳細資訊, 請參閱[Machine Learning Studio 中的 R 套件](/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning)。
 
 ## <a name="manage-azure-resources"></a>管理 Azure 資源
 DSVM 不只是讓您在虛擬機器上的本機建立分析解決方案。 它也可讓您存取 Azure 雲端平臺上的服務。 Azure 提供數個計算、儲存體、資料分析, 以及您可以從 DSVM 管理和存取的其他服務。

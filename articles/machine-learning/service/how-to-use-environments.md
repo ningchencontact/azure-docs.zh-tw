@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb9281af16dc8e4b4544cb18a2aae51aa3d9be27
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: e506259b980c0aaf0300c0bb0a1aa0803171643a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576273"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098944"
 ---
 # <a name="create-and-manage-environments-for-training-and-deployment"></a>建立和管理用於定型和部署的環境
 
@@ -95,7 +95,7 @@ myenv = Environment.from_existing_conda_environment(name = "myenv",
 
 ### <a name="automatically-create-environments"></a>自動建立環境
 
-透過[submit ()]()方法提交定型回合, 自動建立環境。 當您提交定型回合時, 新環境的建立可能需要幾分鐘的時間, 視所需相依性的大小而定。 
+透過 submit () 方法提交定型回合, 自動建立環境。 當您提交定型回合時, 新環境的建立可能需要幾分鐘的時間, 視所需相依性的大小而定。 
 
 如果您在提交執行之前未在回合設定中指定環境, 系統會為您建立預設環境。
 

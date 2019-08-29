@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b2cacc8cc6d7c22a93f46007e8150a4e55dc7650
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: b2fb7496f16359f01ddbbe6db31b2d047a2ab4df
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967721"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012820"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>快速入門：使用 QnA Maker API 服務入口網站建立知識庫
 
@@ -45,24 +45,21 @@ QnA Maker API 服務入口網站可讓您在建立知識庫時, 輕鬆地加入�
 
     ![設定資料來源](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-    - 您的服務提供**名稱**。 重複的名稱和特殊字元均受支援。
-    - 針對您想要擷取的資料新增 URL。 您可以在[這裡](../Concepts/data-sources-supported.md)查看相關資訊，以了解支援的來源類型。
-    - 針對您想要擷取的資料上傳檔案。 請參閱[定價資訊](https://aka.ms/qnamaker-pricing)，以了解您可以新增多少文件。
-    - 如果您想要手動新增 QnA，可以略過上圖中顯示的**步驟 4**。
+1. 提供服務的**名稱**, 例如`my first kb`。 重複的名稱和特殊字元均受支援。
 
-1. 將**閒聊**新增至您的 KB。 選擇其中一個特質, 為您的 bot 新增閒聊的交談支援。 
+1. 將 [QnA Maker 疑難排解] 頁面新增為 URL `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`:, 然後`+ Add URL`選取 []。 您可以在[這裡](../Concepts/data-sources-supported.md)查看相關資訊，以了解支援的來源類型。 在本快速入門中,**請勿上傳**您想要解壓縮的資料檔案。 請參閱[定價資訊](https://aka.ms/qnamaker-pricing)，以了解您可以新增多少文件。
 
-    ![將閒聊新增至知識庫](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+1. 將 **_專業_閒聊**新增至您的知識庫。 
 
 1. 選取 [建立您的 KB]。
 
     ![建立知識庫](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-1. 擷取資料需要幾分鐘的時間。
+1. 可能需要幾分鐘的時間來解壓縮資料。
 
     ![擷取](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-1. 成功建立知識庫後，系統會將您重新導向至 [知識庫] 頁面。
+1. 成功建立知識庫時, 系統會將您重新導向至 [**知識庫**] 頁面。
 
 ## <a name="clean-up-resources"></a>清除資源
 

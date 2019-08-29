@@ -7,16 +7,16 @@ ms.date: 07/16/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 848210509bf9ab0ffec35004cbb07e39d6de1bc0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 5a5aeac06ccf31e88a8ec670e57b22e753553ff5
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879600"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114255"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>IoT 隨插即用預覽通用介面
 
-所有 IoT 隨插即用裝置都應該執行一些通用介面。 通用介面可受益于 IoT 解決方案, 因為它們提供一致的功能。 [認證](tutorial-build-device-certification.md)需要您的裝置執行數個通用介面。 您可以從全域模型存放庫取得通用介面定義。
+所有 IoT 隨插即用裝置都應該執行一些通用介面。 通用介面可受益于 IoT 解決方案, 因為它們提供一致的功能。 [認證](tutorial-build-device-certification.md)需要您的裝置執行數個通用介面。 您可以從公用模型存放庫取得通用介面定義。
 
 ## <a name="summary-of-common-interfaces"></a>通用介面的摘要
 
@@ -35,7 +35,7 @@ ms.locfileid: "69879600"
 
 ### <a name="cli"></a>CLI
 
-您可以使用適用于 Azure CLI 的 Azure IoT 擴充功能, 從全域模型存放庫中取出通用介面。
+您可以使用適用于 Azure CLI 的 Azure IoT 擴充功能, 從公用模型存放庫中取出通用介面。
 
 ```cmd/sh
 az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
@@ -47,11 +47,11 @@ az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionStri
 
 ### <a name="vs-code"></a>VS Code
 
-1. 使用**Ctrl + Shift + P**開啟命令選擇區。
+1. 使用 **Ctrl+Shift+P** 開啟命令選擇區。
 
-1. 輸入**隨插即用**然後選取  **IoT 隨插即用:開啟 模型**存放庫 命令。 選擇 [**全域模型存放庫**]。 全域模型存放庫會在 VS Code 中開啟。
+1. 輸入**隨插即用**然後選取 [ **IoT 隨插即用:開啟模型存放庫]** 命令。 選擇 [**公用存放庫**]。 公用模型存放庫會在 VS Code 中開啟。
 
-1. 在全域模型存放庫中, 于 [搜尋] 欄位中輸入介面名稱。
+1. 在公用模型存放庫中, 于 [搜尋] 欄位中輸入介面名稱。
 
 1. 若要建立介面的本機複本, 請在搜尋結果中選取該複本, 然後選取 [**下載**]。
 

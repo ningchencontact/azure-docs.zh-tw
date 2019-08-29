@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dba929101a928f0bbcb8553d6dd3b3043d74853
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564135"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114855"
 ---
 # <a name="install-and-run-face-containers"></a>安裝和執行臉部容器
 
@@ -24,7 +24,7 @@ Azure 認知服務臉部提供 Docker 的標準化 Linux 容器, 以偵測影像
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 使用臉部 API 容器之前, 您必須符合下列必要條件。
 
@@ -118,7 +118,7 @@ ApiKey={API_KEY}
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 
 
-針對容器 API 請使用主機 `https://localhost:5000`。
+針對容器 API 請使用主機 `http://localhost:5000`。
 
 
 <!--  ## Validate container is running -->
@@ -150,7 +150,6 @@ ApiKey={API_KEY}
 
 在本文中, 您已瞭解如何下載、安裝及執行臉部 API 容器的概念和工作流程。 摘要說明：
 
-* 臉部 API 提供三個適用于 Docker 的 Linux 容器, 可提供關鍵字組的提取、語言偵測和情感分析。
 * 容器映射會從 Azure Container Registry 下載。
 * 容器映像是在 Docker 中執行。
 * 您可以藉由指定容器的主機 URI, 使用 REST API 或 SDK 來呼叫臉部 API 容器中的作業。

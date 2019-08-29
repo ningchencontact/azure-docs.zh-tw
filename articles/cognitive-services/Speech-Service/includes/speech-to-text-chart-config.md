@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/22/2019
 ms.author: dapine
-ms.openlocfilehash: 1b46c58d3f3c804052e637f7bde2e1a456764dba
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3f390affe7badb401277aa86d1867c763aa0ae3b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67717207"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971330"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>語音轉換文字 (子圖表: 圖表/speechToText)
 
-若要覆寫「傘」圖表, 請在`speechToText.`任何參數上加入前置詞, 使其更明確。 例如, 它會`speechToText.numberOfConcurrentRequest`覆寫對應的參數, 例如覆寫。 `numberOfConcurrentRequest`
+若要覆寫「傘」圖表, 請在`speechToText.`任何參數上加入前置詞, 使其更明確。 例如, 它會覆`speechToText.numberOfConcurrentRequest` `numberOfConcurrentRequest`寫對應的參數, 例如, override。
 
 |參數|描述|預設|
 | -- | -- | -- |
@@ -37,5 +37,6 @@ ms.locfileid: "67717207"
 | `image.args.apikey`具備 | 用來追蹤帳單資訊。 ||
 | `service.type` | **語音轉換文字**服務的 Kubernetes 服務類型。 如需詳細資訊, 請參閱[Kubernetes 服務類型指示](https://kubernetes.io/docs/concepts/services-networking/service/), 並確認雲端提供者支援。 | `LoadBalancer` |
 | `service.port`|  **語音轉換文字**服務的埠。 | `80` |
+| `service.annotations` | 服務中繼資料的**語音轉換文字**注釋。 注釋是機碼值組。 <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | [水準 Pod 自動調整程式](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)是否已啟用。 如果`true`為`speech-to-text-autoscaler` , 將會部署到 Kubernetes 叢集中。 | `true` |
 | `service.podDisruption.enabled` | 是否啟用[Pod 中斷預算](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/)。 如果`true`為`speech-to-text-poddisruptionbudget` , 將會部署到 Kubernetes 叢集中。 | `true` |

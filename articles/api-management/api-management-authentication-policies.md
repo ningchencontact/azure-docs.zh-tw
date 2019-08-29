@@ -10,16 +10,15 @@ ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 69584b434ac0442df48dcdea2a7d9f2aca9c1ccd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774966"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073746"
 ---
 # <a name="api-management-authentication-policies"></a>API 管理驗證原則
 本主題提供下列「API 管理」原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -49,16 +48,16 @@ ms.locfileid: "68774966"
 
 ### <a name="elements"></a>元素
 
-|名稱|描述|必要項|
+|Name|描述|必要項|
 |----------|-----------------|--------------|
 |authentication-basic|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-|名稱|描述|必要項|預設|
+|Name|描述|必要項|預設|
 |----------|-----------------|--------------|-------------|
 |username|指定「基本驗證」認證的使用者名稱。|是|N/A|
-|密碼|指定「基本驗證」認證的密碼。|是|N/A|
+|password|指定「基本驗證」認證的密碼。|是|N/A|
 
 ### <a name="usage"></a>使用量
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
@@ -89,13 +88,13 @@ ms.locfileid: "68774966"
 
 ### <a name="elements"></a>元素  
   
-|名稱|描述|必要項|  
+|Name|描述|必要項|  
 |----------|-----------------|--------------|  
 |authentication-certificate|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|描述|必要項|預設|  
+|Name|描述|必要項|預設|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|用戶端憑證的指紋。|必須有`certificate-id`或。 `thumbprint`|N/A|  
 |certificate-id|憑證資源名稱。|必須有`certificate-id`或。 `thumbprint`|N/A|  
@@ -133,17 +132,17 @@ ms.locfileid: "68774966"
 
 ### <a name="elements"></a>元素  
   
-|名稱|描述|必要項|  
+|Name|描述|必要項|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|描述|必要項|預設|  
+|Name|描述|必要項|預設|  
 |----------|-----------------|--------------|-------------|  
 |resource|字串。 Azure Active Directory 中目標 Web API (受保護的資源) 的應用程式識別碼 URI。|是|N/A|  
 |output-token-variable-name|字串。 將接收 token 值做為物件類型`string`之內容變數的名稱。 |否|N/A|  
-|ignore-error|布林值。 如果設定為`true`, 即使未取得存取權杖, 原則管線仍會繼續執行。|否|偽|  
+|ignore-error|布林值。 如果設定為`true`, 即使未取得存取權杖, 原則管線仍會繼續執行。|否|false|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  

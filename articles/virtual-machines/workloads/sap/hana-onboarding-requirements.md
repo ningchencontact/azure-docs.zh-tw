@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f596f44acfd51b1e2449bc77eed6add0d9d90b0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707399"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101184"
 ---
 # <a name="onboarding-requirements"></a>上線需求
 
@@ -33,7 +32,7 @@ ms.locfileid: "67707399"
 
 **網路連線**
 
-- 內部部署與 Azure 之間的 ExpressRoute：若要將您的內部部署資料中心連線到 Azure，請務必向您的 ISP 訂購一個至少 1 Gbps 的連線。 HANA 大型執行個體單位與 Azure 之間的連線也會使用 ExpressRoute 技術。 HANA 大型執行個體單位的價格中，包含了 HANA 大型執行個體單位與 Azure 之間的這個 ExpressRoute 連線，並包括此特定 ExpressRoute 路線的所有資料輸入和輸出費用。 因此，您身為客戶，不會遇到的額外成本超出您在內部部署環境與 Azure 之間的 ExpressRoute 連結。
+- 內部部署與 Azure 之間的 ExpressRoute：若要將您的內部部署資料中心連線到 Azure，請務必向您的 ISP 訂購一個至少 1 Gbps 的連線。 HANA 大型執行個體單位與 Azure 之間的連線也會使用 ExpressRoute 技術。 HANA 大型執行個體單位的價格中，包含了 HANA 大型執行個體單位與 Azure 之間的這個 ExpressRoute 連線，並包括此特定 ExpressRoute 路線的所有資料輸入和輸出費用。 因此, 身為客戶, 您不會遇到內部部署與 Azure 之間的 ExpressRoute 連結以外的額外成本。
 
 **作業系統**
 

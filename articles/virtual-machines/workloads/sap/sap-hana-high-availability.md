@@ -7,18 +7,17 @@ author: MSSedusch
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 7b9d3791d44e9541df7fc95c34b5e8c83a4295b3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "67709088"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078397"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server 上 Azure VM 的 SAP HANA 高可用性
 
@@ -343,7 +342,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    * 輸入資料庫使用者 (SYSTEM) 密碼：輸入資料庫使用者密碼。
    * 確認資料庫使用者 (SYSTEM) 密碼：再次輸入資料庫使用者密碼以進行確認。
    * 是否在電腦重新開機後重新啟動系統？ [n]：選取 Enter 鍵。
-   * 是否要繼續? (y/n)：驗證摘要。 輸入 **y** 繼續。
+   * 是否要繼續？ (y/n)：驗證摘要。 輸入 **y** 繼續。
 
 1. **[A]** 升級 SAP 主機代理程式。
 
@@ -693,7 +692,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 下列測試是 SAP HANA SR 效能最佳化案例 SUSE Linux Enterprise Server for SAP Applications 12 SP1 指南的測試描述複本。 如需最新版本，請一定還要閱讀指南本身。 請一定要確定 HANA 處於同步狀態再開始測試，也請確定 Pacemaker 的組態正確無誤。
 
 在下列測試描述中，我們假設 PREFER_SITE_TAKEOVER="true" 且 AUTOMATED_REGISTER="false"。
-注意:下列測試依設計必須循序執行，且必須等前面的測試結束後才會開始執行。
+注意：下列測試依設計必須循序執行，且必須等前面的測試結束後才會開始執行。
 
 1. 測試 1：在節點 1 上停止主要資料庫
 

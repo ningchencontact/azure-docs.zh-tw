@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 96fde6ade45bb92036fbc9ac803eebd50640bf85
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
-ms.translationtype: MT
+ms.openlocfilehash: af95ad892b62cb5d8bece554d6026525d9279777
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013454"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102879"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate：常見問題集 (FAQ)
 
@@ -157,7 +157,7 @@ Azure Migrate 會收集內部部署機器的效能歷程記錄, 並使用它來�
 
 您必須在每部電腦上安裝下列代理程式:
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)。
-- [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)。
+- [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent)。
 - 如果您的電腦沒有網際網路連線, 則需要下載並安裝 Log Analytics 閘道。
 
 除非您要使用相依性視覺效果, 否則不需要這些代理程式。

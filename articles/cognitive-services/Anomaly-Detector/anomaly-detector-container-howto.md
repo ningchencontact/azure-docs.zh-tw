@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e3f6ad4338863fcbb35bad4f286b71993cf6fa2a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c2ff2c745ebed8385df0d351c6d43faf5ab1b9d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854824"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050071"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>安裝和執行異常偵測器容器
 
@@ -30,7 +30,7 @@ ms.locfileid: "68854824"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 使用異常偵測器容器之前, 您必須符合下列必要條件:
 
@@ -156,7 +156,7 @@ ApiKey={API_KEY}
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 
 
-針對容器 API 請使用主機 https://localhost:5000 。
+針對容器 API 請使用主機 http://localhost:5000 。
 
 <!--  ## Validate container is running -->
 

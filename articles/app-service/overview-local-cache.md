@@ -10,19 +10,18 @@ tags: optional
 keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9102d6f3ce3be44107268419517dc9ebe434ac7a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839026"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098450"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 本機快取概觀
 
@@ -35,7 +34,7 @@ Azure App Service 的內容儲存在 Azure 儲存體中，並且會持久顯示�
 * 內容會由應用程式的多個虛擬機器 (VM) 執行個體共用。
 * 內容具有持久性，且可透過執行應用程式來修改。
 * 記錄檔和診斷資料檔案會在相同的共用內容資料夾底下提供使用。
-* 發佈新內容時會直接更新內容資料夾。 您可以立即檢視相同的內容，透過 SCM 網站，並執行應用程式 （通常是 ASP.NET 之類的某些技術進行起始應用程式重新啟動在某些檔案變更，以取得最新的內容）。
+* 發佈新內容時會直接更新內容資料夾。 您可以透過 SCM 網站和執行中應用程式立即查看相同的內容 (通常某些技術 (例如 ASP.NET) 會在某些檔案變更時起始應用程式重新開機以取得最新內容)。
 
 雖然許多應用程式會使用上述其中一項功能或所有功能，但某些應用程式只需要可從中執行的內容存放區，而且此存放區具備高效能、唯讀和高可用性。 這些應用程式可以受益於特定本機快取的 VM 執行個體。
 
@@ -99,7 +98,7 @@ Azure App Service 本機快取功能可讓您以 Web 角色檢視您的內容。
 ## <a name="best-practices-for-using-app-service-local-cache"></a>使用 App Service 本機快取的最佳作法
 建議您搭配 [預備環境](../app-service/deploy-staging-slots.md) 功能使用本機快取。
 
-* 將「黏性」  應用程式設定 `WEBSITE_LOCAL_CACHE_OPTION` 與值 `Always` 新增至您的**生產環境**位置。 如果您要使用 `WEBSITE_LOCAL_CACHE_SIZEINMB`，也將它做為黏性設定新增至您的生產環境位置。
+* 將「黏性」應用程式設定 `WEBSITE_LOCAL_CACHE_OPTION` 與值 `Always` 新增至您的**生產環境**位置。 如果您要使用 `WEBSITE_LOCAL_CACHE_SIZEINMB`，也將它做為黏性設定新增至您的生產環境位置。
 * 建立 **預備環境** 位置，並發佈至您的預備環境位置。 如果您獲得生產環境位置之「本機快取」提供的好處，便通常不會將預備環境位置設定為使用本機快取以在預備環境獲得順暢的「建置、部署、測試」生命週期。
 * 針對預備位置測試您的網站。  
 * 準備好後，請在您的「預備環境」和「生產環境」位置之間發出 [交換作業](../app-service/deploy-staging-slots.md#Swap) 。  

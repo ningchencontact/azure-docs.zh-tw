@@ -10,16 +10,15 @@ tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: c0e0b5db9958fae6c9f49f636a97bf16697e74e0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854412"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080607"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 虛擬機器的效能診斷
 
@@ -159,7 +158,7 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 
 ![[效能診斷] 刀鋒視窗工具列的螢幕擷取畫面，其中已醒目提示 [解除安裝] 按鈕](media/performance-diagnostics/uninstal-button.png)
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 ### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>我的 VM 中儲存診斷資料的位置
 

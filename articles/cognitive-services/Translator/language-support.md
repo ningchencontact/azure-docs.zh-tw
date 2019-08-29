@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 6ab500fe6a7f288bcfbdc9168ada8bdad5bdb6ea
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: be69f18f30b796e7401ef68aa5088153e07f14f5
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772956"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127893"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -45,7 +45,7 @@ ms.locfileid: "68772956"
 |南非荷蘭文| `af`    |僅限統計|  類神經|
 |阿拉伯文|    `ar`    |可使用類神經|  類神經|
 |孟加拉文|    `bn`    |可使用類神經|  類神經|
-|波士尼亞文 (拉丁)|   `bs`    |可使用類神經|  類神經|
+|波士尼亞文 (拉丁文)|   `bs`    |可使用類神經|  類神經|
 |保加利亞文| `bg`    |可使用類神經|  類神經|
 |粵語 (繁體中文)|   `yue`   |僅限統計|  統計|
 |卡達隆尼亞文|   `ca`    |僅限統計|  統計|
@@ -115,10 +115,10 @@ ms.locfileid: "68772956"
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | 阿拉伯文 | `ar` | 阿拉伯文 `Arab` | <--> | 拉丁文 `Latn` |
 |孟加拉文  | `bn` | 孟加拉文 `Beng` | <--> | 拉丁文 `Latn` |
-| 簡體中文 | `zh-Hans` | 簡體中文 `Hans`| <--> | 拉丁文 `Latn` |
-| 簡體中文 | `zh-Hans` | 簡體中文 `Hans`| <--> | 繁體中文 `Hant`|
-| 繁體中文 | `zh-Hant` | 繁體中文 `Hant`| <--> | 拉丁文 `Latn` |
-| 繁體中文 | `zh-Hant` | 繁體中文 `Hant`| <--> | 簡體中文 `Hans` |
+| 中文 (簡體) | `zh-Hans` | 簡體中文 `Hans`| <--> | 拉丁文 `Latn` |
+| 中文 (簡體) | `zh-Hans` | 簡體中文 `Hans`| <--> | 繁體中文 `Hant`|
+| 中文 (繁體) | `zh-Hant` | 繁體中文 `Hant`| <--> | 拉丁文 `Latn` |
+| 中文 (繁體) | `zh-Hant` | 繁體中文 `Hant`| <--> | 簡體中文 `Hans` |
 | 古吉拉特文 | `gu`  | 古吉拉特文 `Gujr` | --> | 拉丁文 `Latn` |
 | Hebrew | `he` | 希伯來文 `Hebr` | <--> | 拉丁文 `Latn` |
 | Hindi | `hi` | 梵文字母 `Deva` | <--> | 拉丁文 `Latn` |
@@ -143,7 +143,7 @@ ms.locfileid: "68772956"
 | 南非荷蘭文      | `af`          |
 | 阿拉伯文       | `ar`          |
 | 孟加拉文      | `bn`          |
-| 波士尼亞文 (拉丁)      | `bs`          |
+| 波士尼亞文 (拉丁文)      | `bs`          |
 | 保加利亞文      | `bg`          |
 | 卡達隆尼亞文      | `ca`          |
 | 中文 (簡體)      | `zh-Hans`          |
@@ -210,7 +210,7 @@ ms.locfileid: "68772956"
 |:----------- |:-------------:|
 | 阿拉伯文       | `ar`          |
 | 孟加拉文      | `bn`          |
-| 波士尼亞文 (拉丁)      | `bs`          |
+| 波士尼亞文 (拉丁文)      | `bs`          |
 | 保加利亞文      | `bg`          |
 | 中文 (簡體)      | `zh-Hans`          |
 |繁體中文|   `zh-Hant`   |
@@ -237,6 +237,7 @@ ms.locfileid: "68772956"
 | 立陶宛文      | `lt`          |
 |馬達加斯加文|  `mg`    |
 | 挪威文      | `nb`          |
+| 波斯文      | `fa`          |
 | 波蘭文      | `pl`          |
 | 葡萄牙文      | `pt`          |
 | 羅馬尼亞文      | `ro`          |

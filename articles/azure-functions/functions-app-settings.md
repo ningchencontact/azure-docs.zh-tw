@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 3aa3176b1d6d9e5665fd3a8988b71159a4fc20c0
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 4426b83ee62f4a894f72e197cbe541b8b669695d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735717"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086802"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的應用程式設定參考
 
@@ -54,7 +53,7 @@ ms.locfileid: "68735717"
 
 |Key|範例值|
 |---|------------|
-|AzureWebJobsDisableHomepage|真|
+|AzureWebJobsDisableHomepage|true|
 
 省略這個應用程式設定或將其設為 `false` 時，會顯示與下列範例類似的頁面，以回應 URL `<functionappname>.azurewebsites.net`。
 
@@ -66,7 +65,7 @@ ms.locfileid: "68735717"
 
 |Key|範例值|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|真|
+|AzureWebJobsDotNetReleaseCompilation|true|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -184,8 +183,8 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 |Key|值|描述|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|真|若呼叫使用指向本機函數應用程式中之函數的後端 URL，則不再將呼叫直接傳送到函式，而是將改為導向回到函數應用程式的 HTTP 前端|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|偽|這是預設值。 若呼叫使用指向本機函數應用程式的後端 URL，則會將呼叫直接轉送到該函式|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|若呼叫使用指向本機函數應用程式中之函數的後端 URL，則不再將呼叫直接傳送到函式，而是將改為導向回到函數應用程式的 HTTP 前端|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|這是預設值。 若呼叫使用指向本機函數應用程式的後端 URL，則會將呼叫直接轉送到該函式|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
@@ -194,8 +193,8 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
 
 |Key|值|描述|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|真|若路由參數含有已編碼的斜線，就必須將它們解碼。 `example.com/api%2ftest` 將成為 `example.com/api/test`|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|偽|此為預設行為。 所有路由參數都將依原樣傳遞|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|若路由參數含有已編碼的斜線，就必須將它們解碼。 `example.com/api%2ftest` 將成為 `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|此為預設行為。 所有路由參數都將依原樣傳遞|
 
 ### <a name="example"></a>範例
 
@@ -214,10 +213,10 @@ Azure Functions 執行階段會將此儲存體帳戶連接字串用於所有函�
     }
 }
 ```
-|URL 解碼|輸入|Output|
+|URL 解碼|Input|Output|
 |-|-|-|
-|真|myfunction.com/test%2fapi|example.com/test/api
-|偽|myfunction.com/test%2fapi|example.com/test%2fapi|
+|true|myfunction.com/test%2fapi|example.com/test/api
+|false|myfunction.com/test%2fapi|example.com/test%2fapi|
 
 
 ## <a name="next-steps"></a>後續步驟

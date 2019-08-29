@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 8cd63913c0e96d496aa617369601c1dd121b4b46
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 2b3e74f337cf8f57321c3a8d94f8191fc3ebb530
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542839"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093906"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>什麼是 QnA Maker 知識庫？
 
@@ -81,9 +81,9 @@ QnA Maker 知識庫是由一組問題/回答 (QnA) 配對以及與每個 QnA 配
 }
 ```
 
-您可以藉由設定屬性 (例如[scoreThreshold](./confidence-score.md#choose-a-score-threshold)、 [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)和[stringFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags)) 來控制回應。
+您可以藉由設定屬性 (例如[scoreThreshold](./confidence-score.md#choose-a-score-threshold)、 [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)和[strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags)) 來控制回應。
 
-使用[交談內容](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context)搭配[多回合功能](../how-to/multiturn-conversation.md), 讓交談能夠縮小問題和答案, 以尋找正確和最終的答案。
+使用具有[多重回合功能](../how-to/multiturn-conversation.md)的[對話內容](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context), 讓交談能夠縮小問題和答案, 以尋找正確和最終的答案。
 
 ### <a name="the-response-from-a-call-to-generate-answer"></a>呼叫產生答案的回應
 

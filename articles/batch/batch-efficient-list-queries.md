@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3bf9ba52bc4071755918b842da477384dcd38973
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37d34267220cbb7ceabfc823f6facd651969fbd4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323510"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095152"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>建立查詢以便有效率地列出 Batch 資源
 
@@ -179,7 +178,7 @@ List<CloudPool> testPools =
 ## <a name="example-construct-a-filter-string"></a>範例：建構篩選字串
 當您針對[ODATADetailLevel odatadetaillevel.filterclause][odata_filter]篩選字串時, 請參閱上面的「篩選字串的對應」底下的表格, 尋找與您要執行的清單作業相對應的 REST API 檔頁面。 在該頁面的第一個含有多資料列的資料表中，您可以找到可篩選的屬性及其支援的運算子。 如果您想要取出結束代碼為非零值的所有工作, 例如, 在[清單上的][rest_list_tasks]這個資料列會指定適用的屬性字串和允許的運算子:
 
-| 內容 | 允許的作業 | Type |
+| 屬性 | 允許的作業 | Type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +189,7 @@ List<CloudPool> testPools =
 ## <a name="example-construct-a-select-string"></a>範例：建構選取字串
 若要建立[ODATADetailLevel][odata_select], 請參閱上面的「選取字串的對應」底下的表格, 然後流覽至與您所列出之實體類型相對應的 [REST API] 頁面。 在該頁面的第一個含有多資料列的資料表中，您可以找到可選取的屬性及其支援的運算子。 例如, 如果您只想要針對清單中的每個工作取出識別碼和命令列, 您會在[取得工作相關資訊][rest_get_task]的適用資料表中找到這些資料列:
 
-| 內容 | Type | 注意 |
+| 屬性 | Type | 注意 |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

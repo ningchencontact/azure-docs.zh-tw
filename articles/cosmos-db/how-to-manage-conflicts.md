@@ -3,15 +3,15 @@ title: 了解如何在 Azure Cosmos DB 中管理區域之間的衝突
 description: 了解如何在 Azure Cosmos DB 中管理衝突
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: c58828fd8ed0de73c03e9e741d14705ad88b1333
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815083"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093220"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理衝突解決原則
 

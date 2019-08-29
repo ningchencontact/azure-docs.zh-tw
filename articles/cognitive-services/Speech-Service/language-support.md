@@ -11,53 +11,53 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: abff902dc62ad7ae48f2ecedfbd52aeb96719093
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815270"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970376"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>語音服務的語言和區域支援
 
 不同的語音服務函式支援不同的語言。 下表摘要說明語言支援。
 
-## <a name="speech-to-text"></a>語音轉換文字
+## <a name="speech-to-text"></a>語音轉文字
 
-Microsoft 語音辨識 SDK 和 REST API 都支援下列語言 (地區設定)。 每個語言有不同的自訂層級。
+Microsoft 語音辨識 SDK 和 REST API 都支援下列語言 (地區設定)。 若要改善正確性, 請透過上傳音訊 + 人為標記的文字記錄或相關文字, 為部分語言提供自訂:句子.  發音自訂目前僅適用于 en-us 和 de。 [在這裡](how-to-custom-speech.md)深入瞭解自訂。
 
-  程式碼 | 語言 | [採用原音](how-to-customize-acoustic-models.md) | [採用語言](how-to-customize-language-model.md) | [採用發音](how-to-customize-pronunciation.md)
- ------|----------|---------------------|---------------------|-------------------------
- ar-EG | 阿拉伯文 (埃及)，現代標準 | 否 | 是 | 否
- ca-ES | 卡達隆尼亞文 | 否 | 否 | 否
- da-DK | 丹麥文 (丹麥) | 否 | 否 | 否
- de-DE | 德文 (德國) | 是 | 是 | 是
- en-AU | 英文 (澳洲) | 否 | 是 | 否
- en-CA | 英文 (加拿大) | 否 | 是 | 否
- en-GB | 英文 (英國) | 否 | 是 | 否
- en-IN | 英文 (印度) | 是 | 是 | 否
- en-NZ | 英文 (紐西蘭) | 否 | 是 | 否 
- zh-TW | 英文 (美國) | 是 | 是 | 是
- es-ES | 西班牙文 (西班牙) | 是 | 是 | 否
- es-MX | 西班牙文 (墨西哥) | 否 | 是 | 否
- fi-FI | 芬蘭文 (芬蘭) | 否 | 否 | 否
- fr-CA | 法文 (加拿大) | 否 | 是 | 否
- fr-FR | 法文 (法國) | 是 | 是 | 否
- hi-IN | 印度文 (印度) | 否 | 是 | 否
- it-IT | 義大利文 (義大利) | 是 | 是 | 否
- ja-JP | 日文 (日本) | 否 | 是 | 否
- ko-KR | 韓文 (南韓) | 否 | 是 | 否
- nb-NO | 挪威文 (巴克摩) (挪威) | 否 | 否 | 否
- nl-NL | 荷蘭文 (荷蘭) | 否 | 是 | 否
- pl-PL | 波蘭文 (波蘭) | 否 | 否 | 否
- pt-BR | 葡萄牙文 (巴西) | 是 | 是 | 否
- pt-PT | 葡萄牙文 (葡萄牙) | 否 | 是 | 否
- ru-RU | 俄文 (俄羅斯) | 是 | 是 | 否
- sv-SE | 瑞典文 (瑞典) | 否 | 否 | 否
- zh-CN | 中文 (普通話，簡體) | 是 | 是 | 否
- zh-HK | 中文 (廣東話, 繁體) | 否 | 是 | 否
- zh-TW | 中文 (繁體，國語) | 否 | 是 | 否
- th-TH | 泰文 (泰國) | 否 | 否 | 否
+  程式碼 | 語言 | 支援 | 可自訂的
+ ------|----------|---------------------|---------------------
+ ar-EG | 阿拉伯文 (埃及)，現代標準 | 是 | 是
+ ca-ES | 卡達隆尼亞文 | 是 | 否
+ da-DK | 丹麥文 (丹麥) | 是 | 否
+ de-DE | 德文 (德國) | 是 | 是
+ en-AU | 英文 (澳洲) | 是 | 是
+ en-CA | 英文 (加拿大) | 是 | 是
+ en-GB | 英文 (英國) | 是 | 是
+ en-IN | 英文 (印度) | 是 | 是
+ en-NZ | 英文 (紐西蘭) | 是 | 是
+ en-US | 英文 (美國) | 是 | 是
+ es-ES | 西班牙文 (西班牙) | 是 | 是
+ es-MX | 西班牙文 (墨西哥) | 是 | 是
+ fi-FI | 芬蘭文 (芬蘭) | 是 | 否
+ fr-CA | 法文 (加拿大) | 是 | 是
+ fr-FR | 法文 (法國) | 是 | 是
+ hi-IN | 印地文 (印度) | 是 | 是
+ it-IT | 義大利文 (義大利) | 是 | 是
+ ja-JP | 日文 (日本) | 是 | 是
+ ko-KR | 韓文 (韓國) | 是 | 是
+ nb-NO | 挪威文 (巴克摩) (挪威) | 是 | 否
+ nl-NL | 荷蘭文 (荷蘭) | 是 | 是
+ pl-PL | 波蘭文 (波蘭) | 是 | 否
+ pt-BR | 葡萄牙文 (巴西) | 是 | 是
+ pt-PT | 葡萄牙文 (葡萄牙) | 是 | 是
+ ru-RU | 俄文 (俄羅斯) | 是 | 是
+ sv-SE | 瑞典文 (瑞典) | 是 | 否
+ zh-CN | 中文 (普通話，簡體) | 是 | 是
+ zh-HK | 中文 (廣東話, 繁體) | 是 | 是
+ zh-TW | 中文 (繁體，國語) | 是 | 是
+ th-TH | 泰文 (泰國) | 是 | 否 
 
 
 ## <a name="text-to-speech"></a>文字轉換語音
@@ -78,8 +78,8 @@ Microsoft 語音辨識 SDK 和 REST API 都支援下列語言 (地區設定)。 
 地區設定 | 語言 | 性別 | 完整服務名稱對應 | 簡短的語音名稱
 --------|----------|--------|---------|------------
 de-DE | 德文 (德國) | 女 | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-KatjaNeural"
-zh-TW | 英文 (美國) | 男 | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | 「en-us-GuyNeural」
-zh-TW | 英文 (美國) | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | 「en-us-JessaNeural」
+en-US | 英文 (美國) | 男 | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | 「en-us-GuyNeural」
+en-US | 英文 (美國) | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | 「en-us-JessaNeural」
 it-IT | 義大利文 (義大利) | 女 |"Microsoft Server Speech 文字轉換語音 Voice (it-IT, ElsaNeural)" | 「it-IT-ElsaNeural」
 zh-CN | 中文 (大陸) | 女 | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
@@ -115,7 +115,7 @@ en-IE | 英文 (愛爾蘭) | 男 | "Microsoft Server Speech Text to Speech Voice
 en-IN | 英文 (印度) | 女 | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)" | "en-us-Heera-Apollo"
 | | | 女 | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)" | 「PriyaRUS」
 | | | 男 | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)" | "en-us-Ravi-Apollo"
-zh-TW | 英文 (美國) | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | 「en-us-ZiraRUS」
+en-US | 英文 (美國) | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | 「en-us-ZiraRUS」
 | | | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)" | "en-US-JessaRUS"
 | | | 男 | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" | "en-US-BenjaminRUS"
 | | | 女 | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" | 「en-us-Jessa24kRUS」
@@ -133,7 +133,7 @@ fr-FR | 法文 (法國)| 女 | "Microsoft Server Speech Text to Speech Voice (fr
 | | | 女 | "Microsoft Server Speech Text to Speech Voice (fr-FR, HortenseRUS)" | "fr-FR-HortenseRUS"
 | | | 男 | "Microsoft Server Speech Text to Speech Voice (fr-FR, Paul, Apollo)" | "fr-FR-Paul-Apollo"
 he-IL| 希伯來文 (以色列) | 男| "Microsoft Server Speech Text to Speech Voice (he-IL, Asaf)" | "he-IL-Asaf"
-hi-IN | 印度文 (印度) | 女 | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana, Apollo)" | 「hi Kalpana-Apollo」
+hi-IN | 印地文 (印度) | 女 | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana, Apollo)" | 「hi Kalpana-Apollo」
 | | |女 | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana)" | "hi-IN-Kalpana"
 | | | 男 | "Microsoft Server Speech Text to Speech Voice (hi-IN, Hemant)" | "hi-IN-Hemant"
 hr-HR | 克羅埃西亞文 | 男 | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)" | "hr-HR-Matej"
@@ -197,7 +197,7 @@ zh-TW | 中文 (台灣) | 女 | "Microsoft Server Speech Text to Speech Voice (z
 | 南非荷蘭文      | `af`          |
 | 阿拉伯文       | `ar`          |
 | 孟加拉文      | `bn`          |
-| 波士尼亞文 (拉丁)      | `bs`          |
+| 波士尼亞文 (拉丁文)      | `bs`          |
 | 保加利亞文      | `bg`          |
 | 粵語 (繁體中文)      | `yue`          |
 | 卡達隆尼亞文      | `ca`          |

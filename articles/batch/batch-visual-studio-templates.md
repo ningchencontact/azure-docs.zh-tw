@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bb4c71f2c7f42ef599796bc380bb7a9f35b8c64e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 60662e723a55c969fdd4b70e732303c90bbf9e8b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322765"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094349"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 專案範本快速啟動 Batch 解決方案
 
@@ -58,7 +57,7 @@ Batch 的**作業管理員**和**工作處理器 Visual Studio 範本**提供了
 * 已安裝 Visual Studio 2015 的電腦。 目前只有針對 Visual Studio 2015 支援批次範本。
 * Batch 範本, 可從[Visual Studio 圖庫][vs_gallery]取得, 做為 Visual Studio 延伸模組。 有兩種方式可取得範本︰
   
-  * 使用 Visual Studio 中的 [**擴充功能和更新**] 對話方塊安裝範本 (如需詳細資訊, 請參閱[尋找和使用 Visual Studio 擴充][vs_find_use_ext]功能)。 在 [擴充功能和更新]  對話方塊中，搜尋和下載下列兩個延伸模組︰
+  * 使用 Visual Studio 中的 [**擴充功能和更新**] 對話方塊安裝範本 (如需詳細資訊, 請參閱[尋找和使用 Visual Studio 擴充][vs_find_use_ext]功能)。 在 [擴充功能和更新] 對話方塊中，搜尋和下載下列兩個延伸模組︰
     
     * 具有作業分割器的 Azure Batch 作業管理員
     * Azure Batch 工作處理器
@@ -68,10 +67,10 @@ Batch 的**作業管理員**和**工作處理器 Visual Studio 範本**提供了
 ## <a name="preparation"></a>準備工作
 我們建議您建立可在其中包含作業管理員和工作處理器的方案，因為這樣便能更輕鬆地在作業管理員和工作處理器程式之間共用程式碼。 若要建立此方案，請依照下列步驟執行︰
 
-1. 開啟 Visual Studio，然後選取 [檔案]   > [新增]   > [專案]  。
-2. 在 [範本]  底下展開 [其他專案類型]  、按一下 [Visual Studio 方案]  ，然後選取 [空白方案]  。
+1. 開啟 Visual Studio，然後選取 [檔案] > [新增] > [專案]。
+2. 在 [範本] 底下展開 [其他專案類型]、按一下 [Visual Studio 方案]，然後選取 [空白方案]。
 3. 輸入可描述應用程式和此方案用途的名稱 (例如，「LitwareBatchTaskPrograms」)。
-4. 若要建立新方案，請按一下 [確定]  。
+4. 若要建立新方案，請按一下 [確定]。
 
 ## <a name="job-manager-template"></a>作業管理員範本
 作業管理員範本可協助您實作作業管理員工作以執行下列動作︰
@@ -88,10 +87,10 @@ Batch 的**作業管理員**和**工作處理器 Visual Studio 範本**提供了
 若要在稍早建立的方案中新增作業管理員，請遵循下列步驟︰
 
 1. 在 Visual Studio 中開啟現有方案。
-2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [新增]   > [新增專案]  。
-3. 在 [Visual C#]  底下按一下 [雲端]  ，然後按一下 [具有作業分割器的 Azure Batch 作業管理員]  。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下方案，然後按一下 [新增] > [新增專案]。
+3. 在 [Visual C#] 底下按一下 [雲端]，然後按一下 [具有作業分割器的 Azure Batch 作業管理員]。
 4. 輸入可描述應用程式並將此專案識別為作業管理員的名稱 (例如"LitwareJobManager")。
-5. 若要建立專案，按一下 [確定]  。
+5. 若要建立專案，按一下 [確定]。
 6. 最後，建置專案來強制 Visual Studio 載入所有參考的 NuGet 套件，以及確認專案是否有效以便能開始對其進行修改。
 
 ### <a name="job-manager-template-files-and-their-purpose"></a>作業管理員範本檔案及其用途
@@ -228,9 +227,9 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **作業管理員工作設定**
 
-用戶端應該將作業管理員的「killJobOnCompletion」  旗標設為 **false**。
+用戶端應該將作業管理員的「killJobOnCompletion」 旗標設為 **false**。
 
-用戶端通常可以放心地將「runExclusive」  設為 **false**。
+用戶端通常可以放心地將「runExclusive」 設為 **false**。
 
 用戶端應使用 *resourceFiles* 或 *applicationPackageReferences* 集合，將作業管理員可執行檔 (和其所需的 DLL) 部署至計算節點。
 
@@ -240,7 +239,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 如果作業分割器發出具有相依性的工作，用戶端必須將作業的 usesTaskDependencies 設為 true。
 
-在作業分割器模型中，除了作業分割器所建立的工作外，用戶端通常不會想將工作新增至作業中。 因此一般來說，用戶端應該會將作業的「onAllTasksComplete」  設為 **terminatejob**。
+在作業分割器模型中，除了作業分割器所建立的工作外，用戶端通常不會想將工作新增至作業中。 因此一般來說，用戶端應該會將作業的「onAllTasksComplete」 設為 **terminatejob**。
 
 ## <a name="task-processor-template"></a>工作處理器範本
 工作處理器範本可協助您實作工作處理器以執行下列動作︰
@@ -257,10 +256,10 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 若要在稍早建立的方案中新增工作處理器，請遵循下列步驟︰
 
 1. 在 Visual Studio 中開啟現有方案。
-2. 在 [方案總管] 中，以滑鼠右鍵按一下方案、按一下 [新增]  ，然後按一下 [新增專案]  。
-3. 在 [Visual C#]  底下按一下 [雲端]  ，然後按一下 [Azure Batch 工作處理器]  。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下方案、按一下 [新增]，然後按一下 [新增專案]。
+3. 在 [Visual C#] 底下按一下 [雲端]，然後按一下 [Azure Batch 工作處理器]。
 4. 輸入可描述應用程式並將此專案識別為工作處理器的名稱 (例如"LitwareTaskProcessor")。
-5. 若要建立專案，按一下 [確定]  。
+5. 若要建立專案，按一下 [確定]。
 6. 最後，建置專案來強制 Visual Studio 載入所有參考的 NuGet 套件，以及確認專案是否有效以便能開始對其進行修改。
 
 ### <a name="task-processor-template-files-and-their-purpose"></a>工作處理器範本檔案及其用途
@@ -385,7 +384,7 @@ Run() 實作具有下列項目的存取權︰
 ### <a name="client-considerations"></a>用戶端考量
 **儲存體認證**
 
-如果工作處理器會使用 Azure Blob 儲存體來保存輸出 (例如使用檔案慣例協助程式程式庫)，則它需要存取  雲端儲存體帳戶認證或  包含共用存取簽章 (SAS) 的 Blob 容器 URL。 範本支援透過常見環境變數來提供認證。 用戶端可以如下所示傳遞儲存體認證︰
+如果工作處理器會使用 Azure Blob 儲存體來保存輸出 (例如使用檔案慣例協助程式程式庫)，則它需要存取雲端儲存體帳戶認證或包含共用存取簽章 (SAS) 的 Blob 容器 URL。 範本支援透過常見環境變數來提供認證。 用戶端可以如下所示傳遞儲存體認證︰
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {

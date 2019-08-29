@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: ddbe586c03d9f722d844d06968aa25e4b4a5aac0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8664d0f727c47da1b70b8060f879a49fbbd8c7c5
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815305"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051407"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>安裝並執行文字分析容器
 
@@ -48,54 +48,38 @@ ms.locfileid: "68815305"
 
 下表說明針對每個文字分析容器配置的最低和建議 CPU 核心 (至少 2.6 GHz 或更快的版本) 與記憶體 (以 GB 為單位)。
 
-| 容器 | 最小值 | 建議 | TPS<br>(最小值, 最大值)|
-|-----------|---------|-------------|--|
-|關鍵片語擷取 | 1核心, 2 GB 記憶體 | 1核心, 4 GB 記憶體 |15、30|
-|語言偵測 | 1核心, 2 GB 記憶體 | 1核心, 4 GB 記憶體 |15、30|
-|情感分析 | 1核心, 2 GB 記憶體 | 1核心, 4 GB 記憶體 |15、30|
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[關鍵片語擷取](#tab/keyphrase)
+
+[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
+
+#### <a name="language-detectiontablanguage"></a>[語言偵測](#tab/language)
+
+[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
+
+#### <a name="sentiment-analysistabsentiment"></a>[情感分析](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
+
+***
 
 * 每個核心必須至少 2.6 GHz 或更快。
 * TPS - 每秒的交易數
 
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
-## <a name="get-the-container-image-with-docker-pull"></a>使用 `docker pull` 取得容器映像
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[關鍵片語擷取](#tab/keyphrase)
 
-文字分析的容器映像可從 Microsoft Container Registry 取得。
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-| 容器 | 存放庫 |
-|-----------|------------|
-|關鍵片語擷取 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|語言偵測 | `mcr.microsoft.com/azure-cognitive-services/language` |
-|情感分析| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+#### <a name="language-detectiontablanguage"></a>[語言偵測](#tab/language)
 
-[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/)使用命令從 Microsoft container Registry 下載容器映射。
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-如需文字分析提供之標籤的完整說明，請參閱下列 Docker Hub 上的容器：
+#### <a name="sentiment-analysistabsentiment"></a>[情感分析](#tab/sentiment)
 
-* [關鍵片語擷取](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [語言偵測](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [情感分析](https://go.microsoft.com/fwlink/?linkid=2018654)
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
-使用 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 命令下載容器映像。
-
-### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>關鍵片語擷取容器的 docker pull
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
-
-### <a name="docker-pull-for-the-language-detection-container"></a>語言偵測容器的 docker pull
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### <a name="docker-pull-for-the-sentiment-container"></a>情感容器的 docker pull
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
+***
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -112,23 +96,19 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 命令的[範例](../text-analytics-resource-container-config.md#example-docker-run-commands)可供使用。`docker run`
 
-### <a name="run-container-example-of-docker-run-command"></a>Docker run 命令的執行容器範例
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[關鍵片語擷取](#tab/keyphrase)
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-此命令：
+#### <a name="language-detectiontablanguage"></a>[語言偵測](#tab/language)
 
-* 從容器映像執行關鍵片語容器
-* 配置一個 CPU 核心和 4 GB 的記憶體
-* 公開 TCP 連接埠 5000，並為容器配置虛擬 TTY
-* 在容器結束之後自動將其移除。 容器映像仍可在主機電腦上使用。
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
+#### <a name="sentiment-analysistabsentiment"></a>[情感分析](#tab/sentiment)
+
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
+
+***
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
@@ -139,7 +119,7 @@ ApiKey={API_KEY}
 
 容器會提供以 REST 為基礎的查詢預測端點 API。
 
-針對容器 API 請使用主機 `https://localhost:5000`。
+針對容器 API 請使用主機 `http://localhost:5000`。
 
 <!--  ## Validate container is running -->
 

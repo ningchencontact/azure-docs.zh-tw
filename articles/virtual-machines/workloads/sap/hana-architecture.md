@@ -7,19 +7,18 @@ author: RicksterCDN
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f322ddab19a8c8635009d2e2b7e7e748fb1e73ab
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1373221502db5b2d511bc6f32bd529090caa9e60
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709767"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101269"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>SAP HANA on Azure (大型執行個體) 架構
 
@@ -34,24 +33,24 @@ SAP HANA on Azure (大型執行個體) 的整體架構會提供一個經 SAP TDI
 
 顯示的架構分成三個部分：
 
-- **右**:顯示內部部署基礎結構，執行不同的應用程式中的資料中心，讓使用者可以存取 LOB 應用程式，例如 SAP。 在理想情況下，這在內部部署基礎結構連線至 Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)。
+- **Right**:顯示在資料中心執行不同應用程式的內部部署基礎結構, 讓終端使用者可以存取 LOB 應用程式 (例如 SAP)。 在理想情況下, 這個內部部署基礎結構會透過[ExpressRoute](https://azure.microsoft.com/services/expressroute/)連接到 Azure。
 
-- **Center**:顯示 Azure IaaS，並在此情況下，使用 Vm 來裝載 SAP 或其他利用 SAP HANA 作為 DBMS 系統的應用程式。 以 VM 提供的記憶體運作的較小 HANA 執行個體會與其應用程式層一起部署在 VM 中。 如需虛擬機器的詳細資訊，請參閱[虛擬機器](https://azure.microsoft.com/services/virtual-machines/)。
+- **Center**:顯示 Azure IaaS, 在此案例中, 會使用 Vm 來裝載 SAP 或使用 SAP Hana 做為 DBMS 系統的其他應用程式。 以 VM 提供的記憶體運作的較小 HANA 執行個體會與其應用程式層一起部署在 VM 中。 如需虛擬機器的詳細資訊，請參閱[虛擬機器](https://azure.microsoft.com/services/virtual-machines/)。
 
    Azure 網路服務可用來將 SAP 系統及其他應用程式一起分組到虛擬網路中。 這些虛擬網路會連線至內部部署系統和 SAP HANA on Azure (大型執行個體)。
 
-   SAP NetWeaver 應用程式和受支援而可在 Azure 中執行的資料庫，請參閱[SAP 支援附註 #1928533-Azure 上的 SAP 應用程式：支援的產品和 Azure VM 類型](https://launchpad.support.sap.com/#/notes/1928533)。 如需關於如何在 Azure 上部署 SAP 解決方案的說明文件，請參閱：
+   針對支援在 azure 中執行的 sap NetWeaver 應用程式和資料庫, 請[參閱 sap 支援附注 #1928533 – Azure 上的 sap 應用程式:支援的產品和 Azure VM](https://launchpad.support.sap.com/#/notes/1928533)類型。 如需關於如何在 Azure 上部署 SAP 解決方案的說明文件，請參閱：
 
   -  [在 Windows 虛擬機器上使用 SAP](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [在 Azure 虛擬機器上使用 SAP 解決方案](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **左**:顯示 「 Azure 大型執行個體 」 戳記中的 SAP HANA TDI 認證的硬體。 從內部部署環境連線至 Azure 中使用相同的技術，HANA 大型執行個體單位會連接到您 Azure 訂用帳戶的虛擬網路。 2019 年，自最佳化引進，讓使用者能夠溝通的 HANA 大型執行個體單位，以及 Azure Vm，不需要 ExpressRoute 閘道的涉入。 這種最佳化稱為 ExpressRoute 快速路徑會顯示在這種架構 （紅線）。 
+- **Left**:顯示「Azure 大型實例」戳記中 SAP Hana TDI 認證的硬體。 HANA 大型實例單位會使用與從內部部署連線至 Azure 的相同技術, 連接到您 Azure 訂用帳戶的虛擬網路。 從2019版開始, 引進的優化可讓 HANA 大型實例單位與 Azure Vm 之間進行通訊, 而不需要使用 ExpressRoute 閘道。 此架構中會顯示此優化 (稱為 ExpressRoute 快速路徑) (紅線)。 
 
 「Azure 大型執行個體」戳記本身結合了下列元件：
 
-- **運算**:以不同的層代的 Intel Xeon 處理器，提供必要的運算能力且經 SAP HANA 認證為基礎的伺服器。
-- **網路**：運算、 儲存體及 LAN 元件互連統一的高速網路網狀架構。
-- **儲存體**：透過整合式的網路網狀架構存取的儲存體基礎結構。 根據已部署的特定 SAP HANA on Azure (大型執行個體) 組態提供的特定儲存體容量。 若要使用更多儲存體容量，則需每月額外付費。
+- **計算**:以不同世代的 Intel 第4代處理器為基礎的伺服器, 可提供所需的計算功能並 SAP Hana 認證。
+- **網路**：一種整合的高速網路網狀架構, 可互連運算、儲存和 LAN 元件。
+- **儲存體**：透過整合的網路網狀架構存取的儲存體基礎結構。 根據已部署的特定 SAP HANA on Azure (大型執行個體) 組態提供的特定儲存體容量。 若要使用更多儲存體容量，則需每月額外付費。
 
 在「大型執行個體」戳記的多租用戶基礎結構內，是將客戶部署成隔離的租用戶。 在租用戶的部署中，您必須在 Azure 註冊內為 Azure 訂用帳戶命名。 此 Azure 訂用帳戶將是 HANA 大型執行個體據以付費的訂用帳戶。 這些租用戶與 Azure 訂用帳戶具有一對一關係。 就網路而言，從分屬於不同 Azure 訂用帳戶的不同虛擬網路，存取在某個 Azure 區域的某個租用戶中部署的 HANA 大型執行個體單位，是可行的。 這些 Azure 訂用帳戶必須屬於相同的 Azure 註冊。 
 

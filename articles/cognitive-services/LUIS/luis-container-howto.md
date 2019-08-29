@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: 2b87f9bcbaa0fd9d8a23d774e0765e1eb5b56633
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eaf689ecb8fd64dca15570179733b7d7539a352e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563899"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050089"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -28,7 +28,7 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要執行 LUIS 容器，您必須具備下列項目： 
 
@@ -88,7 +88,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 1. 使用所需的_輸入掛接_和計費設定[執行容器](##run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](luis-container-configuration.md#example-docker-run-commands)可供參考。 
 1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。 
 1. 容器使用完畢後，請從 LUIS 入口網站中的輸出掛接[匯入端點記錄](#import-the-endpoint-logs-for-active-learning)，並[停止](#stop-the-container)容器。
-1. 從 LUIS 入口網站使用 [檢閱端點語句]  頁面上的[主動式學習](luis-how-to-review-endpoint-utterances.md)，來改善應用程式。
+1. 從 LUIS 入口網站使用 [檢閱端點語句] 頁面上的[主動式學習](luis-how-to-review-endpoint-utterances.md)，來改善應用程式。
 
 在容器中執行的應用程式無法變更。 若要變更容器中的應用程式，您必須使用 [LUIS](https://www.luis.ai) 入口網站或 LUIS [撰寫 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 變更 LUIS 服務中的應用程式。 接著，請進行定型和 (或) 發佈，然後下載新套件並重新執行容器。
 
@@ -131,28 +131,28 @@ LUIS [入口網站](https://www.luis.ai)可讓您匯出已定型或發佈的應�
 
 ### <a name="export-published-apps-package-from-luis-portal"></a>從 LUIS 入口網站匯出已發佈的應用程式套件
 
-已發佈的應用程式套件可從 [我的應用程式]  清單頁面取得。 
+已發佈的應用程式套件可從 [我的應用程式] 清單頁面取得。 
 
 1. 登入 LUIS [入口網站](https://www.luis.ai)。
 1. 選取清單中位於應用程式名稱左側的核取方塊。 
-1. 從清單上方的內容相關工具列中選取 [匯出]  項目。
-1. 選取 [匯出容器 (GZIP)]  。
-1. 選取 [生產位置]  或 [預備位置]  的環境。
+1. 從清單上方的內容相關工具列中選取 [匯出] 項目。
+1. 選取 [匯出容器 (GZIP)]。
+1. 選取 [生產位置] 或 [預備位置] 的環境。
 1. 從瀏覽器下載套件。
 
 ![從 [應用程式] 頁面的 [匯出] 功能表為容器匯出已發佈的套件](./media/luis-container-how-to/export-published-package-for-container.png)
 
 ### <a name="export-trained-apps-package-from-luis-portal"></a>從 LUIS 入口網站匯出已定型的應用程式套件
 
-已定型的應用程式套件可從 [版本]  清單頁面取得。 
+已定型的應用程式套件可從 [版本] 清單頁面取得。 
 
 1. 登入 LUIS [入口網站](https://www.luis.ai)。
 1. 選取清單中的應用程式。 
-1. 在應用程式的導覽列中選取 [管理]  。
-1. 在左側導覽列中選取 [版本]  。
+1. 在應用程式的導覽列中選取 [管理]。
+1. 在左側導覽列中選取 [版本]。
 1. 選取清單中位於版本名稱左側的核取方塊。
-1. 從清單上方的內容相關工具列中選取 [匯出]  項目。
-1. 選取 [匯出容器 (GZIP)]  。
+1. 從清單上方的內容相關工具列中選取 [匯出] 項目。
+1. 選取 [匯出容器 (GZIP)]。
 1. 從瀏覽器下載套件。
 
 ![從 [版本] 頁面的 [匯出] 功能表為容器匯出已定型的套件](./media/luis-container-how-to/export-trained-package-for-container.png)
@@ -172,7 +172,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |-------------|-------|
 |{APPLICATION_ID} | 已發佈 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_ENVIRONMENT} | 已發佈 LUIS 應用程式的環境。 請使用下列其中一個值：<br/>```PRODUCTION```<br/>```STAGING``` |
-|{AUTHORING_KEY} | 已發佈 LUIS 應用程式的 LUIS 帳戶所適用的撰寫金鑰。<br/>您可以從 LUIS 入口網站中的 [使用者設定]  頁面取得撰寫金鑰。 |
+|{AUTHORING_KEY} | 已發佈 LUIS 應用程式的 LUIS 帳戶所適用的撰寫金鑰。<br/>您可以從 LUIS 入口網站中的 [使用者設定] 頁面取得撰寫金鑰。 |
 |{AZURE_REGION} | 適當的 Azure 區域：<br/><br/>```westus``` - 美國西部<br/>```westeurope``` - 西歐<br/>```australiaeast``` - 澳洲東部 |
 
 若要下載已發行的封裝, 請參閱[這裡的 API 檔][download-published-package]。 如果成功下載, 回應會是 LUIS 套件檔案。 請將此檔案儲存在為容器的輸入掛接指定的儲存位置中。 
@@ -191,7 +191,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |-------------|-------|
 |{APPLICATION_ID} | 已定型 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_VERSION} | 已定型 LUIS 應用程式的應用程式版本。 |
-|{AUTHORING_KEY} | 已發佈 LUIS 應用程式的 LUIS 帳戶所適用的撰寫金鑰。<br/>您可以從 LUIS 入口網站中的 [使用者設定]  頁面取得撰寫金鑰。  |
+|{AUTHORING_KEY} | 已發佈 LUIS 應用程式的 LUIS 帳戶所適用的撰寫金鑰。<br/>您可以從 LUIS 入口網站中的 [使用者設定] 頁面取得撰寫金鑰。  |
 |{AZURE_REGION} | 適當的 Azure 區域：<br/><br/>```westus``` - 美國西部<br/>```westeurope``` - 西歐<br/>```australiaeast``` - 澳洲東部 |
 
 若要下載已定型的套件, 請參閱[這裡的 API 檔][download-trained-package]。 如果成功下載, 回應會是 LUIS 套件檔案。 請將此檔案儲存在為容器的輸入掛接指定的儲存位置中。 
@@ -248,7 +248,7 @@ ApiKey={API_KEY}
 
 容器會提供以 REST 為基礎的查詢預測端點 API。 已發佈 (預備或生產) 應用程式的端點具有與已定型應用程式的端點_不同_的路由。 
 
-針對容器 API 請使用主機 `https://localhost:5000`。 
+針對容器 API 請使用主機 `http://localhost:5000`。 
 
 |封裝類型|方法|路由|查詢參數|
 |--|--|--|--|
@@ -298,7 +298,7 @@ curl -X GET \
 /output/luis/{INSTANCE_ID}/
 ```
  
-在 LUIS 入口網站中選取您的應用程式，然後選取 [匯入端點記錄]  以上傳這些記錄。 
+在 LUIS 入口網站中選取您的應用程式，然後選取 [匯入端點記錄] 以上傳這些記錄。 
 
 ![匯入容器的記錄檔供主動式學習使用](./media/luis-container-how-to/upload-endpoint-log-files.png)
 

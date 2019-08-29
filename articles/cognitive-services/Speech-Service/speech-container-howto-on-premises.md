@@ -1,5 +1,5 @@
 ---
-title: 搭配 Kubernetes 和 Helm 使用-語音服務
+title: 使用語音服務容器搭配 Kubernetes 和 Helm
 titleSuffix: Azure Cognitive Services
 description: 使用 Kubernetes 和 Helm 來定義語音轉換文字和文字轉換語音的容器映射, 我們將建立 Kubernetes 套件。 此套件將會部署到內部部署的 Kubernetes 叢集。
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/16/2019
+ms.date: 8/26/2019
 ms.author: dapine
-ms.openlocfilehash: 420ac45b7d3b5e97772b1aa712ba6b8442ac1de2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 3c8ffcdb08fc99f5d815639e14fb4456fbd035e8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562754"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066497"
 ---
-# <a name="use-with-kubernetes-and-helm"></a>使用 Kubernetes 搭配 Helm
+# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>使用語音服務容器搭配 Kubernetes 和 Helm
 
 管理內部部署語音容器的一個選項是使用 Kubernetes 和 Helm。 使用 Kubernetes 和 Helm 來定義語音轉換文字和文字轉換語音的容器映射, 我們將建立 Kubernetes 套件。 此套件將會部署到內部部署的 Kubernetes 叢集。 最後, 我們將探討如何測試已部署的服務和各種設定選項。 如需在沒有 Kubernetes 協調流程的情況下執行 Docker 容器的詳細資訊, 請參閱[安裝和執行語音服務容器](speech-container-howto.md)。
 
@@ -150,7 +150,7 @@ textToSpeech:
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
-    --version 0.1.0 \
+    --version 0.1.1 \
     --values <config-values.yaml> \
     --name onprem-speech
 ```

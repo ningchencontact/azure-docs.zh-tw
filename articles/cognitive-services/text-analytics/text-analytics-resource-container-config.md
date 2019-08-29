@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 08/21/2019
 ms.author: dapine
-ms.openlocfilehash: 65d88e6c201f633a260e31544444341e636e9941
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f1c42002343de1dd3b3ef6b9c9e35f458db925f4
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552257"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051099"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>設定文字分析 Docker 容器
 
@@ -49,7 +49,7 @@ ms.locfileid: "68552257"
 
 * Azure 入口網站：**文字分析**總覽, 加上標籤`Endpoint`
 
-|必要項| 名稱 | 資料類型 | 描述 |
+|必要項| Name | 資料類型 | 描述 |
 |--|------|-----------|-------------|
 |是| `Billing` | String | 必要的計費端點 URI |
 
@@ -77,10 +77,10 @@ ms.locfileid: "68552257"
 
 主機裝載位置的正確語法會隨著主機作業系統而有所不同。 此外，[主機電腦](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)的裝載位置可能會因為 Docker 服務帳戶所使用的權限與主機裝載位置的權限互相衝突，而無法存取。 
 
-|選擇性| 名稱 | 資料類型 | 描述 |
+|選擇性| Name | 資料類型 | 描述 |
 |-------|------|-----------|-------------|
 |不允許| `Input` | String | 文字分析容器不會使用此項目。|
-|選擇性| `Output` | String | 輸出裝載的目標。 預設值是 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例:<br>`--mount type=bind,src=c:\output,target=/output`|
+|選擇性| `Output` | String | 輸出裝載的目標。 預設值為 `/output`。 這是記錄的位置。 這包括容器記錄。 <br><br>範例：<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>範例 docker run 命令 
 
@@ -93,60 +93,26 @@ ms.locfileid: "68552257"
 
 | 預留位置 | 值 | 格式或範例 |
 |-------------|-------|---|
-|{API_KEY} | [Azure `Text Analytics` `Text Analytics`金鑰] 頁面上可用資源的端點金鑰。 |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-|{ENDPOINT_URI} | 計費端點值可在 Azure `Text Analytics`總覽頁面上取得。|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+| **{API_KEY}** | [Azure `Text Analytics` `Text Analytics`金鑰] 頁面上可用資源的端點金鑰。 |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | 計費端點值可在 Azure `Text Analytics`總覽頁面上取得。| 如需明確的範例, 請參閱[收集必要的參數](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters)。 |
 
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
 > ApiKey 值是 [Azure `Text Analytics`資源金鑰] 頁面中的金鑰。 
 
-## <a name="key-phrase-extraction-container-docker-examples"></a>關鍵字組解壓縮容器 docker 範例
+#### <a name="key-phrase-extractiontabkeyphrase"></a>[關鍵片語擷取](#tab/keyphrase)
 
-下列 docker 範例適用于關鍵字組抽取容器。 
+[!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 
-### <a name="basic-example"></a>基本範例 
+#### <a name="language-detectiontablanguage"></a>[語言偵測](#tab/language)
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
+[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 
-### <a name="logging-example"></a>記錄範例 
+#### <a name="sentiment-analysistabsentiment"></a>[情感分析](#tab/sentiment)
 
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
+[!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
 
-## <a name="language-detection-container-docker-examples"></a>語言偵測容器的 Docker 範例
-
-下列是語言偵測容器的 Docker 範例。 
-
-### <a name="basic-example"></a>基本範例
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
-
-### <a name="logging-example"></a>記錄範例
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
- 
-## <a name="sentiment-analysis-container-docker-examples"></a>情感分析容器的 Docker 範例
-
-下列是情感分析容器的 Docker 範例。 
-
-### <a name="basic-example"></a>基本範例
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} 
-  ```
-
-### <a name="logging-example"></a>記錄範例
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={ENDPOINT_URI} ApiKey={API_KEY} Logging:Console:LogLevel:Default=Information
-  ```
+***
 
 ## <a name="next-steps"></a>後續步驟
 

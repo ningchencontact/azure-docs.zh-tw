@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebcfa9da8fc8760fa4c13cec1a8921c4ecef5691
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60582949"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101947"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 
@@ -109,7 +108,7 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "We
 
 ### <a name="vhds-cache-settings"></a>VHD 快取設定
 
-在建立屬於進階儲存體帳戶一部分的磁碟間的主要差異在於磁碟快取設定。 針對 SQL Server 資料磁碟區磁碟，建議使用 [讀取快取]  。 針對交易記錄磁碟區，應該將磁碟快取設定設為 [無]  。 這與適用於標準儲存體帳戶的建議不同。
+在建立屬於進階儲存體帳戶一部分的磁碟間的主要差異在於磁碟快取設定。 針對 SQL Server 資料磁碟區磁碟，建議使用 [讀取快取]。 針對交易記錄磁碟區，應該將磁碟快取設定設為 [無]。 這與適用於標準儲存體帳戶的建議不同。
 
 一旦連結 VHD 之後，就無法更改快取設定。 您需要中斷連結 VHD，然後使用更新的快取設定重新連結。
 
@@ -140,14 +139,14 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "We
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-1. 記下 DiskName 和 LUN。
+1. 請注意 DiskName 和 LUN。
 
     ![DisknameAndLUN][2]
-1. 從遠端桌面連接到 VM。 然後移至 [電腦管理]   |  [裝置管理員]   |  [磁碟機]  。 查看每一個「Microsoft 虛擬磁碟」的屬性
+1. 從遠端桌面連接到 VM。 然後移至 [電腦管理]  |  [裝置管理員]  |  [磁碟機]。 查看每一個「Microsoft 虛擬磁碟」的屬性
 
     ![VirtualDiskProperties][3]
 1. 此處的 LUN 編號是您在將 VHD 連結到 VM 時所指定的 LUN 編號的參考。
-1. 針對「Microsoft 虛擬磁碟」，前往 [詳細資料]  索引標籤，然後在 [屬性]  清單中找到 [驅動程式機碼]  。 記下 [值]  中的 [位移]  ，在下列螢幕擷取畫面中為 0002。 0002 表示儲存集區參考的 PhysicalDisk2。
+1. 針對「Microsoft 虛擬磁碟」，前往 [詳細資料] 索引標籤，然後在 [屬性] 清單中找到 [驅動程式機碼]。 記下 [值] 中的 [位移]，在下列螢幕擷取畫面中為 0002。 0002 表示儲存集區參考的 PhysicalDisk2。
 
     ![VirtualDiskPropertyDetails][4]
 1. 針對每個儲存集區，傾印出關聯的磁碟：
@@ -192,7 +191,7 @@ Set-AzureSubscription -SubscriptionName $mysubscription
 Select-AzureSubscription -SubscriptionName $mysubscription -Current  
 ```
 
-#### <a name="step-1-create-a-premium-storage-account"></a>步驟 1：建立進階儲存體帳戶
+#### <a name="step-1-create-a-premium-storage-account"></a>步驟 1:建立進階儲存體帳戶
 
 ```powershell
 #Create Premium Storage account, note Type
@@ -200,7 +199,7 @@ $newxiostorageaccountname = "danspremsams"
 New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 ```
 
-#### <a name="step-2-create-a-new-cloud-service"></a>步驟 2：建立新的雲端服務
+#### <a name="step-2-create-a-new-cloud-service"></a>步驟 2:建立新的雲端服務
 
 ```powershell
 $destcloudsvc = "danNewSvcAms"
@@ -294,7 +293,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 這個案例示範您現有的自訂映像是位於標準儲存體帳戶中。 如前所述，如果您想要將作業系統 VHD 放置於進階儲存體，就需要複製存在於標準儲存體帳戶中的映像，並將其傳輸到進階儲存體，然後才能加以使用。 如果您擁有內部部署的映像，也可以使用這個方法，直接將它複製到進階儲存體帳戶。
 
-#### <a name="step-1-create-storage-account"></a>步驟 1：建立儲存體帳戶
+#### <a name="step-1-create-storage-account"></a>步驟 1:建立儲存體帳戶
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -474,8 +473,8 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 7. 將新節點新增到叢集，然後執行完整驗證。
 8. 驗證成功之後，啟動所有 SQL Server 服務。
 9. 備份交易記錄，然後還原使用者資料庫。
-10. 將新節點新增到「AlwaysOn 可用性群組」中，並將複寫切換至 [同步]  。
-11. 根據 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell 新增新雲端服務 ILB/ELB 的 IP 位址資源。 在 Windows 叢集中，將 [IP 位址]  資源的 [可能的擁有者]  設為之前的新節點。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
+10. 將新節點新增到「AlwaysOn 可用性群組」中，並將複寫切換至 [同步]。
+11. 根據 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell 新增新雲端服務 ILB/ELB 的 IP 位址資源。 在 Windows 叢集中，將 [IP 位址] 資源的 [可能的擁有者] 設為之前的新節點。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 12. 容錯移轉到其中一個新節點。
 13. 使新節點成為自動容錯移轉夥伴並測試容錯移轉。
 14. 從可用性群組移除原始節點。
@@ -645,7 +644,7 @@ Add-AzureAccount
 Get-AzureSubscription
 ```
 
-#### <a name="step-1-create-new-storage-account-and-cloud-service"></a>步驟 1：建立新的儲存體帳戶和雲端服務
+#### <a name="step-1-create-new-storage-account-and-cloud-service"></a>步驟 1:建立新的儲存體帳戶和雲端服務
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -682,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>步驟 2：增加資源上允許的失敗\<選擇性 >
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>步驟 2:增加資源\<的允許失敗 >
 
 在隸屬於 Always On 可用性群組的特定資源上有下列限制：可以在一段期間內發生的失敗次數，而叢集服務會嘗試在其中重新啟動資源群組。 儘管您正在逐步執行此程序，但還是建議您提高此限制， 因為，如果您不會手動進行容錯移轉，以及藉由關閉機器來觸發容錯移轉，就會更接近這個限制。
 
@@ -692,7 +691,7 @@ New-AzureService $destcloudsvc -Location $location
 
 將 [最大失敗數目] 變更為 6。
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步驟 3：新增 IP 位址資源的叢集群組\<選擇性 >
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步驟 3：新增叢集群組\<的 IP 位址資源選擇性 >
 
 如果您只有一個適用於叢集群組的 IP 位址且已將此位址指派給雲端子網路，請注意，如果您不小心在該網路上使雲端中的所有叢集節點離線，則叢集 IP 資源和叢集網路名稱無法變成上線狀態。 在此情況下，它會阻止更新其他叢集資源。
 
@@ -750,7 +749,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>用戶端應用程式設定
 
-如果您的 SQL 用戶端應用程式支援.NET 4.5 SQLClient，則您可以使用 ' MULTISUBNETFAILOVER = TRUE' 關鍵字。 請套用此關鍵字，因為它可讓您在容錯移轉期間更快連線到 SQL Alwayson 可用性群組。 它會平行列舉所有與 Always On 接聽程式相關聯的 IP 位址，並在容錯移轉期間更頻繁地執行 TCP 連線重試速度。
+如果您的 SQL 用戶端應用程式支援 .NET 4.5 SQLClient, 則您可以使用 ' MULTISUBNETFAILOVER = TRUE ' 關鍵字。 請套用此關鍵字，因為它可讓您在容錯移轉期間更快連線到 SQL Alwayson 可用性群組。 它會平行列舉所有與 Always On 接聽程式相關聯的 IP 位址，並在容錯移轉期間更頻繁地執行 TCP 連線重試速度。
 
 如需上述設定的詳細資訊，請參閱 [MultiSubnetFailover 關鍵字和相關聯的功能](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)。 另請參閱[適用於高可用性與災害復原的 SqlClient 支援](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx)。
 
@@ -1223,7 +1222,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #### <a name="step-23-test-failover"></a>步驟 23：測試容錯移轉
 
-等候所移轉的節點同步處理至內部部署 Always On 節點。 讓節點進入同步複寫模式，並等待它同步處理完成。 然後從容錯移轉在內部部署的第一個節點移轉，其為 AFP。 一旦該節點開始運作之後，請將最後一個移轉的節點變更為 AFP。
+等候所移轉的節點同步處理至內部部署 Always On 節點。 讓節點進入同步複寫模式，並等待它同步處理完成。 然後從內部部署容錯移轉至第一個遷移的節點, 也就是 AFP。 一旦該節點開始運作之後，請將最後一個移轉的節點變更為 AFP。
 
 您應該在所有節點之間測試容錯移轉，並且完整執行混亂測試，以確保容錯移轉會如預期般及時執行。
 

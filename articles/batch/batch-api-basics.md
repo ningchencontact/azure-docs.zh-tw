@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
-ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bead5f0bec6d57c0f4aaddc6537e00c466d987f1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 96ba829ffaadb6bc792c2d859e1e6766ab3ee394
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323893"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095578"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -287,7 +286,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 
 如果計算節點上的啟動工作失敗，則會更新節點的狀態以反映失敗，且不會指派任何工作給該節點。 如果從儲存體複製啟動工作的資源檔案時發生問題，或由其命令列執行的程序傳回非零的結束程式碼，啟動工作可能會失敗。
 
-如果您新增或更新現有集區的開始工作，就必須重新啟動其計算節點，讓開始工作套用至節點。
+如果您新增或更新現有集區的啟動工作，您必須重新啟動其計算節點，啟動工作才會套用至節點。
 
 >[!NOTE]
 > Batch 會限制啟動工作的總大小，包括資源檔案和環境變數。 如果您需要減少啟動工作的大小，您可以使用下列其中一個方法：

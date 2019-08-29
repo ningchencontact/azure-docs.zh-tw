@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: jonbeck
-ms.openlocfilehash: cb99a13b97c0dafa4ace358167d76faaffc30079
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: fdb21f2c96f66da140cdefa9a0b7b54dd2dc66ec
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710130"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102265"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>儲存體最佳化的虛擬機器大小
 
@@ -39,4 +38,4 @@ ms.locfileid: "67710130"
 
 深入了解 [Azure 計算單位 (ACU)](acu.md) 如何協助您比較各個 Azure SKU 的計算效能。
 
-了解如何[Lsv2 系列虛擬機器上的效能最佳化](storage-performance.md)。
+瞭解如何將[Lsv2 系列虛擬機器上的效能優化](storage-performance.md)。

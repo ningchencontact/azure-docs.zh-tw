@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: afccce5ca9101ed1e30f69264abae7ad85b4902b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cbf199c391b49518bb595d7d1a0ed47147903a85
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564580"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034492"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>安裝及執行辨識文字容器
 
-電腦視覺的辨識文字部分也能以 Docker 容器的形式取得。 您可以使用它來從不同表面和背景的各種物件影像 (如收據、海報和名片)，偵測及擷取印刷文字。  
+電腦視覺的辨識文字部分也能以 Docker 容器的形式取得。 您可以使用它來從不同表面和背景的各種物件影像 (如收據、海報和名片)，偵測及擷取印刷文字。
+
 > [!IMPORTANT]
 > 辨識文字容器目前只適用於英文。
 
@@ -38,7 +39,7 @@ ms.locfileid: "68564580"
 
 ## <a name="request-access-to-the-private-container-registry"></a>要求私人容器登錄的存取
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>主機電腦
 
@@ -46,16 +47,7 @@ ms.locfileid: "68564580"
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
 
-下表說明每個「辨識文字」容器的最低和建議的 CPU 核心與記憶體配置。
-
-| 容器 | 最小值 | 建議 |TPS<br>(最小值, 最大值)|
-|-----------|---------|-------------|--|
-|辨識文字|1個核心, 8 GB 記憶體, 0.5 TPS|2個核心, 8 GB 記憶體, 1 個 TPS|0.5、1|
-
-* 每個核心必須至少 2.6 GHz 或更快。
-* TPS - 每秒的交易數
-
-核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## <a name="get-the-container-image-with-docker-pull"></a>使用 `docker pull` 取得容器映像
 

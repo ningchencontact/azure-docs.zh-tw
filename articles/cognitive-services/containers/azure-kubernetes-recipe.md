@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 5b406f9c7f8c16038561853170896d2cd95dc383
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 852530910f7a8c6c815493d0dbcc57f67695d6de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444855"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066113"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>將語言偵測容器部署到 Azure Kubernetes 服務
 
@@ -62,19 +62,19 @@ ms.locfileid: "67444855"
 
 1. 登入 Azure CLI
 
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
 
 1. 建立名為 `cogserv-container-rg` 的資源群組來保存在此程序中建立的每個資源。
 
-    ```azurecli
+    ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
     ```
 
 1. 然後，以您的名稱加上 `registry` 的格式 (例如 `pattyregistry`) 來建立您自己的 Azure Container Registry。 在名稱中請勿使用連字號或底線字元。
 
-    ```azurecli
+    ```azurecli-interactive
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     ```
 
@@ -104,7 +104,7 @@ ms.locfileid: "67444855"
 
 1. 登入您的容器登錄。 您需要登入，才能將映像推送至您的登錄。
 
-    ```azurecli
+    ```azurecli-interactive
     az acr login --name pattyregistry
     ```
 
@@ -174,7 +174,7 @@ ms.locfileid: "67444855"
 
 1. 建立服務主體。
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp create-for-rbac --skip-assignment
     ```
 
@@ -193,7 +193,7 @@ ms.locfileid: "67444855"
 
 1. 取得容器登錄 ID。
 
-    ```azurecli
+    ```azurecli-interactive
     az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
     ```
 
@@ -208,7 +208,7 @@ ms.locfileid: "67444855"
 
 1. 若要授予 AKS 叢集所需的正確存取權，以使用容器登錄中儲存的映像，請建立角色指派。 使用在前兩個步驟中所蒐集的值，取代 `<appId>` 和 `<acrId>`。
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
     ```
 
@@ -216,7 +216,7 @@ ms.locfileid: "67444855"
 
 1. 建立 Kubernetes 叢集。 除了 name 參數之外的所有參數值均來自先前區段。 選擇表示建立者及其用途的名稱，例如 `patty-kube`。
 
-    ```azurecli
+    ```azurecli-interactive
     az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
     ```
 
@@ -284,7 +284,7 @@ ms.locfileid: "67444855"
 
 1. 取得 Kubernetes 叢集的認證。
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group cogserv-container-rg --name patty-kube
     ```
 
@@ -313,14 +313,14 @@ ms.locfileid: "67444855"
 
 1. 根據下表變更 `language.yml` 的語言前端部署行，以便新增您自己的容器登錄映像名稱、用戶端密碼和文字分析設定。
 
-    語言前端部署設定|目的|
+    語言前端部署設定|用途|
     |--|--|
     |行 32<br> `image` 屬性|容器登錄中的前端映像所在的映像位置<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |行 44<br> `name` 屬性|上一個區段之中映像的容器登錄密碼，稱為 `<client-secret>`。|
 
 1. 根據下表變更 `language.yml` 的語言部署行，以便新增您自己的容器登錄映像名稱、用戶端密碼和文字分析設定。
 
-    |語言部署設定|目的|
+    |語言部署設定|用途|
     |--|--|
     |行 78<br> `image` 屬性|容器登錄中的語言映像所在的映像位置<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |行 95<br> `name` 屬性|上一個區段之中映像的容器登錄密碼，稱為 `<client-secret>`。|
@@ -397,7 +397,7 @@ replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 
 在您完成叢集之後，請刪除 Azure 資源群組。
 
-```azure-cli
+```azurecli-interactive
 az group delete --name cogserv-container-rg
 ```
 
