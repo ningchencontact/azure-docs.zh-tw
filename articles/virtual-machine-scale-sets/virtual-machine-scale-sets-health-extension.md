@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e074d76f9ed095725d99bddc9eb21925f4b3697c
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60619819"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114477"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>搭配虛擬機器擴展集使用應用程式健康狀態延伸模組
 監視應用程式健康狀態是用於管理及升級部署的重要訊號。 Azure 虛擬機器擴展集支援包括[自動 OS 映像升級](virtual-machine-scale-sets-automatic-upgrade.md)的[輪流升級](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)，這些升級仰賴個別執行個體的健康狀態監視來升級您的部署。
@@ -63,18 +63,18 @@ ms.locfileid: "60619819"
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 | 資料類型
+| Name | 值 / 範例 | 資料類型
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
-| type | `ApplicationHealthLinux` (Linux)，`ApplicationHealthWindows` (Windows) | string |
+| Type | `ApplicationHealthLinux` (Linux)，`ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | ssNoversion |
 
 ### <a name="settings"></a>設定
 
-| 名稱 | 值 / 範例 | 資料類型
+| Name | 值 / 範例 | 資料類型
 | ---- | ---- | ----
-| protocol | `http` 或 `tcp` | string |
+| 通訊協定 | `http` 或 `tcp` | string |
 | port | 通訊協定是 `http` 時為選擇性項目；通訊協定是 `tcp` 時則為必要項目 | ssNoversion |
 | requestPath | 通訊協定是 `http` 時為必要項目；通訊協定是 `tcp` 時則不允許使用 | string |
 
@@ -149,16 +149,25 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 使用 [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set)，可將應用程式健康狀態延伸模組新增至擴展集模型定義。
 
-下列範例會將應用程式健康狀態延伸模組新增至 Windows 型擴展集的擴展集模型中。
+下列範例會將應用程式健康情況擴充功能新增至以 Linux 為基礎的擴展集的擴展集模型。
 
 ```azurecli-interactive
 az vmss extension set \
-  --name ApplicationHealthWindows \
+  --name ApplicationHealthLinux \
   --publisher Microsoft.ManagedServices \
   --version 1.0 \
   --resource-group <myVMScaleSetResourceGroup> \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
+```
+擴充功能 json 檔案內容。
+
+```json
+{
+  "protocol": "<protocol>",
+  "port": "<port>",
+  "requestPath": "</requestPath>"
+}
 ```
 
 

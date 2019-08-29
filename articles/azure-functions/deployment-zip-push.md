@@ -6,16 +6,15 @@ documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c411ff6b3a7152adaaf29045f4c3b3a3deb22d09
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111183"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087598"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions 的 ZIP 部署
 
@@ -53,7 +52,7 @@ Azure Functions 擁有 Azure App Service 所提供的全套持續部署與整合
 
   1. 登入 [Azure 入口網站](https://portal.azure.com)，然後移至您的函式應用程式。
 
-  2. 在 [概觀]  索引標籤上，選取 [下載應用程式內容]  。 選取下載選項，然後選取 [下載]  。
+  2. 在 [概觀] 索引標籤上，選取 [下載應用程式內容]。 選取下載選項，然後選取 [下載]。
 
       ![下載函式應用程式專案](./media/deployment-zip-push/download-project.png)
 

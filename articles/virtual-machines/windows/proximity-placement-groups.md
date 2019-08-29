@@ -6,18 +6,17 @@ documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 9e9b8dddf7f48fe672a37b0343d215e0735ed760
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: af75b3f98232d6507fc8b0fda179bebc75828086
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302509"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088830"
 ---
 # <a name="preview-deploy-vms-to-proximity-placement-groups-using-powershell"></a>預覽：使用 PowerShell 將 Vm 部署至鄰近放置群組
 
@@ -79,7 +78,7 @@ Get-AzProximityPlacementGroup -ResourceId $ppg.Id |
     Format-Table -Property VirtualMachines -Wrap
 ```
 
-## <a name="availability-sets"></a>可用性設定組 (Availability Sets)
+## <a name="availability-sets"></a>可用性設定組
 您也可以在鄰近放置群組中建立可用性設定組。 使用與`-ProximityPlacementGroup` [new-azavailabilityset 組](/powershell/module/az.compute/new-azavailabilityset)指令程式相同的參數來建立可用性設定組, 而且在可用性設定組中建立的所有 vm 也會在相同的鄰近放置群組中建立。
 
 ## <a name="scale-sets"></a>擴展集

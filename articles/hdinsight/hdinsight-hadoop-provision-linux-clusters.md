@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: c47cc49a8e81b44a4529f8f82954797e2648c938
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: c2aad97cea39221da56666dbeff72ce56fcb2a22
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69983099"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113689"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集
 
@@ -83,7 +83,7 @@ HDInsight 叢集名稱具有下列限制:
 - 允許的字元: a-z、0-9、a-z 
 - 最大長度：59
 - 保留名稱: 應用程式
-- 必須是唯一的
+- 叢集命名範圍適用于所有訂用帳戶中的所有 Azure。 因此, 叢集名稱在全球必須是唯一的。
 - 前6個字元在 VNET 中必須是唯一的
 
 ## <a name="cluster-login-and-ssh-username"></a>叢集登入和 SSH 使用者名稱

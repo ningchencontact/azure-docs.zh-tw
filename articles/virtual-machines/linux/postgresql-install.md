@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 086b36b347f214e1e9cdf44e4fb5a29fe501fa8b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7fc8cb7c07dd27cd42dc4c6a7e0a576f0efe04e0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667111"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091729"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>安裝和設定 Azure 上的 PostgreSQL
 PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它包含企業用功能，例如完整的 ACID 的相容性、可靠的交易式程序，以及多版本的並行控制。 它也支援標準，例如 ANSI SQL 和 SQL/MED (包括 Oracle、MySQL、MongoDB 和許多其他項目的外部資料包裝函式)。 其高度可擴充性支援超過 12 種程序性語言、GIN 和 GiST 索引、空間資料支援和多個類似 NoSQL 的功能，適用於 JSON 或以索引鍵-值為基礎的應用程式。
@@ -92,7 +91,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
    > 基於安全性理由，PostgreSQL 會使用非根使用者初始化、啟動或關閉資料庫。
    > 
    > 
-4. 輸入下列命令以編輯 bash_profile  檔。 這幾行將會加入至 bash_profile  檔案的結尾：
+4. 輸入下列命令以編輯 bash_profile 檔。 這幾行將會加入至 bash_profile 檔案的結尾：
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -106,7 +105,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
         alias rm='rm -i'
         alias ll='ls -lh'
         EOF
-5. 執行 bash_profile  檔案：
+5. 執行 bash_profile 檔案：
    
         $ source .bash_profile
 6. 利用下列命令驗證安裝：
@@ -232,7 +231,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>更新資料表中的資料
-使用下列命令更新資料表中的資料。 此第一，Sandy 已確認，它們會參加，因此我們將變更的 RSVP 從"n"名為"Y":
+使用下列命令更新資料表中的資料。 在此情況下, Sandy 已確認他們正在參與, 所以我們會將 RSVP 從 "N" 變更為 "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

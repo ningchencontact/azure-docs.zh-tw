@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c5eb25ae536a6cdb0eb12f1233307215fe2d7d1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318947"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080015"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>當您連線到 Azure VM 時無法使用遠端桌面授權伺服器
 
@@ -63,7 +62,7 @@ mstsc /v:<Server>[:<Port>] /admin
 
     如果您無法使用系統管理工作階段連線到 VM，您可以使用 [Azure 上的虛擬機器序列主控台](serial-console-windows.md)來存取 VM，如下所示：
 
-    1. 選取 [支援與疑難排解]   > [序列主控台 (預覽)]  來存取序列主控台。 如果已在 VM 上啟用此功能，您就能成功連線該 VM。
+    1. 選取 [支援與疑難排解] > [序列主控台 (預覽)] 來存取序列主控台。 如果已在 VM 上啟用此功能，您就能成功連線該 VM。
 
     2. 針對 CMD 執行個體建立新通道。 輸入 **CMD** 以啟動通道並取得通道名稱。
 
@@ -127,6 +126,6 @@ mstsc /v:<Server>[:<Port>] /admin
 
 4. 如果遠端桌面授權伺服器已設定且狀況良好，請確定會使用 CAL 來啟動遠端桌面授權伺服器。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-support"></a>需要協助嗎？ 連絡支援人員
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以解決您的問題。

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure 上的 Oracle 解決方案 | Microsoft Docs
-description: 了解部署 Oracle 應用程式和 Microsoft Azure，包括完全在 Azure 基礎結構上執行，或使用跨雲端連線能力與 Oracle 雲端基礎結構 (OCI) 解決方案的選項。
+description: 瞭解在 Microsoft Azure 上部署 Oracle 應用程式和解決方案的選項, 包括完全在 Azure 基礎結構上執行, 或使用與 Oracle 雲端基礎結構 (OCI) 的跨雲端連線能力。
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -8,81 +8,80 @@ manager: gwallace
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: b8bfa0dfa82f73cad010a608150eac48c7f3d4c8
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e9e37c54668ec0343cbfd45e51e90216955b46c4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707441"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100012"
 ---
-# <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Oracle 應用程式和 Azure 上的解決方案概觀
+# <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure 上的 Oracle 應用程式和解決方案總覽
 
-這篇文章介紹執行使用 Azure 基礎結構的 Oracle 解決方案的功能。 另請參閱可用詳細的介紹[Oracle VM 映像](oracle-vm-solutions.md)在 Azure Marketplace 和預覽功能[互連 Azure 與 Oracle 雲端基礎結構 (OCI)](oracle-oci-overview.md)。
+本文介紹使用 Azure 基礎結構執行 Oracle 解決方案的功能。 另請參閱 Azure Marketplace 中可用[ORACLE VM 映射](oracle-vm-solutions.md)的詳細介紹, 以及將[Azure 與 Oracle 雲端基礎結構 (OCI) 互連](oracle-oci-overview.md)的預覽功能。
 
-## <a name="oracle-databases-on-azure-infrastructure"></a>在 Azure 基礎結構上的 oracle 資料庫
+## <a name="oracle-databases-on-azure-infrastructure"></a>Azure 基礎結構上的 Oracle 資料庫
 
-使用 Azure Marketplace 中的 Linux 映像的 Azure 基礎結構上執行 Oracle 資料庫：
+使用 Azure Marketplace 中提供的 Linux 映射, 在 Azure 基礎結構上執行 Oracle 資料庫:
 
-* Oracle Database 12.1、 12.2 和 18.3 Enterprise Edition 
+* Oracle Database 12.1、12.2 和 18.3 Enterprise Edition 
 
-* Oracle Database 12.1、 12.2 和 18.3 Standard Edition 
+* Oracle Database 12.1、12.2 和 18.3 Standard Edition 
 
-您也可以選擇根據您在 Azure 中從頭開始建立，或從您的內部部署環境上傳自訂映像的自訂映像的解決方案。
+您也可以選擇根據您在 Azure 中從頭建立的自訂映射來建立解決方案, 或從內部部署環境上傳自訂映射。
 
-選擇性地使用多個連接的磁碟設定，並藉由安裝 Oracle Automated Storage Management (ASM) 改善資料庫效能。
+您可以選擇性地設定多個連接的磁片, 並藉由安裝 Oracle 自動儲存管理 (ASM) 來改善資料庫效能。
 
-## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Oracle Linux 和 WebLogic Server 上的應用程式
+## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Oracle Linux 和 WebLogic 伺服器上的應用程式
 
-在 Azure 中的企業應用程式執行受支援的 Oracle 作業系統上。 下列映像可在 Azure Marketplace 中：
+在支援的 Oracle 作業系統上, 于 Azure 中執行企業應用程式。 Azure Marketplace 提供下列影像:
 
-* Oracle WebLogic Server 12.1.2
+* Oracle WebLogic Server 12.1。2
 
-* Oracle Linux 6.8、 6.9、 6.10、 7.3、 7.4、 7.5 和 7.6 (UEK)
+* Oracle Linux (UEK) 6.8、6.9、6.10、7.3、7.4、7.5 和7。6
 
-## <a name="high-availability-and-disaster-recovery-options"></a>高可用性和災害復原選項
+## <a name="high-availability-and-disaster-recovery-options"></a>高可用性和嚴重損壞修復選項
 
-* 搭配 Azure 基礎結構上設定 Oracle Data Guard、 Active Data Guard 或 GoldenGate[可用性區域](../../../availability-zones/az-overview.md)以獲得高可用性。
+* 在 Azure 基礎結構上設定 Oracle Data Guard、Active Data Guard 或 GoldenGate, 以配合高可用性的[可用性區域](../../../availability-zones/az-overview.md)。
 
-* 使用[Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)來協調和管理 Azure 和內部部署或實體伺服器中的 Oracle Linux Vm 的災害復原。 
+* 使用[Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)來協調和管理 Azure 中 Oracle Linux vm 和內部部署或實體伺服器的嚴重損壞修復。 
 
-* 啟用 Oracle Real Application Clusters (RAC)，在 Azure 中使用[FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)。
+* 在 Azure 中使用[FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/)啟用 Oracle Real 應用程式叢集 (RAC)。
 
-## <a name="integration-of-azure-with-oci-preview"></a>Azure 中使用 OCI （預覽） 的整合
+## <a name="integration-of-azure-with-oci-preview"></a>Azure 與 OCI 的整合 (預覽)
 
-在 Azure 基礎結構，連接到後端資料庫在 Oracle 雲端基礎結構 (OCI) 中執行 Oracle 應用程式。 此解決方案會使用下列功能： 
+在 Azure 基礎結構中執行 Oracle 應用程式, 並連接到 Oracle 雲端基礎結構 (OCI) 中的後端資料庫。 此解決方案使用下列功能: 
 
-* **跨雲端網路**-使用直接的相互連線可用來建立應用程式和資料庫層級之間的高頻寬、 私用和低延遲連線的 Azure ExpressRoute 與 Oracle FastConnect 之間。
-* **整合式身分識別**-設定 Azure AD 之間的同盟身分識別和 Oracle IDCS，若要建立之解決方案的單一身分識別來源。 啟用單一登入來管理跨 OCI 與 Azure 的資源。
+* **跨雲端網路**-使用 Azure ExpressRoute 和 Oracle FastConnect 之間提供的直接互連, 在應用程式與資料庫層之間建立高頻寬、私人和低延遲的連線。
+* **整合**式身分識別-在 Azure AD 和 Oracle IDCS 之間設定同盟身分識別, 以建立解決方案的單一身分識別來源。 啟用單一登入來管理跨 OCI 和 Azure 的資源。
 
-### <a name="deploy-oracle-applications-on-azure"></a>部署在 Azure 上的 Oracle 應用程式
+### <a name="deploy-oracle-applications-on-azure"></a>在 Azure 上部署 Oracle 應用程式
 
-若要設定 Azure 基礎結構，並安裝 Oracle 應用程式進行驗證，並支援執行跨雲端組態中使用 Terraform 範本：
+使用 Terraform 範本來設定 Azure 基礎結構, 並安裝已驗證和支援的 Oracle 應用程式, 以在跨雲端設定中執行:
 
-* E-business Suite
+* 電子商務套件
 * JD Edwards EnterpriseOne
 * PeopleSoft
 * Oracle 零售應用程式
 * Oracle Hyperion 財務管理
 
-也部署在 Azure 中自訂 OCI 與其他 Azure 服務連線的應用程式。
+此外, 在 Azure 中部署自訂應用程式, 以使用 OCI 和其他 Azure 服務進行連接。
 
-### <a name="set-up-oracle-databases-in-oci"></a>設定 Oracle OCI 中的資料庫
+### <a name="set-up-oracle-databases-in-oci"></a>在 OCI 中設定 Oracle 資料庫
 
-在 Azure 中執行的 Oracle 應用程式搭配使用 Oracle Database 雲端服務 （自主資料庫，RAC、 Exadata、 DBaaS，單一節點）。 深入了解[OCI 資料庫選項](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm)。 
+使用 Oracle Database 雲端服務 (自發資料庫、RAC、Exadata、DBaaS、單一節點) 搭配在 Azure 中執行的 Oracle 應用程式。 深入瞭解[OCI 資料庫選項](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm)。 
  
 
 ## <a name="licensing"></a>授權
 
-在 Azure 中的 Oracle 應用程式的部署是以 「 攜帶您自己的授權 」 模型為基礎。 它會假設您有正確授權使用 Oracle 軟體，而且您有目前的支援合約，在與 Oracle 的地方。 Oracle 已保證從內部部署至 Azure 的授權行動性。 請參閱 Oracle Azure[常見問題集](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)。
+在 Azure 中部署 Oracle 應用程式是以「自備授權」模型為基礎。 假設您已適當授權使用 Oracle 軟體, 而且目前已有與 Oracle 搭配的支援合約。 Oracle 已保證從內部部署至 Azure 的授權行動性。 請參閱 Oracle-Azure[常見問題](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解部署[Oracle VM 映像](oracle-vm-solutions.md)Azure 基礎結構中。
+* 深入瞭解如何在 Azure 基礎結構中部署[ORACLE VM 映射](oracle-vm-solutions.md)。
 
-* 深入了解如何[互連 Azure OCI](oracle-oci-overview.md)。
+* 深入瞭解如何[使用 OCI 與 Azure 互連](oracle-oci-overview.md)。

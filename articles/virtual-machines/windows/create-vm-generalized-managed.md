@@ -10,34 +10,33 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 3ae730389b54fc1034bfac3ffdc7e56a2dc5f3fc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 30e5a7e5953c56ff452b992370e8225ca103abba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718961"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079704"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>從受控映像建立 VM
 
 您可以使用 Azure 入口網站或 PowerShell，從 Azure 受控 VM 映像建立多部虛擬機器 (VM)。 受控 VM 映像包含建立 VM 所需的資訊，包括 OS 和資料磁碟。 組成映像的虛擬硬碟 (VHD) (包括 OS 磁碟和任何資料磁碟) 會儲存為受控磁碟。 
 
-然後再建立新的 VM，您必須[建立受管理的 VM 映像](capture-image-resource.md)作為來源映像和映像上的讀取權限授與任何使用者都應該具有存取權的映像。 
+在建立新的 VM 之前, 您必須[建立受控 vm 映射](capture-image-resource.md)以作為來源映射, 並將映射的讀取權限授與任何應具有映射存取權的使用者。 
 
 
 ## <a name="use-the-portal"></a>使用入口網站
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側功能表中，選取 [所有資源]  。 您可以依 [類型]  排序資源，以輕鬆找到您的映像。
-3. 從清單選取您要使用的映像。 映像的 [概觀]  頁面隨即開啟。
-4. 從功能表選取 [建立 VM]  。
-5. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼將用於登入虛擬機器。 完成時選取 [確定]  。 您可以在現有資源群組中建立新的 VM，或選擇 [建立新項目]  來建立用於儲存 VM 的新資源群組。
-6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部]  或變更 [支援的磁碟類型]  篩選條件。 
-7. 在 [設定]  下，視需要變更，然後選取 [確定]  。 
-8. 在摘要頁面上，您應該會看到您的映像名稱列出為**私人映像**。 選取 [確定]  以開始虛擬機器部署。
+2. 在左側功能表中，選取 [所有資源]。 您可以依 [類型] 排序資源，以輕鬆找到您的映像。
+3. 從清單選取您要使用的映像。 映像的 [概觀] 頁面隨即開啟。
+4. 從功能表選取 [建立 VM]。
+5. 輸入虛擬機器資訊。 在此輸入的使用者名稱和密碼將用於登入虛擬機器。 完成時選取 [確定]。 您可以在現有資源群組中建立新的 VM，或選擇 [建立新項目] 來建立用於儲存 VM 的新資源群組。
+6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 
+7. 在 [設定] 下，視需要變更，然後選取 [確定]。 
+8. 在摘要頁面上，您應該會看到您的映像名稱列出為**私人映像**。 選取 [確定] 以開始虛擬機器部署。
 
 
 ## <a name="use-powershell"></a>使用 PowerShell

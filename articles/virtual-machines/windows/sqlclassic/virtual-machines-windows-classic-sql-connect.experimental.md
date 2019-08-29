@@ -8,7 +8,6 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: 416948af-454f-4cfe-8fd2-7cf971cbd3e9
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -16,12 +15,12 @@ ms.date: 01/31/2017
 ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 51694ca085e131150217ffb3fbac9830980108cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60c5af609cea876370c74684362e9b44db40c1ee
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108411"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101961"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)
 > [!div class="op_single_selector"]
@@ -58,7 +57,7 @@ ms.locfileid: "62108411"
 ### <a name="connect-to-sql-server-over-the-internet"></a>連接網際網路中的 SQL Server
 如果您希望透過網際網路連接您的 SQL Server 資料庫引擎，您必須建立虛擬機器端點以進行傳入 TCP 通訊。 此 Azure 組態步驟能將傳入 TCP 連接埠流量導向虛擬機器可存取的 TCP 連接埠。
 
-若要透過網際網路連接，您必須使用 VM 的 DNS 名稱和 VM 端點連接埠號碼 (稍後在本文中設定)。 若要尋找 DNS 名稱，請瀏覽至 Azure 入口網站，然後選取 [虛擬機器 (傳統)]  。 然後選取您的虛擬機器。 [摘要]  區段中會顯示 [DNS 名稱]  。
+若要透過網際網路連接，您必須使用 VM 的 DNS 名稱和 VM 端點連接埠號碼 (稍後在本文中設定)。 若要尋找 DNS 名稱，請瀏覽至 Azure 入口網站，然後選取 [虛擬機器 (傳統)]。 然後選取您的虛擬機器。 [摘要] 區段中會顯示 [DNS 名稱]。
 
 例如，假設名為 **mysqlvm** 的傳統虛擬機器，其 DNS 名稱為 **mysqlvm7777.cloudapp.net**，且 VM 端點是 **57500**。 假設已適當設定連線能力，則使用下列連接字串，就能從網際網路上任何位置存取該虛擬機器：
 

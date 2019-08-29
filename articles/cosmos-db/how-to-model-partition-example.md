@@ -3,15 +3,15 @@ title: 如何使用實際範例在 Azure Cosmos DB 上建立資料的模型及�
 description: 了解如何使用 Azure Cosmos DB Core API 建立實際範例的模型及加以分割
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070674"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093422"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>如何使用實際範例在 Azure Cosmos DB 上建立資料的模型及加以分割
 
@@ -410,7 +410,7 @@ function updateUsernames(userId, username) {
 
 1. 此要求*必須*依 `userId` 進行篩選，因為我們想要擷取特定使用者的所有貼文
 1. 其執行效果不佳，因為執行依據為 `posts` 容器，但其分割依據並非 `userId`
-1. 顯而易見，我們會對分割依據為  `userId` 的容器執行此要求，以解決效能問題
+1. 顯而易見，我們會對分割依據為 `userId` 的容器執行此要求，以解決效能問題
 1. 而其實我們已有這樣的容器：`users` 容器！
 
 因此，我們藉由將所有貼文複製到 `users` 容器，來導入第二層反正規化。 藉由這麼做，我們有效地取得以不同維度分割的貼文複本，使其能更有效地依 `userId` 擷取。

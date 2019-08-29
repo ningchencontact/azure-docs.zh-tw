@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3395159e1427fa3d174b62c74c777d2f2ddd4900
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
-ms.translationtype: MT
+ms.openlocfilehash: 33e29b02adfccf94da84dd99451117485b892ba3
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721689"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072898"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>疑難排解 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -350,7 +350,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
 | **需要補救** | 否 |
 
-不需要任何動作。 使用 Azure 備份還原檔案或檔案共用 (雲端端點) 時, 同步處理會遭到封鎖, 直到 Azure 檔案共用上的變更偵測完成為止。 一旦還原完成, 且持續時間是以檔案共用中的檔案數目為依據, 變更偵測就會立即執行。
+不需採取任何動作。 使用 Azure 備份還原檔案或檔案共用 (雲端端點) 時, 同步處理會遭到封鎖, 直到 Azure 檔案共用上的變更偵測完成為止。 一旦還原完成, 且持續時間是以檔案共用中的檔案數目為依據, 變更偵測就會立即執行。
 
 <a id="-2147216747"></a>**同步處理失敗, 因為同步處理資料庫已卸載。**  
 
@@ -634,7 +634,7 @@ PerItemErrorCount: 1006.
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
-| **HRESULT (十進位)** | -2134364145 |
+| **HRESULT (十進位)** | -2134375877 |
 | **錯誤字串** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **需要補救** | 是 |
 | | |
@@ -662,7 +662,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SYNC_INVALID_PATH |
 | **需要補救** | 是 |
 
-請確認路徑存在且位於本機 NTFS 磁碟區，而且不是重新剖析點或現有的伺服器端點。
+請確定路徑存在、位於本機 NTFS 磁碟區尚，且不是重新分析點或現有的伺服器端點。
 
 <a id="-2134375817"></a>**同步處理失敗，因為篩選器驅動程式版本與代理程式版本不相容**  
 
@@ -684,7 +684,7 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SERVICE_UNAVAILABLE |
 | **需要補救** | 否 |
 
-之所以發生此錯誤，是因為 Azure 檔案同步服務無法使用。 此錯誤會在 Azure 檔案同步服務恢復使用時自動解決。
+之所以發生此錯誤，是因為 Azure 檔案同步服務無法使用。 當 Azure 檔案同步服務再次可供使用時, 將會自動解決此錯誤。
 
 <a id="-2146233088"></a>**因為發生例外狀況, 所以同步失敗。**  
 
@@ -1062,7 +1062,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 - 將不會刪除可存取 (不是孤立) 的階層式檔案。
 - 非階層式檔案會保留在伺服器上。
 
-7. 選用：如果在步驟3中刪除, 請重新建立伺服器端點。
+7. 選擇性：如果在步驟3中刪除, 請重新建立伺服器端點。
 
 *選項 2：掛接 Azure 檔案共用, 並將伺服器上的孤立檔案複製到本機*
 

@@ -11,19 +11,18 @@ ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: bdeaf4ec4a276e7cdd94402159f6adac474b3af8
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 009918a95ca1ff6189553d502fd06773fcd0d402
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671538"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083457"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>準備適用於 Azure 的 Debian VHD
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本節假設您已使用從 [Debian 網站](https://www.debian.org/distrib/) 下載的 .iso 檔案將 Debian Linux 作業系統安裝至虛擬硬碟。 可建立 .vhd 檔案的工具有多種，Hyper-V 只是其中一個範例。 如需 Hyper-V 的使用指示，請參閱 [安裝 Hyper-V 角色及設定虛擬機器](https://technet.microsoft.com/library/hh846766.aspx)。
 
 ## <a name="installation-notes"></a>安裝注意事項
@@ -50,7 +49,7 @@ ms.locfileid: "67671538"
 
 ## <a name="manually-prepare-a-debian-vhd"></a>手動準備 Debian VHD
 1. 在 Hyper-V 管理員中，選取虛擬機器。
-2. 按一下 [連接]  ，以開啟虛擬機器的主控台視窗。
+2. 按一下 [連接] ，以開啟虛擬機器的主控台視窗。
 3. 如果您使用 ISO 安裝作業系統，則在 `/etc/apt/source.list` 中註解排除與 "`deb cdrom`" 相關的任一行。
 
 4. 依照以下方法編輯 `/etc/default/grub` 檔案及修改 **GRUB_CMDLINE_LINUX** 參數，以納入用於 Azure 的其他核心參數。
@@ -105,7 +104,7 @@ ms.locfileid: "67671538"
         # export HISTSIZE=0
         # logout
 
-10. 在 Hyper-V 管理員中，依序按一下 [動作]  -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
+10. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以開始使用您的 Debian 虛擬硬碟在 Azure 建立新的虛擬機器。 如果您是第一次將 .vhd 檔案上傳至 Azure，請參閱[從自訂磁碟建立 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。

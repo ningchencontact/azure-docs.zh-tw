@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 9751ae97f96d2041a4106a41bb782a80dd9c8ba9
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a06ea59af0776fe3decb0b56a3ef886f08b2dfda
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884390"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100721"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>自動設定 Azure 虛擬機器中的 Always On 可用性群組:Resource Manager
 
@@ -186,7 +185,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 檢閱設定，然後按一下 [確定]。
 
 ### <a name="summary"></a>總結
-在 [摘要] 頁面上，Azure 會驗證設定。 您也可以下載此範本。 檢閱摘要。 按一下 [確定 **Deploying Office Solutions**]。
+在 [摘要] 頁面上，Azure 會驗證設定。 您也可以下載此範本。 檢閱摘要。 按一下 [確定]。
 
 ### <a name="buy"></a>購買
 這個最終的刀鋒視窗包含 [使用條款] 和 [隱私權原則]。 檢閱此資訊。 當您準備好讓 Azure 開始建立虛擬機器及可用性群組的所有其他必要資源時，請按一下 [建立]。

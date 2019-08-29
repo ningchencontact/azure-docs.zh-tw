@@ -10,17 +10,16 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2289ef81785520b81c7d69a97cb20196015fe802
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 519cf5388b095c7ca6e0ae7d978608f0824dc3a2
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637736"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066508"
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中還原應用程式
 本文說明如何在 [Azure App Service](../app-service/overview.md) 中還原您先前備份的應用程式 (請參閱[在 Azure 中備份應用程式](manage-backup.md))。 您可以依需求將應用程式及其連結的資料庫還原到先前的狀態，或是根據您的其中一個原始應用程式備份來建立新的應用程式。 Azure App Service 支援使用下列資料庫來進行備份與還原︰

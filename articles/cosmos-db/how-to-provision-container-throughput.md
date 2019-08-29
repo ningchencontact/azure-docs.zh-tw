@@ -3,15 +3,15 @@ title: 在 Azure Cosmos DB 中佈建容器輸送量
 description: 了解如何在 Azure Cosmos DB 中佈建資料庫層級的輸送量
 author: rimman
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: f195eaa0f5d22160de8c1e9e2f429073de001828
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
-ms.translationtype: HT
+ms.openlocfilehash: 0975fe5135bbe9f5e1dc65ee0444cc3aab986a2e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986033"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093047"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>在 Azure Cosmos 容器上佈建輸送量
 
@@ -23,13 +23,13 @@ ms.locfileid: "67986033"
 
 1. [建立新的 Azure Cosmos 帳戶](create-sql-api-dotnet.md#create-account)，或選取現有 Azure Cosmos 帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取 [新增集合]  。 接下來，提供下列詳細資料：
+1. 開啟 [資料總管] 窗格，然後選取 [新增集合]。 接下來，提供下列詳細資料：
 
    * 指出您正在建立新的資料庫，還是使用現有的帳戶。
    * 輸入容器 (或資料表或圖形) 識別碼。
    * 輸入分割區索引鍵值，(例如 `/userid`)。
    * 輸入您要佈建的輸送量 (例如 1000 RU)。
-   * 選取 [確定]  。
+   * 選取 [確定]。
 
 ![醒目提示 [新增集合] 的資料總管螢幕擷取畫面](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 

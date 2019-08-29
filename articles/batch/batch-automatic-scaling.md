@@ -8,19 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 431212b2b0ac7bba209130e511e3510e3008a6c4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2014b00a82a6d56bf58b471336c6d809721abea9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500029"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095426"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>建立自動調整公式來調整 Batch 集區中的計算節點
 
@@ -132,7 +131,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 >
 >
 
-## <a name="types"></a>類型
+## <a name="types"></a>型別
 公式中支援以下類型：
 
 * double
@@ -637,7 +636,7 @@ Error:
 ## <a name="example-autoscale-formulas"></a>自動調整公式範例
 讓我們看看下面幾個公式，其顯示調整集區中計算資源數量的不同方式。
 
-### <a name="example-1-time-based-adjustment"></a>範例 1:以時間為基礎的調整
+### <a name="example-1-time-based-adjustment"></a>範例 1：以時間為基礎的調整
 假設您想要根據一週的天數和一天的時間，調整集區大小。 這個範例示範如何據以增加或減少集區中的節點數目。
 
 此公式會先取得目前的時間。 如果是工作日 (1-5) 且在上班時間內 (上午 8:00 - 下午 6:00)，則將目標集區大小設為 20 個節點。 否則，它會設定為 10 個節點。

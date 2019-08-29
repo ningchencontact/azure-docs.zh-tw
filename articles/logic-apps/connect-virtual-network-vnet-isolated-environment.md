@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 7a3cdab8e05a873e67788a72350d1bf3fde3cd18
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018194"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099462"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -88,7 +88,8 @@ ISE 已增加執行持續時間、儲存體保留期、輸送量、HTTP 要求�
 | 從 Azure 流量管理員的通訊 | 傳入 | 443 | AzureTrafficManager | VirtualNetwork | |
 | Logic Apps 設計工具 - 動態屬性 | 傳入 | 454 | 網際網路 | VirtualNetwork | 要求來自[該區域中的 Logic Apps 存取端點輸入 IP 位址](../logic-apps/logic-apps-limits-and-config.md#inbound)。 |
 | App Service 管理相依性 | 傳入 | 454、455 | AppServiceManagement | VirtualNetwork | |
-| 連接器部署 | 傳入 | 454、3443 | 網際網路 | VirtualNetwork | 部署和更新連接器所需。 關閉或封鎖此埠會導致 ISE 部署失敗, 並防止連接器更新或修正。 |
+| 連接器部署 | 傳入 | 454 | AzureConnectors | VirtualNetwork | 部署和更新連接器所需。 關閉或封鎖此埠會導致 ISE 部署失敗, 並防止連接器更新或修正。 |
+| 連接器原則部署 | 傳入 | 3443 | 網際網路 | VirtualNetwork | 部署和更新連接器所需。 關閉或封鎖此埠會導致 ISE 部署失敗, 並防止連接器更新或修正。 |
 | Azure SQL 相依性 | 傳出 | 1433 | VirtualNetwork | SQL | |
 | Azure 資源健康狀態 | 傳出 | 1886 | VirtualNetwork | AzureMonitor | 將健全狀況狀態發佈至資源健康狀態 |
 | API 管理 - 管理端點 | 傳入 | 3443 | APIManagement | VirtualNetwork | |

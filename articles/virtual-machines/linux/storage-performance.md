@@ -5,18 +5,17 @@ services: virtual-machines-linux
 author: laurenhughes
 manager: gwallace
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: a06ae79181c70f1cb8519f703cb42a3d699bebf3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ea64a4274eda947aebf0f693657c17a120bec560
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828391"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081791"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>將 Lsv2 系列虛擬機器上的效能優化
 
@@ -86,7 +85,7 @@ Lsv2 系列 Vm 會使用以 Zen 微架構為基礎的 AMD EYPC™伺服器處理
 
 若要深入瞭解在本機儲存體中備份資料的選項, 請參閱[Azure IaaS 磁片的備份和](backup-and-disaster-recovery-for-azure-iaas-disks.md)嚴重損壞修復。
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 * **如何? 開始部署 Lsv2 系列 Vm 嗎？**  
    與任何其他 VM 很類似, 請使用[入口網站](quick-create-portal.md)、 [Azure CLI](quick-create-cli.md)或[PowerShell](quick-create-powershell.md)來建立 VM。

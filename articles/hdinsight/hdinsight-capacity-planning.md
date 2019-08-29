@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 0f386faa5a18282c9e60bdb282e01dcd53f9de4f
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786507"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114313"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -37,7 +37,7 @@ HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域�
 
 ### <a name="location-of-default-storage"></a>預設儲存體的位置
 
-預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Storage) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Storage Gen1 可在某些區域中使用 - 請在[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)中的儲存體  下參閱目前的 Data Lake Storage 可用性。
+預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Storage) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Storage Gen1 可在某些區域中使用 - 請在[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)中的儲存體下參閱目前的 Data Lake Storage 可用性。
 
 ### <a name="location-of-existing-data"></a>現有資料的位置
 
@@ -66,7 +66,7 @@ Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#s
 
 每個叢集類型都具有一組節點類型，且每個節點類型都有其 VM 大小和類型的特定選項。
 
-若要判斷您應用程式的最佳叢集大小，您可以效能評定叢集容量，並依指示增加大小。 例如，您可以使用模擬的工作負載或 Canary 查詢  。 使用模擬工作負載時，您要在不同大小的叢集上執行您預期的工作負載，逐漸增加大小直到觸達所需的效能為止。 可以在其他生產查詢之間定期插入 Canary 查詢，以說明叢集是否有足夠的資源。
+若要判斷您應用程式的最佳叢集大小，您可以效能評定叢集容量，並依指示增加大小。 例如，您可以使用模擬的工作負載或 Canary 查詢。 使用模擬工作負載時，您要在不同大小的叢集上執行您預期的工作負載，逐漸增加大小直到觸達所需的效能為止。 可以在其他生產查詢之間定期插入 Canary 查詢，以說明叢集是否有足夠的資源。
 
 VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定：
 
@@ -82,7 +82,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 根據您的叢集類型，增加背景工作節點數可新增額外的計算容量 (例如更多核心)，但也可以新增至整個叢集所需的記憶體總數，以支援記憶體內正在進行處理的資料儲存體。 如同 VM 大小和類型的選擇，通常會使用模擬的工作負載或 Canary 查詢，以實證方式達到選取正確的叢集縮放比例。
 
-您可以相應放大叢集以符合尖峰負載需求，然後當不再需要這些額外的節點時，將其相應縮小。 [自動調整功能](hdinsight-autoscale-clusters.md)可讓您自動調整您的叢集將會根據預先決定的度量和時間。 如需有關手動調整您的叢集的詳細資訊，請參閱[調整 HDInsight 叢集](hdinsight-scaling-best-practices.md)。
+您可以相應放大叢集以符合尖峰負載需求，然後當不再需要這些額外的節點時，將其相應縮小。 自動調整[功能](hdinsight-autoscale-clusters.md)可讓您根據預先決定的計量和時間, 自動擴充您的叢集。 如需手動調整叢集的詳細資訊, 請參閱[調整 HDInsight 叢集規模](hdinsight-scaling-best-practices.md)。
 
 ### <a name="cluster-lifecycle"></a>叢集生命週期
 
@@ -94,7 +94,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 ### <a name="isolate-cluster-job-errors"></a>找出叢集作業錯誤
 
-有時會因多個對應平行執行而發生錯誤，從而減少多節點叢集上的元件。 若要協助隔離問題，請嘗試在單一節點叢集上同時執行多個作業的分散式測試，然後延伸這種方法，在包含多個節點的叢集上同時執行多個作業。 若要在 Azure 中建立單一節點 HDInsight 叢集，請使用進階  選項。
+有時會因多個對應平行執行而發生錯誤，從而減少多節點叢集上的元件。 若要協助找出問題, 請在單一背景工作節點叢集上執行並行多個作業來嘗試進行分散式測試, 然後展開此方法, 在包含多個節點的叢集上同時執行多個作業。 若要在 Azure 中建立單一節點的 HDInsight 叢集, 請使用 [*自訂 (大小、設定、應用程式)* ] 選項, 並在入口網站中布建新叢集時, 針對 [叢集**大小**] 區段中的背景*工作節點數目*使用1的值。
 
 您也可以在本機電腦上安裝單一節點開發環境，並在該處測試解決方案。 Hortonworks 提供的單一節點本機開發環境適用於以 Hadoop 作為基礎的解決方案，適合初期開發、概念證明及測試。 如需詳細資訊，請參閱 [Hortonworks 沙箱](https://hortonworks.com/products/hortonworks-sandbox/)。
 
@@ -105,19 +105,19 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 決定您的目標叢集 VM 大小、縮放比例和類型之後，請檢查您訂用帳戶的目前配額容量限制。 當您觸達配額限制時，可能無法部署新的叢集，或新增更多背景工作節點來將現有的叢集相應放大。 唯一的配額限制是 CPU 核心配額，其存在於每個訂用帳戶區域層級。 例如，您的訂用帳戶在美國東部區域可能有 30 個核心限制。 如果您需要要求增加配額，請執行下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-1. 選取 **說明 + 支援**在頁面左下方。
-1. 上，選取**新增支援要求**。
-1. 在 [新增支援要求]  頁面的 [基本]  索引標籤上，選取下列選項：
+1. 選取頁面左下方的 [說明 **+ 支援**]。
+1. 選取 [**新增支援要求**]。
+1. 在 [新增支援要求] 頁面的 [基本] 索引標籤上，選取下列選項：
    - **問題類型**：**服務與訂用帳戶限制 (配額)**
    - **訂用帳戶**：您需要修改的訂用帳戶
    - **配額類型**：**HDInsight**
     
      ![建立支援要求以提高 HDInsight 核心配額](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. 完成時，選取 下一步:**解決方案 >>** 。
-1. 在 **詳細資料**頁面上，輸入問題的描述，選取 嚴重性問題、 您慣用的連絡方法和其他必要的欄位。
-1. 完成時，選取 下一步:**檢閱 + 建立 >>** 。
-1. 在 **檢閱 + 建立**索引標籤上，選取**建立**。
+1. 完成時，選取 下一步:**解決方案 > >** 。
+1. 在 [**詳細資料**] 頁面上, 輸入問題的描述、選取問題的嚴重性、您偏好的連絡人方法, 以及其他必要的欄位。
+1. 完成時，選取 下一步:**審查 + 建立 > >** 。
+1. 在 [**審查 + 建立**] 索引標籤上, 選取 [**建立**]。
 
 > [!NOTE]  
 > 如果需要在私人區域中新增 HDInsight 核心配額，請[提交允許清單要求](https://aka.ms/canaryintwhitelist)。

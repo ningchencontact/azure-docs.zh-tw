@@ -9,17 +9,16 @@ ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba34638bbdb838adc6f1e61b1f8b07a6915815c0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540768"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069716"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>憑證和 App Service Environment 
 
@@ -55,7 +54,7 @@ ASE 是單一租用戶系統。 因為它是單一租用戶，所以有一些功
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-當建立自我簽署憑證時，您必須確定主體名稱格式為 CN = {ASE_NAME_HERE} _InternalLoadBalancingASE。
+建立自我簽署憑證時, 您必須確定主體名稱的格式為 CN = {ASE_NAME_HERE} _InternalLoadBalancingASE。
 
 ## <a name="application-certificates"></a>應用程式憑證 
 
@@ -85,7 +84,7 @@ ASE 是單一租用戶系統。 因為它是單一租用戶，所以有一些功
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-憑證將可由所有應用程式使用，而這些應用程式與設定該設定的應用程式具有相同 App Service 方案。 如果您需要它可用於不同 App Service 方案中的應用程式，必須在該 App Service 方案的應用程式中，重複應用程式設定作業。 若要檢查憑證設定，請移至 Kudu 主控台，並發出下列命令，PowerShell 偵錯主控台：
+憑證將可由所有應用程式使用，而這些應用程式與設定該設定的應用程式具有相同 App Service 方案。 如果您需要它可用於不同 App Service 方案中的應用程式，必須在該 App Service 方案的應用程式中，重複應用程式設定作業。 若要檢查是否已設定憑證, 請移至 Kudu 主控台, 並在 PowerShell debug 主控台中發出下列命令:
 
     dir cert:\localmachine\root
 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9fabccd477883750c1aecb5493fdb64ddf5ab2c3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362130"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100284"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Azure 虛擬機器中的 SQL Server 自動修補 (傳統)
 > [!div class="op_single_selector"]
@@ -33,7 +32,7 @@ ms.locfileid: "60362130"
 自動修補會針對執行 SQL Server 的 Azure 虛擬機器建立維護時間範圍。 自動更新只能在此維護時間範圍內安裝。 對於 SQL Server，這可以確保系統更新和任何相關聯的重新啟動會在對資料庫最好的時間發生。 
 
 > [!IMPORTANT]
-> 只會安裝標示為 [重要]  的 Windows 更新。 其他 SQL Server 更新 (例如累計更新) 必須以手動方式安裝。 
+> 只會安裝標示為 [重要] 的 Windows 更新。 其他 SQL Server 更新 (例如累計更新) 必須以手動方式安裝。 
 
 自動修補相依於 [SQL Server IaaS 代理程式擴充](../classic/sql-server-agent-extension.md)。
 

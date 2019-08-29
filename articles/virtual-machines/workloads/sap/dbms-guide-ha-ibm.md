@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4571b0e1a2c9207ce913901f11157f5155201393
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935349"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100029"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -144,7 +143,7 @@ HADR 只是一種複寫功能。 它沒有任何失敗偵測, 也沒有自動接
 
 IBM Db2 LUW 的資源代理套裝程式含在適用于 SAP 應用程式的 SUSE Linux Enterprise Server 中。 針對本檔中所述的設定, 您必須使用適用于 SAP 應用程式的 SUSE Linux Server。 Azure Marketplace 包含 SUSE Enterprise Server for SAP Applications 12 的映射, 您可以用來部署新的 Azure 虛擬機器。 當您選擇 Azure VM Marketplace 中的 VM 映射時, 請留意 SUSE 透過 Azure Marketplace 提供的各種支援或服務模型。 
 
-### <a name="hosts-dns-updates"></a>主控件:DNS 更新
+### <a name="hosts-dns-updates"></a>主機DNS 更新
 建立所有主機名稱的清單, 包括虛擬主機名稱, 並更新您的 DNS 伺服器, 以啟用適當的 IP 位址來解析主機名稱。 如果 DNS 伺服器不存在, 或您無法更新及建立 DNS 專案, 您必須使用參與此案例之個別 Vm 的本機主機檔案。 如果您使用的是主機檔案專案, 請確定專案會套用至 SAP 系統內容中的所有 Vm。 不過, 我們建議您最好使用您的 DNS, 這在理想情況下會延伸到 Azure
 
 

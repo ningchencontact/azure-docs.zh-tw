@@ -7,24 +7,23 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5bfbf995b67ac49cf169565046daa2887a57e476
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 58174704051709a720950ac51591a1d53b9d01bb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846160"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100555"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>使用 Azure CLI 在 Azure VM 上設定 SQL Server 的 Always On 可用性群組
 本文說明如何使用[Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/)來部署 Windows 容錯移轉叢集、將 SQL Server vm 新增至叢集, 以及建立 Always On 可用性群組的內部負載平衡器和接聽程式。 Always On 可用性群組的部署仍然是透過 SQL Server Management Studio (SSMS) 手動完成。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用 Azure CLI 自動設定 Always On 可用性群組, 您必須具備下列必要條件: 
 - [Azure 訂用帳戶](https://azure.microsoft.com/free/)。
 - 具有網域控制站的資源群組。 

@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: f4920cde64ae951fa5f234f6ad6d7423429bb907
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e5ef1bde9420104b596c22837048b054f918b3cc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706042"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092635"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 
@@ -119,13 +118,13 @@ Linux 自訂指令碼擴充功能有兩個：
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 | 資料類型 |
+| Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
-| type | CustomScriptForLinux | string |
+| Type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | ssNoversion |
-| fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (例如) | https://github.com/MyProject/Archive/MyPythonScript.py | 陣列 |
 | commandToExecute (例如) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (例如) | examplestorageacct | string |
@@ -296,7 +295,7 @@ az vm extension set
 
 1. 命令開始執行時啟用。
 1. 下載與從 Azure 下載 CustomScript 擴充功能套件有關，與在 fileUris 中指定的指令碼檔案無關。
-1. 您也可以看到它寫出哪個記錄檔 `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. 您也可以查看其寫出的記錄檔`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 下一步是要檢查記錄檔，以下是格式：
 
@@ -304,7 +303,7 @@ az vm extension set
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-您應該尋找個別的執行，它看起來像：
+您應該尋找個別執行, 它看起來會像這樣:
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

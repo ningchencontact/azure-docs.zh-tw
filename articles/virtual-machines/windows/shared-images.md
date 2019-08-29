@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 707c642fae4d7698eb3d793b83dc574872925f0f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9842f57c7d8d49aa9d1b3d17f82f3519ecead98c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709136"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088598"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>使用 Azure PowerShell 建立共用映像資源庫 
 
@@ -44,7 +43,7 @@ ms.locfileid: "67709136"
 
 ## <a name="before-you-begin"></a>開始之前
 
-若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像](tutorial-custom-images.md)來建立一個 (如有需要)。 如果受控映像會包含資料磁碟，資料磁碟大小不得超過 1 TB。
+若要完成本文中的範例，您必須具有現有的受控映像。 您可以遵循[教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像](tutorial-custom-images.md)來建立一個 (如有需要)。 如果受控映射包含資料磁片, 資料磁片大小不能超過 1 TB。
 
 逐步完成本文之後，請視需要取代資源群組和 VM 名稱。
 
@@ -53,9 +52,9 @@ ms.locfileid: "67709136"
  
 ## <a name="create-vms-from-an-image"></a>從映像建立 VM
 
-映像版本完成之後，您可以建立一或多個新的 VM。 使用[New-azvm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet。 
+映像版本完成之後，您可以建立一或多個新的 VM。 使用[update-azvm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) Cmdlet。 
 
-這個範例會建立名為的 VM *myVMfromImage*，請在*myResourceGroup*中*美國中南部*資料中心。
+這個範例會在*美國中南部*資料中心的*myResourceGroup*中建立名為*myVMfromImage*的 VM。
 
 
 ```azurepowershell-interactive
@@ -98,7 +97,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>後續步驟
-[Azure 映像產生器 （預覽）](image-builder-overview.md)可協助自動化建立映像版本，您甚至可以使用它來更新並[從現有的映像版本建立新的映像版本](image-builder-gallery-update-image-version.md)。 
+[Azure 映射產生器 (預覽)](image-builder-overview.md)可協助自動建立映射版本, 您甚至可以使用它來更新和[建立現有映射版本的新映射版本](image-builder-gallery-update-image-version.md)。 
 
 您也可以使用範本建立共用映像庫資源。 有數個 Azure 快速入門範本可以使用： 
 

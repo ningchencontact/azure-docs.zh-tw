@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bdfcb729aed88dd93a2ce61a8d28f34a5c327713
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ac1572a75a3310afb9d0e0a34c6751ed12d839f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710374"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102425"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>將一般化 VHD 上傳至 Azure，以建立新的 VM。
 
@@ -52,9 +51,9 @@ ms.locfileid: "67710374"
 
 1. 登入 Windows 虛擬機器。
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 **%windir%\system32\sysprep** 目錄，然後執行 `sysprep.exe`。
-3. 在 [系統準備工具]  對話方塊中，選取 [進入系統全新體驗 (OOBE)]  ，並確認已勾選 [一般化]  核取方塊。
-4. 在 [關機選項]  中選取 [關機]  。
-5. 按一下 [確定]  。
+3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
+4. 在 [關機選項] 中選取 [關機]。
+5. 按一下 [確定]。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Sysprep 完成時，會關閉虛擬機器。 
@@ -283,7 +282,7 @@ $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>確認已建立 VM
-完成時，在 [Azure 入口網站](https://portal.azure.com)的 [瀏覽]   > [虛擬機器]  底下，或是使用下列 PowerShell 命令，應該就可以看到新建立的 VM：
+完成時，在 [Azure 入口網站](https://portal.azure.com)的 [瀏覽] > [虛擬機器] 底下，或是使用下列 PowerShell 命令，應該就可以看到新建立的 VM：
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName

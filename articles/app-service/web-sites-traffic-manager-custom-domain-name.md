@@ -10,17 +10,16 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6a59d519ae8bb515ab16632bd39509682959f50
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128512"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074022"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -55,10 +54,10 @@ ms.locfileid: "62128512"
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-由於每個網域提供者的特殊要求可能有所不同，您會「從」  自訂網域名稱 (例如 **contoso.com**) 對應「至」  與您的 Web 應用程式整合的流量管理員網域名稱 (**contoso.trafficmanager.net**)。
+由於每個網域提供者的特殊要求可能有所不同，您會「從」自訂網域名稱 (例如 **contoso.com**) 對應「至」與您的 Web 應用程式整合的流量管理員網域名稱 (**contoso.trafficmanager.net**)。
 
 > [!NOTE]
-> 如果記錄已在使用中，而您需要事先將您的應用程式繫結到該記錄，您可以建立其他的 CNAME 記錄。 例如，若要事先將繫結**www\.contoso.com**您 web 應用程式中，建立 CNAME 記錄，從**awverify.www**來**contoso.trafficmanager.net**。 然後，您可以新增 「 www\.contoso.com 」 您的 Web 應用程式，而不需要變更"www"CNAME 記錄。 如需詳細資訊，請參閱[在自訂網域中建立 Web 應用程式的 DNS 記錄][CREATEDNS]。
+> 如果記錄已在使用中，而您需要事先將您的應用程式繫結到該記錄，您可以建立其他的 CNAME 記錄。 例如, 若要事先將**www\.contoso.com**系結至您的 web 應用程式, 請建立從**awverify**到**contoso.trafficmanager.net**的 CNAME 記錄。 然後, 您可以將 "\.www contoso.com" 新增至您的 Web 應用程式, 而不需要變更 "www" CNAME 記錄。 如需詳細資訊, 請參閱[在自訂網域中建立 web 應用程式的 DNS 記錄][CREATEDNS]。
 
 在網域提供者處完成 DNS 記錄的新增或修改後，請儲存變更。
 

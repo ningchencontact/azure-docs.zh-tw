@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b59e4c570032bdd3341dc7d519f23f4cd86984c7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743423"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084436"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>適用於 Linux 的網路監看員代理程式虛擬機器擴充功能
 
@@ -30,13 +29,13 @@ ms.locfileid: "60743423"
 
 本文詳述適用於 Linux 的網路監看員代理程式虛擬機器擴充功能所支援的平台和部署選項。 安裝代理程式不會讓虛擬機器中斷或需要重新開機。 您可以將延伸模組部署到您部署的虛擬機器中。 若虛擬機器是由 Azure 服務所部署，請檢查服務文件以判斷它是否允許在虛擬機器中安裝延伸模組。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
 
 下列 Linux 散發套件可設定網路監看員代理程式擴充功能：
 
-| 配送映像 | Version |
+| 發佈 | Version |
 |---|---|
 | Ubuntu | 12+ |
 | Debian | 7 和 8 |
@@ -48,7 +47,7 @@ ms.locfileid: "60743423"
 | CoreOS | 899.17.0+ |
 
 
-### <a name="internet-connectivity"></a>網際網路連線
+### <a name="internet-connectivity"></a>網際網路的連線能力
 
 網路監看員代理程式的某些功能需要虛擬機器連線到網際網路。 若沒有建立傳出的連線，網路監看員代理程式的某些功能可能會有問題或者無法使用。 有關需要代理程式的網路監看員功能詳細資訊，請參閱[網路監看員文件](/azure/network-watcher/)。
 
@@ -76,11 +75,11 @@ ms.locfileid: "60743423"
 
 ### <a name="property-values"></a>屬性值
 
-| 名稱 | 值 / 範例 |
+| Name | 值 / 範例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| type | NetworkWatcherAgentLinux |
+| Type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>範本部署
@@ -130,4 +129,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 
 ### <a name="support"></a>支援
 
-對於本文內容，如有任何需要協助的地方，可參閱[網路監看員文件](/azure/network-watcher/)，或連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]  。 如需使用 Azure 支援的相關資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
+對於本文內容，如有任何需要協助的地方，可參閱[網路監看員文件](/azure/network-watcher/)，或連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。 如需使用 Azure 支援的相關資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。

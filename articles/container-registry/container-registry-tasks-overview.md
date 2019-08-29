@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 65debc8c65752150651d00d84eeff469cefbc268
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68311878"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114809"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>使用 ACR 工作自動化容器映射組建和維護
 
@@ -56,7 +56,7 @@ ms.locfileid: "68311878"
 
 ## <a name="automatic-build-on-source-code-commit"></a>在來源程式碼認可時自動建置
 
-您可以使用「ACR 工作」，在將程式碼認可至 Git 存放庫時，自動觸發容器映像建置。 建立工作 (使用 Azure CLI 命令[az acr task][az-acr-task]設定) 可讓您指定 Git 存放庫, 並選擇性地指定分支和 Dockerfile。 當您的團隊將程式碼認可至存放庫時，「ACR 工作」建立的 Webhook 就會觸發存放庫中所定義容器映像的建置。
+當程式碼認可至 GitHub 或 Azure DevOps 中的 Git 存放庫時, 請使用 ACR 工作自動觸發容器映射組建。 建立工作 (使用 Azure CLI 命令[az acr task][az-acr-task]設定) 可讓您指定 Git 存放庫, 並選擇性地指定分支和 Dockerfile。 當您的團隊將程式碼認可至存放庫時，「ACR 工作」建立的 Webhook 就會觸發存放庫中所定義容器映像的建置。
 
 > [!IMPORTANT]
 > 如果您先前已在預覽期間使用 `az acr build-task` 命令建立工作，則必須使用 [az acr task][az-acr-task] 命令重新建立這些工作。
@@ -73,10 +73,14 @@ ms.locfileid: "68311878"
 
 由於「ACR 工作」會在建置容器映像時動態地探索基底映像相依性，因此它可以偵測到應用程式映像的基底映像何時更新。 「ACR 工作」會接著使用一個預先設定的[建置工作](container-registry-tutorial-base-image-update.md#create-a-task)，為您**自動重建每個應用程式映像**。 透過這個自動偵測和重建功能，「ACR 工作」便可讓您針對參考已更新之基底映像的每個應用程式映像，省下手動追蹤及更新通常所需的時間與精力。
 
-若要了解 OS 和架構修補，請參閱第三個「ACR 工作」教學課程：[使用 Azure Container Registry 工作在基底映像更新時自動執行映像建置](container-registry-tutorial-base-image-update.md)。
+當基底映射位於下列其中一個位置時, ACR 工作會追蹤基底映射更新:
 
-> [!NOTE]
-> 目前, 基底映射更新只會在基底與應用程式映射位於相同的 Azure 容器登錄時觸發組建, 或者基底位於公用 Docker Hub 或 Microsoft Container Registry 存放庫中。
+* 執行工作所在的相同 Azure container registry
+* 相同區域中的另一個 Azure container registry 
+* Docker Hub 中的公用存放庫
+* Microsoft Container Registry 中的公用存放庫
+
+在第三個 ACR 工作教學課程中深入瞭解 OS 和架構修補、[使用 Azure Container Registry 工作自動化基底映射更新上的映射組建](container-registry-tutorial-base-image-update.md)。
 
 ## <a name="multi-step-tasks"></a>多步驟工作
 

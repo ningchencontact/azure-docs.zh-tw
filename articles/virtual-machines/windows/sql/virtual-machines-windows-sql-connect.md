@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 70e478ac70b7ab53f1357394f3a3cb0d92f41f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae5c4cdd76f164d13da349c355a30d8b6dc83058
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075818"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102096"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>連線到 Azure 上的 SQL Server 虛擬機器
 
@@ -50,7 +49,7 @@ ms.locfileid: "67075818"
 
 ## <a name="connect-to-sql-server-over-the-internet"></a>連接網際網路中的 SQL Server
 
-如果您需要從網際網路連線到您的 SQL Server 資料庫引擎，請於佈建期間，在入口網站中針對 [SQL 連線能力]  類型選取 [公開]  。 入口網站會自動執行下列步驟：
+如果您需要從網際網路連線到您的 SQL Server 資料庫引擎，請於佈建期間，在入口網站中針對 [SQL 連線能力]類型選取 [公開]。 入口網站會自動執行下列步驟：
 
 * 啟用 SQL Server 的 TCP/IP 通訊協定。
 * 設定防火牆規則，以開啟 SQL Server TCP 連接埠 (預設為 1433)。
@@ -77,7 +76,7 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 
 ## <a name="connect-to-sql-server-within-a-virtual-network"></a>連線到相同虛擬網路內的 SQL Server
 
-當您在入口網站中針對 [SQL 連線能力]  類型選擇 [私用]  時，Azure 會將大部分設定設定為與**公用**的相同。 其中一項差異是沒有任何網路安全性群組規則可允許 SQL Server 連接埠 (預設為 1433) 上的外部流量。
+當您在入口網站中針對 [SQL 連線能力]類型選擇 [私用] 時，Azure 會將大部分設定設定為與**公用**的相同。 其中一項差異是沒有任何網路安全性群組規則可允許 SQL Server 連接埠 (預設為 1433) 上的外部流量。
 
 > [!IMPORTANT]
 > SQL Server Developer 和 Express 版本的虛擬機器映像不會自動啟用 TCP/IP 通訊協定。 在 Developer 和 Express 版本中，您必須在建立 VM 之後，使用「SQL Server 組態管理員」來[手動啟用 TCP/IP 通訊協定](#manualtcp)。
@@ -98,11 +97,11 @@ Server=mysqlvm;Integrated Security=true
 
 您可以在 Azure 入口網站中變更您 SQL Server 虛擬機器的連線能力設定。
 
-1. 在 Azure 入口網站中，選取**SQL 虛擬機器**。
+1. 在 Azure 入口網站中, 選取**SQL 虛擬機器**。
 
 2. 選取 SQL Server VM。
 
-3. 底下**設定**，選取**安全性**。
+3. 在 [**設定**] 下, 選取 [**安全性**]。
 
 4. 將 **SQL 連線能力層級**變更為必要的設定。 可選擇性地使用此區域來變更 SQL Server 連接埠或 SQL 驗證設定。
 

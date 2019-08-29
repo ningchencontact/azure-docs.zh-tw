@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 0e6a52ea2fdd05546a4da9f8cd1165b41ed27944
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097660"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101913"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中設定 Always On 可用性群組的 ILB 接聽程式
 > [!div class="op_single_selector"]
@@ -56,9 +55,9 @@ ms.locfileid: "62097660"
 
 1. 在 Azure 入口網站中，移至每部主控複本的 VM 以檢視詳細資料。
 
-2. 按一下每部 VM 的 [端點]  索引標籤。
+2. 按一下每部 VM 的 [端點] 索引標籤。
 
-3. 對於您想要使用的接聽程式端點，確認其 [名稱]  和 [公用連接埠]  並未使用中。 在本節的範例中，名稱是 MyEndpoint  ，而通訊埠為 1433  。
+3. 對於您想要使用的接聽程式端點，確認其 [名稱] 和 [公用連接埠] 並未使用中。 在本節的範例中，名稱是 MyEndpoint，而通訊埠為 1433。
 
 4. 在您的本機用戶端上，下載並安裝最新的 [PowerShell 模組](https://azure.microsoft.com/downloads/)。
 
@@ -78,7 +77,7 @@ ms.locfileid: "62097660"
         (Get-AzureVNetConfig).XMLConfiguration
 9. 請記下子網路 (其中包含主控複本的 VM) 的 *Subnet* 名稱。 此名稱使用於指令碼中的 $SubnetName 參數。
 
-10. 記下子網路 (其中包含主控複本的 VM) 的 VirtualNetworkSite  名稱和起始的 AddressPrefix  。 將這兩個值傳遞至 `Test-AzureStaticVNetIP` 命令並檢查 AvailableAddresses  以尋找可用的 IP 位址。 例如，如果虛擬網路被命名為 MyVNet  且具有以 172.16.0.128  開始的子網路位址範圍，下列命令便會列出可用的位址：
+10. 記下子網路 (其中包含主控複本的 VM) 的 VirtualNetworkSite 名稱和起始的 AddressPrefix。 將這兩個值傳遞至 `Test-AzureStaticVNetIP` 命令並檢查 AvailableAddresses 以尋找可用的 IP 位址。 例如，如果虛擬網路被命名為 MyVNet 且具有以 172.16.0.128 開始的子網路位址範圍，下列命令便會列出可用的位址：
 
         (Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 11. 選取其中一個可用的位址，並將其用於下一個步驟中指令碼的 $ILBStaticIP 參數。

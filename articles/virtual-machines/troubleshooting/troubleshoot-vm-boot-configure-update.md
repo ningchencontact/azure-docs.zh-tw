@@ -10,16 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f3c18ea1887ea5b05bb89f85371139ac83dfe49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684014"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080168"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 啟動在 Azure 中停滯在「Windows 正在就緒。 請勿關閉電腦」的狀態
 
@@ -29,7 +28,7 @@ ms.locfileid: "64684014"
 
 ## <a name="symptoms"></a>徵兆
 
-當您使用 [開機診斷]  取得 VM 的螢幕擷取畫面時，作業系統未完全啟動。 VM 顯示訊息「正在準備 Windows， 請勿關閉電腦。」
+當您使用 [開機診斷] 取得 VM 的螢幕擷取畫面時，作業系統未完全啟動。 VM 顯示訊息「正在準備 Windows， 請勿關閉電腦。」
 
 ![Windows Server 2012 R2 的訊息範例](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
@@ -121,7 +120,7 @@ ms.locfileid: "64684014"
 
 當 VM 停滯在設定中時，使用[收集 OS 傾印](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file)一節中的步驟來收集 OS 傾印。
 
-## <a name="contact-microsoft-support"></a>連絡 Microsoft 支援
+## <a name="contact-microsoft-support"></a>請連絡 Microsoft 支援
 
 收集傾印檔案之後，請連絡 [Microsoft 支援服務](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以分析根本原因。
 

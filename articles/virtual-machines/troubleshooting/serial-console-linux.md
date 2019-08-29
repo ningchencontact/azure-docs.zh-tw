@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 0eda9fe0e16a945dcb9f9a1b686afcd2aebe6306
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
-ms.translationtype: MT
+ms.openlocfilehash: 4e0c91096d5efdcc9639a7127126d8e4b89ef068
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854394"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090150"
 ---
 # <a name="azure-serial-console-for-linux"></a>適用于 Linux 的 Azure 序列主控台
 
@@ -211,7 +210,7 @@ Web 通訊端已關閉或無法開啟。 | 您可能需要將 `*.console.azure.c
 SLES BYOS 映射中的鍵盤輸入不穩定。 鍵盤輸入只會偶爾被辨識。 | 這是 Plymouth 套件的問題。 Plymouth 不應該在 Azure 中執行, 因為您不需要啟動顯示畫面, 而 Plymouth 會干擾平臺使用序列主控台的能力。 移除 Plymouth `sudo zypper remove plymouth` , 然後重新開機。 或者, 在行尾附加`plymouth.enable=0` , 以修改 GRUB 設定的核心行。 若要這麼做, 您可以[在開機時編輯開機專案](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), 或編輯中`/etc/default/grub`的 GRUB_CMDLINE_LINUX 行`grub2-mkconfig -o /boot/grub2/grub.cfg`, 以重建 GRUB, 然後重新開機。
 
 
-## <a name="frequently-asked-questions"></a>常見問答集
+## <a name="frequently-asked-questions"></a>常見問題集
 
 **問：如何傳送意見反應？**
 

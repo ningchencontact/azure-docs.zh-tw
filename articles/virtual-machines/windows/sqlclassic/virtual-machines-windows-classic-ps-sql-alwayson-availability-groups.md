@@ -9,23 +9,22 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: c089d54544217cf72f81a2535ceede50d25b9b61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89f731062ce46969c73f745d62b289b3b3483d8c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362181"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100362"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>在 Azure VM 中使用 PowerShell 設定 Always On 可用性群組
 > [!div class="op_single_selector"]
-> * [傳統：UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [傳統：PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [傳統UI](../classic/portal-sql-alwayson-availability-groups.md)
+> * [傳統PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 在開始之前，請考量您現在可以在 Azure Resource Manager 模型中完成這項工作。 我們建議針對新的部署使用 Azure Resource Manager 模型。 請參閱 [Azure 虛擬機器上的 SQL Server Always On 可用性群組](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md)。
@@ -239,7 +238,7 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員降低高可用性 SQL Server
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    上面指定的 GUID 即是電腦物件類型的 GUID。 **CORP\Install** 帳戶需要**讀取全部內容**和**建立電腦物件**權限，才能建立容錯移轉叢集的 Active Directory 物件。 根據預設，系統已將**讀取所有內容**權限授與 CORP\Install，因此，您不需要明確地授與該權限。 如需有關建立容錯移轉叢集所需的權限的詳細資訊，請參閱[容錯移轉叢集逐步指南：設定 Active Directory 中帳戶](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)。
+    上面指定的 GUID 即是電腦物件類型的 GUID。 **CORP\Install** 帳戶需要**讀取全部內容**和**建立電腦物件**權限，才能建立容錯移轉叢集的 Active Directory 物件。 根據預設，系統已將**讀取所有內容**權限授與 CORP\Install，因此，您不需要明確地授與該權限。 如需建立容錯移轉叢集所需許可權的詳細資訊, 請參閱[容錯移轉叢集逐步指南:在 Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)中設定帳戶。
 
     現在 Active Directory 和使用者物件便已設定完畢，請建立兩個 SQL Server VM，並將這些 VM 加入此網域。
 
@@ -380,15 +379,15 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員降低高可用性 SQL Server
 ## <a name="initialize-the-failover-cluster-vms"></a>初始化容錯移轉叢集 VM
 在本節中，您必須修改將用於容錯移轉叢集和 SQL Server 安裝中的三部伺服器。 具體而言：
 
-* 所有伺服器：您必須安裝**容錯移轉叢集**功能。
-* 所有伺服器：您需要新增**CORP\Install**做為機器**管理員**。
-* 僅 ContosoSQL1 和 ContosoSQL2:您需要新增**CORP\Install**作為**sysadmin**預設資料庫中的角色。
-* 僅 ContosoSQL1 和 ContosoSQL2:您需要新增**NT AUTHORITY\System**作為登入與下列權限：
+* 所有伺服器:您必須安裝**容錯移轉**叢集功能。
+* 所有伺服器:您必須將**CORP\Install**新增為電腦**管理員**。
+* 僅限 ContosoSQL1 和 ContosoSQL2:您必須將**CORP\Install**新增為預設資料庫中的**系統管理員 (sysadmin** ) 角色。
+* 僅限 ContosoSQL1 和 ContosoSQL2:您需要將**NT AUTHORITY\System**新增為具有下列許可權的登入:
 
   * 更改所有可用性群組
   * 連接 SQL
   * 檢視伺服器狀態
-* 僅 ContosoSQL1 和 ContosoSQL2:**TCP**通訊協定已啟用 SQL Server VM 上。 但是，還是必須開啟防火牆以供 SQL Server 進行遠端存取。
+* 僅限 ContosoSQL1 和 ContosoSQL2:SQL Server VM 上已啟用**TCP**通訊協定。 但是，還是必須開啟防火牆以供 SQL Server 進行遠端存取。
 
 您現在即可準備開始。 先從 **ContosoQuorum**開始，依照下列步驟執行：
 
@@ -505,7 +504,7 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員降低高可用性 SQL Server
          New-Item $backup -ItemType directory
          net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
          icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
-11. 在 **ContosoSQL1** 上建立名稱為 **MyDB1** 的資料庫，同時為它建立完整備份和記錄備份，然後透過 [使用 NORECOVERY]  選項將這些備份還原至 **ContosoSQL2**。
+11. 在 **ContosoSQL1** 上建立名稱為 **MyDB1** 的資料庫，同時為它建立完整備份和記錄備份，然後透過 [使用 NORECOVERY] 選項將這些備份還原至 **ContosoSQL2**。
 
          Invoke-SqlCmd -Query "CREATE database $db"
          Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1

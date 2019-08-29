@@ -3,19 +3,19 @@ title: 如何實作自訂同步處理，透過最佳化處理而在 Azure Cosmos
 description: 了解如何實作自訂同步處理，透過最佳化處理而在 Azure Cosmos DB 中獲得較高的可用性和效能。
 author: rimman
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 0f630c2139d1d7d391d6c5578e5e7f378e56dcb4
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
-ms.translationtype: HT
+ms.openlocfilehash: 8fce14496b9f8fa17f2dbfd04b7ea42f1495a8a9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013777"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093345"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>實作自訂同步處理，透過最佳化處理而獲得較高的可用性和效能
 
-Azure Cosmos DB 提供[五個定義完善的一致性層級](consistency-levels.md)供您選擇，以讓您在一致性、效能和可用性之間做出平衡的取捨。 強式一致性有助於確保資料在 Azure Cosmos 帳戶可供使用的每個區域中能夠同步複寫並保有持久性。 此設定雖可提供最高層級的持久性，但會犧牲效能和可用性。 如果您要應用程式控制/放寬資料持久性，以符合應用程式需求又不損及可用性，您可以在應用程式層採用「自訂的同步處理」  ，以實現所需的持久性層級。
+Azure Cosmos DB 提供[五個定義完善的一致性層級](consistency-levels.md)供您選擇，以讓您在一致性、效能和可用性之間做出平衡的取捨。 強式一致性有助於確保資料在 Azure Cosmos 帳戶可供使用的每個區域中能夠同步複寫並保有持久性。 此設定雖可提供最高層級的持久性，但會犧牲效能和可用性。 如果您要應用程式控制/放寬資料持久性，以符合應用程式需求又不損及可用性，您可以在應用程式層採用「自訂的同步處理」，以實現所需的持久性層級。
 
 下圖以視覺方式說明自訂同步處理模型：
 

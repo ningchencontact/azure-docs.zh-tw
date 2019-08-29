@@ -3,15 +3,15 @@ title: 如何使用採用 Azure Cosmos DB 的 Azure Kubernetes
 description: 了解如何在使用 Azure Cosmos DB 的 Azure 上執行 Kubernetes 叢集的啟動程序 (預覽)
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: HT
+ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427711"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093735"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>如何使用採用 Azure Cosmos DB 的 Azure Kubernetes (預覽)
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 中的 etcd API 可讓您使用 Azure Cosmos DB 作為 Azure Kub
 
    Azure Kubernetes 引擎 (**aks-engine**) 會針對 Azure 上的 Kubernetes 叢集產生 Azure Resource Manager 範本。 aks-engine 的輸入是叢集定義檔，其中描述所需的叢集，包括協調器、功能和代理程式。 輸入檔案的結構類似於 Azure Kubernetes Service 的公用 API。
 
-1. Azure Cosmos DB 中的 etcd API 目前為預覽狀態。 若要使用預覽版本，請在此註冊： https://aka.ms/cosmosetcdapi-signup。 提交表單之後，您的訂用帳戶會列入使用 Azure Cosmos etcd API 的白名單。 
+1. Azure Cosmos DB 中的 etcd API 目前為預覽狀態。 若要使用預覽版本，請在此註冊： https://aka.ms/cosmosetcdapi-signup 。 提交表單之後，您的訂用帳戶會列入使用 Azure Cosmos etcd API 的白名單。 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 部署叢集
 

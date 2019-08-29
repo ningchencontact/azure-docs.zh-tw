@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df2f9aa56e22bd4060c823b02900fa914a0fd7f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 5d36def4faa98f4b8e42c93cf3e222c2ec7ca89a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532809"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073834"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>使用 MSAL 初始化用戶端應用程式
 本文說明如何將 Microsoft Authentication Library for JavaScript (MSAL) 與使用者代理程式應用程式的實例進行初始化。 使用者代理程式應用程式是一種公用用戶端應用程式, 其中用戶端程式代碼會在使用者代理程式 (例如網頁瀏覽器) 中執行。 這些用戶端不會儲存秘密, 因為瀏覽器內容可公開存取。 若要深入瞭解用戶端應用程式類型和應用程式設定選項, 請參閱[總覽](msal-client-applications.md)。
@@ -110,7 +110,7 @@ export type Configuration = {
 
 以下是目前在 config 物件中支援的可設定選項總數:
 
-- **clientID**:必要項。 您的應用程式的 clientID 應該會從應用程式註冊入口網站取得。
+- **clientID**:必要。 您的應用程式的 clientID 應該會從應用程式註冊入口網站取得。
 
 - **授權**單位:選擇性。 URL, 指出 MSAL 可向要求權杖的目錄。 預設值為：`https://login.microsoftonline.com/common`。
     * 在&lt;Azure AD 中, 其格式為 HTTPs://實例&lt; / &gt; &gt;物件, 其中&lt;instance&gt;是身分識別提供者網域 ( `https://login.microsoftonline.com`例如), 而「物件&gt; 」是代表登入物件的識別碼。 &lt; 這可以是下列值:
@@ -123,7 +123,7 @@ export type Configuration = {
 
 - **validateAuthority**:選擇性。  驗證權杖的簽發者。 預設值為 `true`。 針對 B2C 應用程式, 由於授權值是已知的, 而且每個原則可能有所不同, 因此授權單位驗證將無法使用, 且必須`false`設定為。
 
-- **redirectUri**:選擇性。  應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，只是它必須是採用 URL 編碼。 預設值為 `window.location.href`。
+- **redirectUri**:選擇性。  應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個重新導向 Uri。 預設值為 `window.location.href`。
 
 - **postLogoutRedirectUri**:選擇性。  在登出之後將`postLogoutRedirectUri`使用者重新導向至。預設為 `redirectUri`。
 

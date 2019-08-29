@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: ebe6f27818df8407504e4254f16d952aa298b6cc
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: c2c2d1a9affe13d485bfeef52c781ed259b53bc8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348316"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100119"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>在 Azure 中設計和實作 Oracle 資料庫
 
@@ -54,7 +53,7 @@ ms.locfileid: "68348316"
 > | **Resource** |專用  |與其他用戶端共用|
 > | **區域** |資料中心 |[區域配對](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **儲存體** |SAN/實體磁碟 |[Azure 受控儲存體](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **調整** |垂直調整 |水平調整|
+> | **縮放** |垂直調整 |水平調整|
 
 
 ### <a name="requirements"></a>需求

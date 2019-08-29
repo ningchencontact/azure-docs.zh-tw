@@ -9,18 +9,17 @@ editor: ''
 tags: ''
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: b4622321dc25025eb2f7752755490eb5bc105069
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 82bbd728bfd51595f0b6eacf344bc95ea5db1ea8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741775"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086168"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>適用於 Azure Functions 的 SignalR Service 繫結
 
@@ -608,7 +607,7 @@ public SignalRGroupAction removeFromGroup(
 |**direction**|| 必須設為 `in`。|
 |**name**|| 函式程式碼中用於連線資訊物件的變數名稱。 |
 |**hubName**|**HubName**| 此值必須設為 SignalR 中樞 (針對該中樞產生連線資訊) 的名稱。|
-|**userId**|UserId| 選用：要在存取金鑰權杖中設定的使用者識別碼宣告值。 |
+|**userId**|UserId| 選擇性：要在存取金鑰權杖中設定的使用者識別碼宣告值。 |
 |**connectionStringSetting**|**ConnectionStringSetting**| 包含 SignalR Service 連接字串 (預設值為 "AzureSignalRConnectionString") 的應用程式設定名稱 |
 
 ### <a name="signalr"></a>SignalR

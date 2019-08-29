@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 39d1b8b860fd19261bd39c345d464dd37b48d871
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 40eaabb149e2e897ecd4e1109e0db7c42b990925
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707542"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101554"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>在 Azure Linux VM 上實作 Oracle Golden Gate 
 
@@ -389,10 +388,10 @@ SQL> EXIT;
 
 3. 在 PuTTY 金鑰產生器中︰
 
-   - 若要產生金鑰，請選取 [產生]  按鈕。
+   - 若要產生金鑰，請選取 [產生] 按鈕。
    - 複製金鑰的內容 (**Ctrl+C**)。
-   - 選取 [儲存私密金鑰]  按鈕。
-   - 略過隨之出現的警告，然後選取 [確定]  。
+   - 選取 [儲存私密金鑰] 按鈕。
+   - 略過隨之出現的警告，然後選取 [確定]。
 
    ![PuTTY 金鑰產生器頁面的螢幕擷取畫面](./media/oracle-golden-gate/puttykeygen.png)
 
@@ -410,15 +409,15 @@ SQL> EXIT;
    > 金鑰中必須包含字串 `ssh-rsa`。 此外，金鑰的內容必須是單行文字。
    >  
 
-6. 啟動 PuTTY。 在 [類別]  窗格中，選取 [連線]   > [SSH]   > [驗證]  。在 [用於驗證的私密金鑰檔]  方塊中，瀏覽至您稍早產生的金鑰。
+6. 啟動 PuTTY。 在 [類別] 窗格中，選取 [連線] > [SSH] > [驗證]。在 [用於驗證的私密金鑰檔] 方塊中，瀏覽至您稍早產生的金鑰。
 
    ![[設定私密金鑰] 頁面上的螢幕擷取畫面](./media/oracle-golden-gate/setprivatekey.png)
 
-7. 在 [類別]  窗格中，選取 [連線]   > [SSH]   > [X11]  。 然後選取 [啟用 X11 轉送]  方塊。
+7. 在 [類別] 窗格中，選取 [連線] > [SSH] > [X11]。 然後選取 [啟用 X11 轉送] 方塊。
 
    ![[啟用 X11] 頁面的螢幕擷取畫面](./media/oracle-golden-gate/enablex11.png)
 
-8. 在 [類別]  窗格中，移至 [工作階段]  。 輸入主機資訊，然後選取 [開啟]  。
+8. 在 [類別] 窗格中，移至 [工作階段]。 輸入主機資訊，然後選取 [開啟]。
 
    ![工作階段分頁的螢幕擷取畫面](./media/oracle-golden-gate/puttysession.png)
 
@@ -432,27 +431,27 @@ SQL> EXIT;
    $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
    $ ./runInstaller
    ```
-2. 選取 'Oracle GoldenGate for Oracle Database 12c'。 然後選取 [下一步]  以繼續操作。
+2. 選取 'Oracle GoldenGate for Oracle Database 12c'。 然後選取 [下一步] 以繼續操作。
 
    ![安裝程式之 [選取安裝] 分頁的螢幕擷取畫面](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. 變更軟體位置。 然後選取 [啟動管理員]  方塊並輸入資料庫位置。 選取 [下一步]  以繼續操作。
+3. 變更軟體位置。 然後選取 [啟動管理員] 方塊並輸入資料庫位置。 選取 [下一步] 以繼續操作。
 
    ![[選取安裝] 分頁的螢幕擷取畫面](./media/oracle-golden-gate/golden_gate_install_02.png)
 
-4. 變更清查目錄，然後選取 [下一步]  以繼續操作。
+4. 變更清查目錄，然後選取 [下一步] 以繼續操作。
 
    ![[選取安裝] 分頁的螢幕擷取畫面](./media/oracle-golden-gate/golden_gate_install_03.png)
 
-5. 在 [摘要]  畫面上，選取 [安裝]  以繼續操作。
+5. 在 [摘要] 畫面上，選取 [安裝] 以繼續操作。
 
    ![安裝程式之 [選取安裝] 分頁的螢幕擷取畫面](./media/oracle-golden-gate/golden_gate_install_04.png)
 
-6. 系統可能會提示您以 'root' 的身分執行指令碼。 如果是這樣，請開啟不同的工作階段，ssh 為 VM、sudo 為 root，然後執行指令碼。 選取 [確定]  以繼續操作。
+6. 系統可能會提示您以 'root' 的身分執行指令碼。 如果是這樣，請開啟不同的工作階段，ssh 為 VM、sudo 為 root，然後執行指令碼。 選取 [確定] 以繼續操作。
 
    ![[選取安裝] 分頁的螢幕擷取畫面](./media/oracle-golden-gate/golden_gate_install_05.png)
 
-7. 當安裝完成時，選取 [關閉]  以完成流程。
+7. 當安裝完成時，選取 [關閉] 以完成流程。
 
    ![[選取安裝] 分頁的螢幕擷取畫面](./media/oracle-golden-gate/golden_gate_install_06.png)
 
@@ -698,7 +697,7 @@ SQL> EXIT;
    MAP pdb1.test.*, TARGET pdb1.test.*;
    ```
 
-5. 設定複寫的檢查點：
+5. 設定複寫檢查點:
 
    ```bash
    GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt

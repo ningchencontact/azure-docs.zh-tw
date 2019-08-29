@@ -3,15 +3,15 @@ title: 在 Azure Cosmos DB 中建立容器
 description: 了解如何在 Azure Cosmos DB 中建立容器
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7768f94051c6882f08dce360e35bf673c7b1103d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.openlocfilehash: a88d8f33624278ac6e70b918cec7cef133fe4b34
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241011"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093484"
 ---
 # <a name="create-an-azure-cosmos-container"></a>建立 Azure Cosmos 容器
 
@@ -25,13 +25,13 @@ ms.locfileid: "66241011"
 
 1. [建立新的 Azure Cosmos 帳戶](create-sql-api-dotnet.md#create-account)，或選取現有帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取 [新增集合]  。 接下來，提供下列詳細資料：
+1. 開啟 [資料總管] 窗格，然後選取 [新增集合]。 接下來，提供下列詳細資料：
 
    * 指出您正在建立新的資料庫，還是使用現有的帳戶。
    * 輸入集合識別碼。
    * 輸入分割區索引鍵。
    * 輸入要佈建的輸送量 (例如 1000 RU)。
-   * 選取 [確定]  。
+   * 選取 [確定]。
 
 ![醒目提示 [新增集合] 的資料總管窗格螢幕擷取畫面](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
@@ -41,13 +41,13 @@ ms.locfileid: "66241011"
 
 1. [建立新的 Azure Cosmos 帳戶](create-mongodb-dotnet.md#create-a-database-account)，或選取現有帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取 [新增集合]  。 接下來，提供下列詳細資料：
+1. 開啟 [資料總管] 窗格，然後選取 [新增集合]。 接下來，提供下列詳細資料：
 
    * 指出您正在建立新的資料庫，還是使用現有的帳戶。
    * 輸入集合識別碼。
    * 輸入分區索引鍵。
    * 輸入要佈建的輸送量 (例如 1000 RU)。
-   * 選取 [確定]  。
+   * 選取 [確定]。
 
 ![適用於 MongoDB 的 Azure Cosmos DB API 中 [新增集合] 對話方塊的螢幕擷取畫面](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
@@ -57,13 +57,13 @@ ms.locfileid: "66241011"
 
 1. [建立新的 Azure Cosmos 帳戶](create-cassandra-dotnet.md#create-a-database-account)，或選取現有帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取 [新增資料表]  。 接下來，提供下列詳細資料：
+1. 開啟 [資料總管] 窗格，然後選取 [新增資料表]。 接下來，提供下列詳細資料：
 
    * 指出您正在建立新的 Keyspace，還是使用現有的 Keyspace。
    * 輸入資料表名稱。
    * 輸入屬性並指定主索引鍵。
    * 輸入要佈建的輸送量 (例如 1000 RU)。
-   * 選取 [確定]  。
+   * 選取 [確定]。
 
 ![Cassandra API 中 [新增資料表] 對話方塊的螢幕擷取畫面](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
@@ -76,14 +76,14 @@ ms.locfileid: "66241011"
 
 1. [建立新的 Azure Cosmos 帳戶](create-graph-dotnet.md#create-a-database-account)，或選取現有帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取 [新增圖形]  。 接下來，提供下列詳細資料：
+1. 開啟 [資料總管] 窗格，然後選取 [新增圖形]。 接下來，提供下列詳細資料：
 
    * 指出您正在建立新的資料庫，還是使用現有的帳戶。
    * 輸入圖形識別碼。
-   * 選取 [不受限]  的儲存體容量。
+   * 選取 [不受限] 的儲存體容量。
    * 輸入頂點的分割區索引鍵。
    * 輸入要佈建的輸送量 (例如 1000 RU)。
-   * 選取 [確定]  。
+   * 選取 [確定]。
 
 ![Gremlin API 中 [新增圖形] 對話方塊的螢幕擷取畫面](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
@@ -93,11 +93,11 @@ ms.locfileid: "66241011"
 
 1. [建立新的 Azure Cosmos 帳戶](create-table-dotnet.md#create-a-database-account)，或選取現有帳戶。
 
-1. 開啟 [資料總管]  窗格，然後選取 [新增資料表]  。 接下來，提供下列詳細資料：
+1. 開啟 [資料總管] 窗格，然後選取 [新增資料表]。 接下來，提供下列詳細資料：
 
    * 輸入資料表識別碼。
    * 輸入要佈建的輸送量 (例如 1000 RU)。
-   * 選取 [確定]  。
+   * 選取 [確定]。
 
 ![資料表 API 中 [新增資料表] 對話方塊的螢幕擷取畫面](./media/how-to-create-container/partitioned-collection-create-table.png)
 

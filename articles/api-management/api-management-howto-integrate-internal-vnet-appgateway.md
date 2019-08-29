@@ -10,16 +10,15 @@ ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f7617348a98899251dcd3b8f1645c40bd297ffdb
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141652"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073545"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>整合內部 VNET 中的 API 管理與應用程式閘道
 
@@ -35,7 +34,7 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,15 +48,15 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 
 ## <a name="scenario"></a>案例
 
-這篇文章說明如何使用單一 API 管理服務供內部和外部取用者，並將其作為單一前端，同時在內部部署和雲端 Api。 您也會看到如何使用應用程式閘道中提供的路由功能，只公開您 API 的一部分 (在範例中以綠色醒目提示) 供外部取用。
+本文說明如何針對內部和外部取用者使用單一 API 管理服務, 並將其作為內部部署和雲端 Api 的單一前端。 您也會看到如何使用應用程式閘道中提供的路由功能，只公開您 API 的一部分 (在範例中以綠色醒目提示) 供外部取用。
 
-在第一個設定範例中，您所有的 API 只能從虛擬網路內部進行管理。 內部取用者 (以橘色醒目提示) 則可存取所有的內部和外部 API。 流量永遠不會傳出到網際網路。 高效能連線是透過 Express Route 線路傳遞。
+在第一個設定範例中，您所有的 API 只能從虛擬網路內部進行管理。 內部取用者 (以橘色醒目提示) 則可存取所有的內部和外部 API。 流量永遠不會送到網際網路。 透過 Express Route 線路傳遞高效能的連線能力。
 
 ![URL 路由](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"></a>開始之前
 
-* 確定您使用最新版本的 Azure PowerShell。 請參閱安裝指示[安裝 Azure PowerShell](/powershell/azure/install-az-ps)。 
+* 確定您使用最新版本的 Azure PowerShell。 請參閱[安裝 Azure PowerShell](/powershell/azure/install-az-ps)上的安裝指示。 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>在 API 管理和應用程式閘道之間建立整合的所需條件為何？
 
@@ -185,7 +184,7 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 
 ### <a name="step-1"></a>步驟 1
 
-初始化之定義域的私密金鑰憑證的詳細資料的下列變數。 在此範例中，我們會使用 `api.contoso.net` 和 `portal.contoso.net`。  
+使用具有網域之私密金鑰的憑證詳細資料, 初始化下列變數。 在此範例中，我們會使用 `api.contoso.net` 和 `portal.contoso.net`。  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -202,7 +201,7 @@ $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainT
 
 ### <a name="step-2"></a>步驟 2
 
-建立並設定主機名稱組態物件的 proxy 和入口網站。  
+建立並設定 proxy 和入口網站的主機名稱設定物件。  
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
@@ -355,7 +354,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"></a>摘要
-在 VNET 中設定的 azure API 管理的所有設定的 Api，提供了單一閘道介面，不論裝載在內部部署或雲端中。 整合應用程式閘道與 API 管理提供選擇性地使特定 API 可在網際網路上存取的彈性，並提供 Web 應用程式防火牆來做為 API 管理執行個體的前端。
+VNET 中設定的 Azure API 管理為所有已設定的 Api 提供單一閘道介面, 不論它們是裝載于內部部署或雲端。 整合應用程式閘道與 API 管理提供選擇性地使特定 API 可在網際網路上存取的彈性，並提供 Web 應用程式防火牆來做為 API 管理執行個體的前端。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 Azure 應用程式閘道

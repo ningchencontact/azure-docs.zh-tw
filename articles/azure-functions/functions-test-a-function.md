@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: azure functions, 函數, 事件處理, webhook, 動態計算, 無伺服器架構, 測試
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 800c9db245007047b2dc17b3f270737254ed42d7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0bd6222a6f2a2582fb715dbaf364fe23e41630d5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479727"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085149"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -36,15 +35,15 @@ ms.locfileid: "67479727"
 
 ![使用 Visual Studio 中的 C# 測試 Azure Functions](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>設定
+### <a name="setup"></a>安裝程式
 
 若要設定您的環境，請建立函式並測試應用程式。 下列步驟協助您建立支援測試所需的應用程式和函式：
 
 1. [建立新的 Functions 應用程式](./functions-create-first-azure-function.md)，並將它命名為 *Functions*
 2. [從範本建立 HTTP 函式](./functions-create-first-azure-function.md)，並將它命名為 *HttpTrigger*。
 3. [從範本建立計時器函式](./functions-create-scheduled-function.md)，並將它命名為 *TimerTrigger*。
-4. 在 Visual Studio 中按一下 [檔案] > [新增] > [專案] > [Visual C#] > [.NET Core] > [xUnit 測試專案]  來[建立 xUnit 測試應用程式](https://xunit.github.io/docs/getting-started-dotnet-core)，並將它命名為 *Functions.Test*。 
-5. 使用 Nuget 將參考加入測試應用程式從[Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+4. 在 Visual Studio 中按一下 [檔案] > [新增] > [專案] > [Visual C#] > [.NET Core] > [xUnit 測試專案] 來[建立 xUnit 測試應用程式](https://xunit.github.io/docs/getting-started-dotnet-core)，並將它命名為 *Functions.Test*。 
+5. 使用 Nuget 新增來自[AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)測試應用程式的參考
 6. 從 *Functions.Test* 應用程式[參考 *Functions* 應用程式](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)。
 
 ### <a name="create-test-classes"></a>建立測試類別
@@ -55,7 +54,7 @@ ms.locfileid: "67479727"
 
 `ListLogger` 是用來實作 `ILogger` 介面且會保留內部訊息清單，以供測試期間評估使用。
 
-**以滑鼠右鍵按一下**上*Functions.Test*應用程式，然後選取**新增 > 類別**，其命名為**NullScope.cs**並輸入下列程式碼：
+**以滑鼠右鍵按一下**[*函數*] 和 [測試] 應用程式, 然後選取 [**新增 > 類別**], 將其命名為**NullScope.cs** , 並輸入下列程式碼:
 
 ```csharp
 using System;
@@ -73,7 +72,7 @@ namespace Functions.Tests
 }
 ```
 
-下一步**上按一下滑鼠右鍵**上*Functions.Test*應用程式，然後選取**新增 > 類別**，其命名為**ListLogger.cs**輸入下列程式碼：
+接下來, 以**滑鼠右鍵按一下**[函式] 和 [*測試*應用程式], 然後選取 [**新增 > 類別**], 將其命名為**ListLogger.cs** , 並輸入下列程式碼
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -111,7 +110,7 @@ namespace Functions.Tests
 
 `ListLogger` 類別實作下列成員，如 `ILogger` 介面所縮減：
 
-- **BeginScope**：設定新增內容至記錄的範圍。 在此情況下，測試就會指向靜態執行個體上`NullScope`類別，以允許測試函式。
+- **BeginScope**：設定新增內容至記錄的範圍。 在此情況下, 測試只會指向`NullScope`類別上的靜態實例, 讓測試能夠運作。
 
 - **IsEnabled**：提供的預設值為 `false`。
 
@@ -119,7 +118,7 @@ namespace Functions.Tests
 
 `Logs` 集合是 `List<string>` 的執行個體，且在建構函式中初始化。
 
-接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]  ，將它命名為 **ListTypes.cs**，然後輸入下列程式碼：
+接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]，將它命名為 **ListTypes.cs**，然後輸入下列程式碼：
 
 ```csharp
 namespace Functions.Tests
@@ -133,7 +132,7 @@ namespace Functions.Tests
 ```
 此列舉指定測試使用的記錄器類型。 
 
-接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]  ，將它命名為 **TestFactory.cs**，然後輸入下列程式碼：
+接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]，將它命名為 **TestFactory.cs**，然後輸入下列程式碼：
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -204,7 +203,7 @@ namespace Functions.Tests
 
 - **CreateLogger**：根據記錄器類型，此方法會傳回用於測是的記錄器類別。 `ListLogger` 會保留已記錄訊息的追蹤以提供給測試的評估使用。
 
-接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]  ，將它命名為 **FunctionsTests.cs**，然後輸入下列程式碼：
+接下來，**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]，將它命名為 **FunctionsTests.cs**，然後輸入下列程式碼：
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -253,17 +252,17 @@ namespace Functions.Tests
 
 - **Timer_should_log_message**：此測試會建立 `ListLogger` 的執行個體，並將它傳遞給計時器函式。 一旦函式執行之後，便會檢查記錄以確保是否存在預期的訊息。
 
-如果您想要存取您的測試中的應用程式設定，您可以使用[System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)。
+如果您想要存取測試中的應用程式設定, 您可以使用[GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)。
 
 ### <a name="run-tests"></a>執行測試
 
-若要執行測試，請瀏覽至 [測試總管]  ，然後按一下 [全部執行]  。
+若要執行測試，請瀏覽至 [測試總管]，然後按一下 [全部執行]。
 
 ![使用 Visual Studio 中的 C# 測試 Azure Functions](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="debug-tests"></a>偵錯測試
 
-若要針對測試偵錯，請在測試上設定中斷點，瀏覽至 [測試總管]  然後按一下 [執行] > [對上一個回合偵錯]  。
+若要針對測試偵錯，請在測試上設定中斷點，瀏覽至 [測試總管] 然後按一下 [執行] > [對上一個回合偵錯]。
 
 ## <a name="javascript-in-vs-code"></a>VS Code 中的 JavaScript
 
@@ -271,7 +270,7 @@ namespace Functions.Tests
 
 ![使用 VS Code 中的 JavaScript 測試 Azure Functions](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>設定
+### <a name="setup"></a>安裝程式
 
 若要設定您的環境，請執行 `npm init`，在空資料夾中初始化新的 Node.js 應用程式。
 

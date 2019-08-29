@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: e1285f6bc3bd081eae03cf1e5a124a86cac7a2ae
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335982"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099418"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -61,7 +61,7 @@ ms.locfileid: "68335982"
 
   * **開發人員 SKU**:最多4個標準帳戶, 或最多5個標準帳戶。 沒有基本帳戶。
 
-如需整合帳戶限制的詳細資訊, 請參閱[Logic Apps 限制和](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)設定。 您可以在本主題稍後深入瞭解[整合帳戶層及其計價模式](#integration-accounts)。 
+如需整合帳戶限制的詳細資訊, 請參閱[Logic Apps 限制和](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)設定。 您可以在本主題稍後深入瞭解[整合帳戶層及其計價模式](#integration-accounts)。
 
 針對 Premium ISE SKU, 基礎單位具有固定容量, 因此如果您需要更多輸送量, 可以在建立期間或之後[新增更多縮放單位](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)。 開發人員 ISE SKU 沒有新增更多縮放單位的功能。 在 ISE 中執行的邏輯應用程式不會產生資料保留成本。
 

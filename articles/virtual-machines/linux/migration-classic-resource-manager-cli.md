@@ -11,16 +11,15 @@ ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 0e21a962fb03a42af4cb32fcdf60cd59746a591d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7af101b036e8e40a14ad5d9931cc897cb1758ea0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667371"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082772"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>使用 Azure CLI 將 IaaS 資源從傳統移轉至 Azure Resource Manager
 以下步驟說明如何使用 Azure 命令列介面 (CLI) 命令，將基礎結構即服務 (IaaS) 資源從傳統部署模型移轉至 Azure Resource Manager 部署模型。 此文章需要 [Azure 傳統 CLI](../../cli-install-nodejs.md)。 Azure CLI 僅適用於 Azure Resource Manager 資源，不可用於此移轉。
@@ -35,7 +34,7 @@ ms.locfileid: "67667371"
 
 ![Screenshot that shows the migration steps](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-prepare-for-migration"></a>步驟 1：為移轉做準備
+## <a name="step-1-prepare-for-migration"></a>步驟 1:為移轉做準備
 以下是您評估將 IaaS 資源從傳統移轉至 Resource Manager 時，我們所建議的一些最佳做法：
 
 * 將 [不支援的組態或功能清單](../windows/migration-classic-resource-manager-overview.md)看一遍。 如果您的虛擬機器使用不支援的組態或功能，建議您等到宣布支援該功能/組態之後，再進行移轉。 或者，您可以移除該功能或移出該組態，以利移轉進行 (如果這麼做符合您的需求)。
@@ -48,7 +47,7 @@ ms.locfileid: "67667371"
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>步驟 2：設定您的訂用帳戶，並註冊提供者
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>步驟 2:設定您的訂用帳戶並註冊提供者
 針對移轉案例，您必須為傳統和 Resource Manager 模型設定您的環境。 [安裝 Azure CLI](../../cli-install-nodejs.md) 並[選取您的訂用帳戶](/cli/azure/authenticate-azure-cli)。
 
 登入您的帳戶。
@@ -96,7 +95,7 @@ azure vm list-usage -l "<Your VNET or Deployment's Azure region"
     azure config mode asm
 
 
-## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>步驟 4：選項 1-移轉雲端服務中的虛擬機器
+## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>步驟 4：選項 1-遷移雲端服務中的虛擬機器
 使用下列命令來取得雲端服務清單，然後選擇您想要移轉的雲端服務。 請注意，如果雲端服務中的 VM 是在虛擬網路中，或是具有 Web/背景工作角色，您將會收到錯誤訊息。
 
     azure service list
@@ -135,7 +134,7 @@ azure service deployment validate-migration <serviceName> <deploymentName> new "
 
 
 
-## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>步驟 4：選項 2-移轉虛擬網路中的虛擬機器
+## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>步驟 4：選項 2-遷移虛擬網路中的虛擬機器
 選取您想要移轉的虛擬網路。 請注意，如果虛擬網路包含 Web/背景工作角色，或有具備不支援之組態的 VM，您將會收到驗證錯誤訊息。
 
 使用下列命令來取得訂用帳戶中的所有虛擬網路。

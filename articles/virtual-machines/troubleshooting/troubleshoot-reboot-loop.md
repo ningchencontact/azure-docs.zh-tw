@@ -7,18 +7,17 @@ author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4715225e56e50502348040fa501cbfd76bd5c9f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472300"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103390"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM 的 Windows 重新開機迴圈
 本文說明您在 Microsoft Azure 中的 Windows 虛擬機器 (VM) 上可能會遇到的重新開機迴圈。
@@ -55,19 +54,19 @@ ms.locfileid: "65472300"
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
-1. OS 磁碟連結至運作中的 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]  ，並記下 **\Windows** 資料夾所在分割區的磁碟機代號。
+1. OS 磁碟連結至運作中的 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]，並記下 **\Windows** 資料夾所在分割區的磁碟機代號。
 
-2. 如果該磁碟設為 [離線]  ，請將其設為 [線上]  。
+2. 如果該磁碟設為 [離線]，請將其設為 [線上]。
 
 3. 建立 **\Windows\System32\config** 的複本，以便在需要回復變更時使用。
 
 4. 在救援 VM 上，開啟 Windows 登錄編輯程式 (regedit)。
 
-5. 選取 **HKEY_LOCAL_MACHINE** 機碼，然後從功能表中選取 [檔案]   > [載入登錄區]  。
+5. 選取 **HKEY_LOCAL_MACHINE** 機碼，然後從功能表中選取 [檔案] > [載入登錄區]。
 
 6. 瀏覽至 **\Windows\System32\config** 資料夾中的 SYSTEM 檔案。
 
-7. 選取 [開啟]  、輸入 **BROKENSYSTEM** 作為名稱、展開 **HKEY_LOCAL_MACHINE** 機碼，您就會看到名為 **BROKENSYSTEM** 的另一個機碼。
+7. 選取 [開啟]、輸入 **BROKENSYSTEM** 作為名稱、展開 **HKEY_LOCAL_MACHINE** 機碼，您就會看到名為 **BROKENSYSTEM** 的另一個機碼。
 
 8. 查看電腦是從哪個 ControlSet 開機的。 您會在下列登錄機碼中看到其機碼編號。
 
@@ -87,7 +86,7 @@ ms.locfileid: "65472300"
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
     - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
-13. 選取 **BROKENSYSTEM** 機碼，然後從功能表中選取 [檔案]   > [載入登錄區]  。
+13. 選取 **BROKENSYSTEM** 機碼，然後從功能表中選取 [檔案] > [載入登錄區]。
 
 14. 從疑難排解中的 VM 卸離 OS 磁碟。
 
@@ -105,7 +104,7 @@ ms.locfileid: "65472300"
 >[!NOTE]
 >下列程序應視為最後的手段。 雖然從 regback 還原後可恢復對機器的存取，但 OS 實際上並不穩定，因為在登錄區的時間戳記與目前的日期之間，登錄中有資料遺失。 您必須建立新的 VM，並擬定移轉資料的計畫。
 
-1. 磁碟連結至疑難排解中的 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]  。
+1. 磁碟連結至疑難排解中的 VM 後，請確定該磁碟在磁碟管理主控台中標示為 [線上]。
 
 2. 建立 **\Windows\System32\config** 的複本，以便在需要回復變更時使用。
 

@@ -8,16 +8,15 @@ manager: gwallace
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 3d5b2afd642a7eb042b2e6e07ef93a505f6b9648
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: f2bdfab82e1b9fb05d74f69536ec672a4b18a4bf
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774703"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114369"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服務匯流排繫結
 
@@ -367,7 +366,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 
 服務匯流排觸發程序提供數個[中繼資料屬性](./functions-bindings-expressions-patterns.md#trigger-metadata)。 這些屬性可作為其他繫結中繫結運算式的一部分或程式碼中的參數使用。 這些是 [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 類別的屬性。
 
-|屬性|Type|描述|
+|屬性|類型|描述|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|傳遞數目。|
 |`DeadLetterSource`|`string`|無效信件來源。|
@@ -400,7 +399,7 @@ Functions 執行階段會在 [PeekLock 模式](../service-bus-messaging/service-
 }
 ```
 
-|內容  |預設 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------|
 |maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 Functions 執行階段預設會並行處理多個訊息。 若要指示執行階段一次只處理一個佇列或主題訊息，請將 `maxConcurrentCalls` 設定為 1。 |
 |prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。|
@@ -715,14 +714,19 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 * `out T paramName` - `T` 可以是任何可序列化 JSON 的類型。 當函式結束時，如果參數值為 Null，則 Functions 會使用 Null 物件建立訊息。
 * `out string` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
 * `out byte[]` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
-* `out BrokeredMessage` - 當函式結束時，如果參數值為 Null，則 Functions 不會建立一則訊息。
+* `out BrokeredMessage`-如果函式結束時, 參數值為 null, 函數不會建立訊息 (針對函式 1.x)
+* `out Message`-如果函式結束時, 參數值為 null, 函數不會建立訊息 (針對函式 2.x)
 * `ICollector<T>` 或 `IAsyncCollector<T>` - 適用於建立多個訊息。 當您呼叫 `Add` 方法時，就會建立一則訊息。
 
-在非同步函式中，使用傳回值或 `IAsyncCollector`，而不是 `out` 參數。
+使用C#函數時:
 
-這些參數適用於 Azure Functions 版本 1.x；針對 2.x，請使用 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)，而不是使用 `BrokeredMessage`。
+* 非同步函數需要傳回值或`IAsyncCollector` , 而不`out`是參數。
 
-在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題。 您可以指派字串、位元組陣列或 Javascript 物件 (還原序列化為 JSON) 給 `context.binding.<name>`。
+* 若要存取會話識別碼, 請系結[`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)至類型, 並`sessionId`使用屬性。
+
+在 JavaScript 中，使用 `context.bindings.<name from function.json>` 來存取佇列或主題。 您可以將字串、位元組陣列或 JavaScript 物件 (還原序列化為 JSON) 指派給`context.binding.<name>`。
+
+若要以非C#語言將訊息傳送至啟用會話的佇列, 請使用[Azure 服務匯流排 SDK](https://docs.microsoft.com/azure/service-bus-messaging) , 而不是內建的輸出系結。
 
 ## <a name="exceptions-and-return-codes"></a>例外狀況和傳回碼
 
@@ -756,10 +760,10 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-|內容  |預設 | 描述 |
+|屬性  |預設 | 描述 |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|將自動更新訊息鎖定的最大持續時間。|
-|autoComplete|真|無論觸發程序是否應立即標示為完成 (自動完成) 或等待呼叫完成處理。|
+|autoComplete|true|無論觸發程序是否應立即標示為完成 (自動完成) 或等待呼叫完成處理。|
 |maxConcurrentCalls|16|訊息幫浦應該起始之回呼的並行呼叫數上限。 Functions 執行階段預設會並行處理多個訊息。 若要指示執行階段一次只處理一個佇列或主題訊息，請將 `maxConcurrentCalls` 設定為 1。 |
 |prefetchCount|n/a|基礎 MessageReceiver 將使用的預設 PrefetchCount。|
 

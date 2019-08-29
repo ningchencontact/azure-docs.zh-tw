@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835618"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101420"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SAP Business One
 本文提供在 Azure 虛擬機器上部署 SAP Business One 的指引。 本文無法取代 SAP Business One 的安裝文件。 本文應涵蓋在 Azure 基礎結構上執行 Business One 應用程式的基本規劃與部署指引。
@@ -32,13 +31,13 @@ Business One 支援兩種不同的資料庫：
 
 關於 SQL Server 的基本部署考量如 [SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide)中所述。 SAP HANA 的考量則會在本文中提及。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用本指南，您需要下列 Azure 元件的基本知識：
 
 - [Windows 上的 Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Linux 上的 Azure 虛擬機器](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [使用 PowerShell 來進行 Azure 網路作業和虛擬網路管理](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Azure 網路和使用 CLI 的虛擬網路](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [使用 CLI 的 Azure 網路和虛擬網路](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [使用 Azure CLI 來管理 Azure 磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 即使您只對 Business One 感興趣，[SAP NetWeaver 的 Azure 虛擬機器規劃和實作](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)一文也提供了不錯的資訊。
@@ -130,7 +129,7 @@ SQL Server 與 SAP HANA 均為可用的資料庫類型。 雖與 DBMS 無關，�
 
 SQL Server 的 DBMS 端粗略估算如下：
 
-| 使用者人數 | vCPU | 記憶體 | 範例 VM 類型 |
+| 使用者數目 | vCPU | 記憶體 | 範例 VM 類型 |
 | --- | --- | --- | --- |
 | 最多 20 人 | 4 | 16 GB | D4s_v3、E4s_v3 |
 | 最多 40 人 | 8 | 32 GB | D8s_v3、E8s_v3 |

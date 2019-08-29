@@ -7,19 +7,18 @@ manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5fe15b36913106692377c483110cce2c0418a3f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d03fd754e5a8e2872063b8a10bd1293b94d8f3b6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322851"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094435"
 ---
 # <a name="persist-job-and-task-output"></a>持續作業及工作輸出
 
@@ -83,7 +82,7 @@ Batch 會定義一組選擇性的慣例，可在 Azure 儲存體中命名工作�
 
 - **輸出擷取**：如果您已保存工作輸出，就可以從集區中的計算節點，或從 Azure 儲存體或另一個資料存放區直接擷取工作輸出。 若要直接從計算節點擷取工作的輸出，您需要檔案名稱和該檔案在節點上的輸出位置。 如果您將工作輸出保存到 Azure 儲存體，就需要 Azure 儲存體中的檔案完整路徑，才能下載輸出檔案與 Azure 儲存體 SDK。
 
-- **檢視輸出**：當您在 Azure 入口網站中瀏覽至 Batch 工作並選取 [節點上的檔案]  時，系統將會顯示與該工作相關聯的所有檔案，而不只是您感興趣的輸出檔案。 同樣地，只有當運算節點存在時，且僅在您針對該工作設定的保留期內，才能取得該節點的檔案。 若要查看您已保存到 Azure 儲存體的工作輸出, 您可以使用 Azure 入口網站或 Azure 儲存體的用戶端應用程式, 例如[Azure 儲存體總管][storage_explorer]。 若要使用入口網站或其他工具檢視 Azure 儲存體中的輸出資料，您必須知道檔案的位置，並直接瀏覽至該位置。
+- **檢視輸出**：當您在 Azure 入口網站中瀏覽至 Batch 工作並選取 [節點上的檔案] 時，系統將會顯示與該工作相關聯的所有檔案，而不只是您感興趣的輸出檔案。 同樣地，只有當運算節點存在時，且僅在您針對該工作設定的保留期內，才能取得該節點的檔案。 若要查看您已保存到 Azure 儲存體的工作輸出, 您可以使用 Azure 入口網站或 Azure 儲存體的用戶端應用程式, 例如[Azure 儲存體總管][storage_explorer]。 若要使用入口網站或其他工具檢視 Azure 儲存體中的輸出資料，您必須知道檔案的位置，並直接瀏覽至該位置。
 
 ## <a name="next-steps"></a>後續步驟
 

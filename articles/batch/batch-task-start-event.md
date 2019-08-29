@@ -6,18 +6,17 @@ author: laurenhughes
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 76100f1457123ac88055fddd55eb22a102201adf
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: efad9e71b986156c6d8e95208d50ac8d5a4d7e7f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322811"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094358"
 ---
 # <a name="task-start-event"></a>工作開始事件
 
@@ -50,9 +49,9 @@ ms.locfileid: "68322811"
 
 |元素名稱|Type|注意|
 |------------------|----------|-----------|
-|jobId|字串|包含工作的作業識別碼。|
-|id|字串|工作識別碼。|
-|taskType|字串|工作類型。 可以是 'JobManager'，表示這是作業管理員工作，或是 'User'，表示不是作業管理員工作。|
+|jobId|String|包含工作的作業識別碼。|
+|ID|String|工作識別碼。|
+|taskType|String|工作類型。 可以是 'JobManager'，表示這是作業管理員工作，或是 'User'，表示不是作業管理員工作。|
 |systemTaskVersion|Int32|這是作業上的內部重試計數器。 Batch 服務可在內部重試工作，以處理暫時性問題。 這些問題包含內部排程錯誤，或嘗試從不正常狀態的計算節點復原。|
 |[nodeInfo](#nodeInfo)|複雜類型|包含工作執行所在計算節點的相關資訊。|
 |[multiInstanceSettings](#multiInstanceSettings)|複雜類型|指定工作為需要多個計算節點的多重執行個體工作。  請參閱 [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) (英文) 以取得詳細資訊。|
@@ -63,8 +62,8 @@ ms.locfileid: "68322811"
 
 |元素名稱|Type|注意|
 |------------------|----------|-----------|
-|poolId|字串|工作執行所在集區的識別碼。|
-|nodeId|字串|工作執行所在節點的識別碼。|
+|poolId|String|工作執行所在集區的識別碼。|
+|nodeId|String|工作執行所在節點的識別碼。|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
