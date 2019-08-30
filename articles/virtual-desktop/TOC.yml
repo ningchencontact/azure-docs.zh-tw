@@ -66,6 +66,8 @@
       href: fslogix-containers-azure-files.md
     - name: 合作夥伴整合
       href: partners.md
+    - name: Windows 10 企業版的多重工作階段常見問題集
+      href: windows-10-multisession-faq.md
 - name: 疑難排解
   items:
     - name: 疑難排解概觀、意見反應和支援

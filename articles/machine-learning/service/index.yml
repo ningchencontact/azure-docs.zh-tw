@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Machine Learning 服務文件
 metadata:
   title: Azure Machine Learning 服務文件 - 教學課程和 API 參考 | Microsoft Docs
-  description: Azure Machine Learning 服務提供 SDK 和服務，可快速準備資料、定型及部署機器學習服務模型。 透過自動調整運算與管線提升產能及降低成本。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn)，存取這些功能。 開始使用快速入門和教學課程。
+  description: Azure Machine Learning 服務提供 SDK 和服務，可快速定型及部署機器學習服務模型。 透過自動調整運算與管線提升產能及降低成本。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn)，存取這些功能。 開始使用快速入門和教學課程。
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -16,7 +16,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning 服務提供 SDK 和服務，可快速準備資料、定型及部署機器學習服務模型。 透過自動調整運算與管線，提升產能及降低成本。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn)，存取這些功能。 開始使用快速入門和教學課程。
+  description: Azure Machine Learning 服務提供 SDK 和服務，可快速定型及部署機器學習服務模型。 透過自動調整運算與管線，提升產能及降低成本。 使用開放原始碼 Python 架構 (例如 PyTorch、TensorFlow 及 scikit-learn)，存取這些功能。 開始使用快速入門和教學課程。
   aside:
     image:
       alt: null
@@ -30,7 +30,7 @@ sections:
   - title: 逐步教學課程
     items:
       - type: paragraph
-        text: 了解如何準備資料、設定各項實驗，並讓您的機器學習模型定型並能夠運作。
+        text: 了解如何設定各項實驗，並讓您的機器學習模型定型並能夠運作。
       - type: paragraph
         text: <b>使用 Azure 入口網站</b>，便於使用且無程式碼介面，適用于機器學習服務：
       - type: list

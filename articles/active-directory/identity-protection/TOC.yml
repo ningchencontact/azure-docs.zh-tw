@@ -32,11 +32,11 @@
           href: howto-sign-in-risk-policy.md
         - name: 設定使用者風險原則
           href: howto-user-risk-policy.md
-        - name: 關閉進行中的風險事件
+        - name: 關閉進行中的風險偵測
           href: howto-close-active-risk-events.md
         - name: 解除封鎖使用者
           href: howto-unblock-user.md
-        - name: 模擬風險事件
+        - name: 模擬風險偵測
           href: playbook.md
         - name: 常見問題集
           href: faqs.md
@@ -46,9 +46,9 @@
           href: overview-v2.md
         - name: 安全性概觀
           href: security-overview.md
-        - name: 調查有風險的使用者和登入記錄
-          href: howto-investigate-risky-users-signins.md
-        - name: 上提供風險事件的意見反應
+        - name: 調查風險
+          href: howto-investigate-risk.md
+        - name: 提供風險偵測的意見反應
           href: howto-provide-risk-event-feedback.md
         - name: 設定風險原則
           href: howto-configure-risk-policies.md
@@ -58,7 +58,7 @@
   items:
     - name: 使用 Microsoft Graph API
       href: graph-get-started.md
-    - name: 風險事件
+    - name: 風險偵測
       href: risk-events-reference.md
     - name: 詞彙
       href: glossary.md

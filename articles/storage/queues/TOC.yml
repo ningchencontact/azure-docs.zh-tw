@@ -1,5 +1,5 @@
-- name: Azure 儲存體文件
-  href: /azure/storage/
+- name: Azure 佇列儲存體文件
+  href: /azure/storage/queues/
 - name: 概觀
   expanded: true
   items:

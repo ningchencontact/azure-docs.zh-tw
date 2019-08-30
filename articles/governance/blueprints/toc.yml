@@ -156,6 +156,9 @@
     - name: 從入口網站更新現有的指派
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md
+    - name: 設定藍圖操作員環境
+      displayName: 'rbac, user-assigned, managed, identity, management group'
+      href: ./how-to/configure-for-blueprint-operator.md
     - name: 管理藍圖即程式碼 (社群)
       href: 'https://github.com/Azure/azure-blueprints/blob/master/README.md'
 - name: 疑難排解

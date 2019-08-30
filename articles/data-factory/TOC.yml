@@ -187,6 +187,8 @@
           href: iterative-development-debugging.md
     - name: 連接器
       items:
+        - name: 連接器概觀
+          href: connector-overview.md
         - name: Amazon Marketplace Web Service
           href: connector-amazon-marketplace-web-service.md
         - name: Amazon Redshift
@@ -306,7 +308,7 @@
           href: connector-oracle-service-cloud.md
         - name: Parquet 格式
           href: format-parquet.md
-        - name: Paypal
+        - name: PayPal
           href: connector-paypal.md
         - name: Phoenix
           href: connector-phoenix.md
@@ -382,40 +384,40 @@
     - name: 轉換資料
       href: transform-data.md
       items:
+        - name: Azure 函式活動
+          href: control-flow-azure-function-activity.md
+        - name: 自訂活動
+          href: transform-data-using-dotnet-custom-activity.md
+        - name: Databricks Jar 活動
+          href: transform-data-databricks-jar.md
+        - name: Databricks Notebook 活動
+          href: transform-data-databricks-notebook.md
+        - name: Databricks Python 活動
+          href: transform-data-databricks-python.md
+        - name: Data Lake U-SQL 活動
+          href: transform-data-using-data-lake-analytics.md
         - name: HDInsight Hive 活動
           href: transform-data-using-hadoop-hive.md
-        - name: HDInsight Pig 活動
-          href: transform-data-using-hadoop-pig.md
         - name: HDInsight MapReduce 活動
           href: transform-data-using-hadoop-map-reduce.md
-        - name: HDInsight 串流活動
-          href: transform-data-using-hadoop-streaming.md
+        - name: HDInsight Pig 活動
+          href: transform-data-using-hadoop-pig.md
         - name: HDInsight Spark 活動
           href: transform-data-using-spark.md
+        - name: HDInsight 串流活動
+          href: transform-data-using-hadoop-streaming.md
         - name: ML Batch 執行活動
           href: transform-data-using-machine-learning.md
         - name: ML 更新資源活動
           href: update-machine-learning-models.md
         - name: 預存程序活動
           href: transform-data-using-stored-procedure.md
-        - name: Data Lake U-SQL 活動
-          href: transform-data-using-data-lake-analytics.md
-        - name: Databricks Notebook 活動
-          href: transform-data-databricks-notebook.md
-        - name: Databricks Jar 活動
-          href: transform-data-databricks-jar.md
-        - name: Databricks Python 活動
-          href: transform-data-databricks-python.md
-        - name: 自訂活動
-          href: transform-data-using-dotnet-custom-activity.md
         - name: 計算連結服務
           href: compute-linked-services.md
     - name: 控制流程
       items:
         - name: 附加變數活動
           href: control-flow-append-variable-activity.md
-        - name: Azure 函式活動
-          href: control-flow-azure-function-activity.md
         - name: 執行資料流程活動
           href: control-flow-execute-data-flow-activity.md
         - name: 執行管線活動
@@ -584,6 +586,8 @@
       items:
         - name: 活動疑難排解
           href: data-factory-troubleshoot-guide.md
+        - name: 連接器疑難排解
+          href: connector-troubleshoot-guide.md
         - name: 針對 Azure-SSIS IR 管理進行疑難排解
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: 針對 Azure-SSIS IR 中的封裝執行問題進行疑難排解

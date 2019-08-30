@@ -96,20 +96,27 @@
   href: reset-network-interface.md
 - name: 重新啟動或調整 VM 大小
   href: restart-resize-error-troubleshooting.md
-- name: 使用序列主控台
+- name: 序列主控台
+  href: serial-console-overview.md
   items:
-    - name: Linux VM
+    - name: 適用於 Linux 的序列主控台
       href: serial-console-linux.md
       items:
         - name: 序列主控台 GRUB/單一使用者模式
           href: serial-console-grub-single-user-mode.md
         - name: 序列主控台 NMI/SysRq
           href: serial-console-nmi-sysrq.md
-    - name: Windows VM
+    - name: 適用於 Windows 的序列主控台
       href: serial-console-windows.md
       items:
         - name: CMD 及 PowerShell 命令
           href: serial-console-cmd-ps-commands.md
+    - name: 啟用和停用序列主控台
+      href: serial-console-enable-disable.md
+    - name: 序列主控台內的電源選項
+      href: serial-console-power-options.md
+    - name: 常見的序列主控台錯誤
+      href: serial-console-errors.md
 - name: 刪除儲存體資源時發生錯誤
   href: storage-resource-deletion-errors.md
 - name: 刪除傳統儲存體資源時發生錯誤
@@ -153,6 +160,8 @@
 - name: 開機錯誤
   href: boot-error-troubleshoot.md
   items:
+    - name: Azure 虛擬機器開機錯誤
+      href: troubleshoot-vm-boot-error.md
     - name: 開機診斷
       href: boot-diagnostics.md
     - name: BitLocker 錯誤
