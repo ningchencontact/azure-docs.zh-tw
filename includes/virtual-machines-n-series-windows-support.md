@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 508d13356a7dd221b0767a0cedd60b4f1402baf4
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: bab282fded7e4b30d2eca6ed51ceaecf22206869
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286273"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70166685"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>支援的作業系統和驅動程式
 
@@ -34,7 +34,9 @@ ms.locfileid: "68286273"
 
 Microsoft 會將適用于 NV 和 NVv3 系列 Vm 的 NVIDIA GRID 驅動程式安裝程式重新散發為虛擬工作站或虛擬應用程式。 僅在 Azure NV 系列 Vm 上安裝這些方格驅動程式, 僅適用于下表所列的作業系統。 這些驅動程式包含在 Azure 的 GRID 虛擬 GPU 軟體的授權中。 您不需要設定 NVIDIA vGPU 軟體授權服務器。
 
+請注意, Nvidia 延伸模組一律會安裝 latst 驅動程式。 我們會為客戶提供舊版的連結, 其相依于較舊的版本。
+
 | OS | 驅動程式 |
 | -------- |------------- |
-| Windows Server 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 | [方格 9.0 (431.02)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe) |
-| Windows Server 2012 R2<br/><br/>Windows Server 2008 R2<br/><br/>Windows 8<br/><br/>Windows 7 | [方格 9.0 (431.02)](https://go.microsoft.com/fwlink/?linkid=874184)(.exe)  |
+| Windows Server 2019<br/><br/>Windows Server 2016<br/><br/>Windows 10 | [方格 9.0 (431.02)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe) <br/><br/> [方格 8.0 (425.31)](https://download.microsoft.com/download/4/8/C/48C2D46E-EB64-460E-A8D9-0F55737D0D68/425.31_grid_win10_server2016_64bit_international.exe)(.exe)  |
+| Windows Server 2012 R2<br/><br/>Windows Server 2008 R2<br/><br/>Windows 8<br/><br/>Windows 7 | [方格 9.0 (431.02)](https://go.microsoft.com/fwlink/?linkid=874184)(.exe)<br/><br/> [方格 8.0 (425.31)](https://download.microsoft.com/download/6/D/7/6D73C628-B5FB-4243-9520-DAEF363223CB/425.31_grid_win8_win7_server2012R2_server2008R2_64bit_international.exe)(.exe)  |

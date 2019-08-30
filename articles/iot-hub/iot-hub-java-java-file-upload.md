@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3ef727c4d1f1af13b66c7de02b8e67cc5e45f065
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 81b80edcd2e880488e203960f8e2a6aa71b69679
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147485"
+ms.locfileid: "70161824"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>使用 IoT 中樞將檔案從裝置上傳至雲端 (JAVA)
 
@@ -46,9 +46,9 @@ ms.locfileid: "70147485"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 最新的 [Java SE 開發套件 8](https://aka.ms/azure-jdks)
+* [JAVA SE 開發套件 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)。 請確定您選取的是**長期支援**的**JAVA 8** , 才能取得 JDK 8 的下載。
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 

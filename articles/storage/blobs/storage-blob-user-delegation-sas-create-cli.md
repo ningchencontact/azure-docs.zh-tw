@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896971"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164316"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>使用 Azure CLI (預覽) 建立容器或 blob 的使用者委派 SAS
 
@@ -61,7 +61,7 @@ az role assignment create \
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>建立容器的使用者委派 SAS
 
-若要為具有 Azure CLI 的容器建立使用者委派 SAS, 請呼叫[az storage container 產生-SAS](/cli/azure/storage/container#az-storage-container-generate-sas)命令。
+若要使用 Azure CLI 建立容器的使用者委派 SAS, 請呼叫[az storage container 產生-SAS](/cli/azure/storage/container#az-storage-container-generate-sas)命令。
 
 容器上使用者委派 SAS 的支援許可權包括 [新增]、[建立]、[刪除]、[列出]、[讀取] 和 [寫入]。 可以單獨或結合指定許可權。 如需這些許可權的詳細資訊, 請參閱[建立使用者委派 SAS](/rest/api/storageservices/create-user-delegation-sas)。
 
@@ -112,6 +112,21 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 > [!NOTE]
 > 使用者委派 SAS 不支援使用預存存取原則來定義許可權。
+
+## <a name="revoke-a-user-delegation-sas"></a>撤銷使用者委派 SAS
+
+若要從 Azure CLI 撤銷使用者委派 SAS, 請呼叫[az storage account revoke-委派-keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys)命令。 此命令會撤銷與指定的儲存體帳戶相關聯的所有使用者委派金鑰。 任何與這些金鑰相關聯的共用存取簽章都會失效。
+
+請記得使用您自己的值來取代角括弧中的預留位置值:
+
+```azurecli-interactive
+az storage account revoke-delegation-keys \
+    --name <storage-account> \
+    --resource-group <resource-group>
+```
+
+> [!IMPORTANT]
+> Azure 儲存體會快取使用者委派金鑰和 RBAC 角色指派, 因此當您起始撤銷的進程, 以及現有的使用者委派 SAS 失效時, 可能會有延遲。
 
 ## <a name="next-steps"></a>後續步驟
 

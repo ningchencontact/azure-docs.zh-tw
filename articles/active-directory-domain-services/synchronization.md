@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 85b1e3eae9d7472fa829665707fca481a28f0623
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 88a5e5fa1267e834a04c46ed38868cf74acd9bb0
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011280"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171936"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>如何在 Azure AD Domain Services 受控網域中同步處理物件和認證
 
@@ -30,7 +30,7 @@ Azure Active Directory Domain Services (AD DS) 受控網域中的物件和認證
 
 ## <a name="synchronization-from-azure-ad-to-azure-ad-ds"></a>從 Azure AD 同步處理至 Azure AD DS
 
-使用者帳戶、群組成員資格及認證雜湊會以一種方式從 Azure AD 同步處理到 Azure AD DS。 此同步處理程序是自動執行的。 您不需要設定、監視或管理此同步處理常式。 根據 Azure AD 目錄中的物件數目而定, 初始同步處理可能需要數小時到幾天的時間。 完成初始同步處理之後, Azure AD 中進行的變更 (例如密碼或屬性變更) 大約需要20-30 分鐘的時間, 才能在 Azure AD DS 中更新。
+使用者帳戶、群組成員資格及認證雜湊會以一種方式從 Azure AD 同步處理到 Azure AD DS。 此同步處理程序是自動執行的。 您不需要設定、監視或管理此同步處理常式。 根據 Azure AD 目錄中的物件數目而定, 初始同步處理可能需要數小時到幾天的時間。 完成初始同步處理之後, Azure AD 中進行的變更 (例如密碼或屬性變更), 就會自動同步處理到 Azure AD DS。
 
 同步處理常式的設計是單向/單向。 不會將 Azure AD DS 的變更反向同步處理回 Azure AD。 Azure AD DS 受控網域主要是唯讀的, 但您可以建立的自訂 Ou 除外。 您無法變更 Azure AD DS 受控網域內的使用者屬性、使用者密碼或群組成員資格。
 

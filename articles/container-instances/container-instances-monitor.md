@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 4c1208d8cbc795e53128df0ccf93e79dc427abad
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: a26789bb41fb3fb1e7dec376b7e187f45745ea65
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325841"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172263"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>在 Azure 容器執行個體中監視容器資源
 
@@ -40,14 +40,14 @@ Azure 監視器可為 [Azure 容器執行個體提供下列計量][supported-met
 
 ## <a name="get-metrics---azure-portal"></a>取得計量 - Azure 入口網站
 
-建立容器群組後，即可在 Azure 入口網站中使用 Azure 監視資料。 若要查看容器群組的計量，請前往容器群組的 [概觀]  頁面。 您可以在這裡查看為每個可用計量預先建立的圖表。
+建立容器群組後，即可在 Azure 入口網站中使用 Azure 監視資料。 若要查看容器群組的計量，請前往容器群組的 [概觀] 頁面。 您可以在這裡查看為每個可用計量預先建立的圖表。
 
 ![雙重圖表][dual-chart]
 
 在包含多個容器的容器群組中，使用[維度][monitor-dimension]來呈現各容器的計量。 若要使用個別容器計量來建立圖表，請執行下列步驟：
 
-1. 在 [概觀]  頁面中，選取其中一個計量圖表，例如 **CPU**。 
-1. 選取 [套用設定]  按鈕，然後選取 [容器名稱]  。
+1. 在 [概觀] 頁面中，選取其中一個計量圖表，例如 **CPU**。 
+1. 選取 [套用設定] 按鈕，然後選取 [容器名稱]。
 
 ![維度][dimension]
 

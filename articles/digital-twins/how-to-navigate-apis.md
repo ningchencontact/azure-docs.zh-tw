@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
-ms.openlocfilehash: da1493d2d52f2c8a964df3b72c1622a9c6b66abf
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8472a86800d13cedd228ca881a7c095ff748350a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719862"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172823"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>如何使用 Azure Digital Twins 管理 API
 
@@ -35,11 +35,11 @@ Azure Digital Twins 管理 API 可為您的 IoT 應用程式提供強大功能�
 
 * [/ontologies](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Ontologies)：這些 API 可協助您管理主體 (即為延伸類型的集合)。 主體根據各物件類型所代表的實體空間提供名稱。 例如，*BACnet* 主體為 *sensor types*、*datatypes*、*datasubtypes* 和 *dataunittypes* 提供特定名稱。 主體是由服務所建立並管理。 使用者可以載入和卸載主體。 主體載入時，其相關聯的所有類型名稱都會啟用，並準備好可在您的空間圖形中佈建。 
 
-* [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys)：您可以使用這些 API 為自己的「空間」  、「裝置」  、「使用者」  和「感應器」  建立自訂屬性。 這些屬性會建立為索引鍵/值組。 您可以設定這些屬性的 *PrimitiveDataType*，定義它們的資料類型。 例如，您可以為您的感應器類型 *uint* 定義名稱為 *BasicTemperatureDeltaProcessingRefreshTime* 的屬性，然後為每個感應器指派此屬性的值。 您也可以在建立屬性時為這些值新增條件約束，例如「最小」  和「最大」  範圍，以及允許的值，例如 *ValidationData*。
+* [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys)：您可以使用這些 API 為自己的「空間」、「裝置」、「使用者」和「感應器」建立自訂屬性。 這些屬性會建立為索引鍵/值組。 您可以設定這些屬性的 *PrimitiveDataType*，定義它們的資料類型。 例如，您可以為您的感應器類型 *uint* 定義名稱為 *BasicTemperatureDeltaProcessingRefreshTime* 的屬性，然後為每個感應器指派此屬性的值。 您也可以在建立屬性時為這些值新增條件約束，例如「最小」和「最大」範圍，以及允許的值，例如 *ValidationData*。
 
 * [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers)：這些 API 可讓您指定要從傳入裝置資料評估的條件。 如需詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#matchers)。 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions)：這些 API 可讓您建立、刪除或更新自訂函式，自訂函式可在「比對器」  定義的條件發生時執行，處理來自環境的資料。 如需自訂函式 (也稱為「使用者定義函式」  ) 的詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#user-defined-functions)。 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions)：這些 API 可讓您建立、刪除或更新自訂函式，自訂函式可在「比對器」定義的條件發生時執行，處理來自環境的資料。 如需自訂函式 (也稱為「使用者定義函式」) 的詳細資訊，請參閱[這篇文章](concepts-user-defined-functions.md#user-defined-functions)。 
 
 * [/endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints)：這些 API 可讓您建立端點，讓您的 Digital Twins 解決方案能夠與其他 Azure 服務通訊，以進行資料儲存和分析。 如需詳細資訊，請閱讀[這篇文章](concepts-events-routing.md)。 
 
@@ -88,6 +88,7 @@ Digital Twins API 支援使用下列參數篩選和瀏覽整個空間圖形：
 
 
 ## <a name="odata-support"></a>OData 支援
+
 大部分傳回集合的 API (例如 /spaces 上的 GET 呼叫) 都支援下列一般 [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) 系統查詢選項的子集：  
 
 * **$filter**
@@ -95,11 +96,12 @@ Digital Twins API 支援使用下列參數篩選和瀏覽整個空間圖形：
 * **$top**
 * **$skip**：如果您想要顯示整個集合，您應該在單一呼叫中要求它作為完整集合，然後在應用程式中執行分頁。 
 
-請注意，不支援其他查詢選項 (例如 $count、$expand、$search)。
+> [!NOTE]
+> 目前不支援某些 OData 選項 (例如 **$count**、 **$expand**和 **$search**的查詢選項)。
 
 ### <a name="examples"></a>範例
 
-下列清單顯示一些使用 OData 系統查詢選項的查詢範例：
+下列清單描述數個具有有效 OData 語法的查詢:
 
 - `YOUR_MANAGEMENT_API_URL/devices?$top=3&$orderby=Name desc`
 - `YOUR_MANAGEMENT_API_URL/keystores?$filter=endswith(Description,’space’)`
@@ -108,9 +110,10 @@ Digital Twins API 支援使用下列參數篩選和瀏覽整個空間圖形：
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,’k’)&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor’,Name)`
  
-
 ## <a name="next-steps"></a>後續步驟
 
-若要了解一些常見的 API 查詢模式，請閱讀[如何針對一般工作查詢 Azure Digital Twins API](how-to-query-common-apis.md)。
+若要了解一些常見的 API 查詢模式，請閱讀[如何針對一般工作查詢 Azure Digital Twins API](./how-to-query-common-apis.md)。
 
-若要深入了解您的 API 端點，請閱讀[如何使用數位對應項 Swagger](./how-to-use-swagger.md)。
+若要深入瞭解您的 API 端點, 請閱讀[如何使用數位 Twins Swagger](./how-to-use-swagger.md)。
+
+若要查看 OData 語法和可用的比較運算子, 請閱讀[Azure 搜尋服務中的 odata 比較運算子](../search/search-query-odata-comparison-operators.md)。

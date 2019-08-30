@@ -2,7 +2,7 @@
 title: 參考認知搜尋管線中的輸入和輸出 - Azure 搜尋服務
 description: 說明註解語法，以及如何在 Azure 搜尋服務中參考認知搜尋管線中某技能集之輸入和輸出內的註解。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 5ce2c1aebebe802aa0fd3bda74c168e7a12341c0
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e4b94e7a6e41a5c6beaf94069c0fb6bed795ca6d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639283"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183510"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>如何參考認知搜尋技能集中的註釋
 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 82c2c6d7ac347949a7cf24226fdb0095313ee689
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 52d7eb035ed06c368214b8b5cb7ef583cd99b51b
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147693"
+ms.locfileid: "70161991"
 ---
 # <a name="get-started-with-device-management-java"></a>開始使用裝置管理 (Java)
 
@@ -53,9 +53,9 @@ ms.locfileid: "70147693"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Java SE 8。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 Java。
+* [JAVA SE 開發套件 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)。 請確定您選取的是**長期支援**的**JAVA 8** , 才能取得 JDK 8 的下載。
 
-* Maven 3。 [準備您的開發環境](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md)說明如何在 Windows 或 Linux 上安裝本教學課程的 [Maven](https://maven.apache.org/what-is-maven.html)。
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 

@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fb4d953f575dcf6582f9f1c8c2a725971134159
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c654da71a0c060a9344ef7d7d42b30263a7fb2db
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856249"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165199"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
-自動化機器學習 (也稱為「autoML」) 是將機器學習模型開發的耗時、反復作業自動化的程式。 它可讓資料科學家、分析師和開發人員以高擴充性、效率和生產力來建立 ML 模型, 同時維持模型品質。
+自動化機器學習 (也稱為「autoML」) 是將機器學習模型開發的耗時、反復作業自動化的程式。 它可讓資料科學家、分析師和開發人員以高擴充性、效率和生產力來建立 ML 模型, 同時維持模型品質。 自動化 ML 是以[Microsoft Research 部門](https://arxiv.org/abs/1705.05355)的突破性為基礎。
 
 傳統機器學習模型的開發會耗用大量資源, 因此需要大量的領域知識和時間來產生和比較數十種模型。 當您想要 Azure Machine Learning 使用您指定的目標度量來為您定型和調整模型時, 請套用自動化 ML。 然後, 服務會逐一查看與特徵選取配對的 ML 演算法, 其中每個反復專案都會產生具有定型分數的模型。 分數越高, 模型就越能「配合」您的資料。
 
@@ -63,12 +63,12 @@ ms.locfileid: "68856249"
 
 <a name="preprocess"></a>
 
-## <a name="preprocessing"></a>預處理
+## <a name="preprocessing"></a>前置處理
 
 在每個自動化機器學習實驗中, 您的資料會使用預設方法進行前置處理, 並選擇性地透過 advanced 前置處理。
 
 > [!NOTE]
-> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時, 定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
+> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
 
 ### <a name="automatic-preprocessing-standard"></a>自動前置處理 (標準)
 

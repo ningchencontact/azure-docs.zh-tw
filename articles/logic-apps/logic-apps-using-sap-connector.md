@@ -8,16 +8,21 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: 59263f74086f789e46e854ca320455e84dcb42c1
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8712af60df2454b29c0691602260c8b826eae75c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907645"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164969"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>從 Azure Logic Apps 連線至 SAP 系統
+
+> [!IMPORTANT]
+> 先前的 SAP 應用程式伺服器和 SAP 訊息伺服器連接器已排程淘汰。 目前的 SAP 連接器會合並這些先前的 SAP 連接器, 讓您不需要變更連線類型、與先前的連接器完全相容、提供許多其他功能, 並繼續使用 SAP .Net 連接器程式庫 (SAP NCo)。
+>
+> 對於使用較舊連接器的邏輯應用程式, 請在淘汰日期之前[遷移至最新的連接器](#migrate)。 否則, 這些邏輯應用程式會遇到執行失敗, 而且無法將訊息傳送至您的 SAP 系統。
 
 本文說明如何使用 SAP 連接器, 從邏輯應用程式記憶體取內部部署 SAP 資源。 連接器適用于 SAP 的傳統版本, 例如 R/3 和 ECC 系統內部部署。 連接器也可以整合 SAP 的較新 HANA 型 SAP 系統 (例如 S/4 HANA), 不論它們是裝載于內部部署或雲端。 SAP 連接器支援透過中繼檔 (IDoc)、商務應用程式開發介面 (BAPI) 或遠端函式呼叫 (RFC), 在 SAP NetWeaver 型系統之間進行訊息或資料整合。
 
@@ -31,7 +36,7 @@ SAP 連接器會使用[sap .Net connector (NCo) 程式庫](https://support.sap.c
 
 SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gateway-connection.md)與內部部署 SAP 系統整合。 例如, 在傳送案例中, 當訊息從邏輯應用程式傳送到 SAP 系統時, 資料閘道會作為 RFC 用戶端, 並將接收自邏輯應用程式的要求轉送到 SAP。 同樣地, 在接收案例中, 資料閘道會作為 RFC 伺服器, 以接收來自 SAP 的要求, 並將其轉送至邏輯應用程式。
 
-本文說明如何建立會與 SAP 整合的邏輯應用程式範例，同時也會說明先前所述的整合案例。
+本文說明如何建立會與 SAP 整合的邏輯應用程式範例，同時也會說明先前所述的整合案例。 針對使用舊版 SAP 連接器的邏輯應用程式, 本文說明如何將您的邏輯應用程式遷移至最新的 SAP 連接器。
 
 <a name="pre-reqs"></a>
 
@@ -63,11 +68,23 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 * 您可以傳送至 SAP 伺服器的訊息內容 (例如範例 IDoc 檔案) 必須是 XML 格式, 並包含您想要使用之 SAP 動作的命名空間。
 
+<a name="migrate"></a>
+
+## <a name="migrate-to-current-connector"></a>遷移至目前的連接器
+
+1. 如果您尚未這麼做, 請更新您的[內部部署資料閘道](https://www.microsoft.com/download/details.aspx?id=53127), 讓您擁有最新版本。 如需詳細資訊, 請參閱[安裝適用于 Azure Logic Apps 的內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)。
+
+1. 在使用舊版 SAP 連接器的邏輯應用程式中, 刪除 [**傳送至 SAP** ] 動作。
+
+1. 從最新的 SAP 連接器中, 新增 [**傳送至 SAP** ] 動作。 在您可以使用此動作之前, 請先重新建立與 SAP 系統的連線。
+
+1. 完成後，儲存邏輯應用程式。
+
 <a name="add-trigger"></a>
 
 ## <a name="send-to-sap"></a>傳送至 SAP
 
-此範例使用您可透過 HTTP 要求觸發的邏輯應用程式。 邏輯應用程式會將 IDoc 傳送至 SAP 伺服器, 並將回應傳回給呼叫邏輯應用程式的要求者。 
+此範例使用您可透過 HTTP 要求觸發的邏輯應用程式。 邏輯應用程式會將 IDoc 傳送至 SAP 伺服器, 並將回應傳回給呼叫邏輯應用程式的要求者。
 
 ### <a name="add-an-http-request-trigger"></a>新增 HTTP 要求觸發程式
 
@@ -235,7 +252,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    或者，您也可以手動指定動作：
 
-   ![手動輸入 SAP 動作](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png) 
+   ![手動輸入 SAP 動作](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    以下舉例說明當您設定觸發程序來接收多個訊息時，此動作的顯示方式。
 
@@ -259,13 +276,13 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 開啟最近的執行，其會在觸發程序的輸出區段中顯示從 SAP 系統傳送的訊息。
 
-## <a name="receive-idocs-packets-from-sap"></a>從 SAP 接收 Idoc 封包
+## <a name="receive-idoc-packets-from-sap"></a>從 SAP 接收 IDOC 封包
 
 您可以設定 SAP 在封包 (也就是 Idoc 的批次或群組)[中傳送 idoc](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/en-US/4ab38886549a6d8ce10000000a42189c.html)。 若要接收 IDOC 封包, SAP 連接器 (尤其是觸發程式) 不需要額外的設定。 不過, 若要在觸發程式收到封包之後處理 IDOC 封包中的每個專案, 則需要執行一些額外的步驟, 將封包分割成個別的 Idoc。
 
-以下範例示範如何使用[ `xpath()` ](./workflow-definition-language-functions-reference.md#xpath)函式, 從封包中解壓縮個別的 idoc: 
+以下範例示範如何使用[ `xpath()` ](./workflow-definition-language-functions-reference.md#xpath)函式, 從封包中解壓縮個別的 idoc:
 
-1. 開始之前, 您需要有一個具有 SAP 觸發程式的邏輯應用程式。 如果您還沒有此邏輯應用程式, 請遵循本主題中的先前步驟來設定[具有 SAP 觸發程式的邏輯應用程式](#receive-from-sap)。 
+1. 開始之前, 您需要有一個具有 SAP 觸發程式的邏輯應用程式。 如果您還沒有此邏輯應用程式, 請遵循本主題中的先前步驟來設定[具有 SAP 觸發程式的邏輯應用程式](#receive-from-sap)。
 
    例如:
 
@@ -279,7 +296,7 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
 1. 若要將個別 IDOC 解壓縮, 請新增一個步驟來建立陣列變數, 並使用另一個`xpath()`運算式來儲存 IDOC 集合:
 
-   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')` 
+   `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
 
    ![取得專案的陣列](./media/logic-apps-using-sap-connector/get-array.png)
 
@@ -333,18 +350,18 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 
    1. 提供 SAP 伺服器的連線資訊。 針對 [資料閘道] 屬性，請選取您在 Azure 入口網站中建立用於安裝閘道的資料閘道。
 
-      - 如果 [登入類型] 屬性設定為 [應用程式伺服器]，則需要這些通常會顯示為選擇性項目的屬性：
+      * 如果 [登入類型] 屬性設定為 [應用程式伺服器]，則需要這些通常會顯示為選擇性項目的屬性：
 
         ![建立 SAP 應用程式伺服器連線](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      - 如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性：
+      * 如果 [登入類型] 屬性設定為 [群組]，則需要這些通常會顯示為選擇性項目的屬性：
 
         ![建立 SAP 訊息伺服器連線](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
       根據預設, 強式類型是用來透過對架構執行 XML 驗證來檢查是否有不正確值。 此行為可協助您稍早偵測到問題。 [**安全類型**] 選項可用於回溯相容性, 而且只會檢查字串長度。 深入瞭解[安全輸入選項](#safe-typing)。
 
-   1. 當您完成時, 請選取 [**建立**]。 
-   
+   1. 當您完成時, 請選取 [**建立**]。
+
       Logic Apps 會設定並測試您的連線, 以確保連線正常運作。
 
 1. 針對您要產生結構描述的成品提供其路徑。
@@ -484,6 +501,30 @@ SAP 連接器會透過[內部部署資料閘道](../logic-apps/logic-apps-gatewa
 <DATE>99991231</DATE>
 <TIME>235959</TIME>
 ```
+
+## <a name="advanced-scenarios"></a>Advanced 案例
+
+### <a name="confirm-transaction-explicitly"></a>明確確認交易
+
+當您從 Logic Apps 將交易傳送至 SAP 時, 此交換會以 SAP 檔、[交易式 RFC 伺服器程式](https://help.sap.com/doc/saphelp_nwpi71/7.1/en-US/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true)中所述的兩個步驟進行。 根據預設, [**傳送至 SAP** ] 動作會在單一呼叫中處理函式傳送和交易確認的步驟。 SAP 連接器可讓您選擇分離這些步驟。 您可以傳送 IDOC, 而不是自動確認交易, 您可以使用明確的「**確認交易識別碼**」動作。
+
+當您不想要在 SAP 中重複交易時, 這項將交易識別碼解除耦合的功能會很有用, 例如, 在因網路問題而造成失敗的情況下。 藉由單獨確認交易識別碼, 交易只會在您的 SAP 系統中完成一次。
+
+以下是顯示此模式的範例:
+
+1. 建立空白邏輯應用程式, 並新增 HTTP 觸發程式。
+
+1. 從 SAP 連接器新增 [**傳送 IDOC** ] 動作。 提供您傳送至 SAP 系統的 IDOC 詳細資料。
+
+1. 若要在個別步驟中明確確認交易識別碼, 請在 [**確認 TID** ] 屬性中, 選取 [**否**]。 針對 [選擇性**交易識別碼 GUID** ] 屬性, 您可以手動指定值, 或讓連接器自動產生, 並在 [傳送 IDOC] 動作的回應中傳回此 GUID。
+
+   ![傳送 IDOC 動作屬性](./media/logic-apps-using-sap-connector/send-idoc-action-details.png)
+
+1. 若要明確確認交易識別碼, 請新增 [**確認交易識別碼**] 動作。 按一下 [**交易識別碼**] 方塊內部, 讓動態內容清單出現。 從該清單中, 選取從 [**傳送 IDOC** ] 動作傳回的 [**交易識別碼**] 值。
+
+   ![確認交易識別碼動作](./media/logic-apps-using-sap-connector/explicit-transaction-id.png)
+
+   執行此步驟之後, 在 SAP 連接器端和 SAP 系統端上, 目前的交易都會標示為「已完成」。
 
 ## <a name="known-issues-and-limitations"></a>已知問題與限制
 

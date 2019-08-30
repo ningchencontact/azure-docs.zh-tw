@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: d7b91e3e74c65919a3afe80addfbd0fadd23b03c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 7babfca617ab42da615518726d1b1d4cafe112b5
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931797"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163242"
 ---
 # <a name="automatically-scale-session-hosts"></a>自動調整工作階段主機
 
@@ -20,7 +20,7 @@ ms.locfileid: "68931797"
 
 本文使用簡單的調整腳本, 在您的 Windows 虛擬桌面環境中自動調整工作階段主機虛擬機器。 若要深入瞭解調整腳本的運作方式, 請參閱[調整腳本的運作方式](#how-the-scaling-script-works)一節。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 執行腳本的環境必須具備下列專案:
 

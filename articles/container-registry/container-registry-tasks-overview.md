@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: 1459b6fc45bb3d875b4869d1dcb4302dec21eb96
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: bc32ce59a7ec99278fb193f375d4ca945c227d2f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114809"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172180"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>使用 ACR 工作自動化容器映射組建和維護
 
@@ -49,6 +49,13 @@ ms.locfileid: "70114809"
 | GitHub 分支 | GitHub 存放庫的特定分支。| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub 子資料夾 | GitHub 存放庫中子資料夾內的檔案。 範例會顯示分支和子資料夾規格的組合。 | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | 遠端 Tarball | 遠端 Web 伺服器上壓縮封存中的檔案。 | `http://remoteserver/myapp.tar.gz` |
+
+根據預設, ACR 工作會建立 Linux OS 和 amd64 架構的映射。 `--platform`指定標記以建立其他架構的 Windows 映像或 Linux 映射。 指定 os/架構格式 (例如, `--platform Linux/arm`) 的作業系統和選擇性的支援架構。 針對 arm 架構, 選擇性地指定 OS/架構/變異格式的 variant (例如, `--platform Linux/arm64/v8`):
+
+| OS | 架構|
+| --- | ------- | 
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Windows | amd64 |
 
 「ACR 工作」已設計為容器生命週期原始物件。 例如，您可以將「ACR 工作」整合到 CI/CD 解決方案中。 藉由執行[az login][az-login]與[服務主體][az-login-service-principal], 您的 CI/CD 解決方案就可以發出[az acr build][az-acr-build]命令來啟動映射組建。
 

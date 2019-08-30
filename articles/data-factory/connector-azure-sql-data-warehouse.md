@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 45f7db943499b8a722b8e203d676d1d80eb5091e
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 49a0c7597e8d44e3f60e2d3b6bd4c14cad1524b5
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996683"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172633"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本:"]
@@ -60,7 +60,7 @@ ms.locfileid: "69996683"
 
 | 屬性            | 描述                                                  | 必要項                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| type                | 類型屬性必須設為 **AzureSqlDW**。             | 是                                                          |
+| Type                | 類型屬性必須設為 **AzureSqlDW**。             | 是                                                          |
 | connectionString    | 針對 **connectionString** 屬性指定連線到 Azure SQL 資料倉儲執行個體所需的資訊。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼/服務主體金鑰放在 Azure Key Vault 中，而且，如果這是 SQL 驗證，則會從連接字串中提取 `password` 組態。 請參閱表格下方的 JSON 範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文深入了解詳細資料。 | 是                                                          |
 | servicePrincipalId  | 指定應用程式的用戶端識別碼。                         | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
 | servicePrincipalKey | 指定應用程式的金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 當您搭配服務主體使用 Azure AD 驗證時為是。 |
@@ -233,7 +233,7 @@ ms.locfileid: "69996683"
 
 | 屬性  | 描述                                                  | 必要項                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| type      | 資料集的**type**屬性必須設定為 **AzureSqlDWTable**。 | 是                         |
+| Type      | 資料集的**type**屬性必須設定為 **AzureSqlDWTable**。 | 是                         |
 | tableName | 「Azure SQL 資料倉儲」執行個體中連結服務所參考的資料表或檢視名稱。 | 否 (來源)；是 (接收) |
 
 #### <a name="dataset-properties-example"></a>資料集屬性範例
@@ -266,7 +266,7 @@ ms.locfileid: "69996683"
 
 | 屬性                     | 描述                                                  | 必要項 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| type                         | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | 是      |
+| Type                         | 複製活動來源的**類型**屬性必須設定為 **SqlDWSource**。 | 是      |
 | sqlReaderQuery               | 使用自訂 SQL 查詢來讀取資料。 範例： `select * from MyTable`. | 否       |
 | sqlReaderStoredProcedureName | 從來源資料表讀取資料的預存程序名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 | 否       |
 | storedProcedureParameters    | 預存程序的參數。<br/>允許的值為名稱或值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 | 否       |
@@ -369,7 +369,7 @@ GO
 
 | 屬性          | 描述                                                  | 必要項                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | 複製活動接收端的**type**屬性必須設定為 **SqlDWSink**。 | 是                                           |
+| Type              | 複製活動接收端的**type**屬性必須設定為 **SqlDWSink**。 | 是                                           |
 | allowPolyBase     | 指出是否使用 PolyBase (適用的話) 而不是使用 BULKINSERT 機制。 <br/><br/> 建議使用 PolyBase 將資料載入 SQL 資料倉儲。 請參閱[使用 PolyBase 將資料載入 Azure SQL 資料倉儲](#use-polybase-to-load-data-into-azure-sql-data-warehouse)一節中的條件約束和詳細資料。<br/><br/>允許的值為 **True** 和 **False** (預設值)。 | 否                                            |
 | polyBaseSettings  | 可以在 **allowPolybase** 屬性設定為 **true** 時指定的一組屬性。 | 否                                            |
 | rejectValue       | 指定在查詢失敗前可以拒絕的資料列數目或百分比。<br/><br/>在 [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)的＜引數＞一節中，深入了解 PolyBase 的拒絕選項。 <br/><br/>允許的值為 0 (預設值)、1、2 等其他值。 | 否                                            |
@@ -536,6 +536,10 @@ PolyBase 負載的限制為小於 1 MB 的資料列。 它不能用來載入至 
 
 或者, 對於具有這類寬資料行的資料, 您可以藉由關閉 [允許 PolyBase] 設定, 使用非 PolyBase 來載入資料 (使用 ADF)。
 
+### <a name="sql-data-warehouse-resource-class"></a>SQL 資料倉儲資源類別
+
+若要達到最佳的可能輸送量，請透過 PolyBase 將較大型資源類別指派給要將資料載入 SQL 資料倉儲的使用者。
+
 ### <a name="polybase-troubleshooting"></a>PolyBase 疑難排解
 
 **載入至 Decimal 資料行**
@@ -549,13 +553,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 解決方法是在複製活動接收中取消選取 [**使用類型預設值**] 選項 (如 false)-> PolyBase 設定。 "[ USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" 是 polybase 原生設定, 指定當 PolyBase 從文字檔抓取資料時, 如何處理分隔符號文字檔中遺漏的值。 
 
-**其他**
-
-### <a name="sql-data-warehouse-resource-class"></a>SQL 資料倉儲資源類別
-
-若要達到最佳的可能輸送量，請透過 PolyBase 將較大型資源類別指派給要將資料載入 SQL 資料倉儲的使用者。
-
-### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的 **tableName**
+**`tableName`在 Azure SQL 資料倉儲**
 
 下表是如何在 JSON 資料集中指定 **tableName** 屬性的範例。 其中會顯示數個結構描述和資料表名稱的組合。
 
@@ -572,7 +570,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 ```
 
-### <a name="columns-with-default-values"></a>包含預設值的資料行
+**具有預設值的資料行**
 
 Data Factory 中的 PolyBase 功能目前只接受與目標資料表中相同的資料行數目。 範例是內含四個資料行的資料表，且其中一個資料行已使用預設值進行定義。 輸入資料仍需要有四個資料行。 3 個資料行的輸入資料集會產生類似下列訊息的錯誤︰
 

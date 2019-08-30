@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/29/2019
 ms.author: v-adgera
-ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 55b0676ce0a0dc6d4347ddcadf43b7b650f0f9a1
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722849"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172800"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>如何針對一般工作查詢 Azure Digital Twins API
 
@@ -238,4 +238,4 @@ ms.locfileid: "67722849"
 
 若要了解如何使用管理 API 進行驗證，請閱讀[使用 API 進行驗證](./security-authenticating-apis.md)。
 
-若要深入了解您的 API 端點，請閱讀[如何使用數位對應項 Swagger](./how-to-use-swagger.md)。
+若要深入瞭解您的 API 端點, 請閱讀[如何使用數位 Twins Swagger](./how-to-use-swagger.md)。

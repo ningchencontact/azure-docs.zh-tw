@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc83f59d51e1552d9d68089d0b9fa23d924f491c
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: c0c941ec5010b6f9c35e81fdbcacd2093724eb21
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561301"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162343"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
@@ -137,6 +137,8 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>將使用者從每位使用者 MFA 轉換成以條件式存取為基礎的 MFA
 
 下列 PowerShell 可協助您轉換成以條件式存取為基礎的 Azure 多重要素驗證。
+
+在 ISE 視窗中執行此 PowerShell 或另存新檔。PS1 要在本機執行的檔案。
 
 ```PowerShell
 # Sets the MFA requirement state

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: f4f081001f2573bccc58205ccc7955739b7f5c4c
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779282"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170664"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 網路功能選項
 
@@ -52,8 +52,10 @@ ms.locfileid: "68779282"
 ## <a name="private-site-access"></a>私人網站存取
 
 私用網站存取是指讓您的應用程式只能從私人網路 (例如從 Azure 虛擬網路內) 存取。 
-* 設定**服務端點**時, 可在[Premium](./functions-premium-plan.md)和[App Service 方案](functions-scale.md#app-service-plan)中取得私用網站存取。 如需詳細資訊, 請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * 請記住, 使用服務端點時, 即使已設定虛擬網路整合, 您的函式仍會擁有網際網路的完整輸出存取權。
+* 設定**服務端點**時, 可在[Premium](./functions-premium-plan.md)、[耗用量](functions-scale.md#consumption-plan)和[App Service 方案](functions-scale.md#app-service-plan)中取得私用網站存取。 
+    * 服務端點可以在 [平臺功能] > [網路 > 設定存取限制] > [新增規則] 底下, 以每個應用程式為基礎。 現在可以選取虛擬網路做為規則的「類型」。
+    * 如需詳細資訊, 請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)
+        * 請記住, 使用服務端點時, 即使已設定虛擬網路整合, 您的函式仍會擁有網際網路的完整輸出存取權。
 * 使用內部負載平衡器 (ILB) 設定的 App Service 環境也可以使用私人網站存取。 如需詳細資訊, 請參閱[建立和使用內部負載平衡器與 App Service 環境](../app-service/environment/create-ilb-ase.md)。
 
 ## <a name="virtual-network-integration"></a>虛擬網路整合
@@ -99,6 +101,13 @@ VNet 整合不支援的事項包括：
 * [閘道所需的 VNet 整合](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
 若要深入瞭解如何使用虛擬網路整合, 請參閱[整合函數應用程式與 Azure 虛擬網路](functions-create-vnet.md)。
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>將您的儲存體帳戶限制為虛擬網路
+
+> [!note] 
+> 一旦您在該儲存體帳戶上設定存取限制, 最多可能需要12小時的時間, 您的儲存體帳戶才會變成可供函數應用程式使用。 在這段期間, 您的應用程式將會完全離線。
+
+為了提供較高層級的安全性, 您可以將應用程式的儲存體帳戶限制為虛擬網路。 接著, 您必須將您的網站與該虛擬網路整合, 才能存取您的儲存體帳戶。 支援虛擬網路整合的所有方案都支援此設定。
 
 ## <a name="virtual-network-triggers-non-http"></a>虛擬網路觸發程式 (非 HTTP)
 

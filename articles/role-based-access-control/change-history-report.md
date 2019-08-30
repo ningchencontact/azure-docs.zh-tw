@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242093"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172407"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>檢視活動記錄中 Azure 資源的各種 RBAC 變更
 
@@ -43,9 +43,9 @@ ms.locfileid: "66242093"
 
 入口網站中的活動記錄有數個篩選條件。 以下是 RBAC 相關的篩選條件：
 
-|Filter  |值  |
+|篩選器  |值  |
 |---------|---------|
-|事件類別目錄     | <ul><li>管理</li></ul>         |
+|事件類別     | <ul><li>系統管理</li></ul>         |
 |運算     | <ul><li>建立角色指派</li> <li>刪除角色指派</li> <li>建立或更新自訂角色定義</li> <li>刪除自訂角色定義</li></ul>      |
 
 
@@ -110,7 +110,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)是另一個工具，可用來收集並分析您所有的 Azure 資源的 RBAC 變更。 Azure 監視器記錄檔具有下列優點：
+[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)是您可以用來收集並分析所有 Azure 資源之 RBAC 變更的另一種工具。 Azure 監視器記錄具有下列優點:
 
 - 撰寫複雜的查詢和邏輯
 - 整合警示、Power BI 和其他工具
@@ -123,9 +123,9 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 1. 為您的工作區[設定活動記錄分析解決方案](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)。
 
-1. [檢視活動記錄](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)。 若要瀏覽至 [活動 Log Analytics 解決方案概觀] 頁面的快速方法是按一下**Log Analytics**選項。
+1. [檢視活動記錄](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution)。 流覽至 [活動記錄分析解決方案] [總覽] 頁面的快速方式是按一下 [ **Log Analytics** ] 選項。
 
-   ![Azure 監視器登入入口網站的選項](./media/change-history-report/azure-log-analytics-option.png)
+   ![入口網站中的 Azure 監視器記錄 選項](./media/change-history-report/azure-log-analytics-option.png)
 
 1. 選擇性使用 [記錄搜尋](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](../azure-monitor/log-query/get-started-portal.md)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../azure-monitor/log-query/portals.md)。
 
@@ -133,7 +133,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
 | parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
 | summarize count(), makeset(Caller) by TargetResourceAuthProvider
 ```
@@ -142,8 +142,8 @@ AzureActivity
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
-| summarize count() by bin(TimeGenerated, 1d), OperationName
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationNameValue
 | render timechart
 ```
 

@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: 4099bc0b15f02faade02f47aeb00fb7c4b4a3332
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 9b57775040251312c8afbff5983a52ae9d14e6c6
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325890"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172501"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>使用 Azure 監視器記錄的容器執行個體記錄
 
@@ -37,8 +37,8 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 若要取得記錄分析工作區識別碼和主要金鑰：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
-1. 在 [設定]  下，選取 [進階設定] 
-1. 選取 [連線的來源]   > [Windows 伺服器]  (或 **Linux 伺服器** - 兩者的識別碼和金鑰是相同的)
+1. 在 [設定] 下，選取 [進階設定]
+1. 選取 [連線的來源] > [Windows 伺服器] (或 **Linux 伺服器** - 兩者的識別碼和金鑰是相同的)
 1. 記下：
    * **工作區識別碼**
    * **主要金鑰**
@@ -104,11 +104,11 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 在您部署容器群組後，可能需要幾分鐘的時間 (最多 10 分鐘)，第一個記錄項目才會出現在 Azure 入口網站中。 若要檢視容器群組的記錄：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
-1. 在 [一般]  之下，選取 [記錄]   
+1. 在 [一般] 之下，選取 [記錄]  
 1. 執行下列查詢：`search *`
-1. 選取 [執行] 
+1. 選取 [執行]
 
-您應該會看到 `search *` 查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行]  按鈕重新執行查詢。 根據預設，記錄項目會以 [資料表]  格式顯示。 接著，您可以展開資料列來查看個別記錄項目的內容。
+您應該會看到 `search *` 查詢所顯示的數個結果。 如果一開始未看到任何結果，請等候數分鐘，然後再選取 [執行] 按鈕重新執行查詢。 根據預設，記錄項目會以 [資料表] 格式顯示。 接著，您可以展開資料列來查看個別記錄項目的內容。
 
 ![Azure 入口網站中的記錄搜尋結果][log-search-01]
 
@@ -118,7 +118,7 @@ Azure 監視器記錄包含涵蓋範圍廣大的[查詢語言][query_lang]，可
 
 Azure 容器執行個體記錄代理程式會將項目傳送至 Log Analytics 工作區中的 `ContainerInstanceLog_CL` 資料表。 查詢的基本結構是一個來源資料表 (`ContainerInstanceLog_CL`)，後面接著一系列由管道字元 (`|`) 隔開的運算子。 您可以鏈結數個運算子，以找出更精確的結果及執行進階函式。
 
-若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中 (在 [顯示舊版語言轉換器] 下方)，然後選取 [執行]  按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
+若要查看範例查詢結果，請將下列查詢貼到查詢文字方塊中 (在 [顯示舊版語言轉換器] 下方)，然後選取 [執行] 按鈕以執行查詢。 此查詢會顯示 [訊息] 欄位中包含「警告」一詞的所有記錄項目：
 
 ```query
 ContainerInstanceLog_CL

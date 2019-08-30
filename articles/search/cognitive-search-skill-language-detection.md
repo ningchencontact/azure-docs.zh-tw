@@ -2,7 +2,7 @@
 title: 語言偵測認知搜尋技能 - Azure 搜尋服務
 description: 評估非結構化文字，並針對每筆記錄傳回語言識別項，其分數表示 Azure 搜尋服務擴充管線中分析的強度。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 14163b959a6e91406133ca2f5a125c7e2df967ad
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 8375d41e3ece3bdd97b218925a8b1b6d45fc327d
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69635799"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186375"
 ---
 #   <a name="language-detection-cognitive-skill"></a>語言偵測認知技能
 

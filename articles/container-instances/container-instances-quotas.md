@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 manager: gwallace
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 03/01/2019
 ms.author: danlep
-ms.openlocfilehash: d78cb72e6aa10334e82032280b1253e6d4c92960
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: c266a67685197ba40d2868fefca08098cb41598c
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325738"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172370"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Azure Container Instances 的配額和限制
 
@@ -27,7 +27,7 @@ ms.locfileid: "68325738"
 
 ## <a name="next-steps"></a>後續步驟
 
-某些預設限制和配額可以增加。 若要要求增加一或多個支援此類增加的資源，請提交 [Azure 支援要求][azure-support] (針對 [問題類型]  選取 [配額])。
+某些預設限制和配額可以增加。 若要要求增加一或多個支援此類增加的資源，請提交 [Azure 支援要求][azure-support] (針對 [問題類型] 選取 [配額])。
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

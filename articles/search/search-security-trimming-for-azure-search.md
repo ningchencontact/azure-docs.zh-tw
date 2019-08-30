@@ -7,14 +7,14 @@ services: search
 ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
-manager: jlembicz
+manager: nitinme
 ms.custom: seodec2018
-ms.openlocfilehash: a222b9e506988929c25a560361611b8f78142053
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d1ffa5b29a56d32a4f6a8ccf40f5bafd27795e6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024358"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186483"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>在 Azure 搜尋服務中進行安全性篩選以調整結果
 
@@ -33,7 +33,7 @@ ms.locfileid: "65024358"
 >[!NOTE]
 > 本文件未多加說明擷取主體識別碼的流程。 您應從身分識別服務提供者處取得主體識別碼。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假定您已具有 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)、[Azure 搜尋服務](https://docs.microsoft.com/azure/search/search-create-service-portal)和 [Azure 搜尋索引](https://docs.microsoft.com/azure/search/search-create-index-portal)。  
 
@@ -152,7 +152,7 @@ api-key: [admin or query key]
 ```
 ## <a name="conclusion"></a>結論
 
-以此作法，可根據使用者身分識別與 Azure 搜尋服務 `search.in()` 函式來篩選結果。 您可以使用此函式將在提出要求的使用者，要比對每個目標文件相關聯的主體識別碼的主體識別項。 處理搜尋要求時，`search.in` 函式會篩選出沒有任何使用者主體具備讀取權限的搜尋結果。 主體識別碼可代表安全性群組、角色等等，甚至可代表使用者的專屬身分識別。
+以此作法，可根據使用者身分識別與 Azure 搜尋服務 `search.in()` 函式來篩選結果。 您可以使用此函式來傳入要求使用者的原則識別碼, 以符合與每個目的檔案相關聯的主體識別碼。 處理搜尋要求時，`search.in` 函式會篩選出沒有任何使用者主體具備讀取權限的搜尋結果。 主體識別碼可代表安全性群組、角色等等，甚至可代表使用者的專屬身分識別。
  
 ## <a name="see-also"></a>另請參閱
 

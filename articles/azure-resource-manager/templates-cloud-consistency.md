@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388087"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164758"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>開發針對雲端一致性的 Azure Resource Manager 範本
 
@@ -47,7 +47,7 @@ Microsoft 在許多位置提供符合企業需求的智慧型雲端服務，包�
 * 請確定您使用的範本參數能在目標雲端中運作。
 * 確認目標雲端可以使用資源特有的屬性。
 
-如需 Azure Resource Manger 範本的介紹，請參閱[範本部署](resource-group-overview.md#template-deployment)。
+如需 Azure Resource Manger 範本的介紹，請參閱[範本部署](template-deployment-overview.md)。
 
 ## <a name="ensure-template-functions-work"></a>確定範本函式都能運作
 
@@ -154,7 +154,7 @@ Azure Resource Manager 在執行階段評估主要範本，然後擷取並評估
 
 透過使用這種方法，就會使用 `_artifactsLocation` 參數的預設值。 如果需要從不同的位置擷取連結的範本，可在部署期間使用參數輸入覆寫預設值，不需要變更範本本身。
 
-### <a name="use-artifactslocation-instead-of-hardcoding-links"></a>使用 _artifactsLocation 而非硬式編碼連結
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>使用 _artifactsLocation 而非硬式編碼連結
 
 除了用於巢狀範本，`_artifactsLocation` 參數中的 URL 還用為部署範本之所有相關成品的基底。 一些 VM 延伸模組包含儲存在範本外部的指令碼連結。 您不應該為這些延伸模組硬式編碼連結。 例如，自訂指令碼和 PowerShell DSC 延伸模組可連結至 GitHub 上的外部指令碼，如下所示： 
 

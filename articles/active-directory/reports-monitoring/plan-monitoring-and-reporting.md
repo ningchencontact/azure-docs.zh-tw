@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f974b3564857a439f1ac1c40ddd572633b761862
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6d24a4ab74f7957c068fc664fc4e8898c525afcb
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879854"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162530"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>規劃 Azure Active Directory 報告和監視部署
 
@@ -164,8 +164,6 @@ Azure AD 角色可讓您根據您的角色, 委派設定及查看 Azure AD 報�
 ### <a name="consume-and-archive-azure-ad-logs"></a>使用和封存 Azure AD 記錄
 
 [在 Azure 入口網站中尋找活動報告](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
-
-[使用 Azure AD 的 Power BI 內容套件](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack)
 
 [將 Azure AD 記錄封存到 Azure 儲存體帳戶](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 

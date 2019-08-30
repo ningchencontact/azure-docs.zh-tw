@@ -7,31 +7,31 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2019
+ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb81c73f7946a10bae0470a55dcf1c0d55c2b847
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 093ada2b2751540b986154be3a2f333784c1259f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330041"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173296"
 ---
-# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>停止或刪除您的 Azure Stream Analytics 作業
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>停止或刪除您的 Azure 串流分析作業
 
-Azure Stream Analytics 作業可以輕鬆地停止或刪除透過 Azure 入口網站、 Azure PowerShell、 Azure SDK for.Net 或 REST API。 無法復原的 Stream Analytics 作業，一旦已被刪除。
+您可以透過 Azure 入口網站、Azure PowerShell、Azure SDK for .Net 或 REST API, 輕鬆地停止或刪除 azure 串流分析作業。 串流分析作業一旦刪除, 就無法復原。
 
 >[!NOTE] 
 >當您停止串流分析作業時，資料只會保留在輸入和輸出儲存體中，例如事件中樞或 Azure SQL Database。 如果您需要移除 Azure 中的資料，請務必遵循串流分析作業的輸入和輸出資源的移除流程。
 
 ## <a name="stop-a-job-in-azure-portal"></a>在 Azure 入口網站中停止作業
 
-當您停止工作時，這些資源是 deprovisionned，並停止處理事件。 這項作業相關的費用也會停止。 不過會保留您所有的組態，而您稍後可以重新啟動作業 
+當您停止作業時, 系統會取消布建資源, 並停止處理事件。 也會停止與此作業相關的費用。 不過, 您的所有設定都會保留下來, 您可以稍後再重新開機作業 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 
 2. 找到執行中的串流分析作業並加以選取。
 
-3. 在 [串流分析作業] 頁面上，選取 [停止]  以停止作業。 
+3. 在 [串流分析作業] 頁面上，選取 [停止] 以停止作業。 
 
    ![停止 Azure 串流分析作業](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
@@ -39,13 +39,13 @@ Azure Stream Analytics 作業可以輕鬆地停止或刪除透過 Azure 入口�
 ## <a name="delete-a-job-in-azure-portal"></a>在 Azure 入口網站中刪除作業
 
 >[!WARNING] 
->無法復原的 Stream Analytics 作業，一旦已被刪除。
+>串流分析作業一旦刪除, 就無法復原。
 
 1. 登入 Azure 入口網站。 
 
 2. 找到現有的串流分析作業並加以選取。
 
-3. 在 [串流分析作業] 頁面上，選取 [刪除]  以刪除作業。 
+3. 在 [串流分析作業] 頁面上，選取 [刪除] 以刪除作業。 
 
    ![刪除 Azure 串流分析作業](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
@@ -54,7 +54,7 @@ Azure Stream Analytics 作業可以輕鬆地停止或刪除透過 Azure 入口�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-若要停止作業，使用 PowerShell，請使用[停止 AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) cmdlet。 若要刪除工作，使用 PowerShell，使用[移除 AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) cmdlet。
+若要使用 PowerShell 停止作業, 請使用[AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) Cmdlet。 若要使用 PowerShell 刪除作業, 請使用[AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) Cmdlet。
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>使用適用於 .NET 的 Azure SDK 停止或刪除作業
 

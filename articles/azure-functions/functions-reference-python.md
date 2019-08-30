@@ -13,30 +13,22 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 637205bd4ad438d7efbee6fb304b0a934aefdfdf
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 16cf6704096f8c1534777ffb1958d2fa858374db
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615890"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170541"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 開發人員指南
 
-本文是使用 Python 開發 Azure Functions 的簡介。 本文假設您已閱讀過下列 [Azure Functions 開發人員指南](functions-reference.md)。
+本文是使用 Python 開發 Azure Functions 的簡介。 本文假設您已閱讀過下列 [Azure Functions 開發人員指南](functions-reference.md)。 
+
+如需 Python 中的獨立函式範例專案, 請參閱 Python 函式[範例](/samples/browse/?products=azure-functions&languages=python)。 
 
 ## <a name="programming-model"></a>程式設計模型
 
-Python 指令碼中的 Azure 函式應該是無狀態方法，處理輸入及產生輸出。 根據預設, 執行時間會預期方法會實作為`main()` `__init__.py`在檔案中呼叫的全域方法。
-
-您可以藉由在*函數. json*檔案`scriptFile`中`entryPoint`指定和屬性來變更預設設定。 例如, 下列函式會指示執行時間在_main.py_檔案中使用`customentry()`方法, 做為您的 Azure 函式的進入點。
-
-```json
-{
-  "scriptFile": "main.py",
-  "entryPoint": "customentry",
-  ...
-}
-```
+Azure Functions 預期函式在 Python 腳本中是可處理輸入並產生輸出的無狀態方法。 根據預設, 執行時間會預期方法會實作為`main()` `__init__.py`在檔案中呼叫的全域方法。 您也可以[指定替代的進入點](#alternate-entry-point)。
 
 來自觸發程式和系結的資料會使用函式*json*檔案中`name`定義的屬性, 透過方法屬性系結至函式。 例如, 下面的_函數. json_說明由 HTTP 要求`req`所觸發的簡單函式:
 
@@ -66,7 +58,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-(選擇性) 若要利用程式碼編輯器所提供的 intellisense 和自動完成功能, 您也可以使用 Python 類型注釋, 在函式中宣告屬性類型和傳回類型。 
+您也可以使用 Python 類型注釋, 在函式中明確宣告屬性類型和傳回類型。 這可協助您使用許多 Python 程式碼編輯器所提供的 intellisense 和自動完成功能。
 
 ```python
 import azure.functions
@@ -79,9 +71,23 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 請使用 [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) 套件中所包含的 Python 註釋，以將輸入和輸出繫結至方法。
 
+## <a name="alternate-entry-point"></a>替代進入點
+
+您可以選擇性地在`scriptFile` *函數. json*檔案中指定和`entryPoint`屬性, 以變更函式的預設行為。 例如, 下列函式會指示執行時間在_main.py_檔案中使用`customentry()`方法, 做為您的 Azure 函式的進入點。
+
+```json
+{
+  "scriptFile": "main.py",
+  "entryPoint": "customentry",
+  "bindings": [
+      ...
+  ]
+}
+```
+
 ## <a name="folder-structure"></a>資料夾結構
 
-Python 函式專案的資料夾結構看起來如下：
+Python 函式專案的資料夾結構如下列範例所示:
 
 ```
  FunctionApp
@@ -227,12 +233,48 @@ def main(req):
 
 | 方法                 | 描述                                |
 | ---------------------- | ------------------------------------------ |
-| logging.**critical(_message_)**   | 在根記錄器上寫入層級為 CRITICAL (重大) 的訊息。  |
-| logging.**error(_message_)**   | 在根記錄器上寫入層級為 ERROR (錯誤) 的訊息。    |
-| logging.**warning(_message_)**    | 在根記錄器上寫入層級為 WARNING (警告) 的訊息。  |
-| logging.**info(_message_)**    | 在根記錄器上寫入層級為 INFO (資訊) 的訊息。  |
-| logging.**debug(_message_)** | 在根記錄器上寫入層級為 DEBUG (偵錯) 的訊息。  |
+| **`critical(_message_)`**   | 在根記錄器上寫入層級為 CRITICAL (重大) 的訊息。  |
+| **`error(_message_)`**   | 在根記錄器上寫入層級為 ERROR (錯誤) 的訊息。    |
+| **`warning(_message_)`**    | 在根記錄器上寫入層級為 WARNING (警告) 的訊息。  |
+| **`info(_message_)`**    | 在根記錄器上寫入層級為 INFO (資訊) 的訊息。  |
+| **`debug(_message_)`** | 在根記錄器上寫入層級為 DEBUG (偵錯) 的訊息。  |
 
+若要深入瞭解記錄, 請參閱[監視 Azure Functions](functions-monitoring.md)。
+
+## <a name="http-trigger-and-bindings"></a>HTTP 觸發程式和系結
+
+HTTP 觸發程式定義于 function. jon 檔案中。 `name`系結的必須符合函式中的具名引數。 在先前的範例中, 會使用`req`系結名稱。 這個參數是[HttpRequest]物件, 而且會傳回[HttpResponse]物件。
+
+您可以從[HttpRequest]物件取得要求標頭、查詢參數、路由參數和訊息內文。 
+
+下列範例來自[Python 的 HTTP 觸發程式範本](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python)。 
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    headers = {"my-http-header": "some-value"}
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+            
+    if name:
+        return func.HttpResponse(f"Hello {name}!", headers=headers)
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             headers=headers, status_code=400
+        )
+```
+
+在此函數中, 會從`name` [HttpRequest]物件的`params`參數取得查詢參數的值。 使用`get_json`方法讀取 JSON 編碼的訊息本文。 
+
+同樣`status_code`地, 您可以針對傳回`headers`的[HttpResponse]物件中的回應訊息, 設定和。
+                                                              
 ## <a name="async"></a>非同步處理
 
 建議您使用`async def`語句, 將您的 Azure Function 撰寫為非同步協同程式。
@@ -245,7 +287,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-如果 main () 函式是同步的 ( `async`沒有辨識符號), 我們會自動`asyncio`線上程集區中執行函數。
+如果 main () 函式是同步的 (沒有辨識符號), 我們會自動在`asyncio`執行緒集區中執行函數。
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -297,6 +339,26 @@ def main(req):
     # ... use CACHED_DATA in code
 ```
 
+## <a name="environment-variables"></a>環境變數
+
+在函數中,[應用程式設定](functions-app-settings.md)(例如服務連接字串) 在執行期間會公開為環境變數。 您可以藉由`import os`宣告, 然後`setting = os.environ["setting-name"]`使用來存取這些設定。
+
+下列範例會取得[應用程式設定](functions-how-to-use-azure-function-app-settings.md#settings), 並使用名為`myAppSetting`的機碼:
+
+```python
+import logging
+import os
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Get the setting named 'myAppSetting'
+    my_app_setting_value = os.environ["myAppSetting"]
+    logging.info(f'My app setting value:{my_app_setting_value}')
+```
+
+就本機開發而言, 應用程式設定會[保留在本機的設定 json 檔案中](functions-run-local.md#local-settings-file)。  
+
 ## <a name="python-version-and-package-management"></a>Python 版本和套件管理
 
 Azure Functions 目前僅支援 Python 3.6.x (官方 CPython 發佈)。
@@ -336,9 +398,9 @@ The terminal process terminated with exit code: 1
 func azure functionapp publish <app name> --build-native-deps
 ```
 
-基本上，Core Tools 會使用 docker 將 [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) 映像作為本機電腦上的容器。 接著，它會利用此環境從來源發佈建置並安裝必要的模組，再將其封裝以最終部署至 Azure。
+基本上，Core Tools 會使用 docker 將 [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) 映像作為本機電腦上的容器。 使用此環境時, 它會從來源散發建立並安裝必要的模組, 然後再將其封裝為最終部署至 Azure。
 
-若要建立您的相依性, 並使用持續傳遞 (CD) 系統進行發佈, 請[使用 Azure DevOps 管線](functions-how-to-azure-devops.md)。 
+若要建立您的相依性, 並使用持續傳遞 (CD) 系統發佈, 請[使用 Azure Pipelines](functions-how-to-azure-devops.md)。 
 
 ## <a name="unit-testing"></a>單元測試
 
@@ -462,6 +524,39 @@ class TestFunction(unittest.TestCase):
 
 所有已知問題和功能要求則會使用 [GitHub 問題](https://github.com/Azure/azure-functions-python-worker/issues)清單追蹤。 如果您遇到問題，但在 GitHub 中卻找不到此問題，請開啟新的問題，並包含問題的詳細說明。
 
+### <a name="cross-origin-resource-sharing"></a>跨原始資源共用
+
+Azure Functions 支援跨原始來源資源分享 (CORS)。 CORS 會[在入口網站中](functions-how-to-use-azure-function-app-settings.md#cors)以及透過[Azure CLI](/cli/azure/functionapp/cors)進行設定。 CORS 允許的原始來源清單適用于函數應用層級。 在啟用 CORS 的情況下, `Access-Control-Allow-Origin`回應會包含標頭。 如需詳細資訊，請參閱 [跨原始來源資源分享](functions-how-to-use-azure-function-app-settings.md#cors)(英文)。
+
+Python 函式應用程式[目前不支援](https://github.com/Azure/azure-functions-python-worker/issues/444)允許的原始來源清單。 由於這項限制, 您必須在 HTTP 函`Access-Control-Allow-Origin`式中明確設定標頭, 如下列範例所示:
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Define the allow origin headers.
+    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
+
+    # Set the headers in the response.
+    return func.HttpResponse(
+            f"Allowed origin '{headers}'.",
+            headers=headers, status_code=200
+    )
+``` 
+
+請確定您也更新了函數. json, 以支援 OPTIONS HTTP 方法:
+
+```json
+    ...
+      "methods": [
+        "get",
+        "post",
+        "options"
+      ]
+    ...
+```
+
+Chrome 瀏覽器會使用這個方法來協調允許的原始來源清單。 
+
 ## <a name="next-steps"></a>後續步驟
 
 如需詳細資訊，請參閱下列資源：
@@ -473,3 +568,7 @@ class TestFunction(unittest.TestCase):
 * [HTTP 和 Webhook 繫結](functions-bindings-http-webhook.md)
 * [佇列儲存體繫結](functions-bindings-storage-queue.md)
 * [計時器觸發程序](functions-bindings-timer.md)
+
+
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python

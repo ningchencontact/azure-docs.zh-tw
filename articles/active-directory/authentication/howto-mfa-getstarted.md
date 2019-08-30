@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b555ecdf8bbd3d29e440675599041f40ac3c9d0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125036"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162377"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>規劃以雲端為基礎的 Azure 多因素驗證部署
 
@@ -172,6 +172,8 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>將使用者從每位使用者 MFA 轉換成以條件式存取為基礎的 MFA
 
 如果您的使用者是使用每位使用者啟用並強制執行的 Azure 多重要素驗證來啟用, 下列 PowerShell 可以協助您轉換成以條件式存取為基礎的 Azure 多重要素驗證。
+
+在 ISE 視窗中執行此 PowerShell 或另存新檔。PS1 要在本機執行的檔案。
 
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact

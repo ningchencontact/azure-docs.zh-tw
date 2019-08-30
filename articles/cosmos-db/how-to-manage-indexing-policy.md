@@ -4,14 +4,14 @@ description: 了解如何管理 Azure Cosmos DB 中的索引編製原則
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 08/29/2019
 ms.author: thweiss
-ms.openlocfilehash: 6e935b88c474d28c06b8cdd76d36f5ba64c942f9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a6c1ec6d58939336fb8a982e3ab1b9be20d4e0a5
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093202"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172158"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引編製原則
 
@@ -61,14 +61,45 @@ az cosmosdb collection update \
 
 [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 中的 `DocumentCollection` 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-dotnet.md)) 會公開 `IndexingPolicy` 屬性，以供您變更 `IndexingMode` 以及新增或移除 `IncludedPaths` 和 `ExcludedPaths`。
 
+取得容器的詳細資料
+
 ```csharp
-// retrieve the container's details
 ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
-// set the indexing mode to Consistent
+```
+
+將索引編制模式設定為一致
+
+```csharp
 containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
-// add an excluded path
-containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/headquarters/employees/?" });
-// update the container with our changes
+```
+
+新增包含的路徑
+
+```csharp
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/age/*" });
+```
+
+新增排除的路徑
+
+```csharp
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
+```
+
+新增空間索引
+
+```csharp
+containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(new SpatialSpec() { Path = "/locations/*", SpatialTypes = new Collection<SpatialType>() { SpatialType.Point } } );
+```
+
+加入複合索引
+
+```csharp
+containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<CompositePath> {new CompositePath() { Path = "/name", Order = CompositePathSortOrder.Ascending }, new CompositePath() { Path = "/age", Order = CompositePathSortOrder.Descending }});
+```
+
+更新具有變更的容器
+
+```csharp
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
@@ -85,23 +116,82 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) 中的 `DocumentCollection` 物件 (請參閱關於其使用方式的[這個快速入門](create-sql-api-java.md)) 會公開 `getIndexingPolicy()` 和 `setIndexingPolicy()` 方法。 這些方法所管理的 `IndexingPolicy` 物件可讓您變更索引編製模式，以及新增或移除已納入和排除的路徑。
 
+取得容器的詳細資料
+
 ```java
-// retrieve the container's details
 Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
 containerResponse.subscribe(result -> {
-    DocumentCollection container = result.getResource();
-    IndexingPolicy indexingPolicy = container.getIndexingPolicy();
-    // set the indexing mode to Consistent
-    indexingPolicy.setIndexingMode(IndexingMode.Consistent);
-    Collection<ExcludedPath> excludedPaths = new ArrayList<>();
-    ExcludedPath excludedPath = new ExcludedPath();
-    excludedPath.setPath("/*");
-    // add an excluded path
-    excludedPaths.add(excludedPath);
-    indexingPolicy.setExcludedPaths(excludedPaths);
-    // update the container with our changes
-    client.replaceCollection(container, null);
-});
+DocumentCollection container = result.getResource();
+IndexingPolicy indexingPolicy = container.getIndexingPolicy();
+```
+
+將索引編制模式設定為一致
+
+```java
+indexingPolicy.setIndexingMode(IndexingMode.Consistent);
+```
+
+新增包含的路徑
+
+```java
+Collection<IncludedPath> includedPaths = new ArrayList<>();
+ExcludedPath includedPath = new IncludedPath();
+includedPath.setPath("/age/*");
+includedPaths.add(includedPath);
+indexingPolicy.setIncludedPaths(includedPaths);
+```
+
+新增排除的路徑
+
+```java
+Collection<ExcludedPath> excludedPaths = new ArrayList<>();
+ExcludedPath excludedPath = new ExcludedPath();
+excludedPath.setPath("/name/*");
+excludedPaths.add(excludedPath);
+indexingPolicy.setExcludedPaths(excludedPaths);
+```
+
+新增空間索引
+
+```java
+Collection<SpatialSpec> spatialIndexes = new ArrayList<SpatialSpec>();
+Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
+
+SpatialSpec spec = new SpatialSpec();
+spec.setPath("/locations/*");
+collectionOfSpatialTypes.add(SpatialType.Point);          
+spec.setSpatialTypes(collectionOfSpatialTypes);
+spatialIndexes.add(spec);
+
+indexingPolicy.setSpatialIndexes(spatialIndexes);
+
+```
+
+加入複合索引
+
+```java
+Collection<ArrayList<CompositePath>> compositeIndexes = new ArrayList<>();
+ArrayList<CompositePath> compositePaths = new ArrayList<>();
+
+CompositePath nameCompositePath = new CompositePath();
+nameCompositePath.setPath("/name/*");
+nameCompositePath.setOrder(CompositePathSortOrder.Ascending);
+
+CompositePath ageCompositePath = new CompositePath();
+ageCompositePath.setPath("/age/*");
+ageCompositePath.setOrder(CompositePathSortOrder.Descending);
+
+compositePaths.add(ageCompositePath);
+compositePaths.add(nameCompositePath);
+
+compositeIndexes.add(compositePaths);
+indexingPolicy.setCompositeIndexes(compositeIndexes);
+```
+
+使用變更來更新容器
+
+```java
+ client.replaceCollection(container, null);
 ```
 
 若要在容器上追蹤索引轉換進度，請傳遞會要求填入配額資訊的 `RequestOptions` 物件，然後從 `x-ms-documentdb-collection-index-transformation-progress` 回應標頭中擷取值。
@@ -122,14 +212,58 @@ containerResponse.subscribe(result -> {
 
 [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) 中的 `ContainerDefinition` 介面 (請參閱關於其使用方式的[這個快速入門](create-sql-api-nodejs.md)) 會公開 `indexingPolicy` 屬性，以供您變更 `indexingMode` 以及新增或移除 `includedPaths` 和 `excludedPaths`。
 
+取得容器的詳細資料
+
 ```javascript
-// retrieve the container's details
 const containerResponse = await client.database('database').container('container').read();
-// set the indexing mode to Consistent
+```
+
+將索引編制模式設定為一致
+
+```javascript
 containerResponse.body.indexingPolicy.indexingMode = "consistent";
-// add an excluded path
-containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/headquarters/employees/?' });
-// update the container with our changes
+```
+
+新增內含的路徑, 包括空間索引
+
+```javascript
+containerResponse.body.indexingPolicy.includedPaths.push({
+    includedPaths: [
+      {
+        path: "/age/*",
+        indexes: [
+          {
+            kind: cosmos.DocumentBase.IndexKind.Range,
+            dataType: cosmos.DocumentBase.DataType.String
+          },
+          {
+            kind: cosmos.DocumentBase.IndexKind.Range,
+            dataType: cosmos.DocumentBase.DataType.Number
+          }
+        ]
+      },
+      {
+        path: "/locations/*",
+        indexes: [
+          {
+            kind: cosmos.DocumentBase.IndexKind.Spatial,
+            dataType: cosmos.DocumentBase.DataType.Point
+          }
+        ]
+      }
+    ]
+  });
+```
+
+新增排除的路徑
+
+```javascript
+containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
+```
+
+使用變更來更新容器
+
+```javascript
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
@@ -148,16 +282,63 @@ const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-col
 
 使用 [Python SDK](https://pypi.org/project/azure-cosmos/) 時 (請參閱關於其使用方式的[這個快速入門](create-sql-api-python.md))，系統會以字典的形式來管理容器設定。 您可以從這個字典存取索引編製原則和其所有屬性。
 
+取得容器的詳細資料
+
 ```python
 containerPath = 'dbs/database/colls/collection'
-# retrieve the container's details
 container = client.ReadContainer(containerPath)
-# set the indexing mode to Consistent
+```
+
+將索引編制模式設定為一致
+
+```python
 container['indexingPolicy']['indexingMode'] = 'consistent'
-# add an excluded path
-container['indexingPolicy']['excludedPaths'] = [
-    {"path": "/headquarters/employees/?"}]
-# update the container with our changes
+```
+
+定義包含路徑和空間索引的索引編制原則
+
+```python
+container["indexingPolicy"] = {
+
+    "indexingMode":"consistent",
+    "spatialIndexes":[
+                {"path":"/location/*","types":["Point"]}
+             ],
+    "includedPaths":[{"path":"/age/*","indexes":[]}],
+    "excludedPaths":[{"path":"/*"}]
+}
+```
+
+定義具有排除路徑的索引編制原則
+
+```python
+container["indexingPolicy"] = {
+    "indexingMode":"consistent",
+    "includedPaths":[{"path":"/*","indexes":[]}],
+    "excludedPaths":[{"path":"/name/*"}]
+}
+```
+
+加入複合索引
+
+```python
+container['indexingPolicy']['compositeIndexes'] = [
+                [
+                    {
+                        "path": "/name",
+                        "order": "ascending"
+                    },
+                    {
+                        "path": "/age",
+                        "order": "descending"
+                    }
+                ]
+                ]
+```
+
+使用變更來更新容器
+
+```python
 response = client.ReplaceContainer(containerPath, container)
 ```
 
@@ -231,7 +412,7 @@ response = client.ReplaceContainer(containerPath, container)
     }
 ```
 
-注意:一般會建議您使用**退出**索引編製原則來讓 Azure Cosmos DB 主動地對可能會新增至模型的新屬性編製索引。
+注意：一般會建議您使用**退出**索引編製原則來讓 Azure Cosmos DB 主動地對可能會新增至模型的新屬性編製索引。
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>僅對特定屬性路徑使用空間索引
 ```

@@ -2,7 +2,7 @@
 title: 處理認知搜尋中的影像和從中擷取文字 - Azure 搜尋服務
 description: 在 Azure 搜尋服務的認知搜尋管道中，處理影像並從影像擷取文字和其他資訊。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.subservice: cognitive-search
@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 216be226f3ce6d1a288462d1a1b79f2bb0d3efe5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 65b6eb07a866db405af3e5bc609a540c36f148a8
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639919"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186440"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何在認知搜尋案例中處理影像並從影像擷取資訊
 

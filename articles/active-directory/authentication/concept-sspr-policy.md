@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8f5371334fb383b15514c879ceb262fa78d7fca
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823398"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084947"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -37,21 +37,21 @@ ms.locfileid: "65823398"
   * 合作夥伴第 1 層支援
   * 合作夥伴第 2 層支援
   * Exchange 系統管理員
-  * 商務用 Skype 的管理員
-  * 使用者管理員
-  * 目錄寫入器
+  * 商務用 Skype 管理員
+  * 使用者系統管理員
+  * 目錄撰寫者
   * 全域管理員或公司系統管理員
   * SharePoint 管理員
   * 規範管理員
-  * 應用程式管理員
+  * 應用程式系統管理員
   * 安全性系統管理員
   * 特殊權限角色管理員
-  * Intune 系統管理員
+  * Intune 管理員
   * 應用程式 Proxy 服務管理員
-  * Dynamics 365 系統管理員
+  * Dynamics 365 管理員
   * Power BI 服務管理員
-  * 驗證系統管理員
-  * 特殊權限的驗證管理員
+  * 驗證管理員
+  * 具有特殊許可權的驗證管理員
 
 * 如果試用版訂用帳戶已經過 30 天；或
 * 已存在虛名網域，例如 contoso.com；或
@@ -77,23 +77,23 @@ ms.locfileid: "65823398"
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>僅適用於雲端使用者帳戶的密碼原則
 
-下表描述套用至所建立及管理 Azure AD 中的使用者帳戶的密碼原則設定：
+下表描述在 Azure AD 中建立和管理的使用者帳戶所套用的密碼原則設定:
 
 | 屬性 | 需求 |
 | --- | --- |
-| 允許的字元 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>空白的空間</li></ul> |
-| 不允許的字元 |<ul><li>Unicode 字元。</li><li> 不能包含點字元 」。 「 前 」\@ \"符號 」。</li></ul> |
-| 密碼限制 |<ul><li>最少 8 個字元和最多 256 個字元。</li><li>需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
-| 密碼到期時間 |<ul><li>預設值：**90** 天。</li><li>可透過適用於 Windows PowerShell 的 Azure Active Directory 模組使用 `Set-MsolPasswordPolicy` Cmdlet 設定該值。</li></ul> |
-| 密碼到期通知 |<ul><li>預設值：**14** 天 (密碼到期之前)。</li><li>可使用 `Set-MsolPasswordPolicy` Cmdlet 設定此值。</li></ul> |
-| 密碼到期 |<ul><li>預設值︰**false** 天 (表示已啟用密碼到期)。</li><li>可以使用 `Set-MsolUser` Cmdlet 針對個別使用者帳戶設定該值。</li></ul> |
-| 密碼變更歷程記錄 |當使用者變更密碼時，*不能*重複使用上次的密碼。 |
+| 允許的字元 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>空格</li></ul> |
+| 不允許的字元 | Unicode 字元。 |
+| 密碼限制 |<ul><li>最少8個字元, 最多256個字元。</li><li>需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
+| 密碼到期期限 (密碼最長使用期限) |<ul><li>預設值：**90** 天。</li><li>可透過適用於 Windows PowerShell 的 Azure Active Directory 模組使用 `Set-MsolPasswordPolicy` Cmdlet 設定該值。</li></ul> |
+| 密碼到期通知 (使用者何時會通知密碼到期) |<ul><li>預設值：**14** 天 (密碼到期之前)。</li><li>可使用 `Set-MsolPasswordPolicy` Cmdlet 設定此值。</li></ul> |
+| 密碼到期 (密碼是否過期) |<ul><li>預設值︰**false** 天 (表示已啟用密碼到期)。</li><li>可以使用 `Set-MsolUser` Cmdlet 針對個別使用者帳戶設定該值。</li></ul> |
+| 密碼變更歷程記錄 | 當使用者變更密碼時，*不能*重複使用上次的密碼。 |
 | 密碼重設歷程記錄 | 當使用者重設忘記密碼時，*不能*重複使用上次的密碼。 |
-| 帳戶鎖定 |使用錯誤的密碼於 10 次失敗的登入嘗試之後，使用者會被封鎖一分鐘。 後續錯誤的登入嘗試會增加使用者被封鎖的時間。 [智慧鎖定](howto-password-smart-lockout.md)會追蹤最後三個不正確的密碼雜湊，以避免因為相同密碼而累計鎖定計數器。 如果有人多次輸入相同的錯誤密碼，此行為並不會導致帳戶鎖定。 |
+| 帳戶鎖定 | 使用錯誤的密碼於 10 次失敗的登入嘗試之後，使用者會被封鎖一分鐘。 後續錯誤的登入嘗試會增加使用者被封鎖的時間。 [智慧鎖定](howto-password-smart-lockout.md)會追蹤最後三個不正確的密碼雜湊，以避免因為相同密碼而累計鎖定計數器。 如果有人多次輸入相同的錯誤密碼，此行為並不會導致帳戶鎖定。 |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>在 Azure AD 中設定密碼到期原則
 
-全域管理員或使用者的 Microsoft 雲端服務的系統管理員可以使用 Windows PowerShell 的 Microsoft Azure AD 模組來設定使用者密碼未過期。 您亦可使用 Windows PowerShell Cmdlet 移除永不到期組態，或是查看哪些使用者密碼設為永不到期。 
+Microsoft 雲端服務的全域管理員或使用者管理員可以使用適用於 Windows PowerShell 的 Microsoft Azure AD 模組將使用者密碼設定為不過期。 您亦可使用 Windows PowerShell Cmdlet 移除永不到期組態，或是查看哪些使用者密碼設為永不到期。 
 
 本指引適用於其他提供者 (例如 Intune 和 Office 365)，它們也仰賴 Azure AD 提供身分識別和目錄服務。 密碼到期是原則中唯一可變更的部分。
 
@@ -106,16 +106,16 @@ ms.locfileid: "65823398"
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>檢查密碼的到期原則
 
-1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
+1. 使用您的使用者系統管理員或公司系統管理員認證連接到 Windows PowerShell。
 1. 執行下列其中一個命令：
 
-   * 若要查看單一使用者的密碼是否設定為永不過期，請執行下列 cmdlet 的 upn (例如*aprilr\@contoso.onmicrosoft.com*) 或您想要檢查之使用者的使用者識別碼：
+   * 若要查看單一使用者的密碼是否設定為永不過期, 請使用 UPN (例如*aprilr\@contoso.onmicrosoft.com*) 或您想要檢查之使用者的使用者識別碼, 執行下列 Cmdlet:
 
    ```powershell
    Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
    ```
 
-   * 若要查看**密碼永久有效**設定所有使用者，執行下列 cmdlet:
+   * 若要查看所有使用者的「**密碼永不過期**」設定, 請執行下列 Cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
@@ -123,16 +123,16 @@ ms.locfileid: "65823398"
 
 ### <a name="set-a-password-to-expire"></a>設定密碼到期
 
-1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
+1. 使用您的使用者系統管理員或公司系統管理員認證連接到 Windows PowerShell。
 1. 執行下列其中一個命令：
 
-   * 若要設定一位使用者的密碼，以便在密碼過期，請使用 UPN 或使用者的使用者識別碼以執行下列 cmdlet:
+   * 若要設定某位使用者的密碼, 使密碼過期, 請使用 UPN 或使用者的使用者識別碼來執行下列 Cmdlet:
 
    ```powershell
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
    ```
 
-   * 若要設定組織中所有使用者的密碼，使它們到期，使用下列 cmdlet:
+   * 若要設定組織中所有使用者的密碼, 使其過期, 請使用下列 Cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
@@ -140,16 +140,16 @@ ms.locfileid: "65823398"
 
 ### <a name="set-a-password-to-never-expire"></a>設定密碼為永久有效
 
-1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
+1. 使用您的使用者系統管理員或公司系統管理員認證連接到 Windows PowerShell。
 1. 執行下列其中一個命令：
 
-   * 若要設定為永不過期的某位使用者的密碼，請使用 UPN 或使用者的使用者識別碼以執行下列 cmdlet:
+   * 若要將某位使用者的密碼設定為永不過期, 請使用 UPN 或使用者的使用者識別碼來執行下列 Cmdlet:
 
    ```powershell
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
    ```
 
-   * 若要設定為永不過期組織中的所有使用者的密碼，執行下列 cmdlet:
+   * 若要將組織中所有使用者的密碼設定為永不過期, 請執行下列 Cmdlet:
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration

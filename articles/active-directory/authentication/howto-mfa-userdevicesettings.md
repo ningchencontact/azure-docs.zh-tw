@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68555785"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70162406"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理雲端中 Azure Multi-Factor Authentication 的使用者設定
 
@@ -32,9 +32,12 @@ ms.locfileid: "68555785"
 
 ![從 Azure 入口網站管理驗證方法](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. [重設密碼] 將會重設使用者的密碼, 並指派必須在下次登入時變更的暫時密碼。
-2. [需要重新註冊 MFA] 會讓使用者在下次登入時, 會要求他們設定新的 MFA 驗證方法。
-3. 撤銷 MFA 會話會清除使用者已記住的 MFA 會話, 並要求他們在下次裝置上的原則要求時執行 MFA。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 選取左邊的 [Azure Active Directory] > [使用者] > [所有使用者]。
+1. 選擇您想要對其執行動作的使用者, 然後選取 [**驗證方法**]。
+   - [**重設密碼**] 將會重設使用者的密碼, 並指派必須在下次登入時變更的暫時密碼。
+   - [**需要重新註冊 MFA** ] 會讓使用者在下次登入時, 會要求他們設定新的 MFA 驗證方法。
+   - **撤銷 Mfa 會話**會清除使用者已記住的 mfa 會話, 並要求他們在下次裝置上的原則要求時執行 mfa。
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>要求使用者再次提供連絡方法
 

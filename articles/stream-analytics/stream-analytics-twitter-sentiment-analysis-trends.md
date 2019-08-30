@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/9/2019
-ms.openlocfilehash: a0dd2499f3ddfaa1cd22a58e058c6adb7e40fd7e
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.date: 07/09/2019
+ms.openlocfilehash: 8561789d53c3c1b00ac1477909bcbe356fe6a85d
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620025"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173155"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
@@ -23,13 +23,13 @@ ms.locfileid: "68620025"
 
 即時 Twitter 趨勢分析是分析工具的絕佳範例, 因為主題標籤訂閱模型可讓您接聽特定關鍵字 (主題標籤), 並開發摘要的情感分析。
 
-## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>案例:即時的社交媒體情感分析
+## <a name="scenario-social-media-sentiment-analysis-in-real-time"></a>案例：即時的社交媒體情感分析
 
 擁有新聞媒體網站的公司提供與讀者有直接關聯的網站內容，試圖打敗競爭對手。 公司透過對 Twitter 資料執行即時情感分析，來針對與讀者相關的話題使用社交媒體分析。
 
 為了在 Twitter 上即時找出熱門話題，公司需要即時分析重要話題的推文數量和情感。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在本操作指南中, 您會使用連接到 Twitter 的用戶端應用程式, 並尋找具有特定主題標籤 (您可以設定) 的推文。 若要執行應用程式並使用 Azure 串流分析來分析推文, 您必須具備下列各項:
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/)。
@@ -278,7 +278,7 @@ ms.locfileid: "68620025"
 |話題 | 符合所指定關鍵字的話題|
 |SentimentScore | 來自 Sentiment140 的情感分數|
 |作者 | 傳送推文的 Twitter 控制代碼|
-|Text | 推文的全文|
+|文字 | 推文的全文|
 
 
 ## <a name="create-an-output-sink"></a>建立輸出接收器

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 2f9b7f5342753c27bd8159056c8f162a5a4b78d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d5917ad94212c8b18d4362528bdfbafb02aec808
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473536"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171959"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站停用 Azure Active Directory Domain Services
 本文將示範如何使用 Azure 入口網站停用您 Azure AD 目錄的 Azure Active Directory (AD) 網域服務。
@@ -40,14 +40,14 @@ ms.locfileid: "67473536"
 
     ![選取要刪除的網域](./media/getting-started/domain-services-delete-select-domain.png)
 
-3. 在 [概觀]  頁面上，按一下 [刪除]  按鈕。
+3. 在 [概觀] 頁面上，按一下 [刪除] 按鈕。
 
     ![刪除網域](./media/getting-started/domain-services-delete-domain.png)
 
-4. 若要確認刪除，請輸入受控網域的 DNS 網域名稱。 完成時，請按一下 [刪除]  按鈕。
+4. 若要確認刪除，請輸入受控網域的 DNS 網域名稱。 完成時，請按一下 [刪除] 按鈕。
 
     ![刪除網域確認](./media/getting-started/domain-services-delete-domain-confirm.png)
 
-約 15 到 20 分鐘後，受控網域就會刪除。
+可能需要15-20 分鐘或更久的時間來刪除受控網域。
 
 請考慮 [分享意見反應](contact-us.md) ，幫助我們了解哪些功能可協助您在未來選擇 Azure AD 網域服務。 此意見反應協助我們提升服務，使其更符合您的部署需求和使用案例。

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 80bc5ef78a73430dea23bdd644767d9fa9b3c9a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b079d311e357f4dfb94e55fbca3cafdec198ade9
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124667"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171896"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
@@ -79,7 +79,7 @@ ms.locfileid: "70124667"
 資料分割 您無法在 Azure AD 網域服務所服務的網域上修改群組成員資格。 這同樣適用於使用者屬性。 但是，您可能會在 Azure AD 中或內部部署網域上變更群組成員資格或使用者屬性。 這類變更會自動同步處理到 Azure AD 網域服務。
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>我對 Azure AD 目錄所做的變更要多久才會反映在我的受控網域中？
-使用 Azure AD UI 或 PowerShell 在您 Azure AD 目錄中進行的變更會同步至您的受控網域。 這個同步處理程序會在背景執行。 首次同步處理完成之後，通常需要 20 分鐘的時間，在 Azure AD 中所做的變更才會反映在您的受控網域中。
+您在 Azure AD 目錄中使用 Azure AD UI 或 PowerShell 所做的變更, 會自動同步處理至您的受控網域。 這個同步處理程序會在背景執行。 這個同步處理沒有定義的時段, 無法完成所有物件變更。
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>可以擴充 Azure AD Domain Services 所提供之受控網域的結構描述嗎？
 資料分割 結構描述是由 Microsoft 針對受控網域進行管理。 Azure AD 網域服務不支援結構描述延伸模組。

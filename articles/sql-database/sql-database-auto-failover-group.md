@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/16/2019
-ms.openlocfilehash: 6357b5a477390f484a47167a0b9d2e524d37c9ac
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/29/2019
+ms.openlocfilehash: 73aeea42cd843716c845d7712539ae5c81f03dca
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035777"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173080"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
-自動容錯移轉群組是一項 SQL Database 功能, 可讓您管理 SQL Database 伺服器上的一組資料庫, 或受控實例中的所有資料庫到另一個區域的複寫和容錯移轉。 它是現有[主動式異地](sql-database-active-geo-replication.md)複寫功能之上的宣告式抽象概念, 其設計目的是為了簡化大規模異地複寫資料庫的部署和管理。 您可以手動起始容錯移轉，也可以根據使用者定義的原則將其委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 容錯移轉群組可以包含一個或多個資料庫, 通常是由相同的應用程式所使用。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 在容錯移轉群組中，資料庫的主要和次要伺服器都必須位於相同的訂用帳戶。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
+自動容錯移轉群組是一項 SQL Database 功能, 可讓您管理 SQL Database 伺服器上的一組資料庫, 或受控實例中的所有資料庫到另一個區域的複寫和容錯移轉。 它是現有[主動式異地](sql-database-active-geo-replication.md)複寫功能之上的宣告式抽象概念, 其設計目的是為了簡化大規模異地複寫資料庫的部署和管理。 您可以手動起始容錯移轉，也可以根據使用者定義的原則將其委派給 SQL Database 服務。 後項可讓您在導致主要區域中完全或部分喪失 SQL Database 服務可用性的嚴重失敗或其他非計劃事件之後，自動復原次要地區中的多個相關資料庫。 容錯移轉群組可以包含一個或多個資料庫, 通常是由相同的應用程式所使用。 此外，您可以使用可讀取次要資料庫來卸載唯讀查詢工作負載。 因為自動容錯移轉群組牽涉到多個資料庫，所以這些資料庫必須在主要伺服器上進行設定。 自動容錯移轉群組支援將群組中的所有資料庫都只複寫到不同區域的一部次要伺服器。
 
 > [!NOTE]
 > 在 SQL Database 伺服器上使用單一或集區資料庫時，若您希望在相同或不同區域中有多個次要資料庫，請使用[主動式異地複寫](sql-database-active-geo-replication.md)。 
@@ -191,12 +191,20 @@ ms.locfileid: "70035777"
 
   若要確保容錯移轉之後與主要執行個體的連線不中斷，主要和次要執行個體必須位於相同的 DNS 區域。 它會保證相同的多網域 (SAN) 憑證可用於驗證容錯移轉群組中兩個實例之一的用戶端連接。 當您的應用程式準備好進行生產環境部署時，請在不同區域中建立次要執行個體，並確保它與主要執行個體共用 DNS 區域。 若要這麼做, 您可以`DNS Zone Partner`使用 Azure 入口網站、PowerShell 或 REST API 來指定選擇性參數。 
 
-  如需有關在與主要實例相同的 DNS 區域中建立次要實例的詳細資訊, 請參閱[使用受控實例管理容錯移轉群組 (預覽)](#powershell-managing-failover-groups-with-managed-instances-preview)。
+  如需有關在與主要實例相同的 DNS 區域中建立次要實例的詳細資訊, 請參閱[建立次要受控實例](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance)。
 
 - **在兩個執行個體之間啟用複寫流量**
 
   因為每個執行個體都在其自己的 VNet中隔離，因此必須允許這些 Vnet 之間的雙向流量。 請參閱 [Azure VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
+- **在不同訂用帳戶中的受控實例之間建立容錯移轉群組**
+
+  您可以在兩個不同的訂用帳戶中, 于受控實例之間建立容錯移轉群組。 使用 PowerShell API 時, 您可以藉由指定次要`PartnerSubscriptionId`實例的參數來執行此動作。 使用 REST API 時, 包含在參數中的`properties.managedInstancePairs`每個實例識別碼都可以有自己的 subscriptionID。 
+  
+  > [!IMPORTANT]
+  > Azure 入口網站不支援跨不同訂用帳戶的容錯移轉群組。
+
+  
 - **設定容錯移轉群組來管理整個執行個體的容錯移轉**
 
   容錯移轉群組將會管理執行個體中所有資料庫的容錯移轉。 建立群組時，執行個體中的每個資料庫將會自動異地複寫到次要執行個體。 您無法使用容錯移轉群組來起始資料庫子集的部分容錯移轉。
@@ -326,34 +334,16 @@ ms.locfileid: "70035777"
 > 如需範例指令碼，請參閱[設定單一資料庫的容錯移轉群組並進行容錯移轉](scripts/sql-database-add-single-db-to-failover-group-powershell.md)。
 >
 
-### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell：使用受控執行個體管理容錯移轉叢集 (預覽)
+### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell：使用受控實例管理 SQL database 容錯移轉群組 
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>安裝 PowerShell 的最新發行前版本
-
-1. 將 PowerShellGet 模組更新為 1.6.5 (或最新預覽版本)。 請參閱 [PowerShel Preview 網站](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview)。
-
-   ```powershell
-      install-module PowerShellGet -MinimumVersion 1.6.5 -force
-   ```
-
-2. 在新的 PowerShell 視窗中，執行下列命令：
-
-   ```powershell
-      import-module PowerShellGet
-      get-module PowerShellGet #verify version is 1.6.5 (or newer)
-      install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
-      import-module azurerm.sql
-   ```
-
-#### <a name="powershell-commandlets-to-create-an-instance-failover-group"></a>建立實例容錯移轉群組的 PowerShell commandlet
-
-| API | 描述 |
+| Cmdlet | 描述 |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |修改容錯移轉群組的設定|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |擷取容錯移轉群組設定|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |觸發容錯移轉群組的容錯移轉到次要伺服器|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | 移除容錯移轉群組|
+| [新增-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
+| [設定-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |修改容錯移轉群組的設定|
+| [AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |擷取容錯移轉群組設定|
+| [參數-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |觸發容錯移轉群組的容錯移轉到次要伺服器|
+| [移除-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | 移除容錯移轉群組|
+|  | |
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用單一和集區資料庫管理 SQL Database 容錯移轉群組
 

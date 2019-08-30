@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: c5e568dd073376295e4865994fba8ae5b5ac59a0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1dfcc69d90daae5869c3b69c922e99eab3585e14
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640988"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164627"
 ---
 # <a name="azure-disk-encryption-overview"></a>Azure 磁碟加密總覽
 
@@ -73,6 +73,7 @@ Azure 磁碟加密不適用於下列案例、功能和技術:
 * 網路檔案系統 (NFS)。
 * 動態磁碟區。
 * 暫時的 OS 磁片。
+* 共用/分散式檔案系統的加密, 例如 (但不限於):DFS、GFS、DRDB、CephFS 等
 
 ## <a name="encryption-features"></a>加密功能
 

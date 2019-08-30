@@ -13,38 +13,37 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: e36e1ca17b5106c79076d1c62e737ba60907ab19
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 8420142e67fe4af12045a2b6fe7f7461ef384f81
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666465"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164480"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
 虛擬網路 (VNet) 服務端點可透過直接連線，將您的虛擬網路私人位址空間和 VNet 的身分識別延伸至 Azure 服務。 端點可讓您將重要的 Azure 服務資源只放到您的虛擬網路保護。 從您的 VNet 到 Azure 服務的流量一定會保留在 Microsoft Azure 骨幹網路上。
 
-這項功能會在下列 Azure 服務和區域中提供：
+這項功能適用于下列 Azure 服務和區域, 而且您也會在設定服務的服務端點時, 于括弧中找到需要從子網啟用的 Microsoft. * 資源:
 
 **正式推出**
 
-- **[Azure 儲存體](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** ：已在所有 Azure 區域正式推出。
-- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ：已在所有 Azure 區域正式推出。
-- **[Azure SQL 資料倉儲](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ：已在所有 Azure 區域正式推出。
-- **[適用於 PostgreSQL 的 Azure 資料庫伺服器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ：在有提供資料庫服務的 Azure 區域中正式推出。
-- **[適用於 MySQL 的 Azure 資料庫伺服器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ：在有提供資料庫服務的 Azure 區域中正式推出。
-- **[適用於 MariaDB 的 Azure 資料庫](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** ：在有提供資料庫服務的 Azure 區域中正式推出。
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ：已在所有 Azure 區域正式推出。
-- **[Azure 金鑰保存庫](../key-vault/key-vault-overview-vnet-service-endpoints.md)** ：已在所有 Azure 區域正式推出。
-- **[Azure 服務匯流排](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ：已在所有 Azure 區域正式推出。
-- **[Azure 事件中樞](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ：已在所有 Azure 區域正式推出。
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** ：在可使用 ADLS Gen1 的所有 Azure 區域中正式推出。
-- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** :在 App service 可使用的所有 Azure 區域中正式推出
+- **[Azure 儲存體](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (Microsoft 儲存體):已在所有 Azure 區域正式推出。
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft .Sql):已在所有 Azure 區域正式推出。
+- **[Azure SQL 資料倉儲](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft .Sql):已在所有 Azure 區域正式推出。
+- **[適用於 PostgreSQL 的 Azure 資料庫伺服器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft .Sql):在有提供資料庫服務的 Azure 區域中正式推出。
+- **[適用於 MySQL 的 Azure 資料庫伺服器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft .Sql):在有提供資料庫服務的 Azure 區域中正式推出。
+- **[適用於 MariaDB 的 Azure 資料庫](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (Microsoft .Sql):在有提供資料庫服務的 Azure 區域中正式推出。
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft AzureCosmosDB):已在所有 Azure 區域正式推出。
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** (Microsoft KeyVault):已在所有 Azure 區域正式推出。
+- **[Azure 服務匯流排](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft 執行匯流排):已在所有 Azure 區域正式推出。
+- **[Azure 事件中樞](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft EventHub):已在所有 Azure 區域正式推出。
+- **[Azure Data Lake 存放區 Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (Microsoft AzureActiveDirectory):在可使用 ADLS Gen1 的所有 Azure 區域中正式推出。
+- **[Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** :已在可用 App service 的所有 Azure 區域中正式運作
 
 **公開預覽**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** :現在提供預覽 Azure Container Registry 可使用的所有 Azure 區域中。
-。
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (Microsoft ContainerRegistry):預覽適用于所有可使用 Azure Container Registry 的 Azure 區域。
 
 如需最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -63,7 +62,7 @@ ms.locfileid: "67666465"
 - 這項功能僅適用於透過 Azure Resource Manager 部署模型所部署的虛擬網路。
 - 端點會在 Azure 虛擬網路中設定的子網路上啟用。 無法將端點使用於從內部部署環境到 Azure 服務的流量。 如需詳細資訊，請參閱[保護來自內部部署環境的 Azure 服務存取](#securing-azure-services-to-virtual-networks)。
 - 針對 Azure SQL，服務端點只適用於虛擬網路區域內的 Azure 服務流量。 針對 Azure 儲存體，為了支援 RA-GRS 和 GRS 流量，端點也會擴充為包含虛擬網路部署所在的配對區域。 深入了解 [Azure 配對區域](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)。
-- 對於 ADLS Gen 1，VNet 整合功能只適用於相同區域內的虛擬網路。 也請注意，Azure Data Lake 儲存體 Gen1 的虛擬網路整合，讓使用您的虛擬網路與 Azure Active Directory (Azure AD) 來產生額外的安全性宣告存取權杖之間的虛擬網路服務端點安全性。 這些宣告隨後會用來對 Data Lake Storage Gen1 帳戶驗證虛擬網路並允許存取。 支援服務端點的服務底下所列的 「 Microsoft.AzureActiveDirectory"標記僅用於支援 ADLS Gen 1 的服務端點。 Azure Active Directory (Azure AD) 不以原生方式支援服務端點。 深入了解[Azure 資料湖存放區 Gen 1 的 VNet 整合](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- 對於 ADLS Gen 1，VNet 整合功能只適用於相同區域內的虛擬網路。 另請注意, Azure Data Lake Storage Gen1 的虛擬網路整合, 會在您的虛擬網路與 Azure Active Directory (Azure AD) 之間使用虛擬網路服務端點安全性, 以在存取權杖中產生額外的安全性宣告。 這些宣告隨後會用來對 Data Lake Storage Gen1 帳戶驗證虛擬網路並允許存取。 [服務支援服務端點] 底下所列的 "AzureActiveDirectory" 標記僅用於支援服務端點 ADLS Gen 1。 Azure Active Directory (Azure AD) 不會以原生方式支援服務端點。 深入瞭解[Azure Data Lake Store Gen 1 VNet 整合](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>將 Azure 服務放到虛擬網路保護
 
@@ -122,7 +121,7 @@ ms.locfileid: "67666465"
 
 ## <a name="provisioning"></a>佈建
 
-擁有虛擬網路寫入權的使用者可以任意地在虛擬網路上設定服務端點。 Azure 服務資源放到 VNet 保護，使用者必須擁有權限*Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action*所加入的子網路。 此權限預設會隨附在內建的服務管理員角色中，可藉由建立自訂角色加以修改。
+擁有虛擬網路寫入權的使用者可以任意地在虛擬網路上設定服務端點。 若要將 Azure 服務資源保護到 VNet, 使用者必須擁有所要新增之子網的*Network/virtualNetworks/subnet/joinViaServiceEndpoint/action*許可權。 此權限預設會隨附在內建的服務管理員角色中，可藉由建立自訂角色加以修改。
 
 深入了解[內建角色](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)以及如何將特定權限指派給[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -134,7 +133,7 @@ ms.locfileid: "67666465"
 
 虛擬網路中的服務端點總數沒有限制。
 
-特定 Azure 服務，例如 Azure 儲存體帳戶，可能會強制執行用來保護資源的子網路數目限制。 如需詳細資料，請參閱[後續步驟](#next-steps)中各種服務的文件。
+某些 Azure 服務 (例如 Azure 儲存體帳戶) 可能會強制執行用來保護資源的子網數目限制。 如需詳細資料，請參閱[後續步驟](#next-steps)中各種服務的文件。
 
 ## <a name="virtual-network-service-endpoint-policies"></a>虛擬網路服務端點原則 
 

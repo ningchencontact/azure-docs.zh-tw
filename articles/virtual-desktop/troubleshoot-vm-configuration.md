@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f797d3ee525806d8002b19edb1378d0376508b08
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073921"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163305"
 ---
 # <a name="tenant-and-host-pool-creation"></a>建立租用戶和主機集區
 
@@ -208,7 +208,12 @@ Windows 虛擬桌面並存堆疊會隨著 Windows Server 2019 自動安裝。 �
 **補丁**請遵循這些指示, 在工作階段主機 VM 上安裝並存堆疊。
 
 1. 使用遠端桌面通訊協定 (RDP) 以本機系統管理員身分直接進入工作階段主機 VM。
-2. 下載並匯入[Windows 虛擬桌面 powershell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), 以在您的 powershell 會話中使用 (如果您還沒有這麼做)。
+2. 下載並匯入[Windows 虛擬桌面 powershell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)以用於您的 powershell 會話 (如果您尚未這麼做), 然後執行此 Cmdlet 來登入您的帳戶:
+    
+    ```powershell
+    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+    ```
+    
 3. 透過使用[PowerShell 建立主機集](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)區, 安裝並存堆疊。
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>如何修正 Windows 虛擬桌面並存堆疊而無法故障

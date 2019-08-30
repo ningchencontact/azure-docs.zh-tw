@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/2/2019
-ms.openlocfilehash: a6e5cd69a0655bf8235bf5755ab596ca2bde0387
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.date: 05/02/2019
+ms.openlocfilehash: d6d31506a13656a954c48dfee00f14d8ab381fd5
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716166"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173249"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
 

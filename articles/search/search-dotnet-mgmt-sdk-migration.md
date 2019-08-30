@@ -2,24 +2,24 @@
 title: 升級至 Azure 搜尋服務 .NET 管理 SDK 第 2 版 - Azure 搜尋服務
 description: 從舊版升級至 Azure 搜尋服務 .NET 管理 SDK 第 2 版。 了解新功能與需要哪些程式碼變更。
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 62c2ed555fcac56677f4950c10d38ded8fb0649d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a59cff7f5313b0ac5a060d698950a4c82160f67
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025179"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182243"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>升級至 Azure 搜尋服務.NET 管理 SDK 版本 
+# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>升級至 Azure 搜尋服務 .NET Management SDK 版本 
 
 > [!Important]
-> 此內容是仍在建構。 使用在 NuGet 上的 Azure 搜尋服務管理.NET SDK 3.0 版。 我們正努力更新本移轉指南，說明如何升級至新的版本。 
+> 此內容仍在結構中。 3\.0 版的 Azure 搜尋服務 Management .NET SDK 可在 NuGet 上取得。 我們正致力於更新此遷移指南, 以說明如何升級至新版本。 
 >
 
 如果您使用 1.0.2 版或更舊版本的 [Azure 搜尋服務 .NET 管理 SDK](https://aka.ms/search-mgmt-sdk)，本文會協助您將應用程式升級為使用第 2 版。

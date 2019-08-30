@@ -14,22 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.custom: seo-java-july2019
-ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.custom: seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 84f035a55256ab22c823b2aaed9c9c2400eebf5b
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663433"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173415"
 ---
-# <a name="how-to-use-service-bus-queues-with-java"></a>如何將服務匯流排佇列搭配 Java 使用
+# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>搭配 JAVA 使用 Azure 服務匯流排佇列來傳送和接收訊息
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 在本教學課程中, 您將瞭解如何建立 JAVA 應用程式, 以在服務匯流排佇列中傳送和接收訊息。 
 
 > [!NOTE]
 > 您可以在 GitHub 的 [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) 中找到 Java 範例。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
 2. 如果您沒有要使用的佇列, 請遵循[使用 Azure 入口網站建立服務匯流排佇列一](service-bus-quickstart-portal.md)文中的步驟來建立佇列。
     1. 閱讀服務匯流排**佇列**的快速**總覽**。 

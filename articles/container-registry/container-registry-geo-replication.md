@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 manager: gwallace
 ms.service: container-registry
-ms.topic: overview
+ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
-ms.translationtype: HT
+ms.openlocfilehash: 50ab3fc92fc980638547bb090c5d0d78aa20ab5f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574397"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172275"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
 
@@ -64,7 +64,7 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 ## <a name="configure-geo-replication"></a>設定異地複寫
 
-設定異地複寫是簡單的，只要按一下地圖上的區域。 您也可以使用某些工具來管理異地複寫，包括 Azure CLI 中的 [az acr replication](/cli/azure/acr/replication) 命令。
+設定異地複寫是簡單的，只要按一下地圖上的區域。 您也可以使用 Azure CLI 中的[az acr replication](/cli/azure/acr/replication)命令之類的工具來管理異地複寫, 或使用[Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)來部署已啟用異地複寫的登錄。
 
 異地複寫是[進階登錄](container-registry-skus.md)的一項功能。 如果您的登錄還不是進階，您可以在 [Azure 入口網站](https://portal.azure.com)中從基本和標準變更為進階：
 
@@ -72,7 +72,7 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 若要設定進階登錄的異地複寫，請登入 Azure 入口網站 ( https://portal.azure.com )。
 
-導覽到 Azure 容器登錄，並選取 [複寫]  ：
+導覽到 Azure 容器登錄，並選取 [複寫]：
 
 ![在 Azure 入口網站的容器登錄 UI 中進行複寫](media/container-registry-geo-replication/registry-services.png)
 
@@ -84,13 +84,13 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 * 綠色六邊形代表可能的複本區域
 * 灰色六邊形代表尚未提供複寫的 Azure 區域
 
-若要設定複本，選取綠色六邊形，然後選取 [建立]  ：
+若要設定複本，選取綠色六邊形，然後選取 [建立]：
 
  ![在 Azure 入口網站中建立複寫 UI](media/container-registry-geo-replication/create-replication.png)
 
-若要設定其他複本，請選取其他地區的綠色六邊形，然後按一下 [建立]  。
+若要設定其他複本，請選取其他地區的綠色六邊形，然後按一下 [建立]。
 
-ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會反映 [準備]  。 入口網站中的複本狀態不會自動更新。 使用 [重新整理] 按鈕以查看更新的狀態。
+ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會反映 [準備]。 入口網站中的複本狀態不會自動更新。 使用 [重新整理] 按鈕以查看更新的狀態。
 
 ## <a name="considerations-for-using-a-geo-replicated-registry"></a>使用異地複寫登錄的考量
 
@@ -108,7 +108,7 @@ ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會
 
 ## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>針對使用異地複寫登錄的推送作業進行疑難排解
  
-將映像推送至異地複寫登錄的 Docker 用戶端，可能不會將所有映像層及其資訊清單推送至單一複寫區域。 這可能是因為 Azure 流量管理員會將登錄要求路由傳送至最接近網路的複寫登錄。 如果登錄有兩個「鄰近」  複寫區域，則映像層和資訊清單可能會散發至兩個網站，因而在驗證資訊清單時造成推送作業失敗。 之所以會發生此問題，原因是某些 Linux 主機上用來解析登錄 DNS 名稱的方式有誤。 此問題不會發生在 Windows 上，因為 Windows 會提供用戶端 DNS 快取。
+將映像推送至異地複寫登錄的 Docker 用戶端，可能不會將所有映像層及其資訊清單推送至單一複寫區域。 這可能是因為 Azure 流量管理員會將登錄要求路由傳送至最接近網路的複寫登錄。 如果登錄有兩個「鄰近」複寫區域，則映像層和資訊清單可能會散發至兩個網站，因而在驗證資訊清單時造成推送作業失敗。 之所以會發生此問題，原因是某些 Linux 主機上用來解析登錄 DNS 名稱的方式有誤。 此問題不會發生在 Windows 上，因為 Windows 會提供用戶端 DNS 快取。
  
 如果發生此問題，有一個解決方案是在 Linux 主機上套用用戶端 DNS 快取，例如 `dnsmasq`。 這有助於確保登錄名稱會以一致的方式進行解析。 如果您是使用 Azure 中的 Linux VM 來推送至登錄，請參閱 [Azure 中 Linux 虛擬機器的 DNS 名稱解析選項](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns)中的選項。
 

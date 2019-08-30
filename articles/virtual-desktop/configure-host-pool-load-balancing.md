@@ -5,35 +5,39 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 0c4702dada17e759d89c33be99b3155f4b15ad9e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328879"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163758"
 ---
 # <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>設定 Windows 虛擬桌面預覽負載平衡方法
 
-設定主應用程式集區的負載平衡方法，可讓您調整 Windows 虛擬桌面預覽環境，以便符合您的需求。
+設定主機集區的負載平衡方法, 可讓您調整 Windows 虛擬桌面預覽環境, 以更符合您的需求。
 
 >[!NOTE]
-> 這不適用於桌面的持續性主應用程式集區因為使用者永遠都有 1 對 1 對應至工作階段主機的主應用程式集區中。
+> 這不會套用至持續性桌面主機集區, 因為使用者一律會有1:1 對應到主機集區中的工作階段主機。
 
 ## <a name="configure-breadth-first-load-balancing"></a>設定廣度優先的負載平衡
 
-廣度優先的負載平衡是新的非持續性的主應用程式集區的預設組態。 廣度優先的負載平衡分散在主應用程式集區中的所有可用的工作階段主機的新使用者工作階段。 當設定廣度優先的負載平衡，您可以設定最大的工作階段限制每個工作階段主機，主應用程式集區中。
+廣度優先的負載平衡是新的非持續性主機集區的預設設定。 廣度優先的負載平衡會將新的使用者會話分散到主機集區中所有可用的工作階段主機。 設定廣度優先的負載平衡時, 您可以在主機集區中, 為每個工作階段主機設定最大會話限制。
 
-首先，[下載並匯入 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)，以在您的 PowerShell 工作階段中使用 (如果您還沒這麼做的話)。
+首先，[下載並匯入 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)，以在您的 PowerShell 工作階段中使用 (如果您還沒這麼做的話)。 之後, 請執行下列 Cmdlet 來登入您的帳戶:
 
-若要設定的主應用程式集區，來執行廣度優先的負載平衡，而不必調整最大的工作階段限制，請執行下列 PowerShell cmdlet:
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
+
+若要設定主機集區以執行廣度優先的負載平衡, 而不調整最大會話限制, 請執行下列 PowerShell Cmdlet:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer
 ```
 
-若要設定主應用程式集區執行廣度優先的負載平衡，並使用新的最大工作階段限制，請執行下列 PowerShell cmdlet:
+若要將主機集區設定為執行廣度優先的負載平衡, 並使用新的最大會話限制, 請執行下列 PowerShell Cmdlet:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessionLimit ###
@@ -41,9 +45,9 @@ Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessio
 
 ## <a name="configure-depth-first-load-balancing"></a>設定深度優先的負載平衡
 
-深度優先的負載平衡會分散到可用的工作階段主機與連接最大數目的新使用者工作階段，但未達到其最大工作階段限制臨界值。 當設定深度優先的負載平衡，您**必須**設定主應用程式集區中的最大工作階段限制每個工作階段主機。
+深度優先的負載平衡會將新的使用者會話散發到具有最大連線數目, 但未達到其會話限制閾值上限的可用工作階段主機。 設定深度優先的負載平衡時, 您**必須**為主機集區中的每個工作階段主機設定最大會話限制。
 
-若要設定主應用程式集區執行深度優先的負載平衡，請執行下列 PowerShell cmdlet:
+若要設定主機集區以執行深度優先的負載平衡, 請執行下列 PowerShell Cmdlet:
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -DepthFirstLoadBalancer -MaxSessionLimit ###

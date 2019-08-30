@@ -2,7 +2,7 @@
 title: 文字翻譯認知搜尋技能-Azure 搜尋服務
 description: 評估文字, 並針對每一筆記錄, 傳回轉譯為 Azure 搜尋服務擴充管線中指定目的語言的文字。
 services: search
-manager: briansmi
+manager: nitinme
 author: careyjmac
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
 ms.subservice: cognitive-search
-ms.openlocfilehash: 5f608ee058dd4e463253f4c4f5e410c515031e25
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 407fd246313e582a3d28a6cbb474edefecd7f0af
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638885"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183324"
 ---
 #   <a name="text-translation-cognitive-skill"></a>文字翻譯認知技能
 

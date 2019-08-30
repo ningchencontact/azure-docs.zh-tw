@@ -3,25 +3,35 @@ title: 使用 Visual Studio Code 在 Python 中建立及部署 Azure Functions
 description: 如何使用適用于 Azure Functions 的 Visual Studio Code 擴充功能, 在 Python 中建立無伺服器函式, 並將其部署至 Azure。
 services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639085"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70170703"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>使用 Visual Studio Code 將 Python 部署至 Azure Functions
 
 在本教學課程中, 您會使用 Visual Studio Code 和 Azure Functions 延伸模組來建立具有 Python 的無伺服器 HTTP 端點, 並同時將連接 (或「系結」) 新增至儲存體。 Azure Functions 在無伺服器環境中執行程式碼, 而不需要布建虛擬機器或發佈 web 應用程式。 Visual Studio Code 的 Azure Functions 擴充功能可透過自動處理許多設定問題, 來大幅簡化使用函式的程式。
 
+在本教學課程中，您了解如何：
+
+> [!div class="checklist"]
+> * 安裝 Azure Functions 擴充功能
+> * 建立 HTTP 觸發的函式
+> * 本機的調試
+> * 同步處理應用程式設定
+> * 查看串流記錄
+> * 連線到 Azure 儲存體
+
 如果您在本教學課程中的任何步驟遇到問題, 我們很樂意聆聽詳細資料。 使用每個區段結尾處的 [**我遇到問題**] 按鈕來提交詳細的意見反應。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - [Azure 訂用帳戶](#azure-subscription)。
 - [具有 Azure Functions 延伸模組的 Visual Studio Code](#visual-studio-code-python-and-the-azure-functions-extension) 。
@@ -100,29 +110,26 @@ ms.locfileid: "68639085"
     | 為您的函式應用程式專案選取語言 | **Python** | 用於函式的語言, 可決定用於程式碼的範本。 |
     | 選取您專案第一個函式的範本 | **HTTP 觸發程序** | 每當有對函式端點發出的 HTTP 要求時, 就會執行使用 HTTP 觸發程式的函式。 (Azure Functions 有各種不同的觸發程式。 若要深入瞭解, 請參閱[我可以如何處理函數？](functions-overview.md#what-can-i-do-with-functions))。 |
     | 提供函式名稱 | HttpExample | 名稱會用於包含函式程式碼和設定資料的子資料夾, 同時也會定義 HTTP 端點的名稱。 使用 "HttpExample", 而不是接受預設的 "HTTPTrigger", 以區別函式本身與觸發程式。 |
-    | 授權等級 | **匿名** | 匿名授權可讓任何人都能公開存取函式。 |
+    | 授權等級 | **Function** | 對函式端點發出的呼叫需要函式[金鑰](functions-bindings-http-webhook.md#authorization-keys)。 |
     | 選取您要如何開啟專案 | **在目前視窗中開啟** | 在 [目前 Visual Studio Code] 視窗中開啟專案。 |
 
-1. 一小段時間之後, 會出現一則訊息, 指出已建立新的專案。 在**Explorer**中, 有為函式建立的子資料夾, Visual Studio Code 開啟 *\_ \_ \_ \_* 包含預設函式程式碼的 .py 檔案:
+1. 一小段時間之後, 會出現一則訊息, 指出已建立新的專案。 在**Explorer**中, 有為函式建立的子資料夾。 
+
+1. 如果尚未開啟, 請 *\_ \_ \_開啟\_* 包含預設函式程式碼的 .py 檔案:
 
     [![建立新 Python 函數專案的結果](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > [!NOTE]
-    > 如果 Visual Studio Code 會告訴您在開啟 *\_ \_ \_ \_.py 時*未選取 Python 解譯器, 請開啟命令選擇區 (F1), 然後選取Python:**選取 [** 解譯器命令], 然後選取本機`.env`資料夾中的虛擬環境 (已建立為專案的一部分)。 環境必須特別以 Python 3.6 x 為基礎, 如先前的[必要條件](#prerequisites)中所述。
+    > 當您開啟 *\_ \_.py 時, 若 Visual Studio Code 告訴您未選取 python 解譯器, 請開啟命令選擇區 (F1), 然後選取 Python:\_ \_* **選取 [** 解譯器命令], 然後選取本機`.env`資料夾中的虛擬環境 (已建立為專案的一部分)。 環境必須特別以 Python 3.6 x 為基礎, 如先前的[必要條件](#prerequisites)中所述。
     >
     > ![選取以專案建立的虛擬環境](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
-
-> [!TIP]
-> 每當您想要在相同的專案中建立另一個函式時, 請使用**Azure 中的**create function**命令:函數** explorer, 或開啟命令選擇區 (F1) 並選取 [ **Azure Functions:建立函式]** 命令。 這兩個命令會提示您輸入函式名稱 (這是端點的名稱), 然後使用預設檔案建立子資料夾。
->
-> ![Azure 中的 New Function 命令:函數瀏覽器](media/tutorial-vs-code-serverless-python/function-create-new.png)
 
 > [!div class="nextstepaction"]
 > [我遇到問題](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
 
 ## <a name="examine-the-code-files"></a>檢查程式碼檔案
 
-新建立的函式子資料夾中有三個檔案:  *\_ \_ \_ \_.py*包含函式的程式碼, 函式 *。 json*描述要 Azure Functions 的函式, 以及*範例 .dat*是範例資料檔案。 如有需要, 您可以刪除*範例 .dat* , 因為它只會顯示您可以將其他檔案新增至子資料夾。
+新建立的_HttpExample_函式子資料夾中有三個檔案:  *\_ \_init\_ \_. .py*包含函式的程式碼, 函式會將函式描述為 Azure函數和*範例 .dat*是範例資料檔案。 如有需要, 您可以刪除*範例 .dat* , 因為它只會顯示您可以將其他檔案新增至子資料夾。
 
 讓我們先看一下函式, 然後再查看 .py 中 *\_ \_ \_ \_* 的程式碼。
 
@@ -135,7 +142,7 @@ ms.locfileid: "68639085"
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "authLevel": "anonymous",
+      "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
@@ -155,9 +162,9 @@ ms.locfileid: "68639085"
 
 屬性會識別程式碼的啟動檔案, 而且該程式碼必須包含名為`main`的 Python 函式。 `scriptFile` 只要此處指定的檔案包含`main`函式, 您就可以將程式碼組成多個檔案。
 
-`bindings`元素包含兩個物件, 一個用來描述傳入的要求, 另一個則用來描述 HTTP 回應。 針對連入要求`"direction": "in"`(), 函式會回應 HTTP GET 或 POST 要求, 而不需要驗證。 回應 (`"direction": "out"`) 是 HTTP 回應, 會傳回從 Python 函式傳回的`main`任何值。
+`bindings`元素包含兩個物件, 一個用來描述傳入的要求, 另一個則用來描述 HTTP 回應。 針對連入要求`"direction": "in"`(), 函式會回應 HTTP GET 或 POST 要求, 並要求您提供函數金鑰。 回應 (`"direction": "out"`) 是 HTTP 回應, 會傳回從 Python 函式傳回的`main`任何值。
 
-### <a name="initpy"></a>\_\_init.py\_\_
+### <a name="__initpy__"></a>\_\_init.py\_\_
 
 當您建立新的函式時, Azure Functions 會在 *\_.py 中\_ \_ \_* 提供預設的 Python 程式碼:
 
@@ -233,7 +240,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     或者, 建立包含`{"name":"Visual Studio Code"}`和使用命令`curl --header "Content-Type: application/json" --request POST --data @data.json http://localhost:7071/api/HttpExample`的檔案 (例如*資料. json* )。
 
-1. 若要測試函式的偵錯工具, 請在讀取`name = req.params.get('name')`並對 URL 提出要求的那一行上設定中斷點。 Visual Studio Code 偵錯工具應該會在該行停止, 讓您檢查變數並逐步執行程式碼。 (如需基本偵錯工具的簡短逐步解說, 請參閱[Visual Studio Code 教學課程-設定和執行偵錯工具](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger))。
+1. 若要對函式進行偵錯工具, 請在讀取`name = req.params.get('name')`並對 URL 提出要求的那一行上設定中斷點。 Visual Studio Code 偵錯工具應該會在該行停止, 讓您檢查變數並逐步執行程式碼。 (如需基本偵錯工具的簡短逐步解說, 請參閱[Visual Studio Code 教學課程-設定和執行偵錯工具](https://code.visualstudio.com/docs/python/python-tutorial.md#configure-and-run-the-debugger))。
 
 1. 當您認為您已在本機徹底測試過函式時, 請停止偵錯工具 (使用 [ **Debug**  > ] [停止] [**調試**程式] 功能表命令, 或偵錯工具工具列上的 [**中斷連線]** 命令)。
 
@@ -303,8 +310,8 @@ func azure functionapp logstream <app_name> --browser
 
 1. 在 Azure：**函數**瀏覽器中, 選取 **建立**函式 **命令, 或使用 Azure Functions:從命令**選擇區建立函數。 指定函數的下列詳細資料:
 
-    - 範本:HTTP 觸發程序
-    - 名稱:"DigitsOfPi"
+    - 範本：HTTP 觸發程序
+    - 名稱："DigitsOfPi"
     - 授權層級:匿名
 
 1. 在 [Visual Studio Code 檔案] 中, 您的函式名稱會再次包含名為 *\_ \_ \_ \_.py*、 *function. json*和*範例 .dat*的子資料夾。
@@ -423,7 +430,7 @@ func azure functionapp logstream <app_name> --browser
     | --- | --- |
     | 設定系結方向 | 出 |
     | 以方向向外選取系結 | Azure 佇列儲存體 |
-    | 用以在程式碼中識別此繫結的名稱 | msg |
+    | 用來在程式碼中識別此系結的名稱 | msg |
     | 訊息將傳送至其中的佇列 | outqueue |
     | 從 [*本機設定*] 選取 [設定] (要求儲存體連接) | AzureWebJobsStorage |
 

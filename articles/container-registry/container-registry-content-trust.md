@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 manager: gwallace
 ms.service: container-registry
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
-ms.translationtype: HT
+ms.openlocfilehash: 6cf5efb33340844d782dc4481f5834d7590e745a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356541"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172314"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry 中的內容信任
 
@@ -43,7 +43,7 @@ Azure Container Registry 會實作 Docker 的[內容信任][docker-content-trust
 
 首要步驟是在登錄層級啟用內容信任。 啟用內容信任後，用戶端 (使用者或服務) 即可將已簽署的映像推送至您的登錄。 在您的登錄上啟用內容信任時，並不會限定只有已啟用內容信任的取用者才能使用登錄。 未啟用內容信任的取用者仍可繼續如常使用您的登錄。 不過，已在其用戶端中啟用內容信任的取用者，將*只能*在您的登錄中看到已簽署的映像。
 
-若要為您的登錄啟用內容信任，請先瀏覽至 Azure 入口網站中的登錄。 在 [原則]  下方，選取 [內容信任]   > [已啟用]   > [儲存]  。
+若要為您的登錄啟用內容信任，請先瀏覽至 Azure 入口網站中的登錄。 在 [原則] 下方，選取 [內容信任] > [已啟用] > [儲存]。
 
 ![在 Azure 入口網站中為登錄啟用內容信任][content-trust-01-portal]
 
@@ -80,7 +80,7 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-在 Azure 入口網站中瀏覽至您的登錄，然後選取 [存取控制 (IAM)]   > [新增角色指派]  。 在 [新增角色指派]  下方，選取 [角色]  下的 `AcrImageSigner`，然後**選取**一或多個使用者或服務主體，再按一下 [儲存]  。
+在 Azure 入口網站中瀏覽至您的登錄，然後選取 [存取控制 (IAM)] > [新增角色指派]。 在 [新增角色指派] 下方，選取 [角色] 下的 `AcrImageSigner`，然後**選取**一或多個使用者或服務主體，再按一下 [儲存]。
 
 在此範例中，有兩個實體已被指派 `AcrImageSigner` 角色：名為 "service-principal" 的服務主體，以及名為 "Azure User" 的使用者。
 
@@ -189,7 +189,7 @@ umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; 
 > [!WARNING]
 > 在您的登錄中停用並重新啟用內容信任，**會把該登錄中各存放庫裡所有已簽署標記的信任資料全都刪除**。 此動作無法復原--Azure Container Registry 無法復原已刪除的信任資料。 停用內容信任並不會刪除映像本身。
 
-若要為您的登錄停用內容信任，請瀏覽至 Azure 入口網站中的登錄。 在 [原則]  下方，選取 [內容信任]   > [已停用]   > [儲存]  。 系統會警告您登錄中的所有簽章都將遺失。 選取 [確定]  會永久刪除您登錄中的所有簽章。
+若要為您的登錄停用內容信任，請瀏覽至 Azure 入口網站中的登錄。 在 [原則] 下方，選取 [內容信任] > [已停用] > [儲存]。 系統會警告您登錄中的所有簽章都將遺失。 選取 [確定] 會永久刪除您登錄中的所有簽章。
 
 ![在 Azure 入口網站中為登錄停用內容信任][content-trust-03-portal]
 

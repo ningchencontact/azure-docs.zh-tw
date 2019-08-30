@@ -2,19 +2,19 @@
 title: 如何從 .NET 應用程式使用 Azure 搜尋服務 - Azure 搜尋服務
 description: 了解如何在使用 C# 和 .NET SDK 的 .NET 應用程式中，使用 Azure 搜尋服務。 以程式碼為基礎的工作包括連線至服務、為內容編製索引，以及查詢索引。
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 9f0af40d442747181636b50612f7d2162ead6a86
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42d3a4a0840e7241666f66a09e7e6b11342cbfbc
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450022"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182261"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>如何從 .NET 應用程式使用 Azure 搜尋服務
 
@@ -29,28 +29,28 @@ SDK 中還有其他 NuGet 套件：
  
   - `Microsoft.Azure.Search.Data`:如果您正在開發使用 Azure 搜尋服務的 .NET 應用程式，而且只需要查詢或更新索引中的文件，則請使用此套件。 如果您也需要建立或更新索引、同義字地圖或其他服務層級資源，請改用 `Microsoft.Azure.Search` 套件。
   - `Microsoft.Azure.Search.Service`:如果您正在開發 .NET 自動化來管理 Azure 搜尋服務的索引、同義字地圖、索引子、資料來源或其他服務層級資源，請使用此套件。 如果您只需要查詢或更新索引中的文件，請改用 `Microsoft.Azure.Search.Data` 套件。 如果您需要 Azure 搜尋服務的所有功能，請改用 `Microsoft.Azure.Search` 套件。
-  - `Microsoft.Azure.Search.Common`:Azure 搜尋服務 .NET 程式庫所需的常用類型。 您不需要直接在您的應用程式中使用此套件。 它只是要用作相依性。
+  - `Microsoft.Azure.Search.Common`:Azure 搜尋服務 .NET 程式庫所需的常用類型。 您不需要直接在應用程式中使用此套件。 它只是用來做為相依性。
 
 各種用戶端程式庫會定義類別，例如 `Index`、`Field` 及 `Document`，以及定義作業，例如 `SearchServiceClient` 和 `SearchIndexClient` 類別上的 `Indexes.Create` 和 `Documents.Search`。 這些類別可編成以下命名空間：
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-如果您想要針對未來的更新的 sdk 提供意見反應，請參閱我們[意見反應頁面](https://feedback.azure.com/forums/263029-azure-search/)或在建立問題[GitHub](https://github.com/azure/azure-sdk-for-net/issues)和提到問題標題中的 「 Azure 搜尋服務 」。
+如果您想要針對 SDK 的未來更新提供意見反應, 請參閱我們的[意見反應頁面](https://feedback.azure.com/forums/263029-azure-search/)或在[GitHub](https://github.com/azure/azure-sdk-for-net/issues)上建立問題, 並在問題標題中提及「Azure 搜尋服務」。
 
-.NET SDK 支援 `2019-05-06` 版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 此版本包含對[複雜型別](search-howto-complex-data-types.md)，[認知搜尋](cognitive-search-concept-intro.md)，[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)，以及[JsonLines 剖析模式](search-howto-index-json-blobs.md)時Azure Blob 編製索引。 
+.NET SDK 支援 `2019-05-06` 版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 在編制 Azure Blob 的索引時, 此版本包含對[複雜類型](search-howto-complex-data-types.md)、[認知搜尋](cognitive-search-concept-intro.md)、[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)和[JsonLines 剖析模式](search-howto-index-json-blobs.md)的支援。 
 
 此 SDK 不支援[管理作業](https://docs.microsoft.com/rest/api/searchmanagement/)，例如建立及調整搜尋服務和管理 API 金鑰。 如果您需要從 .NET 應用程式管理搜尋資源，您可以使用 [Azure 搜尋服務 .NET 管理 SDK](https://aka.ms/search-mgmt-sdk)。
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>升級到最新版本的 SDK
-如果您已經使用較舊版本的 Azure 搜尋服務.NET SDK，而且您想要升級至最新正式推出的版本[這篇文章](search-dotnet-sdk-migration-version-9.md)說明如何。
+如果您已經使用舊版的 Azure 搜尋服務 .NET SDK, 而您想要升級至最新的正式推出版本,[這篇文章](search-dotnet-sdk-migration-version-9.md)會說明如何進行。
 
 ## <a name="requirements-for-the-sdk"></a>SDK 的需求
 1. Visual Studio 2017 或更新版本。
 2. 擁有 Azure Search 服務。 為了使用 SDK，您需要為服務命名，還需要一或多個 API 金鑰。 [在入口網站建立服務](search-create-service-portal.md) 可協助您執行這些步驟。
 3. 使用 Visual Studio 中的 [管理 NuGet 封裝] 下載 Azure 搜尋服務 .NET SDK [NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.Search) 。 只要在 NuGet.org 搜尋套件名稱 `Microsoft.Azure.Search` (或者，如果您只需要某個功能子集，則搜尋上述其中一個其他套件名稱)。
 
-Azure 搜尋服務.NET SDK 支援以.NET Framework 4.5.2 為目標的應用程式和更新版本，以及.NET Core 2.0 和更新版本。
+Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.5.2 和更新版本, 以及 .NET Core 2.0 和更新版本為目標的應用程式。
 
 ## <a name="core-scenarios"></a>核心案例
 您必須在搜尋應用程式中執行一些作業。 本教學課程中涵蓋了這些主要情節：
@@ -61,7 +61,7 @@ Azure 搜尋服務.NET SDK 支援以.NET Framework 4.5.2 為目標的應用程�
 
 下列範例程式碼說明每個案例。 歡迎在您的應用程式中使用這些程式碼片段。
 
-### <a name="overview"></a>概觀
+### <a name="overview"></a>總覽
 我們將探索的範例應用程式，會建立名為 "hotels" 的新索引，並透過一些文件填入索引，然後執行一些搜尋查詢。 以下是主要程式，該程式顯示了整體流程：
 
 ```csharp
@@ -128,18 +128,18 @@ Console.WriteLine("{0}", "Creating index...\n");
 CreateIndex(indexName, serviceClient);
 ```
 
-接著必須填入索引。 若要執行填入索引，我們需要`SearchIndexClient`。 取得的方式有兩種：建構該項目，或用 `SearchServiceClient` 呼叫 `Indexes.GetClient`。 為方便起見，我們使用後者。
+接著必須填入索引。 若要填入索引, 我們將需要`SearchIndexClient`。 取得的方式有兩種：建構該項目，或用 `SearchServiceClient` 呼叫 `Indexes.GetClient`。 為方便起見，我們使用後者。
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 ```
 
 > [!NOTE]
-> 在一般搜尋應用程式中，索引管理和母體擴展可能會處理搜尋查詢中的個別元件。 `Indexes.GetClient` 很輕易填入索引，因為它可以節省您許多麻煩，提供其他`SearchCredentials`。 執行方法是將用於建立 `SearchServiceClient` 的系統管理金鑰傳遞至新的 `SearchIndexClient`。 不過，在您執行查詢的應用程式的一部分，最好是建立`SearchIndexClient`直接，讓您可以傳遞查詢金鑰，只允許您讀取資料，而不是系統管理金鑰。 這不但符合最低權限的準則，也可以讓您的應用程式更安全。 您可以 [在這裡](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization)深入了解系統管理金鑰和查詢金鑰。
+> 在一般搜尋應用程式中, 索引管理和擴展可能是由搜尋查詢中的個別元件所處理。 `Indexes.GetClient`可方便填入索引, 因為它會讓您無法提供額外`SearchCredentials`的問題。 執行方法是將用於建立 `SearchServiceClient` 的系統管理金鑰傳遞至新的 `SearchIndexClient`。 不過, 在執行查詢的應用程式中, 最好`SearchIndexClient`直接建立, 讓您可以傳入查詢金鑰, 而這只允許您讀取資料, 而不是系統管理金鑰。 這不但符合最低權限的準則，也可以讓您的應用程式更安全。 您可以 [在這裡](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization)深入了解系統管理金鑰和查詢金鑰。
 > 
 > 
 
-現在我們有 `SearchIndexClient`，可以開始填入索引。 索引母體擴展，我們將逐步解說稍後的另一種方法即可。
+現在我們有 `SearchIndexClient`，可以開始填入索引。 索引擴展是由我們稍後將逐步解說的另一種方法來完成。
 
 ```csharp
 Console.WriteLine("{0}", "Uploading documents...\n");
@@ -169,7 +169,7 @@ private static SearchIndexClient CreateSearchIndexClient(string indexName, IConf
 
 這次我們使用查詢金鑰，因為我們不需要索引的寫入存取權。 您可以在[範例應用程式](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)的 `appsettings.json` 檔案中輸入這項資訊。
 
-如果您執行此應用程式具有有效的服務名稱和 API 金鑰時，輸出看起來應該如下列範例：（某些主控台輸出已取代為 [...]供說明之用。）
+如果您使用有效的服務名稱和 API 金鑰執行此應用程式, 則輸出應該會如下列範例所示:(某些主控台輸出已取代為 "..."供說明之用)。
 
     Deleting index...
 
@@ -217,7 +217,7 @@ private static SearchIndexClient CreateSearchIndexClient(string indexName, IConf
 接著，我們要進一步了解 `Main`所呼叫的每個方法。
 
 ### <a name="creating-an-index"></a>建立索引
-在建立後`SearchServiceClient`，`Main`刪除"hotels"索引，如果已經存在。 該刪除是由下列方法：
+建立`SearchServiceClient`之後, 刪除`Main` 「飯店」索引 (如果已經存在)。 這項刪除作業是由下列方法來完成:
 
 ```csharp
 private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
@@ -258,10 +258,10 @@ private static void CreateIndex(string indexName, SearchServiceClient serviceCli
 >
 > 
 
-除了欄位之外，您也可以加入評分設定檔、 建議工具或 CORS 選項 （為求簡單明瞭的範例會省略這些參數） 的索引。 如需 Index 物件以及其組成部分的詳細資訊，請參閱 [SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index)和 [Azure 搜尋服務 REST API 參考](https://docs.microsoft.com/rest/api/searchservice/)。
+除了欄位之外, 您也可以將評分設定檔、建議工具或 CORS 選項新增至索引 (為了簡潔起見, 範例中會省略這些參數)。 如需 Index 物件以及其組成部分的詳細資訊，請參閱 [SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index)和 [Azure 搜尋服務 REST API 參考](https://docs.microsoft.com/rest/api/searchservice/)。
 
 ### <a name="populating-the-index"></a>填入索引
-下一步`Main`填入新建立的索引。 這個索引母體擴展完成方法如下：（某些程式碼以取代 [...]為了方便說明。  請參閱完整的資料填入程式碼的完整範例解決方案）。
+中`Main`的下一步是填入新建立的索引。 此索引擴展是在下列方法中完成:(某些程式碼取代為 "..."供說明之用。  如需完整的資料填入程式碼, 請參閱完整的範例解決方案)。
 
 ```csharp
 private static void UploadDocuments(ISearchIndexClient indexClient)
@@ -377,7 +377,7 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 }
 ```
 
-此方法分四個部分。 第一個建立的 3 陣列`Hotel`物件各有 3`Room`將做為輸入資料上傳至索引的物件。 為簡單起見，此資料採硬式編碼。 在您的應用程式中，資料可能會來自像是 SQL 資料庫的外部資料來源。
+此方法分四個部分。 第一個會建立 3 `Hotel`個物件的陣列, 其中每一個都有 3 `Room`個物件, 做為要上傳至索引的輸入資料。 為簡單起見，此資料採硬式編碼。 在您的應用程式中，資料可能會來自像是 SQL 資料庫的外部資料來源。
 
 第二個部分會建立包含文件的 `IndexBatch` 。 您在建立批次時 (在此案例中，是藉由呼叫 `IndexBatch.Upload`)，指定要套用至該批次的作業。 接著以 `Documents.Index` 方法將該 Batch 上傳至 Azure 搜尋服務索引。
 
@@ -386,7 +386,7 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 > 
 > 
 
-此方法的第三部分是擷取區塊，該區塊會為編制索引處理重要錯誤情況。 如果您的 Azure Search 服務無法將 Batch 中的一些文件編制索引，則 `Documents.Index` 會擲回 `IndexBatchException`。 如果您的服務負載過重時，您會建立索引的文件，可能會發生這個例外狀況。 **我們強烈建議您在程式碼中明確處理此情況。** 您可以延遲，然後重新嘗試將失敗的文件編制索引，或像範例一樣加以記錄並繼續，或是根據您應用程式的資料一致性需求執行其他操作。
+此方法的第三部分是擷取區塊，該區塊會為編制索引處理重要錯誤情況。 如果您的 Azure Search 服務無法將 Batch 中的一些文件編制索引，則 `Documents.Index` 會擲回 `IndexBatchException`。 如果您要在服務負載過重時編制檔的索引, 就會發生這個例外狀況。 **我們強烈建議您在程式碼中明確處理此情況。** 您可以延遲，然後重新嘗試將失敗的文件編制索引，或像範例一樣加以記錄並繼續，或是根據您應用程式的資料一致性需求執行其他操作。
 
 > [!NOTE]
 > 您可以使用 [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) 方法來建構新的批次，該批次僅包含先前呼叫 `Index` 時失敗的動作。 [StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry) 上有關於如何適當地使用此方法的討論。
@@ -455,29 +455,29 @@ public partial class Hotel
 }
 ```
 
-要注意的第一件事是在每個公用屬性名稱`Hotel`類別會對應至具有相同的名稱，在索引定義中的欄位。 如果您想要開頭為小寫字母 （「 駝峰式大小寫 」） 的每個欄位，您所見到的屬性名稱對應至駝峰式自動與 SDK`[SerializePropertyNamesAsCamelCase]`類別上的屬性。 此案例中很常見執行資料繫結的目標結構描述而不必違反 「 巴斯卡"命名指導方針，在.NET 中的所在的應用程式開發人員控制之外的.NET 應用程式。
+首先要注意的是, `Hotel`類別中每個公用屬性的名稱會對應至索引定義中具有相同名稱的欄位。 如果您想要每個欄位的開頭都是小寫字母 (「camel 大小寫」), 您可以指示 SDK 使用類別上的`[SerializePropertyNamesAsCamelCase]`屬性, 自動將屬性名稱對應至 camel 大小寫。 這種情況在執行資料系結的 .NET 應用程式中很常見, 因為目標架構是在應用程式開發人員的控制範圍之外, 而不違反 .NET 中的「Pascal 大小寫」命名方針。
 
 > [!NOTE]
-> Azure 搜尋服務 .NET SDK 使用 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 程式庫來將您的自訂模型物件序列化到 JSON 中，以及將您在 JSON 中的自訂模型物件還原序列化。 如有需要，您可以自訂這個序列化的過程。 如需詳細資訊，請參閱 <<c0> [ 使用 JSON.NET 自訂序列化](#JsonDotNet)。
+> Azure 搜尋服務 .NET SDK 使用 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 程式庫來將您的自訂模型物件序列化到 JSON 中，以及將您在 JSON 中的自訂模型物件還原序列化。 如有需要，您可以自訂這個序列化的過程。 如需詳細資訊, 請參閱[使用 JSON.NET 自訂序列化](#JsonDotNet)。
 > 
 > 
 
-要注意的第二件事是每個屬性這類屬性裝飾`IsFilterable`， `IsSearchable`， `Key`，和`Analyzer`。 這些屬性直接對應至[中的 Azure 搜尋服務索引的對應欄位屬性](https://docs.microsoft.com/rest/api/searchservice/create-index#request)。 `FieldBuilder`類別來建構索引的欄位定義會使用這些屬性。
+第二個要`IsFilterable`注意的是, 每個屬性都是以、 `IsSearchable`、 `Key`和`Analyzer`等屬性裝飾。 這些屬性會直接對應至[Azure 搜尋服務索引中的對應欄位屬性](https://docs.microsoft.com/rest/api/searchservice/create-index#request)。 `FieldBuilder`類別會使用這些屬性來建立索引的欄位定義。
 
-第三個要注意的是`Hotel`類別是資料類型的公用屬性。 這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。 例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。 有類似的類型對應之間`bool?`， `Edm.Boolean`， `DateTimeOffset?`，和`Edm.DateTimeOffset`，依此類推。 類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [Azure 搜尋服務 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)。 `FieldBuilder` 類別會為您處理這項對應，但它仍有助您了解您需要對任何序列化問題進行疑難排解的情況。
+`Hotel`類別的第三個重要事項是公用屬性的資料類型。 這些屬性的 .NET 類型會對應至索引定義中，與其相當的欄位類型。 例如，`Category` 字串屬性會對應至 `category` 欄位 (此欄位屬於 `Edm.String` 類型)。 `bool?`、、 `Edm.Boolean`和`Edm.DateTimeOffset`之間有類似的類型對應, 依此類推。 `DateTimeOffset?` 類型對應的特定規則和 `Documents.Get` 方法已一起記載於 [Azure 搜尋服務 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)。 `FieldBuilder` 類別會為您處理這項對應，但它仍有助您了解您需要對任何序列化問題進行疑難排解的情況。
 
-您會注意到`SmokingAllowed`屬性嗎？
+您是否曾注意`SmokingAllowed`到屬性？
 
 ```csharp
 [JsonIgnore]
 public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
 ```
 
-`JsonIgnore`在這個屬性的屬性會告知`FieldBuilder`不將它序列化為欄位的索引。  這是適合用來建立用戶端您可以使用協助程式為您的應用程式中的導出的屬性。  在此情況下，`SmokingAllowed`屬性會反映出是否有任何`Room`在`Rooms`集合允許吸煙。  如果所有都是 false，則表示整個旅館不允許吸煙。
+這個`JsonIgnore`屬性 (property) 上的`FieldBuilder`屬性 (attribute) 會告知不要將它序列化為索引做為欄位。  這是建立用戶端計算屬性的絕佳方式, 您可以在應用程式中用來做為 helper。  在此情況下, `SmokingAllowed`屬性會反映`Rooms`集合`Room`中的任何是否允許吸煙。  如果全部皆為 false, 則表示整個旅館不允許吸煙。
 
-某些屬性，例如`Address`和`Rooms`是.NET 類別的執行個體。  這些屬性會代表更複雜的資料結構，而且如此一來，需要使用的欄位[複雜資料型別](https://docs.microsoft.com/azure/search/search-howto-complex-data-types)索引中。
+某些屬性 (例如`Address`和`Rooms` ) 是 .net 類別的實例。  這些屬性代表更複雜的資料結構, 因此, 在索引中需要具有[複雜資料類型](https://docs.microsoft.com/azure/search/search-howto-complex-data-types)的欄位。
 
-`Address`屬性表示一組中的多個值`Address`類別，定義如下：
+屬性代表`Address`類別中的一組多個值, 定義如下: `Address`
 
 ```csharp
 using System;
@@ -507,9 +507,9 @@ namespace AzureSearch.SDKHowTo
 }
 ```
 
-這個類別包含用來描述在美國或加拿大地區的地址的標準值。 若要在索引中邏輯的欄位群組在一起，您可以使用像這樣的型別。
+此類別包含用來描述美國或加拿大位址的標準值。 您可以使用像這樣的類型, 在索引中將邏輯欄位群組在一起。
 
-`Rooms`屬性代表陣列的`Room`物件：
+屬性代表物件的`Room`陣列: `Rooms`
 
 ```csharp
 using System;
@@ -551,9 +551,9 @@ namespace AzureSearch.SDKHowTo
 }
 ```
 
-應該設計您的資料模型，在.NET 和其對應的索引結構描述，以支援您想要提供給您的終端使用者的搜尋體驗。 在.NET 中，亦即文件在索引中，每個最上層物件會對應至搜尋結果，您會在您的使用者介面中呈現。 比方說，在飯店的搜尋應用程式終端使用者可能想要搜尋旅館名稱的旅館，功能或特定房間的特性。 我們將討論一些查詢範例有點更新版本。
+您在 .NET 中的資料模型及其對應的索引架構, 應該設計成支援您想要提供給使用者的搜尋體驗。 .NET 中的每個最上層物件 (索引中的 ie 檔) 都會對應至您在使用者介面中顯示的搜尋結果。 例如, 在飯店搜尋應用程式中, 您的終端使用者可能會想要依旅館名稱、飯店的功能或特定房間的特性來進行搜尋。 我們稍後會討論一些查詢範例。
 
-這讓使用您自己的類別互動中索引的文件適用於雙向;您也可以擷取搜尋結果，並已自動還原序列化為您的選擇，一種 SDK，我們會看到下一節。
+使用您自己的類別與索引中的檔互動的這項功能會雙向運作;您也可以抓取搜尋結果, 並讓 SDK 自動將其還原序列化為您選擇的類型, 如我們在下一節中所見。
 
 > [!NOTE]
 > Azure 搜尋服務 .NET SDK 還支援使用 `Document` 類別的動態類型文件，也就是欄位名稱與欄位值的索引鍵/值對應。 當您在設計階段卻不知道索引的結構描述時，這很實用，否則要繫結到特定模型類別會很麻煩。 SDK 中所有處理文件的方法，都有可搭配 `Document` 類別使用的多載，以及使用泛型類型參數的強類型多載。 本教學課程的範例程式碼只使用了後者。 [`Document`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) 類別繼承自 `Dictionary<string, object>`。
@@ -562,7 +562,7 @@ namespace AzureSearch.SDKHowTo
 
 **為什麼您應該使用 Nullable 資料類型**
 
-當您將自己的模型類別設計為可對應至 Azure 搜尋服務索引時，建議您將 `bool` 和 `int` 等的值類型屬性宣告為可為 Null (例如宣告為 `bool?`，而不是 `bool`)。 如果您使用不可為 Null 的屬性，則必須保證  索引中沒有任何文件的對應欄位包含 Null 值。 SDK 和 Azure 搜尋服務都不會協助您強制執行這項規定。
+當您將自己的模型類別設計為可對應至 Azure 搜尋服務索引時，建議您將 `bool` 和 `int` 等的值類型屬性宣告為可為 Null (例如宣告為 `bool?`，而不是 `bool`)。 如果您使用不可為 Null 的屬性，則必須保證 索引中沒有任何文件的對應欄位包含 Null 值。 SDK 和 Azure 搜尋服務都不會協助您強制執行這項規定。
 
 這不只是假設性的問題：如果您在類型為 `Edm.Int32` 的現有索引中新增欄位， 更新索引定義之後，所有文件對於該新的欄位具有 null 值 (因為所有類型在 Azure 搜尋服務中都可為 null)。 如果您接著對該欄位使用 `int` 屬性不可為 Null 的模型類別，就會在嘗試擷取文件時得到類似這樣的 `JsonSerializationException`：
 
@@ -573,7 +573,7 @@ namespace AzureSearch.SDKHowTo
 <a name="JsonDotNet"></a>
 
 #### <a name="custom-serialization-with-jsonnet"></a>使用 JSON.NET 自訂序列化
-SDK 會使用 JSON.NET 序列化和還原序列化文件。 您可以自訂序列化和還原序列化視需要定義您自己`JsonConverter`或`IContractResolver`。 如需詳細資訊，請參閱 < [JSON.NET 文件](https://www.newtonsoft.com/json/help/html/Introduction.htm)。 當您想要調整您的應用程式的現有模型類別以搭配使用 Azure 搜尋服務以及其他更進階的案例時，這非常有用。 例如，使用自訂序列化，您可以：
+SDK 會使用 JSON.NET 序列化和還原序列化文件。 您可以視需要定義您自己`JsonConverter`的或`IContractResolver`, 以自訂序列化和還原序列化。 如需詳細資訊, 請參閱[JSON.NET 檔](https://www.newtonsoft.com/json/help/html/Introduction.htm)。 當您想要調整您的應用程式的現有模型類別以搭配使用 Azure 搜尋服務以及其他更進階的案例時，這非常有用。 例如，使用自訂序列化，您可以：
 
 * 包含或排除模型類別的特定屬性儲存為文件欄位。
 * 在程式碼的屬性名稱和索引的欄位名稱之間進行對應。
@@ -582,7 +582,7 @@ SDK 會使用 JSON.NET 序列化和還原序列化文件。 您可以自訂序�
 您可以在 GitHub 上的 Azure 搜尋服務 .NET SDK 的單元測試中找到實作自訂序列化的範例。 [這個資料夾](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models)是好的起點。 它包含自訂序列化測試使用的類別。
 
 ### <a name="searching-for-documents-in-the-index"></a>搜尋索引中的文件
-範例應用程式的最後一個步驟是要搜尋的索引中的一些文件：
+範例應用程式中的最後一個步驟是在索引中搜尋一些檔:
 
 ```csharp
 private static void RunQueries(ISearchIndexClient indexClient)
@@ -641,9 +641,9 @@ private static void RunQueries(ISearchIndexClient indexClient)
 }
 ```
 
-每次執行查詢時，這個方法都會先建立新的 `SearchParameters` 物件。 此物件用來指定其他選項，例如排序、 篩選、 分頁和多面向查詢。 在此方法中，我們會針對不同查詢設定 `Filter`、`Select`、`OrderBy` 和 `Top` 屬性。 所有 `SearchParameters` 屬性都記載於[這裡](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters)。
+每次執行查詢時，這個方法都會先建立新的 `SearchParameters` 物件。 這個物件是用來指定查詢的其他選項, 例如排序、篩選、分頁和 facet。 在此方法中，我們會針對不同查詢設定 `Filter`、`Select`、`OrderBy` 和 `Top` 屬性。 所有 `SearchParameters` 屬性都記載於[這裡](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters)。
 
-下一步是實際執行搜尋查詢， 執行搜尋是使用`Documents.Search`方法。 針對每次查詢，我們會傳遞搜尋文字做為字串 (如果沒有搜尋文字，則傳遞 `"*"`)，並再加上先前建立的搜尋參數。 我們也指定了 `Hotel` 做為 `Documents.Search` 的類型參數，藉此告訴 SDK 將搜尋結果中的文件還原序列化為 `Hotel` 類型的物件。
+下一步是實際執行搜尋查詢， 執行搜尋的`Documents.Search`方式是使用方法。 針對每次查詢，我們會傳遞搜尋文字做為字串 (如果沒有搜尋文字，則傳遞 `"*"`)，並再加上先前建立的搜尋參數。 我們也指定了 `Hotel` 做為 `Documents.Search` 的類型參數，藉此告訴 SDK 將搜尋結果中的文件還原序列化為 `Hotel` 類型的物件。
 
 > [!NOTE]
 > 如需搜尋查詢運算式語法的詳細資訊，請參閱 [這裡](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search)。
@@ -678,13 +678,13 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-在此案例中，我們要在任何可搜尋欄位中搜尋"motel"這個字的整個索引，而且我們只想要擷取所指定的旅館名稱`Select`參數。 結果如下︰
+在此情況下, 我們會在任何可搜尋的欄位中, 搜尋 "motel" 一字的整個索引, 而我們只想要取得由`Select`參數所指定的旅館名稱。 結果如下︰
 
     Name: Secret Point Motel
 
     Name: Twin Dome Motel
 
-下一個查詢是更有趣。  我們想要尋找的有每晚費率小於美金 100 元的空間，然後只傳回旅館識別碼並描述的所有旅館：
+下一個查詢更有趣。  我們想要找出任何房間的旅館, 其每晚的費率低於 $100, 而且只會傳回飯店識別碼和描述:
 
 ```csharp
 parameters =
@@ -699,7 +699,7 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-此查詢會使用 OData `$filter` 運算式 (`Rooms/any(r: r/BaseRate lt 100)`)，以篩選索引中的文件。 這會使用[任何運算子](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators)套用 ' BaseRate lt 100' 聊天室集合中的每個項目。 您可以在 [這裡](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax)找到更多 Azure 搜尋服務支援的 OData 語法。
+此查詢會使用 OData `$filter` 運算式 (`Rooms/any(r: r/BaseRate lt 100)`)，以篩選索引中的文件。 這會使用[any 運算子](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators)將 ' BaseRate lt 100 ' 套用到聊天室集合中的每個專案。 您可以在 [這裡](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax)找到更多 Azure 搜尋服務支援的 OData 語法。
 
 查詢的結果如下：
 
@@ -732,7 +732,7 @@ WriteDocuments(results);
     Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
     Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 
-最後，我們想要尋找符合"hotel"這個字的所有旅館名稱：
+最後, 我們想要尋找符合「飯店」這個字的所有旅館名稱:
 
 ```csharp
 parameters = new SearchParameters()
@@ -750,7 +750,7 @@ WriteDocuments(results);
     Name: Triple Landscape Hotel
     ...
 
-此步驟已完成本教學課程，但別就此結束。 \* * 下一個步驟會提供額外的資源，以深入了解 Azure 搜尋服務。
+此步驟已完成本教學課程，但別就此結束。 \* * 後續步驟會提供進一步的資源, 以深入瞭解 Azure 搜尋服務。
 
 ## <a name="next-steps"></a>後續步驟
 * 瀏覽 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 及 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 參考文章。

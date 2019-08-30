@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: fa34baa7569b0552708cd1a9b57d79186e5acd57
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 4be1ed779ad424d30ac34fd55f117ada3ed9c7a2
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669578"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70166681"
 ---
 標準化的虛擬機器 (VM) 映射可讓組織遷移至雲端, 並確保部署的一致性。 映射通常包含預先定義的安全性和設定, 以及必要的軟體。 設定您自己的映射處理管線需要時間、基礎結構和設定, 但使用 Azure VM 映射產生器時, 只需提供簡單的設定來描述您的映射、將它提交至服務, 然後建立映射並加以散發。
  
@@ -73,7 +73,7 @@ Azure 映射產生器是完全受控的 Azure 服務, 可供 Azure 資源提供�
 
 1. 建立映射範本作為 json 檔案。 此 json 檔案包含映射來源、自訂和散發的相關資訊。 [Azure 映射](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)產生器 GitHub 存放庫中有多個範例。
 1. 將它提交給服務, 這會在您指定的資源群組中建立映射範本成品。 在背景中, 映射產生器會視需要下載來源映射或 ISO 和腳本。 這些會儲存在您的訂用帳戶中自動建立的個別資源群組中, 格式如下:IT_\<DestinationResourceGroup > _\<TemplateName >。 
-1. 建立映射範本之後, 您就可以建立映射。 在背景影像產生器中, 會使用範本和來源檔案, 在 IT_\<DestinationResourceGroup > _\<TemplateName > 資源群組中建立 VM、網路和存放裝置。
+1. 建立映射範本之後, 您就可以建立映射。 在背景影像產生器中, 會使用範本和來源檔案, 在 IT_\<DestinationResourceGroup > _\<TemplateName > 資源群組中建立 VM (D1v2)、網路、公用 IP 和儲存體。
 1. 作為映射建立的一部分, 映射產生器會根據範本散發映射, 然後刪除 IT_\<DestinationResourceGroup > _\<TemplateName > 資源群組中為建立的其他資源進程。
 
 

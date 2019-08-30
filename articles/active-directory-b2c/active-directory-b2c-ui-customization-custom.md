@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e79d7a4b97f010b035f5c864682b4d3882a21393
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927301"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70171909"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
@@ -23,7 +23,7 @@ ms.locfileid: "68927301"
 
 完成本文之後，您將擁有一個具備您的品牌和外觀的註冊和登入自訂原則。 使用 Azure Active Directory B2C (Azure AD B2C)，幾乎可完全掌控對使用者呈現的 HTML 和 CSS 內容。 使用自訂原則時，您會以 XML 設定 UI 自訂，而不是在 Azure 入口網站中使用控制項。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 完成[開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。 您應該有一個使用本機帳戶來註冊和登入的有效自訂原則。
 
@@ -65,17 +65,16 @@ ms.locfileid: "68927301"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在 [中樞] 功能表上，選取 [新增] > [儲存體] > [儲存體帳戶]。
-3. 輸入儲存體帳戶的 [名稱]。
-4. [部署模型] 可保持為 [資源管理員]。
-5. 將 [帳戶類型] 變更為 [Blob 儲存體]。
-6. [效能] 可保持為 [標準]。
-7. [複寫] 可保持為 [RA-GRS]。
-8. [存取層] 可保持為 [經常性存取]。
-9. [儲存體服務加密] 可保持為 [已停用]。
-10. 選取儲存體帳戶的 [訂用帳戶]。
-11. 建立**資源群組**，或選取現有的資源群組。
-12. 選取儲存體帳戶的 [地理位置]。
-13. 按一下 [建立] 建立儲存體帳戶。  
+3. 選取儲存體帳戶的 [訂用帳戶]。
+4. 建立**資源群組**，或選取現有的資源群組。
+5. 輸入儲存體帳戶的 [名稱]。
+6. 選取儲存體帳戶的 [地理位置]。 
+7. [部署模型] 可保持為 [資源管理員]。
+8. [效能] 可保持為 [標準]。
+9. 將 [帳戶類型] 變更為 [Blob 儲存體]。
+10. [複寫] 可保持為 [RA-GRS]。
+11. [存取層] 可保持為 [經常性存取]。 
+12. 按一下 [**檢查 + 建立**] 以建立儲存體帳戶。  
     部署完成後，[儲存體帳戶] 刀鋒視窗會自動開啟。
 
 ## <a name="create-a-container"></a>建立容器

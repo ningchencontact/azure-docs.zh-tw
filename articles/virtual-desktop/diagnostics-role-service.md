@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: d6cde04d122d20c4aad5920c29995d9d33165163
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c07086feef1851f1a6e2a5cda2f541d52a50d91d
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515532"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163483"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>找出診斷功能的問題
 
@@ -24,7 +24,11 @@ Windows 虛擬桌面 Preview 提供診斷功能, 可讓系統管理員透過單�
   
 因為診斷角色服務本身是 Windows 虛擬桌面的一部分, 所以不會在診斷結果中顯示 Windows 虛擬桌面的連接。 當使用者遇到網路連線問題時, 可能會發生 Windows 虛擬桌面連接問題。
 
-若要開始, 請[下載並匯入 Windows 虛擬桌面 powershell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), 以在您的 powershell 會話中使用 (如果您還沒有這麼做)。
+若要開始, 請[下載並匯入 Windows 虛擬桌面 powershell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), 以在您的 powershell 會話中使用 (如果您還沒有這麼做)。 之後, 請執行下列 Cmdlet 來登入您的帳戶:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## <a name="diagnose-issues-with-powershell"></a>診斷 PowerShell 的問題
 

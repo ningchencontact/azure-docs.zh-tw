@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 220f68461d47293e9f43a650e4fa5d1d59bce02f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 33ee006a704cec1fb0d75a953629aec68461a4f4
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128348"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165198"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -76,7 +76,7 @@ Azure Machine Learning 服務工作區。 若要建立工作區, 請參閱[建�
 
 + **可自訂**。 在受管理且安全的 VM 供應專案中, 您可以保留硬體功能的完整存取權, 並根據您的需求進行自訂。 例如, 您可以快速建立最新的 NVidia V100 供電 VM, 以執行 novel 類神經網路架構的逐步偵錯工具。
 
-若要停止產生筆記本 VM 費用, 請[停止筆記本 vm](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm)。 
+若要停止產生筆記本 VM 費用, 請[停止筆記本 vm](tutorial-1st-experiment-sdk-train.md#clean-up-resources)。 
 
 ## <a id="dsvm"></a>資料科學虛擬機器
 

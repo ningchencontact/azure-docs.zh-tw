@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: bf8959abcf591acd902793e9247cd15e2cfdada9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: aa36051f65936f25e4f2cc3bf03619b0f66ce5a6
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089229"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165311"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。
@@ -203,7 +203,7 @@ ms.locfileid: "70089229"
 現在請明確設定要在 Azure Resource Manager 中啟用的服務。  許多客戶發現下列各個項目對其 Azure 環境深具吸引力：
 
 - [角色型存取控制](../../role-based-access-control/overview.md)。
-- [Azure Resource Manager 範本使得部署更容易且更受控制](../../azure-resource-manager/resource-group-overview.md#template-deployment)。
+- [Azure Resource Manager 範本使得部署更容易且更受控制](../../azure-resource-manager/template-deployment-overview.md)。
 - [標籤](../../azure-resource-manager/resource-group-using-tags.md)。
 - [活動控制](../../azure-resource-manager/resource-group-audit.md)
 - [Azure 原則](../../governance/policy/overview.md)

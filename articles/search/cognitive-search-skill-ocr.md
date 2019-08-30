@@ -2,7 +2,7 @@
 title: OCR 認知搜尋技能 - Azure 搜尋服務
 description: 在 Azure 搜尋服務擴充管線中，使用光學字元辨識 (OCR) 擷取影像檔案中的文字。
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
 ms.workload: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.subservice: cognitive-search
-ms.openlocfilehash: 617bc843084ed8f40c9d7f8c3f02303d39f50596
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d2b3cdac72d47afb804763c521aae0b1d5936567
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639078"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186347"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 認知技能
 

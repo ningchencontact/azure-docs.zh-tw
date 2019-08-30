@@ -10,20 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 06/26/2019
-ms.openlocfilehash: c35863ed1d564adf4190efa1888d24f4f4f68ddf
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.date: 08/29/2019
+ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147863"
+ms.locfileid: "70164333"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>在 vCore 服務層級之間選擇, 並從 DTU 服務層進行遷移
 
 以虛擬核心 (vCore) 為基礎的購買模型可讓您獨立調整計算和儲存體資源、符合內部部署效能, 並將價格優化。 它也可讓您選擇硬體的世代:
 
-- **第4代**:最多24個以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎的邏輯 Cpu, vCore = 1 PP (實體核心), 每一核心 7 GB, 連結的 SSD
-- **第5代**:最多80以 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器為基礎的邏輯 Cpu, vCore = 1 LP (超執行緒), 每個核心 5.1 GB, 快速 eNVM SSD
+- **第4代**:最多24個以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎的邏輯 Cpu, vCore = 1 PP (實體核心), 每個 vCore 7 GB, 已連接的 SSD
+- **第5代**:最多80個以 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器為基礎的邏輯 Cpu, vCore = 1 LP (超執行緒), 每個 vCore 的 5.1 GB 用於布建的計算, 而每個 vCore 最多 24 GB, 無伺服器運算, 快速 eNVM SSD
 
 在 Gen4 硬體中，每個虛擬核心的記憶體會高出許多。 不過，Gen5 硬體可讓您大幅相應增加計算資源。
 
@@ -44,9 +44,9 @@ VCore 為基礎的購買模型提供三個服務層級: 一般用途、超大規
 |---|---|---|---|
 |最適用的對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整的計算和儲存體選項。|具有高 i/o 需求的商務應用程式。 使用數個隔離的複本, 為失敗提供最高的復原能力。|具有可高度擴充性的儲存體和讀取規模需求的大多數商務工作負載。|
 |計算|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心<br/>**無伺服器計算**:<br/>第 5 代：0.5-16 虛擬核心|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|已布**建的計算**:<br/>第 4 代：1到24虛擬核心<br/>第 5 代：2至80虛擬核心|
-|記憶體|已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB<br/>**無伺服器計算**:<br/>第 5 代：每個虛擬核心 3 GB|已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB |已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB|
-|儲存體|使用遠端存放。<br/>**單一資料庫布建計算**:<br/>5 GB – 4 TB<br/>**單一資料庫無伺服器計算**:<br/>5 GB - 1 TB<br/>**受控實例**:32 GB - 8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫布建計算**:<br/>5 GB – 4 TB<br/>**受控實例**:<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
-|I/o 輸送量 (近似)|**單一資料庫**:500 IOPS (每個 vCore 具有7000的最大 IOPS)。<br/>**受控實例**:視檔案[大小而](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)定。|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|超大規模資料庫是多層式架構, 在多個層級進行快取。 有效的 IOPs 將視工作負載而定。|
+|記憶體|已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB<br/>**無伺服器計算**:<br/>第 5 代：每個 vCore 最多 24 GB|已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB |已布**建的計算**:<br/>第 4 代：每個虛擬核心 7GB<br/>第 5 代：每個虛擬核心 5.1 GB|
+|儲存體|使用遠端存放。<br/>**單一資料庫和彈性集區布建計算**:<br/>5 GB – 4 TB<br/>**無伺服器計算**:<br/>5 GB-3 TB<br/>**受控實例**:32 GB - 8 TB |使用本機 SSD 儲存體。<br/>**單一資料庫和彈性集區布建計算**:<br/>5 GB – 4 TB<br/>**受控實例**:<br/>32 GB - 4 TB |視需要彈性自動成長儲存體。 最多可支援 100 TB 的儲存體。 會針對本機緩衝集區快取和本機資料儲存體使用本機 SSD 儲存體。 使用 Azure 遠端儲存體作為最終長期資料存放區。 |
+|I/o 輸送量 (近似)|**單一資料庫和彈性集**區:500 IOPS (每個 vCore 最多 40000 IOPS)。<br/>**受控實例**:視檔案[大小而](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)定。|每個核心 5000 IOPS, 最高可達 200000 IOPS|超大規模資料庫是多層式架構, 在多個層級進行快取。 有效的 IOPs 將視工作負載而定。|
 |可用性|1個複本、無讀取規模複本|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域冗余高可用性 (HA)|1個讀寫複本, 加上 0-4[個讀取規模複本](sql-database-read-scale-out.md)|
 |備份|[讀取權限異地多餘儲存體 (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 天 (預設為7天)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中以快照集為基礎的備份。 還原時可使用這些快照集進行快速復原。 備份是即時的, 不會影響計算 i/o 效能。 還原速度很快, 而且不是資料大小的作業 (需要幾分鐘, 而不是小時或數天)。|
 |記憶體內|不支援|支援|不支援|

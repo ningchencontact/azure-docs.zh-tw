@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c8ffa7b65e4f97fa537299bf542ba377da026064
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69626308"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174601"
 ---
 記憶體最佳化的虛擬機器大小的記憶體與 CPU 比例相當高，最適合關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。
 
@@ -147,7 +147,7 @@ Mv2 系列 VM 的功能 Intel®超執行緒技術
 
 <sup>1</sup>這些大型 vm 需要下列其中一個支援的客體作業系統:Windows Server 2016、Windows Server 2019、SLES 12 SP4、SLES 15。
 
-<sup>2</sup> Mv2 系列 vm 僅限第2代。 如果您使用 Linux, 請參閱下一節, 以瞭解如何尋找及選取 SUSE Linux 映射。
+<sup>2</sup> Mv2 系列 vm 僅限[第2代](/azure/virtual-machines/linux/generation-2)。 如果您使用 Linux, 請參閱下一節, 以瞭解如何尋找及選取 SUSE Linux 映射。
 
 #### <a name="find-a-suse-image"></a>尋找 SUSE 影像
 

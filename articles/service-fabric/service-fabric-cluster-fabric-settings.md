@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
+ms.date: 08/29/2019
 ms.author: atsenthi
-ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 5d6f1fcba5d93cbd4efb63cd080848258eb2a262
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014433"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172877"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -236,6 +236,8 @@ ms.locfileid: "69014433"
 |UserMaxStandByReplicaCount |整數，預設值為 1 |動態|系統針對使用者服務所保留之待命複本的預設數目上限。 |
 |UserReplicaRestartWaitDuration |時間 (秒), 預設值\*為 60.0 30 |動態|以秒為單位指定時間範圍。 當保存的複本停止運作時，Windows Fabric 會先在這段持續時間內等候複本恢復運作，不行的話再建立新的取代複本 (這需要狀態複本)。 |
 |UserStandByReplicaKeepDuration |時間 (秒)，預設值為 3600.0 \* 24 \* 7 |動態|以秒為單位指定時間範圍。 當保存的複本從停止運作狀態恢復過來，它可能已被取代。 此計時器會決定 FM 會將待命複本保留多久才予以捨棄。 |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, 預設值為 Common:: TimeSpan:: FromSeconds (60 * 10)|動態|以秒為單位指定時間範圍。 選擇性 WaitForInBuildReplica 安全性檢查超時的設定專案。 此設定會定義節點停用和升級的 WaitForInBuildReplica 安全性檢查的時間。 如果下列任何一項為真, 則此安全性檢查會失敗:-正在建立主要複本, 而 ft 目標複本集大小 > 1-如果目前的複本在組建中且已保存-如果這是目前的主要複本, 而且正在建立新的複本, 則會略過此安全性檢查ed, 即使先前的其中一個條件仍為 true, 也會過期。 |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, 預設值為 Common:: TimeSpan:: FromSeconds (60.0 * 10)|動態|以秒為單位指定時間範圍。 選擇性 WaitForReconfiguration 安全性檢查超時的設定專案。 此設定會定義節點停用和升級的 WaitForReconfiguration 安全性檢查的時間。 如果要檢查的複本屬於正在重新設定的分割區, 則此安全性檢查會失敗。 即使分割區仍在重新設定中, 也會在此超時時間過後略過安全檢查。|
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
