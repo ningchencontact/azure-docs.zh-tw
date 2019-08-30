@@ -2,18 +2,18 @@
 title: 適用于搜尋索引的 Azure SQL 受控執行個體連接-Azure 搜尋服務
 description: 啟用公用端點, 允許從 Azure 搜尋服務上的索引子連接到 SQL 受控實例。
 author: vl8163264128
-manager: briansmi
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: victliu
-ms.openlocfilehash: ae947e85f600b3bc380898ad5820239aa823794d
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 07bc1a55c0222fda87b28acbaa8bfe552fb8e6ed
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229124"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186642"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-managed-instance"></a>設定從 Azure 搜尋服務索引子到 SQL 受控執行個體的連接
 如[使用索引子將 Azure SQL Database 連接到 Azure 搜尋服務](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述, 透過公用端點 Azure 搜尋服務支援針對**SQL 受控實例**建立索引子。
