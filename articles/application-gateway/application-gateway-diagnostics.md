@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: 3acae8f7d34bb02905e6e8d479b7de5ccab1bb7a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d9b0c551cdfb92b380a967aaa5bdce7c278fd39e
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850990"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183585"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -105,7 +105,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 您有三個選項可用來排序您的記錄：
 
 * **儲存體帳戶**：如果記錄會儲存一段較長的持續期間，並在需要時加以檢閱，則最好針對記錄使用儲存體帳戶。
-* **事件中樞**：如果要整合其他安全性資訊和事件管理 (SEIM) 工具以便在資源上取得警示，則事件中樞是絕佳的選項。
+* **事件中樞**：事件中樞是與其他安全性資訊和事件管理 (SIEM) 工具整合的絕佳選項, 可在您的資源上取得警示。
 * **Azure 監視器記錄**：Azure 監視器記錄最適合用來進行應用程式的一般即時監視，或查看趨勢。
 
 ### <a name="enable-logging-through-powershell"></a>透過 PowerShell 啟用記錄功能
@@ -172,7 +172,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |sentBytes| 傳送的封包大小，單位為位元組。|
 |timeTaken| 處理要求並傳送其回應所花費的時間長度，單位為毫秒。 算法是從應用程式閘道收到 HTTP 要求的回應第一個位元組的時間，到回應傳送作業完成時的時間間隔。 請務必注意，timeTaken 欄位通常包含要求和回應封包在網路上傳輸的時間。 |
 |sslEnabled| 與後端集區的通訊是否使用 SSL。 有效值為 on 和 off。|
-|主機| 要求已傳送到後端伺服器的主機名稱。 如果要覆寫後端主機名稱, 此名稱將會反映這一點。|
+|host| 要求已傳送到後端伺服器的主機名稱。 如果要覆寫後端主機名稱, 此名稱將會反映這一點。|
 |originalHost| 應用程式閘道從用戶端接收要求的主機名稱。|
 ```json
 {
@@ -220,7 +220,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |serverRouted| 應用程式閘道將要求路由至的後端伺服器。|
 |serverStatus| 後端伺服器的 HTTP 狀態碼。|
 |serverResponseLatency| 後端伺服器回應的延遲。|
-|主機| 要求的主機標頭中所列的位址。|
+|host| 要求的主機標頭中所列的位址。|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",

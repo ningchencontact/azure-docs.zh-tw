@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 07/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24716a9b9fa5174d899cf0678b83b2da0c59957c
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5ec92e34ffa68718525e9b407dc9e58f4c409975
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358665"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183550"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>針對 Azure Machine Learning 服務 Azure Kubernetes Service 和 Azure 容器實例部署進行疑難排解
 
@@ -204,6 +204,9 @@ print(prediction)
 
 在本機測試期間, 您可能需要更新`score.py`檔案以新增記錄, 或嘗試解決您發現的任何問題。 若要重載檔案的`score.py`變更, 請`reload()`使用。 例如, 下列程式碼會重載服務的腳本, 然後將資料傳送給它。 資料會使用更新`score.py`的檔案進行評分:
 
+> [!IMPORTANT]
+> `reload`方法僅適用于本機部署。 如需將部署更新至另一個計算目標的詳細資訊, 請參閱[部署模型](how-to-deploy-and-where.md#update)的更新一節。
+
 ```python
 service.reload()
 print(service.run(input_data=test_sample))
@@ -240,7 +243,7 @@ print(ws.webservices['mysvc'].get_logs())
 
 請使用[檢查 Docker 記錄](#dockerlog)一節中的資訊來檢查記錄。
 
-## <a name="function-fails-getmodelpath"></a>函式錯誤：get_model_path()
+## <a name="function-fails-get_model_path"></a>函式錯誤：get_model_path()
 
 通常, 在評分`init()`腳本的函式中, 會呼叫[_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-)函式, 以在容器中尋找模型檔案或模型檔案的資料夾。 如果找不到模型檔案或資料夾, 則函式會失敗。 若要對此錯誤進行偵錯，最簡單方式是在容器殼層中執行下列 Python 程式碼：
 
@@ -255,7 +258,7 @@ print(Model.get_model_path(model_name='my-best-model'))
 
 將記錄層級設定為 [DEBUG] 可能會導致記錄額外的資訊, 這可能有助於識別失敗。
 
-## <a name="function-fails-runinputdata"></a>函式失敗：run(input_data)
+## <a name="function-fails-runinput_data"></a>函式失敗：run(input_data)
 
 如果已成功部署服務，但此服務在您發佈資料到評分端點時發生損毀，您可以在 `run(input_data)` 函式中新增錯誤攔截陳述式，以傳回詳細的錯誤訊息。 例如:
 

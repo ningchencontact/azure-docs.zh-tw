@@ -1,7 +1,7 @@
 ---
 title: 使用知識存放區中的投影 (預覽)-Azure 搜尋服務
 description: 儲存並塑造來自 AI 索引管線的擴充資料, 以用於搜尋以外的案例
-manager: eladz
+manager: nitinme
 author: vkurpad
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.subservice: cognitive-search
-ms.openlocfilehash: 4fa669eaf96c08d7a2e1e7255ff6b1f6ff7b4f14
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2dd61a4511d406fefec5aacd0702fa732f79de92
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639829"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186243"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>在 Azure 搜尋服務的知識存放區中使用投影
 

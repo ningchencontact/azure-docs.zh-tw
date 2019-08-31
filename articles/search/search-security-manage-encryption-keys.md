@@ -2,19 +2,19 @@
 title: 在 Azure Key Vault (預覽) 中使用客戶管理的金鑰進行待用加密-Azure 搜尋服務
 description: 透過在 Azure Key Vault 中建立和管理的金鑰, 在 Azure 搜尋服務中補充索引和同義字對應的伺服器端加密。
 author: NatiNimni
-manager: jlembicz
+manager: nitinme
 ms.author: natinimn
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d4494cb46bece7402b1284ee6324ca9ff86e0f3
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: ce7a8af1416664a3a94b248c95203c8e775e805c
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779091"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182406"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理的金鑰 Azure 搜尋服務加密
 
@@ -31,7 +31,7 @@ ms.locfileid: "68779091"
 
 您可以使用不同金鑰保存庫中的不同金鑰。 這表示單一搜尋服務可以裝載多個已加密的 indexes\synonym 對應, 每個都有可能使用不同的客戶管理金鑰, 以及未使用客戶管理的金鑰加密的 indexes\synonym 對應。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此範例會使用下列服務。 
 
@@ -164,7 +164,7 @@ Azure 搜尋服務支援兩種指派身分識別的方式: 受控識別或外部
 }
 ```
 
-## <a name="example-index-encryption"></a>範例:索引加密
+## <a name="example-index-encryption"></a>範例：索引加密
 如需透過 REST API 建立新索引的詳細資料, 請參閱[Create index (Azure 搜尋服務服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index), 其中唯一的差異在於將加密金鑰詳細資料指定為索引定義的一部分: 
 
 ```json
@@ -191,7 +191,7 @@ Azure 搜尋服務支援兩種指派身分識別的方式: 受控識別或外部
 ```
 您現在可以傳送索引建立要求, 然後開始正常使用索引。
 
-## <a name="example-synonym-map-encryption"></a>範例:同義字對應加密
+## <a name="example-synonym-map-encryption"></a>範例：同義字對應加密
 
 透過 REST API 建立新同義字地圖的詳細資料可以在[建立同義字地圖 (Azure 搜尋服務服務 REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)中找到, 此處唯一的差異在於將加密金鑰詳細資料指定為同義字對應定義的一部分: 
 

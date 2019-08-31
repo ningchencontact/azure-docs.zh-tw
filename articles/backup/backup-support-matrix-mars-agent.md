@@ -3,16 +3,16 @@ title: Microsoft Azure 復原服務 (MARS) 代理程式的支援矩陣 Azure 備
 description: 本文摘要說明當您備份執行 Microsoft Azure 復原服務 (MARS) 代理程式的電腦時的 Azure 備份支援。
 author: dcurwin
 ms.service: backup
-ms.date: 02/17/2019
+ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 599d3f97ea30b096999d754a995af2ba660c0bc3
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951972"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186164"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 
@@ -72,20 +72,22 @@ MARS 伺服器需要存取這些 URL：
 
 在內部部署機器和 Azure Vm 上執行的某些作業系統上, 您可以使用 MARS 代理程式直接備份至 Azure。 作業系統必須是64位, 且應執行最新的服務套件和更新。 下表摘要說明這些作業系統:
 
-**作業系統** | **檔案/資料夾** | **系統狀態** 
---- | --- | --- 
-Windows 10 (企業版、專業版、家用版) | 是 | 否
-Windows 8.1 (企業版、專業版)| 是 |否
-Windows 8 (企業版、專業版) | 是 | 否
-Windows 7 (Ultimate、企業版、專業版、家用進階版/基本版、入門版) | 是 | 否
-Windows Server 2016 (Standard、Datacenter、Essentials) | 是 | 是
-Windows Server 2012 R2(Standard、Datacenter、Essentials) | 是 | 是
-Windows Server 2012 (Standard、Datacenter、Essentials) | 是 | 是
-Windows Server 2008 R2 (Standard、Enterprise、Datacenter、Foundation) | 是 | 是
-Windows Server 2008 SP2 (Standard、Datacenter、Foundation) | 是 | 否
-Windows Storage Server 2016/2012 R2/2012 (Standard、Workgroup) | 是 | 否
+**作業系統** | **檔案/資料夾** | **系統狀態** | **軟體/模組需求**
+--- | --- | --- | ---
+Windows 10 (企業版、專業版、家用版) | 是 | 否 |  檢查對應的伺服器版本是否有軟體/模組需求
+Windows 8.1 (企業版、專業版)| 是 |否 | 檢查對應的伺服器版本是否有軟體/模組需求
+Windows 8 (企業版、專業版) | 是 | 否 | 檢查對應的伺服器版本是否有軟體/模組需求
+Windows 7 (Ultimate、企業版、專業版、家用進階版/基本版、入門版) | 是 | 否 | 檢查對應的伺服器版本是否有軟體/模組需求
+Windows Server 2016 (Standard、Datacenter、Essentials) | 是 | 是 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console (MMC) 3。0
+Windows Server 2012 R2(Standard、Datacenter、Essentials) | 是 | 是 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console (MMC) 3。0
+Windows Server 2012 (Standard、Datacenter、Essentials) | 是 | 是 |-.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console (MMC) 3。0 <br> -部署映射服務與管理 (DISM.EXE)
+Windows Server 2008 R2 (Standard、Enterprise、Datacenter、Foundation) | 是 | 是 | -.NET 3.5、.Net 4。5 <br> -Windows PowerShell <br> -相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console (MMC) 3。0 <br> -部署映射服務與管理 (DISM.EXE)
+Windows Server 2008 SP2 (Standard、Datacenter、Foundation) | 是 | 否 | -.NET 3.5、.Net 4。5 <br> -Windows PowerShell <br> -相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console (MMC) 3。0 <br> -部署映射服務與管理 (DISM.EXE) <br> -Virtual Server 2005 基底 + KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (Standard、Workgroup) | 是 | 否 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console (MMC) 3。0
+Windows Server 2019 (Standard、Datacenter、Essentials) | 是 | 是 | -.NET 4。5 <br> -Windows PowerShell <br> -最新相容的 Microsoft VC + + 可轉散發套件 <br> -Microsoft Management Console (MMC) 3。0
 
 如需詳細資訊, 請參閱[支援的 MABS 和 DPM 作業系統](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)。
+
 
 ## <a name="backup-limits"></a>備份限制
 

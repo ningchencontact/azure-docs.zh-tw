@@ -17,18 +17,18 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5460033902b71174dc3a10615811f657081f0e4
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919175"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186310"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶和權限
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>用於 Azure AD Connect 的帳戶
 
-![帳戶概觀](media/reference-connect-accounts-permissions/account5.png)
+![帳戶總覽](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect 會使用 3 個帳戶，以便將資訊從內部部署或 Windows Server Active Directory 同步處理至 Azure Active Directory。  這些帳戶分別是：
 
@@ -48,7 +48,12 @@ Azure AD Connect 會使用 3 個帳戶，以便將資訊從內部部署或 Windo
 
 - **SQL SA 帳戶 (選擇性)** ：用來在使用完整版 SQL Server 時建立 ADSync 資料庫。  這個 SQL Server 可位於 Azure AD Connect 安裝的本機或遠端。  此帳戶可以是和企業系統管理員相同的帳戶。  SQL 管理員可執行頻外資料庫佈建，然後由具有資料庫擁有者權限的 Azure AD Connect 管理員進行安裝。  如需這方面的資訊，請參閱[使用 SQL 委派的管理員權限安裝 Azure AD Connect](how-to-connect-install-sql-delegation.md)
 
-## <a name="installing-azure-ad-connect"></a>安裝 Azure AD Connect
+> [!NOTE]
+> 支援從 ESAE 系統管理樹系 (也稱為「紅色樹系」) 管理 Azure AD Connect 中使用的管理帳戶。
+> 專用的系統管理樹系可讓組織在比生產環境具有更強安全性控制的環境中裝載系統管理帳戶、工作站和群組。
+> 若要深入瞭解專用的系統管理樹系, 請參閱[ESAE 系統管理樹系設計方法](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
+
+## <a name="installing-azure-ad-connect"></a>正在安裝 Azure AD Connect
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
 
 * 在 [快速設定] 中，精靈需要更多權限，  以便在不需要建立使用者或設定權限的情況下，輕鬆設定您的組態。
@@ -73,7 +78,7 @@ AD DS 企業系統管理員帳戶可用來設定內部部署 Active Directory。
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>AD DS 連接器帳戶針對快速設定所需的權限
 AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立的，而且在由快速設定建立時，會具有下列權限：
 
-| 權限 | 用於 |
+| 使用權限 | 用於 |
 | --- | --- |
 | <li>複寫目錄變更</li><li>複寫目錄變更 (全部) |密碼雜湊同步處理 |
 | 讀取/寫入所有屬性 (使用者) |匯入和 Exchange 混合 |
@@ -91,7 +96,7 @@ AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立�
 | 精靈頁面 | 收集的認證 | 所需的權限 | 用於 |
 | --- | --- | --- | --- |
 | N/A |執行安裝精靈的使用者 |本機伺服器的系統管理員 |<li>建立用來執行同步處理服務的 ADSync 服務帳戶。 |
-| 連接至 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 Azure AD 連接器帳戶。</li> |
+| 連線到 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 Azure AD 連接器帳戶。</li> |
 | 連線到 AD DS |內部部署 Active Directory 認證 |Active Directory 中 Enterprise Admins (EA) 群組成員 |<li>在 Active Directory 中建立 AD DS 連接器帳戶並對其授與權限。 這個建立的帳戶是在同步處理期間用來讀取和寫入目錄資訊。</li> |
 
 
@@ -109,12 +114,12 @@ AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立�
 | --- | --- | --- | --- |
 | N/A |執行安裝精靈的使用者 |<li>本機伺服器的系統管理員</li><li>如果使用完整的 SQL Server，使用者必須是 SQL 中的系統管理員 (SA)</li> |預設會建立用來作為同步引擎服務帳戶的本機帳戶。 只有在管理員未指定特定帳戶時才會建立帳戶。 |
 | 安裝同步處理服務，服務帳戶選項 |AD 或本機使用者帳戶認證 |使用者權限會由安裝精靈授與 |如果系統管理員指定帳戶，則此帳戶會做為同步處理服務帳戶。 |
-| 連接至 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 Azure AD 連接器帳戶。</li> |
-| 連接您的目錄 |各個連線至 Azure AD 之樹系的內部部署 Active Directory 認證 |權限取決於所啟用的功能，並且可在建立 AD DS 連接器帳戶中找到 |這個帳戶是在同步處理期間用來讀取和寫入目錄資訊。 |
-| AD FS 伺服器 |在清單中每個伺服器，精靈就會收集認證登入認證時執行精靈之使用者的權限不足無法連線 |網域系統管理員 |安裝和設定 AD FS 伺服器角色。 |
-| Web 應用程式 Proxy 伺服器 |在清單中每個伺服器，精靈就會收集認證登入認證時執行精靈之使用者的權限不足無法連線 |目標電腦上的本機系統管理員 |安裝和設定 WAP 伺服器角色。 |
-| Proxy 信任憑證 |Federation Service 信任認證 (Proxy 用來註冊 FS 信任憑證的認證) |網域帳戶是 AD FS 伺服器的本機系統管理員 |FS-WAP 信任憑證的首次註冊。 |
-| AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」 |AD 使用者帳戶認證 |網域使用者 |Azure AD 使用者帳戶所提供的認證做為 AD FS 服務的登入帳戶。 |
+| 連線到 Azure AD |Azure AD 目錄認證 |Azure AD 中的全域管理員角色 |<li>啟用 Azure AD 目錄中的同步處理。</li>  <li>建立在 Azure AD 中用於持續同步處理作業的 Azure AD 連接器帳戶。</li> |
+| 連線您的目錄 |各個連線至 Azure AD 之樹系的內部部署 Active Directory 認證 |權限取決於所啟用的功能，並且可在建立 AD DS 連接器帳戶中找到 |這個帳戶是在同步處理期間用來讀取和寫入目錄資訊。 |
+| AD FS 伺服器 |針對清單中的每部伺服器, 當執行 wizard 的使用者登入認證不足而無法連線時, 嚮導會收集認證 |網域系統管理員 |安裝和設定 AD FS 伺服器角色。 |
+| Web 應用程式 Proxy 伺服器 |針對清單中的每部伺服器, 當執行 wizard 的使用者登入認證不足而無法連線時, 嚮導會收集認證 |目標電腦上的本機系統管理員 |安裝和設定 WAP 伺服器角色。 |
+| Proxy 信任認證 |Federation Service 信任認證 (Proxy 用來註冊 FS 信任憑證的認證) |網域帳戶是 AD FS 伺服器的本機系統管理員 |FS-WAP 信任憑證的首次註冊。 |
+| AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」 |AD 使用者帳戶認證 |網域使用者 |系統會使用提供其認證的 Azure AD 使用者帳戶做為 AD FS 服務的登入帳戶。 |
 
 ### <a name="create-the-ad-ds-connector-account"></a>建立 AD DS 連接器帳戶
 
@@ -123,7 +128,7 @@ AD DS 連接器帳戶是為了在 Windows Server AD 中讀取和寫入而建立�
 >
 >如需詳細資訊，請參閱 [Azure AD Connect：設定 AD DS 連接器帳戶權限](how-to-connect-configure-ad-ds-connector-account.md)
 
-在 [連線您的目錄]  頁面上指定的帳戶必須存在於 Active Directory，才能進行安裝。  Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect 精靈建立 **AD DS 連接器帳戶**，以用來連線至 Active Directory。  
+在 [連線您的目錄] 頁面上指定的帳戶必須存在於 Active Directory，才能進行安裝。  Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect 精靈建立 **AD DS 連接器帳戶**，以用來連線至 Active Directory。  
 
 它也必須獲得必要的權限。 安裝精靈不會驗證權限，在同步處理期間只會發現問題。
 
@@ -206,7 +211,7 @@ VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果�
 #### <a name="group-managed-service-account"></a>群組受控服務帳戶
 如果您使用遠端 SQL Server，我們建議使用**群組受控服務帳戶**。 如需如何讓 Active Directory 準備好使用群組受控服務帳戶的詳細資訊，請參閱[群組受控服務帳戶概觀](https://technet.microsoft.com/library/hh831782.aspx)。
 
-若要使用此選項，請在 [安裝必要元件](how-to-connect-install-custom.md#install-required-components) 頁面上，依序選取 [使用現有的服務帳戶]  和 [受控服務帳戶]  。  
+若要使用此選項，請在 [安裝必要元件](how-to-connect-install-custom.md#install-required-components) 頁面上，依序選取 [使用現有的服務帳戶] 和 [受控服務帳戶]。  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
 系統也支援使用[獨立受控服務帳戶](https://technet.microsoft.com/library/dd548356.aspx)。 不過，這些帳戶只能在本機電腦上使用，所以對預設虛擬服務帳戶使用這些帳戶並沒有任何好處。
 
@@ -234,16 +239,16 @@ VSA 適用於同步處理引擎和 SQL 位於相同伺服器的情況。 如果�
 
 使用帳戶所在伺服器的名稱可以透過使用者名稱的第二個部分來識別。 在圖中，伺服器名稱是 DC1。 如果您有預備伺服器，則每個伺服器會有自己的帳戶。
 
-系統會使用不會過期的長複雜密碼建立帳戶。 且該帳戶會獲得特殊角色**目錄同步處理帳戶**，其僅具有執行目錄同步處理工作的權限。 您無法透過 Azure AD Connect 精靈以外的方式授與特殊的內建角色。 Azure 入口網站會顯示此帳戶具備 [使用者]  角色。
+系統會使用不會過期的長複雜密碼建立帳戶。 且該帳戶會獲得特殊角色**目錄同步處理帳戶**，其僅具有執行目錄同步處理工作的權限。 您無法透過 Azure AD Connect 精靈以外的方式授與特殊的內建角色。 Azure 入口網站會顯示此帳戶具備 [使用者] 角色。
 
 Azure AD 中有 20 個同步服務帳戶的限制。 若要取得 Azure AD 中現有 Azure AD 服務帳戶的清單，請執行下列 Azure AD PowerShell Cmdlet：`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 若要移除未使用的 Azure AD 服務帳戶，請執行下列 Azure AD PowerShell Cmdlet：`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->您可以使用上述 PowerShell 命令之前，您必須安裝[Azure Active Directory PowerShell for Graph 模組](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module)，並連接到您的 Azure ad 執行個體[Connect-azuread](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>在您可以使用上述 PowerShell 命令之前, 您必須安裝[Azure Active Directory PowerShell For Graph 模組](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module), 並使用[AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)連接到您的 Azure AD 實例
 
-如需有關如何管理或重設 Azure AD 連接器帳戶密碼的詳細資訊，請參閱[管理 Azure AD Connect 帳戶](how-to-connect-azureadaccount.md)
+如需如何管理或重設 Azure AD 連接器帳戶密碼的詳細資訊, 請參閱[管理 Azure AD Connect 帳戶](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>相關文件
 如果您尚未閱讀有關[整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md) 的文件，下表提供相關主題的連結。

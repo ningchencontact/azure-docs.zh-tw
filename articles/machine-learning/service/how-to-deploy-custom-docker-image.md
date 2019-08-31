@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: a86dd021d8f9cfe275b3af3f0cb71b99857c26d7
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 753f0bece5b8b52ebb50ab2a6e93056ce209cfbc
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971509"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183554"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>使用自訂的 Docker 基底映射部署模型
 
@@ -23,7 +23,7 @@ ms.locfileid: "69971509"
 
 當您將定型的模型部署至 web 服務或 IoT Edge 裝置時, 系統會建立一個套件, 其中包含可處理傳入要求的 web 伺服器。
 
-Azure Machine Learning 服務提供預設的 Docker 基底映射, 因此您不必擔心如何建立它。 您也可以使用您建立的自訂基底映射作為_基底映射_。 
+Azure Machine Learning 服務提供預設的 Docker 基底映射, 因此您不必擔心如何建立它。 您也可以使用 Azure Machine Learning 服務__環境__來選取特定的基底映射, 或使用您提供的自訂映射。
 
 建立映射以供部署時, 會使用基底映射做為起點。 它提供基礎作業系統和元件。 然後部署程式會在部署之前, 將其他元件 (例如您的模型、conda 環境和其他資產) 新增至映射。
 
@@ -193,6 +193,8 @@ Microsoft 會在可公開存取的儲存機制上提供數個 docker 映射, 此
 > [!IMPORTANT]
 > 使用 CUDA 或 TensorRT 的 Microsoft 映射必須僅用於 Microsoft Azure 服務。
 
+如需詳細資訊, 請參閱[Azure Machine Learning 服務容器](https://github.com/Azure/AzureML-Containers)。
+
 > [!TIP]
 >__如果您的模型是在 Azure Machine Learning 計算上定型__, 使用__版本1.0.22 或更高__的 Azure Machine Learning SDK, 則會在定型期間建立映射。 若要探索此映射的名稱, 請`run.properties["AzureML.DerivedImageName"]`使用。 下列範例示範如何使用此映射:
 >
@@ -203,29 +205,50 @@ Microsoft 會在可公開存取的儲存機制上提供數個 docker 映射, 此
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 的映射
 
-若要使用自訂映射, 請`base_image`將推斷設定[物件](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)的屬性設定為影像的位址:
+若要使用儲存在**工作區的 Azure Container Registry**中的映射, 或可**公開存取的容器**登錄, 請設定下列[環境](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py)屬性:
+
++ `docker.enabled=True`
++ `docker.base_image`:將設定為登錄和映射的路徑。
 
 ```python
-# use an image from a registry named 'myregistry'
-inference_config.base_image = "myregistry.azurecr.io/myimage:v1"
+from azureml.core import Environment
+# Create the environment
+myenv = Environment(name="myenv")
+# Enable Docker and reference an image
+myenv.docker.enabled = True
+myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
 ```
 
-此格式適用于您工作區的 Azure Container Registry 中儲存的影像, 以及可公開存取的容器登錄。 例如, 下列程式碼會使用 Microsoft 所提供的預設映射:
+若要使用不在您工作區中的__私人容器__登錄中的映射, 您必須`docker.base_image_registry`使用來指定存放庫的位址, 以及使用者名稱和密碼:
 
 ```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+# Set the container registry information
+myenv.docker.base_image_repository.address = "myregistry.azurecr.io"
+myenv.docker.base_image_repository.username = "username"
+myenv.docker.base_image_repository.password = "password"
 ```
 
-若要使用不在您工作區中的__私人容器__登錄中的映射, 您必須指定存放庫的位址, 以及使用者名稱和密碼:
+定義環境之後, 請將它與[InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)物件搭配使用, 以定義將在其中執行模型和 web 服務的推斷環境。
 
 ```python
-# Use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
+from azureml.core.model import InferenceConfig
+# Use environment in InferenceConfig
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
 ```
+
+此時, 您可以繼續進行部署。 例如, 下列程式碼片段會使用推斷設定和自訂映射在本機部署 web 服務:
+
+```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+如需部署的詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
 
 ### <a name="use-an-image-with-the-machine-learning-cli"></a>使用 Machine Learning CLI 的映射
 

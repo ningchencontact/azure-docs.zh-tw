@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 ms.author: barclayn
-ms.openlocfilehash: 910057e0e81219a68608441530d03ca1a2411b02
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9721f22eb73c68f729ced13480370f6593c58510
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875103"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182788"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 
@@ -254,14 +254,16 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 
 透過 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 功能可支援 Azure SQL Database 資料的用戶端加密。 Always Encrypted 會使用用戶端所建立及儲存的金鑰。 客戶可以將主要金鑰儲存在 Windows 憑證存放區、Azure Key Vault 或硬體安全性模組中。 SQL 使用者可以使用 SQL Server Management Studio 來選擇他們要用來加密資料行的金鑰。
 
-#### <a name="encryption-model-and-key-management"></a>加密模型和金鑰管理
+#### <a name="encryption-model-and-key-management-table"></a>加密模型和金鑰管理資料表
 
-| **使用服務管理金鑰的伺服器端** |**使用客戶管理的金鑰的伺服器端**| **使用用戶端管理的用戶端** | **AI 和 Machine Learning**   |
-|--------------------|-------------------|----------------------|--------------------|
+|                                  |                    | **加密模型和金鑰管理** |                    |
+|----------------------------------|--------------------|-----------------------------------------|--------------------|
+|                                  | **使用服務管理金鑰的伺服器端**     | **使用客戶管理的金鑰的伺服器端**             | **使用用戶端管理的用戶端**      |
+| **AI 和 Machine Learning**      |                    |                    |                    |
 | Azure 搜尋服務                     | 是                | -                  | -                  |
 | Azure Machine Learning 服務   | 是                | -                  | -                  |
 | Azure Machine Learning Studio    | 是                | 預覽，RSA 2048 位元 | -               |
-| Power BI                         | 是                | 預覽，RSA 2048 位元 | -               |
+| Power BI                         | 是                | 預覽，RSA 2048 位元 | -                  |
 | **分析**                    |                    |                    |                    |
 | Azure 串流分析           | 是                | -                  | -                  |
 | 事件中樞                       | 是                | -                  | -                  |
@@ -282,7 +284,7 @@ Azure SQL Database 目前支援針對由 Microsoft 管理之服務端和用戶�
 | Azure SQL Database               | 是                | 是，RSA 2048 位元  | 是                |
 | 適用于 mariadb 的 Azure SQL Database   | 是                | -                  | -                  |
 | 適用于 MySQL 的 Azure SQL Database     | 是                | -                  | -                  |
-| 于 postgresql 的 Azure SQL Database | 是                | -                  | -                 |
+| 于 postgresql 的 Azure SQL Database | 是                | -                  | -                  |
 | Azure SQL 資料倉儲         | 是                | 是，RSA 2048 位元  | 是                |
 | SQL Server Stretch Database      | 是                | 是，RSA 2048 位元  | 是                |
 | 表格儲存體                    | 是                | -                  | 是                |

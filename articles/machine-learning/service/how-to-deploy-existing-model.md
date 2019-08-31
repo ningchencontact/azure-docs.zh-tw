@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: cbbfd5f7beb7270bf55e952c818b4802d9d9ecab
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f30ac3d5e20b3f797e083972ac179fd29f6b1475
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847999"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182532"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning-service"></a>使用現有的模型搭配 Azure Machine Learning 服務
 
@@ -30,7 +30,7 @@ ms.locfileid: "68847999"
 >
 > 如需部署程式的一般資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure Machine Learning 服務工作區。 如需詳細資訊, 請參閱[建立工作區](how-to-manage-workspace.md)。
 
@@ -76,23 +76,40 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 
 ## <a name="define-inference-configuration"></a>定義推斷設定
 
-推斷設定會定義用來執行已部署模型的環境。 推斷設定會參考下列檔案, 這些檔案會在部署時用來執行模型:
+推斷設定會定義用來執行已部署模型的環境。 推斷設定會參考下列實體, 在部署時用來執行模型:
 
-* 執行時間。 執行時間目前唯一有效的值是 Python。
 * 輸入腳本。 這個檔案 (名`score.py`為) 會在部署的服務啟動時載入模型。 它也會負責接收資料、將它傳遞至模型, 然後傳迴響應。
-* Conda 環境檔案。 此檔案會定義執行模型和專案腳本所需的 Python 套件。 
+* Azure Machine Learning 服務[環境](how-to-use-environments.md)。 環境會定義執行模型和專案腳本所需的軟體相依性。
 
-下列範例顯示使用 Python SDK 的基本推斷設定:
+下列範例示範如何使用 SDK 來建立環境, 然後將它與推斷設定搭配使用:
 
 ```python
 from azureml.core.model import InferenceConfig
+from azureml.core import Environment
+from azureml.core.environment import CondaDependencies
 
-inference_config = InferenceConfig(runtime= "python", 
-                                   entry_script="score.py",
-                                   conda_file="myenv.yml")
+# Create the environment
+myenv = Environment(name="myenv")
+conda_dep = CondaDependencies()
+
+# Define the packages needed by the model and scripts
+conda_dep.add_conda_package("tensorflow")
+conda_dep.add_conda_package("numpy")
+conda_dep.add_conda_package("scikit-learn")
+conda_dep.add_pip_package("keras")
+
+# Adds dependencies to PythonSection of myenv
+myenv.python.conda_dependencies=conda_dep
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
 ```
 
-如需詳細資訊, 請參閱[InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)參考。
+如需詳細資訊，請參閱下列文章：
+
++ [如何使用環境](how-to-use-environments.md)。
++ [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)參考。
+
 
 CLI 會從 YAML 檔案載入推斷設定:
 
@@ -102,6 +119,20 @@ CLI 會從 YAML 檔案載入推斷設定:
    "runtime": "python",
    "condaFile": "myenv.yml"
 }
+```
+
+使用 CLI 時, conda 環境會定義于推斷設定`myenv.yml`所參考的檔案中。 下列 YAML 是此檔案的內容:
+
+```yaml
+name: inference_environment
+dependencies:
+- python=3.6.2
+- tensorflow
+- numpy
+- scikit-learn
+- pip:
+    - azureml-defaults
+    - keras
 ```
 
 如需有關推斷設定的詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
@@ -190,24 +221,6 @@ def predict(text, include_neutral=True):
 ```
 
 如需有關輸入腳本的詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
-
-### <a name="conda-environment"></a>Conda 環境
-
-下列 YAML 描述執行模型和專案腳本所需的 conda 環境:
-
-```yaml
-name: inference_environment
-dependencies:
-- python=3.6.2
-- tensorflow
-- numpy
-- scikit-learn
-- pip:
-    - azureml-defaults
-    - keras
-```
-
-如需詳細資訊, 請參閱[使用 Azure Machine Learning 服務部署模型](how-to-deploy-and-where.md)。
 
 ## <a name="define-deployment"></a>定義部署
 

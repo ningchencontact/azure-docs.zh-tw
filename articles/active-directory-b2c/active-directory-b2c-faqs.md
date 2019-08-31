@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e5ceb53cb0fcce40d779bd516fa4cebac6d11209
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 7b569454696717913c325581ca1f00479a371984
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061366"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183182"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ)
 
@@ -122,7 +122,7 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>我可以將 Azure AD B2C 所提供的頁面 UI 當地語系化嗎？ 支援哪些語言？
 
-可以！  請參閱[語言自訂](active-directory-b2c-reference-language-customization.md) (處於公開預覽狀態)。 我們提供 36 種語言的翻譯，您可以覆寫任何字串以符合您的需求。
+是！  請參閱[語言自訂](active-directory-b2c-reference-language-customization.md) (處於公開預覽狀態)。 我們提供 36 種語言的翻譯，您可以覆寫任何字串以符合您的需求。
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>我可以在 Azure AD B2C 提供的註冊與登入頁面上使用自己的 URL 嗎？ 例如，我可以將 URL 從 login.microsoftonline.com 變更為 login.contoso.com 嗎？
 
@@ -143,7 +143,7 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 1. 選取 [**查看所有應用程式**]
 1. 選取名為**b2c**的應用程式, 選取 [**刪除**], 然後在出現提示時選取 **[是]** 。
 1. 在 [**管理**] 底下, 選取 [**使用者設定**]。
-1. 在 [ **LinkedIn 帳戶**連線] 底下, 選取 [**否**], 然後選取 [**儲存**]。
+1. 如果存在, 請在 [ **LinkedIn 帳戶**連線] 下選取 [**否**], 然後選取 [**儲存**]。
 1. 在 [**管理**] 底下, 選取 [**屬性**]
 1. 在 [ **Azure 資源的存取管理**] 底下, 選取 **[是]** , 然後選取 [**儲存**]。
 1. 登出 Azure 入口網站然後再次登入以重新整理您的存取權。
