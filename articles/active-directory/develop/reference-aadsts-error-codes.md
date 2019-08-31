@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cfefe02b8c9325a2d501289b10b09bc153b0593
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135766"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193178"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
 
@@ -31,7 +31,12 @@ ms.locfileid: "70135766"
 > [!NOTE]
 > 此資訊為初步資訊，隨時可能變更。 有任何疑問或找不到您要尋找的內容嗎？ 建立 GitHub 問題，或參閱[適用於開發人員的支援和協助選項](active-directory-develop-help-support.md)，了解您可以取得協助和支援的其他方法。
 >
-> 本檔是針對開發人員和系統管理員的指引而提供, 但用戶端本身絕對不應使用。 錯誤碼隨時可能會變更, 以提供更細微的錯誤訊息, 以在建立應用程式時協助開發人員。 相依于文字或錯誤碼號碼的應用程式將會隨著時間而中斷。  
+> 本檔是針對開發人員和系統管理員的指引而提供, 但用戶端本身絕對不應使用。 錯誤碼隨時可能會變更, 以提供更細微的錯誤訊息, 以在建立應用程式時協助開發人員。 相依于文字或錯誤碼號碼的應用程式將會隨著時間而中斷。
+
+## <a name="lookup-current-error-code-information"></a>查閱目前的錯誤碼資訊
+錯誤碼和訊息可能會變更。  如需最新資訊, 請查看[https://login.microsoftonline.com/error](https://login.microsoftonline.com/error)頁面以尋找 AADSTS 錯誤描述、修正和一些建議的解決方法。  
+
+搜尋傳回錯誤碼的數值部分。  例如, 如果您收到錯誤碼 "AADSTS16000", 請在中[https://login.microsoftonline.com/error](https://login.microsoftonline.com/error)搜尋 "16000"。  您也可以將錯誤碼號碼新增至 URL, 直接連結到特定的錯誤: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000)。
 
 ## <a name="aadsts-error-codes"></a>AADSTS 錯誤碼
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ab74b37fa8adc58f8641893b4168f71c453b0fdd
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0c617cbd17d9b9620c957eec45aadd962db34831
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972712"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194135"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter 的 CloudSimple 私用雲端許可權模型
 
@@ -24,7 +24,7 @@ CloudSimple 會保留私用雲端環境的完整系統管理存取權。 每個 
 當您建立私人雲端時, 會在 vCenter 單一登入網域中建立**CloudOwner**使用者, 其具有**雲端擁有者角色**的存取權, 可管理私人雲端中的物件。 此使用者也可以設定額外的[vCenter 身分識別來源](set-vcenter-identity.md), 以及其他使用者到私人雲端 vCenter。
 
 > [!NOTE]
-> 您 CloudSimple 私用雲端 vcenter 的預設使用者`cloudowner@cloudsimple.local`是在建立私人雲端時, 不需要將它與您的內部部署 vcenter 連結。
+> 您 CloudSimple 私用雲端 vCenter 的預設使用者cloudowner@cloudsimple.local是建立私用雲端的時間。
 
 ## <a name="user-groups"></a>使用者群組
 

@@ -1,18 +1,18 @@
 ---
 title: 如何在合作夥伴中心管理商業 Marketplace 帳戶
 description: 瞭解如何在合作夥伴中心管理商業 Marketplace 帳戶。
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f0557f21e791dd22df16451003d5efcfc72c56b4
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.date: 08/30/2019
+ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164723"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194256"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>如何在合作夥伴中心管理您的商業 Marketplace 帳戶 
 
@@ -305,9 +305,15 @@ ms.locfileid: "70164723"
 您公司的使用者可以在合作夥伴中心上獲派商業 Marketplace 方案的下列角色和許可權。 
 
 |**角色**|**Permissions**|
-|----------------------------------|:---------------------------------|
-
-|Manager | •可以存取所有 Microsoft 帳戶的功能, 但稅務和付款設定除外 |     | •可以管理使用者、角色和工作帳戶 (租使用者) | |開發人員 | •可以管理及發佈供應專案 |     | •可以查看一些發行者報表 | |全域管理員 | •不適用於商業 marketplace | |商務參與者 | •與商用 marketplace 無關 | |財務參與者 | •與商用 marketplace 無關 | |市場行銷人員 | •與商用 marketplace 無關 |
+|----------------------------------|---------------------------------|
+|經理|-可以存取所有 Microsoft 帳戶的功能, 但稅務和付款設定除外|
+|      |-可以管理使用者、角色和工作帳戶 (租使用者)|
+|開發人員|-可以管理及發佈供應專案|
+|      |-可以查看一些發行者報表|
+|全域管理員|-與商用 marketplace 無關|
+|商務參與者|-與商用 marketplace 無關|
+|財務參與者|-與商用 marketplace 無關|
+|市場行銷人員|-與商用 marketplace 無關|
 
 如需有關在合作夥伴中心的其他區域中管理角色和許可權的詳細資訊, 例如 Azure Active Directory (AD)、雲端解決方案提供者 (CSP)、控制台廠商 (CPV)、來賓使用者或 Microsoft 合作夥伴網路 (MPN), 請參閱[指派使用者角色。和合作夥伴中心的許可權](https://docs.microsoft.com/partner-center/permissions-overview)。
 

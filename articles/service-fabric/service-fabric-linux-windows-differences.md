@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 829a3ea6e8fafa24831f1731e402a3991c0258c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7ff2d7e02b557676d2ba569f7baa216d07221b9
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719986"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192543"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 與 Windows 上的 Service Fabric 差異
 
@@ -31,6 +31,7 @@ Windows 上支援的一些功能，在 Linux 上尚未提供支援。 最終，�
 * Linux 上的錯誤分析服務 (FAS)
 * Service Fabric 服務的 DNS 服務 (Linux 上的容器支援 DNS 服務)
 * 特定 Powershell 命令的 CLI 命令對等項目 (在下面的清單中，大多數項目只適用於獨立叢集)
+* [可能影響擴充性的記錄檔執行差異](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>無法針對 Linux Service Fabric 叢集運作的 Powershell Cmdlet
 

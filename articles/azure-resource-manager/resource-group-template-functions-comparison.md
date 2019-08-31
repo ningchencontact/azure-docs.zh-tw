@@ -3,15 +3,15 @@ title: Azure Resource Manager 範本函式 - 比較 | Microsoft Docs
 description: 描述 Azure Resource Manager 範本中用來比較值的函式。
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 0eafadd4049baea58aa882b3421eaa6a684a3a38
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 05e51af62be974f925fefc46ad63c489f27fd163
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205487"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194826"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的比較函式
 
@@ -32,10 +32,10 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |整數、字串、陣列或物件 |要檢查是否相等的第一個值。 |
-| arg2 |是 |整數、字串、陣列或物件 |要檢查是否相等的第二個值。 |
+| arg1 |是 |int、string、array 或 object |要檢查是否相等的第一個值。 |
+| arg2 |是 |int、string、array 或 object |要檢查是否相等的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -127,12 +127,12 @@ equals 函式通常會搭配 `condition` 元素，用來測試是否已部署資
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | True |
-| checkArrays | Bool | True |
-| checkObjects | Bool | True |
+| checkInts | Bool | 真 |
+| checkStrings | Bool | 真 |
+| checkArrays | Bool | 真 |
+| checkObjects | Bool | 真 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -165,9 +165,9 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | 真 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -188,7 +188,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整數或字串 |用於大於比較的第一個值。 |
 | arg2 |是 |整數或字串 |用於大於比較的第二個值。 |
@@ -240,10 +240,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
-| checkStrings | Bool | True |
+| checkInts | Bool | 偽 |
+| checkStrings | Bool | 真 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -264,7 +264,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整數或字串 |用於大於或等於比較的第一個值。 |
 | arg2 |是 |整數或字串 |用於大於或等於比較的第二個值。 |
@@ -316,10 +316,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
-| checkStrings | Bool | True |
+| checkInts | Bool | 偽 |
+| checkStrings | Bool | 真 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -340,7 +340,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整數或字串 |用於小於比較的第一個值。 |
 | arg2 |是 |整數或字串 |用於小於比較的第二個值。 |
@@ -392,10 +392,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkInts | Bool | 真 |
+| checkStrings | Bool | 偽 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 
@@ -416,7 +416,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |整數或字串 |用於小於或等於比較的第一個值。 |
 | arg2 |是 |整數或字串 |用於小於或等於比較的第二個值。 |
@@ -468,10 +468,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkInts | Bool | 真 |
+| checkStrings | Bool | 偽 |
 
 若要使用 Azure CLI 部署此範例範本，請使用：
 

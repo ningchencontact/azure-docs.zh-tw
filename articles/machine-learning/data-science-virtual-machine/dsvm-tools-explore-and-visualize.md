@@ -1,28 +1,23 @@
 ---
-title: 資料探索和虛擬化工具 - Azure | Microsoft Docs
+title: 資料探索和虛擬化工具
+titleSuffix: Azure Data Science Virtual Machine
 description: 資料科學虛擬機器的資料探索和視覺效果工具。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vijetaj
-ms.openlocfilehash: d60acdf483d418e458f51ef6cf31b17c43b7379f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 14c34a13440d50fcf42c2207f9933dc1de014a14
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70065895"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191973"
 ---
-# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上的資料探索和視覺效果工具
+# <a name="data-exploration-and-visualization-tools-on-the-azure-data-science-virtual-machine"></a>Azure 資料科學虛擬機器上的資料探索和視覺效果工具
 
 在資料科學中, 關鍵在於瞭解資料。 視覺效果和資料探索工具有助於加速資料了解。 資料科學虛擬機器 (DSVM) 上提供的下列工具可讓您更輕鬆地進行這個重要步驟。
 

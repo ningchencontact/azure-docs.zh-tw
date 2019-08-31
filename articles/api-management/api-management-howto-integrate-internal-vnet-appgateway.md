@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: f7617348a98899251dcd3b8f1645c40bd297ffdb
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073545"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193965"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>整合內部 VNET 中的 API 管理與應用程式閘道
 
@@ -84,6 +84,9 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 
 > [!WARNING]
 > 如果您使用 Azure AD 或第三方驗證，請啟用應用程式閘道中的 [cookie 型工作階段同質性](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity)功能。
+
+> [!WARNING]
+> 若要防止應用程式閘道 WAF 在開發人員入口網站中中斷下載 OpenAPI 規格, 您必須停用防火牆規則`942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`。
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>建立資源管理員的資源群組
 

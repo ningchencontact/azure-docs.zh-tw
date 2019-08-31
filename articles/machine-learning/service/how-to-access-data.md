@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 545860a394c7eac953c1cbacc9dd05fc3737f6c1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7b800a7ef38624dbe89a61dd04e2bd97b02066bb
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856179"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191922"
 ---
 # <a name="access-data-in-azure-storage-services"></a>存取 Azure 儲存體服務中的資料
 
@@ -28,7 +28,7 @@ ms.locfileid: "68856179"
 * [使用資料存放區上傳和下載資料](#up-and-down)
 * [在定型期間存取資料](#train)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用資料存放區，必須先有[工作區](concept-workspace.md)。
 
@@ -200,6 +200,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
+
 ### <a name="compute-and-datastore-matrix"></a>計算和資料存放區矩陣
 
 資料存放區目前支援將連接資訊儲存至下列矩陣中所列的儲存體服務。 此矩陣會顯示不同計算目標和資料存放區案例的可用資料存取功能。 深入瞭解 Azure Machine Learning 的[計算目標](how-to-set-up-training-targets.md#compute-targets-for-training)。
@@ -217,6 +218,17 @@ est = Estimator(source_directory='your code directory',
 
 > [!NOTE]
 > 在某些情況下, 可能會有高度反復的大型資料處理程式`as_download()`以較`as_mount()`快的速度執行, 而不是, 這可以用 experimentally 驗證。
+
+### <a name="accessing-source-code-during-training"></a>在定型期間存取原始程式碼
+
+Azure blob 儲存體的輸送量速度高於 Azure 檔案共用, 而且會調整為以平行方式啟動的大量作業。 基於這個理由, 我們建議您將執行設定為使用 blob 儲存體來傳送原始程式碼檔案。
+
+下列程式碼範例會在執行設定中指定要用於來來源程式代碼傳輸的 blob 資料存放區。
+
+```python 
+# workspaceblobstore is the default blob storage
+run_config.source_directory_data_store = "workspaceblobstore" 
+```
 
 ## <a name="access-data-during-scoring"></a>在評分期間存取資料
 

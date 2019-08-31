@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/29/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5d6f1fcba5d93cbd4efb63cd080848258eb2a262
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172877"
+ms.locfileid: "70191741"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -649,6 +649,7 @@ ms.locfileid: "70172877"
 |AADClusterApplication|字串，預設值為 ""|Static|代表叢集的 Web API 應用程式名稱或識別碼 |
 |AADLoginEndpoint|字串，預設值為 ""|Static|AAD 登入端點, 預設的 Azure 商業, 針對非預設環境 (例如 Azure Government "HTTPs:\//login.microsoftonline.us") 指定 |
 |AADTenantId|字串，預設值為 ""|Static|租用戶識別碼 (GUID) |
+|AcceptExpiredPinnedClusterCertificate|布林值，預設值為 FALSE|動態|指出是否接受由指紋宣告之過期叢集憑證的旗標, 僅適用于叢集憑證;因此, 讓叢集保持運作狀態。 |
 |AdminClientCertThumbprints|字串，預設值為 ""|動態|系統管理員角色的用戶端所使用的憑證指紋。 這是以逗號分隔的名稱清單。 |
 |AADTokenEndpointFormat|字串，預設值為 ""|Static|AAD 權杖端點 (預設為 Azure 商業), 為非預設環境指定, 例如 Azure Government "HTTPs\/:/{0}login.microsoftonline.us/" |
 |AdminClientClaims|字串，預設值為 ""|動態|系統管理員用戶端預期會發出的所有可能宣告，其格式與 ClientClaims 相同，此清單會於內部新增至 ClientClaims，因此不必再將相同的項目新增至 ClientClaims。 |

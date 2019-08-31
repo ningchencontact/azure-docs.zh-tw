@@ -3,15 +3,15 @@ title: Azure Resource Manager 範本函式 - 邏輯 | Microsoft Docs
 description: 描述 Azure Resource Manager 範本中用來決定邏輯值的函式。
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447982"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194798"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的邏輯函式
 
@@ -31,7 +31,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |boolean |要檢查是否為 ture 的第一個值。 |
 | arg2 |是 |boolean |要檢查是否為 true 的第二個值。 |
@@ -69,13 +69,13 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | 偽 |
+| orExampleOutput | Bool | 真 |
+| notExampleOutput | Bool | 偽 |
 
-## <a name="bool"></a>布林
+## <a name="bool"></a>bool
 
 `bool(arg1)`
 
@@ -83,7 +83,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |字串或整數 |要轉換為布林值的值。 |
 
@@ -122,12 +122,12 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| trueString | Bool | True |
-| falseString | Bool | False |
-| trueInt | Bool | True |
-| falseInt | Bool | False |
+| trueString | Bool | 真 |
+| falseString | Bool | 偽 |
+| trueInt | Bool | 真 |
+| falseInt | Bool | 偽 |
 
 ## <a name="if"></a>if
 
@@ -137,9 +137,9 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| condition (條件) |是 |boolean |要檢查是否為 true 或 false 的值。 |
+| condition (條件) |是 |boolean |要檢查其是否為 true 或 false 的值。 |
 | trueValue |是 | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
 | falseValue |是 | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
 
@@ -149,7 +149,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="remarks"></a>備註
 
-條件時 **，則為 True**，會評估為 true 的值。 條件時**False**，會評估為 false 的值。 具有**如果**函式，您可以包含的有效期僅有條件的運算式。 例如，您可以參考下一個條件，但並不在其他情況下的資源。 有條件地評估運算式的範例是由下列一節所示。
+當條件為**true**時, 只會評估真正的值。 當條件為**false**時, 只會評估 false 值。 使用**if**函式時, 您可以包含只有條件式有效的運算式。 例如, 您可以參考存在於某個條件下但不在其他條件下的資源。 下一節會顯示有條件地評估運算式的範例。
 
 ### <a name="examples"></a>範例
 
@@ -180,13 +180,13 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | yesOutput | String | 是 |
-| noOutput | String | no |
-| objectOutput | Object | { "test": "value1" } |
+| noOutput | String | 否 |
+| objectOutput | 物件 | { "test": "value1" } |
 
-下列[範例範本](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json)示範如何使用此函式的有效期僅有條件的運算式。
+下列[範例範本](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json)顯示如何使用此函式搭配僅有條件地有效的運算式。
 
 ```json
 {
@@ -242,7 +242,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |boolean |要轉換的值。 |
 
@@ -278,11 +278,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | 偽 |
+| orExampleOutput | Bool | 真 |
+| notExampleOutput | Bool | 偽 |
 
 下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)使用 **not** 搭配 [equals](resource-group-template-functions-comparison.md#equals)。
 
@@ -302,9 +302,9 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | 真 |
 
 ## <a name="or"></a>或
 
@@ -314,7 +314,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="parameters"></a>參數
 
-| 參數 | 必要項 | 類型 | 描述 |
+| 參數 | 必要項 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |boolean |要檢查是否為 ture 的第一個值。 |
 | arg2 |是 |boolean |要檢查是否為 true 的第二個值。 |
@@ -352,11 +352,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 前述範例的輸出為：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
-| notExampleOutput | Bool | False |
+| andExampleOutput | Bool | 偽 |
+| orExampleOutput | Bool | 真 |
+| notExampleOutput | Bool | 偽 |
 
 ## <a name="next-steps"></a>後續步驟
 

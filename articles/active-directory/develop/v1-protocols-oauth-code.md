@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611947c8c1d202cf4abf4222dfe0072aced58507
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 81b1f06238b8205e72fd989bb581fba39423f7c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135731"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193223"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式
 
@@ -179,7 +179,7 @@ Azure AD 在成功回應時會傳回[存取權杖](access-tokens.md)。 為了�
 
 | 參數 | 描述 |
 | --- | --- |
-| access_token |要求的[存取權杖](access-tokens.md)，其形式為帶正負號的 JSON Web 權杖 (JWT)。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。 |
+| access_token |所要求的存取權杖。  這是不透明的字串, 取決於資源預期要接收的內容, 而不是供用戶端查看。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。 |
 | token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\) |
 | expires_in |存取權杖的有效期 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
@@ -283,8 +283,6 @@ RFC 6750 規格會針對在回應中使用 WWW 驗證標頭和持有人配置的
 
 重新整理權杖並沒有指定的存留期。 一般而言，重新整理權杖的存留期相當長。 不過，在某些情況下，重新整理權杖會過期、遭到撤銷或對要執行的動作缺乏足夠的權限。 應用程式必須預期並正確處理權杖發行端點所傳回的錯誤。
 
-[!NOTE] 存取權杖存留期可在以下位置找到: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes#configurable-token-lifetime-properties 存取權杖的預設值是1小時, 而重新整理權杖的預設值是90天。 您可以據以設定權杖存留期來變更這些存留期。 
-
 當您收到具有重新整理權杖錯誤的回應時，請捨棄目前的重新整理權杖並要求新的授權碼或存取權杖。 特別是，在授權碼授與流程中使用重新整理權杖時，如果您收到的回應含有 `interaction_required` 或 `invalid_grant` 錯誤代碼，請捨棄重新整理權杖並要求新的授權碼。
 
 使用重新整理權杖來取得新存取權杖之**租用戶專屬**端點 (您也可以使用**一般**端點) 的要求範例看起來像這樣：
@@ -352,3 +350,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | correlation_id |有助於跨元件診斷的要求唯一識別碼。 |
 
 如需錯誤碼及建議的用戶端動作的說明，請參閱[權杖端點錯誤的錯誤碼](#error-codes-for-token-endpoint-errors)。
+
+## <a name="next-steps"></a>後續步驟
+若要深入瞭解 Azure AD v1.0 端點, 以及如何將驗證和授權新增至您的 web 應用程式和 web Api, 請參閱[範例應用程式](sample-v1-code.md)。

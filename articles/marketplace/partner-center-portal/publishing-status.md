@@ -1,18 +1,18 @@
 ---
 title: 檢查您的商業 Marketplace 供應專案的發佈狀態
 description: 在 Microsoft 合作夥伴中心, 檢查透過商業 Marketplace 發佈供應專案所需的驗證、認證和預覽步驟的狀態。
-author: mattwojo
+author: ChJenk
 manager: evansma
-ms.author: mattwoj
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: c547ad256e6ba44da4ef81aa2a3aa2c77ba24815
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 77cb18a858ca87acbb8182bf708e403010251365
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982742"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70191790"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>檢查您的商業 Marketplace 供應專案的發佈狀態
 

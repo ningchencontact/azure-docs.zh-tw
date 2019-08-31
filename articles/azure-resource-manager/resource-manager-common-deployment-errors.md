@@ -6,14 +6,14 @@ author: tfitzmac
 keywords: 部署錯誤, azure 部署, 部署至 azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 07/28/2019
+ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: df5362028a38a86ba8df46efae2e3c3109856463
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638549"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194369"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -41,7 +41,7 @@ ms.locfileid: "69638549"
 | ImageNotFound | 檢查 VM 映像設定。 |  |
 | InUseSubnetCannotBeDeleted | 當您嘗試更新資源時, 可能會收到此錯誤, 並藉由刪除和建立資源來處理要求。 請務必指定所有不變的值。 | [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | 取得適當租用戶的存取權杖。 您只能從您的帳戶所屬的租用戶取得權杖。 | |
-| InvalidContentLink | 您最有可能嘗試連結至無法使用的巢狀範本。 再次確認您為巢狀範本提供的 URI。 如果儲存體帳戶中已有範本，請確定 URI 可存取。 您可能需要傳遞 SAS 權杖。 | [連結的範本](resource-group-linked-templates.md) |
+| InvalidContentLink | 您最有可能嘗試連結至無法使用的嵌套範本。 再次確認您為巢狀範本提供的 URI。 如果儲存體帳戶中已有範本，請確定 URI 可存取。 您可能需要傳遞 SAS 權杖。 目前, 您無法連結到位於[Azure 儲存體防火牆](../storage/common/storage-network-security.md)後方之儲存體帳戶中的範本。 請考慮將您的範本移至另一個存放庫 (例如 GitHub)。 | [連結的範本](resource-group-linked-templates.md) |
 | InvalidParameter | 您為資源提供的其中一個值與預期值不相符。 此錯誤的原因可能是許多不同情況。 例如，密碼強度不足，或 blob 名稱不正確。 錯誤訊息應該會指出需要更正的值。 | |
 | InvalidRequestContent | 部署值包含無法辨識的值, 或遺漏必要的值。 請確認您的資源類型值。 | [範本參考](/azure/templates/) |
 | InvalidRequestFormat | 執行部署時啟用 debug 記錄, 並確認要求的內容。 | [偵錯記錄](#enable-debug-logging) |
@@ -64,8 +64,8 @@ ms.locfileid: "69638549"
 | PasswordTooLong | 您可能選取了字元過多的密碼, 或將密碼值轉換為安全字串, 然後才將它當做參數傳遞。 如果範本包含**安全字串**參數，則不需要將值轉換為安全字串。 提供密碼值作為文字。 |  |
 | PrivateIPAddressInReservedRange | 指定的 IP 位址包含 Azure 所需的位址範圍。 變更 IP 位址以避免保留的範圍。 | [IP 位址](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | 指定的 IP 位址在子網路範圍之外。 變更 IP 位址，使其落在子網路範圍內。 | [IP 位址](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PropertyChangeNotAllowed | 有些屬性無法在已部署的資源上變更。 更新資源時，將您的變更限制為允許的屬性。 | [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | 您的訂用帳戶包含會讓您無法在部署期間嘗試執行某個動作的資源原則。 尋找封鎖動作的原則。 可能的話, 請變更您的部署, 以符合原則的限制。 | [解析原則](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| PropertyChangeNotAllowed | 某些屬性無法在已部署的資源上變更。 更新資源時，將您的變更限制為允許的屬性。 | [更新資源](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| RequestDisallowedByPolicy | 您的訂用帳戶包含的資源原則會防止您在部署期間嘗試執行的動作。 尋找封鎖動作的原則。 可能的話, 請變更您的部署, 以符合原則的限制。 | [解析原則](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | 提供不包含保留名稱的資源名稱。 | [唯一的資源名稱](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等候刪除完成。 | |
 | ResourceGroupNotFound | 檢查部署的目標資源群組名稱。 目標資源群組必須已存在於您的訂用帳戶中。 檢查訂用帳戶內容。 | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |

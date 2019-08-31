@@ -8,12 +8,13 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: e17fbcebc128a7169953ed05de617efa25fc25f8
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.localizationpriority: high
+ms.openlocfilehash: 20c27a3e4e9a96a19b347e5ef57ab9fb3c047140
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172723"
+ms.locfileid: "70194440"
 ---
 ::: zone target="docs"
 
@@ -27,12 +28,13 @@ ms.locfileid: "70172723"
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>必要條件
+# <a name="review-prerequisites"></a>檢閱必要條件
 
-您有一部用戶端電腦可用來複製資料。 您的用戶端電腦必須：
+1. 您必須使用教學課程來排序您的資料箱磁碟:訂購您的 Azure 資料箱磁碟。 您已收到磁片, 而且每個磁片都有一個連接纜線。
+2. 您有一部用戶端電腦可用來複製資料。 您的用戶端電腦必須：
 
-- 執行支援的作業系統。
-- 已安裝其他必要軟體。
+    - 執行支援的作業系統。
+    - 已安裝其他必要軟體。
 
 ::: zone-end
 

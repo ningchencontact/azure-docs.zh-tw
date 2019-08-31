@@ -3,15 +3,15 @@ title: Azure Resource Manager 範本函式 - 字串 | Microsoft Docs
 description: 描述 Azure Resource Manager 範本中用來使用字串的函式。
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1db1eb9be3586f76a8d3abc48a78a1e691da9924
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c30bb47f3f35663a6ffcfc0126758eb82c9dec4e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698185"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194769"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
 
@@ -110,7 +110,7 @@ ms.locfileid: "68698185"
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -175,7 +175,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -240,7 +240,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -288,7 +288,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -329,7 +329,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -405,7 +405,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | 真 |
 | stringFalse | Bool | 偽 |
@@ -464,7 +464,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -519,7 +519,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -583,7 +583,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | 真 |
 | objectEmpty | Bool | 真 |
@@ -646,7 +646,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | 真 |
 | startsCapTrue | Bool | True |
@@ -702,7 +702,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -760,7 +760,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | formatTest | String | Hello, User。 格式化的數位:8,175,133 |
 
@@ -888,7 +888,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | int | 3 |
@@ -943,7 +943,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -1001,7 +1001,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | int | 3 |
@@ -1079,7 +1079,7 @@ JSON 物件。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -1134,7 +1134,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例的輸出會因每個部署而有所不同, 但會類似于:
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1177,7 +1177,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例的輸出會因每個部署而有所不同, 但會類似于:
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | nameOutput | string | storagenziwvyru7uxie |
 
@@ -1228,7 +1228,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -1280,7 +1280,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -1348,7 +1348,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1407,7 +1407,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | firstOutput | Array | ["one", "two", "three"] |
 | secondOutput | Array | ["one", "two", "three"] |
@@ -1469,7 +1469,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | 真 |
 | startsCapTrue | Bool | True |
@@ -1543,7 +1543,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
 | arrayOutput | String | ["a","b","c"] |
@@ -1606,7 +1606,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -1673,7 +1673,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | 於 |
@@ -1724,7 +1724,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1775,7 +1775,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1822,7 +1822,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | 傳回 | String | one two three |
 
@@ -1962,7 +1962,7 @@ NewGuid 函數與[guid](#guid)函數不同, 因為它不接受任何參數。 �
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2017,7 +2017,7 @@ URI 編碼值的字串。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2072,7 +2072,7 @@ URI 編碼值的解碼字串。
 
 上述範例中具有預設值的輸出如下：
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
@@ -2145,7 +2145,7 @@ URI 編碼值的解碼字串。
 
 上述範例的輸出會因每個部署而有所不同, 但會類似于:
 
-| 名稱 | 類型 | 值 |
+| Name | 類型 | 值 |
 | ---- | ---- | ----- |
 | utcOutput | string | 20190305T175318Z |
 | utcShortOutput | string | 03/05/2019 |

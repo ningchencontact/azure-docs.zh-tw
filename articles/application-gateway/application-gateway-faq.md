@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3fa97c5738128907b0edad40cedf582e80c33443
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891713"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194465"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>關於應用程式閘道的常見問題
 
@@ -277,7 +277,11 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>如何? 為 .com 和 .net 網站設定 HTTPS 接聽程式嗎？ 
 
-針對多個網域型 (主機型) 路由, 您可以建立多網站接聽程式、設定使用 HTTPS 做為通訊協定的接聽程式, 以及建立接聽程式與路由規則的關聯。 如需詳細資訊, 請參閱[使用應用程式閘道來裝載多個網站](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)。 
+針對多個網域型 (主機型) 路由, 您可以建立多網站接聽程式、設定使用 HTTPS 做為通訊協定的接聽程式, 以及建立接聽程式與路由規則的關聯。 如需詳細資訊, 請參閱[使用應用程式閘道來裝載多個網站](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview)。
+
+### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>我可以在 .pfx 檔案密碼中使用特殊字元嗎？
+
+否, 在 .pfx 檔案密碼中只使用英數位元。
 
 ## <a name="configuration---web-application-firewall-waf"></a>設定-web 應用程式防火牆 (WAF)
 

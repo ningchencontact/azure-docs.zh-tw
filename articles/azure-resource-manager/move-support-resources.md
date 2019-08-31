@@ -3,15 +3,15 @@ title: 依 Azure 資源類型區分的移動作業支援
 description: 列出可移至新資源群組或訂用帳戶的 Azure 資源類型。
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: a588d4e4b1978b572488dcd5d53698cbb8f7d311
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 3100ce897a09c2747c2b339662c699d197ba73d7
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997282"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194840"
 ---
 # <a name="move-operation-support-for-resources"></a>資源的移動作業支援
 此文章列出 Azure 資源類型是否支援移動作業。 它也會提供移動資源時要考慮之特殊條件的相關資訊。

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ede7037aabc85739ee47636f1390c15e0b0d1639
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 984284fa185d4d8454b1689a62ca9e08c342e33b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158370"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195111"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>提高存取權以管理所有 Azure 訂用帳戶和管理群組
 
@@ -39,7 +39,7 @@ ms.locfileid: "66158370"
 
 ## <a name="how-does-elevate-access-work"></a>提高存取權的運作方式為何？
 
-Azure AD 和 Azure 資源會獨立地受到保護。 也就是說，Azure AD 角色指派不會將存取權授與 Azure 資源，而 Azure 角色指派不會將存取權授與 Azure AD。 不過，如果您是Azure AD 中的[全域管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)，您可以藉由指派存取權給自己，來存取您目錄中的所有 Azure 訂用帳戶與管理群組。 如果您沒有 Azure 訂用帳戶資源 (例如虛擬機器或儲存體帳戶) 的存取權，而且想要使用全域管理員權限來取得這些資源的存取權，您可以使用這項功能來達成。
+Azure AD 和 Azure 資源會獨立地受到保護。 也就是說，Azure AD 角色指派不會將存取權授與 Azure 資源，而 Azure 角色指派不會將存取權授與 Azure AD。 不過，如果您是Azure AD 中的[全域管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions)，您可以藉由指派存取權給自己，來存取您目錄中的所有 Azure 訂用帳戶與管理群組。 如果您沒有 Azure 訂用帳戶資源 (例如虛擬機器或儲存體帳戶) 的存取權，而且想要使用全域管理員權限來取得這些資源的存取權，您可以使用這項功能來達成。
 
 當您提高存取權時，您會在根範圍上 (`/`) 獲派 Azure 中的[使用者存取管理員](built-in-roles.md#user-access-administrator)角色。 這可讓您檢視所有資源，並指派目錄中任何訂用帳戶或管理群組的存取權。 您可以使用 PowerShell 來移除使用者存取管理員的角色指派。
 
@@ -53,19 +53,19 @@ Azure AD 和 Azure 資源會獨立地受到保護。 也就是說，Azure AD 角
 
 1. 以全域管理員的身分登入 [Azure 入口網站](https://portal.azure.com)或 [Azure Active Directory 系統管理中心](https://aad.portal.azure.com)。
 
-1. 在瀏覽清單中，按一下 [Azure Active Directory]  ，然後按一下 [屬性]  。
+1. 在瀏覽清單中，按一下 [Azure Active Directory]，然後按一下 [屬性]。
 
    ![Azure AD 屬性 - 螢幕擷取畫面](./media/elevate-access-global-admin/aad-properties.png)
 
-1. 在 [Azure 資源的存取管理]  下，將切換開關設為 [是]  。
+1. 在 [Azure 資源的存取管理] 下，將切換開關設為 [是]。
 
    ![Azure 資源的存取管理 - 螢幕擷取畫面](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   當您將切換開關設定為 [是]  時，您會在根範圍 (/) 上獲派 Azure RBAC 中的使用者存取管理員角色。 這會授與您權限，讓您可以在所有與 Azure AD 目錄相關聯的 Azure 訂用帳戶和管理群組中指派角色。 只有在 Azure AD 中獲派全域管理員角色的使用者可使用此切換開關。
+   當您將切換開關設定為 [是] 時，您會在根範圍 (/) 上獲派 Azure RBAC 中的使用者存取管理員角色。 這會授與您權限，讓您可以在所有與 Azure AD 目錄相關聯的 Azure 訂用帳戶和管理群組中指派角色。 只有在 Azure AD 中獲派全域管理員角色的使用者可使用此切換開關。
 
-   當您將切換開關設定為 [否]  時，Azure RBAC 中的使用者存取管理員角色會從使用者帳戶中移除。 您將無法在所有與 Azure AD 目錄相關聯的 Azure 訂用帳戶和管理群組中指派角色。 您只能檢視和管理已取得其存取權的 Azure 訂用帳戶和管理群組。
+   當您將切換開關設定為 [否] 時，Azure RBAC 中的使用者存取管理員角色會從使用者帳戶中移除。 您將無法在所有與 Azure AD 目錄相關聯的 Azure 訂用帳戶和管理群組中指派角色。 您只能檢視和管理已取得其存取權的 Azure 訂用帳戶和管理群組。
 
-1. 按一下 [儲存]  儲存您的設定。
+1. 按一下 [儲存] 儲存您的設定。
 
    這個設定不是全域屬性，而且只會套用至目前登入的使用者。 您無法為全域管理員角色的所有成員提高存取權。
 
@@ -79,7 +79,7 @@ Azure AD 和 Azure 資源會獨立地受到保護。 也就是說，Azure AD 角
 
     如需有關指派角色的資訊，請參閱[使用 RBAC 和 Azure 入口網站來管理存取權](role-assignments-portal.md)。 如果您使用 Azure AD Privileged Identity Management (PIM)，請參閱[在 PIM 中探索要管理的 Azure 資源](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md)或[在 PIM 中指派 Azure 資源角色](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)。
 
-1. 當您完成時，請將 [Azure 資源的存取管理]  切換回 [否]  。 由於這是專屬於每個使用者的設定，因此您必須以用來提高存取權的相同使用者身分來等入。
+1. 當您完成時，請將 [Azure 資源的存取管理] 切換回 [否]。 由於這是專屬於每個使用者的設定，因此您必須以用來提高存取權的相同使用者身分來等入。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

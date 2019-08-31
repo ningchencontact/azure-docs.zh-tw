@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311712"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194375"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結和巢狀的範本
 
@@ -375,7 +375,7 @@ ms.locfileid: "68311712"
 
 在部署歷程記錄中，Resource Manager 會以個別部署的方式處理每一個範本。 因此，具有三個連結或巢狀範本的主要範本在部署歷程記錄中會顯示為：
 
-![部署歷程記錄](./media/resource-group-linked-templates/deployment-history.png)
+![部署記錄](./media/resource-group-linked-templates/deployment-history.png)
 
 您可以使用歷程記錄中的這些個別項目，以在部署後擷取輸出值。 下列範本會建立公用 IP 位址，並輸出 IP 位址：
 
@@ -479,6 +479,8 @@ done
 雖然連結的範本必須可從外部存取，但它不必供大眾存取。 您可以將您的範本新增至只有儲存體帳戶擁有者可以存取的私人儲存體帳戶。 接著，在部署期間建立共用存取簽章 (SAS) Token 來啟用存取權。 您會將該 SAS Token 加入連結範本的 URI。 即使該 Token 是以安全字串來傳遞，連結範本的 URI (包括 SAS Token) 還是會記錄在部署作業中。 為了限制公開的程度，請為該 Token 設定到期日。
 
 當然，也可以將參數檔案限制為透過 SAS Token 存取。
+
+目前, 您無法連結到位於[Azure 儲存體防火牆](../storage/common/storage-network-security.md)後方之儲存體帳戶中的範本。
 
 下列範例顯示如何在連結到範本時傳遞 SAS 權杖：
 

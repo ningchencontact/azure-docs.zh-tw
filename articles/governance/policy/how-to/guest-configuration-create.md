@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 235ad37c5cf5f8ac7e801a6d25e961d32c1b7aad
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: ee8a17846495a122f7432e66c3e343a00dd0a015
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164910"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194616"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何建立來賓設定原則
 
@@ -367,6 +367,13 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 發佈內容之後, 請將具有名稱`GuestConfigPolicyCertificateValidation`和值`enabled`的標籤, 附加至需要程式碼簽署的所有虛擬機器。 您可以使用 Azure 原則, 大規模地傳遞這個標記。 請參閱[Apply 標記及其預設值](../samples/apply-tag-default-value.md)範例。
 一旦此標記已就緒, 使用`New-GuestConfigurationPolicy` Cmdlet 產生的原則定義就會透過「來賓設定」延伸模組來啟用需求。
+
+## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>預覽針對來賓設定原則指派進行疑難排解
+
+預覽中提供了一項工具, 可協助 Azure 原則來賓設定指派進行疑難排解。
+此工具目前為預覽狀態, 並已發佈至 PowerShell 資源庫做為模組名稱[來賓設定疑難排解](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)員。
+
+如需此工具中 Cmdlet 的詳細資訊, 請在 PowerShell 中使用 Get-help 命令, 以顯示內建的指導方針。  當此工具取得經常更新時, 這是取得最新資訊的最佳方式。
 
 ## <a name="next-steps"></a>後續步驟
 

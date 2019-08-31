@@ -1,27 +1,21 @@
 ---
-title: 使用地區人工智慧資料科學虛擬機器 - Azure | Microsoft Docs
+title: 使用 Geo AI
+titleSuffix: Azure Data Science Virtual Machine
 description: 了解如何使用地區 AI 資料科學虛擬機器來分析資料，並依據地理空間資料建立模型。
 keywords: 深度學習、AI、資料科學工具、資料科學虛擬機器、地理空間分析
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: vijetaj
-ms.openlocfilehash: 22c0d7d604ca41044d2d969d4ddbd2ae1a4d23d5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 01238885e68a39ff713bd346a9206668e16e7ee4
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170493"
+ms.locfileid: "70195291"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>使用地區人工智慧資料科學虛擬機器
 
@@ -47,7 +41,7 @@ ArcGIS 的 R 橋接器會安裝為位於```C:\Program Files\Microsoft\ML Server\
 
 2. [使用 R 進行地理空間分析入門](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb):示範如何使用 R 介面 ArcGIS [arcgisbinding](https://github.com/R-ArcGIS/r-bridge)程式庫所提供之地理空間資料的簡介範例。 
 
-3. [像素層級土地使用分類](https://github.com/Azure/pixel_level_land_classification)：此教學課程說明如何建立可輸入空拍影像、並傳回地表標籤的深度類神經網路模型。 土地標籤的範例包括*重型*和*水*。 模型會針對影像中的每個像素傳回這樣的標籤。 此模型是使用 Microsoft 開放原始碼[Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/)深度學習架構所建立。
+3. [像素層級土地使用分類](https://github.com/Azure/pixel_level_land_classification)：此教學課程說明如何建立可輸入空拍影像、並傳回地表標籤的深度類神經網路模型。 土地標籤的範例包括*重型*和*水*。 模型會針對影像中的每個像素傳回這樣的標籤。 
 
 
 ## <a name="next-steps"></a>後續步驟

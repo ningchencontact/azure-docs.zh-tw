@@ -1,0 +1,242 @@
+---
+title: azcopy 複製 |Microsoft Docs
+description: 本文提供 azcopy copy 命令的參考資訊。
+author: normesta
+ms.service: storage
+ms.topic: reference
+ms.date: 08/26/2019
+ms.author: normesta
+ms.subservice: common
+ms.reviewer: zezha-msft
+ms.openlocfilehash: c15d188e333bea5e74fa65d2bbdf38ae7fadc246
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195733"
+---
+# <a name="azcopy-copy"></a>azcopy 複製
+
+將來源資料複製到目的地位置。
+
+## <a name="synopsis"></a>摘要
+
+支援的指示如下:
+
+- 本機 <-> Azure Blob (SAS 或 OAuth 驗證)
+- 本機 <-> Azure 檔案 (共用/目錄 SAS 驗證)
+- 本機 <-> ADLS Gen 2 (SAS、OAuth 或 SharedKey authentication)
+- Azure Blob (SAS 或公用) < > Azure Blob (SAS 或 OAuth 驗證)
+- Azure 檔案 (SAS)-> Azure 區塊 Blob (SAS 或 OAuth 驗證)
+- AWS S3 (存取金鑰)-> Azure 區塊 Blob (SAS 或 OAuth 驗證)
+
+如需詳細資訊, 請參閱範例。
+
+### <a name="advanced"></a>進階
+
+從本機磁片上傳時, AzCopy 會根據副檔名或內容 (如果未指定副檔名), 自動偵測檔案的內容類型。
+
+內建查閱資料表很小, 但是在 Unix 上, 它會透過本機系統的 mime. 類型檔案來擴充 (如果有一或多個這些名稱可使用的話):
+
+- /etc/mime.types
+- /etc/apache2/mime.types
+- /etc/apache/mime.types
+
+在 Windows 上, MIME 類型會從登錄中解壓縮。 您可以使用旗標的協助來關閉這項功能。 請參閱旗標一節。
+
+> [!IMPORTANT]
+> 如果您使用命令列設定環境變數, 該變數將可在您的命令列歷程記錄中讀取。 請考慮從您的命令列歷程記錄中清除包含認證的變數。 若要讓變數不會出現在歷程記錄中, 您可以使用腳本來提示使用者輸入其認證, 並設定環境變數。
+
+```azcopy
+azcopy copy [source] [destination] [flags]
+```
+
+## <a name="examples"></a>範例
+
+使用 OAuth 驗證上傳單一檔案。
+
+如果您尚未登入 AzCopy, 請使用`azcopy login`命令, 然後再執行下列命令。
+
+```azcopy
+azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
+
+與上述相同, 但這次也會計算檔案內容的 MD5 雜湊, 並將它儲存為 blob 的 Content-MD5 屬性:
+
+```azcopy
+azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
+```
+
+上傳具有 SAS 的單一檔案:
+
+```azcopy
+azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+使用管線上傳具有 SAS 的單一檔案 (僅限區塊 blob):
+
+```azcopy
+cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+使用 SAS 上傳整個目錄:
+
+```azcopy
+azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+或
+
+```azcopy
+azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --put-md5
+```
+
+使用萬用字元上傳具有 SAS 的一組檔案:
+
+```azcopy
+azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
+```
+
+使用萬用字元上傳具有 SAS 的檔案和目錄:
+
+```azcopy
+azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+使用 OAuth 驗證下載單一檔案。
+
+如果您尚未登入 AzCopy, 請使用`azcopy login`命令, 然後再執行下列命令。
+
+```azcopy
+azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]" "/path/to/file.txt"
+```
+
+下載具有 SAS 的單一檔案:
+
+```azcopy
+azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "/path/to/file.txt"
+```
+
+使用管線下載具有 SAS 的單一檔案 (僅限區塊 blob):
+
+```azcopy
+azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
+```
+
+下載包含 SAS 的整個目錄:
+
+```azcopy
+azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
+```
+
+使用萬用字元下載一組具有 SAS 的檔案:
+
+```azcopy
+azcopy cp "https://[account].blob.core.windows.net/[container]/foo*?[SAS]" "/path/to/dir"
+```
+
+以使用萬用字元的 SAS 下載檔案和目錄:
+
+```azcopy
+azcopy cp "https://[account].blob.core.windows.net/[container]/foo*?[SAS]" "/path/to/dir" --recursive=true
+```
+
+將具有 SAS 的單一 blob 複製到具有 SAS 的另一個 blob:
+
+```azcopy
+azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+使用 OAuth 權杖, 將具有 SAS 的單一 blob 複製到另一個 blob。
+
+如果您尚未登入 AzCopy, 請使用`azcopy login`命令, 然後再執行下列命令。 OAuth 權杖是用來存取目的地儲存體帳戶。
+
+```azcopy
+azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
+```
+
+從具有 SAS 的 blob 虛擬目錄, 將整個目錄複寫到另一個具有 SAS 的 blob 虛擬目錄:
+
+```azcopy
+azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+從具有 sas 的 blob 帳戶, 將整個帳戶資料複製到另一個具有 SAS 的 blob 帳戶:
+
+```azcopy
+azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
+```
+
+將具有存取金鑰的 S3 中的單一物件複製到具有 SAS 的 blob:
+
+為 S3 來源設定環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
+
+```azcopy
+azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+使用 SAS 將整個目錄從具有存取金鑰的 S3 複製到 blob 虛擬目錄:
+
+```azcopy
+azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+請 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html 參閱, 以瞭解 S3 的 [資料夾] 意義。 為 S3 來源設定環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
+
+將 S3 服務中具有存取金鑰的所有值區複製到具有 SAS 的 blob 帳戶:
+
+為 S3 來源設定環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
+
+```azcopy
+azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
+```
+
+將具有存取金鑰的 S3 區域中的所有值區複製到具有 SAS 的 blob 帳戶:
+
+```azcopy
+azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
+```
+
+為 S3 來源設定環境變數 AWS_ACCESS_KEY_ID 和 AWS_SECRET_ACCESS_KEY。
+
+## <a name="options"></a>選項。
+
+|選項|描述|
+|--|--|
+|--blob 類型字串|定義目的地的 blob 類型。 這是用來上傳 blob, 以及在帳戶之間進行複製時 (預設值為「無」)。|
+|--區塊-blob 層字串|將區塊 blob 上傳至使用此 blob 層的 Azure 儲存體。 (預設值為 "None")。|
+|--區塊-大小-mb float |上傳至 Azure 儲存體並從 Azure 儲存體下載時, 請使用此區塊大小 (以 MiB 指定)。 預設值會根據檔案大小自動計算。 允許小數分數 (例如:0.25)。|
+|--快取控制字元串|設定快取控制標頭。 在下載時傳回。|
+|--check-md5 字串|指定下載時應如何驗證嚴格的 MD5 雜湊。 只有在下載時才可使用。 可用選項：NoCheck、LogOnly、FailIfDifferent、FailIfDifferentOrMissing。 (預設值為 "FailIfDifferent")|
+|--內容配置字串|設定內容配置標頭。 在下載時傳回。|
+|--內容編碼字串|設定內容編碼標頭。 在下載時傳回。|
+|--content-語言字串|設定內容語言標頭。 在下載時傳回。|
+|--content 類型字串 |指定檔案的內容類型。 意指不猜測 mime 類型。 在下載時傳回。|
+|--排除字串|複製時, 請排除這些檔案。 支援使用 *。|
+|--exclude-blob-類型字串|選擇性地指定從容器或帳戶複製 blob 時, 要排除的 blob 類型 (BlockBlob/PageBlob/AppendBlob)。 使用此旗標不適用於將資料從非 azure 服務複製到服務。 一個以上的 blob 應以 '; ' 分隔。|
+|--跟隨-符號連結|從本機檔案系統上傳時, 請遵循符號連結。|
+|--從到字串|選擇性地指定來源目的地組合。 例如：LocalBlob, BlobLocal, LocalBlobFS.|
+|-h, --help|顯示覆制命令的說明內容。 |
+|--記錄層級字串|定義記錄檔的記錄詳細資訊, 可用的層級:INFO (所有要求/回應)、警告 (回應緩慢)、錯誤 (僅限失敗的要求) 和無 (沒有輸出記錄)。 (預設值為 "INFO")。|
+|--中繼資料字串|使用這些機碼值組做為中繼資料, 上傳至 Azure 儲存體。|
+|--不猜測-mime 類型|防止 AzCopy 根據檔案的副檔名或內容來偵測內容類型。|
+|--覆寫|如果此旗標設定為 true, 則覆寫目的地上的衝突檔案/blob。 (預設值為 true)。|
+|--分頁-blob 層字串 |使用此 blob 層將分頁 blob 上傳至 Azure 儲存體。 (預設值為 "None")。|
+|--保留-上次修改時間|只有當目的地是檔案系統時才可使用。|
+|--put-md5|建立每個檔案的 MD5 雜湊, 並將雜湊儲存為目的地 blob 或檔案的 Content-MD5 屬性。 (根據預設, 不會建立雜湊)。只有在上傳時才可使用。|
+|--遞迴|從本機檔案系統上傳時, 會以遞迴方式查看子目錄。|
+|--s2s-偵測-來源-已變更|檢查列舉之後, 來源是否已變更。 針對 S2S 複本, 因為來源是遠端資源, 所以驗證來源是否已變更需要額外的要求成本。|
+|--s2s-控制碼-無效-中繼資料字串 |指定如何處理不正確中繼資料索引鍵。 可用選項：ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (預設值為 "ExcludeIfInvalid")。|
+|--s2s-保留-存取層|在服務對服務複製期間保留存取層。 請參閱[Azure Blob 儲存體: 經常性、非經常性和封存存取層](../blobs/storage-blob-storage-tiers.md), 以確保目的地儲存體帳戶支援設定存取層。 在不支援設定存取層的情況下, 請使用 s2sPreserveAccessTier = false 來略過複製存取層。  (預設值為 true)。|
+|--s2s-保留-屬性|保留服務到服務複製期間的完整屬性。 若為 S3 和 Azure 檔案非單一檔案來源, 清單作業不會傳回物件和檔案的完整屬性, 若要保留完整屬性, AzCopy 必須針對每個物件和檔案傳送一個額外的要求。 (預設值為 true)。|
+
+## <a name="options-inherited-from-parent-commands"></a>繼承自父命令的選項
+
+|選項|描述|
+|---|---|
+|--cap-mbps uint32|上限 (以每秒 mb 為單位) 傳輸速率。 時間點的輸送量可能會與端點略有不同。 如果此選項設定為零或省略, 則輸送量不會限制。|
+|--output-類型字串|命令輸出的格式。 選項包括: text、json。 預設值為 "text"。|
+
+## <a name="see-also"></a>另請參閱
+
+- [azcopy](storage-ref-azcopy.md)

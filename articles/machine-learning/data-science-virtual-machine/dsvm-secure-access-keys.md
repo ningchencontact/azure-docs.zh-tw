@@ -1,29 +1,23 @@
 ---
-title: 在資料科學虛擬機器上安全地儲存存取認證 - Azure | Microsoft Docs
+title: 安全地儲存存取認證
+titleSuffix: Azure Data Science Virtual Machine
 description: 了解如何在「資料科學虛擬機器」上安全地儲存存取認證。 您將瞭解如何使用受控服務識別和 Azure Key Vault 來儲存存取認證。
 keywords: 深度學習, 資料科學工具, 資料科學虛擬機器, 地理空間分析, 小組資料科學流程
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
+author: vijetajo
 ms.author: vijetaj
-ms.openlocfilehash: 1374cbef41f40ea270f3c4d84c68d08e7db095bc
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.topic: conceptual
+ms.date: 05/08/2018
+ms.openlocfilehash: 17e611007d2b5400497597946159826df7aa4848
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051611"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195609"
 ---
-# <a name="store-access-credentials-securely-on-a-data-science-virtual-machine"></a>在資料科學虛擬機器上安全地儲存存取認證
+# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>在 Azure 資料科學虛擬機器上安全地儲存存取認證
 
 雲端應用程式中的程式碼通常會包含驗證雲端服務所需的認證。 如何管理和保護這些認證, 是建立雲端應用程式的知名挑戰。 在理想情況下, 認證應該永遠不會出現在開發人員工作站上, 或簽入原始檔控制。
 

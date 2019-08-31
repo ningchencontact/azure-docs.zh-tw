@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5615de8df42bca64822b0e459c7815412300af
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b72bf3c95c1d2217688fbc98a4383aed898f7c0e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125371"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192684"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 新增功能的封存檔
 
@@ -31,6 +31,124 @@ ms.locfileid: "70125371"
 - 錯誤修正
 - 已被取代的功能
 - 方案變更
+
+---
+
+## <a name="february-2019"></a>2019 年 2 月
+
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>可設定的 Azure AD SAML 權杖加密 (公開預覽) 
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** SSO
+
+您現在可以設定任何支援的 SAML 應用程式來接收加密的 SAML 權杖。 當設定並與應用程式搭配使用時, Azure AD 會使用從儲存在 Azure AD 中的憑證取得的公開金鑰來加密發出的 SAML 判斷提示。
+
+如需有關設定 SAML 權杖加密的詳細資訊, 請參閱[Configure AZURE AD saml token encryption](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption)。
+
+---
+
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>使用 Azure AD 存取權審查來建立群組或應用程式的存取權審查
+
+**類型：** 新功能  
+**服務類別：** 存取權檢閱  
+**產品功能：** 管理
+
+您現在可以在群組成員資格或應用程式指派的單一 Azure AD 存取權審查中, 包含多個群組或應用程式。 具有多個群組或應用程式的存取權會使用相同設定進行設定, 而且所有包含的審核者都會同時收到通知。
+
+如需有關如何使用 Azure AD 存取審查來建立存取權審查的詳細資訊, 請參閱[Azure AD 存取審查中的建立群組或應用程式的存取權審核](https://docs.microsoft.com/azure/active-directory/governance/create-access-review)
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD 應用程式庫中可用的新同盟應用程式-2019 年2月
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** 協力廠商整合
+ 
+在2019年2月, 我們已將這27個具有同盟支援的新應用程式新增至應用程式庫:
+
+[Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial)、 [MINDTICKLE](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial)、 [FAT 手指](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7)、 [AirStack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial)、 [Oracle 融合 ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial)、 [IDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial)、 [Skyward Qmlativ](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial)、 [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial)、 [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial)、 [soloinsight-cloudgate-CloudGate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial)、許可權按一下, [Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial), [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial), [Pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial), [Stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial),[地震](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial),[分享夢想](https://www.shareadream.org/how-it-works), [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial), [webMethods 整合雲端](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial),[知識Anywhere LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial)、 [OU 校園](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial)、 [Periscope 資料](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial)、 [netop portal Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial)、 [Smartvid.io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial)、 [purecloud by by Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial)、 [clickup productivity 生產力平臺](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
+
+如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
+
+---
+
+### <a name="enhanced-combined-mfasspr-registration"></a>增強的結合 MFA/SSPR 註冊
+
+**類型：** 已變更的功能  
+**服務類別：** 自助密碼重設  
+**產品功能：** 使用者驗證
+
+為了回應客戶的意見反應, 我們已增強結合的 MFA/SSPR 註冊預覽體驗, 協助您的使用者更快速地為 MFA 和 SSPR 註冊安全性資訊。 
+
+**若要為您的使用者立即開啟增強的體驗, 請遵循下列步驟:**
+
+1. 身為全域系統管理員或使用者系統管理員, 請登入 Azure 入口網站並移至**Azure Active Directory > 使用者設定 > 管理存取面板預覽功能的設定**。 
+
+2. 在 [**可以使用預覽功能來註冊及管理安全性資訊-** 重新整理] 選項的 [使用者] 中, 選擇開啟**所選使用者群組**或**所有使用者**的功能。
+
+在接下來的幾周, 我們將移除開啟尚未開啟的租使用者之舊結合 MFA/SSPR 註冊預覽體驗的功能。
+
+**若要查看您的租使用者是否將移除控制項, 請遵循下列步驟:**
+
+1. 身為全域系統管理員或使用者系統管理員, 請登入 Azure 入口網站並移至**Azure Active Directory > 使用者設定 > 管理存取面板預覽功能的設定**。  
+
+2. 如果**可以使用 [註冊及管理安全性資訊**] 選項的 [預覽功能] 選項設定為 [**無**], 則會從您的租使用者中移除此選項。
+
+無論您先前是否已為使用者開啟舊的結合 MFA/SSPR 註冊預覽體驗, 舊的體驗將會在未來的日期關閉。 因此, 我們強烈建議您儘快移至新的增強式體驗。
+
+如需增強型註冊體驗的詳細資訊, 請參閱[Azure AD 結合的 MFA 和密碼重設註冊體驗的酷炫增強功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271)。
+
+---
+
+### <a name="updated-policy-management-experience-for-user-flows"></a>使用者流程的更新原則管理體驗
+
+**類型：** 已變更的功能  
+**服務類別：** B2C - 消費者身分識別管理  
+**產品功能：** B2B/B2C
+
+我們已更新使用者流程的原則建立和管理程式 (先前稱為內建原則)。 這項新體驗現在是您所有 Azure AD 租使用者的預設值。
+
+您可以在入口網站畫面頂端的 [**傳送意見**反應] 區域中使用笑臉或苦臉圖示, 以提供其他意見反應和建議。
+
+如需新原則管理體驗的詳細資訊, 請參閱[Azure AD B2C 現在已有 JavaScript 自訂和更多新功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595)的 blog。
+
+---
+
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>選擇 Azure AD B2C 所提供的特定頁面元素版本
+
+**類型：** 新功能  
+**服務類別：** B2C - 消費者身分識別管理  
+**產品功能：** B2B/B2C
+
+您現在可以選擇 Azure AD B2C 所提供的特定版本頁面元素。 藉由選取特定版本, 您可以先測試更新, 再將其顯示在頁面上, 而且您可以取得可預測的行為。 此外, 您現在可以選擇強制執行特定頁面版本, 以允許進行 JavaScript 自訂。 若要開啟這項功能, 請移至使用者流程中的 [**屬性**] 頁面。
+
+如需有關選擇特定版本頁面元素的詳細資訊, 請參閱[Azure AD B2C 現在有 JavaScript 自訂和更多新功能的](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595)blog。
+
+---
+
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>B2C (GA) 的可設定使用者密碼需求
+
+**類型：** 新功能  
+**服務類別：** B2C - 消費者身分識別管理  
+**產品功能：** B2B/B2C
+
+您現在可以為您的終端使用者設定組織的密碼複雜性, 而不需要使用您的原生 Azure AD 密碼原則。 從使用者流程的 [**屬性**] 分頁 (先前稱為您的內建原則), 您可以選擇 [**簡單**] 或 [**強**式] 的密碼複雜性, 或建立一組**自訂**的需求。
+
+如需密碼複雜性需求設定的詳細資訊, 請參閱[在 Azure Active Directory B2C 中設定密碼的複雜性需求](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity)。
+
+---
+
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>自訂品牌驗證體驗的新預設範本
+
+**類型：** 新功能  
+**服務類別：** B2C - 消費者身分識別管理  
+**產品功能：** B2B/B2C
+
+您可以使用新的預設範本, 位於使用者流程的 [**頁面配置] 分頁**(先前稱為內建原則), 為您的使用者建立自訂的品牌驗證體驗。
+
+如需使用範本的詳細資訊, 請參閱[Azure AD B2C 現在已有 JavaScript 自訂及更多的新功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595)。
 
 ---
 

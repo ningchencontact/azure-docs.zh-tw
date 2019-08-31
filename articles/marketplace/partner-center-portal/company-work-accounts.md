@@ -1,57 +1,57 @@
 ---
-title: 公司的工作帳戶 」 和 「 合作夥伴中心
-description: 如何檢查您的公司是否有工作帳戶與 Microsoft 設定、 建立新的工作帳戶，或將多個工作帳戶設定為使用與合作夥伴中心。
-author: mattwojo
+title: 公司工作帳戶和合作夥伴中心
+description: 如何檢查您的公司是否已設定 Microsoft 的工作帳戶、建立新的工作帳戶, 或設定要與合作夥伴中心搭配使用的多個工作帳戶。
+author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: d9326cab6cb5ed4ca76c9a84654697f9f90bcfcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 744b4e4975c5d4cec5c705e639e9cc8d252a7dd6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619555"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194288"
 ---
-# <a name="company-work-accounts-and-partner-center"></a>公司的工作帳戶 」 和 「 合作夥伴中心
+# <a name="company-work-accounts-and-partner-center"></a>公司工作帳戶和合作夥伴中心
 
-合作夥伴中心會使用公司的工作帳戶，也就是 Azure Active Directory (AD) 租用戶，來管理多個使用者、 控制 」 權限、 主機群組和應用程式的帳戶存取權和維護設定檔資料。 將您公司的工作電子郵件帳戶的網域連結至您的合作夥伴中心帳戶中，您公司的員工可以登入合作夥伴中心來管理他們自己的工作帳戶使用者名稱和密碼的 marketplace 供應項目。
+合作夥伴中心使用公司工作帳戶 (也稱為 Azure Active Directory (AD) 租使用者) 來管理多個使用者的帳戶存取權、控制許可權、主機群組和應用程式, 以及維護設定檔資料。 藉由將公司的工作電子郵件帳戶網域連結到合作夥伴中心帳戶, 您公司的員工可以使用自己的工作帳戶使用者名稱和密碼來登入合作夥伴中心, 以管理 marketplace 供應專案。
 
-## <a name="check-whether-your-company-already-has-a-work-account"></a>請檢查您的公司是否已有一個工作帳戶
+## <a name="check-whether-your-company-already-has-a-work-account"></a>檢查您的公司是否已有工作帳戶
 
-如果您的公司已訂閱 Microsoft 雲端服務，例如 Azure、 Microsoft Intune 或 Office 365，則您已經有的工作電子郵件帳戶網域 （也稱為 「 Azure Active Directory 租用戶 」），可與合作夥伴中心。
+如果您的公司訂閱了 Microsoft 雲端服務 (例如 Azure、Microsoft Intune 或 Office 365), 則您已經擁有可與合作夥伴中心搭配使用的工作電子郵件帳戶網域 (也稱為 Azure Active Directory 租使用者)。
 
-請遵循下列步驟來檢查：
-1. 登入 Azure 管理入口網站在 https://portal.azure.com 。
-2. 選取  **Azure Active Directory**從左導覽功能表，然後選取**自訂網域名稱**。
-3. 如果您已經有工作帳戶時，會列出您的網域名稱。
+請遵循下列步驟來檢查:
+1. 登入 Azure 系統管理員入口網站, https://portal.azure.com 網址為。
+2. 從左側導覽功能表中選取 [ **Azure Active Directory** ], 然後選取 [**自訂功能變數名稱**]。
+3. 如果您已經有工作帳戶, 就會列出您的功能變數名稱。
 
-如果您的公司還沒有工作帳戶，將會為您建立一個在合作夥伴中心 」 註冊程序。
+如果您的公司還沒有工作帳戶, 則會在合作夥伴中心註冊程式期間為您建立一個。
 
 ## <a name="set-up-multiple-work-accounts"></a>設定多個工作帳戶
 
-然後再決定要使用現有的工作帳戶，請考慮需要多少工作帳戶的使用者存取合作夥伴中心。 如果您有使用者不需要存取合作夥伴中心的工作帳戶時，您可能要考慮建立多個工作帳戶，以便只有這些使用者將需要存取合作夥伴中心會表示特定的帳戶。
+在決定使用現有的工作帳戶之前, 請考慮工作帳戶中有多少使用者需要存取合作夥伴中心。 如果您的使用者在公司帳戶中, 而不需要存取合作夥伴中心, 您可以考慮建立多個工作帳戶, 這樣一來, 只有需要存取合作夥伴中心的使用者才會在特定帳戶上呈現。
 
 ## <a name="create-a-new-work-account"></a>建立新的工作帳戶
 
-若要為您的公司建立新的工作帳戶，請遵循下列步驟。 您可能需要要求您提供協助人員在貴公司的 Microsoft Azure 帳戶上具有系統管理權限。
+若要為您的公司建立新的工作帳戶, 請遵循下列步驟。 您可能需要向擁有貴公司 Microsoft Azure 帳戶之系統管理許可權的人員要求協助。
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)。
-2. 從左側的導覽功能表中，選取**Azure Active Directory** -> **使用者**。
-3. 選取 **新的使用者**並輸入名稱和電子郵件地址建立新的 Azure 工作帳戶。 請確認**目錄角色**設為**使用者**，然後選取**顯示密碼**底部檢視，並記下自動產生密碼的核取方塊。
-4. 選取 **建立**以儲存新的使用者。
+2. 從左側導覽功能表中, 選取 [ **Azure Active Directory**  -> **使用者**]。
+3. 選取 [**新增使用者**], 然後輸入名稱和電子郵件地址來建立新的 Azure 工作帳戶。 確定 [**目錄角色**] 已設定為 [**使用者**], 然後選取底部的 [**顯示密碼**] 核取方塊以查看並記下自動產生的密碼。
+4. 選取 [**建立**] 以儲存新的使用者。
 
-電子郵件地址的使用者帳戶必須是您目錄中的已驗證的網域名稱。 您也可以選取您的目錄中列出所有已驗證的網域**Azure Active Directory** -> **自訂網域名稱**左導覽功能表中。
+使用者帳戶的電子郵件地址必須是您目錄中已驗證的功能變數名稱。 您可以選取左側導覽功能表中的 [ **Azure Active Directory**  -> **自訂功能變數名稱**], 列出目錄中所有已驗證的網域。
 
-若要深入了解 Azure Active Directory 中新增自訂網域，請參閱[新增或建立 Azure AD 中的網域關聯](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain)。
+若要深入瞭解如何在 Azure Active Directory 中新增自訂網域, 請參閱[在 Azure AD 中新增或關聯網域](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain)。
 
-## <a name="troubleshoot-work-email-sign-in"></a>工作電子郵件登入進行疑難排解
+## <a name="troubleshoot-work-email-sign-in"></a>針對工作電子郵件登入進行疑難排解
 
-如果您無法登入您的工作帳戶 (也稱為 Azure AD 租用戶），尋找最下方圖表上的案例符合您的情況，並遵循建議的步驟。
+如果您無法登入您的工作帳戶 (也稱為 Azure AD 租使用者), 請在下圖中尋找最符合您情況的案例, 並遵循建議的步驟。
 
-![以工作帳戶登入進行疑難排解的圖表](./media/onboarding-aad-flow.png)
+![疑難排解工作帳戶登入的圖表](./media/onboarding-aad-flow.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [管理您的商業的 Marketplace 帳戶在合作夥伴中心](./manage-account.md) 
+- [在合作夥伴中心管理您的商業 Marketplace 帳戶](./manage-account.md) 

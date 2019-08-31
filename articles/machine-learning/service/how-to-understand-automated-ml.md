@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 387865ac229acc5d16f595b96c76e7c9a014e991
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: d626a7768e7070360a6f0249486bfa83407fe998
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062143"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70192043"
 ---
 # <a name="understand-automated-machine-learning-results"></a>瞭解自動化機器學習結果
 
@@ -102,7 +102,7 @@ weighted_accuracy|加權精確度是精確度, 其中每個範例所提供的權
 
 混淆矩陣可用來說明分類模型的效能。 每一列都會顯示真值類別的執行個體，而每一行均代表預測類別的執行個體。 混淆矩陣會針對指定的模型來顯示分類正確的標籤和分類不正確的標籤。
 
-針對分類問題，Azure Machine Learning 會針對每個已建置的模型自動提供混淆矩陣。 針對每個混淆矩陣，自動化 ML 會將分類正確的標籤顯示為綠色，並將分類不正確的標籤顯示為紅色。 圓形的大小代表該組合中的樣本數。 此外，每個預測標籤和每個真值標籤的頻率計數均會顯示於相鄰的長條圖中。 
+針對分類問題，Azure Machine Learning 會針對每個已建置的模型自動提供混淆矩陣。 針對每個混淆矩陣, 自動化 ML 會顯示每個預測標籤和每個實際標籤交集的頻率。 顏色愈深, 表示矩陣的特定部分中的計數愈高。 在理想的情況下, 最暗的色彩會沿著矩陣的對角線。 
 
 範例 1：準確度很差的分類模型 ![準確度很差的分類模型](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 

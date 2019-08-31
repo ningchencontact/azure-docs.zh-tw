@@ -1,35 +1,29 @@
 ---
-title: 資料科學虛擬機器的範例和逐步解說 - Azure | Microsoft Docs
+title: 範例 & 逐步解說
+titleSuffix: Azure Data Science Virtual Machine
 description: 透過這些範例和逐步解說, 瞭解如何使用資料科學虛擬機器來處理一般工作和案例。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: vijetaj
-ms.openlocfilehash: 628c516553c2304739229c53d725645c799d06ce
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047846"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195671"
 ---
-# <a name="samples-on-data-science-virtual-machines"></a>資料科學虛擬機器上的範例
+# <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 資料科學虛擬機器的範例
 
 Azure 資料科學虛擬機器 (Dsvm) 包含一組完整的範例程式碼。 這些範例包括以 Python 和 R 等語言 Jupyter 筆記本和腳本。
 > [!NOTE]
 > 如需有關如何在資料科學虛擬機器上執行 Jupyter 筆記本的詳細資訊, 請參閱[存取權 Jupyter](#access-jupyter)一節。
 
-## <a name="quick-reference-of-samples"></a>範例的快速參考
+## <a name="available-samples"></a>可用的範例
 | 範例類別 | 描述 | 位置 |
 | ------------- | ------------- | ------------- |
 | R 語言  | 範例說明案例, 例如如何與以 Azure 為基礎的雲端資料存放區連線, 以及如何比較開放原始碼 R 和 Microsoft Machine Learning Server。 它們也會說明如何在 Microsoft Machine Learning Server 和 SQL Server 上讓模型。 <br/> [R 語言](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|

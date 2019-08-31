@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 093c5878cd2f7df63502a7aff686824af3c88078
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934697"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195081"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 本文會討論一系列的 Azure 身分識別管理和存取控制安全性最佳做法。 這些最佳作法衍生自我們的 [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) 經驗和客戶的經驗。
@@ -93,7 +93,7 @@ ms.locfileid: "68934697"
 > 您需要選擇重要帳戶所在的目錄, 以及使用的系統管理工作站是否由新的雲端服務或現有的程式所管理。 使用現有的管理和身分識別布建程式可能會降低部分風險, 但也可能會造成攻擊者危害內部部署帳戶並在雲端上旋轉的風險。 您可能想要針對不同的角色 (例如, IT 系統管理員與業務單位管理員) 使用不同的策略。 您有兩個選擇。 第一個選項是建立未與您的內部部署 Active Directory 實例同步處理 Azure AD 帳戶。 將您的系統管理員工作站加入 Azure AD, 您可以使用 Microsoft Intune 來進行管理和修補。 第二個選項是透過同步處理至內部部署 Active Directory 實例, 來使用現有的系統管理員帳戶。 使用 Active Directory 網域中的現有工作站來進行管理和安全性。
 
 ## <a name="manage-connected-tenants"></a>管理已連線的租使用者
-您的安全性組織需要查看風險, 並判斷是否遵循您組織的原則及任何法規需求。 您應該確定您的安全性組織能夠查看所有連線到生產環境和網路的訂用帳戶 (透過[Azure ExpressRoute](../../expressroute/expressroute-introduction.md)或[站對站 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md))。 Azure AD 中的[全域系統管理員/公司系統管理員](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)可以提高其對[使用者存取系統管理員](../../role-based-access-control/built-in-roles.md#user-access-administrator)角色的存取權, 並查看連線到您環境的所有訂用帳戶和受管理群組。
+您的安全性組織需要查看風險, 並判斷是否遵循您組織的原則及任何法規需求。 您應該確定您的安全性組織能夠查看所有連線到生產環境和網路的訂用帳戶 (透過[Azure ExpressRoute](../../expressroute/expressroute-introduction.md)或[站對站 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md))。 Azure AD 中的[全域系統管理員/公司系統管理員](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions)可以提高其對[使用者存取系統管理員](../../role-based-access-control/built-in-roles.md#user-access-administrator)角色的存取權, 並查看連線到您環境的所有訂用帳戶和受管理群組。
 
 請參閱提高[存取權以管理所有 Azure 訂用帳戶和管理群組](../../role-based-access-control/elevate-access-global-admin.md), 以確保您和您的安全性群組可以查看連線到您環境的所有訂用帳戶或管理群組。 在評估風險之後, 您應該移除此提高許可權的存取權。
 

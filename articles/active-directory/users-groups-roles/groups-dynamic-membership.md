@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/30/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b562ccf81a80219caa9f80bec82f64f7d2510626
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650234"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194604"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -27,30 +27,32 @@ ms.locfileid: "69650234"
 
 當使用者或裝置的任何屬性變更時，系統會評估目錄中的所有動態群組規則，以查看變更是否會觸發任何的群組新增或移除。 如果使用者或裝置滿足群組上的規則，就會將他們新增為該群組的成員。 如果他們不再符合此規則，則會予以移除。 您無法手動新增或移除動態群組的成員。
 
-* 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置的規則。
-* 您無法根據裝置擁有者的屬性來建立裝置群組。 裝置成員資格規則只能參考裝置屬性。
+- 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置的規則。
+- 您無法根據裝置擁有者的屬性來建立裝置群組。 裝置成員資格規則只能參考裝置屬性。
 
 > [!NOTE]
 > 此功能需要一或多個動態群組成員中每個唯一使用者的 Azure AD Premium P1 授權。 您不需要將授權指派給使用者，使用者就能成為動態群組成員，但是您必須在租用戶中有最小數量的授權，才能涵蓋所有這類使用者。 例如，如果您租用戶中的所有動態群組總計有 1,000 位唯一使用者，則需要至少有 Azure AD Premium P1 的 1,000 個授權，才符合授權需求。
 >
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>建構成員資格規則的本文
+## <a name="rule-builder-in-the-azure-portal"></a>Azure 入口網站中的規則產生器
 
-自動填入使用者或裝置群組的成員資格規則是可導致 true 或 false 結果的二進位運算式。 簡單規則的三個部分如下：
+Azure AD 提供規則產生器, 更快速地建立及更新您的重要規則。 規則產生器支援最多五個運算式的結構。 規則產生器可讓您更輕鬆地使用一些簡單的運算式來形成規則, 不過, 它不能用來重現每個規則。 如果規則產生器不支援您想要建立的規則, 您可以使用文字方塊。
 
-* 屬性
-* 運算子
-* 值
+以下是一些我們建議您使用文字方塊來建立的先進規則或語法範例:
 
-運算式內的部分順序很重要，可避免發生語法錯誤。
+- 具有五個以上運算式的規則
+- 直接報告規則
+- 設定[運算子優先順序](groups-dynamic-membership.md#operator-precedence)
+- [具有複雜運算式的規則](groups-dynamic-membership.md#rules-with-complex-expressions);例如`(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### <a name="rule-builder-in-the-azure-portal"></a>Azure 入口網站中的規則產生器
+> [!NOTE]
+> 「規則產生器」可能無法顯示在文字方塊中所建立的某些規則。 當規則產生器無法顯示規則時, 您可能會看到一則訊息。 規則產生器不會以任何方式變更支援的語法、驗證或處理動態群組規則。
 
-Azure AD 提供規則產生器, 更快速地建立及更新您的重要規則。 規則產生器最多可支援五個規則。 若要加入第六個和任何後續的規則詞彙, 您必須使用文字方塊。 如需更多逐步指示, 請參閱[更新動態群組](groups-update-rule.md)。
+如需更多逐步指示, 請參閱[更新動態群組](groups-update-rule.md)。
 
-   ![新增動態群組的成員資格規則](./media/groups-update-rule/update-dynamic-group-rule.png)
+![新增動態群組的成員資格規則](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-### <a name="rules-with-a-single-expression"></a>使用單一運算式的規則
+### <a name="rule-syntax-for-a-single-expression"></a>單一運算式的規則語法
 
 單一運算式是最簡單的成員資格規則形式，只包含上述三個部分。 具有單一運算式的規則看起來像這樣：`Property Operator Value`，其中屬性的語法是 object.property 的名稱。
 
@@ -62,13 +64,23 @@ user.department -eq "Sales"
 
 單一運算式的括號是選擇性的。 成員資格規則本文的總長度不得超過 2048 個字元。
 
+# <a name="constructing-the-body-of-a-membership-rule"></a>建構成員資格規則的本文
+
+自動填入使用者或裝置群組的成員資格規則是可導致 true 或 false 結果的二進位運算式。 簡單規則的三個部分如下：
+
+- 屬性
+- 運算子
+- 值
+
+運算式內的部分順序很重要，可避免發生語法錯誤。
+
 ## <a name="supported-properties"></a>支援的屬性
 
 有三種類型的屬性可用來建構成員資格規則。
 
-* Boolean
-* String
-* 字串集合
+- Boolean
+- String
+- 字串集合
 
 以下是您可用來建立單一運算式的使用者屬性。
 
@@ -119,7 +131,7 @@ user.department -eq "Sales"
 
 如需裝置規則所使用的屬性，請參閱[裝置的規則](#rules-for-devices)。
 
-## <a name="supported-operators"></a>支援的運算子
+## <a name="supported-expression-operators"></a>支援的運算式運算子
 
 下表列出單一運算式支援的所有運算子及其語法。 不管有沒有連字號 (-) 前置詞，均可使用運算子。
 
@@ -297,10 +309,10 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 下列秘訣可協助您正確使用此規則。
 
-* [經理識別碼]是經理的物件識別碼。 在經理的**設定檔**可找到它。
-* 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理] 屬性。 您可以在使用者的 [設定檔] 中檢查目前值。
-* 此規則僅支援經理的直屬員工。 換句話說，您建立的群組無法「同時」包含經理的直屬員工及其員工。
-* 此規則無法與任何其他成員資格規則結合。
+- [經理識別碼]是經理的物件識別碼。 在經理的**設定檔**可找到它。
+- 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理] 屬性。 您可以在使用者的 [設定檔] 中檢查目前值。
+- 此規則僅支援經理的直屬員工。 換句話說，您建立的群組無法「同時」包含經理的直屬員工及其員工。
+- 此規則無法與任何其他成員資格規則結合。
 
 ### <a name="create-an-all-users-rule"></a>建立「所有使用者」規則
 
@@ -373,8 +385,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 這些文章提供有關 Azure Active Directory 中群組的其他資訊。
 
-* [查看現有的群組](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [建立新群組並新增成員](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [管理群組的設定](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [管理群組的成員資格](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [管理群組中使用者的動態規則](groups-create-rule.md)
+- [查看現有的群組](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [建立新群組並新增成員](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [管理群組的設定](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [管理群組的成員資格](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [管理群組中使用者的動態規則](groups-create-rule.md)

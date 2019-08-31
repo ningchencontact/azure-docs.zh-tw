@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1ee18abfab2cf286ee010bd6d25dfbc5a38cebb
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011569"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195569"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型 
+# <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 
 使用 Azure Machine Learning 服務，您可以在各種資源或環境中定型您的模型，統稱為[__計算目標__](concept-azure-machine-learning-architecture.md#compute-targets)。 計算目標可以是本機電腦或雲端資源，例如 Azure Machine Learning Compute、Azure HDInsight 或遠端虛擬機器。  您也可以建立用於部署模型的計算目標，如[模型的部署位置和方法](how-to-deploy-and-where.md)中所述。
 
@@ -47,33 +47,9 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 
 定型時，通常在本機電腦上啟動，然後在不同的計算目標上執行該定型指令碼。 使用 Azure Machine Learning 服務時，您無須變更指令碼，即可在各種計算目標上執行指令碼。 
 
-您需要做的是使用**回合組態**，為每個計算目標定義環境。  然後，當您想要在不同的計算目標上執行定型實驗時，為該計算指定回合組態。
+您只需要針對回合設定中的每個計算目標定義環境即可。  然後，當您想要在不同的計算目標上執行定型實驗時，為該計算指定回合組態。 如需指定環境並將其系結至執行設定的詳細資訊, 請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)
 
 深入了解本文末尾的[提交實驗](#submit)。
-
-### <a name="manage-environment-and-dependencies"></a>管理環境和相依性
-
-當您建立回合組態時，需要決定如何管理環境和計算目標上的相依性。 
-
-#### <a name="system-managed-environment"></a>系統管理的環境
-
-當您希望 [Conda](https://conda.io/docs/) 為您管理 Python 環境和指令碼相依性時，請使用系統管理的環境。 預設情況下，系統管理的環境是最常見的選擇。 它對遠端計算目標很有用，尤其是當您無法設定該目標時。 
-
-您只需要使用 [CondaDependency 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py)，指定每個封裝相依性，然後 Conda 會在您工作區的 **aml_config** 目錄中，建立名為 **conda_dependencies.yml** 的檔案，其中包含封裝相依性的清單，並在您提交定型實驗時，設定 Python 環境。 
-
-視所需相依性的大小而定，新環境的初始設定可能會需要數分鐘的時間。 只要套件清單保持不變，設定時間就只會發生一次。
-  
-下列程式碼顯示需要 scikit-learn 之系統管理環境的範例：
-    
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_system_managed)]
-
-#### <a name="user-managed-environment"></a>使用者管理的環境
-
-針對使用者管理的環境，您需負責設定環境，並在計算目標上安裝定型指令碼所需的每個套件。 如果已經設定好定型環境 (例如在本機電腦上)，您便可以將 `user_managed_dependencies` 設定為 True 來略過設定步驟。 Conda 不會檢查您的環境，或為您安裝任何項目。
-
-下列程式碼顯示為使用者管理的環境設定定型回合的範例：
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
 
 ## <a name="whats-an-estimator"></a>什麼是估計工具？
 
@@ -390,7 +366,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 您可以使用 Azure Machine Learning 服務的[VS Code 延伸](how-to-vscode-tools.md#create-and-manage-compute-targets)模組, 來存取、建立和管理與工作區相關聯的計算目標。
 
-## <a id="submit"></a>提交定型回合
+## <a id="submit"></a>使用 Azure Machine Learning SDK 提交定型回合
 
 建立回合組態之後，會使用該回合組態以執行您的實驗。  提交定型回合的程式碼模式對於所有類型的計算目標皆相同：
 
@@ -430,8 +406,70 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 或者您可以：
 
 * 使用 `Estimator` 物件提交實驗，如[使用估算程式將 ML 模型定型](how-to-train-ml-models.md)中所示。
-* [使用 CLI 擴充功能](reference-azure-machine-learning-cli.md#experiments)提交實驗。
+* 提交 HyperDrive 執行以進行[超參數微調](how-to-tune-hyperparameters.md)。
 * 透過[VS Code 延伸](how-to-vscode-tools.md#train-and-tune-models)模組提交實驗。
+
+## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>使用 Azure Machine Learning CLI 建立執行設定並提交執行
+
+您可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)和[Machine Learning CLI 擴充](reference-azure-machine-learning-cli.md)功能來建立執行設定, 並在不同的計算目標上提交執行。 下列範例假設您已有現有的 Azure Machine Learning 工作區, 而且您已使用`az login` CLI 命令登入 Azure。 
+
+### <a name="create-run-configuration"></a>建立執行設定
+
+建立執行設定最簡單的方式, 就是流覽包含您機器學習服務 Python 腳本的資料夾, 並使用 CLI 命令
+
+```azurecli
+az ml folder attach
+```
+
+此命令會建立一個`.azureml`子資料夾, 其中包含不同計算目標的範本執行設定檔案。 您可以複製並編輯這些檔案, 以自訂您的設定, 例如新增 Python 套件或變更 Docker 設定。  
+
+### <a name="create-an-experiment"></a>建立實驗
+
+首先, 為您的執行建立實驗
+
+```azurecli
+az ml experiment create -n <experiment>
+```
+
+### <a name="script-run"></a>腳本執行
+
+若要提交腳本執行, 請執行命令
+
+```azurecli
+az ml run submit-script -e <experiment> -c <runconfig> my_train.py
+```
+
+### <a name="hyperdrive-run"></a>HyperDrive 執行
+
+您可以使用 HyperDrive 搭配 Azure CLI 來執行參數微調回合。 首先, 以下列格式建立 HyperDrive 設定檔。 如需超參數微調參數的詳細資訊, 請參閱[為您的模型微調超參數](how-to-tune-hyperparameters.md)一文。
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+在執行設定檔案旁新增此檔案。 然後, 使用下列內容提交 HyperDrive 執行:
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+請注意 runconfig 中的*arguments*區段和 HyperDrive config 中的*參數空間*。它們包含要傳遞至定型腳本的命令列引數。 在 runconfig 中, 每個反復專案的值都維持不變, 而 HyperDrive config 中的範圍則會反復查看。 請勿在這兩個檔案中指定相同的引數。
+
+如需這些```az ml``` CLI 命令和完整引數集的詳細資訊, 請參閱[參考檔](reference-azure-machine-learning-cli.md)。
 
 <a id="gitintegration"></a>
 
