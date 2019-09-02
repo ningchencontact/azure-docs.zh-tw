@@ -49,9 +49,9 @@ IoT 物件 (例如裝置與感應器) 會傳送事件，以便 Azure 訊息和�
 
 | 屬性 | Type | 描述 |
 | --- | --- | --- |
-| ID | string | 事件的唯一識別碼。 |
+| id | string | 事件的唯一識別碼。 |
 | subject | string | 發行者定義事件主體的路徑。 |
-| 資料 | object | 資源提供者特有的事件資料。 |
+| data | object | 資源提供者特有的事件資料。 |
 | eventType | string | 此事件來源已註冊的事件類型之一。 |
 | eventTime | string | 事件產生的時間，以提供者之 UTC 時間為準。 |
 | dataVersion | string | 資料物件的結構描述版本。 發行者會定義結構描述版本。 |
