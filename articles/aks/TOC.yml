@@ -306,6 +306,10 @@
               href: istio-install.md
             - name: 智慧型路由和 Canary 版本
               href: istio-scenario-routing.md
+        - name: 使用 Hashicorp Consul Connect
+          items:
+            - name: 安裝及設定
+              href: consul-install.md
         - name: 使用 適用於 PostgreSQL 的 Azure 資料庫
           href: ../postgresql/concepts-aks.md
           maintainContext: true

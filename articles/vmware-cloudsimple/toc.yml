@@ -60,6 +60,8 @@
           href: access-cloudsimple-portal.md
         - name: 內部部署防火牆組態
           href: on-premises-firewall-configuration.md
+        - name: 存取 vSphere 用戶端
+          href: vcenter-access.md
         - name: 管理節點
           items:
             - name: 佈建節點
@@ -94,23 +96,19 @@
               href: public-ips.md
             - name: 設定 VPN 連線
               href: vpn-gateway.md
-            - name: 取得 CloudSimple 虛擬網路連線的對等資訊
+            - name: 連線到 CloudSimple 的虛擬網路
               href: virtual-network-connection.md
-            - name: 存取管理工作的 vSphere 用戶端提升權限
-              href: 'https://docs.azure.cloudsimple.com/vsphere-access/'
         - name: 管理 CloudSimple 入口網站帳戶
           items:
             - name: 檢視帳戶摘要
               href: account.md
             - name: 檢視使用者清單
               href: users.md
-            - name: 設定對私人雲端的虛擬網路連線
-              href: virtual-network-connection.md
-        - name: 設定私人雲端的 VMware 虛擬機器
+        - name: 設定 CloudSimple 虛擬機器
           items:
-            - name: 在 Azure 中建立 VM
+            - name: 在 Azure 中建立 CloudSimple VM
               href: azure-create-vm.md
-            - name: 管理 Azure 中的 VM
+            - name: 在 Azure 中管理 CloudSimple VM
               href: azure-manage-vm.md
     - name: 使用說明指南
       items:
@@ -126,12 +124,14 @@
               href: migration-layer-2-vpn.md
         - name: 私人雲端網路
           items:
-            - name: 內部部署與私人雲端之間的 VPN 連線
+            - name: 私人雲端的 VPN 連線
               href: set-up-vpn.md
             - name: 透過 ExpressRoute 的內部部署網路連線
               href: on-premises-connection.md
             - name: 透過 ExpressRoute 的 Azure 虛擬網路連線
               href: azure-expressroute-connection.md
+            - name: 設定 DNS 名稱解析
+              href: on-premises-dns-setup.md
         - name: VMware 平台
           items:
             - name: 了解私人雲端權限模型

@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 99f981698daf12bf7d493159fc7fd08a98a28104
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194256"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207983"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>如何在合作夥伴中心管理您的商業 Marketplace 帳戶 
 
@@ -151,7 +151,7 @@ ms.locfileid: "70194256"
 
 ## <a name="manage-users"></a>管理使用者
 
-[合作夥伴中心] 的 [**使用者**] 區段 (在 [**帳戶設定**] 下) 可讓您使用 Azure AD 來管理可存取合作夥伴中心帳戶的使用者、群組和 Azure AD 應用程式。 請注意, 若要管理使用者, 您必須使用您的[工作帳戶](./company-work-accounts.md)(相關聯的 Azure AD 租使用者) 登入。 若要管理不同工作帳戶/租使用者中的使用者, 您必須登出, 然後以具有該工作帳戶/租使用者之**管理員**許可權的使用者身分登入。 
+[合作夥伴中心] 的 [**使用者**] 區段 (在 [**帳戶設定**] 下) 可讓您使用 Azure AD 來管理可存取合作夥伴中心帳戶的使用者、群組和 Azure AD 應用程式。 若要管理使用者, 您必須使用您的[工作帳戶](./company-work-accounts.md)(相關聯的 Azure AD 租使用者) 登入。 若要管理不同工作帳戶/租使用者中的使用者, 您必須登出, 然後以具有該工作帳戶/租使用者之**管理員**許可權的使用者身分登入。 
 
 當您使用公司帳戶 (Azure AD 租使用者) 登入之後, 您可以:
 - [新增或移除使用者](#add-or-remove-users)
@@ -300,20 +300,19 @@ ms.locfileid: "70194256"
 4.  如果您想要建立更多金鑰, 請選取 [**新增另一個金鑰**]。
 
 
-### <a name="define-user-roles-and-permissions"></a>定義使用者角色和許可權
+## <a name="define-user-roles-and-permissions"></a>定義使用者角色和許可權
 
-您公司的使用者可以在合作夥伴中心上獲派商業 Marketplace 方案的下列角色和許可權。 
+貴公司的使用者可獲指派下列角色和合作夥伴中心的商業 Marketplace 方案許可權:
 
-|**角色**|**Permissions**|
-|----------------------------------|---------------------------------|
-|經理|-可以存取所有 Microsoft 帳戶的功能, 但稅務和付款設定除外|
-|      |-可以管理使用者、角色和工作帳戶 (租使用者)|
-|開發人員|-可以管理及發佈供應專案|
-|      |-可以查看一些發行者報表|
-|全域管理員|-與商用 marketplace 無關|
-|商務參與者|-與商用 marketplace 無關|
-|財務參與者|-與商用 marketplace 無關|
-|市場行銷人員|-與商用 marketplace 無關|
+- **R**
+  - 可以存取所有 Microsoft 帳戶的功能, 但稅務和付款設定除外
+  - 可以管理使用者、角色和工作帳戶 (租使用者)
+- **開發人員**
+  - 可以管理及發佈供應專案
+  - 可以查看一些發行者報表
+
+> [!NOTE]
+> 「全域管理員」、「商務參與者」、「財務參與者」和市場行銷人員角色不會用於「商業 Marketplace」方案中, 而且不會有相關聯的許可權。
 
 如需有關在合作夥伴中心的其他區域中管理角色和許可權的詳細資訊, 例如 Azure Active Directory (AD)、雲端解決方案提供者 (CSP)、控制台廠商 (CPV)、來賓使用者或 Microsoft 合作夥伴網路 (MPN), 請參閱[指派使用者角色。和合作夥伴中心的許可權](https://docs.microsoft.com/partner-center/permissions-overview)。
 

@@ -1,21 +1,20 @@
 ---
-title: 錯誤和例外狀況處理 - Azure Logic Apps | Microsoft Docs
+title: 錯誤和例外狀況處理-Azure Logic Apps
 description: 了解 Azure Logic Apps 中的錯誤和例外狀況處理模式
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, LADocs
 ms.date: 01/31/2018
 ms.topic: article
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60996573"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208183"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
 
@@ -219,13 +218,15 @@ ms.locfileid: "60996573"
 
 如需範圍的限制，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。
 
+<a name="get-results-from-failures"></a>
+
 ### <a name="get-context-and-results-for-failures"></a>取得失敗的內容和結果
 
-雖然從範圍擷取失敗很實用，但還是建議您取得內容以協助解實際上有哪些動作失敗，以及所傳回的任何錯誤或狀態碼。 `@result()` 運算式會提供範圍內所有動作結果的相關內容。
+雖然從範圍擷取失敗很實用，但還是建議您取得內容以協助解實際上有哪些動作失敗，以及所傳回的任何錯誤或狀態碼。
 
-`@result()` 運算式會接受單一參數 (範圍名稱)，並傳回該範圍內所有動作結果的陣列。 這些動作物件包含與 **\@actions ()** 物件相同的屬性, 例如動作的開始時間、結束時間、狀態、輸入、相互關聯識別碼和輸出。 若要傳送在範圍內失敗之任何動作的內容, 您可以輕鬆地將 **\@result ()** 函數與**runAfter**屬性配對。
+[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result)函式會提供範圍內所有動作結果的相關內容。 `result()`函式會接受單一參數, 也就是範圍的名稱, 並傳回包含該範圍內所有動作結果的陣列。 這些動作物件包含與`@actions()`物件相同的屬性, 例如動作的開始時間、結束時間、狀態、輸入、相互關聯識別碼和輸出。 若要傳送在範圍內失敗之任何動作的內容, 您可以輕鬆地`@result()`將運算式`runAfter`與屬性配對。
 
-若要針對範圍中結果為**failed**的每個動作執行動作, 並將結果的陣列篩選到失敗的動作, 您可以將 **\@result ()** 與 **[篩選陣列](../connectors/connectors-native-query.md)** 動作和[**for each**](../logic-apps/logic-apps-control-flow-loops.md)迴圈配對。 您可以取得篩選後的結果陣列，並使用 **For each** 迴圈對每個失敗執行動作。 
+若要針對範圍中結果為**failed**的每個動作執行動作, 並將結果的陣列篩選到失敗的動作, 您可以將`@result()`運算式與[**篩選陣列**](../connectors/connectors-native-query.md)動作和[**for each**](../logic-apps/logic-apps-control-flow-loops.md)迴圈配對。 您可以取得篩選後的結果陣列，並使用 **For each** 迴圈對每個失敗執行動作。
 
 以下範例 (隨後並有詳細說明) 會傳送 HTTP POST 要求，其中含有任何在 "My_Scope" 範圍內失敗之動作的回應本文：
 

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: 42d3a4a0840e7241666f66a09e7e6b11342cbfbc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 3f167ee082b751f6bd686c0543db6a262615e486
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182261"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208253"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>如何從 .NET 應用程式使用 Azure 搜尋服務
 
@@ -579,7 +579,7 @@ SDK 會使用 JSON.NET 序列化和還原序列化文件。 您可以視需要�
 * 在程式碼的屬性名稱和索引的欄位名稱之間進行對應。
 * 建立可用來將屬性對應至文件欄位的自訂屬性。
 
-您可以在 GitHub 上的 Azure 搜尋服務 .NET SDK 的單元測試中找到實作自訂序列化的範例。 [這個資料夾](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models)是好的起點。 它包含自訂序列化測試使用的類別。
+您可以在 GitHub 上的 Azure 搜尋服務 .NET SDK 的單元測試中找到實作自訂序列化的範例。 [這個資料夾](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models)是好的起點。 它包含自訂序列化測試使用的類別。
 
 ### <a name="searching-for-documents-in-the-index"></a>搜尋索引中的文件
 範例應用程式中的最後一個步驟是在索引中搜尋一些檔:

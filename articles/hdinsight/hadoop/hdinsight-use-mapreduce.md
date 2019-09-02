@@ -8,53 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9da6b6ba3ab697887e55f9077b44cf6fa100a981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1bb7a6737115f903391997a5430c32f9a40465f
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707960"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207103"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>搭配 MapReduce 與 HDInsight 上的 Apache Hadoop
 
-了解如何在 HDInsight 叢集上執行 MapReduce 工作。 
-
-## <a id="whatis"></a>什麼是 MapReduce
-
-Apache Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體架構。 輸入的資料會分割成獨立的區塊。 每個區塊會在叢集的節點之間平行處理。 MapReduce 工作由兩項功能組成：
-
-* **對應工具**：取用輸入資料、分析 (通常使用篩選及排序作業)，以及發出 Tuple (機碼值組)
-
-* **減壓器**：取用對應程式發出的 Tuple 並執行摘要作業，從對應程式資料建立較小的組合結果
-
-下圖說明了基本字數統計 MapReduce 工作範例：
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
-
-此工作的輸出是文字中每個單字出現的次數統計。
-
-* 對應程式從輸入的文字中取得每一行當作一個輸入，然後將其打散成單字。 對應程式會在單字出現時發出機碼/值組，並在該字之後加上 1。 輸出會先經過排序再傳送至減壓器。
-* 接著，減壓器會加總每個單字的個別計數並發出單一機碼/值組，其中包含該單字和尾隨在後的出現次數總和。
-
-MapReduce 可在各種語言中實作。 Java 是最常見的實作，基於示範目的用於此文件中。
-
-## <a name="development-languages"></a>開發語言
-
-以 Java 及 Java Virtual Machine 為基礎的語言或架構可以 MapReduce 工作的形式直接執行。 本文件中使用的範例是 Java MapReduce 應用程式。 非 Java 語言 (例如 C#、Python 或獨立可執行檔) 必須使用 **Hadoop 串流**。
-
-Hadoop 串流會透過 STDIN 與 STDOUT 與對應工具和歸納工具進行通訊。 對應工具和歸納工具會一次從 STDIN 讀取一行資料，並將輸出寫入至 STDOUT。 對應工具和歸納工具所讀取或發出的每行資料，必須為機碼/值組格式，並以索引標籤字元分隔：
-
-    [key]/t[value]
-
-如需詳細資訊，請參閱 [Hadoop 資料流](https://hadoop.apache.org/docs/r1.2.1/streaming.html)(英文)。
-
-如需使用 Hadoop 串流與 HDInsight 的範例，請參閱下列文件：
-
-* [開發 C# MapReduce 工作](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+了解如何在 HDInsight 叢集上執行 MapReduce 工作。
 
 ## <a id="data"></a>範例資料
 
-HDInsight 提供各種範例資料集，這些範例資料及儲存在 `/example/data` 和 `/HdiSamples` 目錄。 這些目錄位於您叢集的預設儲存體中。 在本文件中，我們使用 `/example/data/gutenberg/davinci.txt` 檔案。 此檔案包含達文西手稿筆記。
+HDInsight 提供各種範例資料集，這些範例資料及儲存在 `/example/data` 和 `/HdiSamples` 目錄。 這些目錄位於您叢集的預設儲存體中。 在本文件中，我們使用 `/example/data/gutenberg/davinci.txt` 檔案。 此檔案包含達文西 da Vinci 的筆記本。
 
 ## <a id="job"></a>範例 MapReduce
 
@@ -134,7 +101,7 @@ public class WordCount {
 }
 ```
 
-如需撰寫您自己的 MapReduce 應用程式的指示，請參閱下列文件：
+如需撰寫自己的 MapReduce 應用程式的指示, 請參閱下列檔:
 
 * [開發 HDInsight 的 Java MapReduce 應用程式](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -158,7 +125,6 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 
 * [搭配 HDInsight 使用 Apache Pig][hdinsight-use-pig]
 
-
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-develop-mapreduce-jobs]: apache-hadoop-develop-deploy-java-mapreduce-linux.md
@@ -167,5 +133,3 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

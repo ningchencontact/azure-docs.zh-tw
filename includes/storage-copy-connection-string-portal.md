@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 8f511eafda70fca997a08b5907e606e572b8e219
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 364da4bb5f3f76f0a8a189db5aa59cca305470ea
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173659"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197111"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>從 Azure 入口網站複製您的認證
 
 範例應用程式需要驗證對您儲存體帳戶的存取。 若要進行驗證，請以連接字串的形式將儲存體帳戶認證新增至應用程式。 請依照下列步驟檢視您的儲存體帳戶認證：
 
-1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 找出您的儲存體帳戶。
 3. 在儲存體帳戶概觀的 [設定]  區段中，選取 [存取金鑰]  。 在此處，您可以檢視帳戶存取金鑰，和每個金鑰的完整連接字串。   
 4. 尋找 [金鑰 1]  下方的 [連接字串]  值，然後選取 [複製]  按鈕以複製連接字串。 在下一個步驟中，您會將連接字串值新增至環境變數。

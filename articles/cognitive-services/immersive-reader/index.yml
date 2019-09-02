@@ -1,63 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: 沈浸式閱讀程式文件
+summary: 沈浸式閱讀程式是一種工具，可實作經實證的技術並針對沈浸式讀者、語言學習者及存在學習差異的人士改善其閱讀理解程度。 您可以使用沈浸式閱讀程式 SDK，在 Web 應用程式中使用沈浸式閱讀程式。
 metadata:
-  title: 沈浸式閱讀程式文件 - 快速入門、教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
-  description: 了解如何使用應用程式中的沈浸式閱讀程式。
-  services: cognitive-services
-  author: metanMSFT
-  manager: nitinme
+  title: 沈浸式閱讀程式文件
+  description: 沈浸式閱讀程式是一種工具，可實作經實證的技術並針對沈浸式讀者、語言學習者及存在學習差異的人士改善其閱讀理解程度。 您可以使用沈浸式閱讀程式 SDK，在 Web 應用程式中使用沈浸式閱讀程式。
+  services: service
   ms.service: cognitive-services
   ms.subservice: immersive-reader
   ms.topic: landing-page
-  ms.date: 06/20/2019
-  ms.author: metanMSFT
-abstract:
-  description: 沈浸式閱讀程式是一種工具，可實作經實證的技術並針對沈浸式讀者、語言學習者及存在學習差異的人士改善其閱讀理解程度。 您可以使用沈浸式閱讀程式 SDK，在 Web 應用程式中使用沈浸式閱讀程式。
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/immersive-reader/overview
-            html: <p>了解沈浸式閱讀程式及如何將其整合到您的應用程式</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: 什麼是沈浸式閱讀程式？
-          - href: /azure/cognitive-services/immersive-reader/reference
-            html: <p>了解沈浸式閱讀程式 Javascript SDK</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: 使用沈浸式閱讀程式 SDK
-  - title: 5 分鐘快速入門
-    items:
-      - type: paragraph
-        text: 開始使用沈浸式閱讀程式：
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_csharp.svg
-            text: 'C&#35;'
-            alt: 'C# 標誌'
-            href: quickstart
-  - title: 逐步教學課程
-    items:
-      - type: paragraph
-        text: 了解如何使用沈浸式閱讀程式開發應用程式：
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-nodejs.md">使用 Node.js 啟動沈浸式閱讀程式</a>
-          - html: <a href="tutorial-python.md">使用 Python 啟動沈浸式閱讀程式</a>
-          - html: <a href="tutorial-ios-picture-immersive-reader.md">使用 Swift 啟動沈浸式閱讀程式</a>
-  - title: 參考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: SDK
-            html: <p><a href="reference.md">Javascript</a></p>
+  ms.collection: collection
+  author: IEvangelist
+  ms.author: dapine
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 50185a0bbfc3a9677ebc90f326b0c43ab2a2eb13
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70164501"
+landingContent:
+- title: 關於沈浸式閱讀程式
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是沈浸式閱讀程式？
+      url: overview.md
+- title: 開始使用
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core
+      url: quickstart.md
+    - text: Swift (iOS)
+      url: ios-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Node.js
+      url: tutorial-nodejs.md
+    - text: Python
+      url: tutorial-python.md
+    - text: Swift (iOS)
+      url: tutorial-ios-picture-immersive-reader.md
+- title: 探索沈浸式閱讀程式
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 向 Azure Active Directory 進行驗證
+      url: azure-active-directory-authentication.md
+  - linkListType: reference
+    links:
+    - text: JavaScript SDK
+      url: reference.md
+    - text: iOS SDK
+      url: ios-reference.md

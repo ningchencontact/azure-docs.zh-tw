@@ -44,8 +44,12 @@
           href: ingest-data-event-hub.md
         - name: Event Grid
           href: ingest-data-event-grid.md
+        - name: IoT 中樞
+          href: ingest-data-iot-hub.md
         - name: 單鍵擷取
           href: ingest-data-one-click.md
+        - name: 串流擷取
+          href: ingest-data-streaming.md
         - name: Kafka
           href: ingest-data-kafka.md
         - name: Python
@@ -90,6 +94,12 @@
               href: power-bi-imported-query.md
             - name: SQL 查詢
               href: power-bi-sql-query.md
+        - name: Excel
+          items:
+            - name: 連接器
+              href: excel-connector.md
+            - name: 空白查詢
+              href: excel-blank-query.md
         - name: Grafana
           href: grafana.md
         - name: ODBC 連接器

@@ -33,10 +33,10 @@
               href: tutorial-auto-train-models.md
     - name: 視覺化介面
       items:
-        - name: 定型迴歸模型
+        - name: 1. 定型迴歸模型
           displayName: studio
           href: ui-tutorial-automobile-price-train-score.md
-        - name: 部署迴歸模型
+        - name: 2. 部署迴歸模型
           displayName: studio
           href: ui-tutorial-automobile-price-deploy.md
     - name: 自動化機器學習
@@ -145,17 +145,6 @@
         - name: 新增和註冊資料集
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
-        - name: 透過 azureml.dataprep 準備
-          items:
-            - name: 載入資料
-              displayName: 'data, etl, data prep, dataprep'
-              href: how-to-load-data.md
-            - name: 轉換資料
-              displayName: 'data, etl, dataprep, data prep'
-              href: how-to-transform-data.md
-            - name: 寫入資料
-              displayName: 'data, etl, data prep, dataprep'
-              href: how-to-write-data.md
     - name: 將模型定型
       items:
         - name: 設定訓練環境
@@ -347,6 +336,8 @@
               href: ../algorithm-module-reference/multiclass-neural-network.md
             - name: 多元決策樹系
               href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: 多元促進式決策樹
+              href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
             - name: 二元平均感知器
               href: ../algorithm-module-reference/two-class-averaged-perceptron.md
             - name: 二元決策樹系

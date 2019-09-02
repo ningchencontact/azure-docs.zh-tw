@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 9b87e6736d37d5b03630b642fee310269e8b080a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eeda78c69c21fafcbe64071422bf7d73a4737249
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100429"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208311"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -171,7 +171,7 @@ ms.locfileid: "70100429"
 
 1. **我可以在向 SQL Server VM 資源提供者註冊之後, 升級我的 SQL Server 2008/2008 R2 實例嗎？**
 
-   是的。 您可以使用任何安裝媒體來升級 SQL Server 的版本, 然後將您的[SQL IaaS 延伸模組模式從 [](virtual-machines-windows-sql-server-agent-extension.md#change-management-modes) _無代理程式_] 升級為 [_完整_]。 這麼做可讓您存取 SQL IaaS 擴充功能的所有優點, 例如入口網站管理性、自動備份和自動修補。 
+   是的。 您可以使用任何安裝媒體來升級 SQL Server 的版本, 然後將您的[SQL IaaS 延伸模組模式從 [](virtual-machines-windows-sql-register-with-resource-provider.md#change-management-modes) _無代理程式_] 升級為 [_完整_]。 這麼做可讓您存取 SQL IaaS 擴充功能的所有優點, 例如入口網站管理性、自動備份和自動修補。 
 
 ## <a name="general"></a>一般
 

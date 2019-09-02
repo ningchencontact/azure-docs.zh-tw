@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 9b631f078240821e79513c4bd944a33b4725bc52
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124918"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207147"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>委派 Azure AD 權利管理 (預覽) 中的工作
 
@@ -117,6 +117,7 @@ ms.locfileid: "70124918"
 | [雲端應用程式系統管理員](../users-groups-roles/directory-assign-admin-roles.md) | 目錄擁有者 |  |  | :heavy_check_mark: |  |
 | 使用者 | 目錄擁有者 | 只有在群組擁有者 | 只有在群組擁有者 | 只有應用程式擁有者 |  |
 
+若要判斷工作的最低特殊許可權角色, 您也可以[在 Azure Active Directory 中, 依管理工作參考系統管理員角色](../users-groups-roles/roles-delegate-by-task.md#entitlement-management)。
 
 ## <a name="add-a-catalog-creator"></a>新增目錄建立者
 

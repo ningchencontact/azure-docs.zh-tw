@@ -97,8 +97,9 @@
 - name: 重新啟動或調整 VM 大小
   href: restart-resize-error-troubleshooting.md
 - name: 序列主控台
-  href: serial-console-overview.md
   items:
+    - name: 序列主控台概觀
+      href: serial-console-overview.md
     - name: 適用於 Linux 的序列主控台
       href: serial-console-linux.md
       items:

@@ -8,6 +8,9 @@
 - name: 快速入門
   expanded: true
   items:
+    - name: 執行您的第一個查詢 - Azure 入口網站
+      displayName: 'portal, resource, graph, explorer'
+      href: first-query-portal.md
     - name: 執行您的第一個查詢 - Azure CLI
       displayName: 'extension, docker'
       href: first-query-azurecli.md

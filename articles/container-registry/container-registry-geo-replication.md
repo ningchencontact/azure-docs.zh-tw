@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 50ab3fc92fc980638547bb090c5d0d78aa20ab5f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172275"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208012"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
 
@@ -97,8 +97,19 @@ ACR 會開始同步設定的複本之間的映像。 完成時，入口網站會
 * 異地複寫登錄中的每個區域在設定完成後，都是獨立的。 Azure Container Registry SLA 會套用至每個異地複寫的區域。
 * 當您對異地複寫的登錄推送或提取映像時，背景中的 Azure 流量管理員會將要求傳送至離您最近的區域中的登錄。
 * 當您將映像或標記更新推送至最接近的區域之後，Azure Container registry 需要一些時間將資訊清單和層複寫至您選擇加入的其餘區域。 映像愈大，複寫就愈耗時。 各個複寫區域會透過最終的一致性模型同步處理映像和標記。
-* 若要管理必須將更新推送至異地複寫登錄的工作流程，建議您設定 [Webhook](container-registry-webhook.md) 來回應推送事件。 您可以在異地複寫的登錄中設定區域 Webhook，來追蹤異地複寫區域之間的推送事件何時完成。
+* 若要管理相依于異地複寫之推送更新的工作流程, 我們建議您設定[webhook](container-registry-webhook.md)來回應推送事件。 您可以在異地複寫的登錄中設定區域 Webhook，來追蹤異地複寫區域之間的推送事件何時完成。
 
+## <a name="delete-a-replica"></a>刪除複本伺服器
+
+設定登錄的複本之後, 您可以在不再需要時將它刪除。 使用 Azure 入口網站或其他工具 (例如 Azure CLI 中的[az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete)命令) 來刪除複本。
+
+若要刪除 Azure 入口網站中的複本:
+
+1. 流覽至您的 Azure Container Registry, 然後選取 [複寫]。
+1. 選取複本的名稱, 然後選取 [**刪除**]。 確認您想要刪除複本。
+
+> [!NOTE]
+> 您無法在登錄的*主區域*(也就是您用來建立登錄的位置) 中刪除登錄複本。 您只能藉由刪除登錄本身來刪除 home 複本。
 
 ## <a name="geo-replication-pricing"></a>異地複寫價格
 

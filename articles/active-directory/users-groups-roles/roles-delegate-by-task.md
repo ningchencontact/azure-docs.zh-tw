@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62814bb1e2934c406dc5fb1eb3b3bc3f3d2ee3b7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135546"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207236"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -143,6 +143,11 @@ ms.locfileid: "70135546"
 更新企業應用程式自助 | 企業應用程式擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 雲端應用程式系統管理員、應用程式系統管理員
 更新單一登入屬性 | 企業應用程式擁有者 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 雲端應用程式系統管理員、應用程式系統管理員
 
+## <a name="entitlement-management"></a>權利管理
+工作 | 最低特殊權限角色 | 其他角色
+---- | --------------------- | ----------------
+將資源新增至目錄 | 使用者系統管理員 | 透過權利管理, 您可以將這項工作委派給目錄擁有者 ([請參閱檔](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+將 SharePoint Online 網站新增至目錄 | 全域管理員
 
 
 ## <a name="groups"></a>群組

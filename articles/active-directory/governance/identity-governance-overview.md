@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/25/2019
+ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014a2c3cff3804657e4e2bf624b97eceef4bf4b2
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033329"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207170"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD Identity Governance？
 
@@ -69,6 +69,18 @@ Azure Active Directory (Azure AD) 身分識別治理可讓您透過適當的程�
 ![特殊權限的存取生命週期](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制項，以保護 Azure AD、Azure 和其他 Microsoft Online Services 中資源的存取權限。  除了多重要素驗證和條件式存取以外, Azure AD PIM 所提供的即時存取權和角色變更警示功能, 還提供一組完整的治理控制項, 以協助保護貴公司的資源 (目錄、Office 365 和 Azure 資源角色)。 如同其他形式的存取權，組織可以使用存取權檢閱，對具有系統管理員角色的所有使用者設定週期性存取權重新確認。
+
+## <a name="least-privileged-roles"></a>最低特殊許可權角色
+
+使用 PIM 可讓使用者的系統管理許可權受到限制, 以提供額外的安全性。 以下是在 Azure AD 身分識別治理功能中設定的最低許可權目錄角色: 
+
+| 功能 | 最低特殊權限角色 |
+| ------- | --------------------- |
+| 權利管理 | 使用者系統管理員 (在將 SharePoint Online 網站新增至目錄時除外, 這需要全域管理員) |
+| 使用規定 | 安全性系統管理員或條件式存取管理員 |
+| 存取檢閱 | 使用者系統管理員 (但 Azure 或 Azure AD 角色的存取權審查除外, 這需要特殊權限角色管理員) |
+|Privileged Identity Management | 特殊權限角色管理員 |
+
 
 ## <a name="getting-started"></a>使用者入門
 

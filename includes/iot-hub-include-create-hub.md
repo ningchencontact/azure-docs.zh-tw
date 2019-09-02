@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: dc31abaadf3f39d31a4c1b04f9911b5ce1677916
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: e01bb13b904aaf8671512daa3ef3cbad182f01e3
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048579"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70161941"
 ---
 本節將說明如何使用 [Azure 入口網站](https://portal.azure.com)建立 IoT 中樞。
 
@@ -50,7 +50,7 @@ ms.locfileid: "70048579"
 
     - **進階設定** > **裝置到雲端的分割區**：此屬性會將裝置到雲端的訊息數與同時閱讀訊息的讀者數產生關聯。 大部分的中樞只需要四個分割區。
 
-1. 在本教學課程中，接受預設選項，然後選取 [檢閱及建立]  來檢閱您的選擇。 您會看到類似這個畫面的內容。
+1. 在本文中，接受預設選項，然後選取 [檢閱及建立]  來檢閱您的選擇。 您會看到類似這個畫面的內容。
 
    ![檢閱有關建立新中樞的資訊](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
 

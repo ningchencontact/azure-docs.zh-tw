@@ -9,22 +9,26 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: 507a6d998f83f5a399f78566967067d0ed92f8b0
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: dee813cbe1da6a6300f65b7005bf4a4b0226112a
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534421"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208545"
 ---
 1. 使用您所使用之 Azure 訂用帳戶的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 
 
 1. 在 Azure 入口網站的左上角，選取 [+建立資源]  。
+
+      ![建立新的資源](media/aml-create-in-portal/portal-create-resource.png)
 
 1. 使用搜尋列尋找 [Machine Learning 服務工作區]  。
 
 1. 選取 [Machine Learning 服務工作區]  。
 
 1. 在 [Machine Learning 服務工作區]  窗格中選取 [建立]  來開始操作。
+
+  
 
 1. 藉由提供工作區名稱、訂用帳戶、資源群組和位置來設定新的工作區。
 
@@ -37,7 +41,10 @@ ms.locfileid: "69534421"
 
 1. 在完成工作區的設定後，選取 [建立]  。 
 
-   建立工作區可能需要一些時間。
+   > [!Warning] 
+   > 在雲端中建立工作區可能需要數分鐘的時間。
 
-   程序完成後，會出現部署成功訊息。 若要檢視新的工作區，選取 [前往資源]  。
+   程序完成後，會出現部署成功訊息。 
+ 
+ 1. 若要檢視新的工作區，選取 [前往資源]  。
 

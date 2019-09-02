@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: 73aeea42cd843716c845d7712539ae5c81f03dca
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.date: 08/30/2019
+ms.openlocfilehash: 65a75bc3a2e7ab2361ee8ae53d11ba1604c1d1ef
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173080"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208354"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -92,7 +92,7 @@ ms.locfileid: "70173080"
 
 - **唯讀的容錯移轉原則**
 
-  根據預設，唯讀接聽程式的容錯移轉已停用。 它可確保在次要伺服器離線時不會影響主要伺服器的性能。 不過，這也表示在次要伺服器恢復之前，唯讀的工作階段將無法連線。 如果您無法容忍唯讀工作階段的停機時間，並且可以暫時將主要伺服器用於唯讀和讀寫流量，但代價是主要伺服器潛在的效能降低，則可以為唯讀接聽程式啟用容錯移轉。 在此情況下, 如果次要資料庫無法使用, 唯讀流量將會自動重新導向至主要複本。
+  根據預設，唯讀接聽程式的容錯移轉已停用。 它可確保在次要伺服器離線時不會影響主要伺服器的性能。 不過，這也表示在次要伺服器恢復之前，唯讀的工作階段將無法連線。 如果您無法容忍唯讀會話的停機時間, 而且可以暫時將主要複本用於唯讀和讀寫流量, 但代價是主要的潛在效能降低, 您可以為唯讀接聽程式啟用容錯移轉藉由設定屬性。 `AllowReadOnlyFailoverToPrimary` 在此情況下, 如果次要資料庫無法使用, 唯讀流量將會自動重新導向至主要複本。
 
 - **計劃性容錯移轉**
 
@@ -112,7 +112,7 @@ ms.locfileid: "70173080"
 
 - **資料遺失的寬限期**
 
-  因為主要和次要資料庫是使用非同步複寫進行同步處理，容錯移轉可能會導致資料遺失。 您可以自訂自動容錯移轉原則，以反映應用程式對資料遺失的容錯程度。 設定 **GracePeriodWithDataLossHours**，可以控制系統在起始可能造成資料遺失的容錯移轉之前等候的時間長度。
+  因為主要和次要資料庫是使用非同步複寫進行同步處理，容錯移轉可能會導致資料遺失。 您可以自訂自動容錯移轉原則，以反映應用程式對資料遺失的容錯程度。 藉由設定, 您可以控制系統在起始可能造成資料遺失的容錯移轉之前等待的時間長度。 `GracePeriodWithDataLossHours`
 
 - **多個容錯移轉群組**
 
@@ -155,7 +155,7 @@ ms.locfileid: "70173080"
 
 - **針對唯讀工作負載使用唯讀接聽程式**
 
-  如果您有容忍某些過時資料的邏輯隔離唯讀工作負載，則可以使用應用程式中的次要資料庫。 針對唯讀工作階段，請使用 `<fog-name>.secondary.database.windows.net` 作為伺服器 URL，連線會自動導向至次要伺服器。 也建議您使用 **ApplicationIntent=ReadOnly**，在連接字串中表示讀取意圖。
+  如果您有容忍某些過時資料的邏輯隔離唯讀工作負載，則可以使用應用程式中的次要資料庫。 針對唯讀工作階段，請使用 `<fog-name>.secondary.database.windows.net` 作為伺服器 URL，連線會自動導向至次要伺服器。 也建議您使用`ApplicationIntent=ReadOnly`, 在連接字串讀取意圖中指出。 如果您想要確保唯讀工作負載可以在容錯移轉之後重新連線, 或在次要伺服器離線時, 請務必設定`AllowReadOnlyFailoverToPrimary`容錯移轉原則的屬性。 
 
 - **對效能降低做好心理準備**
 
@@ -166,7 +166,7 @@ ms.locfileid: "70173080"
 
 - **對資料遺失做好心理準備**
 
-  如果偵測到發生中斷，它會等候您透過 **GracePeriodWithDataLossHours** 所指定的這段時間。 預設值為 1 小時。 如果您無法承擔資料遺失情況，請務必將 **GracePeriodWithDataLossHours** 設定為足夠大的數字，例如 24 小時。 使用手動群組容錯移轉，從次要伺服器容錯回復到主要伺服器。
+  如果偵測到中斷, SQL 會等待您指定`GracePeriodWithDataLossHours`的期間。 預設值為 1 小時。 如果您無法承受資料遺失, 請務必將設定`GracePeriodWithDataLossHours`為夠大的數位, 例如24小時。 使用手動群組容錯移轉，從次要伺服器容錯回復到主要伺服器。
 
   > [!IMPORTANT]
   > 具有 800 個或更少 DTU 且使用異地複寫的資料庫超過 250 個的彈性集區，可能會遇到的問題包括規劃的容錯移轉時間較久與效能降低。  當地理複寫端點依地理位置廣泛相隔，或當每個資料庫使用多個次要端點時，較可能會發生這些寫入大量工作負載的問題。  異地複寫延遲隨時間而增加時，就可看出這些問題的徵兆。  您可以使用 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 來監視這個延遲。  如果發生這些問題，則風險降低方式包括增加集區 DTU 數目，或減少相同集區內異地複寫的資料庫數目。
@@ -305,10 +305,10 @@ ms.locfileid: "70173080"
 
 ## <a name="preventing-the-loss-of-critical-data"></a>防止重要資料遺失
 
-由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 不過，有些應用程式可能會要求資料不能遺失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫 **sp_wait_for_database_copy_sync** 會封鎖呼叫執行緒，直到最後認可的交易傳輸到次要資料庫。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 **sp_wait_for_database_copy_sync** 以特定的連續複製連結為範圍。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
+由於廣域網路的高度延遲，連續複製採用非同步複寫機制。 如果發生失敗，非同步複寫導致部分資料遺失是無法避免的。 不過，有些應用程式可能會要求資料不能遺失。 若要保護這些重大更新，應用程式開發人員可以在認可交易後立即呼叫 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 系統程序。 呼叫`sp_wait_for_database_copy_sync`會封鎖呼叫執行緒, 直到最後認可的交易傳輸到次要資料庫為止。 不過，它不會等候在次要資料庫上重新執行和認可傳輸的交易。 `sp_wait_for_database_copy_sync`的範圍設定為特定的連續複製連結。 任何具備主要資料庫連接權限的使用者都可以呼叫此程序。
 
 > [!NOTE]
-> **sp_wait_for_database_copy_sync** 可避免在容錯移轉之後資料遺失，但是不保證讀取權限會完整同步。 **sp_wait_for_database_copy_sync** 程序呼叫所造成的延遲可能會相當明顯，且取決於呼叫時的交易記錄大小。
+> `sp_wait_for_database_copy_sync`防止在容錯移轉之後遺失資料, 但不保證讀取權限的完整同步處理。 `sp_wait_for_database_copy_sync`程序呼叫所造成的延遲可能會很重要, 並取決於呼叫時的交易記錄大小。
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>容錯移轉群組和時間點還原
 
