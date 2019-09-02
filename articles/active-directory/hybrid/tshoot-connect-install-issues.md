@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60454762"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211835"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>疑難排解：Azure AD Connect 安裝問題
 
@@ -41,11 +41,11 @@ ms.locfileid: "60454762"
 
 ### <a name="common-issues"></a>**常見問題**
 
-* [與內部部署 Active Directory 的連線問題](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)。
+* 內部[部署 Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools)的連線問題。
 
 * [線上 Azure Active Directory 的連線問題](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity)。
 
-* [在內部部署 Active Directory 的權限問題](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account)。
+* 內部[部署 Active Directory 的許可權問題](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account)。
 
 ## <a name="recommended-documents"></a>**建議的文件**
 * [Azure AD Connect 的必要條件](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
@@ -58,7 +58,7 @@ ms.locfileid: "60454762"
 
 ## <a name="next-steps"></a>後續步驟
 - [Azure AD Connect 同步](how-to-connect-sync-whatis.md)。
-- [什麼是混合式身分識別？](whatis-hybrid-identity.md)。
+- [什麼是混合式身分識別？](whatis-hybrid-identity.md)
 
 
 

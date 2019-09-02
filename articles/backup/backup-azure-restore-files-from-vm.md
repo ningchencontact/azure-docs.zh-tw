@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 項目層級復原；從 Azure VM 備份檔案復原；從 Azure VM 中還原檔案
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954617"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210363"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
@@ -68,7 +68,7 @@ Azure 備份可從 Azure 虛擬機器 (VM) 備份 (又稱復原點) 還原 [Azur
     - download.microsoft.com
     - 復原服務 URL (geo-name 是指復原服務保存庫所在的區域)
         - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.com (適用于 Azure 公用地區)
-        - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.cn (適用于 Azure 中國)
+        - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.cn (適用于 Azure 中國世紀)
         - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.us (適用于 Azure 美國政府)
         - HTTPs:\//pod01-rec2.geo-name.backup.windowsazure.de (適用于 Azure 德國)
     - 輸出連接埠 3260

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 訂用帳戶或資源群組之間移動復原服務保存庫-Azure 備份
-description: 指導您如何跨 Azure 訂用帳戶和資源群組來移動復原服務保存庫。
+title: 跨 Azure 訂用帳戶或資源群組移動復原服務保存庫
+description: 在 Azure 訂用帳戶和資源群組之間移動復原服務保存庫的指示。
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6ca07a6ba96aa271241271dcba264c1ea2ceefbb
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 960ddcc2a082b247951b0f79d0c990acc5e557e1
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018812"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210376"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>跨 Azure 訂用帳戶和資源群組移動復原服務保存庫
 

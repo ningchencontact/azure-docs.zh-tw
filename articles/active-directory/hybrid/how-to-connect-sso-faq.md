@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 09/02/2019
 ms.locfileid: "60242220"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
@@ -39,17 +39,17 @@ ms.locfileid: "60242220"
 
 資料分割 只有全球版的 Azure AD 執行個體有提供「無縫 SSO」功能。
 
-## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>哪些應用程式利用無縫 SSO 的 `domain_hint` 或 `login_hint` 參數功能？
+## <a name="what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso"></a>哪些應用程式利用無縫 SSO 的 `domain_hint` 或 `login_hint` 參數功能？
 
 以下是一份不完整的應用程式清單，這些應用程式可以將這些參數傳送給 Azure AD，因此可使用「無縫 SSO」(亦即，使用者不需要輸入自己的使用者名稱或密碼) 為使用者提供無訊息的登入體驗：
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |
 | 存取面板 | https:\//myapps.microsoft.com/contoso.com |
-| 網路版 Outlook | https:\//outlook.office365.com/contoso.com |
-| Office 365 入口網站 | https:\//portal.office.com?domain_hint=contoso.com、 https:\//www.office.com?domain_hint=contoso.com |
+| 網路版 Outlook | HTTPs:\//outlook.office365.com/contoso.com |
+| Office 365 入口網站 | HTTPs:\//portal.office.com？ domain_hint = contoso .com, HTTPs:\//www.office.com？ domain_hint = contoso .com |
 
-此外，使用者收到無訊息登入體驗的應用程式傳送至 Azure AD 端點的登入要求設定為租用戶-也就是 https:\//login.microsoftonline.com/contoso.com/ <...> 或 https:\//login.microsoftonline.com/ < tenant_ID > / <...>-而不是 Azure AD 常見端點-亦即，https:\//login.microsoftonline.com/common/ <...>。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
+此外, 如果應用程式將登入要求傳送至設定為租使用者的 Azure AD 端點 (也就是 HTTPs:\//login.microsoftonline.com/contoso.com/<), 使用者就會獲得無訊息登入體驗。> 或 HTTPs:\//login.microsoftonline.com/<tenant_ID>/<。>-而不是 Azure AD 的通用端點, 也就是 HTTPs\/:/login.microsoftonline.com/common/< .。。>。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |
@@ -66,7 +66,7 @@ ms.locfileid: "60242220"
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>[Azure AD 聯結](../active-directory-azureadjoin-overview.md)與「無縫 SSO」所提供的單一登入體驗有何差異？
 
-[Azure AD 聯結](../active-directory-azureadjoin-overview.md)可為裝置已向 Azure AD 註冊的使用者提供 SSO。 這些裝置不一定要加入網域。 提供 SSO 時，使用的是「主要重新整理權杖」  (或稱 *PRT*)，而不是 Kerberos。 在 Windows 10 裝置上可獲得最佳使用者體驗。 SSO 在 Microsoft Edge 瀏覽器上會自動執行。 在 Chrome 上則藉由使用瀏覽器擴充功能也能運作。
+[Azure AD 聯結](../active-directory-azureadjoin-overview.md)可為裝置已向 Azure AD 註冊的使用者提供 SSO。 這些裝置不一定要加入網域。 提供 SSO 時，使用的是「主要重新整理權杖」(或稱 *PRT*)，而不是 Kerberos。 在 Windows 10 裝置上可獲得最佳使用者體驗。 SSO 在 Microsoft Edge 瀏覽器上會自動執行。 在 Chrome 上則藉由使用瀏覽器擴充功能也能運作。
 
 您可以在租用戶上同時使用「Azure AD 聯結」和「無縫 SSO」。 這兩個功能是互補的。 如果同時開啟這兩個功能，則來自「Azure AD 聯結」的 SSO 優先順序會高於「無縫 SSO」。
 
@@ -102,7 +102,7 @@ ms.locfileid: "60242220"
 3. 針對您已設定此功能的每個 AD 樹系，重複上述步驟。
 
 >[!IMPORTANT]
->確定您「並未」  執行 `Update-AzureADSSOForest` 命令一次以上。 否則，此功能會停止運作，直到使用者的 Kerberos 票證過期並由您的內部部署 Active Directory 重新發出為止。
+>確定您「並未」執行 `Update-AzureADSSOForest` 命令一次以上。 否則，此功能會停止運作，直到使用者的 Kerberos 票證過期並由您的內部部署 Active Directory 重新發出為止。
 
 ## <a name="how-can-i-disable-seamless-sso"></a>如何停用無縫 SSO？
 
@@ -110,8 +110,8 @@ ms.locfileid: "60242220"
 
 #### <a name="option-a-disable-using-azure-ad-connect"></a>選項 A：使用 Azure AD Connect 來停用
 
-1. 執行 Azure AD Connect，選擇 [變更使用者登入頁面]  ，然後按 [下一步]  。
-2. 取消選取 [啟用單一登入]  選項。 繼續執行精靈。
+1. 執行 Azure AD Connect，選擇 [變更使用者登入頁面]，然後按 [下一步]。
+2. 取消選取 [啟用單一登入] 選項。 繼續執行精靈。
 
 完成精靈之後，租用戶就會停用無縫 SSO。 但是，您會在畫面上看到一個包含以下內容的訊息：
 
@@ -130,7 +130,7 @@ ms.locfileid: "60242220"
 5. 呼叫 `Enable-AzureADSSO -Enable $false`。
 
 >[!IMPORTANT]
->使用 PowerShell 停用無縫 SSO 不會變更 Azure AD Connect 中的狀態。 在 [變更使用者登入]  頁面中，無縫 SSO 會顯示為已啟用。
+>使用 PowerShell 停用無縫 SSO 不會變更 Azure AD Connect 中的狀態。 在 [變更使用者登入] 頁面中，無縫 SSO 會顯示為已啟用。
 
 ### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>步驟 2. 取得已啟用無縫 SSO 的 AD 樹系清單
 

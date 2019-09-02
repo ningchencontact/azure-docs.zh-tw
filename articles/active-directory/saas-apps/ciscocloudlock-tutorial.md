@@ -104,7 +104,7 @@ ms.locfileid: "68347396"
 
     ![憑證下載連結](common/metadataxml.png)
 
-5. 若要根據您的需求修改 [簽署**] **  選項，請按一下 [編輯**] **  按鈕以開啟 [SAML 簽署憑證**] **  對話方塊。
+5. 若要根據您的需求修改 **[簽署]**   選項，請按一下  **[編輯]**   按鈕以開啟  **[SAML 簽署憑證]**   對話方塊。
 
     ![SAML 回應](./media/ciscocloudlock-tutorial/saml.png)
 

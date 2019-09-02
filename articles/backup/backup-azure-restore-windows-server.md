@@ -6,18 +6,18 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/7/2018
+ms.date: 09/07/2018
 ms.author: dacurwin
-ms.openlocfilehash: c8e0ddb788d5e155bfaa511b1012cc8d8e62aab5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 4c0686fc72bfcafdfee650822aece15b8f3fb766
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689097"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210333"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型將檔案還原至 Windows
 
-此文章說明如何從備份保存庫還原資料。 若要還原資料，可以使用 Microsoft Azure 復原服務 (MARS) 代理程式中的 [復原資料精靈]。 您可以:
+此文章說明如何從備份保存庫還原資料。 若要還原資料，可以使用 Microsoft Azure 復原服務 (MARS) 代理程式中的 [復原資料精靈]。 您可以：
 
 * 將資料還原到進行備份的相同電腦。
 * 將資料還原至其他電腦。

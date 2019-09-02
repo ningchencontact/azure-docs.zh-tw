@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a96c02d1d7d2fae43e0a5915e9233bde842ce621
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066659"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210108"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本檔說明 Azure App Service 虛擬網路整合功能, 以及如何使用[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式進行設定。 [Azure 虛擬網路][VNETOverview](Vnet) 可讓您將許多 Azure 資源放在非網際網路可路由網路中。  
@@ -110,7 +110,7 @@ VNet 整合不支援的事項包括：
 
 #### <a name="web-app-for-containers"></a>Web App for Containers
 
-如果您將 Linux 上的 App Service 與內建映射搭配使用, 區域 VNet 整合功能就能運作, 而不需要進行其他變更。 如果您使用用於容器的 Web App, 您需要修改 docker 映射, 才能使用 VNet 整合。 在您的 docker 映射中, 使用埠環境變數作為主要 web 伺服器的接聽埠, 而不是使用硬式編碼的埠號碼。 埠環境變數會在容器啟動時, 由 App Service 平臺自動設定。
+如果您將 Linux 上的 App Service 與內建映射搭配使用, 區域 VNet 整合功能就能運作, 而不需要進行其他變更。 如果您使用用於容器的 Web App, 您需要修改 docker 映射, 才能使用 VNet 整合。 在您的 docker 映射中, 使用埠環境變數作為主要 web 伺服器的接聽埠, 而不是使用硬式編碼的埠號碼。 埠環境變數會在容器啟動時, 由 App Service 平臺自動設定。 如果您使用 SSH, 則在使用區域 VNet 整合時, 必須將 SSH daemon 設定為接聽 SSH_PORT 環境變數所指定的埠號碼。
 
 ### <a name="service-endpoints"></a>服務端點
 

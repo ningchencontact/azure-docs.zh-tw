@@ -1,18 +1,18 @@
 ---
 title: 為您的 Azure 資料總管叢集選取正確的 VM SKU
 description: 本文說明如何為 Azure 資料總管叢集選取最佳的 SKU 大小。
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 2eb23a65196ac4f6456f50dbbbfd9e4b484ad171
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 8293fd2d84189cc1f1df3564abbfdcbf86e3543e
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515736"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186742"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>為您的 Azure 資料總管叢集選取正確的 VM SKU 
 
@@ -83,7 +83,7 @@ Azure 資料總管提供兩種類型的叢集:
 |L16s_1| 儲存體優化 | 2.6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1,000
 
 * 您可以使用 Azure 資料總管[LISTSKUS API](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet), 來查看每個區域的已更新 VM SKU 清單。 
-* 深入瞭解[各種計算 sku](/azure/virtual-machines/windows/sizes-compute)。 
+* 深入瞭解[各種 sku](/azure/virtual-machines/windows/sizes)。 
 
 ## <a name="next-steps"></a>後續步驟
 

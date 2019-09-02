@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 復原服務 (MARS) 代理程式的支援矩陣 Azure 備份
+title: Microsoft Azure 復原服務 (MARS) 代理程式的支援矩陣
 description: 本文摘要說明當您備份執行 Microsoft Azure 復原服務 (MARS) 代理程式的電腦時的 Azure 備份支援。
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 599d3f97ea30b096999d754a995af2ba660c0bc3
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 1559bb096baaa8f19718bf0c3bcd6b2dc767235b
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186164"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210123"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 復原服務 (MARS) 代理程式進行備份的支援矩陣
 

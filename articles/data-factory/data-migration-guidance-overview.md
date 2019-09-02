@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: a61ddf57d4f01fcaf4a949add29c677aa94060a9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 6b13eab0824307ef42f25d52a293f0f22818c1aa
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827853"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210028"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>使用 Azure Data Factory 將資料從您的 data lake 或資料倉儲遷移至 Azure 
 
@@ -60,3 +60,4 @@ Azure Data Factory 是典型的線上資料移轉工具, 可透過網路 (網際
 ## <a name="next-steps"></a>後續步驟
 
 - [將資料從 AWS S3 遷移至 Azure](data-migration-guidance-s3-azure-storage.md)
+- [將資料從內部部署 hadoop 叢集遷移至 Azure](data-migration-guidance-hdfs-azure-storage.md)

@@ -10,18 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 6fd7c4ffafa54acb7ff67bd2e595f0b3c02a0e5a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a419bdcda3507dd82ec92f621e7405c87f0cb98f
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967405"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211632"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP ECC 複製資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」, 從 SAP Enterprise Central Component (ECC) 複製資料。 如需詳細資訊, 請參閱[複製活動總覽](copy-activity-overview.md)。
+
+>[!TIP]
+>若要瞭解 ADF 對於 SAP 資料整合案例的整體支援, 請參閱[使用 Azure Data Factory 白皮書的 SAP 資料整合](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf), 其中包含詳細的簡介、comparsion 和指引。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -42,7 +45,7 @@ ms.locfileid: "68967405"
 >[!TIP]
 >若要透過 SAP 資料表或 view 從 SAP ECC 複製資料, 請使用[sap 資料表](connector-sap-table.md)連接器, 這會更快速且更具擴充性。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 一般而言，SAP ECC 會透過 OData 服務經由 SAP 閘道公開實體。 若要使用此 SAP ECC 連接器，您必須：
 
@@ -50,7 +53,7 @@ ms.locfileid: "68967405"
 
 - **啟用和設定 SAP OData 服務**。 您可以透過 TCODE SICF 來啟動 OData 服務 (以秒為單位)。 您也可以設定需要公開的物件。 如需詳細資訊, 請參閱[逐步指導](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/)方針。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -64,7 +67,7 @@ ms.locfileid: "68967405"
 
 以下是 SAP ECC 已連結服務支援的屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `type` | 屬性必須設定為`SapEcc`。 `type` | 是 |
 | `url` | SAP ECC OData 服務的 URL。 | 是 |
@@ -103,7 +106,7 @@ ms.locfileid: "68967405"
 
 以下是支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 實體的路徑。 | 是 |
 
@@ -136,7 +139,7 @@ ms.locfileid: "68967405"
 
 複製活動的`source`區段支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | `type` | 複製`type` `SapEccSource`活動區段的屬性必須設定為。`source` | 是 |
 | `query` | 用來篩選資料的 OData 查詢選項。 例如:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 連接器會從合併的 URL 複製資料:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |

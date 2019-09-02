@@ -1,21 +1,22 @@
 ---
-title: 在 Azure Stack VM 中備份檔案
+title: 備份 Azure Stack Vm 中的檔
 description: 使用 Azure 備份可備份 Azure Stack 檔案和應用程式，並復原到 Azure Stack 環境。
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/5/2018
+ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: 25e511a1596c1119d1db8c9270ce216cd5186e72
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735479"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210222"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>備份 Azure Stack 上的檔案和應用程式
+
 您可以使用 Azure 備份在 Azure Stack 上保護 (或備份) 檔案和應用程式。 若要備份檔案和應用程式，請將 Microsoft Azure 備份伺服器安裝成為在 Azure Stack 上執行的虛擬機器。 您可以保護在相同虛擬網路中任何 Azure Stack 伺服器上的檔案。 在您安裝 Azure 備份伺服器後，請新增 Azure 磁碟，以增加可保存短期備份資料的本機存放區。 Azure 備份伺服器會使用 Azure 存放區進行長期保存。
 
 > [!NOTE]
@@ -23,7 +24,6 @@ ms.locfileid: "68735479"
 >
 
 本文未涵蓋在 Azure Stack 環境中安裝 Azure 備份伺服器的資訊。 若要將 Azure 備份伺服器安裝在 Azure Stack 上，請參閱[安裝 Azure 備份伺服器](backup-mabs-install-azure-stack.md)。
-
 
 ## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>將 Azure Stack VM 中的檔案和資料夾備份至 Azure
 
@@ -41,7 +41,7 @@ ms.locfileid: "68735479"
 
     ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/3-select-protection-group-type.png)
 
-    [選取群組成員] 畫面隨即開啟。 
+    [選取群組成員] 畫面隨即開啟。
 
     ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/4-opening-screen-choose-servers.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "68735479"
     > 您**不應該**將作業復原 (備份) 資料保留在 Azure 備份伺服器連結的磁碟上超過五天。
     >
 
-    ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
+    ![開啟新的保護群組精靈](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
 
     若要在每個排程復原點之前執行快速完整備份，請按一下 [Just before a recovery point] \(在復原點前一刻\)，而不要選取增量備份的間隔。 如果您要保護應用程式工作負載，Azure 備份伺服器就會根據同步處理頻率排程建立復原點 (前提是應用程式支援增量備份)。 如果應用程式不支援增量備份，Azure 備份伺服器將會執行快速完整備份。
 
@@ -80,13 +80,13 @@ ms.locfileid: "68735479"
 
 9. 如果您選擇備份到 Azure，請確定已在 [指定線上保護資料] 頁面上選取要備份到 Azure 的工作負載。
 
-10. 在 [指定線上備份排程] 中，指定應進行 Azure 增量備份的時機。 
+10. 在 [指定線上備份排程] 中，指定應進行 Azure 增量備份的時機。
 
     您可以將備份排程為每日、每週、每月、每年執行，並選取備份的執行時間和日期。 一天最多可以備份兩次。 系統每次執行備份作業時，都會透過 Azure 備份伺服器磁碟上儲存的備份資料複本，在 Azure 中建立復原點。
 
 11. 在 [Specify online retention policy] \(指定線上保留原則\) 中，指定如何在 Azure 中保留透過每日、每週、每月、每年備份所建立的復原點。
 
-12. 在 [選擇線上複寫] 中，指定如何進行首次的資料完整複寫。 
+12. 在 [選擇線上複寫] 中，指定如何進行首次的資料完整複寫。
 
 13. 在 [摘要] 上檢閱您的設定。 當您按一下 [建立群組] 時，就會進行首次的資料複寫。 當資料複寫完成時，[狀態] 頁面上的保護群組狀態會顯示為 [正常]。 初始備份作業會根據保護群組設定進行。
 
@@ -115,11 +115,10 @@ ms.locfileid: "68735479"
     * **通知**：按一下 [Send an e-mail when the recovery completes] \(當復原完成時傳送電子郵件\)，並指定將接收通知的收件者。 請以逗號分隔電子郵件地址。
     * 在進行選擇之後，按一下 [下一步]
 
-7. 檢閱復原設定，然後按一下 [復原]。 
+7. 檢閱復原設定，然後按一下 [復原]。
 
-    > [!Note] 
-    > 正在進行復原工作時，會取消所選取之復原項目的所有同步處理工作。
-    >
+    >[!Note]
+    >正在進行復原工作時，會取消所選取之復原項目的所有同步處理工作。
 
 如果您使用的是 Modern Backup Storage (MBS)，則不支援檔案伺服器的使用者復原 (EUR)。 檔案伺服器 EUR 相依於 Modern Backup Storage 不會使用的磁碟區陰影複製服務 (VSS)。 如果已啟用 EUR，請使用下列步驟來復原資料：
 
@@ -128,12 +127,16 @@ ms.locfileid: "68735479"
 2. 在 [內容] 功能表上，按一下 [舊版]，並選擇您想要復原的版本。
 
 ## <a name="view-azure-backup-server-with-a-vault"></a>使用保存庫來檢視 Azure 備份伺服器
-若要在 Azure 入口網站中檢視 Azure 備份伺服器，您可以遵循下列步驟：
+
+若要在 Azure 入口網站中查看 Azure 備份伺服器的實體, 您可以依照下列步驟執行:
+
 1. 開啟復原服務保存庫。
 2. 按一下備份基礎結構。
 3. 檢視備份管理伺服器。
 
 ## <a name="see-also"></a>另請參閱
+
 如需使用 Azure 備份伺服器保護其他工作負載的資訊，請參閱下列文章：
-- [備份 SharePoint 伺服器陣列](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [備份 SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+
+* [備份 SharePoint 伺服器陣列](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+* [備份 SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

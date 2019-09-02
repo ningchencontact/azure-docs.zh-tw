@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 05ecfdc4f082aaa44fe54e6b807a1c5faf84eb8d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 22c83b1fe53a9209fd243fe807bb76718cbdcbbd
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996451"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211690"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>複製活動效能和擴充性指南
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本:"]
@@ -181,6 +181,7 @@ Azure Data Factory 提供下列效能優化功能:
 | 複製案例 | 由服務決定的預設平行複製計數 |
 | --- | --- |
 | 在以檔案為基礎的存放區之間複製資料 |取決於檔案大小和用來在兩個雲端資料存放區之間複製資料的 Diu 數, 或自我裝載整合執行時間電腦的實體設定。 |
+| 從已啟用分割區選項的關聯式資料存放區複製 (包括[Oracle](connector-oracle.md#oracle-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [Sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap 開放式中樞](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
 | 將資料從任何來源存放區複製到 Azure 表格儲存體 |4 |
 | 所有其他複製案例 |1 |
 
