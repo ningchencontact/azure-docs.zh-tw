@@ -20,7 +20,7 @@ ms.locfileid: "70018990"
 
 | <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">疑難排解指南</a> 
 | <a href="https://github.com/Azure/service-fabric-issues" target="blank">問題追蹤</a> 
-| 支持的選項<a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank"></a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">支持的選項</a> 
 | <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">支持的版本</a> 
 | <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">代碼示例</a>
 

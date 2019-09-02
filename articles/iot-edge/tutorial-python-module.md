@@ -168,7 +168,7 @@ ms.locfileid: "68839539"
         print ( "Total calls confirmed: %d\n" % TWIN_CALLBACKS )
     ```
 
-6. 在 **HubManager** 類別中，將新的行新增至 ** __** 方法，將您剛才新增的 **module_twin_callback** 函式初始化：
+6. 在 **HubManager** 類別中，將新的行新增至 **__init__** 方法，將您剛才新增的 **module_twin_callback** 函式初始化：
 
     ```python
     # Sets the callback when a module twin's desired properties are updated.
