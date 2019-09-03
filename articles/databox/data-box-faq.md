@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: f1a1a8a6b32567a1571c70e76a4ae6c570d27ca5
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 287fd07f170ec85b07b75e1823cbb67d462004f6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900575"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098805"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -159,7 +159,7 @@ A.  若要加快複製程序：
 - 使用多個資料複製串流。 例如，採用 Robocopy 時，請使用多執行緒選項。 如需與使用之確切命令有關的詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱並確認](data-box-deploy-copy-data.md)。
 - 使用多個工作階段。
 - 請務必將資料放置在資料箱所連接的本機電腦上，而不要透過網路共用進行複製 (此方式可能會受限於網路速度)。
-- 對用來複製資料的電腦建立效能的基準。 請下載並使用 [Bluestop FIO 工具](https://bluestop.org/fio/)，以建立伺服器硬體效能的基準。
+- 對用來複製資料的電腦建立效能的基準。 請下載並使用 [Bluestop FIO 工具](https://ci.appveyor.com/project/axboe/fio)，以建立伺服器硬體效能的基準。 選取最新的 x86 或 x64 組建，選取 [成品]  索引標籤，然後下載 MSI。
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:

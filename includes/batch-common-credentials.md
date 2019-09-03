@@ -4,19 +4,19 @@ ms.service: batch
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: lahugh
-ms.openlocfilehash: 14891acdbe9a0f810666ba54f8d63050a9330601
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 0ca6e38a9c9b5b92041e7f5b0fe964de58ef8f55
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174328"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128041"
 ---
 ## <a name="get-account-credentials"></a>取得帳戶認證
 
 在此範例中，您必須提供 Batch 和儲存體帳戶的認證。 在 Azure 入口網站中可以直接取得所需的認證。 (您也可以使用 Azure API 或命令列工具取得這些認證。)
 
-1. 按一下 [所有服務]   > [Batch 帳戶]  ，然後按一下您的 Batch 帳戶名稱。
+1. 選取 [所有服務]   > [Batch 帳戶]  ，然後選取您的 Batch 帳戶名稱。
 
-2. 若要查看 Batch 認證，請按一下 [金鑰]  。 將 [Batch 帳戶]  、[URL]  和 [主要存取金鑰]  的值複製到文字編輯器。
+2. 若要查看 Batch 認證，請選取 [金鑰]  。 將 [Batch 帳戶]  、[URL]  和 [主要存取金鑰]  的值複製到文字編輯器。
 
-3. 若要查看儲存體帳戶名稱和金鑰，請按一下 [儲存體帳戶]  。 將 [儲存體帳戶名稱]  和 [金鑰1]  的值複製到文字編輯器。
+3. 若要查看儲存體帳戶名稱和金鑰，請選取 [儲存體帳戶]  。 將 [儲存體帳戶名稱]  和 [金鑰1]  的值複製到文字編輯器。

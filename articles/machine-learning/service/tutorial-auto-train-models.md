@@ -6,759 +6,66 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: nacharya1
-ms.author: nilesha
+author: trevorbye
+ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/11/2019
-ms.custom: seodec18
-ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.date: 08/21/2019
+ms.openlocfilehash: 990755b247190f689a90d5cdf3d60d6eff9f4ae7
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534835"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036254"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
+# <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>教學課程：使用自動化機器學習預測計程車車資
 
-本教學課程是**兩部分教學課程系列的第二部分**。 在上一個教學課程中，您[已備妥 NYC 計程車資料來建立迴歸模型](tutorial-data-prep.md)。
-
-現在，您已準備好使用 Azure Machine Learning 服務來開始建置模型。 在教學課程的這個部分，您將使用已備妥的資料並自動產生迴歸模型，以預測計程車的車資。 您可以藉由使用此服務的自動化機器學習功能，定義機器學習目標和條件約束。 您需啟動自動化機器學習程序。 然後允許為您進行演算法選擇和超參數調整。 自動化機器學習技術會逐一嘗試演算法和超參數的多種組合，直到根據您的準則找到最佳模型為止。
+在本教學課程中，您將使用 Azure Machine Learning 服務中的自動化機器學習建立迴歸模型，以預測 NYC 計程車車資價格。 此程序接受定型資料和組態設定，並自動逐一查看不同功能正規化/標準化方法、模型及超參數設定的組合，以獲得最佳模型。
 
 ![流程圖](./media/tutorial-auto-train-models/flow2.png)
 
-在本教學課程中，您會了解下列工作：
+在此教學課程中，您將了解下列工作：
 
 > [!div class="checklist"]
-> * 設定 Python 環境並匯入 SDK 套件。
-> * 設定 Azure Machine Learning 服務工作區。
-> * 自動將迴歸模型定型。
-> * 使用自訂參數在本機執行模型。
-> * 探索結果。
+> * 使用 Azure 開放資料集來下載、轉換及清除資料
+> * 為自動化機器學習迴歸模型定型
+> * 計算模型精確度
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
-
->[!NOTE]
-> 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.39 版的測試。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本](https://aka.ms/AMLFree)的 Azure Machine Learning 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 完成第一部分，也就是[資料準備教學課程](tutorial-data-prep.md)。
+* 如果您還沒有 Azure Machine Learning 服務工作區或 Notebook 虛擬機器，請完成[設定教學課程](tutorial-1st-experiment-sdk-setup.md)。
+* 完成設定教學課程之後，請使用相同的 Notebook 伺服器開啟 **tutorials/regression-automated-ml.ipynb** Notebook。
 
-* 完成第一部分之後，請使用相同的筆記本伺服器開啟 **tutorials/regression-part2-automated-ml.ipynb** 筆記本。
+如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中執行此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得。 執行 `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` 以取得必要套件。
 
-如果您想要在自己的[本機環境](how-to-configure-environment.md#local)中使用此教學課程，也可以在 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) 上取得。  請確定您已從 Azure Machine Learning SDK 安裝 `matplotlib` 和 `automl` 額外項目`notebooks`。
+## <a name="download-and-prepare-data"></a>下載並準備資料
 
-## <a name="start"></a>設定您的開發環境
-
-針對您開發工作的所有設定都可以在 Python Notebook 中完成。 設定包含下列動作：
-
-* 安裝 SDK
-* 匯入 Python 套件
-* 設定您的工作區
-
-### <a name="install-and-import-packages"></a>安裝並匯入套件
-
-如果您要在自己的 Python 環境中進行本教學課程，請使用下列程序安裝必要套件。
-
-```shell
-pip install azureml-sdk[automl,notebooks] matplotlib
-```
-
-匯入本教學課程中所需的 Python 套件：
+匯入必要的套件。 開放資料集套件包含一個代表每個資料來源 (例如 `NycTlcGreen`) 的類別，以在下載之前輕鬆篩選日期參數。
 
 ```python
-import azureml.core
+from azureml.opendatasets import NycTlcGreen
 import pandas as pd
-from azureml.core.workspace import Workspace
-import logging
-import os
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 ```
 
-### <a name="configure-workspace"></a>設定工作區
+從建立用來保存計程車資料的資料架構開始。 在非 Spark 環境中運作時，開放資料集僅允許一次下載一個月含特定類別的資料，以避免使用大型資料集時發生發生 `MemoryError`。
 
-從現有的工作區建立工作區物件。 [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) \(英文\) 是會接受您 Azure 訂用帳戶和資源資訊的類別。 它也會建立雲端資源來監視及追蹤您的模型執行。
-
-`Workspace.from_config()` 會讀取檔案 **config.json**，並將詳細資料載入到名為 `ws` 的物件。  `ws` 用於本教學課程的其餘程式碼。
-
-在您有工作區物件之後，請為實驗指定一個名稱。 請建立一個本機目錄並向工作區註冊該目錄。 所有執行的歷程記錄都會記錄在指定的實驗下及 [Azure 入口網站](https://portal.azure.com)中。
+若要下載計程車資料，請反覆地逐一擷取一個月的資料，並且在將該資料附加到 `green_taxi_df` 之前，從每個月中隨機取樣 2,000 筆記錄，以避免使資料架構膨脹。 接著預覽資料。
 
 
 ```python
-ws = Workspace.from_config()
-# choose a name for the run history container in the workspace
-experiment_name = 'automated-ml-regression'
-# project folder
-project_folder = './automated-ml-regression'
+green_taxi_df = pd.DataFrame([])
+start = datetime.strptime("1/1/2015","%m/%d/%Y")
+end = datetime.strptime("1/31/2015","%m/%d/%Y")
 
-output = {}
-output['SDK version'] = azureml.core.VERSION
-output['Subscription ID'] = ws.subscription_id
-output['Workspace'] = ws.name
-output['Resource Group'] = ws.resource_group
-output['Location'] = ws.location
-output['Project Directory'] = project_folder
-pd.set_option('display.max_colwidth', -1)
-pd.DataFrame(data=output, index=['']).T
-```
+for sample_month in range(12):
+    temp_df_green = NycTlcGreen(start + relativedelta(months=sample_month), end + relativedelta(months=sample_month)) \
+        .to_pandas_dataframe()
+    green_taxi_df = green_taxi_df.append(temp_df_green.sample(2000))
 
-## <a name="explore-data"></a>探索資料
-
-請使用在上一個教學課程中建立的資料流程物件。 總結來說，本教學課程的第 1 部分會清除 NYC 計程車資料，使其可在機器學習模型中使用。 現在，您可以使用資料集中的各種特性，並且讓自動化模型建置這些特性與計程車車程價格之間的關聯性。 開啟並執行資料流程，然後檢閱結果：
-
-
-```python
-import azureml.dataprep as dprep
-
-file_path = os.path.join(os.getcwd(), "dflows.dprep")
-
-dflow_prepared = dprep.Dataflow.open(file_path)
-dflow_prepared.get_profile()
-```
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>類型</th>
-      <th>Min</th>
-      <th>max</th>
-      <th>Count</th>
-      <th>遺漏計數</th>
-      <th>未遺漏計數</th>
-      <th>遺漏百分比</th>
-      <th>錯誤計數</th>
-      <th>空白計數</th>
-      <th>0.1% 分位數</th>
-      <th>1% 分位數</th>
-      <th>5% 分位數</th>
-      <th>25% 分位數</th>
-      <th>50% 分位數</th>
-      <th>75% 分位數</th>
-      <th>95% 分位數</th>
-      <th>99% 分位數</th>
-      <th>99.9% 分位數</th>
-      <th>平均值</th>
-      <th>標準差</th>
-      <th>Variance</th>
-      <th>偏度</th>
-      <th>峰度</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>vendor</th>
-      <td>FieldType.STRING</td>
-      <td>1</td>
-      <td>VTS</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>pickup_weekday</th>
-      <td>FieldType.STRING</td>
-      <td>星期五</td>
-      <td>星期三</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>pickup_hour</th>
-      <td>FieldType.DECIMAL</td>
-      <td>0</td>
-      <td>23</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>2.90047</td>
-      <td>2.69355</td>
-      <td>9.72889</td>
-      <td>16</td>
-      <td>19.3713</td>
-      <td>22.6974</td>
-      <td>23</td>
-      <td>23</td>
-      <td>14.2731</td>
-      <td>6.59242</td>
-      <td>43.46</td>
-      <td>-0.693723</td>
-      <td>-0.570403</td>
-    </tr>
-    <tr>
-      <th>pickup_minute</th>
-      <td>FieldType.DECIMAL</td>
-      <td>0</td>
-      <td>59</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>4.99701</td>
-      <td>4.95833</td>
-      <td>14.1528</td>
-      <td>29.3832</td>
-      <td>44.6825</td>
-      <td>56.4444</td>
-      <td>58.9909</td>
-      <td>59</td>
-      <td>29.427</td>
-      <td>17.4333</td>
-      <td>303.921</td>
-      <td>0.0120999</td>
-      <td>-1.20981</td>
-    </tr>
-    <tr>
-      <th>pickup_second</th>
-      <td>FieldType.DECIMAL</td>
-      <td>0</td>
-      <td>59</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>5.28131</td>
-      <td>5</td>
-      <td>14.7832</td>
-      <td>29.9293</td>
-      <td>44.725</td>
-      <td>56.7573</td>
-      <td>59</td>
-      <td>59</td>
-      <td>29.7443</td>
-      <td>17.3595</td>
-      <td>301.351</td>
-      <td>-0.0252399</td>
-      <td>-1.19616</td>
-    </tr>
-    <tr>
-      <th>dropoff_weekday</th>
-      <td>FieldType.STRING</td>
-      <td>星期五</td>
-      <td>星期三</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>dropoff_hour</th>
-      <td>FieldType.DECIMAL</td>
-      <td>0</td>
-      <td>23</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>2.57153</td>
-      <td>2</td>
-      <td>9.58795</td>
-      <td>15.9994</td>
-      <td>19.6184</td>
-      <td>22.8317</td>
-      <td>23</td>
-      <td>23</td>
-      <td>14.2105</td>
-      <td>6.71093</td>
-      <td>45.0365</td>
-      <td>-0.687292</td>
-      <td>-0.61951</td>
-    </tr>
-    <tr>
-      <th>dropoff_minute</th>
-      <td>FieldType.DECIMAL</td>
-      <td>0</td>
-      <td>59</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>5.44383</td>
-      <td>4.84694</td>
-      <td>14.1036</td>
-      <td>28.8365</td>
-      <td>44.3102</td>
-      <td>56.6892</td>
-      <td>59</td>
-      <td>59</td>
-      <td>29.2907</td>
-      <td>17.4108</td>
-      <td>303.136</td>
-      <td>0.0222514</td>
-      <td>-1.2181</td>
-    </tr>
-    <tr>
-      <th>dropoff_second</th>
-      <td>FieldType.DECIMAL</td>
-      <td>0</td>
-      <td>59</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>5.07801</td>
-      <td>5</td>
-      <td>14.5751</td>
-      <td>29.5972</td>
-      <td>45.4649</td>
-      <td>56.2729</td>
-      <td>59</td>
-      <td>59</td>
-      <td>29.772</td>
-      <td>17.5337</td>
-      <td>307.429</td>
-      <td>-0.0212575</td>
-      <td>-1.226</td>
-    </tr>
-    <tr>
-      <th>store_forward</th>
-      <td>FieldType.STRING</td>
-      <td>N</td>
-      <td>Y</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>pickup_longitude</th>
-      <td>FieldType.DECIMAL</td>
-      <td>-74.0781</td>
-      <td>-73.7459</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>-74.0578</td>
-      <td>-73.9639</td>
-      <td>-73.9656</td>
-      <td>-73.9508</td>
-      <td>-73.9255</td>
-      <td>-73.8529</td>
-      <td>-73.8302</td>
-      <td>-73.8238</td>
-      <td>-73.7697</td>
-      <td>-73.9123</td>
-      <td>0.0503757</td>
-      <td>0.00253771</td>
-      <td>0.352172</td>
-      <td>-0.923743</td>
-    </tr>
-    <tr>
-      <th>pickup_latitude</th>
-      <td>FieldType.DECIMAL</td>
-      <td>40.5755</td>
-      <td>40.8799</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>40.632</td>
-      <td>40.7117</td>
-      <td>40.7115</td>
-      <td>40.7213</td>
-      <td>40.7565</td>
-      <td>40.8058</td>
-      <td>40.8478</td>
-      <td>40.8676</td>
-      <td>40.8778</td>
-      <td>40.7649</td>
-      <td>0.0494674</td>
-      <td>0.00244702</td>
-      <td>0.205972</td>
-      <td>-0.777945</td>
-    </tr>
-    <tr>
-      <th>dropoff_longitude</th>
-      <td>FieldType.DECIMAL</td>
-      <td>-74.0857</td>
-      <td>-73.7209</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>-74.0775</td>
-      <td>-73.9875</td>
-      <td>-73.9882</td>
-      <td>-73.9638</td>
-      <td>-73.935</td>
-      <td>-73.8755</td>
-      <td>-73.8125</td>
-      <td>-73.7759</td>
-      <td>-73.7327</td>
-      <td>-73.9202</td>
-      <td>0.0584627</td>
-      <td>0.00341789</td>
-      <td>0.623622</td>
-      <td>-0.262603</td>
-    </tr>
-    <tr>
-      <th>dropoff_latitude</th>
-      <td>FieldType.DECIMAL</td>
-      <td>40.5835</td>
-      <td>40.8797</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>40.5973</td>
-      <td>40.6928</td>
-      <td>40.6911</td>
-      <td>40.7226</td>
-      <td>40.7567</td>
-      <td>40.7918</td>
-      <td>40.8495</td>
-      <td>40.868</td>
-      <td>40.8787</td>
-      <td>40.7583</td>
-      <td>0.0517399</td>
-      <td>0.00267701</td>
-      <td>0.0390404</td>
-      <td>-0.203525</td>
-    </tr>
-    <tr>
-      <th>passengers</th>
-      <td>FieldType.DECIMAL</td>
-      <td>1</td>
-      <td>6</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>5</td>
-      <td>5</td>
-      <td>6</td>
-      <td>6</td>
-      <td>2.39249</td>
-      <td>1.83197</td>
-      <td>3.3561</td>
-      <td>0.763144</td>
-      <td>-1.23467</td>
-    </tr>
-    <tr>
-      <th>distance</th>
-      <td>FieldType.DECIMAL</td>
-      <td>0.01</td>
-      <td>32.34</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0108744</td>
-      <td>0.743898</td>
-      <td>0.738194</td>
-      <td>1.243</td>
-      <td>2.40168</td>
-      <td>4.74478</td>
-      <td>10.5136</td>
-      <td>14.9011</td>
-      <td>21.8035</td>
-      <td>3.5447</td>
-      <td>3.2943</td>
-      <td>10.8524</td>
-      <td>1.91556</td>
-      <td>4.99898</td>
-    </tr>
-    <tr>
-      <th>cost</th>
-      <td>FieldType.DECIMAL</td>
-      <td>0.1</td>
-      <td>88</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>6148.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>2.33837</td>
-      <td>5.00491</td>
-      <td>5</td>
-      <td>6.93129</td>
-      <td>10.524</td>
-      <td>17.4811</td>
-      <td>33.2343</td>
-      <td>50.0093</td>
-      <td>63.1753</td>
-      <td>13.6843</td>
-      <td>9.66571</td>
-      <td>93.426</td>
-      <td>1.78518</td>
-      <td>4.13972</td>
-    </tr>
-  </tbody>
-</table>
-
-您可以藉由將資料行新增至 `dflow_x` 來準備實驗用的資料，以作為建立模型的特徵。 您可以將 `dflow_y` 定義為我們的預測值 **cost**：
-
-```python
-dflow_X = dflow_prepared.keep_columns(
-    ['pickup_weekday', 'pickup_hour', 'distance', 'passengers', 'vendor'])
-dflow_y = dflow_prepared.keep_columns('cost')
-```
-
-### <a name="split-the-data-into-train-and-test-sets"></a>將資料分成定型集和測試集
-
-現在您可以使用 `sklearn` 程式庫中的 `train_test_split` 函式，將資料分割成定型集和測試集。 此函式會將資料分為用於模型定型的資料集 x (**功能**)，以及用於測試的資料集 y (**要預測的值**)。 `test_size` 參數會決定要配置給測試的資料百分比。 `random_state` 參數會設定隨機產生器的種子，讓您的「訓練-測試」分割一律具有確定性：
-
-```python
-from sklearn.model_selection import train_test_split
-
-x_df = dflow_X.to_pandas_dataframe()
-y_df = dflow_y.to_pandas_dataframe()
-
-x_train, x_test, y_train, y_test = train_test_split(
-    x_df, y_df, test_size=0.2, random_state=223)
-# flatten y_train to 1d array
-y_train.values.flatten()
-```
-
-此步驟的目的是要以資料點測試已完成、但尚未用來訓練模型的模型，以評估實際的精確度。 換句話說，訓練完善的模型應該能夠準確地從資料預測它尚未觀察到的部分。 您現在已備妥進行模型自動定型所需的套件和資料。
-
-## <a name="automatically-train-a-model"></a>自動為模型定型
-
-若要自動將模型定型，請執行下列步驟：
-1. 定義用於實驗執行的設定。 將訓練資料附加至組態，並修改用來控制訓練程序的設定。
-1. 提交實驗來調整模型。 提交實驗之後，程序會根據您定義的條件約束，反覆運算不同的機器學習演算法和超參數設定。 它會將精確度計量最佳化，以選擇最適化模型。
-
-### <a name="define-settings-for-autogeneration-and-tuning"></a>定義自動產生和微調的設定
-
-定義用於自動產生和調整的實驗參數與模型設定。 檢視[設定](how-to-configure-auto-train.md)的完整清單。 提交使用這些預設設定的實驗大約需要 10-15 分鐘的時間，但如果您想要縮短執行時間，請降低 `iterations` 或 `iteration_timeout_minutes`。
-
-
-|屬性| 本教學課程中的值 |說明|
-|----|----|---|
-|**iteration_timeout_minutes**|10|每次反覆運算的時間限制 (分鐘)。 降低此值以減少總執行時間。|
-|**反覆運算次數**|30|反覆運算次數。 在每次的反覆運算中，都會以您的資料訓練新的機器學習模型。 總執行時間主要會受此值影響。|
-|**primary_metric**| spearman_correlation | 您想要最佳化的度量。 最適化模型將根據此計量來選擇。|
-|**preprocess**| True | 使用 **True** 時，實驗可以預先處理輸入資料 (處理遺漏的資料、將文字轉換成數值等等)。|
-|**verbosity**| logging.INFO | 控制記錄層級。|
-|**n_cross_validations**|5|未指定驗證資料時所要執行的交叉驗證分割數目。|
-
-
-
-```python
-automl_settings = {
-    "iteration_timeout_minutes": 10,
-    "iterations": 30,
-    "primary_metric": 'spearman_correlation',
-    "preprocess": True,
-    "verbosity": logging.INFO,
-    "n_cross_validations": 5
-}
-```
-
-請使用您定義的訓練設定作為 `AutoMLConfig` 物件的參數。 此外，請指定您的訓練資料和模型類型 (在此案例中為 `regression`)。
-
-```python
-from azureml.train.automl import AutoMLConfig
-
-# local compute
-automated_ml_config = AutoMLConfig(task='regression',
-                                   debug_log='automated_ml_errors.log',
-                                   path=project_folder,
-                                   X=x_train.values,
-                                   y=y_train.values.flatten(),
-                                   **automl_settings)
-```
-
-> [!NOTE]
-> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
-
-### <a name="train-the-automatic-regression-model"></a>定型自動迴歸模型
-
-開始在本機執行實驗。 將已定義的 `automated_ml_config` 物件傳遞給實驗。 將輸出設定為 `True` 以在實驗期間檢視進度：
-
-
-```python
-from azureml.core.experiment import Experiment
-experiment = Experiment(ws, experiment_name)
-local_run = experiment.submit(automated_ml_config, show_output=True)
-```
-
-顯示的輸出會隨著實驗的執行即時更新。 對於每次反覆運算，您都可以檢視模型類型、執行的持續時間，以及訓練精確度。 欄位 `BEST` 會根據您的計量類型追蹤最佳訓練分數。
-
-    Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
-    *******************************************************************************************
-    ITERATION: The iteration being evaluated.
-    PIPELINE: A summary description of the pipeline being evaluated.
-    DURATION: Time taken for the current iteration.
-    METRIC: The result of computing score on the fitted pipeline.
-    BEST: The best observed score thus far.
-    *******************************************************************************************
-
-     ITERATION   PIPELINE                                       DURATION      METRIC      BEST
-             0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
-             1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
-             2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.8580    0.9536
-             3   StandardScalerWrapper RandomForest             0:00:08       0.9147    0.9536
-             4   StandardScalerWrapper ExtremeRandomTrees       0:00:45       0.9398    0.9536
-             5   MaxAbsScaler LightGBM                          0:00:08       0.9562    0.9562
-             6   StandardScalerWrapper ExtremeRandomTrees       0:00:27       0.8282    0.9562
-             7   StandardScalerWrapper LightGBM                 0:00:07       0.9421    0.9562
-             8   MaxAbsScaler DecisionTree                      0:00:08       0.9526    0.9562
-             9   MaxAbsScaler RandomForest                      0:00:09       0.9355    0.9562
-            10   MaxAbsScaler SGD                               0:00:09       0.9602    0.9602
-            11   MaxAbsScaler LightGBM                          0:00:09       0.9553    0.9602
-            12   MaxAbsScaler DecisionTree                      0:00:07       0.9484    0.9602
-            13   MaxAbsScaler LightGBM                          0:00:08       0.9540    0.9602
-            14   MaxAbsScaler RandomForest                      0:00:10       0.9365    0.9602
-            15   MaxAbsScaler SGD                               0:00:09       0.9602    0.9602
-            16   StandardScalerWrapper ExtremeRandomTrees       0:00:49       0.9171    0.9602
-            17   SparseNormalizer LightGBM                      0:00:08       0.9191    0.9602
-            18   MaxAbsScaler DecisionTree                      0:00:08       0.9402    0.9602
-            19   StandardScalerWrapper ElasticNet               0:00:08       0.9603    0.9603
-            20   MaxAbsScaler DecisionTree                      0:00:08       0.9513    0.9603
-            21   MaxAbsScaler SGD                               0:00:08       0.9603    0.9603
-            22   MaxAbsScaler SGD                               0:00:10       0.9602    0.9603
-            23   StandardScalerWrapper ElasticNet               0:00:09       0.9603    0.9603
-            24   StandardScalerWrapper ElasticNet               0:00:09       0.9603    0.9603
-            25   MaxAbsScaler SGD                               0:00:09       0.9603    0.9603
-            26   TruncatedSVDWrapper ElasticNet                 0:00:09       0.9602    0.9603
-            27   MaxAbsScaler SGD                               0:00:12       0.9413    0.9603
-            28   StandardScalerWrapper ElasticNet               0:00:07       0.9603    0.9603
-            29    Ensemble                                      0:00:38       0.9622    0.9622
-
-## <a name="explore-the-results"></a>探索結果
-
-使用 Jupyter 小工具，或藉由檢查實驗歷程記錄，探索自動定型的結果。
-
-### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>選項 1：新增 Jupyter 小工具以查看結果
-
-如果您使用 Jupyter Notebook，請使用此 [Jupyter 小工具](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)來查看所有結果的圖形和資料表：
-
-
-```python
-from azureml.widgets import RunDetails
-RunDetails(local_run).show()
-```
-
-![Jupyter 小工具執行詳細資料](./media/tutorial-auto-train-models/automl-dash-output.png)
-![Jupyter 小工具繪圖](./media/tutorial-auto-train-models/automl-chart-output.png)
-
-相同的結果會儲存在您的工作區中。  您可以取得執行結果的連結：
-
-```
-local_run.get_portal_url()
-```
-
-
-### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>選項 2：在 Python 中取得並檢查所有執行的反覆項目
-
-您也可以擷取每個實驗的歷程記錄，並瀏覽每次反覆運算執行的個別計量。 藉由檢查每次個別模型執行的 RMSE (root_mean_squared_error)，您會看到大部分的反覆運算都預測計程車車資費用落在合理的差距內 ($3-4)。
-
-```python
-children = list(local_run.get_children())
-metricslist = {}
-for run in children:
-    properties = run.get_properties()
-    metrics = {k: v for k, v in run.get_metrics().items()
-               if isinstance(v, float)}
-    metricslist[int(properties['iteration'])] = metrics
-
-rundata = pd.DataFrame(metricslist).sort_index(1)
-rundata
+green_taxi_df.head(10)
 ```
 
 <div>
@@ -776,326 +83,919 @@ rundata
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-      <th>9</th>
+      <th>vendorID</th>
+      <th>lpepPickupDatetime</th>
+      <th>lpepDropoffDatetime</th>
+      <th>passengerCount</th>
+      <th>tripDistance</th>
+      <th>puLocationId</th>
+      <th>doLocationId</th>
+      <th>pickupLongitude</th>
+      <th>pickupLatitude</th>
+      <th>dropoffLongitude</th>
       <th>...</th>
-      <th>20</th>
-      <th>21</th>
-      <th>22</th>
-      <th>23</th>
-      <th>24</th>
-      <th>25</th>
-      <th>26</th>
-      <th>27</th>
-      <th>28</th>
-      <th>29</th>
+      <th>paymentType</th>
+      <th>fareAmount</th>
+      <th>extra</th>
+      <th>mtaTax</th>
+      <th>improvementSurcharge</th>
+      <th>tipAmount</th>
+      <th>tollsAmount</th>
+      <th>ehailFee</th>
+      <th>totalAmount</th>
+      <th>tripType</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>explained_variance</th>
-      <td>0.811037</td>
-      <td>0.880553</td>
-      <td>0.398582</td>
-      <td>0.776040</td>
-      <td>0.663869</td>
-      <td>0.875911</td>
-      <td>0.115632</td>
-      <td>0.586905</td>
-      <td>0.851911</td>
-      <td>0.793964</td>
+      <th>131969</th>
+      <td>2</td>
+      <td>2015-01-11 05:34:44</td>
+      <td>2015-01-11 05:45:03</td>
+      <td>3</td>
+      <td>4.84</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.88</td>
+      <td>40.84</td>
+      <td>-73.94</td>
       <td>...</td>
-      <td>0.850023</td>
-      <td>0.883603</td>
-      <td>0.883704</td>
-      <td>0.880797</td>
-      <td>0.881564</td>
-      <td>0.883708</td>
-      <td>0.881826</td>
-      <td>0.585377</td>
-      <td>0.883123</td>
-      <td>0.886817</td>
+      <td>2</td>
+      <td>15.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>16.30</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>mean_absolute_error</th>
-      <td>2.189444</td>
-      <td>1.500412</td>
-      <td>5.480531</td>
-      <td>2.626316</td>
-      <td>2.973026</td>
-      <td>1.550199</td>
-      <td>6.383868</td>
-      <td>4.414241</td>
-      <td>1.743328</td>
-      <td>2.294601</td>
+      <th>1129817</th>
+      <td>2</td>
+      <td>2015-01-20 16:26:29</td>
+      <td>2015-01-20 16:30:26</td>
+      <td>1</td>
+      <td>0.69</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.96</td>
+      <td>40.81</td>
+      <td>-73.96</td>
       <td>...</td>
-      <td>1.797402</td>
-      <td>1.415815</td>
-      <td>1.418167</td>
-      <td>1.578617</td>
-      <td>1.559427</td>
-      <td>1.413042</td>
-      <td>1.551698</td>
-      <td>4.069196</td>
-      <td>1.505795</td>
-      <td>1.430957</td>
+      <td>2</td>
+      <td>4.50</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.30</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>median_absolute_error</th>
-      <td>1.438417</td>
-      <td>0.850899</td>
-      <td>4.579662</td>
-      <td>1.765210</td>
-      <td>1.594600</td>
-      <td>0.869883</td>
-      <td>4.266450</td>
-      <td>3.627355</td>
-      <td>0.954992</td>
-      <td>1.361014</td>
+      <th>1278620</th>
+      <td>2</td>
+      <td>2015-01-01 05:58:10</td>
+      <td>2015-01-01 06:00:55</td>
+      <td>1</td>
+      <td>0.45</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.92</td>
+      <td>40.76</td>
+      <td>-73.91</td>
       <td>...</td>
-      <td>0.973634</td>
-      <td>0.774814</td>
-      <td>0.797269</td>
-      <td>1.147234</td>
-      <td>1.116424</td>
-      <td>0.783958</td>
-      <td>1.098464</td>
-      <td>2.709027</td>
-      <td>1.003728</td>
-      <td>0.851724</td>
+      <td>2</td>
+      <td>4.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>4.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>normalized_mean_absolute_error</th>
-      <td>0.024908</td>
-      <td>0.017070</td>
-      <td>0.062350</td>
-      <td>0.029878</td>
-      <td>0.033823</td>
-      <td>0.017636</td>
-      <td>0.072626</td>
-      <td>0.050219</td>
-      <td>0.019833</td>
-      <td>0.026105</td>
+      <th>348430</th>
+      <td>2</td>
+      <td>2015-01-17 02:20:50</td>
+      <td>2015-01-17 02:41:38</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.81</td>
+      <td>40.70</td>
+      <td>-73.82</td>
       <td>...</td>
-      <td>0.020448</td>
-      <td>0.016107</td>
-      <td>0.016134</td>
-      <td>0.017959</td>
-      <td>0.017741</td>
-      <td>0.016076</td>
-      <td>0.017653</td>
-      <td>0.046293</td>
-      <td>0.017131</td>
-      <td>0.016279</td>
+      <td>2</td>
+      <td>12.50</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>13.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>normalized_median_absolute_error</th>
-      <td>0.016364</td>
-      <td>0.009680</td>
-      <td>0.052101</td>
-      <td>0.020082</td>
-      <td>0.018141</td>
-      <td>0.009896</td>
-      <td>0.048538</td>
-      <td>0.041267</td>
-      <td>0.010865</td>
-      <td>0.015484</td>
+      <th>1269627</th>
+      <td>1</td>
+      <td>2015-01-01 05:04:10</td>
+      <td>2015-01-01 05:06:23</td>
+      <td>1</td>
+      <td>0.50</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.92</td>
+      <td>40.76</td>
+      <td>-73.92</td>
       <td>...</td>
-      <td>0.011077</td>
-      <td>0.008815</td>
-      <td>0.009070</td>
-      <td>0.013052</td>
-      <td>0.012701</td>
-      <td>0.008919</td>
-      <td>0.012497</td>
-      <td>0.030819</td>
-      <td>0.011419</td>
-      <td>0.009690</td>
+      <td>2</td>
+      <td>4.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>5.00</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>normalized_root_mean_squared_error</th>
-      <td>0.047968</td>
-      <td>0.037882</td>
-      <td>0.085572</td>
-      <td>0.052282</td>
-      <td>0.065809</td>
-      <td>0.038664</td>
-      <td>0.109401</td>
-      <td>0.071104</td>
-      <td>0.042294</td>
-      <td>0.049967</td>
+      <th>811755</th>
+      <td>1</td>
+      <td>2015-01-04 19:57:51</td>
+      <td>2015-01-04 20:05:45</td>
+      <td>2</td>
+      <td>1.10</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.96</td>
+      <td>40.72</td>
+      <td>-73.95</td>
       <td>...</td>
-      <td>0.042565</td>
-      <td>0.037685</td>
-      <td>0.037557</td>
-      <td>0.037643</td>
-      <td>0.037513</td>
-      <td>0.037560</td>
-      <td>0.037465</td>
-      <td>0.072077</td>
-      <td>0.037249</td>
-      <td>0.036716</td>
+      <td>2</td>
+      <td>6.50</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>7.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>normalized_root_mean_squared_log_error</th>
-      <td>0.055353</td>
-      <td>0.045000</td>
-      <td>0.110219</td>
-      <td>0.065633</td>
-      <td>0.063589</td>
-      <td>0.044412</td>
-      <td>0.123433</td>
-      <td>0.092312</td>
-      <td>0.046130</td>
-      <td>0.055243</td>
+      <th>737281</th>
+      <td>1</td>
+      <td>2015-01-03 12:27:31</td>
+      <td>2015-01-03 12:33:52</td>
+      <td>1</td>
+      <td>0.90</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.88</td>
+      <td>40.76</td>
+      <td>-73.87</td>
       <td>...</td>
-      <td>0.046540</td>
-      <td>0.041804</td>
-      <td>0.041771</td>
-      <td>0.045175</td>
-      <td>0.044628</td>
-      <td>0.041617</td>
-      <td>0.044405</td>
-      <td>0.079651</td>
-      <td>0.042799</td>
-      <td>0.041530</td>
+      <td>2</td>
+      <td>6.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>r2_score</th>
-      <td>0.810900</td>
-      <td>0.880328</td>
-      <td>0.398076</td>
-      <td>0.775957</td>
-      <td>0.642812</td>
-      <td>0.875719</td>
-      <td>0.021603</td>
-      <td>0.586514</td>
-      <td>0.851767</td>
-      <td>0.793671</td>
+      <th>113951</th>
+      <td>1</td>
+      <td>2015-01-09 23:25:51</td>
+      <td>2015-01-09 23:39:52</td>
+      <td>1</td>
+      <td>3.30</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.96</td>
+      <td>40.72</td>
+      <td>-73.91</td>
       <td>...</td>
-      <td>0.849809</td>
-      <td>0.880142</td>
-      <td>0.880952</td>
-      <td>0.880586</td>
-      <td>0.881347</td>
-      <td>0.880887</td>
-      <td>0.881613</td>
-      <td>0.548121</td>
-      <td>0.882883</td>
-      <td>0.886321</td>
+      <td>2</td>
+      <td>12.50</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>13.80</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>root_mean_squared_error</th>
-      <td>4.216362</td>
-      <td>3.329810</td>
-      <td>7.521765</td>
-      <td>4.595604</td>
-      <td>5.784601</td>
-      <td>3.398540</td>
-      <td>9.616354</td>
-      <td>6.250011</td>
-      <td>3.717661</td>
-      <td>4.392072</td>
+      <th>150436</th>
+      <td>2</td>
+      <td>2015-01-11 17:15:14</td>
+      <td>2015-01-11 17:22:57</td>
+      <td>1</td>
+      <td>1.19</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.94</td>
+      <td>40.71</td>
+      <td>-73.95</td>
       <td>...</td>
-      <td>3.741447</td>
-      <td>3.312533</td>
-      <td>3.301242</td>
-      <td>3.308795</td>
-      <td>3.297389</td>
-      <td>3.301485</td>
-      <td>3.293182</td>
-      <td>6.335581</td>
-      <td>3.274209</td>
-      <td>3.227365</td>
+      <td>1</td>
+      <td>7.00</td>
+      <td>0.00</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>1.75</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>9.55</td>
+      <td>1.00</td>
     </tr>
     <tr>
-      <th>root_mean_squared_log_error</th>
-      <td>0.243184</td>
-      <td>0.197702</td>
-      <td>0.484227</td>
-      <td>0.288349</td>
-      <td>0.279367</td>
-      <td>0.195116</td>
-      <td>0.542281</td>
-      <td>0.405559</td>
-      <td>0.202666</td>
-      <td>0.242702</td>
+      <th>432136</th>
+      <td>2</td>
+      <td>2015-01-22 23:16:33</td>
+      <td>2015-01-22 23:20:13</td>
+      <td>1</td>
+      <td>0.65</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.94</td>
+      <td>40.71</td>
+      <td>-73.94</td>
       <td>...</td>
-      <td>0.204464</td>
-      <td>0.183658</td>
-      <td>0.183514</td>
-      <td>0.198468</td>
-      <td>0.196067</td>
-      <td>0.182836</td>
-      <td>0.195087</td>
-      <td>0.349935</td>
-      <td>0.188031</td>
-      <td>0.182455</td>
-    </tr>
-    <tr>
-      <th>spearman_correlation</th>
-      <td>0.944743</td>
-      <td>0.953618</td>
-      <td>0.857965</td>
-      <td>0.914703</td>
-      <td>0.939846</td>
-      <td>0.956159</td>
-      <td>0.828187</td>
-      <td>0.942069</td>
-      <td>0.952581</td>
-      <td>0.935477</td>
-      <td>...</td>
-      <td>0.951287</td>
-      <td>0.960335</td>
-      <td>0.960195</td>
-      <td>0.960279</td>
-      <td>0.960288</td>
-      <td>0.960323</td>
-      <td>0.960161</td>
-      <td>0.941254</td>
-      <td>0.960293</td>
-      <td>0.962158</td>
-    </tr>
-    <tr>
-      <th>spearman_correlation_max</th>
-      <td>0.944743</td>
-      <td>0.953618</td>
-      <td>0.953618</td>
-      <td>0.953618</td>
-      <td>0.953618</td>
-      <td>0.956159</td>
-      <td>0.956159</td>
-      <td>0.956159</td>
-      <td>0.956159</td>
-      <td>0.956159</td>
-      <td>...</td>
-      <td>0.960303</td>
-      <td>0.960335</td>
-      <td>0.960335</td>
-      <td>0.960335</td>
-      <td>0.960335</td>
-      <td>0.960335</td>
-      <td>0.960335</td>
-      <td>0.960335</td>
-      <td>0.960335</td>
-      <td>0.962158</td>
+      <td>2</td>
+      <td>5.00</td>
+      <td>0.50</td>
+      <td>0.50</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.30</td>
+      <td>1.00</td>
     </tr>
   </tbody>
 </table>
-<p>12 個資料列 × 30 個資料行</p>
+<p>10 個資料列 × 23 個資料行</p>
 </div>
 
-## <a name="retrieve-the-best-model"></a>擷取最佳模型
 
-從我們的反覆項目中選取最佳管線。 `automl_classifier` 上的 `get_output` 方法會傳回最佳執行和上一個配適引動過程的已配適模型。 藉由在 `get_output` 上使用多載，您便可以針對任何已記錄的計量或特定的反覆項目，擷取最佳執行和配適模型：
+既然已載入初始資料，請定義一個函式，從搭車日期時間欄位建立各種以時間為基礎的功能。 這將會建立適用於月份數字、當月某日、週中的日及當天特定時間的新欄位，並且可讓模型將以時間為基礎的季節性當作考量因素。 在資料架構上使用 `apply()` 函式，以將 `build_time_features()` 函式反覆地套用至計程車資料中的每個資料列。
+
+```python
+def build_time_features(vector):
+    pickup_datetime = vector[0]
+    month_num = pickup_datetime.month
+    day_of_month = pickup_datetime.day
+    day_of_week = pickup_datetime.weekday()
+    hour_of_day = pickup_datetime.hour
+
+    return pd.Series((month_num, day_of_month, day_of_week, hour_of_day))
+
+green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day"]] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
+green_taxi_df.head(10)
+```
+
+<div>
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vendorID</th>
+      <th>lpepPickupDatetime</th>
+      <th>lpepDropoffDatetime</th>
+      <th>passengerCount</th>
+      <th>tripDistance</th>
+      <th>puLocationId</th>
+      <th>doLocationId</th>
+      <th>pickupLongitude</th>
+      <th>pickupLatitude</th>
+      <th>dropoffLongitude</th>
+      <th>...</th>
+      <th>improvementSurcharge</th>
+      <th>tipAmount</th>
+      <th>tollsAmount</th>
+      <th>ehailFee</th>
+      <th>totalAmount</th>
+      <th>tripType</th>
+      <th>month_num</th>
+      <th>day_of_month</th>
+      <th>day_of_week</th>
+      <th>hour_of_day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>131969</th>
+      <td>2</td>
+      <td>2015-01-11 05:34:44</td>
+      <td>2015-01-11 05:45:03</td>
+      <td>3</td>
+      <td>4.84</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.88</td>
+      <td>40.84</td>
+      <td>-73.94</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>16.30</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>11</td>
+      <td>6</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1129817</th>
+      <td>2</td>
+      <td>2015-01-20 16:26:29</td>
+      <td>2015-01-20 16:30:26</td>
+      <td>1</td>
+      <td>0.69</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.96</td>
+      <td>40.81</td>
+      <td>-73.96</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.30</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>20</td>
+      <td>1</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>1278620</th>
+      <td>2</td>
+      <td>2015-01-01 05:58:10</td>
+      <td>2015-01-01 06:00:55</td>
+      <td>1</td>
+      <td>0.45</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.92</td>
+      <td>40.76</td>
+      <td>-73.91</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>4.80</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>348430</th>
+      <td>2</td>
+      <td>2015-01-17 02:20:50</td>
+      <td>2015-01-17 02:41:38</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.81</td>
+      <td>40.70</td>
+      <td>-73.82</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>13.80</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>17</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1269627</th>
+      <td>1</td>
+      <td>2015-01-01 05:04:10</td>
+      <td>2015-01-01 05:06:23</td>
+      <td>1</td>
+      <td>0.50</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.92</td>
+      <td>40.76</td>
+      <td>-73.92</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>5.00</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>811755</th>
+      <td>1</td>
+      <td>2015-01-04 19:57:51</td>
+      <td>2015-01-04 20:05:45</td>
+      <td>2</td>
+      <td>1.10</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.96</td>
+      <td>40.72</td>
+      <td>-73.95</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>7.80</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>4</td>
+      <td>6</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>737281</th>
+      <td>1</td>
+      <td>2015-01-03 12:27:31</td>
+      <td>2015-01-03 12:33:52</td>
+      <td>1</td>
+      <td>0.90</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.88</td>
+      <td>40.76</td>
+      <td>-73.87</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.80</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>113951</th>
+      <td>1</td>
+      <td>2015-01-09 23:25:51</td>
+      <td>2015-01-09 23:39:52</td>
+      <td>1</td>
+      <td>3.30</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.96</td>
+      <td>40.72</td>
+      <td>-73.91</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>13.80</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>9</td>
+      <td>4</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>150436</th>
+      <td>2</td>
+      <td>2015-01-11 17:15:14</td>
+      <td>2015-01-11 17:22:57</td>
+      <td>1</td>
+      <td>1.19</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.94</td>
+      <td>40.71</td>
+      <td>-73.95</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>1.75</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>9.55</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>11</td>
+      <td>6</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>432136</th>
+      <td>2</td>
+      <td>2015-01-22 23:16:33</td>
+      <td>2015-01-22 23:20:13</td>
+      <td>1</td>
+      <td>0.65</td>
+      <td>None</td>
+      <td>None</td>
+      <td>-73.94</td>
+      <td>40.71</td>
+      <td>-73.94</td>
+      <td>...</td>
+      <td>0.3</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>nan</td>
+      <td>6.30</td>
+      <td>1.00</td>
+      <td>1</td>
+      <td>22</td>
+      <td>3</td>
+      <td>23</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 個資料列 × 27 個資料行</p>
+</div>
+
+移除一些您在定型或建置其他功能時不需用到的資料行。
+
+```python
+columns_to_remove = ["lpepPickupDatetime", "lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
+                     "improvementSurcharge", "tollsAmount", "ehailFee", "tripType", "rateCodeID",
+                     "storeAndFwdFlag", "paymentType", "fareAmount", "tipAmount"
+                    ]
+for col in columns_to_remove:
+    green_taxi_df.pop(col)
+
+green_taxi_df.head(5)
+```
+
+### <a name="cleanse-data"></a>清理資料
+
+在新的資料架構上執行 `describe()` 函式，來查看每個欄位的摘要統計資料。
+
+```python
+green_taxi_df.describe()
+```
+
+<div>
+<style scoped> .dataframe tbody tr th:only-of-type { vertical-align: middle; }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>vendorID</th>
+      <th>passengerCount</th>
+      <th>tripDistance</th>
+      <th>pickupLongitude</th>
+      <th>pickupLatitude</th>
+      <th>dropoffLongitude</th>
+      <th>dropoffLatitude</th>
+      <th>totalAmount</th>
+      <th>month_num</th>
+      <th>day_of_month</th>
+      <th>day_of_week</th>
+      <th>hour_of_day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+      <td>48000.00</td>
+    </tr>
+    <tr>
+      <th>平均值</th>
+      <td>1.78</td>
+      <td>1.37</td>
+      <td>2.87</td>
+      <td>-73.83</td>
+      <td>40.69</td>
+      <td>-73.84</td>
+      <td>40.70</td>
+      <td>14.75</td>
+      <td>6.50</td>
+      <td>15.13</td>
+      <td>3.27</td>
+      <td>13.52</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.41</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>2.76</td>
+      <td>1.52</td>
+      <td>2.61</td>
+      <td>1.44</td>
+      <td>12.08</td>
+      <td>3.45</td>
+      <td>8.45</td>
+      <td>1.95</td>
+      <td>6.83</td>
+    </tr>
+    <tr>
+      <th>Min</th>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>-74.66</td>
+      <td>0.00</td>
+      <td>-74.66</td>
+      <td>0.00</td>
+      <td>-300.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>1.06</td>
+      <td>-73.96</td>
+      <td>40.70</td>
+      <td>-73.97</td>
+      <td>40.70</td>
+      <td>7.80</td>
+      <td>3.75</td>
+      <td>8.00</td>
+      <td>2.00</td>
+      <td>9.00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>1.90</td>
+      <td>-73.94</td>
+      <td>40.75</td>
+      <td>-73.94</td>
+      <td>40.75</td>
+      <td>11.30</td>
+      <td>6.50</td>
+      <td>15.00</td>
+      <td>3.00</td>
+      <td>15.00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.00</td>
+      <td>1.00</td>
+      <td>3.60</td>
+      <td>-73.92</td>
+      <td>40.80</td>
+      <td>-73.91</td>
+      <td>40.79</td>
+      <td>17.80</td>
+      <td>9.25</td>
+      <td>22.00</td>
+      <td>5.00</td>
+      <td>19.00</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.00</td>
+      <td>9.00</td>
+      <td>97.57</td>
+      <td>0.00</td>
+      <td>41.93</td>
+      <td>0.00</td>
+      <td>41.94</td>
+      <td>450.00</td>
+      <td>12.00</td>
+      <td>30.00</td>
+      <td>6.00</td>
+      <td>23.00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+從摘要統計資料中，您會看到有數個欄位包含將降低模型精確度的極端值或值。 首先，將經/緯度欄位篩選為曼哈頓區域的範圍內。 這會篩選掉較長途的計程車車程，或與其他特性的關聯性方面屬於極端值的車程。
+
+此外，請將 `tripDistance` 欄位篩選為大於零、但小於 31 英哩 (兩個經/緯度組之間的半正矢距離)。 這可以消除車程成本不一致的長途極端值車程。
+
+最後，`totalAmount` 欄位的計程車車資含有負值 (這在我們的模型內容中不具意義)，且 `passengerCount` 欄位含有最小值為零的無效資料。
+
+使用查詢函式篩選出這些異常狀況，然後移除前幾個在定型時不需用到的資料行。
+
+
+```python
+final_df = green_taxi_df.query("pickupLatitude>=40.53 and pickupLatitude<=40.88")
+final_df = final_df.query("pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
+final_df = final_df.query("tripDistance>=0.25 and tripDistance<31")
+final_df = final_df.query("passengerCount>0 and totalAmount>0")
+
+columns_to_remove_for_training = ["pickupLongitude", "pickupLatitude", "dropoffLongitude", "dropoffLatitude"]
+for col in columns_to_remove_for_training:
+    final_df.pop(col)
+```
+
+再次於資料上呼叫 `describe()`，以確保清理會如預期般運作。 您現在具有一組已備妥且已清理的計程車、假日及氣象資料，可用於機器學習服務模型定型。
+
+```python
+final_df.describe()
+```
+
+## <a name="configure-workspace"></a>設定工作區
+
+從現有的工作區建立工作區物件。 [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) \(英文\) 是會接受您 Azure 訂用帳戶和資源資訊的類別。 它也會建立雲端資源來監視及追蹤您的模型執行。 `Workspace.from_config()` 會讀取 **config.json** 檔案，並將驗證詳細資料載入名為 `ws` 的物件中。 `ws` 用於本教學課程的其餘程式碼。
+
+```python
+from azureml.core.workspace import Workspace
+ws = Workspace.from_config()
+```
+
+## <a name="split-the-data-into-train-and-test-sets"></a>將資料分成定型集和測試集
+
+您可以使用 `scikit-learn` 程式庫中的 `train_test_split` 函式，將資料分割成定型集和測試集。 此函式會將資料分成用於模型定型的 x (**特性**) 資料集，以及用於測試的 y (**要預測的值**) 資料集。
+
+`test_size` 參數會決定要配置給測試的資料百分比。 `random_state` 參數會設定隨機產生器的種子，讓您的「定型-測試」分割具有確定性。
+
+```python
+from sklearn.model_selection import train_test_split
+
+y_df = final_df.pop("totalAmount")
+x_df = final_df
+
+x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+```
+
+此步驟的目的是要以資料點測試已完成、但尚未用來訓練模型的模型，以評估實際的精確度。
+
+換句話說，訓練完善的模型應該能夠準確地從資料預測它尚未觀察到的部分。 您現在已備妥資料，可自動定型機器學習服務模型。
+
+## <a name="automatically-train-a-model"></a>自動為模型定型
+
+若要自動將模型定型，請執行下列步驟：
+1. 定義用於實驗執行的設定。 將訓練資料附加至組態，並修改用來控制訓練程序的設定。
+1. 提交實驗來調整模型。 提交實驗之後，程序會根據您定義的條件約束，反覆運算不同的機器學習演算法和超參數設定。 它會將精確度計量最佳化，以選擇最適化模型。
+
+### <a name="define-training-settings"></a>定義定型設定
+
+定義用於定型的實驗參數與模型設定。 檢視[設定](how-to-configure-auto-train.md)的完整清單。 提交使用這些預設設定的實驗大約需要 5-10 分鐘的時間，但如果您想要縮短執行時間，請降低 `iterations` 參數。
+
+|屬性| 本教學課程中的值 |說明|
+|----|----|---|
+|**iteration_timeout_minutes**|2|每次反覆運算的時間限制 (分鐘)。 降低此值以減少總執行時間。|
+|**反覆運算次數**|20|反覆運算次數。 在每次的反覆運算中，都會以您的資料訓練新的機器學習模型。 總執行時間主要會受此值影響。|
+|**primary_metric**| spearman_correlation | 您想要最佳化的度量。 最適化模型將根據此計量來選擇。|
+|**preprocess**| True | 使用 **True** 時，實驗可以預先處理輸入資料 (處理遺漏的資料、將文字轉換成數值等等)。|
+|**verbosity**| logging.INFO | 控制記錄層級。|
+|**n_cross_validations**|5|未指定驗證資料時所要執行的交叉驗證分割數目。|
+
+```python
+import logging
+
+automl_settings = {
+    "iteration_timeout_minutes": 2,
+    "iterations": 20,
+    "primary_metric": 'spearman_correlation',
+    "preprocess": True,
+    "verbosity": logging.INFO,
+    "n_cross_validations": 5
+}
+```
+
+請使用您定義的定型設定作為 `AutoMLConfig` 物件的 `**kwargs` 參數。 此外，請指定您的訓練資料和模型類型 (在此案例中為 `regression`)。
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+automl_config = AutoMLConfig(task='regression',
+                             debug_log='automated_ml_errors.log',
+                             X=x_train.values,
+                             y=y_train.values.flatten(),
+                             **automl_settings)
+```
+
+> [!NOTE]
+> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
+
+### <a name="train-the-automatic-regression-model"></a>定型自動迴歸模型
+
+在您的工作區中建立實驗物件。 實驗會作為個別執行的容器。 將已定義的 `automl_config` 物件傳至實驗，並將輸出設定為 `True` 以檢視執行期間的進度。
+
+實驗開始後，顯示的輸出會隨著實驗的執行即時更新。 對於每次反覆運算，您都可以檢視模型類型、執行的持續時間，以及訓練精確度。 欄位 `BEST` 會根據您的計量類型追蹤最佳訓練分數。
+
+```python
+from azureml.core.experiment import Experiment
+experiment = Experiment(ws, "taxi-experiment")
+local_run = experiment.submit(automl_config, show_output=True)
+```
+
+    Running on local machine
+    Parent Run ID: AutoML_1766cdf7-56cf-4b28-a340-c4aeee15b12b
+    Current status: DatasetFeaturization. Beginning to featurize the dataset.
+    Current status: DatasetEvaluation. Gathering dataset statistics.
+    Current status: FeaturesGeneration. Generating features for the dataset.
+    Current status: DatasetFeaturizationCompleted. Completed featurizing the dataset.
+    Current status: DatasetCrossValidationSplit. Generating individually featurized CV splits.
+    Current status: ModelSelection. Beginning model selection.
+
+    ****************************************************************************************************
+    ITERATION: The iteration being evaluated.
+    PIPELINE: A summary description of the pipeline being evaluated.
+    DURATION: Time taken for the current iteration.
+    METRIC: The result of computing score on the fitted pipeline.
+    BEST: The best observed score thus far.
+    ****************************************************************************************************
+
+     ITERATION   PIPELINE                                       DURATION      METRIC      BEST
+             0   StandardScalerWrapper RandomForest             0:00:16       0.8746    0.8746
+             1   MinMaxScaler RandomForest                      0:00:15       0.9468    0.9468
+             2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.9303    0.9468
+             3   StandardScalerWrapper LightGBM                 0:00:10       0.9424    0.9468
+             4   RobustScaler DecisionTree                      0:00:09       0.9449    0.9468
+             5   StandardScalerWrapper LassoLars                0:00:09       0.9440    0.9468
+             6   StandardScalerWrapper LightGBM                 0:00:10       0.9282    0.9468
+             7   StandardScalerWrapper RandomForest             0:00:12       0.8946    0.9468
+             8   StandardScalerWrapper LassoLars                0:00:16       0.9439    0.9468
+             9   MinMaxScaler ExtremeRandomTrees                0:00:35       0.9199    0.9468
+            10   RobustScaler ExtremeRandomTrees                0:00:19       0.9411    0.9468
+            11   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9077    0.9468
+            12   StandardScalerWrapper LassoLars                0:00:15       0.9433    0.9468
+            13   MinMaxScaler ExtremeRandomTrees                0:00:14       0.9186    0.9468
+            14   RobustScaler RandomForest                      0:00:10       0.8810    0.9468
+            15   StandardScalerWrapper LassoLars                0:00:55       0.9433    0.9468
+            16   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9026    0.9468
+            17   StandardScalerWrapper RandomForest             0:00:13       0.9140    0.9468
+            18   VotingEnsemble                                 0:00:23       0.9471    0.9471
+            19   StackEnsemble                                  0:00:27       0.9463    0.9471
+
+## <a name="explore-the-results"></a>探索結果
+
+使用 [Jupyter 小工具](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)，探索自動定型的結果。 這項小工具可讓您查看所有個別執行反覆項目的圖表和資料表，以及定型精確度計量和中繼資料。 此外，您也可以使用下拉式清單選取器，來篩選主要計量以外的不同精確度計量。
+
+```python
+from azureml.widgets import RunDetails
+RunDetails(local_run).show()
+```
+
+![Jupyter 小工具執行詳細資料](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Jupyter 小工具繪圖](./media/tutorial-auto-train-models/automl-chart-output.png)
+
+### <a name="retrieve-the-best-model"></a>擷取最佳模型
+
+從您的反覆項目中選取最佳的模型。 `get_output` 函式會傳回最佳執行和上一個配適引動過程的配適模型。 藉由在 `get_output` 上使用多載，您便可以針對任何已記錄的計量或特定的反覆項目，擷取最佳執行和配適模型。
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1103,57 +1003,27 @@ print(best_run)
 print(fitted_model)
 ```
 
-## <a name="test-the-best-model-accuracy"></a>測試最佳模型的精確度
+### <a name="test-the-best-model-accuracy"></a>測試最佳模型的精確度
 
-使用最佳模型在測試資料集上執行預測，以預測計程車車資。 `predict` 函式會使用最佳模型，並從 `x_test` 資料集預測 y 值 (**行程成本**)。 從 `y_predict` 列印前 10 個預測成本值：
+使用最佳模型在測試資料集上執行預測，以預測計程車車資。 函式 `predict` 會使用最佳模型，並從 `x_test` 資料集預測 y 值 (**車程成本**)。 從 `y_predict` 列印前 10 個預測成本值。
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-建立散佈圖，以視覺化方式呈現預測成本值與實際成本值的比較。 下列程式碼使用 `distance` 特徵作為 x 軸，以及行程 `cost` 作為 y 軸。 為了比較每個行程距離值之預測成本的變化，會將前 100 個預測成本值和實際成本值建立成個別的序列。 檢查繪圖會顯示距離/成本近似線性關係，而且預測的成本值在大部分情況下都非常接近相同車程距離的實際成本值。
-
-```python
-%matplotlib inline
-
-import matplotlib.pyplot as plt
-
-fig = plt.figure(figsize=(14, 10))
-ax1 = fig.add_subplot(111)
-
-distance_vals = [x[4] for x in x_test.values]
-y_actual = y_test.values.flatten().tolist()
-
-ax1.scatter(distance_vals[:100], y_predict[:100],
-            s=18, c='b', marker="s", label='Predicted')
-ax1.scatter(distance_vals[:100], y_actual[:100],
-            s=18, c='r', marker="o", label='Actual')
-
-ax1.set_xlabel('distance (mi)')
-ax1.set_title('Predicted and Actual Cost/Distance')
-ax1.set_ylabel('Cost ($)')
-
-plt.legend(loc='upper left', prop={'size': 12})
-plt.rcParams.update({'font.size': 14})
-plt.show()
-```
-
-![預測散佈圖](./media/tutorial-auto-train-models/automl-scatter-plot.png)
-
-計算結果的 `root mean squared error`。 使用 `y_test` 資料框架。 將其轉換為要與預測值比較的清單。 `mean_squared_error` 函式會採用兩個值陣列，並計算這兩個陣列之間的均方誤差。 取結果的平方根會產生與 y 變數 (**成本**) 相同單位的誤差。 這大致上可表示計程車車資預測與實際車資的差距：
+計算結果的 `root mean squared error`。 將 `y_test` 資料架構轉換為清單，以便與預測值進行比較。 `mean_squared_error` 函式會採用兩個值陣列，並計算這兩個陣列之間的均方誤差。 取結果的平方根會產生與 y 變數 (**成本**) 相同單位的誤差。 這大致上可表示計程車車資預測與實際車資的差距。
 
 ```python
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
+y_actual = y_test.values.flatten().tolist()
 rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-    3.2204936862688798
-
-請執行下列程式碼，以使用完整的 `y_actual` 和 `y_predict` 資料集來計算平均絕對百分比誤差 (MAPE)。 此計量會計算每個預測值與實際值之間的絕對差異，並加總所有差異。 然後再以實際值總計的百分比來表示該總和：
+執行下列程式碼，以使用完整的 `y_actual` 和 `y_predict` 資料集來計算平均絕對百分比誤差 (MAPE)。 此計量會計算每個預測值與實際值之間的絕對差異，並加總所有差異。 然後它會以實際值總計的百分比來表示該總和。
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1175,16 +1045,39 @@ print(1 - mean_abs_percent_error)
 ```
 
     Model MAPE:
-    0.10545153869569586
+    0.14353867606052823
 
     Model Accuracy:
-    0.8945484613043041
+    0.8564613239394718
 
-從最終的預測精確度計量中，您會看到模型從資料集的特性預測計程車車資的表現相當不錯，大多在 +- 3.00 美元以內。 傳統的機器學習模型開發程序會耗費大量資源，而且需要投入大量的網域知識和時間來執行並比較數十個模型的結果。 使用自動化機器學習，是您針對個人案例快速測試許多不同模型的絕佳方式。
+
+從這兩個預測精確度計量中，您會看到模型從資料集的特性預測計程車車資的表現相當不錯，大多在 +- 4.00 美元以內，誤差約為 15%。
+
+傳統的機器學習模型開發程序會耗費大量資源，而且需要投入大量的網域知識和時間來執行並比較數十個模型的結果。 使用自動化機器學習，是您針對個人案例快速測試許多不同模型的絕佳方式。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+如果您打算執行其他 Azure Machine Learning 服務教學課程，請不要完成本節。
+
+### <a name="stop-the-notebook-vm"></a>停止 Notebook VM
+
+如果您使用雲端 Notebook 伺服器，當您不使用 VM 時，請停止該 VM 來降低成本。
+
+1. 在您的工作區中，選取 [Notebook VM]  。
+1. 從清單中選取 VM。
+1. 選取 [停止]  。
+1. 當您準備好再次使用伺服器時，請選取 [啟動]  。
+
+### <a name="delete-everything"></a>刪除所有內容
+
+如果您不打算使用您建立的資源，請刪除它們，以免產生任何費用。
+
+1. 在 Azure 入口網站中，選取最左邊的 [資源群組]  。
+1. 在清單中，選取您所建立的資源群組。
+1. 選取 [刪除資源群組]  。
+1. 輸入資源群組名稱。 然後選取 [刪除]  。
+
+您也可以保留資源群組，但刪除單一工作區。 顯示工作區屬性，然後選取 [刪除]  。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -1195,4 +1088,4 @@ print(1 - mean_abs_percent_error)
 > * 搭配自訂參數在本機使用自動化迴歸模型來進行定型。
 > * 瀏覽及檢閱定型結果。
 
-使用 Azure Machine Learning [部署模型](tutorial-deploy-models-with-aml.md)。
+使用 Azure Machine Learning 服務[部署模型](tutorial-deploy-models-with-aml.md)。

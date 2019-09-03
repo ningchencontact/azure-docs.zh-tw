@@ -1,5 +1,5 @@
 ---
-title: 建置可供認證的 Azure IoT 隨插即用預覽版裝置 | Microsoft Docs
+title: 建置可供認證的 IoT 隨插即用預覽版裝置 | Microsoft Docs
 description: 身為裝置開發人員，請了解如何建置可供認證的 IoT 隨插即用預覽版裝置。
 author: tbhagwat3
 ms.author: tanmayb
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: bfa611eba8e7a990626fbace8b930962615e0594
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 151f6609375063a68a848f4c799af0b459124f23
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878749"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047902"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>建置可供認證的 IoT 隨插即用預覽版裝置
 
@@ -124,7 +124,7 @@ ms.locfileid: "69878749"
 
 #### <a name="implement-the-model-information-and-sdk-information-interfaces"></a>實作模型資訊和 SDK 資訊介面
 
-Azure IoT 裝置 SDK 會實作模型資訊和 SDK 資訊介面。 如果您在 VS Code 中使用程式碼產生功能，則裝置程式碼會使用 Azure IoT 隨插即用裝置 SDK。
+Azure IoT 裝置 SDK 會實作模型資訊和 SDK 資訊介面。 如果您在 VS Code 中使用程式碼產生功能，則裝置程式碼會使用 IoT 隨插即用裝置 SDK。
 
 如果您選擇不使用 Azure IoT 裝置 SDK，您可以使用 SDK 原始程式碼作為您本身實作的參考。
 

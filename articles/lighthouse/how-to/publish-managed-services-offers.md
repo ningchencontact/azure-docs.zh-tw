@@ -4,26 +4,26 @@ description: 了解如何發佈將客戶上線至 Azure 委派資源管理的受
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: bb2f26a170bbd60eb927bd00f6def7d033fafee9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f9d3fad2a98647bcd10d54c03a76e95bc3e05227
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810832"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011854"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>將受控服務供應項目發佈到 Azure Marketplace
 
-在此文章中，您將了解如何使用 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)，將公用或私人受控服務供應項目發佈至 [Azure Marketplace](https://azuremarketplace.microsoft.com)，讓購買供應項目的客戶能上線至 Azure 委派的資源管理。 
+在此文章中，您將了解如何使用 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)，將公用或私人受控服務供應項目發佈至 [Azure Marketplace](https://azuremarketplace.microsoft.com)，讓購買供應項目的客戶能上線至 Azure 委派的資源管理。
 
 > [!NOTE]
-> 您也必須有有效的[合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)，才能建立並發佈這些供應項目。 如果您還沒有帳戶，[註冊程序](https://aka.ms/joinmarketplace)會引導您完成在合作夥伴中心建立帳戶並註冊商業 Marketplace 計畫的步驟。 您的 Microsoft 合作夥伴網路 (MPN) 識別碼將會與您發佈的供應項目[自動關聯](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) \(部分機器翻譯\)，以追蹤您對客戶參與整體的影響。
+> 您也需要有效的[合作夥伴中心帳戶](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)，才能建立並發佈這些供應項目。 如果您還沒有帳戶，[註冊程序](https://aka.ms/joinmarketplace)會引導您完成在合作夥伴中心建立帳戶並註冊商業 Marketplace 計畫的步驟。 您的 Microsoft 合作夥伴網路 (MPN) 識別碼將會與您發佈的供應項目[自動關聯](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) \(部分機器翻譯\)，以追蹤您對客戶參與整體的影響。
 >
 > 如果您不想將供應項目發佈至 Azure Marketplace，您可以使用 Azure Resource Manager 範本手動讓客戶上線。 如需詳細資訊，請參閱[讓客戶在 Azure 委派的資源管理中上線](onboard-customer.md)。
 
-發佈受控服務供應項目，類似於將任何其他類型供應項目發佈至 Azure Marketplace。 若要了解該程序，請參閱 [Azure Marketplace 和 Azure Marketplace 和 AppSource 發行指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) \(部分機器翻譯\) 和[管理 Azure 與 AppSource Marketplace 供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers) \(部分機器翻譯\)。
+發佈受控服務供應項目，類似於將任何其他類型供應項目發佈至 Azure Marketplace。 若要了解該程序，請參閱 [Azure Marketplace 和 Azure Marketplace 和 AppSource 發行指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) \(部分機器翻譯\) 和[管理 Azure 與 AppSource Marketplace 供應項目](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers) \(部分機器翻譯\)。 您也應檢閱[商業市集認證原則](https://docs.microsoft.com/legal/marketplace/certification-policies)，尤其是[受控服務](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)一節。
 
 > [!IMPORTANT]
 > 受控服務供應項目中的每個方案都包含 [資訊清單詳細資料]  ，您會為購買方案的客戶，在此區段中定義租用戶中能存取委派資源群組和/或訂閱的 Azure Active Directory (Azure AD) 項目。 請務必注意，您在此處包含的任何群組 (或使用者或服務主體)，都與購買方案的客戶有相同權限。 若要指派不同群組來搭配每個客戶一起使用，您必須發佈每個客戶專屬的個別私人方案。
@@ -89,7 +89,7 @@ ms.locfileid: "67810832"
 |**標題**     |  供應項目的標題，通常是較長的正式名稱。 這個標題會醒目顯示在 Marketplace 中。 長度上限為 50 個字元。 在多數情況下，這應該與您在 [供應項目設定]  區段中所提供的 [名稱]  相同。       |
 |**總結**     | 您供應項目的用途或功能簡介。 此項目通常顯示在標題底下。 長度上限是 100 個字元。        |
 |**完整摘要**     | 您供應項目用途或功能的較長摘要。 長度上限為 256 個字元。        |
-|**說明**     | 您供應項目的詳細資訊。 此欄位的最大長度為 3000 個字元，且支援簡單 HTML 格式設定。        |
+|**說明**     | 您供應項目的詳細資訊。 此欄位的最大長度為 3000 個字元，且支援簡單 HTML 格式設定。 您必須在描述中的某處包含「受控服務」這些字。       |
 |**行銷識別碼**     | 適合 URL 的唯一識別碼。 將會用於此供應項目的 Marketplace URL。 例如，如果您的發行者識別碼為 *contoso*，而行銷識別碼是 *sampleApp*，則 Azure Marketplace 中供應項目的 URL 會是 *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* 。        |
 |**預覽訂用帳戶識別碼**     | 可新增一到 100 個訂用帳戶識別碼。 與這些訂用帳戶相關聯的客戶，將能夠在供應項目於 Azure Marketplace 上線之前檢視它。 我們建議您在此包含自己的訂用帳戶，以便您能在供應項目可供客戶取得之前，預覽供應項目在 Azure Marketplace 中的顯示方式。  (Microsoft 支援和工程小組也能在此預覽期間檢視您的供應項目。)   |
 |**實用連結**     | 與您供應項目相關的 URL，例如文件、版本資訊、常見問題集等等。        |
@@ -112,7 +112,7 @@ ms.locfileid: "67810832"
 - 主圖標誌的背景不得為黑色、白色或透明。 請確保您的背景色彩不會太淺，因為內嵌文字會顯示為白色。
 - 一旦您發佈包含主圖圖示的供應項目，就不能將它移除 (不過您可視需要將它更新為其他版本)。
 
-在 [潛在客戶管理]  區段中，您可視需要選取將會儲存您潛在客戶的 CRM 系統。 
+在 [潛在客戶管理]  區段中，您可以選取將會儲存您潛在客戶的 CRM 系統。 請注意，根據[受控服務認證原則](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)，必須要有**潛在客戶目的地**。
 
 最後，在 [法律]  區段中，提供您的 [隱私權原則 URL]  與 [使用規定]  。 您也可以在這裡指定此供應項目是否要使用[標準合約](https://docs.microsoft.com/azure/marketplace/standard-contract) \(部分機器翻譯\)。
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 1361224fb59a32ca227c5ea1e6cc92a4b0fdff6e
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 1ac91853c78a33645c0ccb234437e3cabc188f88
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541807"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70076883"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure 資料箱磁碟：常見問題集
 
@@ -113,7 +113,7 @@ A.  若要加快複製程序：
 - 使用多個工作階段。
 - 不透過網路共用進行複製 (此方式可能會受限於網路速度)，而是一律將資料放置在磁碟所連線到的本機電腦上。
 - 確定您的整個複製程序均使用 USB 3.0 或更新版本。 請下載並使用 [USBView 工具](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview)，以識別連線至電腦的 USB 控制器和 USB 裝置。
-- 對用來複製資料的電腦建立效能的基準。 請下載並使用 [Bluestop FIO 工具](https://bluestop.org/fio/)，以建立伺服器硬體效能的基準。
+- 對用來複製資料的電腦建立效能的基準。 請下載並使用 [Bluestop FIO 工具](https://ci.appveyor.com/project/axboe/fio)，以建立伺服器硬體效能的基準。 選取最新的 x86 或 x64 組建，選取 [成品]  索引標籤，然後下載 MSI。
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>問： 如果來源資料具有小型檔案 (KB 或 MB)，應如何加快資料傳輸速度？
 A.  若要加快複製程序：
@@ -142,7 +142,7 @@ A. 資料箱磁碟支援 Azure 檔案儲存體，但將不適合使用 Azure 檔
 ## <a name="verify-and-upload"></a>確認和上傳
 
 ### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>問： 在送回磁碟後，多久可以存取我在 Azure 中的資料？ 
-A.  當 [資料複製] 的訂單狀態顯示為 [完成] 時，您應該就能立即存取您的資料。
+A.  當複製資料的訂單狀態顯示為完成時，您就應該能夠立即存取您的資料。
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>問： 我的資料在上傳後會存放於 Azure 的何處？
 A.  當您在磁碟上的 *BlockBlob* 和 *PageBlob* 資料夾下複製資料後，系統會在 Azure 儲存體帳戶中為 *BlockBlob* 和 *PageBlob* 資料夾下的每個子資料夾建立容器。 如果您直接複製 *BlockBlob* 和 *PageBlob* 資料夾下的檔案，這些檔案將會位於 Azure 儲存體帳戶下的預設容器 *$root* 中。 當您將資料複製到 *AzureFile* 資料夾下的資料夾中，隨即會建立檔案共用。

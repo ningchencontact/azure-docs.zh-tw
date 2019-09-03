@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 02/26/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cbc55433517174c8080b941ca8526e5a4fd3427d
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477791"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126023"
 ---
 ::: zone target="docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "67477791"
 
 ::: zone target="chromeless"
 
-# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>使用 Azure 入口網站開始使用 Azure 資料箱磁碟
+## <a name="get-started-with-azure-data-box-disk"></a>開始使用 Azure 資料箱磁碟 
 
 ::: zone-end
 
@@ -40,7 +40,7 @@ ms.locfileid: "67477791"
 
 ::: zone target="chromeless"
 
-本快速入門說明如何使用 Azure 入口網站來部署 Azure 資料箱磁碟。 這些步驟包括檢閱必要條件、將磁碟解除鎖定，連線並將資料複製到磁碟，以便上傳至 Azure。
+本指南說明如何在 Azure 入口網站中部署 Azure 資料箱磁碟。 這些步驟包括檢閱必要條件、將磁碟解除鎖定，連線並將資料複製到磁碟，以便上傳至 Azure。
 
 ::: zone-end
 
@@ -60,10 +60,11 @@ ms.locfileid: "67477791"
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>必要條件
 
 - 您已使用下列資源訂購資料箱磁碟：[教學課程：訂購 Azure 資料箱磁碟](data-box-disk-deploy-ordered.md)。
 - 您已收到磁碟，入口網站中的作業狀態會更新為**已交付**。
+- 您已檢查收到的磁碟數目，以及每個磁碟都有一條連接纜線。
 - 您有一部用戶端電腦可用來複製資料。 您的用戶端電腦必須：
 
     - 執行[支援的作業系統](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)。

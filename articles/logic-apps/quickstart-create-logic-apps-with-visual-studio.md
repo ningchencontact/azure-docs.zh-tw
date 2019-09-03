@@ -3,20 +3,21 @@ title: 使用 Visual Studio 建立自動化工作流程 - Azure Logic Apps
 description: 使用 Azure Logic Apps 和 Visual Studio 將企業整合的工作、商務程序和工作流程自動化
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: 51d1af24a22f7ed86b01b1c7c79b204cd552a7ea
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c9248e5bcc9ebd819518b6ee609f529ea9b8f8bc
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385390"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051692"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立自動化工作、程序和工作流程 - Visual Studio
 
@@ -82,6 +83,8 @@ ms.locfileid: "68385390"
    ![建立 Azure 資源群組專案](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
+   > 資源群組名稱只能包含字母、數字、句點 (`.`)、底線 (`_`)、連字號 (`-`) 和括弧 (`(`、`)`)，但不能以句號 (`.`) *結尾*。
+   >
    > 如果 [雲端]  或 [Azure 資源群組]  未出現，請確定您安裝 Azure SDK for Visual Studio。
 
    如果您使用 Visual Studio 2019，請遵循下列步驟：

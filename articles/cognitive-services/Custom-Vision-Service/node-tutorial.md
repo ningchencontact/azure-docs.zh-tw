@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 2fd9ccff68eb368107a299af02a54ae6fc6cc0e2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: edb9e50cceed95d8ca77567e7c1228704b5f177d
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946154"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982370"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>快速入門：使用自訂視覺 Node.js SDK 建立影像分類專案
 
@@ -45,7 +45,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 ### <a name="create-the-custom-vision-service-project"></a>建立自訂視覺服務專案
 
-在指令碼中新增下列程式碼，以建立新的自訂視覺服務專案。 在適當的定義中插入訂用帳戶金鑰。
+在指令碼中新增下列程式碼，以建立新的自訂視覺服務專案。 在適當的定義中插入您的訂用帳戶金鑰，並將 sampleDataRoot 路徑值設定為您的映像資料夾路徑。 請確定 endPoint 值符合您在 [Customvision.ai](https://www.customvision.ai/) 建立的訓練和預測端點。
 
 ```javascript
 const util = require('util');

@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: cee5801826c78bdee51ba5afb14d6776a1191702
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516235"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051623"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>教學課程：定型第一個 ML 模型
 
@@ -31,14 +31,18 @@ ms.locfileid: "69516235"
 
 ## <a name="prerequisites"></a>必要條件
 
-唯一的必要條件是執行上一個教學課程：[設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)。
+唯一的必要條件是執行本教學課程的第一個部分：[設定環境和工作區](tutorial-1st-experiment-sdk-setup.md)。
+
+在本教學課程的這個部分中，您會在第一個部分結束時開啟的範例 Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` 中執行程式碼。 本文會逐步解說此 Notebook 中的相同程式碼。
 
 ## <a name="connect-workspace-and-create-experiment"></a>連結工作區並建立實驗
 
-使用 `from_config().` 函式匯入 `Workspace` 類別，並從 `config.json` 檔案載入您的訂用帳戶資訊。根據預設，此功能會在目前的目錄中尋找 JSON 檔案，但您也可以使用 `from_config(path="your/file/path")` 指定路徑參數來指向檔案。 如果您是在工作區的雲端 Notebook 伺服器上執行此 Notebook，則檔案會自動位於根目錄中。
+使用 `from_config().` 函式匯入 `Workspace` 類別，並從 `config.json` 檔案載入您的訂用帳戶資訊。根據預設，此功能會在目前的目錄中尋找 JSON 檔案，但您也可以使用 `from_config(path="your/file/path")` 指定路徑參數來指向檔案。 在雲端 Notebook 伺服器中，檔案會自動位於根目錄中。
 
 如果下列程式碼要求額外的驗證，只需在瀏覽器中貼上連結並輸入驗證權杖即可。
 
+> [!TIP]
+> 如果您不熟悉 Jupyter Notebook，請按一下程式碼資料格，然後按 **Shift+Enter** 逐一執行資料格，以執行程式碼。 或者，若要同時執行整個 Notebook，請按一下頂端功能表列頂端的 [資料格]  ，然後按一下 [全部執行]  。
 
 ```python
 from azureml.core import Workspace

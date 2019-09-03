@@ -8,21 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 08/12/2019
+ms.date: 08/19/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 763e5c13f9f41a404b4458a6c0bef82272cc3e8c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0d79443ed1e424a3cb8b6c059ac9b6bc62293029
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968336"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906706"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>快速入門：使用翻譯工具文字 API 來翻譯文字
 
 在本快速入門中，您將了解如何使用翻譯工具文字 REST API，將文字字串從英文翻譯成德文、義大利文、日文和泰文。
 
 本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和翻譯工具文字資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
+
+[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

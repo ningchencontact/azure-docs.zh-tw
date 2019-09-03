@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6b1fff913defce20aff41f685c5b96f0547faaca
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fd8b4ae06018de1d03ca60e836534a535c8f5df8
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968350"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906972"
 ---
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-本快速入門需要：
-
-* [Node 8.12.x 或更新版本](https://nodejs.org/en/)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
@@ -31,6 +29,14 @@ const uuidv4 = require('uuid/v4');
 
 需有這些模組，才能建構 HTTP 要求，以及建立 `'X-ClientTraceId'` 標頭的唯一識別碼。
 
+## <a name="set-the-endpoint"></a>設定端點
+
+此範例會嘗試從環境變數：`TRANSLATOR_TEXT_ENDPOINT` 中讀取您的翻譯工具文字端點。 如果您不熟悉環境變數，您可以將 `endpoint` 設為字串，並註解化條件陳述式。
+
+```javascript
+lorum ipsum
+```
+
 ## <a name="configure-the-request"></a>設定要求
 
 `request()` 方法 (可透過要求模組取得) 可讓我們傳遞 HTTP 方法、URL、要求參數、標頭和 JSON 內文作為 `options` 物件。 在此程式碼片段中，我們將設定要求：
@@ -41,7 +47,7 @@ const uuidv4 = require('uuid/v4');
 ```javascript
 let options = {
     method: 'GET',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'languages',
     qs: {
       'api-version': '3.0',

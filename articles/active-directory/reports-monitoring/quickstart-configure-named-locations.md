@@ -16,17 +16,17 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540bc8a4dbfda83ff6e0480bc216a38742bbef2b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1513dba19221e64d40551ffb13a5e9f33fd9858f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988089"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127246"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中設定具名位置
 
 您可以使用具名位置，標記組織中受信任的 IP 位址範圍。 Azure AD 使用具名位置來：
-- 偵測[風險事件](concept-risk-events.md)中的誤判。 從受信任位置登入可降低使用者的登入風險。   
+- 偵測[風險偵測](concept-risk-events.md)中的誤判。 從受信任位置登入可降低使用者的登入風險。   
 - 設定[位置型條件式存取](../conditional-access/location-condition.md)。
 
 在此快速入門中，您將會學到如何在您的環境中設定具名位置。

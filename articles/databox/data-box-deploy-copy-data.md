@@ -6,16 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 08/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 6b2a0655173405008e0bccf3e31a8db391da6127
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 9f5ccc255310ca42ef39586860c0861b945ac6e9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496296"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098891"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>教學課程：透過 SMB 將資料複製到 Azure 資料箱
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="copy-data-to-azure-data-box"></a>將資料複製到 Azure 資料箱
+
+::: zone-end
+
+::: zone target="docs"
 
 本教學課程說明如何使用本機 Web UI 來連線至主機電腦並從中複製資料。
 
@@ -208,7 +220,62 @@ ms.locfileid: "66496296"
     
    ![確認儀表板上的可用空間和已使用的空間](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
+::: zone-end
 
+::: zone target="chromeless"
+
+您可以透過 SMB、NFS、REST、資料複製服務或受控磁碟，將資料從來源伺服器複製到您的資料箱。
+
+在每個案例中，請確定共用和資料夾的名稱及資料大小遵循 [Azure 儲存體和資料箱服務限制](data-box-limits.md)中所述的指導方針。
+
+## <a name="copy-data-via-smb"></a>透過 SMB 複製資料
+
+1. 如果使用 Windows 主機，請使用下列命令來連線到 SMB 共用：
+
+    `\\<IP address of your device>\ShareName`
+
+2. 若要取得共用存取認證，請前往資料箱之本機 Web UI 中的 [連線並複製]  頁面。
+3. 使用與 SMB 相容的檔案複製工具 (例如 Robocopy) 來將資料複製到共用。 
+
+如需逐步指示，請移至[教學課程：透過 SMB 將資料複製到 Azure 資料箱](data-box-deploy-copy-data.md)。
+
+## <a name="copy-data-via-nfs"></a>透過 NFS 複製資料
+
+1. 如果使用 NFS 主機，請使用下列命令在您的資料箱上掛接 NFS 共用：
+
+    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
+
+2. 若要取得共用存取認證，請前往資料箱之本機 Web UI 中的 [連線並複製]  頁面。
+3. 使用 `cp` 或 `rsync` 命令來複製您的資料。
+
+如需逐步指示，請移至[教學課程：透過 NFS 將資料複製到 Azure 資料箱](data-box-deploy-copy-data-via-nfs.md)。
+
+## <a name="copy-data-via-rest"></a>透過 REST 複製資料
+
+1. 若要透過 REST API 使用資料箱 Blob 儲存體來複製資料，您可以透過 HTTP  或 HTTPS  來進行連線。
+2. 若要將資料複製到資料箱 Blob 儲存體，您可以使用 AzCopy。
+
+如需逐步指示，請移至[教學課程：透過 REST API 將資料複製到 Azure 資料箱 Blob 儲存體](data-box-deploy-copy-data-via-nfs.md)。
+
+## <a name="copy-data-via-data-copy-service"></a>透過資料複製服務來複製資料
+
+1. 若要使用資料複製服務來複製資料，您需要建立一項作業。 在您資料箱的本機 Web UI 中，移至 [管理] > [複製資料] > [建立]  。 
+2. 填寫參數並建立作業。
+
+如需逐步指示，請移至[教學課程：使用資料複製服務將資料複製到 Azure 資料箱](data-box-deploy-copy-data-via-copy-service.md)。
+
+## <a name="copy-data-to-managed-disks"></a>將資料複製到受控磁碟
+
+1. 訂購資料箱裝置時，您應該已選取受控磁碟作為儲存體目的地。
+2. 您可以透過 SMB 或 NFS 共用連線到資料箱。
+3. 然後，您可以透過 SMB 或 NFS 工具來複製資料。
+
+如需逐步指示，請移至[教學課程：使用資料箱匯入資料以作為 Azure 中的受控磁碟](data-box-deploy-copy-data-from-vhds.md)。
+
+::: zone-end
+
+
+::: zone target="docs"
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -224,4 +291,6 @@ ms.locfileid: "66496296"
 
 > [!div class="nextstepaction"]
 > [將您的 Azure 資料箱寄送給 Microsoft](./data-box-deploy-picked-up.md)
+
+::: zone-end
 

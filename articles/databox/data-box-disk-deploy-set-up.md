@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 49f3f608ff34847905b219047af843db00da78c4
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 15960c39878e0c8ae22f94197ed1937597f1ee02
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480056"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126139"
 ---
 ::: zone target="docs"
 
@@ -29,6 +29,16 @@ ms.locfileid: "68480056"
 > * 連接到磁碟並取得通行金鑰
 > * 將 Windows 用戶端上的磁碟解除鎖定
 > * 將 Linux 用戶端上的磁碟解除鎖定
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="unpack-connect-and-unlock-azure-data-box-disk"></a>針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -282,7 +292,7 @@ ms.locfileid: "68480056"
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  提供您在 Azure 入口網站中從 [一般] > [裝置詳細資料]  取得的通行金鑰。 指派給磁碟的磁碟機代號隨即顯示。 
+    -  在 Azure 入口網站中的 [一般] > [裝置詳細資料]  取得通行金鑰，並在此處提供。 指派給磁碟的磁碟機代號隨即顯示。 
 4. 若要解除鎖定 Linux 用戶端上的磁碟，請開啟終端機。 移至您下載軟體的資料夾。 輸入下列命令來變更檔案權限，以便執行這些檔案： 
 
     ```
@@ -294,7 +304,7 @@ ms.locfileid: "68480056"
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    執行資料箱磁碟解除鎖定工具。 前往 [一般] > [裝置詳細資料]  ，從 Azure 入口網站提供通行金鑰。 選擇性地指定單引號內要解除鎖定的 BitLocker 加密磁碟區清單。
+    執行資料箱磁碟解除鎖定工具。 在 Azure 入口網站中的 [一般] > [裝置詳細資料]  取得通行金鑰，並在此處提供。 選擇性地指定單引號內要解除鎖定的 BitLocker 加密磁碟區清單。
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
@@ -303,7 +313,9 @@ ms.locfileid: "68480056"
 
 將磁碟解除鎖定之後，您就可以檢視磁碟的內容。
 
-如需有關如何設定及解除鎖定磁碟的詳細資訊，請前往[教學課程：針對 Azure 資料箱磁碟解除封裝、連線然後解除鎖定](data-box-disk-deploy-set-up.md)。
+如需有關如何設定磁碟的詳細資訊，請前往[打開資料箱磁碟的包裝](data-box-disk-deploy-set-up.md#unpack-your-disks)。
+
+如需如何將磁碟解除鎖定的詳細資訊，請參閱[在 Windows 用戶端上解除鎖定資料箱磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client)。
 
 ::: zone-end
 

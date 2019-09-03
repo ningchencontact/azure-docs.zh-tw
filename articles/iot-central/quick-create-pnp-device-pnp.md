@@ -1,5 +1,5 @@
 ---
-title: 將 Azure IoT 隨插即用預覽版裝置連線至 IoT Central | Microsoft Docs
+title: 將 IoT 隨插即用預覽版裝置連線至 Azure IoT Central | Microsoft Docs
 description: 使用裝置功能模型來產生裝置程式碼。 然後，執行裝置程式碼，確認裝置已連線至您的 IoT Central 應用程式，並使用自動產生的檢視。
 author: dominicbetts
 ms.author: dobett
@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 152e373f3a340a8abe3d8bc54d6515296d95efba
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2f1ee5caf89af718d91abeac01730700c131ab41
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881687"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048953"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>快速入門：使用裝置功能模型建立 IoT 隨插即用裝置，並將其連線至您的 IoT Central 應用程式
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-_裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](https://aka.ms/iot-pnp-docs)裝置的功能。 IoT Central 可在裝置第一次連接時，使用 DCM 來建立裝置的裝置範本和視覺效果。 本快速入門示範如何：
+_裝置功能模型_ (DCM) 可說明 [IoT 隨插即用](../iot-pnp/overview-iot-plug-and-play.md)裝置的功能。 IoT Central 可在裝置第一次連接時，使用 DCM 來建立裝置的裝置範本和視覺效果。 本快速入門示範如何：
 
 * 在 Visual Studio Code 中使用 DCM 建立 IoT 隨插即用裝置。
 * 在 Windows 中執行裝置程式碼，並查看它是否連線至您的 IoT Central 應用程式。

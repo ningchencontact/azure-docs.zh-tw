@@ -1,5 +1,5 @@
 ---
-title: 建立 Azure IoT 隨插即用預覽版裝置 | Microsoft Docs
+title: 建立 IoT 隨插即用預覽版裝置 | Microsoft Docs
 description: 使用裝置功能模型來產生裝置程式碼。 然後，執行裝置程式碼，並查看裝置連線至 IoT 中樞的情形。
 author: miagdp
 ms.author: miag
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 7cfa6e63f74233e9a3fab8f235584fdbe01e67d9
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 386c2fa23e8d01f696ef3cf6078bac5fcec58f05
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881537"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050129"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device"></a>快速入門：使用裝置功能模型來建立 IoT 隨插即用裝置
 
@@ -48,7 +48,7 @@ _裝置功能模型_ (DCM) 可說明 IoT 隨插即用裝置的功能。 DCM 通�
 
 ## <a name="prepare-an-iot-hub"></a>準備 IoT 中樞
 
-您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+您的 Azure 訂用帳戶中也必須要有 Azure IoT 中樞，才能完成本快速入門。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 新增適用於 Azure CLI 的 Microsoft Azure IoT 延伸模組：
 

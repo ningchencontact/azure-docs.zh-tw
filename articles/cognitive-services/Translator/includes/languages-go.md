@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 707e6c1fb063ca7c8580df4ace2685417fd7847d
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 05355ad37183d4c14cb8f6598141292ded0386d9
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968334"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906907"
 ---
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [Prerequisites](prerequisites-go.md)]
 
-本快速入門需要：
-
-* [Go](https://golang.org/doc/install)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
@@ -30,6 +28,7 @@ import (
     "log"
     "net/http"
     "net/url"
+    "os"
 )
 ```
 
@@ -37,16 +36,18 @@ import (
 
 讓我們為應用程式建立主要函式。 您會發現這是一行程式碼。 這是因為我們正在建立單一函式，以取得並列出 Translator Text 的支援語言清單。
 
+此範例會嘗試從環境變數：`TRANSLATOR_TEXT_ENDPOINT` 中讀取您的翻譯工具文字端點。 如果您不熟悉環境變數，您可以將 `endpoint` 設為字串，並註解化條件陳述式。
+
 請將下列程式碼複製到您的專案中：
 
 ```go
 func main() {
-    /*
-     * This calls our getLanguages function, which we'll
-     * create in the next section. It takes a single argument,
-     * the subscription key.
-     */
-    getLanguages()
+    if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
+    }
+    endpoint := os.Getenv("TRANSLATOR_TEXT_ENDPOINT")
+    uri := endpoint + "/languages?api-version=3.0"
+    getLanguages(uri)
 }
 ```
 
@@ -55,7 +56,7 @@ func main() {
 讓我們來建立函式以取得支援的語言清單。
 
 ```go
-func getLanguages() {
+func getLanguages(uri string) {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -69,9 +70,8 @@ func getLanguages() {
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
-u, _ := url.Parse("https://api.cognitive.microsofttranslator.com/languages")
+u, _ := url.Parse(uri)
 q := u.Query()
-q.Add("api-version", "3.0")
 u.RawQuery = q.Encode()
 ```
 

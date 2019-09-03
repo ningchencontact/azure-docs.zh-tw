@@ -4,19 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a56744173974b470999f846da49d144f2013fbb
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 55ad3591a8c2e7d5de6d1efe255e0f3a4b3c11bd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968318"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907078"
 ---
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Json.NET NuGet 套件](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/)、[Visual Studio Code](https://code.visualstudio.com/download)，或您最愛的文字編輯器。
-* 翻譯工具文字的 Azure 訂用帳戶金鑰
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-net-core-project"></a>建立 .NET Core 專案
 
@@ -46,6 +43,31 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
+## <a name="get-subscription-information-from-environment-variables"></a>從環境變數取得訂用帳戶資訊
+
+將下列幾行新增至 `Program` 類別。 這幾行會從環境變數中讀取您的訂用帳戶金鑰和端點，並在遇到任何問題時擲回錯誤。
+
+```csharp
+private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == subscriptionKey)
+    {
+        throw new Exception("Please set/export the environment variable: " + key_var);
+    }
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+// The code in the next section goes here.
+```
+
 ## <a name="create-a-function-to-get-alternate-translations"></a>建立可取得替代翻譯的函式
 
 在 `Program` 類別內建立稱為 `AltTranslation` 的函式。 這個類別會封裝用來呼叫 Dictionary 資源的程式碼，並將結果輸出至主控台。
@@ -60,14 +82,14 @@ static void AltTranslation()
 }
 ```
 
-## <a name="set-the-subscription-key-host-name-and-path"></a>設定訂用帳戶金鑰、主機名稱和路徑
+## <a name="construct-the-uri"></a>建構 URI
 
-將這些行新增至 `AltTranslation` 函式。 您會注意到，連同 `api-version` ，已將兩個額外參數附加到 `route`。 這些參數用來設定翻譯輸入和輸出。 在此範例中為英文 (`en`) 和西班牙文 (`es`)。
+將這些行新增至 `AltTranslation` 函式。 您會注意到，連同 `api-version`，已宣告了兩個額外參數。 這些參數用來設定翻譯輸入和輸出。 在此範例中為英文 (`en`) 和西班牙文 (`es`)。
 
 ```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+string route = "/dictionary/lookup?api-version=3.0";
+static string params_ = "from=en&to=es";
+static string uri = endpoint + path + params_;
 ```
 
 接下來，我們需要建立及序列化 JSON 物件，該物件包含您要翻譯的文字。 請記住，您可以在 `body` 陣列中傳遞多個物件。
@@ -76,8 +98,6 @@ string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
-
-
 
 ## <a name="instantiate-the-client-and-make-a-request"></a>將用戶端具現化並提出要求
 
@@ -109,7 +129,7 @@ using (var request = new HttpRequestMessage())
 request.Method = HttpMethod.Post;
 
 // Construct the full URI
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(uri);
 
 // Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
@@ -142,7 +162,8 @@ static string PrettyPrint(string s)
 
 ```csharp
 AltTranslation();
-Console.ReadLine();
+Console.WriteLine("Press any key to continue.");
+Console.ReadKey();
 ```
 
 ## <a name="run-the-sample-app"></a>執行範例應用程式

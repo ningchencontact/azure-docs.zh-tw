@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1f7c212b7bb850816557feb53099973986bab587
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321661"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114500"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教學課程：在 Azure CDN 自訂網域上設定 HTTPS
 
@@ -130,7 +130,7 @@ Azure CDN 預設支援 CDN 端點主機名稱上的 HTTPS。 舉例來說，當�
 
     ![存取原則設定](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. 在 [祕密權限]  中，選取 [取得]  允許 CDN 執行這些權限，以取得並列出憑證。 
+3. 選取 [取得祕密權限]  ，然後選取取得並列出**憑證權限**，以允許 CDN 執行這些權限來取得並列出憑證。 
 
 4. 選取 [確定]  。 
 
@@ -312,6 +312,9 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
     如果 Microsoft 分析只有對您的應用程式進行 SNI 用戶端要求，則您現有的網域將在未來幾個月中逐漸移轉至單一憑證。 如果 Microsoft 偵測到有一些對您的應用程式進行的非 SNI 用戶端要求，您的網域會保持使用 SAN 憑證搭配以 IP 為基礎的 TLS/SSL。 在任何情況下，不論您的用戶端要求是 SNI 還是非 SNI，您對於這些要求的服務或支援都不會中斷。
 
+7. 若使用您自己的憑證，該如何更新憑證？ 
+
+    若要確保較新的憑證能部署到 PoP 基礎結構，只需將新憑證上傳至 Azure KeyVault，並在 Azure CDN 的 SSL 設定中選擇最新的憑證版本，然後點擊 [儲存]。 Azure CDN 接著會傳播已更新的憑證。 
 
 ## <a name="next-steps"></a>後續步驟
 

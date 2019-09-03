@@ -6,15 +6,15 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 08/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 496aa065b3b10eac546dbe41f5a2650acc112d29
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 23b0990be7f215d9cc443c5549ae38de86826d17
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68310509"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114608"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教學課程：在 Azure Container Registry 中更新基底映像時自動執行容器映像建置 
 
@@ -72,7 +72,16 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 ### <a name="tasks-triggered-by-a-base-image-update"></a>由基底映像更新觸發的工作
 
-* 目前針對來自 Dockerfile 的映像組建，ACR 工作會偵測相同 Azure Container Registry 中的基底映像、公用 Docker Hub 存放庫或 Microsoft Container Registry 中公用存放庫的相依性。 如果 `FROM` 陳述式所指定的基底映像位於其中一個位置，則 ACR 工作會新增一個 Hook，以確保映像會在其基底有所更新時進行重建。
+* 針對來自 Dockerfile 的映像組建，ACR 工作會偵測下列位置中的基底映像相依性：
+
+  * 執行工作所在的相同 Azure 容器登錄
+  * 相同區域中的其他 Azure 容器登錄 
+  * Docker Hub 中的公用存放庫 
+  * Microsoft 容器登錄中的公用存放庫
+
+   如果 `FROM` 陳述式所指定的基底映像位於其中一個位置，則 ACR 工作會新增一個 Hook，以確保映像會在其基底有所更新時進行重建。
+
+* 目前，ACR 工作只會追蹤應用程式 (執行階段  ) 映像的基底映像更新。 不會針對用於多階段 Dockerfile 的中繼 (建置階段  ) 映像追蹤基底映像更新。  
 
 * 當您使用 [az acr task create][az-acr-task-create] 命令建立 ACR 工作時，工作預設為「啟用」  由基底映像更新觸發。 也就是 `base-image-trigger-enabled` 屬性設定為 True。 如果您想要在工作中停用此行為，請將屬性更新為 False。 例如，執行以下 [az acr task update][az-acr-task-update] 命令：
 
@@ -82,7 +91,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 * 若要讓 ACR 工作能夠判斷和追蹤容器映像的相依性 (包括其基底映像)，您必須先觸發工作**至少一次**。 例如，使用 [az acr task run][az-acr-task-run] 命令以手動觸發工作。
 
-* 若要在基底映像更新時觸發工作，基底映像必須具有「穩定」  標籤，例如 `node:9-alpine`。 這個標籤通常適用於隨著 OS 和架構修補程式更新到最新穩定版本的基底映像。 如果基底映像是隨著新版本標籤更新，它就不會觸發工作。 如需有關映像標籤的詳細資訊，請參閱[最佳做法指引](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)。 
+* 若要在基底映像更新時觸發工作，基底映像必須具有「穩定」  標籤，例如 `node:9-alpine`。 這個標籤通常適用於隨著 OS 和架構修補程式更新到最新穩定版本的基底映像。 如果基底映像是隨著新版本標籤更新，它就不會觸發工作。 如需有關映像標籤的詳細資訊，請參閱[最佳做法指引](container-registry-image-tag-version.md)。 
 
 ### <a name="base-image-update-scenario"></a>基底映像更新案例
 
@@ -217,7 +226,7 @@ az acr task list-runs --registry $ACR_NAME --output table
 輸出大致如下。 最後執行之建置的 TRIGGER 應為 "Image Update"，表示工作是由基底映像的快速工作所起始。
 
 ```console
-$ az acr task list-builds --registry $ACR_NAME --output table
+$ az acr task list-runs --registry $ACR_NAME --output table
 
 Run ID    TASK            PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 --------  --------------  ----------  ---------  ------------  --------------------  ----------

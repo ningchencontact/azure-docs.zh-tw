@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdbdd0253478200d39501444ae649b87b77e65a4
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 928900c526ec0e77f84c621f630ac5894cdb2d23
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509043"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125665"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入門：當 Azure Active Directory 條件式存取偵測到工作階段風險時封鎖存取  
 
@@ -34,7 +34,7 @@ ms.locfileid: "67509043"
 
 - **Azure AD Premium P2 版本的存取權** - 雖然條件式存取是 Azure AD Premium P1 功能，但是因為本快速入門中的案例需要 Identity Protection，所以您需要 P2 版本。
 - **Identity Protection** - 本快速入門中的案例需要啟用 Identity Protection。 如果您不知道如何啟用 Identity Protection，請參閱[啟用 Azure Active Directory Identity Protection](../identity-protection/enable.md)。
-- **Tor 瀏覽器** - [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)的設計目的是協助您保留您的線上隱私權。 Identity Protection 偵測到來自 Tor 瀏覽器的登入是從匿名 IP 位址登入，這種登入有中等風險等級。 如需詳細資訊，請參閱 [Azure Active Directory 風險事件](../reports-monitoring/concept-risk-events.md)。  
+- **Tor 瀏覽器** - [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)的設計目的是協助您保留您的線上隱私權。 Identity Protection 偵測到來自 Tor 瀏覽器的登入是從匿名 IP 位址登入，這種登入有中等風險等級。 如需詳細資訊，請參閱 [Azure Active Directory 風險偵測](../reports-monitoring/concept-risk-events.md)。  
 - **稱為 Alain Charon 的測試帳戶** - 如果您不知道如何建立測試帳戶，請參閱[新增雲端式使用者](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)。
 
 ## <a name="test-your-sign-in"></a>測試您的登入
@@ -48,7 +48,7 @@ ms.locfileid: "67509043"
 
 ## <a name="create-your-conditional-access-policy"></a>建立條件式存取原則
 
-本快速入門中的案例會使用來自 Tor 瀏覽器的登入，以產生偵測到**從匿名 IP 位址登入**的風險事件。 此風險事件的風險等級是「中」。 若要回應此風險事件，您可以將登入風險條件設定為「中」。 在生產環境中，您應該將登入風險條件設定為 「高」或「中高」。
+本快速入門中的案例會使用來自 Tor 瀏覽器的登入，以產生偵測到**從匿名 IP 位址登入**的風險偵測。 此風險偵測的風險等級是「中」。 若要回應此風險偵測，您可以將登入風險條件設定為「中」。 在生產環境中，您應該將登入風險條件設定為 「高」或「中高」。
 
 本節說明如何建立必要的條件式存取原則。 為您的原則進行下列設定：
 

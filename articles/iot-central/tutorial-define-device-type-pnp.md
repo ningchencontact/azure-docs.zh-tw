@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a622aa85d1d0a9dcd5d5ad9b2b30e7a3120ea974
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 660b2ead146695657ae13444cb7936eff8224f3a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878629"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099524"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-preview-features"></a>教學課程：在 Azure IoT Central 應用程式中定義新的裝置類型 (預覽功能)
 
@@ -29,7 +29,7 @@ ms.locfileid: "69878629"
 * 回應命令，例如開啟和關閉。
 * 報告一般裝置屬性，例如裝置的韌體版本和序號。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立新的裝置範本。
@@ -44,7 +44,7 @@ ms.locfileid: "69878629"
 
 若要完成本教學課程，您必須要有 Azure IoT 中心應用程式。 如果您已完成[建立 Azure IoT Central 應用程式](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)快速入門，則可以重複使用您在該快速入門中建立的應用程式。 否則，請完成下列步驟以建立空的 Azure IoT Central 應用程式：
 
-1. 瀏覽至 Azure IoT Central 的[應用程式管理員](https://aka.ms/iotcentral)頁面。
+1. 瀏覽至 [Azure IoT Central 的應用程式管理員](https://aka.ms/iotcentral)網站。
 
 1. 如果您有 Azure 訂用帳戶，請使用您用來加以存取的認證登入，否則請使用 Microsoft 帳戶加以簽署：
 
@@ -70,7 +70,7 @@ ms.locfileid: "69878629"
 
     如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)。
 
-您也需要 **EnvironmentalSensorInline.capabilitymodel.json** 檔案的本機複本，其中包含 [IoT 隨插即用](https://aka.ms/iot-pnp-docs)裝置功能模型。 您可以從 [這裡](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json)下載。 以滑鼠右鍵按一下頁面，然後選取 [另存新檔]  。
+您也需要 **EnvironmentalSensorInline.capabilitymodel.json** 檔案的本機複本，其中包含 [IoT 隨插即用](../iot-pnp/overview-iot-plug-and-play.md)裝置功能模型。 您可以從 [這裡](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json)下載。 以滑鼠右鍵按一下頁面，然後選取 [另存新檔]  。
 
 下載檔案之後，請在文字編輯器中開啟檔案，並將 `<YOUR_COMPANY_NAME_HERE>` 的兩個執行個體取代為您的名稱。 您只能使用字元 a-z、A-Z、0-9 和底線。
 
@@ -90,11 +90,11 @@ ms.locfileid: "69878629"
 
 1. 若要新增裝置範本，請選取 [裝置範本]  頁面上的 [+ 新增]  。
 
-1. 從裝置功能模型清單中選擇 [自訂]  。
+1. 從範本清單中選擇 [自訂]  。
 
 1. 輸入**環境感應器**作為裝置範本的名稱。
 
-1. 選擇 [匯入功能模型]  ，以從 JSON 檔案建立新的裝置功能模型。 瀏覽至您在本機電腦上儲存 **EnvironmentalSensorInline.capabilitymodel.json** 檔案的資料夾。 選取 **EnvironmentalSensorInline.capabilitymodel.json** 檔案，然後選取 [匯入]。 環境感應器功能模型包含**環境感應器**和**裝置資訊**介面：
+1. 選擇 [匯入功能模型]  ，以從 JSON 檔案建立新的裝置功能模型。 瀏覽至您在本機電腦上儲存 **EnvironmentalSensorInline.capabilitymodel.json** 檔案的資料夾。 選取 **EnvironmentalSensorInline.capabilitymodel.json** 檔案，然後選取 [開啟]  。 環境感應器功能模型包含**環境感應器**和**裝置資訊**介面：
 
     ![環境感應器裝置功能模型](./media/tutorial-define-device-type-pnp/newdevicecapabilitymodel.png)
 
@@ -147,9 +147,9 @@ ms.locfileid: "69878629"
 
 裝置儀表板可讓操作員使用圖表和計量將裝置視覺化。 身為建置者，您可以定義要在裝置儀表板上顯示哪些資訊。 您可以為裝置定義多個儀表板。 若要建立將環境感應器遙測資料視覺化的儀表板，請選取 [檢視]  ，然後**將裝置視覺化**：
 
-1. 所有的裝置屬性、雲端屬性、遙測資料和靜態選項都會列在右側面板中。 您可以將其中任何項目拖放到此檢視中。 將屬性拖曳至檢視。 您可以使用齒輪圖示來設定圖格。
+1. 所有的裝置屬性、雲端屬性、遙測資料和靜態選項都會列在 [屬性]  下方。 您可以將其中任何項目拖放到此檢視中。 將 [亮度層級]  屬性拖曳至檢視中。 您可以使用齒輪圖示來設定圖格。
 
-1. 若要新增繪製遙測資料的圖表，請選取 [濕度]  和 [溫度]  ，然後選取 [合併]  。 若要以任何不同的格式 (例如圓形圖或橫條圖) 來檢視此圖表，請選取圖格頂端的 [變更視覺效果]  按鈕。
+1. 若要新增繪製遙測資料的圖表，請選取 [濕度]  和 [溫度]  ，然後選取 [合併]  。 若要以不同的格式 (例如圓形圖或橫條圖) 來檢視此圖表，請選取圖格頂端的 [變更視覺效果]  按鈕。
 
 1. 選取 [儲存]  以儲存檢視：
 
@@ -161,7 +161,7 @@ ms.locfileid: "69878629"
 
 若要建立表單以檢視和編輯環境感應器屬性：
 
-1. 選取 [編輯裝置和雲端資料]  圖格。
+1. 流覽至**環境感應器**範本中的 [檢視]  。 選取 [編輯裝置和雲端資料]  圖格來新增檢視。
 
 1. 輸入表單名稱**環境感應器屬性**。
 
@@ -169,10 +169,9 @@ ms.locfileid: "69878629"
 
 1. 選取 [亮度層級]  和 [裝置狀態]  裝置屬性。 然後，選取 [新增區段]  。 編輯要作為**感應器屬性**之區段的標題。 選取 [套用]  。
 
-1. 選取 [剩餘電力]  、[裝置型號]  、[韌體版本]  、[製造商]  和 [序號]  等裝置屬性。 然後，選取 [新增區段]  。 編輯要作為**裝置屬性**之區段的標題。 選取 [套用]  。
+1. 選取 [裝置型號]  、[軟體版本]  、[製造商]  和 [處理器製造商]  裝置屬性。 然後，選取 [新增區段]  。 編輯要作為**裝置屬性**之區段的標題。 選取 [套用]  。
 
 1. 選取 [儲存]  以儲存檢視。
-
 
 ## <a name="publish-device-template"></a>發佈裝置範本
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6aab04826a3c06b595859c0f41f658b6e5d3432
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1adda943676eb4918369d3cb8027f559d5dd0f6e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562278"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050005"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>教學課程：Azure Active Directory 單一登入 (SSO) 與 Cisco Webex Meetings 整合
 
@@ -80,7 +80,7 @@ ms.locfileid: "69562278"
 1. 在 [選取單一登入方法]  頁面上，選取 [SAML]  。
 1. 在 [以 SAML 設定單一登入]  頁面上，按一下 [基本 SAML 設定]  的編輯/畫筆圖示，以編輯設定。
 
-   ![編輯基本 SAML 設定](common/edit-urls.png)
+   ![編輯基本 SAML 組態](common/edit-urls.png)
 
 1. 在 [基本 SAML 設定]  區段上執行下列步驟，以上傳已下載的**服務提供者中繼資料**檔案，並在 **IDP** 起始模式下設定應用程式：
 
@@ -91,7 +91,7 @@ ms.locfileid: "69562278"
 
     b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]  。
 
-    c. 成功完成上傳服務提供者中繼資料檔案之後，[基本 SAML 設定]  區段中會自動填入 [識別碼]  和 [回覆 URL]  值：
+    c. 成功完成上傳服務提供者中繼資料檔案之後，[基本 SAML 組態]  區段中會自動填入 [識別碼]  和 [回覆 URL]  值：
 
 5. 如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
     
@@ -118,7 +118,7 @@ ms.locfileid: "69562278"
 
     d. 選取 [來源] 作為 [屬性]  。
 
-    e. 在 [來源屬性]  清單中，輸入該資料列所顯示的屬性值。
+    e. 在 [來源屬性]  清單中，從下拉式清單中選取針對該資料列顯示的屬性值。
 
     f. 按一下 [檔案]  。
 

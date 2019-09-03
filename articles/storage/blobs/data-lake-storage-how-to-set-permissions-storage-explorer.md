@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2cc93ad9ae1d9d6d21064a2a80c3d62bf661dabc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847417"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992288"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>搭配 Azure Data Lake Storage Gen2 使用 Azure 儲存體總管設定檔案和目錄等級使用權限
 
@@ -28,11 +28,11 @@ Azure Data Lake Storage Gen2 中儲存的檔案支援微調權限和存取控制
 
 ## <a name="prerequisites"></a>必要條件
 
-為了能夠最貼切地描述此程序，我們需要您完成我們的 [Azure 儲存體總管快速入門](data-lake-storage-Explorer.md)。 這可以確保您的儲存體帳戶處於最適當的狀態 (已建立檔案系統且資料已經上傳到系統中)。
+為了能夠最貼切地描述此程序，我們需要您完成我們的 [Azure 儲存體總管快速入門](data-lake-storage-Explorer.md)。 這可以確保您的儲存體帳戶處於最適當的狀態 (已建立容器且資料已經上傳到容器中)。
 
 ## <a name="managing-access"></a>管理存取
 
-您可以在檔案系統根目錄設定權限。 若要這樣做，您必須使用有權執行此動作的個別帳戶 (而非使用連接字串) 登入 Azure 儲存體總管。 以滑鼠右鍵按一下檔案系統，然後選取 [管理權限]  ，顯示 [管理權限]  對話方塊。
+您可以在容器根目錄設定權限。 若要這樣做，您必須使用有權執行此動作的個別帳戶 (而非使用連接字串) 登入 Azure 儲存體總管。 以滑鼠右鍵按一下容器，然後選取 [管理權限]  ，顯示 [管理權限]  對話方塊。
 
 ![Microsoft Azure 儲存體總管 - 管理目錄存取](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

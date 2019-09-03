@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: cc16f3c8ea287e78d7b7b4d9a56f5a2e82c26f01
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 7ed81375912613995d573b110607e7913adfd10f
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515335"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051657"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment"></a>教學課程：開始建立您的第一個 ML 實驗
 
@@ -73,7 +73,12 @@ ms.locfileid: "69515335"
     > [!TIP]
     > 此資料夾位於工作區中的[儲存體容器](concept-workspace.md#resources)上，而不是 Notebook VM 本身。  您可以刪除 Notebook VM，同時保有您所有的工作。  您後續建立新的 Notebook VM 時，將會載入相同的資料夾。 如果您與他人共用您的工作區，你們將會看到彼此的資料夾。
 
-1. 請開啟 `samples-*` 子目錄，然後開啟 `tutorials/tutorial-1st-experiment-sdk-train.ipynb` 以執行本教學課程的**第二部分**。
+1. 開啟 `samples-*` 子目錄，然後開啟 `tutorials/tutorial-1st-experiment-sdk-train.ipynb`
+
+> [!Warning]
+> 請確定您開啟的是 `tutorial-1st-experiment-sdk-train.ipynb` 檔案，而**不是**同名的 `.yml` 檔案。 
+
+在本教學課程的**第二部分**中，您會在 `tutorial-1st-experiment-sdk-train.ipynb` 中執行程式碼以定型機器學習模型。
 
 ## <a name="end"></a>清除資源
 

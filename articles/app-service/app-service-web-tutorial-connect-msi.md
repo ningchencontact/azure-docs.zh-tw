@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2cf5e0f6da52670d383a1d1508dc7bcc7847831f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 8a0b974e9b64d477e53c37757b4f2fa952befba2
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824544"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061856"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
@@ -46,7 +46,7 @@ ms.locfileid: "68824544"
 > * 使用 Azure AD 驗證從 Visual Studio 連線至 SQL Database
 
 > [!NOTE]
->Azure AD 驗證與內部部署 Active Directory (AD DS) 中的[整合式 Windows 驗證](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) _。 AD DS 和 Azure AD 使用完全不同的驗證通訊協定。 如需詳細資訊，請參閱 [Azure AD Domain Services 文件](https://docs.microsoft.com/azure/active-directory-domain-services/)。
+>Azure AD 驗證與內部部署 Active Directory (AD DS) 中的[整合式 Windows 驗證](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))_不同_。 AD DS 和 Azure AD 使用完全不同的驗證通訊協定。 如需詳細資訊，請參閱 [Azure AD Domain Services 文件](https://docs.microsoft.com/azure/active-directory-domain-services/)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,9 +58,11 @@ ms.locfileid: "68824544"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="grant-azure-ad-user-access-to-database"></a>為 Azure AD 使用者授與資料庫的存取權
+## <a name="grant-database-access-to-azure-ad-user"></a>將資料庫存取權授與 Azure AD 使用者
 
-首先，將 Azure AD 使用者指派為 SQL Database 伺服器的 Active Directory 管理員，以啟用對 SQL Database 的 Azure AD 驗證。 此使用者與您用來註冊 Azure 訂用帳戶的 Microsoft 帳戶不同。 這必須是您已在 Azure AD 中建立、匯入、同步處理或受邀加入的使用者。 若要進一步了解允許的 Azure AD 使用者，請參閱 [SQL Database 中的 Azure AD 功能和限制](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)。 
+首先，將 Azure AD 使用者指派為 SQL Database 伺服器的 Active Directory 管理員，以啟用對 SQL Database 的 Azure AD 驗證。 此使用者與您用來註冊 Azure 訂用帳戶的 Microsoft 帳戶不同。 這必須是您已在 Azure AD 中建立、匯入、同步處理或受邀加入的使用者。 若要進一步了解允許的 Azure AD 使用者，請參閱 [SQL Database 中的 Azure AD 功能和限制](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations)。
+
+如果您的 Azure AD 租用戶還沒有使用者，請依照[使用 Azure Active Directory 新增或刪除使用者](../active-directory/fundamentals/add-users-azure-active-directory.md)中的步驟建立一個。
 
 使用 [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) 尋找 Azure AD 使用者的物件識別碼，並取代 *\<user-principal-name>* 。 結果會儲存到變數中。
 
@@ -71,7 +73,7 @@ azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-na
 > 若要在 Azure AD 中查看所有使用者主體名稱的清單，請執行 `az ad user list --query [].userPrincipalName`。
 >
 
-在 Cloud Shell 中使用 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 命令，將此 Azure AD 使用者新增為 Active Directory 管理員。 在下列命令中，取代 *\<server-name>* 。
+在 Cloud Shell 中使用 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) 命令，將此 Azure AD 使用者新增為 Active Directory 管理員。 在下列命令中，將 *\<server-name>* 取代為 SQL Database 伺服器名稱 (不含 `.database.windows.net` 尾碼)。
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
@@ -170,7 +172,10 @@ var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
 conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
 ```
 
-這就是要連線至 SQL Database 所需的所有項目。 在 Visual Studio 中進行偵錯時，程式碼會使用您在[設定 Visual Studio](#set-up-visual-studio) 中所設定的 Azure AD 使用者。 稍後，您會設定 SQL Database 伺服器以允許來自 App Service 應用程式受控識別的連線。
+> [!TIP]
+> 為了方便說明，此示範程式碼是同步的。 如需詳細資訊，請參閱[建構函式的非同步指南](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#constructors)。
+
+這就是要連線至 SQL Database 所需的所有項目。 在 Visual Studio 中進行偵錯時，程式碼會使用您在[設定 Visual Studio](#set-up-visual-studio) 中所設定的 Azure AD 使用者。 稍後，您會設定 SQL Database 伺服器以允許來自 App Service 應用程式受控識別的連線。 `AzureServiceTokenProvider` 類別會快取記憶體中的權杖，並在到期之前從 Azure AD 擷取權杖。 您不需使用任何自訂程式碼來重新整理權杖。
 
 輸入 `Ctrl+F5` 以再次執行應用程式。 瀏覽器中的相同 CRUD 應用程式此時會使用 Azure AD 驗證直接連線至 Azure SQL Database。 此設定可讓您從 Visual Studio 執行資料庫移轉。
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 08/28/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aefa6d21488b617b26ddefe5fa4fc61cdd203f96
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e13ab3378857bd0254d7cb2fb98249ccc24b1cb7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032526"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125616"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>教學課程：新增內部部署應用程式以便透過 Azure Active Directory 中的應用程式 Proxy 進行遠端存取
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 若要將內部部署應用程式新增至 Azure AD，您需要：
 
-* [Microsoft Azure AD 基本或進階訂用帳戶](https://azure.microsoft.com/pricing/details/active-directory)
+* [Microsoft Azure AD 進階訂用帳戶](https://azure.microsoft.com/pricing/details/active-directory)
 * 應用程式系統管理員帳戶
 * 必須從內部部署目錄同步使用者身分識別，或是直接在您的 Azure AD 租用戶內建立使用者身分識別。 身分識別同步處理可讓 Azure AD 在允許使用者存取 App Proxy 發佈的應用程式之前，先預先驗證使用者，以及具有執行單一登入 (SSO) 所需的使用者識別碼資訊。
 
@@ -104,7 +104,7 @@ Azure Active Directory (Azure AD) 有一項應用程式 Proxy 服務，可讓使
 
 若要安裝連接器：
 
-1. 以目錄 (使用應用程式 Proxy) 的應用程式管理員身分，登入 [Azure 入口網站](https://portal.azure.com/)。 例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或該網域上的其他管理員別名。
+1. 以目錄 (使用應用程式 Proxy) 的應用程式管理員身分，登入 [Azure 入口網站](https://portal.azure.com/)。 例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com ，或該網域上的其他管理員別名。
 1. 在右上角選取您的使用者名稱。 請確認您已登入使用應用程式 Proxy 的目錄。 如果您需要變更目錄，請選取 [切換目錄]  ，然後選擇會使用應用程式 Proxy 的目錄。
 1. 在左瀏覽窗格中，選取 [Azure Active Directory]  。
 1. 在 [管理]  底下，選取 [應用程式 Proxy]  。

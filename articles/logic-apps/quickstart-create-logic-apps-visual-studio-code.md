@@ -1,27 +1,29 @@
 ---
-title: 使用 Visual Studio Code 來建立及管理自動化工作流程 - Azure Logic Apps | Microsoft Docs
+title: 使用 Visual Studio Code 來建立及管理自動化工作流程 - Azure Logic Apps
 description: 如何在 Visual Studio Code (VS Code) 中使用 JSON 來建立及管理邏輯應用程式的快速入門
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
-ms.topic: article
+ms.manager: carmonm
 ms.reviewer: klam, deli, LADocs
-ms.suite: integration
+ms.topic: quickstart
+ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: f0b568289a50b9883e6e0f1cba6b793c9e6e90e8
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60512375"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051739"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>快速入門：建立及管理自動化邏輯應用程式工作流程 - Visual Studio Code
 
-使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 與 Visual Studio Code，您可以建立及管理有助於自動化工作、工作流程與程序的邏輯應用程式，以便整合各組織與企業的應用程式、資料、系統與服務。 此快速入門示範如何透過以程式碼為基礎的體驗，使用 JavaScript Object Notation (JSON) 來與工作流程定義結構描述搭配運作，藉以建立及編輯邏輯應用程式工作流程定義。 您也可以使用已經部署至雲端 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> 的現有邏輯應用程式。 
+使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 與 Visual Studio Code，您可以建立及管理有助於自動化工作、工作流程與程序的邏輯應用程式，以便整合各組織與企業的應用程式、資料、系統與服務。 此快速入門示範如何透過以程式碼為基礎的體驗，使用 JavaScript Object Notation (JSON) 來與工作流程定義結構描述搭配運作，藉以建立及編輯邏輯應用程式工作流程定義。 您也可以使用已部署至 Azure 的現有邏輯應用程式。 
 
-雖然您可以在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>與 Visual Studio 中執行這些相同的工作，但當您已經熟悉邏輯應用程式定義且想要直接用於程式碼時，在 Visual Studio Code 中可更快開始使用。 例如，您可以停用、啟用、刪除及重新整理已建立的邏輯應用程式。 此外，您也可以從 Visual Studio Code 執行所在的任何開發平台 (例如 Linux、Windows、和 Mac) 來處理邏輯應用程式和整合帳戶。
+雖然您可以在 Azure 入口網站(https://portal.azure.com) 與 Visual Studio 中執行這些相同的工作，但若您已熟悉邏輯應用程式定義，而想要直接在程式碼中工作時，使用 Visual Studio Code 將可更快展開工作。 例如，您可以停用、啟用、刪除及重新整理已建立的邏輯應用程式。 此外，您也可以從 Visual Studio Code 執行所在的任何開發平台 (例如 Linux、Windows、和 Mac) 來處理邏輯應用程式和整合帳戶。
 
 在此文章中，您可以如[在 Azure 入口網站中建立邏輯應用程式的快速入門](../logic-apps/quickstart-create-first-logic-app-workflow.md)中所述，建立相同的邏輯應用程式，該文章比較著重在說明基本概念。 在 Visual Studio Code 中，邏輯應用程式看起來會像以下範例：
 
@@ -29,7 +31,7 @@ ms.locfileid: "60512375"
 
 開始之前，請確定您有下列項目：
 
-* 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
+* 如果您沒有 Azure 訂用帳戶，請先[註冊免費的 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 * [邏輯應用程式工作流程定義](../logic-apps/logic-apps-workflow-definition-language.md)與其結構 (使用 JavaScript 物件標記法 (JSON)) 的基本知識 
 
@@ -39,7 +41,7 @@ ms.locfileid: "60512375"
 
 * 如果您還沒有以下這些工具，請加以下載並安裝： 
 
-  * <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code 1.25.1 版或更新版本</a> (免費)
+  * [Visual Studio Code 1.25.1 版或更新版本]("https://code.visualstudio.com/) (免費)
 
   * 適用於 Azure Logic Apps 的 Visual Studio Code 延伸模組
 
@@ -52,7 +54,7 @@ ms.locfileid: "60512375"
 
     ![已安裝延伸模組](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    如需詳細資訊，請參閱<a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">延伸模組市集</a> \(英文\)。 您也可以瀏覽 [GitHub 上 Visual Studio Code 的 Azure Logic Apps 擴充功能](https://github.com/Microsoft/vscode-azurelogicapps)，以檢視並提交對此擴充功能的開放原始碼版本的貢獻。 
+    如需詳細資訊，請參閱[延伸模組市集](https://code.visualstudio.com/docs/editor/extension-gallery) \(英文\)。 您也可以瀏覽 [GitHub 上 Visual Studio Code 的 Azure Logic Apps 擴充功能](https://github.com/Microsoft/vscode-azurelogicapps)，以檢視並提交對此擴充功能的開放原始碼版本的貢獻。 
 
 <a name="sign-in-azure"></a>
 
@@ -220,8 +222,7 @@ ms.locfileid: "60512375"
 
    ![上傳您的編輯](./media/create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
 
-## <a name="get-support"></a>取得支援
+## <a name="next-steps"></a>後續步驟
 
-* 如有問題，請瀏覽 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 論壇</a>。
-* 若要提交或票選功能構想，請造訪 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 使用者意見反應網站</a>。
-
+> [!div class="nextstepaction"]
+> * [使用 Visual Studio 建立邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)

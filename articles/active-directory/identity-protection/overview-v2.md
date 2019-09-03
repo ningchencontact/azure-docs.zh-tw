@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 08/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2987f8fb116bfcbb1698335c3aca6f1fd8eb633e
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 3129027da0f28d9c89f7afe75d9531df9bae499e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717294"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125643"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>什麼是 Azure Active Directory Identity Protection (已改版)？
 
@@ -42,17 +42,17 @@ Azure AD Identity Protection 是 Azure Active Directory Premium P2 功能之一�
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
-## <a name="risk-events"></a>風險事件
+## <a name="risk-detections"></a>風險偵測
 
-Azure AD Identity Protection 可偵測下列風險事件： 
+Azure AD Identity Protection 可偵測下列風險偵測： 
 
-| 風險事件類型 | 說明 | 偵測類型 |
+| 風險偵測類型 | 說明 | 偵測類型 |
 | --- | --- | --- |
 | 非慣用登入位置 | 以使用者最近的登入為準，從非慣用的位置登入。 | 離線 |
 | 匿名 IP 位址 | 從匿名 IP 位址登入 (例如：Tor 瀏覽器、Anonymizer VPN)。 | 即時 |
 | 不熟悉的登入屬性 | 以給定使用者近期未出現過的屬性登入。 | 即時 |
 | 已連結惡意程式碼的 IP 位址 | 從已連結惡意程式碼的 IP 位址登入 | 離線 |
-| 認證外洩 | 此風險事件指出使用者的有效認證已外洩 | 離線 |
+| 認證外洩 | 此風險偵測指出使用者的有效認證已外洩 | 離線 |
 
 ## <a name="types-of-risk"></a>風險類型 
 
@@ -80,7 +80,7 @@ Identity Protection 以兩種類型的風險為基礎：
 計算使用者風險時，會考量所有與使用者相關聯的風險：
 
 - 所有具風險的登入
-- 未連結至登入的所有風險事件
+- 未連結至登入的所有風險偵測
 - 目前的使用者風險
 - 目前已對使用者執行的任何風險補救或消除動作
 
@@ -88,7 +88,7 @@ Identity Protection 以兩種類型的風險為基礎：
 
 Azure AD 會使用機器學習來偵測異常與可疑的活動，所使用的包括在登入期間即時偵測到的訊號，以及與使用者及其登入活動有關的非即時訊號。 Identity Protection 會使用這項資料，在使用者每次進行驗證時計算即時登入風險，並判斷每個使用者的整體使用者風險層級。 Identity Protection 可讓您設定 Identity Protection 使用者風險和登入風險原則，以自動這些風險偵測採取相關動作。  
 
-要了解 Identity Protection 偵測風險的方式，應掌握兩個重要概念：使用者風險和登入風險。 登入風險反映指定的驗證要求未獲身分識別擁有者授權的機率。 登入風險有兩種類型：即時風險和總風險。 在指定的登入嘗試 (例如從匿名 IP 位址登入) 發生時，會偵測即時登入風險。 總登入風險則會彙總已偵測到的即時登入風險，以及任何與使用者的登入相關聯的後續非即時風險事件 (例如不可能到達的位置)。 使用者風險反映惡意執行者入侵給定身分識別的整體可能性。 使用者風險包含給定使用者的所有風險活動，包括：
+要了解 Identity Protection 偵測風險的方式，應掌握兩個重要概念：使用者風險和登入風險。 登入風險反映指定的驗證要求未獲身分識別擁有者授權的機率。 登入風險有兩種類型：即時風險和總風險。 在指定的登入嘗試 (例如從匿名 IP 位址登入) 發生時，會偵測即時登入風險。 總登入風險則會彙總已偵測到的即時登入風險，以及任何與使用者的登入相關聯的後續非即時風險偵測 (例如不可能到達的位置)。 使用者風險反映惡意執行者入侵給定身分識別的整體可能性。 使用者風險包含給定使用者的所有風險活動，包括：
 
 - 即時登入風險
 - 後續登入風險
@@ -102,7 +102,7 @@ Azure AD 會使用機器學習來偵測異常與可疑的活動，所使用的�
 
 我們來看看某個 Contoso 員工的範例。 
 
-1. 一名員工嘗試從 Tor 瀏覽器登入 Exchange Online。 在登入時，Azure AD 會偵測即時風險事件。 
+1. 一名員工嘗試從 Tor 瀏覽器登入 Exchange Online。 在登入時，Azure AD 會偵測即時風險偵測。 
 2. Azure AD 偵測到這名員工從匿名 IP 位址登入，而觸發了中級登入風險。 
 3. 這名員工收到了 MFA 提示，因為 Contoso 的 IT 管理員設定了 Identity Protection 登入風險條件式存取原則。 該原則要求中級或更高的登入風險必須進行 MFA。 
 4. 這名員工通過了 MFA 提示並存取 Exchange Online，且其使用者風險層級並未變更。 
@@ -115,20 +115,20 @@ Azure AD 會使用機器學習來偵測異常與可疑的活動，所使用的�
 2. Azure AD 偵測到從匿名 IP 位址登入的嘗試，而觸發了即時登入風險。 
 3. 惡意執行者收到了 MFA 提示，因為 Contoso 的 IT 管理員設定了 Identity Protection 登入風險條件式存取原則，要求在登入風險達到中級或更高時必須進行 MFA。 
 4. 惡意執行者未通過 MFA 挑戰，而無法存取這名員工的 Exchange Online 帳戶。 
-5. 失敗的 MFA 提示觸發了應記錄的風險事件，進而提高了這名員工日後登入時的使用者風險。 
+5. 失敗的 MFA 提示觸發了應記錄的風險偵測，進而提高了這名員工日後登入時的使用者風險。 
 
 在惡意執行者嘗試存取這名員工的帳戶之後，我們來看看在他在下次嘗試登入時會發生什麼情況。 
 
-1. 這名員工嘗試從 Outlook 登入 Exchange Online。 在登入時，Azure AD 會偵測即時風險事件以及任何先前的使用者風險。 
+1. 這名員工嘗試從 Outlook 登入 Exchange Online。 在登入時，Azure AD 會偵測即時風險偵測以及任何先前的使用者風險。 
 2. Azure AD 不會偵測任何即時登入風險，但會偵測因過去在前述情況下出現的風險活動而產生的高使用者風險。  
 3. 這名員工收到了密碼重設提示，因為 Contoso 的 IT 管理員設定了 Identity Protection 使用者風險原則，要求具有高風險的使用者登入必須進行變更密碼。 
 4. 由於這名員工已註冊 SSPR 和 MFA，因此能成功重設其密碼。 
 5. 藉由重設其密碼，這名員工的認證不會再遭到入侵，且其身分識別也恢復到安全狀態。 
-6. 這名員工先前的風險事件都已解決，且其使用者風險層級也因為認證遭入侵的影響有所緩解而自動重設。 
+6. 這名員工先前的風險偵測都已解決，且其使用者風險層級也因為認證遭入侵的影響有所緩解而自動重設。 
 
 ## <a name="how-do-i-configure-identity-protection"></a>如何設定 Identity Protection？ 
 
-若要開始使用 Identity Protection，請先設定使用者風險原則和登入風險原則。 這些原則設定完成並套用至測試群組後，您可以模擬風險事件，以了解 Identity Protection 在您的環境中將如何回應。 下列快速入門指南將逐步說明如何設定上述原則，並在您的環境中加以測試。 
+若要開始使用 Identity Protection，請先設定使用者風險原則和登入風險原則。 這些原則設定完成並套用至測試群組後，您可以模擬風險偵測，以了解 Identity Protection 在您的環境中將如何回應。 下列快速入門指南將逐步說明如何設定上述原則，並在您的環境中加以測試。 
 
 Identity Protection 支援 Azure AD 中的三種角色，以平衡與您的部署有關的管理活動： 
 
@@ -145,13 +145,17 @@ Identity Protection 支援 Azure AD 中的三種角色，以平衡與您的部�
 >[!NOTE]
 > 在 Identity Protection 公開預覽 (已改版) 期間，只有 Azure AD Premium P2 客戶能夠存取有風險的使用者報告和有風險的登入報告。
 
-| 功能 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
-| --- | --- | --- | --- |
-| 使用者風險原則 | yes | 否 | 否 |
-| 登入風險原則 | yes | 否 | 否 |
-| 具風險使用者報告 | 完整存取 | 有限資訊 | 有限資訊 |
-| 有風險的登入報告 | 完整存取 | 有限資訊 | 有限資訊 |
-| MFA 註冊原則 | yes | 否 | 否 |
+| 功能 | 詳細資料 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| --- | --- | --- | --- | --- |
+| 風險原則 | 使用者風險原則 (透過 Identity Protection) | yes | 否 | 否 |
+| 風險原則 | 登入風險原則 (透過 Identity Protection 或條件式存取) | yes | 否 | 否 |
+| 安全性報告 | 概觀 | yes | 否 | 否 |
+| 安全性報告 | 具風險使用者 | 完整存取 | 有限資訊 | 有限資訊 |
+| 安全性報告 | 有風險的登入 | 完整存取 | 有限資訊 | 有限資訊 |
+| 安全性報告 | 風險偵測 | 完整存取 | 有限資訊 | 否 |
+| 通知 | 偵測到具風險使用者的警示 | yes | 否 | 否 |
+| 通知 | 每週提要 | yes | 否 | 否 |
+| | MFA 註冊原則 | yes | 否 | 否 |
 
 ## <a name="next-steps"></a>後續步驟 
 

@@ -1,5 +1,5 @@
 ---
-title: 建立和測試 Azure IoT 隨插即用預覽版裝置 | Microsoft Docs
+title: 建立和測試 IoT 隨插即用預覽版裝置 | Microsoft Docs
 description: 身為裝置開發人員，請了解如何使用 VS Code 來建立及測試 IoT 隨插即用預覽版裝置的新裝置功能模型。
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 5a03eea84d0d68f06b432014fc4374e799914d67
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 10eb9655371177a52d1c1a5a9118665015076b35
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878719"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047995"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>教學課程：使用 Visual Studio Code 建立和測試裝置功能模型
 
@@ -22,7 +22,7 @@ ms.locfileid: "69878719"
 
 本教學課程中的相關章節在說明如何建置產生的基本架構程式碼時，會假設您使用的是 Windows。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立裝置功能模型
@@ -55,7 +55,7 @@ ms.locfileid: "69878719"
 若要在本教學課程中測試您的裝置程式碼，您需要：
 
 * [Azure IoT 檔案總管](https://github.com/Azure/azure-iot-explorer/releases)。
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

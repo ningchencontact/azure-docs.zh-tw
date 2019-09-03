@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/25/2019
+ms.date: 8/21/2019
 ms.author: rkarlin
-ms.openlocfilehash: cd3288e308308729cf9b97e3c699d489857840a8
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 08c88df2f8ccc69f213687209d1d003f3bb1c7b8
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780381"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018794"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>教學課程：在 Azure Sentinel 預覽版中設定自動化威脅回應
 
@@ -104,9 +104,7 @@ ms.locfileid: "68780381"
 
 若要讓回應自動化：
 
-1. 選擇想要讓回應自動化的警示。
-1. 從 Azure Sentinel 工作區的導覽功能表中，選取 [分析]  。
-1. 選取您想要自動化的警示。 
+1. 選取想要讓回應自動化的警示。
 1. 在 [編輯警示規則]  頁面的 [即時自動化]  底下，選擇要在符合此警示規則時執行的 [觸發劇本]  。
 1. 選取 [ **儲存**]。
 

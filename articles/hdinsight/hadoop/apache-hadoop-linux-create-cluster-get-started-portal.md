@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0e3ee1620d9dc004f3b3b0804fc42cc0d427a7ef
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67805573"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036412"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure HDInsight 中建立 Apache Hadoop 叢集
 
@@ -32,7 +32,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在 Azure 入口網站中，瀏覽至 [建立資源]   > [分析]   > [HDInsight]  。
+1. 在 Azure 入口網站中，移至 [建立資源]   > [分析]   > [HDInsight]  。
 
     ![Azure 入口網站上的 Databricks](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight.png "Azure 入口網站上的 Databricks")
 
@@ -45,7 +45,7 @@ HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction
     |叢集類型     | 暫時略過此欄位。 您會在此程序的下一個步驟中提供此輸入。|
     |叢集登入使用者名稱和密碼    | 預設登入名稱為 **admin**。密碼長度至少必須為 10 個字元，且必須包含至少一個數字、一個大寫字母及一個小寫字母、一個非英數字元 (除了字元 ' " ` \)。 確定您**不會提供**常見密碼，例如 "Pass@word1"。|
     |安全殼層 (SSH) 使用者名稱 | 預設的使用者名稱為 **sshuser**。  您可以為 SSH 使用者名稱提供另一個名稱。 |
-    |將叢集登入密碼用於 SSH| 選取此核取方塊，讓 SSH 使用者所使用的密碼相同於您提供給叢集登入使用者的密碼。|
+    |將叢集登入密碼用於 SSH| 選取此核取方塊，讓 SSH 使用者所使用的密碼等同於您提供給叢集登入使用者的密碼。|
     |Resource group     | 建立資源群組，或選取現有的資源群組。  資源群組是 Azure 元件的容器。  在此案例中，資源群組包含 HDInsight 叢集和相依的 Azure 儲存體帳戶。 |
     |Location    | 選取您要建立叢集的 Azure 位置。  選擇靠近您的位置，以獲得最佳效能。 |
 

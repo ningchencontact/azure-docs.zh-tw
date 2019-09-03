@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99a542d3208d5871d88c966fffc65cf16e0fbeee
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 8b89cab41061376fc1d8b4cbffc8fe87b9677688
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335385"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125682"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 是什麼？
 
@@ -45,10 +45,10 @@ Azure Active Directory Identity Protection 不只是監視和報告工具而已�
 - 計算登入風險層級
 - 計算使用者風險層級
 
-**調查風險事件：**
+**調查風險偵測：**
 
-- 傳送風險事件的通知
-- 使用相關和內容資訊來調查風險事件
+- 傳送風險偵測的通知
+- 使用相關和內容資訊來調查風險偵測
 - 提供基本工作流程來追蹤調查
 - 讓您輕鬆存取補救動作，例如重設密碼
 
@@ -76,10 +76,10 @@ Azure Active Directory Identity Protection 不只是監視和報告工具而已�
 
 Azure Active Directory Identity Protection 會分析您的組態，並偵測可能影響您使用者身份識別的弱點。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection 偵測到的弱點](vulnerabilities.md)。
 
-### <a name="risk-events"></a>風險事件
+### <a name="risk-detections"></a>風險偵測
 
-Azure Active Directory 使用調適性機器學習運算法和啟發學習法來偵測與您使用者身份識別有關的可疑動作。 系統會針對每個偵測到的可疑動作建立記錄。 這些記錄又名風險事件。  
-如需詳細資訊，請參閱 [Azure Active Directory風險事件](../active-directory-identity-protection-risk-events.md)。
+Azure Active Directory 使用調適性機器學習運算法和啟發學習法來偵測與您使用者身份識別有關的可疑動作。 系統會針對每個偵測到的可疑動作建立記錄。 這些記錄又名風險偵測。  
+如需詳細資訊，請參閱 [Azure Active 風險偵測](../active-directory-identity-protection-risk-events.md)。
 
 ## <a name="investigation"></a>調查
 
@@ -89,10 +89,10 @@ Azure Active Directory 使用調適性機器學習運算法和啟發學習法來
 
 儀表板可讓您存取：
 
-- 報告，例如 [標示有風險的使用者]  、[風險事件]  和 [弱點] 
+- 報告，例如**標示有風險的使用者**、**風險偵測**和**弱點**
 - 設定，例如 [安全性原則]  、[通知]  和 [Multi-Factor Authentication 註冊]  的組態
 
-這通常是調查的起點，而在調查過程中會檢閱風險事件相關活動、記錄和其他相關資訊，以決定是否需要採取補救或緩和步驟，了解身分識別如何遭到入侵，以及了解遭到入侵的身分識別如何被利用。
+這通常是調查的起點，而在調查過程中會檢閱風險偵測相關活動、記錄和其他相關資訊，以決定是否需要採取補救或緩和步驟，了解身分識別如何遭到入侵，以及了解遭到入侵的身分識別如何被利用。
 
 您可以將調查活動繫結至 Azure Active Directory Protection 傳送的每封電子郵件 [通知](notifications.md) 。
 

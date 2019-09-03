@@ -1,5 +1,5 @@
 ---
-title: 收集關於 Azure 虛擬機器的資料 | Microsoft Docs
+title: 使用 Azure 監視器從 Azure 虛擬機器收集資料 | Microsoft Docs
 description: 了解如何使用 Log Analytics，啟用 Log Analytics 代理程式 VM 延伸模組和啟用 Azure VM 的資料收集。
 services: log-analytics
 documentationcenter: log-analytics
@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 1a61c0f96f62712bbd2500b2e80fd08565990bbe
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8e44908baea506efa488899c90e9022acc6e30b8
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874899"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992142"
 ---
-# <a name="collect-data-about-azure-virtual-machines"></a>收集關於 Azure 虛擬機器的資料
+# <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>使用 Azure 監視器從 Azure 虛擬機器收集資料
 
-[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 可將環境中 Azure 虛擬機器和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯。 本快速入門向您示範如何以幾個簡單步驟來設定和收集 Azure Linux 或 Windows VM 的資料。  
+[Azure 監視器](../overview.md)可將來 Azure 虛擬機器的資料直接收集到 Log Analytics 工作區，以供詳細分析和相互關聯。 安裝適用於 [Windows](../../virtual-machines/extensions/oms-windows.md) 和 [Linux](../../virtual-machines/extensions/oms-linux.md) 的 Log Analytics VM 擴充功能，可允許 Azure 監視器收集您 Azure VM 中的資料。 本快速入門向您示範如何以幾個簡單的步驟，使用 VM 擴充功能來設定和收集 Azure Linux 或 Windows VM 的資料。  
  
 本快速入門假設您有現有的 Azure 虛擬機器。 如果沒有，您可以遵循 VM 快速入門來[建立 Windows VM](../../virtual-machines/windows/quick-create-portal.md) 或[建立 Linux VM](../../virtual-machines/linux/quick-create-cli.md)。
 
@@ -33,7 +33,7 @@ ms.locfileid: "69874899"
 
 ## <a name="create-a-workspace"></a>建立工作區
 
-1. 在 Azure 入口網站中，選取 [所有服務]  。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]  。
+1. 在 Azure 入口網站中，選取 [所有服務]  。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics 工作區]  。
 
     ![Azure 入口網站](media/quick-collect-azurevm/azure-portal-01.png)<br>  
 
@@ -55,7 +55,7 @@ ms.locfileid: "69874899"
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-對於已部署在 Azure 中的 Windows 和 Linux 虛擬機器，您可以使用 Log Analytics VM 延伸模組來安裝 Log Analytics 代理程式。 使用擴充可以簡化安裝程序，並自動設定代理程式將資料傳送到您指定的 Log Analytics 工作區。 代理程式也會自動升級，以確保您擁有最新的功能和修正程式。 在繼續之前，請確認 VM 正在執行，否則此程序將無法順利完成。  
+對於已部署在 Azure 中的 Windows 和 Linux 虛擬機器，您可以使用 Log Analytics VM 延伸模組來安裝 Log Analytics 代理程式。 使用擴充可以簡化安裝程序，並自動設定代理程式將資料傳送到您指定的 Log Analytics 工作區。 代理程式也會在發行新版本時自動升級，以確保您擁有最新的功能和修正程式。 在繼續之前，請確認 VM 正在執行，否則此程序將無法順利完成。  
 
 >[!NOTE]
 >適用於 Linux 的 Log Analytics 代理程式無法設定為回報多個 Log Analytics 工作區。 
@@ -74,7 +74,7 @@ ms.locfileid: "69874899"
 
 ## <a name="collect-event-and-performance-data"></a>收集事件和效能資料
 
-Log Analytics 可以從 Windows 事件記錄或 Linux Syslog 收集事件，和收集您指定要用於較長期分析和報告的效能計數器，並在偵測到特定條件時採取動作。 請遵循下列步驟來開始設定收集 Windows 系統記錄檔和 Linux Syslog 的事件以及數個常用的效能計數器。  
+Azure 監視器可以從 Windows 事件記錄或 Linux Syslog 收集事件，和收集您指定要用於較長期分析和報告的效能計數器，並在偵測到特定條件時採取動作。 請遵循下列步驟來開始設定收集 Windows 系統記錄檔和 Linux Syslog 的事件以及數個常用的效能計數器。  
 
 ### <a name="data-collection-from-windows-vm"></a>從 Windows VM 收集資料
 
@@ -124,15 +124,15 @@ Log Analytics 可以從 Windows 事件記錄或 Linux Syslog 收集事件，和�
 
 現在您已啟用資料收集，可以執行簡單的記錄搜尋範例，查看來自目標 VM 的一些資料。  
 
-1. 在 Azure 入口網站中，瀏覽至 Log Analytics 並選取稍早建立的工作區。
+1. 在選取的工作區中，從左側窗格中選取 [記錄]  。
 
-2. 選取 [記錄搜尋]  圖格，然後在 [記錄搜尋] 窗格的查詢欄位中輸入 `Perf`，再按 Enter 鍵，或選取查詢欄位右邊的搜尋按鈕。
+2. 在記錄查詢頁面的查詢編輯器中輸入 `Perf`，然後選取 [執行]  。
 
-    ![Log Analytics 記錄搜尋查詢範例](./media/quick-collect-azurevm/log-analytics-portal-perf-query.png) 
+    ![Log Analytics 記錄搜尋查詢範例](./media/quick-collect-windows-computer/log-analytics-portal-queryexample.png) 
 
-例如，下圖中的查詢會傳回 735 筆效能記錄。  結果將會大幅減少。
+    例如，下圖中的查詢會傳回 10,000 筆效能記錄。 結果將會大幅減少。
 
-![Log Analytics 記錄搜尋結果](media/quick-collect-azurevm/log-analytics-search-perf.png)
+    ![Log Analytics 記錄搜尋結果](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

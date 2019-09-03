@@ -6,16 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 08/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 6a725784c419b67f7738b70ad867d2d6ef8b0785
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4e997998c345e1cbd6ff784aaf84bc9f605f691c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795966"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098646"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="cable-and-connect-to-your-device"></a>以纜線連接到您的裝置
+
+::: zone-end
+
+::: zone target="docs"
 
 本教學課程說明如何連接 Azure 資料箱的纜線、加以連線並開啟。
 
@@ -64,6 +76,38 @@ ms.locfileid: "65795966"
 
     ![資料箱電源按鈕](media/data-box-deploy-set-up/data-box-powered-door-open.png)
 
+::: zone-end
+
+::: zone target="chromeless"
+
+當您收到裝置之後，您需要以纜線連接到您的裝置。 
+
+## <a name="cable-your-device"></a>將裝置接上纜線
+
+1. 如果有任何證據表明裝置已遭竄改或損毀，請勿繼續操作。 請連絡 Microsoft 支援服務以向您運送替換裝置。
+2. 在將裝置連接纜線之前，請確定您有下列的纜線：
+    
+    - (已包含) 額定電流為 10 A 或更高的接地電源線，一端帶有 IEC60320 C-13 接點，用於連接裝置。
+    - 一條 RJ-45 CAT 6 網路纜線 (與 MGMT 網路介面搭配使用)
+    - 兩條 10 GbE SFP+ Twinax 銅纜線 (搭配 10 Gbps DATA 1、DATA 2 網路介面使用)
+    - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路纜線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
+
+3. 移除裝置並將其放在平面上。 
+    
+4. 將裝置接上纜線，如下所示。  
+
+    ![已連接纜線的資料箱裝置後擋板](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
+
+    1. 將電源線接上裝置。
+    2. 您可以使用 RJ-45 CAT 6 網路纜線，將主機電腦連接到裝置上的管理連接埠 (MGMT)。 
+    3. 針對資料使用 SFP+ Twinax 銅纜線連接至少一個 10 Gbps (最好超過 1 Gbps) 網路介面、DATA 1 或 DATA 2。 
+    4. 開啟裝置。 電源按鈕位於裝置前端面板上。
+
+::: zone-end
+
+::: zone target="docs"
+
+
 ## <a name="connect-to-your-device"></a>連接到您的裝置
 
 執行下列步驟，以使用本機 Web UI 和入口網站 UI 設定您的裝置。
@@ -92,6 +136,22 @@ ms.locfileid: "65795966"
 
 在裝置設定完成後，您可以連線至裝置共用，並將資料從您的電腦複製到裝置。 
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="connect-your-device"></a>連接裝置
+
+1. 若要取得裝置密碼，請前往 [Azure 入口網站](https://portal.azure.com)中的 [一般] > [裝置詳細資料]  。
+2. 將靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0，指派到您要用來連接至資料箱之電腦上的乙太網路介面卡。 在 `https://192.168.100.10` 存取裝置的本機 Web UI。 開啟裝置後，連線可能需要最多 5 分鐘。 
+3. 使用 Azure 入口網站中的密碼登入。 您會看到錯誤指出網站的安全性憑證有問題。 請依照瀏覽器專屬指示，繼續前往網頁。
+4. 根據預設，10 Gbps 資料介面 (或 1 Gbps) 的網路設定會設定為 DHCP。 如有需要，您可以將此介面設定為靜態，並提供 IP 位址。 
+
+::: zone-end
+
+
+::: zone target="docs"
+
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解 Azure 資料箱的相關主題，像是：
@@ -104,4 +164,6 @@ ms.locfileid: "65795966"
 
 > [!div class="nextstepaction"]
 > [將資料複製到 Azure 資料箱](./data-box-deploy-copy-data.md)
+
+::: zone-end
 

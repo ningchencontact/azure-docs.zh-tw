@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 08/27/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 260d2774eecb42d0234c33e40b4f10680a4fbfbd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ebb6c05645a991d22ac30ee013e5a51007994eb6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932221"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073856"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -67,6 +67,8 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 |S4    |    400     |    100     |
 |S8*    |    320     |    200     |
 |S9*    |    640    |    400     |
+|S8v2*    |    640     |    200     |
+|S9v2*    |    1280    |    400     |
 
 \* 並非所有區域都有提供。  
 
@@ -82,34 +84,35 @@ Azure Analysis Services 會以**開發人員**、**基本**及**標準**層提�
 |加拿大中部    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |美國東部     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |美國東部 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|美國東部 2     |     S8, S9   |    1    |
+|美國東部 2     |     S8、S9、S8v2、S9v2   |    1    |
 |美國中北部     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |美國中部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |美國中南部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |美國中西部   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |美國西部     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|美國西部     |    S8, S9   |    2  |
+|美國西部     |    S8、S9、S8v2、S9v2   |    2  |
 |美國西部 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|美國西部 2    |    S8, S9  |    1     |
+|美國西部 2    |    S8、S9、S8v2、S9v2  |    1     |
 
 ### <a name="europe"></a>歐洲
 
 |區域  | 支援的方案 | 查詢複本 (僅限標準方案) |
 |---------|---------|:---------:|
 |北歐     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|北歐     |    S8v2、S9v2      |    3     |
 |英國南部     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |西歐     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|西歐    |   S8, S9  |  1  |
+|西歐    |   S8、S9、S8v2、S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>亞太地區 
 
 |區域  | 支援的方案 | 查詢複本 (僅限標準方案) |
 |---------|---------|:---------:|
 |澳洲東部     |    B1, B2, S0, S1, S2, S4     |    3     |
-|澳洲東部     |    S8, S9    |    1     |
+|澳洲東部     |    S8、S9、S8v2、S9v2    |    1     |
 |澳大利亞東南部     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |日本東部     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|東南亞     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
+|東南亞     |     B1、B2、S0、S1、S2、S4、S8、S9、S8v2、S9v2、D1     |   1      |
 |印度西部     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>調整您的需求
@@ -246,7 +249,7 @@ Azure Analysis Services 文件也會使用 [GitHub 問題](https://docs.microsof
 
 ## <a name="blogs"></a>部落格
 
-事情變化得很快。 請到 [Analysis Services 小組部落格](https://blogs.msdn.microsoft.com/analysisservices/)和 [Azure 部落格](https://azure.microsoft.com/blog/)取得最新資訊。
+事情變化得很快。 請在 [Power BI 部落格](https://powerbi.microsoft.com/blog/category/analysis-services/)和 [Azure 部落格](https://azure.microsoft.com/blog/)取得最新資訊。
 
 ## <a name="community"></a>社群
 

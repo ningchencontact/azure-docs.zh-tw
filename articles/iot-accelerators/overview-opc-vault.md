@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 40a9016ac7a10175b51f0fb6f072dd089bde3a51
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 44315790116545dd888aed533731bbf01abe801d
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606286"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997311"
 ---
 # <a name="what-is-opc-vault"></a>什麼是 OPC 保存庫？
 
@@ -30,3 +30,10 @@ OPC 保存庫是一項微服務，可以設定、註冊和管理雲端中的 OPC
 下圖顯示完整的 OPC 保存庫架構。
 
 ![OPC 保存庫架構](media/overview-opc-vault-architecture/opc-vault.png)
+
+## <a name="next-steps"></a>後續步驟
+
+現在您已了解 OPC 保存庫及其使用方式，以下是建議執行的下一個步驟：
+
+> [!div class="nextstepaction"]
+> [OPC 保存庫架構](overview-opc-vault-architecture.md)

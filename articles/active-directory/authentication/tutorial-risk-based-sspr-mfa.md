@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9289bfe9e90186896a753e5853d81d2f06669917
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113210"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125186"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>教學課程：使用風險事件觸發 Multi-Factor Authentication 和密碼變更
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>教學課程：使用風險偵測觸發 Multi-Factor Authentication 和密碼變更
 
 在本教學課程中，您將啟用的 Azure Active Directory (Azure AD) Identity Protection 的功能，這是一項不只是監視和報告工具的 Azure AD Premium P2 功能。 若要保護組織的身分識別，您可以設定會自動因應風險行為的風險型原則。 這些原則可以自動進行封鎖或起始補救措施，包括要求密碼變更和強制執行 Multi-Factor Authentication。
 
 Azure AD Identity Protection 原則可以與現有的條件式存取原則搭配使用，而提供多一層的保護。 您的使用者可能永遠不會觸發需要這些原則的風險行為，但身為系統管理員的您知道他們都受到保護。
 
-可能觸發風險事件的項目包括：
+可能觸發風險偵測的項目包括：
 
 * 認證外洩的使用者
 * 從匿名 IP 位址登入

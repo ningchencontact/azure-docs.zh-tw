@@ -10,20 +10,19 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/29/2019
+ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: 163876d63ba2127dd3f3444e95b284918e60e368
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952004"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070966"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Python 應用程式
 
-在本快速入門中，您將一個簡單的 Python 應用程式部署到 [Linux 上的 App Service](app-service-linux-intro.md)，它提供了一個可高度擴充、自我修復的 Web 主機服務。 您可以透過互動式的瀏覽器型 Azure Cloud Shell 使用 Azure 命令列介面 ([Azure CLI](/cli/azure/install-azure-cli))，以便您可以遵循使用 Mac、Linux 或 Windows 電腦的步驟進行操作。
+在本快速入門中，您將一個簡單的 Python 應用程式部署到 [Linux 上的 App Service](app-service-linux-intro.md)，它提供了一個可高度擴充、自我修復的 Web 裝載服務。 您可以透過互動式的瀏覽器型 Azure Cloud Shell 使用 Azure 命令列介面 ([Azure CLI](/cli/azure/install-azure-cli))，以便您可以遵循使用 Mac、Linux 或 Windows 電腦的步驟進行操作。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-python/hello-world-in-browser.png)
 
@@ -37,7 +36,7 @@ ms.locfileid: "68952004"
 
 ## <a name="download-the-sample-locally"></a>將範例下載到本機
 
-在終端機視窗中執行下列命令，將應用程式範例複製到本機電腦，並瀏覽至包含範例程式碼的目錄。
+在終端機視窗中執行下列命令，將應用程式範例複製到本機電腦，並移至包含範例程式碼的目錄。
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -65,7 +64,7 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-開啟網頁瀏覽器，然後巡覽至位於 `http://localhost:5000/` 的範例應用程式。
+開啟網頁瀏覽器，然後移至位於 `http://localhost:5000/` 的範例應用程式。
 
 您會看到來自範例應用程式的 **Hello World!** 訊息顯示在網頁中。
 
@@ -82,7 +81,7 @@ flask run
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 下一步，執行下列命令，將範例應用程式存放庫複製到您的快速入門目錄。
@@ -158,7 +157,7 @@ http://<app-name>.azurewebsites.net
 
 ## <a name="update-locally-and-redeploy-the-code"></a>在本機更新和重新部署程式碼
 
-在 Cloud Shell 中，輸入 `code application.py` 以開啟 Cloud Shell 編輯器。
+在 Cloud Shell 中輸入 `code application.py`，以開啟 Cloud Shell 編輯器。
 
 ![Code application.py](media/quickstart-python/code-applicationpy.png)
 
@@ -184,7 +183,7 @@ az webapp up -n <app-name> -l <location-name>
 
 移至 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，以管理您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
+從左側功能表，選取 [應用程式服務]  ，然後選取 Azure 應用程式的名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/quickstart-python/app-service-list.png)
 

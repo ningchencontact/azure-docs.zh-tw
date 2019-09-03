@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 62a90e30b281a7a9b0d1369893cf58fb12086a0b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 7f14a12d5de64206f64e8c7205beb2c59c4f1f2a
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968342"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906946"
 ---
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-本快速入門需要：
-
-* Python 2.7.x 或 3.x
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
@@ -23,10 +21,7 @@ ms.locfileid: "68968342"
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -34,17 +29,25 @@ import json
 
 第一個註解會指出您的 Python 解譯器應使用 UTF-8 編碼。 然後，所需的模組會匯入，並從環境變數中讀取您的訂用帳戶金鑰、建構 HTTP 要求、建立唯一的識別碼，並處理翻譯工具文字 API 所傳回的 JSON 回應。
 
-## <a name="set-the-base-url-and-path"></a>設定基底 url 和路徑
+## <a name="set-the-endpoint-and-path"></a>設定端點和路徑
 
-翻譯工具文字全域端點會設定為 `base_url`。 `path` 會設定 `languages` 路由，並指出我們要叫用第 3 版的 API。
+此範例會嘗試從環境變數：`TRANSLATOR_TEXT_ENDPOINT` 中讀取您的翻譯工具文字端點。 如果您不熟悉環境變數，您可以將 `endpoint` 設為字串，並註解化條件陳述式。
+
+```python
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
+```
+
+翻譯工具文字全域端點會設定為 `endpoint`。 `path` 會設定 `languages` 路由，並指出我們要叫用第 3 版的 API。
 
 >[!NOTE]
 > 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：語言](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)。
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/languages?api-version=3.0'
-constructed_url = base_url + path
+constructed_url = endpoint + path
 ```
 
 ## <a name="add-headers"></a>新增標頭

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 6656c374ae0ff4aae7f99fd340e9e25e5cbc67d1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f80efbac256871af073354f23317c447d6a85f1e
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854174"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020155"
 ---
 您現在可以使用 [資料總管] 將資料新增至您的新容器。
 
-1. 在 [資料總管]  中，展開 **Tasks** 資料庫，然後展開 **Items** 容器。 選取 [Items]  ，然後按一下 [新增項目]  。
+1. 在 [資料總管]  中，展開 **Tasks** 資料庫，然後展開 **Items** 容器。 選取 [項目]  ，然後選取 [新增項目]  。
 
    ![在 Azure 入口網站的 [資料總管] 中建立新文件](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1cb9cd72908dc88ef2890764bc8d3fad88a82707
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: b5a21bd144558459ac60ae2da405f9ea57ca2fd1
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951913"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020195"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>在 Azure App Service 中建置 Python (Django) Web 應用程式 和 PostgreSQL
 
@@ -140,13 +140,13 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-在瀏覽器中，瀏覽至 `http://localhost:8000` 。 您應該會看見訊息 `No polls are available.`。 
+在瀏覽器中移至 `http://localhost:8000`。 您應該會看見訊息 `No polls are available.`。 
 
-瀏覽至 `http://localhost:8000/admin`，然後使用您在上一個步驟中建立的管理使用者來登入。 按一下 [問題]  旁的 [新增]  ，然後建立具有一些選擇的投票問題。
+移至 `http://localhost:8000/admin`，然後使用您在上一個步驟中建立的管理使用者來登入。 選取 [問題]  旁的 [新增]  ，然後建立具有一些選項的投票問題。
 
 ![在本機執行的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-再次瀏覽至 `http://localhost:8000`，然後查看所顯示的投票問題。
+再次移至 `http://localhost:8000`，然後查看所顯示的投票問題。
 
 Django 範例應用程式會將使用者資料儲存於資料庫中。 如果您成功新增投票問題，您的應用程式會將資料寫入本機 PostgreSQL 資料庫。
 
@@ -269,13 +269,13 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-再次瀏覽至 `http://localhost:8000`。 您應該會再次看見訊息 `No polls are available.`。 
+再次移至 `http://localhost:8000`。 您應該會再次看見訊息 `No polls are available.`。 
 
-瀏覽至 `http://localhost:8000/admin`，然後使用您建立的管理使用者登入，並建立如同前面的投票問題。
+移至 `http://localhost:8000/admin`，然後使用您建立的管理使用者登入，並建立如同前面的投票問題。
 
 ![在本機執行的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-再次瀏覽至 `http://localhost:8000`，然後查看所顯示的投票問題。 應用程式現在會將資料寫入 Azure 中的資料庫。
+再次移至 `http://localhost:8000`，然後查看所顯示的投票問題。 應用程式現在會將資料寫入 Azure 中的資料庫。
 
 ## <a name="deploy-to-azure"></a>部署至 Azure
 
@@ -386,7 +386,7 @@ http://<app-name>.azurewebsites.net
 
 App Service 會藉由尋找每個子目錄中的 wsgi.py  (預設會由 `manage.py startproject` 建立)，來偵測存放庫中的 Django 專案。 它找到檔案時，就會載入 Django Web 應用程式。 如需 App Service 如何載入 Python 應用程式的詳細資訊，請參閱[設定內建 Python 映像](how-to-configure-python.md)。
 
-瀏覽至 `<app-name>.azurewebsites.net`，然後使用您建立的同一個管理使用者來登入。 如有需要，也可嘗試再建立一些投票問題。
+移至 `<app-name>.azurewebsites.net`，然後使用您建立的同一個管理使用者來登入。 如有需要，也可嘗試再建立一些投票問題。
 
 ![在本機執行的 Python Django 應用程式](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -400,7 +400,7 @@ App Service 會藉由尋找每個子目錄中的 wsgi.py  (預設會由 `manage.
 
 移至 [Azure 入口網站](https://portal.azure.com)，以查看您所建立的應用程式。
 
-按一下左側功能表中的 [應用程式服務]  ，然後按一下 Azure 應用程式的名稱。
+從左側功能表，選取 [應用程式服務]  ，然後選取 Azure 應用程式的名稱。
 
 ![入口網站瀏覽至 Azure 應用程式](./media/tutorial-python-postgresql-app/app-resource.png)
 

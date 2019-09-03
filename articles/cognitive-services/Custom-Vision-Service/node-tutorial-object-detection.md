@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: areddish
-ms.openlocfilehash: 7f43507566109a52b914f27e37e5392345ec2eaf
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 6e3bf7b4fb60d81ff8883c2592de3739572bf2fa
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946170"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997801"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>快速入門：使用自訂視覺 Node.js SDK 建立物件偵測專案
 
@@ -26,20 +26,19 @@ ms.locfileid: "68946170"
 - 已安裝 [Node.js 8](https://www.nodejs.org/en/download/) 或更新版本。
 - 已安裝 [npm](https://www.npmjs.com/)。
 
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+[!INCLUDE [node-get-images](includes/node-get-images.md)]
+
+
 ## <a name="install-the-custom-vision-sdk"></a>安裝自訂視覺 SDK
 
-若要安裝適用於 Node.js 的自訂視覺服務 SDK，請使用下列命令：
+若要在專案中安裝適用於 Node.js 的自訂視覺服務 SDK，請使用下列命令：
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
 npm install @azure/cognitiveservices-customvision-prediction
 ```
-
-您可以隨著 [Node.js 範例](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)下載影像。
-
-[!INCLUDE [get-keys](includes/get-keys.md)]
-
-[!INCLUDE [node-get-images](includes/node-get-images.md)]
 
 ## <a name="add-the-code"></a>新增程式碼
 
@@ -47,9 +46,10 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 ### <a name="create-the-custom-vision-service-project"></a>建立自訂視覺服務專案
 
-在指令碼中新增下列程式碼，以建立新的自訂視覺服務專案。 在適當的定義中插入訂用帳戶金鑰。 請注意，建立物件偵測和影像分類專案之間的差異，就是在 **create_project** 呼叫中指定的網域。
+在指令碼中新增下列程式碼，以建立新的自訂視覺服務專案。 在適當的定義中插入您的訂用帳戶金鑰，並將 sampleDataRoot 路徑值設定為您的映像資料夾路徑。 請確定 endPoint 值符合您在 [Customvision.ai](https://www.customvision.ai/) 建立的訓練和預測端點。 請注意，建立物件偵測和影像分類專案之間的差異，就是在 **create_project** 呼叫中指定的網域。
 
 ```javascript
+const fs = require('fs');
 const util = require('util');
 const TrainingApi = require("@azure/cognitiveservices-customvision-training");
 const PredictionApi = require("@azure/cognitiveservices-customvision-prediction");

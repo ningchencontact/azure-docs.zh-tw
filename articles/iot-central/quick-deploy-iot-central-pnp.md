@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 05b761dbf9f58f6afca6459e28d2fecca9aa7b06
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0ae82f8980b995edab3419374e27a2cb905935d5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881667"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099506"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>建立 Azure IoT Central 應用程式 (預覽功能)
 
@@ -27,7 +27,7 @@ ms.locfileid: "69881667"
 
 ## <a name="create-an-application"></a>建立應用程式
 
-瀏覽至 Azure IoT Central 的[應用程式管理員](https://aka.ms/iotcentral)頁面。 然後，使用 Microsoft 的個人、公司或學校帳戶登入。
+瀏覽至 [Azure IoT Central 的應用程式管理員](https://aka.ms/iotcentral)網站。 然後，使用 Microsoft 的個人、公司或學校帳戶登入。
 
 若要開始建立新的 Azure IoT Central 應用程式，請選取 [新增應用程式]  。 此連結會將您導向至 [建立應用程式]  頁面。
 
@@ -55,4 +55,4 @@ ms.locfileid: "69881667"
 在本快速入門中，您已建立使用預覽功能的 IoT Central 應用程式。 建議執行的下一個步驟是：
 
 > [!div class="nextstepaction"]
-> [瀏覽 IoT Central](overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [在 Azure IoT Central 應用程式中定義新的裝置類型](./tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

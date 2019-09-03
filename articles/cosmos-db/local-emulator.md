@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 3e07b448e73bf64a3c1ec257948b3d61415480f0
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619830"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997876"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -254,11 +254,11 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 |EnableTableEndpoint | 啟用 Azure 資料表 API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | 用於 Azure 資料表端點的連接埠號碼。 預設值為 8902。 | CosmosDB.Emulator.exe /TablePort=\<port\> | \<連接埠\>：單一連接埠號碼|
 | KeyFile | 從指定的檔案中讀取授權金鑰。 使用 /GenKeyFile 選項來產生金鑰檔 | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>：檔案的路徑 |
-| ResetDataPath | 以遞迴方式移除指定路徑中的所有檔案。 如果您未指定路徑，則會預設為 %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>：檔案路徑  |
+| ResetDataPath | 以遞迴方式移除指定路徑中的所有檔案。 如果您未指定路徑，則會預設為 %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath=\<path> | \<path\>：檔案路徑  |
 | StartTraces  |  開始收集偵錯追蹤記錄。 | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | 停止收集偵錯追蹤記錄。 | CosmosDB.Emulator.exe /StopTraces  | |
 |FailOnSslCertificateNameMismatch | 根據預設，如果憑證的 SAN 不包含模擬器主機的網域名稱、本機 IPv4 位址、'localhost' 及 '127.0.0.1'，模擬器就會重新產生其自我簽署的 SSL 憑證。 使用此選項，模擬器反而將在啟動時失敗。 您接著應該使用 /GenCert 選項，來建立並安裝新的自我簽署 SSL 憑證。 | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | 產生並安裝新的自我簽署 SSL 憑證。 選擇性地包括其他 DNS 名稱的逗號分隔清單，以透過網路來存取模擬器。 | CosmosDB.Emulator.exe /GenCert[ \<其他 dns 名稱的逗號分隔清單\>] | |
+| GenCert | 產生並安裝新的自我簽署 SSL 憑證。 選擇性地包括其他 DNS 名稱的逗號分隔清單，以透過網路來存取模擬器。 | CosmosDB.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>:其他 dns 名稱的選擇性逗號分隔清單  |
 | DirectPorts |指定要用於直接連線的連接埠。 預設值為 10251、10252、10253、10254。 | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>：以逗號分隔的 4 個連接埠清單 |
 | Key |模擬器的授權金鑰。 金鑰必須是 64 位元組向量的 base-64 編碼方式。 | CosmosDB.Emulator.exe /Key:\<key\> | \<金鑰\>：金鑰必須是 64 位元組向量的 base-64 編碼方式|
 | EnableRateLimiting | 指定要啟用要求率限制行為。 |CosmosDB.Emulator.exe /EnableRateLimiting | |
@@ -367,7 +367,7 @@ docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
 
 md %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
 
-docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator --rm
+docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
 ```
 
 > [!NOTE]

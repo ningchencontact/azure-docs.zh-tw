@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: cc062f830facb0d617dc649ecd17acfff0a740af
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7fa2a5088e2eae039d43ecf0db080190f74cd772
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618928"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70125208"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>教學課程：建立並設定 Azure Active Directory Domain Services 執行個體
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
 本教學課程將示範如何使用 Azure 入口網站來建立和設定 Azure AD DS 執行個體。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 設定受控網域的 DNS 和虛擬網路設定
@@ -43,6 +43,9 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 * 您必須擁有 Azure AD 租用戶的*全域管理員*權限，才能啟用 Azure AD DS。
 * 您需要 Azure 訂用帳戶中的「參與者」  權限，才能建立必要的 Azure AD DS 資源。
 * Azure AD 租用戶必須[設定為可進行自助式密碼重設][configure-sspr]。
+
+> [!IMPORTANT]
+> 建立 Azure AD DS 受控網域之後，您就無法將執行個體移至不同的資源群組、虛擬網路、訂用帳戶等。當您部署 Azure AD DS 執行個體時，請仔細選取最適當的訂用帳戶、資源群組、區域和虛擬網路。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -222,6 +225,6 @@ Azure AD 租用戶必須先[設定為可進行自助式密碼重設][configure-s
 [network-considerations]: network-considerations.md
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
-[on-prem-sync]: active-directory-ds-getting-started-password-sync-synced-tenant.md
+[on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services

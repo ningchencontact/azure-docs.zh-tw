@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/08/2019
+ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 90f745d3ef5fd4442a184a51d82cd61b12828e15
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534793"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036201"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>教學課程：使用 Azure Machine Learning，搭配 MNIST 資料和 scikit-learn 定型映像分類模型
 
@@ -96,11 +96,11 @@ experiment_name = 'sklearn-mnist'
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-an-existing-compute-resource"></a>建立或連結現有的計算資源
+### <a name="create-or-attach-an-existing-compute-target"></a>建立或連結現有的計算目標
 
 資料科學家可藉由使用 Azure Machine Learning Compute 這項受控服務，在 Azure 虛擬機器的叢集上訓練機器學習模型。 範例包括具有 GPU 支援的 VM。 在本教學課程中，您會建立 Azure Machine Learning Compute 作為訓練環境。 如果您的工作區中還沒有計算叢集，下列程式碼將會為您建立計算叢集。
 
- **建立計算需要大約 5 分鐘的時間。** 如果工作區中已經有計算，則程式碼會加以使用而略過建立程序。
+ **建立計算目標需要大約 5 分鐘的時間。** 如果工作區中已有計算資源，則程式碼會加以使用而略過建立程序。
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -211,9 +211,9 @@ plt.show()
 
 ### <a name="upload-data-to-the-cloud"></a>將資料上傳至雲端
 
-現在，請將資料從本機電腦上傳至 Azure，以讓資料可供遠端存取。 如此便可存取該資料來進行遠端定型。 資料存放區是與您工作區相關的便利建構，可供您上傳/下載資料。 您也可以從遠端計算目標與其進行互動。 它受到 Azure Blob 儲存體帳戶支援。
+您已在 Notebook 執行所在的電腦下載並使用定型資料。  在下一節中，您將會在遠端 Azure Machine Learning 計算上定型模型。  遠端計算資源也將需要存取您的資料。 若要提供存取權，請將資料上傳至與您的工作區相關聯的集中式資料存放區。 在雲端中使用遠端計算目標時，此資料存放區可讓資料的存取更加快速，因為它位於 Azure 資料中心內。
 
-MNIST 檔案會上傳到資料存放區根目錄中名為 `mnist` 的目錄：
+將 MNIST 檔案上傳到資料存放區根目錄中名為 `mnist` 的目錄。 如需詳細資訊，請參閱[從您的資料存放區存取資料](how-to-access-data.md)。
 
 ```python
 ds = ws.get_default_datastore()

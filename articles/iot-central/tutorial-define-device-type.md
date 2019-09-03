@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: fd3ec276fdc95ad326d14a5b21e8ab793b154080
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875768"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099614"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT Central 應用程式中定義新的裝置類型
 
@@ -49,7 +49,7 @@ ms.locfileid: "69875768"
 
 若要完成本教學課程，您必須要有 Azure IoT 中心應用程式。 如果您已完成[建立 Azure IoT Central 應用程式](quick-deploy-iot-central.md)快速入門，則可以重複使用您在該快速入門中建立的應用程式。 否則，請完成下列步驟以建立空的 Azure IoT Central 應用程式：
 
-1. 瀏覽至 Azure IoT Central 的[應用程式管理員](https://aka.ms/iotcentral)頁面。
+1. 瀏覽至 [Azure IoT Central 的應用程式管理員](https://aka.ms/iotcentral)網站。
 
 2. 輸入您用來存取 Azure 訂用帳戶的電子郵件地址和密碼：
 

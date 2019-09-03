@@ -7,14 +7,14 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 4b6f987c68f9fe3ef95c82017b7d8be1d83083ea
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a5c4ffde886735e096c4c4a96a648c997d1e7dec
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446138"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050189"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 C 的裝置應用程式進行通訊 (預覽)
 
@@ -22,14 +22,16 @@ ms.locfileid: "67446138"
 
 Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-[IoT 中樞裝置串流](iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 在公開預覽期間，C SDK 僅支援裝置端上的裝置串流。 因此，本快速入門僅提供執行裝置端應用程式的指示。 若要執行隨附的服務端應用程式，請參閱：
- 
-   * [透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊](./quickstart-device-streams-echo-csharp.md)
-   * [透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊](./quickstart-device-streams-echo-nodejs.md)
+[IoT 中樞裝置串流](iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 在公開預覽期間，C SDK 僅支援裝置端上的裝置串流。 因此，本快速入門僅提供執行裝置端應用程式的指示。 若要執行對應的服務端應用程式，請參閱下列文章：
+
+* [透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊](./quickstart-device-streams-echo-csharp.md)
+
+* [透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊](./quickstart-device-streams-echo-nodejs.md)
 
 本快速入門中的裝置端 C 應用程式具有下列功能：
 
 * 建立對 IoT 裝置的裝置串流。
+
 * 接收從服務端應用程式傳來的資料並加以回應。
 
 程式碼會示範裝置串流的起始程序，以及如何用它來傳送和接收資料。
@@ -40,12 +42,9 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
 ## <a name="prerequisites"></a>必要條件
 
-* 裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
+您必須符合下列必要條件：
 
-  * 美國中部
-  * 美國中部 EUAP
-
-* 安裝 [Visual Studio 2017](https://www.visualstudio.com/vs/) 並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
+* 安裝 [Visual Studio 2019](https://www.visualstudio.com/vs/) 並啟用**使用 C++ 的桌面開發**工作負載。
 
 * 安裝最新版的 [Git](https://git-scm.com/download/)。
 
@@ -55,31 +54,38 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
    az extension add --name azure-cli-iot-ext
    ```
 
+裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
+
+* 美國中部
+
+* 美國中部 EUAP
+
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
 針對此快速入門，您會使用[適用於 C 的 Azure IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md)。您會準備用來從 GitHub 複製並建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) \(英文\) 的開發環境。 GitHub 上的 SDK 包括此快速入門中使用的範例程式碼。
 
-1. 下載 [CMake 建置系統](https://cmake.org/download/)。
+   > [!NOTE]
+   > 開始進行此程序之前，請確定 Visual Studio 已與**使用 C++ 的桌面開發**工作負載一起安裝。
 
-    在開始安裝 CMake 之前，請務必將 Visual Studio 必要條件 (Visual Studio 和「使用 C++ 的桌面開發」  工作負載) 安裝在您的機器上。 在符合先決條件並驗證過下載項目之後，您可以安裝 CMake 建置系統。
+1. 安裝 [CMake 建置系統](https://cmake.org/download/)，如下載頁面所說明。
 
-2. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
+1. 開啟命令提示字元或 Git Bash 殼層。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
 
-    ```
+    ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     這項作業應該需要幾分鐘的時間。
 
-3. 在 Git 存放庫的根目錄中建立 cmake  子目錄 (如下列命令所示)，然後前往該資料夾。
+1. 在 Git 存放庫的根目錄中建立 cmake  目錄 (如下列命令所示)，然後移至該資料夾。
 
-    ```
+    ```cmd
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. 從 cmake  目錄執行下列命令，以建置您開發用戶端平台特有的 SDK 版本。
+1. 從 cmake  目錄執行下列命令，以建置您開發用戶端平台特有的 SDK 版本。
 
    * 在 Linux 中：
 
@@ -88,7 +94,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
       make -j
       ```
 
-   * 在 Windows 中，請在 Visual Studio 2015 或 2017 的開發人員命令提示字元中執行下列命令。 cmake  目錄中會產生模擬裝置的 Visual Studio 解決方案。
+   * 在 Windows 中，開啟 [Visual Studio 的開發人員命令提示字元](/dotnet/framework/tools/developer-command-prompt-for-vs)。 執行您的 Visual Studio 版本適用的命令。 本快速入門使用 Visual Studio 2019。 這些命令會在 cmake  目錄中建立模擬裝置的 Visual Studio 解決方案。
 
       ```cmd
       rem For VS2015
@@ -96,6 +102,9 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"
+
+      rem Or for VS2019
+      cmake .. -G "Visual Studio 16 2019"
 
       rem Then build the project
       cmake --build . -- /m /p:Configuration=Release
@@ -119,7 +128,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. 若要針對您剛註冊的裝置取得「裝置連接字串」  ，請在 Azure Cloud Shell 中執行下列命令：
+1. 若要針對您剛註冊的裝置取得「裝置連接字串」  ，請在 Azure Cloud Shell 中執行下列命令：
 
    > [!NOTE]
    > 以您為 IoT 中樞選擇的名稱取代 YourIoTHubName  預留位置。
@@ -138,7 +147,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 
 ### <a name="run-the-device-side-application"></a>執行裝置端應用程式
 
-若要執行裝置端應用程式，請執行下列動作：
+若要執行裝置端應用程式，請遵循下列步驟：
 
 1. 編輯 iothub_client/samples/iothub_client_c2d_streaming_sample  資料夾中的 iothub_client_c2d_streaming_sample.c  來源檔案，然後提供您的裝置連接字串，以提供您的裝置認證。
 
@@ -147,7 +156,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
    static const char* connectionString = "[device connection string]";
    ```
 
-2. 依照下列方式編譯程式碼：
+1. 依照下列方式編譯程式碼：
 
    ```bash
    # In Linux
@@ -161,7 +170,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
    cmake --build . -- /m /p:Configuration=Release
    ```
 
-3. 執行已編譯的程式：
+1. 執行已編譯的程式：
 
    ```bash
    # In Linux
@@ -180,6 +189,7 @@ Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.micro
 如先前所述，IoT 中樞 C SDK 僅支援裝置端上的裝置串流。 若要建置及執行服務端應用程式，請遵循下列其中一個快速入門中的指示：
 
 * [透過 IoT 中樞裝置串流與使用 C# 的裝置應用程式進行通訊](./quickstart-device-streams-echo-csharp.md)
+
 * [透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊](./quickstart-device-streams-echo-nodejs.md)
 
 ## <a name="clean-up-resources"></a>清除資源

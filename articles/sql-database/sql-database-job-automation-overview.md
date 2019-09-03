@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 432580017cec548b7ecd7cf766aa8f5cdb2253cc
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935181"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113586"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>使用資料庫作業將管理工作自動化
 
@@ -43,7 +43,7 @@ Azure SQL Database 可讓您建立及排程可針對一或多個資料庫定期�
 
 Azure SQL Database 中可用的作業排程技術如下：
 
-- **SQL Agent 作業**是經過實戰測試的傳統 SQL Server 作業排程元件，適用於受控執行個體中。 SQL Agent 作業不適用於單一資料庫。
+- **SQL Agent 作業**是經過實戰測試的傳統 SQL Server 作業排程元件，適用於受控執行個體中。 SQL Agent 作業不適用於 Azure SQL 單一資料庫。
 - **彈性資料庫作業 (預覽)** 是可在一或多個 Azure SQL Database 上執行自訂作業的作業排程服務。
 
 值得注意的是 SQL Agent (可用於內部部署且作為 SQL Database 受控執行個體的一部分) 與資料庫彈性作業代理程式 (適用於 Azure SQL 資料庫中的單一資料庫，以及 SQL 資料倉儲中的資料庫) 之間的差異。

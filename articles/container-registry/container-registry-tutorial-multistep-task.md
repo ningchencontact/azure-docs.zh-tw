@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c78c2c8279972108aee12b9b386175d0f27b7fee
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 339b13201934b1ba5cd4f53c21d50b62814c36eb
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310420"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905368"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>教學課程：於認可原始程式碼時在雲端執行多步驟容器工作流程
 
@@ -332,7 +332,7 @@ az acr task create \
     --name example2 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --branch master \
-    --file taskmulti-image.yaml \
+    --file taskmulti-multiregistry.yaml \
     --git-access-token $GIT_PAT \
     --set regDate=mycontainerregistrydate.azurecr.io
 ```
@@ -363,7 +363,7 @@ CLI 會傳回您所新增的登錄登入伺服器名稱。
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-根據預設，`az acr task run` 命令會在您執行命令時將記錄輸出串流處理至主控台。 跟之前一樣，輸出會顯示每個工作步驟的執行進度。 輸出會扼要地顯示關鍵步驟
+根據預設，`az acr task run` 命令會在您執行命令時將記錄輸出串流處理至主控台。 跟之前一樣，輸出會顯示每個工作步驟的執行進度。 輸出會扼要地顯示關鍵步驟。
 
 輸出：
 

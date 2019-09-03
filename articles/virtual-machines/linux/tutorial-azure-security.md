@@ -9,19 +9,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 671b7de8852b0aac30e35b76d89eb4489a206f91
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0ac5c95fa51ca5032f5d3e057af2064f872ea15c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708556"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081701"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>教學課程：使用 Azure 資訊安全中心來監視 Linux 虛擬機器
 
@@ -72,7 +71,7 @@ Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資
 
 ## <a name="view-vm-configuration-health"></a>檢視 VM 組態健康狀態
 
-在開啟資料收集功能並設定好安全性原則後，資訊安全中心會開始提供警示和建議。 VM 在部署時就已安裝好資料收集代理程式。 之後，系統就會在資訊安全中心內填入新 VM 的資料。 若要深入了解 VM 組態的健康狀態，請參閱[在資訊安全中心內保護您的 VM](../../security-center/security-center-virtual-machine-recommendations.md)。 
+在開啟資料收集功能並設定好安全性原則後，資訊安全中心會開始提供警示和建議。 VM 在部署時就已安裝好資料收集代理程式。 之後，系統就會在資訊安全中心內填入新 VM 的資料。 若要深入了解 VM 組態的健康狀態，請參閱[在資訊安全中心內保護您的 VM](../../security-center/security-center-virtual-machine-protection.md)。 
 
 隨著資料的收集，系統會彙總每個 VM 和相關 Azure 資源的資源健康狀態。 此資訊會以容易看懂的圖表形式來顯示。 
 
@@ -104,7 +103,7 @@ Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資
 
 ## <a name="view-detected-threats"></a>檢視偵測到的威脅
 
-除了資源組態建議外，資訊安全中心也會提供威脅偵測警示。 安全性警示功能會彙總從每個 VM、Azure 網路記錄和連線合作夥伴解決方案所收集到的資料，以偵測不利於 Azure 資源的安全性威脅。 若要深入了解資訊安全中心的威脅偵測功能，請參閱 [Azure 資訊安全中心的偵測功能](../../security-center/security-center-detection-capabilities.md)。
+除了資源組態建議外，資訊安全中心也會提供威脅偵測警示。 安全性警示功能會彙總從每個 VM、Azure 網路記錄和連線合作夥伴解決方案所收集到的資料，以偵測不利於 Azure 資源的安全性威脅。 若要深入了解資訊安全中心的威脅偵測功能，請參閱[資訊安全中心如何偵測威脅？](../../security-center/security-center-alerts-overview.md#detect-threats)。
 
 若要使用安全性警示功能，須將資訊安全中心的定價層從「免費」  提升為「標準」  。 當您改用這個較高的定價層時，會有**免費試用**。 
 

@@ -3,19 +3,20 @@ title: 教學課程 - 自動處理電子郵件和附件 - Azure Logic Apps
 description: 教學課程 - 使用 Azure Logic Apps、Azure 儲存體和 Azure Functions，建立用來處理電子郵件和附件的自動化工作流程
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
-manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312651"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051784"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 自動處理電子郵件和附件
 
@@ -61,9 +62,9 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | 設定 | 值 | 說明 |
    |---------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | Azure 訂用帳戶的名稱 |  
-   | **資源群組** | LA-Tutorial-RG | 用來組織及管理相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 <p>**附註：** 資源群組會存在於某個特定區域內。 雖然此教學課程中提及的項目可能並非適用於所有區域，但請盡可能使用相同的區域。 |
-   | **儲存體帳戶名稱** | attachmentstorageacct | 儲存體帳戶的名稱 |
-   | **位置** | 美國西部 | 用來儲存您儲存體帳戶相關資訊的區域 |
+   | **資源群組** | <*Azure-resource-group*> | 用來組織及管理相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 此範例使用 "LA-Tutorial-RG"。 <p>**附註：** 資源群組會存在於某個特定區域內。 雖然此教學課程中提及的項目可能並非適用於所有區域，但請盡可能使用相同的區域。 |
+   | **儲存體帳戶名稱** | <*Azure-storage-account-name*> | 您的儲存體帳戶名稱，必須有 3-24 個字元，且只能包含小寫字母和數字。 此範例使用 "attachmentstorageacct"。 |
+   | **位置** | <*Azure-region*> | 用來儲存您儲存體帳戶相關資訊的區域。 此範例使用「美國西部」。 |
    | **效能** | 標準 | 此設定會指定支援的資料類型和用來儲存資料的媒體。 請參閱[儲存體帳戶類型](../storage/common/storage-introduction.md#types-of-storage-accounts)。 |
    | **帳戶類型** | 一般用途 | [儲存體帳戶類型](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **複寫** | 本機備援儲存體 (LRS) | 此設定會指定如何複製、儲存、管理及同步處理您的資料。 請參閱[本地備援儲存體 (LRS)：適用於 Azure 儲存體的低成本資料備援](../storage/common/storage-redundancy-lrs.md)。 |

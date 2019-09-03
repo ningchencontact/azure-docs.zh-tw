@@ -6,16 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 7/08/2019
+ms.date: 8/27/2019
 ms.author: alkohli
-ms.openlocfilehash: db0f0ac3073687b7c1cd8ca60e459e4bb3aa03f4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 368439d6e15d6c94bbb96d67fcb48ab006234c95
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626348"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098844"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>教學課程：送回 Azure 資料箱，並確認資料上傳至 Azure
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="return-data-box-and-verify-data-upload-to-azure"></a>送回資料箱，並確認資料上傳至 Azure
+
+::: zone-end
+
+::: zone target="docs"
 
 本教學課程將說明如何送回 Azure 資料箱，並確認資料已上傳至 Azure。
 
@@ -39,12 +51,32 @@ ms.locfileid: "67626348"
 
 [!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
+::: zone-end
+
+::: zone target="chromeless"
+
+資料複製完成之後，您就可以準備寄送裝置。 裝置到達 Azure 資料中心時，資料就會自動上傳到 Azure。
+
+## <a name="prepare-to-ship"></a>準備寄送
+
+在您準備寄送之前，請確定複製作業已完成。
+
+1. 前往本機 Web UI 中的 [準備寄送]  頁面，並開始準備寄送。 
+2. 從本機 Web UI 關閉裝置。 從裝置移除纜線。 
+
+後續步驟則取決於您退回裝置的地點。
+
+::: zone-end
+
+::: zone target="docs"
+
 ## <a name="ship-data-box-back"></a>寄回資料箱
 
 確保裝置的資料副本完整且 [準備寄送]  執行成功。 根據您寄送裝置的區域，程序會有所不同。
 
+::: zone-end
 
-### <a name="ship-in-us-canada-europe"></a>在美國、加拿大、歐洲寄送
+## <a name="ship-in-us-canada-europe"></a>在美國、加拿大、歐洲寄送
 
 如果在美國、加拿大或歐洲退回裝置，請執行下列步驟。
 
@@ -60,9 +92,8 @@ ms.locfileid: "67626348"
     除了排定取貨時間，您也可以在最接近的托運地點托運該資料箱。
 4. 一旦貨運業者收取資料箱並進行掃描，入口網站的訂單狀態會更新為 [已取貨]  。 此外，也會顯示追蹤識別碼。
 
-### <a name="ship-in-asia-pacific-region"></a>在亞太地區寄送
 
-#### <a name="ship-in-australia"></a>在澳洲寄送
+## <a name="ship-in-australia"></a>在澳洲寄送
 
 澳洲的 Azure 資料中心有額外的安全性通知。 所有送達的貨物都必須有預先通知。 在澳洲寄送可採取下列步驟。
 
@@ -89,13 +120,12 @@ ms.locfileid: "67626348"
 
 如有需要，您可以寄送電子郵件到 Azure@quantiumsolutions.com 或致電 Quantium Solution Support。
 
-
 對於透過電話的訂單相關查詢：
 
 - 先傳送取貨的電子郵件。
 - 提供您手機上的訂單名稱。
 
-#### <a name="ship-in-japan"></a>在日本寄送 
+## <a name="ship-in-japan"></a>在日本寄送 
 
 1. 保留用來寄送裝置以供退貨的原始外盒。
 2. 關閉裝置電源並移除纜線。
@@ -125,6 +155,7 @@ ms.locfileid: "67626348"
 - 電子郵件：Customerservice.JP@quantiumsolutions.com 
 - 電話：03-5755-0150 
 
+::: zone target="docs"
 
 ## <a name="verify-data-upload-to-azure"></a>確認資料上傳至 Azure
 
@@ -155,9 +186,21 @@ ms.locfileid: "67626348"
 
     - 如果您複製了 VHDX 或動態/差異 VHD，則會將 VHDX/VHD 上傳至暫存的儲存體帳戶以作為分頁 Blob，但將 VHD 轉換為受控磁碟會失敗。 移至您暫存的 [儲存體帳戶] > [Blob]  ，然後選取適當的容器：標準 SSD、標準 HDD 或進階 SSD。 VHD 會以分頁 Blob 形式上傳到暫存的儲存體帳戶。
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>確認資料上傳至 Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+::: zone-end
+
 ## <a name="erasure-of-data-from-data-box"></a>清除資料箱的資料
  
 完成上傳到 Azure 之後，資料箱會根據 [NIST SP 800-88 修訂 1 指導方針](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)清除磁碟中的資料。
+
+::: zone target="docs"
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -174,5 +217,7 @@ ms.locfileid: "67626348"
 
 > [!div class="nextstepaction"]
 > [使用本機 Web UI 來管理 Azure 資料箱](./data-box-local-web-ui-admin.md)
+
+::: zone-end
 
 

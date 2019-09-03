@@ -4,15 +4,15 @@ description: 了解如何讓客戶在 Azure 委派的資源管理中上線，讓
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: d1876977d819b50569b6f07242af91fb1d6832ee
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 35cf61897d012690f0a0f752a7cb36270e11e10e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934323"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012067"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>讓客戶在 Azure 委派的資源管理中上線
 
@@ -20,7 +20,7 @@ ms.locfileid: "68934323"
 
 如果您在管理多個客戶的資源，您可以重複此程序。 然後，當授權使用者登入您的租用戶時，該使用者可獲授與跨客戶租用戶範圍的權限，以便執行管理作業，而不需要登入每個個別客戶租用戶。
 
-您可以將您的 Microsoft 合作夥伴網路 (MPN) 識別碼與您的已上線訂用帳戶建立關聯，以追蹤您對客戶參與整體的影響。 如需詳細資訊，請參閱[將合作夥伴識別碼連結到您的 Azure 帳戶](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) \(部分機器翻譯\)。
+您可以將您的 Microsoft 合作夥伴網路 (MPN) 識別碼與已上線的訂用帳戶建立關聯，以追蹤您對客戶參與的整體影響及接受表彰。 如需詳細資訊，請參閱[將合作夥伴識別碼連結到您的 Azure 帳戶](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) \(部分機器翻譯\)。 請注意，您必須為用來管理資源的每個客戶租用戶分別執行此關聯。 
 
 > [!NOTE]
 > 當客戶購買您發佈至 Azure Marketplace 的受控服務供應項目 (公用或私人) 時，系統可讓他們自動上線。 如需詳細資訊，請參閱[將受控服務供應項目發佈到 Azure Marketplace](publish-managed-services-offers.md)。 您也可以搭配發佈至 Azure Marketplace 的供應項目來使用這裡描述的上線程序。

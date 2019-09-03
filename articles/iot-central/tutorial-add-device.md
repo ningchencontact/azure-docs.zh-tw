@@ -3,18 +3,18 @@ title: 將實際裝置新增至 Azure IoT Central 應用程式 | Microsoft Docs
 description: 以操作員的身分，將實際裝置新增至 Azure IoT Central 應用程式。
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 04/23/2019
+ms.date: 08/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 03fd31333a97290a5e8a00029867fc4e73a0cdd7
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8731d66c9d2dca0043307ac2f6a0d1828aeaa275
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875614"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050530"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT Central 應用程式
 
@@ -27,7 +27,7 @@ ms.locfileid: "69875614"
 1. 首先，身為操作員，您將了解如何在 Azure IoT Central 應用程式中新增和設定實際裝置。 在此部分結束時，您會擷取要在第二個單元中使用的連接字串。
 2. 其次，身為裝置開發人員，您將了解實際裝置中的程式碼。 您會將第一個單元中的連接字串新增至範例程式碼。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 新增實際裝置
@@ -47,7 +47,7 @@ ms.locfileid: "69875614"
 
 若要將實際裝置新增至應用程式，您應使用在[定義新的裝置類型](tutorial-define-device-type.md)教學課程中建立的**連線的空調**裝置範本。
 
-1. 若要以操作員的身分新增裝置，請選擇左側導覽功能表中的 [裝置總管]  ：
+1. 若要以操作員的身分新增裝置，請選擇左側導覽功能表中的 [裝置]  ：
 
    ![顯示連線空調的裝置總管頁面](media/tutorial-add-device/explorer.png)
 

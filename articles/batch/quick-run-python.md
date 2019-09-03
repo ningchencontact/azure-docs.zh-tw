@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a2420f98bb07686b548dc6641df77dd0fdf7028b
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 8b35d2441db654278f9d66f3cbb4e7a79d70e835
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562802"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128039"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入門：使用 Python API 執行您的第一個 Batch 作業
 
@@ -47,7 +47,7 @@ ms.locfileid: "69562802"
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-瀏覽至包含 Python 指令碼 `python_quickstart_client.py` 的目錄。
+移至包含 Python 指令碼 `python_quickstart_client.py` 的目錄。
 
 在 Python 開發環境中，使用 `pip` 安裝必要的套件。
 
@@ -230,7 +230,7 @@ for task in tasks:
 
 應用程式會自動刪除它所建立的儲存體容器，並且為您提供用於刪除 Batch 集區和工作的選項。 即使沒有排定的作業，您仍需支付節點執行時的集區費用。 當您不再需要集區時，請將它刪除。 當您刪除集區時，節點上的所有工作輸出也會跟著刪除。 
 
-若不再需要，可刪除資源群組、Batch 帳戶和儲存體帳戶。 若要在 Azure 入口網站中這麼做，請選取 Batch 帳戶的資源群組，然後按一下 [刪除資源群組]  。
+若不再需要，可刪除資源群組、Batch 帳戶和儲存體帳戶。 若要在 Azure 入口網站中這麼做，請選取 Batch 帳戶的資源群組，然後選取 [刪除資源群組]  。
 
 ## <a name="next-steps"></a>後續步驟
 

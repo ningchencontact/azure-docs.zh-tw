@@ -9,18 +9,18 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: c3c3252ec2fd850a763bbbf089d470df5173843f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 86e0f09e957df308f3af868d9590951f29d226b1
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612514"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073897"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>教學課程：將 Windows Server 虛擬機器加入受控網域
 
 Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，例如：網域加入、群組原則、LDAP、Kerberos/NTLM 驗證，與 Windows Server Active Directory 完全相容。 使用 Azure AD DS 受控網域，您就可以在 Azure 中提供虛擬機器 (VM) 的網域加入功能和管理。 此教學課程說明如何建立 Windows Server VM，然後將它加入 Azure AD DS 受控網域。
 
-在此教學課程中，您將了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立 Windows Server VM
@@ -29,7 +29,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
 如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)再開始。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，您需要下列資源：
 
@@ -63,7 +63,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
     | 參數            | 建議的值   |
     |----------------------|-------------------|
-    | 資源群組       | 選取或建立資源群組，例如 *myResourceGroup* |
+    | Resource group       | 選取或建立資源群組，例如 *myResourceGroup* |
     | 虛擬機器名稱 | 輸入 VM 的名稱，例如 *myVM* |
     | 區域               | 選擇要在其中建立 VM 的區域，例如「美國東部」  |
     | 使用者名稱             | 輸入要在 VM 上建立之本機系統管理員帳戶的使用者名稱，例如 *azureuser* |
@@ -77,8 +77,8 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
     在 [公用輸入連接埠]  下，選取 [允許選取的連接埠]  選項。 從 [選取輸入連接埠]  的下拉式功能表中，選擇 [RDP]  。
 
-5. 完成時，請選取 [下一步:  磁碟]。
-6. 從 [OS 磁碟類型]  的下拉式功能表中，選擇 [標準 SSD]  ，然後選取 [下一步:  網路]。
+5. 完成時，請選取 [下一步:**磁碟]** 。
+6. 從 [OS 磁碟類型]  的下拉式功能表中，選擇 [標準 SSD]  ，然後選取 [下一步:**網路]** 。
 7. 您的 VM 必須連線到可與您 Azure AD DS 受控網域部署所在之子網路通訊的 Azure 虛擬網路子網路。 我們建議將 Azure AD DS 受控網域部署到其自身的專用子網路。 請勿將您的 VM 部署在與 Azure AD DS 受控網域相同的子網路中。
 
     有兩種主要方式可部署您的 VM，並連線到適當的虛擬網路子網路：
@@ -116,7 +116,7 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
     ![在 Azure 入口網站中連線到 Windows 虛擬機器](./media/join-windows-vm/connect-to-vm.png)
 
 1. 選取選項以下載 RDP 檔案  。 將此 RDP 檔案儲存在您的網頁瀏覽器中。
-1. 若要連線至您的 VM，請開啟下載的 RDP 檔案。 如果出現提示，請選取 [連線]  。
+1. 若要連線至您的 VM，請開啟下載的 RDP 檔案。 如果出現提示，請選取 [連接]  。
 1. 輸入您在上一步中輸入的本機系統管理員認證以建立 VM，例如 *localhost\azureuser*
 1. 如果您在登入程序期間看見憑證警告，請選取 [是]  或 [繼續]  來連線。
 
@@ -148,20 +148,28 @@ Azure Active Directory Domain Services (Azure AD DS) 提供受控網域服務，
 
     ![歡迎加入網域](./media/join-windows-vm/join-domain-successful.png)
 
-    選取 [確定]  以繼續。
+    選取 [確定]  以繼續操作。
 
 1. 若要完成加入 Azure AD DS 受控網域的程序，請重新啟動 VM。
 
 > [!TIP]
-> 您也可以使用 PowerShell 搭配 [Add-Computer][add-computer] Cmdlet，將 VM 加入網域。 下列範例會加入 *CONTOSO* 網域，然後重新啟動 VM。 當系統提示時，輸入可供屬於「Azure AD DC 系統管理員」群組之使用者  使用的認證：
+> 您可以使用 PowerShell 搭配 [Add-Computer][add-computer] Cmdlet，將 VM 加入網域。 下列範例會加入 *CONTOSO* 網域，然後重新啟動 VM。 當系統提示時，輸入可供屬於「Azure AD DC 系統管理員」群組之使用者  使用的認證：
 >
 > `Add-Computer -DomainName CONTOSO -Restart`
+>
+> 若要在未連線的情況下將 VM 加入網域，並手動設定連線，您也可以瀏覽 [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell Cmdlet 的使用方式。
 
 Windows Server VM 重新啟動之後，在 Azure AD DS 受控網域中套用的任何原則都會推送至 VM。 您現在也可以使用適當的網域認證來登入 Windows Server VM。
 
 ## <a name="clean-up-resources"></a>清除資源
 
 在下一個教學課程中，您會使用此 Windows Server VM 來安裝可讓您管理 Azure AD DS 受控網域的管理工具。 如果您不想要繼續進行此系列教學課程，請參閱下列清除步驟來[停用 RDP](#disable-rdp) 或[刪除 VM](#delete-the-vm)。 否則，請[繼續下一個教學課程](#next-steps)。
+
+### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>將 VM 退出 Azure AD DS 受控網域
+
+若要從 Azure AD DS 受控網域中移除 VM，請再次執行下列步驟，[將 VM 加入網域](#join-the-vm-to-the-azure-ad-ds-managed-domain)。 這次請加入工作群組 (例如預設的 *WORKGROUP*)，而不是加入 Azure AD DS 受控網域。 VM 重新開機之後，電腦物件就會從 Azure AD DS 受控網域中移除。
+
+如果您未先退出網域即[刪除 VM](#delete-the-vm)，則孤立的電腦物件將會留在 Azure AD DS 中。
 
 ### <a name="disable-rdp"></a>停用 RDP
 
@@ -210,7 +218,7 @@ Windows Server VM 應該成功加入 Azure AD DS 受控網域，其方式與一�
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 建立 Windows Server VM
@@ -231,3 +239,4 @@ Windows Server VM 應該成功加入 Azure AD DS 受控網域，其方式與一�
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
+[set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

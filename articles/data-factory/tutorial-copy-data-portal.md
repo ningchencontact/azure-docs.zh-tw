@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5174b46bae5bbcc18f5a2575fb68cce1305507a3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a1a97e7521e9772b1d13049d42e67d7ac318fffc
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826669"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907368"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 建立資料處理站。 此資料處理站中的管線會將資料從 Azure Blob 儲存體複製到 SQL 資料庫。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -172,6 +172,9 @@ ms.locfileid: "68826669"
 1. 移至含有管線的索引標籤，然後在 [接收資料集]  中確認已選取 **OutputSqlDataset**。
 
     ![管線索引標籤](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+
+您可以藉由遵循[複製活動中的結構描述對應](copy-activity-schema-and-type-mapping.md)，選擇性地將來源的結構描述對應至目的地的相對應結構描述
+    
 ## <a name="validate-the-pipeline"></a>驗證管線
 若要驗證管線，請從工具列中選取 [驗證]  。
  

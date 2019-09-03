@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: def218564511b65809e776f97d0962b72f72adc2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 17e27fcbd0e31c8602869be3d884888fe4fe7db0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898144"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095821"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>教學課程：在 Azure 部署管理員 (公開預覽版) 中使用健康情況檢查
 
@@ -41,7 +41,7 @@ ms.locfileid: "69898144"
 - [Azure 部署管理員 REST API 參考](https://docs.microsoft.com/rest/api/deploymentmanager/)。
 - [Azure 部署管理員範例](https://github.com/Azure-Samples/adm-quickstart)。
 
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立一個免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -235,8 +235,8 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 為了簡化本教學課程，拓撲範本和成品會在下列位置共用，因此您不需要準備您自己的複本。 如果您想使用自己的複本，請依照指示操作：[教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
 
-* 拓撲範本：\\[https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json](https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json)
-* 成品存放區：\\[https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore](https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore)
+* 拓撲範本：https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
+* 成品存放區：https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
 若要部署拓撲，請選取 [試試看]  以開啟 Cloud Shell，然後貼上 PowerShell 指令碼。
 
@@ -265,8 +265,8 @@ New-AzResourceGroupDeployment `
 
 為了簡化本教學課程，已修訂的首度發行範本會在下列位置共用，因此您不需要準備您自己的複本。 如果您想使用自己的複本，請依照指示操作：[教學課程：使用 Azure 部署管理員搭配 Resource Manager 範本](./deployment-manager-tutorial.md)。
 
-* 拓撲範本：\\[https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json](https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json)
-* 成品存放區：\\[https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore](https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore)
+* 拓撲範本：https:\//armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
+* 成品存放區：https:\//armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
 使用您在[建立健康情況檢查服務模擬器](#create-a-health-check-service-simulator)中建立的不良狀態 URL。 如需 **managedIdentityID**，請參閱[輸入使用者指派的受控識別](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity)。
 

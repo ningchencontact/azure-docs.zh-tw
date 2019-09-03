@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: c4339aa8548ef66c862200ad61b6aaca90332ad0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: f478956c3a220ea4435c4f6e8b1096a1e9fdcadf
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67173698"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014746"
 ---
-您監看員建立之後，`AnchorLocated`事件會針對每個要求的錨點引發。 錨點時，或如果找不到錨點，就會引發此事件。 如果發生這種情況，將狀態中陳述的原因。 處理所有監看員的錨點之後，找到，或找不到，則`LocateAnchorsCompleted`事件就會引發。
+監看員建立後，系統會針對每個要求的錨點引發 `AnchorLocated` 事件。 在找到錨點時，或找不到錨點時，都會引發此事件。 如果發生這種情況，將會在狀態中指出原因。 在處理完監看員的所有錨點後 (包括找到和找不到的)，就會引發 `LocateAnchorsCompleted` 事件。 每個監看員有 35 個識別碼的限制。 

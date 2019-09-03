@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.reviewer: jeking
-ms.openlocfilehash: a1e7ee4f81f2b40b804ee69c8366ca87c377e6ac
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4e4e4d250de823ae8fb78a306bae313f340e7ce9
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855488"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992309"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>快速入門：使用 Azure Databricks 分析 Azure Data Lake Storage Gen2 中的資料
 
@@ -88,7 +88,7 @@ ms.locfileid: "68855488"
 
 如需如何建立叢集的詳細資訊，請參閱[在 Azure Databricks 建立 Spark 叢集](https://docs.azuredatabricks.net/user-guide/clusters/create.html)。
 
-## <a name="create-storage-account-file-system"></a>建立儲存體帳戶檔案系統
+## <a name="create-storage-account-container"></a>建立儲存體帳戶容器
 
 在本節中，您會在 Azure Databricks 工作區中建立 Notebook，然後執行程式碼片段以設定儲存體帳戶。
 
@@ -113,15 +113,15 @@ ms.locfileid: "68855488"
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   dbutils.fs.ls("abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
 
     > [!NOTE]
-    > 此程式碼區塊會使用 OAuth 直接存取 Data Lake Gen2 端點，但也有其他方法可將 Databricks 工作區連線至您的 Data Lake Storage Gen2 帳戶。 例如，您可以使用 OAuth 來掛接檔案系統，或透過共用金鑰使用直接存取。 <br>若要查看這些方法的範例，請參閱 Azure Databricks 網站上的 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 一文。
+    > 此程式碼區塊會使用 OAuth 直接存取 Data Lake Gen2 端點，但也有其他方法可將 Databricks 工作區連線至您的 Data Lake Storage Gen2 帳戶。 例如，您可以使用 OAuth 來掛接容器，或透過共用金鑰使用直接存取。 <br>若要查看這些方法的範例，請參閱 Azure Databricks 網站上的 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 一文。
 
-5. 在此程式碼區塊中，請將此程式碼區塊中的 `storage-account-name`、`appID`、`password` 和 `tenant-id` 預留位置值取代為您在建立服務主體時所收集到的值。 將 `file-system-name` 預留位置值設為您要為檔案系統指定的任何名稱。
+5. 在此程式碼區塊中，請將此程式碼區塊中的 `storage-account-name`、`appID`、`password` 和 `tenant-id` 預留位置值取代為您在建立服務主體時所收集到的值。 將 `container-name` 預留位置值設為您要為容器指定的任何名稱。
 
     > [!NOTE]
     > 在生產環境設定中，請考慮將驗證金鑰儲存在 Azure Databricks 中。 然後，將查閱索引鍵新增至程式碼區塊，而不是驗證金鑰。 完成此快速入門之後，請參閱 Azure Databricks 網站上的 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 一文，以檢視此方法的範例。
@@ -148,7 +148,7 @@ ms.locfileid: "68855488"
 
 執行下列工作以在資料上執行 Spark SQL 作業。
 
-1. 執行 SQL 陳述式，以使用 JSON 資料檔案範例 **small_radio_json.json** 中的資料建立暫存資料表。 在下列程式碼片段中，將預留位置值取代為檔案系統名稱和儲存體帳戶名稱。 使用您稍早建立的 Notebook，在 Notebook 的新程式碼資料格中貼上程式碼片段，然後按下 SHIFT + ENTER 鍵。
+1. 執行 SQL 陳述式，以使用 JSON 資料檔案範例 **small_radio_json.json** 中的資料建立暫存資料表。 在下列程式碼片段中，將預留位置值取代為您的容器名稱和儲存體帳戶名稱。 使用您稍早建立的 Notebook，在 Notebook 的新程式碼資料格中貼上程式碼片段，然後按下 SHIFT + ENTER 鍵。
 
     ```sql
     %sql
@@ -156,7 +156,7 @@ ms.locfileid: "68855488"
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
+     path  "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json"
     )
     ```
 

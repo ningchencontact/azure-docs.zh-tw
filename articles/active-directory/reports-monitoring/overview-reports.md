@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989711"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127265"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory 報告是什麼？
 
@@ -54,9 +54,9 @@ Azure Active Directory (Azure AD) 報告可提供環境中活動的全面性檢�
 
 - 在 [Azure Active Directory Free 和 Basic 版本]  中，您會取得標幟為有風險的使用者和有風險的登入清單。 
 
-- **Azure Active Directory Premium 1** 版本也可讓您檢查每份報告部分已偵測到的基礎風險事件，藉此擴充此模型。 
+- **Azure Active Directory Premium 1** 版本也可讓您檢查每份報告部分已偵測到的基礎風險偵測，藉此擴充此模型。 
 
-- **Azure Active Directory Premium 2** 版本可提供有關基礎風險事件的最詳細資訊，也可讓您設定安全性原則，自動回應已設定的風險層級。
+- **Azure Active Directory Premium 2** 版本可提供有關基礎風險偵測的最詳細資訊，也可讓您設定安全性原則，自動回應已設定的風險層級。
 
 
 ## <a name="activity-reports"></a>活動報告

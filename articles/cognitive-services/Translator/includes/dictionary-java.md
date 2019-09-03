@@ -4,18 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 64bedef3cf52451d145a97385937ae2adc9b2b0c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 63c524880a47c6e519649bd871a6216d6faeefce
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968312"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907057"
 ---
-## <a name="prerequisites"></a>必要條件
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 或更新版本](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* 翻譯工具文字的 Azure 訂用帳戶金鑰
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## <a name="initialize-a-project-with-gradle"></a>使用 Gradle 將專案初始化
 
@@ -90,11 +88,12 @@ public class AltTranslation {
 }
 ```
 
-將以下幾行新增至 `AltTranslation` 類別。 您會注意到，連同 `api-version` ，已將兩個額外參數附加到 `url`。 這些參數用來設定翻譯輸入和輸出。 在此範例中為英文 (`en`) 和西班牙文 (`es`)。
+將以下幾行新增至 `AltTranslation` 類別。 首先，這樣會從環境變數讀取訂用帳戶金鑰和端點。 然後，您會注意到，連同 `api-version`，已將兩個額外參數附加到 `url`。 這些參數用來設定翻譯輸入和輸出。 在此範例中為英文 (`en`) 和西班牙文 (`es`)。
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
 
 如果您使用認知服務的多服務訂用帳戶，您也必須在要求參數中包含 `Ocp-Apim-Subscription-Region`。 [深入了解使用多服務訂用帳戶進行驗證](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)。

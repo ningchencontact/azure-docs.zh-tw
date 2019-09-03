@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1be6e2354a87bfb0de87b85fe46a1feb42100c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 56a73449c69010bc97122023f7dcbc9e3a9df154
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881597"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047998"
 ---
-# <a name="what-is-azure-iot-plug-and-play-preview"></a>什麼是 Azure IoT 隨插即用預覽版？
+# <a name="what-is-iot-plug-and-play-preview"></a>什麼是 IoT 隨插即用預覽版？
 
 IoT 隨插即用預覽版可讓解決方案開發人員將裝置與解決方案整合，而不需要撰寫任何內嵌程式碼。 IoT 隨插即用的核心是說明裝置功能的_裝置功能模型_結構描述。 此架構是一個 JSON 文件，它結構化為一組介面，其中包含下列項目的定義：
 

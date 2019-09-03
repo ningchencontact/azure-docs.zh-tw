@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/21/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 09d12c817e9e8678cf96c63c0bff623923f7074d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 999b9ed88b6ff2c14defd3424c0fb541b7cf5d8e
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978831"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050106"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB 適用於 MongoDB 的 API：支援的功能和語法
 
@@ -332,7 +332,7 @@ Cosmos DB 支援最低層級的自動、原生複寫。 此邏輯也可延伸至
 
 ## <a name="sharding"></a>分區化
 
-Cosmos DB 支援自動與伺服器端的分區化。 Cosmos DB 不支援手動分區化命令。
+Azure Cosmos DB 支援自動與伺服器端的分區化。 它會自動管理分區的建立、放置和平衡。 Azure Cosmos DB 不支援手動將命令分區化，這表示您不需要叫用 shardCollection、addShard、balancerStart、moveChunk 之類的命令。您只需要在建立容器或查詢資料時指定分區索引鍵。
 
 ## <a name="next-steps"></a>後續步驟
 

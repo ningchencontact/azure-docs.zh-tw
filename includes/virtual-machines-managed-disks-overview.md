@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: 69c63d4eb2e0bfd04bb232cb0cf39965a5b77193
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68319993"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104229"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -77,7 +77,9 @@ Azure 中有三個主要磁碟角色：資料磁碟、OS 磁碟和暫存磁碟�
 
 ## <a name="managed-disk-snapshots"></a>受控磁碟快照集
 
-受控磁碟快照集是受控磁碟的絕對一致完整唯讀複本，預設會儲存為標準受控磁碟。 快照集可讓您在任何時間點備份受控磁碟。 這些快照集可在來源磁碟外獨立存在，還能用來建立新的受控磁碟。 它們是根據使用的大小來計費。 例如，如果建立佈建容量為 64 GiB 的受控磁碟快照集，而實際使用資料大小為 10 GiB，則只會對已使用的 10 GiB 資料大小收取快照集費用。  
+受控磁碟快照集是受控磁碟的絕對一致完整唯讀複本，預設會儲存為標準受控磁碟。 快照集可讓您在任何時間點備份受控磁碟。 這些快照集可在來源磁碟外獨立存在，還能用來建立新的受控磁碟。 
+
+快照集會根據使用的大小來計費。 例如，如果建立佈建容量為 64 GiB 的受控磁碟快照集，而實際使用資料大小為 10 GiB，則只會對已使用的 10 GiB 資料大小收取快照集費用。 您可以藉由檢查 [Azure 使用量報表](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill)來查看已使用的快照大小。 例如，如果已使用的快照集資料大小為 10 GiB，使用量報表會顯示 10 GiB/(31 天 x 24 小時) = 0.013441 GiB 作為已使用的數量。
 
 若要深入了解如何建立受控磁碟的快照集，請參閱下列資源︰
 

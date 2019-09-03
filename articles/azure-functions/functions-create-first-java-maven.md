@@ -7,20 +7,20 @@ author: rloutlaw
 manager: justhe
 keywords: azure functions, 函式, 事件處理, 計算, 無伺服器架構
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: quickstart
+ms.devlang: java
 ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
-ms.custom: mvc, devcenter, seo-java-july2019
-ms.openlocfilehash: 116d211e366e17ba667baf1e1deae719b56dc3ee
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
+ms.openlocfilehash: 5c5a0285a827a7990a11eb6ef6445e7d84189767
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542741"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096864"
 ---
-# <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 建立您的第一個函式
+# <a name="quickstart-use-java-to-create-and-publish-a-function-to-azure-functions"></a>快速入門：使用 JAVA 來建立函式，並將其發行至 Azure Functions
 
 本文會引導您使用 Maven 命令列工具來建置 Java 函式並發佈至 Azure Functions。 當您完成時，您的函式程式碼會在 Azure 中的[取用方案](functions-scale.md#consumption-plan)上執行，並且可使用 HTTP 要求來觸發。
 

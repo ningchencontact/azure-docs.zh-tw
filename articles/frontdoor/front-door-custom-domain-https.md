@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450184"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69907849"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>教學課程：在 Front Door 自訂網域上設定 HTTPS
 
@@ -81,11 +81,17 @@ ms.locfileid: "67450184"
 > [!WARNING]
 > Azure Front Door Service 目前僅支援與 Front Door 設定相同訂用帳戶中的 Key Vault 帳戶。 選擇與您 Front Door 不同訂用帳戶下的 Key Vault 將會失敗。
 
-2. Azure Key Vault 憑證：如果您已擁有憑證，您可以將它直接上傳至您的 Azure Key Vault 帳戶，也可以從與 Azure Key Vault 整合的其中一個合作夥伴 CA 透過 Azure Key Vault 建立新憑證。
+2. Azure Key Vault 憑證：如果您已擁有憑證，您可以將它直接上傳至您的 Azure Key Vault 帳戶，也可以從與 Azure Key Vault 整合的其中一個合作夥伴 CA 透過 Azure Key Vault 建立新憑證。 將您的憑證上傳為**憑證**物件，而不是**祕密**。
+
+> [!IMPORTANT]
+> 您必須以**沒有**密碼保護的 PFX 格式上傳憑證。
 
 #### <a name="register-azure-front-door-service"></a>註冊 Azure Front Door Service
 
 透過 PowerShell，在您的 Azure Active Directory 中將 Azure Front Door Service 的服務主體作為應用程式註冊。
+
+> [!NOTE]
+> 每個租用戶只需要執行**一次**此動作。
 
 1. 如有需要，請在本機電腦的 PowerShell 中安裝 [Azure PowerShell](/powershell/azure/install-az-ps)。
 
@@ -95,18 +101,19 @@ ms.locfileid: "67450184"
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>授與 Azure Front Door Service 存取您的金鑰保存庫
  
-授與 Azure Front Door Service 權限，存取您 Azure Key Vault 帳戶中「祕密」下的憑證。
+授與 Azure Front Door Service (AFD) 權限，存取您 Azure Key Vault 帳戶中的憑證。
 
 1. 在您的金鑰保存庫帳戶中，於 [設定] 之下選取 [存取原則]  ，然後選取 [新增]  以建立新原則。
 
 2. 在 [選取主體]  中，搜尋 **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**，然後選擇 [Microsoft.Azure.Frontdoor]  。 按一下 [選取]  。
 
+3. 在 [祕密權限]  中選取 [取得]  ，以允許 Front Door 擷取憑證。
 
-3. 在 [祕密權限]  中，選取 [取得]  以允許 Front Door 執行這些權限取得及列出憑證。 
+4. 在 [憑證權限]  中選取 [取得]  ，以允許 Front Door 擷取憑證。
 
-4. 選取 [確定]  。 
+5. 選取 [確定]  。 
 
-    Azure Front Door Service 現在可以存取此金鑰保存庫和此金鑰保存庫中儲存的憑證 (祕密)。
+    Azure Front Door Service (AFD) 現在可以存取此 Key Vault 和此 Key Vault 中儲存的憑證。
  
 #### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>選取讓 Azure Front Door Service 進行部署的憑證
  
