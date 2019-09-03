@@ -244,7 +244,7 @@ ms.locfileid: "70078365"
 
 * ![Linux][Logo_Linux] [使用適用于 sap ASCS/SCS 實例與 Azure NetApp Files 的 SUSE Linux Enterprise Server 叢集架構, 安裝 sap NetWeaver 高可用性][sap-suse-ascs-ha-sap-installation-anf]
 
-* ![Rhel 在[rhel 上的高可用性設定中安裝 SAP NetWeaver ASCS/SCS][sap-rhel-ascs-ha] ][Logo_Linux]
+* ![Rhel 在][Logo_Linux] [rhel 上的高可用性設定中安裝 SAP NetWeaver ASCS/SCS][sap-rhel-ascs-ha]
 
 * ![Rhel][Logo_Linux] [以 Azure NetApp Files 在 rhel 上安裝高可用性設定中的 SAP NetWeaver ASCS/SCS][sap-rhel-ascs-ha-sap-installation-anf]
 
