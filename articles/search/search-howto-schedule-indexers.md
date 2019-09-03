@@ -3,18 +3,18 @@ title: 如何排程索引子-Azure 搜尋服務
 description: 排程 Azure 搜尋服務索引子來定期或在特定時間為內容編制索引。
 ms.date: 05/31/2019
 author: HeidiSteen
-manager: HeidiSteen
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 245a2139aae0910ea1415811234667f2c06500ec
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f72067637f9db84a432562ea5502861355426469
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855804"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186582"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>如何排程 Azure 搜尋服務的索引子
 索引子通常會在建立之後立即執行一次。 您可以使用入口網站、REST API 或 .NET SDK, 視需要再次執行它。 您也可以設定依排程定期執行的索引子。
@@ -31,7 +31,7 @@ ms.locfileid: "68855804"
 
 索引子排程有兩個屬性:
 * **間隔**, 定義排程的索引子執行之間的時間量。 允許的最小間隔為5分鐘, 最大值為24小時。
-* **開始時間 (UTC)** , 表示應該執行索引子的第一次。
+* **開始時間 (UTC)**, 表示應該執行索引子的第一次。
 
 您可以在第一次建立索引子時指定排程, 或稍後更新索引子的屬性。 您可以使用[入口網站](#portal)、 [REST API](#restApi)或[.net SDK](#dotNetSdk)來設定索引子排程。
 
@@ -54,7 +54,7 @@ ms.locfileid: "68855804"
 
 如果您不想要讓索引子自動再次執行, 或每天執行一次, 您可以將排程設定變更為 [**一次**]。 如果您想要指定不同的間隔或特定的未來開始時間, 請將它設定為 [**自訂**]。
 
-當您將排程設定為 [**自訂**] 時, 會顯示欄位, 讓您指定**間隔**和**開始時間 (UTC)** 。 允許的最短時間間隔為5分鐘, 最長為1440分鐘 (24 小時)。
+當您將排程設定為 [**自訂**] 時, 會顯示欄位, 讓您指定**間隔**和**開始時間 (UTC)**。 允許的最短時間間隔為5分鐘, 最長為1440分鐘 (24 小時)。
 
    ![在匯入資料嚮導中設定索引子排程](media/search-howto-schedule-indexers/schedule-import-data.png "在匯入資料嚮導中設定索引子排程")
 

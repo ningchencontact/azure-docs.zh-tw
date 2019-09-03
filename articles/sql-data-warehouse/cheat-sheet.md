@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
+ms.date: 08/23/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 38d353541b233f3cd9466e8dcf6c2b84083bd859
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6c198b6d5e9ecfed3f36ddc3be831af85a913ca5
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515793"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995843"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的速查表
 本速查表提供實用的秘訣和最佳作法，協助您建立 Azure SQL 資料倉儲解決方案。 開始之前，請先閱讀 [Azure SQL 資料倉儲工作負載模式和反向模式](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)，詳細瞭解每個步驟，文內會說明何謂 SQL 資料倉儲，何者又不屬於 SQL 資料倉儲。
@@ -96,9 +96,11 @@ ms.locfileid: "66515793"
 
 ## <a name="incremental-load"></a>累加式載入
 
-如果您要以累加方式載入資料，首先請務必配置較大的資源類別來載入資料。 我們建議您使用 PolyBase 和 ADF V2，將 ELT 管線自動處理到 SQL 資料倉儲中。
+如果您要以累加方式載入資料，首先請務必配置較大的資源類別來載入資料。  載入具有叢集資料行存放區索引的資料表時，這一點特別重要。  如需詳細資訊，請參閱[資源類別](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management)。  
 
-至於歷程資料中的大型批次更新，請先刪除有疑慮的資料。 之後，您可以大量插入新的資料。 這個 2 個步驟的方法會更有效率。
+我們建議您使用 PolyBase 和 ADF V2，將 ELT 管線自動處理到 SQL 資料倉儲中。
+
+針對記錄資料中的大型批次更新，請考慮使用 [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) 來寫入您想要保留在資料表中的資料，而不是使用 INSERT、UPDATE 和 DELETE。
 
 ## <a name="maintain-statistics"></a>維護統計資料
  在普遍提供自動統計資料之前，SQL 資料倉儲都需要手動維護統計資料。 對您的資料做重大變更  時，同時更新統計資料很重要。 這可協助最佳化您的查詢計劃。 如果您發現維護所有統計資料所需時間太長，可能要更謹慎選擇為哪些資料行統計資料。 
@@ -157,7 +159,7 @@ SQL 資料倉儲的主要功能就是能夠[管理計算資源](sql-data-warehou
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[資料移轉]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+[資料移轉]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

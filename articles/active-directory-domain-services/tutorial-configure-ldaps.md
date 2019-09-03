@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: f575dd882c217badb3320b85229149d9793ceb5f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 505a3104968e285a7fe4801db8029dc45647087a
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619028"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011353"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>教學課程：為 Azure Active Directory Domain Services 受控網域設定安全 LDAP
 
@@ -22,7 +22,7 @@ ms.locfileid: "69619028"
 
 本教學課程將說明如何為 Azure AD DS 受控網域設定 LDAPS。
 
-在本教學課程中，您會了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立用於 Azure AD DS 的數位憑證
@@ -286,7 +286,7 @@ CER  憑證檔案現在可以散發到用戶端電腦，因為這些電腦必須
 > * 為 Azure AD DS 受控網域繫結及測試安全 LDAP
 
 > [!div class="nextstepaction"]
-> [了解 Azure AD Domain Services 受控網域中的同步如何運作](synchronization.md)
+> [設定混合式 Azure AD 環境的密碼雜湊同步](tutorial-configure-password-hash-sync.md)
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

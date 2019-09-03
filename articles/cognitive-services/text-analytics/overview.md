@@ -104,7 +104,7 @@ ms.locfileid: "70032682"
 
 ## <a name="unicode-encoding"></a>Unicode 編碼
 
-針對文字表示法和字元計數計算，文字分析 API 會使用 Unicode 編碼。 要求可使用 UTF-8 和 UTF-16 來提交，兩者的字元計數並沒有明顯差異。 Unicode 字碼指標會作為字元長度的啟發學習法，且會被視為等同於文字分析資料限制的用途。 如果您使用 [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 取得字元計數，您所使用就是我們用來測量資料大小的相同方法。
+針對文字表示法和字元計數計算，文字分析 API 會使用 Unicode 編碼。 要求可使用 UTF-8 和 UTF-16 來提交，兩者的字元計數並沒有明顯差異。 Unicode 字碼指標會作為字元長度的啟發學習法，且會視為等同於文字分析資料大小上限的用途。 如果您使用 [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) 取得字元計數，您所使用就是我們用來測量資料大小的相同方法。
 
 ## <a name="next-steps"></a>後續步驟
 

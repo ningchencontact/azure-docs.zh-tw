@@ -37,7 +37,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 透�
 
 Cosmos DB 可讓您在全球範圍內建置回應迅速且高可用性的應用程式。 無論使用者身在何處，Cosmos DB 都會明確地複寫您的資料，因此您的使用者可以與最接近他們的資料複本進行互動。
 
-Cosmos DB 允許您隨時新增任何 Azure 區域到您的Cosmos 帳戶或者移除，只要按一下按鈕即可。 Cosmos DB 可以將您的資料順暢地複寫到與您的 Cosmos 帳戶相關聯的所有區域，同時由於該服務的「多路連接」  功能，您的應用程式可用性仍高。 如需詳細資訊，請參閱[全域散發](distribute-data-globally.md)一文。
+Cosmos DB 允許您隨時新增任何 Azure 區域到您的 Cosmos 帳戶，或者從中移除區域，只要按一下按鈕即可。 Cosmos DB 可以將您的資料順暢地複寫到與您的 Cosmos 帳戶相關聯的所有區域，同時由於該服務的「多路連接」  功能，您的應用程式可用性依然高度可用。 如需詳細資訊，請參閱[全域散發](distribute-data-globally.md)一文。
 
 ### <a name="always-on"></a>永遠開啟
 
