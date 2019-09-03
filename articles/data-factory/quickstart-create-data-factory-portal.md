@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d5213ff21d92bf811b05802e4cb2ffab9b9a29c6
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648472"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077054"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>快速入門：使用 Azure Data Factory UI 建立資料處理站
 
@@ -24,7 +24,7 @@ ms.locfileid: "69648472"
 > * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [目前的版本](quickstart-create-data-factory-portal.md)
 
-本快速入門說明如何使用 Azure Data Factory UI 建立及監視資料處理站。 在此資料處理站中建立的管線會將資料從 Azure Blob 儲存體中的一個資料夾「複製」  到其他資料夾。 如需如何使用 Azure Data Factory「轉換」  資料的教學課程，請參閱[教學課程︰使用 Spark 轉換資料](tutorial-transform-data-spark-portal.md)。
+本快速入門說明如何使用 Azure Data Factory UI 建立及監視資料處理站。 在此資料處理站中建立的管線會將資料從 Azure Blob 儲存體中的一個資料夾「複製」  到其他資料夾。 如需如何使用 Azure Data Factory 「轉換」  資料的教學課程，請參閱[教學課程︰使用 Spark 轉換資料](tutorial-transform-data-spark-portal.md)。
 
 > [!NOTE]
 > 如果您不熟悉 Azure Data Factory，在執行此快速入門之前，請先參閱 [Azure Data Factory 簡介](data-factory-introduction.md)。 
@@ -71,7 +71,7 @@ ms.locfileid: "69648472"
 ## <a name="create-a-linked-service"></a>建立連結的服務
 在此程序中，您會建立連結服務，將 Azure 儲存體帳戶連結到資料處理站。 連結的服務具有連線資訊，可供 Data Factory 服務在執行階段中用來連線。
 
-1. 選取 [連線]  ，然後選取工具列上的 [新增]  按鈕。 
+1. 選取 [連線]  ，然後選取工具列上的 [新增]  按鈕 ([連線]  按鈕位於 [Factory 資源]  下方的左側資料行底部)。 
 
 1. 在 [新增連結服務]  頁面上，選取 [Azure Blob 儲存體]  ，然後選取 [繼續]  。 
 

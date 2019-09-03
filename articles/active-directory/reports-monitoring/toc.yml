@@ -37,10 +37,12 @@
       href: concept-usage-insights-report.md
     - name: 有風險的登入
       href: concept-risky-sign-ins.md
-    - name: 風險事件
+    - name: 風險偵測
       href: concept-risk-events.md
     - name: 有風險的使用者
       href: concept-user-at-risk.md
+    - name: 佈建記錄
+      href: concept-provisioning-logs.md
     - name: 報告 API
       href: concept-reporting-api.md
     - name: Azure 監視器中的 Azure AD 記錄
