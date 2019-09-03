@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 3a283f6cbcf4dc345a8c55192507c461f33244d6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855432"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992271"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure DataBricks 存取 Data Lake Storage Gen2 資料
 
@@ -124,18 +124,18 @@ ms.locfileid: "68855432"
 2. 若要從 .csv  帳戶複製資料，請輸入下列命令。
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
    * 將 `<csv-folder-path>` 預留位置值更換為 *.csv* 檔案的名稱。
 
    * 使用您的儲存體帳戶名稱取代 `<storage-account-name>` 預留位置值。
 
-   * 請將 `<file-system-name>` 預留位置取代為您要為檔案系統指定的任何名稱。
+   * 請以您要為容器指定的任何名稱取代 `<container-name>` 預留位置。
 
-## <a name="create-a-file-system-and-mount-it"></a>建立檔案系統並加以掛接
+## <a name="create-a-container-and-mount-it"></a>建立容器和掛接容器
 
-在本節中，您將會在儲存體帳戶中建立檔案系統和資料夾。
+在本節中，您將會在儲存體帳戶中建立容器和資料夾。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您所建立的 Azure Databricks 服務，然後選取 [啟動工作區]  。
 
@@ -158,12 +158,12 @@ ms.locfileid: "68855432"
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/folder1",
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
 
-18. 在此程式碼區塊中，請將此程式碼區塊中的 `appId`、`password`、`tenant` 和 `storage-account-name` 預留位置值取代為您在執行本教學課程的必要條件時所收集到的值。 請將 `file-system-name` 預留位置值取代為您在先前的步驟中提供給 ADLS 檔案系統的名稱。
+18. 在此程式碼區塊中，請將此程式碼區塊中的 `appId`、`password`、`tenant` 和 `storage-account-name` 預留位置值取代為您在執行本教學課程的必要條件時所收集到的值。 請以您在先前步驟中提供給容器的名稱取代 `container-name` 預留位置值。
 
 請使用這些值來取代上述預留位置。
 
@@ -173,7 +173,7 @@ ms.locfileid: "68855432"
 
    * `storage-account-name` 是您 Azure Data Lake Storage Gen2 儲存體帳戶的名稱。
 
-   * 請將 `file-system-name` 預留位置取代為您要為檔案系統指定的任何名稱。
+   * 請以您要為容器指定的任何名稱取代 `container-name` 預留位置。
 
    > [!NOTE]
    > 在生產環境設定中，請考慮將密碼儲存在 Azure Databricks 中。 然後，將查閱索引鍵新增至程式碼區塊，而不是密碼。 完成此快速入門之後，請參閱 Azure Databricks 網站上的 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 一文，以檢視此方法的範例。

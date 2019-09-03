@@ -10,39 +10,38 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 08/14/2019
-ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 01228dc01b8006a0a2476ddbbd6fa8ff430e280a
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534415"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982749"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>教學課程：使用自動化機器學習建立第一個分類模型
 
 在本教學課程中，您會了解如何在 Azure 入口網站 (預覽) 中建立第一個自動化機器學習實驗，而且不需要撰寫任何一行程式碼。 此範例會建立分類模型來預測客戶是否會向金融機構申請定期存款。
 
-藉由使用 Azure Machine Learning 服務的自動化機器學習功能和 Azure 入口網站，即可開始自動化機器學習程序。 演算法選擇和超參數調整都會自動完成。 自動化機器學習技術會逐一嘗試演算法和超參數的多種組合，直到根據您的準則找到最佳模型為止。
+透過自動化機器學習，您可以將耗費大量時間的工作自動化。 自動化機器學習會快速地逐一嘗試多種演算法和超參數的組合，協助您根據所選擇的成功計量找到最佳模型。
 
-在本教學課程中，您會了解下列工作：
+在本教學課程中，您將了解如何執行下列工作：
 
 > [!div class="checklist"]
-> * 設定 Azure Machine Learning 服務工作區。
-> * 建立實驗。
-> * 自訂定型分類模型。
-> * 檢視定型執行的詳細資料。
+> * 建立 Azure Machine Learning 服務工作區。
+> * 執行自動化機器學習實驗。
+> * 檢視實驗詳細資料。
 > * 部署模型。
 
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://aka.ms/AMLFree)。
 
-* 下載 [**bankmarketing_train.csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 資料檔案。 **y** 資料行指出客戶是否申請定期存款，稍後本教學課程會將其識別為預測的目標資料行。 
+* 下載 [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 資料檔案。 **y** 資料行指出客戶是否申請定期存款，稍後本教學課程會將其識別為預測的目標資料行。 
 
 ## <a name="create-a-workspace"></a>建立工作區
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-an-experiment"></a>建立實驗
+## <a name="create-and-run-the-experiment"></a>建立及執行實驗
 
 這些步驟會逐步引導您完成實驗設定，也就是選取資料到選擇您的主要計量和模型類型。 
 
@@ -50,8 +49,6 @@ ms.locfileid: "69534415"
 您會看到 [歡迎使用自動化機器學習]  的畫面，因為這是您第一個使用自動化機器的實驗。
 
     ![Azure 入口網站導覽窗格](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
-
-
 
 1. 選取 [建立實驗]  。 然後輸入 **my-1st-automl-experiment** 作為實驗名稱。
 
@@ -72,14 +69,11 @@ ms.locfileid: "69534415"
 
 1. 請選取 [上傳]  ，然後從本機電腦選擇 **bankmarketing_train.csv**，以將其上傳到預設容器。 公開預覽版僅支援本機檔案上傳和 Azure Blob 儲存體帳戶。 上傳完成後，請從清單中選取檔案。 
 
-    [![選取資料檔案](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
-
 1. [預覽]  索引標籤可讓我們進一步設定此實驗的資料。
 
     在 [預覽]  索引標籤上，使資料包含標題。 該服務預設會包含所有用於定型的特性 (資料行)。 在此範例中，請向右捲動並**忽略** **day_of_week** 特性。
 
     ![預覽索引標籤的設定](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
-
 
     >[!NOTE]
     > 沒有最小節點的計算無法使用資料分析。
@@ -103,9 +97,7 @@ ms.locfileid: "69534415"
 
 1. 選取 [開始]  來執行實驗。
 
-   當實驗啟動時，您會在頂端看到具有下列狀態的空白 [執行詳細資料]  畫面。 
-
-      ![執行準備中](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
+   當實驗啟動時，您會在頂端看到具有下列狀態的空白 [執行詳細資料]  畫面。
       
 實驗準備程序會需要幾分鐘的時間。 當程序完成時，狀態訊息會變更為 [執行中]  。
 
@@ -137,11 +129,9 @@ ms.locfileid: "69534415"
     
 1. 選取 [部署]  。
 
-    當部署成功完成後，會出現下列訊息：
-
-    ![部署完成](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
+    當部署成功完成後，會出現部署完成的訊息。
     
-    現在您已有可運作的 Web 服務，可用來產生預測。
+現在您已有可運作的 Web 服務，可用來產生預測。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -167,7 +157,6 @@ ms.locfileid: "69534415"
 
 > [!div class="nextstepaction"]
 > [取用 Web 服務](how-to-consume-web-service.md)
-
 
 + 深入了解[前置處理](how-to-create-portal-experiments.md#preprocess)。
 + 深入了解[資料分析](how-to-create-portal-experiments.md#profile)。

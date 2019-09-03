@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7cf87c3a146f51666a2c24c7cd0d6e9425159225
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228402"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905237"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>使用舊版的 Azure Migrate
 
@@ -21,7 +21,7 @@ ms.locfileid: "68228402"
 
 Azure Migrate 服務有兩個版本：
 
-- **目前的版本**：使用此版本來建立 Azure Migrate 專案、探索內部部署機器，以及協調評量與移轉。 [深入了解](whats-new.md)此版本的新功能。
+- **目前的版本**：使用此版本來建立 Azure Migrate 專案、探索內部部署電腦，以及協調評量與移轉。 [深入了解](whats-new.md)此版本的新功能。
 - **先前版本**：如果您使用的是舊版 Azure Migrate (僅支援內部部署 VMware VM 的評量)，則您現在應該使用目前的版本。 如果您仍然需要使用在舊版中建立的 Azure Migrate 專案，以下是您可以/不可執行的操作：
     - 您無法再建立移轉專案。
     - 我們建議您不要執行新的探索。
@@ -42,7 +42,7 @@ Azure Migrate 服務有兩個版本：
 3. 按一下連結以開啟 v1 專案。
 
 
-## <a name="create-an-assessment"></a>建立評量
+## <a name="create-an-assessment"></a>建立評估
 
 在入口網站中探索到 VM 之後，您可以將它們分組並建立評量。
 
@@ -51,12 +51,12 @@ Azure Migrate 服務有兩個版本：
 
 建立評量，如下所示：
 
-1. 在專案的 [概觀]  頁面中，按一下 [+建立評定]  。
+1. 在專案的 [概觀]  頁面中，按一下 [+建立評估]  。
 2. 按一下 [檢視全部]  來檢閱評估屬性。
 3. 建立群組，並指定群組名稱。
 4. 選取您想要新增至群組的機器。
-5. 按一下 [建立評定]  以建立群組和評量。
-6. 建立定之後，在 [概觀]   > [儀表板]  中檢視該評量。
+5. 按一下 [建立評估]  以建立群組和評估。
+6. 建立評估之後，在 [概觀]   > [儀表板]  中檢視該評估。
 7. 按一下 [匯出評估]  ，將其下載為 Excel 檔案。
 
 如果您想要以最新的效能資料更新現有的評量，則可以對評量使用 [重新計算]  命令來更新它。
@@ -76,7 +76,7 @@ Azure Migrate 服務有兩個版本：
 
 評量中的 Azure 移轉整備程度檢視會顯示每部虛擬機器的整備狀態。
 
-**整備程度** | **狀態** | **詳細資料**
+**整備程度** | **State** | **詳細資料**
 --- | --- | ---
 可供 Azure 使用 | 無相容性問題。 機器可以依原樣移轉到 Azure，它將會在 Azure 中開機並包含完整的 Azure 支援。 | 對於已準備好的 VM，Azure Migrate 會建議這些 VM 在 Azure 中該有的大小。
 可有條件地供 Azure 使用 | 該機器可能可以在 Azure 中開機，但可能沒有完整的 Azure 支援。 例如，Azure 中不支援使用較舊版本 Windows Server 的機器。 | Azure Migrate 會說明整備程度問題，並提供補救步驟。
@@ -91,7 +91,7 @@ Azure Migrate 服務有兩個版本：
 **屬性** | **詳細資料** | **整備程度**
 --- | --- | ---
 **開機類型** | 支援 BIOS。 不支援 UEFI。 | 如果開機類型為 UEFI，便已有條件地就緒。
-**核心** | 機器核心 <= Azure VM 支援的核心數目上限 (128)。<br/><br/> 如果效能歷程記錄可用，則 Azure Migrate 會將已使用的核心數納入考量。<br/>如果 <br/>已在評量設定中指定緩和因數，則會將使用的核心數目乘以緩和因數。<br/><br/> 如果沒有效能歷程記錄，Azure Migrate 會使用配置的核心，而不套用緩和因數。 | 小於或等於限制便就緒。
+**核心** | 機器核心 <= Azure VM 支援的核心數目上限 (128)。<br/><br/> 如果效能歷程記錄可用，則 Azure Migrate 會將已使用的核心數納入考量。<br/>如果 <br/>已在評量設定中指定緩和因數，則會將使用的核心數目乘以緩和因數。<br/><br/> 如果沒有效能記錄，Azure Migrate 會使用配置的核心，而不套用緩和因數。 | 小於或等於限制便就緒。
 **記憶體** | 機器的記憶體大小 <= Azure VM 的記憶體上限 (Azure M 系列 Standard_M128m 上為 3892 GB &nbsp;<sup>2</sup>)。 [深入了解](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)。<br/><br/> 如果效能歷程記錄可用，Azure Migrate 會將已使用的記憶體數納入考量。<br/><br/>如果已指定緩和因數，則會將使用的記憶體乘以緩和因數。<br/><br/> 如果沒有記錄，則會使用配置的記憶體，而不套用緩和因數。<br/><br/> | 在限制內便就緒。
 **存放磁碟** | 已配置的磁碟大小必須小於或等於 4 TB (4096 GB)。<br/><br/> 附加至機器的磁碟數目必須小於或等於 65，作業系統磁碟亦包含在內。 | 在限制內便就緒。
 **網路功能** | 機器必須附加 32 個以內的網路介面卡。 | 在限制內便就緒。
@@ -117,8 +117,8 @@ Windows 2000、98、95、NT、3.1、MS-DOS | 不支援。 機器可能可以在 
 Windows Client 7、8 及 10 | Azure [僅對 Visual Studio 訂用帳戶](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)提供支援。 | 可有條件地供 Azure 使用
 Windows 10 專業版桌面 | Azure 對[多租用戶主機權限](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)提供支援。 | 可有條件地供 Azure 使用
 Windows Vista、XP Professional | 不支援。 機器可能可以在 Azure 中開機，但 Azure 不會提供 OS 支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前升級作業系統。
-Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endorsed-distros.md)。 其他 Linux 作業系統可能可以在 Azure 中開機，但我們建議您在移轉至 Azure 之前，將作業系統升級為認可的版本。 | 如果版本受到認可，則可供 Azure 使用。<br/><br/>如果版本未受到認可，則有條件地可供使用。
-其他作業系統<br/><br/> 例如，Oracle Solaris、Apple Mac OS 等、FreeBSD 等。 | Azure 並未認可這些作業系統。 機器可能可以在 Azure 中開機，但 Azure 不會提供 OS 支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前安裝支援的作業系統。  
+Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endorsed-distros.md)。 其他 Linux 作業系統可能可以在 Azure 中開機，但我們建議您在移轉至 Azure 之前，將作業系統升級為認可的版本。 | 如果版本受到認同，則可供 Azure 使用。<br/><br/>如果版本未受到認同，則有條件地可供使用。
+其他作業系統<br/><br/> 例如，Oracle Solaris、Apple Mac OS 等、FreeBSD 等。 | Azure 並未認可這些作業系統。 機器可能可以在 Azure 中開機，但 Azure 不會提供作業系統支援。 | 可有條件地供 Azure 使用，建議在移轉到 Azure 之前安裝支援的作業系統。  
 在 vCenter Server 中作業系統指定為**其他** | Azure Migrate 無法在此情況下識別作業系統。 | 整備程度未知。 請確保 Azure 支援 VM 內執行的作業系統。
 32 位元作業系統 | 機器可能可以在 Azure 中開機，但 Azure 可能不會提供完整支援。 | 可有條件地供 Azure 使用，在移轉到 Azure 之前，請考慮將機器的作業系統從 32 位元作業系統升級至 64 位元作業系統。
 
@@ -135,7 +135,7 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
 成本估計會顯示在 Azure 中執行 VM 的計算和儲存總成本，以及每部電腦的詳細資訊。
 
 - 在計算成本估計時，會使用 VM 機器的大小建議與其磁碟和評量屬性。
-- 系統會彙總群組內所有 VM 之計算與儲存的每月預估成本。
+- 系統會彙總群組內所有 VM 之計算和儲存的每月預估成本。
 - 成本估計用於執行內部部署 VM 以作為 Azure 基礎結構即服務 (IaaS) VM。 Azure Migrate 不會考慮平台即服務 (PaaS) 或軟體即服務 (SaaS) 成本。
 
 ### <a name="review-confidence-rating-performance-based-assessment"></a>檢閱信賴評等 (以效能為基礎的評量)
@@ -246,7 +246,6 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
 
 對於受 System Center Operations Manager 2012 R2 或更新版本監視的電腦，不需要安裝 MMA 代理程式。 服務對應與 Operations Manager MMA 整合，以收集必要的相依性資料。 [深入了解](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)。 必須安裝相依性代理程式。
 
-
 ### <a name="install-the-dependency-agent"></a>安裝相依性代理程式
 
 1. 若要在 Windows 電腦上安裝相依性代理程式，請按兩下安裝檔案，並遵循精靈的指示。
@@ -254,9 +253,11 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- 深入了解 [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 與 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) 作業系統的相依性代理程式支援。
-- [深入了解](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)如何使用指令碼安裝 Dependency 代理程式。
+- 深入了解 Windows 與 Linux 作業系統的[相依性代理程式支援](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)。
+- [深入了解](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)如何使用指令碼安裝 Dependency 代理程式。
 
+>[!NOTE]
+> 若適用於 VM 的 Azure 監視器文章中提供了部署相依性代理程式時所需的系統必要條件和方法概觀，則這些文章也適用於「服務對應」解決方案。
 
 ### <a name="create-a-group-with-dependency-mapping"></a>建立具有相依性對應的群組
 
@@ -279,7 +280,7 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
 6. 指定群組名稱。 確認 Azure Migrate 已探索到相依機器。
 
     > [!NOTE]
-    > 如果 Azure Migrate 未探索到相依機器，您就無法將它新增至群組。 若要將此類機器新增至群組，您必須使用 vCenter Server 中的正確範圍，再次執行探索程序，並確定 Azure Migrate 已探索到機器。  
+    > 如果 Azure Migrate 未探索到相依機器，您就無法將它新增至群組。 若要將這類機器新增至群組，您必須使用 vCenter Server 中的正確範圍，再次執行探索程序，並確定 Azure Migrate 已探索到機器。  
 
 7. 如果您需要建立此群組的評估，請選取核取方塊來建立新的群組評估。
 8. 按一下 [確定]  以儲存群組。

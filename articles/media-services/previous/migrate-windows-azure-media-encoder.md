@@ -64,7 +64,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Advanced 案例 
 
-如果您已使用其架構為 WAME 建立自己的編碼預設值, 則會有媒體編碼器標準的對[等架構](media-services-mes-schema.md)。 如果您有關于如何將較舊的設定對應到新編碼器的問題, 請透過mailto:amshelp@microsoft.com  
+如果您已使用其架構為 WAME 建立自己的編碼預設值, 則會有媒體編碼器標準的對[等架構](media-services-mes-schema.md)。 如果您有關于如何將較舊的設定對應到新編碼器的問題, 請透過 mailto:amshelp@microsoft.com  
 
 ## <a name="known-differences"></a>已知的差異 
 

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 287fd07f170ec85b07b75e1823cbb67d462004f6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
-ms.translationtype: HT
+ms.openlocfilehash: f9afd3ae1d1d5d6235cf8bd0a6350a782ea6afbe
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098805"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142937"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -25,7 +25,7 @@ Microsoft Azure 資料箱混合式解決方案可讓您以快速、實惠且可�
 - 訂購裝置
 - 設定和連線 
 - 追蹤狀態
-- 複製資料 
+- 資料複製 
 - 寄送裝置
 - 確認和上傳資料 
 - 監管鏈支援
@@ -59,7 +59,7 @@ A. 美國、歐洲西部、歐洲北部、法國、英國、日本、澳大利�
 A. 如果您遇到任何資料箱方面的問題，請連絡 [Microsoft 支援服務](data-box-disk-contact-microsoft-support.md)。
 
 ### <a name="q-i-have-lost-my-data-box-is-there-a-lost-device-charge"></a>問： 我遺失了資料箱。 裝置遺失是否需要費用？
-A. 是。 裝置遺失或損壞都需要費用。 [定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/)及[產品服務條款](https://www.microsoft.com/licensing/product-licensing/products)均涵蓋這筆費用。
+A. 是的。 裝置遺失或損壞都需要費用。 [定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/)及[產品服務條款](https://www.microsoft.com/licensing/product-licensing/products)均涵蓋這筆費用。
 
 
 ## <a name="order-device"></a>訂購裝置
@@ -89,19 +89,19 @@ A. 您可以複製您的上一筆訂單。 複製會建立與之前相同的訂�
 ## <a name="configure-and-connect"></a>設定和連線
 
 ### <a name="q-how-do-i-unlock-the-data-box"></a>問： 如何將資料箱解除鎖定？ 
-A.  在 Azure 入口網站中，移至您的資料箱訂單，並瀏覽至 [裝置詳細資料]  。 複製解除鎖定密碼。 使用此密碼，登入資料箱上的本機 Web UI。 如需詳細資訊，請移至[教學課程：打開包裝、接上纜線、連接您的 Azure 資料箱](data-box-deploy-set-up.md)。
+A.  在 Azure 入口網站中，移至您的資料箱訂單，並瀏覽至 [裝置詳細資料]。 複製解除鎖定密碼。 使用此密碼，登入資料箱上的本機 Web UI。 如需詳細資訊，請移至[教學課程：打開包裝、接上纜線、連接您的 Azure 資料箱](data-box-deploy-set-up.md)。
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>問： 是否可使用 Linux 主機電腦連線到資料箱，並將資料複製到該處？
-A.  是。 您可以使用資料箱連線至 SMB 與 NFS 用戶端。 如需詳細資訊，請移至主機電腦[支援的作業系統](data-box-system-requirements.md)清單。
+A.  是的。 您可以使用資料箱連線至 SMB 與 NFS 用戶端。 如需詳細資訊，請移至主機電腦[支援的作業系統](data-box-system-requirements.md)清單。
 
 ### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>問： 我的資料箱已派送，但現在我想要取消此訂單。 為何 [取消] 按鈕無法使用？
 A.  您只能在資料箱訂購之後，並在訂單處理之前取消訂單。 一旦資料箱訂單處理完畢，您就無法取消訂單。 
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>問： 我是否可以將資料箱同時連線到多部主機電腦來傳輸資料？
-A. 是。 您可以將多個資料箱連線到多部主機電腦以傳輸資料，而且可以平行執行多個複製作業。 如需詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱](data-box-deploy-copy-data.md)。
+A. 是的。 您可以將多個資料箱連線到多部主機電腦以傳輸資料，而且可以平行執行多個複製作業。 如需詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱](data-box-deploy-copy-data.md)。
 
 ### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>問： 是否可以連線到資料箱上的兩個 10 GbE 介面來傳輸資料？
-A. 是。 在資料箱上可以連線這兩個 10 GbE 介面來同時複製資料。 如需有關如何複製資料的詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱](data-box-deploy-copy-data.md)。
+A. 是的。 在資料箱上可以連線這兩個 10 GbE 介面來同時複製資料。 如需有關如何複製資料的詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱](data-box-deploy-copy-data.md)。
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -130,10 +130,10 @@ A. 我們在資料箱上不支援連接埠通道設定、多重路徑 IO (MPIO) 
 A.  您可以在 Azure 入口網站中追蹤資料箱訂單的狀態。 當您建立訂單時，系統也會提示您提供通知電子郵件。 如果您有提供的話，您將會透過電子郵件獲知訂單的所有狀態變更。 請取得關於如何[設定通知電子郵件](data-box-portal-ui-admin.md#edit-notification-details)的資訊。
 
 ### <a name="q-how-do-i-return-the-device"></a>問： 如何送回裝置？ 
-A.  Microsoft 會在電子墨水顯示器上顯示出貨標籤。 如果出貨標籤沒有顯示在電子墨水顯示器上，請移至 [概觀] > [下載出貨標籤]  。 下載並列印標籤，將標籤插入裝置上的塑膠貨籤中，然後將裝置投遞到貨運公司地點。 
+A.  Microsoft 會在電子墨水顯示器上顯示出貨標籤。 如果出貨標籤沒有顯示在電子墨水顯示器上，請移至 [概觀] > [下載出貨標籤]。 下載並列印標籤，將標籤插入裝置上的塑膠貨籤中，然後將裝置投遞到貨運公司地點。 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>問： 我收到電子郵件通知我的裝置已經送達 Azure 資料中心。 我要如何知道資料是否正在上傳？
-A. 您可以移至 Azure 入口網站中的資料箱訂單，然後移至 [概觀]  。 如果已開始將資料上傳至 Azure，您將會在右窗格中看到複製進度。 
+A. 您可以移至 Azure 入口網站中的資料箱訂單，然後移至 [概觀]。 如果已開始將資料上傳至 Azure，您將會在右窗格中看到複製進度。 
 
 ## <a name="migrate-data"></a>移轉資料
 
@@ -159,7 +159,7 @@ A.  若要加快複製程序：
 - 使用多個資料複製串流。 例如，採用 Robocopy 時，請使用多執行緒選項。 如需與使用之確切命令有關的詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱並確認](data-box-deploy-copy-data.md)。
 - 使用多個工作階段。
 - 請務必將資料放置在資料箱所連接的本機電腦上，而不要透過網路共用進行複製 (此方式可能會受限於網路速度)。
-- 對用來複製資料的電腦建立效能的基準。 請下載並使用 [Bluestop FIO 工具](https://ci.appveyor.com/project/axboe/fio)，以建立伺服器硬體效能的基準。 選取最新的 x86 或 x64 組建，選取 [成品]  索引標籤，然後下載 MSI。
+- 對用來複製資料的電腦建立效能的基準。 請下載並使用 [Bluestop FIO 工具](https://ci.appveyor.com/project/axboe/fio)，以建立伺服器硬體效能的基準。 選取最新的 x86 或 x64 組建，選取 [成品] 索引標籤，然後下載 MSI。
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>問： 是否可對資料箱使用多個儲存體帳戶？
-A.  是。 資料箱可支援最多 10 個儲存體帳戶、一般用途、傳統或 Blob 儲存體。 經常性存取和非經常性存取 Blob 均受支援。 
+A.  是的。 資料箱可支援最多 10 個儲存體帳戶、一般用途、傳統或 Blob 儲存體。 經常性存取和非經常性存取 Blob 均受支援。 
 
 
 ## <a name="ship-device"></a>寄送裝置
@@ -192,7 +192,7 @@ A. 我們會設法讓您盡快收到資料箱裝置。 我們雖會優先從最�
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>問： 電子墨水顯示器並未顯示寄回用的出貨標籤。 我該怎麼辦？
 A. 如果電子墨水顯示器並未顯示寄回用的出貨標籤，請執行下列步驟：
 - 將先前寄送時的舊出貨標籤與任何貼紙移除。
-- 移至 Azure 入口網站中的訂單。 移至 [概觀]  ，然後**下載出貨標籤**。 如需詳細資訊，請移至[下載出貨標籤](data-box-portal-admin.md#download-shipping-label)。
+- 移至 Azure 入口網站中的訂單。 移至 [概觀]，然後**下載出貨標籤**。 如需詳細資訊，請移至[下載出貨標籤](data-box-portal-admin.md#download-shipping-label)。
 - 列印出貨標籤，然後將它插入裝置上隨附的乾淨塑膠保護套。 
 - 確認出貨標籤清晰可見。 
 
@@ -203,7 +203,7 @@ A.  在傳輸期間，資料箱上的下列功能可協助保護資料。
 如需詳細資訊，請移至[資料箱安全性功能](data-box-security.md)。  
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>問： 我已完成「準備寄送」並將裝置關機。 是否還可以將更多資料新增到資料箱中？
-A. 是。 您可以將裝置開機，並新增更多資料。 一旦您完成資料複製，將需要再次執行**準備寄送**。
+A. 是的。 您可以將裝置開機，並新增更多資料。 一旦您完成資料複製，將需要再次執行**準備寄送**。
 
 ### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>問： 我收到我的裝置，但無法開機？ 如何將裝置送回？
 A. 如果您的裝置無法開機，請移至您在 Azure 入口網站中的訂單。 下載出貨標籤並將該標籤貼在裝置上。 如需詳細資訊，請移至[下載出貨標籤](data-box-portal-admin.md#download-shipping-label)。
@@ -211,7 +211,7 @@ A. 如果您的裝置無法開機，請移至您在 Azure 入口網站中的訂�
 ## <a name="verify-and-upload"></a>確認和上傳
 
 ### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>問： 在送回資料箱後，多久可以在 Azure 中存取我的資料？ 
-A.  當 [資料複製]  的訂單狀態顯示為 [完成]  時，您應該就能立即存取您的資料。
+A.  當 [資料複製] 的訂單狀態顯示為 [完成] 時，您應該就能立即存取您的資料。
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>問： 我的資料在上傳後會存放於 Azure 的何處？
 A.  當您將資料複製到資料箱時，視資料為區塊 Blob、分頁 Blob 或 Azure 檔案而定，資料會上傳到 Azure 儲存體帳戶中的下列其中一個路徑。
@@ -250,7 +250,7 @@ A.  下列報表類型可用來支援監管鏈：
 A.  貨運公司追蹤記錄可從資料箱訂單記錄中擷取。 當您的裝置送回到 Azure 資料中心，並清除裝置上的資料之後，就會將此報表提供給您。 若立即需要，您也可以直接移至貨運公司的網站，使用訂單追蹤號碼來取得追蹤資訊。
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>我是否可以親自將資料箱送到 Azure 資料中心？ 
-A.  沒有。 目前 Azure 資料中心不接受由客戶或是 UPS 以外的貨運公司寄送資料箱。
+A.  資料分割 目前 Azure 資料中心不接受由客戶或是 UPS 以外的貨運公司寄送資料箱。
 
 
 ## <a name="next-steps"></a>後續步驟
