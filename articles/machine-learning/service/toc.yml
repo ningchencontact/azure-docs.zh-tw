@@ -290,12 +290,18 @@
               href: ../algorithm-module-reference/edit-metadata.md
             - name: 清除遺漏的資料
               href: ../algorithm-module-reference/clean-missing-data.md
+            - name: 特性雜湊
+              href: ../algorithm-module-reference/feature-hashing.md
+            - name: 從文字擷取 N-Gram 特徵
+              href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
             - name: 新增資料行
               href: ../algorithm-module-reference/add-columns.md
             - name: 新增資料列
               href: ../algorithm-module-reference/add-rows.md
             - name: 移除重複的資料列
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: 前置處理文字
+              href: ../algorithm-module-reference/preprocess-text.md
             - name: 聯結資料
               href: ../algorithm-module-reference/join-data.md
             - name: 分割資料

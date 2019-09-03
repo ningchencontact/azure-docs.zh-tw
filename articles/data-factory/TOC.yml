@@ -147,6 +147,8 @@
           href: concepts-data-flow-overview.md
         - name: 偵錯模式
           href: concepts-data-flow-debug-mode.md
+        - name: JSON 處理
+          href: concepts-data-flow-json.md
         - name: 結構描述漂移
           href: concepts-data-flow-schema-drift.md
         - name: 檢查窗格
@@ -446,6 +448,8 @@
           href: control-flow-webhook-activity.md
     - name: 資料流程轉換
       items:
+        - name: 固定寬度檔案
+          href: how-to-fixed-width.md
         - name: 彙總
           href: data-flow-aggregate.md
         - name: 變更資料列
@@ -600,6 +604,8 @@
           href: data-migration-guidance-overview.md
         - name: 從 AWS S3 將資料遷移至 Azure
           href: data-migration-guidance-s3-azure-storage.md
+        - name: 將資料從內部部署 Hadoop 叢集遷移到 Azure
+          href: data-migration-guidance-hdfs-azure-storage.md
 - name: 參考
   items:
     - name: .NET
