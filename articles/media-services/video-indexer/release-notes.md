@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/29/2019
 ms.author: juliako
-ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845878"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232605"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure 媒體服務影片索引子版本資訊
 
@@ -27,6 +27,43 @@ ms.locfileid: "68845878"
 * 已知問題
 * 錯誤修正
 * 已被取代的功能
+
+## <a name="august-2019"></a>2019 年 8 月
+ 
+### <a name="video-indexer-deployed-in-uk-south"></a>英國南部中部署的影片索引子
+
+您現在可以在英國南部區域建立影片索引子付費帳戶。
+
+### <a name="new-editorial-shot-type-insights-available"></a>提供新的編輯快照類型深入解析
+
+新增至影片快照的新標籤會提供編輯「拍攝類型」, 以使用內容建立工作流程中常用的編輯片語來識別它們, 例如: 極端特寫、特寫、寬、中、兩次拍照、戶外、室內、左側臉部和右方臉部 (可在JSON)。
+
+### <a name="new-people-and-locations-entities-extraction-available"></a>新的人員和位置實體可供提取
+
+影片索引子會從影片的 OCR 和轉譯中, 透過自然語言處理 (NLP) 識別命名位置和人員。 影片索引子會使用機器學習演算法來辨識特定位置 (例如, Eiffel 塔式) 或人員 (例如, John Doe) 在影片中被呼叫的時間。
+
+### <a name="keyframes-extraction-in-native-resolution"></a>以原生解析度解壓縮的主要畫面格
+
+影片索引子所解壓縮的主要畫面格可在影片的原始解析度中取得。
+ 
+### <a name="ga-for-training-custom-face-models-from-images"></a>針對從影像定型自訂臉部模型的 GA
+
+從預覽模式移至 GA (可透過 API 和在入口網站中取得) 的影像定型臉部。
+
+> [!NOTE]
+> 「預覽至 GA」轉換沒有任何相關的定價影響。
+
+### <a name="hide-gallery-toggle-option"></a>隱藏圖庫切換選項
+
+使用者可以選擇隱藏入口網站中的 [圖庫] 索引標籤 (類似于隱藏 [範例] 索引標籤)。
+ 
+### <a name="maximum-url-size-increased"></a>增加的 URL 大小上限
+
+在編制影片索引時, 支援 URL 查詢字串 4096 (而不是 2048)。
+ 
+### <a name="support-for-multi-lingual-projects"></a>支援多語言專案
+
+現在可以根據以不同語言編制索引的影片建立專案 (僅限 API)。
 
 ## <a name="july-2019"></a>2019年7月
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827332"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231141"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 設備
 
@@ -72,6 +72,9 @@ NIC 寫入輸送量 (每秒 MB) | net.transmitted.average  |VM 大小的計算
 
 ## <a name="collected-metadata-vmware"></a>收集的中繼資料-VMware
 
+> [!NOTE]
+> Azure Migrate 設備所探索到的中繼資料, 可協助您在將應用程式遷移至 Azure、執行 Azure 適用性分析、應用程式相依性分析和成本規劃時, 適當地調整其大小。 Microsoft 不會使用此資料與任何授權合規性審查相關。
+
 以下是設備收集並傳送至 Azure 的 VMware VM 中繼資料完整清單。
 
 **資料** | **計數器**
@@ -109,7 +112,7 @@ IPv6 位址 | vm.Guest.Net
 讀取輸送量 (每秒 MB) | net.received.average
 寫入輸送量 (每秒 MB) | net.transmitted.average
 **清查路徑詳細資料** | 
-名稱 | container.GetType().Name
+Name | container.GetType().Name
 子物件的類型 | container.ChildType
 參考詳細資料 | container.MoRef
 父系詳細資料 | Container.Parent
@@ -122,6 +125,9 @@ IPv6 位址 | vm.Guest.Net
 
 
 ## <a name="collected-performance-data-hyper-v"></a>收集的效能資料-Hyper-v
+
+> [!NOTE]
+> Azure Migrate 設備所探索到的中繼資料, 可協助您在將應用程式遷移至 Azure、執行 Azure 適用性分析、應用程式相依性分析和成本規劃時, 適當地調整其大小。 Microsoft 不會使用此資料與任何授權合規性審查相關。
 
 以下是設備收集並傳送至 Azure 的 VMware VM 效能資料。
 

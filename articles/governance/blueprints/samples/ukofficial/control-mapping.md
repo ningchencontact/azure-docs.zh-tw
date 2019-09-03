@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7da31e09157b8877db4d36d0f061f29433d02d11
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: b53f293f6289377d85f4346933f7edb7369065cf
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515622"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231623"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>英國官方和英國 NHS 藍圖範例的控制項對應
 
@@ -35,7 +35,7 @@ ms.locfileid: "69515622"
 
 - 應在 SQL 資料庫上啟用透明資料加密
 - 應在虛擬機器上套用磁碟加密
-- 應加密自動化帳戶變數
+- 自動化帳戶變數應加密
 - 應啟用儲存體帳戶的安全傳輸
 - Service Fabric 叢集應將 ClusterProtectionLevel 屬性設定為 EncryptAndSign
 - 應在 SQL 資料庫上啟用透明資料加密
@@ -48,9 +48,9 @@ ms.locfileid: "69515622"
 
 此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來監視遺失的 endpoint protection、遺失系統更新、作業系統弱點、SQL 弱點和虛擬, 協助您執行資訊系統弱點電腦弱點。 這些深入解析可讓您即時檢視已部署資源的安全性狀態，並且可協助您排定補救措施的優先順序。
 
-- 在 Azure 資訊安全中心內監視缺少的 Endpoint Protection
-- 系統更新應該安裝在您的電腦上
-- 應補救您電腦上安全性設定中的弱點
+- 在 Azure 資訊安全中心中監視缺少的 Endpoint Protection
+- 您應在機器上安裝系統更新
+- 您應在機器上修復安全性組態的弱點
 - 應修復 SQL 資料庫的弱點
 - 弱點評量解決方案應修復弱點
 
@@ -151,7 +151,7 @@ Azure 會實行角色型存取控制 (RBAC), 以協助您管理可存取 Azure �
 
 此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，稽核 Azure 資源的記錄設定，以協助您確保會記錄系統事件。 指派的原則也會稽核虛擬機器是否未將記錄傳送至指定的記錄分析工作區。
 
-- 應該在 SQL Server 上的 advanced data security 設定上啟用審核
+- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
 - \[預覽\]：部署適用於 Linux VM 的 Log Analytics 代理程式

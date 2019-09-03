@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 3158ebddf6ffe5594c9daf0fd9f3e3fe980c0b24
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b4f9c0ab3ca50b0ce8c9ba27d8773c58a72dcfa9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845661"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230975"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>內部部署 Hyper-V VM 至 Azure 的災害復原支援矩陣
 
@@ -151,7 +151,7 @@ RDM | NA | NA
 **元件** | **需求** | **詳細資料**
 --- | --- | ---
 客體作業系統 | Site Recovery 支援 [Azure 支援](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)的所有作業系統。  | 若不支援，則必要條件檢查會失敗。
-客體作業系統架構 | 64 位元 | 若不支援，則必要條件檢查會失敗。
+客體作業系統架構 | 32位 (Windows Server 2008)/64-bit | 若不支援，則必要條件檢查會失敗。
 作業系統磁碟大小 | 第 1 代 VM 高達 2,048 G。<br/><br/> 第 2 代 VM 高達 300 GB。  | 若不支援，則必要條件檢查會失敗。
 作業系統磁碟計數 | 1 | 若不支援，則必要條件檢查會失敗。
 資料磁碟計數 | 16 或以下  | 若不支援，則必要條件檢查會失敗。
@@ -166,20 +166,20 @@ VM 類型 | 第 1 代<br/><br/> 第 2 代--Windows | OS 磁碟基本類型的第
 
 ## <a name="recovery-services-vault-actions"></a>復原服務保存庫動作
 
-**動作** |  **Hyper-V (有 Virtual Machine Manager)** | **Hyper-V (不含 Virtual Machine Manager)**
+**動作** |  **Hyper-V (含 VMM)** | **不具 VMM 的 Hyper-V**
 --- | --- | ---
 在資源群組間移動保存庫<br/><br/> 內及跨訂用帳戶 | 否 | 否
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否 | 否
 
 > [!NOTE]
-> 將 Hyper-VM (使用/不使用 SCVMM 管理) 從內部部署複寫到 Azure 時，您可以從一個特定環境 (適用的 Hyper-V 網站或 SCVMM) 複寫到僅限單個的 AD 租用戶上。
+> 將虛擬機器從內部部署複寫至 Azure 時, 您只能從一個特定環境複寫到一個 AD 租使用者-Hyper-v 網站或適用于 VMM 的 Hyper-v。
 
 
 ## <a name="provider-and-agent"></a>Provider 和代理程式
 
 若要確定您的部署與本文中的設定相容，請確定您所執行的是最新的提供者和代理程式版本。
 
-**名稱** | **說明** | **詳細資料**
+**名稱** | **描述** | **詳細資料**
 --- | --- | --- 
 Azure Site Recovery 提供者 | 協調內部部署伺服器與 Azure 之間的通訊 <br/><br/> Hyper-V (含 Virtual Machine Manager)：安裝在 Virtual Machine Manager 伺服器<br/><br/> Hyper-V (不含 Virtual Machine Manager)：安裝在 Hyper-V 主機| 最新版本：5.1.2700.1 (可從 Azure 入口網站取得)<br/><br/> [最新功能和修正](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure 復原服務代理程式 | 協調 HYPER-V VM 與 Azure 之間的複寫<br/><br/> 安裝在內部部署 Hyper-V 伺服器上 (無論是否有 Virtual Machine Manager) | 最新的代理程式可從入口網站取得

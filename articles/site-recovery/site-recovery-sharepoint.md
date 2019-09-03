@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325119"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231482"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 設定多層式 SharePoint 應用程式的災害復原，以便進行災害復原
 
@@ -56,7 +56,7 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 ## <a name="site-recovery-support"></a>Site Recovery 支援
 
-為了建立這篇文章，使用了 VMware 虛擬機器搭配 Windows Server 2012 R2 Enterprise。 還使用 SharePoint 2013 Enterprise 版本和 SQL Server 2014 Enterprise 版本。 因為站台復原複寫應用程式無從驗證，此處提供的建議也都必須對下列案例保留。
+Site Recovery 與應用程式無關, 而且應該與在支援的電腦上執行的任何 SharePoint 版本搭配運作。 為了建立這篇文章，使用了 VMware 虛擬機器搭配 Windows Server 2012 R2 Enterprise。 還使用 SharePoint 2013 Enterprise 版本和 SQL Server 2014 Enterprise 版本。
 
 ### <a name="source-and-target"></a>來源與目標
 
@@ -67,13 +67,6 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 **實體伺服器** | 是 | 是
 **Azure** | NA | 是
 
-### <a name="sharepoint-versions"></a>SharePoint 版本
-支援下列 SharePoint Server 版本。
-
-* SharePoint Server 2013 Standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 Standard
-* SharePoint Server 2016 Enterprise
 
 ### <a name="things-to-keep-in-mind"></a>要牢記在心的事項
 
@@ -93,14 +86,14 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 ## <a name="networking-configuration"></a>網路設定
 
-### <a name="network-properties"></a>網路屬性
+### <a name="network-properties"></a>網路內容
 
 * 對於應用程式和 Web 層 VM，在 Azure 入口網站中設定網路設定，讓 VM 能在容錯移轉之後連結到正確的 DR 網路。
 
     ![選取網路](./media/site-recovery-sharepoint/select-network.png)
 
 
-* 如果您是使用靜態 IP 位址，然後在 [目標 IP]  欄位中指定您希望虛擬機器採用的 IP
+* 如果您是使用靜態 IP 位址，然後在 [目標 IP] 欄位中指定您希望虛擬機器採用的 IP
 
     ![設定靜態 IP](./media/site-recovery-sharepoint/set-static-ip.png)
 

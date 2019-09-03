@@ -7,23 +7,22 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d158950749a9704276a666b58101bb5ad9dcbc42
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979318"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232630"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
-本文會逐步引導您以程式設計方式建立及管理原則。 Azure 原則定義對您的資源強制執行不同的規則和效果。 強制作業可確保資源會符合您的公司標準及服務等級協定規範。
+本文會逐步引導您以程式設計方式建立及管理原則。 Azure 原則定義會對您的資源強制執行不同的規則和效果。 強制作業可確保資源會符合您的公司標準及服務等級協定規範。
 
 如需合規性相關資訊，請參閱[取得合規性資料](getting-compliance-data.md)。
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您已符合下列必要條件：
 
@@ -31,7 +30,7 @@ ms.locfileid: "65979318"
 
 1. 將您的 Azure PowerShell 模組更新為最新版本。 如需詳細資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如需最新版本的詳細資訊，請參閱 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)。
 
-1. 註冊 Azure Policy Insights 資源提供者使用 Azure PowerShell 來驗證您的訂用帳戶可搭配資源提供者。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
+1. 使用 Azure PowerShell 註冊 Azure 原則 Insights 資源提供者, 以驗證您的訂用帳戶可搭配資源提供者使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
@@ -94,7 +93,7 @@ ms.locfileid: "65979318"
 
    以您想要的資源群組名稱取代 _ContosoRG_。
 
-   **領域**上的參數`New-AzPolicyAssignment`適用於管理群組、 訂用帳戶、 資源群組，或是單一資源。 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。
+   上`New-AzPolicyAssignment`的**範圍**參數適用于管理群組、訂用帳戶、資源群組或單一資源。 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。
    `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
 
    - 資源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
@@ -148,7 +147,7 @@ ms.locfileid: "65979318"
 
    使用您訂用帳戶的 ID 來取代上述 {subscriptionId}，或使用[管理群組](../../management-groups/overview.md)的 ID 來取代 {managementGroupId}。
 
-   如需查詢的結構的詳細資訊，請參閱[Azure 原則定義 – 建立或更新](/rest/api/resources/policydefinitions/createorupdate)和[原則定義 – 建立或更新在管理群組](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   如需查詢結構的詳細資訊, 請參閱[Azure 原則定義–建立或更新](/rest/api/resources/policydefinitions/createorupdate)和[原則定義–在管理群組中建立或更新](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 使用下列程序來建立原則指派，並在資源群組層級指派原則定義。
 
@@ -214,7 +213,7 @@ ms.locfileid: "65979318"
 
    若在未指定位置參數的情況下呼叫，`az policy definition creation` 會預設儲存工作階段內容中所選訂用帳戶的原則定義。 若要將定義儲存至不同位置，請使用下列參數：
 
-   - **--subscription** - 儲存到不同的訂用帳戶。 需要一個 _GUID_ 值來用於訂用帳戶 ID，或需要一個「字串」  值來用於訂用帳戶名稱。
+   - **--subscription** - 儲存到不同的訂用帳戶。 需要一個 _GUID_ 值來用於訂用帳戶 ID，或需要一個「字串」值來用於訂用帳戶名稱。
    - **--management-group** - 儲存到管理群組。 需要_字串_值。
 
 1. 使用下列命令以建立原則指派。 以您自己的值取代 &lt;&gt; 符號中的範例資訊。
@@ -230,7 +229,7 @@ ms.locfileid: "65979318"
    - 訂用帳戶 - `/subscriptions/{subID}`
    - 管理群組 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-您可以使用 PowerShell，使用下列命令來取得 Azure 原則定義識別碼：
+您可以使用 PowerShell 搭配下列命令來取得 Azure 原則定義識別碼:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +250,5 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 - [Azure REST API 資源](/rest/api/resources/)
 - [Azure PowerShell 模組](/powershell/module/az.resources/#policies)
 - [Azure CLI 原則命令](/cli/azure/policy?view=azure-cli-latest)
-- [Azure 的 Policy Insights 資源提供者 REST API 參考](/rest/api/policy-insights)
+- [Azure 原則 Insights 資源提供者 REST API 參考](/rest/api/policy-insights)
 - [使用 Azure 管理群組來組織資源](../../management-groups/overview.md)。

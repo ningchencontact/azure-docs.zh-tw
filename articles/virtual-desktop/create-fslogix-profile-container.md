@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 05289b8e3aa0e083dd948a2d43f3af92418bc5d2
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 078a29fc1ab66151aa41c3901bb6a3af6479a0ba
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051997"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233262"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>使用 Azure NetApp Files 建立主機集區的 FSLogix 設定檔容器
 
@@ -218,7 +218,7 @@ ms.locfileid: "70051997"
 
 6. 使用遠端桌面直接連接到主機集區的任何 VM 部分, 然後開啟檔案**瀏覽器。** 然後流覽至**掛接路徑**(在下列範例中, 掛接路徑為\\ \\anf-SMB-3863.gt1107.onmicrosoft.com\\及-VOL)。
 
-   在此資料夾中, 應該會有一個設定檔 VHD, 如下列範例所示。
+   在此資料夾中, 應該會有一個設定檔 VHD (或 VHDX), 如下列範例所示。
 
    ![掛接路徑中資料夾內容的螢幕擷取畫面。 內部是名為 "Profile_ssbb" 的單一 VHD 檔案。](media/mount-path-folder.png)
 

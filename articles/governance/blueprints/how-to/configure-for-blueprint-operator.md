@@ -1,5 +1,5 @@
 ---
-title: 設定藍圖操作員的環境
+title: 設定藍圖操作員環境
 description: 瞭解如何設定您的 Azure 環境, 以用於藍圖操作員內建的角色型存取控制 (RBAC) 角色。
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,14 +7,14 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8c39eadc6f1448e19ffee6d741cc50a7b6e09475
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 27f7c747dfd39fed7a67924da71b9293979e0f94
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70148605"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231886"
 ---
-# <a name="configure-your-environment-for-a-blueprint-operator"></a>設定藍圖操作員的環境
+# <a name="configure-your-environment-for-a-blueprint-operator"></a>設定藍圖操作員環境
 
 您的藍圖定義和藍圖指派的管理可以指派給不同的小組。 架構設計師或治理小組通常會負責藍圖定義的生命週期管理, 而作業小組則負責管理這些集中控制之藍圖定義的指派。
 

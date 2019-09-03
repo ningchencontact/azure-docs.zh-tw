@@ -1,19 +1,18 @@
 ---
-title: 如何更新現有的作業，從入口網站
-description: 深入了解更新現有的入口網站中 Azure 藍圖指派的機制。
+title: 如何從入口網站更新現有的指派
+description: 瞭解在 Azure 藍圖中, 從入口網站更新現有指派的機制。
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: c75bd8c3831bad0c8217f16315843cbe3824fe4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63766630"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231945"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>如何更新現有的藍圖指派
 
@@ -25,23 +24,23 @@ ms.locfileid: "63766630"
 
 ## <a name="updating-assignments"></a>更新指派
 
-1. 在左側窗格中選取 [所有服務]  。 搜尋並選取 [藍圖]  。
+1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 選取頁面左側的 [指派的藍圖]  。
+1. 選取頁面左側的 [指派的藍圖]。
 
-1. 在藍圖清單中，以滑鼠左鍵按一下藍圖指派。 然後按一下**更新指派**按鈕，或是以滑鼠右鍵按一下 藍圖指派並選取**更新指派**。
+1. 在藍圖清單中，以滑鼠左鍵按一下藍圖指派。 然後按一下 [**更新指派**] 按鈕, 或以滑鼠右鍵按一下藍圖指派, 然後選取 [**更新指派**]。
 
    ![更新現有的藍圖指派](../media/update-existing-assignments/update-assignment.png)
 
-1. **指派藍圖**網頁將會載入預先填入從原始指派的所有值。 您可以變更**藍圖定義版本**、**鎖定指派**狀態，以及任何存在於藍圖定義的動態參數。 完成變更後，按一下 [指派]  。
+1. [**指派藍圖**] 頁面會預先填入原始指派中的所有值。 您可以變更**藍圖定義版本**、**鎖定指派**狀態，以及任何存在於藍圖定義的動態參數。 完成變更後，按一下 [指派]。
 
 1. 在更新後的指派詳細資料頁面上，查看新的狀態。 在此範例中，我們對指派新增了**鎖定**。
 
-   ![更新現有的藍圖指派-鎖定模式已變更](../media/update-existing-assignments/updated-assignment.png)
+   ![已更新現有的藍圖指派-鎖定模式](../media/update-existing-assignments/updated-assignment.png)
 
-1. 探索有關其他詳細資料**指派作業**使用下拉式清單。 資料表**Managed 資源**所選取的工作分派作業的更新。
+1. 使用下拉式按鈕探索其他**指派作業**的詳細資料。 **受管理資源**的資料表會依選取的指派作業進行更新。
 
-   ![指派運算的藍圖指派](../media/update-existing-assignments/assignment-operations.png)
+   ![藍圖指派的指派作業](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>用於更新指派的規則
 

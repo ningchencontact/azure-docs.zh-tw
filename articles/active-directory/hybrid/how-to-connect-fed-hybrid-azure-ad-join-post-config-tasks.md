@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76abcac94a877e6bc7ea5c417c77c8c2febff
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 70e3267792f27a170efa26cc4267d1b25045a099
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032686"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231233"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>加入混合式 Azure AD 的後置設定工作
 
@@ -31,12 +31,12 @@ ms.locfileid: "70032686"
 所有已加入網域且執行 Windows 10 和 Windows Server 2016 的裝置，都會在所有設定步驟皆完成後自動向 Azure AD 註冊。 如果您偏好的受控制的導入，而不是此自動註冊，您可以使用群組原則選擇性地啟用或停用自動導入。  在開始其他設定步驟之前, 應該先設定此群組原則:
 * 在您的 Active Directory 中建立群組原則物件。
 * 為其命名 (例如，加入混合式 Azure AD)。
-* 編輯並移至：[電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [裝置註冊]。
+* 編輯並移至:[電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [裝置註冊]。
 
 >[!NOTE]
 >2012R2 的原則設定位於 [電腦設定] > [原則] > [系統管理範本] > [Windows 元件] > [加入工作場所] > [自動將用戶端電腦加入工作場所]
 
-* 停用此設定：將加入網域的電腦註冊為裝置。
+* 啟用此設定:將加入網域的電腦註冊為裝置。
 * 套用並按一下 [確定]。
 * 將 GPO 連結至您選擇的位置 (組織單位、安全性群組，或所有裝置的網域)。
 

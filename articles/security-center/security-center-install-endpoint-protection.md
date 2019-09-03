@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 58a220192d6a02c6ad66094e8421405578a82a01
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609938"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231313"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>使用 Azure 資訊安全中心管理端點保護
 Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端點保護問題] 刀鋒視窗下報告此狀態。 資訊安全中心會強調問題所在，例如偵測到威脅和防護不足，這些問題會造成虛擬機器 (VM) 和電腦容易遭受反惡意程式碼軟體威脅。 您可以使用 [端點保護問題] 的資訊，找出可解決找出的問題的方案。
@@ -31,12 +31,12 @@ Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端
 - 端點保護健康情況：
 
   - 簽章已過期 - VM 和電腦上已安裝反惡意程式碼軟體解決方案，但是該解決方案沒有最新的反惡意程式碼軟體簽章。
-  - 沒有即時保護 - VM 和電腦上已安裝反惡意程式碼軟體解決方案，但是並未設定即時保護。   該服務可能已停用，或者資訊安全中心可能因為不支援該解決方案而無法取得狀態。 如需支援的解決方案清單，請參閱[夥伴整合](security-center-os-coverage.md#supported-endpoint-protection-solutions)。
+  - 沒有即時保護 - VM 和電腦上已安裝反惡意程式碼軟體解決方案，但是並未設定即時保護。   該服務可能已停用，或者資訊安全中心可能因為不支援該解決方案而無法取得狀態。 如需支援的解決方案清單，請參閱[夥伴整合](security-center-services.md#endpoint-supported)。
   - 未回報 – 已安裝反惡意程式碼軟體解決方案，但是未報告資料。
   - 未知 - 已安裝反惡意程式碼軟體解決方案，但是其狀態為未知或報告未知錯誤。
 
     > [!NOTE]
-    > 如需與資訊安全中心之端點保護安全性解決方案的清單，請參閱[整合安全性解決方案](security-center-os-coverage.md#supported-endpoint-protection-solutions)。
+    > 如需與資訊安全中心之端點保護安全性解決方案的清單，請參閱[整合安全性解決方案](security-center-services.md#endpoint-supported)。
     >
     >
 

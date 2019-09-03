@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491750"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232200"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 
@@ -20,7 +20,7 @@ ms.locfileid: "67491750"
 
 
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 組織需要商務持續性和災害復原 (BCDR) 策略，以便讓工作負載和資料在計劃性停機與非計劃性停機期間維持安全，並儘速復原到一般運作的情況。
 
@@ -35,13 +35,13 @@ Site Recovery 可協助您實作應用程式層級的保護和復原，如下所
 * 應用程式無從驗證，針對在受支援電腦上執行的任何工作負載提供複寫。
 * 僅需 30 秒即可完成 PRO 近同步複寫，能滿足大多數重要商務應用程式的需求。
 * 適用於單一或多層式架構應用程式的應用程式一致性快照。
-* 與 SQL Server AlwaysOn，並與其他應用程式層級的複寫技術，包括 AD 複寫，SQL AlwaysOn、 Exchange 資料庫可用性群組 (Dag) 的合作關係的整合。
+* 與 SQL Server AlwaysOn 整合, 並與其他應用層級的複寫技術合作, 包括 AD 複寫、SQL AlwaysOn、Exchange 資料庫可用性群組 (Dag)。
 * 彈性修復計劃，讓您只要按一下就能復原整個應用程式堆疊，並在方案中納入外部指令碼和手動動作。
 * Site Recovery 和 Azure 中的進階網路管理可簡化應用程式網路需求，包括保留 IP 位址、設定負載平衡，以及與 Azure 流量管理員整合而達到低 RTO 網路轉換。
 * 豐富的自動化程式庫，提供已可用於生產環境的應用程式特定指令碼，這些指令碼可供下載並與復原方案整合。
 
 ## <a name="workload-summary"></a>工作負載摘要
-Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此外，我們已經與產品團隊合作，合力執行額外的特定應用程式測試。
+Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此外, 我們與產品小組合作, 為數據表中所指定的應用程式執行額外的測試。
 
 | **工作負載** |**將 Azure VM 複寫至 Azure** |**將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** |
 | --- | --- | --- | --- | --- |---|

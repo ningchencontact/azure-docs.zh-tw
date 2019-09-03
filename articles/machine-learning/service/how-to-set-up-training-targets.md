@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9bc9d64d7f21498acd5cb0c23447e7ff77de629
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195569"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231080"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 
@@ -422,6 +422,19 @@ az ml folder attach
 ```
 
 此命令會建立一個`.azureml`子資料夾, 其中包含不同計算目標的範本執行設定檔案。 您可以複製並編輯這些檔案, 以自訂您的設定, 例如新增 Python 套件或變更 Docker 設定。  
+
+### <a name="structure-of-run-configuration-file"></a>執行設定檔案的結構
+
+執行設定檔案的 YAML 格式, 包含下列各節
+ * 要執行的腳本及其引數
+ * 計算目標名稱, 也就是在工作區下計算的「本機」或名稱。
+ * 用於執行的參數: 架構、分散式執行的 communicator、持續時間上限, 以及計算節點的數目。
+ * 環境區段。 如需本節中欄位的詳細資訊, 請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)。
+   * 若要指定要針對執行安裝的 Python 套件, 請建立[conda 環境](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)檔案, 並設定__condaDependenciesFile__欄位。
+ * 執行歷程記錄詳細資料以指定記錄檔資料夾, 以及啟用或停用輸出集合和執行歷程記錄快照集。
+ * 所選架構的特定設定詳細資料。
+ * 資料參考和資料存放區詳細資料。
+ * 建立新叢集 Machine Learning Compute 特定的設定詳細資料。
 
 ### <a name="create-an-experiment"></a>建立實驗
 

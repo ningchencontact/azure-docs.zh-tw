@@ -6,18 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-author: djpmsft
-ms.author: daperlov
+author: nabhishek
+ms.author: abnarain
 manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: db437c7699c7fddc2b04175537446f53c4c4bc85
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140820"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233069"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>執行 Databricks Notebook 來轉換資料
 
@@ -111,6 +111,19 @@ ms.locfileid: "70140820"
 ```
 
 如需詳細資訊，請參閱 [Databricks 文件](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary)，了解程式庫類型。
+
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>在筆記本與 Data Factory 之間傳遞參數
+
+您可以使用 databricks 活動中的*baseParameters*屬性, 將 data factory 參數傳遞至筆記本。 
+
+在某些情況下, 您可能需要將某些值從筆記本傳回 data factory, 以用於 data factory 中的控制流程 (條件式檢查), 或由下游活動取用 (大小限制為 2 MB)。 
+
+1. 在您的筆記本中, 您可以呼叫[dbutils.fs ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) , 並將對應的 "returnValue" 傳回到 data factory。
+
+2. 您可以使用運算式 (例如) `'@activity('databricks notebook activity name').output.runOutput'`來取用 data factory 中的輸出。 
+
+   > [!IMPORTANT]
+   > 如果您要傳遞 JSON 物件, 您可以藉由附加屬性名稱來取得值。 範例： `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>如何在 Databricks 中上傳程式庫
 

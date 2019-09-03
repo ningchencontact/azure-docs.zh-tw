@@ -4,8 +4,10 @@
   items:
     - name: 關於資訊安全中心
       href: security-center-intro.md
-    - name: 資訊安全中心支援的平台及功能
+    - name: 支援的平台
       href: security-center-os-coverage.md
+    - name: 支援的功能
+      href: security-center-services.md
 - name: 快速入門
   expanded: true
   items:

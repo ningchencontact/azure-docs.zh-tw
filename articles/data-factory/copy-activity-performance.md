@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 22c83b1fe53a9209fd243fe807bb76718cbdcbbd
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211690"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232340"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>複製活動效能和擴充性指南
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本:"]
@@ -181,7 +181,7 @@ Azure Data Factory 提供下列效能優化功能:
 | 複製案例 | 由服務決定的預設平行複製計數 |
 | --- | --- |
 | 在以檔案為基礎的存放區之間複製資料 |取決於檔案大小和用來在兩個雲端資料存放區之間複製資料的 Diu 數, 或自我裝載整合執行時間電腦的實體設定。 |
-| 從已啟用分割區選項的關聯式資料存放區複製 (包括[Oracle](connector-oracle.md#oracle-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [Sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap 開放式中樞](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
+| 從已啟用分割區選項的關聯式資料存放區複製 (包括[Oracle](connector-oracle.md#oracle-as-source)、 [Netezza](connector-netezza.md#netezza-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
 | 將資料從任何來源存放區複製到 Azure 表格儲存體 |4 |
 | 所有其他複製案例 |1 |
 
@@ -193,7 +193,7 @@ Azure Data Factory 提供下列效能優化功能:
 **注意事項：**
 
 - 當您在以檔案為基礎的存放區之間複製資料時, **parallelCopies**會決定檔案層級的平行處理原則。 單一檔案內的區塊化會自動且透明地出現在下方。 其設計目的是針對指定的來源資料存放區類型, 使用最適合的區塊大小, 以平行方式載入資料, 並與**parallelCopies**。 資料移動服務在執行階段用於複製作業的實際平行複製數目不會超過您擁有的檔案數目。 如果複製行為是**mergeFile**, 複製活動就無法利用檔案層級的平行處理原則。
-- 當您從不是以檔案為基礎的存放區複製資料時 ( [Oracle](connector-oracle.md#oracle-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [Sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap 開放式中樞](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)連接器除外, 做為已啟用資料分割的來源), 會儲存至以檔案為基礎之資料移動服務的存放區。忽略**parallelCopies**屬性。 即使已指定平行處理原則，也不會套用於此案例。
+- 當您從不是以檔案為基礎的存放區複製資料時 ( [Oracle](connector-oracle.md#oracle-as-source)、 [Netezza](connector-netezza.md#netezza-as-source)、 [Teradata](connector-teradata.md#teradata-as-source)、 [sap 資料表](connector-sap-table.md#sap-table-as-source)和[sap 開放式中樞](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)連接器除外), 如果是以檔案為基礎的存放區, 則資料會移動服務會忽略**parallelCopies**屬性。 即使已指定平行處理原則，也不會套用於此案例。
 - **ParallelCopies**屬性正交于**dataIntegrationUnits**。 前者會跨所有資料整合單位計算。
 - 當您指定**parallelCopies**屬性的值時, 請考慮來源和接收資料存放區的負載增加。 也請考慮負載增加至自我裝載整合執行時間 (如果複製活動是由其進行授權), 例如針對混合式複製。 當您對相同的資料存放區執行相同活動的多個活動或並存執行時, 就會發生這種負載增加的情況。 如果您注意到資料存放區或自我裝載整合執行時間已負擔負載, 請減少**parallelCopies**值以減輕負載。
 

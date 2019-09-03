@@ -1,6 +1,6 @@
 ---
 title: 設定 Microsoft 帳戶驗證 - Azure App Service
-description: 了解如何為您的應用程式服務應用程式設定 Microsoft 帳戶驗證。
+description: 瞭解如何為您的 App Service 應用程式設定 Microsoft 帳戶驗證。
 author: mattchenderson
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cb2da26fcc00d1daf4b2dd0faf8bde8b743b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0832c1e5f10cdb8e1d7a2edbb88162230ab13401
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098530"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233076"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>如何設定 App Service 應用程式以使用 Microsoft 帳戶登入
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -61,7 +61,7 @@ ms.locfileid: "70098530"
 
 4. 選擇性若要限制 Microsoft 帳戶使用者的存取權, 請將 [**要求未經驗證時所採取的動作**] 設定為 [**使用 Microsoft 帳戶登入**]。 這會要求所有的要求都經過驗證，且所有未經驗證的要求會重新導向至 Microsoft 帳戶以進行驗證。
 
-> [!CAUTION]
+> [!NOTE]
 > 以這種方式限制存取適用于應用程式的所有呼叫, 這對於想要公開使用首頁的應用程式 (如許多單頁應用程式), 可能不是理想的做法。 對於這類應用程式, 可能會慣用 [**允許匿名要求 (無動作)** ], 而應用程式會以手動方式啟動登入本身, 如[這裡](overview-authentication-authorization.md#authentication-flow)所述。
 
 5. 按一下 [儲存]。

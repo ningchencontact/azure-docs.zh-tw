@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: faae9ae335e391afac4ed2ef75472f1fecdaca86
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 94bdeebcecdf924468f022ac95867bd82df5a793
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211670"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231328"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP 資料表複製資料
 
@@ -35,9 +35,9 @@ ms.locfileid: "70211670"
 - 從中的 SAP 資料表複製資料:
 
   - SAP ERP Central Component (SAP ECC) 7.01 版或更新版本 (在2015之後發行的最新 SAP 支援封裝堆疊中)。
-  - SAP Business 倉儲 (SAP BW) 7.01 版或更新版本。
+  - SAP Business 倉儲 (SAP BW) 7.01 版或更新版本 (在2015之後發行的最新 SAP 支援封裝堆疊中)。
   - SAP S/4HANA。
-  - SAP Business Suite 7.01 版或更新版本中的其他產品。
+  - SAP Business Suite 7.01 版或更新版本中的其他產品 (在2015之後發行的最新 SAP 支援封裝堆疊中)。
 
 - 從 SAP 透明資料表、集區資料表、叢集資料表和視圖複製資料。
 - 若已設定 SNC, 則使用基本驗證或安全網路通訊 (SNC) 來複製資料。

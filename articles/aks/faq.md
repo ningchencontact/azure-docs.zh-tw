@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 0e3a29e6e8f21658f03fb7fc059b54aa167496d4
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 6d122b3ac1504db0a2d22fea749c6c94174e4ff9
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147172"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233152"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -66,7 +66,7 @@ Azure 會在夜間排程自動將安全性修補程式套用至叢集中的 Linu
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>我可以為 AKS 節點資源群組提供自己的名稱嗎？
 
-是的。 根據預設, AKS 會將 node 資源群組命名為*MC_clustername_resourcegroupname_location*, 但您也可以提供自己的名稱。
+是的。 根據預設, AKS 會將 node 資源群組命名為*MC_resourcegroupname_clustername_location*, 但您也可以提供自己的名稱。
 
 若要指定您自己的資源組名, 請安裝[aks-preview][aks-preview-cli] Azure CLI 延伸模組版本*0.3.2*或更新版本。 當您使用[az AKS create][az-aks-create]命令建立 AKS 叢集時, 請使用 *--node--群組*參數並指定資源群組的名稱。 如果您[使用 Azure Resource Manager 範本][aks-rm-template]來部署 AKS 叢集, 您可以使用*nodeResourceGroup*屬性來定義資源組名。
 
@@ -110,7 +110,7 @@ AKS 目前不會與 Azure Key Vault 整合。 不過,[適用于 Kubernetes 專�
 
 是, Windows Server 容器可供預覽。 若要在 AKS 中執行 Windows Server 容器, 請建立執行 Windows Server 的節點集區做為虛擬作業系統。 Windows Server 容器只能使用 Windows Server 2019。 若要開始使用, 請參閱[建立具有 Windows Server 節點集][aks-windows-cli]區的 AKS 叢集。
 
-節點集區的視窗伺服器支援包含一些在 Kubernetes 專案中屬於上游 Windows 伺服器的限制。 如需這些限制的詳細資訊, 請參閱[AKS 限制的 Windows Server 容器][aks-windows-limitations]。
+適用于節點集區的 Windows Server 支援包含在 Kubernetes 專案中屬於上游 Windows Server 的一些限制。 如需這些限制的詳細資訊, 請參閱[AKS 限制的 Windows Server 容器][aks-windows-limitations]。
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS 是否提供服務等級協定？
 

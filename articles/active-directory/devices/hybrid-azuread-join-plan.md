@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c6980d11fa5fe3733e351923d058d1ad0a1677e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 66dbfa40d5a19c7f15ed2772740b84652ae3e58c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084914"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231280"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
@@ -64,10 +64,10 @@ ms.locfileid: "70084914"
 ### <a name="windows-down-level-devices"></a>舊版 Windows 裝置
 
 - Windows 8.1
-- Windows 7。 如需 Windows 7 的支援資訊, 請參閱這篇文章[的 windows 7 支援即將結束](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)
+- Windows 7。 如需 Windows 7 的支援資訊, 請參閱[windows 7 的支援即將結束](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)。
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2。 如需 Windows Server 2008 和 2008 R2 的支援資訊, 請參閱[準備 Windows server 2008 終止支援](https://www.microsoft.com/cloud-platform/windows-server-2008)。
 
 在第一個規劃步驟中，您應該檢閱您的環境，並判斷是否需要支援 Windows 舊版裝置。
 

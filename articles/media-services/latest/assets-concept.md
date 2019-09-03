@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 媒體服務資產 |Microsoft Docs
+title: Azure 媒體服務中的資產 |Microsoft Docs
 description: 本文解釋資產是什麼，以及 Azure 媒體服務用它們來做什麼。
 services: media-services
 documentationcenter: ''
@@ -9,30 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2f2dea922b7a3ba45ad6493ce94f0c52649dfa68
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670708"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70230988"
 ---
-# <a name="assets"></a>Assets
+# <a name="assets"></a>資產
 
-在 Azure Media Services[資產](https://docs.microsoft.com/rest/api/media/assets)包含數位檔案 （包括視訊、 音訊、 影像、 縮圖集合、 文字播放軌及隱藏式輔助字幕檔案） 的 Azure 儲存體中的相關資訊。 
+在 Azure 媒體服務中,[資產](https://docs.microsoft.com/rest/api/media/assets)會包含儲存在 Azure 儲存體中之數位檔案 (包括影片、音訊、影像、縮圖集合、文字播放軌和隱藏式輔助字幕檔案) 的相關資訊。 
 
 資產會對應到 [Azure 儲存體帳戶](storage-account-concept.md)中的 Blob 容器，且資產中的檔案會儲存為該容器中的區塊 Blob。 當帳戶使用一般用途 v2 (GPv2) 儲存體時，媒體服務支援 Blob 層。 您可以利用 GPv2，將檔案移至[非經常性存取儲存體或封存儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)。 來源檔案不再需要時，很適合放到**封存**儲存體中保管 (例如，在檔案已編碼之後)。
 
 **封存**儲存層只建議用於經過編碼，且編碼作業輸出已放在輸出 Blob 容器的極大型來源檔案。 如果您要讓輸出容器中的 Blob 與資產建立關聯，並且用來串流或分析您的內容，則該 Blob 必須位在**經常性存取**或**非經常性存取**儲存層。
 
+### <a name="naming-blobs"></a>命名 blob
+
+資產中的檔案/blob 名稱必須遵循[blob 名稱需求](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)和[NTFS 名稱需求](https://docs.microsoft.com/windows/win32/fileio/naming-a-file)。 這些需求的原因是檔案可以從 blob 儲存體複製到本機 NTFS 磁片進行處理。
+
 ## <a name="upload-digital-files-into-assets"></a>將數位檔案上傳到資產
 
-將數位檔案會上傳到儲存體，並與資產相關聯之後，它可用於媒體服務編碼、 串流處理、 分析內容的工作流程。 其中一個常見的媒體服務工作流程是上傳、編碼和串流檔案。 本節將概述一般步驟。
+將數位檔案上傳到儲存體並與資產相關聯之後, 就可以在媒體服務編碼、串流處理、分析內容工作流程中使用這些檔案。 其中一個常見的媒體服務工作流程是上傳、編碼和串流檔案。 本節將概述一般步驟。
 
 > [!TIP]
-> 您開始開發之前，請檢閱[使用媒體服務 v3 Api 進行開發](media-services-apis-overview.md)（包括存取 Api，等命名慣例的詳細資訊）。
+> 在您開始開發之前, 請先參閱[使用媒體服務 V3 api 進行開發](media-services-apis-overview.md)(包含存取 api、命名慣例等的資訊)。
 
 1. 使用媒體服務 v3 API 建立新的「輸入」資產。 這項作業會在與您媒體服務帳戶相關聯的儲存體帳戶中建立容器。 此 API 會傳回容器名稱 (例如 `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`)。
    
@@ -87,22 +91,22 @@ curl -X PUT \
 
 如需完整範例，請參閱[從本機檔案建立作業輸入](job-input-from-local-file-how-to.md)。 在媒體服務 v3 中，您也可以從 HTTPS URL 中建立作業的輸入 (請參閱[從 HTTPS URL 中建立作業輸入](job-input-from-http-how-to.md))。
 
-## <a name="map-v3-asset-properties-to-v2"></a>V3 資產屬性對應至 v2
+## <a name="map-v3-asset-properties-to-v2"></a>將 v3 資產屬性對應至 v2
 
-下表顯示如何[資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)的 v3 中的屬性對應至在 v2 中的資產的屬性。
+下表顯示[資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)在 v3 中的屬性如何對應至第2版中的資產屬性。
 
-|v3 屬性|v2 內容|
+|v3 屬性|v2 屬性|
 |---|---|
-|識別碼為 （唯一） 的完整 Azure Resource Manager 路徑，請參閱範例中[資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
-|名稱-（唯一） 請參閱[命名慣例](media-services-apis-overview.md#naming-conventions) ||
+|識別碼-(唯一) 完整 Azure Resource Manager 路徑, 請參閱[資產](https://docs.microsoft.com/rest/api/media/assets/createorupdate)中的範例||
+|名稱-(唯一) 請參閱[命名慣例](media-services-apis-overview.md#naming-conventions) ||
 |alternateId|AlternateId|
-|assetId|識別碼為 （唯一） 值開頭`nb:cid:UUID:`前置詞。|
-|created|建立時間|
-|description|名稱|
+|assetId|識別碼-(唯一) 值的`nb:cid:UUID:`開頭為前置詞。|
+|已建立|建立時間|
+|description|Name|
 |lastModified|LastModified|
 |storageAccountName|StorageAccountName|
-|storageEncryptionFormat| 選項 （建立選項）|
-|type||
+|storageEncryptionFormat| 選項 (建立選項)|
+|Type||
 
 ## <a name="storage-side-encryption"></a>儲存端加密
 

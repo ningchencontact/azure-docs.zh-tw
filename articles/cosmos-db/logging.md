@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a2702abd39ecdf506d58b6bd8884f12607e29e8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: d8a9963edd689a32ae0642ac6fa4a622c248bc5b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615300"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232373"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
@@ -436,7 +436,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 * 若要查詢哪些作業費時超過 3 毫秒：
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * 若要查詢哪些代理程式正在執行此作業：
@@ -448,7 +448,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 * 若要查詢長時間執行的作業於何時執行：
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
     ```
 
 如需如何使用新的記錄搜尋語言的詳細資訊, 請參閱[瞭解 Azure 監視器記錄中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md)。 
@@ -474,7 +474,7 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 | **clientIpAddress** | **clientIpAddress_s** | 用戶端的 IP 位址。 |
 | **requestCharge** | **requestCharge_s** | 作業使用的 RU 數 |
 | **collectionRid** | **collectionId_s** | 集合的唯一識別碼。|
-| **duration** | **duration_s** | 以刻度為單位的作業持續時間。 |
+| **duration** | **duration_s** | 作業的持續時間 (以毫秒為單位)。 |
 | **requestLength** | **requestLength_s** | 以位元組為單位的要求長度。 |
 | **responseLength** | **responseLength_s** | 以位元組為單位的回應長度。|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | 使用[資源權杖](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens)進行驗證時，此值為非空白值。 此值表示使用者的資源識別碼。 |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 901542e2a69d2c7880825d76c1d69d3795713ed2
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542553"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231164"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
 
@@ -36,7 +36,7 @@ ms.locfileid: "67542553"
 ### <a name="api-is-more-approachable"></a>API 會更平易近人
 
 *  v3 是會統一的 API 表面為基礎，併公開建置於 Azure Resource Manager 上的管理和操作功能。 Azure Resource Manager 範本可用於建立及部署轉換、串流端點、即時事件等等。
-* [OpenAPI 規格 （先前稱為 Swagger）](https://aka.ms/ams-v3-rest-sdk)文件。
+* [OpenAPI 規格 (先前稱為 Swagger)](https://aka.ms/ams-v3-rest-sdk)檔。
     公開所有服務元件的結構描述，包括檔案型編碼。
 * SDK 適用於 [.NET](https://aka.ms/ams-v3-dotnet-ref)、.Net Core、[Node.js](https://aka.ms/ams-v3-nodejs-ref)、[Python](https://aka.ms/ams-v3-python-ref)、[Java](https://aka.ms/ams-v3-java-ref)、[Go](https://aka.ms/ams-v3-go-ref) 和 Ruby。
 * [Azure CLI](https://aka.ms/ams-v3-cli-ref) 整合，適用於簡單的指令碼支援。
@@ -57,10 +57,10 @@ ms.locfileid: "67542553"
 
 ## <a name="changes-from-v2"></a>從 v2 的變更
 
-* 對於以 v3 建立的 Asset，媒體服務僅支援 [Azure 儲存體伺服器端儲存體加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)。
+* 對於使用 v3 建立的資產, 媒體服務只支援[Azure 儲存體伺服器端儲存體加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)。
     * 您可以使用 v3 API 搭配以 v2 API 建立的 Asset，後者的[儲存體加密](../previous/media-services-rest-storage-encryption.md) (AES 256) 是由媒體服務所提供。
     * 您無法使用 v3 API 建立具有舊版 AES 256 [儲存體加密](../previous/media-services-rest-storage-encryption.md)的新 Asset。
-* V3 中的資產的屬性不同，若要從 v2，請參閱[屬性如何對應](assets-concept.md#map-v3-asset-properties-to-v2)。
+* V3 中的[資產](assets-concept.md)屬性與第2版不同, 請參閱[屬性的對應方式](assets-concept.md#map-v3-asset-properties-to-v2)。
 * v3 SDK 現在已與儲存體 SDK 分離，其掌控力勝過所使用的儲存體 SDK，並可避免版本控制問題。 
 * 在 v3 API 中，所有的編碼位元速率單位都是「位元/秒」。 這不同於 v2 媒體編碼器標準預設。 例如，v2 中的位元速率會指定為 128 (kbps)，但在 v3 中，則會是 128000 (位元/秒)。 
 * 實體 AssetFiles、AccessPolicies 和 IngestManifests 不存在於 v3 中。
@@ -73,21 +73,24 @@ ms.locfileid: "67542553"
     * 即時事件取代了通道。<br/>即時事件計費是以直播頻道計量為基礎。 如需詳細資訊，請參閱[計費](live-event-states-billing.md)和[定價](https://azure.microsoft.com/pricing/details/media-services/)。
     * 即時輸出取代了程式。
 * 「實況輸出」會在建立時開始，並在刪除時結束。 程式在 v2 API 中是以不同的方式運作，因此它們必須在建立後啟動。
-*  若要取得工作的相關資訊，您需要知道在其建立作業轉換名稱。 
+*  若要取得作業的相關資訊, 您必須知道用來建立作業的轉換名稱。 
+
+> [!NOTE]
+> 檢查適用于[媒體服務 v3 資源](media-services-apis-overview.md#naming-conventions)的命名慣例。 另請參閱[命名 blob](assets-concept.md#naming-blobs)。
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>與 v2 API 相關的功能差距
 
 v3 API 與 v2 API 具有下列功能差距。 縮小差距是刻不容緩的工作。
 
 * [進階編碼器](../previous/media-services-premium-workflow-encoder-formats.md)和舊版[媒體分析處理器](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview、Face Redactor 等) 無法透過 v3 存取。<br/>想要從 Media Indexer 1 或 2 Preview 移轉的客戶可以立即使用 v3 API 中的 AudioAnalyzer 預設值。  相較於舊版的 Media Indexer 1 或 2，這個新的預設值包含更多功能。 
-* 許多[媒體編碼器標準 v2 中的進階功能](../previous/media-services-advanced-encoding-with-mes.md)Api 目前不提供的 v3，例如：
+* 第2版中的媒體編碼器標準有許多[先進的 advanced 功能](../previous/media-services-advanced-encoding-with-mes.md), 在 v3 中目前無法使用, 例如:
   
     * 資產拼接
     * 重疊
     * 裁剪
     * 縮圖原件
-    * 插入靜音曲目時輸入具有不具音訊
-    * 插入視訊播放軌，當輸入具有不含視訊
+    * 在輸入沒有音訊時插入無訊息音訊播放軌
+    * 在輸入沒有影片時插入影片播放軌
 * 具有轉碼的即時事件目前不支援候選影片插入中間串流，以及透過 API 呼叫插入廣告標記。 
 
 > [!NOTE]
@@ -97,12 +100,12 @@ v3 API 與 v2 API 具有下列功能差距。 縮小差距是刻不容緩的工�
 
 下表顯示 v2 和 v3 常見案例的程式碼差異。
 
-|案例|V2 API|V3 API|
+|狀況|V2 API|V3 API|
 |---|---|---|
 |建立資產並上傳檔案 |[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |提交作業|[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>示範如何先建立 Transform，然後再提交 Job。|
 |使用 AES 加密發行資產 |1.建立 ContentKeyAuthorizationPolicyOption<br/>2.建立 ContentKeyAuthorizationPolicy<br/>3.建立 AssetDeliveryPolicy<br/>4.建立資產並上傳內容，或提交作業並使用輸出資產<br/>5.讓 AssetDeliveryPolicy 與資產產生關聯<br/>6.建立 ContentKey<br/>7.將 ContentKey 連結至資產<br/>8.建立 AccessPolicy<br/>9.建立定位器<br/><br/>[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1.建立內容金鑰原則<br/>2.建立資產<br/>3.上傳內容或將資產作為 JobOutput<br/>4.建立串流定位器<br/><br/>[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
-|取得工作詳細資料和管理工作 |[管理工作使用 v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[管理工作使用 v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
+|取得作業詳細資料及管理作業 |[使用 v2 管理作業](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[使用 v3 管理作業](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>已知問題
 

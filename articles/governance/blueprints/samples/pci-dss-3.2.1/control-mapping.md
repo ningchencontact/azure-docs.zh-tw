@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c2dbfa5f6c9d679582a1834f2ff645c5ff79c51e
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d7d62770bc0e2683fc7bc1554493954c0e98758b
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515698"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232683"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS 3.2.1 藍圖範例的控制項對應
 
@@ -32,12 +32,12 @@ ms.locfileid: "69515698"
 
 此藍圖藉由指派[Azure 原則](../../../policy/overview.md)定義來強制執行您的原則, 以強制使用特定的如何控制項, 並使用弱式密碼編譯設定來進行審核。 了解您的 Azure 資源在哪些層面可能使用非最佳化的密碼編譯組態，有助於您採取更正措施，以確保資源會根據您的資訊安全性原則進行設定。 具體而言, 此藍圖所指派的原則需要 SQL 資料庫上的透明資料加密;在儲存體帳戶和自動化帳戶變數上審核遺失的加密。 另外還有一些原則, 可處理與儲存體帳戶、函式應用程式、WebApp、API Apps 和 Redis 快取之間的不安全連線, 以及未加密 Service Fabric 通訊的審核。
 
-- 函數應用程式應只可經由 HTTPS 存取
+- 函式應用程式應只可經由 HTTPS 存取
 - Web 應用程式應只可經由 HTTPS 存取
 - API 應用程式應只可經由 HTTPS 存取
 - 應在 SQL 資料庫上啟用透明資料加密
 - 應在虛擬機器上套用磁碟加密
-- 應加密自動化帳戶變數
+- 自動化帳戶變數應加密
 - 應該只允許對 Redis Cache 的安全連線
 - 應啟用儲存體帳戶的安全傳輸
 - Service Fabric 叢集應將 ClusterProtectionLevel 屬性設定為 EncryptAndSign
@@ -48,11 +48,11 @@ ms.locfileid: "69515698"
 
 此藍圖藉由指派在 Azure 中監視遺失的系統更新、作業系統弱點、SQL 弱點和虛擬機器弱點的[Azure 原則](../../../policy/overview.md)定義, 協助您執行資訊系統弱點資訊安全中心。 Azure 資訊安全中心提供報告功能，可讓您即時深入檢視已部署 Azure 資源的安全性狀態。
 
-- 在 Azure 資訊安全中心內監視缺少的 Endpoint Protection
-- 為 Windows Server 部署預設 Microsoft IaaSAntimalware 延伸模組
+- 在 Azure 資訊安全中心中監視缺少的 Endpoint Protection
+- 為 Windows Server 部署預設的 Microsoft IaaSAntimalware 延伸模組
 - 在 SQL 伺服器上部署威脅偵測
-- 系統更新應該安裝在您的電腦上
-- 應補救您電腦上安全性設定中的弱點
+- 您應在機器上安裝系統更新
+- 您應在機器上修復安全性組態的弱點
 - 應修復 SQL 資料庫的弱點
 - 弱點評量解決方案應修復弱點
 
@@ -110,7 +110,7 @@ Azure 會實行角色型存取控制 (RBAC), 以協助您管理可存取 Azure �
 此藍圖指派了 [Azure 原則](../../../policy/overview.md)定義，稽核 Azure 資源的記錄設定，以協助您確保會記錄系統事件。
 診斷記錄能讓您了解 Azure 資源內所執行的作業。 Azure 記錄會依賴已同步處理的內部時鐘，來對所有資源內的事件建立與時間相互關聯的記錄。
 
-- 應該在 SQL Server 上的 advanced data security 設定上啟用審核
+- 應該在 SQL Server 上的進階資料安全性設定上啟用稽核
 - 稽核診斷設定
 - 稽核 SQL 伺服器層級稽核設定
 - 在 SQL 伺服器上部署稽核

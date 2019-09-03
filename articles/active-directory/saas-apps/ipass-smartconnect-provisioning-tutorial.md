@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 09ef80742c931c9b7e8f8c2e2cf0b9e373ad6184
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 3141a32437e56bcefe830bc94109e93208e0258d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015746"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232164"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>教學課程：設定 iPass SmartConnect 來自動布建使用者
 
@@ -31,7 +31,7 @@ ms.locfileid: "69015746"
 >
 > 此連接器目前為公開預覽版。 如需預覽功能之一般 Microsoft Azure 使用規定的詳細資訊, 請參閱[Microsoft Azure 預覽的補充使用](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)規定。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中概述的案例假設您已經具有下列必要條件：
 
@@ -57,7 +57,7 @@ Azure Active Directory 使用稱為「*指派*」的概念, 來判斷哪些使�
 將 iPass SmartConnect 設定為使用 Azure AD 自動布建使用者之前, 您必須從 iPass SmartConnect 管理主控台取出設定資訊:
 
 1. 若要取得對 iPass SmartConnect SCIM 端點進行驗證所需的持有人權杖, 請參閱第一次設定 iPass SmartConnect, 因為只會提供此值。 
-2. 如果您沒有持有人權杖, 請與 [iPass SmartConnect 的支援小組] (mailto:help@ipass.com) 聯繫, 以取得新的權杖。
+2. 如果您沒有持有人權杖, 請與[IPass SmartConnect 的支援小組](mailto:help@ipass.com)聯繫, 以取得新的權杖。
 
 ## <a name="add-ipass-smartconnect-from-the-gallery"></a>從資源庫新增 iPass SmartConnect
 

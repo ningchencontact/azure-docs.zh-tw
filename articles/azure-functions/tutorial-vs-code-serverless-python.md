@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 4f5c10536992f51ac61815507a3869e521520299
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 43fee2ce25e358bbcff915d2fbef96bf4b7c1a0c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170703"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233114"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>使用 Visual Studio Code 將 Python 部署至 Azure Functions
 
@@ -56,7 +56,7 @@ ms.locfileid: "70170703"
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
-安裝函式擴充功能之後, 流覽至 azure 帳戶以登入您的**azure 帳戶:函數**瀏覽器中, 選取 [登**入 Azure**], 然後遵循提示。
+安裝函式擴充功能之後, 請前往**azure 登入 azure 帳戶:函數**瀏覽器中, 選取 [登**入 Azure**], 然後遵循提示。
 
 ![透過 Visual Studio Code 登入 Azure](media/tutorial-vs-code-serverless-python/azure-sign-in.png)
 
@@ -207,7 +207,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="debug-locally"></a>本機的調試
 
-1. 當您建立函式專案時, Visual Studio Code 擴充功能也會在中`.vscode/launch.json`建立啟動設定, 其中包含名為 [**附加至 Python**函式] 的單一設定。 此設定表示您可以直接按 F5 或使用 Debug explorer 來啟動專案:
+1. 當您建立函式專案時, Visual Studio Code 擴充功能也會在中`.vscode/launch.json`建立啟動設定, 其中包含名為 [**附加至 Python**函式] 的單一設定。 此設定表示您可以直接選取**F5**或使用 Debug explorer 來啟動專案:
 
     ![顯示功能啟動設定的 Debug explorer](media/tutorial-vs-code-serverless-python/launch-configuration.png)
 
@@ -393,7 +393,7 @@ func azure functionapp logstream <app_name> --browser
     }
     ```
 
-1. 按 F5 或選取 [ **Debug**  > ] [**開始調試**程式] 功能表命令來啟動偵錯工具。 [**輸出**] 視窗現在應該會在您的專案中顯示這兩個端點:
+1. 選取**F5**或選取 [ **Debug**  > ] [**開始調試**程式] 功能表命令來啟動偵錯工具。 [**輸出**] 視窗現在應該會在您的專案中顯示這兩個端點:
 
     ```output
     Http Functions:
@@ -479,15 +479,15 @@ func azure functionapp logstream <app_name> --browser
             )
     ```
 
-1. 若要在本機測試這些變更, 請按 F5 或選取 [ **Debug**  > **開始調試**程式] 功能表命令, 以在 Visual Studio Code 中再次啟動偵錯工具。 如同 [**輸出**] 視窗應該會在您的專案中顯示端點。
+1. 若要在本機測試這些變更, 請選取**F5**或選取 [ **Debug**  > **開始調試**程式] 功能表命令, 以在 Visual Studio Code 中再次啟動偵錯工具。 如同 [**輸出**] 視窗應該會在您的專案中顯示端點。
 
 1. 在瀏覽器中, 造訪 URL `http://localhost:7071/api/HttpExample?name=VS%20Code`以建立對 HttpExample 端點的要求, 也應該將訊息寫入佇列。
 
 1. 若要確認訊息已寫入至 "outqueue" 佇列 (如系結中所命名), 您可以使用下列三種方法的其中一種:
 
-    1. 登入[Azure 入口網站](https://portal.azure.com), 然後流覽至包含函式專案的資源群組。 在該資源群組中, [本機] 並流覽至專案的儲存體帳戶, 然後流覽至 [**佇列**]。 在該頁面上, 流覽至 [outqueue], 這應該會顯示所有已記錄的訊息。
+    1. 登入[Azure 入口網站](https://portal.azure.com), 並移至包含函式專案的資源群組。 在該資源群組中, 找出並開啟專案的儲存體帳戶, 然後移至 [**佇列**]。 在該頁面上, 移至 [outqueue], 這應該會顯示所有已記錄的訊息。
 
-    1. 使用與 Visual Studio 整合的 Azure 儲存體總管 (特別是[檢查輸出佇列](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue)一節中[Visual Studio Code Azure 儲存體](functions-add-output-binding-storage-queue-vs-code.md)所述), 流覽並檢查佇列。
+    1. 使用與 Visual Studio 整合的 Azure 儲存體總管 (特別是[檢查輸出佇列](functions-add-output-binding-storage-queue-vs-code.md#examine-the-output-queue)一節中[Visual Studio Code Azure 儲存體](functions-add-output-binding-storage-queue-vs-code.md)所述), 開啟並檢查佇列。
 
     1. 如[查詢儲存體](functions-add-output-binding-storage-queue-python.md#query-the-storage-queue)佇列中所述, 使用 Azure CLI 來查詢儲存體佇列。
     

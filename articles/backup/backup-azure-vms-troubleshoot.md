@@ -8,18 +8,40 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2f645d290175db9692649d825323313fc207a014
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210276"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232488"
 ---
-# <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
+# <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>針對 Azure 虛擬機器上的備份失敗進行疑難排解
+
 您可以針對使用 Azure 備份時所遇到的錯誤進行疑難排解, 並提供下列資訊:
 
 ## <a name="backup"></a>備份
+
 本節涵蓋 Azure 虛擬機器的備份作業失敗。
+
+### <a name="basic-troubleshooting"></a>基本疑難排解
+
+* 確定 VM 代理程式 (WA 代理程式) 為[最新版本](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent-on-the-virtual-machine)。
+* 請確定已支援 Windows 或 Linux VM 作業系統版本, 請參閱[IAAS VM 備份支援矩陣](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)。
+* 確認另一個備份服務並未執行。
+   * 若要確保沒有任何快照集擴充功能問題, 請[卸載擴充功能以強制重載, 然後再重試備份](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load)。
+* 確認 VM 具有網際網路連線能力。
+   * 請確定另一個備份服務並未執行。
+* 在中, 確定**Windows Azure 來賓代理程式**服務正在執行。 `Services.msc` 如果**Windows Azure 來賓代理程式**服務遺失, 請從[備份復原服務保存庫中的 Azure vm](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)進行安裝。
+* **事件記錄**檔可能會顯示來自其他備份產品的備份失敗 (例如, Windows Server backup), 而不是 Azure 備份所致。 使用下列步驟來判斷問題是否為 Azure 備份:
+   * 如果事件來源或訊息中的專案**備份**發生錯誤, 請檢查 AZURE IaaS VM 備份是否成功, 以及是否使用所需的快照集類型建立還原點。
+    * 如果 Azure 備份運作中, 則問題可能是另一個備份解決方案。 
+    * 以下是事件檢視器錯誤的範例, 其中 Azure 備份正常運作, 但 "Windows Server Backup" 失敗:<br>
+    ![Windows Server Backup 失敗](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+    * 如果 Azure 備份失敗, 請在本文的常見 VM 備份錯誤一節中尋找對應的錯誤碼。 
+
+## <a name="common-issues"></a>常見問題
+
+以下是 Azure 虛擬機器上的備份失敗常見問題。
 
 ## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime-從保存庫複本備份的資料超時
 
@@ -36,7 +58,7 @@ ms.locfileid: "70210276"
 備份作業失敗, 因為 VM 處於失敗狀態。 若要成功備份, VM 狀態應為執行中、已停止或已停止 (已解除配置)。
 
 * 如果 VM 處於 [正在執行] 和 [關機] 之間的暫時性狀態，請等候狀態變更。 然後再觸發備份作業。
-*  如果 VM 是 Linux VM 並使用安全性強化的 Linux 核心模組，請從安全性原則中排除 Azure Linux 代理程式路徑 **/var/lib/waagent**，並確定已安裝備份延伸模組。
+* 如果 VM 是 Linux VM 並使用安全性強化的 Linux 核心模組，請從安全性原則中排除 Azure Linux 代理程式路徑 **/var/lib/waagent**，並確定已安裝備份延伸模組。
 
 ## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed-無法凍結 VM 的一或多個掛接點, 以取得檔案系統一致快照集
 

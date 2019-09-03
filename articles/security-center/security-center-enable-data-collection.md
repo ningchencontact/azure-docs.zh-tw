@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2019
+ms.date: 06/10/2019
 ms.author: v-mohabe
-ms.openlocfilehash: e87ea5f6d8a92f18fc1b289ebf9ffd1cc0326812
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12739bf230eb7a2d5afa4edd57dbc2761907ec4e
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845910"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231343"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器 (Vm)、虛擬機器擴展集、IaaS 容器和非 Azure (包括內部部署) 電腦收集資料, 以監視是否有安全性弱點和威脅。 系統會使用 Log Analytics 代理程式來收集資料, 這會從電腦讀取各種安全性相關設定和事件記錄, 並將資料複製到您的工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄 (Windows 事件記錄)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Log Analytics 代理程式也會將損毀傾印檔案複製到您的工作區。
@@ -41,7 +41,7 @@ ms.locfileid: "68845910"
 > 預設會關閉自動佈建。 若要將資訊安全中心設定為預設安裝自動佈建，請將它設定為 [開啟]。
 >
 
-開啟自動布建時, 資訊安全中心會在所有支援的 Azure Vm 和任何新建立的虛擬機器上布建 Log Analytics 代理程式。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [瞭解如何安裝 Log Analytics 代理程式擴充](#manualagent)功能。
+開啟自動布建時, 資訊安全中心會在所有支援的 Azure Vm 和任何新建立的虛擬機器上布建 Log Analytics 代理程式。 強烈建議使用自動佈建，但是手動代理程式安裝也可行。 [瞭解如何安裝 Log Analytics 代理程式擴充](#manual-agent)功能。
 
 
 
@@ -59,7 +59,7 @@ ms.locfileid: "68845910"
 
 >[!NOTE]
 > - 如需佈建預先存在的安裝的相關指示，請參閱[在預先存在的代理程式安裝情況下自動佈建](#preexisting)。
-> - 如需手動布建的指示, 請參閱[手動安裝 Log Analytics 代理程式擴充](#manualagent)功能。
+> - 如需手動布建的指示, 請參閱[手動安裝 Log Analytics 代理程式擴充](#manual-agent)功能。
 > - 如需有關關閉自動佈建的指示，請參閱[關閉自動佈建](#offprovisioning)。
 > - 如需有關如何使用 PowerShell 上架資訊安全中心的說明，請參閱[使用 PowerShell 自動化上架 Azure 資訊安全中心](security-center-powershell-onboarding.md)。
 >
@@ -240,7 +240,7 @@ ms.locfileid: "68845910"
 >  停用自動布建並不會從已布建代理程式的 Azure Vm 移除 Log Analytics 代理程式。 如需移除 OMS 擴充功能的相關資訊，請參閱[我要如何移除資訊安全中心安裝的 OMS 擴充功能](security-center-faq.md#remove-oms)。
 >
     
-## 手動佈建代理程式 <a name="manualagent"></a>
+## 手動佈建代理程式 <a name="manual-agent"></a>
  
 有數種方式可手動安裝 Log Analytics 代理程式。 手動安裝時，請務必停用自動佈建。
 

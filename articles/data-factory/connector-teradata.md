@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: jingwang
-ms.openlocfilehash: ddce94cab0067c34ad056a40251d79c5470ba460
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: bec1c0c3523e6d9cfb0b2fdbc7a093ffe0637743
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996573"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232506"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -61,7 +61,7 @@ Teradata 連結服務支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | Type 屬性必須設定為**Teradata**。 | 是 |
+| Type | Type 屬性必須設定為**Teradata**。 | 是 |
 | connectionString | 指定連接到 Teradata 資料庫實例所需的資訊。 請參考下列範例。<br/>您也可以將密碼放在 Azure Key Vault 中, 並從`password`連接字串中提取設定。 如需詳細資訊, 請參閱[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)。 | 是 |
 | username | 指定要連接到 Teradata 資料庫的使用者名稱。 適用于使用 Windows 驗證時。 | 否 |
 | password | 針對您為使用者名稱指定的使用者帳戶指定密碼。 您也可以選擇[參考儲存在 Azure Key Vault 中的秘密](store-credentials-in-key-vault.md)。 <br>適用于當您使用 Windows 驗證, 或參考 Key Vault 中的密碼進行基本驗證時。 | 否 |
@@ -141,7 +141,7 @@ Teradata 連結服務支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為`TeradataTable`。 | 是 |
+| Type | 資料集的類型屬性必須設定為`TeradataTable`。 | 是 |
 | database | Teradata 資料庫的名稱。 | 否 (如果已指定活動來源中的"query") |
 | table | Teradata 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的"query") |
 
@@ -195,11 +195,11 @@ Teradata 連結服務支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為`TeradataSource`。 | 是 |
+| Type | 複製活動來源的類型屬性必須設定為`TeradataSource`。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。<br>當您啟用資料分割載入時, 您必須在查詢中攔截任何對應的內建資料分割參數。 如需範例, 請參閱[從 Teradata 平行複製](#parallel-copy-from-teradata)一節。 | 否 (如果已指定資料集中的資料表) |
-| partitionOptions | 指定用來從 Teradata 載入資料的資料分割選項。 <br>允許值為:**無**(預設值)、 **Hash**和**DynamicRange**。<br>當分割區選項已啟用 (也就是不`None`是) 時, 也[`parallelCopies`](copy-activity-performance.md#parallel-copy)要在複製活動上進行設定。 這會決定從 Teradata 資料庫同時載入資料的平行程度。 例如, 您可能會將此設定為4。 | 否 |
+| partitionOptions | 指定用來從 Teradata 載入資料的資料分割選項。 <br>允許值為:**無**(預設值)、 **Hash**和**DynamicRange**。<br>當分割區選項已啟用 (也就是不`None`是) 時, 從 Teradata 資料庫並行載入資料的平行處理原則程度, 是由[`parallelCopies`](copy-activity-performance.md#parallel-copy)複製活動上的設定所控制。 | 否 |
 | partitionSettings | 指定資料分割的設定群組。 <br>當資料分割選項不`None`適用時套用。 | 否 |
-| partitionColumnName | **以整數類型**指定來源資料行的名稱, 以供範圍分割用於平行複製。 如果未指定, 則會自動偵測資料表的主鍵, 並使用該索引鍵做為資料分割資料行。 <br>當資料分割選項為`Hash`或`DynamicRange`時套用。 如果您使用查詢來抓取來源資料, 請`?AdfHashPartitionCondition`攔截或`?AdfRangePartitionColumnName`在 WHERE 子句中。 請參閱[Parallel copy From Teradata](#parallel-copy-from-teradata)一節中的範例。 | 否 |
+| partitionColumnName | 針對 [平行複製的範圍分割或雜湊分割], 指定將使用的來源資料行名稱。 如果未指定, 則會自動偵測資料表的主要索引, 並使用它做為資料分割資料行。 <br>當資料分割選項為`Hash`或`DynamicRange`時套用。 如果您使用查詢來抓取來源資料, 請`?AdfHashPartitionCondition`攔截或`?AdfRangePartitionColumnName`在 WHERE 子句中。 請參閱[Parallel copy From Teradata](#parallel-copy-from-teradata)一節中的範例。 | 否 |
 | partitionUpperBound | 用來複製資料的分割區資料行的最大值。 <br>當資料分割選項為`DynamicRange`時套用。 如果您使用 query 來抓取來源資料, 請`?AdfRangePartitionUpbound`在 WHERE 子句中掛上。 如需範例, 請參閱[Parallel copy From Teradata](#parallel-copy-from-teradata)一節。 | 否 |
 | partitionLowerBound | 用來複製資料的分割區資料行的最小值。 <br>適用于資料分割選項為`DynamicRange`時。 如果您使用查詢來抓取來源資料, 請在 WHERE `?AdfRangePartitionLowbound`子句中掛上。 如需範例, 請參閱[Parallel copy From Teradata](#parallel-copy-from-teradata)一節。 | 否 |
 
@@ -247,7 +247,7 @@ Data Factory Teradata 連接器會提供內建的資料分割, 以平行方式�
 
 當您啟用資料分割複本時, Data Factory 會針對您的 Teradata 來源執行平行查詢, 以依據分割區來載入資料。 平行程度是由複製活動上[`parallelCopies`](copy-activity-performance.md#parallel-copy)的設定所控制。 例如, 如果您將設定`parallelCopies`為四, Data Factory 會同時根據您指定的資料分割選項和設定, 產生並執行四個查詢, 而且每個查詢都會從您的 Teradata 資料庫中取得部分資料。
 
-使用資料分割來啟用平行複製是個不錯的主意, 特別是當您從 Teradata 資料庫載入大量資料時。 以下是適用于不同案例的建議設定。 將資料複製到以檔案為基礎的資料存放區時, 會建議寫入資料夾做為多個檔案 (僅指定資料夾名稱), 在此情況下, 效能會比寫入單一檔案更好。
+建議您啟用具有資料分割的平行複製, 特別是當您從 Teradata 資料庫載入大量資料時。 以下是適用于不同案例的建議設定。 將資料複製到以檔案為基礎的資料存放區時, 會建議寫入資料夾做為多個檔案 (僅指定資料夾名稱), 在此情況下, 效能會比寫入單一檔案更好。
 
 | 狀況                                                     | 建議的設定                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

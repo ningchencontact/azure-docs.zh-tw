@@ -1,19 +1,18 @@
 ---
 title: 了解查詢語言
-description: 描述可用的 Kusto 運算子和函式搭配 Azure 資源的圖表。
+description: 描述可與 Azure Resource Graph 搭配使用的可用 Kusto 運算子和函數。
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6e35d688581d0839e12806117e63c7d71fbc459
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800500"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231505"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>了解 Azure Resource Graph 查詢語言
 
@@ -53,33 +52,33 @@ Azure Resource Graph 查詢語言支援多個運算子與函式。 每個工作�
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
 
-## <a name="escape-characters"></a>逸出字元
+## <a name="escape-characters"></a>Escape 字元
 
-某些屬性名稱，例如包含`.`或`$`、 必須包裝或逸出查詢中的屬性名稱不正確地解譯，並不會提供預期的結果。
+某些屬性名稱 (例如包含`.`或`$`的) 必須在查詢中包裝或換行, 否則屬性名稱會不正確地解讀, 而且不會提供預期的結果。
 
-- `.` -包裝這類的屬性名稱： `['propertyname.withaperiod']`
+- `.`-將屬性名稱換行如下:`['propertyname.withaperiod']`
   
-  包裝之屬性的範例查詢_odata.type_:
+  包裝屬性 odata 的範例查詢 _。類型_:
 
   ```kusto
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$` -逸出字元的屬性名稱中。 使用逸出字元取決於資源圖表從執行的殼層。
+- `$`-將屬性名稱中的字元換用。 使用的逸出字元取決於從執行的 shell Resource Graph。
 
-  - **bash** - `\`
+  - **狂歡** - `\`
 
-    逸出屬性的範例查詢 _\$型別_在 bash 中：
+    在 bash 中將屬性 _\$類型_轉義的範例查詢:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** -不逸出`$`字元。
+  - **cmd** -不要將`$`字元轉義。
 
   - **PowerShell** - ``` ` ```
 
-    逸出屬性的範例查詢 _\$型別_在 PowerShell 中：
+    在 PowerShell 中將屬性 _\$類型_轉義的範例查詢:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899693"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233248"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>部署診斷工具
 
@@ -154,7 +154,7 @@ ms.locfileid: "69899693"
 
 若要部署診斷工具的 Azure 資源管理範本:
 
-1.  前往 GitHub Azure RDS-範本頁面。
+1.  前往 [GitHub AZURE RDS-範本頁面](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy)。
 2.  將範本部署至 Azure, 並遵循範本中的指示。 請確定您有下列可用資訊:
 
     -   用戶端識別碼

@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 2499842eeb2dd5a8fa845ed364a6aea7418acc8b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a4cc11447686f81017332a3528019a54a5167c52
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824419"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231992"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>建立和使用 Web 應用程式防火牆 v2 自訂規則
 
@@ -127,7 +127,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 ## <a name="example-2"></a>範例 2
 
-您想要封鎖 198.168.5.4/24 範圍內來自 IP 位址的所有要求。
+您想要封鎖 198.168.5.0/24 範圍內來自 IP 位址的所有要求。
 
 在此範例中, 您將會封鎖來自 IP 位址範圍的所有流量。 規則的名稱是*myrule1* , 而優先順序設定為100。
 
@@ -140,7 +140,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
@@ -166,7 +166,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
             "matchVariable": "RemoteAddr",
             "operator": "IPMatch",
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -175,11 +175,11 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-對應的 CRS 規則:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+對應的 CRS 規則:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-3"></a>範例 3
 
-在此範例中, 您想要封鎖使用者代理程式*evilbot*, 以及範圍 192.168.5.4/24 中的流量。 若要完成這項操作, 您可以建立兩個不同的比對條件, 並將兩者都放在相同的規則中。 這可確保使用者代理程式標頭中的*evilbot* **和**來自 192.168.5.4/24 範圍的 IP 位址都會遭到封鎖。
+在此範例中, 您想要封鎖使用者代理程式*evilbot*, 以及範圍 192.168.5.0/24 中的流量。 若要完成這項操作, 您可以建立兩個不同的比對條件, 並將兩者都放在相同的規則中。 這可確保使用者代理程式標頭中的*evilbot* **和**來自 192.168.5.0/24 範圍的 IP 位址都會遭到封鎖。
 
 邏輯: p**和**q
 
@@ -194,7 +194,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -229,7 +229,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
               "operator": "IPMatch", 
               "negateCondition": false, 
               "matchValues": [ 
-                "192.168.5.4/24" 
+                "192.168.5.0/24" 
               ] 
             }, 
             { 
@@ -251,7 +251,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 ## <a name="example-4"></a>範例 4
 
-在此範例中, 您想要封鎖要求是否位於 IP 位址範圍*192.168.5.4/24*以外, 或使用者代理字串不是*chrome* (這表示使用者不會使用 chrome 瀏覽器)。 因為此邏輯使用**或**, 所以這兩個條件會位於不同的規則中, 如下列範例所示。 *myrule1*和*myrule2*都必須符合, 才能封鎖流量。
+在此範例中, 您想要封鎖要求是否位於 IP 位址範圍*192.168.5.0/24*以外, 或使用者代理字串不是*chrome* (這表示使用者不會使用 chrome 瀏覽器)。 因為此邏輯使用**或**, 所以這兩個條件會位於不同的規則中, 如下列範例所示。 *myrule1*和*myrule2*都必須符合, 才能封鎖流量。
 
 邏輯: **not** (p**和**q) = **not** p**或 not** q。
 
@@ -266,7 +266,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $True
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -307,7 +307,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
             "operator": "IPMatch",
             "negateCondition": true,
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]

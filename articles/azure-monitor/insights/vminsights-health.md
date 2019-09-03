@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 18297410842b432af0093a71406df71f7e03db9d
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 311db544a119d4b9bee7d31cfdfac33aa3c4ed79
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602044"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233198"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>瞭解 Azure 虛擬機器的健康情況
 
@@ -285,7 +285,7 @@ Azure 包含監視空間中特定角色或工作的服務, 但它不會針對裝
 
 適用於 VM 的 Azure 監視器健康狀態會與[Azure 警示](../../azure-monitor/platform/alerts-overview.md)整合。 當偵測到時, 從狀況良好狀態變更為狀況不良狀態時, 它會引發警示。 警示會依嚴重性分類, 從嚴重性0到嚴重性 4, 嚴重性0是最高層級。
 
-警示不會與動作群組建立關聯, 以在警示觸發時通知您。 訂用帳戶擁有者必須遵循[設定警示](#configure-alerts)一節中的步驟來設定通知。
+警示不會與動作群組建立關聯, 以在警示觸發時通知您。 在訂用帳戶範圍具有擁有者角色的使用者, 必須遵循[設定警示](#configure-alerts)一節中的步驟來設定通知。
 
 [**警示**] 區段下的 [**健全狀況**儀表板] 提供依嚴重性分類的 VM 健康情況警示總數。 當您選取警示總數或對應到嚴重性層級的數字時，[警示] 頁面隨即開啟並列出所有符合您選取項目的警示。
 

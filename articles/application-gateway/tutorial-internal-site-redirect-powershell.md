@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
-ms.openlocfilehash: 157f7fa0979da21584550e7669a20f670aca5219
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 9efda8d81c4e6cb3bf478b05c261a99dc8e1aec0
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785726"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232096"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 來建立具有內部重新導向的應用程式閘道
 
-您可以使用 Azure PowerShell，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [Web 流量重新導向](application-gateway-multi-site-overview.md)。 在本教學課程中，您將使用虛擬機器擴展集來定義後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，以確保網路流量會抵達適當的集區。 本教學課程假設您擁有的多個網域，並使用範例*www\.contoso.com*並*www\.contoso.org*。
+您可以使用 Azure PowerShell，在建立[應用程式閘道](application-gateway-introduction.md)時設定 [Web 流量重新導向](application-gateway-multi-site-overview.md)。 在本教學課程中，您將使用虛擬機器擴展集來定義後端集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，以確保網路流量會抵達適當的集區。 本教學課程假設您擁有多個網域, 並使用*www.contoso.com*和*www\.contoso.org*的範例。
 
 在本文中，您將了解：
 
@@ -99,7 +99,7 @@ $frontendPort = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>建立後端集區和設定
 
-建立名為後端集區*contosoPool*使用應用程式閘道[新增 AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)。 使用 [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting) 來設定後端集區的設定。
+使用[add-azapplicationgatewaybackendaddresspool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool), 為應用程式閘道建立名為*contosoPool*的後端集區。 使用 [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting) 來設定後端集區的設定。
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -114,9 +114,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>建立第一個接聽程式和規則
 
-需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中的網域建立接聽程式*www\.contoso.com*並*www\.contoso.org*。
+需要接聽程式才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您會為兩個網域建立兩個接聽程式。 在此範例中, 會針對*www.contoso.com*和*www\.contoso.org*的網域建立接聽程式。
 
-建立名為第一個接聽程式*New-azurermapplicationgatewayhttplistener*使用[新增 AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)前端設定和您先前建立的前端連接埠。 接聽程式需要規則以便知道要針對連入流量使用哪個後端集區。 建立名為的基本規則*contosoComRule*使用[新增 AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)。
+使用 New-azapplicationgatewayHTTPlistener 搭配您先前建立的前端設定和前端埠, 來建立名為*contosoComListener*的第一個接聽[程式](/powershell/module/az.network/new-azapplicationgatewayhttplistener)。 接聽程式需要規則以便知道要針對連入流量使用哪個後端集區。 使用[new-azapplicationgatewayrequestroutingrule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)建立名為*contosoComRule*的基本規則。
 
 ```azurepowershell-interactive
 $contosoComlistener = New-AzApplicationGatewayHttpListener `
@@ -158,7 +158,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-the-second-listener"></a>新增第二個接聽程式
 
-新增名為接聽程式*Add-azurermapplicationgatewayhttplistener*重新導向流量使用所需[新增 AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener)。
+新增名為*contosoOrgListener*的接聽程式, 這是使用[new-azapplicationgatewayHTTPlistener](/powershell/module/az.network/add-azapplicationgatewayhttplistener)將流量重新導向所需的。
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -206,7 +206,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-the-second-routing-rule"></a>新增第二個路由規則
 
-然後，您可以將重新導向設定至新的規則，名為*contosoOrgRule*使用[新增 AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)。
+接著, 您可以使用[new-azapplicationgatewayrequestroutingrule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule), 將重新導向設定與名為*contosoOrgRule*的新規則建立關聯。
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -298,11 +298,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在瀏覽器的網址列中輸入您的網域名稱。 例如，http\:/ / www.contoso.com。
+在瀏覽器的網址列中輸入您的網域名稱。 例如, [http://www.contoso.com](http://www.contoso.com)。
 
 ![在應用程式閘道中測試 contoso 網站](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-將位址變更為您其他的網域，例如 http://www.contoso.org ，您應該會看到流量已重新導向回到 www 的接聽程式\. contoso.com。
+將位址變更為您其他的網域 (例如 http://www.contoso.org )，就應該會看到流量已重新導向回 www.contoso.com 的接聽程式。
 
 ## <a name="next-steps"></a>後續步驟
 

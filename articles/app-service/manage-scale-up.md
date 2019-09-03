@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cebd6e5c120bdaa5e7dd5b681366e07087cd3498
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d2c3b09277963781b90f65705e03f936f81b14ee
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069182"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232354"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>在 Azure App Service 中相應增加應用程式
 
@@ -85,11 +85,8 @@ ms.locfileid: "70069182"
 
 ## <a name="more-resources"></a>其他資源
 
-如需調整 App Service 應用程式的相關影片，請參閱下列資源：
- 
-* [何時該調整 Azure 網站 - Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
-* [自動調整 Azure 網站、CPU 或排程 - Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
-* [如何調整 Azure 網站 - Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
+[手動或自動調整執行個體計數](../monitoring-and-diagnostics/insights-how-to-scale.md)  
+[設定 App Service 的 PremiumV2 層](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
