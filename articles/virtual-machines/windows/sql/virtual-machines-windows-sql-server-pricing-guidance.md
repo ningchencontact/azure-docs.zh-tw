@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 116ffa31fb540897f9a769b73c3a6474dda45b88
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101926"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70280178"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -113,7 +113,7 @@ ms.locfileid: "70101926"
 
 | BYOL 優點 | 描述 |
 |-----|-----|
-| **節省成本** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)最多可提供 55% 的節約。 如需詳細資訊, 請參閱 [交換器授權模型] (虛擬機器-windows-sql-ahb.md |
+| **節省成本** | [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)最多可提供 55% 的節約。 如需詳細資訊, 請參閱[交換器授權模型](virtual-machines-windows-sql-ahb.md) |
 | **免費的被動次要複本** | 自備授權的另一個優點是每一 SQL Server 可享有[一個免費的被動次要複本授權](https://azure.microsoft.com/pricing/licensing-faq/)，以用於提供高可用性。 這讓高可用性 SQL Server 部署 (例如使用「永遠開啟可用性群組」) 的授權費用得以砍半。 執行被動次要複本的權限是透過「容錯移轉伺服器軟體保證」權益來提供。 |
 
 若要使用上述其中一個自備授權映像來建立 SQL Server 2017 Azure VM，請查看前面帶有 "{BYOL}" 的 VM：

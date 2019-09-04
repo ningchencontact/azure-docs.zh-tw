@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: mlearned
-ms.openlocfilehash: 6d122b3ac1504db0a2d22fea749c6c94174e4ff9
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233152"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241788"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -116,6 +116,8 @@ AKS 目前不會與 Azure Key Vault 整合。 不過,[適用于 Kubernetes 專�
 
 在服務等級協定 (SLA) 中, 如果未符合已發佈的服務層級, 則提供者會同意補償客戶的服務成本。 由於 AKS 是免費的, 因此不會有任何費用可補償, 因此 AKS 沒有正式的 SLA。 不過, AKS 會尋求維護至少 99.5% 的 Kubernetes API 伺服器可用性。
 
+請務必辨識 AKS 服務可用性之間的區別, 這是指 Kubernetes 控制平面的執行時間, 以及在 Azure 虛擬機器上執行的特定工作負載可用性。 雖然控制平面可能無法使用, 但如果沒有就緒, 則在 Azure Vm 上執行的叢集工作負載仍然可以運作。 假設 Azure Vm 是付費資源, 其受金融 SLA 支援。 如需 Azure VM SLA 的詳細資訊, 以及如何使用[可用性區域][availability-zones]之類的功能增加該可用性, 請參閱[這裡](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/)。
+
 ## <a name="why-cant-i-set-maxpods-below-30"></a>為什麼我無法將 maxPods 設定為30以下？
 
 在 AKS 中, 您可以使用`maxPods` [Azure CLI] 和 [Azure Resource Manager] 範本來設定建立叢集時的值。 不過, Kubenet 和 Azure CNI 都需要*最小值*(在建立時進行驗證):
@@ -204,6 +206,7 @@ AKS 不是受控服務, 且不支援操作 IaaS 資源。 安裝自訂群組件�
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md
+[availability-zones]: ./availability-zones.md
 
 <!-- LINKS - external -->
 

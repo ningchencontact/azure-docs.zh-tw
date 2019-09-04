@@ -4,15 +4,15 @@ description: 取得關於 Azure Cosmos DB (一種全域散發的多模型資料�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cb2b3246264d04ce97c45dff58979079a731998e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 30530f445941747c659f584d279261148b08825e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066088"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240809"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
@@ -119,7 +119,7 @@ PreferredLocations 值可以設定為任何提供 Cosmos DB 的 Azure 區域。 
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>是否可以從容器層級輸送量佈建，切換成資料庫層級輸送量佈建？ 或者反過來？
 
-容器和資料庫層級輸送量佈建是不同的供應項目，在其間切換需要將資料從來源移轉到目的地。 這表示您需要建立新資料庫或新集合，然後藉由使用[大量執行程式程式庫](bulk-executor-overview.md)或 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) 來移轉資料。
+容器和資料庫層級輸送量佈建是不同的供應項目，在其間切換需要將資料從來源移轉到目的地。 這表示您需要建立新的資料庫或新的容器, 然後使用[大量執行](bulk-executor-overview.md)程式程式庫或[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)來遷移資料。
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB 是否支援時間序列分析？
 
@@ -149,7 +149,8 @@ GitHub 上提供 SQL API [.NET](sql-api-dotnet-samples.md)、[Java](https://gith
 
 容器是一組文件及其相關聯的 JavaScript 應用程式邏輯。 容器是計費實體，其[成本](performance-levels.md)是由輸送量和使用的儲存體所決定。 容器可以跨越一或多個磁碟分割或伺服器，也可以進行調整以處理幾乎無限量的儲存體或輸送量。
 
-* 針對 SQL API 和適用於 MongoDB 帳戶的 Cosmos DB API，容器會對應至集合。
+* 針對 SQL API, 容器會對應至容器。
+* 針對適用于 MongoDB 的 Cosmos DB API 帳戶, 容器會對應至集合。
 * 針對 Cassandra 和資料表 API 帳戶，容器會對應至資料表。
 * 針對 Gremlin API 帳戶，容器會對應至圖表。
 
@@ -157,7 +158,7 @@ GitHub 上提供 SQL API [.NET](sql-api-dotnet-samples.md)、[Java](https://gith
 
 ### <a name="how-do-i-create-a-database"></a>我如何建立資料庫？
 
-您可以使用 [Azure 入口網站](https://portal.azure.com) (如[新增集合](create-sql-api-java.md#add-a-container)所述)、其中一個 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [REST API](/rest/api/cosmos-db/) 來建立資料庫。
+如[新增容器](create-sql-api-java.md#add-a-container)、其中一個[Azure Cosmos DB Sdk](sql-api-sdk-dotnet.md)或[REST api](/rest/api/cosmos-db/)中所述, 您可以使用[Azure 入口網站](https://portal.azure.com)來建立資料庫。
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>我如何設定使用者和權限？
 
@@ -179,7 +180,7 @@ SQL API 透過 HTTP 實體標記或 ETag，支援開放式並行存取控制 (OC
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>我如何在 SQL API 中執行交易？
 
-SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交易。 指令碼內的所有資料庫作業都會在快照隔離的情況下執行。 如果是單一資料分割集合，執行範圍將限制為該集合。 如果集合已經過資料分割，執行範圍將限制為集合內具有相同資料分割索引鍵值的文件。 文件版本 (ETag) 的快照是在交易開始時取得，且只有當指令碼成功執行時才會認可。 如果 JavaScript 擲回錯誤，則會回復交易。 如需詳細資訊，請參閱 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](stored-procedures-triggers-udfs.md)。
+SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交易。 指令碼內的所有資料庫作業都會在快照隔離的情況下執行。 如果它是單一分割區容器, 則會將執行範圍設定為容器。 如果容器已分割, 則會將執行範圍設定為容器內具有相同分割區索引鍵值的檔。 文件版本 (ETag) 的快照是在交易開始時取得，且只有當指令碼成功執行時才會認可。 如果 JavaScript 擲回錯誤，則會回復交易。 如需詳細資訊，請參閱 [Azure Cosmos DB 的伺服器端 JavaScript 程式設計](stored-procedures-triggers-udfs.md)。
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>如何將大量文件插入 Cosmos DB？
 
@@ -191,7 +192,7 @@ SQL API 透過 JavaScript 預存程序和觸發程序，支援語言整合式交
 
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>SQL API 支援資源連結快取嗎？
 
-是，因為 Azure Cosmos DB 是一項 RESTful 服務，資源連結是固定不變且可快取的。 SQL API 用戶端可以指定「If-None-Match」標頭來讀取任何類似資源的文件或集合，然後在伺服器版本變更後更新其本機複本。
+是，因為 Azure Cosmos DB 是一項 RESTful 服務，資源連結是固定不變且可快取的。 SQL API 用戶端可以指定 "If-match-Match" 標頭來讀取任何類似資源的檔或容器, 然後在伺服器版本變更後更新其本機複本。
 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>SQL API 的本機執行個體可供使用嗎？
 
@@ -225,7 +226,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 
 | Error               | 程式碼  | 描述  | 方案  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
+| TooManyRequests     | 16500 | 取用的要求單位總數大於為容器布建的要求單位速率, 並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
 | ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例: <em> &nbsp; getCollection(&nbsp;' users ')。 aggregate ([ &nbsp; &nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name:「中」}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Simba 驅動程式是否支援與適用於 MongoDB 的 Azure Cosmos DB API 搭配使用？
@@ -523,7 +524,7 @@ RU 計費是根據周遊的運作資料庫計算，並不是根據結果集計�
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 中圖形資料庫所能容納的級別上限為何？
 
-Azure Cosmos DB 使用[水平資料分割](partition-data.md)，自動處理儲存體和輸送量需要增加的問題。 工作負載的輸送量和儲存體容量上限根據給定集合相關的資料分割數量而定。 不過，Gremlin API 集合具備一組特定的指導方針，確保能提供良好的大規模效能體驗。 如需有關分割的詳細資訊及最佳做法，請參閱[在 Azure Cosmos DB 中進行資料分割](partition-data.md)一文。
+Azure Cosmos DB 使用[水平資料分割](partition-data.md)，自動處理儲存體和輸送量需要增加的問題。 工作負載的輸送量和儲存體容量上限取決於與指定容器相關聯的資料分割數目。 不過, Gremlin API 容器具有一組特定的指導方針, 可確保大規模的適當效能體驗。 如需有關分割的詳細資訊及最佳做法，請參閱[在 Azure Cosmos DB 中進行資料分割](partition-data.md)一文。
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>如何防止透過 Gremlin 驅動程式發動的資料隱碼攻擊？
 

@@ -4,14 +4,14 @@ description: 了解如何在 Azure Cosmos DB 中建立容器
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/01/2019
 ms.author: mjbrown
-ms.openlocfilehash: a88d8f33624278ac6e70b918cec7cef133fe4b34
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 876e35e320e37081cf6e6f89fda4f31af8713571
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093484"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240755"
 ---
 # <a name="create-an-azure-cosmos-container"></a>建立 Azure Cosmos 容器
 
@@ -25,15 +25,15 @@ ms.locfileid: "70093484"
 
 1. [建立新的 Azure Cosmos 帳戶](create-sql-api-dotnet.md#create-account)，或選取現有帳戶。
 
-1. 開啟 [資料總管] 窗格，然後選取 [新增集合]。 接下來，提供下列詳細資料：
+1. 開啟 [**資料總管**] 窗格, 然後選取 [**新增容器**]。 接下來，提供下列詳細資料：
 
    * 指出您正在建立新的資料庫，還是使用現有的帳戶。
-   * 輸入集合識別碼。
+   * 輸入容器識別碼。
    * 輸入分割區索引鍵。
    * 輸入要佈建的輸送量 (例如 1000 RU)。
    * 選取 [確定]。
 
-![醒目提示 [新增集合] 的資料總管窗格螢幕擷取畫面](./media/how-to-create-container/partitioned-collection-create-sql.png)
+![[資料總管] 窗格的螢幕擷取畫面, 其中已反白顯示新的容器](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 ### <a id="portal-mongodb"></a>適用於 MongoDB 的 Azure Cosmos DB API
 
@@ -41,15 +41,15 @@ ms.locfileid: "70093484"
 
 1. [建立新的 Azure Cosmos 帳戶](create-mongodb-dotnet.md#create-a-database-account)，或選取現有帳戶。
 
-1. 開啟 [資料總管] 窗格，然後選取 [新增集合]。 接下來，提供下列詳細資料：
+1. 開啟 [**資料總管**] 窗格, 然後選取 [**新增容器**]。 接下來，提供下列詳細資料：
 
    * 指出您正在建立新的資料庫，還是使用現有的帳戶。
-   * 輸入集合識別碼。
+   * 輸入容器識別碼。
    * 輸入分區索引鍵。
    * 輸入要佈建的輸送量 (例如 1000 RU)。
    * 選取 [確定]。
 
-![適用於 MongoDB 的 Azure Cosmos DB API 中 [新增集合] 對話方塊的螢幕擷取畫面](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![適用于 MongoDB 的 Azure Cosmos DB API、[新增容器] 對話方塊的螢幕擷取畫面](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 

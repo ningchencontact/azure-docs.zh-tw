@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 668d686f296763f5ed51dc6361691352d22e0738
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 965c1181399b76523b624d53dc47e59de0208ecb
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094720"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258272"
 ---
 # <a name="pool-resize-start-event"></a>集區調整大小開始事件
 
@@ -26,10 +26,12 @@ ms.locfileid: "70094720"
 
 ```
 {
-    "poolId": "myPool1",
-    "nodeDeallocationOption": "invalid",
-    "currentDedicated": 0,
-    "targetDedicated": 2,
+    "id": "myPool1",
+    "nodeDeallocationOption": "Invalid",
+    "currentDedicatedNodes": 0,
+    "targetDedicatedNodes": 2,
+    "currentLowPriorityNodes": 0,
+    "targetLowPriorityNodes": 2,
     "enableAutoScale": false,
     "isAutoPool": false
 }
@@ -37,9 +39,11 @@ ms.locfileid: "70094720"
 
 |元素|類型|注意|
 |-------------|----------|-----------|
-|poolId|String|集區識別碼。|
-|nodeDeallocationOption|String|指定當集區大小一直減少時，會自集區中移除節點。<br /><br /> 可能的值包括：<br /><br /> **requeue** – 終止執行中工作並重新排入佇列。 當作業啟用時，工作將再次執行。 一旦工作終止，隨即移除節點。<br /><br /> **terminate** – 終止執行中工作。 工作將不會再次執行。 一旦工作終止，隨即移除節點。<br /><br /> **taskcompletion** – 允許目前執行中工作完成。 等待時不排程任何新的工作。 所有工作完成時，即移除節點。<br /><br /> **Retaineddata** - 允許目前執行中工作完成，然後等待所有工作資料保留期到期。 等待時不排程任何新的工作。 當所有工作保留期到期時即移除節點。<br /><br /> 預設值為 requeue。<br /><br /> 如果集區大小增加，則值會設定為 [無效]。|
-|currentDedicated|Int32|目前指派至集區的計算節點數目。|
-|targetDedicated|Int32|向集區要求的計算節點數目。|
-|enableAutoScale|Bool|指定集區大小是否隨著時間自動調整。|
-|isAutoPool|Bool|指定是否已透過作業的 AutoPool 機制建立集區。|
+|`id`|String|集區的識別碼。|
+|`nodeDeallocationOption`|String|指定當集區大小一直減少時，會自集區中移除節點。<br /><br /> 可能的值包括：<br /><br /> **requeue** – 終止執行中工作並重新排入佇列。 當作業啟用時，工作將再次執行。 一旦工作終止，隨即移除節點。<br /><br /> **terminate** – 終止執行中工作。 工作將不會再次執行。 一旦工作終止，隨即移除節點。<br /><br /> **taskcompletion** – 允許目前執行中工作完成。 等待時不排程任何新的工作。 所有工作完成時，即移除節點。<br /><br /> **Retaineddata** - 允許目前執行中工作完成，然後等待所有工作資料保留期到期。 等待時不排程任何新的工作。 當所有工作保留期到期時即移除節點。<br /><br /> 預設值為 requeue。<br /><br /> 如果集區大小增加，則值會設定為 [無效]。|
+|`currentDedicatedNodes`|Int32|目前指派至集區的計算節點數目。|
+|`targetDedicatedNodes`|Int32|向集區要求的計算節點數目。|
+|`currentLowPriorityNodes`|Int32|目前指派至集區的計算節點數目。|
+|`targetLowPriorityNodes`|Int32|向集區要求的計算節點數目。|
+|`enableAutoScale`|Bool|指定集區大小是否隨著時間自動調整。|
+|`isAutoPool`|Bool|指定是否已透過作業的 AutoPool 機制建立集區。|

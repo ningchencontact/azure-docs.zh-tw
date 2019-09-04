@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 69d75f9050560eb4a9e394241316c0474fffe7cc
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f053cc9bf6b08b9cf76b6e992c3d8cbdf5f759da
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232488"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258990"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>針對 Azure 虛擬機器上的備份失敗進行疑難排解
 
@@ -34,10 +34,10 @@ ms.locfileid: "70232488"
 * 在中, 確定**Windows Azure 來賓代理程式**服務正在執行。 `Services.msc` 如果**Windows Azure 來賓代理程式**服務遺失, 請從[備份復原服務保存庫中的 Azure vm](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)進行安裝。
 * **事件記錄**檔可能會顯示來自其他備份產品的備份失敗 (例如, Windows Server backup), 而不是 Azure 備份所致。 使用下列步驟來判斷問題是否為 Azure 備份:
    * 如果事件來源或訊息中的專案**備份**發生錯誤, 請檢查 AZURE IaaS VM 備份是否成功, 以及是否使用所需的快照集類型建立還原點。
-    * 如果 Azure 備份運作中, 則問題可能是另一個備份解決方案。 
+    * 如果 Azure 備份運作中, 則問題可能是另一個備份解決方案。
     * 以下是事件檢視器錯誤的範例, 其中 Azure 備份正常運作, 但 "Windows Server Backup" 失敗:<br>
     ![Windows Server Backup 失敗](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * 如果 Azure 備份失敗, 請在本文的常見 VM 備份錯誤一節中尋找對應的錯誤碼。 
+    * 如果 Azure 備份失敗, 請在本文的常見 VM 備份錯誤一節中尋找對應的錯誤碼。
 
 ## <a name="common-issues"></a>常見問題
 
@@ -193,7 +193,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | **錯誤碼**：VmNotInDesirableState <br/> **錯誤訊息**：VM 目前的狀態不允許備份。 |<ul><li>如果 VM 處於 [正在執行] 和 [關機] 之間的暫時性狀態，請等候狀態變更。 然後再觸發備份作業。 <li> 如果 VM 是 Linux VM 並使用安全性強化的 Linux 核心模組，請從安全性原則中排除 Azure Linux 代理程式路徑 **/var/lib/waagent**，並確定已安裝備份延伸模組。  |
 | 虛擬機器上沒有 VM 代理程式： <br>請安裝所有必要條件和 VM 代理程式。 接著請重新啟動作業。 |深入了解 [VM 代理程式安裝，以及如何驗證 VM 代理程式安裝](#vm-agent)。 |
 | **錯誤碼**：ExtensionSnapshotFailedNoSecureNetwork <br/> **錯誤訊息**：快照集作業失敗，因為無法建立安全網路通訊通道。 | <ol><li> 在提高權限的模式中執行 **regedit.exe**，來開啟登錄編輯程式。 <li> 識別系統中存在的所有 .NET Framework 版本。 它們位於登錄機碼 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft** 的階層下。 <li> 針對登錄機碼中的每個 .NET Framework，新增下列機碼︰ <br> **SchUseStrongCrypto"=dword:00000001**。 </ol>|
-| **錯誤碼**：ExtensionVCRedistInstallationFailure <br/> **錯誤訊息**：快照集作業失敗，因為無法安裝適用於 Visual Studio 2012 的 Visual C++ 可轉散發套件。 | 瀏覽至 C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion，並安裝 vcredist2012_x64。<br/>請確定允許服務安裝的登錄機碼值設定為正確的值。 也就是將**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver**中的**Start**值設定為**3** , 而不是**4**。 <br><br>如果您仍遇到安裝問題，請從提高權限的命令提示字元執行 **MSIEXEC /UNREGISTER**，再執行 **MSIEXEC /REGISTER**，以重新啟動安裝服務。  |
+| **錯誤碼**：ExtensionVCRedistInstallationFailure <br/> **錯誤訊息**：快照集作業失敗，因為無法安裝適用於 Visual Studio 2012 的 Visual C++ 可轉散發套件。 | 流覽至 C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion 並安裝 vcredist2013_x64。<br/>請確定允許服務安裝的登錄機碼值設定為正確的值。 也就是將**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver**中的**Start**值設定為**3** , 而不是**4**。 <br><br>如果您仍遇到安裝問題，請從提高權限的命令提示字元執行 **MSIEXEC /UNREGISTER**，再執行 **MSIEXEC /REGISTER**，以重新啟動安裝服務。  |
 
 
 ## <a name="jobs"></a>工作 (Job)

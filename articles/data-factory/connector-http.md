@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a6fa08596f5778b2c188fe3402801cf487b32ae4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: cdd7cfcb9d835c2ccac1dc367b9a1b34b509e8cf
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966994"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276435"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 
@@ -46,7 +46,7 @@ ms.locfileid: "68966994"
 > [!TIP]
 > 若要在 Data Factory 中設定 HTTP 連接器之前，測試擷取資料的 HTTP 要求，請先了解 API 規格中的標頭和本文需求。 您可以使用 Postman 或網頁瀏覽器之類的工具進行驗證。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -60,7 +60,7 @@ ms.locfileid: "68966994"
 
 以下是針對 HTTP 連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設定為 **HttpServer**。 | 是 |
 | url | Web 伺服器的基底 URL。 | 是 |
@@ -72,7 +72,7 @@ ms.locfileid: "68966994"
 
 將 **authenticationType** 屬性設定為 [基本]、[摘要] 或 [Windows]。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | userName | 用來存取 HTTP 端點的使用者名稱。 | 是 |
 | password | 使用者 (**userName** 值) 的密碼。 將此欄位標記為 **SecureString** 類型，將它安全地儲存在 Data Factory 中。 您也可以[參考 Azure Key Vault 中儲存的認證](store-credentials-in-key-vault.md)。 | 是 |
@@ -105,7 +105,7 @@ ms.locfileid: "68966994"
 
 若要使用 ClientCertificate 驗證，請將 **authenticationType** 屬性設定為 **ClientCertificate**。 除了上一節所述的一般屬性以外，請指定下列屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 編碼的憑證資料。 | 指定 **embeddedCertData** 或 **certThumbprint**。 |
 | certThumbprint | 憑證指紋已安裝在自我裝載整合執行階段機器的憑證存放區上。 只有當 **connectVia** 屬性中已指定自我裝載整合執行階段時才適用。 | 指定 **embeddedCertData** 或 **certThumbprint**。 |
@@ -166,14 +166,14 @@ ms.locfileid: "68966994"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-- 如需**Parquet、分隔的文字和二進位格式**, 請參閱[Parquet、分隔的文字和二進位格式資料集](#format-based-dataset)一節。
+- 如需**Parquet、分隔文字、avro 和二進位格式**, 請參閱[Parquet、分隔文字、avro 和二進位格式資料集](#format-based-dataset)一節。
 - 如需**ORC/Avro/JSON 格式**之類的其他格式, 請參閱[其他格式資料集](#other-format-dataset)一節。
 
-### <a name="format-based-dataset"></a>Parquet、分隔的文字和二進位格式資料集
+### <a name="format-based-dataset"></a>Parquet、分隔的文字、Avro 和二進位格式資料集
 
-若要將資料複製到**Parquet、分隔的文字或二進位格式**, 請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)和[二進位格式](format-binary.md)一文, 以及支援的設定。 下列屬性支援以格式為基礎之`location`資料集的設定下的 HTTP:
+若要將資料複製到**Parquet、分隔的文字或二進位格式**, 請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文, 以及支援的設定。 下列屬性支援以格式為基礎之`location`資料集的設定下的 HTTP:
 
-| 內容    | 描述                                                  | 必要項 |
+| 屬性    | 描述                                                  | 必要項 |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | 資料集`location`內的類型屬性必須設定為**HttpServerLocation**。 | 是      |
 | relativeUrl | 包含資料之資源的相對 URL。       | 否       |
@@ -212,9 +212,9 @@ ms.locfileid: "68966994"
 
 ### <a name="other-format-dataset"></a>其他格式資料集
 
-若要從 HTTP 以**ORC/Avro/JSON 格式**複製資料, 支援下列屬性:
+若要從 HTTP 以**ORC/JSON 格式**複製資料, 支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 資料集的 **type** 屬性必須設定為 **HttpFile**。 | 是 |
 | relativeUrl | 包含資料之資源的相對 URL。 若未指定此屬性，則只會使用在連結服務定義中指定的 URL。 | 否 |
@@ -274,14 +274,14 @@ ms.locfileid: "68966994"
 
 ### <a name="http-as-source"></a>HTTP 作為來源
 
-- 若要從**Parquet、分隔的文字和二進位格式**複製, 請參閱[Parquet、分隔的文字和二進位格式來源](#format-based-source)一節。
+- 若要從**Parquet、分隔文字、avro 和二進位格式**複製, 請參閱[Parquet、分隔文字、avro 和二進位格式來源](#format-based-source)一節。
 - 若要從**ORC/Avro/JSON 格式**之類的其他格式複製, 請參閱[其他格式來源](#other-format-source)一節。
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字和二進位格式來源
+#### <a name="format-based-source"></a>Parquet、分隔的文字、Avro 和二進位格式來源
 
-若要從**Parquet (分隔文字或二進位格式**) 複製資料, 請參閱格式為基礎之複製活動來源和支援設定的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)和[二進位格式](format-binary.md)一文。 下列屬性在以格式為基礎之`storeSettings`複製來源的設定下支援 HTTP:
+若要從**Parquet (分隔文字或二進位格式**) 複製資料, 請參閱格式為基礎之複製活動來源和支援設定的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [Avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文。 下列屬性在以格式為基礎之`storeSettings`複製來源的設定下支援 HTTP:
 
-| 內容                 | 描述                                                  | 必要項 |
+| 屬性                 | 描述                                                  | 必要項 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | 底下的 type 屬性`storeSettings`必須設定為**HttpReadSetting**。 | 是      |
 | requestMethod            | HTTP 方法。 <br>允許的值為 **Get** (預設值) 和 **Post**。 | 否       |
@@ -336,9 +336,9 @@ ms.locfileid: "68966994"
 
 #### <a name="other-format-source"></a>其他格式來源
 
-若要從 HTTP 以**ORC/Avro/JSON 格式**複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+若要從 HTTP 以**ORC/JSON 格式**複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 **type** 屬性必須設定為 **HttpSource**。 | 是 |
 | httpRequestTimeout | 用來取得回應的 HTTP 要求會有的逾時值 (**TimeSpan** 值)。 此值是取得回應的逾時值，而非讀取回應資料的逾時值。 預設值為 **00:01:40**。  | 否 |

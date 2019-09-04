@@ -7,12 +7,12 @@ ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 869be11639fd4e957a991cadb44f2714875ddf7e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232717"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239150"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的相容性資料
 
@@ -27,8 +27,6 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 > [!WARNING]
 > 如果合規性狀態報表為 [**未註冊**], 請確認**Microsoft.policyinsights**資源提供者已註冊, 且使用者擁有適當的角色型存取控制 (RBAC) 許可權, 如[中的 RBAC 中所述Azure 原則](../overview.md#rbac-permissions-in-azure-policy)。
-
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>評估觸發程序
 

@@ -5,15 +5,15 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/08/2019
-ms.openlocfilehash: 8851a4dfb7deafab7ad77ef80619dd49ca46ed71
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.date: 08/16/2019
+ms.openlocfilehash: c2f7575dca5432d90bf421afa5a39a4a4cd79744
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947847"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69983049"
 ---
-# <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>案例:BindException-位址已在 Azure HDInsight 中使用
+# <a name="scenario-bindexception---address-already-in-use-in-azure-hdinsight"></a>案例：BindException-位址已在 Azure HDInsight 中使用
 
 本文說明與 Azure HDInsight 叢集互動時, 問題的疑難排解步驟和可能的解決方法。
 
@@ -31,23 +31,23 @@ Caused by: java.net.BindException: Address already in use
 
 ## <a name="cause"></a>原因
 
-在繁重的工作負載活動期間重新開機 HBase 區域伺服器。 以下是當使用者從 Ambari UI 起始 HBase 區域伺服器上的重新開機作業時, 會在幕後發生的情況:
+在繁重的工作負載活動期間重新開機 Apache HBase 區域伺服器。 以下是當使用者從 Apache Ambari UI 起始 HBase 區域伺服器上的重新開機作業時, 會在幕後發生的情況:
 
 1. Ambari 代理程式會傳送停止要求給區域伺服器。
 
-1. 然後, Ambari 代理程式會等待30秒, 讓區域伺服器正常關閉。
+1. Ambari 代理程式會等待30秒, 讓區域伺服器正常關閉
 
-1. 如果應用程式繼續與區域伺服器連線, 則它不會立即關閉, 因此30秒的超時時間將會提早過期。
+1. 如果您的應用程式繼續與區域伺服器連線，則伺服器不會立即關機。 超過 30 秒逾時才會關機。
 
-1. 30 秒到期後，Ambari 代理程式會將強制終止 (kill-9) 傳送至區域伺服器。
+1. 30 秒後，Ambari 代理程式會傳送強制終止 (`kill -9`) 命令給區域伺服器。
 
 1. 由於這種突然關機, 雖然區域伺服器進程已終止, 但與進程相關聯的埠可能無法釋出, 最後會導致`AddressBindException`。
 
-## <a name="resolution"></a>解決方法
+## <a name="resolution"></a>解析度
 
-請先減少 HBase 區域伺服器的負載, 再起始重新開機。
+請先減少 HBase 區域伺服器的負載, 再起始重新開機。 此外，先排清所有資料表也是不錯的做法。 如需如何排清資料表的參考，請參閱 [HDInsight HBase：如何藉由排清資料表來改善 Apache HBase 叢集重新啟動時間](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
 
-或者, 使用下列命令, 嘗試並手動重新開機背景工作節點上的區域伺服器:
+或者, 請嘗試使用下列命令, 手動重新開機背景工作節點上的區域伺服器:
 
 ```bash
 sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh stop regionserver"

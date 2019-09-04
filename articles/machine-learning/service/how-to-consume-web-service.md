@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03579d75ad9cbaceca1a5d42913ff546088f6cfe
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 5f57be9a1fc5d260ce580b969c8f92c87aea17a8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982785"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279119"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
 將 Azure Machine Learning 模型部署為 Web 服務可建立 REST API。 您可以將資料傳送至此 API 並接收模型傳回的預測。 在本文件中，了解如何使用 C#、Go、Java 和 Python 為Web 服務建立用戶端。
 
-當您將映射部署至 Azure 容器實例、Azure Kubernetes Service 或可現場程式化閘道陣列 (FPGA) 時, 您會建立 web 服務。 您會從已註冊的模型及評分檔案建立映像。 您可以使用 [Azure Machine Learning SDK](https://aka.ms/aml-sdk) 擷取用來存取 Web 服務的 URI。 如果已啟用驗證, 您也可以使用 SDK 來取得驗證金鑰或權杖。
+當您將映射部署至 Azure 容器實例、Azure Kubernetes Service 或可現場程式化閘道陣列 (FPGA) 時, 您會建立 web 服務。 您會從已註冊的模型及評分檔案建立映像。 您可以使用 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 擷取用來存取 Web 服務的 URI。 如果已啟用驗證, 您也可以使用 SDK 來取得驗證金鑰或權杖。
 
 建立使用機器學習 Web 服務的用戶端所適用的一般工作流程是：
 

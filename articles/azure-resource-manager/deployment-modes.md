@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: c82d8b90d9da44ab8f4b8ea0aa0e063ea70350e2
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508217"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258969"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
@@ -21,31 +21,31 @@ ms.locfileid: "67508217"
 
 ## <a name="complete-mode"></a>完整模式
 
-在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 資源如果是範本中已指定的資源，但因為某個[條件](resource-group-authoring-templates.md#condition)評估為 false 而未部署，則不會被刪除。
+在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 資源如果是範本中已指定的資源，但因為某個[條件](conditional-resource-deployment.md)評估為 false 而未部署，則不會被刪除。
 
-請小心使用完整模式搭配[複製迴圈](resource-group-create-multiple.md)。 會刪除解決複製迴圈之後在範本中未指定任何資源。
+請小心使用完整模式搭配[複製迴圈](resource-group-create-multiple.md)。 在解析複製迴圈之後, 未在範本中指定的任何資源都會被刪除。
 
-有一些差異，在 資源類型如何處理完整模式刪除。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 不過，如果刪除父資源，會刪除這些子資源。 
+資源類型處理完整模式刪除的方式有一些差異。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 不過, 如果刪除父資源, 則會刪除這些子資源。 
 
-例如，如果您的資源群組包含 DNS 區域 (Microsoft.Network/dnsZones 資源類型) 和 CNAME 記錄 (Microsoft.Network/dnsZones/CNAME 資源類型)，則 DNS 區域是 CNAME 記錄的父代資源。 如果您使用完整模式部署，且範本中不包含 DNS 區域，則 DNS 區域和 CNAME 記錄都將同時刪除。 如果您在範本中包含的 DNS 區域，但不包括 CNAME 記錄，CNAME 不會刪除。 
+例如，如果您的資源群組包含 DNS 區域 (Microsoft.Network/dnsZones 資源類型) 和 CNAME 記錄 (Microsoft.Network/dnsZones/CNAME 資源類型)，則 DNS 區域是 CNAME 記錄的父代資源。 如果您使用完整模式部署，且範本中不包含 DNS 區域，則 DNS 區域和 CNAME 記錄都將同時刪除。 如果您在範本中包含 DNS 區域, 但未包含 CNAME 記錄, 則不會刪除 CNAME。 
 
 如需資源類型如何處理刪除的清單，請參閱[刪除完整模式部署的 Azure 資源](complete-mode-deletion.md)。
 
-如果資源群組[鎖定](resource-group-lock-resources.md)，完整模式並不會刪除資源。
+如果資源群組已[鎖定](resource-group-lock-resources.md), [完成] 模式不會刪除資源。
 
 > [!NOTE]
 > 只有根層級範本支援完整部署模式。 針對[連結或巢狀的範本](resource-group-linked-templates.md)，您必須使用累加模式。 
 >
-> [訂用帳戶層級部署](deploy-to-subscription.md)不支援完整的模式。
+> [訂用帳戶層級部署](deploy-to-subscription.md)不支援完整模式。
 >
-> 目前，入口網站不支援完整模式。
+> 目前, 入口網站不支援完整模式。
 >
 
 ## <a name="incremental-mode"></a>累加模式
 
 在累加模式中，Resource Manager 會讓現存於資源群組中但未在範本內指定的資源**保持不變**。
 
-不過，當重新部署現有的資源，以累加模式，結果會不同。 指定的資源，而不只是您正在更新所有屬性。 常見的誤解是認為未指定的屬性保持不變。 如果您未指定特定屬性，Resource Manager 會將更新解譯為覆寫這些值。
+不過, 在累加模式中重新部署現有的資源時, 結果會不同。 指定資源的所有內容, 而不只是您要更新的屬性。 常見的誤解是認為未指定的屬性會保持不變。 如果您未指定特定屬性，Resource Manager 會將更新解譯為覆寫這些值。
 
 ## <a name="example-result"></a>範例結果
 

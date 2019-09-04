@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: a344c94561c43652e360f7da02c16877e4d70529
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 01712508b15be947f4c3d7df401ad431d9f25455
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966975"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276388"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Impala 複製資料 (預覽)
 
@@ -32,7 +32,7 @@ ms.locfileid: "68966975"
 
 Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需要為了使用此連接器而需手動安裝驅動程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -46,9 +46,9 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 以下是針對 Impala 連結服務所支援的屬性。
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為 **Impala**。 | 是 |
+| Type | type 屬性必須設定為 **Impala**。 | 是 |
 | host | Impala 伺服器的 IP 位址或主機名稱 (也就是 192.168.222.160)。  | 是 |
 | port | Impala 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 21050。  | 否 |
 | authenticationType | 要使用的驗證類型。 <br/>允許的值為 **Anonymous**、**SASLUsername** 和 **UsernameAndPassword**。 | 是 |
@@ -92,10 +92,12 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 若要從 Impala 複製資料，請將資料集的類型屬性設定為 **ImpalaObject**。 以下是支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**ImpalaObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**ImpalaObject** | 是 |
+| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
+| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -104,11 +106,12 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
     "name": "ImpalaDataset",
     "properties": {
         "type": "ImpalaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Impala linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -121,9 +124,9 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 若要從 Impala 複製資料，請將複製活動中的來源類型設定為 **ImpalaSource**。 複製活動的 [來源] 區段支援下列屬性。
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **ImpalaSource**。 | 是 |
+| Type | 複製活動來源的 type 屬性必須設定為 **ImpalaSource**。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

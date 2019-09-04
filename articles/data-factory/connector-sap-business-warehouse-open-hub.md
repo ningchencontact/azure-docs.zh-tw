@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a47bb70ef87783d9b275329452c94526c67a2c3
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: d82f843cb5cdd7b910c734f26a93144374061b74
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211745"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274505"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>使用 Azure Data Factory 透過 Open Hub 從 SAP Business Warehouse 複製資料
 
@@ -145,11 +145,8 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 |:--- |:--- |:--- |
 | Type | 類型屬性必須設為 **SapOpenHubTable**。  | 是 |
 | openHubDestinationName | 要從中複製資料的 Open Hub Destination 名稱。 | 是 |
-| excludeLastRequest | 是否要排除最後一個要求的記錄。 | 否 (預設值為 **true**) |
-| baseRequestId | 差異載入的要求識別碼。 設定之後，將只會擷取 requestId **大於**此屬性值的資料。  | 否 |
 
->[!TIP]
->如果您的 Open Hub 資料表僅包含單一要求識別碼所產生的資料 (例如，您一律執行完整負載並覆寫資料表中的現有資料，或您只在測試時執行 DTP 一次)，請務必取消勾選 "excludeLastRequest" 選項，以複製資料。
+如果您是在`excludeLastRequest`資料`baseRequestId`集內設定和, 則仍會受到支援, 但建議您繼續使用活動來源中的新模型。
 
 **範例:**
 
@@ -158,12 +155,13 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
     "name": "SAPBWOpenHubDataset",
     "properties": {
         "type": "SapOpenHubTable",
+        "typeProperties": {
+            "openHubDestinationName": "<open hub destination name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "openHubDestinationName": "<open hub destination name>"
         }
     }
 }
@@ -175,7 +173,16 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
 
 ### <a name="sap-bw-open-hub-as-source"></a>以 SAP BW Open Hub 作為來源
 
-若要從 SAP BW Open Hub 複製資料，請將複製活動中的來源類型設為 **SapOpenHubSource**。 複製活動的 [**來源**] 區段中不需要任何其他類型特定的屬性。
+若要從 SAP BW 開放式中樞複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
+
+| 屬性 | 描述 | 必要項 |
+|:--- |:--- |:--- |
+| Type | 複製活動來源的**類型**屬性必須設定為**SapOpenHubSource**。 | 是 |
+| excludeLastRequest | 是否要排除最後一個要求的記錄。 | 否 (預設值為 **true**) |
+| baseRequestId | 差異載入的要求識別碼。 設定之後，將只會擷取 requestId **大於**此屬性值的資料。  | 否 |
+
+>[!TIP]
+>如果您的 Open Hub 資料表僅包含單一要求識別碼所產生的資料 (例如，您一律執行完整負載並覆寫資料表中的現有資料，或您只在測試時執行 DTP 一次)，請務必取消勾選 "excludeLastRequest" 選項，以複製資料。
 
 若要加速資料載入, 您可以在複製[`parallelCopies`](copy-activity-performance.md#parallel-copy)活動上設定, 以平行方式從 SAP BW 開放式中樞載入資料。 例如, 如果您將設定`parallelCopies`為四個, Data Factory 會同時執行四個 rfc 呼叫, 而每個 rfc 呼叫都會從您的 SAP BW 開放式中樞資料表中抓取部分資料, 而這些資料是由 DTP 要求識別碼和套件識別碼所分割。 這適用于唯一 DTP 要求識別碼 + 套件識別碼的數目大於的值`parallelCopies`時。 將資料複製到以檔案為基礎的資料存放區時, 也會建議寫入資料夾做為多個檔案 (僅指定資料夾名稱), 在此情況下, 效能會比寫入單一檔案更好。
 
@@ -200,7 +207,8 @@ ADF SAP BW 開放式中樞連接器提供兩個選擇性屬性`excludeLastReques
         ],
         "typeProperties": {
             "source": {
-                "type": "SapOpenHubSource"
+                "type": "SapOpenHubSource",
+                "excludeLastRequest": true
             },
             "sink": {
                 "type": "<sink type>"

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 79cb276f121c351a9954994038d9d826819edf5d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087461"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241048"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>長期函式中的檢查點和重新執行 (Azure Functions)
 
@@ -145,6 +145,9 @@ module.exports = df.orchestrator(function*(context) {
   如果協調器需要延遲，可以使用 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) 或 `createTimer` (JavaScript) API。
 
 * 協調器程式碼必須**永不起始任何非同步作業**，除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 或 `context.df` 物件的 API。 例如，沒有 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync` 在 .NET 中，或 `setTimeout()` 和 `setInterval()` 在 JavaScript 中。 長期工作架構會在單一執行緒上執行協調器程式碼，並且無法與可以由其他非同步 API 排程的任何其他執行緒進行互動。 發生這種情況`InvalidOperationException`時, 就會擲回例外狀況。
+
+> [!NOTE]
+> [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API 會執行非同步 i/o, 這在協調器函式中不允許, 而且只能用於非協調器函式中。
 
 * 在協調器程式碼中**應該避免無限迴圈**。 由於長期工作架構會在協調流程函式進行時儲存執行歷程記錄，所以無限迴圈可能會造成協調器執行個體用盡記憶體。 在無限迴圈的案例中，使用例如 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) 或 `continueAsNew` (JavaScript) 之類的 API 重新啟動函式執行，並捨棄先前的執行歷程記錄。
 

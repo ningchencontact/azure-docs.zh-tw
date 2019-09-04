@@ -8,18 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ee359b76072da3caee9ae1f5fab3d0fc28d25c0e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c06cd53e408ebcae24de487fe1d4d25e14aae11b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972697"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240719"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>使用 ExpressRoute 從內部部署連接到 CloudSimple
 
 如果您已經有從外部位置 (例如內部部署) 到 Azure 的 Azure ExpressRoute 連線, 您可以將它連接到您的 CloudSimple 環境。 若要這麼做, 您可以透過 Azure 功能, 讓兩個 ExpressRoute 線路彼此連接。 這個方法會在兩個環境之間建立安全、私用、高頻寬、低延遲的連線。
 
 [![內部部署 ExpressRoute 連線-全球範圍](media/cloudsimple-global-reach-connection.png)](media/cloudsimple-global-reach-connection.png)
+
+## <a name="before-you-begin"></a>開始之前
+
+若要從內部部署環境建立全球觸達連線, 則需要 **/29**網路位址區塊。  /29 位址空間用於 ExpressRoute 線路之間的傳輸網路。  傳輸網路不應該與您的任何 Azure 虛擬網路、內部部署網路或 CloudSimple 私人雲端網路重迭。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -65,3 +69,8 @@ ms.locfileid: "69972697"
     * 問題類型:**服務要求**
     * 問題子類型：**建立連至內部部署的 ExpressRoute 連線**
     * 提供您複製並儲存在詳細資料窗格中的資源識別碼和授權金鑰。
+    * 提供傳輸網路的/29 網路位址空間。
+
+## <a name="next-steps"></a>後續步驟
+
+* [深入瞭解 Azure 網路連線](cloudsimple-azure-network-connection.md)  

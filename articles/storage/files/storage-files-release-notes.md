@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/14/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f4ea820eb116c4efe550997cbe7c9ed69713c965
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7286d8465d857b24c72c46e9d671abb83ccefc21
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019118"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259363"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -35,14 +35,12 @@ Azure 檔案同步代理程式支援下列版本：
 | 2019年4月更新彙總套件- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019年4月4日 | 支援 |
 | 2019年3月更新彙總套件- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019年3月7日 | 支援 |
 | V5 版本 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019 年 2 月 12 日 | 支援 |
-| 2019 年 1 月更新彙總套件 - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 2019 年 1 月 14 日 | 支援 |
-| 2018 年 12 月更新彙總套件 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018 年 12 月 10 日 | 支援 |
-| 2018 年 12 月更新彙總套件 | 4.1.0.0 | 2018 年 12 月 4 日 | 支援 |
-| V4 版本 | 4.0.1.0 | 2018 年 11 月 13 日 | 支援 |
-| 2018 年 9 月更新彙總套件 | 3.3.0.0 | 2018 年 9 月 24 日 | 支援的代理程式版本將于2019年8月19日到期 |
-| 2018 年 8 月更新彙總套件 | 3.2.0.0 | 2018 年 8 月 15 日 | 支援的代理程式版本將于2019年8月19日到期 |
-| 正式運作 | 3.1.0.0 | 2018 年 7 月 19 日 | 支援的代理程式版本將于2019年8月19日到期 |
-| 過期的代理程式 | 1.1.0.0 - 3.0.13.0 | N/A | 不支援 - 代理程式版本已於 2018 年 10 月1 日過期 |
+| 2019 年 1 月更新彙總套件 - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 2019 年 1 月 14 日 | 支援的代理程式版本將于2019年11月5日過期 |
+| 2018 年 12 月更新彙總套件 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018 年 12 月 10 日 | 支援的代理程式版本將于2019年11月5日過期 |
+| 2018 年 12 月更新彙總套件 | 4.1.0.0 | 2018 年 12 月 4 日 | 支援的代理程式版本將于2019年11月5日過期 |
+| V4 版本 | 4.0.1.0 | 2018 年 11 月 13 日 | 支援的代理程式版本將于2019年11月5日過期 |
+| V3 版本 | 3.1.0.0-v3.4.0。0 | 不受支援 | 不支援-代理程式版本已于2019年8月19日到期 |
+| 預先 GA 的代理程式 | 1.1.0.0 - 3.0.13.0 | N/A | 不支援 - 代理程式版本已於 2018 年 10 月1 日過期 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -70,7 +68,7 @@ Azure 檔案同步代理程式支援下列版本：
 ### <a name="improvements-and-issues-that-are-fixed"></a>增強功能和已修正的問題
 
 - 支援較大的檔案共用大小
-    - 有了較大型 Azure 檔案共用的預覽, 我們也增加了檔案同步的支援限制。 在第一個步驟中, Azure 檔案同步現在支援單一同步處理命名空間中的最多25TB 和50million 檔案。 若要申請大型檔案共用預覽, 請填寫此表單 https://aka.ms/azurefilesatscalesurvey 。 
+    - 有了較大型 Azure 檔案共用的預覽, 我們也增加了檔案同步的支援限制。 在第一個步驟中, Azure 檔案同步現在支援單一同步處理命名空間中的最多 25 TB 和50000000檔案。 若要申請大型檔案共用預覽, 請填寫此表單 https://aka.ms/azurefilesatscalesurvey 。 
 - 支援儲存體帳戶上的防火牆和虛擬網路設定
     - Azure 檔案同步現在支援儲存體帳戶上的防火牆和虛擬網路設定。 若要將您的部署設定為使用防火牆和虛擬網路設定, 請參閱[設定防火牆和虛擬網路設定](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)。
 - 用來立即同步處理 Azure 檔案共用中已變更檔案的 PowerShell Cmdlet
@@ -101,7 +99,7 @@ Azure 檔案同步代理程式支援下列版本：
 ### <a name="interoperability"></a>互通性
 - 防毒程式、備份及其他存取階層式檔案的應用程式，除非採用離線屬性並略過讀取這些檔案的內容，否則將會導致不想要的重新叫用。 如需詳細資訊，請參閱[針對 Azure 檔案同步進行疑難排解](storage-sync-files-troubleshoot.md)。
 - 如果檔案因為檔案檢測而遭到封鎖，檔案伺服器資源管理員 (FSRM) 檔案檢測會造成無止盡的同步處理失敗。
-- 不支援在已安裝 Azure 檔案同步代理程式的伺服器上執行 sysprep，而且此舉可能會導致非預期的結果。 在部署伺服器映像並完成 sysprep 迷你設定之後，請安裝 Azure 檔案同步代理程式。
+- 不支援在已安裝 Azure 檔案同步代理程式的伺服器上執行 sysprep, 而且可能會導致非預期的結果。 在部署伺服器映像並完成 sysprep 迷你設定之後，請安裝 Azure 檔案同步代理程式。
 
 ### <a name="sync-limitations"></a>同步限制
 下列項目不會同步，但是系統的其餘部分會繼續正常運作：
@@ -177,7 +175,7 @@ Azure 檔案同步代理程式支援下列版本：
   - 現在可以使用兩個新的伺服器本機 PowerShell Cmdlet 來取得雲端階層處理和檔案重新叫用資訊。 它們可讓伺服器上的兩個事件通道記錄資訊:
     - StorageSyncFileTieringResult 將會列出尚未階層式所有檔案及其路徑, 並根據原因來報告。
     - StorageSyncFileRecallResult 會報告所有檔案召回事件。 它會列出每個回收的檔案及其路徑, 以及該召回的成功或錯誤。
-  - 根據預設, 這兩個事件通道可以儲存最多 1MB, 而您可以增加事件通道大小來增加報告的檔案數量。
+  - 根據預設, 兩個事件通道可以儲存最多 1 MB, 您可以藉由增加事件通道大小來增加報告的檔案數量。
 - FIPS 模式的支援
   - Azure 檔案同步現在支援在已安裝 Azure 檔案同步代理程式的伺服器上啟用 FIPS 模式。
     - 在伺服器上啟用 FIPS 模式之前, 請在您的伺服器上安裝 Azure 檔案同步 agent 和[PackageManagement 模組](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2)。 如果已在伺服器上啟用 FIPS, 請[手動](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download)將[PackageManagement 模組](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2)下載至您的伺服器。
@@ -265,7 +263,7 @@ Azure 檔案同步代理程式支援下列版本：
 - 支援重複資料刪除
     - 在 Windows Server 2016 和 Windows Server 2019 上啟用的雲端階層處理現已完整支援重複資料刪除。 在已啟用雲端階層處理的磁碟區上啟用重複資料刪除，可讓您在內部部署中快取更多檔案，而不需佈建更多儲存空間。
 - 支援離線資料傳輸 (例如透過資料箱)
-    - 透過您選擇的任何方式，輕鬆地將大量資料移轉到 Azure 檔案同步中。 您可以選擇 Azure 資料箱、AzCopy，甚至是協力廠商移轉服務。 您不需要使用大量的頻寬以將資料送進 Azure。若使用資料箱，只要將它寄過去即可！ 若要深入了解，請參閱[離線資料傳輸文件](https://aka.ms/AFS/OfflineDataTransfer) \(英文\)。
+    - 透過您選擇的任何方式，輕鬆地將大量資料移轉到 Azure 檔案同步中。 您可以選擇 Azure 資料箱、AzCopy, 甚至是協力廠商的遷移服務。 您不需要使用大量的頻寬以將資料送進 Azure。若使用資料箱，只要將它寄過去即可！ 若要深入了解，請參閱[離線資料傳輸文件](https://aka.ms/AFS/OfflineDataTransfer) \(英文\)。
 - 改進同步效能
     - 在相同磁碟區上有多個伺服器端點的客戶，在此版本之前可能發生同步處理效能緩慢的問題。 Azure 檔案同步每天會在伺服器上建立一個暫時的 VSS 快照集，用以同步具有開啟控制代碼的檔案。 同步處理現在支援 VSS 同步工作階段為作用中時，在磁碟區上的多個伺服器端點同步處理。 您不必再等候 VSS 同步工作階段完成，如此一來磁碟區上的其他伺服器端點可繼續同步處理。
 - 改進入口網站中的監視
@@ -420,75 +418,4 @@ Azure 檔案同步代理程式支援下列版本：
 - 以日期為基礎的雲端階層處理原則設定可用來指定應該快取在指定天數內存取的檔案。 若要深入了解，請參閱[雲端階層處理概觀](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering#afs-force-tiering)。
 - 如果使用 Robocopy 將階層式檔案複製到另一個位置，則所產生的檔案不會進行階層處理。 因為 Robocopy 未正確地在複製作業中包含該屬性，所以可能設定離線屬性。
 - 使用 robocopy 複製檔案時，請使用 /MIR 選項來保留檔案的時間戳記。 這可確保較舊的檔案會比最近存取的檔案更快進行階層處理。
-- 從 SMB 用戶端檢視檔案屬性時，因為 SMB 快取檔案中繼資料，所以離線屬性可能會顯示為不正確設定。
-
-## <a name="agent-version-3300"></a>代理程式版本 3.3.0.0
-下列版本資訊適用於 2018 年 9 月 24 日發行的 Azure 檔案同步代理程式 3.3.0.0 版。 這些是針對版本 3.1.0.0 所列的版本資訊以外的版本資訊。
-
-此版本修正的問題清單：
-- Azure 檔案同步代理程式升級至 3.1 或 3.2 版後，註冊的伺服器狀態為「顯示離線」。
-- 儲存體同步代理程式 (FileSyncSvc) 服務因檔案路徑太長而損毀。
-- 伺服器註冊失敗，錯誤：無法載入檔案或組件 Kailani.Afs.StorageSyncProtocol.V3。
-
-## <a name="agent-version-3200"></a>代理程式版本 3.2.0.0
-下列版本資訊適用於 Azure 檔案同步代理程式版本 3.2.0.0 (在 2018 年 8 月 15 日發行)。 這些是針對版本 3.1.0.0 所列的版本資訊以外的版本資訊。
-
-此版本包含下列修正︰
-- 同步處理失敗，由於記憶體流失造成記憶體不足錯誤 (0x8007000e)
-
-## <a name="agent-version-3100"></a>代理程式版本 3.1.0.0
-下列版本資訊適用於 Azure 檔案同步代理程式版本 3.1.0.0 (在 2018 年 6 月 17 日發行)。
-
-### <a name="evaluation-tool"></a>評估工具
-在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 Azure PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的 OS 版本。 關於安裝和使用方式指示，請參閱規劃指南中[評估工具](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet)小節。 
-
-### <a name="agent-installation-and-server-configuration"></a>代理程式安裝和伺服器設定
-如需如何使用 Windows Server 安裝及設定 Azure 檔案同步代理程式的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
-
-- 必須以提升的 (系統管理員) 權限安裝代理程式安裝套件。
-- Windows Server Core 或 Nano Server 部署選項不支援此代理程式。
-- 只有 Windows Server 2016 和 Windows Server 2012 R2 支援此代理程式。
-- 代理程式需要至少 2 GB 的實體記憶體。
-- 在已將系統磁碟區資訊 (SVI) 目錄壓縮的磁碟區上，儲存體同步代理程式 (FileSyncSvc) 服務不支援其中的伺服器端點。 此設定會導致非預期的結果。
-- 不支援 FIPS 模式，且必須停用該模式。 
-
-### <a name="interoperability"></a>互通性
-- 防毒程式、備份及其他存取階層式檔案的應用程式，除非採用離線屬性並略過讀取這些檔案的內容，否則將會導致不想要的重新叫用。 如需詳細資訊，請參閱[針對 Azure 檔案同步進行疑難排解](storage-sync-files-troubleshoot.md)。
-- 請勿使用檔案伺服器資源管理員 (FSRM) 或其他檔案檢測。 如果檔案因為檔案檢測而遭到封鎖，檔案檢測會造成無止盡的同步處理失敗。
-- 不支援在已安裝 Azure 檔案同步代理程式的伺服器上執行 sysprep，而且此舉可能會導致非預期的結果。 請在部署伺服器映像和完成 sysprep 迷你設定之後，再進行代理程式安裝與伺服器註冊。
-- 在相同的磁碟區上不支援重複資料刪除和雲端階層處理。
-
-### <a name="sync-limitations"></a>同步限制
-下列項目不會同步，但是系統的其餘部分會繼續正常運作：
-- 長度超過 2048 個字元的路徑。
-- 安全性描述元的判別存取控制清單 (DACL) 部分 (如果大於 2 KB)。 (這個問題僅適用於單一項目上有超過 40 個存取控制項目 (ACE) 時。)
-- 用於稽核之安全性描述元的系統存取控制清單 (SACL) 部分。
-- 擴充屬性。
-- 替代資料流。
-- 重新分析點。
-- 永久連結。
-- 如果變更從其他端點同步至該檔案，則不會保存壓縮 (如果設定於伺服器檔案上)。
-- 任何使用 EFS (或其他使用者模式加密) 加密的檔案，會阻止服務讀取資料。
-
-    > [!Note]  
-    > Azure 檔案同步永遠會加密傳輸中的資料。 資料待用時一律會在 Azure 中加密。
- 
-### <a name="server-endpoint"></a>伺服器端點
-- 只能在 NTFS 磁碟區上建立伺服器端點。 Azure 檔案同步目前不支援 ReFS、FAT、FAT32 及其他檔案系統。
-- 如果未在刪除伺服器端點之前回收階層式檔案，階層式檔案會變成無法使用的狀態。
-- 系統磁碟區上不支援雲端階層。 若要在系統磁碟區上建立伺服器端點，請於建立伺服器端點時，停用雲端階層處理。
-- 只有叢集磁碟才支援容錯移轉叢集，但叢集共用磁碟區 (CSV) 不提供支援。
-- 伺服器端點無法為巢狀。 它可與其他端點平行並存於相同的磁碟區上。
-- 請勿在伺服器端點內儲存 OS 或應用程式分頁檔。
-- 如果將伺服器重新命名，並不會更新入口網站中的伺服器名稱。
-
-### <a name="cloud-endpoint"></a>雲端端點
-- Azure 檔案同步支援直接對 Azure 檔案共用進行變更。 不過，在 Azure 檔案共用上所做的任何變更，都必須先由 Azure 檔案同步變更偵測作業做出探索。 針對雲端端點的變更偵測作業，每隔 24 小時會起始一次。 此外，透過 REST 通訊協定對 Azure 檔案共用所做的變更，將不會更新 SMB 上次修改時間，而且將不會同步顯示為變更。
-- 可將儲存體同步服務及 (或) 儲存體帳戶移至現有 Azure AD 租用戶中的不同資源群組或訂用帳戶。 如果移動儲存體帳戶，您需要將儲存體帳戶的存取權給予混合式檔案同步服務 (請參閱[確保 Azure 檔案同步有儲存體帳戶的存取權](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac))。
-
-    > [!Note]  
-    > Azure 檔案同步不支援將訂用帳戶移至不同的 Azure AD 租用戶。
-
-### <a name="cloud-tiering"></a>雲端階層處理
-- 如果使用 Robocopy 將階層式檔案複製到另一個位置，則所產生的檔案不會進行階層處理。 因為 Robocopy 未正確地在複製作業中包含該屬性，所以可能設定離線屬性。
 - 從 SMB 用戶端檢視檔案屬性時，因為 SMB 快取檔案中繼資料，所以離線屬性可能會顯示為不正確設定。

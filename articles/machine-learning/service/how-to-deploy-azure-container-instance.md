@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 29bff3383985905ac3146dfc7fc097fbd49a5a6d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: cb80cb92ef93132aae3c57e74c108293da3a7834
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543564"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279146"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>將模型部署到 Azure 容器實例
 
@@ -32,7 +32,7 @@ ms.locfileid: "69543564"
 
 - 在您的工作區中註冊的機器學習模型。 如果您沒有已註冊的模型, 請參閱[部署模型的方式和位置](how-to-deploy-and-where.md)。
 
-- [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組, [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), 或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
+- [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), 或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
 
 - 本文中的__Python__程式碼片段假設已設定下列變數:
 

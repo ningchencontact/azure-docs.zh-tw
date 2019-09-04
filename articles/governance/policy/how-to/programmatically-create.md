@@ -7,20 +7,18 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d158950749a9704276a666b58101bb5ad9dcbc42
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 1039073aaaf9d1a6b7bd9ac21a95c73871ce3ba3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232630"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239031"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
 本文會逐步引導您以程式設計方式建立及管理原則。 Azure 原則定義會對您的資源強制執行不同的規則和效果。 強制作業可確保資源會符合您的公司標準及服務等級協定規範。
 
 如需合規性相關資訊，請參閱[取得合規性資料](getting-compliance-data.md)。
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 

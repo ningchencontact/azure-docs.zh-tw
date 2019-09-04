@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 53b2f9783b33c859ca2c5de5f35353b8482ea5c7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774910"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275128"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
@@ -49,57 +49,6 @@ ms.locfileid: "68774910"
 
 每個元素都有可以設定的屬性。 本文將詳細說明範本的各個區段。
 
-## <a name="syntax"></a>語法
-
-範本的基本語法是 JSON。 不過, 您可以使用運算式來擴充範本內可用的 JSON 值。  運算式的開頭和結尾都是`[`方括弧`]`: 和。 部署範本時，會評估運算式的值。 運算式可以傳回字串、整數、布林值、陣列或物件。 下列範例會顯示參數預設值中的運算式:
-
-```json
-"parameters": {
-  "location": {
-    "type": "string",
-    "defaultValue": "[resourceGroup().location]"
-  }
-},
-```
-
-在運算式中, 語法`resourceGroup()`會呼叫 Resource Manager 提供的其中一個函式, 以便在範本中使用。 和在 JavaScript 中相同，函式呼叫的格式為 `functionName(arg1,arg2,arg3)`。 語法`.location`會從該函式所傳回的物件中, 抓取一個屬性。
-
-範本函數和其參數不區分大小寫。 例如，Resource Manager 在解析 **variables('var1')** 和 **VARIABLES('VAR1')** 時，會將它們視為相同。 評估時，除非函式明確修改大小寫 (例如 toUpper 或 toLower)，否則函式將會保留大小寫。 特定資源類型可能有與評估函式方式無關的大小寫需求。
-
-若要讓常值字串開頭為左括弧`[` , 並以右括弧`]`結尾, 但未將它解釋為運算式, 請加入額外的括弧, `[[`以開頭的字串。 例如, 變數:
-
-```json
-"demoVar1": "[[test value]"
-```
-
-會解析`[test value]`為。
-
-不過, 如果常值字串不是以括弧結尾, 請勿將第一個括弧換成。 例如, 變數:
-
-```json
-"demoVar2": "[test] value"
-```
-
-會解析`[test] value`為。
-
-若要將字串值當做參數傳遞至函式, 請使用單引號。
-
-```json
-"name": "[concat('storage', uniqueString(resourceGroup().id))]"
-```
-
-若要在運算式中以雙引號括住, 例如在範本中新增 JSON 物件, 請使用反斜線。
-
-```json
-"tags": {
-    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
-},
-```
-
-範本運算式不能超過24576個字元。
-
-如需範本函數的完整清單，請參閱 [Azure 資源管理員範本函數](resource-group-template-functions.md)。 
-
 ## <a name="parameters"></a>參數
 
 在範本的 parameters 區段中，您會指定可在部署資源時輸入的值。 提供針對特定環境 (例如開發、測試和生產環境) 量身訂做的參數值，可讓您自訂部署。 您不必在範本中提供參數，但若沒有參數，您的範本一律會部署具有相同名稱、位置和屬性的相同資源。
@@ -130,7 +79,7 @@ ms.locfileid: "68774910"
 | 元素名稱 | 必要項 | 描述 |
 |:--- |:--- |:--- |
 | parameterName |是 |參數名稱。 必須是有效的 JavaScript 識別碼。 |
-| type |是 |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 |
+| Type |是 |參數值類型。 允許的類型和值為 **string**、**securestring**、**int**、**bool**、**object**、**secureObject**，以及 **array**。 |
 | defaultValue |否 |如果未提供參數值，則會使用參數的預設值。 |
 | allowedValues |否 |參數的允許值陣列，確保提供正確的值。 |
 | minValue |否 |int 類型參數的最小值，含此值。 |
@@ -501,11 +450,11 @@ ms.locfileid: "68774910"
 
 | 元素名稱 | 必要項 | 描述 |
 |:--- |:--- |:--- |
-| condition (條件) | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 請參閱[條件](#condition)。 |
+| condition (條件) | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 請參閱[條件式部署](conditional-resource-deployment.md)。 |
 | apiVersion |是 |要用來建立資源的 REST API 版本。 若要判斷可用的值, 請參閱[範本參考](/azure/templates/)。 |
-| type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要判斷可用的值, 請參閱[範本參考](/azure/templates/)。 對於子資源, 類型的格式取決於它是內嵌在父資源內, 還是在父資源外部定義。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
+| Type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要判斷可用的值, 請參閱[範本參考](/azure/templates/)。 對於子資源, 類型的格式取決於它是內嵌在父資源內, 還是在父資源外部定義。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
 | name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定並非嘗試詐騙其他身分識別。 對於子資源, 名稱的格式取決於它是內嵌在父資源內, 還是在父資源外部定義。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
-| 位置 |視情況而異 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 |
+| 位置 |視情況而異 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 請參閱[設定資源位置](resource-location.md) |
 | tags |否 |與資源相關聯的標記。 套用標籤，既可以邏輯方式組織訂用帳戶中的資源。 |
 | comments |否 |您在範本中記錄資源的註解。 如需詳細資訊，請參閱[範本中的註解](resource-group-authoring-templates.md#comments)。 |
 | 複製 |否 |如果需要多個執行個體，要建立的資源數目。 預設模式為平行。 如果您不想要同時部署所有或某些資源，請指定序列模式。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的數個執行個體](resource-group-create-multiple.md)。 |
@@ -515,31 +464,6 @@ ms.locfileid: "68774910"
 | kind | 否 | 某些資源允許以值定義您所部署的資源類型。 例如，您可以指定要建立的 Cosmos DB 類型。 |
 | 計劃 | 否 | 某些資源允許以值定義要部署的計劃。 例如，您可以指定虛擬機器的 Marketplace 映像。 | 
 | 資源 |否 |與正在定義的資源相依的下層資源。 只提供父資源的結構描述允許的資源類型。 沒有隱含父資源的相依性。 您必須明確定義該相依性。 請參閱[設定子資源的名稱和類型](child-resource-name-type.md)。 |
-
-### <a name="condition"></a>條件
-
-當您在部署期間必須決定是否要建立資源時, 請`condition`使用元素。 此元素的值會解析為 true 或 false。 當此值為 true 時，會部署資源。 當此值為 false 時，則不會部署資源。 此值只能套用至整個資源。
-
-一般而言，當您想要建立新資源或使用現有資源時，就會使用此值。 例如，若要指定要部署新的儲存體帳戶或使用現有的儲存體帳戶，請使用：
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
-
-如需使用 `condition` 項目的完整範例範本，請參閱[ 使用新的或現有的虛擬網路、儲存體和公用 IP 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)。
-
-如果您使用[reference](resource-group-template-functions-resource.md#reference)或[list](resource-group-template-functions-resource.md#list)函數搭配有條件地部署的資源, 即使未部署資源, 也會評估該函數。 如果函數參考不存在的資源, 就會收到錯誤。 使用[if](resource-group-template-functions-logical.md#if)函式可確保只有在部署資源時, 才會針對條件評估函式。 如需使用 if 和 reference 搭配條件式部署資源的範例範本, 請參閱[if](resource-group-template-functions-logical.md#if)函式。
 
 ### <a name="resource-names"></a>資源名稱
 
@@ -595,65 +519,6 @@ ms.locfileid: "68774910"
 }
 ```
 
-### <a name="resource-location"></a>資源位置
-
-在部署範本時，您必須為每個資源提供一個位置。 不同的位置支援不同的資源類型。 若要取得資源類型所支援的位置，請參閱 [Azure 資源提供者和類型](resource-manager-supported-services.md)。
-
-請使用參數來指定資源的位置，並將預設值設定為 `resourceGroup().location`。
-
-下列範例顯示部署至某個 (已指定為參數) 位置的儲存體帳戶：
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "StorageV2",
-      "properties": {}
-    }
-  ],
-  "outputs": {
-    "storageAccountName": {
-      "type": "string",
-      "value": "[variables('storageAccountName')]"
-    }
-  }
-}
-```
-
 ## <a name="outputs"></a>outputs
 
 在輸出區段中，您可以指定從部署傳回的值。 通常, 您會從已部署的資源傳回值。
@@ -676,7 +541,7 @@ ms.locfileid: "68774910"
 |:--- |:--- |:--- |
 | outputName |是 |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
 | condition (條件) |否 | 布林值，指出是否傳回此輸出值。 當為 `true` 時，該值會包含在部署的輸出中。 若為 `false`，則會略過此部署的輸出值。 未指定時，預設值為 `true`。 |
-| type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 如果您針對輸出類型指定**securestring** , 此值不會顯示在部署歷程記錄中, 而且無法從另一個範本抓取。 若要在多個範本中使用秘密值, 請將密碼儲存在 Key Vault 中, 並在參數檔案中參考密碼。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](resource-manager-keyvault-parameter.md)。 |
+| Type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 如果您針對輸出類型指定**securestring** , 此值不會顯示在部署歷程記錄中, 而且無法從另一個範本抓取。 若要在多個範本中使用秘密值, 請將密碼儲存在 Key Vault 中, 並在參數檔案中參考密碼。 如需詳細資訊，請參閱[在部署期間使用 Azure Key Vault 以傳遞安全的參數值](resource-manager-keyvault-parameter.md)。 |
 | value |是 |評估並傳回做為輸出值的範本語言運算式。 |
 
 ### <a name="define-and-use-output-values"></a>定義和使用輸出值

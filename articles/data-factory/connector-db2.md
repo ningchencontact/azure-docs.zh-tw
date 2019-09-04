@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 2bdec0c70e9f11ca40e0ff9e1aa87898c94e119c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: c774725d4a4db4f624cd3980041b2974dfc8ed28
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233000"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275556"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -32,6 +32,7 @@ ms.locfileid: "70233000"
 
 具體而言，此 DB2 連接器支援以下 IBM DB2 平台和版本，以及支援分散式關聯資料庫架構 (DRDA) SQL 存取管理員 (SQLAM) 版本 9、10 和 11：
 
+* IBM DB2 for z/OS 12。1
 * IBM DB2 for z/OS 11.1
 * IBM DB2 for z/OS 10.1
 * IBM DB2 for i 7.3
@@ -99,14 +100,16 @@ ms.locfileid: "70233000"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 DB2 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 DB2 資料集所支援的屬性清單。
 
-若要從 DB2 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
+若要從 DB2 複製資料, 支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
-| tableName | DB2 資料庫中的表格名稱。 | 否 (如果已指定活動來源中的"query") |
+| Type | 資料集的類型屬性必須設定為：**Db2Table** | 是 |
+| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
+| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -115,15 +118,18 @@ ms.locfileid: "70233000"
     "name": "DB2Dataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "Db2Table",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<DB2 linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+如果您使用`RelationalTable`的是具類型的資料集, 則仍會受到支援, 但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
@@ -131,11 +137,11 @@ ms.locfileid: "70233000"
 
 ### <a name="db2-as-source"></a>DB2 作為來源
 
-若要從 DB2 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
+若要從 DB2 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**Db2Source** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
@@ -159,7 +165,7 @@ ms.locfileid: "70233000"
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "Db2Source",
                 "query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""
             },
             "sink": {
@@ -169,6 +175,8 @@ ms.locfileid: "70233000"
     }
 ]
 ```
+
+如果您使用`RelationalSource`的是具類型的來源, 則仍會受到支援, 但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-db2"></a>DB2 的資料類型對應
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 03651ecb073d02a373c434b8cb55bdafec6d142a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 46c6ac52e1afb6c1619b814580a1059fd3dfedda
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142206"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279493"
 ---
 # <a name="azure-migrate-frequently-asked-questions-faq"></a>Azure Migrate：常見問題集 (FAQ)
 
@@ -27,7 +27,7 @@ ms.locfileid: "70142206"
 
 Azure Migrate 提供集中式中樞來開始您的遷移、執行和追蹤機器和工作負載的探索和評估, 以及執行和追蹤機器和工作負載至 Azure 的遷移。 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure)是一種嚴重損壞修復解決方案。 Azure Migrate Server 遷移會在後端使用 Azure Site Recovery, 以啟用內部部署機器的隨即轉移的遷移案例。
 
-## <a name="azure-migrate-appliance-vmwarephysical-servers"></a>Azure Migrate 設備 (VMware/實體伺服器)
+## <a name="azure-migrate-appliance"></a>Azure Migrate 設備
 
 ### <a name="how-does-the-azure-migrate-appliance-connect-to-azure"></a>Azure Migrate 設備如何連接到 Azure？
 
@@ -87,6 +87,9 @@ Azure Migrate 設備會持續收集內部部署環境的相關資訊。 但評�
 ### <a name="how-many-vms-can-i-discover-with-a-single-migration-appliance"></a>我可以使用單一遷移設備探索多少部 Vm？
 
 您最多可以探索10000個 VMware Vm, 以及多達5000部具有單一遷移設備的 Hyper-v Vm。 如果您的內部部署環境中有更多電腦, 請瞭解如何調整[hyper-v](scale-hyper-v-assessment.md)和[VMware](scale-vmware-assessment.md)評估。
+
+### <a name="can-i-delete-the-azure-migrate-appliance-from-the-project"></a>我可以從專案中刪除 Azure Migrate 設備嗎？
+目前不支援從專案刪除設備。 若要刪除設備, 唯一的方法是刪除具有 Azure Migrate 專案且與設備相關聯的資源群組, 但這也會刪除其他已註冊的設備、已探索的清查、評估和所有其他 Azure 成品與資源群組中的專案相關聯。
 
 ## <a name="azure-migrate-server-assessment"></a>Azure Migrate 伺服器評量
 

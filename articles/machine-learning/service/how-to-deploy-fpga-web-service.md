@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4259c438fec448ba510e4c248de6f4acc184ab
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c3d1d211f85c50a482e1dd9c482cb75477942de7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990494"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278190"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>什麼是可現場程式化閘道陣列 (FPGA) 和如何部署
 
@@ -82,12 +82,12 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 
 
 
-## <a name="example-deploy-models-on-fpgas"></a>範例:在 FPGA 上部署模型 
+## <a name="example-deploy-models-on-fpgas"></a>範例：在 FPGA 上部署模型 
 
 您可以使用 Azure Machine Learning 硬體加速模型, 在 Fpga 上將模型部署為 web 服務。 使用 Fpga 可提供超低延遲推斷, 即使使用單一批次大小也一樣。 推斷 (或模型計分) 是已部署的模型用於預測的階段, 最常見的是生產資料。
 
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。  如果您沒有, 請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -133,7 +133,7 @@ Azure Fpga 會與 Azure Machine Learning 整合。 Microsoft 使用 FPGA 來評�
 * 取用已部署的模型
 * 刪除已部署的服務
 
-使用[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 來建立服務定義。 服務定義是根據 TensorFlow 來描述圖形管線 (輸入、功能化器和分類器) 的檔案。 部署命令會自動將定義和圖表壓縮為 ZIP 檔案，然後將 ZIP 檔案上傳到 Azure Blob 儲存體。 已部署 DNN 以在 FPGA 上執行。
+使用[適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 來建立服務定義。 服務定義是根據 TensorFlow 來描述圖形管線 (輸入、功能化器和分類器) 的檔案。 部署命令會自動將定義和圖表壓縮為 ZIP 檔案，然後將 ZIP 檔案上傳到 Azure Blob 儲存體。 已部署 DNN 以在 FPGA 上執行。
 
 ### <a name="load-azure-ml-workspace"></a>載入 Azure ML 工作區
 

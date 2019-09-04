@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: b500a7b2c74acbd4e035e710f7e25f1aacd86126
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 3df481245db8d737032d1abf5906a2ffe949a2fe
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194857"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275696"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 服務的資源提供者
 
@@ -102,9 +102,9 @@ ms.locfileid: "70194857"
 | Microsoft.LogAnalytics | [Azure 監視器](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Machine Learning 服務](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Machine Learning 服務](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningServices | [Machine Learning 服務](../machine-learning/service/index.yml) |
+| Microsoft.MachineLearningCompute | [Machine Learning 服務](../machine-learning/index.yml) |
+| Microsoft.MachineLearningModelManagement | [Machine Learning 服務](../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Machine Learning 服務](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [適用於 Azure 資源的受控識別](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure 實驗室服務](../lab-services/index.yml) |
 | Microsoft.Management | [管理群組](/azure/governance/management-groups/) |

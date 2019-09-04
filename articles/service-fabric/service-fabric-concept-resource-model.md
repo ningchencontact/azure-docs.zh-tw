@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 36c0f02202c738ac96d26b748b741cd8eee27380
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623818"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241829"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>什麼是 Service Fabric 應用程式資源模型？
 建議您透過 Azure Resource Manager, 將 Service Fabric 應用程式部署到您的 Service Fabric 叢集。 這個方法可讓您以 JSON 描述應用程式和服務, 並將它們部署在與叢集相同的 Resource Manager 範本中。 相對於透過 PowerShell 或 Azure CLI 來部署和管理應用程式, 不需要等待叢集準備就緒。 應用程式註冊、佈建和部署程序全都可以透過一個步驟完成。 這是在叢集中管理應用程式生命週期的最佳做法。 如需詳細資訊, 請參閱[最佳做法](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)。
@@ -154,6 +154,10 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 * [在 Service Fabric 中模型化應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
 * [Service Fabric 應用程式和服務資訊清單](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
+
+## <a name="see-also"></a>另請參閱
+* [最佳作法](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [將應用程式和服務當作 Azure 資源來管理](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

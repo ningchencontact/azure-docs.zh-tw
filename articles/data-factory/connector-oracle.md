@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 90adacffd947be38b447117bfe64242bed3a90af
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 28c7ca6470e15f4ff1f5e80df2ab63fa19da1544
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231366"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277800"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -170,7 +170,9 @@ Oracle 連結服務支援下列屬性:
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | Type | 資料集的類型屬性必須設定為`OracleTable`。 | 是 |
-| tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 | 是 |
+| schema | 架構的名稱。 |否 (來源)；是 (接收)  |
+| table | 資料表/視圖的名稱。 |否 (來源)；是 (接收)  |
+| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載`schema` , `table`請使用和。 | 否 (來源)；是 (接收) |
 
 **範例:**
 
@@ -180,12 +182,14 @@ Oracle 連結服務支援下列屬性:
     "properties":
     {
         "type": "OracleTable",
+        "schema": [],
+        "typeProperties": {
+            "schema": "<schema_name>",
+            "table": "<table_name>"
+        },
         "linkedServiceName": {
             "referenceName": "<Oracle linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }

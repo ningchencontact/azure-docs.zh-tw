@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 66ae9fa1ff4038a77ecc0b7046434d4d606f5015
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4c9d4e84be59ab50174350c20e505f34919d5041
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842565"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276311"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從和複製到 IBM Informix 資料存放區
 
@@ -27,7 +27,7 @@ ms.locfileid: "68842565"
 
 您可以將資料從 Informix 來源複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源/接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用此 Informix 連接器, 您必須:
 
@@ -46,11 +46,11 @@ ms.locfileid: "68842565"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Informix** | 是 |
+| Type | 類型屬性必須設定為：**Informix** | 是 |
 | connectionString | 不包括認證部分的 ODBC 連接字串。 您可以指定連接字串, 或使用您在 Integration Runtime 機上設定的系統 DSN (資料來源名稱) (您仍然需要在連結服務中指定認證部分)。<br>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。| 是 |
 | authenticationType | 用來連接到 Informix 資料存放區的驗證類型。<br/>允許的值包括：**基本**與**匿名**。 | 是 |
 | userName | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 |
-| 密碼 | 指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
+| password | 指定您為 userName 指定之使用者帳戶的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | credential | 以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 請將此欄位標示為 SecureString。 | 否 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |
 
@@ -83,13 +83,13 @@ ms.locfileid: "68842565"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 Informix 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Informix 資料集所支援的屬性清單。
 
 若要從 Informix 複製資料, 支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**InformixTable** | 是 |
+| Type | 資料集的類型屬性必須設定為：**InformixTable** | 是 |
 | tableName | Informix 中的資料表名稱。 | 就來源而言為非必要 (如果已指定活動來源中的「查詢」)；<br/>就接收器而言為必要 |
 
 **範例**
@@ -112,16 +112,16 @@ ms.locfileid: "68842565"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Informix 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Informix 來源所支援的屬性清單。
 
 ### <a name="informix-as-source"></a>Informix 作為來源
 
 若要從 Informix 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**InformixSource** | 是 |
-| 查詢 | 使用自訂查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
+| Type | 複製活動來源的類型屬性必須設定為：**InformixSource** | 是 |
+| query | 使用自訂查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: c351ee8290b60c81add173bb927b0c12e37f5c7c
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 7fe2c39871f1cd512da7f9a2c5146e79abbe74a6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018137"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279590"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 評量和移轉的支援矩陣
 
@@ -35,8 +35,7 @@ ms.locfileid: "70018137"
 **支援** | **詳細資料**
 --- | ---
 **Azure 許可權** | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
-**VMware 限制**  | 在單一專案中評估最多35000個 VMware Vm。 您可以在 Azure 訂用帳戶中建立多個專案。
-**專案限制** | 專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
+**VMware 限制**  | 在單一專案中評估最多35000個 VMware Vm。 您可以在 Azure 訂用帳戶中建立多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
 **地理位置** | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您只能在這些地理位置中建立專案, 但您可以評估或遷移其他目標位置的機器。 專案地理位置只會用來儲存探索到的資料。
 
 **地理位置** | **中繼資料儲存位置**
@@ -70,14 +69,15 @@ Azure Government | US Gov 維吉尼亞州
 
 ## <a name="assessment-appliance-requirements"></a>評量-設備需求
 
-適用于 VMware 的 Azure Migrate 設備是使用匯入 vCenter Server 的 OVA 範本進行部署。
+Azure Migrate 會執行輕量設備以探索 VMware Vm, 並將 VM 中繼資料和效能資料傳送給 Azure Migrate。 VMware 的設備會使用匯入 vCenter Server 的 OVA 範本進行部署。 下表摘要說明設備需求。
 
 **支援** | **詳細資料**
 --- | ---
-**vCenter Server** | 您的 vCenter Server 需要足夠的資源來配置具有 32 GB RAM、8個 vcpu 和外部虛擬交換器的 VM。<br/><br/> 設備必須直接或透過 proxy 存取網際網路。
-**ESXi** | 設備 VM 必須部署在執行5.5 版或更新版本的 ESXi 主機上。
-**Azure Migrate 專案** | 應用裝置可以與單一專案相關聯。
-**vCenter Server** | 設備可以在 vCenter Server 上探索最多10000個 VMware Vm。<br/> 設備可以連接到一個 vCenter Server。
+**設備部署** | 您會將設備部署為 VMware VM。 您的 vCenter Server 需要足夠的資源來配置具有 32 GB RAM、8個 vcpu 和外部虛擬交換器的 VM。<br/><br/> 設備必須直接或透過 proxy 存取網際網路。<br/> 設備 VM 必須部署在執行5.5 版或更新版本的 ESXi 主機上。 
+**Azure Migrate 專案** | 應用裝置可以與單一專案相關聯。 <br/> 任何數目的設備都可以與單一專案相關聯。<br/> 您可以在專案中評估最多35000個 Vm。
+**探索** | 設備可以在 vCenter Server 上探索最多10000個 VMware Vm。<br/> 設備可以連接到單一 vCenter Server。
+**評量群組** | 您最多可以在單一群組中新增35000部電腦。
+**評量** | 您可以在單一評估中評估多達35000個 Vm。
 
 
 ## <a name="assessment-url-access-requirements"></a>評估-URL 存取需求
@@ -107,6 +107,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 設備 | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/><br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式:```https://<appliance-ip-or-name>:44368``` <br/><br/>埠443、5671和5672上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
 vCenter Server | TCP 通訊埠443上的輸入連線, 以允許設備收集設定和效能中繼資料以進行評量。 <br/><br/> 根據預設, 設備會連線到埠443上的 vCenter。 如果 vCenter server 在不同的埠上接聽, 您可以在設定探索時修改埠。
 
+## <a name="migration---limitations"></a>遷移-限制
+您一次最多可以選取10部 Vm 來進行複寫。 如果您想要遷移更多電腦, 請以10個群組進行複寫。 針對 VMware 無代理程式的遷移, 您可以同時執行多達100的複寫作業。
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>無代理程式遷移-VMware 伺服器需求
 

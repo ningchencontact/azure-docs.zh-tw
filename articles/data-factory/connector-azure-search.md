@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: edf475ac11168c33a6b11ccda3482ac44579e8d8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bc914d27e9bea15a625dd2cd196401d733f8cfb8
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726226"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275941"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 搜尋服務索引
 
@@ -41,9 +41,9 @@ ms.locfileid: "68726226"
 
 以下是針對「Azure 搜尋服務」已連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**AzureSearch** | 是 |
+| Type | 類型屬性必須設定為：**AzureSearch** | 是 |
 | url | Azure 搜尋服務的 URL。 | 是 |
 | key | Azure 搜尋服務的系統管理金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
@@ -75,13 +75,13 @@ ms.locfileid: "68726226"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供「Azure 搜尋服務」資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供「Azure 搜尋服務」資料集所支援的屬性清單。
 
 若要將資料複製到 Azure 搜尋服務, 支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AzureSearchIndex** | 是 |
+| Type | 資料集的類型屬性必須設定為：**AzureSearchIndex** | 是 |
 | IndexName | Azure 搜尋服務索引的名稱。 Data Factory 不會建立索引。 索引必須存在於 Azure 搜尋服務中。 | 是 |
 
 **範例:**
@@ -105,15 +105,15 @@ ms.locfileid: "68726226"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供「Azure 搜尋服務」來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供「Azure 搜尋服務」來源所支援的屬性清單。
 
 ### <a name="azure-search-as-sink"></a>Azure 搜尋服務作為接收器
 
 若要將資料複製到「Azure 搜尋服務」，請將複製活動中的來源類型設定為 **AzureSearchIndexSink**。 複製活動的 **sink** 區段支援下列屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**AzureSearchIndexSink** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**AzureSearchIndexSink** | 是 |
 | writeBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。<br/><br/>允許的值包括：**Merge** (預設值) 和 **Upload**。 | 否 |
 | writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至 Azure 搜尋服務中。 如需詳細資訊，請參閱 [WriteBatchSize 屬性](#writebatchsize-property)。<br/><br/>允許的值為：整數 1 到 1,000；預設值為 1000。 | 否 |
 

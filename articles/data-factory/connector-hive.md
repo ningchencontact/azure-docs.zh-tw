@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 9bfa5aca56352f616b3527e65eec26fa635d1771
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 40f97c3b31a7e49c9a5ecc790e3cc762572ecaa3
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967000"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276359"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>使用 Azure Data Factory 從 Hive 複製資料 
 
@@ -29,7 +29,7 @@ ms.locfileid: "68967000"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -43,9 +43,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Hive 連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Hive** | 是 |
+| Type | 類型屬性必須設定為：**Hive** | 是 |
 | host | Hive 伺服器的 IP 位址和主機名稱，如果有多個主機請以「;」分隔 (僅限啟用 serviceDiscoveryMode 時)。  | 是 |
 | port | Hive 伺服器用來接聽用戶端連線的 TCP 連接埠。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 是 |
 | serverType | Hive 伺服器的類型。 <br/>允許的值包括：**HiveServer1**、**HiveServer2**、**HiveThriftServer** | 否 |
@@ -91,10 +91,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Hive 複製資料，請將資料集的類型屬性設定為 **HiveObject**。 以下是支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**HiveObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**HiveObject** | 是 |
+| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
+| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 包含架構元件的資料表名稱。 此屬性支援回溯相容性。 針對新的工作負載`schema` , `table`請使用和。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -103,11 +105,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "name": "HiveDataset",
     "properties": {
         "type": "HiveObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Hive linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -120,9 +123,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Hive 複製資料，請將複製活動中的來源類型設定為 **HiveSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**HiveSource** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**HiveSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

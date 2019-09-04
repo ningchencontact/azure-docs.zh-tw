@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 8c3b9523f6e6991723b0da721dbf7667ee340772
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207983"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259182"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>如何在合作夥伴中心管理您的商業 Marketplace 帳戶 
 
@@ -312,7 +312,7 @@ ms.locfileid: "70207983"
   - 可以查看一些發行者報表
 
 > [!NOTE]
-> 「全域管理員」、「商務參與者」、「財務參與者」和市場行銷人員角色不會用於「商業 Marketplace」方案中, 而且不會有相關聯的許可權。
+> 若為商業 Marketplace 方案, 則不會使用全域管理員、商務參與者、財務參與者和市場行銷人員角色。 將這些角色指派給使用者不會有任何作用。 只有管理員和開發人員角色會授與許可權給使用者。
 
 如需有關在合作夥伴中心的其他區域中管理角色和許可權的詳細資訊, 例如 Azure Active Directory (AD)、雲端解決方案提供者 (CSP)、控制台廠商 (CPV)、來賓使用者或 Microsoft 合作夥伴網路 (MPN), 請參閱[指派使用者角色。和合作夥伴中心的許可權](https://docs.microsoft.com/partner-center/permissions-overview)。
 

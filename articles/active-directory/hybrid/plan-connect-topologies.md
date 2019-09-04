@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383585"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275222"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -60,9 +60,9 @@ ms.locfileid: "60383585"
 
 許多組織都有包含多個內部部署 Active Directory 樹系的環境。 擁有多個內部部署 Active Directory 的原因有很多。 常見的範例如包含帳戶資源樹系，和合併或收購的結果。
 
-當您擁有多個樹系，所有樹系必須可由單一 Azure AD Connect 同步處理伺服器連線。 您不需要將伺服器加入網域。 如有必要觸達所有的樹系，您可以將伺服器放置於周邊網路 (也稱為 DMZ、非軍事區域及遮蔽式子網路)。
+當您擁有多個樹系，所有樹系必須可由單一 Azure AD Connect 同步處理伺服器連線。 伺服器必須加入網域。 如有必要觸達所有的樹系，您可以將伺服器放置於周邊網路 (也稱為 DMZ及遮蔽式子網路)。
 
-Azure AD Connect 安裝精靈會提供數個選項以合併多個樹系中表示的使用者。 目標是使用者只會在 Azure AD 中顯示一次。 有一些常見的拓撲，您可以在安裝精靈中的自訂安裝路徑中設定。 在 [專門識別您的使用者]  頁面上，選取表示拓撲的對應選項。 只對使用者設定合併。 重複群組不會和預設組態合併。
+Azure AD Connect 安裝精靈會提供數個選項以合併多個樹系中表示的使用者。 目標是使用者只會在 Azure AD 中顯示一次。 有一些常見的拓撲，您可以在安裝精靈中的自訂安裝路徑中設定。 在 [專門識別您的使用者] 頁面上，選取表示拓撲的對應選項。 只對使用者設定合併。 重複群組不會和預設組態合併。
 
 常見的拓撲將在個別拓撲、[完整網狀](#multiple-forests-full-mesh-with-optional-galsync)和[帳戶資源拓撲](#multiple-forests-account-resource-forest)相關章節中討論。
 
@@ -130,7 +130,7 @@ Azure AD Connect 同步處理中的預設組態假設：
 ## <a name="staging-server"></a>預備伺服器
 ![在拓撲中的預備伺服器](./media/plan-connect-topologies/MultiForestStaging.png)
 
-Azure AD Connect 支援以「預備模式」  安裝第二部伺服器。 此模式中的伺服器會讀取所有已連接目錄中的資料，但是不會將任何資料寫入已連接的目錄。 它使用一般的同步處理循環，因此也有身分識別資料的更新複本。
+Azure AD Connect 支援以「預備模式」安裝第二部伺服器。 此模式中的伺服器會讀取所有已連接目錄中的資料，但是不會將任何資料寫入已連接的目錄。 它使用一般的同步處理循環，因此也有身分識別資料的更新複本。
 
 在主要伺服器失敗的災害中，您可以容錯移轉到預備伺服器。 您在 Azure AD Connect 精靈中執行這項操作。 第二部伺服器可以位於不同的資料中心，因為沒有和主要伺服器共用基礎結構。 您必須手動將主要伺服器上進行的任何組態變更複製到第二部伺服器。
 

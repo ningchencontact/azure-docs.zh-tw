@@ -9,31 +9,31 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 90f064ce5d6dc7ffa6b4c532ac30d9b4dd60e13f
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 00e69d9222444e3b700fca10e3f15b4b110e0c60
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981145"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241731"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
-Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組特定的支援網路來保護儲存體帳戶。 設定網路規則時，只有透過一組特定網路發出要求資料的應用程式可以存取儲存體帳戶。
+Azure 儲存體提供分層的安全性模型。 此模型可讓您將儲存體帳戶安全地提供給特定的網路子集。 設定網路規則時, 只有透過一組指定網路要求資料的應用程式可以存取儲存體帳戶。 您可以限制從指定的 IP 位址、IP 範圍或 Azure 虛擬網路中的子網清單的要求, 存取您的儲存體帳戶。
 
-應用程式若在網路規則生效時存取儲存體帳戶，則要求上必須有適當的授權。 使用適用于 blob 和佇列的 Azure Active Directory (Azure AD) 認證、具有有效的帳戶存取金鑰, 或使用 SAS 權杖, 即可支援授權。
+當網路規則生效時, 存取儲存體帳戶的應用程式需要適當的要求授權。 使用適用于 blob 和佇列的 Azure Active Directory (Azure AD) 認證、具有有效的帳戶存取金鑰, 或使用 SAS 權杖, 即可支援授權。
 
 > [!IMPORTANT]
-> 開啟儲存體帳戶的防火牆規則會預設封鎖傳入的資料要求，除非要求來自 Azure 虛擬網路 (VNet) 內運作的服務。 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。
+> 根據預設, 開啟儲存體帳戶的防火牆規則會封鎖資料的傳入要求, 除非要求是源自于 Azure 虛擬網路 (VNet) 中的服務運作。 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。
 >
-> 您可以透過允許服務執行個體的子網路，將存取權授與從 VNet 內執行的 Azure 服務。 讓有限的案例可以透過下面章節所述的[例外](#exceptions)機制來啟用。 若要存取 Azure 入口網站，您所用的機器必須位於已設定的信任界限 (IP 或 VNet) 內。
+> 您可以允許來自裝載服務實例之子網的流量, 授與從 VNet 內運作的 Azure 服務的存取權。 您也可以透過下一節所述的[例外](#exceptions)機制來啟用有限數目的案例。 若要透過 Azure 入口網站從儲存體帳戶存取資料, 您必須位於所設定之受信任界限 (IP 或 VNet) 內的電腦上。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>案例
 
-根據預設，您可設定儲存體帳戶來拒絕存取所有網路流量 (包括網際網路流量)。 然後對來自特定 VNet 的流量授與存取權。 此設定可讓您為應用程式設定安全的網路界限。 您也可以授與存取公用網際網路 IP 位址範圍的權限，啟用來自特定網際網路或內部部署用戶端的連線。
+若要保護您的儲存體帳戶, 您應該先設定規則來拒絕存取所有網路 (包括網際網路流量) 的流量。 然後, 您應該設定規則, 以授與來自特定 Vnet 之流量的存取權。 此設定可讓您為應用程式設定安全的網路界限。 您也可以設定規則, 以授與從選取的公用網際網路 IP 位址範圍存取流量的許可權, 啟用來自特定網際網路或內部部署用戶端的連線。
 
-所有的 Azure 儲存體網路通訊協定都會執行網路規則，包括 REST 和 SMB。 若要使用 Azure 入口網站、儲存體總管和 AZCopy 等工具來存取資料，則需要明確的網路規則。
+所有的 Azure 儲存體網路通訊協定都會執行網路規則，包括 REST 和 SMB。 若要使用 Azure 入口網站、儲存體總管和 AZCopy 之類的工具來存取資料, 必須設定明確的網路規則。
 
 您可以將網路規則套用到現有的儲存體帳戶，或在您建立新的儲存體帳戶時套用。
 
@@ -50,7 +50,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 儲存體帳戶預設接受來自任何網路用戶端的連線。 若要限制對所選網路的存取，您必須先變更預設動作。
 
 > [!WARNING]
-> 變更網路規則會影響應用程式連接到 Azure 儲存體的能力。 將預設的網路規則設定為**拒絕**以封鎖所有的資料存取，除非也套用了特定網路規則來**授與**存取權。 請務必先將存取權授與任何使用網路規則的允許網路，再變更預設規則以拒絕存取。
+> 變更網路規則會影響應用程式連接到 Azure 儲存體的能力。 將預設的網路規則設定為 [**拒絕**] 會封鎖對資料的所有存取, 除非也套用**授**與存取權的特定網路規則。 請務必先將存取權授與任何使用網路規則的允許網路，再變更預設規則以拒絕存取。
 
 ### <a name="managing-default-network-access-rules"></a>管理預設的網路存取規則
 
@@ -112,9 +112,9 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 ## <a name="grant-access-from-a-virtual-network"></a>授與虛擬網路存取權
 
-您可以將儲存體帳戶設定為只允許從特定 Vnet 進行存取。
+您可以將儲存體帳戶設定為僅允許來自特定子網的存取。 允許的子網可能屬於相同訂用帳戶中的 VNet, 或位於不同訂用帳戶中的 VNet, 包括屬於不同 Azure Active Directory 租使用者的訂閱。
 
-為 VNet 內的 Azure 儲存體啟用[服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview)。 此端點為流量提供一個到 Azure 儲存體服務的最佳路由。 虛擬網路和子網路的身分識別也會隨著每項要求傳輸。 系統管理員接著可以設定儲存體帳戶的網路規則，允許接收來自 VNet 中特定子網路的要求。 透過這些網路規則授與存取的用戶端，必須仍要繼續符合儲存體帳戶的授權需求，才能存取資料。
+為 VNet 內的 Azure 儲存體啟用[服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview)。 服務端點會透過最佳路徑, 將來自 VNet 的流量路由傳送至 Azure 儲存體服務。 子網和虛擬網路的身分識別也會隨每個要求傳送。 然後, 系統管理員可以設定儲存體帳戶的網路規則, 以允許從 VNet 中的特定子網接收要求。 透過這些網路規則授與存取的用戶端，必須仍要繼續符合儲存體帳戶的授權需求，才能存取資料。
 
 每個儲存體帳戶最多可支援 100 個虛擬網路規則，它們也可以結合 [IP 網路規則](#grant-access-from-an-internet-ip-range)。
 
@@ -131,7 +131,10 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 為將虛擬網路規則套用至儲存體帳戶，使用者必須在要新增的子網路上具有適當權限。 所需的權限為「將服務加入子網路」，以及加入「儲存體帳戶參與者」內建角色。 這也可以新增至自訂角色定義。
 
-儲存體帳戶和虛擬網路授與的存取權可能在不同的訂用帳戶，但這些訂用帳戶必須屬於相同的 Azure AD 租用戶。
+儲存體帳戶和虛擬網路授與的存取權可能在不同的訂用帳戶中, 包括屬於不同 Azure AD 租使用者的訂用帳戶。
+
+> [!NOTE]
+> 目前只有透過 Powershell、CLI 和 REST Api 才支援設定規則, 以授與屬於不同 Azure Active Directory 租使用者之虛擬網路中子網的存取權。 這類規則無法透過 Azure 入口網站進行設定, 但可以在入口網站中看到。
 
 ### <a name="managing-virtual-network-rules"></a>管理虛擬網路規則
 
@@ -149,6 +152,8 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
     > [!NOTE]
     > 如果 Azure 儲存體的服務端點未針對所選虛擬網路和子網路事先設定，可以將其設定為這項作業的一部分。
+    >
+    > 目前, 只有屬於相同 Azure Active Directory 租使用者的虛擬網路, 才會在建立規則時顯示選取範圍。 若要授與屬於另一個租使用者之虛擬網路中子網的存取權, 請使用 Powershell、CLI 或 REST Api。
 
 1. 若要移除虛擬網路或子網路規則，請按一下 […] 開啟虛擬網路或子網路的快顯功能表，然後按一下 [移除]。
 
@@ -176,6 +181,9 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
+
+    > [!TIP]
+    > 若要為屬於另一個 Azure AD 租使用者之 VNet 中的子網新增網路規則, 請使用 "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name" 格式的完整**VirtualNetworkResourceId**參數。
 
 1. 移除虛擬網路和子網路的網路規則。
 
@@ -209,6 +217,11 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
     $subnetid=(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
     ```
+
+    > [!TIP]
+    > 若要在屬於另一個 Azure AD 租使用者的 VNet 中新增子網的規則, 請使用 "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name" 格式的完整子網識別碼。
+    > 
+    > 您可以使用**訂**用帳戶參數來抓取屬於另一個 Azure AD 租使用者之 VNet 的子網識別碼。
 
 1. 移除虛擬網路和子網路的網路規則。
 
@@ -344,7 +357,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 有些與儲存體帳戶互動的 Microsoft 服務是從無法透過網路規則授與存取權的網路運作。
 
-若要讓這類服務如預期方式運作，請允許受信任的 Microsoft 服務集合略過網路規則。 這些服務會使用增強式驗證存取儲存體帳戶。
+為了讓某些服務能如預期地執行, 您必須允許受信任的 Microsoft 服務子集略過網路規則。 這些服務會使用增強式驗證存取儲存體帳戶。
 
 如果啟用 **「允許信任的 Microsoft 服務...」** 例外狀況，下列服務 (在您的訂用帳戶中註冊時) 會獲得存取儲存體帳戶的權限：
 

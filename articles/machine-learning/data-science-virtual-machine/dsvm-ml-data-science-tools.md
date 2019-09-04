@@ -10,29 +10,30 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d823eb615f983190ee6974ee3012f069309ca753
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f97412bc3f8d8b046df1324c7e1a0ad568f5db52
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195634"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278788"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure 資料科學上的機器學習和資料科學工具虛擬機器
 「Azure 資料科學虛擬機器」具有一組以各種熱門語言提供 (例如 Python、R 及 Julia)、適用於機器學習 (ML) 的豐富工具和程式庫。 
 
 以下是「資料科學虛擬機器」上的一些 ML 工具和程式庫。 
 
-## <a name="azure-machine-learning-sdk-for-python"></a>適用于 Python 的 Azure Machine Learning SDK
+## <a name="azure-machine-learning-sdk-for-python"></a>適用於 Python 的 Azure Machine Learning SDK
 請參閱適用于 Python 的[AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)的完整參考。
+
 |    |           |
 | ------------- | ------------- |
-| 這是什麼？   |   Azure Machine Learning 是一項雲端服務，可供您用來開發及部署 ML 模型。 您可以使用 Python SDK，在進行模型建置、定型、調整規模及管理時加以追蹤。 將模型部署成容器，並在雲端、內部部署環境或 Azure IoT Edge 上執行。   |
-| 支援的版本     | Windows (Conda 環境：AzureML)、Linux (Conda 環境：py36)    |
-| 典型的使用案例      | 一般 ML 平台      |
-| 如何設定或安裝它？      |  搭配 GPU 支援安裝   |
-| 如何使用或執行它      | 作為 Python SDK 和 Azure CLI。 啟動至 Conda 環境 `AzureML` (Windows 版)「或」啟動至 `py36` (Linux 版)。      |
-| 範例的連結      | 範例 Jupyter Notebook 包含在 `AzureML` 目錄中的 Notebook 底下。  |
-| 相關工具      | Visual Studio Code、Jupyter   |
+| 這是什麼？ |   Azure Machine Learning 是一項雲端服務，可供您用來開發及部署 ML 模型。 您可以使用 Python SDK，在進行模型建置、定型、調整規模及管理時加以追蹤。 將模型部署成容器，並在雲端、內部部署環境或 Azure IoT Edge 上執行。 |
+| 支援的版本  | Windows (Conda 環境：AzureML)、Linux (Conda 環境：py36) |
+| 典型的使用案例      | 一般 ML 平台  |
+| 如何設定或安裝它？ |  搭配 GPU 支援安裝 |
+| 如何使用或執行它 | 作為 Python SDK 和 Azure CLI。 啟動至 Conda 環境 `AzureML` (Windows 版)「或」啟動至 `py36` (Linux 版)。  |
+| 範例的連結 | 範例 Jupyter Notebook 包含在 `AzureML` 目錄中的 Notebook 底下。  |
+| 相關工具  | Visual Studio Code、Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |

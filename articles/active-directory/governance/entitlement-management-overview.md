@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032548"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241701"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>什麼是 Azure AD 權利管理？ (預覽)
 
@@ -139,6 +139,18 @@ Azure AD 權利管理有助於解決這些挑戰。
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 特製化雲端 (例如 Azure Government、Azure 德國和 Azure 中國世紀) 目前無法在此預覽中使用。
+
+### <a name="which-users-must-have-licenses"></a>哪些使用者必須有授權？
+
+您的租使用者必須有至少多個 Azure AD Premium P2 授權, 因為您擁有使用中的成員使用者。 權利管理中的有效成員使用者包括:
+
+- 起始或核准存取封裝要求的使用者。
+- 已獲指派存取套件的使用者。 
+- 管理存取套件的使用者。
+
+在成員使用者的授權中, 您也可以允許許多來賓使用者與權利管理互動。 如需如何計算可包含的來賓使用者數目的詳細資訊, 請參閱[AZURE ACTIVE DIRECTORY B2B 共同作業授權指引](../b2b/licensing-guidance.md)。
+
+如需如何將授權指派給使用者的詳細資訊, 請參閱[使用 Azure Active Directory 入口網站指派或移除授權](../fundamentals/license-users-groups.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

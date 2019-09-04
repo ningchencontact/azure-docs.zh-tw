@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 99ef5c8a4a4291dd1b9d047da9006623dacd0b53
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 3fb36eb9b8507903d1aee00b82c375685a4dfa6c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147870"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279480"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 支援矩陣
 
@@ -56,7 +56,7 @@ CorentTech | 遷移 | [深入了解](https://www.corenttech.com/)。
 訂閱 | 您可以在訂用帳戶中有多個 Azure Migrate 專案。
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
 VMware VM  | 在單一專案中評估最多35000個 VMware Vm。
-Hyper-V VM | 在單一專案中評估最多10000個 Hyper-v Vm。
+Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。
 
 專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
 

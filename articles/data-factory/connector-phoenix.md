@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 01f764d96eacdc94fd90b4f695c4b774a6ded5c5
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 891fff203fbec8433793d3f3873e985dfebc31b0
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967432"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277614"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>使用 Azure Data Factory 從 Phoenix 複製資料 
 
@@ -29,7 +29,7 @@ ms.locfileid: "68967432"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -43,9 +43,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 以下是針對 Phoenix 已連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Phoenix** | 是 |
+| Type | 類型屬性必須設定為：**Phoenix** | 是 |
 | host | Phoenix 伺服器的 IP 位址或主機名稱。 (也就是 192.168.222.160)  | 是 |
 | port | Phoenix 伺服器用來接聽用戶端連線的 TCP 連接埠。 預設值為 8765。 如果您連線到 Azure HDInsights，請將連接埠指定為 443。 | 否 |
 | httpPath | 對應至 Phoenix 伺服器的部分 URL。 (也就是 /gateway/sandbox/phoenix/version)。 如果使用 HDInsights 叢集，請指定 `/hbasephoenix0`。  | 否 |
@@ -90,10 +90,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Phoenix 複製資料，請將資料集的 type 屬性設定為 **PhoenixObject**。 以下是支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**PhoenixObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**PhoenixObject** | 是 |
+| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
+| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -102,11 +104,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     "name": "PhoenixDataset",
     "properties": {
         "type": "PhoenixObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Phoenix linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -119,9 +122,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 若要從 Phoenix 複製資料，請將複製活動中的來源類型設定為 **PhoenixSource**。 複製活動的 **source** 區段支援下列屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**PhoenixSource** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**PhoenixSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

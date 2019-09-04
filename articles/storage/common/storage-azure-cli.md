@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d259ea02824937f0c496bb253fa4b6c1f5cea412
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015626"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259394"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>使用 Azure CLI 搭配 Azure 儲存體
 
@@ -25,11 +25,11 @@ ms.locfileid: "69015626"
 
 本指南中的範例假設在 Ubuntu 上使用 Bash 殼層，但其他平台應以類似方式執行。 
 
-[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
-
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
+
+## <a name="prerequisites"></a>必要條件
 本指南假設您已了解 Azure 儲存體的基本概念。 而且假設您可以滿足針對 Azure 和儲存體服務所指定的帳戶建立需求。
 
 ### <a name="accounts"></a>帳戶

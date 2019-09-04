@@ -1,19 +1,19 @@
 ---
 title: 範例：多層級 Facet - Azure 搜尋服務
 description: 了解如何建置多層級分類的 Facet 結構，以建立可包含在應用程式頁面上的巢狀導覽結構。
-author: cstone
+author: HeidiSteen
 manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: chstone
-ms.openlocfilehash: 5a6fda0157f0f3a4ca5861acd4bcbead7839e451
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.author: heidist
+ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649924"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274089"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>範例：Azure 搜尋服務中的多層級 Facet
 

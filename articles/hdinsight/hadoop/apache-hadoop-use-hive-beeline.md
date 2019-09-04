@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7c4af8346b5da20c662b5549284a3540d08908f8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4ebdf1d14b1f8721a3709a7e8c90f2a1db76b6fc
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072930"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259139"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
@@ -44,9 +44,9 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>至 HDInsight 企業安全性套件 (ESP) 叢集
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>使用 Kerberos 的 HDInsight 企業安全性套件 (ESP) 叢集
 
-從用戶端連線到叢集相同領域的電腦上加入 Azure Active Directory (AAD) 的企業安全性套件 (ESP) 叢集時, 您也必須指定功能變數名稱`<AAD-Domain>` , 以及具有許可權的網域使用者帳戶名稱存取叢集`<username>`:
+從用戶端連接到已加入至叢集相同領域之電腦上 Azure Active Directory (AAD)-DS 的企業安全性套件 (ESP) 叢集時, 您也必須指定`<AAD-Domain>`功能變數名稱和網域使用者帳戶的名稱, 以及存取叢集的`<username>`許可權:
 
 ```bash
 kinit <username>
@@ -57,12 +57,18 @@ beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD
 
 ---
 
-### <a name="over-public-internet"></a>透過公用網際網路
+### <a name="over-public-or-private-endpoints"></a>透過公用或私用端點
 
-透過公用網際網路連接到非 ESP 或 Azure Active Directory (AAD) 聯結的 ESP 叢集時, 您必須提供叢集登入帳戶名稱 (預設值`admin`) 和密碼。 例如，使用 Beeline 從用戶端系統連線到 `<clustername>.azurehdinsight.net` 位址。 此連線是透過連接埠 `443`，並使用 SSL 加密：
+使用公用或私人端點連接到叢集時, 您必須提供叢集登入帳戶名稱 (預設值`admin`) 和密碼。 例如，使用 Beeline 從用戶端系統連線到 `<clustername>.azurehdinsight.net` 位址。 此連線是透過連接埠 `443`，並使用 SSL 加密：
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+或適用于私人端點:
+
+```bash
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
 ```
 
 將 `clustername` 替換為 HDInsight 叢集的名稱。 將 `admin` 取代為叢集的叢集登入帳戶。 將 `password` 取代為叢集登入帳戶的密碼。
@@ -73,13 +79,21 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportM
 
 Apache Spark 提供自己的 HiveServer2 (有時稱為 Spark Thrift 伺服器) 實作。 此服務會使用 Spark SQL 來解析查詢而不是 Hive，並可能提供更佳的效能 (視您的查詢而定)。
 
-#### <a name="over-public-internet-with-apache-spark"></a>透過 Apache Spark 的公用網際網路
+#### <a name="through-public-or-private-endpoints"></a>透過公用或私用端點
 
-透過網際網路連線時所使用的連接字串稍有不同。 而不是`httpPath=/hive2` `httpPath/sparkhive2`包含:
+使用的連接字串稍有不同。 而不是`httpPath=/hive2` `httpPath/sparkhive2`包含:
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
+
+或適用于私人端點:
+
+```bash 
+beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+將 `clustername` 替換為 HDInsight 叢集的名稱。 將 `admin` 取代為叢集的叢集登入帳戶。 將 `password` 取代為叢集登入帳戶的密碼。
 
 ---
 

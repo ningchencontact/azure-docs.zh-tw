@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: b7d34095568fa1d98c5f2987a70397ca042c8867
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ca7a3cfe62520ed82dcf494a33f3bd188dbebe76
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036398"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279990"
 ---
 # <a name="supported-service-fabric-versions"></a>支援的 Service Fabric 版本
 
-請確定您的叢集一律執行支援的 Azure Service Fabric 版本。 在我們宣佈發行新版本的 Service Fabric 之後, 最少60天, 對舊版的支援結束。 您會在[Service Fabric 小組的 blog](https://blogs.msdn.microsoft.com/azureservicefabric/)中找到新版本的公告。
+請確定您的叢集一律執行支援的 Azure Service Fabric 版本。 在我們宣佈發行新版本的 Service Fabric 之後, 最少60天, 對舊版的支援結束。 您會在[Service Fabric 小組的 blog](https://azure.microsoft.com/updates/?product=service-fabric)中找到新版本的公告。
 
 如需如何讓叢集執行支援的 Service Fabric 版本的詳細資訊, 請參閱下列檔:
 

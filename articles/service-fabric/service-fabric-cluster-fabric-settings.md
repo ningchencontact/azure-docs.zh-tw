@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 096b6a13c85d04ebeb4f2ffae72acdd8629ae886
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: cdbb545e981e50e23bbbb011dc54577acf7974f7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191741"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241758"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -311,7 +311,7 @@ ms.locfileid: "70191741"
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |布林值，預設值為 false |Static|叢集健康狀態評估原則︰啟用每一應用程式類型的健康狀態評估。 |
-|MaxSuggestedNumberOfEntityHealthReports|整數, 預設值為500 |動態|在引發有關監視程式健康情況報告邏輯的顧慮之前, 實體可以擁有的健康狀態報表數目上限。 每個健康情況實體都應該有相對較少的健康情況報告數目。 如果報表計數超過此數目, 則為,監視程式的執行可能會有問題。 當評估實體時, 會透過警告健康情況報告來標示具有太多報表的實體。 |
+|MaxSuggestedNumberOfEntityHealthReports|整數, 預設值為100 |動態|在引發有關監視程式健康情況報告邏輯的顧慮之前, 實體可以擁有的健康狀態報表數目上限。 每個健康情況實體都應該有相對較少的健康情況報告數目。 如果報表計數超過此數目, 則為,監視程式的執行可能會有問題。 當評估實體時, 會透過警告健康情況報告來標示具有太多報表的實體。 |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 

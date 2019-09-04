@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0efb884de9deaa2784e160785c26d78179da6567
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 84a82e5fae7c56a13aeb4603079e9378b38785cb
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966878"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277567"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -32,7 +32,7 @@ ms.locfileid: "68966878"
 
 具體而言，這個 PostgreSQL 連接器支援 PostgreSQL **7.4 版和更新版本**。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -48,15 +48,15 @@ ms.locfileid: "68966878"
 
 以下是針對 PostgreSQL 已連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**PostgreSql** | 是 |
+| Type | 類型屬性必須設定為：**PostgreSql** | 是 |
 | connectionString | ODBC 連接字串，用於連線到適用於 PostgreSQL 的 Azure 資料庫。 <br/>將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中。 您也可以將密碼放在 Azure Key Vault 中，並從連接字串中提取 `password` 組態。 請參閱下列範例和[在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)一文中的更多詳細資料。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 深入瞭解[必要條件](#prerequisites)一節。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 一般的連接字串為 `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`。 您可以根據您的案例設定更多屬性：
 
-| 內容 | 描述 | 選項。 | 必要項 |
+| 屬性 | 描述 | 選項。 | 必要項 |
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| 驅動程式用來加密在驅動程式和資料庫伺服器之間傳送之資料的方法。 例如 `EncryptionMethod=<0/1/6>;`| 0 (無加密) **(預設)** / 1 (SSL) / 6 (RequestSSL) | 否 |
 | ValidateServerCertificate (VSC) | 決定啟用 SSL 加密時，驅動程式是否驗證由資料庫伺服器所傳送的憑證 (加密方法 = 1)。 例如 `ValidateServerCertificate=<0/1>;`| 0 (停用) **(預設)** / 1 (啟用) | 否 |
@@ -139,14 +139,16 @@ ms.locfileid: "68966878"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 PostgreSQL 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 PostgreSQL 資料集所支援的屬性清單。
 
-若要從 PostgreSQL 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
+若要從于 postgresql 複製資料, 支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
-| tableName | PostgreSQL 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**PostgreSqlTable** | 是 |
+| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
+| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -155,15 +157,18 @@ ms.locfileid: "68966878"
     "name": "PostgreSQLDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "PostgreSqlTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<PostgreSQL linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+如果您使用`RelationalTable`的是具類型的資料集, 則仍會受到支援, 但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
@@ -171,11 +176,11 @@ ms.locfileid: "68966878"
 
 ### <a name="postgresql-as-source"></a>PostgreSQL 作為來源
 
-若要從 PostgreSQL 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
+若要從于 postgresql 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**PostgreSqlSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"MySchema\".\"MyTable\""` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 > [!NOTE]
@@ -202,7 +207,7 @@ ms.locfileid: "68966878"
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "PostgreSqlSource",
                 "query": "SELECT * FROM \"MySchema\".\"MyTable\""
             },
             "sink": {
@@ -212,6 +217,8 @@ ms.locfileid: "68966878"
     }
 ]
 ```
+
+如果您使用`RelationalSource`的是具類型的來源, 則仍會受到支援, 但建議您在未來使用新的來源。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md##supported-data-stores-and-formats)。

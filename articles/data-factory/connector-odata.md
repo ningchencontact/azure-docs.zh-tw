@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 30bad3dd519d622d7e224da7bd53e7c6625014f6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a31f0618f7e9dc8fdb0e9b2988d3d3c32fefcf64
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966484"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277661"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 OData 來源複製資料
 
@@ -36,7 +36,7 @@ ms.locfileid: "68966484"
 - OData 3.0 和 4.0 版。
 - 使用下列其中一種驗證來複製資料︰**匿名**、**基本**、**Windows**、**AAD 服務主體**及**適用於 Azure 資源的受控識別**。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -50,9 +50,9 @@ ms.locfileid: "68966484"
 
 以下是針對 OData 連結服務支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | **type** 屬性必須設為 **OData**。 |是 |
+| Type | **type** 屬性必須設為 **OData**。 |是 |
 | url | OData 服務的根 URL。 |是 |
 | authenticationType | 用來連線到 OData 來源的驗證類型。 允許的值為 **Anonymous**、**Basic**、**Windows**、**AadServicePrincipal** 及 **ManagedServiceIdentity**。 不支援以使用者為基礎的 OAuth。 | 是 |
 | userName | 如果使用基本或 Windows 驗證，請指定 **userName**。 | 否 |
@@ -199,10 +199,10 @@ ms.locfileid: "68966484"
 
 若要從 OData 複製資料，請將資料集的 **type** 屬性設定為 **ODataResource**。 以下是支援的屬性：
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的 **type** 屬性必須設定為 **ODataResource**。 | 是 |
-| 路徑 | OData 資源的路徑。 | 是 |
+| Type | 資料集的 **type** 屬性必須設定為 **ODataResource**。 | 是 |
+| path | OData 資源的路徑。 | 是 |
 
 **範例**
 
@@ -212,6 +212,7 @@ ms.locfileid: "68966484"
     "properties":
     {
         "type": "ODataResource",
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<OData linked service name>",
             "type": "LinkedServiceReference"
@@ -232,11 +233,11 @@ ms.locfileid: "68966484"
 
 ### <a name="odata-as-source"></a>OData 作為來源
 
-若要從 OData 複製資料，請將複製活動中的**來源**類型設定為 **RelationalSource**。 複製活動的 [來源] 區段支援下列屬性：
+若要從 OData 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
-| 內容 | 描述 | 必要項 |
+| 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 **type** 屬性必須設定為 **RelationalSource**。 | 是 |
+| Type | 複製活動來源的**類型**屬性必須設定為**ODataSource**。 | 是 |
 | query | 用來篩選資料的 OData 查詢選項。 範例： `"$select=Name,Description&$top=5"`.<br/><br/>**注意**：OData 連接器會從以下的組合 URL 複製資料：`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`。 如需詳細資訊，請參閱 [OData URL 元件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 
 **範例**
@@ -260,7 +261,7 @@ ms.locfileid: "68966484"
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "ODataSource",
                 "query": "$select=Name,Description&$top=5"
             },
             "sink": {
@@ -270,6 +271,8 @@ ms.locfileid: "68966484"
     }
 ]
 ```
+
+如果您使用`RelationalSource`的是具類型的來源, 則仍會受到支援, 但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-odata"></a>OData 的資料類型對應
 

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: b349576f5e9f5410afc29f48e40c38e12168252d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494796"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258904"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的資源、屬性或變數反復專案
 
@@ -43,13 +43,13 @@ ms.locfileid: "68494796"
 
 這兩個用法在本文中會有更詳細的說明。 如需教學課程，請參閱[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)。
 
-若需要指定是否要部署資源，請參閱[條件元素](resource-group-authoring-templates.md#condition)。
+若需要指定是否要部署資源，請參閱[條件元素](conditional-resource-deployment.md)。
 
 ## <a name="copy-limits"></a>複製限制
 
 若要指定反覆運算次數, 請提供 count 屬性的值。 計數不能超過800。
 
-計數不可為負數。 如果您部署具有 REST API **2019-05-10**版或更新版本的範本, 您可以將 [計數] 設定為零。 舊版的 REST API 不支援 count 的零。 目前, Azure CLI 或 PowerShell 不支援計數零, 但在未來的版本中將會加入該支援。
+計數不可為負數。 如果您部署的範本具有 Azure PowerShell 2.6 或更新版本, 或 REST API **2019-05-10**版或更新版本, 您可以將 count 設定為零。 舊版的 PowerShell 和 REST API 不支援 count 的零。 目前, Azure CLI 不支援計數零, 但在未來的版本中將會加入該支援。
 
 請小心使用[完整模式部署](deployment-modes.md)搭配 copy。 如果您使用完整模式重新部署至資源群組, 則會刪除在解析複製迴圈後未在範本中指定的任何資源。
 

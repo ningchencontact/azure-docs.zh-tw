@@ -8,15 +8,15 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 30bd7c68ae1c88aba288b515d0ec32581f90b868
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088192"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258606"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考 (預覽)
 
@@ -184,3 +184,27 @@ Key Vault 參考可用來作為[應用程式設定](configure-common.md#configur
 
 > [!NOTE] 
 > 在此範例中，原始檔控制部署取決於應用程式設定。 這通常是不安全的行為，因為應用程式設定更新會以非同步方式運作。 不過，因為我們已包含 `WEBSITE_ENABLE_SYNC_UPDATE_SITE` 應用程式設定，所以更新會同步。 這表示，原始檔控制部署將只會在應用程式設定已完全更新之後開始。
+
+## <a name="troubleshooting-key-vault-references"></a>Key Vault 參考的疑難排解
+
+如果未正確解析參考, 則會改用參考值。 這表示針對應用程式設定, 會建立其值具有`@Microsoft.KeyVault(...)`語法的環境變數。 這可能會導致應用程式擲回錯誤, 因為它預期會有特定結構的秘密。
+
+最常見的原因是[Key Vault 存取原則](#granting-your-app-access-to-key-vault)的設定不正確。 不過, 它也可能是因為秘密已不存在或參考本身的語法錯誤所導致。
+
+如果語法正確, 您可以使用內建的偵測器來檢查目前的解決狀態, 以查看其他錯誤原因。
+
+### <a name="using-the-detector-for-app-service"></a>使用 App Service 的偵測器
+
+1. 在入口網站中, 流覽至您的應用程式。
+2. 選取 [**診斷並解決 prolems**]。
+3. 選擇 [**可用性和效能**], 然後選取 [ **Web 應用程式關閉]。**
+4. 尋找**Key Vault 應用程式設定 診斷**, 然後按一下 **詳細資訊**。
+
+
+### <a name="using-the-detector-for-azure-functions"></a>使用 Azure Functions 的偵測器
+
+1. 在入口網站中, 流覽至您的應用程式。
+2. 流覽至 [**平臺功能]。**
+3. 選取 [**診斷並解決 prolems**]。
+4. 選擇 [**可用性和效能**], 然後選取 [**函數應用程式關閉] 或**[回報錯誤]。
+5. 按一下 [ **Key Vault 應用程式設定**] [診斷]。

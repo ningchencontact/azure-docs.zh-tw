@@ -16,12 +16,12 @@ ms.date: 08/28/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74e0539095701ec104495bf5a44dec668494d444
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: a17b64cbfffbe9cabd909bccb16d55c07bba8bb0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207170"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241440"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD Identity Governance？
 
@@ -72,7 +72,7 @@ Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制�
 
 ## <a name="least-privileged-roles"></a>最低特殊許可權角色
 
-使用 PIM 可讓使用者的系統管理許可權受到限制, 以提供額外的安全性。 以下是在 Azure AD 身分識別治理功能中設定的最低許可權目錄角色: 
+最佳做法是使用最低許可權角色來執行身分識別控管中的系統管理工作。 我們建議您視需要使用 Azure AD PIM 來啟動角色, 以執行這些工作。 以下是設定身分識別治理功能的最低許可權目錄角色: 
 
 | 功能 | 最低特殊權限角色 |
 | ------- | --------------------- |

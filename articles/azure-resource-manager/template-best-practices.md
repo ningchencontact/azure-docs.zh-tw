@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 161539aaec4d3b7162405f437b7fb3dd1f6a00e6
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69542979"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258854"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 範本最佳做法
 
@@ -175,7 +175,7 @@ ms.locfileid: "69542979"
 
 * 設定子資源為相依於其父資源。
 
-* 設定為[false 的資源](resource-group-authoring-templates.md#condition)，會自動從相依性順序中移除。 請在假定一律會部署該資源的情況下設定相依性。
+* 設定為[false 的資源](conditional-resource-deployment.md)，會自動從相依性順序中移除。 請在假定一律會部署該資源的情況下設定相依性。
 
 * 讓相依性重疊顯示，而不需要明確設定它們。 例如，您的虛擬機器相依於虛擬網路介面，而虛擬網路介面相依於虛擬網路和公用 IP 位址。 因此，會在所有三個資源之後部署虛擬機器，但不會明確地將虛擬機器設定為相依於所有三個資源。 這種方法可釐清相依性順序，而且稍後可以比較容易變更範本。
 

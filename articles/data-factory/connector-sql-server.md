@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 90d77d511c76d8d718c8b0b3dea9ef8536b2e864
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 136f7e290947066e6d4ea4e9bb89d06fe9b2cac7
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172639"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274524"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 SQL Server 複製資料
 > [!div class="op_single_selector" title1="選取您要使用的 Azure Data Factory 版本:"]
@@ -145,7 +145,7 @@ ms.locfileid: "70172639"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 SQL Server 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 SQL Server 資料集所支援的屬性清單。
 
 若要將資料從和複製到 SQL Server 資料庫, 支援下列屬性:
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5163aa0a9195aa712fa333667b3f7ccf227469be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c27605d2f9b87a9d4ba3d2326c0ce7ad437d3441
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938393"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240987"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>建立 Azure Key Vault 的憑證
 
@@ -32,7 +32,7 @@ ms.locfileid: "64938393"
 
 編輯並執行下列 Azure Powershell 指令碼，以便在本機資料夾中建立憑證檔案 (.pfx)。  您必須取代下列參數的值：
 
-|  **參數**        |   **說明**                                                               |
+|  **參數**        |   **描述**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | 儲存 .pfx 檔案所在的本機資料夾  |
 | `$location`    | 其中一個 Azure 標準的地理位置  |
@@ -78,7 +78,7 @@ ms.locfileid: "64938393"
 
 將[金鑰保存庫部署範本](./cpp-key-vault-deploy-template.md)的內容複製至本機電腦上的檔案 (在以下的範例指令碼中，此資源是 `C:\certLocation\keyvault.json`)。編輯並執行下列 Azure Powershell 指令碼來建立 Azure Key Vault 執行個體和相關聯的資源群組。  您必須取代下列參數的值：
 
-|  **參數**        |   **說明**                                                               |
+|  **參數**        |   **描述**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | 附加至部署識別碼的任意數字字串                     |
 | `$rgName`             | 要建立的 Azure 資源群組 (RG) 名稱                                        |
@@ -201,7 +201,7 @@ ms.locfileid: "64938393"
     "dataType" :"pfx",
     "password": "$certpassword"
     }
-    "@
+"@
             echo $certpassword
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)

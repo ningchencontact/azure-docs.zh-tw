@@ -7,19 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: c9c57a07100f2ea6db86408826bf74d05c8df5aa
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 0d279781cdc27dbf2140c0100d84de5128c6a3d5
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868671"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279432"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>評估大量的 VMware Vm 以遷移至 Azure
 
 
 本文說明如何使用 Azure Migrate Server 評估工具, 評估內部部署 VMware Vm 的大量 (1000-35000) 以遷移至 Azure
 
-[Azure Migrate](migrate-services-overview.md)提供一種工具中樞, 可協助您探索、評估和遷移應用程式、基礎結構和工作負載, 以 Microsoft Azure。 此中樞包含 Azure Migrate 工具和協力廠商獨立軟體廠商 (ISV) 產品。 
+[Azure Migrate](migrate-services-overview.md) 會提供工具中樞，協助您探索和評估應用程式、基礎結構和工作負載，並且將這些項目遷移至 Microsoft Azure。 此中樞包含 Azure Migrate 工具和第三方獨立軟體廠商 (ISV) 供應項目。 
 
 在本文中，您將了解：
 > [!div class="checklist"]
@@ -48,7 +48,8 @@ ms.locfileid: "67868671"
 **規劃** | **限制**
 --- | --- 
 **Azure Migrate 專案** | 在專案中評估最多35000個 Vm。
-**Azure Migrate 設備** | 設備只能連接到單一 vCenter Server。<br/><br/> 設備只能與單一 Azure Migrate 專案相關聯。<br/> 設備可以在 vCenter Server 上探索最多10000部 Vm。
+**Azure Migrate 設備** | 設備可以在 vCenter Server 上探索最多10000部 Vm。<br/> 設備只能連接到單一 vCenter Server。<br/> 設備只能與單一 Azure Migrate 專案相關聯。<br/>  任何數目的設備都可以與單一 Azure Migrate 專案相關聯。 <br/><br/> 
+**小組** | 您最多可以在單一群組中新增35000個 Vm。
 **Azure Migrate 評量** | 您可以在單一評估中評估多達35000個 Vm。
 
 考慮這些限制之後, 以下是一些部署範例:
@@ -58,8 +59,8 @@ ms.locfileid: "67868671"
 ---|---|---
 一個 | < 10,000 | 一個 Azure Migrate 專案。<br/> 一個設備。<br/> 一個用於探索的 vCenter 帳戶。 | 設定設備, 使用帳戶連接到 vCenter Server。
 一個 | > 10,000 | 一個 Azure Migrate 專案。<br/> 多個設備。<br/> 多個 vCenter 帳戶。 | 為每個 10000 Vm 設定設備。<br/><br/> 設定 vCenter 帳戶, 並劃分清查以將帳戶的存取許可權制為少於10000個 Vm。<br/> 使用帳戶將每個設備連接到 vCenter server。<br/> 您可以分析使用不同設備探索到的機器之間的相依性。
-多個 | < 10,000 |  一個 Azure Migrate 專案。<br/> 多個設備。<br/> 一個用於探索的 vCenter 帳戶。 | 設定設備, 使用帳戶連接到 vCenter Server。<br/> 您可以分析使用不同設備探索到的機器之間的相依性。
-多個 | > 10,000 | 一個 Azure Migrate 專案。<br/> 多個設備。<br/> 多個 vCenter 帳戶。 | 如果 vCenter Server 探索 < 10000 Vm, 請為每個 vCenter Server 設定設備。<br/><br/> 如果 vCenter Server 探索 > 10000 Vm, 請為每個 10000 Vm 設定設備。<br/> 設定 vCenter 帳戶, 並劃分清查以將帳戶的存取許可權制為少於10000個 Vm。<br/> 使用帳戶將每個設備連接到 vCenter server。<br/> 您可以分析使用不同設備探索到的機器之間的相依性。
+多重 | < 10,000 |  一個 Azure Migrate 專案。<br/> 多個設備。<br/> 一個用於探索的 vCenter 帳戶。 | 設定設備, 使用帳戶連接到 vCenter Server。<br/> 您可以分析使用不同設備探索到的機器之間的相依性。
+多重 | > 10,000 | 一個 Azure Migrate 專案。<br/> 多個設備。<br/> 多個 vCenter 帳戶。 | 如果 vCenter Server 探索 < 10000 Vm, 請為每個 vCenter Server 設定設備。<br/><br/> 如果 vCenter Server 探索 > 10000 Vm, 請為每個 10000 Vm 設定設備。<br/> 設定 vCenter 帳戶, 並劃分清查以將帳戶的存取許可權制為少於10000個 Vm。<br/> 使用帳戶將每個設備連接到 vCenter server。<br/> 您可以分析使用不同設備探索到的機器之間的相依性。
 
 
 ## <a name="plan-discovery-in-a-multi-tenant-environment"></a>在多租使用者環境中規劃探索
@@ -68,7 +69,7 @@ ms.locfileid: "67868671"
 
 - 您可以將設備探索範圍設定為 vCenter Server 的資料中心、叢集或叢集的叢集、主機或主機或個別 Vm 的資料夾。
 - 如果您的環境在租使用者之間共用, 而您想要個別探索每個租使用者, 您可以將存取許可權定為設備用於探索的 vCenter 帳戶。 
-    - 如果租使用者共用主機, 您可能會想要依 VM 資料夾進行範圍。 如果 vCenter 帳戶具有在 vCenter VM 資料夾層級上授與的存取權, Azure Migrate 就無法探索 Vm。 如果您想要依 VM 資料夾來界定探索範圍, 可以藉由確保 vCenter 帳戶在 VM 層級指派唯讀存取權來執行此動作。 [在這裡](tutorial-assess-vmware.md#scoping-discovery)深入瞭解範圍探索。
+    - 如果租使用者共用主機, 您可能會想要依 VM 資料夾進行範圍。 如果 vCenter 帳戶具有在 vCenter VM 資料夾層級上授與的存取權, Azure Migrate 就無法探索 Vm。 如果您想要依據 VM 資料夾來界定探索範圍，只要確保 vCenter 帳戶在 VM 層級上已獲派唯讀存取權即可。 [在這裡](tutorial-assess-vmware.md#scoping-discovery)深入瞭解範圍探索。
 
 ## <a name="prepare-for-assessment"></a>準備進行評估
 

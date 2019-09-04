@@ -6,15 +6,15 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5333bfd8c7f7d24e497e4b7ba7da3543aee54da6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 968e55cc07d10a0d4b54d4a7e866417d18e98bb5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194759"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258877"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
-本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 如需在您的範本中使用函式的詳細資訊, 請參閱[範本語法](resource-group-authoring-templates.md#syntax)。
+本文描述您可以在Azure Resource Manager 範本中使用的所有函式。 如需在您的範本中使用函式的詳細資訊, 請參閱[範本語法](template-expressions.md)。
 
 若要建立自己的函式，請參閱[使用者定義的函式](resource-group-authoring-templates.md#functions)。
 

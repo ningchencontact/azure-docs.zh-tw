@@ -4,14 +4,14 @@ description: 了解如何尋找對 Azure Cosmos 容器執行的任何作業所�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 682273524269682f62cd386de1c9161888747f16
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093716"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240777"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中尋找要求單位費用
 
@@ -176,7 +176,7 @@ RU 費用可用名為 `getLastRequestStatistics` 的自訂[資料庫命令](http
 
 1. [建立新的 Azure Cosmos 帳戶](create-mongodb-dotnet.md#create-a-database-account)並為其提供資料，或選取已包含資料的現有帳戶。
 
-1. 前往 [資料總管] 窗格，然後選取您要處理的集合。
+1. 前往 [資料總管] 窗格，然後選取您要處理的容器。
 
 1. 選取 [新增查詢]。
 

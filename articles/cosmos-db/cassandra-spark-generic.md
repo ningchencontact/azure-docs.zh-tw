@@ -7,13 +7,13 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: cc28cf590a1fd2c3fdfe8651f136526188801c04
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.date: 09/01/2019
+ms.openlocfilehash: cb34ea44c069f067d13a6480531a94a1a515f380
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615635"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241250"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>從 Spark 連線至 Azure Cosmos DB Cassandra API
 
@@ -29,7 +29,7 @@ ms.locfileid: "69615635"
 
 * **適用於 Cassandra API 的 Azure Cosmos DB 協助程式程式庫：** 除了 Spark 連接器之外，您還需要 Azure Cosmos DB 中另一個稱為 [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) 的程式庫。 此程式庫包含自訂連線處理站和重試原則類別。
 
-  Azure Cosmos DB 中的重試原則設定為處理 HTTP 狀態碼 429 (「要求速率很大」) 的例外狀況。 Azure Cosmos DB Cassandra API 會將這些例外狀況轉譯成 Cassandra 原生通訊協定上的多載錯誤，您可以使用輪詢進行重試。 由於 Azure Cosmos DB 會使用佈建的輸送量模型，因此輸入/輸出速率增加時，也會發生要求速率限制例外狀況。 重試原則可保護您的 Spark 工作以免遭受資料暴增的影響，而資料暴增會暫時超出配置給集合的輸送量。
+  Azure Cosmos DB 中的重試原則設定為處理 HTTP 狀態碼 429 (「要求速率很大」) 的例外狀況。 Azure Cosmos DB Cassandra API 會將這些例外狀況轉譯成 Cassandra 原生通訊協定上的多載錯誤，您可以使用輪詢進行重試。 由於 Azure Cosmos DB 會使用佈建的輸送量模型，因此輸入/輸出速率增加時，也會發生要求速率限制例外狀況。 重試原則可保護您的 spark 作業, 避免資料突然超過配置給容器的輸送量。
 
   > [!NOTE] 
   > 重試原則只能保護您的 Spark 工作以免遭受暫時暴增的影響。 如果您未設定執行工作負載所需的足夠 RU，則重試原則不適用，而且重試原則類別會重新擲回例外狀況。

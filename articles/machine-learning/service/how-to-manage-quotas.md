@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 110040592474ec432912e7f545abad19ca3ae1ff
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: bc0455b34ebdcb080e0cd702e58d8163228b60ff
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991980"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278056"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>管理及要求 Azure 資源的配額
 
@@ -78,7 +78,7 @@ ms.locfileid: "69991980"
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 管線
 針對 Azure Machine Learning 管線, 管線中的步驟數目以及訂用帳戶中每個區域的排程型執行數目會有配額限制。
 - 管線中允許的最大步驟數目是30000
-- 每個訂用帳戶每個月已發佈管線的排程執行數目上限為100000
+- 針對每個訂用帳戶每個訂閱的已發佈管線, 以排程為基礎的執行總和和 blob 提取的最大數目為100000
 
 > [!NOTE]
 > 如果您想要上調此限制，請連絡 [Microsoft 支援服務](https://azure.microsoft.com/support/options/)。

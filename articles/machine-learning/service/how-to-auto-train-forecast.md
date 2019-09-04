@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 793474495f3ab3ef06a17b48d15c2f91d0677365
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2a037a495a1e1ed211bd9a535891ccf75fdb140b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848172"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278187"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測模型
 
@@ -112,7 +112,7 @@ time_series_settings = {
 ```
 
 > [!NOTE]
-> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時, 定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
+> 自動化機器學習前置處理步驟 (功能正規化、處理遺漏的資料、將文字轉換成數值等等) 會成為基礎模型的一部分。 使用模型進行預測時，定型期間所套用的相同前置處理步驟會自動套用至您的輸入資料。
 
 現在, 請建立`AutoMLConfig`標準物件, 並`forecasting`指定工作類型並提交實驗。 在模型完成之後, 請抓取最佳的執行反復專案。
 
@@ -199,4 +199,4 @@ rmse
 ## <a name="next-steps"></a>後續步驟
 
 * 請遵循[本教學](tutorial-auto-train-models.md)課程, 以瞭解如何使用自動化機器學習來建立實驗。
-* 查看[適用于 Python 的 AZURE MACHINE LEARNING SDK](https://aka.ms/aml-sdk)參考檔。
+* 查看[適用于 Python 的 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)參考檔。

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: fc633780d8b816d8fc2e313bb1955a5719979efe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823743"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240876"
 ---
 # <a name="what-is-passwordless"></a>什麼是無密碼？
 
@@ -26,7 +26,7 @@ ms.locfileid: "68823743"
 | --- | --- | --- |
 | 無密碼 | 電話或安全性金鑰 | 生物識別或 PIN |
 
-在驗證方面, 每個組織都有不同的需求。 Microsoft 目前提供 Windows Hello, 適用于 Windows 電腦。 我們會將 Microsoft Authenticator 應用程式和 FIDO2 安全性金鑰新增至無密碼系列。
+在驗證方面, 每個組織都有不同的需求。 Microsoft 目前為我們的 Windows 電腦提供 Windows Hello。 我們會將 Microsoft Authenticator 應用程式和 FIDO2 安全性金鑰新增至無密碼系列。
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator 應用程式
 

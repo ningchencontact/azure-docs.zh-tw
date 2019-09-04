@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9d8ae3a95262b1554e7e97fac8375a44743bf4df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344660"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278615"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>執行資料科學工作：探索、模型化和部署
 
 一般資料科學工作包括資料探索、模型化和部署。 本文示範如何使用**互動式資料探索、分析與報告 (IDEAR)** 和**自動模型化與報告 (AMAR)** 公用程式來完成數個常見的資料科學工作，例如互動式資料探索、資料分析、報告和模型建立。 它也會列出使用各種工具組和資料平台，將模型部署到生產環境的選項，如下所示：
 
-- [Azure Machine Learning](../service/index.yml)
+- [Azure Machine Learning](../index.yml)
 - [SQL-Server 與 ML 服務](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -73,7 +73,7 @@ YAML 檔案是用來指定：
 ### <a name="model-management"></a>模型管理
 在多個模型都已建置完成之後，您通常需要有可註冊和管理模型的系統。 通常您需要指令碼或 API 以及後端資料庫或版本控制系統的組合。 針對這些管理工作，您可以考慮以下的一些選項：
 
-1. [Azure Machine Learning - 模型管理服務](../service/index.yml)
+1. [Azure Machine Learning - 模型管理服務](../index.yml)
 2. [從 MIT ModelDB](https://mitdbg.github.io/modeldb/) 
 3. [SQL-Server 即模型管理系統](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/) \(英文\)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)

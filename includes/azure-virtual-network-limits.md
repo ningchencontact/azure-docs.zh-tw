@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: e55b191e937b6c9f8183b3878b264eb50401b3f1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903866"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242615"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>網路限制-Azure Resource Manager 下列限制僅適用于透過每個訂用帳戶的每個區域**Azure Resource Manager**管理的網路資源。 深入了解如何[根據您的訂用帳戶限制檢視目前資源使用量](../articles/networking/check-usage-against-limits.md)。
 
@@ -51,7 +51,7 @@ ms.locfileid: "69903866"
 | --- | --- | --- |
 | 公用 IP 位址 - 動態 | 適用于 Basic 的1000。 |請連絡支援人員。 |
 | 公用 IP 位址 - 靜態 | 適用于 Basic 的1000。 |請連絡支援人員。 |
-| 公用 IP 位址 - 靜態 | 適用于 Standard 的200。|請連絡支援人員。 |
+| 公用 IP 位址 - 靜態 | 適用于 Standard 的1000。|請連絡支援人員。 |
 | 公用 IP 前置長度 | /28 | 請連絡支援人員。 |
 
 #### <a name="load-balancer"></a>負載平衡器限制

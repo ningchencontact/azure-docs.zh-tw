@@ -7,12 +7,12 @@ ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8cbefcbadc14c1249d2783f1539e40c99c3be66c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 14e957986df7a114b8c865ee82e2ac447683dc2c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231559"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257179"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 
@@ -63,7 +63,7 @@ ms.locfileid: "70231559"
 
 #### <a name="resolution"></a>解析度
 
-若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊, 請參閱[範本檔案結構-語法](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax)。
+若要將函式作為參數傳遞，請使用 `[` 逸出整個字串，讓藍圖參數看起來像 `[[resourceGroup().tags.myTag]`。 逸出字元會導致「藍圖」在處理藍圖時，將值視為字串。 接著「藍圖」會將函式置於成品上，讓它如預期般地為動態函式。 如需詳細資訊, 請參閱[Azure Resource Manager 範本中的語法和運算式](../../../azure-resource-manager/template-expressions.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

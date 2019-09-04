@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: f9cd6e2fee738d2d42c790b4eb7b9a876a44b01d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772970"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258696"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>使用 Reliable Services 在 C# 中進行服務遠端處理
 
@@ -320,6 +320,11 @@ string message = await helloWorldClient.HelloWorldAsync();
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>從遠端 V1 升級為遠端 V2 (介面相容)
 
 若要從 V1 升級為 V2 (介面相容，也稱為 V2_1)，需要 2 個步驟。 遵循此序列中的步驟。
+
+> [!NOTE]
+> 從 V1 升級至 V2 時, 請確定`Remoting`已將命名空間更新為使用 v2。 範例：' ServiceFabric. FabricTransport. 用戶端 '
+>
+>
 
 1. 使用下列屬性將 V1 服務升級為 V2_1 服務。
 此變更可確保服務正在接聽 V1 和 V2_1 接聽程式。

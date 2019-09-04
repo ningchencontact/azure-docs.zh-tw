@@ -11,16 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: e81cc39157231c98e38305c70e046111ec062732
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 87897c031ff717fb67830cb8fa3bc5fced336418
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128296"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278846"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
-在本文中，您將了解如何使用 [Azure Machine Learning SDK](https://aka.ms/aml-sdk) 來建立、發佈、執行及追蹤[機器學習管線](concept-ml-pipelines.md)。  使用**ML 管線**建立工作流程, 以拼接各種 ML 階段, 然後將該管線發佈到您的 Azure Machine Learning 工作區, 以供稍後存取或與其他人共用。  ML 管線適用于批次評分案例, 使用各種計算、重複使用步驟而不是重新執行, 以及與其他人共用 ML 工作流程。 
+在本文中，您將了解如何使用 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 來建立、發佈、執行及追蹤[機器學習管線](concept-ml-pipelines.md)。  使用**ML 管線**建立工作流程, 以拼接各種 ML 階段, 然後將該管線發佈到您的 Azure Machine Learning 工作區, 以供稍後存取或與其他人共用。  ML 管線適用于批次評分案例, 使用各種計算、重複使用步驟而不是重新執行, 以及與其他人共用 ML 工作流程。 
 
 雖然您可以使用另一種稱為[Azure 管線](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml)的管線來進行 ML 工作的 CI/CD 自動化, 但該類型的管線永遠不會儲存在您的工作區中。 [比較這些不同的管線](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)。
 
@@ -270,9 +270,9 @@ from azureml.pipeline.steps import PythonScriptStep
 
 trainStep = PythonScriptStep(
     script_name="train.py",
-    arguments=["--input", blob_input_data, "--output", processed_data1],
+    arguments=["--input", blob_input_data, "--output", output_data1],
     inputs=[blob_input_data],
-    outputs=[processed_data1],
+    outputs=[output_data1],
     compute_target=compute_target,
     source_directory=project_folder
 )

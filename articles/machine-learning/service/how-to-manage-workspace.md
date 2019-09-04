@@ -11,16 +11,16 @@ ms.author: shipatel
 author: shivp950
 ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81e1104d71706194ba1c54e42722b4508df09091
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f103bde99eb5b21d06988f11ac6f17fcf50ceb31
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534874"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278281"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>建立及管理 Azure Machine Learning services 工作區
 
-在此文章中，您將在 Azure 入口網站中為 [Azure Machine Learning services](overview-what-is-azure-ml.md) 建立、檢視和刪除 [**Azure Machine Learning services 工作區**](concept-workspace.md)。  入口網站是開始使用工作區的最簡單方式, 但隨著您的需求變更或自動化的需求增加, 您也可以[使用 CLI](reference-azure-machine-learning-cli.md)、Python 程式[代碼](https://aka.ms/aml-sdk)或透過[VS Code 延伸](how-to-vscode-tools.md#get-started-with-azure-machine-learning)模組來建立和刪除工作區。
+在此文章中，您將在 Azure 入口網站中為 [Azure Machine Learning services](overview-what-is-azure-ml.md) 建立、檢視和刪除 [**Azure Machine Learning services 工作區**](concept-workspace.md)。  入口網站是開始使用工作區的最簡單方式, 但隨著您的需求變更或自動化的需求增加, 您也可以[使用 CLI](reference-azure-machine-learning-cli.md)、Python 程式[代碼](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)或透過[VS Code 延伸](how-to-vscode-tools.md#get-started-with-azure-machine-learning)模組來建立和刪除工作區。
 
 ## <a name="create-a-workspace"></a>建立工作區
 

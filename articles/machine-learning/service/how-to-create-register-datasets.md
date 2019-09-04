@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/22/2019
-ms.openlocfilehash: e5d5d36e82914f1d6d03299db0ed1427ac5a389a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 2ce64df5eeb8aa44ef714d6b465b7f2e1819635d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147579"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259280"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>在 Azure Machine Learning 中建立和存取資料集 (預覽)
 
@@ -47,7 +47,7 @@ ms.locfileid: "70147579"
 
 資料集會根據使用者在定型中取用它們的方式, 分類成各種類型。 資料集類型的清單:
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py)藉由剖析提供的檔案或檔案清單, 以表格格式表示資料。 這讓您能夠將資料具體化為 pandas 資料框架。 您可以從 csv、tsv、parquet 檔案、SQL 查詢結果等建立物件。`TabularDataset`如需完整清單, 請流覽我們的[檔](https://aka.ms/tabulardataset-api-reference)。
-* FileDataset 會參考您資料存放區或公用 url 中的單一或多個檔案。 這讓您能夠將檔案下載或掛接至您的計算。 這些檔案可以是任何格式, 讓更廣泛的機器學習服務案例, 包括深度學習。
+* [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py)會參考您資料存放區或公用 url 中的單一或多個檔案。 這讓您能夠將檔案下載或掛接至您的計算。 這些檔案可以是任何格式, 讓更廣泛的機器學習服務案例, 包括深度學習。
 
 若要深入瞭解即將推出的 API 變更, 請參閱[這裡](https://aka.ms/tabular-dataset)。
 
@@ -99,8 +99,8 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 | |PassengerId|式|Pclass|Name|性別|Age|SibSp|Parch|票|費用|插槽|著手
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|0|3|Braund, Mr. Owen Harris|male|22。0|1|0|A/5 21171|7.2500||S
-1|2|1|1|Cumings, Mrs John Bradley (Florence Briggs Th 。|female|38。0|1|0|電腦17599|71.2833|C85|C
+0|1|0|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|1|1|Cumings, Mrs John Bradley (Florence Briggs Th 。|female|38.0|1|0|電腦17599|71.2833|C85|C
 2|3|1|3|Heikkinen, 錯過。 Laina|female|26.0|0|0|STON/O2。 3101282|7.9250||S
 
 ### <a name="create-filedatasets"></a>建立 FileDatasets

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: cd17dcb7a9f68c25617c9e6b928ddebebcdbddbe
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.openlocfilehash: 4ee9048202a5953ff27ea83cfb39cb1af0739e7a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70211715"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277496"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Business Warehouse 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -98,9 +98,9 @@ ms.locfileid: "70211715"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 SAP BW 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 SAP BW 資料集所支援的屬性清單。
 
-若要從 SAP BW 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 針對 RelationalTable 類型的 SAP BW 資料集，不支援任何類型特定的屬性。
+若要從 SAP BW 複製資料, 請將資料集的 type 屬性設定為**SapBwCube**。 針對 RelationalTable 類型的 SAP BW 資料集，不支援任何類型特定的屬性。
 
 **範例:**
 
@@ -108,15 +108,18 @@ ms.locfileid: "70211715"
 {
     "name": "SAPBWDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SapBwCube",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+如果您使用`RelationalTable`的是具類型的資料集, 則仍會受到支援, 但建議您在未來使用新的 dataset。
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
@@ -124,11 +127,11 @@ ms.locfileid: "70211715"
 
 ### <a name="sap-bw-as-source"></a>SAP BW 作為來源
 
-若要從 SAP BW 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
+若要從 SAP BW 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| Type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**SapBwSource** | 是 |
 | query | 指定 MDX 查詢從 SAP BW 執行個體讀取資料。 | 是 |
 
 **範例:**
@@ -152,7 +155,7 @@ ms.locfileid: "70211715"
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SapBwSource",
                 "query": "<MDX query for SAP BW>"
             },
             "sink": {
@@ -162,6 +165,8 @@ ms.locfileid: "70211715"
     }
 ]
 ```
+
+如果您使用`RelationalSource`的是具類型的來源, 則仍會受到支援, 但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-sap-bw"></a>SAP BW 的資料類型對應
 

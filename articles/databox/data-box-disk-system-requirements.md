@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 20c27a3e4e9a96a19b347e5ef57ab9fb3c047140
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f054d0665c49ee048451681a7cc34d2a648a6e9e
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194440"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240230"
 ---
 ::: zone target="docs"
 
@@ -30,7 +30,7 @@ ms.locfileid: "70194440"
 
 # <a name="review-prerequisites"></a>檢閱必要條件
 
-1. 您必須使用教學課程來排序您的資料箱磁碟:訂購您的 Azure 資料箱磁碟。 您已收到磁片, 而且每個磁片都有一個連接纜線。
+1. 您必須使用教學課程來排序您[的資料箱磁碟:訂購您的](data-box-disk-deploy-ordered.md)Azure 資料箱磁碟。 您已收到磁片, 而且每個磁片都有一個連接纜線。
 2. 您有一部用戶端電腦可用來複製資料。 您的用戶端電腦必須：
 
     - 執行支援的作業系統。

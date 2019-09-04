@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e3c2c7e4f3bb6c4c06d2f445adc5056c854a7503
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 14ced5ed45bcc91e6b6c812f2d1cbb61e139cc4f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138543"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278942"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -37,7 +37,7 @@ ms.locfileid: "70138543"
 
 - 模型。 如果您沒有定型的模型, 您可以使用[本教學](https://aka.ms/azml-deploy-cloud)課程中提供的模型 & 相依性檔案。
 
-- [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組, [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), 或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
+- [Machine Learning 服務的 Azure CLI 延伸](reference-azure-machine-learning-cli.md)模組, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), 或[Azure Machine Learning Visual Studio Code 延伸](how-to-vscode-tools.md)模組。
 
 ## <a name="connect-to-your-workspace"></a>連接到您的工作區
 
@@ -562,7 +562,7 @@ print(service.state)
 若要使用 CLI 進行部署, 請使用下列命令。 以`mymodel:1`已註冊模型的名稱和版本取代:
 
 ```azurecli-interactive
-az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 [!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]

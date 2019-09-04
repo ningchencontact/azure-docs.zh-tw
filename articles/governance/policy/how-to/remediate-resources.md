@@ -7,18 +7,16 @@ ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f88ecb782598cabacc29f97ee3225a5abf280a84
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 40658412f19c444cfa06f5663f567a78453c7e9a
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232320"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241146"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
 您可以透過「補救」讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 藉由指示 Azure 原則在現有資源上執行指派之原則的**deployIfNotExists**效果, 即可完成補救。 本文說明使用 Azure 原則來瞭解及完成補救所需的步驟。
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>補救安全性的運作方式
 

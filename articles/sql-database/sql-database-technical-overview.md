@@ -12,16 +12,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 1c4fae5c41f4f23c4a7fe3135b602133aa69aacd
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8c931521e77123844817dff0e9209f8f95f7ad59
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873700"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279907"
 ---
 # <a name="what-is-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務
 
-Azure SQL Database 是一般用途的關係資料庫受控服務, 可讓您針對 Microsoft Azure 雲端中的應用程式和解決方案, 建立高可用性和高效能的資料儲存層。 SQL Database 可以是適用于各種新式雲端應用程式的正確選擇, 因為它可讓您使用強大的功能來處理關聯式資料和[非關聯式結構](sql-database-multi-model-features.md), 例如圖形、JSON、空間和 XML。 它是以[Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)的最新穩定版本為基礎, 可讓您使用一組豐富的先進查詢處理功能, 例如高效能的[記憶體內部技術](sql-database-in-memory.md)和[智慧型查詢處理](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json).
+Azure SQL Database 是一般用途的關係資料庫受控服務, 可讓您針對 Microsoft Azure 雲端中的應用程式和解決方案, 建立高度可用且高效能的資料儲存層。 SQL Database 可以是適用于各種新式雲端應用程式的正確選擇, 因為它可讓您使用強大的功能來處理關聯式資料和[非關聯式結構](sql-database-multi-model-features.md), 例如圖形、JSON、空間和 XML。 它是以[Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)的最新穩定版本為基礎, 可讓您使用一組豐富的先進查詢處理功能, 例如[高效](sql-database-in-memory.md)能的記憶體內部技術和[智慧型查詢處理](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json).
 依據 Microsoft 的雲端優先策略，SQL Server 的最新功能會先在 SQL Database 中發行，然後在 SQL Server 本身發行。 這種方法可為您提供最新的 SQL Server 功能，但沒有修補或升級的額外負荷，而這些新功能已在數百萬個資料庫上進行測試。 SQL Database 可讓您在兩種不同的購買模型內輕鬆定義和調整效能: 以[vCore 為基礎的購買](sql-database-service-tiers-vcore.md)模型和以 DTU 為基礎的[購買模型](sql-database-service-tiers-dtu.md)。 SQL Database 是完全受控的服務, 具有內建的高可用性、備份和其他常見的維護作業。 Microsoft 會順暢地處理 SQL 和 OS 程式碼的所有修補和更新, 並抽象化基礎結構的所有管理。
 
 > [!NOTE]
@@ -31,7 +31,7 @@ Azure SQL Database 為 Azure SQL 資料庫提供下列部署選項：
 
 ![deployment-options](./media/sql-database-technical-overview/deployment-options.png)
 
-- [單一資料庫](sql-database-single-database.md)代表完全受控的隔離資料庫, 對於需要單一可靠資料來源的新式雲端應用程式和微服務而言, 這是最理想的選擇。 單一資料庫類似于[Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)中的[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json)。
+- [單一資料庫](sql-database-single-database.md)代表完全受控的隔離資料庫, 對於需要單一可靠資料來源的新式雲端應用程式和微服務而言, 這是最理想的選擇。 單一資料庫類似于[Microsoft SQL Server 資料庫引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)中的自主[資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json)。
 - [受控實例](sql-database-managed-instance.md)是[Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)的受完整管理實例, 其中包含一組可以一起使用的資料庫。 這是很好的選擇, 可讓您輕鬆地將內部部署 SQL Server 資料庫移轉至 Azure 雲端, 並適用于需要利用 SQL Server 資料庫引擎提供之強大資料庫功能的應用程式。
 - [彈性集](sql-database-elastic-pool.md)區是具有一組共用資源 (例如 CPU 或記憶體) 的[單一資料庫](sql-database-single-database.md)集合。 單一資料庫可以移入和移出彈性集區。
 
@@ -80,12 +80,12 @@ Azure SQL Database 提供一組先進的監視和疑難排解功能, 可協助�
  - 最新版本的 SQL Server 資料庫引擎提供的內建監視功能, 可讓您尋找即時效能深入解析。 
  - Azure 平臺所提供的 PaaS 監視功能, 可讓您輕鬆地監視大量資料庫實例, 也會提供疑難排解妥通知, 協助您修正效能問題。
 
-您應該利用的最重要內建資料庫引擎監視功能, 是[查詢存放區](sql-database-operate-query-store.md)元件, 可即時記錄查詢的效能, 並可讓您識別潛在的效能問題和最上層資源取用者。 自動調整和建議提供有關具有回歸效能和遺失或重複索引之查詢的妥通知。 Azure SQL Database 中的自動調整可讓您手動套用可修正問題的腳本, 或讓 Azure SQL Database 套用修正、測試和驗證是否提供一些好處, 並根據結果保留或還原變更。 除了查詢存放區和自動調整功能以外, 您也可以使用標準[dmv 和 XEvent](sql-database-monitoring-with-dmvs.md)來監視工作負載效能。
+您應該利用的最重要內建資料庫引擎監視功能, 是[查詢存放區](sql-database-operate-query-store.md)元件, 可即時記錄查詢的效能, 並可讓您識別潛在的效能問題和最上層的資源取用者. 自動調整和建議提供有關具有回歸效能和遺失或重複索引之查詢的妥通知。 Azure SQL Database 中的自動調整可讓您手動套用可修正問題的腳本, 或讓 Azure SQL Database 套用修正、測試和驗證是否提供一些好處, 並根據結果保留或還原變更。 除了查詢存放區和自動調整功能以外, 您也可以使用標準[dmv 和 XEvent](sql-database-monitoring-with-dmvs.md)來監視工作負載效能。
 
-Azure 平臺提供[內建的效能監視](sql-database-performance.md)和[警示](sql-database-insights-alerts-portal.md)工具, 並結合了效能評等, 讓您輕鬆監視數千個資料庫的狀態。 使用這些工具，您可以根據目前或專案的效能需求快速評估相應增加或減少的影響。 此外，SQL Database 可以[發出計量和診斷記錄](sql-database-metrics-diag-logging.md)以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
+Azure 平臺提供[內建的效能監視](sql-database-performance.md)和[警示](sql-database-insights-alerts-portal.md)工具, 並結合了效能評等, 讓您輕鬆監視數千個資料庫的狀態。 使用這些工具, 您可以根據目前或預測的效能需求, 快速評估相應增加或減少的影響。 此外，SQL Database 可以[發出計量和診斷記錄](sql-database-metrics-diag-logging.md)以便進行監視。 您可以將 SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
 
-- **Azure 儲存體**：用於封存大量遙測，價格實惠
-- **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或經常性管線
+- **Azure 儲存體**：用於封存大量遙測, 價格較小。
+- **Azure 事件中樞**：用於整合 SQL Database 遙測與您的自訂監視解決方案或熱門管線。
 - **Azure 監視器記錄**：適用於具有報告、警示及緩和功能的內建監視解決方案。
 
     ![架構](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -121,15 +121,15 @@ Azure 可用性區域是在高可用性問題上的一種播放。  它會嘗試
 
 ## <a name="built-in-intelligence"></a>內建智慧
 
-採用 SQL Database，您可取得內建智慧來協助您大幅降低執行和管理資料庫的成本，並將應用程式的效能和安全性最大化。 SQL Database 隨時執行數以百萬計的客戶工作負載，並收集和處理大量的遙測資料，同時完全尊重幕後的客戶隱私權。 各種演算法會持續評估遙測資料，讓服務能夠了解您的應用程式並隨之調整。 根據這項分析，服務會提出針對特定工作負載量身訂做的效能改善建議。
+採用 SQL Database，您可取得內建智慧來協助您大幅降低執行和管理資料庫的成本，並將應用程式的效能和安全性最大化。 SQL Database 隨時執行數以百萬計的客戶工作負載，並收集和處理大量的遙測資料，同時完全尊重幕後的客戶隱私權。 各種演算法會持續評估遙測資料，讓服務能夠了解您的應用程式並隨之調整。 根據這種分析, 服務會提供針對您的特定工作負載量身打造的效能改進建議。
 
 ### <a name="automatic-performance-monitoring-and-tuning"></a>自動的效能監視和微調
 
 SQL Database 會提供您需要監視之查詢的詳細解析。 SQL Database 會了解您的資料庫模式，並可讓您根據您的工作負載調整資料庫結構描述。 SQL Database 提供[效能微調建議](sql-database-advisor.md)，您可以在其中檢閱微調動作並加以套用。
 
-不過，持續監視資料庫是冗長乏味的艱辛工作，尤其是在處理許多資料庫時。 [智慧型深入解析](sql-database-intelligent-insights.md)會自動地大規模監視 SQL Database 效能來替您代勞，並通知效能降低的問題，還會識別問題的根本原因，然後盡可能提供效能改善建議。
+不過, 持續監控資料庫是一項困難又繁瑣的工作, 特別是在處理許多資料庫時。 [智慧型深入解析](sql-database-intelligent-insights.md)會自動地大規模監視 SQL Database 效能來替您代勞，並通知效能降低的問題，還會識別問題的根本原因，然後盡可能提供效能改善建議。
 
-即使使用 SQL Database 和 Azure 入口網站提供的所有可用工具和報告，都可能無法有效率地管理大量資料庫。 除了手動監視和調整資料庫，您也可以考慮使用[自動調整](sql-database-automatic-tuning.md)，將一些監視和微調動作委派給 SQL Database。 SQL Database 會自動套用建議、測試及驗證其每個調整動作, 以確保效能持續提升。 如此一來，SQL Database 會以受控制且安全的方式自動調整您的工作負載。 自動調整表示在每個調整動作前後，資料庫效能都會受到仔細的監控和比較，而如果效能沒有改善，則會還原調整動作。
+即使使用 SQL Database 和 Azure 入口網站提供的所有可用工具和報告，都可能無法有效率地管理大量資料庫。 除了手動監視和調整資料庫，您也可以考慮使用[自動調整](sql-database-automatic-tuning.md)，將一些監視和微調動作委派給 SQL Database。 SQL Database 會自動套用建議、測試及驗證其每個調整動作, 以確保效能持續提升。 如此一來, SQL Database 會以受控制且安全的方式自動調整您的工作負載。 自動調整表示在每個調整動作前後，資料庫效能都會受到仔細的監控和比較，而如果效能沒有改善，則會還原調整動作。
 
 現今，在 SQL Database 之上執行 [SaaS 多租用戶應用程式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的許多合作夥伴都依賴自動效能微調，來確保其應用程式始終擁有穩定且可預測的效能。 對他們而言，這項功能可大幅降低夜間發生效能事件的風險。 此外，由於其部分客戶也使用 SQL Server，所以他們會使用 SQL Database 所提供的相同索引建議來協助其 SQL Server 客戶。
 

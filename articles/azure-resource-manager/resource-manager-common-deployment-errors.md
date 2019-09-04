@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: df5362028a38a86ba8df46efae2e3c3109856463
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fc6fdde4daa2d671b9d93673c2a78c2d9d85963c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194369"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275730"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -32,7 +32,7 @@ ms.locfileid: "70194369"
 | AllocationFailed | 叢集或區域沒有可用的資源或無法支援所要求的 VM 大小。 稍後重試要求，或要求不同的 VM 大小。 | [Linux 的佈建和配置問題](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)、[Windows 的佈建和配置問題](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)以及[配置失敗疑難排解](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 等候並行作業完成。 | |
 | AuthorizationFailed | 您的帳戶或服務主體沒有完成部署的足夠存取權。 請檢查您的帳戶所屬的角色以及它針對部署範圍的存取權。<br><br>當所需的資源提供者未註冊時, 您可能會收到這個錯誤。 | [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)<br><br>[解析註冊](resource-manager-register-provider-errors.md) |
-| BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-group-authoring-templates.md#resource-location) |
+| BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-location.md) |
 | 衝突 | 您要求的作業在資源的目前狀態下不允許。 例如，只有在建立 VM 時或解除配置 VM 之後，才可調整磁碟大小。 | |
 | DeploymentActive | 等候此資源群組的並行部署完成。 | |
 | DeploymentFailed | DeploymentFailed 錯誤是一般錯誤，不會提供您解決錯誤所需的詳細資料。 尋找錯誤碼的錯誤詳細資料，以提供更多資訊。 | [尋找錯誤碼](#find-error-code) |
@@ -53,7 +53,7 @@ ms.locfileid: "70194369"
 | InvalidTemplateCircularDependency | 移除不必要的相依性。 | [解析循環相依性](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | 檢查您的帳戶是否屬於與您要部署的資源群組相同的租使用者。 | |
 | LinkedInvalidPropertyId | 資源的資源識別碼未正確地解析。 請檢查您為資源識別碼提供所有必要值，包含訂用帳戶識別碼、資源群組名稱、資源類型、父代資源名稱 (如有需要) 和資源名稱。 | |
-| LocationRequired | 提供資源的位置。 | [設定位置](resource-group-authoring-templates.md#resource-location) |
+| LocationRequired | 提供資源的位置。 | [設定位置](resource-location.md) |
 | MismatchingResourceSegments | 請確定巢狀資源的名稱和類型都有正確的區段數目。 | [解析資源區段](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | 檢查資源提供者註冊狀態和支援的位置。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 向資源提供者註冊訂用帳戶。 | [解析註冊](resource-manager-register-provider-errors.md) |

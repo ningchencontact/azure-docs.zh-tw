@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: ecdd560997391a4dfed8b01f30825eb9b3845792
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: aebcefadf4dfdb9301a01b0b4117e8aa2e429898
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996709"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276528"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Simple Storage Service 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -61,7 +61,7 @@ ms.locfileid: "69996709"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**AmazonS3**。 | 是 |
+| Type | 類型屬性必須設定為：**AmazonS3**。 | 是 |
 | accessKeyId | 密碼存取金鑰的識別碼。 |是 |
 | secretAccessKey | 密碼存取金鑰本身。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | serviceUrl | 如果您是從與 S3 相容的儲存體提供者中複製資料，而非官方的 Amazon S3 服務，請指定自訂的 S3 端點。 例如，若要從 Google Cloud Storage 中複製資料，請指定 `https://storage.googleapis.com`。 | 否 |
@@ -100,16 +100,16 @@ ms.locfileid: "69996709"
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 
 
-- 如需**Parquet、分隔的文字和二進位格式**, 請參閱[Parquet、分隔的文字和二進位格式資料集](#format-based-dataset)一節。
-- 如需**ORC/Avro/JSON 格式**之類的其他格式, 請參閱[其他格式資料集](#other-format-dataset)一節。
+- 如需**Parquet、分隔文字、Avro 和二進位格式**, 請參閱[Parquet、分隔的文字和二進位格式資料集](#format-based-dataset)一節。
+- 如需**ORC/JSON 格式**之類的其他格式, 請參閱[其他格式資料集](#other-format-dataset)一節。
 
-### <a name="format-based-dataset"></a>Parquet、分隔的文字和二進位格式資料集
+### <a name="format-based-dataset"></a>Parquet、分隔的文字、Avro 和二進位格式資料集
 
-若要從**Parquet、分隔文字或二進位格式**的 Amazon S3 複製資料, 請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)和[二進位格式](format-binary.md)一文, 以及支援的設定。 下列屬性支援以格式為基礎之資料`location`集的 [設定] 下的 Amazon S3:
+若要從**Parquet、分隔文字、avro 或二進位格式**的 Amazon S3 複製資料, 請參閱格式為基礎的資料集上的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文, 以及支援的設定。 下列屬性支援以格式為基礎之資料`location`集的 [設定] 下的 Amazon S3:
 
 | 屬性   | 描述                                                  | 必要項 |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | 資料集`location`內的類型屬性必須設定為**AmazonS3Location**。 | 是      |
+| Type       | 資料集`location`內的類型屬性必須設定為**AmazonS3Location**。 | 是      |
 | bucketName | S3 貯體名稱。                                          | 是      |
 | folderPath | 給定值區下的資料夾路徑。 如果您想要使用萬用字元來篩選資料夾, 請略過此設定, 並在 [活動來源設定] 中指定。 | 否       |
 | fileName   | 給定值區 + folderPath 下的檔案名。 如果您想要使用萬用字元來篩選檔案, 請略過此設定, 並在 [活動來源設定] 中指定。 | 否       |
@@ -147,11 +147,11 @@ ms.locfileid: "69996709"
 
 ### <a name="other-format-dataset"></a>其他格式資料集
 
-若要從 Amazon S3 複製**ORC/Avro/JSON 格式**的資料, 支援下列屬性:
+若要從 Amazon S3 複製**ORC/JSON 格式**的資料, 支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**AmazonS3Object** |是 |
+| Type | 資料集的類型屬性必須設定為：**AmazonS3Object** |是 |
 | bucketName | S3 貯體名稱。 不支援萬用字元篩選。 |[是] 適用於複製/查閱活動，[否] 適用於 GetMetadata 活動 |
 | key | 指定貯體下 S3 物件索引鍵的**名稱或萬用字元篩選**。 未指定 "prefix" 屬性時才適用。 <br/><br/>針對資料夾部分和檔案名稱部分，都支援萬用字元篩選。 允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"key": "rootfolder/subfolder/*.csv"`<br/>- 範例 2：`"key": "rootfolder/subfolder/???20180427.txt"`<br/>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 如果實際資料夾/檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。 |否 |
 | prefix | S3 物件索引鍵的前置詞。 系統會選取索引鍵以此前置詞開頭的物件。 未指定 "key" 屬性時才適用。 |否 |
@@ -229,16 +229,16 @@ ms.locfileid: "69996709"
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 作為來源
 
-- 若要從**Parquet、分隔的文字和二進位格式**複製, 請參閱[Parquet、分隔的文字和二進位格式的來源](#format-based-source)一節。
-- 若要從**ORC/Avro/JSON 格式**之類的其他格式複製, 請參閱[其他格式來源](#other-format-source)一節。
+- 若要從**Parquet、分隔文字、Avro 和二進位格式**複製, 請參閱[Parquet、分隔文字和二進位格式來源](#format-based-source)一節。
+- 若要從**ORC/JSON 格式**之類的其他格式複製, 請參閱[其他格式來源](#other-format-source)一節。
 
-#### <a name="format-based-source"></a>Parquet、分隔的文字和二進位格式來源
+#### <a name="format-based-source"></a>Parquet、分隔的文字、Avro 和二進位格式來源
 
-若要從**Parquet、分隔文字或二進位格式**的 Amazon S3 複製資料, 請參閱格式為基礎之複製活動來源和支援設定的[Parquet 格式](format-parquet.md)、[分隔的文字格式](format-delimited-text.md)和[二進位格式](format-binary.md)一文。 在以格式為基礎的複製來源的`storeSettings`設定下, Amazon S3 支援下列屬性:
+若要從**Parquet、分隔文字、avro 或二進位格式**的 Amazon S3 複製資料, 請參閱格式為基礎之複製活動來源上的[Parquet 格式](format-parquet.md)、[分隔文字格式](format-delimited-text.md)、 [avro 格式](format-avro.md)和[二進位格式](format-binary.md)一文。支援的設定。 在以格式為基礎的複製來源的`storeSettings`設定下, Amazon S3 支援下列屬性:
 
 | 屬性                 | 描述                                                  | 必要項                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | 底下的 type 屬性`storeSettings`必須設定為**AmazonS3ReadSetting**。 | 是                                                         |
+| Type                     | 底下的 type 屬性`storeSettings`必須設定為**AmazonS3ReadSetting**。 | 是                                                         |
 | recursive                | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。 允許的值為 **true** (預設值) 和 **false**。 | 否                                                          |
 | prefix                   | 在資料集內設定的指定值區底下, S3 物件索引鍵的前置詞, 用來篩選來源物件。 系統會選取索引鍵以此前置詞開頭的物件。 <br>只有在未`wildcardFolderPath`指定`wildcardFileName`和屬性時才適用。 | 否                                                          |
 | wildcardFolderPath       | 在資料集內設定的指定值區底下, 具有萬用字元的資料夾路徑, 用來篩選來源資料夾。 <br>允許的萬用字元為：`*` (比對零或多個字元) 和 `?` (比對零或單一字元)；如果您的實際資料夾名稱包含萬用字元或此逸出字元，請使用 `^` 來逸出。 <br>如需更多範例，請參閱[資料夾和檔案篩選範例](#folder-and-file-filter-examples)。 | 否                                                          |
@@ -293,11 +293,11 @@ ms.locfileid: "69996709"
 
 #### <a name="other-format-source"></a>其他格式來源
 
-若要從 Amazon S3 複製**ORC/Avro/JSON 格式**的資料, 複製活動的 [**來源**] 區段支援下列屬性:
+若要從 Amazon S3 以**ORC/JSON 格式**複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
+| Type | 複製活動來源的類型屬性必須設定為：**FileSystemSource** |是 |
 | recursive | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當 recursive 設定為 true，而接收器為檔案型存放區時，系統不會在接收器複製/建立空資料夾/子資料夾。<br/>允許的值為：**true** (預設值)、**false** | 否 |
 | maxConcurrentConnections | 同時連接到資料存放區的連接數目。 只有當您想要限制與資料存放區的並行連接時, 才指定。 | 否 |
 

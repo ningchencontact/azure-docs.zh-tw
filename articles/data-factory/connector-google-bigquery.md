@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61c10055a7f85f849fc366211eb41382c4c3039b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808880"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275205"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料
 
@@ -44,7 +44,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為 **GoogleBigQuery**。 | 是 |
+| Type | type 屬性必須設定為 **GoogleBigQuery**。 | 是 |
 | project | 要據以查詢之預設 BigQuery 專案的專案識別碼。  | 是 |
 | additionalProjects | 要存取之公開 BigQuery 專案的專案識別碼清單 (以逗號分隔)。  | 否 |
 | requestGoogleDriveScope | 是否要求存取 Google 雲端硬碟。 允許 Google 雲端硬碟存取能夠支援同盟資料表，其中結合了 BigQuery 資料與來自 Google 雲端硬碟的資料。 預設值為 **false**。  | 否 |
@@ -52,7 +52,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 ### <a name="using-user-authentication"></a>使用使用者驗證
 
-將 "authenticationType" 屬性設定為 [UserAuthentication]  ，並連同上一節所述的一般屬性指定下列屬性：
+將 "authenticationType" 屬性設定為 [UserAuthentication]，並連同上一節所述的一般屬性指定下列屬性：
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -88,7 +88,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 ### <a name="using-service-authentication"></a>使用服務驗證
 
-將 "authenticationType" 屬性設定為 [ServiceAuthentication]  ，並連同上一節所述的一般屬性指定下列屬性。 此驗證類型只能在自我裝載的 Integration Runtime 上使用。
+將 "authenticationType" 屬性設定為 [ServiceAuthentication]，並連同上一節所述的一般屬性指定下列屬性。 此驗證類型只能在自我裝載的 Integration Runtime 上使用。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
@@ -127,8 +127,10 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**GoogleBigQueryObject** | 是 |
-| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**GoogleBigQueryObject** | 是 |
+| 資料集 | Google BigQuery 資料集的名稱。 |否 (如果已指定活動來源中的"query")  |
+| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 資料表的名稱。 此屬性支援回溯相容性。 針對新的工作負載`dataset` , `table`請使用和。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -137,26 +139,27 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
     "name": "GoogleBigQueryDataset",
     "properties": {
         "type": "GoogleBigQueryObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Google BigQuery 來源類型所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Google BigQuery 來源類型所支援的屬性清單。
 
 ### <a name="googlebigquerysource-as-a-source-type"></a>GoogleBigQuerySource 作為來源類型
 
-若要從 Google BigQuery 複製資料，請將複製活動中的來源類型設定為 **GoogleBigQuerySource**。 複製活動的 [來源]  區段支援下列屬性。
+若要從 Google BigQuery 複製資料，請將複製活動中的來源類型設定為 **GoogleBigQuerySource**。 複製活動的 [來源] 區段支援下列屬性。
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **GoogleBigQuerySource**。 | 是 |
+| Type | 複製活動來源的 type 屬性必須設定為 **GoogleBigQuerySource**。 | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**

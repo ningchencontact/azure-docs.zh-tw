@@ -4,19 +4,58 @@ description: 說明如何刪除資源群組和資源。 其中說明如何 Azure
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 75cdeb88a68dece59d6b037592f7212fa895e821
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 30a394fd33ed5d928175fc27e003661c2b53de9a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991710"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275079"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager 資源群組和資源刪除
 
 本文說明如何刪除資源群組和資源。 其中說明當您刪除資源群組時, Azure Resource Manager 如何排序資源刪除。
+
+## <a name="how-order-of-deletion-is-determined"></a>如何判斷刪除的順序
+
+當您刪除資源群組時，Resource Manager 會決定刪除資源的順序。 它使用下列順序：
+
+1. 刪除所有子 (巢狀) 資源。
+
+2. 接著刪除管理其他資源的資源。 資源可以設定 `managedBy` 屬性，指出由不同的資源來管理它。 設定此屬性時，會先刪除管理其他資源的資源，再刪除這些資源。
+
+3. 在前兩個類別之後，刪除其餘資源。
+
+決定順序之後，Resource Manager 會針對每個資源發出 DELETE 作業。 它會等候任何相依性完成，再繼續進行。
+
+針對同步作業，預期的成功回應碼為：
+
+* 200
+* 204
+* 404
+
+針對非同步作業，預期的成功回應碼為 202。 Resource Manager 會追蹤位置標頭和 azure-async 作業標頭，以判斷非同步刪除作業的狀態。
+  
+### <a name="deletion-errors"></a>刪除錯誤
+
+當刪除作業傳回錯誤時，Resource Manager 會重試 DELETE 呼叫。 若狀態碼為 5xx、429 和 408，則會發生重試。 根據預設，重試的時間週期為 15 分鐘。
+
+## <a name="after-deletion"></a>刪除後
+
+Resource Manager 會在嘗試刪除的每個資源上發出 GET 呼叫。 此 GET 呼叫的回應必須是 404。 當 Resource Manager 取得 404 時，則刪除已成功完成。 Resource Manager 會從其快取中移除資源。
+
+不過，如果資源上的 GET 呼叫傳回 200 或 201，Resource Manager 會重新建立資源。
+
+如果 GET 作業傳回錯誤，Resource Manager 會針對下列錯誤碼重試 GET：
+
+* 小於 100
+* 408
+* 429
+* 大於 500
+
+若是其他錯誤碼，則 Resource Manager 無法刪除資源。
 
 ## <a name="delete-resource-group"></a>刪除資源群組
 
@@ -25,13 +64,13 @@ ms.locfileid: "69991710"
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name <resource-group-name>
+Remove-AzResourceGroup -Name ExampleResourceGroup
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az group delete --name <resource-group-name>
+az group delete --name ExampleResourceGroup
 ```
 
 # <a name="portaltabazure-portal"></a>[入口網站](#tab/azure-portal)
@@ -80,46 +119,6 @@ az resource delete \
 
 ---
 
-## <a name="how-order-of-deletion-is-determined"></a>如何判斷刪除的順序
-
-當您刪除資源群組時，Resource Manager 會決定刪除資源的順序。 它使用下列順序：
-
-1. 刪除所有子 (巢狀) 資源。
-
-2. 接著刪除管理其他資源的資源。 資源可以設定 `managedBy` 屬性，指出由不同的資源來管理它。 設定此屬性時，會先刪除管理其他資源的資源，再刪除這些資源。
-
-3. 在前兩個類別之後，刪除其餘資源。
-
-決定順序之後，Resource Manager 會針對每個資源發出 DELETE 作業。 它會等候任何相依性完成，再繼續進行。
-
-針對同步作業，預期的成功回應碼為：
-
-* 200
-* 204
-* 404
-
-針對非同步作業，預期的成功回應碼為 202。 Resource Manager 會追蹤位置標頭和 azure-async 作業標頭，以判斷非同步刪除作業的狀態。
-  
-### <a name="errors"></a>錯誤
-
-當刪除作業傳回錯誤時，Resource Manager 會重試 DELETE 呼叫。 若狀態碼為 5xx、429 和 408，則會發生重試。 根據預設，重試的時間週期為 15 分鐘。
-
-## <a name="after-deletion"></a>刪除後
-
-Resource Manager 會在嘗試刪除的每個資源上發出 GET 呼叫。 此 GET 呼叫的回應必須是 404。 當 Resource Manager 取得 404 時，則刪除已成功完成。 Resource Manager 會從其快取中移除資源。
-
-不過，如果資源上的 GET 呼叫傳回 200 或 201，Resource Manager 會重新建立資源。
-
-### <a name="errors"></a>錯誤
-
-如果 GET 作業傳回錯誤，Resource Manager 會針對下列錯誤碼重試 GET：
-
-* 小於 100
-* 408
-* 429
-* 大於 500
-
-若是其他錯誤碼，則 Resource Manager 無法刪除資源。
 
 ## <a name="next-steps"></a>後續步驟
 

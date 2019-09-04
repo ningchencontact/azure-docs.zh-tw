@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 64bd71d89446a19d2afe56a32b0c7124e897cb48
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8d7346bb61fad09e3f7c9098809463285ef57e93
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072421"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242489"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Azure API 管理的 IP 位址
 
@@ -27,7 +27,9 @@ ms.locfileid: "70072421"
 
 ## <a name="ip-addresses-of-api-management-service"></a>API 管理服務的 IP 位址
 
-如果您的 API 管理服務是「開發人員」、「基本」、「標準」或「高階」層服務, 您可以在 Azure 入口網站中, 從資源的 [總覽] 儀表板取得 IP 位址。
+開發人員、基本、標準或進階層中的每個 API 管理服務實例都有公用 IP 位址, 僅適用于該服務實例 (它們不會與其他資源分享)。 
+
+您可以在 Azure 入口網站中, 從資源的 [總覽] 儀表板取得 IP 位址。
 
 ![API 管理 IP 位址](media/api-management-howto-ip-addresses/public-ip.png)
 

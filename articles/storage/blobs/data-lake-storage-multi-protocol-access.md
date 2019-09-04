@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage 上的多重通訊協定存取 |Microsoft Docs
+title: Azure Data Lake Storage 上的多重通訊協定存取 (預覽) |Microsoft Docs
 description: 使用 Blob Api 和搭配 Azure Data Lake Storage Gen2 使用 Blob Api 的應用程式。
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cc0191a9484a09ed12e0ca0cde4d51681e44ec5f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 471e3008c25ddef83dd9b502dd8f677ae31cc71b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855544"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259365"
 ---
-# <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Azure Data Lake Storage 上的多重通訊協定存取
+# <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Azure Data Lake Storage 上的多重通訊協定存取 (預覽)
 
 Blob Api 現在可與具有階層式命名空間的帳戶搭配使用。 這可將整個工具、應用程式和服務的生態系統, 以及具有階層命名空間之帳戶的所有 Blob 儲存體功能解除鎖定。
 
 到目前為止, 您可能必須為物件儲存體和分析儲存體維護個別的儲存體解決方案。 這是因為 Azure Data Lake Storage Gen2 有限的生態系統支援。 它也具有 Blob 服務功能的有限存取權, 例如診斷記錄。 分散的儲存解決方案很難維護, 因為您必須在帳戶之間移動資料, 才能完成各種案例。 您不再需要這麼做。
 
 > [!NOTE]
-> Data Lake Storage 上的多重通訊協定存取處於公開預覽狀態, 且僅適用于**美國西部 2**和**美國中西部**區域。 若要查看限制, 請參閱[已知問題](data-lake-storage-known-issues.md)一文。 若要註冊預覽, 請參閱[此頁面](https://aka.ms/blobinteropsignup)。
+> Data Lake Storage 上的多重通訊協定存取處於公開預覽狀態, 且可在[這些區域](#region-availability)中使用。 若要查看限制, 請參閱[已知問題](data-lake-storage-known-issues.md)一文。 若要註冊預覽, 請參閱[此頁面](https://aka.ms/blobinteropsignup)。
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>使用應用程式、工具和服務的整個生態系統
 
@@ -46,7 +46,21 @@ Blob Api 和 Data Lake Storage Gen2 Api 可以在具有階層命名空間之儲�
 
 ![Data Lake Storage 概念的多重通訊協定存取](./media/data-lake-storage-interop/interop-concept.png) 
 
-使用 Blob API 的現有工具和應用程式會自動取得這些優點。 開發人員不需要修改它們。 無論工具和應用程式用來存取資料的通訊協定為何, Data Lake Storage Gen2 都會一致地套用目錄和檔案層級的 Acl。   
+使用 Blob API 的現有工具和應用程式會自動取得這些優點。 開發人員不需要修改它們。 無論工具和應用程式用來存取資料的通訊協定為何, Data Lake Storage Gen2 都會一致地套用目錄和檔案層級的 Acl。 
+
+<a id="region-availability" />
+
+## <a name="region-availability"></a>區域可用性
+
+Azure Data Lake Storage (預覽) 上的多重通訊協定存取會在下欄區域內上市:
+
+|||||
+|-|-|-|-|
+|美國中部|美國中西部|加拿大中部|
+|East US|東亞|北歐|
+|美國東部 2|東南亞|西歐|
+|美國西部|澳大利亞東部|日本東部|
+|美國西部 2|巴西南部||
 
 ## <a name="next-steps"></a>後續步驟
 

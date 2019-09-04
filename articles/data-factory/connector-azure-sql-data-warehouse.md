@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 2bfb094994bcc6f41044a08aab6eb0155967638e
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d3365f0a893c80043c93091c3e4e91382bdcd67e
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231419"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275865"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="選取您要使用的 Data Factory 服務版本:"]
@@ -234,7 +234,9 @@ ms.locfileid: "70231419"
 | 屬性  | 描述                                                  | 必要項                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | Type      | 資料集的**type**屬性必須設定為 **AzureSqlDWTable**。 | 是                         |
-| tableName | 「Azure SQL 資料倉儲」執行個體中連結服務所參考的資料表或檢視名稱。 | 否 (來源)；是 (接收) |
+| schema | 架構的名稱。 |否 (來源)；是 (接收)  |
+| table | 資料表/視圖的名稱。 |否 (來源)；是 (接收)  |
+| tableName | 具有架構的資料表/視圖名稱。 此屬性支援回溯相容性。 針對新的工作負載`schema` , `table`請使用和。 | 否 (來源)；是 (接收) |
 
 #### <a name="dataset-properties-example"></a>資料集屬性範例
 
@@ -250,7 +252,8 @@ ms.locfileid: "70231419"
         },
         "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
-            "tableName": "MyTable"
+            "schema": "<schema_name>",
+            "table": "<table_name>"
         }
     }
 }

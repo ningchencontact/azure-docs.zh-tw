@@ -1,27 +1,27 @@
 ---
 title: 範例：將 AdventureWorks 詳細目錄資料庫模型化 - Azure 搜尋服務
 description: 了解如何在「Azure 搜尋服務」中將關聯式資料模型化、將其轉換成扁平化資料集，以供編製索引及進行全文檢索搜尋。
-author: cstone
+author: HeidiSteen
 manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: chstone
-ms.openlocfilehash: 52ccf3edfca5b3481b038bd5d3449c1dd6354179
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 09/05/2019
+ms.author: heidist
+ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649910"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274027"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>範例：針對 Azure 搜尋服務將 AdventureWorks 詳細目錄資料庫模型化
 
-將結構化資料庫內容模型化成有效率的搜尋索引，不是一個簡單的練習。 除了排程和變更管理之外，還需面對一個挑戰，就是將來源資料列反正規化以從其資料表聯結狀態轉換成方便搜尋的實體。 本文使用可從線上取得的 AdventureWorks 範例資料，來強調從資料庫到搜尋的轉換中常見的體驗。 
+Azure 搜尋服務接受壓平合併的資料列集做為[索引 (資料內嵌) 管線](search-what-is-an-index.md)的輸入。 如果您的來源資料源自 SQL Server 關係資料庫, 本文將示範如何使用 AdventureWorks 範例資料庫做為範例, 在編制索引之前建立簡維資料列集的一種方法。
 
 ## <a name="about-adventureworks"></a>關於 AdventureWorks
 
-如果您使用 SQL Server 執行個體，您可能會熟悉 AdventureWorks 範例資料庫。 在此資料庫所包含的資料表中，有 5 個公開產品資訊的資料表。
+如果您有 SQL Server 實例, 您可能會熟悉[AdventureWorks 範例資料庫](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017)。 在此資料庫所包含的資料表中，有 5 個公開產品資訊的資料表。
 
 + **ProductModel**：name
 + **Product**：name、color、cost、size、weight、image、category (每個資料列都聯結至特定 ProductModel)
@@ -29,7 +29,7 @@ ms.locfileid: "69649910"
 + **ProductModelProductDescription**：locale (每個資料列都將 ProductModel 聯結至特定語言的特定 ProductDescription)
 + **ProductCategory**：name、parent category
 
-即將進行的工作是將此資料全部合併至可內嵌到搜尋索引中的扁平化資料列集。 
+將所有這項資料結合成一個可內嵌到搜尋索引的簡維資料列集, 就是這個範例的目標。 
 
 ## <a name="considering-our-options"></a>考量我們的選項
 
@@ -43,7 +43,7 @@ ms.locfileid: "69649910"
 
 ## <a name="use-a-collection-data-type"></a>使用 Collection 資料類型
 
-「正確的方法」是利用在資料庫模型中沒有直接相似功能的搜尋結構描述功能：**Collection(Edm.String)** 。 當您有一個個別字串清單，而不是一個非常長的 (單一) 字串時，便可使用 Collection 資料類型。 如果您有標籤或關鍵字，便會將 Collection 資料類型用於此欄位。
+「正確的方法」是利用在資料庫模型中沒有直接相似功能的搜尋結構描述功能：**Collection(Edm.String)** 。 此結構定義于 Azure 搜尋服務索引架構中。 當您需要代表個別字串的清單, 而不是非常長的 (單一) 字串時, 會使用集合資料類型。 如果您有標籤或關鍵字，便會將 Collection 資料類型用於此欄位。
 
 藉由為 "color"、"size" 及 "image 定義 **Collection(Edm.String)** 的多重值索引欄位，便得以保留輔助資訊以供建立 Facet 和篩選，而不會因重複項目而弄亂索引。 同樣地，請將彙總函式套用至數值 Product 欄位，其中為 **minListPrice** 編製索引，而不要為每個單一產品 **listPrice** 編製索引。
 
@@ -164,5 +164,3 @@ WHERE
 
 > [!div class="nextstepaction"]
 > [範例：Azure 搜尋服務中的多層級 Facet 分類法](search-example-adventureworks-multilevel-faceting.md)
-
-

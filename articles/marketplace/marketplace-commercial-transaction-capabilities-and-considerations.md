@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535049"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279748"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>商業 marketplace 交易功能和考慮
 
@@ -75,7 +75,7 @@ ms.locfileid: "69535049"
 
 ### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>隨用隨付和月租方案 (網站型) 定價
 
-WPay 隨用隨付和訂用帳戶定價當您發佈預付型方案或訂用帳戶交易供應專案時, Microsoft 會提供技術和服務來處理軟體授權購買、退貨和退款。 在此案例中，發行者針對這些目的授權 Microsoft 為代理人。 發行者允許 Microsoft 協助軟體授權交易，同時保留其為賣方、提供者、散發者和授權人的角色。
+在發行隨用隨付或月租方案交易供應項目的情況下，Microsoft 會提供處理軟體授權購買、退貨及退款的技術和服務。 在此案例中，發行者針對這些目的授權 Microsoft 為代理人。 發行者允許 Microsoft 協助軟體授權交易，同時保留其為賣方、提供者、散發者和授權人的角色。
 
 Microsoft 可讓客戶訂購、授權及使用發行者軟體, 叢集 Microsoft 的商業 Marketplace 和發行者的使用者授權合約的條款及條件。 發行者必須提供其使用者授權合約, 或在建立供應專案時選取[標準合約](https://docs.microsoft.com/azure/marketplace/standard-contract)。
 

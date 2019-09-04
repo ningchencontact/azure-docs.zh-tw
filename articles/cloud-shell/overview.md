@@ -12,19 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: f3d7edf21edf116732eceb332cb8725a0dee85dc
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742022"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240850"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 的概觀
-Azure Cloud Shell 是可經由瀏覽器存取的互動式殼層，應用在 Azure 資源管理上。
-它可讓您彈性地選擇最適合您工作方式的殼層體驗。
-Linux 使用者可以選擇 Bash 體驗，而 Windows 使用者可以選擇 PowerShell。
+Azure Cloud Shell 是可用於管理 Azure 資源的互動式、已驗證、可瀏覽器存取的 Shell。
+它可讓您彈性地選擇最適合您工作方式的 shell 體驗, 也就是 Bash 或 PowerShell。
 
 按一下下列項目，從 shell.azure.com 嘗試。
 

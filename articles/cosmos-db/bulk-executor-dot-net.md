@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 0b74c7b178ee4512067de4b8decba0c3c565ccd4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 26e4c4edbcfc282fffd0d43673d3585cfe973848
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616957"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241274"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用大量執行程式 .NET 程式庫執行大量作業
 
@@ -58,7 +58,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   大量匯入工具會使用資料庫名稱、集合名稱和 App.config 檔案中指定的輸送量值來建立新的資料庫與集合。 
+   大量匯入工具會使用 App.config 檔案中指定的資料庫名稱、容器名稱和輸送量值, 建立新的資料庫和容器。 
 
 3. 接下來，DocumentClient 物件會使用直接 TCP 連線模式進行初始化：  
 

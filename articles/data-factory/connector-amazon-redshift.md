@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 09/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68584e3eeeb7363818b534065ed4cbd7e0d937a9
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61261846"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276221"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -36,7 +36,7 @@ ms.locfileid: "61261846"
 > [!TIP]
 > 在 Redshift 中複製大量資料時，若想獲得最佳效能，請考慮透過 Amazon S3 使用內建的 Redshift UNLOAD。 如需詳細資料，請參閱「[使用 UNLOAD 複製 Amazon Redshift 中的資料](#use-unload-to-copy-data-from-amazon-redshift)」章節。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 如果您要使用[自我裝載 Integration Runtime](create-self-hosted-integration-runtime.md) 將資料複製到內部部署資料存放區，請將 Amazon Redshift 叢集的存取權授與 Integration Runtime (使用電腦的 IP 位址)。 如需相關指示，請參閱 [授權存取叢集](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 。
 * 如果您要將資料複製到 Azure 資料存放區，請參閱 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) 以取得 Azure 資料中心所使用的計算 IP 位址和 SQL 範圍。
@@ -53,7 +53,7 @@ ms.locfileid: "61261846"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**AmazonRedshift** | 是 |
+| Type | 類型屬性必須設定為：**AmazonRedshift** | 是 |
 | server |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
 | port |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否，預設值為 5439 |
 | database |Amazon Redshift 資料庫的名稱。 |是 |
@@ -89,14 +89,16 @@ ms.locfileid: "61261846"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 Amazon Redshift 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Amazon Redshift 資料集所支援的屬性清單。
 
-若要從 Amazon Redshift 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
+若要從 Amazon Redshift 複製資料, 支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
-| tableName | Amazon Redshift 中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
+| Type | 資料集的類型屬性必須設定為：**AmazonRedshiftTable** | 是 |
+| schema | 架構的名稱。 |否 (如果已指定活動來源中的"query")  |
+| table | 資料表的名稱。 |否 (如果已指定活動來源中的"query")  |
+| tableName | 具有架構之資料表的名稱。 此屬性支援回溯相容性。 針對`schema`新`table`的工作負載使用和。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
 
@@ -105,19 +107,22 @@ ms.locfileid: "61261846"
     "name": "AmazonRedshiftDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "AmazonRedshiftTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Amazon Redshift linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
 
+如果您使用`RelationalTable`的是具類型的資料集, 則仍會受到支援, 但建議您在未來使用新的 dataset。
+
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Amazon Redshift 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Amazon Redshift 來源所支援的屬性清單。
 
 ### <a name="amazon-redshift-as-source"></a>Amazon Redshift 作為來源
 
@@ -125,7 +130,7 @@ ms.locfileid: "61261846"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**AmazonRedshiftSource** | 是 |
 | query |使用自訂查詢來讀取資料。 例如：select * from MyTable。 |否 (如果已指定資料集中的 "tableName") |
 | redshiftUnloadSettings | 使用 Amazon Redshift UNLOAD 時的屬性群組。 | 否 |
 | s3LinkedServiceName | 係指要作為暫時存放區的 Amazon S3 (藉由指定 "AmazonS3" 類型的已連結服務名稱)。 | 如果使用 UNLOAD，則為必要 |
@@ -213,7 +218,7 @@ ms.locfileid: "61261846"
 | BOOLEAN |String |
 | CHAR |String |
 | DATE |DateTime |
-| DECIMAL |DECIMAL |
+| Decimal |DECIMAL |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |

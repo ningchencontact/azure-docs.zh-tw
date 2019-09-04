@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 65b6eb07a866db405af3e5bc609a540c36f148a8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 84109cf04588a5de6fb3fd946a89b5dfee4baa1b
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186440"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259159"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何在認知搜尋案例中處理影像並從影像擷取資訊
 
@@ -34,16 +34,15 @@ ms.locfileid: "70186440"
 | 設定參數 | 描述 |
 |--------------------|-------------|
 | imageAction   | 如果無需對內嵌影像或影像檔案採取任何動作，則設為「none」。 <br/>若設為「generateNormalizedImages」，則會在文件破解期間產生一系列的標準化影像。<br/>設為 "generateNormalizedImagePerPage" 以產生標準化映像的陣列，其中針對您資料來源中的 PDF，每個頁面都會轉譯成單一輸出映像。  其功能與適用於非 PDF 檔案類型的 "generateNormalizedImages" 相同。<br/>針對不是 "none" 的所有選項，這些影像將會公開在 *normalized_images* 欄位中。 <br/>預設值為「none」。 當「dataToExtract」設為「contentAndMetadata」時，此設定僅與 blob 資料來源有直接相關。 <br/>最多可從指定的檔解壓縮1000個影像。 如果檔中有超過1000的影像, 將會解壓縮第一個 1000, 並產生警告。 |
-|  normalizedImageMaxWidth | 所產生的標準化影像的最大寬度 (以像素為單位)。 預設值為 2000。|
-|  normalizedImageMaxHeight | 所產生標準化影像的最大高度 (以像素為單位)。 預設值為 2000。|
+|  normalizedImageMaxWidth | 所產生的標準化影像的最大寬度 (以像素為單位)。 預設值為 2000。 允許的最大值為10000。 | 
+|  normalizedImageMaxHeight | 所產生標準化影像的最大高度 (以像素為單位)。 預設值為 2000。 允許的最大值為10000。|
 
 > [!NOTE]
 > 如果您將 *imageAction* 屬性設定為「none\ 以外的任何值，則您只能將 *parsingMode* 屬性設為「default」。  只能將這兩個屬性的其中之一設定為索引子設定中的非預設值。
 
 將 **parsingMode** 參數設為 `json` (將每個 blob 當作單一文件加以索引) ，或設為 `jsonArray` (如果您的 blob 包含 JSON 陣列，且您需要將陣列的每個元素視為個別文件)。
 
-標準化影像的最大寬度與最大高度的預設值為 2000 像素，這是根據 [OCR 技術](cognitive-search-skill-ocr.md)和[影像分析技術](cognitive-search-skill-image-analysis.md)所支援的大小上限。 如果增加上限增加，對較大影像的處理可能會失敗。
-
+標準化影像的最大寬度與最大高度的預設值為 2000 像素，這是根據 [OCR 技術](cognitive-search-skill-ocr.md)和[影像分析技術](cognitive-search-skill-image-analysis.md)所支援的大小上限。 [OCR 技能](cognitive-search-skill-ocr.md)支援非英文語言的最大寬度和高度 4200, 以及適用于英文的10000。  如果您增加上限, 視您的技能集定義和檔的語言而定, 較大的影像處理可能會失敗。 
 
 在[索引子定義](https://docs.microsoft.com/rest/api/searchservice/create-indexer)中指定 imageAction，如下所示：
 
@@ -65,7 +64,7 @@ ms.locfileid: "70186440"
 
 | 影像成員       | 描述                             |
 |--------------------|-----------------------------------------|
-| 資料               | 以 BASE64 編碼的 JPEG 格式標準化影像字串。   |
+| data               | 以 BASE64 編碼的 JPEG 格式標準化影像字串。   |
 | width              | 標準化影像的寬度，以像素為單位。 |
 | height             | 標準化影像的高度，以像素為單位。 |
 | originalWidth      | 影像標準化之前的原始寬度。 |

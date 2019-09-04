@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ms.author: dalek
-ms.openlocfilehash: f2ea87f237fa5cca8a4b1f6773d2b47729cfb5b0
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: f0a3930cfb3ff403e0ce9d9be308370810e2065a
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147541"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276998"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用量和成本
 
@@ -119,6 +119,8 @@ systemEvents
 若要變更每日上限, 請在 Application Insights 資源的 [**設定**] 區段的 [**使用量和估計成本**] 頁面中, 選取 [**每日上限**]。
 
 ![調整每日遙測資料量上限](./media/pricing/pricing-003.png)
+
+若要透過[Azure Resource Manager 變更每日上限](../../azure-monitor/app/powershell.md), 要變更的屬性為`dailyQuota`。  透過 Azure Resource Manager 您也可以設定`dailyQuotaResetTime`和每日`warningThreshold`上限。 
 
 ## <a name="sampling"></a>取樣
 [取樣](../../azure-monitor/app/sampling.md)是一種方法，可降低將遙測傳送到您應用程式時的速率，同時仍保留在診斷搜尋期間尋找相關事件的功能。 此外，也保留正確的事件計數。

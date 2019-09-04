@@ -5,13 +5,13 @@ author: madams0013
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: t-maadam
-ms.openlocfilehash: 01197d91277c59b58c5ab841dfc2abfb78be71de
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: jasonh
+ms.openlocfilehash: 75ac837491927881fd8b7547b0f49a069c3f2d47
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877281"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257195"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>如何在 Azure 資料共用預覽中將資料集新增至現有的共用
 
@@ -29,7 +29,7 @@ ms.locfileid: "67877281"
 
 ![新增資料集](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
-一旦您按一下 [**新增資料集**], 資料集會新增至您的共用。 注意:您的取用者必須觸發快照集, 才能讓它們看到新的資料集。 如果已設定快照集設定, 取用者會在下一個排程的快照集完成後, 看到新的資料集。 若未設定快照集設定, 取用者必須手動觸發資料的完整或增量複本, 以接收更新。 如需快照集的詳細資訊, 請參閱[快照](terminology.md)集。
+一旦您按一下 [**新增資料集**], 資料集會新增至您的共用。 注意：您的取用者必須觸發快照集, 才能讓它們看到新的資料集。 如果已設定快照集設定, 取用者會在下一個排程的快照集完成後, 看到新的資料集。 若未設定快照集設定, 取用者必須手動觸發資料的完整或增量複本, 以接收更新。 如需快照集的詳細資訊, 請參閱[快照](terminology.md)集。
 
 ## <a name="next-steps"></a>後續步驟
 深入瞭解如何將收件者[新增至現有的資料共用](how-to-add-recipients.md)。

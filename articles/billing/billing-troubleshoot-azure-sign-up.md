@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: 57dc9c05778563bc0c5df1a8ac8895b51008b01f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 5032762c1275d3f1c8d1a020a54d20555f8ba3fe
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657069"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242440"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>針對 Azure 註冊進行疑難排解
 
@@ -106,7 +106,7 @@ ms.locfileid: "69657069"
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>無法啟動新的 Azure In Open 訂用帳戶
 
-若要建立 Azure In Open 訂用帳戶, 您必須具備有效的線上服務啟用 (OSA) 金鑰, 其中至少有一個與其相關聯的 Azure In Open 權杖。 如果您沒有 OSA 金鑰, 請洽詢[Microsoft 定點](http://pinpoint.microsoft.com/)中列出的其中一個 microsoft 合作夥伴。
+若要建立 Azure In Open 訂用帳戶, 您必須具備有效的線上服務啟用 (OSA) 金鑰, 其中至少有一個與其相關聯的 Azure In Open 權杖。 如果您沒有 OSA 金鑰, 請洽詢[Microsoft 定點](https://pinpoint.microsoft.com/)中列出的其中一個 microsoft 合作夥伴。
 
 ### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Error:*您不符合 Azure 訂用帳戶的資格*
 

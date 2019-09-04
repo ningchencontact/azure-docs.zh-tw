@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 841c55e9aa05e6b627716b084ad7685683f9faec
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 45eebe5bce819fa59f2ed6779e845afa6b3efaa5
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498344"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276850"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 追蹤自訂作業
 
@@ -217,7 +217,7 @@ public async Task Process(BrokeredMessage message)
 #### <a name="enqueue"></a>加入佇列
 因為 Azure 儲存體佇列支援 HTTP API，Application Insights 會自動追蹤所有作業與佇列。 在許多情況下，此檢測應該就足夠了。 不過，若要讓取用者端追蹤與生產者追蹤相互關聯，您必須傳遞一些相互關聯內容，類似於我們在「相互關聯的 HTTP 通訊協定」中的作業方式。 
 
-這個範例顯示如何追蹤 `Enqueue` 作業。 您可以:
+這個範例顯示如何追蹤 `Enqueue` 作業。 您可以：
 
  - **相互關聯重試 (如果有的話)** ：全部都有一個通用父代，也就是 `Enqueue` 作業。 否則會作為連入要求的子系追蹤。 如果佇列有多個邏輯要求，可能難以找到導致重試的呼叫。
  - **相互關聯儲存體記錄 (必要時)** ：與 Application Insights 遙測相互關聯。
@@ -318,7 +318,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
     {
         // Update status code and success as appropriate.
         telemetry.Stop();
-        telemetryClient.Track(telemetry);
+        telemetryClient.TrackDependency(telemetry);
     }
 
     return null;

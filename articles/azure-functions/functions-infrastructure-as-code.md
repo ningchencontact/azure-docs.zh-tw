@@ -12,12 +12,12 @@ ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 3d60e5e4aae3457ae04cd7e4ecfe4f9253a04751
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 976121e2fd7af280ccc959ba2a93aceb4ae2bdea
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085392"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276838"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions 中函數應用程式的自動化資源部署
 
@@ -195,16 +195,22 @@ Azure Functions 執行階段會使用 `AzureWebJobsStorage` 連接字串來建�
 取用方案是一種特殊類型的「伺服器陣列」資源。 針對 Windows, 您可以使用`Dynamic` `computeMode`和`sku`屬性的值來指定它:
 
 ```json
-{
-    "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
-    "name": "[variables('hostingPlanName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "computeMode": "Dynamic",
-        "sku": "Dynamic"
-    }
+{  
+   "type":"Microsoft.Web/serverfarms",
+   "apiVersion":"2016-09-01",
+   "name":"[variables('hostingPlanName')]",
+   "location":"[resourceGroup().location]",
+   "properties":{  
+      "name":"[variables('hostingPlanName')]",
+      "computeMode":"Dynamic"
+   },
+   "sku":{  
+      "name":"Y1",
+      "tier":"Dynamic",
+      "size":"Y1",
+      "family":"Y",
+      "capacity":0
+   }
 }
 ```
 

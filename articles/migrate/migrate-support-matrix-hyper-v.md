@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/04/2019
 ms.author: raynew
-ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 26b7f185a05bcf50db3af6bd3b75d5e61d6ec84b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952131"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70279562"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 評量和移轉的支援矩陣
 
@@ -37,13 +37,13 @@ Azure Migrate 伺服器遷移不支援遷移以 System Center Virtual Machine Ma
 --- | ---
 Azure 權限 | 您需要訂用帳戶中的「參與者」或「擁有者」許可權, 才能建立 Azure Migrate 專案。
 Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure 訂用帳戶中可以有多個專案。 專案可以包含 VMware Vm 和 Hyper-v Vm, 最多可達評量限制。
-地理 | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您可以在特定 ographies 中建立專案, 但您可以評估或遷移其他目標位置的機器。 專案地理位置只會用來儲存探索到的資料。
+地理 | 您可以在數個地理位置中建立 Azure Migrate 專案。 雖然您可以在特定地區建立專案, 但您可以針對其他目標位置評估或遷移電腦。 專案地理位置只會用來儲存探索到的資料。
 
   **地理位置** | **中繼資料儲存位置**
   --- | ---
   Azure Government | US Gov 維吉尼亞州
   亞太地區 | 東亞或東南亞
-  澳洲 | 澳大利亞東部或澳大利亞東南部
+  澳大利亞 | 澳大利亞東部或澳大利亞東南部
   加拿大 | 加拿大中部或加拿大東部
   歐洲 | 北歐或西歐
   印度 | 印度中部或印度南部
@@ -82,8 +82,13 @@ Hyper-V VM | 在單一專案中評估最多35000個 Hyper-v Vm。 您在 Azure �
 
 | **支援**                | **詳細資料**               
 | :-------------------       | :------------------- |
-| **Azure Migrate 專案**  |  應用裝置可以與單一專案相關聯。<br/> 您可以使用單一設備探索最多5000個 Hyper-v Vm。
-| **Hyper-V**    |  您會將設備部署為 Hyper-v VM。<br/> 提供的設備 VM 是 Hyper-v VM 5.0 版。<br/> VM 主機必須執行 Windows Server 2012 R2 或更新版本。<br/> 它需要足夠的空間來配置 16 GB RAM、8個 vcpu 和1部適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址, 以及網際網路存取。
+| **設備部署**   |  您會將設備部署為 Hyper-v VM。<br/> Azure Migrate 提供的設備 VM 是 Hyper-v VM 5.0 版。<br/> Hyper-v 主機必須執行 Windows Server 2012 R2 或更新版本。<br/> 主機需要足夠的空間來配置 16 GB RAM、8個 vcpu 和1部適用于設備 VM 的外部交換器。<br/> 設備需要靜態或動態 IP 位址, 以及網際網路存取。
+| **Azure Migrate 專案**  |  應用裝置可以與單一專案相關聯。<br/> 任何數目的設備都可以與單一專案相關聯。<br/> 您可以在專案中評估最多35000個 Vm。
+| **HYPER-V 主機**          | 設備最多可以連線到300的 Hyper-v 主機。
+| **探索**              | 單一設備可以探索最多5000部 Vm。
+| **評量群組**       | 您最多可以在單一群組中新增35000部電腦。
+| **評量**             | 您可以在單一評估中評估多達35000個 Vm。
+
 
 
 ## <a name="assessment-appliance-url-access"></a>評量-設備 URL 存取
@@ -116,6 +121,9 @@ https://download.microsoft.com/download/* | 允許從 Microsoft 下載網站下�
 --- | ---
 **台** | TCP 通訊埠3389上的輸入連線, 以允許應用裝置的遠端桌面連線。<br/> 埠44368上的輸入連線, 可使用 URL 從遠端存取應用裝置管理應用程式:``` https://<appliance-ip-or-name>:44368 ```<br/> 埠443、5671和5672上的輸出連線, 以將探索和效能中繼資料傳送至 Azure Migrate。
 **Hyper-v 主機/叢集** | WinRM 埠 5985 (HTTP) 和 5986 (HTTPS) 上的輸入連線, 可使用通用訊息模型 (CIM) 會話提取 Hyper-v Vm 的設定和效能中繼資料。
+
+## <a name="migration-limitations"></a>遷移-限制
+您一次最多可以選取10部 Vm 來進行複寫。 如果您想要遷移更多電腦, 請以10個群組進行複寫。
 
 ## <a name="migration-hyper-v-host-requirements"></a>遷移-Hyper-v 主機需求
 

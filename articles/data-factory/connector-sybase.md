@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab2035ec344e07d88e2ac4ffb19cb1b2361f2e92
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473054"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277474"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>使用 Azure Data Factory 從 Sybase 複製資料
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
@@ -35,7 +35,7 @@ ms.locfileid: "61473054"
 - SAP Sybase SQL Anywhere (ASA) **第 16 版和更新版本**；不支援 IQ 和 ASE。
 - 使用 **Basic** 或 **Windows** 驗證來複製資料。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用這個 Sybase 連接器，您必須：
 
@@ -54,7 +54,7 @@ ms.locfileid: "61473054"
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**Sybase** | 是 |
+| Type | 類型屬性必須設定為：**Sybase** | 是 |
 | server | Sybase 伺服器的名稱。 |是 |
 | database | Sybase 資料庫的名稱。 |是 |
 | authenticationType | 用來連接到 Sybase 資料庫的驗證類型。<br/>允許的值包括：**Basic**和 **Windows**。 |是 |
@@ -89,13 +89,13 @@ ms.locfileid: "61473054"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 Sybase 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Sybase 資料集所支援的屬性清單。
 
-若要從 Sybase 複製資料，請將資料集的類型屬性設定為 **RelationalTable**。 以下是支援的屬性：
+若要從 Sybase 複製資料, 支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
+| Type | 資料集的類型屬性必須設定為：**SybaseTable** | 是 |
 | tableName | Sybase 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的"query") |
 
 **範例**
@@ -104,27 +104,30 @@ ms.locfileid: "61473054"
 {
     "name": "SybaseDataset",
     "properties": {
-        "type": "RelationalTable",
+        "type": "SybaseTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Sybase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
 
+如果您使用`RelationalTable`的是具類型的資料集, 則仍會受到支援, 但建議您在未來使用新的 dataset。
+
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Sybase 來源所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[Pipelines](concepts-pipelines-activities.md)一文。 本節提供 Sybase 來源所支援的屬性清單。
 
 ### <a name="sybase-as-source"></a>Sybase 作為來源
 
-若要從 Sybase 複製資料，請將複製活動中的來源類型設定為 **RelationalSource**。 複製活動的 **source** 區段支援下列屬性：
+若要從 Sybase 複製資料, 複製活動的 [**來源**] 區段中支援下列屬性:
 
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| Type | 複製活動來源的類型屬性必須設定為：**SybaseSource** | 是 |
 | query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例:**
@@ -148,7 +151,7 @@ ms.locfileid: "61473054"
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "SybaseSource",
                 "query": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -158,6 +161,8 @@ ms.locfileid: "61473054"
     }
 ]
 ```
+
+如果您使用`RelationalSource`的是具類型的來源, 則仍會受到支援, 但建議您在未來使用新的來源。
 
 ## <a name="data-type-mapping-for-sybase"></a>Sybase 的資料類型對應
 
