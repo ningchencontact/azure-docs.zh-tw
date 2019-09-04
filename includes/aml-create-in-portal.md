@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
-ms.openlocfilehash: dee813cbe1da6a6300f65b7005bf4a4b0226112a
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 11287ee5ca0df3e51bca20b39c35eb5ce33b88bd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208545"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231055"
 ---
 1. 使用您所使用之 Azure 訂用帳戶的認證來登入 [Azure 入口網站](https://portal.azure.com/)。 
 
@@ -28,9 +28,7 @@ ms.locfileid: "70208545"
 
 1. 在 [Machine Learning 服務工作區]  窗格中選取 [建立]  來開始操作。
 
-  
-
-1. 藉由提供工作區名稱、訂用帳戶、資源群組和位置來設定新的工作區。
+1. 提供下列資訊來設定新的工作區：
 
    欄位|說明 
    ---|---
