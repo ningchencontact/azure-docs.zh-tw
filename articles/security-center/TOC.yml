@@ -131,24 +131,16 @@
           href: security-center-vulnerability-assessment-recommendations.md
         - name: 威脅報告
           href: security-center-threat-report.md
-        - name: 自訂警示
-          href: security-center-custom-alert.md
         - name: 警示信賴分數
           href: security-center-confidence-score.md
-        - name: 安全性警示地圖和威脅情報
-          href: security-center-threat-intel.md
         - name: 調查
           href: security-center-investigation.md
         - name: 管理調查使用者資料
           href: security-center-investigation-user-data.md
         - name: Logic Apps 手冊
           href: security-center-playbooks.md
-        - name: Search
-          href: security-center-search.md
         - name: 規劃與作業
           href: security-center-planning-and-operations-guide.md
-        - name: 自訂安全性設定
-          href: security-center-customize-os-security-config.md
 - name: 參考
   items:
     - name: REST API

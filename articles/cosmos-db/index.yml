@@ -9,7 +9,7 @@ metadata:
   ms.author: sngun
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.date: 05/20/2019
+  ms.date: 09/01/2019
 abstract:
   description: Azure Cosmos DB 是一種完全受控的資料庫服務，具有周全的全球分散和透明的多重主機複寫功能。 您可以針對資料庫內的交易資料，執行低延遲的全域分散式作業分析工作負載和 AI。 了解如何透過我們的快速入門、教學課程和範例使用 Azure Cosmos DB。
   aside:

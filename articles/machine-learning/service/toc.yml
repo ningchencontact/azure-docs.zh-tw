@@ -1,5 +1,5 @@
 - name: Azure Machine Learning 服務文件
-  href: index.yml
+  href: ../index.yml
 - name: 概觀
   expanded: true
   items:
