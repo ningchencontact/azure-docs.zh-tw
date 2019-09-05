@@ -9,12 +9,8 @@
   items:
     - name: 使用用戶端 SDK
       items:
-        - name: 偵測影像中的人臉
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: .NET SDK
+          href: Quickstarts/csharp-sdk.md
         - name: Python SDK
           href: QuickStarts/python-sdk.md
     - name: 使用 REST API

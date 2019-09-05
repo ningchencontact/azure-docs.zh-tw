@@ -73,9 +73,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: 概念
   items:
-    - name: 深入學習
-      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
-      href: concept-deep-learning-vs-machine-learning.md
     - name: 工作區
       href: concept-workspace.md
     - name: 計算目標
@@ -111,6 +108,9 @@
           href: how-to-secure-web-service.md
         - name: 重新產生儲存體存取金鑰
           href: how-to-change-storage-access-key.md
+    - name: 深入學習
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
 - name: 使用說明指南
   items:
     - name: 管理工作區

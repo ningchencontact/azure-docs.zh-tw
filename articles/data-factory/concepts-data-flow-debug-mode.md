@@ -22,7 +22,7 @@ ms.locfileid: "69991931"
 
 您可以使用設計介面頂端的 [資料流程偵錯工具] 按鈕, 來開啟 Azure Data Factory 對應資料流程的「偵錯工具」模式。 在設計資料流程時, 開啟 [偵測模式] 可讓您在建立和偵錯工具資料流程時, 以互動方式監看「資料圖形」轉換。 您可以在資料流程設計會話以及管線的資料流程執行期間, 使用 Debug 會話。
 
-[![調試] 按鈕][(media/data-flow/debugbutton.png "調試] 按鈕")
+![調試 按鈕](media/data-flow/debugbutton.png "調試 按鈕")
 
 當開啟 [偵錯工具] 模式時, 您會以互動方式建立使用中 Spark 叢集的資料流程。 在 Azure Data Factory 中關閉偵錯後，將會關閉此工作階段。 您應該留意在您已開啟偵錯工作階段的期間內，由 Azure Databricks 所產生的每小時費用。
 
