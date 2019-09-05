@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989602"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383180"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登入活動報告錯誤碼 
 
@@ -66,7 +66,7 @@ ms.locfileid: "68989602"
 |50001|此租用戶中找不到服務主體名稱。 如果租用戶的管理員尚未安裝此應用程式，或如果在目錄中找不到資源主體或為無效，也可能會發生此錯誤。|
 |50002|登入失敗，因為租用戶上的 Proxy 存取受限。 如果該租用戶原則是您自有的，您可以變更受限租用戶的設定以修正此問題。|
 |50003|登入失敗，因為遺漏簽署金鑰或憑證。 這可能是因為應用程式中未設定任何簽署金鑰。 請參閱下列文件所述的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)。 如果問題持續發生，請連絡應用程式擁有者或應用程式管理員。|
-|50005|使用者嘗試透過條件式存取原則, 從目前不支援的平臺登入裝置。|
+|50005|使用者嘗試透過條件式存取原則，從目前不支援的平臺登入裝置。|
 |50006| 簽章驗證失敗，因為簽章無效。 請參閱下列文件所述的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery)。 如果問題持續發生，請連絡應用程式擁有者或應用程式管理員。|
 |50007|找不到此應用程式的夥伴加密憑證。 請向 Microsoft [開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)以修正此問題。|
 |50008|權杖中的 SAML 判斷提示遺漏或設定不正確。 請連絡同盟提供者。|
@@ -127,7 +127,7 @@ ms.locfileid: "68989602"
 |50177|未針對傳遞使用者支援外部挑戰。|
 |50178|未針對傳遞使用者支援工作階段控制。|
 |50180|需要 Windows 整合式驗證。 為租用戶啟用無縫 SSO。|
-|50201|當使用者提供其他資訊時, 將會在登入期間向使用者顯示此訊息提示中斷。|
+|50201|當使用者提供其他資訊時，將會在登入期間向使用者顯示此訊息提示中斷。|
 |51001|所顯示的網域提示沒有內部部署安全性識別碼 - 內部部署 UPN。|
 |51004|目錄中不存在使用者帳戶。|
 |51006|需要 Windows 整合式驗證。 使用者使用透過宣告遺失的會話權杖登入。 請要求使用者重新登入。|
@@ -135,7 +135,7 @@ ms.locfileid: "68989602"
 |53000|條件式存取原則需要相容的裝置，但裝置不相容。 讓使用者向 Intune 等獲得核准的 MDM 提供者註冊其裝置。|
 |53001|條件式存取原則需要已加入網域的裝置，但該裝置尚未加入網域。 請使用者使用已加入網域的裝置。|
 |53002|使用的應用程式不是條件式存取的已核准應用程式。 使用者所使用的應用程式，必須是已核准使用的應用程式清單其中一個，才能取得存取權。|
-|53003|因為條件式存取原則, 所以已封鎖存取。|
+|53003|因為條件式存取原則，所以已封鎖存取。|
 |53004|使用者必須先完成多重要素驗證註冊程序，才能存取此內容。 使用者應該註冊多重要素驗證。|
 |65001|應用程式 X 沒有存取應用程式 Y 的權限，或已撤銷此權限。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。針對此使用者和資源傳送互動式授權要求。 或者，使用者或系統管理員尚未同意使用識別碼為 X 的應用程式。請將授權要求傳送給租用戶管理員，以代表應用程式Y 針對資源Z 採取行動。|
 |65004|使用者不同意存取應用程式。 讓使用者重試登入，並同意應用程式|
@@ -153,6 +153,8 @@ ms.locfileid: "68989602"
 |70018|驗證碼無效，因為使用者針對裝置碼流程所輸入的使用者代碼錯誤。 授權未獲核准。|
 |70019|驗證碼過期。 請讓使用者重試登入。|
 |70037|所提供的挑戰回應不正確。 已拒絕遠端驗證工作階段。|
+|70043|Azure 條件式存取會話管理會強制會話到期|
+|70044|Azure 條件式存取會話管理會強制會話到期|
 |75001|SAML 訊息繫結期間發生錯誤。|
 |75003|應用程式傳回了與未支援繫結相關的錯誤 (無法透過 HTTP POST 以外的繫結傳送 SAML 通訊協定回應)。 請連絡應用程式擁有者。|
 |75005|Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 請連絡應用程式擁有者。|
@@ -175,7 +177,7 @@ ms.locfileid: "68989602"
 |81012|這不是錯誤狀況。 這表示嘗試登入 Azure AD 的使用者與登入裝置的使用者不同。 您可以放心地忽略記錄中此錯誤碼。|
 |90010|基於各種不同的原因而不支援該要求。 例如，該要求是使用不支援的要求方法 (僅支援 POST 方法)，或不支援所要求的權杖簽章演算法。 請連絡應用程式開發人員。|
 |90014| 遺漏通訊協定訊息的必要欄位，請連絡應用程式擁有者。 如果您是應用程式擁有者，請確定擁有登入要求的所有必要參數。 |
-|90051| 不正確委派 Token。 指定了不正確國家/地區雲端識別碼 ({cloudId})。|
+|90051| 不正確委派 Token。 指定了不正確國家/地區雲端識別碼（{cloudId}）。|
 |90072| 必須先在租用戶中將帳戶新增為外部使用者。 登出後再使用不同的 Azure AD 帳戶登入。|
 |90094| 進行授與需要系統管理員權限。 詢問您的租用戶系統管理員，以提供對此應用程式的同意。|
 |500021|租使用者受到公司 proxy 的限制。 拒絕資源存取。|
@@ -185,7 +187,7 @@ ms.locfileid: "68989602"
 |530032|受到安全性原則封鎖。| 
 |700016|在目錄 ' {tenantName} ' 中找不到識別碼為 ' {appIdentifier} ' 的應用程式。 如果租用戶的系統管理員尚未安裝此應用程式或租用戶中的任何使用者尚未同意使用此應用程式，也可能會發生此錯誤。 您可能已將驗證要求傳送給錯誤的租使用者。|
 |900432|跨雲端要求中不支援機密用戶端。|
-|7000218|要求主體必須包含下列參數: ' client_assertion ' 或 ' client_secret '。|
+|7000218|要求主體必須包含下列參數： ' client_assertion ' 或 ' client_secret '。|
 
 
 ## <a name="next-steps"></a>後續步驟

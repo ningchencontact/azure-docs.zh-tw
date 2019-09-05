@@ -6,19 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 7944f985f2317690f3a13add783192c49acbe22f
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ba0f3bd002b2675c33ea5106ce64c7957c9989d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907651"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309131"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 MariaDB 的 Azure 資料庫中建立及管理讀取複本
 
-在本文中, 您將瞭解如何使用 Azure CLI, 在與適用於 MariaDB 的 Azure 資料庫服務中的主伺服器相同的 Azure 區域內建立及管理讀取複本。
-
-> [!IMPORTANT]
-> 您可以在與主伺服器相同的區域中, 或在您選擇的任何其他 Azure 區域中建立讀取複本。 讀取複本 (相同區域和跨區域) 目前為公開預覽狀態。
+在本文中，您將瞭解如何使用 Azure CLI，在與適用於 MariaDB 的 Azure 資料庫服務中的主伺服器相同的 Azure 區域內建立及管理讀取複本。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -44,14 +41,14 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 | name | mydemoreplicaserver | 所建立的新複本伺服器名稱。 |
 | source-server | mydemoserver | 要從中複寫的現有主要伺服器的名稱或識別碼。 |
 
-若要建立跨區域讀取複本, 請使用`--location`參數。 下列 CLI 範例會在美國西部建立複本。
+若要建立跨區域讀取複本，請使用`--location`參數。 下列 CLI 範例會在美國西部建立複本。
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 > [!NOTE]
-> 若要深入瞭解您可以在哪些區域中建立複本, 請造訪[讀取複本概念一文](concepts-read-replicas.md)。 
+> 若要深入瞭解您可以在哪些區域中建立複本，請造訪[讀取複本概念一文](concepts-read-replicas.md)。 
 
 > [!NOTE]
 > 系統會以與主要伺服器相同的伺服器設定建立讀取複本。 複本伺服器設定在建立後可以變更。 建議複本伺服器設定的值應保持等於或大於主要伺服器，以確保複本伺服器能保持與主要伺服器一致。
@@ -76,7 +73,7 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 ## <a name="delete-a-replica-server"></a>刪除複本伺服器
 
-若要刪除讀取複本伺服器, 可以執行 **[az 適用于 mariadb server delete](/cli/azure/mariadb/server)** 命令。
+若要刪除讀取複本伺服器，可以執行 **[az 適用于 mariadb server delete](/cli/azure/mariadb/server)** 命令。
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -87,7 +84,7 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoreplicase
 > [!IMPORTANT]
 > 刪除主要伺服器會停止對所有複本伺服器複寫，並刪除主要伺服器本身。 複本伺服器會變成獨立伺服器，進而支援讀取和寫入。
 
-若要刪除主伺服器, 您可以執行 **[az 適用于 mariadb server delete](/cli/azure/mariadb/server)** 命令。
+若要刪除主伺服器，您可以執行 **[az 適用于 mariadb server delete](/cli/azure/mariadb/server)** 命令。
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver

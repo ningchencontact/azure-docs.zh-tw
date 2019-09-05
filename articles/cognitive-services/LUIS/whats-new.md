@@ -1,5 +1,5 @@
 ---
-title: 新功能-Language Understanding (LUIS)
+title: 新功能-Language Understanding （LUIS）
 titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding 的相關新聞。
 author: diberry
@@ -9,27 +9,33 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a7f64a07378b5ef0085fe77018d6b202984bc1a3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b29fdf4e5b3f2719865820695f659df7e75e19b5
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945816"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256433"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding 的新功能
 
-瞭解服務的新功能。 這些專案可能會發行筆記、影片、blog 文章和其他類型的資訊。 將此頁面加入書簽, 以掌握服務的最新狀態。  
+瞭解服務的新功能。 這些專案可能會發行筆記、影片、blog 文章和其他類型的資訊。 將此頁面加入書簽，以掌握服務的最新狀態。  
 
 ## <a name="release-notes"></a>版本資訊 
+
+### <a name="september-3-2019"></a>2019年9月3日
+
+* Azure 撰寫資源-[立即遷移](luis-migration-authoring.md)。
+* 預建實體的土耳其文支援
+* DatetimeV2 的義大利文支援
 
 ### <a name="july-23-2019"></a>2019年7月23日
 
 * 將辨識器[文字](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.2.3)更新為1.2。3
     * 義大利文中的年齡、溫度、維度和貨幣辨識器。
-    * 改善英文版的假日辨識, 以正確計算感恩節日期。
-    * 改善法文 DateTime, 以減少非日期和非時間實體的誤報。
+    * 改善英文版的假日辨識，以正確計算感恩節日期。
+    * 改善法文 DateTime，以減少非日期和非時間實體的誤報。
     * 支援行事曆/學校/會計年度和英文 DateRange 的縮略字。
     * 已改善中文和日文的 PhoneNumber 辨識。
     * 已改善英文版 NumberRange 的支援。
@@ -37,11 +43,11 @@ ms.locfileid: "68945816"
 
 ### <a name="june-24-2019"></a>2019年6月24日
 
-* [OrdinalV2 預先](luis-reference-prebuilt-ordinal-v2.md)建立的實體以支援排序, 例如下一個、上一個和最後一個。 僅限英文文化特性。
+* [OrdinalV2 預先](luis-reference-prebuilt-ordinal-v2.md)建立的實體以支援排序，例如下一個、上一個和最後一個。 僅限英文文化特性。
 
-### <a name="may-6-2019---build-conference"></a>5月6日, 2019-build 會議
+### <a name="may-6-2019---build-conference"></a>5月6日，2019-build 會議
 
-組建2019會議已發行下列功能:
+組建2019會議已發行下列功能：
 
 * [V3 API 遷移指南的預覽](luis-migration-api-v3.md)
 * [改良的分析儀表板](luis-how-to-use-dashboard.md)

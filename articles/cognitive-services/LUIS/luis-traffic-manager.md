@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 85f6be7a897908ef9198ac71ada809efb7c033bc
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: c4ea9c5663755a4feb1693dd925d99b10c466140
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650546"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256595"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理員管理幾個金鑰之間的端點配額
 Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
@@ -28,7 +28,7 @@ Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一�
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>在 Azure 入口網站中連線到 PowerShell
-在[Azure][azure-portal]入口網站中, 開啟 PowerShell 視窗。 PowerShell 視窗的圖示是上方導覽列中的 **>_** 。 從入口網站使用 PowerShell，可以取得最新的 PowerShell 版本，而且您會經過驗證。 入口網站中的 PowerShell 需要 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶。 
+在[Azure][azure-portal]入口網站中，開啟 PowerShell 視窗。 PowerShell 視窗的圖示是上方導覽列中的 **>_** 。 從入口網站使用 PowerShell，可以取得最新的 PowerShell 版本，而且您會經過驗證。 入口網站中的 PowerShell 需要 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶。 
 
 ![Azure 入口網站中開啟 Powershell 視窗的螢幕擷取畫面](./media/traffic-manager/azure-portal-powershell.png)
 
@@ -37,7 +37,7 @@ Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一�
 ## <a name="create-azure-resource-group-with-powershell"></a>使用 PowerShell 建立 Azure 資源群組
 建立 Azure 資源之前，請先建立要包含所有資源的資源群組。 將資源群組命名為 `luis-traffic-manager`，並使用 `West US` 的區域。 資源群組的區域會儲存與群組相關的中繼資料。 如果您的資源在另一個區域中，這樣不會降低資源的速度。 
 
-使用 **[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** Cmdlet 建立資源群組:
+使用 **[remove-azresourcegroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** Cmdlet 建立資源群組：
 
 ```powerShell
 New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Azure 入口網站的 luis-traffic-manager 資源群組中有兩個 LUIS 金鑰的螢幕擷取畫面](./media/traffic-manager/luis-keys.png)
 
-2. 在[LUIS][LUIS]網站的 [**管理**] 區段中, 于 [**金鑰和端點**] 頁面上, 將金鑰指派給應用程式, 然後選取右上方功能表中的 [**發佈**] 按鈕來重新發佈應用程式。 
+2. 在[LUIS][LUIS]網站的 [**管理**] 區段中，于 [ **Azure 資源**] 頁面上，將金鑰指派給應用程式，然後選取右上方功能表中的 [**發佈**] 按鈕來重新發佈應用程式。 
 
     [端點] 欄中的範例 URL 使用 GET 要求搭配端點金鑰作為查詢參數。 複製兩個新的金鑰端點 URL。 本文稍後的流量管理員設定會用到這些 URL。
 
@@ -101,7 +101,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |--|--|--|
     |-EndpointName|luis-east-endpoint|設定檔下顯示的端點名稱|
     |-TrafficManagerProfile|$eastprofile|使用在步驟 1 建立的設定檔物件|
-    |-Type|ExternalEndpoints|如需詳細資訊, 請參閱[流量管理員端點][traffic-manager-endpoints] |
+    |-Type|ExternalEndpoints|如需詳細資訊，請參閱[流量管理員端點][traffic-manager-endpoints] |
     |-Target|eastus.api.cognitive.microsoft.com|這是 LUIS 端點的網域。|
     |-EndpointLocation|"eastus"|端點的區域|
     |-EndpointStatus|Enabled|在端點建立時啟用端點|
@@ -170,7 +170,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |--|--|--|
     |-EndpointName|luis-west-endpoint|設定檔下顯示的端點名稱|
     |-TrafficManagerProfile|$westprofile|使用在步驟 1 建立的設定檔物件|
-    |-Type|ExternalEndpoints|如需詳細資訊, 請參閱[流量管理員端點][traffic-manager-endpoints] |
+    |-Type|ExternalEndpoints|如需詳細資訊，請參閱[流量管理員端點][traffic-manager-endpoints] |
     |-Target|westus.api.cognitive.microsoft.com|這是 LUIS 端點的網域。|
     |-EndpointLocation|"westus"|端點的區域|
     |-EndpointStatus|Enabled|在端點建立時啟用端點|
@@ -237,7 +237,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |--|--|--|
     |-EndpointName|child-endpoint-useast|東部設定檔|
     |-TrafficManagerProfile|$parentprofile|要將此端點指派至的設定檔|
-    |-Type|NestedEndpoints|如需詳細資訊, 請參閱[AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
+    |-Type|NestedEndpoints|如需詳細資訊，請參閱[AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
     |-TargetResourceId|$eastprofile.Id|子系設定檔的識別碼|
     |-EndpointStatus|Enabled|新增至父系之後的端點狀態|
     |-EndpointLocation|"eastus"|資源的 [Azure 區域名稱](https://azure.microsoft.com/global-infrastructure/regions/)|
@@ -274,7 +274,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |--|--|--|
     |-EndpointName|child-endpoint-uswest|西部設定檔|
     |-TrafficManagerProfile|$parentprofile|要將此端點指派至的設定檔|
-    |-Type|NestedEndpoints|如需詳細資訊, 請參閱[AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
+    |-Type|NestedEndpoints|如需詳細資訊，請參閱[AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig)。 |
     |-TargetResourceId|$westprofile.Id|子系設定檔的識別碼|
     |-EndpointStatus|Enabled|新增至父系之後的端點狀態|
     |-EndpointLocation|"westus"|資源的 [Azure 區域名稱](https://azure.microsoft.com/global-infrastructure/regions/)|
@@ -308,7 +308,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     成功的回應會與步驟 3 的回應相同。
 
 ### <a name="powershell-variables"></a>PowerShell 變數
-在先前各節中，我們建立了三個 PowerShell 變數：`$eastprofile`、`$westprofile`、`$parentprofile`。 這些變數會一直用到流量管理員設定的最後。 如果您選擇不建立變數或忘記, 或您的 PowerShell 視窗超時, 您可以使用 PowerShell Cmdlet **[get-aztrafficmanagerprofile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** , 再次取得設定檔, 並將它指派給變數。 
+在先前各節中，我們建立了三個 PowerShell 變數：`$eastprofile`、`$westprofile`、`$parentprofile`。 這些變數會一直用到流量管理員設定的最後。 如果您選擇不建立變數或忘記，或您的 PowerShell 視窗超時，您可以使用 PowerShell Cmdlet **[get-aztrafficmanagerprofile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** ，再次取得設定檔，並將它指派給變數。 
 
 針對您需要的三個設定檔，將角括弧 `<>` 中的項目取代為正確值。 
 
@@ -330,7 +330,7 @@ $<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGro
 ![Azure 流量管理員設定檔的 [概觀] 顯示 Online 監視狀態的螢幕擷取畫面](./media/traffic-manager/profile-status-online.png)
 
 ### <a name="validate-traffic-manager-polling-works"></a>驗證流量管理員輪詢可運作
-另一個驗證流量管理員輪詢可運作的方法是使用 LUIS 端點記錄。 在 [ [LUIS][LUIS]網站應用程式清單] 頁面上, 匯出應用程式的端點記錄檔。 因為流量管理員會經常輪詢兩個端點，所以記錄中會有項目 (即使只存在幾分鐘的時間)。 請記得尋找查詢以 `traffic-manager-` 開始的項目。
+另一個驗證流量管理員輪詢可運作的方法是使用 LUIS 端點記錄。 在 [ [LUIS][LUIS]網站應用程式清單] 頁面上，匯出應用程式的端點記錄檔。 因為流量管理員會經常輪詢兩個端點，所以記錄中會有項目 (即使只存在幾分鐘的時間)。 請記得尋找查詢以 `traffic-manager-` 開始的項目。
 
 ```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}

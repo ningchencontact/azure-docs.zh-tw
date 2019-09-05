@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2b2879a1ebcf01a0433873e8da77c4ce55a078cd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d8f0fce3cb8f1cd8fdb596cb4e238a79d6cee4c
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647006"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193495"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>選擇 QnA Maker 部署的容量
 
 QnA Maker 服務會採用對三項 Azure 資源的相依性：
 1.  App Service (用於執行階段)
-2.  Azure 搜尋服務 (用於儲存和搜尋 Qna)
+2.  Azure 搜尋服務（用於儲存和搜尋 Qna）
 3.  App Insights (選擇性，用來儲存交談記錄和遙測資料)
 
 在建立 QnA Maker 服務之前，您應決定您適合使用上述服務的哪幾層。 
@@ -45,9 +45,9 @@ QnA Maker 服務會採用對三項 Azure 資源的相依性：
 | 開發/測試環境   | 標準 SKU         | 共用      | 基本        | 最多發佈 14 KB，大小為 2 GB    |
 | 生產環境 | 標準 SKU         | 基本       | 標準     | 最多發佈 49 個 KB，大小為 25 GB |
 
-如要升級 QnA Maker 堆疊，請參閱[升級 QnA Maker 服務](../How-To/upgrade-qnamaker-service.md)。
+如要升級 QnA Maker 堆疊，請參閱[升級 QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [升級 QnA Maker 服務](../How-To/upgrade-qnamaker-service.md)
+> [升級 QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: c519b030aaee58397766ecb8658e7af08b5986e1
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619695"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70256883"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>了解如何及何時使用 LUIS 版本
 
@@ -46,21 +46,36 @@ LUIS 中的版本類似於傳統程式設計中的版本。 每個版本都是�
 ## <a name="import-and-export-a-version"></a>匯入及匯出版本
 您可以在應用程式層級匯入版本。 該版本會變成作用中版本，並使用應用程式檔案 "versionId" 屬性中的版本識別碼。 您也可以在版本層級匯入至現有應用程式。 新版本會變成作用中版本。 
 
-您可以在應用程式層級匯出版本，也可以在版本層級匯出版本。 唯一的差別在於，在應用程式層級匯出的版本是目前作用中的版本，而在版本層級，您則可以在 [[Settings](luis-how-to-manage-versions.md)  ] \(設定\) 頁面上選擇任何要匯出的版本。 
+您可以在應用程式層級匯出版本，也可以在版本層級匯出版本。 唯一的差別在於，在應用程式層級匯出的版本是目前作用中的版本，而在版本層級，您則可以在 [[Settings](luis-how-to-manage-versions.md)] \(設定\) 頁面上選擇任何要匯出的版本。 
 
-匯出的檔案不會包含機器學習資訊，因為應用程式在匯出後會重新定型。 匯出的檔案不會包含共同作業者 -- 您必須在將版本匯入新應用程式後，將這些資訊加回。
+匯出的檔案不會包含機器學習資訊，因為應用程式在匯出後會重新定型。 匯出的檔案不包含參與者資訊。
 
 ## <a name="export-each-version-as-app-backup"></a>將每個版本匯出作為應用程式備份
-若要備份您的 LUIS 應用程式，請在 [[Settings](luis-how-to-manage-versions.md)  ] \(設定\) 頁面上匯出每個版本。
+若要備份您的 LUIS 應用程式，請在 [[Settings](luis-how-to-manage-versions.md)] \(設定\) 頁面上匯出每個版本。
 
 ## <a name="delete-a-version"></a>刪除版本
 您可以從 [Settings] \(設定\) 頁面上的 [Versions] \(版本\) 清單中刪除作用中版本以外的所有版本。 
 
 ## <a name="version-availability-at-the-endpoint"></a>端點上的版本可用性
-系統會自動在您的應用程式[端點](luis-glossary.md#endpoint)上提供已定型的版本。 若要在您的應用程式端點上提供某個版本，您必須[發佈](luis-how-to-publish-app.md)或重新發佈該版本。 您可以發佈成 [Staging] \(預備\)  和 [Production] \(生產\)  ，這可在端點上最多為您提供兩個應用程式版本。 如果您需要在端點上提供更多應用程式版本，則應該將版本匯出，然後再重新匯入至新的應用程式。 新應用程式會有不同的應用程式識別碼。
+系統會自動在您的應用程式[端點](luis-glossary.md#endpoint)上提供已定型的版本。 若要在您的應用程式端點上提供某個版本，您必須[發佈](luis-how-to-publish-app.md)或重新發佈該版本。 您可以發佈成 [Staging] \(預備\) 和 [Production] \(生產\)，這可在端點上最多為您提供兩個應用程式版本。 如果您需要在端點上提供更多應用程式版本，則應該將版本匯出，然後再重新匯入至新的應用程式。 新應用程式會有不同的應用程式識別碼。
 
-## <a name="collaborators"></a>共同作業者
-擁有者和所有[共同作業者](luis-how-to-collaborate.md)都具備所有應用程式版本的完整存取權。
+## <a name="manage-multiple-versions-inside-the-same-app"></a>管理相同應用程式內的多個版本
+針對每個作者，一開始先從基底版本[複製](luis-how-to-manage-versions.md#clone-a-version)。 
+
+每位作者都會對自己的應用程式版本進行變更。 在每個作者對模型感到滿意之後，請將新版本匯出成 JSON 檔案。  
+
+匯出的應用程式會是 JSON 格式的檔案，可用來比較變更。 結合檔案以建立新版本的單一 JSON 檔案。 變更 JSON 中的 **versionId** 屬性，以表示新的合併版本。 將該版本匯入至原始應用程式。 
+
+此方法可讓您有一個作用中版本、一個預備版本，以及一個已發佈版本。 您可以在 [[互動式測試] 窗格](luis-interactive-test.md)中，將作用中版本的結果與已發行的版本（階段或生產）做比較。
+
+## <a name="manage-multiple-versions-as-apps"></a>以應用程式方式管理多個檔案
+[匯出](luis-how-to-manage-versions.md#export-version)基底版本。 每個作者都匯入版本。 匯入應用程式的人即為該版本的擁有者。 當他們修改完應用程式時，請匯出版本。 
+
+匯出的應用程式會是 JSON 格式的檔案，可用來與基底匯出版本比較變更。 結合檔案以建立新版本的單一 JSON 檔案。 變更 JSON 中的 **versionId** 屬性，以表示新的合併版本。 將該版本匯入至原始應用程式。
+
+## <a name="contributions-from-collaborators"></a>來自共同作業者的貢獻
+
+深入瞭解如何[撰寫來自共同作業者的投稿](luis-how-to-collaborate.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

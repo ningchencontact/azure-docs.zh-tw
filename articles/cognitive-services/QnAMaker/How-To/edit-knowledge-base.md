@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966759"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307029"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>在 QnA Maker 中編輯知識庫
 
@@ -54,7 +54,7 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
 
 ## <a name="add-a-qna-pair"></a>加入 QnA 組
 
-在 [**設定**] 頁面上, 選取 [**加入 QnA**組], 將新的資料列加入至知識庫資料表。
+在 [**編輯**] 頁面上，選取 [**加入 QnA**組]，將新的資料列加入至知識庫資料表。
 
 ![加入 QnA 組](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
 
 ## <a name="add-metadata"></a>新增中繼資料
 
-藉由先選取 [**視圖選項**], 然後選取 [**顯示中繼資料**] 來新增中繼資料組。 這會顯示 [中繼資料] 資料行。 接下來, 選取 **+** 正負號來新增中繼資料組。 此配對包含一個索引鍵和一個值。
+藉由先選取 [**視圖選項**]，然後選取 [**顯示中繼資料**] 來新增中繼資料組。 這會顯示 [中繼資料] 資料行。 接下來，選取 **+** 正負號來新增中繼資料組。 此配對包含一個索引鍵和一個值。
 
 ![新增中繼資料](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

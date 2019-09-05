@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: d932164f972169c93e368a41c09df039196341b5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b6c04edb3fc843dfe1b9176dc06bf312473591c3
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141644"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376431"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory 支援的系統變數
 本文描述 Azure Data Factory 支援的系統變數。 定義 Data Factory 實體時，可以在運算式中使用這些變數。
@@ -39,12 +39,12 @@ ms.locfileid: "70141644"
 
 | 變數名稱 | 描述 |
 | --- | --- |
-| @trigger().scheduledTime |排定觸發程序叫用管線執行的時間。 例如，對於每隔 5 分鐘就觸發的觸發程序，此變數分別會傳回 `2017-06-01T22:20:00Z`、`2017-06-01T22:25:00Z` 和 `2017-06-01T22:29:00Z`。|
-| @trigger().startTime |觸發程序「實際」觸發以叫用管線執行的時間。 例如，對於每隔 5 分鐘就觸發的觸發程序，此變數可能會傳回分別像是 `2017-06-01T22:20:00.4061448Z`、`2017-06-01T22:25:00.7958577Z` 和 `2017-06-01T22:29:00.9935483Z` 的項目。 (附註：時間戳記預設為 ISO 8601 格式)|
+| @trigger().scheduledTime |排定觸發程序叫用管線執行的時間。 例如，對於每隔 5 分鐘就觸發的觸發程序，此變數分別會傳回 `2017-06-01T22:20:00Z`、`2017-06-01T22:25:00Z` 和 `2017-06-01T22:30:00Z`。|
+| @trigger().startTime |觸發程序「實際」觸發以叫用管線執行的時間。 例如，對於每隔 5 分鐘就觸發的觸發程序，此變數可能會傳回分別像是 `2017-06-01T22:20:00.4061448Z`、`2017-06-01T22:25:00.7958577Z` 和 `2017-06-01T22:30:00.9935483Z` 的項目。 (附註：時間戳記預設為 ISO 8601 格式）|
 
 ## <a name="tumbling-window-trigger-scope"></a>輪轉視窗觸發程序範圍
 如果觸發程序為以下類型，則可以在管線 JSON 中的任何位置參考這些系統變數："TumblingWindowTrigger"。
-(附註：時間戳記預設為 ISO 8601 格式)
+(附註：時間戳記預設為 ISO 8601 格式）
 
 | 變數名稱 | 描述 |
 | --- | --- |

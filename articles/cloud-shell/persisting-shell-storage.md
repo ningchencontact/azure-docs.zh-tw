@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b2823c935d11ae99ab1d87ae708945721820ad8c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742044"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306740"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -31,18 +31,35 @@ Cloud Shell 透過下列兩種方法來保存檔案：
 > [!NOTE]
 > `$Home` 目錄中的所有檔案 (例如 SSH 金鑰) 會都保存於已掛接檔案共用中儲存的使用者磁碟映像中。 當您在 `$Home` 目錄和已掛接的檔案共用中保存資訊時，請套用最佳做法。
 
-## <a name="bash-specific-commands"></a>Bash 特有的命令
+## <a name="clouddrive-commands"></a>clouddrive 命令
 
 ### <a name="use-the-clouddrive-command"></a>使用 `clouddrive` 命令
-Cloud Shell 中的 Bash 可讓您執行稱為 `clouddrive` 的命令，以手動更新掛接至 Cloud Shell 的檔案共用。
+在 Cloud Shell 中，您可以執行名`clouddrive`為的命令，讓您手動更新已掛接至 Cloud Shell 的檔案共用。
 ![執行 "clouddrive" 命令](media/persisting-shell-storage/clouddrive-h.png)
+
+### <a name="list-clouddrive"></a>列出 `clouddrive`
+若要探索掛接為 `clouddrive` 的檔案共用，請執行 `df` 命令。 
+
+clouddrive 檔案路徑會在 URL 中顯示您的儲存體帳戶名稱和檔案共用。 例如： `//storageaccountname.file.core.windows.net/filesharename`
+
+```
+justin@Azure:~$ df
+Filesystem                                          1K-blocks   Used  Available Use% Mounted on
+overlay                                             29711408 5577940   24117084  19% /
+tmpfs                                                 986716       0     986716   0% /dev
+tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
+/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
+shm                                                    65536       0      65536   0% /dev/shm
+//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
+justin@Azure:~$
+```
 
 ### <a name="mount-a-new-clouddrive"></a>掛接新的 clouddrive
 
 #### <a name="prerequisites-for-manual-mounting"></a>手動掛接的先決條件
 您可以使用 `clouddrive mount` 命令來更新與 Cloud Shell 關聯的檔案共用。
 
-如果您要掛接現有的檔案共用，儲存體帳戶必須位在所選的 Cloud Shell 區域中： 藉由從 Bash 執行 `env` 和檢查 `ACC_LOCATION` 來擷取位置。
+如果您要掛接現有的檔案共用，儲存體帳戶必須位在所選的 Cloud Shell 區域中： 執行`env` 並`ACC_LOCATION`檢查，以取出位置。
 
 #### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` 命令
 
@@ -71,23 +88,6 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 
 > [!WARNING]
 > 雖然執行此命令不會刪除任何資源，但手動刪除對應至 Cloud Shell 的資源群組、儲存體帳戶或檔案共用，將會清除您的 `$Home` 目錄磁碟映像及檔案共用中的任何檔案。 此動作無法復原。
-
-### <a name="list-clouddrive"></a>列出 `clouddrive`
-若要探索掛接為 `clouddrive` 的檔案共用，請執行 `df` 命令。 
-
-clouddrive 檔案路徑會在 URL 中顯示您的儲存體帳戶名稱和檔案共用。 例如： `//storageaccountname.file.core.windows.net/filesharename`
-
-```
-justin@Azure:~$ df
-Filesystem                                          1K-blocks   Used  Available Use% Mounted on
-overlay                                             29711408 5577940   24117084  19% /
-tmpfs                                                 986716       0     986716   0% /dev
-tmpfs                                                 986716       0     986716   0% /sys/fs/cgroup
-/dev/sda1                                           29711408 5577940   24117084  19% /etc/hosts
-shm                                                    65536       0      65536   0% /dev/shm
-//mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
-justin@Azure:~$
-```
 ## <a name="powershell-specific-commands"></a>PowerShell 特有的命令
 
 ### <a name="list-clouddrive-azure-file-shares"></a>列出 `clouddrive` Azure 檔案共用
@@ -102,10 +102,9 @@ justin@Azure:~$
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-注意:如果您需要在檔案中定義函式，並從 PowerShell Cmdlet 中呼叫，則必須包含點運算子。 例如： .\MyFunctions.ps1
+注意：如果您需要在檔案中定義函式，並從 PowerShell Cmdlet 中呼叫，則必須包含點運算子。 例如： .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>後續步驟
-[Cloud Shell 中 Bash 的快速入門](quickstart.md) <br>
-[Cloud Shell 中 PowerShell 的快速入門](quickstart-powershell.md) <br>
+[Cloud Shell 快速入門](quickstart.md) <br>
 [了解 Microsoft Azure 檔案儲存體](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [了解儲存體標籤](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

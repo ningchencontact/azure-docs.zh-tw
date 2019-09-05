@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: a5fe77ace5f745911bb9085dd6996a8d21fe265f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879041"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274479"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>將筆跡資料傳送至筆跡辨識器 API 
 
@@ -82,7 +82,7 @@ ms.locfileid: "68879041"
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>整合筆跡辨識器 API 與 Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) 提供各種工具和技術，因此能在各種裝置上實現數位筆跡體驗。 您可以結合 Windows Ink 平台與筆跡辨識 API 來建立會顯示及解譯數位筆跡筆觸的應用程式。
+[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) 提供各種工具和技術，因此能在各種裝置上實現數位筆跡體驗。 您可以將 Windows Ink 平臺與筆跡辨識器 API 結合，以建立顯示和解讀數位筆跡筆劃的應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 

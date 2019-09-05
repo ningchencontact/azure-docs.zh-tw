@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66dbfa40d5a19c7f15ed2772740b84652ae3e58c
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5559d30921ea44679b4ecd24c77e26be163c18fc
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231280"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375898"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：規劃混合式 Azure Active Directory Join 實作
 
@@ -26,9 +26,9 @@ ms.locfileid: "70231280"
 - 混合式 Azure AD Join
 - Azure AD 註冊
 
-將您的裝置導入 Azure AD 中，您將可透過跨雲端和內部部署資源的單一登入 (SSO)，將使用者的生產力最大化。 同時, 您可以使用[條件式存取](../active-directory-conditional-access-azure-portal.md)來保護對雲端和內部部署資源的存取。
+將您的裝置導入 Azure AD 中，您將可透過跨雲端和內部部署資源的單一登入 (SSO)，將使用者的生產力最大化。 同時，您可以使用[條件式存取](../active-directory-conditional-access-azure-portal.md)來保護對雲端和內部部署資源的存取。
 
-如果您有內部部署 Active Directory (AD) 環境, 而且想要將已加入 AD 網域的電腦加入 Azure AD, 您可以執行混合式 Azure AD 聯結來完成這項作業。 本文提供在您的環境中實作混合式 Azure AD Join 的相關步驟。 
+如果您有內部部署 Active Directory （AD）環境，而且想要將已加入 AD 網域的電腦加入 Azure AD，您可以執行混合式 Azure AD 聯結來完成這項作業。 本文提供在您的環境中實作混合式 Azure AD Join 的相關步驟。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -59,51 +59,51 @@ ms.locfileid: "70231280"
 - Windows Server 2016
 - Windows Server 2019
 
-對於執行 Windows 桌面作業系統的裝置, 支援的版本會列在這篇文章中的[windows 10 版本資訊](https://docs.microsoft.com/windows/release-information/)。 最佳作法是 Microsoft 建議您升級至最新版本的 Windows 10。
+對於執行 Windows 桌面作業系統的裝置，支援的版本會列在這篇文章中的[windows 10 版本資訊](https://docs.microsoft.com/windows/release-information/)。 最佳作法是 Microsoft 建議您升級至最新版本的 Windows 10。
 
 ### <a name="windows-down-level-devices"></a>舊版 Windows 裝置
 
 - Windows 8.1
-- Windows 7。 如需 Windows 7 的支援資訊, 請參閱[windows 7 的支援即將結束](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)。
+- Windows 7。 如需 Windows 7 的支援資訊，請參閱[windows 7 的支援即將結束](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)。
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2。 如需 Windows Server 2008 和 2008 R2 的支援資訊, 請參閱[準備 Windows server 2008 終止支援](https://www.microsoft.com/cloud-platform/windows-server-2008)。
+- Windows Server 2008 R2。 如需 Windows Server 2008 和 2008 R2 的支援資訊，請參閱[準備 Windows server 2008 終止支援](https://www.microsoft.com/cloud-platform/windows-server-2008)。
 
 在第一個規劃步驟中，您應該檢閱您的環境，並判斷是否需要支援 Windows 舊版裝置。
 
 ## <a name="review-things-you-should-know"></a>檢閱您應該知道的事情
 
-如果您的環境包含將識別資料同步處理至多個 Azure AD 租使用者的單一 AD 樹系, 則目前不支援混合式 Azure AD 聯結。
+如果您的環境包含將識別資料同步處理至多個 Azure AD 租使用者的單一 AD 樹系，則目前不支援混合式 Azure AD 聯結。
 
-使用虛擬桌面基礎結構 (VDI) 時, 目前不支援加入混合式 Azure AD。
+使用虛擬桌面基礎結構（VDI）時，目前不支援加入混合式 Azure AD。
 
-混合式 Azure AD 聯結不支援符合 FIPS 標準的 Tpm。 如果您的裝置具有 FIPS 相容的 Tpm, 您必須先停用它們, 才能繼續進行混合式 Azure AD 聯結。 Microsoft 不會提供任何工具來停用 Tpm 的 FIPS 模式, 因為它相依于 TPM 製造商。 請洽詢您的硬體 OEM 以取得支援。
+符合 FIPS 規範的 TPM 2.0 支援混合式 Azure AD 聯結，TPM 1.2 則不支援。 如果您的裝置具有 FIPS 相容的 TPM 1.2，您必須先停用它們，再繼續進行混合式 Azure AD 聯結。 Microsoft 不會提供任何工具來停用 Tpm 的 FIPS 模式，因為它相依于 TPM 製造商。 請洽詢您的硬體 OEM 以取得支援。
 
-執行網域控制站 (DC) 角色的 Windows Server 不支援混合式 Azure AD 聯結。
+執行網域控制站（DC）角色的 Windows Server 不支援混合式 Azure AD 聯結。
 
-使用認證漫遊或使用者設定檔漫遊時, 舊版 Windows 裝置不支援混合式 Azure AD 聯結。
+使用認證漫遊或使用者設定檔漫遊時，舊版 Windows 裝置不支援混合式 Azure AD 聯結。
 
-如果您依賴系統準備工具 (Sysprep), 而且您使用**Windows 前 10 1809**映射來進行安裝, 請確定映射不是來自已向 Azure AD 註冊的裝置混合式 Azure AD 聯結。
+如果您依賴系統準備工具（Sysprep），而且您使用**Windows 前 10 1809**映射來進行安裝，請確定映射不是來自已向 Azure AD 註冊的裝置混合式 Azure AD 聯結。
 
-如果您依賴虛擬機器 (VM) 快照集來建立其他 Vm, 請確定快照集不是來自已向 Azure AD 註冊的 VM, 因為混合式 Azure AD 聯結。
+如果您依賴虛擬機器（VM）快照集來建立其他 Vm，請確定快照集不是來自已向 Azure AD 註冊的 VM，因為混合式 Azure AD 聯結。
 
-如果您已加入 Windows 10 網域的裝置 Azure AD 向您的租使用者[註冊](overview.md#getting-devices-in-azure-ad), 則可能會導致混合式 Azure AD 已加入的雙重狀態並 Azure AD 已註冊的裝置。 建議您升級至 Windows 10 1803 (已套用 KB4489894) 或更新版本, 以自動解決這種情況。 在1803之前的版本中, 您必須先手動移除 Azure AD 註冊狀態, 才能啟用混合式 Azure AD 聯結。 在1803和更新版本中, 已進行下列變更以避免這種雙重狀態:
+如果您已加入 Windows 10 網域的裝置 Azure AD 向您的租使用者[註冊](overview.md#getting-devices-in-azure-ad)，則可能會導致混合式 Azure AD 已加入的雙重狀態並 Azure AD 已註冊的裝置。 建議您升級至 Windows 10 1803 （已套用 KB4489894）或更新版本，以自動解決這種情況。 在1803之前的版本中，您必須先手動移除 Azure AD 註冊狀態，才能啟用混合式 Azure AD 聯結。 在1803和更新版本中，已進行下列變更以避免這種雙重狀態：
 
-- <i>混合式 Azure AD 加入裝置之後,</i>就會自動移除任何現有的 Azure AD 註冊狀態。
-- 您可以新增下列登錄機碼-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin、"BlockAADWorkplaceJoin" = dword: 00000001, 以防止加入網域的裝置 Azure AD 註冊。
-- 在 Windows 10 1803 中, 如果您已設定 Windows Hello 企業版, 則使用者必須在雙重狀態清除之後重新設定 Windows Hello 企業版。KB4512509 已解決此問題
+- <i>混合式 Azure AD 加入裝置之後，</i>就會自動移除任何現有的 Azure AD 註冊狀態。
+- 您可以新增下列登錄機碼-HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin、"BlockAADWorkplaceJoin" = dword：00000001，以防止加入網域的裝置 Azure AD 註冊。
+- 在 Windows 10 1803 中，如果您已設定 Windows Hello 企業版，則使用者必須在雙重狀態清除之後重新設定 Windows Hello 企業版。KB4512509 已解決此問題
 
 
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>審查混合式 Azure AD 聯結的受控制驗證
 
-當所有必要條件都已就緒時, Windows 裝置會自動在您的 Azure AD 租使用者中註冊為裝置。 這些裝置身分識別在 Azure AD 中的狀態稱為混合式 Azure AD 聯結。 如需本文中所涵蓋概念的詳細資訊, 請參閱[Azure Active Directory 中的裝置身分識別管理簡介](overview.md)和[規劃混合式 Azure Active Directory 聯結執行](hybrid-azuread-join-plan.md)。
+當所有必要條件都已就緒時，Windows 裝置會自動在您的 Azure AD 租使用者中註冊為裝置。 這些裝置身分識別在 Azure AD 中的狀態稱為混合式 Azure AD 聯結。 如需本文中所涵蓋概念的詳細資訊，請參閱[Azure Active Directory 中的裝置身分識別管理簡介](overview.md)和[規劃混合式 Azure Active Directory 聯結執行](hybrid-azuread-join-plan.md)。
 
-組織可能會想要對混合式 Azure AD 聯結進行受控制的驗證, 然後一次在整個組織中啟用它。 請參閱[受控制的混合式 Azure AD 聯結驗證一](hybrid-azuread-join-control.md)文, 以瞭解如何完成。
+組織可能會想要對混合式 Azure AD 聯結進行受控制的驗證，然後一次在整個組織中啟用它。 請參閱[受控制的混合式 Azure AD 聯結驗證一](hybrid-azuread-join-control.md)文，以瞭解如何完成。
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>根據您的身分識別基礎結構來選取您的案例
 
-視 UPN 是否可路由傳送或無法路由傳送, 混合式 Azure AD 聯結適用于、受控和同盟環境。 如需支援的案例, 請參閱資料表的底部頁面。  
+視 UPN 是否可路由傳送或無法路由傳送，混合式 Azure AD 聯結適用于、受控和同盟環境。 如需支援的案例，請參閱資料表的底部頁面。  
 
 ### <a name="managed-environment"></a>受控環境
 
@@ -131,7 +131,7 @@ ms.locfileid: "70231280"
 
 從 1.1.819.0 版開始，Azure AD Connect 即為您提供用來設定混合式 Azure AD Join 的精靈。 此精靈可讓您大幅簡化設定程序。 如果安裝必要的 Azure AD Connect 版本不適合您，請參閱[如何手動設定裝置註冊](hybrid-azuread-join-manual.md)。 
 
-根據符合您身分識別基礎結構的案例, 請參閱:
+根據符合您身分識別基礎結構的案例，請參閱：
 
 - [設定聯合環境的混合式 Azure Active Directory 聯結](hybrid-azuread-join-federated-domains.md)
 - [設定受管理環境的混合式 Azure Active Directory 聯結](hybrid-azuread-join-managed-domains.md)

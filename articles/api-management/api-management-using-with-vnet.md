@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: f79fffe2117de77e4e44dcbbaa782b2ade81e04b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b89f4d2264924983aac93fb266efd71e46bea6bf
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164179"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305236"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
-Azure 虛擬網路 (Vnet) 可讓您將任何 Azure 資源放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
+Azure 虛擬網路（Vnet）可讓您將任何 Azure 資源放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
 Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取網路內的後端服務。 開發人員入口網站與 API 閘道，可設定為從網際網路存取或只從虛擬網路內存取。
 
 > [!NOTE]
-> Azure API 管理支援傳統和 Azure Resource Manager Vnet。
+> API 匯入檔 URL 必須裝載在可公開存取的網際網路位址上。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,7 +52,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
     ![API 管理的虛擬網路功能表][api-management-using-vnet-menu]
 4. 選取所需的存取類型：
 
-   * **Off**: 這是預設值。 API 管理不會部署到虛擬網路中。
+   * **Off**：這是預設值。 API 管理不會部署到虛擬網路中。
 
    * **外部**：可透過外部負載平衡器，從公用網際網路存取「API 管理」閘道和開發人員入口網站。 閘道可以存取虛擬網路內的資源。
 
@@ -84,9 +84,9 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 ## <a name="enable-vnet-powershell"> </a>使用 PowerShell cmdlet 來啟用 VNET 連線
 您也可以使用 PowerShell cmdlet 啟用 VNET 連線能力
 
-* **在 VNET 內建立 APIM 服務**：使用 Cmdlet [AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) , 在 VNET 內建立 Azure API 管理服務。
+* **在 VNET 內建立 APIM 服務**：使用 Cmdlet [AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) ，在 VNET 內建立 Azure API 管理服務。
 
-* **在 VNET 內部署現有 APIM 服務**：使用 Cmdlet[更新-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) , 將現有的 Azure API 管理服務移至虛擬網路內。
+* **在 VNET 內部署現有 APIM 服務**：使用 Cmdlet[更新-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) ，將現有的 Azure API 管理服務移至虛擬網路內。
 
 ## <a name="connect-vnet"> </a>連接到裝載於虛擬網路內的 Web 服務
 在您的「API 管理」服務連接到 VNET 之後，存取 VNET 內的後端服務與存取公用服務便沒有差別。 只要在建立新 API 或編輯現有 API 時，於 [Web 服務 URL] 欄位中輸入您 Web 服務的本機 IP 位址或主機名稱 (如果為 VNET 設定了 DNS 伺服器) 即可。
@@ -103,7 +103,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 * **APIM 所需的連接埠**︰您可以使用[網路安全性群組][Network Security Group]來控制在其中部署 API 管理的子網中的輸入和輸出流量。 如果這些連接埠中有任何一個無法使用，「API 管理」可能就無法正常運作而可能變成無法存取。 搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是另一個常見的錯誤組態問題。
 
-<a name="required-ports"></a>當「API 管理」服務實例裝載于 VNET 時, 會使用下表中的埠。
+<a name="required-ports"></a>當「API 管理」服務實例裝載于 VNET 時，會使用下表中的埠。
 
 | 來源 / 目的地連接埠 | Direction          | 傳輸通訊協定 |   [服務標記](../virtual-network/security-overview.md#service-tags) <br> 來源 / 目的地   | 目的 (*)                                                 | 虛擬網路類型 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
@@ -137,17 +137,17 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure 中國       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-+ **SMTP 轉送**：SMTP 轉送的輸出網路連線能力, 它會`smtpi-co1.msn.com`在主機`smtpi-db3.msn.com`、 `smtpi-ch1.msn.com` `smtpi-sin.msn.com` 、和底下解析`ies.global.microsoft.com`
++ **SMTP 轉送**：SMTP 轉送的輸出網路連線能力，它會`smtpi-co1.msn.com`在主機`smtpi-db3.msn.com`、 `smtpi-ch1.msn.com` `smtpi-sin.msn.com` 、和底下解析`ies.global.microsoft.com`
 
-+ **開發人員入口網站 CAPTCHA**：開發人員入口網站 CAPTCHA 的輸出網路連線能力, 它會在主機`client.hip.live.com`和`partner.hip.live.com`下解析。
++ **開發人員入口網站 CAPTCHA**：開發人員入口網站 CAPTCHA 的輸出網路連線能力，它會在主機`client.hip.live.com`和`partner.hip.live.com`下解析。
 
 + **Azure 入口網站診斷**：從虛擬網路內部使用 APIM 延伸模組時，若要從 Azure 入口網站啟用診斷記錄的流程，則需要在連接埠 443 上有 `dc.services.visualstudio.com` 的輸出存取權。 這有助於針對您在使用延伸模組時所可能面臨的問題進行疑難排解。
 
-+ **使用 Express Route 或網路虛擬裝置來強制通道流量至內部內部部署防火牆**:常見的客戶設定是定義自己的預設路由 (0.0.0.0/0), 以強制所有來自 API 管理委派子網的流量流經內部部署防火牆或網路虛擬裝置。 此流量流程一定會中斷與 Azure API 管理的連線，因為已在內部部署封鎖輸出流量，或者 NAT 至無法再使用各種 Azure 端點的一組無法辨識位址。 解決方案會要求您執行幾項工作:
++ **使用 Express Route 或網路虛擬裝置來強制通道流量至內部內部部署防火牆**：常見的客戶設定是定義自己的預設路由（0.0.0.0/0），以強制所有來自 API 管理委派子網的流量流經內部部署防火牆或網路虛擬裝置。 此流量流程一定會中斷與 Azure API 管理的連線，因為已在內部部署封鎖輸出流量，或者 NAT 至無法再使用各種 Azure 端點的一組無法辨識位址。 解決方案會要求您執行幾項工作：
 
-  * 在 API 管理服務部署所在的子網上啟用服務端點。 您必須為 Azure Sql、Azure 儲存體、Azure EventHub 和 Azure 服務匯流排啟用[服務端點][ServiceEndpoints]。 從 API 管理委派子網直接啟用端點至這些服務, 可讓他們使用 Microsoft Azure 骨幹網路, 以提供最佳的服務流量路由。 如果您使用具有強制通道 Api 管理的服務端點, 上述 Azure 服務流量不會強制通道處理。 另一個 API 管理服務相依性流量會被強制通道處理, 且不能遺失, 或 API 管理服務無法正常運作。
+  * 在 API 管理服務部署所在的子網上啟用服務端點。 您必須為 Azure Sql、Azure 儲存體、Azure EventHub 和 Azure 服務匯流排啟用[服務端點][ServiceEndpoints]。 從 API 管理委派子網直接啟用端點至這些服務，可讓他們使用 Microsoft Azure 骨幹網路，以提供最佳的服務流量路由。 如果您使用具有強制通道 Api 管理的服務端點，上述 Azure 服務流量不會強制通道處理。 另一個 API 管理服務相依性流量會被強制通道處理，且不能遺失，或 API 管理服務無法正常運作。
     
-  * 從網際網路到 API 管理服務的管理端點的所有控制平面流量, 都是透過 API 管理所裝載的一組特定輸入 Ip 來路由傳送。 當流量強制通道時, 回應將不會對稱地對應回這些輸入來源 Ip。 若要克服此限制, 我們必須新增下列使用者定義的路由 ([udr][UDRs]), 藉由將這些主機路由的目的地設定為「網際網路」, 將流量引導回到 Azure。 控制平面流量的一組輸入 Ip 如下所示:
+  * 從網際網路到 API 管理服務的管理端點的所有控制平面流量，都是透過 API 管理所裝載的一組特定輸入 Ip 來路由傳送。 當流量強制通道時，回應將不會對稱地對應回這些輸入來源 Ip。 若要克服此限制，我們必須新增下列使用者定義的路由（[udr][UDRs]），藉由將這些主機路由的目的地設定為「網際網路」，將流量引導回到 Azure。 控制平面流量的一組輸入 Ip 如下所示：
     
      | Azure 環境 | 管理 IP 位址                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -155,7 +155,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
     | Azure Government  | 52.127.42.160/32、52.127.34.192/32 |
     | Azure 中國       | 139.217.51.16/32、139.217.171.176/32 |
 
-  * 對於其他以強制通道處理的 API 管理服務相依性, 應該有方法可以解析主機名稱, 並連到端點。 其中包括
+  * 對於其他以強制通道處理的 API 管理服務相依性，應該有方法可以解析主機名稱，並連到端點。 其中包括
       - 計量和健康情況監視
       - Azure 入口網站診斷
       - SMTP 轉送
@@ -170,7 +170,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
   > [!IMPORTANT]
   > 驗證過連線能力後，請務必先移除子網路中部署的所有資源，再將 API 管理部署至子網路。
 
-* **累加式更新**：對您的網路進行變更時, 請參閱[NETWORKSTATUS API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus), 以確認 API 管理服務並未失去其所依賴之任何重要資源的存取權。 連線狀態應該每隔 15 分鐘更新一次。
+* **累加式更新**：對您的網路進行變更時，請參閱[NETWORKSTATUS API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)，以確認 API 管理服務並未失去其所依賴之任何重要資源的存取權。 連線狀態應該每隔 15 分鐘更新一次。
 
 * **資源導覽連結**：在部署到 Resource Manager 樣式 VNet 子網路時，APIM 會藉由建立資源導覽連結來保留子網路。 如果子網路已包含來自不同提供者的資源，部署將會**失敗**。 同樣地，當您將 API 管理服務移至不同子網路或將它刪除時，我們也會移除該資源導覽連結。
 
@@ -179,7 +179,7 @@ Azure 會在每個子網路中保留一些 IP 位址，但這些位址無法使�
 
 除了 Azure VNET 基礎結構使用的 IP 位址之外，子網路中的每個 API 管理執行個體都會為進階 SKU 的每個單位使用兩個 IP 位址，或為開發人員 SKU 使用一個 IP 位址。 每個執行個體都會保留一個額外 IP 位址作為外部負載平衡器。 當您部署到內部 vnet 時，內部負載平衡器需要其他的 IP 位址。
 
-假設計算超過子網的大小下限, 其中可部署 API 管理為/29, 這會提供三個 IP 位址。
+假設計算超過子網的大小下限，其中可部署 API 管理為/29，這會提供三個 IP 位址。
 
 ## <a name="routing"> </a> 路由
 + 負載平衡的公用 IP 位址 (VIP) 會保留下來，以供存取所有服務端點。

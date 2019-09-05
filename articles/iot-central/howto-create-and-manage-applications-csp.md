@@ -8,14 +8,14 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 4d20256381eab155d4b7532591cea85e43080ec0
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: d7c538bd98b3924b422a93bc67cac405a6e4b7af
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019807"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383115"
 ---
-# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>以 CSP 的身分，代表您的客戶建立和管理 Azure IoT Central 應用程式 
+# <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>以 CSP 的身分，代表您的客戶建立和管理 Azure IoT Central 應用程式
 
 雲端解決方案提供者 (CSP) 方案是 Microsoft 轉銷商方案。 其用意是要為我們的通路合作夥伴提供轉銷所有 Microsoft 商務線上服務的單站式方案。 深入了解[雲端解決方案提供者方案](https://partner.microsoft.com/cloud-solution-provider)。
 
@@ -25,7 +25,7 @@ ms.locfileid: "70019807"
 
 ![Microsoft 夥伴中心客戶、客戶檢視](media/howto-create-application-csp/image1.png)
 
-Azure IoT Central 會列為可供系統管理員使用的服務。 選取頁面上的 [Azure IoT Central] 連結, 以建立新的應用程式或管理此客戶現有的應用程式。
+Azure IoT Central 會列為可供系統管理員使用的服務。 選取頁面上的 [Azure IoT Central] 連結，以建立新的應用程式或管理此客戶現有的應用程式。
 
 ![可用來管理的 Azure IoT Central](media/howto-create-application-csp/image2.png)
 
@@ -33,7 +33,7 @@ Azure IoT Central 會列為可供系統管理員使用的服務。 選取頁面�
 
 ![建立 CSP 的管理員](media/howto-create-application-csp/image3.png)
 
-若要建立 Azure IoT Central 應用程式, 請選取 [**新增應用程式**] 磚。 這會載入 [應用程式建立] 頁面。 您必須完成此頁面上的所有欄位，然後選擇 [建立]。 您可以在下方找到更多關於每個欄位的詳細資訊。
+若要建立 Azure IoT Central 應用程式，請選取 [**新增應用程式**] 磚。 這會載入 [應用程式建立] 頁面。 您必須完成此頁面上的所有欄位，然後選擇 [建立]。 您可以在下方找到更多關於每個欄位的詳細資訊。
 
 ![建立 CSP 的應用程式頁面](media/howto-create-application-csp/image4.png)
 
@@ -72,6 +72,9 @@ Azure 訂用帳戶可讓您建立 Azure 服務執行個體。 Azure IoT Central 
 ## <a name="region"></a>區域
 
 選取您要建立 Azure IoT 中心應用程式的區域。 一般而言，您應選擇實際上最接近您裝置的區域，以取得最佳效能。
+
+> [!NOTE]
+> **預覽應用程式**範本目前僅**適用于北歐和** **美國中部**區域。
 
 若要深入了解，請參閱 [Azure 區域](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions)。
 

@@ -9,19 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 87244169aa8e50ddd503086121dd84f5d50c5df4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5939886f68a877c4cfad752fe93c4f0eca8f80cf
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932781"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258520"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中建立新的 LUIS 應用程式
 有好幾種方法可建立 LUIS 應用程式。 您可以在 [LUIS](https://www.luis.ai) 入口網站中建立 LUIS 應用程式，或透過 LUIS 撰寫 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)。
 
 ## <a name="using-the-luis-portal"></a>使用 LUIS 入口網站
+
 您可在 LUIS 入口網站中以數種方式建立新的應用程式：
 
 * 從空的應用程式著手，並建立意圖、語句和實體。
@@ -39,6 +40,8 @@ ms.locfileid: "68932781"
 <a name="import-new-app"></a>
 <a name="delete-app"></a>
  
+
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-new-app-in-luis"></a>在 LUIS 中建立新的應用程式
 
@@ -59,27 +62,27 @@ ms.locfileid: "68932781"
 ## <a name="import-an-app-from-file"></a>從檔案匯入應用程式
 
 1. 在 [我的應用程式] 頁面上，選取 [匯入新的應用程式]。
-1. 在快顯視窗中, 選取有效的應用程式 JSON 檔案, 然後選取 [**完成**]。
+1. 在快顯視窗中，選取有效的應用程式 JSON 檔案，然後選取 [**完成**]。
 
 ### <a name="import-errors"></a>匯入錯誤
 
-可能的錯誤包括: 
+可能的錯誤包括： 
 
-* 具有該名稱的應用程式已經存在。 若要修正此問題, 請重新匯入應用程式, 並將**選擇性名稱**設定為新名稱。 
+* 具有該名稱的應用程式已經存在。 若要修正此問題，請重新匯入應用程式，並將**選擇性名稱**設定為新名稱。 
 
 ## <a name="export-app-for-backup"></a>匯出應用程式以進行備份
 
-1. 在**我的應用程式** 頁面上, 選取 **匯出**。
+1. 在**我的應用程式** 頁面上，選取 **匯出**。
 1. 選取 [**匯出為 JSON**]。 您的瀏覽器會下載應用程式的作用中版本。
 1. 將此檔案新增至您的備份系統以封存模型。
 
 ## <a name="export-app-for-containers"></a>匯出容器的應用程式
 
-1. 在**我的應用程式** 頁面上, 選取 **匯出**。
-1. 選取 [**匯出為容器**], 然後選取您想要匯出的已發佈位置 (生產或階段)。
+1. 在**我的應用程式** 頁面上，選取 **匯出**。
+1. 選取 [**匯出為容器**]，然後選取您想要匯出的已發佈位置（生產或階段）。
 1. 將此檔案與您的[LUIS 容器](luis-container-howto.md)搭配使用。 
 
-    如果您想要匯出已定型但尚未發行的模型以與 LUIS 容器搭配使用, 請移至 [**版本**] 頁面, 並從該處匯出。 
+    如果您想要匯出已定型但尚未發行的模型以與 LUIS 容器搭配使用，請移至 [**版本**] 頁面，並從該處匯出。 
 
 ## <a name="delete-app"></a>刪除應用程式
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 343bbf5c84ce97feb7b7d170523845f5a2f7c10d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 323db6e7274db1a53e49b5bd7d33b2eb3700a62b
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668426"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376416"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -49,7 +49,7 @@ ms.locfileid: "68668426"
 | Cisco |Meraki |N/A |不相容 |不相容 |
 | Citrix |NetScaler MPX、SDX、VPX |10.1 和更新版本 |[設定指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不相容 |
 | F5 |BIG-IP 系列 |12.0 |[設定指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[設定指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.6 |  |[設定指南](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/030680/connecting-a-local-fortigate-to-an-azure-fortigate-via-site-to-site-vpn) |
+| Fortinet |FortiGate |FortiOS 5.6 |  |[設定指南](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/989216/connecting-a-local-fortigate-to-an-azure-vnet-vpn) |
 | Internet Initiative Japan (IIJ) |SEIL 系列 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[設定指南](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |不相容 |
 | Juniper |SRX |原則式︰JunOS 10.2<br>路由式：JunOS 11.4 |支援 |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |J 系列 |原則式︰JunOS 10.4r9<br>路由式：JunOS 11.4 |支援 |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
@@ -101,10 +101,10 @@ ms.locfileid: "68668426"
 | &lt;RP_AccessList&gt; |您為此物件選擇的名稱。 例如：myAzureAccessList |
 | &lt;RP_IPSecTransformSet&gt; |您為此物件選擇的名稱。 例如：myIPSecTransformSet |
 | &lt;RP_IPSecCryptoMap&gt; |您為此物件選擇的名稱。 例如：myIPSecCryptoMap |
-| &lt;SP_AzureNetworkIpRange&gt; |指定範圍。 範例:192.168.0.0 |
-| &lt;SP_AzureNetworkSubnetMask&gt; |指定子網路遮罩。 範例:255.255.0.0 |
-| &lt;SP_OnPremisesNetworkIpRange&gt; |指定內部部署範圍。 範例:10.2.1.0 |
-| &lt;SP_OnPremisesNetworkSubnetMask&gt; |指定內部部署子網路遮罩。 範例:255.255.255.0 |
+| &lt;SP_AzureNetworkIpRange&gt; |指定範圍。 範例：192.168.0.0 |
+| &lt;SP_AzureNetworkSubnetMask&gt; |指定子網路遮罩。 範例：255.255.0.0 |
+| &lt;SP_OnPremisesNetworkIpRange&gt; |指定內部部署範圍。 範例：10.2.1.0 |
+| &lt;SP_OnPremisesNetworkSubnetMask&gt; |指定內部部署子網路遮罩。 範例：255.255.255.0 |
 | &lt;SP_AzureGatewayIpAddress&gt; |此為您虛擬網路的特定資訊，位於管理入口網站中的 [閘道器 IP 位址]。 |
 | &lt;SP_PresharedKey&gt; |此資訊專屬於您的虛擬網路，是 [管理入口網站] 中的管理金鑰。 |
 

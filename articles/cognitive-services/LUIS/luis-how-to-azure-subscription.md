@@ -1,7 +1,7 @@
 ---
-title: 訂用帳戶金鑰-LUIS
+title: 如何使用撰寫和執行時間金鑰-LUIS
 titleSuffix: Azure Cognitive Services
-description: 您不需要建立訂用帳戶金鑰，即可免費使用您的前 1000 個端點查詢。 如果您收到 HTTP 403 或 429 格式的_超出配額_錯誤，則需要建立金鑰，並將其指派給您的應用程式。
+description: 當您第一次使用 Language Understanding （LUIS）時，您不需要建立撰寫金鑰。 當您想要發佈應用程式時，請使用您的執行時間端點，您必須建立執行時間金鑰，並將其指派給應用程式。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,133 +9,106 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 1f8b84722c881cee1fe196e5a614b58cf3c19031
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 36d03e20c9a56d7b317b867f01c1c0b5767c802c
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932865"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257020"
 ---
-# <a name="using-subscription-keys-with-your-luis-app"></a>使用您的訂用帳戶金鑰搭配 LUIS 應用程式
+# <a name="using-authoring-and-runtime-resource-keys"></a>使用撰寫和執行時間資源金鑰
 
-當您第一次使用 Language Understanding (LUIS) 時, 您不需要建立訂用帳戶金鑰。 您會獲得1000端點查詢以開始使用。 
-
-僅針對測試和原型，使用免費 (F0) 層。 針對生產系統，使用[付費](https://aka.ms/luis-price-tier)層。 請勿在生產環境中對端點查詢使用[撰寫金鑰](luis-concept-keys.md#authoring-key)。
-
+撰寫和執行時間資源可為您的 LUIS 應用程式和預測端點提供驗證。
 
 <a name="create-luis-service"></a>
-<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
 
-## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>在 Azure 入口網站中建立預測端點執行時間資源
+當您登入 LUIS 入口網站時，您可以選擇繼續進行：
 
-您會在 Azure 入口網站中建立[預測端點資源](get-started-portal-deploy-app.md#create-the-endpoint-resource)。 此資源僅適用於端點預測查詢。 請勿使用此資源撰寫應用程式的變更。
+* 免費[試用金鑰](#trial-key)-提供撰寫和一些預測端點查詢。
+* 新的 Azure LUIS 撰寫資源-建立新的資源。 這與預測端點資源不同。 
 
-您可以建立 Language Understanding 資源或認知服務資源。 如果您要建立 Language Understanding 資源, 最好的作法是將資源類型 postpend 為資源名稱。 
 
-<a name="programmatic-key" ></a>
-<a name="authoring-key" ></a>
-<a name="endpoint-key" ></a>
-<a name="use-endpoint-key-in-query" ></a>
-<a name="api-usage-of-ocp-apim-subscription-key" ></a>
-<a name="key-limits" ></a>
-<a name="key-limit-errors" ></a>
-<a name="key-concepts"></a>
-<a name="authoring-key"></a>
-<a name="create-and-use-an-endpoint-key"></a>
-<a name="assign-endpoint-key"></a>
-<a name="assign-resource"></a>
+<a name="starter-key"></a>
 
-### <a name="using-resource-from-luis-portal"></a>從 LUIS 入口網站使用資源
+## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>登入 LUIS 入口網站並開始撰寫
 
-如果您使用 LUIS 入口網站中的資源, 則不需要知道您的金鑰和位置。 相反地, 您需要知道您的資源租使用者、訂用帳戶和資源名稱。
+1. 登入[LUIS 入口網站](https://www.luis.ai)並同意使用條款。
+1. 選擇您想要使用的 LUIS 撰寫金鑰類型，以開始您的 LUIS 應用程式：免費試用金鑰或新的 Azure LUIS 撰寫金鑰。 
 
-當您[將資源指派](#assign-resource-key-to-luis-app-in-luis-portal)給 LUIS 入口網站中的 LUIS 應用程式之後, 就會在 [管理] 區段的 [**金鑰和端點設定**] 頁面中, 提供金鑰和位置作為查詢預測端點 URL 的一部分。
- 
-### <a name="using-resource-from-rest-api-or-sdk"></a>使用來自 REST API 或 SDK 的資源
+    ![選擇 Language Understanding 撰寫資源的類型](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-如果您使用 REST API 或 SDK 中的資源, 您必須知道您的金鑰和位置。 這項資訊是在 [管理] 區段的 [**金鑰和端點設定**] 頁面中, 以及在 [Azure 入口網站] 中, 于資源的 [總覽] 和 [金鑰] 頁面上提供作為查詢預測端點 URL 的一部分。
+1. 當您完成資源選取程式時，請[建立新的應用程式](luis-how-to-start-new-app.md#create-new-app-in-luis)。 
 
-## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>將資源金鑰指派給 LUIS 入口網站中的 LUIS 應用程式
+## <a name="trial-key"></a>試用金鑰
 
-每次為 LUIS 建立新資源時, 您都必須[將資源指派給 LUIS 應用程式](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。 指派之後，除非您建立新的資源，否則不需要再次執行此步驟。 您可以建立新的資源，以擴充您的應用程式區域，或支援更多預測查詢數目。
+系統會為您提供試用版（starter）金鑰。 它會用來做為您的驗證金鑰，以查詢預測端點執行時間，每個月最多1000個查詢。 
 
-<!-- content moved to luis-reference-regions.md, need replacement links-->
-<a name="regions-and-keys"></a>
-<a name="publishing-to-europe"></a>
-<a name="publishing-to-australia"></a>
+它會顯示在 LUIS 入口網站中的 [**使用者設定**] 頁面和 [**管理 > 的 Azure 資源**] 頁面上。 
 
-### <a name="unassign-resource"></a>取消指派資源
-當您取消指派端點金鑰時，它並不會從 Azure 中刪除。 只會從 LUIS 取消連結。 
+當您準備好要發行預測端點時，請建立並指派撰寫和預測執行時間金鑰，以取代入門金鑰功能。 
 
-若未指定端點金鑰，或未指派給應用程式，任何對端點 URL 的要求都會傳回錯誤：`401 This application cannot be accessed with the current subscription`。 
+## <a name="create-resources-in-the-azure-portal"></a>在 Azure 入口網站中建立資源
 
-### <a name="include-all-predicted-intent-scores"></a>Include all predicted intent scores \(包括所有預測意圖分數\)
-[Include all predicted intent scores] \(包括所有預測意圖分數\) 核取方塊允許端點查詢回應包括每個意圖的預測分數。 
+1. 登入 [Azure 入口網站](https://azure.microsoft.com/free/)。 
+1. 選取 [+ 建立資源]。
+1. 在搜尋方塊中，輸入 `Language understanding`。
+1. 選取 [建立] 來開始建立程序。 
+1. 建立**兩者**以建立撰寫和預測端點執行時間索引鍵。 
+1. 輸入建立資源所需的資訊，然後選取 [**建立**] 以完成程式。
 
-此設定可讓您的聊天機器人或 LUIS 通話應用程式根據所傳回意圖的分數進行程式設計決策。 一般而言，前兩個意圖最為有趣。 若最高分數為 None 意圖，則您的聊天機器人可以選擇詢問待處理問題，明確選擇 None 意圖與其他高計分意圖。 
+    ![建立語言理解資源](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-這些意圖和其分數也會包括在端點記錄中。 您可以[匯出](luis-how-to-start-new-app.md#export-app)這些記錄，並分析分數。 
+    |Name|用途|
+    |--|--|
+    |資源名稱| 您選擇的自訂名稱，用來作為撰寫和預測端點查詢 URL 的一部分。|
+    |訂用帳戶名稱| 將收取資源費用的訂用帳戶。|
+    |資源群組| 您選擇或建立的自訂資源組名。 資源群組可讓您將 Azure 資源分組，以在相同區域中進行存取和管理。|
+    |撰寫位置|與您的模型相關聯的區域。|
+    |撰寫定價層|定價層會決定每秒和每月的交易上限。|
+    |執行時間位置|與已發行之預測端點執行時間相關聯的區域。|
+    |執行時間定價層|定價層會決定每秒和每月的交易上限。|
 
-```JSON
-{
-  "query": "book a flight to Cairo",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.5223427
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.5223427
-    },
-    {
-      "intent": "BookFlight",
-      "score": 0.372391433
-    }
-  ],
-  "entities": []
-}
-```
+    建立這兩個資源後，請在 LUIS 入口網站中指派資源。
 
-### <a name="enable-bing-spell-checker"></a>啟用 Bing 拼字檢查工具 
-在 [端點 URL 設定] 中，[Bing 拼字檢查工具] 切換開關會允許 LUIS 在預測之前更正錯字。 建立 **[Bing 拼字檢查金鑰](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** 。 
+## <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>在 LUIS 入口網站中為所有應用程式指派撰寫資源
 
-新增 **spellCheck=true** 查詢字串參數和 **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** 。 將 `{YOUR_BING_KEY_HERE}` 取代為 Bing 拼字檢查金鑰。
+您可以針對單一應用程式或 LUIS 中的所有應用程式，指派撰寫資源。 下列程式會將所有應用程式指派給單一撰寫資源。
 
-```JSON
-{
-  "query": "Book a flite to London?",
-  "alteredQuery": "Book a flight to London?",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.780123
-  },
-  "entities": []
-}
-```
+1. 登入[LUIS 入口網站](https://www.luis.ai)。
+1. 在上方導覽列中，選取最右側的 [使用者帳戶]，然後選取 [**設定**]。
+1. 在 [**使用者設定**] 頁面上，選取 [**新增撰寫資源**]，然後選取現有的撰寫資源。 選取 [ **儲存**]。 
 
-### <a name="publishing-regions"></a>發行區域
+## <a name="assign-a-resource-to-an-app"></a>將資源指派給應用程式
 
-深入了解如何發佈[區域](luis-reference-regions.md)，包括在[歐洲](luis-reference-regions.md#publishing-to-europe)和[澳洲](luis-reference-regions.md#publishing-to-australia)發佈。 發佈區域與撰寫區域不同。 在您所要發佈區域的對應撰寫區域中，為查詢端點建立應用程式。
+您可以使用下列程式，將單一資源、撰寫或預測端點執行時間指派給應用程式。
 
-## <a name="assign-resource-without-luis-portal"></a>在不使用 LUIS 入口網站的情況下指派資源
+1. 登入[LUIS 入口網站](https://www.luis.ai)，然後從 [**我的應用程式**] 清單中選取應用程式。
+1. 流覽至 [**管理->] [Azure 資源**] 頁面。
 
-基於自動化用途 (例如 CI/CD 管線)，您可能想要讓 LUIS 資源指派給 LUIS 應用程式的作業自動執行。 為此，您必須執行下列步驟：
+    ![在 LUIS 入口網站中選取 [管理-> Azure 資源]，以將資源指派給應用程式。](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
+
+1. 選取 [預測] 或 [撰寫資源] 索引標籤，然後選取 [**新增預測資源**] 或 [**新增撰寫資源**] 按鈕。 
+1. 選取表單中的欄位以尋找正確的資源，然後選取 [**儲存**]。  
+
+### <a name="assign-runtime-resource-without-using-luis-portal"></a>在不使用 LUIS 入口網站的情況下指派執行時間資源
+
+基於自動化目的（例如 CI/CD 管線），您可能會想要自動將 LUIS 執行時間資源指派給 LUIS 應用程式。 為此，您必須執行下列步驟：
 
 1. 從這個[網站](https://resources.azure.com/api/token?plaintext=true)取得 Azure Resource Manager 權杖。 此權杖有使用期限，因此請立即使用。 要求會傳回 Azure Resource Manager 權杖。
 
     ![要求 Azure Resource Manager 權杖和接收 Azure Resource Manager 權杖](./media/luis-manage-keys/get-arm-token.png)
 
-1. 從[取得 LUIS Azure 帳戶 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c) 使用權杖，要求您的使用者帳戶在各個訂用帳戶間有權存取的 LUIS 資源。 
+1. 使用權杖，從您的使用者帳戶可存取的[GET LUIS azure 帳戶 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)，跨訂用帳戶要求 LUIS 執行時間資源。 
 
     此 POST API 需要下列設定︰
 
     |標頭|值|
     |--|--|
     |`Authorization`|`Authorization` 的值為 `Bearer {token}`。 請注意，權杖值的開頭必須加上 `Bearer` 一字和空格。| 
-    |`Ocp-Apim-Subscription-Key`|您的[撰寫金鑰](luis-how-to-account-settings.md)。|
+    |`Ocp-Apim-Subscription-Key`|您的撰寫金鑰。|
 
     此 API 會傳回您 LUIS 訂用帳戶的 JSON 物件陣列，其中包含訂用帳戶識別碼、資源群組和資源名稱 (傳回作為帳戶名稱)。 請在此陣列中找出要指派給 LUIS 應用程式的 LUIS 資源項目。 
 
@@ -146,12 +119,34 @@ ms.locfileid: "68932865"
     |Type|設定|值|
     |--|--|--|
     |標頭|`Authorization`|`Authorization` 的值為 `Bearer {token}`。 請注意，權杖值的開頭必須加上 `Bearer` 一字和空格。|
-    |標頭|`Ocp-Apim-Subscription-Key`|您的[撰寫金鑰](luis-how-to-account-settings.md)。|
+    |標頭|`Ocp-Apim-Subscription-Key`|您的撰寫金鑰。|
     |標頭|`Content-type`|`application/json`|
     |Querystring|`appid`|LUIS 應用程式識別碼。 
     |本文||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     此 API 成功執行時，會傳回「201 - 已建立」狀態。 
+
+## <a name="unassign-resource"></a>取消指派資源
+
+1. 登入[LUIS 入口網站](https://www.luis.ai)，然後從 [**我的應用程式**] 清單中選取應用程式。
+1. 流覽至 [**管理->] [Azure 資源**] 頁面。
+1. 選取 [預測] 或 [撰寫資源] 索引標籤，然後選取資源的 [**取消指派資源**] 按鈕。 
+
+當您取消指派資源時，不會將它從 Azure 中刪除。 只會從 LUIS 取消連結。 
+
+## <a name="reset-authoring-key"></a>重設撰寫金鑰
+
+**針對[撰寫資源遷移](luis-migration-authoring.md)的應用程式**：如果您的撰寫金鑰遭到入侵，請在該撰寫資源的 [**金鑰**] 頁面上，重設 Azure 入口網站中的金鑰。 
+
+**針對尚未遷移的應用程式**：金鑰會在 LUIS 入口網站中的所有應用程式上重設。 如果您透過撰寫 Api 來撰寫應用程式，則需要將 Apim-訂用帳戶金鑰的值變更為新的金鑰。
+
+## <a name="regenerate-azure-key"></a>重新產生 Azure 金鑰
+
+從 [**金鑰**] 頁面上的 Azure 入口網站重新產生 Azure 金鑰。
+
+## <a name="delete-account"></a>刪除帳戶
+
+如需刪除帳戶時會刪除哪些資料的相關資訊，請參閱[資料儲存和移除](luis-concept-data-storage.md#accounts)。
 
 ## <a name="change-pricing-tier"></a>變更定價層
 
@@ -163,39 +158,16 @@ ms.locfileid: "68932865"
     ![變更 LUIS 付款層](./media/luis-usage-tiers/plans.png)
 1.  定價變更完成時，快顯視窗會確認新的定價層。 
     ![驗證 LUIS 付款層](./media/luis-usage-tiers/updated.png)
-1. 請記得在 [發佈] 頁面上[指派此端點金鑰](#assign-endpoint-key)，然後將它使用於所有端點查詢。 
+1. 請記得在 [發佈] 頁面上[指派此端點金鑰](#assign-a-resource-to-an-app)，然後將它使用於所有端點查詢。 
 
-## <a name="fix-http-status-code-403-and-429"></a>修正 HTTP 狀態碼403和429
+## <a name="viewing-azure-resource-metrics"></a>查看 Azure 資源計量
 
-當您超過每秒的交易數, 或您的定價層每月筆交易時, 您會收到403和429錯誤狀態碼。
-
-### <a name="when-you-receive-an-http-403-error-status-code"></a>當您收到 HTTP 403 錯誤狀態碼時
-
-當您使用所有免費的1000端點查詢, 或超出定價層的每月交易配額時, 您會收到 HTTP 403 錯誤狀態碼。 
-
-若要修正此錯誤, 您必須將[定價層變更](luis-how-to-azure-subscription.md#change-pricing-tier)為較高的層級, 或[建立新的資源](get-started-portal-deploy-app.md#create-the-endpoint-resource), 並[將它指派給您的應用程式](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。
-
-此錯誤的解決方案包括:
-
-* 在[Azure 入口網站](https://portal.azure.com)的 Language Understanding 資源上, 在**資源管理-> 定價層**上, 將定價層變更為較高的 TPS 層。 如果您的資源已指派給您的 Language Understanding 應用程式, 您就不需要在 Language Understanding 入口網站中執行任何動作。
-*  如果您的使用量超過最高的定價層, 請新增更多 Language Understanding 資源, 並在其前面加上負載平衡器。 具有 Kubernetes 或 Docker Compose 的[Language Understanding 容器](luis-container-howto.md)可以協助進行此工作。
-
-### <a name="when-you-receive-an-http-429-error-status-code"></a>當您收到 HTTP 429 錯誤狀態碼時
-
-當您的每秒交易數超過您的定價層時, 就會傳回此狀態碼。  
-
-解決方案包括:
-
-* 如果您不是最高層級, 您可以[增加定價層](#change-pricing-tier)。
-* 如果您的使用量超過最高的定價層, 請新增更多 Language Understanding 資源, 並在其前面加上負載平衡器。 具有 Kubernetes 或 Docker Compose 的[Language Understanding 容器](luis-container-howto.md)可以協助進行此工作。
-* 當您取得此狀態碼時, 您可以使用您自行執行的[重試原則](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines)來閘道用戶端應用程式要求。 
-
-## <a name="viewing-summary-usage"></a>檢視摘要使用量
+### <a name="viewing-azure-resource-summary-usage"></a>查看 Azure 資源摘要使用量
 您可以在 Azure 中檢視 LUIS 使用量資訊。 [概觀] 頁面會顯示近期摘要資訊，包括呼叫和錯誤。 如果您提出 LUIS 端點要求，然後立即觀看 [概觀] 頁面，允許使用量最多在五分鐘內出現。
 
 ![檢視摘要使用量](./media/luis-usage-tiers/overview.png)
 
-## <a name="customizing-usage-charts"></a>自訂使用量圖表
+### <a name="customizing-azure-resource-usage-charts"></a>自訂 Azure 資源使用量圖表
 計量會提供資料的更詳細檢視。
 
 ![預設度量](./media/luis-usage-tiers/metrics-default.png)
@@ -204,7 +176,7 @@ ms.locfileid: "68932865"
 
 ![自訂度量](./media/luis-usage-tiers/metrics-custom.png)
 
-## <a name="total-transactions-threshold-alert"></a>交易總數閾值警示
+### <a name="total-transactions-threshold-alert"></a>交易總數閾值警示
 如果您想要知道何時達到特定交易閾值 (例如 10,000 筆交易) 時，可以建立警示。 
 
 ![預設警示](./media/luis-usage-tiers/alert-default.png)
@@ -213,4 +185,7 @@ ms.locfileid: "68932865"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何使用[版本](luis-how-to-manage-versions.md)來管理 LUIS 應用程式的變更。
+* 瞭解[如何使用版本](luis-how-to-manage-versions.md)來控制您的應用程式生命週期。
+* 瞭解這些概念，包括該資源的[撰寫資源](/luis-concept-keys.md#authoring-key)和[參與者](luis-concept-keys.md#contributions-from-other-authors)。
+* 瞭解[如何建立](luis-how-to-azure-subscription.md)撰寫和執行時間資源
+* 遷移至新的[撰寫資源](luis-migration-authoring.md) 

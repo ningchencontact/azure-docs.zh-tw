@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 0ab6e4854a96b4434ebb6c0b3649a1955568ba45
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f92776072038c5684e9334d2dda1690ebb7bcaa8
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932785"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70257795"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>將作用中且經過訓練的應用程式發佈至預備或生產端點
 
@@ -26,39 +26,67 @@ ms.locfileid: "68932785"
 
 ## <a name="publishing"></a>發行
 
-若要發佈至端點，請選取右側面板頂端的 [發佈]。 
+1. 若要發佈至端點，請選取右側面板頂端的 [發佈]。 
 
-![右上方導覽列](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+    ![右上流覽列中的 [發佈] 按鈕](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-在快顯視窗顯示時選取正確的位置：預備或生產。 透過使用兩個發佈位置，可讓您具有兩個具有已發佈端點的不同版本，或兩個不同端點上的相同版本。 
+1. 選取已發佈預測端點的設定，然後選取 [**發佈**]。
 
-應用程式會發佈至與 LUIS 入口網站中新增的 LUIS 資源相關聯的所有區域。 例如，對於在 [www.luis.ai](https://www.luis.ai) 上建立的應用程式，如果您在 **westus** 中建立 LUIS 資源並將它當作資源新增至應用程式，則會在該區域中發佈應用程式。 如需 LUIS 區域的相關資訊，請參閱[區域](luis-reference-regions.md)。
- 
-![發佈快顯視窗](./media/luis-how-to-publish-app/publish-pop-up.png)
+    ![選取 [發行設定]，然後選取 [發佈] 按鈕](./media/luis-how-to-publish-app/publish-pop-up.png)
+
+### <a name="publishing-slots"></a>發行位置
+
+在快顯視窗顯示時選取正確的位置： 
+
+* 臨時.
+* 生產. 
+
+藉由使用這兩個發佈位置，可讓您在已發行的端點或相同版本的兩個不同端點上，使用應用程式的兩個不同版本。 
+
+### <a name="publishing-regions"></a>發行區域
+
+應用程式會發佈至與 LUIS 入口網站中新增的 LUIS 預測端點資源相關聯的所有區域。 
+
+例如，針對在[www.luis.ai](https://www.luis.ai)上建立的應用程式，如果您在兩個區域（ **westus**和**eastus**）中建立 luis 資源，並將其新增至應用程式做為資源，則會在這兩個區域中發佈應用程式。 如需 LUIS 區域的相關資訊，請參閱[區域](luis-reference-regions.md)。
+
+
+## <a name="configuring-publish-settings"></a>配置發佈設定
+
+選取位置之後，請設定下列各內容的發佈設定：
+
+* 情感分析
+* 拼寫更正
+* 語音預備 
+
+在您發佈之後，這些設定可從 [**管理**] 區段的 [**發行設定**] 頁面中進行審核。 您可以在每次發行時變更設定。 如果您取消發行，則在發行期間所做的任何變更也會一併取消。 
+
+### <a name="when-your-app-is-published"></a>當您的應用程式發佈時
 
 成功發佈應用程式時，綠色成功通知會顯示在瀏覽器上方。 綠色通知列也包含端點的連結。 
 
 ![發佈連結至端點的快顯視窗](./media/luis-how-to-publish-app/publish-success.png)
 
-如果您需要端點 URL，請選取此連結。 您也可以選取頂端功能表中的 [管理]，然後選取左側功能表中的 [金鑰和端點]，以取得端點 URL。 
+如果您需要端點 URL，請選取此連結。 您也可以在頂端功能表中選取 [**管理**]，然後選取左側功能表中的 [ **Azure 資源**]，以取得端點 url。 
 
-## <a name="configuring-publish-settings"></a>配置發佈設定
-
-選取右上方導覽列中的 [管理]，然後選取 [發佈設定]，以配置發佈設定。 
-
-![發佈設定](./media/luis-how-to-publish-app/publish-settings.png)
-
-### <a name="publish-after-enabling-sentiment-analysis"></a>在啟用情感分析之後發佈
+## <a name="sentiment-analysis"></a>情感分析
 
 <a name="enable-sentiment-analysis"></a>
 
 情感分析可讓 LUIS 與[文字分析](https://azure.microsoft.com/services/cognitive-services/text-analytics/)整合，以提供情感和關鍵片語分析。 
 
-您不需要提供文字分析金鑰，而且不會向您的 Azure 帳戶收取此服務的費用。 在您核取此設定之後，此設定就是永久性的。 
+您不需要提供文字分析金鑰，而且不會向您的 Azure 帳戶收取此服務的費用。 
 
 情感資料是一個介於 1 與 0 之間的分數，指出資料的正面 (較接近 1) 或負面 (較接近 0) 情感。 `positive`、`neutral` 及 `negative` 情感標籤是依支援的文化特性 (Culture) 而定。 目前，只有英文支援情感標籤。 
 
 如需使用情感分析之 JSON 端點回應的詳細資訊，請參閱[情感分析](luis-concept-data-extraction.md#sentiment-analysis)
+
+## <a name="spelling-correction"></a>拼寫更正
+
+更正拼寫是在 LUIS 使用者語句預測之前進行。 在回應中，您可以看到原始語句的任何變更（包括拼寫）。
+
+## <a name="speech-priming"></a>語音預備
+
+語音預備是在將文字轉換成語音之前，使用將 LUIS 模型傳送至語音服務的程式。 這可讓語音服務更精確地為您的模型提供語音轉換。 這可讓 bot 語音和 LUIS 要求和回應呼叫一次，方法是進行一次語音通話並取回 LUIS 回應。 它提供的整體延遲較低。
 
 ## <a name="next-steps"></a>後續步驟
 

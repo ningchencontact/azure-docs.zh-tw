@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: bf2b83725f8ce8e712974c182c9a11e8ed0d04f0
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013228"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376341"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
 此文章分析 Microsoft Azure 目前提供之下列兩種不同類型佇列的差異與相同處：儲存體佇列和服務匯流排佇列。 透過使用這項資訊，您可以比較和比對個別的技術，而且對於哪一種方案最符合您的需求，也能夠做出更旁徵博引的決定。
@@ -70,7 +70,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 | 比較準則 | 儲存體佇列 | 服務匯流排佇列 |
 | --- | --- | --- |
 | 排序保證 |**否** <br/><br>如需詳細資訊，請參閱＜其他資訊＞一節的第一個注意事項。</br> |**是 - 先進先出 (FIFO)**<br/><br>(透過使用訊息工作階段) |
-| 傳遞保證 |**至少一次** |至少**一次**(使用 PeekLock 接收模式-這是預設值) <br/><br/>**最多一次**(使用 ReceiveAndDelete 接收模式) <br/> <br/> 深入瞭解各種[接收模式](service-bus-queues-topics-subscriptions.md#receive-modes)  |
+| 傳遞保證 |**至少一次** |至少**一次**（使用 PeekLock 接收模式-這是預設值） <br/><br/>**最多一次**（使用 ReceiveAndDelete 接收模式） <br/> <br/> 深入瞭解各種[接收模式](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | 不可部分完成作業支援 |**否** |**是**<br/><br/> |
 | 接收行為 |**非封鎖**<br/><br/>(如果找不到新的訊息，便立即完成) |**含/不含逾時的封鎖**<br/><br/>(提供長期輪詢，或稱為 [Comet 技術](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**非封鎖**<br/><br/>(僅限透過使用 .NET 受控 API) |
 | 推送型 API |**否** |**是**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 和 **OnMessage** 工作階段的 .NET API。 |
@@ -85,8 +85,7 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 * 儲存體佇列中的訊息通常是先進先出，但有時也不按順序；舉例來說，訊息的可視性逾時期限到期時 (例如，由於處理期間用戶端應用程式損毀所致)。 當可視性逾時到期時，訊息會再次出現在佇列上，以便其他工作者清除佇列中的訊息。 此時，佇列中可能放入新出現的訊息 (等待再次從佇列中清除)，而且是最初在它之後才加入佇列的訊息後面。
 * 服務匯流排佇列中的保證 FIFO 模式需要使用訊息工作階段。 如果應用程式在處理以「查看與鎖定」模式所接收的訊息時損毀，下一次佇列接收者接受訊息工作階段時，將會在存留時間 (TTL) 期限到期之後，從失敗的訊息開始處理。
 * 儲存體佇列是設計來支援標準佇列案例，例如使應用程式元件脫鉤以增加延展性及容錯能力、進行負載調節，以及建置處理工作流程。
-* 服務匯流排佇列支援「至少一次」的傳遞保證。 
-* 使用會話狀態來儲存應用程式的狀態, 相對於處理會話訊息順序的進度, 以及使用交易, 可以避免不一致的服務匯流排會話內容中的訊息處理正在將已接收的訊息和更新會話狀態進行結算。 這種一致性功能有時會在其他廠商的產品中標示為*一次處理*, 但交易失敗顯然會導致訊息重新傳遞, 因此該詞彙不會完全符合。
+* 使用會話狀態來儲存應用程式的狀態，相對於處理會話訊息順序的進度，以及使用交易，可以避免不一致的服務匯流排會話內容中的訊息處理正在將已接收的訊息和更新會話狀態進行結算。 這種一致性功能有時會在其他廠商的產品中標示為*一次處理*，但交易失敗顯然會導致訊息重新傳遞，因此該詞彙不會完全符合。
 * 儲存體佇列提供跨佇列、資料表和 BLOB 之統一且一致的程式設計模型，適合開發人員和營運團隊使用。
 * 服務匯流排佇列支援在單一佇列內容中進行本機交易。
 * 服務匯流排所支援的「接收與刪除」模式可讓您降低訊息作業計數 (以及關聯的成本)，但是也會降低傳遞保證。

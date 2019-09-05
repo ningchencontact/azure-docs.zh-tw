@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 53b44441397be6aaa690c75bf362fd16d5a34019
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 6314bd348c22c901001b88eda6875181a2f69df4
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242888"
+ms.locfileid: "70307128"
 ---
 # <a name="use-powershell-to-view-the-details-of-a-sent-data-share"></a>使用 PowerShell 來查看已傳送資料共用的詳細資料
 
-此 PowerShell 腳本會列出現有帳戶的資料共用, 並取得特定共用的詳細資料。
+此 PowerShell 腳本會列出現有帳戶的資料共用，並取得特定共用的詳細資料。
 
 
 ## <a name="sample-script"></a>範例指令碼
@@ -45,7 +45,7 @@ Get-AzDataShare -ResourceGroupName $resourceGroupName -AccountName $dataShareAcc
 
 | 命令 | 注意 |
 |---|---|
-| [AzDataShare](/powershell/module/az.resources/get-az) | 取得和帳戶中的共用清單。 |
+| [AzDataShare](/powershell/module/az.datashare/get-azdatashare?view=azps-2.6.0) | 取得和帳戶中的共用清單。 |
 |||
 
 ## <a name="next-steps"></a>後續步驟

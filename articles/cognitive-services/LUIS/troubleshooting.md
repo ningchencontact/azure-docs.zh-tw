@@ -1,5 +1,5 @@
 ---
-title: 常見問題 (FAQ)-LUIS
+title: 常見問題（FAQ）-LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 常見問題集的解答。
 author: diberry
@@ -9,20 +9,20 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
-ms.translationtype: MT
+ms.openlocfilehash: 7874a2bad63a4c5b47545c06a91228e64d523849
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945846"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258798"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
 本文包含 Language Understanding (LUIS) 常見問題集的解答。
 
-## <a name="whats-new"></a>新增功能
+## <a name="whats-new"></a>新功能
 
 [深入瞭解](whats-new.md)Language Understanding 的新功能。
 
@@ -68,17 +68,17 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>如何移轉 LUIS 應用程式的擁有權？
 若要將 LUIS 應用程式傳送至不同的 Azure 訂用帳戶，請匯出 LUIS 應用程式，並使用新的帳戶匯入它。 在呼叫 LUIS 應用程式的用戶端應用程式中，更新 LUIS 應用程式識別碼。 新應用程式可能會傳回與原始應用程式略為不同的 LUIS 分數。
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>預建實體會在範例語句中加上標籤, 而不是我的自訂實體。 如何修正此警示? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>預建實體會在範例語句中加上標籤，而不是我的自訂實體。 如何? 修正此問題嗎？ 
 
 請參閱針對預先建立的[實體進行疑難排解](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)。
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>我嘗試匯入應用程式或版本檔案, 但收到錯誤訊息, 發生了什麼事？ 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>我嘗試匯入應用程式或版本檔案，但收到錯誤訊息，發生了什麼事？ 
 
 深入瞭解[版本匯入錯誤](luis-how-to-manage-versions.md#import-errors)和[應用程式匯入錯誤](luis-how-to-start-new-app.md#import-errors)。
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating"></a>共同作業
+## <a name="collaborating-and-contributing"></a>共同作業和貢獻
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>如何使用 Azure Active Directory (Azure AD) 或角色型存取控制 (RBAC)，來為共同作業者提供存取 LUIS 的權限？
 
@@ -87,6 +87,31 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 <a name="luis-endpoint"></a>
 
 ## <a name="endpoint"></a>端點
+
+### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>我收到 HTTP 403 錯誤狀態碼。 如何修正問題？
+
+當您超過每秒的交易數，或您的定價層每月筆交易時，您會收到403和429錯誤狀態碼。 增加您的定價層，或使用 Language Understanding[容器](luis-container-howto.md)。
+
+當您使用所有免費的1000端點查詢，或超出定價層的每月交易配額時，您會收到 HTTP 403 錯誤狀態碼。 
+
+若要修正此錯誤，您必須將[定價層變更](luis-how-to-azure-subscription.md#change-pricing-tier)為較高的層級，或[建立新的資源](get-started-portal-deploy-app.md#create-the-endpoint-resource)，並[將它指派給您的應用程式](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。
+
+此錯誤的解決方案包括：
+
+* 在[Azure 入口網站](https://portal.azure.com)的 Language Understanding 資源上，在**資源管理-> 定價層**上，將定價層變更為較高的 TPS 層。 如果您的資源已指派給您的 Language Understanding 應用程式，您就不需要在 Language Understanding 入口網站中執行任何動作。
+*  如果您的使用量超過最高的定價層，請新增更多 Language Understanding 資源，並在其前面加上負載平衡器。 具有 Kubernetes 或 Docker Compose 的[Language Understanding 容器](luis-container-howto.md)可以協助進行此工作。
+
+### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>我收到 HTTP 429 錯誤狀態碼。 如何修正問題？
+
+當您超過每秒的交易數，或您的定價層每月筆交易時，您會收到403和429錯誤狀態碼。 增加您的定價層，或使用 Language Understanding[容器](luis-container-howto.md)。
+
+當您的每秒交易數超過您的定價層時，就會傳回此狀態碼。  
+
+解決方案包括：
+
+* 如果您不是最高層級，您可以[增加定價層](luis-how-to-azure-subscription.md#change-pricing-tier)。
+* 如果您的使用量超過最高的定價層，請新增更多 Language Understanding 資源，並在其前面加上負載平衡器。 具有 Kubernetes 或 Docker Compose 的[Language Understanding 容器](luis-container-howto.md)可以協助進行此工作。
+* 當您取得此狀態碼時，您可以使用您自行執行的[重試原則](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines)來閘道用戶端應用程式要求。 
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>端點查詢傳回非預期的結果。 我該怎麼辦？
 
@@ -102,7 +127,7 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 LUIS 會根據[文化特性 (Culture)](luis-language-support.md#tokenization) 將語句[權杖化](luis-glossary.md#token)。 原始值和權杖化值可供[資料擷取](luis-concept-data-extraction.md#tokenized-entity-returned)。
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>如何建立和指派 LUIS 端點金鑰？
-Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)層級[建立端點金鑰](luis-how-to-azure-subscription.md)。 在 **[金鑰和端點](luis-how-to-azure-subscription.md)** 頁面上[指派金鑰](luis-how-to-azure-subscription.md)。 此動作沒有任何對應的 API。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。
+Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)層級[建立端點金鑰](luis-how-to-azure-subscription.md)。 在 [ **[Azure 資源](luis-how-to-azure-subscription.md)** ] 頁面上[指派金鑰](luis-how-to-azure-subscription.md)。 此動作沒有任何對應的 API。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md)。
 
 ### <a name="how-do-i-interpret-luis-scores"></a>如何解譯 LUIS 分數？
 您的系統應該使用最高分數意圖，而不論其值為何。 例如，低於 0.5 (小於 50%) 的分數不一定表示 LUIS 具有低的信賴度。 提供更多定型資料有助於提高最可能意圖的[分數](luis-concept-prediction-score.md)。
@@ -123,10 +148,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>LUIS 應用程式昨天還可以運作，但現在我收到 403 錯誤。 我未變更應用程式。 如何修正問題？
-請遵循這些[指示](#how-do-i-create-and-assign-a-luis-endpoint-key)來建立 LUIS 端點金鑰, 並將它指派給應用程式。 接著, 您必須將用戶端應用程式的 HTTP 要求變更為端點, 以[使用新的端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。 如果您在不同的區域中建立了新的資源, 也請變更 HTTP 用戶端要求的區域。
+請遵循這些[指示](#how-do-i-create-and-assign-a-luis-endpoint-key)來建立 LUIS 端點金鑰，並將它指派給應用程式。 接著，您必須將用戶端應用程式的 HTTP 要求變更為端點，以[使用新的端點金鑰](luis-concept-keys.md)。 如果您在不同的區域中建立了新的資源，也請變更 HTTP 用戶端要求的區域。
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>如何保護 LUIS 端點？
-請參閱[保護端點](luis-concept-security.md#securing-the-endpoint)。
+請參閱[保護端點](luis-concept-keys.md#securing-the-endpoint)。
 
 ## <a name="working-within-luis-limits"></a>在 LUIS 限制內運作
 
@@ -185,17 +210,15 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>如何知道我需要哪個金鑰、可在何處取得，以及如何運用它？ 
 
-請參閱 [LUIS 中的撰寫與查詢預測端點金鑰](luis-concept-keys.md)，以了解[撰寫金鑰](luis-how-to-account-settings.md)和[端點預測金鑰](luis-how-to-azure-subscription.md)之間的差異。 
+請參閱[LUIS 中的撰寫與查詢預測端點金鑰](luis-concept-keys.md)，以瞭解撰寫金鑰和預測執行時間金鑰之間的差異。 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>我收到了有關超出配額的錯誤。 如何修正問題？ 
 
-若要深入瞭解, 請參閱[修正 HTTP 狀態碼403和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 。
+若要深入瞭解，請參閱修正 HTTP 狀態碼[403](#i-received-an-http-403-error-status-code-how-do-i-fix-it)和[429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 。
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>我需要處理更多端點查詢。 該怎麼做？ 
 
-若要深入瞭解, 請參閱[修正 HTTP 狀態碼403和 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) 。
-
-
+若要深入瞭解，請參閱修正 HTTP 狀態碼[403](#i-received-an-http-403-error-status-code-how-do-i-fix-it)和[429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 。
 
 ## <a name="app-management"></a>應用程式管理
 
@@ -294,7 +317,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 ## <a name="build-2019-conference-announcements"></a>組建2019會議公告
 
-組建2019會議已發行下列功能:
+組建2019會議已發行下列功能：
 
 * [V3 API 遷移指南的預覽](luis-migration-api-v3.md)
 * [改良的分析儀表板](luis-how-to-use-dashboard.md)

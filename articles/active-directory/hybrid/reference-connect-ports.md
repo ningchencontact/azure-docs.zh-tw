@@ -16,12 +16,12 @@ ms.date: 08/02/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9277e35fceb382fbccd009e5bbfe63ce57b8361
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387296"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305181"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>混合式身分識別所需的連接埠和通訊協定
 下列文件是關於實作混合式身分識別解決方案之連接埠和通訊協定的技術參考。 請使用下圖並參閱對應的資料表。
@@ -40,6 +40,8 @@ ms.locfileid: "60387296"
 | SMB | 445 (TCP/UDP) |由無縫 SSO 用於在 AD 樹系中建立電腦帳戶。 |
 | LDAP/SSL |636 (TCP/UDP) |用於從 AD 匯入資料。 資料的傳輸經過簽署和加密。 只有使用 SSL 時才會使用。 |
 | RPC |49152- 65535 (隨機高 RPC 連接埠)(TCP/UDP) |繫結至 AD 樹系時，用於 Azure AD Connect 的初始設定期間，以及用於密碼同步處理期間。 如需詳細資訊，請參閱 [KB929851](https://support.microsoft.com/kb/929851)、[KB832017](https://support.microsoft.com/kb/832017) 和 [KB224196](https://support.microsoft.com/kb/224196)。 |
+|WinRM  | 5985（TCP/UDP） |僅適用于使用 gMSA by Azure AD Connect Wizard 安裝 AD FS 時|
+|AD DS Web 服務 | 9389（TCP/UDP） |僅適用于使用 gMSA by Azure AD Connect Wizard 安裝 AD FS 時 |
 
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>表 2 - Azure AD Connect 和 Azure AD
 此表說明 Azure AD Connect 伺服器與 Azure AD 之間通訊所需的連接埠和通訊協定。
@@ -102,8 +104,10 @@ ms.locfileid: "60387296"
 
 | Protocol | 連接埠 | 描述 |
 | --- | --- | --- |
-| HTTPS |443(TCP/UDP) |輸出 |
-| Azure 服務匯流排 |5671 (TCP/UDP) |輸出 |
+| HTTPS |443（TCP） |傳出 |
+| Azure 服務匯流排 |5671（TCP） |傳出 |
+
+最新版本的代理程式不再需要 Azure 服務匯流排埠5671。 最新的 Azure AD Connect Health 代理程式版本只需要端口443。
 
 ### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b - 適用於 (AD FS/Sync) 和 Azure AD 之 Azure AD Connect Health 代理程式的端點
 如需端點的清單，請參閱 [Azure AD Connect Health 代理程式的＜需求＞一節](how-to-connect-health-agent-install.md#requirements)。

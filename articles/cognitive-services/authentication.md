@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: ae3530af7741b8ce48e08c2a85589ffae8a83f49
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467526"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276784"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>驗證 Azure 認知服務要求
 
@@ -23,13 +23,13 @@ Azure 認知服務的每個要求必須包含驗證標頭。 此標頭會與訂�
 * [使用單一服務訂用帳戶金鑰進行驗證](#authenticate-with-a-single-service-subscription-key)
 * [使用多服務訂用帳戶金鑰進行驗證](#authenticate-with-a-multi-service-subscription-key)
 * [使用權杖進行驗證](#authenticate-with-an-authentication-token)
-* [使用 Azure Active Directory (AAD) 進行驗證](#authenticate-with-azure-active-directory)
+* [使用 Azure Active Directory （AAD）進行驗證](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 提出要求之前，您需要 Azure 帳戶和 Azure 認知服務訂用帳戶。 如果您已經有帳戶，請繼續進行並跳至下一節。 如果您還沒有帳戶，我們會引導您在數分鐘內完成設定：[針對 Azure 建立認知服務帳戶](cognitive-services-apis-create-account.md)。
 
-建立帳戶或啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/my-apis)之後, 您可以從[Azure 入口網站](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)取得您的訂用帳戶金鑰。
+建立帳戶或啟用[免費試用版](https://azure.microsoft.com/try/cognitive-services/my-apis)之後，您可以從[Azure 入口網站](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)取得您的訂用帳戶金鑰。
 
 ## <a name="authentication-headers"></a>驗證標頭
 
@@ -66,7 +66,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>使用多服務訂用帳戶金鑰進行驗證
 
 >[!WARNING]
-> 目前，以下服務**不**支援多服務金鑰：QnA Maker、語音服務及自訂視覺。
+> 目前，以下服務**不**支援多服務金鑰：QnA Maker、語音服務、自訂視覺和異常偵測器。
 
 此選項也會使用訂用帳戶金鑰來驗證要求。 主要差異在於，訂用帳戶金鑰未繫結至特定服務，而是單一金鑰可用來驗證多個認知服務的要求。 如需區域可用性、支援功能和定價的詳細資訊，請參閱[認知服務定價](https://azure.microsoft.com/pricing/details/cognitive-services/)。
 

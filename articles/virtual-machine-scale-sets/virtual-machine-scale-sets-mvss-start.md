@@ -1,6 +1,6 @@
 ---
 title: 了解虛擬機器擴展集範本 | Microsoft Docs
-description: 了解如何建立基本的擴展集範本的虛擬機器擴展集
+description: 瞭解如何建立虛擬機器擴展集的基本擴展集範本
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 267c715de67df57abd30ac18966b8b3b8440810c
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868910"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376114"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虛擬機器擴展集範本
-[Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)是部署相關資源群組的絕佳方式。 本系列教學課程會示範如何建立基本的擴展集範本以及如何修改此範本來配合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。
+[Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process)是部署相關資源群組的絕佳方式。 本教學課程系列說明如何建立基本的擴展集範本，以及如何修改此範本以符合各種案例。 所有範例皆來自這個 [GitHub 存放庫](https://github.com/gatneil/mvss)。
 
 此範本已刻意簡化。 如需較完整的擴展集範本範例，請參閱 [Azure 快速入門範本 GitHub 存放庫](https://github.com/Azure/azure-quickstart-templates)，然後搜尋包含 `vmss` 字串的資料夾。
 
@@ -131,7 +131,7 @@ Resource Manager 範本也可讓您定義以後要在範本中使用的變數。
 ```
 
 ### <a name="choose-type-of-updates"></a>選擇更新類型
-擴展集也需要知道如何處理擴展集上的更新。 目前，有三種選項， `Manual`，`Rolling`和`Automatic`。 如需有關兩者之間差異的詳細資訊，請參閱有關[如何升級擴展集](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)的文件。
+擴展集也需要知道如何處理擴展集上的更新。 目前有三個選項： `Manual` `Rolling`和`Automatic`。 如需有關兩者之間差異的詳細資訊，請參閱有關[如何升級擴展集](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)的文件。
 
 ```json
        "properties": {

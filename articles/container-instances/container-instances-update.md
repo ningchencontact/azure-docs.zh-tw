@@ -6,26 +6,29 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/03/2019
 ms.author: danlep
-ms.openlocfilehash: d555ba6b8c2b32fc6ec56d6c51dda9626b6f0cb0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325536"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307718"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>在 Azure 容器執行個體中更新容器
 
-在容器執行個體正常運作期間，您可能發現必須更新容器群組中的容器。 例如，您可能想要更新映像版本、變更 DNS 名稱、更新環境變數，或重新整理其應用程式已毀損的容器狀態。
+在容器實例的正常作業期間，您可能會發現必須更新[容器群組](container-instances-container-groups.md)中的執行中容器。 例如，您可能想要更新映像版本、變更 DNS 名稱、更新環境變數，或重新整理其應用程式已毀損的容器狀態。
+
+> [!NOTE]
+> 無法更新已終止或已刪除的容器群組。 一旦容器群組終止（處於成功或失敗狀態）或已刪除，群組就必須部署為新的。
 
 ## <a name="update-a-container-group"></a>更新容器群組
 
-使用至少一個已修改的屬性來重新部署現有的群組，以更新容器群組中的容器。 當您更新容器群組時，群組中的所有執行中容器會就地重新啟動。
+藉由使用至少一個已修改的屬性來重新部署現有的群組，以更新執行中容器群組中的容器。 當您更新容器群組時，群組中所有執行中的容器都會就地重新開機，通常是在相同的基礎容器主機上。
 
-發出 create 命令 (或使用 Azure 入口網站) 來重新部署現有的容器群組，並指定現有群組的名稱。 當您在發出 create 命令來觸發重新部署時，請修改群組的至少一個有效屬性。 並非所有的容器群組屬性都適用於重新部署。 請參閱[需要刪除的屬性](#properties-that-require-container-delete)，以取得不支援的屬性清單。
+發出 create 命令 (或使用 Azure 入口網站) 來重新部署現有的容器群組，並指定現有群組的名稱。 當您發出 create 命令以觸發重新部署時，請至少修改群組的一個有效屬性，並將其餘屬性保留不變（或繼續使用預設值）。 並非所有的容器群組屬性都適用於重新部署。 請參閱[需要刪除的屬性](#properties-that-require-container-delete)，以取得不支援的屬性清單。
 
-下列 Azure CLI 範例會使用新的 DNS 名稱標籤建立一個容器群組。 因為修改了群組的 DNS 名稱標籤屬性，所以會重新部署容器群組，而且其容器會重新啟動。
+下列 Azure CLI 範例會使用新的 DNS 名稱標籤建立一個容器群組。 因為群組的 DNS 名稱標籤屬性可以更新，所以會重新部署容器群組，且其容器會重新開機。
 
 使用 DNS 名稱標籤 *myapplication-staging* 進行初始部署：
 
@@ -35,10 +38,10 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-使用新的 DNS 名稱標籤 *myapplication*，更新容器群組：
+以新的 DNS 名稱標籤*myapplication*更新容器群組，並將其餘的屬性保留不變：
 
 ```azurecli-interactive
-# Update container group (restarts container)
+# Update DNS name label (restarts container), leave other properties unchanged
 az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
@@ -57,7 +60,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
 
 在更新之間，容器的 IP 位址通常不會變更，但不保證它維持不變。 只要容器群組部署至相同的基礎主機，容器群組就會保留其 IP 位址。 雖然罕見，但是當 Azure 容器執行個體會盡全力重新部署到相同的主機時，有一些 Azure 內部事件導致重新部署到不同的主機。 若要解決這個問題，一律對您的容器執行個體使用一個 DNS 名稱標籤。
 
-無法更新已終止或已刪除的容器群組。 容器群組已停止 (處於「已終止」  狀態) 或已遭到刪除後，群組就會部署為新的。
+無法更新已終止或已刪除的容器群組。 容器群組已停止 (處於「已終止」狀態) 或已遭到刪除後，群組就會部署為新的。
 
 ## <a name="properties-that-require-container-delete"></a>需要刪除容器的屬性
 
@@ -81,10 +84,10 @@ az container create --resource-group myResourceGroup --name mycontainer \
 
 [部署多個容器群組](container-instances-multi-container-group.md)
 
+[手動停止或啟動 Azure 容器實例中的容器](container-instances-stop-start.md)
+
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

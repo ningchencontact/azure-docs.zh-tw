@@ -1,6 +1,6 @@
 ---
 title: 使用 v3 Api 進行開發-Azure |Microsoft Docs
-description: 本文討論使用媒體服務 v3 進行開發時, 適用于實體和 Api 的規則。
+description: 本文討論使用媒體服務 v3 進行開發時，適用于實體和 Api 的規則。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,48 +12,48 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311851"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308332"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
 身為開發人員，您可以使用媒體服務 [REST API](https://aka.ms/ams-v3-rest-ref)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 [媒體服務 v3](https://aka.ms/ams-v3-rest-sdk) API 以 OpenAPI 規格 (先前稱為 Swagger) 作為基礎。
 
-本文討論使用媒體服務 v3 進行開發時, 適用于實體和 Api 的規則。
+本文討論使用媒體服務 v3 進行開發時，適用于實體和 Api 的規則。
 
 ## <a name="accessing-the-azure-media-services-api"></a>存取 Azure 媒體服務 API
 
-在獲得存取媒體服務資源和媒體服務 API 的授權之前，您必須先進行驗證。 媒體服務支援以[Azure Active Directory (Azure AD) 為基礎的](../../active-directory/fundamentals/active-directory-whatis.md)驗證。 兩個常見的驗證選項如下:
+在獲得存取媒體服務資源和媒體服務 API 的授權之前，您必須先進行驗證。 媒體服務支援以[Azure Active Directory （Azure AD）為基礎的](../../active-directory/fundamentals/active-directory-whatis.md)驗證。 兩個常見的驗證選項如下：
  
-* **服務主體驗證**-用來驗證服務 (例如: web 應用程式、函數應用程式、邏輯應用程式、API 和微服務)。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式。 例如, 對於 Web 應用程式, 應該一律是連接至服務主體媒體服務的中介層。
+* **服務主體驗證**-用來驗證服務（例如： web 應用程式、函數應用程式、邏輯應用程式、API 和微服務）。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式。 例如，對於 Web 應用程式，應該一律是連接至服務主體媒體服務的中介層。
 * **使用者驗證**-用來驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入使用者的認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。
 
-媒體服務 API 需要讓 REST API 要求的使用者或應用程式能夠存取媒體服務帳戶資源, 並使用**參與者**或**擁有**者角色。 您可以使用**讀取器**角色來存取 API, 但只能使用**取得**或**列出** 作業。 如需詳細資訊, 請參閱[媒體服務帳戶的角色型存取控制](rbac-overview.md)。
+媒體服務 API 需要讓 REST API 要求的使用者或應用程式能夠存取媒體服務帳戶資源，並使用**參與者**或**擁有**者角色。 您可以使用**讀取器**角色來存取 API，但只能使用**取得**或**列出** 作業。 如需詳細資訊，請參閱[媒體服務帳戶的角色型存取控制](rbac-overview.md)。
 
-請考慮使用 Azure 資源的受控識別, 透過 Azure Resource Manager 存取媒體服務 API, 而不是建立服務主體。 若要深入瞭解 Azure 資源的受控識別, 請參閱[什麼是適用于 azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。
+請考慮使用 Azure 資源的受控識別，透過 Azure Resource Manager 存取媒體服務 API，而不是建立服務主體。 若要深入瞭解 Azure 資源的受控識別，請參閱[什麼是適用于 azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。
 
 ### <a name="azure-ad-service-principal"></a>Azure AD 服務主體 
 
-如果您要建立 Azure AD 應用程式和服務主體, 應用程式必須位於自己的租使用者中。 建立應用程式之後, 請將媒體服務帳戶的存取權授與應用程式**參與者**或**擁有**者角色。 
+如果您要建立 Azure AD 應用程式和服務主體，應用程式必須位於自己的租使用者中。 建立應用程式之後，請將媒體服務帳戶的存取權授與應用程式**參與者**或**擁有**者角色。 
 
-如果您不確定您是否有建立 Azure AD 應用程式的許可權, 請參閱[必要許可權](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+如果您不確定您是否有建立 Azure AD 應用程式的許可權，請參閱[必要許可權](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
-在下圖中, 數位代表依時間順序排列的要求流程:
+在下圖中，數位代表依時間順序排列的要求流程：
 
 ![中介層應用程式](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-1. 中介層應用程式會要求具有下列參數的 Azure AD 存取權杖:  
+1. 中介層應用程式會要求具有下列參數的 Azure AD 存取權杖：  
 
    * Azure AD 租用戶端點。
    * 媒體服務資源 URI。
    * REST 媒體服務的資源 URI。
    * Azure AD 應用程式的值：用戶端識別碼和用戶端祕密。
    
-   若要取得所有需要的值, 請參閱[使用 Azure CLI 存取 AZURE 媒體服務 API](access-api-cli-how-to.md)
+   若要取得所有需要的值，請參閱[使用 Azure CLI 存取 AZURE 媒體服務 API](access-api-cli-how-to.md)
 
 2. Azure AD 存取權杖會傳送至中介層。
 4. 中介層使用該 Azure AD 權杖傳送要求至 Azure 媒體 REST API。
@@ -61,7 +61,7 @@ ms.locfileid: "68311851"
 
 ### <a name="samples"></a>範例
 
-請參閱下列範例, 以瞭解如何使用 Azure AD 服務主體來連接:
+請參閱下列範例，以瞭解如何使用 Azure AD 服務主體來連接：
 
 * [與 REST 連接](media-rest-apis-with-postman.md)  
 * [使用 Java 進行連線](configure-connect-java-howto.md)
@@ -77,13 +77,17 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 
 如需有關 Azure Resource Manager 命名的詳細資訊，請參閱：[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。
 
+### <a name="names-of-filesblobs-within-an-asset"></a>資產內的檔案/blob 名稱
+
+資產中的檔案/blob 名稱必須遵循[blob 名稱需求](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)和[NTFS 名稱需求](https://docs.microsoft.com/windows/win32/fileio/naming-a-file)。 這些需求的原因是檔案可以從 blob 儲存體複製到本機 NTFS 磁片進行處理。
+
 ## <a name="long-running-operations"></a>長時間執行的作業
 
 在 Azure 媒體服務[swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)檔案`x-ms-long-running-operation`中以標記的作業是長時間執行的作業。 
 
-如需如何追蹤非同步 Azure 作業的詳細資訊, 請參閱[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)。
+如需如何追蹤非同步 Azure 作業的詳細資訊，請參閱[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)。
 
-媒體服務具有下列長時間執行的作業:
+媒體服務具有下列長時間執行的作業：
 
 * [建立實況活動](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [更新即時事件](https://docs.microsoft.com/rest/api/media/liveevents/update)
@@ -91,7 +95,7 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 * [開始實況活動](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [停止 LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  當停止`removeOutputsOnStop`事件時, 請使用參數來刪除所有相關聯的即時輸出。  
+  當停止`removeOutputsOnStop`事件時，請使用參數來刪除所有相關聯的即時輸出。  
 * [重設 LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [建立 LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [刪除 LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
@@ -102,9 +106,9 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 * [停止 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
 * [調整 StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
-成功提交長時間時, 您會收到「202已接受」, 而且必須使用傳回的作業識別碼來輪詢作業完成。
+成功提交長時間時，您會收到「202已接受」，而且必須使用傳回的作業識別碼來輪詢作業完成。
 
-給定的即時事件或其任何相關聯的即時輸出僅支援一個長時間執行的作業。 啟動之後, 長時間執行的作業必須先完成, 才能在相同的 LiveEvent 或任何相關聯的即時輸出上啟動後續的長時間執行作業。 針對具有多個即時輸出的實況活動, 您必須在對另一個即時輸出觸發長時間執行的作業之前, 等待在一個即時輸出上完成長時間執行的作業。 
+給定的即時事件或其任何相關聯的即時輸出僅支援一個長時間執行的作業。 啟動之後，長時間執行的作業必須先完成，才能在相同的 LiveEvent 或任何相關聯的即時輸出上啟動後續的長時間執行作業。 針對具有多個即時輸出的實況活動，您必須在對另一個即時輸出觸發長時間執行的作業之前，等待在一個即時輸出上完成長時間執行的作業。 
 
 ## <a name="sdks"></a>SDK
 

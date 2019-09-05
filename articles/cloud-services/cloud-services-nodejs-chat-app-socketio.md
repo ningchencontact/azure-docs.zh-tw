@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: gwallace
-ms.openlocfilehash: 251fd8ec3708ed154e12b0511be24eb776a48fbf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359068"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306768"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 交談應用程式
 
@@ -24,7 +24,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 
 ![A browser window displaying the service hosted on Azure][completed-app]  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 請確定已安裝下列產品及版本，以順利完成本文中的範例：
 
 * 安裝 [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -55,7 +55,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 ## <a name="download-the-chat-example"></a>下載交談範例
 在此專案中，我們使用 [Socket.IO GitHub 儲存機制]中的交談範例。 請執行下列步驟來下載範例，並將它加入至您先前建立的專案。
 
-1. 使用 [Clone]  按鈕來建立儲存機制的本機複本。 您也可以使用 [ZIP]  按鈕來下載專案。
+1. 使用 [Clone] 按鈕來建立儲存機制的本機複本。 您也可以使用 [ZIP] 按鈕來下載專案。
    
    ![檢視 https://github.com/LearnBoost/socket.io/tree/master/examples/chat 的瀏覽器視窗，且 ZIP 下載圖示反白顯示](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. 瀏覽本機儲存機制的目錄結構，直到找到 **examples\\chat** 目錄為止。 將此目錄的內容複製到稍早建立的 **C:\\node\\chatapp\\WorkerRole1** 目錄。
@@ -104,7 +104,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > 如果您遇到啟動模擬器的問題, 例如:開始-Stop-azureemulator:發生未預期的失敗。  詳細資料:發生未預期的錯誤, 通訊物件 ServiceChannel 無法用於通訊, 因為它處於錯誤狀態。
+   > 如果您遇到啟動模擬器的問題，例如：開始-Stop-azureemulator：發生未預期的失敗。  詳細資料：發生未預期的錯誤，通訊物件 ServiceChannel 無法用於通訊，因為它處於錯誤狀態。
    > 
    > 重新安裝 AzureAuthoringTools v 2.7.1 和 AzureComputeEmulator v 2.7-請確定該版本符合。
 
@@ -142,9 +142,9 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。 本教學
 > 
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。 若要瞭解如何在 Azure 網站中裝載此應用程式, 請參閱[使用 azure 網站上的 Socket.IO 建立 Node.js 聊天應用程式][chatwebsite]。
+在本教學課程中，您學到如何建立裝載於 Azure 雲端服務的基本交談應用程式。 若要瞭解如何在 Azure 網站中裝載此應用程式，請參閱[使用 azure 網站上的 Socket.IO 建立 Node.js 聊天應用程式][chatwebsite]。
 
-如需詳細資訊，也請參閱 [Node.js 開發人員中心](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)。
+如需詳細資訊，也請參閱 [Node.js 開發人員中心](https://docs.microsoft.com/azure/javascript/)。
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 

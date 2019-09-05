@@ -3,19 +3,16 @@ title: 建立包含 URL 路徑型路由規則的應用程式閘道 - Azure Power
 description: 了解如何使用 Azure PowerShell 來建立應用程式閘道和虛擬機器擴展集的 URL 路徑型路由規則。
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: ef80ca290d2bd78ccdcd5e4109f9b1d7ecdab4f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebe09e2c10bed1779d9189755f66bbea9bca1d43
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729695"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306262"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>使用 Azure PowerShell 建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -74,7 +71,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>建立 IP 設定與前端連接埠
 
-使用 [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)，讓先前建立的 *myAGSubnet* 與應用程式閘道產生關聯。 指派*myAGPublicIPAddress*應用程式閘道使用[新增 AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)。
+使用 [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)，讓先前建立的 *myAGSubnet* 與應用程式閘道產生關聯。 使用[new-azapplicationgatewayfrontendipconfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)將*myAGPublicIPAddress*指派給應用程式閘道。
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -155,7 +152,7 @@ $appgw = New-AzApplicationGateway `
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>新增映像和視訊後端集區及連接埠
 
-您可以加入名為的後端集區*imagesBackendPool*並*videoBackendPool*至您的應用程式閘道，使用[新增 AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool)。 您需使用 [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport) 來新增集區的前端連接埠。 然後使用 [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway) 來提交對應用程式閘道進行的變更。
+您可以使用 [[新增-add-azapplicationgatewaybackendaddresspool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool)]，將名為*imagesBackendPool*和*videobackendpool 新增*的後端集區新增至應用程式閘道。 您需使用 [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport) 來新增集區的前端連接埠。 然後使用 [Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway) 來提交對應用程式閘道進行的變更。
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -198,7 +195,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-url-path-map"></a>新增 URL 路徑對應
 
-URL 路徑對應可確保特定 URL 會路由傳送到特定的後端集區。 您可以建立名為的 URL 路徑對應*New-azurermapplicationgatewaypathruleconfig*並*Add-azurermapplicationgatewayurlpathmapconfig*使用[新增 AzApplicationGatewayPathRuleConfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig)並[新增 AzApplicationGatewayUrlPathMapConfig](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig)。
+URL 路徑對應可確保特定 URL 會路由傳送到特定的後端集區。 您可以使用[new-azapplicationgatewaypathruleconfig](/powershell/module/az.network/new-azapplicationgatewaypathruleconfig)和[Add-add-azapplicationgatewayurlpathmapconfig 來](/powershell/module/az.network/add-azapplicationgatewayurlpathmapconfig)來建立名為*imagePathRule*和*videoPathRule*的 URL 路徑對應。
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -237,7 +234,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ### <a name="add-routing-rule"></a>新增路由規則
 
-路由規則會將 URL 對應與您所建立的接聽程式產生關聯。 您可以新增名為的規則 **rule2*使用[新增 AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)。
+路由規則會將 URL 對應與您所建立的接聽程式產生關聯。 您可以使用[new-azapplicationgatewayrequestroutingrule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule)新增名為 **rule2*的規則。
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -306,6 +303,7 @@ for ($i=1; $i -le 3; $i++)
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
     -ImageReferenceVersion latest
+    -OsDiskCreateOption FromImage
   Set-AzVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `
     -AdminPassword "Azure123456!" `
@@ -355,11 +353,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在應用程式閘道中測試基底 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-將 URL 變更為`http://<ip-address>:8080/video/test.htm`，以取代您的 IP 位址`<ip-address>`，而且您應該會看到類似下列的範例：
+將 URL 變更為`http://<ip-address>:8080/video/test.htm`，並以您的`<ip-address>`IP 位址取代，您應該會看到如下列範例所示的內容：
 
 ![在應用程式閘道中測試影像 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-將 URL 變更為`http://<ip-address>:8080/video/test.htm`，您應該會看到類似下列的範例：
+將 URL 變更為`http://<ip-address>:8080/video/test.htm` ，您應該會看到如下列範例所示的內容：
 
 ![在應用程式閘道中測試影片 URL](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 

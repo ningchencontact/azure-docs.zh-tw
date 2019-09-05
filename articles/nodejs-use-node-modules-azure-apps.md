@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 571e8d640e068b6635ab4091a01283d698b0264d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 61be6bcd957a4e81147d5ef472b8f850e5605e41
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595657"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309286"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>使用 Node.js 模組與 Azure 應用程式搭配
 本文提供有關使用 Node.js 模組與 Azure 上代管之應用程式搭配的指引。 它提供有關確保應用程式使用模組特定版本，以及搭配使用原生模組與 Azure 的指引。
@@ -87,7 +87,7 @@ Azure App Service 不支援所有的原生模組，而且在編譯具有特定�
 ## <a name="next-steps"></a>後續步驟
 現在，您了解如何搭配使用 Node.js 模組與 Azure，接著了解如何[指定 Node.js 版本](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md)、[建置與部署 Node.js Web 應用程式](app-service/app-service-web-get-started-nodejs.md)，和[如何使用適用於 Mac 和 Linux 的 Azure 命令列介面](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/)。
 
-如需詳細資訊，請參閱 [Node.js 開發人員中心](/nodejs/azure/)。
+如需詳細資訊，請參閱 [Node.js 開發人員中心](/azure/javascript/)。
 
 [specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: cc4e157856a05290da82aca686e2268a5ed2b3ce
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c3852dd5f1d3d3df8a982716ce5dab9426782869
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70243018"
+ms.locfileid: "70307277"
 ---
 # <a name="use-powershell-to-create-a-data-share-account-in-azure"></a>使用 PowerShell 在 Azure 中建立資料共用帳戶
 
@@ -38,7 +38,7 @@ New-AzDataShareAccount -ResourceGroupName $resourceGroupName -Name $dataShareAcc
 
 | 命令 | 注意 |
 |---|---|
-| [新增-AzDataShareAccount](/powershell/module/az.resources/new-azdatashareaccount) | 建立資料共用帳戶。 |
+| [新增-AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount?view=azps-2.6.0) | 建立資料共用帳戶。 |
 |||
 
 ## <a name="next-steps"></a>後續步驟

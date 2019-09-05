@@ -5,31 +5,28 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: d0f29e2c01d6295935ac56cb19c37e1ad6bbd21b
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/04/2019
+ms.openlocfilehash: bd1317242f84b4d8bd039da89d991a73f6cd3781
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907388"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309303"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>從 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫-單一伺服器中的讀取複本
 
 在本文中，您將了解如何透過 Azure 入口網站，在「適用於 PostgreSQL 的 Azure 資料庫」中建立與管理讀取複本。 若要深入了解讀取複本，請參閱[概觀](concepts-read-replicas.md)。
-
-> [!IMPORTANT]
-> 您可以在與主伺服器相同的區域中, 或在您選擇的任何其他 Azure 區域中建立讀取複本。 跨區域複寫目前為公開預覽狀態。
 
 
 ## <a name="prerequisites"></a>必要條件
 使用[適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)作為主要伺服器。
 
 ## <a name="prepare-the-master-server"></a>準備主要伺服器
-若要在一般用途和記憶體最佳化層中準備主要伺服器，這些是必要步驟。 主伺服器已藉由設定 replication_support 參數來準備進行複寫。 當複寫參數變更時, 需要重新開機伺服器, 變更才會生效。 在 Azure 入口網站中, 這兩個步驟是透過單一按鈕封裝,**啟用複寫支援**。
+若要在一般用途和記憶體最佳化層中準備主要伺服器，這些是必要步驟。 主伺服器已藉由設定 replication_support 參數來準備進行複寫。 當複寫參數變更時，需要重新開機伺服器，變更才會生效。 在 Azure 入口網站中，這兩個步驟是透過單一按鈕封裝，**啟用複寫支援**。
 
 1. 在 Azure 入口網站中，選取要作為主要伺服器的現有「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
 
-2. 在 [伺服器] 提要欄位的 [**設定**] 底下, 選取 [複寫]。
+2. 在 [伺服器] 提要欄位的 [**設定**] 底下 **，選取 [** 複寫]。
 
 3. 選取 [**啟用複寫支援**]。 
 
@@ -39,15 +36,15 @@ ms.locfileid: "69907388"
 
    ![確認啟用複寫支援](./media/howto-read-replicas-portal/confirm-enable-replication.png)
    
-5. 作業完成後, 您會收到兩個 Azure 入口網站通知。 有一個補救伺服器參數的通知。 接下來會出現另一個伺服器重新開機的通知。
+5. 作業完成後，您會收到兩個 Azure 入口網站通知。 有一個補救伺服器參數的通知。 接下來會出現另一個伺服器重新開機的通知。
 
    ![成功通知-啟用](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-6. 重新整理 [Azure 入口網站] 頁面, 以更新 [複寫] 工具列。 您現在可以建立此伺服器的讀取複本。
+6. 重新整理 [Azure 入口網站] 頁面，以更新 [複寫] 工具列。 您現在可以建立此伺服器的讀取複本。
 
    ![更新的工具列](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-啟用複寫支援是每一主伺服器一次的作業。 為了方便起見, 會提供 [停用複寫**支援**] 按鈕。 我們不建議停用複寫支援, 除非您確定不會在此主伺服器上建立複本。 當您的主伺服器具有現有複本時, 您無法停用複寫支援。
+啟用複寫支援是每一主伺服器一次的作業。 為了方便起見，會提供 [停用複寫**支援**] 按鈕。 我們不建議停用複寫支援，除非您確定不會在此主伺服器上建立複本。 當您的主伺服器具有現有複本時，您無法停用複寫支援。
 
 
 ## <a name="create-a-read-replica"></a>建立讀取複本
@@ -55,7 +52,7 @@ ms.locfileid: "69907388"
 
 1. 選取要作為主要伺服器的現有「適用於 PostgreSQL 的 Azure 資料庫」。 
 
-2. 在 [伺服器] 提要欄位的 [**設定**] 底下, 選取 [複寫]。
+2. 在 [伺服器] 提要欄位的 [**設定**] 底下 **，選取 [** 複寫]。
 
 3. 選取 [新增複本]。
 
@@ -70,14 +67,14 @@ ms.locfileid: "69907388"
     ![選取位置](./media/howto-read-replicas-portal/location-replica.png)
 
    > [!NOTE]
-   > 若要深入瞭解您可以在哪些區域中建立複本, 請造訪[讀取複本概念一文](concepts-read-replicas.md)。 
+   > 若要深入瞭解您可以在哪些區域中建立複本，請造訪[讀取複本概念一文](concepts-read-replicas.md)。 
 
 6. 選取 [確定] 來確認建立複本。
 
 使用與主伺服器相同的計算和儲存設定來建立複本。 建立複本之後，以下設定可以個別地從主要伺服器進行變更：計算世代、虛擬核心、儲存體及備份保留期間。 定價層也可以個別變更，但不能變更為基本層，或從基本層變更為別的層。
 
 > [!IMPORTANT]
-> 將主伺服器設定更新為新值之前, 請將複本設定更新為相等或更大的值。 此動作可協助複本跟上對主伺服器所做的任何變更。
+> 將主伺服器設定更新為新值之前，請將複本設定更新為相等或更大的值。 此動作可協助複本跟上對主伺服器所做的任何變更。
 
 建立讀取複本之後，可從 [複寫] 視窗檢視該複本：
 

@@ -10,39 +10,39 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 14a360e7dc672266e8445a5ae5eb2168ae766af8
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7708133fcba0d594ecd420afd8da1b2881055aa7
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741872"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241025"
 ---
 # <a name="install-and-run-speech-service-containers"></a>安裝和執行語音服務容器
 
-語音容器可讓客戶建立一個已優化的語音應用程式架構, 以充分利用強大的雲端功能和邊緣位置。 
+語音容器可讓客戶建立一個已優化的語音應用程式架構，以充分利用強大的雲端功能和邊緣位置。 
 
 這兩個語音容器是**語音轉換文字**和**文字轉換語音**。 
 
 |函數|功能|最新|
 |-|-|--|
-|語音轉換文字| <li>使用中繼結果, 將連續即時語音或批次音訊錄音可將成文字。|1.1.3|
-|文字轉語音| <li>將文字轉換成自然發音語音。 使用純文字輸入或語音合成標記語言 (SSML)。 |1.1.0|
+|語音轉文字| <li>使用中繼結果，將連續即時語音或批次音訊錄音可將成文字。|1.2.0|
+|文字轉語音| <li>將文字轉換成自然發音語音。 使用純文字輸入或語音合成標記語言（SSML）。 |1.2.0|
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-使用語音容器之前, 您必須符合下列必要條件:
+使用語音容器之前，您必須符合下列必要條件：
 
 |必要項|用途|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
-|語音資源 |若要使用這些容器，您必須具備：<br><br>Azure_語音_資源, 用來取得相關聯的 API 金鑰和端點 URI。 這兩個值都可在 Azure 入口網站的 [**語音**總覽] 和 [金鑰] 頁面上取得。 這兩者都是啟動容器的必要項。<br><br>**{API_KEY}** :[**金鑰**] 頁面上有兩個可用的資源金鑰之一<br><br>**{ENDPOINT_URI}** :[**總覽**] 頁面上所提供的端點|
+|語音資源 |若要使用這些容器，您必須具備：<br><br>Azure_語音_資源，用來取得相關聯的 API 金鑰和端點 URI。 這兩個值都可在 Azure 入口網站的 [**語音**總覽] 和 [金鑰] 頁面上取得。 這兩者都是啟動容器的必要項。<br><br>**{API_KEY}** ：[**金鑰**] 頁面上有兩個可用的資源金鑰之一<br><br>**{ENDPOINT_URI}** ：[**總覽**] 頁面上所提供的端點|
 
 ## <a name="request-access-to-the-container-registry"></a>要求存取容器登錄
 
-您必須先完成並提交[認知服務的語音容器要求表單](https://aka.ms/speechcontainerspreview/), 以要求容器的存取權。 
+您必須先完成並提交[認知服務的語音容器要求表單](https://aka.ms/speechcontainerspreview/)，以要求容器的存取權。 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -54,7 +54,7 @@ ms.locfileid: "68741872"
 
 ### <a name="advanced-vector-extension-support"></a>Advanced Vector Extension 支援
 
-**主機**是執行 Docker 容器的電腦。 主機必須支援「[先進向量延伸](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2)」 (AVX2)。 您可以使用下列命令, 在 Linux 主機上檢查這項支援: 
+**主機**是執行 Docker 容器的電腦。 主機必須支援「[先進向量延伸](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2)」（AVX2）。 您可以使用下列命令，在 Linux 主機上檢查這項支援： 
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
@@ -67,13 +67,13 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 | 容器 | 最小值 | 建議 |
 |-----------|---------|-------------|
 |cognitive-services-speech-to-text | 2核心<br>2 GB 記憶體  | 4 核心<br>4 GB 記憶體  |
-|cognitive-services-text-to-speech | 1核心, 0.5-GB 記憶體| 2核心, 1 GB 記憶體 |
+|cognitive-services-text-to-speech | 1核心，0.5-GB 記憶體| 2核心，1 GB 記憶體 |
 
 * 每個核心必須至少 2.6 GHz 或更快。
 
 核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
-**注意**;最低和建議是根據 Docker 限制, 而*不*是主機電腦資源。 例如, 適用于大型語言模型的語音轉換文字容器記憶體對應部分,_建議您_將整個檔案納入記憶體中, 這是額外的 4-6 GB。 此外, 第一次執行任一容器可能需要較長的時間, 因為模型會分頁到記憶體中。
+**注意**;最低和建議是根據 Docker 限制，而*不*是主機電腦資源。 例如，適用于大型語言模型的語音轉換文字容器記憶體對應部分，_建議您_將整個檔案納入記憶體中，這是額外的 4-6 GB。 此外，第一次執行任一容器可能需要較長的時間，因為模型會分頁到記憶體中。
 
 ## <a name="get-the-container-image-with-docker-pull"></a>使用 `docker pull` 取得容器映像
 
@@ -92,19 +92,19 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 #### <a name="speech-to-text-locales"></a>語音轉換文字地區設定
 
-除了以外`latest`的所有標記都會採用下列格式, `<culture>`其中會指出地區設定容器:
+除了以外`latest`的所有標記都會採用下列格式， `<culture>`其中會指出地區設定容器：
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
 ```
 
-下列標記是格式的範例:
+下列標記是格式的範例：
 
 ```
-1.1.3-amd64-en-us-preview
+1.2.0-amd64-en-us-preview
 ```
 
-下表列出容器的1.1.3 版本中,**語音轉換文字**支援的地區設定:
+下表列出容器的1.2.0 版本中，**語音轉換文字**支援的地區設定：
 
 |語言地區設定|Tags|
 |--|--|
@@ -120,19 +120,19 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 #### <a name="text-to-speech-locales"></a>文字轉換語音的地區設定
 
-除了以外`latest`的所有標記都採用下列格式, `<culture>`其中表示地區設定, 而則`<voice>`表示容器的語音:
+除了以外`latest`的所有標記都採用下列格式， `<culture>`其中表示地區設定，而則`<voice>`表示容器的語音：
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
 ```
 
-下列標記是格式的範例:
+下列標記是格式的範例：
 
 ```
-1.1.0-amd64-en-us-jessarus-preview
+1.2.0-amd64-en-us-jessarus-preview
 ```
 
-下表列出容器的1.1.0 版本中,**文字轉換語音**支援的地區設定:
+下表列出容器的1.2.0 版本中，**文字轉換語音**支援的地區設定：
 
 |語言地區設定|Tags|支援的語音|
 |--|--|--|
@@ -153,7 +153,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="docker-pull-for-the-speech-containers"></a>適用于語音容器的 Docker pull
 
-#### <a name="speech-to-text"></a>語音轉換文字
+#### <a name="speech-to-text"></a>語音轉文字
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
@@ -176,11 +176,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來執行三個容器的其中一個。 此命令會使用下列參數：
 
-在**預覽期間**, 計費設定必須是有效的, 才能啟動容器, 但您不需支付使用量的費用。
+在**預覽期間**，計費設定必須是有效的，才能啟動容器，但您不需支付使用量的費用。
 
 | 預留位置 | 值 |
 |-------------|-------|
-|{API_KEY} | 此金鑰用來啟動容器, 並可在 Azure 入口網站的 [語音金鑰] 頁面上取得。  |
+|{API_KEY} | 此金鑰用來啟動容器，並可在 Azure 入口網站的 [語音金鑰] 頁面上取得。  |
 |{ENDPOINT_URI} | [計費端點 URI] 值可在 Azure 入口網站的語音總覽頁面上取得。|
 
 請以您自己的值取代下列範例 `docker run` 命令中的參數。
@@ -195,7 +195,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="speech-to-text"></a>語音轉換文字
+### <a name="speech-to-text"></a>語音轉文字
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
@@ -219,14 +219,14 @@ ApiKey={API_KEY}
 
 |容器|端點|
 |--|--|
-|語音轉換文字|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
+|語音轉文字|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
 |文字轉換語音|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
 
-### <a name="speech-to-text"></a>語音轉換文字
+### <a name="speech-to-text"></a>語音轉文字
 
-容器提供以 websocket 為基礎的查詢端點 Api, 可透過[語音 SDK](index.yml)存取。
+容器提供以 websocket 為基礎的查詢端點 Api，可透過[語音 SDK](index.yml)存取。
 
-根據預設, 語音 SDK 會使用線上語音服務。 若要使用容器，您必須變更初始化方法。 請參閱以下範例。
+根據預設，語音 SDK 會使用線上語音服務。 若要使用容器，您必須變更初始化方法。 請參閱以下範例。
 
 #### <a name="for-c"></a>針對 C#
 
@@ -262,7 +262,7 @@ speech_config = speechsdk.SpeechConfig(
 
 ### <a name="text-to-speech"></a>文字轉換語音
 
-容器提供 REST 端點 Api, 您可以在[這裡](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)找到, 也可以在[這裡](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)找到範例。
+容器提供 REST 端點 Api，您可以在[這裡](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)找到，也可以在[這裡](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/)找到範例。
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
@@ -276,7 +276,7 @@ speech_config = speechsdk.SpeechConfig(
 
 ## <a name="billing"></a>帳務
 
-語音容器會使用您 Azure 帳戶上的_語音_資源, 將帳單資訊傳送至 azure。
+語音容器會使用您 Azure 帳戶上的_語音_資源，將帳單資訊傳送至 azure。
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -288,13 +288,13 @@ speech_config = speechsdk.SpeechConfig(
 
 ## <a name="summary"></a>總結
 
-在本文中, 您已瞭解下載、安裝及執行語音容器的概念和工作流程。 摘要說明：
+在本文中，您已瞭解下載、安裝及執行語音容器的概念和工作流程。 摘要說明：
 
-* 語音提供兩個適用于 Docker 的 Linux 容器, 封裝語音轉換文字和文字轉換語音。
+* 語音提供兩個適用于 Docker 的 Linux 容器，封裝語音轉換文字和文字轉換語音。
 * 容器映像是從 Azure 中的私人容器登錄下載。
 * 容器映像是在 Docker 中執行。
-* 您可以藉由指定容器的主機 URI, 使用 REST API 或 SDK 來呼叫語音容器中的作業。
-* 當具現化容器時, 您必須提供帳單資訊。
+* 您可以藉由指定容器的主機 URI，使用 REST API 或 SDK 來呼叫語音容器中的作業。
+* 當具現化容器時，您必須提供帳單資訊。
 
 > [!IMPORTANT]
 >  認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。

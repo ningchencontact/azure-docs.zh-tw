@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: victorh
-ms.openlocfilehash: d9b0c551cdfb92b380a967aaa5bdce7c278fd39e
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 6df78a46e6bc8055f8cce89e199d01ad631e178e
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183585"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306197"
 ---
-# <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
+# <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>應用程式閘道的後端健康情況和診斷記錄
 
 使用 Azure 應用程式閘道，您可以下列方式監視資源：
 
@@ -22,7 +22,7 @@ ms.locfileid: "70183585"
 
 * [記錄](#diagnostic-logging)：記錄能夠儲存效能、存取和其他資料，或從資源取用記錄以便進行監視。
 
-* [計量](#metrics)：應用程式閘道目前有七個計量，可用來檢視效能計數器。
+* [計量](application-gateway-metrics.md)：應用程式閘道有數個計量，可協助您確認系統是否如預期般執行。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -105,7 +105,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 您有三個選項可用來排序您的記錄：
 
 * **儲存體帳戶**：如果記錄會儲存一段較長的持續期間，並在需要時加以檢閱，則最好針對記錄使用儲存體帳戶。
-* **事件中樞**：事件中樞是與其他安全性資訊和事件管理 (SIEM) 工具整合的絕佳選項, 可在您的資源上取得警示。
+* **事件中樞**：事件中樞是與其他安全性資訊和事件管理（SIEM）工具整合的絕佳選項，可在您的資源上取得警示。
 * **Azure 監視器記錄**：Azure 監視器記錄最適合用來進行應用程式的一般即時監視，或查看趨勢。
 
 ### <a name="enable-logging-through-powershell"></a>透過 PowerShell 啟用記錄功能
@@ -131,7 +131,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="enable-logging-through-the-azure-portal"></a>透過 Azure 入口網站啟用記錄功能
 
-1. 在 Azure 入口網站中, 尋找您的資源, 然後選取 **診斷設定**。
+1. 在 Azure 入口網站中，尋找您的資源，然後選取 **診斷設定**。
 
    應用程式閘道有三個記錄：
 
@@ -139,7 +139,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
    * 效能記錄檔
    * 防火牆記錄檔
 
-2. 若要開始收集資料, 請選取 [**開啟診斷**]。
+2. 若要開始收集資料，請選取 [**開啟診斷**]。
 
    ![開啟診斷][1]
 
@@ -147,7 +147,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    ![啟動設定程序][2]
 
-5. 輸入設定的名稱, 確認設定, 然後選取 [**儲存**]。
+5. 輸入設定的名稱，確認設定，然後選取 [**儲存**]。
 
 ### <a name="activity-log"></a>活動記錄
 
@@ -155,7 +155,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="access-log"></a>存取記錄檔
 
-只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 應用程式閘道的每個存取都會以 JSON 格式記錄, 如下列 v1 範例所示:
+只有當您如上述步驟所述，在每個應用程式閘道上啟用存取記錄，才會產生存取記錄。 資料會儲存在您啟用記錄功能時指定的儲存體帳戶中。 應用程式閘道的每個存取都會以 JSON 格式記錄，如下列 v1 範例所示：
 
 |值  |描述  |
 |---------|---------|
@@ -172,7 +172,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |sentBytes| 傳送的封包大小，單位為位元組。|
 |timeTaken| 處理要求並傳送其回應所花費的時間長度，單位為毫秒。 算法是從應用程式閘道收到 HTTP 要求的回應第一個位元組的時間，到回應傳送作業完成時的時間間隔。 請務必注意，timeTaken 欄位通常包含要求和回應封包在網路上傳輸的時間。 |
 |sslEnabled| 與後端集區的通訊是否使用 SSL。 有效值為 on 和 off。|
-|host| 要求已傳送到後端伺服器的主機名稱。 如果要覆寫後端主機名稱, 此名稱將會反映這一點。|
+|host| 要求已傳送到後端伺服器的主機名稱。 如果即將覆寫後端主機名稱，此名稱將會反映這一點。|
 |originalHost| 應用程式閘道從用戶端接收要求的主機名稱。|
 ```json
 {
@@ -199,7 +199,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
     }
 }
 ```
-對於應用程式閘道和 WAF v2, 記錄檔會顯示更多詳細資訊:
+對於應用程式閘道和 WAF v2，記錄檔會顯示更多詳細資訊：
 
 |值  |描述  |
 |---------|---------|
@@ -215,8 +215,8 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |sentBytes| 傳送的封包大小，單位為位元組。|
 |timeTaken| 處理要求並傳送其回應所花費的時間長度，單位為毫秒。 算法是從應用程式閘道收到 HTTP 要求的回應第一個位元組的時間，到回應傳送作業完成時的時間間隔。 請務必注意，timeTaken 欄位通常包含要求和回應封包在網路上傳輸的時間。 |
 |sslEnabled| 與後端集區的通訊是否使用 SSL。 有效值為 on 和 off。|
-|sslCipher| 用於 SSL 通訊的加密套件 (如果已啟用 SSL)。|
-|sslProtocol| 使用的 SSL 通訊協定 (如果已啟用 SSL)。|
+|sslCipher| 用於 SSL 通訊的加密套件（如果已啟用 SSL）。|
+|sslProtocol| 使用的 SSL 通訊協定（如果已啟用 SSL）。|
 |serverRouted| 應用程式閘道將要求路由至的後端伺服器。|
 |serverStatus| 後端伺服器的 HTTP 狀態碼。|
 |serverResponseLatency| 後端伺服器回應的延遲。|
@@ -302,7 +302,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |ruleSetVersion     | 規則集版本。 可用值為 2.2.9 和 3.0。     |
 |ruleId     | 觸發事件的規則識別碼。        |
 |message     | 方便使用的觸發事件訊息。 詳細資料區段中會提供詳細資料。        |
-|動作     |  對要求採取的動作。 可用的值為 Blocked 和 Allowed。      |
+|action     |  對要求採取的動作。 可用的值為 Blocked 和 Allowed。      |
 |site     | 將產生此網站的記錄。 目前只列出 Global，因為規則為全域。|
 |details     | 觸發事件的詳細資料。        |
 |details.message     | 規則的描述。        |
@@ -359,67 +359,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 #### <a name="analyzing-access-logs-through-goaccess"></a>透過 GoAccess 分析存取記錄
 
 我們已發佈會安裝並執行常用 [GoAccess](https://goaccess.io/) 記錄分析器的 Resource Manager 範本，該分析器適用於應用程式閘道存取記錄。 GoAccess 提供實用的 HTTP 流量統計資料，例如非重複訪客、要求的檔案、主機、作業系統、瀏覽器、HTTP 狀態碼等等。 如需詳細資訊，請參閱 [GitHub 中 Resource Manager 範本資料夾中的讀我檔案](https://aka.ms/appgwgoaccessreadme)。
-
-## <a name="metrics"></a>計量
-
-計量是某些 Azure 資源的功能，可供您在入口網站中檢視效能計數器。 應用程式閘道可使用下列計量：
-
-- **目前的連線數**
-- **失敗的要求**
-- **狀況良好的主機計數**
-
-   您可以根據每個後端集區進行篩選，以顯示特定後端集區中狀況良好/狀況不良的主機。
-
-
-- **回應狀態**
-
-   回應狀態碼發佈可以進一步分類，以顯示回應 2xx、3xx、4xx 和 5xx 分類中的回應。
-
-- **輸送量**
-- **要求總數**
-- **狀況不良的主機計數**
-
-   您可以根據每個後端集區進行篩選，以顯示特定後端集區中狀況良好/狀況不良的主機。
-
-流覽至 [**監視**] [選取**計量**] 底下的應用程式閘道。 若要檢視可用的值，請選取 [計量] 下拉式清單。
-
-下圖中的範例顯示了最近 30 分鐘內的三項計量：
-
-[![](media/application-gateway-diagnostics/figure5.png "計量檢視")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
-
-若要查看最新的度量清單，請參閱[支援 Azure Monitor 的計量](../azure-monitor/platform/metrics-supported.md)。
-
-### <a name="alert-rules"></a>警示規則
-
-您可以根據資源的計量來啟動警示規則。 例如，如果應用程式閘道的輸送量高於、低於或等於臨界值達到一段指定時間，警示便可以呼叫 Webhook 或寄送電子郵件給系統管理員。
-
-下列範例會逐步引導您建立警示規則，以在輸送量達到臨界值之後傳送電子郵件給系統管理員：
-
-1. 選取 [**新增度量警示**] 以開啟 [**新增規則**] 頁面。 您也可以從 [計量] 頁面連接此頁面。
-
-   ![新增計量警示按鈕][6]
-
-2. 在 [**新增規則**] 頁面上, 填寫 [名稱]、[條件] 和 [通知] 區段, 然後選取 **[確定]** 。
-
-   * 在 [條件] 選取器中，選取以下四個值之一：**大於** **大於或等於**、**小於**，或**小於或等於**。
-
-   * 在 [期間] 選取器中，選取 5 分鐘到 6 小時的期間。
-
-   * 如果選取 [傳送電子郵件給擁有者、參與者和讀者]，便可根據可存取該資源的使用者動態傳送電子郵件。 否則，您可以在 [其他系統管理員電子郵件] 方塊中提供以逗號分隔的使用者清單。
-
-   ![[新增規則] 頁面][7]
-
-如果達到臨界值，送達的電子郵件會類似下圖︰
-
-![違反臨界值的電子郵件][8]
-
-建立計量警示之後，就會出現警示的清單， 其中提供所有警示規則的概觀。
-
-![警示和規則的清單][9]
-
-若要深入了解警示通知，請參閱[接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
-
-若要深入了解 Webhook 以及其如何與警示搭配使用，請造訪[針對 Azure 計量警示設定 Webhook](../azure-monitor/platform/alerts-webhooks.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 21b046a54c2fbe309113222f54dbad4405fc409d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 530f38289afb3fce85bbb025e7b699862eedbadc
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136573"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382705"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault 受控儲存體帳戶 - PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "70136573"
 > - 使用應用程式或使用者身分識別來驗證用戶端應用程式，而非使用儲存體帳戶認證。 
 > - 在 Azure 上執行時，使用 [Azure AD 受控識別](/azure/active-directory/managed-identities-azure-resources/)。 受控識別能直接移除用戶端驗證，以及使用應用程式儲存認證或將認證儲存於應用程式中的需求。
 > - 使用同時也受 Key Vault 支援的角色型存取控制 (RBAC) 來管理授權。
-> - 對儲存體帳戶的 AAD 存取, 目前無法用於存取資料表。
+> - 對儲存體帳戶的 AAD 存取，目前無法用於存取資料表。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -50,7 +50,7 @@ Key Vault 受控儲存體帳戶功能會代表您執行數個管理功能：
 ```azurepowershell-interactive
 Connect-AzAccount
 ```
-如果您有多個 Azure 訂用帳戶, 您可以使用[get-azsubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) Cmdlet 加以列出, 並指定您想要搭配[set-azcoNtext 指令程式](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0)使用的訂用帳戶。 
+如果您有多個 Azure 訂用帳戶，您可以使用[get-azsubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) Cmdlet 加以列出，並指定您想要搭配[set-azcoNtext 指令程式](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0)使用的訂用帳戶。 
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId <subscriptionId>
@@ -111,7 +111,7 @@ CanDelegate        : False
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
 ```
 
 請注意，適用於儲存體帳戶的使用權限並不會在該儲存體於 Azure 入口網站中的 [存取原則] 頁面上提供。
@@ -143,7 +143,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>啟用金鑰重新產生
 
-如果您想要讓 Key Vault 定期重新產生儲存體帳戶金鑰，您可以設定重新產生期間。 在下列範例中，我們會設定為期三天的重新產生期間。 三天后, Key Vault 會重新產生 ' key2 ', 並將作用中的金鑰從 ' key2 ' 交換為 ' key1 '。
+如果您想要讓 Key Vault 定期重新產生儲存體帳戶金鑰，您可以設定重新產生期間。 在下列範例中，我們會設定為期三天的重新產生期間。 三天后，Key Vault 會重新產生 ' key2 '，並將作用中的金鑰從 ' key2 ' 交換為 ' key1 '。
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

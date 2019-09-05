@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: f46757b97fb2dd38be36459e5aafb70f5b5a3bf6
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932701"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307449"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -38,6 +38,7 @@ LUIS 可理解下列語言的語句：
 | 法文 (法國) |`fr-FR` |-| ✔ |✔ |✔|
 | 法文 (加拿大) |`fr-CA` |-|   -   |-|✔|
 | 德文 |`de-DE` |-| ✔ |✔ |✔|
+| Hindi | `hi-IN`|-|-|-|-|
 | 義大利文 |`it-IT` |-| ✔ |✔|✔|
 | *[日文](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|僅限關鍵片語|
 | 韓文 |`ko-KR` |-|   -   |-|僅限關鍵片語|
@@ -53,7 +54,7 @@ LUIS 可理解下列語言的語句：
 
  - 在 `zh-cn` 文化特性中，LUIS 預期會有簡體中文字元集，而不是繁體字元集。
  - 意圖、實體、功能和規則運算式的名稱可能採用中文或羅馬字元。
- - 如需在`zh-cn`文化特性中支援哪些預建網域的相關資訊, 請參閱預先建立的[網域參考](luis-reference-prebuilt-domains.md)。
+ - 如需在`zh-cn`文化特性中支援哪些預建網域的相關資訊，請參閱預先建立的[網域參考](luis-reference-prebuilt-domains.md)。
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*日文支援附註
@@ -88,6 +89,7 @@ LUIS 可理解下列語言的語句：
 |法文 (fr-FR)|✔||||
 |法文 (fr-CA)|✔||||
 |德文|||✔|✔|
+| Hindi |✔|-|-|-|-|
 |義大利文|✔||||
 |日文||||✔|
 |韓文||✔||✔|
@@ -97,12 +99,12 @@ LUIS 可理解下列語言的語句：
 
 ### <a name="custom-tokenizer-versions"></a>自訂 tokenizer 版本
 
-下列文化特性具有自訂 tokenizer 版本:
+下列文化特性具有自訂 tokenizer 版本：
 
 |文化特性|Version|用途|
 |--|--|--|
-|德文<br>`de-de`|1.0.0|使用以機器學習為基礎的 tokenizer 來分割它們, 以嘗試將複合單字細分成單一元件, 以 token 化單字。<br>如果使用者輸入`Ich fahre einen krankenwagen`做為語句, 就會`Ich fahre einen kranken wagen`變成。 允許將`kranken`和`wagen`獨立標記為不同的實體。|
-|德文<br>`de-de`|1.0.2|藉由在空間上分割來 token 化單字。<br> 如果使用者輸入`Ich fahre einen krankenwagen`做為語句, 它會保持為單一權杖。 因此`krankenwagen` , 會標示為單一實體。 |
+|德文<br>`de-de`|1.0.0|使用以機器學習為基礎的 tokenizer 來分割它們，以嘗試將複合單字細分成單一元件，以 token 化單字。<br>如果使用者輸入`Ich fahre einen krankenwagen`做為語句，就會`Ich fahre einen kranken wagen`變成。 允許將`kranken`和`wagen`獨立標記為不同的實體。|
+|德文<br>`de-de`|1.0.2|藉由在空間上分割來 token 化單字。<br> 如果使用者輸入`Ich fahre einen krankenwagen`做為語句，它會保持為單一權杖。 因此`krankenwagen` ，會標示為單一實體。 |
 
 ### <a name="migrating-between-tokenizer-versions"></a>在 tokenizer 版本之間遷移
 <!--
@@ -209,4 +211,4 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 
 Token 化會在應用層級發生。 不支援版本層級 token 化。 
 
-將檔案匯[入為新的應用程式](luis-how-to-start-new-app.md#import-an-app-from-file), 而不是版本。 此動作表示新的應用程式具有不同的應用程式識別碼, 但使用檔案中指定的 tokenizer 版本。 
+將檔案匯[入為新的應用程式](luis-how-to-start-new-app.md#import-an-app-from-file)，而不是版本。 此動作表示新的應用程式具有不同的應用程式識別碼，但使用檔案中指定的 tokenizer 版本。 

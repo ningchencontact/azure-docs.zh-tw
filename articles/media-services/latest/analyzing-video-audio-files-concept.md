@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 媒體服務分析視訊和音訊檔案 | Microsoft Docs
-description: 使用 Azure 媒體服務時，您可以使用 AudioAnalyzerPreset 和 VideoAnalyzerPreset 分析音訊和視訊內容。
+description: 使用 Azure 媒體服務時，您可以使用 AudioAnalyzerPreset 和 VideoAnalyzerPreset 來分析音訊和影片內容。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477733dcb76647b2c03f79dea4f55c3102d262b8
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689352"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376193"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析視訊和音訊檔案
 
@@ -35,7 +35,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 |---|---|---|
 |[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|分析音訊|此預設會套用一組預先定義的 AI 型分析作業，包括語音轉譯。 此預設目前支援處理具有單一音訊播放軌 (包含單一語言的語音) 的內容。 您可以使用「語言標記-區域」的 BCP-47 格式，為輸入中的音訊承載指定語言。 支援的語言有英文 ('EN-US' 和 'EN-GB')、西班牙文 ('ES-ES' 和 'ES-MX')、法文 ('fr-FR')、義大利文 ('IT-IT')、日文 ('JA-JP')、葡萄牙文 ('PT-BR')、中文 ('ZH-CN')、德文 ('DE-DE')、阿拉伯文 ('AR-EG')、俄文 ('RU-RU')、印度文 ('HI-IN') 和 韓文 ('KO-KR')。<br/><br/> 如果未指定語言或將語言設為 Null，自動語言偵測會選擇偵測到的第一種語言，並使用選取的語言處理整個檔案。 自動語言偵測功能目前支援英文、簡體中文、法文、德文、義大利文、日文、西班牙文、俄文和葡萄牙文。 目前不支援在偵測到第一個語言後，動態地切換語言。 搭配語音清晰的錄音時，自動語言偵測功能的效果最好。 如果自動語言偵測無法找到該語言，轉譯會切換回英文。|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|分析音訊和視訊|從音訊和視訊擷取見解 (豐富的中繼資料)，並輸出 JSON 格式檔案。 您可以指定在處理視訊檔案時，是否只想擷取音訊見解。 如需詳細資訊，請參閱[分析視訊](analyze-videos-tutorial-with-api.md)。|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|偵測影片中出現的所有臉部|描述要分析影片時用來偵測存在的所有臉部的設定。|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|偵測出現在影片中的所有臉部|說明分析影片以偵測所有表面的情況時，所要使用的設定。|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
@@ -62,10 +62,10 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="transcript"></a>文字記錄
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|行識別碼。|
-|text|文字記錄本身。|
+|文字|文字記錄本身。|
 |language|文字記錄語言。 用於支援文字記錄，其中每一行可以有不同的語言。|
 |執行個體|這一行曾出現的時間範圍清單。 如果執行個體是文字記錄，它只能有 1 個執行個體。|
 
@@ -100,10 +100,10 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="ocr"></a>ocr
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|OCR 行識別碼。|
-|text|OCR 文字。|
+|文字|OCR 文字。|
 |信賴度|辨識信賴。|
 |language|OCR 語言。|
 |執行個體|此 OCR 曾出現的時間範圍清單 (相同的 OCR 可以出現多次)。|
@@ -143,7 +143,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="faces"></a>臉部
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|臉部識別碼。|
 |name|臉部名稱。 它可以是 Unknown #0、已識別的名人或客戶培訓人員。|
@@ -153,7 +153,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 |knownPersonId|如果是已知人物，則為其內部識別碼。|
 |referenceId|若為 Bing 名人，則為其 Bing 識別碼。|
 |referenceType|目前只是 Bing。|
-|title|若為名人，則為其職稱 (例如 "Microsoft CEO")。|
+|標題|若為名人，則為其職稱 (例如 "Microsoft CEO")。|
 |imageUrl|若為名人，則為其影像 URL。|
 |執行個體|這些是臉部出現在指定時間範圍中的執行個體。 每個執行個體也會有 thumbnailsId。 |
 
@@ -188,7 +188,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="shots"></a>擷取畫面
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|擷取畫面識別碼。|
 |keyFrames|擷取畫面的主要畫面清單 (每個主要畫面都有一個識別碼和執行個體的時間範圍清單)。 主要畫面格執行個體中有縮圖識別碼欄位，其中包含主要畫面格的縮圖識別碼。|
@@ -245,7 +245,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="statistics"></a>統計資料
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |CorrespondenceCount|影片中的對應數目。|
 |WordCount|每個說話者的字數。|
@@ -258,7 +258,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 人氣會依據其 sentimentType 欄位 (Positive/Neutral/Negative) 加以彙總。 例如：0-0.1、0.1-0.2。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|人氣識別碼。|
 |averageScore |所有該人氣類型執行個體的總分平均值 - Positive/Neutral/Negative|
@@ -293,7 +293,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="labels"></a>標籤
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|標籤識別碼。|
 |name|標籤名稱 (例如，電腦、電視)。|
@@ -352,10 +352,10 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="keywords"></a>關鍵字
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|關鍵字識別碼。|
-|text|關鍵字。|
+|文字|關鍵字。|
 |信賴度|關鍵字的辨識信賴。|
 |language|關鍵字語言 (轉譯時)。|
 |執行個體|此關鍵字曾出現的時間範圍清單 (同一個關鍵字可以出現多次)。|
@@ -403,7 +403,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
-|名稱|描述|
+|Name|描述|
 |---|---|
 |id|視覺內容仲裁識別碼。|
 |adultScore|成人分數 (由內容仲裁提供)。|

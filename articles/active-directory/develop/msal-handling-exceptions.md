@@ -16,12 +16,12 @@ ms.date: 08/19/2019
 ms.author: negoe
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 77a2e571b76044ff9114f6671b187118cf03c0ba
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: fe3ad29cfd113deba5824ce25721dc543c6267c0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135802"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305057"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>使用 MSAL 處理例外狀況和錯誤
 Microsoft 驗證程式庫 (MSAL) 中的例外狀況僅供應用程式開發人員進行疑難排解之用，而不會向使用者顯示。 例外狀況訊息不會當地語系化。
@@ -40,16 +40,16 @@ Microsoft 驗證程式庫 (MSAL) 中的例外狀況僅供應用程式開發人�
 
 | 例外狀況 | 錯誤碼 | 風險降低|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員未同意使用識別碼為 '{appId}'、名稱為 '{appName}' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core (因此就沒有任何 Web UI)，請呼叫 `AcquireTokeninteractive` (一次即可)。 如果您使用 .net core 或不想要執行`AcquireTokenInteractive`, 則使用者可以流覽至 URL 以提供同意:。 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read 若要呼叫 `AcquireTokenInteractive`：`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001：使用者或系統管理員未同意使用識別碼為 '{appId}'、名稱為 '{appName}' 的應用程式。 請傳送此使用者和資源的互動式授權要求。| 您必須先取得使用者同意。 如果您未使用 .NET Core (因此就沒有任何 Web UI)，請呼叫 `AcquireTokeninteractive` (一次即可)。 如果您使用 .net core 或不想要執行`AcquireTokenInteractive`，則使用者可以流覽至 URL 以提供同意：。 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read 若要呼叫 `AcquireTokenInteractive`：`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079：使用者必須使用多重要素驗證。| 沒有風險降低措施 - 如果您的租用戶已設定 MFA，且 AAD 決定加以強制執行，您就必須退回到 `AcquireTokenInteractive` 或 `AcquireTokenByDeviceCode` 之類的互動式流程。|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010：不支援透過 */common* 或 */consumers* 端點的授與類型。 請使用 */organizations* 或租用戶專屬端點。 您使用的是 */common*。| 如 Azure AD 的訊息所說明，授權單位必須有一個租用戶或 */organizations*。|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002：要求本文必須包含下列參數：client_secret 或 client_assertion。| 如果您的應用程式未在 Azure AD 中註冊為公用用戶端應用程式, 就會發生這個例外狀況。 在 Azure 入口網站中，為您的應用程式編輯資訊清單，並將 `allowPublicClient` 設為 `true`。 |
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002：要求本文必須包含下列參數：client_secret 或 client_assertion。| 如果您的應用程式未在 Azure AD 中註冊為公用用戶端應用程式，就會發生這個例外狀況。 在 Azure 入口網站中，為您的應用程式編輯資訊清單，並將 `allowPublicClient` 設為 `true`。 |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user 訊息：無法識別登入的使用者| 程式庫無法查詢目前登入 Windows 的使用者，或這名使用者未加入 AD 或 AAD (不支援已加入工作場所的使用者)。 風險降低措施 1：在 UWP 上，確認應用程式具有下列功能：企業驗證、私人網路 (用戶端和伺服器)、使用者帳戶資訊。 降低風險 2：實作您自己的邏輯以擷取使用者名稱 (例如john@contoso.com)，並使用採用該使用者名稱的 `AcquireTokenByIntegratedWindowsAuth` 表單。|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| 此方法需依賴由 Active Directory (AD) 公開的通訊協定。 如果使用者建立於不具 AD 支援 (「受控」使用者) 的 Azure Active Directory 中，此方法將會失敗。 使用者若建立於 AD 中，並且受 AAD 支援(「同盟」使用者)，則可受益於這種非互動式的驗證方法。 風險降低措施：使用互動式驗證。|
 
 ## <a name="javascript-errors"></a>JavaScript 錯誤
 
-MSAL 會提供錯誤物件, 以抽象和分類不同類型的常見錯誤。 它也會提供介面來存取錯誤的特定詳細資料, 例如錯誤訊息, 以適當地處理它們。
+MSAL 會提供錯誤物件，以抽象和分類不同類型的常見錯誤。 它也會提供介面來存取錯誤的特定詳細資料，例如錯誤訊息，以適當地處理它們。
 
 **Error 物件**
 
@@ -74,15 +74,15 @@ export class AuthError extends Error {
 
 * *AuthError：* MSAL.js 程式庫的基本錯誤類別，也可用於非預期的錯誤。
 
-* *ClientAuthError：* Error 類別, 這表示用戶端驗證的問題。 來自程式庫的錯誤大多為 ClientAuthError。 這些錯誤就像是在登入時呼叫登入方法、使用者取消登入等等。 
+* *ClientAuthError：* Error 類別，這表示用戶端驗證的問題。 來自程式庫的錯誤大多為 ClientAuthError。 這些錯誤就像是在登入時呼叫登入方法、使用者取消登入等等。 
 
-* *ClientConfigurationError：* 當指定的使用者設定參數格式不正確或遺失時, 在發出要求之前擲回的錯誤類別擴充 ClientAuthError。
+* *ClientConfigurationError：* 當指定的使用者設定參數格式不正確或遺失時，在發出要求之前擲回的錯誤類別擴充 ClientAuthError。
 
 * *ServerError：* 代表驗證伺服器傳送之錯誤字串的錯誤類別。 這些可能是要求格式或參數無效之類的錯誤，或導致伺服器無法對使用者進行驗證或授權的任何其他錯誤。
 
-* *InteractionRequiredAuthError：* 擴充 ServerError 以表示伺服器錯誤的錯誤類別, 這需要互動式呼叫。 `acquireTokenSilent`如果使用者需要與伺服器互動以提供認證或同意驗證/授權, 則會擲回這個錯誤。 錯誤碼包括 "interaction_required"、"login_required"、"consent_required"。
+* *InteractionRequiredAuthError：* 擴充 ServerError 以表示伺服器錯誤的錯誤類別，這需要互動式呼叫。 `acquireTokenSilent`如果使用者需要與伺服器互動以提供認證或同意驗證/授權，則會擲回這個錯誤。 錯誤碼包括 "interaction_required"、"login_required"、"consent_required"。
 
-對於使用重新導向方法 (`loginRedirect`, `acquireTokenRedirect`) 的驗證流程中的錯誤處理, 您必須註冊回呼, 在使用`handleRedirectCallback()`方法重新導向之後, 會以成功或失敗的方式呼叫, 如下所示:
+對於使用重新導向方法（`loginRedirect`， `acquireTokenRedirect`）的驗證流程中的錯誤處理，您必須註冊回呼，在使用`handleRedirectCallback()`方法重新導向之後，會以成功或失敗的方式呼叫，如下所示：
 
 ```javascript
 function authCallback(error, response) {
@@ -98,7 +98,7 @@ myMSALObj.handleRedirectCallback(authCallback);
 myMSALObj.acquireTokenRedirect(request);
 ```
 
-快顯體驗 (`loginPopup`, `acquireTokenPopup`) 的方法會傳回承諾, 因此您可以使用承諾模式 (. then 和. catch) 來處理它們, 如下所示:
+快顯體驗（`loginPopup`， `acquireTokenPopup`）的方法會傳回承諾，因此您可以使用承諾模式（. then 和. catch）來處理它們，如下所示：
 
 ```javascript
 myMSALObj.acquireTokenPopup(request).then(
@@ -111,7 +111,7 @@ myMSALObj.acquireTokenPopup(request).then(
 
 ### <a name="interaction-required-errors"></a>需要互動錯誤
 
-當您嘗試使用非互動式方法來取得權杖 ( `acquireTokenSilent`例如), 而 MSAL 無法以無訊息模式執行時, 就會傳回錯誤。 
+當您嘗試使用非互動式方法來取得權杖（ `acquireTokenSilent`例如），而 MSAL 無法以無訊息模式執行時，就會傳回錯誤。 
 
 可能的原因包括：
 
@@ -177,9 +177,9 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 
 以互動方式取得權杖時，系統會對使用者發出提示，讓他們有機會符合所需的條件式存取原則。
 
-當您呼叫需要條件式存取的 API 時，您可能會在 API 發出的錯誤中收到宣告挑戰。 在此情況下, 您可以將錯誤中傳回的宣告傳遞給`claimsRequest` `AuthenticationParameters.ts`類別的欄位, 以滿足適當的原則。 
+當您呼叫需要條件式存取的 API 時，您可能會在 API 發出的錯誤中收到宣告挑戰。 在此情況下，您可以將錯誤中傳回的宣告傳遞給`claimsRequest` `AuthenticationParameters.ts`類別的欄位，以滿足適當的原則。 
 
-如需詳細資訊, 請參閱[要求額外的宣告]()。
+如需詳細資訊，請參閱[要求額外的宣告](active-directory-optional-claims.md)。
 
 ## <a name="retrying-after-errors-and-exceptions"></a>在發生錯誤和例外狀況後重試
 
@@ -187,7 +187,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 針對 HTTP 錯誤碼為 500-600 的錯誤，MSAL.NET 會實作簡單的單次重試機制。
 
 ### <a name="http-429"></a>HTTP 429
-當服務權杖伺服器 (STS) 因為要求太多而超載時, 它會傳回 HTTP 錯誤 429, 並提示您何時可以在時間內再試一次。 您可以從`Retry-After` [回應] 欄位讀取此錯誤。
+當服務權杖伺服器（STS）因為要求太多而超載時，它會傳回 HTTP 錯誤429，並提示您何時可以在時間內再試一次。 您可以從`Retry-After` [回應] 欄位讀取此錯誤。
 
 #### <a name="net"></a>.NET
 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) 例外狀況會將 `System.Net.Http.Headers.HttpResponseHeaders` 顯示為屬性 `namedHeaders`。 因此，您可以利用錯誤碼中的其他資訊改善應用程式的可靠性。 如同我們在先前的案例中提到的，您可以使用 `RetryAfterproperty` (類型 `RetryConditionHeaderValue`) 並計算何時可重試。

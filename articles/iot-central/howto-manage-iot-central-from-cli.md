@@ -8,18 +8,18 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 021341406f1a7269aadf18eb3a748e539cbb5bf5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 421d41f95eff0ba0fdbca02c588d4a9a0c461a84
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086968"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70381066"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>從 Azure CLI 管理 IoT Central
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-您可以使用[Azure CLI](/cli/azure/)來管理應用程式, 而不是在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上建立和管理 IoT Central 應用程式。
+您可以使用[Azure CLI](/cli/azure/)來管理應用程式，而不是在[Azure IoT Central 應用程式管理員](https://aka.ms/iotcentral)網站上建立和管理 IoT Central 應用程式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,11 +27,11 @@ ms.locfileid: "70086968"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您想要在本機電腦上執行 Azure CLI, 請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 當您在本機執行 Azure CLI 時, 請使用**az login**命令來登入 Azure, 然後再嘗試本文中的命令。
+如果您想要在本機電腦上執行 Azure CLI，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 當您在本機執行 Azure CLI 時，請使用**az login**命令來登入 Azure，然後再嘗試本文中的命令。
 
 ## <a name="create-an-application"></a>建立應用程式
 
-使用[az iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create)命令, 在您的 Azure 訂用帳戶中建立 IoT Central 應用程式。 例如:
+使用[az iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create)命令，在您的 Azure 訂用帳戶中建立 IoT Central 應用程式。 例如:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -48,12 +48,12 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-這些命令會先在「美國東部」區域中為應用程式建立資源群組。 下表描述搭配**az iotcentral app create**命令使用的參數:
+這些命令會先在「美國東部」區域中為應用程式建立資源群組。 下表描述搭配**az iotcentral app create**命令使用的參數：
 
 | 參數         | 描述 |
 | ----------------- | ----------- |
 | resource-group    | 包含應用程式的資源群組。 此資源群組必須已經存在於您的訂用帳戶中。 |
-| 位置          | 根據預設, 此命令會使用來自資源群組的位置。 目前您可以在**美國東部**、**美國西部**、**北歐**或**西歐**地區建立 IoT Central 應用程式。 |
+| 位置          | 根據預設，此命令會使用來自資源群組的位置。 目前您可以在**美國東部**、**美國西部**、**北歐**或**西歐**地區建立 IoT Central 應用程式。 |
 | name              | 應用程式在 Azure 入口網站中的名稱。 |
 | 子域         | 應用程式 URL 中的子網域。 在範例中，應用程式 URL 是 https://mysubdomain.azureiotcentral.com 。 |
 | SKU               | 目前唯一的值是 **S1** (標準層)。 請參閱 [Azure IoT Central 價格](https://azure.microsoft.com/pricing/details/iot-central/)。 |
@@ -67,6 +67,9 @@ az iotcentral app create \
 | iotc-default@1.0.0       | 為您建立空的應用程式，以填入您自己的裝置範本和裝置。 |
 | iotc-demo@1.0.0          | 建立一個應用程式，其中包含已為冷飲自動販賣機建立的裝置範本。 使用此範本來開始探索 Azure IoT 中心。 |
 | iotc-devkit-sample@1.0.0 | 使用您可使用的裝置範本來建立應用程式，以連線 MXChip 或 Raspberry Pi 裝置。 如果您是以其中任一裝置進行試驗的裝置開發人員，請使用此範本。 |
+
+> [!NOTE]
+> **預覽應用程式**範本目前僅**適用于北歐和** **美國中部**區域。
 
 ## <a name="view-your-applications"></a>檢視您的應用程式
 
@@ -93,7 +96,7 @@ az iotcentral app delete --name myiotcentralapp \
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已瞭解如何從 Azure CLI 管理 Azure IoT Central 應用程式, 以下是建議的後續步驟:
+既然您已瞭解如何從 Azure CLI 管理 Azure IoT Central 應用程式，以下是建議的後續步驟：
 
 > [!div class="nextstepaction"]
 > [管理您的應用程式](howto-administer.md)

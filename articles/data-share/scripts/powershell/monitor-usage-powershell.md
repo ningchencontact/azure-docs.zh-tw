@@ -9,16 +9,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 9cc7cbe8a1f523a50c91125802804e564b48a164
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0a4084d309dd0160970f1c03540705b310eb8e75
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242953"
+ms.locfileid: "70307196"
 ---
 # <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>使用 PowerShell 監視已傳送資料共用的使用方式
 
-此 PowerShell 腳本會列出已傳送資料共用的同步處理, 並取得特定同步處理的詳細資料, 藉此監視資料使用量。
+此 PowerShell 腳本會列出已傳送資料共用的同步處理，並取得特定同步處理的詳細資料，藉此監視資料使用量。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -44,8 +44,8 @@ Get-AzDataShareSynchronizationDetails -ResourceGroupName $resourceGroupName -Acc
 
 | 命令 | 注意 |
 |---|---|
-| [AzDataShareSynchronization](/powershell/module/az.resources/get-azdatasharesynchronizationdetails) | 列出共用上的同步處理。 |
-| [AzDataShareSynchronizationDetails](/powershell/module/az.resources/get-azdatasharesynchronizationdetails) | 取得共用同步處理的同步處理詳細資料。 |
+| [AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization?view=azps-2.6.0) | 列出共用上的同步處理。 |
+| [AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail?view=azps-2.6.0) | 取得共用同步處理的同步處理詳細資料。 |
 |||
 
 ## <a name="next-steps"></a>後續步驟
