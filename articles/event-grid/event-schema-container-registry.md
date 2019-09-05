@@ -172,7 +172,7 @@ Azure Container Registry 會發出下列事件類型：
 | -------- | ---- | ----------- |
 | id | string | 事件識別碼。 |
 | timestamp | string | 事件發生的時間。 |
-| 動作 | string | 包含所提供事件的動作。 |
+| action | string | 包含所提供事件的動作。 |
 | target | object | 事件的目標。 |
 | request | object | 產生事件的要求。 |
 
