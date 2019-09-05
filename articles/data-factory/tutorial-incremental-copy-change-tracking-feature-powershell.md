@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 117b6d53a3392e8a4f75d5d1966e3f48fb66d5ce
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 36a160ad3c6b925931c6274a44cfb5492d6a562a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966402"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140630"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL 資料庫中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -67,9 +66,9 @@ ms.locfileid: "68966402"
     ![累加載入流程圖](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
 
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立[免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * Azure PowerShell。 依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-Az-ps)中的指示，安裝最新的 Azure PowerShell 模組。
 * **Azure SQL Database**。 您需要使用資料庫作為**來源**資料存放區。 如果您沒有 Azure SQL Database，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)一文，按照步驟建立資料庫。
@@ -235,7 +234,7 @@ ms.locfileid: "68966402"
 ### <a name="create-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務。
 在此步驟中，您會將您的 Azure SQL 資料庫連結到您的 Data Factory。
 
-1. 使用下列內容，在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：儲存檔案之前，以您的 Azure SQL Server 名稱、資料庫名稱、使用者識別碼和密碼，取代 **&lt;server&gt;、&lt;database name **、&lt;user id&gt; 和 &lt;password&gt;** 。 
+1. 使用下列內容，在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：儲存檔案之前，以您的 Azure SQL Server 名稱、資料庫名稱、使用者識別碼和密碼，取代 server、database name **、&lt;user id&gt; 和 &lt;password&gt;** 。 
 
     ```json
     {

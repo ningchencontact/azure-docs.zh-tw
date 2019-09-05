@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 88fd480f87c3a33af1d16e57d6687d739dc1ec7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5d0807fb03c8518286a369f50df62f0ec0b23c2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123431"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140771"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
@@ -67,11 +66,11 @@ ms.locfileid: "66123431"
 
 ## <a name="azure-services-to-access-sql-server"></a>Azure 服務存取 SQL Server
 
-針對 SQL Database 和 SQL 資料倉儲，允許 Azure 服務存取 SQL 伺服器。 確保 Azure SQL Server 的 [允許存取 Azure 服務] 設定已 [開啟]。 此設定可允許 Data Factory 服務從您的 Azure SQL Database 讀取資料，並將資料寫入至 Azure SQL 資料倉儲。 若要確認並開啟此設定，請執行下列步驟：
+針對 SQL Database 和 SQL 資料倉儲，允許 Azure 服務存取 SQL 伺服器。 確保 Azure SQL Server 的 [允許存取 Azure 服務]  設定已 [開啟]  。 此設定可允許 Data Factory 服務從您的 Azure SQL Database 讀取資料，並將資料寫入至 Azure SQL 資料倉儲。 若要確認並開啟此設定，請執行下列步驟：
 
-1. 按一下左邊的 [所有服務] 中樞，然後按一下 [SQL Server]。
-2. 選取您的伺服器，然後按一下 [設定] 下的 [防火牆]。
-3. 在 [防火牆設定] 頁面中，對 [允許存取 Azure 服務] 按一下 [開啟]。
+1. 按一下左邊的 [所有服務]  中樞，然後按一下 [SQL Server]  。
+2. 選取您的伺服器，然後按一下 [設定]  下的 [防火牆]  。
+3. 在 [防火牆設定]  頁面中，對 [允許存取 Azure 服務]  按一下 [開啟]  。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -109,7 +108,7 @@ ms.locfileid: "66123431"
         ```
 
     * 若要建立 Data Factory 執行個體，您必須是 Azure 訂用帳戶的參與者或系統管理員。
-    * 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+    * 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析]  以找出 [Data Factory]  ：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 ## <a name="create-linked-services"></a>建立連結的服務
 

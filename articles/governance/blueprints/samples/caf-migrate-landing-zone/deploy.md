@@ -8,12 +8,12 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: a9ca5c299c2f030436f5a7ea9f4c2c1e136df747
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 0125fa20e61890317d4df510cb668f68e5049c43
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873343"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231845"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>部署適用於適用於 Azure 的 Microsoft 雲端採用架構的移轉登陸區域藍圖範例
 
@@ -27,7 +27,7 @@ ms.locfileid: "69873343"
 > - 將您的範例複本標記為**已發佈**
 > - 將您的藍圖複本指派給現有的訂用帳戶
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個[免費帳戶](https://azure.microsoft.com/free)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
 
 ## <a name="create-blueprint-from-sample"></a>從範例建立藍圖
 

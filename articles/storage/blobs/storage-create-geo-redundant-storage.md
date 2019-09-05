@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 0ccd57e1614f23d775df2fe8e963d2cc7f9a4358
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 124b10607f710ddfb76787eac09dea7ec6ffc03c
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360746"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173058"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教學課程：建置採用 Blob 儲存體的高可用性應用程式
 
@@ -120,7 +120,7 @@ git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 [下載範例專案](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs)並將檔案解壓縮。 您也可以使用 [git](https://git-scm.com/) 將應用程式的複本下載到您的開發環境。 此範例專案包含基本 Node.js 應用程式。
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 ```
 
 ---

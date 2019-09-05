@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 08/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592308"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142921"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>什麼是 Azure Data Box Heavy？
 
@@ -68,7 +68,7 @@ Data Box Heavy 的設計可讓它在幾乎不對網路產生影響的情況下�
 | 乘冪                                                    | 跨兩個裝置節點共用的 4 個內建電源供應器單位 (PSU) <br> 1,200 瓦特一般電力消耗|
 | 儲存體容量                                        | ~ 1-PB 未經處理、70 個 14 TB 磁碟 <br> 770-TB 可用容量|
 | 節點數目                                          | 每個裝置 2 個獨立的節點 (各 500 TB) |
-| 每個節點的網路介面                             | 每個節點 4 個網路介面 <br><br> MGMT, DATA3 <ul><li> 2 個 1-GbE 介面 </li><li> MGMT 用於管理和初始設定，使用者無法設定 </li><li> DATA3 是使用者可設定的，預設使用動態主機設定通訊協定 (DHCP)</li><li>1-GbE 網路介面也可以設定為 10-GbE 介面</li></ul>DATA1、DATA2 資料介面 <ul><li>2 個 40-GbE 介面 </li><li> 使用者可設定的 DHCP (預設) 或靜態</li></ul>|
+| 每個節點的網路介面                             | 每個節點 4 個網路介面 <br><br> MGMT, DATA3 <ul><li> 2 個 1-GbE 介面 </li><li> MGMT 用於管理和初始設定，使用者無法設定 </li><li> DATA3 是使用者可設定的，預設使用動態主機設定通訊協定 (DHCP)</li></ul>DATA1、DATA2 資料介面 <ul><li>2 個 40-GbE 介面 </li><li> 使用者可設定的 DHCP (預設) 或靜態</li></ul>|
 
 
 ## <a name="components"></a>元件

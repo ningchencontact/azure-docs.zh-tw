@@ -1,5 +1,5 @@
 ---
-title: 規則運算式實體 - LUIS
+title: 教學課程：規則運算式實體 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 使用規則運算式實體從語句擷取格式一致的資料。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 958d880829e9524389a25f029415786231644c04
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: db60d87b441836f38309166318dd1778ce828483
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563592"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307593"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>教學課程：從語句取得格式正確的資料
 在本教學課程中，您將建立應用程式，以使用**規則運算式**實體從語句中擷取格式一致的資料。

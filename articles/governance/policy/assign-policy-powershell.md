@@ -7,13 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 2ff34911dea19b83731b46077bd60c7b085763a4
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: bcdac2635c9d40bcd0f7605fad7479d5b8cdddba
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979576"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239221"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立 Azure 原則指派，以識別不相容資源
 
@@ -23,8 +22,6 @@ Azure PowerShell 模組可用來從命令列或在指令碼中管理 Azure 資�
 本指南說明如何使用 Az 模組建立原則指派。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
-
-[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 

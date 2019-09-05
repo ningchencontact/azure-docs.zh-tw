@@ -11,18 +11,18 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 40a2f8716b438837cf3efe300286ab9053fc8b07
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 22f9ff8c493e850152e1fd74c8787e2cde507685
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035824"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308841"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
 Azure Machine Learning Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本中淘汰並由其他項目取代，以便為改善的[架構](concept-azure-machine-learning-architecture.md)做準備。
 
-為了改善您的體驗，該版本中包含了許多由客戶意見反應所促成的重大更新。 從實驗執行到模型部署的核心功能沒有變更。 但您現在可以使用健全的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 和 [Azure CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。
+為了改善您的體驗，該版本中包含了許多由客戶意見反應所促成的重大更新。 從實驗執行到模型部署的核心功能沒有變更。 但您現在可以使用健全的 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> 和 [Azure CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。
 
 在舊版 Azure Machine Learning 服務中建立的大部分成品都儲存在您的本機或雲端儲存體。 這些成品永遠不會消失。
 
@@ -37,7 +37,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 最新版的 Azure Machine Learning 服務包括下列功能：
 + [簡化的 Azure 資源模型](concept-azure-machine-learning-architecture.md)。
 + [新的入口網站 UI](how-to-track-experiments.md)，可管理您的實驗和計算目標。
-+ 全新且更全面的 Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>。
++ 全新且更全面的 Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>。
 + 全新且經過擴充的適用於機器學習的 [Azure CLI 擴充功能](reference-azure-machine-learning-cli.md)。
 
 [架構](concept-azure-machine-learning-architecture.md)已經過重新設計，以方便您使用。 您只需要一個 [Azure Machine Learning 服務工作區](concept-workspace.md)，而不是多個 Azure 資源和帳戶。 您可以在 [Azure 入口網站](how-to-manage-workspace.md)中快速建立工作區。 藉由使用工作區，多個使用者可以儲存定型和部署計算目標、模型實驗、Docker 映像、已部署的模型等等。
@@ -50,7 +50,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 在 2019 年 1 月 9 日後，Machine Learning Workbench、Azure Machine Learning 測試和模型管理帳戶及其相關 SDK 和 CLI 的支援均已終止。
 
-使用新的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>、[CLI](reference-azure-machine-learning-cli.md) 和[入口網站](how-to-manage-workspace.md)即可使用所有最新功能。
+使用新的 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>、[CLI](reference-azure-machine-learning-cli.md) 和[入口網站](how-to-manage-workspace.md)即可使用所有最新功能。
 
 ## <a name="what-about-run-histories"></a>那麼執行歷程記錄呢？
 
@@ -100,9 +100,9 @@ run = exp.submit(source_directory=script_folder,
 
 ## <a name="what-about-the-old-sdk-and-cli"></a>那麼舊的 SDK 和 CLI 呢？
 
-是，它們會繼續運作到一月。 請參閱上述的[時間表](#timeline)。 建議您開始使用最新的 SDK 或 CLI 來建立新的實驗和模型。
+請參閱上述的[時間表](#timeline)。 建議您開始使用最新的 SDK 或 CLI 來建立新的實驗和模型。
 
-藉由使用最新版本中的新 Python SDK，您可以在任何 Python 環境中與 Azure Machine Learning 服務互動。 了解如何安裝最新的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>。 您也可以使用更新的 [Azure Machine Learning CLI 擴充功能](reference-azure-machine-learning-cli.md)，其中包含豐富的 `az ml` 命令集，可在任何命令列環境 (包括 Azure Cloud Shell) 中與服務互動。
+藉由使用最新版本中的新 Python SDK，您可以在任何 Python 環境中與 Azure Machine Learning 服務互動。 了解如何安裝最新的 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>。 您也可以使用更新的 [Azure Machine Learning CLI 擴充功能](reference-azure-machine-learning-cli.md)，其中包含豐富的 `az ml` 命令集，可在任何命令列環境 (包括 Azure Cloud Shell) 中與服務互動。
 
 ## <a name="what-about-visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools for AI 有何改變？
 
@@ -112,7 +112,7 @@ run = exp.submit(source_directory=script_folder,
 
 ## <a name="what-about-domain-packages"></a>那麼領域套件呢？
 
-適用於電腦視覺、文字分析和預測的領域套件無法與最新版的 Azure Machine Learning 搭配使用。 不過，您仍然可以使用最新版的 Azure Machine Learning Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 來建置電腦視覺、文字和預測模型，以及將它們定型。 若要了解如何遷移使用電腦視覺、文字分析和預測套件建置的現有模型，請連絡 [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com)。
+適用於電腦視覺、文字分析和預測的領域套件無法與最新版的 Azure Machine Learning 搭配使用。 不過，您仍然可以使用最新版的 Azure Machine Learning Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> 來建置電腦視覺、文字和預測模型，以及將它們定型。 若要了解如何遷移使用電腦視覺、文字分析和預測套件建置的現有模型，請連絡 [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com)。
 
 ## <a name="next-steps"></a>後續步驟
 

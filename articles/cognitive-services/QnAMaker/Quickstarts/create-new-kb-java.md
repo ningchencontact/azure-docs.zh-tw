@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 767866fd6768237c4d3a0d7ea422521254414fb3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 06e2a772bfad7b1964f813a6cb6266efe61c6ccf
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559881"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206845"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>快速入門：使用 Java 在 QnA Maker 中建立知識庫
 
@@ -114,7 +114,7 @@ Main 方法會建立 KB，然後輪詢狀態。 作業識別碼會在 POST 回�
 
 2. 在命令列中輸入下列命令，以執行程式。 程式會將要求傳送至 QnA Maker API 以建立 KB，然後會每隔 30 秒輪詢結果。 每個回應都會列印到主控台視窗。
 
-    ```base
+    ```bash
     java -cp ",;libs/*" CreateKB
     ```
 

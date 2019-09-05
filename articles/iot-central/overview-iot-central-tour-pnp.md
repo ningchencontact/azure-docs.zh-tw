@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1b6b5aff52673443fe19da684e85663a5ca8fe19
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4a0c9d16474ddf032ff88382bc240713bc734ff8
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69881867"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211894"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>開始導覽 Azure IoT Central UI (預覽功能)
 
@@ -39,9 +39,31 @@ ms.locfileid: "69881867"
 
 您可以使用左側導覽功能表來存取應用程式的不同區域。 您可以選取 **<** 或 **>** 將導覽列展開或摺疊：
 
-| 功能表 | 說明 |
-| ---- | ----------- |
-| ![左側導覽功能表](media/overview-iot-central-tour-pnp/navigationbar.png) | <ul><li>[儀表板]  頁面會顯示您的應用程式儀表板。 身為建置者，您可以為操作員自訂儀表板。 使用者也可以建立自己的儀表板。</li><li>[裝置]  頁面會列出與應用程式中的每個裝置範本相關聯的模擬和實際裝置。 身為操作員，您可以使用 [裝置]  來管理已連線的裝置。</li><li>[裝置群組]  頁面可讓您檢視及建立裝置群組。 身為操作員，您可以建立裝置群組，作為查詢所指定的裝置邏輯集合。</li><li>[規則]  頁面可讓您編輯會根據裝置遙測引發，並觸發可自訂動作的規則。</li><li>[分析]  頁面可針對裝置和裝置群組，顯示衍生自裝置遙測的分析。 操作員可以根據裝置資料建立自訂檢視，以從您的應用程式衍生見解。</li><li>[作業]  頁面可讓您建立及執行大規模更新裝置的作業，以啟用大量服務管理。</li><li>[裝置範本]  頁面會顯示建置者用來建立和管理裝置範本的工具。</li><li>[資料匯出]  頁面可供系統管理員用於連續匯出至其他 Azure 服務的設定，例如儲存體和佇列。</li><li>[系統管理]  頁面可顯示應用程式系統管理頁面，讓管理員可以管理應用程式設定、使用者和角色。</li></ul> |
+:::row:::
+  :::column span="":::
+      ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png)
+  :::column-end:::
+  :::column span="2":::
+
+      **Dashboard** displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.
+    
+      **Devices** lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.
+    
+      **Device groups** lets you view and create device groups. As an operator, you can create device groups as a logical collections of devices specified by a query.
+
+      **Rules** lets you edit rules that fire based on device telemetry and trigger customizable actions.
+    
+      **Analytics** shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.
+    
+      **Jobs** enables bulk device management by having you create and run jobs to update your devices at scale.
+    
+      **Device templates** shows the tools a builder uses to create and manage device templates.
+    
+      **Data export** enables an administrator to configure a continuous export to other Azure services such as storage and queues.
+    
+      **Administration** shows the application administration pages where an administrator can manage application settings, users, and roles.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="search-help-and-support"></a>搜尋、說明及支援
 

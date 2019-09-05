@@ -3,23 +3,20 @@ title: 建置您的第一個 Data Factory (Azure 入口網站) | Microsoft Docs
 description: 在本教學課程中，您會使用 Azure 入口網站中的 Data Factory 編輯器，建立 Azure Data Factory 管線範例。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: b60f6adf6c13bc86fb4c4604dda7d4b92963b7ca
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839122"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140561"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建置您的第一個資料處理站
 > [!div class="op_single_selector"]

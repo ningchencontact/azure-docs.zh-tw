@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 568b00007f2c95a5a63c236863f0c599c6b6f86f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 604b859bc144331550db9b71e6b216e35fd2d88a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161760"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140596"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL 資料庫載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL 資料庫中的資料表載入到 Azure Blob 儲存體。 
@@ -66,7 +65,7 @@ ms.locfileid: "66161760"
 * **Azure PowerShell**(英文)。 遵循[安裝和設定 Azure PowerShell](/powershell/azure/install-Az-ps) 中的指示。
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>在 SQL 資料庫中建立資料來源資料表
-1. 開啟 SQL Server Management Studio。 在 [伺服器總管] 中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
+1. 開啟 SQL Server Management Studio。 在 [伺服器總管]  中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]  。
 
 2. 對 SQL 資料庫執行下列 SQL 命令，以建立名為 `data_source_table` 的資料表作為資料來源存放區： 
     
@@ -190,7 +189,7 @@ END
     ```
 
 * 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為參與者或擁有者角色，或是 Azure 訂用帳戶的管理員。
-* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (儲存體、SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
+* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析]  以找出 [Data Factory]  ：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (儲存體、SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
 
 
 ## <a name="create-linked-services"></a>建立連結的服務
@@ -215,7 +214,7 @@ END
     ```
 2. 在 PowerShell 中，切換至 ADF 資料夾。
 
-3. 執行 **Set-AzDataFactoryV2LinkedService** Cmdlet 來建立連結服務 AzureStorageLinkedService。 在下列範例中，您會傳遞 ResourceGroupName 和 DataFactoryName 參數的值： 
+3. 執行 **Set-AzDataFactoryV2LinkedService** Cmdlet 來建立連結服務 AzureStorageLinkedService。 在下列範例中，您會傳遞 ResourceGroupName  和 DataFactoryName  參數的值： 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -524,7 +523,7 @@ END
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. 執行 **Get-AzDataFactoryV2ActivityRun** Cmdlet 來檢查管線的狀態，直到您看到所有活動成功執行為止。 在 RunStartedAfter 和 RunStartedBefore 參數中，以您自己的適當時間取代預留位置。 在本教學課程中，您會使用 -RunStartedAfter "2017/09/14" 和 -RunStartedBefore "2017/09/15"。
+2. 執行 **Get-AzDataFactoryV2ActivityRun** Cmdlet 來檢查管線的狀態，直到您看到所有活動成功執行為止。 在 RunStartedAfter  和 RunStartedBefore  參數中，以您自己的適當時間取代預留位置。 在本教學課程中，您會使用 -RunStartedAfter "2017/09/14"  和 -RunStartedBefore "2017/09/15"  。
 
     ```powershell
     Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -644,7 +643,7 @@ END
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. 執行 **Get-AzDataFactoryV2ActivityRun** Cmdlet 來檢查管線的狀態，直到您看到所有活動成功執行為止。 在 RunStartedAfter 和 RunStartedBefore 參數中，以您自己的適當時間取代預留位置。 在本教學課程中，您會使用 -RunStartedAfter "2017/09/14" 和 -RunStartedBefore "2017/09/15"。
+3. 執行 **Get-AzDataFactoryV2ActivityRun** Cmdlet 來檢查管線的狀態，直到您看到所有活動成功執行為止。 在 RunStartedAfter  和 RunStartedBefore  參數中，以您自己的適當時間取代預留位置。 在本教學課程中，您會使用 -RunStartedAfter "2017/09/14"  和 -RunStartedBefore "2017/09/15"  。
 
     ```powershell
     Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"

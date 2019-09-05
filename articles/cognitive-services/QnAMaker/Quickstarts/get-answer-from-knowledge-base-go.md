@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: b903dfea11e5ac2390eb437e699ee8ec790a5061
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e5bb77c25b4f9fe00b75918812a1d52feff3b2a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562991"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308200"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>使用 Go 從知識庫取得答案
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-go"></a>快速入門：使用 Go 從知識庫取得答案
 
 本快速入門會逐步引導您以程式設計方式從已發佈的 QnA Maker 知識庫取得答案。 知識庫包含[資料來源](../Concepts/data-sources-supported.md)中的問題和答案，例如常見問題集。 [問題](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)會傳送至 QnA Maker 服務。 [回應](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)包含位居預測首位的答案。 
 

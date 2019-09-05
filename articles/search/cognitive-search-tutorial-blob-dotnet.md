@@ -1,7 +1,7 @@
 ---
 title: 在索引編製管線中呼叫認知服務 API 的 C# 教學課程 - Azure 搜尋服務
 description: 在本教學課程中，將逐步說明資料擷取和轉換的 Azure 搜尋服務索引中，資料擷取、自然語言和影像 AI 處理的範例。
-manager: eladz
+manager: nitinme
 author: MarkHeff
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 58252bdbad8e7775add3805c28b2da076c07d9aa
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ad0710a3492eeecd56989e627211da5d4a5e0e0a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636053"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186247"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C# 教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API
 

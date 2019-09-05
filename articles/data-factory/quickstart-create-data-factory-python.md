@@ -3,22 +3,21 @@ title: 使用 Python 建立 Azure 資料處理站 | Microsoft Docs
 description: 建立 Azure 資料處理站，以將資料從 Azure Blob 儲存體中的某個位置複製到另一個位置。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.author: shlo
-ms.openlocfilehash: 2c2b43b0f9a6d5764f885163db7fb0e67f0a8e9e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 143da2a08dd79c3f08a7bd8e8ec57d233e98df93
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444190"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140919"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>快速入門：使用 Python 建立資料處理站和管線
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 35e6ad922ab54748165fcf8e273d93ee44bc42cc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 97b9e0defb3f349a6e202572bc0e3005d5d87e9c
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564537"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141194"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>範例：如何呼叫電腦視覺 API
 
@@ -47,19 +47,19 @@ ms.locfileid: "68564537"
 
 每次呼叫電腦視覺 API 時，都需要訂用帳戶金鑰。 這個金鑰必須透過查詢字串參數傳遞，或是在要求標頭中指定。
 
-若要取得免費試用金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
+您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)取得免費試用的金鑰。 或者，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱電腦視覺並取得金鑰。
 
 1. 透過查詢字串傳遞訂用帳戶金鑰，請參閱下面的電腦視覺 API 範例：
 
-```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
+    ```https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>```
 
 1. 傳遞訂用帳戶金鑰的作業也可以在 HTTP 要求標頭中指定：
 
-```ocp-apim-subscription-key: <Your subscription key>```
+    ```ocp-apim-subscription-key: <Your subscription key>```
 
 1. 使用用戶端程式庫時，訂用帳戶金鑰會透過 VisionServiceClient 的建構函式傳入：
 
-```var visionClient = new VisionServiceClient("Your subscriptionKey");```
+    ```var visionClient = new VisionServiceClient("Your subscriptionKey");```
 
 ## <a name="upload-an-image-to-the-computer-vision-api-service-and-get-back-tags-descriptions-and-celebrities"></a>將影像上傳到電腦視覺 API 服務，並取回標籤、描述與名人
 

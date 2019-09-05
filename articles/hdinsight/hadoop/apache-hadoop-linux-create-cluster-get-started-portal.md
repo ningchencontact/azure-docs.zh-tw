@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0e3ee1620d9dc004f3b3b0804fc42cc0d427a7ef
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 5becea8c9cb525d86dac09ead40ab1604abdbbed
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036412"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207388"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure HDInsight 中建立 Apache Hadoop 叢集
 
@@ -22,7 +22,7 @@ ms.locfileid: "70036412"
 
 在本快速入門中，您會使用 Azure 入口網站來建立 HDInsight Hadoop 叢集。 您也可以使用 [Azure Resource Manager 範本](apache-hadoop-linux-tutorial-get-started.md)來建立叢集。
 
-HDInsight 目前隨附 [7 個不同的叢集類型](./apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每種叢集類型都支援一組不同的元件。 所有叢集類型都支援 Hive。 如需 HDInsight 中支援的元件清單，請參閱 [HDInsight 在 Apache Hadoop 叢集版本中提供的新功能](../hdinsight-component-versioning.md)  
+HDInsight 目前隨附 [7 個不同的叢集類型](../hdinsight-overview.md#cluster-types-in-hdinsight)。 每種叢集類型都支援一組不同的元件。 所有叢集類型都支援 Hive。 如需 HDInsight 中支援的元件清單，請參閱 [HDInsight 在 Apache Hadoop 叢集版本中提供的新功能](../hdinsight-component-versioning.md)  
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 

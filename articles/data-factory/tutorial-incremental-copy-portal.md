@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 52cb11b015bb231b91184a2270e333e4c9aa8303
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e9284d34d3c5bc51c7d0648b24877a051df423d9
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424289"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140699"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL 資料庫載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL 資料庫中的資料表載入到 Azure Blob 儲存體。 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b997451a25f8a093491a322376db95ea53165893
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 50c6c2a1f8be979d10b77793adb168e6bd276e49
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989164"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258856"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教學課程：在 Azure Resource Manager 範本中使用條件
 
@@ -38,12 +38,12 @@ ms.locfileid: "68989164"
 
 本教學課程只會涵蓋使用條件的基本案例。 如需詳細資訊，請參閱
 
-* [範本檔案結構：條件](./resource-group-authoring-templates.md#condition)。
+* [範本檔案結構：條件](conditional-resource-deployment.md)。
 * [在 Azure Resource Manager 範本中依條件部署資源](/azure/architecture/building-blocks/extending-templates/conditional-deploy)。
 * [範本函式：If](./resource-group-template-functions-logical.md#if)。
 * [Azure Resource Manager 範本的比較函式](./resource-group-template-functions-comparison.md)
 
-如果您沒有 Azure 訂用帳戶，請在開始前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 

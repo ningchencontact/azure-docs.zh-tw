@@ -1,5 +1,5 @@
 ---
-title: 完全相符的文字項目 - LUIS
+title: 教學課程：完全相符的文字項目 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 取得符合預先定義項目清單的資料。 清單上的每個項目可以擁有也完全相符的同義字
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a5aeeb74d26ce633beb0e9feef20a2315bc0ff1d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560392"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307604"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教學課程：從語句取得完全相符的文字項目資料
 

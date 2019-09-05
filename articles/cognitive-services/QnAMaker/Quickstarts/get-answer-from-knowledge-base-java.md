@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 2b888a275b08c7011c6e0b60ff1cd1d70b42f465
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 008ecf221dfcc069f6ac3b2ee3d8e5e46056c83c
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559836"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308141"
 ---
-# <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>使用 Java 從知識庫取得答案
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>快速入門：使用 Java 從知識庫取得答案
 
 本快速入門會逐步引導您以程式設計方式從已發佈的 QnA Maker 知識庫取得答案。 知識庫包含[資料來源](../Concepts/data-sources-supported.md)中的問題和答案，例如常見問題集。 [問題](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)會傳送至 QnA Maker 服務。 [回應](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)包含位居預測首位的答案。 
 

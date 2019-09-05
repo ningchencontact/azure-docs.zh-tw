@@ -7,12 +7,12 @@ ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 118ff46ca3b640c6ec24ab85fd598f213229417a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: d02dca4438b55d51cccb5cc1b55679eb72b73991
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014013"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232811"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CI Microsoft Azure 基礎基準測試藍圖範例的建議對應。
 

@@ -7,13 +7,12 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 83133629d92abb50d9fd7509cf182282503fc041
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f5c2b58fc6877bc196eb98faab88712f474523cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799217"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241333"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>快速入門：使用 REST API 定義和指派 Azure 藍圖
 
@@ -28,8 +27,6 @@ ms.locfileid: "65799217"
 > - 移除已指派給訂用帳戶的藍圖
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>開始使用 REST API
 
@@ -154,7 +151,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在訂用帳戶中新增原則指派。 **要求本文**會定義成品的_種類_、對應至原則或方案定義的屬性，以及設定用來定義藍圖參數 (藍圖指派期間設定) 的原則指派。 此範例使用 [將標籤及其預設值套用至資源群組] 內建原則，GUID 為 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`。
+1. 在訂用帳戶中新增原則指派。 **要求本文**會定義成品的_種類_、對應至原則或方案定義的屬性，以及設定用來定義藍圖參數 (藍圖指派期間設定) 的原則指派。 此範例使用 [將標籤及其預設值套用至資源群組]  內建原則，GUID 為 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`。
 
    - REST API URI
 
@@ -182,7 +179,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在訂用帳戶為儲存標記新增另一個儲存體標記 (重複使用 _storageAccountType_ 參數)。 這個新增的原則指派成品示範藍圖上定義的參數可供多個成品使用。 在此範例中，會使用 **storageAccountType** 來設定資源群組的標記。 此值會提供在下一個步驟中建立的儲存體帳戶的相關資訊。 此範例使用 [將標籤及其預設值套用至資源群組] 內建原則，GUID 為 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`。
+1. 在訂用帳戶為儲存標記新增另一個儲存體標記 (重複使用 _storageAccountType_ 參數)。 這個新增的原則指派成品示範藍圖上定義的參數可供多個成品使用。 在此範例中，會使用 **storageAccountType** 來設定資源群組的標記。 此值會提供在下一個步驟中建立的儲存體帳戶的相關資訊。 此範例使用 [將標籤及其預設值套用至資源群組]  內建原則，GUID 為 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`。
 
    - REST API URI
 

@@ -4,14 +4,14 @@ description: 了解 Azure Cosmos DB。 這個全域散發的多模型資料庫�
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 07/23/2019
+ms.date: 09/01/2019
 ms.author: rimman
-ms.openlocfilehash: 5e53a671c866b9482296622d19d4ad6bec46829d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: f7396a747852e98b15c8c85e9b0d9a46326e6b25
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905298"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240694"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>歡迎使用 Azure Cosmos DB
 

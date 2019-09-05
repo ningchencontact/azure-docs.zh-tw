@@ -3,22 +3,21 @@ title: Data Factory (資料整合服務) 簡介 | Microsoft Docs
 description: 了解 Azure Data Factory 是什麼：這是一項雲端資料整合服務，用來協調及自動移動和轉換資料。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: aed073e7d65f193c4123106ba1ae3f4f442965e1
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 2e508839cd343820a36cc715ebde0f47c2ac4ab1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836304"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139513"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
 > [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]

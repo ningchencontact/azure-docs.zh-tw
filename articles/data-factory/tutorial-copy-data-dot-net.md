@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: dbf45853f5f7a440578f3a9005831a4ef63d85e7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 49b5b03356790bd45b2ad29897a57b746af1abe1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65778853"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140693"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 
@@ -42,7 +41,7 @@ ms.locfileid: "65778853"
 * **Azure 儲存體帳戶**。 您會使用 Blob 儲存體作為**來源**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文，按照步驟來建立帳戶。
 * **Azure SQL Database**。 您會使用資料庫作為**接收**資料存放區。 如果您沒有 Azure SQL Database，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)一文，按照步驟建立資料庫。
 * **Visual Studio** 2015 或 2017。 本文中的逐步解說使用 Visual Studio 2017。
-* **下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)**。
+* **下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)** 。
 * 依照[此指示](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 遵循相同文件中的指示，將應用程式指派給「**參與者**」角色。
 
 ### <a name="create-a-blob-and-a-sql-table"></a>建立 Blob 和 SQL 資料表
@@ -76,11 +75,11 @@ ms.locfileid: "65778853"
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. 允許 Azure 服務存取 SQL 伺服器。 確定**開啟** Azure SQL 伺服器的 [允許存取 Azure 服務] 設定，讓 Data Factory 服務可以將資料寫入您的 Azure SQL 伺服器。 若要確認並開啟此設定，請執行下列步驟：
+2. 允許 Azure 服務存取 SQL 伺服器。 確定**開啟** Azure SQL 伺服器的 [允許存取 Azure 服務]  設定，讓 Data Factory 服務可以將資料寫入您的 Azure SQL 伺服器。 若要確認並開啟此設定，請執行下列步驟：
 
-    1. 按一下左邊的 [更多服務] 中樞，然後按一下 [SQL Server]。
-    2. 選取您的伺服器，然後按一下 [設定] 下的 [防火牆]。
-    3. 在 [防火牆設定] 頁面中，對 [允許存取 Azure 服務] 按一下 [開啟]。
+    1. 按一下左邊的 [更多服務]  中樞，然後按一下 [SQL Server]  。
+    2. 選取您的伺服器，然後按一下 [設定]  下的 [防火牆]  。
+    3. 在 [防火牆設定]  頁面中，對 [允許存取 Azure 服務]  按一下 [開啟]  。
 
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
@@ -88,15 +87,15 @@ ms.locfileid: "65778853"
 使用 Visual Studio 2015/2017 建立 C# .NET 主控台應用程式。
 
 1. 啟動 **Visual Studio**。
-2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
-3. 從右邊的專案類型清單中，選取 [Visual C#] -> [主控台應用程式 (.NET Framework)]。 需要 .NET 4.5.2 版或更新版本。
+2. 按一下 [檔案]  ，指向 [新增]  ，然後按一下 [專案]  。
+3. 從右邊的專案類型清單中，選取 [Visual C#]   -> [主控台應用程式 (.NET Framework)]  。 需要 .NET 4.5.2 版或更新版本。
 4. 在 [名稱] 中輸入 **ADFv2Tutorial**。
 5. 按一下 [確定]  以建立專案。
 
 ## <a name="install-nuget-packages"></a>安裝 NuGet 套件
 
-1. 按一下 [工具] -> [NuGet 套件管理員] -> [套件管理員主控台]。
-2. 在 [套件管理員主控台] 中執行下列命令，以安裝套件。 請參閱 [Microsoft.Azure.Management.DataFactory nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)中的詳細資料。
+1. 按一下 [工具]   -> [NuGet 套件管理員]   -> [套件管理員主控台]  。
+2. 在 [套件管理員主控台]  中執行下列命令，以安裝套件。 請參閱 [Microsoft.Azure.Management.DataFactory nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)中的詳細資料。
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -120,7 +119,7 @@ ms.locfileid: "65778853"
     ```
 
     
-2. 將下列程式碼新增至 **Main** 方法，以設定變數。 將預留位置取代為您自己的值。 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+2. 將下列程式碼新增至 **Main** 方法，以設定變數。 將預留位置取代為您自己的值。 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析]  以找出 [Data Factory]  ：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
     ```csharp
     // Set variables

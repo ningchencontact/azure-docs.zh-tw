@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de5f1d03550f65b849a1e3e6cf4be7a94a29aa9
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 82e1f0b72b4f2f3053a13a305df9d0e277894156
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517332"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213559"
 ---
 # <a name="tutorial-integrate-robin-with-azure-active-directory"></a>教學課程：整合 Robin 與 Azure Active Directory
 
@@ -82,13 +82,13 @@ ms.locfileid: "68517332"
 
    ![編輯基本 SAML 組態](common/edit-urls.png)
 
-1. 在 [基本 SAML 組態] ****   區段上，已預先以  **IDP**  起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存] ****   按鈕，才能儲存組態。
+1. 在 [基本 SAML 組態]  區段上，已預先以 **IDP** 起始的模式設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存]  按鈕，才能儲存設定。
 
 1. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]  ，然後執行下列步驟：
 
     在 [登入 URL]  文字方塊中，輸入 URL：`https://dashboard.robinpowered.com/`
 
-5. Robin 應用程式需要特定格式的 SAML 判斷提示，因此您必須在 SAML 權杖屬性設定中新增自訂屬性對應。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
+5. Robin 應用程式需要特定格式的 SAML 判斷提示，因此您必須在 SAML 權杖屬性設定中新增自訂屬性對應。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
 
     ![image](common/edit-attribute.png)
 

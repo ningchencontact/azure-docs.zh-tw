@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d03e43ab2c26131c35eb78815d34cd959cc785
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 78daf578647e087fcc673d612ce24814a53ee331
+ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347499"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70213570"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>教學課程：整合 JFrog Artifactory 與 Azure Active Directory
 
@@ -95,11 +95,11 @@ ms.locfileid: "68347499"
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請連絡 [JFrog Artifactory 用戶端支援小組](https://support.jfrog.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-1. JFrog Artifactory 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以開啟 [使用者屬性] 對話方塊。
+1. JFrog Artifactory 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]  圖示以開啟 [使用者屬性] 對話方塊。
 
     ![image](common/edit-attribute.png)
 
-1. 除了以上屬性之外，JFrog Artifactory 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [群組宣告 (預覽)] ****   對話方塊的 [使用者屬性與宣告] ****   區段中，執行下列步驟：
+1. 除了以上屬性之外，JFrog Artifactory 應用程式還預期 SAML 回應中會再多傳回幾個屬性。 在 [群組宣告 (預覽)]  對話方塊的 [使用者屬性與宣告]  區段中，執行下列步驟：
 
     a. 按一下 [宣告中傳回的群組]  旁的**筆**。
 

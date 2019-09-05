@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ad321dfa3db69c89b8da080673cb3bab02e4af66
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: b3607f0b462efceab322e6eaf616268a34b02fb0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905237"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142089"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>使用舊版的 Azure Migrate
 
@@ -201,7 +201,7 @@ Linux | Azure 認同這些 [Linux 作業系統](../virtual-machines/linux/endors
 1. 若要將 Log Analytics 工作區連結至專案，請在 [概觀]  > [基本資訊]  中，按一下 [需要設定]  。
 2. 您可以建立新的工作區，或是連結現有的工作區：
   - 若要建立新的工作區，請指定名稱。 工作區會在與移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立。
-  - 當您連結現有的工作區時，您能以和移轉專案相同的方式，從相同訂用帳戶中所有的可用工作區中挑選。 系統只會列出那些在[支援的服務對應區域](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)中建立的工作區。 若要連結工作區，請確定您有該工作區的「讀者」存取權。
+  - 當您連結現有的工作區時，您能以和移轉專案相同的方式，從相同訂用帳戶中所有的可用工作區中挑選。 系統只會列出那些在[支援的服務對應區域](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)中建立的工作區。 若要連結工作區，請確定您有該工作區的「讀者」存取權。
 
 > [!NOTE]
 > 您無法變更與移轉專案相關聯的工作區。

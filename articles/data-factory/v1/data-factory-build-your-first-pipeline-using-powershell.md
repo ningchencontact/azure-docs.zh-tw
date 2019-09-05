@@ -3,23 +3,20 @@ title: 建置您的第一個 Data Factory (PowerShell) | Microsoft Docs
 description: 在本教學課程中，您將使用 Azure PowerShell，建立範例 Azure Data Factory 管線。
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: 22ec1236-ea86-4eb7-b903-0e79a58b90c7
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 0f18fc8a18cbcf5d85b68ed40790eda36d653812
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 3e60e31f62d74a22a87c60f70e62bd5148906607
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836580"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140409"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建置您的第一個 Azure Data Factory
 > [!div class="op_single_selector"]

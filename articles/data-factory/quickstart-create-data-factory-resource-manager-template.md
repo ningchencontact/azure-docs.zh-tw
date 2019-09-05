@@ -8,19 +8,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 2b25dff29563dcf44077465f3e563d04f04b3119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7826d34b3489fce9d71da051345cf066b756ef8b
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156981"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140976"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選取您目前使用的 Data Factory 服務版本："]
 > * [第 1 版](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [目前的版本](quickstart-create-data-factory-resource-manager-template.md)
 
@@ -402,7 +402,7 @@ DeploymentDebugLogLevel :
     RuntimeState      : Stopped
     ```
     
-    請注意，觸發程序的執行階段狀態為 [已停止]。
+    請注意，觸發程序的執行階段狀態為 [已停止]  。
 5. **啟動觸發程序**。 觸發程序會在整點執行範本中定義的管線。 也就是，如果您在下午 2:25 執行此命令，則觸發程序會在下午 3 點第一次執行管線。 然後，它會每小時執行管線，直到您為觸發程序指定的結束時間為止。
 
     ```powershell
@@ -435,33 +435,33 @@ DeploymentDebugLogLevel :
 
 ## <a name="monitor-the-pipeline"></a>監視管線
 
-1. 登入 [Azure 入口網站](https://portal.azure.com/)後，按一下 [所有服務]，以 **data fa** 等關鍵字進行搜尋，然後選取 [資料處理站]。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)後，按一下 [所有服務]  ，以 **data fa** 等關鍵字進行搜尋，然後選取 [資料處理站]  。
 
     ![瀏覽資料處理站功能表](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 
-2. 在 [資料管理站] 頁面中，按一下您建立的資料管理站。 如有需要，以您的資料管理站名稱篩選清單。
+2. 在 [資料管理站]  頁面中，按一下您建立的資料管理站。 如有需要，以您的資料管理站名稱篩選清單。
 
     ![選取 Data Factory](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
 
-3. 在資料管理站頁面上，按一下 [監視及管理] 圖格。
+3. 在資料管理站頁面上，按一下 [監視及管理]  圖格。
 
     ![監視及管理圖格](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
 
-4. [資料整合應用程式] 應該在網頁瀏覽器的個別索引標籤中開啟。 如果監視索引標籤不在作用中，請切換到 [監視索引標籤]。請注意，**排程器觸發程序**已觸發管線執行。
+4. [資料整合應用程式]  應該在網頁瀏覽器的個別索引標籤中開啟。 如果監視索引標籤不在作用中，請切換到 [監視索引標籤]  。請注意，**排程器觸發程序**已觸發管線執行。
 
     ![監視管線執行](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
 
     > [!IMPORTANT]
-    > 您只會在整點看到管線執行 (例如：4 AM、5 AM、6 AM 等)。 按一下工具列上的 [重新整理]，以在時間達到下一個小時時重新整理清單。
+    > 您只會在整點看到管線執行 (例如：4 AM、5 AM、6 AM 等)。 按一下工具列上的 [重新整理]  ，以在時間達到下一個小時時重新整理清單。
 
-5. 按一下 [動作] 資料行中的連結。
+5. 按一下 [動作]  資料行中的連結。
 
     ![管線動作連結](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
 6. 您會看到與管線執行相關聯的活動執行。 在本快速入門中，管線只有一個以下類型的活動：複製。 因此，您會看到該活動的執行。
 
     ![活動執行](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-7. 按一下 [輸出] 資料行底下的連結。 您會在 [輸出] 視窗中看到複製作業的輸出。 按一下最大化按鈕，以查看完整的輸出。 您可以關閉最大化的輸出視窗，或將它關閉。
+7. 按一下 [輸出]  資料行底下的連結。 您會在 [輸出]  視窗中看到複製作業的輸出。 按一下最大化按鈕，以查看完整的輸出。 您可以關閉最大化的輸出視窗，或將它關閉。
 
     ![[輸出] 視窗](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
 8. 一旦您看到成功/失敗執行，請停止觸發程序。 觸發程序會一小時執行一次管線。 管線會將相同的檔案從每次執行的輸入資料夾複製到輸出資料夾。 若要停止觸發程序，請在 PowerShell 視窗中執行下列命令。

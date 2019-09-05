@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 244779e647c4b184b036b1a5ea77aac199be5994
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0c5b9a16a7b52239f1ef16d42e1b4be344863a04
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269396"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140612"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL 資料庫
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL 資料庫。    
@@ -71,7 +70,7 @@ ms.locfileid: "59269396"
 
 1. 開啟 SQL Server Management Studio，然後連線到內部部署 SQL Server 資料庫。
 
-1. 在**伺服器總管**中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
+1. 在**伺服器總管**中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]  。
 
 1. 對您的資料庫執行下列 SQL 命令，以建立名為 `customer_table` 和 `project_table` 的資料表：
 
@@ -110,7 +109,7 @@ ms.locfileid: "59269396"
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>在 Azure SQL 資料庫中建立目的地資料表
 1. 開啟 SQL Server Management Studio，然後連線到 SQL Server 資料庫。
 
-1. 在**伺服器總管**中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]。
+1. 在**伺服器總管**中，以滑鼠右鍵按一下資料庫，然後選擇 [新增查詢]  。
 
 1. 對您的資料庫執行下列 SQL 命令，以建立名為 `customer_table` 和 `project_table` 的 SQL 資料表：  
     
@@ -272,7 +271,7 @@ END
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * 若要建立 Data Factory 執行個體，您用來登入 Azure 的使用者帳戶必須為參與者或擁有者角色，或是 Azure 訂用帳戶的管理員。
-* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
+* 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析]  以找出 [Data Factory]  ：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、SQL Database 等) 和計算 (Azure HDInsight 等) 可位於其他區域。
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -342,7 +341,7 @@ END
 
 1. 在 PowerShell 中，切換至 C:\ADFTutorials\IncCopyMultiTableTutorial 資料夾。
 
-1. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務 AzureStorageLinkedService。 在下列範例中，您會傳遞 ResourceGroupName 和 DataFactoryName 參數的值： 
+1. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務 AzureStorageLinkedService。 在下列範例中，您會傳遞 ResourceGroupName  和 DataFactoryName  參數的值： 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
@@ -706,26 +705,26 @@ END
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 選取 [所有服務]，以關鍵字「資料處理站」進行搜尋，然後選取 [資料處理站]。 
+1. 選取 [所有服務]  ，以關鍵字「資料處理站」  進行搜尋，然後選取 [資料處理站]  。 
 
     ![Data Factory 功能表](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-data-factories-menu-1.png)
 
-1. 在 Data Factory 清單中搜尋您的 Data Factory，然後加以選取以開啟 [Data Factory] 頁面。 
+1. 在 Data Factory 清單中搜尋您的 Data Factory，然後加以選取以開啟 [Data Factory]  頁面。 
 
     ![搜尋您的 Data Factory](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-search-data-factory-2.png)
 
-1. 在 [Data Factory] 頁面上，選取 [監視及管理]。 
+1. 在 [Data Factory]  頁面上，選取 [監視及管理]  。 
 
     ![監視及管理圖格](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-monitor-manage-tile-3.png)
 
-1. [資料整合應用程式] 會在不同的索引標籤中開啟。您可以看到所有管線執行及其狀態。 請注意，在下列範例中，管線執行狀態是 [成功]。 若要檢查傳遞到管線的參數，請選取 [參數] 資料行中的連結。 如果發生錯誤，您就會在 [錯誤] 資料行中看到連結。 選取 [動作] 資料行中的連結。 
+1. [資料整合應用程式]  會在不同的索引標籤中開啟。您可以看到所有管線執行及其狀態。 請注意，在下列範例中，管線執行狀態是 [成功]  。 若要檢查傳遞到管線的參數，請選取 [參數]  資料行中的連結。 如果發生錯誤，您就會在 [錯誤]  資料行中看到連結。 選取 [動作]  資料行中的連結。 
 
     ![管線執行回合](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
-1. 當您選取 [動作] 資料行中的連結時，您會看到下列頁面，其中顯示管線的所有活動執行： 
+1. 當您選取 [動作]  資料行中的連結時，您會看到下列頁面，其中顯示管線的所有活動執行： 
 
     ![活動執行](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-activity-runs-5.png)
 
-1. 若要回到 [管線執行] 檢視，請選取 [管線]，如下圖所示。 
+1. 若要回到 [管線執行]  檢視，請選取 [管線]  ，如下圖所示。 
 
 ## <a name="review-the-results"></a>檢閱結果
 在 SQL Server Management Studio 中，對目標 SQL 資料庫執行下列查詢，以確認資料已從來源資料表複製到目的地資料表： 
@@ -803,15 +802,15 @@ VALUES
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-1. 遵循[監視管線](#monitor-the-pipeline)一節中的指示，以監視管線執行。 因為管線狀態為 [進行中]，所以您會在 [動作] 底下看到另一個動作連結，其可供取消管線執行。 
+1. 遵循[監視管線](#monitor-the-pipeline)一節中的指示，以監視管線執行。 因為管線狀態為 [進行中]  ，所以您會在 [動作]  底下看到另一個動作連結，其可供取消管線執行。 
 
     ![進行中監視管線執行](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-6.png)
 
-1. 選取 [重新整理] 可重新整理清單，直到管線執行成功。 
+1. 選取 [重新整理]  可重新整理清單，直到管線執行成功。 
 
     ![重新整理管線執行](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-succeded-7.png)
 
-1. 選擇性地，選取 [動作] 底下的 [檢視活動執行] 連結，可查看與此管線執行相關聯的所有活動執行。 
+1. 選擇性地，選取 [動作]  底下的 [檢視活動執行]  連結，可查看與此管線執行相關聯的所有活動執行。 
 
 ## <a name="review-the-final-results"></a>檢閱最終結果
 在 SQL Server Management Studio 中，對目標資料庫執行下列查詢，以確認經過更新/全新的資料已從來源資料表複製到目的地資料表。 

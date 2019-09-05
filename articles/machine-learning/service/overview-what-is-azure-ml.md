@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8e19c89cec00bba05eb74e752268e1da43a1ac0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 822bbd004035d9745535942c508cae6702e5b99b
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035864"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278118"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
 
@@ -35,9 +35,12 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料
 + [Jupyter Notebook](https://jupyter.org)，您會在其中使用 [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) 來撰寫自己的程式碼，例如[這些範例 Notebook](https://aka.ms/aml-notebooks)
 + [Visual Studio Code 擴充功能](how-to-vscode-tools.md) \(英文\)
 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>可利用 Azure Machine Learning 服務做什麼？
 
-您可以使用 <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-tutorial-automobile-price-train-score.md)，在 Azure Machine Learning 服務工作區中自行建置及定型高精確度的機器學習和深度學習模型。
+您可以使用 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> 搭配開放原始碼 Python 套件，或使用[視覺化介面 (預覽)](ui-tutorial-automobile-price-train-score.md)，在 Azure Machine Learning 服務工作區中自行建置及定型高精確度的機器學習和深度學習模型。
 
 您可選擇開放原始碼 Python 套件中所提供的許多機器學習元件，例如 <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>、<a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>、<a href="https://pytorch.org" target="_blank">PyTorch</a> 和 <a href="https://mxnet.io" target="_blank">MXNet</a>。
 
@@ -45,7 +48,7 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料
 
 ### <a name="code-first-experience"></a>程式碼優先體驗
 
-您可使用 <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a>，開始訓練您的本機電腦，然後向外擴充到雲端。 透過許多可用的[計算目標](how-to-set-up-training-targets.md) (例如 Azure Machine Learning Compute 和 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)) 及[進階的超參數微調服務](how-to-tune-hyperparameters.md)，您可以使用雲端功能更快地建置更好的模型。
+您可使用 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a>，開始訓練您的本機電腦，然後向外擴充到雲端。 透過許多可用的[計算目標](how-to-set-up-training-targets.md) (例如 Azure Machine Learning Compute 和 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)) 及[進階的超參數微調服務](how-to-tune-hyperparameters.md)，您可以使用雲端功能更快地建置更好的模型。
 
 您也可以使用 SDK，[自動進行模型定型和微調](tutorial-auto-train-models.md)。
 
@@ -63,7 +66,7 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料
 
 當您有正確的模型時，您可以在 Web 服務中、在 IoT 裝置上或從 Power BI 輕鬆使用它。 如需詳細資訊，請參閱有關[如何部署和部署位置](how-to-deploy-and-where.md)的文章。
 
-接著，您可以使用[適用於 Python 的 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 或 [Azure 入口網站](https://portal.azure.com/)管理所部署的模型。
+接著，您可以使用[適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 或 [Azure 入口網站](https://portal.azure.com/)管理所部署的模型。
 
 這些模型可被取用並[即時](how-to-consume-web-service.md)或[非同步](how-to-run-batch-predictions.md)地傳回大量資料的相關預測。
 

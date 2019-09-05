@@ -1,5 +1,5 @@
 ---
-title: 在 QnA Maker 中建立、發佈及回答
+title: 教學課程：在 QnA Maker 中建立、發佈及回答
 titleSuffix: Azure Cognitive Services
 description: 從網頁型常見問題集建立具有問題與答案的新知識庫。 儲存、訓練和發佈知識庫。 發佈知識庫之後，使用 cURL 命令來傳送問題和接收答案。 接著建立 Bot，並以相同問題測試 Bot。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: a13e0cb0e594571344b16d007ef13475b384b73d
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: 6cc509b9f9a9087fbe832dbd35b3dfd8d60a6577
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693019"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308072"
 ---
 # <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>教學課程：在 QnA Maker 入口網站中建立知識庫
 

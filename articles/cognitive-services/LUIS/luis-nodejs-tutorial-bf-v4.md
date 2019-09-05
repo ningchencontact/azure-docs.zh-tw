@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: a06bd5a1a061de82230e93b867ea88e333b3cc93
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8455a9c9ecff89643e090f1d763a44f97f5779f5
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442559"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70206891"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>教學課程：使用以 Node.js 中 Language Understanding 啟用的 Web 應用程式 Bot 
 
@@ -47,9 +47,9 @@ ms.locfileid: "67442559"
     |設定|目的|建議的設定|
     |--|--|--|
     |Bot 名稱|資源名稱|`luis-nodejs-bot-` + `<your-name>`，例如 `luis-nodejs-bot-johnsmith`|
-    |訂用帳戶|要在其中建立 Bot 的訂用帳戶。|您的主要訂用帳戶。
-    |資源群組|Azure 資源的邏輯群組|建立新的群組以存放與此 Bot 搭配使用的所有資源，請將群組命名為 `luis-nodejs-bot-resource-group`。|
-    |位置|Azure 區域 - 這不一定要與 LUIS 撰寫或發行區域相同。|`westus`|
+    |Subscription|要在其中建立 Bot 的訂用帳戶。|您的主要訂用帳戶。
+    |Resource group|Azure 資源的邏輯群組|建立新的群組以存放與此 Bot 搭配使用的所有資源，請將群組命名為 `luis-nodejs-bot-resource-group`。|
+    |Location|Azure 區域 - 這不一定要與 LUIS 撰寫或發行區域相同。|`westus`|
     |定價層|用於服務要求限制和計費。|`F0` 是免費層。
     |應用程式名稱|將 Bot 部署到雲端時，此名稱會用來作為子領域 (例如 humanresourcesbot.azurewebsites.net)。|`luis-nodejs-bot-` + `<your-name>`，例如 `luis-nodejs-bot-johnsmith`|
     |Bot 範本|Bot Framework 設定 - 請參閱下一個資料表|
@@ -339,7 +339,7 @@ Bot 服務建立流程也會以意圖和語句範例來建立新 LUIS 應用程�
 
 1. 在 Bot 模擬器中，藉由輸入下列語句來預訂班機： 
 
-    ```bot
+    ```console
     Book a flight from Paris to Berlin on March 22, 2020
     ```
 

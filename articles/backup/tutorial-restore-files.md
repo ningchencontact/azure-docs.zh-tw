@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 9e71757215f6a0a5b664abd3f8a9ee632b1535f3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b150dc8e0688b27fdc677bf23a75389c493f1325
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876378"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210205"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>在 Azure 中將檔案還原到虛擬機器
 Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或個別檔案。 本文詳細說明如何還原個別檔案。 在本教學課程中，您將了解如何：
@@ -106,7 +106,7 @@ Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當�
 
     這會下載指令碼並顯示密碼，如下列範例所示：
 
-    ```
+    ```output
     File downloaded: myVM_we_1571974050985163527.sh. Use password c068a041ce12465
     ```
 

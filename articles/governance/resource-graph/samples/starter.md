@@ -7,13 +7,12 @@ ms.date: 04/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 98b05f74f0d6f7d20b5aa7ed77047818f217f147
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 688c591cbe94c69c73779843011cb24c3d2fd4cf
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691182"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241086"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 
@@ -36,8 +35,6 @@ ms.locfileid: "64691182"
 > - [顯示特定別名的相異值](#distinct-alias-values)
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>語言支援
 
@@ -96,7 +93,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="a-nameshow-sortedshow-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted"/>依名稱顯示前五個虛擬機器及其 OS 類型
 
-此查詢會使用 `limit`，僅擷取按名稱排序的五個相符記錄。 Azure 資源類型為 `Microsoft.Compute/virtualMachines`。 `project` 會告訴 Azure Resource Graph 要包含哪些屬性。
+此查詢會使用 `top`，僅擷取按名稱排序的五個相符記錄。 Azure 資源類型為 `Microsoft.Compute/virtualMachines`。 `project` 會告訴 Azure Resource Graph 要包含哪些屬性。
 
 ```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -270,7 +267,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 |
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
 ```
 
 ## <a name="a-namedistinct-alias-valuesshow-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"/>顯示特定別名的相異值
