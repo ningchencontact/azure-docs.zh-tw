@@ -219,10 +219,16 @@
       items:
         - name: 受控執行個體文件
           href: sql-database-managed-instance-index.yml
-        - name: 受控執行個體功能
+        - name: 受控執行個體概觀
           href: sql-database-managed-instance.md
         - name: 受控執行個體常見問題集
           href: sql-database-managed-instance-faq.md
+        - name: 執行個體集區
+          items:
+            - name: 執行個體集區概觀
+              href: sql-database-instance-pools.md
+            - name: 執行個體集區操作指南
+              href: sql-database-instance-pools-how-to.md
         - name: 管理 API 參考
           href: sql-database-managed-instance-create-manage.md
         - name: 資源限制

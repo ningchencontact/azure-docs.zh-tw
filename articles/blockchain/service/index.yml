@@ -1,57 +1,81 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure 區塊鏈服務文件
+summary: 了解如何建立區塊鏈應用程式。 教學課程、API 參考和其他文件將示範如何使用 Azure 區塊鏈服務來建立、開發和管理 Azure 上的區塊鏈應用程式。
 metadata:
   title: Azure 區塊鏈服務文件 - 教學課程和 API 參考
   description: 了解如何建立區塊鏈應用程式。 教學課程、API 參考和其他文件將示範如何使用 Azure 區塊鏈服務來建立、開發和管理 Azure 上的區塊鏈應用程式。
   services: azure-blockchain
-  author: patricka
-  manager: femila
   ms.service: azure-blockchain
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/13/2019
+  author: PatAltimore
   ms.author: patricka
-abstract:
-  description: 了解如何建立區塊鏈應用程式。 教學課程、API 參考和其他文件將示範如何使用 Azure 區塊鏈服務來建立、開發和使用 Azure 上的區塊鏈應用程式。
-sections:
-  - title: 5 分鐘快速入門
-    items:
-      - type: paragraph
-        text: 了解如何建立並連線到 Azure 上的聯盟成員。
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/deploy.svg
-            text: 建立聯盟成員
-            href: /azure/blockchain/service/create-member
-          - image:
-              src: ./media/index/multi-connect.svg
-            text: 使用 MetaMask 連線
-            href: /azure/blockchain/service/connect-metamask
-          - image:
-              src: ./media/index/cligeneric.svg
-            text: 使用 geth 連線
-            href: /azure/blockchain/service/connect-geth
-          - image:
-              src: ./media/index/code-blocks.svg
-            text: 使用 Truffle 連線
-            href: /azure/blockchain/service/connect-truffle
-  - title: 逐步教學課程
-    items:
-      - type: paragraph
-        text: 了解如何建立、設定及開發 Azure 上的區塊鏈應用程式。
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/blockchain/service/send-transaction">建立 Azure 區塊鏈服務成員並傳送交易</a>
-  - title: 參考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>'
+  ms.date: 08/29/2019
+  ms.openlocfilehash: c5816bb2278c138a8df07c5c289d53a818614d86
+  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70240827"
+landingContent:
+- title: 關於 Azure 區塊鏈服務
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 Azure 區塊鏈服務？
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 私人協會區塊鏈網路
+      url: consortium.md
+    - text: 資料存取和安全性
+      url: data-security.md
+    - text: 開發工具
+      url: develop.md
+- title: 開始使用
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 建立區塊鏈成員 - 入口網站
+      url: create-member.md
+    - text: 建立區塊鏈成員 - CLI
+      url: create-member-cli.md
+  - linkListType: quickstart
+    links:
+    - text: 使用 MetaMask 連線並使用 Remix 部署智慧型合約
+      url: connect-metamask.md
+    - text: 使用 Geth 連線到交易節點
+      url: connect-geth.md
+    - text: 使用 Truffle 連線到交易節點
+      url: connect-truffle.md
+  - linkListType: tutorial
+    links:
+    - text: 在 Azure 區塊鏈服務上使用智慧型合約
+      url: send-transaction.md
+  - linkListType: video
+    links:
+    - text: 部署和設定您的網路
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
+    - text: 使用 VS Code 撰寫並測試智慧合約
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+    - text: 將資料傳送到總帳
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-III-Send-data-to-the-ledger
+    - text: 發佈事件和總帳資料
+      url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-IV-Publish-events-and-ledger-data
+- title: 管理
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 管理區塊鏈成員 - CLI
+      url: manage-cli.md
+    - text: 管理協會成員 - PowerShell
+      url: manage-consortium-powershell.md
+    - text: 設定交易節點
+      url: configure-transaction-nodes.md
+    - text: 設定 Active Directory 存取
+      url: configure-aad.md
+- title: API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: https://docs.microsoft.com/rest/api/blockchain

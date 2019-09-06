@@ -60,9 +60,6 @@
   items:
     - name: 範本部署
       href: template-deployment-overview.md
-    - name: 範本檔案結構
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: resource-group-authoring-templates.md
     - name: 範本最佳做法
       href: template-best-practices.md
     - name: 雲端一致性範本
@@ -85,26 +82,38 @@
   items:
     - name: 建立範本
       items:
-        - name: 開發工具 - VS Code
+        - name: 使用 VS 程式碼
           href: resource-manager-tools-vs-code.md
-        - name: 建立範本
-          href: how-to-create-template.md
-        - name: 子資源名稱與類型
-          href: child-resource-name-type.md
-        - name: 在訂用帳戶中建立資源群組和資源
-          displayName: subscription level deployment
-          href: deploy-to-subscription.md
-        - name: 定義資源相依性
-          href: resource-group-define-dependencies.md
+        - name: 撰寫範本運算式
+          href: template-expressions.md
+        - name: 參數
+          href: template-parameters.md
+        - name: 變數
+          href: template-variables.md
+        - name: 使用者定義函式
+          href: template-user-defined-functions.md
+        - name: 資源
+          items:
+            - name: 子資源名稱與類型
+              href: child-resource-name-type.md
+            - name: 條件式部署
+              href: conditional-resource-deployment.md
+            - name: 設定資源相依性
+              href: resource-group-define-dependencies.md
+            - name: 設定資源位置
+              href: resource-location.md
+            - name: 使用範本擴充功能
+              href: resource-manager-use-extensions.md
+        - name: 輸出
+          href: template-outputs.md
         - name: 範本模組化
           displayName: 'linked templates, nested templates'
           href: resource-group-linked-templates.md
         - name: 建立多個執行個體
           href: resource-group-create-multiple.md
-        - name: 使用範本擴充功能
-          href: resource-manager-use-extensions.md
-        - name: 更新資源
-          href: /azure/architecture/building-blocks/extending-templates/update-resource
+        - name: 在訂用帳戶中建立資源群組和資源
+          displayName: subscription level deployment
+          href: deploy-to-subscription.md
     - name: 部署範本
       items:
         - name: 部署 - 入口網站
@@ -244,6 +253,9 @@
       href: resource-manager-async-operations.md
 - name: 參考
   items:
+    - name: 範本檔案結構
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: resource-group-authoring-templates.md
     - name: 範本參考
       href: /azure/templates/
     - name: 範本函式

@@ -12,14 +12,16 @@
       href: virtual-wan-expressroute-portal.md
 - name: 概念
   items:
-    - name: 關於位置與合作夥伴
+    - name: 位置與合作夥伴
       href: virtual-wan-locations-partners.md
-    - name: 關於全域傳輸網路架構
-      href: virtual-wan-global-transit-network-architecture.md
-    - name: 關於虛擬 WAN 中的 Office 365 控制平面
-      href: virtual-wan-office365-overview.md
-    - name: 關於 IPsec 原則
+    - name: IPsec 原則
       href: virtual-wan-ipsec.md
+    - name: 架構
+      items:
+        - name: 全域傳輸網路架構
+          href: virtual-wan-global-transit-network-architecture.md
+        - name: 虛擬 WAN 中的 Office 365 控制平面
+          href: virtual-wan-office365-overview.md
 - name: 使用說明指南
   items:
     - name: 將流量從虛擬中樞路由傳送至 NVA

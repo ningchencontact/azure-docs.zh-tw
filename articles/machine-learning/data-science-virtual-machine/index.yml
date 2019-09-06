@@ -1,55 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure 資料科學虛擬機器文件
+summary: Azure 資料科學虛擬機器 (DSVM) 是具有資料科學和 ML 工具的自訂 VM 映像。 使用此 VM 來建置智慧型應用程式以進行進階分析。
 metadata:
   title: 資料科學虛擬機器文件 - Azure
-  description: 了解如何使用資料科學虛擬機器，這是針對資料科學所建置的 Azure 雲端中的實驗環境。 已預先安裝並設定好熱門的資料科學和機器學習工具。 這項設計可讓您開始建立智慧型應用程式，以進行進階分析。
+  description: 資料科學虛擬機器是針對資料科學所建置的實驗環境，位於 Azure 雲端。 已預先安裝熱門資料科學和 ML 工具。
   services: machine-learning
-  author: vijetajo
   ms.service: machine-learning
   ms.subservice: data-science-vm
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/19/2019
-  ms.author: vijetaj
-abstract:
-  description: Azure 資料科學虛擬機器 (DSVM) 是具有資料科學和機器學習工具的自訂 VM 映像。 您可以使用此 VM 來建置智慧型應用程式以進行進階分析。 <a href="overview.md">深入了解</a>。
-sections:
-  - title: 5 分鐘快速入門
-    items:
-      - type: paragraph
-        text: 了解如何設定以 Windows 或 Linux 為基礎的資料科學虛擬機器：
-      - type: paragraph
-        text: <b>Windows DSVM</b>
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="provision-vm">設定 Windows DSVM</a>
-          - html: <a href="vm-do-ten-things">使用 Windows DSVM</a>
-      - type: paragraph
-        text: <b>Linux DSVM (Ubuntu | CentOS)</b>
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="linux-dsvm-intro">設定 Linux CentOS DSVM</a>
-          - html: <a href="dsvm-ubuntu-intro">設定 Linux Ubuntu DSVM</a>
-          - html: <a href="linux-dsvm-walkthrough">使用 Linux DSVM</a>
-  - title: 更多 Azure Machine Learning 技術
-    items:
-      - type: paragraph
-        text: Azure Machine Learning 中其他可用的技術：
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Machine Learning 服務
-            href: /azure/machine-learning/service/
-            image:
-              src: media/index/i_machine-learning.svg
-              href: /azure/machine-learning/service/
-          - title: Azure Machine Learning Studio
-            href: /azure/machine-learning/studio/
-            image:
-              src: media/index/machine-learning-studio.svg
-              href: /azure/machine-learning/studio/
+  ms.collection: collection
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 09/03/2019
+  ms.openlocfilehash: c33504124bdef2edf44842581143a8468cbb1e20
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  ms.translationtype: HT
+  ms.contentlocale: zh-TW
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70308803"
+landingContent:
+- title: 開始使用您的 DSVM
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 什麼是 Azure DSVM？
+      url: overview.md
+    - text: 什麼是 Geo AI DSVM？
+      url: geo-ai-dsvm-overview.md
+  - linkListType: get-started
+    links:
+    - text: 建立 Windows DSVM
+      url: provision-vm.md
+    - text: 建立 Ubuntu DSVM
+      url: dsvm-ubuntu-intro.md
+    - text: 建立 CentOS DSVM
+      url: linux-dsvm-intro.md
+    - text: 建立 Geo AI DSVM
+      url: provision-geo-ai-dsvm.md
+- title: 管理您的 DSVM
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 建立自動調整 DSVM 集區
+      url: dsvm-pools.md
+    - text: 與 Active Directory 整合
+      url: dsvm-common-identity.md
+    - text: 保護資源存取認證
+      url: dsvm-secure-access-keys.md
+- title: 更多 Azure Machine Learning 技術
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure Machine Learning 服務
+      url: /azure/machine-learning/
+    - text: 比較 ML 產品
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

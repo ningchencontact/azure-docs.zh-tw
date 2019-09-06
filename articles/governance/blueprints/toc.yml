@@ -153,6 +153,9 @@
     - name: 以 PowerShell 管理指派
       displayName: 'create, update, remove'
       href: ./how-to/manage-assignments-ps.md
+    - name: 使用 PowerShell 匯入和匯出
+      displayName: 'import, export, folders'
+      href: ./how-to/import-export-ps.md
     - name: 從入口網站更新現有的指派
       displayName: 'lock, errors'
       href: ./how-to/update-existing-assignments.md

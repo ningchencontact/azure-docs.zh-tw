@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure SQL Database 受控執行個體
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: 受控執行個體文件-教學課程和 API 參考
+  title: 受控執行個體文件 - 教學課程和 API 參考
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
   author: jovanpop-msft
@@ -18,14 +18,14 @@ metadata:
   ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
-  description: 在 Azure SQL Database 受控執行個體是受到完整管理的 SQL Server 資料庫引擎執行個體裝載於 Azure 雲端中。 這是將 SQL Server 資料庫遷移至雲端的最佳 PaaS 選項。 了解如何利用我們的快速入門、教學課程和範例，建立及使用受控執行個體。
+  description: Azure SQL Database 中的受控執行個體是裝載在 Azure 雲端中的完全受控 SQL Server 資料庫引擎執行個體。 這是將 SQL Server 資料庫遷移至雲端的最佳 PaaS 選項。 了解如何利用我們的快速入門、教學課程和範例，建立及使用受控執行個體。
   aside:
     image:
       alt: null
       height: 110
       src: media/sql-database-managed-instance-index/intro.png
       width: 250
-    title: '簡介 Azure SQL Database (5:38) 中的受控執行個體'
+    title: 'Azure SQL Database 受控執行個體簡介 (5:38)'
     href: 'https://www.youtube.com/watch?v=W8feSZXm2Ec'
     width: 250
 sections:
@@ -35,9 +35,9 @@ sections:
         className: cardsM
         columns: 3
         items:
-          - title: 總覽
+          - title: 概觀
             href: /azure/sql-database/sql-database-managed-instance
-            html: <p>了解 Azure SQL Database 中的受控執行個體的詳細資訊。</p>
+            html: <p>查看 Azure SQL Database 中受控執行個體的詳細資訊。</p>
           - title: 豐富的介面區
             href: '/azure/sql-database/sql-database-managed-instance#sql-features-supported'
             html: <p>與最新版 SQL Server 資料庫引擎達到接近 100% 的 SQL 功能相容性。</p>
@@ -65,18 +65,19 @@ sections:
   - title: 新功能與預覽功能
     items:
       - type: paragraph
-        text: 我們會持續改進新功能的受控執行的個體：
+        text: 我們會持續以新功能改善受控執行個體：
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> 4 個 Vcore 第 5 代硬體產生</a>'
-          - html: '支援訂用帳戶與<a href="https://aka.ms/sql-mi-visual-studio-subscribers" >Visual Studio 訂閱者的 Azure 每月信用額度 </a>'
-          - html: '支援<a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">SharePoint 2016 和 SharePoint 2019</a>和<a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central </a>'
-          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">設定時區</a>期間建立執行個體。'
-          - html: '建立具有執行個體<a href="https://aka.ms/managed-instance-collation">您選擇的伺服器層級定序</a>。'
-          - html: '異地還原功能可讓您<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">將資料庫還原至另一個資料中心使用 PowerShell</a>。'
-          - html: '（預覽）<a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">重新建立卸除資料庫時使用 PowerShell</a>'
-          - html: 受管理的執行個體受到<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>。
+          - html: (預覽) <a href="/azure/sql-database/sql-database-instance-pools"> 執行個體集區</a> - 提供便利且符合成本效益的方式，將較小的 SQL 執行個體遷移到雲端。
+          - html: '<a href="https://aka.ms/four-cores-sql-mi-update"> Gen5 代硬體上的 4 個虛擬核心</a>'
+          - html: '透過 <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azure 每月點數，支援 Visual Studio 訂閱者的訂用帳戶</a>'
+          - html: '對 <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 和 SharePoint 2019 </a> 以及 <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a> 的支援'
+          - html: '在執行個體建立期間<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">設定時區</a>。'
+          - html: '使用<a href="https://aka.ms/managed-instance-collation">您選擇的伺服器層級定序</a>建立執行個體。'
+          - html: '異地還原功能可讓您<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">使用 PowerShell 將資料庫還原到其他資料中心</a>。'
+          - html: '(預覽) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">使用 PowerShell 重新建立已卸載的資料庫</a>'
+          - html: 受控執行個體受<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>的保護。
           - html: '(預覽) 移轉已啟用「透明資料加密」(TDE) 的內部部署資料庫時<a href="https://aka.ms/managed-instance-tde-byok">攜帶您自己的加密金鑰</a>。'
           - html: '(預覽) 使用<a href="https://aka.ms/managed-instance-failover-groups">異地分散的容錯移轉群組</a>將執行個體保留在另一個區域中，確保即使在區域性災害案例中，您的資料仍可供使用。'
           - html: '為還原時間點<a href="https://aka.ms/managed-instance-configurable-backup-retention">設定最多 35 天的備份保留期限</a>。 請注意，長期備份保留期間 (最多 10 年) 仍未啟用，因此您可以使用<a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">只複製備份</a>作為替代方案。'
@@ -84,7 +85,7 @@ sections:
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
-        text: 受控執行個體可讓您輕鬆地執行使用 Azure 入口網站、 Azure CLI 和 Azure PowerShell 的基本管理工作。 深入了解如何使用下列快速入門範例來執行基本管理工作：
+        text: 受控執行個體可讓您使用 Azure 入口網站、Azure CLI 和 Azure PowerShell，輕鬆地執行基本管理工作。 深入了解如何使用下列快速入門範例來執行基本管理工作：
       - type: table
         style: dataMatrix
         columns:
@@ -152,32 +153,32 @@ sections:
   - title: 逐步教學課程和學習資料
     items:
       - type: paragraph
-        text: 了解如何建立、 管理及使用受管理的執行個體。
+        text: 了解如何建立、管理及使用受控執行個體。
       - type: list
         style: ordered
         items:
-          - html: 了解如何快速<a href="sql-database-managed-instance-quickstart-guide.md">開始使用受管理的執行個體</a>使用我們的快速入門指南。
-          - html: 深入了解<a href="/azure/sql-database/sql-database-managed-instance-resource-limits">硬體特性和限制</a>， <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">TRANSACT-SQL 語言差異</a>，和<a href="/azure/sql-database/sql-database-managed-instance-create-manage">TRANSACT-SQL、 PowerShell、 Azure CLI API 來設定受控執行個體<a/>.
-          - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">設定</a>受管理的執行個體將會部署的 Azure VNet。'
-          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">驗證</a>您現有的 Azure VNet，可用來部署受管理的執行個體。'
-          - html: '連接到您的執行個體使用<a href="sql-database-managed-instance-public-endpoint-securely">公用 IP 端點</a>， <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure 虛擬機器</a>或是<a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">點對站連線</a>，或<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">應用程式</a>。'
+          - html: 了解如何使用我們的快速入門指南，快速<a href="sql-database-managed-instance-quickstart-guide.md">開始使用受控執行個體</a>。
+          - html: 深入了解<a href="/azure/sql-database/sql-database-managed-instance-resource-limits">硬體特性和限制</a>、<a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">Transact-SQL 語言差異</a>和<a href="/azure/sql-database/sql-database-managed-instance-create-manage"> Transact-SQL、PowerShell、Azure CLI API 來設定受控執行個體<a/>。
+          - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">設定</a>將部署受控執行個體的 Azure VNet。'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">驗證</a>您現有的 Azure VNet 是否可用來部署受控執行個體。'
+          - html: '使用<a href="sql-database-managed-instance-public-endpoint-securely">公用 IP 端點</a>、<a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure 虛擬機器</a>或<a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">點對站連線</a>或<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">應用程式</a>，連線到您的執行個體。'
           - html: '確認可以使用 <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> 或<a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">資料庫測試助理</a>來遷移您的資料庫。'
-          - html: 將資料庫帶到受管理的執行個體使用<a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">原生還原</a>或是<a href="/azure/dms/tutorial-sql-server-managed-instance-online">資料移轉服務</a>。
+          - html: 使用<a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">原生還原</a>或<a href="/azure/dms/tutorial-sql-server-managed-instance-online">資料移轉服務</a>，將資料庫帶到受控執行個體。
           - html: '將 SSIS 套件移至 <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>、將 SSAS 表格式模型移至 <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>，以及將 SSRS 報告移至 <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>。'
           - html: '了解<a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">一般用途層</a>中的儲存體層，並套用<a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">一般用途服務層級的儲存體效能最佳做法和考量</a> (英文)。'
           - html: '尋找<a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">保護執行個體</a>的最佳做法和建議。'
-          - html: 尋找更多<a href="sql-database-howto-managed-instance.md">使用說明指南</a>，可協助您設定您的受控執行個體。
-  - title: 參考資料
+          - html: 深入了解可幫助您設定受控執行個體的<a href="sql-database-howto-managed-instance.md">操作指南</a>。
+  - title: 參考
     items:
       - type: list
         style: cards
         className: cardsD
         items:
           - title: 部落格
-            html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">媒體</a></p>'
+            html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">中型</a></p>'
           - title: 常見問題集
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
-          - title: 社群通道
-            html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Sql 社群 （受管理的執行個體）</a></p>'
+          - title: 社區頻道
+            html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Sql 社群 (受控執行個體)</a></p>'
           - title: 訓練教材
             html: '<p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">實作教室</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">指令擷取</a></p>'
