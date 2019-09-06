@@ -81,8 +81,10 @@
       items:
         - name: 健全狀況探查
           href: application-gateway-probe-overview.md
-        - name: 診斷
+        - name: 診斷記錄和後端健康情況
           href: application-gateway-diagnostics.md
+        - name: 度量
+          href: application-gateway-metrics.md
     - name: 應用程式服務 Webapp 和多租用戶支援
       href: application-gateway-web-app-overview.md
     - name: WebSocket 支援
@@ -225,6 +227,8 @@
           href: resource-health-overview.md
         - name: 使用 Log Analytics
           href: log-analytics.md
+        - name: 後端健康情況問題
+          href: application-gateway-backend-health-troubleshooting.md
     - name: 從 v1 遷移至 v2
       href: migrate-v1-v2.md
 - name: 參考

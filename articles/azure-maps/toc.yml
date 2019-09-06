@@ -125,6 +125,14 @@
               href: map-events.md
             - name: 讓應用程式可供存取
               href: map-accessibility.md
+        - name: 繪圖工具
+          items:
+            - name: 新增繪製工具列
+              href: map-add-drawing-toolbar.md
+            - name: 設定繪圖選項
+              href: set-drawing-options.md
+            - name: 取得圖形資料
+              href: map-get-shape-data.md
         - name: 服務模組
           items:
             - name: 使用服務模組
@@ -198,7 +206,7 @@
 - name: 資源
   items:
     - name: Azure 地圖服務使用規定
-      href: 'https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31'
+      href: 'https://azure.microsoft.com/support/legal/'
     - name: Azure 地圖服務定價
       href: 'https://azure.microsoft.com/pricing/details/azure-maps'
     - name: 定價計算機
@@ -209,6 +217,8 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Azure 地圖服務影片
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: Azure 地圖服務個案研究
+      href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Azure 地圖服務字彙
       href: glossary.md
     - name: 服務更新
