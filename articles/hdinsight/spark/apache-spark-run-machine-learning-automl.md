@@ -1,5 +1,5 @@
 ---
-title: 以自動化機器學習 (AutoML) 在 Azure HDInsight 中的 Apache Spark 上執行 Azure Machine Learning 工作負載
+title: 在 Azure HDInsight 上的 Apache Spark 上執行 Azure Machine Learning 工作負載
 description: 了解如何以自動化機器學習 (AutoML) 在 Azure HDInsight 中的 Apache Spark 上執行 Azure Machine Learning 工作負載。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,21 +7,21 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: a731d9e0c97cb8431b1294d961ad46ff324f32be
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: aaea8a1af7ad6df89d41dc0e39d13bafbb610224
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141174"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736055"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-automl-on-apache-spark-in-azure-hdinsight"></a>以自動化機器學習 (AutoML) 在 Azure HDInsight 中的 Apache Spark 上執行 Azure Machine Learning 工作負載
 
-Azure Machine Learning 可簡化及加速機器學習模型的建立、定型和部署。 在自動化機器學習 (AutoML) 中, 您從具有已定義目標功能的定型資料開始, 然後逐一查看演算法和特徵選取的組合, 以根據定型分數自動選取資料的最佳模型。 HDInsight 可讓客戶布建具有數百個節點的叢集。 HDInsight 叢集中的 Spark 上執行的 AutoML 可讓使用者使用這些節點的計算容量, 以向外延展的方式執行定型作業, 以及平行執行多個定型作業。 這可讓使用者執行 AutoML 實驗, 同時與其他海量資料工作負載共用計算。
+Azure Machine Learning 可簡化及加速機器學習模型的建立、定型和部署。 在自動化機器學習（AutoML）中，您從具有已定義目標功能的定型資料開始，然後逐一查看演算法和特徵選取的組合，以根據定型分數自動選取資料的最佳模型。 HDInsight 可讓客戶布建具有數百個節點的叢集。 HDInsight 叢集中的 Spark 上執行的 AutoML 可讓使用者使用這些節點的計算容量，以向外延展的方式執行定型作業，以及平行執行多個定型作業。 這可讓使用者執行 AutoML 實驗，同時與其他海量資料工作負載共用計算。
  
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>在 HDInsight 叢集上安裝 Azure Machine Learning
 
-如需自動化機器學習的一般教學課程[, 請參閱教學課程:使用自動化機器學習建置迴歸模型](../../machine-learning/service/tutorial-auto-train-models.md)。
+如需自動化機器學習的一般教學課程[，請參閱教學課程：使用自動化機器學習建置迴歸模型](../../machine-learning/service/tutorial-auto-train-models.md)。
 所有新的 HDInsight-Spark 叢集都已預先安裝在 AutoML SDK 中。 您可以使用此[範例 Jupyter 筆記本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi)來開始使用 HDInsight 上的 AutoML。 此 Jupyter Notebook 會示範如何針對簡單的分類問題，使用自動化機器學習分類器。
 
 > [!Note]
@@ -30,7 +30,7 @@ Azure Machine Learning 可簡化及加速機器學習模型的建立、定型和
 您也可以使用 Zeppelin 筆記本來使用 AutoML。
 
 > [!Note]
-> Zeppelin 有一個[已知問題](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html), PySpark3 不會挑選正確的 Python 版本。 請使用記載的解決方法。
+> Zeppelin 有一個[已知問題](https://community.hortonworks.com/content/supportkb/207822/the-livypyspark3-interpreter-uses-python-2-instead.html)，PySpark3 不會挑選正確的 Python 版本。 請使用記載的解決方法。
 
 ## <a name="authentication-for-workspace"></a>工作區的驗證
 
@@ -71,10 +71,10 @@ dataflow_with_token = dprep.read_csv(
 
 ## <a name="experiment-submission"></a>實驗提交
 
-在[自動化機器學習](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)設定中, 應該將`spark_context`屬性設為要在分散式模式上執行的封裝。 `concurrent_iterations` 屬性會決定可平行執行的反覆項目數量上限，其值應設為小於 Spark 應用程式的執行程式核心數目。
+在[自動化機器學習](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)設定中，應該將`spark_context`屬性設為要在分散式模式上執行的封裝。 `concurrent_iterations` 屬性會決定可平行執行的反覆項目數量上限，其值應設為小於 Spark 應用程式的執行程式核心數目。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需有關自動化機器學習服務背後動機的詳細資訊, 請參閱[使用 Microsoft 自動化機器學習服務的步調發行模型!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
-* 如需使用 Azure ML 自動化 ML 功能的詳細資訊, 請參閱[Azure Machine Learning 服務中的新自動化機器學習功能](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
+* 如需有關自動化機器學習服務背後動機的詳細資訊，請參閱[使用 Microsoft 自動化機器學習服務的步調發行模型！](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/)
+* 如需使用 Azure ML 自動化 ML 功能的詳細資訊，請參閱[Azure Machine Learning 服務中的新自動化機器學習功能](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/)
 * [Microsoft Research 中的 AutoML 專案](https://www.microsoft.com/research/project/automl/)

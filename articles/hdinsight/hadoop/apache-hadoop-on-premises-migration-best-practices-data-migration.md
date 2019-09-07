@@ -1,5 +1,5 @@
 ---
-title: 將內部部署 Apache Hadoop 叢集移轉到 Azure HDInsight - 資料移轉最佳做法
+title: 將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight 資料移轉
 description: 了解將內部部署 Hadoop 叢集移轉到 Azure HDInsight 的資料移轉最佳做法。
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 732cb118b7a0eebdbf28c7d7fe6ced435ce7920e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 567edca422237c71f0d69c862a17fbc0d2a72795
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713715"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735919"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉到 Azure HDInsight - 資料移轉最佳做法
 
@@ -28,7 +28,7 @@ ms.locfileid: "64713715"
     2. ExpressRoute - Express Route 是一項 Azure 服務，可讓您在 Microsoft 資料中心和內部部署或共置設施中的基礎結構之間建立私人連線。 ExpressRoute 連線不會經過公用網際網路，相較於網際網路一般連線，它提供了更高的安全性、可靠性、速度以及更低的延遲。 如需詳細資訊，請參閱[建立和修改 ExpressRoute 線路](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)。
     1. Data Box 線上資料傳輸 - Data Box Edge 與 Data Box Gateway 是線上資料轉送產品，等同於在您的網站與 Azure 之間管理資料的網路儲存體閘道。 Data Box Edge 是內部部署網路裝置，與 Azure 來回轉送資料，並使用具備人工智慧 (AI) 的邊緣計算來處理資料。 Data Box Gateway 是具備儲存體閘道功能的虛擬設備。 如需詳細資訊，請參閱 [Azure 資料箱文件 - 線上傳輸](https://docs.microsoft.com/azure/databox-online/)。
 1.  離線寄送資料
-    1. 資料箱離線資料傳輸 - 資料箱、資料箱磁碟和 Data Box Heavy 裝置可協助您在網路無法使用時，將大量資料傳輸至 Azure。 這些離線資料轉送裝置會在您的組織與 Azure 資料中心之間運送。 裝置使用 AES 加密來協助保護傳輸中的資料，而且會在上傳後經過徹底的清理過程，以從裝置中刪除您的資料。 如需詳細資料 方塊中的離線傳送裝置的詳細資訊，請參閱[Azure 資料箱文件-離線傳輸](https://docs.microsoft.com/azure/databox/)。 如需有關移轉的 Hadoop 叢集的詳細資訊，請參閱[從內部部署 HDFS 存放區移轉到 Azure 儲存體使用 Azure 資料箱](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)。
+    1. 資料箱離線資料傳輸 - 資料箱、資料箱磁碟和 Data Box Heavy 裝置可協助您在網路無法使用時，將大量資料傳輸至 Azure。 這些離線資料轉送裝置會在您的組織與 Azure 資料中心之間運送。 裝置使用 AES 加密來協助保護傳輸中的資料，而且會在上傳後經過徹底的清理過程，以從裝置中刪除您的資料。 如需資料箱離線傳輸裝置的詳細資訊，請參閱[Azure 資料箱檔-離線傳輸](https://docs.microsoft.com/azure/databox/)。 如需有關遷移 Hadoop 叢集的詳細資訊，請參閱[使用 Azure 資料箱從內部部署 HDFS 存放區遷移至 Azure 儲存體](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)。
 
 下表根據資料磁碟區和網路頻寬提供粗略的資料傳輸持續時間。 若資料移轉預計要花費超過三週的時間，請使用資料箱。
 
@@ -92,7 +92,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 #### <a name="hive-metastore-migration-using-scripts"></a>使用指令碼移轉 Hive 中繼存放區
 
-1. 產生 Hive Ddl 從內部部署 Hive 中繼存放區上。 此步驟可使用[包裝函式 Bash 指令碼](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md) \(英文\) 來完成。
+1. 從內部部署 Hive 中繼存放區產生 Hive Ddl。 此步驟可使用[包裝函式 Bash 指令碼](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md) \(英文\) 來完成。
 1. 編輯產生的 DDL，使用 WASB/ADLS/ABFS URL 來取代 HDFS URL。
 1. 從 HDInsight 叢集的中繼存放區上執行更新的 DDL。
 1. 確定 Hive 中繼存放區版本在內部部署和雲端之間都相容。
@@ -109,7 +109,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - 將內部部署 Ranger 原則匯出至 XML 檔案。
-- 轉換在內部部署 HDFS 為基礎的特定路徑，至 WASB/ADLS 使用 XSLT 之類的工具。
+- 使用 XSLT 之類的工具，將內部部署的特定 HDFS 路徑轉換為 WASB/ADLS。
 - 將原則匯入在 HDInsight 上執行的 Ranger。
 
 ## <a name="next-steps"></a>後續步驟

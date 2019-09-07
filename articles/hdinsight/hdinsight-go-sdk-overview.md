@@ -1,20 +1,20 @@
 ---
 title: 適用于 Go 的 Azure HDInsight SDK
-description: 適用于 Go Azure HDInsight SDK 的參考
+description: 使用適用于 Go 的 Azure HDInsight SDK 和 Apache Hadoop 叢集的參考資料
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 299e99d291e593ec01d2951c62541a7666565528
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fccca42a7185f430c679e0128649575620bdce0f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977057"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733146"
 ---
-# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go (預覽)
+# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go （預覽）
 
 ## <a name="overview"></a>總覽
 HDInsight SDK for Go 提供可讓您管理 HDInsight 叢集的類別和功能。 它包含用來建立、刪除、更新、列出、調整大小、執行指令碼動作、監視、取得 HDInsight 叢集屬性的作業，和其他多種作業。
@@ -22,7 +22,7 @@ HDInsight SDK for Go 提供可讓您管理 HDInsight 叢集的類別和功能。
 > [!NOTE]  
 >此 SDK 的 GoDoc 參考資料也可以在[這裡取得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 一個 Azure 帳戶。 如果您沒有帳戶，請[取得免費試用帳戶](https://azure.microsoft.com/free/)。
 * [Go](https://golang.org/dl/)。
@@ -70,7 +70,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> 如果您尚未以另一個函式註冊 HDInsight 資源提供者 (例如透過 Azure 入口網站建立 HDInsight 叢集), 您必須執行這項操作一次, 才可進行驗證。 此動作也可以從 [Azure Cloud Shell](https://shell.azure.com/bash) 完成，只要執行下列命令即可：
+> 如果您尚未以另一個函式註冊 HDInsight 資源提供者（例如透過 Azure 入口網站建立 HDInsight 叢集），您必須執行這項操作一次，才可進行驗證。 此動作也可以從 [Azure Cloud Shell](https://shell.azure.com/bash) 完成，只要執行下列命令即可：
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

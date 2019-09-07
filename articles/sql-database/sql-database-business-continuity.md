@@ -12,16 +12,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5cc033787e1045926ff4fece6826e41f430d48fd
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569336"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744458"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL Database 的商務持續性概觀
 
-Azure SQL Database 中的**商務持續性**是指在面臨中斷時可讓您的企業持續運作的機制、原則和程序 (特別是其運算基礎結構)。 在大部分情況下，Azure SQL Database 會處理雲端環境中可能發生的干擾性事件，並且讓您的應用程式和商務程序持續執行。 不過, SQL Database 會自動處理一些干擾性事件, 例如:
+Azure SQL Database 中的**商務持續性**是指在面臨中斷時可讓您的企業持續運作的機制、原則和程序 (特別是其運算基礎結構)。 在大部分情況下，Azure SQL Database 會處理雲端環境中可能發生的干擾性事件，並且讓您的應用程式和商務程序持續執行。 不過，SQL Database 會自動處理一些干擾性事件，例如：
 
 - 使用者不小心刪除或更新了資料表中的資料列。
 - 惡意攻擊者接著刪除資料或刪除資料庫。
@@ -34,18 +34,18 @@ Azure SQL Database 中的**商務持續性**是指在面臨中斷時可讓您的
 就資料庫的觀點而言，有四個主要可能中斷案例：
 
 - 影響資料庫節點的本機硬體或軟體失敗，例如磁碟機失敗。
-- 通常由應用程式 Bug 或人為錯誤所造成的資料損毀或刪除。 這類失敗是應用程式特定的, 而且通常無法由資料庫服務偵測到。
+- 通常由應用程式 Bug 或人為錯誤所造成的資料損毀或刪除。 這類失敗是應用程式特定的，而且通常無法由資料庫服務偵測到。
 - 可能由天然災害所造成的資料中心中斷。 此案例需要某種程度的異地備援，讓應用程式能容錯移轉到替代資料中心。
-- 升級或維護錯誤, 在規劃的基礎結構維護或升級期間發生的非預期問題, 可能需要快速回復至先前的資料庫狀態。
+- 升級或維護錯誤，在規劃的基礎結構維護或升級期間發生的非預期問題，可能需要快速回復至先前的資料庫狀態。
 
-為了減輕本機硬體和軟體失敗, SQL Database 包含[高可用性架構](sql-database-high-availability.md), 可保證從這些失敗中自動復原, 最高可達 99.995% 的可用性 SLA。  
+為了減輕本機硬體和軟體失敗，SQL Database 包含[高可用性架構](sql-database-high-availability.md)，可保證從這些失敗中自動復原，最高可達 99.995% 的可用性 SLA。  
 
-為了保護您的企業免于資料遺失, SQL Database 會每週自動建立完整的資料庫備份, 每隔12小時一次差異資料庫備份, 而交易記錄備份每 5-10 分鐘一次。 所有服務層級的備份會儲存在 GRS 儲存體中至少7天。 所有服務層級 (基本支援可設定的時間點還原備份保留期限), 最多35天。 
+為了保護您的企業免于資料遺失，SQL Database 會每週自動建立完整的資料庫備份，每隔12小時一次差異資料庫備份，而交易記錄備份每 5-10 分鐘一次。 所有服務層級的備份會儲存在 GRS 儲存體中至少7天。 所有服務層級（基本支援可設定的時間點還原備份保留期限），最多35天。 
 
-SQL Database 也提供數種商務持續性功能, 您可以用來緩和各種未規劃的案例。 
+SQL Database 也提供數種商務持續性功能，您可以用來緩和各種未規劃的案例。 
 
 - [時態表](sql-database-temporal-tables.md)可讓您從任何時間點還原資料列版本。
-- 內[建的自動備份](sql-database-automated-backups.md)和[時間點還原](sql-database-recovery-using-backups.md#point-in-time-restore)可讓您將完整的資料庫還原到設定的保留期間內的某個時間點, 最多35天。
+- 內[建的自動備份](sql-database-automated-backups.md)和[時間點還原](sql-database-recovery-using-backups.md#point-in-time-restore)可讓您將完整的資料庫還原到設定的保留期間內的某個時間點，最多35天。
 - 如果 [SQL Database 伺服器尚未刪除](sql-database-recovery-using-backups.md#deleted-database-restore)，您可以**將已刪除的資料庫還原**到它被刪除的時間點。
 - [長期備份保留](sql-database-long-term-retention.md)可讓您最多保留備份 10 年。
 - [主動式異地複寫](sql-database-active-geo-replication.md)可讓您建立可讀取複本，並在資料中心中斷或應用程式升級時，手動容錯移轉至任何複本。
@@ -53,13 +53,13 @@ SQL Database 也提供數種商務持續性功能, 您可以用來緩和各種�
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>復原相同 Azure 區域內的資料庫
 
-您可以使用自動資料庫備份, 將資料庫還原到過去的某個時間點。 如此一來, 您就可以從人為錯誤所造成的資料損毀中復原。 點時還原可讓您在相同伺服器中建立新的資料庫, 以代表損毀事件之前的資料狀態。 對於大部分的資料庫, 還原作業所花費的時間少於12小時。 復原非常大或非常活躍的資料庫可能需要較長的時間。 如需復原時間的詳細資訊，請參閱[資料庫復原時間](sql-database-recovery-using-backups.md#recovery-time)。 
+您可以使用自動資料庫備份，將資料庫還原到過去的某個時間點。 如此一來，您就可以從人為錯誤所造成的資料損毀中復原。 點時還原可讓您在相同伺服器中建立新的資料庫，以代表損毀事件之前的資料狀態。 對於大部分的資料庫，還原作業所花費的時間少於12小時。 復原非常大或非常活躍的資料庫可能需要較長的時間。 如需復原時間的詳細資訊，請參閱[資料庫復原時間](sql-database-recovery-using-backups.md#recovery-time)。 
 
-如果還原時間點的最大支援備份保留期限 (PITR) 對您的應用程式而言不足, 您可以為資料庫設定長期保留 (LTR) 原則來加以擴充。 如需詳細資訊，請參閱[長期備份保留](sql-database-long-term-retention.md)。
+如果還原時間點的最大支援備份保留期限（PITR）對您的應用程式而言不足，您可以為資料庫設定長期保留（LTR）原則來加以擴充。 如需詳細資訊，請參閱[長期備份保留](sql-database-long-term-retention.md)。
 
 ## <a name="compare-geo-replication-with-failover-groups"></a>比較異地複寫與容錯移轉群組
 
-[自動容錯移轉群組](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities)會簡化[異地](sql-database-active-geo-replication.md)複寫的部署和使用, 並新增額外的功能, 如下表所述:
+[自動容錯移轉群組](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities)會簡化[異地](sql-database-active-geo-replication.md)複寫的部署和使用，並新增額外的功能，如下表所述：
 
 |                                              | 異地複寫 | 容錯移轉群組  |
 |:---------------------------------------------| :-------------- | :----------------|
@@ -79,11 +79,11 @@ SQL Database 也提供數種商務持續性功能, 您可以用來緩和各種�
 
 - 其中一個選項是在資料中心中斷結束時等待您的資料庫重新上線。 這適用於可以容忍資料庫離線的應用程式。 例如，您不需要不斷處理的開發專案或免費試用版。 當資料中心中斷時，您不會知道中斷會持續多久，因此這個選項僅適用於您可以一段時間暫時不需要資料庫。
 - 另一個選項是使用[異地備援資料庫備份](sql-database-recovery-using-backups.md#geo-restore) (異地還原)，在任何 Azure 區域中的任何伺服器上還原資料庫。 異地還原使用異地備援備份做為其來源，即使因為中斷而無法存取資料庫或資料中心，也能用來復原資料庫。
-- 最後, 如果您已經使用作用中[異地](sql-database-active-geo-replication.md)複寫或資料庫或資料庫的[自動容錯移轉群組](sql-database-auto-failover-group.md)來設定異地次要資料庫, 您可以快速地從中斷復原。 根據您選擇的這些技術，您可以使用手動或自動容錯移轉。 雖然容錯移轉本身只需要幾秒鐘的時間就能完成，服務將需要至少 1 小時才能啟動。 這是依據中斷的規模來確保容錯移轉之正當性的必要作法。 此外，基於非同步複寫的本質，容錯移轉可能會造成小規模的資料遺失。 
+- 最後，如果您已經使用作用中[異地](sql-database-active-geo-replication.md)複寫或資料庫或資料庫的[自動容錯移轉群組](sql-database-auto-failover-group.md)來設定異地次要資料庫，您可以快速地從中斷復原。 根據您選擇的這些技術，您可以使用手動或自動容錯移轉。 雖然容錯移轉本身只需要幾秒鐘的時間就能完成，服務將需要至少 1 小時才能啟動。 這是依據中斷的規模來確保容錯移轉之正當性的必要作法。 此外，基於非同步複寫的本質，容錯移轉可能會造成小規模的資料遺失。 
 
-當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 應用程式完全復原所需的時間, 也稱為復原時間目標 (RTO)。 您也需要瞭解從未規劃的干擾性事件復原時, 應用程式可容忍遺失的最近資料更新 (時間間隔) 最長期間。 可能的資料遺失稱為復原點目標 (RPO)。
+當您開發商務持續性計劃時，您必須了解應用程式在干擾性事件之後完全復原所需的最大可接受時間。 應用程式完全復原所需的時間，也稱為復原時間目標（RTO）。 您也需要瞭解從未規劃的干擾性事件復原時，應用程式可容忍遺失的最近資料更新（時間間隔）最長期間。 可能的資料遺失稱為復原點目標（RPO）。
 
-不同的復原方法提供不同層級的 RPO 和 RTO。 您可以選擇特定的復原方法, 或使用方法的組合來達到完整的應用程式復原。 下表比較每個修復選項的 RPO 和 RTO。 自動容錯移轉群組會簡化異地複寫的部署和使用, 並新增額外的功能, 如下表所述。
+不同的復原方法提供不同層級的 RPO 和 RTO。 您可以選擇特定的復原方法，或使用方法的組合來達到完整的應用程式復原。 下表比較每個修復選項的 RPO 和 RTO。 自動容錯移轉群組會簡化異地複寫的部署和使用，並新增額外的功能，如下表所述。
 
 | 修復方法 | RTO | RPO |
 | --- | --- | --- | 
@@ -92,7 +92,7 @@ SQL Database 也提供數種商務持續性功能, 您可以用來緩和各種�
 | 手動資料庫容錯移轉 | 30秒 | 5秒 |
 
 > [!NOTE]
-> *手動資料庫容錯移轉*是指使用未規劃的[模式](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities), 將單一資料庫容錯移轉到其異地複寫的次要複本。
+> *手動資料庫容錯移轉*是指使用未規劃的[模式](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)，將單一資料庫容錯移轉到其異地複寫的次要複本。
 請參閱此文章稍早的表格，以取得自動容錯移轉 RTO 和 RPO 的詳細資料。
 
 
@@ -107,7 +107,7 @@ SQL Database 也提供數種商務持續性功能, 您可以用來緩和各種�
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
-您可以根據您的應用程式需求, 選擇使用資料庫備份和主動式異地複寫的組合。 如需獨立資料庫的設計考慮, 以及使用這些商務持續性功能的彈性集區的討論, 請參閱[設計雲端嚴重損壞修復的應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)和彈性集區嚴重損壞[修復策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
+您可以根據您的應用程式需求，選擇使用資料庫備份和主動式異地複寫的組合。 如需獨立資料庫的設計考慮，以及使用這些商務持續性功能的彈性集區的討論，請參閱[設計雲端嚴重損壞修復的應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)和彈性集區嚴重損壞[修復策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
 
 下列各節概述使用資料庫備份或主動式異地複寫來進行復原的步驟。 如需包括規劃需求的詳細步驟、復原後步驟，以及有關如何模擬中斷以執行災害復原演練的資訊，請參閱[從中斷復原 SQL Database](sql-database-disaster-recovery.md)。
 
@@ -123,7 +123,7 @@ SQL Database 也提供數種商務持續性功能, 您可以用來緩和各種�
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>容錯移轉至異地複寫的次要資料庫
 
-如果您使用主動式異地複寫或自動容錯移轉群組做為復原機制, 則可以設定自動容錯移轉原則, 或使用手動未規劃的[容錯移轉](sql-database-active-geo-replication-portal.md#initiate-a-failover)。 啟動容錯移轉後，次要資料庫就會成為新的主要資料庫，並準備好記錄新的交易以及回應查詢 - 只會遺失尚未複寫的資料。 如需關於設計容錯移轉程序的資訊，請參閱[設計雲端災害復原應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
+如果您使用主動式異地複寫或自動容錯移轉群組做為復原機制，則可以設定自動容錯移轉原則，或使用手動未規劃的[容錯移轉](sql-database-active-geo-replication-portal.md#initiate-a-failover)。 啟動容錯移轉後，次要資料庫就會成為新的主要資料庫，並準備好記錄新的交易以及回應查詢 - 只會遺失尚未複寫的資料。 如需關於設計容錯移轉程序的資訊，請參閱[設計雲端災害復原應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
 
 > [!NOTE]
 > 資料中心恢復連線時，舊的主要複本會自動重新連線至新的主要複本，且會成為次要資料庫。 若您需要將主要複本重新定位至原始區域，可手動啟動規劃的容錯移轉 (容錯回復)。
@@ -140,7 +140,7 @@ SQL Database 也提供數種商務持續性功能, 您可以用來緩和各種�
 從其中任何一種復原機制復原之後，您都必須執行下列額外的工作，您的使用者和應用程式才能回復正常執行狀態︰
 
 - 重新導向用戶端與用戶端應用程式到新的伺服器與還原的資料庫
-- 確定有適當的伺服器層級 IP 防火牆規則供使用者連線或使用[資料庫層級防火牆](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)，才能啟用適當的規則。
+- 確定有適當的伺服器層級 IP 防火牆規則供使用者連線或使用[資料庫層級防火牆](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)，才能啟用適當的規則。
 - 確定有適當的登入和 master 資料庫層級權限 (或使用 [自主的使用者](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - 依適當情況設定稽核
 - 依適當情況設定警示

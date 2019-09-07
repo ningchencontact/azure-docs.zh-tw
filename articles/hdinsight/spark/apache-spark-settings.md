@@ -1,6 +1,6 @@
 ---
 title: 設定 Spark 設定 - Azure HDInsight
-description: 如何為 Azure HDInsight 叢集設定 Spark。
+description: 如何查看和設定 Azure HDInsight 叢集的 Apache Spark 設定
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: eb948aa2b683f426831e1b0d34b44f814eab6b9f
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 2d369af7c11473d811677f33f9112d41260fcecf
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441923"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736030"
 ---
 # <a name="configure-apache-spark-settings"></a>設定 Apache Spark 設定
 

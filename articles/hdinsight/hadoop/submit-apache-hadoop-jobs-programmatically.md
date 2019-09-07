@@ -1,6 +1,6 @@
 ---
 title: 在 HDInsight 中提交 Apache Hadoop 作業
-description: 了解如何在 Azure HDInsight 上提交 Apache Hadoop 作業。
+description: 使用 Microsoft .NET SDK、捲曲或 PowerShell 在 Azure HDInsight 中提交 Apache Hadoop 作業
 ms.reviewer: jasonh
 ms.author: hrasheed
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 617eb8c8cfcdc7af5e91d0ed122ccdd21e7b86ff
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a595d002ebeecee1a8fd62a52f47cab487474494
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508091"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734836"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中提交 Apache Hadoop 作業
 
@@ -40,6 +40,6 @@ ms.locfileid: "67508091"
   - [在 HDInsight 中使用 Apache Sqoop 搭配 Apache Hadoop](apache-hadoop-use-sqoop-powershell.md)
   - [使用 PowerShell 在 HDInsight 中以 Apache Hadoop 執行 MapReduce 作業](apache-hadoop-use-mapreduce-powershell.md)
 
-## <a name="see-also"></a>請參閱
+## <a name="see-also"></a>另請參閱
 
 - [Azure HDInsight 文件](https://docs.microsoft.com/azure/hdinsight/)

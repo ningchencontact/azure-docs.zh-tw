@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Domain Services：對網路安全性群組設定進行疑難排解 | Microsoft Docs
-description: 針對 Azure AD Domain Services 的 NSG 設定進行疑難排解
+title: Azure Active Directory Domain Services：針對網路安全性群組進行疑難排解 |Microsoft Docs
+description: 針對 Azure AD Domain Services 的網路安全性群組設定進行疑難排解
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 08875ec23740eab7787c4a919566df521deba9a5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 450ee5635b378ed7c4d4e4bedc1c4245f6b52d70
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473914"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "70743438"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>針對受控網域的無效網路設定進行移難排解
 本文將協助您針對導致下列警示訊息的網路相關設定錯誤進行疑難排解：
@@ -28,14 +28,14 @@ ms.locfileid: "67473914"
 ## <a name="alert-aadds104-network-error"></a>警示 AADDS104：網路錯誤
 **警示訊息：** Microsoft 無法觸達此受控網域的網域控制站。*如果虛擬網路上設定的網路安全性群組 (NSG) 封鎖受控網域的存取，就可能發生這種情況。另一個可能的原因，是使用者定義的路由封鎖了來自網際網路的連入流量。*
 
-Azure AD Domain Services 網路錯誤最常見的原因是 NSG 設定無效。 為您虛擬網路設定的「網路安全性群組」(NSG) 必須允許存取[特定連接埠](network-considerations.md#ports-required-for-azure-ad-domain-services)。 如果這些連接埠遭到封鎖，Microsoft 便無法監視或更新您的受控網域。 此外，也會影響到 Azure AD 目錄與受控網域之間的同步處理。 建立 NSG 時，請將這些連接埠保持開啟，以避免服務中斷。
+Azure AD Domain Services 網路錯誤最常見的原因是 NSG 設定無效。 為您虛擬網路設定的「網路安全性群組」(NSG) 必須允許存取[特定連接埠](network-considerations.md#network-security-groups-and-required-ports)。 如果這些連接埠遭到封鎖，Microsoft 便無法監視或更新您的受控網域。 此外，也會影響到 Azure AD 目錄與受控網域之間的同步處理。 建立 NSG 時，請將這些連接埠保持開啟，以避免服務中斷。
 
 ### <a name="checking-your-nsg-for-compliance"></a>檢查 NSG 的合規性
 
 1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 頁面
 2. 從表格中，選擇與已啟用您受控網域的子網路關聯的 NSG。
-3. 在左窗格的 [設定]  下，按一下 [輸入安全性規則] 
-4. 檢閱備妥的規則，並識別哪些規則會封鎖存取[這些連接埠](network-considerations.md#ports-required-for-azure-ad-domain-services)
+3. 在左窗格的 [設定] 下，按一下 [輸入安全性規則]
+4. 檢閱備妥的規則，並識別哪些規則會封鎖存取[這些連接埠](network-considerations.md#network-security-groups-and-required-ports)
 5. 對 NSG 進行以下編輯以確保合規性：刪除規則、新增規則，或建立全新的 NSG。 [新增規則](#add-a-rule-to-a-network-security-group-using-the-azure-portal)或建立全新符合規範的 NSG 的步驟如下
 
 ## <a name="sample-nsg"></a>NSG 範例
@@ -51,8 +51,8 @@ Azure AD Domain Services 網路錯誤最常見的原因是 NSG 設定無效。 �
 
 1. 在 Azure 入口網站中，瀏覽至 [網路安全性群組](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) 頁面。
 2. 從表格中，選擇與已啟用您受控網域的子網路關聯的 NSG。
-3. 在左側面板的 [設定]  底下，按一下 [輸入安全性規則]  或 [輸出安全性規則]  。
-4. 按一下 [新增]  並填入資訊來建立規則。 按一下 [確定]  。
+3. 在左側面板的 [設定] 底下，按一下 [輸入安全性規則] 或 [輸出安全性規則]。
+4. 按一下 [新增] 並填入資訊來建立規則。 按一下 [確定]。
 5. 在規則資料表中尋找您的規則，確認規則已建立。
 
 

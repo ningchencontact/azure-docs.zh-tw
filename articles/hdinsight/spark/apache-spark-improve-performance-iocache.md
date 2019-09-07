@@ -1,17 +1,17 @@
 ---
-title: 使用 Azure HDInsight IO 快取改進 Apache Spark 工作負載效能 (Preview)
+title: Azure HDInsight IO 快取（預覽） Apache Spark 工作負載效能
 description: 了解 Azure HDInsight IO 快取以及如何使用它來改進 Apache Spark 效能。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: b77e7e9d5a68439e7f336ecb26e91031d80a7606
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a078fc205403983f4f6484f6a7ccde7f99c4dd58
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695212"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734536"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>使用 Azure HDInsight IO 快取改進 Apache Spark 工作負載效能 (Preview)
 
@@ -34,11 +34,11 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取您的 HDInsight 叢集。
 
-1. 在 [概觀]  頁面 (選取叢集時預設即會開啟) 中，選取 [叢集儀表板]  下的 [Ambari 首頁]  。
+1. 在 [概觀] 頁面 (選取叢集時預設即會開啟) 中，選取 [叢集儀表板] 下的 [Ambari 首頁]。
 
-1. 選取左邊的 [IO 快取]  。
+1. 選取左邊的 [IO 快取]。
 
-1. 選取 [動作]  與 [啟用]  。
+1. 選取 [動作] 與 [啟用]。
 
     ![在 Ambari 中啟用 IO 快取服務](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "在 Ambari 中啟用 IO 快取服務")
 
@@ -53,11 +53,11 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
 1. 在 Apache Ambari 中，選取左邊的 **HDFS** 服務。
 
-1. 選取 [設定]  與 [進階]  索引標籤。
+1. 選取 [設定] 與 [進階] 索引標籤。
 
     ![編輯 HDFS 進階設定](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "編輯 HDFS 進階設定")
 
-1. 向下捲動並展開 [自訂核心網站]  區域。
+1. 向下捲動並展開 [自訂核心網站] 區域。
 
 1. 尋找 **hadoop.cache.data.fullness.percentage** 屬性。
 
@@ -65,13 +65,13 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
 
     ![編輯 IO 快取飽和度百分比](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "編輯 IO 快取飽和度百分比")
 
-1. 選取右上角的 [儲存]  。
+1. 選取右上角的 [儲存]。
 
-1. 選取 [重新啟動]   > [重新啟動所有受影響項目]  。
+1. 選取 [重新啟動] > [重新啟動所有受影響項目]。
 
     ![重新啟動所有受影響項目](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "重新啟動所有受影響項目")
 
-1. 選取 [確認重新啟動所有項目]  。
+1. 選取 [確認重新啟動所有項目]。
 
 若那樣沒有用，請停用 IO 快取。
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 67318fee540195fc913739d78e80649100c54e70
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
-ms.translationtype: MT
+ms.openlocfilehash: defc317618dfffd0e2b28c75b6168ec1dbda36b7
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034822"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735117"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -53,6 +53,7 @@ ms.locfileid: "70034822"
 **警示描述** – 使用者所設定的警示規則描述
 
 **嚴重性** – 符合警示規則中指定的準則時的警示嚴重性。 嚴重性的範圍可從 0 到 4。
+嚴重性 0 = Critical 嚴重性 1 = Error 嚴重性 2 = Warning 嚴重性 3 = 資訊嚴重性 4 = Verbose
 
 **動作** - 引發警示時所採取的動作。 如需詳細資訊，請參閱[動作群組](../../azure-monitor/platform/action-groups.md)。
 
@@ -94,7 +95,7 @@ ms.locfileid: "70034822"
 ## <a name="alerts-experience"></a>警示體驗 
 對於特定時間內建立的警示，預設的 [警示] 頁面提供警示的摘要。 它會顯示每個嚴重性的警示總計，且有欄顯示每個嚴重性和每個狀態的警示總數。 選取任何嚴重性以開啟依照該嚴重性篩選的 [所有警示](#all-alerts-page) 頁面。
 
-或者, 您可以[使用 REST api, 以程式設計方式列舉您的訂用帳戶所產生的警示實例](#manage-your-alert-instances-programmatically)。
+或者，您可以[使用 REST api，以程式設計方式列舉您的訂用帳戶所產生的警示實例](#manage-your-alert-instances-programmatically)。
 
 > [!NOTE]
    >  只有在過去30天內產生的警示可以在 UX 或透過 REST Api 存取。
@@ -175,19 +176,19 @@ ms.locfileid: "70034822"
 | 歷程記錄 | 列出警示採取的每個動作，以及對警示所做的任何變更。 目前僅限於狀態變更。 |
 | 診斷 | 內含警示之智慧群組的相關資訊。 「警示計數」是指智慧群組中包含的警示數目。 包括相同智慧群組中過去 30 天內所建立的其他警示，不論警示清單頁面中所設定的時間篩選條件為何。 選取警示以檢視其詳細資料。 |
 
-## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>警示實例的角色型存取控制 (RBAC)
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>警示實例的角色型存取控制（RBAC）
 
-警示實例的耗用量和管理需要使用者具備[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)或[監視讀取](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)者的內建 RBAC 角色。 任何 Azure Resource Manager 範圍都支援這些角色, 從訂用帳戶層級到資源層級的細微指派皆可。 例如, 如果使用者只有虛擬機器 ' ContosoVM1 ' 的「監視參與者」存取權, 他就只能取用和管理 ' ContosoVM1 ' 上產生的警示。
+警示實例的耗用量和管理需要使用者具備[監視參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)或[監視讀取](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)者的內建 RBAC 角色。 任何 Azure Resource Manager 範圍都支援這些角色，從訂用帳戶層級到資源層級的細微指派皆可。 例如，如果使用者只有虛擬機器 ' ContosoVM1 ' 的「監視參與者」存取權，他就只能取用和管理 ' ContosoVM1 ' 上產生的警示。
 
 ## <a name="manage-your-alert-instances-programmatically"></a>以程式設計方式管理您的警示實例
 
-在許多情況下, 您會想要以程式設計方式查詢針對您的訂用帳戶所產生的警示。 這可能是在 Azure 入口網站外部建立自訂的視圖, 或是用來分析您的警示以識別模式和趨勢。
+在許多情況下，您會想要以程式設計方式查詢針對您的訂用帳戶所產生的警示。 這可能是在 Azure 入口網站外部建立自訂的視圖，或是用來分析您的警示以識別模式和趨勢。
 
 您可以使用[警示管理 REST API](https://aka.ms/alert-management-api)或使用警示的 [ [Azure Resource Graph] REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)來查詢針對您的訂用帳戶所產生的警示。
 
-警示的  [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)可讓您大規模查詢警示實例。 如果您必須管理跨多個訂用帳戶所產生的警示, 建議使用此選項。 
+警示的  [Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources)可讓您大規模查詢警示實例。 如果您必須管理跨多個訂用帳戶所產生的警示，建議使用此選項。 
 
-下列對 API 的範例要求會傳回一個訂用帳戶內的警示計數:
+下列對 API 的範例要求會傳回一個訂用帳戶內的警示計數：
 
 ```json
 {
@@ -202,7 +203,7 @@ ms.locfileid: "70034822"
 ```
 您可以查詢這些警示的「[基本](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)」欄位。
 
-[警示管理 REST API](https://aka.ms/alert-management-api)可以用來取得特定警示的詳細資訊, 包括其 [[警示內容](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)] 欄位。
+[警示管理 REST API](https://aka.ms/alert-management-api)可以用來取得特定警示的詳細資訊，包括其 [[警示內容](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)] 欄位。
 
 ## <a name="classic-alerts"></a>傳統警示 
 

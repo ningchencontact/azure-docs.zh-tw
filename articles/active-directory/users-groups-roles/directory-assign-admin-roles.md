@@ -9,35 +9,35 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 09/05/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f860b234db8cb0b40747ba042f1a845f58379597
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c2eff9c0edf6797c08d0ef9732c903a81a6c764a
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193865"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733396"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
-使用 Azure Active Directory (Azure AD), 您可以指定有限的系統管理員, 以較低許可權的角色來管理身分識別工作。 指派系統管理員的目的, 是為了新增或變更使用者、指派系統管理角色、重設使用者密碼、管理使用者授權, 以及管理功能變數名稱等。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
+使用 Azure Active Directory （Azure AD），您可以指定有限的系統管理員，以較低許可權的角色來管理身分識別工作。 指派系統管理員的目的，是為了新增或變更使用者、指派系統管理角色、重設使用者密碼、管理使用者授權，以及管理功能變數名稱等。 只能在 Azure AD 中的使用者設定中變更預設使用者權限。
 
 ## <a name="limit-the-use-of-global-administrator"></a>限制全域管理員的使用
 
-指派給全域管理員角色的使用者可以讀取和修改您 Azure AD 組織中的每個系統管理設定。 根據預設, 註冊 Azure 訂用帳戶的人員會獲指派 Azure AD 組織的全域管理員角色。 只有全域管理員和特殊許可權角色管理員可以委派系統管理員角色。 若要降低業務的風險, 建議您將此角色指派給組織中最少的人員。
+指派給全域管理員角色的使用者可以讀取和修改您 Azure AD 組織中的每個系統管理設定。 根據預設，註冊 Azure 訂用帳戶的人員會獲指派 Azure AD 組織的全域管理員角色。 只有全域管理員和特殊許可權角色管理員可以委派系統管理員角色。 若要降低業務的風險，建議您將此角色指派給組織中最少的人員。
 
-建議的最佳作法是將此角色指派給組織中少於5名的人員。 如果您在組織中有超過五個指派給全域管理員角色的使用者, 以下是一些減少其使用方式的方法。
+建議的最佳作法是將此角色指派給組織中少於5名的人員。 如果您在組織中有超過五個指派給全域管理員角色的使用者，以下是一些減少其使用方式的方法。
 
 ### <a name="find-the-role-you-need"></a>尋找您所需的角色
 
-如果您在許多角色清單中找不到需要的角色, Azure AD 可以根據角色類別來顯示角色的子集。 查看適用于[Azure AD 角色和系統管理員](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)的新**類型**篩選, 只顯示所選類型中的角色。
+如果您在許多角色清單中找不到需要的角色，Azure AD 可以根據角色類別來顯示角色的子集。 查看適用于[Azure AD 角色和系統管理員](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)的新**類型**篩選，只顯示所選類型中的角色。
 
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>當您指派全域管理員角色時, 現在角色已存在
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>當您指派全域管理員角色時，現在角色已存在
 
-角色或角色可能已新增至 Azure AD, 以提供更細微的許可權, 讓某些使用者在全域管理員時無法使用此選項。 經過一段時間, 我們會推出其他角色, 以完成隻有全域管理員角色才可執行檔工作。 您可以看到這些反映在下列[可用的角色](#available-roles)中。
+角色或角色可能已新增至 Azure AD，以提供更細微的許可權，讓某些使用者在全域管理員時無法使用此選項。 經過一段時間，我們會推出其他角色，以完成隻有全域管理員角色才可執行檔工作。 您可以看到這些反映在下列[可用的角色](#available-roles)中。
 
 ## <a name="assign-or-remove-administrator-roles"></a>指派或移除系統管理員角色
 
@@ -49,18 +49,18 @@ ms.locfileid: "70193865"
 
 ### <a name="application-administratorapplication-administrator-permissions"></a>[應用程式系統管理員](#application-administrator-permissions)
 
-此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時, 不會將指派給此角色的使用者新增為擁有者。
+此角色中的使用者可以建立和管理企業應用程式、應用程式註冊和應用程式 Proxy 設定的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
 
 > [!IMPORTANT]
 > 此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
 
 ### <a name="application-developerapplication-developer-permissions"></a>[應用程式開發人員](#application-developer-permissions)
 
-將「使用者可以註冊應用程式」設定設為「否」時，此角色中的使用者可以建立應用程式註冊。 當「使用者可以同意應用程式代表自己存取公司資料」設定設為 [否] 時, 此角色也會授與許可權以代表自己的同意。 在建立新的應用程式註冊或企業應用程式時, 指派給此角色的使用者會被新增為擁有者。
+將「使用者可以註冊應用程式」設定設為「否」時，此角色中的使用者可以建立應用程式註冊。 當「使用者可以同意應用程式代表自己存取公司資料」設定設為 [否] 時，此角色也會授與許可權以代表自己的同意。 在建立新的應用程式註冊或企業應用程式時，指派給此角色的使用者會被新增為擁有者。
 
 ### <a name="authentication-administratorauthentication-administrator-permissions"></a>[驗證系統管理員](#authentication-administrator-permissions)
 
-具有此角色的使用者可以設定或重設非密碼認證, 並且可以更新所有使用者的密碼。 驗證系統管理員可以要求使用者針對現有的非密碼認證 (例如, MFA 或 FIDO) 重新註冊, 並撤銷**裝置上的 [記住 mfa**], 這會在非系統管理員的使用者登入或僅指派下列角色:
+具有此角色的使用者可以設定或重設非密碼認證，並且可以更新所有使用者的密碼。 驗證系統管理員可以要求使用者針對現有的非密碼認證（例如，MFA 或 FIDO）重新註冊，並撤銷**裝置上的 [記住 mfa**]，這會在非系統管理員的使用者登入或僅指派下列角色：
 
 * 驗證管理員
 * 目錄讀取者
@@ -73,7 +73,7 @@ ms.locfileid: "70193865"
 > [!IMPORTANT]
 > 對於可存取機密或私人資訊或 Azure Active Directory 內外重要組態的人員，具備此角色的使用者可以變更認證。 變更使用者的認證表示可承擔該使用者身分識別和權限。 例如:
 
-* 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑, 驗證系統管理員可以假設應用程式擁有者的身分識別, 然後藉由更新應用程式的認證, 進一步假設特殊許可權應用程式的識別。
+* 應用程式註冊和企業應用程式擁有者，他們可以管理他們自己的應用程式認證。 這些應用程式在 Azure AD 中可能有特殊權限，而在其他地方未授與驗證系統管理員。 透過此路徑，驗證系統管理員可以假設應用程式擁有者的身分識別，然後藉由更新應用程式的認證，進一步假設特殊許可權應用程式的識別。
 * Azure 訂用帳戶擁有者，他們具有機密或私人資訊或者 Azure 中重要組態的存取權。
 * 安全性群組和 Office 365 群組擁有者，他們可以管理群組成員資格。 這個群組可以存取機密或私人資訊或者 Azure AD 和其他位置中的重要組態。
 * Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
@@ -85,25 +85,25 @@ ms.locfileid: "70193865"
 
 ### <a name="b2c-user-flow-administratorb2c-user-flow-administrator-permissions"></a>[B2C 使用者流程管理員](#b2c-user-flow-administrator-permissions)
 
-具有此角色的使用者可以在 Azure 入口網站中建立及管理 B2C 消費者流程 (也稱為「內建」原則)。 藉由建立或編輯使用者流程, 這些使用者可以變更使用者體驗的 html/CSS/javascript 內容、變更每個使用者流程的 MFA 需求、變更權杖中的宣告, 以及調整租使用者中所有原則的會話設定。 另一方面, 此角色並不包括檢查使用者資料的能力, 或對租使用者架構中包含的屬性進行變更。 Identity Experience Framework (也稱為自訂) 原則的變更也不在此角色的範圍內。
+具有此角色的使用者可以建立和管理 Azure 入口網站中的 B2C 消費者流程（也稱為「內建」原則）。 藉由建立或編輯使用者流程，這些使用者可以變更使用者體驗的 html/CSS/javascript 內容、變更每個使用者流程的 MFA 需求、變更權杖中的宣告，以及調整租使用者中所有原則的會話設定。 另一方面，此角色並不包括檢查使用者資料的能力，或對租使用者架構中包含的屬性進行變更。 Identity Experience Framework （也稱為「自訂」）原則的變更也不在此角色的範圍內。
 
 ### <a name="b2c-user-flow-attribute-administratorb2c-user-flow-attribute-administrator-permissions"></a>[B2C 使用者流程屬性管理員](#b2c-user-flow-attribute-administrator-permissions)
 
-具有此角色的使用者可在租使用者中的所有使用者流程中, 新增或刪除自訂屬性。 因此, 具備此角色的使用者可以變更或新增元素至使用者架構, 並影響所有使用者流程的行為, 並間接導致使用者可能會要求哪些資料的變更, 最後以宣告的形式傳送給應用程式。 此角色無法編輯使用者流程。
+具有此角色的使用者可在租使用者中的所有使用者流程中，新增或刪除自訂屬性。 因此，具備此角色的使用者可以變更或新增元素至使用者架構，並影響所有使用者流程的行為，並間接導致使用者可能會要求哪些資料的變更，最後以宣告的形式傳送給應用程式。 此角色無法編輯使用者流程。
 
 ### <a name="b2c-ief-keyset-administratorb2c-ief-keyset-administrator-permissions"></a>[B2C IEF 索引鍵集管理員](#b2c-ief-keyset-administrator-permissions)
 
-使用者可以建立和管理權杖加密、權杖簽章和宣告加密/解密的原則金鑰和密碼。 藉由將新金鑰新增至現有的金鑰容器, 此有限的系統管理員可以視需要變換秘密, 而不會影響現有的應用程式。 此使用者可以查看這些秘密的完整內容及其到期日, 即使在建立之後也一樣。
+使用者可以建立和管理權杖加密、權杖簽章和宣告加密/解密的原則金鑰和密碼。 藉由將新金鑰新增至現有的金鑰容器，此有限的系統管理員可以視需要變換秘密，而不會影響現有的應用程式。 此使用者可以查看這些秘密的完整內容及其到期日，即使在建立之後也一樣。
 
 > [!IMPORTANT]
-> 這是敏感性角色。 在生產前和生產期間, 應謹慎地仔細測試並指派金鑰集系統管理員角色。
+> 這是敏感性角色。 在生產前和生產期間，應謹慎地仔細測試並指派金鑰集系統管理員角色。
 
 ### <a name="b2c-ief-policy-administratorb2c-ief-policy-administrator-permissions"></a>[B2C IEF 原則管理員](#b2c-ief-policy-administrator-permissions)
 
-此角色的使用者能夠在 Azure AD B2C 中建立、讀取、更新及刪除所有自訂原則, 因此可以完全控制相關 Azure AD B2C 租使用者中的 Identity Experience Framework。 藉由編輯原則, 此使用者可以與外部身分識別提供者建立直接同盟、變更目錄架構、變更所有使用者面向內容 (HTML、CSS、JavaScript)、變更需求以完成驗證、建立新使用者、傳送使用者資料到外部系統, 包括完整的遷移, 以及編輯所有使用者資訊, 包括密碼和電話號碼等敏感欄位。 相反地, 此角色無法變更加密金鑰, 或編輯用於租使用者中同盟的秘密。
+此角色的使用者能夠在 Azure AD B2C 中建立、讀取、更新及刪除所有自訂原則，因此可以完全控制相關 Azure AD B2C 租使用者中的 Identity Experience Framework。 藉由編輯原則，此使用者可以與外部身分識別提供者建立直接同盟、變更目錄架構、變更所有使用者面向內容（HTML、CSS、JavaScript）、變更需求以完成驗證、建立新使用者、傳送使用者資料到外部系統，包括完整的遷移，以及編輯所有使用者資訊，包括密碼和電話號碼等敏感欄位。 相反地，此角色無法變更加密金鑰，或編輯用於租使用者中同盟的秘密。
 
 > [!IMPORTANT]
-> B2 IEF 原則系統管理員是高度敏感的角色, 應針對生產環境中的租使用者以非常有限的基礎加以指派。 這些使用者的活動應該仔細地進行審核, 特別是針對生產環境中的租使用者。
+> B2 IEF 原則系統管理員是高度敏感的角色，應針對生產環境中的租使用者以非常有限的基礎加以指派。 這些使用者的活動應該仔細地進行審核，特別是針對生產環境中的租使用者。
 
 ### <a name="billing-administratorbilling-administrator-permissions"></a>[計費管理員](#billing-administrator-permissions)
 
@@ -111,7 +111,7 @@ ms.locfileid: "70193865"
 
 ### <a name="cloud-application-administratorcloud-application-administrator-permissions"></a>[雲端應用程式系統管理員](#cloud-application-administrator-permissions)
 
-此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時, 不會將指派給此角色的使用者新增為擁有者。
+此角色中的使用者具有與應用程式系統管理員角色相同的權限，但不包括管理應用程式 Proxy 的能力。 此角色會授與能力來建立和管理企業應用程式和應用程式註冊的所有層面。 此角色也會授與能力來同意委派的權限以及 Microsoft Graph 和 Azure AD Graph 以外的應用程式權限。 在建立新的應用程式註冊或企業應用程式時，不會將指派給此角色的使用者新增為擁有者。
 
 > [!IMPORTANT]
 > 此角色授與管理應用程式認證的能力。 獲指派此角色的使用者可以將認證新增至應用程式，並使用這些認證來模擬應用程式的身分識別。 如果應用程式的身分識別已授與 Azure Active Directory 的存取權，例如建立或更新使用者或其他物件的能力，則獲指派這個角色的使用者可以在模擬應用程式時執行這些動作。 模擬應用程式身分識別的這項能力，對於使用者透過 Azure AD 中角色指派所能執行的動作，是一種權限提高。 請務必了解，將雲端應用程式系統管理員角色指派給使用者，會給予他們模擬應用程式身分識別的能力。
@@ -122,7 +122,7 @@ ms.locfileid: "70193865"
 
 ### <a name="compliance-administratorcompliance-administrator-permissions"></a>[合規性管理員](#compliance-administrator-permissions)
 
-具備此角色的使用者有權限管理 Microsoft 365 合規性中心、Microsoft 365 系統管理中心、Azure 和 Office 365 安全性與合規性中心中的合規性相關功能。 「代理人」也可以管理 Exchange 系統管理中心內的所有功能, 以及 & 「商務用 Skype 系統管理中心」的小組, 並建立 Azure 和 Microsoft 365 的支援票證。 如需詳細資訊，請參閱[關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
+具備此角色的使用者有權限管理 Microsoft 365 合規性中心、Microsoft 365 系統管理中心、Azure 和 Office 365 安全性與合規性中心中的合規性相關功能。 「代理人」也可以管理 Exchange 系統管理中心內的所有功能，以及 & 「商務用 Skype 系統管理中心」的小組，並建立 Azure 和 Microsoft 365 的支援票證。 如需詳細資訊，請參閱[關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
 
 入 | 可以執行
 ----- | ----------
@@ -134,7 +134,7 @@ ms.locfileid: "70193865"
 
 ### <a name="compliance-data-administratorcompliance-data-administrator-permissions"></a>[合規性資料管理員](#compliance-data-administrator-permissions)
 
-具有此角色的使用者具有在 Microsoft 365 合規性中心、Microsoft 365 系統管理中心和 Azure 中追蹤資料的許可權。 使用者也可以追蹤 Exchange 系統管理中心、合規性管理員和小組 & 商務用 Skype 系統管理中心的相容性資料, 並建立 Azure 和 Microsoft 365 的支援票證。
+具有此角色的使用者具有在 Microsoft 365 合規性中心、Microsoft 365 系統管理中心和 Azure 中追蹤資料的許可權。 使用者也可以追蹤 Exchange 系統管理中心、合規性管理員和小組 & 商務用 Skype 系統管理中心的相容性資料，並建立 Azure 和 Microsoft 365 的支援票證。
 
 入 | 可以執行
 ----- | ----------
@@ -148,7 +148,7 @@ ms.locfileid: "70193865"
 
 具有此角色的使用者能夠管理 Azure Active Directory 的條件式存取設定。
 > [!NOTE]
-> 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則, 使用者也必須是全域管理員。
+> 若要在 Azure 中部署 Exchange ActiveSync 條件式存取原則，使用者也必須是全域管理員。
 
 ### <a name="customer-lockbox-access-approvercustomer-lockbox-access-approver-permissions"></a>[客戶加密箱存取核准者](#customer-lockbox-access-approver-permissions)
 
@@ -157,7 +157,7 @@ ms.locfileid: "70193865"
 ### <a name="desktop-analytics-administratordesktop-analytics-administrator-permissions"></a>[電腦分析系統管理員](#desktop-analytics-administrator-permissions)
 
 
-此角色中的使用者可以管理電腦分析和 Office 自訂 & 原則服務。 針對電腦分析, 這包括能夠查看資產清查、建立部署計畫、查看部署和健康狀態。 若為 Office 自訂 & 原則服務, 此角色可讓使用者管理 Office 原則。
+此角色中的使用者可以管理電腦分析和 Office 自訂 & 原則服務。 針對電腦分析，這包括能夠查看資產清查、建立部署計畫、查看部署和健康狀態。 若為 Office 自訂 & 原則服務，此角色可讓使用者管理 Office 原則。
 
 ### <a name="device-administratordevice-administrators-permissions"></a>[裝置系統管理員](#device-administrators-permissions)
 
@@ -191,10 +191,10 @@ ms.locfileid: "70193865"
 
 ### <a name="external-identity-provider-administratorexternal-identity-provider-administrator-permissions"></a>[外部識別提供者系統管理員](#external-identity-provider-administrator-permissions)
 
-此系統管理員會管理 Azure Active Directory 租使用者與外部身分識別提供者之間的同盟。 使用此角色, 使用者可以加入新的身分識別提供者, 並設定所有可用的設定 (例如, 驗證路徑、服務識別碼、指派的金鑰容器)。 此使用者可以讓租使用者信任來自外部識別提供者的驗證。 對終端使用者體驗產生的影響取決於租使用者的類型:
+此系統管理員會管理 Azure Active Directory 租使用者與外部身分識別提供者之間的同盟。 使用此角色，使用者可以加入新的身分識別提供者，並設定所有可用的設定（例如，驗證路徑、服務識別碼、指派的金鑰容器）。 此使用者可以讓租使用者信任來自外部識別提供者的驗證。 對終端使用者體驗產生的影響取決於租使用者的類型：
 
-* Azure Active Directory 員工和合作夥伴的租使用者: 新增同盟 (例如使用 Gmail) 會立即影響尚未兌換的所有來賓邀請。 請參閱[將 Google 新增為 B2B 來賓使用者的身分識別提供者](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)。
-* Azure Active Directory B2C 租使用者:新增同盟 (例如, 使用 Facebook, 或與另一個 Azure AD 組織) 不會立即影響使用者流程, 直到將識別提供者新增為使用者流程中的選項 (也稱為內建原則)。 如需範例, 請參閱設定[Microsoft 帳戶做為身分識別提供者](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app)。 若要變更使用者流程, 需要「B2C 使用者流程管理員」的有限角色。
+* Azure Active Directory 員工和合作夥伴的租使用者： 新增同盟（例如使用 Gmail）會立即影響尚未兌換的所有來賓邀請。 請參閱[將 Google 新增為 B2B 來賓使用者的身分識別提供者](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)。
+* Azure Active Directory B2C 租使用者：新增同盟（例如，使用 Facebook，或與另一個 Azure AD 組織）不會立即影響使用者流程，直到將識別提供者新增為使用者流程中的選項（也稱為內建原則）。 如需範例，請參閱設定[Microsoft 帳戶做為身分識別提供者](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app)。 若要變更使用者流程，需要「B2C 使用者流程管理員」的有限角色。
 
 ### <a name="global-administrator--company-administratorcompany-administrator-permissions"></a>[全域管理員/公司系統管理員](#company-administrator-permissions)
 
@@ -211,7 +211,7 @@ ms.locfileid: "70193865"
 
 ### <a name="helpdesk-administratorhelpdesk-administrator-permissions"></a>[技術服務管理員](#helpdesk-administrator-permissions)
 
-具備此角色的使用者可以變更密碼、讓重新整理權杖失效、管理服務要求，以及監視服務健康情況。 讓重新整理權杖失效會強制使用者重新登入。 技術服務管理員可以重設密碼, 並使非系統管理員的其他使用者重新整理權杖失效, 或只指派下列角色:
+具備此角色的使用者可以變更密碼、讓重新整理權杖失效、管理服務要求，以及監視服務健康情況。 讓重新整理權杖失效會強制使用者重新登入。 技術服務管理員可以重設密碼，並使非系統管理員的其他使用者重新整理權杖失效，或只指派下列角色：
 
 * 目錄讀取者
 * 來賓邀請者
@@ -229,9 +229,9 @@ ms.locfileid: "70193865"
 * 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
 
 > [!NOTE]
-> 將系統管理許可權委派給使用者子集, 並將原則套用到使用者子集, 可以使用[管理單位 (預覽)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units)。
+> 將系統管理許可權委派給使用者子集，並將原則套用到使用者子集，可以使用[管理單位（預覽）](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units)。
 >
-> 此角色先前在[Azure 入口網站](https://portal.azure.com/)中稱為「密碼管理員」。 我們已將其名稱變更為「技術服務管理員」, 以符合其在 Azure AD PowerShell 中的名稱, Azure AD 圖形 API 和 Microsoft Graph API。
+> 此角色先前在[Azure 入口網站](https://portal.azure.com/)中稱為「密碼管理員」。 我們已將其名稱變更為「技術服務管理員」，以符合其在 Azure AD PowerShell 中的名稱，Azure AD 圖形 API 和 Microsoft Graph API。
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Intune 系統管理員](#intune-service-administrator-permissions)
 
@@ -242,7 +242,7 @@ ms.locfileid: "70193865"
 
 ### <a name="kaizala-administratorkaizala-administrator-permissions"></a>[Kaizala 系統管理員](#kaizala-administrator-permissions)
 
-具有此角色的使用者具有全域許可權, 可管理 Microsoft Kaizala 中的設定 (當服務存在時), 以及管理支援票證和監控服務健康情況的能力。 此外, 使用者也可以存取與採用 & 使用 Kaizala by 組織成員和使用 Kaizala 動作產生的商務報表相關的報表。
+具有此角色的使用者具有全域許可權，可管理 Microsoft Kaizala 中的設定（當服務存在時），以及管理支援票證和監控服務健康情況的能力。 此外，使用者也可以存取與採用 & 使用 Kaizala by 組織成員和使用 Kaizala 動作產生的商務報表相關的報表。
 
 ### <a name="license-administratorlicense-administrator-permissions"></a>[授權管理員](#license-administrator-permissions)
 
@@ -250,7 +250,7 @@ ms.locfileid: "70193865"
 
 ### <a name="message-center-privacy-readermessage-center-privacy-reader-permissions"></a>[訊息中心隱私權讀者](#message-center-privacy-reader-permissions)
 
-此角色中的使用者可以監視訊息中心內的所有通知, 包括資料隱私權訊息。 訊息中心隱私權讀者會收到電子郵件通知, 包括資料隱私權的相關資訊, 並可使用訊息中心喜好設定取消訂閱。 只有全域管理員和訊息中心隱私權讀取者可以讀取資料隱私權訊息。 此外, 此角色包含可供您查看群組、網域和訂閱的功能。 此角色沒有任何許可權可查看、建立或管理服務要求。
+此角色中的使用者可以監視訊息中心內的所有通知，包括資料隱私權訊息。 訊息中心隱私權讀者會收到電子郵件通知，包括資料隱私權的相關資訊，並可使用訊息中心喜好設定取消訂閱。 只有全域管理員和訊息中心隱私權讀取者可以讀取資料隱私權訊息。 此外，此角色包含可供您查看群組、網域和訂閱的功能。 此角色沒有任何許可權可查看、建立或管理服務要求。
 
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[訊息中心讀者](#message-center-reader-permissions)
 
@@ -266,7 +266,7 @@ ms.locfileid: "70193865"
 
 ### <a name="password-administratorpassword-administrator-permissions"></a>[密碼管理員](#password-administrator-permissions)
 
-具有此角色的使用者管理密碼的能力有限。 此角色不會授與管理服務要求或監視服務健全狀況的能力。 密碼管理員可以重設非系統管理員或下列角色成員的其他使用者的密碼:
+具有此角色的使用者管理密碼的能力有限。 此角色不會授與管理服務要求或監視服務健全狀況的能力。 密碼管理員可以重設非系統管理員或下列角色成員的其他使用者的密碼：
 
 * 目錄讀取者
 * 來賓邀請者
@@ -281,26 +281,26 @@ ms.locfileid: "70193865"
 
 ### <a name="privileged-authentication-administratorprivileged-authentication-administrator-permissions"></a>[特殊許可權驗證管理員](#privileged-authentication-administrator-permissions)
 
-具有此角色的使用者可以為所有使用者設定或重設非密碼認證, 包括全域管理員, 而且可以更新所有使用者的密碼。 特殊許可權驗證系統管理員可以強制使用者針對現有的非密碼認證 (例如 MFA、FIDO) 重新註冊, 並撤銷「在裝置上記住 MFA」, 在下次登入所有使用者時提示 MFA。
+具有此角色的使用者可以為所有使用者設定或重設非密碼認證，包括全域管理員，而且可以更新所有使用者的密碼。 特殊許可權驗證系統管理員可以強制使用者針對現有的非密碼認證（例如 MFA、FIDO）重新註冊，並撤銷「在裝置上記住 MFA」，在下次登入所有使用者時提示 MFA。
 
 ### <a name="privileged-role-administratorprivileged-role-administrator-permissions"></a>[特殊許可權角色管理員](#privileged-role-administrator-permissions)
 
-具備此角色的使用者可以管理 Azure Active Directory 中，以及 Azure AD Privileged Identity Management 內的角色指派。 此外, 此角色可讓您管理 Privileged Identity Management 和管理單位的所有層面。
+具備此角色的使用者可以管理 Azure Active Directory 中，以及 Azure AD Privileged Identity Management 內的角色指派。 此外，此角色可讓您管理 Privileged Identity Management 和管理單位的所有層面。
 
 > [!IMPORTANT]
-> 此角色會授與管理所有 Azure AD 角色指派的能力, 包括全域管理員角色。 此角色不包含 Azure AD 中的任何其他特殊權限能力，例如建立或更新使用者。 不過，指派給這個角色的使用者可以藉由指派額外的角色，來授與自己或其他人額外權限。
+> 此角色會授與管理所有 Azure AD 角色指派的能力，包括全域管理員角色。 此角色不包含 Azure AD 中的任何其他特殊權限能力，例如建立或更新使用者。 不過，指派給這個角色的使用者可以藉由指派額外的角色，來授與自己或其他人額外權限。
 
 ### <a name="reports-readerreports-reader-permissions"></a>[報告讀取者](#reports-reader-permissions)
 
-具有此角色的使用者可以在 Microsoft 365 系統管理中心和 Power BI 中的採用內容套件中, 查看使用方式報告資料和報告儀表板。 此外，此角色還可讓使用者存取 Azure AD 中的登入報告與活動，以及 Microsoft Graph 報告 API 所傳回的資料。 獲指派「報告讀者」角色的使用者只能存取相關的使用情況和採用計量。 他們並不具備任何系統管理權限，因此無法進行設定或存取產品特定的系統管理中心 (例如 Exchange)。 這個角色沒有檢視、建立或管理支援票證的存取權。
+具有此角色的使用者可以在 Microsoft 365 系統管理中心和 Power BI 中的採用內容套件中，查看使用方式報告資料和報告儀表板。 此外，此角色還可讓使用者存取 Azure AD 中的登入報告與活動，以及 Microsoft Graph 報告 API 所傳回的資料。 獲指派「報告讀者」角色的使用者只能存取相關的使用情況和採用計量。 他們並不具備任何系統管理權限，因此無法進行設定或存取產品特定的系統管理中心 (例如 Exchange)。 這個角色沒有檢視、建立或管理支援票證的存取權。
 
 ### <a name="search-administratorsearch-administrator-permissions"></a>[搜尋系統管理員](#search-administrator-permissions)
 
-此角色中的使用者具有 Microsoft 365 系統管理中心內所有 Microsoft 搜尋管理功能的完整存取權。 搜尋系統管理員可以將 [搜尋管理員] 和 [搜尋編輯器] 角色委派給使用者, 以及建立和管理內容, 例如書簽、Q & As 和位置。 此外, 這些使用者可以查看訊息中心、監視服務健全狀況, 以及建立服務要求。
+此角色中的使用者具有 Microsoft 365 系統管理中心內所有 Microsoft 搜尋管理功能的完整存取權。 搜尋系統管理員可以將 [搜尋管理員] 和 [搜尋編輯器] 角色委派給使用者，以及建立和管理內容，例如書簽、Q & As 和位置。 此外，這些使用者可以查看訊息中心、監視服務健全狀況，以及建立服務要求。
 
 ### <a name="search-editorsearch-editor-permissions"></a>[搜尋編輯器](#search-editor-permissions)
 
-此角色中的使用者可以在 Microsoft 365 系統管理中心內建立、管理及刪除 Microsoft Search 的內容, 包括書簽、Q & As 和位置。
+此角色中的使用者可以在 Microsoft 365 系統管理中心內建立、管理及刪除 Microsoft Search 的內容，包括書簽、Q & As 和位置。
 
 ### <a name="security-administratorsecurity-administrator-permissions"></a>[安全性系統管理員](#security-administrator-permissions)
 
@@ -321,7 +321,7 @@ Windows Defender ATP 和 EDR | 指派角色<br>管理電腦群組<br>設定端�
 
 ### <a name="security-operatorsecurity-operator-permissions"></a>[安全性運算子](#security-operator-permissions)
 
-具有此角色的使用者可以管理警示, 並具有安全性相關功能的全域唯讀存取權, 包括 Microsoft 365 資訊安全中心、Azure Active Directory、身分識別保護、Privileged Identity Management 和 Office 365 中的所有資訊安全性 & 合規性中心。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)中取得。
+具有此角色的使用者可以管理警示，並具有安全性相關功能的全域唯讀存取權，包括 Microsoft 365 資訊安全中心、Azure Active Directory、身分識別保護、Privileged Identity Management 和 Office 365 中的所有資訊安全性 & 合規性中心。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center)中取得。
 
 入 | 可以執行
 --- | ---
@@ -342,9 +342,9 @@ Windows Defender ATP 和 EDR | 「安全性讀取者」角色的所有權限<br>
 --- | ---
 [Microsoft 365 資訊安全中心](https://protection.office.com) | 檢視所有 Microsoft 365 服務的安全性相關原則<br>檢視安全性威脅和警示<br>檢視報告
 Identity Protection 中心 | 讀取安全性功能的所有安全性報告和設定資訊<br><ul><li>反垃圾郵件<li>加密<li>資料外洩防護<li>反惡意程式碼<li>進階威脅防護<li>防網路釣魚<li>郵件流程規則
-[Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 具有 Azure AD Privileged Identity Management 中呈現的所有資訊的唯讀存取權:Azure AD 角色指派和安全性審查的原則與報告。<br>**無法**註冊 Azure AD Privileged Identity Management 或對它進行任何變更。 在 Privileged Identity Management 入口網站或透過 PowerShell, 此角色中的人員可以啟用其他角色 (例如, 全域管理員或特殊許可權角色管理員) (如果使用者有資格)。
+[Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | 具有 Azure AD Privileged Identity Management 中呈現的所有資訊的唯讀存取權：Azure AD 角色指派和安全性審查的原則與報告。<br>**無法**註冊 Azure AD Privileged Identity Management 或對它進行任何變更。 在 Privileged Identity Management 入口網站或透過 PowerShell，此角色中的人員可以啟用其他角色（例如，全域管理員或特殊許可權角色管理員）（如果使用者有資格）。
 [Office 365 安全性與合規性中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 檢視安全性原則<br>檢視及調查安全性威脅<br>檢視報告
-Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defender ATP 中開啟角色型存取控制時, 具有唯讀許可權 (例如 Azure AD 安全性讀取者角色) 的使用者會失去存取權, 直到指派給 Windows Defender ATP 角色為止。
+Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defender ATP 中開啟角色型存取控制時，具有唯讀許可權（例如 Azure AD 安全性讀取者角色）的使用者會失去存取權，直到指派給 Windows Defender ATP 角色為止。
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 檢視使用者、裝置、註冊、設定及應用程式資訊。 無法對 Intune 進行變更。
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 具有唯讀權限，並可管理警示
 [Azure 資訊安全中心](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | 可檢視建議和警示、檢視安全性原則、檢視安全性狀態，但無法進行變更
@@ -352,14 +352,14 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="service-support-administratorservice-support-administrator-permissions"></a>[服務支援系統管理員](#service-support-administrator-permissions)
 
-具有此角色的使用者可以開啟 Microsoft for Azure 和 Office 365 服務的支援要求, 並在 [ [Azure 入口網站](https://portal.azure.com)] 和 [ [Microsoft 365 系統管理中心](https://admin.microsoft.com)] 中查看服務儀表板和訊息中心。 如需詳細資訊，請參閱 [關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
+具有此角色的使用者可以開啟 Microsoft for Azure 和 Office 365 服務的支援要求，並在 [ [Azure 入口網站](https://portal.azure.com)] 和 [ [Microsoft 365 系統管理中心](https://admin.microsoft.com)] 中查看服務儀表板和訊息中心。 [有關系統管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)的詳細資訊。
 
 > [!NOTE]
 > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「服務支援管理員」。 這是[Azure 入口網站](https://portal.azure.com)、 [Microsoft 365 系統管理中心](https://admin.microsoft.com)和 Intune 入口網站中的「服務管理員」。
 
 ### <a name="sharepoint-administratorsharepoint-service-administrator-permissions"></a>[SharePoint 系統管理員](#sharepoint-service-administrator-permissions)
 
-具備此角色的使用者在有 Microsoft SharePoint Online 服務時，於該服務內具有全域權限，以及建立和管理所有 Office 365 群組、管理支援票證和監控服務健康情況的能力。 如需詳細資訊，請參閱 [關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
+具備此角色的使用者在有 Microsoft SharePoint Online 服務時，於該服務內具有全域權限，以及建立和管理所有 Office 365 群組、管理支援票證和監控服務健康情況的能力。 [有關系統管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)的詳細資訊。
 
 > [!NOTE]
 > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「SharePoint 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com)中則是「SharePoint 管理員」。
@@ -369,7 +369,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 在有 Microsoft 商務用 Skype 服務時，具備此角色的使用者在該服務內會具有全域權限，以及在 Azure Active Directory 中管理 Skype 特定的使用者屬性。 此外，此角色會授與管理支援票證及監視服務健康情況的能力，以及存取 Microsoft Teams 和商務用 Skype 系統管理中心的能力。 此帳戶也必須獲得 Microsoft Teams 授權，否則就無法執行 Microsoft Teams PowerShell Cmdlet。 如需詳細資訊，請參閱[關於商務用 Skype 系統管理員角色](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5)，如需 Microsoft Teams 的授權資訊，請參閱[商務用 Skype 和 Microsoft Teams 附加授權](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
 > [!NOTE]
-> 在 Microsoft Graph API、Azure AD 圖形 API 和 Azure AD PowerShell 中, 會將此角色識別為「Lync 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com/)中則是「商務用 Skype 管理員」。
+> 在 Microsoft Graph API、Azure AD 圖形 API 和 Azure AD PowerShell 中，會將此角色識別為「Lync 服務管理員」。 在 [Azure 入口網站](https://portal.azure.com/)中則是「商務用 Skype 管理員」。
 
 ### <a name="teams-administratorteams-service-administrator-permissions"></a>[小組系統管理員](#teams-service-administrator-permissions)
 
@@ -391,7 +391,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[使用者管理員](#user-administrator-permissions)
 
-具有此角色的使用者可以建立使用者, 以及管理具有一些限制的使用者所有層面 (如下所示), 並可更新密碼到期原則。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。
+具有此角色的使用者可以建立使用者，以及管理具有一些限制的使用者所有層面（如下所示），並可更新密碼到期原則。 此外，具有此角色的使用者可以建立與管理所有群組。 此角色也包含建立和管理使用者檢視、管理支援票證，以及監視服務健康情況的能力。
 
 | | |
 | --- | --- |
@@ -418,39 +418,49 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/applications/audience/update | 在 Azure Active Directory 中更新 applications.audience 屬性。 |
-| microsoft.aad.directory/applications/authentication/update | 在 Azure Active Directory 中更新 applications.authentication 屬性。 |
-| microsoft.aad.directory/applications/basic/update | 更新 Azure Active Directory 中 Applications 的基本屬性。 |
-| microsoft.aad.directory/applications/create | 在 Azure Active Directory 中建立應用程式。 |
-| microsoft.aad.directory/applications/credentials/update | 在 Azure Active Directory 中更新 applications.credentials 屬性。 |
-| microsoft.aad.directory/applications/delete | 刪除 Azure Active Directory 中的應用程式。 |
-| microsoft.aad.directory/applications/owners/update | 更新 Azure Active Directory 中的 applications.owners 屬性。 |
-| microsoft.aad.directory/applications/permissions/update | 在 Azure Active Directory 中更新 applications.permissions 屬性。 |
-| microsoft.aad.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
-| microsoft.aad.directory/appRoleAssignments/create | 在 Azure Active Directory 中建立 appRoleAssignments。 |
-| microsoft.aad.directory/appRoleAssignments/read | 讀取 Azure Active Directory 中的 appRoleAssignments。 |
-| microsoft.aad.directory/appRoleAssignments/update | 更新在 Azure Active Directory 中的 appRoleAssignments。 |
-| microsoft.aad.directory/appRoleAssignments/delete | 刪除 Azure Active Directory 中的 appRoleAssignments。 |
-| microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/read | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/update | 更新 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/policies/applicationConfiguration/create | 在 Azure Active Directory 中建立原則。 |
-| microsoft.aad.directory/policies/applicationConfiguration/delete | 刪除 Azure Active Directory 中的原則。 |
-| microsoft.aad.directory/policies/applicationConfiguration/owners/read | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/policies/applicationConfiguration/owners/update | 更新 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/servicePrincipals/audience/update | 更新 Azure Active Directory 中的 servicePrincipals.audience 屬性。 |
-| microsoft.aad.directory/servicePrincipals/authentication/update | 更新 Azure Active Directory 中的 servicePrincipals.authentication 屬性。 |
-| microsoft.aad.directory/servicePrincipals/basic/update | 更新 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
-| microsoft.aad.directory/servicePrincipals/create | 在 Azure Active Directory 中建立 servicePrincipals。 |
-| microsoft.aad.directory/servicePrincipals/credentials/update | 更新 Azure Active Directory 中的 servicePrincipals.credentials 屬性。 |
-| microsoft.aad.directory/servicePrincipals/delete | 刪除 Azure Active Directory 中的 servicePrincipals。 |
-| microsoft.aad.directory/servicePrincipals/owners/update | 更新 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
-| microsoft.aad.directory/servicePrincipals/permissions/update | 更新 Azure Active Directory 中的 servicePrincipals.permissions 屬性。 |
-| microsoft.aad.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
-| microsoft.aad.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft 目錄/應用程式/appProxyAuthentication/更新 | 更新 Azure Active Directory 中服務主體的應用程式 Proxy 驗證屬性。 |
+| microsoft 目錄/應用程式/appProxyUrlSettings/更新 | 更新 Azure Active Directory 中的應用程式 proxy 內部和外部 URL。 |
+| microsoft 目錄/應用程式/applicationProxy/讀取 | 讀取所有應用程式 Proxy 屬性。 |
+| microsoft 目錄/應用程式/applicationProxy/更新 | 更新所有應用程式 Proxy 屬性。 |
+| microsoft.directory/applications/audience/update | 在 Azure Active Directory 中更新 applications.audience 屬性。 |
+| microsoft.directory/applications/authentication/update | 在 Azure Active Directory 中更新 applications.authentication 屬性。 |
+| microsoft.directory/applications/basic/update | 更新 Azure Active Directory 中 Applications 的基本屬性。 |
+| microsoft 目錄/應用程式/建立 | 在 Azure Active Directory 中建立應用程式。 |
+| microsoft.directory/applications/credentials/update | 在 Azure Active Directory 中更新 applications.credentials 屬性。 |
+| microsoft.directory/applications/delete | 刪除 Azure Active Directory 中的應用程式。 |
+| microsoft.directory/applications/owners/update | 更新 Azure Active Directory 中的 applications.owners 屬性。 |
+| microsoft.directory/applications/permissions/update | 在 Azure Active Directory 中更新 applications.permissions 屬性。 |
+| microsoft.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
+| microsoft 目錄/appRoleAssignments/建立 | 在 Azure Active Directory 中建立 appRoleAssignments。 |
+| microsoft 目錄/appRoleAssignments/read | 讀取 Azure Active Directory 中的 appRoleAssignments。 |
+| microsoft 目錄/appRoleAssignments/更新 | 更新在 Azure Active Directory 中的 appRoleAssignments。 |
+| microsoft 目錄/appRoleAssignments/delete | 刪除 Azure Active Directory 中的 appRoleAssignments。 |
+| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft 目錄/connectorGroups/所有內容/讀取 | 讀取 Azure Active Directory 中的應用程式 proxy 連接器群組屬性。 |
+| microsoft 目錄/connectorGroups/所有專案/更新 | 更新 Azure Active Directory 中的所有應用程式 proxy 連接器群組屬性。 |
+| microsoft 目錄/connectorGroups/建立 | 在 Azure Active Directory 中建立應用程式 proxy 連接器群組。 |
+| microsoft 目錄/connectorGroups/delete | 在 Azure Active Directory 中刪除應用程式 proxy 連接器群組。 |
+| microsoft 目錄/連接器/所有內容/讀取 | 讀取 Azure Active Directory 中的所有應用程式 proxy 連接器屬性。 |
+| microsoft 目錄/連接器/建立 | 在 Azure Active Directory 中建立應用程式 proxy 連接器。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/基本/讀取 | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/基本/更新 | 更新 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/create | 在 Azure Active Directory 中建立原則。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/delete | 刪除 Azure Active Directory 中的原則。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/擁有者/讀取 | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/擁有者/更新 | 更新 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/policyAppliedTo/read | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
+| microsoft.directory/servicePrincipals/audience/update | 更新 Azure Active Directory 中的 servicePrincipals.audience 屬性。 |
+| microsoft.directory/servicePrincipals/authentication/update | 更新 Azure Active Directory 中的 servicePrincipals.authentication 屬性。 |
+| microsoft.directory/servicePrincipals/basic/update | 更新 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
+| microsoft 目錄/servicePrincipals/建立 | 在 Azure Active Directory 中建立 servicePrincipals。 |
+| microsoft.directory/servicePrincipals/credentials/update | 更新 Azure Active Directory 中的 servicePrincipals.credentials 屬性。 |
+| microsoft.directory/servicePrincipals/delete | 刪除 Azure Active Directory 中的 servicePrincipals。 |
+| microsoft.directory/servicePrincipals/owners/update | 更新 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
+| microsoft.directory/servicePrincipals/permissions/update | 更新 Azure Active Directory 中的 servicePrincipals.permissions 屬性。 |
+| microsoft.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
+| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
@@ -462,10 +472,10 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/applications/createAsOwner | 在 Azure Active Directory 中建立應用程式。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
-| microsoft.aad.directory/appRoleAssignments/createAsOwner | 在 Azure Active Directory 中建立 appRoleAssignments。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
-| microsoft.aad.directory/oAuth2PermissionGrants/createAsOwner | 在 Azure Active Directory 中建立 oAuth2PermissionGrants。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
-| microsoft.aad.directory/servicePrincipals/createAsOwner | 在 Azure Active Directory 中建立 servicePrincipals。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft 目錄/應用程式/createAsOwner | 在 Azure Active Directory 中建立應用程式。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft 目錄/appRoleAssignments/createAsOwner | 在 Azure Active Directory 中建立 appRoleAssignments。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft 目錄/oAuth2PermissionGrants/createAsOwner | 在 Azure Active Directory 中建立 oAuth2PermissionGrants。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft 目錄/servicePrincipals/createAsOwner | 在 Azure Active Directory 中建立 servicePrincipals。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
 
 ### <a name="authentication-administrator-permissions"></a>驗證系統管理員許可權
 
@@ -473,21 +483,21 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
-| microsoft.aad.directory/users/strongAuthentication/update | 更新 MFA 認證資訊等增強式驗證屬性。 |
+| microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
+| microsoft 目錄/使用者/Users.strongauthentication/更新 | 更新 MFA 認證資訊等增強式驗證屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
-| microsoft.aad.directory/users/password/update | 更新 Office 365 組織中所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
+| microsoft 目錄/使用者/密碼/更新 | 更新 Office 365 組織中所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
 
 ### <a name="azure-information-protection-administrator-permissions"></a>Azure 資訊保護系統管理員許可權
 
 可以管理 Azure 資訊保護服務的所有層面。
 
 > [!NOTE]
-> 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊, 請參閱上述[角色說明](#)。
+> 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱上述[角色說明](#)。
 >
 >
 
@@ -542,7 +552,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/organization/basic/update | 更新 Azure Active Directory 中 organization 的基本屬性。 |
+| microsoft 目錄/組織/基本/更新 | 更新 Azure Active Directory 中 organization 的基本屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.commerce.billing/allEntities/allTasks | 管理 Office 365 帳單的所有層面。 |
@@ -556,38 +566,38 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/applications/audience/update | 在 Azure Active Directory 中更新 applications.audience 屬性。 |
-| microsoft.aad.directory/applications/authentication/update | 在 Azure Active Directory 中更新 applications.authentication 屬性。 |
-| microsoft.aad.directory/applications/basic/update | 更新 Azure Active Directory 中 Applications 的基本屬性。 |
-| microsoft.aad.directory/applications/create | 在 Azure Active Directory 中建立應用程式。 |
-| microsoft.aad.directory/applications/credentials/update | 在 Azure Active Directory 中更新 applications.credentials 屬性。 |
-| microsoft.aad.directory/applications/delete | 刪除 Azure Active Directory 中的應用程式。 |
-| microsoft.aad.directory/applications/owners/update | 更新 Azure Active Directory 中的 applications.owners 屬性。 |
-| microsoft.aad.directory/applications/permissions/update | 在 Azure Active Directory 中更新 applications.permissions 屬性。 |
-| microsoft.aad.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
-| microsoft.aad.directory/appRoleAssignments/create | 在 Azure Active Directory 中建立 appRoleAssignments。 |
-| microsoft.aad.directory/appRoleAssignments/update | 更新在 Azure Active Directory 中的 appRoleAssignments。 |
-| microsoft.aad.directory/appRoleAssignments/delete | 刪除 Azure Active Directory 中的 appRoleAssignments。 |
-| microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.aad.directory/policies/applicationConfiguration/create | 在 Azure Active Directory 中建立原則。 |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/read | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/policies/applicationConfiguration/basic/update | 更新 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/policies/applicationConfiguration/delete | 刪除 Azure Active Directory 中的原則。 |
-| microsoft.aad.directory/policies/applicationConfiguration/owners/read | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/policies/applicationConfiguration/owners/update | 更新 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/servicePrincipals/audience/update | 更新 Azure Active Directory 中的 servicePrincipals.audience 屬性。 |
-| microsoft.aad.directory/servicePrincipals/authentication/update | 更新 Azure Active Directory 中的 servicePrincipals.authentication 屬性。 |
-| microsoft.aad.directory/servicePrincipals/basic/update | 更新 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
-| microsoft.aad.directory/servicePrincipals/create | 在 Azure Active Directory 中建立 servicePrincipals。 |
-| microsoft.aad.directory/servicePrincipals/credentials/update | 更新 Azure Active Directory 中的 servicePrincipals.credentials 屬性。 |
-| microsoft.aad.directory/servicePrincipals/delete | 刪除 Azure Active Directory 中的 servicePrincipals。 |
-| microsoft.aad.directory/servicePrincipals/owners/update | 更新 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
-| microsoft.aad.directory/servicePrincipals/permissions/update | 更新 Azure Active Directory 中的 servicePrincipals.permissions 屬性。 |
-| microsoft.aad.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
-| microsoft.aad.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/applications/audience/update | 在 Azure Active Directory 中更新 applications.audience 屬性。 |
+| microsoft.directory/applications/authentication/update | 在 Azure Active Directory 中更新 applications.authentication 屬性。 |
+| microsoft.directory/applications/basic/update | 更新 Azure Active Directory 中 Applications 的基本屬性。 |
+| microsoft 目錄/應用程式/建立 | 在 Azure Active Directory 中建立應用程式。 |
+| microsoft.directory/applications/credentials/update | 在 Azure Active Directory 中更新 applications.credentials 屬性。 |
+| microsoft.directory/applications/delete | 刪除 Azure Active Directory 中的應用程式。 |
+| microsoft.directory/applications/owners/update | 更新 Azure Active Directory 中的 applications.owners 屬性。 |
+| microsoft.directory/applications/permissions/update | 在 Azure Active Directory 中更新 applications.permissions 屬性。 |
+| microsoft.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
+| microsoft 目錄/appRoleAssignments/建立 | 在 Azure Active Directory 中建立 appRoleAssignments。 |
+| microsoft 目錄/appRoleAssignments/更新 | 更新在 Azure Active Directory 中的 appRoleAssignments。 |
+| microsoft 目錄/appRoleAssignments/delete | 刪除 Azure Active Directory 中的 appRoleAssignments。 |
+| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/create | 在 Azure Active Directory 中建立原則。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/基本/讀取 | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/基本/更新 | 更新 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/delete | 刪除 Azure Active Directory 中的原則。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/擁有者/讀取 | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/擁有者/更新 | 更新 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft 目錄/原則/Policies.applicationconfiguration/policyAppliedTo/read | 讀取 Azure Active Directory 中的 policies.applicationConfiguration 屬性。 |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
+| microsoft.directory/servicePrincipals/audience/update | 更新 Azure Active Directory 中的 servicePrincipals.audience 屬性。 |
+| microsoft.directory/servicePrincipals/authentication/update | 更新 Azure Active Directory 中的 servicePrincipals.authentication 屬性。 |
+| microsoft.directory/servicePrincipals/basic/update | 更新 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
+| microsoft 目錄/servicePrincipals/建立 | 在 Azure Active Directory 中建立 servicePrincipals。 |
+| microsoft.directory/servicePrincipals/credentials/update | 更新 Azure Active Directory 中的 servicePrincipals.credentials 屬性。 |
+| microsoft.directory/servicePrincipals/delete | 刪除 Azure Active Directory 中的 servicePrincipals。 |
+| microsoft.directory/servicePrincipals/owners/update | 更新 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
+| microsoft.directory/servicePrincipals/permissions/update | 更新 Azure Active Directory 中的 servicePrincipals.permissions 屬性。 |
+| microsoft.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
+| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
@@ -599,12 +609,12 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
-| microsoft.aad.directory/devices/delete | 刪除 Azure Active Directory 中的 devices。 |
-| microsoft.aad.directory/devices/disable | 停用 Azure Active Directory 中的 devices。 |
-| microsoft.aad.directory/devices/enable | 啟用 Azure Active Directory 中的裝置。 |
-| microsoft.aad.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
+| microsoft 目錄/裝置/刪除 | 刪除 Azure Active Directory 中的 devices。 |
+| microsoft.directory/devices/disable | 停用 Azure Active Directory 中的 devices。 |
+| microsoft 目錄/裝置/啟用 | 啟用 Azure Active Directory 中的裝置。 |
+| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 
@@ -620,35 +630,35 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.cloudAppSecurity/allEntities/allTasks | 建立和刪除所有資源，同時讀取及更新 microsoft.aad.cloudAppSecurity 中的標準屬性。 |
-| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | 建立和刪除 administrativeUnits，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/applications/allProperties/allTasks | 建立和刪除應用程式，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/appRoleAssignments/allProperties/allTasks | 建立和刪除 appRoleAssignments，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.aad.directory/contacts/allProperties/allTasks | 建立和刪除合約，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/contracts/allProperties/allTasks | 建立和刪除合約，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/devices/allProperties/allTasks | 建立和刪除裝置，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/directoryRoles/allProperties/allTasks | 建立和刪除 directoryRoles，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/directoryRoleTemplates/allProperties/allTasks | 建立和刪除 directoryRoleTemplates，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/domains/allProperties/allTasks | 建立和刪除 domains，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/groups/allProperties/allTasks | 建立和刪除 groups，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/groupSettings/allProperties/allTasks | 建立和刪除 groupSettings，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/groupSettingTemplates/allProperties/allTasks | 建立和刪除 groupSettingTemplates，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/loginTenantBranding/allProperties/allTasks | 建立和刪除 loginTenantBranding，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/oAuth2PermissionGrants/allProperties/allTasks | 建立和刪除 oAuth2PermissionGrants，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/organization/allProperties/allTasks | 建立和刪除 organization，同時讀取及更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/policies/allProperties/allTasks | 建立和刪除 policies，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/roleAssignments/allProperties/allTasks | 建立與刪除 roleAssignments，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | 建立與刪除 roleDefinitions，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
-| microsoft.aad.directory/scopedRoleMemberships/allProperties/allTasks | 建立和刪除 scopedRoleMemberships，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/serviceAction/activateService | 可以在 Azure Active Directory 中執行 Activateservice 服務動作 |
-| microsoft.aad.directory/serviceAction/disableDirectoryFeature | 可以在 Azure Active Directory 中執行 Disabledirectoryfeature 服務動作 |
-| microsoft.aad.directory/serviceAction/enableDirectoryFeature | 可以在 Azure Active Directory 中執行 Enabledirectoryfeature 服務動作 |
-| microsoft.aad.directory/serviceAction/getAvailableExtentionProperties | 可以在 Azure Active Directory 中執行 Getavailableextentionproperties 服務動作 |
-| microsoft.aad.directory/servicePrincipals/allProperties/allTasks | 建立和刪除 servicePrincipals，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.aad.directory/subscribedSkus/allProperties/allTasks | 建立和刪除 subscribedSkus，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directory/users/allProperties/allTasks | 建立和刪除 users，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
-| microsoft.aad.directorySync/allEntities/allTasks | 執行 Azure AD Connect 中的所有動作。 |
+| microsoft 目錄/administrativeUnits/allProperties/allTasks | 建立和刪除 administrativeUnits，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/應用程式/allProperties/allTasks | 建立和刪除應用程式，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/appRoleAssignments/allProperties/allTasks | 建立和刪除 appRoleAssignments，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft 目錄/contacts/allProperties/allTasks | 建立和刪除合約，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/合約/allProperties/allTasks | 建立和刪除合約，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/devices/allProperties/allTasks | 建立和刪除裝置，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft 目錄/directoryRoles/allProperties/allTasks | 建立和刪除 directoryRoles，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft 目錄/directoryRoleTemplates/allProperties/allTasks | 建立和刪除 directoryRoleTemplates，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft 目錄/網域/allProperties/allTasks | 建立和刪除 domains，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft. directory/groups/allProperties/allTasks | 建立和刪除 groups，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/groupSettings/allProperties/allTasks | 建立和刪除 groupSettings，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/groupSettingTemplates/allProperties/allTasks | 建立和刪除 groupSettingTemplates，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/loginTenantBranding/allProperties/allTasks | 建立和刪除 loginTenantBranding，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft 目錄/oAuth2PermissionGrants/allProperties/allTasks | 建立和刪除 oAuth2PermissionGrants，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft 目錄/組織/allProperties/allTasks | 建立和刪除 organization，同時讀取及更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/原則/allProperties/allTasks | 建立和刪除 policies，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft 目錄/roleAssignments/allProperties/allTasks | 建立與刪除 roleAssignments，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/roleDefinitions/allProperties/allTasks | 建立與刪除 roleDefinitions，以及讀取與更新 Azure Active Directory 中的所有屬性。 |
+| microsoft 目錄/scopedRoleMemberships/allProperties/allTasks | 建立和刪除 scopedRoleMemberships，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft 目錄/serviceAction/activateService | 可以在 Azure Active Directory 中執行 Activateservice 服務動作 |
+| microsoft 目錄/serviceAction/disableDirectoryFeature | 可以在 Azure Active Directory 中執行 Disabledirectoryfeature 服務動作 |
+| microsoft 目錄/serviceAction/enableDirectoryFeature | 可以在 Azure Active Directory 中執行 Enabledirectoryfeature 服務動作 |
+| microsoft 目錄/serviceAction/getAvailableExtentionProperties | 可以在 Azure Active Directory 中執行 Getavailableextentionproperties 服務動作 |
+| microsoft 目錄/servicePrincipals/allProperties/allTasks | 建立和刪除 servicePrincipals，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft 目錄/subscribedSkus/allProperties/allTasks | 建立和刪除 subscribedSkus，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| microsoft directory/users/allProperties/allTasks | 建立和刪除 users，以及在 Azure Active Directory 中讀取和更新所有屬性。 |
+| directorySync/allEntities/allTasks | 執行 Azure AD Connect 中的所有動作。 |
 | microsoft.aad.identityProtection/allEntities/allTasks | 建立和刪除所有資源，以及讀取和更新 microsoft.aad.identityProtection 中的標準屬性。 |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | 讀取 microsoft.aad.privilegedIdentityManagement 中的所有資源。 |
 | microsoft.azure.advancedThreatProtection/allEntities/read | 讀取 microsoft.aad.advancedThreatProtection 中的所有資源。 |
@@ -725,14 +735,14 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/policies/conditionalAccess/basic/read | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
-| microsoft.aad.directory/policies/conditionalAccess/basic/update | 更新 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
-| microsoft.aad.directory/policies/conditionalAccess/create | 在 Azure Active Directory 中建立原則。 |
-| microsoft.aad.directory/policies/conditionalAccess/delete | 刪除 Azure Active Directory 中的原則。 |
-| microsoft.aad.directory/policies/conditionalAccess/owners/read | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
-| microsoft.aad.directory/policies/conditionalAccess/owners/update | 更新 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
-| microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
-| microsoft.aad.directory/policies/conditionalAccess/tenantDefault/update | 更新 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/基本/讀取 | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/基本/更新 | 更新 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/create | 在 Azure Active Directory 中建立原則。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/delete | 刪除 Azure Active Directory 中的原則。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/擁有者/讀取 | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/擁有者/更新 | 更新 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/Policies.policiesappliedto/read | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
+| microsoft 目錄/原則/Policies.conditionalaccess/Policies.tenantdefault/update | 更新 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
 
 ### <a name="crm-service-administrator-permissions"></a>CRM 服務管理員許可權
 
@@ -768,7 +778,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="desktop-analytics-administrator-permissions"></a>電腦分析系統管理員許可權
 
-可以管理電腦分析和 Office 自訂 & 原則服務。 針對電腦分析, 這包括能夠查看資產清查、建立部署計畫、查看部署和健康狀態。 若為 Office 自訂 & 原則服務, 此角色可讓使用者管理 Office 原則。
+可以管理電腦分析和 Office 自訂 & 原則服務。 針對電腦分析，這包括能夠查看資產清查、建立部署計畫、查看部署和健康狀態。 若為 Office 自訂 & 原則服務，此角色可讓使用者管理 Office 原則。
 
 > [!NOTE]
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -790,61 +800,61 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/groupSettings/basic/read | 讀取 Azure Active Directory 中 groupSettings 的基本屬性。 |
-| microsoft.aad.directory/groupSettingTemplates/basic/read | 讀取 Azure Active Directory 中 groupSettingTemplates 的基本屬性。 |
+| microsoft 目錄/groupSettings/基本/讀取 | 讀取 Azure Active Directory 中 groupSettings 的基本屬性。 |
+| microsoft 目錄/groupSettingTemplates/基本/讀取 | 讀取 Azure Active Directory 中 groupSettingTemplates 的基本屬性。 |
 
 ### <a name="directory-readers-permissions"></a>目錄讀取者許可權
 可讀取基本目錄資訊。 用來授與應用程式的存取權，不適用於使用者。
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/administrativeUnits/basic/read | 讀取 Azure Active Directory 中 administrativeUnits 的基本屬性。 |
-| microsoft.aad.directory/administrativeUnits/members/read | 讀取 Azure Active Directory 中的 administrativeUnits.members 屬性。 |
-| microsoft.aad.directory/applications/basic/read | 讀取 Azure Active Directory 中 Applications 的基本屬性。 |
-| microsoft.aad.directory/applications/owners/read | 讀取 Azure Active Directory 中的 applications.owners 屬性。 |
-| microsoft.aad.directory/applications/policies/read | 讀取 Azure Active Directory 中的 applications.policies 屬性。 |
-| microsoft.aad.directory/contacts/basic/read | 讀取 Azure Active Directory 中 contacts 的基本屬性。 |
-| microsoft.aad.directory/contacts/memberOf/read | 讀取 Azure Active Directory 中的 contacts.memberOf 屬性。 |
-| microsoft.aad.directory/contracts/basic/read | 讀取 Azure Active Directory 中 contracts 的基本屬性。 |
-| microsoft.aad.directory/devices/basic/read | 讀取 Azure Active Directory 中 devices 的基本屬性。 |
-| microsoft.aad.directory/devices/memberOf/read | 讀取 Azure Active Directory 中的 devices.memberOf 屬性。 |
-| microsoft.aad.directory/devices/registeredOwners/read | 讀取 Azure Active Directory 中的 devices.registeredOwners 屬性。 |
-| microsoft.aad.directory/devices/registeredUsers/read | 讀取 Azure Active Directory 中的 devices.registeredUsers 屬性。 |
-| microsoft.aad.directory/directoryRoles/basic/read | 讀取 Azure Active Directory 中 directoryRoles 的基本屬性。 |
-| microsoft.aad.directory/directoryRoles/eligibleMembers/read | 讀取 Azure Active Directory 中的 directoryRoles.eligibleMembers 屬性。 |
-| microsoft.aad.directory/directoryRoles/members/read | 讀取 Azure Active Directory 中的 directoryRoles.members 屬性。 |
-| microsoft.aad.directory/domains/basic/read | 讀取 Azure Active Directory 中 domain 的基本屬性。 |
-| microsoft.aad.directory/groups/appRoleAssignments/read | 讀取 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/groups/basic/read | 讀取 Azure Active Directory 中 groups 的基本屬性。 |
-| microsoft.aad.directory/groups/memberOf/read | 讀取 Azure Active Directory 中的 Read groups.memberOf 屬性。 |
-| microsoft.aad.directory/groups/members/read | 讀取 Azure Active Directory 中的 groups.members 屬性。 |
-| microsoft.aad.directory/groups/owners/read | 讀取 Azure Active Directory 中的 groups.owners 屬性。 |
-| microsoft.aad.directory/groups/settings/read | 讀取 Azure Active Directory 中的 groups.settings 屬性。 |
-| microsoft.aad.directory/groupSettings/basic/read | 讀取 Azure Active Directory 中 groupSettings 的基本屬性。 |
-| microsoft.aad.directory/groupSettingTemplates/basic/read | 讀取 Azure Active Directory 中 groupSettingTemplates 的基本屬性。 |
-| microsoft.aad.directory/oAuth2PermissionGrants/basic/read | 讀取 Azure Active Directory 中 oAuth2PermissionGrants 的基本屬性。 |
-| microsoft.aad.directory/organization/basic/read | 讀取 Azure Active Directory 中 organization 的基本屬性。 |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/read | 讀取 Azure Active Directory 中的 organization.trustedCAsForPasswordlessAuth 屬性。 |
-| microsoft.aad.directory/roleAssignments/basic/read | 讀取 Azure Active Directory 中 roleAssignments 的基本屬性。 |
-| microsoft.aad.directory/roleDefinitions/basic/read | 讀取 Azure Active Directory 中 roleDefinitions 的基本屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | 讀取 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | 讀取 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/servicePrincipals/basic/read | 讀取 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
-| microsoft.aad.directory/servicePrincipals/memberOf/read | 讀取 Azure Active Directory 中的 servicePrincipals.memberOf 屬性。 |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | 讀取 Azure Active Directory 中的 servicePrincipals.oAuth2PermissionGrants 屬性。 |
-| microsoft.aad.directory/servicePrincipals/ownedObjects/read | 讀取 Azure Active Directory 中的 servicePrincipals.ownedObjects 屬性。 |
-| microsoft.aad.directory/servicePrincipals/owners/read | 讀取 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
-| microsoft.aad.directory/servicePrincipals/policies/read | 讀取 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
-| microsoft.aad.directory/subscribedSkus/basic/read | 讀取 Azure Active Directory 中 subscribedSkus 的基本屬性。 |
-| microsoft.aad.directory/users/appRoleAssignments/read | 讀取 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/users/basic/read | 讀取 Azure Active Directory 中 users 的基本屬性。 |
-| microsoft.aad.directory/users/directReports/read | 讀取 Azure Active Directory 中的 users.directReports 屬性。 |
-| microsoft.aad.directory/users/manager/read | 讀取 Azure Active Directory 中的 users.manager 屬性。 |
-| microsoft.aad.directory/users/memberOf/read | 讀取 Azure Active Directory 中的 users.memberOf 屬性。 |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | 讀取 Azure Active Directory 中的 users.oAuth2PermissionGrants 屬性。 |
-| microsoft.aad.directory/users/ownedDevices/read | 讀取 Azure Active Directory 中的 users.ownedDevices 屬性。 |
-| microsoft.aad.directory/users/ownedObjects/read | 讀取 Azure Active Directory 中的 users.ownedObjects 屬性。 |
-| microsoft.aad.directory/users/registeredDevices/read | 讀取 Azure Active Directory 中的 users.registeredDevices 屬性。 |
+| microsoft 目錄/administrativeUnits/基本/讀取 | 讀取 Azure Active Directory 中 administrativeUnits 的基本屬性。 |
+| microsoft 目錄/administrativeUnits/成員/讀取 | 讀取 Azure Active Directory 中的 administrativeUnits.members 屬性。 |
+| microsoft 目錄/應用程式/基本/讀取 | 讀取 Azure Active Directory 中 Applications 的基本屬性。 |
+| microsoft 目錄/應用程式/擁有者/讀取 | 讀取 Azure Active Directory 中的 applications.owners 屬性。 |
+| microsoft 目錄/應用程式/原則/讀取 | 讀取 Azure Active Directory 中的 applications.policies 屬性。 |
+| microsoft 目錄/連絡人/基本/讀取 | 讀取 Azure Active Directory 中 contacts 的基本屬性。 |
+| microsoft 目錄/連絡人/memberOf/read | 讀取 Azure Active Directory 中的 contacts.memberOf 屬性。 |
+| microsoft 目錄/合約/基本/讀取 | 讀取 Azure Active Directory 中 contracts 的基本屬性。 |
+| microsoft 目錄/裝置/基本/讀取 | 讀取 Azure Active Directory 中 devices 的基本屬性。 |
+| microsoft 目錄/裝置/memberOf/read | 讀取 Azure Active Directory 中的 devices.memberOf 屬性。 |
+| microsoft 目錄/裝置/Devices.registeredowners/讀取 | 讀取 Azure Active Directory 中的 devices.registeredOwners 屬性。 |
+| microsoft 目錄/裝置/Devices.registeredusers/讀取 | 讀取 Azure Active Directory 中的 devices.registeredUsers 屬性。 |
+| microsoft 目錄/directoryRoles/基本/讀取 | 讀取 Azure Active Directory 中 directoryRoles 的基本屬性。 |
+| microsoft 目錄/directoryRoles/Directoryroles.eligiblemembers/read | 讀取 Azure Active Directory 中的 directoryRoles.eligibleMembers 屬性。 |
+| microsoft 目錄/directoryRoles/成員/讀取 | 讀取 Azure Active Directory 中的 directoryRoles.members 屬性。 |
+| microsoft 目錄/網域/基本/讀取 | 讀取 Azure Active Directory 中 domain 的基本屬性。 |
+| microsoft 目錄/群組/appRoleAssignments/讀取 | 讀取 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
+| microsoft 目錄/群組/基本/讀取 | 讀取 Azure Active Directory 中 groups 的基本屬性。 |
+| microsoft 目錄/群組/memberOf/read | 讀取 Azure Active Directory 中的 Read groups.memberOf 屬性。 |
+| microsoft 目錄/群組/成員/讀取 | 讀取 Azure Active Directory 中的 groups.members 屬性。 |
+| microsoft。目錄/群組/擁有者/讀取 | 讀取 Azure Active Directory 中的 groups.owners 屬性。 |
+| microsoft 目錄/群組/設定/讀取 | 讀取 Azure Active Directory 中的 groups.settings 屬性。 |
+| microsoft 目錄/groupSettings/基本/讀取 | 讀取 Azure Active Directory 中 groupSettings 的基本屬性。 |
+| microsoft 目錄/groupSettingTemplates/基本/讀取 | 讀取 Azure Active Directory 中 groupSettingTemplates 的基本屬性。 |
+| microsoft 目錄/oAuth2PermissionGrants/基本/讀取 | 讀取 Azure Active Directory 中 oAuth2PermissionGrants 的基本屬性。 |
+| microsoft 目錄/組織/基本/讀取 | 讀取 Azure Active Directory 中 organization 的基本屬性。 |
+| microsoft 目錄/組織/trustedCAsForPasswordlessAuth/讀取 | 讀取 Azure Active Directory 中的 organization.trustedCAsForPasswordlessAuth 屬性。 |
+| microsoft 目錄/roleAssignments/基本/讀取 | 讀取 Azure Active Directory 中 roleAssignments 的基本屬性。 |
+| microsoft 目錄/roleDefinitions/基本/讀取 | 讀取 Azure Active Directory 中 roleDefinitions 的基本屬性。 |
+| microsoft 目錄/servicePrincipals/Serviceprincipals.approleassignedto/read | 讀取 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
+| microsoft 目錄/servicePrincipals/appRoleAssignments/read | 讀取 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
+| microsoft 目錄/servicePrincipals/基本/讀取 | 讀取 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
+| microsoft 目錄/servicePrincipals/memberOf/read | 讀取 Azure Active Directory 中的 servicePrincipals.memberOf 屬性。 |
+| microsoft 目錄/servicePrincipals/oAuth2PermissionGrants/基本/讀取 | 讀取 Azure Active Directory 中的 servicePrincipals.oAuth2PermissionGrants 屬性。 |
+| microsoft 目錄/servicePrincipals/ownedObjects/read | 讀取 Azure Active Directory 中的 servicePrincipals.ownedObjects 屬性。 |
+| microsoft 目錄/servicePrincipals/擁有者/讀取 | 讀取 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
+| microsoft 目錄/servicePrincipals/原則/讀取 | 讀取 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
+| microsoft 目錄/subscribedSkus/基本/讀取 | 讀取 Azure Active Directory 中 subscribedSkus 的基本屬性。 |
+| microsoft 目錄/使用者/appRoleAssignments/讀取 | 讀取 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
+| microsoft 目錄/使用者/基本/讀取 | 讀取 Azure Active Directory 中 users 的基本屬性。 |
+| microsoft 目錄/使用者/directReports/讀取 | 讀取 Azure Active Directory 中的 users.directReports 屬性。 |
+| microsoft 目錄/使用者/管理員/讀取 | 讀取 Azure Active Directory 中的 users.manager 屬性。 |
+| microsoft 目錄/使用者/memberOf/read | 讀取 Azure Active Directory 中的 users.memberOf 屬性。 |
+| microsoft 目錄/使用者/oAuth2PermissionGrants/基本/讀取 | 讀取 Azure Active Directory 中的 users.oAuth2PermissionGrants 屬性。 |
+| microsoft 目錄/使用者/Users.owneddevices/讀取 | 讀取 Azure Active Directory 中的 users.ownedDevices 屬性。 |
+| microsoft 目錄/使用者/ownedObjects/讀取 | 讀取 Azure Active Directory 中的 users.ownedObjects 屬性。 |
+| microsoft 目錄/使用者/registeredDevices/讀取 | 讀取 Azure Active Directory 中的 users.registeredDevices 屬性。 |
 
 ### <a name="directory-synchronization-accounts-permissions"></a>目錄同步作業帳戶許可權
 
@@ -852,34 +862,34 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/organization/dirSync/update | 更新 Azure Active Directory 中的 organization.dirSync 屬性。 |
-| microsoft.aad.directory/policies/create | 在 Azure Active Directory 中建立原則。 |
-| microsoft.aad.directory/policies/delete | 刪除 Azure Active Directory 中的原則。 |
-| microsoft.aad.directory/policies/basic/read | 讀取 Azure Active Directory 中 policies 的基本屬性。 |
-| microsoft.aad.directory/policies/basic/update | 更新 Azure Active Directory 中 policies 的基本屬性。 |
-| microsoft.aad.directory/policies/owners/read | 讀取 Azure Active Directory 中的 policies.owners 屬性。 |
-| microsoft.aad.directory/policies/owners/update | 更新 Azure Active Directory 中的 policies.owners 屬性。 |
-| microsoft.aad.directory/policies/policiesAppliedTo/read | 讀取 Azure Active Directory 中的 policies.policiesAppliedTo 屬性。 |
-| microsoft.aad.directory/policies/tenantDefault/update | 更新 Azure Active Directory 中的 policies.tenantDefault 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | 讀取 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | 讀取 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/servicePrincipals/audience/update | 更新 Azure Active Directory 中的 servicePrincipals.audience 屬性。 |
-| microsoft.aad.directory/servicePrincipals/authentication/update | 更新 Azure Active Directory 中的 servicePrincipals.authentication 屬性。 |
-| microsoft.aad.directory/servicePrincipals/basic/read | 讀取 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
-| microsoft.aad.directory/servicePrincipals/basic/update | 更新 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
-| microsoft.aad.directory/servicePrincipals/create | 在 Azure Active Directory 中建立 servicePrincipals。 |
-| microsoft.aad.directory/servicePrincipals/credentials/update | 更新 Azure Active Directory 中的 servicePrincipals.credentials 屬性。 |
-| microsoft.aad.directory/servicePrincipals/memberOf/read | 讀取 Azure Active Directory 中的 servicePrincipals.memberOf 屬性。 |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | 讀取 Azure Active Directory 中的 servicePrincipals.oAuth2PermissionGrants 屬性。 |
-| microsoft.aad.directory/servicePrincipals/owners/read | 讀取 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
-| microsoft.aad.directory/servicePrincipals/owners/update | 更新 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
-| microsoft.aad.directory/servicePrincipals/ownedObjects/read | 讀取 Azure Active Directory 中的 servicePrincipals.ownedObjects 屬性。 |
-| microsoft.aad.directory/servicePrincipals/permissions/update | 更新 Azure Active Directory 中的 servicePrincipals.permissions 屬性。 |
-| microsoft.aad.directory/servicePrincipals/policies/read | 讀取 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
-| microsoft.aad.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
-| microsoft.aad.directorySync/allEntities/allTasks | 執行 Azure AD Connect 中的所有動作。 |
+| microsoft 目錄/組織/dirSync/更新 | 更新 Azure Active Directory 中的 organization.dirSync 屬性。 |
+| microsoft 目錄/原則/建立 | 在 Azure Active Directory 中建立原則。 |
+| microsoft.directory/policies/delete | 刪除 Azure Active Directory 中的原則。 |
+| microsoft 目錄/原則/基本/讀取 | 讀取 Azure Active Directory 中 policies 的基本屬性。 |
+| microsoft.directory/policies/basic/update | 更新 Azure Active Directory 中 policies 的基本屬性。 |
+| microsoft 目錄/原則/擁有者/讀取 | 讀取 Azure Active Directory 中的 policies.owners 屬性。 |
+| microsoft.directory/policies/owners/update | 更新 Azure Active Directory 中的 policies.owners 屬性。 |
+| microsoft 目錄/原則/Policies.policiesappliedto/read | 讀取 Azure Active Directory 中的 policies.policiesAppliedTo 屬性。 |
+| microsoft 目錄/原則/Policies.tenantdefault/更新 | 更新 Azure Active Directory 中的 policies.tenantDefault 屬性。 |
+| microsoft 目錄/servicePrincipals/Serviceprincipals.approleassignedto/read | 讀取 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignedTo 屬性。 |
+| microsoft 目錄/servicePrincipals/appRoleAssignments/read | 讀取 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
+| microsoft.directory/servicePrincipals/appRoleAssignments/update | 更新 Azure Active Directory 中的 servicePrincipals.appRoleAssignments 屬性。 |
+| microsoft.directory/servicePrincipals/audience/update | 更新 Azure Active Directory 中的 servicePrincipals.audience 屬性。 |
+| microsoft.directory/servicePrincipals/authentication/update | 更新 Azure Active Directory 中的 servicePrincipals.authentication 屬性。 |
+| microsoft 目錄/servicePrincipals/基本/讀取 | 讀取 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
+| microsoft.directory/servicePrincipals/basic/update | 更新 Azure Active Directory 中 servicePrincipals 的基本屬性。 |
+| microsoft 目錄/servicePrincipals/建立 | 在 Azure Active Directory 中建立 servicePrincipals。 |
+| microsoft.directory/servicePrincipals/credentials/update | 更新 Azure Active Directory 中的 servicePrincipals.credentials 屬性。 |
+| microsoft 目錄/servicePrincipals/memberOf/read | 讀取 Azure Active Directory 中的 servicePrincipals.memberOf 屬性。 |
+| microsoft 目錄/servicePrincipals/oAuth2PermissionGrants/基本/讀取 | 讀取 Azure Active Directory 中的 servicePrincipals.oAuth2PermissionGrants 屬性。 |
+| microsoft 目錄/servicePrincipals/擁有者/讀取 | 讀取 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
+| microsoft.directory/servicePrincipals/owners/update | 更新 Azure Active Directory 中的 servicePrincipals.owners 屬性。 |
+| microsoft 目錄/servicePrincipals/ownedObjects/read | 讀取 Azure Active Directory 中的 servicePrincipals.ownedObjects 屬性。 |
+| microsoft.directory/servicePrincipals/permissions/update | 更新 Azure Active Directory 中的 servicePrincipals.permissions 屬性。 |
+| microsoft 目錄/servicePrincipals/原則/讀取 | 讀取 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
+| microsoft.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
+| directorySync/allEntities/allTasks | 執行 Azure AD Connect 中的所有動作。 |
 
 ### <a name="directory-writers-permissions"></a>目錄寫入器許可權
 
@@ -887,22 +897,22 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/groups/create | 在 Azure Active Directory 中建立 groups。 |
-| microsoft.aad.directory/groups/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
-| microsoft.aad.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/groups/basic/update | 更新 Azure Active Directory 中 groups 的基本屬性。 |
-| microsoft.aad.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
-| microsoft.aad.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
-| microsoft.aad.directory/groups/settings/update | 更新 Azure Active Directory 中的 groups.settings 屬性。 |
-| microsoft.aad.directory/groupSettings/basic/update | 更新 Azure Active Directory 中 groupSettings 的基本屬性。 |
-| microsoft.aad.directory/groupSettings/create | 在 Azure Active Directory 中建立 groupSettings。 |
-| microsoft.aad.directory/groupSettings/delete | 在 Azure Active Directory 中刪除 groupSettings。 |
-| microsoft.aad.directory/users/appRoleAssignments/update | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/users/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
-| microsoft.aad.directory/users/basic/update | 更新 Azure Active Directory 中 users 的基本屬性。 |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
-| microsoft.aad.directory/users/manager/update | 更新 Azure Active Directory 中的 users.manager 屬性。 |
-| microsoft.aad.directory/users/userPrincipalName/update | 更新 Azure Active Directory 中的 users.userPrincipalName 屬性。 |
+| microsoft. 目錄/群組/建立 | 在 Azure Active Directory 中建立 groups。 |
+| microsoft 目錄/群組/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
+| microsoft.directory/groups/basic/update | 更新 Azure Active Directory 中 groups 的基本屬性。 |
+| microsoft.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
+| microsoft.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
+| microsoft.directory/groups/settings/update | 更新 Azure Active Directory 中的 groups.settings 屬性。 |
+| microsoft 目錄/groupSettings/基本/更新 | 更新 Azure Active Directory 中 groupSettings 的基本屬性。 |
+| microsoft 目錄/groupSettings/建立 | 在 Azure Active Directory 中建立 groupSettings。 |
+| microsoft 目錄/groupSettings/delete | 在 Azure Active Directory 中刪除 groupSettings。 |
+| microsoft 目錄/使用者/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
+| microsoft 目錄/使用者/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
+| microsoft 目錄/使用者/基本/更新 | 更新 Azure Active Directory 中 users 的基本屬性。 |
+| microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
+| microsoft 目錄/使用者/管理員/更新 | 更新 Azure Active Directory 中的 users.manager 屬性。 |
+| microsoft 目錄/使用者/userPrincipalName/update | 更新 Azure Active Directory 中的 users.userPrincipalName 屬性。 |
 
 ### <a name="exchange-service-administrator-permissions"></a>Exchange 服務管理員許可權
 
@@ -915,12 +925,12 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/groups/unified/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
-| microsoft.aad.directory/groups/unified/basic/update | 更新 Office 365 群組的基本屬性。 |
-| microsoft.aad.directory/groups/unified/create | 建立 Office 365 群組。 |
-| microsoft.aad.directory/groups/unified/delete | 刪除 Office 365 群組。 |
-| microsoft.aad.directory/groups/unified/members/update | 更新 Office 365 群組的成員資格。 |
-| microsoft.aad.directory/groups/unified/owners/update | 更新 Office 365 群組的擁有權。 |
+| microsoft 目錄/群組/整合/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
+| microsoft 目錄/群組/統一/基本/更新 | 更新 Office 365 群組的基本屬性。 |
+| microsoft。目錄/群組/整合/建立 | 建立 Office 365 群組。 |
+| microsoft 目錄/群組/整合/刪除 | 刪除 Office 365 群組。 |
+| microsoft 目錄/群組/整合/成員/更新 | 更新 Office 365 群組的成員資格。 |
+| microsoft。目錄/群組/整合/擁有者/更新 | 更新 Office 365 群組的擁有權。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -941,16 +951,16 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/users/appRoleAssignments/read | 讀取 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/users/basic/read | 讀取 Azure Active Directory 中 users 的基本屬性。 |
-| microsoft.aad.directory/users/directReports/read | 讀取 Azure Active Directory 中的 users.directReports 屬性。 |
-| microsoft.aad.directory/users/inviteGuest | 邀請 Azure Active Directory 中的來賓使用者。 |
-| microsoft.aad.directory/users/manager/read | 讀取 Azure Active Directory 中的 users.manager 屬性。 |
-| microsoft.aad.directory/users/memberOf/read | 讀取 Azure Active Directory 中的 users.memberOf 屬性。 |
-| microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | 讀取 Azure Active Directory 中的 users.oAuth2PermissionGrants 屬性。 |
-| microsoft.aad.directory/users/ownedDevices/read | 讀取 Azure Active Directory 中的 users.ownedDevices 屬性。 |
-| microsoft.aad.directory/users/ownedObjects/read | 讀取 Azure Active Directory 中的 users.ownedObjects 屬性。 |
-| microsoft.aad.directory/users/registeredDevices/read | 讀取 Azure Active Directory 中的 users.registeredDevices 屬性。 |
+| microsoft 目錄/使用者/appRoleAssignments/讀取 | 讀取 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
+| microsoft 目錄/使用者/基本/讀取 | 讀取 Azure Active Directory 中 users 的基本屬性。 |
+| microsoft 目錄/使用者/directReports/讀取 | 讀取 Azure Active Directory 中的 users.directReports 屬性。 |
+| microsoft 目錄/使用者/inviteGuest | 邀請 Azure Active Directory 中的來賓使用者。 |
+| microsoft 目錄/使用者/管理員/讀取 | 讀取 Azure Active Directory 中的 users.manager 屬性。 |
+| microsoft 目錄/使用者/memberOf/read | 讀取 Azure Active Directory 中的 users.memberOf 屬性。 |
+| microsoft 目錄/使用者/oAuth2PermissionGrants/基本/讀取 | 讀取 Azure Active Directory 中的 users.oAuth2PermissionGrants 屬性。 |
+| microsoft 目錄/使用者/Users.owneddevices/讀取 | 讀取 Azure Active Directory 中的 users.ownedDevices 屬性。 |
+| microsoft 目錄/使用者/ownedObjects/讀取 | 讀取 Azure Active Directory 中的 users.ownedObjects 屬性。 |
+| microsoft 目錄/使用者/registeredDevices/讀取 | 讀取 Azure Active Directory 中的 users.registeredDevices 屬性。 |
 
 ### <a name="helpdesk-administrator-permissions"></a>技術支援中心系統管理員許可權
 
@@ -958,9 +968,9 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
-| microsoft.aad.directory/users/password/update | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
+| microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
+| microsoft 目錄/使用者/密碼/更新 | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -978,28 +988,28 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
-| microsoft.aad.directory/contacts/create | 在 Azure Active Directory 中建立 contacts。 |
-| microsoft.aad.directory/contacts/delete | 刪除 Azure Active Directory 中的 contacts。 |
-| microsoft.aad.directory/devices/basic/update | 更新 Azure Active Directory 中 devices 的基本屬性。 |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
-| microsoft.aad.directory/devices/create | 在 Azure Active Directory 中建立 devices。 |
-| microsoft.aad.directory/devices/delete | 刪除 Azure Active Directory 中的 devices。 |
-| microsoft.aad.directory/devices/registeredOwners/update | 更新 Azure Active Directory 中的 devices.registeredOwners 屬性。 |
-| microsoft.aad.directory/devices/registeredUsers/update | 更新 Azure Active Directory 中的 devices.registeredUsers 屬性。 |
-| microsoft.aad.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/groups/basic/update | 更新 Azure Active Directory 中 groups 的基本屬性。 |
-| microsoft.aad.directory/groups/create | 在 Azure Active Directory 中建立 groups。 |
-| microsoft.aad.directory/groups/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
-| microsoft.aad.directory/groups/delete | 刪除 Azure Active Directory 中的 groups。 |
-| microsoft.aad.directory/groups/hiddenMembers/read | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
-| microsoft.aad.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
-| microsoft.aad.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
-| microsoft.aad.directory/groups/restore | 還原 Azure Active Directory 中的 groups。 |
-| microsoft.aad.directory/groups/settings/update | 更新 Azure Active Directory 中的 groups.settings 屬性。 |
-| microsoft.aad.directory/users/appRoleAssignments/update | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/users/basic/update | 更新 Azure Active Directory 中 users 的基本屬性。 |
-| microsoft.aad.directory/users/manager/update | 更新 Azure Active Directory 中的 users.manager 屬性。 |
+| microsoft 目錄/連絡人/基本/更新 | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
+| microsoft 目錄/連絡人/建立 | 在 Azure Active Directory 中建立 contacts。 |
+| microsoft 目錄/連絡人/刪除 | 刪除 Azure Active Directory 中的 contacts。 |
+| microsoft 目錄/裝置/基本/更新 | 更新 Azure Active Directory 中 devices 的基本屬性。 |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
+| microsoft 目錄/裝置/建立 | 在 Azure Active Directory 中建立 devices。 |
+| microsoft 目錄/裝置/刪除 | 刪除 Azure Active Directory 中的 devices。 |
+| microsoft 目錄/裝置/Devices.registeredowners/更新 | 更新 Azure Active Directory 中的 devices.registeredOwners 屬性。 |
+| microsoft 目錄/裝置/Devices.registeredusers/更新 | 更新 Azure Active Directory 中的 devices.registeredUsers 屬性。 |
+| microsoft.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
+| microsoft.directory/groups/basic/update | 更新 Azure Active Directory 中 groups 的基本屬性。 |
+| microsoft. 目錄/群組/建立 | 在 Azure Active Directory 中建立 groups。 |
+| microsoft 目錄/群組/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft.directory/groups/delete | 刪除 Azure Active Directory 中的 groups。 |
+| microsoft 目錄/群組/Groups.hiddenmembers/讀取 | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
+| microsoft.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
+| microsoft.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
+| microsoft.directory/groups/restore | 還原 Azure Active Directory 中的 groups。 |
+| microsoft.directory/groups/settings/update | 更新 Azure Active Directory 中的 groups.settings 屬性。 |
+| microsoft 目錄/使用者/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
+| microsoft 目錄/使用者/基本/更新 | 更新 Azure Active Directory 中 users 的基本屬性。 |
+| microsoft 目錄/使用者/管理員/更新 | 更新 Azure Active Directory 中的 users.manager 屬性。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.intune/allEntities/allTasks | 管理 Intune 的所有層面。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
@@ -1026,8 +1036,8 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/users/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
-| microsoft.aad.directory/users/usageLocation/update | 更新 Azure Active Directory 中的 users.usageLocation 屬性。 |
+| microsoft 目錄/使用者/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
+| microsoft 目錄/使用者/usageLocation/更新 | 更新 Azure Active Directory 中的 users.usageLocation 屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
@@ -1089,22 +1099,22 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
-| microsoft.aad.directory/contacts/create | 在 Azure Active Directory 中建立 contacts。 |
-| microsoft.aad.directory/contacts/delete | 刪除 Azure Active Directory 中的 contacts。 |
-| microsoft.aad.directory/groups/create | 在 Azure Active Directory 中建立 groups。 |
-| microsoft.aad.directory/groups/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
-| microsoft.aad.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
-| microsoft.aad.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
-| microsoft.aad.directory/users/appRoleAssignments/update | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/users/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
-| microsoft.aad.directory/users/basic/update | 更新 Azure Active Directory 中 users 的基本屬性。 |
-| microsoft.aad.directory/users/delete | 刪除 Azure Active Directory 中的 users。 |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
-| microsoft.aad.directory/users/manager/update | 更新 Azure Active Directory 中的 users.manager 屬性。 |
-| microsoft.aad.directory/users/password/update | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
-| microsoft.aad.directory/users/restore | 還原 Azure Active Directory 中已刪除的使用者。 |
-| microsoft.aad.directory/users/userPrincipalName/update | 更新 Azure Active Directory 中的 users.userPrincipalName 屬性。 |
+| microsoft 目錄/連絡人/基本/更新 | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
+| microsoft 目錄/連絡人/建立 | 在 Azure Active Directory 中建立 contacts。 |
+| microsoft 目錄/連絡人/刪除 | 刪除 Azure Active Directory 中的 contacts。 |
+| microsoft. 目錄/群組/建立 | 在 Azure Active Directory 中建立 groups。 |
+| microsoft 目錄/群組/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
+| microsoft.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
+| microsoft 目錄/使用者/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
+| microsoft 目錄/使用者/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
+| microsoft 目錄/使用者/基本/更新 | 更新 Azure Active Directory 中 users 的基本屬性。 |
+| microsoft 目錄/使用者/刪除 | 刪除 Azure Active Directory 中的 users。 |
+| microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
+| microsoft 目錄/使用者/管理員/更新 | 更新 Azure Active Directory 中的 users.manager 屬性。 |
+| microsoft 目錄/使用者/密碼/更新 | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
+| microsoft 目錄/使用者/還原 | 還原 Azure Active Directory 中已刪除的使用者。 |
+| microsoft 目錄/使用者/userPrincipalName/update | 更新 Azure Active Directory 中的 users.userPrincipalName 屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1122,24 +1132,24 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/contacts/basic/update | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
-| microsoft.aad.directory/contacts/create | 在 Azure Active Directory 中建立 contacts。 |
-| microsoft.aad.directory/contacts/delete | 刪除 Azure Active Directory 中的 contacts。 |
-| microsoft.aad.directory/domains/allTasks | 建立和刪除 domains，以及在 Azure Active Directory 中讀取和更新標準屬性。 |
-| microsoft.aad.directory/groups/create | 在 Azure Active Directory 中建立 groups。 |
-| microsoft.aad.directory/groups/delete | 刪除 Azure Active Directory 中的 groups。 |
-| microsoft.aad.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
-| microsoft.aad.directory/groups/restore | 還原 Azure Active Directory 中的 groups。 |
-| microsoft.aad.directory/organization/basic/update | 更新 Azure Active Directory 中 organization 的基本屬性。 |
-| microsoft.aad.directory/users/appRoleAssignments/update | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/users/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
-| microsoft.aad.directory/users/basic/update | 更新 Azure Active Directory 中 users 的基本屬性。 |
-| microsoft.aad.directory/users/delete | 刪除 Azure Active Directory 中的 users。 |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
-| microsoft.aad.directory/users/manager/update | 更新 Azure Active Directory 中的 users.manager 屬性。 |
-| microsoft.aad.directory/users/password/update | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
-| microsoft.aad.directory/users/restore | 還原 Azure Active Directory 中已刪除的使用者。 |
-| microsoft.aad.directory/users/userPrincipalName/update | 更新 Azure Active Directory 中的 users.userPrincipalName 屬性。 |
+| microsoft 目錄/連絡人/基本/更新 | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
+| microsoft 目錄/連絡人/建立 | 在 Azure Active Directory 中建立 contacts。 |
+| microsoft 目錄/連絡人/刪除 | 刪除 Azure Active Directory 中的 contacts。 |
+| microsoft 目錄/網域/allTasks | 建立和刪除 domains，以及在 Azure Active Directory 中讀取和更新標準屬性。 |
+| microsoft. 目錄/群組/建立 | 在 Azure Active Directory 中建立 groups。 |
+| microsoft.directory/groups/delete | 刪除 Azure Active Directory 中的 groups。 |
+| microsoft.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
+| microsoft.directory/groups/restore | 還原 Azure Active Directory 中的 groups。 |
+| microsoft 目錄/組織/基本/更新 | 更新 Azure Active Directory 中 organization 的基本屬性。 |
+| microsoft 目錄/使用者/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
+| microsoft 目錄/使用者/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
+| microsoft 目錄/使用者/基本/更新 | 更新 Azure Active Directory 中 users 的基本屬性。 |
+| microsoft 目錄/使用者/刪除 | 刪除 Azure Active Directory 中的 users。 |
+| microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
+| microsoft 目錄/使用者/管理員/更新 | 更新 Azure Active Directory 中的 users.manager 屬性。 |
+| microsoft 目錄/使用者/密碼/更新 | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
+| microsoft 目錄/使用者/還原 | 還原 Azure Active Directory 中已刪除的使用者。 |
+| microsoft 目錄/使用者/userPrincipalName/update | 更新 Azure Active Directory 中的 users.userPrincipalName 屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1152,7 +1162,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/users/password/update | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
+| microsoft 目錄/使用者/密碼/更新 | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 
 ### <a name="power-bi-service-administrator-permissions"></a>Power BI 服務系統管理員許可權
@@ -1175,22 +1185,22 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="privileged-authentication-administrator-permissions"></a>特殊許可權驗證管理員許可權
 
-允許針對任何使用者 (管理員或非系統管理員) 來查看、設定及重設驗證方法資訊。
+允許針對任何使用者（管理員或非系統管理員）來查看、設定及重設驗證方法資訊。
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
-| microsoft.aad.directory/users/strongAuthentication/update | 更新 MFA 認證資訊等增強式驗證屬性。 |
+| microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
+| microsoft 目錄/使用者/Users.strongauthentication/更新 | 更新 MFA 認證資訊等增強式驗證屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
-| microsoft.aad.directory/users/password/update | 更新 Office 365 組織中所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
+| microsoft 目錄/使用者/密碼/更新 | 更新 Office 365 組織中所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
 
 ### <a name="privileged-role-administrator-permissions"></a>特殊許可權角色管理員許可權
 
-可以管理 Azure AD 中的角色指派, 以及 Privileged Identity Management 的所有層面。
+可以管理 Azure AD 中的角色指派，以及 Privileged Identity Management 的所有層面。
 
 > [!NOTE]
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1200,11 +1210,11 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | **動作** | **描述** |
 | --- | --- |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | 建立和刪除所有資源，以及讀取和更新 microsoft.aad.privilegedIdentityManagement 中的標準屬性。 |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | 讀取和設定 Azure Active Directory 中的 Serviceprincipals.approleassignedto 屬性。 |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | 讀取和設定 Azure Active Directory 中的 oAuth2PermissionGrants 屬性。 |
-| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | 建立和管理管理單位 (包括成員) |
-| microsoft.aad.directory/roleAssignments/allProperties/allTasks | 建立和管理角色指派。 |
-| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | 建立和管理角色定義。 |
+| microsoft 目錄/servicePrincipals/Serviceprincipals.approleassignedto/allTasks | 讀取和設定 Azure Active Directory 中的 Serviceprincipals.approleassignedto 屬性。 |
+| microsoft 目錄/servicePrincipals/oAuth2PermissionGrants/allTasks | 讀取和設定 Azure Active Directory 中的 oAuth2PermissionGrants 屬性。 |
+| microsoft 目錄/administrativeUnits/allProperties/allTasks | 建立和管理管理單位（包括成員） |
+| microsoft 目錄/roleAssignments/allProperties/allTasks | 建立和管理角色指派。 |
+| microsoft 目錄/roleDefinitions/allProperties/allTasks | 建立和管理角色定義。 |
 
 ### <a name="reports-reader-permissions"></a>報告讀者許可權
 
@@ -1217,8 +1227,8 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.aad.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
 
@@ -1234,7 +1244,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | **動作** | **描述** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
-| microsoft.office365.search/allEntities/allProperties/allTasks | 建立和刪除所有資源, 以及讀取和更新 office365 中的所有屬性。 |
+| microsoft.office365.search/allEntities/allProperties/allTasks | 建立和刪除所有資源，以及讀取和更新 office365 中的所有屬性。 |
 | microsoft.office365.serviceHealth/allEntities/allTasks | 讀取及設定 Office 365 服務健康情況。 |
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
@@ -1242,7 +1252,7 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 ### <a name="search-editor-permissions"></a>搜尋編輯器許可權
 
-可以建立及管理編輯內容, 例如書簽、Q 和 As、位置、floorplan。
+可以建立及管理編輯內容，例如書簽、Q 和 As、位置、floorplan。
 
 > [!NOTE]
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1252,12 +1262,12 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 | **動作** | **描述** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | 讀取 microsoft.office365.messageCenter 中的訊息。 |
-| microsoft.office365.search/content/allProperties/allTasks | 建立和刪除內容, 以及讀取和更新 office365 中的所有屬性。 |
+| microsoft.office365.search/content/allProperties/allTasks | 建立和刪除內容，以及讀取和更新 office365 中的所有屬性。 |
 | microsoft.office365.usageReports/allEntities/read | 讀取 Office 365 使用量報告。 |
 
 ### <a name="security-administrator-permissions"></a>安全性系統管理員許可權
 
-可以讀取安全性資訊與報表, 以及管理 Azure AD 和 Office 365 中的設定。
+可以讀取安全性資訊與報表，以及管理 Azure AD 和 Office 365 中的設定。
 
 > [!NOTE]
 > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1266,16 +1276,16 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
-| microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
-| microsoft.aad.directory/policies/basic/update | 更新 Azure Active Directory 中 policies 的基本屬性。 |
-| microsoft.aad.directory/policies/create | 在 Azure Active Directory 中建立原則。 |
-| microsoft.aad.directory/policies/delete | 刪除 Azure Active Directory 中的原則。 |
-| microsoft.aad.directory/policies/owners/update | 更新 Azure Active Directory 中的 policies.owners 屬性。 |
-| microsoft.aad.directory/policies/tenantDefault/update | 更新 Azure Active Directory 中的 policies.tenantDefault 屬性。 |
-| microsoft.aad.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
-| microsoft.aad.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/applications/policies/update | 更新 Azure Active Directory 中的 applications.policies 屬性。 |
+| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
+| microsoft.directory/policies/basic/update | 更新 Azure Active Directory 中 policies 的基本屬性。 |
+| microsoft 目錄/原則/建立 | 在 Azure Active Directory 中建立原則。 |
+| microsoft.directory/policies/delete | 刪除 Azure Active Directory 中的原則。 |
+| microsoft.directory/policies/owners/update | 更新 Azure Active Directory 中的 policies.owners 屬性。 |
+| microsoft 目錄/原則/Policies.tenantdefault/更新 | 更新 Azure Active Directory 中的 policies.tenantDefault 屬性。 |
+| microsoft.directory/servicePrincipals/policies/update | 更新 Azure Active Directory 中的 servicePrincipals.policies 屬性。 |
+| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.aad.identityProtection/allEntities/read | 讀取 microsoft.aad.identityProtection 中的所有資源。 |
 | microsoft.aad.identityProtection/allEntities/update | 更新 microsoft.aad.identityProtection 中的所有資源。 |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | 讀取 microsoft.aad.privilegedIdentityManagement 中的所有資源。 |
@@ -1316,9 +1326,9 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
-| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
-| microsoft.aad.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/auditLogs/allProperties/read | 讀取 Azure Active Directory 中的 auditLogs 所包含的所有屬性 (包括特殊權限的屬性)。 |
+| microsoft.directory/devices/bitLockerRecoveryKeys/read | 讀取 Azure Active Directory 中的 devices.bitLockerRecoveryKeys 屬性。 |
+| microsoft.directory/signInReports/allProperties/read | 讀取 Azure Active Directory 中的 signInReports 所包含的所有屬性 (包括特殊權限的屬性)。 |
 | microsoft.aad.identityProtection/allEntities/read | 讀取 microsoft.aad.identityProtection 中的所有資源。 |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | 讀取 microsoft.aad.privilegedIdentityManagement 中的所有資源。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
@@ -1354,12 +1364,12 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/groups/unified/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
-| microsoft.aad.directory/groups/unified/basic/update | 更新 Office 365 群組的基本屬性。 |
-| microsoft.aad.directory/groups/unified/create | 建立 Office 365 群組。 |
-| microsoft.aad.directory/groups/unified/delete | 刪除 Office 365 群組。 |
-| microsoft.aad.directory/groups/unified/members/update | 更新 Office 365 群組的成員資格。 |
-| microsoft.aad.directory/groups/unified/owners/update | 更新 Office 365 群組的擁有權。 |
+| microsoft 目錄/群組/整合/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
+| microsoft 目錄/群組/統一/基本/更新 | 更新 Office 365 群組的基本屬性。 |
+| microsoft。目錄/群組/整合/建立 | 建立 Office 365 群組。 |
+| microsoft 目錄/群組/整合/刪除 | 刪除 Office 365 群組。 |
+| microsoft 目錄/群組/整合/成員/更新 | 更新 Office 365 群組的成員資格。 |
+| microsoft。目錄/群組/整合/擁有者/更新 | 更新 Office 365 群組的擁有權。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1426,13 +1436,13 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/groups/hiddenMembers/read | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
-| microsoft.aad.directory/groups/unified/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
-| microsoft.aad.directory/groups/unified/basic/update | 更新 Office 365 群組的基本屬性。 |
-| microsoft.aad.directory/groups/unified/create | 建立 Office 365 群組。 |
-| microsoft.aad.directory/groups/unified/delete | 刪除 Office 365 群組。 |
-| microsoft.aad.directory/groups/unified/members/update | 更新 Office 365 群組的成員資格。 |
-| microsoft.aad.directory/groups/unified/owners/update | 更新 Office 365 群組的擁有權。 |
+| microsoft 目錄/群組/Groups.hiddenmembers/讀取 | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
+| microsoft 目錄/群組/整合/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 groups.unified 屬性。 |
+| microsoft 目錄/群組/統一/基本/更新 | 更新 Office 365 群組的基本屬性。 |
+| microsoft。目錄/群組/整合/建立 | 建立 Office 365 群組。 |
+| microsoft 目錄/群組/整合/刪除 | 刪除 Office 365 群組。 |
+| microsoft 目錄/群組/整合/成員/更新 | 更新 Office 365 群組的成員資格。 |
+| microsoft。目錄/群組/整合/擁有者/更新 | 更新 Office 365 群組的擁有權。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |
@@ -1445,32 +1455,32 @@ Windows Defender ATP 和 EDR | 查看和調查警示。 當您在 Windows Defend
 
 | **動作** | **描述** |
 | --- | --- |
-| microsoft.aad.directory/appRoleAssignments/create | 在 Azure Active Directory 中建立 appRoleAssignments。 |
-| microsoft.aad.directory/appRoleAssignments/delete | 刪除 Azure Active Directory 中的 appRoleAssignments。 |
-| microsoft.aad.directory/appRoleAssignments/update | 更新在 Azure Active Directory 中的 appRoleAssignments。 |
-| microsoft.aad.directory/contacts/basic/update | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
-| microsoft.aad.directory/contacts/create | 在 Azure Active Directory 中建立 contacts。 |
-| microsoft.aad.directory/contacts/delete | 刪除 Azure Active Directory 中的 contacts。 |
-| microsoft.aad.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/groups/basic/update | 更新 Azure Active Directory 中 groups 的基本屬性。 |
-| microsoft.aad.directory/groups/create | 在 Azure Active Directory 中建立 groups。 |
-| microsoft.aad.directory/groups/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
-| microsoft.aad.directory/groups/delete | 刪除 Azure Active Directory 中的 groups。 |
-| microsoft.aad.directory/groups/hiddenMembers/read | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
-| microsoft.aad.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
-| microsoft.aad.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
-| microsoft.aad.directory/groups/restore | 還原 Azure Active Directory 中的 groups。 |
-| microsoft.aad.directory/groups/settings/update | 更新 Azure Active Directory 中的 groups.settings 屬性。 |
-| microsoft.aad.directory/users/appRoleAssignments/update | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
-| microsoft.aad.directory/users/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
-| microsoft.aad.directory/users/basic/update | 更新 Azure Active Directory 中 users 的基本屬性。 |
-| microsoft.aad.directory/users/create | 在 Azure Active Directory 中建立 users。 |
-| microsoft.aad.directory/users/delete | 刪除 Azure Active Directory 中的 users。 |
-| microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
-| microsoft.aad.directory/users/manager/update | 更新 Azure Active Directory 中的 users.manager 屬性。 |
-| microsoft.aad.directory/users/password/update | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
-| microsoft.aad.directory/users/restore | 還原 Azure Active Directory 中已刪除的使用者。 |
-| microsoft.aad.directory/users/userPrincipalName/update | 更新 Azure Active Directory 中的 users.userPrincipalName 屬性。 |
+| microsoft 目錄/appRoleAssignments/建立 | 在 Azure Active Directory 中建立 appRoleAssignments。 |
+| microsoft 目錄/appRoleAssignments/delete | 刪除 Azure Active Directory 中的 appRoleAssignments。 |
+| microsoft 目錄/appRoleAssignments/更新 | 更新在 Azure Active Directory 中的 appRoleAssignments。 |
+| microsoft 目錄/連絡人/基本/更新 | 更新 Azure Active Directory 中 contacts 的基本屬性。 |
+| microsoft 目錄/連絡人/建立 | 在 Azure Active Directory 中建立 contacts。 |
+| microsoft 目錄/連絡人/刪除 | 刪除 Azure Active Directory 中的 contacts。 |
+| microsoft.directory/groups/appRoleAssignments/update | 更新 Azure Active Directory 中的 groups.appRoleAssignments 屬性。 |
+| microsoft.directory/groups/basic/update | 更新 Azure Active Directory 中 groups 的基本屬性。 |
+| microsoft. 目錄/群組/建立 | 在 Azure Active Directory 中建立 groups。 |
+| microsoft 目錄/群組/createAsOwner | 在 Azure Active Directory 中建立 groups。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
+| microsoft.directory/groups/delete | 刪除 Azure Active Directory 中的 groups。 |
+| microsoft 目錄/群組/Groups.hiddenmembers/讀取 | 讀取 Azure Active Directory 中的 groups.hiddenMembers 屬性。 |
+| microsoft.directory/groups/members/update | 更新 Azure Active Directory 中的 groups.members 屬性。 |
+| microsoft.directory/groups/owners/update | 更新 Azure Active Directory 中的 groups.owners 屬性。 |
+| microsoft.directory/groups/restore | 還原 Azure Active Directory 中的 groups。 |
+| microsoft.directory/groups/settings/update | 更新 Azure Active Directory 中的 groups.settings 屬性。 |
+| microsoft 目錄/使用者/appRoleAssignments/更新 | 更新 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
+| microsoft 目錄/使用者/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
+| microsoft 目錄/使用者/基本/更新 | 更新 Azure Active Directory 中 users 的基本屬性。 |
+| microsoft 目錄/使用者/建立 | 在 Azure Active Directory 中建立 users。 |
+| microsoft 目錄/使用者/刪除 | 刪除 Azure Active Directory 中的 users。 |
+| microsoft 目錄/使用者/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
+| microsoft 目錄/使用者/管理員/更新 | 更新 Azure Active Directory 中的 users.manager 屬性。 |
+| microsoft 目錄/使用者/密碼/更新 | 在 Azure Active Directory 中更新所有使用者的密碼。 如需詳細資訊，請參閱線上文件。 |
+| microsoft 目錄/使用者/還原 | 還原 Azure Active Directory 中已刪除的使用者。 |
+| microsoft 目錄/使用者/userPrincipalName/update | 更新 Azure Active Directory 中的 users.userPrincipalName 屬性。 |
 | microsoft.azure.serviceHealth/allEntities/allTasks | 讀取及設定 Azure 服務健康情況。 |
 | microsoft.azure.supportTickets/allEntities/allTasks | 建立和管理 Azure 支援票證。 |
 | microsoft.office365.webPortal/allEntities/basic/read | 讀取 microsoft.office365.webPortal 中所有資源的基本屬性。 |

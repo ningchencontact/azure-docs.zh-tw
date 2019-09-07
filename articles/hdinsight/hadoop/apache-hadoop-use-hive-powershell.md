@@ -1,6 +1,6 @@
 ---
 title: 在 HDInsight 中搭配使用 Apache Hive 與 PowerShell - Azure
-description: 使用 PowerShell 在 HDInsight 的 Apache Hadoop 中執行 Hive 查詢。
+description: 使用 PowerShell 在 Azure HDInsight 中的 Apache Hadoop 中執行 Apache Hive 查詢
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 243713d7961c911cdda93d3d680a952d424da22b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89fa7976b922ba0e40e97b72de5d4eb9a02f0dfd
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078385"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736073"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>使用 PowerShell 執行 Apache Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "67078385"
 > [!NOTE]  
 > 本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。 如需此範例中使用的 HiveQL 的相關資訊，請參閱 [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -40,8 +40,8 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 在遠端 HDInsight 叢集中執行 Hive 查詢時，會使用下列 Cmdlet：
 
 * `Connect-AzAccount`:向您的 Azure 訂用帳戶驗證 Azure PowerShell。
-* `New-AzHDInsightHiveJobDefinition`:使用指定的 HiveQL 陳述式建立「作業定義」  。
-* `Start-AzHDInsightJob`:將作業定義傳送至 HDInsight，並啟動作業。 系統會傳回「作業」  物件。
+* `New-AzHDInsightHiveJobDefinition`:使用指定的 HiveQL 陳述式建立「作業定義」。
+* `Start-AzHDInsightJob`:將作業定義傳送至 HDInsight，並啟動作業。 系統會傳回「作業」物件。
 * `Wait-AzHDInsightJob`:使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
 * `Get-AzHDInsightJobOutput`:用來擷取作業的輸出。
 * `Invoke-AzHDInsightHiveJob`:用來執行 HiveQL 陳述式。 這個 Cmdlet 會阻止查詢完成，然後傳回結果。
@@ -57,7 +57,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
         .\hivejob.ps1
 
-    執行指令碼時，系統會提示您輸入叢集名稱和 HTTPS/叢集管理帳戶認證。 您可能也會提示您登入您的 Azure 訂用帳戶。
+    執行指令碼時，系統會提示您輸入叢集名稱和 HTTPS/叢集管理帳戶認證。 系統可能也會提示您登入您的 Azure 訂用帳戶。
 
 3. 作業完成時，應該會傳回類似下列文字的資訊：
 

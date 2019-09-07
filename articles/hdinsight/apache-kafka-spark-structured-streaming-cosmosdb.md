@@ -1,19 +1,19 @@
 ---
-title: 從 Apache Kafka 到 Azure Cosmos DB 的 Apache Spark 結構化串流 - Azure HDInsight
+title: Apache Spark 從 Apache Kafka 到 Azure Cosmos DB Azure HDInsight 的資料
 description: 了解如何使用「Apache Spark 結構化串流」從 Apache Kafka 讀取資料，然後儲存至 Azure Cosmos DB。 在此範例中，您使用 Jupyter Notebook 從 HDInsight 上的 Spark 串流資料。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: c2d2f56f2a0686b23a3a907686dcee0760d37365
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 546dd094614a72cada2aff60704c4fc191301ad2
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947056"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734927"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>搭配 Apache Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 

@@ -1,5 +1,5 @@
 ---
-title: 搭配使用 Apache Hive 與 Data Lake (Apache Hadoop) Tools for Visual Studio - Azure HDInsight
+title: 適用于 Visual Studio Azure HDInsight 的 Data Lake 工具 Apache Hive
 description: 了解如何使用 Data Lake Tools for Visual Studio 在 Azure HDInsight 上搭配 Apache Hadoop 執行 Apache Hive 查詢。
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7480dafe435e555bfba81ebd9242bb5724c0bf3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bded3ac97732a7cd18411cc9f4ef1707dbdf68e3
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861603"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735826"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Apache Hive 查詢
 
@@ -25,7 +25,7 @@ ms.locfileid: "65861603"
 
 * Visual Studio (下列其中一個版本)：
 
-    * Visual Studio 2015、 2017 （任何版本）
+    * Visual Studio 2015、2017（任何版本）
     * Visual Studio 2013 Community/Professional/Premium/Ultimate，含 Update 4
 
 * HDInsight tools for Visual Studio 或 Azure Data Lake tools for Visual Studio。 如需有關安裝和設定工具的資訊，請參閱 [開始使用 Visual Studio Hadoop Tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md) 。
@@ -39,13 +39,13 @@ ms.locfileid: "65861603"
 
 ### <a name="ad-hoc"></a>臨機操作
 
-臨機操作查詢可以在執行**批次**或是**Interactive**模式。
+臨機操作查詢可在**批次**或**互動**模式中執行。
 
 1. 開啟**Visual Studio**。
 
-2. 從**伺服器總管**，瀏覽至**Azure** > **HDInsight**。
+2. 從**伺服器總管**，流覽至**Azure**  >  **HDInsight**。
 
-3. 依序展開**HDInsight**，以滑鼠右鍵按一下您想要用來執行查詢，然後選取叢集**撰寫 Hive 查詢**。
+3. 展開 [ **HDInsight**]，並以滑鼠右鍵按一下您要執行查詢的叢集，然後選取 [**撰寫 Hive 查詢**]。
 
 4. 輸入下列 hive 查詢：
 
@@ -53,11 +53,11 @@ ms.locfileid: "65861603"
     SELECT * FROM hivesampletable;
     ```
 
-5. 選取 [執行]  。 請注意，則預設的執行模式**Interactive**。
+5. 選取 [執行]。 請注意，執行模式預設為 [**互動式**]。
 
     ![執行互動式 Hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
-6. 在中執行相同的查詢**批次**模式中，從下拉式清單切換清單**Interactive**來**批次**。 請注意，從 [執行] 按鈕變更**Execute**要**送出**。
+6. 若要在**批次**模式中執行相同的查詢，請將下拉式清單從 [**互動式**] 切換至 [**批次**]。 請注意，[執行] 按鈕會從 [**執行**] 變更為 [**提交**]。
 
     ![提交 hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
 
@@ -67,9 +67,9 @@ ms.locfileid: "65861603"
    
     ![HDInsight Visual Studio Tools IntelliSense 範例 2 的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-column-name.png "U-SQL IntelliSense")
 
-7. 選取 [提交]  或 [提交 (進階)]  。
+7. 選取 [提交] 或 [提交 (進階)]。
 
-   如果您選取進階提交選項，請設定指令碼的 [作業名稱]  、[引數]  、[其他組態]  和 [狀態目錄]  ：
+   如果您選取進階提交選項，請設定指令碼的 [作業名稱]、[引數]、[其他組態] 和 [狀態目錄]：
 
     ![HDInsight Hadoop Hive 查詢的螢幕擷取畫面](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "提交查詢")
 
@@ -77,11 +77,11 @@ ms.locfileid: "65861603"
 
 1. 開啟**Visual Studio**。
 
-2. 從功能表列中，瀏覽至**檔案** > **新增** > **專案**。
+2. 從功能表列，**流覽至** > [檔案] [**新增** > **專案**]。
 
-3. 從**新的專案** 視窗中，瀏覽至**範本** > **Azure Data Lake** > **HIVE (HDInsight)**  >  **Hive 應用程式**。 
+3. 從 **新增專案** 視窗中，流覽至 **範本** > **Azure Data Lake**  >  **hive （HDInsight）**  >  **hive 應用程式**。 
 
-4. 提供此專案的名稱，然後選取**確定**。
+4. 提供此專案的名稱，然後選取 **[確定]** 。
 
 5. 開啟使用此專案所建立的 **Script.hql** 檔案，並貼入下列 HiveQL 陳述式中：
 
@@ -117,7 +117,7 @@ ms.locfileid: "65861603"
 
    ![提交列](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
 
-7. [Hive 工作摘要]  將會出現並顯示執行中工作的相關資訊。 使用 [重新整理]  連結來重新整理工作資訊，直到 [工作狀態]  變更為 [已完成]  為止。
+7. [Hive 工作摘要] 將會出現並顯示執行中工作的相關資訊。 使用 [重新整理] 連結來重新整理工作資訊，直到 [工作狀態] 變更為 [已完成] 為止。
 
    ![顯示已完成作業的作業摘要](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
 
@@ -125,9 +125,9 @@ ms.locfileid: "65861603"
 
 ### <a name="additional-example"></a>其他範例
 
-此範例依存於`log4jLogs`在先前步驟中建立的資料表。
+這個範例會依賴在`log4jLogs`先前步驟中建立的資料表。
 
-1. 從**伺服器總管**，以滑鼠右鍵按一下您的叢集，然後選取**撰寫 Hive 查詢**。
+1. 在**伺服器總管**中，以滑鼠右鍵按一下您的叢集，然後選取 [**撰寫 Hive 查詢**]。
 
 2. 輸入下列 hive 查詢：
 
@@ -148,9 +148,9 @@ ms.locfileid: "65861603"
     
     * `INSERT OVERWRITE ... SELECT`:從含有 `[ERROR]`的 `log4jLogs` 資料表選取資料列，然後將資料插入 `errorLogs` 資料表。
 
-3. 執行中的查詢**批次**模式。
+3. 以**批次**模式執行查詢。
 
-4. 若要確認作業已建立資料表，請使用 [伺服器總管]  並展開 [Azure]   > [HDInsight]  > 您的 HDInsight 叢集 > [Hive 資料庫]   > [預設]  。 會列出 **errorLogs** 資料表和 **log4jLogs** 資料表。
+4. 若要確認作業已建立資料表，請使用 [伺服器總管] 並展開 [Azure] > [HDInsight] > 您的 HDInsight 叢集 > [Hive 資料庫] > [預設]。 會列出 **errorLogs** 資料表和 **log4jLogs** 資料表。
 
 ## <a id="nextsteps"></a>接續步驟
 

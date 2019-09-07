@@ -1,19 +1,19 @@
 ---
-title: 將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 基礎結構最佳做法
+title: 將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight 基礎結構
 description: 了解將內部部署 Hadoop 叢集遷移到 Azure HDInsight 的基礎結構最佳做法。
 author: hrasheed-msft
 ms.reviewer: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0707f08d7c1447ff9aaae919cabfe1a668b25e3d
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: dbd4cc987883c959ad9b13b60491dd2288bd5643
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404382"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735739"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 基礎結構最佳做法
 
@@ -40,7 +40,7 @@ ms.locfileid: "68404382"
 
 您也可以使用 Apache Ambari UI 或 Ambari REST API ，在 HDInsight 中檢查 Hadoop 元件和版本。
 
-在內部部署叢集中提供但不屬於 HDInsight 叢集的應用程式或元件, 可以新增至邊緣節點或與 HDInsight 叢集位於相同 VNet 中的 VM 上。 協力廠商 Hadoop 應用程式無法在 Azure HDInsight 上使用，但可以在 HDInsight 叢集中使用「應用程式」選項安裝。 自訂 Hadoop 應用程式可使用「指令碼動作」在 HDInsight 叢集上安裝。 下表列出一些常見應用程式及其 HDInsight 整合選項：
+在內部部署叢集中提供但不屬於 HDInsight 叢集的應用程式或元件，可以新增至邊緣節點或與 HDInsight 叢集位於相同 VNet 中的 VM 上。 協力廠商 Hadoop 應用程式無法在 Azure HDInsight 上使用，但可以在 HDInsight 叢集中使用「應用程式」選項安裝。 自訂 Hadoop 應用程式可使用「指令碼動作」在 HDInsight 叢集上安裝。 下表列出一些常見應用程式及其 HDInsight 整合選項：
 
 |**應用程式**|**整合**
 |---|---|
@@ -102,7 +102,7 @@ HDInsight 提供預先撰寫的指令碼以在 HDInsight 叢集上安裝下列�
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>使用 Bootstrap 自訂 HDInsight 設定
 
-您可以使用 Bootstrap 針對設定檔 (例如 `core-site.xml`、`hive-site.xml` 和 `oozie-env.xml`) 中的設定進行變更。 下列腳本是使用 Powershell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) Cmdlet [AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)的範例:
+您可以使用 Bootstrap 針對設定檔 (例如 `core-site.xml`、`hive-site.xml` 和 `oozie-env.xml`) 中的設定進行變更。 下列腳本是使用 Powershell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) Cmdlet [AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)的範例：
 
 ```powershell
 # hive-site.xml configuration
@@ -160,7 +160,7 @@ Azure 虛擬網路透過篩選和路由傳送網路流量，讓 Azure 資源 (�
 - 將 HDInsight 連線至 Azure 虛擬網路中的資料存放區。
 - 直接存取無法透過網際網路公開使用的 Hadoop 服務。 例如，Kafka API 或 HBase Java API。
 
-HDInsight 可以新增到新的或現有的 Azure 虛擬網路。 如果 HDInsight 已新增到現有的虛擬網路，則需要更新現有的網路安全性群組和使用者定義的路由，以允許對 Azure 資料中心內的[數個 IP 位址](../hdinsight-management-ip-addresses.md)進行不受限制的存取。 此外, 請確定不會封鎖對 HDInsight 服務所使用之[埠](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)的流量。
+HDInsight 可以新增到新的或現有的 Azure 虛擬網路。 如果 HDInsight 已新增到現有的虛擬網路，則需要更新現有的網路安全性群組和使用者定義的路由，以允許對 Azure 資料中心內的[數個 IP 位址](../hdinsight-management-ip-addresses.md)進行不受限制的存取。 此外，請確定不會封鎖對 HDInsight 服務所使用之[埠](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)的流量。
 
 > [!Note]  
 > HDInsight 目前不支援強制通道。 強制通道是一種子網路設定，可強制裝置的輸出網際網路流量以進行檢查和記錄。 先移除強制通道，再將 HDInsight 安裝至子網路，或建立 HDInsight 的新子網路。 HDInsight 也不支援限制輸出網路連線。
@@ -172,7 +172,7 @@ HDInsight 可以新增到新的或現有的 Azure 虛擬網路。 如果 HDInsig
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>使用 Azure 虛擬網路服務端點安全地連線到 Azure 服務
 
-HDInsight 支援[虛擬網路服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md), 可讓您安全地連接到 Azure Blob 儲存體、Azure Data Lake Storage Gen2、COSMOS DB 和 SQL 資料庫。 藉由啟用 Azure HDInsight 的服務端點，來自 Azure 資料中心內的流量就可流經受保護的路由。 透過此網路層的增強式安全性等級，您可以將巨量資料儲存體帳戶鎖定至其指定的虛擬網路 (VNET)，並繼續使用 HDInsight 叢集順暢地存取和處理其資料。
+HDInsight 支援[虛擬網路服務端點](../../virtual-network/virtual-network-service-endpoints-overview.md)，可讓您安全地連接到 Azure Blob 儲存體、Azure Data Lake Storage Gen2、COSMOS DB 和 SQL 資料庫。 藉由啟用 Azure HDInsight 的服務端點，來自 Azure 資料中心內的流量就可流經受保護的路由。 透過此網路層的增強式安全性等級，您可以將巨量資料儲存體帳戶鎖定至其指定的虛擬網路 (VNET)，並繼續使用 HDInsight 叢集順暢地存取和處理其資料。
 
 如需詳細資訊，請參閱下列文章：
 

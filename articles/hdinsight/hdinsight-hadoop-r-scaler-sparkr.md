@@ -1,18 +1,18 @@
 ---
 title: 搭配 Azure HDInsight 使用 ScaleR 與 SparkR
-description: 在 HDInsight 上使用 ScaleR 與 SparkR 搭配 ML 服務
+description: 在 Azure HDInsight 上使用 ScaleR 和 SparkR 進行資料操作和模型開發與 ML 服務
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: b96779a0a37602b6d114c9baf517df2637f734a2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a91d2d569b4900e3d5b787145c242a75b928d822
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231118"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733374"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中結合 ScaleR 與 SparkR
 
@@ -536,7 +536,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 - 如需在 Apache Spark 上使用 Machine Learning Server 的詳細資訊，請參閱[快速入門指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started) \(英文\)。
 
-- 如需 HDInsight 上 ML 服務的相關資訊, 請參閱[hdinsight 上的 Ml 服務總覽](r-server/r-server-overview.md)。
+- 如需 HDInsight 上 ML 服務的相關資訊，請參閱[hdinsight 上的 Ml 服務總覽](r-server/r-server-overview.md)。
 
 如需使用 SparkR 的詳細資訊，請參閱：
 

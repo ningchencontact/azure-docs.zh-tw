@@ -1,6 +1,6 @@
 ---
 title: 針對 HDInsight 叢集上的緩慢或失敗作業進行疑難排解-Azure HDInsight
-description: 針對速度變慢或失敗的 HDInsight 叢集進行診斷和疑難排解。
+description: 針對 Azure HDInsight 叢集上緩慢或失敗的工作進行診斷和疑難排解。
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b7afeee554a1faee9507f0a891803024f3bc11e4
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8c50068914c1519a5522372310bd0f5863a94b39
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69573569"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735777"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>針對 HDInsight 叢集上的緩慢或失敗作業進行疑難排解
 
-如果在 HDInsight 叢集上處理資料的應用程式正在執行緩慢或失敗, 並出現錯誤代碼, 您會有數個疑難排解選項。 如果您的作業執行時間超出預期，或通常回應時間都較慢，就可能是叢集上游 (例如叢集執行所在的服務) 發生失敗。 不過，這些變慢情況的最常見原因是規模調整不足。 當您建立新的 HDInsight 叢集時, 請選取適當的[虛擬機器大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
+如果在 HDInsight 叢集上處理資料的應用程式正在執行緩慢或失敗，並出現錯誤代碼，您會有數個疑難排解選項。 如果您的作業執行時間超出預期，或通常回應時間都較慢，就可能是叢集上游 (例如叢集執行所在的服務) 發生失敗。 不過，這些變慢情況的最常見原因是規模調整不足。 當您建立新的 HDInsight 叢集時，請選取適當的[虛擬機器大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
 
 若要診斷速度變慢或失敗的叢集，請收集該環境所有方面的相關資訊，例如關聯的 Azure 服務、叢集組態及作業執行資訊。 其中一種有幫助的診斷方式是嘗試在另一個叢集上重現錯誤狀態。
 
@@ -56,7 +56,7 @@ Azure 入口網站可以提供以下資訊：
 
 ![HDInsight Azure 入口網站資訊](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-您也可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+您也可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)：
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -95,7 +95,7 @@ HDInsight 倚賴數個 Azure 服務。 它會在 Azure HDInsight 上執行虛擬
 
 #### <a name="check-the-release-version"></a>檢查發行版本
 
-將叢集版本與最新的 HDInsight 發行版本做比較。 每個 HDInsight 發行版本都包含改進功能，例如新應用程式、功能、修補程式及 Bug 修正。 在最新的發行版本中可能已修正影響您叢集的問題。 可能的話, 請使用最新版本的 HDInsight 和相關聯的程式庫 (例如 Apache HBase、Apache Spark 和其他程式庫) 重新執行您的叢集。
+將叢集版本與最新的 HDInsight 發行版本做比較。 每個 HDInsight 發行版本都包含改進功能，例如新應用程式、功能、修補程式及 Bug 修正。 在最新的發行版本中可能已修正影響您叢集的問題。 可能的話，請使用最新版本的 HDInsight 和相關聯的程式庫（例如 Apache HBase、Apache Spark 和其他程式庫）重新執行您的叢集。
 
 #### <a name="restart-your-cluster-services"></a>重新啟動您的叢集服務
 
@@ -119,7 +119,7 @@ Apache Hive、Apache Pig 或 Apache Sqoop 作業發生失敗的其中一個常�
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (502 狀態碼)
 
-這段程式碼是來自閘道節點的一般訊息, 而且是最常見的失敗狀態碼。 此狀況的其中一個可能原因是的 WebHCat 服務在作用中的前端節點上停止運作。 若要檢查是否有此可能性，請使用下列 CURL 命令：
+這段程式碼是來自閘道節點的一般訊息，而且是最常見的失敗狀態碼。 此狀況的其中一個可能原因是的 WebHCat 服務在作用中的前端節點上停止運作。 若要檢查是否有此可能性，請使用下列 CURL 命令：
 
 ```bash
 curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
@@ -255,7 +255,7 @@ HDInsight 叢集已針對相關服務 (例如 Hadoop、Hive、HBase 等) 預先�
 1. 建立一個組態與失敗叢集相同的新測試叢集。
 2. 向測試叢集提交第一個作業步驟。
 3. 當步驟完成處理時，查看步驟記錄檔中是否有錯誤。 請連線至測試叢集的主要節點，並檢視該處的記錄檔。 只有在步驟已執行一段時間、結束或失敗之後，步驟記錄檔才會出現。
-4. 如果第一個步驟成功，請執行下一個步驟。 如果有錯誤，請調查記錄檔中的錯誤。 如果這是您程式碼中的錯誤, 請進行更正, 然後重新執行步驟。
+4. 如果第一個步驟成功，請執行下一個步驟。 如果有錯誤，請調查記錄檔中的錯誤。 如果這是您程式碼中的錯誤，請進行更正，然後重新執行步驟。
 5. 繼續執行，直到所有步驟都已執行且沒有錯誤為止。
 6. 完成對測試叢集的偵錯之後，請將其刪除。
 

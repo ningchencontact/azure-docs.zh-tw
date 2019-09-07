@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5573eea4e7a5322c762665d2db8e3fbed1f585a1
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970449"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743808"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -24,7 +24,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 
 ![混合式 Runbook 背景工作概觀](media/automation-hybrid-runbook-worker/automation.png)
 
-每一個混合式 Runbook 背景工作是您安裝代理程式時指定的混合式 Runbook 背景工作群組的成員。 群組可包含單一代理程式，但您可以在群組中安裝多個代理程式以獲得高可用性。
+每一個混合式 Runbook 背景工作是您安裝代理程式時指定的混合式 Runbook 背景工作群組的成員。 群組可包含單一代理程式，但您可以在群組中安裝多個代理程式以獲得高可用性。 每部機器可以將一個混合式背景工作角色報告裝載到一個自動化帳戶。
 
 在 Hybrid Runbook Worker 上啟動 Runbook 時，您會指定要執行它的群組。 每個群組中的背景工作角色會對 Azure 自動化進行輪詢，以查看是否有任何可用的作業。 若有可用的作業，會由第一個取得該作業的背景工作角色負責。 作業佇列的處理時間取決於混合式背景工作角色的硬體設定檔和負載。 您無法指定特定背景工作角色。 混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的諸多限制。 它們在磁碟空間、記憶體或網路通訊端上並沒有相同的限制。 混合式 Runbook 背景工作角色只會受限於混合式 Runbook 背景工作角色本身上的資源。 此外，混合式 Runbook 背景工作角色不會共用 Azure 沙箱所具有的 180 分鐘[公平共用](automation-runbook-execution.md#fair-share)時間限制。 若要深入了解 Azure 沙箱和混合式 Runbook 背景工作角色的服務限制，請參閱作業[限制](../azure-subscription-service-limits.md#automation-limits)頁面。
 
@@ -99,11 +99,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 ### <a name="hybrid-worker-role"></a>混合式背景工作角色
 
-若要讓混合式 Runbook 背景工作角色連接到 Azure 自動化並向其註冊, 它必須能夠存取本節所述的埠號碼和 Url。 此存取會在 Microsoft Monitoring Agent 連接到 Azure 監視器記錄檔[所需的埠和 url](../azure-monitor/platform/agent-windows.md)上。
+若要讓混合式 Runbook 背景工作角色連接到 Azure 自動化並向其註冊，它必須能夠存取本節所述的埠號碼和 Url。 此存取會在 Microsoft Monitoring Agent 連接到 Azure 監視器記錄檔[所需的埠和 url](../azure-monitor/platform/agent-windows.md)上。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-如果您使用 proxy 伺服器在代理程式和 Azure 自動化服務之間進行通訊, 請確保可以存取適當的資源。 混合式 Runbook 背景工作角色和自動化服務要求的完成時間為30秒。 3次嘗試之後, 要求將會失敗。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。 如果您使用 Log Analytics 閘道作為 Proxy，請確保已針對混合式背景工作角色進行設定。 如需有關如何執行這項操作的指示，請參閱[為自動化混合式背景工作角色設定 Log Analytics 閘道](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)。
+如果您使用 proxy 伺服器在代理程式和 Azure 自動化服務之間進行通訊，請確保可以存取適當的資源。 混合式 Runbook 背景工作角色和自動化服務要求的完成時間為30秒。 3次嘗試之後，要求將會失敗。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。 如果您使用 Log Analytics 閘道作為 Proxy，請確保已針對混合式背景工作角色進行設定。 如需有關如何執行這項操作的指示，請參閱[為自動化混合式背景工作角色設定 Log Analytics 閘道](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)。
 
 若要讓混合式 Runbook 背景工作角色與自動化進行通訊，需要下列連接埠和 URL：
 

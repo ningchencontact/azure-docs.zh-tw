@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight 工具 - 設定 Visual Studio Code 的 PySpark 互動式環境
+title: Azure HDInsight 工具-適用于 Visual Studio Code 的 PySpark 互動式環境
 description: 了解如何使用適用於 Visual Studio Code 的 Azure HDInsight 工具來建立及提交查詢和指令碼。
 keywords: VScode,Azure HDInsight 工具,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,互動式 Hive,互動式查詢
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 0e993577bda59ae4fda51d17dc175ec0b0fcd4f5
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 54adb2ec61d77ea429f7da1b88aa9347c1addfe0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137129"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736420"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>設定 Visual Studio Code 的 PySpark 互動式環境
 
@@ -51,7 +51,7 @@ ms.locfileid: "67137129"
    sudo apt-get install python-dev
    ```
 
-4. 重新啟動 VS Code，然後返回執行 [HDInsight: PySpark 互動式]  的指令碼編輯器。
+4. 重新啟動 VS Code，然後返回執行 [HDInsight: PySpark 互動式] 的指令碼編輯器。
 
 ## <a name="next-steps"></a>後續步驟
 

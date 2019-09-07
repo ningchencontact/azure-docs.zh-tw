@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Active Directory Domain Services 來設定企業安全性套件 - Azure HDInsight
+title: 在 HDInsight 中使用 Azure Active Directory 的企業安全性套件
 description: 了解如何使用 Azure Active Directory Domain Services 來設定 HDInsight 企業安全性套件叢集。
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 1165cbeff1144567e43f408c0866c0b8a571882d
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 76f95e74c8150ac797d20c3166c0e8d6ea085bf9
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125597"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734957"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
@@ -22,12 +22,12 @@ ms.locfileid: "70125597"
 在本文中，您將了解如何使用 Azure Active Directory Domain Services (Azure AD-DS) 來設定具有 ESP 的 HDInsight 叢集。
 
 > [!NOTE]  
-> 適用于叢集類型的 ESP 在 HDInsight 3.6 和4.0 中已正式運作:Apache Spark、互動式、Hadoop 和 HBase。 Apache Kafka 叢集類型的 ESP 僅供預覽, 僅提供最佳的支援。 不支援在 ESP GA 日期之前建立的 ESP 叢集 (2018 年10月1日)。
+> 適用于叢集類型的 ESP 在 HDInsight 3.6 和4.0 中已正式運作：Apache Spark、互動式、Hadoop 和 HBase。 Apache Kafka 叢集類型的 ESP 僅供預覽，僅提供最佳的支援。 不支援在 ESP GA 日期之前建立的 ESP 叢集（2018年10月1日）。
 
 ## <a name="enable-azure-ad-ds"></a>啟用 Azure AD-DS
 
 > [!NOTE]  
-> 只有租用戶的系統管理員具有啟用 Azure AD-DS 的權限。 如果叢集存放區是 Azure Data Lake Storage (ADLS) Gen1 或 Gen2, 您就必須僅針對需要使用基本 Kerberos 驗證來存取叢集的使用者停用多重要素驗證 (MFA)。 只有在存取 HDInsight 叢集 VNET IP 範圍時, 才可以使用[信任的 ip](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips)或[條件式存取](../../active-directory/conditional-access/overview.md)來停用特定使用者的 MFA。 如果您使用條件式存取, 請確認已在 HDInsight VNET 上啟用 AD 服務端點。
+> 只有租用戶的系統管理員具有啟用 Azure AD-DS 的權限。 如果叢集存放區是 Azure Data Lake Storage （ADLS） Gen1 或 Gen2，您就必須僅針對需要使用基本 Kerberos 驗證來存取叢集的使用者停用多重要素驗證（MFA）。 只有在存取 HDInsight 叢集 VNET IP 範圍時，才可以使用[信任的 ip](../../active-directory/authentication/howto-mfa-mfasettings.md#trusted-ips)或[條件式存取](../../active-directory/conditional-access/overview.md)來停用特定使用者的 MFA。 如果您使用條件式存取，請確認已在 HDInsight VNET 上啟用 AD 服務端點。
 >
 > 如果叢集儲存體是 Azure Blob 儲存體 (WASB)，請勿停用 MFA。
 
@@ -35,7 +35,7 @@ ms.locfileid: "70125597"
 
 Azure AD-DS 啟用時，所有使用者和物件依預設都會開始從 Azure Active Directory (AAD) 同步處理至 Azure AD-DS。 同步作業的所需時間取決於 Azure AD 中的物件數目。 數十萬個物件的同步可能需要幾天的時間。 
 
-您搭配 Azure AD-DS 使用的功能變數名稱必須是39個字元或更少, 才能使用 HDInsight。
+您搭配 Azure AD-DS 使用的功能變數名稱必須是39個字元或更少，才能使用 HDInsight。
 
 您可以選擇只同步需要存取 HDInsight 叢集的群組。 這個僅同步特定群組的選項，稱為*特定範圍同步處理*。 請參閱[設定從 Azure AD 到受控網域的特定範圍同步處理](../../active-directory-domain-services/scoped-synchronization.md)，以取得指示。
 
@@ -55,7 +55,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 ## <a name="create-and-authorize-a-managed-identity"></a>建立和授權受控識別
 
-**使用者指派的受控識別**可用來簡化和保護網域服務作業。 當您將 HDInsight 網域服務參與者角色指派給受控識別時，該角色將可讀取、建立、修改和刪除網域服務作業。 HDInsight 企業安全性套件需要特定的網域服務作業, 例如建立 Ou 和服務主體。 受控識別可建立在任何訂用帳戶中。 如需有關受控識別的一般詳細資訊, 請參閱[適用于 Azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。 如需如何在 Azure HDInsight 中使用受控識別的詳細資訊, 請參閱[Azure HDInsight 中的受控](../hdinsight-managed-identities.md)識別。
+**使用者指派的受控識別**可用來簡化和保護網域服務作業。 當您將 HDInsight 網域服務參與者角色指派給受控識別時，該角色將可讀取、建立、修改和刪除網域服務作業。 HDInsight 企業安全性套件需要特定的網域服務作業，例如建立 Ou 和服務主體。 受控識別可建立在任何訂用帳戶中。 如需有關受控識別的一般詳細資訊，請參閱[適用于 Azure 資源的受控](../../active-directory/managed-identities-azure-resources/overview.md)識別。 如需如何在 Azure HDInsight 中使用受控識別的詳細資訊，請參閱[Azure HDInsight 中的受控](../hdinsight-managed-identities.md)識別。
 
 若要設定 ESP 叢集，請建立使用者指派的受控識別 (如果您還沒有的話)。 請參閱[使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)，以取得指示。 接著，請在 Azure AD-DS 存取控制中，將 **HDInsight 網域服務參與者**角色指派給受控識別 (必須具有 AAD-DS 管理員權限才能執行此角色指派)。
 
@@ -63,7 +63,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 指派 **HDInsight 網域服務參與者**角色，可確保此身分識別具有適當的 (代表) 存取權可對 AAD-DS 網域執行特定的網域服務作業，例如建立 OU、刪除 OU 等。
 
-在建立受控識別並為其指定正確的角色後，AAD-DS 管理員可設定能夠使用此受控識別的人員。 若要設定受控識別的使用者，管理員應在入口網站中選取受控識別，然後按一下 [概觀] 下方的 [存取控制 (IAM)]。 然後，在右側將**受控識別操作員**角色指派給要建立 ESP HDInsight 叢集的使用者或群組。 例如, AAD-DS 系統管理員可以將此角色指派給**sjmsi**受控識別的**MarketingTeam**群組, 如下圖所示。 這可確保組織中適當人員才有存取權，可使用此受控識別來建立 ESP 叢集。
+在建立受控識別並為其指定正確的角色後，AAD-DS 管理員可設定能夠使用此受控識別的人員。 若要設定受控識別的使用者，管理員應在入口網站中選取受控識別，然後按一下 [概觀] 下方的 [存取控制 (IAM)]。 然後，在右側將**受控識別操作員**角色指派給要建立 ESP HDInsight 叢集的使用者或群組。 例如，AAD-DS 系統管理員可以將此角色指派給**sjmsi**受控識別的**MarketingTeam**群組，如下圖所示。 這可確保組織中適當人員才有存取權，可使用此受控識別來建立 ESP 叢集。
 
 ![HDInsight 受控識別操作員角色指派](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
@@ -82,7 +82,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 將 Azure AD-DS 執行個體和 HDInsight 叢集放在相同的 Azure 虛擬網路中比較容易。 若您計畫使用不同的 VNET，您必須將那些虛擬網路設定為同儕節點，以便 HDI VM 可以看見網域控制站。 如需詳細資訊，請參閱[虛擬網路對等互連](../../virtual-network/virtual-network-peering-overview.md)。 
 
-VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服器，並輸入 Azure AD-DS 的私人 IP 作為 DNS 伺服器位址。 當兩個 VNET 使用相同的 DNS 伺服器時，您的自訂網域名稱將解析為正確的 IP，並且可從 HDInsight 存取。 例如, 如果您的功能變數名稱`contoso.com`在此步驟之後, `ping contoso.com`應該會解析為正確的 Azure AD-DS IP。
+VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服器，並輸入 Azure AD-DS 的私人 IP 作為 DNS 伺服器位址。 當兩個 VNET 使用相同的 DNS 伺服器時，您的自訂網域名稱將解析為正確的 IP，並且可從 HDInsight 存取。 例如，如果您的功能變數名稱`contoso.com`在此步驟之後， `ping contoso.com`應該會解析為正確的 Azure AD-DS IP。
 
 ![為對等互連的 VNET 設定自訂 DNS 伺服器](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
@@ -100,7 +100,7 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 ![Azure HDInsight 企業安全性套件網域驗證](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 
-在您啟用 ESP 後，系統會自動偵測及驗證與 Azure AD-DS 有關的常見錯誤設定。 修正這些錯誤之後, 您可以繼續進行下一個步驟: 
+在您啟用 ESP 後，系統會自動偵測及驗證與 Azure AD-DS 有關的常見錯誤設定。 修正這些錯誤之後，您可以繼續進行下一個步驟： 
 
 ![Azure HDInsight 企業安全性套件失敗的網域驗證](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
 

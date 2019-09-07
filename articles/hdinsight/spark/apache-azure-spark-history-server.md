@@ -1,19 +1,19 @@
 ---
-title: 使用擴充的 Spark 記錄伺服器針對 Spark 應用程式進行偵錯和診斷 - Azure HDInsight
+title: 擴充 Spark 歷程記錄伺服器以進行 Spark 應用程式的偵錯工具-Azure HDInsight
 description: 使用擴充的 Spark 記錄伺服器對 Spark 應用程式進行偵錯和診斷 - Azure HDInsight。
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.date: 09/04/2019
+ms.openlocfilehash: 9ba03f6b1e658e08c3d07d7ccb5e2a99e96fe69c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377256"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736462"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用擴充的 Apache Spark 記錄伺服器對 Apache Spark 應用程式進行偵錯和診斷
 
@@ -189,7 +189,7 @@ ms.locfileid: "68377256"
 ### <a name="executor-usage-analysis"></a>執行程式使用狀況分析
 執行程式使用狀況圖表會將 Spark 作業實際執行程式配置與執行狀態視覺化。  
 
-+ 按一下 [執行程式使用狀況分析]，接著會顯示四個關於執行程式使用狀況的類型曲線草稿，包括 [已配置的執行程式]、[執行中的執行程式]、[閒置執行程式] 與 [執行程式執行個體上限] 。 關於已配置的執行程式，「已新增執行程式」或「已移除執行程式」事件將會使得已配置的執行程式數目增加或減少，您可以查看「作業」中的「事件時間表」以取得更多比較。
++ 按一下 [執行程式使用狀況分析]，接著會顯示四個關於執行程式使用狀況的類型曲線草稿，包括 [已配置的執行程式]、[執行中的執行程式]、[閒置執行程式] 與 [執行程式執行個體上限]。 關於已配置的執行程式，「已新增執行程式」或「已移除執行程式」事件將會使得已配置的執行程式數目增加或減少，您可以查看「作業」中的「事件時間表」以取得更多比較。
 
     ![[執行程式] 索引標籤](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -300,7 +300,7 @@ ms.locfileid: "68377256"
 
 **從 Azure 入口網站中使用 Bash 檔案**
 
-1. 啟動 [Azure 入口網站](https://ms.portal.azure.com)，然後選取您的叢集。
+1. 啟動[Azure 入口網站](https://ms.portal.azure.com)，然後選取您的叢集。
 2. 按一下 [指令碼動作]，然後按一下 [提交新項目]。 完成 [提交指令碼動作] 表單，然後按一下 [建立] 按鈕。
     
     + **指令碼類型**：選取 [自訂]。
@@ -319,7 +319,7 @@ ms.locfileid: "68377256"
 
 ## <a name="known-issues"></a>已知問題
 
-1.  目前, 它僅適用于 Spark 2.3 和2.4 叢集。
+1.  目前，它僅適用于 Spark 2.3 和2.4 叢集。
 
 2.  使用 RDD 的輸入/輸出資料不會顯示在 [資料] 索引標籤中。
 

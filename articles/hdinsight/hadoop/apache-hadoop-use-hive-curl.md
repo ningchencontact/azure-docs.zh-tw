@@ -1,6 +1,6 @@
 ---
 title: 在 HDInsight 中搭配使用 Apache Hadoop Hive 與 Curl - Azure
-description: 了解如何使用 Curl 從遠端提交 Apache Pig 作業到 HDInsight。
+description: 瞭解如何使用捲曲從遠端提交 Apache Pig 作業到 Azure HDInsight。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 334d7b886aa4e2130a12f0c8a7919986fdac55d1
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: e1fbeb48acdfd9d09cad2616aed9793e2ff513ad
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508116"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736094"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>搭配 HDInsight 中的 Apache Hadoop 使用 REST 來執行 Apache Hive 查詢
 
@@ -25,38 +25,38 @@ ms.locfileid: "67508116"
 
 * HDInsight 上的 Apache Hadoop 叢集。 請參閱[開始在 Linux 上使用 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 
-* REST 用戶端。 這份文件會使用[Invoke-webrequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest)在 Windows PowerShell 並[Curl](https://curl.haxx.se/)上[Bash](https://docs.microsoft.com/windows/wsl/install-win10)。
+* REST 用戶端。 本檔使用 Windows PowerShell 上[的 WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) ，並在[Bash](https://docs.microsoft.com/windows/wsl/install-win10)上[捲曲](https://curl.haxx.se/)。
 
-* 如果您使用 Bash，您也必須 jq，命令列的 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
+* 如果您使用 Bash，您也會需要 jq 命令列 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 
 ## <a name="base-uri-for-rest-api"></a>Rest API 的基底 URI
 
-是基底統一資源識別元 (URI) 在 HDInsight 上的 REST api `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`，其中`CLUSTERNAME`是叢集的名稱。  在 Uri 中的叢集名稱**區分大小寫**。  而 URI 的完整的網域名稱 (FQDN) 部分中的叢集名稱 (`CLUSTERNAME.azurehdinsight.net`) 是不區分大小寫，在 URI 中的其他項目會區分大小寫。
+HDInsight 上 REST API 的基底統一資源識別元（URI）是`https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`，其中`CLUSTERNAME`是您的叢集名稱。  Uri 中的叢集名稱會區分**大小寫**。  雖然 uri （`CLUSTERNAME.azurehdinsight.net`）的完整功能變數名稱（FQDN）部分中的叢集名稱不區分大小寫，但 uri 中的其他專案會區分大小寫。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>驗證
 
 在使用 cURL 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集系統管理員的使用者名稱和密碼來驗證要求。 透過 [基本驗證](https://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 為確保認證安全地傳送至伺服器，請一律使用安全 HTTP (HTTPS) 提出要求。
 
-### <a name="setup-preserve-credentials"></a>安裝程式 （保留的認證）
-會保留您的認證，以避免重新進入其每個範例。  在個別步驟中，將會保留叢集名稱。
+### <a name="setup-preserve-credentials"></a>安裝程式（保留認證）
+保留您的認證，以避免在每個範例中重新輸入。  叢集名稱將會在個別的步驟中保留。
 
-**A.Bash**  
-編輯下列指令碼來取代`PASSWORD`以您實際的密碼。  然後輸入命令。
+**A.狂歡**  
+以您的實際密碼取代`PASSWORD` ，以編輯下面的腳本。  然後輸入命令。
 
 ```bash
 export password='PASSWORD'
 ```  
 
-**B.PowerShell**執行下列程式碼，並輸入您的認證，在快顯視窗中：
+**B.PowerShell**執行下列程式碼，並在快顯視窗中輸入您的認證：
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
-### <a name="identify-correctly-cased-cluster-name"></a>識別正確的大小寫的叢集名稱
-視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。  這裡的步驟會顯示實際的大小寫，並再將它儲存在變數中供後續所有範例。
+### <a name="identify-correctly-cased-cluster-name"></a>識別正確大小寫的叢集名稱
+視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。  此處的步驟會顯示實際的大小寫，然後將它儲存在所有後續範例的變數中。
 
-編輯指令碼來取代`CLUSTERNAME`與您的叢集名稱。 然後輸入命令。 （叢集名稱，fqdn 是不區分大小寫）。
+編輯下列腳本，將取代`CLUSTERNAME`為您的叢集名稱。 然後輸入命令。 （FQDN 的叢集名稱不區分大小寫）。
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -181,7 +181,7 @@ $clusterName
 
     如果作業已完成，則狀態會是 **SUCCEEDED**。
 
-1. 工作狀態變更為 [成功]  之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 `/example/rest`。 此位址會將輸出儲存在叢集預設儲存體的 `example/curl` 目錄中。
+1. 工作狀態變更為 [成功] 之後，即可從 Azure Blob 儲存體擷取工作結果。 與查詢一起傳遞的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 `/example/rest`。 此位址會將輸出儲存在叢集預設儲存體的 `example/curl` 目錄中。
 
     您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 列出並下載這些檔案。 如需搭配 Azure 儲存體使用 Azure CLI 的詳細資訊，請參閱[搭配 Azure 儲存體使用 Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs) 文件。
 

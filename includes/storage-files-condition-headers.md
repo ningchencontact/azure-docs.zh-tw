@@ -5,28 +5,28 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/17/2019
+ms.date: 09/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0486b595bffd18b06d54e8377b24deab04e2aa93
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4604616cd4f2d6c75c272586df1331fc405061cb
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67174047"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70737486"
 ---
-## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>使用 Azure 檔案從瀏覽器的 Web 應用程式的錯誤 ConditionHeadersNotSupported
+## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>從瀏覽器使用 Azure 檔案儲存體從 Web 應用程式 ConditionHeadersNotSupported 時發生錯誤
 
-當存取應用程式，可透過裝載 Azure 檔案服務中的內容使用條件式標頭，例如 web 瀏覽器，存取會失敗，顯示 ConditionHeadersNotSupported 時發生錯誤。
+透過使用條件式標頭的應用程式（例如網頁瀏覽器）存取裝載于 Azure 檔案儲存體中的內容時，會發生 ConditionHeadersNotSupported 錯誤。 錯誤指出不支援條件標頭。
 
-![ConditionHeaderNotSupported 錯誤](media/storage-files-condition-headers/conditionalerror.png)
+![Azure 檔案儲存體條件式標頭錯誤](media/storage-files-condition-headers/conditionalerror.png)
 
 ### <a name="cause"></a>原因
 
-尚不支援條件式標頭。 實作它們的應用程式需要每次存取檔案時，要求完整的檔案。
+尚未支援條件式標頭。 執行它們的應用程式必須在每次存取檔案時要求完整檔案。
 
 ### <a name="workaround"></a>因應措施
 
-上傳新的檔案時，快取控制屬性預設是 [無快取]。 若要強制應用程式要求檔案每次檔案的快取控制屬性必須從 [無快取] 更新為 「 無快取、 hodnotě no-store，必須 must-revalidate"。 這可以使用來達成[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)。
+上傳新的檔案時，[快取控制項] 屬性預設為 [無快取]。 若要強制應用程式每次都要求檔案，檔案的快取控制屬性必須從「無快取」更新為「無快取，不需要重新驗證」。 這可以使用[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來達成。
 
-![儲存體總管 內容的快取的修改](media/storage-files-condition-headers/storage-explorer-cache.png)
+![Azure 檔案儲存體條件式標頭的儲存體 explorer 內容快取修改](media/storage-files-condition-headers/storage-explorer-cache.png)

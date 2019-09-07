@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight 中的叢集容量規劃
-description: 如何指定 HDInsight 叢集的容量和效能。
+description: 識別 Azure HDInsight 叢集的容量和效能規劃的重要問題。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3d82846c02754f23b4a2e86a7881c952e503b36f
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 608d097f1ebad9e4e1092c7ec54a573ccb58ad81
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207167"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734654"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -82,7 +82,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 根據您的叢集類型，增加背景工作節點數可新增額外的計算容量 (例如更多核心)，但也可以新增至整個叢集所需的記憶體總數，以支援記憶體內正在進行處理的資料儲存體。 如同 VM 大小和類型的選擇，通常會使用模擬的工作負載或 Canary 查詢，以實證方式達到選取正確的叢集縮放比例。
 
-您可以相應放大叢集以符合尖峰負載需求，然後當不再需要這些額外的節點時，將其相應縮小。 自動調整[功能](hdinsight-autoscale-clusters.md)可讓您根據預先決定的計量和時間, 自動擴充您的叢集。 如需手動調整叢集的詳細資訊, 請參閱[調整 HDInsight 叢集規模](hdinsight-scaling-best-practices.md)。
+您可以相應放大叢集以符合尖峰負載需求，然後當不再需要這些額外的節點時，將其相應縮小。 自動調整[功能](hdinsight-autoscale-clusters.md)可讓您根據預先決定的計量和時間，自動擴充您的叢集。 如需手動調整叢集的詳細資訊，請參閱[調整 HDInsight 叢集規模](hdinsight-scaling-best-practices.md)。
 
 ### <a name="cluster-lifecycle"></a>叢集生命週期
 
@@ -94,7 +94,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 ### <a name="isolate-cluster-job-errors"></a>找出叢集作業錯誤
 
-有時會因多個對應平行執行而發生錯誤，從而減少多節點叢集上的元件。 若要協助找出問題, 請在單一背景工作節點叢集上執行並行多個作業來嘗試進行分散式測試, 然後展開此方法, 在包含多個節點的叢集上同時執行多個作業。 若要在 Azure 中建立單一節點的 HDInsight 叢集, 請使用 [*自訂 (大小、設定、應用程式)* ] 選項, 並在入口網站中布建新叢集時, 針對 [叢集**大小**] 區段中的背景*工作節點數目*使用1的值。
+有時會因多個對應平行執行而發生錯誤，從而減少多節點叢集上的元件。 若要協助找出問題，請在單一背景工作節點叢集上執行並行多個作業來嘗試進行分散式測試，然後展開此方法，在包含多個節點的叢集上同時執行多個作業。 若要在 Azure 中建立單一節點的 HDInsight 叢集，請使用 [*自訂（大小、設定、應用程式）* ] 選項，並在入口網站中布建新叢集時，針對 [叢集**大小**] 區段中的背景*工作節點數目*使用1的值。
 
 您也可以在本機電腦上安裝單一節點開發環境，並在該處測試解決方案。 Hortonworks 提供的單一節點本機開發環境適用於以 Hadoop 作為基礎的解決方案，適合初期開發、概念證明及測試。 如需詳細資訊，請參閱 [Hortonworks 沙箱](https://hortonworks.com/products/hortonworks-sandbox/)。
 
@@ -115,9 +115,9 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
      ![建立支援要求以提高 HDInsight 核心配額](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. 完成時，選取 下一步:**解決方案 > >** 。
-1. 在 [**詳細資料**] 頁面上, 輸入問題的描述、選取問題的嚴重性、您偏好的連絡人方法, 以及其他必要的欄位。
+1. 在 [**詳細資料**] 頁面上，輸入問題的描述、選取問題的嚴重性、您偏好的連絡人方法，以及其他必要的欄位。
 1. 完成時，選取 下一步:**審查 + 建立 > >** 。
-1. 在 [**審查 + 建立**] 索引標籤上, 選取 [**建立**]。
+1. 在 [**審查 + 建立**] 索引標籤上，選取 [**建立**]。
 
 > [!NOTE]  
 > 如果需要在私人區域中新增 HDInsight 核心配額，請[提交允許清單要求](https://aka.ms/canaryintwhitelist)。

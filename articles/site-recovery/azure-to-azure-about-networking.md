@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876463"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736404"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
@@ -48,10 +48,10 @@ ms.locfileid: "69876463"
 
 **URL** | **詳細資料**  
 --- | ---
-*.blob.core.windows.net | 需要此項目方可從 VM 將資料寫入來源地區的快取儲存體帳戶中。 如果您知道 Vm 的所有快取儲存體帳戶, 您可以將特定儲存體帳戶 Url (例如: cache1.blob.core.windows.net 和 cache2.blob.core.windows.net) 列入允許清單, 而不是 *. blob.core.windows.net
+*.blob.core.windows.net | 需要此項目方可從 VM 將資料寫入來源地區的快取儲存體帳戶中。 如果您知道 Vm 的所有快取儲存體帳戶，您可以將特定儲存體帳戶 Url （例如： cache1.blob.core.windows.net 和 cache2.blob.core.windows.net）列入允許清單，而不是 *. blob.core.windows.net
 login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL 的授權和驗證。
-*.hypervrecoverymanager.windowsazure.com | 需要此項目方可從 VM 進行 Site Recovery 服務通訊。 如果您的防火牆 proxy 支援 Ip, 您可以使用對應的「Site Recovery IP」。
-*.servicebus.windows.net | 需要此項目方可從 VM 寫入 Site Recovery 監視和診斷資料。 如果您的防火牆 proxy 支援 Ip, 您可以使用對應的「Site Recovery 監視 IP」。
+*.hypervrecoverymanager.windowsazure.com | 需要此項目方可從 VM 進行 Site Recovery 服務通訊。 如果您的防火牆 proxy 支援 Ip，您可以使用對應的「Site Recovery IP」。
+*.servicebus.windows.net | 需要此項目方可從 VM 寫入 Site Recovery 監視和診斷資料。 如果您的防火牆 proxy 支援 Ip，您可以使用對應的「Site Recovery 監視 IP」。
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 位址範圍的輸出連線能力
 
@@ -113,7 +113,11 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
    中國北部 2 | 40.73.35.193 | 40.73.33.230
    中國東部 | 42.159.205.45 | 42.159.132.40
    中國東部 2 | 40.73.118.52| 40.73.100.125
-  
+   德國北部| 51.116.208.58| 51.116.58.128
+   德國中西部 | 51.116.156.176 | 51.116.154.192
+   瑞士西部 | 51.107.231.223| 51.107.154.128
+   瑞士北部 | 51.107.68.31| 51.107.58.128
+
 ## <a name="example-nsg-configuration"></a>範例 NSG 設定
 
 這個範例示範如何針對要複寫的 VM 設定 NSG 規則。

@@ -8,20 +8,20 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a84c587a2666982e862f0640b30d2d6bef3b9a42
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446821"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744593"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>佈建及管理 Azure 時間序列深入解析預覽版
 
 此文說明如何使用 [Azure 入口網站](https://portal.azure.com/)建立及管理 Azure 時間序列深入解析預覽版環境。
 
-## <a name="overview"></a>概觀
+## <a name="overview"></a>總覽
 
 Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 
@@ -33,7 +33,7 @@ Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 了解[如何規劃您的環境](./time-series-insights-update-plan.md)。
 
 >[!IMPORTANT]
-> 預覽版本中，確定您使用 Azure 儲存體的一般用途 v1 (GPv1) 帳戶。
+> 針對預覽版本，請確定您使用的是 Azure 儲存體一般用途 v1 （GPv1）帳戶。
 
 (選擇性) 您可以將每個 Azure 時間序列深入解析預覽版環境與一個事件來源關聯。 如需詳細資訊，請閱讀[新增事件中樞來源](./time-series-insights-how-to-add-an-event-source-eventhub.md)與[新增 IoT 中樞來源](./time-series-insights-how-to-add-an-event-source-iothub.md)。 您會在此步驟提供時間戳記識別碼屬性與唯一的取用者群組。 這樣做可以確定環境有適當事件的存取權。
 
@@ -43,9 +43,9 @@ Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 
 下列步驟說明如何建立 Azure 時間序列深入解析預覽版環境：
 
-1. 選取 [SKU]  功能表下的 [預付型]  。 提供環境名稱，並選擇要使用的訂用帳戶群組與資源群組。 接著，選取要在其中裝載環境的支援位置。
+1. 選取 [SKU] 功能表下的 [預付型]。 提供環境名稱，並選擇要使用的訂用帳戶群組與資源群組。 接著，選取要在其中裝載環境的支援位置。
 
-   [![建立 Azure Time Series Insights 執行個體。](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
+   [![建立 Azure 時間序列深入解析實例。](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. 輸入時間序列識別碼。
 
@@ -56,7 +56,7 @@ Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
 
 1. 透過選取儲存體帳戶名稱並指定複寫選項，以建立 Azure 儲存體帳戶。 這樣做會自動建立 Azure 儲存體一般用途 v1 帳戶。 它將會在與您先前選取之 Azure 時間序列深入解析預覽版環境相同的區域中建立。
 
-    [![建立您的執行個體的 Azure 儲存體帳戶](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
+    [![為您的實例建立 Azure 儲存體帳戶](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. (選擇性) 您可以新增事件來源。
 
@@ -67,33 +67,33 @@ Azure 時間序列深入解析預覽版環境是隨用隨付 (PAYG) 環境。
      > [!TIP]
      > 在批次事件或歷史資料上傳案例中，訊息加入佇列時間可能不是最佳配置設定。 務必確定您是否要在此類案例中使用時間戳記屬性的決定。
 
-     [![事件來源 索引標籤](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
+     [![[事件來源] 索引標籤](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. 確認您的環境已使用想要的設定佈建。
 
-    [![檢閱 + 建立的索引標籤](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
+    [![審核 + 建立索引標籤](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>管理環境
 
 您可以使用 Azure 入口網站管理 Azure 時間序列深入解析預覽版環境。 這裡提供使用 Azure 入口網站，管理預付型 Azure 時間序列深入解析預覽版環境與 S1 或 S2 環境的主要差異：
 
-* Azure 入口網站的 [概觀]  刀鋒視窗在 Azure 時間序列深入解析中不會變更，但下列方式除外：
+* Azure 入口網站的 [概觀] 刀鋒視窗在 Azure 時間序列深入解析中不會變更，但下列方式除外：
   * 已移除容量，因為此概念不適用於預付型環境。
   * 已新增時間序列識別碼屬性。 它會決定分割您的資料的方式。
   * 已移除參考資料集。
   * 顯示的 URL 會將您導向 [Azure 時間序列深入解析預覽版總管](./time-series-insights-update-explorer.md)。
   * 已列出您的 Azure 儲存體帳戶名稱。
 
-* 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [設定]  刀鋒視窗，因為無法設定預付型環境。
+* 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [設定] 刀鋒視窗，因為無法設定預付型環境。
 
-* 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [參考]  資料刀鋒視窗，因為參考資料不是預付型環境的元件。
+* 在 Azure 時間序列深入解析預覽版中，已移除 Azure 入口網站的 [參考] 資料刀鋒視窗，因為參考資料不是預付型環境的元件。
 
-[![在 Azure 入口網站中的時間序列深入解析預覽環境](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
+[![Azure 入口網站中的時間序列深入解析預覽環境](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 
 - 閱讀[規劃您的環境](./time-series-insights-update-plan.md)。
 
-- 了解如何[新增事件中樞來源](./time-series-insights-how-to-add-an-event-source-eventhub.md)。
+- 瞭解如何[新增事件中樞來源](./time-series-insights-how-to-add-an-event-source-eventhub.md)。
 
-- 設定[「 IoT 中樞 」 來源](./time-series-insights-how-to-add-an-event-source-iothub.md)。
+- 設定[IoT 中樞來源](./time-series-insights-how-to-add-an-event-source-iothub.md)。

@@ -1,24 +1,22 @@
 ---
 title: 適用於 Azure Functions 1.x 的 host.json 參考
 description: Azure Functions host.json 檔案與 v1 執行階段的參考文件。
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: c169d9cc774a2c6264ba1520240005f13ba9d2da
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b373afc9b5a60abee7a587fc405320fe3c583369
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096445"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735161"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 host.json 參考
 
-> [!div class="op_single_selector" title1="選取您要使用的 Azure Functions 執行階段版本: "]
+> [!div class="op_single_selector" title1="選取您要使用的 Azure Functions 執行階段版本： "]
 > * [第 1 版](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
@@ -46,6 +44,13 @@ ms.locfileid: "70096445"
         "sampling": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 5
+        }
+    },
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix"
         }
     },
     "eventHub": {
@@ -86,6 +91,9 @@ ms.locfileid: "70096445"
       "maxDequeueCount": 5,
       "newBatchThreshold": 8
     },
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    },
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
@@ -115,6 +123,28 @@ ms.locfileid: "70096445"
 ## <a name="applicationinsights"></a>applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+
+## <a name="documentdb"></a>DocumentDB
+
+[Azure Cosmos DB 觸發程式和](functions-bindings-cosmosdb.md)系結的設定。
+
+```json
+{
+    "documentDB": {
+        "connectionMode": "Gateway",
+        "protocol": "Https",
+        "leaseOptions": {
+            "leasePrefix": "prefix1"
+        }
+    }
+}
+```
+
+|屬性  |預設 | 描述 |
+|---------|---------|---------|
+|GatewayMode|閘道|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
+|Protocol|Https|連線到 Azure Cosmos DB 服務時函式所使用的連線通訊協定。  請參閱[此處以了解這兩種模式](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|n/a|要在應用程式的所有函式上使用的租用前置詞。|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -176,7 +206,7 @@ ms.locfileid: "70096445"
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 
 *僅限 1.x 版。*
 
@@ -238,6 +268,21 @@ ms.locfileid: "70096445"
 |batchSize|16|Functions 執行階段會同時擷取，並以平行方式處理的佇列訊息數目。 當要處理的數目減少到 `newBatchThreshold` 時，執行階段就會取得另一個批次，並開始處理那些訊息。 因此，每個函式並行處理之訊息的上限為 `batchSize` 加上 `newBatchThreshold`。 這項限制個別套用至每個佇列觸發的函式。 <br><br>如果您需要避免平行執行在單一佇列上收到的訊息，可以將 `batchSize` 設定為 1。 不過，只要您的函式應用程式在單一虛擬機器 (VM) 上執行，這項設定就只會將並行排除。 如果函式應用程式相應放大為多個 VM，則每個 VM 可以執行每個佇列觸發之函式的一個執行個體。<br><br>最大值 `batchSize` 為 32。 | 
 |maxDequeueCount|5|將訊息移至有害佇列之前，嘗試處理訊息的次數。| 
 |newBatchThreshold|batchSize/2|每當要同時處理的訊息數目下降至這個數字時，執行階段就會擷取另一個批次。| 
+
+## <a name="sendgrid"></a>SendGrid
+
+[SendGrind 輸出](functions-bindings-sendgrid.md)系結的設定
+
+```json
+{
+    "sendGrid": {
+        "from": "Contoso Group <admin@contoso.com>"
+    }
+```
+
+|屬性  |預設 | 描述 |
+|---------|---------|---------| 
+|寄件者|n/a|所有函式的寄件者電子郵件地址。| 
 
 ## <a name="servicebus"></a>serviceBus
 

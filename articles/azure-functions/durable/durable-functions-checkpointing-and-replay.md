@@ -3,18 +3,17 @@ title: 長期函式中的檢查點和重新執行 - Azure
 description: 了解如何在 Azure Functions 的「長期函式」延伸模組中進行檢查點檢查和重新執行工作。
 services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1e6d3b78887c9d195fdf0137553860c141bdaaba
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5d0527de556c25a1d369d7b22c3f62579bc508f0
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241048"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735253"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>長期函式中的檢查點和重新執行 (Azure Functions)
 
@@ -128,26 +127,18 @@ module.exports = df.orchestrator(function*(context) {
 
   如果協調器程式碼需要取得目前日期/時間，則應該使用 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) 或 `currentUtcDateTime` (JavaScript) API，它對於重新執行是安全的。
 
-  如果協調器程式碼需要產生隨機 GUID，它應該使用 [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET) API，這對於重新執行是安全的，或委派活動函式 (JavaScript) 的 GUID 產生，如下列範例所示：
+  如果協調器程式碼需要產生隨機 GUID，它應該使用[NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) （.net）或`newGuid` （JavaScript） API，這對於重新執行是安全的。
 
-  ```javascript
-  const uuid = require("uuid/v1");
-
-  module.exports = async function(context) {
-    return uuid();
-  }
-  ```
-
-  非決定性作業必須在活動函式中完成。 這包括與其他輸入或輸出繫結的任何互動。 這可確保任何非決定性值會在第一次執行時產生，並且儲存到執行歷程記錄。 然後，後續執行會自動使用儲存的值。
+   除了這些特殊情況以外，不具決定性的作業必須在活動函式中完成。 這包括與其他輸入或輸出繫結的任何互動。 這可確保任何非決定性值會在第一次執行時產生，並且儲存到執行歷程記錄。 然後，後續執行會自動使用儲存的值。
 
 * 協調器程式碼應該是**非封鎖**。 例如，這表示沒有 `Thread.Sleep` (.NET) 或對等 API 的 I/O 和呼叫。
 
   如果協調器需要延遲，可以使用 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) 或 `createTimer` (JavaScript) API。
 
-* 協調器程式碼必須**永不起始任何非同步作業**，除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 或 `context.df` 物件的 API。 例如，沒有 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync` 在 .NET 中，或 `setTimeout()` 和 `setInterval()` 在 JavaScript 中。 長期工作架構會在單一執行緒上執行協調器程式碼，並且無法與可以由其他非同步 API 排程的任何其他執行緒進行互動。 發生這種情況`InvalidOperationException`時, 就會擲回例外狀況。
+* 協調器程式碼必須**永不起始任何非同步作業**，除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 或 `context.df` 物件的 API。 例如，沒有 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync` 在 .NET 中，或 `setTimeout()` 和 `setInterval()` 在 JavaScript 中。 長期工作架構會在單一執行緒上執行協調器程式碼，並且無法與可以由其他非同步 API 排程的任何其他執行緒進行互動。 發生這種情況`InvalidOperationException`時，就會擲回例外狀況。
 
 > [!NOTE]
-> [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API 會執行非同步 i/o, 這在協調器函式中不允許, 而且只能用於非協調器函式中。
+> [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API 會執行非同步 i/o，這在協調器函式中不允許，而且只能用於非協調器函式中。
 
 * 在協調器程式碼中**應該避免無限迴圈**。 由於長期工作架構會在協調流程函式進行時儲存執行歷程記錄，所以無限迴圈可能會造成協調器執行個體用盡記憶體。 在無限迴圈的案例中，使用例如 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) 或 `continueAsNew` (JavaScript) 之類的 API 重新啟動函式執行，並捨棄先前的執行歷程記錄。
 
@@ -165,7 +156,7 @@ module.exports = df.orchestrator(function*(context) {
 
 可以在協調器函式中安全地等候的工作偶爾會稱為「長期工作」。 這些工作是由長期工作架構建立和管理的工作。 範例是由 `CallActivityAsync`、`WaitForExternalEvent` 和 `CreateTimer` 傳回的工作。
 
-這些「長期工作」是藉由使用 `TaskCompletionSource` 物件的清單在內部進行管理。 在重新執行期間，這些工作會建立為協調器程式碼執行的一部分，並且在發送器列舉對應歷程記錄事件時完成。 這項作業是以同步方式使用單一執行緒來完成，直到已重新執行所有歷程記錄。 歷程記錄重新執行結束時未完成的任何長期工作都有適當的執行動作。例如，訊息可以會被加入佇列以呼叫活動函式。
+這些「長期工作」是藉由使用 `TaskCompletionSource` 物件的清單在內部進行管理。 在重新執行期間，這些工作會建立為協調器程式碼執行的一部分，並且在發送器列舉對應歷程記錄事件時完成。 這項作業是以同步方式使用單一執行緒來完成，直到已重新執行所有歷程記錄。 在歷程記錄重新執行結束時未完成的任何長期工作都有適當的動作。例如，訊息可以會被加入佇列以呼叫活動函式。
 
 此處所述的執行行為應該可以協助您了解為什麼協調器函式程式碼不得為 `await` 非長期工作：發送器執行緒無法等候它完成，該工作的任何回呼都有可能會損毀協調器函式的追蹤狀態。 某些執行階段檢查正在進行中，以嘗試防止這個情況。
 

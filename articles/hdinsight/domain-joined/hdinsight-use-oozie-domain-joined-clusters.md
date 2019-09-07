@@ -1,5 +1,5 @@
 ---
-title: 使用企業安全性套件來保護 Apache Oozie 工作流程 - Azure HDInsight
+title: 使用企業安全性套件 Azure HDInsight 的 Apache Oozie 工作流程
 description: 使用「Azure HDInsight 企業安全性套件」來保護 Apache Oozie 工作流程。 了解如何定義 Oozie 工作流程，以及提交 Oozie 作業。
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 7d7fbf5d72654c26edf09ab27f024eaf39f8c387
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea724a9bc8ddd92f04a781d5c3ce9bc08a35312e
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708989"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734871"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie
 

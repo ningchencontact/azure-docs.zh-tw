@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e303fe5ca1869249d57373aab9c60a5f92b7ea9c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60238060"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735106"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 診斷 1.3 版和更新版本的組態結構描述
 > [!NOTE]
@@ -27,13 +27,11 @@ ms.locfileid: "60238060"
 >
 > 此頁面只在您使用其中一個服務時才相關。
 
-此頁面適用於 1.3 版和更新版本 (Azure SDK 2.4 版和更新版本)。 我們會在較新的組態區段中加入標記，表示已將它們新增至哪一個版本中。  
+此頁面適用於 1.3 版和更新版本 (Azure SDK 2.4 版和更新版本)。 我們會在較新的組態區段中加入標記，表示已將它們新增至哪一個版本中。 架構的版本1.0 和1.2 已封存，已無法再使用。 
 
 當診斷監視器啟動時，此處所述的組態檔會用來設定診斷組態設定。  
 
-此延伸模組會與其他 Microsoft 診斷產品 (例如 Azure 監視器) 搭配使用, 其中包括 Application Insights 和 Log Analytics。
-
-
+此延伸模組會與其他 Microsoft 診斷產品（例如 Azure 監視器）搭配使用，其中包括 Application Insights 和 Log Analytics。
 
 執行下列 PowerShell 命令，以下載公用組態檔結構描述定義：  
 
@@ -420,7 +418,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**PublicConfig**|必要項。 請參閱本頁面上其他部分的說明。|  
+|**PublicConfig**|必要。 請參閱本頁面上其他部分的說明。|  
 |**PrivateConfig**|選擇性。 請參閱本頁面上其他部分的說明。|  
 |**IsEnabled**|布林值。 請參閱本頁面上其他部分的說明。|  
 
@@ -431,9 +429,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**WadCfg**|必要項。 請參閱本頁面上其他部分的說明。|  
+|**WadCfg**|必要。 請參閱本頁面上其他部分的說明。|  
 |**StorageAccount**|要儲存資料的 Azure 儲存體帳戶名稱。 可能也會在執行 Set-AzureServiceDiagnosticsExtension Cmdlet 時指定為參數。|  
-|**StorageType**|可以是 Table  、Blob  或 TableAndBlob  。 預設值是 Table。 若選擇 TableAndBlob，系統會將診斷資料寫入兩次 -- 每種類型寫入一次。|  
+|**StorageType**|可以是 Table、Blob 或 TableAndBlob。 預設值是 Table。 若選擇 TableAndBlob，系統會將診斷資料寫入兩次 -- 每種類型寫入一次。|  
 |**LocalResourceDirectory**|虛擬機器上監視代理程式儲存事件資料的目錄。 如果沒有，請設定，否則會使用預設的目錄：<br /><br /> 針對背景工作/web 角色：`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 針對虛擬機器：`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> - **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> - **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
 
 ## <a name="wadcfg-element"></a>WadCFG 元素  
@@ -482,7 +480,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|必要項。 定義每個處理序的組態值。<br /><br /> 以下也是必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
+|**CrashDumpConfiguration**|必要。 定義每個處理序的組態值。<br /><br /> 以下也是必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
 
 ## <a name="directories-element"></a>Directories 元素
  *樹狀結構：根目錄 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
@@ -507,7 +505,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|必要項。 必要屬性：<br /><br /> **containerName** - 在您的 Azure 儲存體帳戶中用來儲存記錄檔的 Blob 容器名稱。|  
+|**DirectoryConfiguration**|必要。 必要屬性：<br /><br /> **containerName** - 在您的 Azure 儲存體帳戶中用來儲存記錄檔的 Blob 容器名稱。|  
 
 
 
@@ -564,7 +562,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。  
 
- **resourceId** 是必要屬性。  您要部署 Azure 診斷的虛擬機器或虛擬機器擴展集資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽]  [資源群組] ->    ->  **<Name\>** 。 按一下 [屬性]  圖格，並複製 [識別碼]  欄位的值。  
+ **resourceId** 是必要屬性。  您要部署 Azure 診斷的虛擬機器或虛擬機器擴展集資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽][資源群組] ->  ->  **<Name\>** 。 按一下 [屬性] 圖格，並複製 [識別碼] 欄位的值。  
 
 |子元素|描述|  
 |--------------------|-----------------|  
@@ -686,7 +684,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|描述|  
 |--------------------|-----------------|  
-|**StorageAccount**|要使用的儲存體帳戶。 以下為必要屬性<br /><br /> - **name** - 儲存體帳戶的名稱。<br /><br /> - **key** - 儲存體帳戶的金鑰。<br /><br /> - **endpoint** - 要存取儲存體帳戶的端點。 <br /><br /> -**sasToken** (已在 1.8.1 版中新增) - 您可以在私用組態中指定 SAS 權杖 (而不是儲存體帳戶金鑰)。如果提供此屬性，系統會忽略儲存體帳戶金鑰。 <br />SAS 權杖的需求︰ <br />- 僅支援帳戶 SAS 權杖 <br />- 需要 b  、t  服務類型。 <br /> - 需要 a  、c  、u  、w  權限。 <br /> - 需要 c  、o  資源類型。 <br /> - 僅支援 HTTPS 通訊協定 <br /> - 開始和到期時間必須是有效的。|  
+|**StorageAccount**|要使用的儲存體帳戶。 以下為必要屬性<br /><br /> - **name** - 儲存體帳戶的名稱。<br /><br /> - **key** - 儲存體帳戶的金鑰。<br /><br /> - **endpoint** - 要存取儲存體帳戶的端點。 <br /><br /> -**sasToken** (已在 1.8.1 版中新增) - 您可以在私用組態中指定 SAS 權杖 (而不是儲存體帳戶金鑰)。如果提供此屬性，系統會忽略儲存體帳戶金鑰。 <br />SAS 權杖的需求︰ <br />- 僅支援帳戶 SAS 權杖 <br />- 需要 b、t 服務類型。 <br /> - 需要 a、c、u、w 權限。 <br /> - 需要 c、o 資源類型。 <br /> - 僅支援 HTTPS 通訊協定 <br /> - 開始和到期時間必須是有效的。|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled 元素  

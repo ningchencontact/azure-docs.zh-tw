@@ -1,5 +1,5 @@
 ---
-title: 設定 Apache HBase 和 Apache Phoenix 的備份和複寫 - Azure HDInsight
+title: Azure HDInsight 中的 Apache HBase 和 Apache Phoenix 的備份和複寫
 description: 設定 HBase 和 Phoenix 的備份和複寫。
 author: ashishthaps
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: e60aef7b1848197f41f96a1b5f5414bb0c8f4a15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1b6e850fab5e9b9b651de9d02ee7981d71a343c
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696386"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735902"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>設定 HDInsight 上的 Apache HBase 和 Apache Phoenix 備份和複寫
 
@@ -155,7 +155,7 @@ curl 命令會擷取包含 HBase 組態資訊的 JSON 文件，而 grep 命令�
 
 ## <a name="snapshots"></a>快照集
 
-快照集可讓您建立 HBase 資料存放區在某個時間點的資料備份。 快照集的額外負荷最低，幾秒就能完成，因為快照集作業實際上是擷取該瞬間儲存體中所有檔案名稱的中繼資料作業。 建立快照集時，不會真的複製任何資料。 快照集依賴 HDFS 中儲存之資料的不可變本質 ，HDFS 中的更新、刪除、插入都會以新資料表示。 您可以在同一個叢集上還原 (複製  ) 快照集，或將快照集匯出至其他叢集。
+快照集可讓您建立 HBase 資料存放區在某個時間點的資料備份。 快照集的額外負荷最低，幾秒就能完成，因為快照集作業實際上是擷取該瞬間儲存體中所有檔案名稱的中繼資料作業。 建立快照集時，不會真的複製任何資料。 快照集依賴 HDFS 中儲存之資料的不可變本質 ，HDFS 中的更新、刪除、插入都會以新資料表示。 您可以在同一個叢集上還原 (複製) 快照集，或將快照集匯出至其他叢集。
 
 若要建立快照集，請透過 SSH 連線至 HDInsight HBase 叢集的前端節點並啟動 `hbase` Shell：
 

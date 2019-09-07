@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: ab633ca47f684688019b1313de61571252760a20
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: f101a8885d9bf67e8bd589d7cf932b0d35cdfe32
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967756"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744491"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure 監視器持續監視
 
@@ -56,7 +56,7 @@ ms.locfileid: "68967756"
 ##  <a name="combine-resources-in-azure-resource-groups"></a>在 Azure 資源群組中合併資源
 Azure 上的一般應用程式包含多個資源，例如 VM 和應用程式服務或裝載於雲端服務、AKS 叢集中或 Service Fabric 上的微服務。 這些應用程式經常會利用像是事件中樞、儲存體、SQL 和服務匯流排等相依性。
 
-- 結合 Azure 資源群組中的資源，以完整了解組成不同應用程式的所有資源。 [適用於資源群組的 Azure 監視器](../azure-monitor/insights/resource-group-insights.md)提供了一種簡單的方式，來追蹤整個完整堆疊應用程式的健全狀況和效能，並可以向下切入個別元件以進行任何調查或偵錯。
+- 結合 Azure 資源群組中的資源，可在構成不同應用程式的所有資源中取得完整的可見度。 [適用於資源群組的 Azure 監視器](../azure-monitor/insights/resource-group-insights.md)提供了一種簡單的方式，來追蹤整個完整堆疊應用程式的健全狀況和效能，並可以向下切入個別元件以進行任何調查或偵錯。
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>通過持續部署確保品質
 持續整合 / 持續部署允許您根據自動化測試的結果，將程式碼變更自動整合及部署到您的應用程式。 它可簡化部署程序，並在進入生產階段前確保任何變更的品質。

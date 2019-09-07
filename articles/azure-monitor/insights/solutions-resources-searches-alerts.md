@@ -1,6 +1,6 @@
 ---
 title: 管理解決方案中儲存的搜尋 |Microsoft Docs
-description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋, 使其可以包含在管理解決方案中。
+description: 管理解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。 它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。 本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋，使其可以包含在管理解決方案中。
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
-ms.translationtype: MT
+ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662900"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744485"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
 > [!IMPORTANT]
-> 如[先前所宣佈](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), 在*2019 年6月 1*日之後建立的 log analytics 工作區, 將只能使用 Azure ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)、 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)和 PowerShell 來管理警示規則[Cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)。 客戶可以輕鬆地為較舊的工作區[切換其慣用的警示規則管理方式](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api), 以利用 Azure 監視器 scheduledQueryRules 做為預設值, 並取得許多[新的優點](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api), 例如使用原生 PowerShell Cmdlet 的能力、增加回顧規則中的時間週期, 在不同的資源群組或訂用帳戶中建立規則, 還有更多其他功能。
+> 如[先前所宣佈](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)，在*2019 年6月 1*日之後建立的 log analytics 工作區，將**只能使用 Azure** ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)、 [Azure Resource Manager 範本](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)和 PowerShell 來管理警示規則[Cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell)。 客戶可以輕鬆地為較舊的工作區[切換其慣用的警示規則管理方式](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)，以利用 Azure 監視器 scheduledQueryRules 做為預設值，並取得許多[新的優點](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api)，例如使用原生 PowerShell Cmdlet 的能力、增加回顧規則中的時間週期，在不同的資源群組或訂用帳戶中建立規則，還有更多其他功能。
 
 > [!NOTE]
 > 這是建立管理解決方案 (目前處於預覽狀態) 的預備文件。 以下所述的任何結構描述可能會有所變更。
@@ -33,7 +33,7 @@ ms.locfileid: "68662900"
 > [!NOTE]
 > 本文中的範例使用管理解決方案所需或通用的參數和變數，如[在 Azure 中設計和建置管理解決方案](solutions-creating.md)所述。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文假設您已經熟悉如何[建立管理解決方案](solutions-creating.md)，以及 [Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)和解決方案檔案的結構。
 
 
@@ -76,11 +76,11 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表說明儲存的搜尋的每個屬性。
 
-| 內容 | Description |
+| 屬性 | Description |
 |:--- |:--- |
 | category | 儲存的搜尋的類別。  同一個解決方案中所有儲存的搜尋通常都會共用單一類別，因此它們會在主控台中群組在一起。 |
 | displayName | 要在入口網站中顯示之儲存的搜尋名稱。 |
-| 查詢 | 要執行的查詢。 |
+| query | 要執行的查詢。 |
 
 > [!NOTE]
 > 如果查詢包含可解譯為 JSON 的字元，您可能需要在查詢中使用逸出字元。 例如，如果查詢為 **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** ，就應該在方案檔中撰寫為 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 。
@@ -169,30 +169,30 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 下表會說明警示動作資源的屬性。
 
-| 元素名稱 | 必要項 | Description |
+| 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
-| Type | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
-| Name | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
-| Description | 否 | 警示的選擇性描述。 |
-| Severity | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
+| `Type` | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
+| `Name` | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| `Description` | 否 | 警示的選擇性描述。 |
+| `Severity` | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>閾值
 此為必要區段。 它會定義警示臨界值的屬性。
 
-| 元素名稱 | 必要項 | Description |
+| 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
-| Operator | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| Value | 是 | 要比較結果的值。 |
+| `Operator` | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| `Value` | 是 | 要比較結果的值。 |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 此為選擇性區段。 加入此區段以供計量計量警示使用。
 
-| 元素名稱 | 必要項 | Description |
+| 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
-| TriggerCondition | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
-| Operator | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
-| Value | 是 | 必須符合準則以觸發警示的次數。 |
+| `TriggerCondition` | 是 | 使用下列值來指定臨界值為違反次數總和或連續違反次數：<br><br>**Total<br>Consecutive** |
+| `Operator` | 是 | 比較運算子具有下列值：<br><br>**gt = 大於<br>lt = 少於** |
+| `Value` | 是 | 必須符合準則以觸發警示的次數。 |
 
 
 #### <a name="throttling"></a>正在節流

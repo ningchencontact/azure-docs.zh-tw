@@ -1,21 +1,21 @@
 ---
-title: 將內部部署 Apache Hadoop 叢集移轉至 Azure HDInsight - 儲存體最佳做法
+title: 將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight 儲存體
 description: 了解將內部部署 Hadoop 叢集移轉至 Azure HDInsight 的儲存體最佳做法。
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2fd8dd09da8080e9eff60bcec7d595476243cd02
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64691529"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736126"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉至 Azure HDInsight - 儲存體最佳做法
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>將內部部署 Apache Hadoop 叢集遷移至 Azure HDInsight
 
 本文提供 Azure HDInsight 系統中的資料儲存建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
 
@@ -90,7 +90,7 @@ Azure Data Lake Storage 會實作 HDFS 和 POSIX 樣式的存取控制模型。 
 
 ### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Azure Data Lake 儲存體 Gen2 是最新的儲存體供應項目。 它統合了第一代 Azure Data Lake Storage 的核心功能，以及與 Hadoop 相容、且直接整合到 Azure Blob 儲存體中的檔案系統端點。 這項增強功能結合了物件儲存體在規模和成本上的優勢，以及一般只有內部部署檔案系統所能帶來的可靠性和效能。
+Azure Data Lake Storage Gen2 是最新的儲存體供應專案。 它統合了第一代 Azure Data Lake Storage 的核心功能，以及與 Hadoop 相容、且直接整合到 Azure Blob 儲存體中的檔案系統端點。 這項增強功能結合了物件儲存體在規模和成本上的優勢，以及一般只有內部部署檔案系統所能帶來的可靠性和效能。
 
 ADLS Gen 2 以 [Azure Blob 儲存體](../../storage/blobs/storage-blobs-introduction.md)作為建置基礎，可讓您使用檔案系統和物件儲存體範例來處理資料。  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md) 的功能 (例如檔案系統語意、檔案層級安全性和級別) 結合了  [Azure Blob 儲存體](../../storage/blobs/storage-blobs-introduction.md)的低成本、分層式儲存體、高可用性/災害復原功能及大型 SDK/工具生態系統。 在 Data Lake Storage Gen2 中，所有物件儲存體的品質都維持不變，另外還增加了經過分析工作負載最佳化的檔案系統介面優點。
 
@@ -171,11 +171,11 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 5. 若要使用共用存取簽章來限制對容器的存取，請在 Ambari HDFS 的 [設定] > [進階] > [自訂核心網站] > [新增屬性] 下，將自訂項目新增至叢集的核心網站組態。
 
-6. 針對 [金鑰]  和 [值]  欄位使用下列值：
+6. 針對 [金鑰] 和 [值] 欄位使用下列值：
 
     **金鑰**：`fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **值**：Python 應用程式在前述的步驟 4 中傳回的 SAS 金鑰。
 
-7. 按一下 [新增]  按鈕以儲存這個金鑰和值，然後按一下 [儲存]  按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]  。
+7. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
 
 8. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [重新啟動所有受影響項目] ****  。 出現提示時，選取 [確認全部重新啟動] **** 。
 

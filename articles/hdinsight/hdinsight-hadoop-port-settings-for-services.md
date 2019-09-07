@@ -1,6 +1,6 @@
 ---
 title: HDInsight 上 Hadoop 服務所使用的連接埠 - Azure
-description: 在 HDInsight 上執行的 Hadoop 服務所使用的連接埠清單。
+description: 這會提供在中執行的 Apache Hadoop 服務所使用的埠清單 Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 34ab49378f9237a42bed869a6f6d67249b5238f9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 1fe66c1c171e779f48f4cc7c6767307feaafbd5f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464699"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733416"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上 Apache Hadoop 服務所使用的連接埠
 
@@ -28,7 +28,7 @@ ms.locfileid: "68464699"
 > [!IMPORTANT]  
 > 如果您沒有將 Azure 虛擬網路指定為 HDInsight 的設定選項，則會自動建立一個。 不過，您無法將其他電腦 (例如其他 Azure 虛擬機器或用戶端開發電腦) 加入此虛擬網路。
 
-若要將其他電腦加入至虛擬網路，您必須先建立虛擬網路，然後在建立 HDInsight 叢集時進行指定。 如需詳細資訊, 請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)。
+若要將其他電腦加入至虛擬網路，您必須先建立虛擬網路，然後在建立 HDInsight 叢集時進行指定。 如需詳細資訊，請參閱[規劃 HDInsight 的虛擬網路](hdinsight-plan-virtual-network-deployment.md)。
 
 ## <a name="public-ports"></a>公用連接埠
 
@@ -78,7 +78,7 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | Ambari Web UI | 前端節點 | 8080 | / | HTTP |
 | Ambari REST API | 前端節點 | 8080 | /api/v1 | HTTP |
 
-範例:
+例如：
 
 * Ambari REST API：`curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
@@ -166,6 +166,6 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | Livy 伺服器 | 前端節點 | 8998 | HTTP | &nbsp; | 要執行陳述式、作業和應用程式的服務 |
 | Jupyter 筆記本 | 前端節點 | 8001 | HTTP | &nbsp; | Jupyter Notebook 網站 |
 
-範例:
+例如：
 
 * Livy：`curl -u admin -G "http://10.0.0.11:8998/"`。 在此範例中，`10.0.0.11` 是託管 Livy 服務之前端節點的 IP 位址。

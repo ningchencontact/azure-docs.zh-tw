@@ -1,6 +1,6 @@
 ---
 title: 在 HDInsight 上運作 ML 服務 - Azure
-description: 了解如何在 Azure HDInsight 中運作 ML 服務。
+description: 瞭解如何讓您的資料模型，以 Azure HDInsight 中的 ML 服務進行預測。
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 36d2ebe00f735089633240914421e2259181e63e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 91407fc76d0a7555a87a8a3dcd1b3ad04ee2af80
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448976"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736225"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上運作 ML 服務叢集
 
@@ -21,9 +21,9 @@ ms.locfileid: "67448976"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 在 HDInsight 上 ML 服務叢集。 請參閱[使用 Azure 入口網站中建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取**ML 服務**for**叢集類型**。
+* HDInsight 上的 ML 服務叢集。 請參閱[使用 Azure 入口網站建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)，然後選取 [ML 服務] 作為 [叢集類型]。
 
-* 安全殼層 (SSH) 用戶端：SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+* 安全殼層（SSH）用戶端：SSH 用戶端可用來從遠端連線至 HDInsight 叢集，並直接在叢集上執行命令。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>使用單一方塊設定來運作 ML 服務叢集
 
@@ -80,7 +80,7 @@ ms.locfileid: "67448976"
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>在 Apache Spark 上取用 Web 服務時長時間延遲
 
-如果您在 Apache Spark 計算內容中嘗試取用使用 mrsdeploy 函式建立的 Web 服務時，遇到長時間延遲，您可能需要新增一些遺漏的資料夾。 每當使用 mrsdeploy 函式從 Web 服務叫用 Spark 應用程式時，該應用程式會屬於名為 'rserve2'  的使用者。 若要解決此問題：
+如果您在 Apache Spark 計算內容中嘗試取用使用 mrsdeploy 函式建立的 Web 服務時，遇到長時間延遲，您可能需要新增一些遺漏的資料夾。 每當使用 mrsdeploy 函式從 Web 服務叫用 Spark 應用程式時，該應用程式會屬於名為 'rserve2' 的使用者。 若要解決此問題：
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -136,29 +136,29 @@ SSH 工作階段變為作用中後，來自本機電腦連接埠 12800 的流量
 
 若要調整計算節點，您需要先將背景工作節點解除委任，然後在已解除委任的背景工作節點上設定計算節點。
 
-### <a name="step-1-decommission-the-worker-nodes"></a>步驟 1：將背景工作節點解除委任
+### <a name="step-1-decommission-the-worker-nodes"></a>步驟 1:將背景工作節點解除委任
 
 ML 服務叢集並非透過 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 來管理。 如果未將背景工作節點解除委任，YARN Resource Manager 就無法如預期般運作，因為它不會知道伺服器目前所佔用的資源。 為了避免這個狀況，建議您相應放大計算節點之前，將背景工作角色節點解除委任。
 
 請遵循下列步驟來將背景工作節點解除委任：
 
-1. 登入叢集的 Ambari 主控台，然後按一下 [Hosts]  \(主機\) 索引標籤。
+1. 登入叢集的 Ambari 主控台，然後按一下 [Hosts] \(主機\) 索引標籤。
 
 1. 選取背景工作節點 (以解除委任)。
 
-1. 按一下 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [Hosts]  \(主機\) > [Turn ON Maintenance Mode]  \(開啟維護模式\)。 例如，在以下映像中，我們選取了要解除委任 wn3 和 wn4。  
+1. 按一下 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [Hosts] \(主機\) > [Turn ON Maintenance Mode] \(開啟維護模式\)。 例如，在以下映像中，我們選取了要解除委任 wn3 和 wn4。  
 
    ![解除委任背景工作節點](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [DataNode]  > 按一下 [Decommission]  \(解除委任\)。
-* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [NodeManagers]  > 按一下 [Decommission]  \(解除委任\)。
-* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [DataNode]  > 按一下 [Stop]  \(停止\)。
-* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [NodeManagers]  > 按一下 [Stop]  \(停止\)。
-* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [Hosts]  \(主機\) > 按一下 [Stop All Components]  \(停止所有元件\)。
+* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [DataNode] > 按一下 [Decommission] \(解除委任\)。
+* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [NodeManagers] > 按一下 [Decommission] \(解除委任\)。
+* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [DataNode] > 按一下 [Stop] \(停止\)。
+* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [NodeManagers] > 按一下 [Stop] \(停止\)。
+* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [Hosts] \(主機\) > 按一下 [Stop All Components] \(停止所有元件\)。
 * 將背景工作節點取消選取，並選取前端節點。
-* 選取 [Actions]  \(動作\) > [Selected Hosts]  \(選取的主機\) > [Hosts]  \(主機\) > [Restart All Components]  \(重新啟動所有元件\)。
+* 選取 [Actions] \(動作\) > [Selected Hosts] \(選取的主機\) > [Hosts] \(主機\) > [Restart All Components] \(重新啟動所有元件\)。
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>步驟 2：在每個已解除委任的背景工作節點上設定計算節點
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>步驟 2:在每個已解除委任的背景工作節點上設定計算節點
 
 1. 透過 SSH 連線到每個已解除委任的背景工作角色節點。
 
@@ -166,7 +166,7 @@ ML 服務叢集並非透過 [Apache Hadoop YARN](https://hadoop.apache.org/docs/
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-1. 輸入 **1** 以選取 [設定要運作的 ML Server]  選項。
+1. 輸入 **1** 以選取 [設定要運作的 ML Server] 選項。
 
 1. 輸入 **C** 以選取選項 `C. Compute node`。 這會設定背景工作角色節點上的計算節點。
 
@@ -178,7 +178,7 @@ ML 服務叢集並非透過 [Apache Hadoop YARN](https://hadoop.apache.org/docs/
 
 1. 透過 SSH 連線到邊緣節點。
 
-1. 运行 `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`。
+1. 執行 `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`。
 
 1. 尋找 [Uris] 區段，並新增背景工作節點的 IP 和連接埠詳細資料。
 

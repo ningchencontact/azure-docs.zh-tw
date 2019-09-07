@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
+ms.date: 09/04/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60527304"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735079"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 診斷延伸模組的設定結構描述版本和歷程記錄
 針對隨附於 Microsoft Azure SDK 的 Azure 診斷擴充功能組態結構描述版本，此頁面會建立其索引。  
@@ -29,7 +29,7 @@ ms.locfileid: "60527304"
 >
 > 此頁面只在您使用其中一個服務時才相關。
 
-Azure 診斷延伸模組會與其他 Microsoft 診斷產品搭配使用, 例如 Azure 監視器, 其中包括 Application Insights 和 Log Analytics。 如需詳細資訊，請參閱 [Microsoft 監視工具概觀](../../azure-monitor/overview.md)。
+Azure 診斷延伸模組會與其他 Microsoft 診斷產品搭配使用，例如 Azure 監視器，其中包括 Application Insights 和 Log Analytics。 如需詳細資訊，請參閱 [Microsoft 監視工具概觀](../../azure-monitor/overview.md)。
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK 和診斷版本推出方式圖表  
 
@@ -54,13 +54,7 @@ Azure 診斷延伸模組會與其他 Microsoft 診斷產品搭配使用, 例如 
  從 SDK 2.5 (診斷版本 1.2) 開始，Azure 診斷變成延伸模型。 運用新功能的工具只能在較新的 Azure SDK 中取得，但是，任何使用 Azure 診斷的服務都能直接從 Azure 挑選最新的上市版本。 例如，仍在使用 SDK 2.5 的任何使用者都可以載入上表所示的最新版本，而不論使用者是否正在使用較新的功能。  
 
 ## <a name="schemas-index"></a>結構描述索引  
-不同版本的 Azure 診斷會使用不同的組態結構描述。
-
-[Azure 診斷 1.0 組態結構描述](diagnostics-extension-schema-1dot0.md)  
-
-[Azure 診斷 1.2 組態結構描述](diagnostics-extension-schema-1dot2.md)  
-
-[診斷 1.3 和更新版本的組態結構描述](diagnostics-extension-schema-1dot3.md)  
+不同版本的 Azure 診斷會使用不同的組態結構描述。 架構1.0 和1.2 已被取代。 如需1.3 版和更新版本的詳細資訊，請參閱[診斷1.3 和更新版本](diagnostics-extension-schema-1dot3.md)的設定架構  
 
 ## <a name="version-history"></a>版本歷程記錄
 
@@ -150,7 +144,7 @@ Azure 診斷延伸模組會與其他 Microsoft 診斷產品搭配使用, 例如 
 
 
 ### <a name="diagnostics-extension-18"></a>診斷擴充功能 1.8 版
-已在 PublicConfig 中新增儲存體類型。 StorageType 可以是 Table  、Blob  、TableAndBlob  。 Table  是預設值。
+已在 PublicConfig 中新增儲存體類型。 StorageType 可以是 Table、Blob、TableAndBlob。 Table 是預設值。
 
 
 ```json
@@ -187,7 +181,7 @@ Azure 診斷延伸模組會與其他 Microsoft 診斷產品搭配使用, 例如 
 
 * 在 Azure SDK 2.4 及更舊版本中，診斷外掛程式會在執行階段使用連接字串，來取得用於傳輸診斷記錄的儲存體帳戶資訊。
 * 在 Azure SDK 2.6 及更新版本中，Visual Studio 會在發佈期間，使用診斷連接字串為診斷延伸模組設定適當的儲存體帳戶資訊。 連接字串可讓您為 Visual Studio 在發佈時將使用的不同服務組態定義不同的儲存體帳戶。 不過，因為診斷外掛程式 (在 Azure SDK 2.5 之後) 不再提供使用，所以 .cscfg 檔案本身無法啟用診斷延伸模組。 您必須個別透過 Visual Studio 或 PowerShell 等工具啟用延伸模組。
-* 為了使用 PowerShell 簡化診斷延伸模組的設定程序，從 Visual Studio 的封裝輸出也包含每個角色之診斷延伸模組的公用組態 XML。 Visual Studio 使用診斷連接字串填入出現在公用組態的儲存體帳戶資訊。 公用設定檔會建立在 Extensions 資料夾中, 並遵循模式`PaaSDiagnostics.<RoleName>.PubConfig.xml`。 任何以 PowerShell 為基礎的部署都可以使用此模式將每個組態對應至角色。
+* 為了使用 PowerShell 簡化診斷延伸模組的設定程序，從 Visual Studio 的封裝輸出也包含每個角色之診斷延伸模組的公用組態 XML。 Visual Studio 使用診斷連接字串填入出現在公用組態的儲存體帳戶資訊。 公用設定檔會建立在 Extensions 資料夾中，並遵循模式`PaaSDiagnostics.<RoleName>.PubConfig.xml`。 任何以 PowerShell 為基礎的部署都可以使用此模式將每個組態對應至角色。
 * Azure 入口網站也會使用 .cscfg 檔案中的連接字串來存取診斷資料，所以它也可以出現在 [監視] 索引標籤中。若要在入口網站中顯示詳細監視資料，必須要有連接字串。
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>將專案移轉至 Azure SDK 2.6 及、更新版本
