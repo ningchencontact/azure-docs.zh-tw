@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89c24512e50dedbf10d145088ec77c2e6e303d1e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 34522c9a672de51cfa53ce52c5a6a6506fcd5454
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873156"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390520"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure Machine Learning 服務的工作區
 
@@ -31,7 +31,7 @@ ms.locfileid: "69873156"
 
 ## <a name="resource-manager-template"></a>Resource Manager 範本
 
-下列 Resource Manager 範本可以用來建立 Azure Machine Learning 服務工作區和相關聯的 Azure 資源:
+下列 Resource Manager 範本可以用來建立 Azure Machine Learning 服務工作區和相關聯的 Azure 資源：
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
@@ -55,6 +55,11 @@ ms.locfileid: "69873156"
 * **工作區名稱**是 Azure Machine Learning 工作區的易記名稱。
 
     其他服務的名稱會隨機產生。
+
+> [!TIP]
+> 雖然與此檔相關聯的範本會建立新的 Azure Container Registry，但您也可以建立新的工作區，而不需要建立容器登錄。 如果工作區中有容器登錄，則當您執行需要容器登錄的作業時，將會建立一個。 例如，定型或部署模型。
+>
+> 您也可以在 [Azure Resource Manager] 範本中參考現有的容器登錄或儲存體帳戶，而不是建立一個新的。
 
 如需範本的詳細資訊，請參閱下列文章：
 
@@ -104,16 +109,16 @@ az group deployment create \
 
 ## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault 存取原則和 Azure Resource Manager 範本
 
-當您使用 Azure Resource Manager 範本來建立工作區和相關聯的資源 (包括 Azure Key Vault) 時, 會多次。 例如, 使用範本多次, 並以相同的參數作為持續整合和部署管線的一部分。
+當您使用 Azure Resource Manager 範本來建立工作區和相關聯的資源（包括 Azure Key Vault）時，會多次。 例如，使用範本多次，並以相同的參數作為持續整合和部署管線的一部分。
 
-大部分透過範本的資源建立作業都是等冪的, 但 Key Vault 會在每次使用範本時清除存取原則。 清除存取原則會中斷對使用它之任何現有工作區的 Key Vault 存取。 例如, Azure Notebooks VM 的停止/建立功能可能會失敗。  
+大部分透過範本的資源建立作業都是等冪的，但 Key Vault 會在每次使用範本時清除存取原則。 清除存取原則會中斷對使用它之任何現有工作區的 Key Vault 存取。 例如，Azure Notebooks VM 的停止/建立功能可能會失敗。  
 
-若要避免這個問題, 建議您採用下列其中一種方法:
+若要避免這個問題，建議您採用下列其中一種方法：
 
-*  不要針對相同的參數多次部署範本。 或刪除現有的資源, 然後再使用此範本重新建立它們。
+*  不要針對相同的參數多次部署範本。 或刪除現有的資源，然後再使用此範本重新建立它們。
   
-* 檢查 Key Vault 的存取原則, 然後使用這些原則來設定範本的 accessPolicies 屬性。
-* 檢查 Key Vault 資源是否已存在。 如果有, 請不要透過範本重新建立它。 例如, 新增可讓您停用建立 Key Vault 資源的參數 (如果已經存在)。
+* 檢查 Key Vault 的存取原則，然後使用這些原則來設定範本的 accessPolicies 屬性。
+* 檢查 Key Vault 資源是否已存在。 如果有，請不要透過範本重新建立它。 例如，新增可讓您停用建立 Key Vault 資源的參數（如果已經存在）。
 
 ## <a name="next-steps"></a>後續步驟
 

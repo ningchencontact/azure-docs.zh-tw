@@ -4,6 +4,8 @@
   items:
     - name: 什麼是 Resource Manager？
       href: resource-group-overview.md
+    - name: 範本概觀
+      href: template-deployment-overview.md
 - name: 快速入門
   expanded: true
   items:
@@ -58,8 +60,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager'
 - name: 概念
   items:
-    - name: 範本部署
-      href: template-deployment-overview.md
     - name: 範本最佳做法
       href: template-best-practices.md
     - name: 雲端一致性範本

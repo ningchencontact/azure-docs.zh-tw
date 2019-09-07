@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686144"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390139"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>使用自動轉寄鏈結服務匯流排實體
 
@@ -27,7 +27,7 @@ ms.locfileid: "64686144"
 
 ## <a name="using-autoforwarding"></a>使用自動轉寄
 
-在來源的 [QueueDescription][QueueDescription] 或 [SubscriptionDescription][SubscriptionDescription] 物件上設定 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 或 [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] 屬性，即可啟用自動轉寄，如下列範例所示：
+您可以藉由在來源的[queuedescription.forwardto][QueueDescription]或[QueueDescription][SubscriptionDescription]物件上設定[QueueDescription queuedescription.forwardto][QueueDescription.ForwardTo]或[SubscriptionDescription][SubscriptionDescription.ForwardTo]屬性來啟用自動轉寄，如下所示：下列範例：
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -48,8 +48,10 @@ namespaceManager.CreateSubscription(srcSubscription));
 如果 Alice 去渡假，她的個人佇列 (而不是 ERP 主題) 會填滿。 在此案例中，因為銷售代表未收到任何訊息，所以沒有任何 ERP 主題達到配額。
 
 > [!NOTE]
-> 安裝程式自動轉送時，AutoDeleteOnIdle 目的地上的值會自動設定為資料類型的最大值。
-> 這是為了確保總是將訊息轉送至目的地。
+> 設定自動轉寄時，會自動將**來源和目的地**上的 AutoDeleteOnIdle 值設定為資料類型的最大值。
+> 
+>   - 在來源端，自動轉寄會作為接收作業。 因此，具有自動轉寄設定的來源絕對不會真正「閒置」。
+>   - 在目的地端，這樣做是為了確保一律有目的地可將訊息轉送到。
 
 ## <a name="autoforwarding-considerations"></a>自動轉寄考量
 
@@ -65,14 +67,14 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 如需自動轉寄的詳細資訊，請參閱下列參考主題：
 
-* [ForwardTo][QueueDescription.ForwardTo]
+* [Queuedescription.forwardto][QueueDescription.ForwardTo]
 * [QueueDescription][QueueDescription]
 * [SubscriptionDescription][SubscriptionDescription]
 
 若要深入了解服務匯流排效能改進，請參閱 
 
 * [使用服務匯流排傳訊的效能改進最佳作法](service-bus-performance-improvements.md)
-* [分割的傳訊實體][Partitioned messaging entities]。
+* [分割訊息實體][Partitioned messaging entities]。
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo

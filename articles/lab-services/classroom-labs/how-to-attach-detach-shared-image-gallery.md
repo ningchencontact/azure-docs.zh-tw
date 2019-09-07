@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 18a14981c97af8e9d90480f7b04d50fc6df6b01d
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d8f16baccd3a4980ee9dbe410cb2a95878b346d4
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382717"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390014"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>在 Azure 實驗室服務中附加或卸離共用映射資源庫
 教師/實驗室系統管理員可以將範本 VM 映射儲存在 Azure[共用映射資源庫](../../virtual-machines/windows/shared-image-galleries.md)中，供其他人重複使用。 第一個步驟是，實驗室系統管理員將現有的共用映射資源庫附加至實驗室帳戶。 連結共用映射資源庫之後，在實驗室帳戶中建立的實驗室可以將影像儲存到共用映射資源庫。 其他老師可以從共用映射庫中選取此映射，以建立其類別的範本。 
 
 本文說明如何將共用映射資源庫連結或卸離至實驗室帳戶。 
+
+> [!NOTE]
+> 若要瞭解與共享映射資源庫服務相關聯的成本，請參閱[共用映射資源庫的計費](../../virtual-machines/windows/shared-image-galleries.md#billing)。
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>在建立實驗室帳戶時設定
 當您建立實驗室帳戶時，您可以將共用映射資源庫連結至實驗室帳戶。 您可以從下拉式清單中選取現有的共用映射資源庫，或建立一個新的。 若要建立共用映射資源庫並將其連結至實驗室帳戶，**請選取 [新建]** ，輸入資源庫的名稱，然後輸入 **[確定]** 。 

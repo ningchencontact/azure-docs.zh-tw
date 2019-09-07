@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: b33f0dec9e6ec685b19e01ce82cfe4adec88b575
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 9c7f920c6b66995d53ef742a9faf574286a51d69
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258606"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390437"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考 (預覽)
 
@@ -38,7 +38,8 @@ ms.locfileid: "70258606"
 
 1. 針對您稍早建立的應用程式識別碼，建立 [Key Vault 中的存取原則](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies)。 在此原則上啟用 "Get" 祕密權限。 請勿設定「授權的應用程式」或 `applicationId` 設定，因為這與受控識別不相容。
 
-    授與金鑰保存庫中應用程式身分識別的存取權是 onetime 作業, 所有 Azure 訂用帳戶的訂用帳戶都保持不變。 您可以使用它來部署您想要的多個憑證。 
+    > [!NOTE]
+    > Key Vault 參考目前無法使用[網路限制](../key-vault/key-vault-overview-vnet-service-endpoints.md)來解析儲存在金鑰保存庫中的秘密。
 
 ## <a name="reference-syntax"></a>參考語法
 
@@ -187,24 +188,24 @@ Key Vault 參考可用來作為[應用程式設定](configure-common.md#configur
 
 ## <a name="troubleshooting-key-vault-references"></a>Key Vault 參考的疑難排解
 
-如果未正確解析參考, 則會改用參考值。 這表示針對應用程式設定, 會建立其值具有`@Microsoft.KeyVault(...)`語法的環境變數。 這可能會導致應用程式擲回錯誤, 因為它預期會有特定結構的秘密。
+如果未正確解析參考，則會改用參考值。 這表示針對應用程式設定，會建立其值具有`@Microsoft.KeyVault(...)`語法的環境變數。 這可能會導致應用程式擲回錯誤，因為它預期會有特定結構的秘密。
 
-最常見的原因是[Key Vault 存取原則](#granting-your-app-access-to-key-vault)的設定不正確。 不過, 它也可能是因為秘密已不存在或參考本身的語法錯誤所導致。
+最常見的原因是[Key Vault 存取原則](#granting-your-app-access-to-key-vault)的設定不正確。 不過，它也可能是因為秘密已不存在或參考本身的語法錯誤所導致。
 
-如果語法正確, 您可以使用內建的偵測器來檢查目前的解決狀態, 以查看其他錯誤原因。
+如果語法正確，您可以使用內建的偵測器來檢查目前的解決狀態，以查看其他錯誤原因。
 
 ### <a name="using-the-detector-for-app-service"></a>使用 App Service 的偵測器
 
-1. 在入口網站中, 流覽至您的應用程式。
+1. 在入口網站中，流覽至您的應用程式。
 2. 選取 [**診斷並解決 prolems**]。
-3. 選擇 [**可用性和效能**], 然後選取 [ **Web 應用程式關閉]。**
-4. 尋找**Key Vault 應用程式設定 診斷**, 然後按一下 **詳細資訊**。
+3. 選擇 [**可用性和效能**]，然後選取 [ **Web 應用程式關閉]。**
+4. 尋找**Key Vault 應用程式設定 診斷**，然後按一下 **詳細資訊**。
 
 
 ### <a name="using-the-detector-for-azure-functions"></a>使用 Azure Functions 的偵測器
 
-1. 在入口網站中, 流覽至您的應用程式。
+1. 在入口網站中，流覽至您的應用程式。
 2. 流覽至 [**平臺功能]。**
 3. 選取 [**診斷並解決 prolems**]。
-4. 選擇 [**可用性和效能**], 然後選取 [**函數應用程式關閉] 或**[回報錯誤]。
+4. 選擇 [**可用性和效能**]，然後選取 [**函數應用程式關閉] 或**[回報錯誤]。
 5. 按一下 [ **Key Vault 應用程式設定**] [診斷]。

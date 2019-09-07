@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/02/2018
-ms.openlocfilehash: e79c83ecb17c4dcd11f7ccbecded59e7d1d13dfd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2a879ed677b981adcd50aea0468e0c5976c2a8a
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525797"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390554"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用傾印和還原來將 MySQL 資料庫移轉至適用於 MySQL 的 Azure 資料庫
 本文將說明兩個常見方法，讓您可在適用於 MySQL 的 Azure 資料庫中用來備份和還原資料庫
@@ -49,6 +49,7 @@ ms.locfileid: "60525797"
 -   適當時使用資料分割資料表。
 -   平行載入資料。 避免會導致您達到資源限制的太多平行處理原則，以及使用 Azure 入口網站中可用的計量監視資源。 
 -   傾印資料庫時在 mysqlpump 中使用 `defer-table-indexes` 選項，以便在載入資料表資料之後建立索引。
+-   在 mysqlpump) 中使用選項，即可從create語句中省略views和預存程式的definer和SQL安全性子句。`skip-definer`  當您重載傾印檔案時，它會建立使用預設 DEFINER 和 SQL 安全性值的物件。
 -   請將備份檔案複製到 Azure blob/存放區，並從該處執行還原，這樣應該會比在網際網路上執行還原更快。
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>使用 mysqldump 從命令列建立備份檔案
@@ -77,15 +78,11 @@ $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
-若要一次備份伺服器中的所有資料庫，您應該使用 --all-databases 選項。
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
-```
 
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>在目標適用於 MySQL 伺服器的 Azure 資料庫上建立資料庫
 在您要移轉資料的目標適用於 MySQL 伺服器的 Azure 資料庫上建立空白資料庫。 使用例如 MySQL Workbench、Toad 或 Navicat 的工具來建立資料庫。 資料庫名稱可以與包含傾印資料的資料庫名稱相同，或者您可以建立名稱不同的資料庫。
 
-若要連線，在適用於 MySQL 之 Azure 資料庫的 [概觀]  中找到連線資訊。
+若要連線，在適用於 MySQL 之 Azure 資料庫的 [概觀] 中找到連線資訊。
 
 ![在 Azure 入口網站中尋找連線資訊](./media/concepts-migrate-dump-restore/1_server-overview-name-login.png)
 
@@ -108,19 +105,19 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 若要匯出，您可以使用一般工具 phpMyAdmin，而您可能已在環境中本機安裝此工具。 使用 PHPMyAdmin 匯出 MySQL 資料庫：
 1. 開啟 phpMyAdmin。
 2. 選取您的資料庫。 按一下左邊清單中的資料庫名稱。 
-3. 按一下 [匯出]  連結。 新的分頁隨即出現，以供檢視資料庫的傾印。
-4. 在 [匯出] 區域中，按一下 [全選]  連結來選擇資料庫中的資料表。 
+3. 按一下 [匯出] 連結。 新的分頁隨即出現，以供檢視資料庫的傾印。
+4. 在 [匯出] 區域中，按一下 [全選] 連結來選擇資料庫中的資料表。 
 5. 在 [SQL 選項] 區域中，按一下適當的選項。 
-6. 依序按一下 [另存新檔]  和對應的壓縮選項，然後按一下 [執行]  按鈕。 接著應該會出現一個對話方塊，提示您在本機儲存檔案。
+6. 依序按一下 [另存新檔] 和對應的壓縮選項，然後按一下 [執行] 按鈕。 接著應該會出現一個對話方塊，提示您在本機儲存檔案。
 
 ## <a name="import-using-phpmyadmin"></a>使用 PHPMyAdmin 匯入
 匯入資料庫的程序與匯出類似。 請執行下列動作：
 1. 開啟 phpMyAdmin。 
-2. 在 [phpMyAdmin 安裝] 分頁中，按一下 [新增]  以新增適用於 MySQL 伺服器的 Azure 資料庫。 提供連線詳細資料和登入資訊。
-3. 建立已適當命名的資料庫，然後在畫面左邊選取它。 若要重寫現有的資料庫，按一下資料庫名稱、選取資料表名稱旁的所有核取方塊，然後選取 [捨棄]  以刪除現有的資料表。 
+2. 在 [phpMyAdmin 安裝] 分頁中，按一下 [新增] 以新增適用於 MySQL 伺服器的 Azure 資料庫。 提供連線詳細資料和登入資訊。
+3. 建立已適當命名的資料庫，然後在畫面左邊選取它。 若要重寫現有的資料庫，按一下資料庫名稱、選取資料表名稱旁的所有核取方塊，然後選取 [捨棄] 以刪除現有的資料表。 
 4. 按一下 **SQL** 連結，以顯示您可以在其中輸入 SQL 命令或上傳 SQL 檔案的分頁。 
 5. 您可以使用**瀏覽**按鈕來尋找資料庫檔案。 
-6. 按一下 [執行]  按鈕以匯出備份、執行 SQL 命令，並重新建立您的資料庫。
+6. 按一下 [執行] 按鈕以匯出備份、執行 SQL 命令，並重新建立您的資料庫。
 
 ## <a name="next-steps"></a>後續步驟
 - [將應用程式連線至適用於 MySQL 的 Azure 資料庫](./howto-connection-string.md)。

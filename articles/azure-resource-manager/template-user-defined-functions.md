@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 71c166b9c596c3c8628f943ae5c7dbebd9c2d51c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 227ecb57b125264e7d0eba56e634966d677e0f58
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384134"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387275"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Azure Resource Manager 範本中的使用者定義函數
 
@@ -73,7 +73,7 @@ ms.locfileid: "70384134"
 * 此函式無法存取變數。
 * 此函式只能使用函式中定義的參數。 當您在使用者定義函數中使用[parameters](resource-group-template-functions-deployment.md#parameters)函式時，會限制為該函數的參數。
 * 此函式無法呼叫其他的使用者定義函式。
-* 函式不能使用[reference](resource-group-template-functions-resource.md#reference)或[list](resource-group-template-functions-resource.md#list)函數。
+* 函數不能使用[reference](resource-group-template-functions-resource.md#reference)函式或任何[清單](resource-group-template-functions-resource.md#list)函數。
 * 函式的參數不能有預設值。
 
 

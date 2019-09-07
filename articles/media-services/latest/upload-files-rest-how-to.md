@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703885"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389809"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 將檔案上傳至媒體服務帳戶
 
 在媒體服務中，您會將數位檔案上傳到與資產相關聯的 Blob 容器。 [資產](https://docs.microsoft.com/rest/api/media/operations/asset)實體可以包含視訊、音訊、影像、縮圖集合、文字播放軌及隱藏式輔助字幕檔案 (以及這些檔案的相關中繼資料)。 一旦檔案會上傳到資產的容器，您的內容會安全地儲存在雲端，以便進行進一步的處理和串流。
 
-這篇文章會示範如何使用 REST 將本機檔案上傳。
+本文說明如何使用 REST 上傳本機檔案。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此主題中所述的步驟，您必須：
 
@@ -39,27 +39,27 @@ ms.locfileid: "67703885"
 
 本節說明如何建立新的資產。
 
-1. 選取 [資產]   -> [建立或更新資產]  。
-2. 按 [傳送]  。
+1. 選取 [資產] -> [建立或更新資產]。
+2. 按 [傳送]。
 
     ![建立資產](./media/upload-files/postman-create-asset.png)
 
-您會看到 [回應]  ，包含新建資產的相關資訊。
+您會看到 [回應]，包含新建資產的相關資訊。
 
 ## <a name="get-a-sas-url-with-read-write-permissions"></a>取得具有讀寫權限的 SAS URL 
 
 本節說明如何取得針對已建立資產所產生的 SAS URL。 SAS URL 是以讀寫權限建立，可用來將數位檔案上傳到資產容器。
 
-1. 選取 [資產]   -> [列出資產 URL]  。
-2. 按 [傳送]  。
+1. 選取 [資產] -> [列出資產 URL]。
+2. 按 [傳送]。
 
     ![上傳檔案](./media/upload-files/postman-create-sas-locator.png)
 
-您會看到 [回應]  ，包含資產的 URL 相關資訊。 複製第一個 URL 並用於上傳檔案。
+您會看到 [回應]，包含資產的 URL 相關資訊。 複製第一個 URL 並用於上傳檔案。
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>使用上傳 URL 將檔案上傳至 blob 儲存體
 
-使用 Azure 儲存體 API 或 SDK (例如 [儲存體 REST API](../../storage/common/storage-rest-api-auth.md)、[JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) 或 [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))。
+使用 Azure 儲存體 Api 或 Sdk （例如[儲存體 REST API](../../storage/common/storage-rest-api-auth.md)或[.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)）。
 
 ## <a name="next-steps"></a>後續步驟
 

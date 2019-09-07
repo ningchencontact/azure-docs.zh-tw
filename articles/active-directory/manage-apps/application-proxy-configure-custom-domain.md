@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8a1914b7cf79287831e0e94c19c50107c2ac216d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851715"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390781"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -36,11 +36,11 @@ ms.locfileid: "68851715"
 
 ## <a name="configure-a-custom-domain"></a>設定自訂網域
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 設定自訂網域之前，請確定您已備妥下列需求： 
 - [新增至 Azure Active Directory 的已驗證網域](../fundamentals/add-custom-domain.md)。
-- 網域的自訂憑證 (採用 PFX 檔格式)。 
+- 網域的自訂憑證 (採用 PFX 檔格式)。
 - [透過應用程式 Proxy 發佈](application-proxy-add-on-premises-application.md)的內部部署應用程式。
 
 ### <a name="configure-your-custom-domain"></a>設定自訂網域
@@ -61,7 +61,7 @@ ms.locfileid: "68851715"
 6. 上傳 PFX 憑證，然後輸入憑證的密碼。 
 7. 選取 [儲存] 來儲存變更。 
 8. 新增 [DNS 記錄](../../dns/dns-operations-recordsets-portal.md)，此記錄會將新的外部 URL 重新導向至 msappproxy.net 網域。
-9. 使用[nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx)命令檢查是否已正確設定 DNS 記錄, 以查看是否可連線到您的外部 URL, 並將 msapproxy.net 網域顯示為別名。
+9. 使用[nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx)命令檢查是否已正確設定 DNS 記錄，以查看是否可連線到您的外部 URL，並將 msapproxy.net 網域顯示為別名。
 
 >[!TIP] 
 >您只需要針對每個自訂網域上傳一個憑證。 一旦上傳憑證，您即可在發佈新應用程式時選擇自訂網域，而不需要進行額外的設定 (DNS 記錄除外)。 
@@ -73,7 +73,9 @@ ms.locfileid: "68851715"
 
 只要萬用字元符合所需的外部 URL，便可使用萬用字元憑證。
 
-如果您的用戶端裝置上已安裝憑證鏈, 則可以使用您自己的公開金鑰基礎結構 (PKI) 所簽發的憑證。 Intune 可以用來將這些憑證部署至受管理的裝置。 若為非受控裝置, 則必須手動安裝這些憑證。
+憑證必須包含私密金鑰。
+
+如果您的用戶端裝置上已安裝憑證鏈，則可以使用您自己的公開金鑰基礎結構（PKI）所簽發的憑證。 Intune 可以用來將這些憑證部署至受管理的裝置。 若為非受控裝置，則必須手動安裝這些憑證。
 
 ### <a name="changing-the-domain"></a>變更網域
 所有已驗證的網域會出現在您應用程式的外部 URL 下拉式清單中。 若要變更的網域，只要更新應用程式的該欄位。 如果您想要的網域不在清單中，請[將它新增為已驗證的網域](../fundamentals/add-custom-domain.md)。 如果您選取的網域還沒有相關聯的憑證，請遵循步驟 5-7 來新增憑證。 接著，務必更新 DNS 記錄以從新的外部 URL 重新導向。 

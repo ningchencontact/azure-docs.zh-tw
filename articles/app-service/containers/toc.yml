@@ -24,7 +24,7 @@
     - name: 建立 Ruby 應用程式
       href: quickstart-ruby.md
     - name: 執行自訂容器
-      href: quickstart-docker-go.md
+      href: quickstart-docker.md
     - name: 建立多個容器應用程式
       href: quickstart-multi-container.md
 - name: 教學課程

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310908"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390368"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure 上的 Service Fabric 叢集概觀
 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 隸屬於叢集的機器或 VM 稱為叢集模式。 叢集可擴充至數千個節點。 若您新增節點至叢集，則 Service Fabric 會重新平衡全體增加節點數的服務資料分割複本和執行個體。 整體應用程式效能會有所改善，改善，並減少爭用記憶體的存取權。 若未有效率地使用叢集中的節點，您可減少叢集中的節點數目。 Service Fabric 會再次重新平衡全體減少節點數的資料分割複本和執行個體，以善加使用每個節點上的硬體。
@@ -38,7 +38,7 @@ Azure 上的 Service Fabric 叢集是 Azure 資源，使用其他 Azure 資源�
 ![Service Fabric 叢集][Image]
 
 ### <a name="virtual-machine"></a>虛擬機器
-屬於叢集的[虛擬機器](/azure/virtual-machines/)雖然稱為節點，但是技術上叢集節點是 Service Fabric 執行階段程序。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 [placement 屬性](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。 每部機器或 VM 皆有自動啟動的服務 FabricHost.exe  ，該服務會在開機時開始執行，然後啟動兩個可執行檔：Fabric.exe  和 FabricGateway.exe  ，這兩個可執行檔組成節點。 生產環境部署是每個實體或虛擬機器的一個節點。 針對測試案例，您可以藉由執行多個 Fabric.exe  和 FabricGateway.exe  執行個體，在單一機器或 VM 上裝載多個節點。
+屬於叢集的[虛擬機器](/azure/virtual-machines/)雖然稱為節點，但是技術上叢集節點是 Service Fabric 執行階段程序。 需為每個節點指派節點名稱 (字串)。 節點具有各種特性，如 [placement 屬性](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。 每部機器或 VM 皆有自動啟動的服務 FabricHost.exe，該服務會在開機時開始執行，然後啟動兩個可執行檔：Fabric.exe 和 FabricGateway.exe，這兩個可執行檔組成節點。 生產環境部署是每個實體或虛擬機器的一個節點。 針對測試案例，您可以藉由執行多個 Fabric.exe 和 FabricGateway.exe 執行個體，在單一機器或 VM 上裝載多個節點。
 
 每個 VM 會與虛擬網路介面卡 (NIC) 相關聯，而且每個 NIC 會獲得指派私人 IP 位址。  VM 已透過 NIC 指派給虛擬網路和本機平衡器。
 
@@ -95,7 +95,7 @@ Service Fabric 也支援存取控制來限制存取不同使用者群組的特�
 
 如需詳細資訊，請參閱[調整 Azure 叢集](service-fabric-cluster-scaling.md)。
 
-## <a name="upgrading"></a>升級中
+## <a name="upgrading"></a>正在升級
 Azure Service Fabric 叢集是您所擁有，但部分由 Microsoft 管理的資源。 Microsoft 負責修補基礎 OS，以及在叢集上執行 Service Fabric 執行階段升級。 您可以設定您的叢集 (當 Microsoft 發行新版本時) 接收自動執行階段升級，或選擇選取您需要的受支援執行階段版本。 除了執行階段升級之外，您亦可更新憑證或應用程式連接埠等叢集組態。
 
 如需詳細資訊，請參閱[升級叢集](service-fabric-cluster-upgrade.md)。
@@ -103,12 +103,17 @@ Azure Service Fabric 叢集是您所擁有，但部分由 Microsoft 管理的資
 ## <a name="supported-operating-systems"></a>受支援的作業系統
 您可以在執行下列作業系統的虛擬機器上建立叢集：
 
-* Windows Server 2012 R2
-* Windows Server 2016 
-* Windows Server 1709
-* Windows Server 1803
-* Linux Ubuntu 16.04
-* Red Hat Enterprise Linux 7.4 (預覽支援)
+| 作業系統 | 最早支援的 Service Fabric 版本 |
+| --- | --- |
+| Windows Server 2012 R2 | 所有版本 |
+| Windows Server 2016 | 所有版本 |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+
+如需其他資訊，請參閱[Azure 中支援](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)的叢集版本
 
 > [!NOTE]
 > 如果您決定在 Windows Server 1709 上部署 Service Fabric，請注意 (1) 它不是長期維護分支，因此您必須在未來移轉版本，以及 (2) 如果您部署容器，則建置於 Windows Server 2016 上的容器無法在 Windows Server 1709 上運作，反之亦然 (您必須重建容器才能部署它們)。

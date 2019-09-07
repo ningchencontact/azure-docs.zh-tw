@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07176fbe22e70658856dd266687a15d719e78e9f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 27361017241ba6529b93c24ce7fb95b2c1b22a62
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231080"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70389902"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>設定及使用計算目標進行模型定型 
 
@@ -47,28 +47,28 @@ Azure Machine Learning 服務在不同計算目標上提供不同的支援。 �
 
 定型時，通常在本機電腦上啟動，然後在不同的計算目標上執行該定型指令碼。 使用 Azure Machine Learning 服務時，您無須變更指令碼，即可在各種計算目標上執行指令碼。 
 
-您只需要針對回合設定中的每個計算目標定義環境即可。  然後，當您想要在不同的計算目標上執行定型實驗時，為該計算指定回合組態。 如需指定環境並將其系結至執行設定的詳細資訊, 請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)
+您只需要針對回合設定**中的每**個計算目標定義環境即可。  然後，當您想要在不同的計算目標上執行定型實驗時，為該計算指定回合組態。 如需指定環境並將其系結至執行設定的詳細資訊，請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)
 
 深入了解本文末尾的[提交實驗](#submit)。
 
 ## <a name="whats-an-estimator"></a>什麼是估計工具？
 
-為了使用熱門的架構來加速模型定型, Azure Machine Learning Python SDK 提供估計工具類別的替代較高層級抽象概念。 此類別可讓您輕鬆地建立執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本, 以使用您選擇的任何學習架構 (例如 scikit-learn)。
+為了使用熱門的架構來加速模型定型，Azure Machine Learning Python SDK 提供估計工具類別的替代較高層級抽象概念。 此類別可讓您輕鬆地建立執行設定。 您可以建立並使用泛型[估計工具](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)來提交訓練腳本，以使用您選擇的任何學習架構（例如 scikit-learn）。
 
-對於 PyTorch、TensorFlow 和 Chainer 工作, Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器, 以簡化使用這些架構的作業。
+對於 PyTorch、TensorFlow 和 Chainer 工作，Azure Machine Learning 也會提供個別的[PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)、 [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)和[Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)估算器，以簡化使用這些架構的作業。
 
-如需詳細資訊, 請參閱[使用估算器將 ML 模型定型](how-to-train-ml-models.md)。
+如需詳細資訊，請參閱[使用估算器將 ML 模型定型](how-to-train-ml-models.md)。
 
 ## <a name="whats-an-ml-pipeline"></a>什麼是 ML 管線？
 
-透過 ML 管線, 您可以使用簡單、速度、可攜性和重複使用來優化您的工作流程。 使用 Azure Machine Learning 建立管線時, 您可以專注于您的專業知識、機器學習服務, 而不是基礎結構和自動化。
+透過 ML 管線，您可以使用簡單、速度、可攜性和重複使用來優化您的工作流程。 使用 Azure Machine Learning 建立管線時，您可以專注于您的專業知識、機器學習服務，而不是基礎結構和自動化。
 
-ML 管線是由多個**步驟**所構成, 這些步驟是管線中的相異計算單位。 每個步驟都可以獨立執行, 並使用隔離的計算資源。 這可讓多個資料科學家在同一時間同時處理相同的管線, 而不會有過度負擔的計算資源, 同時也可讓您輕鬆地針對每個步驟使用不同的計算類型/大小。
+ML 管線是由多個**步驟**所構成，這些步驟是管線中的相異計算單位。 每個步驟都可以獨立執行，並使用隔離的計算資源。 這可讓多個資料科學家在同一時間同時處理相同的管線，而不會有過度負擔的計算資源，同時也可讓您輕鬆地針對每個步驟使用不同的計算類型/大小。
 
 > [!TIP]
-> 在定型模型時, ML 管線可以使用執行設定或估算器。
+> 在定型模型時，ML 管線可以使用執行設定或估算器。
 
-雖然 ML 管線可以訓練模型, 但它們也可以在定型之後, 在定型和部署模型之前準備資料。 管線的主要使用案例之一是批次評分。 如需詳細資訊, [請參閱管線:優化機器學習工作](concept-ml-pipelines.md)流程。
+雖然 ML 管線可以訓練模型，但它們也可以在定型之後，在定型和部署模型之前準備資料。 管線的主要使用案例之一是批次評分。 如需詳細資訊， [請參閱管線：優化機器學習工作](concept-ml-pipelines.md)流程。
 
 ## <a name="set-up-in-python"></a>在 Python 中設定
 
@@ -106,7 +106,7 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 執行完成之後，就會自動刪除計算。 
 
 > [!NOTE]
-> 若要指定要使用的節點數目上限, 您通常會將`node_count`設定為節點的數目。 目前有 (04/04/2019) 個 bug, 導致無法運作。 若要解決此問題, `amlcompute._cluster_max_node_count`請使用回合設定的屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
+> 若要指定要使用的節點數目上限，您通常會將`node_count`設定為節點的數目。 目前有（04/04/2019）個 bug，導致無法運作。 若要解決此問題， `amlcompute._cluster_max_node_count`請使用回合設定的屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5` 。
 
 > [!IMPORTANT]
 > Azure Machine Learning Compute 的執行式建立目前為「預覽」狀態。 如果您使用自動化超參數調整或自動化機器學習，請勿使用回合式建立。 若要使用超參數微調或自動化機器學習，請改為建立[持續性計算](#persistent)目標。
@@ -232,15 +232,15 @@ Azure HDInsight 是巨量資料分析的常用平台。 此平台會提供 Apach
 
 ### <a id="azbatch"></a>Azure Batch 
 
-Azure Batch 可用來在雲端有效率地執行大規模的平行和高效能運算 (HPC) 應用程式。 」已 azurebatchstep 可用於 Azure Machine Learning 管線中, 以將作業提交至 Azure Batch 的電腦集區。
+Azure Batch 可用來在雲端有效率地執行大規模的平行和高效能運算（HPC）應用程式。 」已 azurebatchstep 可用於 Azure Machine Learning 管線中，以將作業提交至 Azure Batch 的電腦集區。
 
-若要將 Azure Batch 附加為計算目標, 您必須使用 Azure Machine Learning SDK, 並提供下列資訊:
+若要將 Azure Batch 附加為計算目標，您必須使用 Azure Machine Learning SDK，並提供下列資訊：
 
--   **Azure Batch 計算名稱**:要用於工作區中計算的易記名稱
--   **Azure Batch 帳戶名稱**:Azure Batch 帳戶的名稱
+-   **Azure Batch 計算名稱**：要用於工作區中計算的易記名稱
+-   **Azure Batch 帳戶名稱**：Azure Batch 帳戶的名稱
 -   **資源群組**：包含 Azure Batch 帳戶的資源群組。
 
-下列程式碼示範如何將 Azure Batch 連結為計算目標:
+下列程式碼示範如何將 Azure Batch 連結為計算目標：
 
 ```python
 from azureml.core.compute import ComputeTarget, BatchCompute
@@ -364,7 +364,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 ## <a name="set-up-with-vs-code"></a>設定 VS Code
 
-您可以使用 Azure Machine Learning 服務的[VS Code 延伸](how-to-vscode-tools.md#create-and-manage-compute-targets)模組, 來存取、建立和管理與工作區相關聯的計算目標。
+您可以使用 Azure Machine Learning 服務的[VS Code 延伸](how-to-vscode-tools.md#create-and-manage-compute-targets)模組，來存取、建立和管理與工作區相關聯的計算目標。
 
 ## <a id="submit"></a>使用 Azure Machine Learning SDK 提交定型回合
 
@@ -375,9 +375,9 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 等待回合完成。
 
 > [!IMPORTANT]
-> 當您提交定型回合時, 會建立包含定型腳本之目錄的快照集, 並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行, 則只會上傳變更的檔案。
+> 當您提交定型回合時，會建立包含定型腳本之目錄的快照集，並傳送到計算目標。 它也會在您的工作區中儲存為實驗的一部分。 如果您變更檔案並再次提交執行，則只會上傳變更的檔案。
 >
-> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果這兩個檔案都`.amlignore`存在, 則會優先使用該檔案。
+> 若要防止檔案包含在快照中, 請在目錄中建立 [.gitignore](https://git-scm.com/docs/gitignore) `.amlignore`或檔案, 並在其中新增檔案。 檔案會使用與 [.gitignore](https://git-scm.com/docs/gitignore) 檔案相同的語法和模式。`.amlignore` 如果這兩個檔案都`.amlignore`存在，則會優先使用該檔案。
 > 
 > 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshots)。
 
@@ -403,42 +403,51 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
+> [!TIP]
+> 此範例預設為僅使用計算目標的一個節點來進行定型。 若要使用一個以上的節點，請`node_count`將執行設定的設為所需的節點數目。 例如，下列程式碼會將用於定型的節點數目設定為四個：
+>
+> ```python
+> src.run_config.node_count = 4
+> ```
+
 或者您可以：
 
 * 使用 `Estimator` 物件提交實驗，如[使用估算程式將 ML 模型定型](how-to-train-ml-models.md)中所示。
 * 提交 HyperDrive 執行以進行[超參數微調](how-to-tune-hyperparameters.md)。
 * 透過[VS Code 延伸](how-to-vscode-tools.md#train-and-tune-models)模組提交實驗。
 
+如需詳細資訊，請參閱[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py)和[RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py)檔。
+
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>使用 Azure Machine Learning CLI 建立執行設定並提交執行
 
-您可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)和[Machine Learning CLI 擴充](reference-azure-machine-learning-cli.md)功能來建立執行設定, 並在不同的計算目標上提交執行。 下列範例假設您已有現有的 Azure Machine Learning 工作區, 而且您已使用`az login` CLI 命令登入 Azure。 
+您可以使用[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)和[Machine Learning CLI 擴充](reference-azure-machine-learning-cli.md)功能來建立執行設定，並在不同的計算目標上提交執行。 下列範例假設您已有現有的 Azure Machine Learning 工作區，而且您已使用`az login` CLI 命令登入 Azure。 
 
 ### <a name="create-run-configuration"></a>建立執行設定
 
-建立執行設定最簡單的方式, 就是流覽包含您機器學習服務 Python 腳本的資料夾, 並使用 CLI 命令
+建立執行設定最簡單的方式，就是流覽包含您機器學習服務 Python 腳本的資料夾，並使用 CLI 命令
 
 ```azurecli
 az ml folder attach
 ```
 
-此命令會建立一個`.azureml`子資料夾, 其中包含不同計算目標的範本執行設定檔案。 您可以複製並編輯這些檔案, 以自訂您的設定, 例如新增 Python 套件或變更 Docker 設定。  
+此命令會建立一個`.azureml`子資料夾，其中包含不同計算目標的範本執行設定檔案。 您可以複製並編輯這些檔案，以自訂您的設定，例如新增 Python 套件或變更 Docker 設定。  
 
 ### <a name="structure-of-run-configuration-file"></a>執行設定檔案的結構
 
-執行設定檔案的 YAML 格式, 包含下列各節
+執行設定檔案的 YAML 格式，包含下列各節
  * 要執行的腳本及其引數
- * 計算目標名稱, 也就是在工作區下計算的「本機」或名稱。
- * 用於執行的參數: 架構、分散式執行的 communicator、持續時間上限, 以及計算節點的數目。
- * 環境區段。 如需本節中欄位的詳細資訊, 請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)。
-   * 若要指定要針對執行安裝的 Python 套件, 請建立[conda 環境](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)檔案, 並設定__condaDependenciesFile__欄位。
- * 執行歷程記錄詳細資料以指定記錄檔資料夾, 以及啟用或停用輸出集合和執行歷程記錄快照集。
+ * 計算目標名稱，也就是在工作區下計算的「本機」或名稱。
+ * 用於執行的參數：架構、分散式執行的 communicator、持續時間上限，以及計算節點的數目。
+ * 環境區段。 如需本節中欄位的詳細資訊，請參閱[建立和管理用於定型和部署的環境](how-to-use-environments.md)。
+   * 若要指定要針對執行安裝的 Python 套件，請建立[conda 環境](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)檔案，並設定__condaDependenciesFile__欄位。
+ * 執行歷程記錄詳細資料以指定記錄檔資料夾，以及啟用或停用輸出集合和執行歷程記錄快照集。
  * 所選架構的特定設定詳細資料。
  * 資料參考和資料存放區詳細資料。
  * 建立新叢集 Machine Learning Compute 特定的設定詳細資料。
 
 ### <a name="create-an-experiment"></a>建立實驗
 
-首先, 為您的執行建立實驗
+首先，為您的執行建立實驗
 
 ```azurecli
 az ml experiment create -n <experiment>
@@ -446,7 +455,7 @@ az ml experiment create -n <experiment>
 
 ### <a name="script-run"></a>腳本執行
 
-若要提交腳本執行, 請執行命令
+若要提交腳本執行，請執行命令
 
 ```azurecli
 az ml run submit-script -e <experiment> -c <runconfig> my_train.py
@@ -454,7 +463,7 @@ az ml run submit-script -e <experiment> -c <runconfig> my_train.py
 
 ### <a name="hyperdrive-run"></a>HyperDrive 執行
 
-您可以使用 HyperDrive 搭配 Azure CLI 來執行參數微調回合。 首先, 以下列格式建立 HyperDrive 設定檔。 如需超參數微調參數的詳細資訊, 請參閱[為您的模型微調超參數](how-to-tune-hyperparameters.md)一文。
+您可以使用 HyperDrive 搭配 Azure CLI 來執行參數微調回合。 首先，以下列格式建立 HyperDrive 設定檔。 如需超參數微調參數的詳細資訊，請參閱[為您的模型微調超參數](how-to-tune-hyperparameters.md)一文。
 
 ```yml
 # hdconfig.yml
@@ -475,20 +484,20 @@ max_concurrent_runs: 2 # The number of runs that can run concurrently.
 max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
 ```
 
-在執行設定檔案旁新增此檔案。 然後, 使用下列內容提交 HyperDrive 執行:
+在執行設定檔案旁新增此檔案。 然後，使用下列內容提交 HyperDrive 執行：
 ```azurecli
 az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
 ```
 
-請注意 runconfig 中的*arguments*區段和 HyperDrive config 中的*參數空間*。它們包含要傳遞至定型腳本的命令列引數。 在 runconfig 中, 每個反復專案的值都維持不變, 而 HyperDrive config 中的範圍則會反復查看。 請勿在這兩個檔案中指定相同的引數。
+請注意 runconfig 中的*arguments*區段和 HyperDrive config 中的*參數空間*。它們包含要傳遞至定型腳本的命令列引數。 在 runconfig 中，每個反復專案的值都維持不變，而 HyperDrive config 中的範圍則會反復查看。 請勿在這兩個檔案中指定相同的引數。
 
-如需這些```az ml``` CLI 命令和完整引數集的詳細資訊, 請參閱[參考檔](reference-azure-machine-learning-cli.md)。
+如需這些```az ml``` CLI 命令和完整引數集的詳細資訊，請參閱[參考檔](reference-azure-machine-learning-cli.md)。
 
 <a id="gitintegration"></a>
 
 ## <a name="git-tracking-and-integration"></a>Git 追蹤與整合
 
-當您啟動定型回合, 其中來原始目錄是本機 Git 存放庫時, 儲存機制的相關資訊會儲存在執行歷程記錄中。 例如, 存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
+當您啟動定型回合，其中來原始目錄是本機 Git 存放庫時，儲存機制的相關資訊會儲存在執行歷程記錄中。 例如，存放庫的目前認可識別碼會記錄為歷程記錄的一部分。
 
 ## <a name="notebook-examples"></a>筆記本範例
 
@@ -501,7 +510,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 ## <a name="next-steps"></a>後續步驟
 
 * [教學課程：定型模型](tutorial-train-models-with-aml.md)會使用受控計算目標來定型模型。
-* 瞭解如何[有效率地微調超參數](how-to-tune-hyperparameters.md), 以建立更好的模型。
+* 瞭解如何[有效率地微調超參數](how-to-tune-hyperparameters.md)，以建立更好的模型。
 * 擁有定型的模型之後，請了解[部署模型的方式和位置](how-to-deploy-and-where.md)。
 * 檢視 [RunConfiguration 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 參考。
 * [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)
