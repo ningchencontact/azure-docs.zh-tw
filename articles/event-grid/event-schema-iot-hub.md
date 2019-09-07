@@ -182,7 +182,7 @@ DeviceCreated 和 DeviceDeleted 事件的結構描述具有相同的結構。 �
 | -------- | ---- | ----------- |
 | body | string | 從裝置訊息的內容。 |
 | properties | string | 應用程式屬性為可新增至訊息的使用者定義字串。 這些欄位為選擇性。 |
-| 系統屬性 | string | [系統屬性](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties)有助於識別內容及訊息的來源。 裝置遙測訊息必須是有效的 JSON 格式，與 contentType 設定為 JSON 和 contentEncoding 訊息系統屬性中設定為 utf-8。 如果未設定這個項目，是 IoT 中樞會在 base 64 編碼格式寫入訊息。  |
+| system properties | string | [系統屬性](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties)有助於識別內容及訊息的來源。 裝置遙測訊息必須是有效的 JSON 格式，與 contentType 設定為 JSON 和 contentEncoding 訊息系統屬性中設定為 utf-8。 如果未設定這個項目，是 IoT 中樞會在 base 64 編碼格式寫入訊息。  |
 
 對於**裝置建立**和**裝置刪除** IoT 中樞事件，資料物件會包含下列屬性：
 
