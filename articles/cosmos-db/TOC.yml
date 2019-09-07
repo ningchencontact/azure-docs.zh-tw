@@ -455,6 +455,10 @@
           items:
             - name: 1 - 查詢資料
               href: tutorial-query-graph.md
+        - name: 參考
+          items:
+            - name: 回應標頭
+              href: gremlin-headers.md
         - name: 使用說明指南
           items:
             - name: 圖表資料模型
