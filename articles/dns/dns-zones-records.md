@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68004462"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772262"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 區域和記錄的概觀
 
@@ -30,7 +30,7 @@ ms.locfileid: "68004462"
 
 網域名稱系統是網域階層。 階層從「根」網域開始，其名稱只是 ' **.** '。  下面接著最上層網域，例如 'com'、'net'、'org'、'uk' 或 'jp'。  再往下是第二層網域，例如 'org.uk' 或 'co.jp'。 DNS 階層中的網域散佈在全球，裝載在世界各地的 DNS 名稱伺服器上。
 
-網域名稱註冊機構是種組織，可讓您購買網域名稱，例如 'contoso.com'。  購買網域名稱可讓您控制該名稱底下的 DNS 階層，例如將網域名稱 'www.contoso.com' 導向貴公司的網站。 可以讓該註冊機構代表您，將網域裝載在其自有的名稱伺服器上；或允許您指定替代的名稱伺服器。
+網域名稱註冊機構是種組織，可讓您購買網域名稱，例如 'contoso.com'。  購買功能變數名稱可讓您控制該名稱底下的 DNS 階層，例如，讓您將名稱 www.contoso.com 導向您的公司網站。 可以讓該註冊機構代表您，將網域裝載在其自有的名稱伺服器上；或允許您指定替代的名稱伺服器。
 
 Azure DNS 提供散佈全球、高可用性的名稱伺服器基礎結構，可用來裝載您的網域。 只要將您的網域裝載於 Azure DNS 中，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具、計費方式和支援來管理 DNS 記錄。
 
@@ -59,7 +59,7 @@ Azure DNS 支援 [萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS
 ### <a name="caa-records"></a>CAA 記錄
 
 CAA 記錄可讓網域擁有者指定哪些憑證授權單位 (CA) 有權為其網域發行憑證。 這可讓 CA 避免在某些情況下誤發憑證。 CAA 記錄都有三個屬性：
-* **旗標**:這是介於0到255之間的整數, 用來代表每個[RFC](https://tools.ietf.org/html/rfc6844#section-3)有特殊意義的關鍵旗標
+* **旗標**：這是介於0到255之間的整數，用來代表每個[RFC](https://tools.ietf.org/html/rfc6844#section-3)有特殊意義的關鍵旗標
 * **標記**：ASCII 字串，可以是下列其中一項：
     * **issue**：當您想要指定有權發行憑證 (所有類型) 的 CA 時，使用此選項
     * **issuewild**：當您想要指定有權發行憑證 (僅限 Wildcard 憑證) 的 CA 時，使用此屬性
@@ -88,7 +88,7 @@ CNAME 記錄集不能與其他具有相同名稱的記錄集共存。 例如，�
 
 可以修改 SOA 記錄除了 'Host' 屬性以外的所有屬性，因為依照預先設定，該屬性會參考 Azure DNS 所提供的主要名稱伺服器名稱。
 
-對區域中的記錄進行變更時, 不會自動更新 SOA 記錄中的區域序號。 如有需要, 可以藉由編輯 SOA 記錄來手動更新。
+對區域中的記錄進行變更時，不會自動更新 SOA 記錄中的區域序號。 如有需要，可以藉由編輯 SOA 記錄來手動更新。
 
 ### <a name="spf-records"></a>SPF 記錄
 
@@ -98,8 +98,8 @@ CNAME 記錄集不能與其他具有相同名稱的記錄集共存。 例如，�
 
 各種服務都會使用 [SRV 記錄](https://en.wikipedia.org/wiki/SRV_record)來指定伺服器位置。 在 Azure DNS 中指定 SRV 記錄時︰
 
-* 必須在記錄集名稱中包括 [服務]  和 [通訊協定]  ，並在其前方加上底線。  例如，'\_sip.\_tcp.name'。  在區域頂點的記錄，則不需要在記錄名稱中指定 '\@'，只要使用服務與通訊協定即可，例如 '\_sip.\_tcp'。
-* 系統已將 [優先順序]  、[權數]  、[連接埠]  和 [目標]  ，指定為記錄集內每筆記錄的參數。
+* 必須在記錄集名稱中包括 [服務] 和 [通訊協定]，並在其前方加上底線。  例如，'\_sip.\_tcp.name'。  在區域頂點的記錄，則不需要在記錄名稱中指定 '\@'，只要使用服務與通訊協定即可，例如 '\_sip.\_tcp'。
+* 系統已將 [優先順序]、[權數]、[連接埠] 和 [目標]，指定為記錄集內每筆記錄的參數。
 
 ### <a name="txt-records"></a>TXT 記錄
 
@@ -109,7 +109,7 @@ DNS 標準允許單一 TXT 記錄包含多個字串，每個長度最多可達 2
 
 在呼叫 Azure DNS REST API 時，您必須分別指定每個 TXT 字串。  當使用 Azure 入口網站、PowerShell 或 CLI 介面時，您應該為每筆記錄指定單一字串，如有需要，字串將自動分段成 254 個字元的區段。
 
-DNS 記錄中的多個字串，不應與 TXT 記錄集中的多個 TXT 記錄相混淆。  TXT 記錄集可以包含多個記錄，「每一個」  記錄可以包含多個字串。  Azure DNS 支援每個 TXT 記錄集中的 字串總長度上限為 1024 個字元 (所有記錄的總和)。
+DNS 記錄中的多個字串，不應與 TXT 記錄集中的多個 TXT 記錄相混淆。  TXT 記錄集可以包含多個記錄，「每一個」記錄可以包含多個字串。  Azure DNS 支援每個 TXT 記錄集中的 字串總長度上限為 1024 個字元 (所有記錄的總和)。
 
 ## <a name="tags-and-metadata"></a>標記和中繼資料
 

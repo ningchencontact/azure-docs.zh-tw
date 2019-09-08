@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 06/25/2019
-ms.openlocfilehash: c46913f24deffc7c4db95d8a77db1c49ae54b6ae
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 09/06/2019
+ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566681"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773214"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>以 DTU 為基礎的購買模式的服務層
 
-以 DTU 為基礎的購買模式的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 以 DTU 為基礎的購買模型中的所有服務層級, 在[停機時間](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)最短的情況之下, 提供變更計算大小的彈性不過, 有一段很短的時間會將連線中斷連接到資料庫, 而這可以使用重試邏輯來減輕。 單一資料庫和彈性集區會根據服務層級和計算大小，以每小時為單位來計費。
+以 DTU 為基礎的購買模式的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 以 DTU 為基礎的購買模型中的所有服務層級，在[停機時間](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)最短的情況之下，提供變更計算大小的彈性不過，有一段很短的時間會將連線中斷連接到資料庫，而這可以使用重試邏輯來減輕。 單一資料庫和彈性集區會根據服務層級和計算大小，以每小時為單位來計費。
 
 > [!IMPORTANT]
 > SQL Database 受控執行個體不支援以 DTU 為基礎的購買模型。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
@@ -37,14 +37,14 @@ ms.locfileid: "68566681"
 |執行時間 SLA|99.99%|99.99%|99.99%|
 |備份保留|7 天|35 天|35 天|
 |CPU|低|低、中、高|中、高|
-|IO 輸送量 (大約) |每一 DTU 2.5 IOPS| 每一 DTU 2.5 IOPS | 每一 DTU 48 IOPS|
+|IO 輸送量 (大約) |1-5 每個 DTU 的 IOPS| 1-5 每個 DTU 的 IOPS | 每個 DTU 25 IOPS|
 |IO 延遲 (大約)|5 毫秒 (讀取)，10 毫秒 (寫入)|5 毫秒 (讀取)，10 毫秒 (寫入)|2 毫秒 (讀取/寫入)|
 |資料行存放區索引 |N/A|S3 和更新版本|支援|
 |記憶體內部 OLTP|N/A|N/A|支援|
 |||||
 
 > [!NOTE]
-> 您可以在基本服務層級取得免費的 Azure SQL 資料庫, 並搭配 Azure 免費帳戶來探索 Azure。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
+> 您可以在基本服務層級取得免費的 Azure SQL 資料庫，並搭配 Azure 免費帳戶來探索 Azure。 如需相關資訊，請參閱[使用您的免費 Azure 免費帳戶，建立受管理的雲端資料庫](https://azure.microsoft.com/free/services/sql-database/)。
 
 ## <a name="single-database-dtu-and-storage-limits"></a>單一資料庫 DTU 和儲存空間限制
 

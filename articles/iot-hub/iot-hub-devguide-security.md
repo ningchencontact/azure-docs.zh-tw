@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 618f118ceedb7d55caefc5e2bebceb08c1d732ac
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018177"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773180"
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -363,7 +363,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>註冊裝置的 X.509 憑證
 
-[適用於 C# 的 Azure IoT 服務 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service) (版本 1.0.8+) 支援註冊使用 X.509 憑證進行驗證的裝置。 其他 API (例如匯入/匯出裝置) 也支援 X.509 憑證。
+[適用於 C# 的 Azure IoT 服務 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (版本 1.0.8+) 支援註冊使用 X.509 憑證進行驗證的裝置。 其他 API (例如匯入/匯出裝置) 也支援 X.509 憑證。
 
 您也可以使用 CLI 擴充功能命令 [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) 來設定裝置的 X.509 憑證。
 
@@ -390,7 +390,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="use-an-x509-certificate-during-run-time-operations"></a>在執行階段作業期間使用 X.509 憑證
 
-[適用於 .NET 的 Azure IoT 裝置 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device) (版本 1.0.11+) 支援使用 X.509 憑證。
+[適用於 .NET 的 Azure IoT 裝置 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (版本 1.0.11+) 支援使用 X.509 憑證。
 
 ### <a name="c-support"></a>C\# 支援
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ec30e2445a5ed6008256f7abcef496247922968
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
-ms.translationtype: HT
+ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744485"
+ms.locfileid: "70772994"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警示新增到管理解決方案 (預覽)
 
@@ -171,11 +171,10 @@ Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **api
 
 | 元素名稱 | 必要項 | 描述 |
 |:--|:--|:--|
-| `Type` | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
-| `Name` | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
-| `Description` | 否 | 警示的選擇性描述。 |
-| `Severity` | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
-
+| `type` | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
+| `name` | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
+| `description` | 否 | 警示的選擇性描述。 |
+| `severity` | 是 | 警示記錄的嚴重性有下列值：<br><br> **critical**<br>**warning**<br>**informational**
 
 #### <a name="threshold"></a>閾值
 此為必要區段。 它會定義警示臨界值的屬性。

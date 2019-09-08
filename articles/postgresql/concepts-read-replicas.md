@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: 75fcbdc20c1caf191d4a22672fc9641b36c263c5
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.date: 09/06/2019
+ms.openlocfilehash: 1571fc449bd40063c531f9942fe9b51da56f783c
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309350"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764325"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>讀取適用於 PostgreSQL 的 Azure 資料庫中的複本-單一伺服器
 
@@ -33,8 +33,9 @@ ms.locfileid: "70309350"
 ## <a name="cross-region-replication"></a>跨區域複寫
 您可以從主伺服器在不同的區域中建立讀取複本。 跨區域複寫適用于嚴重損壞修復計畫之類的案例，或將資料帶入更接近您的使用者。
 
+您可以在任何[適用於 PostgreSQL 的 Azure 資料庫區域](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql)中擁有主伺服器。 主伺服器的配對區域或通用複本區域中可以有複本。 下圖顯示哪些複本區域可供使用，視您的主要區域而定。
 
-您可以在任何[適用於 PostgreSQL 的 Azure 資料庫區域](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql)中擁有主伺服器。  主伺服器的配對區域或通用複本區域中可以有複本。
+[![讀取複本區域](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>通用複本區域
 無論您的主伺服器位於何處，您都可以在下列任何區域中建立讀取複本。 這些是通用複本區域：
@@ -47,11 +48,11 @@ ms.locfileid: "70309350"
 
 如果您使用跨區域複本進行嚴重損壞修復計畫，建議您在配對的區域中建立複本，而不是在其他其中一個區域。 配對的區域會避免同時更新，並排定實體隔離和資料存放區的優先順序。  
 
-不過，有一些限制需要考慮： 
+有一些限制需要考慮： 
 
 * 區域可用性：適用於 PostgreSQL 的 Azure 資料庫適用于美國西部2、法國中部、阿拉伯聯合大公國北部和德國中部。 不過，它們的配對區域無法使用。
     
-* 單向配對：某些 Azure 區域只會以單一方向配對。 這些區域包括印度西部、巴西南部和 US Gov 維吉尼亞州。 
+* 單向配對：某些 Azure 區域只會以單一方向配對。 這些區域包括印度西部、巴西南部。 
    這表示印度西部的主伺服器可以在印度南部中建立複本。 不過，印度南部中的主伺服器無法在印度西部建立複本。 這是因為印度西部的次要地區印度南部，但印度南部的次要地區並非印度西部。
 
 

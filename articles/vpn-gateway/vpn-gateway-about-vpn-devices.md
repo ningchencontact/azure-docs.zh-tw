@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: yushwang
-ms.openlocfilehash: 323db6e7274db1a53e49b5bd7d33b2eb3700a62b
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: add6fbf0177586bc8969a563260427bc8397d97e
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376416"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773768"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
 
@@ -50,6 +50,7 @@ ms.locfileid: "70376416"
 | Citrix |NetScaler MPX、SDX、VPX |10.1 和更新版本 |[設定指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不相容 |
 | F5 |BIG-IP 系列 |12.0 |[設定指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[設定指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[設定指南](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/989216/connecting-a-local-fortigate-to-an-azure-vnet-vpn) |
+| Hillstone 網路 | 下一代防火牆（NGFW） | 5.5 R7  |  | [設定指南](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
 | Internet Initiative Japan (IIJ) |SEIL 系列 |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[設定指南](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |不相容 |
 | Juniper |SRX |原則式︰JunOS 10.2<br>路由式：JunOS 11.4 |支援 |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |J 系列 |原則式︰JunOS 10.4r9<br>路由式：JunOS 11.4 |支援 |[組態指令碼](vpn-gateway-download-vpndevicescript.md) |

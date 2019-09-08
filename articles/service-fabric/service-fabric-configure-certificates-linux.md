@@ -11,14 +11,14 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 09/06/2019
 ms.author: chackdan
-ms.openlocfilehash: 3816fb56b806029d7a23b67741197e32de6a6ff3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9599d59f7f23de4e54ce323aa4a2ad837d8ed074
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103001"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773262"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 叢集上的憑證和安全性
 
@@ -30,7 +30,7 @@ ms.locfileid: "70103001"
 
 針對 Linux 叢集，Service Fabric 的憑證通常會以包含憑證和私密金鑰的 .pem 檔案形式提供，或以包含憑證的 .crt 檔案和包含私密金鑰的 .key 檔案個別提供。 所有檔案均應為 PEM 格式。 
 
-如果您使用 [Resource Manager 範本](./service-fabric-cluster-creation-create-template.md)或 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) 命令從 Azure Key Vault 安裝憑證，憑證將會以正確的格式安裝在每個節點的 */var/lib/sfcerts* 目錄中。 如果您透過其他方法安裝憑證，您必須確定憑證正確地安裝在叢集節點上。
+如果您使用 [Resource Manager 範本](./service-fabric-cluster-creation-create-template.md)或 [PowerShell](https://docs.microsoft.com/powershell/module/az.servicefabric/?view=azps-2.6.0) 命令從 Azure Key Vault 安裝憑證，憑證將會以正確的格式安裝在每個節點的 */var/lib/sfcerts* 目錄中。 如果您透過其他方法安裝憑證，您必須確定憑證正確地安裝在叢集節點上。
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>應用程式資訊清單中參考的憑證
 

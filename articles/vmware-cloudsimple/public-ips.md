@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 12a6af73dc0abc9598184f6c83e9d7652973a99e
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544444"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773791"
 ---
 # <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>配置私人雲端環境的公用 IP 位址
 
-開啟 [網路] 頁面上的 [公用 ip] 索引標籤, 為您的私人雲端環境中的虛擬機器配置公用 IP 位址。
+開啟 [網路] 頁面上的 [公用 ip] 索引標籤，為您的私人雲端環境中的虛擬機器配置公用 IP 位址。
 
-1. [存取 CloudSimple 入口網站](monitor-activity.md), 然後選取側邊功能表上的 [**網路**]。
+1. [存取 CloudSimple 入口網站](access-cloudsimple-portal.md)，然後選取側邊功能表上的 [**網路**]。
 2. 選取 [**公用 ip**]。
 3. 按一下 [**新增公用 IP**]。
 
@@ -27,11 +27,11 @@ ms.locfileid: "69544444"
 
 4. 輸入名稱以識別 IP 位址專案。
 5. 保留預設位置。
-6. 如有需要, 請使用滑杆來變更閒置的時間。
+6. 如有需要，請使用滑杆來變更閒置的時間。
 7. 輸入您要為其指派公用 IP 位址的本機 IP 位址。
 8. 輸入相關聯的 DNS 名稱。
 9. 按一下 [提交]。
 
 ![配置公用 Ip](media/network-public-ip-allocate.png)
 
-開始配置公用 IP 位址的工作。 您可以在 [**活動 >** 工作] 頁面上檢查工作的狀態。 配置完成時, 新的專案會顯示在 [公用 Ip] 頁面上。
+開始配置公用 IP 位址的工作。 您可以在 [**活動 >** 工作] 頁面上檢查工作的狀態。 配置完成時，新的專案會顯示在 [公用 Ip] 頁面上。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: accc59ee31ddb7371774da3235cc9ccff24ad641
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309233"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764310"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure 中的 Red Hat Enterprise Linux 映像
 本文說明 Azure Marketplace 中所提供的 Red Hat Enterprise Linux (RHEL) 映像，以及與其命名和保留期相關的原則。
@@ -114,18 +114,19 @@ RHEL 8。0      |N/A                            | Red Hat 中沒有可用的 EUS
 
 供應項目| SKU | 分割 | 佈建 | 注意
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 7-RAW    | RAW    | Linux 代理程式 | RHEL 7 系列映射。 <br> 預設不會附加至 EUS 存放庫。
-|             | 7-LVM    | LVM    | Linux 代理程式 | RHEL 7 系列映射。 <br> 預設不會附加至 EUS 存放庫。
-|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7 系列映射。 <br> 預設不會附加至 EUS 存放庫。
-|             | 6.7      | RAW    | Linux 代理程式 | RHEL 6.7 映像，舊版命名慣例
-|             | 6.8      | RAW    | Linux 代理程式 | RHEL 6.8 與上方相同
-|             | 6.9      | RAW    | Linux 代理程式 | RHEL 6.9 與上方相同
-|             | 6.10     | RAW    | Linux 代理程式 | RHEL 6.10 與上方相同
-|             | 7.2      | RAW    | Linux 代理程式 | RHEL 7.2 與上方相同
-|             | 7.3      | RAW    | Linux 代理程式 | RHEL 7.3 與上方相同
-|             | 7.4      | RAW    | Linux 代理程式 | RHEL 7.4 與上述相同。 <br> 預設會附加至 EUS 存放庫，從2019年4月起
-|             | 7.5      | RAW    | Linux 代理程式 | RHEL 7.5 與上述相同。 <br> 預設會附加至 EUS 存放庫，從2019年6月起
-|             | 7.6      | RAW    | Linux 代理程式 | RHEL 7.6 與上述相同。 <br> 預設會附加至 EUS 存放庫，從5月2019
+RHEL          | 7-RAW    | RAW    | Linux 代理程式 | RHEL 7.x 系列映射。 <br> 預設不會附加至 EUS 存放庫。
+|             | 7-LVM    | LVM    | Linux 代理程式 | RHEL 7.x 系列映射。 <br> 預設不會附加至 EUS 存放庫。
+|             | 7-RAW-CI | RAW-CI | Cloud-init  | RHEL 7.x 系列映射。 <br> 預設不會附加至 EUS 存放庫。
+|             | 6.7      | RAW    | Linux 代理程式 |
+|             | 6.8      | RAW    | Linux 代理程式 |
+|             | 6.9      | RAW    | Linux 代理程式 |
+|             | 6.10     | RAW    | Linux 代理程式 |
+|             | 7.2      | RAW    | Linux 代理程式 |
+|             | 7.3      | RAW    | Linux 代理程式 |
+|             | 7.4      | RAW    | Linux 代理程式 | 預設會附加至 EUS 存放庫，從2019年4月起。
+|             | 7.5      | RAW    | Linux 代理程式 | 預設會附加至 EUS 存放庫，從2019年6月起。
+|             | 7.6      | RAW    | Linux 代理程式 | 預設會附加至 EUS 存放庫，從5月2019。
+|             | 7.7      | LVM    | Linux 代理程式 | 預設會附加至 EUS 存放庫。
 RHEL-SAP      | 7.4      | LVM    | Linux 代理程式 | 適用於 SAP HANA 和商務應用程式的 RHEL 7.4
 |             | 7.5      | LVM    | Linux 代理程式 | 適用於 SAP HANA 和商務應用程式的 RHEL 7.5
 RHEL-SAP-HANA | 6.7      | RAW    | Linux 代理程式 | 適用於 SAP HANA 的 RHEL 6.7

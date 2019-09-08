@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: defc317618dfffd0e2b28c75b6168ec1dbda36b7
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
-ms.translationtype: HT
+ms.openlocfilehash: 3ac6ec9fe55e901e593f201b5ff71668d80d66e3
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735117"
+ms.locfileid: "70773000"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -53,7 +53,11 @@ ms.locfileid: "70735117"
 **警示描述** – 使用者所設定的警示規則描述
 
 **嚴重性** – 符合警示規則中指定的準則時的警示嚴重性。 嚴重性的範圍可從 0 到 4。
-嚴重性 0 = Critical 嚴重性 1 = Error 嚴重性 2 = Warning 嚴重性 3 = 資訊嚴重性 4 = Verbose
+   - 嚴重性 0 = 重大
+   - 嚴重性 1 = 錯誤
+   - 嚴重性 2 = 警告
+   - 嚴重性 3 = 資訊
+   - 嚴重性 4 = 詳細資訊 
 
 **動作** - 引發警示時所採取的動作。 如需詳細資訊，請參閱[動作群組](../../azure-monitor/platform/action-groups.md)。
 

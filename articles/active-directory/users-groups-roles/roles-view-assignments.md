@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e21bd2b20ac48d3719e41b1e93a82cbe5a864b7
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382596"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772378"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>查看 Azure Active Directory 中的自訂角色指派
 
@@ -100,9 +100,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="view-assignments-of-a-role-with-single-application-scope-preview"></a>使用單一應用程式範圍來查看角色的指派（預覽）
+## <a name="view-assignments-of-single-application-scope"></a>查看單一應用程式範圍的指派
 
-本節說明如何使用單一應用程式範圍來查看角色的指派。
+本節說明如何使用單一應用程式範圍來查看角色的指派。 此功能目前為公開預覽狀態。
 
 1. 使用特殊權限角色管理員或全域管理員 Azure AD 組織中的許可權登入 [Azure AD 系統管理中心。](https://aad.portal.azure.com)  
 1. 選取 [**應用程式註冊**]，然後選取 [應用程式註冊] 以查看其屬性。 您可能必須選取 [**所有應用程式**]，才能在您的 Azure AD 組織中查看應用程式註冊的完整清單。

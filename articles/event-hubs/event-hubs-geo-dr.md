@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611713"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773239"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure 事件中樞 - 異地災害復原 
 
@@ -53,7 +53,7 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 -  *容錯移轉*：啟用次要命名空間的程序。
 
 ## <a name="supported-namespace-pairs"></a>支援的命名空間配對
-以下是支援的主要和次要命名空間組合:  
+以下是支援的主要和次要命名空間組合：  
 
 | 主要命名空間 | 次要命名空間 | Suppported | 
 | ----------------- | -------------------- | ---------- |
@@ -110,13 +110,19 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 
 請注意此版本的下列考量：
 
-1. 在您的容錯移轉規劃中，您也應該考慮時間因素。 例如，如果您中斷連線時間超過 15 到 20 分鐘，您可能會決定初始化容錯移轉。 
+1. 根據設計，事件中樞異地嚴重損壞修復並不會複寫資料，因此您無法在次要事件中樞上重複使用主要事件中樞的舊位移值。 建議您使用下列其中一項來重新開機您的事件接收器：
+
+- *EventPosition. FromStart （）* -如果您想要讀取次要事件中樞上的所有資料。
+- *EventPosition. FromEnd （）* -如果您想要從連接到次要事件中樞的時間讀取所有新資料。
+- *EventPosition. FromEnqueuedTime （dateTime）* -如果您想要從指定的日期和時間開始讀取次要事件中樞內接收的所有資料。
+
+2. 在您的容錯移轉規劃中，您也應該考慮時間因素。 例如，如果您中斷連線時間超過 15 到 20 分鐘，您可能會決定初始化容錯移轉。 
  
-2. 未複寫任何資料這個事實表示未複寫目前作用中工作階段。 此外，重複的偵測和排程訊息可能無法運作。 新的工作階段、排程訊息及新的重複項目會運作。 
+3. 未複寫任何資料這個事實表示未複寫目前作用中工作階段。 此外，重複的偵測和排程訊息可能無法運作。 新的工作階段、排程訊息及新的重複項目會運作。 
 
-3. 容錯移轉複雜分散式基礎結構應該至少[演練](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)一次。 
+4. 容錯移轉複雜分散式基礎結構應該至少[演練](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan)一次。 
 
-4. 同步處理實體可能需要一些時間，大約每分鐘 50-100 個實體。
+5. 同步處理實體可能需要一些時間，大約每分鐘 50-100 個實體。
 
 ## <a name="availability-zones"></a>可用性區域 
 

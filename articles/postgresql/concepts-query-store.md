@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 5ddbff62421d97b1105a997bd084e1fe5b44cf12
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907408"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764421"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查詢存放區監視效能
 
-**適用範圍：** 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器9.6 和10
+**適用範圍：** 適用於 PostgreSQL 的 Azure 資料庫-單一伺服器版本9.6、10、11
 
 適用於 PostgreSQL 的 Azure 資料庫查詢存放區功能提供的方法可追蹤一段時間的查詢效能。 查詢存放區可協助您快速找到執行時間最長又最耗資源的查詢，簡化效能疑難排解。 查詢存放區會自動擷取查詢的歷程記錄和執行階段統計資料，並予以保留以供您檢閱。 依時間範圍區分資料，以便查看資料庫使用模式。 所有使用者、資料庫及查詢的資料都會儲存在適用於 PostgreSQL 的 Azure 資料庫執行個體中名為 **azure_sys** 的資料庫。
 
@@ -31,12 +31,12 @@ ms.locfileid: "69907408"
 3. 搜尋 `pg_qs.query_capture_mode` 參數。
 4. 將值設定為`TOP`並**儲存**。
 
-若要啟用查詢存放區中的等候統計資料: 
+若要啟用查詢存放區中的等候統計資料： 
 1. 搜尋 `pgms_wait_sampling.query_capture_mode` 參數。
 1. 將值設定為`ALL`並**儲存**。
 
 
-或者, 您可以使用 Azure CLI 來設定這些參數。
+或者，您可以使用 Azure CLI 來設定這些參數。
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL

@@ -1,6 +1,6 @@
 ---
-title: 變換 Azure Service Fabric 叢集憑證 | Microsoft Docs
-description: 了解如何變換以憑證通用名稱辨識的 Service Fabric 叢集憑證。
+title: 變換 Azure Service Fabric 叢集憑證 |Microsoft Docs
+description: 瞭解如何變換憑證一般名稱所識別的 Service Fabric 叢集憑證。
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -11,14 +11,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2018
+ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 5d11054ca8eb684f1f25a25ddeac1b53e82b3775
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d6ead6aaa5d4c0e864126bf63d4cc0e9339464f2
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599910"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773360"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>手動變換 Service Fabric 叢集憑證
 當 Service Fabric 叢集憑證即將到期時，您需要更新憑證。  只要叢集已[設定為使用基於通用名稱的憑證](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (而非指紋)，變換憑證將會是一件很簡單的事。  向憑證授權單位索取新到期日的新憑證。  自我簽署的憑證不支援生產 Service Fabric 叢集包含在 Azure 入口網站的叢集建立工作流程期間所產生的憑證。 新憑證的通用名稱必須與舊憑證相同。 
@@ -53,7 +53,7 @@ $resourceId = $keyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId
@@ -83,7 +83,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 >[!NOTE]
 > 計算虛擬機器擴展集祕密不支援將相同的資源識別碼用於兩個不同的祕密，因為每個祕密都是已設定版本的唯一資源。 
 
-若要深入了解，請閱讀以下文章：
+## <a name="next-steps"></a>後續步驟
+
 * 了解[叢集安全性](service-fabric-cluster-security.md)。
 * [更新及管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
-

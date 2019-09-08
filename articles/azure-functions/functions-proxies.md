@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: e5f856bbd8f6fdec46d947a4c726024a08a2b6e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 72e359cf5cfef2072d3511990297f67fc4df92bb
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096043"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773046"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -65,7 +65,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
  
 >[!Note]  
->如果您的函式使用*函式、系統管理員或 sys* 授權層級，您必須針對每個原始的函式 URL 提供程式碼和 clientId。 在此情況下，參考應該像這樣：`"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`
+>如果您的函式使用*函式、系統管理員或 sys* 授權層級，您必須針對每個原始的函式 URL 提供程式碼和 clientId。 在此情況下，參考看起來會像這樣：`"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"`建議您將這些金鑰儲存在[應用程式設定]中，並在您的 proxy 中參考它們。 這可避免在您的原始程式碼中儲存秘密。 
 
 ### <a name="request-parameters"></a>參考要求參數
 
