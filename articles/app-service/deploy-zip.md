@@ -14,12 +14,12 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: b69488c971d6ab10e0a95e3825be097f8713016d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 83951f6408094b8d1e04d19650a5f2ef596be988
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070449"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801159"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 檔案將您的應用程式部署至 Azure App Service
 
@@ -66,6 +66,7 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
+上述端點目前不適用於 Linux 應用程式服務。 請考慮改為使用 FTP 或[ZIP 部署 API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) 。
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>使用 Azure CLI 部署 ZIP 檔案
 
@@ -81,7 +82,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 此命令會將檔案和目錄從 ZIP 檔案部署到預設的 App Service 應用程式資料夾 (`\home\site\wwwroot`)，並重新啟動應用程式。
 
-根據預設, 部署引擎會假設 ZIP 檔案已準備好以既有的方式執行, 而且不會執行任何組建自動化。 若要啟用與[Git 部署](deploy-local-git.md)相同的組建自動化, 請在`SCM_DO_BUILD_DURING_DEPLOYMENT` [Cloud Shell](https://shell.azure.com)中執行下列命令, 以設定應用程式設定:
+根據預設，部署引擎會假設 ZIP 檔案已準備好以既有的方式執行，而且不會執行任何組建自動化。 若要啟用與[Git 部署](deploy-local-git.md)相同的組建自動化，請在`SCM_DO_BUILD_DURING_DEPLOYMENT` [Cloud Shell](https://shell.azure.com)中執行下列命令，以設定應用程式設定：
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -95,7 +96,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="deploy-war-file"></a>部署 WAR 檔案
 
-若要將 WAR 檔案部署到 App Service, 請將 POST 要求`https://<app_name>.scm.azurewebsites.net/api/wardeploy`傳送至。 POST 要求必須在訊息本文中包含 .war 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。
+若要將 WAR 檔案部署到 App Service，請將 POST 要求`https://<app_name>.scm.azurewebsites.net/api/wardeploy`傳送至。 POST 要求必須在訊息本文中包含 .war 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。
 
 針對 HTTP 基本驗證，您需要 App Service 部署的認證。 若要了解如何設定部署認證，請參閱[設定及重設使用者層級的認證](deploy-configure-credentials.md#userscope)。
 

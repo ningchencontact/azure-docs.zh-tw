@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: f628be48039df63700f8e786821f29ba55cfd943
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: dd6cd16302c69266a954816868c04c8507762717
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164882"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801228"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
-雖然您可以在[Azure 入口網站](https://portal.azure.com)中建立、編輯、管理和部署邏輯應用程式, 但當您想要將邏輯應用程式新增至原始檔控制、發佈不同的版本, 以及建立的[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)範本時, 也可以使用 Visual Studio各種部署環境。 使用 Visual Studio Cloud Explorer，您可以尋找並管理您的邏輯應用程式以及其他 Azure 資源。 例如，您可以開啟、下載、編輯、執行、檢視執行歷程記錄、停用和啟用已在 Azure 入口網站部署的邏輯應用程式。 如果您不曾在 Visual Studio 中使用 Azure Logic Apps，請了解[如何使用 Visual Studio 建立邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+雖然您可以在[Azure 入口網站](https://portal.azure.com)中建立、編輯、管理和部署邏輯應用程式，但當您想要將邏輯應用程式新增至原始檔控制、發佈不同的版本，以及建立的[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)範本時，也可以使用 Visual Studio各種部署環境。 使用 Visual Studio Cloud Explorer，您可以尋找並管理您的邏輯應用程式以及其他 Azure 資源。 例如，您可以開啟、下載、編輯、執行、檢視執行歷程記錄、停用和啟用已在 Azure 入口網站部署的邏輯應用程式。 如果您不曾在 Visual Studio 中使用 Azure Logic Apps，請了解[如何使用 Visual Studio 建立邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 > [!IMPORTANT]
 > 從 Visual Studio 部署或發佈邏輯應用程式會覆寫該應用程式在 Azure 入口網站中的版本。 因此，如果您想要保留在 Azure 入口網站所做的變更，在下一次從 Visual Studio 部署或發佈之前，請確定您已從 Azure 入口網站[重新整理 Visual Studio 中的邏輯應用程式](#refresh)。
@@ -37,12 +37,12 @@ ms.locfileid: "70164882"
 
     > [!IMPORTANT]
     > 當您安裝 Visual Studio 2019 或 2017 時，請務必選取 **Azure 開發**工作負載。
-    > 如需詳細資訊, 請參閱[Visual Studio Cloud Explorer 中的管理與您的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)。
+    > 如需詳細資訊，請參閱[Visual Studio Cloud Explorer 中的管理與您的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)。
 
-    若要安裝 Visual Studio 2015 的 Cloud Explorer, 請[從 Visual Studio Marketplace 下載 Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)。 
-    如需詳細資訊, 請參閱[在 Visual Studio Cloud Explorer 中管理與您的 Azure 帳戶相關聯的資源 (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)。
+    若要安裝 Visual Studio 2015 的 Cloud Explorer，請[從 Visual Studio Marketplace 下載 Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)。 
+    如需詳細資訊，請參閱[在 Visual Studio Cloud Explorer 中管理與您的 Azure 帳戶相關聯的資源（2015）](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)。
 
-  * [Azure SDK (2.9.1 或更新版本)](https://azure.microsoft.com/downloads/) 
+  * [Azure SDK （2.9.1 或更新版本）](https://azure.microsoft.com/downloads/) 
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -85,7 +85,7 @@ ms.locfileid: "70164882"
 
 ## <a name="open-in-visual-studio"></a>在 Visual Studio 中開啟
 
-在 Visual Studio 中，您可以開啟先前直接透過 Azure 入口網站建立或部署的邏輯應用程式，或開啟使用 Visual Studio 以 Azure Resource Manager 專案形式所建立或部署的邏輯應用程式。
+在 Visual Studio 中，您可以開啟先前建立的邏輯應用程式，並直接透過 Azure 入口網站或 Azure 資源群組專案與 Visual Studio 來加以部署。
 
 1. 開啟 Cloud Explorer，並尋找您的邏輯應用程式。 
 
@@ -123,7 +123,34 @@ ms.locfileid: "70164882"
 
 4. 當系統提示您輸入位置時，瀏覽至該位置，並以 JSON (.json) 檔案格式儲存邏輯應用程式定義的 Resource Manager 範本。 
 
-您的邏輯應用程式定義會出現在 Resource Manager 範本的 `resources` 子區段中。 您現在可以使用 Visual Studio 來編輯邏輯應用程式定義和 Resource Manager 範本。 您也可以將範本新增為 Visual Studio 解決方案中的 Azure Resource Manager 專案。 了解[邏輯應用程式在 Visual Studio 中的 Resource Manager 專案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。 
+您的邏輯應用程式定義會出現在 Resource Manager 範本的 `resources` 子區段中。 您現在可以使用 Visual Studio 來編輯邏輯應用程式定義和 Resource Manager 範本。 您也可以將範本做為[Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)新增至 Visual Studio 解決方案。 [在 Visual Studio 中瞭解邏輯應用程式的 Azure 資源群組專案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。 
+
+<a name="link-integration-account"></a>
+
+## <a name="link-to-integration-account"></a>連結至整合帳戶
+
+若要建立企業對企業（B2B）企業整合案例的邏輯應用程式，您可以將邏輯應用程式連結至與邏輯應用程式位於相同區域的先前建立[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。 整合帳戶包含 B2B 成品（例如交易夥伴、合約、架構及對應），可讓您的邏輯應用程式使用 B2B 連接器進行 XML 驗證和一般檔案編碼或解碼。 雖然您可以[使用 Azure 入口網站建立此連結](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)，您也可以在符合[必要條件](#requirements)之後使用 Visual Studio，而邏輯應用程式會以 json （json）檔案的形式存在於[Azure 資源群組專案](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)內。 [在 Visual Studio 中瞭解邏輯應用程式的 Azure 資源群組專案](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project)。
+
+1. 在 Visual Studio 中，開啟包含邏輯應用程式的 Azure 資源群組專案。
+
+1. 在方案總管中，開啟 [ **< 邏輯-應用程式名稱] > json**檔案的快捷方式功能表，然後選取 [**使用邏輯應用程式設計工具開啟**]。 (鍵盤：Ctrl+L)
+
+   ![使用邏輯應用程式設計工具開啟邏輯應用程式的 json 檔案](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > 如果您在 Visual Studio 2019 中沒有此命令，請檢查您是否有最新的 Visual Studio 更新。
+
+1. 若要確保邏輯應用程式設計工具具有焦點，請選取設計工具的索引標籤或介面，讓 [屬性] 窗格顯示邏輯應用程式的 [**整合帳戶**] 屬性。
+
+   ![[屬性] 窗格會顯示 [整合帳戶] 屬性](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+
+1. 開啟 [**整合帳戶**] 清單，然後選取您想要連結到邏輯應用程式的整合帳戶，例如：
+
+   ![開啟 [整合帳戶] 屬性清單](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+
+1. 當您完成時，請記得儲存您的 Visual Studio 解決方案。
+
+當您在 Visual Studio 中設定**整合帳戶**屬性，並將邏輯應用程式儲存為 Azure Resource Manager 範本時，該範本也會包含所選整合帳戶的參數宣告。 如需範本參數和邏輯應用程式的詳細資訊[，請參閱總覽：自動化邏輯應用程式](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)部署。
 
 <a name="refresh"></a>
 
@@ -199,7 +226,7 @@ ms.locfileid: "70164882"
 
 * 重新命名邏輯應用程式的 .json 檔案。 訂用帳戶快取是根據檔案名稱。
 
-* 若要移除解決方案中*所有*邏輯應用程式先前選取的訂用帳戶, 請刪除方案目錄中隱藏的 Visual Studio 設定資料夾 (. vs)。 此位置儲存您的訂用帳戶資訊。
+* 若要移除解決方案中*所有*邏輯應用程式先前選取的訂用帳戶，請刪除方案目錄中隱藏的 Visual Studio 設定資料夾（. vs）。 此位置儲存您的訂用帳戶資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

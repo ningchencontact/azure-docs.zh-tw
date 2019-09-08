@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 5b13c3c93f8b2d6f3eed5a32c49baf1b9d1b201e
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 738d6738469960c8b21809b9320c4d034613c4e3
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773346"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802374"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database 無伺服器（預覽）
 
@@ -292,7 +292,7 @@ Get-AzSqlDatabase `
 - **計費金額**： vCore 單價 * 最大值（最小虛擬核心，使用的虛擬核心，最小記憶體 gb * 1/3，使用的記憶體 gb * 1/3） 
 - **計費頻率**：每秒
 
-每個 vCore 每秒成本的 vCore 單位價格。 如需指定區域中的特定單位價格，請參閱 [Azure SQL Database 定價頁面](https://azure.microsoft.com/pricing/details/sql-database/single/)。
+VCore 單位價格是每秒 vCore 的費用。 如需指定區域中的特定單位價格，請參閱 [Azure SQL Database 定價頁面](https://azure.microsoft.com/pricing/details/sql-database/single/)。
 
 計費的計算數量會依下列度量公開：
 

@@ -3,20 +3,20 @@ title: 依 Azure 資源類型區分的移動作業支援
 description: 列出可移至新資源群組或訂用帳戶的 Azure 資源類型。
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: conceptual
-ms.date: 08/23/2019
+ms.topic: reference
+ms.date: 09/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3100ce897a09c2747c2b339662c699d197ba73d7
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 9dc86fe7876a050fe67ec73a665be6141a4b98da
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194840"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801358"
 ---
 # <a name="move-operation-support-for-resources"></a>資源的移動作業支援
 此文章列出 Azure 資源類型是否支援移動作業。 它也會提供移動資源時要考慮之特殊條件的相關資訊。
 
-跳至資源提供者命名空間:
+跳至資源提供者命名空間：
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
 > - [microsoft.aadiam](#microsoftaadiam)
@@ -315,7 +315,7 @@ ms.locfileid: "70194840"
 > | redis | 是 | 是 |
 
 > [!IMPORTANT]
-> 如果 Azure Cache for Redis 實例是設定為使用虛擬網路, 實例就無法移至不同的訂用帳戶。 請參閱[網路移動限制](./move-limitations/networking-move-limitations.md)。
+> 如果 Azure Cache for Redis 實例是設定為使用虛擬網路，實例就無法移至不同的訂用帳戶。 請參閱[網路移動限制](./move-limitations/networking-move-limitations.md)。
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
@@ -345,7 +345,7 @@ ms.locfileid: "70194840"
 > | virtualmachines | 是 | 否 |
 
 > [!IMPORTANT]
-> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業, 跨訂用帳戶移動。
+> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業，跨訂用帳戶移動。
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
@@ -357,7 +357,7 @@ ms.locfileid: "70194840"
 > | virtualnetworks | 否 | 否 |
 
 > [!IMPORTANT]
-> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業, 跨訂用帳戶移動。
+> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業，跨訂用帳戶移動。
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -367,7 +367,7 @@ ms.locfileid: "70194840"
 > | storageaccounts | 是 | 否 |
 
 > [!IMPORTANT]
-> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業, 跨訂用帳戶移動。
+> 請參閱[傳統部署移動指引](./move-limitations/classic-model-move-limitations.md)。 傳統部署資源可以透過該案例特定的作業，跨訂用帳戶移動。
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -958,8 +958,8 @@ ms.locfileid: "70194840"
 > | virtualnetworks | 是 | 是 |
 > | virtualnetworktaps | 否 | 否 |
 > | virtualwans | 否 | 否 |
-> | vpngateways (虛擬 WAN) | 否 | 否 |
-> | vpnsites (虛擬 WAN) | 否 | 否 |
+> | vpngateways （虛擬 WAN） | 否 | 否 |
+> | vpnsites （虛擬 WAN） | 否 | 否 |
 > | webapplicationfirewallpolicies | 是 | 是 |
 
 > [!IMPORTANT]
@@ -1242,7 +1242,7 @@ ms.locfileid: "70194840"
 > | streamingjobs | 是 | 是 |
 
 > [!IMPORTANT]
-> 在執行中狀態時, 無法移動串流分析作業。
+> 在執行中狀態時，無法移動串流分析作業。
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
@@ -1296,7 +1296,7 @@ ms.locfileid: "70194840"
 > | 帳戶/專案 | 是 | 是 |
 
 > [!IMPORTANT]
-> 若要變更 Azure DevOps 的訂用帳戶, 請參閱[變更用於計費的 Azure 訂用](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)帳戶。
+> 若要變更 Azure DevOps 的訂用帳戶，請參閱[變更用於計費的 Azure 訂用](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)帳戶。
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 

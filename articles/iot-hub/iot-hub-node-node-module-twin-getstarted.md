@@ -9,14 +9,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 803162110ead050f9d1a595b11c29ec6707640a8
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147420"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802413"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>開始使用 IoT 中樞模組身分識別和模組對應項 (node.js)
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>開始使用 IoT 中樞模組身分識別和模組對應項（node.js）
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
@@ -50,7 +50,7 @@ ms.locfileid: "70147420"
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>在 IoT 中樞中建立裝置身分識別與模組身分識別
 
-在本節中，您會建立 Node.js 應用程式，它會在 IoT 中樞的身分識別登錄中建立裝置身分識別和模組身分識別。 裝置或模組無法連線到 IoT 中樞，除非它在身分識別登錄中具有項目。 如需詳細資訊, 請參閱[IoT 中樞開發人員指南](iot-hub-devguide-identity-registry.md)的「身分識別登錄」一節。 當您執行此主控台應用程式時，它會針對裝置和模組產生唯一的識別碼和金鑰。 當裝置和模組將裝置到雲端的訊息傳送給 IoT 中樞時，裝置和模組會使用這些值來識別自己。 識別碼會區分大小寫。
+在本節中，您會建立 Node.js 應用程式，它會在 IoT 中樞的身分識別登錄中建立裝置身分識別和模組身分識別。 裝置或模組無法連線到 IoT 中樞，除非它在身分識別登錄中具有項目。 如需詳細資訊，請參閱[IoT 中樞開發人員指南](iot-hub-devguide-identity-registry.md)的「身分識別登錄」一節。 當您執行此主控台應用程式時，它會針對裝置和模組產生唯一的識別碼和金鑰。 當裝置和模組將裝置到雲端的訊息傳送給 IoT 中樞時，裝置和模組會使用這些值來識別自己。 識別碼會區分大小寫。
 
 1. 建立目錄來保存您的程式碼。
 
@@ -133,7 +133,7 @@ ms.locfileid: "70147420"
 
    ![Azure 入口網站模組詳細資料](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. 與您在上述步驟中所做的一樣, 請為您的裝置程式碼建立一個目錄, 並使用 NPM 將它初始化並安裝裝置 SDK (**NPM install-S amqp\@模組-preview**)。
+2. 與您在上述步驟中所做的一樣，請為您的裝置程式碼建立一個目錄，並使用 NPM 將它初始化並安裝裝置 SDK （**NPM install-S amqp\@模組-preview**）。
 
    > [!NOTE]
    > 您可能會感覺 npm 安裝命令執行速度慢。 請耐心等候，它正從封裝存放庫中提取大量程式碼。
@@ -194,16 +194,21 @@ ms.locfileid: "70147420"
 
 4. 使用  **node twin.js** 命令執行此動作。
 
-    ```
-    F:\temp\module_twin>node twin.js
-    client opened
-    twin contents:
-    { reported: { update: [Function: update], '$version': 1 },
-      desired: { '$version': 1 } }
-    new desired properties received:
-    {"$version":1}
-    twin state reported
-    ```
+   ```cmd/sh
+   F:\temp\module_twin>node twin.js
+   ```
+
+   您接著會看到：
+
+   ```console
+   client opened
+   twin contents:
+   { reported: { update: [Function: update], '$version': 1 },
+     desired: { '$version': 1 } }
+   new desired properties received:
+   {"$version":1}
+   twin state reported
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 

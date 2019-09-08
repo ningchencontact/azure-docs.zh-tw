@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa81f181c8d062e5fd68b0fbb2445f5c37540889
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 163c3cbaeed1526f08d047c3bf357232ccb534a3
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309582"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802401"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -206,14 +206,17 @@ GRS 會將您的資料複寫到次要區域中的另一個資料中心，但如�
 
 標準檔案共用適用于最多 5 TiB 的所有區域。 在特定區域中，有 100 TiB 限制可用，這些區域會列在下表中：
 
-|區域 |支援的冗余 |支援現有的儲存體帳戶 |入口網站支援 *   |
+|區域 |支援的冗余 |支援現有的儲存體帳戶 |入口網站支援 * |
 |-------|---------|---------|---------|
-|澳大利亞東部  |LRS     |否    |是|
-|法國中部  |LRS     |否    |尚未提供|
-|法國南部    |LRS     |否    |尚未提供|
-|東南亞  |LRS、ZRS|否    |是|
-|西歐     |LRS、ZRS|否    |是|
-|美國西部 2       |LRS、ZRS|否    |是|
+|澳大利亞東部 |LRS     |否    |是|
+|澳大利亞東南部|LRS     |否    |尚未提供|
+|印度中部  |LRS     |否    |尚未提供|
+|法國中部  |LRS、ZRS|否    |LRS-是，ZRS-尚未|
+|印度南部    |LRS     |否    |尚未提供|
+|東南亞 |LRS、ZRS|否    |是|
+|美國中西部|LRS     |否    |尚未提供|
+|西歐    |LRS、ZRS|否    |是|
+|美國西部 2      |LRS、ZRS|否    |是|
 
 \* 對於沒有入口網站支援的區域，您仍然可以使用 PowerShell 或 Azure 命令列介面（CLI）來建立大於5個 TiB 的共用。 或者，透過入口網站建立新的共用，而不指定配額。 這會建立預設大小為 100 TiB 的共用，稍後可透過 PowerShell 或 Azure CLI 進行更新。
 
